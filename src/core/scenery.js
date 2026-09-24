@@ -711,9 +711,11 @@ OTR.scenery = {
       cv.rr(ctx, layout.elevatorX + 96, H - 190, 18, 40, 4); ctx.fillStyle = '#3A3444'; ctx.fill();
       // wall sign
       if (s.sign) {
-        ctx.fillStyle = cv.c(s.accent); cv.rr(ctx, s.counterX - 250, 120, 500, 90, 10); ctx.fill();
+        // over the counter, but whole in the view from the entrance (the camera starts at the lobby's left edge)
+        const sx = Math.min(s.counterX, OTR.W - 290);
+        ctx.fillStyle = cv.c(s.accent); cv.rr(ctx, sx - 250, 120, 500, 90, 10); ctx.fill();
         ctx.fillStyle = '#fff'; ctx.font = '900 48px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(s.sign, s.counterX, 166);
+        ctx.fillText(s.sign, sx, 166);
       }
       // plants + chairs
       [[820, 1], [W - 120, 1]].forEach(([px]) => {

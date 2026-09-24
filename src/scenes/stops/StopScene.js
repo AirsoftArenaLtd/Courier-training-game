@@ -693,6 +693,7 @@ class StopScene extends BaseScenarioScene {
     if (this.shiftMode && !OTR.save.data.settings.hints) { this.objPanel.setVisible(false); return; }
     const c = this.objPanel;
     c.removeAll(true);
+    c.setVisible(!this.photoMode);                 // hidden only while the camera is up
     const items = this.objectives();
     const w = 330, h = 40 + items.length * 26;
     c.add(OTR.tex.shape(this, (g) => {
@@ -1408,8 +1409,20 @@ class StopScene extends BaseScenarioScene {
     if (this.objPanel) this.objPanel.setVisible(false);
     const root = this.add.container(0, 0).setDepth(4200).setScrollFactor(0);
     const fw = 380, fh = 260;
-    const frame = this.add.graphics().setScrollFactor(0);
-    const shade = this.add.graphics().setScrollFactor(0);
+    // the viewfinder: four dark bands around the frame, and the frame's corners, moved with the pointer (plain
+    // rectangles and one pre-drawn shape: nothing is re-tessellated as the mouse moves)
+    const bands = [0, 1, 2, 3].map(() => this.add.rectangle(0, 0, 1, 1, 0x000000, 0.45).setOrigin(0, 0).setScrollFactor(0));
+    const shade = this.add.container(0, 0, bands);
+    const frame = OTR.tex.shape(this, (g) => {
+      g.lineStyle(3, 0xFFFFFF, 1);
+      const c = 26;
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sy]) => {
+        const x = sx * fw / 2, y = sy * fh / 2;
+        g.lineBetween(x, y, x - sx * c, y); g.lineBetween(x, y, x, y - sy * c);
+      });
+      g.lineStyle(1, 0xFFFFFF, 0.5);
+      g.strokeCircle(0, 0, 10);
+    }).setScrollFactor(0);
     const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package AND the door or house number, then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
     root.add([shade, frame, info]);
     const catcher = this.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive({ useHandCursor: true }).setScrollFactor(0);
@@ -1419,21 +1432,12 @@ class StopScene extends BaseScenarioScene {
     const pkgScreenX = this.pkgProp.x - cam.scrollX;
     fx = pkgScreenX; fy = this.pkgProp.y - 90;
     const draw = () => {
-      shade.clear();
-      shade.fillStyle(0x000000, 0.45);
-      shade.fillRect(0, 0, OTR.W, fy - fh / 2);
-      shade.fillRect(0, fy + fh / 2, OTR.W, OTR.H);
-      shade.fillRect(0, fy - fh / 2, fx - fw / 2, fh);
-      shade.fillRect(fx + fw / 2, fy - fh / 2, OTR.W, fh);
-      frame.clear();
-      frame.lineStyle(3, 0xFFFFFF, 1);
-      const c = 26;
-      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sy]) => {
-        const x = fx + sx * fw / 2, y = fy + sy * fh / 2;
-        frame.lineBetween(x, y, x - sx * c, y); frame.lineBetween(x, y, x, y - sy * c);
-      });
-      frame.lineStyle(1, 0xFFFFFF, 0.5);
-      frame.strokeCircle(fx, fy, 10);
+      const t = fy - fh / 2, b = fy + fh / 2, l = fx - fw / 2, r = fx + fw / 2;
+      bands[0].setPosition(0, 0).setSize(OTR.W, Math.max(1, t));
+      bands[1].setPosition(0, b).setSize(OTR.W, Math.max(1, OTR.H - b));
+      bands[2].setPosition(0, t).setSize(Math.max(1, l), fh);
+      bands[3].setPosition(r, t).setSize(Math.max(1, OTR.W - r), fh);
+      frame.setPosition(fx, fy);
     };
     draw();
     catcher.on('pointermove', (p) => { fx = OTR.util.clamp(p.x, fw / 2, OTR.W - fw / 2); fy = OTR.util.clamp(p.y, fh / 2 + 60, OTR.H - fh / 2); draw(); });
