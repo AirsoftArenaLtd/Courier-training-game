@@ -339,6 +339,24 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     - ESC on the van's shelves overlay (not an `OTR.ui.modal`) briefly opened the pause menu. Only the how-to card
       lets ESC through now.
     - The focus ring's hide path called a method a live shape does not have.
-  - **Tests:** full suite on the WP8 snapshot: RESULT_WP8. Content validation (`?dev=1`) clean.
+  - **Tests:** full suite on the WP8 snapshot: 24 of 28 clean. Content validation (`?dev=1`) clean.
+    - m1-pretrip and route-day failed on a real bug: the "Under the truck" checkpoint sat under the "Climb into the
+      cab" button. Fixed; both pass.
+    - m8-heat failed because at about 12 fps the courier coasts past the shelves into the new water spot. The
+      helper now steps back, as a trainee would; it passes.
+    - m8-dog failed once under load and passed on its own.
   - **Note:** `test/paths/route-day.js` now confirms the pause-menu Restart (the new dialog); nothing it checks
     changed. Several profiles per browser and a printable training record are left out (SHELL-14).
+
+- **2026-09-24, WP9 (verification and report).**
+  - **Done:**
+    - The owner's two examples were re-checked by hand with the play tool. In the van, holding D keeps the courier in
+      the doorway. The door prompts show while walking up.
+    - `node --check` passes on all 97 source files, and content validation (`?dev=1`) is clean.
+    - `docs/QA-REPORT.md` has a "Second pass" section: what the testers found, what changed, the Intel fps table
+      (before, and the renderer settings' A/B; the shipped build's column is to be measured on the owner's laptop),
+      what was decided against, and six before/after pairs in `docs/qa2/`.
+    - `HANDOFF.md` is marked finished.
+  - **Tests:** final full suite (`--shots`) on the finished build: RESULT_FINAL.
+  - **Left for the owner's laptop:** `QA_GPU=default node test/qa.js --pass boot` (Intel fps, target at least 60)
+    and a full `node test/qa.js` on the RTX.
