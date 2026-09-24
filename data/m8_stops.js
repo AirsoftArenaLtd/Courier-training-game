@@ -324,7 +324,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
       lines: [
         'It\'s 102°F with a heat advisory. Watch your HYDRATION and BODY HEAT meters (top right).',
         'Standing in the sun, walking and carrying loads all heat you up. Shade, the truck\'s AC and water bring you back down.',
-        'Drink water from the truck (E near the cab), cool off in the AC, and rest in the shade under trees.',
+        'In the truck, E at the back of the doorway gives you water or the AC; outside, E by the truck is water too. Rest in the shade under trees.',
         'Learn the warning signs of heat illness, and act on them the moment they show up.'
       ]
     },

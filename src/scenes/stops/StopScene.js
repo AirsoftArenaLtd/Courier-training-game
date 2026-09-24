@@ -276,15 +276,18 @@ class StopScene extends BaseScenarioScene {
       prefer: () => this.S.carrying.length > 0,
       onUse: () => this.exitVan()
     });
+    // In the van, water and the AC are one spot at the back of the doorway (the courier cannot go further back than
+    // door - 40): E there asks which. As two spots behind the shelves they could never be chosen, since E always
+    // searched the shelves from where the courier can stand.
     st.interact({
-      x: this.van.doorX - 60, y: this.van.floorY - 150, range: 120, label: 'Drink some water',
-      when: () => !!this.heat && !this.S.done && (this.S.inVan || Math.abs(this.me.x - this.van.doorX) < 120) && !this.inInterior,
-      onUse: () => this.drinkWater()
+      x: this.van.doorX - 60, standX: this.van.doorX - 40, y: this.van.floorY - 150, range: 60, label: 'Water and AC',
+      when: () => !!this.heat && this.S.inVan && !this.S.done,
+      onUse: () => this.waterOrAc()
     });
     st.interact({
-      x: this.van.doorX - 100, y: this.van.floorY - 110, range: 120, label: 'Cool off in the AC',
-      when: () => !!this.heat && this.S.inVan && !this.S.done,
-      onUse: () => this.coolDown(null, 3500)
+      x: this.van.doorX - 60, y: this.van.floorY - 150, range: 120, label: 'Drink some water',
+      when: () => !!this.heat && !this.S.done && !this.S.inVan && Math.abs(this.me.x - this.van.doorX) < 120 && !this.inInterior,
+      onUse: () => this.drinkWater()
     });
     (this.def.props || []).forEach(p => {
       if (!p.shade) return;
@@ -685,6 +688,18 @@ class StopScene extends BaseScenarioScene {
       this.runSituation('heatSigns');
     }
     if (h.temp >= 96) this.heatCollapse();
+  }
+
+  /** In the van: water or the AC (one spot at the back of the doorway). */
+  waterOrAc() {
+    OTR.ui.modal(this, {
+      title: 'Water and AC', w: 560, h: 330, escClose: true,
+      build: (box, api) => {
+        box.add(OTR.ui.button(this, 0, -30, '1.  Drink some water', () => api.close(() => this.drinkWater()), { w: 400, h: 54, skin: 'ghost', fontSize: 19, key: 'ONE' }));
+        box.add(OTR.ui.button(this, 0, 38, '2.  Cool off in the AC', () => api.close(() => this.coolDown(null, 3500)), { w: 400, h: 54, skin: 'ghost', fontSize: 19, key: 'TWO' }));
+      },
+      buttons: [{ label: 'Back', skin: 'purple', hint: 'ESC' }]
+    });
   }
 
   drinkWater(done) {

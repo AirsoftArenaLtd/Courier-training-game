@@ -123,9 +123,15 @@ function driver(page, ctx) {
     const s = await state();
     if (!s.heat) return;
     if (where === 'van' || s.inVan) {
-      if (s.heat.hyd < 85) { await use(/^Drink some water$/); await settle(); }
+      // in the van both are one spot, which asks: 1 water, 2 the AC
+      const inVan = s.inVan;
+      if (s.heat.hyd < 85) {
+        if (inVan) { await use(/^Water and AC$/); await ctx.until(`(${S}._openModals || 0) > 0`, 3000); await wait(350); await page.keyboard.press('Digit1'); await wait(300); }
+        else await use(/^Drink some water$/);
+        await settle();
+      }
       const s2 = await state();
-      if (s2.inVan && s2.heat.temp > 32) { await use(/^Cool off in the AC$/); await settle(); }
+      if (s2.inVan && s2.heat.temp > 32) { await use(/^Water and AC$/); await ctx.until(`(${S}._openModals || 0) > 0`, 3000); await wait(350); await page.keyboard.press('Digit2'); await wait(300); await settle(); }
     } else if (s.heat.temp > 55 || s.heat.hyd < 45) {
       const shade = await ev(`${S}.stage.inter.some(i => /Rest in the shade/.test(i.label) && ${S}.stage.usable(i))`);
       if (shade) { await use(/Rest in the shade/); await settle(); }

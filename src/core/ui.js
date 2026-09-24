@@ -442,7 +442,7 @@ OTR.ui = {
     const owner = o.owner || null;
     const tab = o.tab !== undefined ? o.tab : !scene.setupBase;
     let cur = -1, shown = false, drawn = '';
-    const ring = OTR.tex.liveShape(scene).setScrollFactor(0);
+    const ring = OTR.tex.liveShape(scene).setScrollFactor(0).setVisible(false);   // nothing until it is drawn
     if (owner) owner.add(ring); else ring.setDepth(o.depth || 4900);
     const onTop = () => {
       const st = (scene._modalStack || []).filter(m => m.active);
@@ -463,12 +463,12 @@ OTR.ui = {
     };
     const draw = () => {
       const it = items[cur];
-      if (!shown || !it || !seen(it)) { if (drawn) { ring.clear(); drawn = ''; } return; }
+      if (!shown || !it || !seen(it)) { if (drawn) { ring.setVisible(false); drawn = ''; } return; }
       const b = box(it);
       const key = [b.x, b.y, b.w, b.h].map(Math.round).join();
       if (key === drawn) return;
       drawn = key;
-      ring.redraw((g) => {
+      ring.setVisible(true).redraw((g) => {
         const w = b.w + 12, h = b.h + 12, r = Math.min(18, h / 2);
         g.lineStyle(6, 0x250849, 0.55); g.strokeRoundedRect(b.x - w / 2, b.y - h / 2, w, h, r);
         g.lineStyle(3, 0xFFC83D, 1); g.strokeRoundedRect(b.x - w / 2, b.y - h / 2, w, h, r);
