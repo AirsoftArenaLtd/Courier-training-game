@@ -108,9 +108,22 @@ class StopScene extends BaseScenarioScene {
     });
     if (d.fence) this.buildFence(d.fence);
     if (d.dog) this.buildDog(d.dog);
+    // Shade is what the scene draws as shade: trees and umbrellas, and the porch roof or shop awning over the door (the
+    // heat model used to count only the trees, so the "shade by the door" heated the courier at full sun rate)
     this.shadeZones = [];
-    (d.props || []).forEach(p => { if (p.shade) { const sx = this.resolveX(p.x, lotX); this.shadeZones.push([sx - 150, sx + 150]); } });
-    if (d.stepHazard) this.addHazard({ hazard: d.stepHazard, id: 'steps', label: 'the steps' }, null, (this.lot.stepsX0 + this.lot.porchX0) / 2, this.lot.stepsX0 - 10, this.lot.porchX0 + 10);
+    (d.props || []).forEach(p => { if (p.shade) { const sx = this.resolveX(p.x, lotX), w = p.shadeW || 150; this.shadeZones.push([sx - w, sx + w]); } });
+    if (this.set.heat) {
+      const L = this.lot;
+      if (kind === 'business') this.shadeZones.push([L.doorX - 190, L.doorX + 190]);
+      else this.shadeZones.push([L.porchX0, L.porchX1]);
+      // under trees and umbrellas the ground shows the shade (the porch and awning shade what is under them already)
+      (d.props || []).forEach(p => {
+        if (!p.shade) return;
+        const sx = this.resolveX(p.x, lotX), w = p.shadeW || 150;
+        OTR.tex.shape(this, (g) => { g.fillStyle(0x1A1030, 0.22); g.fillEllipse(0, 0, w * 2, 26); }, sx, st.G + 6).setDepth(-19);
+      });
+    }
+    if (d.stepHazard) this.addHazard({ hazard: d.stepHazard, id: 'steps', label: 'the steps' }, this.stepGlaze(d.stepHazard), (this.lot.stepsX0 + this.lot.porchX0) / 2, this.lot.stepsX0 - 10, this.lot.porchX0 + 10);
 
     // business interior
     if (kind === 'business') {
@@ -142,34 +155,61 @@ class StopScene extends BaseScenarioScene {
     st.onMove = () => {};
   }
 
+  /** Icy or wet steps look it: a glaze on every tread, with a glint (the steps used to be drawn plain and dry). */
+  stepGlaze(type) {
+    const ice = type === 'ice';
+    return OTR.tex.shape(this, (g) => {
+      this.stage.surfaces.filter(sf => sf.kind === 'step').forEach(sf => {
+        g.fillStyle(ice ? 0xDDF3FF : 0x4F76A0, ice ? 0.85 : 0.45);
+        g.fillRect(sf.x0 - 2, sf.y - 2, sf.x1 - sf.x0 + 4, 7);
+        g.fillStyle(0xFFFFFF, ice ? 0.9 : 0.55);
+        g.fillRect(sf.x0 + 8, sf.y - 1, (sf.x1 - sf.x0) * 0.45, 2);
+      });
+    }).setDepth(7);
+  }
+
   addHazard(p, img, x, x0, x1) {
-    const H = { id: p.id || p.hazard + '_' + Math.round(x), type: p.hazard, label: p.label || p.hazard, img, state: 'pending', x };
+    const H = { id: p.id || p.hazard + '_' + Math.round(x), type: p.hazard, label: p.label || p.hazard, img, state: 'pending', x, incident: false, fastT: 0 };
     this.S.hazards[H.id] = H;
     const clearable = p.hazard === 'hose' || p.hazard === 'toys';
-    const zx0 = x0 !== undefined ? x0 : x - 50, zx1 = x1 !== undefined ? x1 : x + 50;
+    const slippery = p.hazard === 'ice' || p.hazard === 'wet';
+    // the zone covers the hazard as drawn (it used to be 100 px whatever the art, so the ends of a patch were safe)
+    const half = p.art && p.art.w ? p.art.w / 2 : img ? img.displayWidth / 2 : 50;
+    const zx0 = x0 !== undefined ? x0 : x - half, zx1 = x1 !== undefined ? x1 : x + half;
     this.stage.zone({
       x0: zx0, x1: zx1,
-      onEnter: (rig, careful) => {
-        if (H.state === 'cleared' || H.state === 'incident' || !this.running) return;
-        const carryingBig = this.S.carrying.length > 0;
-        const risky = !careful && (carryingBig || p.hazard === 'ice' || p.hazard === 'wet');
-        if (risky) this.hazardIncident(H);
-        else if (H.state !== 'incident') H.state = careful ? 'careful' : 'passed';
+      // Judged on every frame inside, not just the first: letting go of SHIFT halfway over the ice is the slip (after
+      // 0.12 s, so a SHIFT pressed a moment late is forgiven). A walk the game makes (placing a package, a scripted
+      // move in a conversation) runs with the stage locked and is not the trainee's step, so it is not judged.
+      onInside: (rig, careful, dt) => {
+        if (H.state === 'cleared' || H.incident || !this.running || this.stage.locked > 0) return;
+        const fast = rig.moving && !careful;
+        if (!fast) { H.fastT = 0; if (H.state === 'pending') H.state = 'careful'; return; }
+        H.fastT += dt;
+        if (slippery || this.S.carrying.length > 0) { if (H.fastT > 0.12) this.hazardIncident(H); }
+        else H.state = 'passed';
       }
     });
     if (clearable) {
+      // its E spot is the middle of the clutter, and it can be moved with a package in hand: the courier sets the
+      // box down, moves it, and picks the box up again
       H.inter = this.stage.interact({
-        x: x - 70, y: this.stage.G - 150, range: 60, label: p.hazard === 'hose' ? 'Move the hose aside' : 'Move the toys aside',
-        when: () => H.state !== 'cleared' && this.S.carrying.length === 0 && !this.S.inVan,
+        x, y: this.stage.G - 150, range: Math.max(60, half + 10), label: p.hazard === 'hose' ? 'Move the hose aside' : 'Move the toys aside',
+        when: () => H.state !== 'cleared' && !this.S.inVan && !this.S.done,
         onUse: () => {
           this.stage.lock();
           this.me.face(x);
+          const holding = this.S.carrying.length > 0;
           this.me.playOnce('setDown', () => {
+            if (holding) this.me.hold(null);
             H.state = 'cleared';
             if (img) this.tweens.add({ targets: img, y: img.y + 60, x: img.x + 40, alpha: 0, duration: 400, onComplete: () => img.setVisible(false) });
-            this.me.playOnce('lift', () => this.stage.unlock());
             OTR.audio.play('success');
             this.say('Cleared the trip hazard.', '#8BF0C6');
+            this.time.delayedCall(holding ? 350 : 0, () => {
+              if (holding) this.updateCarryVisual();
+              this.me.playOnce('lift', () => this.stage.unlock());
+            });
           });
         }
       });
@@ -178,6 +218,8 @@ class StopScene extends BaseScenarioScene {
 
   hazardIncident(H) {
     H.state = 'incident';
+    H.incident = true;                              // kept even if the hazard is cleared afterwards
+    H.withLoad = this.S.carrying.length > 0;
     const bad = H.type === 'ice' || H.type === 'wet';
     this.stage.lock();
     OTR.audio.play(bad ? 'slip' : 'thud');
@@ -310,15 +352,18 @@ class StopScene extends BaseScenarioScene {
     const lotX = this.lotX, st = this.stage;
     const x0 = this.resolveX(f.x0, lotX), x1 = this.resolveX(f.x1, lotX), gx = this.resolveX(f.gate, lotX);
     const col = f.color || 0xFFFFFF;
-    if (gx - 45 - x0 > 20) st.prop('fence', x0, { art: { w: Math.round(gx - 45 - x0), color: col }, ox: 0, depth: 8 });
-    if (x1 - gx - 45 > 20) st.prop('fence', gx + 45, { art: { w: Math.round(x1 - gx - 45), color: col }, ox: 0, depth: 8 });
-    const img = st.prop('gate', gx, { art: { color: col, open: false }, depth: 32 });
+    // The fence and gate stand between the yard (the dog at 25, the owner at 24) and the sidewalk (the courier at 30),
+    // so the dog is behind the pickets and the courier in front of them; the courier goes behind the fence once
+    // through the gate (see update). They used to bracket the actors the other way round.
+    if (gx - 45 - x0 > 20) st.prop('fence', x0, { art: { w: Math.round(gx - 45 - x0), color: col }, ox: 0, depth: 27 });
+    if (x1 - gx - 45 > 20) st.prop('fence', gx + 45, { art: { w: Math.round(x1 - gx - 45), color: col }, ox: 0, depth: 27 });
+    const img = st.prop('gate', gx, { art: { color: col, open: false }, depth: 27 });
     this.gate = { x: gx, open: !!f.open, img, color: col, locked: !!f.locked };
     if (this.gate.open) this.setGate(true, true);
     st.barrier(gx, () => !this.gate.open);
     st.interact({
       x: gx - 60, y: st.G - 200, range: 70, label: this.gate.locked ? 'Try the gate' : 'Open the gate',
-      when: () => !this.gate.open && !this.S.inVan && !this.talkCtl,
+      when: () => !this.gate.open && !this.S.inVan && !this.talkCtl && !this.S.answered,   // not once the owner is out
       onUse: () => {
         if (this.gate.locked) { OTR.audio.play('click_dud'); this.say('Locked. You can\'t get in.', '#FFE3C8'); this.S.gateTried = true; return; }
         const trig = (this.def.triggers || []).find(t => t.on === 'gate' && !t.fired);
@@ -375,14 +420,26 @@ class StopScene extends BaseScenarioScene {
     if (t.on === 'gate') return;
     const x = this.resolveX(t.x, this.lotX);
     this.stage.zone({
-      x0: x - (t.w || 30), x1: x + (t.w || 30), once: t.once !== false,
+      x0: x - (t.w || 30), x1: x + (t.w || 30), once: t.once !== false && !t.rearm,
       onEnter: () => {
-        if (!this.running || this.talkCtl || t.fired) return;
+        if (!this.running || this.talkCtl) return;
+        // rearm: after a dog has charged, going back onto its lawn sets it off again (until the stop has an outcome)
+        if (t.fired) { if (t.rearm && !this.S.outcome && this.dog && !this.dogGone && this.stage.locked === 0) this.dogRecharge(); return; }
         if (t.if && !OTR.talk.test(t.if, this.flagsFor())) return;
         t.fired = true;
         this.runSituation(t.talk);
       }
     });
+  }
+
+  /** Back onto the lawn of a dog that has already charged: it charges again. Never averaged away. */
+  dogRecharge() {
+    const a = this.acts(this.castFor());
+    this.stage.lock();
+    this.me.stop();
+    this.say('The dog charges again! Back to the truck, slowly.', '#FF8A9A');
+    this.log.penalty('safety', 2, 'Went back towards a dog that had already charged', { critical: true, lesson: 'Once a dog has shown aggression, don\'t go back in. Record the exception.' });
+    a.dogCharge(200, () => a.backAway('van', () => { this.stage.unlock(); this.dogBusy = false; }));
   }
 
   castFor() {
@@ -406,16 +463,24 @@ class StopScene extends BaseScenarioScene {
     this.hh.setTabVisible(false);
     this.me.stop();
     const cast = this.castFor();
+    // A dog is what the trainee has to read: the conversation goes to the top of the screen (the dog stands where the
+    // bottom panel would be) and the camera frames the courier and the dog together.
+    if (this.dog && this.dog.c.alpha > 0.5) this.stage.focus((this.me.x + this.dog.x) / 2, OTR.W / 2);
     this.talkCtl = OTR.talk.run(this, graph, {
       cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: this.feedbackMode, flags: this.flagsFor(),
-      acts: this.acts(cast), depth: 3000,
+      acts: this.acts(cast), depth: 3000, top: !!this.dog,
       onEnd: () => {
         this.talkCtl = null;
         this.stage.focus(null);
         this.stage.unlock();
         this.hh.setTabVisible(true);
         if (!this.me.once) this.me.play('idle');
+        // a dog still around goes back to its yard (it used to stay wherever the scene left it, even in the road)
+        if (this.dog && !this.dogGone && this.dogDef) {
+          this.dogBusy = false;
+          if (!this.dogDef.patrol) this.dog.walkTo(this.resolveX(this.dogDef.x, this.lotX), () => this.dog.face(this.me.x), { speed: 140 });
+        }
         this.refreshObjectives();
         if (graph.hint) this.say(graph.hint, '#FFE3C8');
       }
@@ -448,8 +513,8 @@ class StopScene extends BaseScenarioScene {
         s.dogBusy = true;
         d.setAlpha(1).setMood('aggressive');
         OTR.audio.play('growl');
-        const side = d.x > s.me.x ? 1 : -1;
-        d.walkTo(s.me.x + side * (dist || 170), () => { d.face(s.me.x); d.bark(3); OTR.fx.shake(s, 200, 0.006); s.stage.focus((s.me.x + d.x) / 2, 420); done(); }, { speed: 460 });
+        // always from the house side: the dog guards the yard, it never ends up behind the courier in the road
+        d.walkTo(s.me.x + (dist || 170), () => { d.face(s.me.x); d.bark(3); OTR.fx.shake(s, 200, 0.006); s.stage.focus((s.me.x + d.x) / 2, 420); done(); }, { speed: 460 });
       },
       dogLunge: (arg, done) => {
         const d = dog(); if (!d) { if (done) done(); return; }
@@ -465,6 +530,7 @@ class StopScene extends BaseScenarioScene {
       },
       dogChase: (arg, done) => {
         const d = dog(); if (!d) { done(); return; }
+        s.stage.focus(null);                          // the camera follows the chase (it used to stay on an empty lawn)
         me().setExpression('shocked');
         me().walkTo(s.van.doorX + 70, () => { me().face(d.x); done(); }, { speed: 340 });
         d.walkTo(s.van.doorX + 150, () => { d.face(s.me.x); d.playOnce('lunge'); me().playOnce('flinch'); OTR.fx.shake(s, 220, 0.01); }, { speed: 380 });
@@ -483,9 +549,12 @@ class StopScene extends BaseScenarioScene {
       backAway: (arg, done) => {
         const tx = arg === 'van' ? s.van.doorX + 70 : s.me.x - (arg || 220);
         const facingX = s.dog ? s.dog.x : s.me.x + 100;
+        s.stage.focus(null);
         me().face(facingX);
         me().walkTo(tx, () => { me().face(facingX); me().play('stand'); done(); }, { speed: 75, keepFacing: true });
-        if (s.dog) s.dog.walkTo(s.dog.x - 80, () => s.dog.face(s.me.x), { speed: 50 });
+        // the dog follows a little, staying between the courier and the house (it used to end up on the courier)
+        const d = s.dog;
+        if (d) { const dx = Math.max(tx + 150, d.x - 80); if (dx < d.x) d.walkTo(dx, () => d.face(s.me.x), { speed: 50 }); }
       },
       runToVan: (arg, done) => { me().walkTo(s.van.doorX + 70, done, { speed: 330 }); },
       approach: (arg, done) => {
@@ -546,6 +615,14 @@ class StopScene extends BaseScenarioScene {
     this.hydBar = OTR.ui.bar(this, 118, 24, 146, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x3DA5FF, v), bgAlpha: 0.5 });
     this.tempBar = OTR.ui.bar(this, 118, 60, 146, 12, { color: (v) => OTR.color.lerp(0x2BC48A, 0xF0435A, v), bgAlpha: 0.5 });
     p.add([this.hydBar, this.tempBar]);
+    // where the danger starts: the warning at 72 body heat (collapse at 96) and 28 hydration
+    p.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0xFFFFFF, 0.9);
+      [[28, 24], [72, 60]].forEach(([v, y]) => g.fillRect(118 + 146 * v / 100 - 1, y - 9, 2, 18));
+      g.fillStyle(0xF0435A, 1); g.fillRect(118 + 146 * 0.96 - 1, 60 - 9, 2, 18);
+    }));
+    this.shadeTag = OTR.txt(this, 264, 42, 'IN SHADE', 11, '#8FD3FF', { ox: 1, weight: '900' }).setVisible(false);
+    p.add(this.shadeTag);
     this.heatGlow = this.add.image(OTR.W / 2, OTR.H / 2, OTR.atmos.vignetteTex(this)).setDisplaySize(OTR.W, OTR.H).setScrollFactor(0).setDepth(760).setTint(0xFF3010).setAlpha(0);
     this.updateHeatHud();
   }
@@ -580,6 +657,9 @@ class StopScene extends BaseScenarioScene {
     this._heatHudAcc = (this._heatHudAcc || 0) + dt;
     if (this._heatHudAcc > 0.25) { this._heatHudAcc = 0; this.updateHeatHud(); }
     this.heatGlow.setAlpha(OTR.util.clamp((h.temp - 60) / 45, 0, 0.7) * (0.8 + 0.2 * Math.sin(this.time.now / 300)));
+    this.shadeTag.setVisible(!this.S.inVan && !this.inInterior && this.inShade());
+    // the warning re-arms once the courier has recovered, so every overheat gets one before a collapse
+    if (h.warned && h.temp < 55 && h.hyd > 50) h.warned = false;
     if (!h.warned && (h.temp >= 72 || h.hyd <= 28)) {
       h.warned = true;
       this.me.play('tired');
@@ -634,7 +714,7 @@ class StopScene extends BaseScenarioScene {
     this.me.playOnce('slip');
     OTR.audio.play('thud');
     this.cameras.main.fade(1400, 90, 20, 10);
-    this.log.penalty('safety', 5, 'Heat illness: collapsed on the route', { severity: 'major', lesson: 'Heat illness is an emergency. At the first warning signs (dizziness, headache, nausea, cramps) stop, cool down, hydrate and get help. Don\'t push through.' });
+    this.log.penalty('safety', 5, 'Heat illness: collapsed on the route', { severity: 'major', critical: true, lesson: 'Heat illness is an emergency. At the first warning signs (dizziness, headache, nausea, cramps) stop, cool down, hydrate and get help. Don\'t push through.' });
     this.time.delayedCall(1600, () => {
       this.cameras.main.resetFX();
       this.cameras.main.fadeIn(600);
@@ -714,7 +794,8 @@ class StopScene extends BaseScenarioScene {
   say(text, color) {
     // one message at a time: a new one replaces the last (two used to print on top of each other)
     if (this.sayText && this.sayText.active) { this.tweens.killTweensOf(this.sayText); this.sayText.destroy(); }
-    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 900 }).setScrollFactor(0).setDepth(950);
+    // narrow enough to stay clear of the objectives panel on the left and the heat meters on the right
+    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 520 }).setScrollFactor(0).setDepth(950);
     t.setAlpha(0).setScale(0.8);
     this.tweens.add({ targets: t, alpha: 1, scale: 1, duration: 180, ease: 'Back.out' });
     this.tweens.add({ targets: t, alpha: 0, y: 96, delay: 2200, duration: 400, onComplete: () => t.destroy() });
@@ -780,7 +861,7 @@ class StopScene extends BaseScenarioScene {
   enterVan() {
     this.chooseAction('How do you climb in?', [
       { text: 'Hand on the grab handle, step up one foot at a time', good: true },
-      { text: 'Jump up in one move while carrying things', good: false }
+      { text: this.S.carrying.length ? 'Jump up in one move while carrying things' : 'Jump up in one move', good: false }
     ], (good) => {
       this.S.enterSafe = this.S.enterSafe === null ? good : (this.S.enterSafe && good);
       this.stage.lock();
@@ -802,7 +883,7 @@ class StopScene extends BaseScenarioScene {
           if (good) this.say('Package back on the shelf.', '#C9B3F0');   // the safety message matters more
         }
         if (this.S.outcome) this.time.delayedCall(400, () => this.confirmFinish());
-        else { this.S.vanTrips++; this.refreshObjectives(); }
+        else { if (this.S.pulls > 0) this.S.vanTrips++; this.refreshObjectives(); }   // before any package was pulled it is not an extra trip
       });
     });
   }
@@ -1377,7 +1458,7 @@ class StopScene extends BaseScenarioScene {
     // "behind the planter" is drawn behind it, partly hidden by the pot (it used to sit in front, in full view)
     const behind = typeof sp.x === 'string' && this.propById[sp.x];
     this.stage.lock();
-    this.stage.walkPlayerTo(x - 50, () => {
+    this.stage.walkPlayerTo(x - 50, () => {                 // a scripted walk: carefully, and never judged (STOPS-M8-4)
       this.me.face(x);
       this.me.playOnce('setDown', () => {
         const y = this.stage.groundAt(x);
@@ -1399,7 +1480,7 @@ class StopScene extends BaseScenarioScene {
           }, { speed: 200 });
         });
       });
-    });
+    }, { careful: true });
   }
 
   startPhoto() {
@@ -1554,16 +1635,25 @@ class StopScene extends BaseScenarioScene {
 
     // --- safety
     log.check('safety', S.exitSafe === false ? 0 : 2, 2, 'Climbed down from the cab with three points of contact', { lesson: 'Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.' });
-    log.check('safety', S.enterSafe === false ? 0 : (S.enterSafe === null ? 1 : 2), 2, 'Climbed back into the cab safely', { lesson: 'Grab handle, one step at a time, and never jump up while carrying anything.' });
+    // no credit for a climb back in that never happened (a collapse, a stop left unfinished)
+    if (S.enterSafe !== null || (S.outcome && !this.collapsed)) log.check('safety', S.enterSafe === false ? 0 : (S.enterSafe === null ? 1 : 2), 2, 'Climbed back into the cab safely', { lesson: 'Grab handle, one step at a time, and never jump up while carrying anything.' });
+    const clearLesson = 'Clear trip hazards off the walkway with E, even with a package in hand: set it down, move them, pick it up.';
     Object.keys(S.hazards).forEach(k => {
       const H = S.hazards[k];
-      if (H.state === 'cleared') log.check('safety', 2, 2, `Cleared the hazard (${H.label})`);
-      else if (H.state === 'careful') log.check('safety', 2, 2, `Walked carefully over ${H.label}`);
-      else if (H.state === 'passed') log.check('safety', 1, 2, `Got past ${H.label}, but didn't slow down or clear it`, { lesson: 'Clear trip hazards off the walkway, or at least slow down and step carefully (hold SHIFT).' });
-      else if (H.state === 'incident') {
+      const clearable = H.type === 'hose' || H.type === 'toys';
+      // a slip or trip counts whatever happened afterwards (clearing the hose once you have tripped on it used to
+      // wipe the fall off the report); a fall with a package in hand is critical
+      if (H.incident) {
         log.check('safety', 0, 2, `Slipped or tripped on ${H.label}`, { lesson: 'Slow down on ice, wet steps and cluttered walkways. Short steps, eyes on the path, a hand free for balance.' });
-        log.penalty('safety', H.type === 'ice' || H.type === 'wet' ? 2 : 1, 'Incident: fall risk', { severity: 'major' });
-      } else log.check('safety', 2, 2, `Avoided ${H.label}`);
+        log.penalty('safety', H.type === 'ice' || H.type === 'wet' ? 2 : 1, H.withLoad ? `Fell on ${H.label} carrying a package` : 'Incident: fall risk',
+          { severity: 'major', critical: !!H.withLoad, lesson: H.withLoad ? 'Hold SHIFT and take short steps over anything slippery or cluttered, above all with a package that hides your feet.' : null });
+      } else if (H.state === 'cleared') log.check('safety', 2, 2, `Cleared the hazard (${H.label})`);
+      else if (H.state === 'careful') {
+        // stepping carefully over clutter is safe for you, but leaves it for the next person
+        if (clearable) log.check('safety', 1, 2, `Stepped carefully over ${H.label}, but left it on the path`, { lesson: clearLesson });
+        else log.check('safety', 2, 2, `Walked carefully over ${H.label}`);
+      } else if (H.state === 'passed') log.check('safety', clearable ? 0 : 1, 2, `Got past ${H.label}, but didn't slow down${clearable ? ' or clear it' : ''}`, { lesson: clearable ? clearLesson : 'Slow down and step carefully (hold SHIFT) over uneven ground.' });
+      else log.check('safety', 2, 2, `Avoided ${H.label}`);
     });
 
     // --- service: right package
@@ -1647,7 +1737,8 @@ class StopScene extends BaseScenarioScene {
     const par = d.par || 120;
     const t = S.elapsed;
     const eff = t <= par ? 3 : t <= par * 1.4 ? 2 : t <= par * 2 ? 1 : 0;
-    log.check('efficiency', eff, 3, `Finished the stop in good time (${Math.round(t)}s, par ${par}s)`, { lesson: 'Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.' });
+    // time counts only for a stop that was finished (a collapsed stop used to earn three time stars)
+    if (S.outcome && !this.collapsed) log.check('efficiency', eff, 3, `Finished the stop in good time (${Math.round(t)}s, par ${par}s)`, { lesson: 'Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.' });
     if (S.vanTrips > 0) log.penalty('efficiency', Math.min(2, S.vanTrips), `Extra trip${S.vanTrips > 1 ? 's' : ''} back into the truck`);
     if (S.wrongPulls > 0) log.check('efficiency', 0, 1, 'Pulled only the right package from the shelves', { lesson: 'Read the whole address (number, street and unit) before pulling a package. Near-matches are easy to grab.' });
     else log.check('efficiency', 1, 1, 'Pulled only the right package from the shelves');
@@ -1733,7 +1824,11 @@ class StopScene extends BaseScenarioScene {
   nextStop() {
     const total = this.set.stops ? this.set.stops.length : 1;
     if (this.shiftMode && OTR.shift) { OTR.shift.stopDone(this, this.log, this.stopSummary); return; }
-    const carry = { log: this.log.toJSON(), clock: this.clockMin + 12, heat: this.heat ? { hyd: Math.min(100, this.heat.hyd + 10), temp: Math.max(30, this.heat.temp - 15) } : null };
+    // the next stop starts from a recovered state: after a collapse as if treated and rested, otherwise after the
+    // drive in the AC, never already in the danger zone (it used to start at body heat 81 with the warning firing)
+    const h = this.heat;
+    const heat = !h ? null : this.collapsed ? { hyd: 80, temp: 35 } : { hyd: Math.min(100, Math.max(50, h.hyd + 10)), temp: Math.min(50, Math.max(30, h.temp - 15)) };
+    const carry = { log: this.log.toJSON(), clock: this.clockMin + 12, heat };
     if (this.stopIndex + 1 < total) {
       OTR.fx.transition(this, 'StopScene', { scenarioId: this.scenarioId, stopIndex: this.stopIndex + 1, carry });
       return;
@@ -1747,6 +1842,11 @@ class StopScene extends BaseScenarioScene {
   update(time, delta) {
     if (!this.stage) return;
     this.stage.update(delta);
+    // through the gate the courier is in the yard, behind the front fence
+    if (this.gate && this.me && this.me.c.active) {
+      const d = this.me.x > this.gate.x + 20 ? 26 : 30;
+      if (this.me.c.depth !== d) this.me.setDepth(d);
+    }
     if (this.running && !this.S.done) {
       const dt = delta / 1000;
       if (this._openModals === 0 && !this.talkCtl) this.S.elapsed += dt;

@@ -207,6 +207,12 @@ function driver(page, ctx) {
       await use(/^(Open the gate|Try the gate)$/);
       await settle();
     }
+    // clear trip hazards off the path, as the intro asks (stepping carefully over clutter leaves it for the next person)
+    for (let n = 0; n < 4; n++) {
+      if (!(await ev(`${S}.stage.inter.some(i => /^Move the .* aside$/.test(i.label) && ${S}.stage.usable(i))`))) break;
+      await use(/^Move the .* aside$/);
+      await settle();
+    }
     if (d.checkAddress) {
       await use(/^Check the address number$/);
       await wait(500);

@@ -380,7 +380,7 @@ OTR.Stage = class {
   }
 
   /* ------------------------------------------------------------ zones (hazards etc.) */
-  /** o: { x0, x1, onEnter(rig, careful), onExit, once } */
+  /** o: { x0, x1, onEnter(rig, careful), onInside(rig, careful, dt) (every frame while inside), onExit, once } */
   zone(o) {
     const z = Object.assign({ inside: false, fired: false }, o);
     this.zones.push(z);
@@ -421,15 +421,17 @@ OTR.Stage = class {
       const it = this.locked === 0 ? this.nearest() : null;
       if (it) this.showPrompt(it);
       else this.hidePrompt();
+      const careful = this.careful || this.keys.shift.isDown;
       this.zones.forEach(z => {
         const inside = this.me.x >= z.x0 && this.me.x <= z.x1;
         if (inside && !z.inside) {
           z.inside = true;
-          if (!(z.once && z.fired)) { z.fired = true; if (z.onEnter) z.onEnter(this.me, this.careful || this.keys.shift.isDown); }
+          if (!(z.once && z.fired)) { z.fired = true; if (z.onEnter) z.onEnter(this.me, careful); }
         } else if (!inside && z.inside) {
           z.inside = false;
           if (z.onExit) z.onExit(this.me);
         }
+        if (inside && z.onInside) z.onInside(this.me, careful, dt);
       });
     }
     if (this.farLayer) this.farLayer.t.tilePositionX = this.cam.scrollX * this.farLayer.factor;

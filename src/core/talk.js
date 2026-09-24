@@ -5,12 +5,14 @@
  *     cast: { dana: { name: 'Dana', color: 0xC8243B, rig, moodStart: -2 } },
  *     courier: { rig, name },
  *     log, cats: ['service', 'safety'], feedback: 'immediate' | 'deferred',
- *     flags: {}, acts: { knock(arg, done) { ...; done(); } }, onEnd(node) {}
- *   });
+ *     flags: {}, acts: { knock(arg, done) { ...; done(); } }, onEnd(node) {},
+ *     top: true                 // the panel under the HUD and the choices below it, for a scene whose subject is
+ *   });                         // low on the ground (a dog) and would sit behind the usual bottom panel
  *
  * Graph nodes
  *   line   { speaker, text, next, expr, anim, act, arg, set, sfx, shake, auto (ms) }
- *   choice { speaker, text, check, choices: [{ text, grade, effects, feedback, lesson, next, set, if, act, arg, expr }], timer, timeout }
+ *   choice { speaker, text, check, choices: [{ text, grade, effects, feedback, lesson, next, set, if, act, arg, expr, critical }], timer, timeout }
+ *          critical: this answer is a mistake that must never be averaged away (see OTR.ScoreLog)
  *   branch { if, then, else }       if: 'flag' | '!flag' | ['a', '!b'] (all) | fn(flags)
  *   act    { act, arg, next }
  *   end    { type: 'end', outcome, title, text }
@@ -109,8 +111,9 @@ OTR.TalkController = class {
     s.tweens.add({ targets: this.arrow, y: 690, duration: 380, yoyo: true, repeat: -1 });
     this.panel.add(this.arrow);
     this.root.add(this.panel);
-    this.panel.setAlpha(0).setY(30);
-    s.tweens.add({ targets: this.panel, alpha: 1, y: 0, duration: 240, ease: 'Cubic.out' });
+    this.panelDY = this.o.top ? -476 : 0;           // top layout: the panel spans y 90-230, its name tag just under the HUD
+    this.panel.setAlpha(0).setY(this.panelDY + 30);
+    s.tweens.add({ targets: this.panel, alpha: 1, y: this.panelDY, duration: 240, ease: 'Cubic.out' });
 
     this.choiceLayer = s.add.container(0, 0);
     this.coachLayer = s.add.container(0, 0);
@@ -268,7 +271,9 @@ OTR.TalkController = class {
       const h = Math.max(54, t.height + 24); t.destroy(); return h;
     });
     const gap = 10;
-    let y = 552 - heights.reduce((a, b) => a + b + gap, 0);
+    const stackH = heights.reduce((a, b) => a + b + gap, 0);
+    // above the bottom panel, or (top layout) below the top panel with room for a timer's bar and label above
+    let y = this.o.top ? 240 + (n.timer ? 44 : 0) : 552 - stackH;
     const top = y;
     list.forEach((ch, i) => {
       const h = heights[i];
@@ -354,8 +359,25 @@ OTR.TalkController = class {
         const touched = all.some(c => c.effects && c.effects[cat] !== undefined);
         if (!touched) return;
         const feedback = ch && ch.feedback;
-        if (max > 0) log.check(cat, got, max, label, { lesson: ch && ch.lesson, feedback, choice: ch && ch.text });
-        else if (got < 0) log.penalty(cat, -got, label, { lesson: ch && ch.lesson, feedback });
+        if (max > 0) {
+          // One line per question and category. Coming back to the same question (a loop in the graph) keeps the
+          // worse answer and says how many tries it took; a harmful answer is 0/max plus its own penalty line (the
+          // same total as before), never a negative fraction like "-3/2".
+          this.checked = this.checked || new Map();
+          const seen = this.checked.get(node) || {};
+          this.checked.set(node, seen);
+          const g = OTR.util.clamp(got, 0, max);
+          const prev = seen[cat];
+          if (prev) {
+            prev.tries = (prev.tries || 1) + 1;
+            prev.label = `${label} (${prev.tries} tries)`;
+            if (g < prev.got) Object.assign(prev, { got: g, good: g >= prev.max, partial: g > 0 && g < prev.max, lesson: (ch && ch.lesson) || prev.lesson, feedback, choice: ch && ch.text });
+            if (ch && ch.critical && g < prev.max) prev.critical = true;
+          } else {
+            seen[cat] = log.check(cat, g, max, label, { lesson: ch && ch.lesson, feedback, choice: ch && ch.text, critical: !!(ch && ch.critical) });
+          }
+          if (got < 0) log.penalty(cat, -got, `${label}: the answer made it worse`, { feedback });
+        } else if (got < 0) log.penalty(cat, -got, label, { lesson: ch && ch.lesson, feedback, critical: !!(ch && ch.critical) });
       });
     } else if (log) {
       cats.forEach(cat => {
@@ -395,7 +417,7 @@ OTR.TalkController = class {
     const w = 760;
     const body = OTR.txt(s, 0, 0, ch.feedback, 19, '#F4ECFF', { bold: false, wrap: w - 70, lineSpacing: 4 });
     const h = body.height + 90;
-    const c = s.add.container(OTR.W / 2, 110 + h / 2);
+    const c = s.add.container(OTR.W / 2, (this.o.top ? 250 : 110) + h / 2);
     const g = OTR.tex.shape(s, (g) => {
       g.fillStyle(0x0E0620, 0.94); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
       g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);

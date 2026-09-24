@@ -2,7 +2,8 @@
  * Module 8 · Personal Safety & Wellness — walkable stops (StopScene). Format: see data/m5_stops.js, plus:
  *   stepHazard: 'ice' | 'wet'                    the porch steps are slippery (walk carefully with SHIFT)
  *   props[].hazard: 'ice'|'wet'|'hose'|'toys'|'crack'   hose/toys can be moved aside with E
- *   props[].shade: true                         a shade tree (rest here in the heat)
+ *   props[].shade: true, shadeW                 shade to rest in (a tree, an umbrella): ±shadeW px (150); a porch roof or a
+ *                                               shop awning shades what is under it in any heat stop
  *   fence: { x0, x1, gate, color, locked }      front fence with a gate (x relative to the lot)
  *   dog: { spec, name, mood, x, hidden, patrol: [x0, x1], barks: range, scale }
  *   triggers: [{ x, w, talk, on: 'gate', if }]  start a situation when the courier reaches x (or opens the gate)
@@ -98,7 +99,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
                 speaker: 'sam', text: 'Sorry about the mess on the walk. The kids leave stuff everywhere.',
                 check: 'Mentioned the hazard helpfully',
                 choices: [
-                  { text: '"No worries! I moved the hose and toys off the path. The steps are slick in this rain, so watch your footing."', grade: 'good', effects: { service: 1, safety: 1 }, feedback: 'A friendly heads-up about a hazard helps the next person who walks up.', next: 's2' },
+                  { text: '"No worries! Heads-up: the hose and toys are easy to trip on, and the steps are slick in this rain."', grade: 'good', effects: { service: 1, safety: 1 }, feedback: 'A friendly heads-up about a hazard helps the next person who walks up.', next: 's2' },
                   { text: '"Yeah, I nearly broke my neck out there."', grade: 'ok', effects: { service: 0 }, feedback: 'Fair, but a friendlier heads-up works better and still makes the point.', next: 's2' },
                   { text: '"Just sign here."', grade: 'ok', effects: { service: 0 }, feedback: 'Efficient, but a few friendly words help people remember you.', next: 's2' }
                 ]
@@ -168,7 +169,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         triggers: [{ on: 'gate', talk: 'gate' }],
         packages: [{ id: 'p1', to: 'Lin Chen', number: '22', street: 'Maple Ave', service: 'standard', weight: 5, size: 'm', note: 'Dog in yard', tracking: '7770 0100 2222' }],
         decoys: [{ id: 'd1', to: 'Lin Chen', number: '22', street: 'Maple Ct', service: 'standard', weight: 5, size: 'm', tracking: '7770 0100 2233' }],
-        answer: { name: 'Mrs. Chen', spec: P.chen, adult: true, atAddress: true, delay: 3 },
+        answer: { name: 'May Chen', spec: P.chen, adult: true, atAddress: true, delay: 3 },
         expected: { outcome: 'deliver', types: ['recipient', 'adult'] },
         talks: {
           gate: {
@@ -181,11 +182,11 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
                 check: 'Handled a loose dog behind a gate',
                 choices: [
                   { text: 'Leave the gate shut. Tap the horn or ring from outside and wait for the owner to secure the dog.', grade: 'good', effects: { safety: 3 }, feedback: 'Never let yourself into a yard with a loose dog, however friendly it looks. Get the owner to secure it first.', next: 'g2' },
-                  { text: 'It\'s wagging its tail. It\'s friendly, so go on in.', grade: 'bad', effects: { safety: -3 }, feedback: 'A wagging tail isn\'t a guarantee. Excited, territorial dogs jump, nip and bite, and opening the gate can also let the dog escape into the street.', lesson: 'Never enter a yard with a loose dog. Get the owner to secure it first.', next: 'g_jump' },
+                  { text: 'It\'s wagging its tail. It\'s friendly, so go on in.', grade: 'bad', critical: true, effects: { safety: -3 }, feedback: 'A wagging tail isn\'t a guarantee. Excited, territorial dogs jump, nip and bite, and opening the gate can also let the dog escape into the street.', lesson: 'Never enter a yard with a loose dog. Get the owner to secure it first.', next: 'g_jump' },
                   { text: 'Toss the package over the fence onto the lawn.', grade: 'bad', effects: { service: -3 }, feedback: 'Throwing a package can damage it, leaves no safe proof of delivery, and the dog may chew it.', lesson: 'Don\'t throw packages over fences. Get the dog secured or record an exception.', next: 'g_toss' }
                 ]
               },
-              g2: { speaker: 'narrator', act: 'honk', text: 'You give a short tap on the horn from the truck and wait at the gate.', next: 'g3' },
+              g2: { speaker: 'narrator', act: 'wait', text: 'You leave the gate shut, call out "Delivery!" over the barking, and wait by the gate.', next: 'g3' },
               g_jump: { speaker: 'narrator', act: 'openGate', text: 'The latch clicks open…', next: 'g_jump2' },
               g_jump2: { speaker: 'narrator', act: 'dogJump', text: 'Biscuit bolts through the gap and jumps up at you, claws on your chest, nearly knocking the box out of your hands.', shake: true, next: 'g3' },
               g_toss: { speaker: 'narrator', text: 'The box thuds into the flowerbed. Biscuit is already sniffing at it.', sfx: 'thud', next: 'g3' },
@@ -209,7 +210,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
           { type: 'tree', x: 1120, depth: -9 }
         ],
         dog: { name: 'Rex', spec: { fur: 0x3A3030, patch: 0xB88A55, collar: 0xE8304A }, mood: 'alert', x: 1200, hidden: true, scale: 0.85 },
-        triggers: [{ x: 'stepsX0-320', w: 44, talk: 'charge' }],
+        triggers: [{ x: 'stepsX0-320', w: 44, talk: 'charge', rearm: true }],
         packages: [{ id: 'p1', to: 'R. Novak', number: '48', street: 'Pine St', service: 'standard', weight: 7, size: 'm', tracking: '7770 0200 4848' }],
         decoys: [{ id: 'd1', to: 'R. Novak', number: '84', street: 'Pine St', service: 'standard', weight: 7, size: 'm', tracking: '7770 0200 8484' }],
         answer: null,
@@ -238,7 +239,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
                 choices: [
                   { text: 'Avoid eye contact, speak calmly, and back away slowly toward the truck, keeping the dog in view.', grade: 'good', effects: { safety: 3 }, act: 'backAway', arg: 'van', feedback: 'Calm, slow and side-on gives the dog nothing to react to while you get to safety.', next: 'c3' },
                   { text: 'Stare it down so it knows you\'re not scared.', grade: 'bad', effects: { safety: -2 }, act: 'dogLunge', feedback: 'Direct eye contact reads as a challenge.', lesson: 'Avoid direct eye contact with an aggressive dog.', next: 'c2b' },
-                  { text: 'Crouch down and hold out your hand so it can sniff you.', grade: 'bad', effects: { safety: -3 }, act: 'dogLunge', feedback: 'Reaching toward a growling dog puts your hand and face right in range.', lesson: 'Never reach toward a growling dog.', next: 'c2b' }
+                  { text: 'Crouch down and hold out your hand so it can sniff you.', grade: 'bad', critical: true, effects: { safety: -3 }, act: 'dogLunge', feedback: 'Reaching toward a growling dog puts your hand and face right in range.', lesson: 'Never reach toward a growling dog.', next: 'c2b' }
                 ]
               },
               c2b: { speaker: 'narrator', text: 'It lunges and snaps at the air. You flinch back. It\'s still between you and the house.', next: 'c2' },
@@ -248,11 +249,12 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
                 check: 'Decided what to do about the delivery',
                 choices: [
                   { text: 'Don\'t go back. Record an "unsafe to deliver" exception so the dog is on file for this address.', grade: 'good', effects: { safety: 2, service: 1 }, feedback: 'Recording it protects you and the next courier, and the customer can arrange a safe delivery.', next: 'end' },
-                  { text: 'Try again. It\'s probably calmed down.', grade: 'bad', effects: { safety: -2 }, act: 'dogCharge', arg: 200, feedback: 'The dog is still guarding its territory. Walking back in just starts it all again.', lesson: 'Once a dog has shown aggression, don\'t go back in. Record the exception.', next: 'c_again' },
+                  { text: 'Try again. It\'s probably calmed down.', grade: 'bad', effects: { safety: -2 }, act: 'approach', arg: 'stepsX0-320', feedback: 'The dog is still guarding its territory. Walking back in just starts it all again.', lesson: 'Once a dog has shown aggression, don\'t go back in. Record the exception.', next: 'c_again0' },
                   { text: 'Drop the package at the curb and move on.', grade: 'bad', effects: { service: -3 }, feedback: 'An unattended package at the curb isn\'t a delivery. It\'s a lost package waiting to happen.', lesson: 'Unsafe to deliver means an exception, not leaving the package somewhere random.', next: 'end' }
                 ]
               },
-              c_again: { speaker: 'narrator', act: 'backAway', arg: 'van', text: 'It charges the moment you step on the lawn. You back away to the truck again.', next: 'c4' },
+              c_again0: { speaker: 'narrator', act: 'dogCharge', arg: 200, text: 'It charges the moment you step on the lawn.', shake: true, next: 'c_again' },
+              c_again: { speaker: 'narrator', act: 'backAway', arg: 'van', text: 'You back away to the truck again, slowly, keeping it in view.', next: 'c4' },
               end: { type: 'end', outcome: 'mixed' }
             }
           }
@@ -273,12 +275,12 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         triggers: [{ x: 'stepsX0-170', w: 40, talk: 'porch' }],
         packages: [{ id: 'p1', to: 'Luis Alvarez', number: '7', street: 'Birch Ln', service: 'standard', weight: 4, size: 's', tracking: '7770 0300 0707' }],
         decoys: [{ id: 'd1', to: 'Luis Alvarez', number: '17', street: 'Birch Ln', service: 'standard', weight: 4, size: 's', tracking: '7770 0300 1717' }],
-        answer: { name: 'Mr. Alvarez', spec: P.alvarez, adult: true, atAddress: true, delay: 2 },
+        answer: { name: 'Tomas Alvarez', spec: P.alvarez, adult: true, atAddress: true, delay: 2 },
         expected: { outcome: 'deliver', types: ['recipient', 'adult'] },
         talks: {
           porch: {
             start: 'p0',
-            hint: 'Hand over the package: Deliver on your handheld (TAB).',
+            hint: 'Walk up to Tomas Alvarez, then Deliver on your handheld (TAB).',
             nodes: {
               p0: { speaker: 'owner', act: 'ownerAppears', text: 'Hi there! Come on up. Don\'t mind Pepper, she\'s a sweetheart.', next: 'p1' },
               p1: {
@@ -286,17 +288,18 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
                 check: 'Read the dog\'s body language',
                 choices: [
                   { text: 'Stop at the bottom of the steps and ask him to take Pepper inside, or hold her collar, before you come up.', grade: 'good', effects: { safety: 3 }, feedback: 'Pepper is showing fear. Giving her space and asking the owner to secure her keeps everyone safe, including Pepper.', next: 'p2' },
-                  { text: 'Walk right up. The owner says she\'s friendly.', grade: 'bad', effects: { safety: -3 }, act: 'dogLunge', feedback: 'Owners often misjudge. A scared dog that feels cornered on its own porch may snap.', lesson: '"She\'s friendly" isn\'t a safety plan. Read the dog, and ask for it to be secured.', next: 'p_snap' },
-                  { text: 'Crouch down and hold out a hand so she can get to know you.', grade: 'bad', effects: { safety: -3 }, act: 'dogLunge', feedback: 'Reaching toward a frightened dog\'s face is one of the most common ways people get bitten.', lesson: 'Never reach toward a fearful dog.', next: 'p_snap' }
+                  { text: 'Walk right up. The owner says she\'s friendly.', grade: 'bad', critical: true, effects: { safety: -3 }, act: 'approach', arg: 'porchX0-20', feedback: 'Owners often misjudge. A scared dog that feels cornered on its own porch may snap.', lesson: '"She\'s friendly" isn\'t a safety plan. Read the dog, and ask for it to be secured.', next: 'p_lunge' },
+                  { text: 'Crouch down and hold out a hand so she can get to know you.', grade: 'bad', critical: true, effects: { safety: -3 }, act: 'approach', arg: 'porchX0-20', feedback: 'Reaching toward a frightened dog\'s face is one of the most common ways people get bitten.', lesson: 'Never reach toward a fearful dog.', next: 'p_lunge' }
                 ]
               },
+              p_lunge: { speaker: 'narrator', act: 'dogLunge', text: 'Pepper lunges from the doormat and snaps at you.', shake: true, next: 'p_snap' },
               p_snap: { speaker: 'owner', text: 'Pepper, no! I\'m so sorry, she\'s never done that!', expr: 'shocked', next: 'p2' },
               p2: { speaker: 'owner', act: 'ownerTakesDog', text: 'There, she\'s inside. Sorry about that.', next: 'p3' },
               p3: {
                 speaker: 'narrator', text: 'Quick check: what was Pepper\'s body language telling you?',
                 check: 'Understood what the dog was saying',
                 choices: [
-                  { text: 'She was scared. Tucked tail, pinned ears and cowering mean fear, and frightened dogs can bite when cornered.', grade: 'good', effects: { safety: 2 }, feedback: 'Exactly. Fear signals: tail tucked, ears back, body low, looking away, lip licking.', next: 'end' },
+                  { text: 'She was scared, and a frightened dog can bite when it feels cornered.', grade: 'good', effects: { safety: 2 }, feedback: 'Exactly. Fear signals: tail tucked, ears back, body low, looking away, lip licking.', next: 'end' },
                   { text: 'She was relaxed. The owner knows their own dog.', grade: 'bad', effects: { safety: -1 }, feedback: 'A relaxed dog has a loose, wiggly body and a neutral or gently wagging tail. Pepper showed the opposite.', lesson: 'Learn the fear signals: tucked tail, ears back, low body, looking away.', next: 'end' },
                   { text: 'She was inviting play. Dogs crouch when they want to play.', grade: 'bad', effects: { safety: -1 }, feedback: 'A play bow has the rear end UP, a loose body and a wagging tail. Pepper was low all over with her tail tucked.', lesson: 'A play bow (rear up, loose, wagging) looks very different from a fearful crouch.', next: 'end' }
                 ]
@@ -360,7 +363,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
           { type: 'mailbox', x: -200, art: { number: '1400' } },
           { type: 'streetsign', x: -270, art: { text: 'SUNSET BLVD' } },
           { type: 'tree', x: 200, depth: 9, shade: true },
-          { type: 'umbrella', x: 'porchX1+140', depth: 7, art: { color: 0xFF8A3D } }
+          { type: 'umbrella', x: 'porchX1+140', depth: 7, art: { color: 0xFF8A3D }, shade: true, shadeW: 70 }
         ],
         spots: [
           { id: 'mat', label: 'In the shade by the door', x: 0, grade: 'good' },
