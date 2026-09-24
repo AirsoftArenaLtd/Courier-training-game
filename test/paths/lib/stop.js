@@ -83,8 +83,22 @@ function driver(page, ctx) {
     if (!it) throw new Error(`no usable "${re.source}" here`);
     await walkTo(it.x, 5);
     await settle();
-    const near = await ev(`(() => { const n = ${S}.stage.nearest(); return n ? n.label : null; })()`);
-    if (near !== it.label) throw new Error(`standing at "${it.label}" but E would use "${near}"`);
+    let near = await ev(`(() => { const n = ${S}.stage.nearest(); return n ? n.label : null; })()`);
+    // at a low frame rate the courier can coast a step past a spot that sits beside another one (the van's
+    // shelves and its water): the prompt says so, and a trainee taps back towards it
+    for (let n = 0; n < 3 && near !== it.label; n++) {
+      const x = await ev(`${S}.me.x`);
+      const key = it.x > x ? 'KeyD' : 'KeyA';
+      await page.keyboard.down(key); await wait(40); await page.keyboard.up(key);
+      await wait(150);
+      await settle();
+      near = await ev(`(() => { const n = ${S}.stage.nearest(); return n ? n.label : null; })()`);
+    }
+    if (near !== it.label) {
+      const at = await ev(`(() => { const s = ${S}; return Math.round(s.me.x) + ' (van door ' + Math.round(s.van.doorX) + ')' + (s.scene.isPaused() ? ', paused' : '') +
+        ', scenes ' + OTR.game.scene.getScenes(true).map(k => k.sys.settings.key).join('+'); })()`);
+      throw new Error(`standing at "${it.label}" (x ${Math.round(it.x)}, courier at ${at}) but E would use "${near}"`);
+    }
     await page.keyboard.press('KeyE');
     await wait(250);
   };
