@@ -353,9 +353,10 @@ const HOOK = `(() => {
   const browser = await puppeteer.launch({
     executablePath: exe,
     headless: headful ? false : 'new',
-    // d3d11 is the fast GPU path on Windows; elsewhere Chromium picks its own (software on a machine with no GPU)
+    // d3d11 is the fast GPU path on Windows; elsewhere SwiftShader gives software WebGL (without it a machine with no
+    // GPU has no WebGL at all and Phaser silently falls back to its Canvas renderer, which is not what ships)
     args: ['--autoplay-policy=no-user-gesture-required', '--ignore-gpu-blocklist', '--enable-gpu', '--window-size=1280,780']
-      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox'])
+      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'])
       .concat(GPU === 'default' ? [] : ['--force_high_performance_gpu'])
   });
   // say which GPU the frame rates below were measured on

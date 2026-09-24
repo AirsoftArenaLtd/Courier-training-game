@@ -267,7 +267,7 @@ const control = http.createServer((req, res) => {
     executablePath: exe,
     headless: HEADFUL ? false : 'new',
     args: ['--autoplay-policy=no-user-gesture-required', '--ignore-gpu-blocklist', '--enable-gpu', '--window-size=1280,780']
-      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox'])
+      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'])
       .concat(GPU === 'default' ? [] : ['--force_high_performance_gpu'])
   });
   page = await browser.newPage();
