@@ -359,6 +359,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/scenes/shift/TownDriveScene.js:1117` (`${d} m`), `:498` (`title: 'On the road'`).
 - **Suggested fix:** show feet (or "0.1 mi" beyond ~500 ft); pass `this.scenario ? this.scenario.title : 'On the
   road'` as the pause title.
+- **Status:** fixed — the drive HUD gives the distance in feet (miles beyond 1,000 ft), and so do the kerb-gap
+  messages and report lines; the pause card names the scenario ("Road Hazards").
 
 ## Revisit
 

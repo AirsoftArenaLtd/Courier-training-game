@@ -110,6 +110,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   the kerb) and `along <= 150`, wider than the drawn zone; `gapM` can go negative and still count as "neat" (`:1067`).
 - **Suggested fix:** require all four wheels on the road and the body inside the drawn zone; treat a negative gap as
   "on the kerb".
+- **Status:** fixed — see DRIVING-10: a van on the sidewalk, outside the drawn zone or over a crosswalk is refused
+  with a message saying what to fix, and a negative kerb gap can no longer count as neat.
 
 ### ROUTEDAY-8: The drive HUD counts stops against the stops left: "STOP 2 OF 4", "STOP 3 OF 3"...
 - **Severity:** minor (confusing on every leg after the first)
@@ -122,6 +124,7 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Suspected cause:** `src/scenes/shift/TownDriveScene.js:1132` uses `this.route.length`, and `OTR.shift.toDrive`
   (`src/core/shift.js:227`) passes only the stops not yet done.
 - **Suggested fix:** pass the day's total (`st.route.length`) to the scene and use it in `stopLabelFor`.
+- **Status:** fixed — the shift passes the day's total to the drive, which reads "STOP 2 OF 5".
 
 ### ROUTEDAY-9: Pause → Restart on a drive leg silently wipes that leg's violations (a free do-over)
 - **Severity:** major (assessment integrity)
@@ -170,6 +173,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Expected:** one clock, moving. **Actual:** the drive only adds time on arrival (`6 + elapsed/12` minutes,
   `shift.js:249`); the handheld text is set when it opens.
 - **Suggested fix:** tick the drive clock from `st.clockMin + elapsed/12`; refresh the handheld clock each second.
+- **Status:** fixed — the drive clock runs while driving (`st.clockMin + elapsed / 12`, the rate the arrival adds on),
+  and the handheld's clock refreshes every second while it is up.
 
 ### ROUTEDAY-13: The generator puts "Please leave behind the planter" on an ADULT SIGNATURE package, and the stop rewards following it
 - **Severity:** major (route-day variant of STOPS-M5-19/-20: here the content itself sets the trap)
@@ -228,6 +233,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Evidence:** leg 4 log `-5/0 You hit a pedestrian`; `src/scenes/shift/TownDriveScene.js:851-855`.
 - **Suggested fix:** end the leg into an incident stop (m8-incident) or at least a mandatory "what do you do now"
   card, and cap the day's safety result.
+- **Status:** fixed — hitting a pedestrian is a critical safety failure (the day's safety is capped at one star) and
+  stops the drive with a card that says what to do (hazards on, check on them without moving them, call 911 and
+  dispatch, stay at the scene) before the trainee can drive on.
 
 ### ROUTEDAY-17: A route day is five near-identical stops
 - **Severity:** design
@@ -265,6 +273,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Evidence:** leg log; `src/scenes/shift/TownDriveScene.js:49` and `:919-924`.
 - **Suggested fix:** show the lights hint at the start of a leg whenever `lightsWanted`, and give one warning before
   the first penalty.
+- **Status:** fixed — when headlights are needed the drive says so at the start ("Bad weather: headlights on (L)"),
+  and driving without them gets one warning before the first penalty.
 
 ### ROUTEDAY-20: Route days do not count toward the courier rank
 - **Severity:** design
