@@ -156,6 +156,7 @@ OTR.tex = {
     const img = scene.add.image(x || 0, y || 0, '__DEFAULT');
     let tex = null, ctx = null, cw = 0, ch = 0, n = 0;
     img.redraw = (draw) => {
+      if (!img.scene) return img;                  // destroyed (its scene moved on): a late tween or timer does nothing
       g.clear();
       draw(g);
       const b = OTR.tex.shapeBounds(g.commandBuffer) || { x: 0, y: 0, w: 1, h: 1 };

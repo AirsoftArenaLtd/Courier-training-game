@@ -135,7 +135,15 @@ OTR.ui = {
     const g = OTR.tex.liveShape(scene);
     c.add(g);
     const state = { v: o.value || 0 };
-    const draw = () => g.redraw((g) => {
+    let shown = null;
+    const draw = () => {
+      // repaint only when the fill moves a pixel (meters are set several times a second)
+      const px = Math.round(OTR.util.clamp01(state.v) * w * 2);
+      if (px === shown) return;
+      shown = px;
+      paint();
+    };
+    const paint = () => g.redraw((g) => {
       const v = OTR.util.clamp01(state.v);
       g.fillStyle(o.bg !== undefined ? o.bg : 0x000000, o.bgAlpha !== undefined ? o.bgAlpha : 0.3);
       g.fillRoundedRect(0, -h / 2, w, h, h / 2);
