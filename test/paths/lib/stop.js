@@ -89,7 +89,7 @@ function driver(page, ctx) {
     for (let n = 0; n < 3 && near !== it.label; n++) {
       const x = await ev(`${S}.me.x`);
       const key = it.x > x ? 'KeyD' : 'KeyA';
-      await page.keyboard.down(key); await wait(40); await page.keyboard.up(key);
+      await page.keyboard.down(key); await wait(110); await page.keyboard.up(key);   // at least one frame at 12 fps
       await wait(150);
       await settle();
       near = await ev(`(() => { const n = ${S}.stage.nearest(); return n ? n.label : null; })()`);
