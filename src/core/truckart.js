@@ -32,9 +32,10 @@ OTR.truckArt = {
       // Standing at the driver (left) side facing the truck, the cab is on your left; at the curb side, on your
       // right. Facing the front, the driver's lamps are on your right. (Both sides and the front lamps used to be
       // drawn the other way round.)
+      // (the leak ring sits on the drip line, clear of the "Climb into the cab" button under the truck)
       driver: {
         tire_front: [0.20, 0.80], tire_rear: [0.78, 0.80], fuel_cap: [0.60, 0.62],
-        mirror_l: [0.045, 0.24], marker_side: [0.45, 0.34], leak: [0.50, 0.95], body_panel: [0.70, 0.45]
+        mirror_l: [0.045, 0.24], marker_side: [0.45, 0.34], leak: [0.50, 0.835], body_panel: [0.70, 0.45]
       },
       passenger: {
         tire_front_p: [0.80, 0.80], tire_rear_p: [0.22, 0.80], steps: [0.695, 0.72],
