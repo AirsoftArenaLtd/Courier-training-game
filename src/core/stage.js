@@ -288,18 +288,23 @@ OTR.Stage = class {
   }
 
   /* ------------------------------------------------------------ interactables */
-  /** o: { id, x, y, range, label, key, onUse, when(), hotspot: {w, h, y} } */
+  /**
+   * o: { id, x, y, range, label, key, onUse, when(), prefer(), hotspot: {x?, y, w, h} }
+   * A hotspot makes the thing clickable: the courier walks to it and uses it (and just walks there when it cannot
+   * be used right now, as a click on the ground would).
+   */
   interact(o) {
     const it = Object.assign({ range: 80, label: 'Use', enabled: true }, o);
     this.inter.push(it);
     if (o.hotspot) {
       const hs = o.hotspot;
-      const z = this.scene.add.zone(it.x, hs.y, hs.w, hs.h).setInteractive({ useHandCursor: true }).setDepth(70);
+      const z = this.scene.add.zone(hs.x !== undefined ? hs.x : it.x, hs.y, hs.w, hs.h).setInteractive({ useHandCursor: true }).setDepth(70);
       z.on('pointerup', () => {
-        if (this.locked > 0 || this.scene._openModals > 0 || !this.usable(it)) return;
+        if (this.locked > 0 || this.scene._openModals > 0) return;
         const tx = it.standX !== undefined ? it.standX : it.x;
+        if (!this.usable(it)) { if (this.clickToWalk) this.walkPlayerTo(tx); return; }
         if (Math.abs(this.me.x - tx) <= it.range) this.use(it);
-        else this.walkPlayerTo(tx, () => this.use(it));
+        else this.walkPlayerTo(tx, () => { if (this.usable(it) && Math.abs(this.me.x - tx) <= it.range) this.use(it); });
       });
       it.zone = z;
     }
@@ -411,9 +416,11 @@ OTR.Stage = class {
       const want = this.focusPt ? this.focusPt.x - this.focusPt.sx : this.me.x - OTR.W / 2 + this.me.facing * 60;
       const target = OTR.util.clamp(want, this.region.x0, this.region.x1 - OTR.W);
       this.cam.scrollX += (target - this.cam.scrollX) * Math.min(1, dt * 4);
+      // The prompt shows whenever E would do something, walking or not. (It used to wait until the courier stood
+      // still, so a trainee walking past a window, or stopping just beyond it, never saw one and had to "wiggle".)
       const it = this.locked === 0 ? this.nearest() : null;
-      if (it && !this.me.moving) this.showPrompt(it);
-      else if (!it || this.me.moving) this.hidePrompt();
+      if (it) this.showPrompt(it);
+      else this.hidePrompt();
       this.zones.forEach(z => {
         const inside = this.me.x >= z.x0 && this.me.x <= z.x1;
         if (inside && !z.inside) {

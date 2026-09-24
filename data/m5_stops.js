@@ -56,7 +56,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
           { type: 'tree', x: 1250, depth: -9 }
         ],
         spots: [
-          { id: 'planter', label: 'Behind the planter (as the note asks)', x: 'planter', grade: 'good' },
+          { id: 'planter', label: 'Behind the planter', report: 'behind the planter, as the note asks', x: 'planter', grade: 'good' },
           { id: 'mat', label: 'On the doormat', x: 0, grade: 'ok', note: 'Fine in a pinch, but the customer asked for the planter, where it\'s out of view of the street.' },
           { id: 'steps', label: 'At the bottom of the steps', x: 'steps', grade: 'bad', note: 'Visible from the street, in the rain path and a trip hazard.' }
         ],

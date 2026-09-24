@@ -29,7 +29,7 @@ module.exports = async (page, ctx) => {
   const pauseRestart = async (sceneKey) => {
     await page.keyboard.press('Escape');
     await waitScene('PauseScene', 4000);
-    await clickText(page, 'PauseScene', /^Restart$/);
+    await clickText(page, 'PauseScene', /^Restart( this stop)?$/);   // a stop says what it restarts
     await wait(1500);
   };
 

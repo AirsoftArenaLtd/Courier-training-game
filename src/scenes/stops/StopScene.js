@@ -14,9 +14,19 @@ class StopScene extends BaseScenarioScene {
     this.shiftStop = data.shiftStop || null;
   }
 
+  /** The pause menu's restarts: past the first stop of a practice set, this stop or the whole set, said plainly. */
+  restartOptions() {
+    if (this.shiftMode) return [{ label: 'Restart this stop', data: this.initData }];
+    if (this.stopIndex === 0) return [{ label: 'Restart the set', data: this.initData }];
+    return [
+      { label: 'Restart this stop', data: this.initData },
+      { label: 'Restart the set', data: { scenarioId: this.scenarioId } }
+    ];
+  }
+
   create() {
     // the scene instance is reused for every stop: clear per-stop references first
-    ['resident', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone']
+    ['resident', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
       .forEach(k => { this[k] = undefined; });
     this.setupBase();
     this.set = this.shiftStop ? this.shiftStop.set : this.content;
@@ -118,6 +128,15 @@ class StopScene extends BaseScenarioScene {
     this.cameras.main.scrollX = 0;
 
     this.addInteractions();
+    // In the van the courier stays in the cab doorway (shelves, water and AC are all in reach from there); outside,
+    // they cannot walk back along the van's road side into the traffic lane. The only ways in and out are the E
+    // climbs. (A/D or a click used to walk them straight out through the cab at floor height, into mid-air, with
+    // every outside prompt switched off because they were still "in the van".)
+    const dx = this.van.doorX;
+    st.barrier(dx - 66, () => this.S.inVan);
+    st.barrier(dx + 36, () => this.S.inVan);
+    st.barrier(dx + 20, () => !this.S.inVan && !this.inInterior);
+    st.onBlocked = () => this.blocked();
     (d.triggers || []).forEach(t => this.addTrigger(t));
     this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700 });
     st.onMove = () => {};
@@ -183,16 +202,18 @@ class StopScene extends BaseScenarioScene {
     // the shelves until this stop's packages are in hand and the door after that; a step towards either one
     // switches to it. (Both used to sit on the same spot, and E always searched the shelves.) Water and the AC
     // are further back in the cab.
+    // Which one E prefers depends on whether anything is carried, never on whether it is the right package: that
+    // is for the scan and the label to tell (the prompt used to give the answer away).
     this.itShelf = st.interact({
       x: this.van.doorX - 16, y: this.van.floorY - 230, range: 90, label: 'Search the shelves',
       when: () => this.S.inVan && !this.S.done,
-      prefer: () => !this.packagesInHand(),
+      prefer: () => !this.S.carrying.length,
       onUse: () => this.openShelves()
     });
     this.itExit = st.interact({
       x: this.van.doorX + 4, y: this.van.floorY - 190, range: 90, label: 'Climb out of the van',
       when: () => this.S.inVan && !this.S.done,
-      prefer: () => this.packagesInHand(),
+      prefer: () => this.S.carrying.length > 0,
       onUse: () => this.exitVan()
     });
     st.interact({
@@ -216,11 +237,15 @@ class StopScene extends BaseScenarioScene {
       onUse: () => this.enterVan()
     });
 
+    // Every door interaction is centred on the thing it acts on (the courier stands in front of the number to check
+    // it, in front of the bell to ring it), clickable there, and gone once the stop has an outcome. (The spots used to
+    // sit on the other side of the door from the bell and the number, so standing at them showed nothing.)
     // --- address check
     if (L.numberX) {
       st.interact({
-        x: L.numberX, standX: Math.min(L.numberX, L.doorX - 60), y: L.numberY - 60, range: 80, label: 'Check the address number',
-        when: () => !this.S.inVan && !this.inInterior && !this.S.addressChecked,
+        x: L.numberX, standX: L.numberX, y: L.numberY - 60, range: 80, label: 'Check the address number',
+        when: () => !this.S.inVan && !this.inInterior && !this.S.addressChecked && !this.waitingDoor && !this.S.outcome,
+        hotspot: { y: L.numberY, w: 60, h: 50 },
         onUse: () => this.checkAddress()
       });
     }
@@ -229,12 +254,12 @@ class StopScene extends BaseScenarioScene {
     if (kind === 'business') {
       st.interact({
         x: L.doorX, standX: L.doorX - 40, y: L.floorY - 280, range: 80, label: 'Go inside',
-        when: () => !this.inInterior && !this.S.inVan && (L.layout.s.open !== false),
+        when: () => !this.inInterior && !this.S.inVan && (L.layout.s.open !== false) && !this.S.outcome,
         onUse: () => this.enterInterior()
       });
       st.interact({
         x: L.doorX, standX: L.doorX - 40, y: L.floorY - 280, range: 80, label: 'Try the door',
-        when: () => !this.inInterior && !this.S.inVan && L.layout.s.open === false && this.S.knocks === 0,
+        when: () => !this.inInterior && !this.S.inVan && L.layout.s.open === false && this.S.knocks === 0 && !this.S.outcome,
         onUse: () => { this.S.knocks++; OTR.audio.play('knock'); this.me.play('knock'); this.time.delayedCall(900, () => { this.me.play('idle'); this.say('Locked. The sign says CLOSED.', '#FFE3C8'); this.refreshObjectives(); }); }
       });
       const I = this.interior;
@@ -249,16 +274,23 @@ class StopScene extends BaseScenarioScene {
         onUse: () => this.startTalk()
       });
     } else {
-      const bellLabel = kind === 'apartment' ? 'Buzz the unit' : (L.layout.s.bell !== false ? 'Ring the doorbell' : 'Knock');
+      const bell = kind === 'apartment' || L.layout.s.bell !== false;
+      const bellLabel = kind === 'apartment' ? 'Buzz the unit' : (bell ? 'Ring the doorbell' : 'Knock');
+      // a house without a bell is knocked on at the door itself
+      const ringX = bell ? L.bellX : L.doorX - 40;
+      const dw = (L.layout.doorW || 108) / 2;
+      const hx0 = Math.min(ringX - 30, L.doorX - dw), hx1 = Math.max(ringX + 30, L.doorX + dw);
       st.interact({
-        x: kind === 'apartment' ? L.bellX : L.doorX - 70, standX: kind === 'apartment' ? L.bellX - 30 : L.doorX - 80, y: L.floorY - 290, range: 70,
+        x: ringX, standX: ringX, y: L.floorY - 290, range: 80,
         label: bellLabel,
-        when: () => !this.S.inVan && !this.S.answered && !this.waitingDoor && !this.S.done,
-        onUse: () => this.knock(kind === 'apartment' ? 'buzzer' : (L.layout.s.bell !== false ? 'doorbell' : 'knock'))
+        when: () => !this.S.inVan && !this.S.answered && !this.waitingDoor && !this.S.done && !this.S.outcome,
+        // the door and the bell both ring (or knock)
+        hotspot: { x: (hx0 + hx1) / 2, y: L.floorY - 120, w: hx1 - hx0, h: 230 },
+        onUse: () => this.knock(kind === 'apartment' ? 'buzzer' : (bell ? 'doorbell' : 'knock'))
       });
       st.interact({
-        x: L.doorX - 70, standX: L.doorX - 80, y: L.floorY - 290, range: 70, label: 'Talk',
-        when: () => this.S.answered && this.resident && !this.S.talked && this.def.answer && this.def.answer.talk,
+        x: L.doorX - 70, standX: L.doorX - 80, y: L.floorY - 290, range: 80, label: 'Talk',
+        when: () => this.S.answered && this.resident && !this.S.talked && !this.talkPending && this.def.answer && this.def.answer.talk,
         onUse: () => this.startTalk()
       });
     }
@@ -284,7 +316,6 @@ class StopScene extends BaseScenarioScene {
     this.gate = { x: gx, open: !!f.open, img, color: col, locked: !!f.locked };
     if (this.gate.open) this.setGate(true, true);
     st.barrier(gx, () => !this.gate.open);
-    st.onBlocked = () => { if (!this.gate.open && Math.abs(this.me.x - gx) < 80) this.say('The gate is closed.', '#FFE3C8'); };
     st.interact({
       x: gx - 60, y: st.G - 200, range: 70, label: this.gate.locked ? 'Try the gate' : 'Open the gate',
       when: () => !this.gate.open && !this.S.inVan && !this.talkCtl,
@@ -295,6 +326,18 @@ class StopScene extends BaseScenarioScene {
         this.setGate(true);
       }
     });
+  }
+
+  /** Walking into something that stops the courier: say what it is, once in a while (not every frame). */
+  blocked() {
+    if (this.time.now < (this.blockedUntil || 0)) return;
+    let msg = null;
+    if (this.S.inVan) msg = this.me.x > this.van.doorX - 20 ? 'Press E to climb out of the van.' : null;
+    else if (this.gate && !this.gate.open && Math.abs(this.me.x - this.gate.x) < 80) msg = 'The gate is closed.';
+    else if (!this.inInterior && Math.abs(this.me.x - this.van.doorX) < 80) msg = 'Press E to climb into the van.';
+    if (!msg) return;
+    this.blockedUntil = this.time.now + 2500;
+    this.say(msg, '#FFE3C8');
   }
 
   setGate(open, silent) {
@@ -668,7 +711,9 @@ class StopScene extends BaseScenarioScene {
   }
 
   say(text, color) {
-    const t = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 900 }).setScrollFactor(0).setDepth(950);
+    // one message at a time: a new one replaces the last (two used to print on top of each other)
+    if (this.sayText && this.sayText.active) { this.tweens.killTweensOf(this.sayText); this.sayText.destroy(); }
+    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 900 }).setScrollFactor(0).setDepth(950);
     t.setAlpha(0).setScale(0.8);
     this.tweens.add({ targets: t, alpha: 1, scale: 1, duration: 180, ease: 'Back.out' });
     this.tweens.add({ targets: t, alpha: 0, y: 96, delay: 2200, duration: 400, onComplete: () => t.destroy() });
@@ -722,7 +767,10 @@ class StopScene extends BaseScenarioScene {
       this.me.playOnce(good ? 'stepDown' : 'jumpDown', () => {
         this.stage.actors.find(a => a.rig === this.me).followGround = true;
         this.stage.unlock();
-        if (!good) { OTR.audio.play('thud'); this.me.setExpression('worried'); this.time.delayedCall(900, () => this.me.setExpression('neutral')); }
+        if (!good) {
+          OTR.audio.play('thud'); this.me.setExpression('worried'); this.time.delayedCall(900, () => this.me.setExpression('neutral'));
+          this.say('Jumping down is how couriers hurt knees and ankles. Three points of contact, every time.', '#FF8A9A');
+        }
         this.refreshObjectives();
       });
     });
@@ -741,13 +789,16 @@ class StopScene extends BaseScenarioScene {
       this.me.playOnce('climbUp', () => {
         this.S.inVan = true;
         this.stage.unlock();
-        if (!good) { OTR.audio.play('thud'); OTR.fx.shake(this, 120, 0.004); }
+        if (!good) {
+          OTR.audio.play('thud'); OTR.fx.shake(this, 120, 0.004);
+          this.say('Jumping up with your hands full is how couriers fall. Grab handle, one step at a time.', '#FF8A9A');
+        }
         // returning packages that were not delivered
         if (this.S.carrying.length && (this.S.outcome !== 'delivered' || this.S.carrying.length)) {
           this.S.returned = this.S.carrying.slice();
           this.S.carrying = [];
           this.me.hold(null);
-          this.say('Package back on the shelf.', '#C9B3F0');
+          if (good) this.say('Package back on the shelf.', '#C9B3F0');   // the safety message matters more
         }
         if (this.S.outcome) this.time.delayedCall(400, () => this.confirmFinish());
         else { this.S.vanTrips++; this.refreshObjectives(); }
@@ -821,10 +872,12 @@ class StopScene extends BaseScenarioScene {
     }));
     const lblImg = this.add.image(0, -130, '__DEFAULT').setVisible(false).setScrollFactor(0);
     panel.add(lblImg);
-    const hint = OTR.txt(this, 0, -130, 'Hover or click a package\nto read its label', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
+    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
     panel.add(hint);
     const carryTxt = OTR.txt(this, 0, 120, '', 15, '#8BF0C6', { align: 'center', wrap: 320 }).setScrollFactor(0);
     panel.add(carryTxt);
+    // Hovering only previews a label; a click picks the package, and the button acts on the picked one. (Hover used
+    // to pick, so the box the pointer crossed on its way to the button was the one taken.)
     let selected = null;
     const takeBtn = OTR.ui.button(this, 0, 180, 'Take this package', () => {
       if (!selected) return;
@@ -851,18 +904,21 @@ class StopScene extends BaseScenarioScene {
     const boxLayer = this.add.container(0, 0).setScrollFactor(0);
     root.add(boxLayer);
     const dims = { s: [70, 50], m: [100, 72], l: [130, 96], env: [96, 20] };
+    const showLabel = (p) => {
+      if (!p) { lblImg.setVisible(false); hint.setVisible(true); return; }
+      lblImg.setTexture(OTR.labelArt.key(this, p, 320, 213)).setVisible(true).setDisplaySize(320, 213);
+      hint.setVisible(false);
+    };
     const select = (p) => {
       selected = p;
-      const lk = OTR.labelArt.key(this, p, 320, 213);
-      lblImg.setTexture(lk).setVisible(true).setDisplaySize(320, 213);
-      hint.setVisible(false);
+      showLabel(p);
       takeBtn.setLabel(p.onShelf ? 'Take this package' : 'Put it back');
       takeBtn.setEnabled(true);
+      redraw();
     };
     const redraw = () => {
       boxLayer.removeAll(true);
       pkgs.forEach(p => {
-        if (!p.onShelf) return;
         const [bw, bh] = dims[p.size || 'm'];
         const x = 30 + 40 + p.slot.c * 195 + 80, y = 70 + 60 + p.slot.r * 175 + 130 - bh / 2 - 2;
         const key = OTR.tex.make(this, `shelfpkg_${p.size || 'm'}_${p.service || 'standard'}`, bw + 30, bh + 30, (ctx) => {
@@ -876,25 +932,21 @@ class StopScene extends BaseScenarioScene {
             ctx.fillStyle = OTR.color.css(svc.color); ctx.fillRect(10, 16 + bh * 0.35, bw * 0.5, 5);
           }
         });
-        const img = this.add.image(x, y, key).setScrollFactor(0).setInteractive({ useHandCursor: true });
-        img.on('pointerover', () => { select(p); img.setTint(0xFFE3C8); OTR.audio.play('hover'); });
-        img.on('pointerout', () => img.clearTint());
+        // a package in hand stays in its slot, ghosted and tagged, so it can be picked and put back
+        const img = this.add.image(x, y, key).setScrollFactor(0).setInteractive({ useHandCursor: true }).setAlpha(p.onShelf ? 1 : 0.35);
+        if (p === selected) img.setTint(0xFFD9A8);
+        img.on('pointerover', () => { showLabel(p); if (p !== selected) img.setTint(0xFFE3C8); OTR.audio.play('hover'); });
+        img.on('pointerout', () => { showLabel(selected); if (p !== selected) img.clearTint(); });
         img.on('pointerup', () => select(p));
         boxLayer.add(img);
+        if (!p.onShelf) boxLayer.add(OTR.txt(this, x, y - bh / 2 - 6, 'IN HAND', 12, '#8BF0C6', { weight: '900', stroke: '#16062B', strokeW: 4 }).setScrollFactor(0));
       });
       const held = pkgs.filter(p => !p.onShelf);
-      carryTxt.setText(held.length ? `Carrying: ${held.map(p => `${p.number} ${p.street}`).join(', ')}` : 'Carrying nothing yet');
+      carryTxt.setText(held.length ? `Carrying: ${held.map(p => `${p.number} ${p.street}`).join(', ')}\n(click a box marked IN HAND to put it back)` : 'Carrying nothing yet');
       if (selected) takeBtn.setLabel(selected.onShelf ? 'Take this package' : 'Put it back');
-      // held list clickable (to put back)
-      held.forEach((p, i) => {
-        const t = OTR.txt(this, 1080 - 160, 520 + i * 0 + 0, '', 1, '#000').setVisible(false);
-        boxLayer.add(t);
-      });
     };
     takeBtn.setEnabled(false);
     redraw();
-    // allow re-selecting a carried package to put it back
-    carryTxt.setInteractive({ useHandCursor: true }).on('pointerup', () => { const held = pkgs.filter(p => !p.onShelf); if (held.length) select(held[held.length - 1]); });
 
     root.setAlpha(0);
     this.tweens.add({ targets: root, alpha: 1, duration: 200 });
@@ -977,14 +1029,15 @@ class StopScene extends BaseScenarioScene {
     const L = this.lot, ans = this.def.answer;
     this.S.answered = true;
     L.setDoor(true);
-    const r = OTR.rig.person(this, L.doorX + 8, L.floorY, ans.spec, { scale: 0.78, facing: -1 });
+    const r = OTR.rig.person(this, L.doorX + 44, L.floorY, ans.spec, { scale: 0.78, facing: -1 });
     r.setAlpha(0);
     this.stage.actor(r, { depth: 24 });
     this.tweens.add({ targets: r.c, alpha: 1, duration: 300 });
-    r.walkTo(L.doorX - 20, () => { r.setFacing(-1); r.play('idle'); });
+    r.walkTo(L.doorX + 20, () => { r.setFacing(-1); r.play('idle'); });   // in the doorway, a step clear of the courier at the bell
     this.resident = r;
     this.refreshObjectives();
-    if (ans.talk) this.time.delayedCall(900, () => this.startTalk());
+    // the resident starts talking: no "Talk" prompt meanwhile, or E would open a second copy of the conversation
+    if (ans.talk) { this.talkPending = true; this.time.delayedCall(900, () => { this.talkPending = false; this.startTalk(); }); }
     else this.time.delayedCall(700, () => { r.setExpression('happy'); r.emote('Hi!'); });
   }
 
@@ -996,14 +1049,15 @@ class StopScene extends BaseScenarioScene {
     this.time.delayedCall(240, () => {
       this.inInterior = true;
       this.stage.setRegion(this.interiorX, this.interiorX + 1600);
-      this.me.x = I.entryX + 70;
+      this.me.x = I.entryX + 200;               // a step past the door, clear of "Go back outside"
       this.me.y = this.stage.G;
       this.me.setFacing(1);
       this.cameras.main.scrollX = this.interiorX;
       if (!this.resident && this.def.answer) {
         const ans = this.def.answer;
         const r = OTR.rig.person(this, I.counterX + 40, this.stage.G - 6, ans.spec, { scale: 0.78, facing: -1 });
-        this.stage.actor(r, { depth: 24 });
+        this.stage.actor(r, { depth: 24, followGround: false });
+        r.y = this.stage.G - 26;                      // stands behind the counter: the feet stay hidden by its front
         this.resident = r;
         this.S.answered = true;
       }
@@ -1019,7 +1073,7 @@ class StopScene extends BaseScenarioScene {
     this.time.delayedCall(240, () => {
       this.inInterior = false;
       this.stage.setRegion(0, this.outsideW);
-      this.me.x = this.lot.doorX - 60;
+      this.me.x = this.lot.doorX - 150;          // clear of "Go inside", so a second E does not walk straight back in
       this.me.y = this.lot.floorY;
       this.me.setFacing(-1);
       this.cameras.main.scrollX = OTR.util.clamp(this.me.x - OTR.W / 2, 0, this.outsideW - OTR.W);
@@ -1032,10 +1086,20 @@ class StopScene extends BaseScenarioScene {
   startTalk() {
     const ans = this.def.answer;
     const graph = this.def.talks && this.def.talks[ans.talk];
-    if (!graph) return;
+    if (!graph || this.talkCtl || this.S.talked) return;          // one conversation, however E and the timer race
     this.S.talked = true;
     this.stage.lock();
     this.hh.setTabVisible(false);
+    // at a doorstep, stand a step back from the resident so the two do not overlap (reception has its own spots)
+    const spot = this.resident.x - 110;
+    if (!this.inInterior && Math.abs(this.me.x - spot) > 10) {
+      this.me.walkTo(spot, () => this.beginTalk(ans, graph), { speed: 160 });
+      return;
+    }
+    this.beginTalk(ans, graph);
+  }
+
+  beginTalk(ans, graph) {
     this.me.face(this.resident.x);
     this.resident.face(this.me.x);
     this.stage.focus((this.me.x + this.resident.x) / 2, 380);
@@ -1208,7 +1272,7 @@ class StopScene extends BaseScenarioScene {
     ];
     hh.show({
       title: 'CHECK PHOTO ID', color: 0x7B3FC4,
-      lines: [{ text: today, color: '#3A2A50', bold: true }, `${person.name} is holding up their ID. Compare the photo, the name, the date of birth and the expiry date.`],
+      lines: [{ text: today, color: '#3A2A50', bold: true }, `${person.name} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.`],
       options: OTR.util.shuffle(opts),
       back: then(() => this.hhDeliver())
     });
@@ -1216,7 +1280,8 @@ class StopScene extends BaseScenarioScene {
 
   showIdCard(key, name) {
     this.hideIdCard();
-    const c = this.add.container(560, 330).setDepth(2590).setScrollFactor(0);
+    // left of the courier and the customer, under the objectives panel, so both faces stay in view for the comparison
+    const c = this.add.container(250, 400).setDepth(2590).setScrollFactor(0);
     const g = OTR.tex.shape(this, (g) => {
       g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
       g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
@@ -1302,28 +1367,35 @@ class StopScene extends BaseScenarioScene {
   spotX(sp) {
     const L = this.lot;
     if (sp.x === 'steps') return L.stepsX0 - 30;
-    if (typeof sp.x === 'string' && this.propById[sp.x]) return this.propById[sp.x].x + 44;
+    if (typeof sp.x === 'string' && this.propById[sp.x]) return this.propById[sp.x].x + 24;
     return L.doorX + (typeof sp.x === 'number' ? sp.x : 0);
   }
 
   placePackage(sp) {
     const x = this.spotX(sp);
+    // "behind the planter" is drawn behind it, partly hidden by the pot (it used to sit in front, in full view)
+    const behind = typeof sp.x === 'string' && this.propById[sp.x];
     this.stage.lock();
     this.stage.walkPlayerTo(x - 50, () => {
       this.me.face(x);
       this.me.playOnce('setDown', () => {
         const y = this.stage.groundAt(x);
         const pk = this.carriedPkgs();
-        this.pkgProp = this.stage.prop('package', x, { y: y + 4, depth: 8 });
+        this.pkgProp = this.stage.prop('package', x, { y: y + 4, depth: behind ? behind.depth - 0.5 : 8 });
         if (pk.every(p => p.size === 'env')) this.pkgProp.setScale(0.7, 0.35);
         this.S.carrying = [];
         this.S.delivered = pk.map(p => p.id);
         this.me.hold(null);
         this.me.playOnce('lift', () => {
-          this.me.play('idle');
-          this.stage.unlock();
-          this.photoMode = true;
-          this.startPhoto();
+          // step back towards the street before the camera comes up, so the photo shows the package and the house,
+          // not the courier standing in front of them
+          this.me.walkTo(this.stage.clampByBarriers(this.me.x, Math.max(this.me.x - 190, 900)), () => {
+            this.me.face(x);
+            this.me.play('idle');
+            this.stage.unlock();
+            this.photoMode = true;
+            this.startPhoto();
+          }, { speed: 200 });
         });
       });
     });
@@ -1332,6 +1404,8 @@ class StopScene extends BaseScenarioScene {
   startPhoto() {
     const s = this;
     this.stage.lock();
+    // the whole screen is the viewfinder: the objectives panel would sit under the instructions
+    if (this.objPanel) this.objPanel.setVisible(false);
     const root = this.add.container(0, 0).setDepth(4200).setScrollFactor(0);
     const fw = 380, fh = 260;
     const frame = this.add.graphics().setScrollFactor(0);
@@ -1389,6 +1463,7 @@ class StopScene extends BaseScenarioScene {
         root.destroy();
         this.photoMode = false;
         this.stage.unlock();
+        this.refreshObjectives();                      // brings the objectives panel back
         this.showPhoto(key, grade);
       });
     };
@@ -1402,14 +1477,14 @@ class StopScene extends BaseScenarioScene {
     if (grade === 'good') lines.push({ text: 'Package and location are both clearly in the shot.', color: '#1E9E6B', bold: true });
     else if (grade === 'ok') lines.push({ text: 'The package is in the shot, but there\'s nothing showing WHERE it is.', color: '#B26A00', bold: true });
     else lines.push({ text: 'The package isn\'t fully in the frame.', color: '#C8243B', bold: true });
+    // a photo that falls short puts Retake first (key 1) under an amber or red header; using it is still possible
+    const use = { label: 'Use this photo', skin: grade === 'good' ? undefined : 'ghost', onPick: () => { S.outcome = 'delivered'; OTR.audio.play('success'); this.refreshObjectives(); hh.close(); this.say('Delivery recorded. Head back to the van.', '#8BF0C6'); } };
+    const retake = { label: 'Retake', skin: grade === 'good' ? 'ghost' : undefined, onPick: () => { S.retakes = (S.retakes || 0) + 1; hh.close(() => { this.photoMode = true; this.startPhoto(); }); } };
     hh.open({
-      title: 'PHOTO POD', color: 0x1E9E6B,
+      title: 'PHOTO POD', color: grade === 'good' ? 0x1E9E6B : grade === 'ok' ? 0xB26A00 : 0xC8243B,
       image: has ? { key, w: 300, h: 205 } : null,
       lines,
-      options: [
-        { label: 'Use this photo', onPick: () => { S.outcome = 'delivered'; OTR.audio.play('success'); this.refreshObjectives(); hh.close(); this.say('Delivery recorded. Head back to the van.', '#8BF0C6'); } },
-        { label: 'Retake', skin: 'ghost', onPick: () => { S.retakes = (S.retakes || 0) + 1; hh.close(() => { this.photoMode = true; this.startPhoto(); }); } }
-      ]
+      options: grade === 'good' ? [use, retake] : [retake, use]
     });
   }
 
@@ -1491,7 +1566,11 @@ class StopScene extends BaseScenarioScene {
     const delivered = S.delivered || [];
     const wrongDelivered = delivered.filter(id => mineIds.indexOf(id) < 0);
     const allMine = mineIds.every(id => delivered.indexOf(id) >= 0);
-    if (S.outcome === 'delivered') {
+    // A package delivered where the rules said to bring it back (a closed business, a minor at the door) earns none
+    // of the ticks that only make sense for a right delivery: the outcome check below is the whole story, and it is
+    // critical. (It used to keep 7 of 10 service points: right package, photo, knock.)
+    const againstRules = S.outcome === 'delivered' && exp.outcome !== 'deliver';
+    if (S.outcome === 'delivered' && !againstRules) {
       if (wrongDelivered.length) {
         log.check('service', 0, 3, 'Delivered the correct package', { lesson: 'Match the label address against the stop before delivering. Scanning catches wrong-stop packages.' });
         log.penalty('service', 3, 'Misdelivery: another customer\'s package left here', { severity: 'major' });
@@ -1502,7 +1581,7 @@ class StopScene extends BaseScenarioScene {
     // scanning
     const scannedAll = delivered.concat(S.returned || []).every(id => S.scanned[id]) && Object.keys(S.scanned).length > 0;
     log.check('efficiency', S.scannedInVan ? 1 : 0, 1, 'Scanned the package before leaving the truck', { lesson: 'Scan before you step out. It confirms the stop and shows signature needs before you walk to the door.' });
-    if (S.outcome === 'delivered') log.check('service', scannedAll ? 1 : 0, 1, 'Scanned every package delivered');
+    if (S.outcome === 'delivered' && !againstRules) log.check('service', scannedAll ? 1 : 0, 1, 'Scanned every package delivered');
 
     // outcome
     if (!S.outcome) {
@@ -1518,23 +1597,23 @@ class StopScene extends BaseScenarioScene {
       if (S.outcome === 'exception') {
         log.check('service', S.code === exp.code ? 3 : 1, 3, `Recorded the right exception (${exp.code})`, { lesson: L0 });
       } else {
-        log.check('service', 0, 3, 'Didn\'t deliver when the rules said not to', { lesson: L0 });
+        log.check('service', 0, 3, 'Delivered when the rules said not to', { lesson: L0, critical: true });
         if (svc === 'signature' || svc === 'adult') log.penalty('service', 2, 'Released a restricted package without proper verification', { severity: 'major', critical: true, lesson: L0 });
       }
     }
     // signature / photo quality
-    if (S.outcome === 'delivered' && (S.type === 'left')) {
+    if (S.outcome === 'delivered' && (S.type === 'left') && !againstRules) {
       if (svc === 'signature' || svc === 'adult') {
         log.check('service', 0, 2, 'Signature-required package handed to a person', { lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
         log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major', critical: true, lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
       }
       const sp = (d.spots || []).find(x => x.id === S.spot);
-      if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
+      if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.report || sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
       const ph = S.photo || { grade: 'bad' };
       log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, 'Took a clear proof-of-delivery photo', { lesson: 'A good POD photo shows the package AND where it was left (door, house number), never people.' });
       log.check('service', S.knocks > 0 ? 1 : 0, 1, 'Knocked or rang before leaving the package', { lesson: 'Always attempt contact first. Many customers would rather receive the package in person.' });
     }
-    if (S.outcome === 'delivered' && S.type !== 'left') {
+    if (S.outcome === 'delivered' && S.type !== 'left' && !againstRules) {
       const person = d.answer || {};
       const nameOk = S.signer === person.name;
       log.check('service', nameOk ? 2 : 0, 2, 'Recorded the signer\'s real printed name', { lesson: 'Record the printed name of whoever actually signed, even if that isn\'t the addressee.' });
@@ -1623,7 +1702,9 @@ class StopScene extends BaseScenarioScene {
           box.add(OTR.txt(this, -w / 2 + 44, y + 11, good ? '✓' : part ? '~' : '✗', 13, '#ffffff', { weight: '900' }));
           const def = OTR_DATA.config.categories[it.cat];
           box.add(this.add.image(-w / 2 + 70, y + 11, def.icon).setDisplaySize(16, 16).setTint(def.color));
-          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label, 16, it.critical ? '#B3122E' : '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
+          // one answer scored in two categories reads as two lines: name the category so they are not identical
+          const twin = shown.filter(o => o.label === it.label).length > 1 ? ` (${def.label.toLowerCase()})` : '';
+          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label + twin, 16, it.critical ? '#B3122E' : '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
           box.add(OTR.txt(this, w / 2 - 30, y + 11, it.kind === 'penalty' ? `${it.got}` : `${it.got}/${it.max}`, 15, OTR.color.css(col), { ox: 1, weight: '900' }));
           y += 26;
           if (r.lesson) { r.lesson.setY(y - 2); box.add(r.lesson); y += r.lesson.height + 4; }

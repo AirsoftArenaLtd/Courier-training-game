@@ -358,7 +358,7 @@ OTR.scenery = {
       s, w: s.w, h: H, floorY, porchX0: s.porchX, porchX1: s.porchX + s.porchW,
       stepsX0: s.porchX - s.steps * SW, stepsX1: s.porchX,
       doorX, doorW: 108, doorH: 228, doorTop: floorY - 228,
-      bellX: doorX + 78, bellY: floorY - 120,
+      bellX: doorX - 80, bellY: floorY - 124,
       numberX: s.numberOn === 'column' ? s.porchX + s.porchW - 22 : doorX + 78, numberY: s.numberOn === 'column' ? floorY - 170 : floorY - 168,
       lightX: doorX - 92, lightY: floorY - 176,
       mailboxX: doorX - 150, mailboxY: floorY - 120,
@@ -567,7 +567,7 @@ OTR.scenery = {
       stepsX0: doorX - 170 - steps * OTR.scenery.STEP_W, stepsX1: doorX - 170,
       porchX0: doorX - 170, porchX1: doorX + 170,
       panelX: doorX + 118, panelY: floorY - 140,
-      numberX: doorX, numberY: floorY - 300,
+      numberX: doorX, numberY: s.style === 'business' ? floorY - 330 : floorY - 300,   // a shop's number sits above its awning
       signX: doorX + 250, signY: floorY - 150
     };
   },
@@ -635,7 +635,7 @@ OTR.scenery = {
         String(s.hours).split('\n').forEach((ln, i) => ctx.fillText(ln, L.doorX + L.doorW / 2 + 57, L.floorY - 150 + i * 14));
         ctx.fillStyle = s.open ? '#2BC48A' : '#E8304A'; ctx.font = '900 12px "Segoe UI", Arial';
         ctx.fillText(s.open ? 'OPEN' : 'CLOSED', L.doorX + L.doorW / 2 + 57, L.floorY - 112);
-        SC.numberPlaque(ctx, L.doorX, L.doorTop - 40, String(s.number), { size: 22 });
+        SC.numberPlaque(ctx, L.numberX, L.numberY, String(s.number), { size: 22 });
       }
       // steps
       for (let k = 0; k < L.steps; k++) {

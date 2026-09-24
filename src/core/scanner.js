@@ -107,13 +107,21 @@ OTR.Handheld = class {
     this.o = o || {};
     this.depth = this.o.depth || 2600;
     this.isOpen = false;
+    this.closedAt = -1e9;
     this.W = 380; this.H = 640;
     this.X = OTR.W - 220; this.Yopen = OTR.H / 2 + 20; this.Yclosed = OTR.H + 360;
     this.build();
     this.keyHandlers = [];
     scene.input.keyboard.addCapture('TAB');
     const on = (name, fn) => this.keyHandlers.push([name, OTR.onKey(scene, name, fn)]);
-    on('keydown-TAB', (e) => { if (e && e.preventDefault) e.preventDefault(); if (this.o.canToggle && !this.o.canToggle()) return; this.toggle(); });
+    on('keydown-TAB', (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      if (this.o.canToggle && !this.o.canToggle()) return;
+      // the device often puts itself away after the last step; the TAB a trainee presses to put it away as well
+      // must not bring it straight back up
+      if (!this.isOpen && this.scene.time.now - this.closedAt < 700) return;
+      this.toggle();
+    });
     // every numbered option answers its number key (the exception list runs to eight; 7 and 8 used to do nothing)
     ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE'].forEach((k, i) => on('keydown-' + k, () => { if (this.isOpen && this.optionBtns && this.optionBtns[i]) this.optionBtns[i].press(); }));
     on('keydown-BACKSPACE', () => { if (this.isOpen && this.current && this.current.back) this.current.back(); });
@@ -199,6 +207,7 @@ OTR.Handheld = class {
   close(cb) {
     if (!this.isOpen) { if (cb) cb(); return; }
     this.isOpen = false;
+    this.closedAt = this.scene.time.now;
     OTR.audio.play('back');
     this.scene.tweens.killTweensOf(this.root);
     this.scene.tweens.add({
