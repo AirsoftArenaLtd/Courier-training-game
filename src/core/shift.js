@@ -225,8 +225,10 @@ OTR.shift = {
       shift: true, seed: st.seed, weather: st.weather, tod: this.todNow(),
       start: st.van || null,
       route: st.route.filter(r => !r.done).map(r => ({ lotId: r.lotId, index: r.index })),
+      total: st.route.length,                              // "STOP 2 OF 5", not of the stops still to do
       log: st.log,
-      clock: () => OTR.shift.clockStr()
+      // the clock runs while you drive, at the rate arriveStop adds on (it used to stand still, then jump)
+      clock: (elapsed) => OTR.shift.clockStr(st.clockMin + Math.floor((elapsed || 0) / 12))
     });
   },
 

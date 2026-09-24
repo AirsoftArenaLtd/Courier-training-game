@@ -107,7 +107,7 @@ window.QA_AUTODRIVE = (function () {
       const [sdx, sdy] = HEAD[st.h];
       const l0 = laneLine(st.h, st.c, st.r);
       // join the lane before the first stop line, never beyond it (a stop can be parked close to a junction)
-      const back0 = R + 18 + scene.van.g.nose * P + 8;
+      const back0 = R + OTR.townArt.STOP_LINE + scene.van.g.nose * P + 8;
       const toLine = chain.length
         ? (sdx ? (T.vx[chain[0].c] - sdx * back0 - v.x) * sdx : (T.hy[chain[0].r] - sdy * back0 - v.y) * sdy)
         : 1e9;
@@ -120,7 +120,7 @@ window.QA_AUTODRIVE = (function () {
         const [dx, dy] = HEAD[n.hin];
         const li = laneLine(n.hin, n.c, n.r);
         // where the centre of gravity is when the front bumper is at the stop line
-        const back = R + 18 + scene.van.g.nose * P + 8;
+        const back = R + OTR.townArt.STOP_LINE + scene.van.g.nose * P + 8;
         const sp = { x: li.x !== undefined ? li.x : ix - dx * back, y: li.y !== undefined ? li.y : iy - dy * back, stopAt: n };
         raw.push(sp);
         if (n.hin === n.hout) {

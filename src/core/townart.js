@@ -7,6 +7,8 @@ window.OTR = window.OTR || {};
 OTR.townArt = {
   ROAD: 210,      // asphalt width (two lanes wide enough for a step van to pass a car)
   WALK: 30,       // sidewalk strip on each side
+  STOP_LINE: 58,  // stop line, px out from the junction box: just clear of the crosswalk (R+1 to R+47). It was at
+                  // 18, in the middle of the stripes, so "stop at the line" parked the nose on the crossing.
   // building sizes before OTR.town.SCALE, by variant; OTR.town.size() reads these, so what is drawn is what the van
   // collides with. The widest house used to be wider than its plot, and neighbours overlapped.
   BUILDINGS: {
@@ -204,8 +206,10 @@ OTR.townArt = {
   },
 
   /** Stop marker painted in the kerb lane where the courier should pull in (a van's length, a van's width). */
-  stopZone(scene) {
-    return OTR.tex.make(scene, 'td_stopzone', 196, 74, (ctx, w, h) => {
+  /** The marked stop zone, len px long: exactly where parking is accepted (TownDriveScene.parkBay). */
+  stopZone(scene, len) {
+    len = Math.round(len || 196);
+    return OTR.tex.make(scene, 'td_stopzone_' + len, len, 74, (ctx, w, h) => {
       const cv = OTR.cv;
       cv.rr(ctx, 4, 4, w - 8, h - 8, 10);
       ctx.fillStyle = 'rgba(255,200,61,0.20)'; ctx.fill();

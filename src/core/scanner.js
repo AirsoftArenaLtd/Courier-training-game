@@ -108,6 +108,10 @@ OTR.Handheld = class {
     this.depth = this.o.depth || 2600;
     this.isOpen = false;
     this.closedAt = -1e9;
+    // the clock on the screen keeps time while the device is up (it used to be set once, when a screen opened)
+    scene.time.addEvent({ delay: 1000, loop: true, callback: () => {
+      if (this.isOpen && this.o.clock && this.clockText && this.clockText.active) this.clockText.setText(this.o.clock());
+    } });
     this.W = 380; this.H = 640;
     this.X = OTR.W - 220; this.Yopen = OTR.H / 2 + 20; this.Yclosed = OTR.H + 360;
     this.build();
@@ -240,7 +244,8 @@ OTR.Handheld = class {
     this.screen.add(g);
     this.screen.add(OTR.txt(s, x0 + 14, y0 + 22, def.title || '', 16, '#ffffff', { ox: 0, weight: '900' }));
     const clock = this.o.clock ? this.o.clock() : '';
-    this.screen.add(OTR.txt(s, x0 + w - 14, y0 + 22, clock, 13, 'rgba(255,255,255,0.85)', { ox: 1, weight: '800' }));
+    this.clockText = OTR.txt(s, x0 + w - 14, y0 + 22, clock, 13, 'rgba(255,255,255,0.85)', { ox: 1, weight: '800' });
+    this.screen.add(this.clockText);
     let y = y0 + 58;
     if (def.back) {
       const b = OTR.txt(s, x0 + w - 14, y0 + h - 16, '⌫ Back', 13, '#7A6A90', { ox: 1, weight: '800' });
