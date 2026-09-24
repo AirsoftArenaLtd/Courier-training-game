@@ -11,7 +11,7 @@ OTR_DATA.sorting = {
     title: 'Sort Belt',
     lines: [
       'Click a package (or press SPACE for the one at the front) to scan it. The scan tells you the bin.',
-      'Then drag it into that bin — or press 1-5 to send the scanned package at the front.',
+      'Then drag it into that bin, or press the bin\'s number: the keys send the package you scanned (the glowing one). A bin keeps its number all shift.',
       'Sorting a piece you never scanned is a guess, and guesses cost you.',
       'New rules arrive each wave, and the belt jams now and then. Read the rule card.'
     ]

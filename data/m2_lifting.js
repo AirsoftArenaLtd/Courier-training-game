@@ -19,7 +19,7 @@ OTR_DATA.lifting = {
     title: 'Lift Right',
     lines: [
       'Five loads, one back. First size up each load and choose how to move it.',
-      'Then do the lift yourself: A / D to step, S to bend your knees, W to straighten up, SPACE to grip and to let go.',
+      'Then do the lift yourself. Keys: A / D to step, S to bend your knees, W to straighten up, SPACE to grip and to let go. Mouse: hold the arrow pad under the gauge, and click GRIP.',
       'Your back hinges over whatever your knees and your distance leave it — watch the SPINE LOAD gauge and keep it under the line.',
       'Time spent over that line drains your Back Health. Protect it — it has to last a whole career.'
     ]

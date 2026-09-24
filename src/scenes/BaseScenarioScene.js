@@ -72,6 +72,10 @@ class BaseScenarioScene extends Phaser.Scene {
   openPause() {
     if (this.finished || this._leaving || this.scene.isPaused() || this._openModals > 0) return;
     if (this.input.keyboard) this.input.keyboard.resetKeys();
+    // A drag in progress ends here: the button is released while the scene is paused, Phaser never hears it, and
+    // the package used to stay glued to the cursor after Resume. Each game puts it back (cancelDrag).
+    if (this.cancelDrag) this.cancelDrag();
+    this.input.manager.pointers.forEach(ptr => { if (ptr) this.input.setDragState(ptr, 0); });
     this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: this.scenario ? this.scenario.title : this.shiftMode ? 'Today\'s route' : '' });
     this.scene.bringToTop('PauseScene');
     this.scene.pause();

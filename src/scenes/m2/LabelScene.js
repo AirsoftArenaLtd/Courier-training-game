@@ -171,8 +171,19 @@ class LabelScene extends BaseScenarioScene {
       const id = this.bayAt(this.boxImg.x, this.boxImg.y);
       Object.keys(this.bays).forEach(b => this.bays[b].paint(false));
       if (id) this.answer(id);
-      else this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
+      // not taken (no station under it, or the guide was open): back on the roller, full size (it used to stay
+      // parked on the station, shrunk, looking placed)
+      if (this.answering) this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
     });
+  }
+
+  /** Pause: a box being dragged goes back on the roller. */
+  cancelDrag() {
+    if (!this.dragging) return;
+    this.dragging = false;
+    this.boxImg.setDepth(20);
+    Object.keys(this.bays).forEach(b => this.bays[b].paint(false));
+    this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
   }
 
   bayAt(x, y) {
@@ -240,6 +251,8 @@ class LabelScene extends BaseScenarioScene {
     else if (quiet) { this.boxImg.setTexture(key); }
     else {
       if (!this._turnTween || !this._turnTween.isPlaying()) OTR.audio.play('click_dud');
+      // a quick second turn stops the first one (both used to write the scale and leave the box squashed)
+      else this._turnTween.stop();
       this.boxImg.setScale(1);
       this._turnTween = this.tweens.add({
         targets: this.boxImg,
@@ -368,7 +381,8 @@ class LabelScene extends BaseScenarioScene {
     // warning say (it used to count only sides that happened to carry a mark, so an unmarked box called from its
     // front scored as a careful inspection)
     const unseen = Object.keys(this.FACE_NAMES).filter(f => !this.seen[f]);
-    const blind = unseen.length > 0;
+    // (a timed-out box was never called at all, so it is not a blind call)
+    const blind = !!stationId && unseen.length > 0;
     const t = this.itemTime;
     const speed = ok ? OTR.util.clamp01(1 - (t - 4) / (C.timePerItem - 4)) : 0;
     this.stats.speed.push(speed);
@@ -396,10 +410,11 @@ class LabelScene extends BaseScenarioScene {
       OTR.fx.shake(this, 200, 0.008);
     }
 
-    // send the box to the station it was put on, then judge it
-    const target = this.bays[stationId || item.answer];
+    // send the box to the station it was put on, then judge it; a timed-out one rolls off the far end of the
+    // roller (it used to fly onto the right station, as if it had been placed there)
+    const target = stationId ? this.bays[stationId].c : { x: OTR.W + 220, y: this.BOX.y };
     this.tweens.add({
-      targets: this.boxImg, x: target.c.x, y: target.c.y, scale: 0.42, duration: 320, ease: 'Cubic.in',
+      targets: this.boxImg, x: target.x, y: target.y, scale: stationId ? 0.42 : 1, duration: stationId ? 320 : 520, ease: 'Cubic.in',
       onComplete: () => { this.boxImg.setVisible(false); }
     });
     this.bays[item.answer].paint(true);

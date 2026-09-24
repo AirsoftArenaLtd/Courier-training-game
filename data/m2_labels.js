@@ -27,7 +27,7 @@ OTR_DATA.labels = {
     lines: [
       'Turn every package before you move it: A / D turn it round, W shows the top, S shows the base — or click the six face dots.',
       'Marks hide on the sides, the top and underneath. Deciding before you have seen all six sides is a blind call, and it is scored as one.',
-      'Drag the package onto the right handling station (or press 1-6). If more than one mark applies, the most restrictive one wins.',
+      'Drag the package onto the right handling station (or press its number, 1-6). If more than one mark applies, the most restrictive one wins.',
       'G opens the label guide at any time — the clock stops while it is open.'
     ]
   },
@@ -67,7 +67,7 @@ OTR_DATA.labels = {
       explain: 'Nothing but a shipping label on any of the six sides — standard handling. You still checked, which is the point.' },
     { tier: 1, marks: { front: ['fragile'] }, answer: 'fragile',
       explain: 'Broken-glass symbol on the front: fragile shelf, and nothing goes on top of it.' },
-    { tier: 1, marks: { front: ['thisWayUp'], top: ['thisWayUp'] }, answer: 'upright',
+    { tier: 1, marks: { front: ['thisWayUp'], back: ['thisWayUp'] }, answer: 'upright',     // arrows on two opposite sides
       explain: 'Two arrows over a bar = orientation marks. It rides upright on the cart, never on its side.' },
     { tier: 1, marks: { front: ['keepDry'] }, answer: 'dry',
       explain: 'Umbrella and rain = keep dry. On the rack, off the wet floor and under cover on the doorstep.' },

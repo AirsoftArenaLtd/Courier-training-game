@@ -20,9 +20,9 @@ OTR_DATA.loading = {
       title: 'Load for the Route',
       lines: [
         'A good load is a fast, safe route. A bad one is an hour of digging and a sore back.',
-        'Drag each package from the cart onto the shelves. Sections are by stop: A = stops 1-3 (nearest the door), B = 4-6, C = 7-9.',
+        'Drag each package from the cart onto the shelves (or arrow keys to choose, ENTER to pick up and put down). Hover a package to read its full label. Sections are by stop: A = stops 1-3 (nearest the door), B = 4-6, C = 7-9.',
         'Heavy (35 lb+) goes low — bottom shelf or floor. Nothing heavy above shoulder height.',
-        'Fragile stays off the floor. Dangerous goods go in the marked floor zone. Then strap the floor load before you roll.'
+        'Fragile stays off the floor, the floor bays are for heavy or bulky freight, and dangerous goods go in the marked zone. Once everything is in, strap the floor load (T), then roll out (R).'
       ]
     },
     keyLessons: [
@@ -54,14 +54,14 @@ OTR_DATA.loading = {
       title: 'Find It Fast',
       lines: [
         'Somebody loaded this truck in a hurry. Now you have to work it.',
-        'Each round names the stop you\'re at. Click the package for that address as fast as you can.',
+        'Each round names the stop you\'re at. Click the package for that address (or arrow keys and ENTER) as fast as you can. Hover a package to read its full label.',
         'Read the whole address. Near-matches (216 vs 214, Birch Ln vs Birch Ct) are how misdeliveries happen.',
         'Notice how much time the misloads cost. That\'s why loading matters.'
       ]
     },
     keyLessons: [
       'Check number AND street AND unit before you pull a package.',
-      'When you find a misload, move it to the right section straight away instead of hunting for it twice.',
+      'When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.',
       'Time lost digging at every stop is time you never get back on the route.'
     ],
     packages: [

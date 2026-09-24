@@ -14,6 +14,8 @@ class SortingScene extends BaseScenarioScene {
     this.spawnTimer = 0;
     this.beltSpeed = 0;
     this.packages = [];
+    this.target = null;
+    this.binKeys = null;
     this.streak = 0;
     this.bestStreak = 0;
     this.sinceDamage = 0;
@@ -148,6 +150,13 @@ class SortingScene extends BaseScenarioScene {
   layoutBins(ids, animate) {
     const n = ids.length;
     const span = 1140;
+    // A bin keeps one key for the whole shift, numbered in the order the bins first appear (Exceptions used to be 5
+    // in one wave and 4 in the next).
+    if (!this.binKeys) {
+      this.binKeys = {};
+      let k = 0;
+      this.content.waves.forEach(w => w.bins.forEach(id => { if (!this.binKeys[id]) this.binKeys[id] = ++k; }));
+    }
     // bins this wave does not use leave the floor (they used to stay parked, drawn over the new layout)
     Object.values(this.bins).forEach(b => {
       if (!b.active || ids.indexOf(b.id) >= 0) return;
@@ -159,7 +168,7 @@ class SortingScene extends BaseScenarioScene {
       const b = this.bins[id];
       const x = 70 + (span / n) * (i + 0.5);
       b.x = x;
-      b.cap.list[1].setText(String(i + 1));
+      b.cap.list[1].setText(String(this.binKeys[id]));
       if (!b.active) {
         b.active = true;
         this.tweens.killTweensOf(b.c);
@@ -183,6 +192,7 @@ class SortingScene extends BaseScenarioScene {
       const p = obj.pkg;
       if (!p || this.state !== 'play' || p.jammed) return;
       p.dragging = true;
+      p.pickX = obj.x;                       // a drop that misses every bin goes back here
       obj.setDepth(50);
       this.tweens.add({ targets: obj, scale: 1.15, duration: 100 });
       OTR.audio.play('pop');
@@ -211,18 +221,23 @@ class SortingScene extends BaseScenarioScene {
       if (binId && this.state === 'play') {
         this.sortPackage(p, binId);
       } else {
+        // back where it was picked up (it used to stay at the drop's x: past the belt's end that was an instant miss,
+        // and it could be dragged back up the belt to buy time)
         obj.setDepth(10);
-        this.tweens.add({ targets: obj, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
+        this.tweens.add({ targets: obj, x: p.pickX !== undefined ? p.pickX : obj.x, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
       }
     });
 
-    ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'].forEach((k, i) => {
-      OTR.onKey(this, 'keydown-' + k, () => {
+    // the number keys send the package you scanned last (the glowing one), to the bin wearing that number
+    ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE'].forEach((k, i) => {
+      const send = () => {
         if (this.state !== 'play') return;
-        const id = this.activeBins[i];
-        const p = this.frontPackage();
+        const id = this.activeBins.find(b => this.binKeys[b] === i + 1);
+        const p = this.keyTarget();
         if (id && p) this.sortPackage(p, id);
-      });
+      };
+      OTR.onKey(this, 'keydown-' + k, send);
+      OTR.onKey(this, 'keydown-NUMPAD_' + k, send);
     });
 
     // a click is a scan; a drag is a sort
@@ -235,8 +250,21 @@ class SortingScene extends BaseScenarioScene {
     OTR.onKey(this, 'keydown-SPACE', () => {
       if (this.state !== 'play') return;
       if (this.jammed) { this.clearJam(true); return; }
-      const p = this.frontPackage();
+      // the front-most package not scanned yet
+      let p = null;
+      this.packages.forEach(q => { if (!q.dragging && !q.done && !q.scanned && (!p || q.img.x > p.img.x)) p = q; });
       if (p) this.scanPackage(p);
+    });
+  }
+
+  /** Pause: a package being dragged goes back on the belt where it was picked up. */
+  cancelDrag() {
+    this.packages.forEach(p => {
+      if (!p.dragging) return;
+      p.dragging = false;
+      this.clearBinHover();
+      p.img.setDepth(10);
+      this.tweens.add({ targets: p.img, x: p.pickX !== undefined ? p.pickX : p.img.x, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
     });
   }
 
@@ -252,6 +280,7 @@ class SortingScene extends BaseScenarioScene {
     if (p.scanned) { OTR.audio.play('click_dud'); return; }
 
     p.scanned = true;
+    this.target = p;                        // the keys now act on this one
     this.stats.scanned++;
     OTR.audio.play('scan');
     p.img.setTexture(this.pkgTexture(p, true));
@@ -351,6 +380,13 @@ class SortingScene extends BaseScenarioScene {
       if (d < 110 && d < bestD) { best = id; bestD = d; }
     });
     return best;
+  }
+
+  /** What the number keys send: the last package scanned while it is still on the belt, else the front one. */
+  keyTarget() {
+    const t = this.target;
+    if (t && !t.done && !t.dragging && this.packages.indexOf(t) >= 0) return t;
+    return this.frontPackage();
   }
 
   frontPackage() {
@@ -573,7 +609,7 @@ class SortingScene extends BaseScenarioScene {
     this.waveTime += dt;
     this.elapsed += dt;
     const remaining = this.totalTime - this.elapsed;
-    this.setTimer(remaining, remaining < 10);
+    this.setTimer(Math.max(0, remaining), remaining < 10);     // (the last pieces of a wave can take it past zero)
 
     if (this.jammed) {
       this.jamTimer -= dt;
@@ -585,7 +621,7 @@ class SortingScene extends BaseScenarioScene {
     }
 
     this.spawnTimer -= dt;
-    if (!this.jammed && this.spawnTimer <= 0 && this.waveTime < this.wave.duration - 1) {
+    if (!this.jammed && this.spawnTimer <= 0 && this.waveTime < this.wave.duration - 2) {
       this.spawn();
       this.spawnTimer = this.wave.spawnEvery * (0.8 + Math.random() * 0.4);
     }
@@ -606,14 +642,16 @@ class SortingScene extends BaseScenarioScene {
       if (p.img.x > this.BELT_END + 10) this.missPackage(p);
     });
 
-    const front = this.frontPackage();
+    const front = this.keyTarget();
     if (front) {
       this.indicator.setVisible(true).setPosition(front.img.x, front.img.y);
     } else {
       this.indicator.setVisible(false);
     }
 
-    if (this.waveTime >= this.wave.duration) {
+    // a wave ends once its belt is clear, so no piece is judged by the next wave's bins (a DG piece used to "belong"
+    // in Route 3 once the cage had gone)
+    if (this.waveTime >= this.wave.duration && !this.packages.some(p => !p.done)) {
       if (this.waveIndex + 1 < this.content.waves.length) this.startWave(this.waveIndex + 1);
       else this.endShift();
     }

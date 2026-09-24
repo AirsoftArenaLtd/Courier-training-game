@@ -28,6 +28,7 @@ class LoadingScene extends BaseScenarioScene {
     this.buildPanel();
     this.hud({ score: this.mode === 'find', timer: true });
     this.buildPackages();
+    this.setupKeyboard();
 
     this.introCard(C.intro.title, C.intro.lines, () => {
       this.running = true;
@@ -100,8 +101,8 @@ class LoadingScene extends BaseScenarioScene {
       // the controls own the bottom of the panel; the cart is laid out above them (see layoutCart)
       this.balanceLabel = OTR.txt(this, px - 150, 548, 'WEIGHT OVERHEAD', 12, '#C9B3F0', { ox: 0 }).setDepth(26);
       this.balanceBar = OTR.ui.bar(this, px - 150, 570, 300, 12, { color: (v) => OTR.color.lerp(0x2BC48A, 0xF0435A, v), bgAlpha: 0.4 }).setDepth(26);
-      this.strapBtn = OTR.ui.button(this, px, 606, 'Strap the floor load', () => this.strapLoad(), { w: 300, h: 44, skin: 'purple', fontSize: 16 }).setDepth(26);
-      this.doneBtn = OTR.ui.button(this, px, 658, 'Close up & roll out ▶', () => this.finishLoad(), { w: 300, h: 46, skin: 'orange', fontSize: 17 }).setDepth(26);
+      this.strapBtn = OTR.ui.button(this, px, 606, 'Strap the floor load (T)', () => this.strapLoad(), { w: 300, h: 44, skin: 'purple', fontSize: 16, key: 'T' }).setDepth(26);
+      this.doneBtn = OTR.ui.button(this, px, 658, 'Close up & roll out (R) ▶', () => this.finishLoad(), { w: 300, h: 46, skin: 'orange', fontSize: 17, key: 'R' }).setDepth(26);
       this.doneBtn.setEnabled(false);
     }
   }
@@ -109,7 +110,7 @@ class LoadingScene extends BaseScenarioScene {
   /* ------------------------------------------------------------------ packages */
   pkgTex(p) {
     const dims = { s: [76, 56], m: [104, 74], l: [136, 96], env: [104, 26] }[p.size || 'm'];
-    const key = `loadpkg_${p.id}`;
+    const key = `loadpkg_${this.mode}_${p.id}`;
     return OTR.tex.make(this, key, dims[0] + 26, dims[1] + 34, (ctx, w, h) => {
       const cv = OTR.cv;
       if (p.size === 'env') {
@@ -118,11 +119,13 @@ class LoadingScene extends BaseScenarioScene {
       } else {
         OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 16, x: 4, y: 22, color: p.hazmat ? 0xD8C9A8 : 0xC99A62 });
       }
-      // mini label
+      // the label, as wide as the face allows and in type as large as fits (it used to be ~6 px on the shelves, so
+      // Ct and Ln could not be told apart); the hover card shows the whole label
       const ly = p.size === 'env' ? 16 : 34;
-      cv.rr(ctx, 12, ly, dims[0] * 0.66, 22, 2); ctx.fillStyle = '#fff'; ctx.fill();
+      const lw = dims[0] - 16;
+      cv.rr(ctx, 10, ly, lw, 22, 2); ctx.fillStyle = '#fff'; ctx.fill();
       ctx.fillStyle = '#1D1030'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-      cv.fitText(ctx, `${p.number} ${p.street || ''}${p.unit ? ' #' + p.unit : ''}`, 16, ly + 11, dims[0] * 0.66 - 8, 13);
+      cv.fitText(ctx, `${p.number} ${p.street || ''}${p.unit ? ' #' + p.unit : ''}`, 14, ly + 11, lw - 8, 17);
       // weight tag
       const heavy = p.weight >= 35;
       cv.rr(ctx, 12, ly + 26, 48, 18, 3); ctx.fillStyle = heavy ? '#E8304A' : '#3A2A50'; ctx.fill();
@@ -130,10 +133,13 @@ class LoadingScene extends BaseScenarioScene {
       ctx.fillText(`${p.weight} LB`, 17, ly + 35);
       if (p.fragile) OTR.draw.mark(ctx, 'fragile', dims[0] - 6, ly + 30, 15);
       if (p.hazmat) OTR.draw.mark(ctx, (p.marks && p.marks[0]) || 'class3', dims[0] - 4, ly + 28, 18);
-      // stop number badge
-      ctx.beginPath(); ctx.arc(dims[0] + 6, 16, 13, 0, Math.PI * 2); ctx.fillStyle = '#FF6600'; ctx.fill();
-      ctx.fillStyle = '#fff'; ctx.font = '900 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
-      ctx.fillText(String(p.stop), dims[0] + 6, 17);
+      // the stop badge helps while loading; finding a package has to be done by reading its address (the badge
+      // used to answer the rounds without it)
+      if (this.mode === 'load') {
+        ctx.beginPath(); ctx.arc(dims[0] + 6, 16, 13, 0, Math.PI * 2); ctx.fillStyle = '#FF6600'; ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = '900 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
+        ctx.fillText(String(p.stop), dims[0] + 6, 17);
+      }
     });
   }
 
@@ -151,9 +157,13 @@ class LoadingScene extends BaseScenarioScene {
       if (this.mode === 'find') img.on('pointerup', () => this.pickPackage(p));
       if (this.mode === 'load') {
         this.input.setDraggable(img);
-        img.on('dragstart', () => { this.hideCard(); img.setDepth(60); this.dragging = p; this.drawSlots(this.slots.filter(s => !s.pkg)); });
+        img.on('dragstart', () => {
+          this.hideCard(); img.setDepth(60); this.dragging = p;
+          p.from = { slot: p.slotRef, x: img.x, y: img.y, scale: img.scale };     // where a refused drop goes back to
+          this.drawSlots(this.slots.filter(s => !s.pkg));
+        });
         img.on('drag', (pointer, dx, dy) => { img.x = dx; img.y = dy; });
-        img.on('dragend', () => { img.setDepth(20); this.dragging = null; this.dropPackage(p, img); this.drawSlots(); });
+        img.on('dragend', (pointer) => { img.setDepth(20); this.dragging = null; this.dropPackage(p, img, pointer); this.drawSlots(); });
       }
       if (p.slot) {
         const s = this.slots.find(x => x.id === p.slot);
@@ -184,6 +194,8 @@ class LoadingScene extends BaseScenarioScene {
     if (this.mode === 'load') {
       this.panelTitle.setText(this.cart.length ? `CART · ${this.cart.length} TO LOAD` : 'CART EMPTY');
       if (this.doneBtn) this.doneBtn.setEnabled(this.cart.length === 0);
+      // the straps go on over a loaded floor: not before everything is in (they used to cross an empty floor)
+      if (this.strapBtn && !this.strapped) this.strapBtn.setEnabled(this.cart.length === 0);
       this.updateBalance();
     }
   }
@@ -201,18 +213,148 @@ class LoadingScene extends BaseScenarioScene {
     return true;
   }
 
-  dropPackage(p, img) {
-    const slot = this.slots.find(s => !s.pkg && img.x > s.x && img.x < s.x + s.w && img.y > s.y && img.y < s.y + s.h);
-    if (slot) {
+  /**
+   * Where the pointer lets go decides (not the package's centre, so a package held by its edge lands where it is
+   * aimed): an empty slot takes it; its own slot keeps it (a nudge used to throw it back in the cart); a full slot
+   * sends it back where it came from, with a word; anywhere else takes it off the shelf, back to the cart.
+   */
+  dropPackage(p, img, pointer) {
+    const px = pointer ? pointer.x : img.x, py = pointer ? pointer.y : img.y;
+    const slot = this.slots.find(s => px > s.x && px < s.x + s.w && py > s.y && py < s.y + s.h);
+    const floorBefore = this.floorState();
+    if (slot && (slot.pkg === p || !slot.pkg)) {
+      const moved = slot !== p.slotRef;
       this.place(p, slot);
-      OTR.audio.play('thud');
-      this.checkPlacement(p, slot);
+      if (moved) { OTR.audio.play('thud'); this.checkPlacement(p, slot); }
+    } else if (slot) {
+      const from = p.from || {};
+      if (from.slot) this.place(p, from.slot);
+      else { img.setPosition(from.x, from.y).setScale(from.scale || img.scale); }
+      OTR.audio.play('click_dud');
+      this.floatAt(slot.x + slot.w / 2, slot.y + 22, 'That space is taken', '#FFC83D');
     } else {
       if (p.slotRef) { p.slotRef.pkg = null; p.slotRef = null; }
       if (this.cart.indexOf(p) < 0) this.cart.push(p);
       OTR.audio.play('pop');
     }
+    if (this.strapped && this.floorState() !== floorBefore) this.unstrap();
     this.layoutCart();
+  }
+
+  /**
+   * The keyboard does everything the mouse does: the arrow keys move a highlight to the nearest package (or, while
+   * one is held, the nearest slot) in that direction, showing its label as hovering would; ENTER or SPACE picks it
+   * up and puts it down (load), or chooses it (find).
+   */
+  setupKeyboard() {
+    this.kb = { at: null, held: null };
+    this.kbMark = OTR.tex.liveShape(this).setDepth(66);
+    const go = (dx, dy) => () => { if (this.running && !this.scene.isPaused() && !(this._openModals > 0)) this.kbMove(dx, dy); };
+    OTR.onKey(this, 'keydown-LEFT', go(-1, 0));
+    OTR.onKey(this, 'keydown-RIGHT', go(1, 0));
+    OTR.onKey(this, 'keydown-UP', go(0, -1));
+    OTR.onKey(this, 'keydown-DOWN', go(0, 1));
+    const act = () => { if (this.running && !this.scene.isPaused() && !(this._openModals > 0)) this.kbAct(); };
+    OTR.onKey(this, 'keydown-ENTER', act);
+    OTR.onKey(this, 'keydown-SPACE', act);
+  }
+
+  /** What the keyboard can point at now: packages, or with one held, the slots it can go in (and its own). */
+  kbTargets() {
+    if (this.kb.held) {
+      return this.slots.filter(s => !s.pkg || s.pkg === this.kb.held).map(s => ({ x: s.x + s.w / 2, y: s.y + s.h / 2, w: s.w, h: s.h, slot: s }));
+    }
+    return this.pkgs.filter(p => { const i = this.sprites[p.id]; return i.visible && i.input && i.input.enabled; })
+      .map(p => { const i = this.sprites[p.id]; return { x: i.x, y: i.y, w: i.displayWidth, h: i.displayHeight, pkg: p }; });
+  }
+
+  kbMove(dx, dy) {
+    const list = this.kbTargets();
+    if (!list.length) return;
+    const cur = this.kb.at && list.find(t => (t.pkg && t.pkg === this.kb.at.pkg) || (t.slot && t.slot === this.kb.at.slot));
+    let next;
+    if (!cur) next = list[0];
+    else {
+      // the nearest target in that direction, favouring the straight line
+      let best = null, bestD = 1e9;
+      list.forEach(t => {
+        const ax = t.x - cur.x, ay = t.y - cur.y;
+        const along = ax * dx + ay * dy;
+        if (along <= 4) return;
+        const d = along + Math.abs(ax * dy + ay * dx) * 2.5;
+        if (d < bestD) { bestD = d; best = t; }
+      });
+      next = best || cur;
+    }
+    this.kb.at = next;
+    this.kbDraw();
+    OTR.audio.play('hover');
+  }
+
+  kbDraw() {
+    const t = this.kb.at;
+    this.kbMark.redraw((g) => {
+      if (!t) return;
+      g.lineStyle(4, this.kb.held ? 0x2BC48A : 0xFFC83D, 1);
+      g.strokeRoundedRect(t.x - t.w / 2 - 6, t.y - t.h / 2 - 6, t.w + 12, t.h + 12, 10);
+    });
+    if (t && t.pkg) this.showCard(t.pkg, this.sprites[t.pkg.id]); else this.hideCard();
+    if (this.kb.held) {
+      const img = this.sprites[this.kb.held.id];
+      if (t) img.setPosition(t.x, t.y - 8);
+    }
+  }
+
+  kbAct() {
+    const t = this.kb.at;
+    if (!t) { this.kbMove(1, 0); return; }
+    if (this.mode === 'find') { if (t.pkg) this.pickPackage(t.pkg); this.kb.at = null; this.kbDraw(); return; }
+    if (!this.kb.held && t.pkg) {
+      // pick it up: the highlight now walks the slots it can go in
+      const p = t.pkg, img = this.sprites[p.id];
+      p.from = { slot: p.slotRef, x: img.x, y: img.y, scale: img.scale };
+      this.kb.held = p;
+      img.setDepth(60);
+      this.drawSlots(this.slots.filter(s => !s.pkg));
+      this.kb.at = null;
+      this.kbMove(0, -1);
+      OTR.audio.play('pop');
+      return;
+    }
+    if (this.kb.held && t.slot) {
+      const p = this.kb.held, img = this.sprites[p.id];
+      this.kb.held = null;
+      img.setDepth(20);
+      this.dropPackage(p, img, { x: t.x, y: t.y });
+      this.drawSlots();
+      this.kb.at = null;
+      this.kbDraw();
+    }
+  }
+
+  /** Pause: a package being dragged goes back where it came from (its slot, or the cart). */
+  cancelDrag() {
+    const p = this.dragging;
+    if (!p || typeof p !== 'object') return;
+    this.dragging = null;
+    const img = this.sprites[p.id];
+    img.setDepth(20);
+    if (p.from && p.from.slot) this.place(p, p.from.slot);
+    this.layoutCart();
+    this.drawSlots();
+  }
+
+  /** What is on the floor, as a string, so a change after strapping can be noticed. */
+  floorState() {
+    return this.slots.filter(s => s.level === 'floor').map(s => (s.pkg ? s.pkg.id : '-')).join(',');
+  }
+
+  /** A message over the load that stays on screen (the section A ones used to start off the left edge). */
+  floatAt(x, y, text, color) {
+    const t = OTR.txt(this, 0, 0, text, 15, '#000', { bold: false });
+    const half = t.width / 2 + 12;
+    t.destroy();
+    OTR.fx.floatText(this, OTR.util.clamp(x, half, 912 - half), y, text, color, { size: 15, rise: 30, hold: 1300 });
   }
 
   /**
@@ -235,7 +377,7 @@ class LoadingScene extends BaseScenarioScene {
   checkPlacement(p, slot) {
     const problems = this.problemsFor(p, slot);
     if (problems.length) {
-      OTR.fx.floatText(this, slot.x + slot.w / 2, slot.y + 22, problems.slice(0, 2).join('\n'), '#FF9A9A', { size: 15, rise: 30, hold: 1300 });
+      this.floatAt(slot.x + slot.w / 2, slot.y + 22, problems.slice(0, 2).join('\n'), '#FF9A9A');
     } else {
       OTR.fx.sparkle(this, slot.x + slot.w / 2, slot.y + slot.h / 2, 0x2BC48A);
     }
@@ -270,7 +412,8 @@ class LoadingScene extends BaseScenarioScene {
     if (p.fragile) tags.push('FRAGILE');
     if (p.hazmat) tags.push('DANGEROUS GOODS');
     c.add([g, this.add.image(0, 0, OTR.labelArt.key(this, p, w, h)).setDisplaySize(w, h),
-      OTR.txt(this, 0, h / 2 + 17, `STOP ${p.stop}  ·  ${p.weight} LB${tags.length ? '  ·  ' + tags.join('  ·  ') : ''}`, 13, '#FFC83D', { weight: '900' })]);
+      // (no stop number while finding: the address is what has to be read)
+      OTR.txt(this, 0, h / 2 + 17, `${this.mode === 'load' ? `STOP ${p.stop}  ·  ` : ''}${p.weight} LB${tags.length ? '  ·  ' + tags.join('  ·  ') : ''}`, 13, '#FFC83D', { weight: '900' })]);
     this.card = c;
     this.cardFor = p;
   }
@@ -281,17 +424,25 @@ class LoadingScene extends BaseScenarioScene {
   }
 
   strapLoad() {
-    if (this.strapped) return;
+    if (this.strapped || this.cart.length) return;
     this.strapped = true;
     OTR.audio.play('success');
     const g = this.geom;
-    OTR.tex.shape(this, (s) => {
+    this.straps = OTR.tex.shape(this, (s) => {
       s.lineStyle(10, 0xE8A33D, 1);
       s.lineBetween(g.x0 + 10, g.floorY + 40, g.x0 + 760, g.floorY + 40);
       s.lineBetween(g.x0 + 10, g.floorY + 104, g.x0 + 760, g.floorY + 104);
     }).setDepth(40);
     this.strapBtn.setLabel('Load strapped ✓').setEnabled(false);
     OTR.ui.toast(this, 'Floor load strapped. Nothing shifts when you brake.');
+  }
+
+  /** The floor load changed after strapping: the straps come off and have to go on again. */
+  unstrap() {
+    this.strapped = false;
+    if (this.straps) { this.straps.destroy(); this.straps = null; }
+    this.strapBtn.setLabel('Strap the floor load (T)').setEnabled(this.cart.length === 0);
+    OTR.ui.toast(this, 'The floor load changed: strap it again before you roll.');
   }
 
   finishLoad() {
@@ -429,18 +580,23 @@ class LoadingScene extends BaseScenarioScene {
   }
 
   /** Nobody should be stuck on a round forever: a nudge at 25 s, and the package shown at 45 s (not scored clean). */
+  /** Hints that match where the package really is (they used to call a package in its floor bay a misload). */
   helpIfStuck(secs) {
     const r = this.round, help = this.roundHelp;
+    const p = this.pkgs.find(x => x.id === r.pkg), s = p && p.slotRef;
+    const sec = r.stop <= 3 ? 'A' : r.stop <= 6 ? 'B' : 'C';
+    const misload = !!(s && s.min && (p.stop < s.min || p.stop > s.max));
     if (secs > 25 && !help.nudged) {
       help.nudged = true;
-      const sec = r.stop <= 3 ? 'A' : r.stop <= 6 ? 'B' : 'C';
-      this.hintText.setText(`Stuck? Stop ${r.stop} should be in section ${sec} — unless it was misloaded. Hover a package to read its whole label.`);
+      this.hintText.setText(`Stuck? Stop ${r.stop} belongs in section ${sec}, or in a floor bay if it is bulky. Hover a package to read its whole label.`);
     }
     if (secs > 45 && !help.shown) {
       help.shown = true;
       this.roundClean = false;
       const img = this.sprites[r.pkg];
-      this.hintText.setText('There it is. A misloaded package costs this much time at every stop.');
+      this.hintText.setText(misload ? `There it is, misloaded in section ${s.col}. A misload costs this much time at every stop.`
+        : s && s.level === 'floor' ? 'There it is, in the floor bay: bulky freight rides on the floor.'
+          : `There it is, in section ${sec}. Work the shelves section by section.`);
       if (img) this.tweens.add({ targets: img, scale: img.scale * 1.12, duration: 320, yoyo: true, repeat: 5, ease: 'Sine.inOut' });
       if (img) OTR.fx.sparkle(this, img.x, img.y, 0xFFC83D);
     }
