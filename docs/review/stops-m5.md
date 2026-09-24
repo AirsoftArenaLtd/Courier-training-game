@@ -305,6 +305,10 @@ in the van world x = screen x.
 - **Evidence:** `m5b-61-report-ad2-bad.png`, `m5b-64-adult-results.png`
 - **Suggested fix:** a `critical` flag on log items (illegal release, package left after a failed attempt) that caps
   the stop and the scenario rating; also show negative lines as "-3" rather than "-3/2".
+- **Status:** fixed — releasing a signature or adult-signature package against the rules, and leaving one unattended,
+  are `critical` penalties: the stop report caps the category at 1★ and marks the line "CRITICAL ·" in red, and the
+  module result says "CRITICAL MISTAKE" with Service at most 1★ and the lesson first. Penalty lines already print as
+  "-2"; the "-3/2" seen was not reproduced.
 
 ### STOPS-M5-21: The ID card covers the person holding it, so "compare the photo" is impossible
 - **Severity:** minor

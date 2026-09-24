@@ -77,6 +77,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   `SortingScene.js:552-553` (stats line is the 4th+ item, then `slice(0, 3)`).
 - **Suggested fix:** only say "Flawless" when there were no faults at all (no wrong, missed, blind or timed-out
   jams); otherwise "Great work!". Put the stats line first (or in its own slot) so it always shows.
+- **Status:** fixed — the results headline comes from `OTR.scoring.headline()` (WP1): "FLAWLESS!" only when the run
+  made no mistakes at all (Sort Belt passes its fault count: wrong, missed, blind scans and jams left uncleared), and
+  "GREAT WORK!" needs every category at 2★ or more. The stats line is a `summary` with its own row on the results
+  card, so no lesson can push it off.
 
 ### WAREHOUSE-5: Lift Right praises "Clean lift — your back barely noticed" on a dropped box and on a reach-and-twist
 - **Severity:** major (teaches the wrong thing at the exact moment of the mistake)
@@ -106,6 +110,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LiftingScene.js:550` vs `:571`.
 - **Suggested fix:** one formula; show the HUD score that the results will use, or drop the HUD score and show
   Back Health prominently on the results.
+- **Status:** fixed — `LiftingScene.endScenario()` no longer replaces the score the HUD built lift by lift, and the
+  results card shows stars earned out of stars possible instead of a bare score (SHELL-16). Back Health and technique
+  are the run's `summary` line on the results card.
 
 ### WAREHOUSE-7: Results takeaways are cut at three, so later mistakes and the stats line silently disappear
 - **Severity:** minor
@@ -120,6 +127,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LiftingScene.js:568-574`, `SortingScene.js:552-553`.
 - **Suggested fix:** give the stats line its own row on the results card; show up to four lessons, or order them by
   severity (a twist/heavy/DG mistake before "keep a steady rhythm").
+- **Status:** fixed — no scene slices its lessons any more. The results card lists the takeaways ranked (critical
+  first, then by points lost; Lift Right orders its own by danger: climb, heavy, twist, overhead, drop …), with
+  repeats counted ("× 6"), at least four (smaller type if needed) and "+ N more to work on" for the rest; the stats
+  line has its own row (`summary`).
 
 ### WAREHOUSE-8: Lift Right: the "carry it to the pallet and pivot" half of the lesson can be skipped entirely
 - **Severity:** design

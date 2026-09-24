@@ -90,6 +90,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   talk effects are logged under `service`.
 - **Suggested fix:** either show all three categories in M8, or re-home the safety-relevant checks (a package left
   on the steps is a trip hazard) under `safety`.
+- **Status:** fixed — every stop scenario (m5-pod, m5-exceptions, m5-adult, m8-steps, m8-dog, m8-heat) now declares
+  all three categories, since a stop always scores all three (cab climb and hazards: safety; scan and time:
+  efficiency; the delivery: service), as the route day already showed. Nothing a stop scores is hidden any more.
 
 ### STOPS-M8-6: Sam's "good" answer has the courier say "I moved the hose and toys off the path" even when they tripped over both and moved nothing
 - **Severity:** minor (content)
@@ -151,6 +154,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/m8steps-result.png`, `s3-report.png`
 - **Suggested fix:** pick the header from the weakest shown category (1★ safety → not "GREAT WORK!"), and filter the
   takeaways by `scenario.categories`.
+- **Status:** fixed (headline and takeaways; falls as criticals are WP2b) — "GREAT WORK!" now needs every category at
+  2★ or more, so 1★ safety can never read as praise, and the takeaways only come from the scenario's categories, which
+  now include every category a stop scores (STOPS-M8-5).
 
 ### STOPS-M8-10: The fence is drawn behind the dog and the gate in front of the courier, so the "dog behind the fence" looks loose on the sidewalk and the courier looks inside the yard
 - **Severity:** major (the picture contradicts the situation being taught)

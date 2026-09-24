@@ -121,6 +121,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/scenes/ResultsScene.js:124` stamps at `(px + 290, py - ph/2 + 170)`, which is the first
   category row (`y = -ph/2 + 150 + 18`, stars at `catX + 170`, "▲ BEST" at `catX + 270`).
 - **Suggested fix:** stamp at about `(px - 100, py - ph/2 + 190)` (right of the score), or on the header band.
+- **Status:** fixed — the "NEW BEST" stamp sits under the star total on the left of the card, clear of the category
+  rows and their "▲ BEST" tags.
 
 ### SHELL-9: Hub rank bar disagrees with its own label after the first rank-up ("18 / 34 ★" but the bar is 20 % full)
 - **Severity:** minor (progression is the thing a trainee watches)
@@ -137,6 +139,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   `info.progress` from `src/core/save.js:126` (band-relative). `ResultsScene.js:98-104` likewise.
 - **Suggested fix:** label the band: `${total - rank.stars} / ${next.stars - rank.stars} ★ to ${next.name}` (hub and
   results), or fill the bar with `total / next.stars`.
+- **Status:** fixed — the hub's rank row now counts the stars of the current band ("4 / 20 ★") like its bar, and the
+  results card labels its career bar ("CAREER 18 ★ · 4 / 20 ★ to Courier", `OTR.save.rankLabel`).
 
 ### SHELL-10: The day summary can never be reached (dead screen), and the "day" only moves on after a route day
 - **Severity:** design (flagging so nobody spends time polishing a screen trainees never see)
@@ -243,6 +247,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/scenes/ResultsScene.js:36` (headline), `:43-50` (score), `:96-104` (career line).
 - **Suggested fix:** show score as "1800 / 1800" or a percentage, or drop it in favour of stars; use "GOOD EFFORT" (or
   similar) for the middle band; label the bar "6 / 14 ★ to Rookie".
+- **Status:** fixed — the results card shows stars earned out of stars possible ("4 / 6") instead of a bare score, the
+  middle headline is "GOOD EFFORT" ("KEEP PRACTICING" below it, US spelling), the career bar is labelled (SHELL-9),
+  and the scenario brief says "Best 4 / 6 ★ · played 3×". Key hints on the buttons are SHELL-11 (WP8).
 
 ### SHELL-17: Hub polish: unlabelled stat tiles, a "DAY 1 · STATION" pill that looks like a button, orange-on-orange route card
 - **Severity:** polish
@@ -319,6 +326,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/scenes/HubScene.js:82` counts every id in `save.data.scenarios`.
 - **Suggested fix:** count scenarios with `starSum(bestStars) > 0` (or ≥ 1 star per category) and label it
   "1/24 passed"; keep "played" separately if wanted.
+- **Status:** fixed — the hub counts scenarios *passed* (at least one star in every category they score): "3/24
+  passed".
 
 ### SHELL-22: Small consistency points across the shell screens
 - **Severity:** polish

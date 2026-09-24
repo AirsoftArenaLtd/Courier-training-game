@@ -16,6 +16,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/missing-bad-results.png`
 - **Suspected cause:** `src/core/scorelog.js:51-54` `ratio()` returns 1 when a category has no checks (`t.max <= 0` and no penalty). Ending a conversation early leaves whole categories unchecked.
 - **Suggested fix:** when a category has no checks, either score it from the outcome (bad ending = 0) or show it as not assessed and exclude it from career stars. Alternatively give each ending an explicit per-category score (the end nodes already carry `effects`, which are ignored, see DIALOGUE-4).
+- **Status:** fixed — a category the run never tested (no check and no penalty in it) earns no stars and the results
+  card says "not tested this run" (`ScoreLog.tested`, `OTR.flow.complete`); only tested categories count toward the
+  headline and the star total.
 
 ### DIALOGUE-2: Number-pad keys do not pick answers
 - **Severity:** polish
@@ -92,6 +95,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Repro:** m3-twostops: "Sure! I'll wander up and find the corner office." costs efficiency −2 (the whole reason it is only "OKAY, BUT…": "roaming a secure building eats route time") — the results screen has no efficiency row, so on the visible categories the choice costs one safety point. "Sign here." (+1 efficiency) and "Hand over the package and hurry" (+1 efficiency) earn nothing visible. m8-incident has ten choices with efficiency effects (`data/m8_incident.js:49, 88, 94, 143, 163, 169, 175, 199, 205, 211`), m4-damaged one (`m4_dialogues.js:290`), m4-storm two (`457, 475`).
 - **Expected:** every scored effect shows up somewhere the trainee can see it.   **Actual:** `DialogueScene.run()` hands the talk engine all categories (`cats: OTR.scoring.CATS`, `DialogueScene.js:171`), the log records efficiency checks, and the results show only the scenario's `categories`. Same family as STOPS-M8-5 (m8-steps / m8-heat), different scene.
 - **Suggested fix:** either add `efficiency` to these scenarios' `categories`, or drop the efficiency effects from their data (and write the "ok" feedback so it does not promise a trade-off the scoring does not show).
+- **Status:** fixed — efficiency is declared (and shown) where the conversation teaches it: m3-twostops and
+  m8-incident now score safety, service and efficiency. m4-damaged and m4-storm had one and two "+1 efficiency"
+  effects on middling answers; those are removed (their feedback never promised a time saving).
 
 ### DIALOGUE-11: m3-twostops text inconsistencies: "Not Documented" after you documented it; "back outside the gate" after freezing or crouching; narration under the dog's name
 - **Severity:** minor

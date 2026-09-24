@@ -59,6 +59,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `p28-results2.png`; report `p26-report.png` ("1 caught · 3 missed · 2 wrongly flagged").
 - **Suspected cause:** `PreTripScene.js:320` scores time on its own (`elapsed <= par ? 3 : …`).
 - **Suggested fix:** scale the efficiency check by the safety ratio (or give no time credit when anything was missed), and/or add a minimum sensible time per item so clicking straight through earns nothing.
+- **Status:** fixed — the walkaround's time check goes through `OTR.scoring.gateTime(time, accuracy)`, accuracy =
+  caught / (defects + wrongly flagged): below 50 % the time earns nothing, above it the time ratio is capped by the
+  accuracy. The 35-second pass-everything run (1 of 4 caught, 2 false flags) now gets 0 efficiency stars, and missing
+  a defect is also a critical safety mistake (see PRP-23).
 
 ### PRP-7: Pre-trip tires: one painter and one reading for three different tire defects, and the limit is never taught
 - **Severity:** minor (content)
@@ -78,6 +82,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `r17-results.png`; round cards `r10-round1-result.png`, `r13-round2-result.png`.
 - **Suspected cause:** `RoutePlannerScene.js:816-823` (weights from `data/m1_routes.js` services) and the shared headline rule `src/scenes/ResultsScene.js:36` (≥ 66 % of stars is "GREAT WORK!").
 - **Suggested fix:** cap Service at 1 star when any First Overnight or pickup is missed (or weight First/pickups much higher), and let the scene pass a headline so a missed commitment never reads "GREAT WORK!".
+- **Status:** fixed — a late First Overnight and a missed pickup are logged `critical`
+  (`RoutePlannerScene.roundDone`): Service is capped at 1★, the headline is "CRITICAL MISTAKE" on a red header, no
+  confetti, and the commitment lesson heads the takeaways marked "Critical:".
 
 ### PRP-9: Route Planner round card compares your driving time with the best plan's total time
 - **Severity:** minor
@@ -122,6 +129,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `b19-results.png`
 - **Suspected cause:** `src/core/scorelog.js:63-70` returns lessons in log order and `PickupScene.js:462-463` keeps the first two, then pads with keyLessons.
 - **Suggested fix:** rank lessons by points lost (a wrong accept/refuse is worth 2, the talk and the count less), one per kind, and skip a keyLesson that restates one already shown.
+- **Status:** fixed — takeaways are ranked by `ScoreLog.takeaways()`: critical first, then by points lost, one per
+  distinct lesson with its count, so the wrong accept/refuse calls (2 points each) come before the count (1) and the
+  conversation. The scenario's key lessons now follow the ranked mistakes instead of filling in after the first two.
 
 ### PRP-14: Pickups (like the pre-trip, PRP-6) give time stars regardless of the calls made
 - **Severity:** minor
@@ -129,6 +139,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Repro:** the sloppy run in PRP-13 took 26 s: Efficiency 2 of 3 stars, "+3 new career stars".
 - **Suspected cause:** `PickupScene.js:457-459`, time check independent of correctness.
 - **Suggested fix:** same as PRP-6: only credit speed when the calls were right.
+- **Status:** fixed — the pickup's time check is gated by the share of right accept/refuse calls
+  (`OTR.scoring.gateTime`), and a gated miss says why ("Speed only counts when the calls are right").
 
 ### PRP-15: International invoice: wrong flags are scored but never shown, and the "Sale" line is arguable
 - **Severity:** minor
@@ -146,6 +158,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Repro:** as PRP-15, then Accept piece 1 and refuse piece 2 as "Paperwork incomplete"; finish.
 - **Expected:** you just sent a customs shipment you had found faulty to the border and split a two-piece shipment; that is the failure the scenario exists to prevent. **Actual:** the wrong accept costs 2 service points of 14; the results read "GREAT WORK!", score 1200, "+5 new career stars". Same root as PRP-8: one critical wrong call is diluted by many small checks.
 - **Suggested fix:** treat accepting a piece whose invoice you rejected (or any undeclared DG accept in m7-dg) as a cap on the Service/Safety stars, and let the scene override the headline.
+- **Status:** fixed — accepting a piece whose right answer is a refusal for paperwork (DOC) or undeclared dangerous
+  goods (DG) is a critical mistake (`PickupScene.decide`): its category is capped at 1★ and the results say "CRITICAL
+  MISTAKE".
 
 ### PRP-17: m7-dg: "that grey one is just a litre of solvent" points at the properly declared box, not the solvent
 - **Severity:** major (the dialogue steers the trainee to refuse the legal DG box and accept the undeclared one)
@@ -203,6 +218,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `p31-report-allflag.png`, `p32-results-allflag.png`
 - **Suspected cause:** `PreTripScene.js:317-318` (penalty capped at 3) and `:320` (time stars regardless, PRP-6).
 - **Suggested fix:** score precision as well as recall, e.g. safety = caught / (defects + falseFlags), or one point off per false flag without a cap; give no efficiency credit when the verdict banner is not "GOOD WALKAROUND"; never show the "GREAT WORK!" headline over a report that says the truck was held back or rolled out with defects.
+- **Status:** fixed — every good part flagged costs a safety point with no cap (16 flags cost 16, not 3), the time
+  check is gated by accuracy (PRP-6), rolling out with a missed defect is critical, and a report of a truck held back
+  for good parts caps the headline at "GOOD EFFORT" (`headlineCap`). The all-flag run now scores 0★ safety, 0★
+  efficiency, "KEEP PRACTICING".
 
 ### PRP-24: Pre-trip content: brake close-up says "holding" while the pedal sinks; signals checked with the headlight switch; air gauge on a step van
 - **Severity:** minor (content, for a subject-matter check)
@@ -238,6 +257,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `g10-results-refuseall.png`, `g09-exception.png`
 - **Suspected cause:** `PickupScene.js:348` logs `lesson: right ? null : p.why` for every piece, including `accept: true` pieces whose `why` explains why they were fine.
 - **Suggested fix:** give accept-pieces a separate `lesson` ("Properly declared and marked dangerous goods are accepted; refusing them fails the customer.") or prefix automatically ("This one was fine: …"); weigh wrong refusals of declared DG into Safety or cap the headline as in PRP-16.
+- **Status:** fixed — refusing a correctly declared dangerous-goods shipment is critical (Service capped at 1★,
+  "CRITICAL MISTAKE"). A wrongly refused good piece now teaches "This one was fine to ship (…). Refusing a good piece
+  fails the customer." instead of the piece's description, and the exception receipt no longer says the refused boxes
+  are kept "until they are fixed".
 
 ## Revisit
 
