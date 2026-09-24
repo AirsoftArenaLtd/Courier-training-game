@@ -210,7 +210,7 @@ class PickupScene extends BaseScenarioScene {
     this.showPanel(false);
     this.talkCtl = OTR.talk.run(this, C.talk, {
       cast: { shipper: { name: C.shipper.name, color: 0x3DA5FF, rig: this.shipper } },
-      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: 'immediate', depth: 3000,
       onEnd: () => { this.talkCtl = null; this.refreshPanel(); this.showPanel(true); }
     });

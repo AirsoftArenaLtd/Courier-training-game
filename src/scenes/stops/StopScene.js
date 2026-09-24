@@ -485,7 +485,7 @@ class StopScene extends BaseScenarioScene {
     // bottom panel would be) and the camera frames the courier and the dog together.
     if (this.dog && this.dog.c.alpha > 0.5) this.stage.focus((this.me.x + this.dog.x) / 2, OTR.W / 2);
     this.talkCtl = OTR.talk.run(this, graph, {
-      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: this.feedbackMode, flags: this.flagsFor(),
       acts: this.acts(cast), depth: 3000, top: !!this.dog,
       onEnd: () => {
@@ -738,7 +738,7 @@ class StopScene extends BaseScenarioScene {
       this.cameras.main.fadeIn(600);
       OTR.ui.modal(this, {
         title: 'You collapsed', w: 660, h: 340, depth: 5000,
-        body: 'A neighbour saw you go down and called 911. In real life heat stroke can be fatal. Watch your hydration and body heat, take breaks in shade or AC, and act on the warning signs straight away.',
+        body: 'A neighbor saw you go down and called 911. In real life heat stroke can be fatal. Watch your hydration and body heat, take breaks in shade or AC, and act on the warning signs straight away.',
         buttons: [{ label: 'See stop report', skin: 'orange', onClick: () => { this.S.done = true; this.evaluate(); this.report(); } }]
       });
       if (done) done();
@@ -1207,7 +1207,7 @@ class StopScene extends BaseScenarioScene {
     const cast = {};
     cast[key] = { name: ans.name, color: 0x2F8F83, rig: this.resident, moodStart: ans.moodStart || 0 };
     this.talkCtl = OTR.talk.run(this, graph, {
-      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: this.feedbackMode, flags: this.flagsFor(),
       depth: 3000,
       onEnd: () => {

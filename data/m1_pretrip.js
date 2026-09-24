@@ -43,7 +43,7 @@ OTR_DATA.pretrip = {
       consequence: 'A sidewall cut can let go without warning at highway speed.',
       lesson: 'Sidewall damage is a defect even when the tread looks fine.' },
     { id: 'leak', view: 'driver', name: 'Under the truck', kind: 'leak',
-      ok: 'Dry pavement under the engine and driveline.',
+      ok: 'Dry ground under the engine and driveline.',
       defect: 'Fresh oil dripping from the engine with a puddle forming.',
       consequence: 'An engine that loses its oil seizes, usually in traffic, usually expensively.',
       lesson: 'Look at the ground under the truck before you move it. A wet patch is the cheapest warning you will ever get.' },

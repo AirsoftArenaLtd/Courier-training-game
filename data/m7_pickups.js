@@ -48,7 +48,7 @@ OTR_DATA.pickups = {
     ],
     manifest: 7,
     // what happens when the courier raises a count that doesn't match
-    recount: { text: 'Priya checks her list. "Oh — the seventh was cancelled this morning. Sorry! I\'ll correct the manifest to six."', corrected: 6 },
+    recount: { text: 'Priya checks her list. "Oh — the seventh was canceled this morning. Sorry! I\'ll correct the manifest to six."', corrected: 6 },
     talk: {
       start: 'p0',
       nodes: {
@@ -73,7 +73,7 @@ OTR_DATA.pickups = {
       { id: 'b2', to: 'Havill Group', number: '77', street: 'Queen St', city: 'RIVERTON', service: 'standard', weight: 12, size: 'm', issues: ['crushed'], accept: false, reason: 'PKG', why: 'A crushed, re-taped box will not survive the network. Ask for it to be repacked.' },
       { id: 'b3', to: 'Delta Print', number: '41', street: 'Union Ave', city: 'RIVERTON', service: 'standard', weight: 4, size: 's', accept: true, why: 'Good condition and a complete label.' },
       { id: 'b4', to: '', number: '', street: '', city: '', service: 'standard', weight: 6, size: 'm', issues: ['no_label'], accept: false, reason: 'LBL', why: 'No label, no delivery. It needs a label printed before it can be picked up.' },
-      { id: 'b5', to: 'Orchard Foods', number: '9', street: 'Mill Rd', city: 'RIVERTON', service: 'standard', weight: 164, size: 'l', issues: ['over_weight'], accept: false, reason: 'WGT', why: '164 lb is over the limit for this service. It needs freight handling, not a parcel pickup.' },
+      { id: 'b5', to: 'Orchard Foods', number: '9', street: 'Mill Rd', city: 'RIVERTON', service: 'standard', weight: 164, size: 'l', issues: ['over_weight'], accept: false, reason: 'WGT', why: '164 lb is over the limit for this service. It needs freight handling, not a package pickup.' },
       { id: 'b6', to: 'Kestrel Media', number: '250', street: 'Harbor St', city: 'RIVERTON', service: 'signature', weight: 3, size: 'env', accept: true, why: 'Envelope in good shape with a clear label.' }
     ]
   },
@@ -176,7 +176,7 @@ OTR_DATA.pickups = {
       }
     },
     pieces: [
-      { id: 'g1', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'standard', weight: 10, size: 'm', accept: true, why: 'Plain lab consumables, properly labelled.' },
+      { id: 'g1', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'standard', weight: 10, size: 'm', accept: true, why: 'Plain lab consumables, properly labeled.' },
       { id: 'g2', to: 'Sister Lab', number: '19', street: 'Foundry Rd', city: 'RIVERTON', service: 'standard', weight: 7, size: 'm', color: 0x9FA6B2, issues: ['hazmat_undeclared'], accept: false, reason: 'DG', why: 'The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.' },
       { id: 'g3', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'hazmat', weight: 16, size: 'm', color: 0xE8DDB8, marks: ['class3'], declared: true, accept: true, why: 'Properly marked and declared dangerous goods, packed for transport.' },
       { id: 'g4', to: 'Beacon Instruments', number: '66', street: 'Kiln St', city: 'RIVERTON', service: 'standard', weight: 5, size: 's', issues: ['hazmat_undeclared'], hint: 'Contents list on the box: "lithium battery packs ×20"', accept: false, reason: 'DG', why: 'Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.' }

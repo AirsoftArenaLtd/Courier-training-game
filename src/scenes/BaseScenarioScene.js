@@ -22,6 +22,7 @@ class BaseScenarioScene extends Phaser.Scene {
   setupBase() {
     OTR.fx.enter(this);
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
   }
 
   /** Top HUD bar. o: { score: bool, timer: bool, title } */
@@ -70,7 +71,9 @@ class BaseScenarioScene extends Phaser.Scene {
   }
 
   openPause() {
-    if (this.finished || this._leaving || this.scene.isPaused() || this._openModals > 0) return;
+    // (a how-to card does not stop it: the trainee who opened the wrong scenario can leave from there; SHELL-7)
+    const blocking = (this._modalStack || []).filter(m => m.active && !m._pausable).length;
+    if (this.finished || this._leaving || this.scene.isPaused() || blocking > 0) return;
     if (this.input.keyboard) this.input.keyboard.resetKeys();
     // A drag in progress ends here: the button is released while the scene is paused, Phaser never hears it, and
     // the package used to stay glued to the cursor after Resume. Each game puts it back (cancelDrag).
@@ -98,8 +101,11 @@ class BaseScenarioScene extends Phaser.Scene {
       },
       // the card is the first thing a new part shows: Enter presses still arriving from the part before (people mash
       // through the text) are ignored for a moment, or the how-to is gone before it is read
-      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: onStart }]
+      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: onStart, hint: '⏎' }]
     });
+    // ESC and the corner pause button work on the card too (the card's dim used to swallow the click on ‖)
+    modal.root._pausable = true;
+    if (this.hudBar) modal.root.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     return modal;
   }
 

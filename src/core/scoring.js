@@ -4,6 +4,11 @@ window.OTR = window.OTR || {};
 OTR.scoring = {
   CATS: ['safety', 'efficiency', 'service'],
 
+  /** A scenario's categories in the one order every screen uses (Safety · Efficiency · Service; SHELL-22). */
+  ordered(cats) {
+    return OTR.scoring.CATS.filter(c => cats.includes(c)).concat(cats.filter(c => !OTR.scoring.CATS.includes(c)));
+  },
+
   stars(ratio, thresholds) {
     thresholds = thresholds || OTR_DATA.config.starThresholds;
     let s = 0;

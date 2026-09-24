@@ -8,6 +8,7 @@ OTR.save = {
   KEY: 'otr_save_v1',
   data: null,
   ephemeral: false, // test mode: never writes to storage
+  failed: false,    // the browser refused to store progress (private window, blocked site data, full quota)
 
   defaults() {
     return {
@@ -15,7 +16,7 @@ OTR.save = {
       profile: null,
       day: 1,
       scenarios: {},
-      settings: { muted: false, hints: true },
+      settings: { muted: false, hints: true, volume: 0.55 },
       shift: null,
       route: { days: 0, best: { safety: 0, efficiency: 0, service: 0 }, history: [] }
     };
@@ -37,11 +38,19 @@ OTR.save = {
       if (parsed.settings) {
         d.settings.muted = !!parsed.settings.muted;
         if (parsed.settings.hints !== undefined) d.settings.hints = !!parsed.settings.hints;
+        if (Number.isFinite(parsed.settings.volume)) d.settings.volume = Math.max(0, Math.min(1, parsed.settings.volume));
       }
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);
     }
     this.data = d;
+    // find out now whether anything can be kept: a trainee must hear it before a day's work is lost, not after (SHELL-14)
+    if (!this.ephemeral) {
+      try {
+        window.localStorage.setItem(this.KEY + '_probe', '1');
+        window.localStorage.removeItem(this.KEY + '_probe');
+      } catch (e) { this.failed = true; }
+    }
     return d;
   },
 
@@ -49,7 +58,14 @@ OTR.save = {
     if (this.ephemeral || !this.data) return;
     try {
       window.localStorage.setItem(this.KEY, JSON.stringify(this.data));
-    } catch (e) { /* storage unavailable — progress lasts for this session only */ }
+      this.failed = false;
+    } catch (e) { this.failed = true; /* progress lasts for this session only, and the title and hub say so */ }
+  },
+
+  /** The name as it is shown: each word starts with a capital ("lee k" → "Lee K"); the stored name is as typed. */
+  displayName() {
+    const n = this.data && this.data.profile ? this.data.profile.name : '';
+    return n.replace(/(^|[\s\-'])(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase());
   },
 
   hasProfile() {
@@ -57,9 +73,9 @@ OTR.save = {
   },
 
   createProfile(name) {
-    const muted = this.data ? this.data.settings.muted : false;
+    const settings = this.data ? this.data.settings : null;
     this.data = this.defaults();
-    this.data.settings.muted = muted;
+    if (settings) Object.assign(this.data.settings, settings);
     this.data.profile = { name: name, createdAt: Date.now() };
     this.write();
   },
@@ -72,14 +88,24 @@ OTR.save = {
 
   reset() {
     try { window.localStorage.removeItem(this.KEY); } catch (e) { /* ignore */ }
-    const muted = this.data ? this.data.settings.muted : false;
+    const settings = this.data ? this.data.settings : null;
     this.data = this.defaults();
-    this.data.settings.muted = muted;
+    if (settings) Object.assign(this.data.settings, settings);
     this.write();
   },
 
   setMuted(m) {
     this.data.settings.muted = !!m;
+    this.write();
+  },
+
+  setVolume(v) {
+    this.data.settings.volume = Math.max(0, Math.min(1, v));
+    this.write();
+  },
+
+  setHints(on) {
+    this.data.settings.hints = !!on;
     this.write();
   },
 

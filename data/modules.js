@@ -23,7 +23,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Before the wheels roll, walk around your truck. Inspect each checkpoint, flag real defects, and don\'t cry wolf over parts that are fine.',
         learn: ['Common pre-trip inspection points', 'Spotting tire, light, brake and leak defects', 'Why you never sign off on a defect'],
-        controls: 'Mouse — click a checkpoint, then choose Pass or Flag Defect.'
+        controls: 'A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint · T test it · P pass · F flag a defect'
       },
       {
         id: 'm1-route',
@@ -65,7 +65,7 @@ OTR_DATA.modules = [
         categories: ['efficiency', 'safety'],
         blurb: 'Packages ride the belt face-down. Scan each one to find out where it goes, then send it — routes, priority, damage, dangerous goods, heavy freight, and the jams in between.',
         learn: ['Scan before you sort', 'Sorting by route code', 'Priority and damage override the route', 'Dangerous goods segregation', 'Heavy pieces and team lifts', 'Clearing a jam fast'],
-        controls: 'Click a package (or SPACE) to scan · drag into a bin, or press 1-5 · SPACE clears a jam'
+        controls: 'Click a package (or SPACE) to scan · drag it into a bin, or press the bin\'s number (1-7) · SPACE clears a jam'
       },
       {
         id: 'm2-lift',
@@ -76,7 +76,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Five loads, one back. Size up each lift, then do it yourself: your knees and your distance decide how much your spine has to take, and the gauge shows it in real time.',
         learn: ['Sizing up a load before lifting', 'Knees do the work, not the back', 'Keeping the load close', 'Stepping round instead of twisting', 'When to get help or equipment'],
-        controls: 'A / D step · S bend knees · W straighten up · SPACE grip and release · 1-3 for decisions'
+        controls: 'A / D step · S bend knees · W straighten up · SPACE grip and release (or the on-screen pad) · 1-3 for decisions'
       },
       {
         id: 'm2-labels',
@@ -233,7 +233,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Twelve packages, one truck. Shelve them by stop section, keep the heavy ones low, segregate the dangerous goods and strap the floor load.',
         learn: ['Loading in stop sequence', 'Heavy low, light high', 'Fragile and dangerous goods placement', 'Securing the load before driving'],
-        controls: 'Drag packages from the cart onto the shelves'
+        controls: 'Drag packages from the cart onto the shelves, or the arrow keys and ENTER / SPACE · T strap the floor load · R roll out'
       },
       {
         id: 'm6-find',
@@ -244,7 +244,7 @@ OTR_DATA.modules = [
         categories: ['efficiency', 'service'],
         blurb: 'Somebody else loaded this truck, and not well. Find the right package for each stop against the clock, without grabbing the near-match.',
         learn: ['Reading the whole address before pulling', 'Spotting misloads', 'What a bad load costs you at every stop'],
-        controls: 'Click the package that matches the address'
+        controls: 'Click the package that matches the address, or the arrow keys and ENTER'
       }
     ]
   },
@@ -264,7 +264,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A scheduled pickup with a manifest that does not quite match the counter. Count, inspect, and refuse what cannot ship.',
         learn: ['Counting pieces against the manifest', 'Inspecting packaging and labels', 'Refusing politely with a clear reason'],
-        controls: 'Click each piece to count, then click to inspect'
+        controls: 'Click each piece to count, then click to inspect · A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-intl',
@@ -275,7 +275,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A shipment heading across the border with a commercial invoice full of the classic mistakes. Find them before customs does.',
         learn: ['What a customs description must say', 'Value, quantity and country of origin', 'Why an unsigned declaration is not a declaration'],
-        controls: 'Click the invoice lines that would hold up the shipment'
+        controls: 'Click the invoice lines that would hold up the shipment · then inspect: A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-dg',
@@ -284,9 +284,9 @@ OTR_DATA.modules = [
         scene: 'PickupScene',
         dataKey: 'pickups.m7_dg',
         categories: ['safety', 'service'],
-        blurb: 'A shipper wants "just a litre of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',
+        blurb: 'A shipper wants "just a liter of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',
         learn: ['Matching contents to marks and declarations', 'Common undeclared dangerous goods', 'Refusing firmly and helpfully'],
-        controls: 'Click each piece to inspect · accept or refuse with a reason'
+        controls: 'Click each piece to inspect · A accept · R refuse, 1-5 for the reason'
       }
     ]
   },
@@ -327,7 +327,7 @@ OTR_DATA.modules = [
         dataKey: 'stopSets.m8_heat',
         categories: ['safety', 'efficiency', 'service'],
         blurb: '102°F and three stops to go. Watch your hydration and body heat, use shade and AC, and know the warning signs of heat illness.',
-        learn: ['Hydrating through a hot shift', 'Using shade and AC to cool down', 'Recognising heat exhaustion early', 'Why "pushing through" is dangerous'],
+        learn: ['Hydrating through a hot shift', 'Using shade and AC to cool down', 'Recognizing heat exhaustion early', 'Why "pushing through" is dangerous'],
         controls: 'A/D or click to walk · E to drink, cool off or rest · TAB handheld'
       },
       {

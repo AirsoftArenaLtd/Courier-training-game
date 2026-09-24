@@ -128,7 +128,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         decoys: [{ id: 'd1', to: 'D. Harper', number: '5', street: 'Harbor View', unit: '3D', service: 'standard', weight: 6, size: 'm', tracking: '7760 0300 0504' }],
         answer: { name: 'Dee Harper', spec: P.dee, adult: true, atAddress: true, delay: 4 },
         expected: { outcome: 'deliver', types: ['recipient', 'adult'] },
-        lessons: ['In low light, slow down and look for uneven pavement, especially when a package blocks your view.']
+        lessons: ['In low light, slow down and look for uneven sidewalk, especially when a package blocks your view.']
       }
     ]
   };

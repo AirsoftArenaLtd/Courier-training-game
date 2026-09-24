@@ -246,7 +246,7 @@ class DialogueScene extends BaseScenarioScene {
       cast,
       // a change of setting rebuilds the courier, so always hand the engine the rig that is on stage now
       // (it used to keep talking through, and pointing at, the destroyed one)
-      courier: { get rig() { return s.me; }, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      courier: { get rig() { return s.me; }, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: 'immediate',
       acts: this.acts(cast),
       depth: 3000, choiceX: 944, choiceWidth: 640, top: !!this.settingSpec(this.setting).top,

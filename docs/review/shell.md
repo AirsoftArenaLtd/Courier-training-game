@@ -23,6 +23,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suggested fix:** put the walkers below the van (for example van -8, walkers -12/-11), or move the van to the far
   kerb. Related polish: the pavement tile scrolls at 26 px/s (`:163`) but the houses standing on it at 13 px/s
   (`:166`), so the houses visibly slide along the pavement slabs and the walkers' feet slide relative to the ground.
+- **Status:** fixed — the van is drawn in front of the people on the sidewalk (van −8, its exhaust −9, the walkers −11
+  and −12), so they pass behind it; the houses now drift at the sidewalk's 26 px/s, so nothing slides along the slabs.
 
 ### SHELL-2: Name entry rejects accented letters, so many trainees cannot type their own name
 - **Severity:** minor (design: respect for trainees' names at an enterprise customer)
@@ -37,6 +39,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/core/ui.js:343` whitelist `/[A-Za-z0-9 .'\-]/`.
 - **Suggested fix:** accept any printable letter, e.g. `/^[\p{L}\p{M}\p{N} .'\-]$/u`, and still block emoji and
   control keys. If a character must be refused, flash the hint line ("Letters, spaces, . ' - only").
+- **Status:** fixed — any letter in any script is accepted, with its accents (`/^[\p{L}\p{M}\p{N} .'\-]+$/u`: José,
+  Zoë, Núñez, Björn, Siobhán); a refused key (emoji, ! @ _ ,) turns the hint line red for a moment: "Letters, numbers,
+  spaces and . ' - only".
 
 ### SHELL-3: Names are silently cut at 16 characters; a 16-character name then overflows the hub profile card
 - **Severity:** minor
@@ -52,6 +57,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   at 21 px with no fit.
 - **Suggested fix:** raise the limit to about 24 and show a counter; in the hub, `setScale(Math.min(1, 240 / t.width))`
   on the name text (the module titles already do this at `HubScene.js:142`).
+- **Status:** fixed — the limit is 24 characters with a counter in the field ("17 / 24"), and a key past it says so on
+  the hint line; the name in the field, on the hub's profile card and on the title's "Continue as …" button is scaled
+  down to fit when it is wide.
 
 ### SHELL-4: Empty-name submit gives almost no feedback
 - **Severity:** polish
@@ -63,6 +71,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Evidence:** `test/out/review/shell/06-name-empty-shake-2.png`
 - **Suspected cause:** `src/core/ui.js:331-334`.
 - **Suggested fix:** also turn the hint line red with "Type your name first", and disable "Let's Roll!" while empty.
+- **Status:** fixed — "Let's Roll!" is grayed out while the field is empty, and ENTER on an empty field turns the hint
+  line red: "Type your name first" (with the wiggle and the sound as before).
 
 ### SHELL-5: The morning briefing has no pause menu and no way back to the hub
 - **Severity:** minor
@@ -98,6 +108,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `src/scenes/PauseScene.js:24-35`; `ResultsScene.js:108`; `DaySummaryScene.js:40`.
 - **Suggested fix:** confirm Restart and Quit with `OTR.ui.confirm`; rename to "Quit to Station" / "Back to the Station"
   (the name the hub and the route debrief use), or title the hub "Shift Board"; add R / Q shortcuts and show key hints.
+- **Status:** fixed — Restart and Quit each ask first ("Restart this stop?" / "Quit to the station?", saying what is
+  lost; on a route day that the day is kept and the station offers to resume it); R restarts, Q quits, C shows the
+  controls and ESC resumes, and every button shows its key. The screen is called "the station" everywhere (WP4).
 
 ### SHELL-7: The how-to-play card is a dead end: ESC and the pause button do nothing until you press Start
 - **Severity:** minor
@@ -111,6 +124,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suspected cause:** `BaseScenarioScene.js:73` `openPause()` returns while `_openModals > 0`, and the modal's
   full-screen interactive dim swallows the click on ‖.
 - **Suggested fix:** give the intro card a "Back to Station" secondary button, or let ESC on it open the pause menu.
+- **Status:** fixed — ESC and the corner ‖ button open the pause menu on a scenario's how-to card as well (the card's
+  dim no longer swallows the click), so a trainee who opened the wrong scenario can quit from there; Resume brings the
+  card back.
 
 ### SHELL-8: Results: the "NEW BEST" stamp lands on top of the first category's stars and its "▲ BEST" tag
 - **Severity:** polish (happens on every improved replay, the moment a trainee is meant to feel good)
@@ -177,6 +193,11 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suggested fix:** add arrow/Tab focus with a visible ring to `OTR.ui.button` groups (title menu, pause menu, modal
   buttons, the hub grid); show small key chips on buttons that have keys ("Retry R", "Shift Board ⏎", "Resume ESC");
   give the rank-up card `key: ['ENTER', 'SPACE']`.
+- **Status:** fixed — the title menu, the hub (scenario rows, route card, links, sound and settings), the pause menu,
+  the results screen and every dialog can be worked from the keyboard: the arrow keys (and TAB / SHIFT+TAB outside the
+  scenarios) move a gold focus ring, ENTER or SPACE presses what it is on; the ring appears only once one of those
+  keys is pressed, so the existing keys are unchanged. Buttons with a key show it as a small key cap (⏎, ESC, R, Q,
+  C). The rank-up card answers ENTER as well as SPACE.
 
 ### SHELL-12: No way to look up the controls once a scenario has started, and Settings has nothing to set
 - **Severity:** design
@@ -191,6 +212,10 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Evidence:** `test/out/review/shell/23-pause-crop.png`, `test/out/review/shell/11-hub-settings.png`
 - **Suggested fix:** add a "Controls" block (or button) to the pause menu built from `sc.controls`; add a volume
   slider and the hints toggle to Settings, or remove the unused flag.
+- **Status:** fixed (decision) — the pause menu has "Controls" (C), which lists the scenario's controls one per line
+  (a route-day stop shows those of the scenario it is played in); the controls lines were brought up to date with the
+  keys WP6 and WP7 added. Settings has a sound volume (− / + or click the bar, saved) and the route-day stop checklist
+  switch (`settings.hints`, "Stop checklist: shown / hidden").
 
 ### SHELL-13: Scenario brief: "Best score … · played N×" is printed on top of the blurb's first line
 - **Severity:** polish (every brief of a scenario you have already played)
@@ -204,6 +229,8 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   played 1×` and `318,211 603x43 First a busy office reception…`)
 - **Suspected cause:** `src/scenes/HubScene.js:257` (`-h / 2 + 118`) vs `:232` (blurb at `-h / 2 + 122`).
 - **Suggested fix:** move it into the header band (white, 13 px, right side at `-h / 2 + 30`) or next to the star rows.
+- **Status:** fixed — "Best 5 / 6 ★ · played 2×" is in the brief's colored header, on the right, in white; nothing is
+  printed over the blurb.
 
 ### SHELL-14: One profile per browser, and progress can silently fail to save
 - **Severity:** design (enterprise use: shared training-room PCs, locked-down browsers)
@@ -220,6 +247,11 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Evidence:** `test/out/review/shell/49-newprofile-name.png` (the erase confirm)
 - **Suggested fix:** store `profiles: {name: data}` and list them on the title; test storage once at boot and show a
   small banner if it fails; add a printable "training record" (scenarios, stars, dates) on the hub.
+- **Status:** fixed (decision) — storage is tested when the game loads and on every save; when it fails, the title and
+  the hub show a red "⚠ Progress can't be saved in this window" notice, which opens an explanation (private window,
+  blocked site data or a full disk; progress lasts until the tab is closed). "New Profile" already says whose progress
+  it erases and asks first. Not changed: one profile per browser; several named profiles (and a printable training
+  record) are out of scope for this pass.
 
 ### SHELL-15: British and American spelling mixed on the shell screens and in lessons ("Curb-side tires take the kerb hits")
 - **Severity:** polish (the rest of the game is US: "8:20 AM", "mph", "Maple Ave", "sidewalk", "windshield")
@@ -235,6 +267,10 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   - (m8-incident's British English is already DIALOGUE-19.)
 - **Suggested fix:** pick US English (FedEx, US addresses, mph) and run a pass: practice, practicing, curb, tires,
   "about three feet", neighbor.
+- **Status:** fixed — US English in every player-facing string: practice / practicing (hub, brief, results), curb
+  (driving lessons and the town drive's parking prompts), "about three feet", tires, neighbor (handheld, heat lesson),
+  canceled, labeled, liter, recognizing, ground / sidewalk for pavement, a package pickup. Code comments and
+  identifiers were left alone.
 
 ### SHELL-16: Results screen: a score with no scale, a "SHIFT LOGGED" headline on practice runs, and unlabelled career bar
 - **Severity:** polish / design
@@ -277,6 +313,10 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Suggested fix:** add 10 px labels under the tile numbers (SAFETY / EFFICIENCY / SERVICE); make the day badge a
   flat outlined label; use a white or purple "Resume route" button on the orange card and a white underlined
   "Abandon this route"; let the module grid grow a row for a four-scenario module or give every card room for four.
+- **Status:** fixed — the stat tiles are labeled Safety, Efficiency, Service under their numbers; the "DAY 1 ·
+  STATION" pill is a flat outlined label, not a button; on the orange route-in-progress card "Resume route ▶" is
+  purple and "Abandon this route" is white, bold and underlined (and reachable by keyboard). The four-row Safety &
+  Wellness card is SHELL-19.
 
 ### SHELL-18: First run: no guidance on where to start, and the default action for a brand-new hire is the full route day
 - **Severity:** design
@@ -293,6 +333,11 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   route day puts it all together"), a "Recommended next" highlight on one card, and either gate the route day behind a
   few academy scenarios or label it "Full day (about N min)". Make Enter on the first visit open the recommended
   scenario's brief rather than the route day.
+- **Status:** fixed (decision) — the scenario to play next (the first one not passed, in academy order) is outlined in
+  orange with a NEXT badge; for someone who has played nothing the academy header says "New here? Start with the
+  scenario marked NEXT", ENTER on the hub opens that scenario's brief instead of the route day (the route day's button
+  loses its ENTER key until something has been played), and the keyboard focus starts on it. The route day still asks
+  before it starts (WP4).
 
 ### SHELL-19: Much of the hub's secondary text is 10-12 px, and the Safety & Wellness card uses smaller row text than the others
 - **Severity:** polish (legibility on typical office laptops)
@@ -308,6 +353,10 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Evidence:** `test/out/review/shell/15-hub-bottom.png` (row sizes side by side), `16-hub-left.png`
 - **Suggested fix:** 13 px minimum for anything a trainee must read; make the Safety card taller (or the grid 4 rows
   where needed) instead of shrinking its rows (see SHELL-17).
+- **Status:** fixed — the hub's secondary text is at least 13 px (module subtitles, COURIER RANK and its count, Next
+  rank, the stars / passed line, the route card lines, DISPATCH RADIO, the NEW and NEXT badges, the star counts on the
+  rows) and so is the title's disclaimer; the Safety & Wellness rows use the same 14 px titles as every other card
+  (the rows start higher to fit four).
 
 ### SHELL-20: Nothing pauses the game when the trainee switches to another window
 - **Severity:** design (office PCs: Teams/Outlook pop-ups mid-scenario)
@@ -319,6 +368,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   "PAUSED" rather than to an expired timer or an auto-picked answer.
 - **Suggested fix:** in `BaseScenarioScene` and `TownDriveScene`, `this.game.events.on('blur', () => this.openPause())`
   (and remove it on shutdown). *Verified by reading the code, not by play: the headless tool always has focus.*
+- **Status:** fixed — a scenario, the town drive and the morning briefing open the pause menu when the window loses
+  focus or the tab is hidden (Phaser's `blur` and `hidden` events, released when the scene shuts down), so the trainee
+  comes back to PAUSED, not to an expired timer.
 
 ### SHELL-21: "1/24 scenarios" counts a failed attempt as done
 - **Severity:** minor (progress a supervisor might read as completion)
@@ -354,6 +406,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **No favicon:** the browser requests `/favicon.ico`, gets a 404 (the "Failed to load resource … 404" in the console
   on every load, `/log`), and the tab shows the generic page icon next to "FedEx: On The Route — Courier Training".
   Add a small icon and `<link rel="icon">` in `index.html`.
+- **Status:** fixed — briefs and results list a scenario's categories in one order (Safety · Efficiency · Service,
+  `OTR.scoring.ordered`); the tip is "A 3-minute walkaround…"; confirm dialogs are as tall as their text; names are
+  shown with capitals ("lee k" → "Lee K", stored as typed); the favicon was added in WP0.
 
 ### SHELL-23: The drive HUD gives distances in metres next to a speedometer in MPH; its pause card does not name the scenario
 - **Severity:** polish (units: minor for US trainees)

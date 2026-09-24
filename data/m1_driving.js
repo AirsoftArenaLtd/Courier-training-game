@@ -20,7 +20,7 @@ OTR_DATA.driving = {
     lines: [
       'You drive a loaded van: W accelerate, S brake, A/D turn the wheel (hold it with W to turn). It is heavy: brake early, and pull forward before a right turn so the back wheels clear the kerb.',
       'In D the van creeps forward: hold SPACE (park brake) to wait. R changes gear at a standstill (in R, W backs up). B belt · L headlights · G get out and look before backing.',
-      'P parks: inside the marked bay, close to the kerb, straight, facing the way the traffic goes.',
+      'P parks: inside the marked bay, close to the curb, straight, facing the way the traffic goes.',
       'Six checkpoints across town. Between them, things happen: a ball, a door, a bus, standing water. Everything is judged on what you actually do, and the weather turns halfway.'
     ]
   },
@@ -58,16 +58,16 @@ OTR_DATA.driving = {
       pass: 'You gave that door room. Good lane position.',
       fail: 'You went past that opening door far too close and too fast.',
       hit: 'You took a parked car\'s door off.',
-      lesson: 'Give parked cars a metre and watch for heads, brake lights and doors — assume every one of them is about to open.',
+      lesson: 'Give parked cars about three feet and watch for heads, brake lights and doors — assume every one of them is about to open.',
       points: 3
     },
     {
       id: 'water', kind: 'water', at: 3,
       title: 'Standing water',
       warn: 'Standing water across the road ahead.',
-      pass: 'Off the gas, wheel straight, no panic braking. The tyres found the road again.',
+      pass: 'Off the gas, wheel straight, no panic braking. The tires found the road again.',
       fail: 'You braked or steered hard with no grip under you — that is how a van ends up sideways.',
-      lesson: 'If you hydroplane: ease off the accelerator, hold the wheel straight and do not brake hard until the tyres bite again.',
+      lesson: 'If you hydroplane: ease off the accelerator, hold the wheel straight and do not brake hard until the tires bite again.',
       points: 3
     },
     {

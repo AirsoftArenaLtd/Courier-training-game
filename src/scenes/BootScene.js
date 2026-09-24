@@ -5,6 +5,7 @@ class BootScene extends Phaser.Scene {
     OTR.tex.boot(this);
     OTR.save.load();
     OTR.audio.muted = OTR.save.data.settings.muted;
+    OTR.audio.volume = OTR.save.data.settings.volume;
 
     if (OTR.flow.dev) {
       const errors = OTR.validate.all(OTR_DATA, Object.keys(this.scene.manager.keys));

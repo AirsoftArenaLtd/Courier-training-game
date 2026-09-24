@@ -49,7 +49,7 @@ OTR_DATA.config = {
   starThresholds: [0.35, 0.65, 0.9],
 
   dispatcherTips: [
-    'Tip: A 3-second walkaround beats a 3-hour insurance call.',
+    'Tip: A 3-minute walkaround beats a 3-hour insurance call.',
     'Tip: Lift with your legs. Your back has a long career ahead of it.',
     'Tip: When in doubt, get out and look. (G.O.A.L.)',
     'Tip: A calm voice de-escalates faster than a clever comeback.',

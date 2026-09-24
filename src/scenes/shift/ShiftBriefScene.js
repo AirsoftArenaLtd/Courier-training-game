@@ -28,6 +28,7 @@ class ShiftBriefScene extends Phaser.Scene {
     // ESC and the corner button pause like everywhere else, with a way back to the station (the briefing is saved
     // as the day's first part, so the hub offers to resume it)
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
 
     const brief = OTR_DATA.briefs[(st.day - 1) % OTR_DATA.briefs.length];
     this.time.delayedCall(700, () => this.runBrief(brief));
@@ -81,7 +82,7 @@ class ShiftBriefScene extends Phaser.Scene {
   runBrief(brief) {
     this.talkCtl = OTR.talk.run(this, brief.talk, {
       cast: { dispatch: { name: 'Dispatch', color: 0x4D148C, rig: this.dispatcher } },
-      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: OTR.ScoreLog.from(this.st.log), cats: OTR.scoring.CATS, feedback: 'immediate',
       // the answers sit right of the manifest board (x 50-450), not over its stop list
       depth: 3000, choiceX: 855, choiceWidth: 760,

@@ -26,7 +26,7 @@ class ResultsScene extends Phaser.Scene {
     this.tweens.add({ targets: rays, angle: 360, duration: 40000, repeat: -1 });
 
     // only categories this run tested count toward the verdict
-    const cats = sc.categories;
+    const cats = OTR.scoring.ordered(sc.categories);          // the same order on every screen (SHELL-22)
     const tested = cats.filter(c => verdict.untested.indexOf(c) < 0);
     const got = tested.reduce((n, c) => n + (stars[c] || 0), 0);
     const max = tested.length * 3;
@@ -115,9 +115,10 @@ class ResultsScene extends Phaser.Scene {
     this.time.delayedCall(delay, () => bar.setValue(info.progress, true, 800));
 
     // buttons
-    const retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R' });
-    const next = OTR.ui.button(this, 130, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER' });
+    const retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
+    const next = OTR.ui.button(this, 130, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
     panel.add([retry, next]);
+    OTR.ui.focus(this, [retry, next], { start: 1 });
     [retry, next].forEach(b => b.setEnabled(false));
     this.time.delayedCall(Math.min(delay, 2200), () => [retry, next].forEach(b => b.setEnabled(true)));
 
@@ -185,7 +186,8 @@ class ResultsScene extends Phaser.Scene {
         box.add(OTR.txt(this, 0, 10, 'RANK UP!', 40, '#FF6600', { weight: '900' }));
         box.add(OTR.txt(this, 0, 56, `You're now ${rank.name}`, 24, '#250849', { weight: 'bold' }));
       },
-      buttons: [{ label: 'Nice!', skin: 'orange', key: 'SPACE' }]
+      // ENTER as well as SPACE, like every other card (SHELL-11)
+      buttons: [{ label: 'Nice!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 500, hint: '⏎' }]
     });
   }
 }

@@ -31,6 +31,8 @@ module.exports = async (page, ctx) => {
     await page.keyboard.press('Escape');
     await waitScene('PauseScene', 4000);
     await clickText(page, 'PauseScene', /^Restart this (stop|leg)$/);   // each says what it restarts
+    await wait(500);
+    await clickText(page, 'PauseScene', /^Restart$/);                   // and asks first
     await wait(1500);
   };
 

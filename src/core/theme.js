@@ -80,6 +80,17 @@ OTR.onKey = function (scene, name, fn) {
   return h;
 };
 
+/**
+ * Pause when the trainee switches away: another window takes the focus (a chat pop-up) or the tab is hidden, and the
+ * clocks would run on without them (SHELL-20). fn is the scene's openPause; it is let go when the scene shuts down.
+ */
+OTR.pauseOnBlur = function (scene, fn) {
+  const h = () => { if (scene.sys.isActive() && !scene.scene.isPaused()) fn(); };
+  scene.game.events.on('blur', h);
+  scene.game.events.on('hidden', h);
+  scene.events.once('shutdown', () => { scene.game.events.off('blur', h); scene.game.events.off('hidden', h); });
+};
+
 OTR.util = {
   clamp(v, a, b) { return Math.max(a, Math.min(b, v)); },
   clamp01(v) { return Math.max(0, Math.min(1, v)); },

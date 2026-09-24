@@ -495,6 +495,7 @@ class TownDriveScene extends Phaser.Scene {
     OTR.onKey(this, 'keydown-R', () => { this.shiftAsked = true; });    // the gear selector: taken on the next frame
     OTR.onKey(this, 'keydown-P', () => this.tryPark());
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
     OTR.onKey(this, 'keydown-TAB', (e) => {
       if (e && e.preventDefault) e.preventDefault();
       if (this.parked) return;
@@ -1068,7 +1069,7 @@ class TownDriveScene extends Phaser.Scene {
       this.kerbT = (this.kerbT || 0) + dt;
       if (this.kerbT > 0.25) {
         this.kerbT = 0;
-        this.violation('kerb', 'Drove over the kerb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
+        this.violation('kerb', 'Drove over the curb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
       }
     } else { this.kerbT = 0; if (!offRoad) this._offRoad = false; }
 
@@ -1137,7 +1138,7 @@ class TownDriveScene extends Phaser.Scene {
       const inZone = d < 150;
       if (inZone !== this.inZone) {
         this.inZone = inZone;
-        if (inZone) this.toast('Stop zone — pull in to the kerb, stop, then P to park', 0xFFC83D);
+        if (inZone) this.toast('Stop zone — pull in to the curb, stop, then P to park', 0xFFC83D);
       }
     }
   }
@@ -1192,19 +1193,19 @@ class TownDriveScene extends Phaser.Scene {
     const along = Math.abs(bc.x - lot.park.x);
     const fromCentre = (bc.y - street) * lot.side;           // how far towards the house's kerb, px
     if (along > 220 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 60) {
-      this.toast('Not at the stop yet — pull in to the kerb inside the marked zone', 0xC9B3F0); return;
+      this.toast('Not at the stop yet — pull in to the curb inside the marked zone', 0xC9B3F0); return;
     }
     // "stopped" allows the moment after the brake is lifted, while the automatic creeps (P used to be refused then)
     if (!V.stopped(v) && !(this.elapsed - this.stoppedAt < 1 && V.mph(v) < 1.5)) { this.toast('Come to a full stop first (hold S or SPACE, then P)', 0xF0435A); return; }
     const skew = Math.abs(Math.sin(v.heading));                // 0 = parallel to the street
-    if (skew > 0.34) { this.toast('Straighten up alongside the kerb first', 0xF0435A); return; }
-    if (fromCentre < 20) { this.toast('Pull in to the kerb on the house\'s side of the street', 0xF0435A); return; }
+    if (skew > 0.34) { this.toast('Straighten up alongside the curb first', 0xF0435A); return; }
+    if (fromCentre < 20) { this.toast('Pull in to the curb on the house\'s side of the street', 0xF0435A); return; }
     // on the road, close to the kerb, and wholly inside the marked zone
     const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]].map(([f, r]) => V.point(v, v.g.centre + f * v.g.hl, r * v.g.hw));
     const outer = Math.max(...corners.map(c => (c.y - street) * lot.side));
-    if (outer > OTR.townArt.ROAD / 2 + 4) { this.toast('You\'re up on the kerb. Back off it into the road, then park', 0xF0435A); return; }
+    if (outer > OTR.townArt.ROAD / 2 + 4) { this.toast('You\'re up on the curb. Back off it into the road, then park', 0xF0435A); return; }
     const gap = (OTR.townArt.ROAD / 2 - outer) / P;
-    if (gap > 1.5) { this.toast(`Pull in closer to the kerb (${Math.round(gap * 3.281)} ft out)`, 0xF0435A); return; }
+    if (gap > 1.5) { this.toast(`Pull in closer to the curb (${Math.round(gap * 3.281)} ft out)`, 0xF0435A); return; }
     const bay = this.parkBay(lot);
     const xs = corners.map(c => c.x);
     if (Math.min(...xs) < bay.x0 - 4 || Math.max(...xs) > bay.x1 + 4) { this.toast('Line up inside the marked zone, clear of the crosswalk', 0xF0435A); return; }
@@ -1219,7 +1220,7 @@ class TownDriveScene extends Phaser.Scene {
     this.log.check('safety', neat ? 2 : 1, 2, `Parked at ${lot.number} ${lot.street}${neat ? '' : !withTraffic ? ' (facing the traffic)' : gapM >= 1.2 ? ` (${Math.round(gapM * 3.281)} ft from the kerb)` : ' (at an angle)'}`, {
       lesson: !withTraffic
         ? 'Park on the right-hand side, facing the same way as the traffic, so you pull out into your own lane.'
-        : 'Pull in close and parallel to the kerb, so passing traffic has room and you step out onto the sidewalk.'
+        : 'Pull in close and parallel to the curb, so passing traffic has room and you step out onto the sidewalk.'
     });
     // the belt over the whole leg, not just at the moment of parking (it used to pass after a no-belt penalty);
     // the drill judges it once over the whole drive instead

@@ -13,11 +13,36 @@ class HubScene extends Phaser.Scene {
       for (let x = -h; x < w; x += 70) { ctx.beginPath(); ctx.moveTo(x, h); ctx.lineTo(x + h, 0); ctx.stroke(); }
     }));
 
+    // what a trainee should play next: the first scenario not passed yet, in the order the academy lists them
+    // (a brand-new hire starts at the top; SHELL-18)
+    this.fresh = !Object.keys(OTR.save.data.scenarios).length && !(OTR.save.data.route && OTR.save.data.route.days);
+    this.nextUp = OTR.registry.all().find(sc => !this.passed(sc)) || null;
+    this.focusables = [];
+
     this.buildHeader();
     this.buildProfile();
     this.buildModules();
     this.buildRoute();
     this.buildTip();
+    OTR.ui.saveWarning(this, 968, 32);
+
+    // For someone who has played nothing, ENTER opens the recommended first scenario, not the half-hour route day.
+    if (this.fresh && this.nextUp) {
+      OTR.onKey(this, 'keydown-ENTER', () => {
+        if ((this._modalStack || []).some(m => m.active) || (this._focusOn && this._focusOn.showing())) return;
+        this.openBrief(this.nextUp, OTR.registry.moduleOf(this.nextUp.id));
+      });
+    }
+    // the arrow keys and TAB walk the hub (SHELL-11); the ring starts on the recommended scenario
+    const start = this.focusables.findIndex(f => f.sc && this.nextUp && f.sc.id === this.nextUp.id);
+    OTR.ui.focus(this, this.focusables, { start: start >= 0 ? start : 0 });
+  }
+
+  /** Passed: at least one star in every category it scores (a zero-star attempt is played, not done). */
+  passed(sc) {
+    const rec = OTR.save.data.scenarios[sc.id];
+    const best = rec && rec.bestStars;
+    return !!best && sc.categories.every(c => (best[c] || 0) >= 1);
   }
 
   /* ---------------------------------------------------------------- header */
@@ -30,12 +55,13 @@ class HubScene extends Phaser.Scene {
     const brand = OTR.txt(this, 24, 32, OTR_DATA.config.brand, 28, '#ffffff', { ox: 0, weight: '900' });
     OTR.txt(this, 24 + brand.width + 10, 33, OTR_DATA.config.title.toUpperCase(), 20, '#FF6600', { ox: 0, weight: '900' });
 
+    // a label, not a button: flat and outlined (it used to wear the orange button's gradient; SHELL-17)
     const dayBadge = this.add.container(W / 2, 32);
-    dayBadge.add(OTR.ui.panel(this, 0, 0, 250, 44, { top: 0xFF8A3D, bottom: 0xE65100, border: 0xFFB27A, borderWidth: 2, radius: 22, shadow: 0.3, sheen: true }));
-    dayBadge.add(OTR.txt(this, 0, 1, `DAY ${OTR.save.data.day}  ·  STATION`, 19, '#ffffff', { weight: '900' }));
+    dayBadge.add(OTR.tex.shape(this, (g) => { g.lineStyle(2, 0xFF9447, 1); g.strokeRoundedRect(-120, -19, 240, 38, 19); }));
+    dayBadge.add(OTR.txt(this, 0, 1, `DAY ${OTR.save.data.day}  ·  STATION`, 18, '#FFC8A0', { weight: '900' }));
 
-    OTR.ui.muteButton(this, W - 90, 32);
-    OTR.ui.iconButton(this, W - 36, 32, 'ic_gear', () => this.openSettings(), { size: 46 });
+    this.focusables.push(OTR.ui.muteButton(this, W - 90, 32));
+    this.focusables.push(OTR.ui.iconButton(this, W - 36, 32, 'ic_gear', () => this.openSettings(), { size: 46 }));
   }
 
   /* ---------------------------------------------------------------- profile card */
@@ -54,7 +80,8 @@ class HubScene extends Phaser.Scene {
     avatar.setMask(maskShape.createGeometryMask());
     this.tweens.add({ targets: avatar, y: avatar.y - 3, duration: 1400, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
 
-    OTR.txt(this, x, top + 110, save.data.profile.name, 21, '#ffffff', { weight: '900' });
+    const nm = OTR.txt(this, x, top + 110, save.displayName(), 21, '#ffffff', { weight: '900' });
+    if (nm.width > 244) nm.setScale(244 / nm.width);                  // a 24-character name stays on the card
 
     const info = save.rankInfo();
     const badge = this.add.container(x, top + 138);
@@ -63,29 +90,26 @@ class HubScene extends Phaser.Scene {
     const rg = OTR.tex.shape(this, (rg) => { rg.fillStyle(info.rank.color, 1); rg.fillRoundedRect(-bw / 2, -13, bw, 26, 13); });
     badge.add([rg, this.add.image(-bw / 2 + 17, 0, 'ic_badge').setDisplaySize(16, 16), rt]);
 
-    OTR.txt(this, x - 110, top + 166, 'COURIER RANK', 11, '#C9B3F0', { ox: 0 });
+    OTR.txt(this, x - 110, top + 164, 'COURIER RANK', 13, '#C9B3F0', { ox: 0 });
     // the bar fills with progress through this rank, so the numbers count the same stars (SHELL-9)
-    OTR.txt(this, x + 110, top + 166, info.next ? `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★` : `${info.total} ★ MAX`, 11, '#FFC83D', { ox: 1 });
+    OTR.txt(this, x + 110, top + 166, info.next ? `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★` : `${info.total} ★ MAX`, 13, '#FFC83D', { ox: 1 });
     const bar = OTR.ui.bar(this, x - 110, top + 184, 220, 11, { color: 0xFF6600, bgAlpha: 0.35 });
     bar.setValue(info.progress, true, 900);
-    OTR.txt(this, x, top + 202, info.next ? `Next: ${info.next.name}` : 'Top rank reached!', 12, '#E6DAF7', { bold: false });
+    OTR.txt(this, x, top + 202, info.next ? `Next: ${info.next.name}` : 'Top rank reached!', 13, '#E6DAF7', { bold: false });
 
-    // compact category totals
+    // category totals, each named (the icons alone left a new hire guessing; SHELL-17)
     const totals = save.totals();
     Object.keys(OTR_DATA.config.categories).forEach((cat, i) => {
       const def = OTR_DATA.config.categories[cat];
       const cx = x - 84 + i * 84;
-      OTR.tex.shape(this, (g) => { g.fillStyle(0x000000, 0.22); g.fillRoundedRect(cx - 38, top + 222, 76, 46, 10); });
-      this.add.image(cx, top + 238, def.icon).setDisplaySize(16, 16).setTint(def.color);
-      OTR.txt(this, cx, top + 258, `${totals[cat]}`, 18, OTR.color.css(def.color), { weight: '900' });
+      OTR.tex.shape(this, (g) => { g.fillStyle(0x000000, 0.22); g.fillRoundedRect(cx - 40, top + 220, 80, 52, 10); });
+      this.add.image(cx - 14, top + 236, def.icon).setDisplaySize(16, 16).setTint(def.color);
+      OTR.txt(this, cx + 2, top + 236, `${totals[cat]}`, 18, OTR.color.css(def.color), { ox: 0, weight: '900' });
+      OTR.txt(this, cx, top + 259, def.label, 13, '#E6DAF7', { bold: false });
     });
 
-    // passed: at least one star in every category it scores (a zero-star attempt is played, not done)
-    const passed = OTR.registry.all().filter(sc => {
-      const best = save.data.scenarios[sc.id] && save.data.scenarios[sc.id].bestStars;
-      return best && sc.categories.every(c => (best[c] || 0) >= 1);
-    }).length;
-    OTR.txt(this, x, top + 292, `${totals.all} / ${OTR.registry.maxStars()} ★  ·  ${passed}/${OTR.registry.all().length} passed`, 12, '#FFC83D', { weight: '900' });
+    const passed = OTR.registry.all().filter(sc => this.passed(sc)).length;
+    OTR.txt(this, x, top + 294, `${totals.all} / ${OTR.registry.maxStars()} ★  ·  ${passed}/${OTR.registry.all().length} passed`, 13, '#FFC83D', { weight: '900' });
   }
 
   /* ---------------------------------------------------------------- today's route */
@@ -104,26 +128,32 @@ class HubScene extends Phaser.Scene {
       const phase = { brief: 'morning briefing', pretrip: 'pre-trip walkaround', load: 'loading the truck', route: `stop ${doneN + 1} of ${st.route.length}`, debrief: 'debrief' }[st.phase] || st.phase;
       OTR.txt(this, x, top + 52, `Day ${st.day} · ${phase}`, 14, '#FFE3C8', { bold: false, align: 'center', wrap: 240 });
       OTR.txt(this, x, top + 76, `${st.stats.delivered} delivered · ${st.stats.exceptions} exception${st.stats.exceptions === 1 ? '' : 's'}`, 13, '#FFF1E0', { bold: false });
-      OTR.ui.button(this, x, top + 118, 'Resume route ▶', () => OTR.shift.resume(this), { w: 220, h: 48, skin: 'orange', fontSize: 18, key: 'ENTER' });
-      const ab = OTR.txt(this, x, top + 166, 'Abandon this route', 12, '#FFD5C0', { bold: false });
-      ab.setInteractive({ useHandCursor: true }).on('pointerup', () => {
-        OTR.ui.confirm(this, 'Abandon the route?', 'The day so far is discarded and you can start again from the morning briefing.', () => { OTR.shift.abort(); this.scene.restart(); }, { yes: 'Abandon', danger: true });
-      });
+      // purple on the orange card, so the main action stands out from it (SHELL-17)
+      this.focusables.push(OTR.ui.button(this, x, top + 118, 'Resume route ▶', () => OTR.shift.resume(this), { w: 240, h: 48, skin: 'purple', fontSize: 18, key: 'ENTER', hint: '⏎' }));
+      const ab = OTR.txt(this, x, top + 166, 'Abandon this route', 14, '#ffffff', { weight: '900' });
+      const ul = OTR.tex.shape(this, (g) => { g.fillStyle(0xffffff, 0.9); g.fillRect(x - ab.width / 2, top + 176, ab.width, 2); });
+      ab.press = () => OTR.ui.confirm(this, 'Abandon the route?', 'The day so far is discarded and you can start again from the morning briefing.', () => { OTR.shift.abort(); this.scene.restart(); }, { yes: 'Abandon', danger: true });
+      ab.setInteractive({ useHandCursor: true }).on('pointerup', ab.press);
+      ab.on('pointerover', () => ul.setAlpha(0.5)).on('pointerout', () => ul.setAlpha(1));
+      this.focusables.push(ab);
     } else {
       OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900' });
       OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false });
       // one line: the Start button sits right under it
-      OTR.txt(this, x, top + 98, 'Brief → pre-trip → load → the stops', 12, '#E6DAF7', { bold: false });
+      OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, '#E6DAF7', { bold: false });
       // a route day is a long session: say so before it starts (a stray Enter used to drop you into the briefing)
-      OTR.ui.button(this, x, top + 130, 'Start the route ▶', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
+      // (ENTER is not its key for someone who has played nothing yet: see create)
+      this.focusables.push(OTR.ui.button(this, x, top + 132, 'Start the route ▶', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
         'Briefing, pre-trip, loading, then five stops: about half an hour. The day is saved as you go, and ESC pauses.',
-        () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER' }), { w: 220, h: 50, skin: 'orange', fontSize: 18, key: 'ENTER' });
+        () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }), { w: 240, h: 50, skin: 'orange', fontSize: 18, key: this.fresh ? undefined : 'ENTER', hint: this.fresh ? undefined : '⏎' }));
       const r = save.data.route || { days: 0, best: { safety: 0, efficiency: 0, service: 0 } };
       const best = (r.best.safety || 0) + (r.best.efficiency || 0) + (r.best.service || 0);
-      OTR.txt(this, x, top + 166, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 12, '#FFD5C0', { bold: false });
+      OTR.txt(this, x, top + 166, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 13, '#FFD5C0', { bold: false }).setY(top + 170);
       if (r.last) {
-        const link = OTR.txt(this, x, top + 184, `Day ${r.last.day}'s debrief ›`, 12, '#FFC83D', { weight: '900' });
-        link.setInteractive({ useHandCursor: true }).on('pointerup', () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true }));
+        const link = OTR.txt(this, x, top + 187, `Day ${r.last.day}'s debrief ›`, 13, '#FFC83D', { weight: '900' });
+        link.press = () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true });
+        link.setInteractive({ useHandCursor: true }).on('pointerup', link.press);
+        this.focusables.push(link);
       }
     }
   }
@@ -136,7 +166,7 @@ class HubScene extends Phaser.Scene {
     const pw = Math.floor((OTR.W - X0 - 20 - gap * (cols - 1)) / cols);
     const ph = 190;
     OTR.txt(this, X0, 92, 'TRAINING ACADEMY', 15, '#FF9447', { ox: 0, weight: '900' });
-    OTR.txt(this, OTR.W - 20, 92, 'Practise any module, any time', 14, '#C9B3F0', { ox: 1, bold: false });
+    OTR.txt(this, OTR.W - 20, 92, this.fresh ? 'New here? Start with the scenario marked NEXT' : 'Practice any module, any time', 14, this.fresh ? '#FFC83D' : '#C9B3F0', { ox: 1, bold: !!this.fresh });
 
     mods.forEach((m, i) => {
       const px = X0 + (i % cols) * (pw + gap);
@@ -155,7 +185,7 @@ class HubScene extends Phaser.Scene {
       const t = OTR.txt(this, -pw / 2 + 48, -ph / 2 + 15, m.title, 16, '#ffffff', { ox: 0, weight: '900', shadow: true });
       if (t.width > pw - 70) t.setScale((pw - 70) / t.width);
       panel.add(t);
-      panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 33, m.subtitle || '', 11, 'rgba(255,255,255,0.85)', { ox: 0, bold: false }));
+      panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 32, m.subtitle || '', 13, 'rgba(255,255,255,0.9)', { ox: 0, bold: false }));
 
       // module star total
       const best = m.scenarios.reduce((n, sc) => n + OTR.save.starSum(OTR.save.bestStars(sc.id)), 0);
@@ -163,12 +193,16 @@ class HubScene extends Phaser.Scene {
       panel.add(this.add.image(pw / 2 - 52, -ph / 2 + 22, 'star_gold').setDisplaySize(16, 16));
       panel.add(OTR.txt(this, pw / 2 - 40, -ph / 2 + 22, `${best}/${max}`, 13, '#ffffff', { ox: 0, weight: '900' }));
 
-      // modules with four scenarios (Safety & Wellness) tighten their rows so none is left off the card
+      // modules with four scenarios (Safety & Wellness) start their rows higher and space them closer, in the same
+      // type as every other card (they used to shrink it; SHELL-19)
       const n = m.scenarios.length;
       const pitch = n > 3 ? 35 : 44;
-      const rowH = n > 3 ? 32 : 40;
+      const rowH = n > 3 ? 33 : 40;
+      const first = n > 3 ? 64 : 68;
       m.scenarios.forEach((sc, j) => {
-        panel.add(this.scenarioRow(sc, m, 0, -ph / 2 + 68 + j * pitch, pw - 20, rowH));
+        const row = this.scenarioRow(sc, m, 0, -ph / 2 + first + j * pitch, pw - 20, rowH);
+        panel.add(row);
+        this.focusables.push(row);
       });
 
       panel.setAlpha(0).setScale(0.95);
@@ -179,41 +213,46 @@ class HubScene extends Phaser.Scene {
   scenarioRow(sc, mod, x, y, w, height) {
     const save = OTR.save;
     const h = height || 40;
-    const ico = h > 34 ? 28 : 24;
+    const ico = h > 34 ? 28 : 25;
+    const next = this.nextUp && this.nextUp.id === sc.id;
     const c = this.add.container(x, y);
     const g = OTR.tex.liveShape(this);
     const rec = save.record(sc.id);
     const draw = (hover) => g.redraw((g) => {
-      g.fillStyle(hover ? OTR.color.shade(mod.color, 0.84) : 0xF6F1FD, 1);
+      g.fillStyle(hover ? OTR.color.shade(mod.color, 0.84) : next ? 0xFFF1E6 : 0xF6F1FD, 1);
       g.fillRoundedRect(-w / 2, -h / 2, w, h, 10);
-      g.lineStyle(2, hover ? mod.color : 0xE0D4F2, 1);
+      g.lineStyle(next ? 3 : 2, hover ? mod.color : next ? 0xFF6600 : 0xE0D4F2, 1);
       g.strokeRoundedRect(-w / 2, -h / 2, w, h, 10);
     });
     draw(false);
     c.add(g);
     c.add(OTR.tex.shape(this, (ib) => { ib.fillStyle(mod.color, 1); ib.fillRoundedRect(-w / 2 + 6, -ico / 2, ico, ico, 8); }));
     c.add(this.add.image(-w / 2 + 6 + ico / 2, 0, sc.icon || mod.icon).setDisplaySize(ico - 12, ico - 12));
-    const title = OTR.txt(this, -w / 2 + 42, 0, sc.title, h > 34 ? 14 : 13, '#250849', { ox: 0, weight: '900' });
-    const maxTitleW = w - 42 - 78;
+    const title = OTR.txt(this, -w / 2 + 42, 0, sc.title, 14, '#250849', { ox: 0, weight: '900' });
+    const maxTitleW = w - 42 - 86;
     if (title.width > maxTitleW) title.setScale(maxTitleW / title.width);
     c.add(title);
 
     const got = save.starSum(save.bestStars(sc.id));
     const max = sc.categories.length * 3;
-    if (!rec) {
-      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(0xFF6600, 1); ng.fillRoundedRect(w / 2 - 74, -9, 34, 18, 9); }));
-      c.add(OTR.txt(this, w / 2 - 57, 0, 'NEW', 10, '#ffffff', { weight: '900' }));
+    // NEXT marks the recommended scenario (SHELL-18); NEW the ones not played yet
+    if (next || !rec) {
+      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(next ? 0x4D148C : 0xFF6600, 1); ng.fillRoundedRect(w / 2 - 78, -10, 48, 20, 10); }));
+      c.add(OTR.txt(this, w / 2 - 54, 0, next ? 'NEXT' : 'NEW', 13, '#ffffff', { weight: '900' }));
     } else {
-      c.add(this.add.image(w / 2 - 66, 0, 'star_gold').setDisplaySize(15, 15));
-      c.add(OTR.txt(this, w / 2 - 55, 0, `${got}/${max}`, 12, got === max ? '#1E9E6B' : '#7A6A90', { ox: 0, weight: '900' }));
+      c.add(this.add.image(w / 2 - 70, 0, 'star_gold').setDisplaySize(15, 15));
+      c.add(OTR.txt(this, w / 2 - 59, 0, `${got}/${max}`, 13, got === max ? '#1E9E6B' : '#7A6A90', { ox: 0, weight: '900' }));
     }
-    c.add(this.add.image(w / 2 - 18, 0, 'ic_arrow').setDisplaySize(14, 14).setTint(mod.color));
+    c.add(this.add.image(w / 2 - 15, 0, 'ic_arrow').setDisplaySize(13, 13).setTint(mod.color));
 
     const hit = this.add.rectangle(0, 0, w, h, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
     c.add(hit);
     hit.on('pointerover', () => { draw(true); OTR.audio.play('hover'); this.tweens.add({ targets: c, x: x + 3, duration: 100 }); });
     hit.on('pointerout', () => { draw(false); this.tweens.add({ targets: c, x, duration: 100 }); });
-    hit.on('pointerup', () => { OTR.audio.play('click'); this.openBrief(sc, mod); });
+    c.press = () => { OTR.audio.play('click'); this.openBrief(sc, mod); };
+    hit.on('pointerup', c.press);
+    c.setSize(w, h);
+    c.sc = sc;
     return c;
   }
 
@@ -237,7 +276,7 @@ class HubScene extends Phaser.Scene {
         const blurb = OTR.txt(this, -w / 2 + 40, y, sc.blurb, 18, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 80, lineSpacing: 3 });
         box.add(blurb);
         y += blurb.height + 18;
-        box.add(OTR.txt(this, -w / 2 + 40, y, 'YOU\'LL PRACTISE', 13, '#FF6600', { ox: 0, oy: 0 }));
+        box.add(OTR.txt(this, -w / 2 + 40, y, 'YOU\'LL PRACTICE', 13, '#FF6600', { ox: 0, oy: 0 }));
         y += 24;
         sc.learn.forEach(l => {
           box.add(this.add.image(-w / 2 + 50, y + 10, 'ic_check').setDisplaySize(14, 14).setTint(0x2BC48A));
@@ -250,13 +289,14 @@ class HubScene extends Phaser.Scene {
 
         const catY = h / 2 - 118;
         const n = sc.categories.length;
-        sc.categories.forEach((cat, i) => {
+        OTR.scoring.ordered(sc.categories).forEach((cat, i) => {
           const cx = (i - (n - 1) / 2) * 230;
           const chip = OTR.ui.chip(this, cx - 50, catY, cat, { size: 14 });
           const st = OTR.ui.stars(this, cx + 70, catY, save.bestStars(sc.id)[cat] || 0, { size: 26, dark: true });
           box.add([chip, st]);
         });
-        if (rec) box.add(OTR.txt(this, w / 2 - 30, -h / 2 + 118, `Best ${OTR.save.starSum(save.bestStars(sc.id))} / ${n * 3} ★ · played ${rec.plays}×`, 13, '#7A6A90', { ox: 1, oy: 0, bold: false }));
+        // in the header, clear of the blurb (it used to be printed on its first line; SHELL-13)
+        if (rec) box.add(OTR.txt(this, w / 2 - 28, -h / 2 + 30, `Best ${OTR.save.starSum(save.bestStars(sc.id))} / ${n * 3} ★ · played ${rec.plays}×`, 14, '#ffffff', { ox: 1, weight: '900', shadow: true }));
       },
       buttons: [
         { label: 'Back', skin: 'ghost' },
@@ -264,6 +304,7 @@ class HubScene extends Phaser.Scene {
           label: rec ? 'Play Again' : 'Start',
           skin: 'orange',
           key: 'ENTER',
+          hint: '⏎',
           onClick: () => {
             OTR.flow.startScenario(this, sc.id);
           }
@@ -277,7 +318,7 @@ class HubScene extends Phaser.Scene {
     const x = 152, tipY = 664, w = 272;
     this.add.image(x, tipY, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
     this.add.image(x - 104, tipY - 30, 'ic_chat').setDisplaySize(18, 18).setTint(0xFF6600);
-    OTR.txt(this, x - 88, tipY - 30, 'DISPATCH RADIO', 11, '#FF9447', { ox: 0 });
+    OTR.txt(this, x - 88, tipY - 30, 'DISPATCH RADIO', 13, '#FF9447', { ox: 0 });
     const tips = OTR_DATA.config.dispatcherTips;
     let ti = Math.floor(Math.random() * tips.length);
     const tip = OTR.txt(this, x, tipY + 14, tips[ti], 13, '#F3ECFF', { bold: false, align: 'center', wrap: 236, lineSpacing: 2 });
@@ -296,24 +337,56 @@ class HubScene extends Phaser.Scene {
 
   /* ---------------------------------------------------------------- settings */
   openSettings() {
+    // volume and the route-day checklist, besides the profile (SHELL-12)
     OTR.ui.modal(this, {
-      title: 'Settings', w: 520, h: 420, escClose: true,
-      build: (box, api) => {
-        box.add(OTR.ui.button(this, 0, -70, 'Rename Courier', () => {
+      title: 'Settings', w: 540, h: 600, escClose: true,
+      build: (box, api, w, h) => {
+        const top = -h / 2;
+        box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, '#FF6600', { ox: 0 }));
+        const bar = OTR.ui.bar(this, -160, top + 136, 250, 14, { color: 0xFF6600, bg: 0x4D148C, bgAlpha: 0.15 });
+        const pct = OTR.txt(this, 158, top + 136, '', 16, '#4D148C', { ox: 0, weight: '900' });
+        const show = () => {
+          bar.setValue(OTR.audio.volume);
+          pct.setText(OTR.audio.muted ? 'muted' : `${Math.round(OTR.audio.volume * 100)}%`);
+        };
+        const setVol = (v) => {
+          v = Math.round(Math.max(0, Math.min(1, v)) * 20) / 20;
+          OTR.audio.init();
+          OTR.audio.setVolume(v);
+          OTR.save.setVolume(v);
+          show();
+          OTR.audio.play('pop');
+        };
+        const hit = this.add.rectangle(-35, top + 136, 270, 30, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
+        hit.on('pointerdown', (p) => setVol((p.x - (OTR.W / 2 - 160)) / 250));
+        box.add([bar, pct, hit]);
+        box.add(OTR.ui.button(this, -200, top + 136, '−', () => setVol(OTR.audio.volume - 0.1), { w: 44, h: 40, skin: 'ghost', fontSize: 24, sound: 'none' }));
+        box.add(OTR.ui.button(this, 120, top + 136, '+', () => setVol(OTR.audio.volume + 0.1), { w: 44, h: 40, skin: 'ghost', fontSize: 24, sound: 'none' }));
+        show();
+
+        box.add(OTR.txt(this, -w / 2 + 40, top + 188, 'ROUTE DAYS', 13, '#FF6600', { ox: 0 }));
+        const label = () => `Stop checklist: ${OTR.save.data.settings.hints ? 'shown' : 'hidden'}`;
+        const tog = OTR.ui.button(this, 0, top + 224, label(), () => {
+          OTR.save.setHints(!OTR.save.data.settings.hints);
+          tog.setLabel(label());
+        }, { w: 320, h: 48, skin: 'purple', fontSize: 18 });
+        box.add(tog);
+
+        box.add(OTR.ui.button(this, 0, 20, 'Rename Courier', () => {
           api.close(() => OTR.ui.nameEntry(this, {
             title: 'New courier name', initial: OTR.save.data.profile.name, confirm: 'Save',
             onDone: (name) => { OTR.save.rename(name); this.scene.restart(); }
           }));
         }, { w: 300, h: 56, skin: 'purple' }));
-        box.add(OTR.ui.button(this, 0, 4, 'Back to Title', () => OTR.fx.transition(this, 'TitleScene'), { w: 300, h: 56, skin: 'ghost' }));
-        box.add(OTR.ui.button(this, 0, 78, 'Reset All Progress', () => {
+        box.add(OTR.ui.button(this, 0, 90, 'Back to Title', () => OTR.fx.transition(this, 'TitleScene'), { w: 300, h: 56, skin: 'ghost' }));
+        box.add(OTR.ui.button(this, 0, 160, 'Reset All Progress', () => {
           OTR.ui.confirm(this, 'Reset all progress?', 'This permanently deletes your profile, rank, stars and shift history.', () => {
             OTR.save.reset();
             OTR.fx.transition(this, 'TitleScene');
-          }, { yes: 'Reset Everything', danger: true, h: 320 });
+          }, { yes: 'Reset Everything', danger: true });
         }, { w: 300, h: 56, skin: 'red' }));
       },
-      buttons: [{ label: 'Close', skin: 'orange' }]
+      buttons: [{ label: 'Close', skin: 'orange', key: 'ENTER', hint: '⏎' }]
     });
   }
 }

@@ -14,7 +14,7 @@ OTR_DATA.handheld = {
     adult: { label: 'Handed to adult at address', needsPerson: true, pod: 'signature' },
     reception: { label: 'Reception / mailroom signed', needsPerson: true, pod: 'signature' },
     left: { label: 'Left at location (photo)', needsPerson: false, pod: 'photo' },
-    neighbor: { label: 'Left with neighbour', needsPerson: true, pod: 'signature' }
+    neighbor: { label: 'Left with neighbor', needsPerson: true, pod: 'signature' }
   },
 
   exceptions: [
