@@ -16,7 +16,14 @@ class StopScene extends BaseScenarioScene {
 
   /** The pause menu's restarts: past the first stop of a practice set, this stop or the whole set, said plainly. */
   restartOptions() {
-    if (this.shiftMode) return [{ label: 'Restart this stop', data: this.initData }];
+    if (this.shiftMode) {
+      // the day's record keeps what happened before the restart (see OTR.shift.restartLog)
+      return [{ label: 'Restart this stop', data: () => {
+        const log = OTR.shift.restartLog(this.log, this.def.id, `Restarted stop ${this.shiftStop.index}`);
+        if (OTR.shift.state) { OTR.shift.state.stopLog = log; OTR.shift.save(); }
+        return Object.assign({}, this.initData, { carry: Object.assign({}, this.initData.carry, { log }) });
+      } }];
+    }
     if (this.stopIndex === 0) return [{ label: 'Restart the set', data: this.initData }];
     return [
       { label: 'Restart this stop', data: this.initData },
@@ -34,6 +41,17 @@ class StopScene extends BaseScenarioScene {
     this.cats = this.scenario ? this.scenario.categories : OTR.scoring.CATS;
     this.log = this.carry ? OTR.ScoreLog.from(this.carry.log) : new OTR.ScoreLog();
     this.log.setGroup(this.def.id);
+    // On a route day the stop's mistakes are saved as they happen, so reloading inside the stop reopens it with them
+    // still on the record (its checks are earned again).
+    if (this.shiftMode && OTR.shift.state) {
+      this.log.onAdd = (it) => {
+        if (it.kind !== 'penalty' && !it.critical) return;
+        const st = OTR.shift.state;
+        if (!st) return;
+        st.stopLog = { items: this.log.items.filter(x => !(x.group === this.def.id && x.kind === 'check' && !x.critical)) };
+        OTR.shift.save();
+      };
+    }
     this.feedbackMode = this.shiftMode ? 'deferred' : 'immediate';
     this.tod = this.def.tod || this.set.tod || 'midday';
     this.weather = this.def.weather || this.set.weather || 'clear';
@@ -1700,8 +1718,10 @@ class StopScene extends BaseScenarioScene {
       if (svc === 'signature' || svc === 'adult') {
         log.check('service', 0, 2, 'Signature-required package handed to a person', { lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
         log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major', critical: true, lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
+        S.leftRestricted = true;           // not a delivery: the day does not count it as one
       }
-      const sp = (d.spots || []).find(x => x.id === S.spot);
+      // no credit for a "sensible spot" to leave a package that must not be left at all
+      const sp = !S.leftRestricted && (d.spots || []).find(x => x.id === S.spot);
       if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.report || sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
       const ph = S.photo || { grade: 'bad' };
       log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, 'Took a clear proof-of-delivery photo', { lesson: 'A good POD photo shows the package AND where it was left (door, house number), never people.' });
@@ -1742,7 +1762,7 @@ class StopScene extends BaseScenarioScene {
     if (S.vanTrips > 0) log.penalty('efficiency', Math.min(2, S.vanTrips), `Extra trip${S.vanTrips > 1 ? 's' : ''} back into the truck`);
     if (S.wrongPulls > 0) log.check('efficiency', 0, 1, 'Pulled only the right package from the shelves', { lesson: 'Read the whole address (number, street and unit) before pulling a package. Near-matches are easy to grab.' });
     else log.check('efficiency', 1, 1, 'Pulled only the right package from the shelves');
-    this.stopSummary = { outcome: S.outcome, code: S.code, type: S.type, time: t };
+    this.stopSummary = { outcome: S.leftRestricted ? 'unattended' : S.outcome, code: S.code, type: S.type, time: t };
   }
 
   report() {
@@ -1752,7 +1772,9 @@ class StopScene extends BaseScenarioScene {
     const shown = items.filter(it => cats.indexOf(it.cat) >= 0 || it.kind === 'penalty');
     const total = this.shiftStop ? this.shiftStop.total : this.set.stops.length;
     const idx = this.shiftStop ? this.shiftStop.index : this.stopIndex + 1;
-    const last = idx >= total;
+    // on a route day, the last stop still to do (the report's button then ends the day)
+    const st = this.shiftMode && OTR.shift.state;
+    const last = st ? st.route.filter(r => !r.done).length <= 1 : idx >= total;
     const s = this;
     const w = 860, h = 620;
     OTR.ui.modal(this, {
@@ -1761,7 +1783,7 @@ class StopScene extends BaseScenarioScene {
         box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const pkg = this.def.packages[0];
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, `STOP ${idx} REPORT`, 14, '#FFB27A', { ox: 0, weight: '900' }));
-        const oc = this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
+        const oc = this.S.leftRestricted ? 'LEFT UNATTENDED' : this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 58, `${pkg.number} ${pkg.street} · ${oc}`, 26, '#ffffff', { ox: 0, weight: '900' }));
         // per-category mini stars
         // right-aligned, however many categories (a route-day stop reports all three)
@@ -1813,7 +1835,7 @@ class StopScene extends BaseScenarioScene {
         void api;
       },
       buttons: [{
-        label: last ? (this.shiftMode ? 'Back to route ▶' : 'Finish ▶') : 'Next stop ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
+        label: last ? (this.shiftMode ? 'Finish the day ▶' : 'Finish ▶') : 'Next stop ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
         onClick: () => s.nextStop()
       }]
     });

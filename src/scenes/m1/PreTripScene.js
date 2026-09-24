@@ -24,12 +24,18 @@ class PreTripScene extends BaseScenarioScene {
     this.viewIndex = 1;
     this.inCab = false;
 
-    // pick this run's defects
+    // pick this run's defects: on a route day from the day's seed, so a day is the same day every time it is played
     const R = C.defects || { min: 3, max: 5 };
-    const n = R.min + Math.floor(Math.random() * (R.max - R.min + 1));
+    const day = this.shiftMode && OTR.shift && OTR.shift.state ? OTR.shift.state : null;
+    const rnd = day ? OTR.shift.rng('pretrip' + day.day) : Math.random;
+    const n = R.min + Math.floor(rnd() * (R.max - R.min + 1));
     this.defects = {};
-    OTR.util.shuffle(C.items.slice()).slice(0, n).forEach(it => { this.defects[it.id] = true; });
-    this.seed = Math.floor(Math.random() * 9999);
+    const pool = C.items.slice();
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    pool.slice(0, n).forEach(it => { this.defects[it.id] = true; });
+    this.seed = Math.floor(rnd() * 9999);
+    // and in the day's weather (it used to be a clear morning whatever the day was)
+    this.weather = day ? day.weather : 'clear';
 
     this.buildStage();
     this.buildChecklist();
@@ -42,7 +48,7 @@ class PreTripScene extends BaseScenarioScene {
 
   /* ================================================================ stage */
   buildStage() {
-    const st = this.stage = new OTR.Stage(this, { width: OTR.W, tod: 'morning', weather: 'clear', clickToWalk: false });
+    const st = this.stage = new OTR.Stage(this, { width: OTR.W, tod: 'morning', weather: this.weather, clickToWalk: false });
     st.sky();
     st.far(250);
     st.ground([{ x0: 0, x1: OTR.W, type: 'concrete' }]);
@@ -50,7 +56,7 @@ class PreTripScene extends BaseScenarioScene {
     this.spotLayer = this.add.container(0, 0).setDepth(40);   // above the courier, so a hotspot is never hidden
     this.me = OTR.rig.person(this, 300, 0, OTR.hub.playerSpec, { scale: 0.74, facing: 1, depth: 30 });
     st.actor(this.me);
-    this.atmos = OTR.atmos.apply(this, { tod: 'morning', weather: 'clear', depth: 700 });
+    this.atmos = OTR.atmos.apply(this, { tod: 'morning', weather: this.weather, depth: 700 });
 
     // view arrows
     this.leftArrow = this.viewButton(52, '◀', () => this.turn(-1));
@@ -338,6 +344,7 @@ class PreTripScene extends BaseScenarioScene {
     // defects that roll out with you
     if (this.shiftMode && OTR.shift && OTR.shift.state) {
       OTR.shift.state.truck.defects = missed.map(it => it.id);
+      OTR.shift.state.truck.missed = missed.map(it => `${it.name}: ${it.defect}`);   // named in the gate check and debrief
       OTR.save.write();
     }
 

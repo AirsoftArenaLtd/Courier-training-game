@@ -7,6 +7,7 @@ window.OTR = window.OTR || {};
 OTR.townArt = {
   ROAD: 210,      // asphalt width (two lanes wide enough for a step van to pass a car)
   WALK: 30,       // sidewalk strip on each side
+  ROOF_TINTS: [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0xA98CB8, 0xD0C0A8],   // house roofs on the map, by lot index
   STOP_LINE: 58,  // stop line, px out from the junction box: just clear of the crosswalk (R+1 to R+47). It was at
                   // 18, in the middle of the stripes, so "stop at the line" parked the nose on the crossing.
   // building sizes before OTR.town.SCALE, by variant; OTR.town.size() reads these, so what is drawn is what the van

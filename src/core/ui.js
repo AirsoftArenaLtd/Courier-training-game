@@ -63,8 +63,12 @@ OTR.ui = {
     c.setLabel = (s) => { t.setText(s); return c; };
     if (o.key && scene.input.keyboard) {
       const keys = Array.isArray(o.key) ? o.key : [o.key];
+      // o.keyAfter: the key only answers after this many ms (a key held or mashed through the part before must not
+      // dismiss a card nobody has read yet); a click always works
+      const armAt = o.keyAfter ? Date.now() + o.keyAfter : 0;
       const handler = OTR.dedupe(() => {
         if (!(c.active && c.visible && c.enabled && scene.input.enabled)) return;
+        if (armAt && Date.now() < armAt) return;
         // While a modal is open only its own buttons answer their keys. (ENTER on a scenario's brief used to
         // press the hub's "Start the route" behind it as well, and the route day won.)
         const stack = scene._modalStack || [];
@@ -247,7 +251,7 @@ OTR.ui = {
       const b = OTR.ui.button(scene, bx, h / 2 - 50, bd.label, () => {
         if (bd.keepOpen) { bd.onClick && bd.onClick(api); return; }
         api.close(() => bd.onClick && bd.onClick(api));
-      }, { w: bw, h: 54, skin: bd.skin || 'orange', key: bd.key, fontSize: 20 });
+      }, { w: bw, h: 54, skin: bd.skin || 'orange', key: bd.key, keyAfter: bd.keyAfter, fontSize: 20 });
       box.add(b);
     });
     if (o.escClose) {
@@ -269,7 +273,7 @@ OTR.ui = {
       title, body, w: o.w || 560, h: o.h || 300, escClose: true,
       buttons: [
         { label: o.no || 'Cancel', skin: 'ghost' },
-        { label: o.yes || 'Confirm', skin: o.danger ? 'red' : 'orange', onClick: onYes }
+        { label: o.yes || 'Confirm', skin: o.danger ? 'red' : 'orange', onClick: onYes, key: o.key, keyAfter: o.key ? 300 : 0 }
       ]
     });
   },

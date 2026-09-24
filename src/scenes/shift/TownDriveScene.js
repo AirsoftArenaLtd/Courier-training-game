@@ -78,6 +78,8 @@ class TownDriveScene extends Phaser.Scene {
     this.events.on('pause', hush);
     this.events.once('shutdown', () => { hush(); this.events.off('pause', hush); });
     if (this.onCreated) this.onCreated();
+    // a card the drive opens with (the shift's gate check), read before the van can move
+    if (this.d.notice) this.time.delayedCall(300, () => this.noticeCard(this.d.notice));
     if (!this.quietStart) this.time.delayedCall(400, () => this.toast('Buckle up: press B', 0xFFC83D));
     if (!this.quietStart && this.lightsWanted) this.time.delayedCall(2600, () => { if (!this.lights) this.toast(`${this.weather === 'clear' ? 'Low light' : 'Bad weather'}: headlights on (L)`, 0xFFC83D); });
   }
@@ -130,7 +132,7 @@ class TownDriveScene extends Phaser.Scene {
     const houseKeys = [0, 1, 2, 3].map(v => A.house(this, v));
     const bizKeys = [0, 1].map(v => A.biz(this, v));
     const aptKey = A.apt(this);
-    const roofTints = [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0xA98CB8, 0xD0C0A8];
+    const roofTints = A.ROOF_TINTS;
     T.lots.forEach((l, i) => {
       let img;
       if (l.kind === 'apartment') img = this.add.image(l.x, l.y, aptKey);
@@ -235,7 +237,10 @@ class TownDriveScene extends Phaser.Scene {
   /* ================================================================ van */
   buildVan() {
     const T = this.T, P = this.P, S = OTR_DATA.vehicle.van;
-    const start = this.d.start || { x: T.depot.curb.x, y: T.laneY(0, 1), heading: 0 };
+    // the day's first leg starts at the west end of the station's block, with a run-up to the four-way stop at the
+    // end of it (it used to start 15 m short of the stop line, while "Buckle up" was still being read)
+    const firstX = Math.min(T.depot.curb.x, T.vx[T.spec.depot.col] + OTR.townArt.ROAD / 2 + 150);
+    const start = this.d.start || { x: this.shiftMode ? firstX : T.depot.curb.x, y: T.laneY(0, 1), heading: 0 };
     this.van = OTR.vehicle.create(start.x, start.y, start.heading || 0);
     // the top-down van art is 62 x 126 px of body; draw it at the van's real size
     this.vanImg = this.add.image(0, 0, OTR.art.vanTop(this)).setDepth(30).setScale(S.width * P / 62, S.length * P / 126);
@@ -516,6 +521,17 @@ class TownDriveScene extends Phaser.Scene {
     });
   }
 
+  /** On a route day the leg restarts from where it began, with what happened on it still on the record. */
+  restartOptions() {
+    if (!this.shiftMode) return [{ label: 'Restart', data: this.initData }];
+    const next = (this.d.route || [])[0];
+    return [{ label: 'Restart this leg', data: () => {
+      const log = OTR.shift.restartLog(this.log, null, `Restarted the drive${next ? ` to stop ${next.index}` : ''}`);
+      if (OTR.shift.state) { OTR.shift.state.log = log; OTR.shift.save(); }
+      return Object.assign({}, this.initData, { notice: null, log });
+    } }];
+  }
+
   openPause() {
     if (this.scene.isPaused()) return;
     this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: this.scenario ? this.scenario.title : 'On the road' });
@@ -540,6 +556,8 @@ class TownDriveScene extends Phaser.Scene {
     OTR.audio.play('alarm');
     OTR.fx.flash(this, 0xF0435A, 0.22, 260);
     this.toast('⚠ ' + label, 0xF0435A);
+    // on a route day the record is saved as it happens, so a reload mid-leg is not a way to erase it
+    if (this.shiftMode && OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
   }
 
   /* ================================================================ frame */
@@ -927,6 +945,17 @@ class TownDriveScene extends Phaser.Scene {
     const u = Math.abs(v.u);
     const stopPx = (u * 1.2 + u * u / (2 * 5)) * this.P + v.g.nose * this.P + 60;   // a second to react, 5 m/s² brakes
     return to < 0 || to > stopPx;
+  }
+
+  /** A card that holds the van until it is read (d.notice: { title, body }). */
+  noticeCard(n) {
+    this.incidentOpen = true;
+    const v = this.van; v.u = 0; v.lat = 0; v.r = 0;
+    OTR.ui.modal(this, {
+      title: n.title, w: 680, h: 380, depth: 5000, body: n.body,
+      buttons: [{ label: n.button || 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: () => { this.incidentOpen = false; } }]
+    });
+    this.syncCameras();
   }
 
   /** Hitting someone stops the drive: the trainee has to deal with it before driving on. */

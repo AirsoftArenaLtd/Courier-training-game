@@ -8,7 +8,8 @@
  *   - after the second stop it reloads the page and carries on from the hub's "Resume route", as a trainee coming
  *     back to a half-finished day would;
  *   - pause-menu Restart on a drive keeps the day's route, and on a stop keeps that route stop (it used to become
- *     the first practice stop set);
+ *     the first practice stop set); either way the restart is on the day's record;
+ *   - reloading inside stop 4 reopens stop 4 (not the drive to it), without parking or moving the clock twice;
  *   - the layout is audited on the briefing, the drive and the debrief.
  * Traffic and pedestrians are cleared for each leg so the run is repeatable; the drill (m1-driving) covers them.
  */
@@ -29,7 +30,7 @@ module.exports = async (page, ctx) => {
   const pauseRestart = async (sceneKey) => {
     await page.keyboard.press('Escape');
     await waitScene('PauseScene', 4000);
-    await clickText(page, 'PauseScene', /^Restart( this stop)?$/);   // a stop says what it restarts
+    await clickText(page, 'PauseScene', /^Restart this (stop|leg)$/);   // each says what it restarts
     await wait(1500);
   };
 
@@ -45,6 +46,8 @@ module.exports = async (page, ctx) => {
 
   // ---- start the route and sit through the briefing
   await clickText(page, 'HubScene', /^Start the route/);
+  await wait(500);
+  await clickText(page, 'HubScene', /^Start ▶$/);             // the hub asks first
   await waitScene('ShiftBriefScene');
   await ctx.until(`!!OTR.game.scene.getScene('ShiftBriefScene').talkCtl`, 6000);
   await wait(800);
@@ -74,6 +77,7 @@ module.exports = async (page, ctx) => {
       await waitScene('TownDriveScene');
       const kept = await ctx.eval(`(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { shift: s.shiftMode, left: s.route.length }; })()`);
       if (!kept.shift || kept.left !== 4) throw new Error('restarting the drive lost the route: ' + JSON.stringify(kept));
+      if (!(await ctx.eval(`OTR.shift.state.log.items.some(it => /^Restarted the drive to stop 2/.test(it.label))`))) throw new Error('the drive restart is not on the day\'s record');
     }
     if (!injected) { await page.addScriptTag({ path: path.join(__dirname, 'lib', 'autodrive.browser.js') }); injected = true; }
     await ctx.eval(`(() => {
@@ -120,6 +124,20 @@ module.exports = async (page, ctx) => {
       await waitScene('StopScene');
       const st = await ctx.eval(`(() => { const s = OTR.game.scene.getScene('StopScene'); return { shift: s.shiftMode, id: s.def.id, idx: s.shiftStop && s.shiftStop.index }; })()`);
       if (!st.shift || st.idx !== 3) throw new Error('restarting a route stop turned it into ' + JSON.stringify(st));
+      if (!(await ctx.eval(`OTR.game.scene.getScene('StopScene').log.items.some(it => it.label === 'Restarted stop 3')`))) throw new Error('the stop restart is not on the day\'s record');
+    }
+    if (leg === 4) {
+      // reload inside the stop: the hub resumes into this stop, with the arrival logged once
+      const before = await ctx.eval(`({ clock: OTR.shift.state.clockMin, parks: OTR.shift.state.log.items.filter(it => /^Parked at/.test(it.label)).length })`);
+      await ctx.reload();
+      injected = false;
+      await page.keyboard.press('Enter');                      // Continue as QA Courier
+      await waitScene('HubScene');
+      await clickText(page, 'HubScene', /^Resume route/);
+      await waitScene('StopScene', 15000);
+      const back = await ctx.eval(`(() => { const s = OTR.game.scene.getScene('StopScene'); return { idx: s.shiftStop && s.shiftStop.index, clock: OTR.shift.state.clockMin,
+        parks: OTR.shift.state.log.items.filter(it => /^Parked at/.test(it.label)).length }; })()`);
+      if (back.idx !== 4 || back.clock !== before.clock || back.parks !== before.parks) throw new Error('reloading inside stop 4 did not resume it: ' + JSON.stringify({ before, back }));
     }
     await stashLog();
     await D.playStop(leg - 1);

@@ -28,7 +28,7 @@
   window.addEventListener('pointerdown', unlock);
   window.addEventListener('keydown', unlock);
 
-  // Debug helpers (console): OTR.debug.start('m2-sort'), OTR.debug.finishNow(0.95), OTR.debug.fillDay()
+  // Debug helpers (console): OTR.debug.start('m2-sort'), OTR.debug.finishNow(0.95)
   OTR.debug = {
     activeScene() {
       return OTR.game.scene.getScenes(true).filter(s => s.sys.settings.key !== 'PauseScene').pop();
@@ -45,15 +45,6 @@
       s.scenario.categories.forEach(c => { ratios[c] = r; });
       s.finish({ score: Math.round(1000 * r), ratios, lessons: ['(debug finish)'] }, 0);
       return 'ok';
-    },
-    fillDay(ratio) {
-      const r = ratio === undefined ? 0.7 : ratio;
-      OTR.registry.all().slice(0, OTR.save.perDay()).forEach(sc => {
-        const stars = {};
-        sc.categories.forEach(c => { stars[c] = OTR.scoring.stars(r); });
-        OTR.save.recordResult(sc.id, { score: 500, stars });
-      });
-      return OTR.save.data.today;
     },
     validate() {
       return OTR.validate.all(OTR_DATA, Object.keys(OTR.game.scene.keys));

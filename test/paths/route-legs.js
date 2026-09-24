@@ -26,14 +26,17 @@ module.exports = async (page, ctx) => {
   const bad = [];
   let legs = 0, worst = 0;
   for (let day = 1; day <= DAYS; day++) {
-    const { route, weather } = await ctx.eval(`(() => { const st = OTR.shift.generate(${day}); return { route: st.route.map(r => r.lotId), weather: st.weather }; })()`);
-    let start = null;
+    // the day's own town (one per career now) and the route day's first start, at the west end of the station's block
+    const { route, weather, seed, first } = await ctx.eval(`(() => { const st = OTR.shift.generate(${day}); const T = OTR.town.build(st.seed);
+      return { route: st.route.map(r => r.lotId), weather: st.weather, seed: st.seed,
+        first: { x: Math.min(T.depot.curb.x, T.vx[T.spec.depot.col] + OTR.townArt.ROAD / 2 + 150), y: T.laneY(0, 1), heading: 0 } }; })()`);
+    let start = first;
     for (let i = 0; i < route.length; i++) {
       const leg = await ctx.eval(`(() => {
         const mgr = OTR.game.scene;
         mgr.getScenes(true).forEach(s => mgr.stop(s.sys.settings.key));
         __step(2);
-        mgr.start('TownDriveScene', { seed: ${day}, weather: '${weather}', tod: 'morning', start: ${JSON.stringify(start)},
+        mgr.start('TownDriveScene', { seed: ${seed}, weather: '${weather}', tod: 'morning', start: ${JSON.stringify(start)},
           route: ${JSON.stringify(route.slice(i))}.map((lotId, k) => ({ lotId, index: ${i + 1} + k })) });
         __step(3);
         const s = mgr.getScene('TownDriveScene');

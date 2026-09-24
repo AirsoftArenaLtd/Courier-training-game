@@ -21,7 +21,8 @@ OTR.registry = {
     return OTR.util.getPath(OTR_DATA, sc.dataKey);
   },
   maxStars() {
-    return OTR.registry.all().reduce((n, s) => n + s.categories.length * 3, 0);
+    // every scenario's categories, plus the best route day's three
+    return OTR.registry.all().reduce((n, s) => n + s.categories.length * 3, 0) + OTR.scoring.CATS.length * 3;
   }
 };
 
@@ -76,8 +77,5 @@ OTR.flow = {
     OTR.fx.transition(scene, 'ResultsScene', { scenarioId: id, result, stars, rec, verdict });
   },
 
-  toHub(scene) {
-    if (OTR.save.todayFull() && !OTR.flow.testId) OTR.fx.transition(scene, 'DaySummaryScene');
-    else OTR.fx.transition(scene, 'HubScene');
-  }
+  toHub(scene) { OTR.fx.transition(scene, 'HubScene'); }
 };

@@ -16,11 +16,13 @@ OTR.ScoreLog = class {
   }
 
   setGroup(g) { this.group = g; return this; }
+  // log.onAdd = (item) => ...: told of every line as it is added (a route day saves its mistakes as they happen)
 
   check(cat, got, max, label, o) {
     o = o || {};
     const it = { cat, got, max, label, good: got >= max, partial: got > 0 && got < max, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'check', critical: !!o.critical && got < max, at: Date.now() };
     this.items.push(it);
+    if (this.onAdd) this.onAdd(it);
     return it;
   }
 
@@ -28,6 +30,7 @@ OTR.ScoreLog = class {
     o = o || {};
     const it = { cat, got: -Math.abs(pts), max: 0, label, good: false, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'penalty', severity: o.severity || 'minor', critical: !!o.critical, at: Date.now() };
     this.items.push(it);
+    if (this.onAdd) this.onAdd(it);
     return it;
   }
 
@@ -35,6 +38,7 @@ OTR.ScoreLog = class {
     o = o || {};
     const it = { cat, got: pts, max: 0, label, good: true, group: o.group || this.group, kind: 'bonus', at: Date.now() };
     this.items.push(it);
+    if (this.onAdd) this.onAdd(it);
     return it;
   }
 

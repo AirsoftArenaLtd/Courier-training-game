@@ -126,7 +126,7 @@ src/core/
   shift.js                  the route day: generation, phases, persistence
   audio, save, scoring, validate, fx, ui, flow
 src/scenes/
-  Boot, Title, Hub, Results, DaySummary, Pause, BaseScenarioScene
+  Boot, Title, Hub, Results, Pause, BaseScenarioScene
   m1/ m2/                 module 1 and 2 minigames (DrivingScene extends the town drive engine)
   shared/DialogueScene.js
   stops/StopScene.js      walkable doorstep deliveries

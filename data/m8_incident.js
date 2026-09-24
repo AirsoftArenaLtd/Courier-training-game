@@ -85,13 +85,13 @@ OTR_DATA.dialogues.m8_incident = {
         },
         {
           text: 'Photograph both vehicles while everything is where it landed.',
-          grade: 'ok', effects: { efficiency: 1, mood: -1 },
+          grade: 'ok', effects: { mood: -1 },
           feedback: 'The photographs matter, but not before you know whether anyone is hurt. Check on the person, then take the pictures.',
           next: 'n3'
         },
         {
           text: 'Call dispatch and describe the damage.',
-          grade: 'ok', effects: { efficiency: 1, mood: -1 },
+          grade: 'ok', effects: { mood: -1 },
           feedback: 'Reporting is right and it is coming — but dispatch will ask you first whether anybody is injured, and you do not know yet.',
           next: 'n3'
         }

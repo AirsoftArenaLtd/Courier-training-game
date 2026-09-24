@@ -112,11 +112,19 @@ class HubScene extends Phaser.Scene {
     } else {
       OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900' });
       OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false });
-      OTR.txt(this, x, top + 98, 'Brief → pre-trip → load → drive → deliver', 12, '#E6DAF7', { bold: false, align: 'center', wrap: 240 });
-      OTR.ui.button(this, x, top + 136, 'Start the route ▶', () => OTR.shift.start(this), { w: 220, h: 50, skin: 'orange', fontSize: 18, key: 'ENTER' });
+      // one line: the Start button sits right under it
+      OTR.txt(this, x, top + 98, 'Brief → pre-trip → load → the stops', 12, '#E6DAF7', { bold: false });
+      // a route day is a long session: say so before it starts (a stray Enter used to drop you into the briefing)
+      OTR.ui.button(this, x, top + 130, 'Start the route ▶', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
+        'Briefing, pre-trip, loading, then five stops: about half an hour. The day is saved as you go, and ESC pauses.',
+        () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER' }), { w: 220, h: 50, skin: 'orange', fontSize: 18, key: 'ENTER' });
       const r = save.data.route || { days: 0, best: { safety: 0, efficiency: 0, service: 0 } };
       const best = (r.best.safety || 0) + (r.best.efficiency || 0) + (r.best.service || 0);
-      OTR.txt(this, x, top + 172, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 12, '#FFD5C0', { bold: false });
+      OTR.txt(this, x, top + 166, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 12, '#FFD5C0', { bold: false });
+      if (r.last) {
+        const link = OTR.txt(this, x, top + 184, `Day ${r.last.day}'s debrief ›`, 12, '#FFC83D', { weight: '900' });
+        link.setInteractive({ useHandCursor: true }).on('pointerup', () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true }));
+      }
     }
   }
 
@@ -211,7 +219,6 @@ class HubScene extends Phaser.Scene {
 
   openBrief(sc, mod) {
     const save = OTR.save;
-    const canPlay = save.canPlay(sc.id);
     const rec = save.record(sc.id);
     // The brief grows to fit what it says. At a fixed 540 px, a three-line blurb with six things to practise ran
     // the controls line under the star ratings (Sort Belt, Road Hazards, After a Fender-Bender).
@@ -254,14 +261,11 @@ class HubScene extends Phaser.Scene {
       buttons: [
         { label: 'Back', skin: 'ghost' },
         {
-          // a full practice day (scenariosPerDay in data/config.js) is banked on the day summary before anything
-          // new is played; this button used to do nothing at all when the day was full
-          label: !canPlay ? 'Day full: bank it ▶' : rec ? 'Play Again' : 'Start',
+          label: rec ? 'Play Again' : 'Start',
           skin: 'orange',
           key: 'ENTER',
           onClick: () => {
-            if (canPlay) OTR.flow.startScenario(this, sc.id);
-            else OTR.fx.transition(this, 'DaySummaryScene');
+            OTR.flow.startScenario(this, sc.id);
           }
         }
       ]

@@ -599,7 +599,7 @@ OTR_DATA.dialogues.m3_twostops = {
         },
         {
           text: 'Hand over the package and hurry to the next stop.',
-          grade: 'ok', effects: { efficiency: 1 },
+          grade: 'ok', effects: {},
           feedback: 'Delivery done — but noting the dog hazard would warn the next driver.',
           next: 'end_ok'
         }

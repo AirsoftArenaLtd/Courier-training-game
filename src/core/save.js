@@ -14,10 +14,8 @@ OTR.save = {
       version: 1,
       profile: null,
       day: 1,
-      today: { completed: [], startTotal: 0 },
       scenarios: {},
       settings: { muted: false, hints: true },
-      history: [],
       shift: null,
       route: { days: 0, best: { safety: 0, efficiency: 0, service: 0 }, history: [] }
     };
@@ -35,16 +33,11 @@ OTR.save = {
     if (parsed && typeof parsed === 'object') {
       d.profile = parsed.profile && typeof parsed.profile.name === 'string' ? parsed.profile : null;
       d.day = Number.isFinite(parsed.day) && parsed.day > 0 ? parsed.day : 1;
-      if (parsed.today && Array.isArray(parsed.today.completed)) {
-        d.today.completed = parsed.today.completed.filter(s => s && typeof s.id === 'string');
-        d.today.startTotal = Number(parsed.today.startTotal) || 0;
-      }
       if (parsed.scenarios && typeof parsed.scenarios === 'object') d.scenarios = parsed.scenarios;
       if (parsed.settings) {
         d.settings.muted = !!parsed.settings.muted;
         if (parsed.settings.hints !== undefined) d.settings.hints = !!parsed.settings.hints;
       }
-      if (Array.isArray(parsed.history)) d.history = parsed.history.slice(-10);
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);
     }
@@ -113,6 +106,11 @@ OTR.save = {
       t.efficiency += b.efficiency || 0;
       t.service += b.service || 0;
     });
+    // the best route day counts toward the rank as well (the route day is what the academy is for)
+    const rb = (this.data.route && this.data.route.best) || {};
+    t.safety += rb.safety || 0;
+    t.efficiency += rb.efficiency || 0;
+    t.service += rb.service || 0;
     t.all = t.safety + t.efficiency + t.service;
     return t;
   },
@@ -134,22 +132,6 @@ OTR.save = {
     return `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★ to ${info.next.name}`;
   },
 
-  perDay() {
-    return OTR_DATA.config.scenariosPerDay || 3;
-  },
-
-  todayFull() {
-    return this.data.today.completed.length >= this.perDay();
-  },
-
-  inToday(id) {
-    return this.data.today.completed.some(s => s.id === id);
-  },
-
-  canPlay(id) {
-    return !this.todayFull() || this.inToday(id);
-  },
-
   /**
    * Record a finished scenario. result: { score, stars: {cat: n} }
    * Returns a summary used by the results screen.
@@ -157,7 +139,6 @@ OTR.save = {
   recordResult(id, result) {
     const before = this.totals().all;
     const rankBefore = this.rankInfo(before).index;
-    if (this.data.today.completed.length === 0) this.data.today.startTotal = before;
 
     const rec = this.data.scenarios[id] || { plays: 0, bestScore: 0, bestStars: { safety: 0, efficiency: 0, service: 0 } };
     const prevBest = Object.assign({}, rec.bestStars);
@@ -170,20 +151,6 @@ OTR.save = {
     });
     this.data.scenarios[id] = rec;
 
-    // Today's clipboard: one slot per scenario; replays keep the better result.
-    const slot = { id, stars: Object.assign({}, result.stars), score: result.score || 0 };
-    const existing = this.data.today.completed.findIndex(s => s.id === id);
-    let slotted = false;
-    if (existing >= 0) {
-      if (this.starSum(slot.stars) >= this.starSum(this.data.today.completed[existing].stars)) {
-        this.data.today.completed[existing] = slot;
-      }
-      slotted = true;
-    } else if (!this.todayFull()) {
-      this.data.today.completed.push(slot);
-      slotted = true;
-    }
-
     this.write();
     const after = this.totals().all;
     return {
@@ -194,34 +161,16 @@ OTR.save = {
       careerAfter: after,
       starsGained: after - before,
       rankBefore,
-      rankAfter: this.rankInfo(after).index,
-      slotted,
-      dayComplete: this.todayFull()
+      rankAfter: this.rankInfo(after).index
     };
   },
 
-  todayStars() {
-    const t = { safety: 0, efficiency: 0, service: 0, all: 0 };
-    this.data.today.completed.forEach(s => {
-      t.safety += s.stars.safety || 0;
-      t.efficiency += s.stars.efficiency || 0;
-      t.service += s.stars.service || 0;
-    });
-    t.all = t.safety + t.efficiency + t.service;
-    return t;
-  },
-
+  /**
+   * A route day is finished: the career moves on to the next day. (Practice has no "day": the practice day summary
+   * could never be reached and was removed, and the route's own history is kept in data.route.)
+   */
   endDay() {
-    const stars = this.todayStars();
-    this.data.history.push({
-      day: this.data.day,
-      stars: stars.all,
-      scenarios: this.data.today.completed.map(s => s.id),
-      at: Date.now()
-    });
-    this.data.history = this.data.history.slice(-10);
     this.data.day += 1;
-    this.data.today = { completed: [], startTotal: this.totals().all };
     this.write();
   }
 };

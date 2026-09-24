@@ -1,60 +1,31 @@
 /*
  * End of the route: the day's map with every stop, what went well and what didn't, and the day's stars.
+ * Opened with { review: true } it shows the last finished day again (from the hub).
  */
 class ShiftDebriefScene extends Phaser.Scene {
   constructor() { super('ShiftDebriefScene'); }
 
+  init(data) { this.review = !!(data && data.review); }
+
   create() {
+    // The day is closed and saved when its debrief first opens; the debrief itself is kept with it
+    // (OTR.save.data.route.last), so a reload here, or the hub's "Last day's debrief", shows the same page again.
     const st = OTR.shift.state;
-    if (!st) { this.scene.start('HubScene'); return; }
+    const live = st && st.phase === 'debrief' && !this.review;
+    const rec = live ? OTR.shift.finish(this) : OTR.save.data.route && OTR.save.data.route.last;
+    if (!rec) { this.scene.start('HubScene'); return; }
     OTR.fx.enter(this);
     const W = OTR.W, H = OTR.H;
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'debrief_bg', [[0, '#1A0A36'], [0.55, '#5A2A7A'], [1, '#FF8A4D']]));
-
-    const log = OTR.ScoreLog.from(st.log);
     const cats = OTR.scoring.CATS;
-    const ratios = log.ratios(cats);
-    const rec = OTR.shift.finish(this);
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'debrief_bg', [[0, '#1A0A36'], [0.55, '#5A2A7A'], [1, '#FF8A4D']]));
 
     // ---- header
     OTR.txt(this, W / 2, 46, `DAY ${rec.day} COMPLETE`, 38, '#ffffff', { weight: '900', shadow: true });
     OTR.txt(this, W / 2, 80, `${rec.delivered} delivered · ${rec.exceptions} exception${rec.exceptions === 1 ? '' : 's'} · ${Math.floor(rec.minutes / 60)}h ${rec.minutes % 60}m on the road`, 18, '#FFE3C8', { bold: false });
 
-    // ---- route map
-    const T = OTR.town.build(st.seed);
-    const mw = 440, mh = 330, mx = 60, my = 120;
-    const sx = mw / T.W, sy = mh / T.H;
-    OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
-      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
-      g.lineStyle(3, 0x4A4658, 1);
-      T.hy.forEach(y => g.lineBetween(mx, my + y * sy, mx + mw, my + y * sy));
-      T.vx.forEach(x => g.lineBetween(mx + x * sx, my, mx + x * sx, my + mh));
-      g.fillStyle(0x4D148C, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
-      // route line
-      g.lineStyle(3, 0xFF6600, 0.9);
-      let px = mx + T.depot.x * sx, py = my + T.depot.y * sy;
-      st.route.forEach(r => {
-        const lot = T.lotById(r.lotId);
-        const x = mx + lot.curb.x * sx, y = my + lot.curb.y * sy;
-        g.lineBetween(px, py, x, y);
-        px = x; py = y;
-      });
-      g.lineBetween(px, py, mx + T.depot.x * sx, my + T.depot.y * sy);
-      st.route.forEach(r => {
-        const lot = T.lotById(r.lotId);
-        const ok = r.result && r.result.outcome === 'delivered';
-        g.fillStyle(ok ? 0x2BC48A : 0xFFB020, 1);
-        g.fillCircle(mx + lot.curb.x * sx, my + lot.curb.y * sy, 7);
-      });
-    });
-    st.route.forEach((r, i) => {
-      const lot = T.lotById(r.lotId);
-      OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, '#16062B', { weight: '900' });
-    });
-    OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${rec.weather === 'heat' ? 'heat advisory' : rec.weather}`, 14, '#C9B3F0', { ox: 0, bold: false });
+    this.buildMap(rec);
 
-    // ---- stars
+    // ---- stars (critical mistakes cap their category, as in every scenario)
     const sxx = 620, syy = 150;
     cats.forEach((cat, i) => {
       const def = OTR_DATA.config.categories[cat];
@@ -62,81 +33,125 @@ class ShiftDebriefScene extends Phaser.Scene {
       this.add.image(sxx, y, def.icon).setDisplaySize(26, 26).setTint(def.color);
       OTR.txt(this, sxx + 22, y, def.label, 19, '#ffffff', { ox: 0, weight: '900' });
       const row = OTR.ui.stars(this, sxx + 230, y, 0, { size: 34 });
-      this.time.delayedCall(500 + i * 400, () => row.setCount(rec.stars[cat], true, 220));
-      const pct = Math.round(ratios[cat] * 100);
-      OTR.txt(this, sxx + 360, y, `${pct}%`, 18, OTR.color.css(def.color), { ox: 0, weight: '900' });
+      if (live) this.time.delayedCall(500 + i * 400, () => row.setCount(rec.stars[cat], true, 220));
+      else row.setCount(rec.stars[cat]);
+      OTR.txt(this, sxx + 360, y, `${Math.round(rec.ratios[cat] * 100)}%`, 18, OTR.color.css(def.color), { ox: 0, weight: '900' });
     });
 
-    // ---- what went well / what to work on
-    const items = log.items;
-    const groupBy = (list) => {
-      const out = [];
-      list.forEach(it => {
-        const hit = out.find(o => o.label === it.label);
-        if (hit) { hit.n++; hit.lesson = hit.lesson || it.lesson; }
-        else out.push({ label: it.label, lesson: it.lesson, cat: it.cat, kind: it.kind, got: it.got, gap: it.got - it.max, n: 1 });
+    this.buildLists(rec);
+
+    // ---- dispatcher line + button
+    OTR.txt(this, 60, 684, rec.note || '', 16, '#FFE3C8', { ox: 0, bold: false, wrap: 820 });
+    OTR.ui.button(this, W - 180, 686, 'Back to the station ▶', () => OTR.fx.transition(this, 'HubScene'), { w: 300, h: 54, skin: 'orange', fontSize: 19, key: ['ENTER', 'SPACE'], keyAfter: 600 });
+
+    if (live) {
+      const total = cats.reduce((n, c) => n + rec.stars[c], 0);
+      this.time.delayedCall(1800, () => {
+        if (total >= 8 && !rec.criticals) { OTR.fx.confetti(this, W / 2, H + 20, { count: 120 }); OTR.audio.play('fanfare'); }
+        else OTR.audio.play('success');
       });
-      return out;
-    };
-    const good = groupBy(items.filter(it => it.kind === 'check' && it.good)).slice(0, 4);
-    const bad = items.filter(it => (it.kind === 'penalty') || (it.kind === 'check' && !it.good));
-    const worst = groupBy(bad).sort((a, b) => a.gap - b.gap).slice(0, 5);
-    const panel = this.add.container(0, 0);
-    // the panel ends above the "Back to the station" button (it used to run under the button's corner)
-    const py2 = 318, ph2 = 322;
-    panel.add(OTR.tex.shape(this, (pg) => {
-      pg.fillStyle(0x0E0620, 0.82); pg.fillRoundedRect(560, py2, 660, ph2, 16);
-      pg.lineStyle(2, 0x6A45A0, 0.8); pg.strokeRoundedRect(560, py2, 660, ph2, 16);
-    }));
-    panel.add(OTR.txt(this, 584, py2 + 24, 'WHAT TO WORK ON', 14, '#FF9447', { ox: 0, weight: '900' }));
-    // Everything stays inside the panel: rows that do not fit are summed up in one line, and "went well" only
-    // appears if there is room left. (On a rough day the list used to run off the panel and the canvas.)
-    const bottom = py2 + ph2 - 14;
-    let y = py2 + 50;
-    if (!worst.length) {
-      panel.add(OTR.txt(this, 584, y, 'Nothing flagged. That was a clean day.', 17, '#8BF0C6', { ox: 0, oy: 0, bold: false }));
+    }
+  }
+
+  /** The day's route on the town map, each stop green (delivered) or amber, and what the truck rolled out with. */
+  buildMap(rec) {
+    const T = OTR.town.build(rec.seed || 1);
+    const mw = 440, mh = 330, mx = 60, my = 120;
+    const sx = mw / T.W, sy = mh / T.H;
+    const stops = (rec.stops || []).filter(r => T.lotById(r.lotId));
+    OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.lineStyle(3, 0x4A4658, 1);
+      T.hy.forEach(y => g.lineBetween(mx, my + y * sy, mx + mw, my + y * sy));
+      T.vx.forEach(x => g.lineBetween(mx + x * sx, my, mx + x * sx, my + mh));
+      g.fillStyle(0x4D148C, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
+      g.lineStyle(3, 0xFF6600, 0.9);
+      let px = mx + T.depot.x * sx, py = my + T.depot.y * sy;
+      stops.forEach(r => {
+        const lot = T.lotById(r.lotId);
+        const x = mx + lot.curb.x * sx, y = my + lot.curb.y * sy;
+        g.lineBetween(px, py, x, y);
+        px = x; py = y;
+      });
+      g.lineBetween(px, py, mx + T.depot.x * sx, my + T.depot.y * sy);
+      stops.forEach(r => {
+        const lot = T.lotById(r.lotId);
+        g.fillStyle(r.outcome === 'delivered' ? 0x2BC48A : 0xFFB020, 1);
+        g.fillCircle(mx + lot.curb.x * sx, my + lot.curb.y * sy, 7);
+      });
+    });
+    stops.forEach((r, i) => {
+      const lot = T.lotById(r.lotId);
+      OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, '#16062B', { weight: '900' });
+    });
+    OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${{ clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Heat advisory' }[rec.weather] || rec.weather}`, 14, '#C9B3F0', { ox: 0, bold: false });
+    // defects the pre-trip missed (they held the truck at the gate)
+    const out = rec.rolledOut || [];
+    if (out.length) {
+      let y = my + mh + 54;
+      OTR.txt(this, mx, y, 'ROLLED OUT WITH', 13, '#FF7A8A', { ox: 0, weight: '900' });
+      y += 14;
+      out.slice(0, 3).forEach(t => {
+        const l = OTR.txt(this, mx + 10, y, '✗ ' + t, 13, '#F4ECFF', { ox: 0, oy: 0, bold: false, wrap: mw - 20 });
+        y += l.height + 3;
+      });
+      if (out.length > 3) OTR.txt(this, mx + 10, y, `+ ${out.length - 3} more`, 12, '#C9B3F0', { ox: 0, oy: 0, bold: false });
+    }
+  }
+
+  /**
+   * What to work on (every kind of mistake, ranked: critical first, then by the points it cost over the whole day,
+   * with the top one of each category moved up) and what went well, which always gets a row when anything did.
+   * Rows that do not fit are counted in a "+ N more" line; nothing runs off the panel.
+   */
+  buildLists(rec) {
+    const work = rec.work || [], well = rec.well || [];
+    const x0 = 560, py = 318, pw = 660, ph = 322, bottom = py + ph - 14;
+    OTR.tex.shape(this, (pg) => {
+      pg.fillStyle(0x0E0620, 0.82); pg.fillRoundedRect(x0, py, pw, ph, 16);
+      pg.lineStyle(2, 0x6A45A0, 0.8); pg.strokeRoundedRect(x0, py, pw, ph, 16);
+    });
+    OTR.txt(this, x0 + 24, py + 24, 'WHAT TO WORK ON', 14, '#FF9447', { ox: 0, weight: '900' });
+    // room kept for "went well": its header and at least one row
+    const wellRows = Math.min(well.length, 1);
+    const wellH = well.length ? 30 + wellRows * 22 : 0;
+    const limit = bottom - wellH;
+    let y = py + 48;
+    if (!work.length) {
+      OTR.txt(this, x0 + 24, y, 'Nothing flagged. That was a clean day.', 17, '#8BF0C6', { ox: 0, oy: 0, bold: false });
       y += 30;
     }
-    let shownN = 0;
-    for (const it of worst) {
-      const mark = it.kind === 'penalty' || it.got <= 0 ? '✗' : '~';     // ~ only for part marks
-      const t = OTR.txt(this, 598, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}`, 16, '#F4ECFF', { ox: 0, oy: 0, weight: '900', wrap: 600 });
-      const l = it.lesson ? OTR.txt(this, 598, y + t.height + 2, it.lesson, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap: 600 }) : null;
+    let shown = 0;
+    for (const it of work) {
+      const left = work.length - shown - 1;
+      // ~ for part marks, ↺ for a line that cost nothing itself (a restart: what it shows is that it happened)
+      const note = !it.critical && !it.lost;
+      const mark = note ? '↺' : it.partial ? '~' : '✗';
+      const t = OTR.txt(this, x0 + 38, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${it.critical ? '  · CRITICAL' : ''}`, 16, it.critical ? '#FF9AA6' : note ? '#C9B3F0' : '#F4ECFF', { ox: 0, oy: 0, weight: note ? '700' : '900', wrap: pw - 70 });
+      const l = it.lesson ? OTR.txt(this, x0 + 38, y + t.height + 2, it.lesson, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap: pw - 70 }) : null;
       const need = t.height + 2 + (l ? l.height + 8 : 6);
-      if (y + need > bottom - (shownN < worst.length - 1 ? 22 : 0)) { t.destroy(); if (l) l.destroy(); break; }
+      if (y + need > limit - (left > 0 ? 22 : 0)) { t.destroy(); if (l) l.destroy(); break; }
       const def = OTR_DATA.config.categories[it.cat] || { color: 0xF0435A, icon: 'ic_flag' };
-      panel.add(this.add.image(578, y + 9, def.icon).setDisplaySize(15, 15).setTint(def.color));
-      panel.add(t);
-      if (l) panel.add(l);
+      this.add.image(x0 + 18, y + 9, def.icon).setDisplaySize(15, 15).setTint(def.color);
       y += need;
-      shownN++;
+      shown++;
     }
-    if (shownN < worst.length) {
-      panel.add(OTR.txt(this, 598, y, `+ ${worst.length - shownN} more to work on`, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false }));
+    if (shown < work.length) {
+      OTR.txt(this, x0 + 38, y, `+ ${work.length - shown} more to work on`, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false });
       y += 22;
     }
-    if (good.length && y + 52 < bottom) {
-      panel.add(OTR.txt(this, 584, y + 6, 'WENT WELL', 14, '#8BF0C6', { ox: 0, weight: '900' }));
-      y += 30;
-      good.slice(0, 3).forEach(it => {
-        if (y + 20 > bottom) return;
-        panel.add(OTR.txt(this, 598, y, `✓ ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}`, 14, '#8BF0C6', { ox: 0, oy: 0, bold: false, wrap: 600 }));
+    if (well.length) {
+      OTR.txt(this, x0 + 24, y + 12, 'WENT WELL', 14, '#8BF0C6', { ox: 0, weight: '900' });
+      y += 26;
+      const room = Math.max(1, Math.floor((bottom - y) / 22));
+      const rows = well.slice(0, Math.min(room, 6));
+      rows.forEach((it, i) => {
+        const more = i === rows.length - 1 && well.length > rows.length ? `   + ${well.length - rows.length} more` : '';
+        OTR.txt(this, x0 + 38, y, `✓ ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${more}`, 14, '#8BF0C6', { ox: 0, oy: 0, bold: false, wrap: pw - 70 });
         y += 22;
       });
     }
-
-    // ---- dispatcher line + button
-    const total = cats.reduce((n, c) => n + rec.stars[c], 0);
-    const note = total >= 8 ? OTR.util.pick(OTR_DATA.config.dayNotes.great)
-      : total >= 5 ? OTR.util.pick(OTR_DATA.config.dayNotes.good)
-        : OTR.util.pick(OTR_DATA.config.dayNotes.rough);
-    OTR.txt(this, 60, 700, note, 16, '#FFE3C8', { ox: 0, bold: false, wrap: 760 });
-    OTR.ui.button(this, W - 180, 686, 'Back to the station ▶', () => OTR.fx.transition(this, 'HubScene'), { w: 300, h: 54, skin: 'orange', fontSize: 19, key: ['ENTER', 'SPACE'] });
-
-    this.time.delayedCall(1800, () => {
-      if (total >= 8) { OTR.fx.confetti(this, W / 2, H + 20, { count: 120 }); OTR.audio.play('fanfare'); }
-      else OTR.audio.play('success');
-    });
   }
 }
 OTR.registerScene(ShiftDebriefScene);

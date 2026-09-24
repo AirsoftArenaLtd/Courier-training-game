@@ -92,7 +92,9 @@ class BaseScenarioScene extends Phaser.Scene {
           y += t.height + 14;
         });
       },
-      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: onStart }]
+      // the card is the first thing a new part shows: Enter presses still arriving from the part before (people mash
+      // through the text) are ignored for a moment, or the how-to is gone before it is read
+      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: onStart }]
     });
     return modal;
   }

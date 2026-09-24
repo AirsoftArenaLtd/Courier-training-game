@@ -115,9 +115,8 @@ class ResultsScene extends Phaser.Scene {
     this.time.delayedCall(delay, () => bar.setValue(info.progress, true, 800));
 
     // buttons
-    const dayDone = rec.dayComplete && !OTR.flow.testId;
     const retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R' });
-    const next = OTR.ui.button(this, 130, ph / 2 - 46, dayDone ? 'End of Day ▶' : 'Shift Board ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER' });
+    const next = OTR.ui.button(this, 130, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER' });
     panel.add([retry, next]);
     [retry, next].forEach(b => b.setEnabled(false));
     this.time.delayedCall(Math.min(delay, 2200), () => [retry, next].forEach(b => b.setEnabled(true)));

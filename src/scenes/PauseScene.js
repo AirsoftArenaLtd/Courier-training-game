@@ -16,7 +16,7 @@ class PauseScene extends Phaser.Scene {
     // "Restart this stop" and "Restart the set").
     const restarts = parent.restartOptions ? parent.restartOptions() : [{ label: 'Restart', data: parent.initData || { scenarioId: parent.scenarioId } }];
     const rows = 2 + restarts.length;
-    const ph = 300 + rows * 72;
+    const ph = 250 + rows * 72;              // ends a little below the mute button, however many rows
     const top = -ph / 2;
     const box = this.add.container(OTR.W / 2, OTR.H / 2);
     box.add(OTR.ui.panel(this, 0, 0, 440, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 24 }));
@@ -33,11 +33,11 @@ class PauseScene extends Phaser.Scene {
       y += 72;
       box.add(OTR.ui.button(this, 0, y, r.label, () => {
         this.scene.stop();
-        parent.scene.restart(r.data);
+        parent.scene.restart(typeof r.data === 'function' ? r.data() : r.data);
       }, { w: 300, h: 58, skin: 'purple', fontSize: r.label.length > 12 ? 20 : undefined }));
     });
     y += 72;
-    box.add(OTR.ui.button(this, 0, y, 'Quit to Shift Board', () => {
+    box.add(OTR.ui.button(this, 0, y, 'Quit to the station', () => {
       this.scene.resume(this.parentKey);
       this.scene.stop();
       OTR.fx.transition(parent, 'HubScene');

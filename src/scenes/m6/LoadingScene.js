@@ -310,7 +310,35 @@ class LoadingScene extends BaseScenarioScene {
     if (hazPkg) log.check('safety', hazSlot && hazSlot.pkg === hazPkg ? 2 : 0, 2, 'Dangerous goods in the marked zone', { lesson: 'Dangerous goods travel in their segregated spot, never stacked in with everything else.' });
     const par = this.content.par || 210;
     log.check('efficiency', this.elapsed <= par ? 2 : this.elapsed <= par * 1.5 ? 1 : 0, 2, `Loaded in good time (${Math.round(this.elapsed)}s, par ${par}s)`);
-    this.endScenario();
+    this.loadReport(right, total, high);
+  }
+
+  /**
+   * What the load looks like before the doors close: every piece out of place and why, heavy ones up high, the
+   * strap. (Rolling out used to go straight to the drive, and the lesson only showed at the end of the day.)
+   */
+  loadReport(right, total, high) {
+    if (this.reporting) return;
+    this.reporting = true;
+    this.running = false;
+    const rows = [];
+    this.pkgs.forEach(p => {
+      const probs = p.slotRef ? this.problemsFor(p, p.slotRef) : ['not loaded'];
+      if (probs.length) rows.push(`${p.number} ${p.street} (stop ${p.stop}): ${probs.join('; ')}`);
+    });
+    high.forEach(p => rows.push(`${p.number} ${p.street}: ${p.weight} lb loaded up high`));
+    if (!this.strapped) rows.push('The floor load is not strapped');
+    const clean = !rows.length;
+    OTR.ui.modal(this, {
+      w: 780, h: 200 + Math.min(rows.length, 6) * 30 + (rows.length > 6 ? 30 : 0), depth: 5000,
+      title: clean ? 'Load report: a clean load' : 'Load report: fix these next time',
+      build: (box, api, w, h) => {
+        box.add(OTR.txt(this, 0, -h / 2 + 96, `${right} of ${total} pieces in the right place${this.strapped ? ' · floor load strapped' : ''}`, 17, clean ? '#1E9E6B' : '#B26A00', { weight: '900' }));
+        rows.slice(0, 6).forEach((r, i) => box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + i * 30, '✗  ' + r, 15, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 90 })));
+        if (rows.length > 6) box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + 6 * 30, `+ ${rows.length - 6} more`, 14, '#7A6A90', { ox: 0, oy: 0, weight: '900' }));
+      },
+      buttons: [{ label: this.shiftMode ? 'Roll out ▶' : 'Finish ▶', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: () => this.endScenario() }]
+    });
   }
 
   /* ------------------------------------------------------------------ find mode */
