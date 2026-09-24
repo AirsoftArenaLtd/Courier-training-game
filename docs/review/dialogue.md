@@ -27,6 +27,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** picks answer 1, like Digit1 (the card says "1-4 to choose").   **Actual:** nothing happens. Only the top-row digits are bound.
 - **Suspected cause:** `src/core/talk.js:87` binds only `ONE..FOUR`.
 - **Suggested fix:** also bind `NUMPAD_ONE..NUMPAD_FOUR`.
+- **Status:** fixed — the number pad's 1-4 pick answers as the top-row digits do (`NUMPAD_ONE`… bound in the talk
+  engine).
 
 ### DIALOGUE-3: The feedback card clips the mood meter, and the pointer arrow sits on top of the ♥/💢 reaction bubble
 - **Severity:** polish
@@ -35,6 +37,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/missing-2.png`, `missing-bad1.png`
 - **Suspected cause:** `src/core/talk.js:398` coach card at y 110; `DialogueScene.js:138` meter at (190, 92). Pointer at depth 2999 vs the emote in the rig.
 - **Suggested fix:** move the coach card down ~20 px (or the meter up); hide the speaker pointer while an emote is showing, or lift the emote above it.
+- **Status:** fixed — the feedback card starts at y 132, below the mood meter (which ends at 119), and the speaker
+  arrow steps aside while a ♥/💢 reaction bubble is up.
 
 ### DIALOGUE-4: Effects on an ending node are silently dropped (m3-missing "Mystery Solved" promises +1 service)
 - **Severity:** minor
@@ -43,6 +47,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** end-node `effects` apply (the format comment at `data/m3_dialogues.js:8` documents `effects?` on end nodes).   **Actual:** ignored.
 - **Suspected cause:** `src/core/talk.js:140` `goto()` calls `finish(n)` for `type: 'end'` before `afterAct` would apply `n.effects`.
 - **Suggested fix:** apply `n.effects` before `finish(n)` (as a bonus line), or remove the field from the data and the format comment. If DIALOGUE-1 is fixed by scoring endings, this is the natural place to do it.
+- **Status:** fixed (decision) — endings score nothing: the one ending with effects (m3-missing "Mystery Solved") no
+  longer has them, the format comment says so, and content validation reports an ending with effects. The outcome is
+  carried by the answers that led to it (and the results' headline).
 
 ### DIALOGUE-5: m3-signature: the helpful neighbour steps out of the recipient's own front door, and a porch post cuts through his face
 - **Severity:** minor
@@ -52,6 +59,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/sig-1.png`, `sig-1crop.png` (full-size crop)
 - **Suspected cause:** `DialogueScene.js:73-75` puts `spotOther` at `house.doorX - 26` for every porch scene, and `ensureRig()` (line 116) fades the rig in at `spotOther + 120`, i.e. in the doorway; the porch post is drawn in front of actors.
 - **Suggested fix:** give the cast an entry side (`enter: 'left'|'right'|'door'`) and a stand spot, and for m3-signature bring Alvarez in from the right onto the path/lawn; keep actors clear of the porch posts or draw posts behind actors.
+- **Status:** fixed — a cast member can enter from an edge and stand on the path (`enter: 'left' | 'right'`, `spot`,
+  `ground`): Mr. Alvarez walks over from next door on the left and stands on the path by the steps, clear of the
+  recipient's door and the porch posts, and the courier turns to face whoever arrives.
 
 ### DIALOGUE-6: The stage never acts out what the narration says (no box in hand, no side door, no planter)
 - **Severity:** design
@@ -61,6 +71,15 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** the courier carries the package the scene is about; key actions (walking to the side door, finding the box, setting the box down) are shown, even briefly.   **Actual:** a static two-shot with text; the stage contradicts the text.
 - **Evidence:** `missing-1.png`, `missing-4.png`, `sig-1.png`, `sig-2.png`
 - **Suggested fix:** `hold('box')` on the courier where the text says so; simple acts for "walk to X" and "prop appears" (the talk engine already supports acts); add a planter prop to the porch setting, or change the text to something on stage (the bench / the mat).
+- **Status:** fixed (decision) — the stage now acts out what the narration says wherever the art allows, through new
+  staging on lines and answers (`hold`, `walk`, `prop`, `unprop`, and `stage: [steps]` in turn): the courier holds the
+  box in m3-missing, m3-signature, m3-twostops and m4-damaged (and sets it down when the answer says to step back); in
+  m3-missing the courier and Dana walk round the side of the house and come back with her box, and Dana storms off
+  when the narration says so; m3-signature's porch has the big planter, and leaving the package there is shown; in
+  m4-address the courier walks up to the house to knock; m4-damaged keeps Mr. Bennett on stage for the line about the
+  liquid on his hands; m4-storm's stop shows the flooded yard and the padlocked back gate. Not done, recorded here:
+  the wet stain and the recycling bin (anything lying on the ground is under the caption box, so the box is shown in
+  the courier's hands instead), and a hand truck.
 
 ### DIALOGUE-7: m3-twostops office: the receptionist is sunk behind the counter, only her eyes show, and the caption box covers the rest
 - **Severity:** major
@@ -70,6 +89,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/two-1.png`, `two-1crop.png` (full-size crop); `/eval` → `{x:610, y:714, spotOther:610, otherY:714, head:300, scale:0.8, me:[250,640]}`
 - **Suspected cause:** `src/scenes/shared/DialogueScene.js:58-60` interior: `spotOther = I.counterX + 50` and `otherY = OTR.H - 6` (714), 74 px lower than the courier's floor; the counter is drawn in front of actors.
 - **Suggested fix:** stand the receptionist on the same floor line as the courier (or raise her so her shoulders clear the counter), and move her left of the choice column (the cards start at x 624).
+- **Status:** fixed — the receptionist stands on the counter's own floor line, behind the counter from the waist up
+  with her face clear of it and of the caption box, and left of the answer cards (x ≤ 580); her shoes no longer show
+  under the counter.
 
 ### DIALOGUE-8: m3-twostops dog stop: the picture contradicts the safety lesson (courier stands on the porch beside the snarling dog the whole time; "He's inside now" with the dog still there)
 - **Severity:** major
@@ -79,6 +101,12 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/two-dog.png`, `two-dogcrop.png` (full size), `two-calm.png`, `two-chen.png`, `two-n8.png`; `/eval` → `{dog:[430.6,574], me:[246.6,574]}`
 - **Suspected cause:** `DialogueScene.js:73-75` house setting: `spotCourier = doorX - 210`, `spotOther = doorX - 26` (both on the porch); no act moves the courier; `n8` has no `hide: 'biscuit'`.
 - **Suggested fix:** for `porch_dog`, start the courier on the path in front of the fence; add a `move`/`retreat` act on the "back away" choice and on `n6_calm` so the courier ends behind the gate; have the dog pace on the lawn in front of the porch (clear of the railing and the caption box); `hide: 'biscuit'` on `n8`/`n8_tossed`.
+- **Status:** fixed — the dog stop has its own staging: the caption box moves under the HUD for this setting (as the
+  doorstep stops do for dogs), so the ground is visible; the courier starts halfway up the path inside an open front
+  gate, Biscuit is on the lawn clear of the porch railing, the courier backs out through the gate when the answer (or
+  the chase) says so, walks back in on the bite and "walk right up" branches, Mrs. Chen comes to her door, and Biscuit
+  is taken inside when she says so. The talk engine can switch layout mid-conversation (`setTop`), and a branch node's
+  staging is no longer skipped (the reason "He's inside now" showed the dog).
 
 ### DIALOGUE-9: m3-twostops: get bitten, yell at the owner, and the ending says "You stayed safe"; the takeaways never mention the dog
 - **Severity:** major
@@ -88,6 +116,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** run log above; outcome texts from `/texts` (`Rattled`, `PARTIAL`).
 - **Suspected cause:** `data/m3_dialogues.js:628-631` `n8_sour` → `end_sour` ignores the `bitten`/`dented` flags (only `end_pick` checks them); `n7_owner` has no bitten-aware choice.
 - **Suggested fix:** route `n8_sour` (and every ending) through a flags check so `bitten` always ends on `end_rough`/a dedicated "Dog bite" ending; add a `bitten`-only choice at `n7_owner` ("I've been bitten — I need to step away, clean this and call my manager") graded good; add a `dented` line at `n8` to disclose the damage.
+- **Status:** fixed — in m3-twostops a bite or a box dented in the chase decides every ending, whatever was said
+  afterwards ("Bitten" or "Chased Off the Porch"; "You stayed safe" can no longer follow a bite). After a bite the
+  right answer is a new one — "He bit me. Please put him inside — I need to clean this and call my manager." — and the
+  owner helps with the wound and the report; the "I'm okay" answers are not offered then. A box dented in the chase is
+  disclosed at the door. Going back into the yard is a critical mistake, so its lesson leads the results (WP1).
 
 ### DIALOGUE-10: Efficiency is scored but never shown in four conversation scenarios, so "ok" answers look pointless and some costs are invisible
 - **Severity:** minor
@@ -109,6 +142,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
   4. Freezing costs 1 safety point of 3 and still ends "Two Stops, Nailed" / "GREAT WORK!" (known results-screen family).
 - **Expected:** endings that match what was said; a bridging line ("You manage to back out through the gate…") after the timeout/crouch; narration styled as narration.
 - **Suggested fix:** give `n8_tossed`'s good choice its own ending (e.g. "Honest Recovery", mixed); add a short `n5b` narration for the timeout/crouch branches; set `speaker: 'narrator'` on `n6_calm` (keep `effects.mood` with `moodTarget: 'biscuit'`).
+- **Status:** fixed — (1) the tossed-box branch has its own endings ("Honest Recovery" after owning it and having the
+  box checked, "Left to Chance" after walking off), no longer "Not Documented"; (2) freezing on the timer or crouching
+  leads through a bridging line ("Biscuit stops a few feet short… you ease back down the path and out through the
+  gate"), and the courier is seen doing it; (3) the "(You're back outside the gate…)" line is narration, with its mood
+  change still going to the dog; (4) the results headline follows WP1 (a lost safety point is not FLAWLESS).
 
 ### DIALOGUE-12: m4-damaged: open the leaking chemical box, get it on your hand, and the ending says "The dangerous part was handled well"
 - **Severity:** major
@@ -118,6 +156,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** outcome text via `/texts` (run above).
 - **Suspected cause:** `data/m4_dialogues.js:286-292`: only the "Document the damage" choice goes through `end_pick`; "Skip the paperwork" goes straight to `end_ok`, which ignores `exposed`. `end_deflect` ("The package was kept safely off the doorstep") also ignores it.
 - **Suggested fix:** route every ending through a check of `exposed` (as DIALOGUE-9 for `bitten`), e.g. `end_pick_ok: { if: '!exposed', then: 'end_ok', else: 'end_exposed' }`, and give end_exposed a variant that also mentions the skipped paperwork.
+- **Status:** fixed — every m4-damaged ending checks the exposure: after getting the contents on your skin, skipping
+  the paperwork or deflecting ends "Exposed, and Half Done" (bad), never "The dangerous part was handled well".
+  Opening, rearranging or hiding a leaking package are critical mistakes.
 
 ### DIALOGUE-13: The best answer can pop an anger bubble and drop the mood meter next to "✓ GOOD CALL"
 - **Severity:** design
@@ -127,6 +168,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/dmg-honest.png`
 - **Suspected cause:** `src/core/talk.js:374` emotes 💢 for any negative mood change regardless of grade.
 - **Suggested fix:** on a good-graded choice with negative mood, use a neutral "disappointed" emote (e.g. "…" or a sweat drop) instead of 💢, or no emote.
+- **Status:** fixed — a recommended answer that still disappoints someone shows a grey "…" instead of the red anger
+  bubble, so GOOD CALL is not contradicted on screen.
 
 ### DIALOGUE-14: m4-storm: after the truck drowns in the underpass, the story carries on as if you drove to the stop, the ✓ answer to dispatch is a false report, and "Okay. Bye." ends "Safe and Sound"
 - **Severity:** major
@@ -138,6 +181,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** the flooded branch either ends there (a bad ending about the tow and the soaked freight, after an honest call to dispatch) or continues coherently (dispatch sends help, the stop is reassigned), and every ending respects `flooded`.   **Actual:** the trainee is rewarded for a false "I rerouted" report, which is the opposite of what a real incident call needs.
 - **Suspected cause:** `data/m4_dialogues.js:392-414` (n2_flood → shared n3), `474-478` and `456-459` (endings that skip `end_pick`).
 - **Suggested fix:** give the flooded branch its own dispatch node (good: "I drove into the underpass, the truck stalled, I'm out and safe on high ground, I need a tow"; bad: "All good!"), and end it with `end_towed`; or at least make n3's good text conditional (`if: '!flooded'`) and add a flooded version, and route `end_ok`/`end_soaked` through the `flooded` check.
+- **Status:** fixed — after driving into the flood the story no longer carries on to the stop: dispatch calls, and the
+  recommended answer is the truth ("I drove into the Pine Street underpass and stalled. I'm out, on high ground, and
+  safe. I need a tow."); the dispatcher sends a tow and moves the stops ("Turn Around, Don't Drown"). The old "all
+  good" answer is a critical false report and ends "Stranded, and Not Reported", when the tow company tells dispatch
+  instead.
 
 ### DIALOGUE-15: m8-incident: take no photographs, send the witness away, write a two-line report, and the outcome is "Handled By The Book … documented, witnessed and written up honestly" (RESOLVED, confetti)
 - **Severity:** major
@@ -148,6 +196,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** outcome text via `/texts` (run above); `test/out/review/dialogue/inc-lazy-end.png`
 - **Suspected cause:** `data/m8_incident.js:268-281`: the "None" photographs, "No need" witness and "two lines" report choices set no flags, so `end_pick` cannot see them; the ending texts are fixed lists.
 - **Suggested fix:** set flags on those choices (`nophotos`, `nowitness`, `thin`) and include them in `end_pick`; build the mixed/bad ending text from the flags that are actually set (or have one ending per main failure); make `end_bad` distinguish "left the scene" from "took cash" and not claim an empty file when the trainee documented everything.
+- **Status:** fixed — every mistake in m8-incident sets a flag (moved, texted, admitted, no photographs, damage-only
+  photographs, coached witness, witness let go, shaded report, two-line report, cash, left the scene), and the good
+  ending needs none of them. "Reported, With Loose Ends" names exactly the ones made (endings can now add a sentence
+  per flag, `notes`), and the bad endings tell leaving the scene from the cash deal and do not claim an empty file
+  when the trainee documented everything.
 
 ### DIALOGUE-16: A second visitor walks onto exactly the same spot as the first, hiding them (Ray vanishes behind Mrs. Whitfield; Mrs. Chen stands on the dog)
 - **Severity:** minor
@@ -157,6 +210,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/inc-neighbour.png`, `inc-overlap.png` (full-size crop), `two-chen.png`
 - **Suspected cause:** `src/scenes/shared/DialogueScene.js:107-129` `ensureRig()` always walks the new rig to `this.spotOther`, whoever is already there.
 - **Suggested fix:** keep a list of occupied marks and give each new rig the next free one (spotOther, spotOther + 140, …, all left of the choice column at x 624), or let the data give a `spot` per cast member.
+- **Status:** fixed — each visitor gets a free mark near the setting's (±150 px, all left of the answer cards) unless
+  the data gives one, so Mrs. Whitfield stands beside Ray instead of on top of him, and Mrs. Chen is at her door while
+  Biscuit is on the lawn.
 
 ### DIALOGUE-17: m8-incident and m4-storm are staged at a parked van by a house: no sedan, no driveway, no damage; the driving decisions are asked over a parked scene
 - **Severity:** design
@@ -165,6 +221,12 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** the collision scenario shows the collision: the van half out of a driveway, the sedan with a crumpled fender, the courier getting out. The storm's driving questions are asked from the cab (or the stage starts on the road and the van parks after the flood decision).   **Actual:** a generic doorstep backdrop that contradicts the text.
 - **Evidence:** `test/out/review/dialogue/inc-ray.png`, `storm-0.png`
 - **Suggested fix:** add a `collision` setting (driveway + parked sedan prop with a damage decal, van angled out) and a `cab`/`road` setting for the storm's first two decisions; switch to the doorstep with `setting:` once the van reaches the stop (the engine already supports setting changes, as in m4-address).
+- **Status:** fixed (decision) — two new settings: `collision` for m8-incident (the van at the kerb by a driveway, the
+  parked sedan across the road with its front wing creased in, a new side-view `sedan` prop, hazards flashing once the
+  answer says to turn them on) and `road` for m4-storm's driving decisions (the van on a wet road in the storm, the
+  courier at the wheel, not standing on a doorstep), switching to the doorstep in the rain when the van reaches the
+  stop. Not possible with the side-view art: the van angled out of the driveway; the sedan is shown on the far side of
+  the road so its damage is above the caption box.
 
 ### DIALOGUE-18: m8-incident continuity: dispatch answers a text you sent your supervisor, asks you to report what you already reported, and opens a claim for the cash deal nobody reported
 - **Severity:** minor
@@ -178,6 +240,12 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
   6. Narration in quotes under a speaker tag: n3 "The door opens and a man climbs out… "I'm fine…"" is shown as Ray speaking.
 - **Expected:** each branch's later lines agree with what the trainee chose.
 - **Suggested fix:** split n7 into "called" and "texted" versions (for the text: dispatch rings you back, "Your supervisor forwarded your text — you call this in, you don't text it"); set a `reported` flag at n2's dispatch choice and skip/reword n6; for `cash`, have Ray pocket the money and the claim still arrive ("Ray's insurer calls anyway"); drop "two people who watched" or make it conditional; set `moved` in `n1_left`; make n3 narration then a Ray line.
+- **Status:** fixed — (1) a text to the supervisor gets a call back from dispatch ("Collisions get called in, not
+  texted") instead of an answer to a report never made; (2) calling dispatch before checking on the driver gets "find
+  out first and call me back", so the report at n6 is the real one; (3) after the cash deal Ray pockets the money and
+  his insurer calls dispatch anyway ("he says you paid him cash to keep it quiet"); (4) the moved-van line no longer
+  mentions two people who watched; (5) driving off three houses down counts as moving the van; (6) the narration and
+  Ray's words are separate lines.
 
 ### DIALOGUE-19: m8-incident is written in British English inside a US-English game ("wing", "kerb", "tyre", "metre", "I was sat in it", "clock off")
 - **Severity:** polish
@@ -186,6 +254,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** one dialect, the customer's (US).   **Actual:** mixed; US trainees will trip on "wing" in particular (it means fender).
 - Also: the m3-signature scenario card says "a helpful **neighbour** has ideas" (`data/modules.js:119`) while the scenario itself says "neighbor" nine times; m8-incident's card reads "Click a reply or press 1-3" while the six other conversation cards say "Mouse or 1-4 to choose · click / SPACE to advance" (m8's omits how to advance).
 - **Suggested fix:** fender, curb, tire, feet ("ten feet"), neighbor, "I was sitting in it", "before you clock out". The results header "KEEP PRACTISING" is the same issue (shell area). Use one controls line for all seven.
+- **Status:** fixed — m8-incident is in US English (fender, tire, curb, feet, neighbor, "I was sitting in it", "clock
+  out", "backed"), the m3-signature card says "neighbor", and all seven conversation cards have the same controls line
+  (the two with a timer add "some decisions are timed"). The rest of the game's spelling is WP8's.
 
 ### DIALOGUE-20: The on-screen pause button does nothing in conversations; clicking it skips the line instead
 - **Severity:** major
@@ -194,6 +265,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** the pause menu opens, as in every other scenario.   **Actual:** the talk engine's full-screen click catcher (depth 3000) sits above the HUD (depth 800) and takes the click; a trainee who reaches for the button skips text they have not read.
 - **Suspected cause:** `src/core/talk.js:92-93` (`catcher` zone covering the whole screen, `pointerup` → `advance()`), root container at `depth 3000`; the HUD's pause icon button is at `src/scenes/BaseScenarioScene.js:37`.
 - **Suggested fix:** leave the HUD strip out of the catcher (e.g. make it `OTR.W × (OTR.H − 60)` starting below the bar), or raise the HUD above the talk root, or have the catcher ignore pointers over the HUD bar.
+- **Status:** fixed — the talk engine's click catcher leaves out the HUD strip (y < 64), so the pause button opens the
+  pause menu and no longer skips the line.
 
 ### DIALOGUE-21: The recommended answer is the longest answer at 41 of 42 decisions, so "pick the longest" passes every conversation
 - **Severity:** design (it undermines the assessment, so treat it as high priority)
@@ -201,6 +274,12 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Repro:** count, for every node with choices, whether a `grade: 'good'` choice is the longest text: 41 of 42 (the only exception is m4-address `n2_412`). The bad answers are short and blunt ("Nope. Can't do that.", "Rules are rules. Bye.", "Sign here.", "Okay. Bye.", "Turn and sprint for the truck!"); the good ones are long, polite and hedged, and often contain the lesson's own keywords ("follow your company's procedure", "through your normal process"). Shuffling the order does not help.
 - **Expected:** a trainee has to understand the situation to choose well.   **Actual:** a trainee who reads nothing and picks the longest card gets "FLAWLESS!" on most scenarios.
 - **Suggested fix:** rewrite so lengths overlap: give some wrong answers plausible, reasoned wording ("I'll take it up myself — the CEO's office is on my way and it saves them a trip"), trim the good answers to the action, and add at least one "sounds professional but wrong" option per scenario (e.g. an articulate phone-OK for the signature, a polite neighbour hand-off). A quick check in the build (`OTR.talk` validation) could warn when the good answer is always the longest.
+- **Status:** fixed (decision) — answers rewritten so length gives nothing away, keeping every answer's meaning and
+  grade: across the 44 decisions the recommended answer is now the longest in 11 (25 %, it was 41 of 42) and the
+  shortest in 13 (30 %); wrong answers got plausible reasons ("the CEO's office is on my way, and it saves someone a
+  trip", "you're the customer and you're giving me permission"), right ones were cut to the action. Content validation
+  (`?dev=1`) now fails a conversation whose recommended answer is the longest, or the shortest, in more than half of
+  its decisions.
 
 ### DIALOGUE-22: After you answer, your answer disappears: the feedback card does not say what you chose and the courier never says it
 - **Severity:** design
@@ -210,6 +289,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/missing-2.png`, `missing-bad1.png`
 - **Suspected cause:** `src/core/talk.js:315-343` (`resolve` fades all cards, `coach` shows only `ch.feedback`).
 - **Suggested fix:** show the chosen answer in the caption box under the courier's name while the feedback card is up (the engine already has `courier.name`), or quote it at the top of the feedback card.
+- **Status:** fixed — after an answer the caption box shows it, under the courier's name, for as long as the feedback
+  card is up ("(No answer in time.)" on a timeout); it is also kept in the line history (DIALOGUE-31).
 
 ### DIALOGUE-23: m3-signature: forge the customer's signature, then answer well, and the outcome is "Secure & Satisfied … Textbook." (RESOLVED, confetti)
 - **Severity:** major
@@ -218,6 +299,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** the ending acknowledges the near-miss (the data even sets a `slipped` flag for it); a forged signature is the scenario's single worst act.   **Actual:** **RESOLVED — "Secure & Satisfied: The package is safe, the requirement was honored… Textbook."**, confetti and fanfare; results "SHIFT LOGGED", 2 stars. `slipped` is set at `data/m3_dialogues.js:270` and read nowhere. Also, the trainee never sees a consequence of either bad first answer: the narration silently undoes it. The "setting it down" wording does not fit the forged-signature choice either.
 - **Evidence:** outcome text via `/texts` (run above).
 - **Suggested fix:** `end_pick: { if: '!slipped', then: 'end_great', else: 'end_slipped' }` with a mixed ending ("You caught yourself — but a forged signature is a falsified record; it would have been your name on it"); give the two bad first answers separate follow-up lines.
+- **Status:** fixed — forging the signature and leaving the package are critical mistakes with their own follow-up
+  lines (the forged one no longer says "setting it down"), and every ending after either is "Caught Just in Time"
+  (mixed), never "Textbook".
 
 ### DIALOGUE-24: More "perfect" endings after a real mistake: m4-address (you guessed 412) and m8-incident (you moved the van)
 - **Severity:** minor
@@ -227,6 +311,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
   - m8-incident: "Pull forward out of the way first" sets `moved` (and the narration later puts it in the report), but `end_pick` only checks `left/cash/admitted/shaded`, so the rest on the recommended answers ends **RESOLVED "Handled By The Book: Secured, checked, reported…"**, results "GREAT WORK!", score 3500 (played and confirmed; `data/m8_incident.js:58, 268`), right after the narration "It goes in the report."
 - **Expected:** the ending reflects the mistake the scenario itself called out (a mixed ending, or an ending sentence that names it).
 - **Suggested fix:** set a `guessed` flag on the 412 choice and route `n4`'s good answer through `end_pick: { if: '!guessed', … }` with a "Caught in Time" mixed ending; add `moved` to m8's `end_pick` (mixed). Together with DIALOGUE-9, -12, -14, -15 and -23 this is one pattern: flags that are set for exactly this reason and then ignored by some endings. A data check that every ending reachable after a flag is set either reads it or is flag-neutral would catch them all.
+- **Status:** fixed — m4-address: delivering to 412 sets `guessed` (critical) and the good and ok endings become
+  "Caught in Time" (the stranger caught it); m8-incident: moving the van is critical and rules out "Handled By The
+  Book" (see DIALOGUE-15).
 
 ### DIALOGUE-25: Phone calls are never hung up, and the mood meter follows someone who is not in the scene
 - **Severity:** polish
@@ -234,6 +321,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Repro:** m8-incident: once Dispatch calls (n7) the courier keeps the handheld to their ear for the rest of the scenario, including the photographs and the whole conversation with Mrs. Whitfield (`inc-neighbour.png`). m3-signature (recommended path): Priya's call is never ended, so the courier "fills out the delivery notice" with the phone at their ear. m3-signature shows "PRIYA'S MOOD" from the first line, before anyone has mentioned Priya, while the person actually on stage for the first half (Mr. Alvarez, whose mood the answers change, e.g. "Nope. Can't do that." −2) has no meter.
 - **Expected:** the courier lowers the phone when the call ends (a `hide` on the next narration/visitor line, as m4-address and m4-storm do); the meter appears when its person joins, or tracks whoever is being spoken to.
 - **Suggested fix:** add `hide: 'dispatch'` to m8 `n8`/`n8_moved` and re-`show` it at `n10`; `hide: 'priya'` on m3-signature `n4_good`'s choices; build the mood meter on the first `show` of `moodMeter`'s cast member (or allow `moodMeter` per node).
+- **Status:** fixed — the handheld is put away when a call ends: m8-incident hangs up after dispatch's instructions
+  and takes the call again for the claim (n10); m3-signature ends Priya's call as the notice is chosen. The mood meter
+  appears when its person first appears or speaks (Priya's only once she calls), not from the first line.
 
 ### DIALOGUE-26: Timed decisions: 7 seconds to read ~250 characters, with no warning that a clock is coming
 - **Severity:** design
@@ -242,6 +332,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Expected:** a pressure moment that tests the decision, not reading speed.   **Actual:** it rewards not reading. On timeout the cards just fade, the feedback does not show which card was right, and the timer bar keeps its full width in yellow-red with no seconds shown (the tick sound is the only count).
 - **Evidence:** `test/out/review/dialogue/two-dog.png`, `two-timer-half.png`, `two-timeout.png`, `storm-0.png`; the timer pauses correctly with ESC (checked: 8137 ms left → 8122 ms after 3 s paused).
 - **Suggested fix:** keep the timed answers to a few words each ("Stop. Back away slowly, box in front.", "Run for the truck!", "Crouch and offer a hand."), give 10-12 s, mention timed decisions in the scenario card's controls line, and on timeout highlight the right card for a moment.
+- **Status:** fixed (decision) — a timed decision's clock is never shorter than 4 s plus its answers read at 20
+  characters a second (the dog charge now has 15 s instead of 7), the label counts down in seconds, a "⏱ TIMED
+  DECISION" tag shows while its question is being read (before the clock starts), and the scenario cards of
+  m3-twostops and m4-storm say "some decisions are timed". On a timeout the right answer is outlined for a moment
+  before the feedback. The answers themselves are rewritten in WP5b (DIALOGUE-21).
 
 ### DIALOGUE-27: m3-twostops office: the lobby ends 100 px short of the screen, showing sky and houses through a cut-off plant; Morgan's exit walk is a long slide along the bottom edge
 - **Severity:** polish
@@ -251,6 +346,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/office-edge.png` (full-size crop), `two-fade-6.png`
 - **Suspected cause:** `DialogueScene.js:56` `st.interior(-420, { w: 1600 … })` covers x -420…1180 only; `acts.hide` (`DialogueScene.js:258`) always walks the rig 220 px at speed 150.
 - **Suggested fix:** make the interior at least `OTR.W + 420` wide (or start it at -320); drop the `hide` on `n4` (the fade covers it) or make the hide a fade in place for characters behind a counter.
+- **Status:** fixed — the lobby is drawn 1,760 px wide, so it fills the frame (no sky or cut plant at the right edge);
+  someone behind a counter fades out where they stand instead of sliding along the bottom edge.
 
 ### DIALOGUE-28: Mood changes written on a line (not a choice) go to the first cast member: the dog never calms down, Mrs. Chen never warms up, the receptionist does
 - **Severity:** minor
@@ -260,6 +357,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Evidence:** `test/out/review/dialogue/two-n8-dog.png` (full-size crop: snarling dog at "He's inside now")
 - **Suspected cause:** `src/core/talk.js:143` calls `applyEffects(n.effects, …, null)` with no node, so line 369 falls back to `Object.keys(this.cast)[0]`. Only multi-cast scenarios are hit (m3-missing, m4-damaged and m8-incident's node effects happen to target the first cast member).
 - **Suggested fix:** in `goto()`, default the mood target to the line's speaker (`Object.assign({ moodTarget: this.cast[n.speaker] ? n.speaker : undefined }, n.effects)`). Do not simply pass `n` as the node: both lines also carry choices, so `applyEffects` would then log the line's effects as a scored check. Also `hide: 'biscuit'` at n8 (DIALOGUE-8).
+- **Status:** fixed — a mood change written on a line goes to that line's speaker (or to `moodTarget` when the data
+  names one: the dog-calming narration in m3-twostops targets Biscuit); m3-twostops' "(You're back outside the gate…)"
+  line is narration now, not spoken by the dog.
 
 ### DIALOGUE-29: m4-storm content: the ✓ answer takes dispatch's call while (apparently) driving, and the scenario gives two different "water that floats a vehicle" depths
 - **Severity:** minor
@@ -269,6 +369,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
   2. n2 feedback: "Moving water just **a foot or so** deep can float many vehicles"; `end_towed`: "**Six inches** of moving water is enough to float a vehicle". The usual US guidance (NWS "Turn Around Don't Drown") is: 6 in can stall a car and make you lose control, 12 in floats many cars, 2 ft sweeps away SUVs and trucks. Pick one wording and use it in both places.
 - **Expected:** the good answer models pulling over first ("I pull into the gas station, then call back: I'm safe, Pine Street underpass is flooded"), and the numbers agree.
 - **Suggested fix:** add "Once you're parked safely:" to n3's narration (or make the good answer "Let it ring, pull over at the next safe spot, then call back and report the flooded underpass"); change `end_towed` to "Six inches of moving water can stall you and a foot can float many vehicles".
+- **Status:** fixed — turning back now leads to "You turn around and pull into a gas station… Engine running, parked.
+  Your phone rings.", the recommended reply says "I'm parked and safe", and letting it ring is graded against that;
+  the depths agree everywhere: six inches of moving water can stall you, a foot can float many vehicles.
 
 ### DIALOGUE-30: m4-address: the "RIVERA" name on the mailbox, the clue for the last decision, is about 9 px tall and sits on the caption box's edge
 - **Severity:** polish
@@ -276,6 +379,8 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Repro:** reach Maple Court. The mailbox plate "421" is readable; the name tag under it is tiny white-on-grey text at y ≈ 560, touching the top of the caption box (566).
 - **Evidence:** `test/out/review/dialogue/addr-mailbox.png` (full-size crop), `addr-421.png`
 - **Suggested fix:** larger name plate on the mailbox prop when a `mailbox` name is given, and keep it above y 540; or show the label/mailbox close-up as a small inset when the narration points at it.
+- **Status:** fixed — a mailbox with a name has a large name plate on top of the box (17 px lettering), above the
+  caption box's edge; RIVERA reads clearly at Maple Court.
 
 ### DIALOGUE-31: A quick double-tap of Space (or a double-click) skips a whole line, and there is no way to read it again
 - **Severity:** design
@@ -283,6 +388,9 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
 - **Repro:** m3-missing, as the opening narration starts typing press Space twice quickly (or `/type?keys=Space,Space,…`): the first press completes the line, the second advances at once, and the scene is on Dana's line with the narration never read. The same happens to any line followed by another line (e.g. m4-storm's flood narration, m8's dispatch instructions). There is no log/backlog, and the answer cards do not repeat the question, so a skipped line is gone for good (DIALOGUE-20's pause-button click does the same).
 - **Expected:** a completed line stays up for a moment before it can be advanced, or a "previous line" / history is available.   **Actual:** skip-by-accident is easy, and the lines skipped are often the ones that carry the facts the next decision depends on ("the mailbox says RIVERA…", "Do not move the van until I call you back").
 - **Suggested fix:** ignore advance input for ~300 ms after `finishTyping()`; optionally a small "history" button (or Up arrow) that shows the last few lines.
+- **Status:** fixed — a line that has just appeared in full cannot be advanced for 350 ms, so a double tap or double
+  click no longer skips it; UP reads the earlier lines again ("(earlier)" on the name tag, a hint in the caption box's
+  corner), DOWN or SPACE comes back, without touching the choices or the clock. The scenario cards mention ↑.
 
 ### Results screens (known issues, applying here too)
 - The known results-screen problems from warehouse.md / pretrip-route-pickups.md apply unchanged to the conversation scenarios: only three takeaways, chosen in time order (m3-twostops: the dog-bite lessons are pushed out by business-etiquette ones, DIALOGUE-9), and "GREAT WORK!"/"FLAWLESS!" headers over runs with mistakes (m3-twostops after a DECIDE! timeout). The conversation-specific twist is that the *outcome card* can contradict the results screen: "RESOLVED / Handled By The Book" followed by "SHIFT LOGGED" (DIALOGUE-15).
