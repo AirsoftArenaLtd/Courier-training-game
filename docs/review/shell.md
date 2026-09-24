@@ -79,6 +79,9 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   `BaseScenarioScene.js:24` and `TownDriveScene.js:469` open `PauseScene`.
 - **Suggested fix:** bind ESC to `PauseScene` here too (title "Morning briefing"), and add the corner pause/mute
   buttons the other scenes have.
+- **Status:** fixed — the morning briefing has the corner pause button and ESC, with Resume and "Quit to the station"
+  (the briefing stays saved as the day's first part, so the hub offers to resume it); "Start the route" on the hub
+  asks first ("Start day 1's route?" with how long it takes).
 
 ### SHELL-6: Pause menu: "Restart" and "Quit" throw the run away with no confirmation, and "Shift Board" is a screen that does not exist
 - **Severity:** minor
@@ -154,6 +157,10 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   *practice* stars into `history` under the route day's number, mixing the two logs.
 - **Suggested fix:** either delete DaySummaryScene and the "day full" branches, or decide what a practice "day" is
   (e.g. one calendar day) and reach the summary from the hub. Keep route-day and practice history separate.
+- **Status:** fixed (decision) — removed: the practice "day" had no meaning (99 scenarios a day), so DaySummaryScene,
+  the results screen's "End of Day ▶", the hub brief's "Day full: bank it ▶" and the save's per-day slots are gone.
+  The day counter is the route day: it moves on when a route day ends, and the route keeps its own history
+  (`save.data.route`); practice results are no longer written into a day history under the route day's number.
 
 ### SHELL-11: Menus are mouse-only apart from a hidden Enter/ESC, and no button shows its key
 - **Severity:** minor (keyboard-heavy trainees, and anyone with a trackpad on a laptop)
