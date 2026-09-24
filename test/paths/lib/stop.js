@@ -29,7 +29,7 @@ function driver(page, ctx) {
     while (Date.now() - t0 < (ms || 15000)) {
       const s = await state();
       if (!s) return;
-      if (s.talk) { await runTalk(page, `${S}.talkCtl`, { timeout: 90000 }); continue; }
+      if (s.talk) { await runTalk(page, `${S}.talkCtl`, { timeout: 150000 }); continue; }
       if (s.modals === 0 && s.locked === 0 && !s.once) return s;
       await wait(80);
     }

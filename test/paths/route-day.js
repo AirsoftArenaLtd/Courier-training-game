@@ -50,7 +50,7 @@ module.exports = async (page, ctx) => {
   await wait(800);
   await ctx.audit('briefing');
   await ctx.snap('briefing');
-  await runTalk(page, `OTR.game.scene.getScene('ShiftBriefScene').talkCtl`, { timeout: 90000 });
+  await runTalk(page, `OTR.game.scene.getScene('ShiftBriefScene').talkCtl`, { timeout: 150000 });
 
   // ---- pre-trip and loading, played by their own golden paths
   await waitScene('PreTripScene');

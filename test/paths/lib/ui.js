@@ -45,7 +45,8 @@ async function runTalk(page, ctl, opts) {
   opts = opts || {};
   const t0 = Date.now();
   const rank = { good: 3, ok: 2, bad: 1 };
-  while (Date.now() - t0 < (opts.timeout || 60000)) {
+  // generous: under software rendering a long conversation runs at a fraction of real speed
+  while (Date.now() - t0 < (opts.timeout || 150000)) {
     const st = await page.evaluate(`(() => { const c = ${ctl}; if (!c || c.done) return null;
       return { mode: c.mode, choices: c.mode === 'choices' ? c.choiceList.map(x => x.grade) : null }; })()`);
     if (!st) return;
