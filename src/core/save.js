@@ -128,6 +128,12 @@ OTR.save = {
     return { index, rank, next, progress: OTR.util.clamp01(progress), total };
   },
 
+  /** What a rank bar filled with rankInfo().progress measures: "4 / 20 ★ to Courier" (the stars of this band). */
+  rankLabel(info) {
+    if (!info.next) return `${info.rank.name}: top rank`;
+    return `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★ to ${info.next.name}`;
+  },
+
   perDay() {
     return OTR_DATA.config.scenariosPerDay || 3;
   },

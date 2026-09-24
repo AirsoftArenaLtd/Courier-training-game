@@ -288,9 +288,12 @@ OTR.shift = {
     const st = this.state;
     if (!st || !scene.shiftMode) return false;
     const log = OTR.ScoreLog.from(st.log);
+    // the phase's most important lesson: the top of its ranked takeaways, or the scene's own first one
+    const top = result.log && result.log.takeaways ? (result.log.takeaways()[0] || {}).text : null;
+    const firstLesson = top || [].concat(result.lessons || []).map(l => (l && l.text) || l)[0];
     if (st.phase === 'pretrip') {
       st.truck.pretripScore = result.ratios;
-      log.check('safety', Math.round((result.ratios.safety || 0) * 4), 4, 'Pre-trip inspection', { lesson: (result.lessons || [])[0] });
+      log.check('safety', Math.round((result.ratios.safety || 0) * 4), 4, 'Pre-trip inspection', { lesson: firstLesson });
       log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 2), 2, 'Pre-trip done briskly');
       st.log = log.toJSON();
       st.clockMin += 14;
@@ -299,7 +302,7 @@ OTR.shift = {
       return true;
     }
     if (st.phase === 'load') {
-      log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 4), 4, 'Truck loaded in stop order', { lesson: (result.lessons || [])[0] });
+      log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 4), 4, 'Truck loaded in stop order', { lesson: firstLesson });
       log.check('safety', Math.round((result.ratios.safety || 0) * 3), 3, 'Load secured safely');
       st.log = log.toJSON();
       st.clockMin += 22;

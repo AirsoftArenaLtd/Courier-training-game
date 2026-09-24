@@ -568,13 +568,19 @@ class LiftingScene extends BaseScenarioScene {
     const C = this.content;
     const avg = this.qualities.length ? this.qualities.reduce((a, b) => a + b, 0) / this.qualities.length : 0;
     const safety = this.health / 100;
-    const lessons = this.mistakes.map(m => C.lessons[m]).filter(Boolean);
+    // most dangerous first: a fall, a heavy or twisted lift before form faults
+    const order = ['climb', 'heavy', 'twist', 'overhead', 'drop', 'yank', 'awkward', 'jerk', 'stoop', 'far', 'brace'];
+    const rank = (m) => { const i = order.indexOf(m); return i < 0 ? order.length : i; };
+    const lessons = this.mistakes.slice().sort((a, b) => rank(a) - rank(b)).map(m => C.lessons[m]).filter(Boolean);
     if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`Back Health ${Math.round(this.health)}/100 · technique ${Math.round(avg * 100)}%`);
-    this.score = Math.round(this.health * 20 + avg * 2000);
+    // the score is the one the HUD built lift by lift (it used to be replaced here by an unrelated formula)
     OTR.fx.stamp(this, 640, 300, this.health >= 90 ? 'BACK SAVED!' : 'SHIFT DONE', this.health >= 90 ? 0x2BC48A : 0xFFB020, { size: 52, hold: 1400 });
     if (this.health >= 90) OTR.audio.play('fanfare');
-    this.finish({ ratios: { safety, efficiency: Math.pow(avg, 1.6) }, lessons: lessons.slice(0, 3), stats: { health: this.health, avg } }, 1800);
+    this.finish({
+      ratios: { safety, efficiency: Math.pow(avg, 1.6) }, lessons, mistakes: this.mistakes.length,
+      summary: `Back Health ${Math.round(this.health)}/100 · technique ${Math.round(avg * 100)}%`,
+      stats: { health: this.health, avg }
+    }, 1800);
   }
 
   /* ------------------------------------------------------------ drawing */

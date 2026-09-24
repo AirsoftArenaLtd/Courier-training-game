@@ -287,7 +287,7 @@ OTR_DATA.dialogues.m4_damaged = {
         },
         {
           text: 'Skip the paperwork — it\'s already been reported once.',
-          grade: 'ok', effects: { efficiency: 1, service: -1 },
+          grade: 'ok', effects: { service: -1 },
           feedback: 'Incomplete records slow down the customer\'s claim. Documenting the exception is part of the job.',
           next: 'end_ok'
         }
@@ -454,7 +454,7 @@ OTR_DATA.dialogues.m4_storm = {
         },
         {
           text: 'Wedge it against the outside of the locked gate, in the water.',
-          grade: 'ok', effects: { efficiency: 1, service: -2 },
+          grade: 'ok', effects: { service: -2 },
           feedback: 'Technically "at the back gate," but a box sitting in floodwater isn\'t a successful delivery.',
           next: 'end_soaked'
         }
@@ -472,7 +472,7 @@ OTR_DATA.dialogues.m4_storm = {
         },
         {
           text: '"Okay. Bye."',
-          grade: 'ok', effects: { efficiency: 1 },
+          grade: 'ok', effects: {},
           feedback: 'Fine outcome, but suggesting clearer delivery instructions would prevent the same confusion next storm.',
           next: 'end_ok'
         }

@@ -544,18 +544,21 @@ class SortingScene extends BaseScenarioScene {
     const handled = s.excTotal ? s.excCorrect / s.excTotal : 0.5;
     const jamRate = s.jams ? s.jamsCleared / s.jams : 1;
     const safety = handled * 0.55 + scanRate * 0.3 + jamRate * 0.15;
+    // most serious first (safety calls, then lost packages), each with how often it happened
     const lessons = [];
-    if (s.blind) lessons.push(C.lessons.scan);
-    if (s.damageErr) lessons.push(C.lessons.damage);
-    if (s.dgErr) lessons.push(C.lessons.dg);
-    if (s.heavyErr) lessons.push(C.lessons.heavy);
-    if (s.priorityErr) lessons.push(C.lessons.priority);
-    if (s.routeErr) lessons.push(C.lessons.route);
-    if (s.missed) lessons.push(C.lessons.missed);
-    if (s.jams > s.jamsCleared) lessons.push(C.lessons.jam);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`Sorted ${s.correct} of ${resolved} · scanned ${sorted - s.blind} of ${sorted} · best streak ${this.bestStreak} · specials handled ${s.excCorrect}/${s.excTotal}`);
-    this.finish({ ratios: { efficiency, safety }, lessons: lessons.slice(0, 3), stats: s }, 1600);
+    const add = (n, text) => { if (n) lessons.push({ text, n }); };
+    add(s.dgErr, C.lessons.dg);
+    add(s.heavyErr, C.lessons.heavy);
+    add(s.damageErr, C.lessons.damage);
+    add(s.missed, C.lessons.missed);
+    add(s.jams - s.jamsCleared, C.lessons.jam);
+    add(s.blind, C.lessons.scan);
+    add(s.priorityErr, C.lessons.priority);
+    add(s.routeErr, C.lessons.route);
+    const mistakes = s.wrong + s.missed + s.blind + (s.jams - s.jamsCleared);
+    if (!mistakes) lessons.push(C.lessons.perfect);
+    const summary = `Sorted ${s.correct} of ${resolved} · scanned ${sorted - s.blind} of ${sorted} · best streak ${this.bestStreak} · specials handled ${s.excCorrect}/${s.excTotal}`;
+    this.finish({ ratios: { efficiency, safety }, lessons, summary, mistakes, stats: s }, 1600);
   }
 
   /* ------------------------------------------------------------ loop */

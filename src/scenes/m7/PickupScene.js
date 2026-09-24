@@ -344,7 +344,12 @@ class PickupScene extends BaseScenarioScene {
     else this.tweens.add({ targets: img, alpha: 0.4, duration: 300 });
     const cat = (p.issues || []).indexOf('hazmat_undeclared') >= 0 ? 'safety' : 'service';
     const name = p.number ? `${p.number} ${p.street}` : 'the unlabelled piece';
-    this.log.check(cat, right ? 2 : 0, 2, `${accept ? 'Accepted' : 'Refused'} ${name}`, { lesson: right ? null : p.why, feedback: p.why });
+    // A piece that was fine: its `why` says why it was fine, which reads as praise out of context
+    const lesson = right ? null : p.accept ? `This one was fine to ship (${p.why.replace(/\.$/, '')}). Refusing a good piece fails the customer.` : p.why;
+    // Never averaged away: undeclared dangerous goods or a failed customs invoice sent into the network, or a
+    // correctly declared dangerous-goods shipment turned away
+    const critical = !right && (accept ? (p.reason === 'DG' || p.reason === 'DOC') : p.service === 'hazmat');
+    this.log.check(cat, right ? 2 : 0, 2, `${accept ? 'Accepted' : 'Refused'} ${name}`, { lesson, feedback: p.why, critical });
     let reasonRight = true;
     if (!accept && p.accept === false) {
       reasonRight = reason === p.reason;
@@ -431,7 +436,7 @@ class PickupScene extends BaseScenarioScene {
         title: 'PICKUP EXCEPTION', color: 0xC8243B,
         lines: [
           { text: 'No pieces accepted', bold: true },
-          { text: `${refused} refused — the shipper keeps them until they are fixed`, color: '#C8243B' },
+          { text: `${refused} refused — the shipper keeps them`, color: '#C8243B' },
           'Exception recorded against the pickup.'
         ],
         options: [{ label: 'Done', onPick: () => { this.hh.close(); this.endScenario(); } }]
@@ -454,13 +459,16 @@ class PickupScene extends BaseScenarioScene {
   endScenario() {
     if (this.cats.indexOf('efficiency') >= 0) {
       const par = this.content.par || 200;
-      this.log.check('efficiency', this.elapsed <= par ? 2 : this.elapsed <= par * 1.5 ? 1 : 0, 2, `Worked the pickup in good time (${Math.round(this.elapsed)}s)`);
+      // speed only counts as far as the piece calls were right (PRP-14)
+      const calls = this.log.filter(it => /^(Accepted|Refused) /.test(it.label));
+      const accuracy = calls.length ? calls.filter(it => it.good).length / calls.length : 1;
+      const time = this.elapsed <= par ? 1 : this.elapsed <= par * 1.5 ? 0.5 : 0;
+      this.log.check('efficiency', Math.round(OTR.scoring.gateTime(time, accuracy) * 2), 2, `Worked the pickup in good time (${Math.round(this.elapsed)}s)`,
+        { lesson: accuracy < 1 ? 'Speed only counts when the calls are right: check every piece before you accept or refuse it.' : null });
     }
     const ratios = this.log.ratios(this.cats);
-    const lessons = this.log.lessons(2);
-    (this.content.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     this.running = false;
-    this.finish({ score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() } }, 400);
+    this.finish({ score: this.log.score(), ratios, log: this.log, lessons: this.content.keyLessons || [], stats: { log: this.log.toJSON() } }, 400);
   }
 
   update(time, delta) {

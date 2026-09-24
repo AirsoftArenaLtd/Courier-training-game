@@ -383,11 +383,9 @@ class LoadingScene extends BaseScenarioScene {
   endScenario() {
     this.hideCard();
     const ratios = this.log.ratios(this.cats);
-    const lessons = this.log.lessons(2);
-    this.extraLessons.forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
-    (this.content.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     this.running = false;
-    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() } }, 600);
+    // the log ranks the mistakes; the scene's extra notes and key lessons follow
+    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, log: this.log, lessons: this.extraLessons.concat(this.content.keyLessons || []), stats: { log: this.log.toJSON() } }, 600);
   }
 
   update(time, delta) {

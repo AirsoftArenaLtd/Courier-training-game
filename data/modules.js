@@ -126,7 +126,7 @@ OTR_DATA.modules = [
         icon: 'ic_paw',
         scene: 'DialogueScene',
         dataKey: 'dialogues.m3_twostops',
-        categories: ['service', 'safety'],
+        categories: ['service', 'safety', 'efficiency'],
         blurb: 'First a busy office reception, then a house with a very loud dog. Adjust your approach for business vs. residential stops.',
         learn: ['Business delivery etiquette', 'Residential delivery courtesy', 'Staying safe around dogs'],
         controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
@@ -188,7 +188,7 @@ OTR_DATA.modules = [
         icon: 'ic_check',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_pod',
-        categories: ['service', 'efficiency'],
+        categories: ['service', 'efficiency', 'safety'],
         blurb: 'Three doorsteps, three kinds of proof: a photo that follows the customer\'s note, a signature at the door, and a receptionist signing for a colleague.',
         learn: ['Pulling and scanning the right package', 'Photo proof of delivery that shows the location', 'Signatures and printed names', 'Business deliveries through reception'],
         controls: 'A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld'
@@ -199,7 +199,7 @@ OTR_DATA.modules = [
         icon: 'ic_flag',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_exceptions',
-        categories: ['service', 'efficiency'],
+        categories: ['service', 'efficiency', 'safety'],
         blurb: 'Nobody home, a closed business and a customer who doesn\'t want it. Make a real attempt, then record the right exception and leave a door tag.',
         learn: ['Choosing the correct exception code', 'When a door tag is needed', 'Never leaving a package after a failed attempt'],
         controls: 'A/D or click to walk · E interact · TAB handheld'
@@ -210,7 +210,7 @@ OTR_DATA.modules = [
         icon: 'ic_badge',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_adult',
-        categories: ['service', 'safety'],
+        categories: ['service', 'safety', 'efficiency'],
         blurb: 'Three age-restricted shipments. Check the photo ID properly: age from the date of birth, expiry, and the name on the label.',
         learn: ['What an adult signature requires', 'Reading an ID: age, expiry, name', 'Refusing politely and recording the exception'],
         controls: 'A/D or click to walk · E interact · TAB handheld'
@@ -303,7 +303,7 @@ OTR_DATA.modules = [
         icon: 'ic_flag',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_steps',
-        categories: ['safety', 'efficiency'],
+        categories: ['safety', 'efficiency', 'service'],
         blurb: 'Ice, wet steps, a garden hose and a heaved sidewalk. Slips and trips are the injuries that end shifts — walk carefully and clear the path.',
         learn: ['Three points of contact on the truck', 'Walking carefully on ice and wet surfaces', 'Clearing trip hazards before carrying'],
         controls: 'A/D or click to walk · HOLD SHIFT to walk carefully · E interact · TAB handheld'
@@ -314,7 +314,7 @@ OTR_DATA.modules = [
         icon: 'ic_paw',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_dog',
-        categories: ['safety', 'service'],
+        categories: ['safety', 'service', 'efficiency'],
         blurb: 'A dog behind a gate, a dog that charges, and a frightened dog on a porch. Read the body language and get the delivery done without a bite.',
         learn: ['Never entering a yard with a loose dog', 'What to do when a dog charges', 'Reading fear and aggression signals', 'Recording an unsafe-to-deliver exception'],
         controls: 'A/D or click to walk · E interact · TAB handheld · 1-3 for timed decisions'
@@ -325,7 +325,7 @@ OTR_DATA.modules = [
         icon: 'ic_bulb',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_heat',
-        categories: ['safety', 'efficiency'],
+        categories: ['safety', 'efficiency', 'service'],
         blurb: '102°F and three stops to go. Watch your hydration and body heat, use shade and AC, and know the warning signs of heat illness.',
         learn: ['Hydrating through a hot shift', 'Using shade and AC to cool down', 'Recognising heat exhaustion early', 'Why "pushing through" is dangerous'],
         controls: 'A/D or click to walk · E to drink, cool off or rest · TAB handheld'
@@ -336,7 +336,7 @@ OTR_DATA.modules = [
         icon: 'ic_broken',
         scene: 'DialogueScene',
         dataKey: 'dialogues.m8_incident',
-        categories: ['safety', 'service'],
+        categories: ['safety', 'service', 'efficiency'],
         blurb: 'You backed into a parked car. The next twenty minutes decide whether this is a bumper or a career problem — secure the scene, check on people, report it, and write it up straight.',
         learn: ['Securing the scene before anything else', 'People before property', 'Reporting every incident immediately', 'Never admitting fault or settling in cash', 'Photographs, details and witnesses', 'Writing an honest incident report'],
         controls: 'Click a reply or press 1-3'

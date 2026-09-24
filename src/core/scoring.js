@@ -12,6 +12,42 @@ OTR.scoring = {
   },
 
   /**
+   * Time is not a free star: a speed ratio (0..1) only counts as far as the calls made were right. accuracy is the
+   * share of right calls (0..1). Rushing through with wrong calls earns nothing for the time.
+   */
+  gateTime(timeRatio, accuracy) {
+    if (accuracy < 0.5) return 0;
+    return Math.min(timeRatio, accuracy);
+  },
+
+  /**
+   * The results headline, honest about the run. o: { stars: {cat: n}, cats, untested: [cat], criticals: [item],
+   * mistakes: n, cap?: 'GOOD EFFORT' } (a scene's ceiling, when its outcome is not one to praise). Returns
+   * { text, celebrate: 'big' | 'small' | null, critical }.
+   */
+  headline(o) {
+    const h = OTR.scoring.rawHeadline(o);
+    const tiers = ['KEEP PRACTICING', 'GOOD EFFORT', 'GREAT WORK!', 'FLAWLESS!'];
+    if (o.cap && tiers.indexOf(h.text) > tiers.indexOf(o.cap)) return { text: o.cap, celebrate: null };
+    return h;
+  },
+
+  rawHeadline(o) {
+    const cats = o.cats.filter(c => (o.untested || []).indexOf(c) < 0);
+    if (o.criticals && o.criticals.length) {
+      const safety = o.criticals.some(it => it.cat === 'safety');
+      return { text: safety ? 'SAFETY-CRITICAL MISTAKE' : 'CRITICAL MISTAKE', celebrate: null, critical: true };
+    }
+    if (!cats.length) return { text: 'NOTHING TESTED THIS RUN', celebrate: null };
+    const got = cats.reduce((n, c) => n + (o.stars[c] || 0), 0), max = cats.length * 3;
+    const weakest = Math.min(...cats.map(c => o.stars[c] || 0));
+    if (got === max && !o.mistakes) return { text: 'FLAWLESS!', celebrate: 'big' };
+    if (got >= max * 0.66 && weakest >= 2) return { text: 'GREAT WORK!', celebrate: got === max ? 'big' : 'small' };
+    if (got >= max * 0.33 && weakest >= 1) return { text: 'GOOD EFFORT', celebrate: null };
+    return { text: 'KEEP PRACTICING', celebrate: null };
+  },
+
+  /**
    * For a dialogue graph, the best achievable total per category along any single path.
    * Categories are maximised independently (an upper bound used as the ratio denominator).
    */

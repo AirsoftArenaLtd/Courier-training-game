@@ -542,13 +542,10 @@ class DrivingScene extends TownDriveScene {
     missed.forEach(h => this.log.check('safety', 0, h.points, h.title + ' (never reached)', { lesson: h.lesson }));
 
     const ratios = this.log.ratios(['safety', 'efficiency']);
-    const failed = this.log.filter(it => !it.good && it.lesson).map(it => it.lesson);
-    const lessons = failed.filter((l, i, a) => a.indexOf(l) === i).slice(0, 3);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
 
     this.cameras.main.stopFollow();
     OTR.flow.complete(this, this.scenarioId, {
-      score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() }
+      score: this.log.score(), ratios, log: this.log, lessons: this.log.mistakes().length ? [] : [C.lessons.perfect], stats: { log: this.log.toJSON() }
     });
   }
 }

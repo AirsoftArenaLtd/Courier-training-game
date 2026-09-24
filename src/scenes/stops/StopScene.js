@@ -1519,14 +1519,14 @@ class StopScene extends BaseScenarioScene {
         log.check('service', S.code === exp.code ? 3 : 1, 3, `Recorded the right exception (${exp.code})`, { lesson: L0 });
       } else {
         log.check('service', 0, 3, 'Didn\'t deliver when the rules said not to', { lesson: L0 });
-        if (svc === 'signature' || svc === 'adult') log.penalty('service', 2, 'Released a restricted package without proper verification', { severity: 'major' });
+        if (svc === 'signature' || svc === 'adult') log.penalty('service', 2, 'Released a restricted package without proper verification', { severity: 'major', critical: true, lesson: L0 });
       }
     }
     // signature / photo quality
     if (S.outcome === 'delivered' && (S.type === 'left')) {
       if (svc === 'signature' || svc === 'adult') {
         log.check('service', 0, 2, 'Signature-required package handed to a person', { lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
-        log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major' });
+        log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major', critical: true, lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
       }
       const sp = (d.spots || []).find(x => x.id === S.spot);
       if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
@@ -1593,7 +1593,9 @@ class StopScene extends BaseScenarioScene {
         // right-aligned, however many categories (a route-day stop reports all three)
         cats.forEach((cat, i) => {
           const r = log.ratio(cat, gid);
-          const cs = OTR.ui.catStars(this, w / 2 - 140 - (cats.length - 1 - i) * 118, -h / 2 + 44, cat, OTR.scoring.stars(r), { size: 18 });
+          // a critical mistake caps the category here too, as on the results screen
+          const n = log.criticals(gid, [cat]).length ? Math.min(1, OTR.scoring.stars(r)) : OTR.scoring.stars(r);
+          const cs = OTR.ui.catStars(this, w / 2 - 140 - (cats.length - 1 - i) * 118, -h / 2 + 44, cat, n, { size: 18 });
           box.add(cs);
         });
         // Every check in its logical order when they all fit. When they do not, what went wrong comes first (so it
@@ -1609,7 +1611,7 @@ class StopScene extends BaseScenarioScene {
           return { it, i, good, lesson, h: 26 + (lesson ? lesson.height + 4 : 0) };
         });
         const fits = rows.reduce((n, r) => n + r.h, 0) <= limit - (-h / 2 + 110);
-        if (!fits) rows.sort((a, b) => (a.good - b.good) || (a.i - b.i));
+        if (!fits) rows.sort((a, b) => (a.good - b.good) || (!!b.it.critical - !!a.it.critical) || (a.i - b.i));
         let y = -h / 2 + 110, drawn = 0;
         for (const r of rows) {
           const left = rows.length - drawn;
@@ -1621,7 +1623,7 @@ class StopScene extends BaseScenarioScene {
           box.add(OTR.txt(this, -w / 2 + 44, y + 11, good ? '✓' : part ? '~' : '✗', 13, '#ffffff', { weight: '900' }));
           const def = OTR_DATA.config.categories[it.cat];
           box.add(this.add.image(-w / 2 + 70, y + 11, def.icon).setDisplaySize(16, 16).setTint(def.color));
-          box.add(OTR.txt(this, -w / 2 + 88, y + 1, it.label, 16, '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
+          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label, 16, it.critical ? '#B3122E' : '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
           box.add(OTR.txt(this, w / 2 - 30, y + 11, it.kind === 'penalty' ? `${it.got}` : `${it.got}/${it.max}`, 15, OTR.color.css(col), { ox: 1, weight: '900' }));
           y += 26;
           if (r.lesson) { r.lesson.setY(y - 2); box.add(r.lesson); y += r.lesson.height + 4; }
@@ -1652,11 +1654,9 @@ class StopScene extends BaseScenarioScene {
       return;
     }
     const ratios = this.log.ratios(this.cats);
-    const inCats = this.log.filter(it => !it.good && it.lesson && this.cats.indexOf(it.cat) >= 0).map(it => it.lesson);
-    const lessons = inCats.concat(this.log.lessons()).filter((l, i, a) => a.indexOf(l) === i).slice(0, 2);
-    (this.set.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     this.finished = false;
-    this.finish({ score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() } }, 100);
+    // the log ranks every stop's mistakes in the scenario's categories; the set's key lessons follow
+    this.finish({ score: this.log.score(), ratios, log: this.log, lessons: this.set.keyLessons || [], stats: { log: this.log.toJSON() } }, 100);
   }
 
   update(time, delta) {

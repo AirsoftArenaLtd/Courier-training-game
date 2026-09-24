@@ -503,10 +503,8 @@ class LabelScene extends BaseScenarioScene {
     OTR.audio.play('fanfare');
 
     const ratios = this.log.ratios(['safety', 'efficiency']);
-    const lessons = this.log.lessons(2);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`${s.correct}/${s.total} placed right · ${s.blind} blind call${s.blind === 1 ? '' : 's'} · all six sides checked on ${s.total - s.blind} of ${s.total}`);
-    this.finish({ ratios, lessons: lessons.slice(0, 3), stats: s, log: this.log }, 1600);
+    const summary = `${s.correct}/${s.total} placed right · ${s.blind} blind call${s.blind === 1 ? '' : 's'} · all six sides checked on ${s.total - s.blind} of ${s.total}`;
+    this.finish({ ratios, log: this.log, lessons: this.log.mistakes().length ? [] : [C.lessons.perfect], summary, stats: s }, 1600);
   }
 
   /* ---------------------------------------------------------------- guide */

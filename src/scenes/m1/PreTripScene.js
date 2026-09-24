@@ -322,10 +322,16 @@ class PreTripScene extends BaseScenarioScene {
       else if (m === 'flag') falseFlags.push(it);
     });
     const totalDefects = Object.keys(this.defects).length;
-    this.log.check('safety', caught.length, totalDefects, `Caught the defects (${caught.length} of ${totalDefects})`, { lesson: missed.length ? missed[0].lesson : null });
-    if (falseFlags.length) this.log.penalty('safety', Math.min(3, falseFlags.length), `Flagged ${falseFlags.length} good part${falseFlags.length === 1 ? '' : 's'}`, { lesson: C.lessons.falseFlag });
+    // Every defect here takes the truck out of service: rolling out with one is never averaged away
+    this.log.check('safety', caught.length, totalDefects, `Caught the defects (${caught.length} of ${totalDefects})`, { lesson: missed.length ? missed[0].lesson : null, critical: missed.length > 0 });
+    // one point per good part condemned, however many (flagging everything used to cost the same as three)
+    if (falseFlags.length) this.log.penalty('safety', falseFlags.length, `Flagged ${falseFlags.length} good part${falseFlags.length === 1 ? '' : 's'}`, { lesson: C.lessons.falseFlag });
     const par = C.parTime || 220;
-    this.log.check('efficiency', this.elapsed <= par ? 3 : this.elapsed <= par * 1.4 ? 2 : this.elapsed <= par * 1.8 ? 1 : 0, 3, `Walked it in good time (${Math.round(this.elapsed)}s, par ${par}s)`);
+    // time only counts as far as the verdicts were right: rushing through earns nothing (PRP-6)
+    const accuracy = totalDefects + falseFlags.length ? caught.length / (totalDefects + falseFlags.length) : 1;
+    const time = this.elapsed <= par ? 1 : this.elapsed <= par * 1.4 ? 2 / 3 : this.elapsed <= par * 1.8 ? 1 / 3 : 0;
+    this.log.check('efficiency', Math.round(OTR.scoring.gateTime(time, accuracy) * 3), 3, `Walked it in good time (${Math.round(this.elapsed)}s, par ${par}s)`,
+      { lesson: accuracy < 1 ? 'A quick walkaround only counts if it finds what is wrong. Look properly, then decide.' : null });
     // (lamps, horn, brakes and tread cannot be passed or flagged until they have been tested, so there is no
     // separate "did you test it" score: it could never be failed)
 
@@ -395,10 +401,14 @@ class PreTripScene extends BaseScenarioScene {
         label: 'Finish ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
         onClick: () => {
           const ratios = s.log.ratios(s.cats);
-          const lessons = s.log.lessons(2);
-          if (!missed.length && !falseFlags.length) lessons.push(s.content.lessons.perfect);
-          else if (missed.length) lessons.push(s.content.lessons.missed);
-          s.finish({ score: s.log.score(), ratios, lessons: lessons.slice(0, 3), stats: { missed: missed.map(i => i.id) } }, 200);
+          const lessons = !missed.length && !falseFlags.length ? [s.content.lessons.perfect] : missed.length ? [s.content.lessons.missed] : [];
+          s.finish({
+            score: s.log.score(), ratios, log: s.log, lessons,
+            summary: `${caught.length} caught · ${missed.length} missed · ${falseFlags.length} wrongly flagged · ${Math.round(s.elapsed)}s`,
+            // a truck held back for parts that were fine is not a walkaround to praise
+            headlineCap: falseFlags.length ? 'GOOD EFFORT' : undefined,
+            stats: { missed: missed.map(i => i.id) }
+          }, 200);
         }
       }]
     });

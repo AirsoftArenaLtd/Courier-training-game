@@ -64,7 +64,8 @@ class HubScene extends Phaser.Scene {
     badge.add([rg, this.add.image(-bw / 2 + 17, 0, 'ic_badge').setDisplaySize(16, 16), rt]);
 
     OTR.txt(this, x - 110, top + 166, 'COURIER RANK', 11, '#C9B3F0', { ox: 0 });
-    OTR.txt(this, x + 110, top + 166, info.next ? `${info.total} / ${info.next.stars} ★` : `${info.total} ★ MAX`, 11, '#FFC83D', { ox: 1 });
+    // the bar fills with progress through this rank, so the numbers count the same stars (SHELL-9)
+    OTR.txt(this, x + 110, top + 166, info.next ? `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★` : `${info.total} ★ MAX`, 11, '#FFC83D', { ox: 1 });
     const bar = OTR.ui.bar(this, x - 110, top + 184, 220, 11, { color: 0xFF6600, bgAlpha: 0.35 });
     bar.setValue(info.progress, true, 900);
     OTR.txt(this, x, top + 202, info.next ? `Next: ${info.next.name}` : 'Top rank reached!', 12, '#E6DAF7', { bold: false });
@@ -79,8 +80,12 @@ class HubScene extends Phaser.Scene {
       OTR.txt(this, cx, top + 258, `${totals[cat]}`, 18, OTR.color.css(def.color), { weight: '900' });
     });
 
-    const played = Object.keys(save.data.scenarios).filter(id => OTR.registry.get(id)).length;
-    OTR.txt(this, x, top + 292, `${totals.all} / ${OTR.registry.maxStars()} ★  ·  ${played}/${OTR.registry.all().length} scenarios`, 12, '#FFC83D', { weight: '900' });
+    // passed: at least one star in every category it scores (a zero-star attempt is played, not done)
+    const passed = OTR.registry.all().filter(sc => {
+      const best = save.data.scenarios[sc.id] && save.data.scenarios[sc.id].bestStars;
+      return best && sc.categories.every(c => (best[c] || 0) >= 1);
+    }).length;
+    OTR.txt(this, x, top + 292, `${totals.all} / ${OTR.registry.maxStars()} ★  ·  ${passed}/${OTR.registry.all().length} passed`, 12, '#FFC83D', { weight: '900' });
   }
 
   /* ---------------------------------------------------------------- today's route */
@@ -244,7 +249,7 @@ class HubScene extends Phaser.Scene {
           const st = OTR.ui.stars(this, cx + 70, catY, save.bestStars(sc.id)[cat] || 0, { size: 26, dark: true });
           box.add([chip, st]);
         });
-        if (rec) box.add(OTR.txt(this, w / 2 - 30, -h / 2 + 118, `Best score ${rec.bestScore} · played ${rec.plays}×`, 13, '#7A6A90', { ox: 1, oy: 0, bold: false }));
+        if (rec) box.add(OTR.txt(this, w / 2 - 30, -h / 2 + 118, `Best ${OTR.save.starSum(save.bestStars(sc.id))} / ${n * 3} ★ · played ${rec.plays}×`, 13, '#7A6A90', { ox: 1, oy: 0, bold: false }));
       },
       buttons: [
         { label: 'Back', skin: 'ghost' },

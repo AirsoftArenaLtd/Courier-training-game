@@ -303,10 +303,9 @@ class DialogueScene extends BaseScenarioScene {
   complete(node) {
     const dlg = this.content;
     const ratios = this.log.ratios(this.cats);
-    const lessons = this.log.lessons(2);
-    (dlg.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     const bonus = node.outcome === 'good' ? 500 : node.outcome === 'mixed' ? 200 : 0;
-    this.finish({ score: this.log.score() + bonus, ratios, lessons, stats: { outcome: node.outcome, log: this.log.toJSON() } }, 100);
+    // the log ranks the mistakes; the scenario's key lessons follow them
+    this.finish({ score: this.log.score() + bonus, ratios, log: this.log, lessons: dlg.keyLessons || [], stats: { outcome: node.outcome, log: this.log.toJSON() } }, 100);
   }
 
   update(time, delta) {

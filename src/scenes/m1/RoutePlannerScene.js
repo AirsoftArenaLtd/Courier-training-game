@@ -816,14 +816,15 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.stops.forEach(s => {
       const f = ev.flags[s.i];
       if (s.pickup) {
+        // a missed pickup or a late First Overnight is the failure this scenario exists to prevent: never averaged
         this.log.check('service', f.bad ? 0 : s.svc.weight, s.svc.weight,
           `${s.address} · pickup ${this.clock(s.ready)}–${this.clock(s.close)}`,
-          { lesson: f.bad ? C.lessons.missed : null });
+          { lesson: f.bad ? C.lessons.missed : null, critical: true });
         if (f.waited && avoidableWait) this.log.penalty('efficiency', 1, `Waited ${f.waited} min at ${s.address}`, { lesson: C.lessons.early });
       } else if (s.by) {
         this.log.check('service', f.bad ? 0 : s.svc.weight, s.svc.weight,
           `${s.address} · ${s.svc.short} by ${this.clock(s.by)}`,
-          { lesson: f.bad ? C.lessons.commit : null });
+          { lesson: f.bad ? C.lessons.commit : null, critical: s.svcId === 'first' });
       }
     });
     const effPts = Math.round(eff * 10);
@@ -881,14 +882,15 @@ class RoutePlannerScene extends BaseScenarioScene {
   endScenario() {
     const C = this.content;
     const ratios = this.log.ratios(['efficiency', 'service']);
-    const lessons = this.log.lessons(2);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
     const miles = this.results.reduce((a, r) => a + r.ev.dist, 0) * this.milesPerPx;
     const best = this.results.reduce((a, r) => a + r.opt.dist, 0) * this.milesPerPx;
     const met = this.results.reduce((a, r) => a + r.ev.met, 0);
     const all = this.results.reduce((a, r) => a + r.ev.commitments, 0);
-    lessons.push(`${miles.toFixed(1)} mi planned against a best possible ${best.toFixed(1)} mi · ${met}/${all} commitments met`);
-    this.finish({ ratios, lessons: lessons.slice(0, 3), stats: { rounds: this.results.map(r => ({ eff: r.eff, met: r.ev.met, of: r.ev.commitments })) }, log: this.log }, 300);
+    this.finish({
+      ratios, log: this.log, lessons: this.log.mistakes().length ? [] : [C.lessons.perfect],
+      summary: `${miles.toFixed(1)} mi planned against a best possible ${best.toFixed(1)} mi · ${met}/${all} commitments met`,
+      stats: { rounds: this.results.map(r => ({ eff: r.eff, met: r.ev.met, of: r.ev.commitments })) }
+    }, 300);
   }
 
   clock(min) {
