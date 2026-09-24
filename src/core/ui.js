@@ -278,9 +278,16 @@ OTR.ui = {
     });
   },
 
+  /**
+   * A message that slides in and out. One at a time per scene: a new one replaces the one on screen (they used to
+   * stack, both half legible). o.y below mid-screen slides it up from the bottom edge instead of down from the top.
+   */
   toast(scene, text, o) {
     o = o || {};
-    const c = scene.add.container(OTR.W / 2, -50).setDepth(o.depth || 6000).setScrollFactor(0);
+    if (scene._toast && scene._toast.active) scene._toast.destroy();
+    const low = (o.y || 0) > OTR.H / 2;
+    const c = scene.add.container(OTR.W / 2, low ? OTR.H + 50 : -50).setDepth(o.depth || 6000).setScrollFactor(0);
+    scene._toast = c;
     const t = OTR.txt(scene, 0, 0, text, o.size || 20, '#ffffff', { align: 'center', wrap: 760 });
     const w = Math.max(260, t.width + 50), h = t.height + 26;
     const g = OTR.tex.shape(scene, (g) => {
@@ -291,7 +298,7 @@ OTR.ui = {
     });
     c.add([g, t]);
     scene.tweens.add({ targets: c, y: o.y || 96, duration: 300, ease: 'Back.out' });
-    scene.tweens.add({ targets: c, y: -60, delay: o.hold || 2200, duration: 260, ease: 'Cubic.in', onComplete: () => c.destroy() });
+    scene.tweens.add({ targets: c, y: low ? OTR.H + 60 : -60, delay: o.hold || 2200, duration: 260, ease: 'Cubic.in', onComplete: () => c.destroy() });
     return c;
   },
 

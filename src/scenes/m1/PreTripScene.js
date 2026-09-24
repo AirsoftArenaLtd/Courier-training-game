@@ -20,6 +20,7 @@ class PreTripScene extends BaseScenarioScene {
     this.lights = false;
     this.marks = {};             // itemId -> 'pass' | 'flag'
     this.tested = {};            // itemId -> true once its required test was done
+    this.treadRead = {};         // itemId -> the tread depth the gauge read there
     this.viewOrder = ['front', 'driver', 'rear', 'passenger'];
     this.viewIndex = 1;
     this.inCab = false;
@@ -62,11 +63,25 @@ class PreTripScene extends BaseScenarioScene {
     this.leftArrow = this.viewButton(52, '◀', () => this.turn(-1));
     this.rightArrow = this.viewButton(OTR.W - 52, '▶', () => this.turn(1));
     this.viewLabel = OTR.txt(this, OTR.W / 2, 84, '', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 5 }).setScrollFactor(0).setDepth(820);
-    this.cabBtn = OTR.ui.button(this, OTR.W / 2, OTR.H - 54, 'Climb into the cab', () => this.toggleCab(), { w: 260, h: 46, skin: 'purple', fontSize: 16 });
+    this.cabBtn = OTR.ui.button(this, OTR.W / 2, OTR.H - 54, 'Climb into the cab (C)', () => this.toggleCab(), { w: 280, h: 46, skin: 'purple', fontSize: 16, key: 'C' });
     this.cabBtn.setDepth(820).setScrollFactor(0);
     this.signBtn = OTR.ui.button(this, OTR.W - 190, OTR.H - 54, 'Sign off ▶', () => this.signOff(), { w: 220, h: 48, skin: 'orange', fontSize: 17 });
     this.signBtn.setDepth(820).setScrollFactor(0);
     this.signBtn.setEnabled(false);
+    // A / D or the arrow keys walk round the truck (the ◀ ▶ arrows were mouse only); L works the cab switch
+    const walk = (dir) => () => { if (this.running && !this.scene.isPaused() && !(this._openModals > 0)) this.turn(dir); };
+    ['keydown-LEFT', 'keydown-A'].forEach(k => OTR.onKey(this, k, walk(-1)));
+    ['keydown-RIGHT', 'keydown-D'].forEach(k => OTR.onKey(this, k, walk(1)));
+    OTR.onKey(this, 'keydown-L', () => { if (this.running && this.view === 'cab' && !(this._openModals > 0)) this.toggleLights(); });
+    OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
+    OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
+  }
+
+  toggleLights() {
+    this.lights = !this.lights;
+    OTR.audio.play('beep');
+    OTR.ui.toast(this, this.lights ? 'Lights and hazards on — now walk around and check every lamp' : 'Lights off');
+    this.showView('cab');
   }
 
   viewButton(x, label, onClick) {
@@ -104,13 +119,15 @@ class PreTripScene extends BaseScenarioScene {
     const V = OTR.truckArt.view(this, id, { lights: this.lights, defects: this.defects });
     // the cab is sized and centred to sit whole between the left edge and the checklist panel (x 1000)
     const scale = id === 'cab' ? 0.88 : id === 'driver' || id === 'passenger' ? 0.74 : 0.86;
-    const cx = id === 'cab' ? 494 : 470;
+    // the side views sit a little right, so the mirror at the cab end is clear of the ◀ button
+    const cx = id === 'cab' ? 494 : id === 'driver' || id === 'passenger' ? 540 : 470;
     this.truckImg.setTexture(V.key).setScale(scale);
     this.truckImg.setPosition(cx, id === 'cab' ? OTR.H / 2 + 10 : OTR.scenery.GROUND - V.h * scale / 2 + 30);
     this.me.setVisible(id !== 'cab');
     this.leftArrow.setVisible(id !== 'cab');
     this.rightArrow.setVisible(id !== 'cab');
-    this.cabBtn.setLabel(id === 'cab' ? 'Climb back out' : 'Climb into the cab');
+    ['hintL', 'hintR'].forEach(n => { const t = this.children.getByName(n); if (t) t.setVisible(id !== 'cab'); });
+    this.cabBtn.setLabel(id === 'cab' ? 'Climb back out (C)' : 'Climb into the cab (C)');
     const names = { front: 'Front', driver: 'Driver side', rear: 'Rear', passenger: 'Curb side', cab: 'In the cab' };
     const prev = names[this.viewOrder[(this.viewIndex - 1 + this.viewOrder.length) % this.viewOrder.length]];
     const next = names[this.viewOrder[(this.viewIndex + 1) % this.viewOrder.length]];
@@ -218,10 +235,14 @@ class PreTripScene extends BaseScenarioScene {
     this.hideTip();
     const bad = !!this.defects[item.id];
     const needs = item.needs;
-    const gaugeReading = () => (bad ? 'Gauge reads 2/32" — at or under the limit. This tyre is out of service.' : 'Gauge reads 9/32" — plenty of tread left.');
-    const state = { bad, seed: this.seed, lights: this.lights, pressed: false, gauged: !!this.tested[item.id] };
-    // a tyre you already measured keeps its reading when you come back to it
-    if (needs === 'gauge' && state.gauged) state.reading = gaugeReading();
+    // A tire's reading comes from its own tread (item.tread: the defect's variant and depths), and the note says the
+    // number only: the limits are stated once, the verdict is the trainee's (it used to say "out of service").
+    const T = item.tread || {};
+    const depthAt = (x) => (!bad ? (T.good || 9) : T.variant === 'edge' ? (x < 0 ? T.inner : T.outer) : T.bad);
+    const state = { bad, seed: this.seed, lights: this.lights, pressed: false, gauged: !!this.tested[item.id], variant: bad ? T.variant : null };
+    const readNote = () => `Gauge reads ${state.reading}/32".`;
+    // a tire you already measured keeps its reading when you come back to it
+    if (needs === 'gauge' && state.gauged) state.reading = this.treadRead[item.id] || depthAt(-1);
     let img = null, note = null, actionBtn = null;
     this._judge = { pass: null, flag: null };
 
@@ -236,9 +257,10 @@ class PreTripScene extends BaseScenarioScene {
       if (note) {
         note.setText(
           needs === 'lights' && !this.lights ? 'Switch the lights on in the cab before you judge a lamp.'
-            : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : 'Pull the belt out and check the webbing.')
-              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread to measure it.'
-                : state.reading || ''
+            : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : item.kind === 'door' ? 'Pull on the latch to test it.' : 'Pull the belt out and check the webbing.')
+              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread. Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
+                : needs === 'gauge' ? `${readNote()}  (Minimum: 4/32" front, 2/32" rear.)`
+                  : ''
         );
       }
       if (actionBtn) actionBtn.setEnabled(!(needs === 'lights' && !this.lights));
@@ -249,36 +271,41 @@ class PreTripScene extends BaseScenarioScene {
     this._refreshJudge = refresh;
 
     this.closeupModal(item, (box, m, w, h) => {
-      img = this.add.image(0, -36, OTR.truckArt.closeup(this, item.kind, state)).setDisplaySize(520, 330);
+      // picture, note and test button stacked clear of the Pass / Flag row (the test button used to sit under it)
+      img = this.add.image(0, -58, OTR.truckArt.closeup(this, item.kind, state)).setDisplaySize(480, 305);
       box.add(img);
-      note = OTR.txt(this, 0, 150, '', 15, '#FFB27A', { align: 'center', wrap: w - 80, bold: false });
+      note = OTR.txt(this, 0, 118, '', 16, '#8A3A00', { align: 'center', wrap: w - 80, weight: '800' });
       box.add(note);
 
       if (needs === 'press') {
-        actionBtn = OTR.ui.button(this, 0, 196, item.kind === 'horn' ? 'Press the horn' : item.kind === 'pedal' ? 'Press and hold the brake' : 'Pull the belt out', () => {
+        actionBtn = OTR.ui.button(this, 0, 164, item.kind === 'horn' ? 'Press the horn (T)' : item.kind === 'pedal' ? 'Press and hold the brake (T)' : item.kind === 'door' ? 'Pull on the latch (T)' : 'Pull the belt out (T)', () => {
           state.pressed = true;
           this.tested[item.id] = true;
           if (item.kind === 'horn') OTR.audio.play(bad ? 'click_dud' : 'horn');
           else if (item.kind === 'pedal') OTR.audio.play('brake');
+          else if (item.kind === 'door') OTR.audio.play(bad ? 'door_open' : 'door_close');
           else OTR.audio.play('paper');
           refresh();
-        }, { w: 300, h: 44, skin: 'purple', fontSize: 15 });
+        }, { w: 300, h: 42, skin: 'purple', fontSize: 15, key: 'T' });
         box.add(actionBtn);
       } else if (needs === 'gauge') {
-        const g = this.add.image(-250, 182, OTR.truckArt.gauge(this)).setScale(0.6).setInteractive({ draggable: true, useHandCursor: true });
+        const g = this.add.image(-250, 164, OTR.truckArt.gauge(this)).setScale(0.6).setInteractive({ draggable: true, useHandCursor: true });
         this.input.setDraggable(g);
         // dragX/dragY already arrive in the parent container's space
         g.on('drag', (p, dx, dy) => { g.x = dx; g.y = dy; });
         g.on('dragend', () => {
-          const onTread = Math.abs(g.x) < 230 && g.y < 100 && g.y > -220;
+          const onTread = Math.abs(g.x) < 220 && g.y < 90 && g.y > -210;
           if (!onTread) {
-            this.tweens.add({ targets: g, x: -250, y: 182, duration: 200, ease: 'Quad.easeOut' });
+            this.tweens.add({ targets: g, x: -250, y: 164, duration: 200, ease: 'Quad.easeOut' });
             return;
           }
-          this.tweens.add({ targets: g, x: -120, y: -36, duration: 160, ease: 'Quad.easeOut' });
+          // it measures where it is dropped: an edge-worn tire reads differently on its two halves
+          const dropX = g.x;
+          this.tweens.add({ targets: g, y: -58, duration: 160, ease: 'Quad.easeOut' });
           state.gauged = true;
           this.tested[item.id] = true;
-          state.reading = gaugeReading();
+          state.reading = depthAt(dropX);
+          this.treadRead[item.id] = state.reading;
           OTR.audio.play('beep');
           refresh();
         });
@@ -304,8 +331,8 @@ class PreTripScene extends BaseScenarioScene {
       build: (box, api, w, h) => {
         box.add(OTR.txt(s, 0, -h / 2 + 34, item.name.toUpperCase(), 17, '#FF6600', { weight: '900' }));
         build(box, { box, api }, w, h);
-        passBtn = OTR.ui.button(s, -110, h / 2 - 52, 'Pass', () => api.close(() => onDecide('pass')), { w: 190, h: 52, skin: 'green', fontSize: 18, key: 'P' });
-        flagBtn = OTR.ui.button(s, 110, h / 2 - 52, 'Flag defect', () => api.close(() => onDecide('flag')), { w: 190, h: 52, skin: 'red', fontSize: 18, key: 'F' });
+        passBtn = OTR.ui.button(s, -110, h / 2 - 48, 'Pass (P)', () => api.close(() => onDecide('pass')), { w: 190, h: 50, skin: 'green', fontSize: 18, key: 'P' });
+        flagBtn = OTR.ui.button(s, 110, h / 2 - 48, 'Flag defect (F)', () => api.close(() => onDecide('flag')), { w: 190, h: 50, skin: 'red', fontSize: 18, key: 'F' });
         box.add([passBtn, flagBtn]);
         if (s._judge) { s._judge.pass = passBtn; s._judge.flag = flagBtn; }
         if (s._refreshJudge) s._refreshJudge();          // gate them now that they exist
@@ -436,10 +463,7 @@ class PreTripScene extends BaseScenarioScene {
       const zone = this.add.zone(G.left + sp[0] * G.V.w * G.scale, G.top + sp[1] * G.V.h * G.scale, 90, 60).setInteractive({ useHandCursor: true }).setDepth(7);
       zone.on('pointerup', () => {
         if (this._openModals > 0) return;
-        this.lights = !this.lights;
-        OTR.audio.play('beep');
-        OTR.ui.toast(this, this.lights ? 'Lights on — now walk around and check every lamp' : 'Lights off');
-        this.showView('cab');
+        this.toggleLights();
         this._cabZone = zone;
       });
       this._cabZone = zone;

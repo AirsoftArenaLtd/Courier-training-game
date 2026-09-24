@@ -27,7 +27,7 @@ module.exports = async (page, ctx) => {
         if (await ctx.eval(`${S}._judge.pass.enabled || ${S}._judge.flag.enabled`)) throw new Error(`${s.id} could be judged before it was tested`);
       }
       if (item.needs === 'press') {
-        await clickText(page, 'PreTripScene', /^(Press the horn|Press and hold the brake|Pull the belt out)$/);
+        await clickText(page, 'PreTripScene', /^(Press the horn|Press and hold the brake|Pull the belt out|Pull on the latch)( \(T\))?$/);
       } else if (item.needs === 'gauge') {
         // drag the tread gauge from its tray onto the tyre
         const g = await ctx.eval(`(() => { const m = ${S}.children.list.filter(o => o.depth === 5000).pop(); const box = m.list[1];
@@ -40,14 +40,14 @@ module.exports = async (page, ctx) => {
       }
       await wait(150);
       if (!(await ctx.eval(`${S}._judge.pass.enabled`))) throw new Error(`${s.id} still cannot be judged after its test`);
-      await clickText(page, 'PreTripScene', item.bad ? /^Flag defect$/ : /^Pass$/);
+      await clickText(page, 'PreTripScene', item.bad ? /^Flag defect/ : /^Pass/);
       await wait(450);
       if (!(await marked(s.id))) throw new Error(`the verdict on ${s.id} was not recorded`);
     }
   };
 
   // lamps cannot be judged in the dark: into the cab, lights on, and the cab's own items while there
-  await clickText(page, 'PreTripScene', /^Climb into the cab$/);
+  await clickText(page, 'PreTripScene', /^Climb into the cab/);
   await wait(400);
   const sw = await ctx.eval(`${S}._cabZone ? { x: ${S}._cabZone.x, y: ${S}._cabZone.y } : null`);
   if (!sw) throw new Error('no light switch in the cab');
@@ -55,7 +55,7 @@ module.exports = async (page, ctx) => {
   await wait(300);
   if (!(await ctx.eval(`${S}.lights`))) throw new Error('clicking the light switch did not turn the lights on');
   await inspectAll();
-  await clickText(page, 'PreTripScene', /^Climb back out$/);
+  await clickText(page, 'PreTripScene', /^Climb back out/);
   await wait(400);
 
   // all the way round the truck

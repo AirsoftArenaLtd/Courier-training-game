@@ -29,16 +29,19 @@ OTR.truckArt = {
   /** Hotspot positions inside each view texture (fractions of width/height). */
   spots(id) {
     return {
+      // Standing at the driver (left) side facing the truck, the cab is on your left; at the curb side, on your
+      // right. Facing the front, the driver's lamps are on your right. (Both sides and the front lamps used to be
+      // drawn the other way round.)
       driver: {
-        tire_front: [0.80, 0.80], tire_rear: [0.22, 0.80], fuel_cap: [0.40, 0.62],
-        mirror_l: [0.955, 0.24], marker_side: [0.55, 0.34], leak: [0.50, 0.95], body_panel: [0.30, 0.45]
+        tire_front: [0.20, 0.80], tire_rear: [0.78, 0.80], fuel_cap: [0.60, 0.62],
+        mirror_l: [0.045, 0.24], marker_side: [0.45, 0.34], leak: [0.50, 0.95], body_panel: [0.70, 0.45]
       },
       passenger: {
-        tire_front_p: [0.20, 0.80], tire_rear_p: [0.78, 0.80], steps: [0.30, 0.86],
-        mirror_r: [0.045, 0.24], door_latch: [0.36, 0.52], reflector_side: [0.60, 0.62]
+        tire_front_p: [0.80, 0.80], tire_rear_p: [0.22, 0.80], steps: [0.695, 0.72],
+        mirror_r: [0.955, 0.24], door_latch: [0.64, 0.52], reflector_side: [0.40, 0.62]
       },
       front: {
-        headlight_l: [0.24, 0.63], headlight_r: [0.76, 0.63], signal_l: [0.14, 0.72], signal_r: [0.86, 0.72],
+        headlight_l: [0.76, 0.63], headlight_r: [0.24, 0.63], signal_l: [0.86, 0.72], signal_r: [0.14, 0.72],
         windshield: [0.5, 0.30], wipers: [0.5, 0.45], bumper: [0.5, 0.86], plate_front: [0.5, 0.78]
       },
       rear: {
@@ -57,10 +60,11 @@ OTR.truckArt = {
     return OTR.cv.lin(ctx, 0, y, 0, y + h, [[0, '#FFFFFF'], [0.65, '#EDEAF3'], [1, '#C9C5D4']]);
   },
 
-  draw_driver(ctx, w, h, s) { OTR.truckArt.sideView(ctx, w, h, s, false); },
-  draw_passenger(ctx, w, h, s) { OTR.truckArt.sideView(ctx, w, h, s, true); },
+  draw_driver(ctx, w, h, s) { OTR.truckArt.sideView(ctx, w, h, s, true, false); },
+  draw_passenger(ctx, w, h, s) { OTR.truckArt.sideView(ctx, w, h, s, false, true); },
 
-  sideView(ctx, w, h, s, mirrored) {
+  /** mirrored: the cab on the left (the driver side seen from outside); curb: the side with the entry steps */
+  sideView(ctx, w, h, s, mirrored, curb) {
     const cv = OTR.cv, D = s.defects || {};
     ctx.save();
     if (mirrored) { ctx.translate(w, 0); ctx.scale(-1, 1); }
@@ -134,12 +138,12 @@ OTR.truckArt = {
     cv.rr(ctx, w * 0.935, 66, 24, 48, 4);
     ctx.fillStyle = (D.mirror_l || D.mirror_r) ? '#6A6878' : cv.lin(ctx, 0, 66, 0, 114, [[0, '#DCEBF5'], [1, '#93AFC2']]); ctx.fill();
     ctx.restore();
-    // steps (curb side)
-    if (mirrored) {
+    // entry steps (curb side), under the cab door
+    if (curb) {
       ctx.fillStyle = D.steps ? '#5A4A3A' : '#3A3844';
-      cv.rr(ctx, w * 0.27, h - 132, 96, 14, 4); ctx.fill();
-      cv.rr(ctx, w * 0.29, h - 96, 80, 14, 4); ctx.fill();
-      if (D.steps) { ctx.fillStyle = 'rgba(120,80,40,0.6)'; ctx.fillRect(w * 0.27, h - 132, 96, 8); }
+      cv.rr(ctx, w * 0.66, h - 132, 96, 14, 4); ctx.fill();
+      cv.rr(ctx, w * 0.68, h - 96, 80, 14, 4); ctx.fill();
+      if (D.steps) { ctx.fillStyle = 'rgba(120,80,40,0.6)'; ctx.fillRect(w * 0.66, h - 132, 96, 8); }
     }
     // leak under the truck
     if (D.leak) {
@@ -181,7 +185,7 @@ OTR.truckArt = {
     ctx.fillStyle = '#55525F';
     for (let i = 0; i < 4; i++) ctx.fillRect(w * 0.31, h * 0.54 + i * (h * 0.028), w * 0.38, h * 0.014);
     // headlights
-    [[w * 0.24, 'headlight_l'], [w * 0.76, 'headlight_r']].forEach(([x, id]) => {
+    [[w * 0.76, 'headlight_l'], [w * 0.24, 'headlight_r']].forEach(([x, id]) => {
       cv.rr(ctx, x - 52, h * 0.56, 104, 52, 10);
       const on = s.lights && !D[id];
       ctx.fillStyle = on ? cv.rad(ctx, x, h * 0.58, 4, 60, [[0, '#FFFBE6'], [1, '#FFD86A']]) : (D[id] ? '#5A5866' : '#D8D8E0');
@@ -191,7 +195,7 @@ OTR.truckArt = {
       if (D[id]) { ctx.strokeStyle = 'rgba(40,40,50,0.6)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 30, h * 0.60); ctx.lineTo(x + 26, h * 0.62); ctx.stroke(); }
     });
     // turn signals
-    [[w * 0.14, 'signal_l'], [w * 0.86, 'signal_r']].forEach(([x, id]) => {
+    [[w * 0.86, 'signal_l'], [w * 0.14, 'signal_r']].forEach(([x, id]) => {
       cv.rr(ctx, x - 26, h * 0.66, 52, 30, 6);
       ctx.fillStyle = D[id] ? '#6A6060' : (s.lights ? '#FFA030' : '#E8A33D'); ctx.fill();
       ctx.strokeStyle = '#2A2830'; ctx.lineWidth = 3; ctx.stroke();
@@ -308,7 +312,9 @@ OTR.truckArt = {
     // light switch
     cv.rr(ctx, w * 0.17, h * 0.26, 64, 40, 8); ctx.fillStyle = s.lights ? '#8BF0C6' : '#4A4656'; ctx.fill();
     ctx.fillStyle = s.lights ? '#14301F' : '#9A94AA'; ctx.font = '900 12px "Segoe UI", Arial';
-    ctx.fillText(s.lights ? 'LIGHTS ON' : 'LIGHTS', w * 0.17 + 32, h * 0.26 + 24);
+    ctx.fillText(s.lights ? 'LIGHTS ON' : 'LIGHTS', w * 0.17 + 32, h * 0.26 + 17);
+    ctx.font = '800 10px "Segoe UI", Arial';
+    ctx.fillText('+ HAZARDS', w * 0.17 + 32, h * 0.26 + 31);          // the flashers work the turn signals
     // extinguisher / first aid / triangles
     cv.rr(ctx, w * 0.11, h * 0.54, 44, 100, 10); ctx.fillStyle = D.extinguisher ? '#6A4A4A' : '#D8304A'; ctx.fill();
     if (D.extinguisher) { ctx.fillStyle = '#9A94AA'; ctx.fillRect(w * 0.11, h * 0.54, 44, 22); }
@@ -329,7 +335,7 @@ OTR.truckArt = {
   /** kind-specific close-up. o: { bad, seed, lights, pressed } */
   closeup(scene, kind, o) {
     o = o || {};
-    const key = `tc_${kind}_${o.bad ? 1 : 0}_${o.seed || 0}_${o.lights ? 1 : 0}_${o.pressed ? 1 : 0}_${o.gauged ? 1 : 0}`;
+    const key = `tc_${kind}_${o.bad ? 1 : 0}_${o.seed || 0}_${o.lights ? 1 : 0}_${o.pressed ? 1 : 0}_${o.gauged ? 1 : 0}_${o.variant || ''}_${o.reading || ''}`;
     const W = 520, H = 330;
     return OTR.tex.make(scene, key, W, H, (ctx) => {
       const cv = OTR.cv;
@@ -357,39 +363,39 @@ OTR.truckArt = {
       cv.rr(ctx, bx, 40, span * 0.66, H - 80, 6); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,0.10)';
       cv.rr(ctx, bx + 4, 44, span * 0.58, 12, 4); ctx.fill();
-      const depth = o.bad ? 6 : 22;
+      // groove depth: worn all over (variant 'worn'), worn down one edge only ('edge': the left blocks), or deep
+      const shallow = o.bad && (o.variant === 'worn' || (o.variant === 'edge' && i < 2));
+      const depth = shallow ? 6 : o.bad && o.variant === 'edge' && i === 2 ? 14 : 22;
       ctx.fillStyle = '#100F16';
       ctx.fillRect(bx + span * 0.66, 40, span * 0.3, H - 80);
       ctx.fillStyle = 'rgba(255,255,255,0.06)';
       ctx.fillRect(bx + span * 0.66, 40, span * 0.3, depth);
-    }
-    if (o.bad) {
-      // wear bars sitting flush with the tread: this tyre is finished
-      ctx.fillStyle = '#7A7484';
-      for (let i = 0; i < blocks; i++) {
-        const bx = 45 + i * span;
+      if (shallow) {
+        // wear bars flush with the tread in the worn grooves
+        ctx.fillStyle = '#7A7484';
         cv.rr(ctx, bx + span * 0.66, H / 2 - 14, span * 0.3, 28, 3); ctx.fill();
       }
-      ctx.fillStyle = 'rgba(255,255,255,0.18)';
-      ctx.fillRect(40, H / 2 - 16, W - 80, 2);
-      if (R() < 0.5) {
-        ctx.strokeStyle = '#7A3A3A'; ctx.lineWidth = 7; ctx.lineCap = 'round';
-        ctx.beginPath(); ctx.moveTo(70, 70); ctx.lineTo(160, 120); ctx.lineTo(120, 180); ctx.stroke();
-        ctx.strokeStyle = 'rgba(20,16,20,0.8)'; ctx.lineWidth = 3; ctx.stroke();
-      }
     }
-    if (o.gauged) {
-      // readout plate, as if the gauge were reporting on the tyre itself
+    if (o.bad && o.variant === 'gouge') {
+      // a gouge in the sidewall band along the top of the picture; the tread itself is fine
+      ctx.fillStyle = '#35313D'; ctx.fillRect(30, 24, W - 60, 22);
+      ctx.strokeStyle = '#1A171F'; ctx.lineWidth = 7; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(150, 30); ctx.lineTo(210, 40); ctx.lineTo(250, 32); ctx.stroke();
+      ctx.strokeStyle = 'rgba(200,190,210,0.35)'; ctx.lineWidth = 2; ctx.stroke();
+    }
+    if (o.gauged && o.reading) {
+      // the gauge reports a number, nothing more: the trainee knows the limit (it used to say "out of service")
       const bw = 150, bx = W - bw - 26;
       ctx.fillStyle = 'rgba(12,10,18,0.82)';
       cv.rr(ctx, bx, 26, bw, 58, 10); ctx.fill();
-      ctx.strokeStyle = o.bad ? '#F0435A' : '#2BC48A'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.strokeStyle = '#9A94AA'; ctx.lineWidth = 2; ctx.stroke();
       ctx.textAlign = 'center';
       ctx.fillStyle = '#9A8AB0'; ctx.font = '700 11px "Segoe UI", Arial';
       ctx.fillText('TREAD DEPTH', bx + bw / 2, 45);
-      ctx.fillStyle = o.bad ? '#FF9A9A' : '#8BF0C6'; ctx.font = '900 26px "Segoe UI", Arial';
-      ctx.fillText(o.bad ? '2/32"' : '9/32"', bx + bw / 2, 73);
+      ctx.fillStyle = '#FFFFFF'; ctx.font = '900 26px "Segoe UI", Arial';
+      ctx.fillText(`${o.reading}/32"`, bx + bw / 2, 73);
     }
+    void R;
   },
 
   close_light(ctx, W, H, o) {
@@ -449,9 +455,10 @@ OTR.truckArt = {
     ctx.fillStyle = 'rgba(255,255,255,0.55)'; ctx.fillRect(150, 90, 40, H - 180);
     ctx.fillStyle = 'rgba(80,110,90,0.5)'; ctx.fillRect(190, H - 150, W - 340, 60);
     ctx.restore();
+    // (no caption: a knocked mirror shows sky and the truck's own door, and that has to be seen, not read)
     if (o.bad) {
-      ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.font = '800 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
-      ctx.fillText('you can see the sky and your own door', W / 2, H - 20);
+      ctx.fillStyle = 'rgba(190,220,245,0.9)'; ctx.fillRect(150, 70, W - 300, 70);         // sky
+      ctx.fillStyle = 'rgba(230,230,238,0.95)'; ctx.fillRect(W - 230, 140, 70, H - 220);    // your own door
     }
   },
 
@@ -491,10 +498,10 @@ OTR.truckArt = {
     ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 4;
     ctx.beginPath(); ctx.moveTo(80, 60); ctx.lineTo(W - 90, H - 70); ctx.stroke();
     if (o.bad) {
-      ctx.strokeStyle = '#C8243B'; ctx.lineWidth = 5;
+      // frayed webbing: loose threads the colour of the belt, no red marks
+      ctx.strokeStyle = '#B8A888'; ctx.lineWidth = 3;
       const mx = W / 2, my = H / 2;
-      for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(mx - 30 + i * 12, my - 26 + (i % 2) * 8); ctx.lineTo(mx - 20 + i * 12, my + 22); ctx.stroke(); }
-      ctx.fillStyle = 'rgba(200,36,59,0.18)'; ctx.beginPath(); ctx.arc(mx, my, 60, 0, Math.PI * 2); ctx.fill();
+      for (let i = 0; i < 7; i++) { ctx.beginPath(); ctx.moveTo(mx - 34 + i * 11, my - 22 + (i % 2) * 6); ctx.lineTo(mx - 26 + i * 11 + (i % 3) * 4, my + 30); ctx.stroke(); }
     }
     // buckle
     const cv = OTR.cv;
@@ -512,10 +519,12 @@ OTR.truckArt = {
     ctx.strokeStyle = '#5A5866'; ctx.lineWidth = 3;
     ctx.beginPath(); ctx.moveTo(340, 90); ctx.lineTo(340, 240); ctx.stroke();
     for (let i = 0; i <= 3; i++) { ctx.beginPath(); ctx.moveTo(334, 90 + i * 50); ctx.lineTo(352, 90 + i * 50); ctx.stroke(); }
-    ctx.fillStyle = o.pressed && o.bad ? '#FF4A5A' : '#8BF0C6';
+    // the travel marker is one neutral colour, and the caption says what you are doing, not what it means (it
+    // said "holding" while the pedal sank)
+    ctx.fillStyle = '#E8E4F0';
     ctx.beginPath(); ctx.arc(340, 96 + drop, 9, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = '#9A94AA'; ctx.font = '800 13px "Segoe UI", Arial'; ctx.textAlign = 'left';
-    ctx.fillText(o.pressed ? 'holding' : 'press and hold to test', 370, 100 + drop);
+    ctx.fillText(o.pressed ? 'steady pressure' : 'press and hold', 366, 100 + drop);
   },
 
   close_extinguisher(ctx, W, H, o) {
@@ -530,11 +539,14 @@ OTR.truckArt = {
     const ang = o.bad ? Math.PI * 1.78 : Math.PI * 1.34;
     ctx.strokeStyle = '#1D1030'; ctx.lineWidth = 4;
     ctx.beginPath(); ctx.moveTo(255, 120); ctx.lineTo(255 + Math.cos(ang) * 32, 120 + Math.sin(ang) * 32); ctx.stroke();
-    // inspection tag
-    cv.rr(ctx, 330, 150, 90, 60, 6); ctx.fillStyle = o.bad ? '#C8C6D2' : '#FFF4C0'; ctx.fill();
-    ctx.fillStyle = '#3A2A50'; ctx.font = '800 11px "Segoe UI", Arial'; ctx.textAlign = 'center';
-    ctx.fillText(o.bad ? 'TAG MISSING' : 'INSPECTED', 375, 176);
-    ctx.fillText(o.bad ? '' : 'THIS YEAR', 375, 192);
+    // inspection tag: there, or just the empty tie where it should hang
+    ctx.strokeStyle = '#9A94AA'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(318, 150); ctx.lineTo(340, 160); ctx.stroke();
+    if (!o.bad) {
+      cv.rr(ctx, 330, 150, 90, 60, 6); ctx.fillStyle = '#FFF4C0'; ctx.fill();
+      ctx.fillStyle = '#3A2A50'; ctx.font = '800 11px "Segoe UI", Arial'; ctx.textAlign = 'center';
+      ctx.fillText('INSPECTED', 375, 176);
+      ctx.fillText('THIS YEAR', 375, 192);
+    }
   },
 
   close_kit(ctx, W, H, o) {
@@ -543,9 +555,8 @@ OTR.truckArt = {
     ctx.fillStyle = '#C8243B';
     ctx.fillRect(248, 110, 24, 100); ctx.fillRect(210, 148, 100, 24);
     if (o.bad) {
+      // the open case, empty inside
       ctx.fillStyle = 'rgba(40,40,52,0.9)'; cv.rr(ctx, 160, 150, 200, 96, 8); ctx.fill();
-      ctx.fillStyle = '#9A94AA'; ctx.font = '800 15px "Segoe UI", Arial'; ctx.textAlign = 'center';
-      ctx.fillText('the case is empty', W / 2, 205);
     } else {
       ctx.fillStyle = '#E8E4F0';
       [0, 1, 2].forEach(i => cv.rr(ctx, 170 + i * 66, 170, 54, 60, 6), ctx.fill());
@@ -571,12 +582,15 @@ OTR.truckArt = {
     ctx.fillStyle = '#D2CEDC'; ctx.fillRect(40, 30, W - 80, H - 60);
     for (let y = 40; y < H - 60; y += 34) { ctx.fillStyle = (y / 34) % 2 === 0 ? '#E4E1EC' : '#CFCBDA'; ctx.fillRect(50, y, W - 100, 28); }
     cv.rr(ctx, W / 2 - 60, H - 130, 120, 46, 8); ctx.fillStyle = '#5A5866'; ctx.fill();
-    if (o.bad) {
-      ctx.strokeStyle = '#C8243B'; ctx.lineWidth = 8;
-      ctx.beginPath(); ctx.moveTo(W / 2 - 70, H - 150); ctx.lineTo(W / 2 + 70, H - 96); ctx.stroke();
-      ctx.fillStyle = 'rgba(200,36,59,0.15)'; ctx.fillRect(40, H - 170, W - 80, 90);
-      ctx.fillStyle = '#FFFFFF'; ctx.font = '800 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
-      ctx.fillText('latch does not seat', W / 2, H - 40);
+    // The latch looks the same either way; the pull test shows it (PRP-5): a bad latch lets the door swing open
+    // under a pull, a good one holds.
+    if (o.pressed && o.bad) {
+      ctx.fillStyle = '#16141C'; ctx.fillRect(W - 110, 30, 70, H - 60);                     // the gap as it swings
+      ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(W - 130, 30, 20, H - 60);
+    }
+    if (o.pressed) {
+      ctx.fillStyle = '#E8E4F0'; ctx.font = '800 13px "Segoe UI", Arial'; ctx.textAlign = 'center';
+      ctx.fillText('you pull hard on the handle', W / 2, 24);
     }
   },
 
@@ -645,12 +659,17 @@ OTR.truckArt = {
       ctx.lineTo(W / 2 + Math.cos(a) * 106, H / 2 + Math.sin(a) * 106);
       ctx.stroke();
     }
-    const val = o.bad ? 0.18 : 0.82;
+    // a step van's oil pressure gauge (hydraulic brakes, so no air gauge), with its warning lamp beside it
+    const val = o.bad ? 0.18 : 0.62;
     const a = Math.PI * 0.75 + val * Math.PI * 1.5;
-    ctx.strokeStyle = o.bad ? '#FF4A5A' : '#8BF0C6'; ctx.lineWidth = 6;
+    ctx.strokeStyle = '#F4F0F8'; ctx.lineWidth = 6;
     ctx.beginPath(); ctx.moveTo(W / 2, H / 2); ctx.lineTo(W / 2 + Math.cos(a) * 84, H / 2 + Math.sin(a) * 84); ctx.stroke();
     ctx.fillStyle = '#9A94AA'; ctx.font = '800 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
-    ctx.fillText('AIR PRESSURE', W / 2, H / 2 + 70);
+    ctx.fillText('OIL PRESSURE', W / 2, H / 2 + 70);
+    ctx.beginPath(); ctx.arc(W / 2 + 170, H / 2 - 60, 18, 0, Math.PI * 2);
+    ctx.fillStyle = o.bad ? '#FFB020' : '#3A3844'; ctx.fill();
+    ctx.fillStyle = o.bad ? '#3A2A10' : '#5A5866'; ctx.font = '900 13px "Segoe UI", Arial';
+    ctx.fillText('OIL', W / 2 + 170, H / 2 - 55);
     void cv;
   },
 

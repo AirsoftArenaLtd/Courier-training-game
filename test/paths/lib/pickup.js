@@ -1,7 +1,7 @@
 /*
  * Golden path shared by the three pickup scenarios: the best answer in the conversation, count every piece
- * with the mouse, reconcile the count correctly, inspect and decide every piece with the right reason, find
- * every paperwork problem, finish and sign. A perfect run must score full marks in every category.
+ * with the mouse, reconcile the count correctly, find every paperwork problem, inspect and decide every piece with
+ * the right reason, finish and sign. A perfect run must score full marks in every category.
  */
 const { wait, clickText, runTalk } = require('./ui');
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -26,11 +26,23 @@ module.exports = async (page, ctx) => {
   await wait(800);
   if (await ctx.eval(`(${S}._openModals || 0) > 0`)) { await clickText(page, 'PickupScene', /^OK$/); await wait(500); }
 
+  // the customs paperwork comes first: the invoice decides what happens to the pieces
+  const docs = await ctx.eval(`${S}.content.docs ? ${S}.content.docs.fields.map(f => ({ label: f.label, bad: !!f.bad })) : null`);
+  if (docs) {
+    await clickText(page, 'PickupScene', /^Check the paperwork$/);
+    await wait(650);
+    for (const f of docs) if (f.bad) await clickText(page, 'PickupScene', new RegExp('^' + esc(f.label) + '$'));
+    await clickText(page, 'PickupScene', /^Submit findings$/);
+    await wait(700);
+    await clickText(page, 'PickupScene', /^OK$/);
+    await wait(500);
+  }
+
   const reasons = await ctx.eval('OTR_DATA.pickups.reasons.map(r => r.id)');
   for (const p of pieces) {
     await page.mouse.click(p.x, p.y);
     await wait(650);
-    if (p.accept) await clickText(page, 'PickupScene', /^Accept$/);
+    if (p.accept) await clickText(page, 'PickupScene', /^Accept/);
     else {
       await clickText(page, 'PickupScene', /^Refuse/);
       await wait(650);
@@ -43,16 +55,6 @@ module.exports = async (page, ctx) => {
   await wait(400);
   if (await ctx.eval(`(${S}._openModals || 0) > 0`)) throw new Error('a decided piece could be inspected (and re-scored) again');
 
-  const docs = await ctx.eval(`${S}.content.docs ? ${S}.content.docs.fields.map(f => ({ label: f.label, bad: !!f.bad })) : null`);
-  if (docs) {
-    await clickText(page, 'PickupScene', /^Check the paperwork$/);
-    await wait(650);
-    for (const f of docs) if (f.bad) await clickText(page, 'PickupScene', new RegExp('^' + esc(f.label) + '$'));
-    await clickText(page, 'PickupScene', /^Submit findings$/);
-    await wait(700);
-    await clickText(page, 'PickupScene', /^OK$/);
-    await wait(500);
-  }
   await clickText(page, 'PickupScene', /Finish the pickup/);
   await wait(2400);                                      // the signature draws itself
   await clickText(page, 'PickupScene', /Done$/);

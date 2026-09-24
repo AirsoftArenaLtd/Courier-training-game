@@ -104,9 +104,11 @@ class RoutePlannerScene extends BaseScenarioScene {
         ctx.fillRect(x0, y - S(road / 2), x1 - x0, S(road));
         ctx.strokeStyle = 'rgba(255,200,61,0.9)'; ctx.lineWidth = 1.5;
         ctx.strokeRect(x0, y - S(road / 2), x1 - x0, S(road));
+        const sw = this.content.schoolWindow;
+        const hm = (m) => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
         ctx.fillStyle = '#FFE9AE'; ctx.font = '900 10px "Segoe UI", Arial';
-        ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-        ctx.fillText('SCHOOL ZONE', (x0 + x1) / 2, y - S(road / 2) - 3);
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(sw ? `SCHOOL ZONE ${hm(sw[0])}–${hm(sw[1])}` : 'SCHOOL ZONE', (x0 + x1) / 2, y);
       }
 
       // depot
@@ -182,6 +184,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.round = C.rounds[this.roundIndex];
     this.startMin = this.round.startMin !== undefined ? this.round.startMin : C.startMin;
     this.order = [];
+    this.cleared = null;
     this.state = 'plan';
 
     this.buildStops();
@@ -243,6 +246,13 @@ class RoutePlannerScene extends BaseScenarioScene {
         address: `${lot.number} ${lot.street}`,
         who: lot.kind === 'business' ? lot.name : lot.person.name
       };
+    });
+    // one name per address in a round (the town's small pool put the same person at four houses)
+    const spare = ['Alex Chen', 'Dana Brooks', 'Luis Ortega', 'Mia Park', 'Omar Haddad', 'Ruth Levy', 'Sam Patel', 'Tessa Moore', 'Victor Reyes', 'Wendy Cole'];
+    const used = [];
+    this.stops.forEach(s => {
+      if (used.indexOf(s.who) >= 0) s.who = spare.find(n => used.indexOf(n) < 0 && !this.stops.some(o => o.who === n)) || s.who;
+      used.push(s.who);
     });
   }
 
@@ -598,15 +608,19 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.refresh();
   }
 
+  /** Undo the last step, including a Clear (which used to wipe the whole plan for good). */
   undo() {
-    if (this.state !== 'plan' || !this.order.length) return;
-    this.order.pop();
+    if (this.state !== 'plan') return;
+    if (this.cleared && !this.order.length) { this.order = this.cleared; this.cleared = null; }
+    else if (this.order.length) this.order.pop();
+    else return;
     OTR.audio.play('back');
     this.refresh();
   }
 
   clearRoute() {
     if (this.state !== 'plan' || !this.order.length) return;
+    this.cleared = this.order.slice();
     this.order = [];
     OTR.audio.play('back');
     this.refresh();
@@ -651,6 +665,9 @@ class RoutePlannerScene extends BaseScenarioScene {
     });
 
     this.drawPath(ev);
+    if (this.order.length) this.cleared = null;           // a new plan: the old one is gone
+    if (this.undoBtn) this.undoBtn.setEnabled(this.order.length > 0 || !!this.cleared);
+    if (this.clearBtn) this.clearBtn.setEnabled(this.order.length > 0);
 
     this.readouts[0].setText(`${this.order.length} / ${this.stops.length}`);
     this.readouts[1].setText(`${(ev.dist * this.milesPerPx).toFixed(1)} mi`);
@@ -674,6 +691,12 @@ class RoutePlannerScene extends BaseScenarioScene {
   }
 
   drawPath(ev) {
+    if (this.slowTags) this.slowTags.destroy();
+    this.slowTags = this.add.container(0, 0).setDepth(6);
+    ev.legs.filter(L => L.slowed).forEach(L => {
+      const mid = this.nodes[L.path[Math.floor(L.path.length / 2)]];
+      this.slowTags.add(OTR.txt(this, this.sx(mid.x), this.sy(mid.y) - 14, `+${this.content.schoolDelay} min`, 12, '#FFC83D', { weight: '900', stroke: '#16062B', strokeW: 4 }));
+    });
     this.pathG.redraw((g) => {
       if (!ev.legs.length) return;
       const pts = [];
@@ -692,6 +715,13 @@ class RoutePlannerScene extends BaseScenarioScene {
       };
       line(7, 0x190833, 0.55, 2);
       line(4, 0xFF6600, 1, 0);
+      // legs the school zone slowed, in amber (which leg paid the delay used to be invisible)
+      g.lineStyle(4, 0xFFC83D, 1);
+      ev.legs.filter(L => L.slowed).forEach(L => {
+        g.beginPath();
+        L.path.forEach((n, i) => { const p = this.nodes[n]; if (i === 0) g.moveTo(this.sx(p.x), this.sy(p.y)); else g.lineTo(this.sx(p.x), this.sy(p.y)); });
+        g.strokePath();
+      });
       // spur from the street centre line out to each sequenced pin, so the route reads as one thread
       g.lineStyle(3, 0xFF6600, 0.95);
       this.order.forEach(i => {
@@ -719,7 +749,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     const ev = this.plan;
     if (ev.late || ev.missed) {
       const what = [];
-      if (ev.late) what.push(`${ev.late} time-committed delivery${ev.late > 1 ? 'ies' : ''} would run late`);
+      if (ev.late) what.push(`${ev.late} time-committed ${ev.late > 1 ? 'deliveries' : 'delivery'} would run late`);
       if (ev.missed) what.push(`${ev.missed} pickup${ev.missed > 1 ? 's' : ''} would be missed`);
       OTR.ui.confirm(this, 'Dispatch anyway?',
         `Your plan says ${what.join(' and ')}. Dispatch would rather you resequenced now than called the customer later.`,
@@ -837,13 +867,17 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.addScore(Math.round(eff * 600));
 
     const rows = [
-      ['Your loop', `${(ev.dist * this.milesPerPx).toFixed(1)} mi · ${Math.round(ev.drive)} min driving`],
+      // the same measure on both rows: the whole day (driving, waiting and the school zone), not driving against
+      // the best plan's total
+      ['Your day', `${(ev.dist * this.milesPerPx).toFixed(1)} mi · ${Math.round(ev.cost)} min${ev.wait > 0 ? ` (${Math.round(ev.drive)} driving + ${Math.round(ev.wait)} waiting)` : ''}`],
       ['Best plan', `${(opt.dist * this.milesPerPx).toFixed(1)} mi · ${Math.round(opt.cost)} min`],
       ['Route efficiency', `${Math.round(eff * 100)}%`],
       ['Back at the station', this.clock(ev.finish)]
     ];
     if (ev.commitments) rows.push(['Commitments met', `${ev.met} / ${ev.commitments}`]);
     if (ev.wait > 0) rows.push(['Waiting on shippers', `${Math.round(ev.wait)} min`]);
+    const slowLegs = ev.legs.filter(L => L.slowed).length;
+    if (slowLegs) rows.push(['School zone', `+${slowLegs * C.schoolDelay} min (${slowLegs} leg${slowLegs > 1 ? 's' : ''} while it was active)`]);
 
     const notes = [];
     if (ev.late) notes.push(C.lessons.commit);
@@ -854,13 +888,14 @@ class RoutePlannerScene extends BaseScenarioScene {
 
     OTR.ui.modal(this, {
       title: perfect ? 'Optimal Plan!' : (ev.late || ev.missed) ? 'Commitment Missed' : 'Route Complete',
-      w: 720, h: 440,
+      w: 720, h: 440 + Math.max(0, rows.length - 5) * 34,             // taller when the day had more to report
       build: (box, api, w, h) => {
+        const top = -h / 2 + 98;
         rows.forEach((r, i) => {
-          box.add(OTR.txt(this, -w / 2 + 56, -122 + i * 34, r[0], 17, '#5A4A70', { ox: 0, bold: false }));
-          box.add(OTR.txt(this, w / 2 - 56, -122 + i * 34, r[1], 18, i === 2 ? '#FF6600' : '#250849', { ox: 1, weight: '900' }));
+          box.add(OTR.txt(this, -w / 2 + 56, top + i * 34, r[0], 17, '#5A4A70', { ox: 0, bold: false }));
+          box.add(OTR.txt(this, w / 2 - 56, top + i * 34, r[1], 18, i === 2 ? '#FF6600' : '#250849', { ox: 1, weight: '900' }));
         });
-        const y = -122 + rows.length * 34 + 16;
+        const y = top + rows.length * 34 + 16;
         box.add(OTR.txt(this, -w / 2 + 56, y, notes[0], 15, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 112, lineSpacing: 3 }));
       },
       buttons: [{

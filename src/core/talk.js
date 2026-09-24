@@ -515,7 +515,9 @@ OTR.TalkController = class {
     this.mode = 'coach';
     const s = this.scene;
     const col = ch.grade === 'good' ? 0x2BC48A : ch.grade === 'ok' ? 0xFFB020 : 0xF0435A;
-    const head = ch.grade === 'good' ? '✓  GOOD CALL' : ch.grade === 'ok' ? '~  OKAY, BUT…' : '✗  NOT QUITE';
+    // a wrong answer that puts someone at risk says so, not just "not quite"
+    const unsafe = ch.grade === 'bad' && (ch.critical || (ch.effects && ch.effects.safety < 0));
+    const head = ch.grade === 'good' ? '✓  GOOD CALL' : ch.grade === 'ok' ? '~  OKAY, BUT…' : unsafe ? '✗  UNSAFE' : '✗  NOT QUITE';
     const w = 760;
     const body = OTR.txt(s, 0, 0, ch.feedback, 19, '#F4ECFF', { bold: false, wrap: w - 70, lineSpacing: 4 });
     const h = body.height + 90;
