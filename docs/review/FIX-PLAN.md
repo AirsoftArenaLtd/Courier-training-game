@@ -240,3 +240,105 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     - the full suite.
   - **Tests:** spot check only; m1-pretrip, m2-labels and m3-missing pass every pass on the RTX. Details in
     `HANDOFF.md`.
+
+- **2026-09-24, WP0 (finished, cloud session).**
+  - **Done:** the remaining conversions to baked shapes (every scene; live shapes only where a drawing changes, and
+    those redraw only when their value changes); the atmosphere grade merged into one MULTIPLY overlay plus one ADD
+    lift for dark scenes; conversation backdrops baked into one texture (`Stage.bakeBackdrop`) and the stops' far
+    layers into one parallax strip (`Stage.skyline`); transparent margins trimmed from large textures; Phaser served
+    from `lib/` (no CDN) and an inline favicon. PERF-2 and PERF-3 marked.
+  - **Measured** (software WebGL in the cloud, SwiftShader, which is slower than any real GPU): conversation 8→26 fps,
+    doorstep stop 8→21, labels 13→30, business stop 14→33. **The Intel table in `perf.md` still has to be measured on
+    the owner's laptop**; nothing here stands in for it.
+  - **Tests:** the full suite ran once after WP0; its failures were the stop prompts (pre-existing, fixed in WP2a) and a
+    late redraw of a destroyed shape in conversations (fixed: `liveShape` skips a destroyed image).
+  - **Next:** the test tools now start Chromium with SwiftShader on Linux (`QA_BROWSER=/opt/pw-browsers/chromium`).
+
+- **2026-09-24, WP1.**
+  - **Done:** the honest-results mechanism as specified (`ScoreLog` critical items, `tested`, `criticals`, ranked
+    `takeaways` with counts; `OTR.flow.complete` caps critical categories at 1★ and gives untested categories 0★;
+    `OTR.scoring.headline` / `gateTime`; results screen rebuilt: stars per category, untested rows, red header on a
+    critical mistake, at least four takeaways with "+ N more", labelled career bar). Every scene passes its log; the
+    scenarios declare the categories they score. All WP1 findings marked.
+  - **Tests:** the golden paths of every scenario pass on the merged code (m1-pretrip, m1-route, m1-driving, m2-sort,
+    m2-lift, m3-twostops, m4-storm, m5-pod, m5-exceptions, m5-adult, m7-dg, m8-dog, m8-heat, m8-steps among them); the
+    golden check now also fails on an untested category or a critical mistake.
+
+- **2026-09-24, WP2a and WP2b (stops).**
+  - **Done:** stage prompts while walking, van confinement, door interactions on their targets, shelves
+    (click-select, hover preview, in-hand ghosts), the photo viewfinder and review, talk guard and spacing; hazards
+    judged every frame (never during scripted walks), clearing a hazard while carrying, dog staging and re-arming,
+    heat shade zones and recovery. All M5/M8 findings in these packages marked.
+  - **Tests:** m5-pod, m5-exceptions, m5-adult, m8-dog, m8-heat, m8-steps, m3-twostops, m4-storm pass.
+  - **Note:** `test/paths/lib/stop.js` clears "Move the … aside" hazards like a careful trainee.
+
+- **2026-09-24, WP3 (driving).**
+  - **Done:** reverse on its own key (R), P after a standstill, the stop line clear of the crosswalk
+    (`OTR.townArt.STOP_LINE`), an honest parking bay (`parkBay`), drill hazards staged on the route, pedestrians who
+    only cross when it is safe, a pedestrian hit as a critical stop-the-drive card, lights/school-zone prompts, HUD
+    clean-ups. All WP3 findings marked.
+  - **Tests:** m1-driving passes (six hazards, no violations); route-legs, town-traffic and route-day were run with
+    WP4 (below), since WP4 changes the same flows.
+
+- **2026-09-24, WP4 (route day).**
+  - **Done:** mixed stop types in one fixed town (seeded per day); the load matches the route exactly and reports
+    what went where; the pre-trip is seeded with the day's weather, and a missed defect holds the truck at the gate;
+    Restart on a leg or a stop keeps the day's record ("Restarted stop 3"); a reload inside a stop resumes that stop;
+    the debrief ranks what to work on and is kept with the day (the hub links it); route stars count toward the rank;
+    the briefing has a pause menu. The day summary and the practice "day" slots are removed (SHELL-10). All
+    ROUTEDAY findings marked.
+  - **Tests:** route-day (9/9 stars, restart and reload records), route-legs, town-traffic pass. New checks: the hub
+    asks before a route day starts; Restart names what it restarts; a reload inside stop 4 comes back to stop 4.
+
+- **2026-09-24, WP5a and WP5b (conversations).**
+  - **Done:** talk engine: the pause button works, number-pad answers, no skipped lines (350 ms guard) and ↑ / ↓ to
+    read earlier lines, the chosen answer stays on screen, timers scale with the reading (at least 4 s + 1 s per
+    20 characters) and show a countdown, a timeout highlights the right answer, "✗ UNSAFE" for a wrong answer that
+    costs safety. Staging that matches the narration (new acts: hold, walk, prop, stage). Endings that remember every
+    mistake (flags and `notes`), an honest flood report, m8-incident rewritten in US English, answers rewritten so
+    the recommended one is the longest in 11 of 44 decisions and the shortest in 13. Content validation now checks
+    ending effects, choice counts and the answer-length bias. All DIALOGUE findings marked.
+  - **Tests:** m3-missing, m3-signature, m3-twostops, m4-address, m4-damaged, m4-storm, m8-incident pass; content
+    validation clean.
+
+- **2026-09-24, WP6 (warehouse games).**
+  - **Done:** Sort Belt keys act on the scanned package, waves end on a clear belt, bins keep one number for the
+    shift; Lift Right needs the carry and the turn to the pallet, reach is measured and scored, the verdict names the
+    fault, an on-screen pad; Label Check turns and timeouts; Load for the Route drops by the pointer, strap only when
+    the cart is empty, keyboard cursor; no stop badges in Find It Fast; pausing ends a drag cleanly. All WAREHOUSE
+    findings in the package marked.
+  - **Tests:** full suite on the WP6 snapshot: 26 of 28 clean. hub-briefs failed on its own measurement (a
+    button's bounds include its transparent shadow margin; the check now uses the button's own size) and m8-heat on a
+    real bug that WP2a left (below, fixed with WP8).
+  - **Note:** m2-sort and m2-lift golden paths were updated for the new keys (`keyTarget`, `binKeys`) and the pallet's
+    new place; their assertions are unchanged.
+
+- **2026-09-24, WP7 (pre-trip, route planner, pickups).**
+  - **Done:** pre-trip keys (A / D, C, L, T, P, F), legible close-ups that describe without judging, true sides and
+    lamps, pull-tested latches, real tire defects with stated limits, an oil pressure gauge; route planner result
+    card compares like with like, school-zone hours and slowed legs, undoable Clear; pickups recount a short count,
+    neutral inspection facts, the gray box is the solvent, paperwork first in m7-intl, honest follow-ups, one toast at
+    a time, A / R keys. All PRP findings in the package marked.
+  - **Tests:** see WP8 (run together on the WP8 snapshot).
+  - **Note:** open question for the owner: which vehicle the couriers drive (the pre-trip now has a hydraulic-brake
+    step van's oil pressure gauge; one entry in `data/m1_pretrip.js`).
+
+- **2026-09-24, WP8 (title, hub, menus, saving).**
+  - **Done:** walkers pass behind the title's van; name entry takes any letter, 24 characters with a counter, and
+    says why a key or an empty name is refused; pause menu confirms Restart and Quit, R / Q / C / ESC keys shown on
+    the buttons, a Controls card; ESC and ‖ work on the how-to card; the game pauses when the window loses focus;
+    keyboard focus ring over menus, the hub and dialogs; Settings volume and the stop checklist switch; a visible
+    notice when progress cannot be saved; a NEXT scenario for new hires, and ENTER does not start a route day for
+    someone who has played nothing; hub labels and 13 px minimum text; US English pass; category order, tip, fitted
+    confirms, capitalized names. All SHELL findings in the package marked.
+  - **Also fixed:**
+    - In the heat stop, the water and the AC could not be used from inside the van. The courier cannot stand
+      further back than the door − 40, and both spots were behind the shelves, which E always chose. They are now
+      one "Water and AC" spot at the back of the doorway that asks which (1 / 2), and the intro says so; the stop
+      helper (`test/paths/lib/stop.js`) uses it.
+    - ESC on the van's shelves overlay (not an `OTR.ui.modal`) briefly opened the pause menu. Only the how-to card
+      lets ESC through now.
+    - The focus ring's hide path called a method a live shape does not have.
+  - **Tests:** full suite on the WP8 snapshot: RESULT_WP8. Content validation (`?dev=1`) clean.
+  - **Note:** `test/paths/route-day.js` now confirms the pause-menu Restart (the new dialog); nothing it checks
+    changed. Several profiles per browser and a printable training record are left out (SHELL-14).
