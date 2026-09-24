@@ -72,7 +72,8 @@ class BaseScenarioScene extends Phaser.Scene {
 
   openPause() {
     // (a how-to card does not stop it: the trainee who opened the wrong scenario can leave from there; SHELL-7)
-    const blocking = (this._modalStack || []).filter(m => m.active && !m._pausable).length;
+    // (_openModals also counts overlays that are not OTR.ui.modals, like the van's shelves: only the card is exempt)
+    const blocking = (this._openModals || 0) - (this._modalStack || []).filter(m => m.active && m._pausable).length;
     if (this.finished || this._leaving || this.scene.isPaused() || blocking > 0) return;
     if (this.input.keyboard) this.input.keyboard.resetKeys();
     // A drag in progress ends here: the button is released while the scene is paused, Phaser never hears it, and
