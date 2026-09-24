@@ -1,0 +1,58 @@
+/* Boot the game. URL options: ?scenario=<id> to test one scenario, ?dev=1 for validation + debug helpers. */
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  OTR.flow.testId = params.get('scenario');
+  OTR.flow.dev = params.has('dev');
+
+  OTR.game = new Phaser.Game({
+    type: Phaser.AUTO,
+    parent: 'game',
+    width: OTR.W,
+    height: OTR.H,
+    backgroundColor: '#16062b',
+    scale: {
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    render: { antialias: true },
+    disableContextMenu: true,
+    scene: OTR.scenes
+  });
+
+  // Browsers only allow audio after a user gesture.
+  const unlock = () => OTR.audio.init();
+  window.addEventListener('pointerdown', unlock);
+  window.addEventListener('keydown', unlock);
+
+  // Debug helpers (console): OTR.debug.start('m2-sort'), OTR.debug.finishNow(0.95), OTR.debug.fillDay()
+  OTR.debug = {
+    activeScene() {
+      return OTR.game.scene.getScenes(true).filter(s => s.sys.settings.key !== 'PauseScene').pop();
+    },
+    start(id) {
+      const s = OTR.debug.activeScene();
+      if (s) OTR.flow.startScenario(s, id);
+    },
+    finishNow(ratio) {
+      const s = OTR.debug.activeScene();
+      if (!s || !s.scenario) return 'No scenario running';
+      const r = ratio === undefined ? 1 : ratio;
+      const ratios = {};
+      s.scenario.categories.forEach(c => { ratios[c] = r; });
+      s.finish({ score: Math.round(1000 * r), ratios, lessons: ['(debug finish)'] }, 0);
+      return 'ok';
+    },
+    fillDay(ratio) {
+      const r = ratio === undefined ? 0.7 : ratio;
+      OTR.registry.all().slice(0, OTR.save.perDay()).forEach(sc => {
+        const stars = {};
+        sc.categories.forEach(c => { stars[c] = OTR.scoring.stars(r); });
+        OTR.save.recordResult(sc.id, { score: 500, stars });
+      });
+      return OTR.save.data.today;
+    },
+    validate() {
+      return OTR.validate.all(OTR_DATA, Object.keys(OTR.game.scene.keys));
+    }
+  };
+})();

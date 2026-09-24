@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FedEx: On The Route — Courier Training</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game"></div>
+  <noscript>This training game needs JavaScript enabled.</noscript>
+
+  <!-- Engine: Phaser from CDN, with a local copy as an offline fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script>window.Phaser || document.write('<script src="lib/phaser.min.js"><\/script>');</script>
+
+  <!-- Content (edit these to change scenarios — no engine changes needed) -->
+  <script src="data/config.js"></script>
+  <script src="data/modules.js"></script>
+  <script src="data/m1_pretrip.js"></script>
+  <script src="data/m1_routes.js"></script>
+  <script src="data/m1_driving.js"></script>
+  <script src="data/m2_sorting.js"></script>
+  <script src="data/m2_lifting.js"></script>
+  <script src="data/m2_labels.js"></script>
+  <script src="data/m3_dialogues.js"></script>
+  <script src="data/m4_dialogues.js"></script>
+  <script src="data/m8_incident.js"></script>
+  <script src="data/scanner.js"></script>
+  <script src="data/m5_stops.js"></script>
+  <script src="data/m8_stops.js"></script>
+  <script src="data/m6_loading.js"></script>
+  <script src="data/m7_pickups.js"></script>
+  <script src="data/town.js"></script>
+  <script src="data/vehicle.js"></script>
+  <script src="data/shift_briefs.js"></script>
+
+  <!-- Engine core -->
+  <script src="src/core/theme.js"></script>
+  <script src="src/core/textures.js"></script>
+  <script src="src/core/draw.js"></script>
+  <script src="src/core/rig.js"></script>
+  <script src="src/core/scenery.js"></script>
+  <script src="src/core/atmos.js"></script>
+  <script src="src/core/stage.js"></script>
+  <script src="src/core/townart.js"></script>
+  <script src="src/core/truckart.js"></script>
+  <script src="src/core/town.js"></script>
+  <script src="src/core/vehicle.js"></script>
+  <script src="src/core/shift.js"></script>
+  <script src="src/core/scorelog.js"></script>
+  <script src="src/core/talk.js"></script>
+  <script src="src/core/scanner.js"></script>
+  <script src="src/core/audio.js"></script>
+  <script src="src/core/save.js"></script>
+  <script src="src/core/scoring.js"></script>
+  <script src="src/core/validate.js"></script>
+  <script src="src/core/fx.js"></script>
+  <script src="src/core/ui.js"></script>
+  <script src="src/core/flow.js"></script>
+
+  <!-- Scenes -->
+  <script src="src/scenes/BootScene.js"></script>
+  <script src="src/scenes/TitleScene.js"></script>
+  <script src="src/scenes/HubScene.js"></script>
+  <script src="src/scenes/ResultsScene.js"></script>
+  <script src="src/scenes/DaySummaryScene.js"></script>
+  <script src="src/scenes/BaseScenarioScene.js"></script>
+  <script src="src/scenes/PauseScene.js"></script>
+  <script src="src/scenes/m1/PreTripScene.js"></script>
+  <script src="src/scenes/m1/RoutePlannerScene.js"></script>
+  <script src="src/scenes/m2/SortingScene.js"></script>
+  <script src="src/scenes/m2/LiftingScene.js"></script>
+  <script src="src/scenes/m2/LabelScene.js"></script>
+  <script src="src/scenes/shared/DialogueScene.js"></script>
+  <script src="src/scenes/stops/StopScene.js"></script>
+  <script src="src/scenes/m6/LoadingScene.js"></script>
+  <script src="src/scenes/m7/PickupScene.js"></script>
+  <script src="src/scenes/shift/TownDriveScene.js"></script>
+  <script src="src/scenes/m1/DrivingScene.js"></script>
+  <script src="src/scenes/shift/ShiftBriefScene.js"></script>
+  <script src="src/scenes/shift/ShiftDebriefScene.js"></script>
+  <script src="src/scenes/LabScene.js"></script>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
