@@ -42,7 +42,8 @@ module.exports = async (page, ctx) => {
         lastLearn: learn.length ? Math.max(...learn.map(t => b(t).bottom)) : null,
         chipTop: chips.length ? Math.min(...chips.map(c => b(c).top)) : null,
         chipBottom: chips.length ? Math.max(...chips.map(c => b(c).bottom)) : null,
-        btnTop: btns.length ? Math.min(...btns.map(c => b(c).top)) : null,
+        // a button's own size (setSize): its texture carries a transparent shadow margin that getBounds counts
+        btnTop: btns.length ? Math.min(...btns.map(c => c.height ? c.getWorldTransformMatrix().ty - c.height / 2 : b(c).top)) : null,
         panel: pb ? { top: pb.top, bottom: pb.bottom } : null
       };
     })()`);
