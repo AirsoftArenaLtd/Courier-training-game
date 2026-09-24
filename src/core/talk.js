@@ -5,7 +5,7 @@
  *     cast: { dana: { name: 'Dana', color: 0xC8243B, rig, moodStart: -2 } },
  *     courier: { rig, name },
  *     log, cats: ['service', 'safety'], feedback: 'immediate' | 'deferred',
- *     flags: {}, acts: { knock(arg, done) { ...; done(); } }, onEnd(node) {},
+ *     flags: {}, acts: { knock(arg, done) { ...; done(); } }, onEnd(node) {}, onLine(node) {},
  *     top: true                 // the panel under the HUD and the choices below it, for a scene whose subject is
  *   });                         // low on the ground (a dog) and would sit behind the usual bottom panel
  *
@@ -86,12 +86,22 @@ OTR.TalkController = class {
     const key = (name, fn) => { this.handlers.push([name, OTR.onKey(scene, name, fn)]); };
     key('keydown-SPACE', () => this.advance());
     key('keydown-ENTER', () => this.advance());
-    ['ONE', 'TWO', 'THREE', 'FOUR'].forEach((k, i) => key('keydown-' + k, () => { if (this.mode === 'choices' && this.cards[i]) this.pick(i); }));
+    // the top-row digits and the number pad both pick answers
+    ['ONE', 'TWO', 'THREE', 'FOUR'].forEach((k, i) => {
+      const pick = () => { if (this.mode === 'choices' && this.cards[i]) this.pick(i); };
+      key('keydown-' + k, pick);
+      key('keydown-NUMPAD_' + k, pick);
+    });
+    // UP reads the earlier lines again (a line skipped by accident is not gone for good); DOWN comes back
+    key('keydown-UP', () => this.recall(1));
+    key('keydown-DOWN', () => this.recall(-1));
+    this.lines = [];
   }
 
   build() {
     const s = this.scene;
-    this.catcher = s.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive().setScrollFactor(0);
+    // Clicks anywhere advance, except on the HUD strip (its pause button used to skip the line instead of pausing).
+    this.catcher = s.add.zone(OTR.W / 2, OTR.H / 2 + 32, OTR.W, OTR.H - 64).setInteractive().setScrollFactor(0);
     this.catcher.on('pointerup', () => this.advance());
     this.root.add(this.catcher);
 
@@ -110,6 +120,12 @@ OTR.TalkController = class {
     this.arrow = s.add.image(OTR.W - 60, 684, 'ic_arrow').setDisplaySize(20, 20).setTint(0xFF6600).setAngle(90).setVisible(false);
     s.tweens.add({ targets: this.arrow, y: 690, duration: 380, yoyo: true, repeat: -1 });
     this.panel.add(this.arrow);
+    // bottom-right, left of the arrow: how to read an earlier line (or, while reading one, how to come back)
+    this.recallHint = OTR.txt(s, OTR.W - 84, 690, '', 12, '#8A7AA8', { ox: 1, bold: false });
+    this.panel.add(this.recallHint);
+    // top-right of the panel: a timed decision is announced while its question is read, before the clock starts
+    this.timedTag = OTR.txt(s, OTR.W - 48, 566, '⏱ TIMED DECISION', 13, '#FFC83D', { ox: 1, weight: '900', stroke: '#1D1030', strokeW: 4 }).setVisible(false);
+    this.panel.add(this.timedTag);
     this.root.add(this.panel);
     this.panelDY = this.o.top ? -476 : 0;           // top layout: the panel spans y 90-230, its name tag just under the HUD
     this.panel.setAlpha(0).setY(this.panelDY + 30);
@@ -144,7 +160,8 @@ OTR.TalkController = class {
     if (n.type === 'end') { this.finish(n); return; }
     if (n.if !== undefined && n.then) { this.goto(OTR.talk.test(n.if, this.flags) ? n.then : n.else); return; }
     const afterAct = () => {
-      if (n.effects) this.applyEffects(n.effects, n.check || null, null);
+      // a mood change written on a line goes to that line's speaker (it used to go to the first cast member)
+      if (n.effects) this.applyEffects(Object.assign({ moodTarget: this.cast[n.speaker] ? n.speaker : undefined }, n.effects), n.check || null, null);
       if (n.text === undefined && !n.choices) { this.goto(n.next); return; }
       this.say(n, () => {
         if (n.choices) this.showChoices(n);
@@ -170,6 +187,13 @@ OTR.TalkController = class {
     }
   }
 
+  /** Switch between the bottom and the top layout mid-conversation (a new setting whose subject is low, a dog). */
+  setTop(top) {
+    this.o.top = !!top;
+    this.panelDY = top ? -476 : 0;
+    this.panel.setY(this.panelDY);
+  }
+
   setPanelVisible(v) {
     this.scene.tweens.add({ targets: this.panel, alpha: v ? 1 : 0, duration: 160 });
     if (!v) this.pointer.setVisible(false);
@@ -182,6 +206,7 @@ OTR.TalkController = class {
   }
 
   say(n, onDone) {
+    if (this.o.onLine) this.o.onLine(n);
     const w = this.who(n.speaker);
     this.speakerRig = w && w.rig;
     Object.keys(this.cast).forEach(k => { const r = this.cast[k].rig; if (r && r.talk) r.talk(false); });
@@ -192,17 +217,59 @@ OTR.TalkController = class {
       if (n.anim) w.rig.play(n.anim);
       if (w.rig.talk) w.rig.talk(true);
     }
-    this.nameText.setText(w ? w.name : '');
+    this.showLine(w, '');
+    this.lines.push({ w, text: n.text || '' });
+    this.recallIdx = 0;
+    this.timedTag.setVisible(!!(n.choices && n.timer));
+    this.type(n.text || '', onDone);
+  }
+
+  /** Put a speaker's name tag (none for narration) and a text in the caption box. */
+  showLine(w, text, tag) {
+    this.nameText.setText(w ? w.name + (tag || '') : (tag || '').trim());
     const tw = this.nameText.width + 36;
+    const named = !!(w || tag);
     this.nameBg.redraw((g) => {
-      if (!w) return;
-      g.fillStyle(w.color || 0x4D148C, 1);
+      if (!named) return;
+      g.fillStyle(w ? (w.color || 0x4D148C) : 0x4A3A66, 1);
       g.fillRoundedRect(44, 548, tw, 34, 12);
     });
-    if (w) this.nameText.setPosition(44 + tw / 2, 565);
+    if (named) this.nameText.setPosition(44 + tw / 2, 565);
     this.lineText.setFontStyle(w ? 'normal' : 'italic');
     this.lineText.setColor(w ? '#F4ECFF' : '#C9B3F0');
-    this.type(n.text || '', onDone);
+    this.lineText.setText(text);
+    this.updateRecallHint();
+  }
+
+  updateRecallHint() {
+    if (!this.recallHint) return;
+    const n = this.lines.length;
+    this.recallHint.setText(this.recallIdx > 0 ? `earlier line ${this.recallIdx} of ${n - 1} · ↓ or SPACE to come back` : n > 1 && !this.typing ? '↑ earlier lines' : '');
+  }
+
+  /**
+   * Read an earlier line again (UP), or come back towards the current one (DOWN). The current line, the choices and
+   * any timer stay as they are; SPACE or a click also comes back.
+   */
+  recall(step) {
+    if (this.done || this.typing || this.scene.scene.isPaused() || this.mode === 'acting' || this.mode === 'resolving') return;
+    const n = this.lines.length;
+    if (n < 2) return;
+    const idx = OTR.util.clamp((this.recallIdx || 0) + step, 0, n - 1);
+    if (idx === (this.recallIdx || 0)) return;
+    this.recallIdx = idx;
+    const L = this.lines[n - 1 - idx];
+    this.showLine(L.w, L.text, idx > 0 ? ' (earlier)' : '');
+    OTR.audio.play('click');
+  }
+
+  /** While the feedback is up, the caption shows the answer that was chosen, under the courier's name. */
+  showOwn(text) {
+    const me = this.who('courier');
+    this.showLine(me, text);
+    this.lines.push({ w: me, text, own: true });
+    this.recallIdx = 0;
+    this.updateRecallHint();
   }
 
   type(text, onDone) {
@@ -229,6 +296,8 @@ OTR.TalkController = class {
     this.typing = false;
     if (this.typeEv) { this.typeEv.remove(); this.typeEv = null; }
     this.lineText.setText(this.full);
+    this.lineDoneAt = Date.now();          // a second tap straight after this one does not skip the line (below)
+    this.updateRecallHint();
     if (this.speakerRig && this.speakerRig.talk) this.scene.time.delayedCall(250, () => { if (!this.typing && this.speakerRig && this.speakerRig.talk) this.speakerRig.talk(false); });
     const cb = this.typeDone; this.typeDone = null;
     if (cb) cb();
@@ -237,6 +306,15 @@ OTR.TalkController = class {
   advance() {
     if (this.done || this.scene.scene.isPaused()) return;
     if (this.typing) { this.finishTyping(); return; }
+    // reading an earlier line: SPACE comes back to the current one first
+    if (this.recallIdx > 0) {
+      this.recallIdx = 1;
+      this.recall(-1);
+      return;
+    }
+    // A quick double tap (or a double click) used to finish the line and skip it at once: a line that has just
+    // appeared in full stays up for a moment before it can be advanced.
+    if (Date.now() - (this.lineDoneAt || 0) < 350) return;
     if ((this.mode === 'line' || this.mode === 'coach') && this.onAdvance) {
       const fn = this.onAdvance; this.onAdvance = null;
       this.arrow.setVisible(false);
@@ -247,7 +325,7 @@ OTR.TalkController = class {
 
   trackPointer() {
     const r = this.speakerRig;
-    if (!r || !r.c || !r.c.active || this.mode === 'acting' || this.done) { this.pointer.setVisible(false); return; }
+    if (!r || !r.c || !r.c.active || this.mode === 'acting' || this.done || Date.now() < (this.pointerQuietUntil || 0)) { this.pointer.setVisible(false); return; }
     const cam = this.scene.cameras.main;
     const h = (r.headHeight ? r.headHeight() : 280) * r.baseScale;
     this.pointer.setVisible(true).setPosition(r.x, r.y - h - 22);
@@ -258,6 +336,7 @@ OTR.TalkController = class {
   /* ------------------------------------------------------------ choices */
   showChoices(n) {
     this.mode = 'choices';
+    this.timedTag.setVisible(false);          // the clock's own bar and label take over
     const s = this.scene;
     this.choiceLayer.removeAll(true);
     this.cards = [];
@@ -293,6 +372,7 @@ OTR.TalkController = class {
       hit.on('pointerup', () => this.pick(i));
       c.add([bg, num, t, hit]);
       c.hit = hit;
+      c.h = h;
       c.setAlpha(0).setX(cx + 30);
       s.tweens.add({ targets: c, alpha: 1, x: cx, delay: 50 * i, duration: 220, ease: 'Cubic.out' });
       this.choiceLayer.add(c);
@@ -300,15 +380,30 @@ OTR.TalkController = class {
       y += h + gap;
     });
     if (n.timer) {
+      // The clock tests the decision, not reading speed: at least the scenario's time, and never less than 4 s plus
+      // the answers read at about 20 characters a second (7 s for 250 characters used to reward not reading).
+      const chars = list.reduce((a, ch) => a + ch.text.length, 0);
+      const secs = Math.max(n.timer, Math.ceil(4 + chars / 20));
+      this.timerSecs = secs;
       const bar = OTR.ui.bar(s, cx - w / 2 + 20, top - 22, w - 40, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0xFFC83D, v), bgAlpha: 0.55, value: 1 });
-      const label = OTR.txt(s, cx, top - 42, n.timerLabel || 'DECIDE!', 15, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 4 });
+      const name = n.timerLabel || 'DECIDE!';
+      const label = OTR.txt(s, cx, top - 42, `${name}  ${secs}s`, 15, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 4 });
       this.choiceLayer.add([bar, label]);
-      bar.setValue(0, true, n.timer * 1000, 'Linear');
-      this.choiceTimer = s.time.delayedCall(n.timer * 1000, () => {
+      bar.setValue(0, true, secs * 1000, 'Linear');
+      this.choiceTimer = s.time.delayedCall(secs * 1000, () => {
         if (this.mode !== 'choices' || this.node !== n) return;
-        this.resolve(Object.assign({ grade: 'bad', text: '(no decision)' }, n.timeout || {}), null);
+        // on a timeout the right answer is shown for a moment before the feedback
+        const best = this.cards.find((c, i) => list[i].grade === 'good');
+        const out = () => this.resolve(Object.assign({ grade: 'bad', text: '(no decision)' }, n.timeout || {}), null);
+        if (!best) { out(); return; }
+        this.mode = 'resolving';
+        this.cards.forEach(c => { if (c.hit && c.hit.active) c.hit.disableInteractive(); if (c !== best) s.tweens.add({ targets: c, alpha: 0.2, duration: 140 }); });
+        best.keep = true;
+        best.add(OTR.tex.shape(s, (g) => { g.lineStyle(4, 0x2BC48A, 1); g.strokeRoundedRect(-w / 2 - 3, -best.h / 2 - 3, w + 6, best.h + 6, 16); }));
+        s.time.delayedCall(1100, out);
       });
-      this.tickEv = s.time.addEvent({ delay: 1000, repeat: n.timer - 1, callback: () => OTR.audio.play('tick') });
+      let left = secs;
+      this.tickEv = s.time.addEvent({ delay: 1000, repeat: secs - 1, callback: () => { left--; if (label.active) label.setText(`${name}  ${left}s`); OTR.audio.play('tick'); } });
     }
   }
 
@@ -322,9 +417,12 @@ OTR.TalkController = class {
     this.mode = 'resolving';
     if (this.choiceTimer) { this.choiceTimer.remove(); this.choiceTimer = null; }
     if (this.tickEv) { this.tickEv.remove(); this.tickEv = null; }
-    this.cards.forEach(c => { if (c.hit && c.hit.active) c.hit.disableInteractive(); if (c !== card) this.scene.tweens.add({ targets: c, alpha: 0.2, duration: 140 }); });
+    this.cards.forEach(c => { if (c.hit && c.hit.active) c.hit.disableInteractive(); if (c !== card && !c.keep) this.scene.tweens.add({ targets: c, alpha: 0.2, duration: 140 }); });
     if (card) this.scene.tweens.add({ targets: card, scale: 1.03, duration: 110, yoyo: true });
     this.history.push({ node: this.nodeId, text: ch.text, grade: ch.grade });
+    // the answer stays readable while its feedback is up (it used to vanish with the cards)
+    this.timedTag.setVisible(false);
+    this.showOwn(card ? ch.text : '(No answer in time.)');
     if (ch.set) Object.assign(this.flags, ch.set);
     this.applyEffects(ch.effects || {}, n.check || this.o.checkLabel || 'Conversation choice', ch, n);
     const deferred = this.o.feedback === 'deferred';
@@ -393,7 +491,11 @@ OTR.TalkController = class {
         this.moods[key] = OTR.util.clamp(this.moods[key] + eff.mood, -3, 3);
         this.applyMoodExpr(key);
         const r = this.cast[key].rig;
-        if (r && r.emote && this.o.feedback !== 'deferred') r.emote(eff.mood > 0 ? '♥' : '💢', { color: eff.mood > 0 ? '#FF5C8A' : '#F0435A', size: 22 });
+        // the speaker arrow steps aside while the reaction bubble is up (it was drawn over it)
+        if (r && r.emote && this.o.feedback !== 'deferred') this.pointerQuietUntil = Date.now() + 1400;
+        // the right answer can still disappoint someone: that shows as "…", not an anger bubble next to GOOD CALL
+        const sad = eff.mood < 0 && ch && ch.grade === 'good';
+        if (r && r.emote && this.o.feedback !== 'deferred') r.emote(eff.mood > 0 ? '♥' : sad ? '…' : '💢', { color: eff.mood > 0 ? '#FF5C8A' : sad ? '#9A8AB0' : '#F0435A', size: 22 });
       }
       this.flags['mood_' + key] = this.moods[key];
     }
@@ -417,7 +519,8 @@ OTR.TalkController = class {
     const w = 760;
     const body = OTR.txt(s, 0, 0, ch.feedback, 19, '#F4ECFF', { bold: false, wrap: w - 70, lineSpacing: 4 });
     const h = body.height + 90;
-    const c = s.add.container(OTR.W / 2, (this.o.top ? 250 : 110) + h / 2);
+    // below the HUD's meters (a mood meter reaches y 119), above the caption box
+    const c = s.add.container(OTR.W / 2, (this.o.top ? 250 : 132) + h / 2);
     const g = OTR.tex.shape(s, (g) => {
       g.fillStyle(0x0E0620, 0.94); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
       g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);
@@ -430,6 +533,7 @@ OTR.TalkController = class {
     c.setScale(0.9).setAlpha(0);
     s.tweens.add({ targets: c, scale: 1, alpha: 1, duration: 200, ease: 'Back.out' });
     this.coachLayer.add(c);
+    this.lineDoneAt = Date.now();
     this.onAdvance = () => {
       s.tweens.add({ targets: c, alpha: 0, duration: 140, onComplete: () => c.destroy() });
       next();

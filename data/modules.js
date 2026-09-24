@@ -107,7 +107,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A frustrated customer flags you down about a package that "never arrived". Calm things down and actually help.',
         learn: ['De-escalation and empathy', 'Staying professional under pressure', 'Pointing customers to the right next step'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm3-signature',
@@ -116,9 +116,9 @@ OTR_DATA.modules = [
         scene: 'DialogueScene',
         dataKey: 'dialogues.m3_signature',
         categories: ['service', 'safety'],
-        blurb: 'Nobody\'s home, the package needs a signature, and a helpful neighbour has ideas. Follow the rules without losing the customer.',
+        blurb: 'Nobody\'s home, the package needs a signature, and a helpful neighbor has ideas. Follow the rules without losing the customer.',
         learn: ['Why signature requirements matter', 'Handling pressure to bend the rules', 'Leaving clear next steps'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm3-twostops',
@@ -129,7 +129,7 @@ OTR_DATA.modules = [
         categories: ['service', 'safety', 'efficiency'],
         blurb: 'First a busy office reception, then a house with a very loud dog. Adjust your approach for business vs. residential stops.',
         learn: ['Business delivery etiquette', 'Residential delivery courtesy', 'Staying safe around dogs'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines · some decisions are timed'
       }
     ]
   },
@@ -149,7 +149,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'The house number on the label doesn\'t exist on this street. "Close enough" is tempting. Is it right?',
         learn: ['Verifying addresses', 'Using proper channels for exceptions', 'Protecting the customer\'s package'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm4-damaged',
@@ -160,7 +160,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service'],
         blurb: 'You open the cargo door and a box is crushed — and something is dripping. What now?',
         learn: ['Leaking package safety', 'Documenting damage', 'Being honest with customers'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm4-storm',
@@ -171,7 +171,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service'],
         blurb: 'Severe weather rolls in mid-route, and the delivery note makes no sense. Keep yourself — and the package — safe.',
         learn: ['Severe weather decisions', 'Never driving through flooded roads', 'Interpreting unclear delivery instructions'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines · some decisions are timed'
       }
     ]
   },
@@ -339,7 +339,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service', 'efficiency'],
         blurb: 'You backed into a parked car. The next twenty minutes decide whether this is a bumper or a career problem — secure the scene, check on people, report it, and write it up straight.',
         learn: ['Securing the scene before anything else', 'People before property', 'Reporting every incident immediately', 'Never admitting fault or settling in cash', 'Photographs, details and witnesses', 'Writing an honest incident report'],
-        controls: 'Click a reply or press 1-3'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       }
     ]
   }

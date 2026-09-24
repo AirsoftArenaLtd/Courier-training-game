@@ -109,6 +109,8 @@ OTR.validate = {
       const n = nodes[nid];
       if (n.type === 'end') {
         if (!n.title) E(`end node "${nid}" needs a title`);
+        // an ending scores nothing (its effects used to be silently dropped)
+        if (n.effects) E(`end node "${nid}" has effects: endings do not score, the answers before them do`);
       } else if (n.if !== undefined && n.then) {
         visit(n.then, nid);
         if (n.else) visit(n.else, nid);
@@ -116,7 +118,10 @@ OTR.validate = {
         if (n.speaker && !speakers[n.speaker]) E(`node "${nid}" speaker "${n.speaker}" not in cast`);
         if (n.show && !cast[n.show]) E(`node "${nid}" show "${n.show}" not in cast`);
         if (n.choices) {
-          if (n.choices.length < 2 || n.choices.length > 4) E(`node "${nid}" should have 2-4 choices`);
+          // answers with an `if` are alternatives of one answer for different situations (after a bite, after a
+          // throw): at most one of them shows, so they count once
+          const shown = n.choices.filter(c => c.if === undefined).length + (n.choices.some(c => c.if !== undefined) ? 1 : 0);
+          if (shown < 2 || shown > 4) E(`node "${nid}" should show 2-4 choices`);
           n.choices.forEach((c, i) => {
             if (!c.text) E(`node "${nid}" choice ${i + 1} missing text`);
             if (!c.feedback) E(`node "${nid}" choice ${i + 1} missing feedback`);
@@ -136,6 +141,20 @@ OTR.validate = {
     };
     if (nodes[dlg.start]) visit(dlg.start, '(start)');
     Object.keys(nodes).forEach(nid => { if (!reachable[nid]) E(`node "${nid}" is unreachable`); });
+    // "Pick the longest answer" must not be a strategy: the recommended answer may be the longest of those shown
+    // together in at most half of a conversation's decisions (it used to be 41 of 42)
+    // (nor "pick the shortest", once the long ones were trimmed)
+    let decisions = 0, longest = 0, shortest = 0;
+    Object.keys(nodes).forEach(nid => {
+      const ch = nodes[nid].choices;
+      if (!ch || !ch.some(c => c.grade === 'good')) return;
+      decisions++;
+      const lens = ch.map(c => c.text.length), max = Math.max(...lens), min = Math.min(...lens);
+      if (ch.some(c => c.grade === 'good' && c.text.length === max)) longest++;
+      if (ch.some(c => c.grade === 'good' && c.text.length === min)) shortest++;
+    });
+    if (decisions >= 3 && longest * 2 > decisions) E(`the recommended answer is the longest in ${longest} of ${decisions} decisions: vary the lengths`);
+    if (decisions >= 3 && shortest * 2 > decisions) E(`the recommended answer is the shortest in ${shortest} of ${decisions} decisions: vary the lengths`);
     return errors;
   },
 
