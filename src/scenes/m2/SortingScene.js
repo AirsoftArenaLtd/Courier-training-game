@@ -28,8 +28,7 @@ class SortingScene extends BaseScenarioScene {
     this.elapsed = 0;
 
     // backdrop
-    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(W / 2, OTR.H / 2, W, OTR.H, 0x12041F, 0.45);
+    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.45 }));
 
     this.buildBelt();
     this.buildBins();
@@ -61,25 +60,29 @@ class SortingScene extends BaseScenarioScene {
       ctx.fillStyle = 'rgba(0,0,0,0.3)';
       ctx.fillRect(4, 0, 2, h);
     });
-    const g = this.add.graphics().setDepth(1);
-    // legs
-    g.fillStyle(0x2A2634, 1);
-    for (let x = 60; x < this.BELT_END; x += 220) g.fillRect(x, y + 40, 16, 110);
+    OTR.tex.shape(this, (g) => {
+      // legs
+      g.fillStyle(0x2A2634, 1);
+      for (let x = 60; x < this.BELT_END; x += 220) g.fillRect(x, y + 40, 16, 110);
+    }).setDepth(1);
     this.belt = this.add.tileSprite(this.BELT_END / 2, y + 4, this.BELT_END, 60, 'belt_tile').setDepth(2);
-    const rail = this.add.graphics().setDepth(3);
-    rail.fillGradientStyle(0xC9C6D6, 0xC9C6D6, 0x7A7690, 0x7A7690, 1);
-    rail.fillRect(0, y - 32, this.BELT_END, 8);
-    rail.fillGradientStyle(0x9A96AE, 0x9A96AE, 0x4E4A60, 0x4E4A60, 1);
-    rail.fillRect(0, y + 34, this.BELT_END, 18);
-    rail.fillStyle(0xFFC83D, 1);
-    for (let x = 0; x < this.BELT_END; x += 40) rail.fillRect(x, y + 38, 20, 4);
+    // rails (top at y - 32, bottom band to y + 52), drawn once
+    const railKey = OTR.tex.make(this, `sort_rail_${this.BELT_END}`, this.BELT_END, 84, (ctx) => {
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, 8, [[0, 0xC9C6D6], [1, 0x7A7690]]);
+      ctx.fillRect(0, 0, this.BELT_END, 8);
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 66, 0, 84, [[0, 0x9A96AE], [1, 0x4E4A60]]);
+      ctx.fillRect(0, 66, this.BELT_END, 18);
+      ctx.fillStyle = OTR.cv.c(0xFFC83D);
+      for (let x = 0; x < this.BELT_END; x += 40) ctx.fillRect(x, 70, 20, 4);
+    });
+    this.add.image(0, y - 32, railKey).setOrigin(0, 0).setDepth(3);
     // end chute
-    const ch = this.add.graphics().setDepth(1);
-    ch.fillStyle(0x4E4A60, 1);
-    ch.beginPath(); ch.moveTo(this.BELT_END, y - 20); ch.lineTo(OTR.W, y + 110); ch.lineTo(OTR.W, y + 170); ch.lineTo(this.BELT_END, y + 52); ch.closePath(); ch.fillPath();
+    OTR.tex.shape(this, (ch) => {
+      ch.fillStyle(0x4E4A60, 1);
+      ch.beginPath(); ch.moveTo(this.BELT_END, y - 20); ch.lineTo(OTR.W, y + 110); ch.lineTo(OTR.W, y + 170); ch.lineTo(this.BELT_END, y + 52); ch.closePath(); ch.fillPath();
+    }).setDepth(1);
     const sign = this.add.container(1226, y - 90).setDepth(5);
-    const sg = this.add.graphics();
-    sg.fillStyle(0xF0435A, 1); sg.fillRoundedRect(-52, -18, 104, 36, 8);
+    const sg = OTR.tex.shape(this, (sg) => { sg.fillStyle(0xF0435A, 1); sg.fillRoundedRect(-52, -18, 104, 36, 8); });
     sign.add([sg, OTR.txt(this, 0, 0, 'OVERFLOW', 14, '#ffffff', { weight: '900' })]);
   }
 
@@ -100,9 +103,10 @@ class SortingScene extends BaseScenarioScene {
     this.gun = this.add.image(96, 646, key).setDepth(60).setScale(1.05);
     this.laser = this.add.graphics().setDepth(59);
     this.jamBanner = this.add.container(OTR.W / 2, 150).setDepth(820).setVisible(false);
-    const jg = this.add.graphics();
-    jg.fillStyle(0x7A1020, 0.95); jg.fillRoundedRect(-230, -30, 460, 60, 16);
-    jg.lineStyle(3, 0xFF6B7F, 1); jg.strokeRoundedRect(-230, -30, 460, 60, 16);
+    const jg = OTR.tex.shape(this, (jg) => {
+      jg.fillStyle(0x7A1020, 0.95); jg.fillRoundedRect(-230, -30, 460, 60, 16);
+      jg.lineStyle(3, 0xFF6B7F, 1); jg.strokeRoundedRect(-230, -30, 460, 60, 16);
+    });
     this.jamText = OTR.txt(this, 0, 0, '', 20, '#ffffff', { weight: '900' });
     this.jamBanner.add([jg, this.jamText]);
   }
@@ -263,9 +267,10 @@ class SortingScene extends BaseScenarioScene {
     const c = this.add.container(p.img.x, this.BELT_Y - 66).setDepth(40);
     const t = OTR.txt(this, 0, 0, line, 13, '#ffffff', { weight: '900' });
     const w = t.width + 22;
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
-    g.lineStyle(2, bin.color, 1); g.strokeRoundedRect(-w / 2, -13, w, 26, 8);
+    const g = OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
+      g.lineStyle(2, bin.color, 1); g.strokeRoundedRect(-w / 2, -13, w, 26, 8);
+    });
     c.add([g, t]);
     c.setScale(0.7);
     this.tweens.add({ targets: c, scale: 1, duration: 140, ease: 'Back.out' });

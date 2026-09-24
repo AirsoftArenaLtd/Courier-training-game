@@ -73,8 +73,13 @@ OTR.cv = {
 };
 
 OTR.tex = {
-  /** Create (once) a canvas texture of w x h painted by fn(ctx, w, h). Returns the key. */
-  make(scene, key, w, h, fn) {
+  /**
+   * Create (once) a canvas texture of w x h painted by fn(ctx, w, h). Returns the key.
+   * o.trim: the texture's frame is cut to the painted pixels, as a texture atlas does. Objects using it keep their
+   * full w x h size, origin and position, but the GPU no longer fills the transparent margin (a big overlay layer
+   * that is mostly empty costs as much as a full one otherwise). Not for TileSprites.
+   */
+  make(scene, key, w, h, fn, o) {
     const tm = scene.textures;
     if (tm.exists(key)) return key;
     const canvas = document.createElement('canvas');
@@ -85,8 +90,32 @@ OTR.tex = {
     // each time a face, mouth or package is first drawn. The pixels are the same either way.
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     fn(ctx, canvas.width, canvas.height);
-    tm.addCanvas(key, canvas);
+    const tex = tm.addCanvas(key, canvas);
+    if (o && o.trim && tex) OTR.tex.trim(tex, ctx);
     return key;
+  },
+
+  /** Cut a canvas texture's frame to the bounding box of its visible pixels (see make's o.trim). */
+  trim(tex, ctx) {
+    const W = ctx.canvas.width, H = ctx.canvas.height;
+    const px = ctx.getImageData(0, 0, W, H).data;
+    let x0 = W, y0 = H, x1 = -1, y1 = -1;
+    for (let y = 0; y < H; y++) {
+      const row = y * W * 4;
+      for (let x = 0; x < W; x++) {
+        if (px[row + x * 4 + 3] === 0) continue;
+        if (x < x0) x0 = x;
+        if (x > x1) x1 = x;
+        if (y < y0) y0 = y;
+        y1 = y;
+      }
+    }
+    if (x1 < 0) { x0 = 0; y0 = 0; x1 = 0; y1 = 0; }       // nothing painted: keep one pixel
+    const bw = x1 - x0 + 1, bh = y1 - y0 + 1;
+    if (bw * bh > W * H * 0.85) return;                  // hardly any margin: not worth it
+    const f = tex.get();
+    f.setSize(bw, bh, x0, y0);
+    f.setTrim(W, H, x0, y0, bw, bh);
   },
 
   /* ------------------------------------------------------------ vector shapes as textures */

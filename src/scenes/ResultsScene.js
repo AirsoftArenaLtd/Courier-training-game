@@ -29,10 +29,10 @@ class ResultsScene extends Phaser.Scene {
     const pw = 820, ph = 668;
     const panel = this.add.container(px, py);
     panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 26 }));
-    const hg = this.add.graphics();
-    hg.fillStyle(mod.color, 1);
-    hg.fillRoundedRect(-pw / 2, -ph / 2, pw, 104, { tl: 26, tr: 26, bl: 0, br: 0 });
-    panel.add(hg);
+    panel.add(OTR.tex.shape(this, (hg) => {
+      hg.fillStyle(mod.color, 1);
+      hg.fillRoundedRect(-pw / 2, -ph / 2, pw, 104, { tl: 26, tr: 26, bl: 0, br: 0 });
+    }));
     const headline = got === max ? 'FLAWLESS!' : got >= max * 0.66 ? 'GREAT WORK!' : got >= max * 0.33 ? 'SHIFT LOGGED' : 'KEEP PRACTISING';
     panel.add(OTR.txt(this, 0, -ph / 2 + 34, headline, 16, 'rgba(255,255,255,0.9)', { weight: '900' }));
     panel.add(OTR.txt(this, 0, -ph / 2 + 68, sc.title, 34, '#ffffff', { weight: '900', shadow: true }));
@@ -73,10 +73,10 @@ class ResultsScene extends Phaser.Scene {
 
     // lessons
     const ly = -ph / 2 + 150 + Math.max(2, sc.categories.length) * 66 + 26;
-    const lg = this.add.graphics();
-    lg.fillStyle(0x4D148C, 0.06);
-    lg.fillRoundedRect(-pw / 2 + 40, ly - 10, pw - 80, 214, 16);
-    panel.add(lg);
+    panel.add(OTR.tex.shape(this, (lg) => {
+      lg.fillStyle(0x4D148C, 0.06);
+      lg.fillRoundedRect(-pw / 2 + 40, ly - 10, pw - 80, 214, 16);
+    }));
     panel.add(this.add.image(-pw / 2 + 70, ly + 16, 'ic_book').setDisplaySize(24, 24).setTint(0xFF6600));
     panel.add(OTR.txt(this, -pw / 2 + 92, ly + 16, 'KEY TAKEAWAYS', 15, '#FF6600', { ox: 0, weight: '900' }));
     const lessons = (result.lessons || []).filter(Boolean).slice(0, 3);

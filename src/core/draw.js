@@ -940,8 +940,14 @@ OTR.art = {
   carTop(scene, color) {
     return OTR.tex.make(scene, 'car_top_' + color, 64, 116, (ctx, w, h) => OTR.draw.carTop(ctx, w, h, color));
   },
-  setting(scene, name) {
-    return OTR.tex.make(scene, 'bg_' + name, OTR.W, OTR.H, (ctx, w, h) => OTR.draw.setting(ctx, w, h, name));
+  /** A full-screen backdrop. dim: { color, alpha } paints a darkening over it once, instead of a full-screen
+   *  rectangle drawn over it every frame. */
+  setting(scene, name, dim) {
+    const key = 'bg_' + name + (dim ? `_dim${dim.color.toString(16)}_${dim.alpha}` : '');
+    return OTR.tex.make(scene, key, OTR.W, OTR.H, (ctx, w, h) => {
+      OTR.draw.setting(ctx, w, h, name);
+      if (dim) { ctx.fillStyle = OTR.cv.c(dim.color, dim.alpha); ctx.fillRect(0, 0, w, h); }
+    });
   },
   mark(scene, type, size) {
     size = size || 48;

@@ -69,8 +69,7 @@ class StopScene extends BaseScenarioScene {
     const width = kind === 'business' ? interiorX + 1600 : outsideW;
     const st = this.stage = new OTR.Stage(this, { width, tod: this.tod, weather: this.weather });
     st.setRegion(0, outsideW);
-    st.sky();
-    st.far(236);
+    st.skyline(236);
     const yard = kind === 'house' ? (d.lot.ground || 'path') : 'concrete';
     const segs = [{ x0: 0, x1: 820, type: 'road' }, { x0: 820, x1: 840, type: 'curb' }, { x0: 840, x1: 1040, type: 'sidewalk' }, { x0: 1040, x1: outsideW, type: yard }];
     if (kind === 'business') segs.push({ x0: interiorX, x1: interiorX + 1600, type: 'tile' });
@@ -495,10 +494,10 @@ class StopScene extends BaseScenarioScene {
     const c = this.carry && this.carry.heat;
     this.heat = { hyd: c ? c.hyd : (H.hydration || 70), temp: c ? c.temp : (H.bodyHeat || 35), drinks: 0, cools: 0, maxTemp: 0, minHyd: 100, warned: false };
     const p = this.heatHud = this.add.container(OTR.W - 300, 72).setDepth(820).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
-    g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
-    p.add(g);
+    p.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
+      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
+    }));
     p.add(OTR.txt(this, 16, 24, 'HYDRATION', 12, '#8FD3FF', { ox: 0, weight: '900' }));
     p.add(OTR.txt(this, 16, 60, 'BODY HEAT', 12, '#FFB27A', { ox: 0, weight: '900' }));
     this.hydBar = OTR.ui.bar(this, 118, 24, 146, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x3DA5FF, v), bgAlpha: 0.5 });
@@ -653,17 +652,17 @@ class StopScene extends BaseScenarioScene {
     c.removeAll(true);
     const items = this.objectives();
     const w = 330, h = 40 + items.length * 26;
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
-    g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
-    c.add(g);
+    c.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
+      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
+    }));
     c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, '#FF9447', { ox: 0, weight: '900' }));
     items.forEach((it, i) => {
       const y = 44 + i * 26;
-      const box = this.add.graphics();
-      box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(16, y - 8, 16, 16, 4);
-      if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(16, y - 8, 16, 16, 4); }
-      c.add(box);
+      c.add(OTR.tex.shape(this, (box) => {
+        box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(0, -8, 16, 16, 4);
+        if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(0, -8, 16, 16, 4); }
+      }, 16, y));
       c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : '#F4ECFF', { ox: 0, bold: false }));
     });
   }
@@ -683,9 +682,7 @@ class StopScene extends BaseScenarioScene {
       w: 660, h: 330, depth: 5000,
       build: (box, api, w, h) => {
         box.list.forEach(ch => ch.setScrollFactor && ch.setScrollFactor(0));
-        const hg = this.add.graphics();
-        hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 });
-        box.add(hg);
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const idx = this.shiftStop ? this.shiftStop.index : this.stopIndex + 1;
         box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 28, `STOP ${idx}  ·  ${this.clockStr}  ·  ${W.toUpperCase()}`, 14, '#FFB27A', { ox: 0, weight: '900' }));
         box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 58, `${pkg.number} ${pkg.street}${pkg.unit ? ' #' + pkg.unit : ''}`, 30, '#ffffff', { ox: 0, weight: '900' }));
@@ -818,10 +815,10 @@ class StopScene extends BaseScenarioScene {
     // label preview panel
     const panel = this.add.container(1080, 380).setScrollFactor(0);
     root.add(panel);
-    const pg = this.add.graphics();
-    pg.fillStyle(0x16062B, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
-    pg.lineStyle(2, 0x6A45A0, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
-    panel.add(pg);
+    panel.add(OTR.tex.shape(this, (pg) => {
+      pg.fillStyle(0x16062B, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
+      pg.lineStyle(2, 0x6A45A0, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
+    }));
     const lblImg = this.add.image(0, -130, '__DEFAULT').setVisible(false).setScrollFactor(0);
     panel.add(lblImg);
     const hint = OTR.txt(this, 0, -130, 'Hover or click a package\nto read its label', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
@@ -1220,10 +1217,11 @@ class StopScene extends BaseScenarioScene {
   showIdCard(key, name) {
     this.hideIdCard();
     const c = this.add.container(560, 330).setDepth(2590).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
-    g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
-    c.add([g, this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, '#C9B3F0', { weight: '900' })]);
+    const g = OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
+      g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
+    });
+    c.add([g,this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, '#C9B3F0', { weight: '900' })]);
     c.setAlpha(0).setScale(0.9);
     this.tweens.add({ targets: c, alpha: 1, scale: 1, duration: 200, ease: 'Back.out' });
     this.idCardView = c;
@@ -1586,9 +1584,7 @@ class StopScene extends BaseScenarioScene {
     OTR.ui.modal(this, {
       w, h, depth: 5000,
       build: (box, api) => {
-        const hg = this.add.graphics();
-        hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 });
-        box.add(hg);
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const pkg = this.def.packages[0];
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, `STOP ${idx} REPORT`, 14, '#FFB27A', { ox: 0, weight: '900' }));
         const oc = this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
@@ -1621,9 +1617,7 @@ class StopScene extends BaseScenarioScene {
           const it = r.it, good = r.good;
           const part = it.kind !== 'penalty' && it.got > 0 && it.got < it.max;
           const col = good ? 0x2BC48A : part ? 0xFFB020 : 0xF0435A;
-          const g = this.add.graphics();
-          g.fillStyle(col, 1); g.fillCircle(-w / 2 + 44, y + 11, 10);
-          box.add(g);
+          box.add(OTR.tex.shape(this, (g) => { g.fillStyle(col, 1); g.fillCircle(0, 0, 10); }, -w / 2 + 44, y + 11));
           box.add(OTR.txt(this, -w / 2 + 44, y + 11, good ? '✓' : part ? '~' : '✗', 13, '#ffffff', { weight: '900' }));
           const def = OTR_DATA.config.categories[it.cat];
           box.add(this.add.image(-w / 2 + 70, y + 11, def.icon).setDisplaySize(16, 16).setTint(def.color));

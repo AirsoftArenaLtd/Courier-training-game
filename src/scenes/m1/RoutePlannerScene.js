@@ -140,7 +140,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.add.image(this.mx, this.my, key).setOrigin(0, 0).setDepth(1);
 
     this.closureLayer = this.add.container(0, 0).setDepth(3);
-    this.pathG = this.add.graphics().setDepth(4);
+    this.pathG = OTR.tex.liveShape(this).setDepth(4);
     this.pinLayer = this.add.container(0, 0).setDepth(6);
     this.van = this.add.image(0, 0, OTR.art.vanTop(this)).setDepth(8).setScale(0.34).setVisible(false);
     this.tip = this.add.container(0, 0).setDepth(40).setVisible(false);
@@ -194,7 +194,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.drawClosures();
     this.drawPins();
     this.buildCards();
-    this.pathG.clear();
+    this.pathG.redraw(() => {});
     this.van.setVisible(false);
     this.dispatchBtn.setLabel('DISPATCH');
     this.refresh();
@@ -674,43 +674,43 @@ class RoutePlannerScene extends BaseScenarioScene {
   }
 
   drawPath(ev) {
-    const g = this.pathG;
-    g.clear();
-    if (!ev.legs.length) return;
-    const pts = [];
-    ev.legs.forEach(L => L.path.forEach((n, i) => {
-      if (i === 0 && pts.length) return;
-      pts.push(this.nodes[n]);
-    }));
-    const line = (width, color, alpha, oy) => {
-      g.lineStyle(width, color, alpha);
-      g.beginPath();
-      pts.forEach((p, i) => {
-        const x = this.sx(p.x), y = this.sy(p.y) + oy;
-        if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+    this.pathG.redraw((g) => {
+      if (!ev.legs.length) return;
+      const pts = [];
+      ev.legs.forEach(L => L.path.forEach((n, i) => {
+        if (i === 0 && pts.length) return;
+        pts.push(this.nodes[n]);
+      }));
+      const line = (width, color, alpha, oy) => {
+        g.lineStyle(width, color, alpha);
+        g.beginPath();
+        pts.forEach((p, i) => {
+          const x = this.sx(p.x), y = this.sy(p.y) + oy;
+          if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+        });
+        g.strokePath();
+      };
+      line(7, 0x190833, 0.55, 2);
+      line(4, 0xFF6600, 1, 0);
+      // spur from the street centre line out to each sequenced pin, so the route reads as one thread
+      g.lineStyle(3, 0xFF6600, 0.95);
+      this.order.forEach(i => {
+        const lot = this.stops[i - 1].lot;
+        g.lineBetween(this.sx(lot.x), this.sy(this.T.hy[lot.row]), this.sx(lot.x), this.sy(lot.curb.y));
       });
-      g.strokePath();
-    };
-    line(7, 0x190833, 0.55, 2);
-    line(4, 0xFF6600, 1, 0);
-    // spur from the street centre line out to each sequenced pin, so the route reads as one thread
-    g.lineStyle(3, 0xFF6600, 0.95);
-    this.order.forEach(i => {
-      const lot = this.stops[i - 1].lot;
-      g.lineBetween(this.sx(lot.x), this.sy(this.T.hy[lot.row]), this.sx(lot.x), this.sy(lot.curb.y));
+      g.fillStyle(0xFFE0C0, 1);
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = pts[i], b = pts[i + 1];
+        const ax = this.sx(a.x), ay = this.sy(a.y), bx = this.sx(b.x), by = this.sy(b.y);
+        if (Math.hypot(bx - ax, by - ay) < 26) continue;
+        const mx = (ax + bx) / 2, my = (ay + by) / 2, ang = Math.atan2(by - ay, bx - ax);
+        g.fillTriangle(
+          mx + Math.cos(ang) * 6, my + Math.sin(ang) * 6,
+          mx + Math.cos(ang + 2.5) * 6, my + Math.sin(ang + 2.5) * 6,
+          mx + Math.cos(ang - 2.5) * 6, my + Math.sin(ang - 2.5) * 6
+        );
+      }
     });
-    g.fillStyle(0xFFE0C0, 1);
-    for (let i = 0; i < pts.length - 1; i++) {
-      const a = pts[i], b = pts[i + 1];
-      const ax = this.sx(a.x), ay = this.sy(a.y), bx = this.sx(b.x), by = this.sy(b.y);
-      if (Math.hypot(bx - ax, by - ay) < 26) continue;
-      const mx = (ax + bx) / 2, my = (ay + by) / 2, ang = Math.atan2(by - ay, bx - ax);
-      g.fillTriangle(
-        mx + Math.cos(ang) * 6, my + Math.sin(ang) * 6,
-        mx + Math.cos(ang + 2.5) * 6, my + Math.sin(ang + 2.5) * 6,
-        mx + Math.cos(ang - 2.5) * 6, my + Math.sin(ang - 2.5) * 6
-      );
-    }
   }
 
   /* ------------------------------------------------------------- dispatch */

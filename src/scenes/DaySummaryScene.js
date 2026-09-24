@@ -25,10 +25,10 @@ class DaySummaryScene extends Phaser.Scene {
     const board = this.add.container(cx, cy);
     board.add(OTR.ui.panel(this, 0, 0, cw, ch, { top: 0xC98E55, bottom: 0xA8703E, border: 0x7A4E28, radius: 22 }));
     board.add(OTR.ui.panel(this, 0, 14, cw - 40, ch - 60, { top: 0xFFFFFF, bottom: 0xF3EEE6, radius: 8, shadow: 0.2 }));
-    const clip = this.add.graphics();
-    clip.fillStyle(0x9AA0B4, 1); clip.fillRoundedRect(-80, -ch / 2 - 12, 160, 44, 10);
-    clip.fillStyle(0x6E7488, 1); clip.fillRoundedRect(-50, -ch / 2 - 4, 100, 14, 7);
-    board.add(clip);
+    board.add(OTR.tex.shape(this, (clip) => {
+      clip.fillStyle(0x9AA0B4, 1); clip.fillRoundedRect(-80, -ch / 2 - 12, 160, 44, 10);
+      clip.fillStyle(0x6E7488, 1); clip.fillRoundedRect(-50, -ch / 2 - 4, 100, 14, 7);
+    }));
     board.add(OTR.txt(this, 0, -ch / 2 + 70, `END OF DAY ${day}`, 40, '#250849', { weight: '900' }));
     board.add(OTR.txt(this, 0, -ch / 2 + 108, `${save.data.profile.name}'s shift report`, 17, '#7A6A90', { bold: false }));
     board.setY(cy + 700);
@@ -45,10 +45,10 @@ class DaySummaryScene extends Phaser.Scene {
       if (!sc) return;
       const y = -ch / 2 + 176 + i * 92;
       const row = this.add.container(0, y);
-      const g = this.add.graphics();
-      g.fillStyle(OTR.color.shade(mod.color, 0.86), 1); g.fillRoundedRect(-280, -38, 560, 76, 12);
-      g.fillStyle(mod.color, 1); g.fillRoundedRect(-280, -38, 10, 76, { tl: 12, bl: 12, tr: 0, br: 0 });
-      row.add(g);
+      row.add(OTR.tex.shape(this, (g) => {
+        g.fillStyle(OTR.color.shade(mod.color, 0.86), 1); g.fillRoundedRect(-280, -38, 560, 76, 12);
+        g.fillStyle(mod.color, 1); g.fillRoundedRect(-280, -38, 10, 76, { tl: 12, bl: 12, tr: 0, br: 0 });
+      }));
       row.add(OTR.txt(this, -256, -14, sc.title, 20, '#250849', { ox: 0, weight: '900' }));
       row.add(OTR.txt(this, -256, 14, mod.title, 14, '#7A6A90', { ox: 0, bold: false }));
       let sx = 20;

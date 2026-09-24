@@ -18,8 +18,7 @@ class LabelScene extends BaseScenarioScene {
     this.FACE_NAMES = { front: 'FRONT', right: 'RIGHT SIDE', back: 'BACK', left: 'LEFT SIDE', top: 'TOP', base: 'BASE' };
     this.BOX = { x: 424, y: 348 };
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x12041F, 0.55);
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.55 }));
     this.hud({ timer: true });
 
     this.buildStation();

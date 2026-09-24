@@ -46,11 +46,12 @@ OTR.scenery = {
     return { top, bottom, far };
   },
 
-  sky(scene, tod, weather) {
-    const key = `sky_${tod}_${weather}`;
+  /** width: wider than the screen for a sky that scrolls (Stage.skyline); the sun and clouds spread over it */
+  sky(scene, tod, weather, width) {
+    const key = `sky_${tod}_${weather}` + (width && width !== OTR.W ? `_${width}` : '');
     const T = OTR.scenery.TOD[tod] || OTR.scenery.TOD.midday;
     const C = OTR.scenery.skyColors(tod, weather);
-    return OTR.tex.make(scene, key, OTR.W, OTR.H, (ctx, w, h) => {
+    return OTR.tex.make(scene, key, width || OTR.W, OTR.H, (ctx, w, h) => {
       const cv = OTR.cv;
       ctx.fillStyle = cv.lin(ctx, 0, 0, 0, h * 0.8, [[0, C.top], [1, C.bottom]]);
       ctx.fillRect(0, 0, w, h);
@@ -522,7 +523,7 @@ OTR.scenery = {
         ctx.beginPath(); ctx.moveTo(hx0, hy0); ctx.lineTo(hx0, H - 4); ctx.stroke();
         void top0;
       }
-    });
+    }, { trim: true });
 
     const doorKey = `door_${OTR.rig.hash([s.door, s.wreath])}`;
     OTR.tex.make(scene, doorKey, 108, 228, (ctx, w, h) => {
@@ -660,7 +661,7 @@ OTR.scenery = {
         ctx.strokeStyle = '#3A3444'; ctx.lineWidth = 4;
         ctx.beginPath(); ctx.moveTo(L.doorX - 180, cy); ctx.lineTo(L.doorX - 150, cy - 90); ctx.moveTo(L.doorX + 180, cy); ctx.lineTo(L.doorX + 150, cy - 90); ctx.stroke();
       }
-    });
+    }, { trim: true });
     const doorKey = `gdoor_${OTR.rig.hash([s.door, s.style, s.open])}`;
     OTR.tex.make(scene, doorKey, 150, 236, (ctx, w, h) => {
       [[0, w / 2 - 2], [w / 2 + 2, w]].forEach(([x0, x1]) => {
@@ -748,7 +749,7 @@ OTR.scenery = {
         ctx.fillStyle = '#8FD3FF'; ctx.fillRect(cx - 172, top - 56, 84, 44);
         ctx.fillStyle = '#FFFFFF'; cv.rr(ctx, cx + 90, top - 22, 60, 22, 3); ctx.fill();
       }
-    });
+    }, { trim: true });
     return { key, frontKey, layout };
   },
 

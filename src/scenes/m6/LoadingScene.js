@@ -75,20 +75,18 @@ class LoadingScene extends BaseScenarioScene {
     }
     this.slots.push({ id: 'haz', col: 'haz', row: 'floor', x: g.x0 + 520, y: g.floorY, w: 220, h: g.floorH, maxWeight: 999, level: 'floor', hazmat: true, pkg: null });
 
-    this.slotG = this.add.graphics().setDepth(1);
+    this.slotG = OTR.tex.liveShape(this).setDepth(1);
     this.drawSlots();
   }
 
   drawSlots(highlight) {
-    const g = this.slotG;
-    g.clear();
-    this.slots.forEach(s => {
+    this.slotG.redraw((g) => this.slots.forEach(s => {
       const hot = highlight && highlight.indexOf(s) >= 0;
       g.fillStyle(s.hazmat ? 0x3A2410 : 0x201B2A, hot ? 0.85 : 0.5);
       g.fillRoundedRect(s.x, s.y, s.w, s.h, 8);
       g.lineStyle(hot ? 3 : 2, hot ? 0xFFC83D : (s.hazmat ? 0xE8A33D : 0x6A6478), hot ? 1 : 0.7);
       g.strokeRoundedRect(s.x, s.y, s.w, s.h, 8);
-    });
+    }));
   }
 
   buildPanel() {
@@ -266,8 +264,7 @@ class LoadingScene extends BaseScenarioScene {
     x = OTR.util.clamp(x, w / 2 + 10, 912 - w / 2);
     const y = OTR.util.clamp(img.y, 78 + h / 2, OTR.H - 44 - h / 2);
     const c = this.add.container(x, y).setDepth(70);
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.55); g.fillRoundedRect(-w / 2 - 6, -h / 2 - 4, w + 12, h + 38, 10);
+    const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x0E0620, 0.55); g.fillRoundedRect(-w / 2 - 6, -h / 2 - 4, w + 12, h + 38, 10); });
     const tags = [];
     if (p.weight >= 35) tags.push('HEAVY');
     if (p.fragile) tags.push('FRAGILE');
@@ -288,11 +285,11 @@ class LoadingScene extends BaseScenarioScene {
     this.strapped = true;
     OTR.audio.play('success');
     const g = this.geom;
-    const s = this.add.graphics().setDepth(40);
-    s.lineStyle(10, 0xE8A33D, 1);
-    s.lineBetween(g.x0 + 10, g.floorY + 40, g.x0 + 760, g.floorY + 40);
-    s.lineStyle(10, 0xE8A33D, 1);
-    s.lineBetween(g.x0 + 10, g.floorY + 104, g.x0 + 760, g.floorY + 104);
+    OTR.tex.shape(this, (s) => {
+      s.lineStyle(10, 0xE8A33D, 1);
+      s.lineBetween(g.x0 + 10, g.floorY + 40, g.x0 + 760, g.floorY + 40);
+      s.lineBetween(g.x0 + 10, g.floorY + 104, g.x0 + 760, g.floorY + 104);
+    }).setDepth(40);
     this.strapBtn.setLabel('Load strapped ✓').setEnabled(false);
     OTR.ui.toast(this, 'Floor load strapped. Nothing shifts when you brake.');
   }

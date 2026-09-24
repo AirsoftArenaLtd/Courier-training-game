@@ -280,10 +280,10 @@ class TownDriveScene extends Phaser.Scene {
   buildHud() {
     const W = OTR.W;
     this.hudLayer = this.add.container(0, 0).setScrollFactor(0).setDepth(800);
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.86); g.fillRect(0, 0, W, 56);
-    g.fillStyle(0xFF6600, 1); g.fillRect(0, 56, W, 3);
-    this.hudLayer.add(g);
+    this.hudLayer.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.86); g.fillRect(0, 0, W, 56);
+      g.fillStyle(0xFF6600, 1); g.fillRect(0, 56, W, 3);
+    }));
     this.hudLayer.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     this.stopLabel = OTR.txt(this, 64, 18, 'NEXT STOP', 12, '#C9B3F0', { ox: 0 });
     this.stopText = OTR.txt(this, 64, 38, '', 20, '#ffffff', { ox: 0, weight: '900' });

@@ -71,9 +71,8 @@ class PickupScene extends BaseScenarioScene {
       img.on('pointerup', () => this.clickPiece(p));
       this.pieceImgs[p.id] = img;
       const badge = this.add.container(x + w / 2 + w * 0.28, OTR.H - 6 - img.displayHeight + 4).setDepth(29).setVisible(false);
-      const g = this.add.graphics();
-      g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14);
-      badge.add([g, OTR.txt(this, 0, 0, '✓', 15, '#ffffff', { weight: '900' })]);
+      const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14); });
+      badge.add([g,OTR.txt(this, 0, 0, '✓', 15, '#ffffff', { weight: '900' })]);
       p.badge = badge;
       x += w + gap * k;
     });
@@ -300,10 +299,10 @@ class PickupScene extends BaseScenarioScene {
         if (issues.indexOf('no_label') < 0) {
           box.add(this.add.image(-w / 2 + 210, -h / 2 + 170, OTR.labelArt.key(this, p, 330, 220)).setDisplaySize(330, 220));
         } else {
-          const g = this.add.graphics();
-          g.fillStyle(0xEDE7F6, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
-          g.lineStyle(3, 0xE8304A, 1); g.strokeRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
-          box.add(g);
+          box.add(OTR.tex.shape(this, (g) => {
+            g.fillStyle(0xEDE7F6, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
+            g.lineStyle(3, 0xE8304A, 1); g.strokeRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
+          }));
           box.add(OTR.txt(this, -w / 2 + 210, -h / 2 + 170, 'NO LABEL', 32, '#C8243B', { weight: '900' }));
         }
         // notes column, padded clear of the modal's right edge
@@ -364,22 +363,21 @@ class PickupScene extends BaseScenarioScene {
     OTR.ui.modal(this, {
       w: 820, h: 600, escClose: true,
       build: (box, api, w, h) => {
-        const g = this.add.graphics();
-        g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
-        g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
-        box.add(g);
+        box.add(OTR.tex.shape(this, (g) => {
+          g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
+          g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
+        }));
         box.add(OTR.txt(this, 0, -h / 2 + 58, D.title, 22, '#250849', { weight: '900' }));
         box.add(OTR.txt(this, 0, -h / 2 + 84, D.instructions, 14, '#7A6A90', { bold: false }));
         let y = -h / 2 + 116;
         D.fields.forEach((f, i) => {
           const row = this.add.container(0, y + 18);
-          const rg = this.add.graphics();
-          const draw = () => {
-            rg.clear();
+          const rg = OTR.tex.liveShape(this);
+          const draw = () => rg.redraw((g) => {
             const on = !!flags[i];
-            rg.fillStyle(on ? 0xFFE0E6 : 0xF6F1FD, 1); rg.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
-            rg.lineStyle(2, on ? 0xE8304A : 0xE0D4F2, 1); rg.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
-          };
+            g.fillStyle(on ? 0xFFE0E6 : 0xF6F1FD, 1); g.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+            g.lineStyle(2, on ? 0xE8304A : 0xE0D4F2, 1); g.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+          });
           draw();
           row.add(rg);
           row.add(OTR.txt(this, -w / 2 + 66, 0, f.label, 14, '#7A6A90', { ox: 0 }));

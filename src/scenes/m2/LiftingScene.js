@@ -12,25 +12,26 @@ class LiftingScene extends BaseScenarioScene {
     this.liftIndex = -1;
     this.backGlow = 0;
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x12041F, 0.35);
-    const floor = this.add.graphics();
-    floor.fillStyle(0x000000, 0.25); floor.fillRect(0, this.G, OTR.W, OTR.H - this.G);
-    floor.fillStyle(0xFFC83D, 0.9); floor.fillRect(0, this.G, OTR.W, 4);
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.35 }));
+    OTR.tex.shape(this, (floor) => {
+      floor.fillStyle(0x000000, 0.25); floor.fillRect(0, this.G, OTR.W, OTR.H - this.G);
+      floor.fillStyle(0xFFC83D, 0.9); floor.fillRect(0, this.G, OTR.W, 4);
+    });
 
     // pallet (left)
-    const pal = this.add.graphics().setDepth(3);
-    pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.PALLET_TOP, 240, 7);
-    pal.fillStyle(0x7A5634, 1); [424, 530, 640].forEach(x => pal.fillRect(x, this.PALLET_TOP + 7, 16, 11));
-    pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.G - 3, 240, 3);
+    OTR.tex.shape(this, (pal) => {
+      pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.PALLET_TOP, 240, 7);
+      pal.fillStyle(0x7A5634, 1); [424, 530, 640].forEach(x => pal.fillRect(x, this.PALLET_TOP + 7, 16, 11));
+      pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.G - 3, 240, 3);
+    }).setDepth(3);
 
     // shelving (right)
-    this.shelf = this.add.graphics().setDepth(2);
-    this.shelf.fillStyle(0x2B6CB0, 1);
-    this.shelf.fillRect(660, this.G - 330, 12, 330); this.shelf.fillRect(860, this.G - 330, 12, 330);
-    this.shelf.fillStyle(0xFF8A00, 1);
-    this.shelf.fillRect(650, this.G - 200, 232, 10); this.shelf.fillRect(650, this.G - 330, 232, 10);
-    this.shelf.setVisible(false);
+    this.shelf = OTR.tex.shape(this, (shelf) => {
+      shelf.fillStyle(0x2B6CB0, 1);
+      shelf.fillRect(660, this.G - 330, 12, 330); shelf.fillRect(860, this.G - 330, 12, 330);
+      shelf.fillStyle(0xFF8A00, 1);
+      shelf.fillRect(650, this.G - 200, 232, 10); shelf.fillRect(650, this.G - 330, 232, 10);
+    }).setDepth(2).setVisible(false);
 
     this.PALLET_X = 540;
     this.phase = null;
@@ -151,8 +152,7 @@ class LiftingScene extends BaseScenarioScene {
     // weight tag
     if (this.tag) this.tag.destroy();
     this.tag = this.add.container(this.boxState.x, this.boxState.bottom - L.h - 60).setDepth(9);
-    const tg = this.add.graphics();
-    tg.fillStyle(L.weight >= 60 ? 0xF0435A : 0x250849, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18);
+    const tg = OTR.tex.shape(this, (tg) => { tg.fillStyle(L.weight >= 60 ? 0xF0435A : 0x250849, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18); });
     this.tag.add([tg, OTR.txt(this, 0, 0, `${L.weight} lb`, 18, '#ffffff', { weight: '900' })]);
     this.tag.setAlpha(0);
     this.tweens.add({ targets: this.tag, alpha: 1, delay: 400, duration: 200 });
@@ -237,12 +237,13 @@ class LiftingScene extends BaseScenarioScene {
     if (effect === 'equipment') { this.handTruckAnim(); return; }
     if (effect === 'helper') this.helper = true;
     if (effect === 'stool') {
-      this.stool = this.add.graphics().setDepth(4);
-      this.stool.fillStyle(0xFF8A00, 1);
-      this.stool.fillRect(this.pose.x - 36, this.G - 60, 72, 10);
-      this.stool.fillStyle(0x444450, 1);
-      this.stool.fillRect(this.pose.x - 30, this.G - 50, 8, 50); this.stool.fillRect(this.pose.x + 22, this.G - 50, 8, 50);
-      this.stool.fillRect(this.pose.x - 26, this.G - 26, 52, 6);
+      this.stool = OTR.tex.shape(this, (stool) => {
+        stool.fillStyle(0xFF8A00, 1);
+        stool.fillRect(-36, -60, 72, 10);
+        stool.fillStyle(0x444450, 1);
+        stool.fillRect(-30, -50, 8, 50); stool.fillRect(22, -50, 8, 50);
+        stool.fillRect(-26, -26, 52, 6);
+      }, this.pose.x, this.G).setDepth(4);
       this.stool.setAlpha(0);
       this.tweens.add({ targets: this.stool, alpha: 1, duration: 200 });
       this.tweens.add({ targets: this.pose, elevate: 60, delay: 250, duration: 400, ease: 'Quad.out', onComplete: () => this.startPosture() });
@@ -405,10 +406,12 @@ class LiftingScene extends BaseScenarioScene {
     const g = this.loadG;
     if (!g) return;
     const h = 190, w = 54, top = -96;
+    const v = OTR.util.clamp01(load);
+    if (g.shown === Math.round(v * h)) return;      // redraw only when the bar moves a pixel
+    g.shown = Math.round(v * h);
     g.clear();
     g.fillStyle(0x000000, 0.45); g.fillRoundedRect(-w / 2, top, w, h, 10);
     g.fillStyle(0x2BC48A, 0.22); g.fillRect(-w / 2, top + h * 0.5, w, h * 0.5);
-    const v = OTR.util.clamp01(load);
     const col = v > 0.8 ? 0xF0435A : v > 0.5 ? 0xFFB020 : 0x2BC48A;
     g.fillStyle(col, 1);
     g.fillRoundedRect(-w / 2, top + h * (1 - v), w, h * v, 8);

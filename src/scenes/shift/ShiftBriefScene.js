@@ -31,9 +31,10 @@ class ShiftBriefScene extends Phaser.Scene {
   buildBoard() {
     const st = this.st;
     const W = OTR.W;
-    const g = this.add.graphics().setDepth(40);
-    g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 60);
-    g.fillStyle(0xFF6600, 1); g.fillRect(0, 60, W, 3);
+    OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 60);
+      g.fillStyle(0xFF6600, 1); g.fillRect(0, 60, W, 3);
+    }).setDepth(40);
     OTR.txt(this, 24, 30, `DAY ${st.day} · MORNING BRIEFING`, 22, '#ffffff', { ox: 0, weight: '900' }).setDepth(41);
     OTR.txt(this, W - 24, 30, OTR.shift.clockStr(), 20, '#FFC83D', { ox: 1, weight: '900' }).setDepth(41);
 

@@ -91,6 +91,7 @@ class DialogueScene extends BaseScenarioScene {
     this.me = OTR.rig.person(this, this.spotCourier, 0, OTR.hub.playerSpec, { scale: 0.82, facing: 1, depth: 30 });
     st.actor(this.me);
     this.atmos = OTR.atmos.apply(this, { tod: S.tod, weather: S.weather, depth: 700 });
+    st.bakeBackdrop();                               // the camera never moves here
   }
 
   clearStage() {

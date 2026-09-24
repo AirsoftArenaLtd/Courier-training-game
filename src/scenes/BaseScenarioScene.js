@@ -28,12 +28,12 @@ class BaseScenarioScene extends Phaser.Scene {
   hud(o) {
     o = o || {};
     const bar = this.add.container(0, 0).setDepth(800).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.82);
-    g.fillRect(0, 0, OTR.W, 56);
-    g.fillStyle(0xFF6600, 1);
-    g.fillRect(0, 56, OTR.W, 3);
-    bar.add(g);
+    bar.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.82);
+      g.fillRect(0, 0, OTR.W, 56);
+      g.fillStyle(0xFF6600, 1);
+      g.fillRect(0, 56, OTR.W, 3);
+    }));
     bar.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     const mod = OTR.registry.moduleOf(this.scenarioId);
     bar.add(OTR.txt(this, 64, 19, (mod ? mod.title.toUpperCase() : this.shiftMode ? 'TODAY\'S ROUTE' : ''), 12, '#C9B3F0', { ox: 0 }));

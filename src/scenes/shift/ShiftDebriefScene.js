@@ -23,31 +23,34 @@ class ShiftDebriefScene extends Phaser.Scene {
     // ---- route map
     const T = OTR.town.build(st.seed);
     const mw = 440, mh = 330, mx = 60, my = 120;
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
-    g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
     const sx = mw / T.W, sy = mh / T.H;
-    g.lineStyle(3, 0x4A4658, 1);
-    T.hy.forEach(y => g.lineBetween(mx, my + y * sy, mx + mw, my + y * sy));
-    T.vx.forEach(x => g.lineBetween(mx + x * sx, my, mx + x * sx, my + mh));
-    g.fillStyle(0x4D148C, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
-    // route line
-    g.lineStyle(3, 0xFF6600, 0.9);
-    let px = mx + T.depot.x * sx, py = my + T.depot.y * sy;
-    st.route.forEach(r => {
-      const lot = T.lotById(r.lotId);
-      const x = mx + lot.curb.x * sx, y = my + lot.curb.y * sy;
-      g.lineBetween(px, py, x, y);
-      px = x; py = y;
+    OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.lineStyle(3, 0x4A4658, 1);
+      T.hy.forEach(y => g.lineBetween(mx, my + y * sy, mx + mw, my + y * sy));
+      T.vx.forEach(x => g.lineBetween(mx + x * sx, my, mx + x * sx, my + mh));
+      g.fillStyle(0x4D148C, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
+      // route line
+      g.lineStyle(3, 0xFF6600, 0.9);
+      let px = mx + T.depot.x * sx, py = my + T.depot.y * sy;
+      st.route.forEach(r => {
+        const lot = T.lotById(r.lotId);
+        const x = mx + lot.curb.x * sx, y = my + lot.curb.y * sy;
+        g.lineBetween(px, py, x, y);
+        px = x; py = y;
+      });
+      g.lineBetween(px, py, mx + T.depot.x * sx, my + T.depot.y * sy);
+      st.route.forEach(r => {
+        const lot = T.lotById(r.lotId);
+        const ok = r.result && r.result.outcome === 'delivered';
+        g.fillStyle(ok ? 0x2BC48A : 0xFFB020, 1);
+        g.fillCircle(mx + lot.curb.x * sx, my + lot.curb.y * sy, 7);
+      });
     });
-    g.lineBetween(px, py, mx + T.depot.x * sx, my + T.depot.y * sy);
     st.route.forEach((r, i) => {
       const lot = T.lotById(r.lotId);
-      const x = mx + lot.curb.x * sx, y = my + lot.curb.y * sy;
-      const ok = r.result && r.result.outcome === 'delivered';
-      g.fillStyle(ok ? 0x2BC48A : 0xFFB020, 1);
-      g.fillCircle(x, y, 7);
-      OTR.txt(this, x, y, String(i + 1), 11, '#16062B', { weight: '900' });
+      OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, '#16062B', { weight: '900' });
     });
     OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${rec.weather === 'heat' ? 'heat advisory' : rec.weather}`, 14, '#C9B3F0', { ox: 0, bold: false });
 
@@ -81,10 +84,10 @@ class ShiftDebriefScene extends Phaser.Scene {
     const panel = this.add.container(0, 0);
     // the panel ends above the "Back to the station" button (it used to run under the button's corner)
     const py2 = 318, ph2 = 322;
-    const pg = this.add.graphics();
-    pg.fillStyle(0x0E0620, 0.82); pg.fillRoundedRect(560, py2, 660, ph2, 16);
-    pg.lineStyle(2, 0x6A45A0, 0.8); pg.strokeRoundedRect(560, py2, 660, ph2, 16);
-    panel.add(pg);
+    panel.add(OTR.tex.shape(this, (pg) => {
+      pg.fillStyle(0x0E0620, 0.82); pg.fillRoundedRect(560, py2, 660, ph2, 16);
+      pg.lineStyle(2, 0x6A45A0, 0.8); pg.strokeRoundedRect(560, py2, 660, ph2, 16);
+    }));
     panel.add(OTR.txt(this, 584, py2 + 24, 'WHAT TO WORK ON', 14, '#FF9447', { ox: 0, weight: '900' }));
     // Everything stays inside the panel: rows that do not fit are summed up in one line, and "went well" only
     // appears if there is room left. (On a rough day the list used to run off the panel and the canvas.)
