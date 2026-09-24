@@ -15,6 +15,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** /texts after each key: `◀ Front      DRIVER SIDE      Rear ▶` unchanged.
 - **Suspected cause:** `src/scenes/m1/PreTripScene.js:56-60`, `viewButton()` binds only `pointerup`; no keyboard handlers in the scene.
 - **Suggested fix:** bind ArrowLeft/ArrowRight/A/D to `turn(∓1)` (ignored while `_openModals > 0` or in the cab), C to `toggleCab()`, and show the key hints on the buttons like the P / F hints.
+- **Status:** fixed — A / D and the arrow keys walk round the truck (hints under the ◀ ▶ buttons), C climbs in and out
+  (on the button), L works the cab's lights switch, T runs a close-up's test and P / F judge it (the hints are on the
+  buttons); ignored while a close-up is open.
 
 ### PRP-2: Pre-trip close-up: the instruction and the reading are pale orange on white, barely legible
 - **Severity:** minor
@@ -24,6 +27,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `test/out/review/pretrip-route-pickups/p07-note-crop.png`, `p05-tire.png`
 - **Suspected cause:** `PreTripScene.js:240` (`OTR.txt(..., 15, '#FFB27A', ...)`).
 - **Suggested fix:** a dark orange such as `#B34700` (or the modal's body purple `#250849`), bold, 16 px.
+- **Status:** fixed — the close-up's instruction and reading are 16 px bold dark orange (#8A3A00) on the white modal,
+  not pale orange.
 
 ### PRP-3: Pre-trip cab close-ups: the test button (horn / belt / brake) is half covered by Pass and Flag
 - **Severity:** minor
@@ -33,6 +38,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `test/out/review/pretrip-route-pickups/p14-horn-btn-overlap.png`, `p13-horn-pressed.png`
 - **Suspected cause:** `PreTripScene.js:244` (`actionBtn` at y 196, h 44) against `PreTripScene.js:293-294` (verdict buttons at `h/2 - 52` = 228, h 52).
 - **Suggested fix:** move the test button up to about y 150 and the note (y 150) up into the gap under the picture, or shrink the picture; the P / F key hints could also be drawn on the verdict buttons, which have keys nobody is told about.
+- **Status:** fixed — the picture, the note and the test button are stacked clear of the Pass / Flag row (picture
+  480×305 higher up, note at +118, test button at +164, verdict row from +204), so nothing overlaps and a second press
+  on the test button cannot land on a verdict.
 
 ### PRP-4: Pre-trip: both side views are drawn mirror-image, and the front view's "driver side" headlight is on the curb side
 - **Severity:** minor (teaches left/right wrong on a checklist that is all about sides)
@@ -42,6 +50,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `p02-driver.png` (cab right, "◀ Front"), `p20-curb.png` (cab left, "Front ▶"), `p18-front.png` (headlight ring left, crack right)
 - **Suspected cause:** `src/core/truckart.js:41` (`headlight_l: [0.24, …]`, `signal_r: [0.86, …]`) and the side-view painters, which draw the cab at the right for `driver`; the rear view (`taillight_l: [0.16, …]`, `◀ Driver side`) is correct.
 - **Suggested fix:** flip the driver and curb side textures (and their spot x's: `x → 1 − x`), and on the front view swap the l/r spot positions (headlight_l to 0.76, signal_r to 0.14).
+- **Status:** fixed — standing at the driver side the cab is on your left, at the curb side on your right, and on the
+  front view the driver's headlight and signal are on the viewer's right (the windshield crack in the driver's line of
+  sight now agrees); all hotspots moved with them, the entry steps are drawn under the cab door on the curb side, and
+  the side views sit clear of the ◀ ▶ buttons.
 
 ### PRP-5: Pre-trip close-ups write some defects out in words, so those items test reading, not looking
 - **Severity:** design
@@ -50,6 +62,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** the data file promises "the CLOSE-UP shows the condition … nothing gives the answer away up front" (`data/m1_pretrip.js:4-5`). **Actual:** a bad mirror has the caption "you can see the sky and your own door"; a bad door latch has a red slash, a red tint and the caption "latch does not seat". Every other defect (reflector, steps, windshield, wipers, fuel cap…) has to be spotted, and a good door latch shows a plain door, so these two give the answer away and make the rest inconsistent. The door-latch lesson ("Test every latch by pulling on it, not by looking at it") also describes a test the close-up does not have: unlike the horn/belt/brake there is no "Pull the latch" button.
 - **Evidence:** `src/core/truckart.js:452-455` (mirror caption), `:574-580` (door: slash, tint, caption); `p22-latch.png` (good latch for comparison).
 - **Suggested fix:** drop the captions and the red marks; for the doors add a `needs: 'press'` test ("Pull on the latch") whose result shows the door holding or swinging open, which is what the lesson teaches.
+- **Status:** fixed (decision) — close-ups show what there is to see and say nothing about the verdict: no caption on
+  a knocked mirror (it shows sky and the truck's own door), no red slash, tint or caption on a latch, no red marks on
+  a frayed belt, no "TAG MISSING" (the tie is empty), no "the case is empty", a neutral pedal marker. Both door
+  latches get a pull test ("Pull on the latch"): a bad one lets the door swing open under the pull, a good one holds.
 
 ### PRP-6: Pre-trip efficiency rewards rushing: pass everything in 35 s and get three efficiency stars
 - **Severity:** major (scoring rewards the wrong behaviour)
@@ -73,6 +89,11 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
   - The gauge answers the question for you: the note says "at or under the limit. This tyre is out of service." or "plenty of tread left", and the readout box is red or green. The limits (4/32" on a steer tire, 2/32" elsewhere, US FMCSA 393.75) are never stated, so the trainee learns nothing they could use on a real gauge. For a steer tire, 2/32" is not "at" the limit but half of it.
   - Spelling: "tyre" in the gauge note (`PreTripScene.js:207`) and "kerb" in the curb-side tire lesson, in otherwise US English (tire, curb).
 - **Suggested fix:** show only the number (and a wear-bar picture); state the limits once in the intro or on the gauge; paint the sidewall gouge and one-edge wear variants; make the reading depend on where the gauge is dropped for the uneven-wear tire. Fix "tyre"/"kerb".
+- **Status:** fixed — the three tire defects are drawn as themselves: tread worn to the bars all over (front, 3/32"),
+  a sidewall gouge with good tread (rear, the gauge reads 7/32"), and one edge worn (curb-side front: 1/32" on the
+  inner half, 7/32" on the outer; the reading depends on where the gauge is dropped, and it can be dropped again). The
+  gauge shows only the number in neutral colors; the limits (4/32" on a steer tire, 2/32" on the others) are stated in
+  the intro and on every tire note. "tyre" and "kerb" are gone.
 
 ### PRP-8: Route Planner: two late First Overnights still end on "GREAT WORK!", confetti and 2/3 service stars
 - **Severity:** design (scoring is too soft on the one thing the scenario teaches)
@@ -94,6 +115,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `r13-round2-result.png`
 - **Suspected cause:** `RoutePlannerScene.js:836-837`.
 - **Suggested fix:** show the same measure on both rows, e.g. "Your day 130 min (71 driving + 60 waiting)" against "Best plan 62 min".
+- **Status:** fixed — the result card compares like with like: "Your day 9.5 mi · 130 min (71 driving + 60 waiting)"
+  against "Best plan 8.2 mi · 62 min", both the whole day (driving, waiting and the school zone).
 
 ### PRP-10: Route Planner content nits (typo, lesson that describes a different model, one name at four addresses)
 - **Severity:** polish
@@ -103,6 +126,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
   - Lesson `early`: "Arriving before a pickup is ready is a wasted trip. Build the window into the order instead of **driving back**." The planner never drives back: it parks you at the dock until the window opens (card shows "WAIT", ETA snaps to 9:15). Reword to "…you sit at the dock doing nothing".
   - Round 3 manifest: "Priya Nair" is the customer at 304 Birch Ln, 105 Oak St, 212 Harbor St **and** the 308 Maple Ave call-in pickup; in round 1 "Ray Ruiz" is at both 205 Oak St and 313 Birch Ln. Names come from `lot.person.name` (`RoutePlannerScene.js:243`), and the town's name pool is small. Trainees read these cards to tell stops apart.
   - Round 2: the Priority pin at 113 Birch Ln sits on the "SCHOOL ZONE" map label and hides most of it (`r11-round2.png`).
+- **Status:** fixed — "an 8:30 commitment"; the early-pickup lesson says you "sit at the dock doing nothing"; a round
+  never shows one name at two addresses (duplicates take a spare name); the school zone's label is written inside its
+  band, so a pin beside the street no longer covers it.
 
 ### PRP-11: Pickups: a miscount is rewarded as a perfect reconciliation, and the shipper answers a number you never said
 - **Severity:** major (teaches that raising any mismatch is right even when your own count is wrong)
@@ -112,6 +138,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `b07-count-choices.png`, `b08-recount.png`, panel texts after OK: `Manifest: 6 pieces (corrected from 7)` / `You've counted: 4 pieces`.
 - **Suspected cause:** `src/scenes/m7/PickupScene.js:237-245` (the choices are built from counted vs manifest only; `raise` is always worth 2) and `:269-271` (the recount text is fixed).
 - **Suggested fix:** score "raise" at 2 only when `k === n` (you counted everything); when `k < n` let the shipper reply "I count six on the counter — can you check again?" and send the trainee back to counting (or score it 1 with that note). Also: a counted piece cannot be un-counted, so the only possible miscount is a short one.
+- **Status:** fixed — raising a short count gets the shipper's recount ("I make it 6 here, not 4. Have another look?")
+  and the counting reopens; the count and the reconciliation are scored once, when the count is final (a short count
+  raised first earns the reconciliation but not "counted every piece"), and the recount text is only ever shown after
+  the right number was said. The same holds in m7-intl.
 
 ### PRP-12: Pickup inspection spells out every verdict in words, so "inspect" is just reading
 - **Severity:** design (major for training value)
@@ -120,6 +150,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** the trainee looks at the label and the box and decides. **Actual:** the right-hand note states the finding for every piece: good pieces say "Packaging is sound, the label is complete and readable."; bad ones say "The box is crushed along one edge and re-taped.", "There is no shipping label on this piece.", "Scale reads 164 lb." In m7-dg the declared box says "Hazard label and declaration are attached and match the contents." and the undeclared one "The shipper says the contents are hazardous, but there are no hazard marks or declaration." Even before inspection the counter art prints **NO LABEL** in red on the unlabelled box and shows **164 LB** on a red tag. The only judgement left is picking a reason, and the note usually names that too.
 - **Evidence:** `b10-inspect.png` (good piece note), `b14-overweight.png`, `b05-pieces.png` (NO LABEL / red 164 LB on the counter), `PickupScene.js:278-294`.
 - **Suggested fix:** draw the condition (crush, tape, missing label, scale readout) and drop the verdict sentences; keep neutral facts only ("Scale: 164 lb", "Contents list: lithium battery packs ×20"), and never print a "this is fine" line. Put the reasons' own descriptions (`reasons[].desc`, currently unused) on the refusal buttons instead.
+- **Status:** fixed (decision) — the inspection lists the same neutral facts for every piece (Box, Label, Scale,
+  Hazard marks, and Papers where there are any) and never a verdict (no "packaging is sound", no "declaration matches
+  the contents"); the counter art no longer prints NO LABEL in red or a red weight tag; the refusal reasons show their
+  descriptions under each button.
 
 ### PRP-13: Pickup takeaways are the first two mistakes in time order, so the conversation and the count crowd out the inspection
 - **Severity:** minor (the three-takeaway limit from `warehouse.md` applies here too; this is about which three)
@@ -151,6 +185,11 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Also:** the instruction says "**Tap** every line", on a mouse-and-keyboard trainer; the invoice can only be opened once ("Paperwork checked ✓" is disabled), so it cannot be re-read while deciding the pieces; and after the count the toast says "Now inspect each piece" although the intro says to find every invoice problem *before* accepting, so the pieces can be accepted or refused ("Paperwork incomplete") before the invoice has been opened.
 - **Evidence:** `i05-invoice-flagged.png`, `i06-invoice-result.png`
 - **Suggested fix:** list wrong flags in the result ("• Reason for export was fine: …"); "Click"; let the invoice reopen read-only; in m7-intl lock the pieces until the paperwork is submitted (or point the toast at "Check the paperwork" first).
+- **Status:** fixed — the invoice result lists the lines flagged but fine as well as the missed ones; the instruction
+  says "Click"; the invoice opens again read-only (with your findings marked) after submitting; in m7-intl the pieces
+  wait until the paperwork is checked ("Check the paperwork first: the invoice decides what happens to these pieces").
+  "Reason for export: Sale" against "Description: Samples" is now one of the problems, with its why (the two have to
+  agree).
 
 ### PRP-16: m7-intl: accepting one of the two pieces on a failed invoice still ends "GREAT WORK!", +5 stars
 - **Severity:** design
@@ -169,6 +208,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** the solvent box (g2, 19 Foundry Rd) is the grey one. **Actual:** g2 is ordinary brown cardboard like g1 and g4; the only pale grey box is **g3 (4 Science Park), the correctly marked and declared Class 3 shipment**, which the trainee should accept. A trainee who acts on what they were told refuses the good DG box and may accept the solvent, which is exactly backwards for this scenario.
 - **Evidence:** `test/out/review/pretrip-route-pickups/g04-pieces.png` (g2 brown "19 Foundry Rd", g3 pale with the flame diamond); `src/scenes/m7/PickupScene.js:93` (`color: p.declared ? 0xD8C9A8 : 0xC99A62`: only declared boxes get the pale colour).
 - **Suggested fix:** give pieces an optional `color` in `data/m7_pickups.js` and make g2 grey (and g3 a different shade), or change the line to name the box ("the one for Foundry Road").
+- **Status:** fixed — pieces can have their own color: the solvent (19 Foundry Rd) is the gray box and the declared
+  Class 3 box is pale cream; Gail's line names it too ("the gray one for Foundry Road"). "litre" is "liter".
 
 ### PRP-18: m7-dg / m7-business talk: an illegal answer is only "NOT QUITE", and the shipper's next line assumes you said the right thing
 - **Severity:** minor (content)
@@ -177,6 +218,10 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** a grade label that matches the stakes ("✗ UNSAFE" / "WRONG" for a safety-critical bad answer), and a follow-up line that fits each answer. **Actual:** one shared `next` node for good and bad answers, and the mildest wrong label for an illegal act.
 - **Suspected cause:** `data/m7_pickups.js` talk nodes (all choices `next: 'p2'` / `'d2'`); grade label from the shared talk engine.
 - **Suggested fix:** give the bad choices their own next node (Gail: "Great, thanks!" then the courier is stopped by a supervisor line, or a line that sets up the refusal anyway), and add a stronger label for `grade: 'bad'` with negative safety effects.
+- **Status:** fixed — each wrong answer gets its own follow-up: taking the business pieces unchecked gets "Great,
+  thanks!" and a line that the handheld will not close a pickup without a count; agreeing to carry the solvent gets
+  "Saves me the paperwork" and a line that it still has to be refused at the counter (and the answer is critical). A
+  wrong answer that costs safety or is critical is headed "✗ UNSAFE", not "NOT QUITE", in every conversation.
 
 ### PRP-19: Pickup feedback toasts stack on top of each other and over the inspect box; a wrong refusal reads like praise
 - **Severity:** minor
@@ -185,6 +230,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** one readable message at a time, clear of the modal. **Actual:** the second toast ("✗ Properly marked and declared dangerous goods, packed for transport.") is drawn on top of the first, still-visible two-line toast ("✗ The shipper described flammable solvent… cannot be accepted."), so both are half legible; both sit over the "INSPECT THIS PIECE" heading of the next box (toasts depth 6000, modal 5000). The wrong-refusal toast is just the piece's `why` behind a ✗, so "✗ Good condition and a complete label." / "✗ Properly marked and declared…" reads like praise; it never says "you refused a piece that was fine".
 - **Evidence:** `g07-lithium.png` (stacked toasts), `b10-inspect.png` (toast over the modal), `PickupScene.js:355`.
 - **Suggested fix:** queue toasts (or replace the current one) and place them below the HUD but above the modal's top edge, e.g. y ≥ 660 or inside the panel; prefix wrong refusals with "That piece was fine: …" and wrong accepts with "Should have been refused: …".
+- **Status:** fixed — toasts are one at a time everywhere (a new one replaces the one on screen), and the pickup's
+  appear at the bottom of the screen, below the modals; a wrong call says which way it was wrong ("That piece was
+  fine: …" / "Should have been refused: …").
 
 ### PRP-20: Route Planner: the school zone's hours are never shown, nor which legs it slowed
 - **Severity:** minor
@@ -193,6 +241,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** the trainee is told when the zone is active (the data says 8:00–8:45, `data/m1_routes.js` `schoolWindow`) and sees on the plan which leg paid the 4-minute delay. **Actual:** the hours appear nowhere; a slowed leg is drawn like any other; the result card has no school row; the only mention is the "Drove the school zone while it was active" log line, and only when the best plan avoided it. The lesson "work around it and come back later" cannot be applied without knowing when "later" is.
 - **Suspected cause:** `RoutePlannerScene.js:99-110` draws only the label; `leg().slowed` (`:372`) is never shown.
 - **Suggested fix:** label the band "SCHOOL ZONE 8:00–8:45", tint slowed legs amber with a "+4 min" tag, and add a row to the result card when it cost time.
+- **Status:** fixed — the band reads "SCHOOL ZONE 8:00–8:45" (from the data), legs slowed by it are drawn amber with a
+  "+4 min" tag on the map, and the result card has a "School zone +N min (N legs while it was active)" row.
 
 ### PRP-21: Route Planner: Clear wipes the whole plan with no confirm, and Undo cannot bring it back
 - **Severity:** minor
@@ -201,6 +251,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** Undo reverts the last action, including a Clear (or Clear asks first); Undo and Clear are greyed out when nothing is sequenced. **Actual:** Clear sits right next to Undo, is instant, and is not undoable; both buttons stay lit on an empty plan. On the 8-stop round 3 a slip costs the whole sequence.
 - **Suspected cause:** `RoutePlannerScene.js:600` `undo()` only pops `order`.
 - **Suggested fix:** push the previous order onto an undo stack on Clear; disable both buttons when `order` is empty.
+- **Status:** fixed — Undo also undoes a Clear (the cleared plan comes back), both are grayed out when there is
+  nothing to undo or clear, and the buffer is emptied at each new round.
 
 ### PRP-22: Pickups are half keyboard-driven: count choices and reasons have number keys, Accept / Refuse / OK have none
 - **Severity:** minor
@@ -209,6 +261,8 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** one convention: Enter/Space for the single OK, A / R (or 1 / 2) for Accept / Refuse, and key hints on every keyed button, as the pre-trip shows for nothing either (PRP-1) and the route planner does for DISPATCH (Enter) and Undo (Backspace).
 - **Suspected cause:** `PickupScene.js:271` and `:412` (OK buttons without `key`), `:320-322` (Accept/Refuse without `key`), `:328` (reason buttons keyed but unlabelled).
 - **Suggested fix:** add `key: ['ENTER','SPACE']` to the OK buttons, keys to Accept/Refuse, and prefix the reasons with "1." … "5.". The reasons' own `desc` lines (unused) would fit under each label.
+- **Status:** fixed — A accepts and R refuses (on the buttons), the refusal reasons are numbered 1-5 with their
+  descriptions, and every OK in the pickups (recount, invoice result) answers ENTER / SPACE.
 
 ### PRP-23: Pre-trip: flagging all 21 items scores "GREAT WORK!" with confetti; the false-flag penalty is capped at 3
 - **Severity:** major (the degenerate strategy wins)
@@ -231,6 +285,11 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
   - **Turn signal, curb side:** it is unlocked by the cab "LIGHTS" switch and its "ok" text is "Amber, bright, **flashing evenly**". Headlight switches do not flash turn signals; a real walkaround switches on the hazard flashers (or works the stalk). Add a hazards switch beside LIGHTS, or say "lights and hazards on" in the intro and toast.
   - **Air pressure gauge:** the cab item, its defect ("warning lamp lit") and consequence ("brakes may not release, or may not hold") describe air brakes. Most parcel step vans run hydraulic brakes; worth confirming with the customer which vehicle their couriers drive, and otherwise use a brake-warning / oil-pressure / temperature gauge. The close-up also shows no warning lamp, only the needle.
   - **Door latches:** no test (see PRP-5), although the lesson says to pull on them.
+- **Status:** fixed — the brake close-up says "steady pressure" while it is pressed (never "holding") with a neutral
+  marker; the cab switch is "LIGHTS + HAZARDS" (the flashers are what work the turn signals), and the intro, toast and
+  lesson say so; the air gauge is now the oil pressure gauge a hydraulic-brake step van has, with its warning lamp lit
+  when it reads low. (Which vehicle the owner's couriers drive is worth confirming; the item is one entry in
+  `data/m1_pretrip.js`.)
 
 ### PRP-25: Route Planner dispatch warning says "deliveryies"
 - **Severity:** polish
@@ -240,6 +299,7 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Evidence:** `r18-deliveryies.png`
 - **Suspected cause:** `RoutePlannerScene.js:719`: `` `delivery${ev.late > 1 ? 'ies' : ''}` ``.
 - **Suggested fix:** `` ev.late > 1 ? 'deliveries' : 'delivery' ``.
+- **Status:** fixed — "3 time-committed deliveries would run late".
 
 ### PRP-26: Pickup counter: the pieces to count are a strip at the bottom edge, under a wall of identical parcels
 - **Severity:** polish / design
@@ -248,6 +308,9 @@ Tester area: **m1-pretrip** (Pre-Trip Walkaround), **m1-route** (Route Planner),
 - **Expected:** it is obvious which parcels are "waiting for you". **Actual:** the back wall is three shelves of brown and white parcels drawn just like the pickup pieces, the shipper's own stock; the real pieces stand in a row whose bottoms touch the screen edge (y 714 of 720), partly behind the counter front. Clicking a shelf parcel does nothing and says nothing, so a trainee who starts counting the shelves gets no hint. (Minor, since the manifest panel keeps its own count, but "count what is actually waiting for you" is the exercise.)
 - **Evidence:** `b04-counter.png`, `i02-counter.png`
 - **Suggested fix:** put the pieces on the counter top (or a marked "OUTGOING" cage) with a floor line, thin out or grey the shelf stock, and toast "That is the shop's stock — count what is on the counter" on a shelf click.
+- **Status:** fixed — the pieces wait in a taped "OUTGOING — COUNT THESE" area on the floor, raised clear of the
+  bottom edge, and a click on the shop's shelves says "That is the shop's own stock. Count what is waiting in the
+  OUTGOING area."
 
 ### PRP-27: m7-dg: refusing everything scores "GREAT WORK!", and the takeaways become descriptions of good boxes
 - **Severity:** minor (scoring / feedback)
