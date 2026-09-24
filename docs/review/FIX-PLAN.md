@@ -6,8 +6,8 @@ of the game like trainees and wrote **186 findings** into `docs/review/<area>.md
 so nobody has to guess, and says how to verify. The owner's goal: the game runs on **typical company computers
 (integrated graphics)** and has **no small, easy-to-miss issues**.
 
-A snapshot of the project before any of these fixes is in `_baseline-pass2/` at the project root
-(`diff -ru _baseline-pass2/src src` shows what has changed; the folder is not a git repo). `HANDOFF.md` at the root
+A snapshot of the project before any of these fixes was kept in `_baseline-pass2/` at the project root. It was
+deleted in WP9; the WP9 Log entry names the last commit that has it. `HANDOFF.md` at the root
 has the state of play and the notes for working in a cloud session.
 
 ## How to work
