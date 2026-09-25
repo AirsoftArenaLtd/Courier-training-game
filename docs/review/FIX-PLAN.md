@@ -385,3 +385,16 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     - Final full suite (code at 555db69): 28 of 28.
   - **Note:** m8-dog failed twice in full runs under load ("the stop never settled"), and passed every time on its
     own and in the final run. If it fails again, the new message names what held the stop.
+
+- **2026-09-25, the owner's second play test.** Details are in the QA report's "The owner's second play test".
+  - **Messages** stay up long enough to read.
+  - **Pre-trip close-ups** show their faults (brake press, wiper, tire gash, step grease), so a sound
+    inspection no longer reads as "missed".
+  - **Stop signs:** a stop counts after half a second still behind the line, and answers green. Rolling over the
+    line above 1 mph, or into the junction without stopping, is a violation. The test autopilot holds its stops
+    0.9 s.
+  - **Curbs:** rounded 4 m kerb corners. Climbing the kerb jolts the van, and is the violation at once.
+  - **POD photos:** package and door; never a house number (plaque or mailbox) or a person.
+  - **Icy steps and clutter:** a hurried step wobbles and warns before it becomes a fall.
+  - **Tests:** the stop helper frames photos below the house number and waits up to 30 s for a stop to settle (m8-dog
+    at 14 fps under load needed more than 15 s).

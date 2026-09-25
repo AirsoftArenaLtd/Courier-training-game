@@ -771,6 +771,36 @@ Each review ended with a list of things its tester didn't have time to try (the 
 scenes and snow. The owner's Intel run covers the frame rate at the start of each scenario, where it measured
 131–145 fps.
 
+### The owner's second play test (25 September)
+
+- **Messages were gone before they could be read.** Stop messages, pop-ups, drill warnings and load messages now
+  stay up for about a second plus a second per 18 characters (at most 9 s).
+- **False "missed" defects in the pre-trip.** The brake and wiper close-ups didn't show their faults. The brake press
+  now plays out (a failing pedal creeps down, and judging waits until it settles). Perished wiper rubber hangs off
+  the blade, the tire has a real sidewall gash, and the step grease is on the bottom step as described.
+- **Stop signs that didn't answer, and rolling stops that passed.** A stop counted only within 92 px of the line, so
+  one made further back was never recognised and the sign never turned green. A roll through counted only above
+  3 mph. Now a stop is half a second stationary with the nose behind the line, up to two car lengths back. The hint
+  goes "Hold the stop…" then green "look both ways, then go". Crossing the line above 1 mph, or entering the
+  junction without having stopped, is a violation. Red lights are judged at 1.5 mph. Checked by driving scripted
+  approaches from the north, south and east: rolls at 2 and 3 mph, a crawl, a 0.2 s blip and a stop too far back
+  are all flagged. Stops at the line and 4 m back turn green with no violation.
+- **Curbs were easy to drive over, especially on turns.** The kerb was only a sound, and a wheel had to be off the
+  road for a quarter-second above 1.5 mph before it counted, so a rear wheel clipping a corner was never caught.
+  - Junctions now have rounded 4 m kerb corners, drawn and driven.
+  - A wheel climbing the kerb jolts the van, costs speed, and is the violation at once. The sidewalk drags at the
+    tires.
+  - In a scripted sweep of right turns, early and on-time turn-ins now clear the corner, including one that clipped
+    the old square kerb. Late turn-ins still swing wide onto the far kerb and are flagged.
+- **POD photos asked for the house number.** Policy is the opposite. A photo must show the package and the door, and
+  never a house number (the plaque or a numbered mailbox) or a person, the courier included. Such a photo is graded
+  "private": the handheld says what is in the shot, puts Retake first and scores it 0. The viewfinder text, the
+  lesson and the module's key lesson say so.
+- **Slipping on the stairs was too easy.** Any 0.12 s of movement without SHIFT on the steps was an instant fall.
+  Now the first hurried step wobbles and warns ("hold SHIFT"). A fall takes hurrying over about 60% of the steps. A
+  trainee who slows down after the wobble gets 1 of 2 for that hazard.
+- **Zero safety at the end of each day:** the owner traced this to running red lights; not a bug.
+
 ### Frame rate on integrated graphics
 
 The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
