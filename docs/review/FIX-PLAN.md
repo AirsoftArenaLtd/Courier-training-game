@@ -359,5 +359,7 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     - `HANDOFF.md` is marked finished.
   - **Tests:** final full suite (`--shots`) on the finished build (code at 4d06caf): 28 of 28 clean.
   - **Removed:** `_baseline-pass2/` (the pre-fix snapshot). The last commit that has it is 3c9feb1.
-  - **Left for the owner's laptop:** `QA_GPU=default node test/qa.js --pass boot` (Intel fps, target at least 60)
-    and a full `node test/qa.js` on the RTX.
+  - **On the owner's laptop, 25 September:** `QA_GPU=default` and `QA_FPS_FLOOR=60` with
+    `node test/qa.js --pass boot`, on the Intel UHD Graphics. It passed 28 of 28, with every scenario at 131–145 fps.
+    The lowest were m6-load at 131 and m8-heat at 133. The Intel table in the QA report is filled in. A run on the
+    laptop's gaming GPU was dropped, since trainees use office computers.

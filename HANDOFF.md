@@ -3,10 +3,9 @@
 > **Update, 24 September 2026 (cloud session): pass 2 is finished.** WP0–WP9 are done. Every finding in
 > `docs/review/` has a Status line, and the FIX-PLAN Log has an entry for each package. The results are written up
 > in the "Second pass" section of `docs/QA-REPORT.md`. The work is on the branch `qa-pass2-fixes`. `_baseline-pass2/`
-> was deleted; the last commit that still has it is named in the WP9 Log entry. **What is left is only on the
-> owner's laptop:** `QA_GPU=default node test/qa.js --pass boot` for the Intel fps column of the report's
-> frame-rate table, and a full `node test/qa.js` on the RTX. The rest of this file is the plan as it was handed
-> over.
+> was deleted; the last commit that still has it is named in the WP9 Log entry. The Intel check was run on the owner's laptop on
+> 25 September (`QA_GPU=default`, 60 fps floor): 28 of 28, every scenario at 131–145 fps. Nothing is left open.
+> The rest of this file is the plan as it was handed over.
 
 Written 2026-09-24 at the end of a local session, for a cloud session to continue. Read this, then
 `docs/review/FIX-PLAN.md` (the working instructions), then start at **Next steps**.

@@ -10,7 +10,8 @@ Verification). What was not covered, and one thing worth doing next (frame rate 
 
 **Second pass:** 24 September 2026. A wider review by nine testers found 186 more issues. All of them are now
 marked fixed or decided, including the owner's two examples (walking out of the van, and prompts that needed a
-wiggle). The frame-rate work for integrated graphics is done but still has to be measured on the owner's laptop.
+wiggle). On the owner's laptop's Intel UHD graphics every scenario now runs at 131–145 fps (it was 45–72), against a target
+of 60.
 See [Second pass](#second-pass-24-september-2026).
 
 ---
@@ -677,21 +678,25 @@ Found while testing the fixes (in the WP8 log):
 The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
 then). The middle column is their A/B on the same laptop with multisampling off and the single-texture shader:
 the two renderer settings the build now uses (`src/main.js`). The shipped build also has the baked shapes, the
-merged overlays and the baked backdrops, which that A/B did not have. **The shipped build has not been measured on
-the Intel GPU:** there is no Intel GPU in the cloud environment these fixes were made in. Run
-`QA_GPU=default node test/qa.js --pass boot` on that laptop and fill in the last column.
+merged overlays and the baked backdrops, which that A/B did not have. The last column was measured on the owner's
+laptop on 25 September 2026: `QA_GPU=default` and `QA_FPS_FLOOR=60` with `node test/qa.js --pass boot`, on the Intel
+UHD Graphics (ANGLE/D3D11). It passed 28 of 28. Every scenario runs at 131–145 fps, against the target of 60. The
+headless browser's frame cadence tops out at about 144 there, so most scenes are at that ceiling. The requirement
+for integrated graphics is met.
 
 | Scene | Before (Intel, as shipped) | Renderer settings only (Intel, measured A/B) | Shipped build (Intel) |
 | --- | --- | --- | --- |
-| Conversation (m3-missing) | 48.8 | 65.4–68.5 | *to measure* |
-| Conversation, storm (m4-storm) | 46.1 | 66.1 | *to measure* |
-| Doorstep stop (m5-pod) | 48–55 | 76.5 | *to measure* |
-| Heat stop (m8-heat) | 45.0 | 58–64 | *to measure* |
-| Pre-trip (m1-pretrip) | 56.9 | 83.6 | *to measure* |
-| Driving drill (m1-driving) | 65.6 | 100.7 | *to measure* |
-| Route planner (m1-route) | 68.4 | 104.5 | *to measure* |
-| Sort / lift / labels | 72.4 / 69.0 / 67.4 | 111.9 / 99.2 / 100.7 | *to measure* |
-| Hub | 50.0 | 89.4 | *to measure* |
+| Conversation (m3-missing) | 48.8 | 65.4–68.5 | 144 |
+| Conversation, storm (m4-storm) | 46.1 | 66.1 | 144 |
+| Doorstep stop (m5-pod) | 48–55 | 76.5 | 143 |
+| Heat stop (m8-heat) | 45.0 | 58–64 | 133 |
+| Pre-trip (m1-pretrip) | 56.9 | 83.6 | 144 |
+| Driving drill (m1-driving) | 65.6 | 100.7 | 145 |
+| Route planner (m1-route) | 68.4 | 104.5 | 144 |
+| Sort / lift / labels | 72.4 / 69.0 / 67.4 | 111.9 / 99.2 / 100.7 | 144 / 145 / 145 |
+| Hub | 50.0 | 89.4 | not in the boot pass |
+| Loading (m6-load) | 70.9 | 96.0 | 131 |
+| Every other scenario | | | 138–145 |
 
 For a relative check that runs anywhere, the same scenes were measured in the cloud under software WebGL
 (SwiftShader, far slower than any real GPU) before and after WP0: conversation 8 → 26 fps, doorstep stop 8 → 21,
@@ -701,7 +706,8 @@ labels 13 → 30, business pickup 14 → 33.
 
 - **Final suite:** the full suite (`node test/qa.js --shots`) on the finished build: **28 of 28 clean** (24 scenarios and four flows, every golden path finishing with full marks).
   - It ran under software rendering, so the frame-rate floor was switched off (`QA_FPS_FLOOR=0`).
-  - The RTX and Intel runs are for the owner's laptop.
+  - The boot pass on the owner's laptop, on the Intel graphics (see above), is 28 of 28 at a 60 fps floor. A run on
+    the laptop's gaming GPU was not needed: trainees use office computers.
 - **Content validation:** `index.html?dev=1` is clean.
 - **Syntax:** `node --check` passes on all 97 source files.
 - **Golden-path changes:** the scripted playthroughs were updated where the UI changed:
@@ -748,8 +754,8 @@ checked, for whoever takes it further:
 - **Browsers and devices.** Tested in Chromium (Edge, headless, GPU-accelerated) at 1280×720 with a mouse and
   keyboard. Firefox, Safari, touch screens and gamepads were not tested. Frame rates were measured on this laptop's
   two GPUs (see Verification), not on other hardware.
-- **Frame rate on integrated graphics** (first pass; the second pass did the tuning and still needs measuring on
-  the Intel GPU, see Second pass) was measured but not tuned. On this laptop's Intel UHD the scenarios run at
+- **Frame rate on integrated graphics** was measured but not tuned in the first pass. The second pass tuned it:
+  131–145 fps on the Intel UHD (see Second pass). The first-pass note below is kept for the record. On this laptop's Intel UHD the scenarios run at
   41–76 fps: everything plays correctly, but below the suite's 100 fps floor, which is set for the discrete GPU. There
   is no one defect behind it (the per-frame waste found earlier is fixed). Each scene is layered 2D art: sky, far
   hills, the house, its front, props and three full-screen atmosphere overlays (tint, darkness, vignette), about seven
