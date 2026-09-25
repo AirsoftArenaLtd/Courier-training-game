@@ -357,6 +357,7 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
       (before, and the renderer settings' A/B; the shipped build's column is to be measured on the owner's laptop),
       what was decided against, and six before/after pairs in `docs/qa2/`.
     - `HANDOFF.md` is marked finished.
-  - **Tests:** final full suite (`--shots`) on the finished build: RESULT_FINAL.
+  - **Tests:** final full suite (`--shots`) on the finished build (code at 4d06caf): 28 of 28 clean.
+  - **Removed:** `_baseline-pass2/` (the pre-fix snapshot). The last commit that has it is 3c9feb1.
   - **Left for the owner's laptop:** `QA_GPU=default node test/qa.js --pass boot` (Intel fps, target at least 60)
     and a full `node test/qa.js` on the RTX.

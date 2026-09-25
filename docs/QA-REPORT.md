@@ -699,7 +699,7 @@ labels 13 → 30, business pickup 14 → 33.
 
 ### Tests
 
-- **Final suite:** the full suite (`node test/qa.js --shots`) on the finished build: RESULT_FINAL.
+- **Final suite:** the full suite (`node test/qa.js --shots`) on the finished build: **28 of 28 clean** (24 scenarios and four flows, every golden path finishing with full marks).
   - It ran under software rendering, so the frame-rate floor was switched off (`QA_FPS_FLOOR=0`).
   - The RTX and Intel runs are for the owner's laptop.
 - **Content validation:** `index.html?dev=1` is clean.
