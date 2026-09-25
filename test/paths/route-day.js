@@ -73,6 +73,14 @@ module.exports = async (page, ctx) => {
   let injected = false;
   for (let leg = 1; leg <= 5; leg++) {
     await waitScene('TownDriveScene', 20000);
+    // a card the drive opens with (the defects the pre-trip flagged, fixed by the shop) is read and rolled out of
+    if (await ctx.eval(`!!OTR.game.scene.getScene('TownDriveScene').incidentOpen`)) {
+      if (leg === 1 && !(await ctx.eval(`/Flagged, and fixed|Held at the gate/.test(OTR.game.scene.getScene('TownDriveScene').children.list.filter(o => o.depth === 5000).map(r => (r.list || []).map(b => (b.list || []).map(t => t.text || '').join(' ')).join(' ')).join(' '))`))) throw new Error('the drive opened with an unexpected card');
+      await wait(700);
+      await page.keyboard.press('Enter');
+      await ctx.until(`!OTR.game.scene.getScene('TownDriveScene').incidentOpen`, 3000);
+      await wait(300);
+    }
     if (leg === 2) {
       // Restart from the pause menu must keep the day's route (four stops left) and stay in the route day
       await pauseRestart('TownDriveScene');

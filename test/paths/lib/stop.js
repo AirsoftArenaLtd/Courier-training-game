@@ -33,7 +33,8 @@ function driver(page, ctx) {
       if (s.modals === 0 && s.locked === 0 && !s.once) return s;
       await wait(80);
     }
-    throw new Error('the stop never settled (locked or a modal stayed open)');
+    const s = await state();
+    throw new Error(`the stop never settled (locked or a modal stayed open): ${JSON.stringify({ modals: s && s.modals, locked: s && s.locked, once: s && s.once, talk: s && s.talk, x: s && Math.round(s.x), k: s && s.k })}`);
   };
 
   /**
