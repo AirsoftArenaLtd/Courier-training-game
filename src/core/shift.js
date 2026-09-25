@@ -395,6 +395,7 @@ OTR.shift = {
       log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 4), 4, 'Truck loaded in stop order', { lesson: firstLesson });
       log.check('safety', Math.round((result.ratios.safety || 0) * 3), 3, 'Load secured safely');
       st.log = log.toJSON();
+      st.loadMap = (result.stats && result.stats.placement) || null;     // the van shelves at each stop follow it
       st.clockMin += 22;
       this.save();
       this.setPhase(scene, 'route');

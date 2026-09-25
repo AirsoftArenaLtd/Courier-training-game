@@ -829,6 +829,8 @@ class StopScene extends BaseScenarioScene {
     if (this.sayText && this.sayText.active) { this.tweens.killTweensOf(this.sayText); this.sayText.destroy(); }
     // narrow enough to stay clear of the objectives panel on the left and the heat meters on the right
     const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 520 }).setScrollFactor(0).setDepth(950);
+    // on a dark backing, so it reads over a busy backdrop too (a lobby's name sign sits right behind it)
+    t.setBackgroundColor('rgba(22,6,43,0.72)').setPadding(16, 8, 16, 8);
     t.setAlpha(0).setScale(0.8);
     this.tweens.add({ targets: t, alpha: 1, scale: 1, duration: 180, ease: 'Back.out' });
     this.tweens.add({ targets: t, alpha: 0, y: 96, delay: 2200, duration: 400, onComplete: () => t.destroy() });
@@ -940,6 +942,7 @@ class StopScene extends BaseScenarioScene {
   /* ================================================================== shelves */
   shelfPackages() {
     if (this._shelf) return this._shelf;
+    if (this.shiftMode && OTR.shift && OTR.shift.state && OTR.shift.state.route) return (this._shelf = this.routeShelf());
     const d = this.def;
     const all = d.packages.map(p => Object.assign({ mine: true }, p)).concat((d.decoys || []).map(p => Object.assign({ mine: false }, p)));
     const R = OTR.scenery.rng(d.id + (this.set.title || ''));
@@ -948,6 +951,51 @@ class StopScene extends BaseScenarioScene {
     for (let i = slots.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
     this._shelf = all.map((p, i) => Object.assign(p, { slot: slots[i], onShelf: true }));
     return this._shelf;
+  }
+
+  /**
+   * A route day's van: the day's load, not a stop's own set of look-alike decoys. Every piece still on board is on
+   * the shelves, where it was loaded (rows by shelf height, columns by section; floor freight on the bottom row), so
+   * the van empties as the day goes and a piece that could not be delivered rides on. (Each stop used to fill the
+   * shelves with its own package and two made-up ones, so the van's contents changed at every stop.)
+   */
+  routeShelf() {
+    const st = OTR.shift.state;
+    const here = st.atStop != null ? st.atStop : st.stopIndex;
+    const map = st.loadMap || {};
+    const R = OTR.scenery.rng('van' + st.day + (st.seed || ''));
+    const spare = [];
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) spare.push({ r, c });
+    for (let i = spare.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [spare[i], spare[j]] = [spare[j], spare[i]]; }
+    const taken = {};
+    const free = (r, c) => !taken[r + ',' + c];
+    const place = (pref) => {
+      let slot = null;
+      if (pref) {
+        // the same row first, nearest column; then anywhere
+        const cols = [0, 1, 2, 3].sort((a, b) => Math.abs(a - pref.c) - Math.abs(b - pref.c));
+        const c = cols.find(k => free(pref.r, k));
+        if (c !== undefined) slot = { r: pref.r, c };
+      }
+      if (!slot) slot = spare.find(s => free(s.r, s.c));
+      taken[slot.r + ',' + slot.c] = true;
+      return slot;
+    };
+    const rowOf = { top: 0, mid: 1, bottom: 2, floor: 2 };
+    const colOf = (m) => (m.col === 'A' ? 0 : m.col === 'floor' || m.col === 'haz' ? 1 : 2) + (m.col === 'A' || m.col === 'B' || m.col === 'C' ? Math.min(1, m.k || 0) : 0);
+    const out = [];
+    st.route.forEach((entry, j) => {
+      const onBoard = j === here || !entry.done || (entry.result && entry.result.outcome === 'exception');
+      if (!onBoard) return;
+      const m = map[`s${j + 1}`];
+      const pref = m ? { r: rowOf[m.row] !== undefined ? rowOf[m.row] : 2, c: colOf(m) } : null;
+      const pkgs = j === here ? this.def.packages : entry.stop.packages;
+      pkgs.forEach((p, n) => {
+        const mine = j === here;
+        out.push(Object.assign({}, p, { id: mine ? p.id : `r${j}_${n}`, mine, slot: place(pref), onShelf: true }));
+      });
+    });
+    return out;
   }
 
   openShelves() {
@@ -1201,7 +1249,20 @@ class StopScene extends BaseScenarioScene {
   startTalk() {
     const ans = this.def.answer;
     const graph = this.def.talks && this.def.talks[ans.talk];
-    if (!graph || this.talkCtl || this.S.talked) return;          // one conversation, however E and the timer race
+    if (this.talkCtl || this.S.talked) return;                    // one conversation, however E and the timer race
+    // A route-day business has no scripted conversation: the receptionist greets you and signs on the handheld,
+    // the way a route-day resident does at the door. (E on "Talk to reception" used to do nothing at all.)
+    if (!graph) {
+      this.S.talked = true;
+      this.me.face(this.resident.x);
+      this.resident.face(this.me.x);
+      this.resident.setExpression('happy');
+      this.resident.emote('Hi! Is that for us?');
+      this.say(`${ans.name || 'Reception'} will sign for it. Use your handheld (TAB) to record the delivery.`, '#FFE3C8');
+      this.hh.setBadge(true);
+      this.refreshObjectives();
+      return;
+    }
     this.S.talked = true;
     this.stage.lock();
     this.hh.setTabVisible(false);

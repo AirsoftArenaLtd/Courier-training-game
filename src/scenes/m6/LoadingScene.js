@@ -564,7 +564,10 @@ class LoadingScene extends BaseScenarioScene {
     const ratios = this.log.ratios(this.cats);
     this.running = false;
     // the log ranks the mistakes; the scene's extra notes and key lessons follow
-    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, log: this.log, lessons: this.extraLessons.concat(this.content.keyLessons || []), stats: { log: this.log.toJSON() } }, 600);
+    // where each piece went, so a route day's van shelves at the stops show the load as it was packed
+    const placement = {};
+    this.slots.forEach(s => { if (s.pkg) placement[s.pkg.id] = { col: s.col, row: s.row, k: Number(String(s.id).split('-').pop()) || 0 }; });
+    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, log: this.log, lessons: this.extraLessons.concat(this.content.keyLessons || []), stats: { log: this.log.toJSON(), placement } }, 600);
   }
 
   update(time, delta) {
