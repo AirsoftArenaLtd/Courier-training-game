@@ -39,7 +39,8 @@ module.exports = async (page, ctx) => {
         await wait(300);
       }
       await wait(150);
-      if (!(await ctx.eval(`${S}._judge.pass.enabled`))) throw new Error(`${s.id} still cannot be judged after its test`);
+      // (the brake's press plays out for a few seconds before it can be judged: a failing pedal creeps down)
+      if (!(await ctx.until(`${S}._judge.pass.enabled`, 5000))) throw new Error(`${s.id} still cannot be judged after its test`);
       await clickText(page, 'PreTripScene', item.bad ? /^Flag defect/ : /^Pass/);
       await wait(450);
       if (!(await marked(s.id))) throw new Error(`the verdict on ${s.id} was not recorded`);

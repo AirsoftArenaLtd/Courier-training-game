@@ -249,6 +249,7 @@ class PreTripScene extends BaseScenarioScene {
     const canJudge = () => {
       if (needs === 'lights' && !this.lights) return false;
       if (needs === 'press' && !state.pressed) return false;
+      if (state.moving) return false;                  // the brake is judged once you have seen what it does
       if (needs === 'gauge' && !state.gauged) return false;
       return true;
     };
@@ -260,7 +261,8 @@ class PreTripScene extends BaseScenarioScene {
             : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : item.kind === 'door' ? 'Pull on the latch to test it.' : 'Pull the belt out and check the webbing.')
               : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread. Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
                 : needs === 'gauge' ? `${readNote()}  (Minimum: 4/32" front, 2/32" rear.)`
-                  : ''
+                  : item.kind === 'pedal' && state.moving ? 'Holding steady pressure: watch the pedal.'
+                    : ''
         );
       }
       if (actionBtn) actionBtn.setEnabled(!(needs === 'lights' && !this.lights));
@@ -282,7 +284,22 @@ class PreTripScene extends BaseScenarioScene {
           state.pressed = true;
           this.tested[item.id] = true;
           if (item.kind === 'horn') OTR.audio.play(bad ? 'click_dud' : 'horn');
-          else if (item.kind === 'pedal') OTR.audio.play('brake');
+          else if (item.kind === 'pedal') {
+            OTR.audio.play('brake');
+            // the press plays out: down to the firm point, then a failing pedal keeps creeping for a couple of seconds
+            state.moving = true;
+            state.drop = 0;
+            const end = bad ? 96 : 34;
+            const t0 = this.time.now;
+            const tick = this.time.addEvent({ delay: 80, loop: true, callback: () => {
+              if (!img || !img.active) { tick.remove(); return; }
+              const t = (this.time.now - t0) / 1000;
+              const firm = Math.min(34, 34 * t / 0.35);
+              state.drop = t < 0.35 ? firm : bad ? Math.min(end, 34 + (t - 0.35) * 26) : 34;
+              if (t > 3) { state.drop = end; state.moving = false; tick.remove(); }
+              refresh();
+            } });
+          }
           else if (item.kind === 'door') OTR.audio.play(bad ? 'door_open' : 'door_close');
           else OTR.audio.play('paper');
           refresh();
@@ -385,7 +402,15 @@ class PreTripScene extends BaseScenarioScene {
 
   report(caught, missed, falseFlags) {
     const s = this;
-    const w = 820, h = 560;
+    const w = 820;
+    // as tall as its rows, up to 560 (a short report left half the card empty)
+    const measure = (str, size, wrap) => { const t = OTR.txt(this, 0, 0, str, size, '#000', { ox: 0, oy: 0, bold: false, wrap }); const th = t.height; t.destroy(); return th; };
+    let rowsH = 0;
+    missed.forEach(it => { rowsH += measure(`${it.name}: ${it.defect}`, 15, w - 120) + 10 + measure('↳ ' + it.consequence, 13, w - 140) + 8; });
+    falseFlags.forEach(it => { rowsH += measure(`${it.name} was fine: ${it.ok}`, 15, w - 120) + 10; });
+    caught.forEach(it => { rowsH += measure(`${it.name}: ${it.defect} — caught.`, 15, w - 120) + 10; });
+    if (!missed.length && !falseFlags.length && !caught.length) rowsH = 40;
+    const h = Math.min(560, Math.max(320, 108 + rowsH + 24 + 90));
     OTR.ui.modal(this, {
       w, h, depth: 5000,
       build: (box, api) => {

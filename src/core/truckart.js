@@ -336,7 +336,7 @@ OTR.truckArt = {
   /** kind-specific close-up. o: { bad, seed, lights, pressed } */
   closeup(scene, kind, o) {
     o = o || {};
-    const key = `tc_${kind}_${o.bad ? 1 : 0}_${o.seed || 0}_${o.lights ? 1 : 0}_${o.pressed ? 1 : 0}_${o.gauged ? 1 : 0}_${o.variant || ''}_${o.reading || ''}`;
+    const key = `tc_${kind}_${o.bad ? 1 : 0}_${o.seed || 0}_${o.lights ? 1 : 0}_${o.pressed ? 1 : 0}_${o.gauged ? 1 : 0}_${o.variant || ''}_${o.reading || ''}_${o.drop !== undefined ? Math.round(o.drop) : ''}`;
     const W = 520, H = 330;
     return OTR.tex.make(scene, key, W, H, (ctx) => {
       const cv = OTR.cv;
@@ -377,12 +377,17 @@ OTR.truckArt = {
         cv.rr(ctx, bx + span * 0.66, H / 2 - 14, span * 0.3, 28, 3); ctx.fill();
       }
     }
+    // the sidewall along the top of the picture, on every tire (only the faulty one used to have it, and its gouge
+    // was a few pixels across)
+    ctx.fillStyle = '#35313D'; ctx.fillRect(30, 6, W - 60, 32);
+    ctx.fillStyle = 'rgba(255,255,255,0.05)'; ctx.fillRect(30, 6, W - 60, 5);
     if (o.bad && o.variant === 'gouge') {
-      // a gouge in the sidewall band along the top of the picture; the tread itself is fine
-      ctx.fillStyle = '#35313D'; ctx.fillRect(30, 24, W - 60, 22);
-      ctx.strokeStyle = '#1A171F'; ctx.lineWidth = 7; ctx.lineCap = 'round';
-      ctx.beginPath(); ctx.moveTo(150, 30); ctx.lineTo(210, 40); ctx.lineTo(250, 32); ctx.stroke();
-      ctx.strokeStyle = 'rgba(200,190,210,0.35)'; ctx.lineWidth = 2; ctx.stroke();
+      // a gash through the sidewall with the cords showing in it; the tread itself is fine
+      ctx.fillStyle = '#0E0C12';
+      ctx.beginPath(); ctx.moveTo(140, 22); ctx.lineTo(175, 10); ctx.lineTo(215, 16); ctx.lineTo(260, 8); ctx.lineTo(300, 20);
+      ctx.lineTo(262, 32); ctx.lineTo(214, 28); ctx.lineTo(172, 34); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = 'rgba(210,200,170,0.75)'; ctx.lineWidth = 2;
+      for (let k = 0; k < 7; k++) { const x = 165 + k * 18; ctx.beginPath(); ctx.moveTo(x, 15 + (k % 2) * 3); ctx.lineTo(x + 8, 29 - (k % 2) * 2); ctx.stroke(); }
     }
     if (o.gauged && o.reading) {
       // the gauge reports a number, nothing more: the trainee knows the limit (it used to say "out of service")
@@ -481,14 +486,30 @@ OTR.truckArt = {
   },
 
   close_wiper(ctx, W, H, o) {
-    ctx.fillStyle = '#7FA8C8'; ctx.fillRect(0, H * 0.55, W, H * 0.45);
-    ctx.strokeStyle = '#2A2830'; ctx.lineWidth = 16; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(70, H * 0.72); ctx.lineTo(W - 70, H * 0.48); ctx.stroke();
-    if (o.bad) {
-      ctx.strokeStyle = '#8A6A4A'; ctx.lineWidth = 7;
-      ctx.beginPath(); ctx.moveTo(180, H * 0.655); ctx.lineTo(330, H * 0.565); ctx.stroke();
-      ctx.strokeStyle = 'rgba(200,190,180,0.6)'; ctx.lineWidth = 3;
-      for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(200 + i * 30, H * 0.58); ctx.lineTo(210 + i * 30, H * 0.50); ctx.stroke(); }
+    // the windshield, the blade's metal frame, and its rubber edge along the glass
+    ctx.fillStyle = '#7FA8C8'; ctx.fillRect(0, H * 0.45, W, H * 0.55);
+    const x0 = 70, y0 = H * 0.78, x1 = W - 70, y1 = H * 0.50;
+    const at = (t) => ({ x: x0 + (x1 - x0) * t, y: y0 + (y1 - y0) * t });
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#3A3844'; ctx.lineWidth = 14;
+    ctx.beginPath(); ctx.moveTo(x0, y0 - 12); ctx.lineTo(x1, y1 - 12); ctx.stroke();
+    ctx.strokeStyle = '#141218'; ctx.lineWidth = 8;
+    if (!o.bad) {
+      // one clean, even rubber edge the whole length
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+    } else {
+      // perished rubber: the edge has split away from the blade in the middle and hangs off it in a cracked,
+      // curling strip, with a bare gap on the frame (it was a thin brown line, too faint to see)
+      const a = at(0.3), b = at(0.62);
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(a.x, a.y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(b.x, b.y); ctx.lineTo(x1, y1); ctx.stroke();
+      ctx.strokeStyle = '#1E1B22'; ctx.lineWidth = 7;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.bezierCurveTo(a.x + 40, a.y + 44, b.x - 70, b.y + 70, b.x - 20, b.y + 48); ctx.stroke();
+      ctx.strokeStyle = '#9A94A8'; ctx.lineWidth = 2;
+      for (let i = 1; i < 8; i++) {
+        const t = i / 8, px = a.x + (b.x - 20 - a.x) * t, py = a.y + (b.y + 48 - a.y) * t + Math.sin(t * Math.PI) * 34;
+        ctx.beginPath(); ctx.moveTo(px - 3, py - 5); ctx.lineTo(px + 3, py + 5); ctx.stroke();
+      }
     }
   },
 
@@ -512,7 +533,10 @@ OTR.truckArt = {
   close_pedal(ctx, W, H, o) {
     const cv = OTR.cv;
     ctx.fillStyle = '#2A2830'; ctx.fillRect(0, 0, W, H);
-    const drop = o.pressed ? (o.bad ? 78 : 34) : 0;
+    // o.drop is the pedal's travel as the press plays out: a good pedal stops firm at the first mark and stays there,
+    // a failing one keeps creeping down past it while the pressure is held (it used to jump to a lower spot with
+    // nothing to compare it to, so "sinks slowly" could not be seen)
+    const drop = o.drop !== undefined ? o.drop : o.pressed ? (o.bad ? 96 : 34) : 0;
     cv.rr(ctx, 150, 90 + drop, 150, 120, 12); ctx.fillStyle = '#1C1A24'; ctx.fill();
     ctx.fillStyle = '#3A3844';
     for (let y = 0; y < 5; y++) ctx.fillRect(160, 100 + drop + y * 22, 130, 8);
@@ -600,15 +624,22 @@ OTR.truckArt = {
     ctx.fillStyle = '#39353F'; ctx.fillRect(0, 0, W, H);
     [0, 1].forEach(i => {
       cv.rr(ctx, 120 + i * 30, 110 + i * 90, 260, 40, 6);
-      ctx.fillStyle = o.bad && i === 0 ? '#6A5A4A' : '#4A4652'; ctx.fill();
+      ctx.fillStyle = '#4A4652'; ctx.fill();
       ctx.fillStyle = '#6A6878';
       for (let k = 0; k < 8; k++) ctx.fillRect(134 + i * 30 + k * 30, 120 + i * 90, 14, 6);
     });
     if (o.bad) {
-      ctx.fillStyle = 'rgba(150,120,70,0.65)';
-      ctx.beginPath(); ctx.ellipse(250, 130, 90, 18, 0, 0, Math.PI * 2); ctx.fill();
-      ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.moveTo(170, 126); ctx.lineTo(330, 138); ctx.stroke();
+      // a greasy film on the BOTTOM step, as the defect says (it was a faint tint on the top one): a dark glossy
+      // smear over the grip studs, with a shine on it and a drip over the edge
+      const bx = 150, by = 200;
+      ctx.fillStyle = 'rgba(40,30,20,0.72)';
+      ctx.beginPath(); ctx.ellipse(bx + 130, by + 16, 120, 17, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'rgba(40,30,20,0.72)';
+      ctx.beginPath(); ctx.moveTo(bx + 150, by + 38); ctx.quadraticCurveTo(bx + 158, by + 62, bx + 152, by + 70); ctx.quadraticCurveTo(bx + 146, by + 62, bx + 150, by + 38); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(bx + 40, by + 12); ctx.quadraticCurveTo(bx + 130, by + 4, bx + 220, by + 14); ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(bx + 70, by + 24); ctx.quadraticCurveTo(bx + 140, by + 20, bx + 190, by + 26); ctx.stroke();
     }
   },
 

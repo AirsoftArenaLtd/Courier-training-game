@@ -681,6 +681,16 @@ Found by the owner playing a route day on 25 September, and fixed:
   Now the receptionist greets you, and the delivery is recorded on the handheld.
 - **Stop messages were hard to read over busy backdrops,** such as the lobby's name sign. They now have a dark
   backing.
+- **Messages vanished before they could be read** (the receptionist's two-line instruction was up for 2.2 s). Every
+  message and pop-up now stays up for a second plus about a second per 18 characters.
+- **The pre-trip marked a correct Pass wrong on two items whose close-ups didn't show the fault:**
+  - The brake now plays out when pressed. A good pedal stops firm at the first mark; a failing one keeps creeping
+    toward the floor past the marks. Pass and Flag unlock once it has settled.
+  - The perished wiper rubber now visibly hangs off the blade.
+  - On review of all 21 close-ups, two more were too subtle. The rear tire's sidewall gouge is now a real gash (and
+    every tire shows its sidewall, so the band itself is no longer a giveaway). The greasy film is now on the bottom
+    step, as the defect says; it was drawn faintly on the top one.
+  - The report card is sized to its rows.
 
 Then, on review, three items that had been listed as decided against, or left partly done, were fixed as well:
 - **Sitting in the van cooled the courier without the AC.** In the heat stop, the parked van now only stops the
