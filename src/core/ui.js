@@ -325,6 +325,8 @@ OTR.ui = {
    */
   toast(scene, text, o) {
     o = o || {};
+    // never shorter than it takes to read
+    o = Object.assign({}, o, { hold: Math.max(o.hold || 2200, OTR.ui.readTime(text)) });
     if (scene._toast && scene._toast.active) scene._toast.destroy();
     const low = (o.y || 0) > OTR.H / 2;
     const c = scene.add.container(OTR.W / 2, low ? OTR.H + 50 : -50).setDepth(o.depth || 6000).setScrollFactor(0);
@@ -341,6 +343,11 @@ OTR.ui = {
     scene.tweens.add({ targets: c, y: o.y || 96, duration: 300, ease: 'Back.out' });
     scene.tweens.add({ targets: c, y: low ? OTR.H + 60 : -60, delay: o.hold || 2200, duration: 260, ease: 'Cubic.in', onComplete: () => c.destroy() });
     return c;
+  },
+
+  /** How long a message stays up: a second, plus about a second for every 18 characters (2.2 s at the least). */
+  readTime(text) {
+    return Math.min(9000, Math.max(2200, 1000 + String(text || '').length * 55));
   },
 
   /** Little keyboard key-cap label. */

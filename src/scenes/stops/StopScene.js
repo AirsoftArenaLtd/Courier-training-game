@@ -839,7 +839,8 @@ class StopScene extends BaseScenarioScene {
     t.setBackgroundColor('rgba(22,6,43,0.72)').setPadding(16, 8, 16, 8);
     t.setAlpha(0).setScale(0.8);
     this.tweens.add({ targets: t, alpha: 1, scale: 1, duration: 180, ease: 'Back.out' });
-    this.tweens.add({ targets: t, alpha: 0, y: 96, delay: 2200, duration: 400, onComplete: () => t.destroy() });
+    // up long enough to read (it was a fixed 2.2 s, gone before a two-line instruction could be read)
+    this.tweens.add({ targets: t, alpha: 0, y: 96, delay: OTR.ui.readTime(text), duration: 400, onComplete: () => t.destroy() });
   }
 
   stopBrief(onGo) {

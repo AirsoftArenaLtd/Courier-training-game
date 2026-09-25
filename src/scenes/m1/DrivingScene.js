@@ -90,7 +90,7 @@ class DrivingScene extends TownDriveScene {
     this.hazardPill.setVisible(true).setScale(0.9);
     this.tweens.add({ targets: this.hazardPill, scale: 1, duration: 180, ease: 'Back.easeOut' });
     if (this.warnTimer) this.warnTimer.remove();
-    this.warnTimer = this.time.delayedCall(3200, () => this.hazardPill.setVisible(false));
+    this.warnTimer = this.time.delayedCall(Math.max(3200, OTR.ui.readTime(text)), () => this.hazardPill.setVisible(false));
   }
 
   openIntro() {

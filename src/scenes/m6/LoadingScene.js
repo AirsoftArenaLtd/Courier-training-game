@@ -366,7 +366,9 @@ class LoadingScene extends BaseScenarioScene {
     const t = OTR.txt(this, 0, 0, text, 15, '#000', { bold: false });
     const half = t.width / 2 + 12;
     t.destroy();
-    OTR.fx.floatText(this, OTR.util.clamp(x, half, 912 - half), y, text, color, { size: 15, rise: 30, hold: 1300 });
+    // one at a time: now that they stay up long enough to read, a quick second drop would print over the first
+    if (this._float && this._float.active) { this.tweens.killTweensOf(this._float); this._float.destroy(); }
+    this._float = OTR.fx.floatText(this, OTR.util.clamp(x, half, 912 - half), y, text, color, { size: 15, rise: 30, hold: OTR.ui.readTime(text) });
   }
 
   /**
