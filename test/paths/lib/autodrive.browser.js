@@ -281,6 +281,8 @@ window.QA_AUTODRIVE = (function () {
         // line at the marker), so a change to amber on the way in is still handled
         if (!mustStop) { if (dm < -12) m.cleared = true; continue; }
         vt = Math.min(vt, Math.sqrt(2 * A * Math.max(0, dm - 24)));
+        // one continuous stop: two short ones (stopping short, then creeping up) used to add up to a "stop"
+        if (!V.stopped(v)) bot.waitT = 0;
         if (dm < 44 && V.stopped(v)) {
           bot.waitT += dt;
           if (!light && bot.waitT > 0.9) { m.cleared = true; bot.waitT = 0; }   // the game counts a stop after 0.5 s still
