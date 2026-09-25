@@ -1101,13 +1101,21 @@ class TownDriveScene extends Phaser.Scene {
       }
       const a = this.approach;
       a.dist = ap.dist;
-      if (V.stopped(v) && ap.dist < A.STOP_LINE + 92) a.stopped = true;
+      // A stop is the wheels still for half a second, the nose behind the line and no further back than about two
+      // car lengths (a queue). It used to be any instant under half a mph within 92 px of the line, and a stop
+      // further back (behind another car) was never recognised, so the sign never answered.
+      const behind = ap.dist >= A.STOP_LINE - 8;
+      if (V.stopped(v) && behind && ap.dist < A.STOP_LINE + 170) {
+        a.stillT = (a.stillT || 0) + dt;
+        if (a.stillT >= 0.5) a.stopped = true;
+      } else if (!V.stopped(v)) a.stillT = 0;
       // the front bumper crossing the stop line is the moment the law cares about
-      if (!a.crossed && ap.dist < A.STOP_LINE) { a.crossed = true; this.judgeEntry(a, mph); }
+      if (!a.crossed && ap.dist < A.STOP_LINE) { a.crossed = true; this.judgeEntry(a, mph, false); }
       if (a.it.stop) {
         // only before the line: after a rolling stop it used to turn green next to the red "rolled through" toast
-        if (a.stopped && !a.crossed) { this.setHint('Stopped — clear to go', 0x2BC48A); if (a.sign) a.sign.setTint(0x9BF5C0); }
-        else if (ap.dist < 220 && !a.crossed) { this.setHint('STOP SIGN AHEAD — full stop at the line', 0xF0435A); if (a.sign) a.sign.clearTint(); }
+        if (a.stopped && !a.crossed) { this.setHint('Stopped — look both ways, then go', 0x2BC48A); if (a.sign) a.sign.setTint(0x9BF5C0); }
+        else if (!a.crossed && V.stopped(v) && behind && ap.dist < A.STOP_LINE + 170) { this.setHint('Hold the stop…', 0xFFC83D); if (a.sign) a.sign.clearTint(); }
+        else if (ap.dist < 280 && !a.crossed) { this.setHint('STOP SIGN AHEAD — full stop behind the line', 0xF0435A); if (a.sign) a.sign.clearTint(); }
         else this.setHint(schoolHint, 0xFFC83D);
       } else if (ap.dist < 240) {
         const st = this.lightFor(a.it, a.dir === 'W' || a.dir === 'E');
@@ -1121,7 +1129,7 @@ class TownDriveScene extends Phaser.Scene {
       const inside = Math.abs(v.x - a2.it.x) < R + 6 && Math.abs(v.y - a2.it.y) < R + 6;
       if (inside && !a2.entered) {
         a2.entered = true;
-        this.judgeEntry(a2, mph);
+        this.judgeEntry(a2, mph, true);
       }
       const far = Math.abs(v.x - a2.it.x) > R + 230 || Math.abs(v.y - a2.it.y) > R + 230;
       if (a2.entered && !inside && far) {
@@ -1165,18 +1173,20 @@ class TownDriveScene extends Phaser.Scene {
    * the light does next. Creeping over the line on red (or before stopping at a sign) is not yet running it, but
    * carrying on into the junction is.
    */
-  judgeEntry(a, mph) {
+  judgeEntry(a, mph, atBox) {
     if (a.judged) return;
     if (a.it.stop) {
       if (a.stopped) { a.judged = true; return; }
-      if (mph > 3) {
+      // over the line at more than a crawl, or into the junction without ever having stopped behind the line (it
+      // used to take over 3 mph to count, so a slow roll through passed)
+      if (mph > 1 || atBox) {
         a.judged = true;
-        this.violation('rolling', 'Rolled through a stop sign', 'safety', 2, 'A stop means wheels stopped behind the line, then look both ways. Rolling stops are the classic delivery-driver citation.');
+        this.violation('rolling', mph > 1 ? 'Rolled through a stop sign' : 'Went through a stop sign without stopping behind the line', 'safety', 2, 'A stop means wheels stopped behind the line for a moment, then look both ways. Rolling stops are the classic delivery-driver citation.');
       }
       return;
     }
     if (this.lightFor(a.it, a.dir === 'W' || a.dir === 'E') !== 'red') { a.judged = true; return; }
-    if (mph > 3) {
+    if (mph > 1.5 || (atBox && mph > 0.5)) {
       a.judged = true;
       this.violation('redlight', 'Ran a red light', 'safety', 4, 'Red means stop, even when you are behind schedule. Intersection crashes are the worst ones.');
     }
