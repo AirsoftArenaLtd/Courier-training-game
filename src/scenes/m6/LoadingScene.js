@@ -119,20 +119,32 @@ class LoadingScene extends BaseScenarioScene {
       } else {
         OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 16, x: 4, y: 22, color: p.hazmat ? 0xD8C9A8 : 0xC99A62 });
       }
-      // the label, as wide as the face allows and in type as large as fits (it used to be ~6 px on the shelves, so
-      // Ct and Ln could not be told apart); the hover card shows the whole label
-      const ly = p.size === 'env' ? 16 : 34;
-      const lw = dims[0] - 16;
-      cv.rr(ctx, 10, ly, lw, 22, 2); ctx.fillStyle = '#fff'; ctx.fill();
+      // The label, as wide as the face allows, on two lines: the number (and unit) over the street, in type as large
+      // as fits. On one line it shrank to about 6 px on a small box at shelf scale, so Ct and Ln, #3B and #3D could
+      // not be told apart; the hover card still shows the whole label.
+      const env = p.size === 'env', small = p.size === 's';
+      const ly = env ? 13 : small ? 27 : 30;
+      const lw = dims[0] - 12;
+      const lh = env ? 20 : small ? 34 : 38;
+      cv.rr(ctx, 8, ly, lw, lh, 2); ctx.fillStyle = '#fff'; ctx.fill();
       ctx.fillStyle = '#1D1030'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-      cv.fitText(ctx, `${p.number} ${p.street || ''}${p.unit ? ' #' + p.unit : ''}`, 14, ly + 11, lw - 8, 17);
-      // weight tag
+      const num = `${p.number}${p.unit ? ' #' + p.unit : ''}`;
+      if (env) cv.fitText(ctx, `${num} ${p.street || ''}`, 12, ly + 10, lw - 8, 15);
+      else {
+        cv.fitText(ctx, num, 12, ly + (small ? 10 : 11), lw - 8, small ? 16 : 18);
+        cv.fitText(ctx, p.street || '', 12, ly + (small ? 25 : 28), lw - 8, small ? 14 : 16);
+      }
+      // weight tag under the label
       const heavy = p.weight >= 35;
-      cv.rr(ctx, 12, ly + 26, 48, 18, 3); ctx.fillStyle = heavy ? '#E8304A' : '#3A2A50'; ctx.fill();
-      ctx.fillStyle = '#fff'; ctx.font = '900 11px "Segoe UI", Arial';
-      ctx.fillText(`${p.weight} LB`, 17, ly + 35);
-      if (p.fragile) OTR.draw.mark(ctx, 'fragile', dims[0] - 6, ly + 30, 15);
-      if (p.hazmat) OTR.draw.mark(ctx, (p.marks && p.marks[0]) || 'class3', dims[0] - 4, ly + 28, 18);
+      if (!env) {
+        const wy = ly + lh + (small ? 2 : 4), th = small ? 13 : 16;
+        cv.rr(ctx, 10, wy, small ? 40 : 46, th, 3); ctx.fillStyle = heavy ? '#E8304A' : '#3A2A50'; ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = `900 ${small ? 10 : 11}px "Segoe UI", Arial`; ctx.textAlign = 'left';
+        ctx.fillText(`${p.weight} LB`, 13, wy + th / 2 + 0.5);
+      }
+      const markY = ly + lh + (small ? 8 : 10);
+      if (p.fragile) OTR.draw.mark(ctx, 'fragile', dims[0] - 6, markY, 15);
+      if (p.hazmat) OTR.draw.mark(ctx, (p.marks && p.marks[0]) || 'class3', dims[0] - 4, markY - 2, 18);
       // the stop badge helps while loading; finding a package has to be done by reading its address (the badge
       // used to answer the rounds without it)
       if (this.mode === 'load') {

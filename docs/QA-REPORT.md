@@ -682,6 +682,19 @@ Found by the owner playing a route day on 25 September, and fixed:
 - **Stop messages were hard to read over busy backdrops,** such as the lobby's name sign. They now have a dark
   backing.
 
+Then, on review, three items that had been listed as decided against, or left partly done, were fixed as well:
+- **Sitting in the van cooled the courier without the AC.** In the heat stop, the parked van now only stops the
+  courier heating up. The AC is what brings the temperature down, and a hint points to it.
+- **Labels on the smallest loading-shelf boxes were too small to read.** Every box label is now two lines: the
+  number and unit over the street, in larger type.
+- **Two conversations mentioned things the stage didn't show.**
+  - In Damaged on Arrival, the courier now lifts a visibly crushed, dripping box, and the recommended answer is to
+    set it down. Before, the courier stood holding the leaking box while the right answer said not to touch it.
+  - In Two Stops, the three boxes are carried in as a stack, not on an unseen hand truck.
+
+The automated route-day test now fails if "Talk to reception" does nothing, or if the van shelves don't hold the
+load that is still on board.
+
 ### Frame rate on integrated graphics
 
 The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
@@ -731,10 +744,6 @@ labels 13 → 30, business pickup 14 → 33.
 
 - **Several named profiles per browser, and a printable training record** (SHELL-14). One profile per browser
   remains. New Profile says whose progress it erases and asks first, and a failed save is now visible.
-- **Standing in the van still cools the courier without the AC** (STOPS-M8-21). This is a design choice; the AC
-  cools faster.
-- **On the smallest boxes the shelf label is still small at shelf scale** (WAREHOUSE-18). Hovering shows the full
-  label, and so does the keyboard highlight.
 - **Which vehicle the couriers drive.** The pre-trip now has a hydraulic-brake step van's oil pressure gauge. This
   is one entry in `data/m1_pretrip.js` and is worth confirming.
 

@@ -337,8 +337,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   (drop the weight chip on small boxes, abbreviate nothing).
 - **Status:** fixed — the on-box label runs almost the full width of the face in type up to 17 px (it was 66 % wide
   and 13 px, so about 6 px on the shelves), and both intros say "Hover a package to read its full label" (the keyboard
-  highlight shows the same card). Not changed: on the smallest boxes the label is still small at shelf scale; the
-  hover card is the way to read those.
+  highlight shows the same card). The smallest boxes were still hard to read at shelf scale, so (after the
+  owner's play test on 25 September) every label is two lines, the number and unit over the street, in larger type;
+  "Ct" / "Ln" and "#3B" / "#3D" read at a glance on every box size.
 
 ### WAREHOUSE-19: Find It Fast: the "stuck" hints call a correctly loaded package a misload and point to the wrong place
 - **Severity:** minor

@@ -154,6 +154,12 @@ function driver(page, ctx) {
 
   /** The stop's own packages, taken off the shelves by mouse. */
   const pullPackages = async () => {
+    // on a route day the van holds the day's load: every piece still on board, this stop's among them (each stop
+    // used to invent its own three packages)
+    const van = await ev(`(() => { const s = ${S}; if (!s.shiftMode) return null; const st = OTR.shift.state;
+      const want = st.route.filter((r, j) => j === st.atStop || !r.done || (r.result && r.result.outcome === 'exception')).reduce((n, r) => n + r.stop.packages.length, 0);
+      return { want, have: s.shelfPackages().length, mine: s.shelfPackages().filter(p => p.mine).length }; })()`);
+    if (van && (van.have !== van.want || van.mine < 1)) throw new Error(`the van shelves hold ${van.have} pieces (${van.mine} for this stop); the load still on board is ${van.want}`);
     await use(/^Search the shelves$/);
     await wait(500);
     const boxes = await ev(`(() => { const s = ${S}; const dims = { s: [70, 50], m: [100, 72], l: [130, 96], env: [96, 20] };
@@ -248,7 +254,14 @@ function driver(page, ctx) {
         await use(/^Go inside$/);
         await ctx.until(`${S}.inInterior === true`, 5000);
         await settle();
-        if (d.answer) { await use(/^Talk to reception$/); await wait(400); await settle(); }
+        if (d.answer) {
+          await use(/^Talk to reception$/);
+          await wait(400);
+          // it has to do something: a conversation, or on a route day the receptionist's greeting (E on it used to do
+          // nothing there, and this path pressed it without noticing)
+          if (!(await ev(`!!(${S}.S.talked || ${S}.talkCtl)`))) throw new Error('"Talk to reception" did nothing');
+          await settle();
+        }
       } else {
         await use(/^Try the door$/);
         await wait(1400);

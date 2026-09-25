@@ -409,8 +409,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   the gate); "Open the gate" is gone once the owner is out; stop messages wrap at 520 px so they stay clear of the
   objectives panel and the heat meters; the dg3 quiz is fixed (STOPS-M8-17); a fall while carrying is now a critical
   report line ("Fell on … carrying a package"); "Jump up in one move" only mentions carrying when something is
-  carried. Not changed: standing in the van still cools the courier without the AC (a design choice; the AC cools
-  faster).
+  carried. The van no longer cools the courier by itself (changed after the owner's play test on 25 September): out
+  of the sun, body heat holds steady there, only the AC brings it down, and a hint points to the AC when the courier
+  is hot in the van.
 
 ## Revisit
 

@@ -435,8 +435,8 @@ OTR_DATA.dialogues.m3_twostops = {
   start: 'n0',
   nodes: {
     n0: {
-      speaker: 'narrator', hold: 'box',
-      text: 'Stop 1 of 2: Brightline Design Studio, 11:50 AM. Three boxes on your hand truck. The lobby is buzzing and the receptionist is on a call.',
+      speaker: 'narrator', hold: 'stack',
+      text: 'Stop 1 of 2: Brightline Design Studio, 11:50 AM. Three boxes for them, stacked in your arms. The lobby is buzzing and the receptionist is on a call.',
       next: 'n1'
     },
     n1: {
@@ -451,7 +451,7 @@ OTR_DATA.dialogues.m3_twostops = {
         },
         {
           text: 'Stack the boxes on the desk and start scanning while Morgan is still talking.',
-          grade: 'bad', effects: { service: -2, mood: -1 },
+          grade: 'bad', effects: { service: -2, mood: -1 }, act: 'hold', arg: null,
           feedback: 'Dropping freight on someone\'s desk mid-call is disruptive. Wait for a pause, then ask where they want it.',
           lesson: 'At business stops, wait for staff to be ready — don\'t interrupt calls or pile freight on desks.',
           next: 'n2'
@@ -502,7 +502,7 @@ OTR_DATA.dialogues.m3_twostops = {
       ]
     },
     n4: {
-      speaker: 'narrator', setting: 'porch_dog', hide: true,
+      speaker: 'narrator', setting: 'porch_dog', hide: true, hold: 'box',
       text: 'Stop 2 of 2: a house on Birch Lane. The front gate is open. You\'re halfway up the path when…',
       next: 'n5'
     },

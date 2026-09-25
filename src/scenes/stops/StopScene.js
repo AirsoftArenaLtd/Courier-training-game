@@ -663,7 +663,12 @@ class StopScene extends BaseScenarioScene {
     const moving = this.me.moving;
     const carrying = this.S.carrying.length > 0;
     const k = H.intensity || 1;
-    if (this.S.inVan) { h.temp -= 2.2 * dt; h.hyd -= 0.08 * dt; }
+    // A parked van in the heat is out of the sun but not cool: body heat holds steady there, and the AC is what
+    // brings it down (sitting in the van used to cool the courier faster than anything else, AC or not).
+    if (this.S.inVan) {
+      h.hyd -= 0.1 * dt;
+      if (h.temp > 50 && !this._acHint) { this._acHint = true; this.say('Still hot in here. The AC is at the back of the doorway (E).', '#8FD3FF'); }
+    }
     else if (this.inInterior) { h.temp -= 1.4 * dt; h.hyd -= 0.1 * dt; }
     else if (this.inShade()) { h.temp -= 0.9 * dt; h.hyd -= 0.15 * dt; }
     else {

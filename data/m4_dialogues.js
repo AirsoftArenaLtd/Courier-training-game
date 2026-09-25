@@ -186,25 +186,26 @@ OTR_DATA.dialogues.m4_damaged = {
   start: 'n0',
   nodes: {
     n0: {
-      // the crushed box in the courier's hands (the ground is under the caption box); set down when they step back
-      speaker: 'narrator', shake: true, hold: 'box',
-      text: 'You roll up the cargo door at your next stop. The box you need is crushed at one corner… and a wet stain is spreading under it. There\'s a sharp chemical smell.',
+      // The courier has just lifted the box, and it drips (a box on the van floor or the ground would sit under the
+      // caption box): the narration says what the stage shows. Set down when the answer says to.
+      speaker: 'narrator', shake: true, hold: 'leakbox',
+      text: 'At your next stop you lift the box you need off the shelf. It\'s crushed at one corner, and liquid is dripping from underneath it. There\'s a sharp chemical smell.',
       choices: [
         {
-          text: 'Don\'t touch the leak. Step back, keep it apart from other packages, and report it.',
+          text: 'Set it down, hands off the wet side. Step back, keep it away from other packages, and report it.',
           grade: 'good', effects: { safety: 3 }, act: 'hold', arg: null,
           feedback: 'Exactly. You don\'t know what that liquid is. Distance, separation and reporting keep you — and everyone downstream — safe.',
           next: 'n2'
         },
         {
-          text: 'Pick it up and open it, so you can tell dispatch exactly what\'s leaking and how bad it is.',
+          text: 'Open it right here, so you can tell dispatch exactly what\'s leaking and how bad it is.',
           grade: 'bad', effects: { safety: -3 }, critical: true,
           feedback: 'Unknown liquids can be hazardous. Never open, sniff, or handle a leaking package with bare hands.',
           lesson: 'Never open, sniff or handle a leaking package — isolate it and report it.',
           next: 'n1_bad'
         },
         {
-          text: 'Wipe it off with a rag, flip it so the stain doesn\'t show, and deliver it.',
+          text: 'Wipe it dry with a rag, turn the wet side to the back, and deliver it.',
           grade: 'bad', effects: { safety: -3, service: -2 }, critical: true,
           feedback: 'Hiding damage puts the customer at risk and destroys trust. Leaking packages don\'t get delivered.',
           lesson: 'Never hide damage or deliver a leaking package.',

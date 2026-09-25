@@ -77,9 +77,11 @@ Play tool on port 9303; screenshots in `test/out/review/dialogue/`.
   m3-missing the courier and Dana walk round the side of the house and come back with her box, and Dana storms off
   when the narration says so; m3-signature's porch has the big planter, and leaving the package there is shown; in
   m4-address the courier walks up to the house to knock; m4-damaged keeps Mr. Bennett on stage for the line about the
-  liquid on his hands; m4-storm's stop shows the flooded yard and the padlocked back gate. Not done, recorded here:
-  the wet stain and the recycling bin (anything lying on the ground is under the caption box, so the box is shown in
-  the courier's hands instead), and a hand truck.
+  liquid on his hands; m4-storm's stop shows the flooded yard and the padlocked back gate. Finished after the
+  owner's play test on 25 September: m4-damaged opens with the courier lifting a crushed, dripping box (the narration
+  now says so; a box on the ground would be under the caption box), and setting it down is the recommended answer;
+  m3-twostops' three boxes are carried as a stack (no hand truck the stage cannot show), set down on the desk when
+  that answer is chosen. The recycling bin is off stage: the courier and Dana walk round the side of the house to it.
 
 ### DIALOGUE-7: m3-twostops office: the receptionist is sunk behind the counter, only her eyes show, and the caption box covers the rest
 - **Severity:** major
