@@ -418,7 +418,8 @@ OTR.Stage = class {
       this.cam.scrollX += (target - this.cam.scrollX) * Math.min(1, dt * 4);
       // The prompt shows whenever E would do something, walking or not. (It used to wait until the courier stood
       // still, so a trainee walking past a window, or stopping just beyond it, never saw one and had to "wiggle".)
-      const it = this.locked === 0 ? this.nearest() : null;
+      // (no prompt while a card is open either: one drawn under the card named something E would not do)
+      const it = this.locked === 0 && !(this.scene._openModals > 0) ? this.nearest() : null;
       if (it) this.showPrompt(it);
       else this.hidePrompt();
       const careful = this.careful || this.keys.shift.isDown;

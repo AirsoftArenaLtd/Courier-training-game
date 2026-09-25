@@ -94,6 +94,22 @@ OTR.shift = {
     };
   },
 
+  /**
+   * On about half the signature hand-offs at a home, someone else in the household answers and signs, so the printed
+   * name has to be the signer's, not the name on the label (it was always the addressee, so the only wrong answer was
+   * "Occupant"). Drawn from its own seed, so the rest of the day is unchanged.
+   */
+  householdMember(type, kind, person, day, i) {
+    if (type !== 'handoff' || kind === 'business') return null;
+    const H = OTR.scenery.rng(`household${day}_${i}`);
+    if (H() >= 0.5) return null;
+    const parts = person.name.split(' ');
+    const surname = parts.length > 1 ? parts[parts.length - 1] : 'Lee';
+    const firsts = ['Sam', 'Jordan', 'Maria', 'Chris', 'Priya', 'Luis', 'Grace', 'Tom'].filter(f => f !== parts[0]);
+    const spec = Object.assign({}, person.spec, { shirt: [0x3E7CB1, 0xB5563C, 0x2E7D5B, 0x7A4FB5][Math.floor(H() * 4)], hairStyle: ['short', 'long', 'bun', 'buzz'][Math.floor(H() * 4)] });
+    return { name: `${firsts[Math.floor(H() * firsts.length)]} ${surname}`, spec };
+  },
+
   /** Build a StopScene stop definition from a town lot, for a kind of stop (STOP_TYPES). */
   stopFromLot(lot, i, R, weather, day, type, lotIndex) {
     type = type || 'leave';
@@ -171,7 +187,7 @@ OTR.shift = {
       decoys,
       stepHazard: weather === 'snow' ? 'ice' : weather === 'rain' ? 'wet' : null,
       // at a business the receptionist signs, and is a person with a name to record
-      answer: home ? { name: person.name, spec: person.spec, adult: true, atAddress: true, delay: 2 + R() * 2, role: kind === 'business' ? 'reception' : 'resident', id: { dob: '05/14/1986', exp: '05/14/2030' } } : null,
+      answer: home ? Object.assign({ name: person.name, spec: person.spec, adult: true, atAddress: true, delay: 2 + R() * 2, role: kind === 'business' ? 'reception' : 'resident', id: { dob: '05/14/1986', exp: '05/14/2030' } }, this.householdMember(type, kind, person, day, i)) : null,
       expected,
       lessons: []
     };
@@ -272,6 +288,16 @@ OTR.shift = {
     // A truck that rolled out with a defect the pre-trip missed is stopped at the gate check on the way out: held for
     // the fix, and the time counts against the day (it used to drive all day with, say, the cargo door unlatched).
     let notice = null;
+    // what the walkaround flagged is fixed by the shop before the first leg: time on the clock, no penalty
+    const fixed = (st.truck && st.truck.fixed) || [];
+    let fixedText = '';
+    if (fixed.length && !st.truck.fixedShown) {
+      st.truck.fixedShown = true;
+      st.clockMin += 8;
+      this.save();
+      fixedText = `Fixed before you rolled (you flagged it, so the shop sorted it: 8 minutes):\n${fixed.slice(0, 3).join('\n')}${fixed.length > 3 ? `\n+ ${fixed.length - 3} more` : ''}`;
+      notice = { title: 'Flagged, and fixed', body: fixedText + '\n\nGood catch. A defect found in the yard costs minutes; found on the road, it costs far more.', button: 'Roll out' };
+    }
     const missed = (st.truck && st.truck.missed) || [];
     if (missed.length && !st.truck.heldAtGate) {
       st.truck.heldAtGate = true;
@@ -282,7 +308,7 @@ OTR.shift = {
       this.save();
       notice = {
         title: 'Held at the gate',
-        body: `The yard check found what the pre-trip missed:\n${missed.slice(0, 3).join('\n')}${missed.length > 3 ? `\n+ ${missed.length - 3} more` : ''}\n\nThe truck is held 10 minutes for the fix before you can roll.`,
+        body: `${fixedText ? fixedText + '\n\n' : ''}The yard check found what the pre-trip missed:\n${missed.slice(0, 3).join('\n')}${missed.length > 3 ? `\n+ ${missed.length - 3} more` : ''}\n\nThe truck is held 10 minutes for the fix before you can roll.`,
         button: 'Roll out'
       };
     }

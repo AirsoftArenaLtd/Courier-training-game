@@ -123,7 +123,10 @@ OTR_DATA.pickups = {
         { label: 'Consignee', value: 'Clinique Beaulieu, 42 Rue Laval, Montréal QC', bad: false, okWhy: 'a full name and address.' },
         { label: 'Description of goods', value: 'Samples', bad: true, why: '"Samples" says nothing. Customs needs what the item actually is, e.g. "dental impression trays, plastic".' },
         { label: 'Quantity', value: '12', bad: false, okWhy: 'a number of units is all this line needs.' },
+        { label: 'HS tariff code', value: '9018.49', bad: false, okWhy: 'a tariff code for dental instruments; customs uses it to set the duty.' },
         { label: 'Unit value', value: '(blank)', bad: true, why: 'Every line needs a declared value, even for samples or no-charge goods.' },
+        { label: 'Currency', value: 'USD', bad: false, okWhy: 'the currency the values are in.' },
+        { label: 'Total gross weight', value: '20 lb (2 pieces)', bad: false, okWhy: 'it matches the two pieces on the counter (14 lb and 6 lb).' },
         { label: 'Country of manufacture', value: '(blank)', bad: true, why: 'Country of origin decides the duty rate. It has to be declared.' },
         // (it contradicts "Samples" above: a careful reader flags it, so it is one of the problems)
         { label: 'Reason for export', value: 'Sale', bad: true, why: 'It says Sale while the description says samples: the two have to agree. Sold goods need a real description; samples say "Sample, not for resale".' },

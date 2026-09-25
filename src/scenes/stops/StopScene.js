@@ -1029,7 +1029,7 @@ class StopScene extends BaseScenarioScene {
     root.add(this.add.image(440, 370, bgKey).setScrollFactor(0));
     root.add(OTR.txt(this, 440, 50, 'CARGO SHELVES — find this stop\'s package', 22, '#ffffff', { weight: '900' }).setScrollFactor(0));
     const pkg0 = this.def.packages[0];
-    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box to read its label`, 15, '#FFB27A', { bold: false }).setScrollFactor(0));
+    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box (or the arrow keys) to read its label`, 15, '#FFB27A', { bold: false }).setScrollFactor(0));
 
     // label preview panel
     const panel = this.add.container(1080, 380).setScrollFactor(0);
@@ -1040,7 +1040,7 @@ class StopScene extends BaseScenarioScene {
     }));
     const lblImg = this.add.image(0, -130, '__DEFAULT').setVisible(false).setScrollFactor(0);
     panel.add(lblImg);
-    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
+    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it\n\n(or the arrow keys, then ENTER)', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
     panel.add(hint);
     const carryTxt = OTR.txt(this, 0, 120, '', 15, '#8BF0C6', { align: 'center', wrap: 320 }).setScrollFactor(0);
     panel.add(carryTxt);
@@ -1062,10 +1062,10 @@ class StopScene extends BaseScenarioScene {
         OTR.audio.play('pop');
       }
       redraw();
-    }, { w: 300, h: 50, skin: 'orange', fontSize: 18 });
+    }, { w: 300, h: 50, skin: 'orange', fontSize: 18, key: ['ENTER', 'SPACE'], hint: '⏎' });
     takeBtn.bg.setScrollFactor(0);
     panel.add(takeBtn);
-    const doneBtn = OTR.ui.button(this, 0, 250, 'Done', () => close(), { w: 300, h: 50, skin: 'purple', fontSize: 18, key: 'ESC' });
+    const doneBtn = OTR.ui.button(this, 0, 250, 'Done', () => close(), { w: 300, h: 50, skin: 'purple', fontSize: 18, key: 'ESC', hint: 'ESC' });
     doneBtn.bg.setScrollFactor(0);
     panel.add(doneBtn);
 
@@ -1116,10 +1116,32 @@ class StopScene extends BaseScenarioScene {
     takeBtn.setEnabled(false);
     redraw();
 
+    // the keyboard works the shelves too (they were mouse-only): the arrow keys move the pick box to box, row to row
+    const move = (dr, dc) => {
+      if (!root.active) return;
+      const order = pkgs.slice().sort((a, b) => a.slot.r - b.slot.r || a.slot.c - b.slot.c);
+      if (!selected) { select(order[0]); return; }
+      const { r, c } = selected.slot;
+      let best = null, bd = Infinity;
+      pkgs.forEach(p => {
+        if (p === selected) return;
+        const along = dr ? (p.slot.r - r) * dr : (p.slot.c - c) * dc;
+        if (along <= 0) return;
+        const d = along + (dr ? Math.abs(p.slot.c - c) : Math.abs(p.slot.r - r)) * 1.5;
+        if (d < bd) { bd = d; best = p; }
+      });
+      if (best) { select(best); OTR.audio.play('hover'); }
+    };
+    const keys = [['LEFT', 0, -1], ['RIGHT', 0, 1], ['UP', -1, 0], ['DOWN', 1, 0]].map(([k, dr, dc]) => {
+      const h = OTR.onKey(this, 'keydown-' + k, () => move(dr, dc));
+      return ['keydown-' + k, h];
+    });
+
     root.setAlpha(0);
     this.tweens.add({ targets: root, alpha: 1, duration: 200 });
     OTR.audio.play('door_open');
     const close = () => {
+      keys.forEach(([n, h]) => this.input.keyboard && this.input.keyboard.off(n, h));
       this._openModals = Math.max(0, this._openModals - 1);
       this.tweens.add({ targets: root, alpha: 0, duration: 160, onComplete: () => root.destroy() });
       this.me.play('idle');
@@ -1206,7 +1228,16 @@ class StopScene extends BaseScenarioScene {
     this.refreshObjectives();
     // the resident starts talking: no "Talk" prompt meanwhile, or E would open a second copy of the conversation
     if (ans.talk) { this.talkPending = true; this.time.delayedCall(900, () => { this.talkPending = false; this.startTalk(); }); }
-    else this.time.delayedCall(700, () => { r.setExpression('happy'); r.emote('Hi!'); });
+    else {
+      // someone else in the household says so: the printed name is theirs, not the label's
+      const to = (this.def.packages[0].to || '').split(',')[0];
+      const other = ans.name && to && ans.name !== to && ans.role !== 'reception';
+      this.time.delayedCall(700, () => {
+        r.setExpression('happy');
+        r.emote(other ? `Hi! That's for ${to.split(' ')[0]}. I can sign for it.` : 'Hi!');
+        if (other) this.say(`${ans.name} answers: ${to.split(' ')[0]} lives here too.`, '#FFE3C8');
+      });
+    }
   }
 
   enterInterior() {
@@ -1688,7 +1719,8 @@ class StopScene extends BaseScenarioScene {
       if (ex.doorTag) {
         hh.show({
           title: 'DOOR TAG', color: 0xFF6600,
-          lines: [`Exception ${ex.id} recorded.`, 'Print a door tag so the customer knows you tried, and what happens next?'],
+          // asked plainly: the question used to argue for the tag, so it answered itself
+          lines: [`Exception ${ex.id} recorded.`, 'Door tag for this attempt?'],
           options: [
             { label: 'Print door tag', onPick: () => { S.tagPrinted = true; S.tagNo = OTR_DATA.handheld.tagPrefix + Math.floor(100000 + Math.random() * 899999); OTR.audio.play('paper'); hh.close(); this.say(`Door tag ${S.tagNo} printed. Attach it to the door.`, '#FFE3C8'); this.refreshObjectives(); } },
             { label: 'Skip the tag', skin: 'ghost', onPick: () => { hh.close(); this.refreshObjectives(); } }

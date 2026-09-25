@@ -499,8 +499,10 @@ class TownDriveScene extends Phaser.Scene {
     OTR.onKey(this, 'keydown-TAB', (e) => {
       if (e && e.preventDefault) e.preventDefault();
       if (this.parked) return;
+      // moving, or stopped in traffic or at a light: the handheld waits until the van is parked (the lesson says "not
+      // at red lights", and stopped used to be only a reminder)
       if (OTR.vehicle.mph(this.van) > 2) this.violation('handheld', 'Using the handheld while moving', 'safety', 2, 'The handheld waits until you are parked. Screen time at the wheel is how couriers hit things.');
-      else this.toast('Park at the stop (P) to work the handheld.', 0xC9B3F0);
+      else this.violation('handheld', 'Using the handheld at the wheel (not parked)', 'safety', 1, 'Not at a light, not in traffic: the handheld waits until you are parked at the stop (P).');
     });
   }
 
@@ -919,7 +921,10 @@ class TownDriveScene extends Phaser.Scene {
       // round the van that caught people beside it and on the cross street)
       const r = this.relToVan(p.x, p.y);
       const inPath = r.fd > r.hl * 0.4 && r.fd < r.hl + 130 && Math.abs(r.lat) < r.hw + 24;
-      if (inPath && mph > 3 && this.van.gear > 0) {
+      // a van already braking hard enough to stop short of them is yielding (it used to be failed for braking)
+      const gapM = (r.fd - r.hl) / this.P, v = mph * 0.447;
+      const stopsShort = this.van.brake > 0.5 && gapM > 0.8 && v * v / (2 * OTR.vehicle.T.van.brakeDecel * this.van.brake) < gapM - 0.5;
+      if (inPath && mph > 3 && this.van.gear > 0 && !stopsShort) {
         this.violation('yield', 'Failed to yield to a pedestrian', 'safety', 3, 'Pedestrians in a crosswalk always have right of way. Cover the brake near crossings and school zones.');
       }
       if (Math.abs(r.fd) < r.hl + 8 && Math.abs(r.lat) < r.hw + 8 && mph > 0.5 && p.hitCool <= 0) {
@@ -952,8 +957,12 @@ class TownDriveScene extends Phaser.Scene {
   noticeCard(n) {
     this.incidentOpen = true;
     const v = this.van; v.u = 0; v.lat = 0; v.r = 0;
+    // as tall as its text (a flagged-and-fixed list and a gate hold can share one card)
+    const t = OTR.txt(this, 0, 0, n.body, 19, '#000', { bold: false, align: 'center', wrap: 600, lineSpacing: 4 });
+    const h = Math.min(OTR.H - 40, Math.max(300, Math.round(44 + 20 + 26 + t.height + 30 + 77)));
+    t.destroy();
     OTR.ui.modal(this, {
-      title: n.title, w: 680, h: 380, depth: 5000, body: n.body,
+      title: n.title, w: 680, h, depth: 5000, body: n.body,
       buttons: [{ label: n.button || 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: () => { this.incidentOpen = false; } }]
     });
     this.syncCameras();
@@ -1041,15 +1050,22 @@ class TownDriveScene extends Phaser.Scene {
         this.lightsWarned = true;
         this.hlT = 0;
         this.toast(`${this.weather === 'clear' ? 'Low light' : 'Bad weather'}: headlights on (L)`, 0xFFC83D);
-      } else if (this.lightsWarned && this.hlT > 5) {
+      } else if (this.lightsWarned && this.hlT > 5 && !this.lightsFined) {
+        // once per stretch without them: the HUD keeps saying so, and a fine every 5 s turned one slip into dozens
         this.hlT = 0;
+        this.lightsFined = true;
         this.violation('lights', 'Driving without headlights', 'safety', 2, 'Headlights are for being seen as much as for seeing. Rain, fog, dusk and dark: lights on (L).');
       }
     }
 
-    if (!this.buckled && mph > 3) {
+    if (this.buckled) this.beltFined = false;
+    if (this.lights) this.lightsFined = false;
+    // once per unbuckled stretch (it repeated every 5 s: two presses of B cost 24 points in one leg); BELT OFF stays
+    // on the HUD until it is fixed
+    if (!this.buckled && mph > 3 && !this.beltFined) {
       this.beltT = (this.beltT || 0) + dt;
       if (this.beltT > 3) {
+        this.beltFined = true;
         this.beltT = 0;
         this.violation('belt', 'Driving without your seatbelt', 'safety', 3, 'Buckle up before you move, every single time. Couriers make hundreds of stops a day and the belt is what keeps you in the seat.');
       }

@@ -107,8 +107,10 @@ class ResultsScene extends Phaser.Scene {
     // career line: the bar is progress within the current rank, and says so
     const info = OTR.save.rankInfo(rec.careerAfter);
     panel.add(OTR.txt(this, -pw / 2 + 50, cy, `CAREER  ${rec.careerAfter} ★  ·  ${OTR.save.rankLabel(info)}`, 15, '#4D148C', { ox: 0, weight: '900' }));
-    const gainText = rec.starsGained > 0 ? `+${rec.starsGained} new career star${rec.starsGained === 1 ? '' : 's'}` : (OTR.flow.testId ? 'Test mode — progress not saved' : 'Beat your best stars to grow your rank');
-    panel.add(OTR.txt(this, pw / 2 - 50, cy, gainText, 15, rec.starsGained > 0 ? '#1E9E6B' : '#9A8AB0', { ox: 1, weight: rec.starsGained > 0 ? 'bold' : 'normal' }));
+    // a direct test link never saves, good run or bad (it used to promise "+N new career stars" that were never kept)
+    const gainText = OTR.flow.testId ? 'Test mode — progress not saved'
+      : rec.starsGained > 0 ? `+${rec.starsGained} new career star${rec.starsGained === 1 ? '' : 's'}` : 'Beat your best stars to grow your rank';
+    panel.add(OTR.txt(this, pw / 2 - 50, cy, gainText, 15, rec.starsGained > 0 && !OTR.flow.testId ? '#1E9E6B' : '#9A8AB0', { ox: 1, weight: rec.starsGained > 0 && !OTR.flow.testId ? 'bold' : 'normal' }));
     const bar = OTR.ui.bar(this, -pw / 2 + 50, cy + 26, pw - 100, 12, { color: 0xFF6600, bgAlpha: 0.12 });
     panel.add(bar);
     bar.setValue(OTR.save.rankInfo(rec.careerBefore).index === info.index ? OTR.save.rankInfo(rec.careerBefore).progress : 0);

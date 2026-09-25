@@ -875,7 +875,7 @@ OTR.scenery = {
       ctx.save();
       ctx.font = '900 11px "Segoe UI", Arial'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
       ctx.fillStyle = 'rgba(30,20,45,0.75)';
-      [['TOP SHELF · LIGHT ONLY, UNDER 15 LB', 230], ['MIDDLE SHELF · UP TO 35 LB', 364], ['BOTTOM SHELF · HEAVY OK', 498]]
+      [['TOP SHELF · LIGHT ONLY, UNDER 15 LB', 230], ['MIDDLE SHELF · UNDER 35 LB', 364], ['BOTTOM SHELF · HEAVY OK', 498]]
         .forEach(([lab, y]) => ctx.fillText(lab, 898, y + 7));
       ctx.restore();
       // floor

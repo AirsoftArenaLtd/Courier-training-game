@@ -345,6 +345,8 @@ class PreTripScene extends BaseScenarioScene {
 
   /* ================================================================ sign off */
   signOff() {
+    if (!this.running) return;
+    this.running = false;                 // the clock stops at the signature (it ran on under the report)
     const C = this.content;
     const items = C.items;
     const caught = [], missed = [], falseFlags = [];
@@ -372,6 +374,9 @@ class PreTripScene extends BaseScenarioScene {
     if (this.shiftMode && OTR.shift && OTR.shift.state) {
       OTR.shift.state.truck.defects = missed.map(it => it.id);
       OTR.shift.state.truck.missed = missed.map(it => `${it.name}: ${it.defect}`);   // named in the gate check and debrief
+      // and the ones flagged: the shop fixes them before the truck rolls (they used to be forgotten, so a flagged
+      // dead headlight on a day that needs lights went unmentioned all day)
+      OTR.shift.state.truck.fixed = caught.map(it => `${it.name}: ${it.defect}`);
       OTR.save.write();
     }
 

@@ -473,6 +473,8 @@ class LoadingScene extends BaseScenarioScene {
     if (hazPkg) log.check('safety', hazSlot && hazSlot.pkg === hazPkg ? 2 : 0, 2, 'Dangerous goods in the marked zone', { lesson: 'Dangerous goods travel in their segregated spot, never stacked in with everything else.' });
     const par = this.content.par || 210;
     log.check('efficiency', this.elapsed <= par ? 2 : this.elapsed <= par * 1.5 ? 1 : 0, 2, `Loaded in good time (${Math.round(this.elapsed)}s, par ${par}s)`);
+    // the results card's counts line (Label Check had one; Load and Find showed none)
+    this.summary = `${right}/${total} placed right · ${high.length ? high.length + ' heavy up high' : 'nothing heavy up high'} · floor ${this.strapped ? 'strapped' : 'not strapped'} · ${Math.round(this.elapsed)}s`;
     this.loadReport(right, total, high);
   }
 
@@ -568,6 +570,7 @@ class LoadingScene extends BaseScenarioScene {
     this.log.check('service', this.cleanRounds, rounds, `Pulled the right package first time (${this.cleanRounds}/${rounds})`, { lesson: 'Read number, street and unit. Near-matches are the classic misdelivery.' });
     const par = C.par || 120;
     this.log.check('efficiency', this.elapsed <= par ? 2 : this.elapsed <= par * 1.5 ? 1 : 0, 2, `Worked the truck in good time (${Math.round(this.elapsed)}s)`);
+    this.summary = `${this.cleanRounds}/${rounds} right first time · ${this.wrongPicks || 0} wrong pick${this.wrongPicks === 1 ? '' : 's'} · ${Math.round(this.elapsed)}s`;
     this.endScenario();
   }
 
@@ -579,7 +582,7 @@ class LoadingScene extends BaseScenarioScene {
     // where each piece went, so a route day's van shelves at the stops show the load as it was packed
     const placement = {};
     this.slots.forEach(s => { if (s.pkg) placement[s.pkg.id] = { col: s.col, row: s.row, k: Number(String(s.id).split('-').pop()) || 0 }; });
-    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, log: this.log, lessons: this.extraLessons.concat(this.content.keyLessons || []), stats: { log: this.log.toJSON(), placement } }, 600);
+    this.finish({ score: this.mode === 'find' ? this.score : this.log.score(), ratios, log: this.log, lessons: this.extraLessons.concat(this.content.keyLessons || []), summary: this.summary, stats: { log: this.log.toJSON(), placement } }, 600);
   }
 
   update(time, delta) {

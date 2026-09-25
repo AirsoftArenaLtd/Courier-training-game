@@ -79,7 +79,7 @@ class LabelScene extends BaseScenarioScene {
       const cap = OTR.ui.keyCap(this, -W / 2 + 22, -H / 2 + 26, String(i + 1), { bg: 0x4D148C, color: '#ffffff', size: 14 });
       const hit = this.add.rectangle(0, 0, W, H, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerover', () => { if (this.answering) paint(true); });
-      hit.on('pointerout', () => paint(false));
+      hit.on('pointerout', () => paint(this.markedBay === id));      // the verdict's highlight stays under a hover
       hit.on('pointerup', () => this.answer(id));
       c.add([g, icon, lab, sub, cap, hit]);
       this.bays[id] = { c, paint, rect: new Phaser.Geom.Rectangle(x, y, W, H), id };
@@ -122,7 +122,8 @@ class LabelScene extends BaseScenarioScene {
     // face tracker: six dots that double as direct face selectors
     this.dots = {};
     const order = ['front', 'right', 'back', 'left', 'top', 'base'];
-    const letters = { front: 'F', right: 'R', back: 'B', left: 'L', top: 'T', base: 'U' };
+    // top and base carry the arrows of their keys (W / ↑ and S / ↓); "U" for the base matched no key
+    const letters = { front: 'F', right: 'R', back: 'B', left: 'L', top: '▲', base: '▼' };
     order.forEach((face, i) => {
       const x = this.BOX.x - 5 * 34 / 2 + i * 34 + 8, y = 542;
       const c = this.add.container(x, y).setDepth(25);
@@ -133,7 +134,7 @@ class LabelScene extends BaseScenarioScene {
       c.add([g, t, hit]);
       this.dots[face] = { c, g, t };
     });
-    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W top  ·  S base', 12, '#9A8AB0', { bold: false }).setDepth(25);
+    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W / ▲ top  ·  S / ▼ base', 12, '#9A8AB0', { bold: false }).setDepth(25);
     OTR.txt(this, this.BOX.x, 596, 'drag the package onto a station, or press 1-6', 12, '#9A8AB0', { bold: false }).setDepth(25);
 
     this.guideBtn = OTR.ui.button(this, 740, 110, 'Guide (G)', () => this.toggleGuide(), { w: 160, h: 40, skin: 'purple', fontSize: 15, icon: 'ic_book' }).setDepth(810);
@@ -417,6 +418,7 @@ class LabelScene extends BaseScenarioScene {
       targets: this.boxImg, x: target.x, y: target.y, scale: stationId ? 0.42 : 1, duration: stationId ? 320 : 520, ease: 'Cubic.in',
       onComplete: () => { this.boxImg.setVisible(false); }
     });
+    this.markedBay = item.answer;
     this.bays[item.answer].paint(true);
     this.time.delayedCall(340, () => this.verdict(stationId, ok, blind, unseen));
   }
@@ -488,12 +490,13 @@ class LabelScene extends BaseScenarioScene {
 
     let done = false;
     const go = () => {
-      if (done) return;
+      if (done || this.guideOpen) return;            // not from under the guide
       done = true;
       this.input.off('pointerdown', clickGo);
       this.input.keyboard.off('keydown-SPACE', go);
       this.input.keyboard.off('keydown-ENTER', go);
       if (auto) auto.remove();
+      this.markedBay = null;
       this.bays[item.answer].paint(false);
       this.tweens.add({ targets: c, alpha: 0, duration: 150, onComplete: () => c.destroy() });
       this.time.delayedCall(180, () => this.nextItem());
@@ -525,7 +528,8 @@ class LabelScene extends BaseScenarioScene {
   /* ---------------------------------------------------------------- guide */
   toggleGuide() {
     if (this.phase === 'done' || this.finished) return;
-    if (this.guideOpen) { this.guideModal.close(); return; }
+    // closed the moment it is closed (it counted as open through its fade, so the next SPACE was lost)
+    if (this.guideOpen) { this.guideOpen = false; this.guideModal.close(); return; }
     const C = this.content;
     this.guideOpen = true;
     OTR.audio.play('pop');
@@ -546,7 +550,7 @@ class LabelScene extends BaseScenarioScene {
         const chain = C.precedence.map(id => C.stations[id].label).join('   >   ');
         box.add(OTR.txt(this, 0, y + 28, chain, 15, '#250849', { weight: '900', wrap: w - 100 }));
       },
-      buttons: [{ label: 'Close (G)', skin: 'orange', onClick: () => {} }]
+      buttons: [{ label: 'Close (G)', skin: 'orange', keepOpen: true, onClick: () => this.toggleGuide() }]
     });
     this.guideModal.root.once('destroy', () => { this.guideOpen = false; });
   }

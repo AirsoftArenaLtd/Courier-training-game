@@ -178,7 +178,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
     stops: [
       {
         id: 'ex1',
-        brief: '311 Cedar Ave: signature required. Tracking says the customer is often at work.',
+        brief: '311 Cedar Ave: signature required.',
         par: 110,
         lot: { kind: 'house', spec: { number: '311', steps: 2, wall: 0xC9D8C4, roof: 0x4A4A58, door: 0x2A3F7A, siding: 'lap', stories: 1, porchW: 420, porchX: 320 } },
         props: [

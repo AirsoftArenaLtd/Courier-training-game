@@ -26,6 +26,7 @@ class PickupScene extends BaseScenarioScene {
 
     this.buildWorld();
     this.buildPanel();
+    this.showPanel(false);          // the manifest comes up after the shipper has spoken (it showed its steps behind the card)
     this.hud({ score: false, timer: true });
 
     this.introCard(C.intro.title, C.intro.lines, () => {
@@ -205,7 +206,7 @@ class PickupScene extends BaseScenarioScene {
   /* ------------------------------------------------------------------ steps */
   startTalk() {
     const C = this.content;
-    if (!C.talk) return;
+    if (!C.talk) { this.showPanel(true); return; }
     this.me.face(this.shipper.x);
     this.showPanel(false);
     this.talkCtl = OTR.talk.run(this, C.talk, {
@@ -394,7 +395,8 @@ class PickupScene extends BaseScenarioScene {
     const readOnly = this.docDone;
     const flags = this.docFlags;
     OTR.ui.modal(this, {
-      w: 820, h: 600, escClose: true,
+      // as tall as its lines (a fuller invoice has eleven)
+      w: 820, h: Math.min(OTR.H - 40, Math.max(600, 210 + D.fields.length * 40)), escClose: true,
       build: (box, api, w, h) => {
         box.add(OTR.tex.shape(this, (g) => {
           g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
