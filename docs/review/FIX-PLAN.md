@@ -363,3 +363,25 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     `node test/qa.js --pass boot`, on the Intel UHD Graphics. It passed 28 of 28, with every scenario at 131–145 fps.
     The lowest were m6-load at 131 and m8-heat at 133. The Intel table in the QA report is filled in. A run on the
     laptop's gaming GPU was dropped, since trainees use office computers.
+
+- **2026-09-25, after the owner's play test.**
+  - **Owner's reports, fixed:**
+    - On a route day the van shelves now hold the day's load. Each piece still on board is on the shelf it was loaded
+      onto. Before, each stop invented its own three packages.
+    - At a route-day business, "Talk to reception" now greets you and the delivery is recorded on the handheld. It
+      used to do nothing.
+  - **Decided-against items fixed on review:**
+    - The van no longer cools the courier without the AC.
+    - Box labels are on two lines.
+    - The staging now matches the narration in m4-damaged and m3-twostops.
+    - Of the 26 "fixed (decision)" statuses, only DIALOGUE-6 still hid unfinished work, and that is now done.
+  - **The testers' untested areas (the "Revisit" sections):** every item was played or read. What was fixed and
+    what was found already right is in the QA report's "What the testers didn't get to".
+  - **Tests:**
+    - The route-day path fails if "Talk to reception" does nothing, or if the van shelves don't hold the load still
+      on board.
+    - It reads the drive's opening card.
+    - The stop helper reports what kept a stop from settling.
+    - Final full suite (code at 555db69): 28 of 28.
+  - **Note:** m8-dog failed twice in full runs under load ("the stop never settled"), and passed every time on its
+    own and in the final run. If it fails again, the new message names what held the stop.
