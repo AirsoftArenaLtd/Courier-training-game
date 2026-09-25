@@ -196,12 +196,15 @@ function driver(page, ctx) {
     await wait(300);
     const f = await ev(`(() => { const s = ${S}, cam = s.cameras.main, L = s.lot, b = s.pkgProp.getBounds();
       const px = b.centerX - cam.scrollX, py = b.centerY, dx = L.doorX - cam.scrollX, dy = L.floorY - 80;
-      return { px, py, pw: b.width, ph: b.height, dx, dy, ny: L.numberY || -1e4 }; })()`);
+      const k = Math.abs(s.me.c.scaleY) || 1;
+      return { px, py, pw: b.width, ph: b.height, dx, dy, ny: L.numberY || -1e4, mx: s.me.x - cam.scrollX, mw: 34 * k }; })()`);
     // centre the 380 x 260 frame between the package and the lower door, keep the whole package inside it, and
     // keep the house number out of it (policy: no house numbers, no people)
     let cx = (f.px + f.dx) / 2, cy = (f.py + f.dy) / 2;
     cx = Math.max(f.px + f.pw / 2 + 10 - 190, Math.min(f.px - f.pw / 2 - 10 + 190, cx));
     cy = Math.max(cy, f.ny + 21 + 10 + 130);
+    // ...and the courier, who stepped back towards the street, out of it
+    if (f.mx < f.px) cx = Math.max(cx, f.mx + f.mw + 8 + 190); else cx = Math.min(cx, f.mx - f.mw - 8 - 190);
     cy = Math.max(f.py + f.ph / 2 + 10 - 130, Math.min(f.py - f.ph / 2 - 10 + 130, cy));
     await page.mouse.move(cx, cy, { steps: 8 });
     await wait(150);
