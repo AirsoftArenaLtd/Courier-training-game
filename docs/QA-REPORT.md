@@ -695,6 +695,72 @@ Then, on review, three items that had been listed as decided against, or left pa
 The automated route-day test now fails if "Talk to reception" does nothing, or if the van shelves don't hold the
 load that is still on board.
 
+### What the testers didn't get to
+
+Each review ended with a list of things its tester didn't have time to try (the "Revisit" section of each file in
+[`docs/review/`](review/)). On 25 September every item was played or read through.
+
+**Fixed:**
+- **Driving penalties:**
+  - The seatbelt and headlights cost points once per stretch; they used to repeat every 5 seconds, so one slip
+    could cost 24 points in a leg.
+  - Braking hard enough to stop short of a pedestrian is no longer marked as failing to yield.
+  - The handheld at a red light counts as used at the wheel, as the lesson says.
+  - Reverse is strong enough to back the van off a lawn.
+- **Route day:**
+  - A defect correctly flagged in the pre-trip is shown as fixed by the shop before the first leg (8 minutes on the
+    clock, no penalty). It used to be never mentioned again.
+  - On about half the signature stops at homes, a household member answers and signs, so the printed name has to
+    be theirs. Before, the only wrong choice was "Occupant".
+- **Doorstep stops:**
+  - The van shelves work with the arrow keys and ENTER, with a clear outline on the picked box.
+  - No "E" prompt is drawn underneath an open card.
+  - The door-tag question no longer argues for the tag.
+  - A stop's brief no longer says in advance that nobody will be home.
+  - The brief card is as tall as its text.
+  - A clinic lobby's name sign is no longer covered by the heat meters.
+- **Warehouse games:**
+  - Lift Right:
+    - The size-up card no longer covers the courier.
+    - A box lowered over the pallet rests on its boards instead of sinking into them.
+    - The courier pushes the hand truck, where it used to roll on its own.
+  - Label Check:
+    - The guide closes instantly, so the next SPACE isn't lost.
+    - The verdict keeps its highlight when a station is hovered.
+    - The top and base markers show ▲ / ▼, matching their keys.
+  - Load for the Route: the middle shelf is signed "UNDER 35 LB", matching its rule.
+  - Load for the Route and Find It Fast show their counts on the results card.
+- **Pre-trip, pickups and planner:**
+  - The pre-trip clock stops at sign-off.
+  - The pickup checklist no longer shows behind the intro card.
+  - The customs invoice has an HS tariff code, currency and gross-weight line.
+  - A reminder at the bottom of the screen no longer covers a card's buttons.
+  - The route planner's no-deadline pieces are Express Saver, not Ground mixed into an Express loop.
+- **Menus:**
+  - A click right after closing a card with ESC now reaches the screen behind it; the card's fading backdrop used to
+    swallow it.
+  - Test links no longer promise career stars they don't save.
+
+**Checked and already right:**
+- The Sort Belt shift only ends on a clear belt.
+- ESC does nothing on a stop's report card.
+- The page has no missing-file errors on load.
+- A practice scenario can't touch a route day in progress.
+- Traffic stops short of a van stopped at an angle across its lane.
+- Backing into a building stops the van and logs a collision.
+- The water, car-door and ball hazards are judged on speed and inputs as intended.
+- Heat carries over between stops, the awning counts as shade, and a lobby cools you.
+- The dog stop's "it's friendly, go on in" branch plays out with the dog, the gate and the owner.
+- Where's My Package?! plays to its end on the worst answers.
+- The conversation feedback card comes up in about 0.4 s in real time. The delay the tester saw was the turn-based
+  play tool.
+- Snow and storm route days render and drive properly.
+- At a 1366×650 laptop viewport the hub is shown at 90%, and its smallest text is about 12 px on screen.
+
+**Not checkable here:** sound (the cloud browser has no audio), and frame rate on a real 60 Hz 1080p screen, night
+scenes and snow. The owner's Intel run covers the frame rate at the start of each scenario, where it measured
+131–145 fps.
+
 ### Frame rate on integrated graphics
 
 The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
