@@ -146,7 +146,8 @@ class StopScene extends BaseScenarioScene {
     // business interior
     if (kind === 'business') {
       this.interiorX = interiorX;
-      this.interior = st.interior(interiorX, Object.assign({ w: 1600 }, d.lot.interior || {}));
+      // the sign in the clear band between the stop checklist and the heat meters (the meters covered most of it)
+      this.interior = st.interior(interiorX, Object.assign({ w: 1600, signX: 665 }, d.lot.interior || {}));
       this.outsideW = outsideW;
     }
 
@@ -845,8 +846,12 @@ class StopScene extends BaseScenarioScene {
     const d = this.def;
     const pkg = d.packages[0];
     const W = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storm', snow: 'Snow / ice', heat: 'Extreme heat' }[this.weather] || this.weather;
+    // as tall as the brief (a one-line brief left a large empty card)
+    const t = OTR.txt(this, 0, 0, d.brief || '', 19, '#000', { bold: false, wrap: 540, lineSpacing: 3 });
+    const h = Math.max(250, 130 + t.height + 30 + 77);
+    t.destroy();
     OTR.ui.modal(this, {
-      w: 660, h: 330, depth: 5000,
+      w: 660, h, depth: 5000,
       build: (box, api, w, h) => {
         box.list.forEach(ch => ch.setScrollFactor && ch.setScrollFactor(0));
         box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
@@ -1102,7 +1107,11 @@ class StopScene extends BaseScenarioScene {
         });
         // a package in hand stays in its slot, ghosted and tagged, so it can be picked and put back
         const img = this.add.image(x, y, key).setScrollFactor(0).setInteractive({ useHandCursor: true }).setAlpha(p.onShelf ? 1 : 0.35);
-        if (p === selected) img.setTint(0xFFD9A8);
+        if (p === selected) {
+          img.setTint(0xFFD9A8);
+          // an outline too, so the pick can be seen from the keyboard (a tint alone was hard to spot)
+          boxLayer.add(OTR.tex.shape(this, (g) => { g.lineStyle(4, 0xFFC83D, 1); g.strokeRoundedRect(x - bw / 2 - 12, y - bh / 2 - 14, bw + 30, bh + 30, 10); }).setScrollFactor(0));
+        }
         img.on('pointerover', () => { showLabel(p); if (p !== selected) img.setTint(0xFFE3C8); OTR.audio.play('hover'); });
         img.on('pointerout', () => { showLabel(selected); if (p !== selected) img.clearTint(); });
         img.on('pointerup', () => select(p));

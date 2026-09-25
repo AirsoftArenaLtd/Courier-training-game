@@ -229,6 +229,8 @@ OTR.ui = {
     const w = o.w || 620, h = o.h || 360;
     const depth = o.depth || 5000;
     const root = scene.add.container(0, 0).setDepth(depth).setScrollFactor(0);
+    // a message still on screen is over now (a bottom one covered the invoice's Submit button)
+    if (scene._toast && scene._toast.active) scene._toast.destroy();
     scene._openModals = (scene._openModals || 0) + 1;
     // the stack of open modals, so keyboard shortcuts go to the one on top (see button())
     scene._modalStack = (scene._modalStack || []).filter(m => m.active);
@@ -258,6 +260,9 @@ OTR.ui = {
       close(cb) {
         if (closed) return;
         closed = true;
+        // clicks go through at once: the fading dim used to swallow a click on the screen behind (a hub card clicked
+        // right after ESC on a brief did nothing)
+        dim.disableInteractive();
         scene.tweens.add({ targets: box, scale: 0.85, alpha: 0, duration: 160, ease: 'Cubic.in' });
         scene.tweens.add({ targets: dim, alpha: 0, duration: 180, onComplete: () => { root.destroy(); if (cb) cb(); } });
       }

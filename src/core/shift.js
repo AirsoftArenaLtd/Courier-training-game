@@ -295,7 +295,7 @@ OTR.shift = {
       st.truck.fixedShown = true;
       st.clockMin += 8;
       this.save();
-      fixedText = `Fixed before you rolled (you flagged it, so the shop sorted it: 8 minutes):\n${fixed.slice(0, 3).join('\n')}${fixed.length > 3 ? `\n+ ${fixed.length - 3} more` : ''}`;
+      fixedText = `You flagged it, so the shop fixed it before you rolled out (8 minutes):\n${fixed.slice(0, 3).join('\n')}${fixed.length > 3 ? `\n+ ${fixed.length - 3} more` : ''}`;
       notice = { title: 'Flagged, and fixed', body: fixedText + '\n\nGood catch. A defect found in the yard costs minutes; found on the road, it costs far more.', button: 'Roll out' };
     }
     const missed = (st.truck && st.truck.missed) || [];

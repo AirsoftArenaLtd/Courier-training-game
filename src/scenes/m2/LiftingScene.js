@@ -121,6 +121,8 @@ class LiftingScene extends BaseScenarioScene {
     const x = hp.x + P.dir * (20 + L.w / 2);
     let bottom = hp.y + 22 + P.squat * 62 + P.stoop * 48;
     if (P.elevate === 0) bottom = Math.min(bottom, this.G);
+    // over the pallet it rests on the pallet's boards, not 18 px into them (squatting lower pushed it through)
+    if (P.hold && x + L.w / 2 > 180 && x - L.w / 2 < 420) bottom = Math.min(bottom, this.PALLET_TOP);
     return { x, bottom };
   }
 
@@ -165,11 +167,16 @@ class LiftingScene extends BaseScenarioScene {
   assess() {
     const L = this.lift;
     const n = L.options.length;
-    const h = 130 + n * 68;
-    const c = this.add.container(640, 250).setDepth(70);
-    c.add(OTR.ui.panel(this, 0, 0, 780, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
-    c.add(OTR.txt(this, 0, -h / 2 + 34, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, '#FF6600', { weight: '900' }));
-    c.add(OTR.txt(this, 0, -h / 2 + 66, L.prompt, 19, '#250849', { bold: true, wrap: 700, align: 'center' }));
+    // Held up at the top of the view, as tall as its text, and clear of the courier's head (it covered the head and
+    // shoulders) and of the back-health panel on the left.
+    const prompt = OTR.txt(this, 0, 0, L.prompt, 19, '#250849', { bold: true, wrap: 580, align: 'center' });
+    const firstY = 50 + prompt.height + 44;
+    const h = firstY + (n - 1) * 60 + 28 + 18;
+    const c = this.add.container(640, 66 + h / 2).setDepth(70);
+    c.add(OTR.ui.panel(this, 0, 0, 640, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
+    c.add(OTR.txt(this, 0, -h / 2 + 28, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, '#FF6600', { weight: '900' }));
+    prompt.setPosition(0, -h / 2 + 50 + prompt.height / 2);
+    c.add(prompt);
     const opts = OTR.util.shuffle(L.options);
     const buttons = [];
     const pick = (o) => {
@@ -179,7 +186,7 @@ class LiftingScene extends BaseScenarioScene {
       this.resolveAssess(o);
     };
     opts.forEach((o, i) => {
-      const b = OTR.ui.button(this, 0, -h / 2 + 124 + i * 68, `${i + 1}.  ${o.text}`, () => pick(o), { w: 680, h: 56, skin: 'ghost', fontSize: 19, key: ['ONE', 'TWO', 'THREE'][i] });
+      const b = OTR.ui.button(this, 0, -h / 2 + firstY + i * 60, `${i + 1}.  ${o.text}`, () => pick(o), { w: 600, h: 52, skin: 'ghost', fontSize: 18, key: ['ONE', 'TWO', 'THREE'][i] });
       c.add(b);
       buttons.push(b);
     });
@@ -276,20 +283,26 @@ class LiftingScene extends BaseScenarioScene {
       ctx.fillStyle = '#999'; ctx.beginPath(); ctx.arc(22, 144, 5, 0, Math.PI * 2); ctx.fill();
     });
     const truck = this.add.image(OTR.W + 60, this.G - 80, key).setDepth(7).setFlipX(true);
+    // the courier walks behind it with a hand on the handle (it used to roll in and out on its own while they watched)
+    const P = this.pose;
+    const follow = () => { P.x = truck.x + 46; P.dir = -1; };
+    P.x = OTR.W + 106; P.dir = -1;
     if (this.tag) this.tweens.add({ targets: this.tag, alpha: 0, duration: 200 });
     OTR.audio.play('drive');
     this.tweens.add({
-      targets: truck, x: this.boxState.x + L.w / 2 + 10, duration: 700, ease: 'Cubic.out',
+      targets: truck, x: this.boxState.x + L.w / 2 + 10, duration: 700, ease: 'Cubic.out', onUpdate: follow,
       onComplete: () => {
         OTR.audio.play('thud');
         const target = this.PALLET_X;
-        this.tweens.add({ targets: [truck], x: target - L.w / 2 - 20 + L.w + 30, duration: 1100, ease: 'Sine.inOut', delay: 200 });
+        this.tweens.add({ targets: [truck], x: target - L.w / 2 - 20 + L.w + 30, duration: 1100, ease: 'Sine.inOut', delay: 200, onUpdate: follow });
         this.tweens.add({
           targets: this.boxState, x: target, delay: 200, duration: 1100, ease: 'Sine.inOut',
           onComplete: () => {
             this.boxState.bottom = this.PALLET_TOP;
             OTR.audio.play('thud');
-            this.tweens.add({ targets: truck, x: -100, duration: 800, ease: 'Cubic.in', onComplete: () => truck.destroy() });
+            // tipped back and wheeled away: the courier takes it out of the frame with them
+            truck.setFlipX(false);
+            this.tweens.add({ targets: truck, x: OTR.W + 80, duration: 700, ease: 'Cubic.in', onUpdate: () => { if (this.lift === L) { P.x = truck.x - 46; P.dir = 1; } }, onComplete: () => truck.destroy() });
             this.qualities.push(1);
             this.praise('Zero strain!');
             this.time.delayedCall(900, () => this.finishLift());
