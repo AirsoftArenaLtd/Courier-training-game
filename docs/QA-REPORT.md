@@ -673,6 +673,15 @@ Found while testing the fixes (in the WP8 log):
 - **Pre-trip:** the under-truck checkpoint sat under the "Climb into the cab" button.
 - **Pause menu:** ESC on the van's shelves opened the pause menu.
 
+Found by the owner playing a route day on 25 September, and fixed:
+- **The van's contents changed at every stop.** Each stop filled the shelves with its own package and two made-up
+  look-alikes. Now the van holds the day's load: every piece still on board, on the shelf it was loaded onto.
+  Delivered pieces are gone, and one that couldn't be delivered rides on.
+- **"Talk to reception" did nothing at a route-day business,** because those stops have no scripted conversation.
+  Now the receptionist greets you, and the delivery is recorded on the handheld.
+- **Stop messages were hard to read over busy backdrops,** such as the lobby's name sign. They now have a dark
+  backing.
+
 ### Frame rate on integrated graphics
 
 The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
@@ -722,8 +731,6 @@ labels 13 → 30, business pickup 14 → 33.
 
 - **Several named profiles per browser, and a printable training record** (SHELL-14). One profile per browser
   remains. New Profile says whose progress it erases and asks first, and a failed save is now visible.
-- **The van shelves at each stop don't show where each piece was loaded** (ROUTEDAY-6). The load report before
-  rolling out is where the load's lesson is given.
 - **Standing in the van still cools the courier without the AC** (STOPS-M8-21). This is a design choice; the AC
   cools faster.
 - **On the smallest boxes the shelf label is still small at shelf scale** (WAREHOUSE-18). Hovering shows the full

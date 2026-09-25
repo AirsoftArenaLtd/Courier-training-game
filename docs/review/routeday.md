@@ -115,9 +115,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Suggested fix:** show the load report card before rolling out; optionally have each stop's shelves reflect the
   load (a piece in the wrong section is harder to find).
 - **Status:** fixed — "Close up & roll out" opens a load report first ("Load report: a clean load", or every piece out
-  of place and why) with its own "Roll out ▶" button ("Finish ▶" in practice). Not changed: the van shelves at each
-  stop do not mirror where each piece was loaded; the stop's own shelf lesson stays as designed, and the load report
-  is where the load's lesson is given.
+  of place and why) with its own "Roll out ▶" button ("Finish ▶" in practice). The van shelves at each stop now mirror the load
+  as well (added after the owner's play test on 25 September): every piece still on board, on the shelf it was
+  loaded onto; delivered pieces are gone and an undelivered one rides on.
 
 ### ROUTEDAY-7: P parks the van up on the sidewalk, outside the marked zone and across the crosswalk
 - **Severity:** major (teaches the wrong thing; the zone the toast talks about is not enforced)
