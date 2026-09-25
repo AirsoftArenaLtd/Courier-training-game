@@ -33,7 +33,7 @@ class StopScene extends BaseScenarioScene {
 
   create() {
     // the scene instance is reused for every stop: clear per-stop references first
-    ['resident', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
+    ['resident', 'numberProps', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
       .forEach(k => { this[k] = undefined; });
     this.setupBase();
     this.set = this.shiftStop ? this.shiftStop.set : this.content;
@@ -122,6 +122,7 @@ class StopScene extends BaseScenarioScene {
       if (p.hazard) o.depth = 7;
       const img = st.prop(p.type, x, o);
       if (p.id) this.propById[p.id] = img;
+      if (p.art && p.art.number) (this.numberProps = this.numberProps || []).push(img);   // a numbered mailbox: kept out of POD photos
       if (p.hazard) this.addHazard(p, img, x);
     });
     if (d.fence) this.buildFence(d.fence);
@@ -195,18 +196,24 @@ class StopScene extends BaseScenarioScene {
     // the zone covers the hazard as drawn (it used to be 100 px whatever the art, so the ends of a patch were safe)
     const half = p.art && p.art.w ? p.art.w / 2 : img ? img.displayWidth / 2 : 50;
     const zx0 = x0 !== undefined ? x0 : x - half, zx1 = x1 !== undefined ? x1 : x + half;
+    // a fall takes hurrying over about 60% of the hazard (never more than a third of a second), so a short one can
+    // still be fallen on
+    const fallAfter = Math.min(0.35, 0.6 * (zx1 - zx0) / (this.stage.walkSpeed || 230));
     this.stage.zone({
       x0: zx0, x1: zx1,
-      // Judged on every frame inside, not just the first: letting go of SHIFT halfway over the ice is the slip (after
-      // 0.12 s, so a SHIFT pressed a moment late is forgiven). A walk the game makes (placing a package, a scripted
-      // move in a conversation) runs with the stage locked and is not the trainee's step, so it is not judged.
+      // Judged on every frame inside, not just the first. The first hurried step wobbles and warns; carrying on at
+      // full pace (fallAfter: most of a flight of steps) is the fall. It used to be a fall after
+      // 0.12 s with no warning, so a SHIFT pressed a moment late, or let go of for a step, ended in a slip. A walk the
+      // game makes (placing a package, a scripted move in a conversation) runs with the stage locked and is not the
+      // trainee's step, so it is not judged.
       onInside: (rig, careful, dt) => {
         if (H.state === 'cleared' || H.incident || !this.running || this.stage.locked > 0) return;
         const fast = rig.moving && !careful;
         if (!fast) { H.fastT = 0; if (H.state === 'pending') H.state = 'careful'; return; }
+        if (!(slippery || this.S.carrying.length > 0)) { H.state = 'passed'; return; }
+        if (!H.wobbled) this.hazardWobble(H, slippery);
         H.fastT += dt;
-        if (slippery || this.S.carrying.length > 0) { if (H.fastT > 0.12) this.hazardIncident(H); }
-        else H.state = 'passed';
+        if (H.fastT > fallAfter) this.hazardIncident(H);
       }
     });
     if (clearable) {
@@ -233,6 +240,16 @@ class StopScene extends BaseScenarioScene {
         }
       });
     }
+  }
+
+  /** A near miss: the foot slides or catches, and the courier is told to slow down while there is time to. */
+  hazardWobble(H, slippery) {
+    H.wobbled = true;
+    OTR.audio.play('thud');
+    OTR.fx.shake(this, 120, 0.004);
+    this.me.setExpression('worried');
+    this.time.delayedCall(900, () => { if (!H.incident) this.me.setExpression('neutral'); });
+    this.say(slippery ? `Whoa, ${H.label} ${H.label.endsWith('s') ? 'are' : 'is'} slippery! Hold SHIFT: short, careful steps.` : `Careful, you can't see your feet with that box! Hold SHIFT over ${H.label}.`, '#FFC83D');
   }
 
   hazardIncident(H) {
@@ -1644,7 +1661,7 @@ class StopScene extends BaseScenarioScene {
       g.lineStyle(1, 0xFFFFFF, 0.5);
       g.strokeCircle(0, 0, 10);
     }).setScrollFactor(0);
-    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package AND the door or house number, then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
+    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
     root.add([shade, frame, info]);
     const catcher = this.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive({ useHandCursor: true }).setScrollFactor(0);
     root.add(catcher);
@@ -1674,10 +1691,20 @@ class StopScene extends BaseScenarioScene {
       const pb = this.pkgProp.getBounds();
       const inR = (b) => b.x >= rect.x0 && b.right <= rect.x1 && b.y >= rect.y0 && b.bottom <= rect.y1;
       const pkgIn = inR(pb);
-      const doorIn = L.doorX > rect.x0 && L.doorX < rect.x1 && (L.floorY - 120) > rect.y0 && (L.floorY - 120) < rect.y1;
-      const numIn = L.numberX > rect.x0 && L.numberX < rect.x1 && L.numberY > rect.y0 && L.numberY < rect.y1;
-      const grade = pkgIn && (doorIn || numIn) ? 'good' : pkgIn ? 'ok' : 'bad';
-      this.S.photo = { grade, pkgIn, doorIn, numIn };
+      // Policy: the package and where it was left (the door, low down), and nothing that identifies the home or a
+      // person: no house number, no people or any part of one, the courier included. (The number used to be
+      // what the grading asked for.)
+      const overlaps = (x0, x1, y0, y1) => Math.min(x1, rect.x1) - Math.max(x0, rect.x0) > 4 && Math.min(y1, rect.y1) - Math.max(y0, rect.y0) > 4;
+      const doorIn = L.doorX > rect.x0 && L.doorX < rect.x1 && (L.floorY - 80) > rect.y0 && (L.floorY - 80) < rect.y1;
+      const numIn = (!!L.numberX && overlaps(L.numberX - 38, L.numberX + 38, L.numberY - 21, L.numberY + 21)) ||
+        (this.numberProps || []).some(img => { const b = img.getBounds(); return overlaps(b.x, b.right, b.y, b.bottom); });
+      const personIn = [this.me, this.resident].some(r => {
+        if (!r || !r.c || !r.c.active || !r.c.visible || r.c.alpha < 0.3) return false;
+        const b = this.personBox(r);
+        return overlaps(b.x0, b.x1, b.y0, b.y1);
+      });
+      const grade = !pkgIn ? 'bad' : numIn || personIn ? 'private' : doorIn ? 'good' : 'ok';
+      this.S.photo = { grade, pkgIn, doorIn, numIn, personIn };
       shade.setVisible(false); frame.setVisible(false); info.setVisible(false);
       OTR.audio.play('shutter');
       const key = 'pod_photo_' + this.def.id + '_' + Date.now();
@@ -1694,12 +1721,20 @@ class StopScene extends BaseScenarioScene {
     };
   }
 
+  /** A person's on-screen box, world coordinates: feet at the rig's origin, about 190 px tall at full scale. */
+  personBox(r) {
+    const k = Math.abs(r.c.scaleY) || 1;
+    return { x0: r.x - 34 * k, x1: r.x + 34 * k, y0: r.y - 195 * k, y1: r.y + 4 };
+  }
+
   showPhoto(key, grade) {
     const hh = this.hh;
     const S = this.S;
     const has = this.textures.exists(key);
     const lines = [];
-    if (grade === 'good') lines.push({ text: 'Package and location are both clearly in the shot.', color: '#1E9E6B', bold: true });
+    const ph = S.photo || {};
+    if (grade === 'good') lines.push({ text: 'Package and door are both clearly in the shot, and nothing private.', color: '#1E9E6B', bold: true });
+    else if (grade === 'private') lines.push({ text: ph.personIn && ph.numIn ? 'The house number and a person are in the shot. POD photos never show either.' : ph.personIn ? 'A person is in the shot. POD photos never show people or any part of one: step out of the frame.' : 'The house number is in the shot. POD photos never show house numbers: frame lower.', color: '#C8243B', bold: true });
     else if (grade === 'ok') lines.push({ text: 'The package is in the shot, but there\'s nothing showing WHERE it is.', color: '#B26A00', bold: true });
     else lines.push({ text: 'The package isn\'t fully in the frame.', color: '#C8243B', bold: true });
     // a photo that falls short puts Retake first (key 1) under an amber or red header; using it is still possible
@@ -1789,6 +1824,7 @@ class StopScene extends BaseScenarioScene {
         log.penalty('safety', H.type === 'ice' || H.type === 'wet' ? 2 : 1, H.withLoad ? `Fell on ${H.label} carrying a package` : 'Incident: fall risk',
           { severity: 'major', critical: !!H.withLoad, lesson: H.withLoad ? 'Hold SHIFT and take short steps over anything slippery or cluttered, above all with a package that hides your feet.' : null });
       } else if (H.state === 'cleared') log.check('safety', 2, 2, `Cleared the hazard (${H.label})`);
+      else if (H.wobbled && !clearable) log.check('safety', 1, 2, `Nearly slipped on ${H.label} before slowing down`, { lesson: 'Slow down BEFORE the slippery patch: hold SHIFT for short steps from the first one.' });
       else if (H.state === 'careful') {
         // stepping carefully over clutter is safe for you, but leaves it for the next person
         if (clearable) log.check('safety', 1, 2, `Stepped carefully over ${H.label}, but left it on the path`, { lesson: clearLesson });
@@ -1847,7 +1883,8 @@ class StopScene extends BaseScenarioScene {
       const sp = !S.leftRestricted && (d.spots || []).find(x => x.id === S.spot);
       if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.report || sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
       const ph = S.photo || { grade: 'bad' };
-      log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, 'Took a clear proof-of-delivery photo', { lesson: 'A good POD photo shows the package AND where it was left (door, house number), never people.' });
+      const podLesson = 'A POD photo shows the package and where it was left (the door or doorstep). Never a house number, and never people or any part of one, yours included.';
+      log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, ph.grade === 'private' ? `Proof-of-delivery photo showed ${ph.numIn && ph.personIn ? 'the house number and a person' : ph.numIn ? 'the house number' : 'a person'}` : 'Took a clear proof-of-delivery photo', { lesson: podLesson });
       log.check('service', S.knocks > 0 ? 1 : 0, 1, 'Knocked or rang before leaving the package', { lesson: 'Always attempt contact first. Many customers would rather receive the package in person.' });
     }
     if (S.outcome === 'delivered' && S.type !== 'left' && !againstRules) {

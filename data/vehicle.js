@@ -57,6 +57,7 @@ OTR_DATA.vehicle = {
   surfaces: { road: 0.85, sidewalk: 0.8, grass: 0.5 },
   weatherGrip: { clear: 1, cloudy: 1, fog: 1, heat: 0.97, rain: 0.65, storm: 0.58, snow: 0.34 },
   grassRolling: 0.07,         // lawns drag at the tyres
+  kerbRolling: 0.04,          // so does a wheel up on the kerb and sidewalk
 
   // collisions
   impact: {

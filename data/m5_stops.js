@@ -40,7 +40,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
     },
     keyLessons: [
       'Scan every package before it leaves the truck: it catches wrong-stop packages and shows signature and delivery requirements.',
-      'Follow the customer\'s delivery instructions when it\'s safe to, and take a clear photo showing the package and where it was left.',
+      'Follow the customer\'s delivery instructions when it\'s safe to, and take a clear photo of the package and where it was left: no house numbers, no people.',
       'At businesses a receptionist or mailroom can sign. Record THEIR printed name, not the addressee\'s.'
     ],
     stops: [

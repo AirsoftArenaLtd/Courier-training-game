@@ -283,7 +283,7 @@ window.QA_AUTODRIVE = (function () {
         vt = Math.min(vt, Math.sqrt(2 * A * Math.max(0, dm - 24)));
         if (dm < 44 && V.stopped(v)) {
           bot.waitT += dt;
-          if (!light && bot.waitT > 0.5) { m.cleared = true; bot.waitT = 0; }
+          if (!light && bot.waitT > 0.9) { m.cleared = true; bot.waitT = 0; }   // the game counts a stop after 0.5 s still
         }
         break;
       }

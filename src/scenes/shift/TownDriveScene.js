@@ -54,7 +54,7 @@ class TownDriveScene extends Phaser.Scene {
     this.damage = 0;
     this.world = {
       mu: (x, y) => this.muAt(x, y),
-      rolling: (x, y) => (this.surfaceAt(x, y) === 'grass' ? OTR_DATA.vehicle.grassRolling : 0)
+      rolling: (x, y) => { const sf = this.surfaceAt(x, y); return sf === 'grass' ? OTR_DATA.vehicle.grassRolling : sf === 'sidewalk' ? OTR_DATA.vehicle.kerbRolling : 0; }
     };
 
     this.buildWorld();
@@ -99,8 +99,10 @@ class TownDriveScene extends Phaser.Scene {
       W: { dx: -1, dy: 0, lane: 1 }, E: { dx: 1, dy: 0, lane: -1 },
       N: { dx: 0, dy: -1, lane: -1 }, S: { dx: 0, dy: 1, lane: 1 }
     };
+    const cornerKey = A.corner(this);
     T.inters.forEach(it => {
       this.add.image(it.x, it.y, crossKey).setDepth(-89);
+      this.add.image(it.x, it.y, cornerKey).setDepth(-88.5);
       it.signs = {};
       Object.keys(this.APPROACH).forEach(dir => {
         const a = this.APPROACH[dir];
@@ -169,8 +171,17 @@ class TownDriveScene extends Phaser.Scene {
   }
 
   surfaceAt(x, y) {
-    const d = this.streetDist(x, y), R = OTR.townArt.ROAD / 2;
-    return d <= R ? 'road' : d <= R + OTR.townArt.WALK ? 'sidewalk' : 'grass';
+    const A = OTR.townArt, R = A.ROAD / 2, rc = A.CORNER, c = R + rc;
+    // a junction's rounded kerb corners (townArt.corner draws the same shape)
+    let ax = 1e9, ay = 1e9;
+    for (let i = 0; i < this.T.vx.length; i++) ax = Math.min(ax, Math.abs(x - this.T.vx[i]));
+    for (let i = 0; i < this.T.hy.length; i++) ay = Math.min(ay, Math.abs(y - this.T.hy[i]));
+    if (ax > R && ay > R && ax < c && ay < c) {
+      const d = Math.hypot(c - ax, c - ay);
+      return d > rc ? 'road' : d > rc - A.WALK ? 'sidewalk' : 'grass';
+    }
+    const d = this.streetDist(x, y);
+    return d <= R ? 'road' : d <= R + A.WALK ? 'sidewalk' : 'grass';
   }
 
   /** Peak tyre grip at a point: the surface, the weather, and any hazard patch (standing water, ice). */
@@ -1079,15 +1090,19 @@ class TownDriveScene extends Phaser.Scene {
     // wheels over the kerb: the classic step-van mistake is the rear wheel cutting a right turn
     const g = v.g;
     const wheels = [V.point(v, g.a, -(g.hw - 0.3)), V.point(v, g.a, g.hw - 0.3), V.point(v, -g.b, -(g.hw - 0.3)), V.point(v, -g.b, g.hw - 0.3)];
-    const offRoad = wheels.some(w => this.surfaceAt(w.x, w.y) !== 'road');
-    if (offRoad && mph > 1.5) {
-      if (!this._offRoad) { this._offRoad = true; OTR.fx.shake(this, 90, 0.003); OTR.audio.play('thud'); }
-      this.kerbT = (this.kerbT || 0) + dt;
-      if (this.kerbT > 0.25) {
-        this.kerbT = 0;
-        this.violation('kerb', 'Drove over the curb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
-      }
-    } else { this.kerbT = 0; if (!offRoad) this._offRoad = false; }
+    // Each wheel that climbs the kerb jolts the van and costs speed, and any climb over walking pace is the
+    // violation at once. (It took a quarter of a second off the road above 1.5 mph, so a rear wheel clipping the
+    // corner on a turn was never caught, and the kerb itself was no more than a sound.)
+    const up = wheels.map(w => this.surfaceAt(w.x, w.y) !== 'road');
+    const offRoad = up.some(Boolean);
+    const was = this._wheelsUp || [];
+    const climbed = up.some((u, i) => u && !was[i]);
+    this._wheelsUp = up;
+    if (climbed && mph > 1) {
+      OTR.fx.shake(this, 120, 0.005); OTR.audio.play('thud');
+      v.u *= mph > 8 ? 0.8 : 0.88;
+      this.violation('kerb', 'Drove over the curb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
+    }
 
     // a school zone ahead is announced, as a stop sign or a light is (the limit used to change silently)
     const fw = V.fwd(v), zl = T.limitAt(v.x + fw.x * 260, v.y + fw.y * 260);
