@@ -30,13 +30,17 @@ OTR.flow = {
   testId: null,
   dev: false,
 
-  startScenario(scene, id) {
+  /** o: { assess: true } starts an assessment attempt (see OTR.academy); anything else is practice. */
+  startScenario(scene, id, o) {
     const sc = OTR.registry.get(id);
     if (!sc) return;
     if (!scene.scene.manager.keys[sc.scene]) {
       OTR.ui.toast(scene, 'This scenario isn\'t available yet.');
       return;
     }
+    OTR.flow.startedAt = Date.now();                // for the record's "time training"
+    if (o && o.assess && !OTR.flow.testId) OTR.academy.begin(id);
+    else OTR.academy.assessing = null;
     OTR.fx.transition(scene, sc.scene, { scenarioId: id });
   },
 
@@ -73,8 +77,10 @@ OTR.flow = {
     const mistakes = result.mistakes !== undefined ? result.mistakes : log ? log.mistakes(group, cats).length : takeaways.length;
     const verdict = { untested, criticals: criticals.map(it => ({ cat: it.cat, label: it.label })), takeaways, mistakes };
     const rec = OTR.save.recordResult(id, { score: Math.round(result.score || 0), stars });
+    OTR.save.logAttempt(id, { assess: OTR.academy.assessing === id, score: Math.round(result.score || 0), stars, verdict });
+    const assessment = OTR.academy.assessing === id ? OTR.academy.finish(sc, stars, Math.round(result.score || 0), verdict) : null;
     OTR.flow.last = { id, stars, verdict };
-    OTR.fx.transition(scene, 'ResultsScene', { scenarioId: id, result, stars, rec, verdict });
+    OTR.fx.transition(scene, 'ResultsScene', { scenarioId: id, result, stars, rec, verdict, assessment });
   },
 
   toHub(scene) { OTR.fx.transition(scene, 'HubScene'); }

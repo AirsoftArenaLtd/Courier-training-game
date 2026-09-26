@@ -75,6 +75,15 @@ OTR.ui = {
       return c;
     };
     c.setLabel = (s) => { t.setText(s); return c; };
+    // a toggle's look (a selected option wears another skin)
+    c.setSkin = (sk) => {
+      const def = OTR.tex.buttonSkins[sk] || OTR.tex.buttonSkins.orange;
+      bg.setTexture(OTR.tex.button(scene, w, h, sk));
+      t.setColor(def.text);
+      if (sk === 'ghost') t.setShadow(0, 0, 'rgba(0,0,0,0)', 0);
+      else t.setShadow(0, 2, 'rgba(0,0,0,0.4)', 6, false, true);
+      return c;
+    };
     if (o.key && scene.input.keyboard) {
       const keys = Array.isArray(o.key) ? o.key : [o.key];
       // o.keyAfter: the key only answers after this many ms (a key held or mashed through the part before must not
@@ -370,10 +379,11 @@ OTR.ui = {
    * Any letter in any language is accepted (José, Zoë, Siobhán), up to 24 characters with a counter; a refused key or
    * an empty name says why on the hint line (they used to be silently ignored).
    */
+  /** o: { title, initial, confirm, onDone, onCancel, pin: true (4-8 digits, shown as dots), hint } */
   nameEntry(scene, o) {
     o = o || {};
-    const MAX = 24;
-    const HINT = 'Type your name · Enter to confirm';
+    const MAX = o.pin ? 8 : 24;
+    const HINT = o.hint || (o.pin ? 'Type the PIN (4 to 8 digits) · Enter to confirm' : 'Type your name · Enter to confirm');
     let value = (o.initial || '').slice(0, MAX);
     let field, caret, hint, count, confirmBtn;
     const modal = OTR.ui.modal(scene, {
@@ -404,7 +414,7 @@ OTR.ui = {
       hintTimer = scene.time.delayedCall(1800, () => hint.setText(HINT).setColor('#7A6A90'));
     };
     const refresh = () => {
-      field.setText(value || ' ');
+      field.setText(o.pin ? '•'.repeat(value.length) || ' ' : value || ' ');
       field.setScale(Math.min(1, 440 / Math.max(1, field.width)));          // a long name still fits the field
       caret.x = value ? field.displayWidth / 2 + 6 : 0;
       count.setText(`${value.length} / ${MAX}`);
@@ -412,9 +422,9 @@ OTR.ui = {
     };
     const submit = () => {
       const name = value.trim();
-      if (!name) {
+      if (!name || (o.pin && name.length < 4)) {
         OTR.audio.play('fail');
-        say('Type your name first');
+        say(o.pin ? 'At least 4 digits' : 'Type your name first');
         scene.tweens.add({ targets: modal.box, x: modal.box.x + 10, duration: 40, yoyo: true, repeat: 3 });
         return;
       }
@@ -426,6 +436,7 @@ OTR.ui = {
       if (e.key === 'Backspace') { value = value.slice(0, -1); OTR.audio.play('type'); refresh(); return; }
       if (e.key === 'Escape') { cleanup(); modal.close(o.onCancel); return; }
       if (e.key.length === 1 || /^\p{L}\p{M}*$/u.test(e.key)) {
+        if (o.pin && !/^\d$/.test(e.key)) { say('Digits only'); return; }
         if (!/^[\p{L}\p{M}\p{N} .'\-]+$/u.test(e.key)) { say('Letters, numbers, spaces and . \' - only'); return; }
         if (value.length >= MAX) { say(`That is the most it takes: ${MAX} characters`); return; }
         if (e.key === ' ' && (!value || value.endsWith(' '))) return;
@@ -438,6 +449,7 @@ OTR.ui = {
     scene.input.keyboard.on('keydown', onKey);
     modal.root.once('destroy', cleanup);
     refresh();
+    modal.say = say;
     return modal;
   },
 

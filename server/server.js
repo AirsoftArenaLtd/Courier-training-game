@@ -29,6 +29,7 @@
  *   GET  api/trainees               [{ id, name, savedAt, summary }]
  *   GET  api/trainees/<id>          { id, progress }
  *   DELETE api/trainees/<id>        resets that trainee (their old file is kept as <id>.json.<time>.bak)
+ *   POST api/trainees/<id>/allow    one more attempt at every assessment they have not passed
  */
 'use strict';
 const http = require('http');
@@ -159,7 +160,17 @@ async function api(req, res, url) {
         });
         return send(res, 200, list.sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0)));
       }
-      const id = decodeURIComponent(route.slice('trainees/'.length));
+      let id = decodeURIComponent(route.slice('trainees/'.length));
+      if (id.endsWith('/allow') && req.method === 'POST') {
+        id = id.slice(0, -'/allow'.length);
+        const f2 = fileFor(id), p = readJSON(f2, null);
+        if (!p) return send(res, 404, { error: 'No progress for that trainee.' });
+        let n = 0;
+        Object.keys(p.assess || {}).forEach(k => { const r = p.assess[k]; if (r && !r.passed) { r.allowed = (r.allowed || 0) + 1; n++; } });
+        p.savedAt = Date.now();
+        writeJSON(f2, p);
+        return send(res, 200, { ok: true, allowed: n });
+      }
       const f = fileFor(id);
       if (req.method === 'GET') return send(res, 200, { id, progress: readJSON(f, null) });
       if (req.method === 'DELETE') {

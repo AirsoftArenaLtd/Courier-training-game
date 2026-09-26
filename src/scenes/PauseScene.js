@@ -14,7 +14,9 @@ class PauseScene extends Phaser.Scene {
     // Restart starts the scene again exactly as it was started (a route-day stop stays that stop, the drive keeps its
     // route). A scene can offer more than one restart, each saying what it restarts (stop 2 of a practice set:
     // "Restart this stop" and "Restart the set").
-    const restarts = parent.restartOptions ? parent.restartOptions() : [{ label: 'Restart', data: parent.initData || { scenarioId: parent.scenarioId } }];
+    // an assessment is one attempt: no restarting it
+    const assessing = !!OTR.academy.assessing;
+    const restarts = assessing ? [] : parent.restartOptions ? parent.restartOptions() : [{ label: 'Restart', data: parent.initData || { scenarioId: parent.scenarioId } }];
     // the scenario's controls, to look up mid-run (SHELL-12): the scene's own, its scenario's, or those of the
     // practice scenario played in the same scene (a route-day stop)
     const sameScene = OTR.registry.all().find(s => s.scene === this.parentKey);
@@ -25,7 +27,7 @@ class PauseScene extends Phaser.Scene {
     const box = this.add.container(OTR.W / 2, OTR.H / 2);
     box.add(OTR.ui.panel(this, 0, 0, 440, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 24 }));
     box.add(OTR.txt(this, 0, top + 52, 'PAUSED', 40, '#4D148C', { weight: '900' }));
-    box.add(OTR.txt(this, 0, top + 92, this.title, 18, '#7A6A90', { bold: false }));
+    box.add(OTR.txt(this, 0, top + 92, (assessing ? 'Assessment · ' : '') + this.title, 18, assessing ? '#B26A00' : '#7A6A90', { bold: assessing }));
 
     const resume = () => {
       this.scene.resume(this.parentKey);
@@ -60,12 +62,14 @@ class PauseScene extends Phaser.Scene {
     });
     y += 72;
     // a route day is saved as it goes, so leaving it loses nothing but the part in progress
-    const quitBody = parent.shiftMode || this.parentKey === 'ShiftBriefScene' || this.parentKey === 'TownDriveScene'
-      ? 'The route day is kept: the station offers to resume it. The part you are in starts again.'
-      : 'This run is not scored, and what you have done in it is lost.';
+    const quitBody = assessing ? 'This is an assessment: quitting uses your attempt, and it counts as not passed.'
+      : parent.shiftMode || this.parentKey === 'ShiftBriefScene' || this.parentKey === 'TownDriveScene'
+        ? 'The route day is kept: the station offers to resume it. The part you are in starts again.'
+        : 'This run is not scored, and what you have done in it is lost.';
     items.push(OTR.ui.button(this, 0, y, 'Quit to the station', () => confirmThen('Quit to the station?', quitBody, 'Quit', () => {
       this.scene.resume(this.parentKey);
       this.scene.stop();
+      OTR.academy.abandon();
       OTR.fx.transition(parent, 'HubScene');
     }), { w: 300, h: 58, skin: 'ghost', fontSize: 20, key: 'Q', hint: 'Q' }));
     items.push(OTR.ui.muteButton(this, 0, y + 80));

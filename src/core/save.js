@@ -85,6 +85,8 @@ OTR.save = {
       if (!d.profile || d.profile.id !== I.id) d.profile = { name: I.name, id: I.id, createdAt: Date.now() };
       else d.profile.name = I.name;
     }
+    // an assessment still open from last time was left (the tab closed): the attempt stays used, not passed
+    Object.keys(d.assess || {}).forEach(k => { const r = d.assess[k]; if (r && r.pending) { r.pending = false; r.abandoned = true; } });
     this.data = d;
     if (I.mode === 'server' && this.remoteOk === false) this.failed = true;
     // find out now whether anything can be kept: a trainee must hear it before a day's work is lost, not after (SHELL-14)
@@ -148,7 +150,7 @@ OTR.save = {
     if (I.mode !== 'scorm' || !OTR.registry) return;
     const all = OTR.registry.all ? OTR.registry.all() : [];
     const max = all.length * 9 || 1;
-    const rep = OTR.assess && OTR.assess.summary ? OTR.assess.summary() : null;
+    const rep = OTR.academy ? OTR.academy.summary() : null;
     I.scorm.report({ score: this.totals().all / max * 100, complete: !!(rep && rep.complete), passed: !!(rep && rep.passedAll) });
   },
 
@@ -281,6 +283,23 @@ OTR.save = {
       rankBefore,
       rankAfter: this.rankInfo(after).index
     };
+  },
+
+  /**
+   * Every scored run, for the trainee record: when, practice or assessment, the stars, and what went wrong. Kept to
+   * the last 400 runs.
+   */
+  logAttempt(id, o) {
+    if (this.ephemeral || !this.data) return;
+    const h = this.data.history = this.data.history || [];
+    h.push({
+      id, at: Date.now(), assess: !!o.assess, score: o.score, stars: o.stars,
+      dur: OTR.flow.startedAt ? Math.min(3 * 3600, Math.round((Date.now() - OTR.flow.startedAt) / 1000)) : 0,
+      criticals: ((o.verdict && o.verdict.criticals) || []).map(c => c.label),
+      lessons: ((o.verdict && o.verdict.takeaways) || []).slice(0, 5).map(t => t.text)
+    });
+    if (h.length > 400) h.splice(0, h.length - 400);
+    this.write();
   },
 
   /**

@@ -421,6 +421,7 @@ class TownDriveScene extends Phaser.Scene {
   }
 
   setHint(text, color) {
+    if (!OTR.academy.coaching()) text = null;          // an assessment: the signs and lights are there to read
     if (!text) { if (this._hint !== null) { this.signHint.setVisible(false); this._hint = null; } return; }
     if (this._hint === text) return;
     this._hint = text;

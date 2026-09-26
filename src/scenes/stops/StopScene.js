@@ -826,7 +826,7 @@ class StopScene extends BaseScenarioScene {
   }
 
   refreshObjectives() {
-    if (this.shiftMode && !OTR.save.data.settings.hints) { this.objPanel.setVisible(false); return; }
+    if ((this.shiftMode && !OTR.save.data.settings.hints) || !OTR.academy.coaching()) { this.objPanel.setVisible(false); return; }
     const c = this.objPanel;
     c.removeAll(true);
     c.setVisible(!this.photoMode);                 // hidden only while the camera is up

@@ -72,6 +72,8 @@ OTR.TalkController = class {
     this.scene = scene;
     this.graph = graph;
     this.o = o;
+    // an assessment gives no feedback per answer: it all comes on the results screen
+    if (OTR.academy && !OTR.academy.coaching()) this.o.feedback = 'deferred';
     this.flags = o.flags || {};
     this.cast = o.cast || {};
     this.moods = {};

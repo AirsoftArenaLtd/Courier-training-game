@@ -31,13 +31,19 @@ class ResultsScene extends Phaser.Scene {
     const got = tested.reduce((n, c) => n + (stars[c] || 0), 0);
     const max = tested.length * 3;
     const head = OTR.scoring.headline({ stars, cats, untested: verdict.untested, criticals: verdict.criticals, mistakes: verdict.mistakes, cap: result.headlineCap });
+    // an assessment is judged pass or fail against the academy's pass mark, and says which
+    const A = this.d.assessment || null;
+    if (A) {
+      head.text = A.passed ? 'ASSESSMENT PASSED' : 'ASSESSMENT NOT PASSED';
+      if (!A.passed) head.celebrate = null;
+    }
     const px = W / 2, py = H / 2 + 4;
     const pw = 820, ph = 668;
     const panel = this.add.container(px, py);
     panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 26 }));
     // a critical mistake turns the header red: nothing about this screen may read as praise
     panel.add(OTR.tex.shape(this, (hg) => {
-      hg.fillStyle(head.critical ? 0xC8243B : mod.color, 1);
+      hg.fillStyle(A ? (A.passed ? 0x1E9E6B : 0xC8243B) : head.critical ? 0xC8243B : mod.color, 1);
       hg.fillRoundedRect(-pw / 2, -ph / 2, pw, 104, { tl: 26, tr: 26, bl: 0, br: 0 });
     }));
     panel.add(OTR.txt(this, 0, -ph / 2 + 34, head.text, 16, 'rgba(255,255,255,0.9)', { weight: '900' }));
@@ -108,21 +114,38 @@ class ResultsScene extends Phaser.Scene {
     const info = OTR.save.rankInfo(rec.careerAfter);
     panel.add(OTR.txt(this, -pw / 2 + 50, cy, `CAREER  ${rec.careerAfter} ★  ·  ${OTR.save.rankLabel(info)}`, 15, '#4D148C', { ox: 0, weight: '900' }));
     // a direct test link never saves, good run or bad (it used to promise "+N new career stars" that were never kept)
-    const gainText = OTR.flow.testId ? 'Test mode — progress not saved'
-      : rec.starsGained > 0 ? `+${rec.starsGained} new career star${rec.starsGained === 1 ? '' : 's'}` : 'Beat your best stars to grow your rank';
-    panel.add(OTR.txt(this, pw / 2 - 50, cy, gainText, 15, rec.starsGained > 0 && !OTR.flow.testId ? '#1E9E6B' : '#9A8AB0', { ox: 1, weight: rec.starsGained > 0 && !OTR.flow.testId ? 'bold' : 'normal' }));
+    const label = (c) => OTR_DATA.config.categories[c].label;
+    const gainText = A ? (A.passed ? `Passed: ${A.need.safety === A.need.efficiency && A.need.efficiency === A.need.service ? A.need.safety + '★ or better in every category' : 'the pass mark in every category'}`
+      : A.criticals.length ? 'A critical mistake fails an assessment'
+        : `Needed ${A.short.map(c => `${A.need[c]}★ in ${label(c)} (got ${stars[c] || 0})`).join(', ')}`)
+      : OTR.flow.testId ? 'Test mode — progress not saved'
+        : rec.starsGained > 0 ? `+${rec.starsGained} new career star${rec.starsGained === 1 ? '' : 's'}` : 'Beat your best stars to grow your rank';
+    const gainCol = A ? (A.passed ? '#1E9E6B' : '#B3122E') : rec.starsGained > 0 && !OTR.flow.testId ? '#1E9E6B' : '#9A8AB0';
+    const gain = OTR.txt(this, pw / 2 - 50, cy, gainText, 15, gainCol, { ox: 1, weight: A || (rec.starsGained > 0 && !OTR.flow.testId) ? 'bold' : 'normal' });
+    const room = pw - 100 - 20 - panel.list[panel.list.length - 1].width;
+    if (gain.width > room) gain.setScale(room / gain.width);
+    panel.add(gain);
     const bar = OTR.ui.bar(this, -pw / 2 + 50, cy + 26, pw - 100, 12, { color: 0xFF6600, bgAlpha: 0.12 });
     panel.add(bar);
     bar.setValue(OTR.save.rankInfo(rec.careerBefore).index === info.index ? OTR.save.rankInfo(rec.careerBefore).progress : 0);
     this.time.delayedCall(delay, () => bar.setValue(info.progress, true, 800));
 
     // buttons
-    const retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
-    const next = OTR.ui.button(this, 130, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
-    panel.add([retry, next]);
-    OTR.ui.focus(this, [retry, next], { start: 1 });
-    [retry, next].forEach(b => b.setEnabled(false));
-    this.time.delayedCall(Math.min(delay, 2200), () => [retry, next].forEach(b => b.setEnabled(true)));
+    // after an assessment: a retake only while attempts remain (asked first), otherwise practice if it's allowed
+    const left = A ? OTR.academy.attemptsLeft(scenarioId) : 0;
+    let retry = null;
+    if (!A) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
+    else if (!A.passed && left > 0) {
+      retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retake', () => OTR.ui.confirm(this, 'Retake the assessment?',
+        `${left === Infinity ? 'It' : `This uses ${left === 1 ? 'your last attempt' : 'one of your ' + left + ' attempts'}. It`} is scored the same way: no hints, and no restarting.`,
+        () => OTR.flow.startScenario(this, scenarioId, { assess: true }), { yes: 'Start', key: 'ENTER', hint: '⏎' }), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
+    } else if (OTR.academy.practiceAllowed()) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Practice it', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
+    const next = OTR.ui.button(this, retry ? 130 : 0, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
+    const btns = retry ? [retry, next] : [next];
+    panel.add(btns);
+    OTR.ui.focus(this, btns, { start: btns.length - 1 });
+    btns.forEach(b => b.setEnabled(false));
+    this.time.delayedCall(Math.min(delay, 2200), () => btns.forEach(b => b.setEnabled(true)));
 
     // celebrations, only for a run that earned them
     this.time.delayedCall(delay + 150, () => {

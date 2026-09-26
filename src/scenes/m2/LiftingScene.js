@@ -210,6 +210,7 @@ class LiftingScene extends BaseScenarioScene {
   }
 
   coach(head, text, col, next) {
+    if (!OTR.academy.coaching()) { next(); return; }   // an assessment: the verdict comes on the results screen
     const w = 760;
     const body = OTR.txt(this, 0, 0, text, 19, '#3A2A50', { bold: false, wrap: w - 70, lineSpacing: 3 });
     const h = body.height + 90;
@@ -384,6 +385,7 @@ class LiftingScene extends BaseScenarioScene {
 
   showCoach(text, color) {
     if (!this.coachText) return;
+    if (!OTR.academy.coaching()) text = '';            // an assessment: no live coaching
     this.coachText.setText(text || '').setColor(color || '#ffffff');
   }
 

@@ -108,8 +108,15 @@ class HubScene extends Phaser.Scene {
       OTR.txt(this, cx, top + 259, def.label, 13, '#E6DAF7', { bold: false });
     });
 
+    // the stars, and the way to the trainee record
     const passed = OTR.registry.all().filter(sc => this.passed(sc)).length;
-    OTR.txt(this, x, top + 294, `${totals.all} / ${OTR.registry.maxStars()} ★  ·  ${passed}/${OTR.registry.all().length} passed`, 13, '#FFC83D', { weight: '900' });
+    OTR.txt(this, x - 110, top + 294, `${totals.all}/${OTR.registry.maxStars()} ★ · ${passed}/${OTR.registry.all().length} played`, 13, '#FFC83D', { ox: 0, weight: '900' });
+    const link = OTR.txt(this, x + 110, top + 294, 'My record ›', 13, '#8BF0C6', { ox: 1, weight: '900' });
+    const ul = OTR.tex.shape(this, (g) => { g.fillStyle(0x8BF0C6, 0.9); g.fillRect(x + 110 - link.width, top + 303, link.width, 2); });
+    link.press = () => OTR.fx.transition(this, 'RecordScene', {});
+    link.setInteractive({ useHandCursor: true }).on('pointerup', link.press);
+    link.on('pointerover', () => ul.setAlpha(0.4)).on('pointerout', () => ul.setAlpha(1));
+    this.focusables.push(link);
   }
 
   /* ---------------------------------------------------------------- today's route */
@@ -166,7 +173,10 @@ class HubScene extends Phaser.Scene {
     const pw = Math.floor((OTR.W - X0 - 20 - gap * (cols - 1)) / cols);
     const ph = 190;
     OTR.txt(this, X0, 92, 'TRAINING ACADEMY', 15, '#FF9447', { ox: 0, weight: '900' });
-    OTR.txt(this, OTR.W - 20, 92, this.fresh ? 'New here? Start with the scenario marked NEXT' : 'Practice any module, any time', 14, this.fresh ? '#FFC83D' : '#C9B3F0', { ox: 1, bold: !!this.fresh });
+    const A = OTR.academy, as = A.assessmentAllowed() ? A.summary() : null;
+    const right = this.fresh ? 'New here? Start with the scenario marked NEXT'
+      : as ? `Assessments passed: ${as.passed} / ${as.total}${A.practiceAllowed() ? '  ·  practise any time' : ''}` : 'Practice any module, any time';
+    OTR.txt(this, OTR.W - 20, 92, right, 14, this.fresh ? '#FFC83D' : as ? '#8BF0C6' : '#C9B3F0', { ox: 1, bold: !!this.fresh || !!as });
 
     mods.forEach((m, i) => {
       const px = X0 + (i % cols) * (pw + gap);
@@ -243,6 +253,14 @@ class HubScene extends Phaser.Scene {
       c.add(this.add.image(w / 2 - 70, 0, 'star_gold').setDisplaySize(15, 15));
       c.add(OTR.txt(this, w / 2 - 59, 0, `${got}/${max}`, 13, got === max ? '#1E9E6B' : '#7A6A90', { ox: 0, weight: '900' }));
     }
+    // the assessment, once taken: a green tick when passed, a red cross when it can't be retaken
+    const ast = OTR.academy.assessmentAllowed() ? OTR.academy.status(sc.id) : 'none';
+    if (ast === 'passed' || ast === 'failed' || ast === 'retake') {
+      const col = ast === 'passed' ? 0x1E9E6B : ast === 'failed' ? 0xC8243B : 0xB26A00;
+      c.add(OTR.tex.shape(this, (bg) => { bg.fillStyle(col, 1); bg.fillCircle(w / 2 - 94, 0, 9); }));
+      c.add(OTR.txt(this, w / 2 - 94, 0, ast === 'passed' ? '✓' : ast === 'failed' ? '✕' : '!', 12, '#ffffff', { weight: '900' }));
+      if (title.width > maxTitleW - 22) title.setScale((maxTitleW - 22) / (title.width / title.scaleX));
+    }
     c.add(this.add.image(w / 2 - 15, 0, 'ic_arrow').setDisplaySize(13, 13).setTint(mod.color));
 
     const hit = this.add.rectangle(0, 0, w, h, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
@@ -264,6 +282,15 @@ class HubScene extends Phaser.Scene {
     const measure = (str, size, opts) => { const t = OTR.txt(this, 0, 0, str, size, '#000', opts); const th = t.height; t.destroy(); return th; };
     const body = 122 + measure(sc.blurb, 18, { ox: 0, oy: 0, bold: false, wrap: 640, lineSpacing: 3 }) + 18 + 24 +
       sc.learn.length * 26 + 8 + 22 + measure(sc.controls, 15, { ox: 0, oy: 0, bold: false, wrap: 640 });
+    // practice and the assessment, as the academy allows; the assessment's standing in the header
+    const A = OTR.academy, ast = A.status(sc.id), left = A.attemptsLeft(sc.id);
+    const aStat = !A.assessmentAllowed() ? null : ast === 'passed' ? 'Assessment: passed ✓'
+      : ast === 'failed' ? 'Assessment: not passed · ask your trainer for another attempt'
+        : ast === 'retake' ? `Assessment: not passed · ${left === Infinity ? 'retake any time' : left + ' attempt' + (left === 1 ? '' : 's') + ' left'}` : 'Assessment: not taken';
+    const buttons = [{ label: 'Back', skin: 'ghost' }];
+    const canAssess = A.assessmentAllowed() && left > 0;
+    if (A.practiceAllowed()) buttons.push({ label: rec ? 'Practice again' : 'Practice', skin: canAssess ? 'purple' : 'orange', key: canAssess ? undefined : 'ENTER', hint: canAssess ? undefined : '⏎', onClick: () => OTR.flow.startScenario(this, sc.id) });
+    if (canAssess) buttons.push({ label: ast === 'retake' ? 'Retake test ▶' : 'Assessment ▶', skin: 'orange', key: 'ENTER', hint: '⏎', onClick: () => this.time.delayedCall(250, () => this.confirmAssessment(sc)) });
     OTR.ui.modal(this, {
       w: 720, h: Math.min(700, Math.max(540, body + 150)), escClose: true,
       build: (box, api, w, h) => {
@@ -297,20 +324,48 @@ class HubScene extends Phaser.Scene {
         });
         // in the header, clear of the blurb (it used to be printed on its first line; SHELL-13)
         if (rec) box.add(OTR.txt(this, w / 2 - 28, -h / 2 + 30, `Best ${OTR.save.starSum(save.bestStars(sc.id))} / ${n * 3} ★ · played ${rec.plays}×`, 14, '#ffffff', { ox: 1, weight: '900', shadow: true }));
+        if (aStat) box.add(OTR.txt(this, w / 2 - 28, -h / 2 + 64, aStat, 14, '#ffffff', { ox: 1, weight: '900', shadow: true }));
       },
-      buttons: [
-        { label: 'Back', skin: 'ghost' },
-        {
-          label: rec ? 'Play Again' : 'Start',
-          skin: 'orange',
-          key: 'ENTER',
-          hint: '⏎',
-          onClick: () => {
-            OTR.flow.startScenario(this, sc.id);
-          }
-        }
-      ]
+      buttons
     });
+  }
+
+  /** The PIN (or, on a browser-only install with none yet, choosing one), then the trainer tools. */
+  trainerLogin(retry) {
+    const A = OTR.academy;
+    if (A.pin) { OTR.fx.transition(this, 'TrainerScene'); return; }
+    if (!A.pinSet()) {
+      if (OTR.identity.mode === 'server') {
+        OTR.ui.modal(this, { title: 'Trainer tools are off', w: 600, h: 300, escClose: true,
+          body: 'This training server has no trainer PIN. IT turns the tools on by starting the server with OTR_TRAINER_PIN set (see the README).',
+          buttons: [{ label: 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], hint: '⏎' }] });
+        return;
+      }
+      OTR.ui.nameEntry(this, { title: 'Choose a trainer PIN', pin: true, confirm: 'Next', hint: 'Only trainers should know it · 4 to 8 digits',
+        onDone: (pin) => this.time.delayedCall(200, () => OTR.ui.nameEntry(this, { title: 'Type it again', pin: true, confirm: 'Set PIN',
+          onDone: (again) => {
+            if (again !== pin) { OTR.ui.toast(this, 'The two PINs didn\'t match. Try again.', 0xF0435A); return; }
+            A.setLocalPin(pin);
+            OTR.fx.transition(this, 'TrainerScene');
+          } })) });
+      return;
+    }
+    OTR.ui.nameEntry(this, { title: retry ? 'Trainer PIN (try again)' : 'Trainer PIN', pin: true, confirm: 'Open', hint: retry || undefined,
+      onDone: (pin) => A.checkPin(pin).then(res => {
+        if (res === true) { OTR.fx.transition(this, 'TrainerScene'); return; }
+        OTR.audio.play('fail');
+        this.time.delayedCall(200, () => this.trainerLogin(res));
+      }) });
+  }
+
+  /** The assessment's rules, then the attempt. */
+  confirmAssessment(sc) {
+    const A = OTR.academy, need = A.get().passStars, left = A.attemptsLeft(sc.id);
+    const cats = OTR.scoring.ordered(sc.categories).map(c => `${need[c]}★ ${OTR_DATA.config.categories[c].label}`).join(' · ');
+    OTR.ui.confirm(this, `Assessment: ${sc.title}`,
+      `No hints and no restarting. To pass: ${cats}, and no critical mistakes. ` +
+      (left === Infinity ? 'Quitting part-way counts as not passed.' : `Starting uses ${left === 1 ? 'your only attempt' : `one of your ${left} attempts`}, and quitting part-way counts as not passed.`),
+      () => OTR.flow.startScenario(this, sc.id, { assess: true }), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' });
   }
 
   /* ---------------------------------------------------------------- dispatch radio */
@@ -342,6 +397,8 @@ class HubScene extends Phaser.Scene {
       title: 'Settings', w: 540, h: OTR.identity.locked ? 520 : 600, escClose: true,
       build: (box, api, w, h) => {
         const top = -h / 2;
+        // trainer tools, behind the PIN, in the corner away from a trainee's own settings
+        box.add(OTR.ui.button(this, w / 2 - 78, top + 42, 'Trainer', () => api.close(() => this.trainerLogin()), { w: 120, h: 38, skin: 'ghost', fontSize: 15, icon: 'ic_badge', iconSize: 16 }));
         box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, '#FF6600', { ox: 0 }));
         const bar = OTR.ui.bar(this, -160, top + 136, 250, 14, { color: 0xFF6600, bg: 0x4D148C, bgAlpha: 0.15 });
         const pct = OTR.txt(this, 158, top + 136, '', 16, '#4D148C', { ox: 0, weight: '900' });

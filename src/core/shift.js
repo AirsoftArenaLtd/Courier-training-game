@@ -208,6 +208,7 @@ OTR.shift = {
   start(scene) {
     const day = OTR.save.data.day;
     OTR.save.data.shift = this.generate(day);
+    OTR.save.data.shift.startedAt = Date.now();      // for the record's "time training"
     this.save();
     this.go(scene);
   },
@@ -464,6 +465,7 @@ OTR.shift = {
     const S = OTR.save.data;
     S.route = S.route || { days: 0, best: { safety: 0, efficiency: 0, service: 0 }, history: [] };
     S.route.days++;
+    if (st.startedAt) S.route.seconds = (S.route.seconds || 0) + Math.min(4 * 3600, Math.round((Date.now() - st.startedAt) / 1000));
     cats.forEach(c => { S.route.best[c] = Math.max(S.route.best[c] || 0, stars[c]); });
     S.route.history.push(rec);
     S.route.history = S.route.history.slice(-10);
