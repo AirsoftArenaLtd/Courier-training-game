@@ -203,7 +203,8 @@ Console helpers (with `?dev=1`): `OTR.debug.start('m5-pod')`, `OTR.debug.finishN
 and fails on any crash, layout fault or playthrough that does not finish and score the way it should. See
 [`test/README.md`](test/README.md) for how to run it and add to it, and [`docs/QA-REPORT.md`](docs/QA-REPORT.md) for
 what the last full pass found and fixed. `node test/enterprise.js` checks the sign-in and progress storage (the
-training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode).
+training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/academy.js` checks
+assessments, the trainer tools and the trainee record.
 
 ## Editing content
 
