@@ -8,6 +8,7 @@
   OTR.identity.resolve().then(() => Promise.all([OTR.save.preload(), OTR.academy.load()])).then(boot, boot);
   function boot() {
     if (OTR.game) return;
+    OTR.a11y.installKeys();                    // remapped controls (Settings → Accessibility)
     OTR.game = new Phaser.Game({
       type: Phaser.AUTO,
       parent: 'game',

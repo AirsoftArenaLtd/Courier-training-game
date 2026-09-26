@@ -46,6 +46,17 @@ OTR_DATA.modules = [
         blurb: 'Six checkpoints across town with something waiting on every leg: a ball in the road, a door swinging open, standing water, a school bus. You drive, and your speed and clearance are the answer.',
         learn: ['Covering the brake where children play', 'Clearance past parked cars', 'Hydroplaning: ease off, steer straight', 'Stopping for a school bus', 'Crossings, headlights and distraction'],
         controls: 'W accelerate · S brake (to reverse: stop, lift off, then hold S) · A D steer · M mirrors (before pulling out) · B belt · L lights · G look before backing · SPACE parking brake, then P to park'
+      },
+      {
+        id: 'm1-spot',
+        title: 'Spot the Hazard',
+        icon: 'ic_flag',
+        scene: 'HazardScene',
+        dataKey: 'hazardClips',
+        categories: ['safety'],
+        blurb: 'Five short clips from the driver\'s seat. Something starts to happen in each one: press the moment you see it coming, not when it is already in front of you.',
+        learn: ['Reading the clue before the hazard', 'Children, reversing cars and opening doors', 'Pedestrians who aren\'t looking', 'Cars that won\'t stop'],
+        controls: 'SPACE or click when you see a hazard developing · ENTER for the next clip'
       }
     ]
   },

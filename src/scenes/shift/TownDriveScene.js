@@ -73,6 +73,7 @@ class TownDriveScene extends Phaser.Scene {
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
     OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
+    OTR.a11y.applyColour(this);                 // the colour filter on the cameras added since the scene began
     // The engine hum belongs to this drive: quiet while paused, and gone however the scene ends. (Quitting from
     // the pause menu used to leave it humming on the hub and every screen after.)
     const hush = () => OTR.audio.stopLoop('engine');

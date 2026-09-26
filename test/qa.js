@@ -33,6 +33,7 @@ const SCENARIOS = [
   { id: 'm1-pretrip', scene: 'PreTripScene' },
   { id: 'm1-route', scene: 'RoutePlannerScene' },
   { id: 'm1-driving', scene: 'DrivingScene' },
+  { id: 'm1-spot', scene: 'HazardScene' },
   { id: 'm2-sort', scene: 'SortingScene' },
   { id: 'm2-lift', scene: 'LiftingScene' },
   { id: 'm2-labels', scene: 'LabelScene' },

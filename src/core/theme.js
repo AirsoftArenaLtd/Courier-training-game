@@ -39,6 +39,7 @@ OTR.color = {
 OTR.txt = function (scene, x, y, str, size, color, opts) {
   opts = opts || {};
   size = size || 24;
+  if (OTR.a11y) size = OTR.a11y.size(size);             // larger small text, when asked for (Accessibility)
   let weight = opts.weight || (opts.bold === false ? 'normal' : 'bold');
   if (opts.italic) weight = 'italic ' + weight;
   const style = {

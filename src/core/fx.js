@@ -123,6 +123,7 @@ OTR.fx = {
 
   enter(scene) {
     scene._leaving = false;
+    if (OTR.a11y) OTR.a11y.applyColour(scene);
     const c = scene.add.container(-60, 0).setDepth(10000).setScrollFactor(0);
     const r1 = scene.add.rectangle(0, 0, OTR.W + 200, OTR.H, 0x4D148C).setOrigin(0, 0);
     const r2 = scene.add.rectangle(OTR.W + 200, 0, 40, OTR.H, 0xFF6600).setOrigin(0, 0);

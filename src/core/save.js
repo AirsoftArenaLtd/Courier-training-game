@@ -75,6 +75,7 @@ OTR.save = {
         d.settings.muted = !!parsed.settings.muted;
         if (parsed.settings.hints !== undefined) d.settings.hints = !!parsed.settings.hints;
         if (Number.isFinite(parsed.settings.volume)) d.settings.volume = Math.max(0, Math.min(1, parsed.settings.volume));
+        if (parsed.settings.a11y && typeof parsed.settings.a11y === 'object') d.settings.a11y = Object.assign({ keys: {} }, parsed.settings.a11y);
       }
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);

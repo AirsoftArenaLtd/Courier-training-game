@@ -401,6 +401,7 @@ class HubScene extends Phaser.Scene {
         const top = -h / 2;
         // trainer tools, behind the PIN, in the corner away from a trainee's own settings
         box.add(OTR.ui.button(this, w / 2 - 78, top + 42, 'Trainer', () => api.close(() => this.trainerLogin()), { w: 120, h: 38, skin: 'ghost', fontSize: 15, icon: 'ic_badge', iconSize: 16 }));
+        box.add(OTR.ui.button(this, -w / 2 + 82, top + 42, 'Access', () => api.close(() => OTR.fx.transition(this, 'AccessScene')), { w: 128, h: 38, skin: 'ghost', fontSize: 15, icon: 'ic_user', iconSize: 16 }));
         box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, '#FF6600', { ox: 0 }));
         const bar = OTR.ui.bar(this, -160, top + 136, 250, 14, { color: 0xFF6600, bg: 0x4D148C, bgAlpha: 0.15 });
         const pct = OTR.txt(this, 158, top + 136, '', 16, '#4D148C', { ox: 0, weight: '900' });

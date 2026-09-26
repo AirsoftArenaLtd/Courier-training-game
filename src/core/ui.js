@@ -277,6 +277,14 @@ OTR.ui = {
       }
     };
     if (o.build) o.build(box, api, w, h);
+    // read aloud (Accessibility → narration): every line on the card, top to bottom, before its buttons
+    if (OTR.a11y && OTR.a11y.settings().narrate) {
+      const lines = [];
+      const walk = (ct) => ct.list.forEach(ch => { if (ch.type === 'Text' && ch.visible && ch.text && !ch.parentContainer.press) lines.push({ y: ch.y, t: ch.text }); else if (ch.list && !ch.press) walk(ch); });
+      walk(box);
+      OTR.a11y.say(lines.sort((a, b) => a.y - b.y).map(l => l.t).join('. '));
+      root.once('destroy', () => OTR.a11y.hush());
+    }
     const btns = o.buttons || [];
     const bw = Math.min(240, (w - 60) / Math.max(1, btns.length) - 16);
     btns.forEach((bd, i) => {

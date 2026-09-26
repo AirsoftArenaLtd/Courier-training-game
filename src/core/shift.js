@@ -504,7 +504,7 @@ OTR.shift = {
     else if (summary && summary.outcome === 'exception') st.stats.exceptions++;
     this.save();
     const remaining = st.route.filter(r => !r.done);
-    if (!remaining.length) this.setPhase(stopScene, 'debrief');
+    if (!remaining.length) this.setPhase(stopScene, 'posttrip');
     else this.toDrive(stopScene);
   },
 
