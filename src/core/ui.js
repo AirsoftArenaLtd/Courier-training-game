@@ -555,14 +555,16 @@ OTR.ui = {
   saveWarning(scene, x, y) {
     if (!OTR.save.failed) return null;
     const c = scene.add.container(x, y).setDepth(900).setScrollFactor(0);
-    const t = OTR.txt(scene, 0, 0, '⚠ Progress can\'t be saved in this window', 13, '#ffffff', { weight: '900' });
+    const remote = OTR.identity && OTR.identity.mode !== 'local';
+    const t = OTR.txt(scene, 0, 0, remote ? '⚠ Can\'t reach the training server: saving on this PC for now' : '⚠ Progress can\'t be saved in this window', 13, '#ffffff', { weight: '900' });
     const w = t.width + 28, h = 28;
     c.add([OTR.tex.shape(scene, (g) => { g.fillStyle(0xC8243B, 0.95); g.fillRoundedRect(-w / 2, -h / 2, w, h, h / 2); }), t]);
     const hit = scene.add.rectangle(0, 0, w, h, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
     c.add(hit);
     hit.on('pointerup', () => OTR.ui.modal(scene, {
-      title: 'Progress isn\'t being saved', w: 600, h: 330, escClose: true,
-      body: 'The browser is refusing to store anything for this page (a private window, blocked site data or a full ' +
+      title: remote ? 'The training server isn\'t answering' : 'Progress isn\'t being saved', w: 600, h: 330, escClose: true,
+      body: remote ? 'Your progress is being kept on this PC and goes to the training server the next time it answers. ' +
+        'If this keeps happening, tell your trainer or IT: the server may be down or blocked.' : 'The browser is refusing to store anything for this page (a private window, blocked site data or a full ' +
         'disk). You can keep training, but your rank and stars last only until this tab is closed. Use a normal ' +
         'window, or ask IT to allow site data for this page.',
       buttons: [{ label: 'OK', skin: 'orange', key: ['ENTER', 'SPACE'] }]

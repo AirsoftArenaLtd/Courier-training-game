@@ -339,7 +339,7 @@ class HubScene extends Phaser.Scene {
   openSettings() {
     // volume and the route-day checklist, besides the profile (SHELL-12)
     OTR.ui.modal(this, {
-      title: 'Settings', w: 540, h: 600, escClose: true,
+      title: 'Settings', w: 540, h: OTR.identity.locked ? 520 : 600, escClose: true,
       build: (box, api, w, h) => {
         const top = -h / 2;
         box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, '#FF6600', { ox: 0 }));
@@ -372,14 +372,17 @@ class HubScene extends Phaser.Scene {
         }, { w: 320, h: 48, skin: 'purple', fontSize: 18 });
         box.add(tog);
 
-        box.add(OTR.ui.button(this, 0, 20, 'Rename Courier', () => {
+        // signed in by the company or the LMS: the name is the sign-in's, and only a trainer resets progress
+        const locked = OTR.identity.locked;
+        if (locked) box.add(OTR.txt(this, 0, 20, `Signed in as ${OTR.save.displayName()}.\nA trainer can reset your progress.`, 16, '#4D148C', { bold: false, align: 'center' }));
+        if (!locked) box.add(OTR.ui.button(this, 0, 20, 'Rename Courier', () => {
           api.close(() => OTR.ui.nameEntry(this, {
             title: 'New courier name', initial: OTR.save.data.profile.name, confirm: 'Save',
             onDone: (name) => { OTR.save.rename(name); this.scene.restart(); }
           }));
         }, { w: 300, h: 56, skin: 'purple' }));
         box.add(OTR.ui.button(this, 0, 90, 'Back to Title', () => OTR.fx.transition(this, 'TitleScene'), { w: 300, h: 56, skin: 'ghost' }));
-        box.add(OTR.ui.button(this, 0, 160, 'Reset All Progress', () => {
+        if (!locked) box.add(OTR.ui.button(this, 0, 160, 'Reset All Progress', () => {
           OTR.ui.confirm(this, 'Reset all progress?', 'This permanently deletes your profile, rank, stars and shift history.', () => {
             OTR.save.reset();
             OTR.fx.transition(this, 'TitleScene');

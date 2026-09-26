@@ -132,10 +132,15 @@ class TitleScene extends Phaser.Scene {
       items.push(OTR.ui.button(this, 0, 0, `Continue as ${name}`, () => OTR.fx.transition(this, 'HubScene'), { w: 400, h: 64, skin: 'orange', fontSize: 24, key: 'ENTER', hint: '⏎' }));
       const info = save.rankInfo();
       items.push(OTR.txt(this, 0, 50, `Day ${save.data.day} · ${info.rank.name} · ${info.total} ★`, 18, '#FFE3C8', { shadow: true, stroke: '#250849', strokeW: 5 }));
-      items.push(OTR.ui.button(this, 0, 110, 'New Profile', () => {
-        // one profile per browser (several named profiles are out of scope for now), so this says what it replaces
-        OTR.ui.confirm(this, 'Start a new profile?', `This erases ${name}'s rank, stars and progress. This can't be undone.`, () => this.askName(), { yes: 'Erase & Start', danger: true });
-      }, { w: 260, h: 50, skin: 'ghost', fontSize: 20 }));
+      if (OTR.identity.locked) {
+        // signed in by the company or the LMS: this person's own progress, and nothing to replace
+        items.push(OTR.txt(this, 0, 96, `Signed in${OTR.identity.id && OTR.identity.id !== name ? ' as ' + OTR.identity.id : ''} · progress saved to ${OTR.identity.mode === 'scorm' ? 'your learning system' : 'the training server'}`, 16, '#D9C9F0', { shadow: true, bold: false, stroke: '#250849', strokeW: 4 }));
+      } else {
+        items.push(OTR.ui.button(this, 0, 110, 'New Profile', () => {
+          // one profile per browser (several named profiles are out of scope for now), so this says what it replaces
+          OTR.ui.confirm(this, 'Start a new profile?', `This erases ${name}'s rank, stars and progress. This can't be undone.`, () => this.askName(), { yes: 'Erase & Start', danger: true });
+        }, { w: 260, h: 50, skin: 'ghost', fontSize: 20 }));
+      }
     } else {
       items.push(OTR.ui.button(this, 0, 20, 'Start Training', () => this.askName(), { w: 360, h: 68, skin: 'orange', fontSize: 26, key: 'ENTER', hint: '⏎' }));
       items.push(OTR.txt(this, 0, 80, 'Your first shift starts now. Grab your scanner.', 18, '#FFE3C8', { shadow: true, bold: false, stroke: '#250849', strokeW: 5 }));

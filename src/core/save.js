@@ -1,5 +1,9 @@
 /*
- * Save / progress persistence (localStorage).
+ * Save / progress persistence. Where it goes depends on OTR.identity.mode (see identity.js):
+ *   'local'  - this browser's localStorage (one key per ?user= when the launch link names one)
+ *   'server' - the company server's api/progress for the signed-in trainee, with a local copy in case the network
+ *              drops (the newer of the two wins at the next start)
+ *   'scorm'  - the LMS's suspend data for the learner
  * Career stars = sum over scenarios of the best stars earned in each category.
  */
 window.OTR = window.OTR || {};
@@ -22,13 +26,45 @@ OTR.save = {
     };
   },
 
+  /** The localStorage key: one per trainee when the launch link or the sign-in names them. */
+  localKey() {
+    const id = OTR.identity && OTR.identity.id;
+    return id ? this.KEY + '_' + String(id).replace(/[^\w.@-]/g, '_') : this.KEY;
+  },
+
+  readLocal() {
+    try { const raw = window.localStorage.getItem(this.localKey()); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+  },
+
+  /**
+   * Before the game boots: fetch the signed-in trainee's progress from the server (the rest of the save API stays
+   * synchronous). Resolves either way; a failed fetch leaves the local copy to fall back on.
+   */
+  preload() {
+    const I = OTR.identity;
+    if (!I || I.mode !== 'server') return Promise.resolve();
+    return I.fetchJSON(this.apiUrl(), 5000)
+      .then(d => { this.remote = d && typeof d === 'object' && d.progress ? d.progress : null; this.remoteOk = true; })
+      .catch(() => { this.remote = null; this.remoteOk = false; });
+  },
+
+  apiUrl() {
+    const u = new URLSearchParams(window.location.search).get('user');
+    return 'api/progress' + (u ? '?user=' + encodeURIComponent(u) : '');
+  },
+
   load() {
+    const I = OTR.identity || {};
     let parsed = null;
-    try {
-      const raw = window.localStorage.getItem(this.KEY);
-      if (raw) parsed = JSON.parse(raw);
-    } catch (e) {
-      parsed = null;
+    if (I.mode === 'scorm') {
+      try { const raw = I.scorm.get('cmi.suspend_data'); if (raw) parsed = JSON.parse(raw); } catch (e) { parsed = null; }
+    } else if (I.mode === 'server') {
+      // the newer of the server's copy and this PC's backup (written when a save could not reach the server)
+      const local = this.readLocal();
+      parsed = this.remote || null;
+      if (local && (!parsed || (local.savedAt || 0) > (parsed.savedAt || 0))) parsed = local;
+    } else {
+      parsed = this.readLocal();
     }
     const d = this.defaults();
     if (parsed && typeof parsed === 'object') {
@@ -42,24 +78,78 @@ OTR.save = {
       }
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);
+      Object.keys(parsed).forEach(k => { if (!(k in d)) d[k] = parsed[k]; });   // anything newer features keep
+    }
+    // signed in through the company or the LMS: the profile is that person, with no name to type
+    if (I.locked && I.name) {
+      if (!d.profile || d.profile.id !== I.id) d.profile = { name: I.name, id: I.id, createdAt: Date.now() };
+      else d.profile.name = I.name;
     }
     this.data = d;
+    if (I.mode === 'server' && this.remoteOk === false) this.failed = true;
     // find out now whether anything can be kept: a trainee must hear it before a day's work is lost, not after (SHELL-14)
-    if (!this.ephemeral) {
+    if (!this.ephemeral && I.mode === 'local') {
       try {
         window.localStorage.setItem(this.KEY + '_probe', '1');
         window.localStorage.removeItem(this.KEY + '_probe');
       } catch (e) { this.failed = true; }
+    }
+    if (!this.ephemeral && !this._unloadHooked) {
+      this._unloadHooked = true;
+      // the last save of a session reaches the server even as the tab closes; the LMS session is closed properly
+      window.addEventListener('pagehide', () => this.flush(true));
     }
     return d;
   },
 
   write() {
     if (this.ephemeral || !this.data) return;
+    const I = OTR.identity || {};
+    this.data.savedAt = Date.now();
+    const json = JSON.stringify(this.data);
+    if (I.mode === 'scorm') {
+      // SCORM 1.2 holds 4096 characters of suspend data: drop the oldest route history until it fits
+      let out = json;
+      if (!I.scorm.v2004) {
+        const d = JSON.parse(json);
+        while (out.length > 4000 && d.route && d.route.history && d.route.history.length) { d.route.history.shift(); out = JSON.stringify(d); }
+      }
+      this.failed = !(I.scorm.set('cmi.suspend_data', out) && I.scorm.commit());
+      this.reportLms();
+      return;
+    }
     try {
-      window.localStorage.setItem(this.KEY, JSON.stringify(this.data));
-      this.failed = false;
-    } catch (e) { this.failed = true; /* progress lasts for this session only, and the title and hub say so */ }
+      window.localStorage.setItem(this.localKey(), json);
+      if (I.mode === 'local') this.failed = false;
+    } catch (e) { if (I.mode === 'local') this.failed = true; /* progress lasts for this session only, and the title and hub say so */ }
+    if (I.mode === 'server') {
+      clearTimeout(this._putT);
+      this._putT = setTimeout(() => this.flush(false), 600);
+    }
+  },
+
+  /** Send the save to the server now (beacon: as the page closes). */
+  flush(beacon) {
+    const I = OTR.identity || {};
+    if (this.ephemeral || !this.data) return;
+    if (I.mode === 'scorm') { if (beacon) I.scorm.finish(); return; }
+    if (I.mode !== 'server') return;
+    clearTimeout(this._putT);
+    const body = JSON.stringify({ progress: this.data });
+    if (beacon && navigator.sendBeacon) { navigator.sendBeacon(this.apiUrl(), new Blob([body], { type: 'application/json' })); return; }
+    fetch(this.apiUrl(), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body })
+      .then(r => { this.failed = !r.ok; })
+      .catch(() => { this.failed = true; });
+  },
+
+  /** The LMS's view of progress: complete once every module is passed in assessment, scored by stars earned. */
+  reportLms() {
+    const I = OTR.identity || {};
+    if (I.mode !== 'scorm' || !OTR.registry) return;
+    const all = OTR.registry.all ? OTR.registry.all() : [];
+    const max = all.length * 9 || 1;
+    const rep = OTR.assess && OTR.assess.summary ? OTR.assess.summary() : null;
+    I.scorm.report({ score: this.totals().all / max * 100, complete: !!(rep && rep.complete), passed: !!(rep && rep.passedAll) });
   },
 
   /** The name as it is shown: each word starts with a capital ("lee k" → "Lee K"); the stored name is as typed. */
@@ -87,10 +177,12 @@ OTR.save = {
   },
 
   reset() {
-    try { window.localStorage.removeItem(this.KEY); } catch (e) { /* ignore */ }
+    try { window.localStorage.removeItem(this.localKey()); } catch (e) { /* ignore */ }
     const settings = this.data ? this.data.settings : null;
+    const profile = OTR.identity && OTR.identity.locked && this.data ? this.data.profile : null;
     this.data = this.defaults();
     if (settings) Object.assign(this.data.settings, settings);
+    if (profile) this.data.profile = { name: profile.name, id: profile.id, createdAt: Date.now() };
     this.write();
   },
 
