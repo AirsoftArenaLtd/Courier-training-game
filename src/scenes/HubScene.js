@@ -16,6 +16,7 @@ class HubScene extends Phaser.Scene {
     // what a trainee should play next: the first scenario not passed yet, in the order the academy lists them
     // (a brand-new hire starts at the top; SHELL-18)
     this.fresh = !Object.keys(OTR.save.data.scenarios).length && !(OTR.save.data.route && OTR.save.data.route.days);
+    OTR.drill.active = null;                             // back at the station: any drill in progress is over
     this.nextUp = OTR.registry.all().find(sc => !this.passed(sc)) || null;
     this.focusables = [];
 
@@ -23,7 +24,7 @@ class HubScene extends Phaser.Scene {
     this.buildProfile();
     this.buildModules();
     this.buildRoute();
-    this.buildTip();
+    this.buildTools();
     OTR.ui.saveWarning(this, 968, 32);
 
     // For someone who has played nothing, ENTER opens the recommended first scenario, not the half-hour route day.
@@ -109,8 +110,7 @@ class HubScene extends Phaser.Scene {
     });
 
     // the stars, and the way to the trainee record
-    const passed = OTR.registry.all().filter(sc => this.passed(sc)).length;
-    OTR.txt(this, x - 110, top + 294, `${totals.all}/${OTR.registry.maxStars()} ★ · ${passed}/${OTR.registry.all().length} played`, 13, '#FFC83D', { ox: 0, weight: '900' });
+    OTR.txt(this, x - 110, top + 294, `${totals.all} / ${OTR.registry.maxStars()} ★`, 13, '#FFC83D', { ox: 0, weight: '900' });
     const link = OTR.txt(this, x + 110, top + 294, 'My record ›', 13, '#8BF0C6', { ox: 1, weight: '900' });
     const ul = OTR.tex.shape(this, (g) => { g.fillStyle(0x8BF0C6, 0.9); g.fillRect(x + 110 - link.width, top + 303, link.width, 2); });
     link.press = () => OTR.fx.transition(this, 'RecordScene', {});
@@ -368,26 +368,28 @@ class HubScene extends Phaser.Scene {
       () => OTR.flow.startScenario(this, sc.id, { assess: true }), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' });
   }
 
-  /* ---------------------------------------------------------------- dispatch radio */
-  buildTip() {
-    const x = 152, tipY = 664, w = 272;
-    this.add.image(x, tipY, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
-    this.add.image(x - 104, tipY - 30, 'ic_chat').setDisplaySize(18, 18).setTint(0xFF6600);
-    OTR.txt(this, x - 88, tipY - 30, 'DISPATCH RADIO', 13, '#FF9447', { ox: 0 });
-    const tips = OTR_DATA.config.dispatcherTips;
-    let ti = Math.floor(Math.random() * tips.length);
-    const tip = OTR.txt(this, x, tipY + 14, tips[ti], 13, '#F3ECFF', { bold: false, align: 'center', wrap: 236, lineSpacing: 2 });
-    this.time.addEvent({
-      delay: 7000, loop: true, callback: () => {
-        this.tweens.add({
-          targets: tip, alpha: 0, duration: 250, onComplete: () => {
-            ti = (ti + 1) % tips.length;
-            tip.setText(tips[ti]);
-            this.tweens.add({ targets: tip, alpha: 1, duration: 250 });
-          }
-        });
-      }
-    });
+  /* ---------------------------------------------------------------- practice tools */
+  /** Quizzes (with refreshers due) and a drill of the trainee's own mistakes. */
+  buildTools() {
+    const x = 152, y = 664, w = 272;
+    this.add.image(x, y, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
+    this.add.image(x - 104, y - 30, 'ic_book').setDisplaySize(18, 18).setTint(0xFF6600);
+    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0 });
+    const due = OTR.quiz.dueCount();
+    const drills = OTR.drill.queue().length;
+    const qb = OTR.ui.button(this, x - 66, y + 12, 'Quizzes', () => OTR.fx.transition(this, 'QuizScene', {}),
+      { w: 128, h: 44, skin: due ? 'orange' : 'purple', fontSize: 16 });
+    this.focusables.push(qb);
+    if (due) {
+      // refreshers due: a count on the button's corner
+      qb.add(OTR.tex.shape(this, (g) => { g.fillStyle(0xFFFFFF, 1); g.fillCircle(56, -18, 11); g.lineStyle(2, 0xC85000, 1); g.strokeCircle(56, -18, 11); }));
+      qb.add(OTR.txt(this, 56, -18, String(due), 13, '#C85000', { weight: '900' }));
+    }
+    const dr = OTR.ui.button(this, x + 66, y + 12, 'Mistake drill', () => {
+      if (!OTR.drill.start(this)) OTR.ui.toast(this, Object.keys(OTR.save.data.scenarios).length ? 'Nothing to drill: full stars everywhere you have played' : 'Play a few scenarios first: the drill replays the ones you lose points in', 0xC9B3F0);
+    }, { w: 128, h: 44, skin: 'purple', fontSize: 15 });
+    if (!drills) dr.setAlpha(0.6);
+    this.focusables.push(dr);
   }
 
   /* ---------------------------------------------------------------- settings */

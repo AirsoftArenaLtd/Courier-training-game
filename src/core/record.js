@@ -14,8 +14,9 @@ OTR.record = {
     const scen = p.scenarios || {}, assess = p.assess || {}, hist = p.history || [];
     const cats = OTR.scoring.CATS;
     const catTot = {}; cats.forEach(c => { catTot[c] = { got: 0, max: 0 }; });
+    const quiz = p.quiz || {};
     const modules = OTR.registry.modules().map(m => ({
-      id: m.id, title: m.title, color: m.color,
+      id: m.id, title: m.title, color: m.color, quiz: quiz[m.id] || null,
       scenarios: m.scenarios.map(sc => {
         const r = scen[sc.id] || null, a = assess[sc.id] || null;
         const runs = hist.filter(h => h.id === sc.id);
@@ -43,6 +44,7 @@ OTR.record = {
       modules, all,
       total: all.length,
       passed: all.filter(s => s.assess && s.assess.passed).length,
+      quizzesPassed: modules.filter(m => m.quiz && m.quiz.passedAt).length,
       assessed: all.filter(s => s.assess && s.assess.attempts).length,
       practised: all.filter(s => s.plays > 0).length,
       runs: hist.length,
@@ -65,6 +67,11 @@ OTR.record = {
   stars(best, cats) { return best ? cats.map(c => '★'.repeat(best[c] || 0) + '☆'.repeat(3 - (best[c] || 0))).join(' ') : '—'; },
   esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch])); },
 
+  quizText(q) {
+    if (!q) return 'Quiz: not taken';
+    return `Quiz: best ${q.best}%${q.passedAt ? ', passed ' + OTR.record.date(q.passedAt) : ''}`;
+  },
+
   assessText(a) {
     if (!a || !a.attempts) return 'Not taken';
     if (a.passed) return `Passed ${OTR.record.date(a.at)}`;
@@ -74,7 +81,7 @@ OTR.record = {
   html(R, name, id) {
     const E = OTR.record.esc, cfg = OTR_DATA.config, lab = (c) => cfg.categories[c].label;
     const rows = R.modules.map(m => `
-      <tr class="mod"><th colspan="5">${E(m.title)}</th></tr>
+      <tr class="mod"><th colspan="3">${E(m.title)}</th><th colspan="2" class="q">${E(OTR.record.quizText(m.quiz))}</th></tr>
       ${m.scenarios.map(s => `<tr>
         <td>${E(s.title)}</td>
         <td class="${s.assess && s.assess.passed ? 'pass' : s.assess && s.assess.attempts ? 'fail' : 'none'}">${E(OTR.record.assessText(s.assess))}</td>
@@ -94,7 +101,7 @@ OTR.record = {
       .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 6px; }
       .summary div { border: 1px solid #d8cdea; border-radius: 6px; padding: 6px 8px; } .summary b { display: block; font-size: 15pt; color: #4D148C; }
       table { width: 100%; border-collapse: collapse; font-size: 10pt; } td, th { padding: 3px 6px; border-bottom: 1px solid #eee; text-align: left; }
-      tr.mod th { background: #f1eafb; color: #4D148C; padding-top: 6px; } thead th { font-size: 9pt; color: #666; }
+      tr.mod th { background: #f1eafb; color: #4D148C; padding-top: 6px; } tr.mod th.q { font-weight: 400; font-size: 9pt; text-align: right; } thead th { font-size: 9pt; color: #666; }
       .pass { color: #1E7E55; font-weight: 700; } .fail { color: #B3122E; font-weight: 700; } .none { color: #888; }
       .stars { letter-spacing: 1px; color: #C98A00; white-space: nowrap; } .n { color: #888; } .crit li { color: #B3122E; }
       .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; } .sign div { border-top: 1px solid #333; padding-top: 4px; font-size: 9pt; color: #555; }

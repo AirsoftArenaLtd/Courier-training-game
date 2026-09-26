@@ -140,7 +140,10 @@ class ResultsScene extends Phaser.Scene {
         `${left === Infinity ? 'It' : `This uses ${left === 1 ? 'your last attempt' : 'one of your ' + left + ' attempts'}. It`} is scored the same way: no hints, and no restarting.`,
         () => OTR.flow.startScenario(this, scenarioId, { assess: true }), { yes: 'Start', key: 'ENTER', hint: '⏎' }), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
     } else if (OTR.academy.practiceAllowed()) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Practice it', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
-    const next = OTR.ui.button(this, retry ? 130 : 0, ph / 2 - 46, 'To the station ▶', () => OTR.flow.toHub(this), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
+    // in a drill of past mistakes, the main button plays the next one
+    const dn = !A ? OTR.drill.next(scenarioId) : null;
+    const next = OTR.ui.button(this, retry ? 130 : 0, ph / 2 - 46, dn ? (dn.id ? `Next drill (${dn.n} of ${dn.of}) ▶` : 'Drills done ▶') : 'To the station ▶',
+      () => (dn ? OTR.drill.advance(this) : OTR.flow.toHub(this)), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
     const btns = retry ? [retry, next] : [next];
     panel.add(btns);
     OTR.ui.focus(this, btns, { start: btns.length - 1 });

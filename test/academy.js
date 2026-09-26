@@ -95,6 +95,35 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     check(await ev(() => !OTR.game.scene.getScene('ResultsScene').d.assessment && OTR.academy.status('m2-lift') === 'failed'), 'practice does not change the assessment');
     await wait(900);   // the save reaches the server
 
+    /* ---- a quiz, answered right, lands in the record */
+    await ev(() => OTR.fx.transition(OTR.game.scene.getScene('ResultsScene'), 'QuizScene', { module: 'm2' }));
+    await sceneIs('QuizScene'); await wait(800);
+    for (let i = 0; i < 5; i++) {
+      await ev(() => { const s = OTR.game.scene.getScene('QuizScene'); s.opts[s.qs[s.i].answer].press(); });
+      await wait(700);
+      await ev(() => { const s = OTR.game.scene.getScene('QuizScene'); const i = s.i, last = i === s.qs.length - 1; s.i++; if (last) s.finish(); else s.ask(); });
+      await wait(300);
+    }
+    const qz = await ev(() => OTR.save.data.quiz && OTR.save.data.quiz.m2);
+    check(qz && qz.best === 100 && qz.passedAt, `quiz passed and recorded: ${JSON.stringify(qz)}`);
+    const shuffled = await ev(() => { const s = OTR.game.scene.getScene('QuizScene'); return s.qs.map(q => q.answer).join(''); });
+    check(!/^1+$/.test(shuffled), `answers are shuffled (right answers at ${shuffled})`);
+    // a module passed 60 days ago is due for a refresher
+    check(await ev(() => { const fresh = OTR.quiz.due('m2');     // the Sort Belt assessment passed minutes ago keeps m2 fresh
+      OTR.save.data.quiz.m2.passedAt = Date.now() - 60 * 86400000; OTR.save.data.assess['m2-sort'].at = Date.now() - 50 * 86400000;
+      return !fresh && OTR.quiz.due('m2') && !OTR.quiz.due('m7'); }), 'refresher due after the interval, only where something was passed');
+
+    /* ---- the mistake drill picks the weakest played scenarios, and the results screen offers the next */
+    const q = await ev(() => { OTR.save.data.scenarios['m2-sort'].bestStars = { safety: 1, efficiency: 1 }; OTR.save.data.scenarios['m2-lift'].bestStars = { safety: 3, efficiency: 2 }; return OTR.drill.queue(); });
+    check(q[0] === 'm2-sort' && q.indexOf('m2-lift') > 0, `drill queue, weakest first: ${q.join(', ')}`);
+    await ev(() => OTR.drill.start(OTR.game.scene.getScene('QuizScene')));
+    await until(() => OTR.game.scene.isActive('SortingScene'), 20000); await wait(1200);
+    await ev(() => OTR.debug.finishNow(0.7));
+    await sceneIs('ResultsScene'); await wait(1500);
+    const nb = await ev(() => { const out = []; const walk = (o) => { if (o.type === 'Text' && o.visible) out.push(o.text); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('ResultsScene').children.list.forEach(walk); return out.join('|'); });
+    check(/Next drill \(2 of \d\)/.test(nb), 'results offer the next drill');
+    await ev(() => { OTR.drill.active = null; });
+
     /* ---- trainer: rules, retakes */
     const api = (url, method, body) => ev((url, method, body) => fetch(url, { method, headers: { 'X-Trainer-Pin': '4821', 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined }).then(r => r.json().then(b => ({ code: r.status, b }))), url, method, body);
     check((await ev(() => OTR.academy.checkPin('0000'))) !== true && (await ev(() => OTR.academy.checkPin('4821'))) === true, 'PIN checked by the server');

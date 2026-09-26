@@ -91,6 +91,7 @@ class RecordScene extends Phaser.Scene {
       mods.forEach(m => {
         this.body.add(OTR.tex.shape(this, (g) => { g.fillStyle(m.color, 1); g.fillRoundedRect(x + 14, y - 12, colW - 28, 26, 8); }));
         this.body.add(OTR.txt(this, x + 26, y + 1, m.title.toUpperCase(), 13, '#ffffff', { ox: 0, weight: '900' }));
+        this.body.add(OTR.txt(this, x + colW - 26, y + 1, OTR.record.quizText(m.quiz), 12, '#ffffff', { ox: 1, bold: !!(m.quiz && m.quiz.passedAt) }));
         y += 30;
         m.scenarios.forEach(s => {
           const t = OTR.txt(this, x + 26, y, s.title, 15, '#250849', { ox: 0, weight: '900' });

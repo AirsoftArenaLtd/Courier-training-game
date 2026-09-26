@@ -38,6 +38,8 @@ OTR.flow = {
       OTR.ui.toast(scene, 'This scenario isn\'t available yet.');
       return;
     }
+    if (OTR.drill.active && OTR.drill.active.ids[OTR.drill.active.i] !== id) OTR.drill.active = null;
+    if (o && o.assess) OTR.drill.active = null;
     OTR.flow.startedAt = Date.now();                // for the record's "time training"
     if (o && o.assess && !OTR.flow.testId) OTR.academy.begin(id);
     else OTR.academy.assessing = null;
@@ -84,4 +86,46 @@ OTR.flow = {
   },
 
   toHub(scene) { OTR.fx.transition(scene, 'HubScene'); }
+};
+
+/*
+ * "Drill my mistakes": the scenarios where the trainee has lost the most, played back to back (practice runs).
+ * OTR.drill.queue() says what would be drilled; start() plays the first; the results screen offers the next.
+ */
+OTR.drill = {
+  active: null,                // { ids: [..], i }
+
+  /** Played scenarios short of full marks, most stars missing first (a critical mistake last time counts extra). */
+  queue(max) {
+    const d = OTR.save.data, last = {};
+    (d.history || []).forEach(h => { last[h.id] = h; });
+    return OTR.registry.all().map(sc => {
+      const r = d.scenarios[sc.id];
+      if (!r) return null;
+      const lost = sc.categories.reduce((n, c) => n + 3 - ((r.bestStars && r.bestStars[c]) || 0), 0) + (last[sc.id] && last[sc.id].criticals && last[sc.id].criticals.length ? 3 : 0);
+      return lost > 0 ? { id: sc.id, lost } : null;
+    }).filter(Boolean).sort((a, b) => b.lost - a.lost).slice(0, max || 5).map(x => x.id);
+  },
+
+  start(scene) {
+    const ids = this.queue();
+    if (!ids.length) return false;
+    this.active = { ids, i: 0 };
+    OTR.flow.startScenario(scene, ids[0]);
+    return true;
+  },
+
+  /** On the results screen: the next drill after this scenario, or null (and the drill ends after the last). */
+  next(id) {
+    const a = this.active;
+    if (!a || a.ids[a.i] !== id) return null;
+    return a.i + 1 < a.ids.length ? { id: a.ids[a.i + 1], n: a.i + 2, of: a.ids.length } : { id: null, n: a.ids.length, of: a.ids.length };
+  },
+
+  advance(scene) {
+    const a = this.active;
+    a.i++;
+    if (a.i >= a.ids.length) { this.active = null; OTR.fx.transition(scene, 'HubScene'); return; }
+    OTR.flow.startScenario(scene, a.ids[a.i]);
+  }
 };

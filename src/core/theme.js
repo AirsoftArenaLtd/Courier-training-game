@@ -96,6 +96,8 @@ OTR.util = {
   clamp01(v) { return Math.max(0, Math.min(1, v)); },
   lerp(a, b, t) { return a + (b - a) * t; },
   pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; },
+  /** The array, shuffled in place (Fisher-Yates), and returned. */
+  shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; },
   shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
