@@ -397,4 +397,7 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
   - **POD photos:** package and door; never a house number (plaque or mailbox) or a person.
   - **Icy steps and clutter:** a hurried step wobbles and warns before it becomes a fall.
   - **Tests:** the stop helper frames photos below the house number and waits up to 30 s for a stop to settle (m8-dog
-    at 14 fps under load needed more than 15 s).
+    at 14 fps under load needed more than 15 s). It also frames the photo clear of the courier. The test autopilot's
+    stop is now one continuous wait: it used to add two short stops together, which the stricter stop sign
+    rightly refused.
+  - **Final full suite (code at 3e5248e):** 28 of 28.
