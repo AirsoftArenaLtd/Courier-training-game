@@ -11,7 +11,7 @@
 window.OTR = window.OTR || {};
 
 OTR.shift = {
-  PHASES: ['brief', 'pretrip', 'load', 'route', 'debrief'],
+  PHASES: ['brief', 'pretrip', 'load', 'route', 'posttrip', 'debrief'],
 
   get state() { return OTR.save.data && OTR.save.data.shift; },
   active() {
@@ -36,6 +36,13 @@ OTR.shift = {
   /* ================================================================ generation */
   rng(seed) { return OTR.scenery.rng('shift' + seed); },
 
+  /**
+   * A day is drawn from its number and a variant chosen when it starts, so starting the day again is a different
+   * day's work (other addresses, notes, hazards, dog and message): a route cannot be learned by heart. The weather
+   * stays the day's (the hub forecasts it).
+   */
+  newVariant() { return 1 + Math.floor(Math.random() * 999999); },
+
   weatherFor(day) {
     return ['clear', 'cloudy', 'rain', 'heat', 'snow', 'clear', 'storm'][day % 7];
   },
@@ -57,14 +64,14 @@ OTR.shift = {
    */
   STOP_TYPES: ['leave', 'handoff', 'adult', 'exception', 'business', 'apartment', 'dog'],
 
-  generate(day) {
-    const R = this.rng(day);
+  generate(day, variant) {
+    const R = this.rng(variant ? `${day}_${variant}` : day);
     const seed = this.townSeed();
     const T = OTR.town.build(seed);
     const weather = this.weatherFor(day);
     const tod = 'morning';
     const nStops = 5;
-    // Everything here draws on the day's seeded random numbers, so a day is the same day every time it is started.
+    // Everything here draws on the day's seeded random numbers (the day and its variant), so a saved day resumes as it was.
     const shuffled = (list) => { const a = list.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
     // a leave-at-door stop and a person at the door every day; the other three vary
     const types = ['leave', 'handoff'].concat(shuffled(['adult', 'exception', 'business', 'apartment', 'dog']).slice(0, nStops - 2));
@@ -82,10 +89,17 @@ OTR.shift = {
       lotId: c.lot.id, index: i + 1, done: false, type: c.type,
       stop: OTR.shift.stopFromLot(c.lot, i, R, weather, day, c.type, T.lots.indexOf(c.lot))
     }));
+    // one dispatch message a day, about the leave-at-door stop: it arrives on the drive there (see sendDispatch)
+    const li = route.findIndex(r => r.type === 'leave');
+    const dispatch = li < 0 ? null : {
+      stop: li, sent: false, read: null,
+      kind: route[li].stop.spots && route[li].stop.spots.some(s => s.id === 'planter') ? 'signature' : (R() < 0.5 ? 'signature' : 'planter')
+    };
     return {
       day, seed, phase: 'brief', weather, tod,
       clockMin: 8 * 60 + 20,
-      route, stopIndex: 0, atStop: null,
+      route, stopIndex: 0, atStop: null, dispatch,
+      fuel: [0.125, 0.25, 0.5, 0.75][Math.floor(R() * 4)],   // left in the tank at the end of the day (the post-trip)
       van: null,
       log: { items: [] },
       truck: { defects: [], pretripScore: null, heldAtGate: false },
@@ -165,6 +179,8 @@ OTR.shift = {
     if (planterSpot) props.push({ type: 'planter', x: 'porchX1-80', onPorch: true, id: 'planter' });
     if (weather === 'snow' && R() < 0.6) props.push({ type: 'ice', x: 120, hazard: 'ice', id: 'ice', label: 'the icy path', art: { w: 160 } });
     if (weather === 'rain' && R() < 0.5 && type !== 'dog') props.push({ type: 'hose', x: 40, hazard: 'hose', id: 'hose', label: 'the garden hose' });
+    // clutter on the path, any weather: something else to notice and clear
+    else if (kind === 'house' && type !== 'dog' && R() < 0.3) props.push(R() < 0.5 ? { type: 'toys', x: 60, hazard: 'toys', id: 'toys', label: 'the toys on the path' } : { type: 'hose', x: 40, hazard: 'hose', id: 'hose', label: 'the garden hose' });
     if (weather === 'heat') props.push({ type: 'tree', x: 260, depth: 9, shade: true });
 
     const expected = type === 'exception'
@@ -196,7 +212,10 @@ OTR.shift = {
       const dg1 = OTR_DATA.stopSets.m8_dog.stops[0];
       stop.fence = { x0: -120, x1: 980, gate: 40, color: 0xFFFFFF };
       stop.props.push({ type: 'sign', x: -105, depth: 9, art: { text: 'BEWARE\nOF DOG' } }, { type: 'doghouse', x: 210, depth: 7 }, { type: 'bowl', x: 290, depth: 7 });
-      stop.dog = Object.assign({}, dg1.dog);
+      // a different dog each time: name, coat and collar
+      const coats = [[0xC98B4F, 0xF3E3CC], [0x3A3030, 0xB88A55], [0xE8D8C0, 0xFFFFFF], [0x8A5A2B, 0x2A1E18], [0xD8C8A8, 0x9A7A55]];
+      const coat = pick(coats);
+      stop.dog = Object.assign({}, dg1.dog, { name: pick(['Biscuit', 'Duke', 'Luna', 'Bear', 'Daisy', 'Milo', 'Scout']), spec: Object.assign({}, dg1.dog.spec, { fur: coat[0], patch: coat[1], collar: pick([0x3DA5FF, 0xE8304A, 0x2BC48A, 0xFFC83D]) }) });
       stop.triggers = [{ on: 'gate', talk: 'gate' }];
       stop.talks = { gate: dg1.talks.gate };
     }
@@ -204,10 +223,106 @@ OTR.shift = {
     return stop;
   },
 
+  /**
+   * Dispatch changes a stop mid-route. The change is real (the stop scene sees it: the scan shows the new service, the
+   * porch has the planter), so a trainee who never reads the message finds out at the door. The message is read
+   * safely by pulling over, or on the stop's brief once parked; reaching for the handheld while driving is the
+   * violation it always was.
+   */
+  sendDispatch() {
+    const st = this.state, D = st && st.dispatch;
+    if (!D || D.sent) return null;
+    const r = st.route[D.stop], stop = r.stop, pkg = stop.packages[0];
+    const addr = `${pkg.number} ${pkg.street}`;
+    D.sent = true;
+    if (D.kind === 'signature') {
+      pkg.service = 'signature';
+      delete pkg.note;
+      delete stop.spots;
+      stop.expected = { outcome: 'exception', code: 'NA', doorTag: true };
+      D.text = `Shipper update for stop ${r.index} (${addr}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.`;
+    } else {
+      pkg.note = 'Please leave behind the planter';
+      stop.props.push({ type: 'planter', x: 'porchX1-80', onPorch: true, id: 'planter' });
+      stop.spots = [{ id: 'planter', label: 'Behind the planter', report: 'behind the planter, as the customer asked', x: 'planter', grade: 'good' },
+        { id: 'mat', label: 'On the doormat', x: 0, grade: 'ok', note: 'The customer called dispatch to ask for the planter, out of view of the street.' },
+        { id: 'steps', label: 'At the bottom of the steps', x: 'steps', grade: 'bad', note: 'Visible from the street and in the way on the steps.' }];
+      stop.expected = { outcome: 'deliver', types: ['left'], spot: 'planter' };
+      D.text = `Customer at stop ${r.index} (${addr}) called: "Please leave it behind the planter on the porch."`;
+    }
+    stop.brief = `${stop.brief}\nUPDATE FROM DISPATCH: ${D.text}`;
+    this.save();
+    return D;
+  },
+
+  /** The message is read: how ('pulled over' or 'at the stop'), scored once in the day's log. */
+  readDispatch(log, how) {
+    const D = this.state && this.state.dispatch;
+    if (!D || !D.sent || D.read) return;
+    D.read = how;
+    log.check('safety', 2, 2, how === 'pulled over' ? 'Pulled over to read a dispatch message' : 'Left a dispatch message until parked', { lesson: 'Messages wait until the van is stopped safely: pull over, or read it when you are parked.' });
+    this.save();
+  },
+
+  /**
+   * The post-trip's three calls, from the day: fuel (fleet rule: refuel below a quarter tank), the van (a curb strike
+   * or a crash today is reported and the tires and body checked), and packages back plus the scanner.
+   * Each: { topic, text, options, correct, cat, label, lesson }, options in a random order.
+   */
+  postTripQuestions(st) {
+    const q = (o) => {
+      const order = OTR.util.shuffle(o.options.map((_, i) => i));
+      return Object.assign({}, o, { options: order.map(i => o.options[i]), correct: order.indexOf(0) });   // options[0] is right
+    };
+    const fuel = st.fuel || 0.5;
+    const fuelTxt = { 0.125: 'an eighth of a tank', 0.25: 'a quarter of a tank', 0.5: 'half a tank', 0.75: 'three quarters of a tank' }[fuel] || 'half a tank';
+    const low = fuel <= 0.25;
+    const items = (st.log && st.log.items) || [];
+    const hits = items.filter(it => it.where && (it.where.key === 'kerb' || it.where.key === 'crash')).length;
+    const back = (st.stats && st.stats.exceptions) || 0;
+    return [
+      q({
+        topic: 'FUEL', cat: 'efficiency',
+        text: `The gauge reads ${fuelTxt}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?`,
+        options: low
+          ? ['Refuel on the way in, so the van is ready for the morning', 'Leave it: the morning driver can fill up', 'Park it and mention it tomorrow']
+          : ['Nothing needed: it is above a quarter tank', 'Refuel anyway: top it up every night', 'Leave a note asking the morning driver to fill up'],
+        label: low ? 'Refuelled a low van before parking up' : 'Knew the van had fuel enough for the morning',
+        lesson: low ? 'Refuel at the end of the day when the tank is low: the morning route starts on time, not at the pump.' : 'Above the fleet\'s minimum the van is ready: no need to spend time at the pump.'
+      }),
+      q(hits ? {
+        topic: 'THE VAN', cat: 'safety',
+        text: `Today you ${items.some(it => it.where && it.where.key === 'crash') ? 'hit something' : 'hit the curb'}${hits > 1 ? ` (${hits} times)` : ''}. What goes on the post-trip report?`,
+        options: ['Report it, and check the tires, wheels and body for damage before signing', 'Nothing: the van drove fine afterwards', 'Mention it to a colleague, not on the report'],
+        label: 'Reported the day\'s curb strike or knock on the post-trip',
+        lesson: 'Report every curb strike and knock: a cut sidewall or bent wheel is found in the yard, not at highway speed tomorrow.'
+      } : {
+        topic: 'THE VAN', cat: 'safety',
+        text: 'A clean day on the road. What does the post-trip still need?',
+        options: ['A walk round (lights, tires, body) and the report signed: "no new defects"', 'Nothing: nothing happened today', 'Only a note if the next driver asks'],
+        label: 'Walked round the van and signed the post-trip',
+        lesson: 'The post-trip is signed every day: the next driver relies on it, and some defects only show at the end of a shift.'
+      }),
+      q(back ? {
+        topic: 'PACKAGES AND SCANNER', cat: 'service',
+        text: `You brought back ${back} package${back === 1 ? '' : 's'} with an exception. What happens to ${back === 1 ? 'it' : 'them'}?`,
+        options: ['Scan them in as returns at the cage, then dock the scanner to upload the day', 'Leave them on the shelf for tomorrow\'s route', 'Keep them in the van: they\'re on tomorrow\'s route anyway'],
+        label: 'Returned the exception packages and docked the scanner',
+        lesson: 'Every package back at the station is scanned in, so the customer\'s tracking is right and nothing goes missing overnight.'
+      } : {
+        topic: 'PACKAGES AND SCANNER', cat: 'service',
+        text: 'Everything delivered. What do you do with the scanner?',
+        options: ['Dock it so the day uploads and it charges, then hand in the keys', 'Take it home to save time in the morning', 'Leave it in the van, switched on'],
+        label: 'Docked the scanner at the end of the day',
+        lesson: 'Docking uploads the day\'s scans and signatures and charges the scanner for the morning.'
+      })
+    ];
+  },
+
   /* ================================================================ lifecycle */
   start(scene) {
     const day = OTR.save.data.day;
-    OTR.save.data.shift = this.generate(day);
+    OTR.save.data.shift = this.generate(day, this.newVariant());
     OTR.save.data.shift.startedAt = Date.now();      // for the record's "time training"
     this.save();
     this.go(scene);
@@ -231,6 +346,7 @@ OTR.shift = {
       // a reload (or quit) inside a stop reopens that stop, not the drive to it (which parked, logged and moved the
       // clock a second time)
       case 'route': if (st.atStop != null && st.route[st.atStop] && !st.route[st.atStop].done) this.openStop(scene); else this.toDrive(scene); break;
+      case 'posttrip': OTR.fx.transition(scene, 'PostTripScene', {}); break;
       case 'debrief': OTR.fx.transition(scene, 'ShiftDebriefScene', {}); break;
       default: OTR.fx.transition(scene, 'HubScene'); break;
     }
@@ -285,7 +401,7 @@ OTR.shift = {
   toDrive(scene) {
     const st = this.state;
     const remaining = st.route.filter(r => !r.done);
-    if (!remaining.length) { this.setPhase(scene, 'debrief'); return; }
+    if (!remaining.length) { this.setPhase(scene, 'posttrip'); return; }
     // A truck that rolled out with a defect the pre-trip missed is stopped at the gate check on the way out: held for
     // the fix, and the time counts against the day (it used to drive all day with, say, the cargo door unlatched).
     let notice = null;
@@ -343,6 +459,11 @@ OTR.shift = {
     st.log = driveScene.log.toJSON();
     st.clockMin += 6 + Math.round(driveScene.elapsed / 12);
     const entry = st.route.find(r => r.lotId === stopRef.lotId);
+    // an unread dispatch message about this stop is read now, parked (it is on the stop's brief)
+    if (st.dispatch && st.dispatch.sent && !st.dispatch.read && st.dispatch.stop === st.route.indexOf(entry)) {
+      this.readDispatch(driveScene.log, 'at the stop');
+      st.log = driveScene.log.toJSON();
+    }
     st.stopIndex = st.route.indexOf(entry);
     st.atStop = st.stopIndex;                  // saved: a reload from here on reopens the stop
     st.stopLog = null;

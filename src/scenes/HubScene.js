@@ -132,7 +132,7 @@ class HubScene extends Phaser.Scene {
     const wLabel = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Extreme heat' }[weather] || weather;
     if (live) {
       const doneN = st.route.filter(r => r.done).length;
-      const phase = { brief: 'morning briefing', pretrip: 'pre-trip walkaround', load: 'loading the truck', route: `stop ${doneN + 1} of ${st.route.length}`, debrief: 'debrief' }[st.phase] || st.phase;
+      const phase = { brief: 'morning briefing', pretrip: 'pre-trip walkaround', load: 'loading the truck', route: `stop ${doneN + 1} of ${st.route.length}`, posttrip: 'post-trip', debrief: 'debrief' }[st.phase] || st.phase;
       OTR.txt(this, x, top + 52, `Day ${st.day} · ${phase}`, 14, '#FFE3C8', { bold: false, align: 'center', wrap: 240 });
       OTR.txt(this, x, top + 76, `${st.stats.delivered} delivered · ${st.stats.exceptions} exception${st.stats.exceptions === 1 ? '' : 's'}`, 13, '#FFF1E0', { bold: false });
       // purple on the orange card, so the main action stands out from it (SHELL-17)

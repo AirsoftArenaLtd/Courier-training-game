@@ -63,6 +63,7 @@ module.exports = async (page, ctx) => {
       const where = `day ${day} (${weather}) leg ${i + 1} (${leg})`;
       if (status !== 'arrived') { bad.push(`${where}: autopilot ${status}, violations ${JSON.stringify(await ctx.eval('window.__why'))}`); break; }
       await ctx.eval('__step(10)');                          // settle on the brake
+      await page.keyboard.press('Space');                    // parking brake, then park
       await page.keyboard.press('KeyP');
       const res = await ctx.eval(`(() => {
         __step(3);

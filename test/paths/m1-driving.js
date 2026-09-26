@@ -43,7 +43,8 @@ module.exports = async (page, ctx) => {
         window.__drive.legs.push({ to: `${stop.lot.number} ${stop.lot.street}`, status: bot.status, t: Math.round(s.elapsed) });
       }
       bot.tick(Math.min(d, 50) / 1000);
-      if (bot.status === 'arrived') { bot.status = 'parking'; s.tryPark(); }
+      // parking brake (SPACE) held as P is pressed, as a trainee does
+      if (bot.status === 'arrived') { bot.status = 'parking'; s.held.Space = true; s.tryPark(); s.held.Space = false; }
     });
   });
   const done = await ctx.until(`!!window.__qaResult || (window.__bot && /^failed/.test(window.__bot.status))`, 420000);

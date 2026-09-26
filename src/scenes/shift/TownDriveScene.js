@@ -9,7 +9,7 @@
  * One world scale for everything: OTR_DATA.vehicle.pxPerMetre. Speeds read in mph, distances in metres.
  *
  * Controls: W/↑ accelerate · S/↓ brake (in either gear) · R change gear D/R at a standstill · A/D or ←/→ steer ·
- *           SPACE parking brake · B belt · L headlights · G get out and look · P park at a stop · TAB handheld (parked)
+ *           SPACE parking brake · M mirrors · B belt · L headlights · G get out and look · P park at a stop · TAB handheld (parked)
  */
 class TownDriveScene extends Phaser.Scene {
   constructor(key) { super(key || 'TownDriveScene'); }
@@ -72,6 +72,7 @@ class TownDriveScene extends Phaser.Scene {
     this.updateCamera(0, true);
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
+    OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
     // The engine hum belongs to this drive: quiet while paused, and gone however the scene ends. (Quitting from
     // the pause menu used to leave it humming on the hub and every screen after.)
     const hush = () => OTR.audio.stopLoop('engine');
@@ -367,7 +368,7 @@ class TownDriveScene extends Phaser.Scene {
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
-    const ctl = OTR.txt(this, OTR.W / 2 + 60, OTR.H - 22, 'W go · S brake · A/D steer · SPACE hold still · R reverse (stopped) · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
+    const ctl = OTR.txt(this, OTR.W / 2 + 60, OTR.H - 22, 'W go · S brake · A/D steer · SPACE parking brake · R reverse (stopped) · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
     OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.width / 2 - 14, -13, ctl.width + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
@@ -390,7 +391,7 @@ class TownDriveScene extends Phaser.Scene {
       const o = list[i];
       if (this._camSeen.has(o)) continue;
       this._camSeen.add(o);
-      if (o.scrollFactorX === 0 && o.scrollFactorY === 0) main.ignore(o);
+      if (o.scrollFactorX === 0 && o.scrollFactorY === 0) { main.ignore(o); if (this.insetCams) { this.insetCams.left.ignore(o); this.insetCams.right.ignore(o); this.insetCams.rear.ignore(o); } }
       else ui.ignore(o);
     }
     if (this._camSeen.size > 800) {
@@ -589,6 +590,8 @@ class TownDriveScene extends Phaser.Scene {
     this.stepPeds(dt);
     this.stepLights(dt);
     this.checkRules(dt);
+    if (this.shiftMode) this.dispatchTick(dt);
+    OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
     this.updateHud();
   }
@@ -982,6 +985,63 @@ class TownDriveScene extends Phaser.Scene {
     this.syncCameras();
   }
 
+  /* ---------------------------------------------------------------- dispatch messages (route days) */
+  /** The day's message arrives on the drive to the stop it is about, and keeps buzzing until it is read safely. */
+  dispatchTick(dt) {
+    const st = OTR.shift && OTR.shift.state, D = st && st.dispatch;
+    if (!D) return;
+    if (!D.sent) {
+      const target = this.activeStop;
+      if (target && target.index === D.stop + 1 && this.elapsed > 12 && !this.parked && !this.incidentOpen) {
+        OTR.shift.sendDispatch();
+        OTR.audio.play('phone');
+        this.toast('New message from dispatch. Pull in to the curb, stop, and press P to read it: not at the wheel.', 0xFFC83D);
+        this.msgBuzzT = 0;
+        this.showMsgBadge(true);
+      }
+      return;
+    }
+    if (D.read) { if (this.msgBadge && this.msgBadge.visible) this.showMsgBadge(false); return; }
+    if (!this.msgBadge || !this.msgBadge.visible) this.showMsgBadge(true);
+    // it buzzes again every so often while you drive: the temptation is the lesson
+    this.msgBuzzT = (this.msgBuzzT || 0) + dt;
+    if (this.msgBuzzT > 25) { this.msgBuzzT = 0; OTR.audio.play('buzz'); this.tweens.add({ targets: this.msgBadge, scale: 1.1, duration: 120, yoyo: true, repeat: 1 }); }
+  }
+
+  showMsgBadge(on) {
+    if (!this.msgBadge) {
+      const t = OTR.txt(this, 0, 0, '1 NEW MESSAGE · pull over, then P', 14, '#16062B', { weight: '900', ox: 0 });
+      const w = t.width + 54;
+      t.x = -w / 2 + 40;
+      const c = this.add.container(16 + w / 2, 80).setScrollFactor(0).setDepth(801);
+      c.add([OTR.tex.shape(this, (g) => { g.fillStyle(0xFFC83D, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, 0x16062B, 0.6); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }),
+        this.add.image(-w / 2 + 22, 0, 'ic_chat').setDisplaySize(18, 18).setTint(0x16062B), t]);
+      this.msgBadge = c;
+      this.syncCameras();
+    }
+    this.msgBadge.setVisible(on);
+  }
+
+  /** P away from a stop, with a message waiting: pulled in to the curb and stopped, the message can be read. */
+  pullOverToRead() {
+    const v = this.van, V = OTR.vehicle, A = OTR.townArt, R = A.ROAD / 2, P = this.P;
+    const D = OTR.shift.state.dispatch;
+    if (!V.stopped(v)) { this.toast('Stop first: pull in to the curb, then P to read the message', 0xC9B3F0); return true; }
+    // alongside a curb: parallel to the street and close to its edge
+    const bc = V.bodyCentre(v);
+    const dy = Math.min(...this.T.hy.map(y => Math.abs(bc.y - y))), dx = Math.min(...this.T.vx.map(x => Math.abs(bc.x - x)));
+    const horiz = dy <= dx;
+    const off = horiz ? dy : dx;
+    const skew = horiz ? Math.abs(Math.sin(v.heading)) : Math.abs(Math.cos(v.heading));
+    const gap = (R - off - v.g.hw * P) / P;
+    if (off > R || skew > 0.34 || gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', 0xC9B3F0); return true; }
+    OTR.shift.readDispatch(this.log, 'pulled over');
+    if (OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
+    this.showMsgBadge(false);
+    this.noticeCard({ title: 'Message from dispatch', body: D.text + '\n\nGood: pulled over to read it.', button: 'Drive on' });
+    return true;
+  }
+
   /** Hitting someone stops the drive: the trainee has to deal with it before driving on. */
   pedIncident() {
     if (this.incidentOpen) return;
@@ -1236,7 +1296,10 @@ class TownDriveScene extends Phaser.Scene {
     const bc = V.bodyCentre(v);
     const along = Math.abs(bc.x - lot.park.x);
     const fromCentre = (bc.y - street) * lot.side;           // how far towards the house's kerb, px
-    if (along > 220 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 60) {
+    const D = this.shiftMode && OTR.shift.state && OTR.shift.state.dispatch;
+    const away = along > 220 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 60;
+    if (away && D && D.sent && !D.read && this.pullOverToRead()) return;
+    if (away) {
       this.toast('Not at the stop yet — pull in to the curb inside the marked zone', 0xC9B3F0); return;
     }
     // "stopped" allows the moment after the brake is lifted, while the automatic creeps (P used to be refused then)
@@ -1258,6 +1321,7 @@ class TownDriveScene extends Phaser.Scene {
     const withTraffic = Math.cos(v.heading) * lot.side > 0;              // the right-hand side of the road
     v.u = 0; v.lat = 0; v.r = 0; v.speed = 0;
     this.parked = true;
+    OTR.driveAids.parkingBrake(this);
     OTR.audio.stopLoop('engine');
     OTR.audio.play('engine_start');
     const neat = withTraffic && gapM < 1.2 && skew < 0.14;

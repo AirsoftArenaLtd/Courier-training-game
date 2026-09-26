@@ -216,6 +216,8 @@ window.QA_AUTODRIVE = (function () {
       // arrived: keep a foot on the brake until P is pressed (an automatic creeps forward otherwise)
       if (bot.status === 'arrived' && !scene.parked && !scene.leaving) { keys.KeyS = true; press(); return; }
       if (bot.status !== 'driving' || scene.parked || scene.leaving) { press(); return; }
+      // pulling away from the curb: a glance in the mirrors first (M), as a trainee must
+      if (scene.pullOut && scene.pullOut.pending && scene.elapsed - scene.mirrorAt > 4) OTR.driveAids.checkMirrors(scene);
       const v = scene.van, g = v.g;
       // progress along the path
       let best = bot.i, bd = 1e9;

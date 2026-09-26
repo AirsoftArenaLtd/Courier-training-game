@@ -94,6 +94,7 @@ module.exports = async (page, ctx) => {
       const s = OTR.game.scene.getScene('TownDriveScene');
       s.cars.forEach(c => c.img.destroy()); s.cars.length = 0;
       s.peds.forEach(p => { p.t = 1e9; p.crossing = false; });
+      s.noEvents = true;                     // the ambulance: the autopilot can't pull over (test/driving.js covers it)
       const bot = QA_AUTODRIVE.create(s);
       window.__bot = bot; window.__leg = { why: [] };
       const v0 = s.violation.bind(s);
@@ -121,6 +122,7 @@ module.exports = async (page, ctx) => {
     if (await ctx.eval('window.__leg.why.length > 0')) { await wait(300); await ctx.snap(`violation-${leg}`); }
     const bot = await ctx.eval('window.__bot.status');
     if (/^failed/.test(bot)) { await ctx.snap(`stuck-${leg}`); throw new Error(`leg ${leg}: autopilot ${bot}`); }
+    await page.keyboard.press('Space');                        // parking brake, then
     await page.keyboard.press('KeyP');                         // park at the stop
     const why = await ctx.eval('window.__leg.why');
     if (why.length) throw new Error(`leg ${leg}: a clean drive logged ${JSON.stringify(why)}`);
@@ -162,6 +164,23 @@ module.exports = async (page, ctx) => {
       await ctx.snap('resume');
       await clickText(page, 'HubScene', /^Resume route/);
     }
+  }
+
+  // ---- the dispatch message: sent on the drive to the leave-at-door stop, and read safely (the bot never reaches for
+  // the handheld, so it is read on that stop's brief, parked)
+  const disp = await ctx.eval('OTR.shift.state && OTR.shift.state.dispatch');
+  if (disp && !(disp.sent && disp.read)) throw new Error('the dispatch message was not sent and read: ' + JSON.stringify(disp));
+
+  // ---- the post-trip: three calls, answered right
+  await waitScene('PostTripScene', 20000);
+  await ctx.audit('posttrip');
+  for (let i = 0; i < 3; i++) {
+    await wait(500);
+    const c = await ctx.eval(`OTR.game.scene.getScene('PostTripScene').q.correct`);
+    await page.keyboard.press('Digit' + (c + 1));
+    await wait(900);
+    if (i === 0) await ctx.snap('posttrip');
+    await page.keyboard.press('Enter');
   }
 
   // ---- the debrief
