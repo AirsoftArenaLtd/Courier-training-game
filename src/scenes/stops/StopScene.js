@@ -33,7 +33,7 @@ class StopScene extends BaseScenarioScene {
 
   create() {
     // the scene instance is reused for every stop: clear per-stop references first
-    ['resident', 'numberProps', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
+    ['resident', 'stranger', 'numberProps', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
       .forEach(k => { this[k] = undefined; });
     this.setupBase();
     this.set = this.shiftStop ? this.shiftStop.set : this.content;
@@ -198,7 +198,9 @@ class StopScene extends BaseScenarioScene {
     const zx0 = x0 !== undefined ? x0 : x - half, zx1 = x1 !== undefined ? x1 : x + half;
     // a fall takes hurrying over about 60% of the hazard (never more than a third of a second), so a short one can
     // still be fallen on
-    const fallAfter = Math.min(0.35, 0.6 * (zx1 - zx0) / (this.stage.walkSpeed || 230));
+    // footwear without grip on a slippery day (the morning's gear question) leaves less room before a fall
+    const poorGear = slippery && this.shiftMode && OTR.shift.state && OTR.shift.state.gear === 'poor';
+    const fallAfter = Math.min(0.35, 0.6 * (zx1 - zx0) / (this.stage.walkSpeed || 230)) * (poorGear ? 0.6 : 1);
     this.stage.zone({
       x0: zx0, x1: zx1,
       // Judged on every frame inside, not just the first. The first hurried step wobbles and warns; carrying on at
@@ -491,6 +493,8 @@ class StopScene extends BaseScenarioScene {
       cast.owner = person;
     }
     cast.dispatch = { name: 'Dispatch', color: 0x4D148C, rig: null };
+    // someone who isn't the customer (a "neighbour" at the gate): the stop's stranger, once they have walked up
+    if (this.def.stranger) cast.stranger = { name: this.def.stranger.name, color: 0x8A5A2B, rig: this.stranger || null };
     return cast;
   }
 
@@ -631,6 +635,24 @@ class StopScene extends BaseScenarioScene {
         }, { speed: 220 });
       },
       openGate: () => s.setGate(true),
+      // the stop's stranger walks up from the street and stands by the courier
+      strangerAppears: (arg, done) => {
+        const def = s.def.stranger;
+        if (!def) { done(); return; }
+        let r = s.stranger;
+        if (!r) {
+          r = OTR.rig.person(s, s.me.x - 420, s.stage.groundAt(s.me.x - 420), def.spec || {}, { scale: 0.78, facing: 1 });
+          s.stage.actor(r, { depth: 24 });
+          s.stranger = r;
+        }
+        if (cast.stranger) cast.stranger.rig = r;
+        r.walkTo(s.me.x - 110, () => { r.face(s.me.x); s.me.face(r.x); done(); }, { speed: 170 });
+      },
+      strangerLeaves: (arg, done) => {
+        const r = s.stranger;
+        if (!r) { done(); return; }
+        r.walkTo(r.x - 600, () => { r.setAlpha(0); done(); }, { speed: 170 });
+      },
       // ---- heat
       drink: (arg, done) => s.drinkWater(done),
       rest: (arg, done) => s.coolDown(done, arg || 3000),
@@ -898,6 +920,21 @@ class StopScene extends BaseScenarioScene {
 
   /* ================================================================== van */
   exitVan() {
+    // a heavy piece in hand (50 lb or more): how it gets to the door comes first
+    const heavy = this.carriedPkgs().find(p => (p.weight || 0) >= 50);
+    if (heavy && this.S.heavy === undefined) {
+      this.chooseAction(`This one is ${heavy.weight} lb. How do you get it to the door?`, [
+        { text: 'On the hand truck: strap it on and wheel it up', good: true, how: 'truck' },
+        { text: 'Carry it: it\'s only to the porch', good: false, how: 'carry' },
+        { text: 'Ask the customer to come out to the van for it', good: false, how: 'ask' }
+      ], (good, op) => {
+        this.S.heavy = op.how;
+        if (good) this.say('Hand truck it is: strapped on, wheeled up, lifted with your legs at the door.', '#8BF0C6');
+        else this.say(op.how === 'carry' ? `${heavy.weight} lb in your arms, up steps you can\'t see: that\'s a back injury waiting. Use the hand truck.` : 'The delivery is yours to make: the hand truck gets it to the door.', '#FF8A9A');
+        this.time.delayedCall(400, () => this.exitVan());
+      });
+      return;
+    }
     this.chooseAction('How do you climb down?', [
       { text: 'Face the cab, keep a hand on the grab handle and step down', good: true },
       { text: 'Hop down to the curb. It\'s only a couple of feet.', good: false }
@@ -1810,6 +1847,7 @@ class StopScene extends BaseScenarioScene {
     const L0 = lessons[0];
 
     // --- safety
+    if (S.heavy !== undefined) log.check('safety', S.heavy === 'truck' ? 2 : 0, 2, 'Moved a heavy package on the hand truck', { lesson: 'Anything 50 lb or more goes on the hand truck (or gets a second person). Don\'t carry what you can wheel.' });
     log.check('safety', S.exitSafe === false ? 0 : 2, 2, 'Climbed down from the cab with three points of contact', { lesson: 'Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.' });
     // no credit for a climb back in that never happened (a collapse, a stop left unfinished)
     if (S.enterSafe !== null || (S.outcome && !this.collapsed)) log.check('safety', S.enterSafe === false ? 0 : (S.enterSafe === null ? 1 : 2), 2, 'Climbed back into the cab safely', { lesson: 'Grab handle, one step at a time, and never jump up while carrying anything.' });

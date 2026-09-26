@@ -141,6 +141,17 @@ OTR_DATA.modules = [
         blurb: 'First a busy office reception, then a house with a very loud dog. Adjust your approach for business vs. residential stops.',
         learn: ['Business delivery etiquette', 'Residential delivery courtesy', 'Staying safe around dogs'],
         controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines · some decisions are timed'
+      },
+      {
+        id: 'm3-doorsteps',
+        title: 'Tricky Doorsteps',
+        icon: 'ic_user',
+        scene: 'StopScene',
+        dataKey: 'stopSets.m3_doorsteps',
+        categories: ['service', 'safety', 'efficiency'],
+        blurb: 'Three doorsteps where the people are the hard part: an angry customer, a language barrier, and a "neighbor" who offers to take a signature package.',
+        learn: ['Calming an upset customer', 'Getting a signature across a language barrier', 'Refusing a package handover politely', 'Heavy packages on the hand truck'],
+        controls: 'A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose'
       }
     ]
   },
@@ -160,6 +171,17 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'The house number on the label doesn\'t exist on this street. "Close enough" is tempting. Is it right?',
         learn: ['Verifying addresses', 'Using proper channels for exceptions', 'Protecting the customer\'s package'],
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
+      },
+      {
+        id: 'm4-recover',
+        title: 'Put It Right',
+        icon: 'ic_undo',
+        scene: 'DialogueScene',
+        dataKey: 'dialogues.m4_recover',
+        categories: ['service', 'efficiency'],
+        blurb: 'Yesterday\'s package went to Birch COURT instead of Birch LANE. Get it back, deliver it properly, fix the record and tell dispatch.',
+        learn: ['Owning a misdelivery', 'Recovering and rescanning a package', 'Honest explanations to customers', 'Closing the loop with dispatch'],
         controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {

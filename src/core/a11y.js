@@ -25,7 +25,8 @@ OTR.a11y = {
     { code: 'KeyL', label: 'Headlights' },
     { code: 'KeyG', label: 'Get out and look' },
     { code: 'KeyP', label: 'Park' },
-    { code: 'KeyR', label: 'Reverse gear' }
+    { code: 'KeyR', label: 'Reverse gear' },
+    { code: 'KeyK', label: 'Take a break (route day)' }
   ],
 
   settings() {

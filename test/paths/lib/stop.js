@@ -120,16 +120,20 @@ function driver(page, ctx) {
   const hhOpen = async () => { if (!(await state()).hh) { await page.keyboard.press('Tab'); await wait(420); } };
   const hhClose = async () => { if ((await state()).hh) { await page.keyboard.press('Tab'); await wait(350); } };
 
-  /** Pick the safe answer in a "How do you climb …?" card by its number key. */
+  /** Pick the safe answer in a "How do you climb …?" card by its number key (a heavy box asks first: the hand truck). */
   const climbSafely = async () => {
-    await ctx.until(`(${S}._openModals || 0) > 0`, 4000);
-    await wait(350);
-    const i = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); const box = root.list[1];
-      const btns = box.list.filter(o => o.label && /^\\d\\./.test(o.label.text));
-      return btns.findIndex(b => /grab handle/i.test(b.label.text)); })()`);
-    if (i < 0) throw new Error('no safe way to climb was offered');
-    await page.keyboard.press('Digit' + (i + 1));
-    await wait(1200);
+    for (let round = 0; round < 2; round++) {
+      await ctx.until(`(${S}._openModals || 0) > 0`, 4000);
+      await wait(350);
+      const i = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); const box = root.list[1];
+        const btns = box.list.filter(o => o.label && /^\\d\\./.test(o.label.text));
+        return btns.findIndex(b => /grab handle|hand truck/i.test(b.label.text)); })()`);
+      if (i < 0) throw new Error('no safe way to climb was offered');
+      const heavy = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); return root.list[1].list.some(o => o.label && /hand truck/i.test(o.label.text)); })()`);
+      await page.keyboard.press('Digit' + (i + 1));
+      await wait(heavy ? 1000 : 1200);
+      if (!heavy) break;
+    }
     await settle();
   };
 

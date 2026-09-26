@@ -111,7 +111,7 @@ OTR.record = {
         <div class="meta">${id ? `ID ${E(id)}<br>` : ''}Printed ${E(OTR.record.date(Date.now()))}<br>Training since ${E(OTR.record.date(R.firstAt))}</div></header>
       <div class="summary">
         <div>Assessments passed<b>${R.passed} / ${R.total}</b></div>
-        <div>Scenarios practised<b>${R.practised} / ${R.total}</b></div>
+        <div>Scenarios practiced<b>${R.practised} / ${R.total}</b></div>
         <div>Route days<b>${R.routeDays}</b></div>
         <div>Time training<b>${E(OTR.record.duration(R.seconds))}</b></div>
       </div>

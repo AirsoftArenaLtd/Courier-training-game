@@ -89,6 +89,26 @@ class ShiftBriefScene extends Phaser.Scene {
       onEnd: (node, ctl) => {
         this.st.log = ctl.o.log.toJSON();
         OTR.save.write();
+        // bad weather: what are you wearing? (it decides how the steps and the heat treat you today)
+        const gear = OTR.shift.gearTalk(this.st.weather);
+        if (gear && !this.st.gear) { this.time.delayedCall(300, () => this.runGear(gear)); return; }
+        this._ended = true;
+        this.time.delayedCall(400, () => OTR.shift.setPhase(this, 'pretrip'));
+      }
+    });
+  }
+
+  runGear(graph) {
+    const flags = {};
+    this.talkCtl = OTR.talk.run(this, graph, {
+      cast: { dispatch: { name: 'Dispatch', color: 0x4D148C, rig: this.dispatcher } },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
+      log: OTR.ScoreLog.from(this.st.log), cats: OTR.scoring.CATS, feedback: 'immediate', flags,
+      depth: 3000, choiceX: 855, choiceWidth: 760,
+      onEnd: (node, ctl) => {
+        this.st.log = ctl.o.log.toJSON();
+        this.st.gear = flags.gear || 'poor';
+        OTR.save.write();
         this._ended = true;
         this.time.delayedCall(400, () => OTR.shift.setPhase(this, 'pretrip'));
       }

@@ -44,7 +44,7 @@ class RecordScene extends Phaser.Scene {
     // summary tiles
     const tiles = [
       ['ASSESSMENTS PASSED', `${R.passed} / ${R.total}`, R.passed === R.total ? '#8BF0C6' : '#FFC83D'],
-      ['SCENARIOS PRACTISED', `${R.practised} / ${R.total}`, '#ffffff'],
+      ['SCENARIOS PRACTICED', `${R.practised} / ${R.total}`, '#ffffff'],
       ['ROUTE DAYS', String(R.routeDays), '#ffffff'],
       ['TIME TRAINING', OTR.record.duration(R.seconds), '#ffffff'],
       ['WORK ON MOST', R.weakest ? OTR_DATA.config.categories[R.weakest].label : '—', R.weakest ? OTR.color.css(OTR_DATA.config.categories[R.weakest].color) : '#ffffff']

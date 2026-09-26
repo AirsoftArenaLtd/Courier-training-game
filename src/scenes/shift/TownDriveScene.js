@@ -592,6 +592,18 @@ class TownDriveScene extends Phaser.Scene {
     this.stepLights(dt);
     this.checkRules(dt);
     if (this.shiftMode) this.dispatchTick(dt);
+    // a route day saves where the van is every few seconds, so a quit or a reload carries on from here
+    if (this.shiftMode && OTR.shift.state && !this.parked && this.elapsed - (this._legSavedAt || 0) > 5) {
+      this._legSavedAt = this.elapsed;
+      const st = OTR.shift.state, v = this.van;
+      if (OTR.vehicle.stopped(v) || OTR.vehicle.mph(v) < 30) {
+        st.van = { x: v.x, y: v.y, heading: v.heading };
+        st.midLeg = true;
+        st.legMinDone = (this.d.legMin0 || 0) + Math.floor(this.elapsed / 12);
+        st.log = this.log.toJSON();
+        OTR.shift.save();
+      }
+    }
     OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
     this.updateHud();
@@ -610,6 +622,11 @@ class TownDriveScene extends Phaser.Scene {
       shift: !!this.shiftAsked
     };
     this.shiftAsked = false;
+    // tired (a route day with no break): the steering answers late
+    if (this.fatigued && inp.steer !== undefined) {
+      this._steerLag = (this._steerLag || 0) + (inp.steer - (this._steerLag || 0)) * Math.min(1, dt * 2.5);
+      inp.steer = Math.abs(this._steerLag) < 0.35 ? 0 : Math.sign(this._steerLag);
+    }
     this.input3 = inp;
 
     const ev = V.step(v, inp, dt, this.world);

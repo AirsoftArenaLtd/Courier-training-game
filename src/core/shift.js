@@ -207,6 +207,19 @@ OTR.shift = {
       expected,
       lessons: []
     };
+    // now and then the person at the door is the hard part: upset about a late package, or speaking Spanish
+    // (the Tricky Doorsteps conversations, with this customer's name)
+    if (type === 'handoff' && kind === 'house' && stop.answer && OTR_DATA.stopSets.m3_doorsteps && R() < 0.35) {
+      const src = OTR_DATA.stopSets.m3_doorsteps.stops;
+      const which = R() < 0.5 ? { g: src[0].talks.dana, sp: 'dana' } : { g: src[1].talks.ana, sp: 'ana' };
+      const graph = JSON.parse(JSON.stringify(which.g));
+      Object.values(graph.nodes).forEach(n => {
+        if (n.speaker === which.sp) n.speaker = 'customer';
+        if (n.text) n.text = n.text.replace(/Ana Morales/g, stop.answer.name);
+      });
+      stop.answer.talk = 'customer';
+      stop.talks = Object.assign({}, stop.talks, { customer: graph });
+    }
     if (type === 'dog') {
       // a dog loose in the front yard (the Module 8 situation): the owner is called out and hands over at the gate
       const dg1 = OTR_DATA.stopSets.m8_dog.stops[0];
@@ -265,6 +278,36 @@ OTR.shift = {
   },
 
   /**
+   * What to wear on a bad-weather day: a short question from dispatch after the briefing. The answer is kept
+   * (st.gear 'good' | 'poor'): poor footwear makes slippery steps less forgiving, and no water or hat makes the heat
+   * build faster.
+   */
+  gearTalk(weather) {
+    const g = (text, good, ok, bad, lesson) => ({
+      start: 'g0',
+      nodes: {
+        g0: { speaker: 'dispatch', text, check: 'Dressed for the weather',
+          choices: OTR.util.shuffle([
+            { text: good, grade: 'good', effects: { safety: 2 }, set: { gear: 'good' }, feedback: 'Right for the day: it keeps you on your feet and on the route.', next: 'end' },
+            { text: ok, grade: 'ok', effects: { safety: 1 }, set: { gear: 'poor' }, feedback: 'Better than nothing, but it will cost you out there. ' + lesson, lesson, next: 'end' },
+            { text: bad, grade: 'bad', effects: { safety: 0 }, set: { gear: 'poor' }, feedback: lesson, lesson, next: 'end' }
+          ]) },
+        end: { type: 'end' }
+      }
+    });
+    if (weather === 'snow') return g('Snow and ice all day. What are you wearing out there?',
+      '"Insulated boots with a good grip, gloves, layers and a hat."', '"My usual work boots and a jacket: it\'s only a few hours."', '"Sneakers. Easier to hop in and out of the van."',
+      'On ice, footwear with real grip is the difference between a slip and a fall. Dress for the worst step of the day.');
+    if (weather === 'rain' || weather === 'storm') return g('Rain all day. What are you wearing?',
+      '"Waterproof jacket, boots with good tread, and I\'ll keep the scanner dry."', '"A hoodie. I\'ll run between the van and the doors."', '"Nothing special: I dry off in the van."',
+      'Wet steps and porches are slippery: boots with tread, and walk, don\'t run.');
+    if (weather === 'heat') return g('102 degrees this afternoon. How are you set up?',
+      '"Light clothes, a hat, sunscreen, and a big water bottle I\'ll refill."', '"Shorts and a T-shirt. I\'ll buy a drink at lunch."', '"Same as always. I don\'t really get thirsty."',
+      'Heat illness creeps up: water with you all day, sip before you\'re thirsty, shade and a hat.');
+    return null;
+  },
+
+  /**
    * The post-trip's three calls, from the day: fuel (fleet rule: refuel below a quarter tank), the van (a curb strike
    * or a crash today is reported and the tires and body checked), and packages back plus the scanner.
    * Each: { topic, text, options, correct, cat, label, lesson }, options in a random order.
@@ -280,7 +323,18 @@ OTR.shift = {
     const items = (st.log && st.log.items) || [];
     const hits = items.filter(it => it.where && (it.where.key === 'kerb' || it.where.key === 'crash')).length;
     const back = (st.stats && st.stats.exceptions) || 0;
-    return [
+    // anything today that needs an incident report: a crash, a person hit, a slip or trip, a dog
+    const incident = items.find(it => it.where && (it.where.key === 'crash' || it.where.key === 'hitped'))
+      || items.find(it => /^Slipped or tripped|^Fell on /.test(it.label || ''))
+      || items.find(it => /dog/i.test(it.label || '') && it.kind === 'penalty');
+    const extra = incident ? [q({
+      topic: 'INCIDENT REPORT', cat: 'safety',
+      text: `Today: "${incident.label}". What goes in the incident report?`,
+      options: ['What happened, where and when, in plain facts, and any injury or damage, reported today', 'Nothing: nobody was badly hurt, so there\'s nothing to report', 'Whose fault you think it was, and why it wasn\'t yours'],
+      label: 'Filed a factual incident report the same day',
+      lesson: 'Every incident is reported the same day, in facts: what, where, when, who was hurt, what was damaged. Small ones are how the big ones get prevented.'
+    })] : [];
+    return extra.concat([
       q({
         topic: 'FUEL', cat: 'efficiency',
         text: `The gauge reads ${fuelTxt}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?`,
@@ -316,7 +370,7 @@ OTR.shift = {
         label: 'Docked the scanner at the end of the day',
         lesson: 'Docking uploads the day\'s scans and signatures and charges the scanner for the morning.'
       })
-    ];
+    ]);
   },
 
   /* ================================================================ lifecycle */
@@ -429,6 +483,7 @@ OTR.shift = {
         button: 'Roll out'
       };
     }
+    st.legMinDone0 = st.legMinDone || 0;      // the clock of the leg being resumed starts where it left off
     OTR.fx.transition(scene, 'TownDriveScene', {
       shift: true, seed: st.seed, weather: st.weather, tod: this.todNow(),
       start: st.van || null,
@@ -437,7 +492,10 @@ OTR.shift = {
       log: st.log,
       notice,
       // the clock runs while you drive, at the rate arriveStop adds on (it used to stand still, then jump)
-      clock: (elapsed) => OTR.shift.clockStr(st.clockMin + Math.floor((elapsed || 0) / 12))
+      // minutes already driven on this leg before a quit or reload (the drive saves where it is as it goes)
+      legMin0: st.legMinDone || 0,
+      midLeg: !!st.midLeg,                      // resumed mid-road: not a pull-out from the curb
+      clock: (elapsed) => OTR.shift.clockStr(st.clockMin + (st.legMinDone0 || 0) + Math.floor((elapsed || 0) / 12))
     });
   },
 
@@ -456,8 +514,10 @@ OTR.shift = {
   arriveStop(driveScene, stopRef) {
     const st = this.state;
     st.van = { x: driveScene.van.x, y: driveScene.van.y, heading: driveScene.van.heading };
+    st.midLeg = false;
     st.log = driveScene.log.toJSON();
-    st.clockMin += 6 + Math.round(driveScene.elapsed / 12);
+    st.clockMin += 6 + (driveScene.d.legMin0 || 0) + Math.round(driveScene.elapsed / 12);
+    st.legMinDone = 0; st.legMinDone0 = 0;
     const entry = st.route.find(r => r.lotId === stopRef.lotId);
     // an unread dispatch message about this stop is read now, parked (it is on the stop's brief)
     if (st.dispatch && st.dispatch.sent && !st.dispatch.read && st.dispatch.stop === st.route.indexOf(entry)) {
@@ -478,7 +538,8 @@ OTR.shift = {
     OTR.fx.transition(scene, 'StopScene', {
       shift: true,
       shiftStop: {
-        set: { title: 'Route', tod: this.todNow(), weather: st.weather, time: st.clockMin, heat: st.heat ? { hydration: st.heat.hyd, bodyHeat: st.heat.temp, intensity: 1.1 } : null, talks: OTR_DATA.stopSets.m8_heat.talks },
+        // no hat and no water (the morning's gear question) and the heat builds faster
+        set: { title: 'Route', tod: this.todNow(), weather: st.weather, time: st.clockMin, heat: st.heat ? { hydration: st.heat.hyd, bodyHeat: st.heat.temp, intensity: st.gear === 'poor' ? 1.35 : 1.1 } : null, talks: OTR_DATA.stopSets.m8_heat.talks },
         stop: entry.stop,
         index: entry.index,
         total: st.route.length

@@ -29,7 +29,7 @@ class AccessScene extends Phaser.Scene {
       this.focusables.push(b);
     };
     toggle(top + 84, 'large', 'Larger text', 'Small print across the academy gets bigger. Takes effect on the next screen.', () => this.scene.restart());
-    toggle(top + 214, 'colour', 'Colour-blind filter', 'Shifts reds and greens apart (pass and fail, lights, map pins) for red-green colour blindness.', () => OTR.a11y.applyColour(this));
+    toggle(top + 214, 'colour', 'Color-blind filter', 'Shifts reds and greens apart (pass and fail, lights, map pins) for red-green color blindness.', () => OTR.a11y.applyColour(this));
     toggle(top + 344, 'narrate', 'Read cards aloud', 'Briefs, instructions and results are read out by the computer\'s voice.', (on) => { if (on) OTR.a11y.say('Cards will be read aloud.'); else OTR.a11y.hush(); });
     OTR.txt(this, x + 26, top + 486, 'Sound volume and the route-day checklist\nare in Settings.', 14, '#7A6A90', { ox: 0, oy: 0, bold: false });
 
@@ -40,8 +40,9 @@ class AccessScene extends Phaser.Scene {
     this.status = OTR.txt(this, cx + cw - 26, top + 32, '', 14, '#B26A00', { ox: 1, weight: '900' });
     this.keyTexts = {};
     OTR.a11y.ACTIONS.forEach((a, i) => {
-      const col = i < 7 ? 0 : 1, row = i % 7;
-      const rx = cx + 26 + col * 370, ry = top + 76 + row * 62;
+      const per = Math.ceil(OTR.a11y.ACTIONS.length / 2);
+      const col = i < per ? 0 : 1, row = i % per;
+      const rx = cx + 26 + col * 370, ry = top + 76 + row * 56;
       OTR.txt(this, rx, ry, a.label, 15, '#250849', { ox: 0, weight: '900' });
       this.keyTexts[a.code] = OTR.txt(this, rx + 190, ry, '', 16, '#4D148C', { ox: 0.5, weight: '900' });
       const b = OTR.ui.button(this, rx + 290, ry, 'Change', () => this.rebind(a), { w: 110, h: 40, skin: 'ghost', fontSize: 15 });

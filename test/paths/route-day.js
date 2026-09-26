@@ -56,6 +56,11 @@ module.exports = async (page, ctx) => {
   await ctx.audit('briefing');
   await ctx.snap('briefing');
   await runTalk(page, `OTR.game.scene.getScene('ShiftBriefScene').talkCtl`, { timeout: 150000 });
+  // a bad-weather day asks what you are wearing: a second conversation
+  await wait(1200);
+  if (await ctx.eval(`OTR.game.scene.isActive('ShiftBriefScene') && !OTR.game.scene.getScene('ShiftBriefScene')._ended`)) {
+    await runTalk(page, `OTR.game.scene.getScene('ShiftBriefScene').talkCtl`, { timeout: 60000 });
+  }
 
   // ---- pre-trip and loading, played by their own golden paths
   await waitScene('PreTripScene');
@@ -174,7 +179,8 @@ module.exports = async (page, ctx) => {
   // ---- the post-trip: three calls, answered right
   await waitScene('PostTripScene', 20000);
   await ctx.audit('posttrip');
-  for (let i = 0; i < 3; i++) {
+  const nq = await ctx.eval(`OTR.game.scene.getScene('PostTripScene').qs.length`);
+  for (let i = 0; i < nq; i++) {
     await wait(500);
     const c = await ctx.eval(`OTR.game.scene.getScene('PostTripScene').q.correct`);
     await page.keyboard.press('Digit' + (c + 1));

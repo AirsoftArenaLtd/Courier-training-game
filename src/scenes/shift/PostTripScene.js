@@ -13,8 +13,16 @@ class PostTripScene extends Phaser.Scene {
     OTR.fx.enter(this);
     this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'posttrip_bg', [[0, '#1A0A36'], [0.6, '#4A2270'], [1, '#C8703D']]));
     OTR.txt(this, W / 2, 50, 'BACK AT THE STATION', 34, '#ffffff', { weight: '900', shadow: true });
-    OTR.txt(this, W / 2, 86, 'The post-trip: three things before you clock off', 18, '#FFE3C8', { bold: false });
     this.qs = OTR.shift.postTripQuestions(st);
+    OTR.txt(this, W / 2, 86, `The post-trip: ${['', 'one thing', 'two things', 'three things', 'four things'][this.qs.length] || this.qs.length + ' things'} before you clock off`, 18, '#FFE3C8', { bold: false });
+    // a long day (four hours or more) with no break at all is on the record
+    const len = st.clockMin - (8 * 60 + 20);
+    if (len >= 240 && !st.breaks && !st.breakChecked) {
+      st.breakChecked = true;
+      const log = OTR.ScoreLog.from(st.log);
+      log.check('safety', 0, 1, 'Took a rest break on a long day', { lesson: 'A short break every couple of hours (water, a stretch) keeps your reactions sharp for the afternoon.' });
+      st.log = log.toJSON();
+    }
     this.i = 0;
     this.log = OTR.ScoreLog.from(st.log);
     this.body = this.add.container(0, 0);

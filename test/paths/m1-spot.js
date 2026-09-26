@@ -22,6 +22,7 @@ module.exports = async (page, ctx) => {
     await ctx.wait(800);
     await page.keyboard.press('Enter');                              // next clip / see my score
   }
+  if (!(await ctx.until('!!window.__qaResult', 20000))) throw new Error('the drill never reported its score');
   // the rules, checked on the scoring itself
   const rules = await ctx.eval(`(() => {
     const s = ${S}, C = s.content, clip = C.clips[0], score = (f) => s.points(f, clip).pts;
