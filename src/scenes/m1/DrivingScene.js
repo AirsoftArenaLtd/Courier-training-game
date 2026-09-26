@@ -247,7 +247,8 @@ class DrivingScene extends TownDriveScene {
     if (hz.judged) return;
     hz.judged = true;
     const def = hz.def;
-    this.log.check('safety', 0, def.points, def.title, { lesson: def.lesson, severity: 'major' });
+    const where = { x: Math.round(this.van.x), y: Math.round(this.van.y), mph: Math.round(OTR.vehicle.mph(this.van) * 10) / 10, t: Math.round(this.elapsed), seed: this.T.seed, key: 'hazard' };
+    this.log.check('safety', 0, def.points, def.title, { lesson: def.lesson, severity: 'major', where });
     if (extraPenalty) this.log.penalty('safety', extraPenalty, text || def.fail, { severity: 'major' });
     this.results.push({ id: def.id, ok: false });
     this.warn('✗ ' + (text || def.fail), 0xF0435A);

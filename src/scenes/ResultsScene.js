@@ -48,6 +48,13 @@ class ResultsScene extends Phaser.Scene {
     }));
     panel.add(OTR.txt(this, 0, -ph / 2 + 34, head.text, 16, 'rgba(255,255,255,0.9)', { weight: '900' }));
     panel.add(OTR.txt(this, 0, -ph / 2 + 68, sc.title, 34, '#ffffff', { weight: '900', shadow: true }));
+    // a drive: where each mistake happened, on the map
+    const pins = result.log ? OTR.drive.pins(result.log) : [];
+    if (pins.length || sc.scene === 'DrivingScene') {
+      panel.add(OTR.ui.button(this, pw / 2 - 90, -ph / 2 + 52, pins.length ? `Drive map (${pins.length})` : 'Drive map', () => OTR.fx.transition(this, 'DriveReviewScene', {
+        pins, seed: pins[0] && pins[0].where.seed, title: sc.title, back: 'ResultsScene', backData: Object.assign({}, this.d, { again: true })
+      }), { w: 150, h: 40, skin: 'ghost', fontSize: 15 }));
+    }
     panel.setScale(0.9).setAlpha(0);
     this.tweens.add({ targets: panel, scale: 1, alpha: 1, duration: 380, ease: 'Back.out' });
 
@@ -151,7 +158,7 @@ class ResultsScene extends Phaser.Scene {
     this.time.delayedCall(Math.min(delay, 2200), () => btns.forEach(b => b.setEnabled(true)));
 
     // celebrations, only for a run that earned them
-    this.time.delayedCall(delay + 150, () => {
+    if (!this.d.again) this.time.delayedCall(delay + 150, () => {
       if (head.celebrate === 'big') {
         OTR.fx.confetti(this, W / 2, H + 20, { count: 140 });
         OTR.audio.play('fanfare');

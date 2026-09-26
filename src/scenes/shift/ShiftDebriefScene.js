@@ -14,6 +14,7 @@ class ShiftDebriefScene extends Phaser.Scene {
     const live = st && st.phase === 'debrief' && !this.review;
     const rec = live ? OTR.shift.finish(this) : OTR.save.data.route && OTR.save.data.route.last;
     if (!rec) { this.scene.start('HubScene'); return; }
+    this.rec = rec;
     OTR.fx.enter(this);
     const W = OTR.W, H = OTR.H;
     const cats = OTR.scoring.CATS;
@@ -85,6 +86,16 @@ class ShiftDebriefScene extends Phaser.Scene {
       const lot = T.lotById(r.lotId);
       OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, '#16062B', { weight: '900' });
     });
+    // driving mistakes, as red crosses, and the way to the full review
+    const pins = rec.pins || [];
+    if (pins.length) {
+      OTR.tex.shape(this, (g) => {
+        g.lineStyle(3, 0xFF3355, 1);
+        pins.forEach(p => { const x = mx + p.where.x * sx, y = my + p.where.y * sy; g.lineBetween(x - 4, y - 4, x + 4, y + 4); g.lineBetween(x - 4, y + 4, x + 4, y - 4); });
+      });
+    }
+    const rv = OTR.ui.button(this, mx + mw - 92, my + mh + 26, pins.length ? `Drive review (${pins.length}) ›` : 'Drive review ›', () => this.openReview(), { w: 184, h: 34, skin: pins.length ? 'purple' : 'ghost', fontSize: 14 });
+    this.reviewBtn = rv;
     OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${{ clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Heat advisory' }[rec.weather] || rec.weather}`, 14, '#C9B3F0', { ox: 0, bold: false });
     // defects the pre-trip missed (they held the truck at the gate)
     const out = rec.rolledOut || [];
@@ -98,6 +109,14 @@ class ShiftDebriefScene extends Phaser.Scene {
       });
       if (out.length > 3) OTR.txt(this, mx + 10, y, `+ ${out.length - 3} more`, 12, '#C9B3F0', { ox: 0, oy: 0, bold: false });
     }
+  }
+
+  openReview(pin) {
+    const rec = this.rec;
+    OTR.fx.transition(this, 'DriveReviewScene', {
+      pins: rec.pins || [], seed: rec.seed, stops: rec.stops, title: `Day ${rec.day}`, select: pin,
+      back: 'ShiftDebriefScene', backData: { review: true }
+    });
   }
 
   /**
@@ -128,12 +147,18 @@ class ShiftDebriefScene extends Phaser.Scene {
       // ~ for part marks, ↺ for a line that cost nothing itself (a restart: what it shows is that it happened)
       const note = !it.critical && !it.lost;
       const mark = note ? '↺' : it.partial ? '~' : '✗';
-      const t = OTR.txt(this, x0 + 38, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${it.critical ? '  · CRITICAL' : ''}`, 16, it.critical ? '#FF9AA6' : note ? '#C9B3F0' : '#F4ECFF', { ox: 0, oy: 0, weight: note ? '700' : '900', wrap: pw - 70 });
-      const l = it.lesson ? OTR.txt(this, x0 + 38, y + t.height + 2, it.lesson, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap: pw - 70 }) : null;
+      const wrap = pw - (it.pin >= 0 && (rec.pins || []).length ? 116 : 70);
+      const t = OTR.txt(this, x0 + 38, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${it.critical ? '  · CRITICAL' : ''}`, 16, it.critical ? '#FF9AA6' : note ? '#C9B3F0' : '#F4ECFF', { ox: 0, oy: 0, weight: note ? '700' : '900', wrap });
+      const l = it.lesson ? OTR.txt(this, x0 + 38, y + t.height + 2, it.lesson, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap }) : null;
       const need = t.height + 2 + (l ? l.height + 8 : 6);
       if (y + need > limit - (left > 0 ? 22 : 0)) { t.destroy(); if (l) l.destroy(); break; }
       const def = OTR_DATA.config.categories[it.cat] || { color: 0xF0435A, icon: 'ic_flag' };
       this.add.image(x0 + 18, y + 9, def.icon).setDisplaySize(15, 15).setTint(def.color);
+      // a driving mistake links to where it happened on the map
+      if (it.pin >= 0 && (rec.pins || []).length) {
+        const lk = OTR.txt(this, x0 + pw - 18, y + 9, 'map ›', 13, '#FFC83D', { ox: 1, weight: '900' });
+        lk.setInteractive({ useHandCursor: true }).on('pointerup', () => this.openReview(it.pin));
+      }
       y += need;
       shown++;
     }

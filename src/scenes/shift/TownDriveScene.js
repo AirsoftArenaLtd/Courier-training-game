@@ -567,7 +567,9 @@ class TownDriveScene extends Phaser.Scene {
     this.lastViolationAt[key] = now;
     this.violations[key] = (this.violations[key] || 0) + 1;
     // hitting someone is never averaged away: it caps the day's safety
-    this.log.penalty(cat || 'safety', pts || 2, label, { lesson, severity: pts >= 3 ? 'major' : 'minor', critical: key === 'hitped' });
+    // pinned to where it happened, for the drive review map
+    const where = { x: Math.round(this.van.x), y: Math.round(this.van.y), mph: Math.round(OTR.vehicle.mph(this.van) * 10) / 10, t: Math.round(now), seed: this.T.seed, key };
+    this.log.penalty(cat || 'safety', pts || 2, label, { lesson, severity: pts >= 3 ? 'major' : 'minor', critical: key === 'hitped', where });
     OTR.audio.play('alarm');
     OTR.fx.flash(this, 0xF0435A, 0.22, 260);
     this.toast('⚠ ' + label, 0xF0435A);

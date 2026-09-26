@@ -4,6 +4,7 @@
  *   log.penalty('safety', 3, 'Slipped on ice while carrying', { lesson })   // reduces earned only
  *   log.ratio('safety') -> 0..1
  * Items keep their group (e.g. the stop id) so reports can be split per stop.
+ * { where: { x, y, mph, t, seed } } pins a driving mistake to the town map (the drive review shows it there).
  * { critical: true } marks a mistake that must never be averaged away (releasing an adult-signature package to a
  * minor, a late First Overnight): it caps its category at one star and heads the takeaways (see OTR.flow.complete).
  */
@@ -20,7 +21,7 @@ OTR.ScoreLog = class {
 
   check(cat, got, max, label, o) {
     o = o || {};
-    const it = { cat, got, max, label, good: got >= max, partial: got > 0 && got < max, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'check', critical: !!o.critical && got < max, at: Date.now() };
+    const it = { cat, got, max, label, good: got >= max, partial: got > 0 && got < max, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'check', critical: !!o.critical && got < max, at: Date.now(), where: o.where || null };
     this.items.push(it);
     if (this.onAdd) this.onAdd(it);
     return it;
@@ -28,7 +29,7 @@ OTR.ScoreLog = class {
 
   penalty(cat, pts, label, o) {
     o = o || {};
-    const it = { cat, got: -Math.abs(pts), max: 0, label, good: false, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'penalty', severity: o.severity || 'minor', critical: !!o.critical, at: Date.now() };
+    const it = { cat, got: -Math.abs(pts), max: 0, label, good: false, lesson: o.lesson || null, feedback: o.feedback || null, group: o.group || this.group, kind: 'penalty', severity: o.severity || 'minor', critical: !!o.critical, at: Date.now(), where: o.where || null };
     this.items.push(it);
     if (this.onAdd) this.onAdd(it);
     return it;

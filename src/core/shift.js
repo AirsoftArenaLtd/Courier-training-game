@@ -457,6 +457,7 @@ OTR.shift = {
       seed: st.seed,
       stops: st.route.map(r => ({ lotId: r.lotId, outcome: r.result ? r.result.outcome : null })),
       work: this.workOn(log, cats),
+      pins: OTR.drive.pins(log),                 // driving mistakes, where they happened (the drive review)
       well: this.wentWell(log),
       rolledOut: (st.truck && st.truck.missed) || [],
       criticals: criticals.length,
@@ -482,6 +483,7 @@ OTR.shift = {
    */
   workOn(log, cats) {
     const rows = [];
+    const pins = OTR.drive.pins(log);
     log.mistakes(undefined, cats).forEach(it => {
       let r = rows.find(o => o.label === it.label);
       if (!r) { r = { label: it.label, lesson: it.lesson || null, cat: it.cat, n: 0, lost: 0, critical: false, partial: false, order: rows.length }; rows.push(r); }
@@ -496,7 +498,8 @@ OTR.shift = {
     const firsts = cats.map(c => rows.find(r => r.cat === c)).filter(Boolean);
     const head = rows.filter(r => r.critical).concat(firsts.filter(r => !r.critical).sort(rank));
     return head.concat(rows.filter(r => head.indexOf(r) < 0))
-      .map(r => ({ label: r.label, lesson: r.lesson, cat: r.cat, n: r.n, lost: r.lost, critical: r.critical, partial: r.partial && !r.critical && r.n === 1 }));
+      .map(r => ({ label: r.label, lesson: r.lesson, cat: r.cat, n: r.n, lost: r.lost, critical: r.critical, partial: r.partial && !r.critical && r.n === 1,
+        pin: pins.findIndex(p => p.label === r.label) }));        // a driving mistake: where it first happened
   },
 
   /** Checks passed in full, one row per kind with its count, the most often first. */
