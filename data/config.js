@@ -5,7 +5,7 @@
 window.OTR_DATA = window.OTR_DATA || {};
 
 OTR_DATA.config = {
-  brand: 'FedEx',
+  brand: '',                // a company name for the title, hub, van and depot; empty shows just the title
   title: 'On The Route',
   subtitle: 'Courier Training Simulator',
   disclaimer: 'Training simulation built on general, publicly available safety and customer-service guidance. ' +

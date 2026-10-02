@@ -1,4 +1,4 @@
-# QA Report — FedEx: On The Route
+# QA Report — On The Route
 
 A module-by-module quality pass over the whole simulator: every scenario play-tested and code-reviewed, every
 defect fixed at its source, and a repeatable test suite left in the repo so the result can be re-checked on
@@ -897,4 +897,4 @@ checked, for whoever takes it further:
   town with traffic and hazards live. What is not covered there is the interaction of a *player* driving badly with
   dense traffic — that is left to the random-play pass.
 - **Training content** was checked for consistency with itself (what a card promises, what the scoring rewards,
-  what the scene can show), not against FedEx's official procedures. As the README says, it is illustrative.
+  what the scene can show), not against any company's official procedures. As the README says, it is illustrative.

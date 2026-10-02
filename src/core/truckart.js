@@ -94,9 +94,10 @@ OTR.truckArt = {
     // lettering is painted the right way round even on the mirrored side
     ctx.save();
     if (mirrored) { ctx.translate(w, 0); ctx.scale(-1, 1); }
-    ctx.fillStyle = '#4D148C'; ctx.font = `900 ${Math.round(h * 0.16)}px "Segoe UI", Arial`;
+    const brand = OTR_DATA.config.brand;
+    ctx.fillStyle = brand ? '#4D148C' : '#FF6600'; ctx.font = `900 ${Math.round(h * (brand ? 0.16 : 0.1))}px "Segoe UI", Arial`;
     ctx.textAlign = mirrored ? 'right' : 'left'; ctx.textBaseline = 'alphabetic';
-    ctx.fillText(OTR_DATA.config.brand || '', mirrored ? w - 80 : 80, h * 0.48);
+    ctx.fillText(brand || OTR_DATA.config.title.toUpperCase(), mirrored ? w - 80 : 80, h * 0.48);
     ctx.restore();
     // body panel damage
     if (D.body_panel) {

@@ -6,7 +6,7 @@
  * Items keep their group (e.g. the stop id) so reports can be split per stop.
  * { where: { x, y, mph, t, seed } } pins a driving mistake to the town map (the drive review shows it there).
  * { critical: true } marks a mistake that must never be averaged away (releasing an adult-signature package to a
- * minor, a late First Overnight): it caps its category at one star and heads the takeaways (see OTR.flow.complete).
+ * minor, a late Early AM): it caps its category at one star and heads the takeaways (see OTR.flow.complete).
  */
 window.OTR = window.OTR || {};
 

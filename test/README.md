@@ -1,6 +1,6 @@
 # QA suite
 
-Automated checks for FedEx: On The Route. They drive the real game in a headless browser, the way a trainee
+Automated checks for On The Route. They drive the real game in a headless browser, the way a trainee
 would, and fail loudly when something breaks. Nothing in `test/` ships with the game.
 
 ## Running it
