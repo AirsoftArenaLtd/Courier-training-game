@@ -159,7 +159,14 @@ OTR.record = {
     document.body.appendChild(f);
     const d = f.contentWindow.document;
     d.open(); d.write(html); d.close();
-    setTimeout(() => { try { f.contentWindow.focus(); f.contentWindow.print(); } catch (e) { /* the browser refused */ } }, 250);
+    // print() waits for the dialog; then the keyboard goes back to the game (it used to stay in the hidden frame, so
+    // ESC and every key did nothing until the trainee clicked the game)
+    setTimeout(() => {
+      try { f.contentWindow.focus(); f.contentWindow.print(); } catch (e) { /* the browser refused */ }
+      window.focus();
+      const c = document.querySelector('#game canvas');
+      if (c) { if (!c.hasAttribute('tabindex')) c.setAttribute('tabindex', '-1'); c.focus(); }
+    }, 250);
   },
 
   print(R, name, id) { OTR.record.printHtml(OTR.record.html(R, name, id)); },

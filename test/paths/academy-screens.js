@@ -23,7 +23,7 @@ async function clickBeside(page, sceneKey, label, btn) {
     const l = texts.find(t => L.test(t.text));
     if (!l) return null;
     const lb = l.getBounds();
-    const cands = texts.filter(t => B.test(t.text)).map(t => t.getBounds()).filter(b => b.centerX > lb.right && Math.abs(b.centerY - lb.centerY) < 20);
+    const cands = texts.filter(t => B.test(t.text)).map(t => t.getBounds()).filter(b => b.centerX > lb.right && Math.abs(b.centerY - lb.centerY) < 30);
     cands.sort((a, b) => a.centerX - b.centerX);
     return cands[0] ? { x: cands[0].centerX, y: cands[0].centerY } : null;
   }, sceneKey, label.source, btn.source);
@@ -47,8 +47,20 @@ async function clickIcon(page, sceneKey, tex) {
 }
 
 module.exports = async (page, ctx) => {
-  const active = async (key, ms) => { if (!(await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000))) throw new Error(`${key} never opened`); await wait(700); };
+  const active = async (key, ms) => {
+    if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
+    // say what is on screen instead
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    throw new Error(`${key} never opened; on screen: ${seen}`);
+  };
   const typeEnter = async (s) => { await page.keyboard.type(s); await wait(150); await page.keyboard.press('Enter'); await wait(700); };
+  /** Wait for a box with this title on the hub, then type into it. */
+  const typeInto = async (title, s) => {
+    if (!(await ctx.until(`(() => { const h = OTR.game.scene.getScene('HubScene'); const st = h._modalStack || []; if (!st.length) return false;
+      let hit = false; const walk = (o) => { if (!o || hit) return; if (o.type === 'Text' && o.text === ${JSON.stringify(title)}) hit = true; (o.list || []).forEach(walk); }; walk(st[st.length - 1]); return hit; })()`, 8000))) throw new Error(`no "${title}" box`);
+    await wait(500);
+    await typeEnter(s);
+  };
 
   // a new trainee
   await page.evaluate(() => localStorage.clear());
@@ -61,9 +73,8 @@ module.exports = async (page, ctx) => {
   /* ---- Trainer: choose a PIN, change the rules, save */
   await clickIcon(page, 'HubScene', 'ic_gear');
   await clickText(page, 'HubScene', /^Trainer$/);
-  await wait(700);
-  await typeEnter(PIN);                                                 // choose
-  await typeEnter(PIN);                                                 // again
+  await typeInto('Choose a trainer PIN', PIN);
+  await typeInto('Type it again', PIN);
   await active('TrainerScene');
   await ctx.audit('trainer');
   await clickBeside(page, 'TrainerScene', /^Safety$/, /^\+$/);           // 2 → 3 stars
@@ -77,11 +88,9 @@ module.exports = async (page, ctx) => {
   // the PIN now guards the tools: a wrong one is refused, the right one opens them
   await clickIcon(page, 'HubScene', 'ic_gear');
   await clickText(page, 'HubScene', /^Trainer$/);
-  await wait(700);
-  await typeEnter('1111');
+  await typeInto('Trainer PIN', '1111');
   if (await ctx.eval(`OTR.game.scene.isActive('TrainerScene')`)) throw new Error('a wrong PIN opened the trainer tools');
-  if (!(await ctx.until(`OTR.game.scene.getScene('HubScene')._modalStack && OTR.game.scene.getScene('HubScene')._modalStack.length > 0`, 4000))) throw new Error('a wrong PIN did not ask again');
-  await typeEnter(PIN);
+  await typeInto('Trainer PIN (try again)', PIN);                       // a wrong PIN asks again
   await active('TrainerScene');
   await page.keyboard.press('Escape');
   await active('HubScene');
@@ -160,7 +169,8 @@ module.exports = async (page, ctx) => {
   await ctx.audit('assessment results');
   const rec = await ctx.eval(`OTR.save.data.assess['m4-damaged']`);
   if (!rec || !rec.passed) throw new Error('the assessment is not recorded as passed: ' + JSON.stringify(rec));
-  await clickText(page, 'ResultsScene', /^To the station/);
+  await wait(1500);                                                     // the buttons unlock after the stars land
+  await page.keyboard.press('Enter');                                   // To the station
   await active('HubScene');
 
   /* ---- the record: both on it, three tabs, print */

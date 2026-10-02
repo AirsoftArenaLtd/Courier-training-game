@@ -7,7 +7,12 @@ const path = require('path');
 const { wait, clickText } = require('./lib/ui');
 
 module.exports = async (page, ctx) => {
-  const active = async (key, ms) => { if (!(await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000))) throw new Error(`${key} never opened`); await wait(700); };
+  const active = async (key, ms) => {
+    if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
+    // say what is on screen instead
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    throw new Error(`${key} never opened; on screen: ${seen}`);
+  };
 
   await page.evaluate(() => localStorage.clear());
   await ctx.reload();
