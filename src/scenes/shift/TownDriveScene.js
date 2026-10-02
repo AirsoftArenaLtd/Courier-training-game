@@ -385,8 +385,8 @@ class TownDriveScene extends Phaser.Scene {
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
-    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
-    OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.width / 2 - 14, -13, ctl.width + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
+    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
+    OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.displayWidth / 2 - 14, -13, ctl.displayWidth + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
   /**

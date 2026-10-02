@@ -95,8 +95,12 @@ class DrivingScene extends TownDriveScene {
 
   openIntro() {
     const C = this.content;
+    // as tall as its lines (a fixed 440 px put the last line under the button, and larger text ran off the card)
+    const probe = C.intro.lines.map(line => OTR.txt(this, 0, 0, line, 18, '#000', { ox: 0, oy: 0, bold: false, wrap: 720 - 140, lineSpacing: 3 }));
+    const linesH = probe.reduce((n, t) => n + t.height + 14, 0);
+    probe.forEach(t => t.destroy());
     OTR.ui.modal(this, {
-      title: C.intro.title, w: 720, h: 440, depth: 5000,
+      title: C.intro.title, w: 720, h: Math.min(OTR.H - 20, 96 + linesH + 96), depth: 5000,
       build: (box, api, w, h) => {
         let y = -h / 2 + 96;
         C.intro.lines.forEach(line => {
