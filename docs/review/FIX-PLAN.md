@@ -412,3 +412,7 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     `QA_ROUTE_FROM` splits `route-legs`.
   - **Final runs:** the feature build (33f405d): all 27 scenarios, the four flows (route legs in three parts) and the
     four feature tests, clean. The rebrand (efc7731): the targeted checks and screenshots, clean. Both merged to `main`.
+- **2026-10-02, larger text and the color filter.** The color filter turned every orange button red; it is now a
+  deuteranopia correction that keeps orange. The record's module list fits its card. Larger text no longer runs
+  labels into keys or star totals. New: `QA_A11Y` for the suite and `test/a11y-screens.js`. All scenarios' layout and
+  the extra screens clean at both text sizes; hub briefs clean at both.

@@ -934,10 +934,27 @@ The test machine for this pass had no GPU (software rendering, 9–21 fps), so a
 mostly `route-legs` (about 15–20 minutes a day) and `town-traffic` (about 50 minutes). `QA_ROUTE_FROM` and
 `QA_ROUTE_DAYS` split the route legs into parts. On a machine with a GPU it is much quicker.
 
+### Larger text and the color filter
+
+Checked afterwards, as the owner asked. `QA_A11Y=large,colour node test/qa.js --pass boot,layout` runs the layout audit
+on every scenario with both on, and `test/a11y-screens.js` covers the screens no scenario reaches (results, the drive
+map, the hub and its settings, Accessibility, Trainer, the record's three tabs, the quizzes and the pause menu) with
+a screenshot and the audit for each. All clean, at both text sizes. Looking at the screenshots found what the audit
+can't see (text running into other text) and two real faults:
+
+- **The color filter turned orange red.** Every orange button and accent read as "fail". It is now a standard
+  correction for red-green color blindness: pass green stays green, fail red turns pink, orange stays orange.
+- **The record's module list ran off the bottom of its card**, at any text size, once the new scenarios were added.
+  Its rows now share the card's height.
+- With larger text, the controls list ran its labels into their keys (now two lines), the hub's module headers ran
+  into their star totals, and two lines ran out of their panels (they now shrink to fit).
+- The suite's first `QA_A11Y` hook set the settings before the save existed, so its first "clean" run had them off;
+  it was fixed and the run repeated.
+
 ### Not covered
 
-- The new screens (Trainer, Record, Quizzes, Accessibility, Drive review) have their logic tested but no golden
-  path; they were checked by eye while being built, except the Accessibility screen. Larger text and the color filter were not audited screen by screen.
+- The new screens (Trainer, Record, Quizzes, Accessibility, Drive review) have their logic tested and their layout
+  checked, but no golden path plays through them.
 - The company server was tested with its own test client, not behind a real company login or LMS.
 
 ---
