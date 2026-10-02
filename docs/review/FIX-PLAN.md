@@ -401,3 +401,14 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
     stop is now one continuous wait: it used to add two short stops together, which the stricter stop sign
     rightly refused.
   - **Final full suite (code at 3e5248e):** 28 of 28.
+
+- **2026-10-02, the feature backlog and the rebrand.** Details are in the QA report's "Third pass".
+  - **Built:** every item in `docs/FEATURE-BACKLOG.md` except package lockers and a hill/wheel-chock step (the town
+    is flat). Several trainee profiles per PC was replaced by company sign-in with saved progress, as the owner asked.
+  - **Fixed:** Put It Right's recommended answers were always the longest.
+  - **Rebrand:** the FedEx name and FedEx service names are gone; `brand` in `data/config.js` is empty.
+  - **Tests:** four feature tests (`enterprise`, `academy`, `driving`, `routeday`). The doorstep path knocks before a
+    no-answer exception after a conversation; the driving test's stop-sign roll waits for the van to pass the line;
+    `QA_ROUTE_FROM` splits `route-legs`.
+  - **Final runs:** the feature build (33f405d): all 27 scenarios, the four flows (route legs in three parts) and the
+    four feature tests, clean. The rebrand (efc7731): the targeted checks and screenshots, clean. Both merged to `main`.
