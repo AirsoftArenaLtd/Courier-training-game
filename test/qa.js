@@ -193,13 +193,12 @@ async function newPage(browser, row) {
       let save;
       Object.defineProperty(O, 'save', { configurable: true, get: () => save, set: (v) => {
         save = v;
-        const pre = v.preload;
-        v.preload = function () {
-          return Promise.resolve(pre.apply(this, arguments)).then((r) => {
-            this.data.settings.a11y = Object.assign({ keys: {}, large: false, colour: false, narrate: false }, this.data.settings.a11y);
-            on.forEach(k => { this.data.settings.a11y[k] = true; });
-            return r;
-          });
+        const load = v.load;
+        v.load = function () {
+          const r = load.apply(this, arguments);
+          this.data.settings.a11y = Object.assign({ keys: {}, large: false, colour: false, narrate: false }, this.data.settings.a11y);
+          on.forEach(k => { this.data.settings.a11y[k] = true; });
+          return r;
         };
       } });
     }, A11Y);
