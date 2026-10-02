@@ -100,6 +100,9 @@ class QuizScene extends Phaser.Scene {
       this.body.add(b);
       return b;
     });
+    // every answer at the same size: a long one shrunk to fit its button gave itself away
+    const scale = Math.min(...this.opts.map(b => b.label.scaleX));
+    this.opts.forEach(b => b.label.setScale(scale));
     this.ring = OTR.ui.focus(this, this.opts.concat(this.focusables), { start: 0 });
   }
 

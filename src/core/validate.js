@@ -35,6 +35,35 @@ OTR.validate = {
       });
     });
     OTR.validate.town(DATA).forEach(e => errors.push(e));
+    if (DATA.quizzes) OTR.validate.quizzes(DATA.quizzes).forEach(e => errors.push(e));
+    return errors;
+  },
+
+  /**
+   * The quizzes: the right answer must not be findable by its length. They used to be the longest option in 39 of
+   * 40 questions (and so also the smallest text on its button), and a trainee passed every quiz without reading.
+   * Across the bank it may be the longest or the shortest in no more than a third of the questions, in no module more
+   * than three of five, and no option may be more than twice as long as another.
+   */
+  quizzes(Q) {
+    const errors = [];
+    let n = 0, longest = 0, shortest = 0;
+    Object.keys(Q).forEach(mid => {
+      if (!Array.isArray(Q[mid])) return;
+      let ml = 0;
+      Q[mid].forEach((q, i) => {
+        const where = `quiz ${mid} q${i + 1}`;
+        if (!(q.answer >= 0 && q.answer < q.options.length)) { errors.push(`${where}: answer ${q.answer} is not one of its options`); return; }
+        const L = q.options.map(o => o.length), mx = Math.max(...L), mn = Math.min(...L);
+        n++;
+        if (L[q.answer] === mx) { longest++; ml++; }
+        if (L[q.answer] === mn) shortest++;
+        if (mx > mn * 2) errors.push(`${where}: its longest option is more than twice its shortest: even them out`);
+      });
+      if (ml > 3) errors.push(`quiz ${mid}: the right answer is the longest in ${ml} of ${Q[mid].length} questions`);
+    });
+    if (n && longest * 3 > n * 1.05) errors.push(`quizzes: the right answer is the longest option in ${longest} of ${n} questions: vary the lengths`);
+    if (n && shortest * 3 > n * 1.05) errors.push(`quizzes: the right answer is the shortest option in ${shortest} of ${n} questions: vary the lengths`);
     return errors;
   },
 
