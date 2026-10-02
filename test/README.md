@@ -64,6 +64,9 @@ the golden pass, auditing the layout at the moments they care about.
   Print / PDF).
 - **`drive-review`** drives Road Hazards from the hub without the seatbelt, then opens Results → Drive map: the pin,
   the named mistake, its lesson, and Back to the same results.
+- **`certificate`** sets up a trainee with 26 of 27 assessments passed (and the 27th left part-way): no certificate.
+  They pass the last one through its brief, and the record then offers the certificate, which must name them, say
+  27 of 27 and the date.
 
 ## Golden paths
 

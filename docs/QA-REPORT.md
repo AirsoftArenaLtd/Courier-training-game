@@ -48,6 +48,7 @@ Four *flows* run alongside the scenarios, for what no single scenario covers:
 | **hub-briefs** | every scenario's brief, opened from the hub: it must fit on screen with nothing running together |
 | **academy-screens** | the trainer tools (PIN, rules), Accessibility (larger text, a moved key), a quiz, an assessment from its brief, and the record with Print / PDF, all with the mouse and keys |
 | **drive-review** | Road Hazards driven without the seatbelt, then Results → Drive map: the pin, the mistake, its lesson, and Back |
+| **certificate** | 26 of 27 assessments passed (set up by script): no certificate; the 27th passed through its brief: the certificate, naming the trainee, 27 of 27 and the date |
 
 Since the third pass, four more tests check the new features directly (`cd test && node <name>.js`):
 
@@ -970,7 +971,8 @@ Drive map from Results). Both pass. Writing them found two faults, and the owner
 
 ### Not covered
 
-- The certificate is not tested: it only appears once all 27 assessments are passed, which no test plays through.
+- The certificate's flow sets the first 26 passes by script (playing 26 scenarios would take hours); only the last is
+  played. Checked to fail if the certificate is offered early.
 - The company server was tested with its own test client, not behind a real company login or LMS.
 
 ---
