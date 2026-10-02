@@ -82,7 +82,7 @@ OTR_DATA.dialogues.m4_recover = {
       speaker: 'narrator', hide: true,
       text: 'Delivered, with the proper proof. Last step?',
       choices: [
-        { text: 'Tell dispatch it\'s delivered, and what went wrong: Birch Court and Birch Lane, same number, and you didn\'t check the suffix.', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'An honest report means the address gets flagged for the next driver, and you remember to check the suffix.', next: 'end_good' },
+        { text: 'Tell dispatch it\'s delivered and why it went wrong: two 214 Birches, and you didn\'t check Court or Lane.', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'An honest report means the address gets flagged for the next driver, and you remember to check the suffix.', next: 'end_good' },
         { text: 'Nothing more. It\'s delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.', grade: 'bad', effects: { service: -1 }, feedback: 'Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.', lesson: 'Close the loop with dispatch, including what caused the mistake.', next: 'end_mixed' }
       ]
     },
