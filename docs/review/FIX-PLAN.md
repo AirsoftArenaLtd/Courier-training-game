@@ -416,3 +416,6 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
   deuteranopia correction that keeps orange. The record's module list fits its card. Larger text no longer runs
   labels into keys or star totals. New: `QA_A11Y` for the suite and `test/a11y-screens.js`. All scenarios' layout and
   the extra screens clean at both text sizes; hub briefs clean at both.
+- **2026-10-02, golden paths for the new screens; the quizzes.** `academy-screens` and `drive-review` flows. Fixed:
+  the trainer tools stay locked after Done; Print / PDF hands the keyboard back; the quiz answers no longer give
+  themselves away by length or font size (owner's find), with a content check against it.

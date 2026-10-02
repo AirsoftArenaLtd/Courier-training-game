@@ -16,7 +16,8 @@ class TrainerScene extends Phaser.Scene {
       : OTR.identity.mode === 'scorm' ? 'learning system · settings apply on this PC' : 'this PC only';
     OTR.txt(this, 24 + head.width + 18, 34, where, 15, '#9CC8F0', { ox: 0, bold: false });
     this.focusables = [];
-    this.focusables.push(OTR.ui.button(this, W - 110, 32, 'Done', () => OTR.fx.transition(this, 'HubScene'), { w: 170, h: 44, skin: 'ghost', fontSize: 18, key: 'ESC', hint: 'ESC' }));
+    // Done locks the tools again (the PIN is forgotten): a trainee who sits down next can't walk in
+    this.focusables.push(OTR.ui.button(this, W - 110, 32, 'Done', () => { OTR.academy.pin = null; OTR.fx.transition(this, 'HubScene'); }, { w: 170, h: 44, skin: 'ghost', fontSize: 18, key: 'ESC', hint: 'ESC' }));
 
     this.draft = JSON.parse(JSON.stringify(OTR.academy.get()));
     this.buildRules();
