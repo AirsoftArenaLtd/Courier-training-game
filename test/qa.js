@@ -62,7 +62,9 @@ const SCENARIOS = [
   { id: 'route-day', scene: 'HubScene', flow: 'index.html?dev=1' },
   { id: 'route-legs', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
   { id: 'town-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
-  { id: 'hub-briefs', scene: 'HubScene', flow: 'index.html?dev=1' }
+  { id: 'hub-briefs', scene: 'HubScene', flow: 'index.html?dev=1' },
+  { id: 'academy-screens', scene: 'HubScene', flow: 'index.html?dev=1' },
+  { id: 'drive-review', scene: 'HubScene', flow: 'index.html?dev=1' }
 ];
 
 const FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
