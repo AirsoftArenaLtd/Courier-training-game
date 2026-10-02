@@ -8,8 +8,8 @@
  *
  * One world scale for everything: OTR_DATA.vehicle.pxPerMetre. Speeds read in mph, distances in metres.
  *
- * Controls: W/↑ throttle · S/↓ brake (at a stop: lift off, then hold S for reverse) · A/D or ←/→ steer ·
- *           SPACE parking brake · B belt · L headlights · G get out and look · P park at a stop
+ * Controls: W/↑ accelerate · S/↓ brake (in either gear) · R change gear D/R at a standstill · A/D or ←/→ steer ·
+ *           SPACE parking brake · M mirrors · B belt · L headlights · G get out and look · P park at a stop · TAB handheld (parked)
  */
 class TownDriveScene extends Phaser.Scene {
   constructor(key) { super(key || 'TownDriveScene'); }
@@ -43,6 +43,7 @@ class TownDriveScene extends Phaser.Scene {
     this.goalBusy = false;
     this.reverseDist = 0;           // metres backed since you last drove forward
     this.elapsed = 0;
+    this.stoppedAt = -9;            // when the van was last at a standstill (P allows a moment after it)
     this.parked = false;
     this.approach = null;
     this.lights = false;
@@ -53,7 +54,7 @@ class TownDriveScene extends Phaser.Scene {
     this.damage = 0;
     this.world = {
       mu: (x, y) => this.muAt(x, y),
-      rolling: (x, y) => (this.surfaceAt(x, y) === 'grass' ? OTR_DATA.vehicle.grassRolling : 0)
+      rolling: (x, y) => { const sf = this.surfaceAt(x, y); return sf === 'grass' ? OTR_DATA.vehicle.grassRolling : sf === 'sidewalk' ? OTR_DATA.vehicle.kerbRolling : 0; }
     };
 
     this.buildWorld();
@@ -71,13 +72,18 @@ class TownDriveScene extends Phaser.Scene {
     this.updateCamera(0, true);
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
+    OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
+    OTR.a11y.applyColour(this);                 // the colour filter on the cameras added since the scene began
     // The engine hum belongs to this drive: quiet while paused, and gone however the scene ends. (Quitting from
     // the pause menu used to leave it humming on the hub and every screen after.)
     const hush = () => OTR.audio.stopLoop('engine');
     this.events.on('pause', hush);
     this.events.once('shutdown', () => { hush(); this.events.off('pause', hush); });
     if (this.onCreated) this.onCreated();
+    // a card the drive opens with (the shift's gate check), read before the van can move
+    if (this.d.notice) this.time.delayedCall(300, () => this.noticeCard(this.d.notice));
     if (!this.quietStart) this.time.delayedCall(400, () => this.toast('Buckle up: press B', 0xFFC83D));
+    if (!this.quietStart && this.lightsWanted) this.time.delayedCall(2600, () => { if (!this.lights) this.toast(`${this.weather === 'clear' ? 'Low light' : 'Bad weather'}: headlights on (L)`, 0xFFC83D); });
   }
 
   /* ================================================================ world */
@@ -95,21 +101,23 @@ class TownDriveScene extends Phaser.Scene {
       W: { dx: -1, dy: 0, lane: 1 }, E: { dx: 1, dy: 0, lane: -1 },
       N: { dx: 0, dy: -1, lane: -1 }, S: { dx: 0, dy: 1, lane: 1 }
     };
+    const cornerKey = A.corner(this);
     T.inters.forEach(it => {
       this.add.image(it.x, it.y, crossKey).setDepth(-89);
+      this.add.image(it.x, it.y, cornerKey).setDepth(-88.5);
       it.signs = {};
       Object.keys(this.APPROACH).forEach(dir => {
         const a = this.APPROACH[dir];
         const cw = this.add.image(it.x + a.dx * (R + 24), it.y + a.dy * (R + 24), cwKey).setDepth(-88);
         if (a.dx !== 0) cw.setAngle(90);
         // stop line, in the driver's own lane
-        const lx = it.x + a.dx * (R + 18) + (a.dx === 0 ? a.lane * R / 2 : 0);
-        const ly = it.y + a.dy * (R + 18) + (a.dy === 0 ? a.lane * R / 2 : 0);
+        const lx = it.x + a.dx * (R + A.STOP_LINE) + (a.dx === 0 ? a.lane * R / 2 : 0);
+        const ly = it.y + a.dy * (R + A.STOP_LINE) + (a.dy === 0 ? a.lane * R / 2 : 0);
         const sl = this.add.image(lx, ly, slKey).setDepth(-87);
         if (a.dx !== 0) sl.setAngle(90);
-        // sign or signal on the driver's right-hand kerb
-        const kx = it.x + a.dx * (R + 48) + (a.dx === 0 ? a.lane * (R + 46) : 0);
-        const ky = it.y + a.dy * (R + 48) + (a.dy === 0 ? a.lane * (R + 46) : 0);
+        // sign or signal on the driver's right-hand kerb, level with the stop line
+        const kx = it.x + a.dx * (R + A.STOP_LINE + 12) + (a.dx === 0 ? a.lane * (R + 46) : 0);
+        const ky = it.y + a.dy * (R + A.STOP_LINE + 12) + (a.dy === 0 ? a.lane * (R + 46) : 0);
         it.signs[dir] = it.stop
           ? this.add.image(kx, ky, A.signTex(this, 'stop')).setDepth(42)
           : this.add.image(kx, ky, A.trafficLight(this, 'red')).setDepth(42);
@@ -119,14 +127,16 @@ class TownDriveScene extends Phaser.Scene {
     const z = T.spec.schoolZone;
     if (z) {
       const y = T.hy[z.row];
-      this.add.image(T.vx[z.from] + 200, y - R - 62, A.signTex(this, 'school')).setDepth(42);
-      this.add.image(T.vx[z.to] - 200, y + R + 62, A.signTex(this, 'school')).setDepth(42);
+      // on the right-hand kerb of each way in, before the junction where the zone starts, and big enough to read
+      // (they were small, on the driver's left and 10 m inside the zone)
+      this.add.image(T.vx[z.from] - R - 90, y + R + 40, A.signTex(this, 'school')).setDepth(42).setScale(1.6);
+      this.add.image(T.vx[z.to] + R + 90, y - R - 40, A.signTex(this, 'school')).setDepth(42).setScale(1.6);
     }
 
     const houseKeys = [0, 1, 2, 3].map(v => A.house(this, v));
     const bizKeys = [0, 1].map(v => A.biz(this, v));
     const aptKey = A.apt(this);
-    const roofTints = [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0xA98CB8, 0xD0C0A8];
+    const roofTints = A.ROOF_TINTS;
     T.lots.forEach((l, i) => {
       let img;
       if (l.kind === 'apartment') img = this.add.image(l.x, l.y, aptKey);
@@ -163,8 +173,17 @@ class TownDriveScene extends Phaser.Scene {
   }
 
   surfaceAt(x, y) {
-    const d = this.streetDist(x, y), R = OTR.townArt.ROAD / 2;
-    return d <= R ? 'road' : d <= R + OTR.townArt.WALK ? 'sidewalk' : 'grass';
+    const A = OTR.townArt, R = A.ROAD / 2, rc = A.CORNER, c = R + rc;
+    // a junction's rounded kerb corners (townArt.corner draws the same shape)
+    let ax = 1e9, ay = 1e9;
+    for (let i = 0; i < this.T.vx.length; i++) ax = Math.min(ax, Math.abs(x - this.T.vx[i]));
+    for (let i = 0; i < this.T.hy.length; i++) ay = Math.min(ay, Math.abs(y - this.T.hy[i]));
+    if (ax > R && ay > R && ax < c && ay < c) {
+      const d = Math.hypot(c - ax, c - ay);
+      return d > rc ? 'road' : d > rc - A.WALK ? 'sidewalk' : 'grass';
+    }
+    const d = this.streetDist(x, y);
+    return d <= R ? 'road' : d <= R + A.WALK ? 'sidewalk' : 'grass';
   }
 
   /** Peak tyre grip at a point: the surface, the weather, and any hazard patch (standing water, ice). */
@@ -231,7 +250,10 @@ class TownDriveScene extends Phaser.Scene {
   /* ================================================================ van */
   buildVan() {
     const T = this.T, P = this.P, S = OTR_DATA.vehicle.van;
-    const start = this.d.start || { x: T.depot.curb.x, y: T.laneY(0, 1), heading: 0 };
+    // the day's first leg starts at the west end of the station's block, with a run-up to the four-way stop at the
+    // end of it (it used to start 15 m short of the stop line, while "Buckle up" was still being read)
+    const firstX = Math.min(T.depot.curb.x, T.vx[T.spec.depot.col] + OTR.townArt.ROAD / 2 + 150);
+    const start = this.d.start || { x: this.shiftMode ? firstX : T.depot.curb.x, y: T.laneY(0, 1), heading: 0 };
     this.van = OTR.vehicle.create(start.x, start.y, start.heading || 0);
     // the top-down van art is 62 x 126 px of body; draw it at the van's real size
     this.vanImg = this.add.image(0, 0, OTR.art.vanTop(this)).setDepth(30).setScale(S.width * P / 62, S.length * P / 126);
@@ -251,11 +273,11 @@ class TownDriveScene extends Phaser.Scene {
     if (this.lab && !this.route.length) {
       this.route = OTR.util.shuffle(T.lots).slice(0, 4).map((l, i) => ({ lotId: l.id, index: i + 1 }));
     }
-    const zoneKey = OTR.townArt.stopZone(this);
     this.route.forEach(r => {
       const lot = T.lotById(r.lotId);
       r.lot = lot;
-      r.zone = this.add.image(lot.park.x, lot.park.y, zoneKey).setDepth(-86).setVisible(false);
+      const bay = this.parkBay(lot);
+      r.zone = this.add.image((bay.x0 + bay.x1) / 2, lot.park.y, OTR.townArt.stopZone(this, bay.x1 - bay.x0)).setDepth(-86).setVisible(false);
       r.flag = this.add.image(lot.park.x, lot.park.y - 46, 'ic_pin').setDisplaySize(34, 34).setTint(0xFF6600).setDepth(45).setVisible(false);
     });
     this.activeIndex = 0;
@@ -280,10 +302,10 @@ class TownDriveScene extends Phaser.Scene {
   buildHud() {
     const W = OTR.W;
     this.hudLayer = this.add.container(0, 0).setScrollFactor(0).setDepth(800);
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.86); g.fillRect(0, 0, W, 56);
-    g.fillStyle(0xFF6600, 1); g.fillRect(0, 56, W, 3);
-    this.hudLayer.add(g);
+    this.hudLayer.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.86); g.fillRect(0, 0, W, 56);
+      g.fillStyle(0xFF6600, 1); g.fillRect(0, 56, W, 3);
+    }));
     this.hudLayer.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     this.stopLabel = OTR.txt(this, 64, 18, 'NEXT STOP', 12, '#C9B3F0', { ox: 0 });
     this.stopText = OTR.txt(this, 64, 38, '', 20, '#ffffff', { ox: 0, weight: '900' });
@@ -335,7 +357,7 @@ class TownDriveScene extends Phaser.Scene {
     // the next one becomes active, and the van arrow is an image turned to the van's heading.
     const T = this.T, msx = this.mapW / T.W, msy = this.mapH / T.H;
     OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.86); g.fillRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
+      g.fillStyle(0x0E0620, 1); g.fillRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
       g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
       g.lineStyle(3, 0x5A5668, 1);
       T.hy.forEach(y => g.lineBetween(this.mapX, this.mapY + y * msy, this.mapX + this.mapW, this.mapY + y * msy));
@@ -346,7 +368,9 @@ class TownDriveScene extends Phaser.Scene {
     this.mapVan = OTR.tex.shape(this, (g) => { g.fillStyle(0xFFFFFF, 1); g.fillTriangle(7, 0, -4, 5, -4, -5); }).setScrollFactor(0).setDepth(801);
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
-    OTR.txt(this, OTR.W / 2 + 60, OTR.H - 22, 'W go · S brake (stopped: lift, then hold S = reverse) · A/D steer · SPACE park brake · B belt · L lights · G look · P park', 13, 'rgba(255,255,255,0.7)', { bold: false }).setScrollFactor(0).setDepth(800);
+    // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
+    const ctl = OTR.txt(this, OTR.W / 2 + 60, OTR.H - 22, 'W go · S brake · A/D steer · SPACE parking brake · R reverse (stopped) · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
+    OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.width / 2 - 14, -13, ctl.width + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
   /**
@@ -368,7 +392,7 @@ class TownDriveScene extends Phaser.Scene {
       const o = list[i];
       if (this._camSeen.has(o)) continue;
       this._camSeen.add(o);
-      if (o.scrollFactorX === 0 && o.scrollFactorY === 0) main.ignore(o);
+      if (o.scrollFactorX === 0 && o.scrollFactorY === 0) { main.ignore(o); if (this.insetCams) { this.insetCams.left.ignore(o); this.insetCams.right.ignore(o); this.insetCams.rear.ignore(o); } }
       else ui.ignore(o);
     }
     if (this._camSeen.size > 800) {
@@ -399,6 +423,7 @@ class TownDriveScene extends Phaser.Scene {
   }
 
   setHint(text, color) {
+    if (!OTR.academy.coaching()) text = null;          // an assessment: the signs and lights are there to read
     if (!text) { if (this._hint !== null) { this.signHint.setVisible(false); this._hint = null; } return; }
     if (this._hint === text) return;
     this._hint = text;
@@ -436,6 +461,11 @@ class TownDriveScene extends Phaser.Scene {
           const c = r.done ? 0x2BC48A : i === this.activeIndex ? 0xFF6600 : 0xFFC83D;
           g.fillStyle(c, 1);
           g.fillCircle(this.mapX + r.lot.park.x * sx, this.mapY + r.lot.park.y * sy, i === this.activeIndex ? 5 : 3.5);
+          // the active stop shows which way to face: with the traffic on that kerb (east on the south side)
+          if (i === this.activeIndex && !r.done) {
+            const x = this.mapX + r.lot.park.x * sx, y = this.mapY + r.lot.park.y * sy, d = r.lot.side > 0 ? 1 : -1;
+            g.fillTriangle(x + d * 15, y, x + d * 8, y - 4, x + d * 8, y + 4);
+          }
         });
       });
     }
@@ -448,7 +478,7 @@ class TownDriveScene extends Phaser.Scene {
     // re-firing their events, so holding L no longer strobes the headlights.
     this.keys = this.input.keyboard.addKeys({
       up: 'UP', down: 'DOWN', left: 'LEFT', right: 'RIGHT', w: 'W', a: 'A', s: 'S', d: 'D',
-      space: 'SPACE', b: 'B', g: 'G', p: 'P', l: 'L', tab: 'TAB', esc: 'ESC'
+      space: 'SPACE', b: 'B', g: 'G', p: 'P', l: 'L', r: 'R', tab: 'TAB', esc: 'ESC'
     });
     // What is physically held comes from the page itself: Phaser resets its keys when the scene pauses, which
     // left the van coasting after the pause menu even though the driver never lifted off.
@@ -476,13 +506,17 @@ class TownDriveScene extends Phaser.Scene {
       this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : 0xC9B3F0);
     });
     OTR.onKey(this, 'keydown-G', () => this.getOutAndLook());
+    OTR.onKey(this, 'keydown-R', () => { this.shiftAsked = true; });    // the gear selector: taken on the next frame
     OTR.onKey(this, 'keydown-P', () => this.tryPark());
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
     OTR.onKey(this, 'keydown-TAB', (e) => {
       if (e && e.preventDefault) e.preventDefault();
       if (this.parked) return;
+      // moving, or stopped in traffic or at a light: the handheld waits until the van is parked (the lesson says "not
+      // at red lights", and stopped used to be only a reminder)
       if (OTR.vehicle.mph(this.van) > 2) this.violation('handheld', 'Using the handheld while moving', 'safety', 2, 'The handheld waits until you are parked. Screen time at the wheel is how couriers hit things.');
-      else this.toast('Park at the stop (P) to work the handheld.', 0xC9B3F0);
+      else this.violation('handheld', 'Using the handheld at the wheel (not parked)', 'safety', 1, 'Not at a light, not in traffic: the handheld waits until you are parked at the stop (P).');
     });
   }
 
@@ -494,7 +528,7 @@ class TownDriveScene extends Phaser.Scene {
     if (!OTR.vehicle.stopped(this.van)) { this.toast('Stop first, then get out and look', 0xC9B3F0); return; }
     this.goalBusy = true;
     OTR.audio.play('door_open');
-    this.toast('G.O.A.L. — walking round the van to look…', 0xFFC83D);
+    // (the HUD hint says what is happening: a toast saying the same thing at the same time was noise)
     this.time.delayedCall(2600, () => {
       if (!this.scene.isActive()) return;
       this.goalBusy = false;
@@ -504,9 +538,20 @@ class TownDriveScene extends Phaser.Scene {
     });
   }
 
+  /** On a route day the leg restarts from where it began, with what happened on it still on the record. */
+  restartOptions() {
+    if (!this.shiftMode) return [{ label: 'Restart', data: this.initData }];
+    const next = (this.d.route || [])[0];
+    return [{ label: 'Restart this leg', data: () => {
+      const log = OTR.shift.restartLog(this.log, null, `Restarted the drive${next ? ` to stop ${next.index}` : ''}`);
+      if (OTR.shift.state) { OTR.shift.state.log = log; OTR.shift.save(); }
+      return Object.assign({}, this.initData, { notice: null, log });
+    } }];
+  }
+
   openPause() {
     if (this.scene.isPaused()) return;
-    this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: 'On the road' });
+    this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: this.scenario ? this.scenario.title : 'On the road' });
     this.scene.bringToTop('PauseScene');
     this.scene.pause();
   }
@@ -519,13 +564,19 @@ class TownDriveScene extends Phaser.Scene {
 
   violation(key, label, cat, pts, lesson) {
     const now = this.elapsed;
+    if (key === 'belt') this.beltBroken = true;
     if (this.lastViolationAt[key] !== undefined && now - this.lastViolationAt[key] < 5) return;
     this.lastViolationAt[key] = now;
     this.violations[key] = (this.violations[key] || 0) + 1;
-    this.log.penalty(cat || 'safety', pts || 2, label, { lesson, severity: pts >= 3 ? 'major' : 'minor' });
+    // hitting someone is never averaged away: it caps the day's safety
+    // pinned to where it happened, for the drive review map
+    const where = { x: Math.round(this.van.x), y: Math.round(this.van.y), mph: Math.round(OTR.vehicle.mph(this.van) * 10) / 10, t: Math.round(now), seed: this.T.seed, key };
+    this.log.penalty(cat || 'safety', pts || 2, label, { lesson, severity: pts >= 3 ? 'major' : 'minor', critical: key === 'hitped', where });
     OTR.audio.play('alarm');
     OTR.fx.flash(this, 0xF0435A, 0.22, 260);
     this.toast('⚠ ' + label, 0xF0435A);
+    // on a route day the record is saved as it happens, so a reload mid-leg is not a way to erase it
+    if (this.shiftMode && OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
   }
 
   /* ================================================================ frame */
@@ -540,6 +591,20 @@ class TownDriveScene extends Phaser.Scene {
     this.stepPeds(dt);
     this.stepLights(dt);
     this.checkRules(dt);
+    if (this.shiftMode) this.dispatchTick(dt);
+    // a route day saves where the van is every few seconds, so a quit or a reload carries on from here
+    if (this.shiftMode && OTR.shift.state && !this.parked && this.elapsed - (this._legSavedAt || 0) > 5) {
+      this._legSavedAt = this.elapsed;
+      const st = OTR.shift.state, v = this.van;
+      if (OTR.vehicle.stopped(v) || OTR.vehicle.mph(v) < 30) {
+        st.van = { x: v.x, y: v.y, heading: v.heading };
+        st.midLeg = true;
+        st.legMinDone = (this.d.legMin0 || 0) + Math.floor(this.elapsed / 12);
+        st.log = this.log.toJSON();
+        OTR.shift.save();
+      }
+    }
+    OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
     this.updateHud();
   }
@@ -547,21 +612,29 @@ class TownDriveScene extends Phaser.Scene {
   /* ---------------------------------------------------------------- vehicle */
   stepVan(dt) {
     const V = OTR.vehicle, v = this.van;
-    const busy = this.goalBusy || this.parked;
+    const busy = this.goalBusy || this.parked || this.incidentOpen;
     const L = this.heldAny('KeyA', 'ArrowLeft'), Rt = this.heldAny('KeyD', 'ArrowRight');
     const inp = busy ? { throttle: false, brake: false, steer: 0, hand: true } : {
       throttle: this.heldAny('KeyW', 'ArrowUp'),
       brake: this.heldAny('KeyS', 'ArrowDown'),
       steer: L && !Rt ? -1 : Rt && !L ? 1 : 0,
-      hand: this.heldAny('Space')
+      hand: this.heldAny('Space'),
+      shift: !!this.shiftAsked
     };
+    this.shiftAsked = false;
+    // tired (a route day with no break): the steering answers late
+    if (this.fatigued && inp.steer !== undefined) {
+      this._steerLag = (this._steerLag || 0) + (inp.steer - (this._steerLag || 0)) * Math.min(1, dt * 2.5);
+      inp.steer = Math.abs(this._steerLag) < 0.35 ? 0 : Math.sign(this._steerLag);
+    }
     this.input3 = inp;
 
     const ev = V.step(v, inp, dt, this.world);
+    if (V.stopped(v)) this.stoppedAt = this.elapsed;
     if (ev.shifted) {
       OTR.audio.play('click');
-      this.toast(v.gear < 0 ? 'R — reverse' : 'D — drive', v.gear < 0 ? 0xFFC83D : 0x2BC48A);
-    }
+      this.toast(v.gear < 0 ? 'R — reverse: W backs up, S brakes. R again for drive.' : 'D — drive', v.gear < 0 ? 0xFFC83D : 0x2BC48A);
+    } else if (ev.shiftRefused) this.toast('Stop first, then R to change gear', 0xC9B3F0);
 
     const bodies = this.cars.map(c => ({
       x: c.x, y: c.y, heading: c.heading, hl: c.hl, hw: c.hw, mass: 1500, ref: c,
@@ -598,6 +671,12 @@ class TownDriveScene extends Phaser.Scene {
         OTR.fx.shake(this, 120, 0.003);
         this.toast(`Scuffed ${what} at ${mph} mph — slow right down near obstacles`, 0xFFB020);
       }
+      return;
+    }
+    // a vehicle driving into a van that was standing still is not the van driver's collision
+    if (worst.kind === 'body' && OTR.vehicle.mph(this.van) < 1) {
+      OTR.audio.play('thud');
+      this.toast('A car ran into you while you were stopped. Never stop across a lane.', 0xFFB020);
       return;
     }
     this.damage += worst.speed;
@@ -674,6 +753,9 @@ class TownDriveScene extends Phaser.Scene {
     const T = this.T, R = OTR.townArt.ROAD / 2, V = OTR.vehicle, P = this.P;
     const vbc = V.bodyCentre(this.van);
     const vanStill = V.stopped(this.van);
+    // the van's body: its corners, mid-sides and centre (a car watches all of them, not just the centre)
+    const vg = this.van.g;
+    const vanPts = [[1, 1], [1, -1], [-1, 1], [-1, -1], [1, 0], [-1, 0], [0, 1], [0, -1]].map(([f, r]) => V.point(this.van, vg.centre + f * vg.hl, r * vg.hw));
     const crossing = this.peds.filter(p => p.crossing);
     this.cars.forEach(c => {
       const hx = Math.cos(c.heading), hy = Math.sin(c.heading);
@@ -704,7 +786,7 @@ class TownDriveScene extends Phaser.Scene {
             const r = this.rng();
             c.plan = r < 0.2 ? 'left' : r < 0.4 ? 'right' : 'straight';
           }
-          const line = R + 18 + c.hl + 4;                 // car centre when its nose is at the stop line
+          const line = R + OTR.townArt.STOP_LINE + c.hl + 4;   // car centre when its nose is at the stop line
           const committed = best < R + 40;
           const sig = it.light ? this.lightFor(it, c.h) : null;
           let mustStop = !committed && (it.light
@@ -742,15 +824,27 @@ class TownDriveScene extends Phaser.Scene {
         if (a.fwd > 0 && a.fwd < 260 && Math.abs(a.lat) < side) stopDist = Math.min(stopDist, a.fwd - (c.hl + o.hl + 16));
       });
       const av = ahead(vbc.x, vbc.y);
+      let easing = false;
       if (av.fwd > 0 && av.fwd < 320 && Math.abs(av.lat) < 52) {
         const vanLat = av.lat + c.off;                       // the van's offset from the lane centre, kerbward positive
         const room = vanLat - (this.van.g.hw * P + c.hw + 8);
-        if (vanStill && !c.turn && vanLat > 8 && room > -42) {
+        // easing out round it is only for a van stopped alongside the kerb, parallel to the lane
+        const parallel = Math.abs(Math.cos(this.van.heading - c.heading)) > 0.95;
+        if (vanStill && parallel && !c.turn && vanLat > 8 && room > -42) {
+          easing = true;
           wantOff = Math.min(wantOff, room);
           if (Math.abs(av.lat) < this.van.g.hw * P + c.hw + 4) cap = Math.min(cap, 60);
         } else {
           stopDist = Math.min(stopDist, av.fwd - (c.hl + this.van.g.hl * P + 18));
         }
+      }
+      // any part of the van in the lane ahead stops the car short of it (a van stopped across or at an angle to a
+      // lane used to be judged by its centre alone, and cars drove into its side)
+      if (!easing) {
+        vanPts.forEach(pt => {
+          const a = ahead(pt.x, pt.y);
+          if (a.fwd > 0 && a.fwd < 320 && Math.abs(a.lat) < c.hw + 10) stopDist = Math.min(stopDist, a.fwd - c.hl - 14);
+        });
       }
       crossing.forEach(p => {
         const a = ahead(p.x, p.y);
@@ -845,7 +939,11 @@ class TownDriveScene extends Phaser.Scene {
     this.peds.forEach(p => {
       if (p.hitCool > 0) p.hitCool -= dt;
       p.t -= dt;
-      if (!p.crossing && p.t <= 0) { p.crossing = true; p.progress = 0; p.dir *= -1; }
+      // step off only when it is safe to: at lights while the street being crossed has a red, and never in front of
+      // a van too close to stop for them (they used to set off on a timer whatever was coming)
+      if (!p.crossing && p.t <= 0) {
+        if (this.pedMayCross(p)) { p.crossing = true; p.progress = 0; p.dir *= -1; } else p.t = 0.4;
+      }
       if (p.crossing) {
         p.progress = Math.min(1, p.progress + dt * 0.13);   // a walking pace, about 1.6 m/s
         const along = (p.dir > 0 ? p.progress : 1 - p.progress) * span - span / 2;
@@ -854,17 +952,125 @@ class TownDriveScene extends Phaser.Scene {
       }
       p.img.setPosition(p.x, p.y);
       if (!p.crossing) return;
+      // failing to yield is driving on at someone in the van's own path, just ahead of it (it used to be a wide box
+      // round the van that caught people beside it and on the cross street)
       const r = this.relToVan(p.x, p.y);
-      const near = Math.abs(r.fd) < r.hl + 110 && Math.abs(r.lat) < r.hw + 90;
-      if (near && mph > 6) {
+      const inPath = r.fd > r.hl * 0.4 && r.fd < r.hl + 130 && Math.abs(r.lat) < r.hw + 24;
+      // a van already braking hard enough to stop short of them is yielding (it used to be failed for braking)
+      const gapM = (r.fd - r.hl) / this.P, v = mph * 0.447;
+      const stopsShort = this.van.brake > 0.5 && gapM > 0.8 && v * v / (2 * OTR.vehicle.T.van.brakeDecel * this.van.brake) < gapM - 0.5;
+      if (inPath && mph > 3 && this.van.gear > 0 && !stopsShort) {
         this.violation('yield', 'Failed to yield to a pedestrian', 'safety', 3, 'Pedestrians in a crosswalk always have right of way. Cover the brake near crossings and school zones.');
       }
       if (Math.abs(r.fd) < r.hl + 8 && Math.abs(r.lat) < r.hw + 8 && mph > 0.5 && p.hitCool <= 0) {
         this.violation('hitped', 'You hit a pedestrian', 'safety', 5, 'Slow to a crawl near crosswalks. A person on the road is the one thing you can never undo.');
         // they carry on to the kerb rather than standing in the lane; the cooldown stops one pass scoring twice
         p.hitCool = 6;
+        this.pedIncident();
       }
     });
+  }
+
+  /** Whether a pedestrian waiting at a crosswalk may step off now. */
+  pedMayCross(p) {
+    const it = p.it, A = OTR.townArt, R = A.ROAD / 2, v = this.van, V = OTR.vehicle;
+    // 'v' walks across the horizontal street, 'h' across the vertical one
+    const acrossH = p.axis === 'v';
+    if (it.light && this.lightFor(it, acrossH) !== 'red') return false;
+    // the van on the street being crossed, heading for this crosswalk: could it stop before it?
+    const onStreet = acrossH ? Math.abs(v.y - it.y) < R : Math.abs(v.x - it.x) < R;
+    if (!onStreet || V.mph(v) < 2) return true;
+    const f = V.fwd(v);
+    const to = acrossH ? (p.x - v.x) * Math.sign(f.x || 1) : (p.y - v.y) * Math.sign(f.y || 1);
+    if (acrossH ? Math.abs(f.x) < 0.7 : Math.abs(f.y) < 0.7) return true;
+    const u = Math.abs(v.u);
+    const stopPx = (u * 1.2 + u * u / (2 * 5)) * this.P + v.g.nose * this.P + 60;   // a second to react, 5 m/s² brakes
+    return to < 0 || to > stopPx;
+  }
+
+  /** A card that holds the van until it is read (d.notice: { title, body }). */
+  noticeCard(n) {
+    this.incidentOpen = true;
+    const v = this.van; v.u = 0; v.lat = 0; v.r = 0;
+    // as tall as its text (a flagged-and-fixed list and a gate hold can share one card)
+    const t = OTR.txt(this, 0, 0, n.body, 19, '#000', { bold: false, align: 'center', wrap: 600, lineSpacing: 4 });
+    const h = Math.min(OTR.H - 40, Math.max(300, Math.round(44 + 20 + 26 + t.height + 30 + 77)));
+    t.destroy();
+    OTR.ui.modal(this, {
+      title: n.title, w: 680, h, depth: 5000, body: n.body,
+      buttons: [{ label: n.button || 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: () => { this.incidentOpen = false; } }]
+    });
+    this.syncCameras();
+  }
+
+  /* ---------------------------------------------------------------- dispatch messages (route days) */
+  /** The day's message arrives on the drive to the stop it is about, and keeps buzzing until it is read safely. */
+  dispatchTick(dt) {
+    const st = OTR.shift && OTR.shift.state, D = st && st.dispatch;
+    if (!D) return;
+    if (!D.sent) {
+      const target = this.activeStop;
+      if (target && target.index === D.stop + 1 && this.elapsed > 12 && !this.parked && !this.incidentOpen) {
+        OTR.shift.sendDispatch();
+        OTR.audio.play('phone');
+        this.toast('New message from dispatch. Pull in to the curb, stop, and press P to read it: not at the wheel.', 0xFFC83D);
+        this.msgBuzzT = 0;
+        this.showMsgBadge(true);
+      }
+      return;
+    }
+    if (D.read) { if (this.msgBadge && this.msgBadge.visible) this.showMsgBadge(false); return; }
+    if (!this.msgBadge || !this.msgBadge.visible) this.showMsgBadge(true);
+    // it buzzes again every so often while you drive: the temptation is the lesson
+    this.msgBuzzT = (this.msgBuzzT || 0) + dt;
+    if (this.msgBuzzT > 25) { this.msgBuzzT = 0; OTR.audio.play('buzz'); this.tweens.add({ targets: this.msgBadge, scale: 1.1, duration: 120, yoyo: true, repeat: 1 }); }
+  }
+
+  showMsgBadge(on) {
+    if (!this.msgBadge) {
+      const t = OTR.txt(this, 0, 0, '1 NEW MESSAGE · pull over, then P', 14, '#16062B', { weight: '900', ox: 0 });
+      const w = t.width + 54;
+      t.x = -w / 2 + 40;
+      const c = this.add.container(16 + w / 2, 80).setScrollFactor(0).setDepth(801);
+      c.add([OTR.tex.shape(this, (g) => { g.fillStyle(0xFFC83D, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, 0x16062B, 0.6); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }),
+        this.add.image(-w / 2 + 22, 0, 'ic_chat').setDisplaySize(18, 18).setTint(0x16062B), t]);
+      this.msgBadge = c;
+      this.syncCameras();
+    }
+    this.msgBadge.setVisible(on);
+  }
+
+  /** P away from a stop, with a message waiting: pulled in to the curb and stopped, the message can be read. */
+  pullOverToRead() {
+    const v = this.van, V = OTR.vehicle, A = OTR.townArt, R = A.ROAD / 2, P = this.P;
+    const D = OTR.shift.state.dispatch;
+    if (!V.stopped(v)) { this.toast('Stop first: pull in to the curb, then P to read the message', 0xC9B3F0); return true; }
+    // alongside a curb: parallel to the street and close to its edge
+    const bc = V.bodyCentre(v);
+    const dy = Math.min(...this.T.hy.map(y => Math.abs(bc.y - y))), dx = Math.min(...this.T.vx.map(x => Math.abs(bc.x - x)));
+    const horiz = dy <= dx;
+    const off = horiz ? dy : dx;
+    const skew = horiz ? Math.abs(Math.sin(v.heading)) : Math.abs(Math.cos(v.heading));
+    const gap = (R - off - v.g.hw * P) / P;
+    if (off > R || skew > 0.34 || gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', 0xC9B3F0); return true; }
+    OTR.shift.readDispatch(this.log, 'pulled over');
+    if (OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
+    this.showMsgBadge(false);
+    this.noticeCard({ title: 'Message from dispatch', body: D.text + '\n\nGood: pulled over to read it.', button: 'Drive on' });
+    return true;
+  }
+
+  /** Hitting someone stops the drive: the trainee has to deal with it before driving on. */
+  pedIncident() {
+    if (this.incidentOpen) return;
+    this.incidentOpen = true;
+    const v = this.van; v.u = 0; v.lat = 0; v.r = 0;
+    OTR.ui.modal(this, {
+      title: 'You hit a pedestrian', w: 680, h: 360, depth: 5000,
+      body: 'Stop and put the hazards on. Check on them without moving them, call 911, and call dispatch. Stay at the scene until the police say you can leave. This is recorded as a critical safety failure.',
+      buttons: [{ label: 'I understand', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: () => { this.incidentOpen = false; } }]
+    });
+    this.syncCameras();
   }
 
   /**
@@ -919,7 +1125,9 @@ class TownDriveScene extends Phaser.Scene {
     const mph = V.mph(v);
     const limit = T.limitAt(v.x, v.y);
 
-    if (mph > limit + 5) {
+    // a school zone allows 2 mph over, elsewhere 5 (20 in a 15 used to pass unremarked)
+    const tol = limit <= 15 ? 2 : 5;
+    if (mph > limit + tol) {
       this.speedT = (this.speedT || 0) + dt;
       if (this.speedT > 1.2) {
         this.speedT = 0;
@@ -927,17 +1135,29 @@ class TownDriveScene extends Phaser.Scene {
       }
     } else this.speedT = 0;
 
+    // one clear warning before the first penalty (they used to start straight away, every 5 s, unannounced)
     if (this.lightsWanted && !this.lights && mph > 3) {
       this.hlT = (this.hlT || 0) + dt;
-      if (this.hlT > 5) {
+      if (!this.lightsWarned && this.hlT > 2) {
+        this.lightsWarned = true;
         this.hlT = 0;
+        this.toast(`${this.weather === 'clear' ? 'Low light' : 'Bad weather'}: headlights on (L)`, 0xFFC83D);
+      } else if (this.lightsWarned && this.hlT > 5 && !this.lightsFined) {
+        // once per stretch without them: the HUD keeps saying so, and a fine every 5 s turned one slip into dozens
+        this.hlT = 0;
+        this.lightsFined = true;
         this.violation('lights', 'Driving without headlights', 'safety', 2, 'Headlights are for being seen as much as for seeing. Rain, fog, dusk and dark: lights on (L).');
       }
     }
 
-    if (!this.buckled && mph > 3) {
+    if (this.buckled) this.beltFined = false;
+    if (this.lights) this.lightsFined = false;
+    // once per unbuckled stretch (it repeated every 5 s: two presses of B cost 24 points in one leg); BELT OFF stays
+    // on the HUD until it is fixed
+    if (!this.buckled && mph > 3 && !this.beltFined) {
       this.beltT = (this.beltT || 0) + dt;
       if (this.beltT > 3) {
+        this.beltFined = true;
         this.beltT = 0;
         this.violation('belt', 'Driving without your seatbelt', 'safety', 3, 'Buckle up before you move, every single time. Couriers make hundreds of stops a day and the belt is what keeps you in the seat.');
       }
@@ -951,16 +1171,23 @@ class TownDriveScene extends Phaser.Scene {
     // wheels over the kerb: the classic step-van mistake is the rear wheel cutting a right turn
     const g = v.g;
     const wheels = [V.point(v, g.a, -(g.hw - 0.3)), V.point(v, g.a, g.hw - 0.3), V.point(v, -g.b, -(g.hw - 0.3)), V.point(v, -g.b, g.hw - 0.3)];
-    const offRoad = wheels.some(w => this.surfaceAt(w.x, w.y) !== 'road');
-    if (offRoad && mph > 1.5) {
-      if (!this._offRoad) { this._offRoad = true; OTR.fx.shake(this, 90, 0.003); OTR.audio.play('thud'); }
-      this.kerbT = (this.kerbT || 0) + dt;
-      if (this.kerbT > 0.25) {
-        this.kerbT = 0;
-        this.violation('kerb', 'Drove over the kerb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
-      }
-    } else { this.kerbT = 0; if (!offRoad) this._offRoad = false; }
+    // Each wheel that climbs the kerb jolts the van and costs speed, and any climb over walking pace is the
+    // violation at once. (It took a quarter of a second off the road above 1.5 mph, so a rear wheel clipping the
+    // corner on a turn was never caught, and the kerb itself was no more than a sound.)
+    const up = wheels.map(w => this.surfaceAt(w.x, w.y) !== 'road');
+    const offRoad = up.some(Boolean);
+    const was = this._wheelsUp || [];
+    const climbed = up.some((u, i) => u && !was[i]);
+    this._wheelsUp = up;
+    if (climbed && mph > 1) {
+      OTR.fx.shake(this, 120, 0.005); OTR.audio.play('thud');
+      v.u *= mph > 8 ? 0.8 : 0.88;
+      this.violation('kerb', 'Drove over the curb', 'safety', 2, 'Sidewalks are for people. Swing wider and slower on right turns — a step van\'s rear wheels cut inside the front ones.');
+    }
 
+    // a school zone ahead is announced, as a stop sign or a light is (the limit used to change silently)
+    const fw = V.fwd(v), zl = T.limitAt(v.x + fw.x * 260, v.y + fw.y * 260);
+    const schoolHint = zl < limit && v.gear > 0 ? `SCHOOL ZONE AHEAD — ${zl} mph` : null;
     // --- intersections: track the approach, then judge the entry
     const ap = this.findApproach();
     if (ap) {
@@ -970,18 +1197,27 @@ class TownDriveScene extends Phaser.Scene {
       }
       const a = this.approach;
       a.dist = ap.dist;
-      if (V.stopped(v) && ap.dist < 110) a.stopped = true;
-      // the front bumper crossing the stop line is the moment the law cares about (the line is 18 px out)
-      if (!a.crossed && ap.dist < 18) { a.crossed = true; this.judgeEntry(a, mph); }
+      // A stop is the wheels still for half a second, the nose behind the line and no further back than about two
+      // car lengths (a queue). It used to be any instant under half a mph within 92 px of the line, and a stop
+      // further back (behind another car) was never recognised, so the sign never answered.
+      const behind = ap.dist >= A.STOP_LINE - 8;
+      if (V.stopped(v) && behind && ap.dist < A.STOP_LINE + 170) {
+        a.stillT = (a.stillT || 0) + dt;
+        if (a.stillT >= 0.5) a.stopped = true;
+      } else if (!V.stopped(v)) a.stillT = 0;
+      // the front bumper crossing the stop line is the moment the law cares about
+      if (!a.crossed && ap.dist < A.STOP_LINE) { a.crossed = true; this.judgeEntry(a, mph, false); }
       if (a.it.stop) {
-        if (a.stopped) { this.setHint('Stopped — clear to go', 0x2BC48A); if (a.sign) a.sign.setTint(0x9BF5C0); }
-        else if (ap.dist < 220) { this.setHint('STOP SIGN AHEAD — full stop at the line', 0xF0435A); if (a.sign) a.sign.clearTint(); }
-        else this.setHint(null);
+        // only before the line: after a rolling stop it used to turn green next to the red "rolled through" toast
+        if (a.stopped && !a.crossed) { this.setHint('Stopped — look both ways, then go', 0x2BC48A); if (a.sign) a.sign.setTint(0x9BF5C0); }
+        else if (!a.crossed && V.stopped(v) && behind && ap.dist < A.STOP_LINE + 170) { this.setHint('Hold the stop…', 0xFFC83D); if (a.sign) a.sign.clearTint(); }
+        else if (ap.dist < 280 && !a.crossed) { this.setHint('STOP SIGN AHEAD — full stop behind the line', 0xF0435A); if (a.sign) a.sign.clearTint(); }
+        else this.setHint(schoolHint, 0xFFC83D);
       } else if (ap.dist < 240) {
         const st = this.lightFor(a.it, a.dir === 'W' || a.dir === 'E');
         this.setHint(st === 'green' ? 'Green' : st === 'amber' ? 'Amber — stop if you safely can' : 'RED LIGHT — stop at the line', st === 'green' ? 0x2BC48A : st === 'amber' ? 0xFFB020 : 0xF0435A);
-      } else this.setHint(null);
-    } else this.setHint(null);
+      } else this.setHint(schoolHint, 0xFFC83D);
+    } else this.setHint(schoolHint, 0xFFC83D);
 
     // judge the entry even after the approach test stops matching (you are inside the box by then)
     const a2 = this.approach;
@@ -989,7 +1225,7 @@ class TownDriveScene extends Phaser.Scene {
       const inside = Math.abs(v.x - a2.it.x) < R + 6 && Math.abs(v.y - a2.it.y) < R + 6;
       if (inside && !a2.entered) {
         a2.entered = true;
-        this.judgeEntry(a2, mph);
+        this.judgeEntry(a2, mph, true);
       }
       const far = Math.abs(v.x - a2.it.x) > R + 230 || Math.abs(v.y - a2.it.y) > R + 230;
       if (a2.entered && !inside && far) {
@@ -1022,7 +1258,7 @@ class TownDriveScene extends Phaser.Scene {
       const inZone = d < 150;
       if (inZone !== this.inZone) {
         this.inZone = inZone;
-        if (inZone) this.toast('Stop zone — pull in to the kerb, stop, then P to park', 0xFFC83D);
+        if (inZone) this.toast('Stop zone — pull in to the curb, stop, then P to park', 0xFFC83D);
       }
     }
   }
@@ -1033,18 +1269,20 @@ class TownDriveScene extends Phaser.Scene {
    * the light does next. Creeping over the line on red (or before stopping at a sign) is not yet running it, but
    * carrying on into the junction is.
    */
-  judgeEntry(a, mph) {
+  judgeEntry(a, mph, atBox) {
     if (a.judged) return;
     if (a.it.stop) {
       if (a.stopped) { a.judged = true; return; }
-      if (mph > 3) {
+      // over the line at more than a crawl, or into the junction without ever having stopped behind the line (it
+      // used to take over 3 mph to count, so a slow roll through passed)
+      if (mph > 1 || atBox) {
         a.judged = true;
-        this.violation('rolling', 'Rolled through a stop sign', 'safety', 2, 'A stop means wheels stopped behind the line, then look both ways. Rolling stops are the classic delivery-driver citation.');
+        this.violation('rolling', mph > 1 ? 'Rolled through a stop sign' : 'Went through a stop sign without stopping behind the line', 'safety', 2, 'A stop means wheels stopped behind the line for a moment, then look both ways. Rolling stops are the classic delivery-driver citation.');
       }
       return;
     }
     if (this.lightFor(a.it, a.dir === 'W' || a.dir === 'E') !== 'red') { a.judged = true; return; }
-    if (mph > 3) {
+    if (mph > 1.5 || (atBox && mph > 0.5)) {
       a.judged = true;
       this.violation('redlight', 'Ran a red light', 'safety', 4, 'Red means stop, even when you are behind schedule. Intersection crashes are the worst ones.');
     }
@@ -1054,6 +1292,21 @@ class TownDriveScene extends Phaser.Scene {
    * Parking at a stop: stopped, alongside the kerb on the house's side, inside the zone. Facing against the
    * traffic or leaving a wide gap still parks you, but it is scored and explained.
    */
+  /**
+   * The marked stop zone of a lot, as world x from x0 to x1: 150 px either side of the spot for the van's centre, plus
+   * the van's own half-length, and never over a crosswalk. It is drawn exactly this size, and P accepts a van whose
+   * body lies inside it (the drawn zone used to be smaller than what P accepted, and P took a van on the sidewalk).
+   */
+  parkBay(lot) {
+    const A = OTR.townArt, hl = this.van.g.hl * this.P, cw = A.ROAD / 2 + 47 + 6;
+    let x0 = lot.park.x - 150 - hl, x1 = lot.park.x + 150 + hl;
+    this.T.vx.forEach(jx => {
+      if (jx <= lot.park.x) x0 = Math.max(x0, jx + cw);
+      else x1 = Math.min(x1, jx - cw);
+    });
+    return { x0, x1 };
+  }
+
   tryPark() {
     const stop = this.activeStop, v = this.van, V = OTR.vehicle, P = this.P;
     if (!stop || stop.done || this.parked || this.leaving) return;
@@ -1061,27 +1314,44 @@ class TownDriveScene extends Phaser.Scene {
     const bc = V.bodyCentre(v);
     const along = Math.abs(bc.x - lot.park.x);
     const fromCentre = (bc.y - street) * lot.side;           // how far towards the house's kerb, px
-    if (along > 150 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 40) {
-      this.toast('Not at the stop yet — pull in to the kerb inside the marked zone', 0xC9B3F0); return;
+    const D = this.shiftMode && OTR.shift.state && OTR.shift.state.dispatch;
+    const away = along > 220 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 60;
+    if (away && D && D.sent && !D.read && this.pullOverToRead()) return;
+    if (away) {
+      this.toast('Not at the stop yet — pull in to the curb inside the marked zone', 0xC9B3F0); return;
     }
-    if (!V.stopped(v)) { this.toast('Come to a full stop first', 0xF0435A); return; }
+    // "stopped" allows the moment after the brake is lifted, while the automatic creeps (P used to be refused then)
+    if (!V.stopped(v) && !(this.elapsed - this.stoppedAt < 1 && V.mph(v) < 1.5)) { this.toast('Come to a full stop first (hold S or SPACE, then P)', 0xF0435A); return; }
     const skew = Math.abs(Math.sin(v.heading));                // 0 = parallel to the street
-    if (skew > 0.34) { this.toast('Straighten up alongside the kerb first', 0xF0435A); return; }
-    if (fromCentre < 20) { this.toast('Pull in to the kerb on the house\'s side of the street', 0xF0435A); return; }
+    if (skew > 0.34) { this.toast('Straighten up alongside the curb first', 0xF0435A); return; }
+    if (fromCentre < 20) { this.toast('Pull in to the curb on the house\'s side of the street', 0xF0435A); return; }
+    // on the road, close to the kerb, and wholly inside the marked zone
+    const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]].map(([f, r]) => V.point(v, v.g.centre + f * v.g.hl, r * v.g.hw));
+    const outer = Math.max(...corners.map(c => (c.y - street) * lot.side));
+    if (outer > OTR.townArt.ROAD / 2 + 4) { this.toast('You\'re up on the curb. Back off it into the road, then park', 0xF0435A); return; }
+    const gap = (OTR.townArt.ROAD / 2 - outer) / P;
+    if (gap > 1.5) { this.toast(`Pull in closer to the curb (${Math.round(gap * 3.281)} ft out)`, 0xF0435A); return; }
+    const bay = this.parkBay(lot);
+    const xs = corners.map(c => c.x);
+    if (Math.min(...xs) < bay.x0 - 4 || Math.max(...xs) > bay.x1 + 4) { this.toast('Line up inside the marked zone, clear of the crosswalk', 0xF0435A); return; }
 
-    const gapM = (OTR.townArt.ROAD / 2 - fromCentre - v.g.hw * P) / P;   // kerb to the side of the van
+    const gapM = gap;                                               // kerb to the side of the van
     const withTraffic = Math.cos(v.heading) * lot.side > 0;              // the right-hand side of the road
     v.u = 0; v.lat = 0; v.r = 0; v.speed = 0;
     this.parked = true;
+    OTR.driveAids.parkingBrake(this);
     OTR.audio.stopLoop('engine');
     OTR.audio.play('engine_start');
     const neat = withTraffic && gapM < 1.2 && skew < 0.14;
-    this.log.check('safety', neat ? 2 : 1, 2, `Parked at ${lot.number} ${lot.street}${neat ? '' : !withTraffic ? ' (facing the traffic)' : gapM >= 1.2 ? ` (${gapM.toFixed(1)} m from the kerb)` : ' (at an angle)'}`, {
+    this.log.check('safety', neat ? 2 : 1, 2, `Parked at ${lot.number} ${lot.street}${neat ? '' : !withTraffic ? ' (facing the traffic)' : gapM >= 1.2 ? ` (${Math.round(gapM * 3.281)} ft from the kerb)` : ' (at an angle)'}`, {
       lesson: !withTraffic
         ? 'Park on the right-hand side, facing the same way as the traffic, so you pull out into your own lane.'
-        : 'Pull in close and parallel to the kerb, so passing traffic has room and you step out onto the sidewalk.'
+        : 'Pull in close and parallel to the curb, so passing traffic has room and you step out onto the sidewalk.'
     });
-    this.log.check('efficiency', this.buckled ? 1 : 0, 1, 'Drove buckled up');
+    // the belt over the whole leg, not just at the moment of parking (it used to pass after a no-belt penalty);
+    // the drill judges it once over the whole drive instead
+    if (!this.onPark) this.log.check('safety', this.buckled && !this.beltBroken ? 1 : 0, 1, 'Drove buckled up', { lesson: 'Buckle up before you move, every single time.' });
+    this.beltBroken = false;
     if (this.onPark) { this.onPark(stop); return; }
     if (this.shiftMode && OTR.shift) { OTR.shift.arriveStop(this, stop); return; }
     stop.done = true;
@@ -1126,8 +1396,10 @@ class TownDriveScene extends Phaser.Scene {
     const stop = this.activeStop;
     let label, text;
     if (stop) {
-      const d = Math.round(Phaser.Math.Distance.Between(v.x, v.y, stop.lot.park.x, stop.lot.park.y) / this.P);
-      text = `${stop.lot.number} ${stop.lot.street}  ·  ${d} m`;
+      // US units, like the speedometer: feet, or miles beyond 1,000 ft
+      const ft = Phaser.Math.Distance.Between(v.x, v.y, stop.lot.park.x, stop.lot.park.y) / this.P * 3.281;
+      const d = ft < 1000 ? `${Math.round(ft / 10) * 10} ft` : `${(ft / 5280).toFixed(1)} mi`;
+      text = `${stop.lot.number} ${stop.lot.street}  ·  ${d}`;
       label = this.stopLabelFor(stop);
     } else {
       label = 'ROUTE';
@@ -1136,12 +1408,12 @@ class TownDriveScene extends Phaser.Scene {
     if (this._stopTextShown !== text) { this._stopTextShown = text; this.stopText.setText(text); }
     if (this._stopLabelShown !== label) { this._stopLabelShown = label; this.stopLabel.setText(label); }
     if (this.d.clock) {
-      const c = this.d.clock();
+      const c = this.d.clock(this.elapsed);
       if (this._clockShown !== c) { this._clockShown = c; this.clockText.setText(c); }
     }
     this.drawMinimap();
   }
 
-  stopLabelFor(stop) { return `STOP ${stop.index || this.activeIndex + 1} OF ${this.route.length}`; }
+  stopLabelFor(stop) { return `STOP ${stop.index || this.activeIndex + 1} OF ${this.d.total || this.route.length}`; }
 }
 OTR.registerScene(TownDriveScene);

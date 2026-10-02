@@ -20,16 +20,23 @@ class PreTripScene extends BaseScenarioScene {
     this.lights = false;
     this.marks = {};             // itemId -> 'pass' | 'flag'
     this.tested = {};            // itemId -> true once its required test was done
+    this.treadRead = {};         // itemId -> the tread depth the gauge read there
     this.viewOrder = ['front', 'driver', 'rear', 'passenger'];
     this.viewIndex = 1;
     this.inCab = false;
 
-    // pick this run's defects
+    // pick this run's defects: on a route day from the day's seed, so a day is the same day every time it is played
     const R = C.defects || { min: 3, max: 5 };
-    const n = R.min + Math.floor(Math.random() * (R.max - R.min + 1));
+    const day = this.shiftMode && OTR.shift && OTR.shift.state ? OTR.shift.state : null;
+    const rnd = day ? OTR.shift.rng('pretrip' + day.day) : Math.random;
+    const n = R.min + Math.floor(rnd() * (R.max - R.min + 1));
     this.defects = {};
-    OTR.util.shuffle(C.items.slice()).slice(0, n).forEach(it => { this.defects[it.id] = true; });
-    this.seed = Math.floor(Math.random() * 9999);
+    const pool = C.items.slice();
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    pool.slice(0, n).forEach(it => { this.defects[it.id] = true; });
+    this.seed = Math.floor(rnd() * 9999);
+    // and in the day's weather (it used to be a clear morning whatever the day was)
+    this.weather = day ? day.weather : 'clear';
 
     this.buildStage();
     this.buildChecklist();
@@ -42,7 +49,7 @@ class PreTripScene extends BaseScenarioScene {
 
   /* ================================================================ stage */
   buildStage() {
-    const st = this.stage = new OTR.Stage(this, { width: OTR.W, tod: 'morning', weather: 'clear', clickToWalk: false });
+    const st = this.stage = new OTR.Stage(this, { width: OTR.W, tod: 'morning', weather: this.weather, clickToWalk: false });
     st.sky();
     st.far(250);
     st.ground([{ x0: 0, x1: OTR.W, type: 'concrete' }]);
@@ -50,17 +57,31 @@ class PreTripScene extends BaseScenarioScene {
     this.spotLayer = this.add.container(0, 0).setDepth(40);   // above the courier, so a hotspot is never hidden
     this.me = OTR.rig.person(this, 300, 0, OTR.hub.playerSpec, { scale: 0.74, facing: 1, depth: 30 });
     st.actor(this.me);
-    this.atmos = OTR.atmos.apply(this, { tod: 'morning', weather: 'clear', depth: 700 });
+    this.atmos = OTR.atmos.apply(this, { tod: 'morning', weather: this.weather, depth: 700 });
 
     // view arrows
     this.leftArrow = this.viewButton(52, '◀', () => this.turn(-1));
     this.rightArrow = this.viewButton(OTR.W - 52, '▶', () => this.turn(1));
     this.viewLabel = OTR.txt(this, OTR.W / 2, 84, '', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 5 }).setScrollFactor(0).setDepth(820);
-    this.cabBtn = OTR.ui.button(this, OTR.W / 2, OTR.H - 54, 'Climb into the cab', () => this.toggleCab(), { w: 260, h: 46, skin: 'purple', fontSize: 16 });
+    this.cabBtn = OTR.ui.button(this, OTR.W / 2, OTR.H - 54, 'Climb into the cab (C)', () => this.toggleCab(), { w: 280, h: 46, skin: 'purple', fontSize: 16, key: 'C' });
     this.cabBtn.setDepth(820).setScrollFactor(0);
     this.signBtn = OTR.ui.button(this, OTR.W - 190, OTR.H - 54, 'Sign off ▶', () => this.signOff(), { w: 220, h: 48, skin: 'orange', fontSize: 17 });
     this.signBtn.setDepth(820).setScrollFactor(0);
     this.signBtn.setEnabled(false);
+    // A / D or the arrow keys walk round the truck (the ◀ ▶ arrows were mouse only); L works the cab switch
+    const walk = (dir) => () => { if (this.running && !this.scene.isPaused() && !(this._openModals > 0)) this.turn(dir); };
+    ['keydown-LEFT', 'keydown-A'].forEach(k => OTR.onKey(this, k, walk(-1)));
+    ['keydown-RIGHT', 'keydown-D'].forEach(k => OTR.onKey(this, k, walk(1)));
+    OTR.onKey(this, 'keydown-L', () => { if (this.running && this.view === 'cab' && !(this._openModals > 0)) this.toggleLights(); });
+    OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
+    OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
+  }
+
+  toggleLights() {
+    this.lights = !this.lights;
+    OTR.audio.play('beep');
+    OTR.ui.toast(this, this.lights ? 'Lights and hazards on — now walk around and check every lamp' : 'Lights off');
+    this.showView('cab');
   }
 
   viewButton(x, label, onClick) {
@@ -98,13 +119,15 @@ class PreTripScene extends BaseScenarioScene {
     const V = OTR.truckArt.view(this, id, { lights: this.lights, defects: this.defects });
     // the cab is sized and centred to sit whole between the left edge and the checklist panel (x 1000)
     const scale = id === 'cab' ? 0.88 : id === 'driver' || id === 'passenger' ? 0.74 : 0.86;
-    const cx = id === 'cab' ? 494 : 470;
+    // the side views sit a little right, so the mirror at the cab end is clear of the ◀ button
+    const cx = id === 'cab' ? 494 : id === 'driver' || id === 'passenger' ? 540 : 470;
     this.truckImg.setTexture(V.key).setScale(scale);
     this.truckImg.setPosition(cx, id === 'cab' ? OTR.H / 2 + 10 : OTR.scenery.GROUND - V.h * scale / 2 + 30);
     this.me.setVisible(id !== 'cab');
     this.leftArrow.setVisible(id !== 'cab');
     this.rightArrow.setVisible(id !== 'cab');
-    this.cabBtn.setLabel(id === 'cab' ? 'Climb back out' : 'Climb into the cab');
+    ['hintL', 'hintR'].forEach(n => { const t = this.children.getByName(n); if (t) t.setVisible(id !== 'cab'); });
+    this.cabBtn.setLabel(id === 'cab' ? 'Climb back out (C)' : 'Climb into the cab (C)');
     const names = { front: 'Front', driver: 'Driver side', rear: 'Rear', passenger: 'Curb side', cab: 'In the cab' };
     const prev = names[this.viewOrder[(this.viewIndex - 1 + this.viewOrder.length) % this.viewOrder.length]];
     const next = names[this.viewOrder[(this.viewIndex + 1) % this.viewOrder.length]];
@@ -212,16 +235,21 @@ class PreTripScene extends BaseScenarioScene {
     this.hideTip();
     const bad = !!this.defects[item.id];
     const needs = item.needs;
-    const gaugeReading = () => (bad ? 'Gauge reads 2/32" — at or under the limit. This tyre is out of service.' : 'Gauge reads 9/32" — plenty of tread left.');
-    const state = { bad, seed: this.seed, lights: this.lights, pressed: false, gauged: !!this.tested[item.id] };
-    // a tyre you already measured keeps its reading when you come back to it
-    if (needs === 'gauge' && state.gauged) state.reading = gaugeReading();
+    // A tire's reading comes from its own tread (item.tread: the defect's variant and depths), and the note says the
+    // number only: the limits are stated once, the verdict is the trainee's (it used to say "out of service").
+    const T = item.tread || {};
+    const depthAt = (x) => (!bad ? (T.good || 9) : T.variant === 'edge' ? (x < 0 ? T.inner : T.outer) : T.bad);
+    const state = { bad, seed: this.seed, lights: this.lights, pressed: false, gauged: !!this.tested[item.id], variant: bad ? T.variant : null };
+    const readNote = () => `Gauge reads ${state.reading}/32".`;
+    // a tire you already measured keeps its reading when you come back to it
+    if (needs === 'gauge' && state.gauged) state.reading = this.treadRead[item.id] || depthAt(-1);
     let img = null, note = null, actionBtn = null;
     this._judge = { pass: null, flag: null };
 
     const canJudge = () => {
       if (needs === 'lights' && !this.lights) return false;
       if (needs === 'press' && !state.pressed) return false;
+      if (state.moving) return false;                  // the brake is judged once you have seen what it does
       if (needs === 'gauge' && !state.gauged) return false;
       return true;
     };
@@ -230,9 +258,11 @@ class PreTripScene extends BaseScenarioScene {
       if (note) {
         note.setText(
           needs === 'lights' && !this.lights ? 'Switch the lights on in the cab before you judge a lamp.'
-            : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : 'Pull the belt out and check the webbing.')
-              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread to measure it.'
-                : state.reading || ''
+            : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : item.kind === 'door' ? 'Pull on the latch to test it.' : 'Pull the belt out and check the webbing.')
+              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread. Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
+                : needs === 'gauge' ? `${readNote()}  (Minimum: 4/32" front, 2/32" rear.)`
+                  : item.kind === 'pedal' && state.moving ? 'Holding steady pressure: watch the pedal.'
+                    : ''
         );
       }
       if (actionBtn) actionBtn.setEnabled(!(needs === 'lights' && !this.lights));
@@ -243,36 +273,56 @@ class PreTripScene extends BaseScenarioScene {
     this._refreshJudge = refresh;
 
     this.closeupModal(item, (box, m, w, h) => {
-      img = this.add.image(0, -36, OTR.truckArt.closeup(this, item.kind, state)).setDisplaySize(520, 330);
+      // picture, note and test button stacked clear of the Pass / Flag row (the test button used to sit under it)
+      img = this.add.image(0, -58, OTR.truckArt.closeup(this, item.kind, state)).setDisplaySize(480, 305);
       box.add(img);
-      note = OTR.txt(this, 0, 150, '', 15, '#FFB27A', { align: 'center', wrap: w - 80, bold: false });
+      note = OTR.txt(this, 0, 118, '', 16, '#8A3A00', { align: 'center', wrap: w - 80, weight: '800' });
       box.add(note);
 
       if (needs === 'press') {
-        actionBtn = OTR.ui.button(this, 0, 196, item.kind === 'horn' ? 'Press the horn' : item.kind === 'pedal' ? 'Press and hold the brake' : 'Pull the belt out', () => {
+        actionBtn = OTR.ui.button(this, 0, 164, item.kind === 'horn' ? 'Press the horn (T)' : item.kind === 'pedal' ? 'Press and hold the brake (T)' : item.kind === 'door' ? 'Pull on the latch (T)' : 'Pull the belt out (T)', () => {
           state.pressed = true;
           this.tested[item.id] = true;
           if (item.kind === 'horn') OTR.audio.play(bad ? 'click_dud' : 'horn');
-          else if (item.kind === 'pedal') OTR.audio.play('brake');
+          else if (item.kind === 'pedal') {
+            OTR.audio.play('brake');
+            // the press plays out: down to the firm point, then a failing pedal keeps creeping for a couple of seconds
+            state.moving = true;
+            state.drop = 0;
+            const end = bad ? 96 : 34;
+            const t0 = this.time.now;
+            const tick = this.time.addEvent({ delay: 80, loop: true, callback: () => {
+              if (!img || !img.active) { tick.remove(); return; }
+              const t = (this.time.now - t0) / 1000;
+              const firm = Math.min(34, 34 * t / 0.35);
+              state.drop = t < 0.35 ? firm : bad ? Math.min(end, 34 + (t - 0.35) * 26) : 34;
+              if (t > 3) { state.drop = end; state.moving = false; tick.remove(); }
+              refresh();
+            } });
+          }
+          else if (item.kind === 'door') OTR.audio.play(bad ? 'door_open' : 'door_close');
           else OTR.audio.play('paper');
           refresh();
-        }, { w: 300, h: 44, skin: 'purple', fontSize: 15 });
+        }, { w: 300, h: 42, skin: 'purple', fontSize: 15, key: 'T' });
         box.add(actionBtn);
       } else if (needs === 'gauge') {
-        const g = this.add.image(-250, 182, OTR.truckArt.gauge(this)).setScale(0.6).setInteractive({ draggable: true, useHandCursor: true });
+        const g = this.add.image(-250, 164, OTR.truckArt.gauge(this)).setScale(0.6).setInteractive({ draggable: true, useHandCursor: true });
         this.input.setDraggable(g);
         // dragX/dragY already arrive in the parent container's space
         g.on('drag', (p, dx, dy) => { g.x = dx; g.y = dy; });
         g.on('dragend', () => {
-          const onTread = Math.abs(g.x) < 230 && g.y < 100 && g.y > -220;
+          const onTread = Math.abs(g.x) < 220 && g.y < 90 && g.y > -210;
           if (!onTread) {
-            this.tweens.add({ targets: g, x: -250, y: 182, duration: 200, ease: 'Quad.easeOut' });
+            this.tweens.add({ targets: g, x: -250, y: 164, duration: 200, ease: 'Quad.easeOut' });
             return;
           }
-          this.tweens.add({ targets: g, x: -120, y: -36, duration: 160, ease: 'Quad.easeOut' });
+          // it measures where it is dropped: an edge-worn tire reads differently on its two halves
+          const dropX = g.x;
+          this.tweens.add({ targets: g, y: -58, duration: 160, ease: 'Quad.easeOut' });
           state.gauged = true;
           this.tested[item.id] = true;
-          state.reading = gaugeReading();
+          state.reading = depthAt(dropX);
+          this.treadRead[item.id] = state.reading;
           OTR.audio.play('beep');
           refresh();
         });
@@ -298,8 +348,8 @@ class PreTripScene extends BaseScenarioScene {
       build: (box, api, w, h) => {
         box.add(OTR.txt(s, 0, -h / 2 + 34, item.name.toUpperCase(), 17, '#FF6600', { weight: '900' }));
         build(box, { box, api }, w, h);
-        passBtn = OTR.ui.button(s, -110, h / 2 - 52, 'Pass', () => api.close(() => onDecide('pass')), { w: 190, h: 52, skin: 'green', fontSize: 18, key: 'P' });
-        flagBtn = OTR.ui.button(s, 110, h / 2 - 52, 'Flag defect', () => api.close(() => onDecide('flag')), { w: 190, h: 52, skin: 'red', fontSize: 18, key: 'F' });
+        passBtn = OTR.ui.button(s, -110, h / 2 - 48, 'Pass (P)', () => api.close(() => onDecide('pass')), { w: 190, h: 50, skin: 'green', fontSize: 18, key: 'P' });
+        flagBtn = OTR.ui.button(s, 110, h / 2 - 48, 'Flag defect (F)', () => api.close(() => onDecide('flag')), { w: 190, h: 50, skin: 'red', fontSize: 18, key: 'F' });
         box.add([passBtn, flagBtn]);
         if (s._judge) { s._judge.pass = passBtn; s._judge.flag = flagBtn; }
         if (s._refreshJudge) s._refreshJudge();          // gate them now that they exist
@@ -312,6 +362,8 @@ class PreTripScene extends BaseScenarioScene {
 
   /* ================================================================ sign off */
   signOff() {
+    if (!this.running) return;
+    this.running = false;                 // the clock stops at the signature (it ran on under the report)
     const C = this.content;
     const items = C.items;
     const caught = [], missed = [], falseFlags = [];
@@ -322,16 +374,26 @@ class PreTripScene extends BaseScenarioScene {
       else if (m === 'flag') falseFlags.push(it);
     });
     const totalDefects = Object.keys(this.defects).length;
-    this.log.check('safety', caught.length, totalDefects, `Caught the defects (${caught.length} of ${totalDefects})`, { lesson: missed.length ? missed[0].lesson : null });
-    if (falseFlags.length) this.log.penalty('safety', Math.min(3, falseFlags.length), `Flagged ${falseFlags.length} good part${falseFlags.length === 1 ? '' : 's'}`, { lesson: C.lessons.falseFlag });
+    // Every defect here takes the truck out of service: rolling out with one is never averaged away
+    this.log.check('safety', caught.length, totalDefects, `Caught the defects (${caught.length} of ${totalDefects})`, { lesson: missed.length ? missed[0].lesson : null, critical: missed.length > 0 });
+    // one point per good part condemned, however many (flagging everything used to cost the same as three)
+    if (falseFlags.length) this.log.penalty('safety', falseFlags.length, `Flagged ${falseFlags.length} good part${falseFlags.length === 1 ? '' : 's'}`, { lesson: C.lessons.falseFlag });
     const par = C.parTime || 220;
-    this.log.check('efficiency', this.elapsed <= par ? 3 : this.elapsed <= par * 1.4 ? 2 : this.elapsed <= par * 1.8 ? 1 : 0, 3, `Walked it in good time (${Math.round(this.elapsed)}s, par ${par}s)`);
+    // time only counts as far as the verdicts were right: rushing through earns nothing (PRP-6)
+    const accuracy = totalDefects + falseFlags.length ? caught.length / (totalDefects + falseFlags.length) : 1;
+    const time = this.elapsed <= par ? 1 : this.elapsed <= par * 1.4 ? 2 / 3 : this.elapsed <= par * 1.8 ? 1 / 3 : 0;
+    this.log.check('efficiency', Math.round(OTR.scoring.gateTime(time, accuracy) * 3), 3, `Walked it in good time (${Math.round(this.elapsed)}s, par ${par}s)`,
+      { lesson: accuracy < 1 ? 'A quick walkaround only counts if it finds what is wrong. Look properly, then decide.' : null });
     // (lamps, horn, brakes and tread cannot be passed or flagged until they have been tested, so there is no
     // separate "did you test it" score: it could never be failed)
 
     // defects that roll out with you
     if (this.shiftMode && OTR.shift && OTR.shift.state) {
       OTR.shift.state.truck.defects = missed.map(it => it.id);
+      OTR.shift.state.truck.missed = missed.map(it => `${it.name}: ${it.defect}`);   // named in the gate check and debrief
+      // and the ones flagged: the shop fixes them before the truck rolls (they used to be forgotten, so a flagged
+      // dead headlight on a day that needs lights went unmentioned all day)
+      OTR.shift.state.truck.fixed = caught.map(it => `${it.name}: ${it.defect}`);
       OTR.save.write();
     }
 
@@ -340,7 +402,15 @@ class PreTripScene extends BaseScenarioScene {
 
   report(caught, missed, falseFlags) {
     const s = this;
-    const w = 820, h = 560;
+    const w = 820;
+    // as tall as its rows, up to 560 (a short report left half the card empty)
+    const measure = (str, size, wrap) => { const t = OTR.txt(this, 0, 0, str, size, '#000', { ox: 0, oy: 0, bold: false, wrap }); const th = t.height; t.destroy(); return th; };
+    let rowsH = 0;
+    missed.forEach(it => { rowsH += measure(`${it.name}: ${it.defect}`, 15, w - 120) + 10 + measure('↳ ' + it.consequence, 13, w - 140) + 8; });
+    falseFlags.forEach(it => { rowsH += measure(`${it.name} was fine: ${it.ok}`, 15, w - 120) + 10; });
+    caught.forEach(it => { rowsH += measure(`${it.name}: ${it.defect} — caught.`, 15, w - 120) + 10; });
+    if (!missed.length && !falseFlags.length && !caught.length) rowsH = 40;
+    const h = Math.min(560, Math.max(320, 108 + rowsH + 24 + 90));
     OTR.ui.modal(this, {
       w, h, depth: 5000,
       build: (box, api) => {
@@ -395,10 +465,14 @@ class PreTripScene extends BaseScenarioScene {
         label: 'Finish ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
         onClick: () => {
           const ratios = s.log.ratios(s.cats);
-          const lessons = s.log.lessons(2);
-          if (!missed.length && !falseFlags.length) lessons.push(s.content.lessons.perfect);
-          else if (missed.length) lessons.push(s.content.lessons.missed);
-          s.finish({ score: s.log.score(), ratios, lessons: lessons.slice(0, 3), stats: { missed: missed.map(i => i.id) } }, 200);
+          const lessons = !missed.length && !falseFlags.length ? [s.content.lessons.perfect] : missed.length ? [s.content.lessons.missed] : [];
+          s.finish({
+            score: s.log.score(), ratios, log: s.log, lessons,
+            summary: `${caught.length} caught · ${missed.length} missed · ${falseFlags.length} wrongly flagged · ${Math.round(s.elapsed)}s`,
+            // a truck held back for parts that were fine is not a walkaround to praise
+            headlineCap: falseFlags.length ? 'GOOD EFFORT' : undefined,
+            stats: { missed: missed.map(i => i.id) }
+          }, 200);
         }
       }]
     });
@@ -419,10 +493,7 @@ class PreTripScene extends BaseScenarioScene {
       const zone = this.add.zone(G.left + sp[0] * G.V.w * G.scale, G.top + sp[1] * G.V.h * G.scale, 90, 60).setInteractive({ useHandCursor: true }).setDepth(7);
       zone.on('pointerup', () => {
         if (this._openModals > 0) return;
-        this.lights = !this.lights;
-        OTR.audio.play('beep');
-        OTR.ui.toast(this, this.lights ? 'Lights on — now walk around and check every lamp' : 'Lights off');
-        this.showView('cab');
+        this.toggleLights();
         this._cabZone = zone;
       });
       this._cabZone = zone;

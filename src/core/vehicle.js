@@ -42,7 +42,7 @@ OTR.vehicle = {
       u: 0, lat: 0, r: 0,             // forward and rightward velocity (m/s, van frame) and yaw rate (rad/s)
       sw: 0, delta: 0,                // steering wheel (-1..1 of full lock) and the road-wheel angle it gives
       throttle: 0, brake: 0,          // pedal positions 0..1
-      gear: 1, shiftHold: 0, canShift: false, heldStill: 0,
+      gear: 1,
       ax: 0,                          // smoothed longitudinal acceleration (the van pitching), for weight transfer
       slide: 0, spin: false, locked: false,
       speed: 0,                       // forward speed in px/s, signed
@@ -75,46 +75,33 @@ OTR.vehicle = {
 
   /* ------------------------------------------------------------------ gearbox */
   /**
-   * Automatic box, Drive and Reverse. Changing direction works the way it does in the cab: stop, lift your
-   * foot, then press and hold the pedal for the new direction (S for reverse, W to go back to drive). Sitting
-   * on the brake at a junction therefore never selects reverse by itself.
+   * Automatic box, Drive and Reverse, changed with its own key (R) at a standstill, as a driver moves the selector
+   * with a foot on the brake. W is always the accelerator and S always the brake, in either gear. (Reverse used to be
+   * "lift off S, then hold S again", so a second press of the brake at a stop line could back the van.)
+   * inp.shift is the frame the key was pressed. Returns { shifted } or { refused } (the van is still moving).
    */
-  gearbox(v, inp, dt) {
-    const stopped = this.stopped(v);
-    const other = v.gear > 0 ? inp.brake : inp.throttle;   // the pedal that would change direction
-    const mine = v.gear > 0 ? inp.throttle : inp.brake;
-    v.heldStill = stopped && other ? v.heldStill + dt : 0;
-    if (!stopped || mine) v.canShift = false;          // moving, or asking to go the current way: no change
-    else if (!other) v.canShift = true;
-    if (stopped && other && !mine && v.canShift) {
-      v.shiftHold += dt;
-      if (v.shiftHold >= 0.3) {
-        v.gear = -v.gear;
-        v.shiftHold = 0; v.canShift = false; v.heldStill = 0;
-        v.u = 0; v.lat = 0; v.r = 0;
-        return true;
-      }
-    } else v.shiftHold = 0;
-    return false;
+  gearbox(v, inp) {
+    if (!inp.shift) return {};
+    if (!this.stopped(v)) return { refused: true };
+    v.gear = -v.gear;
+    v.u = 0; v.lat = 0; v.r = 0;
+    return { shifted: true };
   },
 
   /** A line for the HUD about changing direction, or null. */
   gearPrompt(v) {
-    if (v.shiftHold > 0) return v.gear > 0 ? 'Selecting R…' : 'Selecting D…';
-    if (v.heldStill > 0.9 && !v.canShift) return v.gear > 0 ? 'Lift off S, then hold S to reverse' : 'Lift off W, then hold W for drive';
     return null;
   },
 
   /* ------------------------------------------------------------------ one frame */
   step(v, inp, dt, world) {
     const S = this.T.van, U = OTR.util;
-    const ev = { shifted: this.gearbox(v, inp, dt) };
+    const box = this.gearbox(v, inp);
+    const ev = { shifted: !!box.shifted, shiftRefused: !!box.refused };
 
-    // The keys are on/off; the pedals travel. In reverse, S drives and W brakes.
-    const driveKey = v.gear > 0 ? inp.throttle : inp.brake;
-    const brakeKey = v.gear > 0 ? inp.brake : inp.throttle;
-    const wantT = driveKey && !brakeKey && v.shiftHold === 0 ? 1 : 0;
-    const wantB = brakeKey ? 1 : 0;
+    // The keys are on/off; the pedals travel. W drives in the selected gear, S brakes, in either gear.
+    const wantT = inp.throttle && !inp.brake ? 1 : 0;
+    const wantB = inp.brake ? 1 : 0;
     v.throttle = this.approach(v.throttle, wantT, (wantT > v.throttle ? S.pedalApply : S.pedalRelease) * dt);
     v.brake = this.approach(v.brake, wantB, (wantB > v.brake ? S.pedalApply * 1.4 : S.pedalRelease) * dt);
 
@@ -125,7 +112,9 @@ OTR.vehicle = {
       if (v.sw * inp.steer < 0) rate = Math.max(rate, S.counterRate);
       v.sw = this.approach(v.sw, inp.steer, rate * dt);
     } else {
-      v.sw = this.approach(v.sw, 0, S.centreRate * U.clamp(Math.abs(v.u) / 4, 0.12, 1) * dt);
+      // small angles come back more slowly, so a short tap holds a little (a lane change used to need several holds)
+      const small = 0.5 + 0.5 * U.clamp01(Math.abs(v.sw) / 0.3);
+      v.sw = this.approach(v.sw, 0, S.centreRate * small * U.clamp(Math.abs(v.u) / 4, 0.12, 1) * dt);
     }
     const want = v.sw * S.maxSteer * Math.PI / 180;
     v.delta += (want - v.delta) * (1 - Math.exp(-dt / 0.05));

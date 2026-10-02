@@ -46,11 +46,12 @@ OTR.scenery = {
     return { top, bottom, far };
   },
 
-  sky(scene, tod, weather) {
-    const key = `sky_${tod}_${weather}`;
+  /** width: wider than the screen for a sky that scrolls (Stage.skyline); the sun and clouds spread over it */
+  sky(scene, tod, weather, width) {
+    const key = `sky_${tod}_${weather}` + (width && width !== OTR.W ? `_${width}` : '');
     const T = OTR.scenery.TOD[tod] || OTR.scenery.TOD.midday;
     const C = OTR.scenery.skyColors(tod, weather);
-    return OTR.tex.make(scene, key, OTR.W, OTR.H, (ctx, w, h) => {
+    return OTR.tex.make(scene, key, width || OTR.W, OTR.H, (ctx, w, h) => {
       const cv = OTR.cv;
       ctx.fillStyle = cv.lin(ctx, 0, 0, 0, h * 0.8, [[0, C.top], [1, C.bottom]]);
       ctx.fillRect(0, 0, w, h);
@@ -357,7 +358,7 @@ OTR.scenery = {
       s, w: s.w, h: H, floorY, porchX0: s.porchX, porchX1: s.porchX + s.porchW,
       stepsX0: s.porchX - s.steps * SW, stepsX1: s.porchX,
       doorX, doorW: 108, doorH: 228, doorTop: floorY - 228,
-      bellX: doorX + 78, bellY: floorY - 120,
+      bellX: doorX - 80, bellY: floorY - 124,
       numberX: s.numberOn === 'column' ? s.porchX + s.porchW - 22 : doorX + 78, numberY: s.numberOn === 'column' ? floorY - 170 : floorY - 168,
       lightX: doorX - 92, lightY: floorY - 176,
       mailboxX: doorX - 150, mailboxY: floorY - 120,
@@ -522,7 +523,7 @@ OTR.scenery = {
         ctx.beginPath(); ctx.moveTo(hx0, hy0); ctx.lineTo(hx0, H - 4); ctx.stroke();
         void top0;
       }
-    });
+    }, { trim: true });
 
     const doorKey = `door_${OTR.rig.hash([s.door, s.wreath])}`;
     OTR.tex.make(scene, doorKey, 108, 228, (ctx, w, h) => {
@@ -566,7 +567,7 @@ OTR.scenery = {
       stepsX0: doorX - 170 - steps * OTR.scenery.STEP_W, stepsX1: doorX - 170,
       porchX0: doorX - 170, porchX1: doorX + 170,
       panelX: doorX + 118, panelY: floorY - 140,
-      numberX: doorX, numberY: floorY - 300,
+      numberX: doorX, numberY: s.style === 'business' ? floorY - 330 : floorY - 300,   // a shop's number sits above its awning
       signX: doorX + 250, signY: floorY - 150
     };
   },
@@ -634,7 +635,7 @@ OTR.scenery = {
         String(s.hours).split('\n').forEach((ln, i) => ctx.fillText(ln, L.doorX + L.doorW / 2 + 57, L.floorY - 150 + i * 14));
         ctx.fillStyle = s.open ? '#2BC48A' : '#E8304A'; ctx.font = '900 12px "Segoe UI", Arial';
         ctx.fillText(s.open ? 'OPEN' : 'CLOSED', L.doorX + L.doorW / 2 + 57, L.floorY - 112);
-        SC.numberPlaque(ctx, L.doorX, L.doorTop - 40, String(s.number), { size: 22 });
+        SC.numberPlaque(ctx, L.numberX, L.numberY, String(s.number), { size: 22 });
       }
       // steps
       for (let k = 0; k < L.steps; k++) {
@@ -660,7 +661,7 @@ OTR.scenery = {
         ctx.strokeStyle = '#3A3444'; ctx.lineWidth = 4;
         ctx.beginPath(); ctx.moveTo(L.doorX - 180, cy); ctx.lineTo(L.doorX - 150, cy - 90); ctx.moveTo(L.doorX + 180, cy); ctx.lineTo(L.doorX + 150, cy - 90); ctx.stroke();
       }
-    });
+    }, { trim: true });
     const doorKey = `gdoor_${OTR.rig.hash([s.door, s.style, s.open])}`;
     OTR.tex.make(scene, doorKey, 150, 236, (ctx, w, h) => {
       [[0, w / 2 - 2], [w / 2 + 2, w]].forEach(([x0, x1]) => {
@@ -710,9 +711,12 @@ OTR.scenery = {
       cv.rr(ctx, layout.elevatorX + 96, H - 190, 18, 40, 4); ctx.fillStyle = '#3A3444'; ctx.fill();
       // wall sign
       if (s.sign) {
-        ctx.fillStyle = cv.c(s.accent); cv.rr(ctx, s.counterX - 250, 120, 500, 90, 10); ctx.fill();
+        // over the counter, but whole in the view from the entrance (the camera starts at the lobby's left edge); a
+        // scene with its own panels up top can place it (spec.signX)
+        const sx = s.signX !== undefined ? s.signX : Math.min(s.counterX, OTR.W - 290);
+        ctx.fillStyle = cv.c(s.accent); cv.rr(ctx, sx - 250, 120, 500, 90, 10); ctx.fill();
         ctx.fillStyle = '#fff'; ctx.font = '900 48px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(s.sign, s.counterX, 166);
+        ctx.fillText(s.sign, sx, 166);
       }
       // plants + chairs
       [[820, 1], [W - 120, 1]].forEach(([px]) => {
@@ -748,7 +752,7 @@ OTR.scenery = {
         ctx.fillStyle = '#8FD3FF'; ctx.fillRect(cx - 172, top - 56, 84, 44);
         ctx.fillStyle = '#FFFFFF'; cv.rr(ctx, cx + 90, top - 22, 60, 22, 3); ctx.fill();
       }
-    });
+    }, { trim: true });
     return { key, frontKey, layout };
   },
 
@@ -872,7 +876,7 @@ OTR.scenery = {
       ctx.save();
       ctx.font = '900 11px "Segoe UI", Arial'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
       ctx.fillStyle = 'rgba(30,20,45,0.75)';
-      [['TOP SHELF · LIGHT ONLY, UNDER 15 LB', 230], ['MIDDLE SHELF · UP TO 35 LB', 364], ['BOTTOM SHELF · HEAVY OK', 498]]
+      [['TOP SHELF · LIGHT ONLY, UNDER 15 LB', 230], ['MIDDLE SHELF · UNDER 35 LB', 364], ['BOTTOM SHELF · HEAVY OK', 498]]
         .forEach(([lab, y]) => ctx.fillText(lab, 898, y + 7));
       ctx.restore();
       // floor
@@ -912,15 +916,20 @@ OTR.scenery = {
     const key = `prop_${type}_${OTR.rig.hash(o)}`;
     const P = (w, h, fn) => OTR.tex.make(scene, key, w, h, (ctx) => fn(ctx, w, h));
     switch (type) {
-      case 'mailbox': return P(70, 150, (ctx, w, h) => {
-        ctx.fillStyle = '#5A4A3A'; ctx.fillRect(w / 2 - 5, 50, 10, h - 50);
-        cv.rr(ctx, 6, 20, 58, 36, 16); ctx.fillStyle = cv.c(o.color || 0x2F3A4A); ctx.fill();
-        ctx.fillStyle = '#E8304A'; ctx.fillRect(52, 8, 5, 22); ctx.fillRect(52, 8, 14, 8);
-        if (o.number) { ctx.fillStyle = '#fff'; ctx.font = '900 13px "Segoe UI"'; ctx.textAlign = 'center'; ctx.fillText(o.number, w / 2 - 4, 44); }
-        if (o.name) {                                    // a name plate on the post
-          cv.rr(ctx, 7, 62, 56, 17, 4); ctx.fillStyle = '#F4F0E6'; ctx.fill();
+      // A name, when given, is a plate on top of the box, big enough to read and high enough to clear the caption box
+      // (it used to be 11 px on the post, down where the caption box starts).
+      case 'mailbox': return P(o.name ? 96 : 70, o.name ? 186 : 150, (ctx, w, h) => {
+        const t = o.name ? 36 : 0, cx = w / 2;
+        ctx.fillStyle = '#5A4A3A'; ctx.fillRect(cx - 5, 50 + t, 10, h - 50 - t);
+        cv.rr(ctx, cx - 29, 20 + t, 58, 36, 16); ctx.fillStyle = cv.c(o.color || 0x2F3A4A); ctx.fill();
+        ctx.fillStyle = '#E8304A'; ctx.fillRect(cx + 17, 8 + t, 5, 22); ctx.fillRect(cx + 17, 8 + t, 14, 8);
+        if (o.number) { ctx.fillStyle = '#fff'; ctx.font = '900 13px "Segoe UI"'; ctx.textAlign = 'center'; ctx.fillText(o.number, cx - 4, 44 + t); }
+        if (o.name) {
+          cv.rr(ctx, 2, 2, w - 4, 28, 5); ctx.fillStyle = '#F4F0E6'; ctx.fill();
+          ctx.strokeStyle = '#6A5A48'; ctx.lineWidth = 2; ctx.stroke();
           ctx.fillStyle = '#2A2A30'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-          cv.fitText(ctx, o.name, w / 2, 71, 50, 11);
+          cv.fitText(ctx, o.name, cx, 17, w - 14, 17);
+          ctx.fillStyle = '#6A5A48'; ctx.fillRect(cx - 2, 30, 4, t - 10 + 20);
         }
       });
       case 'planter': return P(90, 110, (ctx, w, h) => {
@@ -983,6 +992,42 @@ OTR.scenery = {
           ctx.fillRect(12, 50, w - 24, 8); ctx.fillRect(12, 96, w - 24, 8);
           ctx.fillStyle = '#6A6878'; ctx.fillRect(w - 26, 70, 12, 10);
         }
+      });
+      // a parked sedan seen from the side, its front on the left; dent: a creased front wing (the fender-bender)
+      case 'sedan': return P(340, 130, (ctx, w, h) => {
+        const col = o.color || 0x9AA4B4;
+        // body
+        ctx.beginPath();
+        ctx.moveTo(14, 104); ctx.lineTo(8, 78); ctx.quadraticCurveTo(10, 62, 40, 58);
+        ctx.lineTo(96, 54); ctx.lineTo(132, 22); ctx.quadraticCurveTo(140, 16, 156, 16);
+        ctx.lineTo(236, 16); ctx.quadraticCurveTo(250, 16, 260, 26); ctx.lineTo(290, 54);
+        ctx.lineTo(318, 58); ctx.quadraticCurveTo(334, 62, 334, 80); ctx.lineTo(330, 104); ctx.closePath();
+        ctx.fillStyle = cv.lin(ctx, 0, 16, 0, 104, [[0, cv.c(S(col, 0.15))], [1, cv.c(S(col, -0.2))]]); ctx.fill();
+        // windows
+        ctx.fillStyle = '#2A3446';
+        ctx.beginPath(); ctx.moveTo(108, 54); ctx.lineTo(138, 26); ctx.lineTo(188, 26); ctx.lineTo(188, 54); ctx.closePath(); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(196, 54); ctx.lineTo(196, 26); ctx.lineTo(238, 26); ctx.lineTo(268, 54); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(140, 30, 30, 5);
+        // door seams, handles, lights
+        ctx.strokeStyle = cv.c(S(col, -0.35)); ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(192, 56); ctx.lineTo(192, 100); ctx.moveTo(110, 58); ctx.lineTo(114, 100); ctx.stroke();
+        ctx.fillStyle = cv.c(S(col, -0.4)); ctx.fillRect(160, 66, 16, 4); ctx.fillRect(238, 66, 16, 4);
+        ctx.fillStyle = '#FFF4C8'; ctx.fillRect(10, 66, 14, 8);
+        ctx.fillStyle = '#D8323A'; ctx.fillRect(324, 66, 8, 10);
+        ctx.fillStyle = '#2A2A30'; ctx.fillRect(8, 92, 326, 10);
+        if (o.dent) {
+          // front wing folded in: a dark crease, bent panel lines and flakes of paint
+          ctx.fillStyle = 'rgba(20,20,30,0.45)';
+          ctx.beginPath(); ctx.moveTo(22, 60); ctx.lineTo(44, 70); ctx.lineTo(34, 80); ctx.lineTo(58, 90); ctx.lineTo(40, 98); ctx.lineTo(18, 90); ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(24, 62); ctx.lineTo(46, 71); ctx.lineTo(36, 81); ctx.lineTo(60, 90); ctx.stroke();
+          ctx.fillStyle = cv.c(S(col, 0.4)); ctx.fillRect(62, 84, 4, 3); ctx.fillRect(54, 94, 3, 3);
+        }
+        // wheels
+        [[74, 104], [268, 104]].forEach(([x, y]) => {
+          ctx.beginPath(); ctx.arc(x, y, 24, 0, Math.PI * 2); ctx.fillStyle = '#1C1C22'; ctx.fill();
+          ctx.beginPath(); ctx.arc(x, y, 12, 0, Math.PI * 2); ctx.fillStyle = '#A8AEB8'; ctx.fill();
+        });
       });
       case 'doghouse': return P(130, 120, (ctx, w, h) => {
         ctx.fillStyle = '#B5763E'; ctx.fillRect(12, 46, w - 24, h - 46);

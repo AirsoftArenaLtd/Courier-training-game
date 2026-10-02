@@ -1,7 +1,7 @@
 /*
  * Lift Right: every load sized up with the recommended choice, then lifted with textbook technique on the real
- * keys — step in to the load, bend the knees until the back is straight, grip, stand fully upright, walk it to the
- * pallet, lower it with the knees, let go. Good technique on the right choice must cost no Back Health at all and
+ * keys — step in to the load, bend the knees until the back is straight, grip, stand fully upright, walk it round
+ * to the pallet behind you (turning with the feet) until the box is over it, lower it with the knees, let go. Good technique on the right choice must cost no Back Health at all and
  * earn full marks.
  */
 const { wait, clickText } = require('./lib/ui');
@@ -12,7 +12,7 @@ module.exports = async (page, ctx) => {
   const st = () => ctx.eval(`(() => { const s = ${S}; const P = s.pose, L = s.lift; if (!L) return null;
     const g = s.gripPoint(); const hands = P.x + P.dir * (20 + L.w / 2);
     return { i: s.liftIndex, phase: s.phase, on: s.postureOn, x: P.x, squat: P.squat, stoop: P.stoop, hold: P.hold,
-      gap: g.x - hands, canGrip: !!s.canGrip, over: Math.abs(P.x - s.PALLET_X), palletGap: s.PALLET_TOP - s.heldBox().bottom,
+      gap: g.x - hands, canGrip: !!s.canGrip, over: Math.abs(s.heldBox().x - s.PALLET_X), palletGap: s.PALLET_TOP - s.heldBox().bottom,
       health: s.health, peak: s.peakLoad || 0 }; })()`);
   const hold = async (key, until, ms) => {
     await page.keyboard.down(key);

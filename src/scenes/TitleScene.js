@@ -51,29 +51,29 @@ class TitleScene extends Phaser.Scene {
     this.street = this.add.tileSprite(W / 2, this.WALK + 80, W, 160, roadKey).setDepth(-50);
 
     // --- the van rolling through ---
-    this.van = this.add.image(W * 0.70, this.ROAD + 10, OTR.scenery.van(this, 'closed').key).setOrigin(0.5, 1).setScale(0.46).setDepth(-20);
+    this.van = this.add.image(W * 0.70, this.ROAD + 10, OTR.scenery.van(this, 'closed').key).setOrigin(0.5, 1).setScale(0.46).setDepth(-8);     // on the road, nearer than the sidewalk
     this.tweens.add({ targets: this.van, y: this.van.y - 2, duration: 190, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
     this.exhaust = this.add.particles(0, 0, 'p_smoke', {
       follow: this.van, followOffset: { x: -132, y: -14 },
       speedX: { min: -150, max: -70 }, speedY: { min: -26, max: 4 },
       lifespan: 700, scale: { start: 0.35, end: 1.3 }, alpha: { start: 0.32, end: 0 },
       frequency: 95, tint: 0xD9CFE8
-    }).setDepth(-21);
+    }).setDepth(-9);
 
     // --- people on the pavement ---
     this.courier = OTR.rig.person(this, -80, this.WALK, {
       skin: 0xC98D62, hair: 0x2A1E18, hairStyle: 'short', shirt: 0x4D148C, uniform: true, cap: true, pants: 0x3A3550
     }, { scale: 0.52, facing: 1 });
-    this.courier.c.setDepth(-10);
+    this.courier.c.setDepth(-12);        // people on the sidewalk pass behind the van (they used to walk over its roof)
     this.courier.hold('box');
     this.loopWalk(this.courier, 1);
 
     this.local = OTR.rig.person(this, W + 80, this.WALK, {
       skin: 0xE8C9A8, hair: 0xB8663C, hairStyle: 'long', shirt: 0x2E7D5B, pants: 0x4A4658
     }, { scale: 0.5, facing: -1 });
-    this.local.c.setDepth(-9);
+    this.local.c.setDepth(-11);
     this.dog = OTR.rig.dog(this, W + 140, this.WALK, { fur: 0xC8A06A, patch: 0xE8D8B8, collar: 0xF0435A }, { mood: 'friendly' });
-    this.dog.c.setDepth(-9).setScale(0.44);
+    this.dog.c.setDepth(-11).setScale(0.44);
     this.loopWalk(this.local, -1, this.dog);
 
     // packages drifting past, kept from the old screen
@@ -103,11 +103,12 @@ class TitleScene extends Phaser.Scene {
     this.tweens.add({ targets: route, angle: { from: -1.5, to: 1.5 }, duration: 2200, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
 
     // --- menu ---
+    this.mute = OTR.ui.muteButton(this, W - 40, 40);
     this.menu = this.add.container(W / 2, 372);
     this.buildMenu();
 
-    OTR.ui.muteButton(this, W - 40, 40);
-    OTR.txt(this, W / 2, H - 14, cfg.disclaimer, 12, 'rgba(255,255,255,0.75)', { bold: false, align: 'center', wrap: 1100 }).setDepth(5);
+    OTR.ui.saveWarning(this, W / 2, 26);
+    OTR.txt(this, W / 2, H - 14, cfg.disclaimer, 13, 'rgba(255,255,255,0.75)', { bold: false, align: 'center', wrap: 1100 }).setDepth(5);
   }
 
   /** Walk a rig across the screen, then put it back on the far side and do it again. */
@@ -127,15 +128,21 @@ class TitleScene extends Phaser.Scene {
     const save = OTR.save;
     const items = [];
     if (save.hasProfile()) {
-      const name = save.data.profile.name;
-      items.push(OTR.ui.button(this, 0, 0, `Continue as ${name}`, () => OTR.fx.transition(this, 'HubScene'), { w: 380, h: 64, skin: 'orange', fontSize: 24, key: 'ENTER' }));
+      const name = save.displayName();
+      items.push(OTR.ui.button(this, 0, 0, `Continue as ${name}`, () => OTR.fx.transition(this, 'HubScene'), { w: 400, h: 64, skin: 'orange', fontSize: 24, key: 'ENTER', hint: '⏎' }));
       const info = save.rankInfo();
       items.push(OTR.txt(this, 0, 50, `Day ${save.data.day} · ${info.rank.name} · ${info.total} ★`, 18, '#FFE3C8', { shadow: true, stroke: '#250849', strokeW: 5 }));
-      items.push(OTR.ui.button(this, 0, 110, 'New Profile', () => {
-        OTR.ui.confirm(this, 'Start a new profile?', `This erases ${name}'s rank, stars and progress. This can't be undone.`, () => this.askName(), { yes: 'Erase & Start', danger: true });
-      }, { w: 260, h: 50, skin: 'ghost', fontSize: 20 }));
+      if (OTR.identity.locked) {
+        // signed in by the company or the LMS: this person's own progress, and nothing to replace
+        items.push(OTR.txt(this, 0, 96, `Signed in${OTR.identity.id && OTR.identity.id !== name ? ' as ' + OTR.identity.id : ''} · progress saved to ${OTR.identity.mode === 'scorm' ? 'your learning system' : 'the training server'}`, 16, '#D9C9F0', { shadow: true, bold: false, stroke: '#250849', strokeW: 4 }));
+      } else {
+        items.push(OTR.ui.button(this, 0, 110, 'New Profile', () => {
+          // one profile per browser (several named profiles are out of scope for now), so this says what it replaces
+          OTR.ui.confirm(this, 'Start a new profile?', `This erases ${name}'s rank, stars and progress. This can't be undone.`, () => this.askName(), { yes: 'Erase & Start', danger: true });
+        }, { w: 260, h: 50, skin: 'ghost', fontSize: 20 }));
+      }
     } else {
-      items.push(OTR.ui.button(this, 0, 20, 'Start Training', () => this.askName(), { w: 360, h: 68, skin: 'orange', fontSize: 26, key: 'ENTER' }));
+      items.push(OTR.ui.button(this, 0, 20, 'Start Training', () => this.askName(), { w: 360, h: 68, skin: 'orange', fontSize: 26, key: 'ENTER', hint: '⏎' }));
       items.push(OTR.txt(this, 0, 80, 'Your first shift starts now. Grab your scanner.', 18, '#FFE3C8', { shadow: true, bold: false, stroke: '#250849', strokeW: 5 }));
     }
     items.forEach((it, i) => {
@@ -144,6 +151,8 @@ class TitleScene extends Phaser.Scene {
       this.tweens.add({ targets: it, alpha: 1, y: it.y - 20, delay: 550 + i * 90, duration: 380, ease: 'Cubic.out' });
     });
     this.menu.add(items);
+    // the arrow keys and TAB move between the menu's buttons (SHELL-11)
+    this.menuFocus = OTR.ui.focus(this, items.filter(it => it.press).concat(this.mute ? [this.mute] : []), { start: 0 });
   }
 
   askName() {
@@ -163,7 +172,7 @@ class TitleScene extends Phaser.Scene {
     this.street.tilePositionX += 26 * dt;
     // the houses drift with the street so the whole block reads as one place
     this.houses.forEach(h => {
-      h.x -= 13 * dt;
+      h.x -= 26 * dt;                                    // the same speed as the sidewalk they stand on
       if (h.x + h.displayWidth / 2 < -40) h.x += this.houseSpan;
     });
     if (this.dog && this.local) {

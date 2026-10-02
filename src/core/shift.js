@@ -11,7 +11,7 @@
 window.OTR = window.OTR || {};
 
 OTR.shift = {
-  PHASES: ['brief', 'pretrip', 'load', 'route', 'debrief'],
+  PHASES: ['brief', 'pretrip', 'load', 'route', 'posttrip', 'debrief'],
 
   get state() { return OTR.save.data && OTR.save.data.shift; },
   active() {
@@ -36,115 +36,348 @@ OTR.shift = {
   /* ================================================================ generation */
   rng(seed) { return OTR.scenery.rng('shift' + seed); },
 
+  /**
+   * A day is drawn from its number and a variant chosen when it starts, so starting the day again is a different
+   * day's work (other addresses, notes, hazards, dog and message): a route cannot be learned by heart. The weather
+   * stays the day's (the hub forecasts it).
+   */
+  newVariant() { return 1 + Math.floor(Math.random() * 999999); },
+
   weatherFor(day) {
     return ['clear', 'cloudy', 'rain', 'heat', 'snow', 'clear', 'storm'][day % 7];
   },
 
-  generate(day) {
-    const R = this.rng(day);
-    const T = OTR.town.build(day);
+  /**
+   * The career's town: built once from a fixed seed and kept (the addresses, buildings and residents stay where they
+   * are from day to day; only the day's stops, weather and traffic change). It used to be rebuilt from the day
+   * number, so 104 Maple Ave was Marcus Bell's house one day and Helen Ortiz's the next.
+   */
+  townSeed() {
+    const S = OTR.save.data;
+    if (S && !S.townSeed) S.townSeed = 1;
+    return (S && S.townSeed) || 1;
+  },
+
+  /**
+   * The kinds of stop a day is made of. A day draws five different ones from its seed (never more than one of a kind),
+   * so it mixes situations from the modules instead of five doormats.
+   */
+  STOP_TYPES: ['leave', 'handoff', 'adult', 'exception', 'business', 'apartment', 'dog'],
+
+  generate(day, variant) {
+    const R = this.rng(variant ? `${day}_${variant}` : day);
+    const seed = this.townSeed();
+    const T = OTR.town.build(seed);
     const weather = this.weatherFor(day);
     const tod = 'morning';
     const nStops = 5;
-    // pick spread-out lots, never two on the same block edge. Everything here draws on the day's seeded random
-    // numbers, so a day is the same day every time it is started (it used to reshuffle with Math.random).
-    const pool = T.lots.filter(l => l.kind !== 'apartment' || R() < 0.5);
-    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    // Everything here draws on the day's seeded random numbers (the day and its variant), so a saved day resumes as it was.
+    const shuffled = (list) => { const a = list.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    // a leave-at-door stop and a person at the door every day; the other three vary
+    const types = ['leave', 'handoff'].concat(shuffled(['adult', 'exception', 'business', 'apartment', 'dog']).slice(0, nStops - 2));
+    const pool = shuffled(T.lots);
+    const kindFor = (type) => (type === 'business' ? 'business' : type === 'apartment' ? 'apartment' : 'house');
     const chosen = [];
-    pool.forEach(l => {
-      if (chosen.length >= nStops) return;
-      if (chosen.some(c => Math.abs(c.x - l.x) < 500 && Math.abs(c.y - l.y) < 500)) return;
-      chosen.push(l);
+    // spread out: never two on the same block edge
+    const free = (l) => !chosen.some(c => Math.abs(c.lot.x - l.x) < 500 && Math.abs(c.lot.y - l.y) < 500);
+    shuffled(types).forEach(type => {
+      let lot = pool.find(l => l.kind === kindFor(type) && free(l));
+      if (!lot) { type = 'leave'; lot = pool.find(l => l.kind === 'house' && free(l)); }   // no such building left
+      if (lot) chosen.push({ lot, type });
     });
-    const route = chosen.map((lot, i) => ({
-      lotId: lot.id, index: i + 1, done: false,
-      stop: OTR.shift.stopFromLot(lot, i, R, weather, day)
+    const route = chosen.map((c, i) => ({
+      lotId: c.lot.id, index: i + 1, done: false, type: c.type,
+      stop: OTR.shift.stopFromLot(c.lot, i, R, weather, day, c.type, T.lots.indexOf(c.lot))
     }));
+    // one dispatch message a day, about the leave-at-door stop: it arrives on the drive there (see sendDispatch)
+    const li = route.findIndex(r => r.type === 'leave');
+    const dispatch = li < 0 ? null : {
+      stop: li, sent: false, read: null,
+      kind: route[li].stop.spots && route[li].stop.spots.some(s => s.id === 'planter') ? 'signature' : (R() < 0.5 ? 'signature' : 'planter')
+    };
     return {
-      day, seed: day, phase: 'brief', weather, tod,
+      day, seed, phase: 'brief', weather, tod,
       clockMin: 8 * 60 + 20,
-      route, stopIndex: 0,
+      route, stopIndex: 0, atStop: null, dispatch,
+      fuel: [0.125, 0.25, 0.5, 0.75][Math.floor(R() * 4)],   // left in the tank at the end of the day (the post-trip)
       van: null,
       log: { items: [] },
-      truck: { defects: [], pretripScore: null },
-      packagesLoaded: null,
+      truck: { defects: [], pretripScore: null, heldAtGate: false },
       heat: weather === 'heat' ? { hyd: 78, temp: 42 } : null,
       stats: { delivered: 0, exceptions: 0, incidents: 0 }
     };
   },
 
-  /** Build a StopScene stop definition from a town lot. */
-  stopFromLot(lot, i, R, weather, day) {
+  /**
+   * On about half the signature hand-offs at a home, someone else in the household answers and signs, so the printed
+   * name has to be the signer's, not the name on the label (it was always the addressee, so the only wrong answer was
+   * "Occupant"). Drawn from its own seed, so the rest of the day is unchanged.
+   */
+  householdMember(type, kind, person, day, i) {
+    if (type !== 'handoff' || kind === 'business') return null;
+    const H = OTR.scenery.rng(`household${day}_${i}`);
+    if (H() >= 0.5) return null;
+    const parts = person.name.split(' ');
+    const surname = parts.length > 1 ? parts[parts.length - 1] : 'Lee';
+    const firsts = ['Sam', 'Jordan', 'Maria', 'Chris', 'Priya', 'Luis', 'Grace', 'Tom'].filter(f => f !== parts[0]);
+    const spec = Object.assign({}, person.spec, { shirt: [0x3E7CB1, 0xB5563C, 0x2E7D5B, 0x7A4FB5][Math.floor(H() * 4)], hairStyle: ['short', 'long', 'bun', 'buzz'][Math.floor(H() * 4)] });
+    return { name: `${firsts[Math.floor(H() * firsts.length)]} ${surname}`, spec };
+  },
+
+  /** Build a StopScene stop definition from a town lot, for a kind of stop (STOP_TYPES). */
+  stopFromLot(lot, i, R, weather, day, type, lotIndex) {
+    type = type || 'leave';
     const kind = lot.kind === 'business' ? 'business' : lot.kind === 'apartment' ? 'apartment' : 'house';
     const person = lot.person || { name: 'Resident', spec: {} };
     const pick = (list) => list[Math.floor(R() * list.length)];
-    const roll = R();
-    const service = roll < 0.18 ? 'signature' : roll < 0.24 ? 'adult' : 'standard';
-    const homeRoll = R();
-    const home = kind === 'business' ? true : homeRoll < 0.55;
+    const service = type === 'adult' ? 'adult' : (type === 'handoff' || type === 'exception') ? 'signature'
+      : type === 'business' ? pick(['standard', 'signature']) : 'standard';
+    const home = type !== 'leave' && type !== 'exception';
     const tracking = `78${day}${String(1000 + i * 37).slice(0, 4)} ${String(2000 + i * 91).slice(0, 4)}`;
+    const weight = 2 + Math.round(R() * 38);
     const pkg = {
       id: 'p1', to: kind === 'business' ? lot.name : person.name,
       number: lot.number, street: lot.street, service,
-      weight: 2 + Math.round(R() * 38), size: R() < 0.2 ? 'l' : R() < 0.35 ? 's' : 'm',
+      weight, size: R() < 0.2 ? 'l' : R() < 0.35 ? 's' : 'm',
       tracking
     };
-    // only notes the stop can honour: the planter note brings a planter to leave it behind (below). ("Side door
-    // please" and "Leave with neighbour if out" used to appear with no side door and no neighbour to find.)
+    // light pieces are sometimes fragile, and the label shows it (the load used to invent it on its own)
+    if (weight < 12 && R() < 0.4) { pkg.marks = ['fragile']; pkg.fragile = true; }
+    // Notes only on a standard package: "leave it behind the planter" on a signature package asked the trainee to
+    // break the rule it teaches. Only notes the stop can honour.
     const ring = 'Ring the bell, please don\'t knock: baby sleeping';
-    if (R() < 0.25) pkg.note = pick(kind === 'house' ? ['Please leave behind the planter', ring] : [ring]);
-    const planterNote = !!pkg.note && /planter/.test(pkg.note);
+    let spotChoice = null;
+    if (type === 'leave') {
+      spotChoice = pick(['planter', 'mat', 'mat']);
+      if (spotChoice === 'planter') pkg.note = 'Please leave behind the planter';
+      else if (R() < 0.35) pkg.note = ring;
+    } else if (type === 'dog') pkg.note = 'Dog in yard';
+    else if (service === 'standard' && R() < 0.2) pkg.note = ring;
+    const planterSpot = spotChoice === 'planter';
     const decoys = [
       { id: 'd1', to: pkg.to, number: String(Number(lot.number) + 2), street: lot.street, service: 'standard', weight: 5, size: 'm', tracking: tracking.replace(/\d$/, '7') },
       { id: 'd2', to: pkg.to, number: lot.number, street: lot.street.replace(/(St|Ave|Ln)$/, m => (m === 'St' ? 'Ct' : 'St')), service: 'standard', weight: 8, size: 'm', tracking: tracking.replace(/\d$/, '3') }
     ];
+    // the house looks like the one on the map (its roof is the map's roof colour, darker), and the models vary
+    const tint = OTR.townArt.ROOF_TINTS[(lotIndex >= 0 ? lotIndex : i) % OTR.townArt.ROOF_TINTS.length];
     const spec = kind === 'business'
       ? { number: lot.number, name: lot.name, accent: lot.accent, awning: lot.accent, hours: 'MON–FRI\n8AM–6PM', open: true, steps: 1 }
       : kind === 'apartment'
         ? { number: lot.number, name: 'THE ' + lot.street.toUpperCase().split(' ')[0], steps: 2 }
-        : { number: lot.number, steps: 2 + Math.floor(R() * 2), wall: pick([0xE9DCC3, 0xDCE6EE, 0xF1E3C6, 0xC9D8C4, 0xF3E1D6]), roof: pick([0x4F4458, 0x6B3F3A, 0x3E4A5C, 0x5A4A3A]), door: pick([0x2F6B5A, 0xB8324A, 0x2A3F7A, 0x6B3F3A]), porchW: 420 + Math.round(R() * 60) };
+        : {
+          number: lot.number, steps: 1 + Math.floor(R() * 3),
+          wall: pick([0xE9DCC3, 0xDCE6EE, 0xF1E3C6, 0xC9D8C4, 0xF3E1D6]), roof: OTR.color.shade(tint, -0.5),
+          door: pick([0x2F6B5A, 0xB8324A, 0x2A3F7A, 0x6B3F3A]), porchW: 400 + Math.round(R() * 80),
+          siding: pick(['lap', 'shingle']), numberOn: R() < 0.3 ? 'column' : 'wall', bell: R() < 0.8, stories: R() < 0.35 ? 1 : 2
+        };
 
     const props = [
       { type: 'mailbox', x: -200, art: { number: lot.number } },
       { type: 'streetsign', x: -270, art: { text: lot.street.toUpperCase() } }
     ];
-    if (kind === 'house') props.push({ type: 'tree', x: 1150, depth: -9, art: { snow: weather === 'snow' } });
-    if (planterNote && kind === 'house') props.push({ type: 'planter', x: 'porchX1-80', onPorch: true, id: 'planter' });
+    if (kind === 'house' && type !== 'dog') props.push({ type: 'tree', x: 1150, depth: -9, art: { snow: weather === 'snow' } });
+    if (planterSpot) props.push({ type: 'planter', x: 'porchX1-80', onPorch: true, id: 'planter' });
     if (weather === 'snow' && R() < 0.6) props.push({ type: 'ice', x: 120, hazard: 'ice', id: 'ice', label: 'the icy path', art: { w: 160 } });
-    if (weather === 'rain' && R() < 0.5) props.push({ type: 'hose', x: 40, hazard: 'hose', id: 'hose', label: 'the garden hose' });
+    if (weather === 'rain' && R() < 0.5 && type !== 'dog') props.push({ type: 'hose', x: 40, hazard: 'hose', id: 'hose', label: 'the garden hose' });
+    // clutter on the path, any weather: something else to notice and clear
+    else if (kind === 'house' && type !== 'dog' && R() < 0.3) props.push(R() < 0.5 ? { type: 'toys', x: 60, hazard: 'toys', id: 'toys', label: 'the toys on the path' } : { type: 'hose', x: 40, hazard: 'hose', id: 'hose', label: 'the garden hose' });
     if (weather === 'heat') props.push({ type: 'tree', x: 260, depth: 9, shade: true });
 
-    const planterSpot = planterNote && kind === 'house';
-    const expected = home
-      ? Object.assign({ outcome: 'deliver', types: kind === 'business' ? ['reception'] : ['recipient', 'adult'] }, service === 'adult' ? { id: 'ok' } : {})
-      : (service === 'standard'
+    const expected = type === 'exception'
+      ? { outcome: 'exception', code: 'NA', doorTag: true }
+      : type === 'leave'
         ? { outcome: 'deliver', types: ['left'], spot: planterSpot ? 'planter' : 'mat' }
-        : { outcome: 'exception', code: 'NA', doorTag: true });
+        : Object.assign({ outcome: 'deliver', types: kind === 'business' ? ['reception'] : ['recipient', 'adult'] }, service === 'adult' ? { id: 'ok' } : {});
 
-    return {
+    const stop = {
       id: `d${day}s${i + 1}`,
-      brief: `${lot.number} ${lot.street}${kind === 'business' ? ' — ' + lot.name : ''}: ${service === 'signature' ? 'SIGNATURE REQUIRED' : service === 'adult' ? 'ADULT SIGNATURE' : 'standard delivery'}.`,
+      brief: `${lot.number} ${lot.street}${kind === 'business' ? ' — ' + lot.name : ''}: ${service === 'signature' ? 'SIGNATURE REQUIRED' : service === 'adult' ? 'ADULT SIGNATURE' : 'standard delivery'}.${type === 'dog' ? ' Customer note: "Dog in yard."' : ''}`,
       par: 130,
       lot: { kind, spec, interior: kind === 'business' ? { kind: 'lobby', sign: lot.name, accent: lot.accent } : null },
       props,
-      spots: (planterSpot ? [{ id: 'planter', label: 'Behind the planter (as the note asks)', x: 'planter', grade: 'good' }] : []).concat([
+      spots: type !== 'leave' ? null : (planterSpot ? [{ id: 'planter', label: 'Behind the planter', report: 'behind the planter, as the note asks', x: 'planter', grade: 'good' }] : []).concat([
         { id: 'mat', label: 'On the doormat', x: 0, grade: planterSpot ? 'ok' : 'good', note: planterSpot ? 'Fine in a pinch, but the customer asked for the planter, out of view of the street.' : undefined },
         { id: 'steps', label: 'At the bottom of the steps', x: 'steps', grade: 'bad', note: 'Visible from the street and in the way on the steps.' }
       ]),
       packages: [pkg],
       decoys,
       stepHazard: weather === 'snow' ? 'ice' : weather === 'rain' ? 'wet' : null,
-      // at a business the receptionist signs, and is a person with a name to record (it used to be "Reception")
-      answer: home ? { name: person.name, spec: person.spec, adult: true, atAddress: true, delay: 2 + R() * 2, role: kind === 'business' ? 'reception' : 'resident', id: { dob: '05/14/1986', exp: '05/14/2030' } } : null,
+      // at a business the receptionist signs, and is a person with a name to record
+      answer: home ? Object.assign({ name: person.name, spec: person.spec, adult: true, atAddress: true, delay: 2 + R() * 2, role: kind === 'business' ? 'reception' : 'resident', id: { dob: '05/14/1986', exp: '05/14/2030' } }, this.householdMember(type, kind, person, day, i)) : null,
       expected,
       lessons: []
     };
+    // now and then the person at the door is the hard part: upset about a late package, or speaking Spanish
+    // (the Tricky Doorsteps conversations, with this customer's name)
+    if (type === 'handoff' && kind === 'house' && stop.answer && OTR_DATA.stopSets.m3_doorsteps && R() < 0.35) {
+      const src = OTR_DATA.stopSets.m3_doorsteps.stops;
+      const which = R() < 0.5 ? { g: src[0].talks.dana, sp: 'dana' } : { g: src[1].talks.ana, sp: 'ana' };
+      const graph = JSON.parse(JSON.stringify(which.g));
+      Object.values(graph.nodes).forEach(n => {
+        if (n.speaker === which.sp) n.speaker = 'customer';
+        if (n.text) n.text = n.text.replace(/Ana Morales/g, stop.answer.name);
+      });
+      stop.answer.talk = 'customer';
+      stop.talks = Object.assign({}, stop.talks, { customer: graph });
+    }
+    if (type === 'dog') {
+      // a dog loose in the front yard (the Module 8 situation): the owner is called out and hands over at the gate
+      const dg1 = OTR_DATA.stopSets.m8_dog.stops[0];
+      stop.fence = { x0: -120, x1: 980, gate: 40, color: 0xFFFFFF };
+      stop.props.push({ type: 'sign', x: -105, depth: 9, art: { text: 'BEWARE\nOF DOG' } }, { type: 'doghouse', x: 210, depth: 7 }, { type: 'bowl', x: 290, depth: 7 });
+      // a different dog each time: name, coat and collar
+      const coats = [[0xC98B4F, 0xF3E3CC], [0x3A3030, 0xB88A55], [0xE8D8C0, 0xFFFFFF], [0x8A5A2B, 0x2A1E18], [0xD8C8A8, 0x9A7A55]];
+      const coat = pick(coats);
+      stop.dog = Object.assign({}, dg1.dog, { name: pick(['Biscuit', 'Duke', 'Luna', 'Bear', 'Daisy', 'Milo', 'Scout']), spec: Object.assign({}, dg1.dog.spec, { fur: coat[0], patch: coat[1], collar: pick([0x3DA5FF, 0xE8304A, 0x2BC48A, 0xFFC83D]) }) });
+      stop.triggers = [{ on: 'gate', talk: 'gate' }];
+      stop.talks = { gate: dg1.talks.gate };
+    }
+    if (!stop.spots) delete stop.spots;
+    return stop;
+  },
+
+  /**
+   * Dispatch changes a stop mid-route. The change is real (the stop scene sees it: the scan shows the new service, the
+   * porch has the planter), so a trainee who never reads the message finds out at the door. The message is read
+   * safely by pulling over, or on the stop's brief once parked; reaching for the handheld while driving is the
+   * violation it always was.
+   */
+  sendDispatch() {
+    const st = this.state, D = st && st.dispatch;
+    if (!D || D.sent) return null;
+    const r = st.route[D.stop], stop = r.stop, pkg = stop.packages[0];
+    const addr = `${pkg.number} ${pkg.street}`;
+    D.sent = true;
+    if (D.kind === 'signature') {
+      pkg.service = 'signature';
+      delete pkg.note;
+      delete stop.spots;
+      stop.expected = { outcome: 'exception', code: 'NA', doorTag: true };
+      D.text = `Shipper update for stop ${r.index} (${addr}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.`;
+    } else {
+      pkg.note = 'Please leave behind the planter';
+      stop.props.push({ type: 'planter', x: 'porchX1-80', onPorch: true, id: 'planter' });
+      stop.spots = [{ id: 'planter', label: 'Behind the planter', report: 'behind the planter, as the customer asked', x: 'planter', grade: 'good' },
+        { id: 'mat', label: 'On the doormat', x: 0, grade: 'ok', note: 'The customer called dispatch to ask for the planter, out of view of the street.' },
+        { id: 'steps', label: 'At the bottom of the steps', x: 'steps', grade: 'bad', note: 'Visible from the street and in the way on the steps.' }];
+      stop.expected = { outcome: 'deliver', types: ['left'], spot: 'planter' };
+      D.text = `Customer at stop ${r.index} (${addr}) called: "Please leave it behind the planter on the porch."`;
+    }
+    stop.brief = `${stop.brief}\nUPDATE FROM DISPATCH: ${D.text}`;
+    this.save();
+    return D;
+  },
+
+  /** The message is read: how ('pulled over' or 'at the stop'), scored once in the day's log. */
+  readDispatch(log, how) {
+    const D = this.state && this.state.dispatch;
+    if (!D || !D.sent || D.read) return;
+    D.read = how;
+    log.check('safety', 2, 2, how === 'pulled over' ? 'Pulled over to read a dispatch message' : 'Left a dispatch message until parked', { lesson: 'Messages wait until the van is stopped safely: pull over, or read it when you are parked.' });
+    this.save();
+  },
+
+  /**
+   * What to wear on a bad-weather day: a short question from dispatch after the briefing. The answer is kept
+   * (st.gear 'good' | 'poor'): poor footwear makes slippery steps less forgiving, and no water or hat makes the heat
+   * build faster.
+   */
+  gearTalk(weather) {
+    const g = (text, good, ok, bad, lesson) => ({
+      start: 'g0',
+      nodes: {
+        g0: { speaker: 'dispatch', text, check: 'Dressed for the weather',
+          choices: OTR.util.shuffle([
+            { text: good, grade: 'good', effects: { safety: 2 }, set: { gear: 'good' }, feedback: 'Right for the day: it keeps you on your feet and on the route.', next: 'end' },
+            { text: ok, grade: 'ok', effects: { safety: 1 }, set: { gear: 'poor' }, feedback: 'Better than nothing, but it will cost you out there. ' + lesson, lesson, next: 'end' },
+            { text: bad, grade: 'bad', effects: { safety: 0 }, set: { gear: 'poor' }, feedback: lesson, lesson, next: 'end' }
+          ]) },
+        end: { type: 'end' }
+      }
+    });
+    if (weather === 'snow') return g('Snow and ice all day. What are you wearing out there?',
+      '"Insulated boots with a good grip, gloves, layers and a hat."', '"My usual work boots and a jacket: it\'s only a few hours."', '"Sneakers. Easier to hop in and out of the van."',
+      'On ice, footwear with real grip is the difference between a slip and a fall. Dress for the worst step of the day.');
+    if (weather === 'rain' || weather === 'storm') return g('Rain all day. What are you wearing?',
+      '"Waterproof jacket, boots with good tread, and I\'ll keep the scanner dry."', '"A hoodie. I\'ll run between the van and the doors."', '"Nothing special: I dry off in the van."',
+      'Wet steps and porches are slippery: boots with tread, and walk, don\'t run.');
+    if (weather === 'heat') return g('102 degrees this afternoon. How are you set up?',
+      '"Light clothes, a hat, sunscreen, and a big water bottle I\'ll refill."', '"Shorts and a T-shirt. I\'ll buy a drink at lunch."', '"Same as always. I don\'t really get thirsty."',
+      'Heat illness creeps up: water with you all day, sip before you\'re thirsty, shade and a hat.');
+    return null;
+  },
+
+  /**
+   * The post-trip's three calls, from the day: fuel (fleet rule: refuel below a quarter tank), the van (a curb strike
+   * or a crash today is reported and the tires and body checked), and packages back plus the scanner.
+   * Each: { topic, text, options, correct, cat, label, lesson }, options in a random order.
+   */
+  postTripQuestions(st) {
+    const q = (o) => {
+      const order = OTR.util.shuffle(o.options.map((_, i) => i));
+      return Object.assign({}, o, { options: order.map(i => o.options[i]), correct: order.indexOf(0) });   // options[0] is right
+    };
+    const fuel = st.fuel || 0.5;
+    const fuelTxt = { 0.125: 'an eighth of a tank', 0.25: 'a quarter of a tank', 0.5: 'half a tank', 0.75: 'three quarters of a tank' }[fuel] || 'half a tank';
+    const low = fuel <= 0.25;
+    const items = (st.log && st.log.items) || [];
+    const hits = items.filter(it => it.where && (it.where.key === 'kerb' || it.where.key === 'crash')).length;
+    const back = (st.stats && st.stats.exceptions) || 0;
+    // anything today that needs an incident report: a crash, a person hit, a slip or trip, a dog
+    const incident = items.find(it => it.where && (it.where.key === 'crash' || it.where.key === 'hitped'))
+      || items.find(it => /^Slipped or tripped|^Fell on /.test(it.label || ''))
+      || items.find(it => /dog/i.test(it.label || '') && it.kind === 'penalty');
+    const extra = incident ? [q({
+      topic: 'INCIDENT REPORT', cat: 'safety',
+      text: `Today: "${incident.label}". What goes in the incident report?`,
+      options: ['What happened, where and when, in plain facts, and any injury or damage, reported today', 'Nothing: nobody was badly hurt, so there\'s nothing to report', 'Whose fault you think it was, and why it wasn\'t yours'],
+      label: 'Filed a factual incident report the same day',
+      lesson: 'Every incident is reported the same day, in facts: what, where, when, who was hurt, what was damaged. Small ones are how the big ones get prevented.'
+    })] : [];
+    return extra.concat([
+      q({
+        topic: 'FUEL', cat: 'efficiency',
+        text: `The gauge reads ${fuelTxt}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?`,
+        options: low
+          ? ['Refuel on the way in, so the van is ready for the morning', 'Leave it: the morning driver can fill up', 'Park it and mention it tomorrow']
+          : ['Nothing needed: it is above a quarter tank', 'Refuel anyway: top it up every night', 'Leave a note asking the morning driver to fill up'],
+        label: low ? 'Refuelled a low van before parking up' : 'Knew the van had fuel enough for the morning',
+        lesson: low ? 'Refuel at the end of the day when the tank is low: the morning route starts on time, not at the pump.' : 'Above the fleet\'s minimum the van is ready: no need to spend time at the pump.'
+      }),
+      q(hits ? {
+        topic: 'THE VAN', cat: 'safety',
+        text: `Today you ${items.some(it => it.where && it.where.key === 'crash') ? 'hit something' : 'hit the curb'}${hits > 1 ? ` (${hits} times)` : ''}. What goes on the post-trip report?`,
+        options: ['Report it, and check the tires, wheels and body for damage before signing', 'Nothing: the van drove fine afterwards', 'Mention it to a colleague, not on the report'],
+        label: 'Reported the day\'s curb strike or knock on the post-trip',
+        lesson: 'Report every curb strike and knock: a cut sidewall or bent wheel is found in the yard, not at highway speed tomorrow.'
+      } : {
+        topic: 'THE VAN', cat: 'safety',
+        text: 'A clean day on the road. What does the post-trip still need?',
+        options: ['A walk round (lights, tires, body) and the report signed: "no new defects"', 'Nothing: nothing happened today', 'Only a note if the next driver asks'],
+        label: 'Walked round the van and signed the post-trip',
+        lesson: 'The post-trip is signed every day: the next driver relies on it, and some defects only show at the end of a shift.'
+      }),
+      q(back ? {
+        topic: 'PACKAGES AND SCANNER', cat: 'service',
+        text: `You brought back ${back} package${back === 1 ? '' : 's'} with an exception. What happens to ${back === 1 ? 'it' : 'them'}?`,
+        options: ['Scan them in as returns at the cage, then dock the scanner to upload the day', 'Leave them on the shelf for tomorrow\'s route', 'Keep them in the van: they\'re on tomorrow\'s route anyway'],
+        label: 'Returned the exception packages and docked the scanner',
+        lesson: 'Every package back at the station is scanned in, so the customer\'s tracking is right and nothing goes missing overnight.'
+      } : {
+        topic: 'PACKAGES AND SCANNER', cat: 'service',
+        text: 'Everything delivered. What do you do with the scanner?',
+        options: ['Dock it so the day uploads and it charges, then hand in the keys', 'Take it home to save time in the morning', 'Leave it in the van, switched on'],
+        label: 'Docked the scanner at the end of the day',
+        lesson: 'Docking uploads the day\'s scans and signatures and charges the scanner for the morning.'
+      })
+    ]);
   },
 
   /* ================================================================ lifecycle */
   start(scene) {
     const day = OTR.save.data.day;
-    OTR.save.data.shift = this.generate(day);
+    OTR.save.data.shift = this.generate(day, this.newVariant());
+    OTR.save.data.shift.startedAt = Date.now();      // for the record's "time training"
     this.save();
     this.go(scene);
   },
@@ -164,7 +397,10 @@ OTR.shift = {
       case 'brief': OTR.fx.transition(scene, 'ShiftBriefScene', {}); break;
       case 'pretrip': this.startScenario(scene, 'm1-pretrip'); break;
       case 'load': this.startScenario(scene, 'm6-load', { content: this.loadingContent() }); break;
-      case 'route': this.toDrive(scene); break;
+      // a reload (or quit) inside a stop reopens that stop, not the drive to it (which parked, logged and moved the
+      // clock a second time)
+      case 'route': if (st.atStop != null && st.route[st.atStop] && !st.route[st.atStop].done) this.openStop(scene); else this.toDrive(scene); break;
+      case 'posttrip': OTR.fx.transition(scene, 'PostTripScene', {}); break;
       case 'debrief': OTR.fx.transition(scene, 'ShiftDebriefScene', {}); break;
       default: OTR.fx.transition(scene, 'HubScene'); break;
     }
@@ -184,30 +420,29 @@ OTR.shift = {
     OTR.fx.transition(scene, sc.scene, Object.assign({ scenarioId: id, shift: true }, extra || {}));
   },
 
-  /** Packages for the loading phase, built from the route. */
+  /**
+   * Packages for the loading phase: exactly the day's pieces, each as its label shows it at the stop. (Five extra
+   * pieces used to be loaded for addresses that were not on the route, tagged with stop numbers they did not belong
+   * to, and never delivered.)
+   */
   loadingContent() {
     const st = this.state;
-    const packages = [];
-    st.route.forEach((r, i) => {
+    const packages = st.route.map((r, i) => {
       const p = r.stop.packages[0];
-      packages.push({
+      return {
         id: `s${i + 1}`, to: p.to, number: p.number, street: p.street, stop: i + 1,
         weight: p.weight, size: p.size, service: p.service, tracking: p.tracking,
-        fragile: p.weight < 12 && i % 3 === 0, hazmat: false
-      });
+        fragile: !!p.fragile, hazmat: false
+      };
     });
-    // a few extra pieces so the truck is not half empty
-    st.route.forEach((r, i) => {
-      const p = r.stop.decoys[0];
-      packages.push({ id: `x${i + 1}`, to: p.to, number: p.number, street: p.street, stop: Math.min(9, i + 1), weight: 4 + (i * 7) % 30, size: p.size, tracking: p.tracking });
-    });
+    const n = st.route.length;
     return {
       mode: 'load', par: 200,
       intro: {
         title: 'Load the truck',
         lines: [
-          `Day ${st.day}. ${packages.length} pieces for ${st.route.length} stops.`,
-          'Section A is stops 1-3 (nearest the door), B is 4-6, C is 7-9.',
+          `Day ${st.day}. ${packages.length} pieces for ${n} stops.`,
+          n > 3 ? `Section A is stops 1-3 (nearest the door), B is stops 4-${n}.` : `Section A is stops 1-${n} (nearest the door).`,
           'Heavy low, fragile off the floor, and strap the floor load before you roll.'
         ]
       },
@@ -220,13 +455,47 @@ OTR.shift = {
   toDrive(scene) {
     const st = this.state;
     const remaining = st.route.filter(r => !r.done);
-    if (!remaining.length) { this.setPhase(scene, 'debrief'); return; }
+    if (!remaining.length) { this.setPhase(scene, 'posttrip'); return; }
+    // A truck that rolled out with a defect the pre-trip missed is stopped at the gate check on the way out: held for
+    // the fix, and the time counts against the day (it used to drive all day with, say, the cargo door unlatched).
+    let notice = null;
+    // what the walkaround flagged is fixed by the shop before the first leg: time on the clock, no penalty
+    const fixed = (st.truck && st.truck.fixed) || [];
+    let fixedText = '';
+    if (fixed.length && !st.truck.fixedShown) {
+      st.truck.fixedShown = true;
+      st.clockMin += 8;
+      this.save();
+      fixedText = `You flagged it, so the shop fixed it before you rolled out (8 minutes):\n${fixed.slice(0, 3).join('\n')}${fixed.length > 3 ? `\n+ ${fixed.length - 3} more` : ''}`;
+      notice = { title: 'Flagged, and fixed', body: fixedText + '\n\nGood catch. A defect found in the yard costs minutes; found on the road, it costs far more.', button: 'Roll out' };
+    }
+    const missed = (st.truck && st.truck.missed) || [];
+    if (missed.length && !st.truck.heldAtGate) {
+      st.truck.heldAtGate = true;
+      st.clockMin += 10;
+      const log = OTR.ScoreLog.from(st.log);
+      log.penalty('efficiency', 2, `Held at the gate for a missed defect (${missed.length})`, { group: 'drive', lesson: 'A defect the walkaround misses is found later, when it costs more. Look properly before you sign off.' });
+      st.log = log.toJSON();
+      this.save();
+      notice = {
+        title: 'Held at the gate',
+        body: `${fixedText ? fixedText + '\n\n' : ''}The yard check found what the pre-trip missed:\n${missed.slice(0, 3).join('\n')}${missed.length > 3 ? `\n+ ${missed.length - 3} more` : ''}\n\nThe truck is held 10 minutes for the fix before you can roll.`,
+        button: 'Roll out'
+      };
+    }
+    st.legMinDone0 = st.legMinDone || 0;      // the clock of the leg being resumed starts where it left off
     OTR.fx.transition(scene, 'TownDriveScene', {
       shift: true, seed: st.seed, weather: st.weather, tod: this.todNow(),
       start: st.van || null,
       route: st.route.filter(r => !r.done).map(r => ({ lotId: r.lotId, index: r.index })),
+      total: st.route.length,                              // "STOP 2 OF 5", not of the stops still to do
       log: st.log,
-      clock: () => OTR.shift.clockStr()
+      notice,
+      // the clock runs while you drive, at the rate arriveStop adds on (it used to stand still, then jump)
+      // minutes already driven on this leg before a quit or reload (the drive saves where it is as it goes)
+      legMin0: st.legMinDone || 0,
+      midLeg: !!st.midLeg,                      // resumed mid-road: not a pull-out from the curb
+      clock: (elapsed) => OTR.shift.clockStr(st.clockMin + (st.legMinDone0 || 0) + Math.floor((elapsed || 0) / 12))
     });
   },
 
@@ -245,22 +514,37 @@ OTR.shift = {
   arriveStop(driveScene, stopRef) {
     const st = this.state;
     st.van = { x: driveScene.van.x, y: driveScene.van.y, heading: driveScene.van.heading };
+    st.midLeg = false;
     st.log = driveScene.log.toJSON();
-    st.clockMin += 6 + Math.round(driveScene.elapsed / 12);
-    this.save();
+    st.clockMin += 6 + (driveScene.d.legMin0 || 0) + Math.round(driveScene.elapsed / 12);
+    st.legMinDone = 0; st.legMinDone0 = 0;
     const entry = st.route.find(r => r.lotId === stopRef.lotId);
-    const idx = st.route.indexOf(entry);
-    st.stopIndex = idx;
+    // an unread dispatch message about this stop is read now, parked (it is on the stop's brief)
+    if (st.dispatch && st.dispatch.sent && !st.dispatch.read && st.dispatch.stop === st.route.indexOf(entry)) {
+      this.readDispatch(driveScene.log, 'at the stop');
+      st.log = driveScene.log.toJSON();
+    }
+    st.stopIndex = st.route.indexOf(entry);
+    st.atStop = st.stopIndex;                  // saved: a reload from here on reopens the stop
+    st.stopLog = null;
     this.save();
-    OTR.fx.transition(driveScene, 'StopScene', {
+    this.openStop(driveScene);
+  },
+
+  /** Open the stop the van is parked at (on arrival, or again after a reload inside it). */
+  openStop(scene) {
+    const st = this.state;
+    const entry = st.route[st.atStop];
+    OTR.fx.transition(scene, 'StopScene', {
       shift: true,
       shiftStop: {
-        set: { title: 'Route', tod: this.todNow(), weather: st.weather, time: st.clockMin, heat: st.heat ? { hydration: st.heat.hyd, bodyHeat: st.heat.temp, intensity: 1.1 } : null, talks: OTR_DATA.stopSets.m8_heat.talks },
+        // no hat and no water (the morning's gear question) and the heat builds faster
+        set: { title: 'Route', tod: this.todNow(), weather: st.weather, time: st.clockMin, heat: st.heat ? { hydration: st.heat.hyd, bodyHeat: st.heat.temp, intensity: st.gear === 'poor' ? 1.35 : 1.1 } : null, talks: OTR_DATA.stopSets.m8_heat.talks },
         stop: entry.stop,
         index: entry.index,
         total: st.route.length
       },
-      carry: { log: st.log, clock: st.clockMin, heat: st.heat }
+      carry: { log: st.stopLog || st.log, clock: st.clockMin, heat: st.heat }
     });
   },
 
@@ -273,14 +557,29 @@ OTR.shift = {
       entry.result = summary || null;
     }
     st.log = log.toJSON();
+    st.atStop = null;
+    st.stopLog = null;
     st.clockMin += 8 + Math.round((summary && summary.time ? summary.time : 60) / 12);
     if (stopScene.heat) st.heat = { hyd: stopScene.heat.hyd, temp: stopScene.heat.temp };
     if (summary && summary.outcome === 'delivered') st.stats.delivered++;
     else if (summary && summary.outcome === 'exception') st.stats.exceptions++;
     this.save();
     const remaining = st.route.filter(r => !r.done);
-    if (!remaining.length) this.setPhase(stopScene, 'debrief');
+    if (!remaining.length) this.setPhase(stopScene, 'posttrip');
     else this.toDrive(stopScene);
+  },
+
+  /**
+   * Pause → Restart inside a route day starts the part again, but not with a clean sheet: the mistakes made before
+   * the restart stay on the day's record, and the restart itself is logged for the debrief (it used to be a free
+   * do-over). Only the part's own checks (group) are dropped, to be earned again.
+   */
+  restartLog(log, group, label) {
+    const items = log.items.filter(it => !(group && it.group === group && it.kind === 'check' && !it.critical));
+    const out = OTR.ScoreLog.from({ items });
+    // a line on the record, not a fine: what it costs is that nothing before it was erased
+    out.penalty('efficiency', 0, label, { group: group || log.group });
+    return out.toJSON();
   },
 
   /** Hook for OTR.flow.complete: swallow scenario results that belong to the shift. */
@@ -288,9 +587,12 @@ OTR.shift = {
     const st = this.state;
     if (!st || !scene.shiftMode) return false;
     const log = OTR.ScoreLog.from(st.log);
+    // the phase's most important lesson: the top of its ranked takeaways, or the scene's own first one
+    const top = result.log && result.log.takeaways ? (result.log.takeaways()[0] || {}).text : null;
+    const firstLesson = top || [].concat(result.lessons || []).map(l => (l && l.text) || l)[0];
     if (st.phase === 'pretrip') {
       st.truck.pretripScore = result.ratios;
-      log.check('safety', Math.round((result.ratios.safety || 0) * 4), 4, 'Pre-trip inspection', { lesson: (result.lessons || [])[0] });
+      log.check('safety', Math.round((result.ratios.safety || 0) * 4), 4, 'Pre-trip inspection', { lesson: firstLesson });
       log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 2), 2, 'Pre-trip done briskly');
       st.log = log.toJSON();
       st.clockMin += 14;
@@ -299,9 +601,10 @@ OTR.shift = {
       return true;
     }
     if (st.phase === 'load') {
-      log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 4), 4, 'Truck loaded in stop order', { lesson: (result.lessons || [])[0] });
+      log.check('efficiency', Math.round((result.ratios.efficiency || 0) * 4), 4, 'Truck loaded in stop order', { lesson: firstLesson });
       log.check('safety', Math.round((result.ratios.safety || 0) * 3), 3, 'Load secured safely');
       st.log = log.toJSON();
+      st.loadMap = (result.stats && result.stats.placement) || null;     // the van shelves at each stop follow it
       st.clockMin += 22;
       this.save();
       this.setPhase(scene, 'route');
@@ -316,21 +619,78 @@ OTR.shift = {
     const log = OTR.ScoreLog.from(st.log);
     const cats = OTR.scoring.CATS;
     const ratios = log.ratios(cats);
+    const criticals = log.criticals(undefined, cats);
     const stars = {};
-    cats.forEach(c => { stars[c] = OTR.scoring.stars(ratios[c]); });
+    // the same rules as every scenario: a critical mistake (a hit pedestrian, a signature package left unattended)
+    // caps its category at one star, whatever the rest of the day was like
+    cats.forEach(c => {
+      stars[c] = log.tested(c) ? OTR.scoring.stars(ratios[c]) : 0;
+      if (criticals.some(it => it.cat === c)) stars[c] = Math.min(1, stars[c]);
+    });
+    const total = cats.reduce((n, c) => n + stars[c], 0);
     const rec = {
       day: st.day, at: Date.now(), stars, ratios,
       delivered: st.stats.delivered, exceptions: st.stats.exceptions,
       weather: st.weather, minutes: Math.round(st.clockMin - (8 * 60 + 20))
     };
+    // Everything the debrief shows is kept with the day (a reload on the debrief used to lose it for good, and the
+    // hub can open it again): the map, what to work on and what went well.
+    const last = Object.assign({}, rec, {
+      seed: st.seed,
+      stops: st.route.map(r => ({ lotId: r.lotId, outcome: r.result ? r.result.outcome : null })),
+      work: this.workOn(log, cats),
+      pins: OTR.drive.pins(log),                 // driving mistakes, where they happened (the drive review)
+      well: this.wentWell(log),
+      rolledOut: (st.truck && st.truck.missed) || [],
+      criticals: criticals.length,
+      note: OTR.util.pick(OTR_DATA.config.dayNotes[criticals.length || stars.safety <= 1 ? 'safety' : total >= 8 ? 'great' : total >= 5 ? 'good' : 'rough'])
+    });
     const S = OTR.save.data;
     S.route = S.route || { days: 0, best: { safety: 0, efficiency: 0, service: 0 }, history: [] };
     S.route.days++;
+    if (st.startedAt) S.route.seconds = (S.route.seconds || 0) + Math.min(4 * 3600, Math.round((Date.now() - st.startedAt) / 1000));
     cats.forEach(c => { S.route.best[c] = Math.max(S.route.best[c] || 0, stars[c]); });
     S.route.history.push(rec);
     S.route.history = S.route.history.slice(-10);
+    S.route.last = last;
     S.shift = null;
     OTR.save.endDay();
-    return rec;
+    return last;
+  },
+
+  /**
+   * The day's mistakes for the debrief, one row per kind of mistake with its count and the points it cost in total
+   * (repeats add up: six kerbs cost more than one), critical first, then by cost. The top mistake of every category
+   * is moved up with them, so a day of driving mistakes cannot hide the doorstep ones.
+   */
+  workOn(log, cats) {
+    const rows = [];
+    const pins = OTR.drive.pins(log);
+    log.mistakes(undefined, cats).forEach(it => {
+      let r = rows.find(o => o.label === it.label);
+      if (!r) { r = { label: it.label, lesson: it.lesson || null, cat: it.cat, n: 0, lost: 0, critical: false, partial: false, order: rows.length }; rows.push(r); }
+      r.n++;
+      r.lost += it.kind === 'penalty' ? -it.got : it.max - it.got;
+      r.critical = r.critical || !!it.critical;
+      r.partial = r.partial || (it.kind === 'check' && it.got > 0);
+      r.lesson = r.lesson || it.lesson || null;
+    });
+    const rank = (a, b) => (b.critical - a.critical) || (b.lost - a.lost) || (a.order - b.order);
+    rows.sort(rank);
+    const firsts = cats.map(c => rows.find(r => r.cat === c)).filter(Boolean);
+    const head = rows.filter(r => r.critical).concat(firsts.filter(r => !r.critical).sort(rank));
+    return head.concat(rows.filter(r => head.indexOf(r) < 0))
+      .map(r => ({ label: r.label, lesson: r.lesson, cat: r.cat, n: r.n, lost: r.lost, critical: r.critical, partial: r.partial && !r.critical && r.n === 1,
+        pin: pins.findIndex(p => p.label === r.label) }));        // a driving mistake: where it first happened
+  },
+
+  /** Checks passed in full, one row per kind with its count, the most often first. */
+  wentWell(log) {
+    const rows = [];
+    log.items.filter(it => it.kind === 'check' && it.good && it.max > 0).forEach(it => {
+      const r = rows.find(o => o.label === it.label);
+      if (r) r.n++; else rows.push({ label: it.label, cat: it.cat, n: 1 });
+    });
+    return rows.sort((a, b) => b.n - a.n);
   }
 };

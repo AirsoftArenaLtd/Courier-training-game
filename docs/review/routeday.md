@@ -27,6 +27,11 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   other briefs).
 - **Suggested fix:** branch the close on the grade ("Good." / "Remember that out there."), and score a wrong answer
   0/2 rather than -1/2.
+- **Status:** fixed — each briefing's close depends on the answer: the recommended one gets the dispatcher's "Good.",
+  any other a corrective line that repeats the rule ("Remember that out there: fixed grab handle, three points, every
+  time."); a wrong answer scores 0/2, never a negative mark. The dogs briefing no longer promises "two dog notes on
+  the route today" (a day has at most one), and the scanning question is logged as "Morning briefing check", not a
+  safety check.
 
 ### ROUTEDAY-2: Keys pressed to get through the briefing fall through and dismiss the pre-trip's intro card
 - **Severity:** minor
@@ -39,6 +44,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   card does show, so it is only keyboard users who lose it.
 - **Evidence:** `test/out/review/routeday/04-pretrip-intro.png`, `63-day2-pretrip.png` (timer running, no card).
 - **Suggested fix:** swallow key input for ~600 ms after each phase transition, or require the intro card's button.
+- **Status:** fixed — the Enter/SPACE shortcut on every scenario's intro card (and on the drive's gate-check card and
+  the debrief's button) only answers 600 ms after the card appears, so keys still arriving from the briefing cannot
+  dismiss a card nobody has read; a click works at once.
 
 ### ROUTEDAY-3: The pre-trip ignores the day's weather and time (always a clear sunny morning)
 - **Severity:** polish (minor on rain / snow / storm days)
@@ -50,6 +58,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   `src/scenes/m1/PreTripScene.js:45` and `:53` hard-code
   `tod: 'morning', weather: 'clear'`.
 - **Suggested fix:** in shift mode take `OTR.shift.state.weather` for the stage and atmos.
+- **Status:** fixed — in a route day the pre-trip stage and atmosphere use the day's weather (rain on day 2, snow on
+  day 4…), still in the morning light of the day's start.
 
 ### ROUTEDAY-4: Defects missed in the pre-trip are saved as "rolling out with you" but nothing ever uses them
 - **Severity:** design
@@ -63,6 +73,11 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   no reader. The pre-trip's defects are also rolled with `Math.random` (`PreTripScene.js:29-32`), not the day's
   seed, so "days are seeded" does not hold for this part.
 - **Suggested fix:** read `truck.defects` in the drive or the debrief ("You rolled out with: cargo door latch").
+- **Status:** fixed (decision) — the pre-trip's defects are drawn from the day's seed in a route day (the same day is
+  the same truck), and a defect it misses is a critical safety line (see WP1). It has a consequence: on the way out
+  the yard check finds it, the drive opens with a "Held at the gate" card naming the defects, the truck is held 10
+  minutes (on the day's clock) and the day logs "Held at the gate for a missed defect" (efficiency −2). The debrief
+  lists them under "ROLLED OUT WITH".
 
 ### ROUTEDAY-5: The load manifest has five extra pieces for addresses that are not on the route; they are never delivered
 - **Severity:** major (content that contradicts itself)
@@ -82,6 +97,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Evidence:** `src/core/shift.js:199-203` (extras built from `r.stop.decoys[0]`, `stop: Math.min(9, i + 1)`).
 - **Suggested fix:** make the extras real second pieces for the same address (delivered at that stop), or give them
   their own stop numbers that are clearly another route, and do not reuse the loaded labels as wrong-address decoys.
+- **Status:** fixed — the load holds exactly the day's pieces, one per stop, each as its label shows it at the stop
+  (same weight, service and fragile mark; fragile is decided by the generator and printed on the stop's label, not
+  invented by the load). The five extra pieces for neighbouring addresses are gone, so no loaded piece is a
+  wrong-address decoy at a stop, and the intro only names the sections the day uses.
 
 ### ROUTEDAY-6: "Close up & roll out" goes straight to the drive: no load report, and the load does not carry to the stops
 - **Severity:** minor / design
@@ -95,6 +114,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   (`packagesLoaded` is declared in `src/core/shift.js:70` and never written).
 - **Suggested fix:** show the load report card before rolling out; optionally have each stop's shelves reflect the
   load (a piece in the wrong section is harder to find).
+- **Status:** fixed — "Close up & roll out" opens a load report first ("Load report: a clean load", or every piece out
+  of place and why) with its own "Roll out ▶" button ("Finish ▶" in practice). The van shelves at each stop now mirror the load
+  as well (added after the owner's play test on 25 September): every piece still on board, on the shelf it was
+  loaded onto; delivered pieces are gone and an undelivered one rides on.
 
 ### ROUTEDAY-7: P parks the van up on the sidewalk, outside the marked zone and across the crosswalk
 - **Severity:** major (teaches the wrong thing; the zone the toast talks about is not enforced)
@@ -110,6 +133,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   the kerb) and `along <= 150`, wider than the drawn zone; `gapM` can go negative and still count as "neat" (`:1067`).
 - **Suggested fix:** require all four wheels on the road and the body inside the drawn zone; treat a negative gap as
   "on the kerb".
+- **Status:** fixed — see DRIVING-10: a van on the sidewalk, outside the drawn zone or over a crosswalk is refused
+  with a message saying what to fix, and a negative kerb gap can no longer count as neat.
 
 ### ROUTEDAY-8: The drive HUD counts stops against the stops left: "STOP 2 OF 4", "STOP 3 OF 3"...
 - **Severity:** minor (confusing on every leg after the first)
@@ -122,6 +147,7 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Suspected cause:** `src/scenes/shift/TownDriveScene.js:1132` uses `this.route.length`, and `OTR.shift.toDrive`
   (`src/core/shift.js:227`) passes only the stops not yet done.
 - **Suggested fix:** pass the day's total (`st.route.length`) to the scene and use it in `stopLabelFor`.
+- **Status:** fixed — the shift passes the day's total to the drive, which reads "STOP 2 OF 5".
 
 ### ROUTEDAY-9: Pause → Restart on a drive leg silently wipes that leg's violations (a free do-over)
 - **Severity:** major (assessment integrity)
@@ -136,6 +162,11 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   arrival (`src/core/shift.js:220-231`).
 - **Suggested fix:** in a route day, have Restart keep the log (or log a "restarted leg" line), or rename it "Retry
   from last stop" and show it in the debrief.
+- **Status:** fixed — in a route day Restart says what it restarts ("Restart this leg", "Restart this stop") and no
+  longer erases anything: every mistake made before it (penalties and failed critical checks) stays on the day's
+  record, only the part's own checks are earned again, and a "Restarted the drive to stop 2" / "Restarted stop 3" line
+  is logged for the debrief. Drive violations are also saved as they happen, so a reload mid-leg is not a do-over
+  either.
 
 ### ROUTEDAY-10: Reloading during a stop sends you back to the drive, the van creeps out of the zone, and re-parking scores twice
 - **Severity:** major
@@ -150,6 +181,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   (`src/core/shift.js:245-265`) adds to the clock and the park lines each time.
 - **Suggested fix:** save "at stop N" when the stop opens and resume straight into it; or start a resumed drive with
   the park brake on and skip the duplicate park/belt lines for a stop already arrived at.
+- **Status:** fixed — the day saves "at stop N" when the van parks; a reload or "Quit to the station" inside the stop
+  resumes straight into that stop (the arrival's park and belt lines and the clock are not added a second time), with
+  the stop's mistakes so far kept (they are saved as they happen).
 
 ### ROUTEDAY-11: The house at the stop is not the house on the map
 - **Severity:** polish
@@ -161,6 +195,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   (`src/core/shift.js:105`). Also every house on the route is the same two-storey model in new paint, which adds to the
   sameness of the day (see ROUTEDAY-16).
 - **Suggested fix:** derive the stop's `roof` from the lot's tint (and its storeys/width from `lot.variant`).
+- **Status:** fixed — the house's roof is the map's roof colour for that lot (a darker shade of the same tint,
+  `OTR.townArt.ROOF_TINTS`), and house models vary: storeys, lap or shingle siding, porch width, the house number on
+  the wall or a column, with or without a bell.
 
 ### ROUTEDAY-12: Clocks disagree: the drive clock stands still while driving, the handheld lags the HUD
 - **Severity:** minor
@@ -170,6 +207,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Expected:** one clock, moving. **Actual:** the drive only adds time on arrival (`6 + elapsed/12` minutes,
   `shift.js:249`); the handheld text is set when it opens.
 - **Suggested fix:** tick the drive clock from `st.clockMin + elapsed/12`; refresh the handheld clock each second.
+- **Status:** fixed — the drive clock runs while driving (`st.clockMin + elapsed / 12`, the rate the arrival adds on),
+  and the handheld's clock refreshes every second while it is up.
 
 ### ROUTEDAY-13: The generator puts "Please leave behind the planter" on an ADULT SIGNATURE package, and the stop rewards following it
 - **Severity:** major (route-day variant of STOPS-M5-19/-20: here the content itself sets the trap)
@@ -187,6 +226,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   `:130` build the planter spot for any house with that note.
 - **Suggested fix:** only roll notes for `service === 'standard'` (or add a signature-specific note like "Ring twice,
   I work from home"); grade a left signature package as a failed stop.
+- **Status:** fixed — the generator only puts a customer note on a standard package (a leave-it note can no longer sit
+  on a signature or adult package). Leaving a signature package unattended is a critical service mistake (WP2a); it
+  now also earns nothing for the spot it was left in, the report says "LEFT UNATTENDED" instead of DELIVERED, and the
+  day does not count it as a delivery.
 
 ### ROUTEDAY-14: The debrief's "What to work on" hides most of the day's mistakes and never shows "Went well" on a rough day
 - **Severity:** major (the debrief does not match the play)
@@ -207,6 +250,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   well" only if there is room left.
 - **Suggested fix:** sum the gap over repeats, keep the full sorted list for the "+ N more" count, reserve at least
   one row per category, and always show one "went well" line.
+- **Status:** fixed — the debrief lists every kind of mistake of the day, one row each with its count (×6), ranked
+  critical first and then by the points it cost over the whole day (repeats add up), with the top mistake of each
+  category moved up so doorstep mistakes are not crowded out by driving ones; what does not fit is counted in "+ N
+  more to work on", and room is always kept for "WENT WELL" (up to three rows, with "+ N more") whenever anything did.
 
 ### ROUTEDAY-15: Dispatcher tells a trainee who hit a pedestrian and ran a red light "Good hustle... you'll be unstoppable"
 - **Severity:** minor (tone that contradicts the lesson)
@@ -217,6 +264,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Suspected cause:** `ShiftDebriefScene.js:126-129` sums stars across categories.
 - **Suggested fix:** pick the "rough" note when safety has 0-1 stars or there is a critical line (hit pedestrian,
   red light, signature left), whatever the total.
+- **Status:** fixed — the dispatcher's closing line is a safety one ("Nobody gets hurt on this route. Read the top of
+  that list twice…") whenever safety ended on 0-1 stars or the day had a critical mistake, whatever the other stars;
+  the confetti is only for a day of 8+ stars with no critical mistake. The day's stars follow the scenario rules: a
+  critical mistake caps its category at one star.
 
 ### ROUTEDAY-16: Hitting a pedestrian is a -5 line and the route carries on
 - **Severity:** major (design; the incident module exists but the route day never uses it)
@@ -228,6 +279,9 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Evidence:** leg 4 log `-5/0 You hit a pedestrian`; `src/scenes/shift/TownDriveScene.js:851-855`.
 - **Suggested fix:** end the leg into an incident stop (m8-incident) or at least a mandatory "what do you do now"
   card, and cap the day's safety result.
+- **Status:** fixed — hitting a pedestrian is a critical safety failure (the day's safety is capped at one star) and
+  stops the drive with a card that says what to do (hazards on, check on them without moving them, call 911 and
+  dispatch, stay at the scene) before the trainee can drive on.
 
 ### ROUTEDAY-17: A route day is five near-identical stops
 - **Severity:** design
@@ -243,6 +297,11 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   time; notes 25 %); nothing guarantees a mix.
 - **Suggested fix:** pick the day's stop types from a list with a guaranteed mix (at least one person at the door,
   one exception, one business or apartment), and vary the house model.
+- **Status:** fixed (decision) — a day is five different kinds of stop drawn from its seed: always a leave-at-door
+  (doormat, or behind the planter when the note asks) and a person at the door, plus three of adult signature, a
+  signature with nobody home (exception and door tag), a business with a receptionist, an apartment, and a dog in the
+  yard (the Module 8 staging and gate conversation); never two of a kind, and never two neighbouring houses. House
+  models vary (ROUTEDAY-11).
 
 ### ROUTEDAY-18: The town rebuilds itself every day: addresses, building types and residents all move
 - **Severity:** design (minor content inconsistency)
@@ -254,6 +313,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   route, weather and parcels). **Actual:** only 8 of 62 lots keep their address between day 1 and day 2
   (`OTR.town.build(day)` is seeded by the day number: `src/core/shift.js:45`, `:23`).
 - **Suggested fix:** build the town from a fixed seed (per profile) and seed only the day's route and events by day.
+- **Status:** fixed (decision) — the town is built once per career from a saved seed (`save.data.townSeed`, 1 for
+  every existing profile) and kept: the same people live at the same addresses every day; only the day's stops,
+  weather and traffic change. A route saved mid-day before this change still loads (it keeps its own seed);
+  `route-legs` still drives the first ten days.
 
 ### ROUTEDAY-19: Rain day: headlights are required and penalised every 5 s, but nothing asks for them
 - **Severity:** minor
@@ -265,6 +328,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
 - **Evidence:** leg log; `src/scenes/shift/TownDriveScene.js:49` and `:919-924`.
 - **Suggested fix:** show the lights hint at the start of a leg whenever `lightsWanted`, and give one warning before
   the first penalty.
+- **Status:** fixed — when headlights are needed the drive says so at the start ("Bad weather: headlights on (L)"),
+  and driving without them gets one warning before the first penalty.
 
 ### ROUTEDAY-20: Route days do not count toward the courier rank
 - **Severity:** design
@@ -275,6 +340,8 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   day logged · best 5/9 ★". The pre-trip and load done inside the day do not tick those modules either (still NEW).
 - **Suspected cause:** `src/core/save.js:105-128` totals only `scenarios[id].bestStars`.
 - **Suggested fix:** add the best route day (or route-day stars) to the rank total, or show a separate route rank.
+- **Status:** fixed (decision) — the best route day's stars (up to 9) count toward the courier rank and the hub's
+  career total ("N / 177 ★": 168 from the 24 scenarios plus 9), as the scenarios' best stars do.
 
 ### ROUTEDAY-21: Small seams and labels
 - **Severity:** polish
@@ -288,6 +355,10 @@ Day 1 as played (seed = day 1, weather "cloudy" / "Overcast"): 412 Birch Ln (Sam
   would be fairer.
 - The day is closed and saved (day 2, route history written) the moment the debrief opens, so a reload on the debrief
   loses it with no way back to read it; the hub has no "last day's debrief" link.
+- **Status:** fixed — the last stop's report button says "Finish the day ▶"; the pause menu says "Quit to the station"
+  and the results screen "To the station ▶", matching the hub; the first leg starts at the west end of the station's
+  block with a run-up to the four-way stop; and the finished day, debrief included, is saved when the debrief opens,
+  so a reload there shows it again and the hub's route card links to it ("Day 1's debrief ›").
 
 ## Revisit
 

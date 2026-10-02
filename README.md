@@ -3,8 +3,9 @@
 A browser training simulator: a **station hub** with 8 training modules (24 scenarios) and a **connected route day**
 where you brief, inspect, load, drive a town and work each stop with a handheld scanner.
 
-Built with Phaser 3. No build step, no backend, no asset files — every character, building and sound is generated
-in code — and progress is saved in `localStorage`.
+Built with Phaser 3. No build step and no asset files: every character, building and sound is generated in code.
+Progress is saved per trainee on a company training server or in the LMS, or in the browser when neither is
+available (see [Running it at a company](#running-it-at-a-company)).
 
 > Training simulation built on general, publicly available safety and customer-service guidance. It is **not** a
 > substitute for official procedures, policies, or hands-on training. Exception codes, refusal reasons and
@@ -17,6 +18,49 @@ in code — and progress is saved in `localStorage`.
 - **Offline:** the page loads Phaser from the jsdelivr CDN, falling back to the local copy in `lib/phaser.min.js`.
 
 Desktop browser recommended. Sound is generated in-browser. Use the speaker button (or the pause menu) to mute.
+
+## Running it at a company
+
+Each trainee signs in once to their company PC; the academy picks that up and keeps **their** progress, so any PC
+they use later carries on where they left off. Nothing is shared between trainees. Pick whichever fits:
+
+### A. From a learning-management system (SCORM)
+
+Zip the game folder (with `imsmanifest.xml` at the top of the zip) and upload it to the LMS as a SCORM 1.2 package.
+The LMS says who the learner is; progress is kept in the LMS, and the LMS sees the course as complete once every
+module is passed in assessment mode. SCORM 2004 LMSs work too.
+
+### B. On a company web server
+
+```
+node server/server.js                        # Node 18 or later, nothing to install
+```
+
+It serves the game on port 8080 and stores each trainee's progress as a file in `server/data/progress/`. Who the
+trainee is comes from:
+
+1. **A sign-in header**: put the server behind whatever already signs people in (IIS with Windows
+   authentication, an SSO proxy, a load balancer) and have it pass the user name in `X-Remote-User`. Set
+   `OTR_ALLOW_QUERY_USER=0` so the link below can't be used to open someone else's progress.
+2. **The launch link**: an intranet page that knows who is signed in opens `https://training.example/?user=jdoe`.
+
+Display names come from an `X-Remote-Name` header or `server/trainees.json` (`{ "jdoe": "Jane Doe" }`). Settings
+(environment variables, or the same names in `server/config.json`):
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| `OTR_PORT` | 8080 | Port to serve on |
+| `OTR_DATA_DIR` | `server/data` | Where progress and academy settings are kept (back this up) |
+| `OTR_USER_HEADER` / `OTR_NAME_HEADER` | `x-remote-user` / `x-remote-name` | The sign-in headers |
+| `OTR_ALLOW_QUERY_USER` | 1 | Accept `?user=` on the link |
+| `OTR_TRAINER_PIN` | none | Turns on the trainer tools |
+
+If the server can't be reached mid-session, progress is kept on that PC and sent the next time it answers.
+
+### C. Without either
+
+Open `index.html` (or serve the folder). Progress stays in that browser. Adding `?user=<id>` to the link keeps
+trainees apart on a shared PC.
 
 ## The two ways to play
 
@@ -126,7 +170,7 @@ src/core/
   shift.js                  the route day: generation, phases, persistence
   audio, save, scoring, validate, fx, ui, flow
 src/scenes/
-  Boot, Title, Hub, Results, DaySummary, Pause, BaseScenarioScene
+  Boot, Title, Hub, Results, Pause, BaseScenarioScene
   m1/ m2/                 module 1 and 2 minigames (DrivingScene extends the town drive engine)
   shared/DialogueScene.js
   stops/StopScene.js      walkable doorstep deliveries
@@ -158,7 +202,9 @@ Console helpers (with `?dev=1`): `OTR.debug.start('m5-pod')`, `OTR.debug.finishN
 `node test/qa.js` plays every scenario, and a whole route day, in a headless browser with the real mouse and keys,
 and fails on any crash, layout fault or playthrough that does not finish and score the way it should. See
 [`test/README.md`](test/README.md) for how to run it and add to it, and [`docs/QA-REPORT.md`](docs/QA-REPORT.md) for
-what the last full pass found and fixed.
+what the last full pass found and fixed. `node test/enterprise.js` checks the sign-in and progress storage (the
+training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/academy.js` checks
+assessments, the trainer tools and the trainee record.
 
 ## Editing content
 

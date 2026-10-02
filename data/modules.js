@@ -23,7 +23,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Before the wheels roll, walk around your truck. Inspect each checkpoint, flag real defects, and don\'t cry wolf over parts that are fine.',
         learn: ['Common pre-trip inspection points', 'Spotting tire, light, brake and leak defects', 'Why you never sign off on a defect'],
-        controls: 'Mouse — click a checkpoint, then choose Pass or Flag Defect.'
+        controls: 'A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint · T test it · P pass · F flag a defect'
       },
       {
         id: 'm1-route',
@@ -45,7 +45,18 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Six checkpoints across town with something waiting on every leg: a ball in the road, a door swinging open, standing water, a school bus. You drive, and your speed and clearance are the answer.',
         learn: ['Covering the brake where children play', 'Clearance past parked cars', 'Hydroplaning: ease off, steer straight', 'Stopping for a school bus', 'Crossings, headlights and distraction'],
-        controls: 'W accelerate · S brake (to reverse: stop, lift off, then hold S) · A D steer · B belt · L lights · G look before backing · P park'
+        controls: 'W accelerate · S brake (to reverse: stop, lift off, then hold S) · A D steer · M mirrors (before pulling out) · B belt · L lights · G look before backing · SPACE parking brake, then P to park'
+      },
+      {
+        id: 'm1-spot',
+        title: 'Spot the Hazard',
+        icon: 'ic_flag',
+        scene: 'HazardScene',
+        dataKey: 'hazardClips',
+        categories: ['safety'],
+        blurb: 'Five short clips from the driver\'s seat. Something starts to happen in each one: press the moment you see it coming, not when it is already in front of you.',
+        learn: ['Reading the clue before the hazard', 'Children, reversing cars and opening doors', 'Pedestrians who aren\'t looking', 'Cars that won\'t stop'],
+        controls: 'SPACE or click when you see a hazard developing · ENTER for the next clip'
       }
     ]
   },
@@ -65,7 +76,7 @@ OTR_DATA.modules = [
         categories: ['efficiency', 'safety'],
         blurb: 'Packages ride the belt face-down. Scan each one to find out where it goes, then send it — routes, priority, damage, dangerous goods, heavy freight, and the jams in between.',
         learn: ['Scan before you sort', 'Sorting by route code', 'Priority and damage override the route', 'Dangerous goods segregation', 'Heavy pieces and team lifts', 'Clearing a jam fast'],
-        controls: 'Click a package (or SPACE) to scan · drag into a bin, or press 1-5 · SPACE clears a jam'
+        controls: 'Click a package (or SPACE) to scan · drag it into a bin, or press the bin\'s number (1-7) · SPACE clears a jam'
       },
       {
         id: 'm2-lift',
@@ -76,7 +87,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Five loads, one back. Size up each lift, then do it yourself: your knees and your distance decide how much your spine has to take, and the gauge shows it in real time.',
         learn: ['Sizing up a load before lifting', 'Knees do the work, not the back', 'Keeping the load close', 'Stepping round instead of twisting', 'When to get help or equipment'],
-        controls: 'A / D step · S bend knees · W straighten up · SPACE grip and release · 1-3 for decisions'
+        controls: 'A / D step · S bend knees · W straighten up · SPACE grip and release (or the on-screen pad) · 1-3 for decisions'
       },
       {
         id: 'm2-labels',
@@ -107,7 +118,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A frustrated customer flags you down about a package that "never arrived". Calm things down and actually help.',
         learn: ['De-escalation and empathy', 'Staying professional under pressure', 'Pointing customers to the right next step'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm3-signature',
@@ -116,9 +127,9 @@ OTR_DATA.modules = [
         scene: 'DialogueScene',
         dataKey: 'dialogues.m3_signature',
         categories: ['service', 'safety'],
-        blurb: 'Nobody\'s home, the package needs a signature, and a helpful neighbour has ideas. Follow the rules without losing the customer.',
+        blurb: 'Nobody\'s home, the package needs a signature, and a helpful neighbor has ideas. Follow the rules without losing the customer.',
         learn: ['Why signature requirements matter', 'Handling pressure to bend the rules', 'Leaving clear next steps'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm3-twostops',
@@ -126,10 +137,21 @@ OTR_DATA.modules = [
         icon: 'ic_paw',
         scene: 'DialogueScene',
         dataKey: 'dialogues.m3_twostops',
-        categories: ['service', 'safety'],
+        categories: ['service', 'safety', 'efficiency'],
         blurb: 'First a busy office reception, then a house with a very loud dog. Adjust your approach for business vs. residential stops.',
         learn: ['Business delivery etiquette', 'Residential delivery courtesy', 'Staying safe around dogs'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines · some decisions are timed'
+      },
+      {
+        id: 'm3-doorsteps',
+        title: 'Tricky Doorsteps',
+        icon: 'ic_user',
+        scene: 'StopScene',
+        dataKey: 'stopSets.m3_doorsteps',
+        categories: ['service', 'safety', 'efficiency'],
+        blurb: 'Three doorsteps where the people are the hard part: an angry customer, a language barrier, and a "neighbor" who offers to take a signature package.',
+        learn: ['Calming an upset customer', 'Getting a signature across a language barrier', 'Refusing a package handover politely', 'Heavy packages on the hand truck'],
+        controls: 'A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose'
       }
     ]
   },
@@ -149,7 +171,18 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'The house number on the label doesn\'t exist on this street. "Close enough" is tempting. Is it right?',
         learn: ['Verifying addresses', 'Using proper channels for exceptions', 'Protecting the customer\'s package'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
+      },
+      {
+        id: 'm4-recover',
+        title: 'Put It Right',
+        icon: 'ic_undo',
+        scene: 'DialogueScene',
+        dataKey: 'dialogues.m4_recover',
+        categories: ['service', 'efficiency'],
+        blurb: 'Yesterday\'s package went to Birch COURT instead of Birch LANE. Get it back, deliver it properly, fix the record and tell dispatch.',
+        learn: ['Owning a misdelivery', 'Recovering and rescanning a package', 'Honest explanations to customers', 'Closing the loop with dispatch'],
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm4-damaged',
@@ -160,7 +193,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service'],
         blurb: 'You open the cargo door and a box is crushed — and something is dripping. What now?',
         learn: ['Leaking package safety', 'Documenting damage', 'Being honest with customers'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       },
       {
         id: 'm4-storm',
@@ -171,7 +204,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service'],
         blurb: 'Severe weather rolls in mid-route, and the delivery note makes no sense. Keep yourself — and the package — safe.',
         learn: ['Severe weather decisions', 'Never driving through flooded roads', 'Interpreting unclear delivery instructions'],
-        controls: 'Mouse or 1-4 to choose · click / SPACE to advance'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines · some decisions are timed'
       }
     ]
   },
@@ -188,7 +221,7 @@ OTR_DATA.modules = [
         icon: 'ic_check',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_pod',
-        categories: ['service', 'efficiency'],
+        categories: ['service', 'efficiency', 'safety'],
         blurb: 'Three doorsteps, three kinds of proof: a photo that follows the customer\'s note, a signature at the door, and a receptionist signing for a colleague.',
         learn: ['Pulling and scanning the right package', 'Photo proof of delivery that shows the location', 'Signatures and printed names', 'Business deliveries through reception'],
         controls: 'A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld'
@@ -199,7 +232,7 @@ OTR_DATA.modules = [
         icon: 'ic_flag',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_exceptions',
-        categories: ['service', 'efficiency'],
+        categories: ['service', 'efficiency', 'safety'],
         blurb: 'Nobody home, a closed business and a customer who doesn\'t want it. Make a real attempt, then record the right exception and leave a door tag.',
         learn: ['Choosing the correct exception code', 'When a door tag is needed', 'Never leaving a package after a failed attempt'],
         controls: 'A/D or click to walk · E interact · TAB handheld'
@@ -210,7 +243,7 @@ OTR_DATA.modules = [
         icon: 'ic_badge',
         scene: 'StopScene',
         dataKey: 'stopSets.m5_adult',
-        categories: ['service', 'safety'],
+        categories: ['service', 'safety', 'efficiency'],
         blurb: 'Three age-restricted shipments. Check the photo ID properly: age from the date of birth, expiry, and the name on the label.',
         learn: ['What an adult signature requires', 'Reading an ID: age, expiry, name', 'Refusing politely and recording the exception'],
         controls: 'A/D or click to walk · E interact · TAB handheld'
@@ -233,7 +266,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Twelve packages, one truck. Shelve them by stop section, keep the heavy ones low, segregate the dangerous goods and strap the floor load.',
         learn: ['Loading in stop sequence', 'Heavy low, light high', 'Fragile and dangerous goods placement', 'Securing the load before driving'],
-        controls: 'Drag packages from the cart onto the shelves'
+        controls: 'Drag packages from the cart onto the shelves, or the arrow keys and ENTER / SPACE · T strap the floor load · R roll out'
       },
       {
         id: 'm6-find',
@@ -244,7 +277,7 @@ OTR_DATA.modules = [
         categories: ['efficiency', 'service'],
         blurb: 'Somebody else loaded this truck, and not well. Find the right package for each stop against the clock, without grabbing the near-match.',
         learn: ['Reading the whole address before pulling', 'Spotting misloads', 'What a bad load costs you at every stop'],
-        controls: 'Click the package that matches the address'
+        controls: 'Click the package that matches the address, or the arrow keys and ENTER'
       }
     ]
   },
@@ -264,7 +297,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A scheduled pickup with a manifest that does not quite match the counter. Count, inspect, and refuse what cannot ship.',
         learn: ['Counting pieces against the manifest', 'Inspecting packaging and labels', 'Refusing politely with a clear reason'],
-        controls: 'Click each piece to count, then click to inspect'
+        controls: 'Click each piece to count, then click to inspect · A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-intl',
@@ -275,7 +308,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A shipment heading across the border with a commercial invoice full of the classic mistakes. Find them before customs does.',
         learn: ['What a customs description must say', 'Value, quantity and country of origin', 'Why an unsigned declaration is not a declaration'],
-        controls: 'Click the invoice lines that would hold up the shipment'
+        controls: 'Click the invoice lines that would hold up the shipment · then inspect: A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-dg',
@@ -284,9 +317,9 @@ OTR_DATA.modules = [
         scene: 'PickupScene',
         dataKey: 'pickups.m7_dg',
         categories: ['safety', 'service'],
-        blurb: 'A shipper wants "just a litre of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',
+        blurb: 'A shipper wants "just a liter of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',
         learn: ['Matching contents to marks and declarations', 'Common undeclared dangerous goods', 'Refusing firmly and helpfully'],
-        controls: 'Click each piece to inspect · accept or refuse with a reason'
+        controls: 'Click each piece to inspect · A accept · R refuse, 1-5 for the reason'
       }
     ]
   },
@@ -303,7 +336,7 @@ OTR_DATA.modules = [
         icon: 'ic_flag',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_steps',
-        categories: ['safety', 'efficiency'],
+        categories: ['safety', 'efficiency', 'service'],
         blurb: 'Ice, wet steps, a garden hose and a heaved sidewalk. Slips and trips are the injuries that end shifts — walk carefully and clear the path.',
         learn: ['Three points of contact on the truck', 'Walking carefully on ice and wet surfaces', 'Clearing trip hazards before carrying'],
         controls: 'A/D or click to walk · HOLD SHIFT to walk carefully · E interact · TAB handheld'
@@ -314,7 +347,7 @@ OTR_DATA.modules = [
         icon: 'ic_paw',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_dog',
-        categories: ['safety', 'service'],
+        categories: ['safety', 'service', 'efficiency'],
         blurb: 'A dog behind a gate, a dog that charges, and a frightened dog on a porch. Read the body language and get the delivery done without a bite.',
         learn: ['Never entering a yard with a loose dog', 'What to do when a dog charges', 'Reading fear and aggression signals', 'Recording an unsafe-to-deliver exception'],
         controls: 'A/D or click to walk · E interact · TAB handheld · 1-3 for timed decisions'
@@ -325,9 +358,9 @@ OTR_DATA.modules = [
         icon: 'ic_bulb',
         scene: 'StopScene',
         dataKey: 'stopSets.m8_heat',
-        categories: ['safety', 'efficiency'],
+        categories: ['safety', 'efficiency', 'service'],
         blurb: '102°F and three stops to go. Watch your hydration and body heat, use shade and AC, and know the warning signs of heat illness.',
-        learn: ['Hydrating through a hot shift', 'Using shade and AC to cool down', 'Recognising heat exhaustion early', 'Why "pushing through" is dangerous'],
+        learn: ['Hydrating through a hot shift', 'Using shade and AC to cool down', 'Recognizing heat exhaustion early', 'Why "pushing through" is dangerous'],
         controls: 'A/D or click to walk · E to drink, cool off or rest · TAB handheld'
       },
       {
@@ -336,10 +369,10 @@ OTR_DATA.modules = [
         icon: 'ic_broken',
         scene: 'DialogueScene',
         dataKey: 'dialogues.m8_incident',
-        categories: ['safety', 'service'],
+        categories: ['safety', 'service', 'efficiency'],
         blurb: 'You backed into a parked car. The next twenty minutes decide whether this is a bumper or a career problem — secure the scene, check on people, report it, and write it up straight.',
         learn: ['Securing the scene before anything else', 'People before property', 'Reporting every incident immediately', 'Never admitting fault or settling in cash', 'Photographs, details and witnesses', 'Writing an honest incident report'],
-        controls: 'Click a reply or press 1-3'
+        controls: 'Mouse or 1-4 to choose · click / SPACE to advance · ↑ reads earlier lines'
       }
     ]
   }

@@ -42,6 +42,11 @@ in the van world x = screen x.
   towards the house is the most natural way to hit this. Outside the van (after a proper climb-down) the courier can
   also walk left along the road side of the van, over the rear wheel and the livery, into the traffic lane
   (`m5b-35-outside-van-left.png`).
+- **Status:** fixed — while in the van the courier is held in the cab doorway by two barriers (door ±40 px; the
+  shelves, water and AC are all in reach), by keys and by click alike, and walking into the door says "Press E to
+  climb out of the van." Outside, a third barrier stops them walking back along the van's road side into the traffic
+  lane (`StopScene.buildWorld`, `blocked()`). Checked with the play tool: D stops at x 600, A at 550, a click on the
+  house stays in the van.
 
 ### STOPS-M5-2: Cargo shelves: hovering selects, so moving the mouse to "Take this package" across another box takes that box instead
 - **Severity:** major (the wrong pull is counted against the trainee, `S.wrongPulls++`)
@@ -57,6 +62,9 @@ in the van world x = screen x.
   earlier envelope).
 - **Suggested fix:** keep a `clicked` selection separate from the hover preview; the button acts on the clicked
   box; on pointer-out restore the clicked box's label. Or put a "Take" button on the box itself.
+- **Status:** fixed — hovering a box only previews its label (and the preview returns to the picked box on
+  pointer-out); a click picks it, and "Take this package" acts on the picked box. Checked: click the right box, hover
+  a wrong one, Take: the right one is carried.
 
 ### STOPS-M5-3: Cargo shelves: no visible way to put back a package you already carry, and with two or more you cannot choose which
 - **Severity:** minor
@@ -73,6 +81,9 @@ in the van world x = screen x.
 - **Evidence:** `m5b-08-righttaken.png`, `m5b-09-carrysel.png`
 - **Suggested fix:** draw carried packages ghosted in their slot (click = select = Put it back), or make each
   address in the Carrying line its own button; remove the dead loop.
+- **Status:** fixed — a carried package stays in its shelf slot, ghosted and tagged "IN HAND"; clicking it picks it
+  and the button reads "Put it back", so any one of several can go back. The Carrying line says so; the dead
+  invisible-text loop and the click-the-carrying-line trick are gone.
 
 ### STOPS-M5-4: The E prompt in the van gives away whether you pulled the right package before you scan it
 - **Severity:** design
@@ -84,6 +95,8 @@ in the van world x = screen x.
   so a trainee can skip reading labels and just watch which prompt comes up.
 - **Suggested fix:** prefer "Climb out" whenever anything is carried (or once a scan has been done), not only when
   the set is correct.
+- **Status:** fixed — E prefers the shelves while nothing is carried and the door once anything is, right or wrong;
+  only the scan and the label tell whether it is the right package.
 
 ### STOPS-M5-5: The POD photo is a picture of the courier: they stand in front of the package and the house number, and it still grades "clearly in the shot"
 - **Severity:** major (the core lesson of m5-pod is what a good POD photo shows)
@@ -101,6 +114,9 @@ in the van world x = screen x.
 - **Suggested fix:** walk the courier back to the path (or fade them out) before the camera opens; draw the package
   behind the planter (lower depth, partly covered by the pot) so "behind the planter" looks like it; count the
   package as in only if its visible part is in frame.
+- **Status:** fixed — after setting the package down the courier steps back towards the street (out of the 380 px
+  frame) before the camera comes up, and a package left "behind the planter" is drawn behind the pot (depth under the
+  prop, 24 px in from it), partly hidden, instead of in front of it.
 
 ### STOPS-M5-6: A failed POD photo still offers "Use this photo" as the highlighted first choice, on a green success header
 - **Severity:** minor
@@ -111,6 +127,8 @@ in the van world x = screen x.
   is still possible but reads as the risky choice. **Actual:** the same layout as a good photo (StopScene.js:1407-1414).
 - **Evidence:** `m5b-20-badphoto.png`
 - **Suggested fix:** colour the header by grade and swap button order/skins when grade is not good.
+- **Status:** fixed — the photo review header is green, amber or red by grade, and after an "ok" or bad photo Retake
+  is the first, primary option (key 1) with "Use this photo" second.
 
 ### STOPS-M5-7: The photo instructions run into the objectives panel
 - **Severity:** polish
@@ -121,6 +139,8 @@ in the van world x = screen x.
 - **Evidence:** `m5b-19b-hdr.png`
 - **Suggested fix:** hide the objectives panel in photo mode (the whole screen is the viewfinder), or move the
   instruction to the bottom.
+- **Status:** fixed — the objectives panel is hidden while the camera is up and comes back after the shot. The
+  viewfinder's dark bands are now four plain rectangles and a pre-drawn frame, moved with the pointer.
 
 ### STOPS-M5-8: The spot choice labels the right answer "(as the note asks)"
 - **Severity:** design
@@ -131,6 +151,8 @@ in the van world x = screen x.
   the answer is spelled out in the button; the stop report then praises "Left it in a sensible spot: behind the
   planter (as the note asks)".
 - **Suggested fix:** label it "Behind the planter"; keep "as the note asks" for the report line.
+- **Status:** fixed — the spot reads "Behind the planter"; the report line still says "behind the planter, as the note
+  asks" (`report` on the spot in `data/m5_stops.js`).
 
 ### STOPS-M5-9: In m5-pod and m5-exceptions the unsafe climb answers are asked every stop but never reported
 - **Severity:** minor
@@ -146,6 +168,9 @@ in the van world x = screen x.
 - **Note:** the two options are shuffled per stop, so a trainee who learnt "press 1" on stop 1 jumps down on stop 3
   without knowing it (it happened to me: stop 3's log has `safety 0/2 Climbed down from the cab with three points
   of contact`, and the report never mentions it; `m5b-45-report3.png`).
+- **Status:** fixed — every stop scenario now shows the safety category (WP1, STOPS-M8-5), so the climb checks are in
+  the report and the stars, and an unsafe climb says why at once ("Jumping down is how couriers hurt knees and
+  ankles…").
 
 ### STOPS-M5-10: Pressing E on "Talk" while the resident is coming to the door starts a second, hidden copy of the conversation, and both copies are scored
 - **Severity:** major (silently scores an answer the trainee never picked; happens to anyone who presses E the moment
@@ -174,6 +199,9 @@ in the van world x = screen x.
   trainee's own pick can be lost entirely.
 - **Suggested fix:** `if (this.talkCtl || this.S.talked) return;` at the top of `startTalk()`, and set `S.talked`
   (or a `talkPending` flag checked by the Talk `when`) when the auto-talk is scheduled.
+- **Status:** fixed — `startTalk()` returns if a conversation is running or already happened, and while the resident
+  is about to start talking (`talkPending`) there is no "Talk" prompt. Checked: E pressed every 150 ms through the
+  door opening gives one conversation (one lock, one speaker).
 
 ### STOPS-M5-11: At a business the building number is hidden behind the awning, but the address check says "ON THE BUILDING 900"
 - **Severity:** minor (the check teaches "compare the number on the building", and there is no number to see)
@@ -186,6 +214,8 @@ in the van world x = screen x.
 - **Evidence:** `m5b-40-biznum2.png` (facade without prompt), `m5b-38-biznum.png`, `m5b-39-checknum.png`
 - **Suggested fix:** draw the number on the glass door or above the awning (and set numberY to match), check its
   depth against the awning.
+- **Status:** fixed — a shop's number plaque is drawn above its awning (`buildingLayout` numberY for `business`),
+  where the address check's prompt and click spot now are too. Checked on 900 Market St.
 
 ### STOPS-M5-12: The handheld closes itself after the last step, so the trainee's TAB to close it opens it again
 - **Severity:** minor
@@ -198,6 +228,8 @@ in the van world x = screen x.
 - **Evidence:** `m5b-22-afterpod.png`, `m5b-34-afterhandoff.png`
 - **Suggested fix:** leave it open on the "STOP RECORDED" screen (the trainee closes it), or swallow TAB briefly
   after an auto-close.
+- **Status:** fixed — the handheld ignores a TAB that would reopen it within 0.7 s of closing itself
+  (`Handheld.closedAt`), so the TAB a trainee presses to put it away does not bring it back.
 
 ### STOPS-M5-13: Door ping-pong: going in lands you on "Go back outside", coming out lands you on "Go inside"
 - **Severity:** minor
@@ -209,6 +241,9 @@ in the van world x = screen x.
 - **Evidence:** `m5b-41-lobby.png`, `/stage` after exiting: `nearest: "Go inside"`, x 1610.
 - **Suggested fix:** place the courier a step past the door (out of range of the reverse interaction), and hide
   "Go inside"/"Check the address number" once the stop has an outcome.
+- **Status:** fixed — going in puts the courier 200 px into the lobby and coming out 150 px from the door, both out of
+  range of the reverse interaction, and "Go inside" / "Try the door" / the address check are gone once the stop has an
+  outcome. Checked: a double E at the door stays inside.
 
 ### STOPS-M5-14: Stop report shows one conversation answer as two identical lines
 - **Severity:** polish
@@ -217,6 +252,8 @@ in the van world x = screen x.
   "Handled a business hand-off" (1/1 with the efficiency icon, 2/2 with the service icon).
 - **Evidence:** `m5b-45-report3.png`
 - **Suggested fix:** merge per-choice items into one line with both icons, or suffix the category.
+- **Status:** fixed — when two report lines share a label (one answer scored in two categories) each names its
+  category: "Handled a business hand-off (efficiency)" / "(service)".
 
 ### STOPS-M5-15: Small z-order/overlap defects at the door and the reception counter
 - **Severity:** polish
@@ -227,6 +264,9 @@ in the van world x = screen x.
   "BRIGHTLINE" sign is cut by the right edge of the screen (`m5b-41-lobby.png`).
 - **Suggested fix:** stand point for a hand-off about 110 px from the resident; hide the receptionist's legs behind
   the counter (depth or crop); frame the lobby so the sign is whole.
+- **Status:** fixed — (1) the resident answers from the doorway (door + 20) and a conversation walks the courier to
+  110 px from them first, so they no longer overlap; (2) the receptionist stands 20 px higher, feet behind the counter
+  front; (3) the lobby sign is kept inside the view from the entrance. Checked with screenshots of all three.
 
 ### STOPS-M5-16: Standing at the doorbell and the house number shows no prompt at all: their E spots are on the other side of the door
 - **Severity:** major (this is a direct cause of the owner's "prompts don't show until you wiggle", for "Check the
@@ -253,6 +293,10 @@ in the van world x = screen x.
   (as the apartment branch already does with `L.bellX`), and "Check the address number" at `standX: L.numberX`
   (drop the `Math.min(L.numberX, L.doorX - 60)`); or move the bell and number art to the left of the door. Give
   the door itself a hotspot (clicking it = ring/knock). Draw each prompt above the thing it acts on.
+- **Status:** fixed — the doorbell is drawn left of the door (under the lamp) and the ring interaction is centred on
+  it; the address check is centred on the number (right of the door). Both are clickable where they are drawn, and
+  clicking the door rings. Walking from the van the prompt reads "Ring the doorbell" from x 1566 to 1688 and "Check
+  the address number" from 1708 to 1857: no dead spot, and each prompt floats above its own target.
 
 ### STOPS-M5-17: Two toasts drawn on top of each other after attaching a door tag
 - **Severity:** minor (unreadable)
@@ -262,6 +306,7 @@ in the van world x = screen x.
   same depth: the screen reads "Door tag D1Door tag left on the door. to the door."
 - **Evidence:** `m5b-52-tagged.png`; `/texts` lists both at y 93.
 - **Suggested fix:** `say()` should replace (destroy) the current toast, or stack toasts vertically.
+- **Status:** fixed — `say()` replaces the message on screen instead of stacking a second one on top of it.
 
 ### STOPS-M5-18: After the outcome is recorded, the door still offers "Ring the doorbell" (and "Check the address number")
 - **Severity:** minor
@@ -273,6 +318,8 @@ in the van world x = screen x.
   back in the van"), so the next prompt the trainee sees is the van's. **Actual:** they can ring again after leaving
   a door tag, which a real customer would find odd, and it is not scored either way.
 - **Suggested fix:** add `&& !this.S.outcome` to the ring/knock/buzz and address-check `when`s.
+- **Status:** fixed — ring/knock/buzz and the address check are only offered until the stop has an outcome (and the
+  address check not while waiting for the door, so an impatient E does not open it).
 
 ### STOPS-M5-19: Leaving a package outside a closed business still scores two service stars, "Delivered the correct package ✓" and "Knocked or rang ✓"
 - **Severity:** major (a wrong outcome is mostly rewarded)
@@ -292,6 +339,9 @@ in the van world x = screen x.
 - **Suggested fix:** when the expected outcome is an exception, a delivery should zero "delivered the correct
   package"/photo/knock lines (or replace them with one heavy "Left a package that should have come back" line), and
   cap the stop at one star.
+- **Status:** fixed — a delivery where the rules said not to deliver earns none of the right-delivery ticks (right
+  package, scans, spot, photo, knock, printed name); its "Delivered when the rules said not to" check is critical, so
+  the stop and the module show Service at most 1★ and the results say "CRITICAL MISTAKE".
 
 ### STOPS-M5-20: Releasing an adult-signature package to a 20-year-old still ends the module on "GREAT WORK!" with two service stars
 - **Severity:** major (teaches that the one unforgivable mistake in the module costs a star)
@@ -305,6 +355,10 @@ in the van world x = screen x.
 - **Evidence:** `m5b-61-report-ad2-bad.png`, `m5b-64-adult-results.png`
 - **Suggested fix:** a `critical` flag on log items (illegal release, package left after a failed attempt) that caps
   the stop and the scenario rating; also show negative lines as "-3" rather than "-3/2".
+- **Status:** fixed — releasing a signature or adult-signature package against the rules, and leaving one unattended,
+  are `critical` penalties: the stop report caps the category at 1★ and marks the line "CRITICAL ·" in red, and the
+  module result says "CRITICAL MISTAKE" with Service at most 1★ and the lesson first. Penalty lines already print as
+  "-2"; the "-3/2" seen was not reproduced.
 
 ### STOPS-M5-21: The ID card covers the person holding it, so "compare the photo" is impossible
 - **Severity:** minor
@@ -316,6 +370,9 @@ in the van world x = screen x.
 - **Evidence:** `m5b-58-idcheck.png`, `m5b-59-idcrop.png`, `m5b-63-grace-id.png`
 - **Suggested fix:** place the card to the left of the pair (x 60-450) so both faces stay visible, and use the
   resident's own rig face in the ID photo (one stop could then be a real photo mismatch).
+- **Status:** fixed — the ID card is shown left of the courier and the customer (centre 250, 400), so both faces stay
+  in view; the handheld now says "<name> holds up a photo ID. Compare the photo with the face in front of you…". The
+  ID photo already used the resident's own face (`OTR.art.portrait` from their spec), so it can be compared.
 
 ### STOPS-M5-22: Prompts are invisible while walking, and the E windows are narrow and off-centre, so trainees stop in dead spots
 - **Severity:** design (the general part of the owner's "wiggle" complaint; STOPS-M5-1 and STOPS-M5-16 are the two
@@ -335,6 +392,9 @@ in the van world x = screen x.
   HUD bar or the objectives panel in M5 (all M5 prompts sit at screen y 254-377, x ≥ 476).
 - **Suggested fix:** show the prompt while moving (perhaps at 60 % alpha) and pop it to full on stop; centre each
   window on the thing it acts on (STOPS-M5-16); make ranges at least ±90 px.
+- **Status:** fixed — the stage shows the E prompt whenever E would do something, walking or standing
+  (`stage.update`), and the door interactions are centred on their targets with 80 px windows that meet without gaps
+  (STOPS-M5-16). Clicking something that cannot be used right now walks there like a ground click.
 
 ### STOPS-M5-23: "Restart" in the pause menu restarts only the current stop
 - **Severity:** design
@@ -343,6 +403,9 @@ in the van world x = screen x.
   back to 5:56 PM; the log keeps stops 1 and 2 (`groups: {ex1: 9, ex2: 10}`). Under the heading "Exception Calls" the
   button reads as "restart the scenario".
 - **Suggested fix:** label it "Restart this stop" and add "Restart scenario", or make Restart go back to stop 1.
+- **Status:** fixed — the pause menu takes its restart choices from the scene: past stop 1 of a practice set it offers
+  "Restart this stop" and "Restart the set"; stop 1 says "Restart the set" and a route-day stop "Restart this stop".
+  The route-day golden path matches the new label.
 
 ## Revisit
 

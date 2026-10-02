@@ -22,6 +22,10 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** add an `onInside(dt, careful)` per-frame hook and trigger the slip if the courier moves at walk
   speed at any point inside a slippery zone (maybe after a short grace of 100-150 ms so a late SHIFT press is
   forgiven).
+- **Status:** fixed — hazards are judged on every frame inside them (`stage` zones got `onInside`), not only on the
+  first: more than 0.12 s of walking at full speed on ice or wet steps, or on clutter with a package in hand, is the
+  slip (the grace forgives a SHIFT pressed a moment late). Traced frame by frame: two fast frames on the ice gave the
+  incident.
 
 ### STOPS-M8-2: The "icy steps" and "wet steps" hazards are invisible: the steps look dry, and nothing marks where the hazard starts
 - **Severity:** major
@@ -34,6 +38,8 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suspected cause:** `StopScene.js:104` passes `img = null` for `stepHazard`.
 - **Suggested fix:** draw an ice/wet overlay on the treads (the lot already knows `stepsX0`/`porchX0`), and consider
   a small "slippery" tint on every hazard zone so the trainee can see where SHIFT is needed.
+- **Status:** fixed — icy or wet steps get a glaze on every tread (`StopScene.stepGlaze`: pale ice with a glint, or a
+  dark wet sheen), drawn from the stage's step surfaces.
 
 ### STOPS-M8-3: The hazard zones do not match the drawn ice; you slip well inside the patch, and the zone is narrower than the art
 - **Severity:** minor
@@ -47,6 +53,8 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/s1-slip-1.png`; zones dump: `[[1010,1110],[1240,1340],[1308,1430]]`
 - **Suspected cause:** `StopScene.js:131`: `zx0 = x - 50, zx1 = x + 50` ignores `p.art.w`.
 - **Suggested fix:** use `x ± art.w / 2` when the prop has a width.
+- **Status:** fixed — a hazard's zone is its drawn width (`art.w`, else the image's width) instead of a fixed 100 px:
+  the icy sidewalk is now 970-1150 and the frozen path 1215-1365.
 
 ### STOPS-M8-4: Soft-lock: choosing a drop spot on the handheld auto-walks the courier across the icy steps at full speed, they slip, and the stage stays locked for good
 - **Severity:** blocker
@@ -72,6 +80,10 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** pass `{ careful: true }` for every scripted walk (placePackage, hand-off walks, `approach`,
   `backAway`), skip hazard checks while the stage is locked by a script, and make `hazardIncident` resume an
   interrupted `walkTo` (or never call `me.stop()` during a scripted move).
+- **Status:** fixed — a walk the game makes (placing a package at a chosen spot, a scripted move in a conversation)
+  runs with the stage locked, and hazards are not judged while it is locked, so it can never slip or leave the stage
+  locked; the placement walk also goes at careful speed. Checked with the play tool: from the foot of the icy steps,
+  "On the doormat" walks up, sets the box down, steps back and opens the camera; the steps stay unjudged.
 
 ### STOPS-M8-5: m8-steps and m8-heat report only safety and efficiency, so every service mistake there is scored but never shown and never costs a star
 - **Severity:** major
@@ -90,6 +102,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   talk effects are logged under `service`.
 - **Suggested fix:** either show all three categories in M8, or re-home the safety-relevant checks (a package left
   on the steps is a trip hazard) under `safety`.
+- **Status:** fixed — every stop scenario (m5-pod, m5-exceptions, m5-adult, m8-steps, m8-dog, m8-heat) now declares
+  all three categories, since a stop always scores all three (cab climb and hazards: safety; scan and time:
+  efficiency; the delivery: service), as the route day already showed. Nothing a stop scores is hidden any more.
 
 ### STOPS-M8-6: Sam's "good" answer has the courier say "I moved the hose and toys off the path" even when they tripped over both and moved nothing
 - **Severity:** minor (content)
@@ -104,6 +119,8 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/s2-choices.png`
 - **Suggested fix:** split the node with an `if` on the hazards' state, or reword the good choice so it is true either
   way ("Heads-up: there's a hose and toys on the path, and the steps are slick in this rain").
+- **Status:** fixed — Sam's good answer is true whatever the trainee did: "No worries! Heads-up: the hose and toys are
+  easy to trip on, and the steps are slick in this rain."
 
 ### STOPS-M8-7: Tripping over the toys (or hose) and then moving them afterwards erases the trip: "Cleared the hazard" 2/2 and no fall-risk penalty
 - **Severity:** major (scoring rewards the wrong behaviour)
@@ -118,6 +135,8 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suspected cause:** `StopScene.js:145` (`when: H.state !== 'cleared'`) and `:150` (`H.state = 'cleared'`) do not
   check for `'incident'`; `:1481-1490` scores the last state only.
 - **Suggested fix:** keep an `H.incident` flag separate from the cleared state, and score both.
+- **Status:** fixed — a slip or trip is kept in `H.incident` and scored whatever happens afterwards, so clearing the
+  toys after tripping on them no longer wipes the fall from the report.
 
 ### STOPS-M8-8: "Clear trip hazards with E before you carry a package over them" cannot be done with the package in hand, is never explained, and following it costs an "Extra trip" penalty
 - **Severity:** design (major for the lesson)
@@ -137,6 +156,10 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** allow clearing while carrying (short "set down, move hose, pick up" animation), centre the E
   spot on the art, score "stepped carefully over clutter while carrying" at 1/2 and "cleared it" at 2/2, and do not
   count a van trip made before the package was pulled as "extra".
+- **Status:** fixed (decision) — the hose and toys can be moved with a package in hand (the courier sets it down,
+  moves them, picks it up); their E spot is the middle of the clutter with a window as wide as the art; clearing
+  scores 2/2 and stepping carefully over clutter 1/2 ("…but left it on the path"), so following the intro pays; a trip
+  back into the van before any package was pulled is not counted as an extra trip. The golden path now clears them.
 
 ### STOPS-M8-9: Five falls in one set still ends on "GREAT WORK!", and a hidden service lesson shows up in the Key Takeaways
 - **Severity:** minor (variant of STOPS-M5-20's missing critical-failure cap, new for M8)
@@ -151,6 +174,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/m8steps-result.png`, `s3-report.png`
 - **Suggested fix:** pick the header from the weakest shown category (1★ safety → not "GREAT WORK!"), and filter the
   takeaways by `scenario.categories`.
+- **Status:** fixed (headline and takeaways; falls as criticals are WP2b) — "GREAT WORK!" now needs every category at
+  2★ or more, so 1★ safety can never read as praise, and the takeaways only come from the scenario's categories, which
+  now include every category a stop scores (STOPS-M8-5).
 
 ### STOPS-M8-10: The fence is drawn behind the dog and the gate in front of the courier, so the "dog behind the fence" looks loose on the sidewalk and the courier looks inside the yard
 - **Severity:** major (the picture contradicts the situation being taught)
@@ -166,6 +192,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** put the fence and the closed gate between the yard actors and the sidewalk actors (dog below
   the fence while inside the yard, courier above it while outside), e.g. fence and gate at 27 with the dog at 25 and
   the courier at 30; swap the dog above the fence only once it is out of the gate.
+- **Status:** fixed — the fence and the closed gate are drawn between the yard (dog 25, owner 24) and the sidewalk
+  (courier 30), at 27; once through the gate the courier goes behind the fence (26). Checked: Biscuit shows through
+  the pickets, the courier stands in front of them.
 
 ### STOPS-M8-11: Walking into the closed gate spawns a new "The gate is closed." toast every frame (57 stacked copies after 2.6 s)
 - **Severity:** minor
@@ -179,6 +208,8 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   `StopScene.js:288` calls `this.say(...)` each time with no debounce.
 - **Suggested fix:** debounce `onBlocked` (fire on the first blocked frame only, reset when the courier moves
   away), or make `say()` replace an identical visible toast.
+- **Status:** fixed — walking into something that stops the courier says so at most once every 2.5 s
+  (`StopScene.blocked`), and a message replaces the one on screen instead of stacking (STOPS-M5-17).
 
 ### STOPS-M8-12: The dialogue panel covers the dog the trainee is asked to read
 - **Severity:** major (dg3's whole lesson is reading the dog)
@@ -191,6 +222,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/d1-sit1.png`, `d1-sit2.png`
 - **Suggested fix:** in dog situations use `act: 'focus', 'dog'` and raise the camera / shrink the panel so the dog
   (and the owner) are fully visible above it, or move the dog up-stage for the question.
+- **Status:** fixed — in a stop with a dog, conversations use the talk engine's new top layout (panel under the HUD,
+  choices below it, the feedback card below both), and the camera frames the courier and the dog together. Checked on
+  dg1: the dog stays visible below the choices.
 
 ### STOPS-M8-13: The printed-name check treats "Mrs. Chen" as the real name and marks "Lin Chen" (the addressee, and plausibly the same woman) wrong
 - **Severity:** minor (content; hidden in M8 by STOPS-M8-5, visible wherever these stops are reused)
@@ -204,6 +238,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/d1-sign.png`; log line above.
 - **Suggested fix:** give the owners full names (e.g. "May Chen" as a different family member, or make her Lin Chen
   and accept that), and show the printed name on the signature pad so there is something to read.
+- **Status:** fixed — the owners have their own full names as members of the family (May Chen at Lin Chen's address,
+  Tomas Alvarez at Luis Alvarez's), so the printed-name check asks for a real name and the addressee is a plausible
+  wrong one.
 
 ### STOPS-M8-14: dg2 "sprint" branch: the chase and the bite happen off-camera, the dog ends up standing on the courier, and "Try again" makes it charge out into the road behind the truck, where it stays
 - **Severity:** major
@@ -228,6 +265,10 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** clear or follow the camera focus in `dogChase`/`backAway`; have `c_again` do
   `approach` to the lawn first; make `dogCharge` always come from the house side (`side = +1` towards the lot) and
   never target a point behind the van; reset `dogBusy` and send the dog back to patrol the yard after the talk.
+- **Status:** fixed — the chase and backing away release the camera so it follows the courier; the dog always charges
+  from the house side and, when the courier backs away, follows only as far as 150 px from them (it used to end up on
+  the courier); "Try again" first walks the courier onto the lawn, then the dog charges; after the talk the dog walks
+  back to its yard.
 
 ### STOPS-M8-15: After the dog has charged, you can walk straight back to the door and ring the bell; the dog does nothing
 - **Severity:** major (undoes the lesson "once a dog has shown aggression, don't go back in")
@@ -245,6 +286,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   so the patrol/bark loops are off.
 - **Suggested fix:** after the talk, return the dog to the yard (`patrol`), re-arm a trigger ("It charges again")
   while no outcome is recorded, and log a safety penalty for re-entering.
+- **Status:** fixed — the charge trigger re-arms (`rearm` in the stop data): going back onto the lawn before the stop
+  has an outcome sets the dog off again, backs the courier to the truck, and logs "Went back towards a dog that had
+  already charged" as a critical safety mistake.
 
 ### STOPS-M8-16: The dg2 report lists the same check up to four times, with scores like "-3/1" and "-2/2"
 - **Severity:** minor
@@ -257,6 +301,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Evidence:** `test/out/review/stops-m8/d2-report.png`
 - **Suggested fix:** merge repeat answers to the same `check` into one line, clamp `got` to 0..max and log the
   negative part as a separate penalty line ("Ran from the dog").
+- **Status:** fixed — the talk engine logs one line per question and category: answering the same question again keeps
+  the worse answer and says "(2 tries)", and a harmful answer is 0/max plus its own penalty line ("…: the answer made
+  it worse"), never "-3/1". The total is the same as before.
 
 ### STOPS-M8-17: dg3 (Pepper): the body-language question hides Pepper, the owner and the courier behind the choices, and "Walk right up" has Pepper snap at a courier 650 px away
 - **Severity:** major (the one stop about reading a dog shows no dog)
@@ -276,6 +323,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
   (the "Crouch down and hold out a hand" answer has the same problem). Also, after the talk the hint "Hand over the
   package: Deliver on your handheld (TAB)" sends the trainee to the handheld while still 576 px away, which then
   answers "TOO FAR AWAY"; say "Walk up to Mr. Alvarez" first.
+- **Status:** fixed — dg3 uses the top layout with the camera on the courier and Pepper; both wrong answers walk the
+  courier up to the porch before Pepper snaps (a new `p_lunge` step) and are critical; the quiz's right answer no
+  longer repeats the narrator's words; the hint says "Walk up to Tomas Alvarez, then Deliver…".
 
 ### STOPS-M8-18: Collapsing from heat stroke does not end the shift: the next stop starts at body heat 81, the warning fires in the van at once, and later overheating gets no warning before a second collapse
 - **Severity:** major
@@ -297,6 +347,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suggested fix:** after `heatCollapse` end the set with a dedicated result; otherwise start each stop from a
   sane state (temp ≤ 50) and seed `maxTemp` after the in-van recovery; reset `warned` when temp drops below ~55 and
   hydration is back above ~50.
+- **Status:** fixed — a collapse is a critical safety failure; the next stop starts recovered (after a collapse as if
+  treated and rested, hydration 80, body heat 35; otherwise never above 50 body heat), and the heat warning re-arms
+  once body heat is under 55 and hydration over 50, so every overheat is warned before a collapse.
 
 ### STOPS-M8-19: A stop that ends in collapse scores "Finished the stop in good time" 3/3 (three efficiency stars) and half marks for climbing back in
 - **Severity:** minor
@@ -310,6 +363,9 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suspected cause:** `evaluate` scores time and `enterSafe === null → 1` regardless of `S.outcome`/`collapsed`.
 - **Suggested fix:** skip the time and climb-in checks when the stop has no outcome (or the courier collapsed), and
   add a visible "Didn't finish the stop" line in the module's own categories.
+- **Status:** fixed — a stop without an outcome or ended by a collapse gets no "finished in good time" check and no
+  credit for a climb back in that never happened; the unfinished outcome shows as "Recorded a delivery or exception
+  0/4" now that service is shown (STOPS-M8-5).
 
 ### STOPS-M8-20: The heat model ignores the shade the scene draws and tells the trainee about: the porch roof, the patio umbrella and "the shade by the door" do nothing; only the trees count
 - **Severity:** design
@@ -327,6 +383,10 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
 - **Suspected cause:** `StopScene.js:102-103` (only `p.shade` props), `inShade()` at `:517`.
 - **Suggested fix:** add porch and umbrella shade zones (and the business awning), tint the ground in shade, and
   draw tick marks at 72/96 on the BODY HEAT bar and at 28 on HYDRATION.
+- **Status:** fixed (decision) — shade is what the scene draws: trees, the patio umbrella (±70 px), the porch roof
+  over the door and a shop's awning; tree and umbrella shade shows as a dark patch on the ground and the heat meter
+  says IN SHADE; the meters mark the danger points (hydration 28, body heat 72, collapse 96 in red). "In the shade by
+  the door" now matches the model.
 
 ### STOPS-M8-21: Smaller rough edges seen once in passing
 - **Severity:** polish / minor
@@ -345,6 +405,13 @@ Played with `test/tools/playd.js` on port 9302; screenshots in `test/out/review/
     the outside of the van's cargo box (`h-van-back.png`); variant of STOPS-M5-1. Standing in the van also cools you
     at 2.2/s without using the AC, so "Cool off in the AC" is barely needed.
   - "Jump up in one move while carrying things" is offered when the courier is carrying nothing.
+- **Status:** fixed — the gate narration no longer taps the horn "from the truck" (the courier calls out and waits at
+  the gate); "Open the gate" is gone once the owner is out; stop messages wrap at 520 px so they stay clear of the
+  objectives panel and the heat meters; the dg3 quiz is fixed (STOPS-M8-17); a fall while carrying is now a critical
+  report line ("Fell on … carrying a package"); "Jump up in one move" only mentions carrying when something is
+  carried. The van no longer cools the courier by itself (changed after the owner's play test on 25 September): out
+  of the sun, body heat holds steady there, only the AC brings it down, and a hint points to the AC when the courier
+  is hot in the van.
 
 ## Revisit
 

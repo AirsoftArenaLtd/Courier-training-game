@@ -39,7 +39,7 @@ OTR_DATA.vehicle = {
     driveForce: 8400,         // N at the rear wheels in first gear
     drivePower: 80000,        // W at the wheels
     governor: 35,             // mph, the fleet speed limiter
-    reverseForce: 4200,       // N
+    reverseForce: 6000,       // N (at 4200 a loaded van on a lawn could not back off it: grass drag is ~4400 N)
     reverseGovernor: 6,       // mph
     brakeDecel: 4.6,          // m/s² at full pedal
     brakeFront: 0.65,         // share of the braking done by the front axle
@@ -57,6 +57,7 @@ OTR_DATA.vehicle = {
   surfaces: { road: 0.85, sidewalk: 0.8, grass: 0.5 },
   weatherGrip: { clear: 1, cloudy: 1, fog: 1, heat: 0.97, rain: 0.65, storm: 0.58, snow: 0.34 },
   grassRolling: 0.07,         // lawns drag at the tyres
+  kerbRolling: 0.04,          // so does a wheel up on the kerb and sidewalk
 
   // collisions
   impact: {

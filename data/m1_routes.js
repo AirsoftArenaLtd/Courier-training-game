@@ -30,7 +30,7 @@ OTR_DATA.routes = {
     title: 'Route Planner',
     lines: [
       'Dispatch has handed you the manifest. Click the stops — on the map or on the manifest — in the order you mean to drive them.',
-      'Watch the ETA column: FIRST OVERNIGHT is a 8:30 commitment, PRIORITY is 10:30, and a pickup can only be worked inside its window.',
+      'Watch the ETA column: FIRST OVERNIGHT is an 8:30 commitment, PRIORITY is 10:30, and a pickup can only be worked inside its window.',
       'The route line follows real streets. Closed blocks force a detour, and the school zone costs you time while it is active.',
       'Click a sequenced stop again to pull it back out. DISPATCH when the whole manifest is sequenced.'
     ]
@@ -48,7 +48,9 @@ OTR_DATA.routes = {
     first:    { label: 'First Overnight',    short: 'FIRST',    by: 8 * 60 + 30,  color: 0x7B3FC4, weight: 3 },
     priority: { label: 'Priority Overnight', short: 'PRIORITY', by: 10 * 60 + 30, color: 0xE8304A, weight: 2 },
     standard: { label: 'Standard Overnight', short: 'STANDARD', by: 15 * 60,      color: 0xFF6600, weight: 1 },
-    ground:   { label: 'Ground',             short: 'GROUND',   by: null,         color: 0x3DA5FF, weight: 1 },
+    // (one courier's loop stays in one network: Ground is a separate operation with its own drivers, so the
+    // no-deadline pieces here are Express Saver; the id is kept for the data below)
+    ground:   { label: 'Express Saver',      short: 'SAVER',    by: null,         color: 0x3DA5FF, weight: 1 },
     pickup:   { label: 'Scheduled Pickup',   short: 'PICKUP',   by: null,         color: 0x2BC48A, weight: 3 }
   },
 
@@ -102,7 +104,7 @@ OTR_DATA.routes = {
 
   lessons: {
     commit: 'Commitments come first. Sequence the timed stops, then fill the gaps with the flexible ones — never the other way round.',
-    early: 'Arriving before a pickup is ready is a wasted trip. Build the window into the order instead of driving back.',
+    early: 'Arriving before a pickup is ready is a wasted trip. Build the window into the order instead of sitting at the dock doing nothing.',
     missed: 'A pickup you reach after the dock closes is a missed pickup — the customer ships with someone else tomorrow.',
     long: 'Plan loops, not zig-zags. Group stops by block and leave the far corner for the way back.',
     closure: 'Check closures before you sequence. A shut block can turn two "next door" stops into a six-block detour.',

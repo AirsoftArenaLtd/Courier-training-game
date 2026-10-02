@@ -40,7 +40,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
     },
     keyLessons: [
       'Scan every package before it leaves the truck: it catches wrong-stop packages and shows signature and delivery requirements.',
-      'Follow the customer\'s delivery instructions when it\'s safe to, and take a clear photo showing the package and where it was left.',
+      'Follow the customer\'s delivery instructions when it\'s safe to, and take a clear photo of the package and where it was left: no house numbers, no people.',
       'At businesses a receptionist or mailroom can sign. Record THEIR printed name, not the addressee\'s.'
     ],
     stops: [
@@ -56,7 +56,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
           { type: 'tree', x: 1250, depth: -9 }
         ],
         spots: [
-          { id: 'planter', label: 'Behind the planter (as the note asks)', x: 'planter', grade: 'good' },
+          { id: 'planter', label: 'Behind the planter', report: 'behind the planter, as the note asks', x: 'planter', grade: 'good' },
           { id: 'mat', label: 'On the doormat', x: 0, grade: 'ok', note: 'Fine in a pinch, but the customer asked for the planter, where it\'s out of view of the street.' },
           { id: 'steps', label: 'At the bottom of the steps', x: 'steps', grade: 'bad', note: 'Visible from the street, in the rain path and a trip hazard.' }
         ],
@@ -178,7 +178,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
     stops: [
       {
         id: 'ex1',
-        brief: '311 Cedar Ave: signature required. Tracking says the customer is often at work.',
+        brief: '311 Cedar Ave: signature required.',
         par: 110,
         lot: { kind: 'house', spec: { number: '311', steps: 2, wall: 0xC9D8C4, roof: 0x4A4A58, door: 0x2A3F7A, siding: 'lap', stories: 1, porchW: 420, porchX: 320 } },
         props: [

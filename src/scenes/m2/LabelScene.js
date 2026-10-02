@@ -18,8 +18,7 @@ class LabelScene extends BaseScenarioScene {
     this.FACE_NAMES = { front: 'FRONT', right: 'RIGHT SIDE', back: 'BACK', left: 'LEFT SIDE', top: 'TOP', base: 'BASE' };
     this.BOX = { x: 424, y: 348 };
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x12041F, 0.55);
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.55 }));
     this.hud({ timer: true });
 
     this.buildStation();
@@ -80,7 +79,7 @@ class LabelScene extends BaseScenarioScene {
       const cap = OTR.ui.keyCap(this, -W / 2 + 22, -H / 2 + 26, String(i + 1), { bg: 0x4D148C, color: '#ffffff', size: 14 });
       const hit = this.add.rectangle(0, 0, W, H, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerover', () => { if (this.answering) paint(true); });
-      hit.on('pointerout', () => paint(false));
+      hit.on('pointerout', () => paint(this.markedBay === id));      // the verdict's highlight stays under a hover
       hit.on('pointerup', () => this.answer(id));
       c.add([g, icon, lab, sub, cap, hit]);
       this.bays[id] = { c, paint, rect: new Phaser.Geom.Rectangle(x, y, W, H), id };
@@ -123,7 +122,8 @@ class LabelScene extends BaseScenarioScene {
     // face tracker: six dots that double as direct face selectors
     this.dots = {};
     const order = ['front', 'right', 'back', 'left', 'top', 'base'];
-    const letters = { front: 'F', right: 'R', back: 'B', left: 'L', top: 'T', base: 'U' };
+    // top and base carry the arrows of their keys (W / ↑ and S / ↓); "U" for the base matched no key
+    const letters = { front: 'F', right: 'R', back: 'B', left: 'L', top: '▲', base: '▼' };
     order.forEach((face, i) => {
       const x = this.BOX.x - 5 * 34 / 2 + i * 34 + 8, y = 542;
       const c = this.add.container(x, y).setDepth(25);
@@ -134,7 +134,7 @@ class LabelScene extends BaseScenarioScene {
       c.add([g, t, hit]);
       this.dots[face] = { c, g, t };
     });
-    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W top  ·  S base', 12, '#9A8AB0', { bold: false }).setDepth(25);
+    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W / ▲ top  ·  S / ▼ base', 12, '#9A8AB0', { bold: false }).setDepth(25);
     OTR.txt(this, this.BOX.x, 596, 'drag the package onto a station, or press 1-6', 12, '#9A8AB0', { bold: false }).setDepth(25);
 
     this.guideBtn = OTR.ui.button(this, 740, 110, 'Guide (G)', () => this.toggleGuide(), { w: 160, h: 40, skin: 'purple', fontSize: 15, icon: 'ic_book' }).setDepth(810);
@@ -172,8 +172,19 @@ class LabelScene extends BaseScenarioScene {
       const id = this.bayAt(this.boxImg.x, this.boxImg.y);
       Object.keys(this.bays).forEach(b => this.bays[b].paint(false));
       if (id) this.answer(id);
-      else this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
+      // not taken (no station under it, or the guide was open): back on the roller, full size (it used to stay
+      // parked on the station, shrunk, looking placed)
+      if (this.answering) this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
     });
+  }
+
+  /** Pause: a box being dragged goes back on the roller. */
+  cancelDrag() {
+    if (!this.dragging) return;
+    this.dragging = false;
+    this.boxImg.setDepth(20);
+    Object.keys(this.bays).forEach(b => this.bays[b].paint(false));
+    this.tweens.add({ targets: this.boxImg, x: this.BOX.x, y: this.BOX.y, scale: 1, duration: 240, ease: 'Back.out' });
   }
 
   bayAt(x, y) {
@@ -241,6 +252,8 @@ class LabelScene extends BaseScenarioScene {
     else if (quiet) { this.boxImg.setTexture(key); }
     else {
       if (!this._turnTween || !this._turnTween.isPlaying()) OTR.audio.play('click_dud');
+      // a quick second turn stops the first one (both used to write the scale and leave the box squashed)
+      else this._turnTween.stop();
       this.boxImg.setScale(1);
       this._turnTween = this.tweens.add({
         targets: this.boxImg,
@@ -369,7 +382,8 @@ class LabelScene extends BaseScenarioScene {
     // warning say (it used to count only sides that happened to carry a mark, so an unmarked box called from its
     // front scored as a careful inspection)
     const unseen = Object.keys(this.FACE_NAMES).filter(f => !this.seen[f]);
-    const blind = unseen.length > 0;
+    // (a timed-out box was never called at all, so it is not a blind call)
+    const blind = !!stationId && unseen.length > 0;
     const t = this.itemTime;
     const speed = ok ? OTR.util.clamp01(1 - (t - 4) / (C.timePerItem - 4)) : 0;
     this.stats.speed.push(speed);
@@ -397,12 +411,14 @@ class LabelScene extends BaseScenarioScene {
       OTR.fx.shake(this, 200, 0.008);
     }
 
-    // send the box to the station it was put on, then judge it
-    const target = this.bays[stationId || item.answer];
+    // send the box to the station it was put on, then judge it; a timed-out one rolls off the far end of the
+    // roller (it used to fly onto the right station, as if it had been placed there)
+    const target = stationId ? this.bays[stationId].c : { x: OTR.W + 220, y: this.BOX.y };
     this.tweens.add({
-      targets: this.boxImg, x: target.c.x, y: target.c.y, scale: 0.42, duration: 320, ease: 'Cubic.in',
+      targets: this.boxImg, x: target.x, y: target.y, scale: stationId ? 0.42 : 1, duration: stationId ? 320 : 520, ease: 'Cubic.in',
       onComplete: () => { this.boxImg.setVisible(false); }
     });
+    this.markedBay = item.answer;
     this.bays[item.answer].paint(true);
     this.time.delayedCall(340, () => this.verdict(stationId, ok, blind, unseen));
   }
@@ -474,12 +490,13 @@ class LabelScene extends BaseScenarioScene {
 
     let done = false;
     const go = () => {
-      if (done) return;
+      if (done || this.guideOpen) return;            // not from under the guide
       done = true;
       this.input.off('pointerdown', clickGo);
       this.input.keyboard.off('keydown-SPACE', go);
       this.input.keyboard.off('keydown-ENTER', go);
       if (auto) auto.remove();
+      this.markedBay = null;
       this.bays[item.answer].paint(false);
       this.tweens.add({ targets: c, alpha: 0, duration: 150, onComplete: () => c.destroy() });
       this.time.delayedCall(180, () => this.nextItem());
@@ -504,16 +521,15 @@ class LabelScene extends BaseScenarioScene {
     OTR.audio.play('fanfare');
 
     const ratios = this.log.ratios(['safety', 'efficiency']);
-    const lessons = this.log.lessons(2);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`${s.correct}/${s.total} placed right · ${s.blind} blind call${s.blind === 1 ? '' : 's'} · all six sides checked on ${s.total - s.blind} of ${s.total}`);
-    this.finish({ ratios, lessons: lessons.slice(0, 3), stats: s, log: this.log }, 1600);
+    const summary = `${s.correct}/${s.total} placed right · ${s.blind} blind call${s.blind === 1 ? '' : 's'} · all six sides checked on ${s.total - s.blind} of ${s.total}`;
+    this.finish({ ratios, log: this.log, lessons: this.log.mistakes().length ? [] : [C.lessons.perfect], summary, stats: s }, 1600);
   }
 
   /* ---------------------------------------------------------------- guide */
   toggleGuide() {
     if (this.phase === 'done' || this.finished) return;
-    if (this.guideOpen) { this.guideModal.close(); return; }
+    // closed the moment it is closed (it counted as open through its fade, so the next SPACE was lost)
+    if (this.guideOpen) { this.guideOpen = false; this.guideModal.close(); return; }
     const C = this.content;
     this.guideOpen = true;
     OTR.audio.play('pop');
@@ -534,7 +550,7 @@ class LabelScene extends BaseScenarioScene {
         const chain = C.precedence.map(id => C.stations[id].label).join('   >   ');
         box.add(OTR.txt(this, 0, y + 28, chain, 15, '#250849', { weight: '900', wrap: w - 100 }));
       },
-      buttons: [{ label: 'Close (G)', skin: 'orange', onClick: () => {} }]
+      buttons: [{ label: 'Close (G)', skin: 'orange', keepOpen: true, onClick: () => this.toggleGuide() }]
     });
     this.guideModal.root.once('destroy', () => { this.guideOpen = false; });
   }

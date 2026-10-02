@@ -26,6 +26,7 @@ class PickupScene extends BaseScenarioScene {
 
     this.buildWorld();
     this.buildPanel();
+    this.showPanel(false);          // the manifest comes up after the shipper has spoken (it showed its steps behind the card)
     this.hud({ score: false, timer: true });
 
     this.introCard(C.intro.title, C.intro.lines, () => {
@@ -54,7 +55,18 @@ class PickupScene extends BaseScenarioScene {
     this.me = OTR.rig.person(this, 190, OTR.H - 4, OTR.hub.playerSpec, { scale: 0.8, facing: 1, depth: 30 });
     this.me.play('idle');
 
-    // the pieces, staged on the floor in front of the counter, scaled to fit the space between the two of them
+    // The pieces wait in a taped OUTGOING area on the floor in front of the counter (they used to stand in a strip
+    // along the bottom edge, easy to take for more of the shop's stock on the shelves behind).
+    const floorY = OTR.H - 30;
+    OTR.tex.shape(this, (g) => {
+      g.lineStyle(4, 0xFFC83D, 0.9);
+      g.strokeRect(282, floorY - 150, 626, 162);
+    }).setDepth(26);
+    OTR.txt(this, 292, floorY - 164, 'OUTGOING — COUNT THESE', 13, '#FFC83D', { ox: 0, weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(26);
+    // a click on the shelves behind the counter is answered, not ignored
+    this.add.zone(700, 250, 900, 300).setInteractive().on('pointerup', () => {
+      if (this.running && !this.talkCtl && !this.countAnswered) OTR.ui.toast(this, 'That is the shop\'s own stock. Count what is waiting in the OUTGOING area.', { hold: 2400, y: 672 });
+    }).setDepth(-5);
     this.pieces = C.pieces.map(p => Object.assign({}, p));
     this.pieceImgs = {};
     const keys = this.pieces.map(p => this.pieceTex(p));
@@ -65,15 +77,14 @@ class PickupScene extends BaseScenarioScene {
     let x = (left + right) / 2 - (total * k) / 2;
     this.pieces.forEach((p, i) => {
       const w = widths[i] * k;
-      const img = this.add.image(x + w / 2, OTR.H - 6, keys[i]).setOrigin(0.5, 1).setScale(k).setDepth(28).setInteractive({ useHandCursor: true });
+      const img = this.add.image(x + w / 2, floorY, keys[i]).setOrigin(0.5, 1).setScale(k).setDepth(28).setInteractive({ useHandCursor: true });
       img.on('pointerover', () => { img.setTint(0xFFE3C8); this.hover(p, img); });
       img.on('pointerout', () => { img.clearTint(); this.unhover(p); });
       img.on('pointerup', () => this.clickPiece(p));
       this.pieceImgs[p.id] = img;
-      const badge = this.add.container(x + w / 2 + w * 0.28, OTR.H - 6 - img.displayHeight + 4).setDepth(29).setVisible(false);
-      const g = this.add.graphics();
-      g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14);
-      badge.add([g, OTR.txt(this, 0, 0, '✓', 15, '#ffffff', { weight: '900' })]);
+      const badge = this.add.container(x + w / 2 + w * 0.28, floorY - img.displayHeight + 4).setDepth(29).setVisible(false);
+      const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14); });
+      badge.add([g,OTR.txt(this, 0, 0, '✓', 15, '#ffffff', { weight: '900' })]);
       p.badge = badge;
       x += w + gap * k;
     });
@@ -90,7 +101,7 @@ class PickupScene extends BaseScenarioScene {
         cv.rr(ctx, 4, 12, dims[0], dims[1], 3); ctx.fillStyle = '#F4F1FA'; ctx.fill();
         ctx.fillStyle = '#4D148C'; ctx.fillRect(4, 12, dims[0], 7);
       } else {
-        OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 18, x: 4, y: 26, color: p.declared ? 0xD8C9A8 : 0xC99A62, damage: dmg });
+        OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 18, x: 4, y: 26, color: p.color || (p.declared ? 0xD8C9A8 : 0xC99A62), damage: dmg });
       }
       const ly = p.size === 'env' ? 18 : 40;
       if (issues.indexOf('no_label') < 0) {
@@ -99,11 +110,10 @@ class PickupScene extends BaseScenarioScene {
         cv.fitText(ctx, `${p.number} ${p.street || ''}`, 18, ly + 9, dims[0] * 0.62 - 8, 12);
         ctx.fillStyle = '#6A5A80';
         cv.fitText(ctx, String(p.city || ''), 18, ly + 20, dims[0] * 0.62 - 8, 10, { weight: '800' });
-      } else {
-        ctx.fillStyle = '#E8304A'; ctx.font = '900 12px "Segoe UI", Arial'; ctx.textAlign = 'left';
-        ctx.fillText('NO LABEL', 18, ly + 12);
       }
-      cv.rr(ctx, 14, ly + 30, 52, 18, 3); ctx.fillStyle = p.weight >= 150 ? '#E8304A' : '#3A2A50'; ctx.fill();
+      // (a missing label is simply not there, and the weight tag is the same for every piece: judging is the
+      // trainee's job, not the art's)
+      cv.rr(ctx, 14, ly + 30, 52, 18, 3); ctx.fillStyle = '#3A2A50'; ctx.fill();
       ctx.fillStyle = '#fff'; ctx.font = '900 11px "Segoe UI", Arial'; ctx.textBaseline = 'middle';
       ctx.fillText(`${p.weight} LB`, 19, ly + 39);
       (p.marks || []).forEach((m, i) => OTR.draw.mark(ctx, m, dims[0] - 10 - i * 34, ly + 26, 17));
@@ -168,9 +178,7 @@ class PickupScene extends BaseScenarioScene {
       });
       y += 10;
       if (C.docs) {
-        const db = OTR.ui.button(this, px, y + 16, this.docDone ? 'Paperwork checked ✓' : 'Check the paperwork', () => this.openDocs(), { w: 280, h: 44, skin: this.docDone ? 'ghost' : 'purple', fontSize: 15 });
-        if (this.docDone) db.setEnabled(false);
-        add(db);
+        add(OTR.ui.button(this, px, y + 16, this.docDone ? 'Paperwork checked ✓ (re-read)' : 'Check the paperwork', () => this.openDocs(), { w: 280, h: 44, skin: this.docDone ? 'ghost' : 'purple', fontSize: 15 }));
         y += 56;
       }
       const fin = OTR.ui.button(this, px, y + 26, 'Finish the pickup ▶', () => this.finishPickup(), { w: 280, h: 48, skin: 'orange', fontSize: 17 });
@@ -198,12 +206,12 @@ class PickupScene extends BaseScenarioScene {
   /* ------------------------------------------------------------------ steps */
   startTalk() {
     const C = this.content;
-    if (!C.talk) return;
+    if (!C.talk) { this.showPanel(true); return; }
     this.me.face(this.shipper.x);
     this.showPanel(false);
     this.talkCtl = OTR.talk.run(this, C.talk, {
       cast: { shipper: { name: C.shipper.name, color: 0x3DA5FF, rig: this.shipper } },
-      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: 'immediate', depth: 3000,
       onEnd: () => { this.talkCtl = null; this.refreshPanel(); this.showPanel(true); }
     });
@@ -221,21 +229,24 @@ class PickupScene extends BaseScenarioScene {
       return;
     }
     const d = this.decided[p.id];
-    if (d) { OTR.ui.toast(this, `Already ${d.accept ? 'accepted' : 'refused'}. Your call at the counter is final.`, { hold: 1800 }); return; }
+    if (d) { OTR.ui.toast(this, `Already ${d.accept ? 'accepted' : 'refused'}. Your call at the counter is final.`, { hold: 1800, y: 672 }); return; }
+    // customs paperwork first: the invoice decides what happens to the pieces
+    if (this.content.docs && !this.docDone) { OTR.ui.toast(this, 'Check the paperwork first (right): the invoice decides what happens to these pieces.', { hold: 2600, y: 672 }); return; }
     this.inspect(p);
   }
 
   /**
    * Reconcile the count. The choices follow what the courier counted against what the manifest says, and
-   * exactly one of them is the right call.
+   * exactly one of them is the right call. A short count that is raised gets the shipper's recount ("I make it
+   * six") and the counting starts again: a miscount is never a reconciliation, and the shipper only answers what
+   * was actually said.
    */
   confirmCount() {
     const C = this.content;
-    const n = this.pieces.length, k = Object.keys(this.counted).length, M = this.manifest;
+    const k = Object.keys(this.counted).length, M = this.manifest;
     const who = C.shipper.name.split(' ')[0];
-    this.log.check('service', k === n ? 1 : 0, 1, `Counted every piece waiting (${k} of ${n})`, { lesson: 'Count every piece yourself. Your signature on the manifest says you did.' });
     const opts = k === M ? [
-      { text: `Sign for ${k}. The count matches the manifest.`, got: n === M ? 2 : 0 },
+      { text: `Sign for ${k}. The count matches the manifest.`, got: 2 },
       { text: `Ask ${who} to recount anyway, just in case.`, got: 1, note: 'Your count matched. A recount costs the shipper time for nothing.' },
       { text: 'Take what\'s here and sort the paperwork out at the station.', got: 0 }
     ] : [
@@ -258,40 +269,53 @@ class PickupScene extends BaseScenarioScene {
 
   answerCount(o) {
     const C = this.content;
-    this.log.check('service', o.got, 2, 'Reconciled the piece count with the manifest', {
-      lesson: o.got < 2 ? (o.note || 'Never sign for a number you did not count. Raise any difference with the shipper there and then.') : null
+    const n = this.pieces.length, k = Object.keys(this.counted).length;
+    const who = C.shipper.name.split(' ')[0];
+    if (o.raise && k < n) {
+      // raising it was right, but the count was short: the shipper counts what is there, and you count again
+      this.shortRaised = (this.shortRaised || 0) + 1;
+      OTR.ui.modal(this, {
+        title: 'The count doesn\'t add up', w: 640, h: 320,
+        body: `${who} counts the outgoing pieces. "I make it ${n} here, not ${k}. Have another look?"`,
+        buttons: [{ label: 'Count again', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: () => this.refreshPanel() }]
+      });
+      return;
+    }
+    this.log.check('service', k === n && !this.shortRaised ? 1 : 0, 1, `Counted every piece waiting${this.shortRaised ? ' (on the second try)' : ` (${k} of ${n})`}`, { lesson: 'Count every piece yourself. Your signature on the manifest says you did.' });
+    const got = k < n ? 0 : o.got;
+    this.log.check('service', got, 2, 'Reconciled the piece count with the manifest', {
+      lesson: got < 2 ? (o.note || 'Never sign for a number you did not count. Raise any difference with the shipper there and then.') : null
     });
     this.countAnswered = true;
     const next = () => {
-      OTR.ui.toast(this, 'Now inspect each piece: click a package to look it over.', { hold: 3000 });
+      OTR.ui.toast(this, C.docs ? 'Now check the paperwork (right), then inspect each piece.' : 'Now inspect each piece: click a package to look it over.', { hold: 3000, y: 672 });
       this.refreshPanel();
     };
     if (o.raise && C.recount) {
       this.manifest = C.recount.corrected;
-      OTR.ui.modal(this, { title: 'You raised the count', w: 640, h: 300, body: C.recount.text, buttons: [{ label: 'OK', skin: 'orange', onClick: next }] });
+      OTR.ui.modal(this, { title: 'You raised the count', w: 640, h: 300, body: C.recount.text, buttons: [{ label: 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: next }] });
     } else next();
   }
 
   inspect(p) {
     const R = OTR_DATA.pickups.reasons;
     const issues = p.issues || [];
-    const notes = {
-      crushed: 'The box is crushed along one edge and re-taped.',
-      leaking: 'Something is seeping through the bottom corner of the box.',
-      wet: 'The box is damp and soft along the bottom.',
-      poor_packaging: 'Heavy contents in a thin single-wall box with no padding.',
-      no_label: 'There is no shipping label on this piece.',
-      bad_label: 'The label is torn and the address cannot be read.',
-      docs: 'International shipment: the customs invoice is attached in a pouch.'
-    };
-    const noteLines = [];
-    issues.forEach(i => {
-      if (notes[i]) noteLines.push(notes[i]);
-      else if (i === 'over_weight') noteLines.push(`Scale reads ${p.weight} lb.`);
-      else if (i === 'hazmat_undeclared') noteLines.push(p.hint || 'The shipper says the contents are hazardous, but there are no hazard marks or declaration.');
-    });
-    if (p.declared) noteLines.push('Hazard label and declaration are attached and match the contents.');
-    if (!noteLines.length) noteLines.push('Packaging is sound, the label is complete and readable.');
+    // What there is to see, described the same way for every piece, never the verdict: no "packaging is sound",
+    // no "declaration matches". Deciding is the exercise.
+    const has = (x) => issues.indexOf(x) >= 0;
+    const box = has('crushed') ? 'one edge caved in, re-taped' : has('leaking') ? 'a dark patch spreading at the bottom corner'
+      : has('wet') ? 'damp and soft along the bottom' : has('poor_packaging') ? 'thin single-wall carton, no padding, heavy contents'
+        : p.size === 'env' ? 'envelope, flat and sealed' : 'corners square, tape intact';
+    const label = has('no_label') ? 'none' : has('bad_label') ? 'torn across the address' : 'printed, address and service';
+    const noteLines = [
+      `Box: ${box}.`,
+      `Label: ${label}.`,
+      `Scale: ${p.weight} lb.`,
+      `Hazard marks: ${(p.marks || []).length ? (p.marks || []).map(m => (m === 'class3' ? 'Class 3 flammable liquid' : m)).join(', ') : 'none'}.`
+    ];
+    if (p.declared) noteLines.push('Papers: a dangerous goods declaration in the pouch.');
+    else if (has('docs')) noteLines.push('Papers: a commercial invoice in the pouch.');
+    if (has('hazmat_undeclared')) noteLines.push(p.hint || `Shipper: "${(this.content.dgSaid || 'just a liter of solvent')}".`);
 
     OTR.ui.modal(this, {
       w: 760, h: 520, escClose: true,
@@ -300,10 +324,10 @@ class PickupScene extends BaseScenarioScene {
         if (issues.indexOf('no_label') < 0) {
           box.add(this.add.image(-w / 2 + 210, -h / 2 + 170, OTR.labelArt.key(this, p, 330, 220)).setDisplaySize(330, 220));
         } else {
-          const g = this.add.graphics();
-          g.fillStyle(0xEDE7F6, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
-          g.lineStyle(3, 0xE8304A, 1); g.strokeRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
-          box.add(g);
+          box.add(OTR.tex.shape(this, (g) => {
+            g.fillStyle(0xEDE7F6, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
+            g.lineStyle(3, 0xE8304A, 1); g.strokeRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
+          }));
           box.add(OTR.txt(this, -w / 2 + 210, -h / 2 + 170, 'NO LABEL', 32, '#C8243B', { weight: '900' }));
         }
         // notes column, padded clear of the modal's right edge
@@ -316,16 +340,19 @@ class PickupScene extends BaseScenarioScene {
         });
         box.add(OTR.txt(this, w / 2 - 300, Math.min(y + 6, h / 2 - 104), `Service: ${(OTR.labelArt.SERVICE[p.service || 'standard'] || {}).text || ''}`, 14, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: 262 }));
       },
+      // A accepts, R refuses; the reasons are numbered and say what each one covers
       buttons: [
-        { label: 'Accept', skin: 'green', onClick: () => this.decide(p, true, null) },
+        { label: 'Accept (A)', skin: 'green', key: 'A', onClick: () => this.decide(p, true, null) },
         {
-          label: 'Refuse…', skin: 'red', onClick: () => {
+          label: 'Refuse… (R)', skin: 'red', key: 'R', onClick: () => {
             OTR.ui.modal(this, {
-              title: 'Why are you refusing it?', w: 680, h: 460, escClose: true,
+              title: 'Why are you refusing it?', w: 720, h: 560, escClose: true,
               buttons: [],
               build: (box2, api2, w2, h2) => {
                 R.forEach((r, i) => {
-                  box2.add(OTR.ui.button(this, 0, -h2 / 2 + 110 + i * 62, `${r.label}`, () => api2.close(() => this.decide(p, false, r.id)), { w: w2 - 80, h: 52, skin: 'ghost', fontSize: 16, key: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'][i] }));
+                  const y = -h2 / 2 + 110 + i * 84;
+                  box2.add(OTR.ui.button(this, 0, y, `${i + 1}.  ${r.label}`, () => api2.close(() => this.decide(p, false, r.id)), { w: w2 - 80, h: 52, skin: 'ghost', fontSize: 16, key: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'][i] }));
+                  box2.add(OTR.txt(this, 0, y + 36, r.desc, 13, '#7A6A90', { bold: false }));
                 });
               }
             });
@@ -344,55 +371,63 @@ class PickupScene extends BaseScenarioScene {
     if (accept) img.setTint(0xBFF5D8);
     else this.tweens.add({ targets: img, alpha: 0.4, duration: 300 });
     const cat = (p.issues || []).indexOf('hazmat_undeclared') >= 0 ? 'safety' : 'service';
-    const name = p.number ? `${p.number} ${p.street}` : 'the unlabelled piece';
-    this.log.check(cat, right ? 2 : 0, 2, `${accept ? 'Accepted' : 'Refused'} ${name}`, { lesson: right ? null : p.why, feedback: p.why });
+    const name = p.number ? `${p.number} ${p.street}` : 'the unlabeled piece';
+    // A piece that was fine: its `why` says why it was fine, which reads as praise out of context
+    const lesson = right ? null : p.accept ? `This one was fine to ship (${p.why.replace(/\.$/, '')}). Refusing a good piece fails the customer.` : p.why;
+    // Never averaged away: undeclared dangerous goods or a failed customs invoice sent into the network, or a
+    // correctly declared dangerous-goods shipment turned away
+    const critical = !right && (accept ? (p.reason === 'DG' || p.reason === 'DOC') : p.service === 'hazmat');
+    this.log.check(cat, right ? 2 : 0, 2, `${accept ? 'Accepted' : 'Refused'} ${name}`, { lesson, feedback: p.why, critical });
     let reasonRight = true;
     if (!accept && p.accept === false) {
       reasonRight = reason === p.reason;
       this.log.check('service', reasonRight ? 1 : 0, 1, 'Gave the right refusal reason', { lesson: reasonRight ? null : `The right reason here was "${(OTR_DATA.pickups.reasons.find(r => r.id === p.reason) || {}).label}".` });
     }
     // say straight away when a call was wrong, and why: a report at the end is too late to learn from
-    if (!right) OTR.ui.toast(this, `✗  ${p.why}`, { border: 0xF0435A, hold: 4200, size: 17 });
-    else if (!reasonRight) OTR.ui.toast(this, `Right to refuse it, wrong reason: it was "${(OTR_DATA.pickups.reasons.find(r => r.id === p.reason) || {}).label}".`, { border: 0xFFB020, hold: 3800, size: 17 });
+    if (!right) OTR.ui.toast(this, `✗  ${p.accept ? 'That piece was fine' : 'Should have been refused'}: ${p.why}`, { border: 0xF0435A, hold: 4200, size: 17, y: 672 });
+    else if (!reasonRight) OTR.ui.toast(this, `Right to refuse it, wrong reason: it was "${(OTR_DATA.pickups.reasons.find(r => r.id === p.reason) || {}).label}".`, { border: 0xFFB020, hold: 3800, size: 17, y: 672 });
     this.refreshPanel();
   }
 
+  /** The invoice. After the findings are in it opens again read-only, with them marked, to re-read while deciding. */
   openDocs() {
-    if (this.docDone) return;
     const D = this.content.docs;
+    const readOnly = this.docDone;
     const flags = this.docFlags;
     OTR.ui.modal(this, {
-      w: 820, h: 600, escClose: true,
+      // as tall as its lines (a fuller invoice has eleven)
+      w: 820, h: Math.min(OTR.H - 40, Math.max(600, 210 + D.fields.length * 40)), escClose: true,
       build: (box, api, w, h) => {
-        const g = this.add.graphics();
-        g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
-        g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
-        box.add(g);
+        box.add(OTR.tex.shape(this, (g) => {
+          g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
+          g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
+        }));
         box.add(OTR.txt(this, 0, -h / 2 + 58, D.title, 22, '#250849', { weight: '900' }));
-        box.add(OTR.txt(this, 0, -h / 2 + 84, D.instructions, 14, '#7A6A90', { bold: false }));
+        box.add(OTR.txt(this, 0, -h / 2 + 84, readOnly ? 'Your findings are marked in red.' : D.instructions, 14, '#7A6A90', { bold: false }));
         let y = -h / 2 + 116;
         D.fields.forEach((f, i) => {
           const row = this.add.container(0, y + 18);
-          const rg = this.add.graphics();
-          const draw = () => {
-            rg.clear();
+          const rg = OTR.tex.liveShape(this);
+          const draw = () => rg.redraw((g) => {
             const on = !!flags[i];
-            rg.fillStyle(on ? 0xFFE0E6 : 0xF6F1FD, 1); rg.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
-            rg.lineStyle(2, on ? 0xE8304A : 0xE0D4F2, 1); rg.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
-          };
+            g.fillStyle(on ? 0xFFE0E6 : 0xF6F1FD, 1); g.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+            g.lineStyle(2, on ? 0xE8304A : 0xE0D4F2, 1); g.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+          });
           draw();
           row.add(rg);
           row.add(OTR.txt(this, -w / 2 + 66, 0, f.label, 14, '#7A6A90', { ox: 0 }));
           row.add(OTR.txt(this, -w / 2 + 300, 0, f.value, 15, '#250849', { ox: 0, weight: '900' }));
-          const hit = this.add.zone(0, 0, w - 100, 34).setInteractive({ useHandCursor: true });
-          hit.on('pointerup', () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); });
-          row.add(hit);
+          if (!readOnly) {
+            const hit = this.add.zone(0, 0, w - 100, 34).setInteractive({ useHandCursor: true });
+            hit.on('pointerup', () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); });
+            row.add(hit);
+          }
           box.add(row);
           y += 40;
         });
       },
-      buttons: [{
-        label: 'Submit findings', skin: 'orange', onClick: () => {
+      buttons: readOnly ? [{ label: 'Close', skin: 'orange', key: ['ENTER', 'SPACE'] }] : [{
+        label: 'Submit findings', skin: 'orange', key: 'ENTER', onClick: () => {
           if (this.docDone) return;
           let hits = 0, misses = 0, falsePos = 0;
           D.fields.forEach((f, i) => {
@@ -402,14 +437,20 @@ class PickupScene extends BaseScenarioScene {
           });
           const bad = D.fields.filter(f => f.bad).length;
           const missed = D.fields.filter((f, i) => f.bad && !flags[i]);
+          const wrong = D.fields.filter((f, i) => !f.bad && flags[i]);
           this.log.check('service', Math.max(0, hits - falsePos), bad, `Found the customs paperwork problems (${hits}/${bad})`, {
             lesson: misses ? missed[0].why : (falsePos ? 'Flagging correct lines slows the shipper down: check carefully before you reject something.' : null)
           });
           this.docDone = true;
+          // what was missed, and what was flagged but fine (those cost a point, and used to go unmentioned)
+          const parts = [];
+          if (missed.length) parts.push('You missed:\n' + missed.map(f => `• ${f.label}: ${f.why}`).join('\n'));
+          if (wrong.length) parts.push('Flagged but fine:\n' + wrong.map(f => `• ${f.label}: ${f.okWhy || 'nothing wrong with this line'}`).join('\n'));
           OTR.ui.modal(this, {
-            title: `${hits} of ${bad} problems found`, w: 680, h: 420,
-            body: missed.length ? 'You missed:\n' + missed.map(f => `• ${f.label}: ${f.why}`).join('\n') : 'Every problem on the invoice was caught. That shipment will clear customs.',
-            buttons: [{ label: 'OK', skin: 'orange' }]
+            title: `${hits} of ${bad} problems found`, w: 700, h: 460,
+            body: parts.length ? parts.join('\n\n') : 'Every problem on the invoice was caught, and nothing else was flagged. That shipment will clear customs once it is fixed.',
+            bodySize: 16,
+            buttons: [{ label: 'OK', skin: 'orange', key: ['ENTER', 'SPACE'] }]
           });
           this.refreshPanel();
         }
@@ -433,7 +474,7 @@ class PickupScene extends BaseScenarioScene {
         title: 'PICKUP EXCEPTION', color: 0xC8243B,
         lines: [
           { text: 'No pieces accepted', bold: true },
-          { text: `${refused} refused — the shipper keeps them until they are fixed`, color: '#C8243B' },
+          { text: `${refused} refused — the shipper keeps them`, color: '#C8243B' },
           'Exception recorded against the pickup.'
         ],
         options: [{ label: 'Done', onPick: () => { this.hh.close(); this.endScenario(); } }]
@@ -456,13 +497,16 @@ class PickupScene extends BaseScenarioScene {
   endScenario() {
     if (this.cats.indexOf('efficiency') >= 0) {
       const par = this.content.par || 200;
-      this.log.check('efficiency', this.elapsed <= par ? 2 : this.elapsed <= par * 1.5 ? 1 : 0, 2, `Worked the pickup in good time (${Math.round(this.elapsed)}s)`);
+      // speed only counts as far as the piece calls were right (PRP-14)
+      const calls = this.log.filter(it => /^(Accepted|Refused) /.test(it.label));
+      const accuracy = calls.length ? calls.filter(it => it.good).length / calls.length : 1;
+      const time = this.elapsed <= par ? 1 : this.elapsed <= par * 1.5 ? 0.5 : 0;
+      this.log.check('efficiency', Math.round(OTR.scoring.gateTime(time, accuracy) * 2), 2, `Worked the pickup in good time (${Math.round(this.elapsed)}s)`,
+        { lesson: accuracy < 1 ? 'Speed only counts when the calls are right: check every piece before you accept or refuse it.' : null });
     }
     const ratios = this.log.ratios(this.cats);
-    const lessons = this.log.lessons(2);
-    (this.content.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     this.running = false;
-    this.finish({ score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() } }, 400);
+    this.finish({ score: this.log.score(), ratios, log: this.log, lessons: this.content.keyLessons || [], stats: { log: this.log.toJSON() } }, 400);
   }
 
   update(time, delta) {

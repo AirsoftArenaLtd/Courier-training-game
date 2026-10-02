@@ -44,6 +44,8 @@ module.exports = async (page, ctx) => {
   await page.mouse.click(btn.strap.x, btn.strap.y);
   await ctx.wait(300);
   await page.mouse.click(btn.done.x, btn.done.y);
+  await ctx.wait(700);
+  await page.keyboard.press('Enter');                             // the load report card
   await ctx.until('!!window.__qaResult', 8000);
   const r = await ctx.eval('window.__qaResult && window.__qaResult.result.ratios');
   const short = Object.keys(r || {}).filter(k => r[k] < 1);

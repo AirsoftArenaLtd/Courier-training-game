@@ -42,25 +42,30 @@ class DrivingScene extends TownDriveScene {
     this.time.delayedCall(120, () => this.openIntro());
   }
 
-  /** Nearest-neighbour walk from the depot, so the checkpoints make a sensible loop. */
+  /**
+   * A clockwise loop from the station: east along the station's street, checkpoints on the right-hand (south) kerb
+   * one block apart, round the far corner, then west along the next street on its right-hand (north) kerb. Every leg
+   * starts facing the next bay and every corner is a right turn. (A nearest-neighbour pick zigzagged across one
+   * street, so every leg began with a turn-round a step van cannot make.)
+   */
   pickRoute(T) {
     const n = (this.content && this.content.checkpoints) || 6;
-    const pool = T.lots.filter(l => l.curb).slice();
-    const route = [];
-    let from = { x: T.depot.curb.x, y: T.laneY(0, 1) };
-    for (let i = 0; i < n && pool.length; i++) {
-      let best = 0, bestD = 1e9;
-      pool.forEach((l, j) => {
-        const d = Phaser.Math.Distance.Between(from.x, from.y, l.curb.x, l.curb.y);
-        // keep them a street apart so there is room for a hazard between checkpoints
-        const score = d < 420 ? d + 3000 : d;
-        if (score < bestD) { bestD = score; best = j; }
-      });
-      const lot = pool.splice(best, 1)[0];
-      route.push({ lotId: lot.id, index: i + 1 });
-      from = lot.curb;
-    }
-    return route;
+    const row0 = (T.spec.depot && T.spec.depot.row) || 0, row1 = Math.min(row0 + 1, T.hy.length - 1);
+    const mid = (col) => (T.vx[col] + T.vx[col + 1]) / 2;
+    // the plot furthest along the way the van is going, so each leg has a clear stretch of road after its junction
+    // (where the drill stages its hazard) before the bay
+    const pick = (row, side, col) => {
+      const opts = T.lots.filter(l => l.row === row && l.side === side && l.x > T.vx[col] && l.x < T.vx[col + 1]);
+      opts.sort((a, b) => (b.x - a.x) * side);
+      return opts[0] || null;
+    };
+    const cols = [];
+    for (let c = 0; c < T.vx.length - 1; c++) if (mid(c) > T.depot.x + 300) cols.push(c);
+    const half = Math.ceil(n / 2);
+    const out = cols.slice(0, half).map(c => pick(row0, 1, c))
+      .concat(cols.slice(0, n - half).reverse().map(c => pick(row1, -1, c)))
+      .filter(Boolean);
+    return out.slice(0, n).map((lot, i) => ({ lotId: lot.id, index: i + 1 }));
   }
 
   onCreated() {
@@ -85,7 +90,7 @@ class DrivingScene extends TownDriveScene {
     this.hazardPill.setVisible(true).setScale(0.9);
     this.tweens.add({ targets: this.hazardPill, scale: 1, duration: 180, ease: 'Back.easeOut' });
     if (this.warnTimer) this.warnTimer.remove();
-    this.warnTimer = this.time.delayedCall(3200, () => this.hazardPill.setVisible(false));
+    this.warnTimer = this.time.delayedCall(Math.max(3200, OTR.ui.readTime(text)), () => this.hazardPill.setVisible(false));
   }
 
   openIntro() {
@@ -137,11 +142,14 @@ class DrivingScene extends TownDriveScene {
     for (let i = this.hazards.length - 1; i >= 0; i--) {
       const hz = this.hazards[i];
       hz.t += dt;
-      hz.minMph = Math.min(hz.minMph === undefined ? 99 : hz.minMph, this.mph());
+      // only the van's speed near the hazard counts (waiting at a light a block away is not slowing down for it)
+      if (hz.p && this.rel(hz.p).fd < 150) hz.reached = true;
+      if (hz.reached || !hz.p) hz.minMph = Math.min(hz.minMph === undefined ? 99 : hz.minMph, this.mph());
       this['step_' + hz.kind](hz, dt);
       if (hz.dead && !hz.judged) {
+        if (hz.p && !hz.reached) this.armedFor[hz.def.id] = false;       // never met: it comes up again further on
         // expired with no moment of truth: all that is left to judge is whether they slowed for it
-        if (hz.minMph < 9) this.pass(hz, 'You slowed right down for it.'); else this.fail(hz);
+        else if (hz.minMph < 9) this.pass(hz, 'You slowed right down for it.'); else this.fail(hz);
       }
       if (hz.dead) { this.clearHazard(hz); this.hazards.splice(i, 1); }
     }
@@ -170,28 +178,31 @@ class DrivingScene extends TownDriveScene {
     return Math.abs(r.fd) < r.hl + (pad || 6) && Math.abs(r.lat) < r.hw + (pad || 6);
   }
 
-  /** Arm the hazard belonging to the checkpoint the driver is heading for. */
+  /**
+   * Arm the hazard belonging to the checkpoint the driver is heading for. It is staged on the way there: on the
+   * checkpoint's street, in the van's lane ahead of it, on straight road clear of the junctions and before the bay,
+   * and only while the van is driving along that street towards it. (It used to spawn wherever the van pointed:
+   * on corners, in junctions, on streets the trainee was leaving by.)
+   */
   armHazards() {
-    const stop = this.activeStop;
+    const stop = this.activeStop, T = this.T, A = OTR.townArt, R = A.ROAD / 2, v = this.van;
     if (!stop || stop.done) return;
     const list = this.content.hazards.filter(hz => hz.at === this.activeIndex && !this.armedFor[hz.id]);
     if (!list.length) return;
     const def = list[0];
-    const d = Phaser.Math.Distance.Between(this.van.x, this.van.y, stop.lot.park.x, stop.lot.park.y);
-    if (d > 900 || d < 260) return;
-    if (def.kind !== 'phone') {
-      // Far enough ahead that a driver at the limit who reacts promptly can stop (about 25 m at 25 mph),
-      // and no further: arriving too fast is exactly what the drill is there to show.
-      const dist = OTR.util.clamp(260 + Math.abs(this.van.u) * this.P * 1.1, 300, 560);
-      const p = this.ahead(dist);
-      if (!this.T.onRoad(p.x, p.y)) return;
-      if (this.mph() < 6) return;                                   // needs to be rolling for the hazard to mean anything
-      this.armedFor[def.id] = true;
-      this['spawn_' + def.kind](def, p, dist);
-    } else {
-      this.armedFor[def.id] = true;
-      this['spawn_phone'](def);
-    }
+    if (def.kind === 'phone') { this.armedFor[def.id] = true; this.spawn_phone(def); return; }
+    const street = T.hy[stop.lot.row], dir = Math.sign(stop.lot.park.x - v.x);
+    if (Math.abs(v.y - street) > R || Math.cos(v.heading) * dir < 0.85) return;      // on the street, heading for the bay
+    if (T.vx.some(x => Math.abs(v.x - x) < R + 50)) return;                           // not in or at a junction
+    if (this.mph() < 5) return;                                                       // rolling, so it means something
+    // far enough ahead that a driver who reacts promptly can stop at the speed they are doing, and no further
+    const dist = OTR.util.clamp(200 + Math.abs(v.u) * this.P * 1.25, 240, 500);
+    const p = this.ahead(dist);
+    if (!T.onRoad(p.x, p.y)) return;
+    if (T.vx.some(x => Math.abs(p.x - x) < R + 150)) return;                          // straight road, clear of junctions
+    if ((stop.lot.park.x - p.x) * dir < 60) return;                                   // before the bay
+    this.armedFor[def.id] = true;
+    this['spawn_' + def.kind](def, p, dist);
   }
 
   newHazard(def, extra) {
@@ -236,7 +247,8 @@ class DrivingScene extends TownDriveScene {
     if (hz.judged) return;
     hz.judged = true;
     const def = hz.def;
-    this.log.check('safety', 0, def.points, def.title, { lesson: def.lesson, severity: 'major' });
+    const where = { x: Math.round(this.van.x), y: Math.round(this.van.y), mph: Math.round(OTR.vehicle.mph(this.van) * 10) / 10, t: Math.round(this.elapsed), seed: this.T.seed, key: 'hazard' };
+    this.log.check('safety', 0, def.points, def.title, { lesson: def.lesson, severity: 'major', where });
     if (extraPenalty) this.log.penalty('safety', extraPenalty, text || def.fail, { severity: 'major' });
     this.results.push({ id: def.id, ok: false });
     this.warn('✗ ' + (text || def.fail), 0xF0435A);
@@ -442,8 +454,8 @@ class DrivingScene extends TownDriveScene {
     const S = this.right(), A = OTR.townArt;
     const lane = { x: p.x - S.x * (A.ROAD / 4 + 10), y: p.y - S.y * (A.ROAD / 4 + 10) };
     const hz = this.newHazard(def, { p: lane, hold: 0 });
-    // a school bus is about 2.6 m by 12 m
-    const bus = this.add.image(lane.x, lane.y, A.busTop(this, false)).setDepth(28).setScale(0.55, 0.96).setRotation(this.van.heading - Math.PI / 2);
+    // a school bus is about 2.6 m by 12 m (its body is 60 of the texture's 96 px; the rest is room for the stop arm)
+    const bus = this.add.image(lane.x, lane.y, A.busTop(this, false)).setDepth(28).setScale(0.87, 0.96).setRotation(this.van.heading - Math.PI / 2);
     hz.objs.push(bus);
     hz.bus = bus;
     hz.half = 0.96 * 125;
@@ -537,18 +549,18 @@ class DrivingScene extends TownDriveScene {
     const par = C.par;
     this.log.check('efficiency', this.elapsed <= par ? 3 : this.elapsed <= par * 1.4 ? 2 : this.elapsed <= par * 1.9 ? 1 : 0, 3,
       `Ran the drill in ${Math.round(this.elapsed)}s (par ${par}s)`, { lesson: C.lessons.speed });
-    this.log.check('safety', this.buckled ? 2 : 0, 2, 'Drove buckled up', { lesson: 'Belt on before the wheels move, every stop, every time.' });
+    this.log.check('safety', !this.violations.belt ? 2 : 0, 2, 'Drove buckled up the whole way', { lesson: 'Belt on before the wheels move, every stop, every time.' });
     const missed = this.content.hazards.filter(h => !this.armedFor[h.id]);
     missed.forEach(h => this.log.check('safety', 0, h.points, h.title + ' (never reached)', { lesson: h.lesson }));
 
     const ratios = this.log.ratios(['safety', 'efficiency']);
-    const failed = this.log.filter(it => !it.good && it.lesson).map(it => it.lesson);
-    const lessons = failed.filter((l, i, a) => a.indexOf(l) === i).slice(0, 3);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
 
     this.cameras.main.stopFollow();
     OTR.flow.complete(this, this.scenarioId, {
-      score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() }
+      score: this.log.score(), ratios, log: this.log, lessons: this.log.mistakes().length ? [] : [C.lessons.perfect],
+      // every hazard, passed or failed (they used to show only as a line at the foot of the screen while driving)
+      summary: 'Hazards: ' + C.hazards.map(h => { const r = this.results.find(x => x.id === h.id); return `${r ? (r.ok ? '✓' : '✗') : '–'} ${h.title}`; }).join('  ·  '),
+      stats: { log: this.log.toJSON() }
     });
   }
 }

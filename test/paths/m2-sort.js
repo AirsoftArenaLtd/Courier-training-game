@@ -1,6 +1,7 @@
 /*
  * Sort Belt: the whole shift. Every package is scanned before it is sent and sent to the right bin — most with
- * the number keys, every fourth one dragged there with the mouse — every jam is cleared and every rule card read.
+ * the number keys (each bin's own number, the same all shift), every fourth one dragged there with the mouse —
+ * every jam is cleared and every rule card read.
  * At each wave it checks that the bins on the floor are exactly that wave's bins. A clean shift has to earn full
  * marks.
  */
@@ -13,10 +14,10 @@ module.exports = async (page, ctx) => {
   let sent = 0, dragged = 0, wave = -1, waveAt = 0, checked = -1;
   const t0 = Date.now();
   while (Date.now() - t0 < 300000) {
-    const st = await ctx.eval(`(() => { const s = ${S}; const f = s.frontPackage();
+    const st = await ctx.eval(`(() => { const s = ${S}; const f = s.keyTarget();
       return { state: s.state, wave: s.waveIndex, modals: s._openModals || 0, jammed: !!s.jammed, finished: !!s.finished,
         front: f ? { scanned: f.scanned, x: f.img.x, y: f.img.y, bin: s.correctBin(f) } : null,
-        active: s.activeBins.slice(), bx: s.activeBins.map(id => s.bins[id].x),
+        active: s.activeBins.slice(), bx: s.activeBins.map(id => s.bins[id].x), keys: s.activeBins.map(id => s.binKeys[id]),
         shown: Object.values(s.bins).filter(b => b.c.visible && b.c.y > 400 && b.c.y < 700).map(b => b.id) }; })()`);
     if (st.finished || st.state === 'done') break;
     if (st.modals > 0) { await wait(250); await page.keyboard.press('Enter'); await wait(400); continue; }
@@ -41,7 +42,7 @@ module.exports = async (page, ctx) => {
       await page.mouse.up();
       dragged++;
     } else {
-      await page.keyboard.press('Digit' + (idx + 1));
+      await page.keyboard.press('Digit' + st.keys[idx]);
     }
     sent++;
     await wait(90);

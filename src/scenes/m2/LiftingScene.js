@@ -12,27 +12,30 @@ class LiftingScene extends BaseScenarioScene {
     this.liftIndex = -1;
     this.backGlow = 0;
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x12041F, 0.35);
-    const floor = this.add.graphics();
-    floor.fillStyle(0x000000, 0.25); floor.fillRect(0, this.G, OTR.W, OTR.H - this.G);
-    floor.fillStyle(0xFFC83D, 0.9); floor.fillRect(0, this.G, OTR.W, 4);
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.35 }));
+    OTR.tex.shape(this, (floor) => {
+      floor.fillStyle(0x000000, 0.25); floor.fillRect(0, this.G, OTR.W, OTR.H - this.G);
+      floor.fillStyle(0xFFC83D, 0.9); floor.fillRect(0, this.G, OTR.W, 4);
+    });
 
-    // pallet (left)
-    const pal = this.add.graphics().setDepth(3);
-    pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.PALLET_TOP, 240, 7);
-    pal.fillStyle(0x7A5634, 1); [424, 530, 640].forEach(x => pal.fillRect(x, this.PALLET_TOP + 7, 16, 11));
-    pal.fillStyle(0x9B7348, 1); pal.fillRect(420, this.G - 3, 240, 3);
+    // Pallet (left), behind the courier: the load has to be carried to it and turned with the feet. (The courier
+    // used to start standing on it, so lifting the box and putting it straight back down counted as a clean lift.)
+    this.PALLET_X0 = 180; this.PALLET_X1 = 420;
+    OTR.tex.shape(this, (pal) => {
+      pal.fillStyle(0x9B7348, 1); pal.fillRect(180, this.PALLET_TOP, 240, 7);
+      pal.fillStyle(0x7A5634, 1); [184, 290, 400].forEach(x => pal.fillRect(x, this.PALLET_TOP + 7, 16, 11));
+      pal.fillStyle(0x9B7348, 1); pal.fillRect(180, this.G - 3, 240, 3);
+    }).setDepth(3);
 
     // shelving (right)
-    this.shelf = this.add.graphics().setDepth(2);
-    this.shelf.fillStyle(0x2B6CB0, 1);
-    this.shelf.fillRect(660, this.G - 330, 12, 330); this.shelf.fillRect(860, this.G - 330, 12, 330);
-    this.shelf.fillStyle(0xFF8A00, 1);
-    this.shelf.fillRect(650, this.G - 200, 232, 10); this.shelf.fillRect(650, this.G - 330, 232, 10);
-    this.shelf.setVisible(false);
+    this.shelf = OTR.tex.shape(this, (shelf) => {
+      shelf.fillStyle(0x2B6CB0, 1);
+      shelf.fillRect(660, this.G - 330, 12, 330); shelf.fillRect(860, this.G - 330, 12, 330);
+      shelf.fillStyle(0xFF8A00, 1);
+      shelf.fillRect(650, this.G - 200, 232, 10); shelf.fillRect(650, this.G - 330, 232, 10);
+    }).setDepth(2).setVisible(false);
 
-    this.PALLET_X = 540;
+    this.PALLET_X = 300;
     this.phase = null;
     this.postureOn = false;
     this.pose = { x: 640, dir: 1, squat: 0, stoop: 0, hold: false, reach: 0, twist: 0, elevate: 0 };
@@ -118,6 +121,8 @@ class LiftingScene extends BaseScenarioScene {
     const x = hp.x + P.dir * (20 + L.w / 2);
     let bottom = hp.y + 22 + P.squat * 62 + P.stoop * 48;
     if (P.elevate === 0) bottom = Math.min(bottom, this.G);
+    // over the pallet it rests on the pallet's boards, not 18 px into them (squatting lower pushed it through)
+    if (P.hold && x + L.w / 2 > 180 && x - L.w / 2 < 420) bottom = Math.min(bottom, this.PALLET_TOP);
     return { x, bottom };
   }
 
@@ -151,8 +156,7 @@ class LiftingScene extends BaseScenarioScene {
     // weight tag
     if (this.tag) this.tag.destroy();
     this.tag = this.add.container(this.boxState.x, this.boxState.bottom - L.h - 60).setDepth(9);
-    const tg = this.add.graphics();
-    tg.fillStyle(L.weight >= 60 ? 0xF0435A : 0x250849, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18);
+    const tg = OTR.tex.shape(this, (tg) => { tg.fillStyle(L.weight >= 60 ? 0xF0435A : 0x250849, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18); });
     this.tag.add([tg, OTR.txt(this, 0, 0, `${L.weight} lb`, 18, '#ffffff', { weight: '900' })]);
     this.tag.setAlpha(0);
     this.tweens.add({ targets: this.tag, alpha: 1, delay: 400, duration: 200 });
@@ -163,11 +167,16 @@ class LiftingScene extends BaseScenarioScene {
   assess() {
     const L = this.lift;
     const n = L.options.length;
-    const h = 130 + n * 68;
-    const c = this.add.container(640, 250).setDepth(70);
-    c.add(OTR.ui.panel(this, 0, 0, 780, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
-    c.add(OTR.txt(this, 0, -h / 2 + 34, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, '#FF6600', { weight: '900' }));
-    c.add(OTR.txt(this, 0, -h / 2 + 66, L.prompt, 19, '#250849', { bold: true, wrap: 700, align: 'center' }));
+    // Held up at the top of the view, as tall as its text, and clear of the courier's head (it covered the head and
+    // shoulders) and of the back-health panel on the left.
+    const prompt = OTR.txt(this, 0, 0, L.prompt, 19, '#250849', { bold: true, wrap: 580, align: 'center' });
+    const firstY = 50 + prompt.height + 44;
+    const h = firstY + (n - 1) * 60 + 28 + 18;
+    const c = this.add.container(640, 66 + h / 2).setDepth(70);
+    c.add(OTR.ui.panel(this, 0, 0, 640, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
+    c.add(OTR.txt(this, 0, -h / 2 + 28, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, '#FF6600', { weight: '900' }));
+    prompt.setPosition(0, -h / 2 + 50 + prompt.height / 2);
+    c.add(prompt);
     const opts = OTR.util.shuffle(L.options);
     const buttons = [];
     const pick = (o) => {
@@ -177,7 +186,7 @@ class LiftingScene extends BaseScenarioScene {
       this.resolveAssess(o);
     };
     opts.forEach((o, i) => {
-      const b = OTR.ui.button(this, 0, -h / 2 + 124 + i * 68, `${i + 1}.  ${o.text}`, () => pick(o), { w: 680, h: 56, skin: 'ghost', fontSize: 19, key: ['ONE', 'TWO', 'THREE'][i] });
+      const b = OTR.ui.button(this, 0, -h / 2 + firstY + i * 60, `${i + 1}.  ${o.text}`, () => pick(o), { w: 600, h: 52, skin: 'ghost', fontSize: 18, key: ['ONE', 'TWO', 'THREE'][i] });
       c.add(b);
       buttons.push(b);
     });
@@ -201,6 +210,7 @@ class LiftingScene extends BaseScenarioScene {
   }
 
   coach(head, text, col, next) {
+    if (!OTR.academy.coaching()) { next(); return; }   // an assessment: the verdict comes on the results screen
     const w = 760;
     const body = OTR.txt(this, 0, 0, text, 19, '#3A2A50', { bold: false, wrap: w - 70, lineSpacing: 3 });
     const h = body.height + 90;
@@ -237,12 +247,13 @@ class LiftingScene extends BaseScenarioScene {
     if (effect === 'equipment') { this.handTruckAnim(); return; }
     if (effect === 'helper') this.helper = true;
     if (effect === 'stool') {
-      this.stool = this.add.graphics().setDepth(4);
-      this.stool.fillStyle(0xFF8A00, 1);
-      this.stool.fillRect(this.pose.x - 36, this.G - 60, 72, 10);
-      this.stool.fillStyle(0x444450, 1);
-      this.stool.fillRect(this.pose.x - 30, this.G - 50, 8, 50); this.stool.fillRect(this.pose.x + 22, this.G - 50, 8, 50);
-      this.stool.fillRect(this.pose.x - 26, this.G - 26, 52, 6);
+      this.stool = OTR.tex.shape(this, (stool) => {
+        stool.fillStyle(0xFF8A00, 1);
+        stool.fillRect(-36, -60, 72, 10);
+        stool.fillStyle(0x444450, 1);
+        stool.fillRect(-30, -50, 8, 50); stool.fillRect(22, -50, 8, 50);
+        stool.fillRect(-26, -26, 52, 6);
+      }, this.pose.x, this.G).setDepth(4);
       this.stool.setAlpha(0);
       this.tweens.add({ targets: this.stool, alpha: 1, duration: 200 });
       this.tweens.add({ targets: this.pose, elevate: 60, delay: 250, duration: 400, ease: 'Quad.out', onComplete: () => this.startPosture() });
@@ -273,20 +284,26 @@ class LiftingScene extends BaseScenarioScene {
       ctx.fillStyle = '#999'; ctx.beginPath(); ctx.arc(22, 144, 5, 0, Math.PI * 2); ctx.fill();
     });
     const truck = this.add.image(OTR.W + 60, this.G - 80, key).setDepth(7).setFlipX(true);
+    // the courier walks behind it with a hand on the handle (it used to roll in and out on its own while they watched)
+    const P = this.pose;
+    const follow = () => { P.x = truck.x + 46; P.dir = -1; };
+    P.x = OTR.W + 106; P.dir = -1;
     if (this.tag) this.tweens.add({ targets: this.tag, alpha: 0, duration: 200 });
     OTR.audio.play('drive');
     this.tweens.add({
-      targets: truck, x: this.boxState.x + L.w / 2 + 10, duration: 700, ease: 'Cubic.out',
+      targets: truck, x: this.boxState.x + L.w / 2 + 10, duration: 700, ease: 'Cubic.out', onUpdate: follow,
       onComplete: () => {
         OTR.audio.play('thud');
-        const target = 540;
-        this.tweens.add({ targets: [truck], x: target - L.w / 2 - 20 + L.w + 30, duration: 1100, ease: 'Sine.inOut', delay: 200 });
+        const target = this.PALLET_X;
+        this.tweens.add({ targets: [truck], x: target - L.w / 2 - 20 + L.w + 30, duration: 1100, ease: 'Sine.inOut', delay: 200, onUpdate: follow });
         this.tweens.add({
           targets: this.boxState, x: target, delay: 200, duration: 1100, ease: 'Sine.inOut',
           onComplete: () => {
             this.boxState.bottom = this.PALLET_TOP;
             OTR.audio.play('thud');
-            this.tweens.add({ targets: truck, x: -100, duration: 800, ease: 'Cubic.in', onComplete: () => truck.destroy() });
+            // tipped back and wheeled away: the courier takes it out of the frame with them
+            truck.setFlipX(false);
+            this.tweens.add({ targets: truck, x: OTR.W + 80, duration: 700, ease: 'Cubic.in', onUpdate: () => { if (this.lift === L) { P.x = truck.x - 46; P.dir = 1; } }, onComplete: () => truck.destroy() });
             this.qualities.push(1);
             this.praise('Zero strain!');
             this.time.delayedCall(900, () => this.finishLift());
@@ -311,6 +328,7 @@ class LiftingScene extends BaseScenarioScene {
     this.strain = 0;          // integrated overload, seconds x severity
     this.peakLoad = 0;
     this.gripT = 0;
+    this.gripGap = 0;
     this.pose.reach = 0;
     this.showCoach('');
     this.buildPostureHud();
@@ -329,12 +347,36 @@ class LiftingScene extends BaseScenarioScene {
     this.loadNum = OTR.txt(this, 0, 104, '', 15, '#ffffff', { weight: '900' });
     c.add(this.loadNum);
     this.postureHud = c;
+    this.buildPad();
     this.phaseText = OTR.txt(this, 640, 128, '', 20, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(60);
     this.coachText = OTR.txt(this, 640, 160, '', 18, '#ffffff', { weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(60);
   }
 
+  /**
+   * The mouse can do the whole lift too: hold ◀ ▶ to step, ▼ to bend the knees, ▲ to straighten, and click GRIP
+   * (the same as SPACE). It sits under the gauge.
+   */
+  buildPad() {
+    if (this.pad) this.pad.destroy();
+    this.vkeys = {};
+    const c = this.pad = this.add.container(1108, 560).setDepth(61);
+    const hold = (x, y, label, key) => {
+      const b = OTR.ui.button(this, x, y, label, null, { w: 56, h: 48, skin: 'dark', fontSize: 20 });
+      const on = () => { this.vkeys[key] = true; }, off = () => { this.vkeys[key] = false; };
+      b.bg.on('pointerdown', on); b.bg.on('pointerup', off); b.bg.on('pointerout', off);
+      c.add(b);
+    };
+    hold(-62, -28, '▲', 'up');
+    hold(-62, 28, '▼', 'down');
+    hold(-2, 0, '◀', 'left');
+    hold(58, 0, '▶', 'right');
+    c.add(OTR.ui.button(this, 0, 74, 'GRIP / LET GO', () => this.postureAction(), { w: 176, h: 40, skin: 'orange', fontSize: 14 }));
+  }
+
   clearPostureHud() {
     this.postureOn = false;
+    if (this.pad) { this.pad.destroy(); this.pad = null; }
+    this.vkeys = {};
     if (this.postureHud) { this.postureHud.destroy(); this.postureHud = null; }
     if (this.phaseText) { this.phaseText.destroy(); this.phaseText = null; }
     if (this.coachText) { this.coachText.destroy(); this.coachText = null; }
@@ -343,6 +385,7 @@ class LiftingScene extends BaseScenarioScene {
 
   showCoach(text, color) {
     if (!this.coachText) return;
+    if (!OTR.academy.coaching()) text = '';            // an assessment: no live coaching
     this.coachText.setText(text || '').setColor(color || '#ffffff');
   }
 
@@ -373,14 +416,17 @@ class LiftingScene extends BaseScenarioScene {
       const hands = P.x + P.dir * (20 + L.w / 2);
       gap = Math.abs(g.x - hands);
       reachable = needed <= 1.02 && gap < 52;
+      // out of reach the courier just stands there: no folding over towards a box across the floor
+      if (gap >= 52) needed = 0;
     }
     if (!isFinite(needed)) needed = 0;
     P.stoop = OTR.util.clamp(needed, 0, 1);
-    P.reach = P.hold ? 0 : OTR.util.clamp(gap / 44, 0, 1);
+    P.reach = P.hold || gap >= 52 ? 0 : OTR.util.clamp(gap / 44, 0, 1);     // (arms down until it is in reach)
     // Lever arm of the load about the spine, in centimetres-ish. Held against the body it is short: carried
     // upright, a compact 40 lb case sits under the line, as the assessment teaches. Carry it with a bent back
     // and the stoop term pushes it well past; picking it up is judged on reach and stoop instead.
-    const lever = (P.hold ? 14 + L.w * 0.12 : 22 + gap * 0.9) + P.stoop * 92;
+    // (a load picked up at arm's length stays further from the spine: the gap at the grip counts while carrying)
+    const lever = (P.hold ? 14 + L.w * 0.12 + (this.gripGap || 0) * 0.6 : 22 + gap * 0.9) + P.stoop * 92;
     const load = OTR.util.clamp01(L.weight * lever / 2600 / (this.helper ? 1.9 : 1));
     if (this.phase === 'carry' || this.phase === 'set') {
       this.peakLoad = Math.max(this.peakLoad, load);
@@ -394,7 +440,7 @@ class LiftingScene extends BaseScenarioScene {
           this.strainSfx = (this.strainSfx || 0) - dt;
           if (this.strainSfx <= 0) { this.strainSfx = 0.9; OTR.audio.play('strain'); }
           if (this.mistakes.indexOf('stoop') < 0 && P.stoop > 0.45) this.mistakes.push('stoop');
-          if (this.mistakes.indexOf('far') < 0 && gap > 26) this.mistakes.push('far');
+          if (this.mistakes.indexOf('far') < 0 && (this.gripGap || 0) > 20) this.mistakes.push('far');
         }
       }
     }
@@ -405,10 +451,22 @@ class LiftingScene extends BaseScenarioScene {
     const g = this.loadG;
     if (!g) return;
     const h = 190, w = 54, top = -96;
+    if (load === null) {                           // nothing within reach yet: not lifting
+      if (g.shown === 'idle') return;
+      g.shown = 'idle';
+      g.clear();
+      g.fillStyle(0x000000, 0.3); g.fillRoundedRect(-w / 2, top, w, h, 10);
+      g.lineStyle(3, 0xFFFFFF, 0.35);
+      g.lineBetween(-w / 2 - 8, top + h * 0.5, w / 2 + 8, top + h * 0.5);
+      this.loadNum.setText('NOT LIFTING').setColor('#9A8AB0');
+      return;
+    }
+    const v = OTR.util.clamp01(load);
+    if (g.shown === Math.round(v * h)) return;      // redraw only when the bar moves a pixel
+    g.shown = Math.round(v * h);
     g.clear();
     g.fillStyle(0x000000, 0.45); g.fillRoundedRect(-w / 2, top, w, h, 10);
     g.fillStyle(0x2BC48A, 0.22); g.fillRect(-w / 2, top + h * 0.5, w, h * 0.5);
-    const v = OTR.util.clamp01(load);
     const col = v > 0.8 ? 0xF0435A : v > 0.5 ? 0xFFB020 : 0x2BC48A;
     g.fillStyle(col, 1);
     g.fillRoundedRect(-w / 2, top + h * (1 - v), w, h * v, 8);
@@ -424,38 +482,42 @@ class LiftingScene extends BaseScenarioScene {
     const speed = 150 * dt;
     const bendRate = 1.5 * dt / (L.speed || 1);
 
-    if (K.left.isDown || K.a.isDown) { P.x -= speed; if (this.phase !== 'approach') P.dir = -1; }
-    if (K.right.isDown || K.d.isDown) { P.x += speed; if (this.phase !== 'approach') P.dir = 1; }
-    P.x = OTR.util.clamp(P.x, P.hold ? 470 : 420, 900);
-    if (K.down.isDown || K.s.isDown) P.squat = Math.min(1, P.squat + bendRate);
-    if (K.up.isDown || K.w.isDown) P.squat = Math.max(0, P.squat - bendRate);
+    const V = this.vkeys || {};
+    if (K.left.isDown || K.a.isDown || V.left) { P.x -= speed; if (this.phase !== 'approach') P.dir = -1; }
+    if (K.right.isDown || K.d.isDown || V.right) { P.x += speed; if (this.phase !== 'approach') P.dir = 1; }
+    P.x = OTR.util.clamp(P.x, P.hold ? 160 : 420, 900);
+    if (K.down.isDown || K.s.isDown || V.down) P.squat = Math.min(1, P.squat + bendRate);
+    if (K.up.isDown || K.w.isDown || V.up) P.squat = Math.max(0, P.squat - bendRate);
 
     const st = this.solvePosture(dt);
-    this.drawLoadGauge(st.load);
+    // Before the grip the gauge only reads once the load is within reach (it used to open every lift at DANGER
+    // with nothing lifted); greyed out, NOT LIFTING, until then.
+    this.drawLoadGauge(this.phase === 'approach' && st.gap >= 52 ? null : st.load);
 
     if (this.phase === 'approach') {
       this.phaseText.setText('PICK IT UP');
-      if (!st.reachable && st.gap > 52) this.showCoach('Step in closer — A / D', '#FFC83D');
+      if (!st.reachable && st.gap > 52) this.showCoach('Step in close to the load — A / D', '#FFC83D');
       else if (!st.reachable) this.showCoach('Bend your knees — hold S', '#FFC83D');
-      else if (P.stoop > 0.42) this.showCoach('That is your back doing the work. Bend the knees.', '#FF9A9A');
+      else if (st.gap > 20) this.showCoach('Closer — the load belongs against your body', '#FFC83D');
+      else if (P.stoop > 0.42 || st.load > 0.5) this.showCoach('That is your back doing the work. Bend the knees.', '#FF9A9A');
       else this.showCoach('Grip it — SPACE', '#8BF0C6');
       this.canGrip = st.reachable;
       P.hold = false;
     } else if (this.phase === 'carry') {
       this.phaseText.setText('CARRY IT TO THE PALLET');
-      const dx = this.PALLET_X - P.x;
+      const dx = this.PALLET_X - this.heldBox().x;
       if (st.load > 0.62) this.showCoach('Keep it close and stand up — hold W', '#FF9A9A');
-      else if (Math.abs(dx) > 90) this.showCoach(dx < 0 ? 'Walk it to the pallet — A' : 'Walk it to the pallet — D', '#FFC83D');
+      // near the middle of the pallet before lowering: bending the knees moves the box a little, and it has to
+      // stay on
+      else if (!this.boxOverPallet() || Math.abs(dx) > 40) this.showCoach(dx < 0 ? 'Walk it to the pallet — A (turn with your feet)' : 'Walk it to the middle of the pallet — D', '#FFC83D');
       else { this.showCoach('Lower it with your knees — hold S, then SPACE', '#8BF0C6'); this.phase = 'set'; }
     } else if (this.phase === 'set') {
       this.phaseText.setText('SET IT DOWN');
       const hb = this.heldBox();
       const gapToPallet = this.PALLET_TOP - hb.bottom;
-      const over = Math.abs(P.x - this.PALLET_X) < 95;
-      if (!over) this.showCoach('Step over the pallet — do not reach sideways', '#FF9A9A');
-      else if (gapToPallet > 26) this.showCoach('Lower it with your knees — hold S', '#FFC83D');
+      if (!this.boxOverPallet()) { this.phase = 'carry'; return; }
+      if (gapToPallet > 26) this.showCoach('Lower it with your knees — hold S', '#FFC83D');
       else this.showCoach('Let go — SPACE', '#8BF0C6');
-      if (Math.abs(this.PALLET_X - P.x) > 130) this.phase = 'carry';
     }
   }
 
@@ -470,6 +532,10 @@ class LiftingScene extends BaseScenarioScene {
         return;
       }
       P.hold = true;
+      // how far the hands were from the load: over about 20 px is a reach, and it costs (the "get close" lesson
+      // could never be failed before)
+      this.gripGap = Math.abs(this.gripPoint().x - (P.x + P.dir * (20 + L.w / 2)));
+      if (this.gripGap > 20) this.hurt(0, 'Too far from the load — step in first', 'far');
       this.gripStoop = P.stoop;
       this.gripSquat = Math.max(P.squat, 0.02);
       OTR.audio.play('pop');
@@ -486,29 +552,39 @@ class LiftingScene extends BaseScenarioScene {
     if (this.phase === 'carry' || this.phase === 'set') {
       const hb = this.heldBox();
       const gap = this.PALLET_TOP - hb.bottom;
-      const over = Math.abs(P.x - this.PALLET_X) < 95;
-      if (!over) {
+      if (!this.boxOverPallet()) {
         // reaching out to place it instead of stepping across: that is the twist. The box leaves your hands
         // wherever they are (it used to hang in the air where you had held it).
         this.hurt(12, 'You reached and twisted!', 'twist');
-        const onPallet = hb.x > 420 && hb.x < 660;
+        const onPallet = hb.x > this.PALLET_X0 && hb.x < this.PALLET_X1;
         this.boxState = { mode: 'static', x: hb.x, bottom: hb.bottom };
         this.tweens.add({ targets: this.boxState, bottom: onPallet ? this.PALLET_TOP : this.G, duration: 260, ease: 'Quad.in', onComplete: () => OTR.audio.play('thud') });
-        this.finishPosture(0.2);
+        this.finishPosture(0.2, true);
         return;
       }
-      if (gap > 26) this.dropBox(gap); else this.placeBox(gap <= 8 ? 1 : 0.85);
+      if (gap > 26) this.dropBox(gap); else this.placeBox((gap <= 8 ? 1 : 0.85) * (this.gripGap > 20 ? 0.6 : 1));
       return;
     }
   }
 
-  /** Score what the body actually did, then move on. */
-  finishPosture(quality) {
+  /** The whole box on the pallet (a little overhang allowed), not just the courier standing near it. */
+  boxOverPallet() {
+    const hb = this.heldBox(), half = this.lift.w / 2, slack = this.lift.w * 0.1;
+    return hb.x - half >= this.PALLET_X0 - slack && hb.x + half <= this.PALLET_X1 + slack;
+  }
+
+  /**
+   * Score what the body actually did, then move on. fault: a drop or a twist has already said what went wrong, so
+   * no verdict goes over it ("Clean lift" used to be stamped on top of "Dropped it!").
+   */
+  finishPosture(quality, fault) {
     if (!this.postureOn) return;
     const strainQ = OTR.util.clamp01(1 - this.strain / 2.2);
     const q = quality !== undefined ? Math.min(quality, strainQ) : strainQ;
     this.qualities.push(q);
-    if (this.strain < 0.25) this.praise('Clean lift — your back barely noticed.');
+    if (fault) { /* the fault's own message stands */ }
+    else if (q >= 0.95 && this.strain < 0.25) this.praise('Clean lift — your back barely noticed.');
+    else if (this.gripGap > 20 && this.strain < 1) OTR.fx.floatText(this, 640, 250, 'Placed — but lifted at arm\'s length', '#FFC83D', { size: 26 });
     else if (this.strain < 1) OTR.fx.floatText(this, 640, 250, 'A bit of strain there', '#FFC83D', { size: 26 });
     else OTR.fx.floatText(this, 640, 250, 'That one hurt', '#FF6B7F', { size: 28 });
     this.clearPostureHud();
@@ -540,7 +616,7 @@ class LiftingScene extends BaseScenarioScene {
         OTR.fx.floatText(this, 640, 250, 'Dropped it!', '#FF6B7F', { size: 30 });
       }
     });
-    this.finishPosture(0.35);
+    this.finishPosture(0.35, true);
   }
 
   finishLift() {
@@ -565,13 +641,19 @@ class LiftingScene extends BaseScenarioScene {
     const C = this.content;
     const avg = this.qualities.length ? this.qualities.reduce((a, b) => a + b, 0) / this.qualities.length : 0;
     const safety = this.health / 100;
-    const lessons = this.mistakes.map(m => C.lessons[m]).filter(Boolean);
+    // most dangerous first: a fall, a heavy or twisted lift before form faults
+    const order = ['climb', 'heavy', 'twist', 'overhead', 'drop', 'yank', 'awkward', 'jerk', 'stoop', 'far', 'brace'];
+    const rank = (m) => { const i = order.indexOf(m); return i < 0 ? order.length : i; };
+    const lessons = this.mistakes.slice().sort((a, b) => rank(a) - rank(b)).map(m => C.lessons[m]).filter(Boolean);
     if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`Back Health ${Math.round(this.health)}/100 · technique ${Math.round(avg * 100)}%`);
-    this.score = Math.round(this.health * 20 + avg * 2000);
+    // the score is the one the HUD built lift by lift (it used to be replaced here by an unrelated formula)
     OTR.fx.stamp(this, 640, 300, this.health >= 90 ? 'BACK SAVED!' : 'SHIFT DONE', this.health >= 90 ? 0x2BC48A : 0xFFB020, { size: 52, hold: 1400 });
     if (this.health >= 90) OTR.audio.play('fanfare');
-    this.finish({ ratios: { safety, efficiency: Math.pow(avg, 1.6) }, lessons: lessons.slice(0, 3), stats: { health: this.health, avg } }, 1800);
+    this.finish({
+      ratios: { safety, efficiency: Math.pow(avg, 1.6) }, lessons, mistakes: this.mistakes.length,
+      summary: `Back Health ${Math.round(this.health)}/100 · technique ${Math.round(avg * 100)}%`,
+      stats: { health: this.health, avg }
+    }, 1800);
   }
 
   /* ------------------------------------------------------------ drawing */

@@ -33,13 +33,16 @@ const SCENARIOS = [
   { id: 'm1-pretrip', scene: 'PreTripScene' },
   { id: 'm1-route', scene: 'RoutePlannerScene' },
   { id: 'm1-driving', scene: 'DrivingScene' },
+  { id: 'm1-spot', scene: 'HazardScene' },
   { id: 'm2-sort', scene: 'SortingScene' },
   { id: 'm2-lift', scene: 'LiftingScene' },
   { id: 'm2-labels', scene: 'LabelScene' },
   { id: 'm3-missing', scene: 'DialogueScene' },
   { id: 'm3-signature', scene: 'DialogueScene' },
   { id: 'm3-twostops', scene: 'DialogueScene' },
+  { id: 'm3-doorsteps', scene: 'StopScene' },
   { id: 'm4-address', scene: 'DialogueScene' },
+  { id: 'm4-recover', scene: 'DialogueScene' },
   { id: 'm4-damaged', scene: 'DialogueScene' },
   { id: 'm4-storm', scene: 'DialogueScene' },
   { id: 'm5-pod', scene: 'StopScene' },
@@ -315,6 +318,9 @@ async function passGolden(page, sc, row) {
     if (bad.length) return 'ratio out of range: ' + bad.join(',');
     const stars = Object.keys(r.stars).filter(c => !(r.stars[c] >= 0 && r.stars[c] <= 3));
     if (stars.length) return 'stars out of range: ' + stars.join(',');
+    // a careful run tests every category it declares and makes no critical mistake
+    if (r.verdict && r.verdict.untested.length) return 'categories never tested: ' + r.verdict.untested.join(',');
+    if (r.verdict && r.verdict.criticals.length) return 'critical mistake: ' + r.verdict.criticals.map(c => c.label).join('; ');
     return 'ok';
   })()`).catch(e => 'verdict failed: ' + e.message);
   row.golden = verdict;
@@ -324,14 +330,16 @@ async function passGolden(page, sc, row) {
 const HOOK = `(() => {
   const orig = OTR.flow.complete.bind(OTR.flow);
   OTR.flow.complete = (scene, id, result) => {
+    OTR.flow.last = null;
+    const out = orig(scene, id, result);
+    // the stars and verdict the results screen shows (critical caps, untested categories); a route-day phase that
+    // the shift takes over never reaches them, so fall back to the plain ratios there
+    const last = OTR.flow.last && OTR.flow.last.id === id ? OTR.flow.last : null;
     const sc = OTR.registry.get(id) || { categories: [] };
-    const stars = {};
-    sc.categories.forEach(c => {
-      const v = OTR.util.clamp01((result.ratios && result.ratios[c]) || 0);
-      stars[c] = OTR.scoring.stars(v);
-    });
-    window.__qaResult = { id, result, stars };
-    return orig(scene, id, result);
+    const stars = last ? last.stars : {};
+    if (!last) sc.categories.forEach(c => { stars[c] = OTR.scoring.stars(OTR.util.clamp01((result.ratios && result.ratios[c]) || 0)); });
+    window.__qaResult = { id, result, stars, verdict: last ? last.verdict : null };
+    return out;
   };
 })()`;
 
@@ -353,9 +361,10 @@ const HOOK = `(() => {
   const browser = await puppeteer.launch({
     executablePath: exe,
     headless: headful ? false : 'new',
-    // d3d11 is the fast GPU path on Windows; elsewhere Chromium picks its own (software on a machine with no GPU)
+    // d3d11 is the fast GPU path on Windows; elsewhere SwiftShader gives software WebGL (without it a machine with no
+    // GPU has no WebGL at all and Phaser silently falls back to its Canvas renderer, which is not what ships)
     args: ['--autoplay-policy=no-user-gesture-required', '--ignore-gpu-blocklist', '--enable-gpu', '--window-size=1280,780']
-      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox'])
+      .concat(process.platform === 'win32' ? ['--use-angle=d3d11'] : ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'])
       .concat(GPU === 'default' ? [] : ['--force_high_performance_gpu'])
   });
   // say which GPU the frame rates below were measured on

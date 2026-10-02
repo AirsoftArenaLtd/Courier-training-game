@@ -23,6 +23,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suggested fix:** make the keys act on the most recently scanned package that is still on the belt (fall back to
   the front one), and move the gold "front" glow to that package so the target is visible. At minimum reword the
   intro to "the keys always send the package at the FRONT of the belt (the glowing one)".
+- **Status:** fixed — the number keys send the package you scanned last while it is still on the belt (the front one
+  if there is none), and the gold glow sits on that package, so the target is always visible; SPACE scans the
+  front-most package not scanned yet. The intro says so.
 
 ### WAREHOUSE-2: Packages left on the belt at a wave change are judged by the next wave's bins (a DG piece "belongs" in Route 3)
 - **Severity:** major
@@ -45,6 +48,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suggested fix:** stop spawning a few seconds before the wave ends and start the next wave only once the belt is
   empty (the rule card then lands on a clean belt), or keep the previous wave's bins until the carried pieces are
   gone. Never teach "hazmat → route bin".
+- **Status:** fixed — a wave stops feeding the belt two seconds before its time and ends only when its belt is clear,
+  so every piece is judged by the bins of the wave it came in on; the next rule card lands on an empty belt (a DG
+  piece can no longer "belong" in Route 3).
 
 ### WAREHOUSE-3: Dropping a dragged package on the belt past its end (or near the OVERFLOW sign) is an instant "missed"
 - **Severity:** minor
@@ -59,6 +65,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   package was released during the wave-2 rule card: `sort-13-held-through-wave-end.png`).
 - **Suspected cause:** `SortingScene.js:209-211` tweens only `y` back to the belt; `x` stays where the pointer was.
 - **Suggested fix:** remember the pickup x (or the x the belt would have carried it to) and tween back to that.
+- **Status:** fixed — a drop that misses every bin puts the package back where it was picked up (x and y), so it can
+  no longer be dropped past the belt's end (an instant miss), dragged back up the belt, or dropped on top of another.
 
 ### WAREHOUSE-4: Sort Belt results say "FLAWLESS!" above three takeaways about mistakes, and the stats line vanishes
 - **Severity:** minor
@@ -77,6 +85,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   `SortingScene.js:552-553` (stats line is the 4th+ item, then `slice(0, 3)`).
 - **Suggested fix:** only say "Flawless" when there were no faults at all (no wrong, missed, blind or timed-out
   jams); otherwise "Great work!". Put the stats line first (or in its own slot) so it always shows.
+- **Status:** fixed — the results headline comes from `OTR.scoring.headline()` (WP1): "FLAWLESS!" only when the run
+  made no mistakes at all (Sort Belt passes its fault count: wrong, missed, blind scans and jams left uncleared), and
+  "GREAT WORK!" needs every category at 2★ or more. The stats line is a `summary` with its own row on the results
+  card, so no lesson can push it off.
 
 ### WAREHOUSE-5: Lift Right praises "Clean lift — your back barely noticed" on a dropped box and on a reach-and-twist
 - **Severity:** major (teaches the wrong thing at the exact moment of the mistake)
@@ -92,6 +104,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   drop / twist quality passed in (0.35 / 0.2) is ignored for the message, and both texts use y≈250.
 - **Suggested fix:** choose the verdict from the final quality `q` (and the mistake just made); never show "Clean
   lift" after `dropBox()` or the twist branch; offset or replace the fault text rather than stacking.
+- **Status:** fixed — the verdict comes from what happened: after a drop or a reach-and-twist only that fault's
+  message shows ("Clean lift" is never stamped over it); "Clean lift" needs full quality and almost no strain; a lift
+  picked up at arm's length says so.
 
 ### WAREHOUSE-6: Lift Right's in-game score is thrown away at the end (752 on the HUD → 2406 on the results)
 - **Severity:** minor
@@ -106,6 +121,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LiftingScene.js:550` vs `:571`.
 - **Suggested fix:** one formula; show the HUD score that the results will use, or drop the HUD score and show
   Back Health prominently on the results.
+- **Status:** fixed — `LiftingScene.endScenario()` no longer replaces the score the HUD built lift by lift, and the
+  results card shows stars earned out of stars possible instead of a bare score (SHELL-16). Back Health and technique
+  are the run's `summary` line on the results card.
 
 ### WAREHOUSE-7: Results takeaways are cut at three, so later mistakes and the stats line silently disappear
 - **Severity:** minor
@@ -120,6 +138,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LiftingScene.js:568-574`, `SortingScene.js:552-553`.
 - **Suggested fix:** give the stats line its own row on the results card; show up to four lessons, or order them by
   severity (a twist/heavy/DG mistake before "keep a steady rhythm").
+- **Status:** fixed — no scene slices its lessons any more. The results card lists the takeaways ranked (critical
+  first, then by points lost; Lift Right orders its own by danger: climb, heavy, twist, overhead, drop …), with
+  repeats counted ("× 6"), at least four (smaller type if needed) and "+ N more to work on" for the rest; the stats
+  line has its own row (`summary`).
 
 ### WAREHOUSE-8: Lift Right: the "carry it to the pallet and pivot" half of the lesson can be skipped entirely
 - **Severity:** design
@@ -139,6 +161,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   (`:454`, `:489`) uses the courier's x, not the box's footprint.
 - **Suggested fix:** put the pallet genuinely behind the courier (e.g. x 300) so a carry and a turn are required,
   and test that the *box* lands inside the pallet's footprint.
+- **Status:** fixed (decision) — the pallet is behind the courier (x 180-420) and the box in front of them, so every
+  solo and team lift needs the carry and the turn (the courier turns by walking, and "Walk it to the pallet — A (turn
+  with your feet)" says how); placement is judged by the box's own footprint on the pallet (10 % overhang allowed),
+  and "Set it down" starts only once the box is near the middle.
 
 ### WAREHOUSE-9: Lift Right: distance from the load is never scored, so the "get close" lesson is unreachable
 - **Severity:** major (a safety lesson the scene claims to teach but does not)
@@ -155,6 +181,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   `:397` (the only place `far` is pushed).
 - **Suggested fix:** record the gap at the grip (`this.gripGap`) and feed it into the carried lever arm and the
   mistakes (`far` when > ~20 px); tighten the grip range or make the courier's arms visibly over-reach.
+- **Status:** fixed — the distance at the grip is recorded: over about 20 px is "Too far from the load — step in
+  first", the `far` mistake and lesson, a lower lift quality, and a longer lever arm (more spine load) for the whole
+  carry; the grip prompt asks you to step closer first.
 
 ### WAREHOUSE-10: Label Check: turning the package quickly leaves it squashed (half width or half height) until the next turn
 - **Severity:** minor (it is the face you are meant to be reading)
@@ -169,6 +198,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   running; `setScale(1)` is called but the old tween keeps writing the same property and they finish out of step.
 - **Suggested fix:** `this._turnTween.stop()` (or `tweens.killTweensOf(this.boxImg)`) before `setScale(1)`, and set
   the texture immediately when interrupting.
+- **Status:** fixed — a quick second turn stops the first turn's tween before starting its own, so the box always ends
+  at full size on the new face.
 
 ### WAREHOUSE-11: Label Check: a timed-out package is logged as a "blind call" and flies onto the right station
 - **Severity:** minor
@@ -184,6 +215,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   to the answer's bay).
 - **Suggested fix:** skip the blind penalty/line when `stationId` is null; send a timed-out box off the far end of
   the roller (or leave it) rather than onto the right station.
+- **Status:** fixed — a timed-out package is not a blind call (no blind penalty or line, not counted in the blind
+  calls), and it rolls off the far end of the roller instead of flying onto the right station.
 
 ### WAREHOUSE-12: Label Check: a package dropped while the guide is open is left parked on top of a station
 - **Severity:** minor
@@ -202,6 +235,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   box; `answer()` (`:353`) returns early on `guideOpen`.
 - **Suggested fix:** in `dragend`, if `answer()` did not resolve, tween the box back to `BOX`; or cancel the drag in
   `toggleGuide()`.
+- **Status:** fixed — a drop that is not taken (no station under it, or the guide open) sends the box back to the
+  roller at full size; opening the pause menu mid-drag does the same (WAREHOUSE-23).
 
 ### WAREHOUSE-13: Label Check content: "This Way Up" arrows printed on the TOP face
 - **Severity:** polish (content)
@@ -214,6 +249,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Evidence:** `label-17-top-arrows.png`, `label-05-blind-call.png`
 - **Suggested fix:** move the second arrow mark to the back (or a side); draw the top/base views from above/below
   (no rollers, a flap seam) so they read as a different face.
+- **Status:** fixed — the second This Way Up mark is on the back, the opposite side, as the guide says; the top and
+  base views already differ from the sides (a tape cross on the base, a single seam on the top).
 
 ### WAREHOUSE-14: Load for the Route: nudging a shelved package (or dropping it on its own / a full slot) throws it back in the cart
 - **Severity:** minor (annoying, and costs time on a timed, par-scored task)
@@ -232,6 +269,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suggested fix:** treat `s.pkg === p` as a valid target (no-op); on an occupied slot bounce back to where the
   package came from (its old slot, or its old cart position) and float "That space is taken"; use the pointer
   position for the hit test.
+- **Status:** fixed — the drop is decided by where the pointer lets go (not the package's centre); a package dropped
+  on its own slot stays there, one dropped on a full slot goes back where it came from with "That space is taken";
+  only a drop away from every slot takes a package off the shelf.
 
 ### WAREHOUSE-15: Load for the Route: the rule-break message for column A is cut off the left edge of the screen
 - **Severity:** minor
@@ -245,6 +285,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LoadingScene.js:240` (`floatText` at the slot centre, not clamped).
 - **Suggested fix:** clamp the float text's x to `[w/2 + 10, 912 - w/2]` like the hover card, or show the problems
   in the side panel.
+- **Status:** fixed — every message over the load is kept on screen (clamped by its width to the load area), so the
+  section A ones start at the left edge instead of off it.
 
 ### WAREHOUSE-16: Load for the Route: "Strap the floor load" works before anything is loaded and is still credited
 - **Severity:** minor (teaches a box-ticking habit)
@@ -261,6 +303,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `LoadingScene.js:105` (button always enabled), `:286-298`, `:310`.
 - **Suggested fix:** enable the strap button only when the cart is empty (or the floor bays are filled); un-strap if
   a floor bay changes afterwards.
+- **Status:** fixed — "Strap the floor load" is enabled only once the cart is empty, and changing the floor load after
+  strapping takes the straps off ("strap it again before you roll"), so the credit means the final floor load was
+  strapped.
 
 ### WAREHOUSE-17: Find It Fast: the orange stop badge on every package answers rounds 2 and 3 without reading an address
 - **Severity:** design (defeats the scenario's stated lesson)
@@ -274,6 +319,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Evidence:** `find-01-round1.png` (badges), round 2 solved by clicking the "2" at (398, 439) without hovering.
 - **Suggested fix:** drop the stop from the round prompt (give the address only, as a real stop list does), or
   hide the badges in find mode, or give every near-match decoy the *same* stop number as its target.
+- **Status:** fixed (decision) — Find It Fast shows no stop numbers on the packages or in their hover cards; the round
+  names the stop and the address, and the package has to be found by reading the address.
 
 ### WAREHOUSE-18: Shelf and cart labels are too small to read, so every package has to be hovered
 - **Severity:** minor (design)
@@ -288,6 +335,11 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   `load-01-start.png` (cart)
 - **Suggested fix:** add "Hover a package to read its full label" to both intros; draw the street and unit larger
   (drop the weight chip on small boxes, abbreviate nothing).
+- **Status:** fixed — the on-box label runs almost the full width of the face in type up to 17 px (it was 66 % wide
+  and 13 px, so about 6 px on the shelves), and both intros say "Hover a package to read its full label" (the keyboard
+  highlight shows the same card). The smallest boxes were still hard to read at shelf scale, so (after the
+  owner's play test on 25 September) every label is two lines, the number and unit over the street, in larger type;
+  "Ct" / "Ln" and "#3B" / "#3D" read at a glance on every box size.
 
 ### WAREHOUSE-19: Find It Fast: the "stuck" hints call a correctly loaded package a misload and point to the wrong place
 - **Severity:** minor
@@ -305,6 +357,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suggested fix:** compute "misloaded" as `pickPackage()` does and word the hints from it; say "floor bay" when
   the package is on the floor; reword the key lesson to "…report it / move it at the end of the round", or let a
   found misload be dragged.
+- **Status:** fixed — the hints are worded from where the package really is: the first says the stop's section "or a
+  floor bay if it is bulky", the second says misloaded (and in which section) only when it is, "in the floor bay:
+  bulky freight rides on the floor" when it is there, and otherwise names the section. The key lesson now says to
+  report a misload, since packages cannot be moved in this game.
 
 ### WAREHOUSE-20: Sort Belt: the bins change key numbers between waves (Exceptions is 5, then 4)
 - **Severity:** design
@@ -320,6 +376,8 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suspected cause:** `data/m2_sorting.js` `waves[].bins` order; `SortingScene.layoutBins()`.
 - **Suggested fix:** give every bin a fixed key for the whole shift (R1-R3 = 1-3, EXC = 4, then PRI/DG/HVY = 5), or
   keep Exceptions last in every wave; say "keys have changed" on the rule card if they must move.
+- **Status:** fixed (decision) — a bin keeps one number for the whole shift (R1-R3 are 1-3, Priority 4, Exceptions 5,
+  DG 6, Heavy 7, numbered as they first appear); the key caps show it and the intro says so.
 
 ### WAREHOUSE-21: Lift Right: every lift opens with the courier bent double and the gauge at DANGER before any key is pressed
 - **Severity:** design (minor)
@@ -336,6 +394,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   load is out of reach; the gauge shows `load` in the approach phase.
 - **Suggested fix:** in the approach phase only bend towards the box once it is within reach, show the gauge greyed
   ("not lifting") until the grip, and make the green grip prompt depend on the gauge being under the line.
+- **Status:** fixed (decision) — until the load is within reach the courier stands upright with arms down and the
+  gauge is greyed, "NOT LIFTING"; within reach it previews the load, and the green "Grip it — SPACE" appears only when
+  the gauge is under the line.
 
 ### WAREHOUSE-22: The five warehouse games disagree about mouse and keyboard
 - **Severity:** design
@@ -347,6 +408,10 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
   in Load. Not wrong in itself, but nothing on screen says which input a game expects.
 - **Suggested fix:** state the controls on each intro card consistently ("Mouse: … · Keys: …"), and add at least
   Enter for the Load panel's buttons.
+- **Status:** fixed (decision) — every game's core actions work by mouse and by keyboard, and each intro lists both:
+  Sort Belt and Label Check already did; Lift Right gains an on-screen pad (hold ▲ ▼ ◀ ▶, click GRIP / LET GO); Load
+  for the Route and Find It Fast gain the arrow keys (a highlight that moves to the nearest package, or slot while one
+  is held, with its label card) and ENTER / SPACE to pick up, put down or choose, plus T to strap and R to roll out.
 
 ### WAREHOUSE-23: Pausing mid-drag glues the package to the cursor after Resume
 - **Severity:** minor (recoverable, but baffling, and the belt keeps running)
@@ -367,6 +432,9 @@ the Route), m6-find (Find It Fast). Played with `test/tools/playd.js` on port 93
 - **Suggested fix:** on pause (or on `this.events.on('pause')`) end any drag in progress — for Sort, return the
   package to the belt; for Label/Load, return it to where it came from — and reset the pointer's drag state
   (`this.input.setDragState(pointer, 0)`).
+- **Status:** fixed — opening the pause menu ends any drag in progress: the package goes back on the belt (Sort), the
+  roller (Label) or where it came from (Load), and Phaser's drag state for the pointer is reset, so nothing is glued
+  to the cursor after Resume.
 
 ## Revisit
 

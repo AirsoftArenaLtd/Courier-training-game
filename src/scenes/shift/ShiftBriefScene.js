@@ -10,6 +10,7 @@ class ShiftBriefScene extends Phaser.Scene {
     if (!st) { this.scene.start('HubScene'); return; }
     OTR.fx.enter(this);
     this.st = st;
+    this._ended = false;              // the scene object is reused from day to day
 
     const I = OTR.scenery.interior(this, { kind: 'lobby', sign: 'DISPATCH', accent: 0x4D148C, w: 1600, counterX: 1040 });
     const offX = 760 - I.layout.counterX, top = OTR.H - I.layout.h;
@@ -24,6 +25,11 @@ class ShiftBriefScene extends Phaser.Scene {
     this.buildBoard();
     this.atmos = OTR.atmos.apply(this, { tod: 'morning', weather: 'clear', depth: 700, vignette: true });
 
+    // ESC and the corner button pause like everywhere else, with a way back to the station (the briefing is saved
+    // as the day's first part, so the hub offers to resume it)
+    OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
+
     const brief = OTR_DATA.briefs[(st.day - 1) % OTR_DATA.briefs.length];
     this.time.delayedCall(700, () => this.runBrief(brief));
   }
@@ -31,10 +37,12 @@ class ShiftBriefScene extends Phaser.Scene {
   buildBoard() {
     const st = this.st;
     const W = OTR.W;
-    const g = this.add.graphics().setDepth(40);
-    g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 60);
-    g.fillStyle(0xFF6600, 1); g.fillRect(0, 60, W, 3);
-    OTR.txt(this, 24, 30, `DAY ${st.day} · MORNING BRIEFING`, 22, '#ffffff', { ox: 0, weight: '900' }).setDepth(41);
+    OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 60);
+      g.fillStyle(0xFF6600, 1); g.fillRect(0, 60, W, 3);
+    }).setDepth(40);
+    OTR.ui.iconButton(this, 32, 30, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }).setDepth(41);
+    OTR.txt(this, 64, 30, `DAY ${st.day} · MORNING BRIEFING`, 22, '#ffffff', { ox: 0, weight: '900' }).setDepth(41);
     OTR.txt(this, W - 24, 30, OTR.shift.clockStr(), 20, '#FFC83D', { ox: 1, weight: '900' }).setDepth(41);
 
     // manifest board on the left
@@ -60,15 +68,48 @@ class ShiftBriefScene extends Phaser.Scene {
     });
   }
 
+  // the briefing has nothing to restart: Resume, or back to the station
+  restartOptions() { return []; }
+
+  openPause() {
+    if (this.scene.isPaused() || this._ended) return;
+    if (this.input.keyboard) this.input.keyboard.resetKeys();
+    this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: 'Morning briefing' });
+    this.scene.bringToTop('PauseScene');
+    this.scene.pause();
+  }
+
   runBrief(brief) {
     this.talkCtl = OTR.talk.run(this, brief.talk, {
       cast: { dispatch: { name: 'Dispatch', color: 0x4D148C, rig: this.dispatcher } },
-      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: OTR.ScoreLog.from(this.st.log), cats: OTR.scoring.CATS, feedback: 'immediate',
-      depth: 3000, choiceX: 700, choiceWidth: 820,
+      // the answers sit right of the manifest board (x 50-450), not over its stop list
+      depth: 3000, choiceX: 855, choiceWidth: 760,
       onEnd: (node, ctl) => {
         this.st.log = ctl.o.log.toJSON();
         OTR.save.write();
+        // bad weather: what are you wearing? (it decides how the steps and the heat treat you today)
+        const gear = OTR.shift.gearTalk(this.st.weather);
+        if (gear && !this.st.gear) { this.time.delayedCall(300, () => this.runGear(gear)); return; }
+        this._ended = true;
+        this.time.delayedCall(400, () => OTR.shift.setPhase(this, 'pretrip'));
+      }
+    });
+  }
+
+  runGear(graph) {
+    const flags = {};
+    this.talkCtl = OTR.talk.run(this, graph, {
+      cast: { dispatch: { name: 'Dispatch', color: 0x4D148C, rig: this.dispatcher } },
+      courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
+      log: OTR.ScoreLog.from(this.st.log), cats: OTR.scoring.CATS, feedback: 'immediate', flags,
+      depth: 3000, choiceX: 855, choiceWidth: 760,
+      onEnd: (node, ctl) => {
+        this.st.log = ctl.o.log.toJSON();
+        this.st.gear = flags.gear || 'poor';
+        OTR.save.write();
+        this._ended = true;
         this.time.delayedCall(400, () => OTR.shift.setPhase(this, 'pretrip'));
       }
     });

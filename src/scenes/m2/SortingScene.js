@@ -14,6 +14,8 @@ class SortingScene extends BaseScenarioScene {
     this.spawnTimer = 0;
     this.beltSpeed = 0;
     this.packages = [];
+    this.target = null;
+    this.binKeys = null;
     this.streak = 0;
     this.bestStreak = 0;
     this.sinceDamage = 0;
@@ -28,8 +30,7 @@ class SortingScene extends BaseScenarioScene {
     this.elapsed = 0;
 
     // backdrop
-    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse'));
-    this.add.rectangle(W / 2, OTR.H / 2, W, OTR.H, 0x12041F, 0.45);
+    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.45 }));
 
     this.buildBelt();
     this.buildBins();
@@ -61,25 +62,29 @@ class SortingScene extends BaseScenarioScene {
       ctx.fillStyle = 'rgba(0,0,0,0.3)';
       ctx.fillRect(4, 0, 2, h);
     });
-    const g = this.add.graphics().setDepth(1);
-    // legs
-    g.fillStyle(0x2A2634, 1);
-    for (let x = 60; x < this.BELT_END; x += 220) g.fillRect(x, y + 40, 16, 110);
+    OTR.tex.shape(this, (g) => {
+      // legs
+      g.fillStyle(0x2A2634, 1);
+      for (let x = 60; x < this.BELT_END; x += 220) g.fillRect(x, y + 40, 16, 110);
+    }).setDepth(1);
     this.belt = this.add.tileSprite(this.BELT_END / 2, y + 4, this.BELT_END, 60, 'belt_tile').setDepth(2);
-    const rail = this.add.graphics().setDepth(3);
-    rail.fillGradientStyle(0xC9C6D6, 0xC9C6D6, 0x7A7690, 0x7A7690, 1);
-    rail.fillRect(0, y - 32, this.BELT_END, 8);
-    rail.fillGradientStyle(0x9A96AE, 0x9A96AE, 0x4E4A60, 0x4E4A60, 1);
-    rail.fillRect(0, y + 34, this.BELT_END, 18);
-    rail.fillStyle(0xFFC83D, 1);
-    for (let x = 0; x < this.BELT_END; x += 40) rail.fillRect(x, y + 38, 20, 4);
+    // rails (top at y - 32, bottom band to y + 52), drawn once
+    const railKey = OTR.tex.make(this, `sort_rail_${this.BELT_END}`, this.BELT_END, 84, (ctx) => {
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, 8, [[0, 0xC9C6D6], [1, 0x7A7690]]);
+      ctx.fillRect(0, 0, this.BELT_END, 8);
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 66, 0, 84, [[0, 0x9A96AE], [1, 0x4E4A60]]);
+      ctx.fillRect(0, 66, this.BELT_END, 18);
+      ctx.fillStyle = OTR.cv.c(0xFFC83D);
+      for (let x = 0; x < this.BELT_END; x += 40) ctx.fillRect(x, 70, 20, 4);
+    });
+    this.add.image(0, y - 32, railKey).setOrigin(0, 0).setDepth(3);
     // end chute
-    const ch = this.add.graphics().setDepth(1);
-    ch.fillStyle(0x4E4A60, 1);
-    ch.beginPath(); ch.moveTo(this.BELT_END, y - 20); ch.lineTo(OTR.W, y + 110); ch.lineTo(OTR.W, y + 170); ch.lineTo(this.BELT_END, y + 52); ch.closePath(); ch.fillPath();
+    OTR.tex.shape(this, (ch) => {
+      ch.fillStyle(0x4E4A60, 1);
+      ch.beginPath(); ch.moveTo(this.BELT_END, y - 20); ch.lineTo(OTR.W, y + 110); ch.lineTo(OTR.W, y + 170); ch.lineTo(this.BELT_END, y + 52); ch.closePath(); ch.fillPath();
+    }).setDepth(1);
     const sign = this.add.container(1226, y - 90).setDepth(5);
-    const sg = this.add.graphics();
-    sg.fillStyle(0xF0435A, 1); sg.fillRoundedRect(-52, -18, 104, 36, 8);
+    const sg = OTR.tex.shape(this, (sg) => { sg.fillStyle(0xF0435A, 1); sg.fillRoundedRect(-52, -18, 104, 36, 8); });
     sign.add([sg, OTR.txt(this, 0, 0, 'OVERFLOW', 14, '#ffffff', { weight: '900' })]);
   }
 
@@ -100,9 +105,10 @@ class SortingScene extends BaseScenarioScene {
     this.gun = this.add.image(96, 646, key).setDepth(60).setScale(1.05);
     this.laser = this.add.graphics().setDepth(59);
     this.jamBanner = this.add.container(OTR.W / 2, 150).setDepth(820).setVisible(false);
-    const jg = this.add.graphics();
-    jg.fillStyle(0x7A1020, 0.95); jg.fillRoundedRect(-230, -30, 460, 60, 16);
-    jg.lineStyle(3, 0xFF6B7F, 1); jg.strokeRoundedRect(-230, -30, 460, 60, 16);
+    const jg = OTR.tex.shape(this, (jg) => {
+      jg.fillStyle(0x7A1020, 0.95); jg.fillRoundedRect(-230, -30, 460, 60, 16);
+      jg.lineStyle(3, 0xFF6B7F, 1); jg.strokeRoundedRect(-230, -30, 460, 60, 16);
+    });
     this.jamText = OTR.txt(this, 0, 0, '', 20, '#ffffff', { weight: '900' });
     this.jamBanner.add([jg, this.jamText]);
   }
@@ -144,6 +150,13 @@ class SortingScene extends BaseScenarioScene {
   layoutBins(ids, animate) {
     const n = ids.length;
     const span = 1140;
+    // A bin keeps one key for the whole shift, numbered in the order the bins first appear (Exceptions used to be 5
+    // in one wave and 4 in the next).
+    if (!this.binKeys) {
+      this.binKeys = {};
+      let k = 0;
+      this.content.waves.forEach(w => w.bins.forEach(id => { if (!this.binKeys[id]) this.binKeys[id] = ++k; }));
+    }
     // bins this wave does not use leave the floor (they used to stay parked, drawn over the new layout)
     Object.values(this.bins).forEach(b => {
       if (!b.active || ids.indexOf(b.id) >= 0) return;
@@ -155,7 +168,7 @@ class SortingScene extends BaseScenarioScene {
       const b = this.bins[id];
       const x = 70 + (span / n) * (i + 0.5);
       b.x = x;
-      b.cap.list[1].setText(String(i + 1));
+      b.cap.list[1].setText(String(this.binKeys[id]));
       if (!b.active) {
         b.active = true;
         this.tweens.killTweensOf(b.c);
@@ -179,6 +192,7 @@ class SortingScene extends BaseScenarioScene {
       const p = obj.pkg;
       if (!p || this.state !== 'play' || p.jammed) return;
       p.dragging = true;
+      p.pickX = obj.x;                       // a drop that misses every bin goes back here
       obj.setDepth(50);
       this.tweens.add({ targets: obj, scale: 1.15, duration: 100 });
       OTR.audio.play('pop');
@@ -207,18 +221,23 @@ class SortingScene extends BaseScenarioScene {
       if (binId && this.state === 'play') {
         this.sortPackage(p, binId);
       } else {
+        // back where it was picked up (it used to stay at the drop's x: past the belt's end that was an instant miss,
+        // and it could be dragged back up the belt to buy time)
         obj.setDepth(10);
-        this.tweens.add({ targets: obj, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
+        this.tweens.add({ targets: obj, x: p.pickX !== undefined ? p.pickX : obj.x, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
       }
     });
 
-    ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'].forEach((k, i) => {
-      OTR.onKey(this, 'keydown-' + k, () => {
+    // the number keys send the package you scanned last (the glowing one), to the bin wearing that number
+    ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE'].forEach((k, i) => {
+      const send = () => {
         if (this.state !== 'play') return;
-        const id = this.activeBins[i];
-        const p = this.frontPackage();
+        const id = this.activeBins.find(b => this.binKeys[b] === i + 1);
+        const p = this.keyTarget();
         if (id && p) this.sortPackage(p, id);
-      });
+      };
+      OTR.onKey(this, 'keydown-' + k, send);
+      OTR.onKey(this, 'keydown-NUMPAD_' + k, send);
     });
 
     // a click is a scan; a drag is a sort
@@ -231,8 +250,21 @@ class SortingScene extends BaseScenarioScene {
     OTR.onKey(this, 'keydown-SPACE', () => {
       if (this.state !== 'play') return;
       if (this.jammed) { this.clearJam(true); return; }
-      const p = this.frontPackage();
+      // the front-most package not scanned yet
+      let p = null;
+      this.packages.forEach(q => { if (!q.dragging && !q.done && !q.scanned && (!p || q.img.x > p.img.x)) p = q; });
       if (p) this.scanPackage(p);
+    });
+  }
+
+  /** Pause: a package being dragged goes back on the belt where it was picked up. */
+  cancelDrag() {
+    this.packages.forEach(p => {
+      if (!p.dragging) return;
+      p.dragging = false;
+      this.clearBinHover();
+      p.img.setDepth(10);
+      this.tweens.add({ targets: p.img, x: p.pickX !== undefined ? p.pickX : p.img.x, y: this.BELT_Y + p.yOff, scale: 1, duration: 200, ease: 'Back.out' });
     });
   }
 
@@ -248,6 +280,7 @@ class SortingScene extends BaseScenarioScene {
     if (p.scanned) { OTR.audio.play('click_dud'); return; }
 
     p.scanned = true;
+    this.target = p;                        // the keys now act on this one
     this.stats.scanned++;
     OTR.audio.play('scan');
     p.img.setTexture(this.pkgTexture(p, true));
@@ -263,9 +296,10 @@ class SortingScene extends BaseScenarioScene {
     const c = this.add.container(p.img.x, this.BELT_Y - 66).setDepth(40);
     const t = OTR.txt(this, 0, 0, line, 13, '#ffffff', { weight: '900' });
     const w = t.width + 22;
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
-    g.lineStyle(2, bin.color, 1); g.strokeRoundedRect(-w / 2, -13, w, 26, 8);
+    const g = OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
+      g.lineStyle(2, bin.color, 1); g.strokeRoundedRect(-w / 2, -13, w, 26, 8);
+    });
     c.add([g, t]);
     c.setScale(0.7);
     this.tweens.add({ targets: c, scale: 1, duration: 140, ease: 'Back.out' });
@@ -346,6 +380,13 @@ class SortingScene extends BaseScenarioScene {
       if (d < 110 && d < bestD) { best = id; bestD = d; }
     });
     return best;
+  }
+
+  /** What the number keys send: the last package scanned while it is still on the belt, else the front one. */
+  keyTarget() {
+    const t = this.target;
+    if (t && !t.done && !t.dragging && this.packages.indexOf(t) >= 0) return t;
+    return this.frontPackage();
   }
 
   frontPackage() {
@@ -539,18 +580,21 @@ class SortingScene extends BaseScenarioScene {
     const handled = s.excTotal ? s.excCorrect / s.excTotal : 0.5;
     const jamRate = s.jams ? s.jamsCleared / s.jams : 1;
     const safety = handled * 0.55 + scanRate * 0.3 + jamRate * 0.15;
+    // most serious first (safety calls, then lost packages), each with how often it happened
     const lessons = [];
-    if (s.blind) lessons.push(C.lessons.scan);
-    if (s.damageErr) lessons.push(C.lessons.damage);
-    if (s.dgErr) lessons.push(C.lessons.dg);
-    if (s.heavyErr) lessons.push(C.lessons.heavy);
-    if (s.priorityErr) lessons.push(C.lessons.priority);
-    if (s.routeErr) lessons.push(C.lessons.route);
-    if (s.missed) lessons.push(C.lessons.missed);
-    if (s.jams > s.jamsCleared) lessons.push(C.lessons.jam);
-    if (!lessons.length) lessons.push(C.lessons.perfect);
-    lessons.push(`Sorted ${s.correct} of ${resolved} · scanned ${sorted - s.blind} of ${sorted} · best streak ${this.bestStreak} · specials handled ${s.excCorrect}/${s.excTotal}`);
-    this.finish({ ratios: { efficiency, safety }, lessons: lessons.slice(0, 3), stats: s }, 1600);
+    const add = (n, text) => { if (n) lessons.push({ text, n }); };
+    add(s.dgErr, C.lessons.dg);
+    add(s.heavyErr, C.lessons.heavy);
+    add(s.damageErr, C.lessons.damage);
+    add(s.missed, C.lessons.missed);
+    add(s.jams - s.jamsCleared, C.lessons.jam);
+    add(s.blind, C.lessons.scan);
+    add(s.priorityErr, C.lessons.priority);
+    add(s.routeErr, C.lessons.route);
+    const mistakes = s.wrong + s.missed + s.blind + (s.jams - s.jamsCleared);
+    if (!mistakes) lessons.push(C.lessons.perfect);
+    const summary = `Sorted ${s.correct} of ${resolved} · scanned ${sorted - s.blind} of ${sorted} · best streak ${this.bestStreak} · specials handled ${s.excCorrect}/${s.excTotal}`;
+    this.finish({ ratios: { efficiency, safety }, lessons, summary, mistakes, stats: s }, 1600);
   }
 
   /* ------------------------------------------------------------ loop */
@@ -565,7 +609,7 @@ class SortingScene extends BaseScenarioScene {
     this.waveTime += dt;
     this.elapsed += dt;
     const remaining = this.totalTime - this.elapsed;
-    this.setTimer(remaining, remaining < 10);
+    this.setTimer(Math.max(0, remaining), remaining < 10);     // (the last pieces of a wave can take it past zero)
 
     if (this.jammed) {
       this.jamTimer -= dt;
@@ -577,7 +621,7 @@ class SortingScene extends BaseScenarioScene {
     }
 
     this.spawnTimer -= dt;
-    if (!this.jammed && this.spawnTimer <= 0 && this.waveTime < this.wave.duration - 1) {
+    if (!this.jammed && this.spawnTimer <= 0 && this.waveTime < this.wave.duration - 2) {
       this.spawn();
       this.spawnTimer = this.wave.spawnEvery * (0.8 + Math.random() * 0.4);
     }
@@ -598,14 +642,16 @@ class SortingScene extends BaseScenarioScene {
       if (p.img.x > this.BELT_END + 10) this.missPackage(p);
     });
 
-    const front = this.frontPackage();
+    const front = this.keyTarget();
     if (front) {
       this.indicator.setVisible(true).setPosition(front.img.x, front.img.y);
     } else {
       this.indicator.setVisible(false);
     }
 
-    if (this.waveTime >= this.wave.duration) {
+    // a wave ends once its belt is clear, so no piece is judged by the next wave's bins (a DG piece used to "belong"
+    // in Route 3 once the cage had gone)
+    if (this.waveTime >= this.wave.duration && !this.packages.some(p => !p.done)) {
       if (this.waveIndex + 1 < this.content.waves.length) this.startWave(this.waveIndex + 1);
       else this.endShift();
     }

@@ -8,6 +8,12 @@ every change. The driving model was also rebuilt from scratch.
 every defect found is fixed, and the final run of the suite on the finished build is clean: 28 of 28 (see
 Verification). What was not covered, and one thing worth doing next (frame rate on integrated graphics), is at the end.
 
+**Second pass:** 24 September 2026. A wider review by nine testers found 186 more issues. All of them are now
+marked fixed or decided, including the owner's two examples (walking out of the van, and prompts that needed a
+wiggle). On the owner's laptop's Intel UHD graphics every scenario now runs at 131–145 fps (it was 45–72), against a target
+of 60.
+See [Second pass](#second-pass-24-september-2026).
+
 ---
 
 ## How this was tested
@@ -559,6 +565,309 @@ equivalent point.
 
 ---
 
+## Second pass (24 September 2026)
+
+After the first pass the owner raised two problems from their own play: the courier could walk out of the van, and
+door prompts often didn't show until you wiggled back and forth. A second, wider review followed. Nine testers each
+took one area, played it the way a trainee would, and filed findings in [`docs/review/`](review/). The owner asked
+for good performance on integrated graphics and no UI glitches. The fixes were done in the work packages of
+[`docs/review/FIX-PLAN.md`](review/FIX-PLAN.md) (WP0–WP9), in order; its Log records what each package changed and
+which tests it ran.
+
+### What the testers found
+
+186 findings: 1 blocker, 47 major, 77 minor, 33 design questions and 28 polish.
+
+| Review | Area | Findings | Blocker / major |
+| --- | --- | --- | --- |
+| [perf](review/perf.md) | Frame rate on the Intel UHD GPU | 3 | 1 |
+| [stops-m5](review/stops-m5.md) | Doorstep stops: POD, exceptions, adult signature | 23 | 7 |
+| [stops-m8](review/stops-m8.md) | Safety stops: steps, dog, heat | 21 | 11 |
+| [driving](review/driving.md) | Road Hazards and the town drive | 14 | 5 |
+| [routeday](review/routeday.md) | The route day end to end | 21 | 7 |
+| [dialogue](review/dialogue.md) | The seven conversations and the briefing | 31 | 9 |
+| [warehouse](review/warehouse.md) | Sort, lift, labels, loading, find | 23 | 4 |
+| [pretrip-route-pickups](review/pretrip-route-pickups.md) | Pre-trip, route planner, pickups | 27 | 4 |
+| [shell](review/shell.md) | Title, hub, menus, results, saving | 23 | 0 |
+
+The findings fell into a few themes:
+- **Prompts and staging:** prompts that only appeared at one exact spot, E doing something other than the prompt
+  said, and characters standing where the story said they weren't.
+- **Results that didn't match the play:** a run with a safety mistake still marked flawless, endings that forgot a
+  mistake, and a recommended answer that was nearly always the longest.
+- **Mouse only:** controls with no keyboard way to use them.
+- **Performance:** frame rates on the Intel GPU well below the display's refresh rate.
+
+Every finding now ends with a **Status** line: *fixed*, *fixed (decision)* where the fix needed a design call (26 of
+them), or what was deliberately left alone and why.
+
+### The owner's two examples
+
+- **Walking out of the van.** In the van the courier stays in the cab doorway. Holding D or clicking outside does
+  not walk them out. The only way in or out is E, with the step-down question, and a hint says so.
+- **Prompts that need a wiggle.** The cause was that a prompt only appeared once the courier stood still, inside a
+  narrow window that was sometimes on the other side of the door (the bell and the house number). Now each E spot
+  sits on the thing itself, and its prompt shows the moment E would use it, while still walking.
+
+Both were re-checked by hand on the finished build (pictures 01 and 02 below).
+
+### What changed
+
+The FIX-PLAN Log has the detail per package. In short:
+- **WP0, performance:**
+  - Shapes are baked once instead of re-triangulated every frame.
+  - The three atmosphere overlays are one.
+  - Conversation backdrops and stop skylines are baked into single textures.
+  - Multisampling is off and the renderer uses a single-texture shader, the two settings the performance tester
+    measured on the Intel GPU.
+  - Phaser is served from the repo.
+- **WP1, honest results:**
+  - A critical mistake caps its category at one star, and a category nothing tested earns none.
+  - Takeaways are ranked, critical mistakes first.
+  - The headline never says FLAWLESS over a lost safety point.
+- **WP2–WP3, stops and driving:** prompts, van confinement and hazards as described above. The driving changes:
+  - Reverse is on its own key.
+  - The stop line is clear of the crosswalk.
+  - The parking bay is honest.
+  - Pedestrians only cross when it is safe.
+- **WP4, route day:**
+  - Mixed stop types in one fixed town.
+  - A load report before rolling out.
+  - A seeded pre-trip in the day's weather.
+  - Restarts and reloads that keep the day's record.
+  - A debrief kept with the day.
+  - Route-day stars count toward the rank.
+- **WP5, conversations:**
+  - The timers scale with the reading, and ↑ reads earlier lines.
+  - The chosen answer stays on screen.
+  - Staging matches the narration.
+  - Endings remember every mistake.
+  - m8-incident is rewritten in US English.
+  - Answers are rewritten so that length gives nothing away. The recommended answer is now the longest in 11 of 44
+    decisions and the shortest in 13; content validation checks this.
+- **WP6, warehouse:**
+  - Keys act on the package just scanned, and each bin keeps its number for the whole shift.
+  - Lifts need the carry and the turn, and reach is scored.
+  - Every game works by mouse and by keyboard.
+  - Pausing ends a drag cleanly.
+- **WP7, pre-trip, planner and pickups:**
+  - Close-ups describe what is there without giving the verdict, and the latches have a pull test.
+  - The sides of the truck and its lamps are the right way round, and the tire defects are real.
+  - The planner's result card compares like with like.
+  - A short count gets a recount.
+  - Paperwork comes first in the international pickup.
+  - A and R accept and refuse.
+- **WP8, shell:**
+  - A keyboard focus ring, and key hints on the buttons.
+  - Restart and Quit ask first, and the pause menu has a Controls card.
+  - The game pauses on focus loss.
+  - Settings has a volume control.
+  - A notice when progress cannot be saved.
+  - A NEXT scenario for new hires.
+  - Text of at least 13 px.
+  - US English throughout.
+
+Found while testing the fixes (in the WP8 log):
+- **Heat stop:** the water and the AC could not be reached from inside the van. They are now one spot at the back
+  of the doorway that asks which one you want.
+- **Pre-trip:** the under-truck checkpoint sat under the "Climb into the cab" button.
+- **Pause menu:** ESC on the van's shelves opened the pause menu.
+
+Found by the owner playing a route day on 25 September, and fixed:
+- **The van's contents changed at every stop.** Each stop filled the shelves with its own package and two made-up
+  look-alikes. Now the van holds the day's load: every piece still on board, on the shelf it was loaded onto.
+  Delivered pieces are gone, and one that couldn't be delivered rides on.
+- **"Talk to reception" did nothing at a route-day business,** because those stops have no scripted conversation.
+  Now the receptionist greets you, and the delivery is recorded on the handheld.
+- **Stop messages were hard to read over busy backdrops,** such as the lobby's name sign. They now have a dark
+  backing.
+- **Messages vanished before they could be read** (the receptionist's two-line instruction was up for 2.2 s). Every
+  message and pop-up now stays up for a second plus about a second per 18 characters.
+- **The pre-trip marked a correct Pass wrong on two items whose close-ups didn't show the fault:**
+  - The brake now plays out when pressed. A good pedal stops firm at the first mark; a failing one keeps creeping
+    toward the floor past the marks. Pass and Flag unlock once it has settled.
+  - The perished wiper rubber now visibly hangs off the blade.
+  - On review of all 21 close-ups, two more were too subtle. The rear tire's sidewall gouge is now a real gash (and
+    every tire shows its sidewall, so the band itself is no longer a giveaway). The greasy film is now on the bottom
+    step, as the defect says; it was drawn faintly on the top one.
+  - The report card is sized to its rows.
+
+Then, on review, three items that had been listed as decided against, or left partly done, were fixed as well:
+- **Sitting in the van cooled the courier without the AC.** In the heat stop, the parked van now only stops the
+  courier heating up. The AC is what brings the temperature down, and a hint points to it.
+- **Labels on the smallest loading-shelf boxes were too small to read.** Every box label is now two lines: the
+  number and unit over the street, in larger type.
+- **Two conversations mentioned things the stage didn't show.**
+  - In Damaged on Arrival, the courier now lifts a visibly crushed, dripping box, and the recommended answer is to
+    set it down. Before, the courier stood holding the leaking box while the right answer said not to touch it.
+  - In Two Stops, the three boxes are carried in as a stack, not on an unseen hand truck.
+
+The automated route-day test now fails if "Talk to reception" does nothing, or if the van shelves don't hold the
+load that is still on board.
+
+### What the testers didn't get to
+
+Each review ended with a list of things its tester didn't have time to try (the "Revisit" section of each file in
+[`docs/review/`](review/)). On 25 September every item was played or read through.
+
+**Fixed:**
+- **Driving penalties:**
+  - The seatbelt and headlights cost points once per stretch; they used to repeat every 5 seconds, so one slip
+    could cost 24 points in a leg.
+  - Braking hard enough to stop short of a pedestrian is no longer marked as failing to yield.
+  - The handheld at a red light counts as used at the wheel, as the lesson says.
+  - Reverse is strong enough to back the van off a lawn.
+- **Route day:**
+  - A defect correctly flagged in the pre-trip is shown as fixed by the shop before the first leg (8 minutes on the
+    clock, no penalty). It used to be never mentioned again.
+  - On about half the signature stops at homes, a household member answers and signs, so the printed name has to
+    be theirs. Before, the only wrong choice was "Occupant".
+- **Doorstep stops:**
+  - The van shelves work with the arrow keys and ENTER, with a clear outline on the picked box.
+  - No "E" prompt is drawn underneath an open card.
+  - The door-tag question no longer argues for the tag.
+  - A stop's brief no longer says in advance that nobody will be home.
+  - The brief card is as tall as its text.
+  - A clinic lobby's name sign is no longer covered by the heat meters.
+- **Warehouse games:**
+  - Lift Right:
+    - The size-up card no longer covers the courier.
+    - A box lowered over the pallet rests on its boards instead of sinking into them.
+    - The courier pushes the hand truck, where it used to roll on its own.
+  - Label Check:
+    - The guide closes instantly, so the next SPACE isn't lost.
+    - The verdict keeps its highlight when a station is hovered.
+    - The top and base markers show ▲ / ▼, matching their keys.
+  - Load for the Route: the middle shelf is signed "UNDER 35 LB", matching its rule.
+  - Load for the Route and Find It Fast show their counts on the results card.
+- **Pre-trip, pickups and planner:**
+  - The pre-trip clock stops at sign-off.
+  - The pickup checklist no longer shows behind the intro card.
+  - The customs invoice has an HS tariff code, currency and gross-weight line.
+  - A reminder at the bottom of the screen no longer covers a card's buttons.
+  - The route planner's no-deadline pieces are Express Saver, not Ground mixed into an Express loop.
+- **Menus:**
+  - A click right after closing a card with ESC now reaches the screen behind it; the card's fading backdrop used to
+    swallow it.
+  - Test links no longer promise career stars they don't save.
+
+**Checked and already right:**
+- The Sort Belt shift only ends on a clear belt.
+- ESC does nothing on a stop's report card.
+- The page has no missing-file errors on load.
+- A practice scenario can't touch a route day in progress.
+- Traffic stops short of a van stopped at an angle across its lane.
+- Backing into a building stops the van and logs a collision.
+- The water, car-door and ball hazards are judged on speed and inputs as intended.
+- Heat carries over between stops, the awning counts as shade, and a lobby cools you.
+- The dog stop's "it's friendly, go on in" branch plays out with the dog, the gate and the owner.
+- Where's My Package?! plays to its end on the worst answers.
+- The conversation feedback card comes up in about 0.4 s in real time. The delay the tester saw was the turn-based
+  play tool.
+- Snow and storm route days render and drive properly.
+- At a 1366×650 laptop viewport the hub is shown at 90%, and its smallest text is about 12 px on screen.
+
+**Not checkable here:** sound (the cloud browser has no audio), and frame rate on a real 60 Hz 1080p screen, night
+scenes and snow. The owner's Intel run covers the frame rate at the start of each scenario, where it measured
+131–145 fps.
+
+### The owner's second play test (25 September)
+
+- **Messages were gone before they could be read.** Stop messages, pop-ups, drill warnings and load messages now
+  stay up for about a second plus a second per 18 characters (at most 9 s).
+- **False "missed" defects in the pre-trip.** The brake and wiper close-ups didn't show their faults. The brake press
+  now plays out (a failing pedal creeps down, and judging waits until it settles). Perished wiper rubber hangs off
+  the blade, the tire has a real sidewall gash, and the step grease is on the bottom step as described.
+- **Stop signs that didn't answer, and rolling stops that passed.** A stop counted only within 92 px of the line, so
+  one made further back was never recognised and the sign never turned green. A roll through counted only above
+  3 mph. Now a stop is half a second stationary with the nose behind the line, up to two car lengths back. The hint
+  goes "Hold the stop…" then green "look both ways, then go". Crossing the line above 1 mph, or entering the
+  junction without having stopped, is a violation. Red lights are judged at 1.5 mph. Checked by driving scripted
+  approaches from the north, south and east: rolls at 2 and 3 mph, a crawl, a 0.2 s blip and a stop too far back
+  are all flagged. Stops at the line and 4 m back turn green with no violation.
+- **Curbs were easy to drive over, especially on turns.** The kerb was only a sound, and a wheel had to be off the
+  road for a quarter-second above 1.5 mph before it counted, so a rear wheel clipping a corner was never caught.
+  - Junctions now have rounded 4 m kerb corners, drawn and driven.
+  - A wheel climbing the kerb jolts the van, costs speed, and is the violation at once. The sidewalk drags at the
+    tires.
+  - In a scripted sweep of right turns, early and on-time turn-ins now clear the corner, including one that clipped
+    the old square kerb. Late turn-ins still swing wide onto the far kerb and are flagged.
+- **POD photos asked for the house number.** Policy is the opposite. A photo must show the package and the door, and
+  never a house number (the plaque or a numbered mailbox) or a person, the courier included. Such a photo is graded
+  "private": the handheld says what is in the shot, puts Retake first and scores it 0. The viewfinder text, the
+  lesson and the module's key lesson say so.
+- **Slipping on the stairs was too easy.** Any 0.12 s of movement without SHIFT on the steps was an instant fall.
+  Now the first hurried step wobbles and warns ("hold SHIFT"). A fall takes hurrying over about 60% of the steps. A
+  trainee who slows down after the wobble gets 1 of 2 for that hazard.
+- **Zero safety at the end of each day:** the owner traced this to running red lights; not a bug.
+
+### Frame rate on integrated graphics
+
+The before column is the performance tester's Intel UHD baseline ([perf.md](review/perf.md), as the game shipped
+then). The middle column is their A/B on the same laptop with multisampling off and the single-texture shader:
+the two renderer settings the build now uses (`src/main.js`). The shipped build also has the baked shapes, the
+merged overlays and the baked backdrops, which that A/B did not have. The last column was measured on the owner's
+laptop on 25 September 2026: `QA_GPU=default` and `QA_FPS_FLOOR=60` with `node test/qa.js --pass boot`, on the Intel
+UHD Graphics (ANGLE/D3D11). It passed 28 of 28. Every scenario runs at 131–145 fps, against the target of 60. The
+headless browser's frame cadence tops out at about 144 there, so most scenes are at that ceiling. The requirement
+for integrated graphics is met.
+
+| Scene | Before (Intel, as shipped) | Renderer settings only (Intel, measured A/B) | Shipped build (Intel) |
+| --- | --- | --- | --- |
+| Conversation (m3-missing) | 48.8 | 65.4–68.5 | 144 |
+| Conversation, storm (m4-storm) | 46.1 | 66.1 | 144 |
+| Doorstep stop (m5-pod) | 48–55 | 76.5 | 143 |
+| Heat stop (m8-heat) | 45.0 | 58–64 | 133 |
+| Pre-trip (m1-pretrip) | 56.9 | 83.6 | 144 |
+| Driving drill (m1-driving) | 65.6 | 100.7 | 145 |
+| Route planner (m1-route) | 68.4 | 104.5 | 144 |
+| Sort / lift / labels | 72.4 / 69.0 / 67.4 | 111.9 / 99.2 / 100.7 | 144 / 145 / 145 |
+| Hub | 50.0 | 89.4 | not in the boot pass |
+| Loading (m6-load) | 70.9 | 96.0 | 131 |
+| Every other scenario | | | 138–145 |
+
+For a relative check that runs anywhere, the same scenes were measured in the cloud under software WebGL
+(SwiftShader, far slower than any real GPU) before and after WP0: conversation 8 → 26 fps, doorstep stop 8 → 21,
+labels 13 → 30, business pickup 14 → 33.
+
+### Tests
+
+- **Final suite:** the full suite (`node test/qa.js --shots`) on the finished build: **28 of 28 clean** (24 scenarios and four flows, every golden path finishing with full marks).
+  - It ran under software rendering, so the frame-rate floor was switched off (`QA_FPS_FLOOR=0`).
+  - The boot pass on the owner's laptop, on the Intel graphics (see above), is 28 of 28 at a 60 fps floor. A run on
+    the laptop's gaming GPU was not needed: trainees use office computers.
+- **Content validation:** `index.html?dev=1` is clean.
+- **Syntax:** `node --check` passes on all 97 source files.
+- **Golden-path changes:** the scripted playthroughs were updated where the UI changed:
+  - the new pause-menu confirm;
+  - the new keys in Sort Belt and Lift Right;
+  - the water and AC spot in the heat stop;
+  - a courier who coasts past a spot at a low frame rate now steps back to it.
+
+  No assertion was weakened. The hub-briefs check now measures a button by its own size, not its shadow margin.
+
+### Decided against, or left for later
+
+- **Several named profiles per browser, and a printable training record** (SHELL-14). One profile per browser
+  remains. New Profile says whose progress it erases and asks first, and a failed save is now visible.
+- **Which vehicle the couriers drive.** The pre-trip now has a hydraulic-brake step van's oil pressure gauge. This
+  is one entry in `data/m1_pretrip.js` and is worth confirming.
+
+### Before and after
+
+The befores are the testers' screenshots, and the afters are the finished build at the same moment.
+
+| | Before | After | What changed |
+| --- | --- | --- | --- |
+| 01 | <img src="qa2/01-van-exit-before.png" width="360"> | <img src="qa2/01-van-exit-after.png" width="360"> | The owner's first example. Holding D in the van used to walk the courier out through the cab, in mid-air over the sidewalk. Now they stay in the doorway, and the hint says E climbs out. |
+| 02 | <img src="qa2/02-door-prompt-before.png" width="360"> | <img src="qa2/02-door-prompt-after.png" width="360"> | The owner's second example. Standing at the bell and the house number showed no prompt, because their E spots were on the other side of the door. Now "Ring the doorbell" shows while the courier is still walking up. |
+| 03 | <img src="qa2/03-pretrip-closeup-before.png" width="360"> | <img src="qa2/03-pretrip-closeup-after.png" width="360"> | Pre-trip close-up. The test button sat under Pass and Flag, so a second press could land on a verdict. Now the picture, the test (T) and the verdicts (P / F) are stacked apart. |
+| 04 | <img src="qa2/04-hub-first-visit-before.png" width="360"> | <img src="qa2/04-hub-first-visit-after.png" width="360"> | A new hire's first hub. There is now a NEXT scenario, and ENTER opens it instead of the route day. The stat tiles have labels, the day badge is a flat label, the minimum text size is 13 px, and the Safety card uses the same type as the others. |
+| 05 | <img src="qa2/05-brief-best-line-before.png" width="360"> | <img src="qa2/05-brief-best-line-after.png" width="360"> | Scenario brief. The best-score line was printed over the blurb. Now it is in the header, and the categories are in one order (Safety · Efficiency · Service). |
+| 06 | <img src="qa2/06-pause-menu-before.png" width="360"> | <img src="qa2/06-pause-menu-after.png" width="360"> | The pause menu. It gained a Controls card, confirmations on Restart and Quit, key hints (ESC, C, R, Q), and "Quit to the station" for the screen the hub is. |
+
+---
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was
@@ -567,7 +876,8 @@ checked, for whoever takes it further:
 - **Browsers and devices.** Tested in Chromium (Edge, headless, GPU-accelerated) at 1280×720 with a mouse and
   keyboard. Firefox, Safari, touch screens and gamepads were not tested. Frame rates were measured on this laptop's
   two GPUs (see Verification), not on other hardware.
-- **Frame rate on integrated graphics** is measured but not tuned. On this laptop's Intel UHD the scenarios run at
+- **Frame rate on integrated graphics** was measured but not tuned in the first pass. The second pass tuned it:
+  131–145 fps on the Intel UHD (see Second pass). The first-pass note below is kept for the record. On this laptop's Intel UHD the scenarios run at
   41–76 fps: everything plays correctly, but below the suite's 100 fps floor, which is set for the discrete GPU. There
   is no one defect behind it (the per-frame waste found earlier is fixed). Each scene is layered 2D art: sky, far
   hills, the house, its front, props and three full-screen atmosphere overlays (tint, darkness, vignette), about seven

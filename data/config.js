@@ -45,14 +45,21 @@ OTR_DATA.config = {
     { name: 'Elite Courier',  stars: 100, color: 0xFF6600 }
   ],
 
-  // Academy practice is unlimited; a "day" is just a log of what you played.
-  scenariosPerDay: 99,
-
   // Performance ratio (0-1) needed for 1, 2 and 3 stars. Scenarios may override.
   starThresholds: [0.35, 0.65, 0.9],
 
+  // The academy's rules, as shipped. A trainer changes them in the game (Settings → Trainer, behind the PIN); on a
+  // training server they are kept for everyone in server/data/settings.json.
+  academy: {
+    mode: 'both',                  // 'both': practice and assessment · 'practice' only · 'assessment' only
+    passStars: { safety: 2, efficiency: 2, service: 2 },   // stars needed in each category a scenario tests
+    attempts: 1,                   // assessment attempts per scenario before a trainer must allow another (0: no limit)
+    refresherDays: 30,             // a passed module asks for a refresher quiz after this many days
+    trainerPin: ''                 // browser-only installs: the trainer PIN (a server uses OTR_TRAINER_PIN instead)
+  },
+
   dispatcherTips: [
-    'Tip: A 3-second walkaround beats a 3-hour insurance call.',
+    'Tip: A 3-minute walkaround beats a 3-hour insurance call.',
     'Tip: Lift with your legs. Your back has a long career ahead of it.',
     'Tip: When in doubt, get out and look. (G.O.A.L.)',
     'Tip: A calm voice de-escalates faster than a clever comeback.',
@@ -66,7 +73,13 @@ OTR_DATA.config = {
     'Tip: Hydrate. The route is a marathon, not a sprint.'
   ],
 
+  // the debrief's closing line: `safety` whenever safety ended on 0-1 stars or there was a critical mistake, whatever
+  // the other stars (a day with a hit pedestrian used to get "Good hustle... you'll be unstoppable")
   dayNotes: {
+    safety: [
+      'Dispatcher: "Nobody gets hurt on this route. Read the top of that list twice, and we go over it before you roll tomorrow."',
+      'Dispatcher: "Deliveries can wait; safety can\'t. That first item is the one to fix before anything else."'
+    ],
     great: [
       'Dispatcher: "Textbook shift. I\'m printing this one out for the break room."',
       'Dispatcher: "Zero incidents, happy customers. Who trained you? Oh right — this game."'

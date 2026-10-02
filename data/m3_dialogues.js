@@ -2,13 +2,23 @@
  * Module 3 · Customer Interaction — branching dialogues.
  *
  * Node types:
- *   line:   { speaker, text, next, mood?, show?, hide?, sfx?, shake?, setting?, effects? }
+ *   line:   { speaker, text, next, mood?, show?, hide?, sfx?, shake?, setting?, effects?, hold?, walk?, prop?, stage? }
  *   choice: { speaker, text, choices: [ { text, grade: 'good'|'ok'|'bad', effects: {service, safety, efficiency, mood},
  *                                        feedback, lesson?, next } ], timer?, timeout? }
- *   end:    { type: 'end', outcome: 'good'|'mixed'|'bad', title, text, effects? }
- * speaker: 'narrator' | 'courier' | a key in cast.  mood (number) in effects shifts the shown character's mood.
- * cast:    { name, color, moodStart, portrait, remote? }  remote: true for someone on the phone or radio — `show`
- *          then puts the call on the courier's handheld instead of walking a character on, and `hide` hangs up.
+ *   end:    { type: 'end', outcome: 'good'|'mixed'|'bad', title, text, notes? }   (an ending scores nothing itself:
+ *           the outcome is the answers that led to it). notes: [{ if, text }] adds a sentence for each mistake that
+ *           was actually made, so an ending names those and no others.
+ *   branch: { if, then, else } — every ending reachable after a mistake's flag must read it (bitten, exposed,
+ *           slipped, guessed, flooded…): a "textbook" ending after one is a bug.
+ * speaker: 'narrator' | 'courier' | a key in cast.  mood (number) in effects shifts the mood of the line's speaker
+ *          (or of effects.moodTarget).
+ * cast:    { name, color, moodStart, portrait, remote?, enter?, spot?, ground? }  remote: true for someone on the
+ *          phone or radio — `show` then puts the call on the courier's handheld instead of walking a character on,
+ *          and `hide` hangs up. enter: 'left' | 'right' walks them in from that edge; spot: their screen x; ground:
+ *          true keeps them on the path or lawn instead of the porch.
+ * Staging on a line (and act/arg on an answer): hold: 'box' | null (what the courier carries); walk: { who, x, face };
+ *          prop: { id, type, x, art } appears, unprop: id goes; stage: [ { walk }, { hold }, { prop }, { wait: ms },
+ *          { hazards: true } ] plays those in turn. props (top level): [{ type, x, porch, setting }] placed with a setting.
  * houseNumber / mailboxName (top level): the address shown on the house and its mailbox (default 214).
  * setting on a node: a setting name, or { name, number, mailbox } to move to another address mid-conversation.
  * Stars are computed from points earned vs. the best possible path — no thresholds to maintain.
@@ -35,7 +45,7 @@ OTR_DATA.dialogues.m3_missing = {
   start: 'n0',
   nodes: {
     n0: {
-      speaker: 'narrator',
+      speaker: 'narrator', hold: 'box',
       text: 'Maple Avenue, 2:40 PM. You\'re pulling a box from the truck when a resident marches over, phone held up like evidence.',
       next: 'n1'
     },
@@ -44,20 +54,20 @@ OTR_DATA.dialogues.m3_missing = {
       text: 'Hey! YOU! Tracking says my package was DELIVERED yesterday. There\'s nothing on my porch. Did you people just throw it in a bush?!',
       choices: [
         {
-          text: '"I\'m sorry you\'re dealing with this — that\'s really frustrating. Let\'s see what we can figure out together."',
+          text: '"I\'m sorry — that\'s really frustrating. Let\'s figure it out together."',
           grade: 'good', effects: { service: 3, mood: 2 },
           feedback: 'Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.',
           next: 'n2_calm'
         },
         {
-          text: '"Wasn\'t me. I don\'t even run this route on Mondays."',
+          text: '"Wasn\'t me — I don\'t even run this route on Mondays. You\'d have to take it up with whoever did."',
           grade: 'bad', effects: { service: -2, mood: -1 },
           feedback: 'Even if it\'s true, deflecting sounds like "not my problem." The customer doesn\'t care whose route it was — they want help.',
           lesson: 'Lead with empathy, not with who\'s to blame.',
           next: 'n2_defensive'
         },
         {
-          text: '"Ma\'am, I need you to calm down."',
+          text: '"Ma\'am, I need you to calm down before we can talk about this."',
           grade: 'bad', effects: { service: -2, mood: -2 },
           feedback: 'Telling an upset person to "calm down" almost always does the opposite. Name the feeling instead: "I can see this is really frustrating."',
           lesson: 'Never tell an upset customer to "calm down" — acknowledge how they feel instead.',
@@ -74,13 +84,13 @@ OTR_DATA.dialogues.m3_missing = {
       text: 'CALM DOWN?! I paid for that package! It\'s my daughter\'s birthday present and it\'s GONE!',
       choices: [
         {
-          text: '"You\'re right — that came out wrong, and I\'m sorry. You have every reason to be upset. Let me help you look into it."',
+          text: '"You\'re right, that came out wrong. I\'m sorry — let me help you look into it."',
           grade: 'good', effects: { service: 2, mood: 2 },
           feedback: 'Owning a misstep and resetting is a pro move. It\'s never too late to de-escalate.',
           next: 'n3'
         },
         {
-          text: '"If you\'re going to yell at me, I\'m leaving."',
+          text: '"I\'m here to help, but I don\'t have to stand here and be yelled at. If this keeps up, I\'m leaving."',
           grade: 'bad', effects: { service: -2, mood: -1 },
           feedback: 'Boundaries matter if someone is threatening or abusive — then it\'s right to disengage and report it. But a frustrated customer venting isn\'t there yet. Try de-escalating first.',
           lesson: 'De-escalate first. Disengage (and report) only if you feel threatened or unsafe.',
@@ -98,13 +108,13 @@ OTR_DATA.dialogues.m3_missing = {
       text: 'What do you do next?',
       choices: [
         {
-          text: '"Can I see the tracking details? Sometimes there\'s a delivery note showing exactly where it was left."',
+          text: '"Can I see the tracking details? There\'s often a note saying where it was left."',
           grade: 'good', effects: { service: 2, efficiency: 2, mood: 1 },
           feedback: 'Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of "missing" packages.',
           next: 'n4_check'
         },
         {
-          text: '"Honestly? Probably porch pirates. They\'re everywhere around here."',
+          text: '"Honestly? Probably porch pirates. They\'re everywhere around here — I\'d file a police report."',
           grade: 'bad', effects: { service: -2, mood: -2 },
           feedback: 'Speculating about theft alarms the customer and may not even be true. Stick to what you can actually verify.',
           lesson: 'Don\'t speculate (e.g. "it was probably stolen") — stick to what you can verify.',
@@ -129,7 +139,7 @@ OTR_DATA.dialogues.m3_missing = {
       text: 'STOLEN? So it\'s just gone?! What am I supposed to tell my kid?',
       choices: [
         {
-          text: '"Sorry — I shouldn\'t have guessed. Let\'s check the delivery details first. It may be somewhere else on the property."',
+          text: '"Sorry, I shouldn\'t have guessed. Let\'s check the delivery details first — it may be close by."',
           grade: 'good', effects: { service: 2, mood: 1 },
           feedback: 'Good recovery. Walking back a guess and returning to the facts rebuilds trust.',
           next: 'n4_check'
@@ -143,7 +153,7 @@ OTR_DATA.dialogues.m3_missing = {
       ]
     },
     n4_check: {
-      speaker: 'dana', mood: 'neutral',
+      speaker: 'dana', mood: 'neutral', hold: null,       // the truck's box goes back on the truck
       text: 'It says… "Left at side door." We never use the side door. Nobody uses the side door.',
       choices: [
         {
@@ -153,7 +163,7 @@ OTR_DATA.dialogues.m3_missing = {
           next: 'n5_found'
         },
         {
-          text: '"Well, that\'s where it is then. Have a good one!"',
+          text: '"Well, that\'s where it is, then — it\'ll be right there by the side door. Have a good one!"',
           grade: 'bad', effects: { service: -2, mood: -1 },
           feedback: 'Technically helpful, emotionally a door slam. Staying a moment longer would have closed the loop.',
           next: 'n5_brush'
@@ -162,6 +172,9 @@ OTR_DATA.dialogues.m3_missing = {
     },
     n5_found: {
       speaker: 'narrator',
+      // round the side of the house and back with Dana's box
+      stage: [{ walk: { who: 'courier', x: 1340, speed: 260 } }, { walk: { who: 'dana', x: 1340, speed: 260 } }, { wait: 500 }, { hold: 'box' },
+        { walk: { who: 'courier', x: 300, face: 1, speed: 260 } }, { walk: { who: 'dana', x: 470, face: -1, speed: 260 } }],
       text: 'You walk around the house together. Behind a recycling bin by the side door: a box with Dana\'s name on it.',
       next: 'n6'
     },
@@ -170,7 +183,7 @@ OTR_DATA.dialogues.m3_missing = {
       text: 'Oh my gosh. It\'s HERE. I never check that door! I feel ridiculous.',
       choices: [
         {
-          text: '"Happens all the time — glad we found it! You can add delivery instructions to your account so drivers use the front porch."',
+          text: '"Glad we found it! You can add delivery instructions to your account so drivers use the front porch."',
           grade: 'good', effects: { service: 2, efficiency: 1 },
           feedback: 'You made the customer feel okay about it AND prevented it happening again. That\'s service.',
           next: 'end_great'
@@ -185,14 +198,13 @@ OTR_DATA.dialogues.m3_missing = {
       ]
     },
     n5_brush: {
-      speaker: 'narrator',
+      speaker: 'narrator', hide: 'dana',
       text: 'Dana storms off. That evening she finds the box by the side door… and leaves a one-star review about "the rude driver."',
       next: 'end_mixed'
     },
     end_great: {
       type: 'end', outcome: 'good', title: 'Mystery Solved',
-      text: 'Package found, customer smiling, and delivery instructions updated. You turned an angry encounter into a thank-you.',
-      effects: { service: 1 }
+      text: 'Package found, customer smiling, and delivery instructions updated. You turned an angry encounter into a thank-you.'
     },
     end_sour: {
       type: 'end', outcome: 'mixed', title: 'Found It… Barely a Win',
@@ -217,10 +229,11 @@ OTR_DATA.dialogues.m3_missing = {
 OTR_DATA.dialogues.m3_signature = {
   title: 'Signature Required',
   setting: 'porch',
+  props: [{ type: 'planter', x: 560, porch: true }],     // the "big planter" Priya asks about
   moodMeter: 'priya',
   cast: {
     alvarez: {
-      name: 'Mr. Alvarez', color: 0x2F6B5A, moodStart: 1,
+      name: 'Mr. Alvarez', color: 0x2F6B5A, moodStart: 1, enter: 'left', spot: 110, ground: true,
       portrait: { kind: 'person', skin: 0xC99A77, hair: 0xD9D9D9, hairStyle: 'buzz', shirt: 0xB5563C, glasses: 0x333333, mustache: true, collar: true }
     },
     priya: {
@@ -236,7 +249,7 @@ OTR_DATA.dialogues.m3_signature = {
   start: 'n0',
   nodes: {
     n0: {
-      speaker: 'narrator',
+      speaker: 'narrator', hold: 'box',
       text: 'Stop 14. A small box with a bright sticker: SIGNATURE REQUIRED — RECIPIENT ONLY. You knock. Silence.',
       next: 'n1'
     },
@@ -251,24 +264,29 @@ OTR_DATA.dialogues.m3_signature = {
           next: 'n2'
         },
         {
-          text: 'Leave it tucked against the door. They\'ll find it.',
-          grade: 'bad', effects: { safety: -3, service: -1 },
+          text: 'Leave it tucked in against the door, out of sight from the street. They\'ll find it when they get home.',
+          grade: 'bad', effects: { safety: -3, service: -1 }, critical: true,
           feedback: 'Signature-required means the shipper needs proof a person received it — often because it\'s valuable or sensitive. Leaving it unattended defeats the whole point.',
           lesson: 'Never leave a signature-required package unattended.',
           next: 'n1b'
         },
         {
           text: 'Scribble the signature yourself to save everyone a trip.',
-          grade: 'bad', effects: { safety: -3, service: -2 },
+          grade: 'bad', effects: { safety: -3, service: -2 }, critical: true,
           feedback: 'Signing on a customer\'s behalf falsifies a delivery record. It\'s a serious integrity problem, not a shortcut.',
           lesson: 'Never sign on a customer\'s behalf.',
-          next: 'n1b'
+          next: 'n1c'
         }
       ]
     },
     n1b: {
       speaker: 'narrator', set: { slipped: true },
-      text: 'You get as far as setting it down before the bright SIGNATURE REQUIRED sticker catches your eye. That one would have come back on you: a signature-required package left unattended, or a signature that isn\'t the customer\'s, is a falsified delivery record. You pick it back up.',
+      text: 'You get as far as setting it down before the bright SIGNATURE REQUIRED sticker catches your eye. Left unattended, it is a failed delivery with your name on it. You pick it back up and ring the bell properly.',
+      next: 'n2'
+    },
+    n1c: {
+      speaker: 'narrator', set: { slipped: true, forged: true },
+      text: 'The stylus is on the screen before you stop. A signature that isn\'t the customer\'s is a falsified delivery record, and your name would be on it. You clear it and ring the bell properly.',
       next: 'n2'
     },
     n2: {
@@ -276,13 +294,13 @@ OTR_DATA.dialogues.m3_signature = {
       text: 'Hola! They\'re both at work until six. I can sign for it — I take in their stuff all the time!',
       choices: [
         {
-          text: '"That\'s really kind, thank you! This one needs the recipient\'s own signature, so I can\'t leave it with a neighbor — but I appreciate the offer."',
+          text: '"That\'s kind of you! But this one needs the recipient\'s own signature, so I can\'t leave it with a neighbor."',
           grade: 'good', effects: { safety: 2, service: 2, mood: 1 },
           feedback: 'Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.',
           next: 'n3_call'
         },
         {
-          text: '"Perfect! Sign right here."',
+          text: '"That would really help, thanks. You know them, and it saves them a trip to the pickup point. Sign right here."',
           grade: 'bad', effects: { safety: -3 },
           feedback: 'This label requires the recipient\'s signature. Handing it to a neighbor breaks the shipper\'s requirement — good intentions don\'t change that.',
           lesson: 'Follow the signature requirement on the label — "recipient only" means no neighbor signatures.',
@@ -306,13 +324,13 @@ OTR_DATA.dialogues.m3_signature = {
       text: 'Hi — I just got an alert that you tried to deliver? I\'m stuck at work. Can you just leave it behind the big planter? It\'s totally fine, I promise.',
       choices: [
         {
-          text: '"I totally get it. Because it needs your signature I can\'t leave it, but I\'ll leave a notice with your options — like redelivery or picking it up at a nearby location."',
+          text: '"I can\'t leave it without your signature, but I\'ll leave a notice with your options: redelivery, or pickup near you."',
           grade: 'good', effects: { safety: 2, service: 2, mood: 2 },
           feedback: 'Empathy + a clear "why" + options. The customer hears a path forward instead of just "no."',
           next: 'n4_good'
         },
         {
-          text: '"Sure, since you\'re saying it\'s okay."',
+          text: '"Okay. You\'re the customer and you\'re giving me permission, so I\'ll note that you asked and put it behind the planter."',
           grade: 'bad', effects: { safety: -3 },
           feedback: 'A verbal OK doesn\'t replace a required signature — and you can\'t verify who\'s actually on the phone.',
           lesson: 'A phone call can\'t replace a required signature.',
@@ -331,16 +349,16 @@ OTR_DATA.dialogues.m3_signature = {
       text: 'Oh — pickup actually works better. There\'s a location right by my office. Thanks for explaining!',
       choices: [
         {
-          text: 'Fill out the delivery notice clearly and leave it where it\'s easy to see.',
+          text: 'Fill out the delivery notice clearly and leave it where it\'s easy to see from the door.',
           grade: 'good', effects: { service: 2, safety: 1 },
           feedback: 'The notice is the paper trail — it helps Priya and anyone else in the household know what happened.',
-          next: 'end_great'
+          act: 'hide', arg: 'priya', next: 'end_great_pick'
         },
         {
-          text: 'Skip the notice. She already knows.',
+          text: 'Skip the notice: she already knows it\'s coming back, and it saves a minute.',
           grade: 'ok', effects: { service: -1 },
           feedback: 'Always leave the notice. Other household members may not know, and it documents the attempt.',
-          next: 'end_ok'
+          act: 'hide', arg: 'priya', next: 'end_ok_pick'
         }
       ]
     },
@@ -352,12 +370,20 @@ OTR_DATA.dialogues.m3_signature = {
     n4_curt2: {
       speaker: 'narrator', hide: true,
       text: 'You leave a notice. The package is safe on your truck — but Priya\'s feedback survey is not going to be kind.',
-      next: 'end_curt'
+      next: 'end_curt_pick'
     },
     n4_left: {
-      speaker: 'narrator', hide: true,
+      speaker: 'narrator', hide: true, stage: [{ walk: { who: 'courier', x: 520 } }, { hold: null }, { walk: { who: 'courier', x: 300, face: 1 } }],
       text: 'You tuck it behind the planter. At 4:30 PM a passer-by notices the corner of a box poking out…',
       next: 'end_left'
+    },
+    // starting to leave the package, or to sign for it, is remembered whatever came after (DIALOGUE-23)
+    end_great_pick: { if: 'slipped', then: 'end_slipped', else: 'end_great' },
+    end_ok_pick: { if: 'slipped', then: 'end_slipped', else: 'end_ok' },
+    end_curt_pick: { if: 'slipped', then: 'end_slipped', else: 'end_curt' },
+    end_slipped: {
+      type: 'end', outcome: 'mixed', title: 'Caught Just in Time',
+      text: 'The rest went right, but you started to leave or sign for a recipient-only package before you caught yourself. That is a lost package or a falsified record with your name on it. The signature requirement is never a judgment call.'
     },
     end_great: {
       type: 'end', outcome: 'good', title: 'Secure & Satisfied',
@@ -393,7 +419,7 @@ OTR_DATA.dialogues.m3_twostops = {
       portrait: { kind: 'person', skin: 0x8D5B3E, hair: 0x241A14, hairStyle: 'curly', shirt: 0x5A6B8C, lanyard: 0xFF6600, collar: true }
     },
     biscuit: {
-      name: 'Biscuit', color: 0xB5563C, moodStart: -2,
+      name: 'Biscuit', color: 0xB5563C, moodStart: -2, spot: 720,     // on the lawn, clear of the porch railing
       portrait: { kind: 'dog', fur: 0xB8844E, patch: 0xF3E3CC, collar: 0x3DA5FF }
     },
     chen: {
@@ -409,8 +435,8 @@ OTR_DATA.dialogues.m3_twostops = {
   start: 'n0',
   nodes: {
     n0: {
-      speaker: 'narrator',
-      text: 'Stop 1 of 2: Brightline Design Studio, 11:50 AM. Three boxes on your hand truck. The lobby is buzzing and the receptionist is on a call.',
+      speaker: 'narrator', hold: 'stack',
+      text: 'Stop 1 of 2: Brightline Design Studio, 11:50 AM. Three boxes for them, stacked in your arms. The lobby is buzzing and the receptionist is on a call.',
       next: 'n1'
     },
     n1: {
@@ -418,14 +444,14 @@ OTR_DATA.dialogues.m3_twostops = {
       text: '"— yes, I\'ll transfer you now, one moment please…" (Morgan holds up one finger at you.)',
       choices: [
         {
-          text: 'Wait politely a few steps back, get your scanner ready, and make friendly eye contact.',
+          text: 'Wait a few steps back with your scanner ready.',
           grade: 'good', effects: { service: 2, mood: 1 },
           feedback: 'Business customers are working. A few seconds of patience keeps you welcome at this stop every day.',
           next: 'n2'
         },
         {
           text: 'Stack the boxes on the desk and start scanning while Morgan is still talking.',
-          grade: 'bad', effects: { service: -2, mood: -1 },
+          grade: 'bad', effects: { service: -2, mood: -1 }, act: 'hold', arg: null,
           feedback: 'Dropping freight on someone\'s desk mid-call is disruptive. Wait for a pause, then ask where they want it.',
           lesson: 'At business stops, wait for staff to be ready — don\'t interrupt calls or pile freight on desks.',
           next: 'n2'
@@ -443,13 +469,13 @@ OTR_DATA.dialogues.m3_twostops = {
       text: 'Sorry about that! Mondays, right? What have you got for us?',
       choices: [
         {
-          text: '"Three boxes for Brightline! Where would you like them — here at reception, or your mail room?"',
+          text: '"Three boxes for Brightline! Where would you like them?"',
           grade: 'good', effects: { service: 2, efficiency: 1, mood: 1 },
           feedback: 'Asking where they want freight respects their space and gets it to the right place first time.',
           next: 'n3'
         },
         {
-          text: '"Sign here."',
+          text: '"Sign here, please — I\'ve got three for Brightline and I\'m running a bit behind today."',
           grade: 'ok', effects: { efficiency: 1 },
           feedback: 'Efficient, but a little cold. A friendly line costs two seconds and builds a relationship with a daily stop.',
           next: 'n3'
@@ -461,13 +487,13 @@ OTR_DATA.dialogues.m3_twostops = {
       text: 'Mail room\'s just down the hall. Oh — one of these is for our CEO. Could you just walk it up to the fourth floor?',
       choices: [
         {
-          text: '"I\'ll leave it at your designated receiving point so it goes through your building\'s process — you can route it upstairs from there."',
+          text: '"I\'ll leave it at your receiving point, so it goes upstairs through your building\'s own process."',
           grade: 'good', effects: { service: 1, efficiency: 2, safety: 1 },
           feedback: 'Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.',
           next: 'n4'
         },
         {
-          text: '"Sure! I\'ll wander up and find the corner office."',
+          text: '"Sure! I\'ll take it up myself — the CEO\'s office is on my way, and it saves someone a trip."',
           grade: 'ok', effects: { service: 1, efficiency: -2 },
           feedback: 'Friendly, but roaming a secure building eats route time and may break visitor rules. Use the receiving point unless the building\'s process says otherwise.',
           lesson: 'Deliver to a business\'s designated receiving point and follow its building rules.',
@@ -476,7 +502,7 @@ OTR_DATA.dialogues.m3_twostops = {
       ]
     },
     n4: {
-      speaker: 'narrator', setting: 'porch_dog', hide: true,
+      speaker: 'narrator', setting: 'porch_dog', hide: true, hold: 'box',
       text: 'Stop 2 of 2: a house on Birch Lane. The front gate is open. You\'re halfway up the path when…',
       next: 'n5'
     },
@@ -487,11 +513,11 @@ OTR_DATA.dialogues.m3_twostops = {
       timeout: {
         grade: 'bad', effects: { safety: -1 },
         feedback: 'Freezing up happens! The plan: calm voice, don\'t run, keep the package between you and the dog, and back away slowly.',
-        next: 'n6_calm'
+        next: 'n5b'
       },
       choices: [
         {
-          text: 'Stop. Stay calm, don\'t run. Hold the package between you and the dog, avoid staring it down, and back away slowly toward the gate.',
+          text: 'Stop. Stay calm, box between you and the dog, and back away slowly to the gate.',
           grade: 'good', effects: { safety: 3 },
           feedback: 'Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.',
           next: 'n6_calm'
@@ -504,20 +530,26 @@ OTR_DATA.dialogues.m3_twostops = {
           next: 'n6_chase'
         },
         {
-          text: 'Crouch down and hold out your hand to make friends.',
+          text: 'Crouch down low so you look smaller and less threatening, and let it sniff your hand.',
           grade: 'bad', effects: { safety: -2 },
           feedback: 'Never reach toward an unfamiliar barking dog — especially on its own turf. Crouching puts your face and hands in range.',
-          next: 'n6_calm'
+          next: 'n5b'
         }
       ]
     },
+    n5b: {
+      speaker: 'narrator', stage: [{ walk: { who: 'courier', x: 48, face: 1 } }],
+      text: 'Biscuit stops a few feet short of you, still barking. Slowly, box in front, you ease back down the path and out through the gate.',
+      next: 'n6_calm'
+    },
     n6_chase: {
-      speaker: 'narrator', shake: true, set: { dented: true },
+      speaker: 'narrator', shake: true, set: { dented: true }, stage: [{ walk: { who: 'courier', x: 48, speed: 380 } }, { walk: { who: 'biscuit', x: 200, speed: 380 } }, { walk: { who: 'biscuit', x: 720 } }],
       text: 'The dog chases you all the way back down the path. You get out of the gate and pull it shut, heart pounding — and the box took a corner hit when you stumbled.',
       next: 'n6_calm'
     },
     n6_calm: {
-      speaker: 'biscuit', effects: { mood: 1 },
+      // out through the gate; the dog stays on the lawn (a narration line: the dog's mood still goes to the dog)
+      speaker: 'narrator', effects: { mood: 1, moodTarget: 'biscuit' }, stage: [{ walk: { who: 'courier', x: 48, face: 1 } }],
       text: '(You\'re back outside the gate with it shut behind you. The dog paces along the fence, still barking — but not charging any more.)',
       choices: [
         {
@@ -527,14 +559,14 @@ OTR_DATA.dialogues.m3_twostops = {
           next: 'n7_owner'
         },
         {
-          text: 'Toss the package over the fence onto the porch.',
-          grade: 'bad', effects: { service: -2 }, set: { tossed: true },
+          text: 'Toss the package gently over the fence onto the porch, where it\'s out of the dog\'s reach.',
+          grade: 'bad', effects: { service: -2 }, set: { tossed: true }, act: 'hold', arg: null,
           feedback: 'Throwing packages can damage the contents, and a box in the yard with a dog isn\'t a delivery. Wait for the owner or follow your process for an attempted delivery.',
           next: 'n7_owner'
         },
         {
           text: 'Try again. Dogs usually calm down once they see you\'re friendly.',
-          grade: 'bad', effects: { safety: -3 }, set: { bitten: true },
+          grade: 'bad', effects: { safety: -3 }, set: { bitten: true }, critical: true,
           feedback: 'Don\'t re-enter a yard with an aggressive loose dog. Wait, or treat it as an attempted delivery and report the hazard.',
           lesson: 'Never re-enter a yard with a loose, aggressive dog.',
           next: 'n6_bite'
@@ -542,7 +574,7 @@ OTR_DATA.dialogues.m3_twostops = {
       ]
     },
     n6_bite: {
-      speaker: 'narrator', shake: true, sfx: 'bark',
+      speaker: 'narrator', shake: true, sfx: 'bark', stage: [{ walk: { who: 'courier', x: 230 } }, { walk: { who: 'biscuit', x: 320, speed: 380 } }],
       text: 'Biscuit meets you inside the gate. Teeth catch your leg before the owner gets there. It isn\'t deep, but it needs cleaning, a report, and a call to your supervisor.',
       next: 'n7_owner'
     },
@@ -551,19 +583,26 @@ OTR_DATA.dialogues.m3_twostops = {
       text: 'Biscuit! BISCUIT, come! Oh no, I\'m so sorry — are you okay? He must have gotten out of the backyard.',
       choices: [
         {
-          text: '"I\'m okay, thanks! Could you bring him inside while I bring this to the door?"',
-          grade: 'good', effects: { safety: 2, service: 2, mood: 2 }, if: '!tossed',
+          text: '"I\'m okay. Could you bring him inside first?"',
+          grade: 'good', effects: { safety: 2, service: 2, mood: 2 }, if: ['!tossed', '!bitten'],
           feedback: 'Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.',
           next: 'n8_check'
         },
         {
-          text: '"I\'m okay, thanks. Could you put him inside? I had to leave your box in the yard — I\'ll wait while you fetch it."',
+          text: '"I\'m okay. Could you put him inside? Your box is in the yard — I\'ll wait."',
           grade: 'good', effects: { safety: 2, service: 1, mood: 1 }, if: 'tossed',
           feedback: 'Owning the throw is better than pretending it didn\'t happen — but the package should never have gone over the fence.',
           next: 'n8_check'
         },
         {
-          text: '"No problem!" — and walk right up the path while the dog is still loose.',
+          // after a bite the right answer is first aid and a report, not the delivery (DIALOGUE-9)
+          text: '"He bit me. Please put him inside — I need to clean this and call my manager."',
+          grade: 'good', effects: { safety: 2, service: 1, mood: 1 }, if: 'bitten',
+          feedback: 'Right order: get the dog secured, clean the wound, and report it to your manager now, even a small one.',
+          next: 'n7_bitten'
+        },
+        {
+          text: '"No problem!" — and head up the path to the door while she gets hold of the dog.',
           grade: 'bad', effects: { safety: -2, service: 1 },
           feedback: 'Even with the owner present, ask them to secure the dog first. Owners can\'t always control a dog in protective mode.',
           next: 'n7_loose'
@@ -576,8 +615,13 @@ OTR_DATA.dialogues.m3_twostops = {
         }
       ]
     },
+    n7_bitten: {
+      speaker: 'chen', mood: 'sad',
+      text: 'Oh no. Of course — I\'ll shut him in right now. There\'s a hose by the steps to rinse it, and I\'ll write down everything for your report.',
+      next: 'end_bitten'
+    },
     n7_loose: {
-      speaker: 'narrator', shake: true,
+      speaker: 'narrator', shake: true, stage: [{ walk: { who: 'courier', x: 230 } }, { walk: { who: 'biscuit', x: 320, speed: 380 } }],
       text: 'You start up the path anyway. Biscuit barrels past her and plants himself between you and the door, barking into your shins.',
       next: 'n7_grab'
     },
@@ -588,55 +632,79 @@ OTR_DATA.dialogues.m3_twostops = {
     },
     n8_check: { if: 'tossed', then: 'n8_tossed', else: 'n8' },
     n8: {
-      speaker: 'chen', effects: { mood: 1 },
+      speaker: 'chen', effects: { mood: 1 }, hide: 'biscuit',
       text: 'He\'s inside now. Thank you for being so patient — he\'s all bark. Mostly. Probably.',
       choices: [
         {
-          text: '"No worries — have a great day!" Then make a note (through your normal process) that there\'s a dog at this address.',
-          grade: 'good', effects: { safety: 1, service: 1 },
+          text: '"Have a great day!" Then log the dog at this address through your normal process.',
+          grade: 'good', effects: { safety: 1, service: 1 }, if: '!dented',
           feedback: 'The note protects the next courier who comes to this door. Safety is a team sport.',
           next: 'end_pick'
         },
         {
-          text: 'Hand over the package and hurry to the next stop.',
-          grade: 'ok', effects: { efficiency: 1 },
+          text: '"The box took a knock when he chased me — could you check it now?" Then log the dog here.',
+          grade: 'good', effects: { safety: 1, service: 1 }, if: 'dented',
+          feedback: 'Say so when a box was damaged on your watch, and log the dog so the next courier is warned.',
+          next: 'end_pick'
+        },
+        {
+          text: 'Hand over the package and hurry on: you\'re behind, and she knows about her own dog.',
+          grade: 'ok', effects: {},
           feedback: 'Delivery done — but noting the dog hazard would warn the next driver.',
-          next: 'end_ok'
+          next: 'end_ok_pick'
         }
       ]
     },
     n8_tossed: {
-      speaker: 'chen',
+      speaker: 'chen', hide: 'biscuit',
       text: 'He\'s inside. I found the box in the flowerbed — corner\'s split, but I think it\'s okay.',
       choices: [
         {
-          text: '"I\'m sorry about that. Open it while I\'m here, and I\'ll report it as damaged if anything\'s broken. There\'s a dog note going on this address too."',
+          text: '"Sorry about that. Open it while I\'m here, and I\'ll report any damage."',
           grade: 'good', effects: { service: 2, safety: 1 },
           feedback: 'Honest, and it gives the customer a route to a claim. The dog note protects the next courier.',
-          next: 'end_ok'
+          next: 'end_honest'
         },
         {
-          text: '"Should be fine!" and head for the truck.',
+          text: '"Should be fine — they\'re built for worse than that!" and head back to the truck.',
           grade: 'bad', effects: { service: -2 },
           feedback: 'You damaged it. Walking away leaves the customer to discover the problem alone.',
           lesson: 'If a package is damaged in your hands, say so and record it.',
-          next: 'end_sour'
+          next: 'end_brushed'
         }
       ]
     },
-    end_pick: { if: ['!bitten', '!dented'], then: 'end_great', else: 'end_rough' },
+    // a bite or a box dented in the chase decides the ending, whatever was said afterwards (DIALOGUE-9)
+    end_pick: { if: 'bitten', then: 'end_bitten', else: 'end_pick_d' },
+    end_pick_d: { if: 'dented', then: 'end_rough', else: 'end_great' },
+    end_ok_pick: { if: 'bitten', then: 'end_bitten', else: 'end_ok_pick_d' },
+    end_ok_pick_d: { if: 'dented', then: 'end_rough', else: 'end_ok' },
+    end_sour_pick: { if: 'bitten', then: 'end_bitten', else: 'end_sour_pick_d' },
+    end_sour_pick_d: { if: 'dented', then: 'end_rough', else: 'end_sour' },
     n8_sour: {
       speaker: 'chen', mood: 'angry',
       text: 'Excuse me?! I apologized! Just give me the box.',
-      next: 'end_sour'
+      next: 'end_sour_pick'
     },
     end_great: {
       type: 'end', outcome: 'good', title: 'Two Stops, Nailed',
       text: 'Professional at the office, calm at the fence, courteous at the door — and the next driver knows about Biscuit.'
     },
     end_rough: {
-      type: 'end', outcome: 'bad', title: 'It Could Have Gone Better',
-      text: 'The package got delivered, but you came away with a bite or a damaged box. Running and re-entering the yard are exactly what turns a barking dog into an injury report.'
+      type: 'end', outcome: 'mixed', title: 'Chased Off the Porch',
+      text: 'The package got delivered, but running turned a barking dog into a chase, and the box paid for it. Stop, stay calm, box in front, and back away slowly.'
+    },
+    end_bitten: {
+      type: 'end', outcome: 'bad', title: 'Bitten',
+      text: 'Going back into the yard with a loose dog got you bitten. First aid and a report to your manager were the right next steps, but the lesson is the one before them: stay outside the gate until the owner has the dog.'
+    },
+    end_honest: {
+      type: 'end', outcome: 'mixed', title: 'Honest Recovery',
+      text: 'You owned the throw and had the box checked in front of the customer. Good recovery, but a package never goes over a fence: wait outside the gate for the owner.'
+    },
+    end_brushed: {
+      type: 'end', outcome: 'bad', title: 'Left to Chance',
+      text: 'The box went over the fence, landed in the flowerbed, and you left without checking it. A thrown package is a damage claim waiting to happen.'
     },
     end_ok: {
       type: 'end', outcome: 'mixed', title: 'Delivered, Not Documented',

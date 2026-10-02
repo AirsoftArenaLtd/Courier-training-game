@@ -14,9 +14,26 @@ class StopScene extends BaseScenarioScene {
     this.shiftStop = data.shiftStop || null;
   }
 
+  /** The pause menu's restarts: past the first stop of a practice set, this stop or the whole set, said plainly. */
+  restartOptions() {
+    if (this.shiftMode) {
+      // the day's record keeps what happened before the restart (see OTR.shift.restartLog)
+      return [{ label: 'Restart this stop', data: () => {
+        const log = OTR.shift.restartLog(this.log, this.def.id, `Restarted stop ${this.shiftStop.index}`);
+        if (OTR.shift.state) { OTR.shift.state.stopLog = log; OTR.shift.save(); }
+        return Object.assign({}, this.initData, { carry: Object.assign({}, this.initData.carry, { log }) });
+      } }];
+    }
+    if (this.stopIndex === 0) return [{ label: 'Restart the set', data: this.initData }];
+    return [
+      { label: 'Restart this stop', data: this.initData },
+      { label: 'Restart the set', data: { scenarioId: this.scenarioId } }
+    ];
+  }
+
   create() {
     // the scene instance is reused for every stop: clear per-stop references first
-    ['resident', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone']
+    ['resident', 'stranger', 'numberProps', 'talkCtl', '_shelf', 'pkgProp', 'inInterior', 'photoMode', 'waitingDoor', 'talkFlags', 'running', 'interior', 'interiorX', 'outsideW', 'stopSummary', '_clockAcc', 'dog', 'dogDef', 'gate', 'heat', 'heatHud', 'shadeZones', 'collapsed', 'idCardView', 'dogBusy', 'dogGone', 'talkPending', 'sayText', 'blockedUntil']
       .forEach(k => { this[k] = undefined; });
     this.setupBase();
     this.set = this.shiftStop ? this.shiftStop.set : this.content;
@@ -24,6 +41,17 @@ class StopScene extends BaseScenarioScene {
     this.cats = this.scenario ? this.scenario.categories : OTR.scoring.CATS;
     this.log = this.carry ? OTR.ScoreLog.from(this.carry.log) : new OTR.ScoreLog();
     this.log.setGroup(this.def.id);
+    // On a route day the stop's mistakes are saved as they happen, so reloading inside the stop reopens it with them
+    // still on the record (its checks are earned again).
+    if (this.shiftMode && OTR.shift.state) {
+      this.log.onAdd = (it) => {
+        if (it.kind !== 'penalty' && !it.critical) return;
+        const st = OTR.shift.state;
+        if (!st) return;
+        st.stopLog = { items: this.log.items.filter(x => !(x.group === this.def.id && x.kind === 'check' && !x.critical)) };
+        OTR.shift.save();
+      };
+    }
     this.feedbackMode = this.shiftMode ? 'deferred' : 'immediate';
     this.tod = this.def.tod || this.set.tod || 'midday';
     this.weather = this.def.weather || this.set.weather || 'clear';
@@ -69,8 +97,7 @@ class StopScene extends BaseScenarioScene {
     const width = kind === 'business' ? interiorX + 1600 : outsideW;
     const st = this.stage = new OTR.Stage(this, { width, tod: this.tod, weather: this.weather });
     st.setRegion(0, outsideW);
-    st.sky();
-    st.far(236);
+    st.skyline(236);
     const yard = kind === 'house' ? (d.lot.ground || 'path') : 'concrete';
     const segs = [{ x0: 0, x1: 820, type: 'road' }, { x0: 820, x1: 840, type: 'curb' }, { x0: 840, x1: 1040, type: 'sidewalk' }, { x0: 1040, x1: outsideW, type: yard }];
     if (kind === 'business') segs.push({ x0: interiorX, x1: interiorX + 1600, type: 'tile' });
@@ -95,18 +122,33 @@ class StopScene extends BaseScenarioScene {
       if (p.hazard) o.depth = 7;
       const img = st.prop(p.type, x, o);
       if (p.id) this.propById[p.id] = img;
+      if (p.art && p.art.number) (this.numberProps = this.numberProps || []).push(img);   // a numbered mailbox: kept out of POD photos
       if (p.hazard) this.addHazard(p, img, x);
     });
     if (d.fence) this.buildFence(d.fence);
     if (d.dog) this.buildDog(d.dog);
+    // Shade is what the scene draws as shade: trees and umbrellas, and the porch roof or shop awning over the door (the
+    // heat model used to count only the trees, so the "shade by the door" heated the courier at full sun rate)
     this.shadeZones = [];
-    (d.props || []).forEach(p => { if (p.shade) { const sx = this.resolveX(p.x, lotX); this.shadeZones.push([sx - 150, sx + 150]); } });
-    if (d.stepHazard) this.addHazard({ hazard: d.stepHazard, id: 'steps', label: 'the steps' }, null, (this.lot.stepsX0 + this.lot.porchX0) / 2, this.lot.stepsX0 - 10, this.lot.porchX0 + 10);
+    (d.props || []).forEach(p => { if (p.shade) { const sx = this.resolveX(p.x, lotX), w = p.shadeW || 150; this.shadeZones.push([sx - w, sx + w]); } });
+    if (this.set.heat) {
+      const L = this.lot;
+      if (kind === 'business') this.shadeZones.push([L.doorX - 190, L.doorX + 190]);
+      else this.shadeZones.push([L.porchX0, L.porchX1]);
+      // under trees and umbrellas the ground shows the shade (the porch and awning shade what is under them already)
+      (d.props || []).forEach(p => {
+        if (!p.shade) return;
+        const sx = this.resolveX(p.x, lotX), w = p.shadeW || 150;
+        OTR.tex.shape(this, (g) => { g.fillStyle(0x1A1030, 0.22); g.fillEllipse(0, 0, w * 2, 26); }, sx, st.G + 6).setDepth(-19);
+      });
+    }
+    if (d.stepHazard) this.addHazard({ hazard: d.stepHazard, id: 'steps', label: 'the steps' }, this.stepGlaze(d.stepHazard), (this.lot.stepsX0 + this.lot.porchX0) / 2, this.lot.stepsX0 - 10, this.lot.porchX0 + 10);
 
     // business interior
     if (kind === 'business') {
       this.interiorX = interiorX;
-      this.interior = st.interior(interiorX, Object.assign({ w: 1600 }, d.lot.interior || {}));
+      // the sign in the clear band between the stop checklist and the heat meters (the meters covered most of it)
+      this.interior = st.interior(interiorX, Object.assign({ w: 1600, signX: 665 }, d.lot.interior || {}));
       this.outsideW = outsideW;
     }
 
@@ -119,47 +161,103 @@ class StopScene extends BaseScenarioScene {
     this.cameras.main.scrollX = 0;
 
     this.addInteractions();
+    // In the van the courier stays in the cab doorway (shelves, water and AC are all in reach from there); outside,
+    // they cannot walk back along the van's road side into the traffic lane. The only ways in and out are the E
+    // climbs. (A/D or a click used to walk them straight out through the cab at floor height, into mid-air, with
+    // every outside prompt switched off because they were still "in the van".)
+    const dx = this.van.doorX;
+    st.barrier(dx - 66, () => this.S.inVan);
+    st.barrier(dx + 36, () => this.S.inVan);
+    st.barrier(dx + 20, () => !this.S.inVan && !this.inInterior);
+    st.onBlocked = () => this.blocked();
     (d.triggers || []).forEach(t => this.addTrigger(t));
     this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700 });
     st.onMove = () => {};
   }
 
+  /** Icy or wet steps look it: a glaze on every tread, with a glint (the steps used to be drawn plain and dry). */
+  stepGlaze(type) {
+    const ice = type === 'ice';
+    return OTR.tex.shape(this, (g) => {
+      this.stage.surfaces.filter(sf => sf.kind === 'step').forEach(sf => {
+        g.fillStyle(ice ? 0xDDF3FF : 0x4F76A0, ice ? 0.85 : 0.45);
+        g.fillRect(sf.x0 - 2, sf.y - 2, sf.x1 - sf.x0 + 4, 7);
+        g.fillStyle(0xFFFFFF, ice ? 0.9 : 0.55);
+        g.fillRect(sf.x0 + 8, sf.y - 1, (sf.x1 - sf.x0) * 0.45, 2);
+      });
+    }).setDepth(7);
+  }
+
   addHazard(p, img, x, x0, x1) {
-    const H = { id: p.id || p.hazard + '_' + Math.round(x), type: p.hazard, label: p.label || p.hazard, img, state: 'pending', x };
+    const H = { id: p.id || p.hazard + '_' + Math.round(x), type: p.hazard, label: p.label || p.hazard, img, state: 'pending', x, incident: false, fastT: 0 };
     this.S.hazards[H.id] = H;
     const clearable = p.hazard === 'hose' || p.hazard === 'toys';
-    const zx0 = x0 !== undefined ? x0 : x - 50, zx1 = x1 !== undefined ? x1 : x + 50;
+    const slippery = p.hazard === 'ice' || p.hazard === 'wet';
+    // the zone covers the hazard as drawn (it used to be 100 px whatever the art, so the ends of a patch were safe)
+    const half = p.art && p.art.w ? p.art.w / 2 : img ? img.displayWidth / 2 : 50;
+    const zx0 = x0 !== undefined ? x0 : x - half, zx1 = x1 !== undefined ? x1 : x + half;
+    // a fall takes hurrying over about 60% of the hazard (never more than a third of a second), so a short one can
+    // still be fallen on
+    // footwear without grip on a slippery day (the morning's gear question) leaves less room before a fall
+    const poorGear = slippery && this.shiftMode && OTR.shift.state && OTR.shift.state.gear === 'poor';
+    const fallAfter = Math.min(0.35, 0.6 * (zx1 - zx0) / (this.stage.walkSpeed || 230)) * (poorGear ? 0.6 : 1);
     this.stage.zone({
       x0: zx0, x1: zx1,
-      onEnter: (rig, careful) => {
-        if (H.state === 'cleared' || H.state === 'incident' || !this.running) return;
-        const carryingBig = this.S.carrying.length > 0;
-        const risky = !careful && (carryingBig || p.hazard === 'ice' || p.hazard === 'wet');
-        if (risky) this.hazardIncident(H);
-        else if (H.state !== 'incident') H.state = careful ? 'careful' : 'passed';
+      // Judged on every frame inside, not just the first. The first hurried step wobbles and warns; carrying on at
+      // full pace (fallAfter: most of a flight of steps) is the fall. It used to be a fall after
+      // 0.12 s with no warning, so a SHIFT pressed a moment late, or let go of for a step, ended in a slip. A walk the
+      // game makes (placing a package, a scripted move in a conversation) runs with the stage locked and is not the
+      // trainee's step, so it is not judged.
+      onInside: (rig, careful, dt) => {
+        if (H.state === 'cleared' || H.incident || !this.running || this.stage.locked > 0) return;
+        const fast = rig.moving && !careful;
+        if (!fast) { H.fastT = 0; if (H.state === 'pending') H.state = 'careful'; return; }
+        if (!(slippery || this.S.carrying.length > 0)) { H.state = 'passed'; return; }
+        if (!H.wobbled) this.hazardWobble(H, slippery);
+        H.fastT += dt;
+        if (H.fastT > fallAfter) this.hazardIncident(H);
       }
     });
     if (clearable) {
+      // its E spot is the middle of the clutter, and it can be moved with a package in hand: the courier sets the
+      // box down, moves it, and picks the box up again
       H.inter = this.stage.interact({
-        x: x - 70, y: this.stage.G - 150, range: 60, label: p.hazard === 'hose' ? 'Move the hose aside' : 'Move the toys aside',
-        when: () => H.state !== 'cleared' && this.S.carrying.length === 0 && !this.S.inVan,
+        x, y: this.stage.G - 150, range: Math.max(60, half + 10), label: p.hazard === 'hose' ? 'Move the hose aside' : 'Move the toys aside',
+        when: () => H.state !== 'cleared' && !this.S.inVan && !this.S.done,
         onUse: () => {
           this.stage.lock();
           this.me.face(x);
+          const holding = this.S.carrying.length > 0;
           this.me.playOnce('setDown', () => {
+            if (holding) this.me.hold(null);
             H.state = 'cleared';
             if (img) this.tweens.add({ targets: img, y: img.y + 60, x: img.x + 40, alpha: 0, duration: 400, onComplete: () => img.setVisible(false) });
-            this.me.playOnce('lift', () => this.stage.unlock());
             OTR.audio.play('success');
             this.say('Cleared the trip hazard.', '#8BF0C6');
+            this.time.delayedCall(holding ? 350 : 0, () => {
+              if (holding) this.updateCarryVisual();
+              this.me.playOnce('lift', () => this.stage.unlock());
+            });
           });
         }
       });
     }
   }
 
+  /** A near miss: the foot slides or catches, and the courier is told to slow down while there is time to. */
+  hazardWobble(H, slippery) {
+    H.wobbled = true;
+    OTR.audio.play('thud');
+    OTR.fx.shake(this, 120, 0.004);
+    this.me.setExpression('worried');
+    this.time.delayedCall(900, () => { if (!H.incident) this.me.setExpression('neutral'); });
+    this.say(slippery ? `Whoa, ${H.label} ${H.label.endsWith('s') ? 'are' : 'is'} slippery! Hold SHIFT: short, careful steps.` : `Careful, you can't see your feet with that box! Hold SHIFT over ${H.label}.`, '#FFC83D');
+  }
+
   hazardIncident(H) {
     H.state = 'incident';
+    H.incident = true;                              // kept even if the hazard is cleared afterwards
+    H.withLoad = this.S.carrying.length > 0;
     const bad = H.type === 'ice' || H.type === 'wet';
     this.stage.lock();
     OTR.audio.play(bad ? 'slip' : 'thud');
@@ -184,27 +282,32 @@ class StopScene extends BaseScenarioScene {
     // the shelves until this stop's packages are in hand and the door after that; a step towards either one
     // switches to it. (Both used to sit on the same spot, and E always searched the shelves.) Water and the AC
     // are further back in the cab.
+    // Which one E prefers depends on whether anything is carried, never on whether it is the right package: that
+    // is for the scan and the label to tell (the prompt used to give the answer away).
     this.itShelf = st.interact({
       x: this.van.doorX - 16, y: this.van.floorY - 230, range: 90, label: 'Search the shelves',
       when: () => this.S.inVan && !this.S.done,
-      prefer: () => !this.packagesInHand(),
+      prefer: () => !this.S.carrying.length,
       onUse: () => this.openShelves()
     });
     this.itExit = st.interact({
       x: this.van.doorX + 4, y: this.van.floorY - 190, range: 90, label: 'Climb out of the van',
       when: () => this.S.inVan && !this.S.done,
-      prefer: () => this.packagesInHand(),
+      prefer: () => this.S.carrying.length > 0,
       onUse: () => this.exitVan()
+    });
+    // In the van, water and the AC are one spot at the back of the doorway (the courier cannot go further back than
+    // door - 40): E there asks which. As two spots behind the shelves they could never be chosen, since E always
+    // searched the shelves from where the courier can stand.
+    st.interact({
+      x: this.van.doorX - 60, standX: this.van.doorX - 40, y: this.van.floorY - 150, range: 60, label: 'Water and AC',
+      when: () => !!this.heat && this.S.inVan && !this.S.done,
+      onUse: () => this.waterOrAc()
     });
     st.interact({
       x: this.van.doorX - 60, y: this.van.floorY - 150, range: 120, label: 'Drink some water',
-      when: () => !!this.heat && !this.S.done && (this.S.inVan || Math.abs(this.me.x - this.van.doorX) < 120) && !this.inInterior,
+      when: () => !!this.heat && !this.S.done && !this.S.inVan && Math.abs(this.me.x - this.van.doorX) < 120 && !this.inInterior,
       onUse: () => this.drinkWater()
-    });
-    st.interact({
-      x: this.van.doorX - 100, y: this.van.floorY - 110, range: 120, label: 'Cool off in the AC',
-      when: () => !!this.heat && this.S.inVan && !this.S.done,
-      onUse: () => this.coolDown(null, 3500)
     });
     (this.def.props || []).forEach(p => {
       if (!p.shade) return;
@@ -217,11 +320,15 @@ class StopScene extends BaseScenarioScene {
       onUse: () => this.enterVan()
     });
 
+    // Every door interaction is centred on the thing it acts on (the courier stands in front of the number to check
+    // it, in front of the bell to ring it), clickable there, and gone once the stop has an outcome. (The spots used to
+    // sit on the other side of the door from the bell and the number, so standing at them showed nothing.)
     // --- address check
     if (L.numberX) {
       st.interact({
-        x: L.numberX, standX: Math.min(L.numberX, L.doorX - 60), y: L.numberY - 60, range: 80, label: 'Check the address number',
-        when: () => !this.S.inVan && !this.inInterior && !this.S.addressChecked,
+        x: L.numberX, standX: L.numberX, y: L.numberY - 60, range: 80, label: 'Check the address number',
+        when: () => !this.S.inVan && !this.inInterior && !this.S.addressChecked && !this.waitingDoor && !this.S.outcome,
+        hotspot: { y: L.numberY, w: 60, h: 50 },
         onUse: () => this.checkAddress()
       });
     }
@@ -230,12 +337,12 @@ class StopScene extends BaseScenarioScene {
     if (kind === 'business') {
       st.interact({
         x: L.doorX, standX: L.doorX - 40, y: L.floorY - 280, range: 80, label: 'Go inside',
-        when: () => !this.inInterior && !this.S.inVan && (L.layout.s.open !== false),
+        when: () => !this.inInterior && !this.S.inVan && (L.layout.s.open !== false) && !this.S.outcome,
         onUse: () => this.enterInterior()
       });
       st.interact({
         x: L.doorX, standX: L.doorX - 40, y: L.floorY - 280, range: 80, label: 'Try the door',
-        when: () => !this.inInterior && !this.S.inVan && L.layout.s.open === false && this.S.knocks === 0,
+        when: () => !this.inInterior && !this.S.inVan && L.layout.s.open === false && this.S.knocks === 0 && !this.S.outcome,
         onUse: () => { this.S.knocks++; OTR.audio.play('knock'); this.me.play('knock'); this.time.delayedCall(900, () => { this.me.play('idle'); this.say('Locked. The sign says CLOSED.', '#FFE3C8'); this.refreshObjectives(); }); }
       });
       const I = this.interior;
@@ -250,16 +357,23 @@ class StopScene extends BaseScenarioScene {
         onUse: () => this.startTalk()
       });
     } else {
-      const bellLabel = kind === 'apartment' ? 'Buzz the unit' : (L.layout.s.bell !== false ? 'Ring the doorbell' : 'Knock');
+      const bell = kind === 'apartment' || L.layout.s.bell !== false;
+      const bellLabel = kind === 'apartment' ? 'Buzz the unit' : (bell ? 'Ring the doorbell' : 'Knock');
+      // a house without a bell is knocked on at the door itself
+      const ringX = bell ? L.bellX : L.doorX - 40;
+      const dw = (L.layout.doorW || 108) / 2;
+      const hx0 = Math.min(ringX - 30, L.doorX - dw), hx1 = Math.max(ringX + 30, L.doorX + dw);
       st.interact({
-        x: kind === 'apartment' ? L.bellX : L.doorX - 70, standX: kind === 'apartment' ? L.bellX - 30 : L.doorX - 80, y: L.floorY - 290, range: 70,
+        x: ringX, standX: ringX, y: L.floorY - 290, range: 80,
         label: bellLabel,
-        when: () => !this.S.inVan && !this.S.answered && !this.waitingDoor && !this.S.done,
-        onUse: () => this.knock(kind === 'apartment' ? 'buzzer' : (L.layout.s.bell !== false ? 'doorbell' : 'knock'))
+        when: () => !this.S.inVan && !this.S.answered && !this.waitingDoor && !this.S.done && !this.S.outcome,
+        // the door and the bell both ring (or knock)
+        hotspot: { x: (hx0 + hx1) / 2, y: L.floorY - 120, w: hx1 - hx0, h: 230 },
+        onUse: () => this.knock(kind === 'apartment' ? 'buzzer' : (bell ? 'doorbell' : 'knock'))
       });
       st.interact({
-        x: L.doorX - 70, standX: L.doorX - 80, y: L.floorY - 290, range: 70, label: 'Talk',
-        when: () => this.S.answered && this.resident && !this.S.talked && this.def.answer && this.def.answer.talk,
+        x: L.doorX - 70, standX: L.doorX - 80, y: L.floorY - 290, range: 80, label: 'Talk',
+        when: () => this.S.answered && this.resident && !this.S.talked && !this.talkPending && this.def.answer && this.def.answer.talk,
         onUse: () => this.startTalk()
       });
     }
@@ -279,16 +393,18 @@ class StopScene extends BaseScenarioScene {
     const lotX = this.lotX, st = this.stage;
     const x0 = this.resolveX(f.x0, lotX), x1 = this.resolveX(f.x1, lotX), gx = this.resolveX(f.gate, lotX);
     const col = f.color || 0xFFFFFF;
-    if (gx - 45 - x0 > 20) st.prop('fence', x0, { art: { w: Math.round(gx - 45 - x0), color: col }, ox: 0, depth: 8 });
-    if (x1 - gx - 45 > 20) st.prop('fence', gx + 45, { art: { w: Math.round(x1 - gx - 45), color: col }, ox: 0, depth: 8 });
-    const img = st.prop('gate', gx, { art: { color: col, open: false }, depth: 32 });
+    // The fence and gate stand between the yard (the dog at 25, the owner at 24) and the sidewalk (the courier at 30),
+    // so the dog is behind the pickets and the courier in front of them; the courier goes behind the fence once
+    // through the gate (see update). They used to bracket the actors the other way round.
+    if (gx - 45 - x0 > 20) st.prop('fence', x0, { art: { w: Math.round(gx - 45 - x0), color: col }, ox: 0, depth: 27 });
+    if (x1 - gx - 45 > 20) st.prop('fence', gx + 45, { art: { w: Math.round(x1 - gx - 45), color: col }, ox: 0, depth: 27 });
+    const img = st.prop('gate', gx, { art: { color: col, open: false }, depth: 27 });
     this.gate = { x: gx, open: !!f.open, img, color: col, locked: !!f.locked };
     if (this.gate.open) this.setGate(true, true);
     st.barrier(gx, () => !this.gate.open);
-    st.onBlocked = () => { if (!this.gate.open && Math.abs(this.me.x - gx) < 80) this.say('The gate is closed.', '#FFE3C8'); };
     st.interact({
       x: gx - 60, y: st.G - 200, range: 70, label: this.gate.locked ? 'Try the gate' : 'Open the gate',
-      when: () => !this.gate.open && !this.S.inVan && !this.talkCtl,
+      when: () => !this.gate.open && !this.S.inVan && !this.talkCtl && !this.S.answered,   // not once the owner is out
       onUse: () => {
         if (this.gate.locked) { OTR.audio.play('click_dud'); this.say('Locked. You can\'t get in.', '#FFE3C8'); this.S.gateTried = true; return; }
         const trig = (this.def.triggers || []).find(t => t.on === 'gate' && !t.fired);
@@ -296,6 +412,18 @@ class StopScene extends BaseScenarioScene {
         this.setGate(true);
       }
     });
+  }
+
+  /** Walking into something that stops the courier: say what it is, once in a while (not every frame). */
+  blocked() {
+    if (this.time.now < (this.blockedUntil || 0)) return;
+    let msg = null;
+    if (this.S.inVan) msg = this.me.x > this.van.doorX - 20 ? 'Press E to climb out of the van.' : null;
+    else if (this.gate && !this.gate.open && Math.abs(this.me.x - this.gate.x) < 80) msg = 'The gate is closed.';
+    else if (!this.inInterior && Math.abs(this.me.x - this.van.doorX) < 80) msg = 'Press E to climb into the van.';
+    if (!msg) return;
+    this.blockedUntil = this.time.now + 2500;
+    this.say(msg, '#FFE3C8');
   }
 
   setGate(open, silent) {
@@ -333,14 +461,26 @@ class StopScene extends BaseScenarioScene {
     if (t.on === 'gate') return;
     const x = this.resolveX(t.x, this.lotX);
     this.stage.zone({
-      x0: x - (t.w || 30), x1: x + (t.w || 30), once: t.once !== false,
+      x0: x - (t.w || 30), x1: x + (t.w || 30), once: t.once !== false && !t.rearm,
       onEnter: () => {
-        if (!this.running || this.talkCtl || t.fired) return;
+        if (!this.running || this.talkCtl) return;
+        // rearm: after a dog has charged, going back onto its lawn sets it off again (until the stop has an outcome)
+        if (t.fired) { if (t.rearm && !this.S.outcome && this.dog && !this.dogGone && this.stage.locked === 0) this.dogRecharge(); return; }
         if (t.if && !OTR.talk.test(t.if, this.flagsFor())) return;
         t.fired = true;
         this.runSituation(t.talk);
       }
     });
+  }
+
+  /** Back onto the lawn of a dog that has already charged: it charges again. Never averaged away. */
+  dogRecharge() {
+    const a = this.acts(this.castFor());
+    this.stage.lock();
+    this.me.stop();
+    this.say('The dog charges again! Back to the truck, slowly.', '#FF8A9A');
+    this.log.penalty('safety', 2, 'Went back towards a dog that had already charged', { critical: true, lesson: 'Once a dog has shown aggression, don\'t go back in. Record the exception.' });
+    a.dogCharge(200, () => a.backAway('van', () => { this.stage.unlock(); this.dogBusy = false; }));
   }
 
   castFor() {
@@ -353,6 +493,8 @@ class StopScene extends BaseScenarioScene {
       cast.owner = person;
     }
     cast.dispatch = { name: 'Dispatch', color: 0x4D148C, rig: null };
+    // someone who isn't the customer (a "neighbour" at the gate): the stop's stranger, once they have walked up
+    if (this.def.stranger) cast.stranger = { name: this.def.stranger.name, color: 0x8A5A2B, rig: this.stranger || null };
     return cast;
   }
 
@@ -364,16 +506,24 @@ class StopScene extends BaseScenarioScene {
     this.hh.setTabVisible(false);
     this.me.stop();
     const cast = this.castFor();
+    // A dog is what the trainee has to read: the conversation goes to the top of the screen (the dog stands where the
+    // bottom panel would be) and the camera frames the courier and the dog together.
+    if (this.dog && this.dog.c.alpha > 0.5) this.stage.focus((this.me.x + this.dog.x) / 2, OTR.W / 2);
     this.talkCtl = OTR.talk.run(this, graph, {
-      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: this.feedbackMode, flags: this.flagsFor(),
-      acts: this.acts(cast), depth: 3000,
+      acts: this.acts(cast), depth: 3000, top: !!this.dog,
       onEnd: () => {
         this.talkCtl = null;
         this.stage.focus(null);
         this.stage.unlock();
         this.hh.setTabVisible(true);
         if (!this.me.once) this.me.play('idle');
+        // a dog still around goes back to its yard (it used to stay wherever the scene left it, even in the road)
+        if (this.dog && !this.dogGone && this.dogDef) {
+          this.dogBusy = false;
+          if (!this.dogDef.patrol) this.dog.walkTo(this.resolveX(this.dogDef.x, this.lotX), () => this.dog.face(this.me.x), { speed: 140 });
+        }
         this.refreshObjectives();
         if (graph.hint) this.say(graph.hint, '#FFE3C8');
       }
@@ -406,8 +556,8 @@ class StopScene extends BaseScenarioScene {
         s.dogBusy = true;
         d.setAlpha(1).setMood('aggressive');
         OTR.audio.play('growl');
-        const side = d.x > s.me.x ? 1 : -1;
-        d.walkTo(s.me.x + side * (dist || 170), () => { d.face(s.me.x); d.bark(3); OTR.fx.shake(s, 200, 0.006); s.stage.focus((s.me.x + d.x) / 2, 420); done(); }, { speed: 460 });
+        // always from the house side: the dog guards the yard, it never ends up behind the courier in the road
+        d.walkTo(s.me.x + (dist || 170), () => { d.face(s.me.x); d.bark(3); OTR.fx.shake(s, 200, 0.006); s.stage.focus((s.me.x + d.x) / 2, 420); done(); }, { speed: 460 });
       },
       dogLunge: (arg, done) => {
         const d = dog(); if (!d) { if (done) done(); return; }
@@ -423,6 +573,7 @@ class StopScene extends BaseScenarioScene {
       },
       dogChase: (arg, done) => {
         const d = dog(); if (!d) { done(); return; }
+        s.stage.focus(null);                          // the camera follows the chase (it used to stay on an empty lawn)
         me().setExpression('shocked');
         me().walkTo(s.van.doorX + 70, () => { me().face(d.x); done(); }, { speed: 340 });
         d.walkTo(s.van.doorX + 150, () => { d.face(s.me.x); d.playOnce('lunge'); me().playOnce('flinch'); OTR.fx.shake(s, 220, 0.01); }, { speed: 380 });
@@ -441,9 +592,12 @@ class StopScene extends BaseScenarioScene {
       backAway: (arg, done) => {
         const tx = arg === 'van' ? s.van.doorX + 70 : s.me.x - (arg || 220);
         const facingX = s.dog ? s.dog.x : s.me.x + 100;
+        s.stage.focus(null);
         me().face(facingX);
         me().walkTo(tx, () => { me().face(facingX); me().play('stand'); done(); }, { speed: 75, keepFacing: true });
-        if (s.dog) s.dog.walkTo(s.dog.x - 80, () => s.dog.face(s.me.x), { speed: 50 });
+        // the dog follows a little, staying between the courier and the house (it used to end up on the courier)
+        const d = s.dog;
+        if (d) { const dx = Math.max(tx + 150, d.x - 80); if (dx < d.x) d.walkTo(dx, () => d.face(s.me.x), { speed: 50 }); }
       },
       runToVan: (arg, done) => { me().walkTo(s.van.doorX + 70, done, { speed: 330 }); },
       approach: (arg, done) => {
@@ -481,6 +635,24 @@ class StopScene extends BaseScenarioScene {
         }, { speed: 220 });
       },
       openGate: () => s.setGate(true),
+      // the stop's stranger walks up from the street and stands by the courier
+      strangerAppears: (arg, done) => {
+        const def = s.def.stranger;
+        if (!def) { done(); return; }
+        let r = s.stranger;
+        if (!r) {
+          r = OTR.rig.person(s, s.me.x - 420, s.stage.groundAt(s.me.x - 420), def.spec || {}, { scale: 0.78, facing: 1 });
+          s.stage.actor(r, { depth: 24 });
+          s.stranger = r;
+        }
+        if (cast.stranger) cast.stranger.rig = r;
+        r.walkTo(s.me.x - 110, () => { r.face(s.me.x); s.me.face(r.x); done(); }, { speed: 170 });
+      },
+      strangerLeaves: (arg, done) => {
+        const r = s.stranger;
+        if (!r) { done(); return; }
+        r.walkTo(r.x - 600, () => { r.setAlpha(0); done(); }, { speed: 170 });
+      },
       // ---- heat
       drink: (arg, done) => s.drinkWater(done),
       rest: (arg, done) => s.coolDown(done, arg || 3000),
@@ -495,15 +667,23 @@ class StopScene extends BaseScenarioScene {
     const c = this.carry && this.carry.heat;
     this.heat = { hyd: c ? c.hyd : (H.hydration || 70), temp: c ? c.temp : (H.bodyHeat || 35), drinks: 0, cools: 0, maxTemp: 0, minHyd: 100, warned: false };
     const p = this.heatHud = this.add.container(OTR.W - 300, 72).setDepth(820).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
-    g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
-    p.add(g);
+    p.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
+      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
+    }));
     p.add(OTR.txt(this, 16, 24, 'HYDRATION', 12, '#8FD3FF', { ox: 0, weight: '900' }));
     p.add(OTR.txt(this, 16, 60, 'BODY HEAT', 12, '#FFB27A', { ox: 0, weight: '900' }));
     this.hydBar = OTR.ui.bar(this, 118, 24, 146, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x3DA5FF, v), bgAlpha: 0.5 });
     this.tempBar = OTR.ui.bar(this, 118, 60, 146, 12, { color: (v) => OTR.color.lerp(0x2BC48A, 0xF0435A, v), bgAlpha: 0.5 });
     p.add([this.hydBar, this.tempBar]);
+    // where the danger starts: the warning at 72 body heat (collapse at 96) and 28 hydration
+    p.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0xFFFFFF, 0.9);
+      [[28, 24], [72, 60]].forEach(([v, y]) => g.fillRect(118 + 146 * v / 100 - 1, y - 9, 2, 18));
+      g.fillStyle(0xF0435A, 1); g.fillRect(118 + 146 * 0.96 - 1, 60 - 9, 2, 18);
+    }));
+    this.shadeTag = OTR.txt(this, 264, 42, 'IN SHADE', 11, '#8FD3FF', { ox: 1, weight: '900' }).setVisible(false);
+    p.add(this.shadeTag);
     this.heatGlow = this.add.image(OTR.W / 2, OTR.H / 2, OTR.atmos.vignetteTex(this)).setDisplaySize(OTR.W, OTR.H).setScrollFactor(0).setDepth(760).setTint(0xFF3010).setAlpha(0);
     this.updateHeatHud();
   }
@@ -523,7 +703,12 @@ class StopScene extends BaseScenarioScene {
     const moving = this.me.moving;
     const carrying = this.S.carrying.length > 0;
     const k = H.intensity || 1;
-    if (this.S.inVan) { h.temp -= 2.2 * dt; h.hyd -= 0.08 * dt; }
+    // A parked van in the heat is out of the sun but not cool: body heat holds steady there, and the AC is what
+    // brings it down (sitting in the van used to cool the courier faster than anything else, AC or not).
+    if (this.S.inVan) {
+      h.hyd -= 0.1 * dt;
+      if (h.temp > 50 && !this._acHint) { this._acHint = true; this.say('Still hot in here. The AC is at the back of the doorway (E).', '#8FD3FF'); }
+    }
     else if (this.inInterior) { h.temp -= 1.4 * dt; h.hyd -= 0.1 * dt; }
     else if (this.inShade()) { h.temp -= 0.9 * dt; h.hyd -= 0.15 * dt; }
     else {
@@ -538,6 +723,9 @@ class StopScene extends BaseScenarioScene {
     this._heatHudAcc = (this._heatHudAcc || 0) + dt;
     if (this._heatHudAcc > 0.25) { this._heatHudAcc = 0; this.updateHeatHud(); }
     this.heatGlow.setAlpha(OTR.util.clamp((h.temp - 60) / 45, 0, 0.7) * (0.8 + 0.2 * Math.sin(this.time.now / 300)));
+    this.shadeTag.setVisible(!this.S.inVan && !this.inInterior && this.inShade());
+    // the warning re-arms once the courier has recovered, so every overheat gets one before a collapse
+    if (h.warned && h.temp < 55 && h.hyd > 50) h.warned = false;
     if (!h.warned && (h.temp >= 72 || h.hyd <= 28)) {
       h.warned = true;
       this.me.play('tired');
@@ -545,6 +733,18 @@ class StopScene extends BaseScenarioScene {
       this.runSituation('heatSigns');
     }
     if (h.temp >= 96) this.heatCollapse();
+  }
+
+  /** In the van: water or the AC (one spot at the back of the doorway). */
+  waterOrAc() {
+    OTR.ui.modal(this, {
+      title: 'Water and AC', w: 560, h: 330, escClose: true,
+      build: (box, api) => {
+        box.add(OTR.ui.button(this, 0, -30, '1.  Drink some water', () => api.close(() => this.drinkWater()), { w: 400, h: 54, skin: 'ghost', fontSize: 19, key: 'ONE' }));
+        box.add(OTR.ui.button(this, 0, 38, '2.  Cool off in the AC', () => api.close(() => this.coolDown(null, 3500)), { w: 400, h: 54, skin: 'ghost', fontSize: 19, key: 'TWO' }));
+      },
+      buttons: [{ label: 'Back', skin: 'purple', hint: 'ESC' }]
+    });
   }
 
   drinkWater(done) {
@@ -592,13 +792,13 @@ class StopScene extends BaseScenarioScene {
     this.me.playOnce('slip');
     OTR.audio.play('thud');
     this.cameras.main.fade(1400, 90, 20, 10);
-    this.log.penalty('safety', 5, 'Heat illness: collapsed on the route', { severity: 'major', lesson: 'Heat illness is an emergency. At the first warning signs (dizziness, headache, nausea, cramps) stop, cool down, hydrate and get help. Don\'t push through.' });
+    this.log.penalty('safety', 5, 'Heat illness: collapsed on the route', { severity: 'major', critical: true, lesson: 'Heat illness is an emergency. At the first warning signs (dizziness, headache, nausea, cramps) stop, cool down, hydrate and get help. Don\'t push through.' });
     this.time.delayedCall(1600, () => {
       this.cameras.main.resetFX();
       this.cameras.main.fadeIn(600);
       OTR.ui.modal(this, {
         title: 'You collapsed', w: 660, h: 340, depth: 5000,
-        body: 'A neighbour saw you go down and called 911. In real life heat stroke can be fatal. Watch your hydration and body heat, take breaks in shade or AC, and act on the warning signs straight away.',
+        body: 'A neighbor saw you go down and called 911. In real life heat stroke can be fatal. Watch your hydration and body heat, take breaks in shade or AC, and act on the warning signs straight away.',
         buttons: [{ label: 'See stop report', skin: 'orange', onClick: () => { this.S.done = true; this.evaluate(); this.report(); } }]
       });
       if (done) done();
@@ -648,44 +848,53 @@ class StopScene extends BaseScenarioScene {
   }
 
   refreshObjectives() {
-    if (this.shiftMode && !OTR.save.data.settings.hints) { this.objPanel.setVisible(false); return; }
+    if ((this.shiftMode && !OTR.save.data.settings.hints) || !OTR.academy.coaching()) { this.objPanel.setVisible(false); return; }
     const c = this.objPanel;
     c.removeAll(true);
+    c.setVisible(!this.photoMode);                 // hidden only while the camera is up
     const items = this.objectives();
     const w = 330, h = 40 + items.length * 26;
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
-    g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
-    c.add(g);
+    c.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
+      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
+    }));
     c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, '#FF9447', { ox: 0, weight: '900' }));
     items.forEach((it, i) => {
       const y = 44 + i * 26;
-      const box = this.add.graphics();
-      box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(16, y - 8, 16, 16, 4);
-      if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(16, y - 8, 16, 16, 4); }
-      c.add(box);
+      c.add(OTR.tex.shape(this, (box) => {
+        box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(0, -8, 16, 16, 4);
+        if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(0, -8, 16, 16, 4); }
+      }, 16, y));
       c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : '#F4ECFF', { ox: 0, bold: false }));
     });
   }
 
   say(text, color) {
-    const t = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 900 }).setScrollFactor(0).setDepth(950);
+    // one message at a time: a new one replaces the last (two used to print on top of each other)
+    if (this.sayText && this.sayText.active) { this.tweens.killTweensOf(this.sayText); this.sayText.destroy(); }
+    // narrow enough to stay clear of the objectives panel on the left and the heat meters on the right
+    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 520 }).setScrollFactor(0).setDepth(950);
+    // on a dark backing, so it reads over a busy backdrop too (a lobby's name sign sits right behind it)
+    t.setBackgroundColor('rgba(22,6,43,0.72)').setPadding(16, 8, 16, 8);
     t.setAlpha(0).setScale(0.8);
     this.tweens.add({ targets: t, alpha: 1, scale: 1, duration: 180, ease: 'Back.out' });
-    this.tweens.add({ targets: t, alpha: 0, y: 96, delay: 2200, duration: 400, onComplete: () => t.destroy() });
+    // up long enough to read (it was a fixed 2.2 s, gone before a two-line instruction could be read)
+    this.tweens.add({ targets: t, alpha: 0, y: 96, delay: OTR.ui.readTime(text), duration: 400, onComplete: () => t.destroy() });
   }
 
   stopBrief(onGo) {
     const d = this.def;
     const pkg = d.packages[0];
     const W = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storm', snow: 'Snow / ice', heat: 'Extreme heat' }[this.weather] || this.weather;
+    // as tall as the brief (a one-line brief left a large empty card)
+    const t = OTR.txt(this, 0, 0, d.brief || '', 19, '#000', { bold: false, wrap: 540, lineSpacing: 3 });
+    const h = Math.max(250, 130 + t.height + 30 + 77);
+    t.destroy();
     OTR.ui.modal(this, {
-      w: 660, h: 330, depth: 5000,
+      w: 660, h, depth: 5000,
       build: (box, api, w, h) => {
         box.list.forEach(ch => ch.setScrollFactor && ch.setScrollFactor(0));
-        const hg = this.add.graphics();
-        hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 });
-        box.add(hg);
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const idx = this.shiftStop ? this.shiftStop.index : this.stopIndex + 1;
         box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 28, `STOP ${idx}  ·  ${this.clockStr}  ·  ${W.toUpperCase()}`, 14, '#FFB27A', { ox: 0, weight: '900' }));
         box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 58, `${pkg.number} ${pkg.street}${pkg.unit ? ' #' + pkg.unit : ''}`, 30, '#ffffff', { ox: 0, weight: '900' }));
@@ -711,6 +920,21 @@ class StopScene extends BaseScenarioScene {
 
   /* ================================================================== van */
   exitVan() {
+    // a heavy piece in hand (50 lb or more): how it gets to the door comes first
+    const heavy = this.carriedPkgs().find(p => (p.weight || 0) >= 50);
+    if (heavy && this.S.heavy === undefined) {
+      this.chooseAction(`This one is ${heavy.weight} lb. How do you get it to the door?`, [
+        { text: 'On the hand truck: strap it on and wheel it up', good: true, how: 'truck' },
+        { text: 'Carry it: it\'s only to the porch', good: false, how: 'carry' },
+        { text: 'Ask the customer to come out to the van for it', good: false, how: 'ask' }
+      ], (good, op) => {
+        this.S.heavy = op.how;
+        if (good) this.say('Hand truck it is: strapped on, wheeled up, lifted with your legs at the door.', '#8BF0C6');
+        else this.say(op.how === 'carry' ? `${heavy.weight} lb in your arms, up steps you can\'t see: that\'s a back injury waiting. Use the hand truck.` : 'The delivery is yours to make: the hand truck gets it to the door.', '#FF8A9A');
+        this.time.delayedCall(400, () => this.exitVan());
+      });
+      return;
+    }
     this.chooseAction('How do you climb down?', [
       { text: 'Face the cab, keep a hand on the grab handle and step down', good: true },
       { text: 'Hop down to the curb. It\'s only a couple of feet.', good: false }
@@ -725,7 +949,10 @@ class StopScene extends BaseScenarioScene {
       this.me.playOnce(good ? 'stepDown' : 'jumpDown', () => {
         this.stage.actors.find(a => a.rig === this.me).followGround = true;
         this.stage.unlock();
-        if (!good) { OTR.audio.play('thud'); this.me.setExpression('worried'); this.time.delayedCall(900, () => this.me.setExpression('neutral')); }
+        if (!good) {
+          OTR.audio.play('thud'); this.me.setExpression('worried'); this.time.delayedCall(900, () => this.me.setExpression('neutral'));
+          this.say('Jumping down is how couriers hurt knees and ankles. Three points of contact, every time.', '#FF8A9A');
+        }
         this.refreshObjectives();
       });
     });
@@ -734,7 +961,7 @@ class StopScene extends BaseScenarioScene {
   enterVan() {
     this.chooseAction('How do you climb in?', [
       { text: 'Hand on the grab handle, step up one foot at a time', good: true },
-      { text: 'Jump up in one move while carrying things', good: false }
+      { text: this.S.carrying.length ? 'Jump up in one move while carrying things' : 'Jump up in one move', good: false }
     ], (good) => {
       this.S.enterSafe = this.S.enterSafe === null ? good : (this.S.enterSafe && good);
       this.stage.lock();
@@ -744,16 +971,19 @@ class StopScene extends BaseScenarioScene {
       this.me.playOnce('climbUp', () => {
         this.S.inVan = true;
         this.stage.unlock();
-        if (!good) { OTR.audio.play('thud'); OTR.fx.shake(this, 120, 0.004); }
+        if (!good) {
+          OTR.audio.play('thud'); OTR.fx.shake(this, 120, 0.004);
+          this.say('Jumping up with your hands full is how couriers fall. Grab handle, one step at a time.', '#FF8A9A');
+        }
         // returning packages that were not delivered
         if (this.S.carrying.length && (this.S.outcome !== 'delivered' || this.S.carrying.length)) {
           this.S.returned = this.S.carrying.slice();
           this.S.carrying = [];
           this.me.hold(null);
-          this.say('Package back on the shelf.', '#C9B3F0');
+          if (good) this.say('Package back on the shelf.', '#C9B3F0');   // the safety message matters more
         }
         if (this.S.outcome) this.time.delayedCall(400, () => this.confirmFinish());
-        else { this.S.vanTrips++; this.refreshObjectives(); }
+        else { if (this.S.pulls > 0) this.S.vanTrips++; this.refreshObjectives(); }   // before any package was pulled it is not an extra trip
       });
     });
   }
@@ -777,6 +1007,7 @@ class StopScene extends BaseScenarioScene {
   /* ================================================================== shelves */
   shelfPackages() {
     if (this._shelf) return this._shelf;
+    if (this.shiftMode && OTR.shift && OTR.shift.state && OTR.shift.state.route) return (this._shelf = this.routeShelf());
     const d = this.def;
     const all = d.packages.map(p => Object.assign({ mine: true }, p)).concat((d.decoys || []).map(p => Object.assign({ mine: false }, p)));
     const R = OTR.scenery.rng(d.id + (this.set.title || ''));
@@ -785,6 +1016,51 @@ class StopScene extends BaseScenarioScene {
     for (let i = slots.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
     this._shelf = all.map((p, i) => Object.assign(p, { slot: slots[i], onShelf: true }));
     return this._shelf;
+  }
+
+  /**
+   * A route day's van: the day's load, not a stop's own set of look-alike decoys. Every piece still on board is on
+   * the shelves, where it was loaded (rows by shelf height, columns by section; floor freight on the bottom row), so
+   * the van empties as the day goes and a piece that could not be delivered rides on. (Each stop used to fill the
+   * shelves with its own package and two made-up ones, so the van's contents changed at every stop.)
+   */
+  routeShelf() {
+    const st = OTR.shift.state;
+    const here = st.atStop != null ? st.atStop : st.stopIndex;
+    const map = st.loadMap || {};
+    const R = OTR.scenery.rng('van' + st.day + (st.seed || ''));
+    const spare = [];
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) spare.push({ r, c });
+    for (let i = spare.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [spare[i], spare[j]] = [spare[j], spare[i]]; }
+    const taken = {};
+    const free = (r, c) => !taken[r + ',' + c];
+    const place = (pref) => {
+      let slot = null;
+      if (pref) {
+        // the same row first, nearest column; then anywhere
+        const cols = [0, 1, 2, 3].sort((a, b) => Math.abs(a - pref.c) - Math.abs(b - pref.c));
+        const c = cols.find(k => free(pref.r, k));
+        if (c !== undefined) slot = { r: pref.r, c };
+      }
+      if (!slot) slot = spare.find(s => free(s.r, s.c));
+      taken[slot.r + ',' + slot.c] = true;
+      return slot;
+    };
+    const rowOf = { top: 0, mid: 1, bottom: 2, floor: 2 };
+    const colOf = (m) => (m.col === 'A' ? 0 : m.col === 'floor' || m.col === 'haz' ? 1 : 2) + (m.col === 'A' || m.col === 'B' || m.col === 'C' ? Math.min(1, m.k || 0) : 0);
+    const out = [];
+    st.route.forEach((entry, j) => {
+      const onBoard = j === here || !entry.done || (entry.result && entry.result.outcome === 'exception');
+      if (!onBoard) return;
+      const m = map[`s${j + 1}`];
+      const pref = m ? { r: rowOf[m.row] !== undefined ? rowOf[m.row] : 2, c: colOf(m) } : null;
+      const pkgs = j === here ? this.def.packages : entry.stop.packages;
+      pkgs.forEach((p, n) => {
+        const mine = j === here;
+        out.push(Object.assign({}, p, { id: mine ? p.id : `r${j}_${n}`, mine, slot: place(pref), onShelf: true }));
+      });
+    });
+    return out;
   }
 
   openShelves() {
@@ -813,21 +1089,23 @@ class StopScene extends BaseScenarioScene {
     root.add(this.add.image(440, 370, bgKey).setScrollFactor(0));
     root.add(OTR.txt(this, 440, 50, 'CARGO SHELVES — find this stop\'s package', 22, '#ffffff', { weight: '900' }).setScrollFactor(0));
     const pkg0 = this.def.packages[0];
-    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box to read its label`, 15, '#FFB27A', { bold: false }).setScrollFactor(0));
+    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box (or the arrow keys) to read its label`, 15, '#FFB27A', { bold: false }).setScrollFactor(0));
 
     // label preview panel
     const panel = this.add.container(1080, 380).setScrollFactor(0);
     root.add(panel);
-    const pg = this.add.graphics();
-    pg.fillStyle(0x16062B, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
-    pg.lineStyle(2, 0x6A45A0, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
-    panel.add(pg);
+    panel.add(OTR.tex.shape(this, (pg) => {
+      pg.fillStyle(0x16062B, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
+      pg.lineStyle(2, 0x6A45A0, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
+    }));
     const lblImg = this.add.image(0, -130, '__DEFAULT').setVisible(false).setScrollFactor(0);
     panel.add(lblImg);
-    const hint = OTR.txt(this, 0, -130, 'Hover or click a package\nto read its label', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
+    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it\n\n(or the arrow keys, then ENTER)', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
     panel.add(hint);
     const carryTxt = OTR.txt(this, 0, 120, '', 15, '#8BF0C6', { align: 'center', wrap: 320 }).setScrollFactor(0);
     panel.add(carryTxt);
+    // Hovering only previews a label; a click picks the package, and the button acts on the picked one. (Hover used
+    // to pick, so the box the pointer crossed on its way to the button was the one taken.)
     let selected = null;
     const takeBtn = OTR.ui.button(this, 0, 180, 'Take this package', () => {
       if (!selected) return;
@@ -844,28 +1122,31 @@ class StopScene extends BaseScenarioScene {
         OTR.audio.play('pop');
       }
       redraw();
-    }, { w: 300, h: 50, skin: 'orange', fontSize: 18 });
+    }, { w: 300, h: 50, skin: 'orange', fontSize: 18, key: ['ENTER', 'SPACE'], hint: '⏎' });
     takeBtn.bg.setScrollFactor(0);
     panel.add(takeBtn);
-    const doneBtn = OTR.ui.button(this, 0, 250, 'Done', () => close(), { w: 300, h: 50, skin: 'purple', fontSize: 18, key: 'ESC' });
+    const doneBtn = OTR.ui.button(this, 0, 250, 'Done', () => close(), { w: 300, h: 50, skin: 'purple', fontSize: 18, key: 'ESC', hint: 'ESC' });
     doneBtn.bg.setScrollFactor(0);
     panel.add(doneBtn);
 
     const boxLayer = this.add.container(0, 0).setScrollFactor(0);
     root.add(boxLayer);
     const dims = { s: [70, 50], m: [100, 72], l: [130, 96], env: [96, 20] };
+    const showLabel = (p) => {
+      if (!p) { lblImg.setVisible(false); hint.setVisible(true); return; }
+      lblImg.setTexture(OTR.labelArt.key(this, p, 320, 213)).setVisible(true).setDisplaySize(320, 213);
+      hint.setVisible(false);
+    };
     const select = (p) => {
       selected = p;
-      const lk = OTR.labelArt.key(this, p, 320, 213);
-      lblImg.setTexture(lk).setVisible(true).setDisplaySize(320, 213);
-      hint.setVisible(false);
+      showLabel(p);
       takeBtn.setLabel(p.onShelf ? 'Take this package' : 'Put it back');
       takeBtn.setEnabled(true);
+      redraw();
     };
     const redraw = () => {
       boxLayer.removeAll(true);
       pkgs.forEach(p => {
-        if (!p.onShelf) return;
         const [bw, bh] = dims[p.size || 'm'];
         const x = 30 + 40 + p.slot.c * 195 + 80, y = 70 + 60 + p.slot.r * 175 + 130 - bh / 2 - 2;
         const key = OTR.tex.make(this, `shelfpkg_${p.size || 'm'}_${p.service || 'standard'}`, bw + 30, bh + 30, (ctx) => {
@@ -879,30 +1160,52 @@ class StopScene extends BaseScenarioScene {
             ctx.fillStyle = OTR.color.css(svc.color); ctx.fillRect(10, 16 + bh * 0.35, bw * 0.5, 5);
           }
         });
-        const img = this.add.image(x, y, key).setScrollFactor(0).setInteractive({ useHandCursor: true });
-        img.on('pointerover', () => { select(p); img.setTint(0xFFE3C8); OTR.audio.play('hover'); });
-        img.on('pointerout', () => img.clearTint());
+        // a package in hand stays in its slot, ghosted and tagged, so it can be picked and put back
+        const img = this.add.image(x, y, key).setScrollFactor(0).setInteractive({ useHandCursor: true }).setAlpha(p.onShelf ? 1 : 0.35);
+        if (p === selected) {
+          img.setTint(0xFFD9A8);
+          // an outline too, so the pick can be seen from the keyboard (a tint alone was hard to spot)
+          boxLayer.add(OTR.tex.shape(this, (g) => { g.lineStyle(4, 0xFFC83D, 1); g.strokeRoundedRect(x - bw / 2 - 12, y - bh / 2 - 14, bw + 30, bh + 30, 10); }).setScrollFactor(0));
+        }
+        img.on('pointerover', () => { showLabel(p); if (p !== selected) img.setTint(0xFFE3C8); OTR.audio.play('hover'); });
+        img.on('pointerout', () => { showLabel(selected); if (p !== selected) img.clearTint(); });
         img.on('pointerup', () => select(p));
         boxLayer.add(img);
+        if (!p.onShelf) boxLayer.add(OTR.txt(this, x, y - bh / 2 - 6, 'IN HAND', 12, '#8BF0C6', { weight: '900', stroke: '#16062B', strokeW: 4 }).setScrollFactor(0));
       });
       const held = pkgs.filter(p => !p.onShelf);
-      carryTxt.setText(held.length ? `Carrying: ${held.map(p => `${p.number} ${p.street}`).join(', ')}` : 'Carrying nothing yet');
+      carryTxt.setText(held.length ? `Carrying: ${held.map(p => `${p.number} ${p.street}`).join(', ')}\n(click a box marked IN HAND to put it back)` : 'Carrying nothing yet');
       if (selected) takeBtn.setLabel(selected.onShelf ? 'Take this package' : 'Put it back');
-      // held list clickable (to put back)
-      held.forEach((p, i) => {
-        const t = OTR.txt(this, 1080 - 160, 520 + i * 0 + 0, '', 1, '#000').setVisible(false);
-        boxLayer.add(t);
-      });
     };
     takeBtn.setEnabled(false);
     redraw();
-    // allow re-selecting a carried package to put it back
-    carryTxt.setInteractive({ useHandCursor: true }).on('pointerup', () => { const held = pkgs.filter(p => !p.onShelf); if (held.length) select(held[held.length - 1]); });
+
+    // the keyboard works the shelves too (they were mouse-only): the arrow keys move the pick box to box, row to row
+    const move = (dr, dc) => {
+      if (!root.active) return;
+      const order = pkgs.slice().sort((a, b) => a.slot.r - b.slot.r || a.slot.c - b.slot.c);
+      if (!selected) { select(order[0]); return; }
+      const { r, c } = selected.slot;
+      let best = null, bd = Infinity;
+      pkgs.forEach(p => {
+        if (p === selected) return;
+        const along = dr ? (p.slot.r - r) * dr : (p.slot.c - c) * dc;
+        if (along <= 0) return;
+        const d = along + (dr ? Math.abs(p.slot.c - c) : Math.abs(p.slot.r - r)) * 1.5;
+        if (d < bd) { bd = d; best = p; }
+      });
+      if (best) { select(best); OTR.audio.play('hover'); }
+    };
+    const keys = [['LEFT', 0, -1], ['RIGHT', 0, 1], ['UP', -1, 0], ['DOWN', 1, 0]].map(([k, dr, dc]) => {
+      const h = OTR.onKey(this, 'keydown-' + k, () => move(dr, dc));
+      return ['keydown-' + k, h];
+    });
 
     root.setAlpha(0);
     this.tweens.add({ targets: root, alpha: 1, duration: 200 });
     OTR.audio.play('door_open');
     const close = () => {
+      keys.forEach(([n, h]) => this.input.keyboard && this.input.keyboard.off(n, h));
       this._openModals = Math.max(0, this._openModals - 1);
       this.tweens.add({ targets: root, alpha: 0, duration: 160, onComplete: () => root.destroy() });
       this.me.play('idle');
@@ -980,15 +1283,25 @@ class StopScene extends BaseScenarioScene {
     const L = this.lot, ans = this.def.answer;
     this.S.answered = true;
     L.setDoor(true);
-    const r = OTR.rig.person(this, L.doorX + 8, L.floorY, ans.spec, { scale: 0.78, facing: -1 });
+    const r = OTR.rig.person(this, L.doorX + 44, L.floorY, ans.spec, { scale: 0.78, facing: -1 });
     r.setAlpha(0);
     this.stage.actor(r, { depth: 24 });
     this.tweens.add({ targets: r.c, alpha: 1, duration: 300 });
-    r.walkTo(L.doorX - 20, () => { r.setFacing(-1); r.play('idle'); });
+    r.walkTo(L.doorX + 20, () => { r.setFacing(-1); r.play('idle'); });   // in the doorway, a step clear of the courier at the bell
     this.resident = r;
     this.refreshObjectives();
-    if (ans.talk) this.time.delayedCall(900, () => this.startTalk());
-    else this.time.delayedCall(700, () => { r.setExpression('happy'); r.emote('Hi!'); });
+    // the resident starts talking: no "Talk" prompt meanwhile, or E would open a second copy of the conversation
+    if (ans.talk) { this.talkPending = true; this.time.delayedCall(900, () => { this.talkPending = false; this.startTalk(); }); }
+    else {
+      // someone else in the household says so: the printed name is theirs, not the label's
+      const to = (this.def.packages[0].to || '').split(',')[0];
+      const other = ans.name && to && ans.name !== to && ans.role !== 'reception';
+      this.time.delayedCall(700, () => {
+        r.setExpression('happy');
+        r.emote(other ? `Hi! That's for ${to.split(' ')[0]}. I can sign for it.` : 'Hi!');
+        if (other) this.say(`${ans.name} answers: ${to.split(' ')[0]} lives here too.`, '#FFE3C8');
+      });
+    }
   }
 
   enterInterior() {
@@ -999,14 +1312,15 @@ class StopScene extends BaseScenarioScene {
     this.time.delayedCall(240, () => {
       this.inInterior = true;
       this.stage.setRegion(this.interiorX, this.interiorX + 1600);
-      this.me.x = I.entryX + 70;
+      this.me.x = I.entryX + 200;               // a step past the door, clear of "Go back outside"
       this.me.y = this.stage.G;
       this.me.setFacing(1);
       this.cameras.main.scrollX = this.interiorX;
       if (!this.resident && this.def.answer) {
         const ans = this.def.answer;
         const r = OTR.rig.person(this, I.counterX + 40, this.stage.G - 6, ans.spec, { scale: 0.78, facing: -1 });
-        this.stage.actor(r, { depth: 24 });
+        this.stage.actor(r, { depth: 24, followGround: false });
+        r.y = this.stage.G - 26;                      // stands behind the counter: the feet stay hidden by its front
         this.resident = r;
         this.S.answered = true;
       }
@@ -1022,7 +1336,7 @@ class StopScene extends BaseScenarioScene {
     this.time.delayedCall(240, () => {
       this.inInterior = false;
       this.stage.setRegion(0, this.outsideW);
-      this.me.x = this.lot.doorX - 60;
+      this.me.x = this.lot.doorX - 150;          // clear of "Go inside", so a second E does not walk straight back in
       this.me.y = this.lot.floorY;
       this.me.setFacing(-1);
       this.cameras.main.scrollX = OTR.util.clamp(this.me.x - OTR.W / 2, 0, this.outsideW - OTR.W);
@@ -1035,10 +1349,33 @@ class StopScene extends BaseScenarioScene {
   startTalk() {
     const ans = this.def.answer;
     const graph = this.def.talks && this.def.talks[ans.talk];
-    if (!graph) return;
+    if (this.talkCtl || this.S.talked) return;                    // one conversation, however E and the timer race
+    // A route-day business has no scripted conversation: the receptionist greets you and signs on the handheld,
+    // the way a route-day resident does at the door. (E on "Talk to reception" used to do nothing at all.)
+    if (!graph) {
+      this.S.talked = true;
+      this.me.face(this.resident.x);
+      this.resident.face(this.me.x);
+      this.resident.setExpression('happy');
+      this.resident.emote('Hi! Is that for us?');
+      this.say(`${ans.name || 'Reception'} will sign for it. Use your handheld (TAB) to record the delivery.`, '#FFE3C8');
+      this.hh.setBadge(true);
+      this.refreshObjectives();
+      return;
+    }
     this.S.talked = true;
     this.stage.lock();
     this.hh.setTabVisible(false);
+    // at a doorstep, stand a step back from the resident so the two do not overlap (reception has its own spots)
+    const spot = this.resident.x - 110;
+    if (!this.inInterior && Math.abs(this.me.x - spot) > 10) {
+      this.me.walkTo(spot, () => this.beginTalk(ans, graph), { speed: 160 });
+      return;
+    }
+    this.beginTalk(ans, graph);
+  }
+
+  beginTalk(ans, graph) {
     this.me.face(this.resident.x);
     this.resident.face(this.me.x);
     this.stage.focus((this.me.x + this.resident.x) / 2, 380);
@@ -1046,7 +1383,7 @@ class StopScene extends BaseScenarioScene {
     const cast = {};
     cast[key] = { name: ans.name, color: 0x2F8F83, rig: this.resident, moodStart: ans.moodStart || 0 };
     this.talkCtl = OTR.talk.run(this, graph, {
-      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.data.profile.name : 'You' },
+      cast, courier: { rig: this.me, name: OTR.save.data.profile ? OTR.save.displayName() : 'You' },
       log: this.log, cats: OTR.scoring.CATS, feedback: this.feedbackMode, flags: this.flagsFor(),
       depth: 3000,
       onEnd: () => {
@@ -1211,7 +1548,7 @@ class StopScene extends BaseScenarioScene {
     ];
     hh.show({
       title: 'CHECK PHOTO ID', color: 0x7B3FC4,
-      lines: [{ text: today, color: '#3A2A50', bold: true }, `${person.name} is holding up their ID. Compare the photo, the name, the date of birth and the expiry date.`],
+      lines: [{ text: today, color: '#3A2A50', bold: true }, `${person.name} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.`],
       options: OTR.util.shuffle(opts),
       back: then(() => this.hhDeliver())
     });
@@ -1219,11 +1556,13 @@ class StopScene extends BaseScenarioScene {
 
   showIdCard(key, name) {
     this.hideIdCard();
-    const c = this.add.container(560, 330).setDepth(2590).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
-    g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
-    c.add([g, this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, '#C9B3F0', { weight: '900' })]);
+    // left of the courier and the customer, under the objectives panel, so both faces stay in view for the comparison
+    const c = this.add.container(250, 400).setDepth(2590).setScrollFactor(0);
+    const g = OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
+      g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
+    });
+    c.add([g,this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, '#C9B3F0', { weight: '900' })]);
     c.setAlpha(0).setScale(0.9);
     this.tweens.add({ targets: c, alpha: 1, scale: 1, duration: 200, ease: 'Back.out' });
     this.idCardView = c;
@@ -1304,41 +1643,62 @@ class StopScene extends BaseScenarioScene {
   spotX(sp) {
     const L = this.lot;
     if (sp.x === 'steps') return L.stepsX0 - 30;
-    if (typeof sp.x === 'string' && this.propById[sp.x]) return this.propById[sp.x].x + 44;
+    if (typeof sp.x === 'string' && this.propById[sp.x]) return this.propById[sp.x].x + 24;
     return L.doorX + (typeof sp.x === 'number' ? sp.x : 0);
   }
 
   placePackage(sp) {
     const x = this.spotX(sp);
+    // "behind the planter" is drawn behind it, partly hidden by the pot (it used to sit in front, in full view)
+    const behind = typeof sp.x === 'string' && this.propById[sp.x];
     this.stage.lock();
-    this.stage.walkPlayerTo(x - 50, () => {
+    this.stage.walkPlayerTo(x - 50, () => {                 // a scripted walk: carefully, and never judged (STOPS-M8-4)
       this.me.face(x);
       this.me.playOnce('setDown', () => {
         const y = this.stage.groundAt(x);
         const pk = this.carriedPkgs();
-        this.pkgProp = this.stage.prop('package', x, { y: y + 4, depth: 8 });
+        this.pkgProp = this.stage.prop('package', x, { y: y + 4, depth: behind ? behind.depth - 0.5 : 8 });
         if (pk.every(p => p.size === 'env')) this.pkgProp.setScale(0.7, 0.35);
         this.S.carrying = [];
         this.S.delivered = pk.map(p => p.id);
         this.me.hold(null);
         this.me.playOnce('lift', () => {
-          this.me.play('idle');
-          this.stage.unlock();
-          this.photoMode = true;
-          this.startPhoto();
+          // step back towards the street before the camera comes up, so the photo shows the package and the house,
+          // not the courier standing in front of them
+          this.me.walkTo(this.stage.clampByBarriers(this.me.x, Math.max(this.me.x - 190, 900)), () => {
+            this.me.face(x);
+            this.me.play('idle');
+            this.stage.unlock();
+            this.photoMode = true;
+            this.startPhoto();
+          }, { speed: 200 });
         });
       });
-    });
+    }, { careful: true });
   }
 
   startPhoto() {
     const s = this;
     this.stage.lock();
+    // the whole screen is the viewfinder: the objectives panel would sit under the instructions
+    if (this.objPanel) this.objPanel.setVisible(false);
     const root = this.add.container(0, 0).setDepth(4200).setScrollFactor(0);
     const fw = 380, fh = 260;
-    const frame = this.add.graphics().setScrollFactor(0);
-    const shade = this.add.graphics().setScrollFactor(0);
-    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package AND the door or house number, then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
+    // the viewfinder: four dark bands around the frame, and the frame's corners, moved with the pointer (plain
+    // rectangles and one pre-drawn shape: nothing is re-tessellated as the mouse moves)
+    const bands = [0, 1, 2, 3].map(() => this.add.rectangle(0, 0, 1, 1, 0x000000, 0.45).setOrigin(0, 0).setScrollFactor(0));
+    const shade = this.add.container(0, 0, bands);
+    const frame = OTR.tex.shape(this, (g) => {
+      g.lineStyle(3, 0xFFFFFF, 1);
+      const c = 26;
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sy]) => {
+        const x = sx * fw / 2, y = sy * fh / 2;
+        g.lineBetween(x, y, x - sx * c, y); g.lineBetween(x, y, x, y - sy * c);
+      });
+      g.lineStyle(1, 0xFFFFFF, 0.5);
+      g.strokeCircle(0, 0, 10);
+    }).setScrollFactor(0);
+    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
     root.add([shade, frame, info]);
     const catcher = this.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive({ useHandCursor: true }).setScrollFactor(0);
     root.add(catcher);
@@ -1347,21 +1707,12 @@ class StopScene extends BaseScenarioScene {
     const pkgScreenX = this.pkgProp.x - cam.scrollX;
     fx = pkgScreenX; fy = this.pkgProp.y - 90;
     const draw = () => {
-      shade.clear();
-      shade.fillStyle(0x000000, 0.45);
-      shade.fillRect(0, 0, OTR.W, fy - fh / 2);
-      shade.fillRect(0, fy + fh / 2, OTR.W, OTR.H);
-      shade.fillRect(0, fy - fh / 2, fx - fw / 2, fh);
-      shade.fillRect(fx + fw / 2, fy - fh / 2, OTR.W, fh);
-      frame.clear();
-      frame.lineStyle(3, 0xFFFFFF, 1);
-      const c = 26;
-      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sy]) => {
-        const x = fx + sx * fw / 2, y = fy + sy * fh / 2;
-        frame.lineBetween(x, y, x - sx * c, y); frame.lineBetween(x, y, x, y - sy * c);
-      });
-      frame.lineStyle(1, 0xFFFFFF, 0.5);
-      frame.strokeCircle(fx, fy, 10);
+      const t = fy - fh / 2, b = fy + fh / 2, l = fx - fw / 2, r = fx + fw / 2;
+      bands[0].setPosition(0, 0).setSize(OTR.W, Math.max(1, t));
+      bands[1].setPosition(0, b).setSize(OTR.W, Math.max(1, OTR.H - b));
+      bands[2].setPosition(0, t).setSize(Math.max(1, l), fh);
+      bands[3].setPosition(r, t).setSize(Math.max(1, OTR.W - r), fh);
+      frame.setPosition(fx, fy);
     };
     draw();
     catcher.on('pointermove', (p) => { fx = OTR.util.clamp(p.x, fw / 2, OTR.W - fw / 2); fy = OTR.util.clamp(p.y, fh / 2 + 60, OTR.H - fh / 2); draw(); });
@@ -1377,10 +1728,20 @@ class StopScene extends BaseScenarioScene {
       const pb = this.pkgProp.getBounds();
       const inR = (b) => b.x >= rect.x0 && b.right <= rect.x1 && b.y >= rect.y0 && b.bottom <= rect.y1;
       const pkgIn = inR(pb);
-      const doorIn = L.doorX > rect.x0 && L.doorX < rect.x1 && (L.floorY - 120) > rect.y0 && (L.floorY - 120) < rect.y1;
-      const numIn = L.numberX > rect.x0 && L.numberX < rect.x1 && L.numberY > rect.y0 && L.numberY < rect.y1;
-      const grade = pkgIn && (doorIn || numIn) ? 'good' : pkgIn ? 'ok' : 'bad';
-      this.S.photo = { grade, pkgIn, doorIn, numIn };
+      // Policy: the package and where it was left (the door, low down), and nothing that identifies the home or a
+      // person: no house number, no people or any part of one, the courier included. (The number used to be
+      // what the grading asked for.)
+      const overlaps = (x0, x1, y0, y1) => Math.min(x1, rect.x1) - Math.max(x0, rect.x0) > 4 && Math.min(y1, rect.y1) - Math.max(y0, rect.y0) > 4;
+      const doorIn = L.doorX > rect.x0 && L.doorX < rect.x1 && (L.floorY - 80) > rect.y0 && (L.floorY - 80) < rect.y1;
+      const numIn = (!!L.numberX && overlaps(L.numberX - 38, L.numberX + 38, L.numberY - 21, L.numberY + 21)) ||
+        (this.numberProps || []).some(img => { const b = img.getBounds(); return overlaps(b.x, b.right, b.y, b.bottom); });
+      const personIn = [this.me, this.resident].some(r => {
+        if (!r || !r.c || !r.c.active || !r.c.visible || r.c.alpha < 0.3) return false;
+        const b = this.personBox(r);
+        return overlaps(b.x0, b.x1, b.y0, b.y1);
+      });
+      const grade = !pkgIn ? 'bad' : numIn || personIn ? 'private' : doorIn ? 'good' : 'ok';
+      this.S.photo = { grade, pkgIn, doorIn, numIn, personIn };
       shade.setVisible(false); frame.setVisible(false); info.setVisible(false);
       OTR.audio.play('shutter');
       const key = 'pod_photo_' + this.def.id + '_' + Date.now();
@@ -1391,9 +1752,16 @@ class StopScene extends BaseScenarioScene {
         root.destroy();
         this.photoMode = false;
         this.stage.unlock();
+        this.refreshObjectives();                      // brings the objectives panel back
         this.showPhoto(key, grade);
       });
     };
+  }
+
+  /** A person's on-screen box, world coordinates: feet at the rig's origin, about 190 px tall at full scale. */
+  personBox(r) {
+    const k = Math.abs(r.c.scaleY) || 1;
+    return { x0: r.x - 34 * k, x1: r.x + 34 * k, y0: r.y - 195 * k, y1: r.y + 4 };
   }
 
   showPhoto(key, grade) {
@@ -1401,17 +1769,19 @@ class StopScene extends BaseScenarioScene {
     const S = this.S;
     const has = this.textures.exists(key);
     const lines = [];
-    if (grade === 'good') lines.push({ text: 'Package and location are both clearly in the shot.', color: '#1E9E6B', bold: true });
+    const ph = S.photo || {};
+    if (grade === 'good') lines.push({ text: 'Package and door are both clearly in the shot, and nothing private.', color: '#1E9E6B', bold: true });
+    else if (grade === 'private') lines.push({ text: ph.personIn && ph.numIn ? 'The house number and a person are in the shot. POD photos never show either.' : ph.personIn ? 'A person is in the shot. POD photos never show people or any part of one: step out of the frame.' : 'The house number is in the shot. POD photos never show house numbers: frame lower.', color: '#C8243B', bold: true });
     else if (grade === 'ok') lines.push({ text: 'The package is in the shot, but there\'s nothing showing WHERE it is.', color: '#B26A00', bold: true });
     else lines.push({ text: 'The package isn\'t fully in the frame.', color: '#C8243B', bold: true });
+    // a photo that falls short puts Retake first (key 1) under an amber or red header; using it is still possible
+    const use = { label: 'Use this photo', skin: grade === 'good' ? undefined : 'ghost', onPick: () => { S.outcome = 'delivered'; OTR.audio.play('success'); this.refreshObjectives(); hh.close(); this.say('Delivery recorded. Head back to the van.', '#8BF0C6'); } };
+    const retake = { label: 'Retake', skin: grade === 'good' ? 'ghost' : undefined, onPick: () => { S.retakes = (S.retakes || 0) + 1; hh.close(() => { this.photoMode = true; this.startPhoto(); }); } };
     hh.open({
-      title: 'PHOTO POD', color: 0x1E9E6B,
+      title: 'PHOTO POD', color: grade === 'good' ? 0x1E9E6B : grade === 'ok' ? 0xB26A00 : 0xC8243B,
       image: has ? { key, w: 300, h: 205 } : null,
       lines,
-      options: [
-        { label: 'Use this photo', onPick: () => { S.outcome = 'delivered'; OTR.audio.play('success'); this.refreshObjectives(); hh.close(); this.say('Delivery recorded. Head back to the van.', '#8BF0C6'); } },
-        { label: 'Retake', skin: 'ghost', onPick: () => { S.retakes = (S.retakes || 0) + 1; hh.close(() => { this.photoMode = true; this.startPhoto(); }); } }
-      ]
+      options: grade === 'good' ? [use, retake] : [retake, use]
     });
   }
 
@@ -1431,7 +1801,8 @@ class StopScene extends BaseScenarioScene {
       if (ex.doorTag) {
         hh.show({
           title: 'DOOR TAG', color: 0xFF6600,
-          lines: [`Exception ${ex.id} recorded.`, 'Print a door tag so the customer knows you tried, and what happens next?'],
+          // asked plainly: the question used to argue for the tag, so it answered itself
+          lines: [`Exception ${ex.id} recorded.`, 'Door tag for this attempt?'],
           options: [
             { label: 'Print door tag', onPick: () => { S.tagPrinted = true; S.tagNo = OTR_DATA.handheld.tagPrefix + Math.floor(100000 + Math.random() * 899999); OTR.audio.play('paper'); hh.close(); this.say(`Door tag ${S.tagNo} printed. Attach it to the door.`, '#FFE3C8'); this.refreshObjectives(); } },
             { label: 'Skip the tag', skin: 'ghost', onPick: () => { hh.close(); this.refreshObjectives(); } }
@@ -1476,24 +1847,39 @@ class StopScene extends BaseScenarioScene {
     const L0 = lessons[0];
 
     // --- safety
+    if (S.heavy !== undefined) log.check('safety', S.heavy === 'truck' ? 2 : 0, 2, 'Moved a heavy package on the hand truck', { lesson: 'Anything 50 lb or more goes on the hand truck (or gets a second person). Don\'t carry what you can wheel.' });
     log.check('safety', S.exitSafe === false ? 0 : 2, 2, 'Climbed down from the cab with three points of contact', { lesson: 'Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.' });
-    log.check('safety', S.enterSafe === false ? 0 : (S.enterSafe === null ? 1 : 2), 2, 'Climbed back into the cab safely', { lesson: 'Grab handle, one step at a time, and never jump up while carrying anything.' });
+    // no credit for a climb back in that never happened (a collapse, a stop left unfinished)
+    if (S.enterSafe !== null || (S.outcome && !this.collapsed)) log.check('safety', S.enterSafe === false ? 0 : (S.enterSafe === null ? 1 : 2), 2, 'Climbed back into the cab safely', { lesson: 'Grab handle, one step at a time, and never jump up while carrying anything.' });
+    const clearLesson = 'Clear trip hazards off the walkway with E, even with a package in hand: set it down, move them, pick it up.';
     Object.keys(S.hazards).forEach(k => {
       const H = S.hazards[k];
-      if (H.state === 'cleared') log.check('safety', 2, 2, `Cleared the hazard (${H.label})`);
-      else if (H.state === 'careful') log.check('safety', 2, 2, `Walked carefully over ${H.label}`);
-      else if (H.state === 'passed') log.check('safety', 1, 2, `Got past ${H.label}, but didn't slow down or clear it`, { lesson: 'Clear trip hazards off the walkway, or at least slow down and step carefully (hold SHIFT).' });
-      else if (H.state === 'incident') {
+      const clearable = H.type === 'hose' || H.type === 'toys';
+      // a slip or trip counts whatever happened afterwards (clearing the hose once you have tripped on it used to
+      // wipe the fall off the report); a fall with a package in hand is critical
+      if (H.incident) {
         log.check('safety', 0, 2, `Slipped or tripped on ${H.label}`, { lesson: 'Slow down on ice, wet steps and cluttered walkways. Short steps, eyes on the path, a hand free for balance.' });
-        log.penalty('safety', H.type === 'ice' || H.type === 'wet' ? 2 : 1, 'Incident: fall risk', { severity: 'major' });
-      } else log.check('safety', 2, 2, `Avoided ${H.label}`);
+        log.penalty('safety', H.type === 'ice' || H.type === 'wet' ? 2 : 1, H.withLoad ? `Fell on ${H.label} carrying a package` : 'Incident: fall risk',
+          { severity: 'major', critical: !!H.withLoad, lesson: H.withLoad ? 'Hold SHIFT and take short steps over anything slippery or cluttered, above all with a package that hides your feet.' : null });
+      } else if (H.state === 'cleared') log.check('safety', 2, 2, `Cleared the hazard (${H.label})`);
+      else if (H.wobbled && !clearable) log.check('safety', 1, 2, `Nearly slipped on ${H.label} before slowing down`, { lesson: 'Slow down BEFORE the slippery patch: hold SHIFT for short steps from the first one.' });
+      else if (H.state === 'careful') {
+        // stepping carefully over clutter is safe for you, but leaves it for the next person
+        if (clearable) log.check('safety', 1, 2, `Stepped carefully over ${H.label}, but left it on the path`, { lesson: clearLesson });
+        else log.check('safety', 2, 2, `Walked carefully over ${H.label}`);
+      } else if (H.state === 'passed') log.check('safety', clearable ? 0 : 1, 2, `Got past ${H.label}, but didn't slow down${clearable ? ' or clear it' : ''}`, { lesson: clearable ? clearLesson : 'Slow down and step carefully (hold SHIFT) over uneven ground.' });
+      else log.check('safety', 2, 2, `Avoided ${H.label}`);
     });
 
     // --- service: right package
     const delivered = S.delivered || [];
     const wrongDelivered = delivered.filter(id => mineIds.indexOf(id) < 0);
     const allMine = mineIds.every(id => delivered.indexOf(id) >= 0);
-    if (S.outcome === 'delivered') {
+    // A package delivered where the rules said to bring it back (a closed business, a minor at the door) earns none
+    // of the ticks that only make sense for a right delivery: the outcome check below is the whole story, and it is
+    // critical. (It used to keep 7 of 10 service points: right package, photo, knock.)
+    const againstRules = S.outcome === 'delivered' && exp.outcome !== 'deliver';
+    if (S.outcome === 'delivered' && !againstRules) {
       if (wrongDelivered.length) {
         log.check('service', 0, 3, 'Delivered the correct package', { lesson: 'Match the label address against the stop before delivering. Scanning catches wrong-stop packages.' });
         log.penalty('service', 3, 'Misdelivery: another customer\'s package left here', { severity: 'major' });
@@ -1504,7 +1890,7 @@ class StopScene extends BaseScenarioScene {
     // scanning
     const scannedAll = delivered.concat(S.returned || []).every(id => S.scanned[id]) && Object.keys(S.scanned).length > 0;
     log.check('efficiency', S.scannedInVan ? 1 : 0, 1, 'Scanned the package before leaving the truck', { lesson: 'Scan before you step out. It confirms the stop and shows signature needs before you walk to the door.' });
-    if (S.outcome === 'delivered') log.check('service', scannedAll ? 1 : 0, 1, 'Scanned every package delivered');
+    if (S.outcome === 'delivered' && !againstRules) log.check('service', scannedAll ? 1 : 0, 1, 'Scanned every package delivered');
 
     // outcome
     if (!S.outcome) {
@@ -1520,23 +1906,26 @@ class StopScene extends BaseScenarioScene {
       if (S.outcome === 'exception') {
         log.check('service', S.code === exp.code ? 3 : 1, 3, `Recorded the right exception (${exp.code})`, { lesson: L0 });
       } else {
-        log.check('service', 0, 3, 'Didn\'t deliver when the rules said not to', { lesson: L0 });
-        if (svc === 'signature' || svc === 'adult') log.penalty('service', 2, 'Released a restricted package without proper verification', { severity: 'major' });
+        log.check('service', 0, 3, 'Delivered when the rules said not to', { lesson: L0, critical: true });
+        if (svc === 'signature' || svc === 'adult') log.penalty('service', 2, 'Released a restricted package without proper verification', { severity: 'major', critical: true, lesson: L0 });
       }
     }
     // signature / photo quality
-    if (S.outcome === 'delivered' && (S.type === 'left')) {
+    if (S.outcome === 'delivered' && (S.type === 'left') && !againstRules) {
       if (svc === 'signature' || svc === 'adult') {
         log.check('service', 0, 2, 'Signature-required package handed to a person', { lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
-        log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major' });
+        log.penalty('service', 3, 'Left a signature-required package unattended', { severity: 'major', critical: true, lesson: 'Never leave a signature-required package unattended. Get a signature or record an exception and leave a door tag.' });
+        S.leftRestricted = true;           // not a delivery: the day does not count it as one
       }
-      const sp = (d.spots || []).find(x => x.id === S.spot);
-      if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
+      // no credit for a "sensible spot" to leave a package that must not be left at all
+      const sp = !S.leftRestricted && (d.spots || []).find(x => x.id === S.spot);
+      if (sp) log.check('service', sp.grade === 'good' ? 2 : sp.grade === 'ok' ? 1 : 0, 2, `Left it in a sensible spot: ${sp.report || sp.label.toLowerCase()}`, { lesson: sp.note || 'Follow the customer\'s delivery note when it\'s safe to.' });
       const ph = S.photo || { grade: 'bad' };
-      log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, 'Took a clear proof-of-delivery photo', { lesson: 'A good POD photo shows the package AND where it was left (door, house number), never people.' });
+      const podLesson = 'A POD photo shows the package and where it was left (the door or doorstep). Never a house number, and never people or any part of one, yours included.';
+      log.check('service', ph.grade === 'good' ? 2 : ph.grade === 'ok' ? 1 : 0, 2, ph.grade === 'private' ? `Proof-of-delivery photo showed ${ph.numIn && ph.personIn ? 'the house number and a person' : ph.numIn ? 'the house number' : 'a person'}` : 'Took a clear proof-of-delivery photo', { lesson: podLesson });
       log.check('service', S.knocks > 0 ? 1 : 0, 1, 'Knocked or rang before leaving the package', { lesson: 'Always attempt contact first. Many customers would rather receive the package in person.' });
     }
-    if (S.outcome === 'delivered' && S.type !== 'left') {
+    if (S.outcome === 'delivered' && S.type !== 'left' && !againstRules) {
       const person = d.answer || {};
       const nameOk = S.signer === person.name;
       log.check('service', nameOk ? 2 : 0, 2, 'Recorded the signer\'s real printed name', { lesson: 'Record the printed name of whoever actually signed, even if that isn\'t the addressee.' });
@@ -1566,11 +1955,12 @@ class StopScene extends BaseScenarioScene {
     const par = d.par || 120;
     const t = S.elapsed;
     const eff = t <= par ? 3 : t <= par * 1.4 ? 2 : t <= par * 2 ? 1 : 0;
-    log.check('efficiency', eff, 3, `Finished the stop in good time (${Math.round(t)}s, par ${par}s)`, { lesson: 'Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.' });
+    // time counts only for a stop that was finished (a collapsed stop used to earn three time stars)
+    if (S.outcome && !this.collapsed) log.check('efficiency', eff, 3, `Finished the stop in good time (${Math.round(t)}s, par ${par}s)`, { lesson: 'Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.' });
     if (S.vanTrips > 0) log.penalty('efficiency', Math.min(2, S.vanTrips), `Extra trip${S.vanTrips > 1 ? 's' : ''} back into the truck`);
     if (S.wrongPulls > 0) log.check('efficiency', 0, 1, 'Pulled only the right package from the shelves', { lesson: 'Read the whole address (number, street and unit) before pulling a package. Near-matches are easy to grab.' });
     else log.check('efficiency', 1, 1, 'Pulled only the right package from the shelves');
-    this.stopSummary = { outcome: S.outcome, code: S.code, type: S.type, time: t };
+    this.stopSummary = { outcome: S.leftRestricted ? 'unattended' : S.outcome, code: S.code, type: S.type, time: t };
   }
 
   report() {
@@ -1580,24 +1970,26 @@ class StopScene extends BaseScenarioScene {
     const shown = items.filter(it => cats.indexOf(it.cat) >= 0 || it.kind === 'penalty');
     const total = this.shiftStop ? this.shiftStop.total : this.set.stops.length;
     const idx = this.shiftStop ? this.shiftStop.index : this.stopIndex + 1;
-    const last = idx >= total;
+    // on a route day, the last stop still to do (the report's button then ends the day)
+    const st = this.shiftMode && OTR.shift.state;
+    const last = st ? st.route.filter(r => !r.done).length <= 1 : idx >= total;
     const s = this;
     const w = 860, h = 620;
     OTR.ui.modal(this, {
       w, h, depth: 5000,
       build: (box, api) => {
-        const hg = this.add.graphics();
-        hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 });
-        box.add(hg);
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const pkg = this.def.packages[0];
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, `STOP ${idx} REPORT`, 14, '#FFB27A', { ox: 0, weight: '900' }));
-        const oc = this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
+        const oc = this.S.leftRestricted ? 'LEFT UNATTENDED' : this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 58, `${pkg.number} ${pkg.street} · ${oc}`, 26, '#ffffff', { ox: 0, weight: '900' }));
         // per-category mini stars
         // right-aligned, however many categories (a route-day stop reports all three)
         cats.forEach((cat, i) => {
           const r = log.ratio(cat, gid);
-          const cs = OTR.ui.catStars(this, w / 2 - 140 - (cats.length - 1 - i) * 118, -h / 2 + 44, cat, OTR.scoring.stars(r), { size: 18 });
+          // a critical mistake caps the category here too, as on the results screen
+          const n = log.criticals(gid, [cat]).length ? Math.min(1, OTR.scoring.stars(r)) : OTR.scoring.stars(r);
+          const cs = OTR.ui.catStars(this, w / 2 - 140 - (cats.length - 1 - i) * 118, -h / 2 + 44, cat, n, { size: 18 });
           box.add(cs);
         });
         // Every check in its logical order when they all fit. When they do not, what went wrong comes first (so it
@@ -1613,7 +2005,7 @@ class StopScene extends BaseScenarioScene {
           return { it, i, good, lesson, h: 26 + (lesson ? lesson.height + 4 : 0) };
         });
         const fits = rows.reduce((n, r) => n + r.h, 0) <= limit - (-h / 2 + 110);
-        if (!fits) rows.sort((a, b) => (a.good - b.good) || (a.i - b.i));
+        if (!fits) rows.sort((a, b) => (a.good - b.good) || (!!b.it.critical - !!a.it.critical) || (a.i - b.i));
         let y = -h / 2 + 110, drawn = 0;
         for (const r of rows) {
           const left = rows.length - drawn;
@@ -1621,13 +2013,13 @@ class StopScene extends BaseScenarioScene {
           const it = r.it, good = r.good;
           const part = it.kind !== 'penalty' && it.got > 0 && it.got < it.max;
           const col = good ? 0x2BC48A : part ? 0xFFB020 : 0xF0435A;
-          const g = this.add.graphics();
-          g.fillStyle(col, 1); g.fillCircle(-w / 2 + 44, y + 11, 10);
-          box.add(g);
+          box.add(OTR.tex.shape(this, (g) => { g.fillStyle(col, 1); g.fillCircle(0, 0, 10); }, -w / 2 + 44, y + 11));
           box.add(OTR.txt(this, -w / 2 + 44, y + 11, good ? '✓' : part ? '~' : '✗', 13, '#ffffff', { weight: '900' }));
           const def = OTR_DATA.config.categories[it.cat];
           box.add(this.add.image(-w / 2 + 70, y + 11, def.icon).setDisplaySize(16, 16).setTint(def.color));
-          box.add(OTR.txt(this, -w / 2 + 88, y + 1, it.label, 16, '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
+          // one answer scored in two categories reads as two lines: name the category so they are not identical
+          const twin = shown.filter(o => o.label === it.label).length > 1 ? ` (${def.label.toLowerCase()})` : '';
+          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label + twin, 16, it.critical ? '#B3122E' : '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
           box.add(OTR.txt(this, w / 2 - 30, y + 11, it.kind === 'penalty' ? `${it.got}` : `${it.got}/${it.max}`, 15, OTR.color.css(col), { ox: 1, weight: '900' }));
           y += 26;
           if (r.lesson) { r.lesson.setY(y - 2); box.add(r.lesson); y += r.lesson.height + 4; }
@@ -1641,7 +2033,7 @@ class StopScene extends BaseScenarioScene {
         void api;
       },
       buttons: [{
-        label: last ? (this.shiftMode ? 'Back to route ▶' : 'Finish ▶') : 'Next stop ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
+        label: last ? (this.shiftMode ? 'Finish the day ▶' : 'Finish ▶') : 'Next stop ▶', skin: 'orange', key: ['ENTER', 'SPACE'],
         onClick: () => s.nextStop()
       }]
     });
@@ -1652,22 +2044,29 @@ class StopScene extends BaseScenarioScene {
   nextStop() {
     const total = this.set.stops ? this.set.stops.length : 1;
     if (this.shiftMode && OTR.shift) { OTR.shift.stopDone(this, this.log, this.stopSummary); return; }
-    const carry = { log: this.log.toJSON(), clock: this.clockMin + 12, heat: this.heat ? { hyd: Math.min(100, this.heat.hyd + 10), temp: Math.max(30, this.heat.temp - 15) } : null };
+    // the next stop starts from a recovered state: after a collapse as if treated and rested, otherwise after the
+    // drive in the AC, never already in the danger zone (it used to start at body heat 81 with the warning firing)
+    const h = this.heat;
+    const heat = !h ? null : this.collapsed ? { hyd: 80, temp: 35 } : { hyd: Math.min(100, Math.max(50, h.hyd + 10)), temp: Math.min(50, Math.max(30, h.temp - 15)) };
+    const carry = { log: this.log.toJSON(), clock: this.clockMin + 12, heat };
     if (this.stopIndex + 1 < total) {
       OTR.fx.transition(this, 'StopScene', { scenarioId: this.scenarioId, stopIndex: this.stopIndex + 1, carry });
       return;
     }
     const ratios = this.log.ratios(this.cats);
-    const inCats = this.log.filter(it => !it.good && it.lesson && this.cats.indexOf(it.cat) >= 0).map(it => it.lesson);
-    const lessons = inCats.concat(this.log.lessons()).filter((l, i, a) => a.indexOf(l) === i).slice(0, 2);
-    (this.set.keyLessons || []).forEach(l => { if (lessons.length < 3 && lessons.indexOf(l) < 0) lessons.push(l); });
     this.finished = false;
-    this.finish({ score: this.log.score(), ratios, lessons, stats: { log: this.log.toJSON() } }, 100);
+    // the log ranks every stop's mistakes in the scenario's categories; the set's key lessons follow
+    this.finish({ score: this.log.score(), ratios, log: this.log, lessons: this.set.keyLessons || [], stats: { log: this.log.toJSON() } }, 100);
   }
 
   update(time, delta) {
     if (!this.stage) return;
     this.stage.update(delta);
+    // through the gate the courier is in the yard, behind the front fence
+    if (this.gate && this.me && this.me.c.active) {
+      const d = this.me.x > this.gate.x + 20 ? 26 : 30;
+      if (this.me.c.depth !== d) this.me.setDepth(d);
+    }
     if (this.running && !this.S.done) {
       const dt = delta / 1000;
       if (this._openModals === 0 && !this.talkCtl) this.S.elapsed += dt;

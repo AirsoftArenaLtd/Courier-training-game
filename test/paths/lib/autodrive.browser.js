@@ -107,7 +107,7 @@ window.QA_AUTODRIVE = (function () {
       const [sdx, sdy] = HEAD[st.h];
       const l0 = laneLine(st.h, st.c, st.r);
       // join the lane before the first stop line, never beyond it (a stop can be parked close to a junction)
-      const back0 = R + 18 + scene.van.g.nose * P + 8;
+      const back0 = R + OTR.townArt.STOP_LINE + scene.van.g.nose * P + 8;
       const toLine = chain.length
         ? (sdx ? (T.vx[chain[0].c] - sdx * back0 - v.x) * sdx : (T.hy[chain[0].r] - sdy * back0 - v.y) * sdy)
         : 1e9;
@@ -120,7 +120,7 @@ window.QA_AUTODRIVE = (function () {
         const [dx, dy] = HEAD[n.hin];
         const li = laneLine(n.hin, n.c, n.r);
         // where the centre of gravity is when the front bumper is at the stop line
-        const back = R + 18 + scene.van.g.nose * P + 8;
+        const back = R + OTR.townArt.STOP_LINE + scene.van.g.nose * P + 8;
         const sp = { x: li.x !== undefined ? li.x : ix - dx * back, y: li.y !== undefined ? li.y : iy - dy * back, stopAt: n };
         raw.push(sp);
         if (n.hin === n.hout) {
@@ -216,6 +216,8 @@ window.QA_AUTODRIVE = (function () {
       // arrived: keep a foot on the brake until P is pressed (an automatic creeps forward otherwise)
       if (bot.status === 'arrived' && !scene.parked && !scene.leaving) { keys.KeyS = true; press(); return; }
       if (bot.status !== 'driving' || scene.parked || scene.leaving) { press(); return; }
+      // pulling away from the curb: a glance in the mirrors first (M), as a trainee must
+      if (scene.pullOut && scene.pullOut.pending && scene.elapsed - scene.mirrorAt > 4) OTR.driveAids.checkMirrors(scene);
       const v = scene.van, g = v.g;
       // progress along the path
       let best = bot.i, bd = 1e9;
@@ -281,9 +283,11 @@ window.QA_AUTODRIVE = (function () {
         // line at the marker), so a change to amber on the way in is still handled
         if (!mustStop) { if (dm < -12) m.cleared = true; continue; }
         vt = Math.min(vt, Math.sqrt(2 * A * Math.max(0, dm - 24)));
+        // one continuous stop: two short ones (stopping short, then creeping up) used to add up to a "stop"
+        if (!V.stopped(v)) bot.waitT = 0;
         if (dm < 44 && V.stopped(v)) {
           bot.waitT += dt;
-          if (!light && bot.waitT > 0.5) { m.cleared = true; bot.waitT = 0; }
+          if (!light && bot.waitT > 0.9) { m.cleared = true; bot.waitT = 0; }   // the game counts a stop after 0.5 s still
         }
         break;
       }

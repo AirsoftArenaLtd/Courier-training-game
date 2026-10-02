@@ -30,6 +30,13 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suggested fix:** require the pedal to be lifted for a clear moment (say 0.4 s) *and* a longer hold (0.8-1 s)
   before shifting, or give reverse its own key (R) as the prompt/badge already imply; never let S move the van
   backwards without a toast that says "S now drives backwards, W brakes".
+- **Status:** fixed (decision) — reverse has its own key: R changes gear between D and R at a standstill ("Stop first,
+  then R to change gear" otherwise), W is always the accelerator and S always the brake, in either gear
+  (`OTR.vehicle.gearbox`). The brake can no longer select reverse however it is pressed. The plan asked for a
+  deliberate hold from standstill; timing alone could not tell "hold the brake at a light" from "hold the brake to
+  reverse" (a 1 s hold after a short lift would still have backed the van), so the key the finding also suggested was
+  taken. The toast says "R — reverse: W backs up, S brakes. R again for drive."; the drill intro and the HUD controls
+  line say it; the autopilot never shifts.
 
 ### DRIVING-2: P after stopping usually says "Come to a full stop first", because the van creeps once S is lifted
 - **Severity:** minor (design; confusing, and it pushes the trainee straight into DRIVING-1)
@@ -44,6 +51,9 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suspected cause:** `src/scenes/shift/TownDriveScene.js:1056` checks `V.stopped(v)` at the instant of P.
 - **Suggested fix:** accept P within ~1 s of the van having been stopped (and then hold it), or make the refusal say
   "Hold S or SPACE, then P". Mention SPACE on the drill's intro card.
+- **Status:** fixed — P is accepted for a moment (1 s) after the van was last at a standstill, while the automatic
+  creeps; the refusal says "Come to a full stop first (hold S or SPACE, then P)"; the drill intro and the controls
+  line explain SPACE ("In D the van creeps forward: hold SPACE (park brake) to wait").
 
 ### DRIVING-3: Traffic drives into the van when it is stopped across or at an angle to a lane, and the trainee is charged with the collision
 - **Severity:** major (wrong feedback; also briefly traps the gearbox)
@@ -63,6 +73,10 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suggested fix:** test the van's oriented box (the `collide` shape) against the car's swept lane, only use the
   "ease past a parked van" branch when the van is roughly parallel to the lane, and do not charge a collision to the
   van when the van was stationary and the other vehicle was moving into it.
+- **Status:** fixed — cars watch every corner and side of the van's body against their lane, not its centre alone, and
+  only ease out round a van that is stopped parallel to the kerb; a vehicle driving into the van while the van is
+  standing still is not charged to the trainee ("A car ran into you while you were stopped. Never stop across a
+  lane.").
 
 ### DRIVING-4: "Drove buckled up ✓" is scored at park time, after a "Driving without your seatbelt" penalty
 - **Severity:** minor (scoring contradicts itself)
@@ -72,6 +86,8 @@ feel. Screenshots are in `test/out/review/driving/`.
   seatbelt` and `Drove buckled up 1/1`.
 - **Suspected cause:** `src/scenes/shift/TownDriveScene.js:1073` scores `this.buckled` at the moment of parking.
 - **Suggested fix:** score it as "no belt violation since the last park".
+- **Status:** fixed — "Drove buckled up" on a route leg means no seatbelt violation since the last park (and is a
+  safety line now, not efficiency); the drill judges the belt once, over the whole drive.
 
 ### DRIVING-5: The painted stop line is inside the crosswalk, so "full stop at the line" parks the van's nose on the crossing
 - **Severity:** minor (teaches the wrong stopping position; it also puts the van where the yield rule fires)
@@ -88,6 +104,9 @@ feel. Screenshots are in `test/out/review/driving/`.
   use the same R+18.
 - **Suggested fix:** move the stop line (and the rule and AI stopping points with it) to about `R + 58`, outside
   the crosswalk, and the sign just beyond it.
+- **Status:** fixed — the stop line is drawn at `OTR.townArt.STOP_LINE` (58 px out, just clear of the crosswalk, which
+  spans R+1 to R+47), with the sign or signal level with it; the stop and red-light rules, the traffic's stopping
+  point and the autopilot all use the same constant.
 
 ### DRIVING-6: Drill hazards spawn wherever the van happens to point, not on the way to the checkpoint: on corners, in junctions, on streets you are not taking, and they pass by themselves
 - **Severity:** major (the core of the drill: several hazards were never really met, and one was drawn on the sidewalk)
@@ -120,6 +139,11 @@ feel. Screenshots are in `test/out/review/driving/`.
   van will use, at least ~150 px from any junction), arm it when the van enters that block heading the right way,
   and judge it only on the approach to it (an expiry while stopped elsewhere should not count as a pass). Fix the
   ball's warning text or add the parked cars it mentions.
+- **Status:** fixed (decision) — a drill hazard arms only while the van drives along the checkpoint's street towards
+  it, clear of the junctions, and spawns in its lane on straight road at least R+150 px from any junction and before
+  the bay, at a distance the van can stop in (200 px plus 1.25 s of travel). A hazard that expires before the van has
+  come near it is not judged: it comes up again further on. The ball's warning no longer mentions parked cars that are
+  not there.
 
 ### DRIVING-7: The drill's checkpoints zigzag across one street, so every leg starts facing the wrong way
 - **Severity:** design (makes the drill a series of turn-arounds and sets up DRIVING-6)
@@ -140,6 +164,10 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suggested fix:** pick checkpoints on the kerb on the right-hand side of the direction of travel (lot.side matching
   the heading the van will arrive with), a block or two apart, forming a loop; show an arrow on the minimap for
   the direction to approach from.
+- **Status:** fixed (decision) — the drill's six checkpoints are a clockwise loop: east along the station's street on
+  its right-hand (south) kerb, one block apart, then west along the next street on its north kerb; each is the plot
+  furthest along its block, so every leg starts facing the next bay with a clear stretch after its junction, and the
+  corners are right turns. The minimap shows an arrow at the active stop for the way to face.
 
 ### DRIVING-8: The drill's results screen does not say which hazards you passed, and its takeaways skip the worst mistakes
 - **Severity:** major (the drill's lesson is lost at the end)
@@ -158,6 +186,8 @@ feel. Screenshots are in `test/out/review/driving/`.
   `src/scenes/ResultsScene.js:82`.
 - **Suggested fix:** sort lessons by severity/points lost; add a six-row hazard card (pass/fail, what you did) to the
   results; log the belt once.
+- **Status:** fixed — the results card lists all six hazards passed or failed ("Hazards: ✓ Your handheld buzzes · ✗
+  Car door …") and uses WP1's ranked takeaways, so a pedestrian hit or a red light leads; the belt is logged once.
 
 ### DRIVING-9: The last leg's warning "The flag is behind you now" is wrong: there is no flag and the checkpoint is a block away
 - **Severity:** minor (content)
@@ -171,6 +201,8 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suspected cause:** `data/m1_driving.js` `backing.warn`, shown by `src/scenes/m1/DrivingScene.js:510`.
 - **Suggested fix:** either stage the last checkpoint so it really needs a short reverse (and judge G.O.A.L. there),
   or change the text to a general reminder.
+- **Status:** fixed — the last leg's warning is a general reminder: "Last leg. If you ever have to back up, stop and
+  get out and look first (G)."
 
 ### DRIVING-10: Parking accepts the van out in the traffic lane, 2.5 m from the kerb, beside the centre line; what "parked" means is never explained
 - **Severity:** minor (variant of ROUTEDAY-7, the other direction)
@@ -188,6 +220,10 @@ feel. Screenshots are in `test/out/review/driving/`.
   the centre line).
 - **Suggested fix:** require `gapM < ~1.5 m` and all four wheels inside the drawn bay; say "Pull in closer to the
   kerb (2.5 m out)" instead of accepting; put a one-line "neat park = close, straight, with traffic" on the intro.
+- **Status:** fixed — P requires the van on the road (no corner past the kerb: "You're up on the kerb…"), within 1.5 m
+  of the kerb ("Pull in closer to the kerb (8 ft out)"), straight, and wholly inside the marked zone, which is now
+  drawn exactly where parking is accepted and never reaches a crosswalk (`TownDriveScene.parkBay`); the intro card
+  says what a neat park is.
 
 ### DRIVING-11: Pedestrians step off the kerb on a timer with no regard for the van or the lights, and "Failed to yield" fires for people who are not in the van's path
 - **Severity:** major (unavoidable and false penalties on the most serious rule; route days share it)
@@ -214,6 +250,9 @@ feel. Screenshots are in `test/out/review/driving/`.
 - **Suggested fix:** only start a crossing when no vehicle (van included) is within its stopping distance of that
   crosswalk, and tie crossings to the walk phase at lights; make the yield test "pedestrian inside the crosswalk the
   van is entering, ahead of the front axle, at > 3 mph".
+- **Status:** fixed — pedestrians step off only when it is safe: at lights while the street they cross has a red, and
+  never in front of a van too close to stop (1 s reaction, 5 m/s² braking); "Failed to yield" only counts someone in
+  the van's own path just ahead of it, moving forward at more than 3 mph.
 
 ### DRIVING-12: Small HUD and art issues on the drive
 - **Severity:** polish
@@ -232,6 +271,11 @@ feel. Screenshots are in `test/out/review/driving/`.
   - After a stop that crossed the line, the red toast "Rolled through a stop sign" and the green hint "Stopped —
     clear to go" (and a green-tinted sign) show together.
   - The school bus art is squashed to 55 % of its width and reads as a thin yellow tube (`c19-busclip.png`).
+- **Status:** fixed — the controls line sits on a dark strip in full white and lists R and TAB; the minimap panel is
+  opaque; G.O.A.L. shows one message (the hint), not a toast as well; after a rolling stop no green "Stopped — clear
+  to go" appears beside the red toast; the school bus is drawn at its real width (the body was scaled to 1.65 m). Not
+  changed: signs and signal posts are not solid; they stand on the sidewalk, and driving onto it is already a kerb
+  violation.
 
 ### DRIVING-13: School zone: its signs are tiny, on the driver's left and 10 m inside the zone, and nothing announces it
 - **Severity:** minor
@@ -247,6 +291,8 @@ feel. Screenshots are in `test/out/review/driving/`.
   `vx[to] - 200, y + R + 62`), `:911` (`mph > limit + 5`), `src/core/town.js:111-115`.
 - **Suggested fix:** put a full-size sign on each entry's right-hand kerb before the junction, add an approach hint,
   and use a +2 mph tolerance in school zones.
+- **Status:** fixed — a school zone is announced ahead ("SCHOOL ZONE AHEAD — 15 mph"), its signs are full size on the
+  right-hand kerb of each way in, before the junction where it starts, and the tolerance in it is 2 mph (5 elsewhere).
 
 ### DRIVING-14: Handling notes (design, measured by hand)
 - **Severity:** design
@@ -269,6 +315,10 @@ feel. Screenshots are in `test/out/review/driving/`.
     DRIVING-1 the only safe way to hold still is SPACE, which the intro card does not mention.
 - **Suggested fix:** slightly slower self-centring for small wheel angles (so taps hold a little), and a controls
   card line: "hold A/D with W to turn · the van creeps in D: hold SPACE to wait · pull forward before right turns".
+- **Status:** fixed (decision) — small wheel angles self-centre at half speed, so a short tap holds a little; the
+  intro card now says to hold A/D with W to turn, that the van creeps in D (hold SPACE to wait) and to pull forward
+  before a right turn. The rest (acceleration, braking, understeer at full lock, no spin on dry roads) is realistic
+  and stays.
 
 ## Revisit
 

@@ -22,18 +22,19 @@ class BaseScenarioScene extends Phaser.Scene {
   setupBase() {
     OTR.fx.enter(this);
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
+    OTR.pauseOnBlur(this, () => this.openPause());
   }
 
   /** Top HUD bar. o: { score: bool, timer: bool, title } */
   hud(o) {
     o = o || {};
     const bar = this.add.container(0, 0).setDepth(800).setScrollFactor(0);
-    const g = this.add.graphics();
-    g.fillStyle(0x16062B, 0.82);
-    g.fillRect(0, 0, OTR.W, 56);
-    g.fillStyle(0xFF6600, 1);
-    g.fillRect(0, 56, OTR.W, 3);
-    bar.add(g);
+    bar.add(OTR.tex.shape(this, (g) => {
+      g.fillStyle(0x16062B, 0.82);
+      g.fillRect(0, 0, OTR.W, 56);
+      g.fillStyle(0xFF6600, 1);
+      g.fillRect(0, 56, OTR.W, 3);
+    }));
     bar.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     const mod = OTR.registry.moduleOf(this.scenarioId);
     bar.add(OTR.txt(this, 64, 19, (mod ? mod.title.toUpperCase() : this.shiftMode ? 'TODAY\'S ROUTE' : ''), 12, '#C9B3F0', { ox: 0 }));
@@ -70,8 +71,15 @@ class BaseScenarioScene extends Phaser.Scene {
   }
 
   openPause() {
-    if (this.finished || this._leaving || this.scene.isPaused() || this._openModals > 0) return;
+    // (a how-to card does not stop it: the trainee who opened the wrong scenario can leave from there; SHELL-7)
+    // (_openModals also counts overlays that are not OTR.ui.modals, like the van's shelves: only the card is exempt)
+    const blocking = (this._openModals || 0) - (this._modalStack || []).filter(m => m.active && m._pausable).length;
+    if (this.finished || this._leaving || this.scene.isPaused() || blocking > 0) return;
     if (this.input.keyboard) this.input.keyboard.resetKeys();
+    // A drag in progress ends here: the button is released while the scene is paused, Phaser never hears it, and
+    // the package used to stay glued to the cursor after Resume. Each game puts it back (cancelDrag).
+    if (this.cancelDrag) this.cancelDrag();
+    this.input.manager.pointers.forEach(ptr => { if (ptr) this.input.setDragState(ptr, 0); });
     this.scene.launch('PauseScene', { parent: this.sys.settings.key, title: this.scenario ? this.scenario.title : this.shiftMode ? 'Today\'s route' : '' });
     this.scene.bringToTop('PauseScene');
     this.scene.pause();
@@ -92,8 +100,13 @@ class BaseScenarioScene extends Phaser.Scene {
           y += t.height + 14;
         });
       },
-      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: onStart }]
+      // the card is the first thing a new part shows: Enter presses still arriving from the part before (people mash
+      // through the text) are ignored for a moment, or the how-to is gone before it is read
+      buttons: [{ label: o.button || 'Start!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 600, onClick: onStart, hint: '⏎' }]
     });
+    // ESC and the corner pause button work on the card too (the card's dim used to swallow the click on ‖)
+    modal.root._pausable = true;
+    if (this.hudBar) modal.root.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     return modal;
   }
 

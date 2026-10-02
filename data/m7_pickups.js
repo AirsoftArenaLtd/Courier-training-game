@@ -48,7 +48,7 @@ OTR_DATA.pickups = {
     ],
     manifest: 7,
     // what happens when the courier raises a count that doesn't match
-    recount: { text: 'Priya checks her list. "Oh — the seventh was cancelled this morning. Sorry! I\'ll correct the manifest to six."', corrected: 6 },
+    recount: { text: 'Priya checks her list. "Oh — the seventh was canceled this morning. Sorry! I\'ll correct the manifest to six."', corrected: 6 },
     talk: {
       start: 'p0',
       nodes: {
@@ -58,11 +58,13 @@ OTR_DATA.pickups = {
           check: 'Held the inspection standard',
           choices: [
             { text: '"I\'ll be quick, but I do need to count and check them with you here. It saves us both a claim later."', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'Checking at the counter, with the shipper present, is the only time problems are easy to fix.', next: 'p2' },
-            { text: '"Sure, no problem."', grade: 'bad', effects: { service: -2 }, feedback: 'If a piece is damaged or unlabelled, you now own the problem with nobody to fix it.', lesson: 'Count and inspect at the counter, while the shipper is still standing there.', next: 'p2' },
+            { text: '"Sure, no problem."', grade: 'bad', effects: { service: -2 }, feedback: 'If a piece is damaged or unlabeled, you now own the problem with nobody to fix it.', lesson: 'Count and inspect at the counter, while the shipper is still standing there.', next: 'p2_bad' },
             { text: '"Rules are rules. I have to check everything."', grade: 'ok', effects: { service: 0 }, feedback: 'Right call, blunt delivery. Explaining the "why" keeps a good account happy.', next: 'p2' }
           ]
         },
         p2: { speaker: 'shipper', text: 'Fair enough. Shout if anything\'s wrong.', next: 'end' },
+        p2_bad: { speaker: 'shipper', text: 'Great, thanks!', expr: 'happy', next: 'p2_bad2' },
+        p2_bad2: { speaker: 'narrator', text: 'Your handheld will not close a pickup without a piece count, so you count them after all, and you look them over while you are at it.', next: 'end' },
         end: { type: 'end', outcome: 'good' }
       }
     },
@@ -71,7 +73,7 @@ OTR_DATA.pickups = {
       { id: 'b2', to: 'Havill Group', number: '77', street: 'Queen St', city: 'RIVERTON', service: 'standard', weight: 12, size: 'm', issues: ['crushed'], accept: false, reason: 'PKG', why: 'A crushed, re-taped box will not survive the network. Ask for it to be repacked.' },
       { id: 'b3', to: 'Delta Print', number: '41', street: 'Union Ave', city: 'RIVERTON', service: 'standard', weight: 4, size: 's', accept: true, why: 'Good condition and a complete label.' },
       { id: 'b4', to: '', number: '', street: '', city: '', service: 'standard', weight: 6, size: 'm', issues: ['no_label'], accept: false, reason: 'LBL', why: 'No label, no delivery. It needs a label printed before it can be picked up.' },
-      { id: 'b5', to: 'Orchard Foods', number: '9', street: 'Mill Rd', city: 'RIVERTON', service: 'standard', weight: 164, size: 'l', issues: ['over_weight'], accept: false, reason: 'WGT', why: '164 lb is over the limit for this service. It needs freight handling, not a parcel pickup.' },
+      { id: 'b5', to: 'Orchard Foods', number: '9', street: 'Mill Rd', city: 'RIVERTON', service: 'standard', weight: 164, size: 'l', issues: ['over_weight'], accept: false, reason: 'WGT', why: '164 lb is over the limit for this service. It needs freight handling, not a package pickup.' },
       { id: 'b6', to: 'Kestrel Media', number: '250', street: 'Harbor St', city: 'RIVERTON', service: 'signature', weight: 3, size: 'env', accept: true, why: 'Envelope in good shape with a clear label.' }
     ]
   },
@@ -115,15 +117,19 @@ OTR_DATA.pickups = {
     docs: {
       type: 'invoice',
       title: 'COMMERCIAL INVOICE',
-      instructions: 'Tap every line that would hold this shipment up at customs.',
+      instructions: 'Click every line that would hold this shipment up at customs.',
       fields: [
-        { label: 'Shipper', value: 'Northwind Dental, 1200 Harbor St, Riverton', bad: false },
-        { label: 'Consignee', value: 'Clinique Beaulieu, 42 Rue Laval, Montréal QC', bad: false },
+        { label: 'Shipper', value: 'Northwind Dental, 1200 Harbor St, Riverton', bad: false, okWhy: 'a full name and address.' },
+        { label: 'Consignee', value: 'Clinique Beaulieu, 42 Rue Laval, Montréal QC', bad: false, okWhy: 'a full name and address.' },
         { label: 'Description of goods', value: 'Samples', bad: true, why: '"Samples" says nothing. Customs needs what the item actually is, e.g. "dental impression trays, plastic".' },
-        { label: 'Quantity', value: '12', bad: false },
+        { label: 'Quantity', value: '12', bad: false, okWhy: 'a number of units is all this line needs.' },
+        { label: 'HS tariff code', value: '9018.49', bad: false, okWhy: 'a tariff code for dental instruments; customs uses it to set the duty.' },
         { label: 'Unit value', value: '(blank)', bad: true, why: 'Every line needs a declared value, even for samples or no-charge goods.' },
+        { label: 'Currency', value: 'USD', bad: false, okWhy: 'the currency the values are in.' },
+        { label: 'Total gross weight', value: '20 lb (2 pieces)', bad: false, okWhy: 'it matches the two pieces on the counter (14 lb and 6 lb).' },
         { label: 'Country of manufacture', value: '(blank)', bad: true, why: 'Country of origin decides the duty rate. It has to be declared.' },
-        { label: 'Reason for export', value: 'Sale', bad: false },
+        // (it contradicts "Samples" above: a careful reader flags it, so it is one of the problems)
+        { label: 'Reason for export', value: 'Sale', bad: true, why: 'It says Sale while the description says samples: the two have to agree. Sold goods need a real description; samples say "Sample, not for resale".' },
         { label: 'Shipper signature & date', value: '(unsigned)', bad: true, why: 'An unsigned customs declaration is not a declaration. The shipper has to sign and date it.' }
       ]
     },
@@ -158,22 +164,24 @@ OTR_DATA.pickups = {
       nodes: {
         d0: { speaker: 'shipper', text: 'Four today. One\'s the usual lab order, and there\'s a couple of extras.', next: 'd1' },
         d1: {
-          speaker: 'shipper', text: 'Oh, and that grey one is just a litre of solvent for our sister lab. It\'s sealed, it\'ll be fine.',
+          speaker: 'shipper', text: 'Oh, and the gray one for Foundry Road is just a liter of solvent for our sister lab. It\'s sealed, it\'ll be fine.',
           check: 'Responded to an undeclared hazard',
           choices: [
             { text: '"Solvent is a dangerous good. Without the right marks and declaration I can\'t take it. Let me show you what it needs."', grade: 'good', effects: { safety: 3, service: 1 }, feedback: 'Firm, specific and helpful. The shipper learns how to ship it properly next time.', next: 'd2' },
-            { text: '"A litre is nothing. I\'ll put it at the back."', grade: 'bad', effects: { safety: -3 }, feedback: 'Undeclared flammable liquid in a hot truck is exactly how vehicle fires start, and it\'s illegal.', lesson: 'Never carry undeclared dangerous goods, however small the quantity.', next: 'd2' },
+            { text: '"A liter is nothing. I\'ll put it at the back."', grade: 'bad', effects: { safety: -3 }, feedback: 'Undeclared flammable liquid in a hot truck is exactly how vehicle fires start, and it\'s illegal.', lesson: 'Never carry undeclared dangerous goods, however small the quantity.', critical: true, next: 'd2_bad' },
             { text: '"I don\'t think that\'s allowed. Let me call someone."', grade: 'ok', effects: { safety: 1 }, feedback: 'Checking is better than guessing, but this one is clear: undeclared, so it stays.', next: 'd2' }
           ]
         },
         d2: { speaker: 'shipper', text: 'All right, all right. Take a look at the rest.', expr: 'annoyed', next: 'end' },
+        d2_bad: { speaker: 'shipper', text: 'Great, thanks! Saves me the paperwork.', expr: 'happy', next: 'd2_bad2' },
+        d2_bad2: { speaker: 'narrator', text: 'What you said does not change the rules: an undeclared flammable liquid does not go on your truck. You will have to refuse it at the counter, and explain why.', next: 'end' },
         end: { type: 'end', outcome: 'mixed' }
       }
     },
     pieces: [
-      { id: 'g1', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'standard', weight: 10, size: 'm', accept: true, why: 'Plain lab consumables, properly labelled.' },
-      { id: 'g2', to: 'Sister Lab', number: '19', street: 'Foundry Rd', city: 'RIVERTON', service: 'standard', weight: 7, size: 'm', issues: ['hazmat_undeclared'], accept: false, reason: 'DG', why: 'The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.' },
-      { id: 'g3', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'hazmat', weight: 16, size: 'm', marks: ['class3'], declared: true, accept: true, why: 'Properly marked and declared dangerous goods, packed for transport.' },
+      { id: 'g1', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'standard', weight: 10, size: 'm', accept: true, why: 'Plain lab consumables, properly labeled.' },
+      { id: 'g2', to: 'Sister Lab', number: '19', street: 'Foundry Rd', city: 'RIVERTON', service: 'standard', weight: 7, size: 'm', color: 0x9FA6B2, issues: ['hazmat_undeclared'], accept: false, reason: 'DG', why: 'The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.' },
+      { id: 'g3', to: 'Riverton Labs', number: '4', street: 'Science Park', city: 'RIVERTON', service: 'hazmat', weight: 16, size: 'm', color: 0xE8DDB8, marks: ['class3'], declared: true, accept: true, why: 'Properly marked and declared dangerous goods, packed for transport.' },
       { id: 'g4', to: 'Beacon Instruments', number: '66', street: 'Kiln St', city: 'RIVERTON', service: 'standard', weight: 5, size: 's', issues: ['hazmat_undeclared'], hint: 'Contents list on the box: "lithium battery packs ×20"', accept: false, reason: 'DG', why: 'Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.' }
     ]
   }

@@ -54,10 +54,32 @@ OTR.rig = {
           ctx.fillStyle = '#fff'; ctx.fillRect(12, 34, 22, 12);
           ctx.fillStyle = '#4D148C'; ctx.fillRect(12, 34, 22, 3);
         });
+      case 'leakbox':
+        // crushed at a corner and dripping (m4-damaged: the courier has just lifted it off the shelf)
+        return OTR.rig.make(scene, 'rig_item_leakbox', 70, 80, (ctx) => {
+          OTR.draw.box(ctx, { fw: 52, fh: 38, d: 14, x: 4, y: 14, color: 0xC99A62, damage: 'leak' });
+          ctx.fillStyle = '#fff'; ctx.fillRect(12, 34, 22, 12);
+          ctx.fillStyle = '#4D148C'; ctx.fillRect(12, 34, 22, 3);
+          // held at arm's height it is small on screen: a darker soaked corner and drips big enough to see
+          ctx.fillStyle = 'rgba(40,30,20,0.55)';
+          ctx.beginPath(); ctx.moveTo(34, 52); ctx.quadraticCurveTo(38, 36, 56, 30); ctx.lineTo(56, 52); ctx.closePath(); ctx.fill();
+          ctx.fillStyle = 'rgba(90,170,255,0.95)';
+          [[40, 58, 4], [48, 66, 5], [54, 60, 3.5], [44, 74, 3]].forEach(([dx, dy, r]) => {
+            ctx.beginPath(); ctx.moveTo(dx, dy - r * 2); ctx.quadraticCurveTo(dx + r, dy, dx, dy + r); ctx.quadraticCurveTo(dx - r, dy, dx, dy - r * 2); ctx.fill();
+          });
+        });
       case 'bigbox':
         return OTR.rig.make(scene, 'rig_item_bigbox', 96, 84, (ctx) => {
           OTR.draw.box(ctx, { fw: 72, fh: 56, d: 20, x: 4, y: 20, color: 0xB88A55 });
           ctx.fillStyle = '#fff'; ctx.fillRect(14, 48, 30, 16);
+        });
+      case 'stack':
+        // three boxes carried in together (m3-twostops' office delivery)
+        return OTR.rig.make(scene, 'rig_item_stack', 80, 104, (ctx) => {
+          OTR.draw.box(ctx, { fw: 60, fh: 30, d: 14, x: 6, y: 72, color: 0xC99A62 });
+          OTR.draw.box(ctx, { fw: 54, fh: 28, d: 14, x: 9, y: 44, color: 0xB88A55 });
+          OTR.draw.box(ctx, { fw: 46, fh: 24, d: 12, x: 13, y: 20, color: 0xD2A871 });
+          ctx.fillStyle = '#fff'; ctx.fillRect(14, 80, 20, 10); ctx.fillRect(18, 52, 18, 9); ctx.fillRect(20, 27, 16, 8);
         });
       case 'envelope':
         return OTR.rig.make(scene, 'rig_item_env', 44, 32, (ctx) => {
@@ -512,7 +534,7 @@ OTR.PersonRig = class extends OTR.BaseRig {
     return this;
   }
 
-  /** Hold an item: 'box' | 'bigbox' | 'envelope' | 'scanner' | 'bottle' | 'phone' | 'doortag' | 'clipboard' | null */
+  /** Hold an item: 'box' | 'leakbox' | 'bigbox' | 'stack' | 'envelope' | 'scanner' | 'bottle' | 'phone' | 'doortag' | 'clipboard' | null */
   hold(kind) {
     this.itemKind = kind || null;
     if (!kind) { this.itemImg.setVisible(false); return this; }
@@ -525,9 +547,9 @@ OTR.PersonRig = class extends OTR.BaseRig {
   currentAnimName() {
     if (this.moving) {
       if (this.moveTarget && this.moveTarget.anim) return this.moveTarget.anim;
-      return this.itemKind === 'box' || this.itemKind === 'bigbox' ? 'carryWalk' : 'walk';
+      return ['box', 'leakbox', 'bigbox', 'stack'].includes(this.itemKind) ? 'carryWalk' : 'walk';
     }
-    if ((this.itemKind === 'box' || this.itemKind === 'bigbox') && this.anim === 'idle') return 'carry';
+    if (['box', 'leakbox', 'bigbox', 'stack'].includes(this.itemKind) && this.anim === 'idle') return 'carry';
     return this.anim;
   }
 
@@ -603,9 +625,9 @@ OTR.PersonRig = class extends OTR.BaseRig {
 
     if (this.itemKind) {
       const k = this.itemKind;
-      if (k === 'box' || k === 'bigbox') {
+      if (k === 'box' || k === 'leakbox' || k === 'bigbox' || k === 'stack') {
         const mx = (fHand.x + bHand.x) / 2, my = (fHand.y + bHand.y) / 2;
-        this.itemImg.setPosition(mx - 6 + P.itemX, my - (k === 'bigbox' ? 20 : 14) + P.itemY).setRotation(R.rad(lean * 0.3));
+        this.itemImg.setPosition(mx - 6 + P.itemX, my - (k === 'stack' ? 34 : k === 'bigbox' ? 20 : 14) + P.itemY).setRotation(R.rad(lean * 0.3));
       } else {
         const off = R.down(6, fHand.a);
         this.itemImg.setPosition(fHand.x + off.x + P.itemX, fHand.y + off.y - 4 + P.itemY).setRotation(-R.rad(fHand.a) * 0.25);

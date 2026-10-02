@@ -7,6 +7,10 @@ window.OTR = window.OTR || {};
 OTR.townArt = {
   ROAD: 210,      // asphalt width (two lanes wide enough for a step van to pass a car)
   WALK: 30,       // sidewalk strip on each side
+  ROOF_TINTS: [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0xA98CB8, 0xD0C0A8],   // house roofs on the map, by lot index
+  CORNER: 80,     // kerb radius at junction corners, px (4 m)
+  STOP_LINE: 58,  // stop line, px out from the junction box: just clear of the crosswalk (R+1 to R+47). It was at
+                  // 18, in the middle of the stripes, so "stop at the line" parked the nose on the crossing.
   // building sizes before OTR.town.SCALE, by variant; OTR.town.size() reads these, so what is drawn is what the van
   // collides with. The widest house used to be wider than its plot, and neighbours overlapped.
   BUILDINGS: {
@@ -68,6 +72,35 @@ OTR.townArt = {
       ctx.fillRect(W - 4, W - 4, 4, 4);
       for (let i = 0; i < 120; i++) { ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.03})`; ctx.fillRect(Math.random() * w, Math.random() * h, 3, 3); }
       ctx.fillStyle = '#3A3742'; ctx.fillRect(w / 2 - 14, h - W - 22, 28, 14);
+    });
+  },
+
+  /**
+   * The kerb's rounded corners, laid over the junction square and the ends of the road tiles: asphalt out to a
+   * CORNER-radius kerb, the sidewalk following it round. TownDriveScene.surfaceAt() uses the same shape, so the
+   * kerb the van bumps over is the one drawn. (The corners were square, and a step van's rear wheel cut them on
+   * every right turn.)
+   */
+  corner(scene) {
+    const A = OTR.townArt, h = A.ROAD / 2, W = A.WALK, rc = A.CORNER, c = h + rc;
+    return OTR.tex.make(scene, 'td_corner', c * 2, c * 2, (ctx, w) => {
+      [[1, 1], [-1, 1], [1, -1], [-1, -1]].forEach(([sx, sy]) => {
+        // the circle's centre sits out on the lawn diagonal
+        const ox = c + sx * c, oy = c + sy * c;
+        ctx.save();
+        ctx.beginPath(); ctx.rect(Math.min(c + sx * h, ox), Math.min(c + sy * h, oy), rc, rc); ctx.clip();
+        ctx.fillStyle = '#C3C0CB'; ctx.fillRect(0, 0, w, w);
+        ctx.fillStyle = '#6FA85A'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(40,90,30,0.25)'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+        ctx.save();
+        ctx.beginPath(); ctx.rect(Math.min(c + sx * h, ox), Math.min(c + sy * h, oy), rc, rc); ctx.clip();
+        // asphalt outside the kerb circle, then the kerb stone on the circle
+        ctx.beginPath(); ctx.rect(0, 0, w, w); ctx.arc(ox, oy, rc, 0, Math.PI * 2, true);
+        ctx.fillStyle = '#514E5A'; ctx.fill('evenodd');
+        ctx.strokeStyle = '#9C99A6'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(ox, oy, rc + 2, 0, Math.PI * 2); ctx.stroke();
+        ctx.restore();
+      });
     });
   },
 
@@ -204,8 +237,10 @@ OTR.townArt = {
   },
 
   /** Stop marker painted in the kerb lane where the courier should pull in (a van's length, a van's width). */
-  stopZone(scene) {
-    return OTR.tex.make(scene, 'td_stopzone', 196, 74, (ctx, w, h) => {
+  /** The marked stop zone, len px long: exactly where parking is accepted (TownDriveScene.parkBay). */
+  stopZone(scene, len) {
+    len = Math.round(len || 196);
+    return OTR.tex.make(scene, 'td_stopzone_' + len, len, 74, (ctx, w, h) => {
       const cv = OTR.cv;
       cv.rr(ctx, 4, 4, w - 8, h - 8, 10);
       ctx.fillStyle = 'rgba(255,200,61,0.20)'; ctx.fill();

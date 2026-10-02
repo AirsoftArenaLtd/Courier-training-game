@@ -226,6 +226,15 @@ doorstep stop m5-pod walking ~55 → **107 fps** (p50 8.9 ms). Screenshots `dlg-
   antialiased by the 2D canvas), or `graphics.generateTexture(key)` once and show an Image; redraw only when the
   state changes. The HUD in `TownDriveScene.updateHud` already redraws only on change, which is the right pattern;
   the Graphics are still re-tessellated every frame.
+- **Status:** fixed — `OTR.tex.shape()` (drawn once into a cached, antialiased canvas texture) and
+  `OTR.tex.liveShape()` (repainted only when `redraw()` is called) in `src/core/textures.js`, used for every static
+  or change-driven shape: HUD bars, panels, badges, tags and chips in all scenes (fx, rig, scanner, stage, talk, ui,
+  Hub, Pre-trip, Route Planner (the route line is a liveShape), Labels, Town drive, Driving drill, Stop, Lifting,
+  Sorting, Pickup, Loading (slot outlines are a liveShape redrawn on drag start/end), Results, Shift brief/debrief,
+  Day summary, BaseScenario). The sorting belt rails used gradient fills, so they are a canvas texture. Left as
+  Graphics on purpose because they change every frame while visible: the lifting figure (`gBack`/`gFront`), the
+  sorting laser (shown 140 ms per scan), the town headlight beams and the photo-proof frame/shade (follows the
+  mouse). The lifting load gauge now redraws only when its bar moves a pixel. The dev-only LabScene is untouched.
 
 ### PERF-3: Phaser loads from a CDN first; favicon 404 on every load
 - **Severity:** minor (load-time reliability on company networks)
@@ -238,6 +247,8 @@ doorstep stop m5-pod walking ~55 → **107 fps** (p50 8.9 ms). Screenshots `dlg-
   load logs `Failed to load resource: 404` for `/favicon.ico`, which buries real errors in the console.
 - **Suggested fix:** load `lib/phaser.min.js` directly (no CDN), and add a `<link rel="icon">` (or an empty
   `favicon.ico`).
+- **Status:** fixed — `index.html` loads `lib/phaser.min.js` (3.80.1, the same build) directly and has an inline
+  SVG favicon (a parcel), so no request leaves the game's own server and nothing 404s.
 
 ## Implementation plan (ranked)
 

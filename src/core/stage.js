@@ -54,9 +54,54 @@ OTR.Stage = class {
     return t;
   }
 
+  /**
+   * sky() and far() as one picture, for a stage whose camera scrolls: the hills tiled over a sky as wide as the
+   * hills' parallax needs, scrolling at the hills' factor (the sky drifts with them). One full-screen layer instead
+   * of two.
+   */
+  skyline(y, factor) {
+    const s = this.scene;
+    y = y || 250;
+    factor = factor === undefined ? 0.25 : factor;
+    const w = Math.ceil(OTR.W + Math.max(0, this.width - OTR.W) * factor);
+    const skyKey = OTR.scenery.sky(s, this.tod, this.weather, w);
+    const farKey = OTR.scenery.far(s, this.tod, this.weather, 1);
+    const key = OTR.tex.make(s, `skyline_${skyKey}_${farKey}_${y}`, w, OTR.H, (ctx) => {
+      ctx.drawImage(s.textures.get(skyKey).getSourceImage(), 0, 0);
+      const far = s.textures.get(farKey).getSourceImage();
+      for (let x = 0; x < w; x += far.width) ctx.drawImage(far, x, y);
+    });
+    return s.add.image(0, 0, key).setOrigin(0, 0).setScrollFactor(factor, 0).setDepth(-100);
+  }
+
   ground(segments, key) {
     const k = OTR.scenery.ground(this.scene, key || `gnd_${OTR.rig.hash([segments, this.weather, this.width])}`, this.width, segments, { weather: this.weather });
     return this.scene.add.image(0, this.G - 60, k).setOrigin(0, 0).setDepth(-20);
+  }
+
+  /**
+   * For a stage whose camera never moves (a conversation): draw the bottom layers into one picture and hide them.
+   * Sky, hills, ground and walls are each a near-full-screen layer, and every layer costs 1-2 ms a frame on
+   * integrated graphics. It takes the layers from the bottom up and stops at the first one that can change (a door,
+   * the van, anything tweened, blended or clickable), so nothing above that is drawn out of order.
+   */
+  bakeBackdrop() {
+    const s = this.scene;
+    const live = new Set([].concat(...(this.liveParts || [])));
+    const list = s.children.list.slice().sort((a, b) => a.depth - b.depth);
+    const baked = [];
+    for (const o of list) {
+      if (!o.visible) continue;
+      const still = (o.type === 'Image' || o.type === 'TileSprite') && !live.has(o) && !o.input && o.alpha === 1 &&
+        o.blendMode === Phaser.BlendModes.NORMAL && !s.tweens.isTweening(o);
+      if (!still) break;
+      baked.push(o);
+    }
+    if (baked.length < 2) return null;
+    const rt = s.add.renderTexture(0, 0, OTR.W, OTR.H).setOrigin(0, 0).setScrollFactor(0).setDepth(baked[0].depth);
+    rt.draw(baked);
+    baked.forEach(o => o.setVisible(false));
+    return rt;
   }
 
   /* ------------------------------------------------------------ walkable surfaces */
@@ -118,6 +163,7 @@ OTR.Stage = class {
   }
 
   wrapStructure(x, top, L, parts) {
+    (this.liveParts = this.liveParts || []).push([parts.door]);
     const st = Object.assign({
       layout: L, x, top,
       doorX: x + L.doorX, floorY: top + L.floorY,
@@ -147,6 +193,7 @@ OTR.Stage = class {
     const top = this.G + 18 - L.h;
     const img = s.add.image(x, top, o.open ? open.key : closed.key).setOrigin(0, 0).setDepth(-6);
     const hz = L.hazards.map(([hx, hy]) => s.add.image(x + hx, top + hy, 'p_glow').setScale(0.9).setTint(0xFFB020).setBlendMode(Phaser.BlendModes.ADD).setDepth(-5).setAlpha(0));
+    (this.liveParts = this.liveParts || []).push([img, ...hz]);
     const v = {
       img, layout: L, x, top,
       doorX: x + (L.doorX0 + L.doorX1) / 2, floorY: top + L.floorY, stepY: top + L.stepY, handleX: x + L.handleX,
@@ -241,18 +288,23 @@ OTR.Stage = class {
   }
 
   /* ------------------------------------------------------------ interactables */
-  /** o: { id, x, y, range, label, key, onUse, when(), hotspot: {w, h, y} } */
+  /**
+   * o: { id, x, y, range, label, key, onUse, when(), prefer(), hotspot: {x?, y, w, h} }
+   * A hotspot makes the thing clickable: the courier walks to it and uses it (and just walks there when it cannot
+   * be used right now, as a click on the ground would).
+   */
   interact(o) {
     const it = Object.assign({ range: 80, label: 'Use', enabled: true }, o);
     this.inter.push(it);
     if (o.hotspot) {
       const hs = o.hotspot;
-      const z = this.scene.add.zone(it.x, hs.y, hs.w, hs.h).setInteractive({ useHandCursor: true }).setDepth(70);
+      const z = this.scene.add.zone(hs.x !== undefined ? hs.x : it.x, hs.y, hs.w, hs.h).setInteractive({ useHandCursor: true }).setDepth(70);
       z.on('pointerup', () => {
-        if (this.locked > 0 || this.scene._openModals > 0 || !this.usable(it)) return;
+        if (this.locked > 0 || this.scene._openModals > 0) return;
         const tx = it.standX !== undefined ? it.standX : it.x;
+        if (!this.usable(it)) { if (this.clickToWalk) this.walkPlayerTo(tx); return; }
         if (Math.abs(this.me.x - tx) <= it.range) this.use(it);
-        else this.walkPlayerTo(tx, () => this.use(it));
+        else this.walkPlayerTo(tx, () => { if (this.usable(it) && Math.abs(this.me.x - tx) <= it.range) this.use(it); });
       });
       it.zone = z;
     }
@@ -328,7 +380,7 @@ OTR.Stage = class {
   }
 
   /* ------------------------------------------------------------ zones (hazards etc.) */
-  /** o: { x0, x1, onEnter(rig, careful), onExit, once } */
+  /** o: { x0, x1, onEnter(rig, careful), onInside(rig, careful, dt) (every frame while inside), onExit, once } */
   zone(o) {
     const z = Object.assign({ inside: false, fired: false }, o);
     this.zones.push(z);
@@ -364,18 +416,23 @@ OTR.Stage = class {
       const want = this.focusPt ? this.focusPt.x - this.focusPt.sx : this.me.x - OTR.W / 2 + this.me.facing * 60;
       const target = OTR.util.clamp(want, this.region.x0, this.region.x1 - OTR.W);
       this.cam.scrollX += (target - this.cam.scrollX) * Math.min(1, dt * 4);
-      const it = this.locked === 0 ? this.nearest() : null;
-      if (it && !this.me.moving) this.showPrompt(it);
-      else if (!it || this.me.moving) this.hidePrompt();
+      // The prompt shows whenever E would do something, walking or not. (It used to wait until the courier stood
+      // still, so a trainee walking past a window, or stopping just beyond it, never saw one and had to "wiggle".)
+      // (no prompt while a card is open either: one drawn under the card named something E would not do)
+      const it = this.locked === 0 && !(this.scene._openModals > 0) ? this.nearest() : null;
+      if (it) this.showPrompt(it);
+      else this.hidePrompt();
+      const careful = this.careful || this.keys.shift.isDown;
       this.zones.forEach(z => {
         const inside = this.me.x >= z.x0 && this.me.x <= z.x1;
         if (inside && !z.inside) {
           z.inside = true;
-          if (!(z.once && z.fired)) { z.fired = true; if (z.onEnter) z.onEnter(this.me, this.careful || this.keys.shift.isDown); }
+          if (!(z.once && z.fired)) { z.fired = true; if (z.onEnter) z.onEnter(this.me, careful); }
         } else if (!inside && z.inside) {
           z.inside = false;
           if (z.onExit) z.onExit(this.me);
         }
+        if (inside && z.onInside) z.onInside(this.me, careful, dt);
       });
     }
     if (this.farLayer) this.farLayer.t.tilePositionX = this.cam.scrollX * this.farLayer.factor;
