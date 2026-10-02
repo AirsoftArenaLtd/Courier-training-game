@@ -13,6 +13,7 @@
 const path = require('path');
 
 const DAYS = Number(process.env.QA_ROUTE_DAYS || 10);
+const FROM = Number(process.env.QA_ROUTE_FROM || 1);    // to split the run: QA_ROUTE_FROM=6 QA_ROUTE_DAYS=10
 
 module.exports = async (page, ctx) => {
   if (!(await ctx.until('!!(window.OTR && OTR.game && OTR.game.isBooted && OTR.shift)', 20000))) throw new Error('the game never booted');
@@ -25,7 +26,7 @@ module.exports = async (page, ctx) => {
 
   const bad = [];
   let legs = 0, worst = 0;
-  for (let day = 1; day <= DAYS; day++) {
+  for (let day = FROM; day <= DAYS; day++) {
     // the day's own town (one per career now) and the route day's first start, at the west end of the station's block
     const { route, weather, seed, first } = await ctx.eval(`(() => { const st = OTR.shift.generate(${day}); const T = OTR.town.build(st.seed);
       return { route: st.route.map(r => r.lotId), weather: st.weather, seed: st.seed,
@@ -82,6 +83,6 @@ module.exports = async (page, ctx) => {
       start = res.pose;
     }
   }
-  console.log(`        route legs: ${legs} legs over ${DAYS} days, worst parking ${(Math.asin(Math.min(1, worst)) * 180 / Math.PI).toFixed(1)}° off the kerb line`);
+  console.log(`        route legs: ${legs} legs over days ${FROM}–${DAYS}, worst parking ${(Math.asin(Math.min(1, worst)) * 180 / Math.PI).toFixed(1)}° off the kerb line`);
   if (bad.length) throw new Error(`${bad.length} leg(s) failed: ${bad.slice(0, 6).join(' | ')}`);
 };
