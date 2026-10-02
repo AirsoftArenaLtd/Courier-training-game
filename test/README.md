@@ -58,6 +58,12 @@ the golden pass, auditing the layout at the moments they care about.
   through and each gets a real share of the green. It is the check for changes to the traffic model.
 - **`hub-briefs`** opens every scenario's brief from the hub, as a trainee does, and fails if its text runs into the
   star ratings or the buttons, or it does not fit on screen.
+- **`academy-screens`** plays the academy's own screens with the mouse and keys: a trainer chooses a PIN, changes the
+  rules and saves (a wrong PIN is refused next time); the trainee turns on larger text, moves a key and checks it
+  reaches the game, passes a quiz, passes an assessment from its brief, and finds both on the record (three tabs,
+  Print / PDF).
+- **`drive-review`** drives Road Hazards from the hub without the seatbelt, then opens Results → Drive map: the pin,
+  the named mistake, its lesson, and Back to the same results.
 
 ## Golden paths
 

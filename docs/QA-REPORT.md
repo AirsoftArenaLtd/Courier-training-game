@@ -46,6 +46,8 @@ Four *flows* run alongside the scenarios, for what no single scenario covers:
 | **route-legs** | every leg of the first ten route days (50 legs), in each day's weather, driven by the autopilot: every stop the generator produces must be reached with no violation and parked neatly |
 | **town-traffic** | four towns left to run for minutes at a time with no player, checking every frame that no two cars overlap, none leaves the road or takes the wrong lane, none is stuck, nobody is left standing in a lane, and the two streets of a traffic light are never both let through |
 | **hub-briefs** | every scenario's brief, opened from the hub: it must fit on screen with nothing running together |
+| **academy-screens** | the trainer tools (PIN, rules), Accessibility (larger text, a moved key), a quiz, an assessment from its brief, and the record with Print / PDF, all with the mouse and keys |
+| **drive-review** | Road Hazards driven without the seatbelt, then Results → Drive map: the pin, the mistake, its lesson, and Back |
 
 Since the third pass, four more tests check the new features directly (`cd test && node <name>.js`):
 
@@ -951,10 +953,24 @@ can't see (text running into other text) and two real faults:
 - The suite's first `QA_A11Y` hook set the settings before the save existed, so its first "clean" run had them off;
   it was fixed and the run repeated.
 
+### Golden paths for the new screens, and the quizzes
+
+Two flows now play the new screens the way people use them: `academy-screens` (the trainer tools, Accessibility, a
+quiz, an assessment from its brief, the record and Print / PDF) and `drive-review` (a drive with a mistake, then the
+Drive map from Results). Both pass. Writing them found two faults, and the owner found a third:
+
+- **The trainer tools stayed unlocked** for the rest of the session once a trainer had opened them, so whoever sat
+  down next could walk in. Done now locks them again.
+- **After Print / PDF the keyboard was stuck** in the hidden print frame: ESC and every key did nothing until the
+  trainee clicked the game. Printing now hands the keyboard back.
+- **The quizzes could be passed without reading** (found by the owner): the right answer was the longest option in
+  39 of 40 questions, and long enough that its button shrank it to a smaller font. Every question's options are
+  rewritten (the right answer is now longest in 14 and shortest in 9 of 40, about chance), the four answers always
+  share one font size, and the content check fails any quiz bank where length gives the answer away.
+
 ### Not covered
 
-- The new screens (Trainer, Record, Quizzes, Accessibility, Drive review) have their logic tested and their layout
-  checked, but no golden path plays through them.
+- The certificate (every assessment passed) is checked by the academy test, not played through on screen.
 - The company server was tested with its own test client, not behind a real company login or LMS.
 
 ---
