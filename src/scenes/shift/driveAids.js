@@ -35,6 +35,12 @@ OTR.driveAids = {
     frame(s.rearFrame, W - 262, H - 250, 240, 150, 'REAR CAMERA');
     // the HUD built before these views existed stays out of them (later objects are sorted by syncCameras)
     s.children.list.forEach(o => { if (o.scrollFactorX === 0 && o.scrollFactorY === 0) Object.values(s.insetCams).forEach(c => c.ignore(o)); });
+    // following distance, in seconds, beside the speedometer while there is a car ahead in the lane
+    s.gapPill = s.add.container(304, OTR.H - 76).setScrollFactor(0).setDepth(800).setVisible(false);
+    s.gapBg = OTR.tex.liveShape(s);
+    s.gapText = OTR.txt(s, 0, 0, '', 16, '#ffffff', { weight: '900' });
+    s.gapPill.add([s.gapBg, s.gapText]);
+    s._gapShown = null;
     OTR.onKey(s, 'keydown-M', () => this.checkMirrors(s));
     OTR.onKey(s, 'keydown-SPACE', () => { s.spaceAt = s.elapsed; });
     OTR.onKey(s, 'keydown-K', () => this.takeBreak(s));
@@ -120,6 +126,9 @@ OTR.driveAids = {
     p.pending = false;
     if (s.elapsed - s.mirrorAt < 8) s.log.check('safety', 1, 1, 'Checked the mirrors before pulling out');
     else s.violation('mirror', 'Pulled out without checking the mirrors', 'safety', 1, 'Before you pull away from the curb: mirrors (M), then go when it is clear. Pulling out is where a lot of low-speed crashes happen.');
+    // and the indicator: out from the right-hand curb is a move to the left (Q)
+    if (s.signal === 'left') s.log.check('safety', 1, 1, 'Signaled before pulling out');
+    else s.violation('signal', 'Pulled out without signaling', 'safety', 1, 'Mirrors, signal, then move: the left indicator (Q) before you pull away from the curb, so traffic behind knows you are coming out.');
   },
 
   /** Parking: the parking brake goes on (SPACE held, or pressed in the last 3 s). Scored, never refused. */
@@ -133,7 +142,7 @@ OTR.driveAids = {
   /** Following distance: the car ahead in the van's lane, in seconds. Under 2 s for 3 s at speed is tailgating. */
   following(s, dt, mph) {
     const T = s.tailgate;
-    if (mph < 10 || !s.cars || !s.cars.length) { T.t = 0; return; }
+    if (mph < 10 || !s.cars || !s.cars.length) { T.t = 0; this.showGap(s, null); return; }
     const V = OTR.vehicle, v = s.van, f = V.fwd(v), r = V.right(v), bc = V.bodyCentre(v);
     const vpx = Math.abs(v.u) * s.P;
     let gap = Infinity;
@@ -145,6 +154,7 @@ OTR.driveAids = {
       gap = Math.min(gap, along - v.g.hl * s.P - c.hl);
     });
     const secs = gap / Math.max(1, vpx);
+    this.showGap(s, secs < 6 ? secs : null);
     if (secs < 2) {
       T.t += dt;
       if (!T.warned && OTR.academy.coaching()) { T.warned = true; s.toast('Too close: drop back to four seconds behind', 0xFFC83D); }
@@ -153,6 +163,20 @@ OTR.driveAids = {
         s.violation('tailgate', 'Following too closely', 'safety', 2, 'Stay four seconds behind the vehicle ahead, more in rain or snow: a loaded van needs the room to stop.');
       }
     } else { T.t = Math.max(0, T.t - dt); if (secs > 4) T.warned = false; }
+  },
+
+  /** The following-distance readout: seconds behind the car ahead, red under 2, amber under 4, green at 4 or more. */
+  showGap(s, secs) {
+    if (!s.gapPill) return;
+    const key = secs === null ? null : secs.toFixed(1);
+    if (key === s._gapShown) return;
+    s._gapShown = key;
+    if (secs === null) { s.gapPill.setVisible(false); return; }
+    const col = secs < 2 ? 0xF0435A : secs < 4 ? 0xFFB020 : 0x2BC48A;
+    s.gapText.setText(`${key} s behind`);
+    const w = s.gapText.width + 30;
+    s.gapBg.redraw((g) => { g.fillStyle(0x16062B, 0.9); g.fillRoundedRect(-w / 2, -16, w, 32, 16); g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -16, w, 32, 16); });
+    s.gapPill.setVisible(true);
   },
 
   /**
@@ -213,8 +237,10 @@ OTR.driveAids = {
     const dir = horiz ? Math.sign(c) : Math.sign(sn);
     const ahead = cross.map(x => (x - along0) * dir).filter(d => d > 0);
     const room = ahead.length ? Math.min(...ahead) - R : 9999;
-    const side = Math.abs(pos - line);                          // towards the right-hand curb in this lane
-    const gap = (R - side - v.g.hw * P) / P;
+    // how far towards the right-hand curb, in the van's own lane (at the left-hand curb, on the wrong side of the road,
+    // is not pulled over: it used to count, for a break, the ambulance and reading a message)
+    const side = (pos - line) * (horiz ? dir : -dir);
+    const gap = side > 0 ? (R - side - v.g.hw * P) / P : 99;
     const heading = horiz ? (dir > 0 ? 0 : Math.PI) : (dir > 0 ? Math.PI / 2 : -Math.PI / 2);
     return {
       room, gap, heading,

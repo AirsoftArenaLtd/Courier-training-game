@@ -214,7 +214,10 @@ class DrivingScene extends TownDriveScene {
   }
 
   clearHazard(hz) {
-    hz.objs.forEach(o => { if (o && o.destroy) o.destroy(); });
+    // its animations go with it (the door's kept running after the door was gone, and threw)
+    this.tweens.killTweensOf(hz);
+    hz.objs.forEach(o => { if (o) this.tweens.killTweensOf(o); if (o && o.destroy) o.destroy(); });
+    if (hz.blink) hz.blink.remove();
     hz.blockers.forEach(b => {
       const i = this.blockers.indexOf(b);
       if (i >= 0) this.blockers.splice(i, 1);
@@ -349,7 +352,7 @@ class DrivingScene extends TownDriveScene {
       OTR.audio.play('thud');
       this.tweens.add({
         targets: hz, reach: 20, duration: 420, ease: 'Back.easeOut',          // a car door: about 1 m out into the lane
-        onUpdate: () => { hz.leaf.setSize(4, 46).setScale(1, Math.max(0.02, hz.reach / 46)); }
+        onUpdate: () => { if (hz.leaf.active) hz.leaf.setSize(4, 46).setScale(1, Math.max(0.02, hz.reach / 46)); }
       });
     }
     if (!hz.judged && hz.opened) {
@@ -366,7 +369,7 @@ class DrivingScene extends TownDriveScene {
     }
     if (hz.judged && !hz.closing) {
       hz.closing = true;
-      this.tweens.add({ targets: hz, reach: 0, duration: 400, onUpdate: () => hz.leaf.setScale(1, Math.max(0.02, hz.reach / 46)) });
+      this.tweens.add({ targets: hz, reach: 0, duration: 400, onUpdate: () => { if (hz.leaf.active) hz.leaf.setScale(1, Math.max(0.02, hz.reach / 46)); } });
       this.time.delayedCall(2600, () => { hz.dead = true; });
     }
     if (hz.t > 18) hz.dead = true;

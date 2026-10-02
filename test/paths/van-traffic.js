@@ -17,6 +17,8 @@ module.exports = async (page, ctx) => {
     OTR.game.loop.sleep();
     window.__t = performance.now();
     window.__step = (n) => { for (let k = 0; k < n; k++) { window.__t += 1000 / 60; OTR.game.step(window.__t, 1000 / 60); } };
+    // logic only, no drawing: the scenes' own update (and their tweens and timers), much faster under a software renderer
+    window.__stepFast = (n) => { const sc = OTR.game.scene.getScenes(true).find(x => /Driv/.test(x.sys.settings.key)); for (let k = 0; k < n; k++) { window.__t += 1000 / 60; sc.sys.step(window.__t, 1000 / 60); } };
   })()`);
 
   // where the van is left, and how (all on town seed 3's streets; positions are relative to a junction)
@@ -33,6 +35,14 @@ module.exports = async (page, ctx) => {
     { id: 'driving slowly along its lane', at: 'mid', lane: 1, heading: 0, script: 'slow' },
     { id: 'turning right at a junction', at: 'line', lane: 1, heading: 0, script: 'right' }
   ];
+  // and anywhere at all: stopped at a random spot near a junction, at a random angle, with cars coming at it from
+  // every direction (the fixed cases above happened to put a corner of the van where the old check looked)
+  let seed = 9001;
+  const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+  const RANDOM = Number(process.env.QA_VANTRAFFIC_RANDOM || 24);
+  for (let i = 0; i < RANDOM; i++) {
+    cases.push({ id: `random spot ${i + 1}`, at: 'random', along: Math.round((rnd() - 0.5) * 700), across: Math.round((rnd() - 0.5) * 230), heading: +(rnd() * Math.PI * 2).toFixed(2), secs: 10, turnMix: Math.floor(rnd() * 3) });
+  }
   const bad = [], report = [];
   for (const k of cases) {
     const out = await ctx.eval(`(() => {
@@ -52,6 +62,7 @@ module.exports = async (page, ctx) => {
       if (K.at === 'mid') { x = it.x - T.spec.cell / 2; y = it.y + laneOff; }
       else if (K.at === 'box') { x = it.x; y = it.y; }
       else if (K.at === 'line') { x = it.x - R - 20 - v.g.nose * P; y = it.y + laneOff; }
+      else if (K.at === 'random') { x = it.x + K.along; y = it.y + K.across; if (Math.abs(K.along) > R + 40) y = it.y + K.across * 0.5; }
       else { x = it.x - R - 140; y = it.y + laneOff; }
       // place the van so its body centre is at (x, y)
       v.heading = K.heading; v.u = 0; v.lat = 0; v.r = 0;
@@ -73,6 +84,14 @@ module.exports = async (page, ctx) => {
       put(cars[5], false, 1, it.row, it.col, 760);                             // southbound straight
       put(cars[6], false, -1, it.row, it.col, 800, 'left');                    // northbound, turning left (west)
       put(cars[7], true, -1, it.row, it.col, 900, 'left');                     // westbound, turning left (south)
+      if (K.at === 'random') {
+        // a car from each direction, close enough to meet the van within the run, with a mix of turns
+        const plans = [['straight', 'left', 'right', 'straight'], ['left', 'right', 'straight', 'left'], ['right', 'straight', 'left', 'right']][K.turnMix];
+        put(cars[0], true, 1, it.row, it.col, 380, plans[0]); put(cars[2], true, -1, it.row, it.col, 380, plans[1]);
+        put(cars[3], false, 1, it.row, it.col, 380, plans[2]); put(cars[4], false, -1, it.row, it.col, 380, plans[3]);
+        // and one behind the van along its own street, if it is on one
+        if (Math.abs(K.along) > R) put(cars[1], true, Math.sign(K.along) || 1, it.row, it.col, Math.abs(K.along) + 380, 'straight');
+      }
       cars.forEach(c => c.img.setPosition(c.x, c.y));
       // the van: held on the brake, or creeping at walking pace straight across
       s.held = K.at === 'creep' || K.script ? {} : { KeyS: true };
@@ -87,7 +106,7 @@ module.exports = async (page, ctx) => {
       };
       const contacts = [];
       let pushed = 0, creepT = 0;
-      const frames = ${SECONDS} * 60;
+      const frames = (K.secs || ${SECONDS}) * 60;
       for (let f = 0; f < frames; f++) {
         const tt = f / 60;
         if (K.script === 'pullout') {
@@ -104,7 +123,7 @@ module.exports = async (page, ctx) => {
         }
         const before = { x: v.x, y: v.y };
         const carsBefore = s.cars.map(c => ({ x: c.x, y: c.y }));
-        __step(1);
+        __stepFast(1);
         const vb = V.bodyCentre(v), van = { x: vb.x, y: vb.y, h: v.heading, hl: v.g.hl * P, hw: v.g.hw * P };
         s.cars.forEach((c, i) => {
           if (!overlap(van, { x: c.x, y: c.y, h: c.heading, hl: c.hl, hw: c.hw })) return;

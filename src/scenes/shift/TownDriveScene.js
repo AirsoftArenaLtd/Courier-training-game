@@ -2,14 +2,15 @@
  * Top-down driving between stops, on the vehicle model in src/core/vehicle.js (tuned in data/vehicle.js).
  *
  * The van has real weight: about 8 s to reach 25 mph, about 14 m to stop from it, it runs wide when you turn in
- * too fast and it slides on wet or icy roads. Reverse is selected the way it is in the cab: stop, lift off the
- * brake, then press and hold it again. Collisions are oriented boxes against buildings and traffic, and each one
+ * too fast and it slides on wet or icy roads. Reverse is selected the way it is in the cab: stop, then R
+ * (W then drives backwards, S brakes). Collisions are oriented boxes against buildings and traffic, and each one
  * is judged on how fast you hit.
  *
  * One world scale for everything: OTR_DATA.vehicle.pxPerMetre. Speeds read in mph, distances in metres.
  *
  * Controls: W/↑ accelerate · S/↓ brake (in either gear) · R change gear D/R at a standstill · A/D or ←/→ steer ·
- *           SPACE parking brake · M mirrors · B belt · L headlights · G get out and look · P park at a stop · TAB handheld (parked)
+ *           Q/E signal left/right · SPACE parking brake · M mirrors · B belt · L headlights · G get out and look ·
+ *           P park at a stop · TAB handheld (parked)
  */
 class TownDriveScene extends Phaser.Scene {
   constructor(key) { super(key || 'TownDriveScene'); }
@@ -47,6 +48,8 @@ class TownDriveScene extends Phaser.Scene {
     this.parked = false;
     this.approach = null;
     this.lights = false;
+    this.signal = null;             // 'left' | 'right' | null: the indicator
+    this.signalOnAt = -99;
     this.lightsWanted = ['rain', 'storm', 'snow', 'fog'].indexOf(this.weather) >= 0 || ['dusk', 'night', 'dawn', 'evening'].indexOf(this.tod) >= 0;
     this.grip = 1;                  // overall grip multiplier (hazards can pull it down)
     this.gripPatches = [];          // local grip: { x, y, r (px), mu: number | () => number }
@@ -214,6 +217,8 @@ class TownDriveScene extends Phaser.Scene {
       // cars are drawn to the same scale as the van: about 2 m by 4.75 m
       const img = this.add.image(0, 0, OTR.art.carTop(this, colors[i % colors.length])).setDepth(28).setScale(0.7, 0.88);
       const car = { img, speed: 0, maxSpeed: 170 + this.rng() * 45, h, wait: 0, cleared: null, off: 0, turn: null, holding: null, holdT: 0, hl: 47.5, hw: 19.5 };
+      // its indicators: a car signals the turn it is about to take (a cue a trainee can read)
+      car.blink = [0, 1].map(() => this.add.image(0, 0, 'p_glow').setDepth(29).setScale(0.22).setTint(0xFFB020).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0));
       // try a few lanes until one has room: two cars spawned on the same stretch start the drive overlapping
       for (let tries = 0; tries < 24; tries++) {
         car.row = Math.floor(this.rng() * T.hy.length);
@@ -261,6 +266,7 @@ class TownDriveScene extends Phaser.Scene {
     const glow = (tint, s) => this.add.image(0, 0, 'p_glow').setDepth(31).setScale(s).setTint(tint).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
     this.tail = [glow(0xFF3040, 0.42), glow(0xFF3040, 0.42)];
     this.revLamps = [glow(0xFFF4D0, 0.38), glow(0xFFF4D0, 0.38)];
+    this.blinkLamps = [glow(0xFFB020, 0.34), glow(0xFFB020, 0.34)];   // the indicator side's front and rear corner
 
     this.skidKey = OTR.tex.make(this, 'td_skid', 12, 12, (ctx, w, h) => {
       ctx.beginPath(); ctx.arc(w / 2, h / 2, w / 2 - 1, 0, Math.PI * 2); ctx.fillStyle = '#1A1620'; ctx.fill();
@@ -323,6 +329,9 @@ class TownDriveScene extends Phaser.Scene {
     sp.add(this.speedArc);
     this.speedText = OTR.txt(this, 0, -2, '0', 40, '#ffffff', { weight: '900' });
     sp.add([this.speedText, OTR.txt(this, 0, 30, 'MPH', 13, '#C9B3F0', {})]);
+    // the indicator arrows, in the dial as on a dashboard
+    this.sigArrows = { left: OTR.txt(this, -30, -40, '◀', 20, '#FFB020', { weight: '900' }), right: OTR.txt(this, 30, -40, '▶', 20, '#FFB020', { weight: '900' }) };
+    sp.add([this.sigArrows.left, this.sigArrows.right]);
 
     // the gear, big enough to read at a glance: D in green, R in amber
     this.gearBadge = this.add.container(sx + 96, sy + 44).setScrollFactor(0).setDepth(801);
@@ -369,7 +378,7 @@ class TownDriveScene extends Phaser.Scene {
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
-    const ctl = OTR.txt(this, OTR.W / 2 + 60, OTR.H - 22, 'W go · S brake · A/D steer · SPACE parking brake · R reverse (stopped) · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
+    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false }).setScrollFactor(0).setDepth(800);
     OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.width / 2 - 14, -13, ctl.width + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
@@ -478,7 +487,7 @@ class TownDriveScene extends Phaser.Scene {
     // re-firing their events, so holding L no longer strobes the headlights.
     this.keys = this.input.keyboard.addKeys({
       up: 'UP', down: 'DOWN', left: 'LEFT', right: 'RIGHT', w: 'W', a: 'A', s: 'S', d: 'D',
-      space: 'SPACE', b: 'B', g: 'G', p: 'P', l: 'L', r: 'R', tab: 'TAB', esc: 'ESC'
+      space: 'SPACE', b: 'B', g: 'G', p: 'P', l: 'L', r: 'R', q: 'Q', e: 'E', tab: 'TAB', esc: 'ESC'
     });
     // What is physically held comes from the page itself: Phaser resets its keys when the scene pauses, which
     // left the van coasting after the pause menu even though the driver never lifted off.
@@ -506,6 +515,8 @@ class TownDriveScene extends Phaser.Scene {
       this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : 0xC9B3F0);
     });
     OTR.onKey(this, 'keydown-G', () => this.getOutAndLook());
+    OTR.onKey(this, 'keydown-Q', () => this.setSignal(this.signal === 'left' ? null : 'left'));
+    OTR.onKey(this, 'keydown-E', () => this.setSignal(this.signal === 'right' ? null : 'right'));
     OTR.onKey(this, 'keydown-R', () => { this.shiftAsked = true; });    // the gear selector: taken on the next frame
     OTR.onKey(this, 'keydown-P', () => this.tryPark());
     OTR.onKey(this, 'keydown-ESC', () => this.openPause());
@@ -521,6 +532,28 @@ class TownDriveScene extends Phaser.Scene {
   }
 
   heldAny(...codes) { for (let i = 0; i < codes.length; i++) if (this.held[codes[i]]) return true; return false; }
+
+  /** The indicator: Q left, E right, the same key again to cancel. It cancels itself once a turn is done. */
+  setSignal(dir) {
+    if (this.parked || this.leaving) return;
+    this.signal = dir;
+    this.signalOnAt = this.elapsed;
+    this.signalHeading = this.van.heading;
+    this.signalFrom = { x: this.van.x, y: this.van.y };
+    OTR.audio.play('tick');
+  }
+
+  /**
+   * The indicator after a manoeuvre: it cancels once the van has turned through most of a corner and the wheel is
+   * back near the centre, as a real stalk does, or (pulling out, a lane change) after 40 m with no junction ahead.
+   */
+  signalTick() {
+    if (!this.signal) return;
+    const v = this.van;
+    const turned = Math.abs(Math.atan2(Math.sin(v.heading - this.signalHeading), Math.cos(v.heading - this.signalHeading)));
+    const went = Math.hypot(v.x - this.signalFrom.x, v.y - this.signalFrom.y) / this.P;
+    if ((turned > 1.0 && Math.abs(v.sw) < 0.2) || (went > 40 && !this.findApproach() && turned < 0.3)) this.signal = null;
+  }
 
   /** G.O.A.L.: only from a standstill, and it takes the time it takes to walk round the van. */
   getOutAndLook() {
@@ -591,6 +624,7 @@ class TownDriveScene extends Phaser.Scene {
     this.stepPeds(dt);
     this.stepLights(dt);
     this.checkRules(dt);
+    this.signalTick();
     if (this.shiftMode) this.dispatchTick(dt);
     // a route day saves where the van is every few seconds, so a quit or a reload carries on from here
     if (this.shiftMode && OTR.shift.state && !this.parked && this.elapsed - (this._legSavedAt || 0) > 5) {
@@ -640,6 +674,9 @@ class TownDriveScene extends Phaser.Scene {
       x: c.x, y: c.y, heading: c.heading, hl: c.hl, hw: c.hw, mass: 1500, ref: c,
       vel: { x: Math.cos(c.heading) * c.speed / this.P, y: Math.sin(c.heading) * c.speed / this.P }
     }));
+    // how fast the van was going before anything hit it: a car shoving a stopped van gives it speed in the impact
+    // itself, and that used to make the van the one at fault
+    this._mphBeforeHit = V.mph(v);
     const hits = V.collide(v, this.blockers.concat(this.edges), bodies);
     bodies.forEach(b => {
       const c = b.ref;
@@ -674,7 +711,7 @@ class TownDriveScene extends Phaser.Scene {
       return;
     }
     // a vehicle driving into a van that was standing still is not the van driver's collision
-    if (worst.kind === 'body' && OTR.vehicle.mph(this.van) < 1) {
+    if (worst.kind === 'body' && (this._mphBeforeHit === undefined ? OTR.vehicle.mph(this.van) : this._mphBeforeHit) < 1) {
       OTR.audio.play('thud');
       this.toast('A car ran into you while you were stopped. Never stop across a lane.', 0xFFB020);
       return;
@@ -705,6 +742,15 @@ class TownDriveScene extends Phaser.Scene {
     const rev = v.gear < 0 ? 0.6 : 0;
     this.revLamps[0].setPosition(lampL.x, lampL.y).setAlpha(rev);
     this.revLamps[1].setPosition(lampR.x, lampR.y).setAlpha(rev);
+    // the indicator: on for half of every 0.7 s, front and rear corner on its side
+    const blinkOn = !!this.signal && ((this.elapsed - this.signalOnAt) % 0.7) < 0.35;
+    if (this.signal) {
+      const sd = this.signal === 'left' ? -side : side;
+      const fr = V.point(v, g.nose - 0.2, sd), rr = V.point(v, back, sd);
+      this.blinkLamps[0].setPosition(fr.x, fr.y); this.blinkLamps[1].setPosition(rr.x, rr.y);
+    }
+    this.blinkLamps.forEach(l => l.setAlpha(blinkOn ? 0.95 : 0));
+    if (blinkOn !== this._blinkWas) { this._blinkWas = blinkOn; if (blinkOn && dt) OTR.audio.play('tick'); }
 
     this.beams && this.beams.clear();
     if (this.lights && this.beams) {
@@ -751,15 +797,28 @@ class TownDriveScene extends Phaser.Scene {
    */
   stepCars(dt) {
     const T = this.T, R = OTR.townArt.ROAD / 2, V = OTR.vehicle, P = this.P;
-    const vbc = V.bodyCentre(this.van);
-    const vanStill = V.stopped(this.van);
-    // the van's body: its corners, mid-sides and centre (a car watches all of them, not just the centre)
-    const vg = this.van.g;
-    const vanPts = [[1, 1], [1, -1], [-1, 1], [-1, -1], [1, 0], [-1, 0], [0, 1], [0, -1]].map(([f, r]) => V.point(this.van, vg.centre + f * vg.hl, r * vg.hw));
+    const van = this.van, vg = van.g;
+    const vanStill = V.stopped(van);
+    // The van as a car sees it: where it is, and where it is about to be (0.7 s on at its present velocity), with room
+    // to spare round both. A car keeps its whole body out of that space along the path it is about to drive.
+    const vanObb = V.obbOf(van), vel = V.velocity(van);
+    const grow = (o, m, dx, dy) => ({ c: { x: o.c.x + (dx || 0), y: o.c.y + (dy || 0) }, f: o.f, rt: o.rt, hl: o.hl + m, hw: o.hw + m });
+    const vanZone = [grow(vanObb, 8), grow(vanObb, 8, vel.x * P * 0.7, vel.y * P * 0.7)];
+    const vanBody = grow(vanObb, 1);
+    const hitsVan = (x, y, h, c) => { const o = this.carBox(x, y, h, c); return vanZone.some(z => this.boxesTouch(z, o)); };
+    const touchesVan = (c) => this.boxesTouch(vanBody, this.carBox(c.x, c.y, c.heading, c));
     const crossing = this.peds.filter(p => p.crossing);
     this.cars.forEach(c => {
       const hx = Math.cos(c.heading), hy = Math.sin(c.heading);
-      let stopDist = 1e9, wantOff = 0, cap = c.maxSpeed;
+      // the speed limit where the car is (school zones too: traffic used to do 20+ through a 15 zone)
+      let stopDist = 1e9, wantOff = 0, cap = Math.min(c.maxSpeed, T.limitAt(c.x, c.y) / OTR.vehicle.MPH * P);
+      // an ambulance on the street: pull in to the right and slow right down until it has gone by
+      const amb = this.ambulance;
+      if (amb && !c.turn && amb.img) {
+        const ah = amb.ax.heading, along = (c.x - amb.img.x) * Math.cos(ah) + (c.y - amb.img.y) * Math.sin(ah);
+        const lat = -(c.x - amb.img.x) * Math.sin(ah) + (c.y - amb.img.y) * Math.cos(ah);
+        if (Math.abs(lat) < R && along > -120 && along < 700) { wantOff = 26; cap = Math.min(cap, 30); }
+      }
       // let go of the junction once the whole car is out of its box. The timeout is a backstop: a car shoved by
       // the van could otherwise sit in the box and hold up the whole town.
       if (c.holding) {
@@ -780,6 +839,7 @@ class TownDriveScene extends Phaser.Scene {
           if (ahead > 0 && (best === null || ahead < best)) { best = ahead; idx = i; }
         });
         const it = best === null ? null : c.h ? T.interAt(idx, c.row) : T.interAt(c.col, idx);
+        c.nextJ = best === null ? 1e9 : best;
         if (it) {
           if (c.planFor !== it) {
             c.planFor = it;
@@ -800,7 +860,10 @@ class TownDriveScene extends Phaser.Scene {
             || (held.dir !== c.dir && (held.plan === 'left' || c.plan === 'left')))) mustStop = true;
           if (!committed && c.plan === 'left' && this.oncoming(c, it)) mustStop = true;
           if (mustStop && best < 380) stopDist = Math.min(stopDist, best - line);
-          if (it.stop && best < line + 24 && c.speed < 10 && c.cleared !== it) { c.cleared = it; c.wait = 1.1; }
+          if (it.stop && best < line + 24 && c.speed < 10 && c.cleared !== it) { c.cleared = it; c.wait = 1.1; c.stoppedAt = this.elapsed; }
+          // the van takes its turn too: a car waits while the van is in the box, and at a stop sign while the van,
+          // stopped at its line before this car got to its own, pulls away into it (only cars used to take turns)
+          if (!committed && this.vanHasJunction(it, c)) mustStop = true;
           // claim the box on the way in, so the cars behind and across know it is taken
           if (!mustStop && !c.holding && best <= line + 6) { it.claim = c; c.holding = it; c.holdT = 0; }
           if (c.plan !== 'straight') {
@@ -823,29 +886,44 @@ class TownDriveScene extends Phaser.Scene {
         const side = o.turn ? 100 : 44;
         if (a.fwd > 0 && a.fwd < 260 && Math.abs(a.lat) < side) stopDist = Math.min(stopDist, a.fwd - (c.hl + o.hl + 16));
       });
-      const av = ahead(vbc.x, vbc.y);
-      let easing = false;
-      if (av.fwd > 0 && av.fwd < 320 && Math.abs(av.lat) < 52) {
+      // The van. A car eases out round a van stopped parallel to the lane when there is room, and one kept waiting
+      // behind a van stopped in its lane mid-block goes round it once the other lane is clear. Then it sweeps its own
+      // body along the path it is about to drive (its lane, the turn it is about to take, or the arc it is on) and
+      // stops short of the first place it would touch the van, or where the van is about to be. (Cars used to look
+      // for the van only in a narrow strip straight ahead: a car mid-turn, or one in a lane the van was angled across,
+      // drove into it and shoved it along.)
+      const av = ahead(vanObb.c.x, vanObb.c.y);
+      if (!c.turn && av.fwd > 0 && av.fwd < 340 && Math.abs(av.lat) < 80) {
         const vanLat = av.lat + c.off;                       // the van's offset from the lane centre, kerbward positive
-        const room = vanLat - (this.van.g.hw * P + c.hw + 8);
-        // easing out round it is only for a van stopped alongside the kerb, parallel to the lane
-        const parallel = Math.abs(Math.cos(this.van.heading - c.heading)) > 0.95;
-        if (vanStill && parallel && !c.turn && vanLat > 8 && room > -42) {
-          easing = true;
+        const room = vanLat - (vg.hw * P + c.hw + 10);
+        const parallel = Math.abs(Math.cos(van.heading - c.heading)) > 0.95;
+        const around = (c.waitVan || 0) > 2.5 && this.oppositeClear(c, av.fwd + vg.hl * P + 260);
+        if (vanStill && parallel && vanLat > -70 && (room > -42 || (around && room > -(R - c.hw - 6)))) {
           wantOff = Math.min(wantOff, room);
-          if (Math.abs(av.lat) < this.van.g.hw * P + c.hw + 4) cap = Math.min(cap, 60);
-        } else {
-          stopDist = Math.min(stopDist, av.fwd - (c.hl + this.van.g.hl * P + 18));
+          c.roundOff = wantOff;
+          if (Math.abs(av.lat) < vg.hw * P + c.hw + 4) cap = Math.min(cap, 60);
         }
       }
-      // any part of the van in the lane ahead stops the car short of it (a van stopped across or at an angle to a
-      // lane used to be judged by its centre alone, and cars drove into its side)
-      if (!easing) {
-        vanPts.forEach(pt => {
-          const a = ahead(pt.x, pt.y);
-          if (a.fwd > 0 && a.fwd < 320 && Math.abs(a.lat) < c.hw + 10) stopDist = Math.min(stopDist, a.fwd - c.hl - 14);
-        });
+      // already easing round it: hold that line until the car is past the van, then drift back into the lane
+      if (!c.turn && c.roundOff !== undefined) {
+        if (av.fwd > -(vg.hl * P + c.hl + 24) && av.fwd < 340 && Math.abs(av.lat) < 120) wantOff = Math.min(wantOff, c.roundOff);
+        else c.roundOff = undefined;
       }
+      const look = Math.min(380, 90 + c.speed * c.speed / 480 + c.speed * 0.4);
+      const vanAt = this.sweepFor(c, look, wantOff, hitsVan);
+      if (vanAt !== null) stopDist = Math.min(stopDist, vanAt - 6);
+      // kept waiting by a van stopped mid-block: a horn, then (above) round it when the other lane is clear
+      const heldByVan = vanAt !== null && vanAt < 140 && vanStill && c.speed < 8 && (c.nextJ || 0) > R + 160;
+      c.waitVan = heldByVan ? (c.waitVan || 0) + dt : 0;
+      if (c.waitVan > 3 && !c.honked) {
+        c.honked = true;
+        if (this.elapsed - (this._hornAt || -99) > 8) {
+          this._hornAt = this.elapsed;
+          OTR.audio.play('horn');
+          if (!this.parked) this.toast('Horn behind you: you\'re stopped in a traffic lane', 0xFFC83D);
+        }
+      }
+      if (!heldByVan && c.waitVan === 0 && vanAt === null) c.honked = false;
       crossing.forEach(p => {
         const a = ahead(p.x, p.y);
         if (a.fwd > 0 && a.fwd < 240 && Math.abs(a.lat) < 60) stopDist = Math.min(stopDist, a.fwd - c.hl - 30);
@@ -858,6 +936,10 @@ class TownDriveScene extends Phaser.Scene {
         if (c.speed < 1.5 && want < 1.5) c.speed = 0;
       }
 
+      // whatever happens below, a car never moves itself into the van (its lane drift back after easing round a van
+      // that then pulls out used to slide it sideways into the van's side)
+      const was = { x: c.x, y: c.y, heading: c.heading, off: c.off, h: c.h, dir: c.dir, row: c.row, col: c.col, turn: c.turn, th: c.turn && c.turn.th, planFor: c.planFor, plan: c.plan };
+      const inBefore = touchesVan(c);
       if (c.turn) this.advanceTurn(c, c.speed * dt);
       else {
         // lane offset: absorbs a shove from a collision, or eases out round a parked van, then drifts back
@@ -867,9 +949,104 @@ class TownDriveScene extends Phaser.Scene {
         if (c.h) { c.x += c.dir * c.speed * dt; c.y = laneY + c.off * (c.dir > 0 ? 1 : -1); }
         else { c.y += c.dir * c.speed * dt; c.x = laneX + c.off * (c.dir > 0 ? -1 : 1); }
       }
+      if (touchesVan(c) && (!inBefore || Math.hypot(c.x - vanObb.c.x, c.y - vanObb.c.y) < Math.hypot(was.x - vanObb.c.x, was.y - vanObb.c.y))) {
+        Object.assign(c, { x: was.x, y: was.y, heading: was.heading, off: was.off, h: was.h, dir: was.dir, row: was.row, col: was.col, turn: was.turn, planFor: was.planFor, plan: was.plan });
+        if (c.turn) c.turn.th = was.th;
+        c.speed = 0;
+      }
+
       if (c.x < -260) c.x = T.W + 200; if (c.x > T.W + 260) c.x = -200;
       if (c.y < -260) c.y = T.H + 200; if (c.y > T.H + 260) c.y = -200;
       c.img.setPosition(c.x, c.y).setRotation(c.heading + Math.PI / 2);
+      // indicators from about 15 m before the junction until the turn is done
+      const turning = c.turn ? (c.turn.h1.x * c.turn.h0.y - c.turn.h1.y * c.turn.h0.x < 0 ? 'right' : 'left') : (c.plan !== 'straight' && c.planFor && (c.nextJ || 1e9) < 320 ? c.plan : null);
+      const on = !!turning && (this.elapsed % 0.7) < 0.35;
+      if (c.blink) {
+        if (turning) {
+          const f = { x: Math.cos(c.heading), y: Math.sin(c.heading) }, sd = (turning === 'left' ? -1 : 1) * (c.hw - 3);
+          const rt = { x: -f.y, y: f.x };
+          c.blink[0].setPosition(c.x + f.x * (c.hl - 4) + rt.x * sd, c.y + f.y * (c.hl - 4) + rt.y * sd);
+          c.blink[1].setPosition(c.x - f.x * (c.hl - 4) + rt.x * sd, c.y - f.y * (c.hl - 4) + rt.y * sd);
+        }
+        c.blink.forEach(b => b.setAlpha(on ? 0.9 : 0));
+      }
+    });
+  }
+
+  /**
+   * Whether the van has the right to this junction ahead of car c: its body is in the box, or it stopped at a stop
+   * sign's line before c had stopped at its own, and is now pulling away into the junction.
+   */
+  vanHasJunction(it, c) {
+    const R = OTR.townArt.ROAD / 2, v = this.van, bc = OTR.vehicle.bodyCentre(v), reach = v.g.hl * this.P * 0.6;
+    if (Math.abs(bc.x - it.x) < R + reach && Math.abs(bc.y - it.y) < R + reach) return true;
+    const a = this.approach;
+    if (!it.stop || !a || a.it !== it || !a.stopped || a.entered) return false;
+    const carStopped = c.cleared === it ? (c.stoppedAt || 0) : Infinity;
+    return a.stoppedAt < carStopped && OTR.vehicle.mph(v) > 0.5;
+  }
+
+  /** A car's body as an oriented box at a pose (px). */
+  carBox(x, y, h, c) {
+    const f = { x: Math.cos(h), y: Math.sin(h) };
+    return { c: { x, y }, f, rt: { x: -f.y, y: f.x }, hl: c.hl, hw: c.hw };
+  }
+
+  /** Whether two oriented boxes overlap (separating axes; no contact point, so it is cheap enough to sweep with). */
+  boxesTouch(A, B) {
+    const dx = B.c.x - A.c.x, dy = B.c.y - A.c.y;
+    const axes = [A.f, A.rt, B.f, B.rt];
+    for (let i = 0; i < 4; i++) {
+      const n = axes[i];
+      const ra = A.hl * Math.abs(A.f.x * n.x + A.f.y * n.y) + A.hw * Math.abs(A.rt.x * n.x + A.rt.y * n.y);
+      const rb = B.hl * Math.abs(B.f.x * n.x + B.f.y * n.y) + B.hw * Math.abs(B.rt.x * n.x + B.rt.y * n.y);
+      if (Math.abs(dx * n.x + dy * n.y) >= ra + rb) return false;
+    }
+    return true;
+  }
+
+  /**
+   * Where a car will be `s` px further along the path it is about to drive: the arc it is on, the turn it is about to
+   * take at the next junction, or its lane (easing towards the lane offset `wantOff`).
+   */
+  carPathPose(c, s, wantOff) {
+    const arc = (t, d) => {
+      const th = t.th + d / t.r;
+      if (th >= Math.PI / 2) {
+        const over = (th - Math.PI / 2) * t.r;
+        return { x: t.C.x + t.h0.x * t.r + t.h1.x * over, y: t.C.y + t.h0.y * t.r + t.h1.y * over, h: Math.atan2(t.h1.y, t.h1.x) };
+      }
+      const sn = Math.sin(th), co = Math.cos(th);
+      return { x: t.C.x + t.r * (sn * t.h0.x - co * t.h1.x), y: t.C.y + t.r * (sn * t.h0.y - co * t.h1.y), h: Math.atan2(co * t.h0.y + sn * t.h1.y, co * t.h0.x + sn * t.h1.x) };
+    };
+    if (c.turn) return arc(c.turn, s);
+    const f = { x: Math.cos(c.heading), y: Math.sin(c.heading) }, rt = { x: -f.y, y: f.x };
+    if (c.plan && c.plan !== 'straight' && c.planFor) {
+      const g = this.turnGeom(c, c.planFor);
+      const dE = (g.E.x - c.x) * f.x + (g.E.y - c.y) * f.y;
+      if (dE >= 0 && s > dE) return arc(g, s - dE);
+    }
+    const off = (wantOff - (c.off || 0)) * (1 - Math.exp(-s / 70));
+    return { x: c.x + f.x * s + rt.x * off, y: c.y + f.y * s + rt.y * off, h: c.heading };
+  }
+
+  /** The first distance (px, in 8 px steps) along a car's path at which `hit(x, y, heading, car)` is true, or null. */
+  sweepFor(c, look, wantOff, hit) {
+    for (let d = 0; d <= look; d += 8) {
+      const p = this.carPathPose(c, d, wantOff);
+      if (hit(p.x, p.y, p.h, c)) return d;
+    }
+    return null;
+  }
+
+  /** The other lane of a car's street is clear of oncoming cars for `dist` px, with no junction in that stretch. */
+  oppositeClear(c, dist) {
+    if ((c.nextJ || 0) < dist + 60) return false;
+    return !this.cars.some(o => {
+      if (o === c || o.h !== c.h || o.dir === c.dir) return false;
+      if (c.h ? o.row !== c.row : o.col !== c.col) return false;
+      const d = (c.h ? o.x - c.x : o.y - c.y) * c.dir;
+      return d > -60 && d < dist + 400;
     });
   }
 
@@ -891,6 +1068,13 @@ class TownDriveScene extends Phaser.Scene {
 
   /** Start a quarter-circle turn from the car's lane into the crossing street's lane. */
   beginTurn(c, it) {
+    const g = this.turnGeom(c, it);
+    c.x = g.E.x; c.y = g.E.y; c.off = 0;
+    c.turn = g;
+  }
+
+  /** The quarter circle a car's planned turn at a junction follows: from E in its lane to the crossing street's lane. */
+  turnGeom(c, it) {
     const T = this.T;
     const h0 = { x: c.h ? c.dir : 0, y: c.h ? 0 : c.dir };
     const right = c.plan === 'right';
@@ -900,8 +1084,7 @@ class TownDriveScene extends Phaser.Scene {
       ? { x: T.laneX(it.col, h1.y > 0 ? 1 : -1), y: T.laneY(it.row, c.dir) }
       : { x: T.laneX(it.col, c.dir), y: T.laneY(it.row, h1.x > 0 ? 1 : -1) };
     const E = { x: Q.x - h0.x * r, y: Q.y - h0.y * r };
-    c.x = E.x; c.y = E.y; c.off = 0;
-    c.turn = { C: { x: E.x + h1.x * r, y: E.y + h1.y * r }, r, h0, h1, th: 0, it };
+    return { C: { x: E.x + h1.x * r, y: E.y + h1.y * r }, r, h0, h1, th: 0, it, E };
   }
 
   advanceTurn(c, ds) {
@@ -1045,14 +1228,9 @@ class TownDriveScene extends Phaser.Scene {
     const v = this.van, V = OTR.vehicle, A = OTR.townArt, R = A.ROAD / 2, P = this.P;
     const D = OTR.shift.state.dispatch;
     if (!V.stopped(v)) { this.toast('Stop first: pull in to the curb, then P to read the message', 0xC9B3F0); return true; }
-    // alongside a curb: parallel to the street and close to its edge
-    const bc = V.bodyCentre(v);
-    const dy = Math.min(...this.T.hy.map(y => Math.abs(bc.y - y))), dx = Math.min(...this.T.vx.map(x => Math.abs(bc.x - x)));
-    const horiz = dy <= dx;
-    const off = horiz ? dy : dx;
-    const skew = horiz ? Math.abs(Math.sin(v.heading)) : Math.abs(Math.cos(v.heading));
-    const gap = (R - off - v.g.hw * P) / P;
-    if (off > R || skew > 0.34 || gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', 0xC9B3F0); return true; }
+    // alongside the right-hand curb: parallel to the street and close to its edge (the left-hand one used to count)
+    const ax = OTR.driveAids.axis(this);
+    if (!ax || ax.gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', 0xC9B3F0); return true; }
     OTR.shift.readDispatch(this.log, 'pulled over');
     if (OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
     this.showMsgBadge(false);
@@ -1203,7 +1381,7 @@ class TownDriveScene extends Phaser.Scene {
       const behind = ap.dist >= A.STOP_LINE - 8;
       if (V.stopped(v) && behind && ap.dist < A.STOP_LINE + 170) {
         a.stillT = (a.stillT || 0) + dt;
-        if (a.stillT >= 0.5) a.stopped = true;
+        if (a.stillT >= 0.5 && !a.stopped) { a.stopped = true; a.stoppedAt = this.elapsed; }
       } else if (!V.stopped(v)) a.stillT = 0;
       // the front bumper crossing the stop line is the moment the law cares about
       if (!a.crossed && ap.dist < A.STOP_LINE) { a.crossed = true; this.judgeEntry(a, mph, false); }
@@ -1225,11 +1403,16 @@ class TownDriveScene extends Phaser.Scene {
       const inside = Math.abs(v.x - a2.it.x) < R + 6 && Math.abs(v.y - a2.it.y) < R + 6;
       if (inside && !a2.entered) {
         a2.entered = true;
+        // the indicator as the van goes in: judged once it is out the other side and the turn is known
+        a2.heading0 = v.heading;
+        a2.sig = this.signal;
+        a2.sigFor = this.signal ? this.elapsed - this.signalOnAt : 0;
         this.judgeEntry(a2, mph, true);
       }
       const far = Math.abs(v.x - a2.it.x) > R + 230 || Math.abs(v.y - a2.it.y) > R + 230;
       if (a2.entered && !inside && far) {
         if (a2.sign) a2.sign.clearTint();
+        this.judgeSignal(a2);
         this.approach = null;
       }
     }
@@ -1261,6 +1444,21 @@ class TownDriveScene extends Phaser.Scene {
         if (inZone) this.toast('Stop zone — pull in to the curb, stop, then P to park', 0xFFC83D);
       }
     }
+  }
+
+  /**
+   * A turn at a junction is signalled: the indicator on, for the side it turned to, a moment before the van went in
+   * (Q left, E right). Straight on needs nothing.
+   */
+  judgeSignal(a) {
+    const v = this.van;
+    const d = Math.atan2(Math.sin(v.heading - a.heading0), Math.cos(v.heading - a.heading0));
+    if (Math.abs(d) < 1.0) return;
+    const dir = d > 0 ? 'right' : 'left';                      // heading grows clockwise on screen: a right turn
+    if (a.sig === dir && a.sigFor >= 1) return;
+    const late = a.sig === dir;
+    this.violation('signal', late ? `Signaled the ${dir} turn too late` : `Turned ${dir} without signaling`, 'safety', 1,
+      `Signal every turn before you reach the junction (Q left, E right), so drivers and people crossing know where you are going. Mirrors, signal, then turn.`);
   }
 
   /**
@@ -1386,6 +1584,13 @@ class TownDriveScene extends Phaser.Scene {
         g.arc(0, 0, 58, Math.PI * 0.75, Math.PI * 0.75 + Math.PI * 1.5 * OTR.util.clamp01(mph / 40));
         g.strokePath();
       });
+    }
+    const blink = !!this.signal && ((this.elapsed - this.signalOnAt) % 0.7) < 0.35;
+    const sigKey = this.signal + '|' + blink;
+    if (this._sigShown !== sigKey) {
+      this._sigShown = sigKey;
+      this.sigArrows.left.setAlpha(this.signal === 'left' ? (blink ? 1 : 0.35) : 0.12);
+      this.sigArrows.right.setAlpha(this.signal === 'right' ? (blink ? 1 : 0.35) : 0.12);
     }
     let hint = V.gearPrompt(v);
     if (!hint && this.goalBusy) hint = 'G.O.A.L. — looking all round the van…';
