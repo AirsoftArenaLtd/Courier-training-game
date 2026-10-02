@@ -41,7 +41,7 @@ class TrainerScene extends Phaser.Scene {
     });
 
     // pass mark per category
-    OTR.txt(this, x + 28, top + 172, 'Pass mark (stars needed in each category a scenario tests)', 15, '#243447', { ox: 0, weight: '900' });
+    OTR.txt(this, x + 28, top + 172, 'Pass mark (stars needed in each category a scenario tests)', 15, '#243447', { ox: 0, weight: '900', fit: w - 56 });
     this.passTexts = {};
     OTR.scoring.CATS.forEach((c, i) => {
       const y = top + 214 + i * 50;

@@ -56,6 +56,8 @@ OTR.txt = function (scene, x, y, str, size, color, opts) {
   if (opts.lineSpacing) style.lineSpacing = opts.lineSpacing;
   const t = scene.add.text(x, y, str, style);
   t.setOrigin(opts.ox === undefined ? 0.5 : opts.ox, opts.oy === undefined ? 0.5 : opts.oy);
+  // fit: the most width a one-line label has; wider (larger text, a long name) and it shrinks to fit
+  if (opts.fit && t.width > opts.fit) t.setScale(opts.fit / t.width);
   return t;
 };
 

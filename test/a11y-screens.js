@@ -32,7 +32,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   p.on('pageerror', e => errors.push(e.message));
   const ev = (f, ...a) => p.evaluate(f, ...a);
   const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src)) return true; await wait(150); } return false; };
-  const active = (key) => until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, 15000);
+  const active = async (key) => { if (!(await until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, 20000))) throw new Error(`${key} never opened`); };
   const shot = async (name) => {
     await wait(1300);
     await p.screenshot({ path: path.join(OUT, `a11y-${name}.png`) });
@@ -99,8 +99,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await p.keyboard.press('Digit1'); await shot('quiz-answered');
 
     // the pause menu over a stop
-    await ev(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); OTR.flow.startScenario(m.getScene('TitleScene'), 'm5-pod'); });
+    await go('HubScene'); await active('HubScene'); await wait(800);
+    await ev(() => OTR.flow.startScenario(OTR.game.scene.getScene('HubScene'), 'm5-pod'));
     await active('StopScene'); await wait(1800);
+    await p.keyboard.press('Enter'); await wait(1500);                 // the intro card
+    await p.keyboard.press('Enter'); await wait(1500);                 // the stop's brief
     await p.keyboard.press('Escape');
     await active('PauseScene');
     await shot('pause');

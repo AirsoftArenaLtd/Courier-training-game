@@ -147,7 +147,7 @@ class HubScene extends Phaser.Scene {
       OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900' });
       OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false });
       // one line: the Start button sits right under it
-      OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, '#E6DAF7', { bold: false });
+      OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, '#E6DAF7', { bold: false, fit: w - 28 });
       // a route day is a long session: say so before it starts (a stray Enter used to drop you into the briefing)
       // (ENTER is not its key for someone who has played nothing yet: see create)
       this.focusables.push(OTR.ui.button(this, x, top + 132, 'Start the route ▶', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
@@ -192,10 +192,9 @@ class HubScene extends Phaser.Scene {
         hg.fillCircle(-pw / 2 + 26, -ph / 2 + 22, 15);
       }));
       panel.add(this.add.image(-pw / 2 + 26, -ph / 2 + 22, m.icon).setDisplaySize(20, 20));
-      const t = OTR.txt(this, -pw / 2 + 48, -ph / 2 + 15, m.title, 16, '#ffffff', { ox: 0, weight: '900', shadow: true });
-      if (t.width > pw - 70) t.setScale((pw - 70) / t.width);
-      panel.add(t);
-      panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 32, m.subtitle || '', 13, 'rgba(255,255,255,0.9)', { ox: 0, bold: false }));
+      // both lines stop short of the star total on the right
+      panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 15, m.title, 16, '#ffffff', { ox: 0, weight: '900', shadow: true, fit: pw - 112 }));
+      panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 32, m.subtitle || '', 13, 'rgba(255,255,255,0.9)', { ox: 0, bold: false, fit: pw - 112 }));
 
       // module star total
       const best = m.scenarios.reduce((n, sc) => n + OTR.save.starSum(OTR.save.bestStars(sc.id)), 0);
