@@ -43,7 +43,7 @@ class AccessScene extends Phaser.Scene {
       const per = Math.ceil(OTR.a11y.ACTIONS.length / 2);
       const col = i < per ? 0 : 1, row = i % per;
       const rx = cx + 26 + col * 370, ry = top + 76 + row * 56;
-      OTR.txt(this, rx, ry, a.label, 15, '#250849', { ox: 0, weight: '900' });
+      OTR.txt(this, rx, ry, a.label, 15, '#250849', { ox: 0, weight: '900', wrap: 158 });  // two lines rather than into the key at rx + 190
       this.keyTexts[a.code] = OTR.txt(this, rx + 190, ry, '', 16, '#4D148C', { ox: 0.5, weight: '900' });
       const b = OTR.ui.button(this, rx + 290, ry, 'Change', () => this.rebind(a), { w: 110, h: 40, skin: 'ghost', fontSize: 15 });
       this.focusables.push(b);

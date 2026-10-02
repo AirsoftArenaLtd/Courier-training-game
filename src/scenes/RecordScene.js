@@ -83,10 +83,13 @@ class RecordScene extends Phaser.Scene {
   }
 
   drawModules() {
-    const R = this.R, colW = 600, top = 216;
+    const R = this.R, colW = 600, top = 216, cardH = 488;
     [[0, 30], [1, 650]].forEach(([col, x]) => {
       const mods = R.modules.filter((m, i) => (i < 4 ? 0 : 1) === col);
-      this.card(x, top, colW, 488);
+      this.card(x, top, colW, cardH);
+      // the rows share the card's height (with 27 scenarios a fixed 26 px ran the left column off the bottom)
+      const rows = mods.reduce((n, m) => n + m.scenarios.length, 0);
+      const pitch = Math.min(26, (cardH - 24 - mods.length * 40) / rows);
       let y = top + 22;
       mods.forEach(m => {
         this.body.add(OTR.tex.shape(this, (g) => { g.fillStyle(m.color, 1); g.fillRoundedRect(x + 14, y - 12, colW - 28, 26, 8); }));
@@ -94,8 +97,7 @@ class RecordScene extends Phaser.Scene {
         this.body.add(OTR.txt(this, x + colW - 26, y + 1, OTR.record.quizText(m.quiz), 12, '#ffffff', { ox: 1, bold: !!(m.quiz && m.quiz.passedAt) }));
         y += 30;
         m.scenarios.forEach(s => {
-          const t = OTR.txt(this, x + 26, y, s.title, 15, '#250849', { ox: 0, weight: '900' });
-          if (t.width > 210) t.setScale(210 / t.width);
+          const t = OTR.txt(this, x + 26, y, s.title, pitch < 23 ? 14 : 15, '#250849', { ox: 0, weight: '900', fit: 210 });
           const a = s.assess;
           const col2 = a && a.passed ? '#1E7E55' : a && a.attempts ? '#B3122E' : '#9A8AB0';
           const at = OTR.txt(this, x + 250, y, a && a.passed ? '✓ Passed' : a && a.attempts ? '✕ Not passed' : 'Not assessed', 14, col2, { ox: 0, weight: a && a.attempts ? '900' : 'normal' });
@@ -103,7 +105,7 @@ class RecordScene extends Phaser.Scene {
           if (st.width > 150) st.setScale(150 / st.width);
           const pl = OTR.txt(this, x + colW - 22, y, s.plays ? `${s.plays}×` : '—', 13, '#7A6A90', { ox: 1 });
           this.body.add([t, at, st, pl]);
-          y += 26;
+          y += pitch;
         });
         y += 10;
       });

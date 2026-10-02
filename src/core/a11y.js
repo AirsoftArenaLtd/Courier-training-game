@@ -98,8 +98,11 @@ OTR.a11y = {
       if (!cam.postFX) return;
       if (cam._otrCb) { cam.postFX.remove(cam._otrCb); cam._otrCb = null; }
       if (!on) return;
+      // daltonized for deuteranopia: what a red-green colour-blind eye loses (the colour minus Machado's simulation
+      // of it) is added back into green and blue. Pass green stays green, fail red picks up blue (pink), and the
+      // orange stays orange (an earlier matrix turned every orange button red).
       const cm = cam.postFX.addColorMatrix();
-      cm.set([1, 0, 0, 0, 0, -0.4375, 1.4375, 0, 0, 0, 0.2625, -0.5625, 1.3, 0, 0, 0, 0, 0, 1, 0]);
+      cm.set([1, 0, 0, 0, 0, 0.163, 0.725, 0.112, 0, 0, 0.455, -0.645, 1.191, 0, 0, 0, 0, 0, 1, 0]);
       cam._otrCb = cm;
     });
   },
