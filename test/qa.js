@@ -66,6 +66,7 @@ const SCENARIOS = [
 ];
 
 const FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
+const A11Y = (process.env.QA_A11Y || '').split(',').filter(Boolean);   // e.g. large,colour (Settings → Accessibility)
 // On a laptop with two GPUs, Windows may hand a headless browser either one from day to day, and the frame rate
 // differs threefold between them. The suite asks for the high-performance GPU so the floor always measures the same
 // hardware; QA_GPU=default leaves the choice to the OS (on most laptops, the integrated GPU a trainee may have).
@@ -185,6 +186,24 @@ async function newPage(browser, row) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 720 });
   page.on('pageerror', e => row.errors.push('[pageerror] ' + String(e.message || e).split('\n')[0].slice(0, 180)));
+  // QA_A11Y=large,colour: every run with those accessibility settings on, set in the save as it loads
+  if (A11Y.length) {
+    await page.evaluateOnNewDocument((on) => {
+      const O = window.OTR = window.OTR || {};
+      let save;
+      Object.defineProperty(O, 'save', { configurable: true, get: () => save, set: (v) => {
+        save = v;
+        const pre = v.preload;
+        v.preload = function () {
+          return Promise.resolve(pre.apply(this, arguments)).then((r) => {
+            this.data.settings.a11y = Object.assign({ keys: {}, large: false, colour: false, narrate: false }, this.data.settings.a11y);
+            on.forEach(k => { this.data.settings.a11y[k] = true; });
+            return r;
+          });
+        };
+      } });
+    }, A11Y);
+  }
   // errors, and the warnings the game raises for broken content: a failed content check ([OTR data]), a
   // conversation or stop pointing at a node, act or situation that does not exist, an unknown scenario id
   const FAULT = /^\[(OTR data|talk|stop)\]|Unknown scenario/;
