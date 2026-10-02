@@ -67,6 +67,18 @@ the golden pass, auditing the layout at the moments they care about.
 - **`certificate`** sets up a trainee with 26 of 27 assessments passed (and the 27th left part-way): no certificate.
   They pass the last one through its brief, and the record then offers the certificate, which must name them, say
   27 of 27 and the date.
+- **`van-traffic`** puts the van where trainees leave it (stopped in a lane, across one, in a junction, over a stop
+  line, on the wrong side, at the curb, and 24 random spots and angles) and sends traffic at it, stepping frame by
+  frame: no car may drive into the van, a braked van may not be shoved, and a car stuck behind a van in its lane goes
+  round it.
+- **`drive-fuzz`** drives badly on purpose: seeded random input on every key, minutes at a time, in three towns with
+  traffic. Nothing may throw, the van stays finite and on the map, no car drives into it, no car is stuck for good.
+
+The long town flows (`route-legs`, `town-traffic`, `van-traffic`, `drive-fuzz`) step the drive's own logic without
+drawing every frame, so they run many times faster on a machine without a GPU.
+
+`test/tools/drive-session.js <outDir>` records a Road Hazards drive with the traffic live (screenshots and a log of
+violations and contacts), for reviewing the driving by eye.
 
 ## Golden paths
 

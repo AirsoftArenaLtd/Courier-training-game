@@ -95,8 +95,12 @@ class DrivingScene extends TownDriveScene {
 
   openIntro() {
     const C = this.content;
+    // as tall as its lines (a fixed 440 px put the last line under the button, and larger text ran off the card)
+    const probe = C.intro.lines.map(line => OTR.txt(this, 0, 0, line, 18, '#000', { ox: 0, oy: 0, bold: false, wrap: 720 - 140, lineSpacing: 3 }));
+    const linesH = probe.reduce((n, t) => n + t.height + 14, 0);
+    probe.forEach(t => t.destroy());
     OTR.ui.modal(this, {
-      title: C.intro.title, w: 720, h: 440, depth: 5000,
+      title: C.intro.title, w: 720, h: Math.min(OTR.H - 20, 96 + linesH + 96), depth: 5000,
       build: (box, api, w, h) => {
         let y = -h / 2 + 96;
         C.intro.lines.forEach(line => {
@@ -158,6 +162,9 @@ class DrivingScene extends TownDriveScene {
   /* ---------------------------------------------------------------- geometry helpers */
   fwd() { return { x: Math.cos(this.van.heading), y: Math.sin(this.van.heading) }; }
   right() { return { x: -Math.sin(this.van.heading), y: Math.cos(this.van.heading) }; }
+  /** The street's own direction nearest the van's heading: hazards are staged square to the street, not to the van. */
+  streetHeading() { return Math.round(this.van.heading / (Math.PI / 2)) * (Math.PI / 2); }
+  sright() { const h = this.streetHeading(); return { x: -Math.sin(h), y: Math.cos(h) }; }
   ahead(dist) {
     const F = this.fwd();
     return { x: this.van.x + F.x * dist, y: this.van.y + F.y * dist };
@@ -197,7 +204,9 @@ class DrivingScene extends TownDriveScene {
     if (this.mph() < 5) return;                                                       // rolling, so it means something
     // far enough ahead that a driver who reacts promptly can stop at the speed they are doing, and no further
     const dist = OTR.util.clamp(200 + Math.abs(v.u) * this.P * 1.25, 240, 500);
-    const p = this.ahead(dist);
+    // along the street, in the van's own lane (projected along the van's heading it could land in the other lane or
+    // on the curb when the van was a little off straight)
+    const p = { x: v.x + dir * dist, y: T.laneY(stop.lot.row, dir) };
     if (!T.onRoad(p.x, p.y)) return;
     if (T.vx.some(x => Math.abs(p.x - x) < R + 150)) return;                          // straight road, clear of junctions
     if ((stop.lot.park.x - p.x) * dir < 60) return;                                   // before the bay
@@ -214,7 +223,10 @@ class DrivingScene extends TownDriveScene {
   }
 
   clearHazard(hz) {
-    hz.objs.forEach(o => { if (o && o.destroy) o.destroy(); });
+    // its animations go with it (the door's kept running after the door was gone, and threw)
+    this.tweens.killTweensOf(hz);
+    hz.objs.forEach(o => { if (o) this.tweens.killTweensOf(o); if (o && o.destroy) o.destroy(); });
+    if (hz.blink) hz.blink.remove();
     hz.blockers.forEach(b => {
       const i = this.blockers.indexOf(b);
       if (i >= 0) this.blockers.splice(i, 1);
@@ -261,7 +273,7 @@ class DrivingScene extends TownDriveScene {
 
   /* ---- ball, then a child after it */
   spawn_ball(def, p) {
-    const S = this.right();
+    const S = this.sright();
     const hz = this.newHazard(def, { p, side: S, childOut: false });
     const from = { x: p.x + S.x * 230, y: p.y + S.y * 230 };
     const to = { x: p.x - S.x * 260, y: p.y - S.y * 260 };
@@ -321,16 +333,17 @@ class DrivingScene extends TownDriveScene {
 
   /* ---- parked car with a door about to open */
   spawn_door(def, p) {
-    const S = this.right(), A = OTR.townArt;
+    const S = this.sright(), A = OTR.townArt;
     const kerb = { x: p.x + S.x * (A.ROAD / 2 - 30), y: p.y + S.y * (A.ROAD / 2 - 30) };
     const hz = this.newHazard(def, { p: kerb });
-    const car = this.add.image(kerb.x, kerb.y, OTR.art.carTop(this, 0x3DA5FF)).setDepth(26).setScale(0.7, 0.88).setRotation(this.van.heading + Math.PI / 2);
+    const car = this.add.image(kerb.x, kerb.y, OTR.art.carTop(this, 0x3DA5FF)).setDepth(26).setScale(0.7, 0.88).setRotation(this.streetHeading() + Math.PI / 2);
     hz.objs.push(car);
     hz.car = car;
     hz.blockers.push(this.footprint(kerb.x, kerb.y, 95, 40, 'a parked car'));
     // the door hangs off the traffic side, hinged at the front of the car
-    const hinge = this.add.container(kerb.x - S.x * 19 + Math.cos(this.van.heading) * 16, kerb.y - S.y * 19 + Math.sin(this.van.heading) * 16).setDepth(27);
-    hinge.setRotation(this.van.heading + Math.PI);    // local +y then points out into the lane
+    const sh = this.streetHeading();
+    const hinge = this.add.container(kerb.x - S.x * 19 + Math.cos(sh) * 16, kerb.y - S.y * 19 + Math.sin(sh) * 16).setDepth(27);
+    hinge.setRotation(sh + Math.PI);    // local +y then points out into the lane
     const leaf = this.add.rectangle(0, 0, 4, 46, 0x3DA5FF).setOrigin(0.5, 0);
     const glass = this.add.rectangle(0, 8, 3, 22, 0x233A55).setOrigin(0.5, 0);
     hinge.add([leaf, glass]);
@@ -349,7 +362,7 @@ class DrivingScene extends TownDriveScene {
       OTR.audio.play('thud');
       this.tweens.add({
         targets: hz, reach: 20, duration: 420, ease: 'Back.easeOut',          // a car door: about 1 m out into the lane
-        onUpdate: () => { hz.leaf.setSize(4, 46).setScale(1, Math.max(0.02, hz.reach / 46)); }
+        onUpdate: () => { if (hz.leaf.active) hz.leaf.setSize(4, 46).setScale(1, Math.max(0.02, hz.reach / 46)); }
       });
     }
     if (!hz.judged && hz.opened) {
@@ -366,7 +379,7 @@ class DrivingScene extends TownDriveScene {
     }
     if (hz.judged && !hz.closing) {
       hz.closing = true;
-      this.tweens.add({ targets: hz, reach: 0, duration: 400, onUpdate: () => hz.leaf.setScale(1, Math.max(0.02, hz.reach / 46)) });
+      this.tweens.add({ targets: hz, reach: 0, duration: 400, onUpdate: () => { if (hz.leaf.active) hz.leaf.setScale(1, Math.max(0.02, hz.reach / 46)); } });
       this.time.delayedCall(2600, () => { hz.dead = true; });
     }
     if (hz.t > 18) hz.dead = true;
@@ -376,7 +389,7 @@ class DrivingScene extends TownDriveScene {
   spawn_water(def, p) {
     const hz = this.newHazard(def, { p, bad: 0, tIn: 0 });
     const A = OTR.townArt;
-    const pud = this.add.image(p.x, p.y, A.puddle(this, 260, 150)).setDepth(-83).setRotation(this.van.heading);
+    const pud = this.add.image(p.x, p.y, A.puddle(this, 260, 150)).setDepth(-83).setRotation(this.streetHeading());
     hz.objs.push(pud);
     hz.pud = pud;
     // The tyres ride up on the water the faster you go: plenty of grip at a crawl, almost none at 30 mph.
@@ -410,10 +423,10 @@ class DrivingScene extends TownDriveScene {
 
   /* ---- distracted pedestrian at a crossing */
   spawn_crosswalk(def, p) {
-    const S = this.right();
+    const S = this.sright();
     const hz = this.newHazard(def, { p, side: S });
     const A = OTR.townArt;
-    const deco = this.add.image(p.x, p.y, A.crosswalk(this)).setDepth(-86).setRotation(this.van.heading + Math.PI / 2);
+    const deco = this.add.image(p.x, p.y, A.crosswalk(this)).setDepth(-86).setRotation(this.streetHeading() + Math.PI / 2);
     hz.objs.push(deco);
     const from = { x: p.x + S.x * 210, y: p.y + S.y * 210 };
     const ped = this.add.image(from.x, from.y, A.pedTop(this, 0x3DA5FF)).setDepth(27);
@@ -451,11 +464,11 @@ class DrivingScene extends TownDriveScene {
 
   /* ---- school bus with the stop arm out */
   spawn_bus(def, p) {
-    const S = this.right(), A = OTR.townArt;
+    const S = this.sright(), A = OTR.townArt;
     const lane = { x: p.x - S.x * (A.ROAD / 4 + 10), y: p.y - S.y * (A.ROAD / 4 + 10) };
     const hz = this.newHazard(def, { p: lane, hold: 0 });
     // a school bus is about 2.6 m by 12 m (its body is 60 of the texture's 96 px; the rest is room for the stop arm)
-    const bus = this.add.image(lane.x, lane.y, A.busTop(this, false)).setDepth(28).setScale(0.87, 0.96).setRotation(this.van.heading - Math.PI / 2);
+    const bus = this.add.image(lane.x, lane.y, A.busTop(this, false)).setDepth(28).setScale(0.87, 0.96).setRotation(this.streetHeading() - Math.PI / 2);
     hz.objs.push(bus);
     hz.bus = bus;
     hz.half = 0.96 * 125;

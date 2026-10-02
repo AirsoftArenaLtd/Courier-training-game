@@ -22,6 +22,9 @@ module.exports = async (page, ctx) => {
     OTR.game.loop.sleep();
     window.__t = performance.now();
     window.__step = (n) => { for (let k = 0; k < n; k++) { window.__t += 1000 / 60; OTR.game.step(window.__t, 1000 / 60); } };
+    // the long stretches: the drive's own logic only, no drawing (the same frames, many times faster under a software
+    // renderer; key presses still go through __step, which is where the game reads the keyboard)
+    window.__stepFast = (n) => { const sc = OTR.game.scene.getScene('TownDriveScene'); for (let k = 0; k < n; k++) { window.__t += 1000 / 60; sc.sys.step(window.__t, 1000 / 60); } };
   })()`);
 
   const bad = [];
@@ -44,10 +47,10 @@ module.exports = async (page, ctx) => {
         s.cars.forEach(c => c.img.destroy()); s.cars.length = 0;
         s.peds.forEach(p => { p.t = 1e9; p.crossing = false; });
         window.__why = []; window.__toasts = [];
-        const t0 = s.toast.bind(s);
-        s.toast = (msg, ...rest) => { window.__toasts.push(msg); return t0(msg, ...rest); };
-        const v0 = s.violation.bind(s);
-        s.violation = (key, ...rest) => { window.__why.push(key); return v0(key, ...rest); };
+        if (!s.__qaToast) { s.__qaToast = s.toast; s.toast = (msg, ...rest) => { window.__toasts.push(msg); return s.__qaToast.call(s, msg, ...rest); }; }
+        // the scene object is reused for every leg: record its violations through one wrapper, not one per leg (a
+        // wrapper on a wrapper recorded each violation once per leg driven so far)
+        if (!s.__qaViolation) { s.__qaViolation = s.violation; s.violation = (key, ...rest) => { window.__why.push(key); return s.__qaViolation.call(s, key, ...rest); }; }
         window.__bot = QA_AUTODRIVE.create(s).goTo(s.activeStop.lot);
         // the scene object is reused for every leg and keeps its listeners: drop the last leg's autopilot first
         if (window.__botHook) s.events.off('update', window.__botHook);
@@ -60,7 +63,7 @@ module.exports = async (page, ctx) => {
       if (await ctx.eval(`OTR.game.scene.getScene('TownDriveScene').lightsWanted`)) await page.keyboard.press('KeyL');
       await ctx.eval('__step(2)');
       let status = 'driving';
-      for (let n = 0; n < 100 && status === 'driving'; n++) status = await ctx.eval('(__step(240), window.__bot.status)');
+      for (let n = 0; n < 100 && status === 'driving'; n++) status = await ctx.eval('(__stepFast(240), window.__bot.status)');
       const where = `day ${day} (${weather}) leg ${i + 1} (${leg})`;
       if (status !== 'arrived') { bad.push(`${where}: autopilot ${status}, violations ${JSON.stringify(await ctx.eval('window.__why'))}`); break; }
       await ctx.eval('__step(10)');                          // settle on the brake

@@ -218,6 +218,23 @@ window.QA_AUTODRIVE = (function () {
       if (bot.status !== 'driving' || scene.parked || scene.leaving) { press(); return; }
       // pulling away from the curb: a glance in the mirrors first (M), as a trainee must
       if (scene.pullOut && scene.pullOut.pending && scene.elapsed - scene.mirrorAt > 4) OTR.driveAids.checkMirrors(scene);
+      // …and the left indicator, then each turn's indicator from 300 px before it (Q left, E right)
+      if (scene.setSignal) {
+        let want = scene.pullOut && scene.pullOut.pending ? 'left' : null;
+        if (!want && !(bot.pts[bot.i] && bot.pts[bot.i].turn)) {          // (not again once the turn has begun)
+          let k = bot.i, d = 0;
+          while (k < bot.pts.length - 2 && d < 300 && !bot.pts[k].turn) { d += Math.hypot(bot.pts[k + 1].x - bot.pts[k].x, bot.pts[k + 1].y - bot.pts[k].y); k++; }
+          if (bot.pts[k] && bot.pts[k].turn && k > 0) {
+            let m = k;
+            while (m < bot.pts.length - 2 && bot.pts[m + 1].turn) m++;
+            const b0 = bot.pts[Math.max(0, k - 1)], b1 = bot.pts[k], a0 = bot.pts[m], a1 = bot.pts[m + 1];
+            const bx = b1.x - b0.x, by = b1.y - b0.y, ax = a1.x - a0.x, ay = a1.y - a0.y;
+            const cr = bx * ay - by * ax;
+            if (Math.abs(cr) > 1e-3 * Math.hypot(bx, by) * Math.hypot(ax, ay)) want = cr > 0 ? 'right' : 'left';
+          }
+        }
+        if (want && scene.signal !== want) scene.setSignal(want);
+      }
       const v = scene.van, g = v.g;
       // progress along the path
       let best = bot.i, bd = 1e9;

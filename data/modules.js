@@ -45,7 +45,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Six checkpoints across town with something waiting on every leg: a ball in the road, a door swinging open, standing water, a school bus. You drive, and your speed and clearance are the answer.',
         learn: ['Covering the brake where children play', 'Clearance past parked cars', 'Hydroplaning: ease off, steer straight', 'Stopping for a school bus', 'Crossings, headlights and distraction'],
-        controls: 'W accelerate · S brake (to reverse: stop, lift off, then hold S) · A D steer · M mirrors (before pulling out) · B belt · L lights · G look before backing · SPACE parking brake, then P to park'
+        controls: 'W accelerate · S brake · A D steer · Q E signal left/right · M mirrors · R reverse (stopped) · B belt · L lights · G look before backing · SPACE parking brake, then P to park'
       },
       {
         id: 'm1-spot',

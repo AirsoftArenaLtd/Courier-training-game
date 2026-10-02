@@ -133,6 +133,113 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     const green = await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { stopped: s.approach && s.approach.stopped, hint: s._hint }; });
     check(green.stopped && /look both ways/.test(green.hint || ''), `a stop behind the line turns the sign green: ${JSON.stringify(green)}`);
 
+    /* ---- the indicators: Q left, E right, the same key cancels; turns and pull-outs are judged on them */
+    await fresh();
+    await p.keyboard.press('KeyE'); await wait(150);
+    const sig1 = await ev(() => OTR.game.scene.getScene('TownDriveScene').signal);
+    await p.keyboard.press('KeyE'); await wait(150);
+    const sig2 = await ev(() => OTR.game.scene.getScene('TownDriveScene').signal);
+    await p.keyboard.press('KeyQ'); await wait(400);
+    const sig3 = await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { sig: s.signal, lamps: s.blinkLamps.length === 2 }; });
+    check(sig1 === 'right' && sig2 === null && sig3.sig === 'left' && sig3.lamps, `E signals right, E again cancels, Q signals left (${sig1}, ${sig2}, ${sig3.sig})`);
+    // pulling out with the left indicator and the mirrors: both ticks
+    await p.keyboard.press('KeyM'); await wait(150);
+    await cruise(3, 1500, { heading: 0 });
+    st = await state();
+    check(!st.v.signal && st.items.includes('Signaled before pulling out'), 'pulling out with the left indicator on is a tick');
+    await fresh();
+    await p.keyboard.press('KeyM'); await wait(150);
+    await cruise(3, 1500, { heading: 0 });
+    st = await state();
+    check(st.v.signal === 1, 'pulling out without signaling is a violation');
+    // a turn at a junction: judged as the van leaves it, against the indicator it went in with
+    const turns = await ev(() => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, out = [];
+      const judge = (h0, h1, sig, sigFor) => { s.lastViolationAt.signal = -99; const n0 = s.violations.signal || 0; v.heading = h1; s.judgeSignal({ heading0: h0, sig, sigFor }); return (s.violations.signal || 0) - n0; };
+      out.push(judge(0, Math.PI / 2, null, 0));        // right, no signal
+      out.push(judge(0, Math.PI / 2, 'right', 2));     // right, signalled
+      out.push(judge(0, -Math.PI / 2, 'right', 2));    // left, wrong indicator
+      out.push(judge(0, Math.PI / 2, 'right', 0.3));   // right, too late
+      out.push(judge(0, 0.1, null, 0));                // straight on: nothing needed
+      return out;
+    });
+    check(JSON.stringify(turns) === '[1,0,1,1,0]', `turns: unsignalled, wrong side or late are violations; signalled or straight on are not (${turns})`);
+
+    /* ---- pulled over means the right-hand curb: the left-hand one (the wrong side) doesn't count */
+    await fresh();
+    const curbs = await ev(() => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, R = OTR.townArt.ROAD / 2, P = s.P;
+      const line = s.T.hy[1]; v.heading = 0; v.u = 0;
+      const at = (y) => { const bc = OTR.vehicle.bodyCentre(v); v.y += y - bc.y; return OTR.driveAids.axis(s).gap; };
+      return { right: at(line + R - v.g.hw * P - 10), left: at(line - R + v.g.hw * P + 10) };
+    });
+    check(curbs.right < 1 && curbs.left > 50, `the right-hand curb counts as pulled over, the left-hand one doesn't (${JSON.stringify(curbs)})`);
+
+    /* ---- traffic keeps to a school zone's limit */
+    await fresh();
+    const school = await ev(() => new Promise(res => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), T = s.T, z = T.spec.schoolZone;
+      if (!z) { res(null); return; }
+      // a car of its own (the lab's traffic is cleared for these checks)
+      const c = { img: s.add.image(0, 0, OTR.art.carTop(s, 0x3DA5FF)).setDepth(28).setScale(0.7, 0.88), maxSpeed: 215, hl: 47.5, hw: 19.5, cleared: null, plan: 'straight', planFor: null };
+      s.cars.length = 0; s.cars.push(c);
+      c.h = true; c.dir = 1; c.row = z.row; c.turn = null; c.off = 0; c.wait = 0; c.holding = null;
+      c.x = (T.vx[z.from] + T.vx[z.from + 1]) / 2 - 150; c.y = T.laneY(z.row, 1); c.heading = 0; c.speed = 100; c.maxSpeed = 215;
+      let top = 0;
+      const f = () => { if (T.inSchoolZone(c.x, c.y)) top = Math.max(top, c.speed); };
+      s.events.on('postupdate', f);
+      setTimeout(() => { s.events.off('postupdate', f); res({ topMph: top / s.P * OTR.vehicle.MPH, limit: T.spec.schoolLimit }); }, 6000);
+    }));
+    check(!school || school.topMph <= school.limit + 0.5, `traffic keeps to the school zone's limit (${school && school.topMph.toFixed(1)} in a ${school && school.limit})`);
+
+    /* ---- a four-way stop: the van got there first, so the car waits while it goes */
+    await fresh();
+    const fourWay = await ev(() => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), T = s.T, it = T.inters.find(i => i.stop && i.col > 0 && i.row > 0), R = OTR.townArt.ROAD / 2;
+      const c = {};
+      s.approach = { it, dir: 'W', stopped: true, stoppedAt: 1, entered: false };
+      c.cleared = it; c.stoppedAt = 5;                  // the car stopped at its own line after the van
+      const v = s.van; v.u = 2;                          // the van pulling away into the junction
+      const before = s.vanHasJunction(it, c);
+      c.stoppedAt = 0.5;                                 // had the car stopped first, it goes first
+      const after = s.vanHasJunction(it, c);
+      return { vanFirst: before, carFirst: after };
+    });
+    check(fourWay.vanFirst === true && fourWay.carFirst === false, `four-way stop: first to stop goes first, the van included (${JSON.stringify(fourWay)})`);
+
+    /* ---- the following-distance readout */
+    await fresh();
+    await ev(() => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van;
+      s.pullOut.pending = false; v.heading = 0;
+      s.stepCars = () => {};
+      const img = s.add.image(0, 0, OTR.art.carTop(s, 0x3DA5FF)).setDepth(28).setScale(0.7, 0.88);
+      const car = { img, x: 0, y: 0, heading: 0, speed: 0, hl: 47.5, hw: 19.5, fake: true };
+      s.cars.length = 0; s.cars.push(car);
+      s.events.on('postupdate', () => { const bc = OTR.vehicle.bodyCentre(v); car.x = bc.x + v.g.hl * s.P + 47.5 + 300; car.y = bc.y; img.setPosition(car.x, car.y); });
+    });
+    await cruise(9, 3000, { heading: 0 });
+    const gapShown = await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { on: s.gapPill.visible, text: s.gapText.text }; });
+    check(gapShown.on && /^\d+\.\d s behind$/.test(gapShown.text), `the following distance shows beside the speedometer ("${gapShown.text}")`);
+
+    /* ---- trees are solid */
+    await fresh();
+    const tree = await ev(() => new Promise(res => {
+      const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, P = s.P;
+      // a tree out on a lawn, with clear grass in front of it (one by the map's edge put the van off the map)
+      const t = s.blockers.find(b => b.what === 'a tree' && b.x > 400 && b.x < s.T.W - 400 && !s.blockers.some(o => o !== b && o.x < b.x && o.x + o.w > b.x - 260 && o.y < b.y + b.h + 60 && o.y + o.h > b.y - 60));
+      s.pullOut.pending = false; v.heading = 0; v.u = 0;
+      const bc = OTR.vehicle.bodyCentre(v); v.x += (t.x - 140) - bc.x; v.y += (t.y + t.h / 2) - bc.y;
+      const f = () => { v.u = Math.max(v.u, 3); v.lat = 0; v.r = 0; v.heading = 0; };
+      s.events.on('postupdate', f);
+      setTimeout(() => {
+        s.events.off('postupdate', f);
+        const front = OTR.vehicle.point(v, v.g.nose, 0).x;
+        res({ front: Math.round(front), trunk: t.x, hit: s.log.items.some(i => /a tree/.test(i.label)) || (s.violations.crash || 0) > 0 });
+      }, 5000);
+    }));
+    check(tree.front <= tree.trunk + 2, `driving into a tree stops at its trunk (front ${tree.front}, trunk ${tree.trunk})`);
+
     check(!errors.length, 'no page errors' + (errors.length ? ': ' + errors.join(' / ') : ''));
   } catch (e) {
     check(false, 'script error: ' + (e && e.stack || e));
