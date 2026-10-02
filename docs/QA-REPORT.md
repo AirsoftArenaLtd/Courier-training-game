@@ -977,6 +977,76 @@ Drive map from Results). Both pass. Writing them found two faults, and the owner
 
 ---
 
+## Driving overhaul (2 October 2026)
+
+The owner asked for the driving to be overhauled, reviewed and tested, starting from one thing they saw: cars driving
+straight into the van and pushing it out of the way. The driving code was read end to end, every new behaviour was
+staged and watched, a careless driver was simulated, and the town tests were made fast enough to run every time.
+
+### Cars driving into the van
+
+**Found:** a car looked for the van at eight points on its body (corners, mid-sides, centre) inside a strip straight
+ahead about 3 m wide. The van is 6.7 m long, so a van stopped across or at an angle to a lane could fill it with none
+of those points in the strip, and the car drove in. The collision physics then shoved the van (it weighs 5.4 t, the
+car 1.5 t, but the car kept driving every frame). A car mid-turn didn't look along its arc at all, and a car's drift
+back into its lane after easing round a van slid it sideways into the van's side when the van pulled out. And the van
+was blamed: "a car hit you while you were stopped" was judged on the van's speed after the impact had already moved
+it, so a stopped van that was hit was logged as a 7 mph collision.
+
+**Now:** each car sweeps its own body along the path it is about to drive (its lane, the turn it is about to take, the
+arc it is on) and stops short of the first place it would touch the van, or where the van will be in a moment; a car
+never makes a move that takes it into the van; the blame uses the van's speed before the impact. A car kept waiting by
+a van stopped mid-block honks ("Horn behind you: you're stopped in a traffic lane"), then goes round it once the other
+lane is clear for the whole pass.
+
+**Tested by** `van-traffic`: the van left in a lane, across one, across both, stalled in a junction, over a stop
+line, on the wrong side, at the curb, creeping across a junction, pulling out, driving slowly, turning, and at 24
+random spots and angles, with cars sent at it from every direction. On the old code it fails (cars drove into the van
+at random spots and the braked van was shoved 8 px); on the new code no car touches it and the car behind goes round.
+A recorded Road Hazards drive on the old code reproduced the owner's report: a car easing round the stopped van drove
+into it, and the trainee was charged with the collision.
+
+### Also found and fixed
+
+- **Traffic:**
+  - Ignored school zones: cars did 19 to 24 mph through a 15 zone.
+  - Only cars took turns at four-way stops: now first to stop goes first, the van included.
+  - Ignored the ambulance: cars now pull in and slow down for it.
+  - Gave no warning of a turn: cars now flash their indicators before they turn.
+- **Rules:**
+  - "Pulled over" didn't check the side of the road: stopping at the left-hand curb counted for a break, the
+    ambulance and reading a dispatch message.
+  - New: indicators (Q left, E right), cancelling themselves after the turn. A turn at a junction without the right
+    signal, or signalled too late, is a minor violation, and so is pulling out without the left signal. The signal
+    carries on into a turn just ahead after a pull-out.
+- **Road Hazards:**
+  - The car-door hazard threw an error when it was cleared while its door was still opening.
+  - Hazards were placed along the van's heading, so a van a little off straight put them in the other lane or on the
+    curb, and drew them at a slant: they are now staged square to the street, in the van's lane.
+  - The intro card's text ran under its button (and off the card with larger text): it now sizes to its text.
+  - The brief's controls line still described the old reverse ("lift off, then hold S").
+- **Screen:**
+  - The mirror views covered the sign hints and messages along the top: they are at the screen's edges now.
+  - The controls line ran into BELT OFF with larger text.
+  - New: a following-distance readout beside the speedometer ("2.4 s behind", red under 2, amber under 4).
+- **The town:** trees had no trunk (a van off the road drove through them) and were drawn under the van: they are solid
+  now, with the canopy over the van.
+
+The handling itself was measured against its targets and left alone: 0 to 25 mph in 8.2 s, 25 mph to a stop in 13.8 m,
+about a 6.2 m turning radius at walking pace, a 35 mph governor.
+
+### Tests
+
+- `van-traffic` and `drive-fuzz` (a careless driver: seeded random input on every key for minutes in three towns, with
+  traffic; nothing throws, the van stays on the map, no car drives into it, none is stuck for good) are new flows.
+- `test/driving.js` checks the indicators, pull-outs and turns, the right-hand curb, school zones, four-way stops, the
+  following readout and the trees.
+- `route-legs`, `town-traffic`, `van-traffic` and `drive-fuzz` now step the drive's logic without drawing every frame.
+  The full suite fits in about an hour on this GPU-less test machine (route-legs alone took over two hours before).
+- `test/tools/drive-session.js` records a drive with traffic, for watching.
+
+---
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was

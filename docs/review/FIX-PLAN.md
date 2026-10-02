@@ -419,3 +419,10 @@ Findings: SHELL-1 to SHELL-4, SHELL-6, SHELL-7, SHELL-11 to SHELL-15, SHELL-17 t
 - **2026-10-02, golden paths for the new screens; the quizzes.** `academy-screens` and `drive-review` flows. Fixed:
   the trainer tools stay locked after Done; Print / PDF hands the keyboard back; the quiz answers no longer give
   themselves away by length or font size (owner's find), with a content check against it.
+- **2026-10-02, the driving overhaul.** Details in the QA report's "Driving overhaul". Cars no longer drive into the
+  van or shove it (they sweep their path for it, never move into it, and go round a van stopped in their lane); a
+  stopped van that is hit is no longer blamed. Also: traffic keeps to school zones, takes turns with the van at
+  four-way stops, pulls over for the ambulance and signals its turns; indicators for the van (Q/E) with their rules;
+  "pulled over" means the right-hand curb; Road Hazards' door hazard no longer throws, hazards are staged square to the
+  street, its intro fits; mirrors moved off the hints; a following-distance readout; solid trees. New flows
+  `van-traffic` and `drive-fuzz`; the long town flows run without drawing every frame.
