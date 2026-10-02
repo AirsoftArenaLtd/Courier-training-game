@@ -28,7 +28,10 @@ module.exports = async (page, ctx) => {
     { id: 'nose over the stop line', at: 'line', lane: 1, heading: 0 },
     { id: 'stopped in the oncoming lane', at: 'mid', lane: -1, heading: 0 },
     { id: 'parked at the curb', at: 'mid', lane: 1.8, heading: 0 },
-    { id: 'creeping across a junction', at: 'creep', lane: 1, heading: 0 }
+    { id: 'creeping across a junction', at: 'creep', lane: 1, heading: 0 },
+    { id: 'pulling out from the curb as a car passes', at: 'mid', lane: 1.8, heading: 0, script: 'pullout' },
+    { id: 'driving slowly along its lane', at: 'mid', lane: 1, heading: 0, script: 'slow' },
+    { id: 'turning right at a junction', at: 'line', lane: 1, heading: 0, script: 'right' }
   ];
   const bad = [], report = [];
   for (const k of cases) {
@@ -72,7 +75,8 @@ module.exports = async (page, ctx) => {
       put(cars[7], true, -1, it.row, it.col, 900, 'left');                     // westbound, turning left (south)
       cars.forEach(c => c.img.setPosition(c.x, c.y));
       // the van: held on the brake, or creeping at walking pace straight across
-      s.held = K.at === 'creep' ? {} : { KeyS: true };
+      s.held = K.at === 'creep' || K.script ? {} : { KeyS: true };
+      if (K.script === 'pullout') { put(cars[0], true, 1, it.row, it.col, T.spec.cell / 2 + 330); cars[0].img.setPosition(cars[0].x, cars[0].y); }
       const corners = (o) => { const f = { x: Math.cos(o.h), y: Math.sin(o.h) }, rt = { x: -f.y, y: f.x };
         return [[1, 1], [1, -1], [-1, -1], [-1, 1]].map(([a, b]) => ({ x: o.x + f.x * o.hl * a + rt.x * o.hw * b, y: o.y + f.y * o.hl * a + rt.y * o.hw * b })); };
       const overlap = (A, B) => {
@@ -85,23 +89,35 @@ module.exports = async (page, ctx) => {
       let pushed = 0, creepT = 0;
       const frames = ${SECONDS} * 60;
       for (let f = 0; f < frames; f++) {
-        if (K.at === 'creep') {
+        const tt = f / 60;
+        if (K.script === 'pullout') {
+          // a glance would have shown the car: pull out anyway, as the trainee did
+          s.held = tt < 1 ? { KeyS: true } : tt < 2.2 ? { KeyW: true, KeyA: true } : tt < 3.2 ? { KeyW: true, KeyD: true } : V.mph(v) > 9 ? {} : { KeyW: true };
+        } else if (K.script === 'slow') {
+          s.held = V.mph(v) < 7 ? { KeyW: true } : {};
+        } else if (K.script === 'right') {
+          s.held = tt < 3 ? { KeyS: true } : tt < 4.4 ? (V.mph(v) < 6 ? { KeyW: true } : {}) : tt < 7.5 ? (V.mph(v) < 6 ? { KeyW: true, KeyD: true } : { KeyD: true }) : V.mph(v) < 9 ? { KeyW: true } : {};
+        } else if (K.at === 'creep') {
           // walking pace across the junction and on, then stop on the far side
           const pastX = it.x + R + 260;
           if (V.bodyCentre(v).x < pastX) { s.held = v.u > 1.4 ? { KeyS: true } : {}; } else s.held = { KeyS: true };
         }
         const before = { x: v.x, y: v.y };
+        const carsBefore = s.cars.map(c => ({ x: c.x, y: c.y }));
         __step(1);
         const vb = V.bodyCentre(v), van = { x: vb.x, y: vb.y, h: v.heading, hl: v.g.hl * P, hw: v.g.hw * P };
         s.cars.forEach((c, i) => {
           if (!overlap(van, { x: c.x, y: c.y, h: c.heading, hl: c.hl, hw: c.hw })) return;
-          contacts.push({ car: i, t: +(f / 60).toFixed(2), carSpeed: Math.round(c.speed), vanMph: +V.mph(v).toFixed(1), turning: !!c.turn });
+          // the car's own move this frame, towards the van or not (the van shoving a car moves it away)
+          const b = carsBefore[i], mx = c.x - b.x, my = c.y - b.y, tx = vb.x - b.x, ty = vb.y - b.y;
+          const towards = (mx * tx + my * ty) / Math.max(1, Math.hypot(tx, ty));
+          contacts.push({ car: i, t: +(f / 60).toFixed(2), carSpeed: Math.round(c.speed), towards: +towards.toFixed(2), vanMph: +V.mph(v).toFixed(1), turning: !!c.turn, off: Math.round(c.off || 0) });
         });
         // a van held on the brake should not move at all
-        if (K.at !== 'creep') pushed = Math.max(pushed, Math.hypot(v.x - start.x, v.y - start.y));
+        if (K.at !== 'creep' && !K.script) pushed = Math.max(pushed, Math.hypot(v.x - start.x, v.y - start.y));
       }
       // contacts the cars caused: any where the car was moving (the van creeping at walking pace across is in plain sight)
-      const byCar = contacts.filter(c => c.carSpeed > 8);
+      const byCar = contacts.filter(c => c.carSpeed > 8 || c.towards > 0.2);
       return { contacts: contacts.length, byCar: byCar.length, first: byCar.slice(0, 3), pushedPx: Math.round(pushed),
         stuck: s.cars.filter(c => c.speed < 1).length };
     })()`);
