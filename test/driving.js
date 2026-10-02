@@ -155,7 +155,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     // a turn at a junction: judged as the van leaves it, against the indicator it went in with
     const turns = await ev(() => {
       const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, out = [];
-      const judge = (h0, h1, sig, sigFor) => { const n0 = s.violations.signal || 0; v.heading = h1; s.judgeSignal({ heading0: h0, sig, sigFor }); s.lastViolationAt.signal = -99; return (s.violations.signal || 0) - n0; };
+      const judge = (h0, h1, sig, sigFor) => { s.lastViolationAt.signal = -99; const n0 = s.violations.signal || 0; v.heading = h1; s.judgeSignal({ heading0: h0, sig, sigFor }); return (s.violations.signal || 0) - n0; };
       out.push(judge(0, Math.PI / 2, null, 0));        // right, no signal
       out.push(judge(0, Math.PI / 2, 'right', 2));     // right, signalled
       out.push(judge(0, -Math.PI / 2, 'right', 2));    // left, wrong indicator
@@ -180,10 +180,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     const school = await ev(() => new Promise(res => {
       const s = OTR.game.scene.getScene('TownDriveScene'), T = s.T, z = T.spec.schoolZone;
       if (!z) { res(null); return; }
-      const c = s.cars[0];
+      // a car of its own (the lab's traffic is cleared for these checks)
+      const c = { img: s.add.image(0, 0, OTR.art.carTop(s, 0x3DA5FF)).setDepth(28).setScale(0.7, 0.88), maxSpeed: 215, hl: 47.5, hw: 19.5, cleared: null, plan: 'straight', planFor: null };
+      s.cars.length = 0; s.cars.push(c);
       c.h = true; c.dir = 1; c.row = z.row; c.turn = null; c.off = 0; c.wait = 0; c.holding = null;
       c.x = (T.vx[z.from] + T.vx[z.from + 1]) / 2 - 150; c.y = T.laneY(z.row, 1); c.heading = 0; c.speed = 100; c.maxSpeed = 215;
-      s.cars.slice(1).forEach(o => { o.x = -9999; o.y = -9999; o.speed = 0; o.wait = 99; });
       let top = 0;
       const f = () => { if (T.inSchoolZone(c.x, c.y)) top = Math.max(top, c.speed); };
       s.events.on('postupdate', f);
@@ -195,7 +196,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await fresh();
     const fourWay = await ev(() => {
       const s = OTR.game.scene.getScene('TownDriveScene'), T = s.T, it = T.inters.find(i => i.stop && i.col > 0 && i.row > 0), R = OTR.townArt.ROAD / 2;
-      const c = s.cars[0];
+      const c = {};
       s.approach = { it, dir: 'W', stopped: true, stoppedAt: 1, entered: false };
       c.cleared = it; c.stoppedAt = 5;                  // the car stopped at its own line after the van
       const v = s.van; v.u = 2;                          // the van pulling away into the junction
@@ -225,7 +226,8 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await fresh();
     const tree = await ev(() => new Promise(res => {
       const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, P = s.P;
-      const t = s.blockers.find(b => b.what === 'a tree');
+      // a tree out on a lawn, with clear grass in front of it (one by the map's edge put the van off the map)
+      const t = s.blockers.find(b => b.what === 'a tree' && b.x > 400 && b.x < s.T.W - 400 && !s.blockers.some(o => o !== b && o.x < b.x && o.x + o.w > b.x - 260 && o.y < b.y + b.h + 60 && o.y + o.h > b.y - 60));
       s.pullOut.pending = false; v.heading = 0; v.u = 0;
       const bc = OTR.vehicle.bodyCentre(v); v.x += (t.x - 140) - bc.x; v.y += (t.y + t.h / 2) - bc.y;
       const f = () => { v.u = Math.max(v.u, 3); v.lat = 0; v.r = 0; v.heading = 0; };
