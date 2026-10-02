@@ -14,6 +14,12 @@ wiggle). On the owner's laptop's Intel UHD graphics every scenario now runs at 1
 of 60.
 See [Second pass](#second-pass-24-september-2026).
 
+**Third pass:** 2 October 2026. The whole feature backlog was built (assessment mode, the trainee record,
+company sign-in with saved progress, quizzes, the drive review map, dispatch messages, three new scenarios and
+more; see `docs/FEATURE-BACKLOG.md`), and the FedEx name was taken out: the game is now just "On The Route". The
+full suite and four new feature tests pass on the build that went to `main`.
+See [Third pass](#third-pass-2-october-2026).
+
 ---
 
 ## How this was tested
@@ -40,6 +46,15 @@ Four *flows* run alongside the scenarios, for what no single scenario covers:
 | **route-legs** | every leg of the first ten route days (50 legs), in each day's weather, driven by the autopilot: every stop the generator produces must be reached with no violation and parked neatly |
 | **town-traffic** | four towns left to run for minutes at a time with no player, checking every frame that no two cars overlap, none leaves the road or takes the wrong lane, none is stuck, nobody is left standing in a lane, and the two streets of a traffic light are never both let through |
 | **hub-briefs** | every scenario's brief, opened from the hub: it must fit on screen with nothing running together |
+
+Since the third pass, four more tests check the new features directly (`cd test && node <name>.js`):
+
+| Test | What it checks |
+| --- | --- |
+| **enterprise** | sign-in from the company server, a launch link or an LMS; progress saved to and loaded from the server; the trainer PIN and its lockout; a trainer listing, reading and resetting trainees |
+| **academy** | assessment mode (pass marks, attempts, a critical error or a quit is a fail), quizzes, the refresher, the mistake drill, and the record read back from the server |
+| **driving** | mirrors before pulling out, the parking brake, following distance, the ambulance, and stop signs (a slow roll is caught, a proper stop turns green) |
+| **routeday** | the weather-gear question, a dispatch message (TAB at the wheel is a violation, P at the curb reads it), a break, resuming mid-drive, and the incident report in the post-trip |
 
 ---
 
@@ -71,6 +86,9 @@ Four *flows* run alongside the scenarios, for what no single scenario covers:
 | m8-dog · Dog Encounter | ✅ 3 stops (owner at the gate, charging dog, fearful dog), full marks | fixed | **full marks were unreachable**: backing away from a charging dog (the recommended play) cost the "made a real attempt at the door" point; a dog secured at one stop silenced dogs at later stops |
 | m8-heat · Heat Wave | ✅ 3 stops, drinking and cooling off, full marks | clean | the sun's glare bleeding off the top edge was flagged as off-canvas UI; it is light, not UI, and the audit now treats it that way |
 | m8-incident · After a Fender-Bender | ✅ recommended answers → good ending, full marks | fixed | dispatch on the radio walked on stage as a person |
+| m1-spot · Spot the Hazard (new) | ✅ 5 clips, each spotted just after its first clue, full marks | new | staging: the van started inside parked cars and junctions; the reversing car now backs out of a real driveway |
+| m3-doorsteps · Tricky Doorsteps (new) | ✅ 3 stops (an angry customer with a 68 lb box, a Spanish speaker, a "neighbor" after a signature package), full marks | new | the test path recorded "nobody home" after the neighbor without knocking first, and rightly lost the point; it now knocks |
+| m4-recover · Put It Right (new) | ✅ recommended answers → good ending, full marks | new | the recommended answer was the longest in every decision (the content check caught it); lengths now vary |
 | Route day (brief → pre-trip → load → drive → stops → debrief) | ✅ a whole day as a new courier, with a reload and Resume half way, full marks | fixed | route stops posed as a practice scenario (wrong title, safety hidden from their reports); Restart turned a route stop into a practice set; notes the stop could not honour; the day was not reproducible; see Route day below |
 | Hub, results, pause, title | ✅ every scenario's brief opened from the hub (`hub-briefs`); the route day and the restart checks | fixed | ENTER on a scenario's brief started the route day instead; three briefs ran their controls under the star ratings; Restart and Quit fixes (see Cross-cutting and Hub below) |
 | The town, and every route leg of days 1–10 (`route-legs`) | ✅ 50 legs in the day's weather, driven and parked neatly, no violations; the layout checked on 40 days' towns | fixed | the station stood in 2nd St on top of two addresses; big buildings ran into their neighbours and onto sidewalks; houses drawn larger than their collision boxes; see The town below |
@@ -865,6 +883,62 @@ The befores are the testers' screenshots, and the afters are the finished build 
 | 04 | <img src="qa2/04-hub-first-visit-before.png" width="360"> | <img src="qa2/04-hub-first-visit-after.png" width="360"> | A new hire's first hub. There is now a NEXT scenario, and ENTER opens it instead of the route day. The stat tiles have labels, the day badge is a flat label, the minimum text size is 13 px, and the Safety card uses the same type as the others. |
 | 05 | <img src="qa2/05-brief-best-line-before.png" width="360"> | <img src="qa2/05-brief-best-line-after.png" width="360"> | Scenario brief. The best-score line was printed over the blurb. Now it is in the header, and the categories are in one order (Safety · Efficiency · Service). |
 | 06 | <img src="qa2/06-pause-menu-before.png" width="360"> | <img src="qa2/06-pause-menu-after.png" width="360"> | The pause menu. It gained a Controls card, confirmations on Restart and Quit, key hints (ESC, C, R, Q), and "Quit to the station" for the screen the hub is. |
+
+---
+
+## Third pass (2 October 2026)
+
+The feature backlog the owner and Claude agreed (`docs/FEATURE-BACKLOG.md`, which says where each feature is in the
+game), and then the FedEx name taken out.
+
+### What was added
+
+- **Company setup.** One trainee per sign-in, no profile picker. The trainee comes from the company server's login
+  header, a launch link (`?user=`) or a SCORM LMS; progress is saved to the server (or the LMS) with a local backup,
+  so it follows the trainee to any PC. `server/server.js` is a plain Node server with no packages to install; see
+  the README's "Running it at a company".
+- **Trainer settings** behind a PIN: practice, assessment or both; pass marks; attempts; the refresher interval; a
+  list of trainees with their records, and a reset.
+- **Assessment mode**: hints and coaching off, limited attempts, a pass mark per category, any critical error or a
+  quit is a fail.
+- **The trainee record** (print or PDF), a certificate once every assessment is passed, quizzes, the refresher, the
+  mistake drill.
+- **Driving**: mirrors (M) and the pull-out check, the rear camera and G.O.A.L., the parking brake, following
+  distance, the ambulance, the drive review map with a pin at every mistake.
+- **Route days**: dispatch messages, variety, weather gear, breaks and fatigue, the post-trip (fuel, the van,
+  returns and the scanner, and an incident report after a crash), and resuming mid-drive.
+- **Three scenarios**: Spot the Hazard, Tricky Doorsteps and Put It Right.
+- **Accessibility**: key remapping, larger text, a color-blind filter, and cards read aloud.
+
+### The FedEx name
+
+The company name is one setting, `brand` in `data/config.js`, now empty. The title screen shows "ON THE ROUTE" on its
+own, the van sides read "ON THE ROUTE", the depot sign "DELIVERY STATION", and the record drops the name. FedEx's
+service names became Early AM, Priority AM, Standard and Economy. The colors and style are unchanged. A company can
+put its own name back in `brand`.
+
+### Verification
+
+- **The feature build (merged to `main`):** all 27 scenarios clean, the route day, the hub briefs, the town's traffic,
+  and all 50 route legs (run in three parts: days 1, 2–5 and 6–10), then the four feature tests. Content validation
+  ran with every scenario.
+- **The rebrand (merged to `main` after it):** Route Planner, Proof of Delivery, Road Hazards and the hub briefs, and
+  screenshots of the title screen, the hub, the van at a doorstep, the depot sign and the printed record.
+- **Fixed along the way:** Put It Right's recommended answers were always the longest (a content check). Two tests
+  were wrong, not the game: the doorstep path skipped the knock after the neighbor, and the driving test rolled at
+  the stop sign for a fixed time that a slower machine didn't cover (it now rolls until the van is past the line).
+
+### Running the suite now
+
+The test machine for this pass had no GPU (software rendering, 9–21 fps), so a full run takes over two hours,
+mostly `route-legs` (about 15–20 minutes a day) and `town-traffic` (about 50 minutes). `QA_ROUTE_FROM` and
+`QA_ROUTE_DAYS` split the route legs into parts. On a machine with a GPU it is much quicker.
+
+### Not covered
+
+- The new screens (Trainer, Record, Quizzes, Accessibility, Drive review) have their logic tested but no golden
+  path; they were checked by eye while being built, except the Accessibility screen. Larger text and the color filter were not audited screen by screen.
+- The company server was tested with its own test client, not behind a real company login or LMS.
 
 ---
 
