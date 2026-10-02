@@ -38,7 +38,7 @@ OTR_DATA.dialogues.m4_recover = {
       choices: [
         { text: '"That was me. I\'ll go and get it back now and take it to the right address, then call you."', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'Owning it straight away is what makes a misdelivery a small thing.', next: 'n1' },
         { text: '"Can\'t they just walk it over? It\'s the same street name."', grade: 'bad', effects: { service: -2 }, feedback: 'The customer who got it by mistake isn\'t a courier, and the package is still your responsibility until it\'s with the right person.', lesson: 'Never leave a misdelivered package for the public to sort out: the courier recovers it.', next: 'n0b' },
-        { text: '"The scanner must be wrong. I always check the street."', grade: 'bad', effects: { service: -2 }, feedback: 'The scan shows where it went. Arguing wastes the time you could spend fixing it.', lesson: 'Don\'t argue with the record: fix the problem, then work out how it happened.', next: 'n0b' }
+        { text: '"The scanner must be wrong. I always check the street name, so it can\'t have been me. Maybe another driver had the route?"', grade: 'bad', effects: { service: -2 }, feedback: 'The scan shows where it went. Arguing wastes the time you could spend fixing it.', lesson: 'Don\'t argue with the record: fix the problem, then work out how it happened.', next: 'n0b' }
       ]
     },
     n0b: { speaker: 'dispatch', text: 'It\'s your delivery, so it\'s your fix. Get it back today, please.', next: 'n1' },
@@ -60,7 +60,7 @@ OTR_DATA.dialogues.m4_recover = {
       text: 'Back in the van with the package. Before you drive: what about the record?',
       choices: [
         { text: 'Scan it back into your possession, so tracking stops saying "delivered" at the wrong address.', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'The record has to follow the package. Lena\'s tracking is wrong until you fix it.', next: 'n4' },
-        { text: 'Leave the scan as it is. You\'re delivering it in ten minutes anyway.', grade: 'bad', effects: { service: -2 }, feedback: 'Until you rescan it, the system says it\'s delivered, somewhere else. If anything goes wrong in those ten minutes, nobody can trace it.', lesson: 'Rescan a recovered package so the record matches where it really is.', next: 'n4' }
+        { text: 'Leave the scan as it is. You\'re delivering it in ten minutes anyway, and a rescan is just one more step on a busy day.', grade: 'bad', effects: { service: -2 }, feedback: 'Until you rescan it, the system says it\'s delivered, somewhere else. If anything goes wrong in those ten minutes, nobody can trace it.', lesson: 'Rescan a recovered package so the record matches where it really is.', next: 'n4' }
       ]
     },
     n4: {
@@ -83,7 +83,7 @@ OTR_DATA.dialogues.m4_recover = {
       text: 'Delivered, with the proper proof. Last step?',
       choices: [
         { text: 'Tell dispatch it\'s delivered, and what went wrong: Birch Court and Birch Lane, same number, and you didn\'t check the suffix.', grade: 'good', effects: { service: 2, efficiency: 1 }, feedback: 'An honest report means the address gets flagged for the next driver, and you remember to check the suffix.', next: 'end_good' },
-        { text: 'Nothing more: it\'s delivered now.', grade: 'bad', effects: { service: -1 }, feedback: 'Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.', lesson: 'Close the loop with dispatch, including what caused the mistake.', next: 'end_mixed' }
+        { text: 'Nothing more. It\'s delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.', grade: 'bad', effects: { service: -1 }, feedback: 'Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.', lesson: 'Close the loop with dispatch, including what caused the mistake.', next: 'end_mixed' }
       ]
     },
     end_good: {

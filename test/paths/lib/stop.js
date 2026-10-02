@@ -8,6 +8,7 @@
  * In the heat it drinks and cools off before it overheats. A careful run of the whole set has to earn full marks.
  */
 const { wait, clickText, runTalk } = require('./ui');
+const OTR_CODES_NO_ATTEMPT = ['UN'];   // data/scanner.js: codes with attempt: false
 
 /** Everything needed to play one stop; `playStop(k)` plays whatever stop StopScene is showing now. */
 function driver(page, ctx) {
@@ -286,7 +287,9 @@ function driver(page, ctx) {
       if (!settled) {
         const how = await walkTo(bell, 5, { stopOnTalk: true });
         const after = await state();
-        settled = how === 'talk' && (after.answered || d.exp.outcome === 'exception');
+        // (an exception still needs a real attempt at the door, unless the code says not to try it: UN)
+        const noAttempt = d.exp.outcome === 'exception' && OTR_CODES_NO_ATTEMPT.includes(d.exp.code);
+        settled = how === 'talk' && (after.answered || noAttempt);
         if (how === 'talk' && !settled) await walkTo(bell, 5);
       }
       const want = settled ? 0 : (d.answer && d.answer.afterKnocks) || 1;
