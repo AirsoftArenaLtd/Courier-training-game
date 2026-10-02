@@ -970,7 +970,7 @@ Drive map from Results). Both pass. Writing them found two faults, and the owner
 
 ### Not covered
 
-- The certificate (every assessment passed) is checked by the academy test, not played through on screen.
+- The certificate is not tested: it only appears once all 27 assessments are passed, which no test plays through.
 - The company server was tested with its own test client, not behind a real company login or LMS.
 
 ---
