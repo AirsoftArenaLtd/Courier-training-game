@@ -119,7 +119,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     const sign = await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); const it = s.T.inters.find(i => i.stop && i.x > 1000); return { x: it.x, y: it.y }; });
     // van.x such that the front bumper is 100 px short of the stop line (findApproach measures from v.x plus the nose)
     await ev((sign) => { const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van; s.pullOut.pending = false; v.heading = 0; v.x = sign.x - 105 - v.g.nose * s.P - 58 - 100; v.y = sign.y + 52; }, sign);
-    await cruise(1, 9000, { heading: 0, y: sign.y + 52 });
+    // until the van is well past the line, however slowly the headless clock runs
+    for (let n = 0; n < 12; n++) {
+      await cruise(1, 3000, { heading: 0, y: sign.y + 52 });
+      if (await ev((sign) => OTR.game.scene.getScene('TownDriveScene').van.x > sign.x, sign)) break;
+    }
     st = await state();
     check(st.v.rolling === 1, 'rolling through a stop sign at 2 mph is caught');
     await fresh();
