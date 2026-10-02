@@ -115,10 +115,13 @@ on ice, wet steps and cluttered paths · `E` to interact · `TAB` for the handhe
 **The handheld:** scan packages, read stop details, record a delivery (signature, photo POD, hand-off), record an
 exception code, and print door tags. Number keys pick menu options.
 
-**Driving:** `W`/`↑` throttle · `S`/`↓` brake, then hold at a standstill for reverse (lift off the brake first) ·
-`A`/`D` steer · `SPACE` handbrake · `B` seatbelt · `L` headlights · `G` get out and look (before backing) ·
-`P` park at the stop zone. Rules watch speed, stop signs and lights, right of way, wrong-side driving, the belt,
-headlights in rain or dark, backing without G.O.A.L., and using the handheld while moving.
+**Driving:** `W`/`↑` throttle · `S`/`↓` brake · `R` reverse (at a standstill) · `A`/`D` steer · `Q`/`E` signal
+left/right · `M` mirrors · `SPACE` parking brake · `B` seatbelt · `L` headlights · `G` get out and look (before
+backing) · `P` park at the stop zone. Rules watch speed, stop signs and lights, right of way, wrong-side driving,
+signalling every turn and pull-out, mirrors before pulling out, following distance, the belt, headlights in rain or
+dark, backing without G.O.A.L., and using the handheld while moving. The town's traffic signals its turns, keeps to
+the limits (school zones too), takes turns at four-way stops with the van, pulls over for an ambulance, and waits for
+a van in its way, then goes round it.
 
 **Sort belt:** click a package (or `SPACE` for the one at the front) to scan it — the scan is what tells you the
 bin — then drag it into a bin or press `1`-`5`. `SPACE` also clears a jam.
