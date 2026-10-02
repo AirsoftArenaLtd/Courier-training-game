@@ -47,10 +47,10 @@ module.exports = async (page, ctx) => {
         s.cars.forEach(c => c.img.destroy()); s.cars.length = 0;
         s.peds.forEach(p => { p.t = 1e9; p.crossing = false; });
         window.__why = []; window.__toasts = [];
-        const t0 = s.toast.bind(s);
-        s.toast = (msg, ...rest) => { window.__toasts.push(msg); return t0(msg, ...rest); };
-        const v0 = s.violation.bind(s);
-        s.violation = (key, ...rest) => { window.__why.push(key); return v0(key, ...rest); };
+        if (!s.__qaToast) { s.__qaToast = s.toast; s.toast = (msg, ...rest) => { window.__toasts.push(msg); return s.__qaToast.call(s, msg, ...rest); }; }
+        // the scene object is reused for every leg: record its violations through one wrapper, not one per leg (a
+        // wrapper on a wrapper recorded each violation once per leg driven so far)
+        if (!s.__qaViolation) { s.__qaViolation = s.violation; s.violation = (key, ...rest) => { window.__why.push(key); return s.__qaViolation.call(s, key, ...rest); }; }
         window.__bot = QA_AUTODRIVE.create(s).goTo(s.activeStop.lot);
         // the scene object is reused for every leg and keeps its listeners: drop the last leg's autopilot first
         if (window.__botHook) s.events.off('update', window.__botHook);

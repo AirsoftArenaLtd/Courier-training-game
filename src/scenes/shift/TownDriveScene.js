@@ -560,7 +560,9 @@ class TownDriveScene extends Phaser.Scene {
     const v = this.van;
     const turned = Math.abs(Math.atan2(Math.sin(v.heading - this.signalHeading), Math.cos(v.heading - this.signalHeading)));
     const went = Math.hypot(v.x - this.signalFrom.x, v.y - this.signalFrom.y) / this.P;
-    const pulledOut = this.signal === 'left' && this.pullOutDoneAt > this.signalOnAt && this.elapsed - this.pullOutDoneAt > 3 && Math.abs(v.sw) < 0.12 && turned < 0.35;
+    // (not with a junction just ahead: pulling out to turn left there, the indicator carries on into the turn, as a real
+    // one would; cancelling it there made the turn look signalled too late)
+    const pulledOut = this.signal === 'left' && this.pullOutDoneAt > this.signalOnAt && this.elapsed - this.pullOutDoneAt > 3 && Math.abs(v.sw) < 0.12 && turned < 0.35 && !this.findApproach();
     if ((turned > 1.0 && Math.abs(v.sw) < 0.2) || pulledOut || (went > 40 && turned < 0.3)) this.signal = null;
   }
 
