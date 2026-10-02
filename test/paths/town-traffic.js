@@ -27,6 +27,9 @@ module.exports = async (page, ctx) => {
     OTR.game.loop.sleep();
     window.__t = performance.now();
     window.__step = (n) => { for (let k = 0; k < n; k++) { window.__t += 1000 / 60; OTR.game.step(window.__t, 1000 / 60); } };
+    // the long stretches: the drive's own logic only, no drawing (the same frames, many times faster under a software
+    // renderer; key presses still go through __step, which is where the game reads the keyboard)
+    window.__stepFast = (n) => { const sc = OTR.game.scene.getScene('TownDriveScene'); for (let k = 0; k < n; k++) { window.__t += 1000 / 60; sc.sys.step(window.__t, 1000 / 60); } };
   })()`);
 
   const bad = [];
@@ -128,7 +131,7 @@ module.exports = async (page, ctx) => {
     })()`);
 
     // in short bursts: one long synchronous run of the game loop can leave the page looking unresponsive
-    for (let done = 0; done < MINUTES * 3600; done += 600) await ctx.eval('__step(600)');
+    for (let done = 0; done < MINUTES * 3600; done += 600) await ctx.eval('__stepFast(600)');
     const out = await ctx.eval(`(() => {
       const S = window.__traffic, issues = {};
       Object.keys(S.issues).forEach(k => { issues[k] = { count: S.issues[k].n, first: S.issues[k].first }; });
