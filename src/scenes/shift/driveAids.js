@@ -23,15 +23,17 @@ OTR.driveAids = {
       return cam;
     };
     const W = OTR.W, H = OTR.H;
-    s.insetCams = { left: mk(W / 2 - 330, 70, 200, 130, 'mirrorL'), right: mk(W / 2 + 130, 70, 200, 130, 'mirrorR'), rear: mk(W - 262, H - 250, 240, 150, 'rear') };
+    // at the screen's edges, half way down: clear of the sign hints and messages along the top (they used to cover them)
+    const MY = 292;
+    s.insetCams = { left: mk(16, MY, 200, 130, 'mirrorL'), right: mk(W - 216, MY, 200, 130, 'mirrorR'), rear: mk(W - 262, H - 250, 240, 150, 'rear') };
     s.insetFrames = s.add.container(0, 0).setScrollFactor(0).setDepth(790).setVisible(false);
     s.rearFrame = s.add.container(0, 0).setScrollFactor(0).setDepth(790).setVisible(false);
     const frame = (c, x, y, w, h, label) => {
       c.add(OTR.tex.shape(s, (g) => { g.lineStyle(4, 0x16062B, 1); g.strokeRoundedRect(x - 2, y - 2, w + 4, h + 4, 10); g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(x, y, w, h, 8); }));
       c.add(OTR.txt(s, x + w / 2, y + h + 12, label, 12, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 4 }));
     };
-    frame(s.insetFrames, W / 2 - 330, 70, 200, 130, 'LEFT MIRROR');
-    frame(s.insetFrames, W / 2 + 130, 70, 200, 130, 'RIGHT MIRROR');
+    frame(s.insetFrames, 16, MY, 200, 130, 'LEFT MIRROR');
+    frame(s.insetFrames, W - 216, MY, 200, 130, 'RIGHT MIRROR');
     frame(s.rearFrame, W - 262, H - 250, 240, 150, 'REAR CAMERA');
     // the HUD built before these views existed stays out of them (later objects are sorted by syncCameras)
     s.children.list.forEach(o => { if (o.scrollFactorX === 0 && o.scrollFactorY === 0) Object.values(s.insetCams).forEach(c => c.ignore(o)); });
@@ -127,6 +129,7 @@ OTR.driveAids = {
     if (s.elapsed - s.mirrorAt < 8) s.log.check('safety', 1, 1, 'Checked the mirrors before pulling out');
     else s.violation('mirror', 'Pulled out without checking the mirrors', 'safety', 1, 'Before you pull away from the curb: mirrors (M), then go when it is clear. Pulling out is where a lot of low-speed crashes happen.');
     // and the indicator: out from the right-hand curb is a move to the left (Q)
+    s.pullOutDoneAt = s.elapsed;           // the indicator cancels once the van is out and straight again
     if (s.signal === 'left') s.log.check('safety', 1, 1, 'Signaled before pulling out');
     else s.violation('signal', 'Pulled out without signaling', 'safety', 1, 'Mirrors, signal, then move: the left indicator (Q) before you pull away from the curb, so traffic behind knows you are coming out.');
   },

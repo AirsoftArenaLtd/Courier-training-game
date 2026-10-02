@@ -87,6 +87,10 @@ class TownDriveScene extends Phaser.Scene {
     if (this.d.notice) this.time.delayedCall(300, () => this.noticeCard(this.d.notice));
     if (!this.quietStart) this.time.delayedCall(400, () => this.toast('Buckle up: press B', 0xFFC83D));
     if (!this.quietStart && this.lightsWanted) this.time.delayedCall(2600, () => { if (!this.lights) this.toast(`${this.weather === 'clear' ? 'Low light' : 'Bad weather'}: headlights on (L)`, 0xFFC83D); });
+    // mirrors, signal, then move (said once the belt and lights reminders have been read, while still at the curb)
+    if (!this.quietStart) this.time.delayedCall(this.lightsWanted ? 4800 : 2600, () => {
+      if (this.pullOut && this.pullOut.pending && OTR.academy.coaching()) this.toast('Pulling out: mirrors (M), signal left (Q), then go', 0xFFC83D);
+    });
   }
 
   /* ================================================================ world */
@@ -159,7 +163,10 @@ class TownDriveScene extends Phaser.Scene {
       const k = Math.floor(RND() * 3);
       if (this.streetDist(x, y) < R + A.WALK + 44) continue;
       if (this.blockers.some(b => x > b.x - 40 && x < b.x + b.w + 40 && y > b.y - 40 && y < b.y + b.h + 40)) continue;
-      this.add.image(x, y, treeKeys[k]).setDepth(20).setAlpha(0.96);
+      // the canopy hangs over the van (it used to be drawn under it, so the van drove over the treetops), and the
+      // trunk is solid: a van off the road onto a lawn hits it rather than passing through
+      this.add.image(x, y, treeKeys[k]).setDepth(34).setAlpha(0.96);
+      this.blockers.push({ x: x - 14, y: y - 14, w: 28, h: 28, what: 'a tree' });
     }
 
     // the station art's building is 660 x 380 at (16, 12) in its texture: land it exactly on the station's footprint
@@ -545,14 +552,16 @@ class TownDriveScene extends Phaser.Scene {
 
   /**
    * The indicator after a manoeuvre: it cancels once the van has turned through most of a corner and the wheel is
-   * back near the centre, as a real stalk does, or (pulling out, a lane change) after 40 m with no junction ahead.
+   * back near the centre, as a real stalk does; after pulling out from the curb once the van is out and straight; and
+   * otherwise after 40 m with no turn (it stayed on through junctions and down the next block).
    */
   signalTick() {
     if (!this.signal) return;
     const v = this.van;
     const turned = Math.abs(Math.atan2(Math.sin(v.heading - this.signalHeading), Math.cos(v.heading - this.signalHeading)));
     const went = Math.hypot(v.x - this.signalFrom.x, v.y - this.signalFrom.y) / this.P;
-    if ((turned > 1.0 && Math.abs(v.sw) < 0.2) || (went > 40 && !this.findApproach() && turned < 0.3)) this.signal = null;
+    const pulledOut = this.signal === 'left' && this.pullOutDoneAt > this.signalOnAt && this.elapsed - this.pullOutDoneAt > 3 && Math.abs(v.sw) < 0.12 && turned < 0.35;
+    if ((turned > 1.0 && Math.abs(v.sw) < 0.2) || pulledOut || (went > 40 && turned < 0.3)) this.signal = null;
   }
 
   /** G.O.A.L.: only from a standstill, and it takes the time it takes to walk round the van. */
@@ -1039,14 +1048,15 @@ class TownDriveScene extends Phaser.Scene {
     return null;
   }
 
-  /** The other lane of a car's street is clear of oncoming cars for `dist` px, with no junction in that stretch. */
+  /** The other lane of a car's street is clear of oncoming cars well beyond `dist` px, with no junction within it. */
   oppositeClear(c, dist) {
     if ((c.nextJ || 0) < dist + 60) return false;
     return !this.cars.some(o => {
       if (o === c || o.h !== c.h || o.dir === c.dir) return false;
       if (c.h ? o.row !== c.row : o.col !== c.col) return false;
       const d = (c.h ? o.x - c.x : o.y - c.y) * c.dir;
-      return d > -60 && d < dist + 400;
+      // the pass takes about five seconds at the crawl it is made at: room for an oncoming car at the limit in that time
+      return d > -60 && d < dist + 1100;
     });
   }
 

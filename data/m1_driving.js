@@ -19,7 +19,7 @@ OTR_DATA.driving = {
     title: 'Road Hazards',
     lines: [
       'You drive a loaded van: W accelerate, S brake, A/D turn the wheel (hold it with W to turn). It is heavy: brake early, and pull forward before a right turn so the back wheels clear the kerb.',
-      'In D the van creeps forward: hold SPACE (park brake) to wait. R changes gear at a standstill (in R, W backs up). B belt · L headlights · G get out and look before backing.',
+      'Mirrors, signal, then move: M checks the mirrors, Q and E are the indicators (left, right), for every turn and every pull-out. In D the van creeps: hold SPACE to wait. R changes gear at a standstill. B belt · L lights · G look before backing.',
       'P parks: inside the marked bay, close to the curb, straight, facing the way the traffic goes.',
       'Six checkpoints across town. Between them, things happen: a ball, a door, a bus, standing water. Everything is judged on what you actually do, and the weather turns halfway.'
     ]

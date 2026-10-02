@@ -137,11 +137,16 @@ module.exports = async (page, ctx) => {
       }
       // contacts the cars caused: any where the car was moving (the van creeping at walking pace across is in plain sight)
       const byCar = contacts.filter(c => c.carSpeed > 8 || c.towards > 0.2);
-      return { contacts: contacts.length, byCar: byCar.length, first: byCar.slice(0, 3), pushedPx: Math.round(pushed),
+      // the car sent up behind a van stopped in its lane mid-block: it honks, then goes round once the other lane is clear
+      const front = V.bodyCentre(v).x + v.g.hl * P;
+      const wentRound = K.id === 'stopped in its lane mid-block' ? s.cars[0].x > front + 60 && Math.abs(s.cars[0].y - T.laneY(it.row, 1)) < 20 : null;
+      return { contacts: contacts.length, byCar: byCar.length, first: byCar.slice(0, 3), pushedPx: Math.round(pushed), wentRound, honked: s._hornAt !== undefined,
         stuck: s.cars.filter(c => c.speed < 1).length };
     })()`);
     report.push(`${k.id}: ${out.byCar} car-caused contact frames, van shoved ${out.pushedPx} px`);
     if (out.byCar) bad.push(`${k.id}: a car drove into the van (${out.byCar} frames; first ${JSON.stringify(out.first)})`);
+    if (out.wentRound === false) bad.push(`${k.id}: the car behind never went round the stopped van`);
+    if (out.wentRound !== null) report.push(`${k.id}: the car behind ${out.honked ? 'honked and ' : ''}${out.wentRound ? 'went round it, back into its lane' : 'is still behind it'}`);
     if (out.pushedPx > 3) bad.push(`${k.id}: the van, held on the brake, was shoved ${out.pushedPx} px`);
   }
   report.forEach(r => console.log('        ' + r));
