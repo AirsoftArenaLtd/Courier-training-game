@@ -265,7 +265,7 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
   - Handheld outcome "Left with **neighbour**" (`data/scanner.js:17`, key `neighbor`); brief "a helpful **neighbour**"
     (`data/modules.js:119`); `neighbor` is used 13 times elsewhere in data.
   - (m8-incident's British English is already DIALOGUE-19.)
-- **Suggested fix:** pick US English (FedEx, US addresses, mph) and run a pass: practice, practicing, curb, tires,
+- **Suggested fix:** pick US English (a US courier, US addresses, mph) and run a pass: practice, practicing, curb, tires,
   "about three feet", neighbor.
 - **Status:** fixed — US English in every player-facing string: practice / practicing (hub, brief, results), curb
   (driving lessons and the town drive's parking prompts), "about three feet", tires, neighbor (handheld, heat lesson),
@@ -404,7 +404,7 @@ Tester: shell agent, play tool on port 9307, screenshots in `test/out/review/she
 - **Names are shown exactly as typed** ("sam", "lee k" on the title and hub). Consider capitalising the first letter
   for display.
 - **No favicon:** the browser requests `/favicon.ico`, gets a 404 (the "Failed to load resource … 404" in the console
-  on every load, `/log`), and the tab shows the generic page icon next to "FedEx: On The Route — Courier Training".
+  on every load, `/log`), and the tab shows the generic page icon next to "On The Route — Courier Training".
   Add a small icon and `<link rel="icon">` in `index.html`.
 - **Status:** fixed — briefs and results list a scenario's categories in one order (Safety · Efficiency · Service,
   `OTR.scoring.ordered`); the tip is "A 3-minute walkaround…"; confirm dialogs are as tall as their text; names are

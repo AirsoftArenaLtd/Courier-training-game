@@ -789,11 +789,16 @@ OTR.scenery = {
       // brand band
       ctx.fillStyle = '#4D148C'; ctx.fillRect(14, 196, 598, 30);
       ctx.fillStyle = '#FF6600'; ctx.fillRect(14, 226, 598, 8);
-      ctx.fillStyle = '#4D148C'; ctx.font = '900 64px "Segoe UI", Arial'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      ctx.fillText(brand, 90, 150);
-      const bw = ctx.measureText(brand).width;
-      ctx.fillStyle = '#FF6600'; ctx.font = '900 30px "Segoe UI", Arial';
-      ctx.fillText('ON THE ROUTE', 94 + bw * 0.02, 184);
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      if (brand) {
+        ctx.fillStyle = '#4D148C'; ctx.font = '900 64px "Segoe UI", Arial';
+        ctx.fillText(brand, 90, 150);
+        ctx.fillStyle = '#FF6600'; ctx.font = '900 30px "Segoe UI", Arial';
+        ctx.fillText(OTR_DATA.config.title.toUpperCase(), 94 + ctx.measureText(brand).width * 0.02, 184);
+      } else {
+        ctx.fillStyle = '#FF6600'; ctx.font = '900 44px "Segoe UI", Arial';
+        ctx.fillText(OTR_DATA.config.title.toUpperCase(), 70, 170);
+      }
       // cab doorway
       const d0 = L.doorX0, d1 = L.doorX1;
       if (state === 'open') {

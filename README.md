@@ -1,4 +1,4 @@
-# FedEx: On The Route — Courier Training Simulator
+# On The Route — Courier Training Simulator
 
 A browser training simulator: a **station hub** with 8 training modules (24 scenarios) and a **connected route day**
 where you brief, inspect, load, drive a town and work each stop with a handheld scanner.

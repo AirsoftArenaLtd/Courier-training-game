@@ -107,7 +107,7 @@ OTR.record = {
       .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; } .sign div { border-top: 1px solid #333; padding-top: 4px; font-size: 9pt; color: #555; }
       footer { margin-top: 18px; font-size: 8pt; color: #888; }
     </style></head><body>
-      <header><div><div class="brand">${E(cfg.brand)} <b>${E(cfg.title)}</b></div><h1>Training record: ${E(name)}</h1></div>
+      <header><div><div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div><h1>Training record: ${E(name)}</h1></div>
         <div class="meta">${id ? `ID ${E(id)}<br>` : ''}Printed ${E(OTR.record.date(Date.now()))}<br>Training since ${E(OTR.record.date(R.firstAt))}</div></header>
       <div class="summary">
         <div>Assessments passed<b>${R.passed} / ${R.total}</b></div>
@@ -138,7 +138,7 @@ OTR.record = {
       p { font-size: 14pt; margin: 3mm 0; } .small { font-size: 10pt; color: #666; }
       .sign { display: flex; justify-content: space-around; margin-top: 18mm; } .sign div { width: 70mm; border-top: 1px solid #333; padding-top: 2mm; font-size: 10pt; color: #555; }
     </style></head><body><div class="page"><div class="frame">
-      <div class="brand">${E(cfg.brand)} <b>${E(cfg.title)}</b></div>
+      <div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div>
       <h1>Certificate of Completion</h1>
       <p>This certifies that</p>
       <div class="name">${E(name)}</div>

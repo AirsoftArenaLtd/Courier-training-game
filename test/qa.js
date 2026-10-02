@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * QA suite for FedEx: On The Route.
+ * QA suite for On The Route.
  *
  *   node test/qa.js                     every pass, every scenario
  *   node test/qa.js --only m6-find      one scenario (repeatable, comma separated)

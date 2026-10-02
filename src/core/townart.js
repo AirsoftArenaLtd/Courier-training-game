@@ -200,7 +200,7 @@ OTR.townArt = {
       ctx.fillStyle = '#4D148C'; ctx.fillRect(16, 12, 660, 70);
       ctx.fillStyle = '#FF6600'; ctx.fillRect(16, 82, 660, 12);
       ctx.fillStyle = '#ffffff'; ctx.font = '900 46px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText((OTR_DATA.config.brand || '') + ' STATION', 346, 50);
+      ctx.fillText(OTR_DATA.config.brand ? OTR_DATA.config.brand.toUpperCase() + ' STATION' : 'DELIVERY STATION', 346, 50);
       ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(40, 110, 610, 260);
       // dock doors
       ctx.fillStyle = '#8E8898';

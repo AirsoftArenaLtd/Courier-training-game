@@ -846,7 +846,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.stops.forEach(s => {
       const f = ev.flags[s.i];
       if (s.pickup) {
-        // a missed pickup or a late First Overnight is the failure this scenario exists to prevent: never averaged
+        // a missed pickup or a late Early AM is the failure this scenario exists to prevent: never averaged
         this.log.check('service', f.bad ? 0 : s.svc.weight, s.svc.weight,
           `${s.address} · pickup ${this.clock(s.ready)}–${this.clock(s.close)}`,
           { lesson: f.bad ? C.lessons.missed : null, critical: true });

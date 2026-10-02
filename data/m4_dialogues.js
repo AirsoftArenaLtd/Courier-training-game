@@ -442,7 +442,7 @@ OTR_DATA.dialogues.m4_storm = {
     },
     n3f_lie: {
       speaker: 'narrator',
-      text: 'An hour later the tow company calls dispatch about a FedEx truck abandoned in the Pine Street underpass, and your phone rings again.',
+      text: 'An hour later the tow company calls dispatch about a delivery truck abandoned in the Pine Street underpass, and your phone rings again.',
       next: 'end_towed_lie'
     },
     n2b: {

@@ -1,6 +1,6 @@
 # Human-style review: brief for every tester
 
-This is the shared brief for the second review of **FedEx: On The Route**, a courier-training simulator (Phaser 3,
+This is the shared brief for the second review of **On The Route**, a courier-training simulator (Phaser 3,
 1280×720, runs in a browser). It will be used by trainees at an enterprise customer, **on typical company computers**
 (integrated graphics, mouse and keyboard). A first QA pass (see `docs/QA-REPORT.md`) fixed the big defects and left
 an automated suite (`test/qa.js`) that passes. The suite plays each scenario along its *ideal* path. It does not

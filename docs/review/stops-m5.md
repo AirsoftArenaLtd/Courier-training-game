@@ -15,7 +15,7 @@ in the van world x = screen x.
 - **Repro:** boot `m5-pod`, Enter, Enter (the courier stands in the cab doorway at x 584). `/hold?key=KeyD&ms=500`:
   the courier walks out through the cab to x 701, standing in front of the windshield. Keep holding D: x 1046 over
   the sidewalk (feet at y 580, ground is 640), x 1623 on the porch (through the porch railing), x 2500 past the house
-  on the neighbour's lawn. Hold A instead: the courier walks along the van's side (drawn ON TOP of the "FedEx ON THE
+  on the neighbour's lawn. Hold A instead: the courier walks along the van's side (drawn ON TOP of the "ON THE
   ROUTE" livery, not inside the van) and out of the back of the van to x 40, floating over the road lane.
 - **Expected:** the van interior confines the courier (the only ways out are the E "Climb out of the van" card, or the
   shelves). **Actual:** nothing confines them. The van's body spans x 110-730 and its door x 550-630, but the stage has

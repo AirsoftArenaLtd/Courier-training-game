@@ -93,10 +93,12 @@ class TitleScene extends Phaser.Scene {
       ctx.fillRect(0, 0, w, h);
     });
     this.add.image(W / 2, 0, scrimKey).setOrigin(0.5, 0).setDisplaySize(W, 470).setDepth(-5);
-    const brand = OTR.txt(this, W / 2, titleY - 30, cfg.brand, 96, '#ffffff', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true });
-    const route = OTR.txt(this, W / 2, titleY + 58, cfg.title.toUpperCase(), 58, '#FF6600', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true });
+    // with a company name: the name large and the title under it; without one, the title takes the space
+    const brand = cfg.brand ? OTR.txt(this, W / 2, titleY - 30, cfg.brand, 96, '#ffffff', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true }) : null;
+    const route = cfg.brand ? OTR.txt(this, W / 2, titleY + 58, cfg.title.toUpperCase(), 58, '#FF6600', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true })
+      : OTR.txt(this, W / 2, titleY + 24, cfg.title.toUpperCase(), 92, '#FF6600', { weight: '900', stroke: '#250849', strokeW: 12, shadow: true });
     const sub = OTR.txt(this, W / 2, titleY + 116, cfg.subtitle, 22, '#F4E9FF', { bold: false, shadow: true });
-    [brand, route, sub].forEach((t, i) => {
+    [brand, route, sub].filter(Boolean).forEach((t, i) => {
       t.setAlpha(0).setScale(0.6);
       this.tweens.add({ targets: t, alpha: 1, scale: 1, delay: 150 + i * 140, duration: 500, ease: 'Back.out' });
     });

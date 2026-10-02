@@ -78,7 +78,7 @@ OTR.town = {
     const depot = {
       x: dx, y: hy[S.depot.row] + halfRoad + 220, w: dw, h: dh,
       curb: { x: dx, y: hy[S.depot.row] + road / 2 + 34 },
-      number: '1', street: S.streetsH[S.depot.row], name: (OTR_DATA.config.brand || '') + ' Station'
+      number: '1', street: S.streetsH[S.depot.row], name: OTR_DATA.config.brand ? OTR_DATA.config.brand + ' Station' : 'Delivery Station'
     };
     // lots keep the ids they were made with, so a saved route still finds its stops
     const lots = all.filter(l => {

@@ -53,8 +53,8 @@ class HubScene extends Phaser.Scene {
       g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 64);
       g.fillStyle(0xFF6600, 1); g.fillRect(0, 64, W, 3);
     });
-    const brand = OTR.txt(this, 24, 32, OTR_DATA.config.brand, 28, '#ffffff', { ox: 0, weight: '900' });
-    OTR.txt(this, 24 + brand.width + 10, 33, OTR_DATA.config.title.toUpperCase(), 20, '#FF6600', { ox: 0, weight: '900' });
+    const brand = OTR_DATA.config.brand ? OTR.txt(this, 24, 32, OTR_DATA.config.brand, 28, '#ffffff', { ox: 0, weight: '900' }) : null;
+    OTR.txt(this, brand ? 24 + brand.width + 10 : 24, 33, OTR_DATA.config.title.toUpperCase(), 20, '#FF6600', { ox: 0, weight: '900' });
 
     // a label, not a button: flat and outlined (it used to wear the orange button's gradient; SHELL-17)
     const dayBadge = this.add.container(W / 2, 32);

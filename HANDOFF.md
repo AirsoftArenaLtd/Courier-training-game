@@ -1,4 +1,4 @@
-# Handoff: FedEx: On The Route, QA pass 2 (for the next session)
+# Handoff: On The Route, QA pass 2 (for the next session)
 
 > **Update, 24 September 2026 (cloud session): pass 2 is finished.** WP0–WP9 are done. Every finding in
 > `docs/review/` has a Status line, and the FIX-PLAN Log has an entry for each package. The results are written up
