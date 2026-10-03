@@ -201,8 +201,10 @@ OTR.driveAids = {
       st.emergencyDone = true;
       OTR.shift.save();
       const img = s.add.image(0, 0, OTR.art.ambulanceTop(s)).setDepth(29).setScale(0.8, 1.0);
-      const bar = s.add.rectangle(0, 0, 30, 8, 0xE8304A).setDepth(30);
-      s.ambulance = { img, bar, ax, d: -620, t: 0, judged: false };
+      // the flashing lights: over the light bar at the front of the roof in the real image, mid-roof on the drawn one
+      const real = OTR.assets.has('ambulance_top');
+      const bar = s.add.rectangle(0, 0, 30, real ? 5 : 8, 0xE8304A).setDepth(30);
+      s.ambulance = { img, bar, ax, d: -620, t: 0, judged: false, barAhead: real ? 23 : 0 };
       s.syncCameras();
       OTR.audio.play('alarm');
       s.toast('Siren behind you! Pull in to the right and stop until it has passed', 0xF0435A);
@@ -213,7 +215,7 @@ OTR.driveAids = {
     E.d += (Math.max(15, mph) * 0.447 * P + 260) * dt;           // it closes fast on whatever the van does
     const p = E.ax.at(van.along + E.d);
     E.img.setPosition(p.x, p.y).setRotation(E.ax.heading + Math.PI / 2);
-    E.bar.setPosition(p.x, p.y).setRotation(E.ax.heading + Math.PI / 2).setFillStyle(Math.floor(E.t * 6) % 2 ? 0xE8304A : 0x3DA5FF);
+    E.bar.setPosition(p.x + Math.cos(E.ax.heading) * E.barAhead, p.y + Math.sin(E.ax.heading) * E.barAhead).setRotation(E.ax.heading + Math.PI / 2).setFillStyle(Math.floor(E.t * 6) % 2 ? 0xE8304A : 0x3DA5FF);
     if (Math.floor(E.t / 0.6) !== Math.floor((E.t - dt) / 0.6)) OTR.audio.play(Math.floor(E.t / 0.6) % 2 ? 'beep' : 'buzz');
     if (!E.judged && E.d > -10) {
       E.judged = true;
