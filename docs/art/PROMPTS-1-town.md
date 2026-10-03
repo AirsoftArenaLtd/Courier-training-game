@@ -81,16 +81,15 @@ Send these one at a time, changing the color and body style each time:
 > White body with a red stripe along each side of the roof, a light bar across the front of the roof (red and blue
 > lenses, unlit), dark windshield. Same style. Transparent background, no shadow, no text or symbols.
 
-## School bus — `bus_top.png` and `bus_top_arm.png`
+## School bus — `bus_top.png`
 
-> A yellow American school bus seen perfectly from above, front to the TOP, long and narrow (about 2.6 m wide and
-> 12 m long). Yellow roof with white roof hatches and black stripes along the roof edges, dark windshield at the front.
-> Same style. Very tall portrait image, transparent background, no shadow, no text.
+One image: the game draws the stop arm and the flashing lights over it when the bus stops for children.
 
-Then:
-
-> The same bus, identical, but with its red octagonal STOP arm folded out from the left side, just behind the front
-> (seen from above it sticks out sideways like a small red paddle). Leave the sign blank, no letters.
+> Next: a **yellow American school bus** seen perfectly from above, front pointing to the TOP of the image, in the
+> same realistic style. Long and narrow, about 2.5 m wide and 11 m long. Yellow roof with two or three white
+> emergency roof hatches down the middle, thin black stripes along both roof edges, a short sloped hood at the very
+> front with a dark windshield behind it, and two side mirrors kept close to the body at the front corners. Stop arm
+> folded flat against the side (not visible). Very tall portrait image, transparent background, no shadow, no text.
 
 ## House roofs — `td_house_0.png` … `td_house_3.png`
 

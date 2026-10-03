@@ -20,21 +20,26 @@ OTR.assets = {
    * Image name (file name without .png) → the texture it replaces and the box it fills in that texture's canvas.
    * Vehicles are drawn with a non-uniform scale (a texture squeezed to the vehicle's real width and length), so their
    * box is not the shape they show on screen: `aspect` is the on-screen width : length, mirrors included, that the
-   * pack tool checks an image against.
+   * pack tool checks an image against. `shadow`: true for the usual soft shadow, or [blur, drop, opacity]. `also`: more
+   * textures drawn from the same image.
    */
   KEYS: (() => {
+    // a vehicle fills its texture nearly edge to edge: a wide soft shadow would be cut off at the texture's edges and
+    // show as a faint dark rectangle around it, so vehicles get a tight one
+    const V = [4, 3, 0.35];
     const K = {
       // the image includes its mirrors, which stick out past the body: the box takes in the whole width the drawn mirrors do
-      van_top: { key: 'van_top', box: [-1, 8, 76, 126], shadow: true, aspect: 0.48 },
-      ambulance_top: { key: 'ambulance_top', box: [0, 4, 64, 108], shadow: true, aspect: 0.47 },
-      bus_top: { key: 'td_bus_0', box: [26, 10, 60, 230], shadow: true, aspect: 0.24 },
-      bus_top_arm: { key: 'td_bus_1', box: [0, 10, 86, 230], shadow: true, aspect: 0.34 },
+      van_top: { key: 'van_top', box: [-1, 8, 76, 126], shadow: V, aspect: 0.48 },
+      ambulance_top: { key: 'ambulance_top', box: [0, 4, 64, 108], shadow: V, aspect: 0.47 },
+      // one image for the bus: with its stop arm out (td_bus_1) the arm and the lit lights are drawn over the same image,
+      // so the bus cannot shift when the arm swings out
+      bus_top: { key: 'td_bus_0', also: ['td_bus_1'], box: [26, 10, 60, 230], shadow: V, aspect: 0.26 },
       td_apt: { key: 'td_apt', box: [14, 10, 370, 220], shadow: true },
       td_depot: { key: 'td_depot', box: [16, 12, 660, 380], shadow: true }
     };
     // traffic: one file per colour the town uses
     const cars = { red: 0xC8243B, blue: 0x3DA5FF, white: 0xF4F4F8, green: 0x2BC48A, black: 0x2A2A32, amber: 0xE8A33D };
-    Object.keys(cars).forEach(n => { K['car_top_' + n] = { key: 'car_top_' + cars[n], box: [0, 4, 64, 108], shadow: true, aspect: 0.47 }; });
+    Object.keys(cars).forEach(n => { K['car_top_' + n] = { key: 'car_top_' + cars[n], box: [0, 4, 64, 108], shadow: V, aspect: 0.47 }; });
     const B = { house: [[190, 150], [210, 150], [180, 175], [220, 170]], biz: [[320, 220], [260, 250]] };
     B.house.forEach(([w, h], i) => { K['td_house_' + i] = { key: 'td_house_' + i, box: [14, 10, w, h], shadow: true, untinted: true }; });
     B.biz.forEach(([w, h], i) => { K['td_biz_' + i] = { key: 'td_biz_' + i, box: [14, 10, w, h], shadow: true }; });
@@ -57,7 +62,8 @@ OTR.assets = {
       if (!src) return;
       const img = new Image();
       img.src = src;
-      jobs.push((img.decode ? img.decode() : Promise.resolve()).then(() => { this.images[spec.key] = img; this.byKey[spec.key] = spec; }).catch(() => {}));
+      const keys = [spec.key].concat(spec.also || []);
+      jobs.push((img.decode ? img.decode() : Promise.resolve()).then(() => keys.forEach(k => { this.images[k] = img; this.byKey[k] = spec; })).catch(() => {}));
     });
     return Promise.all(jobs);
   },
@@ -71,7 +77,8 @@ OTR.assets = {
     const img = this.images[key];
     if (!img) return false;
     const [x, y, w, h] = this.byKey[key].box;
-    if (this.byKey[key].shadow) OTR.cv.shadow(ctx, 12, 5, 0.35);
+    const sh = this.byKey[key].shadow;
+    if (sh) OTR.cv.shadow(ctx, ...(Array.isArray(sh) ? sh : [12, 5, 0.35]));
     ctx.drawImage(img, x, y, w, h);
     OTR.cv.noShadow(ctx);
     return true;
