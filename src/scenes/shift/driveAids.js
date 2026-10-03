@@ -200,7 +200,7 @@ OTR.driveAids = {
       if (!ax || ax.room < 350) return;
       st.emergencyDone = true;
       OTR.shift.save();
-      const img = s.add.image(0, 0, OTR.art.carTop(s, 0xF4F4F8)).setDepth(29).setScale(0.8, 1.0);
+      const img = s.add.image(0, 0, OTR.art.ambulanceTop(s)).setDepth(29).setScale(0.8, 1.0);
       const bar = s.add.rectangle(0, 0, 30, 8, 0xE8304A).setDepth(30);
       s.ambulance = { img, bar, ax, d: -620, t: 0, judged: false };
       s.syncCameras();

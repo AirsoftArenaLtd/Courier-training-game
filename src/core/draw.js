@@ -940,6 +940,10 @@ OTR.art = {
   carTop(scene, color) {
     return OTR.tex.make(scene, 'car_top_' + color, 64, 116, (ctx, w, h) => OTR.draw.carTop(ctx, w, h, color));
   },
+  /** The ambulance from above (drawn as a white car until there is an image of one). */
+  ambulanceTop(scene) {
+    return OTR.tex.make(scene, 'ambulance_top', 64, 116, (ctx, w, h) => OTR.draw.carTop(ctx, w, h, 0xF4F4F8));
+  },
   /** A full-screen backdrop. dim: { color, alpha } paints a darkening over it once, instead of a full-screen
    *  rectangle drawn over it every frame. */
   setting(scene, name, dim) {

@@ -193,6 +193,8 @@ no `fetch`, which is why it runs from `file://`.
 | `index.html?lab=rig` | Art lab: character rigs and animations. |
 | `index.html?lab=street` | Art lab: a doorstep scene (`&tod=evening&weather=rain` to try conditions). |
 | `index.html?lab=town` | Art lab: free driving in the town with four random stops. |
+| `index.html?bench=1` | Performance test: plays the heaviest screens on this computer and reports the frame rate of each (average and worst 1%), with a button to copy the results. |
+| `index.html?art=drawn` | Ignores the real images and shows the drawn art (`?art=real` prefers the realistic alternatives). |
 
 Scenario ids: `m1-pretrip`, `m1-route`, `m1-driving`, `m2-sort`, `m2-lift`, `m2-labels`, `m3-missing`,
 `m3-signature`, `m3-twostops`, `m4-address`, `m4-damaged`, `m4-storm`, `m5-pod`, `m5-exceptions`, `m5-adult`,
@@ -208,6 +210,17 @@ and fails on any crash, layout fault or playthrough that does not finish and sco
 what the last full pass found and fixed. `node test/enterprise.js` checks the sign-in and progress storage (the
 training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/academy.js` checks
 assessments, the trainer tools and the trainee record.
+
+## Adding art
+
+Real images replace the drawn art one at a time; anything without an image keeps its drawing. The prompts to make
+them (for ChatGPT) are in [`docs/art/`](docs/art/), one pack per part of the game, with the exact file names.
+
+1. Put the images in `assets/img/` under the names the prompt pack gives.
+2. Run `node test/tools/pack-art.js` (from `test/`, after `npm install`). It removes a solid background if an image has
+   one, trims the empty margin, scales each image to the size the game draws it at and writes `assets/art-pack.js`,
+   which the game loads. It warns when an image's shape is far off what was asked for.
+3. `node test/art.js` checks the pipeline itself.
 
 ## Editing content
 

@@ -89,7 +89,9 @@ OTR.tex = {
     // read-back behind every frame already queued: 50-95 ms per texture on integrated graphics, a visible freeze
     // each time a face, mouth or package is first drawn. The pixels are the same either way.
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
-    fn(ctx, canvas.width, canvas.height);
+    // a real image, where there is one (src/core/assets.js); `o.decorate` still draws what goes on top of it (a sign)
+    if (OTR.assets && OTR.assets.drawInto(key, ctx)) { if (o && o.decorate) o.decorate(ctx, canvas.width, canvas.height); }
+    else fn(ctx, canvas.width, canvas.height);
     const tex = tm.addCanvas(key, canvas);
     if (o && o.trim && tex) OTR.tex.trim(tex, ctx);
     return key;

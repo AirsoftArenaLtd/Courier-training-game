@@ -77,6 +77,8 @@ the golden pass, auditing the layout at the moments they care about.
 The long town flows (`route-legs`, `town-traffic`, `van-traffic`, `drive-fuzz`) step the drive's own logic without
 drawing every frame, so they run many times faster on a machine without a GPU.
 
+`node test/art.js` checks the image pipeline (packing, the game drawing images in place of its drawn art, `?art=drawn`).
+
 `test/tools/drive-session.js <outDir>` records a Road Hazards drive with the traffic live (screenshots and a log of
 violations and contacts), for reviewing the driving by eye.
 

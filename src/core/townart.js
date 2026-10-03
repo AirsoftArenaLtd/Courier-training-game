@@ -191,6 +191,11 @@ OTR.townArt = {
   },
 
   depot(scene) {
+    // the sign is written over a real roof image too (its band is left blank for it)
+    const sign = (ctx) => {
+      ctx.fillStyle = '#ffffff'; ctx.font = '900 46px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(OTR_DATA.config.brand ? OTR_DATA.config.brand.toUpperCase() + ' STATION' : 'DELIVERY STATION', 346, 50);
+    };
     return OTR.tex.make(scene, 'td_depot', 700, 420, (ctx, w, h) => {
       const cv = OTR.cv;
       cv.shadow(ctx, 26, 10, 0.45);
@@ -199,15 +204,14 @@ OTR.townArt = {
       cv.noShadow(ctx);
       ctx.fillStyle = '#4D148C'; ctx.fillRect(16, 12, 660, 70);
       ctx.fillStyle = '#FF6600'; ctx.fillRect(16, 82, 660, 12);
-      ctx.fillStyle = '#ffffff'; ctx.font = '900 46px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(OTR_DATA.config.brand ? OTR_DATA.config.brand.toUpperCase() + ' STATION' : 'DELIVERY STATION', 346, 50);
+      sign(ctx);
       ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(40, 110, 610, 260);
       // dock doors
       ctx.fillStyle = '#8E8898';
       for (let i = 0; i < 5; i++) ctx.fillRect(70 + i * 120, 330, 90, 56);
       ctx.fillStyle = '#6E6878';
       for (let i = 0; i < 5; i++) ctx.fillRect(74 + i * 120, 336, 82, 8);
-    });
+    }, { decorate: sign });
   },
 
   tree(scene, variant) {
