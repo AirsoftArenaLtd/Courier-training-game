@@ -125,11 +125,14 @@ Only the roof: these will sit on top of walls the game draws, so no walls, no ya
 
 ## Delivery station roof — `td_depot.png`
 
-> The flat roof of a large parcel delivery warehouse seen perfectly from above, filling the image edge to edge. Big
-> light grey industrial roof with ribbed metal panels, rows of skylights, several large HVAC units, and along the TOP
-> edge a plain solid purple band about one-sixth of the image height with a thin orange line under it (leave the band
-> completely blank — the game writes the sign on it). Landscape about 1.75 : 1, transparent background, no shadow,
-> no text.
+The game paints the purple sign band and the station's name across the top of it, so the image is just the roof.
+
+> Next: the **flat roof of a large parcel delivery warehouse** seen perfectly from above, same realistic style,
+> filling the image edge to edge with no ground or walls around it. Big light grey industrial roof with **ribbed
+> metal panels**, **rows of rectangular skylights**, **several large HVAC units** and a few vents, and along the
+> BOTTOM edge a row of five loading-dock canopies. Keep the top fifth of the roof plain panels with nothing on it.
+> Light from the top-left. Landscape image, the roof's shape exactly 1.75 : 1, transparent background, no shadow,
+> no text, no logos.
 
 ## Trees — `td_tree_0.png`, `td_tree_1.png`, `td_tree_2.png`
 
