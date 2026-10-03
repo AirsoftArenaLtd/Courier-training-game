@@ -312,19 +312,30 @@ OTR.townArt = {
     });
   },
 
-  /** School bus seen from above. `arm` swings the stop paddle out of the left flank. */
+  /** School bus seen from above. `arm` swings the stop paddle out of the left flank. A real bus image (one, without
+   *  the arm) stands in for the body of both; the paddle and the lit warning lights are drawn on top of it. */
   busTop(scene, arm) {
-    return OTR.tex.make(scene, 'td_bus_' + (arm ? 1 : 0), 96, 250, (ctx, w, h) => {
-      const cv = OTR.cv;
-      if (arm) {
-        // stop paddle on an arm, out of the driver's side
-        ctx.fillStyle = '#4A4654'; ctx.fillRect(6, 116, 22, 8);
-        ctx.beginPath(); ctx.arc(10, 120, 13, 0, Math.PI * 2);
-        ctx.fillStyle = '#E8304A'; ctx.fill();
-        ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
-        ctx.fillStyle = '#FFFFFF'; ctx.font = '900 7px "Segoe UI", Arial'; ctx.textAlign = 'center';
-        ctx.fillText('STOP', 10, 123);
+    const cv = OTR.cv;
+    // stop paddle on an arm, out of the driver's side just behind the driver
+    const paddle = (ctx) => {
+      ctx.fillStyle = '#4A4654'; ctx.fillRect(6, 66, 22, 8);
+      ctx.beginPath(); ctx.arc(10, 70, 13, 0, Math.PI * 2);
+      ctx.fillStyle = '#E8304A'; ctx.fill();
+      ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#FFFFFF'; ctx.font = '900 7px "Segoe UI", Arial'; ctx.textAlign = 'center';
+      ctx.fillText('STOP', 10, 73);
+    };
+    // the red warning lights at both ends, flashing (lit) while the arm is out
+    const reds = (ctx, w, h, lit, glowOnly) => [14, h - 18].forEach(y => [36, w - 22].forEach(x => {
+      if (!glowOnly) { ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fillStyle = lit ? '#FF2A42' : '#7A3038'; ctx.fill(); }
+      if (lit) {
+        ctx.fillStyle = 'rgba(255,42,66,0.35)'; ctx.beginPath(); ctx.arc(x, y, 11, 0, Math.PI * 2); ctx.fill();
+        if (glowOnly) { ctx.fillStyle = 'rgba(255,90,100,0.9)'; ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2); ctx.fill(); }
       }
+    }));
+    const decorate = arm ? (ctx, w, h) => { paddle(ctx); reds(ctx, w, h, true, true); } : null;
+    return OTR.tex.make(scene, 'td_bus_' + (arm ? 1 : 0), 96, 250, (ctx, w, h) => {
+      if (arm) paddle(ctx);
       cv.shadow(ctx, 12, 5, 0.4);
       cv.rr(ctx, 26, 10, w - 36, h - 20, 10);
       ctx.fillStyle = cv.lin(ctx, 26, 0, w - 10, 0, [[0, '#D8A317'], [0.45, '#FFD24A'], [1, '#C89410']]);
@@ -337,15 +348,8 @@ OTR.townArt = {
         cv.rr(ctx, 28, 48 + i * 32, 8, 24, 3); ctx.fillStyle = '#31536F'; ctx.fill();
         cv.rr(ctx, w - 18, 48 + i * 32, 8, 24, 3); ctx.fill();
       }
-      // flashing reds at both ends
-      [14, h - 18].forEach(y => {
-        [36, w - 22].forEach(x => {
-          ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2);
-          ctx.fillStyle = arm ? '#FF2A42' : '#7A3038'; ctx.fill();
-          if (arm) { ctx.fillStyle = 'rgba(255,42,66,0.35)'; ctx.beginPath(); ctx.arc(x, y, 11, 0, Math.PI * 2); ctx.fill(); }
-        });
-      });
-    });
+      reds(ctx, w, h, arm, false);
+    }, { decorate });
   },
 
   ballTop(scene) {

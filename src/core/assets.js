@@ -20,7 +20,8 @@ OTR.assets = {
    * Image name (file name without .png) → the texture it replaces and the box it fills in that texture's canvas.
    * Vehicles are drawn with a non-uniform scale (a texture squeezed to the vehicle's real width and length), so their
    * box is not the shape they show on screen: `aspect` is the on-screen width : length, mirrors included, that the
-   * pack tool checks an image against. `shadow`: true for the usual soft shadow, or [blur, drop, opacity].
+   * pack tool checks an image against. `shadow`: true for the usual soft shadow, or [blur, drop, opacity]. `also`: more
+   * textures drawn from the same image.
    */
   KEYS: (() => {
     // a vehicle fills its texture nearly edge to edge: a wide soft shadow would be cut off at the texture's edges and
@@ -30,8 +31,9 @@ OTR.assets = {
       // the image includes its mirrors, which stick out past the body: the box takes in the whole width the drawn mirrors do
       van_top: { key: 'van_top', box: [-1, 8, 76, 126], shadow: V, aspect: 0.48 },
       ambulance_top: { key: 'ambulance_top', box: [0, 4, 64, 108], shadow: V, aspect: 0.47 },
-      bus_top: { key: 'td_bus_0', box: [26, 10, 60, 230], shadow: V, aspect: 0.24 },
-      bus_top_arm: { key: 'td_bus_1', box: [0, 10, 86, 230], shadow: V, aspect: 0.34 },
+      // one image for the bus: with its stop arm out (td_bus_1) the arm and the lit lights are drawn over the same image,
+      // so the bus cannot shift when the arm swings out
+      bus_top: { key: 'td_bus_0', also: ['td_bus_1'], box: [26, 10, 60, 230], shadow: V, aspect: 0.26 },
       td_apt: { key: 'td_apt', box: [14, 10, 370, 220], shadow: true },
       td_depot: { key: 'td_depot', box: [16, 12, 660, 380], shadow: true }
     };
@@ -60,7 +62,8 @@ OTR.assets = {
       if (!src) return;
       const img = new Image();
       img.src = src;
-      jobs.push((img.decode ? img.decode() : Promise.resolve()).then(() => { this.images[spec.key] = img; this.byKey[spec.key] = spec; }).catch(() => {}));
+      const keys = [spec.key].concat(spec.also || []);
+      jobs.push((img.decode ? img.decode() : Promise.resolve()).then(() => keys.forEach(k => { this.images[k] = img; this.byKey[k] = spec; })).catch(() => {}));
     });
     return Promise.all(jobs);
   },
