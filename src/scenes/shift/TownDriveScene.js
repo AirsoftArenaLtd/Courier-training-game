@@ -148,7 +148,10 @@ class TownDriveScene extends Phaser.Scene {
       let img;
       if (l.kind === 'apartment') img = this.add.image(l.x, l.y, aptKey);
       else if (l.kind === 'business') img = this.add.image(l.x, l.y, bizKeys[l.variant % 2]);
-      else img = this.add.image(l.x, l.y, houseKeys[l.variant % 4]).setTint(roofTints[i % roofTints.length]);
+      else {
+        img = this.add.image(l.x, l.y, houseKeys[l.variant % 4]);
+        if (OTR.assets.tintable(houseKeys[l.variant % 4])) img.setTint(roofTints[i % roofTints.length]);   // an image has its own colours
+      }
       img.setDepth(10).setScale(OTR.town.SCALE);
       l.img = img;
       const dw = this.add.image(l.x + 60, (l.curb.y + l.y) / 2, A.driveway(this)).setDepth(-80);

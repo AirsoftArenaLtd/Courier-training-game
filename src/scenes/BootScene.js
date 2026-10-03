@@ -13,7 +13,9 @@ class BootScene extends Phaser.Scene {
       else console.log('[OTR data] content validated OK');
     }
 
-    const lab = new URLSearchParams(window.location.search).get('lab');
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('bench')) { this.scene.start('BenchScene'); return; }     // the performance test
+    const lab = params.get('lab');
     if (lab) { OTR.save.ephemeral = true; this.scene.start('LabScene', { which: lab }); return; }
 
     const testId = OTR.flow.testId;
