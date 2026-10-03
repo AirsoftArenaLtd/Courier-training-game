@@ -2,7 +2,8 @@
 /*
  * The image pipeline (src/core/assets.js, test/tools/pack-art.js): images in assets/img/ are packed, and the game draws
  * them in place of the drawn art, at the drawn art's size; ?art=drawn ignores them; a white background is removed.
- * It packs two temporary images, checks the game, and puts assets/img/ and assets/art-pack.js back as they were.
+ * It sets any real images aside, packs two temporary ones, checks the game, and puts assets/img/ and
+ * assets/art-pack.js back as they were.
  *
  *   QA_BROWSER=/path/to/chrome node test/art.js
  */
@@ -21,6 +22,10 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
 (async () => {
   const packBefore = fs.readFileSync(PACK, 'utf8');
   const made = [];
+  // the real images go aside while the test images stand in for them (a real van_top.webp would win over the test's .png)
+  const ASIDE = fs.mkdtempSync(path.join(ROOT, 'assets', '.img-aside-'));
+  const real = fs.readdirSync(IMG).filter(f => /\.(png|webp|jpe?g)$/i.test(f));
+  real.forEach(f => fs.renameSync(path.join(IMG, f), path.join(ASIDE, f)));
   const b = await puppeteer.launch({ executablePath: BROWSER, headless: 'new', args: ['--no-sandbox', '--allow-file-access-from-files', '--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
   try {
     const p = await b.newPage();
@@ -34,7 +39,6 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     }, bg, body);
     for (const [name, bg, body] of [['van_top', '#ffffff', '#00ff00'], ['car_top_red', null, '#0000ff']]) {
       const f = path.join(IMG, name + '.png');
-      if (fs.existsSync(f)) throw new Error(`assets/img/${name}.png exists: not overwriting a real image`);
       fs.writeFileSync(f, Buffer.from(await mk(bg, body), 'base64'));
       made.push(f);
     }
@@ -58,6 +62,8 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     check(false, 'script error: ' + (e && e.stack || e));
   } finally {
     made.forEach(f => fs.unlinkSync(f));
+    real.forEach(f => fs.renameSync(path.join(ASIDE, f), path.join(IMG, f)));
+    fs.rmdirSync(ASIDE);
     fs.writeFileSync(PACK, packBefore);
     await b.close();
   }

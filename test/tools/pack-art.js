@@ -32,7 +32,7 @@ const KEYS = window.OTR.assets.KEYS;
     const spec = KEYS[name.replace(/_real$/, '')];
     if (!spec) { skipped.push(f); return; }
     const mime = /\.png$/i.test(f) ? 'image/png' : /\.webp$/i.test(f) ? 'image/webp' : 'image/jpeg';
-    jobs.push({ name, w: spec.box[2] * 2, h: spec.box[3] * 2, src: `data:${mime};base64,` + fs.readFileSync(path.join(DIR, f)).toString('base64') });
+    jobs.push({ name, w: spec.box[2] * 2, h: spec.box[3] * 2, aspect: spec.aspect || spec.box[2] / spec.box[3], src: `data:${mime};base64,` + fs.readFileSync(path.join(DIR, f)).toString('base64') });
   });
   if (!jobs.length) { console.log('No images to pack in assets/img/.'); }
   const b = await puppeteer.launch({ executablePath: process.env.QA_BROWSER || '/opt/pw-browsers/chromium', headless: 'new', args: ['--no-sandbox'] });
@@ -76,7 +76,8 @@ const KEYS = window.OTR.assets.KEYS;
       const o = document.createElement('canvas'); o.width = j.w; o.height = j.h;
       const ox = o.getContext('2d'); ox.imageSmoothingQuality = 'high';
       ox.drawImage(c, x0, y0, x1 - x0 + 1, y1 - y0 + 1, 0, 0, j.w, j.h);
-      const aspectIn = (x1 - x0 + 1) / (y1 - y0 + 1), aspectOut = j.w / j.h;
+      // against the shape it shows on screen (a vehicle's box is squeezed to its real size afterwards)
+      const aspectIn = (x1 - x0 + 1) / (y1 - y0 + 1), aspectOut = j.aspect;
       return { data: o.toDataURL('image/webp', 0.9), keyed, from: `${W}x${H}`, trimmed: `${x1 - x0 + 1}x${y1 - y0 + 1}`, stretch: +(aspectOut / aspectIn).toFixed(2) };
     }, j);
     if (r.error) { report.push(`${j.name}: ${r.error}`); continue; }
