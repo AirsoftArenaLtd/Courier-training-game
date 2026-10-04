@@ -66,7 +66,10 @@ class TownDriveScene extends Phaser.Scene {
     this.buildHud();
     this.setupInput();
 
-    this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700, vignette: true });
+    // after dark (and in a storm) a light map does the darkening, with real light from the lamps and headlights
+    this.lighting = OTR.gfx.high() ? OTR.lighting.install(this, { tod: this.tod, weather: this.weather, depth: 699 }) : null;
+    this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700, vignette: true, lightmap: !!this.lighting });
+    if (this.lighting) this.city.windowLight = Math.min(1, this.lighting.dark * 1.6);
     OTR.fx.enter(this);
     this.cameras.main.setBounds(0, 0, this.T.W, this.T.H);
     this.camZoom = 0.9;
@@ -74,9 +77,16 @@ class TownDriveScene extends Phaser.Scene {
     this.camPos = { x: this.van.x, y: this.van.y };
     this.updateCamera(0, true);
     this.city.update();
+    this.drawLights();
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
     OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
+    // the mirrors and the rear camera see the same dark: the light map only covers the main view, so they are dimmed
+    // to its ambient level
+    if (this.lighting && this.insetCams && this.sys.game.renderer.type === Phaser.WEBGL) {
+      const c = this.lighting.amb.color, r = ((c >> 16) & 255) / 255, g = ((c >> 8) & 255) / 255, b = (c & 255) / 255;
+      Object.values(this.insetCams).forEach(cam => { if (cam.postFX) cam.postFX.addColorMatrix().set([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]); });
+    }
     OTR.a11y.applyColour(this);                 // the colour filter on the cameras added since the scene began
     // The engine hum belongs to this drive: quiet while paused, and gone however the scene ends. (Quitting from
     // the pause menu used to leave it humming on the hub and every screen after.)
@@ -171,6 +181,31 @@ class TownDriveScene extends Phaser.Scene {
       const dw = this.add.image(l.x + 60, (l.curb.y + l.y) / 2, A.driveway(this)).setDepth(-80);
       dw.setDisplaySize(70, Math.abs(l.curb.y - l.y));
     });
+
+    // street lamps along every block, on alternate sides, their arms over the road (lit after dark)
+    this.lamps = [];
+    const lampKey = A.lamp(this), half = R + A.WALK / 2;
+    const clearOfDrives = (x, y) => !T.lots.some(l => Math.abs(l.curb.y - y) < 60 && Math.abs(l.x + 60 - x) < 50);
+    T.hy.forEach((y, row) => T.vx.forEach((x, col) => {
+      if (col >= T.vx.length - 1) return;
+      [0.3, 0.7].forEach((u, k) => {
+        const side = (k + row) % 2 ? 1 : -1;
+        if ((row === 0 && side < 0) || (row === T.hy.length - 1 && side > 0)) return;
+        let lx = x + (T.vx[col + 1] - x) * u;
+        const ly = y + side * half;
+        for (let n = 0; n < 4 && !clearOfDrives(lx, ly); n++) lx += 70;
+        this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 90 : -90);
+        this.lamps.push({ x: lx, y: y + side * (R - 14) });          // the head, over the kerb lane
+      });
+    }));
+    T.vx.forEach((x, col) => T.hy.forEach((y, row) => {
+      if (row >= T.hy.length - 1) return;
+      const u = 0.5, side = (col + row) % 2 ? 1 : -1;
+      if ((col === 0 && side < 0) || (col === T.vx.length - 1 && side > 0)) return;
+      const ly = y + (T.hy[row + 1] - y) * u, lx = x + side * half;
+      this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 0 : 180);
+      this.lamps.push({ x: x + side * (R - 14), y: ly });
+    }));
 
     // trees stay on the lawns: clear of the street, the sidewalk and the buildings
     const treeKeys = [0, 1, 2].map(v => A.tree(this, v));
@@ -670,6 +705,7 @@ class TownDriveScene extends Phaser.Scene {
     OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
     this.city.update();
+    this.drawLights();
     this.updateHud();
   }
 
@@ -783,7 +819,7 @@ class TownDriveScene extends Phaser.Scene {
     if (blinkOn !== this._blinkWas) { this._blinkWas = blinkOn; if (blinkOn && dt) OTR.audio.play('tick'); }
 
     this.beams && this.beams.clear();
-    if (this.lights && this.beams) {
+    if (this.lights && this.beams && !this.lighting) {
       const nose = V.point(v, g.nose, 0), f = V.fwd(v), r = V.right(v);
       this.beams.fillStyle(0xFFF0C0, 0.13);
       this.beams.fillTriangle(
@@ -1144,6 +1180,52 @@ class TownDriveScene extends Phaser.Scene {
     const V = OTR.vehicle, v = this.van, bc = V.bodyCentre(v), f = V.fwd(v), r = V.right(v);
     const dx = x - bc.x, dy = y - bc.y;
     return { fd: dx * f.x + dy * f.y, lat: dx * r.x + dy * r.y, hl: v.g.hl * this.P, hw: v.g.hw * this.P };
+  }
+
+  /** Fill the light map (after dark): every light near the screen, in world pixels. */
+  drawLights() {
+    const L = this.lighting;
+    if (!L) return;
+    const V = OTR.vehicle, v = this.van, g = v.g;
+    L.begin();
+    const WARM = 0xFFD9A0, PORCH = 0xFFC27A, RED = 0xFF3040, HEAD = 0xFFF4DD;
+    this.lamps.forEach(l => L.glow(l.x, l.y, 190, WARM, 0.7));
+    this.T.lots.forEach(l => {
+      const [fw, fh] = OTR.town.size(l), door = l.y + (l.side < 0 ? fh / 2 : -fh / 2);
+      if (l.kind === 'apartment') [-0.3, 0, 0.3].forEach(u => L.glow(l.x + u * fw, door, 90, PORCH, 0.55));
+      else if (l.kind === 'business') L.glow(l.x, door, 150, 0xFFF0D0, 0.6);
+      else L.glow(l.x, door, 80, PORCH, 0.6);
+    });
+    const D = this.T.depot;
+    [-0.36, -0.12, 0.12, 0.36].forEach(u => L.glow(D.x + u * D.w, D.y + D.h / 2 + 30, 130, 0xF4F0FF, 0.55));
+    [-0.3, 0.3].forEach(u => L.glow(D.x + u * D.w, D.y - D.h / 2 - 20, 120, 0xF4F0FF, 0.45));
+    // the van: dipped headlights only when they are on (driving without them is driving in the dark)
+    if (this.lights) {
+      const nose = V.point(v, g.nose, 0);
+      L.beam(nose.x, nose.y, v.heading, 480, 300, HEAD, 0.95);
+      L.glow(nose.x, nose.y, 70, HEAD, 0.5);
+    }
+    const back = -g.tail + 0.15, side = g.hw - 0.35;
+    const tl = v.brake > 0.1 ? 0.9 : this.lights ? 0.45 : 0;
+    if (tl) [-side, side].forEach(sd => { const p = V.point(v, back, sd); L.glow(p.x, p.y, 46, RED, tl); });
+    if (v.gear < 0) { const p = V.point(v, back - 0.5, 0); L.glow(p.x, p.y, 90, 0xFFFFFF, 0.6); }
+    // traffic drives with its lights on after dark
+    this.cars.forEach(c => {
+      const cx = Math.cos(c.heading), cy = Math.sin(c.heading);
+      L.beam(c.x + cx * c.hl * 0.9, c.y + cy * c.hl * 0.9, c.heading, 330, 230, HEAD, 0.7);
+      L.glow(c.x - cx * c.hl * 0.9, c.y - cy * c.hl * 0.9, 40, RED, c.speed < 20 ? 0.8 : 0.4);
+    });
+    // signal heads light the corner they stand on
+    this.T.inters.forEach(it => {
+      if (!it.light || !it.signs) return;
+      Object.keys(it.signs).forEach(dir => {
+        const st = dir === 'W' || dir === 'E' ? it.lightH : it.lightV, sg = it.signs[dir];
+        L.glow(sg.x, sg.y, 60, st === 'green' ? 0x40FF90 : st === 'amber' ? 0xFFB020 : 0xFF3040, 0.6);
+      });
+    });
+    // an ambulance's lights, flashing red and blue
+    if (this.ambulance && this.ambulance.bar) { const b = this.ambulance.bar; L.glow(b.x, b.y, 170, b.fillColor, 0.75); }
+    L.end();
   }
 
   stepPeds(dt) {

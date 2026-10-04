@@ -31,6 +31,7 @@ OTR.scenery = {
     midday:    { top: 0x4A9FE8, bottom: 0xCFEBFF, far: 0x9ABCD4, sun: [0.72, 0.12], sunCol: 0xFFFFFF, tint: 0xFFFFFF, dark: 0.0 },
     afternoon: { top: 0x5B93D2, bottom: 0xFFD7A6, far: 0xA3A6BE, sun: [0.82, 0.38], sunCol: 0xFFE0A0, tint: 0xFFEBD0, dark: 0.06 },
     evening:   { top: 0x3B2D70, bottom: 0xFF8E5E, far: 0x6E5480, sun: [0.86, 0.7], sunCol: 0xFFB070, tint: 0xFFB590, dark: 0.26 },
+    dusk:      { top: 0x231E4E, bottom: 0xB0587A, far: 0x40345E, sun: null, sunCol: 0xFFB070, tint: 0xA088C0, dark: 0.42 },
     night:     { top: 0x0C1030, bottom: 0x2B2E5E, far: 0x24284E, sun: null, sunCol: 0xDDE6FF, tint: 0x7080C0, dark: 0.55 }
   },
 

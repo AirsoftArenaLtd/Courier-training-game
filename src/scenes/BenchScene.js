@@ -15,6 +15,7 @@ class BenchScene extends Phaser.Scene {
       { label: 'Hub', key: 'HubScene' },
       { label: 'Town drive (traffic, driving)', key: 'TownDriveScene', data: { seed: 3, weather: 'clear', tod: 'midday', route: [] }, drive: true },
       { label: 'Town drive in rain at dusk', key: 'TownDriveScene', data: { seed: 4, weather: 'rain', tod: 'dusk', route: [] }, drive: true },
+      { label: 'Town drive at night (lights)', key: 'TownDriveScene', data: { seed: 5, weather: 'clear', tod: 'night', route: [] }, drive: true, lights: true },
       { label: 'Road Hazards', scenario: 'm1-driving', drive: true },
       { label: 'Doorstep stop', scenario: 'm5-pod' },
       { label: 'Icy steps stop', scenario: 'm8-steps' },
@@ -49,7 +50,7 @@ class BenchScene extends Phaser.Scene {
     this.time.delayedCall(900, () => this.key('Enter'));
     this.time.delayedCall(1300, () => {
       const s = this.game.scene.getScenes(true).find(x => x !== this);
-      if (it.drive && s && s.held) { s.buckled = true; s.started = true; s.held = { KeyW: true }; this.driving = s; }
+      if (it.drive && s && s.held) { s.buckled = true; s.started = true; s.held = { KeyW: true }; this.driving = s; if (it.lights) s.lights = true; }
     });
     this.time.delayedCall(2000, () => { this.frames = []; this.measuring = true; });
     this.time.delayedCall(6500, () => {

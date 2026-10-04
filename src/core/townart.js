@@ -217,6 +217,19 @@ OTR.townArt = {
     }, { decorate: band });
   },
 
+  /** A street lamp from above: the post's foot, and the arm reaching over the road to the lamp head. */
+  lamp(scene) {
+    return OTR.tex.make(scene, 'td_lamp', 40, 20, (ctx) => {
+      const cv = OTR.cv;
+      cv.shadow(ctx, 3, 2, 0.4);
+      ctx.fillStyle = '#3A3D44'; ctx.beginPath(); ctx.arc(7, 10, 4.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillRect(7, 8.8, 22, 2.4);
+      cv.rr(ctx, 25, 6, 13, 8, 3); ctx.fillStyle = '#52565F'; ctx.fill();
+      cv.noShadow(ctx);
+      cv.rr(ctx, 28, 8, 8, 4, 2); ctx.fillStyle = '#EDE6D0'; ctx.fill();
+    });
+  },
+
   tree(scene, variant) {
     const r = [46, 58, 38][variant % 3];
     return OTR.tex.make(scene, `td_tree_${variant}`, r * 2 + 24, r * 2 + 24, (ctx, w, h) => {
