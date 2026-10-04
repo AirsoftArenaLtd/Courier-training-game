@@ -1670,7 +1670,7 @@ class TownDriveScene extends Phaser.Scene {
     OTR.audio.stopLoop('engine');
     OTR.audio.play('engine_start');
     const neat = withTraffic && gapM < 1.2 && skew < 0.14;
-    this.log.check('safety', neat ? 2 : 1, 2, `Parked at ${lot.number} ${lot.street}${neat ? '' : !withTraffic ? ' (facing the traffic)' : gapM >= 1.2 ? ` (${Math.round(gapM * 3.281)} ft from the kerb)` : ' (at an angle)'}`, {
+    this.log.check('safety', neat ? 2 : 1, 2, neat ? `Parked at ${lot.number} ${lot.street}` : !withTraffic ? `Parked at ${lot.number} ${lot.street} (facing the traffic)` : gapM >= 1.2 ? `Parked at ${lot.number} ${lot.street} (${Math.round(gapM * 3.281)} ft from the kerb)` : `Parked at ${lot.number} ${lot.street} (at an angle)`, {
       lesson: !withTraffic
         ? 'Park on the right-hand side, facing the same way as the traffic, so you pull out into your own lane.'
         : 'Pull in close and parallel to the curb, so passing traffic has room and you step out onto the sidewalk.'

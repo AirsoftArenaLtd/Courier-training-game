@@ -10,7 +10,9 @@
  *   strings     English → translation, for whole strings ("Start the route" → "Empezar la ruta")
  *   templates   [English, translation] with {0}, {1}... for the changing parts ("Stop {0} of {1}" →
  *               "Parada {0} de {1}"); the parts are translated in their turn, so "Correct! {0}" works for any
- *               feedback the dictionary knows
+ *               feedback the dictionary knows. A hole the translation leaves out is dropped, and where the English
+ *               adds a plural ending ("{0} package{1}") the translation picks its own word with {1:plural|singular}
+ *               ("{0} {1:paquetes|paquete}"), which reads the plural when the English ending was filled in
  * A string with neither is split where the game joins pieces (new lines, " · ") and each piece is tried; what is still
  * unknown is shown in English (and listed in OTR.i18n.missing, for the translators).
  *
@@ -62,7 +64,8 @@ OTR.i18n = {
     this.templates = (L.templates || []).map(([en, tr]) => {
       const parts = en.split(/\{(\d+)\}/);
       let re = '^', order = [];
-      parts.forEach((p, i) => { if (i % 2) { re += '([\\s\\S]+?)'; order.push(+p); } else re += p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+      // a hole may be empty: the game's plural endings ("package{1}") are "" for one
+      parts.forEach((p, i) => { if (i % 2) { re += '([\\s\\S]*?)'; order.push(+p); } else re += p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
       return { re: new RegExp(re + '$'), order, tr, weight: en.replace(/\{\d+\}/g, '').length };
     }).sort((a, b) => b.weight - a.weight);
     this.cache.clear();
@@ -101,6 +104,8 @@ OTR.i18n = {
         const T = this.templates[i], m = T.re.exec(s);
         if (!m) continue;
         let out = T.tr;
+        // {n:plural|singular} picks a word by whether the English plural ending {n} was filled in
+        out = out.replace(/\{(\d+):([^|}]*)\|([^}]*)\}/g, (all, n, pl, sg) => { const k = T.order.indexOf(+n); return k >= 0 && m[k + 1] ? pl : sg; });
         T.order.forEach((n, k) => { out = out.split(`{${n}}`).join(this.translate(m[k + 1], depth + 1)); });
         return out;
       }

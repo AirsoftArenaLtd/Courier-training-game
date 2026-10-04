@@ -176,7 +176,7 @@ class HubScene extends Phaser.Scene {
     OTR.txt(this, X0, 92, 'TRAINING ACADEMY', 15, '#FF9447', { ox: 0, weight: '900' });
     const A = OTR.academy, as = A.assessmentAllowed() ? A.summary() : null;
     const right = this.fresh ? 'New here? Start with the scenario marked NEXT'
-      : as ? `Assessments passed: ${as.passed} / ${as.total}${A.practiceAllowed() ? '  ·  practice any time' : ''}` : 'Practice any module, any time';
+      : as ? [`Assessments passed: ${as.passed} / ${as.total}`].concat(A.practiceAllowed() ? ['practice any time'] : []).join('  ·  ') : 'Practice any module, any time';
     OTR.txt(this, OTR.W - 20, 92, right, 14, this.fresh ? '#FFC83D' : as ? '#8BF0C6' : '#C9B3F0', { ox: 1, bold: !!this.fresh || !!as });
 
     mods.forEach((m, i) => {

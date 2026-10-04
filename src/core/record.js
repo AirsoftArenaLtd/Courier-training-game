@@ -58,7 +58,7 @@ OTR.record = {
     };
   },
 
-  date(t) { return t ? new Date(t).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—'; },
+  date(t) { return t ? new Date(t).toLocaleDateString(OTR.i18n ? OTR.i18n.lang : undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—'; },
   duration(s) {
     if (!s) return 'under a minute';
     const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60);
@@ -75,23 +75,28 @@ OTR.record = {
   assessText(a) {
     if (!a || !a.attempts) return 'Not taken';
     if (a.passed) return `Passed ${OTR.record.date(a.at)}`;
-    return `Not passed (${a.attempts} attempt${a.attempts === 1 ? '' : 's'}${a.abandoned ? ', left part-way' : ''})`;
+    const tries = a.attempts === 1 ? '1 attempt' : `${a.attempts} attempts`;
+    return a.abandoned ? `Not passed (${tries}, left part-way)` : `Not passed (${tries})`;
   },
 
+  /** Text for a printed page, in the player's language: T(text), or F('Printed {0}', html) with its parts filled in. */
+  T(s) { return OTR.record.esc(OTR.i18n ? OTR.i18n.t(s) : s); },
+  F(s, ...parts) { let t = OTR.record.T(s); parts.forEach((v, i) => { t = t.split(`{${i}}`).join(v); }); return t; },
+
   html(R, name, id) {
-    const E = OTR.record.esc, cfg = OTR_DATA.config, lab = (c) => cfg.categories[c].label;
+    const E = OTR.record.esc, T = OTR.record.T, F = OTR.record.F, cfg = OTR_DATA.config, lab = (c) => cfg.categories[c].label;
     const rows = R.modules.map(m => `
-      <tr class="mod"><th colspan="3">${E(m.title)}</th><th colspan="2" class="q">${E(OTR.record.quizText(m.quiz))}</th></tr>
+      <tr class="mod"><th colspan="3">${T(m.title)}</th><th colspan="2" class="q">${T(OTR.record.quizText(m.quiz))}</th></tr>
       ${m.scenarios.map(s => `<tr>
-        <td>${E(s.title)}</td>
-        <td class="${s.assess && s.assess.passed ? 'pass' : s.assess && s.assess.attempts ? 'fail' : 'none'}">${E(OTR.record.assessText(s.assess))}</td>
+        <td>${T(s.title)}</td>
+        <td class="${s.assess && s.assess.passed ? 'pass' : s.assess && s.assess.attempts ? 'fail' : 'none'}">${T(OTR.record.assessText(s.assess))}</td>
         <td class="stars">${E(OTR.record.stars(s.best, OTR.scoring.ordered(s.cats)))}</td>
         <td>${s.plays}</td>
         <td>${E(OTR.record.date(s.lastPlayed))}</td>
       </tr>`).join('')}`).join('');
-    const lessons = R.lessons.length ? `<ol>${R.lessons.map(l => `<li>${E(l.text)}${l.n > 1 ? ` <span class="n">(${l.n}×)</span>` : ''}</li>`).join('')}</ol>` : '<p>No recurring mistakes recorded.</p>';
-    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${E((OTR.registry.get(c.id) || {}).title || c.id)}: ${E(c.text)}</li>`).join('')}</ul>` : '<p>None.</p>';
-    return `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Training record: ${E(name)}</title><style>
+    const lessons = R.lessons.length ? `<ol>${R.lessons.map(l => `<li>${T(l.text)}${l.n > 1 ? ` <span class="n">(${l.n}×)</span>` : ''}</li>`).join('')}</ol>` : `<p>${T('No recurring mistakes recorded.')}</p>`;
+    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T((OTR.registry.get(c.id) || {}).title || c.id)}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
+    return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
       @page { size: A4; margin: 14mm; }
       body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #1b1030; margin: 0; }
       header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #FF6600; padding-bottom: 8px; margin-bottom: 14px; }
@@ -107,28 +112,28 @@ OTR.record = {
       .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; } .sign div { border-top: 1px solid #333; padding-top: 4px; font-size: 9pt; color: #555; }
       footer { margin-top: 18px; font-size: 8pt; color: #888; }
     </style></head><body>
-      <header><div><div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div><h1>Training record: ${E(name)}</h1></div>
-        <div class="meta">${id ? `ID ${E(id)}<br>` : ''}Printed ${E(OTR.record.date(Date.now()))}<br>Training since ${E(OTR.record.date(R.firstAt))}</div></header>
+      <header><div><div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div><h1>${F('Training record: {0}', E(name))}</h1></div>
+        <div class="meta">${id ? `ID ${E(id)}<br>` : ''}${F('Printed {0}', E(OTR.record.date(Date.now())))}<br>${F('Training since {0}', E(OTR.record.date(R.firstAt)))}</div></header>
       <div class="summary">
-        <div>Assessments passed<b>${R.passed} / ${R.total}</b></div>
-        <div>Scenarios practiced<b>${R.practised} / ${R.total}</b></div>
-        <div>Route days<b>${R.routeDays}</b></div>
-        <div>Time training<b>${E(OTR.record.duration(R.seconds))}</b></div>
+        <div>${T('Assessments passed')}<b>${R.passed} / ${R.total}</b></div>
+        <div>${T('Scenarios practiced')}<b>${R.practised} / ${R.total}</b></div>
+        <div>${T('Route days')}<b>${R.routeDays}</b></div>
+        <div>${T('Time training')}<b>${T(OTR.record.duration(R.seconds))}</b></div>
       </div>
-      <p>Strongest to weakest (best stars earned): ${OTR.scoring.CATS.slice().sort((a, b) => R.ratio[b] - R.ratio[a]).map(c => `${E(lab(c))} ${Math.round(R.ratio[c] * 100)}%`).join(' · ')}</p>
-      <h2>Modules</h2>
-      <table><thead><tr><th>Scenario</th><th>Assessment</th><th>Best practice stars</th><th>Runs</th><th>Last played</th></tr></thead><tbody>${rows}</tbody></table>
-      <h2>What to work on</h2>${lessons}
-      <h2>Critical mistakes</h2>${crit}
-      <div class="sign"><div>Trainee signature and date</div><div>Trainer signature and date</div></div>
-      <footer>${E(cfg.disclaimer || '')}</footer>
+      <p>${F('Strongest to weakest (best stars earned): {0}', OTR.scoring.CATS.slice().sort((a, b) => R.ratio[b] - R.ratio[a]).map(c => `${T(lab(c))} ${Math.round(R.ratio[c] * 100)}%`).join(' · '))}</p>
+      <h2>${T('Modules')}</h2>
+      <table><thead><tr><th>${T('Scenario')}</th><th>${T('Assessment')}</th><th>${T('Best practice stars')}</th><th>${T('Runs')}</th><th>${T('Last played')}</th></tr></thead><tbody>${rows}</tbody></table>
+      <h2>${T('What to work on')}</h2>${lessons}
+      <h2>${T('Critical mistakes')}</h2>${crit}
+      <div class="sign"><div>${T('Trainee signature and date')}</div><div>${T('Trainer signature and date')}</div></div>
+      <footer>${cfg.disclaimer ? T(cfg.disclaimer) : ''}</footer>
     </body></html>`;
   },
 
   certificateHtml(R, name, id) {
-    const E = OTR.record.esc, cfg = OTR_DATA.config;
+    const E = OTR.record.esc, T = OTR.record.T, F = OTR.record.F, cfg = OTR_DATA.config;
     const last = Math.max(...R.all.map(s => (s.assess && s.assess.at) || 0));
-    return `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Certificate: ${E(name)}</title><style>
+    return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Certificate: {0}', E(name))}</title><style>
       @page { size: A4 landscape; margin: 0; }
       body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #1b1030; }
       .page { box-sizing: border-box; width: 297mm; height: 210mm; padding: 18mm; }
@@ -139,13 +144,13 @@ OTR.record = {
       .sign { display: flex; justify-content: space-around; margin-top: 18mm; } .sign div { width: 70mm; border-top: 1px solid #333; padding-top: 2mm; font-size: 10pt; color: #555; }
     </style></head><body><div class="page"><div class="frame">
       <div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div>
-      <h1>Certificate of Completion</h1>
-      <p>This certifies that</p>
+      <h1>${T('Certificate of Completion')}</h1>
+      <p>${T('This certifies that')}</p>
       <div class="name">${E(name)}</div>
-      <p>passed the assessment in every scenario of the courier training academy (${R.total} of ${R.total}),</p>
-      <p>covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.</p>
-      <p class="small">Completed ${E(OTR.record.date(last))}${id ? ` · Trainee ID ${E(id)}` : ''}</p>
-      <div class="sign"><div>Trainer</div><div>Date</div></div>
+      <p>${F('passed the assessment in every scenario of the courier training academy ({0} of {1}),', R.total, R.total)}</p>
+      <p>${T('covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.')}</p>
+      <p class="small">${F('Completed {0}', E(OTR.record.date(last)))}${id ? ` · ${F('Trainee ID {0}', E(id))}` : ''}</p>
+      <div class="sign"><div>${T('Trainer')}</div><div>${T('Date')}</div></div>
     </div></div></body></html>`;
   },
 

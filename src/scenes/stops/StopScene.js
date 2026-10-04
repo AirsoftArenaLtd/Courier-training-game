@@ -251,7 +251,7 @@ class StopScene extends BaseScenarioScene {
     OTR.fx.shake(this, 120, 0.004);
     this.me.setExpression('worried');
     this.time.delayedCall(900, () => { if (!H.incident) this.me.setExpression('neutral'); });
-    this.say(slippery ? `Whoa, ${H.label} ${H.label.endsWith('s') ? 'are' : 'is'} slippery! Hold SHIFT: short, careful steps.` : `Careful, you can't see your feet with that box! Hold SHIFT over ${H.label}.`, '#FFC83D');
+    this.say(slippery ? (H.label.endsWith('s') ? `Whoa, ${H.label} are slippery! Hold SHIFT: short, careful steps.` : `Whoa, ${H.label} is slippery! Hold SHIFT: short, careful steps.`) : `Careful, you can't see your feet with that box! Hold SHIFT over ${H.label}.`, '#FFC83D');
   }
 
   hazardIncident(H) {
@@ -2028,7 +2028,7 @@ class StopScene extends BaseScenarioScene {
         rows.slice(drawn).forEach(r => { if (r.lesson) r.lesson.destroy(); });
         if (drawn < rows.length) {
           const rest = rows.slice(drawn), bad = rest.filter(r => !r.good).length;
-          box.add(OTR.txt(this, -w / 2 + 88, y + 2, `+ ${rest.length} more check${rest.length > 1 ? 's' : ''}${bad ? ` (${bad} to work on)` : ', all passed'}`, 14, '#7A6A90', { ox: 0, oy: 0, bold: false }));
+          box.add(OTR.txt(this, -w / 2 + 88, y + 2, bad ? `+ ${rest.length} more check${rest.length > 1 ? 's' : ''} (${bad} to work on)` : `+ ${rest.length} more check${rest.length > 1 ? 's' : ''}, all passed`, 14, '#7A6A90', { ox: 0, oy: 0, bold: false }));
         }
         void api;
       },

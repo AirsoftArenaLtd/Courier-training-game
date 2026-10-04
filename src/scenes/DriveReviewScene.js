@@ -112,7 +112,7 @@ class DriveReviewScene extends Phaser.Scene {
     this.tweens.add({ targets: this.pinObjs[i].ring, scale: 1.5, alpha: 0.2, duration: 700, yoyo: true, repeat: -1 });
     if (!this.detailHead) return;
     this.detailHead.setText(`${i + 1}. ${p.label}`).setColor(p.critical ? '#B3122E' : '#250849');
-    this.detailMeta.setText(`${p.where.mph !== undefined ? p.where.mph + ' mph · ' : ''}${OTR.drive.when(p.where)} into the drive${p.critical ? ' · CRITICAL' : ''}`);
+    this.detailMeta.setText([p.where.mph !== undefined ? p.where.mph + ' mph' : '', `${OTR.drive.when(p.where)} into the drive`, p.critical ? 'CRITICAL' : ''].filter(Boolean).join(' · '));
     this.detailMeta.y = this.detailHead.y + this.detailHead.height + 4;
     this.detailBody.setText(p.lesson || '');
     this.detailBody.y = this.detailMeta.y + this.detailMeta.height + 8;

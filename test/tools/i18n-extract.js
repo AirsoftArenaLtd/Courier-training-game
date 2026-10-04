@@ -45,29 +45,45 @@ files.splice(0, files.length, ...files.filter(f => !devOnly.has(path.relative(RO
 const notText = (s) =>
   /^(keydown|keyup|pointer|ic_|td_|pp_|lt_|wx_|p_|car_top|van_top|atm_|bg_)/.test(s) || /^[#.]?[a-z0-9_-]+$/.test(s) ||
   /\b(rgba?|px|Segoe|Arial|sans-serif|function|return|const)\b/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s);
-files.forEach(file => {
-  const src = fs.readFileSync(file, 'utf8');
-  const rel = path.relative(ROOT, file);
-  // a small scanner: skips comments, reads '...', "..." and `...` (with ${} inside templates)
-  let i = 0;
+// a small scanner: skips comments and regular expressions, reads '...', "..." and `...`; the code inside a template's
+// ${} is scanned too, for the words it chooses between ("Signaled the ${late ? 'left' : 'right'} turn")
+const scanCode = (src, rel) => {
+  let i = 0, prev = '';
   while (i < src.length) {
     const c = src[i], n = src[i + 1];
     if (c === '/' && n === '/') { i = src.indexOf('\n', i); if (i < 0) break; continue; }
     if (c === '/' && n === '*') { i = src.indexOf('*/', i + 2); if (i < 0) break; i += 2; continue; }
+    // a regular expression starts where a value is expected: after ( , = : [ ! & | ? { } ; or return
+    if (c === '/' && (/[(,=:[!&|?{};]/.test(prev) || prev === '' || /\breturn\s*$/.test(src.slice(Math.max(0, i - 8), i)))) {
+      let j = i + 1, cls = false;
+      while (j < src.length && src[j] !== '\n' && (cls || src[j] !== '/')) { if (src[j] === '\\') j++; else if (src[j] === '[') cls = true; else if (src[j] === ']') cls = false; j++; }
+      i = j + 1; prev = 'x'; continue;
+    }
+    if (!/\s/.test(c)) prev = c;
     if (c === '\'' || c === '"') {
       let j = i + 1, s = '';
       while (j < src.length && src[j] !== c) { if (src[j] === '\\') { s += src[j + 1] === 'n' ? '\n' : src[j + 1]; j += 2; } else s += src[j++]; }
-      if (textish(s) && !notText(s)) add(s, rel);
-      i = j + 1; continue;
+      // a sentence with {0} holes for printed pages (OTR.record.F) is text, not code
+      if (textish(s) && !notText(s.replace(/\{\d+\}/g, ' '))) add(s, rel);
+      i = j + 1; prev = 'x'; continue;
     }
     if (c === '`') {
       let j = i + 1, s = '', holes = 0;
       while (j < src.length && src[j] !== '`') {
         if (src[j] === '\\') { s += src[j + 1] === 'n' ? '\n' : src[j + 1]; j += 2; continue; }
         if (src[j] === '$' && src[j + 1] === '{') {
-          let depth = 1; j += 2;
-          while (j < src.length && depth) { if (src[j] === '{') depth++; else if (src[j] === '}') depth--; j++; }
-          s += `{${holes++}}`; continue;
+          // the hole's code runs to its matching }, past any strings and templates inside it
+          let depth = 1, k = j + 2, q = null;
+          while (k < src.length && depth) {
+            const ch = src[k];
+            if (q) { if (ch === '\\') k++; else if (ch === q) q = null; }
+            else if (ch === '\'' || ch === '"' || ch === '`') q = ch;
+            else if (ch === '{') depth++;
+            else if (ch === '}') depth--;
+            k++;
+          }
+          scanCode(src.slice(j + 2, k - 1), rel);
+          j = k; s += `{${holes++}}`; continue;
         }
         s += src[j++];
       }
@@ -75,11 +91,12 @@ files.forEach(file => {
       if (textish(plain) && !/<|\bstyle\b|;\s*$/.test(s) && !notText(plain.trim() || 'x')) {
         if (holes) { if (!templates.has(s)) templates.set(s, rel); } else add(s, rel);
       }
-      i = j + 1; continue;
+      i = j + 1; prev = 'x'; continue;
     }
     i++;
   }
-});
+};
+files.forEach(file => scanCode(fs.readFileSync(file, 'utf8'), path.relative(ROOT, file)));
 
 fs.mkdirSync(OUT, { recursive: true });
 // in the order they were found: a conversation's lines stay together, for whoever translates them
@@ -92,8 +109,9 @@ const lang = process.argv[2];
 if (lang) {
   window.OTR_I18N = {};
   eval(fs.readFileSync(path.join(OUT, lang + '.js'), 'utf8'));
-  const L = window.OTR_I18N[lang] || {}, have = L.strings || {}, haveT = new Set((L.templates || []).map(t => t[0]));
-  const miss = { strings: cat.strings.filter(s => !(s in have)), templates: cat.templates.filter(t => !haveT.has(t)) };
+  const L = window.OTR_I18N[lang] || {}, have = L.strings || {}, haveT = new Set((L.templates || []).map(t => t[0].trim()));
+  // a string with spaces round it is translated by its trimmed self
+  const miss = { strings: cat.strings.filter(s => !(s in have) && !(s.trim() in have)), templates: cat.templates.filter(t => !haveT.has(t.trim())) };
   fs.writeFileSync(path.join(OUT, `missing-${lang}.json`), JSON.stringify(miss, null, 1));
   console.log(`${lang}: ${Object.keys(have).length} strings and ${haveT.size} templates translated; missing ${miss.strings.length} strings, ${miss.templates.length} templates`);
 }

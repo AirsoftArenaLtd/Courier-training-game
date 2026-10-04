@@ -322,6 +322,7 @@ OTR.shift = {
     const low = fuel <= 0.25;
     const items = (st.log && st.log.items) || [];
     const hits = items.filter(it => it.where && (it.where.key === 'kerb' || it.where.key === 'crash')).length;
+    const hitWhat = items.some(it => it.where && it.where.key === 'crash') ? 'hit something' : 'hit the curb';
     const back = (st.stats && st.stats.exceptions) || 0;
     // anything today that needs an incident report: a crash, a person hit, a slip or trip, a dog
     const incident = items.find(it => it.where && (it.where.key === 'crash' || it.where.key === 'hitped'))
@@ -346,7 +347,7 @@ OTR.shift = {
       }),
       q(hits ? {
         topic: 'THE VAN', cat: 'safety',
-        text: `Today you ${items.some(it => it.where && it.where.key === 'crash') ? 'hit something' : 'hit the curb'}${hits > 1 ? ` (${hits} times)` : ''}. What goes on the post-trip report?`,
+        text: hits > 1 ? `Today you ${hitWhat} (${hits} times). What goes on the post-trip report?` : `Today you ${hitWhat}. What goes on the post-trip report?`,
         options: ['Report it, and check the tires, wheels and body for damage before signing', 'Nothing: the van drove fine afterwards', 'Mention it to a colleague, not on the report'],
         label: 'Reported the day\'s curb strike or knock on the post-trip',
         lesson: 'Report every curb strike and knock: a cut sidewall or bent wheel is found in the yard, not at highway speed tomorrow.'
@@ -461,12 +462,13 @@ OTR.shift = {
     let notice = null;
     // what the walkaround flagged is fixed by the shop before the first leg: time on the clock, no penalty
     const fixed = (st.truck && st.truck.fixed) || [];
+    const upTo3 = (list) => list.slice(0, 3).concat(list.length > 3 ? [`+ ${list.length - 3} more`] : []).join('\n');
     let fixedText = '';
     if (fixed.length && !st.truck.fixedShown) {
       st.truck.fixedShown = true;
       st.clockMin += 8;
       this.save();
-      fixedText = `You flagged it, so the shop fixed it before you rolled out (8 minutes):\n${fixed.slice(0, 3).join('\n')}${fixed.length > 3 ? `\n+ ${fixed.length - 3} more` : ''}`;
+      fixedText = `You flagged it, so the shop fixed it before you rolled out (8 minutes):\n${upTo3(fixed)}`;
       notice = { title: 'Flagged, and fixed', body: fixedText + '\n\nGood catch. A defect found in the yard costs minutes; found on the road, it costs far more.', button: 'Roll out' };
     }
     const missed = (st.truck && st.truck.missed) || [];
@@ -479,7 +481,7 @@ OTR.shift = {
       this.save();
       notice = {
         title: 'Held at the gate',
-        body: `${fixedText ? fixedText + '\n\n' : ''}The yard check found what the pre-trip missed:\n${missed.slice(0, 3).join('\n')}${missed.length > 3 ? `\n+ ${missed.length - 3} more` : ''}\n\nThe truck is held 10 minutes for the fix before you can roll.`,
+        body: `${fixedText ? fixedText + '\n\n' : ''}The yard check found what the pre-trip missed:\n${upTo3(missed)}\n\nThe truck is held 10 minutes for the fix before you can roll.`,
         button: 'Roll out'
       };
     }
