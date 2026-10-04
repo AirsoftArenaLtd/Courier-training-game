@@ -73,6 +73,7 @@ class TownDriveScene extends Phaser.Scene {
     this.camLead = { x: 0, y: 0 };
     this.camPos = { x: this.van.x, y: this.van.y };
     this.updateCamera(0, true);
+    this.city.update();
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
     OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
@@ -140,6 +141,11 @@ class TownDriveScene extends Phaser.Scene {
       this.add.image(T.vx[z.to] + R + 90, y - R - 40, A.signTex(this, 'school')).setDepth(42).setScale(1.6);
     }
 
+    // the buildings and trees stand up: walls, height and ground shadows (src/core/b3d.js)
+    const gloom = { rain: 0.45, storm: 0.3, snow: 0.6, fog: 0.25, cloudy: 0.55 }[this.weather];
+    const dim = { evening: 0.5, night: 0.15 }[this.tod];
+    this.city = OTR.b3d.install(this, { shadowAlpha: 0.22 * (gloom === undefined ? 1 : gloom) * (dim === undefined ? 1 : dim) });
+    const HEIGHT = { house: 64, business: 72, apartment: 150 };
     const houseKeys = [0, 1, 2, 3].map(v => A.house(this, v));
     const bizKeys = [0, 1].map(v => A.biz(this, v));
     const aptKey = A.apt(this);
@@ -155,6 +161,13 @@ class TownDriveScene extends Phaser.Scene {
       }
       img.setDepth(10).setScale(OTR.town.SCALE);
       l.img = img;
+      const [fw, fh] = OTR.town.size(l), W3 = OTR.b3d.WALLS;
+      this.city.add({
+        img, fx0: l.x - fw / 2, fy0: l.y - fh / 2, fx1: l.x + fw / 2, fy1: l.y + fh / 2, h: HEIGHT[l.kind],
+        walls: l.kind === 'house' ? W3.house[l.variant % 4] : l.kind === 'business' ? W3.business[l.variant % 2] : W3.apartment[0],
+        windows: l.kind === 'house' ? 'house' : l.kind === 'business' ? 'shop' : 'floors',
+        doorSide: l.side < 0 ? 2 : 0          // the wall facing its street
+      });
       const dw = this.add.image(l.x + 60, (l.curb.y + l.y) / 2, A.driveway(this)).setDepth(-80);
       dw.setDisplaySize(70, Math.abs(l.curb.y - l.y));
     });
@@ -169,13 +182,14 @@ class TownDriveScene extends Phaser.Scene {
       if (this.blockers.some(b => x > b.x - 40 && x < b.x + b.w + 40 && y > b.y - 40 && y < b.y + b.h + 40)) continue;
       // the canopy hangs over the van (it used to be drawn under it, so the van drove over the treetops), and the
       // trunk is solid: a van off the road onto a lawn hits it rather than passing through
-      this.add.image(x, y, treeKeys[k]).setDepth(34).setAlpha(0.96);
+      this.city.tree(this.add.image(x, y, treeKeys[k]).setDepth(34).setAlpha(0.96), [70, 90, 55][k], [46, 58, 38][k]);
       this.blockers.push({ x: x - 14, y: y - 14, w: 28, h: 28, what: 'a tree' });
     }
 
     // the station art's building is 660 x 380 at (16, 12) in its texture: land it exactly on the station's footprint
     const D = T.depot;
-    this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
+    const depotImg = this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
+    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, walls: OTR.b3d.WALLS.depot[0], windows: 'dock' });
   }
 
   /** Distance (px) from a point to the centre line of the nearest street. */
@@ -655,6 +669,7 @@ class TownDriveScene extends Phaser.Scene {
     }
     OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
+    this.city.update();
     this.updateHud();
   }
 

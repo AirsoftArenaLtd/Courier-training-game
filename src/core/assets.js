@@ -34,16 +34,17 @@ OTR.assets = {
       // one image for the bus: with its stop arm out (td_bus_1) the arm and the lit lights are drawn over the same image,
       // so the bus cannot shift when the arm swings out
       bus_top: { key: 'td_bus_0', also: ['td_bus_1'], box: [26, 10, 60, 230], shadow: V, aspect: 0.26 },
-      td_apt: { key: 'td_apt', box: [14, 10, 370, 220], shadow: true },
-      td_depot: { key: 'td_depot', box: [16, 12, 660, 380], shadow: true }
+      // buildings and trees cast their shadows on the ground (src/core/b3d.js), not round their own images
+      td_apt: { key: 'td_apt', box: [14, 10, 370, 220] },
+      td_depot: { key: 'td_depot', box: [16, 12, 660, 380] }
     };
     // traffic: one file per colour the town uses
     const cars = { red: 0xC8243B, blue: 0x3DA5FF, white: 0xF4F4F8, green: 0x2BC48A, black: 0x2A2A32, amber: 0xE8A33D };
     Object.keys(cars).forEach(n => { K['car_top_' + n] = { key: 'car_top_' + cars[n], box: [0, 4, 64, 108], shadow: V, aspect: 0.47 }; });
     const B = { house: [[190, 150], [210, 150], [180, 175], [220, 170]], biz: [[320, 220], [260, 250]] };
-    B.house.forEach(([w, h], i) => { K['td_house_' + i] = { key: 'td_house_' + i, box: [14, 10, w, h], shadow: true, untinted: true }; });
-    B.biz.forEach(([w, h], i) => { K['td_biz_' + i] = { key: 'td_biz_' + i, box: [14, 10, w, h], shadow: true }; });
-    [46, 58, 38].forEach((r, i) => { K['td_tree_' + i] = { key: 'td_tree_' + i, box: [12, 12, r * 2, r * 2], shadow: true }; });
+    B.house.forEach(([w, h], i) => { K['td_house_' + i] = { key: 'td_house_' + i, box: [14, 10, w, h], untinted: true }; });
+    B.biz.forEach(([w, h], i) => { K['td_biz_' + i] = { key: 'td_biz_' + i, box: [14, 10, w, h] }; });
+    [46, 58, 38].forEach((r, i) => { K['td_tree_' + i] = { key: 'td_tree_' + i, box: [12, 12, r * 2, r * 2] }; });
     return K;
   })(),
 
