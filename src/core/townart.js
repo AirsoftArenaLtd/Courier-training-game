@@ -81,17 +81,18 @@ OTR.townArt = {
    * kerb the van bumps over is the one drawn. (The corners were square, and a step van's rear wheel cut them on
    * every right turn.)
    */
-  corner(scene) {
+  corner(scene, snow) {
     const A = OTR.townArt, h = A.ROAD / 2, W = A.WALK, rc = A.CORNER, c = h + rc;
-    return OTR.tex.make(scene, 'td_corner', c * 2, c * 2, (ctx, w) => {
+    return OTR.tex.make(scene, snow ? 'td_corner_snow' : 'td_corner', c * 2, c * 2, (ctx, w) => {
       [[1, 1], [-1, 1], [1, -1], [-1, -1]].forEach(([sx, sy]) => {
         // the circle's centre sits out on the lawn diagonal
         const ox = c + sx * c, oy = c + sy * c;
         ctx.save();
         ctx.beginPath(); ctx.rect(Math.min(c + sx * h, ox), Math.min(c + sy * h, oy), rc, rc); ctx.clip();
         ctx.fillStyle = '#C3C0CB'; ctx.fillRect(0, 0, w, w);
-        ctx.fillStyle = '#6FA85A'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = 'rgba(40,90,30,0.25)'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
+        // the corner of the lawn (snow-covered on a snow day, to match OTR.wx's lawn)
+        ctx.fillStyle = snow ? '#ECF0F7' : '#6FA85A'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = snow ? 'rgba(170,185,210,0.15)' : 'rgba(40,90,30,0.25)'; ctx.beginPath(); ctx.arc(ox, oy, rc - W, 0, Math.PI * 2); ctx.fill();
         ctx.restore();
         ctx.save();
         ctx.beginPath(); ctx.rect(Math.min(c + sx * h, ox), Math.min(c + sy * h, oy), rc, rc); ctx.clip();

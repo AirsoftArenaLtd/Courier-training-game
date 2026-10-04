@@ -73,6 +73,14 @@ OTR.b3d = {
         ], true);
       },
 
+      /** Snow on every roof and in every tree: a white copy laid over each, moved with it. */
+      addSnow() {
+        const over = (o, a) => { o.cover = scene.add.image(o.img.x, o.img.y, o.img.texture.key).setOrigin(o.img.originX, o.img.originY)
+          .setScale(o.img.scaleX, o.img.scaleY).setFlip(o.img.flipX, o.img.flipY).setTintFill(0xFFFFFF).setAlpha(a).setDepth(o.img.depth + 0.05); };
+        this.items.forEach(b => { if (!b.noSnow) over(b, 0.55); });
+        this.trees.forEach(t => over(t, 0.4));
+      },
+
       update() {
         if (!this.high) return;
         const cam = scene.cameras.main, v = cam.worldView;
@@ -82,11 +90,12 @@ OTR.b3d = {
         g.clear();
         for (let i = 0; i < this.items.length; i++) {
           const b = this.items[i];
-          if (b.fx1 < vx0 || b.fx0 > vx1 || b.fy1 < vy0 || b.fy0 > vy1) { b.img.setVisible(false); continue; }
+          if (b.fx1 < vx0 || b.fx0 > vx1 || b.fy1 < vy0 || b.fy0 > vy1) { b.img.setVisible(false); if (b.cover) b.cover.setVisible(false); continue; }
           b.img.setVisible(true);
           const s = A / (A - b.h);
           const up = (x, y) => ({ x: cx + (x - cx) * s, y: cy + (y - cy) * s });
           b.img.setPosition(cx + (b.ax - cx) * s, cy + (b.ay - cy) * s).setScale(b.sx * s, b.sy * s);
+          if (b.cover) b.cover.setVisible(true).setPosition(b.img.x, b.img.y).setScale(b.img.scaleX, b.img.scaleY);
           // the four walls: corners on the ground, then the same corners raised. Only those facing the camera show
           // (the others are under the roof).
           const G = [{ x: b.fx0, y: b.fy0 }, { x: b.fx1, y: b.fy0 }, { x: b.fx1, y: b.fy1 }, { x: b.fx0, y: b.fy1 }];
@@ -107,6 +116,7 @@ OTR.b3d = {
           if (t.ax < vx0 || t.ax > vx1 || t.ay < vy0 || t.ay > vy1) continue;
           const s = A / (A - t.h);
           t.img.setPosition(cx + (t.ax - cx) * s, cy + (t.ay - cy) * s).setScale(t.sx * s, t.sy * s);
+          if (t.cover) t.cover.setPosition(t.img.x, t.img.y).setScale(t.img.scaleX, t.img.scaleY).setRotation(t.img.rotation);
         }
       },
 

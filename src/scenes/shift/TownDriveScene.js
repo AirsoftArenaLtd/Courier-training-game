@@ -70,6 +70,7 @@ class TownDriveScene extends Phaser.Scene {
     this.lighting = OTR.gfx.high() ? OTR.lighting.install(this, { tod: this.tod, weather: this.weather, depth: 699 }) : null;
     this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700, vignette: true, lightmap: !!this.lighting });
     if (this.lighting) this.city.windowLight = Math.min(1, this.lighting.dark * 1.6);
+    this.wx = OTR.wx.install(this, this.weather);       // the weather on the ground: wet roads, snow, spray, fog
     OTR.fx.enter(this);
     this.cameras.main.setBounds(0, 0, this.T.W, this.T.H);
     this.camZoom = 0.9;
@@ -108,10 +109,11 @@ class TownDriveScene extends Phaser.Scene {
   buildWorld() {
     const T = this.T, A = OTR.townArt;
     const full = A.ROAD + A.WALK * 2, R = A.ROAD / 2;
-    this.add.tileSprite(0, 0, T.W, T.H, A.lawn(this)).setOrigin(0, 0).setDepth(-100);
+    this.lawnTiles = [this.add.tileSprite(0, 0, T.W, T.H, A.lawn(this)).setOrigin(0, 0).setDepth(-100)];
 
-    T.hy.forEach((y) => this.add.tileSprite(0, y - full / 2, T.W, full, A.roadH(this)).setOrigin(0, 0).setDepth(-90));
-    T.vx.forEach((x) => this.add.tileSprite(x - full / 2, 0, full, T.H, A.roadV(this)).setOrigin(0, 0).setDepth(-90));
+    this.roadTiles = [];
+    T.hy.forEach((y) => this.roadTiles.push(this.add.tileSprite(0, y - full / 2, T.W, full, A.roadH(this)).setOrigin(0, 0).setDepth(-90)));
+    T.vx.forEach((x) => this.roadTiles.push(this.add.tileSprite(x - full / 2, 0, full, T.H, A.roadV(this)).setOrigin(0, 0).setDepth(-90)));
 
     const crossKey = A.cross(this), cwKey = A.crosswalk(this), slKey = A.stopLine(this);
     // approach = the side the driver arrives from; lane = which half of the road their lane is on
@@ -119,9 +121,9 @@ class TownDriveScene extends Phaser.Scene {
       W: { dx: -1, dy: 0, lane: 1 }, E: { dx: 1, dy: 0, lane: -1 },
       N: { dx: 0, dy: -1, lane: -1 }, S: { dx: 0, dy: 1, lane: 1 }
     };
-    const cornerKey = A.corner(this);
+    const cornerKey = A.corner(this, this.weather === 'snow');
     T.inters.forEach(it => {
-      this.add.image(it.x, it.y, crossKey).setDepth(-89);
+      this.roadTiles.push(this.add.image(it.x, it.y, crossKey).setDepth(-89));
       this.add.image(it.x, it.y, cornerKey).setDepth(-88.5);
       it.signs = {};
       Object.keys(this.APPROACH).forEach(dir => {
@@ -224,7 +226,7 @@ class TownDriveScene extends Phaser.Scene {
     // the station art's building is 660 x 380 at (16, 12) in its texture: land it exactly on the station's footprint
     const D = T.depot;
     const depotImg = this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
-    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, walls: OTR.b3d.WALLS.depot[0], windows: 'dock' });
+    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, walls: OTR.b3d.WALLS.depot[0], windows: 'dock', noSnow: true });   // its sign stays readable
   }
 
   /** Distance (px) from a point to the centre line of the nearest street. */
@@ -705,6 +707,7 @@ class TownDriveScene extends Phaser.Scene {
     OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
     this.city.update();
+    this.wx.update(dt);
     this.drawLights();
     this.updateHud();
   }
