@@ -301,17 +301,22 @@ class TownDriveScene extends Phaser.Scene {
     this.peds = [];
     const pedColors = [0xFF5C8A, 0x3DA5FF, 0xFFC83D, 0x2BC48A];
     const span = OTR.townArt.ROAD + OTR.townArt.WALK * 2, cross = OTR.townArt.ROAD / 2 + 24;
+    const wet = this.weather === 'rain' || this.weather === 'storm';
     T.inters.slice(0, 8).forEach((it, i) => {
-      const key = OTR.townArt.pedTop(this, pedColors[i % pedColors.length]);
+      const look = OTR.people.look(this, 100 + i * 7, { shirt: pedColors[i % pedColors.length], umbrella: wet && i % 3 !== 0 });
+      const key = look.key(1);
       // 'h' walks across the vertical street, 'v' across the horizontal one; each waits on the painted
       // crosswalk at the near end of it. dir flips as a crossing starts, so -1 here sends the first one off
       // from exactly where they are standing rather than teleporting them to the far kerb.
       const axis = i % 2 ? 'h' : 'v';
       const x = axis === 'h' ? it.x - span / 2 : it.x - cross;
       const y = axis === 'h' ? it.y + cross : it.y - span / 2;
-      const img = this.add.image(x, y, key).setDepth(26);
-      this.peds.push({ img, it, t: 4 + this.rng() * 8, crossing: false, dir: -1, x, y, axis, hitCool: 0 });
+      const img = this.add.image(x, y, key).setDepth(26).setScale(look.scale);
+      const umb = look.umbrella ? this.add.image(x, y, look.umbrella).setDepth(26.2).setScale(look.scale) : null;
+      this.peds.push({ img, umb, look, it, t: 4 + this.rng() * 8, crossing: false, dir: -1, x, y, axis, hitCool: 0, walkT: 0 });
     });
+    // and people out walking on the sidewalks (src/core/people.js)
+    this.crowd = OTR.people.install(this);
   }
 
   /* ================================================================ van */
@@ -688,6 +693,7 @@ class TownDriveScene extends Phaser.Scene {
     if (this.onUpdate) this.onUpdate(dt);
     this.stepCars(dt);
     this.stepPeds(dt);
+    this.crowd.update(dt);
     this.stepLights(dt);
     this.checkRules(dt);
     this.signalTick();
@@ -1249,7 +1255,13 @@ class TownDriveScene extends Phaser.Scene {
         if (p.axis === 'h') p.x = p.it.x + along; else p.y = p.it.y + along;
         if (p.progress >= 1) { p.crossing = false; p.t = 8 + this.rng() * 10; }
       }
-      p.img.setPosition(p.x, p.y);
+      // facing the way they are crossing (or waiting to), feet moving while they walk
+      const face = p.axis === 'h' ? (p.dir > 0 ? 0 : Math.PI) : (p.dir > 0 ? Math.PI / 2 : -Math.PI / 2);
+      const faceNext = p.crossing ? face : face + Math.PI;            // waiting: facing the street they will cross
+      if (p.crossing) p.walkT += dt;
+      p.img.setPosition(p.x, p.y).setRotation(faceNext);
+      if (p.look) OTR.people.pose(p.img, p.look, p.walkT, p.crossing);
+      if (p.umb) p.umb.setPosition(p.x, p.y);
       if (!p.crossing) return;
       // failing to yield is driving on at someone in the van's own path, just ahead of it (it used to be a wide box
       // round the van that caught people beside it and on the cross street)
