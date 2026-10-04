@@ -61,6 +61,7 @@ class HubScene extends Phaser.Scene {
     dayBadge.add(OTR.tex.shape(this, (g) => { g.lineStyle(2, 0xFF9447, 1); g.strokeRoundedRect(-120, -19, 240, 38, 19); }));
     dayBadge.add(OTR.txt(this, 0, 1, `DAY ${OTR.save.data.day}  ·  STATION`, 18, '#FFC8A0', { weight: '900' }));
 
+    this.focusables.push(OTR.ui.iconButton(this, W - 144, 32, 'ic_globe', () => OTR.ui.languages(this), { size: 46 }));
     this.focusables.push(OTR.ui.muteButton(this, W - 90, 32));
     this.focusables.push(OTR.ui.iconButton(this, W - 36, 32, 'ic_gear', () => this.openSettings(), { size: 46 }));
   }

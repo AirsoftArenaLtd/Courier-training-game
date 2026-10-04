@@ -539,6 +539,12 @@ OTR.tex = {
       ctx.beginPath(); ctx.arc(32, 32, 9, 0, Math.PI * 2); ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
     });
+    I('ic_globe', (ctx) => {
+      ctx.lineWidth = 4.5;
+      ctx.beginPath(); ctx.arc(32, 32, 24, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(32, 32, 10, 24, 0, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(8, 32); ctx.lineTo(56, 32); ctx.moveTo(13, 19); ctx.lineTo(51, 19); ctx.moveTo(13, 45); ctx.lineTo(51, 45); ctx.stroke();
+    });
     I('ic_check', (ctx) => {
       ctx.lineWidth = 10;
       ctx.beginPath(); ctx.moveTo(10, 34); ctx.lineTo(26, 50); ctx.lineTo(55, 16); ctx.stroke();
