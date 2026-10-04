@@ -12,7 +12,8 @@ class LabScene extends Phaser.Scene {
   }
 
   lab_town() {
-    this.scene.start('TownDriveScene', { lab: true, seed: 1, tod: 'midday', weather: 'clear' });
+    const q = new URLSearchParams(window.location.search);
+    this.scene.start('TownDriveScene', { lab: true, seed: 1, tod: q.get('tod') || 'midday', weather: q.get('weather') || 'clear' });
   }
 
   lab_street() {

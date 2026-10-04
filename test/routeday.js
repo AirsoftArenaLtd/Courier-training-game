@@ -30,7 +30,8 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const errors = [];
   p.on('pageerror', e => errors.push(e.message));
   const ev = (f, ...a) => p.evaluate(f, ...a);
-  const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src)) return true; await wait(150); } return false; };
+  // (an expression that throws, because the game has not booted yet, is "not yet")
+  const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src).catch(() => false)) return true; await wait(150); } return false; };
   const boot = async () => {
     await p.goto(URL);
     await until('window.OTR && OTR.game && OTR.game.scene.isActive("TitleScene")', 30000);

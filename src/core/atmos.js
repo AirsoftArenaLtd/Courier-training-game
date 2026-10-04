@@ -72,10 +72,13 @@ OTR.atmos = {
       build() {
         this.clear();
         const s = this.scene, d = this.depth;
-        const T = OTR.scenery.TOD[this.tod] || OTR.scenery.TOD.midday;
+        let T = OTR.scenery.TOD[this.tod] || OTR.scenery.TOD.midday;
+        // a scene with a light map (src/core/lighting.js) is darkened by it: only the vignette and the weather here
+        const lit = o.lightmap;
+        if (lit) T = OTR.scenery.TOD.midday;
         const fix = (ob) => { ob.setScrollFactor(0); this.objs.push(ob); return ob; };
         // grading: tint, darkness and vignette in one multiply pass (gradeTex)
-        const dark = Math.min(0.95, T.dark + ({ rain: 0.12, storm: 0.28, cloudy: 0.05, snow: 0.02 }[this.weather] || 0));
+        const dark = lit ? 0 : Math.min(0.95, T.dark + ({ rain: 0.12, storm: 0.28, cloudy: 0.05, snow: 0.02 }[this.weather] || 0));
         const vig = o.vignette === false ? 0 : this.tod === 'night' ? 1 : 0.7;
         if (T.tint !== 0xFFFFFF || dark > 0 || vig > 0) {
           fix(s.add.image(OTR.W / 2, OTR.H / 2, OTR.atmos.gradeTex(s, T.tint, Math.max(0, dark), vig)).setDisplaySize(OTR.W, OTR.H)

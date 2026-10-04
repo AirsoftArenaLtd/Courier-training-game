@@ -424,12 +424,20 @@ class HubScene extends Phaser.Scene {
         show();
 
         box.add(OTR.txt(this, -w / 2 + 40, top + 188, 'ROUTE DAYS', 13, '#FF6600', { ox: 0 }));
-        const label = () => `Stop checklist: ${OTR.save.data.settings.hints ? 'shown' : 'hidden'}`;
-        const tog = OTR.ui.button(this, 0, top + 224, label(), () => {
+        const label = () => `Checklist: ${OTR.save.data.settings.hints ? 'shown' : 'hidden'}`;
+        const tog = OTR.ui.button(this, -122, top + 224, label(), () => {
           OTR.save.setHints(!OTR.save.data.settings.hints);
           tog.setLabel(label());
-        }, { w: 320, h: 48, skin: 'purple', fontSize: 18 });
+        }, { w: 236, h: 48, skin: 'purple', fontSize: 17 });
         box.add(tog);
+        // the 3D town, its lighting and weather (high), or flat and quicker, for a slow computer (low)
+        box.add(OTR.txt(this, 8, top + 188, 'GRAPHICS', 13, '#FF6600', { ox: 0 }));
+        const gLabel = () => `Graphics: ${OTR.gfx.high() ? 'high' : 'low'}`;
+        const gTog = OTR.ui.button(this, 122, top + 224, gLabel(), () => {
+          OTR.save.setGfx(OTR.gfx.high() ? 'low' : 'high');
+          gTog.setLabel(gLabel());
+        }, { w: 236, h: 48, skin: 'purple', fontSize: 17 });
+        box.add(gTog);
 
         // signed in by the company or the LMS: the name is the sign-in's, and only a trainer resets progress
         const locked = OTR.identity.locked;

@@ -79,6 +79,10 @@ drawing every frame, so they run many times faster on a machine without a GPU.
 
 `node test/art.js` checks the image pipeline (packing, the game drawing images in place of its drawn art, `?art=drawn`).
 
+`node test/town3d.js` checks the town's Phase 2 graphics: the fake-3D buildings (and that the low graphics setting
+leaves them flat), the light map after dark and the headlights, weather on the ground, people on the sidewalks (and
+that driving into one is caught), and the cab view (V).
+
 `test/tools/drive-session.js <outDir>` records a Road Hazards drive with the traffic live (screenshots and a log of
 violations and contacts), for reviewing the driving by eye.
 

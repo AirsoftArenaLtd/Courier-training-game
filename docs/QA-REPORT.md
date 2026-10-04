@@ -1047,6 +1047,44 @@ about a 6.2 m turning radius at walking pace, a 35 mph governor.
 
 ---
 
+## Phase 2: the town's graphics (4 October 2026)
+
+The town drive gained a fake-3D town, real lighting after dark, weather on the ground, people on the sidewalks and a
+prototype cab view, with a graphics setting to turn the costly parts off.
+
+| Part | What it does | Where |
+| --- | --- | --- |
+| 3D buildings | Roofs and tree canopies drawn where a camera 80 m up would see them; walls (with windows, doors and loading docks by kind) between each footprint and its raised roof, shaded by the side they face; ground shadows down and to the right, fainter in bad weather and after dark. Collisions keep the footprints. About 0.13 ms a frame. | `src/core/b3d.js` |
+| Lighting | At dusk, at night and in a storm, a half-resolution light map multiplies the screen: the ambient dark plus every light near the screen (lamps along every block, porch and shop lights, the station's floodlights, signal heads, the ambulance, tail and reverse lights, and headlight beams). The van's beams show only when its lights are on. Mirrors and the rear camera are dimmed to match. | `src/core/lighting.js` |
+| Weather | Rain: darker wet roads, puddles at the kerbs, ripples, spray off moving wheels. Snow: lawns, junction corners, roofs and trees, slush along the kerbs. Storm: trees sway. Fog: clear for about 15 m round the middle of the screen, thick past 40, with drifting wisps. | `src/core/wx.js` |
+| People | Animated people from above (shoulders, head, hair, swinging arms, striding feet) in varied clothes and skin tones. Walkers, joggers, dog walkers and children (on the school's street) walk the sidewalks round each block, pause, and wait when the van is on the sidewalk ahead; umbrellas in the rain. Crossers face the way they cross and walk while they do. Driving into anyone on a sidewalk is hitting a pedestrian. | `src/core/people.js` |
+| Cab view (prototype) | `V`: the same drive from the driver's seat in 3D (three.js r158, loaded the first time). Streets with their markings and kerbs, buildings with their roofs and lit windows, trees, lamps with pools of light, stop signs and working signals, the traffic and the people; the van's headlights are spotlights. Drawn into the game's own WebGL context under the HUD. | `src/core/cab.js`, `lib/three.min.js` |
+| Graphics setting | Settings → Graphics: high (all of the above) or low (flat roofs, the old flat darkening, no ripples, spray or wisps). `?gfx=low` for one visit. | `src/core/gfx.js` |
+
+Found and fixed while building it:
+
+| Problem | Fix |
+| --- | --- |
+| Lights drawn into the light map in one batch each wiped out the light under their own square. | Each light is stamped on its own (added onto what is there). |
+| Night was too bright: the station's floodlights and the lamps washed the dark out. | Smaller, dimmer lamps and floodlights, and a darker ambient level with the light map than the old flat grade. |
+| In the cab view the ground did not show: the game's canvas has no depth buffer, so the 3D drew in the order it was added. | The 3D draws into a target of its own with a depth buffer, then is copied to the screen. |
+| Then the ground still lost to the backdrop plane 2 cm under it (a 16-bit depth buffer). | The backdrop is 60 cm under the town. |
+| The cab view's headlights burned the road white even by day. | Dipped-beam strength, scaled by how dark it is. |
+| On a snow day the junction corners stayed green, the slush ran straight across the junctions, and the station's sign was snowed over. | A snow version of the corner art; slush block by block; no snow on the station. |
+| Two identical houses side by side faced the same way (the lots are not stored in street order). | Every other lot *along its street* is mirrored. |
+| Ground weather's fog was drawn over the cab view as well as its own 3D fog. | Hidden while the cab view is on. |
+
+Checked by `test/town3d.js` (walls drawn and roofs leaning outwards, nothing moving on low graphics, no light map by
+day and none on low, the headlights brightening the road ahead, puddles, wet roads and ripples, snow on lawns and
+roofs, fog, people moving and staying on the sidewalk, driving into one caught, the cab view opening onto the sky and
+closing again, no page errors), and the full suite.
+
+Limits of the prototype cab view, for whoever takes it further: no anti-aliasing (the game's canvas has none); the
+mirrors still show the view from above; with the colour-blind filter on, the 3D is drawn without it; cars are simple
+boxes and people simple figures; the steering, speed and rules are the top-down drive's, unchanged. The frame cost of
+the light map and the cab view was not measured on real integrated graphics (the test machine renders in software):
+`?bench=1` now drives the town at night with the lights on, for exactly that.
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was

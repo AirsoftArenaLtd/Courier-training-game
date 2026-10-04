@@ -66,16 +66,28 @@ class TownDriveScene extends Phaser.Scene {
     this.buildHud();
     this.setupInput();
 
-    this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700, vignette: true });
+    // after dark (and in a storm) a light map does the darkening, with real light from the lamps and headlights
+    this.lighting = OTR.gfx.high() ? OTR.lighting.install(this, { tod: this.tod, weather: this.weather, depth: 699 }) : null;
+    this.atmos = OTR.atmos.apply(this, { tod: this.tod, weather: this.weather, depth: 700, vignette: true, lightmap: !!this.lighting });
+    if (this.lighting) this.city.windowLight = Math.min(1, this.lighting.dark * 1.6);
+    this.wx = OTR.wx.install(this, this.weather);       // the weather on the ground: wet roads, snow, spray, fog
     OTR.fx.enter(this);
     this.cameras.main.setBounds(0, 0, this.T.W, this.T.H);
     this.camZoom = 0.9;
     this.camLead = { x: 0, y: 0 };
     this.camPos = { x: this.van.x, y: this.van.y };
     this.updateCamera(0, true);
+    this.city.update();
+    this.drawLights();
     this.beams = this.add.graphics().setDepth(-84).setBlendMode(Phaser.BlendModes.ADD);
     this.setupUiCamera();
     OTR.driveAids.install(this);                // mirrors, rear camera, parking brake, following distance, sirens
+    // the mirrors and the rear camera see the same dark: the light map only covers the main view, so they are dimmed
+    // to its ambient level
+    if (this.lighting && this.insetCams && this.sys.game.renderer.type === Phaser.WEBGL) {
+      const c = this.lighting.amb.color, r = ((c >> 16) & 255) / 255, g = ((c >> 8) & 255) / 255, b = (c & 255) / 255;
+      Object.values(this.insetCams).forEach(cam => { if (cam.postFX) cam.postFX.addColorMatrix().set([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]); });
+    }
     OTR.a11y.applyColour(this);                 // the colour filter on the cameras added since the scene began
     // The engine hum belongs to this drive: quiet while paused, and gone however the scene ends. (Quitting from
     // the pause menu used to leave it humming on the hub and every screen after.)
@@ -97,10 +109,11 @@ class TownDriveScene extends Phaser.Scene {
   buildWorld() {
     const T = this.T, A = OTR.townArt;
     const full = A.ROAD + A.WALK * 2, R = A.ROAD / 2;
-    this.add.tileSprite(0, 0, T.W, T.H, A.lawn(this)).setOrigin(0, 0).setDepth(-100);
+    this.lawnTiles = [this.add.tileSprite(0, 0, T.W, T.H, A.lawn(this)).setOrigin(0, 0).setDepth(-100)];
 
-    T.hy.forEach((y) => this.add.tileSprite(0, y - full / 2, T.W, full, A.roadH(this)).setOrigin(0, 0).setDepth(-90));
-    T.vx.forEach((x) => this.add.tileSprite(x - full / 2, 0, full, T.H, A.roadV(this)).setOrigin(0, 0).setDepth(-90));
+    this.roadTiles = [];
+    T.hy.forEach((y) => this.roadTiles.push(this.add.tileSprite(0, y - full / 2, T.W, full, A.roadH(this)).setOrigin(0, 0).setDepth(-90)));
+    T.vx.forEach((x) => this.roadTiles.push(this.add.tileSprite(x - full / 2, 0, full, T.H, A.roadV(this)).setOrigin(0, 0).setDepth(-90)));
 
     const crossKey = A.cross(this), cwKey = A.crosswalk(this), slKey = A.stopLine(this);
     // approach = the side the driver arrives from; lane = which half of the road their lane is on
@@ -108,9 +121,9 @@ class TownDriveScene extends Phaser.Scene {
       W: { dx: -1, dy: 0, lane: 1 }, E: { dx: 1, dy: 0, lane: -1 },
       N: { dx: 0, dy: -1, lane: -1 }, S: { dx: 0, dy: 1, lane: 1 }
     };
-    const cornerKey = A.corner(this);
+    const cornerKey = A.corner(this, this.weather === 'snow');
     T.inters.forEach(it => {
-      this.add.image(it.x, it.y, crossKey).setDepth(-89);
+      this.roadTiles.push(this.add.image(it.x, it.y, crossKey).setDepth(-89));
       this.add.image(it.x, it.y, cornerKey).setDepth(-88.5);
       it.signs = {};
       Object.keys(this.APPROACH).forEach(dir => {
@@ -140,6 +153,11 @@ class TownDriveScene extends Phaser.Scene {
       this.add.image(T.vx[z.to] + R + 90, y - R - 40, A.signTex(this, 'school')).setDepth(42).setScale(1.6);
     }
 
+    // the buildings and trees stand up: walls, height and ground shadows (src/core/b3d.js)
+    const gloom = { rain: 0.45, storm: 0.3, snow: 0.6, fog: 0.25, cloudy: 0.55 }[this.weather];
+    const dim = { evening: 0.5, night: 0.15 }[this.tod];
+    this.city = OTR.b3d.install(this, { shadowAlpha: 0.22 * (gloom === undefined ? 1 : gloom) * (dim === undefined ? 1 : dim) });
+    const HEIGHT = { house: 64, business: 72, apartment: 150 };
     const houseKeys = [0, 1, 2, 3].map(v => A.house(this, v));
     const bizKeys = [0, 1].map(v => A.biz(this, v));
     const aptKey = A.apt(this);
@@ -155,9 +173,41 @@ class TownDriveScene extends Phaser.Scene {
       }
       img.setDepth(10).setScale(OTR.town.SCALE);
       l.img = img;
+      const [fw, fh] = OTR.town.size(l), W3 = OTR.b3d.WALLS;
+      this.city.add({
+        img, fx0: l.x - fw / 2, fy0: l.y - fh / 2, fx1: l.x + fw / 2, fy1: l.y + fh / 2, h: HEIGHT[l.kind],
+        walls: l.kind === 'house' ? W3.house[l.variant % 4] : l.kind === 'business' ? W3.business[l.variant % 2] : W3.apartment[0],
+        windows: l.kind === 'house' ? 'house' : l.kind === 'business' ? 'shop' : 'floors',
+        doorSide: l.side < 0 ? 2 : 0          // the wall facing its street
+      });
       const dw = this.add.image(l.x + 60, (l.curb.y + l.y) / 2, A.driveway(this)).setDepth(-80);
       dw.setDisplaySize(70, Math.abs(l.curb.y - l.y));
     });
+
+    // street lamps along every block, on alternate sides, their arms over the road (lit after dark)
+    this.lamps = [];
+    const lampKey = A.lamp(this), half = R + A.WALK / 2;
+    const clearOfDrives = (x, y) => !T.lots.some(l => Math.abs(l.curb.y - y) < 60 && Math.abs(l.x + 60 - x) < 50);
+    T.hy.forEach((y, row) => T.vx.forEach((x, col) => {
+      if (col >= T.vx.length - 1) return;
+      [0.3, 0.7].forEach((u, k) => {
+        const side = (k + row) % 2 ? 1 : -1;
+        if ((row === 0 && side < 0) || (row === T.hy.length - 1 && side > 0)) return;
+        let lx = x + (T.vx[col + 1] - x) * u;
+        const ly = y + side * half;
+        for (let n = 0; n < 4 && !clearOfDrives(lx, ly); n++) lx += 70;
+        this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 90 : -90);
+        this.lamps.push({ x: lx, y: y + side * (R - 14), px: lx, py: ly });   // the head over the kerb lane; the post
+      });
+    }));
+    T.vx.forEach((x, col) => T.hy.forEach((y, row) => {
+      if (row >= T.hy.length - 1) return;
+      const u = 0.5, side = (col + row) % 2 ? 1 : -1;
+      if ((col === 0 && side < 0) || (col === T.vx.length - 1 && side > 0)) return;
+      const ly = y + (T.hy[row + 1] - y) * u, lx = x + side * half;
+      this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 0 : 180);
+      this.lamps.push({ x: x + side * (R - 14), y: ly, px: lx, py: ly });
+    }));
 
     // trees stay on the lawns: clear of the street, the sidewalk and the buildings
     const treeKeys = [0, 1, 2].map(v => A.tree(this, v));
@@ -169,13 +219,14 @@ class TownDriveScene extends Phaser.Scene {
       if (this.blockers.some(b => x > b.x - 40 && x < b.x + b.w + 40 && y > b.y - 40 && y < b.y + b.h + 40)) continue;
       // the canopy hangs over the van (it used to be drawn under it, so the van drove over the treetops), and the
       // trunk is solid: a van off the road onto a lawn hits it rather than passing through
-      this.add.image(x, y, treeKeys[k]).setDepth(34).setAlpha(0.96);
+      this.city.tree(this.add.image(x, y, treeKeys[k]).setDepth(34).setAlpha(0.96), [70, 90, 55][k], [46, 58, 38][k]);
       this.blockers.push({ x: x - 14, y: y - 14, w: 28, h: 28, what: 'a tree' });
     }
 
     // the station art's building is 660 x 380 at (16, 12) in its texture: land it exactly on the station's footprint
     const D = T.depot;
-    this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
+    const depotImg = this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
+    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, walls: OTR.b3d.WALLS.depot[0], windows: 'dock', noSnow: true });   // its sign stays readable
   }
 
   /** Distance (px) from a point to the centre line of the nearest street. */
@@ -250,17 +301,22 @@ class TownDriveScene extends Phaser.Scene {
     this.peds = [];
     const pedColors = [0xFF5C8A, 0x3DA5FF, 0xFFC83D, 0x2BC48A];
     const span = OTR.townArt.ROAD + OTR.townArt.WALK * 2, cross = OTR.townArt.ROAD / 2 + 24;
+    const wet = this.weather === 'rain' || this.weather === 'storm';
     T.inters.slice(0, 8).forEach((it, i) => {
-      const key = OTR.townArt.pedTop(this, pedColors[i % pedColors.length]);
+      const look = OTR.people.look(this, 100 + i * 7, { shirt: pedColors[i % pedColors.length], umbrella: wet && i % 3 !== 0 });
+      const key = look.key(1);
       // 'h' walks across the vertical street, 'v' across the horizontal one; each waits on the painted
       // crosswalk at the near end of it. dir flips as a crossing starts, so -1 here sends the first one off
       // from exactly where they are standing rather than teleporting them to the far kerb.
       const axis = i % 2 ? 'h' : 'v';
       const x = axis === 'h' ? it.x - span / 2 : it.x - cross;
       const y = axis === 'h' ? it.y + cross : it.y - span / 2;
-      const img = this.add.image(x, y, key).setDepth(26);
-      this.peds.push({ img, it, t: 4 + this.rng() * 8, crossing: false, dir: -1, x, y, axis, hitCool: 0 });
+      const img = this.add.image(x, y, key).setDepth(26).setScale(look.scale);
+      const umb = look.umbrella ? this.add.image(x, y, look.umbrella).setDepth(26.2).setScale(look.scale) : null;
+      this.peds.push({ img, umb, look, it, t: 4 + this.rng() * 8, crossing: false, dir: -1, x, y, axis, hitCool: 0, walkT: 0 });
     });
+    // and people out walking on the sidewalks (src/core/people.js)
+    this.crowd = OTR.people.install(this);
   }
 
   /* ================================================================ van */
@@ -389,7 +445,7 @@ class TownDriveScene extends Phaser.Scene {
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
-    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
+    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld · V cab', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
     OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.displayWidth / 2 - 14, -13, ctl.displayWidth + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
@@ -526,6 +582,7 @@ class TownDriveScene extends Phaser.Scene {
       this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : 0xC9B3F0);
     });
     OTR.onKey(this, 'keydown-G', () => this.getOutAndLook());
+    OTR.onKey(this, 'keydown-V', () => OTR.cab.toggle(this));      // the cab view (a prototype): src/core/cab.js
     OTR.onKey(this, 'keydown-Q', () => this.setSignal(this.signal === 'left' ? null : 'left'));
     OTR.onKey(this, 'keydown-E', () => this.setSignal(this.signal === 'right' ? null : 'right'));
     OTR.onKey(this, 'keydown-R', () => { this.shiftAsked = true; });    // the gear selector: taken on the next frame
@@ -637,6 +694,7 @@ class TownDriveScene extends Phaser.Scene {
     if (this.onUpdate) this.onUpdate(dt);
     this.stepCars(dt);
     this.stepPeds(dt);
+    this.crowd.update(dt);
     this.stepLights(dt);
     this.checkRules(dt);
     this.signalTick();
@@ -655,6 +713,9 @@ class TownDriveScene extends Phaser.Scene {
     }
     OTR.driveAids.tick(this, dt);
     this.updateCamera(dt);
+    this.city.update();
+    this.wx.update(dt);
+    this.drawLights();
     this.updateHud();
   }
 
@@ -768,7 +829,7 @@ class TownDriveScene extends Phaser.Scene {
     if (blinkOn !== this._blinkWas) { this._blinkWas = blinkOn; if (blinkOn && dt) OTR.audio.play('tick'); }
 
     this.beams && this.beams.clear();
-    if (this.lights && this.beams) {
+    if (this.lights && this.beams && !this.lighting) {
       const nose = V.point(v, g.nose, 0), f = V.fwd(v), r = V.right(v);
       this.beams.fillStyle(0xFFF0C0, 0.13);
       this.beams.fillTriangle(
@@ -1131,6 +1192,52 @@ class TownDriveScene extends Phaser.Scene {
     return { fd: dx * f.x + dy * f.y, lat: dx * r.x + dy * r.y, hl: v.g.hl * this.P, hw: v.g.hw * this.P };
   }
 
+  /** Fill the light map (after dark): every light near the screen, in world pixels. */
+  drawLights() {
+    const L = this.lighting;
+    if (!L) return;
+    const V = OTR.vehicle, v = this.van, g = v.g;
+    L.begin();
+    const WARM = 0xFFD9A0, PORCH = 0xFFC27A, RED = 0xFF3040, HEAD = 0xFFF4DD;
+    this.lamps.forEach(l => L.glow(l.x, l.y, 190, WARM, 0.7));
+    this.T.lots.forEach(l => {
+      const [fw, fh] = OTR.town.size(l), door = l.y + (l.side < 0 ? fh / 2 : -fh / 2);
+      if (l.kind === 'apartment') [-0.3, 0, 0.3].forEach(u => L.glow(l.x + u * fw, door, 90, PORCH, 0.55));
+      else if (l.kind === 'business') L.glow(l.x, door, 150, 0xFFF0D0, 0.6);
+      else L.glow(l.x, door, 80, PORCH, 0.6);
+    });
+    const D = this.T.depot;
+    [-0.36, -0.12, 0.12, 0.36].forEach(u => L.glow(D.x + u * D.w, D.y + D.h / 2 + 30, 130, 0xF4F0FF, 0.55));
+    [-0.3, 0.3].forEach(u => L.glow(D.x + u * D.w, D.y - D.h / 2 - 20, 120, 0xF4F0FF, 0.45));
+    // the van: dipped headlights only when they are on (driving without them is driving in the dark)
+    if (this.lights) {
+      const nose = V.point(v, g.nose, 0);
+      L.beam(nose.x, nose.y, v.heading, 480, 300, HEAD, 0.95);
+      L.glow(nose.x, nose.y, 70, HEAD, 0.5);
+    }
+    const back = -g.tail + 0.15, side = g.hw - 0.35;
+    const tl = v.brake > 0.1 ? 0.9 : this.lights ? 0.45 : 0;
+    if (tl) [-side, side].forEach(sd => { const p = V.point(v, back, sd); L.glow(p.x, p.y, 46, RED, tl); });
+    if (v.gear < 0) { const p = V.point(v, back - 0.5, 0); L.glow(p.x, p.y, 90, 0xFFFFFF, 0.6); }
+    // traffic drives with its lights on after dark
+    this.cars.forEach(c => {
+      const cx = Math.cos(c.heading), cy = Math.sin(c.heading);
+      L.beam(c.x + cx * c.hl * 0.9, c.y + cy * c.hl * 0.9, c.heading, 330, 230, HEAD, 0.7);
+      L.glow(c.x - cx * c.hl * 0.9, c.y - cy * c.hl * 0.9, 40, RED, c.speed < 20 ? 0.8 : 0.4);
+    });
+    // signal heads light the corner they stand on
+    this.T.inters.forEach(it => {
+      if (!it.light || !it.signs) return;
+      Object.keys(it.signs).forEach(dir => {
+        const st = dir === 'W' || dir === 'E' ? it.lightH : it.lightV, sg = it.signs[dir];
+        L.glow(sg.x, sg.y, 60, st === 'green' ? 0x40FF90 : st === 'amber' ? 0xFFB020 : 0xFF3040, 0.6);
+      });
+    });
+    // an ambulance's lights, flashing red and blue
+    if (this.ambulance && this.ambulance.bar) { const b = this.ambulance.bar; L.glow(b.x, b.y, 170, b.fillColor, 0.75); }
+    L.end();
+  }
+
   stepPeds(dt) {
     const A = OTR.townArt;
     const mph = OTR.vehicle.mph(this.van);
@@ -1149,7 +1256,13 @@ class TownDriveScene extends Phaser.Scene {
         if (p.axis === 'h') p.x = p.it.x + along; else p.y = p.it.y + along;
         if (p.progress >= 1) { p.crossing = false; p.t = 8 + this.rng() * 10; }
       }
-      p.img.setPosition(p.x, p.y);
+      // facing the way they are crossing (or waiting to), feet moving while they walk
+      const face = p.axis === 'h' ? (p.dir > 0 ? 0 : Math.PI) : (p.dir > 0 ? Math.PI / 2 : -Math.PI / 2);
+      const faceNext = p.crossing ? face : face + Math.PI;            // waiting: facing the street they will cross
+      if (p.crossing) p.walkT += dt;
+      p.img.setPosition(p.x, p.y).setRotation(faceNext);
+      if (p.look) OTR.people.pose(p.img, p.look, p.walkT, p.crossing);
+      if (p.umb) p.umb.setPosition(p.x, p.y);
       if (!p.crossing) return;
       // failing to yield is driving on at someone in the van's own path, just ahead of it (it used to be a wide box
       // round the van that caught people beside it and on the cross street)

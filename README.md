@@ -115,6 +115,20 @@ on ice, wet steps and cluttered paths · `E` to interact · `TAB` for the handhe
 **The handheld:** scan packages, read stop details, record a delivery (signature, photo POD, hand-off), record an
 exception code, and print door tags. Number keys pick menu options.
 
+**Driving:** `W` go · `S` brake · `A`/`D` steer · `Q`/`E` signal · `SPACE` parking brake · `R` reverse · `M` mirrors ·
+`B` belt · `L` headlights · `G` get out and look · `P` park at a stop · `V` the cab view (the town from the driver's
+seat, in 3D: a prototype).
+
+## The town's graphics
+
+The town drive is drawn from above with a fake-3D town: buildings show their walls, windows and doors as the van
+passes, trees and buildings cast shadows, and roofs lean as tall things do from a camera overhead (`src/core/b3d.js`).
+After dark a light map does the lighting (`src/core/lighting.js`): street lamps, porch and shop lights, traffic
+lights and the van's and traffic's headlights, so driving without lights is driving in the dark. The weather lies on
+the ground (`src/core/wx.js`): wet roads, puddles, ripples and spray in rain; snow on lawns, roofs and trees; fog
+that closes in. People walk the sidewalks (`src/core/people.js`). `V` switches to the cab view (`src/core/cab.js`,
+three.js loaded the first time it is used). Settings → Graphics → low turns the costly parts off for slow computers.
+
 **Driving:** `W`/`↑` throttle · `S`/`↓` brake · `R` reverse (at a standstill) · `A`/`D` steer · `Q`/`E` signal
 left/right · `M` mirrors · `SPACE` parking brake · `B` seatbelt · `L` headlights · `G` get out and look (before
 backing) · `P` park at the stop zone. Rules watch speed, stop signs and lights, right of way, wrong-side driving,
@@ -192,9 +206,10 @@ no `fetch`, which is why it runs from `file://`.
 | `index.html?dev=1` | Validates all content on boot (warnings in the console) and enables `OTR.debug`. |
 | `index.html?lab=rig` | Art lab: character rigs and animations. |
 | `index.html?lab=street` | Art lab: a doorstep scene (`&tod=evening&weather=rain` to try conditions). |
-| `index.html?lab=town` | Art lab: free driving in the town with four random stops. |
+| `index.html?lab=town` | Art lab: free driving in the town with four random stops. Add `&tod=night` (or `morning`, `afternoon`, `evening`, `dusk`) and `&weather=rain` (or `storm`, `snow`, `fog`, `cloudy`, `heat`). |
 | `index.html?bench=1` | Performance test: plays the heaviest screens on this computer and reports the frame rate of each (average and worst 1%), with a button to copy the results. |
 | `index.html?art=drawn` | Ignores the real images and shows the drawn art (`?art=real` prefers the realistic alternatives). |
+| `index.html?gfx=low` | The low graphics setting for this visit (a flat town: no 3D buildings, light map, ripples or spray). `?gfx=high` the opposite. Settings → Graphics keeps it. |
 
 Scenario ids: `m1-pretrip`, `m1-route`, `m1-driving`, `m2-sort`, `m2-lift`, `m2-labels`, `m3-missing`,
 `m3-signature`, `m3-twostops`, `m4-address`, `m4-damaged`, `m4-storm`, `m5-pod`, `m5-exceptions`, `m5-adult`,
