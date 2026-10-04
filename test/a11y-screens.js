@@ -31,7 +31,8 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const errors = [];
   p.on('pageerror', e => errors.push(e.message));
   const ev = (f, ...a) => p.evaluate(f, ...a);
-  const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src)) return true; await wait(150); } return false; };
+  // (an expression that throws, because the game has not booted yet, is "not yet")
+  const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src).catch(() => false)) return true; await wait(150); } return false; };
   const active = async (key) => { if (!(await until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, 20000))) throw new Error(`${key} never opened`); };
   const shot = async (name) => {
     await wait(1300);
