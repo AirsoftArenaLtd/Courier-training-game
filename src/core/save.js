@@ -76,6 +76,7 @@ OTR.save = {
         if (parsed.settings.hints !== undefined) d.settings.hints = !!parsed.settings.hints;
         if (Number.isFinite(parsed.settings.volume)) d.settings.volume = Math.max(0, Math.min(1, parsed.settings.volume));
         if (parsed.settings.a11y && typeof parsed.settings.a11y === 'object') d.settings.a11y = Object.assign({ keys: {} }, parsed.settings.a11y);
+        if (parsed.settings.gfx === 'low' || parsed.settings.gfx === 'high') d.settings.gfx = parsed.settings.gfx;
       }
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);
@@ -201,6 +202,12 @@ OTR.save = {
 
   setHints(on) {
     this.data.settings.hints = !!on;
+    this.write();
+  },
+
+  /** Graphics level: 'high' or 'low' (src/core/gfx.js). */
+  setGfx(level) {
+    this.data.settings.gfx = level === 'low' ? 'low' : 'high';
     this.write();
   },
 
