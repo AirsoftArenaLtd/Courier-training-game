@@ -149,7 +149,7 @@ OTR.wx = {
     if (weather === 'storm' && s.city) W.sway = s.city.trees.map(t => t.img);
 
     if (weather === 'fog') {
-      s.add.image(OTR.W / 2, OTR.H / 2, OTR.wx.fogTex(s)).setScrollFactor(0).setDisplaySize(OTR.W, OTR.H).setDepth(698);
+      W.fogImg = s.add.image(OTR.W / 2, OTR.H / 2, OTR.wx.fogTex(s)).setScrollFactor(0).setDisplaySize(OTR.W, OTR.H).setDepth(698);
       if (high) {
         OTR.wx.wispTex(s);
         const v = s.cameras.main.worldView;

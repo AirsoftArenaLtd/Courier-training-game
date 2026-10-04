@@ -197,7 +197,7 @@ class TownDriveScene extends Phaser.Scene {
         const ly = y + side * half;
         for (let n = 0; n < 4 && !clearOfDrives(lx, ly); n++) lx += 70;
         this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 90 : -90);
-        this.lamps.push({ x: lx, y: y + side * (R - 14) });          // the head, over the kerb lane
+        this.lamps.push({ x: lx, y: y + side * (R - 14), px: lx, py: ly });   // the head over the kerb lane; the post
       });
     }));
     T.vx.forEach((x, col) => T.hy.forEach((y, row) => {
@@ -206,7 +206,7 @@ class TownDriveScene extends Phaser.Scene {
       if ((col === 0 && side < 0) || (col === T.vx.length - 1 && side > 0)) return;
       const ly = y + (T.hy[row + 1] - y) * u, lx = x + side * half;
       this.add.image(lx, ly, lampKey).setDepth(41).setAngle(side < 0 ? 0 : 180);
-      this.lamps.push({ x: x + side * (R - 14), y: ly });
+      this.lamps.push({ x: x + side * (R - 14), y: ly, px: lx, py: ly });
     }));
 
     // trees stay on the lawns: clear of the street, the sidewalk and the buildings
@@ -445,7 +445,7 @@ class TownDriveScene extends Phaser.Scene {
 
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
-    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
+    const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld · V cab', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
     OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.displayWidth / 2 - 14, -13, ctl.displayWidth + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
@@ -582,6 +582,7 @@ class TownDriveScene extends Phaser.Scene {
       this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : 0xC9B3F0);
     });
     OTR.onKey(this, 'keydown-G', () => this.getOutAndLook());
+    OTR.onKey(this, 'keydown-V', () => OTR.cab.toggle(this));      // the cab view (a prototype): src/core/cab.js
     OTR.onKey(this, 'keydown-Q', () => this.setSignal(this.signal === 'left' ? null : 'left'));
     OTR.onKey(this, 'keydown-E', () => this.setSignal(this.signal === 'right' ? null : 'right'));
     OTR.onKey(this, 'keydown-R', () => { this.shiftAsked = true; });    // the gear selector: taken on the next frame
