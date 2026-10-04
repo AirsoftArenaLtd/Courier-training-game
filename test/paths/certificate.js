@@ -78,8 +78,9 @@ module.exports = async (page, ctx) => {
   await wait(900);
   const cert = await page.evaluate(() => { const f = document.getElementById('otr-print'); return f && f.contentDocument ? f.contentDocument.body.innerText : ''; });
   const today = await ctx.eval('OTR.record.date(Date.now())');
-  const want = [/Certificate of Completion/, /Morgan Lee/, /\(27 of 27\)/, new RegExp('Completed ' + today.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))];
-  const missing = want.filter(re => !re.test(cert));
+  // in the language the game is shown in
+  const want = await ctx.eval(`[OTR.i18n.t('Certificate of Completion'), 'Morgan Lee', OTR.i18n.t('passed the assessment in every scenario of the courier training academy ({0} of {1}),').replace('{0}', 27).replace('{1}', 27), OTR.i18n.t('Completed {0}').replace('{0}', ${JSON.stringify(today)})]`);
+  const missing = want.filter(w => cert.indexOf(w) < 0);
   if (missing.length) throw new Error('the certificate is missing ' + missing.join(', ') + ': ' + cert.slice(0, 300).replace(/\s+/g, ' '));
   if (/FedEx/i.test(cert)) throw new Error('the certificate still carries the old company name');
   // the keyboard is back with the game after printing

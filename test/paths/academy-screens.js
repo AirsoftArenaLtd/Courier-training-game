@@ -187,7 +187,9 @@ module.exports = async (page, ctx) => {
   await clickText(page, 'RecordScene', /^Print \/ PDF$/);
   await wait(800);
   const doc = await page.evaluate(() => { const f = [...document.querySelectorAll('iframe')].pop(); return f && f.contentDocument ? f.contentDocument.body.innerText : ''; });
-  if (!/Training record: Sam Rivera/.test(doc) || !/Damaged on Arrival/.test(doc)) throw new Error('Print / PDF did not build the record document');
+  // in the language the game is shown in
+  const [head, title] = await ctx.eval(`[OTR.i18n.t('Training record: {0}').replace('{0}', 'Sam Rivera'), OTR.i18n.t('Damaged on Arrival')]`);
+  if (doc.indexOf(head) < 0 || doc.indexOf(title) < 0) throw new Error('Print / PDF did not build the record document');
   await page.keyboard.press('Escape');                                  // Back
   await active('HubScene');
 };
