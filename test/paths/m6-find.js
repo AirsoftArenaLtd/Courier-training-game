@@ -28,7 +28,7 @@ module.exports = async (page, ctx) => {
     // the prompt must survive the hover
     const promptAlive = await ctx.eval(`(() => {
       const s = ${S};
-      const texts = s.panelBody.list.filter(o => o.type === 'Text').map(o => o.text);
+      const texts = s.panelBody.list.filter(o => o.type === 'Text').map(o => (o.srcText ?? o.text));
       return texts.some(t => /FIND THIS ADDRESS/.test(t)) && texts.length >= 4;
     })()`);
     if (!promptAlive) throw new Error(`round ${i + 1}: hovering a package wiped the round prompt`);
@@ -38,7 +38,7 @@ module.exports = async (page, ctx) => {
       const s = ${S};
       const p = s.pkgs.find(x => x.id === s.round.pkg);
       const want = p.number + ' ' + p.street;
-      return s.panelBody.list.some(o => o.type === 'Text' && o.text === want);
+      return s.panelBody.list.some(o => o.type === 'Text' && (o.srcText ?? o.text) === want);
     })()`);
     if (!matches) throw new Error(`round ${i + 1}: the panel is not showing the target address`);
 

@@ -435,7 +435,7 @@ OTR.ui = {
         { label: o.confirm || 'Let\'s Roll!', skin: 'orange', keepOpen: true, onClick: () => submit() }
       ]
     });
-    confirmBtn = modal.box.list.filter(c => c.label && c.label.text === (o.confirm || 'Let\'s Roll!'))[0];
+    confirmBtn = modal.box.list.filter(c => c.label && OTR.i18n.src(c.label) === (o.confirm || 'Let\'s Roll!'))[0];
     let hintTimer = null;
     const say = (msg) => {
       hint.setText(msg).setColor('#C8243B');

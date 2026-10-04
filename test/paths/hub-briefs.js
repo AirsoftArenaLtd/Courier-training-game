@@ -31,10 +31,10 @@ module.exports = async (page, ctx) => {
       walk(root);
       const b = (o) => o.getBounds();
       const texts = all.filter(o => o.type === 'Text');
-      const ctl = texts.find(t => t.text === sc.controls);
-      const learn = texts.filter(t => sc.learn.indexOf(t.text) >= 0);
-      const chips = all.filter(o => o.type === 'Container' && o.list && o.list.some(k => k.type === 'Text' && /^(safety|efficiency|service)$/i.test(k.text)));
-      const btns = all.filter(o => o.type === 'Container' && o.list && o.list.some(k => k.type === 'Text' && /^(Back|Start|Play Again|Day full)/.test(k.text)));
+      const ctl = texts.find(t => (t.srcText ?? t.text) === sc.controls);
+      const learn = texts.filter(t => sc.learn.indexOf((t.srcText ?? t.text)) >= 0);
+      const chips = all.filter(o => o.type === 'Container' && o.list && o.list.some(k => k.type === 'Text' && /^(safety|efficiency|service)$/i.test((k.srcText ?? k.text))));
+      const btns = all.filter(o => o.type === 'Container' && o.list && o.list.some(k => k.type === 'Text' && /^(Back|Start|Play Again|Day full)/.test((k.srcText ?? k.text))));
       const panel = root.list[1] && root.list[1].list && root.list[1].list[0];
       const pb = panel && b(panel);
       return {

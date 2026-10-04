@@ -12,10 +12,10 @@ const LAST = 'm4-damaged';
 module.exports = async (page, ctx) => {
   const active = async (key, ms) => {
     if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
-    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && (o.srcText ?? o.text)) out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
     throw new Error(`${key} never opened; on screen: ${seen}`);
   };
-  const recordTexts = () => ctx.eval(`(() => { const s = OTR.game.scene.getScene('RecordScene'), out = []; const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return out; })()`);
+  const recordTexts = () => ctx.eval(`(() => { const s = OTR.game.scene.getScene('RecordScene'), out = []; const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return out; })()`);
   const openRecord = async () => { await clickText(page, 'HubScene', /^My record/); await active('RecordScene'); return recordTexts(); };
 
   // a new trainee
@@ -65,7 +65,7 @@ module.exports = async (page, ctx) => {
   await wait(1300);
   await clickText(page, 'DialogueScene', /^See Results/);
   await active('ResultsScene');
-  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && t.text === 'ASSESSMENT PASSED'))`, 5000))) throw new Error('the last assessment was not passed');
+  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && (t.srcText ?? t.text) === 'ASSESSMENT PASSED'))`, 5000))) throw new Error('the last assessment was not passed');
   await wait(1500);
   await page.keyboard.press('Enter');                                   // To the station
   await active('HubScene');

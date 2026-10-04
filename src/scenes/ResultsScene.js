@@ -114,7 +114,7 @@ class ResultsScene extends Phaser.Scene {
       yy += s.height + 8;
     }
     const list = verdict.takeaways.slice();
-    if (!list.length) list.push({ text: head.text === 'FLAWLESS!' ? 'A clean run: nothing to fix.' : 'Solid run. Replay to chase all the stars.', n: 1 });
+    if (!list.length) list.push({ text: OTR.i18n.src(head) === 'FLAWLESS!' ? 'A clean run: nothing to fix.' : 'Solid run. Replay to chase all the stars.', n: 1 });
     this.layoutTakeaways(panel, list, -pw / 2 + 72, yy, pw - 160, boxBottom - 8);
 
     // career line: the bar is progress within the current rank, and says so

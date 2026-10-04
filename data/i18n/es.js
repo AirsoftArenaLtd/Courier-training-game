@@ -649,9 +649,9 @@ window.OTR_I18N.es = {
 "\"Rules are rules. Bye.\"": "\"Las normas son las normas. Adiós.\"",
 "You protected the package, but \"rules are rules\" with no alternatives feels like a wall.": "Protegiste el paquete, pero un \"las normas son las normas\" sin alternativas se siente como un muro.",
 "Oh — pickup actually works better. There's a location right by my office. Thanks for explaining!": "Ah, en realidad recogerlo me va mejor. Hay un punto justo al lado de mi oficina. ¡Gracias por explicármelo!",
-"Fill out the delivery notice clearly and leave it where it's easy to see from the door.": "Rellenar el aviso de entrega con claridad y dejarlo donde se vea fácilmente desde la puerta.",
+"Fill out the delivery notice clearly and leave it where it's easy to see from the door.": "Rellenar el aviso con claridad y dejarlo bien visible desde la puerta.",
 "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.": "El aviso es el rastro en papel: ayuda a Priya y a cualquier otra persona de la casa a saber qué pasó.",
-"Skip the notice: she already knows it's coming back, and it saves a minute.": "Saltarme el aviso: ella ya sabe que vuelve, y ahorro un minuto.",
+"Skip the notice: she already knows it's coming back, and it saves a minute.": "Saltarme el aviso: ella ya sabe que voy a volver, y así me ahorro un minuto.",
 "Always leave the notice. Other household members may not know, and it documents the attempt.": "Deja siempre el aviso. Otras personas de la casa quizá no lo sepan, y documenta el intento.",
 "Wow. Okay then.": "Vaya. Bueno, pues.",
 "You leave a notice. The package is safe on your truck — but Priya's feedback survey is not going to be kind.": "Dejas un aviso. El paquete está seguro en tu camión, pero la encuesta de opinión de Priya no va a ser amable.",
@@ -683,14 +683,14 @@ window.OTR_I18N.es = {
 "Announce \"DELIVERY!\" loud enough for the whole lobby.": "Anunciar \"¡ENTREGA!\" lo bastante alto para que lo oiga todo el vestíbulo.",
 "Volume isn't urgency. Loud announcements in a professional space reflect poorly on you and the company.": "Hablar fuerte no es urgencia. Los anuncios a gritos en un espacio profesional te dejan mal a ti y a la empresa.",
 "Sorry about that! Mondays, right? What have you got for us?": "¡Perdón! Los lunes, ¿verdad? ¿Qué tienes para nosotros?",
-"\"Three boxes for Brightline! Where would you like them?\"": "\"¡Tres cajas para Brightline! ¿Dónde las quiere?\"",
+"\"Three boxes for Brightline! Where would you like them?\"": "\"¡Buenos días! Tres cajas para Brightline. ¿Dónde quiere que se las deje?\"",
 "Asking where they want freight respects their space and gets it to the right place first time.": "Preguntar dónde quieren la carga respeta su espacio y la deja en el lugar correcto a la primera.",
-"\"Sign here, please — I've got three for Brightline and I'm running a bit behind today.\"": "\"Firme aquí, por favor: tengo tres para Brightline y hoy voy un poco atrasado.\"",
+"\"Sign here, please — I've got three for Brightline and I'm running a bit behind today.\"": "\"Firme aquí, por favor: tres para Brightline, que hoy voy atrasado.\"",
 "Efficient, but a little cold. A friendly line costs two seconds and builds a relationship with a daily stop.": "Eficiente, pero algo frío. Una frase amable cuesta dos segundos y crea relación con una parada diaria.",
 "Mail room's just down the hall. Oh — one of these is for our CEO. Could you just walk it up to the fourth floor?": "La sala de correo está al fondo del pasillo. Ah, una de estas es para nuestro director general. ¿Podrías subirla tú al cuarto piso?",
 "\"I'll leave it at your receiving point, so it goes upstairs through your building's own process.\"": "\"La dejaré en su punto de recepción, para que suba por el proceso de su propio edificio.\"",
 "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.": "Las entregas a empresas van al punto de recepción designado. Te mantiene en horario y respeta las normas de seguridad del edificio.",
-"\"Sure! I'll take it up myself — the CEO's office is on my way, and it saves someone a trip.\"": "\"¡Claro! La subo yo; la oficina del director me queda de camino y así le ahorro el viaje a alguien.\"",
+"\"Sure! I'll take it up myself — the CEO's office is on my way, and it saves someone a trip.\"": "\"¡Claro! La subo yo: la oficina del director me queda de camino.\"",
 "Friendly, but roaming a secure building eats route time and may break visitor rules. Use the receiving point unless the building's process says otherwise.": "Amable, pero recorrer un edificio con control de acceso consume tiempo de ruta y puede incumplir las normas para visitantes. Usa el punto de recepción salvo que el proceso del edificio diga otra cosa.",
 "Deliver to a business's designated receiving point and follow its building rules.": "Entrega en el punto de recepción designado de una empresa y sigue las normas de su edificio.",
 "Stop 2 of 2: a house on Birch Lane. The front gate is open. You're halfway up the path when…": "Parada 2 de 2: una casa en Birch Lane. La reja de entrada está abierta. Vas por la mitad del camino cuando…",
@@ -773,7 +773,7 @@ window.OTR_I18N.es = {
 "Oh, this isn't mine. There's a Maple COURT about a mile east, though. Happens all the time — I got someone's mattress once.": "Ah, esto no es mío. Pero hay un Maple COURT como a una milla al este. Pasa todo el tiempo; una vez me llegó el colchón de otra persona.",
 "\"Thanks for checking! I'll get it where it belongs.\"": "\"¡Gracias por revisarlo! Lo llevaré a donde corresponde.\"",
 "Good recovery. Take the package back and verify properly.": "Buena rectificación. Recupera el paquete y verifica como corresponde.",
-"\"Could you just hang onto it? They can swing by and pick it up.\"": "\"¿Me lo podría guardar? Pueden pasar a recogerlo.\"",
+"\"Could you just hang onto it? They can swing by and pick it up.\"": "\"¿Me lo podría guardar usted? Ya pasarán ellos a recogerlo.\"",
 "Leaving a package with an unrelated stranger isn't a delivery — it's a lost package waiting to happen.": "Dejar un paquete con un desconocido que no tiene nada que ver no es una entrega: es un paquete perdido esperando a ocurrir.",
 "Never leave a package with an unrelated person to \"fix\" an address problem.": "Nunca dejes un paquete con una persona ajena para \"arreglar\" un problema de dirección.",
 "The ZIP matches a small cul-de-sac called Maple Court, about a mile east. It's near your route, but not in your planned sequence.": "El código postal coincide con una pequeña calle sin salida llamada Maple Court, como a una milla al este. Está cerca de tu ruta, pero no en tu orden previsto.",
@@ -815,7 +815,7 @@ window.OTR_I18N.es = {
 "Never hide damage or deliver a leaking package.": "Nunca ocultes un daño ni entregues un paquete con fugas.",
 "The liquid stings your hand. You rinse it off with water from your bottle — lucky it's mild. That still goes in an exposure report, and you'll be watching that skin all afternoon. You set the box aside.": "El líquido te arde en la mano. Te la enjuagas con agua de tu botella; por suerte es suave. Aun así va en un informe de exposición, y estarás vigilando esa piel toda la tarde. Apartas la caja.",
 "Afternoon! Is that my cleaning supplies order? I've been waiting all week!": "¡Buenas tardes! ¿Es mi pedido de productos de limpieza? ¡Lo estoy esperando toda la semana!",
-"\"I'm sorry — it was damaged in transit and it's leaking, so I can't deliver it. It's been reported.\"": "\"Lo siento: se dañó en el transporte y tiene una fuga, así que no puedo entregarlo. Ya está informado.\"",
+"\"I'm sorry — it was damaged in transit and it's leaking, so I can't deliver it. It's been reported.\"": "\"Lo siento: se dañó en el transporte y tiene una fuga, así que no puedo entregarlo. Ya lo informé.\"",
 "Honest, specific and calm. He's disappointed — that's normal — but he knows what happened and what's next.": "Honesto, concreto y tranquilo. Está decepcionado, es normal, pero sabe qué pasó y qué viene ahora.",
 "\"Nope, not today — it's not ready to go out. You'll get an update on it.\"": "\"No, hoy no: no está listo para salir. Le llegará una actualización.\"",
 "Vague answers create suspicion. Customers handle bad news far better than mystery.": "Las respuestas vagas generan sospecha. Los clientes llevan mucho mejor las malas noticias que el misterio.",
@@ -825,7 +825,7 @@ window.OTR_I18N.es = {
 "What do you mean \"not today\"? Tracking says OUT FOR DELIVERY! It's right there in your truck!": "¿Cómo que \"hoy no\"? ¡El seguimiento dice EN REPARTO! ¡Está ahí mismo en tu camión!",
 "\"Let me explain properly: it arrived damaged and leaking, so I can't deliver it. It's reported.\"": "\"Déjeme explicarle bien: llegó dañado y con una fuga, así que no puedo entregarlo. Ya está informado.\"",
 "Good recovery. Clear, honest information turns suspicion into understanding.": "Buena rectificación. La información clara y honesta convierte la sospecha en comprensión.",
-"\"You'll have to call customer service about it — they're the ones who can see the whole file and sort it out.\"": "\"Tendrá que llamar a atención al cliente: ellos pueden ver todo el expediente y resolverlo.\"",
+"\"You'll have to call customer service about it — they're the ones who can see the whole file and sort it out.\"": "\"Tendrá que llamar a atención al cliente: allí pueden ver todo el expediente del envío y resolverlo con usted.\"",
 "Support may be part of the answer, but deflecting without explaining leaves the customer angry and confused.": "El soporte puede ser parte de la respuesta, pero desentenderse sin explicar deja al cliente enfadado y confundido.",
 "Damaged? Ugh. Can't I just take the bottles that aren't broken?": "¿Dañado? Uf. ¿No puedo llevarme las botellas que no se rompieron?",
 "\"I can't open or split it, but a claim gets you a replacement or refund.\"": "\"No puedo abrirlo ni separarlo, pero con una reclamación recibirá un reemplazo o un reembolso.\"",
@@ -951,7 +951,7 @@ window.OTR_I18N.es = {
 "Delivered, with the proper proof. Last step?": "Entregado, con el comprobante correcto. ¿Último paso?",
 "Tell dispatch it's delivered and why it went wrong: two 214 Birches, and you didn't check Court or Lane.": "Decirle al despacho que está entregado y por qué salió mal: dos 214 de Birch, y no revisé si era Court o Lane.",
 "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.": "Un informe honesto hace que la dirección quede marcada para el siguiente conductor, y que tú recuerdes revisar el tipo de vía.",
-"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "Nada más. Está entregado, Lena lo tiene y el despacho verá llegar el escaneo de entrega solo, pronto.",
+"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "Nada más. Ya está entregado, Lena lo tiene, y el despacho verá llegar el escaneo de entrega por sí solo en un rato.",
 "Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.": "El despacho todavía tiene una queja abierta, y el siguiente conductor no tiene ningún aviso sobre los dos 214 de Birch.",
 "Close the loop with dispatch, including what caused the mistake.": "Cierra el ciclo con el despacho, incluida la causa del error.",
 "Put Right": "Corregido",
@@ -2928,7 +2928,13 @@ window.OTR_I18N.es = {
 "Accepted": "Aceptada",
 "Refused": "Rechazada",
 "under a minute": "menos de un minuto",
-"1 attempt": "1 intento"
+"1 attempt": "1 intento",
+"Hazards": "Peligros",
+"Checklist": "Lista",
+"Graphics": "Gráficos",
+"Start ▶": "Empezar ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "Las flechas siguen sirviendo para girar y caminar; ENTER y ESC funcionan siempre.",
+"★ or better in every category": "★ o más en cada categoría"
 },
 "templates": [
 [
@@ -3536,10 +3542,6 @@ window.OTR_I18N.es = {
 "Reinició la parada {0}"
 ],
 [
-"Whoa, {0} {1} slippery! Hold SHIFT: short, careful steps.",
-"¡Uy, {0} resbala! Mantén MAYÚS: pasos cortos y con cuidado."
-],
-[
 "Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
 "¡Cuidado, con esa caja no te ves los pies! Mantén MAYÚS sobre {0}."
 ],
@@ -3874,6 +3876,50 @@ window.OTR_I18N.es = {
 [
 "Whoa, {0} is slippery! Hold SHIFT: short, careful steps.",
 "¡Uy, {0} resbala! Mantén MAYÚS: pasos cortos y con cuidado."
+],
+[
+"{0} / {1} ★ to {2}",
+"{0} / {1} ★ para {2}"
+],
+[
+"CAREER  {0} ★",
+"CARRERA  {0} ★"
+],
+[
+"{0} days",
+"{0} días"
+],
+[
+"– {0}",
+"– {0}"
+],
+[
+"✓ {0}",
+"✓ {0}"
+],
+[
+"✗ {0}",
+"✗ {0}"
+],
+[
+"Hazards: {0}",
+"Peligros: {0}"
+],
+[
+"Five questions a module. Pass at {0}%.",
+"Cinco preguntas por módulo. Se aprueba con {0}%."
+],
+[
+"Not quite. {0}",
+"No del todo. {0}"
+],
+[
+"Right. {0}",
+"Correcto. {0}"
 ]
+],
+"keep": [
+"three.js did not load",
+"#game canvas"
 ]
 };

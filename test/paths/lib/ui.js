@@ -13,9 +13,9 @@ async function findText(page, sceneKey, re) {
     const walk = (o, depth) => {
       if (!o || o.visible === false || (o.alpha !== undefined && o.alpha < 0.3)) return;
       const d = Math.max(depth, o.depth || 0);
-      if (o.type === 'Text' && rx.test(o.text)) {
+      if (o.type === 'Text' && rx.test((o.srcText ?? o.text))) {
         const b = o.getBounds();
-        if (b.width > 0 && d >= bestDepth) { bestDepth = d; best = { x: b.centerX, y: b.centerY, text: o.text }; }
+        if (b.width > 0 && d >= bestDepth) { bestDepth = d; best = { x: b.centerX, y: b.centerY, text: (o.srcText ?? o.text) }; }
       }
       (o.list || []).forEach(k => walk(k, d));
     };

@@ -121,6 +121,9 @@ OTR.i18n = {
     return s;
   },
 
+  /** A Text's words in English, whatever language it is shown in (for finding a label by what it says). */
+  src(o) { return o && o.srcText !== undefined ? o.srcText : o && o.text; },
+
   /** For text that is not a Phaser Text (printed pages, speech, the page title). */
   t(s) { return this.tr(s); }
 };
@@ -130,6 +133,8 @@ OTR.i18n = {
   if (!window.Phaser || !Phaser.GameObjects || !Phaser.GameObjects.Text) return;
   const P = Phaser.GameObjects.Text.prototype, set = P.setText;
   P.setText = function (value) {
+    // the English it was given: code (and the tests) that look a label up by its words read this, not .text
+    this.srcText = Array.isArray(value) ? value.join('\n') : value === undefined || value === null ? '' : String(value);
     if (OTR.i18n.lang !== 'en' && !this.noTranslate) {
       if (Array.isArray(value)) value = value.map(v => OTR.i18n.tr(String(v)));
       else if (value !== undefined && value !== null) value = OTR.i18n.tr(String(value));

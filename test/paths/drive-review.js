@@ -10,7 +10,7 @@ module.exports = async (page, ctx) => {
   const active = async (key, ms) => {
     if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
     // say what is on screen instead
-    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && (o.srcText ?? o.text)) out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
     throw new Error(`${key} never opened; on screen: ${seen}`);
   };
 
@@ -59,13 +59,13 @@ module.exports = async (page, ctx) => {
   await clickText(page, 'ResultsScene', /^Drive map/);
   await active('DriveReviewScene');
   await ctx.audit('drive map');
-  const list = await ctx.eval(`OTR.game.scene.getScene('DriveReviewScene').children.list.filter(o => o.type === 'Text').map(t => t.text)`);
+  const list = await ctx.eval(`OTR.game.scene.getScene('DriveReviewScene').children.list.filter(o => o.type === 'Text').map(t => (t.srcText ?? t.text))`);
   const beltRow = list.find(t => /belt|buckle/i.test(t));
   if (!beltRow) throw new Error('the list does not name the seatbelt mistake: ' + list.slice(0, 12).join(' | '));
   // the lesson for the mistake clicked
   await clickText(page, 'DriveReviewScene', new RegExp('^' + beltRow.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'));
   await wait(500);
-  const after = await ctx.eval(`OTR.game.scene.getScene('DriveReviewScene').children.list.filter(o => o.type === 'Text').map(t => t.text)`);
+  const after = await ctx.eval(`OTR.game.scene.getScene('DriveReviewScene').children.list.filter(o => o.type === 'Text').map(t => (t.srcText ?? t.text))`);
   if (!after.some(t => /belt/i.test(t) && t !== beltRow && t.length > 30)) throw new Error('clicking the mistake did not show its lesson');
   await ctx.audit('drive map: a pin opened');
   // Back to the same results, without the celebration again

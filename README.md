@@ -151,6 +151,30 @@ to pull it back out. `BACKSPACE` undoes, `ENTER` dispatches.
 
 **Loading:** drag packages from the cart onto the shelves.
 
+## Languages
+
+The game runs in English or Spanish (*español*, Latin American, informal *tú*; US units). The globe button on the
+title screen and in the hub picks the language; it is kept on that computer. `?lang=es` picks it for one visit, and a
+company can set its default with `lang` in `data/config.js` (otherwise the browser's language decides, if the game
+has it).
+
+Text is translated as it is shown (`src/core/i18n.js`): the game's data, saved progress, score logs and trainer
+reports stay in English, so a trainee who switches language keeps one record. The printed record and certificate are
+written in the trainee's language. The Spanish is in `data/i18n/es.js`. It was drafted by machine and checked
+against the game's rules, but a native speaker should review the safety wording before it is relied on.
+
+**Adding or changing text:** run `node test/tools/i18n-extract.js es`. It rewrites `data/i18n/catalogue.json` (every
+string the game can show, in the order it appears) and lists what Spanish is missing in
+`data/i18n/missing-es.json` (names, codes and colours stay as they are). A message with changing parts is a template:
+`"Stop {0} of {1}"` → `"Parada {0} de {1}"`. Where the English adds a plural ending (`"{0} package{1}"`), the
+translation picks its own words with `{1:plural|singular}` (`"{0} {1:paquetes|paquete}"`). Two changing parts must
+not sit side by side in a message (`${a}${b}`), because they cannot be told apart once translated; write each variant
+as its own sentence. Code that finds a label by its words reads `OTR.i18n.src(text)` (its English), not `.text`.
+
+**Adding a language:** copy `data/i18n/es.js` to `data/i18n/<code>.js`, translate it, and add the code and the
+language's own name to `LANGS` in `src/core/i18n.js`. Then run `node test/i18n.js`, which also checks that in the new
+language the right quiz or conversation answer still can't be picked out by its length.
+
 ## How progression works
 
 - **Stars:** each scenario awards 0–3 stars per category (Safety, Efficiency, Service) from a 0–1 performance ratio
@@ -209,6 +233,7 @@ no `fetch`, which is why it runs from `file://`.
 | `index.html?lab=town` | Art lab: free driving in the town with four random stops. Add `&tod=night` (or `morning`, `afternoon`, `evening`, `dusk`) and `&weather=rain` (or `storm`, `snow`, `fog`, `cloudy`, `heat`). |
 | `index.html?bench=1` | Performance test: plays the heaviest screens on this computer and reports the frame rate of each (average and worst 1%), with a button to copy the results. |
 | `index.html?art=drawn` | Ignores the real images and shows the drawn art (`?art=real` prefers the realistic alternatives). |
+| `index.html?lang=es` | The game in Spanish for this visit (the globe button keeps a choice). With `&dev=1`, `OTR.i18n.missing` lists any text shown that has no translation. |
 | `index.html?gfx=low` | The low graphics setting for this visit (a flat town: no 3D buildings, light map, ripples or spray). `?gfx=high` the opposite. Settings → Graphics keeps it. |
 
 Scenario ids: `m1-pretrip`, `m1-route`, `m1-driving`, `m2-sort`, `m2-lift`, `m2-labels`, `m3-missing`,
@@ -224,7 +249,8 @@ and fails on any crash, layout fault or playthrough that does not finish and sco
 [`test/README.md`](test/README.md) for how to run it and add to it, and [`docs/QA-REPORT.md`](docs/QA-REPORT.md) for
 what the last full pass found and fixed. `node test/enterprise.js` checks the sign-in and progress storage (the
 training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/academy.js` checks
-assessments, the trainer tools and the trainee record.
+assessments, the trainer tools and the trainee record. `node test/i18n.js` checks the translations, and
+`QA_LANG=es node test/qa.js` plays the whole suite in Spanish, so the layout audit checks the translated text fits.
 
 ## Adding art
 

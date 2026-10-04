@@ -40,7 +40,7 @@ class HazardScene extends TownDriveScene {
     this.actors = [];
     this.buildFlagHud();
     // the drive's controls line: here there is one control
-    const ctl = this.children.list.find(o => o.type === 'Text' && /^W go/.test(o.text));
+    const ctl = this.children.list.find(o => o.type === 'Text' && /^W go/.test(OTR.i18n.src(o)));
     if (ctl) ctl.setText('SPACE or click: a hazard is developing  ·  ENTER next clip  ·  ESC pause');
     this.input.on('pointerdown', (p) => { if (p.y > 70) this.flag(); });
     OTR.onKey(this, 'keydown-SPACE', () => this.flag());

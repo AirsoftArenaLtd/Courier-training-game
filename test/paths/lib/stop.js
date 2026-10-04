@@ -111,11 +111,11 @@ function driver(page, ctx) {
     while (Date.now() - t0 < (timeout || 6000)) {
       const i = await ev(`(() => { const hh = ${S}.hh; if (!hh.isOpen || !hh.optionBtns) return -1;
         const rx = new RegExp(${JSON.stringify(re.source)}, '${re.flags}');
-        return hh.optionBtns.findIndex(b => b.active && b.enabled && rx.test(b.label.text.replace(/^\\d+\\s+/, ''))); })()`);
+        return hh.optionBtns.findIndex(b => b.active && b.enabled && rx.test((b.label.srcText ?? b.label.text).replace(/^\\d+\\s+/, ''))); })()`);
       if (i >= 0) { await page.keyboard.press('Digit' + (i + 1)); await wait(300); return; }
       await wait(100);
     }
-    const shown = await ev(`${S}.hh.optionBtns ? ${S}.hh.optionBtns.map(b => b.label.text).join(' | ') : '(closed)'`);
+    const shown = await ev(`${S}.hh.optionBtns ? ${S}.hh.optionBtns.map(b => (b.label.srcText ?? b.label.text)).join(' | ') : '(closed)'`);
     throw new Error(`handheld has no option ${re} (showing: ${shown})`);
   };
   const hhOpen = async () => { if (!(await state()).hh) { await page.keyboard.press('Tab'); await wait(420); } };
@@ -127,10 +127,10 @@ function driver(page, ctx) {
       await ctx.until(`(${S}._openModals || 0) > 0`, 4000);
       await wait(350);
       const i = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); const box = root.list[1];
-        const btns = box.list.filter(o => o.label && /^\\d\\./.test(o.label.text));
-        return btns.findIndex(b => /grab handle|hand truck/i.test(b.label.text)); })()`);
+        const btns = box.list.filter(o => o.label && /^\\d\\./.test((o.label.srcText ?? o.label.text)));
+        return btns.findIndex(b => /grab handle|hand truck/i.test((b.label.srcText ?? b.label.text))); })()`);
       if (i < 0) throw new Error('no safe way to climb was offered');
-      const heavy = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); return root.list[1].list.some(o => o.label && /hand truck/i.test(o.label.text)); })()`);
+      const heavy = await ev(`(() => { const root = ${S}.children.list.filter(o => o.depth === 5000 && o.active).pop(); return root.list[1].list.some(o => o.label && /hand truck/i.test((o.label.srcText ?? o.label.text))); })()`);
       await page.keyboard.press('Digit' + (i + 1));
       await wait(heavy ? 1000 : 1200);
       if (!heavy) break;
