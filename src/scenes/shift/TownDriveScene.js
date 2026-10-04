@@ -151,7 +151,7 @@ class TownDriveScene extends Phaser.Scene {
       else {
         img = this.add.image(l.x, l.y, houseKeys[l.variant % 4]);
         if (OTR.assets.tintable(houseKeys[l.variant % 4])) img.setTint(roofTints[i % roofTints.length]);
-        else img.setFlipX(i % 2 === 1);   // an image has its own colours: every other one mirrored, so neighbours differ
+        else img.setFlipX((Math.round(l.x / 183) + Math.round(l.y / 183)) % 2 === 1);   // an image has its own colours: every other lot along a street is mirrored, so two alike side by side differ
       }
       img.setDepth(10).setScale(OTR.town.SCALE);
       l.img = img;
