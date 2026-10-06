@@ -176,6 +176,7 @@ class TownDriveScene extends Phaser.Scene {
       const [fw, fh] = OTR.town.size(l), W3 = OTR.b3d.WALLS;
       this.city.add({
         img, fx0: l.x - fw / 2, fy0: l.y - fh / 2, fx1: l.x + fw / 2, fy1: l.y + fh / 2, h: HEIGHT[l.kind],
+        roofBox: [14, 10, fw / OTR.town.SCALE, fh / OTR.town.SCALE],
         walls: l.kind === 'house' ? W3.house[l.variant % 4] : l.kind === 'business' ? W3.business[l.variant % 2] : W3.apartment[0],
         windows: l.kind === 'house' ? 'house' : l.kind === 'business' ? 'shop' : 'floors',
         doorSide: l.side < 0 ? 2 : 0          // the wall facing its street
@@ -226,7 +227,7 @@ class TownDriveScene extends Phaser.Scene {
     // the station art's building is 660 x 380 at (16, 12) in its texture: land it exactly on the station's footprint
     const D = T.depot;
     const depotImg = this.add.image(D.x - D.w / 2, D.y - D.h / 2, A.depot(this)).setOrigin(16 / 700, 12 / 420).setScale(D.w / 660, D.h / 380).setDepth(10);
-    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, walls: OTR.b3d.WALLS.depot[0], windows: 'dock', noSnow: true });   // its sign stays readable
+    this.city.add({ img: depotImg, fx0: D.x - D.w / 2, fy0: D.y - D.h / 2, fx1: D.x + D.w / 2, fy1: D.y + D.h / 2, h: 110, roofBox: [16, 12, 660, 380], walls: OTR.b3d.WALLS.depot[0], windows: 'dock', noSnow: true });   // its sign stays readable
   }
 
   /** Distance (px) from a point to the centre line of the nearest street. */

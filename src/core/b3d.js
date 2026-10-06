@@ -22,6 +22,7 @@ window.OTR = window.OTR || {};
 OTR.b3d = {
   ALT: 1600,            // the camera's height above the ground, in world px (20 px = 1 m)
   SUN: [0.55, 0.4],     // a shadow's reach per px of height: down and to the right
+  FACES: [[0, -1, 1.0], [1, 0, 0.78], [0, 1, 0.62], [-1, 0, 0.9]],
 
   /** Wall colours by building kind (a house by its variant). */
   WALLS: {
@@ -46,7 +47,30 @@ OTR.b3d = {
        * walls: a colour; windows: 'house' | 'floors' (a row per storey) | 'dock' (loading doors) | null.
        */
       add(b) {
+        // Texture padding is not part of the roof. Centre its painted box on the footprint, including mirrored
+        // art; otherwise the south/east wall can stop several pixels short of the roof as the camera passes it.
+        // Keep the cheap, flat low-quality view exactly as it was.
+        if (this.high && b.roofBox) {
+          const [x, y, w, h] = b.roofBox, img = b.img;
+          // Fill transparent gutters/corners once in a cached roof texture, underneath the original art. A separate
+          // roof quad would redraw every covered pixel every frame, expensive on the laptops this game targets.
+          const source = img.texture.getSourceImage(), key = 'b3d_roof_' + img.texture.key + '_' + b.walls;
+          img.setTexture(OTR.tex.make(scene, key, source.width, source.height, ctx => {
+            ctx.fillStyle = OTR.color.css(OTR.b3d.shade(b.walls, 0.48));
+            ctx.fillRect(x, y, w, h);
+            ctx.drawImage(source, 0, 0);
+          }));
+          const rx = x + w / 2, ry = y + h / 2;
+          img.setOrigin((img.flipX ? img.width - rx : rx) / img.width, (img.flipY ? img.height - ry : ry) / img.height);
+          img.setPosition((b.fx0 + b.fx1) / 2, (b.fy0 + b.fy1) / 2);
+        }
         b.ax = b.img.x; b.ay = b.img.y; b.sx = b.img.scaleX; b.sy = b.img.scaleY;
+        // Reuse projected corners and face colours; the flat low-quality town does not need them at all.
+        if (this.high) {
+          b.ground = [{ x: b.fx0, y: b.fy0 }, { x: b.fx1, y: b.fy0 }, { x: b.fx1, y: b.fy1 }, { x: b.fx0, y: b.fy1 }];
+          b.raised = b.ground.map(() => ({ x: 0, y: 0 }));
+          b.faceColors = OTR.b3d.FACES.map(n => OTR.b3d.shade(b.walls, n[2]));
+        }
         this.items.push(b);
         this.shadowOf(b.fx0, b.fy0, b.fx1, b.fy1, b.h);
         return b;
@@ -93,21 +117,23 @@ OTR.b3d = {
           if (b.fx1 < vx0 || b.fx0 > vx1 || b.fy1 < vy0 || b.fy0 > vy1) { b.img.setVisible(false); if (b.cover) b.cover.setVisible(false); continue; }
           b.img.setVisible(true);
           const s = A / (A - b.h);
-          const up = (x, y) => ({ x: cx + (x - cx) * s, y: cy + (y - cy) * s });
           b.img.setPosition(cx + (b.ax - cx) * s, cy + (b.ay - cy) * s).setScale(b.sx * s, b.sy * s);
           if (b.cover) b.cover.setVisible(true).setPosition(b.img.x, b.img.y).setScale(b.img.scaleX, b.img.scaleY);
           // the four walls: corners on the ground, then the same corners raised. Only those facing the camera show
           // (the others are under the roof).
-          const G = [{ x: b.fx0, y: b.fy0 }, { x: b.fx1, y: b.fy0 }, { x: b.fx1, y: b.fy1 }, { x: b.fx0, y: b.fy1 }];
-          const U = G.map(p => up(p.x, p.y));
+          const G = b.ground, U = b.raised;
+          for (let k = 0; k < 4; k++) {
+            U[k].x = cx + (G[k].x - cx) * s;
+            U[k].y = cy + (G[k].y - cy) * s;
+          }
           // outward normals: north, east, south, west; lit from the top-left, so north and west faces are brighter
-          const N = [[0, -1, 1.0], [1, 0, 0.78], [0, 1, 0.62], [-1, 0, 0.9]];
+          const N = OTR.b3d.FACES;
           for (let k = 0; k < 4; k++) {
             const a = G[k], c = G[(k + 1) % 4], au = U[k], cu = U[(k + 1) % 4];
             const mx = (a.x + c.x) / 2 - cx, my = (a.y + c.y) / 2 - cy;
             if (mx * N[k][0] + my * N[k][1] >= 0) continue;          // faces away from the camera
-            g.fillStyle(OTR.b3d.shade(b.walls, N[k][2]), 1);
-            g.fillPoints([a, c, cu, au], true);
+            g.fillStyle(b.faceColors[k], 1);
+            OTR.b3d.quad(g, a, c, cu, au);
             OTR.b3d.details(g, b, k, a, c, au, cu, this.windowLight);
           }
         }
@@ -132,6 +158,12 @@ OTR.b3d = {
     return (r << 16) | (g << 8) | b;
   },
 
+  /** All facade patches are convex quads. Two direct triangles avoid a general path and its tessellation. */
+  quad(g, a, b, c, d) {
+    g.fillTriangle(a.x, a.y, b.x, b.y, c.x, c.y);
+    g.fillTriangle(a.x, a.y, c.x, c.y, d.x, d.y);
+  },
+
   /**
    * Windows and doors on one wall: a ground edge a→c and its raised edge au→cu. A point on the wall is (u along it,
    * v up it). Windows are dark glass by day and warm light as the lighting comes up (lit 0..1).
@@ -142,7 +174,7 @@ OTR.b3d = {
       const ux = au.x + (cu.x - au.x) * u, uy = au.y + (cu.y - au.y) * u;
       return { x: gx + (ux - gx) * v, y: gy + (uy - gy) * v };
     };
-    const quad = (u0, u1, v0, v1) => g.fillPoints([P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1)], true);
+    const quad = (u0, u1, v0, v1) => OTR.b3d.quad(g, P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1));
     const len = Math.hypot(c.x - a.x, c.y - a.y);
     const glass = lit > 0 ? OTR.color.lerp(0x3E4E60, 0xFFD27A, lit) : 0x3E4E60;
     if (b.windows === 'house' || b.windows === 'floors') {
