@@ -176,7 +176,7 @@ OTR.Handheld = class {
       tg.lineStyle(2, 0xFF6600, 1); tg.strokeRoundedRect(-80, -26, 160, 52, 16);
     });
     const ti = s.add.image(-48, 0, OTR.rig.itemTex(s, 'scanner')).setScale(0.62);
-    const tt = OTR.txt(s, 12, -8, 'HANDHELD', 14, '#ffffff', { weight: '900' });
+    const tt = OTR.txt(s, 12, -8, 'HANDHELD', 14, '#ffffff', { weight: '900', fit: 84 });   // between the icon and the edge
     const cap = OTR.ui.keyCap(s, 12, 12, 'TAB', { size: 11 });
     this.badge = OTR.tex.shape(s, (g) => { g.fillStyle(0xE8304A, 1); g.fillCircle(0, 0, 11); }, 70, -22).setVisible(false);
     this.badgeText = OTR.txt(s, 70, -22, '!', 13, '#ffffff', { weight: '900' }).setVisible(false);

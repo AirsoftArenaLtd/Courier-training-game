@@ -127,7 +127,7 @@ class HubScene extends Phaser.Scene {
     const st = OTR.shift && OTR.shift.state;
     const live = OTR.shift && OTR.shift.active();
     this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: live ? 0xFF8A3D : 0x4D148C, bottom: live ? 0xC85000 : 0x2A0F4F, border: 0xFFB27A, radius: 20 }));
-    OTR.txt(this, x, top + 26, live ? 'ROUTE IN PROGRESS' : 'TODAY\'S ROUTE', 15, '#ffffff', { weight: '900' });
+    OTR.txt(this, x, top + 26, live ? 'ROUTE IN PROGRESS' : 'TODAY\'S ROUTE', 15, '#ffffff', { weight: '900', fit: w - 28 });
 
     const weather = OTR.shift ? OTR.shift.weatherFor(save.data.day) : 'clear';
     const wLabel = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Extreme heat' }[weather] || weather;
@@ -145,8 +145,8 @@ class HubScene extends Phaser.Scene {
       ab.on('pointerover', () => ul.setAlpha(0.5)).on('pointerout', () => ul.setAlpha(1));
       this.focusables.push(ab);
     } else {
-      OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900' });
-      OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false });
+      OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900', fit: w - 28 });
+      OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false, fit: w - 28 });
       // one line: the Start button sits right under it
       OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, '#E6DAF7', { bold: false, fit: w - 28 });
       // a route day is a long session: say so before it starts (a stray Enter used to drop you into the briefing)
@@ -156,9 +156,9 @@ class HubScene extends Phaser.Scene {
         () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }), { w: 240, h: 50, skin: 'orange', fontSize: 18, key: this.fresh ? undefined : 'ENTER', hint: this.fresh ? undefined : '⏎' }));
       const r = save.data.route || { days: 0, best: { safety: 0, efficiency: 0, service: 0 } };
       const best = (r.best.safety || 0) + (r.best.efficiency || 0) + (r.best.service || 0);
-      OTR.txt(this, x, top + 166, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 13, '#FFD5C0', { bold: false }).setY(top + 170);
+      OTR.txt(this, x, top + 166, r.days ? `${r.days} route day${r.days === 1 ? '' : 's'} logged · best ${best}/9 ★` : 'No route days logged yet', 13, '#FFD5C0', { bold: false, fit: w - 28 }).setY(top + 170);
       if (r.last) {
-        const link = OTR.txt(this, x, top + 187, `Day ${r.last.day}'s debrief ›`, 13, '#FFC83D', { weight: '900' });
+        const link = OTR.txt(this, x, top + 187, `Day ${r.last.day}'s debrief ›`, 13, '#FFC83D', { weight: '900', fit: w - 28 });
         link.press = () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true });
         link.setInteractive({ useHandCursor: true }).on('pointerup', link.press);
         this.focusables.push(link);
@@ -247,8 +247,13 @@ class HubScene extends Phaser.Scene {
     const max = sc.categories.length * 3;
     // NEXT marks the recommended scenario (SHELL-18); NEW the ones not played yet
     if (next || !rec) {
-      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(next ? 0x4D148C : 0xFF6600, 1); ng.fillRoundedRect(w / 2 - 78, -10, 48, 20, 10); }));
-      c.add(OTR.txt(this, w / 2 - 54, 0, next ? 'NEXT' : 'NEW', 13, '#ffffff', { weight: '900' }));
+      // the pill grows with a longer word (up to the 56px the title leaves it) and the word shrinks to fit inside
+      const tag = OTR.txt(this, 0, 0, next ? 'NEXT' : 'NEW', 13, '#ffffff', { weight: '900' });
+      const pw = Math.min(56, Math.max(48, tag.width + 12));
+      if (tag.width > pw - 10) tag.setScale((pw - 10) / tag.width);
+      tag.setX(w / 2 - 30 - pw / 2);
+      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(next ? 0x4D148C : 0xFF6600, 1); ng.fillRoundedRect(w / 2 - 30 - pw, -10, pw, 20, 10); }));
+      c.add(tag);
     } else {
       c.add(this.add.image(w / 2 - 70, 0, 'star_gold').setDisplaySize(15, 15));
       c.add(OTR.txt(this, w / 2 - 59, 0, `${got}/${max}`, 13, got === max ? '#1E9E6B' : '#7A6A90', { ox: 0, weight: '900' }));
@@ -374,7 +379,7 @@ class HubScene extends Phaser.Scene {
     const x = 152, y = 664, w = 272;
     this.add.image(x, y, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
     this.add.image(x - 104, y - 30, 'ic_book').setDisplaySize(18, 18).setTint(0xFF6600);
-    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0 });
+    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0, fit: w / 2 + 76 });   // from beside the book icon to the panel's edge
     const due = OTR.quiz.dueCount();
     const drills = OTR.drill.queue().length;
     const qb = OTR.ui.button(this, x - 66, y + 12, 'Quizzes', () => OTR.fx.transition(this, 'QuizScene', {}),

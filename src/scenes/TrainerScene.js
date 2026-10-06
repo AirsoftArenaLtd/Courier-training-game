@@ -175,8 +175,8 @@ class TrainerScene extends Phaser.Scene {
     const x = this.tx, top = this.ttop, w = this.tw;
     const s = OTR.academy.summary();
     const name = OTR.save.displayName() || 'No trainee yet';
-    OTR.txt(this, x + w / 2, top + 110, name, 26, '#243447', { weight: '900' });
-    OTR.txt(this, x + w / 2, top + 148, `Assessments passed ${s.passed} of ${s.total} · ${(OTR.save.data.route && OTR.save.data.route.days) || 0} route days`, 16, '#5A6B80', { bold: false });
+    OTR.txt(this, x + w / 2, top + 110, name, 26, '#243447', { weight: '900', fit: w - 40 });
+    OTR.txt(this, x + w / 2, top + 148, `Assessments passed ${s.passed} of ${s.total} · ${(OTR.save.data.route && OTR.save.data.route.days) || 0} route days`, 16, '#5A6B80', { bold: false, fit: w - 40 });
     const cx = x + w / 2;
     this.focusables.push(OTR.ui.button(this, cx, top + 220, 'View record', () => this.openRecord(null, name), { w: 300, h: 52, skin: 'purple', fontSize: 18 }));
     this.focusables.push(OTR.ui.button(this, cx, top + 290, 'Allow retakes', () => {
@@ -192,7 +192,7 @@ class TrainerScene extends Phaser.Scene {
     }
     OTR.txt(this, cx, top + 470, OTR.identity.mode === 'scorm'
       ? 'Progress is kept by the learning system. Its own reports show every learner.'
-      : 'Run the academy on a training server to see every trainee here\n(README: "Running it at a company").', 14, '#5A6B80', { bold: false, align: 'center' });
+      : 'Run the academy on a training server to see every trainee here\n(README: "Running it at a company").', 14, '#5A6B80', { bold: false, align: 'center', wrap: w - 60 });
   }
 
   openRecord(id, name) {

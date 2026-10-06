@@ -3,6 +3,8 @@
 window.OTR_I18N = window.OTR_I18N || {};
 window.OTR_I18N.es = {
 "strings": {
+"TODAY'S ROUTE": "RUTA DE HOY",
+"TODAY'S MANIFEST": "MANIFIESTO DE HOY",
 "Courier Training Simulator": "Simulador de formación para repartidores",
 "Training simulation built on general, publicly available safety and customer-service guidance. It is not a substitute for official procedures, policies, or hands-on training.": "Simulación de formación basada en pautas generales y públicas de seguridad y atención al cliente. No sustituye los procedimientos oficiales, las políticas ni la formación práctica.",
 "Safety": "Seguridad",
@@ -2324,7 +2326,7 @@ window.OTR_I18N.es = {
 "CURB SIDE": "LADO DE LA ACERA",
 "CHECKLIST  ": "LISTA  ",
 " still to check": " por revisar",
-"All checked u2014 sign off": "Todo revisado — firma",
+"All checked — sign off": "Todo revisado — firma",
 "Switch the lights on in the cab before you judge a lamp.": "Enciende las luces en la cabina antes de juzgar una luz.",
 "Press the horn to test it.": "Toca la bocina para probarla.",
 "Press and hold the brake.": "Pisa y mantén el freno.",
@@ -3917,6 +3919,110 @@ window.OTR_I18N.es = {
 [
 "Right. {0}",
 "Correcto. {0}"
+],
+[
+"{0} ({1} tries)",
+"{0} ({1} intentos)"
+],
+[
+"Graphics: {0}",
+"Gráficos: {0}"
+],
+[
+"Screen: {0}x{1} at {2}x",
+"Pantalla: {0}x{1} a {2}x"
+],
+[
+"Next: {0}",
+"Siguiente: {0}"
+],
+[
+"Day {0} · {1}",
+"Día {0} · {1}"
+],
+[
+"Day {0}'s debrief ›",
+"Resumen del día {0} ›"
+],
+[
+"Assessment: {0}",
+"Evaluación: {0}"
+],
+[
+"Checklist: {0}",
+"Lista: {0}"
+],
+[
+"Day {0} · {1} · {2} ★",
+"Día {0} · {1} · {2} ★"
+],
+[
+"Reset {0}?",
+"¿Reiniciar a {0}?"
+],
+[
+"{0}: {1} — caught.",
+"{0}: {1} — detectado."
+],
+[
+"{0} · commit {1}",
+"{0} · compromiso {1}"
+],
+[
+"+{0} min",
+"+{0} min"
+],
+[
+"{0} · pickup {1}–{2}",
+"{0} · recogida {1}–{2}"
+],
+[
+"-{0} Back",
+"-{0} Espalda"
+],
+[
+"{0} {1} (stop {2}): {3}",
+"{0} {1} (parada {2}): {3}"
+],
+[
+"Unit {0}",
+"Unidad {0}"
+],
+[
+"Account: {0}",
+"Cuenta: {0}"
+],
+[
+"refused ({0})",
+"rechazado ({0})"
+],
+[
+"Box: {0}.",
+"Caja: {0}."
+],
+[
+"Label: {0}.",
+"Etiqueta: {0}."
+],
+[
+"Shipper: \"{0}\".",
+"Remitente: \"{0}\"."
+],
+[
+"Service: {0}",
+"Servicio: {0}"
+],
+[
+"Day {0}",
+"Día {0}"
+],
+[
+"{0} s behind",
+"{0} s detrás"
+],
+[
+"Avoided {0}",
+"Evitaste {0}"
 ]
 ],
 "keep": [
