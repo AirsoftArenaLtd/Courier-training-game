@@ -394,6 +394,26 @@ OTR.cab = {
     fr.lineStyle(26, 0x101014, 1); fr.beginPath(); fr.arc(W * 0.3, H + 40, 190, Math.PI * 1.15, Math.PI * 1.85); fr.strokePath();
     fr.lineStyle(14, 0x101014, 1); fr.lineBetween(W * 0.3, H - 60, W * 0.3 - 150, H - 40); fr.lineBetween(W * 0.3, H - 60, W * 0.3 + 150, H - 40);
     C.frame = fr;
+    // These are three.js resources, not Phaser textures. Release only this view's objects on scene shutdown;
+    // never lose the shared GL context. A restarted drive must build a fresh cab rather than reuse destroyed HUD
+    // objects and the previous town's cars/people.
+    s.events.once('shutdown', () => {
+      C.on = false;
+      const geometries = new Set(), materials = new Set(), textures = new Set();
+      [scene3, blitScene].forEach(root => root.traverse(o => {
+        if (o.geometry) geometries.add(o.geometry);
+        const mats = Array.isArray(o.material) ? o.material : o.material ? [o.material] : [];
+        mats.forEach(mat => {
+          materials.add(mat);
+          Object.keys(mat).forEach(k => { const t = mat[k]; if (t && t.isTexture && t !== target.texture) textures.add(t); });
+        });
+      }));
+      geometries.forEach(g => g.dispose());
+      textures.forEach(t => t.dispose());
+      materials.forEach(mat => mat.dispose());
+      target.dispose(); three.dispose();
+      if (s.cab === C) s.cab = null;
+    });
     s.syncCameras();
     return C;
   }
