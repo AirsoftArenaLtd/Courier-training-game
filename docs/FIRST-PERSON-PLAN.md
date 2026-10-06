@@ -2,7 +2,7 @@
 
 Branch: `codex-first-person`, starting from published main at `b41026191ca3af0341af3603142271fcefe0b368`.
 
-The target is a complete first-person courier game. Every playable module takes place in a consistent 3D environment with shared movement, interactions and art direction. Full work days are the main game, forming a courier campaign. Individual modules offer focused practice and assessment in the same world and style. The existing start and module-selection screens can remain familiar.
+The target is a complete first-person courier game. Every playable module takes place in a consistent 3D environment with shared movement, interactions and art direction. Full work days are the main game, forming a courier campaign. Individual modules offer focused practice and assessment in the same world and style. Retain the existing sign-in/start scaffold and useful interface controls; the user proposes a walkable 3D hub for selecting modules and starting the day.
 
 ## Campaign and focused modules: product direction
 
@@ -80,6 +80,27 @@ Provide progress after each day: demonstrated strengths, specific skills needing
 
 Trainer controls should eventually be able to assign a difficulty/eligible scenario set, target particular skills and allow appropriate reassessment, while retaining existing practice/assessment modes, pass marks, hints policy and attempt limits. These campaign-specific controls are proposed additions. Official course completion remains tied to existing module assessment rules until the user agrees an alternative and its LMS/trainer integration is reviewed.
 
+### First-person central hub proposal
+
+The user proposes a brief introduction on first sign-in, followed by a central hub showing the modules and an option to start the work day. The player walks to a destination, points at it and confirms; the screen fades to black and then reveals the selected activity. This is the working navigation direction, with layout, exact input bindings and transition timing still to be reviewed.
+
+Use a compact depot training area as the hub. The same movement, aiming and interaction conventions should apply here and inside modules:
+
+- A dispatch desk or route board starts a new day or resumes the saved active day.
+- Clearly recognisable stations lead to each individual module. Reuse existing module names and icons; show training/assessment availability and progress through readable shared interface elements.
+- A training board presents existing career/assessment progress, skill coverage, recommended practice and the next responsibility being worked toward.
+- Settings, trainer access, language selection, records and exit remain easy to reach through the existing interface as well as suitable hub entry points. Menu access should not require a walk across the room.
+
+The first-visit introduction should explain the overall work-day/module choice and teach moving, looking and activating one station. Keep it brief, skippable and replayable. Store its completion per trainee profile; signing in again should normally enter the hub directly. Introductory guidance follows narration, text-size and language settings. Keep all required training in the appropriate lessons rather than making this welcome sequence a certification gate.
+
+For selection, highlight the nearby visible station and present one clear action prompt, with remappable activation and deliberate keyboard/click support. Avoid distant activation through walls, tiny physical text and labels competing with progress displays. Provide a compact keyboard/menu route to the same destinations for accessibility and quick repeated use; gameplay destinations remain the same first-person scenes. Module practice should be easy to revisit, subject to existing trainer restrictions, while assessments retain their attempt/pass policies.
+
+Use a short, configurable fade-out → destination setup → fade-in transition. Offer reduced/instant transitions. Disable movement and repeated activation during the change, release or recapture the pointer as appropriate, clear held inputs and guard against double-starting scenes or assessment attempts. Respect existing assessment-at-start semantics. Start/resume the destination's gameplay clock only when its controls are ready; hub time and scene-transition time are not assessed work efficiency.
+
+Selecting the campaign with an active saved day should offer its resume path. Starting another day or leaving an assessment must follow explicit existing save/attempt rules; a hub transition must not silently discard a shift or refund an assessment attempt. Return to the hub after a day/module debrief, with the result saved and the relevant station or progress display updated.
+
+The hub is a small scene with inexpensive lighting and low-graphics support. Render the active scene only and follow the existing shared-GL ownership/disposal rules during scene changes. Keep labels as translatable Phaser text through `OTR.txt`, retain readable overlays and the protected language/font code, and record any new source strings when implemented. This planning change creates no new on-screen text or art assets.
+
 ### Module isolation
 
 A module uses the same 3D tools and behaviours as the campaign, with a mission-specific starting state, permitted activities and completion conditions. For example, sorting practice puts the player at the depot belt with parcels, a scanner, bins and lesson-relevant equipment. Vehicle entry/driving and other jobs are unavailable. Use natural boundaries such as a training bay and closed exits, and enforce unavailable activities in the shared action handler rather than merely hiding prompts.
@@ -115,9 +136,9 @@ The user intends to switch to Astra after the plan is ready. Prepare that model'
 Proposed build order:
 
 1. Define the beginner scenario pool, assessment/completion policy and common controls. Campaign structure is agreed: varied days from the beginning, targeting 30–45 minutes per work day.
-2. Turn the prototype into a reusable mission framework, including module scope enforcement and readable shared tools.
+2. Turn the prototype into a reusable mission framework, including module scope enforcement, readable shared tools and a placeholder hub with reliable scene transitions.
 3. Build a small beginner scenario pool that can produce different demonstration days, plus one isolated sorting module using the same depot, parcels, scanner and interactions. Demonstrations can be shorter than the eventual full work-day target.
-4. Connect trainer rules, records, save/resume and existing menu entry points; validate old progress and completion compatibility.
+4. Connect trainer rules, records, save/resume, the first-visit introduction and hub/menu entry points; validate old progress and completion compatibility.
 5. Establish and approve the visual reference set, then expand the environment and convert the remaining modules with shared systems.
 6. Expand campaign variation and difficulty, then complete regression, hardware performance and translation passes.
 
