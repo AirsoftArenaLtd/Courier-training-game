@@ -1116,6 +1116,31 @@ Spanish (`QA_LANG=es node test/qa.js`: every scenario, flow and golden path, wit
 translated text fits; the golden paths find buttons by their English), by `QA_LANG=es node test/a11y-screens.js`
 (larger text and the colour filter, all screens clean), and by the full suite in English.
 
+## Phase 3, part 2: French and Hindi (6 October 2026)
+
+The game can also be played in French (*français*, informal *tu*, its own key names: ESPACE, ENTRÉE, MAJ, ÉCHAP) and
+Hindi (*हिन्दी*, polite *आप*, key names in English). Both are complete: every string and template in the catalogue.
+They were translated in 26 numbered chunks (`data/i18n/src/`) and built into `data/i18n/fr.js` and `data/i18n/hi.js`
+by `build.py`, which checks that every line is there and keeps its placeholders and line breaks. Machine-drafted: a
+native speaker should review the safety wording. The Spanish-speaking customer in Tricky Doorsteps still speaks
+Spanish in both.
+
+Found and fixed while building them:
+
+| Problem | Fix |
+| --- | --- |
+| Devanagari vowel marks above and below the line were clipped: Phaser measures a font's height from a Latin test string. | Each language has its own measuring string (`TALL` in `i18n.js`), covering Hindi and the scripts to come. |
+| Windows has no Devanagari in the game's fonts. | The font list includes Nirmala UI, which Windows ships for Indian scripts. |
+| The language picker had room for two languages. | Two columns, sized to the number of languages. |
+| Labels the game shows in capitals were looked up with their capitals and missed. | Capitalised labels are looked up without case and capitalised in the translation's own script rules. |
+| French and Hindi made the recommended answer the longest or shortest too often in a few quizzes and conversations. | Lines reworded in each language's `override.json`, meaning unchanged; checked by `lengths.js` and `test/i18n.js`. |
+
+Checked by `test/i18n.js` (Spanish, French and Hindi), by `test/a11y-screens.js` in both languages (larger text and
+the colour filter, every screen clean, nothing left untranslated), and by the whole suite played in each language
+(`QA_LANG=fr` and `QA_LANG=hi node test/qa.js`). Hindi: 35 of 36 scenarios clean on the first run and the 36th
+(`route-day`, the doorstep photo framed a passer-by) clean when run again. French: 34 of 36 clean, and the two others
+(`m5-exceptions` and `m8-heat`, both timing under load) clean when run again on their own.
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was

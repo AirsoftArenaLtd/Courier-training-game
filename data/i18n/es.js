@@ -2934,7 +2934,8 @@ window.OTR_I18N.es = {
 "Graphics": "Gráficos",
 "Start ▶": "Empezar ▶",
 "Arrow keys still steer and walk; ENTER and ESC always work.": "Las flechas siguen sirviendo para girar y caminar; ENTER y ESC funcionan siempre.",
-"★ or better in every category": "★ o más en cada categoría"
+"★ or better in every category": "★ o más en cada categoría",
+"QUIZ": "CUESTIONARIO"
 },
 "templates": [
 [
