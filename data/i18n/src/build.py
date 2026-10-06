@@ -27,4 +27,4 @@ out = ('/* %s. Translated from data/i18n/catalogue.json (test/tools/i18n-extract
        'window.OTR_I18N = window.OTR_I18N || {};\nwindow.OTR_I18N.%s = ' % (name, lang)
        + json.dumps({'strings': strings, 'templates': templates, 'keep': meta['keep']}, ensure_ascii=False, indent=0) + ';\n')
 open('/home/user/wp1/data/i18n/%s.js' % lang, 'w').write(out)
-print('%s: %d/25 chunks, %d strings, %d templates, %d problems' % (lang, have, len(strings), len(templates), bad))
+print('%s: %d chunks, %d strings, %d templates, %d problems' % (lang, have, len(strings), len(templates), bad))

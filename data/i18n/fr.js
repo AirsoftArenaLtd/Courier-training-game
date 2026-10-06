@@ -629,7 +629,7 @@ window.OTR_I18N.fr = {
 "Hola! They're both at work until six. I can sign for it — I take in their stuff all the time!": "Hola ! Ils sont tous les deux au travail jusqu'à six heures. Je peux signer — je prends leurs colis tout le temps !",
 "\"That's kind of you! But this one needs the recipient's own signature, so I can't leave it with a neighbor.\"": "« C'est gentil ! Mais celui-ci exige la signature du destinataire lui-même, donc je ne peux pas le laisser à un voisin. »",
 "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.": "Bonne décision, dite avec chaleur. Tu as respecté la règle ET gardé un voisin sympathique de ton côté.",
-"\"That would really help, thanks. You know them, and it saves them a trip to the pickup point. Sign right here.\"": "« Ça m'aiderait beaucoup, merci. Vous les connaissez, et ça leur évite d'aller au point de retrait. Signez ici. »",
+"\"That would really help, thanks. You know them, and it saves them a trip to the pickup point. Sign right here.\"": "« Ça m'aiderait beaucoup, merci. Vous les connaissez bien, et ça leur évite d'aller au point de retrait. Signez juste ici. »",
 "This label requires the recipient's signature. Handing it to a neighbor breaks the shipper's requirement — good intentions don't change that.": "Cette étiquette exige la signature du destinataire. Le remettre à un voisin enfreint l'exigence de l'expéditeur — les bonnes intentions n'y changent rien.",
 "Follow the signature requirement on the label — \"recipient only\" means no neighbor signatures.": "Respecte l'exigence de signature de l'étiquette — « destinataire uniquement » veut dire pas de signature de voisin.",
 "\"Nope. Can't do that.\"": "« Non. Je ne peux pas. »",
@@ -646,7 +646,7 @@ window.OTR_I18N.fr = {
 "Oh — pickup actually works better. There's a location right by my office. Thanks for explaining!": "Oh — le retrait m'arrange même mieux. Il y a un point juste à côté de mon bureau. Merci de m'avoir expliqué !",
 "Fill out the delivery notice clearly and leave it where it's easy to see from the door.": "Remplir clairement l'avis de passage et le laisser bien en vue depuis la porte.",
 "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.": "L'avis, c'est la trace écrite — il aide Priya et tous ceux du foyer à savoir ce qui s'est passé.",
-"Skip the notice: she already knows it's coming back, and it saves a minute.": "Sauter l'avis : elle sait déjà que je reviens, et ça me fait gagner une minute.",
+"Skip the notice: she already knows it's coming back, and it saves a minute.": "Sauter l'avis : elle sait déjà que je vais revenir, et ça me fait gagner une minute.",
 "Always leave the notice. Other household members may not know, and it documents the attempt.": "Laisse toujours l'avis. Les autres membres du foyer ne sont peut-être pas au courant, et il prouve la tentative.",
 "Wow. Okay then.": "Eh ben. D'accord.",
 "You leave a notice. The package is safe on your truck — but Priya's feedback survey is not going to be kind.": "Tu laisses un avis. Le colis est en sécurité dans ton camion — mais le questionnaire de satisfaction de Priya ne sera pas tendre.",
@@ -710,7 +710,7 @@ window.OTR_I18N.fr = {
 "Never re-enter a yard with a loose, aggressive dog.": "Ne retourne jamais dans une cour avec un chien agressif en liberté.",
 "Biscuit meets you inside the gate. Teeth catch your leg before the owner gets there. It isn't deep, but it needs cleaning, a report, and a call to your supervisor.": "Biscuit t'accueille derrière le portail. Ses dents t'attrapent la jambe avant que la propriétaire arrive. Ce n'est pas profond, mais il faut nettoyer, faire un rapport et appeler ton responsable.",
 "Biscuit! BISCUIT, come! Oh no, I'm so sorry — are you okay? He must have gotten out of the backyard.": "Biscuit ! BISCUIT, viens ! Oh non, je suis vraiment désolée — ça va ? Il a dû sortir du jardin.",
-"\"I'm okay. Could you bring him inside first?\"": "« Ça va. Vous pourriez d'abord le rentrer ? »",
+"\"I'm okay. Could you bring him inside first?\"": "« Ça va. Vous pourriez d'abord le rentrer à l'intérieur ? »",
 "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.": "Poli et clair. Demande au propriétaire d'attacher le chien avant d'approcher — même les chiens qui ont l'air gentils protègent leur maison.",
 "\"I'm okay. Could you put him inside? Your box is in the yard — I'll wait.\"": "« Ça va. Vous pourriez le rentrer ? Votre carton est dans la cour — j'attends. »",
 "Owning the throw is better than pretending it didn't happen — but the package should never have gone over the fence.": "Assumer le lancer vaut mieux que faire comme si de rien n'était — mais le colis n'aurait jamais dû passer par-dessus la clôture.",
@@ -733,7 +733,7 @@ window.OTR_I18N.fr = {
 "He's inside. I found the box in the flowerbed — corner's split, but I think it's okay.": "Il est rentré. J'ai trouvé le carton dans le massif de fleurs — le coin est fendu, mais je crois que ça va.",
 "\"Sorry about that. Open it while I'm here, and I'll report any damage.\"": "« Désolé pour ça. Ouvrez-le pendant que je suis là, et je signalerai tout dommage. »",
 "Honest, and it gives the customer a route to a claim. The dog note protects the next courier.": "Honnête, et ça donne à la cliente un moyen de faire une réclamation. La note sur le chien protège le prochain livreur.",
-"\"Should be fine — they're built for worse than that!\" and head back to the truck.": "« Ça devrait aller — ils sont faits pour pire que ça ! » et repartir vers le camion.",
+"\"Should be fine — they're built for worse than that!\" and head back to the truck.": "« Ça devrait aller, ils sont solides ! » et repartir au camion.",
 "You damaged it. Walking away leaves the customer to discover the problem alone.": "C'est toi qui l'as abîmé. Partir laisse la cliente découvrir le problème seule.",
 "If a package is damaged in your hands, say so and record it.": "Si un colis est abîmé entre tes mains, dis-le et enregistre-le.",
 "Excuse me?! I apologized! Just give me the box.": "Pardon ?! Je me suis excusée ! Donnez-moi juste le carton.",
@@ -774,7 +774,7 @@ window.OTR_I18N.fr = {
 "The ZIP matches a small cul-de-sac called Maple Court, about a mile east. It's near your route, but not in your planned sequence.": "Le code postal correspond à une petite impasse appelée Maple Court, à environ un mile à l'est. C'est près de ta tournée, mais pas dans l'ordre prévu.",
 "Tell dispatch about the mix-up through your normal channel, then fit the stop in where it makes sense.": "Signaler la confusion au répartiteur par le canal habituel, puis placer l'arrêt là où c'est logique.",
 "Communicating early keeps records accurate, and planning it in avoids making other stops late.": "Communiquer tôt garde les données exactes, et l'intégrer à la tournée évite de retarder les autres arrêts.",
-"Drive there right now and skip your next three stops; you can loop back for them later.": "Y aller tout de suite et sauter mes trois prochains arrêts ; je pourrai revenir les faire plus tard.",
+"Drive there right now and skip your next three stops; you can loop back for them later.": "Y aller tout de suite et sauter mes trois prochains arrêts ; j'y reviendrai.",
 "Fixing it matters, but blowing up your sequence makes three other customers late. Plan it in.": "Corriger compte, mais faire exploser ton ordre de passage met trois autres clients en retard. Intègre-le à la tournée.",
 "Copy that. Maple Court's in your area — slot it in right after the Birch Lane stops. Nice catch.": "Bien reçu. Maple Court est dans ta zone — place-le juste après les arrêts de Birch Lane. Bien vu.",
 "Maple Court. Number 421 exists! But the mailbox says RIVERA, and the label says J. OKAFOR.": "Maple Court. Le numéro 421 existe ! Mais la boîte aux lettres dit RIVERA, et l'étiquette dit J. OKAFOR.",
@@ -820,7 +820,7 @@ window.OTR_I18N.fr = {
 "What do you mean \"not today\"? Tracking says OUT FOR DELIVERY! It's right there in your truck!": "Comment ça, « pas aujourd'hui » ? Le suivi dit EN COURS DE LIVRAISON ! Il est là, dans votre camion !",
 "\"Let me explain properly: it arrived damaged and leaking, so I can't deliver it. It's reported.\"": "« Laissez-moi vous expliquer : il est arrivé endommagé et il fuit, donc je ne peux pas le livrer. C'est signalé. »",
 "Good recovery. Clear, honest information turns suspicion into understanding.": "Bon rattrapage. Une information claire et honnête transforme la méfiance en compréhension.",
-"\"You'll have to call customer service about it — they're the ones who can see the whole file and sort it out.\"": "« Il faudra appeler le service client — c'est eux qui voient tout le dossier et qui peuvent régler ça. »",
+"\"You'll have to call customer service about it — they're the ones who can see the whole file and sort it out.\"": "« Il faudra appeler le service client à ce sujet — c'est eux qui voient tout le dossier et qui peuvent régler ça. »",
 "Support may be part of the answer, but deflecting without explaining leaves the customer angry and confused.": "Le service client fait peut-être partie de la réponse, mais se défausser sans expliquer laisse le client en colère et perdu.",
 "Damaged? Ugh. Can't I just take the bottles that aren't broken?": "Endommagé ? Bof. Je ne peux pas juste prendre les bouteilles qui ne sont pas cassées ?",
 "\"I can't open or split it, but a claim gets you a replacement or refund.\"": "« Je ne peux pas l'ouvrir ni le séparer, mais une réclamation vous donne un remplacement ou un remboursement. »",
@@ -831,7 +831,7 @@ window.OTR_I18N.fr = {
 "Okay. Honestly, thanks for being straight with me instead of making something up.": "D'accord. Franchement, merci d'avoir été honnête au lieu d'inventer quelque chose.",
 "Photograph the damage, write it up, and record the delivery exception so the claim can start.": "Photographier le dommage, le décrire et enregistrer l'exception de livraison pour lancer la réclamation.",
 "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.": "Des dossiers exacts, c'est ce qui permet au client d'être remplacé vite — et au dommage d'être examiné.",
-"Skip the paperwork: it was already reported once, and a second report just duplicates it.": "Sauter la paperasse : c'est déjà signalé une fois, et un deuxième rapport ne fait que doublon.",
+"Skip the paperwork: it was already reported once, and a second report just duplicates it.": "Sauter la paperasse : c'est déjà signalé une fois, et un second rapport ne ferait que du doublon inutile.",
 "Incomplete records slow down the customer's claim. Documenting the exception is part of the job.": "Des dossiers incomplets ralentissent la réclamation du client. Documenter l'exception fait partie du travail.",
 "Exposed, and Half Done": "Exposé, et à moitié fait",
 "The leaking contents got on your skin, and the stop after it was left half done. An exposure needs its report and the customer needs a plain explanation: hands off, isolate it, report it, and say what happened.": "Le contenu qui fuyait t'a touché la peau, et l'arrêt d'après est resté à moitié fait. Une exposition demande son rapport et le client une explication simple : n'y touche pas, isole-le, signale-le, et dis ce qui s'est passé.",
@@ -856,7 +856,7 @@ window.OTR_I18N.fr = {
 "Speed up a little to finish the route before the worst of it arrives.": "Accélérer un peu pour finir la tournée avant le plus gros.",
 "Wet roads mean longer stopping distances and a higher chance of hydroplaning. Rushing is exactly backwards.": "Une route mouillée veut dire des distances de freinage plus longues et plus de risque d'aquaplaning. Se presser, c'est exactement l'inverse.",
 "In heavy rain, slow down and increase following distance — never speed up to \"beat\" the storm.": "Sous une forte pluie, ralentis et augmente la distance de sécurité — n'accélère jamais pour « battre » l'orage.",
-"Stop right where you are in the travel lane, hazards on, until you can see the road again.": "M'arrêter là où je suis sur la voie, feux de détresse allumés, jusqu'à revoir la route.",
+"Stop right where you are in the travel lane, hazards on, until you can see the road again.": "M'arrêter là où je suis sur la voie, feux de détresse allumés, jusqu'à bien revoir la route.",
 "Stopping in a travel lane in low visibility invites a rear-end crash. Pull fully off the road in a safe spot.": "S'arrêter sur une voie de circulation par faible visibilité, c'est appeler une collision par l'arrière. Sors complètement de la route dans un endroit sûr.",
 "The rain eases a little. Ahead, the underpass on your route is covered with brown, moving water. Your stop is on the other side.": "La pluie se calme un peu. Devant, le passage souterrain de ta tournée est couvert d'eau brune qui coule. Ton arrêt est de l'autre côté.",
 "Turn around and find another route.": "Faire demi-tour et trouver un autre itinéraire.",
@@ -892,9 +892,9 @@ window.OTR_I18N.fr = {
 "Wedge it against the outside of the locked gate, in the water: that's as close to \"back gate\" as it gets.": "Le caler contre l'extérieur du portail verrouillé, dans l'eau : c'est ce qu'il y a de plus proche du « portail arrière ».",
 "Technically \"at the back gate,\" but a box sitting in floodwater isn't a successful delivery.": "Techniquement « au portail arrière », mais un carton posé dans l'eau d'une inondation n'est pas une livraison réussie.",
 "Oh, thank you for checking! Please don't go back there — that yard floods every time. Could you bring it tomorrow instead?": "Oh, merci d'avoir appelé ! N'allez surtout pas derrière — cette cour est inondée à chaque fois. Vous pourriez l'apporter demain plutôt ?",
-"\"Of course. I'll leave a notice for tomorrow — and you might add the flooding to your delivery notes.\"": "« Bien sûr. Je laisse un avis pour demain — et vous pourriez ajouter l'inondation à vos instructions de livraison. »",
+"\"Of course. I'll leave a notice for tomorrow — and you might add the flooding to your delivery notes.\"": "« Bien sûr. Je laisse un avis pour demain — ajoutez l'inondation à vos instructions de livraison. »",
 "You solved today safely and improved every future delivery to this address.": "Tu as réglé la journée en sécurité et amélioré toutes les futures livraisons à cette adresse.",
-"\"Okay, tomorrow it is. Bye!\" and head back to the truck before the rain picks up again.": "« D'accord, demain alors. Au revoir ! » et retourner au camion avant que la pluie reprenne.",
+"\"Okay, tomorrow it is. Bye!\" and head back to the truck before the rain picks up again.": "« D'accord, demain alors. Au revoir ! » et retourner vite au camion avant que la pluie ne reprenne de plus belle.",
 "Fine outcome, but suggesting clearer delivery instructions would prevent the same confusion next storm.": "Bonne issue, mais suggérer des instructions de livraison plus claires éviterait la même confusion au prochain orage.",
 "Weathered the Storm": "L'orage surmonté",
 "You drove for the conditions, avoided floodwater, waited out the lightning, and clarified instead of guessing. The package — and you — are dry.": "Tu as conduit selon les conditions, évité l'inondation, attendu que la foudre passe, et demandé au lieu de deviner. Le colis — et toi — êtes au sec.",
@@ -946,7 +946,7 @@ window.OTR_I18N.fr = {
 "Delivered, with the proper proof. Last step?": "Livré, avec la bonne preuve. Dernière étape ?",
 "Tell dispatch it's delivered and why it went wrong: two 214 Birches, and you didn't check Court or Lane.": "Dire au répartiteur qu'il est livré et pourquoi ça a mal tourné : deux 214 Birch, et je n'ai pas vérifié Court ou Lane.",
 "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.": "Un compte rendu honnête, c'est l'adresse signalée pour le prochain chauffeur, et toi qui penses à vérifier le type de voie.",
-"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "Rien de plus. Il est livré, Lena l'a, et le répartiteur verra bien passer le scan de livraison tout seul d'ici peu.",
+"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "Rien de plus. Il est livré, Lena l'a, et le répartiteur verra bien passer le scan de livraison tout seul d'ici peu de temps.",
 "Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.": "Le répartiteur a toujours une plainte ouverte, et le prochain chauffeur n'est pas prévenu des deux 214 Birch.",
 "Close the loop with dispatch, including what caused the mistake.": "Boucle la boucle avec le répartiteur, y compris la cause de l'erreur.",
 "Put Right": "Réparé",
@@ -1017,7 +1017,7 @@ window.OTR_I18N.fr = {
 "\"I saw the whole thing from my window. He's been parked across that driveway all week, but you did back into him. Do you want my name?\"": "« J'ai tout vu de ma fenêtre. Il est garé en travers de cette allée toute la semaine, mais c'est vrai que vous lui avez reculé dessus. Vous voulez mon nom ? »",
 "\"Yes please — name and a number, if you don't mind.\"": "« Oui, s'il vous plaît — un nom et un numéro, si ça ne vous dérange pas. »",
 "Independent witnesses are the most valuable thing at any scene, and they walk away quickly. Take the details while they are offering.": "Les témoins indépendants sont ce qu'il y a de plus précieux sur les lieux, et ils repartent vite. Prends leurs coordonnées tant qu'ils les proposent.",
-"\"Only if you'll say it was his fault for parking there.\"": "« Seulement si vous dites que c'est sa faute de s'être garé là. »",
+"\"Only if you'll say it was his fault for parking there.\"": "« Seulement si vous dites bien que c'est sa faute de s'être garé juste là, devant. »",
 "Coaching a witness is misconduct, and she will repeat what you said to the next person who asks. Take the account she actually has.": "Influencer un témoin est une faute professionnelle, et elle répétera ce que tu as dit à la prochaine personne qui demandera. Prends le récit qu'elle a vraiment.",
 "\"No need, thanks — it's all reported already.\"": "« Pas besoin, merci — tout est déjà signalé. »",
 "A free independent account of what happened is worth more than the three minutes it costs you.": "Un récit indépendant et gratuit de ce qui s'est passé vaut plus que les trois minutes qu'il te coûte.",
@@ -1619,7 +1619,7 @@ window.OTR_I18N.fr = {
 "A ball rolls into the street ahead. What should you expect?": "Un ballon roule sur la chaussée devant toi. À quoi dois-tu t'attendre ?",
 "Nothing more: the ball itself is the hazard": "Rien de plus : le danger, c'est le ballon",
 "A child may follow it, so slow down and cover the brake": "Un enfant peut le suivre : ralentir, pied prêt à freiner",
-"The car behind you to brake hard for it": "À ce que la voiture derrière freine fort",
+"The car behind you to brake hard for it": "À ce que la voiture derrière toi freine fort pour l'éviter",
 "To steer around it without slowing down": "À le contourner sans ralentir",
 "A ball in the road often means a child is about to follow it. Slow down and be ready to stop.": "Un ballon sur la route veut souvent dire qu'un enfant va le suivre. Ralentis et sois prêt à t'arrêter.",
 "Before lifting a heavy box from the floor, you should…": "Avant de soulever un carton lourd posé au sol, tu dois…",
@@ -1660,13 +1660,13 @@ window.OTR_I18N.fr = {
 "A calm voice and acknowledging the problem de-escalate. Then offer what you actually can do. Don't promise what you can't.": "Une voix calme et reconnaître le problème désamorcent. Puis propose ce que tu peux vraiment faire. Ne promets pas ce que tu ne peux pas tenir.",
 "At a business, a receptionist signs for a package addressed to a colleague. Whose name do you record?": "Dans une entreprise, une réceptionniste signe pour un colis adressé à un collègue. Quel nom enregistres-tu ?",
 "The addressee's, since it is their package": "Celui du destinataire, puisque c'est son colis",
-"The receptionist's, as they printed it": "Celui de la réceptionniste, tel qu'elle l'a écrit",
+"The receptionist's, as they printed it": "Celui de la réceptionniste, tel qu'écrit",
 "The company's name from the label": "Le nom de l'entreprise sur l'étiquette",
-"Nobody's: the scan alone is enough": "Aucun : le scan suffit",
+"Nobody's: the scan alone is enough": "Aucun : le scan tout seul suffit bien",
 "Record the printed name of whoever actually signed, even when it isn't the addressee.": "Enregistre le nom en capitales de la personne qui a vraiment signé, même si ce n'est pas le destinataire.",
 "A signature-required package, and nobody answers the door. You…": "Un colis à signature requise, et personne n'ouvre la porte. Tu…",
 "Leave it somewhere hidden and take a photo": "Le laisses caché quelque part et prends une photo",
-"Record an exception and leave a door tag": "Enregistres une exception et laisses un avis de passage",
+"Record an exception and leave a door tag": "Enregistres l'exception, laisses un avis",
 "Sign for it yourself so the customer gets it": "Signes toi-même pour que le client le reçoive",
 "Leave it with the neighbor next door": "Le laisses au voisin d'à côté",
 "A signature-required package is never left unattended. Record the exception, leave a door tag and keep the package.": "Un colis à signature requise n'est jamais laissé sans surveillance. Enregistre l'exception, laisse un avis de passage et garde le colis.",
@@ -1677,20 +1677,20 @@ window.OTR_I18N.fr = {
 "Keep working and ignore them until they stop": "Continuer à travailler et l'ignorer",
 "Stay friendly and warm but brief. Different customers need different styles; all of them deserve courtesy.": "Reste aimable et chaleureux, mais bref. Chaque client demande un style différent ; tous méritent de la courtoisie.",
 "A customer is aggressive and you feel unsafe. What do you do?": "Un client est agressif et tu ne te sens pas en sécurité. Que fais-tu ?",
-"Stand your ground and argue your side firmly": "Tenir bon et défendre fermement ma position",
+"Stand your ground and argue your side firmly": "Tenir bon et défendre fermement ma position face à lui",
 "Get to safety, don't engage, and report it": "Me mettre à l'abri, ne pas répondre, et le signaler",
 "Finish the delivery quickly, whatever happens": "Finir la livraison vite, quoi qu'il arrive",
 "Calm them down by giving them the package": "Le calmer en lui donnant le colis",
 "Your safety comes first. Leave, don't escalate, and report it to your manager.": "Ta sécurité d'abord. Pars, n'envenime pas, et signale-le à ton responsable.",
 "The label says Maple Court, but you are on Maple Avenue, where the number doesn't exist. You…": "L'étiquette dit Maple Court, mais tu es sur Maple Avenue, où le numéro n'existe pas. Tu…",
 "Deliver to the closest number on the avenue": "Livres au numéro le plus proche sur l'avenue",
-"Check the address, then ask dispatch instead of guessing": "Vérifies l'adresse, puis demandes au répartiteur au lieu de deviner",
+"Check the address, then ask dispatch instead of guessing": "Vérifies l'adresse et demandes au répartiteur",
 "Leave it at the corner shop for them to collect": "Le laisses à l'épicerie du coin pour qu'ils le récupèrent",
 "Mark it delivered and sort it out tomorrow": "Le marques livré et règles ça demain",
 "\"Close enough\" is not an address. Verify it, and ask dispatch rather than guess.": "« À peu près » n'est pas une adresse. Vérifie-la, et demande au répartiteur plutôt que de deviner.",
 "A package arrives crushed with the contents showing. What do you do?": "Un colis arrive écrasé, contenu visible. Que fais-tu ?",
 "Tape it back up neatly and deliver it": "Le rescotcher proprement et le livrer",
-"Photograph it and follow the damage procedure": "Le photographier et suivre la procédure de dommage",
+"Photograph it and follow the damage procedure": "Le photographier et suivre la procédure",
 "Remove the broken part and deliver the rest": "Retirer la partie cassée et livrer le reste",
 "Deliver it as it is and say nothing about it": "Le livrer tel quel sans rien dire",
 "Document it and follow the damage procedure, so the customer and the claim are handled properly.": "Documente-le et suis la procédure de dommage, pour que le client et la réclamation soient bien traités.",
@@ -1752,7 +1752,7 @@ window.OTR_I18N.fr = {
 "On the top shelf, so they don't crush others": "Sur l'étagère du haut, pour ne pas écraser les autres",
 "Low down, on the bottom shelves or the floor": "En bas, sur les étagères basses ou au sol",
 "By the door, so they are easy to unload": "Près de la porte, pour les décharger facilement",
-"Anywhere there is room left for them": "Là où il reste de la place",
+"Anywhere there is room left for them": "Là où il reste encore de la place libre",
 "Heavy goes low: it is safer to lift and keeps the van stable.": "Le lourd va en bas : c'est plus sûr à soulever et ça garde la camionnette stable.",
 "Why secure the load before driving?": "Pourquoi arrimer la charge avant de rouler ?",
 "A tidy van is quicker to inspect at the depot": "Une camionnette rangée s'inspecte plus vite au dépôt",
@@ -1762,7 +1762,7 @@ window.OTR_I18N.fr = {
 "A secured load doesn't shift under braking or cornering, and nothing falls on you when you open the door.": "Une charge arrimée ne bouge pas au freinage ni dans les virages, et rien ne te tombe dessus quand tu ouvres la porte.",
 "At a stop, you can't find the package quickly. What is the lesson?": "À un arrêt, tu ne trouves pas vite le colis. Quelle est la leçon ?",
 "Search harder and faster at every stop": "Chercher plus fort et plus vite à chaque arrêt",
-"Load each stop together, labels out": "Charger chaque arrêt ensemble, étiquettes visibles",
+"Load each stop together, labels out": "Grouper chaque arrêt, étiquettes visibles",
 "Skip the stop and come back to it later": "Sauter l'arrêt et y revenir plus tard",
 "Deliver a different package there instead": "Livrer un autre colis à la place",
 "A good load is found fast: sequence, group by stop, and keep labels facing out.": "Un bon chargement se trouve vite : dans l'ordre, groupé par arrêt, étiquettes vers l'extérieur.",
@@ -2837,11 +2837,1066 @@ window.OTR_I18N.fr = {
 "three things": "trois choses",
 "four things": "quatre choses",
 "(facing the traffic)": "(à contresens)",
-"(at an angle)": "(en biais)"
+"(at an angle)": "(en biais)",
+"(on the second try)": "(au deuxième essai)",
+"(misloaded!)": "(mal chargé !)",
+"· floor load strapped": "· charge au sol sanglée",
+"strapped": "sanglée",
+"not strapped": "non sanglée",
+"nothing heavy up high": "rien de lourd en hauteur",
+"or clear it": "ni le dégager",
+"the house number and a person": "le numéro de la maison et une personne",
+"the house number": "le numéro de la maison",
+"a person": "une personne",
+", all passed": ", toutes réussies",
+", left part-way": ", abandonnée en cours",
+"· CRITICAL": "· CRITIQUE",
+"your learning system": "ta plateforme de formation",
+"the training server": "le serveur de formation",
+"deliveries": "livraisons",
+"delivery": "livraison",
+"shown": "affichée",
+"hidden": "masquée",
+"high": "élevés",
+"low": "faibles",
+"retake any time": "repasse-la quand tu veux",
+"·  practice any time": "·  entraîne-toi quand tu veux",
+"your last attempt": "ta dernière tentative",
+"It": "Cette évaluation",
+"the pass mark in every category": "la note de réussite dans chaque catégorie",
+"Heat advisory": "Alerte chaleur",
+"Reception": "Accueil",
+"standard delivery": "livraison standard",
+"ADULT SIGNATURE": "SIGNATURE ADULTE",
+"Customer note: \"Dog in yard.\"": "Note du client : « Chien dans la cour. »",
+"Quiz: not taken": "Quiz : non passé",
+"Not taken": "Non passée",
+"No recurring mistakes recorded.": "Aucune erreur récurrente enregistrée.",
+"None.": "Aucune.",
+"Training record: {0}": "Dossier de formation : {0}",
+"Printed {0}": "Imprimé le {0}",
+"Training since {0}": "En formation depuis le {0}",
+"Assessments passed": "Évaluations réussies",
+"Scenarios practiced": "Scénarios pratiqués",
+"Route days": "Journées de tournée",
+"Time training": "Temps de formation",
+"Strongest to weakest (best stars earned): {0}": "Du plus fort au plus faible (meilleures étoiles obtenues) : {0}",
+"Scenario": "Scénario",
+"Best practice stars": "Meilleures étoiles à l'entraînement",
+"Runs": "Parties",
+"Last played": "Dernière partie",
+"Critical mistakes": "Erreurs critiques",
+"Trainee signature and date": "Signature et date du stagiaire",
+"Trainer signature and date": "Signature et date du formateur",
+"Certificate: {0}": "Certificat : {0}",
+"Certificate of Completion": "Certificat de réussite",
+"This certifies that": "Nous certifions que",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "a réussi l'évaluation de chaque scénario de l'académie de formation des livreurs ({0} sur {1}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "couvrant la sécurité de la tournée et de la conduite, la manutention des colis, le service client, la résolution de problèmes, le scan, le chargement, les enlèvements et la sécurité personnelle.",
+"Completed {0}": "Terminé le {0}",
+"Trainee ID {0}": "ID stagiaire {0}",
+"Letters, numbers, spaces and . ' - only": "Lettres, chiffres, espaces et . ' - uniquement",
+"CRITICAL": "CRITIQUE",
+"practice any time": "entraîne-toi quand tu veux",
+"your only attempt": "ta seule tentative",
+"Accepted": "Acceptée",
+"Refused": "Refusée",
+"under a minute": "moins d'une minute",
+"1 attempt": "1 tentative",
+"Hazards": "Dangers",
+"Checklist": "Liste",
+"Graphics": "Graphismes",
+"Start ▶": "C'est parti ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "Les flèches servent toujours à diriger et marcher ; ENTRÉE et ÉCHAP fonctionnent toujours.",
+"★ or better in every category": "★ ou plus dans chaque catégorie"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"ARRÊT {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"Mise à jour de l'expéditeur pour l'arrêt {0} ({1}) : ce colis exige maintenant une SIGNATURE. Si personne ne peut signer, il n'est pas laissé."
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"Le client de l'arrêt {0} ({1}) a appelé : « Merci de le laisser derrière la jardinière sur le perron. »"
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nMISE À JOUR DU RÉPARTITEUR : {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"Aujourd'hui : « {0} ». Que met-on dans le rapport d'incident ?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"La jauge indique {0}. Règle de la flotte : une camionnette rentre au dépôt avec au moins un quart de réservoir. Que fais-tu ?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"Tu as rapporté {0} {1:colis|colis} en exception. Qu'est-ce qu'on en fait ?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"Jour {0}. {1} pièces pour {2} arrêts."
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"La section A, ce sont les arrêts 1-3 (près de la porte), la B les arrêts 4-{0}."
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"La section A, ce sont les arrêts 1-{0} (près de la porte)."
+],
+[
+"Held at the gate for a missed defect ({0})",
+"Retenu à la sortie pour un défaut manqué ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"ligne précédente {0} sur {1} · ↓ ou ESPACE pour revenir"
+],
+[
+"{0}: the answer made it worse",
+"{0} : la réponse a aggravé les choses"
+],
+[
+"That is the most it takes: {0} characters",
+"C'est le maximum : {0} caractères"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"Appuie sur la nouvelle touche pour : {0}  (ÉCHAP annule)"
+],
+[
+"On The Route performance test · {0}",
+"Test de performance On The Route · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0} : {1} fps en moyenne, {2} pour le pire 1 %"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"{0} {1:ERREURS|ERREUR} SUR LA ROUTE"
+],
+[
+"+ {0} more on the map",
+"+ {0} de plus sur la carte"
+],
+[
+"DAY {0}  ·  STATION",
+"JOUR {0}  ·  CENTRE"
+],
+[
+"stop {0} of {1}",
+"arrêt {0} sur {1}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"Livrés : {0} · {1} {2:exceptions|exception}"
+],
+[
+"Day {0}  ·  5 stops",
+"Jour {0}  ·  5 arrêts"
+],
+[
+"Start day {0}'s route?",
+"Commencer la tournée du jour {0} ?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} {1:journées|journée} de tournée {1:enregistrées|enregistrée} · meilleure {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"Évaluation : non réussie · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"Meilleur {0} / {1} ★ · joué {2}×"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"Pas d'indices et pas de recommencement. Pour réussir : {0}, et aucune erreur critique. "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"Commencer utilise {0}, et abandonner en cours compte comme non réussi."
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"Connecté en tant que {0}.\nUn formateur peut réinitialiser ta progression."
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} {1:révisions à faire|révision à faire} : un module réussi il y a un moment, pour le garder frais"
+],
+[
+"Question {0} of {1}",
+"Question {0} sur {1}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0} %  ·  {1} % pour réussir"
+],
+[
+"Drive map ({0})",
+"Carte de conduite ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} {1:nouvelles étoiles|nouvelle étoile} de carrière"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} est notée de la même façon : pas d'indices et pas de recommencement."
+],
+[
+"Next drill ({0} of {1}) ▶",
+"Exercice suivant ({0} sur {1}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ {0} de plus à travailler"
+],
+[
+"You're now {0}",
+"Tu es maintenant {0}"
+],
+[
+"Continue as {0}",
+"Continuer en tant que {0}"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"Connecté{0} · progression enregistrée sur {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"Cela efface le rang, les étoiles et la progression de {0}. C'est irréversible."
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}réussies {1}/{2} · {3} journées de tournée · {4}"
+],
+[
+"Page {0} of {1}",
+"Page {0} sur {1}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0} : {1} {2:évaluations rouvertes|évaluation rouverte} pour une nouvelle tentative"
+],
+[
+"{0} was reset",
+"{0} a été réinitialisé"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"Évaluations réussies {0} sur {1} · {2} journées de tournée"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} {1:évaluations rouvertes|évaluation rouverte} pour une nouvelle tentative"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"POINT DE PASSAGE {0} SUR {1}"
+],
+[
+"Hold — {0}s until the arm folds",
+"Attends — {0} s avant que le bras se replie"
+],
+[
+"Checkpoint {0} reached",
+"Point de passage {0} atteint"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"Point de passage {0} validé — le suivant est sur la carte"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"Parcours fait en {0} s (référence {1} s)"
+],
+[
+"Clip {0} of {1} · {2}",
+"Séquence {0} sur {1} · {2}"
+],
+[
+"Spotted it: {0}",
+"Repéré : {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"Repéré après {0} s : {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"La jauge indique {0}/32\"."
+],
+[
+"{0}  (Minimum: 4/32\" front, 2/32\" rear.)",
+"{0}  (Minimum : 4/32\" à l'avant, 2/32\" à l'arrière.)"
+],
+[
+"Caught the defects ({0} of {1})",
+"A repéré les défauts ({0} sur {1})"
+],
+[
+"Flagged {0} good part{1}",
+"A signalé {0} {1:pièces en bon état|pièce en bon état}"
+],
+[
+"Walked it in good time ({0}s, par {1}s)",
+"Tour fait dans un bon temps ({0} s, référence {1} s)"
+],
+[
+"{0} was fine: {1}",
+"{0} était en bon état : {1}"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged",
+"{0} repérés · {1} manqués · {2} signalés à tort"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged · {3}s",
+"{0} repérés · {1} manqués · {2} signalés à tort · {3} s"
+],
+[
+"SCHOOL ZONE {0}–{1}",
+"ZONE SCOLAIRE {0}–{1}"
+],
+[
+"Pickup window {0} – {1}",
+"Créneau d'enlèvement {0} – {1}"
+],
+[
+"{0} · no time commitment",
+"{0} · sans heure fixe"
+],
+[
+"{0} commitment{1} missed",
+"{0} {1:engagements manqués|engagement manqué}"
+],
+[
+"{0} pickup{1} after the dock closes",
+"{0} {1:enlèvements|enlèvement} après la fermeture du quai"
+],
+[
+"{0} min waiting for a shipper",
+"{0} min d'attente d'un expéditeur"
+],
+[
+"{0} time-committed {1} would run late",
+"En retard : {0} {1} à heure fixe"
+],
+[
+"{0} pickup{1} would be missed",
+"{0} {1:enlèvements manqués|enlèvement manqué}"
+],
+[
+"Your plan says {0}. Dispatch would rather you resequenced now than called the customer later.",
+"Ton plan prévoit : {0}. Le répartiteur préfère que tu réordonnes maintenant plutôt que d'appeler le client plus tard."
+],
+[
+"Waited {0} min at {1}",
+"Attente de {0} min à {1}"
+],
+[
+"Loop length vs the best plan ({0} mi vs {1} mi)",
+"Longueur de la boucle face au meilleur plan ({0} mi contre {1} mi)"
+],
+[
+"{0} mi · {1} min{2}",
+"{0} mi · {1} min{2}"
+],
+[
+"{0} mi · {1} min",
+"{0} mi · {1} min"
+],
+[
+"+{0} min ({1} leg{2} while it was active)",
+"+{0} min ({1} {2:étapes|étape} pendant qu'elle était active)"
+],
+[
+"{0} mi planned against a best possible {1} mi · {2}/{3} commitments met",
+"{0} mi prévus contre un meilleur possible de {1} mi · {2}/{3} engagements tenus"
+],
+[
+"Read package {0} in {1}s",
+"Colis {0} lu en {1} s"
+],
+[
+"Called it without checking {0}",
+"A décidé sans vérifier {0}"
+],
+[
+"BELONGS ON: {0}",
+"VA SUR : {0}"
+],
+[
+"Blind call — you never looked at {0}.",
+"Décision à l'aveugle — tu n'as jamais regardé {0}."
+],
+[
+"{0}/{1} placed right · {2} blind call{3} · all six sides checked on {4} of {5}",
+"{0}/{1} bien placés · {2} {3:décisions|décision} à l'aveugle · les six faces vérifiées sur {4} sur {5}"
+],
+[
+"{0} side{1} still unchecked",
+"{0} {1:faces encore à vérifier|face encore à vérifier}"
+],
+[
+"SIZE UP THE LOAD · {0}",
+"ÉVALUE LA CHARGE · {0}"
+],
+[
+"Back Health {0}/100 · technique {1}%",
+"Santé du dos {0}/100 · technique {1} %"
+],
+[
+"{0} LB · TEAM LIFT",
+"{0} LB · LEVAGE À DEUX"
+],
+[
+"{0} lb — that one goes down the heavy chute for a team lift.",
+"{0} lb — celui-là part par la goulotte lourde pour un levage à deux."
+],
+[
+"Sorted {0} of {1} · scanned {2} of {3} · best streak {4} · specials handled {5}/{6}",
+"Triés {0} sur {1} · scannés {2} sur {3} · meilleure série {4} · cas spéciaux {5}/{6}"
+],
+[
+"JAM — clear it (click or SPACE) · {0}s",
+"BOURRAGE — débloque-le (clic ou ESPACE) · {0} s"
+],
+[
+"CART · {0} TO LOAD",
+"CHARIOT · {0} À CHARGER"
+],
+[
+"{0} lb is too heavy that high — bottom shelf or floor",
+"{0} lb, c'est trop lourd si haut — étagère du bas ou sol"
+],
+[
+"Stop {0} belongs in section {1}",
+"L'arrêt {0} va dans la section {1}"
+],
+[
+"HEAVIEST ON THE TOP SHELF  {0} LB  (max 14)",
+"LE PLUS LOURD SUR L'ÉTAGÈRE DU HAUT  {0} LB  (max 14)"
+],
+[
+"Packages loaded in the right place ({0}/{1})",
+"Colis chargés au bon endroit ({0}/{1})"
+],
+[
+"Heavy packages loaded high ({0})",
+"Colis lourds chargés en hauteur ({0})"
+],
+[
+"Loaded in good time ({0}s, par {1}s)",
+"Chargé dans un bon temps ({0} s, référence {1} s)"
+],
+[
+"{0}/{1} placed right · {2} · floor {3} · {4}s",
+"{0}/{1} bien placés · {2} · sol {3} · {4} s"
+],
+[
+"{0} {1}: {2} lb loaded up high",
+"{0} {1} : {2} lb chargés en hauteur"
+],
+[
+"{0} of {1} pieces in the right place{2}",
+"{0} pièces sur {1} au bon endroit{2}"
+],
+[
+"PACKAGE {0} OF {1}",
+"COLIS {0} SUR {1}"
+],
+[
+"FIND THIS ADDRESS  ·  STOP {0}",
+"TROUVE CETTE ADRESSE  ·  ARRÊT {0}"
+],
+[
+"Found {0} {1} in {2}s{3}",
+"A trouvé {0} {1} en {2} s{3}"
+],
+[
+"{0} {1} — {2}. Read the whole address.",
+"{0} {1} — {2}. Lis l'adresse en entier."
+],
+[
+"Pulled the right package first time ({0}/{1})",
+"A sorti le bon colis du premier coup ({0}/{1})"
+],
+[
+"Worked the truck in good time ({0}s)",
+"A travaillé le camion dans un bon temps ({0} s)"
+],
+[
+"{0}/{1} right first time · {2} wrong pick{3} · {4}s",
+"{0}/{1} justes du premier coup · {2} {3:mauvaises prises|mauvaise prise} · {4} s"
+],
+[
+"Stuck? Stop {0} belongs in section {1}, or in a floor bay if it is bulky. Hover a package to read its whole label.",
+"Bloqué ? L'arrêt {0} va dans la section {1}, ou à un emplacement au sol s'il est volumineux. Survole un colis pour lire toute son étiquette."
+],
+[
+"There it is, misloaded in section {0}. A misload costs this much time at every stop.",
+"Le voilà, mal chargé dans la section {0}. Une erreur de chargement coûte ce temps-là à chaque arrêt."
+],
+[
+"There it is, in section {0}. Work the shelves section by section.",
+"Le voilà, dans la section {0}. Fouille les étagères section par section."
+],
+[
+"Manifest: {0} pieces (corrected from {1})",
+"Manifeste : {0} pièces (corrigé de {1})"
+],
+[
+"Manifest says: {0} piece{1}",
+"Le manifeste indique : {0} {1:pièces|pièce}"
+],
+[
+"You've counted: {0} piece{1}",
+"Tu as compté : {0} {1:pièces|pièce}"
+],
+[
+"Inspected: {0} of {1}",
+"Inspectées : {0} sur {1}"
+],
+[
+"Already {0}. Your call at the counter is final.",
+"Déjà {0}. Ta décision au comptoir est définitive."
+],
+[
+"Sign for {0}. The count matches the manifest.",
+"Signer pour {0}. Le compte correspond au manifeste."
+],
+[
+"Ask {0} to recount anyway, just in case.",
+"Demander quand même à {0} de recompter, au cas où."
+],
+[
+"Tell {0} you count {1}, not {2}, and ask them to check before you sign.",
+"Dire à {0} que tu en comptes {1}, pas {2}, et lui demander de vérifier avant de signer."
+],
+[
+"Sign for the manifest number ({0}) — close enough.",
+"Signer pour le nombre du manifeste ({0}) — c'est à peu près ça."
+],
+[
+"The manifest says {0}. You counted {1}.",
+"Le manifeste indique {0}. Tu en as compté {1}."
+],
+[
+"{0} counts the outgoing pieces. \"I make it {1} here, not {2}. Have another look?\"",
+"{0} compte les pièces à expédier. « J'en compte {1} ici, pas {2}. Vous revérifiez ? »"
+],
+[
+"Counted every piece waiting{0}",
+"A compté chaque pièce en attente{0}"
+],
+[
+"Scale: {0} lb.",
+"Balance : {0} lb."
+],
+[
+"Hazard marks: {0}.",
+"Marques de danger : {0}."
+],
+[
+"This one was fine to ship ({0}). Refusing a good piece fails the customer.",
+"Celui-ci pouvait partir ({0}). Refuser une bonne pièce, c'est faire défaut au client."
+],
+[
+"The right reason here was \"{0}\".",
+"Le bon motif ici était « {0} »."
+],
+[
+"Right to refuse it, wrong reason: it was \"{0}\".",
+"Bien de le refuser, mauvais motif : c'était « {0} »."
+],
+[
+"Found the customs paperwork problems ({0}/{1})",
+"A trouvé les problèmes des documents de douane ({0}/{1})"
+],
+[
+"{0} of {1} problems found",
+"{0} problèmes trouvés sur {1}"
+],
+[
+"{0} refused — the shipper keeps them",
+"{0} refusées — l'expéditeur les garde"
+],
+[
+"{0} piece{1} accepted",
+"{0} {1:pièces acceptées|pièce acceptée}"
+],
+[
+"{0} signs for the pickup.",
+"{0} signe l'enlèvement."
+],
+[
+"Worked the pickup in good time ({0}s)",
+"A fait l'enlèvement dans un bon temps ({0} s)"
+],
+[
+"The post-trip: {0} before you clock off",
+"Le rapport de fin de journée : {0} avant ta fin de service"
+],
+[
+"DAY {0} · MORNING BRIEFING",
+"JOUR {0} · BRIEFING DU MATIN"
+],
+[
+"DAY {0} COMPLETE",
+"JOUR {0} TERMINÉ"
+],
+[
+"{0} delivered · {1} exception{2} · {3}h {4}m on the road",
+"Livrés : {0} · {1} {2:exceptions|exception} · {3} h {4} min sur la route"
+],
+[
+"Drive review ({0}) ›",
+"Bilan de conduite ({0}) ›"
+],
+[
+"{0}: headlights on (L)",
+"{0} : phares allumés (L)"
+],
+[
+"Restarted the drive{0}",
+"A recommencé le trajet{0}"
+],
+[
+"Scuffed {0} at {1} mph — slow right down near obstacles",
+"Frôlé {0} à {1} mph — ralentis bien près des obstacles"
+],
+[
+"Collision with {0} at {1} mph",
+"Collision avec {0} à {1} mph"
+],
+[
+"Speeding: {0} in a {1}",
+"Excès de vitesse : {0} dans une zone à {1}"
+],
+[
+"SCHOOL ZONE AHEAD — {0} mph",
+"ZONE SCOLAIRE DEVANT — {0} mph"
+],
+[
+"Signaled the {0} turn too late",
+"Clignotant trop tard pour le virage à {0}"
+],
+[
+"Turned {0} without signaling",
+"A tourné à {0} sans clignotant"
+],
+[
+"Pull in closer to the curb ({0} ft out)",
+"Rapproche-toi du trottoir (à {0} pieds)"
+],
+[
+"STOP {0} OF {1}",
+"ARRÊT {0} SUR {1}"
+],
+[
+"Restarted stop {0}",
+"A recommencé l'arrêt {0}"
+],
+[
+"Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
+"Attention, tu ne vois pas tes pieds avec ce carton ! Maintiens MAJ sur {0}."
+],
+[
+"You slipped on {0}!",
+"Tu as glissé sur {0} !"
+],
+[
+"You tripped over {0}!",
+"Tu as trébuché sur {0} !"
+],
+[
+"Stop {0} of {1} · {2} {3}{4}",
+"Arrêt {0} sur {1} · {2} {3}{4}"
+],
+[
+"Pull all {0} packages for this stop",
+"Sors les {0} colis de cet arrêt"
+],
+[
+"This one is {0} lb. How do you get it to the door?",
+"Celui-ci fait {0} lb. Comment l'amènes-tu à la porte ?"
+],
+[
+"{0} lb in your arms, up steps you can't see: that's a back injury waiting. Use the hand truck.",
+"{0} lb dans les bras, en montant des marches que tu ne vois pas : c'est une blessure au dos qui t'attend. Prends le diable."
+],
+[
+"Stop address: {0} {1}{2}  ·  hover a box (or the arrow keys) to read its label",
+"Adresse de l'arrêt : {0} {1}{2}  ·  survole un carton (ou les flèches) pour lire son étiquette"
+],
+[
+"Carrying: {0}\n(click a box marked IN HAND to put it back)",
+"En main : {0}\n(clique un carton marqué EN MAIN pour le reposer)"
+],
+[
+"Hi! That's for {0}. I can sign for it.",
+"Bonjour ! C'est pour {0}. Je peux signer."
+],
+[
+"{0} answers: {1} lives here too.",
+"{0} répond : {1} habite ici aussi."
+],
+[
+"{0} will sign for it. Use your handheld (TAB) to record the delivery.",
+"{0} va signer. Utilise ton terminal (TAB) pour enregistrer la livraison."
+],
+[
+"✓ Exception {0} recorded.",
+"✓ Exception {0} enregistrée."
+],
+[
+"✓ {0} · belongs to this stop",
+"✓ {0} · appartient à cet arrêt"
+],
+[
+"✗ WRONG STOP: this one goes to {0} {1}{2}",
+"✗ MAUVAIS ARRÊT : celui-ci va au {0} {1}{2}"
+],
+[
+"⚠ {0} piece{1} for this stop still on the truck",
+"⚠ {0} {1:pièces de cet arrêt sont|pièce de cet arrêt est} encore dans le camion"
+],
+[
+"Walk up to {0} first: you're too far away to hand it over.",
+"Approche-toi d'abord de {0} : tu es trop loin pour le remettre."
+],
+[
+"{0} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.",
+"{0} montre une pièce d'identité avec photo. Compare la photo avec le visage en face de toi, puis le nom, la date de naissance et la date d'expiration."
+],
+[
+"PHOTO ID · {0}",
+"PIÈCE D'IDENTITÉ · {0}"
+],
+[
+"{0} is signing…",
+"{0} signe…"
+],
+[
+"Exception {0} recorded.",
+"Exception {0} enregistrée."
+],
+[
+"Door tag {0} printed. Attach it to the door.",
+"Avis de passage {0} imprimé. Accroche-le à la porte."
+],
+[
+"Exception {0} recorded. Return the package to the van.",
+"Exception {0} enregistrée. Remets le colis dans la camionnette."
+],
+[
+"Slipped or tripped on {0}",
+"A glissé ou trébuché sur {0}"
+],
+[
+"Fell on {0} carrying a package",
+"Est tombé sur {0} en portant un colis"
+],
+[
+"Cleared the hazard ({0})",
+"A dégagé l'obstacle ({0})"
+],
+[
+"Nearly slipped on {0} before slowing down",
+"A failli glisser sur {0} avant de ralentir"
+],
+[
+"Stepped carefully over {0}, but left it on the path",
+"A enjambé {0} prudemment, mais l'a laissé dans le passage"
+],
+[
+"Walked carefully over {0}",
+"A marché prudemment sur {0}"
+],
+[
+"Got past {0}, but didn't slow down{1}",
+"A passé {0}, mais sans ralentir{1}"
+],
+[
+"Recorded the right exception ({0})",
+"A enregistré la bonne exception ({0})"
+],
+[
+"Left it in a sensible spot: {0}",
+"L'a laissé à un endroit sensé : {0}"
+],
+[
+"Proof-of-delivery photo showed {0}",
+"La photo de preuve de livraison montrait {0}"
+],
+[
+"Finished the stop in good time ({0}s, par {1}s)",
+"A terminé l'arrêt dans un bon temps ({0} s, référence {1} s)"
+],
+[
+"Extra trip{0} back into the truck",
+"{0:Allers-retours|Aller-retour} en plus jusqu'au camion"
+],
+[
+"STOP {0} REPORT",
+"RAPPORT DE L'ARRÊT {0}"
+],
+[
+"EXCEPTION {0}",
+"EXCEPTION {0}"
+],
+[
+"({0} times)",
+"({0} fois)"
+],
+[
+"to stop {0}",
+"jusqu'à l'arrêt {0}"
+],
+[
+"({0} ft from the kerb)",
+"(à {0} pieds de la bordure)"
+],
+[
+"({0} of {1})",
+"({0} sur {1})"
+],
+[
+"({0} to work on)",
+"({0} à travailler)"
+],
+[
+"{0} heavy up high",
+"{0} lourds en hauteur"
+],
+[
+"{0} things",
+"{0} choses"
+],
+[
+"{0} attempt{1} left",
+"{1:il reste|il reste} {0} {1:tentatives|tentative}"
+],
+[
+"one of your {0} attempts",
+"une de tes {0} tentatives"
+],
+[
+"This uses {0}. It",
+"Cela utilise {0}. Cette évaluation"
+],
+[
+"{0}★ or better in every category",
+"{0}★ ou plus dans chaque catégorie"
+],
+[
+"{0}★ in {1} (got {2})",
+"{0}★ en {1} (obtenu {2})"
+],
+[
+"· passed {0}",
+"· réussi le {0}"
+],
+[
+", passed {0}",
+", réussi le {0}"
+],
+[
+"+ {0} more",
+"+ {0} de plus"
+],
+[
+"as {0}",
+"en tant que {0}"
+],
+[
+"Accepted {0}",
+"A accepté {0}"
+],
+[
+"Refused {0}",
+"A refusé {0}"
+],
+[
+"✗  That piece was fine: {0}",
+"✗  Cette pièce était correcte : {0}"
+],
+[
+"✗  Should have been refused: {0}",
+"✗  Il fallait la refuser : {0}"
+],
+[
+"• {0}: {1}",
+"• {0} : {1}"
+],
+[
+"({0} driving + {1} waiting)",
+"({0} de conduite + {1} d'attente)"
+],
+[
+"Quiz: best {0}%{1}",
+"Quiz : meilleur {0} %{1}"
+],
+[
+"Not passed ({0}, left part-way)",
+"Non réussie ({0}, abandonnée en cours)"
+],
+[
+"Not passed ({0})",
+"Non réussie ({0})"
+],
+[
+"{0} attempts",
+"{0} tentatives"
+],
+[
+"Passed {0}",
+"Réussie le {0}"
+],
+[
+"{0} h {1} min",
+"{0} h {1} min"
+],
+[
+"{0}: top rank",
+"{0} : rang maximum"
+],
+[
+"Today you {0} ({1} times). What goes on the post-trip report?",
+"Aujourd'hui, tu {0} ({1} fois). Que met-on dans le rapport de fin de journée ?"
+],
+[
+"Today you {0}. What goes on the post-trip report?",
+"Aujourd'hui, tu {0}. Que met-on dans le rapport de fin de journée ?"
+],
+[
+"You flagged it, so the shop fixed it before you rolled out (8 minutes):\n{0}",
+"Tu l'as signalé, donc l'atelier l'a réparé avant ton départ (8 minutes) :\n{0}"
+],
+[
+"{0}The yard check found what the pre-trip missed:\n{1}\n\nThe truck is held 10 minutes for the fix before you can roll.",
+"{0}Le contrôle à la sortie a trouvé ce que la vérification avant départ avait manqué :\n{1}\n\nLe camion est retenu 10 minutes pour la réparation avant de pouvoir partir."
+],
+[
+"{0} into the drive",
+"à {0} de trajet"
+],
+[
+"Assessments passed: {0} / {1}",
+"Évaluations réussies : {0} / {1}"
+],
+[
+"Parked at {0} {1}",
+"Garé au {0} {1}"
+],
+[
+"Parked at {0} {1} (facing the traffic)",
+"Garé au {0} {1} (à contresens)"
+],
+[
+"Parked at {0} {1} ({2} ft from the kerb)",
+"Garé au {0} {1} (à {2} pieds de la bordure)"
+],
+[
+"Parked at {0} {1} (at an angle)",
+"Garé au {0} {1} (en biais)"
+],
+[
+"+ {0} more check{1} ({2} to work on)",
+"+ {0} {1:vérifications de plus|vérification de plus} ({2} à travailler)"
+],
+[
+"+ {0} more check{1}, all passed",
+"+ {0} {1:vérifications de plus, toutes réussies|vérification de plus, réussie}"
+],
+[
+"Passed: {0}",
+"Réussie : {0}"
+],
+[
+"Needed {0}",
+"Il fallait {0}"
+],
+[
+"Best {0}%{1}",
+"Meilleur {0} %{1}"
+],
+[
+"passed {0}",
+"réussi le {0}"
+],
+[
+"Whoa, {0} are slippery! Hold SHIFT: short, careful steps.",
+"Oh là, {0} glissent ! Maintiens MAJ : petits pas prudents."
+],
+[
+"Whoa, {0} is slippery! Hold SHIFT: short, careful steps.",
+"Oh là, {0} glisse ! Maintiens MAJ : petits pas prudents."
+],
+[
+"{0} / {1} ★ to {2}",
+"{0} / {1} ★ jusqu'à {2}"
+],
+[
+"CAREER  {0} ★",
+"CARRIÈRE  {0} ★"
+],
+[
+"{0} days",
+"{0} jours"
+],
+[
+"– {0}",
+"– {0}"
+],
+[
+"✓ {0}",
+"✓ {0}"
+],
+[
+"✗ {0}",
+"✗ {0}"
+],
+[
+"Hazards: {0}",
+"Dangers : {0}"
+],
+[
+"Five questions a module. Pass at {0}%.",
+"Cinq questions par module. Réussite à {0} %."
+],
+[
+"Not quite. {0}",
+"Pas tout à fait. {0}"
+],
+[
+"Right. {0}",
+"Exact. {0}"
+]
+],
 "keep": [
 "three.js did not load",
-"#game canvas"
+"#game canvas",
+"¡Hola! ¿Es un paquete para mí?",
+"¿Perdón? No entiendo…",
+"¡Ah, sí! Ana Morales. ¡Gracias!"
 ]
 };

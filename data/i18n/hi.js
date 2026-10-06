@@ -594,7 +594,7 @@ window.OTR_I18N.hi = {
 "It says… \"Left at side door.\" We never use the side door. Nobody uses the side door.": "इसमें लिखा है… \"बगल के दरवाज़े पर छोड़ा।\" हम बगल का दरवाज़ा कभी इस्तेमाल नहीं करते। कोई नहीं करता।",
 "\"Mind if we take a quick look at the side door together? It's right around the corner.\"": "\"अगर आपको ऐतराज़ न हो तो साथ में बगल का दरवाज़ा देख लें? बस कोने पर ही है।\"",
 "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.": "60 सेकंड की नज़र एक हफ़्ते के दावे से बेहतर है। आप समस्या सुलझने तक उस पर टिके रहे।",
-"\"Well, that's where it is, then — it'll be right there by the side door. Have a good one!\"": "\"तो फिर वह वहीं है — बगल के दरवाज़े के पास मिल जाएगा। आपका दिन अच्छा हो!\"",
+"\"Well, that's where it is, then — it'll be right there by the side door. Have a good one!\"": "\"तो फिर वह वहीं है — बगल के दरवाज़े के पास ही मिल जाएगा। आपका दिन अच्छा हो!\"",
 "Technically helpful, emotionally a door slam. Staying a moment longer would have closed the loop.": "तकनीकी रूप से मददगार, भावनात्मक रूप से मुँह पर दरवाज़ा बंद करना। एक पल और रुकते तो बात पूरी हो जाती।",
 "You walk around the house together. Behind a recycling bin by the side door: a box with Dana's name on it.": "आप साथ में घर के चारों ओर जाते हैं। बगल के दरवाज़े के पास रिसाइक्लिंग डिब्बे के पीछे: डाना के नाम का एक डिब्बा।",
 "Oh my gosh. It's HERE. I never check that door! I feel ridiculous.": "हे भगवान। यह यहाँ है! मैं वह दरवाज़ा कभी नहीं देखती! मुझे बेवकूफ़ी महसूस हो रही है।",
@@ -738,7 +738,7 @@ window.OTR_I18N.hi = {
 "He's inside. I found the box in the flowerbed — corner's split, but I think it's okay.": "वह अंदर है। मुझे डिब्बा फूलों की क्यारी में मिला — कोना फट गया है, पर शायद ठीक है।",
 "\"Sorry about that. Open it while I'm here, and I'll report any damage.\"": "\"उसके लिए माफ़ी। मेरे सामने ही खोल लीजिए, और कोई नुकसान हो तो मैं रिपोर्ट करूँगा।\"",
 "Honest, and it gives the customer a route to a claim. The dog note protects the next courier.": "ईमानदार, और ग्राहक को दावे का रास्ता देता है। कुत्ते का नोट अगले कूरियर की रक्षा करता है।",
-"\"Should be fine — they're built for worse than that!\" and head back to the truck.": "\"ठीक ही होगा — ये इससे बुरा झेलने के लिए बने हैं!\" और ट्रक की ओर लौट जाऊँगा।",
+"\"Should be fine — they're built for worse than that!\" and head back to the truck.": "\"ठीक ही होगा — ये तो इससे कहीं बुरा झेलने के लिए बने हैं!\" और ट्रक की ओर लौट जाऊँगा।",
 "You damaged it. Walking away leaves the customer to discover the problem alone.": "नुकसान आपसे हुआ। चले जाना ग्राहक को अकेले समस्या ढूँढने के लिए छोड़ देता है।",
 "If a package is damaged in your hands, say so and record it.": "अगर आपके हाथ में पैकेज खराब हो, तो बताएँ और दर्ज करें।",
 "Excuse me?! I apologized! Just give me the box.": "क्या?! मैंने माफ़ी माँगी! बस डिब्बा दे दीजिए।",
@@ -762,7 +762,7 @@ window.OTR_I18N.hi = {
 "Confirm the recipient when something doesn't match, and never leave a package with a stranger.": "कुछ मेल न खाए तो प्राप्तकर्ता की पुष्टि करें, और किसी अजनबी के पास कभी पैकेज न छोड़ें।",
 "Stop 22. The label says 421 MAPLE CT. Your navigation brought you to Maple AVENUE — where the house numbers stop at 418.": "स्टॉप 22। लेबल पर लिखा है 421 MAPLE CT। आपका नेविगेशन आपको Maple AVENUE ले आया — जहाँ घर नंबर 418 पर खत्म होते हैं।",
 "Number 412 is right there. It's so close. What do you do?": "नंबर 412 ठीक सामने है। इतना पास। आप क्या करेंगे?",
-"Re-read the whole label: street, suffix (Ct or Ave), unit and ZIP.": "पूरा लेबल दोबारा पढ़ूँगा: गली, प्रत्यय (Ct या Ave), यूनिट और ZIP।",
+"Re-read the whole label: street, suffix (Ct or Ave), unit and ZIP.": "पूरा लेबल दोबारा पढ़ूँगा: गली, प्रत्यय (Ct या Ave), यूनिट और ZIP कोड।",
 "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.": "तीस सेकंड की जाँच गलत डिलीवरी से बेहतर है। प्रत्यय ही सुराग है: COURT, AVENUE नहीं।",
 "Deliver it to 412 Maple Ave. The digits were probably swapped, and it's the only close match.": "इसे 412 Maple Ave पर दे दूँगा। अंक शायद उलट गए, और यही इकलौता नज़दीकी मेल है।",
 "Guessing puts a customer's package on a stranger's porch. \"Close enough\" is not an address.": "अंदाज़ा किसी ग्राहक का पैकेज किसी अजनबी के बरामदे पर डाल देता है। \"लगभग सही\" कोई पता नहीं।",
@@ -773,7 +773,7 @@ window.OTR_I18N.hi = {
 "Oh, this isn't mine. There's a Maple COURT about a mile east, though. Happens all the time — I got someone's mattress once.": "ओह, यह मेरा नहीं है। पर लगभग एक मील पूरब में एक Maple COURT है। ऐसा हमेशा होता है — एक बार मुझे किसी का गद्दा मिल गया था।",
 "\"Thanks for checking! I'll get it where it belongs.\"": "\"जाँचने के लिए शुक्रिया! मैं इसे सही जगह पहुँचा दूँगा।\"",
 "Good recovery. Take the package back and verify properly.": "अच्छा सुधार। पैकेज वापस लें और ठीक से पुष्टि करें।",
-"\"Could you just hang onto it? They can swing by and pick it up.\"": "\"क्या आप इसे रख लेंगे? वे आकर ले जाएँगे।\"",
+"\"Could you just hang onto it? They can swing by and pick it up.\"": "\"क्या आप इसे अपने पास रख लेंगे? वे खुद आकर इसे ले जाएँगे।\"",
 "Leaving a package with an unrelated stranger isn't a delivery — it's a lost package waiting to happen.": "किसी असंबंधित अजनबी के पास पैकेज छोड़ना डिलीवरी नहीं है — यह खोने के इंतज़ार में पड़ा पैकेज है।",
 "Never leave a package with an unrelated person to \"fix\" an address problem.": "पते की समस्या \"ठीक\" करने के लिए किसी असंबंधित व्यक्ति के पास कभी पैकेज न छोड़ें।",
 "The ZIP matches a small cul-de-sac called Maple Court, about a mile east. It's near your route, but not in your planned sequence.": "ZIP लगभग एक मील पूरब में Maple Court नाम की एक छोटी बंद गली से मेल खाता है। यह आपके रूट के पास है, पर तय क्रम में नहीं।",
@@ -807,7 +807,7 @@ window.OTR_I18N.hi = {
 "At your next stop you lift the box you need off the shelf. It's crushed at one corner, and liquid is dripping from underneath it. There's a sharp chemical smell.": "अगले स्टॉप पर आप शेल्फ़ से अपना डिब्बा उठाते हैं। एक कोने से पिचका है, और नीचे से तरल टपक रहा है। रसायन की तेज़ गंध है।",
 "Set it down, hands off the wet side. Step back, keep it away from other packages, and report it.": "नीचे रखूँगा, गीली तरफ़ से हाथ दूर। पीछे हटूँगा, उसे बाकी पैकेजों से दूर रखूँगा, और रिपोर्ट करूँगा।",
 "Exactly. You don't know what that liquid is. Distance, separation and reporting keep you — and everyone downstream — safe.": "बिल्कुल। आपको नहीं पता कि वह तरल क्या है। दूरी, अलगाव और रिपोर्ट आपको — और आगे के सभी लोगों को — सुरक्षित रखते हैं।",
-"Open it right here, so you can tell dispatch exactly what's leaking and how bad it is.": "यहीं खोलूँगा, ताकि डिस्पैच को ठीक-ठीक बता सकूँ कि क्या लीक हो रहा है और कितना।",
+"Open it right here, so you can tell dispatch exactly what's leaking and how bad it is.": "यहीं खोलूँगा, ताकि डिस्पैच को ठीक-ठीक बता सकूँ कि अंदर से क्या लीक हो रहा है और वह कितना ज़्यादा है।",
 "Unknown liquids can be hazardous. Never open, sniff, or handle a leaking package with bare hands.": "अनजाने तरल खतरनाक हो सकते हैं। लीक होते पैकेज को कभी खोलें, सूँघें या नंगे हाथों से न छुएँ।",
 "Never open, sniff or handle a leaking package — isolate it and report it.": "लीक होते पैकेज को कभी खोलें, सूँघें या न छुएँ — अलग करें और रिपोर्ट करें।",
 "Wipe it dry with a rag, turn the wet side to the back, and deliver it.": "कपड़े से पोंछकर सुखाऊँगा, गीली तरफ़ पीछे करूँगा, और डिलीवर कर दूँगा।",
@@ -830,13 +830,13 @@ window.OTR_I18N.hi = {
 "Damaged? Ugh. Can't I just take the bottles that aren't broken?": "टूटा? उफ़। क्या मैं बस वे बोतलें नहीं ले सकता जो नहीं टूटीं?",
 "\"I can't open or split it, but a claim gets you a replacement or refund.\"": "\"मैं इसे न खोल सकता हूँ, न बाँट सकता हूँ, पर दावा करने पर आपको बदला हुआ सामान या पैसे वापस मिलेंगे।\"",
 "You held the safety line and pointed to a real solution. Empathy plus boundaries.": "आपने सुरक्षा की रेखा थामी और असली हल बताया। सहानुभूति के साथ सीमाएँ।",
-"\"Sure, let's open it up carefully and see what survived — no point sending good bottles back.\"": "\"ज़रूर, आराम से खोलकर देखते हैं क्या बचा — अच्छी बोतलें वापस भेजने का क्या फ़ायदा।\"",
+"\"Sure, let's open it up carefully and see what survived — no point sending good bottles back.\"": "\"ज़रूर, आराम से खोलकर देखते हैं कि अंदर क्या-क्या बचा — अच्छी बोतलें वापस भेजने का भला क्या ही फ़ायदा।\"",
 "Opening a leaking package exposes both of you to whatever is inside. Damaged packages stay sealed and go through the exception process.": "लीक होता पैकेज खोलना आप दोनों को उसके अंदर की चीज़ के संपर्क में लाता है। टूटे पैकेज बंद रहते हैं और अपवाद प्रक्रिया से जाते हैं।",
 "Liquid drips across Mr. Bennett's hands and driveway. He's okay after rinsing off — but he's upset, and now there's an incident report with your name on it.": "तरल श्री बेनेट के हाथों और ड्राइववे पर बहता है। धोने के बाद वह ठीक है — पर नाराज़ है, और अब एक घटना रिपोर्ट पर आपका नाम है।",
 "Okay. Honestly, thanks for being straight with me instead of making something up.": "ठीक है। सच कहूँ, कुछ बनाने के बजाय सीधी बात बताने के लिए शुक्रिया।",
 "Photograph the damage, write it up, and record the delivery exception so the claim can start.": "नुकसान की फ़ोटो लूँगा, लिखूँगा, और डिलीवरी अपवाद दर्ज करूँगा ताकि दावा शुरू हो।",
 "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.": "सही रिकॉर्ड से ही ग्राहक को जल्दी बदला सामान मिलता है — और नुकसान की जाँच होती है।",
-"Skip the paperwork: it was already reported once, and a second report just duplicates it.": "कागज़ी काम छोड़ दूँगा: एक बार रिपोर्ट हो चुका है, दूसरी रिपोर्ट बस दोहराव है।",
+"Skip the paperwork: it was already reported once, and a second report just duplicates it.": "कागज़ी काम छोड़ दूँगा: एक बार रिपोर्ट हो चुका है, दूसरी रिपोर्ट तो बस दोहराव ही है।",
 "Incomplete records slow down the customer's claim. Documenting the exception is part of the job.": "अधूरे रिकॉर्ड ग्राहक का दावा धीमा करते हैं। अपवाद दर्ज करना काम का हिस्सा है।",
 "Exposed, and Half Done": "संपर्क में आए, और आधा काम",
 "The leaking contents got on your skin, and the stop after it was left half done. An exposure needs its report and the customer needs a plain explanation: hands off, isolate it, report it, and say what happened.": "लीक होता सामान आपकी त्वचा पर लगा, और उसके बाद का स्टॉप आधा छूट गया। एक्सपोज़र की रिपोर्ट चाहिए और ग्राहक को सीधी बात: न छुएँ, अलग करें, रिपोर्ट करें, और बताएँ क्या हुआ।",
@@ -894,7 +894,7 @@ window.OTR_I18N.hi = {
 "The lightning moves off. It's still raining. The gate is still locked, and the note is ambiguous — inside the gate? Outside it? Under something?": "बिजली दूर चली जाती है। बारिश अब भी है। गेट पर अब भी ताला है, और नोट अस्पष्ट है — गेट के अंदर? बाहर? किसी चीज़ के नीचे?",
 "Don't guess: contact the customer to clarify, or leave a notice as an attempt.": "अंदाज़ा नहीं लगाऊँगा: ग्राहक से संपर्क करके स्पष्ट करूँगा, या कोशिश का नोटिस छोड़ूँगा।",
 "Unclear instructions + bad weather = clarify, don't improvise. The customer gets the outcome they actually want.": "अस्पष्ट निर्देश + खराब मौसम = स्पष्ट करें, अपने मन से न करें। ग्राहक को वही मिलता है जो वह सच में चाहता है।",
-"Wedge it against the outside of the locked gate, in the water: that's as close to \"back gate\" as it gets.": "ताला लगे गेट के बाहर, पानी में अड़ाकर रख दूँगा: \"पीछे के गेट\" के सबसे करीब यही है।",
+"Wedge it against the outside of the locked gate, in the water: that's as close to \"back gate\" as it gets.": "ताला लगे गेट के बाहर, पानी में अड़ाकर रख दूँगा: \"पीछे के गेट\" के सबसे करीब तो यही जगह है।",
 "Technically \"at the back gate,\" but a box sitting in floodwater isn't a successful delivery.": "तकनीकी रूप से \"पीछे के गेट पर\", पर बाढ़ के पानी में पड़ा डिब्बा सफल डिलीवरी नहीं है।",
 "Oh, thank you for checking! Please don't go back there — that yard floods every time. Could you bring it tomorrow instead?": "अरे, पूछने के लिए शुक्रिया! वहाँ पीछे मत जाइए — वह आँगन हर बार भर जाता है। क्या आप इसे कल ला सकते हैं?",
 "\"Of course. I'll leave a notice for tomorrow — and you might add the flooding to your delivery notes.\"": "\"ज़रूर। मैं कल के लिए नोटिस छोड़ देता हूँ — और आप अपने डिलीवरी नोट में पानी भरने की बात जोड़ सकती हैं।\"",
@@ -951,7 +951,7 @@ window.OTR_I18N.hi = {
 "Delivered, with the proper proof. Last step?": "सही प्रमाण के साथ डिलीवर। आखिरी कदम?",
 "Tell dispatch it's delivered and why it went wrong: two 214 Birches, and you didn't check Court or Lane.": "डिस्पैच को बताऊँगा कि डिलीवर हो गया और गलती क्यों हुई: दो 214 Birch, और मैंने Court या Lane नहीं जाँचा।",
 "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.": "ईमानदार रिपोर्ट का मतलब है कि पता अगले ड्राइवर के लिए चिह्नित होता है, और आपको प्रत्यय जाँचना याद रहता है।",
-"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "और कुछ नहीं। डिलीवर हो गया, लेना के पास है, और डिस्पैच जल्द ही अपने आप डिलीवरी स्कैन देख लेगा।",
+"Nothing more. It's delivered, Lena has it, and dispatch will see the delivery scan come through on its own soon enough.": "और कुछ नहीं करना। डिलीवर हो चुका है, लेना के पास है, और डिस्पैच जल्द ही अपने आप डिलीवरी स्कैन आता देख लेगा।",
 "Dispatch still has an open complaint, and the next driver has no warning about the two Birch 214s.": "डिस्पैच के पास अब भी खुली शिकायत है, और अगले ड्राइवर को दो Birch 214 की कोई चेतावनी नहीं।",
 "Close the loop with dispatch, including what caused the mistake.": "डिस्पैच के साथ बात पूरी करें, गलती की वजह समेत।",
 "Put Right": "सुधार दिया",
@@ -1029,7 +1029,7 @@ window.OTR_I18N.hi = {
 "\"Claim's open. You're clear to carry on — but I need your incident report before you clock out tonight. Everything, in order, in your own words.\"": "\"दावा खुल गया। आप आगे बढ़ सकते हैं — पर आज रात शिफ़्ट खत्म करने से पहले मुझे आपकी घटना रिपोर्ट चाहिए। सब कुछ, क्रम से, अपने शब्दों में।\"",
 "Write it plainly: backing out of the driveway, mirrors only, no spotter, and hit a parked car.": "सीधे-सीधे लिखूँगा: ड्राइववे से पीछे निकल रहा था, सिर्फ़ शीशे, कोई मार्गदर्शक नहीं, और एक खड़ी कार से टकराया।",
 "An honest report is what protects you. It is also the only version that survives being read next to the photographs and the witness.": "ईमानदार रिपोर्ट ही आपकी रक्षा करती है। यही अकेला रूप है जो फ़ोटो और गवाह के साथ पढ़े जाने पर टिकता है।",
-"Write that the car was parked illegally across the driveway and the contact was unavoidable.": "लिखूँगा कि कार ड्राइववे के आगे गैरकानूनी तरीके से खड़ी थी और टक्कर टाली नहीं जा सकती थी।",
+"Write that the car was parked illegally across the driveway and the contact was unavoidable.": "लिखूँगा कि कार ड्राइववे के आगे गैरकानूनी तरीके से खड़ी थी और इसलिए टक्कर किसी भी तरह से टाली नहीं जा सकती थी।",
 "It reads as an excuse, and the witness statement does not match it. A shaded report is worse for you than the collision was.": "यह बहाने जैसा लगता है, और गवाह का बयान इससे मेल नहीं खाता। गोल-मोल रिपोर्ट आपके लिए टक्कर से भी बुरी है।",
 "Write the incident report honestly, including your own part in it. Inconsistent reports cost far more than the damage.": "घटना रिपोर्ट ईमानदारी से लिखें, अपनी भूमिका समेत। मेल न खाने वाली रिपोर्टें नुकसान से कहीं महँगी पड़ती हैं।",
 "Keep it to two lines. The less said, the better — the photos and the witness can fill in the rest.": "दो पंक्तियों में रखूँगा। जितना कम कहें, उतना अच्छा — बाकी फ़ोटो और गवाह भर देंगे।",
@@ -1624,14 +1624,14 @@ window.OTR_I18N.hi = {
 "A ball rolls into the street ahead. What should you expect?": "आगे सड़क पर एक गेंद लुढ़कती है। आपको क्या उम्मीद करनी चाहिए?",
 "Nothing more: the ball itself is the hazard": "और कुछ नहीं: खतरा खुद गेंद है",
 "A child may follow it, so slow down and cover the brake": "कोई बच्चा पीछे आ सकता है: धीमे हों, पैर ब्रेक पर",
-"The car behind you to brake hard for it": "पीछे वाली कार ज़ोर से ब्रेक लगाएगी",
+"The car behind you to brake hard for it": "पीछे वाली कार उसके लिए अचानक ज़ोर से ब्रेक लगाएगी",
 "To steer around it without slowing down": "बिना धीमा किए उसके बगल से निकलना",
 "A ball in the road often means a child is about to follow it. Slow down and be ready to stop.": "सड़क पर गेंद का अक्सर मतलब है कि कोई बच्चा उसके पीछे आने वाला है। धीमे हों और रुकने को तैयार रहें।",
 "Before lifting a heavy box from the floor, you should…": "फ़र्श से भारी डिब्बा उठाने से पहले आपको…",
 "Bend at the waist and lift it in one quick move": "कमर से झुककर एक झटके में उठाना चाहिए",
 "Step in close, bend your knees, back straight": "पास जाना, घुटने मोड़ना, पीठ सीधी रखनी चाहिए",
 "Twist your body to carry it out to the side": "शरीर मोड़कर बगल में ले जाना चाहिए",
-"Lift it at arm's length so it stays clean": "हाथ फैलाकर उठाना चाहिए ताकि साफ़ रहें",
+"Lift it at arm's length so it stays clean": "हाथ फैलाकर उठाना चाहिए ताकि कपड़े साफ़ रहें",
 "Get close to the load, bend the knees, keep your back straight and the load against your body. Let your legs do the work.": "बोझ के पास जाएँ, घुटने मोड़ें, पीठ सीधी और बोझ शरीर से सटा रखें। काम पैरों को करने दें।",
 "A package is too heavy or awkward to lift safely alone. What now?": "पैकेज अकेले सुरक्षित उठाने के लिए बहुत भारी या बेढंगा है। अब क्या?",
 "Drag it across the floor to where it goes": "उसे फ़र्श पर घसीटकर उसकी जगह ले जाना",
@@ -1688,7 +1688,7 @@ window.OTR_I18N.hi = {
 "Calm them down by giving them the package": "पैकेज देकर उन्हें शांत करूँगा",
 "Your safety comes first. Leave, don't escalate, and report it to your manager.": "आपकी सुरक्षा पहले है। चले जाएँ, बात न बढ़ाएँ, और अपने मैनेजर को रिपोर्ट करें।",
 "The label says Maple Court, but you are on Maple Avenue, where the number doesn't exist. You…": "लेबल पर Maple Court लिखा है, पर आप Maple Avenue पर हैं, जहाँ वह नंबर है ही नहीं। आप…",
-"Deliver to the closest number on the avenue": "एवेन्यू के सबसे पास वाले नंबर पर डिलीवर करेंगे",
+"Deliver to the closest number on the avenue": "एवेन्यू पर सबसे पास वाले घर नंबर पर डिलीवर कर देंगे",
 "Check the address, then ask dispatch instead of guessing": "पता जाँचेंगे, फिर अंदाज़े के बजाय डिस्पैच से पूछेंगे",
 "Leave it at the corner shop for them to collect": "कोने की दुकान पर छोड़ेंगे ताकि वे ले लें",
 "Mark it delivered and sort it out tomorrow": "डिलीवर दर्ज करके कल सुलझाएँगे",
@@ -1696,7 +1696,7 @@ window.OTR_I18N.hi = {
 "A package arrives crushed with the contents showing. What do you do?": "एक पैकेज पिचका हुआ पहुँचता है, सामान दिख रहा है। आप क्या करेंगे?",
 "Tape it back up neatly and deliver it": "साफ़-सुथरा टेप लगाकर डिलीवर करूँगा",
 "Photograph it and follow the damage procedure": "फ़ोटो लेकर नुकसान की प्रक्रिया अपनाऊँगा",
-"Remove the broken part and deliver the rest": "टूटा हिस्सा निकालकर बाकी डिलीवर करूँगा",
+"Remove the broken part and deliver the rest": "टूटा हिस्सा निकालकर बाकी सामान डिलीवर करूँगा",
 "Deliver it as it is and say nothing about it": "जैसा है वैसा देकर कुछ नहीं कहूँगा",
 "Document it and follow the damage procedure, so the customer and the claim are handled properly.": "इसे दर्ज करें और नुकसान की प्रक्रिया अपनाएँ, ताकि ग्राहक और दावे का ठीक से निपटारा हो।",
 "A severe storm warning comes in mid-route. The right call is…": "रूट के बीच तेज़ तूफ़ान की चेतावनी आती है। सही फ़ैसला है…",
@@ -1726,7 +1726,7 @@ window.OTR_I18N.hi = {
 "An adult-signature (21+) delivery: the person at the door has an expired ID. You…": "वयस्क हस्ताक्षर (21+) वाली डिलीवरी: दरवाज़े पर खड़े व्यक्ति का पहचान पत्र समाप्त है। आप…",
 "Accept it, as long as the photo matches them": "मान लेंगे, जब तक फ़ोटो मेल खाती है",
 "Keep it and record the ID exception": "अपने पास रखेंगे और ID अपवाद दर्ज करेंगे",
-"Ask an adult neighbor to sign for them": "किसी वयस्क पड़ोसी से हस्ताक्षर करवाएँगे",
+"Ask an adult neighbor to sign for them": "किसी वयस्क पड़ोसी से उनकी जगह हस्ताक्षर करवाएँगे",
 "Leave it at the door with a photo": "फ़ोटो लेकर दरवाज़े पर छोड़ देंगे",
 "Adult signature needs a valid, unexpired government photo ID and 21 or older. No exceptions.": "वयस्क हस्ताक्षर के लिए वैध, बिना समाप्त सरकारी फ़ोटो पहचान पत्र और 21 या ज़्यादा उम्र चाहिए। कोई छूट नहीं।",
 "Nobody is home for a package that needs a signature. Which is right?": "हस्ताक्षर वाले पैकेज के लिए घर पर कोई नहीं। सही क्या है?",
@@ -1757,7 +1757,7 @@ window.OTR_I18N.hi = {
 "On the top shelf, so they don't crush others": "सबसे ऊपरी शेल्फ़ पर, ताकि दूसरों को न कुचलें",
 "Low down, on the bottom shelves or the floor": "नीचे, निचली शेल्फ़ों या फ़र्श पर",
 "By the door, so they are easy to unload": "दरवाज़े के पास, ताकि आसानी से उतरें",
-"Anywhere there is room left for them": "जहाँ भी जगह बची हो",
+"Anywhere there is room left for them": "जहाँ भी उनके लिए थोड़ी जगह बची हो",
 "Heavy goes low: it is safer to lift and keeps the van stable.": "भारी नीचे जाता है: उठाना सुरक्षित है और वैन स्थिर रहती है।",
 "Why secure the load before driving?": "चलाने से पहले सामान क्यों बाँधें?",
 "A tidy van is quicker to inspect at the depot": "साफ़-सुथरी वैन डिपो पर जल्दी जँचती है",
@@ -1810,7 +1810,7 @@ window.OTR_I18N.hi = {
 "Icy porch steps and a package in your arms. How do you climb them?": "बरामदे की बर्फ़ीली सीढ़ियाँ और हाथ में पैकेज। आप कैसे चढ़ेंगे?",
 "Quickly, so you spend less time on the ice": "जल्दी, ताकि बर्फ़ पर कम समय रहूँ",
 "Slowly, in short steps, watching your feet": "धीरे, छोटे कदमों में, पैरों पर नज़र रखकर",
-"Toss the package onto the porch, then climb": "पहले पैकेज बरामदे पर उछालकर, फिर चढ़कर",
+"Toss the package onto the porch, then climb": "पहले पैकेज बरामदे पर उछाल दूँगा, फिर ऊपर चढ़ूँगा",
 "Two at a time, holding the package tight": "दो-दो सीढ़ी, पैकेज कसकर पकड़े",
 "Slow down on ice and wet steps: short, careful steps, a hand free if you can. Most falls happen while carrying something.": "बर्फ़ और गीली सीढ़ियों पर धीमे चलें: छोटे, सावधान कदम, हो सके तो एक हाथ खाली। ज़्यादातर गिरना कुछ उठाते समय होता है।",
 "A dog is barking and growling at the gate. You should…": "गेट पर एक कुत्ता भौंक और गुर्रा रहा है। आपको…",
@@ -2849,11 +2849,1068 @@ window.OTR_I18N.hi = {
 "three things": "तीन बातें",
 "four things": "चार बातें",
 "(facing the traffic)": "(ट्रैफ़िक के उल्टे)",
-"(at an angle)": "(तिरछे)"
+"(at an angle)": "(तिरछे)",
+"(on the second try)": "(दूसरी कोशिश में)",
+"(misloaded!)": "(गलत लोड!)",
+"· floor load strapped": "· फ़र्श का सामान बँधा",
+"strapped": "बँधा",
+"not strapped": "बँधा नहीं",
+"nothing heavy up high": "ऊपर कुछ भारी नहीं",
+"or clear it": "न हटाया",
+"the house number and a person": "घर का नंबर और एक व्यक्ति",
+"the house number": "घर का नंबर",
+"a person": "एक व्यक्ति",
+", all passed": ", सब पास",
+", left part-way": ", बीच में छोड़ा",
+"· CRITICAL": "· गंभीर",
+"your learning system": "आपका लर्निंग सिस्टम",
+"the training server": "प्रशिक्षण सर्वर",
+"deliveries": "डिलीवरी",
+"delivery": "डिलीवरी",
+"shown": "दिख रही",
+"hidden": "छिपी",
+"high": "ऊँचे",
+"low": "कम",
+"retake any time": "कभी भी फिर दें",
+"·  practice any time": "·  कभी भी अभ्यास करें",
+"your last attempt": "आपकी आखिरी कोशिश",
+"It": "इस मूल्यांकन",
+"the pass mark in every category": "हर श्रेणी में पास अंक",
+"Heat advisory": "लू की चेतावनी",
+"Reception": "रिसेप्शन",
+"standard delivery": "सामान्य डिलीवरी",
+"ADULT SIGNATURE": "वयस्क हस्ताक्षर",
+"Customer note: \"Dog in yard.\"": "ग्राहक नोट: \"आँगन में कुत्ता।\"",
+"Quiz: not taken": "क्विज़: नहीं दिया",
+"Not taken": "नहीं दिया",
+"No recurring mistakes recorded.": "कोई बार-बार होने वाली गलती दर्ज नहीं।",
+"None.": "कोई नहीं।",
+"Training record: {0}": "प्रशिक्षण रिकॉर्ड: {0}",
+"Printed {0}": "छपा: {0}",
+"Training since {0}": "प्रशिक्षण शुरू: {0}",
+"Assessments passed": "पास हुए मूल्यांकन",
+"Scenarios practiced": "अभ्यास किए परिदृश्य",
+"Route days": "रूट के दिन",
+"Time training": "प्रशिक्षण का समय",
+"Strongest to weakest (best stars earned): {0}": "सबसे मज़बूत से सबसे कमज़ोर (सबसे अच्छे सितारे): {0}",
+"Scenario": "परिदृश्य",
+"Best practice stars": "अभ्यास के सबसे अच्छे सितारे",
+"Runs": "बार",
+"Last played": "आखिरी बार खेला",
+"Critical mistakes": "गंभीर गलतियाँ",
+"Trainee signature and date": "प्रशिक्षु के हस्ताक्षर और तारीख",
+"Trainer signature and date": "प्रशिक्षक के हस्ताक्षर और तारीख",
+"Certificate: {0}": "प्रमाणपत्र: {0}",
+"Certificate of Completion": "पूर्णता प्रमाणपत्र",
+"This certifies that": "प्रमाणित किया जाता है कि",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "ने कूरियर प्रशिक्षण अकादमी के हर परिदृश्य का मूल्यांकन पास किया ({1} में से {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "जिसमें रूट और ड्राइविंग सुरक्षा, पैकेज संभालना, ग्राहक सेवा, समस्या सुलझाना, स्कैनिंग, लोडिंग, पिकअप और निजी सुरक्षा शामिल हैं।",
+"Completed {0}": "पूरा हुआ: {0}",
+"Trainee ID {0}": "प्रशिक्षु ID {0}",
+"Date": "तारीख",
+"Letters, numbers, spaces and . ' - only": "सिर्फ़ अक्षर, अंक, स्पेस और . ' -",
+"CRITICAL": "गंभीर",
+"practice any time": "कभी भी अभ्यास करें",
+"your only attempt": "आपकी इकलौती कोशिश",
+"Accepted": "स्वीकार",
+"Refused": "मना",
+"under a minute": "एक मिनट से कम",
+"1 attempt": "1 कोशिश",
+"Hazards": "खतरे",
+"Checklist": "जाँच-सूची",
+"Graphics": "ग्राफ़िक्स",
+"Start ▶": "शुरू करें ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "तीर कुंजियाँ अब भी स्टीयर करती हैं और चलाती हैं; ENTER और ESC हमेशा काम करते हैं।",
+"★ or better in every category": "★ या ज़्यादा हर श्रेणी में",
+"QUIZ": "क्विज़"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"स्टॉप {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"स्टॉप {0} ({1}) के लिए भेजने वाले का अपडेट: इस पैकेज पर अब हस्ताक्षर चाहिए। कोई हस्ताक्षर न कर सके तो इसे छोड़ा नहीं जाएगा।"
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"स्टॉप {0} ({1}) के ग्राहक ने फ़ोन किया: \"कृपया इसे बरामदे में गमले के पीछे छोड़ दें।\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nडिस्पैच से अपडेट: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"आज: \"{0}\"। घटना रिपोर्ट में क्या जाएगा?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"मीटर {0} दिखा रहा है। बेड़े का नियम: वैन कम से कम चौथाई टंकी के साथ यार्ड में लौटती है। आप क्या करेंगे?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"आप अपवाद वाले {0} पैकेज वापस लाए। {1:उनका|उसका} क्या होगा?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"दिन {0}। {2} स्टॉप के लिए {1} टुकड़े।"
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"हिस्सा A स्टॉप 1-3 है (दरवाज़े के सबसे पास), B स्टॉप 4-{0}।"
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"हिस्सा A स्टॉप 1-{0} है (दरवाज़े के सबसे पास)।"
+],
+[
+"Held at the gate for a missed defect ({0})",
+"छूटी खराबी के लिए गेट पर रोका गया ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"पिछली पंक्ति {1} में से {0} · लौटने के लिए ↓ या SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: जवाब ने बात बिगाड़ दी"
+],
+[
+"That is the most it takes: {0} characters",
+"यह इसकी सीमा है: {0} अक्षर"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"इसके लिए नई कुंजी दबाएँ: {0}  (ESC रद्द करता है)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route परफ़ॉर्मेंस टेस्ट · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: औसत {1} fps, सबसे बुरे 1% में {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"सड़क पर {0} {1:गलतियाँ|गलती}"
+],
+[
+"+ {0} more on the map",
+"+ नक्शे पर {0} और"
+],
+[
+"DAY {0}  ·  STATION",
+"दिन {0}  ·  स्टेशन"
+],
+[
+"stop {0} of {1}",
+"स्टॉप {1} में से {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0} डिलीवर · {1} अपवाद"
+],
+[
+"Day {0}  ·  5 stops",
+"दिन {0}  ·  5 स्टॉप"
+],
+[
+"Start day {0}'s route?",
+"दिन {0} का रूट शुरू करें?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} रूट-दिन दर्ज · सबसे अच्छा {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"मूल्यांकन: पास नहीं · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"सबसे अच्छा {0} / {1} ★ · {2}× खेला"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"न संकेत, न दोबारा शुरू। पास होने के लिए: {0}, और कोई गंभीर गलती नहीं। "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"शुरू करने से {0} खर्च होगी, और बीच में छोड़ना पास नहीं माना जाता।"
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} के रूप में साइन इन।\nप्रशिक्षक आपकी प्रगति रीसेट कर सकते हैं।"
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} दोहराव बाकी: एक मॉड्यूल जो आपने कुछ समय पहले पास किया, उसे ताज़ा रखने के लिए"
+],
+[
+"Question {0} of {1}",
+"सवाल {1} में से {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  पास होने के लिए {1}%"
+],
+[
+"Drive map ({0})",
+"ड्राइव का नक्शा ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} नए करियर {1:सितारे|सितारा}"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} के अंक भी उसी तरह गिने जाते हैं: न संकेत, न दोबारा शुरू।"
+],
+[
+"Next drill ({0} of {1}) ▶",
+"अगला अभ्यास ({1} में से {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ सुधारने को {0} और"
+],
+[
+"You're now {0}",
+"अब आप {0} हैं"
+],
+[
+"Continue as {0}",
+"{0} के रूप में जारी रखें"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"साइन इन{0} · प्रगति सेव हो रही है: {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"यह {0} की रैंक, सितारे और प्रगति मिटा देगा। इसे वापस नहीं किया जा सकता।"
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}पास {1}/{2} · {3} रूट-दिन · {4}"
+],
+[
+"Page {0} of {1}",
+"पेज {1} में से {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1} मूल्यांकन दूसरी कोशिश के लिए खोले गए"
+],
+[
+"{0} was reset",
+"{0} की प्रगति रीसेट हुई"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"पास हुए मूल्यांकन {1} में से {0} · {2} रूट-दिन"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} मूल्यांकन दूसरी कोशिश के लिए खोले गए"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"जाँच-बिंदु {1} में से {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"रुकें — आर्म मुड़ने में {0} सेकंड"
+],
+[
+"Checkpoint {0} reached",
+"जाँच-बिंदु {0} पहुँचे"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"जाँच-बिंदु {0} पूरा — अगला नक्शे पर है"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"अभ्यास {0} सेकंड में किया (मानक {1} सेकंड)"
+],
+[
+"Clip {0} of {1} · {2}",
+"क्लिप {1} में से {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"पहचाना: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} सेकंड बाद पहचाना: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"मीटर {0}/32\" दिखा रहा है।"
+],
+[
+"{0}  (Minimum: 4/32\" front, 2/32\" rear.)",
+"{0}  (न्यूनतम: आगे 4/32\", पीछे 2/32\"।)"
+],
+[
+"Caught the defects ({0} of {1})",
+"खराबियाँ पकड़ीं ({1} में से {0})"
+],
+[
+"Flagged {0} good part{1}",
+"{0} ठीक पुर्ज़े खराब बताए"
+],
+[
+"Walked it in good time ({0}s, par {1}s)",
+"अच्छे समय में जाँच की ({0} सेकंड, मानक {1} सेकंड)"
+],
+[
+"{0} was fine: {1}",
+"{0} ठीक था: {1}"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged",
+"{0} पकड़ी · {1} छूटीं · {2} गलती से दर्ज"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged · {3}s",
+"{0} पकड़ी · {1} छूटीं · {2} गलती से दर्ज · {3} सेकंड"
+],
+[
+"SCHOOL ZONE {0}–{1}",
+"स्कूल ज़ोन {0}–{1}"
+],
+[
+"Pickup window {0} – {1}",
+"पिकअप समय {0} – {1}"
+],
+[
+"{0} · no time commitment",
+"{0} · कोई समय प्रतिबद्धता नहीं"
+],
+[
+"{0} commitment{1} missed",
+"{0} प्रतिबद्धता छूटी"
+],
+[
+"{0} pickup{1} after the dock closes",
+"डॉक बंद होने के बाद {0} पिकअप"
+],
+[
+"{0} min waiting for a shipper",
+"भेजने वाले के इंतज़ार में {0} मिनट"
+],
+[
+"{0} time-committed {1} would run late",
+"देर होगी: {0} समय-बद्ध {1}"
+],
+[
+"{0} pickup{1} would be missed",
+"{0} पिकअप छूट जाएँगे"
+],
+[
+"Your plan says {0}. Dispatch would rather you resequenced now than called the customer later.",
+"आपकी योजना कहती है: {0}। डिस्पैच चाहेगा कि आप अभी क्रम बदलें, बजाय बाद में ग्राहक को फ़ोन करने के।"
+],
+[
+"Waited {0} min at {1}",
+"{1} पर {0} मिनट इंतज़ार किया"
+],
+[
+"Loop length vs the best plan ({0} mi vs {1} mi)",
+"सबसे अच्छी योजना की तुलना में घेरे की लंबाई ({0} mi बनाम {1} mi)"
+],
+[
+"{0} mi · {1} min{2}",
+"{0} mi · {1} मिनट{2}"
+],
+[
+"{0} mi · {1} min",
+"{0} mi · {1} मिनट"
+],
+[
+"+{0} min ({1} leg{2} while it was active)",
+"+{0} मिनट (चालू रहते {1} हिस्से)"
+],
+[
+"{0} mi planned against a best possible {1} mi · {2}/{3} commitments met",
+"योजना {0} mi, सबसे अच्छी संभव {1} mi · {2}/{3} प्रतिबद्धताएँ पूरी"
+],
+[
+"Read package {0} in {1}s",
+"पैकेज {0} को {1} सेकंड में पढ़ा"
+],
+[
+"Called it without checking {0}",
+"{0} जाँचे बिना फ़ैसला किया"
+],
+[
+"BELONGS ON: {0}",
+"यहाँ जाता है: {0}"
+],
+[
+"Blind call — you never looked at {0}.",
+"अंधा फ़ैसला — आपने {0} को कभी देखा ही नहीं।"
+],
+[
+"{0}/{1} placed right · {2} blind call{3} · all six sides checked on {4} of {5}",
+"{0}/{1} सही रखे · {2} अंधे फ़ैसले · छहों तरफ़ जाँचे {5} में से {4} पर"
+],
+[
+"{0} side{1} still unchecked",
+"{0} तरफ़ अभी नहीं जाँची"
+],
+[
+"SIZE UP THE LOAD · {0}",
+"बोझ को परखें · {0}"
+],
+[
+"Back Health {0}/100 · technique {1}%",
+"पीठ की सेहत {0}/100 · तकनीक {1}%"
+],
+[
+"{0} LB · TEAM LIFT",
+"{0} LB · मिलकर उठाएँ"
+],
+[
+"{0} lb — that one goes down the heavy chute for a team lift.",
+"{0} lb — वह मिलकर उठाने के लिए भारी ढलान से जाता है।"
+],
+[
+"Sorted {0} of {1} · scanned {2} of {3} · best streak {4} · specials handled {5}/{6}",
+"छाँटे {1} में से {0} · स्कैन {3} में से {2} · सबसे अच्छी लगातार {4} · खास सँभाले {5}/{6}"
+],
+[
+"JAM — clear it (click or SPACE) · {0}s",
+"जाम — खोलें (क्लिक या SPACE) · {0} सेकंड"
+],
+[
+"CART · {0} TO LOAD",
+"ट्रॉली · लोड करने को {0}"
+],
+[
+"{0} lb is too heavy that high — bottom shelf or floor",
+"{0} lb इतनी ऊँचाई के लिए बहुत भारी है — निचली शेल्फ़ या फ़र्श"
+],
+[
+"Stop {0} belongs in section {1}",
+"स्टॉप {0} हिस्सा {1} में जाता है"
+],
+[
+"HEAVIEST ON THE TOP SHELF  {0} LB  (max 14)",
+"ऊपरी शेल्फ़ पर सबसे भारी  {0} LB  (अधिकतम 14)"
+],
+[
+"Packages loaded in the right place ({0}/{1})",
+"सही जगह लोड हुए पैकेज ({0}/{1})"
+],
+[
+"Heavy packages loaded high ({0})",
+"ऊपर लोड हुए भारी पैकेज ({0})"
+],
+[
+"Loaded in good time ({0}s, par {1}s)",
+"अच्छे समय में लोड किया ({0} सेकंड, मानक {1} सेकंड)"
+],
+[
+"{0}/{1} placed right · {2} · floor {3} · {4}s",
+"{0}/{1} सही रखे · {2} · फ़र्श {3} · {4} सेकंड"
+],
+[
+"{0} {1}: {2} lb loaded up high",
+"{0} {1}: {2} lb ऊपर लोड किया"
+],
+[
+"{0} of {1} pieces in the right place{2}",
+"{1} में से {0} टुकड़े सही जगह{2}"
+],
+[
+"PACKAGE {0} OF {1}",
+"पैकेज {1} में से {0}"
+],
+[
+"FIND THIS ADDRESS  ·  STOP {0}",
+"यह पता ढूँढें  ·  स्टॉप {0}"
+],
+[
+"Found {0} {1} in {2}s{3}",
+"{0} {1} को {2} सेकंड में ढूँढा{3}"
+],
+[
+"{0} {1} — {2}. Read the whole address.",
+"{0} {1} — {2}। पूरा पता पढ़ें।"
+],
+[
+"Pulled the right package first time ({0}/{1})",
+"पहली बार में सही पैकेज निकाला ({0}/{1})"
+],
+[
+"Worked the truck in good time ({0}s)",
+"अच्छे समय में ट्रक सँभाला ({0} सेकंड)"
+],
+[
+"{0}/{1} right first time · {2} wrong pick{3} · {4}s",
+"{0}/{1} पहली बार में सही · {2} गलत उठाए · {4} सेकंड"
+],
+[
+"Stuck? Stop {0} belongs in section {1}, or in a floor bay if it is bulky. Hover a package to read its whole label.",
+"अटके? स्टॉप {0} हिस्सा {1} में जाता है, या बड़ा हो तो फ़र्श की जगह में। पूरा लेबल पढ़ने के लिए पैकेज पर कर्सर ले जाएँ।"
+],
+[
+"There it is, misloaded in section {0}. A misload costs this much time at every stop.",
+"यह रहा, गलत लोड होकर हिस्सा {0} में। गलत लोडिंग हर स्टॉप पर इतना समय लेती है।"
+],
+[
+"There it is, in section {0}. Work the shelves section by section.",
+"यह रहा, हिस्सा {0} में। शेल्फ़ हिस्से-दर-हिस्से देखें।"
+],
+[
+"Manifest: {0} pieces (corrected from {1})",
+"सूची: {0} टुकड़े ({1} से सुधारा)"
+],
+[
+"Manifest says: {0} piece{1}",
+"सूची कहती है: {0} टुकड़े"
+],
+[
+"You've counted: {0} piece{1}",
+"आपने गिने: {0} टुकड़े"
+],
+[
+"Inspected: {0} of {1}",
+"जाँचे: {1} में से {0}"
+],
+[
+"Already {0}. Your call at the counter is final.",
+"पहले ही {0}। काउंटर पर आपका फ़ैसला अंतिम है।"
+],
+[
+"Sign for {0}. The count matches the manifest.",
+"{0} के लिए हस्ताक्षर करूँगा। गिनती सूची से मेल खाती है।"
+],
+[
+"Ask {0} to recount anyway, just in case.",
+"फिर भी {0} से दोबारा गिनने को कहूँगा, बस यूँ ही।"
+],
+[
+"Tell {0} you count {1}, not {2}, and ask them to check before you sign.",
+"{0} को बताऊँगा कि मेरी गिनती {1} है, {2} नहीं, और हस्ताक्षर से पहले जाँचने को कहूँगा।"
+],
+[
+"Sign for the manifest number ({0}) — close enough.",
+"सूची की संख्या ({0}) पर हस्ताक्षर कर दूँगा — लगभग ठीक है।"
+],
+[
+"The manifest says {0}. You counted {1}.",
+"सूची {0} कहती है। आपने {1} गिने।"
+],
+[
+"{0} counts the outgoing pieces. \"I make it {1} here, not {2}. Have another look?\"",
+"{0} भेजने वाले टुकड़े गिनती है। \"मेरे हिसाब से यहाँ {1} हैं, {2} नहीं। एक बार और देखेंगे?\""
+],
+[
+"Counted every piece waiting{0}",
+"इंतज़ार कर रहा हर टुकड़ा गिना{0}"
+],
+[
+"Scale: {0} lb.",
+"तराज़ू: {0} lb।"
+],
+[
+"Hazard marks: {0}.",
+"खतरे के निशान: {0}।"
+],
+[
+"This one was fine to ship ({0}). Refusing a good piece fails the customer.",
+"यह भेजने लायक था ({0})। अच्छा टुकड़ा मना करना ग्राहक के साथ नाइंसाफ़ी है।"
+],
+[
+"The right reason here was \"{0}\".",
+"यहाँ सही वजह थी \"{0}\"।"
+],
+[
+"Right to refuse it, wrong reason: it was \"{0}\".",
+"मना करना सही, वजह गलत: वह \"{0}\" थी।"
+],
+[
+"Found the customs paperwork problems ({0}/{1})",
+"कस्टम कागज़ात की समस्याएँ ढूँढीं ({0}/{1})"
+],
+[
+"{0} of {1} problems found",
+"{1} में से {0} समस्याएँ मिलीं"
+],
+[
+"{0} refused — the shipper keeps them",
+"{0} मना — भेजने वाले के पास रहेंगे"
+],
+[
+"{0} piece{1} accepted",
+"{0} टुकड़े स्वीकार"
+],
+[
+"{0} signs for the pickup.",
+"{0} पिकअप पर हस्ताक्षर करती है।"
+],
+[
+"Worked the pickup in good time ({0}s)",
+"अच्छे समय में पिकअप किया ({0} सेकंड)"
+],
+[
+"The post-trip: {0} before you clock off",
+"शिफ़्ट-बाद की जाँच: शिफ़्ट खत्म करने से पहले {0}"
+],
+[
+"DAY {0} · MORNING BRIEFING",
+"दिन {0} · सुबह की बैठक"
+],
+[
+"DAY {0} COMPLETE",
+"दिन {0} पूरा"
+],
+[
+"{0} delivered · {1} exception{2} · {3}h {4}m on the road",
+"{0} डिलीवर · {1} अपवाद · सड़क पर {3} घं {4} मि"
+],
+[
+"Drive review ({0}) ›",
+"ड्राइविंग की समीक्षा ({0}) ›"
+],
+[
+"{0}: headlights on (L)",
+"{0}: हेडलाइट चालू करें (L)"
+],
+[
+"Restarted the drive{0}",
+"ड्राइव फिर शुरू की{0}"
+],
+[
+"Scuffed {0} at {1} mph — slow right down near obstacles",
+"{1} mph पर {0} से रगड़ खाई — रुकावटों के पास बहुत धीमे चलें"
+],
+[
+"Collision with {0} at {1} mph",
+"{1} mph पर {0} से टक्कर"
+],
+[
+"Speeding: {0} in a {1}",
+"तेज़ रफ़्तार: {1} की सीमा में {0}"
+],
+[
+"SCHOOL ZONE AHEAD — {0} mph",
+"आगे स्कूल ज़ोन — {0} mph"
+],
+[
+"Signaled the {0} turn too late",
+"{0} मुड़ने का इंडिकेटर देर से दिया"
+],
+[
+"Turned {0} without signaling",
+"बिना इंडिकेटर {0} मुड़े"
+],
+[
+"Pull in closer to the curb ({0} ft out)",
+"फ़ुटपाथ के और पास लगाएँ ({0} फ़ुट दूर)"
+],
+[
+"STOP {0} OF {1}",
+"स्टॉप {1} में से {0}"
+],
+[
+"Restarted stop {0}",
+"स्टॉप {0} फिर शुरू किया"
+],
+[
+"Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
+"सावधान, उस डिब्बे के साथ आपको पैर नहीं दिखते! {0} पर SHIFT दबाए रखें।"
+],
+[
+"You slipped on {0}!",
+"आप {0} पर फिसल गए!"
+],
+[
+"You tripped over {0}!",
+"आपको {0} से ठोकर लगी!"
+],
+[
+"Stop {0} of {1} · {2} {3}{4}",
+"स्टॉप {1} में से {0} · {2} {3}{4}"
+],
+[
+"Pull all {0} packages for this stop",
+"इस स्टॉप के सारे {0} पैकेज निकालें"
+],
+[
+"This one is {0} lb. How do you get it to the door?",
+"यह {0} lb का है। आप इसे दरवाज़े तक कैसे ले जाएँगे?"
+],
+[
+"{0} lb in your arms, up steps you can't see: that's a back injury waiting. Use the hand truck.",
+"बाहों में {0} lb, ऐसी सीढ़ियों पर जो दिखती नहीं: यह पीठ की चोट का इंतज़ार है। हैंड ट्रक इस्तेमाल करें।"
+],
+[
+"Stop address: {0} {1}{2}  ·  hover a box (or the arrow keys) to read its label",
+"स्टॉप का पता: {0} {1}{2}  ·  लेबल पढ़ने के लिए डिब्बे पर कर्सर ले जाएँ (या तीर कुंजियाँ)"
+],
+[
+"Carrying: {0}\n(click a box marked IN HAND to put it back)",
+"हाथ में: {0}\n(वापस रखने के लिए हाथ में चिह्नित डिब्बे पर क्लिक करें)"
+],
+[
+"Hi! That's for {0}. I can sign for it.",
+"नमस्ते! वह {0} के लिए है। मैं हस्ताक्षर कर सकती हूँ।"
+],
+[
+"{0} answers: {1} lives here too.",
+"{0} जवाब देते हैं: {1} भी यहीं रहते हैं।"
+],
+[
+"{0} will sign for it. Use your handheld (TAB) to record the delivery.",
+"{0} हस्ताक्षर करेंगे। डिलीवरी दर्ज करने के लिए अपना हैंडहेल्ड (TAB) इस्तेमाल करें।"
+],
+[
+"✓ Exception {0} recorded.",
+"✓ अपवाद {0} दर्ज हुआ।"
+],
+[
+"✓ {0} · belongs to this stop",
+"✓ {0} · इसी स्टॉप का है"
+],
+[
+"✗ WRONG STOP: this one goes to {0} {1}{2}",
+"✗ गलत स्टॉप: यह {0} {1}{2} जाता है"
+],
+[
+"⚠ {0} piece{1} for this stop still on the truck",
+"⚠ इस स्टॉप के {0} टुकड़े अब भी ट्रक में"
+],
+[
+"Walk up to {0} first: you're too far away to hand it over.",
+"पहले {0} के पास जाएँ: देने के लिए आप बहुत दूर हैं।"
+],
+[
+"{0} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.",
+"{0} फ़ोटो पहचान पत्र दिखाते हैं। फ़ोटो को सामने वाले चेहरे से मिलाएँ, फिर नाम, जन्मतिथि और समाप्ति तिथि।"
+],
+[
+"PHOTO ID · {0}",
+"फ़ोटो पहचान पत्र · {0}"
+],
+[
+"{0} is signing…",
+"{0} हस्ताक्षर कर रहे हैं…"
+],
+[
+"Exception {0} recorded.",
+"अपवाद {0} दर्ज हुआ।"
+],
+[
+"Door tag {0} printed. Attach it to the door.",
+"डोर टैग {0} छपा। इसे दरवाज़े पर लगाएँ।"
+],
+[
+"Exception {0} recorded. Return the package to the van.",
+"अपवाद {0} दर्ज हुआ। पैकेज वापस वैन में रखें।"
+],
+[
+"Slipped or tripped on {0}",
+"{0} पर फिसले या ठोकर लगी"
+],
+[
+"Fell on {0} carrying a package",
+"पैकेज उठाए {0} पर गिरे"
+],
+[
+"Cleared the hazard ({0})",
+"खतरा हटाया ({0})"
+],
+[
+"Nearly slipped on {0} before slowing down",
+"धीमे होने से पहले {0} पर फिसलते-फिसलते बचे"
+],
+[
+"Stepped carefully over {0}, but left it on the path",
+"{0} पर सावधानी से कदम रखा, पर उसे रास्ते में छोड़ दिया"
+],
+[
+"Walked carefully over {0}",
+"{0} पर सावधानी से चले"
+],
+[
+"Got past {0}, but didn't slow down{1}",
+"{0} पार किया, पर न धीमे हुए{1}"
+],
+[
+"Recorded the right exception ({0})",
+"सही अपवाद दर्ज किया ({0})"
+],
+[
+"Left it in a sensible spot: {0}",
+"समझदार जगह पर छोड़ा: {0}"
+],
+[
+"Proof-of-delivery photo showed {0}",
+"डिलीवरी प्रमाण की फ़ोटो में दिखा: {0}"
+],
+[
+"Finished the stop in good time ({0}s, par {1}s)",
+"अच्छे समय में स्टॉप पूरा किया ({0} सेकंड, मानक {1} सेकंड)"
+],
+[
+"Extra trip{0} back into the truck",
+"ट्रक तक {0:अतिरिक्त चक्कर|एक अतिरिक्त चक्कर}"
+],
+[
+"STOP {0} REPORT",
+"स्टॉप {0} रिपोर्ट"
+],
+[
+"EXCEPTION {0}",
+"अपवाद {0}"
+],
+[
+"({0} times)",
+"({0} बार)"
+],
+[
+"to stop {0}",
+"स्टॉप {0} तक"
+],
+[
+"({0} ft from the kerb)",
+"(किनारे से {0} फ़ुट)"
+],
+[
+"({0} of {1})",
+"({1} में से {0})"
+],
+[
+"({0} to work on)",
+"({0} सुधारने को)"
+],
+[
+"{0} heavy up high",
+"{0} भारी ऊपर"
+],
+[
+"{0} things",
+"{0} बातें"
+],
+[
+"{0} attempt{1} left",
+"{0} कोशिश बाकी"
+],
+[
+"one of your {0} attempts",
+"आपकी {0} कोशिशों में से एक"
+],
+[
+"This uses {0}. It",
+"इससे {0} खर्च होगी। इस मूल्यांकन"
+],
+[
+"{0}★ or better in every category",
+"हर श्रेणी में {0}★ या ज़्यादा"
+],
+[
+"{0}★ in {1} (got {2})",
+"{1} में {0}★ (मिले {2})"
+],
+[
+"· passed {0}",
+"· पास {0}"
+],
+[
+", passed {0}",
+", पास {0}"
+],
+[
+"+ {0} more",
+"+ {0} और"
+],
+[
+"as {0}",
+"{0} के रूप में"
+],
+[
+"Accepted {0}",
+"{0} स्वीकार किया"
+],
+[
+"Refused {0}",
+"{0} मना किया"
+],
+[
+"✗  That piece was fine: {0}",
+"✗  वह टुकड़ा ठीक था: {0}"
+],
+[
+"✗  Should have been refused: {0}",
+"✗  इसे मना करना चाहिए था: {0}"
+],
+[
+"• {0}: {1}",
+"• {0}: {1}"
+],
+[
+"({0} driving + {1} waiting)",
+"({0} ड्राइविंग + {1} इंतज़ार)"
+],
+[
+"Quiz: best {0}%{1}",
+"क्विज़: सबसे अच्छा {0}%{1}"
+],
+[
+"Not passed ({0}, left part-way)",
+"पास नहीं ({0}, बीच में छोड़ा)"
+],
+[
+"Not passed ({0})",
+"पास नहीं ({0})"
+],
+[
+"{0} attempts",
+"{0} कोशिशें"
+],
+[
+"Passed {0}",
+"पास {0}"
+],
+[
+"{0} h {1} min",
+"{0} घं {1} मि"
+],
+[
+"{0}: top rank",
+"{0}: सबसे ऊँची रैंक"
+],
+[
+"Today you {0} ({1} times). What goes on the post-trip report?",
+"आज आप {0} ({1} बार)। शिफ़्ट-बाद की रिपोर्ट में क्या जाएगा?"
+],
+[
+"Today you {0}. What goes on the post-trip report?",
+"आज आप {0}। शिफ़्ट-बाद की रिपोर्ट में क्या जाएगा?"
+],
+[
+"You flagged it, so the shop fixed it before you rolled out (8 minutes):\n{0}",
+"आपने इसे दर्ज किया, तो निकलने से पहले वर्कशॉप ने ठीक कर दिया (8 मिनट):\n{0}"
+],
+[
+"{0}The yard check found what the pre-trip missed:\n{1}\n\nThe truck is held 10 minutes for the fix before you can roll.",
+"{0}यार्ड जाँच में वह मिला जो प्रस्थान-पूर्व जाँच में छूट गया था:\n{1}\n\nनिकलने से पहले मरम्मत के लिए ट्रक 10 मिनट रुका रहेगा।"
+],
+[
+"{0} into the drive",
+"ड्राइव के {0} पर"
+],
+[
+"Assessments passed: {0} / {1}",
+"पास हुए मूल्यांकन: {0} / {1}"
+],
+[
+"Parked at {0} {1}",
+"{0} {1} पर पार्क किया"
+],
+[
+"Parked at {0} {1} (facing the traffic)",
+"{0} {1} पर पार्क किया (ट्रैफ़िक के उल्टे)"
+],
+[
+"Parked at {0} {1} ({2} ft from the kerb)",
+"{0} {1} पर पार्क किया (किनारे से {2} फ़ुट)"
+],
+[
+"Parked at {0} {1} (at an angle)",
+"{0} {1} पर पार्क किया (तिरछे)"
+],
+[
+"+ {0} more check{1} ({2} to work on)",
+"+ {0} और जाँचें ({2} सुधारने को)"
+],
+[
+"+ {0} more check{1}, all passed",
+"+ {0} और जाँचें, सब पास"
+],
+[
+"Passed: {0}",
+"पास: {0}"
+],
+[
+"Needed {0}",
+"ज़रूरी था: {0}"
+],
+[
+"Best {0}%{1}",
+"सबसे अच्छा {0}%{1}"
+],
+[
+"passed {0}",
+"पास {0}"
+],
+[
+"Whoa, {0} are slippery! Hold SHIFT: short, careful steps.",
+"अरे, {0} फिसलन भरी हैं! SHIFT दबाए रखें: छोटे, सावधान कदम।"
+],
+[
+"Whoa, {0} is slippery! Hold SHIFT: short, careful steps.",
+"अरे, {0} फिसलन भरा है! SHIFT दबाए रखें: छोटे, सावधान कदम।"
+],
+[
+"{0} / {1} ★ to {2}",
+"{0} / {1} ★ ({2} तक)"
+],
+[
+"CAREER  {0} ★",
+"करियर  {0} ★"
+],
+[
+"{0} days",
+"{0} दिन"
+],
+[
+"– {0}",
+"– {0}"
+],
+[
+"✓ {0}",
+"✓ {0}"
+],
+[
+"✗ {0}",
+"✗ {0}"
+],
+[
+"Hazards: {0}",
+"खतरे: {0}"
+],
+[
+"Five questions a module. Pass at {0}%.",
+"हर मॉड्यूल में पाँच सवाल। पास होने के लिए {0}%।"
+],
+[
+"Not quite. {0}",
+"पूरी तरह नहीं। {0}"
+],
+[
+"Right. {0}",
+"सही। {0}"
+]
+],
 "keep": [
 "three.js did not load",
-"#game canvas"
+"#game canvas",
+"¡Hola! ¿Es un paquete para mí?",
+"¿Perdón? No entiendo…",
+"¡Ah, sí! Ana Morales. ¡Gracias!"
 ]
 };

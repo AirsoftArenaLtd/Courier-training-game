@@ -24,17 +24,15 @@ window.OTR_I18N = window.OTR_I18N || {};
 
 OTR.i18n = {
   /** The languages there are, in their own names. */
-  LANGS: {
-    en: 'English', es: 'Español', fr: 'Français',
-    hi: 'हिन्दी', bn: 'বাংলা', mr: 'मराठी', te: 'తెలుగు', ta: 'தமிழ்', gu: 'ગુજરાતી', kn: 'ಕನ್ನಡ', ml: 'മലയാളം', pa: 'ਪੰਜਾਬੀ'
-  },
+  // (a language is listed once its data/i18n/<code>.js is complete and test/i18n.js passes for it)
+  LANGS: { en: 'English', es: 'Español', fr: 'Français', hi: 'हिन्दी' },
   /**
    * Scripts whose marks reach above and below Latin letters (Indian scripts' vowel signs): a Text measures its height
    * from these, so nothing is clipped at the top or bottom of its box.
    */
   TALL: { hi: 'कि्ँॄ', bn: 'কিঁ্ৃ', mr: 'कि्ँॄ', te: 'కిఁ్ౄ', ta: 'கிெ்ூ', gu: 'કિઁ્ૄ', kn: 'ಕಿಁ್ೄ', ml: 'കിെ്ൄ', pa: 'ਕਿਁ੍ੂ' },
   lang: 'en',
-  dict: null, templates: [], cache: new Map(), missing: new Map(),
+  dict: null, upper: new Map(), templates: [], cache: new Map(), missing: new Map(),
 
   /** Which language to use, before the profile has loaded (the profile's choice is applied by load()). */
   pick() {
@@ -68,6 +66,9 @@ OTR.i18n = {
     if (!L) return;
     this.lang = lang;
     this.dict = new Map(Object.entries(L.strings || {}));
+    // labels the game capitalises before showing them ("QUIZ · " + title.toUpperCase()): the same entry, in capitals
+    this.upper = new Map();
+    this.dict.forEach((v, k) => { const K = k.toUpperCase(); if (K !== k && !this.dict.has(K)) this.upper.set(K, v); });
     // templates: the English with its {n} holes as a regular expression, longest literal text first
     this.templates = (L.templates || []).map(([en, tr]) => {
       const parts = en.split(/\{(\d+)\}/);
@@ -103,6 +104,8 @@ OTR.i18n = {
   translate(s, depth) {
     const d = this.dict.get(s);
     if (d !== undefined) return d;
+    const u = this.upper.get(s);
+    if (u !== undefined) return u.toLocaleUpperCase(this.lang);
     // nothing to translate: numbers, times, codes, single symbols
     if (!/[A-Za-z]{2,}/.test(s)) return s;
     const trimmed = s.trim();
