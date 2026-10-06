@@ -2908,7 +2908,9 @@ window.OTR_I18N.fr = {
 "Graphics": "Graphismes",
 "Start ▶": "C'est parti ▶",
 "Arrow keys still steer and walk; ENTER and ESC always work.": "Les flèches servent toujours à diriger et marcher ; ENTRÉE et ÉCHAP fonctionnent toujours.",
-"★ or better in every category": "★ ou plus dans chaque catégorie"
+"★ or better in every category": "★ ou plus dans chaque catégorie",
+"TODAY'S ROUTE": "TOURNÉE DU JOUR",
+"TODAY'S MANIFEST": "MANIFESTE DU JOUR"
 },
 "templates": [
 [
@@ -3890,6 +3892,110 @@ window.OTR_I18N.fr = {
 [
 "Right. {0}",
 "Exact. {0}"
+],
+[
+"{0} ({1} tries)",
+"{0} ({1} essais)"
+],
+[
+"Graphics: {0}",
+"Graphismes : {0}"
+],
+[
+"Screen: {0}x{1} at {2}x",
+"Écran : {0}x{1} à {2}x"
+],
+[
+"Next: {0}",
+"Suivant : {0}"
+],
+[
+"Day {0} · {1}",
+"Jour {0} · {1}"
+],
+[
+"Day {0}'s debrief ›",
+"Bilan du jour {0} ›"
+],
+[
+"Assessment: {0}",
+"Évaluation : {0}"
+],
+[
+"Checklist: {0}",
+"Liste : {0}"
+],
+[
+"Day {0} · {1} · {2} ★",
+"Jour {0} · {1} · {2} ★"
+],
+[
+"Reset {0}?",
+"Réinitialiser {0} ?"
+],
+[
+"{0}: {1} — caught.",
+"{0} : {1} — repéré."
+],
+[
+"{0} · commit {1}",
+"{0} · engagement {1}"
+],
+[
+"+{0} min",
+"+{0} min"
+],
+[
+"{0} · pickup {1}–{2}",
+"{0} · enlèvement {1}–{2}"
+],
+[
+"-{0} Back",
+"-{0} Dos"
+],
+[
+"{0} {1} (stop {2}): {3}",
+"{0} {1} (arrêt {2}) : {3}"
+],
+[
+"Unit {0}",
+"Appartement {0}"
+],
+[
+"Account: {0}",
+"Compte : {0}"
+],
+[
+"refused ({0})",
+"refusé ({0})"
+],
+[
+"Box: {0}.",
+"Carton : {0}."
+],
+[
+"Label: {0}.",
+"Étiquette : {0}."
+],
+[
+"Shipper: \"{0}\".",
+"Expéditeur : « {0} »."
+],
+[
+"Service: {0}",
+"Service : {0}"
+],
+[
+"Day {0}",
+"Jour {0}"
+],
+[
+"{0} s behind",
+"{0} s derrière"
+],
+[
+"Avoided {0}",
+"Évité : {0}"
 ]
 ],
 "keep": [

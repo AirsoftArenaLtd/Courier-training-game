@@ -23,7 +23,7 @@ global.window = globalThis;
 window.OTR = {}; global.OTR = window.OTR;
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 (html.match(/data\/[a-z0-9_]+\.js/g) || []).forEach(f => { eval(fs.readFileSync(path.join(ROOT, f), 'utf8')); });
-const textish = (s) => /[A-Za-z]{2,}/.test(s) && (/[a-z]{2,}[^a-z]+[a-z]{2,}/i.test(s) || /^[A-Z][a-z]+[.!?]?$/.test(s) || /^[A-Z]{3,}[A-Z !?.]*$/.test(s));
+const textish = (s) => /[A-Za-z]{2,}/.test(s) && (/[a-z]{2,}[^a-z]+[a-z]{2,}/i.test(s) || /^[A-Z][a-z]+[.!?]?$/.test(s) || /^[A-Z]{3,}[A-Z' !?.]*$/.test(s));
 const strings = new Map();          // text → where it came from
 const add = (s, from) => { if (!strings.has(s)) strings.set(s, from); };
 const skipKey = new Set(['id', 'key', 'scene', 'icon', 'tex', 'texture', 'type', 'kind', 'sfx', 'sound', 'anim', 'font', 'color', 'colour', 'skin']);
@@ -44,7 +44,8 @@ const devOnly = new Set(['src/core/validate.js']);
 files.splice(0, files.length, ...files.filter(f => !devOnly.has(path.relative(ROOT, f))));
 const notText = (s) =>
   /^(keydown|keyup|pointer|ic_|td_|pp_|lt_|wx_|p_|car_top|van_top|atm_|bg_)/.test(s) || /^[#.]?[a-z0-9_-]+$/.test(s) ||
-  /\b(rgba?|px|Segoe|Arial|sans-serif|function|return|const)\b/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s);
+  /\b(rgba?|px|Segoe|Arial|sans-serif|function|return|const)\b/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s) ||
+  /^[a-z]+\/|[a-z] _/.test(s);                                  // an API path or a key built from parts ("trainees/${id}", "household${d}_${i}")
 // a small scanner: skips comments and regular expressions, reads '...', "..." and `...`; the code inside a template's
 // ${} is scanned too, for the words it chooses between ("Signaled the ${late ? 'left' : 'right'} turn")
 // one escape sequence at src[j] (a backslash): the character it stands for and how many source characters it spans
@@ -97,7 +98,8 @@ const scanCode = (src, rel) => {
         s += src[j++];
       }
       const plain = s.replace(/\{\d+\}/g, ' ');
-      if (textish(plain) && !/<|\bstyle\b|;\s*$/.test(s) && !notText(plain.trim() || 'x')) {
+      // a template with one word between its holes ("Day ${n} · ${rank}") is text too
+      if ((textish(plain) || (holes && /\b[A-Za-z][a-z]{2,}\b/.test(plain))) && !/<|\bstyle\b|;\s*$/.test(s) && !notText(plain.trim() || 'x')) {
         if (holes) { if (!templates.has(s)) templates.set(s, rel); } else add(s, rel);
       }
       i = j + 1; prev = 'x'; continue;

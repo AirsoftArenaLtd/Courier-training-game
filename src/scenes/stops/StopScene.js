@@ -858,14 +858,14 @@ class StopScene extends BaseScenarioScene {
       g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
       g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
     }));
-    c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, '#FF9447', { ox: 0, weight: '900' }));
+    c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, '#FF9447', { ox: 0, weight: '900', fit: w - 32 }));
     items.forEach((it, i) => {
       const y = 44 + i * 26;
       c.add(OTR.tex.shape(this, (box) => {
         box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(0, -8, 16, 16, 4);
         if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(0, -8, 16, 16, 4); }
       }, 16, y));
-      c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : '#F4ECFF', { ox: 0, bold: false }));
+      c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : '#F4ECFF', { ox: 0, bold: false, fit: w - 54 }));
     });
   }
 
