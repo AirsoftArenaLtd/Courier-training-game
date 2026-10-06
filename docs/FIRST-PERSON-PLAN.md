@@ -109,11 +109,11 @@ Keep relevant wrong decisions possible. The player can mis-sort a parcel and rec
 
 Share each skill's assessment events between modules and campaign days. Preserve the meaning of Safety, Efficiency and Service. Efficiency should reward sensible organisation and correct processes; safe decisions remain important when a commitment is at risk. A day debrief should identify weak skills and link to the matching focused practice module. Completing later practice does not erase the earlier day's recorded mistakes.
 
-### Physical cargo: agreed direction and proposed details
+### Physical cargo: agreed direction and implementation details
 
 The user agreed that parcels should be physically retrieved from the loaded van to give preparation and handling practical training value. Loading and retrieval must share persistent parcel identities and placements. The existing shift system already preserves loading placement as `loadMap`; use that behaviour as a reference when adapting it to 3D.
 
-Proposed implementation and training behaviour:
+The user accepted the physical-retrieval, delivery-loop and shared-control direction in the discussion following this section's introduction. The gameplay direction below is agreed; specific data structures, scoring thresholds and additional later handling features remain implementation proposals.
 
 - Represent each parcel with a stable ID, readable tracking/address label, size/weight, handling requirements, service requirements and current location. Its depot, carried, cargo, customer-site, handed-over and return states refer to the same item. Save parcel placements and any later rearrangement; reopening the cargo area or resuming a day must not reset the load.
 - Give the van recognisable shelf/floor zones. Players choose a zone and accessible position while loading, considering stop grouping, weight, fragile items, orientation, securing the load and access routes. Shelves and parcel sizes should make organisation understandable without fine mouse positioning.
@@ -125,11 +125,11 @@ Proposed implementation and training behaviour:
 - Start with one carried parcel and straightforward place/return actions. Later lessons can introduce multi-piece jobs, trolleys and assistance decisions. Evaluate equipment choice and handling actions supported by the simulation; keyboard movement cannot establish the trainee's actual lifting posture or physical fitness.
 - Keep labels readable through close-up inspection and accessible overlays. Assistance should make information usable without selecting the answer for the player. Low graphics retains the same parcel identities, labels, layout and task outcomes.
 
-This specifies a proposed design beyond the agreed physical-retrieval requirement. It does not yet add a cargo interior, multiple parcels or persistence to the current one-parcel prototype.
+This records the agreed gameplay direction and proposed implementation details. It does not yet add a cargo interior, multiple parcels or persistence to the current one-parcel prototype.
 
-### Complete delivery interaction proposal
+### Agreed delivery interaction direction
 
-Work through one delivery as an observable sequence, then reuse it for campaign and isolated lessons. Preparation covers the actual day's manifest and vehicle; later stop decisions depend on that preparation. Use existing approved procedure content and review company/trainer-specific rules before defining new scored requirements.
+The user agreed to the delivery sequence and training focus below. Reuse it for campaign and isolated lessons. Preparation covers the actual day's manifest and vehicle; later stop decisions depend on that preparation. Use existing approved procedure content and review company/trainer-specific rules before defining new scored requirements.
 
 | Step | Player action | Training evidence and supported mistakes |
 | --- | --- | --- |
@@ -146,9 +146,9 @@ Select authored variants within that shared sequence: an ordinary handover, an a
 
 Distinguish operational alerts from teaching feedback. In practice, prompts can explain what to check. In assessment, the scanner still displays the shipment's genuine instructions and validation messages while coaching follows existing trainer restrictions. Preserve supported wrong actions and truthful task state; delivering the wrong physical parcel must never complete the correct job by proximity alone. Apply configured grading to observable actions/outcomes and avoid repeated penalties for the same unresolved event.
 
-### Shared control proposal
+### Agreed shared control direction
 
-The user wants more intuitive driving and consistent first-person interactions. The following mappings and behaviours are proposals for the next usability review, not implemented changes:
+The user agreed to more intuitive driving and consistent first-person interactions with the behaviours below. Exact keys, sensitivity and handling values need usability review; these are planning decisions, not implemented changes:
 
 | Context | Proposed controls and behaviour |
 | --- | --- |
@@ -160,6 +160,42 @@ The user wants more intuitive driving and consistent first-person interactions. 
 | Pause/accessibility | Escape opens the existing pause/settings path, releases the pointer and clears held controls; avoid forced head bob/shake and provide text-size, sensitivity, key-remapping and reduced-transition support |
 
 Keep one action vocabulary across hub, depot, van and customer locations. Context changes must not silently make an everyday interaction key signal a turn or discard the held parcel. Ordinary animations can be brief; avoid manual finger/hand positioning and reward the underlying decision/process rather than fine mouse accuracy. Only attach a posture or observation score to evidence the simulation actually measures.
+
+### Driving and road hazards: discussion draft
+
+The next planning discussion concerns the driving environment, meaningful observation/response, hazard selection and consequences. This draft does not implement driving changes or establish new pass thresholds.
+
+Use a comfortable first-person van view with the camera anchored to the vehicle and independently controlled head direction. Keep useful dashboard information legible, allow an easy forward-view reset and avoid forced camera shake/bob. Driving should be manageable with digital keys: smooth acceleration/braking, predictable steering/centring, controllable low-speed positioning and an explicit stopped gear change. Retain the sense of vehicle size, braking distance and corner clearance. Review/adapt the existing vehicle model and scenario content before introducing a replacement physics system.
+
+Create a small connected depot/residential road area first. Use readable signs, crossings, junctions, parked cars, a few moving vehicles and several plausible delivery stopping positions. Ordinary driving provides the background between occasional developing hazards. Avoid presenting a surprise at every corner or requiring a single marked parking bay to establish a valid stop. The active road convention and configured training procedures determine the rules; changing the interface language does not change them.
+
+| Situation | Useful cue and decision | Observable evidence |
+| --- | --- | --- |
+| Pull away from the curb | A vehicle approaches from behind; use the relevant mirror, signal and wait for a gap | Check/action order, actual gap and whether departure forces another vehicle to brake or causes a conflict; recent mirror activation alone is insufficient |
+| Junction or crossing | Signs, signals and visible traffic/pedestrians establish priority | Approach speed, stopping position where required, yielding and a suitable gap before entering |
+| Pedestrian developing hazard | A person approaches a crossing, or a ball provides advance warning before a child follows | Early speed reduction, stopping/yielding and clearance at the conflict point |
+| Parked-car hazard | Occupant/reverse lights indicate a possible opening door or vehicle movement | Approach speed, safe clearance and appropriate waiting rather than an unsafe swerve into another lane |
+| Lead vehicle slows | Brake lights or a queue develop ahead | Maintained following gap, braking margin and avoidance of a rear-end conflict |
+| Dispatch/handheld interruption | An operational message arrives while driving | Whether device interaction is deferred until a suitable parked state; safety decisions remain possible without reading the message immediately |
+| Parking and backing | Limited visibility, obstructed space or a safer forward approach | Choice of location, securing the vehicle, physical get-out-and-look when required, a controlled manoeuvre and response to actual obstacles; one observation shortcut is not proof of a clear area |
+| Advanced conditions | Weather/visibility changes, an emergency vehicle, a stopped school bus or a closure | Appropriate adaptation and application of the approved scenario's rules; only introduce added complexity through eligible templates |
+
+For mirrors, show perspective views of actual nearby world traffic from suitable cab/mirror positions. A glance should reveal information useful for a manoeuvre. Start with a readable on-demand mirror view and inexpensive geometry; persistent multiple mirror renders are a later option contingent on performance. Low graphics must retain useful mirror observations, readable hazard cues and equivalent scenario behaviour. Reduce resolution/decorative cost and inactive-view rendering, not the information required for the task. A rear camera can assist a supported vehicle but does not automatically establish that physical area checks were performed.
+
+Proposed hazard construction and selection rules:
+
+- Each template includes prerequisites, road placement, advance cues, actor behaviour, acceptable responses, outcome criteria and a stable encounter ID. Reuse the existing road-hazard scenarios where suitable, adapting them to the first-person world.
+- Trigger development when the player approaches an appropriate location. Validate available sight distance and stopping/clearance options at expected lawful speeds; avoid a spawn directly into the player's unavoidable collision path. Account for current obstructions and other events before arming a template.
+- Limit overlapping hazards and give beginners longer, clearer development. Increase complexity through combinations, visibility and decisions as skills develop; do not rely on impossibly short reaction windows. Necessary cues remain understandable without audio or expensive weather effects.
+- Select eligible optional hazards using the adaptive exposure/skill system and guarantee curriculum opportunities when due. Normal signals, right-of-way, seatbelt requirements and safe parking still apply throughout the route.
+- Count an encounter when the situation actually develops for the player. If a legitimate alternate route avoids an optional event, record it as untested rather than awarding a pass. Future appropriate days or an isolated driving module can provide missing evidence.
+- Save an armed/developing/resolved event's relevant logical state and actors. Pause/focus loss stops the simulation, and resume neither re-rolls the event nor duplicates exposure, penalties or successful evidence.
+
+Assessment should connect observation opportunities, vehicle behaviour and actual outcome. An early safe response and a late emergency stop can both avoid impact while demonstrating different anticipation. Looking in a mirror does not prove attention, and holding the brake while already stationary does not establish hazard recognition. Apply contextual criteria with tolerances; record successful responses, recoveries, untested skills and failures separately. Do not repeatedly penalise the same continuing event. Time spent yielding safely, reading instructions while parked, pausing or transitioning scenes must not create pressure to break safety rules for efficiency marks.
+
+Keep normal scanner/device feedback available, while practice coaching and assessment hints obey trainer rules. Relevant unsafe decisions such as an unbelted departure or interacting with the handheld while moving can be recorded; do not silently auto-correct them. Basic physical bounds and reliable input handling still apply. Minor contact can lead to securing the vehicle, inspection/reporting and a scenario-appropriate recovery. A serious collision should enter an incident-response sequence with the critical result retained; whether that ends the campaign shift or allows a suitable continuation is an open user choice. Exact incident procedure content and critical/pass rules must use approved existing material or be reviewed before implementation.
+
+Proposed prototype scope: a small daytime route, ordinary junction/sign rules, moving traffic that makes mirror/gap checks meaningful, and one eligible developing pedestrian/crossing event. Review safe parking and departure at delivery stops. Use targeted fixtures to compare early yielding, a late stop, unsafe pull-out and saved-event resume. Expand door-opening, reverse-out, following-distance, weather, emergency-vehicle, school-bus and backing scenarios after the basic vehicle/view/assessment behaviour is credible and measured. The isolated driving lesson uses the same world actors and vehicle behaviour, constrained to its relevant route and objectives.
 
 ### Next connected review milestone
 
