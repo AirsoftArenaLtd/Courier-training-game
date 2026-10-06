@@ -1141,6 +1141,31 @@ the colour filter, every screen clean, nothing left untranslated), and by the wh
 (`route-day`, the doorstep photo framed a passer-by) clean when run again. French: 34 of 36 clean, and the two others
 (`m5-exceptions` and `m8-heat`, both timing under load) clean when run again on their own.
 
+## Phase 3, part 3: eight more Indian languages (6 October 2026)
+
+The game can also be played in Bengali (*বাংলা*), Marathi (*मराठी*), Telugu (*తెలుగు*), Tamil (*தமிழ்*), Gujarati
+(*ગુજરાતી*), Kannada (*ಕನ್ನಡ*), Malayalam (*മലയാളം*) and Punjabi (*ਪੰਜਾਬੀ*), all in their polite forms, with key names,
+units and digits as in English. Each is complete: every string and template in the catalogue, built from the same
+numbered chunks as French and Hindi. Machine-drafted: a native speaker should review the safety wording.
+
+Found and fixed while building them (several affected every language, Spanish, French and Hindi included):
+
+| Problem | Fix |
+| --- | --- |
+| "All checked — sign off" on the pre-trip checklist stayed in English: the extractor read the `—` escape as `u2014`. | The extractor decodes `\u` and `\x` escapes; the key is corrected everywhere. |
+| TODAY'S ROUTE and TODAY'S MANIFEST stayed in English: capitals with an apostrophe were not taken for text. | Taken now, and translated in all eleven languages. |
+| 26 templates with one word between their parts stayed in English (`Day 1 · …` on the title screen, `Unit 4B`, `Avoided …`, `2.4 s behind`, `(3 tries)`). | Taken now (keys and API paths built from parts are skipped), translated in a new chunk 26. |
+| The NEW and NEXT pills on the hub cut their word off in Tamil and Malayalam. | The pill grows to the room the title leaves it and the word shrinks to fit. |
+| One-line text ran out of its box: the route panel, the stop checklist, the handheld button, the trainer page's note, and PRACTICE TOOLS in Spanish. | Each is fitted to its box (`fit`), or wrapped. |
+| Shrinking to fit made some lines unreadable (6–8px): the stop checklist and a few card titles in Tamil and Malayalam, the door step of the checklist in six languages. | Reworded shorter, measured to stay readable with larger text on. |
+| In Bengali, Tamil and Punjabi the right quiz answer was the shortest option in 17–18 of 40 questions. | A few answers lengthened; checked by `test/i18n.js`. |
+
+The layout audit missed the overflows: it only checked wrapped text and the canvas edge. It now also flags one-line
+text that runs past the panel or button under it (in the same container, so a modal is never compared with the screen
+behind it) and text shrunk below 9.5px. Checked by `test/i18n.js` (all eleven languages) and by
+`QA_LANG=<code> node test/a11y-screens.js` in each, with larger text and the colour filter: every screen clean, nothing
+left untranslated but names, addresses and the test's own made-up drive.
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was
