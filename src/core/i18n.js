@@ -25,7 +25,7 @@ window.OTR_I18N = window.OTR_I18N || {};
 OTR.i18n = {
   /** The languages there are, in their own names. */
   // (a language is listed once its data/i18n/<code>.js is complete and test/i18n.js passes for it)
-  LANGS: { en: 'English', es: 'Español', fr: 'Français', hi: 'हिन्दी' },
+  LANGS: { en: 'English', es: 'Español', fr: 'Français', hi: 'हिन्दी', bn: 'বাংলা', mr: 'मराठी', te: 'తెలుగు', ta: 'தமிழ்', gu: 'ગુજરાતી', kn: 'ಕನ್ನಡ', ml: 'മലയാളം', pa: 'ਪੰਜਾਬੀ' },
   /**
    * Scripts whose marks reach above and below Latin letters (Indian scripts' vowel signs): a Text measures its height
    * from these, so nothing is clipped at the top or bottom of its box.
