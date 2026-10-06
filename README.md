@@ -153,11 +153,13 @@ to pull it back out. `BACKSPACE` undoes, `ENTER` dispatches.
 
 ## Languages
 
-The game runs in English, Spanish (*español*, Latin American, informal *tú*), French (*français*, informal *tu*) and
-Hindi (*हिन्दी*, polite *आप*), all with US units. The globe button on the title screen and in the hub picks the
+The game runs in English, Spanish (*español*, Latin American, informal *tú*), French (*français*, informal *tu*),
+Hindi (*हिन्दी*, polite *आप*) and seven more Indian languages, all in their polite forms: Bengali (*বাংলা*), Marathi
+(*मराठी*), Telugu (*తెలుగు*), Tamil (*தமிழ்*), Gujarati (*ગુજરાતી*), Kannada (*ಕನ್ನಡ*), Malayalam (*മലയാളം*) and Punjabi
+(*ਪੰਜਾਬੀ*). All use US units and Latin digits. The globe button on the title screen and in the hub picks the
 language; it is kept on that computer. `?lang=fr` picks it for one visit, and a company can set its default with
 `lang` in `data/config.js` (otherwise the browser's language decides, if the game has it). Key names stay in English
-in Hindi; French uses its own (ESPACE, ENTRÉE, MAJ, ÉCHAP).
+in the Indian languages; French uses its own (ESPACE, ENTRÉE, MAJ, ÉCHAP).
 
 Text is translated as it is shown (`src/core/i18n.js`): the game's data, saved progress, score logs and trainer
 reports stay in English, so a trainee who switches language keeps one record. The printed record and certificate are
