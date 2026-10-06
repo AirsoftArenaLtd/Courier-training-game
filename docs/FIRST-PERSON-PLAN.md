@@ -20,23 +20,20 @@ Use the existing shift phases as the backbone: briefing → depot duties/pre-tri
 
 Keep the town's addresses and residents consistent across days. Vary manifests, service requirements, customer circumstances, traffic, weather and dispatch updates. Good preparation should affect the route: load organisation affects finding packages, correct scanning reveals requirements, and route planning affects commitments. Pauses/settings and instruction-reading time must be considered separately from assessed task efficiency.
 
-Campaign progression should introduce responsibilities gradually. A proposed opening sequence is:
-
-1. Depot induction, basic handling, pre-trip and a short standard-delivery route.
-2. More stops, customer interactions, signatures and proper delivery proof.
-3. Business pickups, document checks and shipment acceptance/refusal.
-4. Adverse conditions, road hazards and safe delivery approaches.
-5. A mixed independent day that combines the skills.
-
 The user selected **30–45 minutes of real play per complete work day**, including depot preparation and the route. Save/resume should allow that day to be completed over shorter sessions. The game clock represents a longer working shift; the target is not eight hours of real play.
 
-The sample opening above is a proposal, not an agreed five-day campaign. Campaign structure remains open; the user requested clearer explanations of these choices:
+The user selected **option 3: changing work days from the beginning**. Each day selects a mix from scenario templates we have built and approved, including the first day. There is no fixed opening week or prescribed Day 1/Day 2 route. The town's addresses and residents stay consistent while jobs, customers' circumstances and conditions vary.
 
-- **Planned introduction, then changing work days:** we design the first few days to introduce skills in a useful order. After those, the game chooses different jobs and events from approved scenario templates. For example, the opening signature lesson has a deliberately chosen customer; later routes mix signatures, pickups, exceptions and weather according to difficulty rules. This is the current recommendation, subject to user agreement.
-- **Every campaign day planned individually:** we design each day's route, customers and key events. Day 4's business pickup and Day 6's storm are deliberately placed parts of the campaign. This gives a controlled learning/story sequence; replaying a day mostly repeats its situations, and adding days requires more authored content.
-- **Changing work days from the beginning:** the game selects each day's mix from approved scenarios from day one. Starting routes can still be restricted to beginner tasks, with harder situations added as the player progresses. This provides early variety, with more dependence on generation rules to keep the introduction clear and balanced.
+Introduce responsibilities gradually through the eligible scenario pool rather than a fixed sequence of authored days. Beginner days draw from simpler handling, preparation and standard-delivery situations. Later pools can introduce signatures, business pickups, document checks, shipment acceptance/refusal, adverse conditions and mixed independent work. Exact eligibility rules remain to be designed alongside assessment and trainer policy.
 
-Here, "authored" means planned by us, and "varied" means selected by the game from content we have built. It does not imply unreviewed training situations. Campaign unlocks and course completion policy also need an explicit design decision before replacing the current course completion behaviour.
+Proposed safeguards for day selection:
+
+- Choose compatible scenarios with prerequisites and feasible routes, commitments and durations. Balance the full shift toward the agreed 30–45 minute target; parcel count alone is not a useful duration measure.
+- Track skills encountered and assessment outcomes so essential training does not depend on chance. Weight future eligible jobs toward skills that need practice or have not yet appeared. Agree progression thresholds before implementing them.
+- Introduce unfamiliar equipment and tasks with contextual practice coaching, while respecting the existing assessment-mode restrictions on hints and answer feedback.
+- Save the selected manifest, scenario versions, seed and logical progress so resuming a day preserves its jobs and relevant world state. Make reported situations reproducible for debugging.
+
+Variation means selection from content we have built and approved. Campaign unlocks and course completion policy still need an explicit design decision before replacing the current course completion behaviour.
 
 ### Module isolation
 
@@ -72,9 +69,9 @@ The user intends to switch to Astra after the plan is ready. Prepare that model'
 
 Proposed build order:
 
-1. Agree campaign structure, assessment/completion policy and common controls. The target session length is now 30–45 minutes per work day.
+1. Define the beginner scenario pool, assessment/completion policy and common controls. Campaign structure is agreed: varied days from the beginning, targeting 30–45 minutes per work day.
 2. Turn the prototype into a reusable mission framework, including module scope enforcement and readable shared tools.
-3. Build one short campaign day and one isolated sorting module using the same depot, parcels, scanner and interactions.
+3. Build a small beginner scenario pool that can produce different demonstration days, plus one isolated sorting module using the same depot, parcels, scanner and interactions. Demonstrations can be shorter than the eventual full work-day target.
 4. Connect trainer rules, records, save/resume and existing menu entry points; validate old progress and completion compatibility.
 5. Establish and approve the visual reference set, then expand the environment and convert the remaining modules with shared systems.
 6. Expand campaign variation and difficulty, then complete regression, hardware performance and translation passes.
