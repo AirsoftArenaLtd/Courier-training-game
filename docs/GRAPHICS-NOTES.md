@@ -66,3 +66,17 @@ Repeated cloud runs varied even on unchanged screens: baseline low daytime/dusk/
 Managed Chromium blocks `file://` navigation. The requested original commands were run and are reported separately from HTTP-adapted checks. An external test-only adapter maps this checkout's `file://` URLs to the same files served by a plain static server on port 8302; this preserves browser-local progress rather than enabling the company server API. It does not modify the game, repository tests, assertions, or browser policy. HTTP checks do not establish disk-launch compatibility. Benchmarks and visual captures use the development server on port 8301.
 
 `main` contains English and Spanish. Hindi integration uses a read-only snapshot of Claude's `src/core/i18n.js` and `data/i18n/hi.js` from `qa-pass2-fixes` at `707eea9a2b802fc3ae29873f108d4d382e9a23af`, supplied to the browser by the external test adapter. Neither those protected files nor that branch are edited. The adapter verifies `OTR.i18n.lang === 'hi'`, so an English fallback cannot masquerade as a Hindi pass.
+
+
+## Second pass: implemented and committed
+
+At the user's request, the four prepared source changes are applied and committed, then work stops. Existing car, tree and roof artwork is retained; the generated replacement proposals are not used. No art-pack rebuild or new on-screen strings are needed. Claude's protected files, game rules, scoring and input handling remain untouched.
+
+- **Road/pavement:** bake restrained tyre wear, a resurfacing patch, sidewalk slab variation and curb highlights into the existing texture dimensions. Paint markings and curb geometry keep their original placement. High and low use separate cache keys; low retains the original drawing.
+- **Windows:** use stable per-building warmth and brightness, shared between the projected town and cab. Cache projected glass colours when lighting changes and reuse the cab's existing emissive maps. Window quad and mesh counts are unchanged; low retains its existing rendering.
+- **Top-down pedestrians:** bake shoe, cuff, hand and clothing details into the existing three 56x56 walking textures. Preserve the palette indices read by the cab, animation timing and sprite count. Low uses the original drawing and cache keys.
+- **Cab dashboard:** add narrow static dashboard/pillar highlights to the existing graphics object on high. No additional sprite or overlay texture is introduced, and the previous cab car/person improvements remain in place.
+
+All four final JavaScript files pass `node --check`; `git diff --check` passes. Two previously authorised review-render runs exited 0, with no page errors in either current or proposed capture. Those renders used the prepared code through external request interception and are not QA or performance results. Image delivery in the chat did not work, and the user asked to stop that review process and commit the prepared work.
+
+The required full QA, Hindi checks and benchmarks have not been rerun for this second pass. No FPS-regression claim is made; the first-pass results above do not validate these additions. The owned preview server was stopped by PID. The new commits remain local on `codex-graphics`; no second-pass push or merge is performed.
