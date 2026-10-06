@@ -3157,6 +3157,526 @@ window.OTR_I18N.bn = {
 [
 "Gauge reads {0}/32\".",
 "মিটারে {0}/32\"।"
+],
+[
+"{0}  (Minimum: 4/32\" front, 2/32\" rear.)",
+"{0}  (সর্বনিম্ন: সামনে 4/32\", পেছনে 2/32\"।)"
+],
+[
+"Caught the defects ({0} of {1})",
+"ত্রুটি ধরেছেন ({1}-এর মধ্যে {0})"
+],
+[
+"Flagged {0} good part{1}",
+"{0}টি ভালো যন্ত্রাংশকে ত্রুটিপূর্ণ বলেছেন"
+],
+[
+"Walked it in good time ({0}s, par {1}s)",
+"ভালো সময়ে পরিদর্শন করেছেন ({0} সেকেন্ড, মান {1} সেকেন্ড)"
+],
+[
+"{0} was fine: {1}",
+"{0} ঠিক ছিল: {1}"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged",
+"{0}টি ধরা · {1}টি ফসকেছে · {2}টি ভুলভাবে চিহ্নিত"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged · {3}s",
+"{0}টি ধরা · {1}টি ফসকেছে · {2}টি ভুলভাবে চিহ্নিত · {3} সেকেন্ড"
+],
+[
+"SCHOOL ZONE {0}–{1}",
+"স্কুল এলাকা {0}–{1}"
+],
+[
+"Pickup window {0} – {1}",
+"পিকআপের সময় {0} – {1}"
+],
+[
+"{0} · no time commitment",
+"{0} · সময়ের কোনো প্রতিশ্রুতি নেই"
+],
+[
+"{0} commitment{1} missed",
+"{0}টি প্রতিশ্রুতি ফসকেছে"
+],
+[
+"{0} pickup{1} after the dock closes",
+"ডক বন্ধের পরে {0}টি পিকআপ"
+],
+[
+"{0} min waiting for a shipper",
+"প্রেরকের অপেক্ষায় {0} মিনিট"
+],
+[
+"{0} time-committed {1} would run late",
+"সময়-নির্দিষ্ট {0}টি {1} দেরি হবে"
+],
+[
+"{0} pickup{1} would be missed",
+"{0}টি পিকআপ ফসকে যাবে"
+],
+[
+"Your plan says {0}. Dispatch would rather you resequenced now than called the customer later.",
+"আপনার পরিকল্পনা বলছে: {0}। ডিসপ্যাচ চায় আপনি পরে গ্রাহককে ফোন না করে এখনই ক্রম বদলান।"
+],
+[
+"Waited {0} min at {1}",
+"{1}-এ {0} মিনিট অপেক্ষা করেছেন"
+],
+[
+"Loop length vs the best plan ({0} mi vs {1} mi)",
+"সেরা পরিকল্পনার তুলনায় ঘোরার দৈর্ঘ্য ({0} mi বনাম {1} mi)"
+],
+[
+"{0} mi · {1} min{2}",
+"{0} mi · {1} মিনিট{2}"
+],
+[
+"{0} mi · {1} min",
+"{0} mi · {1} মিনিট"
+],
+[
+"+{0} min ({1} leg{2} while it was active)",
+"+{0} মিনিট (চালু থাকার সময় {1}টি অংশ)"
+],
+[
+"{0} mi planned against a best possible {1} mi · {2}/{3} commitments met",
+"পরিকল্পনা {0} mi, সেরা সম্ভাব্য {1} mi · {2}/{3}টি প্রতিশ্রুতি পূরণ"
+],
+[
+"Read package {0} in {1}s",
+"প্যাকেজ {0} পড়েছেন {1} সেকেন্ডে"
+],
+[
+"Called it without checking {0}",
+"{0} না দেখেই সিদ্ধান্ত নিয়েছেন"
+],
+[
+"BELONGS ON: {0}",
+"এখানে যায়: {0}"
+],
+[
+"Blind call — you never looked at {0}.",
+"না দেখে সিদ্ধান্ত — আপনি {0} কখনো দেখেননি।"
+],
+[
+"{0}/{1} placed right · {2} blind call{3} · all six sides checked on {4} of {5}",
+"{0}/{1} ঠিক জায়গায় · {2}টি না-দেখা সিদ্ধান্ত · ছয় দিকই দেখা {5}-এর মধ্যে {4}টিতে"
+],
+[
+"{0} side{1} still unchecked",
+"{0}টি দিক এখনও দেখা হয়নি"
+],
+[
+"SIZE UP THE LOAD · {0}",
+"বোঝাটা যাচাই করুন · {0}"
+],
+[
+"Back Health {0}/100 · technique {1}%",
+"পিঠের স্বাস্থ্য {0}/100 · কৌশল {1}%"
+],
+[
+"{0} LB · TEAM LIFT",
+"{0} LB · দলবদ্ধ তোলা"
+],
+[
+"{0} lb — that one goes down the heavy chute for a team lift.",
+"{0} lb — ওটা দলবদ্ধভাবে তোলার জন্য ভারী মালের ঢালে যায়।"
+],
+[
+"Sorted {0} of {1} · scanned {2} of {3} · best streak {4} · specials handled {5}/{6}",
+"বাছাই {1}-এর {0} · স্ক্যান {3}-এর {2} · সেরা টানা {4} · বিশেষ সামলানো {5}/{6}"
+],
+[
+"JAM — clear it (click or SPACE) · {0}s",
+"আটকে গেছে — খুলুন (ক্লিক বা SPACE) · {0} সেকেন্ড"
+],
+[
+"CART · {0} TO LOAD",
+"কার্ট · লোড বাকি {0}"
+],
+[
+"{0} lb is too heavy that high — bottom shelf or floor",
+"{0} lb এত উঁচুতে রাখার পক্ষে খুব ভারী — নিচের তাক বা মেঝে"
+],
+[
+"Stop {0} belongs in section {1}",
+"স্টপ {0} অংশ {1}-এ যায়"
+],
+[
+"HEAVIEST ON THE TOP SHELF  {0} LB  (max 14)",
+"ওপরের তাকে সবচেয়ে ভারী  {0} LB  (সর্বোচ্চ 14)"
+],
+[
+"Packages loaded in the right place ({0}/{1})",
+"ঠিক জায়গায় লোড করা প্যাকেজ ({0}/{1})"
+],
+[
+"Heavy packages loaded high ({0})",
+"উঁচুতে লোড করা ভারী প্যাকেজ ({0})"
+],
+[
+"Loaded in good time ({0}s, par {1}s)",
+"ভালো সময়ে লোড করেছেন ({0} সেকেন্ড, মান {1} সেকেন্ড)"
+],
+[
+"{0}/{1} placed right · {2} · floor {3} · {4}s",
+"{0}/{1} ঠিক জায়গায় · {2} · মেঝে {3} · {4} সেকেন্ড"
+],
+[
+"{0} {1}: {2} lb loaded up high",
+"{0} {1}: {2} lb উঁচুতে লোড করা"
+],
+[
+"{0} of {1} pieces in the right place{2}",
+"{1}-এর মধ্যে {0}টি জিনিস ঠিক জায়গায়{2}"
+],
+[
+"PACKAGE {0} OF {1}",
+"প্যাকেজ {1}-এর {0}"
+],
+[
+"FIND THIS ADDRESS  ·  STOP {0}",
+"এই ঠিকানা খুঁজুন  ·  স্টপ {0}"
+],
+[
+"Found {0} {1} in {2}s{3}",
+"{0} {1} খুঁজে পেয়েছেন {2} সেকেন্ডে{3}"
+],
+[
+"{0} {1} — {2}. Read the whole address.",
+"{0} {1} — {2}। পুরো ঠিকানা পড়ুন।"
+],
+[
+"Pulled the right package first time ({0}/{1})",
+"প্রথমবারেই সঠিক প্যাকেজ বের করেছেন ({0}/{1})"
+],
+[
+"Worked the truck in good time ({0}s)",
+"ভালো সময়ে ট্রাকে কাজ করেছেন ({0} সেকেন্ড)"
+],
+[
+"{0}/{1} right first time · {2} wrong pick{3} · {4}s",
+"{0}/{1} প্রথমবারেই ঠিক · {2}টি ভুল তোলা · {4} সেকেন্ড"
+],
+[
+"Stuck? Stop {0} belongs in section {1}, or in a floor bay if it is bulky. Hover a package to read its whole label.",
+"আটকে গেছেন? স্টপ {0} অংশ {1}-এ যায়, বা বড় হলে মেঝের খোপে। পুরো লেবেল পড়তে প্যাকেজের ওপর কার্সর রাখুন।"
+],
+[
+"There it is, misloaded in section {0}. A misload costs this much time at every stop.",
+"ওই তো, ভুল লোড হয়ে অংশ {0}-এ। ভুল লোডে প্রতিটি স্টপে এতটা সময় যায়।"
+],
+[
+"There it is, in section {0}. Work the shelves section by section.",
+"ওই তো, অংশ {0}-এ। অংশ ধরে ধরে তাকগুলো দেখুন।"
+],
+[
+"Manifest: {0} pieces (corrected from {1})",
+"ম্যানিফেস্ট: {0}টি জিনিস ({1} থেকে সংশোধিত)"
+],
+[
+"Manifest says: {0} piece{1}",
+"ম্যানিফেস্টে লেখা: {0}টি জিনিস"
+],
+[
+"You've counted: {0} piece{1}",
+"আপনি গুনেছেন: {0}টি জিনিস"
+],
+[
+"Inspected: {0} of {1}",
+"পরীক্ষা হয়েছে: {1}-এর মধ্যে {0}"
+],
+[
+"Already {0}. Your call at the counter is final.",
+"ইতিমধ্যেই {0}। কাউন্টারে আপনার সিদ্ধান্তই চূড়ান্ত।"
+],
+[
+"Sign for {0}. The count matches the manifest.",
+"{0}টির জন্য সই করুন। গোনা ম্যানিফেস্টের সঙ্গে মিলেছে।"
+],
+[
+"Ask {0} to recount anyway, just in case.",
+"তবুও {0}-কে আরেকবার গুনতে বলুন, সাবধানের মার নেই।"
+],
+[
+"Tell {0} you count {1}, not {2}, and ask them to check before you sign.",
+"{0}-কে বলুন আপনার গোনা {1}, {2} নয়, আর সইয়ের আগে দেখে নিতে বলুন।"
+],
+[
+"Sign for the manifest number ({0}) — close enough.",
+"ম্যানিফেস্টের সংখ্যায় ({0}) সই করে দিন — প্রায় একই তো।"
+],
+[
+"The manifest says {0}. You counted {1}.",
+"ম্যানিফেস্টে লেখা {0}। আপনি গুনেছেন {1}।"
+],
+[
+"{0} counts the outgoing pieces. \"I make it {1} here, not {2}. Have another look?\"",
+"{0} পাঠানোর জিনিসগুলো গোনেন। \"আমার হিসেবে এখানে {1}টি, {2}টি নয়। আরেকবার দেখবেন?\""
+],
+[
+"Counted every piece waiting{0}",
+"অপেক্ষায় থাকা প্রতিটি জিনিস গুনেছেন{0}"
+],
+[
+"Scale: {0} lb.",
+"ওজন যন্ত্র: {0} lb।"
+],
+[
+"Hazard marks: {0}.",
+"বিপদের চিহ্ন: {0}।"
+],
+[
+"This one was fine to ship ({0}). Refusing a good piece fails the customer.",
+"এটা পাঠানোর মতো ঠিক ছিল ({0})। ভালো জিনিস ফেরালে গ্রাহক ক্ষতিগ্রস্ত হন।"
+],
+[
+"The right reason here was \"{0}\".",
+"এখানে সঠিক কারণ ছিল \"{0}\"।"
+],
+[
+"Right to refuse it, wrong reason: it was \"{0}\".",
+"ফেরানো ঠিক, কারণ ভুল: আসলে ছিল \"{0}\"।"
+],
+[
+"Found the customs paperwork problems ({0}/{1})",
+"শুল্কের কাগজপত্রের সমস্যা খুঁজে পেয়েছেন ({0}/{1})"
+],
+[
+"{0} of {1} problems found",
+"{1}-এর মধ্যে {0}টি সমস্যা পাওয়া গেছে"
+],
+[
+"{0} refused — the shipper keeps them",
+"{0}টি ফেরানো — প্রেরকের কাছেই থাকবে"
+],
+[
+"{0} piece{1} accepted",
+"{0}টি জিনিস নেওয়া হয়েছে"
+],
+[
+"{0} signs for the pickup.",
+"{0} পিকআপের জন্য সই করেন।"
+],
+[
+"Worked the pickup in good time ({0}s)",
+"ভালো সময়ে পিকআপ করেছেন ({0} সেকেন্ড)"
+],
+[
+"The post-trip: {0} before you clock off",
+"পোস্ট-ট্রিপ: ডিউটি শেষের আগে {0}"
+],
+[
+"DAY {0} · MORNING BRIEFING",
+"দিন {0} · সকালের ব্রিফিং"
+],
+[
+"DAY {0} COMPLETE",
+"দিন {0} সম্পূর্ণ"
+],
+[
+"{0} delivered · {1} exception{2} · {3}h {4}m on the road",
+"{0}টি ডেলিভার · {1}টি ব্যতিক্রম · রাস্তায় {3} ঘ {4} মি"
+],
+[
+"Drive review ({0}) ›",
+"ড্রাইভিং পর্যালোচনা ({0}) ›"
+],
+[
+"{0}: headlights on (L)",
+"{0}: হেডলাইট চালু করুন (L)"
+],
+[
+"Restarted the drive{0}",
+"ড্রাইভ আবার শুরু করেছেন{0}"
+],
+[
+"Scuffed {0} at {1} mph — slow right down near obstacles",
+"ঘষা লেগেছে: {0}, {1} mph-এ — বাধার কাছে খুব ধীরে চলুন"
+],
+[
+"Collision with {0} at {1} mph",
+"ধাক্কা: {0}, {1} mph-এ"
+],
+[
+"Speeding: {0} in a {1}",
+"অতিরিক্ত গতি: {1} এলাকায় {0}"
+],
+[
+"SCHOOL ZONE AHEAD — {0} mph",
+"সামনে স্কুল এলাকা — {0} mph"
+],
+[
+"Signaled the {0} turn too late",
+"{0} মোড় নেওয়ার সংকেত দেরিতে দিয়েছেন"
+],
+[
+"Turned {0} without signaling",
+"সংকেত না দিয়ে {0} মোড় নিয়েছেন"
+],
+[
+"Pull in closer to the curb ({0} ft out)",
+"ফুটপাথের আরও কাছে আসুন ({0} ft দূরে)"
+],
+[
+"STOP {0} OF {1}",
+"স্টপ {1}-এর {0}"
+],
+[
+"Restarted stop {0}",
+"স্টপ {0} আবার শুরু করেছেন"
+],
+[
+"Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
+"সাবধান, ওই বাক্স নিয়ে পা দেখা যায় না! পার হওয়ার সময় SHIFT চেপে রাখুন: {0}।"
+],
+[
+"You slipped on {0}!",
+"পিছলে গেছেন: {0}!"
+],
+[
+"You tripped over {0}!",
+"হোঁচট খেয়েছেন: {0}!"
+],
+[
+"Stop {0} of {1} · {2} {3}{4}",
+"স্টপ {1}-এর {0} · {2} {3}{4}"
+],
+[
+"Pull all {0} packages for this stop",
+"এই স্টপের সব {0}টি প্যাকেজ বের করুন"
+],
+[
+"This one is {0} lb. How do you get it to the door?",
+"এটার ওজন {0} lb। দরজা পর্যন্ত কীভাবে নেবেন?"
+],
+[
+"{0} lb in your arms, up steps you can't see: that's a back injury waiting. Use the hand truck.",
+"হাতে {0} lb, এমন সিঁড়িতে যা দেখা যায় না: এ তো পিঠের চোটের অপেক্ষা। হ্যান্ড ট্রাক ব্যবহার করুন।"
+],
+[
+"Stop address: {0} {1}{2}  ·  hover a box (or the arrow keys) to read its label",
+"স্টপের ঠিকানা: {0} {1}{2}  ·  লেবেল পড়তে বাক্সের ওপর কার্সর রাখুন (বা তীর কী)"
+],
+[
+"Carrying: {0}\n(click a box marked IN HAND to put it back)",
+"হাতে: {0}\n(ফিরিয়ে রাখতে হাতে চিহ্নিত বাক্সে ক্লিক করুন)"
+],
+[
+"Hi! That's for {0}. I can sign for it.",
+"নমস্কার! ওটা {0}-এর জন্য। আমি সই করতে পারি।"
+],
+[
+"{0} answers: {1} lives here too.",
+"{0} উত্তর দেন: {1}-ও এখানে থাকেন।"
+],
+[
+"{0} will sign for it. Use your handheld (TAB) to record the delivery.",
+"{0} সই করবেন। ডেলিভারি লিখতে হ্যান্ডহেল্ড (TAB) ব্যবহার করুন।"
+],
+[
+"✓ Exception {0} recorded.",
+"✓ ব্যতিক্রম {0} লেখা হয়েছে।"
+],
+[
+"✓ {0} · belongs to this stop",
+"✓ {0} · এই স্টপেরই"
+],
+[
+"✗ WRONG STOP: this one goes to {0} {1}{2}",
+"✗ ভুল স্টপ: এটা যাবে {0} {1}{2}"
+],
+[
+"⚠ {0} piece{1} for this stop still on the truck",
+"⚠ এই স্টপের {0}টি জিনিস এখনও ট্রাকে"
+],
+[
+"Walk up to {0} first: you're too far away to hand it over.",
+"আগে {0}-এর কাছে যান: হাতে দেওয়ার পক্ষে আপনি অনেক দূরে।"
+],
+[
+"{0} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.",
+"{0} একটি ছবিসহ পরিচয়পত্র দেখান। ছবিটা সামনের মুখের সঙ্গে মেলান, তারপর নাম, জন্মতারিখ আর মেয়াদের তারিখ।"
+],
+[
+"PHOTO ID · {0}",
+"ছবিসহ পরিচয়পত্র · {0}"
+],
+[
+"{0} is signing…",
+"{0} সই করছেন…"
+],
+[
+"Exception {0} recorded.",
+"ব্যতিক্রম {0} লেখা হয়েছে।"
+],
+[
+"Door tag {0} printed. Attach it to the door.",
+"দরজার ট্যাগ {0} ছাপা হয়েছে। দরজায় লাগান।"
+],
+[
+"Exception {0} recorded. Return the package to the van.",
+"ব্যতিক্রম {0} লেখা হয়েছে। প্যাকেজটি ভ্যানে ফিরিয়ে রাখুন।"
+],
+[
+"Slipped or tripped on {0}",
+"পিছলেছেন বা হোঁচট খেয়েছেন: {0}"
+],
+[
+"Fell on {0} carrying a package",
+"প্যাকেজ হাতে পড়ে গেছেন: {0}"
+],
+[
+"Cleared the hazard ({0})",
+"বিপদ সরিয়েছেন ({0})"
+],
+[
+"Nearly slipped on {0} before slowing down",
+"ধীর হওয়ার আগে প্রায় পিছলে যাচ্ছিলেন: {0}"
+],
+[
+"Stepped carefully over {0}, but left it on the path",
+"সাবধানে পার হয়েছেন, কিন্তু পথেই রেখে এসেছেন: {0}"
+],
+[
+"Walked carefully over {0}",
+"সাবধানে পার হয়েছেন: {0}"
+],
+[
+"Got past {0}, but didn't slow down{1}",
+"পেরিয়েছেন ({0}), কিন্তু ধীর হননি{1}"
+],
+[
+"Recorded the right exception ({0})",
+"সঠিক ব্যতিক্রম লিখেছেন ({0})"
+],
+[
+"Left it in a sensible spot: {0}",
+"বুদ্ধিমানের মতো জায়গায় রেখেছেন: {0}"
+],
+[
+"Proof-of-delivery photo showed {0}",
+"ডেলিভারির প্রমাণের ছবিতে ছিল: {0}"
+],
+[
+"Finished the stop in good time ({0}s, par {1}s)",
+"ভালো সময়ে স্টপ শেষ করেছেন ({0} সেকেন্ড, মান {1} সেকেন্ড)"
+],
+[
+"Extra trip{0} back into the truck",
+"ট্রাকে {0:বাড়তি কয়েকবার|একবার বাড়তি} ফিরে যাওয়া"
+],
+[
+"STOP {0} REPORT",
+"স্টপ {0} রিপোর্ট"
+],
+[
+"EXCEPTION {0}",
+"ব্যতিক্রম {0}"
 ]
 ],
 "keep": [

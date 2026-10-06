@@ -3156,6 +3156,526 @@ window.OTR_I18N.ml = {
 [
 "Gauge reads {0}/32\".",
 "ഗേജ് {0}/32\" കാണിക്കുന്നു."
+],
+[
+"{0}  (Minimum: 4/32\" front, 2/32\" rear.)",
+"{0}  (കുറഞ്ഞത്: മുന്നിൽ 4/32\", പിന്നിൽ 2/32\".)"
+],
+[
+"Caught the defects ({0} of {1})",
+"തകരാറുകൾ കണ്ടെത്തി ({1}-ൽ {0})"
+],
+[
+"Flagged {0} good part{1}",
+"{0} നല്ല ഭാഗങ്ങളെ തകരാറെന്ന് അടയാളപ്പെടുത്തി"
+],
+[
+"Walked it in good time ({0}s, par {1}s)",
+"നല്ല സമയത്ത് പരിശോധിച്ചു ({0} സെക്കൻഡ്, മാനദണ്ഡം {1} സെക്കൻഡ്)"
+],
+[
+"{0} was fine: {1}",
+"{0} ശരിയായിരുന്നു: {1}"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged",
+"{0} കണ്ടെത്തി · {1} വിട്ടുപോയി · {2} തെറ്റായി അടയാളപ്പെടുത്തി"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged · {3}s",
+"{0} കണ്ടെത്തി · {1} വിട്ടുപോയി · {2} തെറ്റായി അടയാളപ്പെടുത്തി · {3} സെക്കൻഡ്"
+],
+[
+"SCHOOL ZONE {0}–{1}",
+"സ്കൂൾ മേഖല {0}–{1}"
+],
+[
+"Pickup window {0} – {1}",
+"പിക്കപ്പ് സമയം {0} – {1}"
+],
+[
+"{0} · no time commitment",
+"{0} · സമയ പ്രതിബദ്ധതയില്ല"
+],
+[
+"{0} commitment{1} missed",
+"{0} പ്രതിബദ്ധതകൾ നഷ്ടമായി"
+],
+[
+"{0} pickup{1} after the dock closes",
+"ഡോക്ക് അടച്ചശേഷം {0} പിക്കപ്പുകൾ"
+],
+[
+"{0} min waiting for a shipper",
+"അയയ്ക്കുന്നയാൾക്കായി {0} മിനിറ്റ് കാത്തിരിപ്പ്"
+],
+[
+"{0} time-committed {1} would run late",
+"സമയ പ്രതിബദ്ധതയുള്ള {0} {1} വൈകും"
+],
+[
+"{0} pickup{1} would be missed",
+"{0} പിക്കപ്പുകൾ നഷ്ടമാകും"
+],
+[
+"Your plan says {0}. Dispatch would rather you resequenced now than called the customer later.",
+"നിങ്ങളുടെ പദ്ധതി പറയുന്നത്: {0}. പിന്നീട് ഉപഭോക്താവിനെ വിളിക്കുന്നതിനേക്കാൾ ഇപ്പോൾ തന്നെ ക്രമം മാറ്റുന്നതാണ് ഡിസ്പാച്ചിന് ഇഷ്ടം."
+],
+[
+"Waited {0} min at {1}",
+"{1}-ൽ {0} മിനിറ്റ് കാത്തിരുന്നു"
+],
+[
+"Loop length vs the best plan ({0} mi vs {1} mi)",
+"മികച്ച പദ്ധതിയുമായി താരതമ്യം ചെയ്ത് ചുറ്റിന്റെ നീളം ({0} mi vs {1} mi)"
+],
+[
+"{0} mi · {1} min{2}",
+"{0} mi · {1} മിനിറ്റ്{2}"
+],
+[
+"{0} mi · {1} min",
+"{0} mi · {1} മിനിറ്റ്"
+],
+[
+"+{0} min ({1} leg{2} while it was active)",
+"+{0} മിനിറ്റ് (സജീവമായിരിക്കെ {1} ഭാഗങ്ങൾ)"
+],
+[
+"{0} mi planned against a best possible {1} mi · {2}/{3} commitments met",
+"പദ്ധതി {0} mi, സാധ്യമായ മികച്ചത് {1} mi · {2}/{3} പ്രതിബദ്ധതകൾ പാലിച്ചു"
+],
+[
+"Read package {0} in {1}s",
+"പാക്കേജ് {0} വായിച്ചത് {1} സെക്കൻഡിൽ"
+],
+[
+"Called it without checking {0}",
+"{0} നോക്കാതെ തീരുമാനിച്ചു"
+],
+[
+"BELONGS ON: {0}",
+"ഇവിടേക്കാണ്: {0}"
+],
+[
+"Blind call — you never looked at {0}.",
+"നോക്കാതെയുള്ള തീരുമാനം — നിങ്ങൾ {0} ഒരിക്കലും നോക്കിയില്ല."
+],
+[
+"{0}/{1} placed right · {2} blind call{3} · all six sides checked on {4} of {5}",
+"{0}/{1} ശരിയായി വച്ചു · {2} നോക്കാത്ത തീരുമാനങ്ങൾ · ആറ് വശവും നോക്കിയത് {5}-ൽ {4}"
+],
+[
+"{0} side{1} still unchecked",
+"{0} വശങ്ങൾ ഇനിയും നോക്കാനുണ്ട്"
+],
+[
+"SIZE UP THE LOAD · {0}",
+"ഭാരം വിലയിരുത്തുക · {0}"
+],
+[
+"Back Health {0}/100 · technique {1}%",
+"മുതുകിന്റെ ആരോഗ്യം {0}/100 · സാങ്കേതികത {1}%"
+],
+[
+"{0} LB · TEAM LIFT",
+"{0} LB · ഒരുമിച്ച് ഉയർത്തുക"
+],
+[
+"{0} lb — that one goes down the heavy chute for a team lift.",
+"{0} lb — അത് ഒരുമിച്ച് ഉയർത്താൻ ഭാരമുള്ളവയുടെ ചരിവിലൂടെ പോകും."
+],
+[
+"Sorted {0} of {1} · scanned {2} of {3} · best streak {4} · specials handled {5}/{6}",
+"തരംതിരിച്ചത് {1}-ൽ {0} · സ്കാൻ {3}-ൽ {2} · മികച്ച തുടർച്ച {4} · പ്രത്യേകം കൈകാര്യം ചെയ്തത് {5}/{6}"
+],
+[
+"JAM — clear it (click or SPACE) · {0}s",
+"കുടുങ്ങി — നീക്കുക (ക്ലിക്ക് അല്ലെങ്കിൽ SPACE) · {0} സെക്കൻഡ്"
+],
+[
+"CART · {0} TO LOAD",
+"കാർട്ട് · ലോഡ് ചെയ്യാൻ {0}"
+],
+[
+"{0} lb is too heavy that high — bottom shelf or floor",
+"{0} lb അത്ര ഉയരത്തിന് വളരെ ഭാരം — താഴത്തെ ഷെൽഫ് അല്ലെങ്കിൽ തറ"
+],
+[
+"Stop {0} belongs in section {1}",
+"സ്റ്റോപ്പ് {0} ഭാഗം {1}-ലാണ്"
+],
+[
+"HEAVIEST ON THE TOP SHELF  {0} LB  (max 14)",
+"മുകളിലെ ഷെൽഫിൽ ഏറ്റവും ഭാരം  {0} LB  (പരമാവധി 14)"
+],
+[
+"Packages loaded in the right place ({0}/{1})",
+"ശരിയായ സ്ഥലത്ത് ലോഡ് ചെയ്ത പാക്കേജുകൾ ({0}/{1})"
+],
+[
+"Heavy packages loaded high ({0})",
+"ഉയരത്തിൽ ലോഡ് ചെയ്ത ഭാരമുള്ള പാക്കേജുകൾ ({0})"
+],
+[
+"Loaded in good time ({0}s, par {1}s)",
+"നല്ല സമയത്ത് ലോഡ് ചെയ്തു ({0} സെക്കൻഡ്, മാനദണ്ഡം {1} സെക്കൻഡ്)"
+],
+[
+"{0}/{1} placed right · {2} · floor {3} · {4}s",
+"{0}/{1} ശരിയായി വച്ചു · {2} · തറ {3} · {4} സെക്കൻഡ്"
+],
+[
+"{0} {1}: {2} lb loaded up high",
+"{0} {1}: {2} lb ഉയരത്തിൽ ലോഡ് ചെയ്തു"
+],
+[
+"{0} of {1} pieces in the right place{2}",
+"{1}-ൽ {0} വസ്തുക്കൾ ശരിയായ സ്ഥലത്ത്{2}"
+],
+[
+"PACKAGE {0} OF {1}",
+"പാക്കേജ് {1}-ൽ {0}"
+],
+[
+"FIND THIS ADDRESS  ·  STOP {0}",
+"ഈ വിലാസം കണ്ടെത്തുക  ·  സ്റ്റോപ്പ് {0}"
+],
+[
+"Found {0} {1} in {2}s{3}",
+"{0} {1} കണ്ടെത്തിയത് {2} സെക്കൻഡിൽ{3}"
+],
+[
+"{0} {1} — {2}. Read the whole address.",
+"{0} {1} — {2}. മുഴുവൻ വിലാസവും വായിക്കുക."
+],
+[
+"Pulled the right package first time ({0}/{1})",
+"ആദ്യ തവണ തന്നെ ശരിയായ പാക്കേജ് എടുത്തു ({0}/{1})"
+],
+[
+"Worked the truck in good time ({0}s)",
+"നല്ല സമയത്ത് ട്രക്കിൽ ജോലി ചെയ്തു ({0} സെക്കൻഡ്)"
+],
+[
+"{0}/{1} right first time · {2} wrong pick{3} · {4}s",
+"{0}/{1} ആദ്യ തവണ തന്നെ ശരി · {2} തെറ്റായ എടുക്കൽ · {4} സെക്കൻഡ്"
+],
+[
+"Stuck? Stop {0} belongs in section {1}, or in a floor bay if it is bulky. Hover a package to read its whole label.",
+"കുടുങ്ങിയോ? സ്റ്റോപ്പ് {0} ഭാഗം {1}-ലാണ്, അല്ലെങ്കിൽ വലുതാണെങ്കിൽ തറയിലെ അറയിൽ. മുഴുവൻ ലേബലും വായിക്കാൻ പാക്കേജിന് മുകളിൽ കഴ്സർ വയ്ക്കുക."
+],
+[
+"There it is, misloaded in section {0}. A misload costs this much time at every stop.",
+"അതാ, തെറ്റായി ഭാഗം {0}-ൽ ലോഡ് ചെയ്തിരിക്കുന്നു. തെറ്റായ ലോഡ് ഓരോ സ്റ്റോപ്പിലും ഇത്രയും സമയം കളയും."
+],
+[
+"There it is, in section {0}. Work the shelves section by section.",
+"അതാ, ഭാഗം {0}-ൽ. ഭാഗം അനുസരിച്ച് ഷെൽഫുകൾ നോക്കുക."
+],
+[
+"Manifest: {0} pieces (corrected from {1})",
+"മാനിഫെസ്റ്റ്: {0} വസ്തുക്കൾ ({1}-ൽ നിന്ന് തിരുത്തി)"
+],
+[
+"Manifest says: {0} piece{1}",
+"മാനിഫെസ്റ്റ് പ്രകാരം: {0} വസ്തുക്കൾ"
+],
+[
+"You've counted: {0} piece{1}",
+"നിങ്ങൾ എണ്ണിയത്: {0} വസ്തുക്കൾ"
+],
+[
+"Inspected: {0} of {1}",
+"പരിശോധിച്ചത്: {1}-ൽ {0}"
+],
+[
+"Already {0}. Your call at the counter is final.",
+"ഇതിനകം {0}. കൗണ്ടറിലെ നിങ്ങളുടെ തീരുമാനം അന്തിമമാണ്."
+],
+[
+"Sign for {0}. The count matches the manifest.",
+"{0}-ന് ഒപ്പിടുക. എണ്ണം മാനിഫെസ്റ്റുമായി ചേരുന്നു."
+],
+[
+"Ask {0} to recount anyway, just in case.",
+"എന്നിട്ടും {0}-നോട് വീണ്ടും എണ്ണാൻ പറയുക, ഒരു ഉറപ്പിന്."
+],
+[
+"Tell {0} you count {1}, not {2}, and ask them to check before you sign.",
+"നിങ്ങളുടെ എണ്ണം {1} ആണ്, {2} അല്ലെന്ന് {0}-നോട് പറഞ്ഞ്, ഒപ്പിടും മുമ്പ് പരിശോധിക്കാൻ ആവശ്യപ്പെടുക."
+],
+[
+"Sign for the manifest number ({0}) — close enough.",
+"മാനിഫെസ്റ്റിലെ സംഖ്യയ്ക്ക് ({0}) ഒപ്പിടുക — ഏതാണ്ട് ശരിയാണല്ലോ."
+],
+[
+"The manifest says {0}. You counted {1}.",
+"മാനിഫെസ്റ്റ് {0} എന്ന് പറയുന്നു. നിങ്ങൾ {1} എണ്ണി."
+],
+[
+"{0} counts the outgoing pieces. \"I make it {1} here, not {2}. Have another look?\"",
+"{0} അയയ്ക്കാനുള്ള വസ്തുക്കൾ എണ്ണുന്നു. \"എന്റെ കണക്കിൽ ഇവിടെ {1} ഉണ്ട്, {2} അല്ല. ഒന്നുകൂടി നോക്കാമോ?\""
+],
+[
+"Counted every piece waiting{0}",
+"കാത്തിരുന്ന എല്ലാ വസ്തുക്കളും എണ്ണി{0}"
+],
+[
+"Scale: {0} lb.",
+"തുലാസ്: {0} lb."
+],
+[
+"Hazard marks: {0}.",
+"അപകട അടയാളങ്ങൾ: {0}."
+],
+[
+"This one was fine to ship ({0}). Refusing a good piece fails the customer.",
+"ഇത് അയയ്ക്കാൻ ശരിയായിരുന്നു ({0}). നല്ല വസ്തു നിരസിച്ചാൽ ഉപഭോക്താവിന് നഷ്ടം."
+],
+[
+"The right reason here was \"{0}\".",
+"ഇവിടെ ശരിയായ കാരണം \"{0}\" ആയിരുന്നു."
+],
+[
+"Right to refuse it, wrong reason: it was \"{0}\".",
+"നിരസിച്ചത് ശരി, കാരണം തെറ്റ്: അത് \"{0}\" ആയിരുന്നു."
+],
+[
+"Found the customs paperwork problems ({0}/{1})",
+"കസ്റ്റംസ് രേഖകളിലെ പ്രശ്നങ്ങൾ കണ്ടെത്തി ({0}/{1})"
+],
+[
+"{0} of {1} problems found",
+"{1}-ൽ {0} പ്രശ്നങ്ങൾ കണ്ടെത്തി"
+],
+[
+"{0} refused — the shipper keeps them",
+"{0} നിരസിച്ചു — അയയ്ക്കുന്നയാളുടെ പക്കൽ തന്നെ"
+],
+[
+"{0} piece{1} accepted",
+"{0} വസ്തുക്കൾ സ്വീകരിച്ചു"
+],
+[
+"{0} signs for the pickup.",
+"{0} പിക്കപ്പിന് ഒപ്പിടുന്നു."
+],
+[
+"Worked the pickup in good time ({0}s)",
+"നല്ല സമയത്ത് പിക്കപ്പ് ചെയ്തു ({0} സെക്കൻഡ്)"
+],
+[
+"The post-trip: {0} before you clock off",
+"യാത്രയ്ക്ക് ശേഷമുള്ള പരിശോധന: ഡ്യൂട്ടി കഴിയും മുമ്പ് {0}"
+],
+[
+"DAY {0} · MORNING BRIEFING",
+"ദിവസം {0} · രാവിലത്തെ ബ്രീഫിങ്"
+],
+[
+"DAY {0} COMPLETE",
+"ദിവസം {0} പൂർത്തിയായി"
+],
+[
+"{0} delivered · {1} exception{2} · {3}h {4}m on the road",
+"{0} ഡെലിവർ · {1} ഒഴിവ് · റോഡിൽ {3} മ {4} മി"
+],
+[
+"Drive review ({0}) ›",
+"ഡ്രൈവിങ് അവലോകനം ({0}) ›"
+],
+[
+"{0}: headlights on (L)",
+"{0}: ഹെഡ്‌ലൈറ്റ് ഓണാക്കുക (L)"
+],
+[
+"Restarted the drive{0}",
+"ഡ്രൈവ് വീണ്ടും തുടങ്ങി{0}"
+],
+[
+"Scuffed {0} at {1} mph — slow right down near obstacles",
+"ഉരസി: {0}, {1} mph-ൽ — തടസ്സങ്ങൾക്കടുത്ത് വളരെ പതുക്കെ പോകുക"
+],
+[
+"Collision with {0} at {1} mph",
+"ഇടി: {0}, {1} mph-ൽ"
+],
+[
+"Speeding: {0} in a {1}",
+"അമിതവേഗം: {1} മേഖലയിൽ {0}"
+],
+[
+"SCHOOL ZONE AHEAD — {0} mph",
+"മുന്നിൽ സ്കൂൾ മേഖല — {0} mph"
+],
+[
+"Signaled the {0} turn too late",
+"{0} തിരിയാനുള്ള സിഗ്നൽ വൈകി നൽകി"
+],
+[
+"Turned {0} without signaling",
+"സിഗ്നൽ നൽകാതെ {0} തിരിഞ്ഞു"
+],
+[
+"Pull in closer to the curb ({0} ft out)",
+"നടപ്പാതയോട് കൂടുതൽ ചേർത്ത് നിർത്തുക ({0} ft അകലെ)"
+],
+[
+"STOP {0} OF {1}",
+"സ്റ്റോപ്പ് {1}-ൽ {0}"
+],
+[
+"Restarted stop {0}",
+"സ്റ്റോപ്പ് {0} വീണ്ടും തുടങ്ങി"
+],
+[
+"Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
+"ശ്രദ്ധിക്കുക, ആ പെട്ടിയുമായി നിങ്ങൾക്ക് കാലുകൾ കാണാനാകില്ല! കടക്കുമ്പോൾ SHIFT പിടിക്കുക: {0}."
+],
+[
+"You slipped on {0}!",
+"വഴുതി: {0}!"
+],
+[
+"You tripped over {0}!",
+"തട്ടിവീണു: {0}!"
+],
+[
+"Stop {0} of {1} · {2} {3}{4}",
+"സ്റ്റോപ്പ് {1}-ൽ {0} · {2} {3}{4}"
+],
+[
+"Pull all {0} packages for this stop",
+"ഈ സ്റ്റോപ്പിന്റെ എല്ലാ {0} പാക്കേജുകളും എടുക്കുക"
+],
+[
+"This one is {0} lb. How do you get it to the door?",
+"ഇതിന് {0} lb ഭാരമുണ്ട്. ഇത് വാതിൽ വരെ എങ്ങനെ എത്തിക്കും?"
+],
+[
+"{0} lb in your arms, up steps you can't see: that's a back injury waiting. Use the hand truck.",
+"കൈയിൽ {0} lb, കാണാനാകാത്ത പടികളിലൂടെ: ഇത് മുതുകിന് പരിക്കിനുള്ള കാത്തിരിപ്പാണ്. ഹാൻഡ് ട്രക്ക് ഉപയോഗിക്കുക."
+],
+[
+"Stop address: {0} {1}{2}  ·  hover a box (or the arrow keys) to read its label",
+"സ്റ്റോപ്പ് വിലാസം: {0} {1}{2}  ·  ലേബൽ വായിക്കാൻ പെട്ടിക്ക് മുകളിൽ കഴ്സർ വയ്ക്കുക (അല്ലെങ്കിൽ ആരോ കീകൾ)"
+],
+[
+"Carrying: {0}\n(click a box marked IN HAND to put it back)",
+"കൈയിൽ: {0}\n(തിരികെ വയ്ക്കാൻ കൈയിൽ എന്ന് അടയാളപ്പെടുത്തിയ പെട്ടിയിൽ ക്ലിക്ക് ചെയ്യുക)"
+],
+[
+"Hi! That's for {0}. I can sign for it.",
+"ഹലോ! അത് {0}-നുള്ളതാണ്. എനിക്ക് ഒപ്പിടാം."
+],
+[
+"{0} answers: {1} lives here too.",
+"{0} മറുപടി പറയുന്നു: {1}-ഉം ഇവിടെയാണ് താമസം."
+],
+[
+"{0} will sign for it. Use your handheld (TAB) to record the delivery.",
+"{0} ഒപ്പിടും. ഡെലിവറി രേഖപ്പെടുത്താൻ ഹാൻഡ്‌ഹെൽഡ് (TAB) ഉപയോഗിക്കുക."
+],
+[
+"✓ Exception {0} recorded.",
+"✓ ഒഴിവ് {0} രേഖപ്പെടുത്തി."
+],
+[
+"✓ {0} · belongs to this stop",
+"✓ {0} · ഈ സ്റ്റോപ്പിന്റേത്"
+],
+[
+"✗ WRONG STOP: this one goes to {0} {1}{2}",
+"✗ തെറ്റായ സ്റ്റോപ്പ്: ഇത് പോകേണ്ടത് {0} {1}{2}"
+],
+[
+"⚠ {0} piece{1} for this stop still on the truck",
+"⚠ ഈ സ്റ്റോപ്പിന്റെ {0} വസ്തുക്കൾ ഇപ്പോഴും ട്രക്കിൽ"
+],
+[
+"Walk up to {0} first: you're too far away to hand it over.",
+"ആദ്യം {0}-ന്റെ അടുത്തേക്ക് ചെല്ലുക: കൈമാറാൻ നിങ്ങൾ വളരെ ദൂരെയാണ്."
+],
+[
+"{0} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.",
+"{0} ഫോട്ടോ ഐഡി കാണിക്കുന്നു. ഫോട്ടോ മുന്നിലെ മുഖവുമായി ഒത്തുനോക്കുക, പിന്നെ പേര്, ജനനത്തീയതി, കാലാവധി തീയതി."
+],
+[
+"PHOTO ID · {0}",
+"ഫോട്ടോ ഐഡി · {0}"
+],
+[
+"{0} is signing…",
+"{0} ഒപ്പിടുന്നു…"
+],
+[
+"Exception {0} recorded.",
+"ഒഴിവ് {0} രേഖപ്പെടുത്തി."
+],
+[
+"Door tag {0} printed. Attach it to the door.",
+"വാതിൽ ടാഗ് {0} അച്ചടിച്ചു. അത് വാതിലിൽ തൂക്കുക."
+],
+[
+"Exception {0} recorded. Return the package to the van.",
+"ഒഴിവ് {0} രേഖപ്പെടുത്തി. പാക്കേജ് തിരികെ വാനിൽ വയ്ക്കുക."
+],
+[
+"Slipped or tripped on {0}",
+"വഴുതുകയോ തട്ടിവീഴുകയോ ചെയ്തു: {0}"
+],
+[
+"Fell on {0} carrying a package",
+"പാക്കേജുമായി വീണു: {0}"
+],
+[
+"Cleared the hazard ({0})",
+"അപകടം നീക്കി ({0})"
+],
+[
+"Nearly slipped on {0} before slowing down",
+"വേഗം കുറയ്ക്കും മുമ്പ് ഏതാണ്ട് വഴുതി: {0}"
+],
+[
+"Stepped carefully over {0}, but left it on the path",
+"ശ്രദ്ധിച്ച് കടന്നു, പക്ഷേ വഴിയിൽ തന്നെ വിട്ടു: {0}"
+],
+[
+"Walked carefully over {0}",
+"ശ്രദ്ധിച്ച് കടന്നു: {0}"
+],
+[
+"Got past {0}, but didn't slow down{1}",
+"കടന്നുപോയി ({0}), പക്ഷേ വേഗം കുറച്ചില്ല{1}"
+],
+[
+"Recorded the right exception ({0})",
+"ശരിയായ ഒഴിവ് രേഖപ്പെടുത്തി ({0})"
+],
+[
+"Left it in a sensible spot: {0}",
+"ഉചിതമായ സ്ഥലത്ത് വച്ചു: {0}"
+],
+[
+"Proof-of-delivery photo showed {0}",
+"ഡെലിവറി തെളിവ് ഫോട്ടോയിൽ കണ്ടത്: {0}"
+],
+[
+"Finished the stop in good time ({0}s, par {1}s)",
+"നല്ല സമയത്ത് സ്റ്റോപ്പ് പൂർത്തിയാക്കി ({0} സെക്കൻഡ്, മാനദണ്ഡം {1} സെക്കൻഡ്)"
+],
+[
+"Extra trip{0} back into the truck",
+"ട്രക്കിലേക്ക് {0:അധിക യാത്രകൾ|ഒരു അധിക യാത്ര}"
+],
+[
+"STOP {0} REPORT",
+"സ്റ്റോപ്പ് {0} റിപ്പോർട്ട്"
+],
+[
+"EXCEPTION {0}",
+"ഒഴിവ് {0}"
 ]
 ],
 "keep": [

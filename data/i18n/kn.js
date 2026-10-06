@@ -3156,6 +3156,526 @@ window.OTR_I18N.kn = {
 [
 "Gauge reads {0}/32\".",
 "ಅಳತೆಗೋಲು {0}/32\" ತೋರಿಸುತ್ತಿದೆ."
+],
+[
+"{0}  (Minimum: 4/32\" front, 2/32\" rear.)",
+"{0}  (ಕನಿಷ್ಠ: ಮುಂದೆ 4/32\", ಹಿಂದೆ 2/32\".)"
+],
+[
+"Caught the defects ({0} of {1})",
+"ದೋಷಗಳನ್ನು ಹಿಡಿದಿರಿ ({1} ರಲ್ಲಿ {0})"
+],
+[
+"Flagged {0} good part{1}",
+"{0} ಸರಿಯಾದ ಭಾಗಗಳನ್ನು ದೋಷವೆಂದು ಗುರುತಿಸಿದಿರಿ"
+],
+[
+"Walked it in good time ({0}s, par {1}s)",
+"ಉತ್ತಮ ಸಮಯದಲ್ಲಿ ಪರಿಶೀಲಿಸಿದಿರಿ ({0} ಸೆಕೆಂಡ್, ಮಾನದಂಡ {1} ಸೆಕೆಂಡ್)"
+],
+[
+"{0} was fine: {1}",
+"{0} ಸರಿಯಾಗಿತ್ತು: {1}"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged",
+"{0} ಹಿಡಿದಿದ್ದು · {1} ತಪ್ಪಿದ್ದು · {2} ತಪ್ಪಾಗಿ ಗುರುತಿಸಿದ್ದು"
+],
+[
+"{0} caught · {1} missed · {2} wrongly flagged · {3}s",
+"{0} ಹಿಡಿದಿದ್ದು · {1} ತಪ್ಪಿದ್ದು · {2} ತಪ್ಪಾಗಿ ಗುರುತಿಸಿದ್ದು · {3} ಸೆಕೆಂಡ್"
+],
+[
+"SCHOOL ZONE {0}–{1}",
+"ಶಾಲಾ ವಲಯ {0}–{1}"
+],
+[
+"Pickup window {0} – {1}",
+"ಪಿಕಪ್ ಸಮಯ {0} – {1}"
+],
+[
+"{0} · no time commitment",
+"{0} · ಸಮಯದ ಬದ್ಧತೆ ಇಲ್ಲ"
+],
+[
+"{0} commitment{1} missed",
+"{0} ಬದ್ಧತೆ ತಪ್ಪಿತು"
+],
+[
+"{0} pickup{1} after the dock closes",
+"ಡಾಕ್ ಮುಚ್ಚಿದ ನಂತರ {0} ಪಿಕಪ್"
+],
+[
+"{0} min waiting for a shipper",
+"ಕಳುಹಿಸುವವರಿಗಾಗಿ {0} ನಿಮಿಷ ಕಾಯುವಿಕೆ"
+],
+[
+"{0} time-committed {1} would run late",
+"ಸಮಯ ಬದ್ಧ {0} {1} ತಡವಾಗುತ್ತವೆ"
+],
+[
+"{0} pickup{1} would be missed",
+"{0} ಪಿಕಪ್ ತಪ್ಪುತ್ತವೆ"
+],
+[
+"Your plan says {0}. Dispatch would rather you resequenced now than called the customer later.",
+"ನಿಮ್ಮ ಯೋಜನೆ ಹೇಳುವುದು: {0}. ನಂತರ ಗ್ರಾಹಕರಿಗೆ ಕರೆ ಮಾಡುವುದಕ್ಕಿಂತ ಈಗಲೇ ಕ್ರಮ ಬದಲಿಸುವುದನ್ನು ಡಿಸ್ಪ್ಯಾಚ್ ಇಷ್ಟಪಡುತ್ತದೆ."
+],
+[
+"Waited {0} min at {1}",
+"{1} ನಲ್ಲಿ {0} ನಿಮಿಷ ಕಾದಿರಿ"
+],
+[
+"Loop length vs the best plan ({0} mi vs {1} mi)",
+"ಅತ್ಯುತ್ತಮ ಯೋಜನೆಗೆ ಹೋಲಿಸಿದರೆ ಸುತ್ತಿನ ಉದ್ದ ({0} mi ವಿರುದ್ಧ {1} mi)"
+],
+[
+"{0} mi · {1} min{2}",
+"{0} mi · {1} ನಿಮಿಷ{2}"
+],
+[
+"{0} mi · {1} min",
+"{0} mi · {1} ನಿಮಿಷ"
+],
+[
+"+{0} min ({1} leg{2} while it was active)",
+"+{0} ನಿಮಿಷ (ಸಕ್ರಿಯವಾಗಿದ್ದಾಗ {1} ಭಾಗ)"
+],
+[
+"{0} mi planned against a best possible {1} mi · {2}/{3} commitments met",
+"ಯೋಜನೆ {0} mi, ಅತ್ಯುತ್ತಮ ಸಾಧ್ಯ {1} mi · {2}/{3} ಬದ್ಧತೆ ಪೂರೈಸಲಾಗಿದೆ"
+],
+[
+"Read package {0} in {1}s",
+"ಪ್ಯಾಕೇಜ್ {0} ಅನ್ನು {1} ಸೆಕೆಂಡ್‌ನಲ್ಲಿ ಓದಿದಿರಿ"
+],
+[
+"Called it without checking {0}",
+"{0} ನೋಡದೆ ನಿರ್ಧರಿಸಿದಿರಿ"
+],
+[
+"BELONGS ON: {0}",
+"ಇಲ್ಲಿಗೆ ಹೋಗುತ್ತದೆ: {0}"
+],
+[
+"Blind call — you never looked at {0}.",
+"ನೋಡದ ನಿರ್ಧಾರ — ನೀವು {0} ಎಂದೂ ನೋಡಲಿಲ್ಲ."
+],
+[
+"{0}/{1} placed right · {2} blind call{3} · all six sides checked on {4} of {5}",
+"{0}/{1} ಸರಿಯಾಗಿ ಇಟ್ಟಿದ್ದು · {2} ನೋಡದ ನಿರ್ಧಾರ · ಆರೂ ಬದಿ ನೋಡಿದ್ದು {5} ರಲ್ಲಿ {4}"
+],
+[
+"{0} side{1} still unchecked",
+"{0} ಬದಿ ಇನ್ನೂ ನೋಡಿಲ್ಲ"
+],
+[
+"SIZE UP THE LOAD · {0}",
+"ಹೊರೆಯನ್ನು ಅಂದಾಜಿಸಿ · {0}"
+],
+[
+"Back Health {0}/100 · technique {1}%",
+"ಬೆನ್ನಿನ ಆರೋಗ್ಯ {0}/100 · ತಂತ್ರ {1}%"
+],
+[
+"{0} LB · TEAM LIFT",
+"{0} LB · ಒಟ್ಟಿಗೆ ಎತ್ತಿ"
+],
+[
+"{0} lb — that one goes down the heavy chute for a team lift.",
+"{0} lb — ಅದು ಒಟ್ಟಿಗೆ ಎತ್ತಲು ಭಾರದ ಜಾರುದಾರಿಯಲ್ಲಿ ಹೋಗುತ್ತದೆ."
+],
+[
+"Sorted {0} of {1} · scanned {2} of {3} · best streak {4} · specials handled {5}/{6}",
+"ವಿಂಗಡಿಸಿದ್ದು {1} ರಲ್ಲಿ {0} · ಸ್ಕ್ಯಾನ್ {3} ರಲ್ಲಿ {2} · ಅತ್ಯುತ್ತಮ ಸರಣಿ {4} · ವಿಶೇಷ ನಿರ್ವಹಿಸಿದ್ದು {5}/{6}"
+],
+[
+"JAM — clear it (click or SPACE) · {0}s",
+"ಸಿಕ್ಕಿಕೊಂಡಿದೆ — ಬಿಡಿಸಿ (ಕ್ಲಿಕ್ ಅಥವಾ SPACE) · {0} ಸೆಕೆಂಡ್"
+],
+[
+"CART · {0} TO LOAD",
+"ಕಾರ್ಟ್ · ಲೋಡ್ ಮಾಡಬೇಕಾದ್ದು {0}"
+],
+[
+"{0} lb is too heavy that high — bottom shelf or floor",
+"{0} lb ಅಷ್ಟು ಎತ್ತರಕ್ಕೆ ತುಂಬಾ ಭಾರ — ಕೆಳಗಿನ ಕಪಾಟು ಅಥವಾ ನೆಲ"
+],
+[
+"Stop {0} belongs in section {1}",
+"ಸ್ಟಾಪ್ {0} ವಿಭಾಗ {1} ಕ್ಕೆ ಸೇರುತ್ತದೆ"
+],
+[
+"HEAVIEST ON THE TOP SHELF  {0} LB  (max 14)",
+"ಮೇಲಿನ ಕಪಾಟಿನಲ್ಲಿ ಅತಿ ಭಾರ  {0} LB  (ಗರಿಷ್ಠ 14)"
+],
+[
+"Packages loaded in the right place ({0}/{1})",
+"ಸರಿಯಾದ ಸ್ಥಳದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿದ ಪ್ಯಾಕೇಜ್‌ಗಳು ({0}/{1})"
+],
+[
+"Heavy packages loaded high ({0})",
+"ಎತ್ತರದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿದ ಭಾರದ ಪ್ಯಾಕೇಜ್‌ಗಳು ({0})"
+],
+[
+"Loaded in good time ({0}s, par {1}s)",
+"ಉತ್ತಮ ಸಮಯದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿದಿರಿ ({0} ಸೆಕೆಂಡ್, ಮಾನದಂಡ {1} ಸೆಕೆಂಡ್)"
+],
+[
+"{0}/{1} placed right · {2} · floor {3} · {4}s",
+"{0}/{1} ಸರಿಯಾಗಿ ಇಟ್ಟಿದ್ದು · {2} · ನೆಲ {3} · {4} ಸೆಕೆಂಡ್"
+],
+[
+"{0} {1}: {2} lb loaded up high",
+"{0} {1}: {2} lb ಎತ್ತರದಲ್ಲಿ ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"
+],
+[
+"{0} of {1} pieces in the right place{2}",
+"{1} ರಲ್ಲಿ {0} ವಸ್ತುಗಳು ಸರಿಯಾದ ಸ್ಥಳದಲ್ಲಿ{2}"
+],
+[
+"PACKAGE {0} OF {1}",
+"ಪ್ಯಾಕೇಜ್ {1} ರಲ್ಲಿ {0}"
+],
+[
+"FIND THIS ADDRESS  ·  STOP {0}",
+"ಈ ವಿಳಾಸ ಹುಡುಕಿ  ·  ಸ್ಟಾಪ್ {0}"
+],
+[
+"Found {0} {1} in {2}s{3}",
+"{0} {1} ಅನ್ನು {2} ಸೆಕೆಂಡ್‌ನಲ್ಲಿ ಕಂಡುಹಿಡಿದಿರಿ{3}"
+],
+[
+"{0} {1} — {2}. Read the whole address.",
+"{0} {1} — {2}. ಪೂರ್ಣ ವಿಳಾಸ ಓದಿ."
+],
+[
+"Pulled the right package first time ({0}/{1})",
+"ಮೊದಲ ಬಾರಿಯೇ ಸರಿಯಾದ ಪ್ಯಾಕೇಜ್ ತೆಗೆದಿರಿ ({0}/{1})"
+],
+[
+"Worked the truck in good time ({0}s)",
+"ಉತ್ತಮ ಸಮಯದಲ್ಲಿ ಟ್ರಕ್‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡಿದಿರಿ ({0} ಸೆಕೆಂಡ್)"
+],
+[
+"{0}/{1} right first time · {2} wrong pick{3} · {4}s",
+"{0}/{1} ಮೊದಲ ಬಾರಿಯೇ ಸರಿ · {2} ತಪ್ಪು ಆಯ್ಕೆ · {4} ಸೆಕೆಂಡ್"
+],
+[
+"Stuck? Stop {0} belongs in section {1}, or in a floor bay if it is bulky. Hover a package to read its whole label.",
+"ಸಿಕ್ಕಿಕೊಂಡಿರಾ? ಸ್ಟಾಪ್ {0} ವಿಭಾಗ {1} ಕ್ಕೆ ಸೇರುತ್ತದೆ, ಅಥವಾ ದೊಡ್ಡದಾದರೆ ನೆಲದ ಕಪಾಟಿಗೆ. ಪೂರ್ಣ ಲೇಬಲ್ ಓದಲು ಪ್ಯಾಕೇಜ್ ಮೇಲೆ ಕರ್ಸರ್ ಇಡಿ."
+],
+[
+"There it is, misloaded in section {0}. A misload costs this much time at every stop.",
+"ಅಗೋ, ತಪ್ಪಾಗಿ ವಿಭಾಗ {0} ರಲ್ಲಿ ಲೋಡ್ ಆಗಿದೆ. ತಪ್ಪು ಲೋಡ್ ಪ್ರತಿ ಸ್ಟಾಪ್‌ನಲ್ಲೂ ಇಷ್ಟು ಸಮಯ ತಿನ್ನುತ್ತದೆ."
+],
+[
+"There it is, in section {0}. Work the shelves section by section.",
+"ಅಗೋ, ವಿಭಾಗ {0} ರಲ್ಲಿ. ವಿಭಾಗವಾರು ಕಪಾಟುಗಳನ್ನು ನೋಡಿ."
+],
+[
+"Manifest: {0} pieces (corrected from {1})",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್: {0} ವಸ್ತುಗಳು ({1} ರಿಂದ ಸರಿಪಡಿಸಲಾಗಿದೆ)"
+],
+[
+"Manifest says: {0} piece{1}",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್ ಪ್ರಕಾರ: {0} ವಸ್ತುಗಳು"
+],
+[
+"You've counted: {0} piece{1}",
+"ನೀವು ಎಣಿಸಿದ್ದು: {0} ವಸ್ತುಗಳು"
+],
+[
+"Inspected: {0} of {1}",
+"ಪರೀಕ್ಷಿಸಿದ್ದು: {1} ರಲ್ಲಿ {0}"
+],
+[
+"Already {0}. Your call at the counter is final.",
+"ಈಗಾಗಲೇ {0}. ಕೌಂಟರ್‌ನಲ್ಲಿ ನಿಮ್ಮ ನಿರ್ಧಾರವೇ ಅಂತಿಮ."
+],
+[
+"Sign for {0}. The count matches the manifest.",
+"{0} ಕ್ಕೆ ಸಹಿ ಮಾಡಿ. ಎಣಿಕೆ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ಗೆ ಹೊಂದುತ್ತದೆ."
+],
+[
+"Ask {0} to recount anyway, just in case.",
+"ಆದರೂ {0} ಅವರಿಗೆ ಮತ್ತೆ ಎಣಿಸಲು ಹೇಳಿ, ಎಚ್ಚರಕ್ಕಾಗಿ."
+],
+[
+"Tell {0} you count {1}, not {2}, and ask them to check before you sign.",
+"ನಿಮ್ಮ ಎಣಿಕೆ {1}, {2} ಅಲ್ಲ ಎಂದು {0} ಅವರಿಗೆ ಹೇಳಿ, ಸಹಿಗೆ ಮುನ್ನ ಪರಿಶೀಲಿಸಲು ಕೇಳಿ."
+],
+[
+"Sign for the manifest number ({0}) — close enough.",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್ ಸಂಖ್ಯೆಗೆ ({0}) ಸಹಿ ಮಾಡಿ — ಬಹುತೇಕ ಸರಿ."
+],
+[
+"The manifest says {0}. You counted {1}.",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್ {0} ಎನ್ನುತ್ತದೆ. ನೀವು {1} ಎಣಿಸಿದಿರಿ."
+],
+[
+"{0} counts the outgoing pieces. \"I make it {1} here, not {2}. Have another look?\"",
+"{0} ಕಳುಹಿಸಬೇಕಾದ ವಸ್ತುಗಳನ್ನು ಎಣಿಸುತ್ತಾರೆ. \"ನನ್ನ ಲೆಕ್ಕದಲ್ಲಿ ಇಲ್ಲಿ {1}, {2} ಅಲ್ಲ. ಇನ್ನೊಮ್ಮೆ ನೋಡುತ್ತೀರಾ?\""
+],
+[
+"Counted every piece waiting{0}",
+"ಕಾಯುತ್ತಿದ್ದ ಪ್ರತಿ ವಸ್ತುವನ್ನೂ ಎಣಿಸಿದಿರಿ{0}"
+],
+[
+"Scale: {0} lb.",
+"ತಕ್ಕಡಿ: {0} lb."
+],
+[
+"Hazard marks: {0}.",
+"ಅಪಾಯದ ಗುರುತುಗಳು: {0}."
+],
+[
+"This one was fine to ship ({0}). Refusing a good piece fails the customer.",
+"ಇದು ಕಳುಹಿಸಲು ಸರಿಯಾಗಿತ್ತು ({0}). ಸರಿಯಾದ ವಸ್ತುವನ್ನು ನಿರಾಕರಿಸಿದರೆ ಗ್ರಾಹಕರಿಗೆ ನಷ್ಟ."
+],
+[
+"The right reason here was \"{0}\".",
+"ಇಲ್ಲಿ ಸರಿಯಾದ ಕಾರಣ \"{0}\"."
+],
+[
+"Right to refuse it, wrong reason: it was \"{0}\".",
+"ನಿರಾಕರಿಸಿದ್ದು ಸರಿ, ಕಾರಣ ತಪ್ಪು: ಅದು \"{0}\"."
+],
+[
+"Found the customs paperwork problems ({0}/{1})",
+"ಕಸ್ಟಮ್ಸ್ ದಾಖಲೆಗಳ ಸಮಸ್ಯೆಗಳನ್ನು ಕಂಡುಹಿಡಿದಿರಿ ({0}/{1})"
+],
+[
+"{0} of {1} problems found",
+"{1} ರಲ್ಲಿ {0} ಸಮಸ್ಯೆಗಳು ಸಿಕ್ಕವು"
+],
+[
+"{0} refused — the shipper keeps them",
+"{0} ನಿರಾಕರಿಸಲಾಗಿದೆ — ಕಳುಹಿಸುವವರ ಬಳಿಯೇ ಉಳಿಯುತ್ತವೆ"
+],
+[
+"{0} piece{1} accepted",
+"{0} ವಸ್ತುಗಳು ಸ್ವೀಕರಿಸಲಾಗಿದೆ"
+],
+[
+"{0} signs for the pickup.",
+"{0} ಪಿಕಪ್‌ಗೆ ಸಹಿ ಮಾಡುತ್ತಾರೆ."
+],
+[
+"Worked the pickup in good time ({0}s)",
+"ಉತ್ತಮ ಸಮಯದಲ್ಲಿ ಪಿಕಪ್ ಮಾಡಿದಿರಿ ({0} ಸೆಕೆಂಡ್)"
+],
+[
+"The post-trip: {0} before you clock off",
+"ಪ್ರಯಾಣದ ನಂತರದ ಪರಿಶೀಲನೆ: ಡ್ಯೂಟಿ ಮುಗಿಸುವ ಮುನ್ನ {0}"
+],
+[
+"DAY {0} · MORNING BRIEFING",
+"ದಿನ {0} · ಬೆಳಗಿನ ಬ್ರೀಫಿಂಗ್"
+],
+[
+"DAY {0} COMPLETE",
+"ದಿನ {0} ಪೂರ್ಣ"
+],
+[
+"{0} delivered · {1} exception{2} · {3}h {4}m on the road",
+"{0} ಡೆಲಿವರ್ · {1} ವಿನಾಯಿತಿ · ರಸ್ತೆಯಲ್ಲಿ {3} ಗಂ {4} ನಿ"
+],
+[
+"Drive review ({0}) ›",
+"ಚಾಲನೆಯ ವಿಮರ್ಶೆ ({0}) ›"
+],
+[
+"{0}: headlights on (L)",
+"{0}: ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಮಾಡಿ (L)"
+],
+[
+"Restarted the drive{0}",
+"ಚಾಲನೆ ಮತ್ತೆ ಆರಂಭಿಸಿದಿರಿ{0}"
+],
+[
+"Scuffed {0} at {1} mph — slow right down near obstacles",
+"{1} mph ನಲ್ಲಿ {0} ಗೆ ಉಜ್ಜಿದಿರಿ — ಅಡಚಣೆಗಳ ಬಳಿ ತುಂಬಾ ನಿಧಾನವಾಗಿ ಹೋಗಿ"
+],
+[
+"Collision with {0} at {1} mph",
+"{1} mph ನಲ್ಲಿ {0} ಗೆ ಡಿಕ್ಕಿ"
+],
+[
+"Speeding: {0} in a {1}",
+"ಅತಿವೇಗ: {1} ವಲಯದಲ್ಲಿ {0}"
+],
+[
+"SCHOOL ZONE AHEAD — {0} mph",
+"ಮುಂದೆ ಶಾಲಾ ವಲಯ — {0} mph"
+],
+[
+"Signaled the {0} turn too late",
+"{0} ತಿರುಗುವ ಸಿಗ್ನಲ್ ತಡವಾಗಿ ಕೊಟ್ಟಿರಿ"
+],
+[
+"Turned {0} without signaling",
+"ಸಿಗ್ನಲ್ ಕೊಡದೆ {0} ತಿರುಗಿದಿರಿ"
+],
+[
+"Pull in closer to the curb ({0} ft out)",
+"ಪಾದಚಾರಿ ಮಾರ್ಗಕ್ಕೆ ಇನ್ನಷ್ಟು ಹತ್ತಿರ ಸರಿಯಿರಿ ({0} ft ದೂರ)"
+],
+[
+"STOP {0} OF {1}",
+"ಸ್ಟಾಪ್ {1} ರಲ್ಲಿ {0}"
+],
+[
+"Restarted stop {0}",
+"ಸ್ಟಾಪ್ {0} ಮತ್ತೆ ಆರಂಭಿಸಿದಿರಿ"
+],
+[
+"Careful, you can't see your feet with that box! Hold SHIFT over {0}.",
+"ಎಚ್ಚರ, ಆ ಪೆಟ್ಟಿಗೆಯೊಂದಿಗೆ ನಿಮ್ಮ ಪಾದಗಳು ಕಾಣುವುದಿಲ್ಲ! {0} ಮೇಲೆ SHIFT ಹಿಡಿಯಿರಿ."
+],
+[
+"You slipped on {0}!",
+"ನೀವು {0} ಮೇಲೆ ಜಾರಿದಿರಿ!"
+],
+[
+"You tripped over {0}!",
+"ನೀವು {0} ಗೆ ಎಡವಿದಿರಿ!"
+],
+[
+"Stop {0} of {1} · {2} {3}{4}",
+"ಸ್ಟಾಪ್ {1} ರಲ್ಲಿ {0} · {2} {3}{4}"
+],
+[
+"Pull all {0} packages for this stop",
+"ಈ ಸ್ಟಾಪ್‌ನ ಎಲ್ಲಾ {0} ಪ್ಯಾಕೇಜ್ ತೆಗೆಯಿರಿ"
+],
+[
+"This one is {0} lb. How do you get it to the door?",
+"ಇದು {0} lb. ಇದನ್ನು ಬಾಗಿಲವರೆಗೆ ಹೇಗೆ ಒಯ್ಯುತ್ತೀರಿ?"
+],
+[
+"{0} lb in your arms, up steps you can't see: that's a back injury waiting. Use the hand truck.",
+"ಕೈಯಲ್ಲಿ {0} lb, ಕಾಣದ ಮೆಟ್ಟಿಲುಗಳ ಮೇಲೆ: ಇದು ಬೆನ್ನಿನ ಗಾಯಕ್ಕಾಗಿ ಕಾಯುವಿಕೆ. ಹ್ಯಾಂಡ್ ಟ್ರಕ್ ಬಳಸಿ."
+],
+[
+"Stop address: {0} {1}{2}  ·  hover a box (or the arrow keys) to read its label",
+"ಸ್ಟಾಪ್ ವಿಳಾಸ: {0} {1}{2}  ·  ಲೇಬಲ್ ಓದಲು ಪೆಟ್ಟಿಗೆ ಮೇಲೆ ಕರ್ಸರ್ ಇಡಿ (ಅಥವಾ ಬಾಣದ ಕೀಲಿಗಳು)"
+],
+[
+"Carrying: {0}\n(click a box marked IN HAND to put it back)",
+"ಕೈಯಲ್ಲಿ: {0}\n(ಮತ್ತೆ ಇಡಲು ಕೈಯಲ್ಲಿ ಎಂದು ಗುರುತಿಸಿದ ಪೆಟ್ಟಿಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ)"
+],
+[
+"Hi! That's for {0}. I can sign for it.",
+"ನಮಸ್ಕಾರ! ಅದು {0} ಅವರಿಗೆ. ನಾನು ಸಹಿ ಮಾಡಬಲ್ಲೆ."
+],
+[
+"{0} answers: {1} lives here too.",
+"{0} ಉತ್ತರಿಸುತ್ತಾರೆ: {1} ಕೂಡ ಇಲ್ಲೇ ವಾಸಿಸುತ್ತಾರೆ."
+],
+[
+"{0} will sign for it. Use your handheld (TAB) to record the delivery.",
+"{0} ಸಹಿ ಮಾಡುತ್ತಾರೆ. ಡೆಲಿವರಿ ದಾಖಲಿಸಲು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ (TAB) ಬಳಸಿ."
+],
+[
+"✓ Exception {0} recorded.",
+"✓ ವಿನಾಯಿತಿ {0} ದಾಖಲಾಯಿತು."
+],
+[
+"✓ {0} · belongs to this stop",
+"✓ {0} · ಈ ಸ್ಟಾಪ್‌ನದ್ದೇ"
+],
+[
+"✗ WRONG STOP: this one goes to {0} {1}{2}",
+"✗ ತಪ್ಪು ಸ್ಟಾಪ್: ಇದು ಹೋಗುವುದು {0} {1}{2}"
+],
+[
+"⚠ {0} piece{1} for this stop still on the truck",
+"⚠ ಈ ಸ್ಟಾಪ್‌ನ {0} ವಸ್ತುಗಳು ಇನ್ನೂ ಟ್ರಕ್‌ನಲ್ಲಿ"
+],
+[
+"Walk up to {0} first: you're too far away to hand it over.",
+"ಮೊದಲು {0} ಅವರ ಹತ್ತಿರ ಹೋಗಿ: ಕೈಗೆ ಕೊಡಲು ನೀವು ತುಂಬಾ ದೂರದಲ್ಲಿದ್ದೀರಿ."
+],
+[
+"{0} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.",
+"{0} ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ತೋರಿಸುತ್ತಾರೆ. ಫೋಟೋವನ್ನು ಎದುರಿನ ಮುಖದೊಂದಿಗೆ ಹೋಲಿಸಿ, ನಂತರ ಹೆಸರು, ಜನ್ಮ ದಿನಾಂಕ ಮತ್ತು ಅವಧಿ ದಿನಾಂಕ."
+],
+[
+"PHOTO ID · {0}",
+"ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ · {0}"
+],
+[
+"{0} is signing…",
+"{0} ಸಹಿ ಮಾಡುತ್ತಿದ್ದಾರೆ…"
+],
+[
+"Exception {0} recorded.",
+"ವಿನಾಯಿತಿ {0} ದಾಖಲಾಯಿತು."
+],
+[
+"Door tag {0} printed. Attach it to the door.",
+"ಬಾಗಿಲ ಟ್ಯಾಗ್ {0} ಮುದ್ರಿಸಲಾಗಿದೆ. ಅದನ್ನು ಬಾಗಿಲಿಗೆ ಹಾಕಿ."
+],
+[
+"Exception {0} recorded. Return the package to the van.",
+"ವಿನಾಯಿತಿ {0} ದಾಖಲಾಯಿತು. ಪ್ಯಾಕೇಜನ್ನು ವ್ಯಾನ್‌ಗೆ ಮರಳಿ ಇಡಿ."
+],
+[
+"Slipped or tripped on {0}",
+"{0} ಮೇಲೆ ಜಾರಿದಿರಿ ಅಥವಾ ಎಡವಿದಿರಿ"
+],
+[
+"Fell on {0} carrying a package",
+"ಪ್ಯಾಕೇಜ್ ಹಿಡಿದು {0} ಮೇಲೆ ಬಿದ್ದಿರಿ"
+],
+[
+"Cleared the hazard ({0})",
+"ಅಪಾಯ ತೆರವು ಮಾಡಿದಿರಿ ({0})"
+],
+[
+"Nearly slipped on {0} before slowing down",
+"ನಿಧಾನಿಸುವ ಮುನ್ನ {0} ಮೇಲೆ ಬಹುತೇಕ ಜಾರಿದಿರಿ"
+],
+[
+"Stepped carefully over {0}, but left it on the path",
+"{0} ಮೇಲೆ ಎಚ್ಚರದಿಂದ ಹೆಜ್ಜೆ ಇಟ್ಟಿರಿ, ಆದರೆ ದಾರಿಯಲ್ಲೇ ಬಿಟ್ಟಿರಿ"
+],
+[
+"Walked carefully over {0}",
+"{0} ಮೇಲೆ ಎಚ್ಚರದಿಂದ ನಡೆದಿರಿ"
+],
+[
+"Got past {0}, but didn't slow down{1}",
+"{0} ದಾಟಿದಿರಿ, ಆದರೆ ನಿಧಾನಿಸಲಿಲ್ಲ{1}"
+],
+[
+"Recorded the right exception ({0})",
+"ಸರಿಯಾದ ವಿನಾಯಿತಿ ದಾಖಲಿಸಿದಿರಿ ({0})"
+],
+[
+"Left it in a sensible spot: {0}",
+"ಸೂಕ್ತ ಸ್ಥಳದಲ್ಲಿ ಬಿಟ್ಟಿರಿ: {0}"
+],
+[
+"Proof-of-delivery photo showed {0}",
+"ಡೆಲಿವರಿ ಪುರಾವೆಯ ಫೋಟೋದಲ್ಲಿ ಕಂಡದ್ದು: {0}"
+],
+[
+"Finished the stop in good time ({0}s, par {1}s)",
+"ಉತ್ತಮ ಸಮಯದಲ್ಲಿ ಸ್ಟಾಪ್ ಮುಗಿಸಿದಿರಿ ({0} ಸೆಕೆಂಡ್, ಮಾನದಂಡ {1} ಸೆಕೆಂಡ್)"
+],
+[
+"Extra trip{0} back into the truck",
+"ಟ್ರಕ್‌ಗೆ {0:ಹೆಚ್ಚುವರಿ ಸುತ್ತುಗಳು|ಒಂದು ಹೆಚ್ಚುವರಿ ಸುತ್ತು}"
+],
+[
+"STOP {0} REPORT",
+"ಸ್ಟಾಪ್ {0} ವರದಿ"
+],
+[
+"EXCEPTION {0}",
+"ವಿನಾಯಿತಿ {0}"
 ]
 ],
 "keep": [
