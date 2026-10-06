@@ -16,7 +16,7 @@ module.exports = async (page, ctx) => {
 
   const pieces = await ctx.eval(`${S}.pieces.map(p => { const i = ${S}.pieceImgs[p.id]; return { id: p.id, x: i.x, y: i.y - i.displayHeight / 2, accept: p.accept, reason: p.reason }; })`);
   for (const p of pieces) { await page.mouse.click(p.x, p.y); await wait(150); }
-  const shown = await ctx.eval(`${S}.panel.list.filter(o => o.type === 'Text').map(o => o.text).join(' | ')`);
+  const shown = await ctx.eval(`${S}.panel.list.filter(o => o.type === 'Text').map(o => (o.srcText ?? o.text)).join(' | ')`);
   if (new RegExp(`of ${pieces.length}\\b`).test(shown)) throw new Error('the panel gives away how many pieces there are: ' + shown);
 
   await clickText(page, 'PickupScene', /^Confirm the count$/);

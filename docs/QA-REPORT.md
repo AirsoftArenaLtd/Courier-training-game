@@ -1085,6 +1085,37 @@ boxes and people simple figures; the steering, speed and rules are the top-down 
 the light map and the cab view was not measured on real integrated graphics (the test machine renders in software):
 `?bench=1` now drives the town at night with the lights on, for exactly that.
 
+## Phase 3, part 1: languages (4 October 2026)
+
+The game can be played in Spanish. Text is translated as it is shown (`src/core/i18n.js`), so the data, saved
+progress and trainer reports stay in English and a trainee keeps one record whichever language they use. The globe
+button on the title screen and in the hub picks the language; `?lang=es` picks it for one visit.
+
+| Part | What it is | Where |
+| --- | --- | --- |
+| Engine | Every Phaser Text passes through `OTR.i18n.tr` as it is set: whole strings from a dictionary, messages with changing parts from templates (`"Stop {0} of {1}"`, the parts translated in turn), and joined pieces (lines, `·` lists) one by one. A plural ending in the English (`"{0} package{1}"`) is chosen in the translation with `{1:paquetes|paquete}`. | `src/core/i18n.js` |
+| Catalogue | Every string the game can show (3,192 strings and 211 templates, about 31,400 words), in the order they appear, from the data and the code. | `test/tools/i18n-extract.js`, `data/i18n/catalogue.json` |
+| Spanish | All of it: Latin American, informal *tú*, US units, trade terms kept consistent (parada, escáner, despacho, comprobante de entrega, aviso de puerta, mercancías peligrosas). Machine-drafted: a native speaker should review the safety wording. | `data/i18n/es.js` |
+| Printed pages | The training record and the certificate print in the trainee's language, dates too. | `src/core/record.js` |
+
+Found and fixed while building it:
+
+| Problem | Fix |
+| --- | --- |
+| The catalogue missed every string in `record.js`: a quote inside a regular expression threw the scanner out of step for the rest of the file. | The scanner skips regular expressions. |
+| Words the game chooses between inside a message (`${late ? 'left' : 'right'}`, "accepted"/"refused") were never catalogued. | The scanner reads the code inside `${}` too. |
+| A message ending in a plural that was empty for one ("1 exception") never matched its template. | A changing part may be empty. |
+| Messages with two changing parts side by side (`${a}${b}`, eight of them) were split at the wrong place once translated ("Whoa, the icy path is slippery" became "the" + "icy path is"). | Each variant is written as a sentence of its own; the English reads the same. |
+| Three places found a label by its English words, so in Spanish they silently failed: the results screen's "FLAWLESS!" takeaway, the road-hazard drill's controls line and the confirm dialog's Enter key. | A Text keeps the English it was given (`OTR.i18n.src`); those three read that. |
+| The record's shortened "first thing to fix" was cut in English, so the cut sentence was not found and showed in English. | It is cut after translating. |
+| In five conversations the Spanish made the recommended answer the longest (or shortest) line too often, breaking the rule that the right answer can't be picked by its length. | Nine Spanish lines reworded (the meaning unchanged); `test/i18n.js` now checks the rule in every language. |
+
+Checked by `test/i18n.js` (the file loads, templates use only their own holes, nothing in the catalogue missing, the
+quiz and conversation length rules in Spanish, composed messages coming out whole), by the whole suite played in
+Spanish (`QA_LANG=es node test/qa.js`: every scenario, flow and golden path, with the layout audit checking the
+translated text fits; the golden paths find buttons by their English), by `QA_LANG=es node test/a11y-screens.js`
+(larger text and the colour filter, all screens clean), and by the full suite in English.
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was

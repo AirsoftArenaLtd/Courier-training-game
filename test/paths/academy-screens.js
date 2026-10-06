@@ -20,10 +20,10 @@ async function clickBeside(page, sceneKey, label, btn) {
     const texts = [];
     const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') texts.push(o); (o.list || []).forEach(walk); };
     s.children.list.forEach(walk);
-    const l = texts.find(t => L.test(t.text));
+    const l = texts.find(t => L.test((t.srcText ?? t.text)));
     if (!l) return null;
     const lb = l.getBounds();
-    const cands = texts.filter(t => B.test(t.text)).map(t => t.getBounds()).filter(b => b.centerX > lb.right && Math.abs(b.centerY - lb.centerY) < 30);
+    const cands = texts.filter(t => B.test((t.srcText ?? t.text))).map(t => t.getBounds()).filter(b => b.centerX > lb.right && Math.abs(b.centerY - lb.centerY) < 30);
     cands.sort((a, b) => a.centerX - b.centerX);
     return cands[0] ? { x: cands[0].centerX, y: cands[0].centerY } : null;
   }, sceneKey, label.source, btn.source);
@@ -50,14 +50,14 @@ module.exports = async (page, ctx) => {
   const active = async (key, ms) => {
     if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
     // say what is on screen instead
-    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && (o.srcText ?? o.text)) out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
     throw new Error(`${key} never opened; on screen: ${seen}`);
   };
   const typeEnter = async (s) => { await page.keyboard.type(s); await wait(150); await page.keyboard.press('Enter'); await wait(700); };
   /** Wait for a box with this title on the hub, then type into it. */
   const typeInto = async (title, s) => {
     if (!(await ctx.until(`(() => { const h = OTR.game.scene.getScene('HubScene'); const st = h._modalStack || []; if (!st.length) return false;
-      let hit = false; const walk = (o) => { if (!o || hit) return; if (o.type === 'Text' && o.text === ${JSON.stringify(title)}) hit = true; (o.list || []).forEach(walk); }; walk(st[st.length - 1]); return hit; })()`, 8000))) throw new Error(`no "${title}" box`);
+      let hit = false; const walk = (o) => { if (!o || hit) return; if (o.type === 'Text' && (o.srcText ?? o.text) === ${JSON.stringify(title)}) hit = true; (o.list || []).forEach(walk); }; walk(st[st.length - 1]); return hit; })()`, 8000))) throw new Error(`no "${title}" box`);
     await wait(500);
     await typeEnter(s);
   };
@@ -80,7 +80,7 @@ module.exports = async (page, ctx) => {
   await clickBeside(page, 'TrainerScene', /^Safety$/, /^\+$/);           // 2 → 3 stars
   await clickBeside(page, 'TrainerScene', /^(1|no limit)$/, /^\+$/);    // attempts 1 → 2 (the stepper is under its label)
   await clickText(page, 'TrainerScene', /^Save rules$/);
-  if (!(await ctx.until(`OTR.game.scene.getScene('TrainerScene').saveNote.text === 'Saved'`, 5000))) throw new Error('the rules never saved');
+  if (!(await ctx.until(`OTR.game.scene.getScene('TrainerScene').saveNote.srcText === 'Saved'`, 5000))) throw new Error('the rules never saved');
   const rules = await ctx.eval('OTR.academy.get()');
   if (rules.passStars.safety !== 3 || rules.attempts !== 2) throw new Error('the saved rules are not what was set: ' + JSON.stringify(rules));
   await page.keyboard.press('Escape');                                  // Done
@@ -165,7 +165,7 @@ module.exports = async (page, ctx) => {
   await clickText(page, 'DialogueScene', /^See Results/);
   await active('ResultsScene');
   await wait(800);
-  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && t.text === 'ASSESSMENT PASSED'))`, 4000))) throw new Error('the results do not say ASSESSMENT PASSED');
+  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && (t.srcText ?? t.text) === 'ASSESSMENT PASSED'))`, 4000))) throw new Error('the results do not say ASSESSMENT PASSED');
   await ctx.audit('assessment results');
   const rec = await ctx.eval(`OTR.save.data.assess['m4-damaged']`);
   if (!rec || !rec.passed) throw new Error('the assessment is not recorded as passed: ' + JSON.stringify(rec));
@@ -177,17 +177,19 @@ module.exports = async (page, ctx) => {
   await clickText(page, 'HubScene', /^My record/);
   await active('RecordScene');
   await ctx.audit('record: modules');
-  const modules = await ctx.eval(`OTR.game.scene.getScene('RecordScene').body.list.filter(o => o.type === 'Text').map(t => t.text)`);
+  const modules = await ctx.eval(`OTR.game.scene.getScene('RecordScene').body.list.filter(o => o.type === 'Text').map(t => (t.srcText ?? t.text))`);
   if (modules.indexOf('✓ Passed') < 0) throw new Error('the record does not show the passed assessment');
   if (!modules.some(t => /^Quiz: best 100%, passed/.test(t))) throw new Error('the record does not show the quiz: ' + modules.filter(t => /Quiz/.test(t)).join(' | '));
   await page.keyboard.press('Digit2'); await wait(500); await ctx.audit('record: what to work on');
   await page.keyboard.press('Digit3'); await wait(500); await ctx.audit('record: recent runs');
-  const recent = await ctx.eval(`OTR.game.scene.getScene('RecordScene').body.list.filter(o => o.type === 'Text').map(t => t.text)`);
+  const recent = await ctx.eval(`OTR.game.scene.getScene('RecordScene').body.list.filter(o => o.type === 'Text').map(t => (t.srcText ?? t.text))`);
   if (recent.indexOf('Assessment') < 0) throw new Error('recent runs do not list the assessment');
   await clickText(page, 'RecordScene', /^Print \/ PDF$/);
   await wait(800);
   const doc = await page.evaluate(() => { const f = [...document.querySelectorAll('iframe')].pop(); return f && f.contentDocument ? f.contentDocument.body.innerText : ''; });
-  if (!/Training record: Sam Rivera/.test(doc) || !/Damaged on Arrival/.test(doc)) throw new Error('Print / PDF did not build the record document');
+  // in the language the game is shown in
+  const [head, title] = await ctx.eval(`[OTR.i18n.t('Training record: {0}').replace('{0}', 'Sam Rivera'), OTR.i18n.t('Damaged on Arrival')]`);
+  if (doc.indexOf(head) < 0 || doc.indexOf(title) < 0) throw new Error('Print / PDF did not build the record document');
   await page.keyboard.press('Escape');                                  // Back
   await active('HubScene');
 };

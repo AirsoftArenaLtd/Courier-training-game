@@ -6,6 +6,8 @@
  * through the suite's layout audit (text overflowing its box, UI off the canvas, dead hit areas).
  *
  *   QA_BROWSER=/path/to/chrome node test/a11y-screens.js      (QA_A11Y=large to test one setting)
+ *   QA_LANG=es ...                                             (in another language: screenshots a11y-es-<name>.png,
+ *                                                              and the text it could not translate is listed)
  */
 'use strict';
 const fs = require('fs');
@@ -19,7 +21,8 @@ fs.mkdirSync(OUT, { recursive: true });
 // the suite's own layout audit, taken from qa.js so the two never drift apart
 const QA = fs.readFileSync(path.join(__dirname, 'qa.js'), 'utf8');
 const AUDIT = QA.slice(QA.indexOf('function auditLayout()'), QA.indexOf('\n}\n', QA.indexOf('function auditLayout()')) + 2);
-const URL = 'file://' + path.resolve(__dirname, '..', 'index.html') + '?user=a11y&name=Alexandria%20Montgomery-Whitfield';
+const LANG = process.env.QA_LANG || '';
+const URL = 'file://' + path.resolve(__dirname, '..', 'index.html') + '?user=a11y&name=Alexandria%20Montgomery-Whitfield' + (LANG ? `&lang=${LANG}&dev=1` : '');
 
 const fails = [];
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
@@ -36,7 +39,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const active = async (key) => { if (!(await until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, 20000))) throw new Error(`${key} never opened`); };
   const shot = async (name) => {
     await wait(1300);
-    await p.screenshot({ path: path.join(OUT, `a11y-${name}.png`) });
+    await p.screenshot({ path: path.join(OUT, `a11y-${LANG ? LANG + '-' : ''}${name}.png`) });
     const found = await p.evaluate(`(${AUDIT})()`).catch(e => [{ kind: 'audit-failed', detail: e.message }]);
     console.log(`${found.length ? 'FAIL' : 'ok  '} ${name}`);
     found.slice(0, 10).forEach(f => console.log(`        [${f.kind}] ${f.scene || ''} ${f.what || ''} — ${f.detail || ''}`));
@@ -109,6 +112,13 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await active('PauseScene');
     await shot('pause');
 
+    if (LANG) {
+      const missing = await ev(() => [...OTR.i18n.missing.entries()]);
+      if (missing.length) {
+        console.log(`\nnot translated (${missing.length}):`);
+        missing.forEach(([s, n]) => console.log(`        ${JSON.stringify(s)}${n > 1 ? ` ×${n}` : ''}`));
+      }
+    }
     if (errors.length) { console.log('FAIL page errors: ' + errors.join(' / ')); fails.push('errors'); }
   } catch (e) {
     console.log('FAIL script error: ' + (e && e.stack || e));

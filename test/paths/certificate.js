@@ -12,10 +12,10 @@ const LAST = 'm4-damaged';
 module.exports = async (page, ctx) => {
   const active = async (key, ms) => {
     if (await ctx.until(`OTR.game.scene.isActive(${JSON.stringify(key)})`, ms || 15000)) { await wait(700); return; }
-    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && o.text) out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
+    const seen = await ctx.eval(`(() => { const out = []; OTR.game.scene.getScenes(true).forEach(s => { const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text' && (o.srcText ?? o.text)) out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); out.unshift('[' + s.sys.settings.key + ']'); }); return out.slice(0, 30).join(' | '); })()`).catch(() => '?');
     throw new Error(`${key} never opened; on screen: ${seen}`);
   };
-  const recordTexts = () => ctx.eval(`(() => { const s = OTR.game.scene.getScene('RecordScene'), out = []; const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') out.push(o.text); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return out; })()`);
+  const recordTexts = () => ctx.eval(`(() => { const s = OTR.game.scene.getScene('RecordScene'), out = []; const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') out.push((o.srcText ?? o.text)); (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return out; })()`);
   const openRecord = async () => { await clickText(page, 'HubScene', /^My record/); await active('RecordScene'); return recordTexts(); };
 
   // a new trainee
@@ -65,7 +65,7 @@ module.exports = async (page, ctx) => {
   await wait(1300);
   await clickText(page, 'DialogueScene', /^See Results/);
   await active('ResultsScene');
-  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && t.text === 'ASSESSMENT PASSED'))`, 5000))) throw new Error('the last assessment was not passed');
+  if (!(await ctx.until(`OTR.game.scene.getScene('ResultsScene').children.list.some(o => o.list && o.list.some(t => t.type === 'Text' && (t.srcText ?? t.text) === 'ASSESSMENT PASSED'))`, 5000))) throw new Error('the last assessment was not passed');
   await wait(1500);
   await page.keyboard.press('Enter');                                   // To the station
   await active('HubScene');
@@ -78,8 +78,9 @@ module.exports = async (page, ctx) => {
   await wait(900);
   const cert = await page.evaluate(() => { const f = document.getElementById('otr-print'); return f && f.contentDocument ? f.contentDocument.body.innerText : ''; });
   const today = await ctx.eval('OTR.record.date(Date.now())');
-  const want = [/Certificate of Completion/, /Morgan Lee/, /\(27 of 27\)/, new RegExp('Completed ' + today.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))];
-  const missing = want.filter(re => !re.test(cert));
+  // in the language the game is shown in
+  const want = await ctx.eval(`[OTR.i18n.t('Certificate of Completion'), 'Morgan Lee', OTR.i18n.t('passed the assessment in every scenario of the courier training academy ({0} of {1}),').replace('{0}', 27).replace('{1}', 27), OTR.i18n.t('Completed {0}').replace('{0}', ${JSON.stringify(today)})]`);
+  const missing = want.filter(w => cert.indexOf(w) < 0);
   if (missing.length) throw new Error('the certificate is missing ' + missing.join(', ') + ': ' + cert.slice(0, 300).replace(/\s+/g, ' '));
   if (/FedEx/i.test(cert)) throw new Error('the certificate still carries the old company name');
   // the keyboard is back with the game after printing

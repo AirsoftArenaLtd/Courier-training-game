@@ -72,6 +72,8 @@ const SCENARIOS = [
 
 const FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
 const A11Y = (process.env.QA_A11Y || '').split(',').filter(Boolean);   // e.g. large,colour (Settings → Accessibility)
+// QA_LANG=es plays every pass in that language (the layout audit then checks the translated text fits)
+const LANG_Q = process.env.QA_LANG ? `&lang=${process.env.QA_LANG}` : '';
 // On a laptop with two GPUs, Windows may hand a headless browser either one from day to day, and the frame rate
 // differs threefold between them. The suite asks for the high-performance GPU so the floor always measures the same
 // hardware; QA_GPU=default leaves the choice to the OS (on most laptops, the integrated GPU a trainee may have).
@@ -222,7 +224,7 @@ async function newPage(browser, row) {
 const realErrors = (list) => [...new Set(list)].filter(e => !/404|Tracking Prevention|favicon|net::ERR/.test(e));
 
 async function openScenario(page, id) {
-  await page.goto(`http://localhost:${PORT}/index.html?scenario=${id}&dev=1`, { waitUntil: 'load' });
+  await page.goto(`http://localhost:${PORT}/index.html?scenario=${id}&dev=1${LANG_Q}`, { waitUntil: 'load' });
   await wait(1700);
   await page.keyboard.press('Enter');   // intro card
   await wait(1100);
@@ -415,7 +417,7 @@ const HOOK = `(() => {
       if (passes.includes('golden')) {
         const file = path.join(__dirname, 'paths', sc.id + '.js');
         if (fs.existsSync(file)) {
-          await page.goto(`http://localhost:${PORT}/${sc.flow || `index.html?scenario=${sc.id}&dev=1`}`, { waitUntil: 'load' });
+          await page.goto(`http://localhost:${PORT}/${sc.flow || `index.html?scenario=${sc.id}&dev=1`}${LANG_Q}`, { waitUntil: 'load' });
           await wait(1500);
           await page.evaluate(HOOK);
           await passGolden(page, sc, row);

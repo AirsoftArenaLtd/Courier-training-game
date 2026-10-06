@@ -108,6 +108,27 @@ OTR.ui = {
   },
 
   /** Round icon-only button. */
+  /** The language picker: each language in its own name; choosing one restarts the game in it (src/core/i18n.js). */
+  languages(scene) {
+    const L = OTR.i18n.LANGS, codes = Object.keys(L);
+    OTR.ui.modal(scene, {
+      title: 'Language', w: 460, h: 170 + codes.length * 70, escClose: true,
+      build: (box, api, w, h) => {
+        const items = codes.map((c, i) => {
+          const on = c === OTR.i18n.lang;
+          const b = OTR.ui.button(scene, 0, -h / 2 + 110 + i * 70, (on ? '✓  ' : '') + L[c], () => { if (on) api.close(); else OTR.i18n.set(c); },
+            { w: 320, h: 56, skin: on ? 'purple' : 'ghost', fontSize: 22 });
+          b.list.forEach(o => { if (o.type === 'Text') o.noTranslate = true; });      // a language's name is never translated
+          box.add(b);
+          return b;
+        });
+        // the names were set before noTranslate: set them again as they are
+        items.forEach((b, i) => b.list.forEach(o => { if (o.type === 'Text') o.setText((codes[i] === OTR.i18n.lang ? '✓  ' : '') + L[codes[i]]); }));
+      },
+      buttons: [{ label: 'Close', skin: 'orange', key: 'ENTER', hint: '⏎' }]
+    });
+  },
+
   iconButton(scene, x, y, icon, onClick, o) {
     o = o || {};
     const size = o.size || 48;
@@ -414,7 +435,7 @@ OTR.ui = {
         { label: o.confirm || 'Let\'s Roll!', skin: 'orange', keepOpen: true, onClick: () => submit() }
       ]
     });
-    confirmBtn = modal.box.list.filter(c => c.label && c.label.text === (o.confirm || 'Let\'s Roll!'))[0];
+    confirmBtn = modal.box.list.filter(c => c.label && OTR.i18n.src(c.label) === (o.confirm || 'Let\'s Roll!'))[0];
     let hintTimer = null;
     const say = (msg) => {
       hint.setText(msg).setColor('#C8243B');

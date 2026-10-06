@@ -5,7 +5,7 @@
   OTR.flow.dev = params.has('dev');
 
   // who is training decides whose progress loads: sign-in (LMS, company server or launch link) first, then boot
-  OTR.identity.resolve().then(() => Promise.all([OTR.save.preload(), OTR.academy.load(), OTR.assets.load()])).then(boot, boot);
+  OTR.identity.resolve().then(() => Promise.all([OTR.save.preload(), OTR.academy.load(), OTR.assets.load(), OTR.i18n.load()])).then(boot, boot);
   function boot() {
     if (OTR.game) return;
     OTR.a11y.installKeys();                    // remapped controls (Settings → Accessibility)

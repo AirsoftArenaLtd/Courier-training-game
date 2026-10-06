@@ -23,6 +23,7 @@ anything failed, so it can gate a release.
 | `--headful` | show the browser while it runs |
 | `QA_PORT=8125` | serve on another port (to run two suites side by side) |
 | `QA_FPS_FLOOR=100` | the frame rate a scene must hold (default 100) |
+| `QA_LANG=es` | play everything in that language: the layout audit then checks the translated text fits its boxes, and the golden paths find buttons by their English (see below) |
 | `QA_GPU=default` | let the OS pick the GPU. By default the suite asks for the high-performance one, so on a laptop with two GPUs the floor always measures the same hardware (Windows may otherwise hand the browser either, from one day to the next). The first line of every run names the GPU it measured on. With `default` on a laptop it is usually the integrated GPU, which is the way to see what a trainee's laptop gets; expect the floor to fail there (see the QA report) |
 
 ## The passes
@@ -111,7 +112,8 @@ Shared helpers live in `test/paths/lib/`:
 | `autodrive.browser.js` | a test autopilot injected into the page for the driving drill and the route day. It presses the same keys a trainee does, so it exercises the real vehicle model and every traffic rule: it plans a legal route, stops at every line, waits for green, and pulls in parallel to the kerb |
 
 Golden paths read the game's own data to know the right answer (which package, which exception code), but they
-never set game state: every action goes through the same input a trainee uses.
+never set game state: every action goes through the same input a trainee uses. A path reads a label's words as
+`(o.srcText ?? o.text)`: `srcText` is the English the game set, so the same path plays in any language.
 
 ## Playing by hand: `tools/playd.js`
 

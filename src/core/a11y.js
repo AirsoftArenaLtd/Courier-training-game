@@ -112,7 +112,8 @@ OTR.a11y = {
     if (!this.settings().narrate || !window.speechSynthesis || !text) return;
     try {
       window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(String(text).replace(/[★☆✓✕▶⏎›•]/g, ' '));
+      const u = new SpeechSynthesisUtterance(OTR.i18n.t(String(text)).replace(/[★☆✓✕▶⏎›•]/g, ' '));
+      u.lang = OTR.i18n.lang;                            // a voice for the language on screen
       u.rate = 1; u.volume = Math.max(0.2, (OTR.audio && OTR.audio.volume) || 0.6);
       window.speechSynthesis.speak(u);
     } catch (e) { /* no voice on this machine */ }

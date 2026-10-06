@@ -106,6 +106,7 @@ class TitleScene extends Phaser.Scene {
 
     // --- menu ---
     this.mute = OTR.ui.muteButton(this, W - 40, 40);
+    this.langBtn = OTR.ui.iconButton(this, W - 96, 40, 'ic_globe', () => OTR.ui.languages(this), { size: 46 });
     this.menu = this.add.container(W / 2, 372);
     this.buildMenu();
 
@@ -154,7 +155,7 @@ class TitleScene extends Phaser.Scene {
     });
     this.menu.add(items);
     // the arrow keys and TAB move between the menu's buttons (SHELL-11)
-    this.menuFocus = OTR.ui.focus(this, items.filter(it => it.press).concat(this.mute ? [this.mute] : []), { start: 0 });
+    this.menuFocus = OTR.ui.focus(this, items.filter(it => it.press).concat(this.langBtn ? [this.langBtn] : [], this.mute ? [this.mute] : []), { start: 0 });
   }
 
   askName() {
