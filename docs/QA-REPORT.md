@@ -1166,6 +1166,13 @@ behind it) and text shrunk below 9.5px. Checked by `test/i18n.js` (all eleven la
 `QA_LANG=<code> node test/a11y-screens.js` in each, with larger text and the colour filter: every screen clean, nothing
 left untranslated but names, addresses and the test's own made-up drive.
 
+Played through in each language with `QA_LANG=<code> node test/qa.js --only
+m1-pretrip,m1-route,m2-labels,m3-missing,m5-pod,m6-find,m7-intl,m8-heat`, the scenarios with the most text (a
+checklist, the route planner, labels, a conversation, a doorstep with its stop checklist and photo, the cargo shelves,
+customs paperwork, the heat meters): 8 of 8 clean in English and in all eight languages, with the new audit checks on.
+The whole suite was not run per language this time: the machine had no GPU, and at software-rendered 6 fps the
+45-minute suite takes most of a day per language.
+
 ## What this pass does not cover
 
 Every defect found has been fixed; nothing is left open in the table above. These are the limits of what was
