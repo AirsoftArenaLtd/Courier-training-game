@@ -2306,7 +2306,7 @@ window.OTR_I18N.fr = {
 "CURB SIDE": "CÔTÉ TROTTOIR",
 "CHECKLIST  ": "LISTE  ",
 " still to check": " encore à vérifier",
-"All checked u2014 sign off": "Tout est vérifié — valide",
+"All checked — sign off": "Tout est vérifié — valide",
 "Switch the lights on in the cab before you judge a lamp.": "Allume les feux dans la cabine avant de juger une lampe.",
 "Press the horn to test it.": "Klaxonne pour le tester.",
 "Press and hold the brake.": "Appuie sur le frein et maintiens.",

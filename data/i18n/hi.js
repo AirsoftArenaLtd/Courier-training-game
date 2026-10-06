@@ -2313,7 +2313,7 @@ window.OTR_I18N.hi = {
 "CURB SIDE": "फ़ुटपाथ की तरफ़",
 "CHECKLIST  ": "जाँच-सूची  ",
 " still to check": " जाँचना बाकी",
-"All checked u2014 sign off": "सब जाँचा — हस्ताक्षर करें",
+"All checked — sign off": "सब जाँचा — हस्ताक्षर करें",
 "Switch the lights on in the cab before you judge a lamp.": "किसी लाइट को परखने से पहले केबिन में लाइटें चालू करें।",
 "Press the horn to test it.": "परखने के लिए हॉर्न बजाएँ।",
 "Press and hold the brake.": "ब्रेक दबाकर रखें।",

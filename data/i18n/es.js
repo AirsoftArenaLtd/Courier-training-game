@@ -2324,7 +2324,7 @@ window.OTR_I18N.es = {
 "CURB SIDE": "LADO DE LA ACERA",
 "CHECKLIST  ": "LISTA  ",
 " still to check": " por revisar",
-"All checked u2014 sign off": "Todo revisado — firma",
+"All checked — sign off": "Todo revisado — firma",
 "Switch the lights on in the cab before you judge a lamp.": "Enciende las luces en la cabina antes de juzgar una luz.",
 "Press the horn to test it.": "Toca la bocina para probarla.",
 "Press and hold the brake.": "Pisa y mantén el freno.",

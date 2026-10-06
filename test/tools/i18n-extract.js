@@ -47,6 +47,15 @@ const notText = (s) =>
   /\b(rgba?|px|Segoe|Arial|sans-serif|function|return|const)\b/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s);
 // a small scanner: skips comments and regular expressions, reads '...', "..." and `...`; the code inside a template's
 // ${} is scanned too, for the words it chooses between ("Signaled the ${late ? 'left' : 'right'} turn")
+// one escape sequence at src[j] (a backslash): the character it stands for and how many source characters it spans
+const unescape = (src, j) => {
+  const n = src[j + 1];
+  if (n === 'n') return ['\n', 2];
+  if (n === 'u' && /^[0-9a-fA-F]{4}$/.test(src.substr(j + 2, 4))) return [String.fromCharCode(parseInt(src.substr(j + 2, 4), 16)), 6];
+  if (n === 'x' && /^[0-9a-fA-F]{2}$/.test(src.substr(j + 2, 2))) return [String.fromCharCode(parseInt(src.substr(j + 2, 2), 16)), 4];
+  return [n, 2];
+};
+
 const scanCode = (src, rel) => {
   let i = 0, prev = '';
   while (i < src.length) {
@@ -62,7 +71,7 @@ const scanCode = (src, rel) => {
     if (!/\s/.test(c)) prev = c;
     if (c === '\'' || c === '"') {
       let j = i + 1, s = '';
-      while (j < src.length && src[j] !== c) { if (src[j] === '\\') { s += src[j + 1] === 'n' ? '\n' : src[j + 1]; j += 2; } else s += src[j++]; }
+      while (j < src.length && src[j] !== c) { if (src[j] === '\\') { const [ch, len] = unescape(src, j); s += ch; j += len; } else s += src[j++]; }
       // a sentence with {0} holes for printed pages (OTR.record.F) is text, not code
       if (textish(s) && !notText(s.replace(/\{\d+\}/g, ' '))) add(s, rel);
       i = j + 1; prev = 'x'; continue;
@@ -70,7 +79,7 @@ const scanCode = (src, rel) => {
     if (c === '`') {
       let j = i + 1, s = '', holes = 0;
       while (j < src.length && src[j] !== '`') {
-        if (src[j] === '\\') { s += src[j + 1] === 'n' ? '\n' : src[j + 1]; j += 2; continue; }
+        if (src[j] === '\\') { const [ch, len] = unescape(src, j); s += ch; j += len; continue; }
         if (src[j] === '$' && src[j + 1] === '{') {
           // the hole's code runs to its matching }, past any strings and templates inside it
           let depth = 1, k = j + 2, q = null;
