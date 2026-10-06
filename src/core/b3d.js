@@ -32,6 +32,15 @@ OTR.b3d = {
     depot: [0xC4C8CE]
   },
 
+  /** Stable interior warmth/brightness by building, shared with the cab. No random changes while driving. */
+  windowStyle(x, y) {
+    const seed = ((Math.round(x) * 73856093) ^ (Math.round(y) * 19349663)) >>> 0;
+    const colors = [0xFFE0A6, 0xFFD08A, 0xF2DDBB, 0xFFE4B7, 0xFFD69B, 0xF2DEBF];
+    const strengths = [0.32, 0.8, 0.58, 1, 0.7, 0.44];
+    const i = seed % colors.length;
+    return { color: colors[i], strength: strengths[i] };
+  },
+
   install(scene, o) {
     o = o || {};
     const high = OTR.gfx ? OTR.gfx.high() : true;
@@ -70,6 +79,8 @@ OTR.b3d = {
           b.ground = [{ x: b.fx0, y: b.fy0 }, { x: b.fx1, y: b.fy0 }, { x: b.fx1, y: b.fy1 }, { x: b.fx0, y: b.fy1 }];
           b.raised = b.ground.map(() => ({ x: 0, y: 0 }));
           b.faceColors = OTR.b3d.FACES.map(n => OTR.b3d.shade(b.walls, n[2]));
+          b.windowStyle = OTR.b3d.windowStyle((b.fx0 + b.fx1) / 2, (b.fy0 + b.fy1) / 2);
+          b.windowLit = NaN;
         }
         this.items.push(b);
         this.shadowOf(b.fx0, b.fy0, b.fx1, b.fy1, b.h);
@@ -122,6 +133,11 @@ OTR.b3d = {
           // the four walls: corners on the ground, then the same corners raised. Only those facing the camera show
           // (the others are under the roof).
           const G = b.ground, U = b.raised;
+          // Cache one glass colour per building, rather than recomputing it for each visible wall every frame.
+          if (b.windowLit !== this.windowLight) {
+            b.windowLit = this.windowLight;
+            b.windowGlass = OTR.color.lerp(0x3E4E60, b.windowStyle.color, Math.max(0, Math.min(1, this.windowLight)) * b.windowStyle.strength);
+          }
           for (let k = 0; k < 4; k++) {
             U[k].x = cx + (G[k].x - cx) * s;
             U[k].y = cy + (G[k].y - cy) * s;
@@ -176,7 +192,7 @@ OTR.b3d = {
     };
     const quad = (u0, u1, v0, v1) => OTR.b3d.quad(g, P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1));
     const len = Math.hypot(c.x - a.x, c.y - a.y);
-    const glass = lit > 0 ? OTR.color.lerp(0x3E4E60, 0xFFD27A, lit) : 0x3E4E60;
+    const glass = b.windowGlass === undefined ? (lit > 0 ? OTR.color.lerp(0x3E4E60, 0xFFD27A, lit) : 0x3E4E60) : b.windowGlass;
     if (b.windows === 'house' || b.windows === 'floors') {
       const rows = b.windows === 'floors' ? [[0.1, 0.24], [0.42, 0.56], [0.74, 0.88]] : [[0.32, 0.72]];
       const n = Math.max(1, Math.floor(len / (b.windows === 'floors' ? 34 : 46)));

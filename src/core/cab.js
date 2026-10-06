@@ -108,12 +108,12 @@ OTR.cab = {
   },
 
   /** A wall: its colour with rows of windows (the window mask is the emissive map, lit after dark). */
-  wallTex(color, rows, lit) {
+  wallTex(color, rows, lit, windowColor) {
     const cv = document.createElement('canvas'); cv.width = 128; cv.height = 128;
     const x = cv.getContext('2d');
     if (!lit) { x.fillStyle = OTR.color.css(color); x.fillRect(0, 0, 128, 128); }
     else { x.fillStyle = '#000'; x.fillRect(0, 0, 128, 128); }
-    const glass = lit ? '#FFD98A' : '#3A4A5C';
+    const glass = lit ? (windowColor === undefined ? '#FFD98A' : OTR.color.css(windowColor)) : '#3A4A5C';
     rows.forEach(([v0, v1]) => { for (let i = 0; i < 2; i++) { x.fillStyle = glass; x.fillRect(18 + i * 64, 128 - v1 * 128, 28, (v1 - v0) * 128); } });
     if (!lit) { x.fillStyle = 'rgba(0,0,0,0.12)'; x.fillRect(0, 120, 128, 8); }
     return new THREE.CanvasTexture(cv);
@@ -121,6 +121,7 @@ OTR.cab = {
 
   build(s) {
     const T = s.T, P = s.P, A = OTR.townArt, m = (px) => px / P;     // world px → metres
+    const high = OTR.gfx.high();
     const gl = s.sys.game.renderer.gl, canvas = s.sys.game.canvas;
     const three = new THREE.WebGLRenderer({ canvas, context: gl, antialias: false });
     three.autoClear = false;
@@ -158,10 +159,13 @@ OTR.cab = {
       const t = new THREE.CanvasTexture(src); t.colorSpace = THREE.SRGBColorSpace;
       return new THREE.MeshLambertMaterial({ map: t });
     };
-    const wallMat = (color, rows) => new THREE.MeshLambertMaterial({
-      map: this.wallTex(color, rows, false), emissiveMap: lit > 0 ? this.wallTex(color, rows, true) : null,
-      emissive: lit > 0 ? 0xFFFFFF : 0x000000, emissiveIntensity: lit * 0.9
-    });
+    const wallMat = (color, rows, x, y) => {
+      const style = high ? OTR.b3d.windowStyle(x, y) : null;
+      return new THREE.MeshLambertMaterial({
+        map: this.wallTex(color, rows, false), emissiveMap: lit > 0 ? this.wallTex(color, rows, true, style ? style.color : undefined) : null,
+        emissive: lit > 0 ? 0xFFFFFF : 0x000000, emissiveIntensity: lit * 0.9 * (style ? style.strength : 1)
+      });
+    };
     // a box building with its roof image on top (flat roofs), its walls round the sides
     const box = (x0, y0, x1, y1, h, walls, roof, crop) => {
       const w = m(x1 - x0), d = m(y1 - y0);
@@ -181,7 +185,7 @@ OTR.cab = {
       const x0 = l.x - fw / 2, y0 = l.y - fh / 2, x1 = l.x + fw / 2, y1 = l.y + fh / 2;
       if (l.kind === 'house') {
         const v = l.variant % 4, key = 'td_house_' + v;
-        const walls = wallMat(W3.house[v], [[0.25, 0.7]]);
+        const walls = wallMat(W3.house[v], [[0.25, 0.7]], l.x, l.y);
         const body = new THREE.Mesh(new THREE.BoxGeometry(m(fw), 4.6, m(fh)), walls);
         body.position.set(m(l.x), 2.3, m(l.y)); scene3.add(body);
         // a gable roof, its ridge running along the house's width, in the roof's own colour
@@ -193,14 +197,14 @@ OTR.cab = {
         scene3.add(roof);
       } else if (l.kind === 'business') {
         const v = l.variant % 2, key = 'td_biz_' + v, [bw, bh] = B.biz[v];
-        box(x0, y0, x1, y1, 4.8, wallMat(W3.business[v], [[0.15, 0.62]]), roofMat(key), cropOf(key, 14, 10, bw, bh));
+        box(x0, y0, x1, y1, 4.8, wallMat(W3.business[v], [[0.15, 0.62]], l.x, l.y), roofMat(key), cropOf(key, 14, 10, bw, bh));
       } else {
         const [bw, bh] = B.apt;
-        box(x0, y0, x1, y1, 10.5, wallMat(W3.apartment[0], [[0.12, 0.26], [0.45, 0.59], [0.76, 0.9]]), roofMat('td_apt'), cropOf('td_apt', 14, 10, bw, bh));
+        box(x0, y0, x1, y1, 10.5, wallMat(W3.apartment[0], [[0.12, 0.26], [0.45, 0.59], [0.76, 0.9]], l.x, l.y), roofMat('td_apt'), cropOf('td_apt', 14, 10, bw, bh));
       }
     });
     const D = T.depot;
-    box(D.x - D.w / 2, D.y - D.h / 2, D.x + D.w / 2, D.y + D.h / 2, 8.5, wallMat(W3.depot[0], [[0.7, 0.85]]), roofMat('td_depot'), cropOf('td_depot', 16, 12, 660, 380));
+    box(D.x - D.w / 2, D.y - D.h / 2, D.x + D.w / 2, D.y + D.h / 2, 8.5, wallMat(W3.depot[0], [[0.7, 0.85]], D.x, D.y), roofMat('td_depot'), cropOf('td_depot', 16, 12, 660, 380));
     // the station's name on its street side
     {
       const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 128; const x = cv.getContext('2d');
@@ -268,7 +272,6 @@ OTR.cab = {
 
     // traffic: a body and a glasshouse in the car's colour
     const carCol = (c) => { const k = c.img.texture.key; const n = +k.replace('car_top_', ''); return isFinite(n) ? n : 0x888888; };
-    const high = OTR.gfx.high();
     const glass = new THREE.MeshLambertMaterial({ color: 0x1E2630 });
     // Reuse the two car meshes' geometry. On high, slope the existing glasshouse's roof inwards to make a
     // windscreen and rear window; this changes the silhouette without adding vertices, meshes or draw calls.
