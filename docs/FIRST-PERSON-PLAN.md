@@ -35,6 +35,51 @@ Proposed safeguards for day selection:
 
 Variation means selection from content we have built and approved. Campaign unlocks and course completion policy still need an explicit design decision before replacing the current course completion behaviour.
 
+### Adaptive encounter selection
+
+The user supports continuously adjusting encounter chances: lower the chance of types encountered frequently and raise the chance of underrepresented types. This balances variety within the scenarios the player is ready to attempt. It is a content-selection system, not an instruction-generation system.
+
+Track encounter exposure separately from skill evidence. A business pickup is an encounter type that can exercise several skills, such as checking documents, inspecting a shipment and deciding whether to accept it. Merely arriving at that pickup does not demonstrate those skills. Record which situations actually occurred and which observable actions were tested, including whether coaching was used. Persist stable event identifiers so reloading a checkpoint does not duplicate exposure or successful evidence.
+
+Proposed selection rules, pending tuning:
+
+1. Filter templates by prerequisites, trainer policy, world compatibility and feasible time/route constraints.
+2. Give each eligible encounter a base weight. Reduce it for frequent recent exposure, increase it when underrepresented or overdue, and allow a bounded increase when a relevant skill needs practice. Use recent history as well as lifetime counts so yesterday's repeated situation has a visible effect without permanently suppressing it.
+3. Apply repeat limits and a minimum selection weight for eligible optional encounters. Reserve coverage opportunities for required skills that have been absent too long; probability adjustments alone cannot guarantee coverage.
+4. Recalculate weights after each selection while assembling a day, preventing one generated manifest from filling with the same type. Cap the number of unfamiliar or demanding situations in a single beginner shift.
+5. Save the completed manifest and scenario choices when the day starts. Subsequent skill/exposure changes affect future days; they must not silently replace a customer's job halfway through the current day. Deliberate authored dispatch updates can still occur as part of the saved scenario.
+
+For example, if recent days contain many signature deliveries and few eligible business pickups, signatures become less likely and pickups more likely. If signature handling is still weak, its practice need can temper that reduction. Offer focused signature practice as well, so reinforcement does not dominate every campaign route. Exact weights, history-window length, coverage intervals and repeat limits need playtesting and trainer review.
+
+Mandatory routines such as pre-trip checks, seatbelt use and safe parking remain mandatory when relevant. Encounter balancing applies to optional jobs/events; frequent performance never makes a safety requirement disappear. Versioned templates, seeds and manifests should make generated days reproducible for QA. Store compact counts and bounded recent history within existing local/company/LMS save limits.
+
+### Progression proposal
+
+The user requested a deeper progression design. The following is a proposal, not an agreed set of thresholds or a change to official certification.
+
+Track three distinct kinds of progress:
+
+- **Exposure:** situations actually encountered, used to balance day variety and curriculum coverage.
+- **Skill readiness:** evidence of correct observable decisions/actions, independence from coaching, variety of contexts and current practice needs. Used to propose eligible campaign responsibilities.
+- **Career and assessment progress:** retain existing stars/ranks, Safety/Efficiency/Service results and trainer-controlled formal assessments. A campaign skill estimate must not automatically consume a module assessment attempt or award an official pass.
+
+Increase responsibility in broad stages rather than by completing a fixed number of days:
+
+| Proposed stage (design terminology) | Eligible work and responsibility |
+| --- | --- |
+| Beginner | A changing mix of simpler parcel handling, preparation and standard deliveries; contextual coaching in practice |
+| Routine route | Broader customer interactions, signatures and proof of delivery once prerequisite skills are demonstrated |
+| Expanded duties | Business pickups, shipment checks, acceptance/refusal and delivery exceptions; more dependencies and decisions |
+| Independent mixed work | Combined responsibilities, commitments and adverse conditions, with less practice coaching as competence develops |
+
+The stages are responsibility groupings, not new on-screen rank names. Preserve the existing career ranks; visual rank alone must not unlock a job whose prerequisite skills are missing. Basic road hazards and required safety routines apply at every stage; advanced work adds complexity, not permission to ignore safety earlier.
+
+Proposed advancement requires several successful independent demonstrations across appropriate variations, with trainer-defined pass criteria and no unresolved critical prerequisite failure. A focused module can prepare the player for an unfamiliar job; approved evidence rules should decide how module and campaign results contribute to readiness. Exact counts, recency rules, skill prerequisites and advancement thresholds remain open. Do not promote solely for encountering jobs, playing many days or repeating a single easy success.
+
+Provide progress after each day: demonstrated strengths, specific skills needing practice and the responsibility the player is working toward. Offer the matching isolated module from that debrief. Ordinary mistakes should have understandable task consequences and feed practice recommendations. A serious prerequisite failure can hold back the affected responsibility and prompt targeted remediation; an isolated weak result should not automatically erase established competence or reset the whole career. Historical mistakes and assessment results remain recorded.
+
+Trainer controls should eventually be able to assign a difficulty/eligible scenario set, target particular skills and allow appropriate reassessment, while retaining existing practice/assessment modes, pass marks, hints policy and attempt limits. These campaign-specific controls are proposed additions. Official course completion remains tied to existing module assessment rules until the user agrees an alternative and its LMS/trainer integration is reviewed.
+
 ### Module isolation
 
 A module uses the same 3D tools and behaviours as the campaign, with a mission-specific starting state, permitted activities and completion conditions. For example, sorting practice puts the player at the depot belt with parcels, a scanner, bins and lesson-relevant equipment. Vehicle entry/driving and other jobs are unavailable. Use natural boundaries such as a training bay and closed exits, and enforce unavailable activities in the shared action handler rather than merely hiding prompts.
