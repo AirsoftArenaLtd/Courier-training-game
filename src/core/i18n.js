@@ -24,7 +24,15 @@ window.OTR_I18N = window.OTR_I18N || {};
 
 OTR.i18n = {
   /** The languages there are, in their own names. */
-  LANGS: { en: 'English', es: 'Español' },
+  LANGS: {
+    en: 'English', es: 'Español', fr: 'Français',
+    hi: 'हिन्दी', bn: 'বাংলা', mr: 'मराठी', te: 'తెలుగు', ta: 'தமிழ்', gu: 'ગુજરાતી', kn: 'ಕನ್ನಡ', ml: 'മലയാളം', pa: 'ਪੰਜਾਬੀ'
+  },
+  /**
+   * Scripts whose marks reach above and below Latin letters (Indian scripts' vowel signs): a Text measures its height
+   * from these, so nothing is clipped at the top or bottom of its box.
+   */
+  TALL: { hi: 'कि्ँॄ', bn: 'কিঁ্ৃ', mr: 'कि्ँॄ', te: 'కిఁ్ౄ', ta: 'கிெ்ூ', gu: 'કિઁ્ૄ', kn: 'ಕಿಁ್ೄ', ml: 'കിെ്ൄ', pa: 'ਕਿਁ੍ੂ' },
   lang: 'en',
   dict: null, templates: [], cache: new Map(), missing: new Map(),
 
@@ -132,6 +140,15 @@ OTR.i18n = {
 (function () {
   if (!window.Phaser || !Phaser.GameObjects || !Phaser.GameObjects.Text) return;
   const P = Phaser.GameObjects.Text.prototype, set = P.setText;
+  // a language with tall marks measures its line height on them (Phaser measures on "|MÉqgy" by default)
+  const TS = Phaser.GameObjects.TextStyle && Phaser.GameObjects.TextStyle.prototype, setStyle = TS && TS.setStyle;
+  if (setStyle) {
+    TS.setStyle = function (style, updateText, setDefaults) {
+      const tall = OTR.i18n.TALL[OTR.i18n.lang];
+      if (tall && (!style || style.testString === undefined)) style = Object.assign({}, style, { testString: '|MÉqgy' + tall });
+      return setStyle.call(this, style, updateText, setDefaults);
+    };
+  }
   P.setText = function (value) {
     // the English it was given: code (and the tests) that look a label up by its words read this, not .text
     this.srcText = Array.isArray(value) ? value.join('\n') : value === undefined || value === null ? '' : String(value);

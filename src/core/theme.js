@@ -5,7 +5,8 @@ OTR.W = 1280;
 OTR.H = 720;
 
 OTR.theme = {
-  font: '"Segoe UI", "Trebuchet MS", system-ui, -apple-system, sans-serif',
+  // Nirmala UI: Windows' font for the Indian scripts (Segoe UI has none of them)
+  font: '"Segoe UI", "Nirmala UI", "Trebuchet MS", system-ui, -apple-system, sans-serif',
   get pal() { return OTR_DATA.config.palette; }
 };
 
