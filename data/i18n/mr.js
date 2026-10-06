@@ -14,7 +14,7 @@ window.OTR_I18N.mr = {
 "Certified": "प्रमाणित",
 "Senior Courier": "वरिष्ठ कुरिअर",
 "Elite Courier": "उत्कृष्ट कुरिअर",
-"Tip: A 3-minute walkaround beats a 3-hour insurance call.": "टीप: ३ मिनिटांची पाहणी ३ तासांच्या विमा कॉलपेक्षा चांगली.",
+"Tip: A 3-minute walkaround beats a 3-hour insurance call.": "टीप: 3 मिनिटांची पाहणी 3 तासांच्या विमा कॉलपेक्षा चांगली.",
 "Tip: Lift with your legs. Your back has a long career ahead of it.": "टीप: पायांच्या बळावर उचला. तुमच्या पाठीपुढे अजून मोठी कारकीर्द आहे.",
 "Tip: When in doubt, get out and look. (G.O.A.L.)": "टीप: शंका असेल तर उतरून बघा. (G.O.A.L.)",
 "Tip: A calm voice de-escalates faster than a clever comeback.": "टीप: शांत आवाज हुशार उत्तरापेक्षा लवकर तणाव कमी करतो.",

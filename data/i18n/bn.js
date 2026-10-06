@@ -14,7 +14,7 @@ window.OTR_I18N.bn = {
 "Certified": "সার্টিফায়েড",
 "Senior Courier": "সিনিয়র কুরিয়ার",
 "Elite Courier": "সেরা কুরিয়ার",
-"Tip: A 3-minute walkaround beats a 3-hour insurance call.": "টিপ: ৩ মিনিটের পরিদর্শন ৩ ঘণ্টার বিমা কলের চেয়ে ভালো।",
+"Tip: A 3-minute walkaround beats a 3-hour insurance call.": "টিপ: 3 মিনিটের পরিদর্শন 3 ঘণ্টার বিমা কলের চেয়ে ভালো।",
 "Tip: Lift with your legs. Your back has a long career ahead of it.": "টিপ: পা দিয়ে তুলুন। আপনার পিঠের সামনে এখনো লম্বা ক্যারিয়ার।",
 "Tip: When in doubt, get out and look. (G.O.A.L.)": "টিপ: সন্দেহ হলে নেমে দেখুন। (G.O.A.L.)",
 "Tip: A calm voice de-escalates faster than a clever comeback.": "টিপ: শান্ত কণ্ঠ চতুর জবাবের চেয়ে দ্রুত উত্তেজনা কমায়।",
