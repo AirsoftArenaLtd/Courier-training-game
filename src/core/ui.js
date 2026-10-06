@@ -112,12 +112,13 @@ OTR.ui = {
   languages(scene) {
     const L = OTR.i18n.LANGS, codes = Object.keys(L);
     OTR.ui.modal(scene, {
-      title: 'Language', w: 460, h: 170 + codes.length * 70, escClose: true,
+      // two columns: a dozen languages in one would run off the screen
+      title: 'Language', w: 700, h: 170 + Math.ceil(codes.length / 2) * 64, escClose: true,
       build: (box, api, w, h) => {
         const items = codes.map((c, i) => {
           const on = c === OTR.i18n.lang;
-          const b = OTR.ui.button(scene, 0, -h / 2 + 110 + i * 70, (on ? '✓  ' : '') + L[c], () => { if (on) api.close(); else OTR.i18n.set(c); },
-            { w: 320, h: 56, skin: on ? 'purple' : 'ghost', fontSize: 22 });
+          const b = OTR.ui.button(scene, (i % 2 ? 1 : -1) * 160, -h / 2 + 108 + Math.floor(i / 2) * 64, (on ? '✓  ' : '') + L[c], () => { if (on) api.close(); else OTR.i18n.set(c); },
+            { w: 300, h: 52, skin: on ? 'purple' : 'ghost', fontSize: 22 });
           b.list.forEach(o => { if (o.type === 'Text') o.noTranslate = true; });      // a language's name is never translated
           box.add(b);
           return b;
