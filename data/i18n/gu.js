@@ -2850,9 +2850,314 @@ window.OTR_I18N.gu = {
 "three things": "ત્રણ બાબતો",
 "four things": "ચાર બાબતો",
 "(facing the traffic)": "(ટ્રાફિકની સામી દિશામાં)",
-"(at an angle)": "(ત્રાંસું)"
+"(at an angle)": "(ત્રાંસું)",
+"(on the second try)": "(બીજા પ્રયાસે)",
+"(misloaded!)": "(ખોટું લોડિંગ!)",
+"· floor load strapped": "· ફ્લોરનો માલ બાંધ્યો",
+"strapped": "બાંધ્યો",
+"not strapped": "બાંધ્યો નથી",
+"nothing heavy up high": "ઊંચે કંઈ ભારે નથી",
+"or clear it": "કે હટાવ્યું નહીં",
+"the house number and a person": "ઘરનો નંબર અને એક વ્યક્તિ",
+"the house number": "ઘરનો નંબર",
+"a person": "એક વ્યક્તિ",
+", all passed": ", બધાં પાસ",
+", left part-way": ", અધવચ્ચે છોડ્યું",
+"· CRITICAL": "· ગંભીર",
+"your learning system": "તમારી લર્નિંગ સિસ્ટમમાં",
+"the training server": "તાલીમ સર્વર પર",
+"deliveries": "ડિલિવરી",
+"delivery": "ડિલિવરી",
+"shown": "દેખાય છે",
+"hidden": "છુપાવેલું",
+"high": "ઊંચું",
+"low": "નીચું",
+"retake any time": "ક્યારે પણ ફરી આપો",
+"·  practice any time": "·  ક્યારે પણ અભ્યાસ કરો",
+"your last attempt": "તમારો છેલ્લો પ્રયાસ",
+"It": "આ મૂલ્યાંકનના",
+"the pass mark in every category": "દરેક વિભાગમાં પાસ ગુણ",
+"Heat advisory": "લૂની ચેતવણી",
+"Reception": "રિસેપ્શન",
+"standard delivery": "સામાન્ય ડિલિવરી",
+"ADULT SIGNATURE": "પુખ્ત વયની સહી",
+"Customer note: \"Dog in yard.\"": "ગ્રાહકની નોંધ: \"આંગણામાં કૂતરો.\"",
+"Quiz: not taken": "ક્વિઝ: આપી નથી",
+"Not taken": "આપી નથી",
+"No recurring mistakes recorded.": "વારંવાર થતી ભૂલો નોંધાઈ નથી.",
+"None.": "કંઈ નહીં.",
+"Training record: {0}": "તાલીમ રેકોર્ડ: {0}",
+"Printed {0}": "છાપ્યું {0}",
+"Training since {0}": "તાલીમ શરૂ {0}",
+"Assessments passed": "પાસ થયેલાં મૂલ્યાંકન",
+"Scenarios practiced": "અભ્યાસ કરેલી પરિસ્થિતિઓ",
+"Route days": "રૂટના દિવસો",
+"Time training": "તાલીમનો સમય",
+"Strongest to weakest (best stars earned): {0}": "સૌથી મજબૂતથી સૌથી નબળું (મળેલા શ્રેષ્ઠ તારા): {0}",
+"Scenario": "પરિસ્થિતિ",
+"Best practice stars": "અભ્યાસના શ્રેષ્ઠ તારા",
+"Runs": "રમતો",
+"Last played": "છેલ્લે રમ્યા",
+"Critical mistakes": "ગંભીર ભૂલો",
+"Trainee signature and date": "તાલીમાર્થીની સહી અને તારીખ",
+"Trainer signature and date": "પ્રશિક્ષકની સહી અને તારીખ",
+"Certificate: {0}": "પ્રમાણપત્ર: {0}",
+"Certificate of Completion": "પૂર્ણતાનું પ્રમાણપત્ર",
+"This certifies that": "આથી પ્રમાણિત કરવામાં આવે છે કે",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "કુરિયર તાલીમ અકાદમીની દરેક પરિસ્થિતિનું મૂલ્યાંકન પાસ કર્યું છે ({1} માંથી {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "જેમાં રૂટ અને ડ્રાઇવિંગ સલામતી, પૅકેજની સંભાળ, ગ્રાહક સેવા, સમસ્યા ઉકેલ, સ્કૅનિંગ, લોડિંગ, પિકઅપ અને અંગત સલામતી સામેલ છે.",
+"Completed {0}": "પૂર્ણ {0}",
+"Trainee ID {0}": "તાલીમાર્થી ID {0}",
+"Date": "તારીખ",
+"Letters, numbers, spaces and . ' - only": "ફક્ત અક્ષરો, અંક, સ્પેસ અને . ' -",
+"CRITICAL": "ગંભીર",
+"practice any time": "ક્યારે પણ અભ્યાસ કરો",
+"your only attempt": "તમારો એકમાત્ર પ્રયાસ",
+"Accepted": "સ્વીકાર્યું",
+"Refused": "નકાર્યું",
+"under a minute": "એક મિનિટથી ઓછું",
+"1 attempt": "1 પ્રયાસ",
+"Hazards": "જોખમો",
+"Checklist": "ચેકલિસ્ટ",
+"Graphics": "ગ્રાફિક્સ",
+"Start ▶": "શરૂ ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "તીરની કી હજી સ્ટિયર કરે છે અને ચલાવે છે; ENTER અને ESC હંમેશાં ચાલે છે.",
+"★ or better in every category": "દરેક વિભાગમાં ★ કે વધુ"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"સ્ટોપ {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"સ્ટોપ {0} ({1}) માટે મોકલનારનું અપડેટ: આ પૅકેજ માટે હવે સહી જોઈએ. કોઈ સહી ન કરી શકે તો તે મૂકવામાં નહીં આવે."
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"સ્ટોપ {0} ({1}) ના ગ્રાહકે ફોન કર્યો: \"મહેરબાની કરી ઓટલા પર કૂંડા પાછળ મૂકી દો.\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nડિસ્પૅચનું અપડેટ: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"આજે: \"{0}\". ઘટના રિપોર્ટમાં શું જશે?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"મીટર {0} બતાવે છે. કાફલાનો નિયમ: વાન ઓછામાં ઓછી પા ટાંકી સાથે યાર્ડમાં પાછી જાય છે. તમે શું કરશો?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"તમે અપવાદ સાથે {0} પૅકેજ પાછાં લાવ્યા. {1:તેમનું|તેનું} શું થાય છે?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"દિવસ {0}. {2} સ્ટોપ માટે {1} વસ્તુઓ."
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"વિભાગ A એટલે સ્ટોપ 1-3 (દરવાજાની સૌથી નજીક), B એટલે સ્ટોપ 4-{0}."
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"વિભાગ A એટલે સ્ટોપ 1-{0} (દરવાજાની સૌથી નજીક)."
+],
+[
+"Held at the gate for a missed defect ({0})",
+"ચૂકી ગયેલી ખામી માટે ગેટ પર રોકાયા ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"આગળની લીટી {1} માંથી {0} · પાછા આવવા ↓ કે SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: જવાબથી વાત બગડી"
+],
+[
+"That is the most it takes: {0} characters",
+"આની મર્યાદા આટલી જ: {0} અક્ષર"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"આ માટે નવી કી દબાવો: {0}  (ESC રદ કરે છે)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route પરફોર્મન્સ ટેસ્ટ · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: સરેરાશ {1} fps, સૌથી ખરાબ 1% માં {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"રસ્તા પર {0} {1:ભૂલો|ભૂલ}"
+],
+[
+"+ {0} more on the map",
+"+ નકશા પર બીજી {0}"
+],
+[
+"DAY {0}  ·  STATION",
+"દિવસ {0}  ·  સ્ટેશન"
+],
+[
+"stop {0} of {1}",
+"સ્ટોપ {1} માંથી {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0} ડિલિવર · {1} અપવાદ"
+],
+[
+"Day {0}  ·  5 stops",
+"દિવસ {0}  ·  5 સ્ટોપ"
+],
+[
+"Start day {0}'s route?",
+"દિવસ {0} નો રૂટ શરૂ કરવો છે?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} રૂટ-દિવસ નોંધાયા · શ્રેષ્ઠ {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"મૂલ્યાંકન: પાસ નહીં · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"શ્રેષ્ઠ {0} / {1} ★ · {2}× રમ્યા"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"કોઈ સંકેત નહીં અને ફરી શરૂઆત નહીં. પાસ થવા: {0}, અને એક પણ ગંભીર ભૂલ નહીં. "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"શરૂ કરવાથી {0} વપરાય છે, અને અધવચ્ચે છોડવું પાસ નહીં ગણાય."
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} તરીકે સાઇન ઇન.\nપ્રશિક્ષક તમારી પ્રગતિ રીસેટ કરી શકે છે."
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} પુનરાવર્તન બાકી: થોડા સમય પહેલાં પાસ કરેલું મૉડ્યૂલ, તાજું રાખવા"
+],
+[
+"Question {0} of {1}",
+"પ્રશ્ન {1} માંથી {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  પાસ થવા {1}%"
+],
+[
+"Drive map ({0})",
+"ડ્રાઇવનો નકશો ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} નવા કારકિર્દી તારા"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} ગુણ પણ એ જ રીતે ગણાય છે: કોઈ સંકેત નહીં, ફરી શરૂઆત નહીં."
+],
+[
+"Next drill ({0} of {1}) ▶",
+"આગલો અભ્યાસ ({1} માંથી {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ સુધારવા બીજી {0}"
+],
+[
+"You're now {0}",
+"તમે હવે {0} છો"
+],
+[
+"Continue as {0}",
+"{0} તરીકે ચાલુ રાખો"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"સાઇન ઇન{0} · પ્રગતિ સેવ થાય છે {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"આનાથી {0} નો રૅન્ક, તારા અને પ્રગતિ ભૂંસાઈ જશે. આ પાછું લાવી શકાતું નથી."
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}પાસ {1}/{2} · {3} રૂટ-દિવસ · {4}"
+],
+[
+"Page {0} of {1}",
+"પાનું {1} માંથી {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1} મૂલ્યાંકન બીજા પ્રયાસ માટે ખોલ્યાં"
+],
+[
+"{0} was reset",
+"{0} ની પ્રગતિ રીસેટ થઈ"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"પાસ થયેલાં મૂલ્યાંકન {1} માંથી {0} · {2} રૂટ-દિવસ"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} મૂલ્યાંકન બીજા પ્રયાસ માટે ખોલ્યાં"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"ચેકપોઇન્ટ {1} માંથી {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"થોભો — આર્મ વળવામાં {0} સેકન્ડ"
+],
+[
+"Checkpoint {0} reached",
+"ચેકપોઇન્ટ {0} પર પહોંચ્યા"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"ચેકપોઇન્ટ {0} પૂરો — આગલો નકશા પર છે"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"અભ્યાસ {0} સેકન્ડમાં કર્યો (ધોરણ {1} સેકન્ડ)"
+],
+[
+"Clip {0} of {1} · {2}",
+"ક્લિપ {1} માંથી {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"ઓળખ્યું: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} સેકન્ડ પછી ઓળખ્યું: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"માપક {0}/32\" બતાવે છે."
+]
+],
 "keep": [
 "three.js did not load",
 "#game canvas",

@@ -2850,9 +2850,314 @@ window.OTR_I18N.ml = {
 "three things": "മൂന്ന് കാര്യങ്ങൾ",
 "four things": "നാല് കാര്യങ്ങൾ",
 "(facing the traffic)": "(ഗതാഗതത്തിന് എതിർദിശയിൽ)",
-"(at an angle)": "(ചരിഞ്ഞ്)"
+"(at an angle)": "(ചരിഞ്ഞ്)",
+"(on the second try)": "(രണ്ടാം ശ്രമത്തിൽ)",
+"(misloaded!)": "(തെറ്റായ ലോഡ്!)",
+"· floor load strapped": "· തറയിലെ ചരക്ക് കെട്ടി",
+"strapped": "കെട്ടി",
+"not strapped": "കെട്ടിയിട്ടില്ല",
+"nothing heavy up high": "ഉയരത്തിൽ ഭാരമുള്ളതൊന്നുമില്ല",
+"or clear it": "അല്ലെങ്കിൽ നീക്കിയില്ല",
+"the house number and a person": "വീട്ടുനമ്പറും ഒരാളും",
+"the house number": "വീട്ടുനമ്പർ",
+"a person": "ഒരാൾ",
+", all passed": ", എല്ലാം വിജയിച്ചു",
+", left part-way": ", പാതിവഴിയിൽ നിർത്തി",
+"· CRITICAL": "· ഗുരുതരം",
+"your learning system": "നിങ്ങളുടെ ലേണിങ് സിസ്റ്റത്തിൽ",
+"the training server": "പരിശീലന സെർവറിൽ",
+"deliveries": "ഡെലിവറികൾ",
+"delivery": "ഡെലിവറി",
+"shown": "കാണിക്കുന്നു",
+"hidden": "മറച്ചു",
+"high": "ഉയർന്നത്",
+"low": "കുറഞ്ഞത്",
+"retake any time": "എപ്പോൾ വേണമെങ്കിലും വീണ്ടും എഴുതാം",
+"·  practice any time": "·  എപ്പോൾ വേണമെങ്കിലും പരിശീലിക്കാം",
+"your last attempt": "നിങ്ങളുടെ അവസാന ശ്രമം",
+"It": "ഈ വിലയിരുത്തലിനും",
+"the pass mark in every category": "ഓരോ വിഭാഗത്തിലും വിജയ മാർക്ക്",
+"Heat advisory": "ഉഷ്ണ മുന്നറിയിപ്പ്",
+"Reception": "റിസപ്ഷൻ",
+"standard delivery": "സാധാരണ ഡെലിവറി",
+"ADULT SIGNATURE": "മുതിർന്നയാളുടെ ഒപ്പ്",
+"Customer note: \"Dog in yard.\"": "ഉപഭോക്താവിന്റെ കുറിപ്പ്: \"മുറ്റത്ത് നായ.\"",
+"Quiz: not taken": "ക്വിസ്: എഴുതിയിട്ടില്ല",
+"Not taken": "എഴുതിയിട്ടില്ല",
+"No recurring mistakes recorded.": "ആവർത്തിക്കുന്ന തെറ്റുകൾ രേഖപ്പെടുത്തിയിട്ടില്ല.",
+"None.": "ഒന്നുമില്ല.",
+"Training record: {0}": "പരിശീലന റെക്കോർഡ്: {0}",
+"Printed {0}": "അച്ചടിച്ചത് {0}",
+"Training since {0}": "പരിശീലനം തുടങ്ങിയത് {0}",
+"Assessments passed": "വിജയിച്ച വിലയിരുത്തലുകൾ",
+"Scenarios practiced": "പരിശീലിച്ച സാഹചര്യങ്ങൾ",
+"Route days": "റൂട്ട് ദിവസങ്ങൾ",
+"Time training": "പരിശീലന സമയം",
+"Strongest to weakest (best stars earned): {0}": "ഏറ്റവും ശക്തമായതിൽ നിന്ന് ദുർബലമായതിലേക്ക് (നേടിയ മികച്ച നക്ഷത്രങ്ങൾ): {0}",
+"Scenario": "സാഹചര്യം",
+"Best practice stars": "പരിശീലനത്തിലെ മികച്ച നക്ഷത്രങ്ങൾ",
+"Runs": "കളികൾ",
+"Last played": "അവസാനം കളിച്ചത്",
+"Critical mistakes": "ഗുരുതരമായ തെറ്റുകൾ",
+"Trainee signature and date": "പരിശീലനാർഥിയുടെ ഒപ്പും തീയതിയും",
+"Trainer signature and date": "പരിശീലകന്റെ ഒപ്പും തീയതിയും",
+"Certificate: {0}": "സർട്ടിഫിക്കറ്റ്: {0}",
+"Certificate of Completion": "പൂർത്തീകരണ സർട്ടിഫിക്കറ്റ്",
+"This certifies that": "ഇതിനാൽ സാക്ഷ്യപ്പെടുത്തുന്നു",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "കൊറിയർ പരിശീലന അക്കാദമിയിലെ എല്ലാ സാഹചര്യങ്ങളുടെയും വിലയിരുത്തൽ വിജയിച്ചു ({1}-ൽ {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "റൂട്ട്, ഡ്രൈവിങ് സുരക്ഷ, പാക്കേജ് കൈകാര്യം, ഉപഭോക്തൃ സേവനം, പ്രശ്നപരിഹാരം, സ്കാനിങ്, ലോഡിങ്, പിക്കപ്പുകൾ, വ്യക്തിഗത സുരക്ഷ എന്നിവ ഉൾപ്പെടെ.",
+"Completed {0}": "പൂർത്തിയാക്കിയത് {0}",
+"Trainee ID {0}": "പരിശീലനാർഥി ID {0}",
+"Date": "തീയതി",
+"Letters, numbers, spaces and . ' - only": "അക്ഷരങ്ങൾ, അക്കങ്ങൾ, സ്പേസ്, . ' - മാത്രം",
+"CRITICAL": "ഗുരുതരം",
+"practice any time": "എപ്പോൾ വേണമെങ്കിലും പരിശീലിക്കാം",
+"your only attempt": "നിങ്ങളുടെ ഒരേയൊരു ശ്രമം",
+"Accepted": "സ്വീകരിച്ചു",
+"Refused": "നിരസിച്ചു",
+"under a minute": "ഒരു മിനിറ്റിൽ താഴെ",
+"1 attempt": "1 ശ്രമം",
+"Hazards": "അപകടങ്ങൾ",
+"Checklist": "ചെക്ക്‌ലിസ്റ്റ്",
+"Graphics": "ഗ്രാഫിക്സ്",
+"Start ▶": "തുടങ്ങുക ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "ആരോ കീകൾ ഇപ്പോഴും സ്റ്റിയർ ചെയ്യുകയും നടത്തുകയും ചെയ്യും; ENTER, ESC എപ്പോഴും പ്രവർത്തിക്കും.",
+"★ or better in every category": "ഓരോ വിഭാഗത്തിലും ★ അല്ലെങ്കിൽ കൂടുതൽ"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"സ്റ്റോപ്പ് {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"സ്റ്റോപ്പ് {0} ({1})-നായി അയയ്ക്കുന്നയാളുടെ അപ്‌ഡേറ്റ്: ഈ പാക്കേജിന് ഇപ്പോൾ ഒപ്പ് വേണം. ആർക്കും ഒപ്പിടാനായില്ലെങ്കിൽ അത് വച്ചിട്ടുപോകില്ല."
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"സ്റ്റോപ്പ് {0} ({1})-ലെ ഉപഭോക്താവ് വിളിച്ചു: \"ദയവായി വരാന്തയിലെ ചെടിച്ചട്ടിക്ക് പിന്നിൽ വയ്ക്കുക.\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nഡിസ്പാച്ചിന്റെ അപ്‌ഡേറ്റ്: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"ഇന്ന്: \"{0}\". സംഭവ റിപ്പോർട്ടിൽ എന്ത് എഴുതും?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"ഗേജ് {0} കാണിക്കുന്നു. വാഹന നിയമം: വാൻ കുറഞ്ഞത് കാൽ ടാങ്കോടെ യാർഡിലേക്ക് മടങ്ങും. നിങ്ങൾ എന്ത് ചെയ്യും?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"നിങ്ങൾ ഒഴിവോടെ {0} പാക്കേജ് തിരികെ കൊണ്ടുവന്നു. {1:അവയ്ക്ക്|അതിന്} എന്ത് സംഭവിക്കും?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"ദിവസം {0}. {2} സ്റ്റോപ്പുകൾക്ക് {1} വസ്തുക്കൾ."
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"ഭാഗം A എന്നാൽ സ്റ്റോപ്പ് 1-3 (വാതിലിനടുത്ത്), B എന്നാൽ സ്റ്റോപ്പ് 4-{0}."
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"ഭാഗം A എന്നാൽ സ്റ്റോപ്പ് 1-{0} (വാതിലിനടുത്ത്)."
+],
+[
+"Held at the gate for a missed defect ({0})",
+"വിട്ടുപോയ തകരാറിന് ഗേറ്റിൽ തടഞ്ഞു ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"മുമ്പത്തെ വരി {1}-ൽ {0} · തിരികെ വരാൻ ↓ അല്ലെങ്കിൽ SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: മറുപടി കാര്യം വഷളാക്കി"
+],
+[
+"That is the most it takes: {0} characters",
+"ഇതിന്റെ പരിധി ഇത്രമാത്രം: {0} അക്ഷരങ്ങൾ"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"ഇതിനായി പുതിയ കീ അമർത്തുക: {0}  (ESC റദ്ദാക്കും)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route പ്രകടന പരിശോധന · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: ശരാശരി {1} fps, ഏറ്റവും മോശം 1%-ൽ {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"റോഡിൽ {0} തെറ്റുകൾ"
+],
+[
+"+ {0} more on the map",
+"+ മാപ്പിൽ {0} കൂടി"
+],
+[
+"DAY {0}  ·  STATION",
+"ദിവസം {0}  ·  സ്റ്റേഷൻ"
+],
+[
+"stop {0} of {1}",
+"സ്റ്റോപ്പ് {1}-ൽ {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0} ഡെലിവർ · {1} ഒഴിവ്"
+],
+[
+"Day {0}  ·  5 stops",
+"ദിവസം {0}  ·  5 സ്റ്റോപ്പുകൾ"
+],
+[
+"Start day {0}'s route?",
+"ദിവസം {0}-ന്റെ റൂട്ട് തുടങ്ങണോ?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} റൂട്ട് ദിവസങ്ങൾ രേഖപ്പെടുത്തി · മികച്ചത് {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"വിലയിരുത്തൽ: വിജയിച്ചില്ല · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"മികച്ചത് {0} / {1} ★ · {2}× കളിച്ചു"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"സൂചനകളില്ല, വീണ്ടും തുടങ്ങലുമില്ല. വിജയിക്കാൻ: {0}, ഒരു ഗുരുതര തെറ്റുമില്ലാതെ. "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"തുടങ്ങിയാൽ {0} ചെലവാകും, പാതിവഴിയിൽ നിർത്തിയാൽ വിജയിച്ചില്ല എന്ന് കണക്കാക്കും."
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} ആയി സൈൻ ഇൻ ചെയ്തു.\nപരിശീലകന് നിങ്ങളുടെ പുരോഗതി റീസെറ്റ് ചെയ്യാം."
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} പുനരവലോകനം ബാക്കി: കുറച്ചുമുമ്പ് വിജയിച്ച മൊഡ്യൂൾ, പുതുമയോടെ നിലനിർത്താൻ"
+],
+[
+"Question {0} of {1}",
+"ചോദ്യം {1}-ൽ {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  വിജയിക്കാൻ {1}%"
+],
+[
+"Drive map ({0})",
+"ഡ്രൈവ് മാപ്പ് ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} പുതിയ കരിയർ നക്ഷത്രം"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} അതേ രീതിയിലാണ് സ്കോർ: സൂചനകളില്ല, വീണ്ടും തുടങ്ങലുമില്ല."
+],
+[
+"Next drill ({0} of {1}) ▶",
+"അടുത്ത പരിശീലനം ({1}-ൽ {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ ശ്രദ്ധിക്കാൻ {0} കൂടി"
+],
+[
+"You're now {0}",
+"നിങ്ങൾ ഇപ്പോൾ {0}"
+],
+[
+"Continue as {0}",
+"{0} ആയി തുടരുക"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"സൈൻ ഇൻ{0} · പുരോഗതി സേവ് ചെയ്യുന്നത് {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"ഇത് {0}-ന്റെ റാങ്ക്, നക്ഷത്രങ്ങൾ, പുരോഗതി എന്നിവ മായ്ക്കും. ഇത് പഴയപടിയാക്കാനാകില്ല."
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}വിജയിച്ചു {1}/{2} · {3} റൂട്ട് ദിവസങ്ങൾ · {4}"
+],
+[
+"Page {0} of {1}",
+"പേജ് {1}-ൽ {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1} വിലയിരുത്തലുകൾ മറ്റൊരു ശ്രമത്തിനായി തുറന്നു"
+],
+[
+"{0} was reset",
+"{0}-ന്റെ പുരോഗതി റീസെറ്റ് ചെയ്തു"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"വിജയിച്ച വിലയിരുത്തലുകൾ {1}-ൽ {0} · {2} റൂട്ട് ദിവസങ്ങൾ"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} വിലയിരുത്തലുകൾ മറ്റൊരു ശ്രമത്തിനായി തുറന്നു"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"ചെക്ക്‌പോയിന്റ് {1}-ൽ {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"നിൽക്കുക — ആം മടങ്ങാൻ {0} സെക്കൻഡ്"
+],
+[
+"Checkpoint {0} reached",
+"ചെക്ക്‌പോയിന്റ് {0}-ൽ എത്തി"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"ചെക്ക്‌പോയിന്റ് {0} കഴിഞ്ഞു — അടുത്തത് മാപ്പിലുണ്ട്"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"പരിശീലനം {0} സെക്കൻഡിൽ ചെയ്തു (മാനദണ്ഡം {1} സെക്കൻഡ്)"
+],
+[
+"Clip {0} of {1} · {2}",
+"ക്ലിപ്പ് {1}-ൽ {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"തിരിച്ചറിഞ്ഞു: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} സെക്കൻഡിന് ശേഷം തിരിച്ചറിഞ്ഞു: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"ഗേജ് {0}/32\" കാണിക്കുന്നു."
+]
+],
 "keep": [
 "three.js did not load",
 "#game canvas",

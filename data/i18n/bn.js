@@ -2851,9 +2851,314 @@ window.OTR_I18N.bn = {
 "three things": "তিনটি বিষয়",
 "four things": "চারটি বিষয়",
 "(facing the traffic)": "(ট্রাফিকের উল্টো দিকে মুখ করে)",
-"(at an angle)": "(বাঁকা করে)"
+"(at an angle)": "(বাঁকা করে)",
+"(on the second try)": "(দ্বিতীয় চেষ্টায়)",
+"(misloaded!)": "(ভুল লোড!)",
+"· floor load strapped": "· মেঝের মাল বাঁধা",
+"strapped": "বাঁধা",
+"not strapped": "বাঁধা নেই",
+"nothing heavy up high": "ওপরে ভারী কিছু নেই",
+"or clear it": "বা সরাননি",
+"the house number and a person": "বাড়ির নম্বর আর একজন মানুষ",
+"the house number": "বাড়ির নম্বর",
+"a person": "একজন মানুষ",
+", all passed": ", সব পাস",
+", left part-way": ", মাঝপথে ছেড়েছেন",
+"· CRITICAL": "· গুরুতর",
+"your learning system": "আপনার লার্নিং সিস্টেমে",
+"the training server": "প্রশিক্ষণ সার্ভারে",
+"deliveries": "ডেলিভারি",
+"delivery": "ডেলিভারি",
+"shown": "দেখানো",
+"hidden": "লুকানো",
+"high": "উঁচু",
+"low": "নিচু",
+"retake any time": "যেকোনো সময় আবার দিন",
+"·  practice any time": "·  যেকোনো সময় অনুশীলন",
+"your last attempt": "আপনার শেষ সুযোগ",
+"It": "এই মূল্যায়নের",
+"the pass mark in every category": "প্রতিটি বিভাগে পাস নম্বর",
+"Heat advisory": "তাপপ্রবাহ সতর্কতা",
+"Reception": "রিসেপশন",
+"standard delivery": "সাধারণ ডেলিভারি",
+"ADULT SIGNATURE": "প্রাপ্তবয়স্কের সই",
+"Customer note: \"Dog in yard.\"": "গ্রাহকের নোট: \"উঠোনে কুকুর।\"",
+"Quiz: not taken": "কুইজ: দেওয়া হয়নি",
+"Not taken": "দেওয়া হয়নি",
+"No recurring mistakes recorded.": "বারবার হওয়া কোনো ভুল লেখা নেই।",
+"None.": "কিছু না।",
+"Training record: {0}": "প্রশিক্ষণ রেকর্ড: {0}",
+"Printed {0}": "ছাপা হয়েছে {0}",
+"Training since {0}": "প্রশিক্ষণ শুরু {0}",
+"Assessments passed": "পাস করা মূল্যায়ন",
+"Scenarios practiced": "অনুশীলন করা পরিস্থিতি",
+"Route days": "রুটের দিন",
+"Time training": "প্রশিক্ষণের সময়",
+"Strongest to weakest (best stars earned): {0}": "সবচেয়ে শক্তিশালী থেকে দুর্বল (সেরা পাওয়া তারা): {0}",
+"Scenario": "পরিস্থিতি",
+"Best practice stars": "অনুশীলনের সেরা তারা",
+"Runs": "খেলা",
+"Last played": "শেষ খেলা",
+"Critical mistakes": "গুরুতর ভুল",
+"Trainee signature and date": "প্রশিক্ষণার্থীর সই ও তারিখ",
+"Trainer signature and date": "প্রশিক্ষকের সই ও তারিখ",
+"Certificate: {0}": "সার্টিফিকেট: {0}",
+"Certificate of Completion": "সমাপ্তির সার্টিফিকেট",
+"This certifies that": "এই মর্মে প্রত্যয়িত করা হচ্ছে যে",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "কুরিয়ার প্রশিক্ষণ একাডেমির প্রতিটি পরিস্থিতির মূল্যায়ন পাস করেছেন ({1}-এর মধ্যে {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "যার মধ্যে আছে রুট ও ড্রাইভিং নিরাপত্তা, প্যাকেজ সামলানো, গ্রাহক সেবা, সমস্যা সমাধান, স্ক্যানিং, লোডিং, পিকআপ আর ব্যক্তিগত নিরাপত্তা।",
+"Completed {0}": "সম্পূর্ণ {0}",
+"Trainee ID {0}": "প্রশিক্ষণার্থী ID {0}",
+"Date": "তারিখ",
+"Letters, numbers, spaces and . ' - only": "শুধু অক্ষর, সংখ্যা, স্পেস আর . ' -",
+"CRITICAL": "গুরুতর",
+"practice any time": "যেকোনো সময় অনুশীলন",
+"your only attempt": "আপনার একমাত্র সুযোগ",
+"Accepted": "নেওয়া হয়েছে",
+"Refused": "ফেরানো হয়েছে",
+"under a minute": "এক মিনিটের কম",
+"1 attempt": "1টি সুযোগ",
+"Hazards": "বিপদ",
+"Checklist": "চেকলিস্ট",
+"Graphics": "গ্রাফিক্স",
+"Start ▶": "শুরু ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "তীর কী দিয়ে এখনও স্টিয়ার আর হাঁটা যায়; ENTER আর ESC সবসময় কাজ করে।",
+"★ or better in every category": "প্রতিটি বিভাগে ★ বা তার বেশি"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"স্টপ {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"স্টপ {0} ({1})-এর জন্য প্রেরকের আপডেট: এই প্যাকেজে এখন সই লাগবে। কেউ সই করতে না পারলে এটি রেখে আসা হবে না।"
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"স্টপ {0} ({1})-এর গ্রাহক ফোন করেছেন: \"দয়া করে বারান্দায় টবের পেছনে রেখে দিন।\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nডিসপ্যাচের আপডেট: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"আজ: \"{0}\"। ঘটনার রিপোর্টে কী যাবে?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"মিটারে দেখাচ্ছে {0}। বহরের নিয়ম: ভ্যান অন্তত এক-চতুর্থাংশ ট্যাংক নিয়ে ইয়ার্ডে ফেরে। আপনি কী করবেন?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"আপনি ব্যতিক্রম নিয়ে {0}টি প্যাকেজ ফিরিয়ে এনেছেন। {1:ওগুলোর|ওটার} কী হবে?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"দিন {0}। {2}টি স্টপের জন্য {1}টি জিনিস।"
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"অংশ A হলো স্টপ 1-3 (দরজার সবচেয়ে কাছে), B হলো স্টপ 4-{0}।"
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"অংশ A হলো স্টপ 1-{0} (দরজার সবচেয়ে কাছে)।"
+],
+[
+"Held at the gate for a missed defect ({0})",
+"ধরা না-পড়া ত্রুটির জন্য গেটে আটকানো ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"আগের লাইন {1}-এর {0} · ফিরতে ↓ বা SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: উত্তরে ব্যাপারটা আরও খারাপ হয়েছে"
+],
+[
+"That is the most it takes: {0} characters",
+"এর সীমা এতটুকুই: {0}টি অক্ষর"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"এর জন্য নতুন কী চাপুন: {0}  (ESC বাতিল করে)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route পারফরম্যান্স পরীক্ষা · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: গড় {1} fps, সবচেয়ে খারাপ 1%-এ {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"রাস্তায় {0}টি ভুল"
+],
+[
+"+ {0} more on the map",
+"+ মানচিত্রে আরও {0}টি"
+],
+[
+"DAY {0}  ·  STATION",
+"দিন {0}  ·  স্টেশন"
+],
+[
+"stop {0} of {1}",
+"স্টপ {1}-এর {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0}টি ডেলিভার · {1}টি ব্যতিক্রম"
+],
+[
+"Day {0}  ·  5 stops",
+"দিন {0}  ·  5টি স্টপ"
+],
+[
+"Start day {0}'s route?",
+"দিন {0}-এর রুট শুরু করবেন?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0}টি রুট-দিন লেখা · সেরা {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"মূল্যায়ন: পাস হয়নি · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"সেরা {0} / {1} ★ · {2}× খেলা"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"কোনো ইঙ্গিত নেই, আবার শুরু করাও নেই। পাসের জন্য: {0}, আর কোনো গুরুতর ভুল নয়। "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"শুরু করলে {0} খরচ হবে, আর মাঝপথে ছাড়লে পাস হয়নি ধরা হয়।"
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} হিসেবে সাইন ইন।\nপ্রশিক্ষক আপনার অগ্রগতি রিসেট করতে পারেন।"
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0}টি ঝালাই বাকি: কিছুদিন আগে পাস করা একটি মডিউল, তাজা রাখার জন্য"
+],
+[
+"Question {0} of {1}",
+"প্রশ্ন {1}-এর {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  পাসের জন্য {1}%"
+],
+[
+"Drive map ({0})",
+"ড্রাইভের মানচিত্র ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0}টি নতুন ক্যারিয়ার তারা"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} নম্বরও একইভাবে গোনা হয়: কোনো ইঙ্গিত নেই, আবার শুরু করাও নেই।"
+],
+[
+"Next drill ({0} of {1}) ▶",
+"পরের অনুশীলন ({1}-এর {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ আরও {0}টি উন্নতির বিষয়"
+],
+[
+"You're now {0}",
+"আপনি এখন {0}"
+],
+[
+"Continue as {0}",
+"{0} হিসেবে চালিয়ে যান"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"সাইন ইন{0} · অগ্রগতি সেভ হচ্ছে {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"এতে {0}-এর র‍্যাঙ্ক, তারা আর অগ্রগতি মুছে যাবে। এটি আর ফেরানো যাবে না।"
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}পাস {1}/{2} · {3}টি রুট-দিন · {4}"
+],
+[
+"Page {0} of {1}",
+"পৃষ্ঠা {1}-এর {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1}টি মূল্যায়ন আরেকবার চেষ্টার জন্য খোলা হয়েছে"
+],
+[
+"{0} was reset",
+"{0}-এর অগ্রগতি রিসেট হয়েছে"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"পাস করা মূল্যায়ন {1}-এর {0} · {2}টি রুট-দিন"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0}টি মূল্যায়ন আরেকবার চেষ্টার জন্য খোলা হয়েছে"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"চেকপয়েন্ট {1}-এর {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"থামুন — আর্ম ভাঁজ হতে {0} সেকেন্ড"
+],
+[
+"Checkpoint {0} reached",
+"চেকপয়েন্ট {0}-এ পৌঁছেছেন"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"চেকপয়েন্ট {0} শেষ — পরেরটি মানচিত্রে"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"অনুশীলন {0} সেকেন্ডে শেষ (মান {1} সেকেন্ড)"
+],
+[
+"Clip {0} of {1} · {2}",
+"ক্লিপ {1}-এর {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"চিনেছেন: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} সেকেন্ড পরে চিনেছেন: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"মিটারে {0}/32\"।"
+]
+],
 "keep": [
 "three.js did not load",
 "#game canvas",

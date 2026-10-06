@@ -2850,9 +2850,314 @@ window.OTR_I18N.te = {
 "three things": "మూడు విషయాలు",
 "four things": "నాలుగు విషయాలు",
 "(facing the traffic)": "(ట్రాఫిక్‌కు ఎదురుగా)",
-"(at an angle)": "(వాలుగా)"
+"(at an angle)": "(వాలుగా)",
+"(on the second try)": "(రెండో ప్రయత్నంలో)",
+"(misloaded!)": "(తప్పు లోడ్!)",
+"· floor load strapped": "· నేలపై సరుకు కట్టారు",
+"strapped": "కట్టారు",
+"not strapped": "కట్టలేదు",
+"nothing heavy up high": "ఎత్తులో బరువైనదేదీ లేదు",
+"or clear it": "లేదా తొలగించలేదు",
+"the house number and a person": "ఇంటి నంబరు, ఒక వ్యక్తి",
+"the house number": "ఇంటి నంబరు",
+"a person": "ఒక వ్యక్తి",
+", all passed": ", అన్నీ ఉత్తీర్ణం",
+", left part-way": ", మధ్యలో వదిలేశారు",
+"· CRITICAL": "· తీవ్రమైనది",
+"your learning system": "మీ లెర్నింగ్ సిస్టమ్‌లో",
+"the training server": "శిక్షణ సర్వర్‌లో",
+"deliveries": "డెలివరీలు",
+"delivery": "డెలివరీ",
+"shown": "చూపిస్తోంది",
+"hidden": "దాచబడింది",
+"high": "ఎక్కువ",
+"low": "తక్కువ",
+"retake any time": "ఎప్పుడైనా మళ్లీ రాయండి",
+"·  practice any time": "·  ఎప్పుడైనా సాధన చేయండి",
+"your last attempt": "మీ చివరి ప్రయత్నం",
+"It": "ఈ మూల్యాంకనానికి",
+"the pass mark in every category": "ప్రతి విభాగంలో ఉత్తీర్ణ మార్కు",
+"Heat advisory": "వడగాలి హెచ్చరిక",
+"Reception": "రిసెప్షన్",
+"standard delivery": "సాధారణ డెలివరీ",
+"ADULT SIGNATURE": "పెద్దల సంతకం",
+"Customer note: \"Dog in yard.\"": "కస్టమర్ నోట్: \"ఆవరణలో కుక్క.\"",
+"Quiz: not taken": "క్విజ్: రాయలేదు",
+"Not taken": "రాయలేదు",
+"No recurring mistakes recorded.": "పదే పదే జరిగే తప్పులు నమోదు కాలేదు.",
+"None.": "ఏమీ లేదు.",
+"Training record: {0}": "శిక్షణ రికార్డ్: {0}",
+"Printed {0}": "ముద్రించినది {0}",
+"Training since {0}": "శిక్షణ మొదలు {0}",
+"Assessments passed": "ఉత్తీర్ణమైన మూల్యాంకనాలు",
+"Scenarios practiced": "సాధన చేసిన సన్నివేశాలు",
+"Route days": "రూట్ రోజులు",
+"Time training": "శిక్షణ సమయం",
+"Strongest to weakest (best stars earned): {0}": "బలమైనది నుంచి బలహీనమైనది వరకు (వచ్చిన ఉత్తమ నక్షత్రాలు): {0}",
+"Scenario": "సన్నివేశం",
+"Best practice stars": "సాధనలో ఉత్తమ నక్షత్రాలు",
+"Runs": "ఆటలు",
+"Last played": "చివరిసారి ఆడింది",
+"Critical mistakes": "తీవ్రమైన తప్పులు",
+"Trainee signature and date": "శిక్షణార్థి సంతకం, తేదీ",
+"Trainer signature and date": "శిక్షకుడి సంతకం, తేదీ",
+"Certificate: {0}": "సర్టిఫికెట్: {0}",
+"Certificate of Completion": "పూర్తి చేసిన సర్టిఫికెట్",
+"This certifies that": "దీని ద్వారా ధృవీకరించడమేమనగా",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "కొరియర్ శిక్షణ అకాడమీలోని ప్రతి సన్నివేశ మూల్యాంకనంలో ఉత్తీర్ణులయ్యారు ({1} లో {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "ఇందులో రూట్, డ్రైవింగ్ భద్రత, ప్యాకేజీ నిర్వహణ, కస్టమర్ సేవ, సమస్యల పరిష్కారం, స్కానింగ్, లోడింగ్, పికప్‌లు, వ్యక్తిగత భద్రత ఉన్నాయి.",
+"Completed {0}": "పూర్తి {0}",
+"Trainee ID {0}": "శిక్షణార్థి ID {0}",
+"Date": "తేదీ",
+"Letters, numbers, spaces and . ' - only": "అక్షరాలు, అంకెలు, స్పేస్‌లు, . ' - మాత్రమే",
+"CRITICAL": "తీవ్రమైనది",
+"practice any time": "ఎప్పుడైనా సాధన చేయండి",
+"your only attempt": "మీ ఏకైక ప్రయత్నం",
+"Accepted": "స్వీకరించారు",
+"Refused": "తిరస్కరించారు",
+"under a minute": "ఒక నిమిషం లోపు",
+"1 attempt": "1 ప్రయత్నం",
+"Hazards": "ప్రమాదాలు",
+"Checklist": "చెక్‌లిస్ట్",
+"Graphics": "గ్రాఫిక్స్",
+"Start ▶": "ప్రారంభం ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "బాణం కీలు ఇప్పటికీ స్టీర్ చేస్తాయి, నడిపిస్తాయి; ENTER, ESC ఎప్పుడూ పనిచేస్తాయి.",
+"★ or better in every category": "ప్రతి విభాగంలో ★ లేదా అంతకంటే ఎక్కువ"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"స్టాప్ {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"స్టాప్ {0} ({1}) కోసం పంపేవారి అప్‌డేట్: ఈ ప్యాకేజీకి ఇప్పుడు సంతకం కావాలి. ఎవరూ సంతకం చేయలేకపోతే దాన్ని వదలరు."
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"స్టాప్ {0} ({1}) లోని కస్టమర్ ఫోన్ చేశారు: \"దయచేసి వరండాలో పూలకుండీ వెనుక పెట్టండి.\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nడిస్పాచ్ నుంచి అప్‌డేట్: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"ఈ రోజు: \"{0}\". సంఘటన నివేదికలో ఏం రాస్తారు?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"మీటర్ {0} చూపిస్తోంది. వాహన నియమం: వ్యాన్ కనీసం పావు ట్యాంక్‌తో యార్డ్‌కు తిరిగి వెళ్తుంది. మీరు ఏం చేస్తారు?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"మీరు మినహాయింపుతో {0} ప్యాకేజీలు తిరిగి తెచ్చారు. {1:వాటికి|దానికి} ఏం జరుగుతుంది?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"రోజు {0}. {2} స్టాప్‌లకు {1} వస్తువులు."
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"విభాగం A అంటే స్టాప్‌లు 1-3 (తలుపుకు దగ్గరగా), B అంటే స్టాప్‌లు 4-{0}."
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"విభాగం A అంటే స్టాప్‌లు 1-{0} (తలుపుకు దగ్గరగా)."
+],
+[
+"Held at the gate for a missed defect ({0})",
+"గమనించని లోపం కోసం గేటు వద్ద ఆపారు ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"మునుపటి వరుస {1} లో {0} · తిరిగి రావడానికి ↓ లేదా SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: జవాబు పరిస్థితిని మరింత దిగజార్చింది"
+],
+[
+"That is the most it takes: {0} characters",
+"దీని పరిమితి ఇంతే: {0} అక్షరాలు"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"దీని కోసం కొత్త కీ నొక్కండి: {0}  (ESC రద్దు చేస్తుంది)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route పనితీరు పరీక్ష · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: సగటు {1} fps, చెత్త 1% లో {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"రోడ్డుపై {0} తప్పులు"
+],
+[
+"+ {0} more on the map",
+"+ మ్యాప్‌లో మరో {0}"
+],
+[
+"DAY {0}  ·  STATION",
+"రోజు {0}  ·  స్టేషన్"
+],
+[
+"stop {0} of {1}",
+"స్టాప్ {1} లో {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0} డెలివర్ · {1} మినహాయింపు"
+],
+[
+"Day {0}  ·  5 stops",
+"రోజు {0}  ·  5 స్టాప్‌లు"
+],
+[
+"Start day {0}'s route?",
+"రోజు {0} రూట్ ప్రారంభించాలా?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} రూట్ రోజులు నమోదు · ఉత్తమం {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"మూల్యాంకనం: ఉత్తీర్ణం కాలేదు · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"ఉత్తమం {0} / {1} ★ · {2}× ఆడారు"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"సూచనలు లేవు, మళ్లీ మొదలుపెట్టడం లేదు. ఉత్తీర్ణతకు: {0}, ఒక్క తీవ్రమైన తప్పూ ఉండకూడదు. "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"ప్రారంభిస్తే {0} ఖర్చవుతుంది, మధ్యలో వదిలేస్తే ఉత్తీర్ణం కానట్టే లెక్క."
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} గా సైన్ ఇన్.\nశిక్షకుడు మీ పురోగతిని రీసెట్ చేయగలరు."
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} పునశ్చరణ బాకీ: కొంతకాలం క్రితం ఉత్తీర్ణమైన మాడ్యూల్, తాజాగా ఉంచడానికి"
+],
+[
+"Question {0} of {1}",
+"ప్రశ్న {1} లో {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  ఉత్తీర్ణతకు {1}%"
+],
+[
+"Drive map ({0})",
+"డ్రైవ్ మ్యాప్ ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} కొత్త కెరీర్ నక్షత్రాలు"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} కూడా అదే విధంగా పాయింట్లు: సూచనలు లేవు, మళ్లీ మొదలుపెట్టడం లేదు."
+],
+[
+"Next drill ({0} of {1}) ▶",
+"తర్వాతి సాధన ({1} లో {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ మెరుగుపడాల్సినవి మరో {0}"
+],
+[
+"You're now {0}",
+"మీరు ఇప్పుడు {0}"
+],
+[
+"Continue as {0}",
+"{0} గా కొనసాగండి"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"సైన్ ఇన్{0} · పురోగతి సేవ్ అవుతోంది {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"ఇది {0} ర్యాంక్, నక్షత్రాలు, పురోగతిని తొలగిస్తుంది. దీన్ని తిరిగి తేలేరు."
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}ఉత్తీర్ణం {1}/{2} · {3} రూట్ రోజులు · {4}"
+],
+[
+"Page {0} of {1}",
+"పేజీ {1} లో {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1} మూల్యాంకనాలు మరో ప్రయత్నానికి తెరిచారు"
+],
+[
+"{0} was reset",
+"{0} పురోగతి రీసెట్ అయింది"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"ఉత్తీర్ణమైన మూల్యాంకనాలు {1} లో {0} · {2} రూట్ రోజులు"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} మూల్యాంకనాలు మరో ప్రయత్నానికి తెరిచారు"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"చెక్‌పాయింట్ {1} లో {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"ఆగండి — ఆర్మ్ ముడుచుకోవడానికి {0} సెకన్లు"
+],
+[
+"Checkpoint {0} reached",
+"చెక్‌పాయింట్ {0} చేరుకున్నారు"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"చెక్‌పాయింట్ {0} పూర్తి — తర్వాతిది మ్యాప్‌లో ఉంది"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"సాధన {0} సెకన్లలో చేశారు (ప్రమాణం {1} సెకన్లు)"
+],
+[
+"Clip {0} of {1} · {2}",
+"క్లిప్ {1} లో {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"గుర్తించారు: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} సెకన్ల తర్వాత గుర్తించారు: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"కొలమానం {0}/32\" చూపిస్తోంది."
+]
+],
 "keep": [
 "three.js did not load",
 "#game canvas",

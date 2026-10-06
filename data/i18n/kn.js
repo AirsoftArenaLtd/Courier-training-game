@@ -2850,9 +2850,314 @@ window.OTR_I18N.kn = {
 "three things": "ಮೂರು ವಿಷಯಗಳು",
 "four things": "ನಾಲ್ಕು ವಿಷಯಗಳು",
 "(facing the traffic)": "(ಸಂಚಾರಕ್ಕೆ ಎದುರಾಗಿ)",
-"(at an angle)": "(ಓರೆಯಾಗಿ)"
+"(at an angle)": "(ಓರೆಯಾಗಿ)",
+"(on the second try)": "(ಎರಡನೇ ಪ್ರಯತ್ನದಲ್ಲಿ)",
+"(misloaded!)": "(ತಪ್ಪು ಲೋಡ್!)",
+"· floor load strapped": "· ನೆಲದ ಸರಕು ಕಟ್ಟಲಾಗಿದೆ",
+"strapped": "ಕಟ್ಟಲಾಗಿದೆ",
+"not strapped": "ಕಟ್ಟಿಲ್ಲ",
+"nothing heavy up high": "ಎತ್ತರದಲ್ಲಿ ಭಾರವಾದದ್ದು ಏನೂ ಇಲ್ಲ",
+"or clear it": "ಅಥವಾ ತೆರವು ಮಾಡಲಿಲ್ಲ",
+"the house number and a person": "ಮನೆ ಸಂಖ್ಯೆ ಮತ್ತು ಒಬ್ಬ ವ್ಯಕ್ತಿ",
+"the house number": "ಮನೆ ಸಂಖ್ಯೆ",
+"a person": "ಒಬ್ಬ ವ್ಯಕ್ತಿ",
+", all passed": ", ಎಲ್ಲವೂ ಉತ್ತೀರ್ಣ",
+", left part-way": ", ಅರ್ಧದಲ್ಲಿ ಬಿಟ್ಟಿರಿ",
+"· CRITICAL": "· ಗಂಭೀರ",
+"your learning system": "ನಿಮ್ಮ ಲರ್ನಿಂಗ್ ಸಿಸ್ಟಮ್‌ನಲ್ಲಿ",
+"the training server": "ತರಬೇತಿ ಸರ್ವರ್‌ನಲ್ಲಿ",
+"deliveries": "ಡೆಲಿವರಿಗಳು",
+"delivery": "ಡೆಲಿವರಿ",
+"shown": "ತೋರಿಸಲಾಗಿದೆ",
+"hidden": "ಮರೆಮಾಡಲಾಗಿದೆ",
+"high": "ಹೆಚ್ಚು",
+"low": "ಕಡಿಮೆ",
+"retake any time": "ಯಾವಾಗ ಬೇಕಾದರೂ ಮತ್ತೆ ತೆಗೆದುಕೊಳ್ಳಿ",
+"·  practice any time": "·  ಯಾವಾಗ ಬೇಕಾದರೂ ಅಭ್ಯಾಸ",
+"your last attempt": "ನಿಮ್ಮ ಕೊನೆಯ ಪ್ರಯತ್ನ",
+"It": "ಈ ಮೌಲ್ಯಮಾಪನಕ್ಕೂ",
+"the pass mark in every category": "ಪ್ರತಿ ವಿಭಾಗದಲ್ಲಿ ಉತ್ತೀರ್ಣ ಅಂಕ",
+"Heat advisory": "ಬಿಸಿಗಾಳಿ ಎಚ್ಚರಿಕೆ",
+"Reception": "ಸ್ವಾಗತ",
+"standard delivery": "ಸಾಮಾನ್ಯ ಡೆಲಿವರಿ",
+"ADULT SIGNATURE": "ವಯಸ್ಕರ ಸಹಿ",
+"Customer note: \"Dog in yard.\"": "ಗ್ರಾಹಕರ ಟಿಪ್ಪಣಿ: \"ಅಂಗಳದಲ್ಲಿ ನಾಯಿ.\"",
+"Quiz: not taken": "ರಸಪ್ರಶ್ನೆ: ತೆಗೆದುಕೊಂಡಿಲ್ಲ",
+"Not taken": "ತೆಗೆದುಕೊಂಡಿಲ್ಲ",
+"No recurring mistakes recorded.": "ಮತ್ತೆ ಮತ್ತೆ ಆಗುವ ತಪ್ಪುಗಳು ದಾಖಲಾಗಿಲ್ಲ.",
+"None.": "ಏನೂ ಇಲ್ಲ.",
+"Training record: {0}": "ತರಬೇತಿ ದಾಖಲೆ: {0}",
+"Printed {0}": "ಮುದ್ರಿಸಿದ್ದು {0}",
+"Training since {0}": "ತರಬೇತಿ ಆರಂಭ {0}",
+"Assessments passed": "ಉತ್ತೀರ್ಣವಾದ ಮೌಲ್ಯಮಾಪನಗಳು",
+"Scenarios practiced": "ಅಭ್ಯಾಸ ಮಾಡಿದ ಸನ್ನಿವೇಶಗಳು",
+"Route days": "ಮಾರ್ಗದ ದಿನಗಳು",
+"Time training": "ತರಬೇತಿಯ ಸಮಯ",
+"Strongest to weakest (best stars earned): {0}": "ಅತ್ಯಂತ ಬಲದಿಂದ ಅತ್ಯಂತ ದುರ್ಬಲದವರೆಗೆ (ಗಳಿಸಿದ ಅತ್ಯುತ್ತಮ ನಕ್ಷತ್ರಗಳು): {0}",
+"Scenario": "ಸನ್ನಿವೇಶ",
+"Best practice stars": "ಅಭ್ಯಾಸದ ಅತ್ಯುತ್ತಮ ನಕ್ಷತ್ರಗಳು",
+"Runs": "ಆಟಗಳು",
+"Last played": "ಕೊನೆಯದಾಗಿ ಆಡಿದ್ದು",
+"Critical mistakes": "ಗಂಭೀರ ತಪ್ಪುಗಳು",
+"Trainee signature and date": "ತರಬೇತಿದಾರರ ಸಹಿ ಮತ್ತು ದಿನಾಂಕ",
+"Trainer signature and date": "ತರಬೇತುದಾರರ ಸಹಿ ಮತ್ತು ದಿನಾಂಕ",
+"Certificate: {0}": "ಪ್ರಮಾಣಪತ್ರ: {0}",
+"Certificate of Completion": "ಪೂರ್ಣಗೊಳಿಸಿದ ಪ್ರಮಾಣಪತ್ರ",
+"This certifies that": "ಈ ಮೂಲಕ ಪ್ರಮಾಣೀಕರಿಸುವುದೇನೆಂದರೆ",
+"passed the assessment in every scenario of the courier training academy ({0} of {1}),": "ಕೊರಿಯರ್ ತರಬೇತಿ ಅಕಾಡೆಮಿಯ ಪ್ರತಿ ಸನ್ನಿವೇಶದ ಮೌಲ್ಯಮಾಪನದಲ್ಲಿ ಉತ್ತೀರ್ಣರಾಗಿದ್ದಾರೆ ({1} ರಲ್ಲಿ {0}),",
+"covering route and driving safety, package handling, customer service, problem solving, scanning, loading, pickups and personal safety.": "ಇದರಲ್ಲಿ ಮಾರ್ಗ ಮತ್ತು ಚಾಲನಾ ಸುರಕ್ಷತೆ, ಪ್ಯಾಕೇಜ್ ನಿರ್ವಹಣೆ, ಗ್ರಾಹಕ ಸೇವೆ, ಸಮಸ್ಯೆ ಪರಿಹಾರ, ಸ್ಕ್ಯಾನಿಂಗ್, ಲೋಡಿಂಗ್, ಪಿಕಪ್ ಮತ್ತು ವೈಯಕ್ತಿಕ ಸುರಕ್ಷತೆ ಸೇರಿವೆ.",
+"Completed {0}": "ಪೂರ್ಣ {0}",
+"Trainee ID {0}": "ತರಬೇತಿದಾರ ID {0}",
+"Date": "ದಿನಾಂಕ",
+"Letters, numbers, spaces and . ' - only": "ಅಕ್ಷರಗಳು, ಅಂಕೆಗಳು, ಸ್ಪೇಸ್ ಮತ್ತು . ' - ಮಾತ್ರ",
+"CRITICAL": "ಗಂಭೀರ",
+"practice any time": "ಯಾವಾಗ ಬೇಕಾದರೂ ಅಭ್ಯಾಸ",
+"your only attempt": "ನಿಮ್ಮ ಏಕೈಕ ಪ್ರಯತ್ನ",
+"Accepted": "ಸ್ವೀಕರಿಸಲಾಗಿದೆ",
+"Refused": "ನಿರಾಕರಿಸಲಾಗಿದೆ",
+"under a minute": "ಒಂದು ನಿಮಿಷಕ್ಕಿಂತ ಕಡಿಮೆ",
+"1 attempt": "1 ಪ್ರಯತ್ನ",
+"Hazards": "ಅಪಾಯಗಳು",
+"Checklist": "ಪರಿಶೀಲನಾ ಪಟ್ಟಿ",
+"Graphics": "ಗ್ರಾಫಿಕ್ಸ್",
+"Start ▶": "ಆರಂಭಿಸಿ ▶",
+"Arrow keys still steer and walk; ENTER and ESC always work.": "ಬಾಣದ ಕೀಲಿಗಳು ಈಗಲೂ ಸ್ಟೀರ್ ಮಾಡುತ್ತವೆ ಮತ್ತು ನಡೆಸುತ್ತವೆ; ENTER ಮತ್ತು ESC ಯಾವಾಗಲೂ ಕೆಲಸ ಮಾಡುತ್ತವೆ.",
+"★ or better in every category": "ಪ್ರತಿ ವಿಭಾಗದಲ್ಲಿ ★ ಅಥವಾ ಹೆಚ್ಚು"
 },
-"templates": [],
+"templates": [
+[
+"STOP {0}",
+"ಸ್ಟಾಪ್ {0}"
+],
+[
+"Shipper update for stop {0} ({1}): this package now needs a SIGNATURE. If nobody can sign, it isn't left.",
+"ಸ್ಟಾಪ್ {0} ({1}) ಗೆ ಕಳುಹಿಸುವವರ ಅಪ್‌ಡೇಟ್: ಈ ಪ್ಯಾಕೇಜ್‌ಗೆ ಈಗ ಸಹಿ ಬೇಕು. ಯಾರೂ ಸಹಿ ಮಾಡಲಾಗದಿದ್ದರೆ ಅದನ್ನು ಬಿಡುವುದಿಲ್ಲ."
+],
+[
+"Customer at stop {0} ({1}) called: \"Please leave it behind the planter on the porch.\"",
+"ಸ್ಟಾಪ್ {0} ({1}) ರ ಗ್ರಾಹಕರು ಕರೆ ಮಾಡಿದರು: \"ದಯವಿಟ್ಟು ಮುಖಮಂಟಪದಲ್ಲಿ ಹೂಕುಂಡದ ಹಿಂದೆ ಇಡಿ.\""
+],
+[
+"{0}\nUPDATE FROM DISPATCH: {1}",
+"{0}\nಡಿಸ್ಪ್ಯಾಚ್‌ನಿಂದ ಅಪ್‌ಡೇಟ್: {1}"
+],
+[
+"Today: \"{0}\". What goes in the incident report?",
+"ಇಂದು: \"{0}\". ಘಟನೆ ವರದಿಯಲ್ಲಿ ಏನು ಬರೆಯುತ್ತೀರಿ?"
+],
+[
+"The gauge reads {0}. Fleet rule: a van goes back into the yard with at least a quarter tank. What do you do?",
+"ಮೀಟರ್ {0} ತೋರಿಸುತ್ತಿದೆ. ವಾಹನ ನಿಯಮ: ವ್ಯಾನ್ ಕನಿಷ್ಠ ಕಾಲು ಟ್ಯಾಂಕ್‌ನೊಂದಿಗೆ ಯಾರ್ಡ್‌ಗೆ ಮರಳುತ್ತದೆ. ನೀವು ಏನು ಮಾಡುತ್ತೀರಿ?"
+],
+[
+"You brought back {0} package{1} with an exception. What happens to {2}?",
+"ನೀವು ವಿನಾಯಿತಿಯೊಂದಿಗೆ {0} ಪ್ಯಾಕೇಜ್ ಮರಳಿ ತಂದಿರಿ. {1:ಅವುಗಳಿಗೆ|ಅದಕ್ಕೆ} ಏನಾಗುತ್ತದೆ?"
+],
+[
+"Day {0}. {1} pieces for {2} stops.",
+"ದಿನ {0}. {2} ಸ್ಟಾಪ್‌ಗಳಿಗೆ {1} ವಸ್ತುಗಳು."
+],
+[
+"Section A is stops 1-3 (nearest the door), B is stops 4-{0}.",
+"ವಿಭಾಗ A ಎಂದರೆ ಸ್ಟಾಪ್ 1-3 (ಬಾಗಿಲಿಗೆ ಹತ್ತಿರ), B ಎಂದರೆ ಸ್ಟಾಪ್ 4-{0}."
+],
+[
+"Section A is stops 1-{0} (nearest the door).",
+"ವಿಭಾಗ A ಎಂದರೆ ಸ್ಟಾಪ್ 1-{0} (ಬಾಗಿಲಿಗೆ ಹತ್ತಿರ)."
+],
+[
+"Held at the gate for a missed defect ({0})",
+"ತಪ್ಪಿದ ದೋಷಕ್ಕಾಗಿ ಗೇಟ್‌ನಲ್ಲಿ ತಡೆಯಲಾಯಿತು ({0})"
+],
+[
+"earlier line {0} of {1} · ↓ or SPACE to come back",
+"ಹಿಂದಿನ ಸಾಲು {1} ರಲ್ಲಿ {0} · ಮರಳಲು ↓ ಅಥವಾ SPACE"
+],
+[
+"{0}: the answer made it worse",
+"{0}: ಉತ್ತರ ಪರಿಸ್ಥಿತಿಯನ್ನು ಹದಗೆಡಿಸಿತು"
+],
+[
+"That is the most it takes: {0} characters",
+"ಇದರ ಮಿತಿ ಇಷ್ಟೇ: {0} ಅಕ್ಷರಗಳು"
+],
+[
+"Press the new key for: {0}  (ESC cancels)",
+"ಇದಕ್ಕೆ ಹೊಸ ಕೀಲಿ ಒತ್ತಿ: {0}  (ESC ರದ್ದುಗೊಳಿಸುತ್ತದೆ)"
+],
+[
+"On The Route performance test · {0}",
+"On The Route ಕಾರ್ಯಕ್ಷಮತೆ ಪರೀಕ್ಷೆ · {0}"
+],
+[
+"{0}: {1} fps average, {2} worst 1%",
+"{0}: ಸರಾಸರಿ {1} fps, ಕೆಟ್ಟ 1% ರಲ್ಲಿ {2}"
+],
+[
+"{0} MISTAKE{1} ON THE ROAD",
+"ರಸ್ತೆಯಲ್ಲಿ {0} ತಪ್ಪು"
+],
+[
+"+ {0} more on the map",
+"+ ನಕ್ಷೆಯಲ್ಲಿ ಇನ್ನೂ {0}"
+],
+[
+"DAY {0}  ·  STATION",
+"ದಿನ {0}  ·  ಸ್ಟೇಷನ್"
+],
+[
+"stop {0} of {1}",
+"ಸ್ಟಾಪ್ {1} ರಲ್ಲಿ {0}"
+],
+[
+"{0} delivered · {1} exception{2}",
+"{0} ಡೆಲಿವರ್ · {1} ವಿನಾಯಿತಿ"
+],
+[
+"Day {0}  ·  5 stops",
+"ದಿನ {0}  ·  5 ಸ್ಟಾಪ್‌ಗಳು"
+],
+[
+"Start day {0}'s route?",
+"ದಿನ {0} ರ ಮಾರ್ಗ ಆರಂಭಿಸಬೇಕೇ?"
+],
+[
+"{0} route day{1} logged · best {2}/9 ★",
+"{0} ಮಾರ್ಗ-ದಿನ ದಾಖಲು · ಅತ್ಯುತ್ತಮ {2}/9 ★"
+],
+[
+"Assessment: not passed · {0}",
+"ಮೌಲ್ಯಮಾಪನ: ಉತ್ತೀರ್ಣವಾಗಿಲ್ಲ · {0}"
+],
+[
+"Best {0} / {1} ★ · played {2}×",
+"ಅತ್ಯುತ್ತಮ {0} / {1} ★ · {2}× ಆಡಿದ್ದು"
+],
+[
+"No hints and no restarting. To pass: {0}, and no critical mistakes. ",
+"ಸುಳಿವುಗಳಿಲ್ಲ, ಮರುಆರಂಭವಿಲ್ಲ. ಉತ್ತೀರ್ಣಕ್ಕೆ: {0}, ಮತ್ತು ಯಾವುದೇ ಗಂಭೀರ ತಪ್ಪಿಲ್ಲದೆ. "
+],
+[
+"Starting uses {0}, and quitting part-way counts as not passed.",
+"ಆರಂಭಿಸಿದರೆ {0} ಖರ್ಚಾಗುತ್ತದೆ, ಅರ್ಧದಲ್ಲಿ ಬಿಟ್ಟರೆ ಉತ್ತೀರ್ಣವಾಗಿಲ್ಲ ಎಂದು ಎಣಿಸಲಾಗುತ್ತದೆ."
+],
+[
+"Signed in as {0}.\nA trainer can reset your progress.",
+"{0} ಆಗಿ ಸೈನ್ ಇನ್.\nತರಬೇತುದಾರರು ನಿಮ್ಮ ಪ್ರಗತಿ ಮರುಹೊಂದಿಸಬಹುದು."
+],
+[
+"{0} refresher{1} due: a module you passed a while ago, to keep it fresh",
+"{0} ಪುನರಾವರ್ತನೆ ಬಾಕಿ: ಸ್ವಲ್ಪ ಸಮಯದ ಹಿಂದೆ ಉತ್ತೀರ್ಣವಾದ ಮಾಡ್ಯೂಲ್, ತಾಜಾ ಇರಿಸಲು"
+],
+[
+"Question {0} of {1}",
+"ಪ್ರಶ್ನೆ {1} ರಲ್ಲಿ {0}"
+],
+[
+"{0}%  ·  {1}% to pass",
+"{0}%  ·  ಉತ್ತೀರ್ಣಕ್ಕೆ {1}%"
+],
+[
+"Drive map ({0})",
+"ಚಾಲನೆಯ ನಕ್ಷೆ ({0})"
+],
+[
+"+{0} new career star{1}",
+"+{0} ಹೊಸ ವೃತ್ತಿ ನಕ್ಷತ್ರ"
+],
+[
+"{0} is scored the same way: no hints, and no restarting.",
+"{0} ಅದೇ ರೀತಿ ಅಂಕ: ಸುಳಿವುಗಳಿಲ್ಲ, ಮರುಆರಂಭವಿಲ್ಲ."
+],
+[
+"Next drill ({0} of {1}) ▶",
+"ಮುಂದಿನ ಅಭ್ಯಾಸ ({1} ರಲ್ಲಿ {0}) ▶"
+],
+[
+"+ {0} more to work on",
+"+ ಸುಧಾರಿಸಲು ಇನ್ನೂ {0}"
+],
+[
+"You're now {0}",
+"ನೀವು ಈಗ {0}"
+],
+[
+"Continue as {0}",
+"{0} ಆಗಿ ಮುಂದುವರಿಯಿರಿ"
+],
+[
+"Signed in{0} · progress saved to {1}",
+"ಸೈನ್ ಇನ್{0} · ಪ್ರಗತಿ ಉಳಿಸಲಾಗುತ್ತಿದೆ {1}"
+],
+[
+"This erases {0}'s rank, stars and progress. This can't be undone.",
+"ಇದು {0} ಅವರ ಶ್ರೇಣಿ, ನಕ್ಷತ್ರಗಳು ಮತ್ತು ಪ್ರಗತಿಯನ್ನು ಅಳಿಸುತ್ತದೆ. ಇದನ್ನು ಮರಳಿ ತರಲಾಗದು."
+],
+[
+"{0}passed {1}/{2} · {3} route days · {4}",
+"{0}ಉತ್ತೀರ್ಣ {1}/{2} · {3} ಮಾರ್ಗ-ದಿನ · {4}"
+],
+[
+"Page {0} of {1}",
+"ಪುಟ {1} ರಲ್ಲಿ {0}"
+],
+[
+"trainees/{0}/allow",
+"trainees/{0}/allow"
+],
+[
+"{0}: {1} assessment{2} opened for another attempt",
+"{0}: {1} ಮೌಲ್ಯಮಾಪನ ಇನ್ನೊಂದು ಪ್ರಯತ್ನಕ್ಕೆ ತೆರೆಯಲಾಗಿದೆ"
+],
+[
+"{0} was reset",
+"{0} ಅವರ ಪ್ರಗತಿ ಮರುಹೊಂದಿಸಲಾಗಿದೆ"
+],
+[
+"Assessments passed {0} of {1} · {2} route days",
+"ಉತ್ತೀರ್ಣವಾದ ಮೌಲ್ಯಮಾಪನ {1} ರಲ್ಲಿ {0} · {2} ಮಾರ್ಗ-ದಿನ"
+],
+[
+"{0} assessment{1} opened for another attempt",
+"{0} ಮೌಲ್ಯಮಾಪನ ಇನ್ನೊಂದು ಪ್ರಯತ್ನಕ್ಕೆ ತೆರೆಯಲಾಗಿದೆ"
+],
+[
+"CHECKPOINT {0} OF {1}",
+"ಚೆಕ್‌ಪಾಯಿಂಟ್ {1} ರಲ್ಲಿ {0}"
+],
+[
+"Hold — {0}s until the arm folds",
+"ನಿಲ್ಲಿ — ಆರ್ಮ್ ಮಡಚಲು {0} ಸೆಕೆಂಡ್"
+],
+[
+"Checkpoint {0} reached",
+"ಚೆಕ್‌ಪಾಯಿಂಟ್ {0} ತಲುಪಿದಿರಿ"
+],
+[
+"Checkpoint {0} done — next one is on the map",
+"ಚೆಕ್‌ಪಾಯಿಂಟ್ {0} ಮುಗಿಯಿತು — ಮುಂದಿನದು ನಕ್ಷೆಯಲ್ಲಿದೆ"
+],
+[
+"Ran the drill in {0}s (par {1}s)",
+"ಅಭ್ಯಾಸ {0} ಸೆಕೆಂಡ್‌ನಲ್ಲಿ ಮುಗಿಸಿದಿರಿ (ಮಾನದಂಡ {1} ಸೆಕೆಂಡ್)"
+],
+[
+"Clip {0} of {1} · {2}",
+"ಕ್ಲಿಪ್ {1} ರಲ್ಲಿ {0} · {2}"
+],
+[
+"Spotted it: {0}",
+"ಗುರುತಿಸಿದಿರಿ: {0}"
+],
+[
+"Spotted after {0} s: {1} / 5",
+"{0} ಸೆಕೆಂಡ್ ನಂತರ ಗುರುತಿಸಿದಿರಿ: {1} / 5"
+],
+[
+"Gauge reads {0}/32\".",
+"ಅಳತೆಗೋಲು {0}/32\" ತೋರಿಸುತ್ತಿದೆ."
+]
+],
 "keep": [
 "three.js did not load",
 "#game canvas",
