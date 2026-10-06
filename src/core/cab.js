@@ -268,12 +268,21 @@ OTR.cab = {
 
     // traffic: a body and a glasshouse in the car's colour
     const carCol = (c) => { const k = c.img.texture.key; const n = +k.replace('car_top_', ''); return isFinite(n) ? n : 0x888888; };
+    const high = OTR.gfx.high();
     const glass = new THREE.MeshLambertMaterial({ color: 0x1E2630 });
+    // Reuse the two car meshes' geometry. On high, slope the existing glasshouse's roof inwards to make a
+    // windscreen and rear window; this changes the silhouette without adding vertices, meshes or draw calls.
+    const carBodyGeo = new THREE.BoxGeometry(4.6, 0.85, 1.85), carTopGeo = new THREE.BoxGeometry(2.4, 0.6, 1.6);
+    if (high) {
+      const p = carTopGeo.getAttribute('position');
+      for (let i = 0; i < p.count; i++) if (p.getY(i) > 0) p.setXYZ(i, p.getX(i) * 0.66 - 0.12, p.getY(i), p.getZ(i) * 0.78);
+      carTopGeo.computeVertexNormals();
+    }
     const cars = s.cars.map(c => {
       const g = new THREE.Group();
-      const body = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.85, 1.85), new THREE.MeshLambertMaterial({ color: carCol(c) }));
+      const body = new THREE.Mesh(carBodyGeo, new THREE.MeshLambertMaterial({ color: carCol(c) }));
       body.position.y = 0.65; g.add(body);
-      const top = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.6, 1.6), glass); top.position.set(-0.2, 1.35, 0); g.add(top);
+      const top = new THREE.Mesh(carTopGeo, glass); top.position.set(-0.2, 1.35, 0); g.add(top);
       const tl = new THREE.MeshBasicMaterial({ color: 0x701018 });
       [-0.7, 0.7].forEach(zz => { const t = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.15, 0.35), tl); t.position.set(-2.31, 0.85, zz); g.add(t); });
       scene3.add(g);
