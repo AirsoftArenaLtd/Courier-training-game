@@ -292,17 +292,39 @@ OTR.cab = {
     // people: a body in their shirt colour and a head
     const skin = new THREE.MeshLambertMaterial({ color: 0xD9A57A }), legs = new THREE.MeshLambertMaterial({ color: 0x2F3546 });
     const bodyGeo = new THREE.CylinderGeometry(0.22, 0.2, 0.75, 8), legGeo = new THREE.CylinderGeometry(0.18, 0.16, 0.85, 8), headGeo = new THREE.SphereGeometry(0.13, 10, 8);
-    const person = (shirt, scale) => {
+    const personHeadMat = high ? new THREE.MeshLambertMaterial({ vertexColors: true }) : skin;
+    const headsByLook = new Map(), trousers = new Map();
+    const headOf = (skinColor, hairColor) => {
+      const key = skinColor + '_' + hairColor;
+      if (headsByLook.has(key)) return headsByLook.get(key);
+      const geo = headGeo.clone(), p = geo.getAttribute('position'), colors = [];
+      const face = new THREE.Color(skinColor), hair = new THREE.Color(hairColor);
+      for (let i = 0; i < p.count; i++) {
+        const c = p.getY(i) > 0.035 || p.getX(i) < -0.015 ? hair : face;
+        colors.push(c.r, c.g, c.b);
+      }
+      geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+      headsByLook.set(key, geo); return geo;
+    };
+    const person = (look, scale) => {
+      const palette = (look && look.base || '').split('_');
+      const shirt = +palette[1] || 0x3D6FB8, skinColor = +palette[2] || 0xD9A57A, hairColor = +palette[3] || 0x2A2018, legColor = +palette[4] || 0x2F3546;
+      let legMat = legs;
+      if (high) {
+        if (!trousers.has(legColor)) trousers.set(legColor, new THREE.MeshLambertMaterial({ color: legColor }));
+        legMat = trousers.get(legColor);
+      }
       const g = new THREE.Group();
-      const l = new THREE.Mesh(legGeo, legs); l.position.y = 0.43; g.add(l);
+      const l = new THREE.Mesh(legGeo, legMat); l.position.y = 0.43; g.add(l);
       const b = new THREE.Mesh(bodyGeo, new THREE.MeshLambertMaterial({ color: shirt })); b.position.y = 1.2; g.add(b);
-      const h = new THREE.Mesh(headGeo, skin); h.position.y = 1.7; g.add(h);
+      // Skin, hair and trousers match the top-down walkers. A vertex-coloured cap gives the simple head a facing
+      // direction without adding a hair mesh, a texture lookup, or an animation step. Low keeps the original head.
+      const h = new THREE.Mesh(high ? headOf(skinColor, hairColor) : headGeo, personHeadMat); h.position.y = 1.7; g.add(h);
       g.scale.setScalar(scale || 1); scene3.add(g); return g;
     };
-    const shirtOf = (look) => { const p = (look && look.base || '').split('_'); return p.length > 1 ? +p[1] : 0x3D6FB8; };
     const people = [];
-    (s.crowd ? s.crowd.walkers : []).forEach(w => people.push({ img: w.img, g: person(shirtOf(w.look), w.kind === 'child' ? 0.7 : 1) }));
-    (s.peds || []).forEach(p => people.push({ img: p.img, g: person(shirtOf(p.look), 1) }));
+    (s.crowd ? s.crowd.walkers : []).forEach(w => people.push({ img: w.img, g: person(w.look, w.kind === 'child' ? 0.7 : 1) }));
+    (s.peds || []).forEach(p => people.push({ img: p.img, g: person(p.look, 1) }));
 
     // the van's headlights: two spotlights from the front of the van, on when its lights are
     const heads = [-0.75, 0.75].map(() => {
