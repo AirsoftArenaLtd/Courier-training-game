@@ -109,6 +109,66 @@ Keep relevant wrong decisions possible. The player can mis-sort a parcel and rec
 
 Share each skill's assessment events between modules and campaign days. Preserve the meaning of Safety, Efficiency and Service. Efficiency should reward sensible organisation and correct processes; safe decisions remain important when a commitment is at risk. A day debrief should identify weak skills and link to the matching focused practice module. Completing later practice does not erase the earlier day's recorded mistakes.
 
+### Physical cargo: agreed direction and proposed details
+
+The user agreed that parcels should be physically retrieved from the loaded van to give preparation and handling practical training value. Loading and retrieval must share persistent parcel identities and placements. The existing shift system already preserves loading placement as `loadMap`; use that behaviour as a reference when adapting it to 3D.
+
+Proposed implementation and training behaviour:
+
+- Represent each parcel with a stable ID, readable tracking/address label, size/weight, handling requirements, service requirements and current location. Its depot, carried, cargo, customer-site, handed-over and return states refer to the same item. Save parcel placements and any later rearrangement; reopening the cargo area or resuming a day must not reset the load.
+- Give the van recognisable shelf/floor zones. Players choose a zone and accessible position while loading, considering stop grouping, weight, fragile items, orientation, securing the load and access routes. Shelves and parcel sizes should make organisation understandable without fine mouse positioning.
+- Use snapped placement and simple collision/occupancy rules initially. Invalid geometry such as placing a parcel through a wall is blocked. Relevant poor handling or load choices can remain possible and be assessed. Use explicit supported outcomes for unsecured or unsuitable placements rather than an expensive loose-body physics simulation.
+- At a stop, the player opens the cargo area, finds the physical parcel, reads its label or scans it, and carries it out. Similar-looking parcels can require checking identity. Poor organisation creates extra searching, moving obstructing items or revisiting the van; do not add an arbitrary delay solely to punish a low loading score.
+- The scanner can show the manifest, shipment requirements and recorded loading zone. That zone comes from the player's recorded placement; it is not automatic live tracking of any parcel that has been moved. Scanning a physically selected label verifies the item and can give ordinary device warnings when it does not match the active stop.
+- Allow selecting a wrong parcel, noticing the mismatch, putting it back and retrieving the right one. Device information and normal operational warnings remain available in assessment; extra instructional hints follow trainer settings. A wrong delivery attempt can have a scenario-supported rejection or misdelivery outcome and must not count as a correct delivery.
+- Recognise self-correction while retaining relevant recorded mistakes. Looking at or collecting a wrong box alone need not be treated as a completed misdelivery. Record the decision stage and actual outcome so harmless inspection is distinguishable from an incorrect handover or completion record.
+- Start with one carried parcel and straightforward place/return actions. Later lessons can introduce multi-piece jobs, trolleys and assistance decisions. Evaluate equipment choice and handling actions supported by the simulation; keyboard movement cannot establish the trainee's actual lifting posture or physical fitness.
+- Keep labels readable through close-up inspection and accessible overlays. Assistance should make information usable without selecting the answer for the player. Low graphics retains the same parcel identities, labels, layout and task outcomes.
+
+This specifies a proposed design beyond the agreed physical-retrieval requirement. It does not yet add a cargo interior, multiple parcels or persistence to the current one-parcel prototype.
+
+### Complete delivery interaction proposal
+
+Work through one delivery as an observable sequence, then reuse it for campaign and isolated lessons. Preparation covers the actual day's manifest and vehicle; later stop decisions depend on that preparation. Use existing approved procedure content and review company/trainer-specific rules before defining new scored requirements.
+
+| Step | Player action | Training evidence and supported mistakes |
+| --- | --- | --- |
+| Prepare and load | Review the manifest, complete applicable pre-trip tasks, inspect/scan parcels and choose cargo placements | Recognise requirements/defects, organise access and secure the load; distinguish a missed issue from merely opening an inspection view |
+| Drive to the stop | Choose a route, use the belt/signals/mirrors and respond to traffic and hazards | Actual speed, spacing, yielding and gap decisions in context; a mirror-view button alone does not prove hazard recognition |
+| Park and secure | Choose a suitable stopping position, secure the vehicle and check the exit route | Avoid obstruction and unsafe exposure; keep relevant bad choices assessable rather than offering only a single glowing correct bay |
+| Retrieve | Open cargo, identify the physical parcel, verify the shipment and select appropriate handling equipment | Correct identity/requirements, load accessibility and recovery from a wrong selection; save changes made to cargo |
+| Approach | Check the address/unit and choose a safe path to the delivery point | Address verification, obstacles, animals and carrying decisions; do not award success for reaching any nearby door |
+| Resolve delivery | Attempt contact and follow the shipment's recipient/signature/authorised-release requirements, or choose the appropriate exception | Correct handover, safe release or properly handled unsuccessful delivery; a justified exception can be successful task performance |
+| Record the outcome | Use the handheld for proof, recipient details, a photo/signature where required, or an exception and further instructions | Accuracy of the record and evidence, not a mandatory drawing/typing minigame for every stop; requirements come from the actual shipment |
+| Return and depart | Return retained parcels to cargo, secure doors/load and safely rejoin traffic | Keep undelivered items accounted for and assess the departure in its real traffic context |
+
+Select authored variants within that shared sequence: an ordinary handover, an authorised safe-place delivery, recipient absent when release is prohibited, or a path obstructed by a hazard. Campaign eligibility and coverage rules determine which variants appear. Keep the environment continuous between parking, walking and the doorstep; hub/module transitions do not turn each stop back into an unrelated scene or task system.
+
+Distinguish operational alerts from teaching feedback. In practice, prompts can explain what to check. In assessment, the scanner still displays the shipment's genuine instructions and validation messages while coaching follows existing trainer restrictions. Preserve supported wrong actions and truthful task state; delivering the wrong physical parcel must never complete the correct job by proximity alone. Apply configured grading to observable actions/outcomes and avoid repeated penalties for the same unresolved event.
+
+### Shared control proposal
+
+The user wants more intuitive driving and consistent first-person interactions. The following mappings and behaviours are proposals for the next usability review, not implemented changes:
+
+| Context | Proposed controls and behaviour |
+| --- | --- |
+| Walking and hub | WASD/arrows move, mouse looks, one remappable primary action activates the visible nearby target; support deliberate click activation |
+| Parcel handling | Primary action picks up/places the selected parcel; a separate inspect action offers a readable close-up and rotation; show the current action clearly |
+| Handheld | One shortcut raises/lowers it; large clickable/keyboard-operable controls handle scanning, shipment details and outcomes; no need to hit a tiny barcode precisely |
+| Driving | W accelerates, S brakes, A/D steer with predictable speed-sensitive response and centring; reverse uses an explicit gear selection while stopped rather than braking automatically becoming reverse |
+| Cab observation and equipment | Camera position/orientation follows the vehicle; mouse look changes head direction without steering, with an easy return to forward view; mirrors, belt, signals and parking brake have clear remappable shortcuts and suitable clickable controls |
+| Pause/accessibility | Escape opens the existing pause/settings path, releases the pointer and clears held controls; avoid forced head bob/shake and provide text-size, sensitivity, key-remapping and reduced-transition support |
+
+Keep one action vocabulary across hub, depot, van and customer locations. Context changes must not silently make an everyday interaction key signal a turn or discard the held parcel. Ordinary animations can be brief; avoid manual finger/hand positioning and reward the underlying decision/process rather than fine mouse accuracy. Only attach a posture or observation score to evidence the simulation actually measures.
+
+### Next connected review milestone
+
+Extend the existing one-parcel demonstrator into a proposed 10–15-minute review slice: hub → briefing → preparation/loading → a few stops → return → debrief → hub. The eventual campaign day target remains 30–45 minutes. This is a proposed next milestone, not an implemented or certified shift.
+
+Use a small approved scenario pool to produce different short manifests from the outset. Include several physical parcels, persistent cargo placement and at least two eligible delivery outcomes; targeted QA fixtures can exercise a wrong selection/recovery and a correctly handled exception. Use a small local driving area with simple traffic/hazard evidence, rather than an entire finished town. Demonstrate one isolated loading/retrieval lesson using the same parcels, shelves, scanner and action handlers. Sorting remains the planned first broader module conversion after this cargo-focused review.
+
+The review should establish whether loading choices affect retrieval, wrong selections are recoverable, handheld information is readable, driving/parking are comfortable, relevant mistakes and justified exceptions are recorded correctly, and save/resume preserves parcels/jobs. Then tune the day mix and progression evidence against actual play. New graphics still require manual review before graphic testing/integration; no assets are generated by this planning update.
+
 ### Existing scaffold to preserve
 
 - Start/module navigation, profiles, career ranks, stars, results and trainee records.
@@ -137,7 +197,7 @@ Proposed build order:
 
 1. Define the beginner scenario pool, assessment/completion policy and common controls. Campaign structure is agreed: varied days from the beginning, targeting 30–45 minutes per work day.
 2. Turn the prototype into a reusable mission framework, including module scope enforcement, readable shared tools and a placeholder hub with reliable scene transitions.
-3. Build a small beginner scenario pool that can produce different demonstration days, plus one isolated sorting module using the same depot, parcels, scanner and interactions. Demonstrations can be shorter than the eventual full work-day target.
+3. Build a small beginner scenario pool that can produce different 10–15-minute demonstration shifts, first reviewing physical loading/retrieval and one isolated cargo lesson with shared systems. Then convert sorting with the same depot, parcels, scanner and interactions. Full campaign days retain the 30–45-minute target.
 4. Connect trainer rules, records, save/resume, the first-visit introduction and hub/menu entry points; validate old progress and completion compatibility.
 5. Establish and approve the visual reference set, then expand the environment and convert the remaining modules with shared systems.
 6. Expand campaign variation and difficulty, then complete regression, hardware performance and translation passes.
