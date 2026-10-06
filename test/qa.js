@@ -176,11 +176,39 @@ function auditLayout() {
       }
     }
 
+    // panels and buttons, and the text drawn on them, for the check below
+    const key = obj.texture && obj.texture.key;
+    if (obj.type === 'Image' && key && /^(panel|btn)_/.test(key)) boxes.push({ obj, scene });
+    if (obj.type === 'Text' && String(obj.text).trim()) texts.push({ obj, scene });
+
     const kids = obj.list || (obj.getChildren ? obj.getChildren() : null);
     if (kids) kids.forEach(k => walk(k, scene, depth + 1));
   };
+  const boxes = [], texts = [];
 
   scenes.forEach(s => (s.children && s.children.list ? s.children.list : []).forEach(o => walk(o, s, 0)));
+
+  // One-line text that runs out of the panel or button it sits on (a long word in a fixed box). The box is the
+  // smallest one in the same container under the text's middle; its texture carries a transparent shadow margin (OTR.tex.M) that is not
+  // part of the panel.
+  const M = (OTR.tex && OTR.tex.M) || 24;
+  const inner = (o) => { const b = o.getBounds(), mx = M * Math.abs(o.scaleX || 1), my = M * Math.abs(o.scaleY || 1); return { x: b.x + mx, y: b.y + my, right: b.right - mx, bottom: b.bottom - my }; };
+  texts.forEach(({ obj, scene }) => {
+    let t; try { t = obj.getBounds(); } catch (e) { return; }
+    if (!t || t.width <= 0) return;
+    const cx = t.x + t.width / 2, cy = t.y + t.height / 2;
+    let best = null, area = Infinity;
+    boxes.forEach(({ obj: p, scene: ps }) => {
+      if (ps !== scene || (p.parentContainer || null) !== (obj.parentContainer || null)) return;   // its own layer, not a modal over it
+      let b; try { b = inner(p); } catch (e) { return; }
+      if (cx < b.x || cx > b.right || cy < b.y || cy > b.bottom) return;
+      const a = (b.right - b.x) * (b.bottom - b.y);
+      if (a > 0 && a < area) { area = a; best = b; }
+    });
+    if (!best) return;
+    const over = Math.max(best.x - t.x, t.right - best.right);
+    if (over > TOL) out.push({ kind: 'text-outside-box', scene: scene.sys.settings.key, what: describe(obj), detail: `${Math.round(over)}px past its box (text ${Math.round(t.x)}–${Math.round(t.right)}, box ${Math.round(best.x)}–${Math.round(best.right)})` });
+  });
   return out;
 }
 
