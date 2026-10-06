@@ -1132,7 +1132,7 @@ Found and fixed while building them:
 | Devanagari vowel marks above and below the line were clipped: Phaser measures a font's height from a Latin test string. | Each language has its own measuring string (`TALL` in `i18n.js`), covering Hindi and the scripts to come. |
 | Windows has no Devanagari in the game's fonts. | The font list includes Nirmala UI, which Windows ships for Indian scripts. |
 | The language picker had room for two languages. | Two columns, sized to the number of languages. |
-| Labels the game shows in capitals (`TO DO`, `PRIORITY`) were looked up with their capitals and missed. | Capitalised labels are looked up without case and capitalised in the translation's own script rules. |
+| Labels the game shows in capitals were looked up with their capitals and missed. | Capitalised labels are looked up without case and capitalised in the translation's own script rules. |
 | French and Hindi made the recommended answer the longest or shortest too often in a few quizzes and conversations. | Lines reworded in each language's `override.json`, meaning unchanged; checked by `lengths.js` and `test/i18n.js`. |
 
 Checked by `test/i18n.js` (Spanish, French and Hindi), by `test/a11y-screens.js` in both languages (larger text and
