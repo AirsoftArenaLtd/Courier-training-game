@@ -2,7 +2,84 @@
 
 Branch: `codex-first-person`, starting from published main at `b41026191ca3af0341af3603142271fcefe0b368`.
 
-The target is a complete first-person courier game. Every playable module takes place in a consistent 3D environment with shared movement, interactions and art direction. The existing start and module-selection screens can remain familiar. Module selection launches missions in this world.
+The target is a complete first-person courier game. Every playable module takes place in a consistent 3D environment with shared movement, interactions and art direction. Full work days are the main game, forming a courier campaign. Individual modules offer focused practice and assessment in the same world and style. The existing start and module-selection screens can remain familiar.
+
+## Campaign and focused modules: product direction
+
+The following requirements reflect the user's latest direction. They are a planning update; they do not implement campaign persistence or convert additional modules.
+
+| Mode | Player experience | Available activities |
+| --- | --- | --- |
+| Campaign work day | A connected shift, from depot preparation through the route and return | Relevant depot duties, inspection, planning, loading, driving, deliveries, pickups, breaks, exceptions and close-out |
+| Individual module practice | A focused situation with coaching and repeatable attempts | Actions and equipment relevant to that lesson, in a bounded training area |
+| Individual module assessment | The same first-person task, subject to existing trainer rules | Lesson-relevant actions; instructional hints and answer feedback follow assessment settings |
+
+### Campaign day
+
+Use the existing shift phases as the backbone: briefing → depot duties/pre-trip → planning/loading → driving and stops → return/post-trip → debrief. Sorting can appear as an appropriate depot duty rather than being mandatory at the start of every day. Deliveries, pickups and exceptions share the same scanner, package, customer and vehicle systems.
+
+Keep the town's addresses and residents consistent across days. Vary manifests, service requirements, customer circumstances, traffic, weather and dispatch updates. Good preparation should affect the route: load organisation affects finding packages, correct scanning reveals requirements, and route planning affects commitments. Pauses/settings and instruction-reading time must be considered separately from assessed task efficiency.
+
+Campaign progression should introduce responsibilities gradually. A proposed opening sequence is:
+
+1. Depot induction, basic handling, pre-trip and a short standard-delivery route.
+2. More stops, customer interactions, signatures and proper delivery proof.
+3. Business pickups, document checks and shipment acceptance/refusal.
+4. Adverse conditions, road hazards and safe delivery approaches.
+5. A mixed independent day that combines the skills.
+
+The user selected **30–45 minutes of real play per complete work day**, including depot preparation and the route. Save/resume should allow that day to be completed over shorter sessions. The game clock represents a longer working shift; the target is not eight hours of real play.
+
+The sample opening above is a proposal, not an agreed five-day campaign. Campaign structure remains open; the user requested clearer explanations of these choices:
+
+- **Planned introduction, then changing work days:** we design the first few days to introduce skills in a useful order. After those, the game chooses different jobs and events from approved scenario templates. For example, the opening signature lesson has a deliberately chosen customer; later routes mix signatures, pickups, exceptions and weather according to difficulty rules. This is the current recommendation, subject to user agreement.
+- **Every campaign day planned individually:** we design each day's route, customers and key events. Day 4's business pickup and Day 6's storm are deliberately placed parts of the campaign. This gives a controlled learning/story sequence; replaying a day mostly repeats its situations, and adding days requires more authored content.
+- **Changing work days from the beginning:** the game selects each day's mix from approved scenarios from day one. Starting routes can still be restricted to beginner tasks, with harder situations added as the player progresses. This provides early variety, with more dependence on generation rules to keep the introduction clear and balanced.
+
+Here, "authored" means planned by us, and "varied" means selected by the game from content we have built. It does not imply unreviewed training situations. Campaign unlocks and course completion policy also need an explicit design decision before replacing the current course completion behaviour.
+
+### Module isolation
+
+A module uses the same 3D tools and behaviours as the campaign, with a mission-specific starting state, permitted activities and completion conditions. For example, sorting practice puts the player at the depot belt with parcels, a scanner, bins and lesson-relevant equipment. Vehicle entry/driving and other jobs are unavailable. Use natural boundaries such as a training bay and closed exits, and enforce unavailable activities in the shared action handler rather than merely hiding prompts.
+
+Keep relevant wrong decisions possible. The player can mis-sort a parcel and receive feedback or an assessment result; unrelated driving is blocked. Similarly, an inspection module can allow a defect to be missed, and a customer module can allow a poor response. Practice coaching and assessment grading are separate from these scope boundaries.
+
+Share each skill's assessment events between modules and campaign days. Preserve the meaning of Safety, Efficiency and Service. Efficiency should reward sensible organisation and correct processes; safe decisions remain important when a commitment is at risk. A day debrief should identify weak skills and link to the matching focused practice module. Completing later practice does not erase the earlier day's recorded mistakes.
+
+### Existing scaffold to preserve
+
+- Start/module navigation, profiles, career ranks, stars, results and trainee records.
+- Trainer access and settings, practice/assessment policy, pass marks, attempts and allowed retakes.
+- Refresher quizzes and existing dialogue, shipment, scenario and lesson content where applicable.
+- Save/resume and work-day history. Checkpoint compact logical state (job IDs, stage, inventory and relevant world changes), not whole 3D scenes. Keep existing progress compatible and respect the LMS's suspend-data limits.
+- Local/browser use, company sign-in and stored trainee progress, and SCORM/LMS integration. Keep the current official completion rules until a campaign/course completion design is agreed.
+- Language selection and the translation infrastructure. Author new gameplay in English first, reuse existing dialogue/content and translations, then schedule a translation pass when the English flows stabilise. Keep new source strings recorded and all user-facing text compatible with `OTR.txt` and `OTR.i18n.src`.
+- Audio, graphics settings and accessibility facilities: text size, colour support, narration and key remapping. Adapt them to first-person interaction rather than dropping them during conversion.
+
+### Shared gameplay foundation
+
+Keep one first-person movement/interaction system, one vehicle system, common package/scanner tools and common customer/dialogue interactions. Campaign and module definitions select objectives, starting state, available actions, coaching and completion. Scenarios should not grow separate copies of movement, sorting or delivery code.
+
+Retain Phaser's useful menu/interface scaffold and the bundled three.js world renderer. The current prototype proves a small interaction sequence; it is not yet the full mission framework, training assessment adapter or campaign save system. Work should next establish mission scope and content-driven interactions, then connect one day and one isolated module to the existing scaffold.
+
+Before release integration, incorporate published main updates into the prototype branch and recheck compatibility with trainer/platform fixes. Main publication still requires the user's explicit permission.
+
+### Visual handoff and development order
+
+Plan a common visual brief before finished asset production: professional stylised realism, consistent proportions/materials/lighting, readable labels and handheld screens, and a target integrated-GPU performance budget. This suggested visual direction remains subject to user review. Review a representative depot area, van and parcel as the reference set, then apply the approved style across the town, interiors, equipment and characters. High-definition images can supply textures and references; reusable 3D meshes and collision shapes are also needed.
+
+The user intends to switch to Astra after the plan is ready. Prepare that model's handoff with the agreed visual brief, shared-world requirements, asset review process, local-loading constraints and measured performance targets. No model switch or asset generation is performed by this planning update.
+
+Proposed build order:
+
+1. Agree campaign structure, assessment/completion policy and common controls. The target session length is now 30–45 minutes per work day.
+2. Turn the prototype into a reusable mission framework, including module scope enforcement and readable shared tools.
+3. Build one short campaign day and one isolated sorting module using the same depot, parcels, scanner and interactions.
+4. Connect trainer rules, records, save/resume and existing menu entry points; validate old progress and completion compatibility.
+5. Establish and approve the visual reference set, then expand the environment and convert the remaining modules with shared systems.
+6. Expand campaign variation and difficulty, then complete regression, hardware performance and translation passes.
+
+This is a proposed iteration order. The initial demonstration day/module pair and first visual reference set should be reviewed before the whole curriculum is converted.
 
 ## Publication and ownership
 
