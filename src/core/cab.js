@@ -394,6 +394,16 @@ OTR.cab = {
     fr.fillStyle(0x24222C, 1);
     fr.fillPoints([{ x: 0, y: 58 }, { x: 70, y: 58 }, { x: 34, y: H - 150 }, { x: 0, y: H - 150 }], true);
     fr.fillPoints([{ x: W, y: 58 }, { x: W - 70, y: 58 }, { x: W - 34, y: H - 150 }, { x: W, y: H - 150 }], true);
+    if (high) {
+      // Narrow, static highlights on the existing dash and pillar surfaces, under the HUD and inside the cab.
+      fr.lineStyle(3, 0x3C3945, 1);
+      fr.lineBetween(4, H - 148, W * 0.3, H - 173);
+      fr.lineBetween(W * 0.3, H - 173, W * 0.7, H - 173);
+      fr.lineBetween(W * 0.7, H - 173, W - 4, H - 148);
+      fr.fillStyle(0x35323D, 1);
+      fr.fillTriangle(66, 62, 32, H - 155, 24, H - 155);
+      fr.fillTriangle(W - 66, 62, W - 32, H - 155, W - 24, H - 155);
+    }
     fr.lineStyle(26, 0x101014, 1); fr.beginPath(); fr.arc(W * 0.3, H + 40, 190, Math.PI * 1.15, Math.PI * 1.85); fr.strokePath();
     fr.lineStyle(14, 0x101014, 1); fr.lineBetween(W * 0.3, H - 60, W * 0.3 - 150, H - 40); fr.lineBetween(W * 0.3, H - 60, W * 0.3 + 150, H - 40);
     C.frame = fr;
