@@ -32,7 +32,9 @@ OTR.lighting = {
 
   glowTex(scene) {
     return OTR.tex.make(scene, 'lt_glow', 128, 128, (ctx, w, h) => {
-      ctx.fillStyle = OTR.cv.rad(ctx, 64, 64, 0, 64, [[0, 'rgba(255,255,255,1)'], [0.35, 'rgba(255,255,255,0.75)'], [0.7, 'rgba(255,255,255,0.25)'], [1, 'rgba(255,255,255,0)']]);
+      // A small bright core and a long soft shoulder, rather than a broad, flat disc. The lamp still uses one stamp
+      // at the same resolution and radius; only the cached pixels change.
+      ctx.fillStyle = OTR.cv.rad(ctx, 64, 64, 0, 64, [[0, 'rgba(255,255,255,1)'], [0.12, 'rgba(255,255,255,0.88)'], [0.4, 'rgba(255,255,255,0.4)'], [0.75, 'rgba(255,255,255,0.08)'], [1, 'rgba(255,255,255,0)']]);
       ctx.fillRect(0, 0, w, h);
     });
   },
@@ -45,7 +47,7 @@ OTR.lighting = {
         for (let x = 0; x < w; x++) {
           const u = x / w, half = 0.12 + 0.88 * u;                      // the beam spreads as it goes
           const off = Math.abs((y - h / 2) / (h / 2)) / half;
-          const across = off >= 1 ? 0 : Math.pow(1 - off * off, 1.5);
+          const across = off >= 1 ? 0 : Math.pow(1 - off * off, 2);
           const along = u < 0.04 ? u / 0.04 : Math.pow(1 - (u - 0.04) / 0.96, 1.3);
           const a = Math.round(255 * across * along);
           const i = (y * w + x) * 4;

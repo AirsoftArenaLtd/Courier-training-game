@@ -22,7 +22,8 @@ OTR.townArt = {
   /** Horizontal road tile: asphalt + centre line + sidewalks. Height = ROAD + 2*WALK. */
   roadH(scene) {
     const R = OTR.townArt.ROAD, W = OTR.townArt.WALK;
-    return OTR.tex.make(scene, 'td_road_h', 256, R + W * 2, (ctx, w, h) => {
+    const high = OTR.gfx ? OTR.gfx.high() : true;
+    return OTR.tex.make(scene, high ? 'td_road_h_detail' : 'td_road_h', 256, R + W * 2, (ctx, w, h) => {
       const cv = OTR.cv;
       ctx.fillStyle = cv.lin(ctx, 0, W, 0, W + R, [[0, '#4E4B58'], [0.5, '#56535F'], [1, '#46434F']]);
       ctx.fillRect(0, W, w, R);
@@ -33,6 +34,7 @@ OTR.townArt = {
       for (let x = 0; x < w; x += 64) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, W); ctx.moveTo(x, W + R); ctx.lineTo(x, W + R + W); ctx.stroke(); }
       // kerbs
       ctx.fillStyle = '#9C99A6'; ctx.fillRect(0, W - 4, w, 4); ctx.fillRect(0, W + R, w, 4);
+      if (high) OTR.townArt.roadDetail(ctx, w, R, W);
       // centre line
       ctx.fillStyle = '#F5D547';
       for (let x = 10; x < w; x += 90) ctx.fillRect(x, W + R / 2 - 4, 50, 5);
@@ -44,7 +46,8 @@ OTR.townArt = {
 
   roadV(scene) {
     const R = OTR.townArt.ROAD, W = OTR.townArt.WALK;
-    return OTR.tex.make(scene, 'td_road_v', R + W * 2, 256, (ctx, w, h) => {
+    const high = OTR.gfx ? OTR.gfx.high() : true;
+    return OTR.tex.make(scene, high ? 'td_road_v_detail' : 'td_road_v', R + W * 2, 256, (ctx, w, h) => {
       const cv = OTR.cv;
       ctx.fillStyle = cv.lin(ctx, W, 0, W + R, 0, [[0, '#4E4B58'], [0.5, '#56535F'], [1, '#46434F']]);
       ctx.fillRect(W, 0, R, h);
@@ -53,11 +56,42 @@ OTR.townArt = {
       ctx.strokeStyle = 'rgba(90,80,100,0.25)'; ctx.lineWidth = 2;
       for (let y = 0; y < h; y += 64) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.moveTo(W + R, y); ctx.lineTo(W + R + W, y); ctx.stroke(); }
       ctx.fillStyle = '#9C99A6'; ctx.fillRect(W - 4, 0, 4, h); ctx.fillRect(W + R, 0, 4, h);
+      if (high) {
+        ctx.save(); ctx.transform(0, 1, 1, 0, 0, 0);
+        OTR.townArt.roadDetail(ctx, h, R, W);
+        ctx.restore();
+      }
       ctx.fillStyle = '#F5D547';
       for (let y = 10; y < h; y += 90) ctx.fillRect(W + R / 2 - 4, y, 5, 50);
       ctx.fillStyle = 'rgba(255,255,255,0.55)';
       ctx.fillRect(W + 10, 0, 3, h); ctx.fillRect(W + R - 13, 0, 3, h);
     });
+  },
+
+  /** Baked surface detail only. Both orientations keep the same markings, dimensions and TileSprite count. */
+  roadDetail(ctx, length, R, W) {
+    ctx.save();
+    // Gentle continuous wheel wear. Full-length bands meet at tile edges; no cracks or fake driving hazards.
+    ctx.fillStyle = 'rgba(20,18,28,0.055)';
+    [W + R * 0.25, W + R * 0.75].forEach(y => {
+      ctx.fillRect(0, y - 18, length, 6); ctx.fillRect(0, y + 12, length, 6);
+    });
+    // A quiet resurfaced patch, well inside a lane. The centre/edge paint is drawn afterwards.
+    OTR.cv.rr(ctx, 38, W + 27, 57, 17, 3);
+    ctx.fillStyle = 'rgba(25,23,32,0.075)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(190,184,199,0.06)'; ctx.lineWidth = 1; ctx.stroke();
+    // Slight slab variation and bevels remain inside the original sidewalk and kerb geometry.
+    for (let x = 0; x < length; x += 64) {
+      ctx.fillStyle = x % 128 ? 'rgba(255,255,255,0.035)' : 'rgba(70,65,80,0.025)';
+      ctx.fillRect(x + 2, 2, 60, W - 8); ctx.fillRect(x + 2, W + R + 6, 60, W - 8);
+      ctx.fillStyle = 'rgba(255,255,255,0.14)';
+      ctx.fillRect(x + 2, 1, 60, 1); ctx.fillRect(x + 2, W + R + 5, 60, 1);
+      ctx.fillStyle = 'rgba(65,60,78,0.18)';
+      ctx.fillRect(x, W - 4, 1, 4); ctx.fillRect(x, W + R, 1, 4);
+    }
+    ctx.fillStyle = 'rgba(255,255,255,0.16)';
+    ctx.fillRect(0, W - 5, length, 1); ctx.fillRect(0, W + R + 4, length, 1);
+    ctx.restore();
   },
 
   /** Intersection square (asphalt only) with a drain and scuff marks. */

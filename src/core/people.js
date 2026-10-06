@@ -21,7 +21,9 @@ OTR.people = {
 
   /** Three frames of a person walking towards +x (left foot forward, both together, right foot forward). */
   frames(scene, shirt, skin, hair, legs) {
-    const base = `pp_${shirt}_${skin}_${hair}_${legs}`;
+    const high = OTR.gfx ? OTR.gfx.high() : true;
+    // Keep the palette at indices 1..4 for cab.js; the quality suffix prevents a cached high frame leaking to low.
+    const base = `pp_${shirt}_${skin}_${hair}_${legs}` + (high ? '_detail' : '');
     [0, 1, 2].forEach(f => OTR.tex.make(scene, base + '_' + f, 28 * 2, 28 * 2, (ctx) => {
       const cv = OTR.cv, cx = 14, cy = 14, st = [-1, 0, 1][f];
       ctx.scale(2, 2);                                  // drawn at twice the size it shows, for a sharp close-up
@@ -31,15 +33,41 @@ OTR.people = {
       [[-1, st], [1, -st]].forEach(([side, a]) => {
         ctx.beginPath(); ctx.ellipse(cx + a * 5, cy + side * 3.2, 3.2, 2.2, 0, 0, Math.PI * 2); ctx.fill();
       });
+      if (high) {
+        // Detail stays in the original layer order: shoes under the body and head, hands under the shoulders.
+        cv.noShadow(ctx);
+        [[-1, st], [1, -st]].forEach(([side, a]) => {
+          ctx.fillStyle = '#24252C';
+          ctx.beginPath(); ctx.ellipse(cx + a * 5 + 0.9, cy + side * 3.2, 2.2, 1.5, 0, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = 'rgba(220,219,226,0.35)';
+          ctx.fillRect(cx + a * 5 + 0.2, cy + side * 3.2 - 0.8, 1.6, 0.5);
+        });
+        cv.shadow(ctx, 4, 2, 0.35);
+      }
       // arms swing against the legs
       ctx.fillStyle = OTR.color.css(OTR.color.shade(shirt, -0.15));
       [[-1, -st], [1, st]].forEach(([side, a]) => {
         ctx.beginPath(); ctx.ellipse(cx + a * 3, cy + side * 6.4, 2.6, 2, 0, 0, Math.PI * 2); ctx.fill();
       });
+      if (high) {
+        cv.noShadow(ctx);
+        [[-1, -st], [1, st]].forEach(([side, a]) => {
+          ctx.fillStyle = OTR.color.css(OTR.color.shade(shirt, 0.12));
+          ctx.beginPath(); ctx.ellipse(cx + a * 3 + 0.8, cy + side * 6.4, 0.7, 1.2, 0, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = OTR.color.css(skin);
+          ctx.beginPath(); ctx.ellipse(cx + a * 3 + 1.6, cy + side * 6.4, 0.9, 1, 0, 0, Math.PI * 2); ctx.fill();
+        });
+        cv.shadow(ctx, 4, 2, 0.35);
+      }
       // shoulders
       ctx.fillStyle = cv.lin(ctx, cx, cy - 6, cx, cy + 6, [[0, OTR.color.css(OTR.color.shade(shirt, 0.15))], [1, OTR.color.css(OTR.color.shade(shirt, -0.12))]]);
       ctx.beginPath(); ctx.ellipse(cx, cy, 4.4, 6.6, 0, 0, Math.PI * 2); ctx.fill();
       cv.noShadow(ctx);
+      if (high) {
+        // All detail is baked into the original 56x56 canvas. Walking phases, scale and sprite count are unchanged.
+        ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 0.6;
+        ctx.beginPath(); ctx.moveTo(cx - 3, cy - 3.6); ctx.quadraticCurveTo(cx - 4.2, cy, cx - 3, cy + 3.6); ctx.stroke();
+      }
       // head: the face forward, the hair over the back of it
       ctx.fillStyle = OTR.color.css(skin); ctx.beginPath(); ctx.arc(cx + 0.8, cy, 3.6, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = OTR.color.css(hair); ctx.beginPath(); ctx.arc(cx - 0.4, cy, 3.5, Math.PI * 0.55, Math.PI * 1.45); ctx.fill();

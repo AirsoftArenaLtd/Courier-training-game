@@ -21,13 +21,33 @@ OTR.wx = {
     });
   },
   puddleTex(scene) {
-    return OTR.tex.make(scene, 'wx_puddle', 128, 64, (ctx, w, h) => {
+    const high = OTR.gfx.high();
+    return OTR.tex.make(scene, high ? 'wx_puddle' : 'wx_puddle_low', 128, 64, (ctx, w, h) => {
       ctx.save(); ctx.translate(w / 2, h / 2); ctx.scale(1, 0.5);
       ctx.fillStyle = OTR.cv.rad(ctx, 0, 0, 10, 62, [[0, 'rgba(40,52,70,0.55)'], [0.8, 'rgba(48,60,80,0.45)'], [1, 'rgba(60,72,92,0)']]);
-      ctx.beginPath(); ctx.arc(0, 0, 62, 0, Math.PI * 2); ctx.fill();
+      // An uneven waterline and broken sky reflections, baked into the same small sprite. No extra reflection
+      // layers, stamps, or per-frame animation: rain remains cheap and the low setting keeps its simple road tint.
+      ctx.beginPath();
+      if (high) {
+        ctx.moveTo(-60, 0);
+        ctx.bezierCurveTo(-60, -28, -35, -45, -8, -43);
+        ctx.bezierCurveTo(12, -61, 47, -39, 56, -16);
+        ctx.bezierCurveTo(69, 6, 38, 46, 10, 43);
+        ctx.bezierCurveTo(-18, 56, -57, 35, -60, 0);
+      } else ctx.arc(0, 0, 62, 0, Math.PI * 2);
+      ctx.fill();
       // the sky's sheen on the water, up and to the left
-      ctx.fillStyle = 'rgba(190,205,225,0.22)';
-      ctx.beginPath(); ctx.ellipse(-14, -16, 30, 12, -0.3, 0, Math.PI * 2); ctx.fill();
+      if (high) {
+        ctx.fillStyle = 'rgba(190,205,225,0.2)';
+        ctx.beginPath(); ctx.ellipse(-12, -17, 32, 9, -0.22, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = 'rgba(222,231,241,0.23)'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(-39, -11); ctx.quadraticCurveTo(-18, -19, 11, -12); ctx.stroke();
+        ctx.strokeStyle = 'rgba(170,189,209,0.15)';
+        ctx.beginPath(); ctx.moveTo(-13, 14); ctx.quadraticCurveTo(12, 7, 30, 11); ctx.stroke();
+      } else {
+        ctx.fillStyle = 'rgba(190,205,225,0.22)';
+        ctx.beginPath(); ctx.ellipse(-14, -16, 30, 12, -0.3, 0, Math.PI * 2); ctx.fill();
+      }
       ctx.restore();
     });
   },
@@ -104,7 +124,7 @@ OTR.wx = {
       // wet asphalt is darker and a little blue; standing water collects along the kerbs
       const tint = weather === 'storm' ? 0xA9B0BE : 0xBFC5D2;
       (s.roadTiles || []).forEach(t => t.setTint(tint));
-      OTR.wx.puddleTex(s);
+      const puddle = OTR.wx.puddleTex(s);
       const RND = OTR.scenery.rng('puddles' + T.seed);
       for (let i = 0; i < 46; i++) {
         const horiz = RND() < 0.5;
@@ -113,7 +133,7 @@ OTR.wx = {
         const off = (RND() < 0.5 ? -1 : 1) * (R - 22 - RND() * 40);     // near a kerb, where water lies
         const x = horiz ? along : line + off, y = horiz ? line + off : along;
         if (T.inters.some(it => Math.abs(it.x - x) < R + 40 && Math.abs(it.y - y) < R + 40)) continue;
-        s.add.image(x, y, 'wx_puddle').setDepth(-85).setScale(0.7 + RND() * 0.9, 0.6 + RND() * 0.6).setAngle(horiz ? 0 : 90);
+        s.add.image(x, y, puddle).setDepth(-85).setScale(0.7 + RND() * 0.9, 0.6 + RND() * 0.6).setAngle(horiz ? 0 : 90);
       }
       if (high) {
         OTR.wx.rippleTex(s);

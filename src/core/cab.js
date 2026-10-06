@@ -108,12 +108,12 @@ OTR.cab = {
   },
 
   /** A wall: its colour with rows of windows (the window mask is the emissive map, lit after dark). */
-  wallTex(color, rows, lit) {
+  wallTex(color, rows, lit, windowColor) {
     const cv = document.createElement('canvas'); cv.width = 128; cv.height = 128;
     const x = cv.getContext('2d');
     if (!lit) { x.fillStyle = OTR.color.css(color); x.fillRect(0, 0, 128, 128); }
     else { x.fillStyle = '#000'; x.fillRect(0, 0, 128, 128); }
-    const glass = lit ? '#FFD98A' : '#3A4A5C';
+    const glass = lit ? (windowColor === undefined ? '#FFD98A' : OTR.color.css(windowColor)) : '#3A4A5C';
     rows.forEach(([v0, v1]) => { for (let i = 0; i < 2; i++) { x.fillStyle = glass; x.fillRect(18 + i * 64, 128 - v1 * 128, 28, (v1 - v0) * 128); } });
     if (!lit) { x.fillStyle = 'rgba(0,0,0,0.12)'; x.fillRect(0, 120, 128, 8); }
     return new THREE.CanvasTexture(cv);
@@ -121,6 +121,7 @@ OTR.cab = {
 
   build(s) {
     const T = s.T, P = s.P, A = OTR.townArt, m = (px) => px / P;     // world px → metres
+    const high = OTR.gfx.high();
     const gl = s.sys.game.renderer.gl, canvas = s.sys.game.canvas;
     const three = new THREE.WebGLRenderer({ canvas, context: gl, antialias: false });
     three.autoClear = false;
@@ -158,10 +159,13 @@ OTR.cab = {
       const t = new THREE.CanvasTexture(src); t.colorSpace = THREE.SRGBColorSpace;
       return new THREE.MeshLambertMaterial({ map: t });
     };
-    const wallMat = (color, rows) => new THREE.MeshLambertMaterial({
-      map: this.wallTex(color, rows, false), emissiveMap: lit > 0 ? this.wallTex(color, rows, true) : null,
-      emissive: lit > 0 ? 0xFFFFFF : 0x000000, emissiveIntensity: lit * 0.9
-    });
+    const wallMat = (color, rows, x, y) => {
+      const style = high ? OTR.b3d.windowStyle(x, y) : null;
+      return new THREE.MeshLambertMaterial({
+        map: this.wallTex(color, rows, false), emissiveMap: lit > 0 ? this.wallTex(color, rows, true, style ? style.color : undefined) : null,
+        emissive: lit > 0 ? 0xFFFFFF : 0x000000, emissiveIntensity: lit * 0.9 * (style ? style.strength : 1)
+      });
+    };
     // a box building with its roof image on top (flat roofs), its walls round the sides
     const box = (x0, y0, x1, y1, h, walls, roof, crop) => {
       const w = m(x1 - x0), d = m(y1 - y0);
@@ -181,7 +185,7 @@ OTR.cab = {
       const x0 = l.x - fw / 2, y0 = l.y - fh / 2, x1 = l.x + fw / 2, y1 = l.y + fh / 2;
       if (l.kind === 'house') {
         const v = l.variant % 4, key = 'td_house_' + v;
-        const walls = wallMat(W3.house[v], [[0.25, 0.7]]);
+        const walls = wallMat(W3.house[v], [[0.25, 0.7]], l.x, l.y);
         const body = new THREE.Mesh(new THREE.BoxGeometry(m(fw), 4.6, m(fh)), walls);
         body.position.set(m(l.x), 2.3, m(l.y)); scene3.add(body);
         // a gable roof, its ridge running along the house's width, in the roof's own colour
@@ -193,14 +197,14 @@ OTR.cab = {
         scene3.add(roof);
       } else if (l.kind === 'business') {
         const v = l.variant % 2, key = 'td_biz_' + v, [bw, bh] = B.biz[v];
-        box(x0, y0, x1, y1, 4.8, wallMat(W3.business[v], [[0.15, 0.62]]), roofMat(key), cropOf(key, 14, 10, bw, bh));
+        box(x0, y0, x1, y1, 4.8, wallMat(W3.business[v], [[0.15, 0.62]], l.x, l.y), roofMat(key), cropOf(key, 14, 10, bw, bh));
       } else {
         const [bw, bh] = B.apt;
-        box(x0, y0, x1, y1, 10.5, wallMat(W3.apartment[0], [[0.12, 0.26], [0.45, 0.59], [0.76, 0.9]]), roofMat('td_apt'), cropOf('td_apt', 14, 10, bw, bh));
+        box(x0, y0, x1, y1, 10.5, wallMat(W3.apartment[0], [[0.12, 0.26], [0.45, 0.59], [0.76, 0.9]], l.x, l.y), roofMat('td_apt'), cropOf('td_apt', 14, 10, bw, bh));
       }
     });
     const D = T.depot;
-    box(D.x - D.w / 2, D.y - D.h / 2, D.x + D.w / 2, D.y + D.h / 2, 8.5, wallMat(W3.depot[0], [[0.7, 0.85]]), roofMat('td_depot'), cropOf('td_depot', 16, 12, 660, 380));
+    box(D.x - D.w / 2, D.y - D.h / 2, D.x + D.w / 2, D.y + D.h / 2, 8.5, wallMat(W3.depot[0], [[0.7, 0.85]], D.x, D.y), roofMat('td_depot'), cropOf('td_depot', 16, 12, 660, 380));
     // the station's name on its street side
     {
       const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 128; const x = cv.getContext('2d');
@@ -269,11 +273,19 @@ OTR.cab = {
     // traffic: a body and a glasshouse in the car's colour
     const carCol = (c) => { const k = c.img.texture.key; const n = +k.replace('car_top_', ''); return isFinite(n) ? n : 0x888888; };
     const glass = new THREE.MeshLambertMaterial({ color: 0x1E2630 });
+    // Reuse the two car meshes' geometry. On high, slope the existing glasshouse's roof inwards to make a
+    // windscreen and rear window; this changes the silhouette without adding vertices, meshes or draw calls.
+    const carBodyGeo = new THREE.BoxGeometry(4.6, 0.85, 1.85), carTopGeo = new THREE.BoxGeometry(2.4, 0.6, 1.6);
+    if (high) {
+      const p = carTopGeo.getAttribute('position');
+      for (let i = 0; i < p.count; i++) if (p.getY(i) > 0) p.setXYZ(i, p.getX(i) * 0.66 - 0.12, p.getY(i), p.getZ(i) * 0.78);
+      carTopGeo.computeVertexNormals();
+    }
     const cars = s.cars.map(c => {
       const g = new THREE.Group();
-      const body = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.85, 1.85), new THREE.MeshLambertMaterial({ color: carCol(c) }));
+      const body = new THREE.Mesh(carBodyGeo, new THREE.MeshLambertMaterial({ color: carCol(c) }));
       body.position.y = 0.65; g.add(body);
-      const top = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.6, 1.6), glass); top.position.set(-0.2, 1.35, 0); g.add(top);
+      const top = new THREE.Mesh(carTopGeo, glass); top.position.set(-0.2, 1.35, 0); g.add(top);
       const tl = new THREE.MeshBasicMaterial({ color: 0x701018 });
       [-0.7, 0.7].forEach(zz => { const t = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.15, 0.35), tl); t.position.set(-2.31, 0.85, zz); g.add(t); });
       scene3.add(g);
@@ -283,17 +295,39 @@ OTR.cab = {
     // people: a body in their shirt colour and a head
     const skin = new THREE.MeshLambertMaterial({ color: 0xD9A57A }), legs = new THREE.MeshLambertMaterial({ color: 0x2F3546 });
     const bodyGeo = new THREE.CylinderGeometry(0.22, 0.2, 0.75, 8), legGeo = new THREE.CylinderGeometry(0.18, 0.16, 0.85, 8), headGeo = new THREE.SphereGeometry(0.13, 10, 8);
-    const person = (shirt, scale) => {
+    const personHeadMat = high ? new THREE.MeshLambertMaterial({ vertexColors: true }) : skin;
+    const headsByLook = new Map(), trousers = new Map();
+    const headOf = (skinColor, hairColor) => {
+      const key = skinColor + '_' + hairColor;
+      if (headsByLook.has(key)) return headsByLook.get(key);
+      const geo = headGeo.clone(), p = geo.getAttribute('position'), colors = [];
+      const face = new THREE.Color(skinColor), hair = new THREE.Color(hairColor);
+      for (let i = 0; i < p.count; i++) {
+        const c = p.getY(i) > 0.035 || p.getX(i) < -0.015 ? hair : face;
+        colors.push(c.r, c.g, c.b);
+      }
+      geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+      headsByLook.set(key, geo); return geo;
+    };
+    const person = (look, scale) => {
+      const palette = (look && look.base || '').split('_');
+      const shirt = +palette[1] || 0x3D6FB8, skinColor = +palette[2] || 0xD9A57A, hairColor = +palette[3] || 0x2A2018, legColor = +palette[4] || 0x2F3546;
+      let legMat = legs;
+      if (high) {
+        if (!trousers.has(legColor)) trousers.set(legColor, new THREE.MeshLambertMaterial({ color: legColor }));
+        legMat = trousers.get(legColor);
+      }
       const g = new THREE.Group();
-      const l = new THREE.Mesh(legGeo, legs); l.position.y = 0.43; g.add(l);
+      const l = new THREE.Mesh(legGeo, legMat); l.position.y = 0.43; g.add(l);
       const b = new THREE.Mesh(bodyGeo, new THREE.MeshLambertMaterial({ color: shirt })); b.position.y = 1.2; g.add(b);
-      const h = new THREE.Mesh(headGeo, skin); h.position.y = 1.7; g.add(h);
+      // Skin, hair and trousers match the top-down walkers. A vertex-coloured cap gives the simple head a facing
+      // direction without adding a hair mesh, a texture lookup, or an animation step. Low keeps the original head.
+      const h = new THREE.Mesh(high ? headOf(skinColor, hairColor) : headGeo, personHeadMat); h.position.y = 1.7; g.add(h);
       g.scale.setScalar(scale || 1); scene3.add(g); return g;
     };
-    const shirtOf = (look) => { const p = (look && look.base || '').split('_'); return p.length > 1 ? +p[1] : 0x3D6FB8; };
     const people = [];
-    (s.crowd ? s.crowd.walkers : []).forEach(w => people.push({ img: w.img, g: person(shirtOf(w.look), w.kind === 'child' ? 0.7 : 1) }));
-    (s.peds || []).forEach(p => people.push({ img: p.img, g: person(shirtOf(p.look), 1) }));
+    (s.crowd ? s.crowd.walkers : []).forEach(w => people.push({ img: w.img, g: person(w.look, w.kind === 'child' ? 0.7 : 1) }));
+    (s.peds || []).forEach(p => people.push({ img: p.img, g: person(p.look, 1) }));
 
     // the van's headlights: two spotlights from the front of the van, on when its lights are
     const heads = [-0.75, 0.75].map(() => {
@@ -360,9 +394,39 @@ OTR.cab = {
     fr.fillStyle(0x24222C, 1);
     fr.fillPoints([{ x: 0, y: 58 }, { x: 70, y: 58 }, { x: 34, y: H - 150 }, { x: 0, y: H - 150 }], true);
     fr.fillPoints([{ x: W, y: 58 }, { x: W - 70, y: 58 }, { x: W - 34, y: H - 150 }, { x: W, y: H - 150 }], true);
+    if (high) {
+      // Narrow, static highlights on the existing dash and pillar surfaces, under the HUD and inside the cab.
+      fr.lineStyle(3, 0x3C3945, 1);
+      fr.lineBetween(4, H - 148, W * 0.3, H - 173);
+      fr.lineBetween(W * 0.3, H - 173, W * 0.7, H - 173);
+      fr.lineBetween(W * 0.7, H - 173, W - 4, H - 148);
+      fr.fillStyle(0x35323D, 1);
+      fr.fillTriangle(66, 62, 32, H - 155, 24, H - 155);
+      fr.fillTriangle(W - 66, 62, W - 32, H - 155, W - 24, H - 155);
+    }
     fr.lineStyle(26, 0x101014, 1); fr.beginPath(); fr.arc(W * 0.3, H + 40, 190, Math.PI * 1.15, Math.PI * 1.85); fr.strokePath();
     fr.lineStyle(14, 0x101014, 1); fr.lineBetween(W * 0.3, H - 60, W * 0.3 - 150, H - 40); fr.lineBetween(W * 0.3, H - 60, W * 0.3 + 150, H - 40);
     C.frame = fr;
+    // These are three.js resources, not Phaser textures. Release only this view's objects on scene shutdown;
+    // never lose the shared GL context. A restarted drive must build a fresh cab rather than reuse destroyed HUD
+    // objects and the previous town's cars/people.
+    s.events.once('shutdown', () => {
+      C.on = false;
+      const geometries = new Set(), materials = new Set(), textures = new Set();
+      [scene3, blitScene].forEach(root => root.traverse(o => {
+        if (o.geometry) geometries.add(o.geometry);
+        const mats = Array.isArray(o.material) ? o.material : o.material ? [o.material] : [];
+        mats.forEach(mat => {
+          materials.add(mat);
+          Object.keys(mat).forEach(k => { const t = mat[k]; if (t && t.isTexture && t !== target.texture) textures.add(t); });
+        });
+      }));
+      geometries.forEach(g => g.dispose());
+      textures.forEach(t => t.dispose());
+      materials.forEach(mat => mat.dispose());
+      target.dispose(); three.dispose();
+      if (s.cab === C) s.cab = null;
+    });
     s.syncCameras();
     return C;
   }
