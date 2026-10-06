@@ -379,7 +379,7 @@ class HubScene extends Phaser.Scene {
     const x = 152, y = 664, w = 272;
     this.add.image(x, y, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
     this.add.image(x - 104, y - 30, 'ic_book').setDisplaySize(18, 18).setTint(0xFF6600);
-    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0 });
+    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0, fit: w / 2 + 76 });   // from beside the book icon to the panel's edge
     const due = OTR.quiz.dueCount();
     const drills = OTR.drill.queue().length;
     const qb = OTR.ui.button(this, x - 66, y + 12, 'Quizzes', () => OTR.fx.transition(this, 'QuizScene', {}),
