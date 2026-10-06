@@ -2681,7 +2681,7 @@ window.OTR_I18N.mr = {
 "Pull this stop's package from the shelves": "या स्टॉपचे पॅकेज शेल्फमधून काढा",
 "Scan it with your handheld (TAB)": "हँडहेल्डने स्कॅन करा (TAB)",
 "Find the recipient or reception": "प्राप्तकर्ता किंवा रिसेप्शन शोधा",
-"Get the door: knock, ring or buzz": "दाराशी जा: ठोठवा, बेल वाजवा किंवा बझर दाबा",
+"Get the door: knock, ring or buzz": "दार: ठोठवा, बेल किंवा बझर",
 "Deliver it or record an exception": "डिलिव्हर करा किंवा अपवाद नोंदवा",
 "Put the package back in the van": "पॅकेज परत व्हॅनमध्ये ठेवा",
 "Climb back into the van": "पुन्हा व्हॅनमध्ये चढा",

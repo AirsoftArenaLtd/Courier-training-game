@@ -179,7 +179,12 @@ function auditLayout() {
     // panels and buttons, and the text drawn on them, for the check below
     const key = obj.texture && obj.texture.key;
     if (obj.type === 'Image' && key && /^(panel|btn)_/.test(key)) boxes.push({ obj, scene });
-    if (obj.type === 'Text' && String(obj.text).trim()) texts.push({ obj, scene });
+    if (obj.type === 'Text' && String(obj.text).trim()) {
+      texts.push({ obj, scene });
+      // shrunk to fit its box (the fit option) so far that it can no longer be read: the words need to be shorter
+      const sc = Math.min(Math.abs(obj.scaleX), Math.abs(obj.scaleY)), px = parseFloat(obj.style && obj.style.fontSize) || 0;
+      if (sc < 0.999 && px && px * sc < 9.5) out.push({ kind: 'text-squeezed', scene: scene.sys.settings.key, what: describe(obj), detail: `${px}px shrunk to ${(px * sc).toFixed(1)}px` });
+    }
 
     const kids = obj.list || (obj.getChildren ? obj.getChildren() : null);
     if (kids) kids.forEach(k => walk(k, scene, depth + 1));

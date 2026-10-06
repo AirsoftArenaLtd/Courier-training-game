@@ -2682,7 +2682,7 @@ window.OTR_I18N.bn = {
 "Pull this stop's package from the shelves": "এই স্টপের প্যাকেজ তাক থেকে বের করুন",
 "Scan it with your handheld (TAB)": "হ্যান্ডহেল্ড দিয়ে স্ক্যান করুন (TAB)",
 "Find the recipient or reception": "প্রাপক বা রিসেপশন খুঁজুন",
-"Get the door: knock, ring or buzz": "দরজায় যান: কড়া নাড়ুন, বেল বাজান বা বাজার চাপুন",
+"Get the door: knock, ring or buzz": "দরজা: কড়া নাড়ুন, বেল বা বাজার",
 "Deliver it or record an exception": "ডেলিভার করুন বা ব্যতিক্রম লিখুন",
 "Put the package back in the van": "প্যাকেজটি ভ্যানে ফিরিয়ে রাখুন",
 "Climb back into the van": "আবার ভ্যানে উঠুন",

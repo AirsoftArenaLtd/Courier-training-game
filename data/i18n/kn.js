@@ -2681,7 +2681,7 @@ window.OTR_I18N.kn = {
 "Pull this stop's package from the shelves": "ಈ ಸ್ಟಾಪ್‌ನ ಪ್ಯಾಕೇಜನ್ನು ಕಪಾಟಿನಿಂದ ತೆಗೆಯಿರಿ",
 "Scan it with your handheld (TAB)": "ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಿಂದ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ (TAB)",
 "Find the recipient or reception": "ಸ್ವೀಕರಿಸುವವರನ್ನು ಅಥವಾ ಸ್ವಾಗತಕಾರರನ್ನು ಹುಡುಕಿ",
-"Get the door: knock, ring or buzz": "ಬಾಗಿಲಿಗೆ ಹೋಗಿ: ತಟ್ಟಿ, ಗಂಟೆ ಒತ್ತಿ ಅಥವಾ ಬಜರ್ ಒತ್ತಿ",
+"Get the door: knock, ring or buzz": "ಬಾಗಿಲು: ತಟ್ಟಿ, ಗಂಟೆ ಅಥವಾ ಬಜರ್",
 "Deliver it or record an exception": "ಡೆಲಿವರ್ ಮಾಡಿ ಅಥವಾ ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ",
 "Put the package back in the van": "ಪ್ಯಾಕೇಜನ್ನು ಮತ್ತೆ ವ್ಯಾನ್‌ನಲ್ಲಿಡಿ",
 "Climb back into the van": "ಮತ್ತೆ ವ್ಯಾನ್‌ಗೆ ಹತ್ತಿ",
