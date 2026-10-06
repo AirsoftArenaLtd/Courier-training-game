@@ -65,7 +65,7 @@ Repeated cloud runs varied even on unchanged screens: baseline low daytime/dusk/
 
 Managed Chromium blocks `file://` navigation. The requested original commands were run and are reported separately from HTTP-adapted checks. An external test-only adapter maps this checkout's `file://` URLs to the same files served by a plain static server on port 8302; this preserves browser-local progress rather than enabling the company server API. It does not modify the game, repository tests, assertions, or browser policy. HTTP checks do not establish disk-launch compatibility. Benchmarks and visual captures use the development server on port 8301.
 
-`main` contains English and Spanish. Hindi integration uses a read-only snapshot of Claude's `src/core/i18n.js` and `data/i18n/hi.js` from `qa-pass2-fixes` at `707eea9a2b802fc3ae29873f108d4d382e9a23af`, supplied to the browser by the external test adapter. Neither those protected files nor that branch are edited. The adapter verifies `OTR.i18n.lang === 'hi'`, so an English fallback cannot masquerade as a Hindi pass.
+At the first-pass base, `main` contained English and Spanish. That pass's Hindi integration used a read-only snapshot of Claude's `src/core/i18n.js` and `data/i18n/hi.js` from `qa-pass2-fixes` at `707eea9a2b802fc3ae29873f108d4d382e9a23af`, supplied to the browser by the external test adapter. Neither those protected files nor that branch were edited. The adapter verified `OTR.i18n.lang === 'hi'`, so an English fallback could not masquerade as a Hindi pass. The newer checks below use the translations now published on `main` directly.
 
 
 ## Second pass: implemented and committed
@@ -79,4 +79,26 @@ At the user's request, the four prepared source changes are applied and committe
 
 All four final JavaScript files pass `node --check`; `git diff --check` passes. Two previously authorised review-render runs exited 0, with no page errors in either current or proposed capture. Those renders used the prepared code through external request interception and are not QA or performance results. Image delivery in the chat did not work, and the user asked to stop that review process and commit the prepared work.
 
-The required full QA, Hindi checks and benchmarks have not been rerun for this second pass. No FPS-regression claim is made; the first-pass results above do not validate these additions. The owned preview server was stopped by PID. The new commits remain local on `codex-graphics`; no second-pass push or merge is performed.
+The preview work stopped and its owned server was stopped by PID. The user subsequently requested a quick QA check and explicitly authorised pushing to `main`, superseding the earlier restriction on publishing there.
+
+## Quick QA before publication
+
+Merged published `main` at `f4b6bec46d837a8ff02d36a2feb012604a75bc2f` into `codex-graphics` without conflicts (merge `db462242e1fb0f508fb12d81c4abd13c87fb96d0`). Claude's protected source, dictionaries, tests, README and shared QA report match that main revision exactly. All six core graphics scripts pass `node --check`, and `git diff --check` passes. The art test restored the tracked assets and art pack; no generated replacement artwork is included.
+
+| Check | Exact result |
+| --- | --- |
+| `node art.js` | Exit 0; **5/5 assertions passed**. |
+| `node town3d.js` | Exit 0; **18/18 passed**, including high/low, weather, lighting, pedestrians and cab; zero page errors. |
+| `QA_LANG=hi node town3d.js` | Exit 0; **18/18 passed** using the actual merged Hindi dictionary; zero page errors. The adapter waits for `OTR.i18n.lang === 'hi'`. |
+| `node driving.js` | Exit 1; **18/19 passed**. Failed: “pulled in and stopped for the ambulance: right”; zero page errors. |
+| Original-main core graphics, `node driving.js` | Exit 1; **18/19 passed**, with the same ambulance failure; zero page errors. |
+| `QA_FPS_FLOOR=0 QA_PORT=8300 node qa.js --only m1-driving,drive-review` | Exit 1; **1/2 scenarios clean**. `m1-driving` passed boot, layout, play and its six-stop golden route, including all six hazards (reported FPS 29). `drive-review` completed the route but its scripted mouse click did not open DriveReviewScene from Results. |
+| Original-main graphics, `QA_FPS_FLOOR=0 QA_PORT=8300 node qa.js --only drive-review` | Exit 0; **1/1 scenario clean**, including map, seatbelt lesson and Back. This reproduces the earlier intermittent pattern; it does not erase the candidate run's failure. |
+| Candidate cab restart/pixel check | Exit 0; fresh cab after restart, sky pixel `[116, 170, 215]`, shared context not lost, zero page errors. |
+| Candidate direct Results → Drive Map → Back check | Exit 0; mouse click opened the map, one seatbelt pin and its lesson displayed, Escape returned to Results; zero page errors. This focused check uses a prepared score log and the real completion flow, rather than repeating the full driving route. |
+
+All repository test commands ran from `test`, with `QA_BROWSER=/usr/bin/chromium` and `NODE_OPTIONS=--require=/workspace/.courier-cloud/graphics/pass2/quick-http.cjs`. The external adapter maps blocked `file://` test URLs to the same checkout on a plain static server at port 8302, leaving repository tests and assertions unchanged. Main comparisons additionally use `QA_PASS2_BASELINE=1` to serve read-only graphics snapshots from the main SHA above; the map comparison also restores its original TownDriveScene script. No translation fixture is substituted in this pass. Logs and exit codes are saved under ignored `test/out/graphics/pass2-quick/`.
+
+The first direct-navigation helper attempt timed out before reaching its assertions because it did not dismiss the scenario's intro card. Matching the repository runner's Enter step resolved that helper setup issue; its complete result is recorded above. An initial HTTP readiness probe also raced server startup; the server subsequently returned HTTP 200 for the complete tests.
+
+This is targeted quick QA, not a rerun of all 36 scenarios or the benchmark suite. The ambulance assertion remains reproducible on main. Drive Map navigation works in the direct candidate check, but its full scripted failure remains reported. No new persistent gameplay or rendering failure was reproduced. This cloud browser uses SwiftShader with the FPS floor disabled; neither these checks nor the older benchmark readings certify second-pass performance on an integrated-GPU laptop or `file://` launch compatibility.
