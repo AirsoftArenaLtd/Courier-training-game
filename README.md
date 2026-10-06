@@ -153,27 +153,37 @@ to pull it back out. `BACKSPACE` undoes, `ENTER` dispatches.
 
 ## Languages
 
-The game runs in English or Spanish (*español*, Latin American, informal *tú*; US units). The globe button on the
-title screen and in the hub picks the language; it is kept on that computer. `?lang=es` picks it for one visit, and a
-company can set its default with `lang` in `data/config.js` (otherwise the browser's language decides, if the game
-has it).
+The game runs in English, Spanish (*español*, Latin American, informal *tú*), French (*français*, informal *tu*) and
+Hindi (*हिन्दी*, polite *आप*), all with US units. The globe button on the title screen and in the hub picks the
+language; it is kept on that computer. `?lang=fr` picks it for one visit, and a company can set its default with
+`lang` in `data/config.js` (otherwise the browser's language decides, if the game has it). Key names stay in English
+in Hindi; French uses its own (ESPACE, ENTRÉE, MAJ, ÉCHAP).
 
 Text is translated as it is shown (`src/core/i18n.js`): the game's data, saved progress, score logs and trainer
 reports stay in English, so a trainee who switches language keeps one record. The printed record and certificate are
-written in the trainee's language. The Spanish is in `data/i18n/es.js`. It was drafted by machine and checked
-against the game's rules, but a native speaker should review the safety wording before it is relied on.
+written in the trainee's language. Each language is one file, `data/i18n/<code>.js`. The translations were drafted by
+machine and checked against the game's rules, but a native speaker should review the safety wording before it is
+relied on. Indian scripts need taller lines for their vowel marks; `i18n.js` measures text with them (`TALL`), and the
+font list includes Nirmala UI, which Windows ships for these scripts.
 
-**Adding or changing text:** run `node test/tools/i18n-extract.js es`. It rewrites `data/i18n/catalogue.json` (every
-string the game can show, in the order it appears) and lists what Spanish is missing in
-`data/i18n/missing-es.json` (names, codes and colours stay as they are). A message with changing parts is a template:
-`"Stop {0} of {1}"` → `"Parada {0} de {1}"`. Where the English adds a plural ending (`"{0} package{1}"`), the
+**Adding or changing text:** run `node test/tools/i18n-extract.js <code>`. It rewrites `data/i18n/catalogue.json`
+(every string the game can show, in the order it appears) and lists what that language is missing in
+`data/i18n/missing-<code>.json` (names, codes and colours stay as they are). A message with changing parts is a
+template: `"Stop {0} of {1}"` → `"Parada {0} de {1}"`. Where the English adds a plural ending (`"{0} package{1}"`), the
 translation picks its own words with `{1:plural|singular}` (`"{0} {1:paquetes|paquete}"`). Two changing parts must
 not sit side by side in a message (`${a}${b}`), because they cannot be told apart once translated; write each variant
 as its own sentence. Code that finds a label by its words reads `OTR.i18n.src(text)` (its English), not `.text`.
 
-**Adding a language:** copy `data/i18n/es.js` to `data/i18n/<code>.js`, translate it, and add the code and the
-language's own name to `LANGS` in `src/core/i18n.js`. Then run `node test/i18n.js`, which also checks that in the new
-language the right quiz or conversation answer still can't be picked out by its length.
+**Translating in chunks:** `data/i18n/src/` holds the catalogue split into numbered chunks (`src-NN.json`) and, per
+language, a folder of the same chunks translated line for line (`fr/NN.json`), plus `override.json` for rewordings.
+`python3 data/i18n/src/build.py fr "French (français)"` checks counts, placeholders and line breaks and writes
+`data/i18n/fr.js`. `node data/i18n/src/lengths.js fr` lists quiz questions and conversation choices where the right
+answer could be picked out by its length in that language; fix them with a rewording in `override.json`.
+
+**Adding a language:** translate the chunks into `data/i18n/src/<code>/`, build it, and add the code and the
+language's own name to `LANGS` in `src/core/i18n.js`. Then run `node test/i18n.js`, which checks that every string is
+covered, that placeholders match and that the length rules hold, and `QA_LANG=<code> node test/qa.js` for the full
+play-through in that language.
 
 ## How progression works
 
