@@ -68,6 +68,12 @@ test('unsupported outcomes cannot poison the recorded delivery decision', () => 
   const m=make(); load(m); at(m,'parcel0'); m.pickup('parcel0'); at(m,'door0'); m.contact(0);
   m.deliver(0,'arbitrary'); assert.equal(m.events['outcome:0'],undefined); assert.equal(m.stop(0).resolved,false);
 });
+test('an absent recipient cannot receive a handover and the parcel remains recoverable', () => {
+  const m=make(); load(m); const s=m.stops.find(s=>s.service==='signature');
+  at(m,'parcel'+s.id);m.pickup('parcel'+s.id);at(m,'door'+s.id);m.contact(s.id);
+  m.deliver(s.id,'handover');assert.equal(s.resolved,false);assert.equal(m.heldId,'parcel'+s.id);
+  m.deliver(s.id,'exception');assert.equal(s.resolved,true);assert.equal(m.parcel(m.heldId).returnRequired,true);
+});
 test('practice enforces scope and finishes only after physical retrieval and replacement', () => {
   const m=make('practice'); at(m,'driver'); assert.notEqual(m.enter(),''); assert.equal(m.mode,'walk');
   load(m); assert.ok(m.requested); at(m,'dispatch'); assert.notEqual(m.finish(),'');
@@ -111,9 +117,26 @@ test('new motion remains stable across frame rates and caps an inactive-tab fram
   const m=models[0], z=m.van.z; m.step({forward:true},10); assert.ok(Math.abs(m.van.z-z)<0.41);
 });
 test('corrupted checkpoint and impossible cargo locations are rejected', () => {
-  for (const edit of [s=>s.version=99,s=>s.van.x=null,s=>s.parcels[0].location='missing',s=>{s.parcels[0].location=s.parcels[1].location='slot0';},s=>s.heldId='parcel0',s=>s.traffic[0].speed='fast']) {
+  for (const edit of [s=>s.version=99,s=>s.van.x=null,s=>s.parcels[0].location='missing',s=>{s.parcels[0].location=s.parcels[1].location='slot0';},s=>s.heldId='parcel0',s=>s.traffic[0].speed='fast',s=>s.activeStop=9,s=>s.checks=null,s=>s.stopSign=null,s=>s.parcels[0].zone='missing',s=>s.logs=[null],s=>s.stops[0].z='far away']) {
     const data=make().snapshot(); edit(data); assert.equal(M.restore(data),null);
   }
+});
+test('traffic contact stops the vehicle and records one collision rather than two', () => {
+  const m=make();m.mode='cab';Object.assign(m.van,{x:1.7,z:0,speed:2,hand:false,belt:true});
+  Object.assign(m.traffic[0],{x:1.7,z:-4,speed:0});m.step({forward:true},0.05);
+  assert.equal(m.van.speed,0);assert.equal(m.van.hand,true);
+  assert.equal(m.logs.filter(l=>l.id.startsWith('traffic-contact:')||l.id.startsWith('contact:')).length,1);
+});
+test('traffic is solid for walkers and yields when a walker is directly ahead', () => {
+  const m=make();Object.assign(m.traffic[0],{x:1.7,z:0});Object.assign(m.player,{x:1.7,z:-3});
+  assert.equal(m.blocked(1.7,0),true);m.tickTraffic(0.5);assert.equal(m.traffic[0].z,0);
+  m.player.x=8;m.tickTraffic(0.5);assert.ok(m.traffic[0].z<0);
+});
+test('a corrupted debrief or swapped save slot cannot break a valid campaign checkpoint', () => {
+  context.OTR.save={localKey:()=> 'test'};const data=S.empty();data.campaign=make().snapshot();
+  data.practice=make().snapshot();data.last={kind:'campaign',seed:1,elapsed:20,logs:[null]};
+  context.localStorage={getItem:()=>JSON.stringify(data)};
+  const restored=S.read();assert.ok(restored.campaign);assert.equal(restored.practice,null);assert.equal(restored.last,null);
 });
 test('local checkpoint reports storage failure and uses a separate profile key', () => {
   context.OTR.save={localKey:()=> 'course_alex'}; const values=new Map();

@@ -8,6 +8,11 @@ OTR.fpMission = {
     x: i < 3 ? -0.72 : 0.72, y: 1.35, z: 2.05 - (i % 3) * 1.05
   })),
   clone(value) { return JSON.parse(JSON.stringify(value)); },
+  validLogs(logs) {
+    return Array.isArray(logs) && logs.length <= 300 && logs.every(l => l &&
+      ['id','skill','text'].every(k => typeof l[k] === 'string') &&
+      ['good','needs','recovered'].includes(l.outcome) && Number.isFinite(l.at) && l.at >= 0);
+  },
   local(v, p) {
     const x = p.x - v.x, z = p.z - v.z, c = Math.cos(v.yaw), s = Math.sin(v.yaw);
     return { x: c * x + s * z, z: -s * x + c * z };
@@ -36,7 +41,9 @@ OTR.fpMission = {
         { x: -10.5, z: 17, w: 11, d: 0.25, h: 3.6 },
         { x: -10.5, z: -7, w: 11, d: 0.25, h: 3.6 },
         { x: -11, z: 1, w: 1.6, d: 9, h: 0.9 },
-        ...[-42, -72, -105].map(z => ({ x: 13, z, w: 6, d: 9, h: 4.2 }))
+        ...[-42, -72, -105].map(z => ({ x: 13, z, w: 6, d: 9, h: 4.2 })),
+        { x: -13.8, z: 11, w: 2, d: 1.2, h: 1 },
+        { x: -13.8, z: 5, w: 1.8, d: 1.6, h: 0.96 }
       ],
       touch() { this.revision++; },
       log(id, skill, outcome, text) {
@@ -80,6 +87,7 @@ OTR.fpMission = {
         const r = radius || 0.24, b = this.bounds;
         if (x - r < b.x0 || x + r > b.x1 || z - r < b.z0 || z + r > b.z1) return true;
         if (this.solids.some(s => F.circleBox(x, z, r, s))) return true;
+        if (this.kind === 'campaign' && this.traffic.some(c => F.circleBox(x,z,r,{x:c.x,z:c.z,w:1.8,d:3.6}))) return true;
         const p = M.local(this.van, { x, z });
         if (!this.cargoOpen) return F.circleBox(p.x, p.z, r, { x: 0, z: 0, w: 2.16, d: 5.4 });
         return [
@@ -189,6 +197,10 @@ OTR.fpMission = {
         }
         if (!p.loaded) return 'Prepare and load this parcel at the depot first.';
         if (!s.contacted) return 'Attempt contact before recording the outcome.';
+        if (outcome === 'handover' && s.service !== 'handover') {
+          this.log('absent-handover:' + id, 'delivery', 'needs', 'Tried to record a handover with no recipient present.');
+          return 'Nobody is present to receive the parcel. Choose an outcome that matches the situation.';
+        }
         if (!p.scanned) this.log('unverified:' + p.id, 'verification', 'needs', 'Completed a stop without scanning the parcel.');
         const expected = s.service === 'handover' ? 'handover' : s.service === 'safeplace' ? 'safeplace' : 'exception';
         const correct = outcome === expected;
@@ -254,14 +266,16 @@ OTR.fpMission = {
         }
         this.tickCrossing(dt, old);
         const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w: 1.8, d: 3.6 }));
-        if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
-        if (old.speed > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
+        if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
+        if (!hitCar && Math.abs(old.speed) > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
       },
       tickTraffic(dt) {
         this.traffic.forEach(c => {
           const dir = c.yaw === 0 ? -1 : 1;
           const ahead = (this.van.z - c.z) * dir;
-          const blocked = Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9;
+          const personAhead = (this.player.z - c.z) * dir;
+          const walker = this.mode === 'walk' && Math.abs(this.player.x - c.x) < 1.3 && personAhead > 0 && personAhead < 4;
+          const blocked = (Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9) || walker;
           const h = this.crossing, pedestrian = h.state === 'crossing' && Math.abs(h.x - c.x) < 2 && (h.z - c.z) * dir > 0 && (h.z - c.z) * dir < 10;
           const atLine = dir < 0 && c.z > -22.3 && c.z < -21.9 && !c.stopPassed;
           if (atLine) { c.wait = (c.wait || 0) + dt; if (c.wait >= 1) c.stopPassed = true; }
@@ -315,18 +329,31 @@ OTR.fpMission = {
         if (actor.x < -20 || actor.x > 20 || actor.z < -136 || actor.z > 40) return null;
       }
       if (!['speed','steer','gear','look'].every(k => Number.isFinite(data.van[k])) || !Number.isFinite(data.player.pitch)) return null;
+      if (![1,-1].includes(data.van.gear) || ![0,1,2].includes(data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
+      if (!['retrievals','leg','mirrorAt'].every(k => Number.isFinite(data[k]))) return null;
+      if (!data.checks || !['tyres','lights'].every(k => [null,true,false].includes(data.checks[k]))) return null;
+      if (!data.stopSign || !['stopped','resolved'].every(k => typeof data.stopSign[k] === 'boolean')) return null;
+      if (!['cargoOpen','secured','repaired','departed'].every(k => typeof data[k] === 'boolean') ||
+        !['hand','belt'].every(k => typeof data.van[k] === 'boolean')) return null;
+      if (![null,'parcel0','parcel1','parcel2'].includes(data.lastScan) || ![null,'parcel0','parcel1','parcel2'].includes(data.requested)) return null;
       if (!Array.isArray(data.parcels) || data.parcels.length !== 3 || !Array.isArray(data.stops) || data.stops.length !== 3) return null;
       const places = new Set(), held = [];
       for (let i = 0; i < 3; i++) {
         const p = data.parcels[i], s = data.stops[i];
-        if (p.id !== 'parcel' + i || p.stop !== i || s.id !== i || s.address !== this.addresses[i]) return null;
+        if (p.id !== 'parcel' + i || p.stop !== i || s.id !== i || s.address !== this.addresses[i] || p.address !== s.address) return null;
+        if (s.x !== m.stops[i].x || s.z !== m.stops[i].z || s.service !== m.stops[i].service) return null;
+        if (!['contacted','resolved'].every(k => typeof s[k] === 'boolean') || (s.resolved && !['handover','safeplace','exception'].includes(s.outcome))) return null;
+        if (!['scanned','loaded','returnRequired'].every(k => typeof p[k] === 'boolean') || typeof p.tracking !== 'string' || !Number.isFinite(p.weight)) return null;
+        if (p.zone !== null && !this.slots.some(s => s.id === p.zone)) return null;
         if (!['depot','held','delivered','returned',...this.slots.map(s => s.id)].includes(p.location)) return null;
         if (!['handover','safeplace','signature'].includes(s.service)) return null;
         if (p.location.startsWith('slot')) { if (places.has(p.location)) return null; places.add(p.location); }
         if (p.location === 'held') held.push(p.id);
       }
-      if (held.length > 1 || (held[0] || null) !== data.heldId || !Array.isArray(data.logs) || data.logs.length > 300) return null;
-      if (!data.events || !data.crossing || !['waiting','developing','crossing','resolved'].includes(data.crossing.state)) return null;
+      if (held.length > 1 || (held[0] || null) !== data.heldId || !this.validLogs(data.logs)) return null;
+      if (!data.events || typeof data.events !== 'object' || Array.isArray(data.events) || Object.values(data.events).some(v => v !== true)) return null;
+      if (data.logs.some(l => data.events[l.id] !== true)) return null;
+      if (!data.crossing || !['waiting','developing','crossing','resolved'].includes(data.crossing.state)) return null;
       if (![data.crossing.x,data.crossing.z,data.crossing.clock].every(Number.isFinite)) return null;
       if (!Array.isArray(data.traffic) || data.traffic.length !== 2 || data.traffic.some(c => ![c.x,c.z,c.yaw,c.speed].every(Number.isFinite))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
@@ -343,9 +370,11 @@ OTR.fpStore = {
     try {
       const data = JSON.parse(window.localStorage.getItem(this.key()));
       if (!data || data.version !== 2) return this.empty();
-      const out = this.empty(); out.sequence = Math.max(0, Math.floor(Number(data.sequence) || 0)); out.welcomed = !!data.welcomed;
-      ['campaign','practice'].forEach(k => { const m = OTR.fpMission.restore(data[k]); out[k] = m ? m.snapshot() : null; });
-      out.last = data.last && Array.isArray(data.last.logs) ? data.last : null; return out;
+      const out = this.empty(); out.sequence = Number.isSafeInteger(data.sequence) && data.sequence >= 0 ? data.sequence : 0; out.welcomed = !!data.welcomed;
+      ['campaign','practice'].forEach(k => { const m = OTR.fpMission.restore(data[k]); out[k] = m && m.kind === k ? m.snapshot() : null; });
+      const last = data.last;
+      out.last = last && ['campaign','practice'].includes(last.kind) && Number.isFinite(last.seed) &&
+        Number.isFinite(last.elapsed) && last.elapsed >= 0 && OTR.fpMission.validLogs(last.logs) ? last : null; return out;
     } catch (_) { return this.empty(); }
   },
   write(data) {
