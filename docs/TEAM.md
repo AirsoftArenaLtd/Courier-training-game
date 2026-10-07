@@ -69,6 +69,35 @@ world reports what the trainee did. It never scores.
   anything else.
 - **Never ask the owner to pass a message.**
 
+## Using the right model (efficiency without losing quality)
+
+The owner pays for every session. Match the model to the job, and do not spend a session on nothing.
+
+**Claude**
+- The scheduled check-in runs on a mid-tier model (Sonnet).
+- It hands work up to Opus or down to Haiku with a subagent (the Agent tool's `model`), with a self-contained
+  prompt.
+
+| Tier | Use it for |
+| --- | --- |
+| **Haiku** (cheapest) | Checking for new activity, updating the board, running test suites and reporting the result, mechanical edits (moving strings into the catalogue, renames, formatting). |
+| **Sonnet** (default) | Most coding, reviewing ordinary pull requests, writing QA scenarios, translations, docs. |
+| **Opus** (most capable) | Design and interface changes (`docs/WORKDAY-EVENTS.md`, the save format), scoring design, hard bugs, performance work, reviewing large or risky pull requests (the 3D engine, save data, sign-in and passwords), a final read of safety wording in translations. |
+
+**Codex**
+- Use the lowest reasoning effort that does the job well:
+  - low for small fixes and doc updates;
+  - medium as the default;
+  - high only for 3D architecture, performance and hard bugs.
+- The owner sets Codex's model in its own settings.
+
+**Both**
+- If there is nothing new since the last board log entry (no new commits, pull requests or comments), stop at once.
+- Run the browser test suites only for what a change touches. A docs-only change needs no browser test.
+- Keep pull requests small. A small review is cheap. A 2,000-line review is expensive and misses things.
+- Escalating to a stronger model is right when the job needs it. Quality comes first, and the tiers are the
+  default, not a ceiling.
+
 ## Before opening a pull request
 
 - `node --check` on every changed JS file.

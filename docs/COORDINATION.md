@@ -20,6 +20,7 @@ Live tasks, a log and questions for the owner. The rules are in `docs/TEAM.md`, 
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
+| A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | todo |
 
 ### Later milestones
 
@@ -29,16 +30,25 @@ These are listed in `docs/PILOT-PLAN.md` and get broken into tasks here when mil
 
 Questions marked `needs-owner` on GitHub are listed here too. Work on the rest carries on while they wait.
 
-1. **Your test laptop:** which laptop (model, or at least its graphics chip) should the 60 fps floor be measured on?
-2. **The pilot company:**
-   - What does it need for logging in? Its own accounts, or names typed in?
+1. **The pilot company:**
    - Does it need results sent to its training system (an LMS such as Cornerstone, Workday or SAP SuccessFactors)?
    - Are there data rules we must meet?
+
+   Ask again when the pilot company is confirmed. Until then, build for the general case.
+
+### Answered
+
+- **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
+  check). The 60 fps floor is measured there. Ask for a measurement with `needs-owner`.
+- **Logins (7 October):** usually an employee ID number and a password. This is task A-5. LMS and company sign-in
+  stay supported.
 
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
 
+- **7 October 2026, Claude:** recorded the owner's answers (test laptop, logins: task A-5) and the model-use rules
+  (`docs/TEAM.md`, "Using the right model").
 - **7 October 2026, Claude:** setup.
   - The `pilot` branch is `main` plus `codex-first-person`, with "open the prototype by default" reverted. The
     prototype still opens with `?lab=firstperson`.
