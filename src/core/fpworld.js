@@ -101,9 +101,10 @@ OTR.fpWorld = {
 
     function parcel(parent, id) {
       const g=new T.Group(); parent.add(g);
-      box(g,0,0,0,0.43,0.4,0.52,0xB68D5C,id,!!id);
+      box(g,0,0,0,0.43,0.4,0.52,0xB68D5C,id,true);
       box(g,0,0.205,0,0.09,0.012,0.53,0xDEC9A4);
-      box(g,0,0,0.268,0.27,0.17,0.012,0xF2EEE3,id);
+      const label=box(g,0,0,0.268,0.27,0.17,0.012,0xF2EEE3,id,true);
+      label.userData.scanId=id;g.userData.barcode=label;
       for(let i=0;i<7;i++)box(g,-0.09+i*0.028,0,0.278,i%2?0.01:0.016,0.1,0.006,0x343638);
       return g;
     }
@@ -136,7 +137,8 @@ OTR.fpWorld = {
       mesh.computeBoundingSphere();parent.add(mesh);
     }));
     const ray=new T.Raycaster();ray.far=2.65;
-    const labelRay=new T.Raycaster(), direction=new T.Vector3();
+    const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
+    const scanObjects=[...new Set([...occluders,...interactions])];
     const api={hub,route,van,parcels,labels,occluders,interactions,ray,
       sync(model,hubPlayer,area) {
         const inHub=area==='hub';hub.visible=inHub;route.visible=!inHub;
@@ -154,6 +156,9 @@ OTR.fpWorld = {
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
           });
           carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';wheel.rotation.z=-v.steer*3;
+          const scanning=scene.handheld&&scene.handheld.aiming;
+          carried.position.set(scanning?0:0.4,scanning?0:-0.48,-0.85);
+          carried.userData.barcode.userData.scanId=scanning?m.heldId:null;
           inspected.visible=!!(scene.panel&&scene.panel.type==='inspect');inspected.rotation.y=scene.inspectAngle||0;
           if(inspected.visible)carried.visible=false;
           if(m.mode==='cab'){
@@ -172,6 +177,15 @@ OTR.fpWorld = {
         world.updateMatrixWorld(true);
       },
       pick(){return OTR.world3d.pick(camera,occluders,interactions,ray);},
+      scanTarget(){
+        ray.setFromCamera({x:0,y:0},camera);
+        const visible=scanObjects.filter(o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;});
+        const hit=ray.intersectObjects(visible,false)[0];
+        if(!hit||!hit.object.userData.scanId)return null;
+        hit.object.getWorldQuaternion(scanRotation);hit.object.getWorldPosition(scanPoint);
+        scanNormal.set(0,0,1).applyQuaternion(scanRotation);direction.copy(camera.position).sub(scanPoint).normalize();
+        return scanNormal.dot(direction)>0.45?hit.object.userData.scanId:null;
+      },
       labelPosition(label){
         if(!label.parent.visible||camera.position.distanceTo(label.point)>label.max)return null;
         const p=label.point.clone().project(camera);

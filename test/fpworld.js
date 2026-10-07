@@ -70,11 +70,23 @@ test('inspection refreshes the raycast rather than opening a formerly aimed-at p
   Object.assign(s.model.player,{x:-9,z:4});s.target='parcel0';s.sync=()=>{};s.art={pick:()=>null};
   s.showPanel=()=>assert.fail('occluded parcel must not open');s.showParcel();assert.equal(s.target,null);
 });
-test('handheld can show the last scan without remotely rescanning an unselected parcel',()=>{
-  const s=new context.SceneClass();s.model=context.OTR.fpMission.create('campaign',1);
-  Object.assign(s.model.player,{x:-9,z:4});s.model.lastScan='parcel0';s.target='parcel0';s.sync=()=>{};s.art={pick:()=>null};
-  let choices;s.showPanel=(title,body,options)=>{choices=options;};s.showScanner();
-  assert.equal(choices.length,2);assert.equal(s.target,null);
+test('scanner reads the barcode face, not the back of a box or through a closed door',()=>{
+  const w=world();
+  const scan=(position)=>{Object.assign(w.m.player,position);w.art.sync(w.m,null,'route');
+    w.camera.lookAt(w.art.parcels[0].userData.barcode.getWorldPosition(new THREE.Vector3()));w.camera.updateMatrixWorld(true);return w.art.scanTarget();};
+  assert.equal(scan({x:-11,z:5.8}),'parcel0');assert.equal(scan({x:-11,z:2.5}),null);
+  w.m.parcels[0].location='slot0';w.m.cargoOpen=true;
+  assert.equal(scan({x:4,z:11.3}),'parcel0');w.m.cargoOpen=false;assert.equal(scan({x:4,z:11.3}),null);
+});
+test('a carried parcel is raised for scanning and keeps its actual identity',()=>{
+  const w=world();w.m.parcels[2].location='held';w.m.heldId='parcel2';
+  w.scene.handheld={aiming:true};w.art.sync(w.m,null,'route');assert.equal(w.art.scanTarget(),'parcel2');
+  w.scene.handheld.aiming=false;w.art.sync(w.m,null,'route');assert.equal(w.art.scanTarget(),null);
+});
+test('low graphics keeps barcode scanning on cargo shelves',()=>{
+  const w=world(false);w.m.cargoOpen=true;w.m.parcels[0].location='slot0';Object.assign(w.m.player,{x:4,z:11.3});w.art.sync(w.m,null,'route');
+  w.camera.lookAt(w.art.parcels[0].userData.barcode.getWorldPosition(new THREE.Vector3()));w.camera.updateMatrixWorld(true);
+  assert.equal(w.art.scanTarget(),'parcel0');
 });
 test('saving practice preserves a separate suspended workday',()=>{
   const s=new context.SceneClass();s.progress=context.OTR.fpStore.empty();s.progress.campaign=context.OTR.fpMission.create('campaign',9).snapshot();
