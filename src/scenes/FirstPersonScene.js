@@ -1,239 +1,247 @@
-/* Opt-in first-person courier prototype. Placeholder geometry; no career progress writes. */
+/* Connected prototype: shared interactions and local checkpoints, separate from course records. */
 class FirstPersonScene extends Phaser.Scene {
   constructor() { super('FirstPersonScene'); }
-
   create() {
-    this.view = null; this.message = ''; this.messageUntil = 0;
-    const token = {}; this.loadingToken = token;
-    this.events.once('shutdown', () => { this.loadingToken = null; });
-    this.model = OTR.fp.create();
-    this.held = Object.create(null); this.target = null; this.lastAim = 0;
-    this.makeHud();
-    this.loading = true;
-    OTR.world3d.load().then(() => {
-      if (!this.sys.isActive() || this.loadingToken !== token) return;
-      this.view = OTR.world3d.create(this);
-      this.buildWorld(); this.installInput(); this.loading = false;
-      this.refresh(); this.syncWorld();
-    }).catch(error => {
-      if (!this.sys.isActive() || this.loadingToken !== token) return;
-      if (this.view) this.view.dispose(); this.view = null;
-      this.loading = false;
-      this.title.setText('The first-person prototype could not start');
-      this.objective.setText('WebGL is required. Reload to try again.');
-      console.warn('first-person prototype', error);
+    Object.assign(this,{view:null,model:null,area:'hub',panel:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},saved:true,loading:true});
+    this.held=Object.create(null);this.progress=OTR.fpStore.read();
+    this.sensitivity=OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity'))||0.002,0.0005,0.006);
+    this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
+    this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
+    this.makeHud();const token={};this.loadingToken=token;
+    this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
+    OTR.world3d.load().then(()=>{
+      if(!this.sys.isActive()||this.loadingToken!==token)return;
+      this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
+      this.labels=this.art.labels.map(label=>({label,object:OTR.txt(this,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,fit:220}).setDepth(9).setVisible(false)}));
+      this.installInput();this.loading=false;this.sync();
+      if(!this.progress.welcomed)this.showPanel('Welcome to On The Route',
+        'Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.',
+        [{label:'Enter the hub',action:()=>{this.progress.welcomed=true;this.write();this.closePanel();}}]);
+      else this.showPause();
+    }).catch(error=>{
+      if(!this.sys.isActive()||this.loadingToken!==token)return;
+      if(this.view)this.view.dispose();this.view=null;this.loading=false;
+      this.showPanel('The prototype could not start','WebGL is required. Reload to try again.',[{label:'Reload',action:()=>location.reload()}]);
+      console.warn('first-person prototype',error);
     });
   }
-
   makeHud() {
-    const g = this.add.graphics().setDepth(20);
-    g.fillStyle(0x16062B, 0.88); g.fillRect(0, 0, OTR.W, 82);
-    g.fillStyle(0x16062B, 0.88); g.fillRect(0, OTR.H - 90, OTR.W, 90);
-    this.title = OTR.txt(this, 24, 24, 'FIRST-PERSON PROTOTYPE', 18, '#FFC83D', { ox:0, fit:600 }).setDepth(21);
-    this.status = OTR.txt(this, OTR.W - 24, 24, '', 16, '#ffffff', { ox:1, fit:560 }).setDepth(21);
-    this.objective = OTR.txt(this, OTR.W / 2, 56, 'Loading…', 18, '#ffffff', { fit:OTR.W - 48 }).setDepth(21);
-    this.hint = OTR.txt(this, OTR.W / 2, OTR.H - 116, '', 18, '#ffffff', { stroke:'#16062B', strokeW:5, fit:OTR.W - 48 }).setDepth(21);
-    this.controls = OTR.txt(this, OTR.W / 2, OTR.H - 61, '', 15, '#ffffff', { fit:OTR.W - 48 }).setDepth(21);
-    this.help = OTR.txt(this, OTR.W / 2, OTR.H - 28, 'Click for mouse look · Esc pauses · Drag to look if mouse capture is unavailable', 14, '#C9B3F0', { fit:OTR.W - 48 }).setDepth(21);
-    this.reticle = this.add.graphics().setDepth(21);
-    this.reticle.lineStyle(2, 0xFFFFFF, 0.9);
-    this.reticle.lineBetween(OTR.W / 2 - 7, OTR.H / 2, OTR.W / 2 + 7, OTR.H / 2);
-    this.reticle.lineBetween(OTR.W / 2, OTR.H / 2 - 7, OTR.W / 2, OTR.H / 2 + 7);
-    this.pauseShade = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H - 172, 0x16062B, 0.72).setDepth(30);
-    this.pauseTitle = OTR.txt(this, OTR.W / 2, 250, 'Click to start', 34, '#ffffff', { fit:OTR.W - 100 }).setDepth(31);
-    this.pauseHelp = OTR.txt(this, OTR.W / 2, 356, 'Walk around the depot, scan and load the package, then deliver it to the house.', 21, '#ffffff', { wrap:850, align:'center' }).setDepth(31);
-    this.inspectShade = this.add.rectangle(990, 347, 510, 380, 0x16062B, 0.94).setDepth(22).setVisible(false);
-    this.inspectLabel = OTR.txt(this, 990, 240, '214 Maple Ave', 28, '#ffffff', { fit:450 }).setDepth(23).setVisible(false);
-    this.inspectText = OTR.txt(this, 990, 355, 'Check the label before loading.\nE scan · A/D rotate · F return', 20, '#ffffff', { wrap:440, align:'center' }).setDepth(23).setVisible(false);
-    this.ui = {};
+    const g=this.add.graphics().setDepth(20);g.fillStyle(0x1B2634,0.93);g.fillRect(0,0,1280,100);g.fillRect(0,608,1280,112);
+    this.title=OTR.txt(this,24,25,'ON THE ROUTE',18,'#EBC889',{ox:0,fit:410}).setDepth(21);
+    this.status=OTR.txt(this,1256,25,'',16,'#ffffff',{ox:1,fit:790}).setDepth(21);
+    this.objective=OTR.txt(this,24,64,'Loading…',19,'#ffffff',{ox:0,fit:1220}).setDepth(21);
+    this.hintBack=this.add.rectangle(640,574,1210,48,0x1B2634,0.88).setDepth(19);
+    this.hint=OTR.txt(this,640,574,'',18,'#ffffff',{fit:1160}).setDepth(21);
+    this.controls=OTR.txt(this,640,638,'',15,'#ffffff',{fit:1230}).setDepth(21);
+    this.help=OTR.txt(this,640,683,'',14,'#D5DEDF',{fit:1220}).setDepth(21);
+    this.reticle=this.add.graphics().setDepth(18);this.reticle.lineStyle(2,0xffffff,0.95);this.reticle.lineBetween(634,360,646,360);this.reticle.lineBetween(640,354,640,366);
+    this.mirrorLabel=OTR.txt(this,184,112,'Left mirror',16,'#ffffff',{stroke:'#1B2634',strokeW:4}).setDepth(21).setVisible(false);
+    this.fade=this.add.rectangle(640,360,1280,720,0x000000,1).setDepth(2000).setAlpha(0);
   }
-
-  buildWorld() {
-    const T = THREE, { world, camera } = this.view;
-    const geometry = new T.BoxGeometry(1, 1, 1), materials = new Map();
-    this.occluders = []; this.interactions = [];
-    const box = (parent, x, y, z, w, h, d, color, options) => {
-      options = options || {};
-      if (!materials.has(color)) materials.set(color, new T.MeshLambertMaterial({ color }));
-      const mesh = new T.Mesh(geometry, materials.get(color));
-      mesh.position.set(x, y, z); mesh.scale.set(w, h, d); parent.add(mesh);
-      mesh.updateMatrix(); mesh.matrixAutoUpdate = false;
-      if (options.solid) this.occluders.push(mesh);
-      if (options.id) { mesh.userData.interaction = options.id; this.interactions.push(mesh); }
-      return mesh;
-    };
-    this.box = box;
-    box(world, 0, -0.08, -18, 28, 0.16, 60, 0x719267);
-    box(world, 0, -0.01, -18, 8, 0.04, 60, 0x484D57);
-    box(world, -7, 0, 3, 10, 0.06, 14, 0xB6B7BA);
-    box(world, 4.5, 0, -35, 3, 0.06, 9, 0xC9C4B8);
-    for (let z = -43; z < 10; z += 5) box(world, 0, 0.025, z, 0.08, 0.015, 2.3, 0xF1CA57);
-    [-4, 4].forEach(x => box(world, x, 0.03, -18, 0.08, 0.025, 60, 0xECEBE5));
-    this.model.solids.forEach((s, i) => box(world, s.x, s.h / 2, s.z, s.w, s.h, s.d,
-      i === 5 ? 0x8D7461 : i === 6 ? 0xD8CBB9 : 0xCAD4DE, {solid:true}));
-    // Package label is blank geometry with a barcode. All readable words use Phaser Text.
-    const parcel = () => {
-      const root = new T.Group();
-      box(root, 0, 0, 0, 0.65, 0.45, 0.45, 0xBC8E57);
-      box(root, 0, 0.23, 0, 0.11, 0.014, 0.47, 0xDFC59A);
-      box(root, 0, 0, 0.228, 0.33, 0.2, 0.012, 0xF5F3EC);
-      for (let i = 0; i < 9; i++) box(root, -0.12 + i * 0.03, 0, 0.237, i % 3 === 0 ? 0.014 : 0.006, 0.11, 0.005, 0x272D36);
-      return root;
-    };
-    this.parcel = parcel(); world.add(this.parcel);
-    this.parcel.position.set(-8, 1.15, 0);
-    this.parcel.children.forEach(o => { o.userData.interaction = 'package'; this.interactions.push(o); });
-    this.carried = parcel(); camera.add(this.carried); this.carried.position.set(0.38, -0.5, -0.82); this.carried.scale.setScalar(0.72);
-    this.inspected = parcel(); camera.add(this.inspected); this.inspected.position.set(-0.52, -0.05, -1.35);
-    this.vanMesh = new T.Group(); world.add(this.vanMesh);
-    box(this.vanMesh, 0, 1.25, 0.6, 2.05, 2.3, 3.7, 0xEEEAE3, {solid:true});
-    box(this.vanMesh, 0, 0.58, -1.7, 2.05, 1, 1.65, 0xEEEAE3, {solid:true});
-    box(this.vanMesh, 0, 0.23, 0, 2.08, 0.2, 5.3, 0x343941);
-    [-1.04, 1.04].forEach(x => [-1.7, 1.65].forEach(z => box(this.vanMesh, x, 0.35, z, 0.22, 0.65, 0.65, 0x252930)));
-    this.driverDoor = box(this.vanMesh, -1.045, 1.35, -1.7, 0.04, 0.75, 1.2, 0x42556D, {id:'driver'});
-    this.cargoDoor = box(this.vanMesh, 0, 1.25, 2.47, 1.65, 1.7, 0.06, 0x5D4A7C, {id:'cargo'});
-    box(this.vanMesh, 0, 1.4, -0.9, 1.95, 0.17, 0.13, 0x5D4A7C);
-    this.cabDash = new T.Group(); camera.add(this.cabDash);
-    box(this.cabDash, 0, -0.69, -1.05, 2.3, 0.32, 0.45, 0x323341);
-    // A simple steering wheel stays out of the centre of the windscreen.
-    const wheel = new T.Mesh(new T.TorusGeometry(0.17, 0.025, 6, 20), new T.MeshLambertMaterial({color:0x191C25}));
-    wheel.position.set(-0.3, -0.5, -0.72); this.cabDash.add(wheel); this.wheel = wheel;
-    this.customer = box(world, 5.94, 1.35, -35, 0.08, 2.25, 1.2, 0x704D78, {id:'customer'});
-    [-38.2, -31.8].forEach(z => box(world, 5.97, 2.35, z, 0.04, 0.9, 1.4, 0x506F86));
-    const bay = (x,z,w,d) => box(world,x,0.04,z,w,0.025,d,0xFFAA45);
-    bay(1.8,-35,0.08,6.2); bay(4.4,-35,0.08,6.2); bay(3.1,-38.1,2.6,0.08); bay(3.1,-31.9,2.6,0.08);
-    if (OTR.gfx.high()) {
-      // Decorative meshes are absent on low; no shadows or post-processing in either setting.
-      [-6,-9].forEach(x => box(world,x,0.17,7.4,1.5,0.34,1.2,0x9B825F));
-      [-42,-27].forEach(z => {
-        box(world,10,1.1,z,0.35,2.2,0.35,0x7E6350);
-        box(world,10,3,z,2.8,2.4,2.8,0x628759);
-      });
-    }
-    this.ray = new T.Raycaster(); this.ray.far = 3;
+  setText(key,value,max) {
+    if(this.ui[key]===value)return;this.ui[key]=value;const object=this[key];object.setText(value).setScale(1);
+    if(object.width>max)object.setScale(max/object.width);
   }
-
-  installInput() {
-    const canvas = this.sys.game.canvas, handlers = [];
-    const sensitivity = OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity')) || 0.002, 0.0005, 0.006);
-    const listen = (object, name, fn) => { object.addEventListener(name, fn); handlers.push(() => object.removeEventListener(name, fn)); };
-    this.lockMouse = () => {
-      if (!canvas.requestPointerLock || document.pointerLockElement === canvas) return;
-      try { const pending = canvas.requestPointerLock(); if (pending && pending.catch) pending.catch(() => {}); } catch (_) { /* Drag look remains available. */ }
-    };
-    this.pause = () => { this.held = Object.create(null); this.model.paused = true; this.target = null; this.refresh(); };
-    listen(canvas, 'pointerdown', e => {
-      if (e.button !== 0 || this.loading) return;
-      this.model.paused = false; this.lockMouse(); this.refresh();
+  showPanel(title,body,choices,options) {
+    options=options||{};this.closePanel(false);this.held=Object.create(null);
+    if(this.model)this.model.paused=true;this.hubMotion.paused=true;
+    const root=this.add.container(0,0).setDepth(100);
+    this.panel={root,choices,index:0,type:options.inspect?'inspect':'normal',buttons:[],back:options.back||null};this.releaseMouse();
+    root.add(this.add.rectangle(640,360,1280,720,0x101A25,options.inspect?0.27:0.7));
+    const cx=options.inspect?958:640,w=options.inspect?570:1040;
+    root.add(this.add.rectangle(cx,360,w,544,0x263545,0.98));root.add(OTR.txt(this,cx,127,title,27,'#EBC889',{fit:w-60}));
+    const columns=choices.length>4&&!options.inspect?2:1,rows=Math.ceil(choices.length/columns),firstY=612-rows*58;
+    const text=OTR.txt(this,cx-w/2+32,170,body,19,'#ffffff',{ox:0,oy:0,wrap:w-64,bold:false,lineSpacing:4});root.add(text);
+    if(text.height>firstY-190)text.setScale(Math.min(1,(firstY-190)/text.height));
+    choices.forEach((choice,i)=>{
+      const bw=(w-80)/columns-12,x=cx+(columns===1?0:(i%2?1:-1)*(bw+20)/2),y=firstY+Math.floor(i/columns)*58+24;
+      const hit=this.add.rectangle(x,y,bw,46,0x42556A,1).setInteractive({useHandCursor:true});
+      const label=OTR.txt(this,x,y,(i+1)+'. '+choice.label,18,'#ffffff',{fit:bw-24});
+      hit.on('pointerover',()=>{if(this.panel){this.panel.index=i;this.highlight();}});hit.on('pointerdown',()=>this.choose(i));
+      root.add([hit,label]);this.panel.buttons.push(hit);
     });
-    listen(window, 'mousemove', e => {
-      if (this.model.paused || this.model.mode === 'inspect') return;
-      if (document.pointerLockElement !== canvas && !(e.buttons & 1 && e.target === canvas)) return;
-      const m = this.model;
-      if (m.mode === 'cab') m.van.look = OTR.fp.clamp(m.van.look + e.movementX * sensitivity, -1.25, 1.25);
-      else m.player.yaw += e.movementX * sensitivity;
-      m.player.pitch = OTR.fp.clamp(m.player.pitch + e.movementY * sensitivity, -1.1, 1.1);
-    });
-    const codes = new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyR','KeyB','KeyN','Space','Escape','Enter']);
-    listen(window, 'keydown', e => {
-      if (!codes.has(e.code) || e.ctrlKey || e.metaKey || e.altKey) return;
-      e.preventDefault();
-      const first = !this.held[e.code]; this.held[e.code] = true;
-      if (!first || e.repeat) return;
-      if (e.code === 'Escape') {
-        if (this.model.mode === 'inspect') this.model.mode = 'walk';
-        this.pause(); if (document.pointerLockElement === canvas) document.exitPointerLock(); return;
+    if(options.inspect)root.add(OTR.txt(this,303,514,'A/D rotate · Space scan · Esc return',17,'#ffffff',{fit:530,stroke:'#1B2634',strokeW:4}));
+    this.highlight();if(OTR.a11y)OTR.a11y.say(title+'. '+body);this.refresh();
+  }
+  highlight(){if(this.panel)this.panel.buttons.forEach((b,i)=>b.setFillStyle(i===this.panel.index?0x97713D:0x42556A));}
+  choose(index){if(!this.panel||this.transitioning)return;const choice=this.panel.choices[index];if(choice){this.inputBlockedUntil=this.time.now+180;choice.action();}}
+  closePanel(resume=true){
+    if(this.panel){this.panel.root.destroy();this.panel=null;}this.held=Object.create(null);if(OTR.a11y)OTR.a11y.hush();
+    if(resume){if(this.model)this.model.paused=this.model.phase==='debrief';this.hubMotion.paused=false;this.capture();}
+  }
+  capture(){const canvas=this.sys.game.canvas;if(!canvas.requestPointerLock||document.pointerLockElement===canvas)return;
+    try{const p=canvas.requestPointerLock();if(p&&p.catch)p.catch(()=>{});}catch(_){/* Drag look remains available. */}}
+  releaseMouse(){if(document.pointerLockElement===this.sys.game.canvas)document.exitPointerLock();}
+  message(text){this.notice=text||'';this.noticeUntil=this.time.now+5000;}
+  write(){this.saved=OTR.fpStore.write(this.progress);return this.saved;}
+  checkpoint(){if(!this.progress)return;if(this.model&&this.model.phase!=='debrief')this.progress[this.model.kind]=this.model.snapshot();this.write();this.lastSave=this.time?this.time.now:0;}
+  transition(action){
+    if(this.transitioning)return;this.transitioning=true;this.closePanel(false);this.checkpoint();this.capture();
+    this.tweens.add({targets:this.fade,alpha:1,duration:180,onComplete:()=>{action();this.sync();this.tweens.add({targets:this.fade,alpha:0,duration:240,onComplete:()=>{this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}}});}});
+  }
+  launch(kind){this.transition(()=>{
+    let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;m=OTR.fpMission.create(kind,this.progress.sequence);}
+    this.model=m;this.area='route';this.target=null;this.checkpoint();
+    const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
+      m.stops.map(s=>s.address+' — '+m.serviceLabel(s.id)).join('\n')+'\n\nCheck the tyres and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
+    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
+  });}
+  toHub(){this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});}
+  showPause(){
+    if(this.loading||this.external||this.transitioning)return;if(this.model&&this.model.phase==='debrief'){this.showDebrief(this.progress.last);return;}
+    const choices=[{label:'Continue',action:()=>this.closePanel()}];
+    if(this.area==='hub')choices.push({label:this.progress.campaign?'Resume workday':'Start workday',action:()=>this.launch('campaign')},{label:this.progress.practice?'Resume cargo practice':'Cargo practice',action:()=>this.launch('practice')},{label:'Last debrief',action:()=>this.showDebrief(this.progress.last)});
+    else choices.push({label:'Save and return to hub',action:()=>this.toHub()},{label:'Handheld',action:()=>this.showScanner()});
+    choices.push({label:'Settings',action:()=>this.showSettings()},{label:'Main game',action:()=>this.leavePrototype()});
+    this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?'Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.':'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices);this.checkpoint();
+  }
+  leavePrototype(){this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
+  showSettings(){
+    const quality=level=>{this.checkpoint();const q=new URLSearchParams(location.search);q.set('gfx',level);location.assign('index.html?'+q.toString());};
+    this.showPanel('Settings','Graphics: '+OTR.gfx.level()+'\nMouse sensitivity: '+this.sensitivity.toFixed(4)+'\nExisting key remaps apply. Course settings and trainer tools are available through Main game.',[
+      {label:'Low graphics',action:()=>quality('low')},{label:'High graphics',action:()=>quality('high')},
+      {label:'Slower mouse look',action:()=>{this.sensitivity=Math.max(0.0005,this.sensitivity-0.0005);this.showSettings();}},
+      {label:'Faster mouse look',action:()=>{this.sensitivity=Math.min(0.006,this.sensitivity+0.0005);this.showSettings();}},
+      {label:'Language',action:()=>this.showLanguages()},{label:'Back',action:()=>this.showPause()}]);
+  }
+  showLanguages(){
+    this.closePanel(false);this.external=true;const before=new Set(this.children.list);OTR.ui.languages(this);
+    const root=this.children.list.find(o=>!before.has(o)&&o.type==='Container');
+    if(root)root.once('destroy',()=>{this.external=false;this.showSettings();});else{this.external=false;this.showSettings();}
+  }
+  showScanner(id){
+    if(!id)this.aimTarget();
+    const m=this.model;if(!m){this.showPause();return;}if(m.mode==='cab'&&!m.parked())m.log('handheld:'+m.leg,'safety','needs','Used the handheld before parking safely.');
+    const selected=id||m.heldId||(m.parcel(this.target)?this.target:null),p=m.parcel(selected||m.lastScan);
+    const body=p?p.address+'\n'+p.tracking+' · '+p.weight+' kg\n'+m.serviceLabel(p.stop)+'\n'+(p.scanned?'Scanned':'Not scanned')+'\nRecorded shelf: '+(p.zone?OTR.fpMission.slots.find(s=>s.id===p.zone).name:'Not recorded'):
+      m.stops.map(s=>(s.resolved?'✓ ':'')+s.address+' — '+m.serviceLabel(s.id)).join('\n');
+    const choices=[];if(selected&&p&&m.canParcel(p))choices.push({label:'Scan parcel',action:()=>{this.message(m.scan(p.id));this.checkpoint();this.showScanner(p.id);}});
+    choices.push({label:'Route and next stop',action:()=>this.showRoute()},{label:'Back',action:()=>this.closePanel()});this.showPanel('Handheld',body,choices,{back:()=>this.closePanel()});
+  }
+  showRoute(){
+    const m=this.model,choices=m.pending().map(s=>({label:s.address,action:()=>{m.activeStop=s.id;m.touch();this.checkpoint();this.closePanel();}}));choices.push({label:'Back',action:()=>this.closePanel()});
+    this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.':'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
+  }
+  showParcel(id){
+    if(!id)this.aimTarget();
+    const m=this.model,p=m&&m.parcel(id||m.heldId||this.target);if(!m||!m.canParcel(p))return;this.inspectId=p.id;this.inspectAngle=0;
+    this.showPanel('Parcel label',p.address+'\n'+p.tracking+'\nWeight: '+p.weight+' kg\n'+m.serviceLabel(p.stop)+'\n'+(p.scanned?'Scanned':'Not scanned'),[
+      {label:'Scan',action:()=>{this.message(m.scan(p.id));this.checkpoint();this.showParcel(p.id);}},
+      {label:p.location==='held'?'Return to walking':'Pick up',action:()=>{if(p.location!=='held')this.message(m.pickup(p.id));this.checkpoint();this.closePanel();}},
+      {label:'Back',action:()=>this.closePanel()}],{inspect:true,back:()=>this.closePanel()});
+  }
+  showInspection(part){
+    const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;
+    const condition=part==='tyres'?(bad?'A bulge is visible in the tyre sidewall.':'The tyre sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');
+    const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};
+    this.showPanel(part==='tyres'?'Tyre inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+  }
+  showDoor(id){
+    const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
+    const held=m.parcel(m.heldId),body=s.address+'\n'+m.serviceLabel(id)+'\n\n'+(s.contacted?(s.service==='handover'?'The resident confirms the address.':'Nobody answers.'):'Attempt contact, then follow the shipment requirements.')+'\nCarrying: '+(held?held.address:'No parcel');
+    const record=outcome=>{this.message(m.deliver(id,outcome));this.checkpoint();this.closePanel();};
+    const choices=s.contacted?[{label:'Record handover',action:()=>record('handover')},{label:'Record porch-box delivery',action:()=>record('safeplace')},{label:'Record recipient absent',action:()=>record('exception')}]:[{label:'Knock / ring',action:()=>{this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
+    choices.push({label:'Back',action:()=>this.closePanel()});this.showPanel('Delivery',body,choices,{back:()=>this.closePanel()});
+  }
+  showDispatch(){
+    const m=this.model;this.showPanel('Dispatch',this.objectiveText(),[
+      {label:m.kind==='practice'?'Finish practice':'Finish workday',action:()=>{const message=m.finish();if(message){this.message(message);this.closePanel();return;}
+        this.progress.last={kind:m.kind,seed:m.seed,logs:OTR.fpMission.clone(m.logs),elapsed:Math.round(m.elapsed)};this.progress[m.kind]=null;this.write();this.showDebrief(this.progress.last);}},
+      {label:'View manifest',action:()=>this.showScanner()},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+  }
+  showDebrief(result,page=0){
+    if(!result){this.showPanel('Last debrief','Complete a workday or a cargo lesson to see its results.',[{label:'Back',action:()=>this.showPause()}]);return;}
+    const logs=result.logs,good=logs.filter(l=>l.outcome==='good').length,needs=logs.filter(l=>l.outcome==='needs').length;
+    const sorted=logs.filter(l=>l.outcome!=='good').concat(logs.filter(l=>l.outcome==='good')),pages=Math.max(1,Math.ceil(sorted.length/5));page=OTR.fp.clamp(page,0,pages-1);
+    const body='Good decisions: '+good+' · To review: '+needs+'\n\n'+sorted.slice(page*5,page*5+5).map(l=>(l.outcome==='good'?'✓ ':l.outcome==='recovered'?'↺ ':'• ')+l.text).join('\n')+'\n\nPage '+(page+1)+' / '+pages;
+    const choices=[];if(page>0)choices.push({label:'Previous',action:()=>this.showDebrief(result,page-1)});if(page+1<pages)choices.push({label:'Next',action:()=>this.showDebrief(result,page+1)});
+    const back=()=>this.area==='hub'?this.showPause():this.toHub();
+    choices.push({label:'Return to hub',action:back});this.showPanel(result.kind==='practice'?'Practice debrief':'Workday debrief',body,choices,{back});
+  }
+  aimTarget(){this.sync();this.target=this.art?this.art.pick():null;return this.target;}
+  interact(){
+    if(this.panel||this.external||this.transitioning)return;const id=this.aimTarget(),m=this.model;
+    if(this.area==='hub'){if(id==='hub-day')this.launch('campaign');else if(id==='hub-practice')this.launch('practice');else if(id==='hub-record')this.showDebrief(this.progress.last);return;}
+    if(m.mode==='cab'){if(!m.exit())this.message('Stop and set the parking brake before exiting.');this.checkpoint();return;}
+    let result='';
+    if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
+    else if(id==='tyres'||id==='lights'){this.showInspection(id);return;}else if(id==='dispatch'){this.showDispatch();return;}
+    else if(id==='returns')result=m.returnParcel();else if(id&&id.startsWith('door')){this.showDoor(Number(id.slice(4)));return;}
+    else if(id&&id.startsWith('slot'))result=m.place(id);else if(id&&id.startsWith('parcel')){if(m.heldId)result=m.putBack();else result=m.pickup(id);}
+    else if(m.heldId)result=m.putBack();if(result)this.message(result);this.checkpoint();this.sync();this.refresh();
+  }
+  installInput(){
+    const canvas=this.sys.game.canvas,handlers=[],listen=(o,name,fn)=>{o.addEventListener(name,fn);handlers.push(()=>o.removeEventListener(name,fn));};
+    listen(canvas,'pointerdown',e=>{if(e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
+      if(document.pointerLockElement===canvas)this.interact();else this.pointerStart={x:e.clientX,y:e.clientY};});
+    listen(canvas,'pointerup',e=>{const start=this.pointerStart;this.pointerStart=null;if(!start||this.panel||this.external||this.transitioning)return;
+      if(Math.hypot(e.clientX-start.x,e.clientY-start.y)<4){this.capture();this.interact();}});
+    listen(window,'mousemove',e=>{if(this.panel||this.external||this.transitioning)return;if(document.pointerLockElement!==canvas&&!(e.buttons&1&&e.target===canvas))return;
+      const p=this.area==='hub'?this.hubMotion.player:this.model.player;
+      if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
+      p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','Tab','Space','Escape','Enter',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    listen(window,'keydown',e=>{
+      if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
+      if(this.panel){
+        if(e.code==='Escape'){if(this.panel.back)this.panel.back();else this.closePanel();return;}
+        if(this.panel.type==='inspect'&&e.code==='Space'){this.message(this.model.scan(this.inspectId));this.checkpoint();this.showParcel(this.inspectId);return;}
+        if(/^Digit[1-9]$/.test(e.code)){this.choose(Number(e.code.slice(5))-1);return;}
+        if(e.code==='ArrowDown'||e.code==='ArrowUp'){this.panel.index=(this.panel.index+(e.code==='ArrowDown'?1:-1)+this.panel.choices.length)%this.panel.choices.length;this.highlight();return;}
+        if(e.code==='Enter')this.choose(this.panel.index);return;
       }
-      if (e.code === 'Enter' && this.model.paused) { this.model.paused = false; this.lockMouse(); this.refresh(); return; }
-      if (this.model.paused) return;
-      const m = this.model;
-      if (e.code === 'KeyN') { this.scene.restart(); return; }
-      if (e.code === 'KeyE') {
-        this.syncWorld(); this.aim();
-        if (!m.use(this.target)) this.message = m.mode === 'cab' ? 'Stop and set the parking brake before exiting' : m.mode === 'inspect' ? 'Rotate the package so the label faces you' : '';
-        else this.message = '';
-        this.messageUntil = this.time.now + 2400;
+      if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
+      if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
+      const m=this.model;if(m&&m.mode==='cab'){
+        if(e.code==='Space')m.van.hand=!m.van.hand;if(e.code==='KeyB')m.van.belt=!m.van.belt;
+        if(e.code==='KeyR'&&!m.shiftGear())this.message('Stop before selecting drive or reverse.');if(e.code==='KeyM')m.mirror();
+        if(e.code==='KeyQ')m.signal=m.signal===-1?0:-1;if(e.code==='KeyC')m.signal=m.signal===1?0:1;if(e.code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
       }
-      if (e.code === 'KeyF') { if (m.mode === 'inspect') m.mode = 'walk'; else m.inspect(this.target); }
-      if (m.mode === 'cab') {
-        if (e.code === 'Space') m.van.hand = !m.van.hand;
-        if (e.code === 'KeyB') m.van.belt = !m.van.belt;
-        if (e.code === 'KeyR') {
-          if (!m.shiftGear()) { this.message = 'Stop before changing gear'; this.messageUntil = this.time.now + 2400; }
-        }
-      }
-      this.syncWorld(); this.refresh();
     });
-    listen(window, 'keyup', e => { delete this.held[e.code]; });
-    listen(window, 'blur', this.pause);
-    listen(document, 'visibilitychange', () => { if (document.hidden) this.pause(); });
-    listen(document, 'pointerlockchange', () => { if (document.pointerLockElement !== canvas) this.pause(); });
-    this.events.once('shutdown', () => {
-      handlers.forEach(remove => remove()); this.held = Object.create(null);
-      if (document.pointerLockElement === canvas) document.exitPointerLock();
-    });
+    listen(window,'keyup',e=>{delete this.held[e.code];});
+    const pause=()=>{this.held=Object.create(null);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause();};
+    listen(window,'blur',pause);listen(document,'visibilitychange',()=>{if(document.hidden)pause();});
+    listen(document,'pointerlockchange',()=>{if(document.pointerLockElement!==canvas&&!this.panel&&!this.external&&!this.transitioning)pause();});
+    listen(window,'pagehide',()=>this.checkpoint());this.events.once('shutdown',()=>{handlers.forEach(remove=>remove());this.held=Object.create(null);this.releaseMouse();});
   }
-
-  aim() {
-    this.target = null;
-    if (this.model.mode !== 'walk' || this.model.paused) return;
-    this.view.world.updateMatrixWorld(true);
-    this.target = OTR.world3d.pick(this.view.camera, this.occluders, this.interactions, this.ray);
+  objectiveText(){
+    const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
+    if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
+      if(!m.retrievals)return 'Retrieve '+m.parcel(m.requested).address+' from the shelf where you loaded it.';return 'Replace the parcel, secure the load, then finish at Dispatch.';}
+    if(m.phase==='prepare')return 'Check tyres and lights, scan and load three parcels, then secure the load and close cargo.';
+    if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
+    if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
+    const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;return s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
   }
-
-  syncWorld() {
-    if (!this.view) return;
-    const m = this.model, p = m.player, v = m.van, camera = this.view.camera;
-    this.vanMesh.position.set(v.x,0,v.z); this.vanMesh.rotation.y = -v.yaw;
-    this.parcel.visible = m.package === 'table' && m.mode !== 'inspect';
-    this.carried.visible = m.package === 'held' && m.mode === 'walk';
-    this.inspected.visible = m.mode === 'inspect'; this.inspected.rotation.y = m.inspectYaw || 0;
-    this.cabDash.visible = m.mode === 'cab'; this.wheel.rotation.z = -v.steer * 3;
-    // Hide the external door/cargo hull in the cab; it would obstruct the driver's eye.
-    this.vanMesh.visible = m.mode !== 'cab';
-    if (m.mode === 'cab') {
-      const eye = OTR.fp.local(v,-0.45,-1.8); camera.position.set(eye.x,1.85,eye.z);
-      camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
-    } else {
-      camera.position.set(p.x,1.65,p.z); camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');
-    }
-    this.view.world.updateMatrixWorld(true);
+  refresh(){
+    if(this.loading)return;const m=this.model,mode=m?m.mode:'walk';
+    this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),1220);
+    const status=!m?'':mode==='cab'?Math.round(Math.abs(m.van.speed)*2.23694)+' mph · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
+      m.heldId?'Carrying: '+m.parcel(m.heldId).address:m.parcels.filter(p=>p.location.startsWith('slot')).length+' parcels in cargo';this.setText('status',status,790);
+    const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
+    this.setText('controls',mode==='cab'?k('KeyW')+'/'+k('KeyS')+' accelerate / brake · '+k('KeyA')+'/'+k('KeyD')+' steer · '+k('Space')+' parking brake · '+k('KeyR')+' gear · '+k('KeyB')+' belt':k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD')+' move · '+k('KeyE')+' interact · F inspect · '+k('Tab')+' handheld · H menu',1230);
+    this.setText('help',(mode==='cab'?k('KeyM')+' left mirror · '+k('KeyQ')+' / C signals · V look forward · '+k('KeyE')+' exit · H menu':'Mouse looks · Click or E interacts · Drag to look without mouse capture · Esc pauses')+'   |   '+(this.saved?'Saved on this device':'Saving unavailable — keep this window open'),1220);
+    let hint='';const id=this.target;
+    if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
+    else if(mode==='cab')hint=m.van.hand?'Set your belt, check the mirror and release the parking brake.':'15 mph limit · Keep right · Stop at the junction line';
+    else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
+    else if(id==='tyres'||id==='lights')hint='E inspect '+id;else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E scan a retained parcel back into the depot';
+    else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · E pick up · F inspect · Tab handheld';}
+    else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · E place the parcel';
+    else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · E attempt delivery';else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
+    if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
+    const blocked=!!this.panel||this.external||this.transitioning;this.setText('hint',blocked?'':hint,1160);this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked&&mode==='walk');this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
   }
-
-  refresh() {
-    if (!this.model) return;
-    const m = this.model, mode = m.mode;
-    const update = (key, text) => {
-      if (this.ui[key] === text) return;
-      this.ui[key] = text; const object = this[key]; object.setText(text);
-      object.setScale(1); const room = key === 'status' ? 560 : OTR.W - 48;
-      if (object.width > room) object.setScale(room / object.width);
-    };
-    update('objective', m.objective());
-    update('controls', mode === 'cab' ? 'W accelerate · S brake · A/D steer · Space parking brake · R gear · B belt · E exit' : mode === 'inspect' ? 'A/D rotate · E scan · F return' : 'WASD or arrows walk · E interact · F inspect carried package · N restart');
-    update('status', mode === 'cab' ? Math.round(Math.abs(m.van.speed) * 2.23694) + ' mph  ·  ' + (m.van.gear > 0 ? 'D' : 'R') + '  ·  ' + (m.van.hand ? 'Parking brake on' : 'Parking brake off') + '  ·  ' + (m.van.belt ? 'Belt on' : 'Belt off') : m.package === 'held' ? 'Carrying package' : '');
-    let hint = '';
-    if (mode === 'cab') hint = m.van.hand ? 'Release the parking brake with Space before moving' : 'Follow the road to the orange bay beside the house';
-    else if (mode === 'inspect') hint = m.scanned ? 'Package scanned — F to return' : 'Turn the label towards you, then press E to scan';
-    else if (this.target === 'package') hint = m.scanned ? 'E pick up package · F inspect' : 'E inspect package';
-    else if (this.target === 'driver') hint = m.package === 'held' ? 'Load the package before entering the cab' : 'E enter van';
-    else if (this.target === 'cargo') hint = m.package === 'held' ? 'E load package' : m.package === 'loaded' ? 'E retrieve package' : '';
-    else if (this.target === 'customer') hint = m.package === 'held' && m.parkedAtDelivery() ? 'E deliver package' : 'Delivery destination';
-    if (this.message && this.time.now < this.messageUntil) hint = this.message;
-    update('hint', m.paused ? '' : hint);
-    const paused = m.paused;
-    this.pauseShade.setVisible(paused); this.pauseTitle.setVisible(paused); this.pauseHelp.setVisible(paused);
-    this.reticle.setVisible(!paused && mode === 'walk');
-    [this.inspectShade,this.inspectLabel,this.inspectText].forEach(o => o.setVisible(!paused && mode === 'inspect'));
-  }
-
-  update(time, delta) {
-    if (this.loading || !this.view) return;
-    const h = this.held;
-    this.model.step({forward:!!(h.KeyW||h.ArrowUp),back:!!(h.KeyS||h.ArrowDown),left:!!(h.KeyA||h.ArrowLeft),right:!!(h.KeyD||h.ArrowRight)},delta/1000);
-    this.syncWorld();
-    if (time - this.lastAim > 80) { this.aim(); this.lastAim = time; }
-    this.refresh();
+  sync(){if(this.art)this.art.sync(this.model,this.hubMotion.player,this.area);}
+  update(time,delta){
+    if(this.loading||!this.view)return;const h=this.held,controls={forward:!!(h.KeyW||h.ArrowUp),back:!!(h.KeyS||h.ArrowDown),left:!!(h.KeyA||h.ArrowLeft),right:!!(h.KeyD||h.ArrowRight)};
+    if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!h.KeyD)-Number(!!h.KeyA))*Math.min(delta/1000,0.05)*1.8;
+    if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}this.sync();
+    if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'))?this.art.pick():null;this.lastAim=time;const occupied=[];
+      this.labels.forEach(({label,object})=>{const p=!this.panel&&!this.external?this.art.labelPosition(label):null;
+        if(!p||occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)||(this.view.mirror.on&&p.x<380&&p.y<310)){object.setVisible(false);return;}
+        occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
+    if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();
   }
 }
 OTR.registerScene(FirstPersonScene);
