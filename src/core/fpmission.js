@@ -101,13 +101,22 @@ OTR.fpMission = {
         if (p.location === 'held') return p.id === this.heldId;
         return (p.location === 'depot' || (p.location.startsWith('slot') && this.cargoOpen && this.parked())) && this.near(p.id);
       },
+      atDelivery(p) {
+        const s = p && this.stop(p.stop);
+        return !!s && this.parked() && Math.hypot(this.van.x - s.x, this.van.z - s.z) < 18 &&
+          Math.hypot(this.player.x - s.x, this.player.z - s.z) < 18;
+      },
       scan(id) {
         const p = this.parcel(id || this.heldId);
         if (!this.canParcel(p)) return 'Move close to the parcel and face its label.';
         p.scanned = true; this.lastScan = p.id; this.touch();
-        if (p.stop !== this.activeStop && this.phase === 'route') {
+        if (p.stop !== this.activeStop && this.phase === 'route' && !p.returnRequired) {
           this.log('mismatch:' + p.id + ':' + this.activeStop, 'verification', 'recovered', 'Scanner identified a parcel for a different stop.');
           return 'This parcel is for a different stop. Check the address before carrying it out.';
+        }
+        if (this.kind === 'campaign' && p.loaded && !this.stop(p.stop).resolved && this.atDelivery(p)) {
+          p.stopScanned = true;
+          this.log('stop-scan:' + p.id, 'verification', 'good', 'Scanned the parcel at ' + p.address + ' before delivery.');
         }
         this.log('scan:' + p.id, 'verification', 'good', 'Verified ' + p.address + ' on the scanner.');
         return p.address + ' · ' + this.serviceLabel(p.stop);
@@ -197,6 +206,7 @@ OTR.fpMission = {
         }
         if (!p.loaded) return 'Prepare and load this parcel at the depot first.';
         if (!s.contacted) return 'Attempt contact before recording the outcome.';
+        if (!p.stopScanned) return 'Scan this parcel at the delivery stop before recording the outcome.';
         if (outcome === 'handover' && s.service !== 'handover') {
           this.log('absent-handover:' + id, 'delivery', 'needs', 'Tried to record a handover with no recipient present.');
           return 'Nobody is present to receive the parcel. Choose an outcome that matches the situation.';
@@ -314,7 +324,7 @@ OTR.fpMission = {
     };
     m.parcels = m.stops.map(s => ({ id: 'parcel' + s.id, stop: s.id, address: s.address,
       tracking: 'OTR-' + (10000 + seed % 80000) + '-' + (s.id + 1), weight: [4, 7, 3][s.id],
-      location: 'depot', zone: null, scanned: false, loaded: false, returnRequired: false }));
+      location: 'depot', zone: null, scanned: false, stopScanned: false, loaded: false, returnRequired: false }));
     return m;
   },
   restore(raw) {
@@ -340,10 +350,12 @@ OTR.fpMission = {
       const places = new Set(), held = [];
       for (let i = 0; i < 3; i++) {
         const p = data.parcels[i], s = data.stops[i];
+        // Existing v2 saves preserve loading scans; unfinished stops require a new delivery scan.
+        if (p && p.stopScanned === undefined) p.stopScanned = false;
         if (p.id !== 'parcel' + i || p.stop !== i || s.id !== i || s.address !== this.addresses[i] || p.address !== s.address) return null;
         if (s.x !== m.stops[i].x || s.z !== m.stops[i].z || s.service !== m.stops[i].service) return null;
         if (!['contacted','resolved'].every(k => typeof s[k] === 'boolean') || (s.resolved && !['handover','safeplace','exception'].includes(s.outcome))) return null;
-        if (!['scanned','loaded','returnRequired'].every(k => typeof p[k] === 'boolean') || typeof p.tracking !== 'string' || !Number.isFinite(p.weight)) return null;
+        if (!['scanned','stopScanned','loaded','returnRequired'].every(k => typeof p[k] === 'boolean') || typeof p.tracking !== 'string' || !Number.isFinite(p.weight)) return null;
         if (p.zone !== null && !this.slots.some(s => s.id === p.zone)) return null;
         if (!['depot','held','delivered','returned',...this.slots.map(s => s.id)].includes(p.location)) return null;
         if (!['handover','safeplace','signature'].includes(s.service)) return null;

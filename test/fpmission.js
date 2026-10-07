@@ -54,11 +54,13 @@ test('wrong parcel and uncontacted address do not complete a job', () => {
 test('delivery, authorised release and correct exception lead to return and debrief', () => {
   const m=make(); load(m);
   for (const s of m.stops) {
-    at(m,'parcel'+s.id); m.pickup('parcel'+s.id); at(m,'door'+s.id); m.contact(s.id);
+    m.van.z=s.z;m.phase='route';m.activeStop=s.id;
+    at(m,'parcel'+s.id); m.pickup('parcel'+s.id);m.scan(); at(m,'door'+s.id); m.contact(s.id);
     const outcome=s.service==='signature'?'exception':s.service;
     m.deliver(s.id,outcome); assert.equal(s.resolved,true);
     if (outcome==='exception') { at(m,'slot'+s.id); m.place('slot'+s.id); }
   }
+  m.van.z=8;
   assert.equal(m.phase,'return'); at(m,'dispatch'); assert.notEqual(m.finish(),'');
   const ret=m.parcels.find(p=>p.returnRequired); at(m,ret.id); m.pickup(ret.id); at(m,'returns'); m.returnParcel();
   at(m,'dispatch'); assert.equal(m.finish(),''); assert.equal(m.phase,'debrief');
@@ -70,9 +72,27 @@ test('unsupported outcomes cannot poison the recorded delivery decision', () => 
 });
 test('an absent recipient cannot receive a handover and the parcel remains recoverable', () => {
   const m=make(); load(m); const s=m.stops.find(s=>s.service==='signature');
-  at(m,'parcel'+s.id);m.pickup('parcel'+s.id);at(m,'door'+s.id);m.contact(s.id);
+  m.van.z=s.z;m.activeStop=s.id;m.phase='route';
+  at(m,'parcel'+s.id);m.pickup('parcel'+s.id);m.scan();at(m,'door'+s.id);m.contact(s.id);
   m.deliver(s.id,'handover');assert.equal(s.resolved,false);assert.equal(m.heldId,'parcel'+s.id);
   m.deliver(s.id,'exception');assert.equal(s.resolved,true);assert.equal(m.parcel(m.heldId).returnRequired,true);
+});
+test('depot scanning cannot replace a fresh scan at the delivery stop', () => {
+  const m=make();load(m);const p=m.parcels[0],s=m.stop(0);assert.equal(p.scanned,true);assert.equal(p.stopScanned,false);
+  m.phase='route';m.van.z=s.z;at(m,p.id);m.pickup(p.id);at(m,'door0');m.contact(0);
+  m.deliver(0,s.service==='signature'?'exception':s.service);assert.equal(s.resolved,false);
+  m.scan();assert.equal(p.stopScanned,true);m.deliver(0,s.service==='signature'?'exception':s.service);assert.equal(s.resolved,true);
+});
+test('scanning the wrong stop or scanning with an unsecured vehicle does not verify delivery', () => {
+  const m=make();load(m);m.phase='route';m.van.z=m.stop(1).z;at(m,'parcel1');m.pickup('parcel1');m.scan();
+  assert.equal(m.parcel('parcel1').stopScanned,false);
+  m.activeStop=1;m.van.hand=false;m.scan();assert.equal(m.parcel('parcel1').stopScanned,false);
+  m.van.hand=true;m.scan();assert.equal(m.parcel('parcel1').stopScanned,true);
+});
+test('older checkpoints retain cargo and require fresh delivery verification', () => {
+  const m=make();load(m);const raw=m.snapshot();raw.parcels.forEach(p=>delete p.stopScanned);
+  const n=M.restore(raw);assert.ok(n);assert.equal(n.parcels[0].scanned,true);assert.equal(n.parcels[0].location,'slot0');assert.equal(n.parcels[0].stopScanned,false);
+  n.parcels[0].stopScanned=true;assert.equal(M.restore(n.snapshot()).parcels[0].stopScanned,true);
 });
 test('practice enforces scope and finishes only after physical retrieval and replacement', () => {
   const m=make('practice'); at(m,'driver'); assert.notEqual(m.enter(),''); assert.equal(m.mode,'walk');
