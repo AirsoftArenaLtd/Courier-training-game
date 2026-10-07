@@ -1,4 +1,4 @@
-/* Dev-only art lab: index.html?lab=rig | street | town. Not reachable from the menus. */
+/* Dev-only lab: index.html?lab=rig | street | town | firstperson. Not reachable from the menus. */
 class LabScene extends Phaser.Scene {
   constructor() { super('LabScene'); }
 
@@ -14,6 +14,10 @@ class LabScene extends Phaser.Scene {
   lab_town() {
     const q = new URLSearchParams(window.location.search);
     this.scene.start('TownDriveScene', { lab: true, seed: 1, tod: q.get('tod') || 'midday', weather: q.get('weather') || 'clear' });
+  }
+
+  lab_firstperson() {
+    this.scene.start('FirstPersonScene');
   }
 
   lab_street() {

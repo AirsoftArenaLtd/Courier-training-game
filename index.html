@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>On The Route — Courier Training</title>
+  <!-- Test branch: open the first-person prototype unless a launch mode is explicitly selected. -->
+  <script>
+  (function () {
+    var options = new URLSearchParams(window.location.search);
+    if (options.has('main') || options.has('lab') || options.has('bench') || options.has('scenario')) return;
+    options.set('lab', 'firstperson');
+    window.history.replaceState(null, '', window.location.pathname + '?' + options.toString() + window.location.hash);
+  })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='20' rx='3' fill='%23C8894A'/%3E%3Crect x='3' y='7' width='26' height='6' rx='2' fill='%23E0A565'/%3E%3Crect x='13' y='7' width='6' height='20' fill='%234D148C'/%3E%3C/svg%3E">
 </head>
@@ -57,6 +66,11 @@
   <script src="src/core/wx.js"></script>
   <script src="src/core/people.js"></script>
   <script src="src/core/cab.js"></script>
+  <script src="src/core/firstperson.js"></script>
+  <script src="src/core/fpmission.js"></script>
+  <script src="src/core/world3d.js"></script>
+  <script src="src/core/fpworld.js"></script>
+  <script src="src/core/fphandheld.js"></script>
   <script src="src/core/truckart.js"></script>
   <script src="src/core/town.js"></script>
   <script src="src/core/vehicle.js"></script>
@@ -105,6 +119,7 @@
   <script src="src/scenes/AccessScene.js"></script>
   <script src="src/scenes/DriveReviewScene.js"></script>
   <script src="src/scenes/LabScene.js"></script>
+  <script src="src/scenes/FirstPersonScene.js"></script>
   <script src="src/scenes/BenchScene.js"></script>
 
   <script src="src/main.js"></script>
