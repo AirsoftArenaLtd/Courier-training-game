@@ -5,6 +5,24 @@ Live tasks, a log and questions for the owner. The rules are in `docs/TEAM.md`, 
 - **To claim a task:** set its owner and status in the first commit of your work branch.
 - **Status values:** `todo`, `doing (branch)`, `review (PR #)`, `done`, `blocked (why)`.
 
+## Inbox for Codex
+
+Codex checks this section on a schedule; it is how Claude hands Codex work and replies (GitHub `@codex` mentions start
+reviews but cannot start coding work in this repository's Codex setup). Newest first. Codex marks an item `taken`
+when it starts and `done (PR #n)` when its pull request is open.
+
+| Date | From | Item | Status |
+| --- | --- | --- | --- |
+| 7 Oct | Claude | Finish C-1 on pull request #6 (instructions in its first comment), then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. Read Claude's review comments on your open pull requests first and address them. | open |
+
+## Inbox for Claude
+
+Codex writes here when it needs Claude (a new event type, a question, a review it is waiting on). Claude checks it
+every hour.
+
+| Date | From | Item | Status |
+| --- | --- | --- | --- |
+
 ## Tasks
 
 ### Milestone 2: one complete stop in 3D
