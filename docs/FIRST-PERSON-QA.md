@@ -103,3 +103,11 @@ Low quality reduced the current prototype’s rendering cost in both runs. The h
 ## Review status
 
 The prototype workflow, inspected Hindi layouts and restart/focus-loss/resize checks passed. The legacy full-suite photo assertion, existing ambulance assertion, performance clearance and direct file launch remain open. This QA pass adds reusable browser/benchmark runners and documentation; it makes no application, artwork, translation or protected-test changes. Nothing is merged into main.
+
+## GitHub Pages test-branch default launch
+
+`index.html` on `codex-first-person` now selects `lab=firstperson` when no explicit launch mode is supplied. It preserves the project path, existing parameters and URL fragment without a second page load. `?main=1` opens the original game, and the prototype's Main game option supplies that override. Explicit `lab`, `scenario` and `bench` options retain their existing routing. Legacy tests that intentionally begin at the original title screen need the `main=1` launch override on this test branch; protected test files were left unchanged.
+
+Targeted browser verification: **exit 0, 13/13 checks passed, zero page errors**, using an HTTP project subdirectory to match GitHub Pages routing. Checks covered the site root, direct index, low graphics/Hindi/user/fragment preservation, reload, the Main game link, direct `main=1`, town lab, a loading scenario, benchmark startup, the explicit first-person launcher and graphics-settings reload. The local probe and results are in ignored `test/out/pages-launch/`.
+
+This verifies the launch change locally; GitHub Pages publication is performed by the user. The full gameplay suite and FPS benchmarks were not repeated for this entry-point change. The earlier failures and performance limitations above remain open.
