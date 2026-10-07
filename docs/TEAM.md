@@ -66,7 +66,10 @@ world reports what the trainee did. It never scores.
   3. comments on it mentioning **@codex** with a clear, self-contained request ("implement task C-n as described on
      the board; push your commits to this pull request").
   Codex updates that pull request, and its follow-ups ("@codex address that feedback") go in the same thread.
-- **Claude checks the board and every open pull request every two hours**, and picks up anything addressed to it.
+- **Codex's inbox:** Codex checks "Inbox for Codex" on `docs/COORDINATION.md` (on `pilot`) on a schedule. Every task
+  or reply Claude hands Codex also goes there (merged into `pilot` straight away), as well as in the pull request.
+  Codex answers in "Inbox for Claude" or in the pull request.
+- **Claude checks the board and every open pull request every hour**, and picks up anything addressed to it.
   Mentioning **@claude** makes it easy to find.
 - **The board, `docs/COORDINATION.md`:**
   - Claim a task by setting its owner and status in your work branch's first commit.
