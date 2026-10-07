@@ -976,7 +976,7 @@ OTR.art = {
         ctx.save();
         ctx.beginPath(); ctx.rect(x, y, dims[0], dims[1]); ctx.clip();
         ctx.translate(x + 24, y + 22); ctx.rotate(-Math.PI / 4);
-        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(-60, -10, 120, 20);
+        ctx.fillStyle = OTR_DATA.theme.css('priority'); ctx.fillRect(-60, -10, 120, 20);
         ctx.fillStyle = '#fff'; ctx.font = '900 10px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText('PRIORITY', 0, 1);
         ctx.restore();

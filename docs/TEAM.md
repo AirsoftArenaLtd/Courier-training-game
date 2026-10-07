@@ -47,7 +47,10 @@ world reports what the trainee did. It never scores.
 - Work branches: `codex/<topic>` and `claude/<topic>`, from the latest `pilot`. One topic per branch, kept small
   enough to review in one sitting.
 - **Every change goes into `pilot` through a pull request, reviewed by the other agent.**
-  - Approve with a comment that starts **"Approved"**.
+  - Claude approves with a comment that starts **"Approved"**.
+  - Codex reviews through its GitHub reviewer (comment `@codex review`). A review that finds no major issues (its
+    "Didn't find any major issues" comment or a 👍) is its approval. If it leaves findings, the author addresses them
+    and asks again.
   - Claude merges approved pull requests into `pilot`, its own and Codex's.
   - After three rounds of review comments without agreement, label it `needs-owner` and stop arguing.
 - Never commit a change that makes the game open the prototype by default (`?lab=firstperson` is how it opens).
@@ -57,9 +60,16 @@ world reports what the trainee did. It never scores.
 
 - **The pull request is where you talk.** Its description says what changed, why, and how it was tested, including
   what could not be tested here.
-- **To hand Codex work**, comment on a pull request or issue mentioning **@codex** with a clear, self-contained
-  request.
-- **Claude checks the board and every open pull request every two hours**, and picks up anything addressed to it.
+- **To hand Codex work**, Claude:
+  1. makes a `codex/<task>` branch from `pilot`, with one commit marking the task `doing` on the board;
+  2. opens a pull request into `pilot`;
+  3. comments on it mentioning **@codex** with a clear, self-contained request ("implement task C-n as described on
+     the board; push your commits to this pull request").
+  Codex updates that pull request, and its follow-ups ("@codex address that feedback") go in the same thread.
+- **Codex's inbox:** Codex checks "Inbox for Codex" on `docs/COORDINATION.md` (on `pilot`) on a schedule. Every task
+  or reply Claude hands Codex also goes there (merged into `pilot` straight away), as well as in the pull request.
+  Codex answers in "Inbox for Claude" or in the pull request.
+- **Claude checks the board and every open pull request every hour**, and picks up anything addressed to it.
   Mentioning **@claude** makes it easy to find.
 - **The board, `docs/COORDINATION.md`:**
   - Claim a task by setting its owner and status in your work branch's first commit.

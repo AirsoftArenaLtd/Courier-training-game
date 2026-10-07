@@ -87,7 +87,7 @@ class FirstPersonScene extends Phaser.Scene {
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;m=OTR.fpMission.create(kind,this.progress.sequence);}
     this.model=m;this.area='route';this.target=null;this.checkpoint();
     const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
-      m.stops.map(s=>s.address+' — '+m.serviceLabel(s.id)).join('\n')+'\n\nCheck the tyres and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
+      m.stops.map(s=>s.address+' — '+m.serviceLabel(s.id)).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
   });}
   toHub(){this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});}
@@ -128,9 +128,9 @@ class FirstPersonScene extends Phaser.Scene {
   }
   showInspection(part){
     const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;
-    const condition=part==='tyres'?(bad?'A bulge is visible in the tyre sidewall.':'The tyre sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');
+    const condition=part==='tyres'?(bad?'A bulge is visible in the tire sidewall.':'The tire sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');
     const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};
-    this.showPanel(part==='tyres'?'Tyre inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showDoor(id){
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
@@ -214,7 +214,7 @@ class FirstPersonScene extends Phaser.Scene {
     const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
       if(!m.retrievals)return 'Retrieve '+m.parcel(m.requested).address+' from the shelf where you loaded it.';return 'Replace the parcel, secure the load, then finish at Dispatch.';}
-    if(m.phase==='prepare')return 'Check tyres and lights, scan and load three parcels, then secure the load and close cargo.';
+    if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
     const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;return s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
@@ -238,7 +238,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
     else if(mode==='cab')hint=m.van.hand?'Set your belt, check the mirror and release the parking brake.':'15 mph limit · Keep right · Stop at the junction line';
     else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
-    else if(id==='tyres'||id==='lights')hint='E inspect '+id;else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
+    else if(id==='tyres'||id==='lights')hint='E inspect '+(id==='tyres'?'tires':id);else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
     else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · E pick up · F inspect · Tab handheld';}
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · E place the parcel';
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · E attempt delivery';else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';

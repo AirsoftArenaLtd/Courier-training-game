@@ -5,8 +5,11 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const context = {}; context.window = context;
 vm.createContext(context);
-for (const file of ['firstperson','fpmission']) vm.runInContext(fs.readFileSync(__dirname + '/../src/core/' + file + '.js','utf8'), context);
+for (const file of ['data/workday_events.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fphandheld.js'])
+  vm.runInContext(fs.readFileSync(__dirname + '/../' + file,'utf8'), context);
 const M = context.OTR.fpMission, S = context.OTR.fpStore;
+const W = context.OTR.workday;
+test.beforeEach(() => W.begin());
 const make = kind => { const m = M.create(kind, 7); m.paused = false; return m; };
 const at = (m, id) => { const p = m.point(id); m.player.x = p.x; m.player.z = p.z + 0.65; };
 function load(m) {
@@ -164,4 +167,153 @@ test('local checkpoint reports storage failure and uses a separate profile key',
   const data=S.empty(); data.campaign=make().snapshot(); assert.equal(S.write(data),true);
   assert.equal(values.has('course_alex'),false); assert.ok(S.read().campaign);
   context.localStorage.setItem=()=>{throw Error('quota');}; assert.equal(S.write(data),false);
+});
+
+function report(type, key, ok, stop = null) {
+  const i = W.events.findIndex(e => e.type === type && e.key === key);
+  assert.notEqual(i, -1, type + ':' + key);
+  assert.equal(W.events[i].ok, ok);
+  assert.equal(W.events[i].stop, stop);
+  const item = W.log.items[i], spec = context.OTR_DATA.workdayEvents[type];
+  assert.equal(item.kind, spec.kind);
+  assert.equal(item.group, stop === null ? spec.phase : 'stop' + stop);
+  if (spec.kind === 'check') assert.equal(item.got, ok ? spec.max : 0);
+  return item;
+}
+
+test('load scans, shelf checks and restraints report successes and failures by parcel and leg', () => {
+  for (const ready of [true, false]) {
+    W.begin(); const m = make();
+    if (ready) load(m);
+    m.secured = ready; m.preparation(); m.preparation();
+    for (const p of m.parcels) {
+      if (ready) report('scan.load', p.id, true);
+      else assert.equal(W.events.some(e => e.type === 'scan.load'), false);
+      report('load.shelf', p.id, ready);
+    }
+    report('load.secured', 0, ready);
+    assert.equal(W.events.filter(e => e.type === 'load.secured').length, 1);
+    m.mode = 'cab'; m.leg = 1; m.van.hand = false; m.van.speed = 2; m.secured = false;
+    m.step({}, 0.05); report('load.secured', 1, false);
+  }
+});
+
+test('both inspection points report the first decision and penalize incomplete departure checks', () => {
+  for (const part of ['tyres', 'lights']) for (const correct of [true, false]) {
+    W.begin(); const m = make(); at(m, part);
+    const expected = m.fault === part ? 'repair' : 'ready';
+    m.inspectVan(part, correct ? expected : expected === 'repair' ? 'ready' : 'repair');
+    report(part === 'tyres' ? 'inspect.tires' : 'inspect.lights', part, correct);
+    m.preparation();
+    assert.equal(W.events.some(e => e.type === 'depart.uninspected' && e.key === part), !correct);
+    assert.ok(m.logs.every(l => !/tyres/.test(l.text)));
+  }
+});
+
+test('practice retrieval reports whether the requested parcel was scanned', () => {
+  for (const scanned of [true, false]) {
+    W.begin(); const m = make('practice'); load(m);
+    const p = m.parcel(m.requested); p.scanned = scanned;
+    at(m, p.id); m.pickup(p.id); report('retrieve.checked', p.id, scanned);
+  }
+});
+
+test('stop scans, absent handovers, delivery decisions and returns use parcel and numeric stop keys', () => {
+  for (const correct of [true, false]) {
+    W.begin(); const m = make(); load(m);
+    const s = m.stops.find(s => s.service === 'signature'), p = m.parcels[s.id];
+    m.phase = 'route'; m.activeStop = s.id; m.van.z = s.z;
+    at(m, p.id); m.pickup(p.id); m.scan(); m.scan();
+    report('scan.stop', p.id, true, s.id);
+    assert.equal(W.events.filter(e => e.type === 'scan.stop').length, 1);
+    at(m, 'door' + s.id); m.contact(s.id); m.deliver(s.id, 'handover');
+    report('deliver.no-recipient', s.id, false, s.id);
+    m.deliver(s.id, correct ? 'exception' : 'safeplace');
+    report('deliver.outcome', s.id, correct, s.id);
+    if (correct) { at(m, 'returns'); m.returnParcel(); report('return.scanned', p.id, true); }
+    else assert.equal(W.events.some(e => e.type === 'return.scanned'), false);
+  }
+});
+
+test('wrong parcels and recovered mismatches are distinct for each target stop', () => {
+  const m = make(); load(m); m.phase = 'route';
+  at(m, 'parcel2'); m.pickup('parcel2');
+  for (const stop of [0, 1]) {
+    m.activeStop = stop; m.scan(); m.scan();
+    report('scan.mismatch-caught', 'parcel2:' + stop, true, stop);
+    at(m, 'door' + stop); m.deliver(stop, 'handover');
+    report('deliver.wrong-package', 'parcel2:' + stop, false, stop);
+  }
+  assert.equal(W.events.filter(e => e.type === 'scan.mismatch-caught').length, 2);
+});
+
+test('legacy unverified completion maps to a failed stop scan', () => {
+  const m = make(); load(m); const p = m.parcels[0], s = m.stop(0);
+  at(m, p.id); m.pickup(p.id); p.stopScanned = true; p.scanned = false;
+  // The current scanner sets both flags; exercise the retained legacy log branch explicitly.
+  at(m, 'door0'); m.contact(0); m.deliver(0, s.service);
+  report('scan.stop', p.id, false, 0);
+});
+
+test('safe driving stays unpenalized, violations are once per leg and map to van coordinates in mph', () => {
+  const m = make(); m.mode = 'cab'; m.departed = true; m.secured = true;
+  m.stopSign.resolved = true;
+  Object.assign(m.van, { x: 2, z: -70, speed: 2, hand: false, belt: true });
+  m.step({}, 0.05); assert.equal(W.events.length, 0);
+  Object.assign(m.van, { x: -6, z: -70, speed: 8, belt: false });
+  m.step({}, 0.05);
+  for (const type of ['drive.belt', 'drive.speed', 'drive.sidewalk', 'drive.wrong-side']) {
+    const item = report(type, 0, false);
+    if (type !== 'drive.belt') {
+      assert.equal(item.where.x, -6); assert.ok(item.where.z < -70);
+      assert.ok(item.where.mph > 15 && item.where.mph < 18);
+    }
+  }
+  m.step({}, 0.05); assert.equal(W.events.length, 4);
+  m.leg = 1; m.step({}, 0.05); report('drive.speed', 1, false);
+});
+
+test('stop-line and developing hazard checks report both right and wrong responses', () => {
+  for (const ok of [true, false]) {
+    W.begin(); const m = make(); m.mode = 'cab'; m.departed = true;
+    Object.assign(m.van, { x: 2, z: -22, speed: 0, hand: true });
+    m.stopSign.stopped = ok; m.step({}, 0.05);
+    assert.equal(report('drive.stop-line', null, ok).where.z, -22);
+    Object.assign(m.crossing, { state: 'crossing', x: 7, clock: 20, early: ok });
+    m.van.z = -62; m.tickCrossing(0, { x: 2, z: -62 });
+    assert.equal(report('drive.hazard-early', null, ok).where.z, -62);
+    assert.equal(W.events.some(e => e.type === 'drive.pedestrian'), false);
+  }
+});
+
+test('traffic, obstacle and pedestrian contacts report critical incidents', () => {
+  for (const kind of ['traffic', 'obstacle', 'pedestrian']) {
+    W.begin(); const m = make(); m.mode = 'cab'; m.departed = true;
+    Object.assign(m.van, { x: 1.7, z: 0, speed: 2, hand: false, belt: true });
+    if (kind === 'traffic') Object.assign(m.traffic[0], { x: 1.7, z: -4, speed: 0 });
+    if (kind === 'obstacle') m.solids.push({ x: 1.7, z: -2.8, w: 2, d: 1, h: 3 });
+    if (kind === 'pedestrian') Object.assign(m.crossing, { state: 'crossing', x: 1.7, z: -2, clock: 3 });
+    m.step({ forward: true }, 0.05);
+    const item = report(kind === 'pedestrian' ? 'drive.pedestrian' : 'drive.contact', kind === 'pedestrian' ? null : 0, false);
+    assert.equal(item.critical, true); assert.ok(Number.isFinite(item.where.mph));
+    assert.equal(W.events.some(e => e.type === 'drive.hazard-early'), false);
+  }
+});
+
+test('handheld parking guard reports through the mission log once per leg', () => {
+  const m = make(), adapter = { scene: { model: m, message() {}, checkpoint() {} } };
+  const allowed = () => context.OTR.fpHandheld.prototype.allowed.call(adapter);
+  m.mode = 'cab'; assert.equal(allowed(), true); assert.equal(W.events.length, 0);
+  m.van.hand = false; assert.equal(allowed(), false); assert.equal(allowed(), false);
+  report('drive.handheld', 0, false); assert.equal(W.events.length, 1);
+  m.leg = 1; allowed(); report('drive.handheld', 1, false);
+});
+
+test('restoring HUD evidence does not replay reports, and missing workday support is safe', () => {
+  const m = make(); at(m, 'parcel0'); m.scan('parcel0');
+  const restored = M.restore(m.snapshot()); at(restored, 'parcel0'); restored.scan('parcel0');
+  assert.equal(W.events.length, 1); assert.equal(restored.logs.length, 1);
+  delete context.OTR.workday;
+  try { const standalone = make(); load(standalone); standalone.preparation(); assert.ok(standalone.logs.length); }
+  finally { context.OTR.workday = W; }
 });

@@ -51,6 +51,54 @@ OTR.fpMission = {
         this.events[id] = true;
         this.logs.push({ id, skill, outcome, text, at: Math.round(this.elapsed) });
         this.touch();
+        this.report(id, skill, outcome);
+      },
+      report(id, skill, outcome) {
+        if (!OTR.workday) return;
+        // Map only accepted HUD outcomes, so repeated driving ticks allocate nothing here.
+        // Keep legacy HUD/save ids (tyres, pavement) separate from the report vocabulary.
+        const [event, key, stop] = id.split(':');
+        const d = { key, ok: outcome !== 'needs' };
+        let type, driving = false;
+        switch (event) {
+          case 'scan': type = 'scan.load'; break;
+          case 'stop-scan': case 'unverified':
+            type = 'scan.stop'; d.stop = this.parcel(key).stop; break;
+          case 'mismatch': case 'wrong':
+            type = event === 'mismatch' ? 'scan.mismatch-caught' : 'deliver.wrong-package';
+            d.key = key + ':' + stop; d.stop = Number(stop); break;
+          case 'absent-handover': case 'outcome':
+            type = event === 'outcome' ? 'deliver.outcome' : 'deliver.no-recipient';
+            d.key = d.stop = Number(key); break;
+          case 'practice': type = 'retrieve.checked'; d.key = this.requested; break;
+          case 'inspect': type = key === 'tyres' ? 'inspect.tires' : 'inspect.lights'; break;
+          case 'departure':
+            if (key === 'tyres' || key === 'lights') {
+              if (d.ok) return;
+              type = 'depart.uninspected';
+            } else if (key === 'load') {
+              type = 'load.secured'; d.key = this.leg;
+            } else type = 'load.shelf';
+            break;
+          case 'load': type = 'load.secured'; d.key = Number(key); break;
+          case 'belt': type = 'drive.belt'; d.key = Number(key); break;
+          case 'handheld': type = 'drive.handheld'; d.key = Number(key); break;
+          case 'speed': type = 'drive.speed'; driving = true; break;
+          case 'pavement': type = 'drive.sidewalk'; driving = true; break;
+          case 'lane': type = 'drive.wrong-side'; driving = true; break;
+          case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
+          case 'traffic-contact': case 'contact': type = 'drive.contact'; driving = true; break;
+          case 'pedestrian':
+            type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
+          case 'returned': type = 'return.scanned'; break;
+          // Pull-out observation has no report type in the current contract; retain its HUD log.
+          default: return;
+        }
+        if (driving) {
+          if (key !== undefined) d.key = Number(key);
+          d.where = { x: this.van.x, z: this.van.z, mph: Math.abs(this.van.speed) * 2.2369362921 };
+        }
+        OTR.workday.report(type, d);
       },
       parcel(id) { return this.parcels.find(p => p.id === id); },
       stop(id) { return this.stops.find(s => s.id === Number(id)); },
@@ -156,7 +204,8 @@ OTR.fpMission = {
         const defect = !this.repaired && this.fault === part;
         const correct = decision === (defect ? 'repair' : 'ready');
         this.checks[part] = correct;
-        this.log('inspect:' + part, 'inspection', correct ? 'good' : 'needs', correct ? 'Correctly assessed the ' + part + '.' : 'Recheck the condition of the ' + part + '.');
+        const label = part === 'tyres' ? 'tires' : part;
+        this.log('inspect:' + part, 'inspection', correct ? 'good' : 'needs', correct ? 'Correctly assessed the ' + label + '.' : 'Recheck the condition of the ' + label + '.');
         if (defect && decision === 'repair') { this.repaired = true; this.touch(); return 'Dispatch arranged the repair. The vehicle is now serviceable.'; }
         this.touch(); return correct ? 'Inspection recorded.' : 'Inspection recorded. Review the condition before departure.';
       },
@@ -244,7 +293,10 @@ OTR.fpMission = {
       },
       preparation() {
         this.departed = true; this.phase = 'route';
-        ['tyres','lights'].forEach(part => this.log('departure:' + part, 'inspection', this.checks[part] ? 'good' : 'needs', this.checks[part] ? 'Completed the ' + part + ' check before departure.' : 'Departed without a correct ' + part + ' check.'));
+        ['tyres','lights'].forEach(part => {
+          const label = part === 'tyres' ? 'tires' : part;
+          this.log('departure:' + part, 'inspection', this.checks[part] ? 'good' : 'needs', this.checks[part] ? 'Completed the ' + label + ' check before departure.' : 'Departed without a correct ' + label + ' check.');
+        });
         this.log('departure:load', 'loading', this.secured ? 'good' : 'needs', this.secured ? 'Secured the load before departure.' : 'Departed with an unsecured load.');
         this.parcels.forEach(p => this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? 'Loaded and scanned ' + p.address + '.' : 'A parcel was unscanned or left at the depot.'));
       },
@@ -260,7 +312,7 @@ OTR.fpMission = {
           if (!this.secured) this.log('load:' + this.leg, 'loading', 'needs', 'Moved the van before securing the load.');
           if (Math.abs(v.speed) > 6.71) this.log('speed:' + this.leg, 'driving', 'needs', 'Exceeded the posted 15 mph limit.');
           const junction = Math.abs(v.z + 27) < 7 || Math.abs(v.z + 89) < 7 || v.z < -116 || v.z > -8;
-          if (!junction && Math.abs(v.x) > 5.2) this.log('pavement:' + this.leg, 'driving', 'needs', 'Drove onto the pavement beside the road.');
+          if (!junction && Math.abs(v.x) > 5.2) this.log('pavement:' + this.leg, 'driving', 'needs', 'Drove onto the sidewalk beside the road.');
           if (!junction && Math.abs(v.speed) > 1 && ((Math.cos(v.yaw) > 0.7 && v.x < -0.4) || (Math.cos(v.yaw) < -0.7 && v.x > 0.4))) this.log('lane:' + this.leg, 'driving', 'needs', 'Travelled on the wrong side of the road.');
         }
         if (old.x >= 3.1 && v.x < 3.1 && v.speed > 0.3 && Math.cos(v.yaw) > 0.5) {

@@ -12,7 +12,7 @@ OTR_DATA.theme = {
   primaryDark:  0x0E2A47,   // deep backgrounds and shadows
   primaryDeep:  0x081828,   // the darkest background
   primaryNight: 0x0F2038,   // panel gradient ends
-  primaryLight: 0x4A86C5,   // highlights and hover
+  primaryLight: 0x2F6AA3,   // highlights and hover (keep it dark enough for white text: 4.5:1)
   tint:         0xB8D2EA,   // pale text and lines on dark panels
 
   // second colour: calls to action, progress, live markers
@@ -21,6 +21,10 @@ OTR_DATA.theme = {
   accentWarm:   0x2FB8C4,
   accentDark:   0x0A6B75,
   accentSoft:   0x9BE0E6,
+
+  // training cue: the sorting lesson tells trainees to look for an orange PRIORITY band, so this stays orange
+  // (change the lesson text and translations too if a company changes it)
+  priority:     0xFF6600,
 
   // text, panels and backgrounds (a cool blue-grey family)
   ink:          0x0F2030,   // dark text on light panels
@@ -47,4 +51,13 @@ OTR_DATA.theme.css = function (name) {
   const r = document.documentElement.style;
   r.setProperty('--otr-primary', OTR_DATA.theme.css('primary'));
   r.setProperty('--otr-primary-deep', OTR_DATA.theme.css('primaryDeep'));
+})();
+
+/* The browser-tab icon follows the theme. */
+(function () {
+  if (typeof document === 'undefined' || !document.querySelector) return;
+  const link = document.querySelector('link[rel="icon"]');
+  if (!link) return;
+  const c = encodeURIComponent(OTR_DATA.theme.css('primary'));
+  link.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='20' rx='3' fill='%23C8894A'/%3E%3Crect x='3' y='7' width='26' height='6' rx='2' fill='%23E0A565'/%3E%3Crect x='13' y='7' width='6' height='20' fill='" + c + "'/%3E%3C/svg%3E";
 })();

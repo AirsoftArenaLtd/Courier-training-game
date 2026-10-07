@@ -21,7 +21,7 @@ OTR_DATA.sorting = {
     R1:  { label: 'ROUTE 1',    color: 0x3DA5FF },
     R2:  { label: 'ROUTE 2',    color: 0x2BC48A },
     R3:  { label: 'ROUTE 3',    color: 0x72B1F8 },
-    PRI: { label: 'PRIORITY',   color: OTR_DATA.theme.accent, sub: 'orange band' },
+    PRI: { label: 'PRIORITY',   color: OTR_DATA.theme.priority, sub: 'orange band' },
     EXC: { label: 'EXCEPTIONS', color: 0xF0435A, sub: 'damaged / leaking' },
     DG:  { label: 'DG CAGE',    color: 0xFFC83D, sub: 'hazard diamond' },
     HVY: { label: 'HEAVY',      color: 0x7A7690, sub: '50 lb +' }
