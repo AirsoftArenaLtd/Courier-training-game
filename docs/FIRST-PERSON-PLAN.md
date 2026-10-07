@@ -14,12 +14,12 @@ Download the `codex-first-person` branch ZIP, extract it completely, then open *
 
 1. Read the short introduction, enter the hub, then walk to **Workday** and press E, or press H and choose Start workday. Cargo practice and the last debrief have their own stations and menu choices. Activities fade through black.
 2. At the depot, inspect the tyres on the driver's side and the lamps at the front. Choose whether each is serviceable or needs repair. This slice includes one visible defect; an accepted repair is immediate.
-3. Approach the three parcels on the table. **F** opens a readable label close-up; **A/D** rotates it, **Space** scans and **Esc** returns. **E** picks up the physical parcel. **Tab** opens the handheld and manifest.
+3. Approach the three parcels on the table. **F** opens a readable label close-up; **A/D** rotates it, **Space** equips the scanner and **Esc** returns. **E** picks up the physical parcel. **Tab** opens the existing handheld device: choose **Scan package**, aim at the barcode and hold **Space or the left mouse button** briefly. A carried parcel is raised in front of you for scanning. Tab puts the device away. Route and Stop details show addresses, requirements and recorded shelf positions.
 4. Open the purple rear cargo doors with E. Carry each parcel inside, aim at one of six shelf pads and press E to place it. Placement is remembered. To put a carried parcel back on its depot table position, stand near that position, look at the table and press E. Aim at the gold restraint near the rear floor and press E to secure the load, step outside, then close the doors.
 5. Enter through the blue driver's door. **B** fastens the belt; **M** briefly shows a live left mirror. **Q/C** toggle left/right signals. **Space** toggles the parking brake. **W/S** accelerate/brake, **A/D** steer, **R** selects drive/reverse at a standstill. Steering centres when released; the view follows the vehicle. Mouse look checks the sides; **V** looks forward again.
-6. Keep right, observe the 15 mph sign, stop before the first junction line and respond to traffic and the pedestrian crossing. Three addresses are on the right as you drive north. Park beside the road, stop, set the parking brake and press E to exit. Retrieve the actual parcel from its shelf; check its label/address before approaching the door.
-7. At each door, attempt contact and choose an outcome matching the shipment requirements: handover, authorised porch-box release, or a recipient-absent exception for the signature parcel. Wrong choices remain possible and are recorded. The similar addresses are deliberate. A retained parcel must be carried back and placed in the van before driving again.
-8. Use the turning area at the far end to return south to the depot. Carry retained parcels to **Returns** and press E to scan them back in. Check in at **Dispatch** to finish and read the paged debrief, then return to the hub.
+6. Keep right, observe the 15 mph sign, stop before the first junction line and respond to traffic and the pedestrian crossing. Three addresses are on the right as you drive north. Park beside the road, stop, set the parking brake and press E to exit. Open the cargo doors, locate the actual parcel on its shelf and scan it again at this stop. You can scan a visible shelf label or pick up the parcel first. Depot scans alone cannot complete a delivery. The device warns about a parcel for a different selected stop.
+7. At each door, attempt contact and choose **Record on handheld**. Record an outcome matching the shipment requirements: handover, authorised porch-box release, or a recipient-absent exception for the signature parcel. Wrong choices remain possible and are recorded. The similar addresses are deliberate. A retained parcel must be carried back and placed in the van before driving again.
+8. Use the turning area at the far end to return south to the depot. Carry retained parcels to **Returns**, press E to equip the scanner and scan the carried barcode to check it back in. Check in at **Dispatch** to finish and read the paged debrief, then return to the hub.
 
 Cargo practice shares the same parcels, shelves, scanner and restraint. Load all three, retrieve the requested parcel, replace it, secure the load and finish at Dispatch. Vehicle entry is blocked in this activity. It has its own checkpoint so practice does not overwrite a suspended workday.
 
@@ -27,6 +27,8 @@ Cargo practice shares the same parcels, shelves, scanner and restraint. Load all
 
 ### Included systems and limits
 
+- Scanner functionality pass after the first manual review: the prototype now reuses `OTR.Handheld` from the existing game, through `src/core/fphandheld.js`. It includes route/stop pages, live barcode aiming and scan feedback, delivery decisions, physical return scans and a parking interlock. Trigger clicks cannot activate a device button behind pointer lock. Menus pause the world; aiming allows walking and looking. Cancellation, focus loss and device closure clear held inputs. Existing saves retain cargo/loading scans; unfinished stops need a new delivery scan. No generated assets or edits to the shared scanner are included.
+- Remaining delivery work is substantial: separate physical handover/porch placement from recording, photo/signature/ID proof, richer recipient conversations, door tags and exception codes, realistic door animations and handling, and fuller inspection/vehicle routines. This pass improves the scanner portion of the routine; it does not claim feature parity with the old StopScene or a complete courier simulation.
 - Three stable parcel identities with six selectable shelf positions, scanning, carrying, rearrangement, wrong-parcel recovery and physical exception returns. Handheld shelf information comes from the recorded placement. The label close-up is readable Phaser text alongside a rotatable box, not a new image asset.
 - A small deterministic service rotation gives each workday one handover, one authorised release and one absent-signature case. The full adaptive encounter/exposure system, responsibility progression, other modules and trainer-controlled assessments remain planned work.
 - Two traffic vehicles, a contextual crossing, a stop line, speed/lane checks, belt/load feedback and a left mirror looking at the actual route. Mirror + signal + traffic gap influence pullout feedback. These are prototype heuristics, not validated assessment criteria. Other mirrors, full incident response, detailed handling, proof of delivery, varied pedestrians/weather and realistic vehicle physics remain future work. Traffic/pedestrian contact stops the van and records feedback; it does not yet end a shift.
@@ -37,18 +39,21 @@ Cargo practice shares the same parcels, shelves, scanner and restraint. Load all
 
 ### Changed files and checks
 
-`src/core/fpmission.js` contains mission/checkpoint logic; `src/core/fpworld.js` contains the shared hub/depot/town geometry; `src/core/world3d.js` owns the main and mirror targets on Phaser's GL context; `src/scenes/FirstPersonScene.js` connects input, menus, tools and transitions. `index.html` adds the two classic scripts. Original `firstperson.js` motion helpers and its tests remain unchanged. The shared renderer retains its own depth targets and disposes owned resources without losing Phaser's context.
+`src/core/fpmission.js` contains mission/checkpoint logic; `src/core/fpworld.js` contains the shared hub/depot/town geometry and barcode raycasts; `src/core/fphandheld.js` adapts the existing device to first-person tasks; `src/core/world3d.js` owns the main and mirror targets on Phaser's GL context; `src/scenes/FirstPersonScene.js` connects input, menus, tools and transitions. `index.html` adds classic scripts. Original `firstperson.js` motion helpers and its tests remain unchanged. The shared renderer retains its own depth targets and disposes owned resources without losing Phaser's context.
 
 Renderer-free checks for this revision:
 
 | Command/check | Result |
 | --- | --- |
 | `node test/firstperson.js` | 18/18 passed, exit 0; legacy movement/collision checks |
-| `node test/fpmission.js` | 20/20 passed, exit 0; mission outcomes, persistence, invalid saves, traffic, practice boundaries |
-| `node test/fpworld.js` | 11/11 passed, exit 0; real Three.js CPU raycasts, cargo reachability, mirror direction, low-quality targets, save/transition isolation |
-| Combined `node --test test/firstperson.js test/fpmission.js test/fpworld.js` | 49 passed, 0 failed, 0 skipped |
-| `node --check` on the six new/changed JavaScript files | 6/6 passed |
-| Script paths/order, protected files, `git diff --check` | All 94 script paths exist; load order passes; protected files unchanged from branch base; no whitespace errors |
+| `node test/fpmission.js` | 23/23 passed, exit 0; mission outcomes, fresh delivery scans, save migration, invalid saves, traffic, practice boundaries |
+| `node test/fpworld.js` | 13/13 passed, exit 0; real Three.js CPU raycasts, barcode face/range/occlusion, carried identity, low-quality scanning, cargo reachability, mirrors, save/transition isolation |
+| `node test/fphandheld.js` | 8/8 passed, exit 0; scanner workflow with a stubbed device renderer: continuous trigger/cancellation, wrong-stop alerts, parking interlock, delivery/return recording, pause and practice scope |
+| Combined `node --test test/firstperson.js test/fpmission.js test/fpworld.js test/fphandheld.js` | 62 passed, 0 failed, 0 skipped |
+| `node --check` on the seven new/changed JavaScript files in the scanner pass | 7/7 passed |
+| Script paths/order, protected files, `git diff --check` | All 95 script paths exist; load order passes; protected files unchanged from branch base; no whitespace errors |
+
+During development, the first scanner-pass run returned 28/31 passed and three failures: two old delivery tests omitted the newly required arrival scan, and one expected the removed generic handheld panel. Those tests were updated to exercise the new workflow and the barcode geometry; the final suite above passes. No failing test is being left unresolved.
 
 The bundled Three.js classic build emits its existing deprecation notice during CPU tests. ES modules have not been introduced. Dependency setup: `cd test && npm install` initially failed (exit 1) because the default npm cache was unwritable. Retrying `npm install --cache /tmp/otr-npm-cache` succeeded (exit 0). No dependency/lockfile changes are included.
 
