@@ -99,7 +99,7 @@ class FirstPersonScene extends Phaser.Scene {
     choices.push({label:'Settings',action:()=>this.showSettings()},{label:'Main game',action:()=>this.leavePrototype()});
     this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?'Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.':'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices);this.checkpoint();
   }
-  leavePrototype(){this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');q.set('main','1');location.assign('index.html?'+q.toString());}
+  leavePrototype(){this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
     const quality=level=>{this.checkpoint();const q=new URLSearchParams(location.search);q.set('gfx',level);location.assign('index.html?'+q.toString());};
     this.showPanel('Settings','Graphics: '+OTR.gfx.level()+'\nMouse sensitivity: '+this.sensitivity.toFixed(4)+'\nExisting key remaps apply. Course settings and trainer tools are available through Main game.',[
