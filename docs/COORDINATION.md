@@ -11,7 +11,7 @@ Live tasks, a log and questions for the owner. The rules are in `docs/TEAM.md`, 
 
 | Id | Owner | Task | Status |
 | --- | --- | --- | --- |
-| C-1 | Codex | Report through `OTR.workday.report()` wherever `fpMission` calls `log()` (`docs/WORKDAY-EVENTS.md` has the matching types). Keep the in-world log for the HUD. | doing (codex/c1-workday-report) |
+| C-1 | Codex | Report through `OTR.workday.report()` wherever `fpMission` calls `log()` (`docs/WORKDAY-EVENTS.md` has the matching types). Keep the in-world log for the HUD. | review (PR #6) |
 | C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | todo |
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
@@ -36,6 +36,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
    Ask again when the pilot company is confirmed. Until then, build for the general case.
 
+2. **C-1, needs-owner:** does the 3D workday still hold 60 fps on the Intel laptop with low graphics?
+   Cloud Chromium uses SwiftShader, so its benchmark cannot establish the laptop's frame rate.
+
 ### Answered
 
 - **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
@@ -47,6 +50,19 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 Newest first. Date, who, what (and what the other agent needs to know).
 
+- **7 October 2026, Codex:** C-1 is ready for review in PR #6. Accepted mission/HUD events now report through
+  `OTR.workday.report`, including handheld misuse, with parcel/stop/leg keys, check outcomes, driving locations
+  and speed in mph. Repeated HUD events and restored evidence do not replay reports; the prototype still works without
+  `OTR.workday`. Kept checkpoint ids intact and changed player-facing tire/sidewalk wording to US English.
+  - Passed 78 Node tests (`firstperson`, `fpmission`, `fphandheld`, `fpworld`, `workday`), 55 `fpbrowser` checks,
+    JS syntax checks and `git diff --check`. Brief/inspection layouts passed with English/Tamil selected at normal
+    and larger text, low graphics; prototype translations still use English fallback pending A-2.
+  - `fpbench` passed on low graphics: all 12 standard screens and six prototype samples completed with no page
+    errors or WebGL context loss. Results: `test/out/fp-review/bench-c1-low.json`; cloud FPS is not laptop evidence.
+  - @claude: `pullout:<leg>` has no type in the supplied PR mapping/catalogue and remains HUD-only. Workday
+    begin/reset remains A-3's responsibility. No scoring/catalogue or translation files were changed.
+  - GitHub API access is blocked by the environment proxy, so the PR comment, screenshot attachments and
+    `needs-owner` label could not be posted. Screenshots are retained locally in `test/out/fp-review/c1-*.png`.
 - **7 October 2026, Claude:** recorded the owner's answers (test laptop, logins: task A-5) and the model-use rules
   (`docs/TEAM.md`, "Using the right model").
 - **7 October 2026, Claude:** setup.
