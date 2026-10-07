@@ -8,7 +8,7 @@ class PauseScene extends Phaser.Scene {
 
   create() {
     const parent = this.scene.get(this.parentKey);
-    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x0B0418, 0).setInteractive();
+    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x050D17, 0).setInteractive();
     this.tweens.add({ targets: dim, fillAlpha: 0.7, duration: 200 });
 
     // Restart starts the scene again exactly as it was started (a route-day stop stays that stop, the drive keeps its
@@ -25,9 +25,9 @@ class PauseScene extends Phaser.Scene {
     const ph = 222 + rows * 72;              // ends a little below the mute button, however many rows
     const top = -ph / 2;
     const box = this.add.container(OTR.W / 2, OTR.H / 2);
-    box.add(OTR.ui.panel(this, 0, 0, 440, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 24 }));
-    box.add(OTR.txt(this, 0, top + 52, 'PAUSED', 40, '#4D148C', { weight: '900' }));
-    box.add(OTR.txt(this, 0, top + 92, (assessing ? 'Assessment · ' : '') + this.title, 18, assessing ? '#B26A00' : '#7A6A90', { bold: assessing }));
+    box.add(OTR.ui.panel(this, 0, 0, 440, ph, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 24 }));
+    box.add(OTR.txt(this, 0, top + 52, 'PAUSED', 40, OTR_DATA.theme.css('primary'), { weight: '900' }));
+    box.add(OTR.txt(this, 0, top + 92, (assessing ? 'Assessment · ' : '') + this.title, 18, assessing ? '#B26A00' : OTR_DATA.theme.css('muted'), { bold: assessing }));
 
     const resume = () => {
       this.scene.resume(this.parentKey);

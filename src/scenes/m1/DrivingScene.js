@@ -84,7 +84,7 @@ class DrivingScene extends TownDriveScene {
     this.hazardText.setText(text);
     const w = this.hazardText.width + 46, h = 42;
     this.hazardBg.redraw((g) => {
-      g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -h / 2, w, h, 21);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.92); g.fillRoundedRect(-w / 2, -h / 2, w, h, 21);
       g.lineStyle(3, color || 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 21);
     });
     this.hazardPill.setVisible(true).setScale(0.9);
@@ -104,8 +104,8 @@ class DrivingScene extends TownDriveScene {
       build: (box, api, w, h) => {
         let y = -h / 2 + 96;
         C.intro.lines.forEach(line => {
-          const dot = this.add.image(-w / 2 + 56, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(0xFF6600);
-          const t = OTR.txt(this, -w / 2 + 78, y, line, 18, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
+          const dot = this.add.image(-w / 2 + 56, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(OTR_DATA.theme.accent);
+          const t = OTR.txt(this, -w / 2 + 78, y, line, 18, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
           box.add([dot, t]);
           y += t.height + 14;
         });

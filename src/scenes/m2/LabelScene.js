@@ -18,7 +18,7 @@ class LabelScene extends BaseScenarioScene {
     this.FACE_NAMES = { front: 'FRONT', right: 'RIGHT SIDE', back: 'BACK', left: 'LEFT SIDE', top: 'TOP', base: 'BASE' };
     this.BOX = { x: 424, y: 348 };
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.55 }));
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: OTR_DATA.theme.nightDeep, alpha: 0.55 }));
     this.hud({ timer: true });
 
     this.buildStation();
@@ -33,20 +33,20 @@ class LabelScene extends BaseScenarioScene {
   buildStation() {
     OTR.tex.shape(this, (g) => {
       // rollers
-      g.fillStyle(0x2A2634, 1); g.fillRect(70, 470, 700, 16);
+      g.fillStyle(0x272D33, 1); g.fillRect(70, 470, 700, 16);
       for (let x = 84; x < 764; x += 44) {
         g.fillStyle(0x9A96AE, 1); g.fillRoundedRect(x, 452, 32, 20, 9);
         g.fillStyle(0x5E5A72, 1); g.fillRoundedRect(x + 4, 456, 24, 6, 3);
       }
-      g.fillStyle(0x3A3348, 1);
+      g.fillStyle(0x343D47, 1);
       [120, 400, 700].forEach(x => g.fillRect(x, 486, 18, 90));
     }).setDepth(1);
     // back wall shelf line (its own shape: one texture spanning both would be mostly empty, filled for nothing)
-    OTR.tex.shape(this, (g) => { g.fillStyle(0x1A0F2E, 0.5); g.fillRect(16, 68, 816, 3); }).setDepth(1);
+    OTR.tex.shape(this, (g) => { g.fillStyle(0x111E2C, 0.5); g.fillRect(16, 68, 816, 3); }).setDepth(1);
 
-    this.progressText = OTR.txt(this, 30, 86, '', 15, '#E6DAF7', { ox: 0, weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(810);
-    this.faceLabel = OTR.txt(this, this.BOX.x, 118, '', 19, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(30);
-    this.blindWarn = OTR.txt(this, this.BOX.x, 146, '', 13, '#FF9447', { weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(30);
+    this.progressText = OTR.txt(this, 30, 86, '', 15, OTR_DATA.theme.css('line'), { ox: 0, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setDepth(810);
+    this.faceLabel = OTR.txt(this, this.BOX.x, 118, '', 19, '#FFC83D', { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 5 }).setDepth(30);
+    this.blindWarn = OTR.txt(this, this.BOX.x, 146, '', 13, OTR_DATA.theme.css('accentLight'), { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setDepth(30);
 
     this.timerBar = OTR.ui.bar(this, 172, 96, 460, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x2BC48A, v), bgAlpha: 0.5, value: 1 }).setDepth(20).setVisible(false);
     this.boxImg = this.add.image(-320, this.BOX.y, 'p_dot').setDepth(20).setVisible(false);
@@ -65,7 +65,7 @@ class LabelScene extends BaseScenarioScene {
       const c = this.add.container(x + W / 2, y + H / 2).setDepth(5);
       const g = OTR.tex.liveShape(this);
       const paint = (hot) => g.redraw((g) => {
-        g.fillStyle(hot ? 0x2A1546 : 0x180A2E, 0.94);
+        g.fillStyle(hot ? 0x172C44 : 0x0C1B2C, 0.94);
         g.fillRoundedRect(-W / 2, -H / 2, W, H, 14);
         g.lineStyle(hot ? 3 : 2, hot ? 0xFFC83D : st.color, hot ? 1 : 0.85);
         g.strokeRoundedRect(-W / 2, -H / 2, W, H, 14);
@@ -75,8 +75,8 @@ class LabelScene extends BaseScenarioScene {
       paint(false);
       const icon = this.add.image(0, -22, this.bayIcon(id)).setScale(0.86);
       const lab = OTR.txt(this, 0, 52, st.label, 15, '#ffffff', { weight: '900', wrap: W - 24 });
-      const sub = OTR.txt(this, 0, 74, st.sub, 11, '#C9B3F0', { bold: false, wrap: W - 24 });
-      const cap = OTR.ui.keyCap(this, -W / 2 + 22, -H / 2 + 26, String(i + 1), { bg: 0x4D148C, color: '#ffffff', size: 14 });
+      const sub = OTR.txt(this, 0, 74, st.sub, 11, OTR_DATA.theme.css('tint'), { bold: false, wrap: W - 24 });
+      const cap = OTR.ui.keyCap(this, -W / 2 + 22, -H / 2 + 26, String(i + 1), { bg: OTR_DATA.theme.primary, color: '#ffffff', size: 14 });
       const hit = this.add.rectangle(0, 0, W, H, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerover', () => { if (this.answering) paint(true); });
       hit.on('pointerout', () => paint(this.markedBay === id));      // the verdict's highlight stays under a hover
@@ -92,7 +92,7 @@ class LabelScene extends BaseScenarioScene {
     return OTR.tex.make(this, 'lbl_bay_' + id, 92, 78, (ctx, w, h) => {
       const cv = OTR.cv;
       if (id === 'belt') {
-        ctx.fillStyle = '#4E4A60'; cv.rr(ctx, 6, 48, 80, 12, 6); ctx.fill();
+        ctx.fillStyle = '#4b545f'; cv.rr(ctx, 6, 48, 80, 12, 6); ctx.fill();
         ctx.fillStyle = '#9A96AE';
         for (let x = 12; x < 82; x += 16) { cv.rr(ctx, x, 44, 12, 8, 4); ctx.fill(); }
         OTR.draw.box(ctx, { fw: 40, fh: 30, d: 12, x: 24, y: 12, color: 0xC99A62, tape: false });
@@ -105,8 +105,8 @@ class LabelScene extends BaseScenarioScene {
         // isolate: cordoned-off warning triangle
         ctx.fillStyle = '#FFC83D';
         ctx.beginPath(); ctx.moveTo(46, 12); ctx.lineTo(80, 62); ctx.lineTo(12, 62); ctx.closePath(); ctx.fill();
-        ctx.strokeStyle = '#1D1030'; ctx.lineWidth = 3; ctx.stroke();
-        ctx.fillStyle = '#1D1030'; ctx.font = '900 30px "Segoe UI", Arial';
+        ctx.strokeStyle = OTR_DATA.theme.css('ink'); ctx.lineWidth = 3; ctx.stroke();
+        ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = '900 30px "Segoe UI", Arial';
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText('!', 46, 46);
       }
@@ -134,8 +134,8 @@ class LabelScene extends BaseScenarioScene {
       c.add([g, t, hit]);
       this.dots[face] = { c, g, t };
     });
-    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W / ▲ top  ·  S / ▼ base', 12, '#9A8AB0', { bold: false }).setDepth(25);
-    OTR.txt(this, this.BOX.x, 596, 'drag the package onto a station, or press 1-6', 12, '#9A8AB0', { bold: false }).setDepth(25);
+    OTR.txt(this, this.BOX.x, 574, 'A / D turn it  ·  W / ▲ top  ·  S / ▼ base', 12, OTR_DATA.theme.css('mutedLight'), { bold: false }).setDepth(25);
+    OTR.txt(this, this.BOX.x, 596, 'drag the package onto a station, or press 1-6', 12, OTR_DATA.theme.css('mutedLight'), { bold: false }).setDepth(25);
 
     this.guideBtn = OTR.ui.button(this, 740, 110, 'Guide (G)', () => this.toggleGuide(), { w: 160, h: 40, skin: 'purple', fontSize: 15, icon: 'ic_book' }).setDepth(810);
   }
@@ -272,12 +272,12 @@ class LabelScene extends BaseScenarioScene {
       const seen = !!(this.seen && this.seen[face]);
       const cur = this.face === face;
       d.g.redraw((g) => {
-        g.fillStyle(cur ? 0xFF6600 : seen ? 0x2BC48A : 0x2A1546, 1);
+        g.fillStyle(cur ? OTR_DATA.theme.accent : seen ? 0x2BC48A : 0x172C44, 1);
         g.fillCircle(0, 0, 14);
-        g.lineStyle(2, cur ? 0xFFC83D : seen ? 0x2BC48A : 0x4A2A70, 1);
+        g.lineStyle(2, cur ? 0xFFC83D : seen ? 0x2BC48A : 0x2D4B6C, 1);
         g.strokeCircle(0, 0, 14);
       });
-      d.t.setColor(seen || cur ? '#ffffff' : '#9A8AB0');
+      d.t.setColor(seen || cur ? '#ffffff' : OTR_DATA.theme.css('mutedLight'));
     });
   }
 
@@ -456,10 +456,10 @@ class LabelScene extends BaseScenarioScene {
     const w = 800, h = 320;
     const col = ok ? (blind ? 0xFFB020 : 0x2BC48A) : 0xF0435A;
     const c = this.add.container(this.BOX.x, 320).setDepth(70);
-    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF6F1FD, border: col, borderWidth: 4, radius: 18 }));
+    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF2F7FC, border: col, borderWidth: 4, radius: 18 }));
     const head = !stationId ? 'TOO SLOW' : ok ? (blind ? 'RIGHT — BUT BLIND' : 'CORRECT') : 'WRONG STATION';
     c.add(OTR.txt(this, -w / 2 + 28, -h / 2 + 24, head, 17, OTR.color.css(col), { ox: 0, weight: '900' }));
-    c.add(OTR.txt(this, w / 2 - 28, -h / 2 + 24, `BELONGS ON: ${C.stations[item.answer].label}`, 15, '#250849', { ox: 1, weight: '900' }));
+    c.add(OTR.txt(this, w / 2 - 28, -h / 2 + 24, `BELONGS ON: ${C.stations[item.answer].label}`, 15, OTR_DATA.theme.css('primaryDark'), { ox: 1, weight: '900' }));
 
     // what was actually on it
     const found = [];
@@ -467,7 +467,7 @@ class LabelScene extends BaseScenarioScene {
     if (item.damage) found.push({ damage: item.damage.kind, face: item.damage.face });
     const y0 = -h / 2 + 96;
     if (!found.length) {
-      c.add(OTR.txt(this, -w / 2 + 28, y0 - 14, 'No handling marks on any of the six sides.', 16, '#5A4A70', { ox: 0, oy: 0, bold: false }));
+      c.add(OTR.txt(this, -w / 2 + 28, y0 - 14, 'No handling marks on any of the six sides.', 16, '#4c5c6e', { ox: 0, oy: 0, bold: false }));
     }
     found.slice(0, 4).forEach((f, i) => {
       const x = -w / 2 + 108 + i * 172;
@@ -476,14 +476,14 @@ class LabelScene extends BaseScenarioScene {
         const g = OTR.tex.shape(this, (g) => { g.fillStyle(f.damage === 'leak' ? 0x2E6EB4 : 0x8A5A2A, 1); g.fillCircle(x, y0, 22); });
         c.add([g, OTR.txt(this, x, y0, f.damage === 'leak' ? '💧' : '✗', 20, '#ffffff', { weight: '900' })]);
       }
-      c.add(OTR.txt(this, x, y0 + 36, f.mark ? this.markName(f.mark) : f.damage.toUpperCase(), 12, '#250849', { weight: '900', wrap: 156 }));
-      c.add(OTR.txt(this, x, y0 + 56, 'on the ' + this.FACE_NAMES[f.face].toLowerCase(), 11, this.seen[f.face] ? '#5A4A70' : '#C8243B', { bold: false }));
+      c.add(OTR.txt(this, x, y0 + 36, f.mark ? this.markName(f.mark) : f.damage.toUpperCase(), 12, OTR_DATA.theme.css('primaryDark'), { weight: '900', wrap: 156 }));
+      c.add(OTR.txt(this, x, y0 + 56, 'on the ' + this.FACE_NAMES[f.face].toLowerCase(), 11, this.seen[f.face] ? '#4c5c6e' : '#C8243B', { bold: false }));
     });
 
-    const body = OTR.txt(this, -w / 2 + 28, y0 + 92, item.explain, 16, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 56, lineSpacing: 3 });
+    const body = OTR.txt(this, -w / 2 + 28, y0 + 92, item.explain, 16, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 56, lineSpacing: 3 });
     c.add(body);
     if (blind) c.add(OTR.txt(this, -w / 2 + 28, y0 + 92 + body.height + 8, `Blind call — you never looked at ${this.faceList(unseen)}.`, 14, '#B07000', { ox: 0, oy: 0, weight: '900', wrap: w - 56 }));
-    c.add(OTR.txt(this, w / 2 - 28, h / 2 - 22, 'click / SPACE ▶', 12, '#9A8AB0', { ox: 1 }));
+    c.add(OTR.txt(this, w / 2 - 28, h / 2 - 22, 'click / SPACE ▶', 12, OTR_DATA.theme.css('mutedLight'), { ox: 1 }));
 
     c.setAlpha(0).setY(300);
     this.tweens.add({ targets: c, alpha: 1, y: 320, duration: 200 });
@@ -517,7 +517,7 @@ class LabelScene extends BaseScenarioScene {
     this.phase = 'done';
     this.progressText.setText('');
     this.faceLabel.setText('');
-    OTR.fx.stamp(this, this.BOX.x, 300, 'INSPECTION COMPLETE', 0xFF6600, { size: 40, hold: 1400 });
+    OTR.fx.stamp(this, this.BOX.x, 300, 'INSPECTION COMPLETE', OTR_DATA.theme.accent, { size: 40, hold: 1400 });
     OTR.audio.play('fanfare');
 
     const ratios = this.log.ratios(['safety', 'efficiency']);
@@ -541,14 +541,14 @@ class LabelScene extends BaseScenarioScene {
           const col = i % cols, row = Math.floor(i / cols);
           const x = -w / 2 + 56 + col * 348, y = -h / 2 + 118 + row * 128;
           box.add(this.add.image(x + 28, y, OTR.art.mark(this, g.mark, 38)).setScale(0.92));
-          const name = OTR.txt(this, x + 82, y - 34, g.name, 15, '#250849', { ox: 0, oy: 0, weight: '900', wrap: 240 });
+          const name = OTR.txt(this, x + 82, y - 34, g.name, 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, oy: 0, weight: '900', wrap: 240 });
           box.add(name);
-          box.add(OTR.txt(this, x + 82, name.y + name.height + 2, g.meaning, 13, '#5A4A70', { ox: 0, oy: 0, bold: false, wrap: 240, lineSpacing: 2 }));
+          box.add(OTR.txt(this, x + 82, name.y + name.height + 2, g.meaning, 13, '#4c5c6e', { ox: 0, oy: 0, bold: false, wrap: 240, lineSpacing: 2 }));
         });
         const y = -h / 2 + 118 + Math.ceil(C.guide.length / cols) * 128 - 20;
-        box.add(OTR.txt(this, 0, y, 'MORE THAN ONE MARK? THE MOST RESTRICTIVE ONE DECIDES', 14, '#FF6600', { weight: '900' }));
+        box.add(OTR.txt(this, 0, y, 'MORE THAN ONE MARK? THE MOST RESTRICTIVE ONE DECIDES', 14, OTR_DATA.theme.css('accent'), { weight: '900' }));
         const chain = C.precedence.map(id => C.stations[id].label).join('   >   ');
-        box.add(OTR.txt(this, 0, y + 28, chain, 15, '#250849', { weight: '900', wrap: w - 100 }));
+        box.add(OTR.txt(this, 0, y + 28, chain, 15, OTR_DATA.theme.css('primaryDark'), { weight: '900', wrap: w - 100 }));
       },
       buttons: [{ label: 'Close (G)', skin: 'orange', keepOpen: true, onClick: () => this.toggleGuide() }]
     });

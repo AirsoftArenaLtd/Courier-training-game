@@ -30,23 +30,23 @@ class BaseScenarioScene extends Phaser.Scene {
     o = o || {};
     const bar = this.add.container(0, 0).setDepth(800).setScrollFactor(0);
     bar.add(OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x16062B, 0.82);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.82);
       g.fillRect(0, 0, OTR.W, 56);
-      g.fillStyle(0xFF6600, 1);
+      g.fillStyle(OTR_DATA.theme.accent, 1);
       g.fillRect(0, 56, OTR.W, 3);
     }));
     bar.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
     const mod = OTR.registry.moduleOf(this.scenarioId);
-    bar.add(OTR.txt(this, 64, 19, (mod ? mod.title.toUpperCase() : this.shiftMode ? 'TODAY\'S ROUTE' : ''), 12, '#C9B3F0', { ox: 0 }));
+    bar.add(OTR.txt(this, 64, 19, (mod ? mod.title.toUpperCase() : this.shiftMode ? 'TODAY\'S ROUTE' : ''), 12, OTR_DATA.theme.css('tint'), { ox: 0 }));
     bar.add(OTR.txt(this, 64, 38, o.title || (this.scenario ? this.scenario.title : ''), 20, '#ffffff', { ox: 0, weight: '900' }));
     if (o.score !== false) {
-      bar.add(OTR.txt(this, OTR.W - 24, 17, 'SCORE', 12, '#C9B3F0', { ox: 1 }));
+      bar.add(OTR.txt(this, OTR.W - 24, 17, 'SCORE', 12, OTR_DATA.theme.css('tint'), { ox: 1 }));
       this.scoreText = OTR.txt(this, OTR.W - 24, 38, '0', 24, '#FFC83D', { ox: 1, weight: '900' });
       bar.add(this.scoreText);
     }
     if (o.timer) {
       this.timerText = OTR.txt(this, OTR.W / 2, 28, '0:00', 26, '#ffffff', { weight: '900' });
-      bar.add(OTR.ui.panel(this, OTR.W / 2, 28, 120, 40, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x7B3FC4, borderWidth: 2, radius: 12, shadow: false }));
+      bar.add(OTR.ui.panel(this, OTR.W / 2, 28, 120, 40, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.primaryLight, borderWidth: 2, radius: 12, shadow: false }));
       bar.add(this.timerText);
     }
     this.hudBar = bar;
@@ -94,8 +94,8 @@ class BaseScenarioScene extends Phaser.Scene {
       build: (box, api, w, h) => {
         let y = -h / 2 + 100;
         lines.forEach((line) => {
-          const dot = this.add.image(-w / 2 + 60, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(0xFF6600);
-          const t = OTR.txt(this, -w / 2 + 82, y, line, 19, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
+          const dot = this.add.image(-w / 2 + 60, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(OTR_DATA.theme.accent);
+          const t = OTR.txt(this, -w / 2 + 82, y, line, 19, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
           box.add([dot, t]);
           y += t.height + 14;
         });

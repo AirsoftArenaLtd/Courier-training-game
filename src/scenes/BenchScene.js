@@ -87,14 +87,14 @@ class BenchScene extends Phaser.Scene {
   show() {
     this.scene.setVisible(true);
     const W = OTR.W, H = OTR.H;
-    this.add.rectangle(W / 2, H / 2, W, H, 0x16062B);
+    this.add.rectangle(W / 2, H / 2, W, H, OTR_DATA.theme.primaryDeep);
     OTR.txt(this, W / 2, 50, 'PERFORMANCE TEST', 28, '#ffffff', { weight: '900' });
     const gpu = this.gpu();
-    OTR.txt(this, W / 2, 86, gpu, 15, '#C9B3F0', { bold: false, fit: W - 80 });
+    OTR.txt(this, W / 2, 86, gpu, 15, OTR_DATA.theme.css('tint'), { bold: false, fit: W - 80 });
     const lines = [`On The Route performance test · ${new Date().toISOString().slice(0, 16).replace('T', ' ')}`, `Graphics: ${gpu}`, `Screen: ${window.innerWidth}x${window.innerHeight} at ${window.devicePixelRatio}x`, ''];
-    OTR.txt(this, 300, 130, 'SCREEN', 14, '#FF9447', { ox: 0, weight: '900' });
-    OTR.txt(this, 780, 130, 'AVERAGE FPS', 14, '#FF9447', { weight: '900' });
-    OTR.txt(this, 960, 130, 'WORST 1%', 14, '#FF9447', { weight: '900' });
+    OTR.txt(this, 300, 130, 'SCREEN', 14, OTR_DATA.theme.css('accentLight'), { ox: 0, weight: '900' });
+    OTR.txt(this, 780, 130, 'AVERAGE FPS', 14, OTR_DATA.theme.css('accentLight'), { weight: '900' });
+    OTR.txt(this, 960, 130, 'WORST 1%', 14, OTR_DATA.theme.css('accentLight'), { weight: '900' });
     this.results.forEach((r, k) => {
       const y = 168 + k * 36;
       const col = (fps) => (fps >= 55 ? '#8BF0C6' : fps >= 40 ? '#FFC83D' : '#FF8A9A');
@@ -103,12 +103,12 @@ class BenchScene extends Phaser.Scene {
       OTR.txt(this, 960, y, String(r.low), 20, col(r.low), { weight: '900' });
       lines.push(`${r.label}: ${r.avg} fps average, ${r.low} worst 1%`);
     });
-    OTR.txt(this, W / 2, H - 112, 'Green: smooth (55+) · amber: playable (40+) · red: needs work', 14, '#C9B3F0', { bold: false });
+    OTR.txt(this, W / 2, H - 112, 'Green: smooth (55+) · amber: playable (40+) · red: needs work', 14, OTR_DATA.theme.css('tint'), { bold: false });
     const text = lines.join('\n');
     this.report = text;
     console.log(text);
     const copy = OTR.ui.button(this, W / 2 - 150, H - 60, 'Copy results', () => {
-      const done = () => OTR.ui.toast(this, 'Copied: paste it into a message', { color: 0x16062B, border: 0x2BC48A });
+      const done = () => OTR.ui.toast(this, 'Copied: paste it into a message', { color: OTR_DATA.theme.primaryDeep, border: 0x2BC48A });
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => window.prompt('Copy these results:', text));
       else window.prompt('Copy these results:', text);
     }, { w: 240, h: 52, skin: 'orange', key: 'ENTER', hint: '⏎' });

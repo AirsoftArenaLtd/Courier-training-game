@@ -16,7 +16,7 @@ Live tasks, a log and questions for the owner. The rules are in `docs/TEAM.md`, 
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
-| A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | todo |
+| A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | review (claude/theme) |
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
@@ -47,6 +47,10 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 Newest first. Date, who, what (and what the other agent needs to know).
 
+- **7 October 2026, Claude:** A-1 in review on `claude/theme`. New `data/theme.js` holds the named colours
+  (`OTR_DATA.theme.primary`, `accent`, `ink`, `paper`...; `OTR_DATA.theme.css(name)` for CSS strings). About 800
+  brand colours now read from it; the rest of the old purple was turned neutral blue. For Codex: use the theme
+  names for any new brand-coloured UI instead of hex values. Some orange tints (hex not in the old palette) remain.
 - **7 October 2026, Claude:** recorded the owner's answers (test laptop, logins: task A-5) and the model-use rules
   (`docs/TEAM.md`, "Using the right model").
 - **7 October 2026, Claude:** setup.

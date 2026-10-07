@@ -126,7 +126,7 @@ OTR.tex = {
    * curves and slopes, and it is re-tessellated every frame. A shape that does not change is drawn once instead,
    * through Phaser's own canvas renderer into an antialiased canvas texture (shared by identical shapes), and shown
    * as an Image:
-   *   const g = OTR.tex.shape(scene, (g) => { g.fillStyle(0xFF6600, 1); g.fillRoundedRect(-40, -12, 80, 24, 12); });
+   *   const g = OTR.tex.shape(scene, (g) => { g.fillStyle(OTR_DATA.theme.accent, 1); g.fillRoundedRect(-40, -12, 80, 24, 12); });
    * The Image's position is the shape's local (0, 0), so it goes wherever the Graphics went (into a container, with
    * setDepth, setScrollFactor, tweens). A shape that changes now and then is a liveShape() that redraws on change.
    */
@@ -228,7 +228,7 @@ OTR.tex = {
   panel(scene, w, h, opts) {
     opts = opts || {};
     const top = opts.top !== undefined ? opts.top : 0xFFFFFF;
-    const bottom = opts.bottom !== undefined ? opts.bottom : 0xEDE7F6;
+    const bottom = opts.bottom !== undefined ? opts.bottom : 0xE8EEF5;
     const r = opts.radius !== undefined ? opts.radius : 18;
     const border = opts.border !== undefined ? opts.border : null;
     const bw = opts.borderWidth || 3;
@@ -343,13 +343,13 @@ OTR.tex = {
 
   /** Pre-built button skins. */
   buttonSkins: {
-    orange: { top: 0xFF8A3D, bottom: 0xE65100, border: 0xFFB27A, text: '#ffffff' },
-    purple: { top: 0x7B3FC4, bottom: 0x4D148C, border: 0xA57EE0, text: '#ffffff' },
+    orange: { top: OTR_DATA.theme.accentWarm, bottom: 0xE65100, border: OTR_DATA.theme.accentSoft, text: '#ffffff' },
+    purple: { top: OTR_DATA.theme.primaryLight, bottom: OTR_DATA.theme.primary, border: 0x83ACDB, text: '#ffffff' },
     green:  { top: 0x3DDC9C, bottom: 0x1E9E6B, border: 0x8BF0C6, text: '#ffffff' },
     red:    { top: 0xFF6B7F, bottom: 0xC8243B, border: 0xFFA5B1, text: '#ffffff' },
     blue:   { top: 0x66BBFF, bottom: 0x1F7AD6, border: 0xA8D8FF, text: '#ffffff' },
-    ghost:  { top: 0xFFFFFF, bottom: 0xEDE7F6, border: 0xC9B3F0, text: '#4D148C' },
-    dark:   { top: 0x3A1D63, bottom: 0x250849, border: 0x6A45A0, text: '#ffffff' }
+    ghost:  { top: 0xFFFFFF, bottom: 0xE8EEF5, border: OTR_DATA.theme.tint, text: OTR_DATA.theme.css('primary') },
+    dark:   { top: 0x203E60, bottom: OTR_DATA.theme.primaryDark, border: OTR_DATA.theme.mid, text: '#ffffff' }
   },
   button(scene, w, h, skin) {
     const s = OTR.tex.buttonSkins[skin] || OTR.tex.buttonSkins.orange;

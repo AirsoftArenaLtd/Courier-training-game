@@ -30,7 +30,7 @@ class SortingScene extends BaseScenarioScene {
     this.elapsed = 0;
 
     // backdrop
-    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.45 }));
+    this.add.image(W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: OTR_DATA.theme.nightDeep, alpha: 0.45 }));
 
     this.buildBelt();
     this.buildBins();
@@ -39,8 +39,8 @@ class SortingScene extends BaseScenarioScene {
     this.setTimer(this.totalTime);
 
     // combo meter
-    this.comboText = OTR.txt(this, W - 24, 84, '', 22, '#FFC83D', { ox: 1, weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(810);
-    this.waveText = OTR.txt(this, 24, 84, '', 16, '#E6DAF7', { ox: 0, weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(810);
+    this.comboText = OTR.txt(this, W - 24, 84, '', 22, '#FFC83D', { ox: 1, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 5 }).setDepth(810);
+    this.waveText = OTR.txt(this, 24, 84, '', 16, OTR_DATA.theme.css('line'), { ox: 0, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setDepth(810);
 
     // front-of-belt indicator
     this.indicator = this.add.image(0, 0, 'p_glow').setTint(0xFFC83D).setBlendMode('ADD').setScale(2.4).setVisible(false).setDepth(4);
@@ -55,7 +55,7 @@ class SortingScene extends BaseScenarioScene {
   buildBelt() {
     const y = this.BELT_Y;
     OTR.tex.make(this, 'belt_tile', 60, 60, (ctx, w, h) => {
-      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, h, [[0, '#3C3748'], [0.5, '#2A2634'], [1, '#221E2B']]);
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, h, [[0, '#383f47'], [0.5, '#272d33'], [1, '#1f242a']]);
       ctx.fillRect(0, 0, w, h);
       ctx.fillStyle = 'rgba(255,255,255,0.08)';
       ctx.fillRect(0, 0, 4, h);
@@ -64,15 +64,15 @@ class SortingScene extends BaseScenarioScene {
     });
     OTR.tex.shape(this, (g) => {
       // legs
-      g.fillStyle(0x2A2634, 1);
+      g.fillStyle(0x272D33, 1);
       for (let x = 60; x < this.BELT_END; x += 220) g.fillRect(x, y + 40, 16, 110);
     }).setDepth(1);
     this.belt = this.add.tileSprite(this.BELT_END / 2, y + 4, this.BELT_END, 60, 'belt_tile').setDepth(2);
     // rails (top at y - 32, bottom band to y + 52), drawn once
     const railKey = OTR.tex.make(this, `sort_rail_${this.BELT_END}`, this.BELT_END, 84, (ctx) => {
-      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, 8, [[0, 0xC9C6D6], [1, 0x7A7690]]);
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 0, 0, 8, [[0, 0xC7CED5], [1, 0x7A7690]]);
       ctx.fillRect(0, 0, this.BELT_END, 8);
-      ctx.fillStyle = OTR.cv.lin(ctx, 0, 66, 0, 84, [[0, 0x9A96AE], [1, 0x4E4A60]]);
+      ctx.fillStyle = OTR.cv.lin(ctx, 0, 66, 0, 84, [[0, 0x9A96AE], [1, 0x4B545F]]);
       ctx.fillRect(0, 66, this.BELT_END, 18);
       ctx.fillStyle = OTR.cv.c(0xFFC83D);
       for (let x = 0; x < this.BELT_END; x += 40) ctx.fillRect(x, 70, 20, 4);
@@ -80,7 +80,7 @@ class SortingScene extends BaseScenarioScene {
     this.add.image(0, y - 32, railKey).setOrigin(0, 0).setDepth(3);
     // end chute
     OTR.tex.shape(this, (ch) => {
-      ch.fillStyle(0x4E4A60, 1);
+      ch.fillStyle(0x4B545F, 1);
       ch.beginPath(); ch.moveTo(this.BELT_END, y - 20); ch.lineTo(OTR.W, y + 110); ch.lineTo(OTR.W, y + 170); ch.lineTo(this.BELT_END, y + 52); ch.closePath(); ch.fillPath();
     }).setDepth(1);
     const sign = this.add.container(1226, y - 90).setDepth(5);
@@ -97,7 +97,7 @@ class SortingScene extends BaseScenarioScene {
       ctx.fillStyle = cv.lin(ctx, 0, 10, 0, 44, [[0, '#4A4656'], [1, '#2A2730']]); ctx.fill();
       cv.noShadow(ctx);
       cv.rr(ctx, 30, 40, 30, 46, 7); ctx.fillStyle = '#3A3644'; ctx.fill();   // grip
-      cv.rr(ctx, 26, 48, 10, 18, 4); ctx.fillStyle = '#FF6600'; ctx.fill();   // trigger
+      cv.rr(ctx, 26, 48, 10, 18, 4); ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fill();   // trigger
       cv.rr(ctx, 96, 16, 14, 22, 4); ctx.fillStyle = '#8A2030'; ctx.fill();   // window
       cv.rr(ctx, 22, 16, 44, 16, 4); ctx.fillStyle = '#6BE0A8'; ctx.fill();   // screen
       ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(26, 20, 34, 3); ctx.fillRect(26, 26, 22, 3);
@@ -136,7 +136,7 @@ class SortingScene extends BaseScenarioScene {
       const img = this.add.image(0, 0, key);
       const label = OTR.txt(this, 0, def.sub ? 10 : 20, def.label, def.label.length > 8 ? 17 : 21, OTR.color.css(OTR.color.shade(def.color, -0.35)), { weight: '900' });
       c.add([img, label]);
-      if (def.sub) c.add(OTR.txt(this, 0, 34, def.sub, 12, '#6A5A80', { bold: false }));
+      if (def.sub) c.add(OTR.txt(this, 0, 34, def.sub, 12, '#5c6c7e', { bold: false }));
       const cap = OTR.ui.keyCap(this, 0, -84, '?');
       c.add(cap);
       const glow = this.add.image(0, -40, 'p_glow').setTint(def.color).setBlendMode('ADD').setScale(4.2, 2).setAlpha(0);
@@ -297,7 +297,7 @@ class SortingScene extends BaseScenarioScene {
     const t = OTR.txt(this, 0, 0, line, 13, '#ffffff', { weight: '900' });
     const w = t.width + 22;
     const g = OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.92); g.fillRoundedRect(-w / 2, -13, w, 26, 8);
       g.lineStyle(2, bin.color, 1); g.strokeRoundedRect(-w / 2, -13, w, 26, 8);
     });
     c.add([g, t]);
@@ -525,7 +525,7 @@ class SortingScene extends BaseScenarioScene {
       OTR.fx.floatText(this, bin.x, 420, `✗ ${right}`, '#FF6B7F', { size: 22, hold: 700 });
       if (p.damage) OTR.ui.toast(this, 'Damaged package! Those go to EXCEPTIONS.', { color: 0x7A1020, border: 0xFF6B7F, hold: 1600 });
       else if (p.dg) OTR.ui.toast(this, 'Hazard diamond! Dangerous goods ride in the DG cage.', { color: 0x7A5A10, border: 0xFFC83D, hold: 1600 });
-      else if (p.heavy) OTR.ui.toast(this, `${p.weight} lb — that one goes down the heavy chute for a team lift.`, { color: 0x3A3644, border: 0xC9C6D6, hold: 1600 });
+      else if (p.heavy) OTR.ui.toast(this, `${p.weight} lb — that one goes down the heavy chute for a team lift.`, { color: 0x3A3644, border: 0xC7CED5, hold: 1600 });
     }
     this.updateCombo();
   }
@@ -568,7 +568,7 @@ class SortingScene extends BaseScenarioScene {
       this.tweens.add({ targets: p.img, alpha: 0, y: p.img.y - 30, duration: 300, onComplete: () => p.img.destroy() });
     });
     this.packages = [];
-    OTR.fx.stamp(this, OTR.W / 2, 170, 'BELT CLEAR!', 0xFF6600, { size: 52, hold: 1200 });
+    OTR.fx.stamp(this, OTR.W / 2, 170, 'BELT CLEAR!', OTR_DATA.theme.accent, { size: 52, hold: 1200 });
     OTR.audio.play('fanfare');
 
     const s = this.stats;

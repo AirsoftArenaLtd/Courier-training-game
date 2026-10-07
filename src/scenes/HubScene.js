@@ -7,7 +7,7 @@ class HubScene extends Phaser.Scene {
     if (!save.hasProfile()) { this.scene.start('TitleScene'); return; }
     OTR.fx.enter(this);
 
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'hub_bg', [[0, '#2A0C52'], [1, '#12041F']], (ctx, w, h) => {
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'hub_bg', [[0, '#102d4e'], [1, OTR_DATA.theme.css('nightDeep')]], (ctx, w, h) => {
       ctx.strokeStyle = 'rgba(255,255,255,0.035)';
       ctx.lineWidth = 18;
       for (let x = -h; x < w; x += 70) { ctx.beginPath(); ctx.moveTo(x, h); ctx.lineTo(x + h, 0); ctx.stroke(); }
@@ -50,15 +50,15 @@ class HubScene extends Phaser.Scene {
   buildHeader() {
     const W = OTR.W;
     OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 64);
-      g.fillStyle(0xFF6600, 1); g.fillRect(0, 64, W, 3);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.9); g.fillRect(0, 0, W, 64);
+      g.fillStyle(OTR_DATA.theme.accent, 1); g.fillRect(0, 64, W, 3);
     });
     const brand = OTR_DATA.config.brand ? OTR.txt(this, 24, 32, OTR_DATA.config.brand, 28, '#ffffff', { ox: 0, weight: '900' }) : null;
-    OTR.txt(this, brand ? 24 + brand.width + 10 : 24, 33, OTR_DATA.config.title.toUpperCase(), 20, '#FF6600', { ox: 0, weight: '900' });
+    OTR.txt(this, brand ? 24 + brand.width + 10 : 24, 33, OTR_DATA.config.title.toUpperCase(), 20, OTR_DATA.theme.css('accent'), { ox: 0, weight: '900' });
 
     // a label, not a button: flat and outlined (it used to wear the orange button's gradient; SHELL-17)
     const dayBadge = this.add.container(W / 2, 32);
-    dayBadge.add(OTR.tex.shape(this, (g) => { g.lineStyle(2, 0xFF9447, 1); g.strokeRoundedRect(-120, -19, 240, 38, 19); }));
+    dayBadge.add(OTR.tex.shape(this, (g) => { g.lineStyle(2, OTR_DATA.theme.accentLight, 1); g.strokeRoundedRect(-120, -19, 240, 38, 19); }));
     dayBadge.add(OTR.txt(this, 0, 1, `DAY ${OTR.save.data.day}  ·  STATION`, 18, '#FFC8A0', { weight: '900' }));
 
     this.focusables.push(OTR.ui.iconButton(this, W - 144, 32, 'ic_globe', () => OTR.ui.languages(this), { size: 46 }));
@@ -70,11 +70,11 @@ class HubScene extends Phaser.Scene {
   buildProfile() {
     const save = OTR.save;
     const x = 152, top = 84, w = 272, h = 318;
-    this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 20 }));
+    this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: 0x1C416C, bottom: 0x0D2745, border: OTR_DATA.theme.mid, radius: 20 }));
 
     OTR.tex.shape(this, (ring) => {
-      ring.fillStyle(0xFF6600, 1); ring.fillCircle(x, top + 52, 42);
-      ring.fillStyle(0xF3ECFF, 1); ring.fillCircle(x, top + 52, 37);
+      ring.fillStyle(OTR_DATA.theme.accent, 1); ring.fillCircle(x, top + 52, 42);
+      ring.fillStyle(0xEDF5FE, 1); ring.fillCircle(x, top + 52, 37);
     });
     const avatar = this.add.image(x, top + 64, OTR.art.portrait(this, 'player', OTR.hub.playerSpec, 'happy')).setScale(0.23);
     const maskShape = this.make.graphics({ add: false });
@@ -92,12 +92,12 @@ class HubScene extends Phaser.Scene {
     const rg = OTR.tex.shape(this, (rg) => { rg.fillStyle(info.rank.color, 1); rg.fillRoundedRect(-bw / 2, -13, bw, 26, 13); });
     badge.add([rg, this.add.image(-bw / 2 + 17, 0, 'ic_badge').setDisplaySize(16, 16), rt]);
 
-    OTR.txt(this, x - 110, top + 164, 'COURIER RANK', 13, '#C9B3F0', { ox: 0 });
+    OTR.txt(this, x - 110, top + 164, 'COURIER RANK', 13, OTR_DATA.theme.css('tint'), { ox: 0 });
     // the bar fills with progress through this rank, so the numbers count the same stars (SHELL-9)
     OTR.txt(this, x + 110, top + 166, info.next ? `${info.total - info.rank.stars} / ${info.next.stars - info.rank.stars} ★` : `${info.total} ★ MAX`, 13, '#FFC83D', { ox: 1 });
-    const bar = OTR.ui.bar(this, x - 110, top + 184, 220, 11, { color: 0xFF6600, bgAlpha: 0.35 });
+    const bar = OTR.ui.bar(this, x - 110, top + 184, 220, 11, { color: OTR_DATA.theme.accent, bgAlpha: 0.35 });
     bar.setValue(info.progress, true, 900);
-    OTR.txt(this, x, top + 202, info.next ? `Next: ${info.next.name}` : 'Top rank reached!', 13, '#E6DAF7', { bold: false });
+    OTR.txt(this, x, top + 202, info.next ? `Next: ${info.next.name}` : 'Top rank reached!', 13, OTR_DATA.theme.css('line'), { bold: false });
 
     // category totals, each named (the icons alone left a new hire guessing; SHELL-17)
     const totals = save.totals();
@@ -107,7 +107,7 @@ class HubScene extends Phaser.Scene {
       OTR.tex.shape(this, (g) => { g.fillStyle(0x000000, 0.22); g.fillRoundedRect(cx - 40, top + 220, 80, 52, 10); });
       this.add.image(cx - 14, top + 236, def.icon).setDisplaySize(16, 16).setTint(def.color);
       OTR.txt(this, cx + 2, top + 236, `${totals[cat]}`, 18, OTR.color.css(def.color), { ox: 0, weight: '900' });
-      OTR.txt(this, cx, top + 259, def.label, 13, '#E6DAF7', { bold: false });
+      OTR.txt(this, cx, top + 259, def.label, 13, OTR_DATA.theme.css('line'), { bold: false });
     });
 
     // the stars, and the way to the trainee record
@@ -126,7 +126,7 @@ class HubScene extends Phaser.Scene {
     const x = 152, top = 412, w = 272, h = 196;
     const st = OTR.shift && OTR.shift.state;
     const live = OTR.shift && OTR.shift.active();
-    this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: live ? 0xFF8A3D : 0x4D148C, bottom: live ? 0xC85000 : 0x2A0F4F, border: 0xFFB27A, radius: 20 }));
+    this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: live ? OTR_DATA.theme.accentWarm : OTR_DATA.theme.primary, bottom: live ? OTR_DATA.theme.accentDark : OTR_DATA.theme.primaryNight, border: OTR_DATA.theme.accentSoft, radius: 20 }));
     OTR.txt(this, x, top + 26, live ? 'ROUTE IN PROGRESS' : 'TODAY\'S ROUTE', 15, '#ffffff', { weight: '900', fit: w - 28 });
 
     const weather = OTR.shift ? OTR.shift.weatherFor(save.data.day) : 'clear';
@@ -148,7 +148,7 @@ class HubScene extends Phaser.Scene {
       OTR.txt(this, x, top + 54, `Day ${save.data.day}  ·  5 stops`, 17, '#ffffff', { weight: '900', fit: w - 28 });
       OTR.txt(this, x, top + 76, wLabel, 14, '#FFE3C8', { bold: false, fit: w - 28 });
       // one line: the Start button sits right under it
-      OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, '#E6DAF7', { bold: false, fit: w - 28 });
+      OTR.txt(this, x, top + 95, 'Brief → pre-trip → load → the stops', 13, OTR_DATA.theme.css('line'), { bold: false, fit: w - 28 });
       // a route day is a long session: say so before it starts (a stray Enter used to drop you into the briefing)
       // (ENTER is not its key for someone who has played nothing yet: see create)
       this.focusables.push(OTR.ui.button(this, x, top + 132, 'Start the route ▶', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
@@ -173,17 +173,17 @@ class HubScene extends Phaser.Scene {
     const cols = 3;
     const pw = Math.floor((OTR.W - X0 - 20 - gap * (cols - 1)) / cols);
     const ph = 190;
-    OTR.txt(this, X0, 92, 'TRAINING ACADEMY', 15, '#FF9447', { ox: 0, weight: '900' });
+    OTR.txt(this, X0, 92, 'TRAINING ACADEMY', 15, OTR_DATA.theme.css('accentLight'), { ox: 0, weight: '900' });
     const A = OTR.academy, as = A.assessmentAllowed() ? A.summary() : null;
     const right = this.fresh ? 'New here? Start with the scenario marked NEXT'
       : as ? [`Assessments passed: ${as.passed} / ${as.total}`].concat(A.practiceAllowed() ? ['practice any time'] : []).join('  ·  ') : 'Practice any module, any time';
-    OTR.txt(this, OTR.W - 20, 92, right, 14, this.fresh ? '#FFC83D' : as ? '#8BF0C6' : '#C9B3F0', { ox: 1, bold: !!this.fresh || !!as });
+    OTR.txt(this, OTR.W - 20, 92, right, 14, this.fresh ? '#FFC83D' : as ? '#8BF0C6' : OTR_DATA.theme.css('tint'), { ox: 1, bold: !!this.fresh || !!as });
 
     mods.forEach((m, i) => {
       const px = X0 + (i % cols) * (pw + gap);
       const py = Y0 + Math.floor(i / cols) * (ph + gap);
       const panel = this.add.container(px + pw / 2, py + ph / 2);
-      panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: 0xEEE6FA, radius: 16 }));
+      panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: 0xE7EFF9, radius: 16 }));
       panel.add(OTR.tex.shape(this, (hg) => {
         hg.fillStyle(m.color, 1);
         hg.fillRoundedRect(-pw / 2, -ph / 2, pw, 44, { tl: 16, tr: 16, bl: 0, br: 0 });
@@ -229,16 +229,16 @@ class HubScene extends Phaser.Scene {
     const g = OTR.tex.liveShape(this);
     const rec = save.record(sc.id);
     const draw = (hover) => g.redraw((g) => {
-      g.fillStyle(hover ? OTR.color.shade(mod.color, 0.84) : next ? 0xFFF1E6 : 0xF6F1FD, 1);
+      g.fillStyle(hover ? OTR.color.shade(mod.color, 0.84) : next ? 0xFFF1E6 : 0xF2F7FC, 1);
       g.fillRoundedRect(-w / 2, -h / 2, w, h, 10);
-      g.lineStyle(next ? 3 : 2, hover ? mod.color : next ? 0xFF6600 : 0xE0D4F2, 1);
+      g.lineStyle(next ? 3 : 2, hover ? mod.color : next ? OTR_DATA.theme.accent : 0xD6E2F0, 1);
       g.strokeRoundedRect(-w / 2, -h / 2, w, h, 10);
     });
     draw(false);
     c.add(g);
     c.add(OTR.tex.shape(this, (ib) => { ib.fillStyle(mod.color, 1); ib.fillRoundedRect(-w / 2 + 6, -ico / 2, ico, ico, 8); }));
     c.add(this.add.image(-w / 2 + 6 + ico / 2, 0, sc.icon || mod.icon).setDisplaySize(ico - 12, ico - 12));
-    const title = OTR.txt(this, -w / 2 + 42, 0, sc.title, 14, '#250849', { ox: 0, weight: '900' });
+    const title = OTR.txt(this, -w / 2 + 42, 0, sc.title, 14, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
     const maxTitleW = w - 42 - 86;
     if (title.width > maxTitleW) title.setScale(maxTitleW / title.width);
     c.add(title);
@@ -252,11 +252,11 @@ class HubScene extends Phaser.Scene {
       const pw = Math.min(56, Math.max(48, tag.width + 12));
       if (tag.width > pw - 10) tag.setScale((pw - 10) / tag.width);
       tag.setX(w / 2 - 30 - pw / 2);
-      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(next ? 0x4D148C : 0xFF6600, 1); ng.fillRoundedRect(w / 2 - 30 - pw, -10, pw, 20, 10); }));
+      c.add(OTR.tex.shape(this, (ng) => { ng.fillStyle(next ? OTR_DATA.theme.primary : OTR_DATA.theme.accent, 1); ng.fillRoundedRect(w / 2 - 30 - pw, -10, pw, 20, 10); }));
       c.add(tag);
     } else {
       c.add(this.add.image(w / 2 - 70, 0, 'star_gold').setDisplaySize(15, 15));
-      c.add(OTR.txt(this, w / 2 - 59, 0, `${got}/${max}`, 13, got === max ? '#1E9E6B' : '#7A6A90', { ox: 0, weight: '900' }));
+      c.add(OTR.txt(this, w / 2 - 59, 0, `${got}/${max}`, 13, got === max ? '#1E9E6B' : OTR_DATA.theme.css('muted'), { ox: 0, weight: '900' }));
     }
     // the assessment, once taken: a green tick when passed, a red cross when it can't be retaken
     const ast = OTR.academy.assessmentAllowed() ? OTR.academy.status(sc.id) : 'none';
@@ -305,19 +305,19 @@ class HubScene extends Phaser.Scene {
         box.add(OTR.txt(this, -w / 2 + 96, -h / 2 + 58, sc.title, 32, '#ffffff', { ox: 0, weight: '900', shadow: true }));
 
         let y = -h / 2 + 122;
-        const blurb = OTR.txt(this, -w / 2 + 40, y, sc.blurb, 18, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 80, lineSpacing: 3 });
+        const blurb = OTR.txt(this, -w / 2 + 40, y, sc.blurb, 18, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 80, lineSpacing: 3 });
         box.add(blurb);
         y += blurb.height + 18;
-        box.add(OTR.txt(this, -w / 2 + 40, y, 'YOU\'LL PRACTICE', 13, '#FF6600', { ox: 0, oy: 0 }));
+        box.add(OTR.txt(this, -w / 2 + 40, y, 'YOU\'LL PRACTICE', 13, OTR_DATA.theme.css('accent'), { ox: 0, oy: 0 }));
         y += 24;
         sc.learn.forEach(l => {
           box.add(this.add.image(-w / 2 + 50, y + 10, 'ic_check').setDisplaySize(14, 14).setTint(0x2BC48A));
-          box.add(OTR.txt(this, -w / 2 + 66, y, l, 16, '#3A2A50', { ox: 0, oy: 0, bold: false }));
+          box.add(OTR.txt(this, -w / 2 + 66, y, l, 16, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false }));
           y += 26;
         });
         y += 8;
-        box.add(OTR.txt(this, -w / 2 + 40, y, 'CONTROLS', 13, '#FF6600', { ox: 0, oy: 0 }));
-        box.add(OTR.txt(this, -w / 2 + 40, y + 22, sc.controls, 15, '#5A4A70', { ox: 0, oy: 0, bold: false, wrap: w - 80 }));
+        box.add(OTR.txt(this, -w / 2 + 40, y, 'CONTROLS', 13, OTR_DATA.theme.css('accent'), { ox: 0, oy: 0 }));
+        box.add(OTR.txt(this, -w / 2 + 40, y + 22, sc.controls, 15, '#4c5c6e', { ox: 0, oy: 0, bold: false, wrap: w - 80 }));
 
         const catY = h / 2 - 118;
         const n = sc.categories.length;
@@ -377,9 +377,9 @@ class HubScene extends Phaser.Scene {
   /** Quizzes (with refreshers due) and a drill of the trainee's own mistakes. */
   buildTools() {
     const x = 152, y = 664, w = 272;
-    this.add.image(x, y, OTR.tex.panel(this, w, 96, { top: 0x3A1870, bottom: 0x240A48, border: 0x6A45A0, radius: 16 }));
-    this.add.image(x - 104, y - 30, 'ic_book').setDisplaySize(18, 18).setTint(0xFF6600);
-    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, '#FF9447', { ox: 0, fit: w / 2 + 76 });   // from beside the book icon to the panel's edge
+    this.add.image(x, y, OTR.tex.panel(this, w, 96, { top: 0x1C416C, bottom: 0x0D2745, border: OTR_DATA.theme.mid, radius: 16 }));
+    this.add.image(x - 104, y - 30, 'ic_book').setDisplaySize(18, 18).setTint(OTR_DATA.theme.accent);
+    OTR.txt(this, x - 88, y - 30, 'PRACTICE TOOLS', 13, OTR_DATA.theme.css('accentLight'), { ox: 0, fit: w / 2 + 76 });   // from beside the book icon to the panel's edge
     const due = OTR.quiz.dueCount();
     const drills = OTR.drill.queue().length;
     const qb = OTR.ui.button(this, x - 66, y + 12, 'Quizzes', () => OTR.fx.transition(this, 'QuizScene', {}),
@@ -387,11 +387,11 @@ class HubScene extends Phaser.Scene {
     this.focusables.push(qb);
     if (due) {
       // refreshers due: a count on the button's corner
-      qb.add(OTR.tex.shape(this, (g) => { g.fillStyle(0xFFFFFF, 1); g.fillCircle(56, -18, 11); g.lineStyle(2, 0xC85000, 1); g.strokeCircle(56, -18, 11); }));
-      qb.add(OTR.txt(this, 56, -18, String(due), 13, '#C85000', { weight: '900' }));
+      qb.add(OTR.tex.shape(this, (g) => { g.fillStyle(0xFFFFFF, 1); g.fillCircle(56, -18, 11); g.lineStyle(2, OTR_DATA.theme.accentDark, 1); g.strokeCircle(56, -18, 11); }));
+      qb.add(OTR.txt(this, 56, -18, String(due), 13, OTR_DATA.theme.css('accentDark'), { weight: '900' }));
     }
     const dr = OTR.ui.button(this, x + 66, y + 12, 'Mistake drill', () => {
-      if (!OTR.drill.start(this)) OTR.ui.toast(this, Object.keys(OTR.save.data.scenarios).length ? 'Nothing to drill: full stars everywhere you have played' : 'Play a few scenarios first: the drill replays the ones you lose points in', 0xC9B3F0);
+      if (!OTR.drill.start(this)) OTR.ui.toast(this, Object.keys(OTR.save.data.scenarios).length ? 'Nothing to drill: full stars everywhere you have played' : 'Play a few scenarios first: the drill replays the ones you lose points in', OTR_DATA.theme.tint);
     }, { w: 128, h: 44, skin: 'purple', fontSize: 15 });
     if (!drills) dr.setAlpha(0.6);
     this.focusables.push(dr);
@@ -407,9 +407,9 @@ class HubScene extends Phaser.Scene {
         // trainer tools, behind the PIN, in the corner away from a trainee's own settings
         box.add(OTR.ui.button(this, w / 2 - 78, top + 42, 'Trainer', () => api.close(() => this.trainerLogin()), { w: 120, h: 38, skin: 'ghost', fontSize: 15, icon: 'ic_badge', iconSize: 16 }));
         box.add(OTR.ui.button(this, -w / 2 + 82, top + 42, 'Access', () => api.close(() => OTR.fx.transition(this, 'AccessScene')), { w: 128, h: 38, skin: 'ghost', fontSize: 15, icon: 'ic_user', iconSize: 16 }));
-        box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, '#FF6600', { ox: 0 }));
-        const bar = OTR.ui.bar(this, -160, top + 136, 250, 14, { color: 0xFF6600, bg: 0x4D148C, bgAlpha: 0.15 });
-        const pct = OTR.txt(this, 158, top + 136, '', 16, '#4D148C', { ox: 0, weight: '900' });
+        box.add(OTR.txt(this, -w / 2 + 40, top + 100, 'SOUND VOLUME', 13, OTR_DATA.theme.css('accent'), { ox: 0 }));
+        const bar = OTR.ui.bar(this, -160, top + 136, 250, 14, { color: OTR_DATA.theme.accent, bg: OTR_DATA.theme.primary, bgAlpha: 0.15 });
+        const pct = OTR.txt(this, 158, top + 136, '', 16, OTR_DATA.theme.css('primary'), { ox: 0, weight: '900' });
         const show = () => {
           bar.setValue(OTR.audio.volume);
           pct.setText(OTR.audio.muted ? 'muted' : `${Math.round(OTR.audio.volume * 100)}%`);
@@ -429,7 +429,7 @@ class HubScene extends Phaser.Scene {
         box.add(OTR.ui.button(this, 120, top + 136, '+', () => setVol(OTR.audio.volume + 0.1), { w: 44, h: 40, skin: 'ghost', fontSize: 24, sound: 'none' }));
         show();
 
-        box.add(OTR.txt(this, -w / 2 + 40, top + 188, 'ROUTE DAYS', 13, '#FF6600', { ox: 0 }));
+        box.add(OTR.txt(this, -w / 2 + 40, top + 188, 'ROUTE DAYS', 13, OTR_DATA.theme.css('accent'), { ox: 0 }));
         const label = () => `Checklist: ${OTR.save.data.settings.hints ? 'shown' : 'hidden'}`;
         const tog = OTR.ui.button(this, -122, top + 224, label(), () => {
           OTR.save.setHints(!OTR.save.data.settings.hints);
@@ -437,7 +437,7 @@ class HubScene extends Phaser.Scene {
         }, { w: 236, h: 48, skin: 'purple', fontSize: 17 });
         box.add(tog);
         // the 3D town, its lighting and weather (high), or flat and quicker, for a slow computer (low)
-        box.add(OTR.txt(this, 8, top + 188, 'GRAPHICS', 13, '#FF6600', { ox: 0 }));
+        box.add(OTR.txt(this, 8, top + 188, 'GRAPHICS', 13, OTR_DATA.theme.css('accent'), { ox: 0 }));
         const gLabel = () => `Graphics: ${OTR.gfx.high() ? 'high' : 'low'}`;
         const gTog = OTR.ui.button(this, 122, top + 224, gLabel(), () => {
           OTR.save.setGfx(OTR.gfx.high() ? 'low' : 'high');
@@ -447,7 +447,7 @@ class HubScene extends Phaser.Scene {
 
         // signed in by the company or the LMS: the name is the sign-in's, and only a trainer resets progress
         const locked = OTR.identity.locked;
-        if (locked) box.add(OTR.txt(this, 0, 20, `Signed in as ${OTR.save.displayName()}.\nA trainer can reset your progress.`, 16, '#4D148C', { bold: false, align: 'center' }));
+        if (locked) box.add(OTR.txt(this, 0, 20, `Signed in as ${OTR.save.displayName()}.\nA trainer can reset your progress.`, 16, OTR_DATA.theme.css('primary'), { bold: false, align: 'center' }));
         if (!locked) box.add(OTR.ui.button(this, 0, 20, 'Rename Courier', () => {
           api.close(() => OTR.ui.nameEntry(this, {
             title: 'New courier name', initial: OTR.save.data.profile.name, confirm: 'Save',
@@ -469,5 +469,5 @@ class HubScene extends Phaser.Scene {
 OTR.registerScene(HubScene);
 
 OTR.hub = {
-  playerSpec: { kind: 'person', skin: 0xC98E6B, hair: 0x2E2018, hairStyle: 'cap', shirt: 0x4D148C, uniform: true, capColor: 0x4D148C }
+  playerSpec: { kind: 'person', skin: 0xC98E6B, hair: 0x2E2018, hairStyle: 'cap', shirt: OTR_DATA.theme.primary, uniform: true, capColor: OTR_DATA.theme.primary }
 };

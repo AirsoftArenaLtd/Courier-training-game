@@ -21,12 +21,12 @@ class TitleScene extends Phaser.Scene {
       { w: 820, wall: 0xE3CDA6, roof: 0x7A5240, steps: 3, number: '204', porchX: 250, porchW: 360, lit: true },
       { w: 760, wall: 0xBFD2E0, roof: 0x4A5A68, steps: 2, number: '206', porchX: 220, porchW: 340, stories: 1, shutters: 0x3A5A78 },
       { w: 900, wall: 0xD9C7AC, roof: 0x8A6A4A, steps: 4, stories: 2, number: '208', porchX: 290, porchW: 400, lit: true, mailbox: true },
-      { w: 800, wall: 0xCDBBDC, roof: 0x5A4A6A, steps: 2, number: '210', porchX: 240, porchW: 360, flowers: true }
+      { w: 800, wall: 0xBDCBDA, roof: 0x4C5968, steps: 2, number: '210', porchX: 240, porchW: 360, flowers: true }
     ];
     let hx = -120;
     specs.forEach((spec, i) => {
       const built = OTR.scenery.house(this, spec);
-      const img = this.add.image(hx, this.WALK + 4, built.key).setOrigin(0.5, 1).setScale(0.34).setDepth(-60).setTint(0xC9BBD6);
+      const img = this.add.image(hx, this.WALK + 4, built.key).setOrigin(0.5, 1).setScale(0.34).setDepth(-60).setTint(0xBCC8D5);
       img.x = hx + img.displayWidth / 2;
       hx = img.x + img.displayWidth / 2 + 24;
       this.houses.push(img);
@@ -57,12 +57,12 @@ class TitleScene extends Phaser.Scene {
       follow: this.van, followOffset: { x: -132, y: -14 },
       speedX: { min: -150, max: -70 }, speedY: { min: -26, max: 4 },
       lifespan: 700, scale: { start: 0.35, end: 1.3 }, alpha: { start: 0.32, end: 0 },
-      frequency: 95, tint: 0xD9CFE8
+      frequency: 95, tint: 0xD0DBE7
     }).setDepth(-9);
 
     // --- people on the pavement ---
     this.courier = OTR.rig.person(this, -80, this.WALK, {
-      skin: 0xC98D62, hair: 0x2A1E18, hairStyle: 'short', shirt: 0x4D148C, uniform: true, cap: true, pants: 0x3A3550
+      skin: 0xC98D62, hair: 0x2A1E18, hairStyle: 'short', shirt: OTR_DATA.theme.primary, uniform: true, cap: true, pants: 0x36424F
     }, { scale: 0.52, facing: 1 });
     this.courier.c.setDepth(-12);        // people on the sidewalk pass behind the van (they used to walk over its roof)
     this.courier.hold('box');
@@ -94,10 +94,10 @@ class TitleScene extends Phaser.Scene {
     });
     this.add.image(W / 2, 0, scrimKey).setOrigin(0.5, 0).setDisplaySize(W, 470).setDepth(-5);
     // with a company name: the name large and the title under it; without one, the title takes the space
-    const brand = cfg.brand ? OTR.txt(this, W / 2, titleY - 30, cfg.brand, 96, '#ffffff', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true }) : null;
-    const route = cfg.brand ? OTR.txt(this, W / 2, titleY + 58, cfg.title.toUpperCase(), 58, '#FF6600', { weight: '900', stroke: '#250849', strokeW: 10, shadow: true })
-      : OTR.txt(this, W / 2, titleY + 24, cfg.title.toUpperCase(), 92, '#FF6600', { weight: '900', stroke: '#250849', strokeW: 12, shadow: true });
-    const sub = OTR.txt(this, W / 2, titleY + 116, cfg.subtitle, 22, '#F4E9FF', { bold: false, shadow: true });
+    const brand = cfg.brand ? OTR.txt(this, W / 2, titleY - 30, cfg.brand, 96, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 10, shadow: true }) : null;
+    const route = cfg.brand ? OTR.txt(this, W / 2, titleY + 58, cfg.title.toUpperCase(), 58, OTR_DATA.theme.css('accent'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 10, shadow: true })
+      : OTR.txt(this, W / 2, titleY + 24, cfg.title.toUpperCase(), 92, OTR_DATA.theme.css('accent'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 12, shadow: true });
+    const sub = OTR.txt(this, W / 2, titleY + 116, cfg.subtitle, 22, '#eaf3fe', { bold: false, shadow: true });
     [brand, route, sub].filter(Boolean).forEach((t, i) => {
       t.setAlpha(0).setScale(0.6);
       this.tweens.add({ targets: t, alpha: 1, scale: 1, delay: 150 + i * 140, duration: 500, ease: 'Back.out' });
@@ -134,10 +134,10 @@ class TitleScene extends Phaser.Scene {
       const name = save.displayName();
       items.push(OTR.ui.button(this, 0, 0, `Continue as ${name}`, () => OTR.fx.transition(this, 'HubScene'), { w: 400, h: 64, skin: 'orange', fontSize: 24, key: 'ENTER', hint: '⏎' }));
       const info = save.rankInfo();
-      items.push(OTR.txt(this, 0, 50, `Day ${save.data.day} · ${info.rank.name} · ${info.total} ★`, 18, '#FFE3C8', { shadow: true, stroke: '#250849', strokeW: 5 }));
+      items.push(OTR.txt(this, 0, 50, `Day ${save.data.day} · ${info.rank.name} · ${info.total} ★`, 18, '#FFE3C8', { shadow: true, stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 5 }));
       if (OTR.identity.locked) {
         // signed in by the company or the LMS: this person's own progress, and nothing to replace
-        items.push(OTR.txt(this, 0, 96, `Signed in${OTR.identity.id && OTR.identity.id !== name ? ' as ' + OTR.identity.id : ''} · progress saved to ${OTR.identity.mode === 'scorm' ? 'your learning system' : 'the training server'}`, 16, '#D9C9F0', { shadow: true, bold: false, stroke: '#250849', strokeW: 4 }));
+        items.push(OTR.txt(this, 0, 96, `Signed in${OTR.identity.id && OTR.identity.id !== name ? ' as ' + OTR.identity.id : ''} · progress saved to ${OTR.identity.mode === 'scorm' ? 'your learning system' : 'the training server'}`, 16, '#cbdbee', { shadow: true, bold: false, stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 4 }));
       } else {
         items.push(OTR.ui.button(this, 0, 110, 'New Profile', () => {
           // one profile per browser (several named profiles are out of scope for now), so this says what it replaces
@@ -146,7 +146,7 @@ class TitleScene extends Phaser.Scene {
       }
     } else {
       items.push(OTR.ui.button(this, 0, 20, 'Start Training', () => this.askName(), { w: 360, h: 68, skin: 'orange', fontSize: 26, key: 'ENTER', hint: '⏎' }));
-      items.push(OTR.txt(this, 0, 80, 'Your first shift starts now. Grab your scanner.', 18, '#FFE3C8', { shadow: true, bold: false, stroke: '#250849', strokeW: 5 }));
+      items.push(OTR.txt(this, 0, 80, 'Your first shift starts now. Grab your scanner.', 18, '#FFE3C8', { shadow: true, bold: false, stroke: OTR_DATA.theme.css('primaryDark'), strokeW: 5 }));
     }
     items.forEach((it, i) => {
       it.setAlpha(0);

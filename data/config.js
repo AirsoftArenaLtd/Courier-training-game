@@ -12,19 +12,19 @@ OTR_DATA.config = {
               'It is not a substitute for official procedures, policies, or hands-on training.',
 
   palette: {
-    purple: 0x4D148C,
-    purpleDark: 0x250849,
-    purpleDeep: 0x16062B,
-    purpleLight: 0x7B3FC4,
-    lavender: 0xC9B3F0,
-    orange: 0xFF6600,
-    orangeLight: 0xFF9447,
+    purple: OTR_DATA.theme.primary,
+    purpleDark: OTR_DATA.theme.primaryDark,
+    purpleDeep: OTR_DATA.theme.primaryDeep,
+    purpleLight: OTR_DATA.theme.primaryLight,
+    lavender: OTR_DATA.theme.tint,
+    orange: OTR_DATA.theme.accent,
+    orangeLight: OTR_DATA.theme.accentLight,
     gold: 0xFFC83D,
     green: 0x2BC48A,
     red: 0xF0435A,
     blue: 0x3DA5FF,
-    ink: 0x1D1030,
-    paper: 0xFAF7FF,
+    ink: OTR_DATA.theme.ink,
+    paper: 0xF7FBFF,
     grey: 0x9AA0B4
   },
 
@@ -39,10 +39,10 @@ OTR_DATA.config = {
   ranks: [
     { name: 'New Hire',       stars: 0,   color: 0x9AA0B4 },
     { name: 'Rookie',         stars: 14,  color: 0x3DA5FF },
-    { name: 'Courier',        stars: 34,  color: 0x7B3FC4 },
+    { name: 'Courier',        stars: 34,  color: OTR_DATA.theme.primaryLight },
     { name: 'Certified',      stars: 58,  color: 0x2BC48A },
     { name: 'Senior Courier', stars: 82,  color: 0xFFC83D },
-    { name: 'Elite Courier',  stars: 100, color: 0xFF6600 }
+    { name: 'Elite Courier',  stars: 100, color: OTR_DATA.theme.accent }
   ],
 
   // Performance ratio (0-1) needed for 1, 2 and 3 stars. Scenarios may override.

@@ -143,7 +143,7 @@ OTR_DATA.pickups = {
     title: 'Declare It or Refuse It',
     par: 220,
     place: { sign: 'MAPLE LAB SUPPLY', accent: 0xE8A33D, kind: 'counter' },
-    shipper: { name: 'Gail Brenner', spec: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'bun', shirt: 0x7B3FC4, glasses: true, sleeves: 'long' } },
+    shipper: { name: 'Gail Brenner', spec: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'bun', shirt: OTR_DATA.theme.primaryLight, glasses: true, sleeves: 'long' } },
     intro: {
       title: 'Declare It or Refuse It',
       lines: [

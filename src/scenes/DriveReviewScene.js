@@ -12,8 +12,8 @@ class DriveReviewScene extends Phaser.Scene {
   create() {
     const W = OTR.W, H = OTR.H, d = this.d;
     OTR.fx.enter(this);
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'review_bg', [[0, '#1A0A36'], [1, '#0B0418']]));
-    OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.9); g.fillRect(0, 0, W, 64); g.fillStyle(0xFF6600, 1); g.fillRect(0, 64, W, 3); });
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'review_bg', [[0, '#0c1f34'], [1, '#050d17']]));
+    OTR.tex.shape(this, (g) => { g.fillStyle(OTR_DATA.theme.primaryDeep, 0.9); g.fillRect(0, 0, W, 64); g.fillStyle(OTR_DATA.theme.accent, 1); g.fillRect(0, 64, W, 3); });
     const head = OTR.txt(this, 24, 32, 'DRIVE REVIEW', 24, '#ffffff', { ox: 0, weight: '900' });
     OTR.txt(this, 24 + head.width + 16, 33, d.title || '', 17, '#FFC83D', { ox: 0, weight: '900' });
     this.focusables = [OTR.ui.button(this, W - 90, 32, 'Back', () => OTR.fx.transition(this, d.back || 'HubScene', d.backData || {}), { w: 150, h: 44, skin: 'ghost', fontSize: 18, key: 'ESC', hint: 'ESC' })];
@@ -47,7 +47,7 @@ class DriveReviewScene extends Phaser.Scene {
       g.fillStyle(0xC9B8A6, 0.85);
       T.lots.forEach(l => { const [bw, bh] = OTR.town.size(l); const p = P(l.x, l.y); g.fillRect(p.x - bw * s / 2, p.y - bh * s / 2, bw * s, bh * s); });
       const dp = P(T.depot.x, T.depot.y);
-      g.fillStyle(0x4D148C, 1); g.fillRect(dp.x - T.depot.w * s / 2, dp.y - T.depot.h * s / 2, T.depot.w * s, T.depot.h * s);
+      g.fillStyle(OTR_DATA.theme.primary, 1); g.fillRect(dp.x - T.depot.w * s / 2, dp.y - T.depot.h * s / 2, T.depot.w * s, T.depot.h * s);
       // junction controls: a red dot for a stop sign, a yellow one for lights
       T.inters.forEach(it => { const p = P(it.x, it.y); g.fillStyle(it.stop ? 0xE8304A : 0xFFC83D, 0.9); g.fillCircle(p.x, p.y, 3); });
       // the day's stops, when there are any
@@ -58,15 +58,15 @@ class DriveReviewScene extends Phaser.Scene {
         g.fillStyle(r.outcome === 'delivered' ? 0x2BC48A : 0xFFB020, 1); g.fillCircle(p.x, p.y, 5);
       });
     });
-    OTR.txt(this, mx, Math.min(OTR.H - 10, my + mh + 16), 'Small red dots: stop signs · yellow: traffic lights · numbered pins: where each mistake happened', 12, '#C9B3F0', { ox: 0, bold: false });
+    OTR.txt(this, mx, Math.min(OTR.H - 10, my + mh + 16), 'Small red dots: stop signs · yellow: traffic lights · numbered pins: where each mistake happened', 12, OTR_DATA.theme.css('tint'), { ox: 0, bold: false });
 
     this.pinObjs = this.pins.map((p, i) => {
       const q = P(p.where.x, p.where.y);
       // mistakes are red (critical) or orange, whatever their category's own colour
-      const col = p.critical ? 0xE8304A : 0xFF6600;
+      const col = p.critical ? 0xE8304A : OTR_DATA.theme.accent;
       const c = this.add.container(q.x, q.y).setDepth(10);
       const ring = this.add.circle(0, 0, 18, 0xffffff, 0).setStrokeStyle(3, 0xffffff, 1).setVisible(false);
-      c.add([ring, this.add.circle(0, 0, 11, col).setStrokeStyle(2, 0x16062B, 1), OTR.txt(this, 0, 0, String(i + 1), 11, '#ffffff', { weight: '900' })]);
+      c.add([ring, this.add.circle(0, 0, 11, col).setStrokeStyle(2, OTR_DATA.theme.primaryDeep, 1), OTR.txt(this, 0, 0, String(i + 1), 11, '#ffffff', { weight: '900' })]);
       c.ring = ring;
       c.setSize(26, 26).setInteractive({ useHandCursor: true }).on('pointerup', () => this.select(i));
       return c;
@@ -75,32 +75,32 @@ class DriveReviewScene extends Phaser.Scene {
 
   drawList() {
     const x = 866, top = 84, w = 390, h = 610;
-    this.add.image(x + w / 2, top + h / 2, OTR.tex.panel(this, w, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 16 }));
+    this.add.image(x + w / 2, top + h / 2, OTR.tex.panel(this, w, h, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 16 }));
     OTR.txt(this, x + 20, top + 24, this.pins.length ? `${this.pins.length} MISTAKE${this.pins.length === 1 ? '' : 'S'} ON THE ROAD` : 'NO DRIVING MISTAKES', 14, this.pins.length ? '#C8243B' : '#1E7E55', { ox: 0, weight: '900' });
     if (!this.pins.length) {
-      OTR.txt(this, x + 20, top + 60, 'A clean drive: every sign, light and hazard handled.', 15, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 40 });
+      OTR.txt(this, x + 20, top + 60, 'A clean drive: every sign, light and hazard handled.', 15, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 40 });
       return;
     }
     const perPage = 9;
     this.rows = [];
     this.pins.slice(0, perPage).forEach((p, i) => {
       const y = top + 58 + i * 38;
-      const hit = this.add.rectangle(x + w / 2, y, w - 24, 34, 0x4D148C, 0.001).setInteractive({ useHandCursor: true });
+      const hit = this.add.rectangle(x + w / 2, y, w - 24, 34, OTR_DATA.theme.primary, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerup', () => this.select(i));
-      this.add.circle(x + 30, y, 10, p.critical ? 0xE8304A : 0xFF6600);
+      this.add.circle(x + 30, y, 10, p.critical ? 0xE8304A : OTR_DATA.theme.accent);
       OTR.txt(this, x + 30, y, String(i + 1), 11, '#ffffff', { weight: '900' });
-      const t = OTR.txt(this, x + 50, y, p.label, 14, p.critical ? '#B3122E' : '#250849', { ox: 0, weight: '900' });
+      const t = OTR.txt(this, x + 50, y, p.label, 14, p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
       if (t.width > w - 130) t.setScale((w - 130) / t.width);
-      OTR.txt(this, x + w - 20, y, OTR.drive.when(p.where), 12, '#7A6A90', { ox: 1 });
+      OTR.txt(this, x + w - 20, y, OTR.drive.when(p.where), 12, OTR_DATA.theme.css('muted'), { ox: 1 });
       this.rows.push(hit);
     });
-    if (this.pins.length > perPage) OTR.txt(this, x + 20, top + 58 + perPage * 38, `+ ${this.pins.length - perPage} more on the map`, 13, '#7A6A90', { ox: 0 });
+    if (this.pins.length > perPage) OTR.txt(this, x + 20, top + 58 + perPage * 38, `+ ${this.pins.length - perPage} more on the map`, 13, OTR_DATA.theme.css('muted'), { ox: 0 });
     // what was picked
     const dy = top + 420;
-    OTR.tex.shape(this, (g) => { g.fillStyle(0x4D148C, 0.07); g.fillRoundedRect(x + 14, dy, w - 28, h - (dy - top) - 14, 12); });
-    this.detailHead = OTR.txt(this, x + 30, dy + 16, '', 15, '#250849', { ox: 0, oy: 0, weight: '900', wrap: w - 60 });
-    this.detailMeta = OTR.txt(this, x + 30, dy + 40, '', 13, '#7A6A90', { ox: 0, oy: 0, wrap: w - 60 });
-    this.detailBody = OTR.txt(this, x + 30, dy + 64, '', 14, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 60, lineSpacing: 2 });
+    OTR.tex.shape(this, (g) => { g.fillStyle(OTR_DATA.theme.primary, 0.07); g.fillRoundedRect(x + 14, dy, w - 28, h - (dy - top) - 14, 12); });
+    this.detailHead = OTR.txt(this, x + 30, dy + 16, '', 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, oy: 0, weight: '900', wrap: w - 60 });
+    this.detailMeta = OTR.txt(this, x + 30, dy + 40, '', 13, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, wrap: w - 60 });
+    this.detailBody = OTR.txt(this, x + 30, dy + 64, '', 14, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 60, lineSpacing: 2 });
   }
 
   select(i) {
@@ -111,7 +111,7 @@ class DriveReviewScene extends Phaser.Scene {
     this.pinObjs[i].ring.setScale(1).setAlpha(1);
     this.tweens.add({ targets: this.pinObjs[i].ring, scale: 1.5, alpha: 0.2, duration: 700, yoyo: true, repeat: -1 });
     if (!this.detailHead) return;
-    this.detailHead.setText(`${i + 1}. ${p.label}`).setColor(p.critical ? '#B3122E' : '#250849');
+    this.detailHead.setText(`${i + 1}. ${p.label}`).setColor(p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'));
     this.detailMeta.setText([p.where.mph !== undefined ? p.where.mph + ' mph' : '', `${OTR.drive.when(p.where)} into the drive`, p.critical ? 'CRITICAL' : ''].filter(Boolean).join(' · '));
     this.detailMeta.y = this.detailHead.y + this.detailHead.height + 4;
     this.detailBody.setText(p.lesson || '');

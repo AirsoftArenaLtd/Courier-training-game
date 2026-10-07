@@ -120,7 +120,7 @@ OTR.shift = {
     const parts = person.name.split(' ');
     const surname = parts.length > 1 ? parts[parts.length - 1] : 'Lee';
     const firsts = ['Sam', 'Jordan', 'Maria', 'Chris', 'Priya', 'Luis', 'Grace', 'Tom'].filter(f => f !== parts[0]);
-    const spec = Object.assign({}, person.spec, { shirt: [0x3E7CB1, 0xB5563C, 0x2E7D5B, 0x7A4FB5][Math.floor(H() * 4)], hairStyle: ['short', 'long', 'bun', 'buzz'][Math.floor(H() * 4)] });
+    const spec = Object.assign({}, person.spec, { shirt: [0x3E7CB1, 0xB5563C, 0x2E7D5B, 0x547FB0][Math.floor(H() * 4)], hairStyle: ['short', 'long', 'bun', 'buzz'][Math.floor(H() * 4)] });
     return { name: `${firsts[Math.floor(H() * firsts.length)]} ${surname}`, spec };
   },
 

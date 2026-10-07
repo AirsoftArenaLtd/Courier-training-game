@@ -18,7 +18,7 @@ class ShiftDebriefScene extends Phaser.Scene {
     OTR.fx.enter(this);
     const W = OTR.W, H = OTR.H;
     const cats = OTR.scoring.CATS;
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'debrief_bg', [[0, '#1A0A36'], [0.55, '#5A2A7A'], [1, '#FF8A4D']]));
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'debrief_bg', [[0, '#0c1f34'], [0.55, '#2e5076'], [1, '#FF8A4D']]));
 
     // ---- header
     OTR.txt(this, W / 2, 46, `DAY ${rec.day} COMPLETE`, 38, '#ffffff', { weight: '900', shadow: true });
@@ -61,13 +61,13 @@ class ShiftDebriefScene extends Phaser.Scene {
     const sx = mw / T.W, sy = mh / T.H;
     const stops = (rec.stops || []).filter(r => T.lotById(r.lotId));
     OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
-      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.fillStyle(OTR_DATA.theme.night, 0.8); g.fillRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.8); g.strokeRoundedRect(mx - 10, my - 10, mw + 20, mh + 20, 14);
       g.lineStyle(3, 0x4A4658, 1);
       T.hy.forEach(y => g.lineBetween(mx, my + y * sy, mx + mw, my + y * sy));
       T.vx.forEach(x => g.lineBetween(mx + x * sx, my, mx + x * sx, my + mh));
-      g.fillStyle(0x4D148C, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
-      g.lineStyle(3, 0xFF6600, 0.9);
+      g.fillStyle(OTR_DATA.theme.primary, 1); g.fillRect(mx + T.depot.x * sx - 6, my + T.depot.y * sy - 5, 12, 10);
+      g.lineStyle(3, OTR_DATA.theme.accent, 0.9);
       let px = mx + T.depot.x * sx, py = my + T.depot.y * sy;
       stops.forEach(r => {
         const lot = T.lotById(r.lotId);
@@ -84,7 +84,7 @@ class ShiftDebriefScene extends Phaser.Scene {
     });
     stops.forEach((r, i) => {
       const lot = T.lotById(r.lotId);
-      OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, '#16062B', { weight: '900' });
+      OTR.txt(this, mx + lot.curb.x * sx, my + lot.curb.y * sy, String(i + 1), 11, OTR_DATA.theme.css('primaryDeep'), { weight: '900' });
     });
     // driving mistakes, as red crosses, and the way to the full review
     const pins = rec.pins || [];
@@ -96,7 +96,7 @@ class ShiftDebriefScene extends Phaser.Scene {
     }
     const rv = OTR.ui.button(this, mx + mw - 92, my + mh + 26, pins.length ? `Drive review (${pins.length}) ›` : 'Drive review ›', () => this.openReview(), { w: 184, h: 34, skin: pins.length ? 'purple' : 'ghost', fontSize: 14 });
     this.reviewBtn = rv;
-    OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${{ clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Heat advisory' }[rec.weather] || rec.weather}`, 14, '#C9B3F0', { ox: 0, bold: false });
+    OTR.txt(this, mx, my + mh + 26, `${OTR_DATA.town.name} · ${{ clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Heat advisory' }[rec.weather] || rec.weather}`, 14, OTR_DATA.theme.css('tint'), { ox: 0, bold: false });
     // defects the pre-trip missed (they held the truck at the gate)
     const out = rec.rolledOut || [];
     if (out.length) {
@@ -104,10 +104,10 @@ class ShiftDebriefScene extends Phaser.Scene {
       OTR.txt(this, mx, y, 'ROLLED OUT WITH', 13, '#FF7A8A', { ox: 0, weight: '900' });
       y += 14;
       out.slice(0, 3).forEach(t => {
-        const l = OTR.txt(this, mx + 10, y, '✗ ' + t, 13, '#F4ECFF', { ox: 0, oy: 0, bold: false, wrap: mw - 20 });
+        const l = OTR.txt(this, mx + 10, y, '✗ ' + t, 13, OTR_DATA.theme.css('paperTint'), { ox: 0, oy: 0, bold: false, wrap: mw - 20 });
         y += l.height + 3;
       });
-      if (out.length > 3) OTR.txt(this, mx + 10, y, `+ ${out.length - 3} more`, 12, '#C9B3F0', { ox: 0, oy: 0, bold: false });
+      if (out.length > 3) OTR.txt(this, mx + 10, y, `+ ${out.length - 3} more`, 12, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false });
     }
   }
 
@@ -128,10 +128,10 @@ class ShiftDebriefScene extends Phaser.Scene {
     const work = rec.work || [], well = rec.well || [];
     const x0 = 560, py = 318, pw = 660, ph = 322, bottom = py + ph - 14;
     OTR.tex.shape(this, (pg) => {
-      pg.fillStyle(0x0E0620, 0.82); pg.fillRoundedRect(x0, py, pw, ph, 16);
-      pg.lineStyle(2, 0x6A45A0, 0.8); pg.strokeRoundedRect(x0, py, pw, ph, 16);
+      pg.fillStyle(OTR_DATA.theme.night, 0.82); pg.fillRoundedRect(x0, py, pw, ph, 16);
+      pg.lineStyle(2, OTR_DATA.theme.mid, 0.8); pg.strokeRoundedRect(x0, py, pw, ph, 16);
     });
-    OTR.txt(this, x0 + 24, py + 24, 'WHAT TO WORK ON', 14, '#FF9447', { ox: 0, weight: '900' });
+    OTR.txt(this, x0 + 24, py + 24, 'WHAT TO WORK ON', 14, OTR_DATA.theme.css('accentLight'), { ox: 0, weight: '900' });
     // room kept for "went well": its header and at least one row
     const wellRows = Math.min(well.length, 1);
     const wellH = well.length ? 30 + wellRows * 22 : 0;
@@ -148,8 +148,8 @@ class ShiftDebriefScene extends Phaser.Scene {
       const note = !it.critical && !it.lost;
       const mark = note ? '↺' : it.partial ? '~' : '✗';
       const wrap = pw - (it.pin >= 0 && (rec.pins || []).length ? 116 : 70);
-      const t = OTR.txt(this, x0 + 38, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${it.critical ? '  · CRITICAL' : ''}`, 16, it.critical ? '#FF9AA6' : note ? '#C9B3F0' : '#F4ECFF', { ox: 0, oy: 0, weight: note ? '700' : '900', wrap });
-      const l = it.lesson ? OTR.txt(this, x0 + 38, y + t.height + 2, it.lesson, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap }) : null;
+      const t = OTR.txt(this, x0 + 38, y, `${mark} ${it.label}${it.n > 1 ? `  (×${it.n})` : ''}${it.critical ? '  · CRITICAL' : ''}`, 16, it.critical ? '#FF9AA6' : note ? OTR_DATA.theme.css('tint') : OTR_DATA.theme.css('paperTint'), { ox: 0, oy: 0, weight: note ? '700' : '900', wrap });
+      const l = it.lesson ? OTR.txt(this, x0 + 38, y + t.height + 2, it.lesson, 13, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false, wrap }) : null;
       const need = t.height + 2 + (l ? l.height + 8 : 6);
       if (y + need > limit - (left > 0 ? 22 : 0)) { t.destroy(); if (l) l.destroy(); break; }
       const def = OTR_DATA.config.categories[it.cat] || { color: 0xF0435A, icon: 'ic_flag' };
@@ -163,7 +163,7 @@ class ShiftDebriefScene extends Phaser.Scene {
       shown++;
     }
     if (shown < work.length) {
-      OTR.txt(this, x0 + 38, y, `+ ${work.length - shown} more to work on`, 13, '#C9B3F0', { ox: 0, oy: 0, bold: false });
+      OTR.txt(this, x0 + 38, y, `+ ${work.length - shown} more to work on`, 13, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false });
       y += 22;
     }
     if (well.length) {

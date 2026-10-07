@@ -30,16 +30,16 @@ OTR.fpWorld = {
     box(hub,0,-0.1,0,16,0.2,16,0xB9B5AC);
     box(hub,0,2,-6,16,4,0.2,0xDBE0DF,null,true);
     [-8,8].forEach(x=>box(hub,x,2,0,0.2,4,12,0xC5D0D4,null,true));
-    box(hub,0,3.5,-5.84,16,0.25,0.1,0x5D4777);
+    box(hub,0,3.5,-5.84,16,0.25,0.1,0x495E75);
     const station = (id,x,z,color,text) => {
       box(hub,x,0.55,z,1.8,1.1,0.8,0x4C515F,null,true);
       box(hub,x,1.55,z,1.9,0.9,0.2,color,id);
       labels.push({ parent:hub,point:new T.Vector3(x,2.2,z),text,max:18 });
     };
     station('hub-day',-4,-2.4,0xDD9844,'Workday');
-    station('hub-practice',0,-3.3,0x6B538B,'Cargo practice');
+    station('hub-practice',0,-3.3,0x566D88,'Cargo practice');
     station('hub-record',4,-2.4,0x3E747B,'Last debrief');
-    box(hub,0,0.025,3,2.2,0.04,3,0x6B538B);
+    box(hub,0,0.025,3,2.2,0.04,3,0x566D88);
 
     box(route,0,-0.12,-56,40,0.2,158,0x789069);
     box(route,0,-0.015,-57,11,0.06,155,0x4B5058);
@@ -55,7 +55,7 @@ OTR.fpWorld = {
     box(route,2.75,0.05,-24,5.4,0.02,0.28,0xEFEEE5);
     const base = OTR.fpMission.create('campaign',1);
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
-    box(route,-13.8,0.5,11,2,1,1.2,0x5D4777,'dispatch',true);
+    box(route,-13.8,0.5,11,2,1,1.2,0x495E75,'dispatch',true);
     box(route,-13.8,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
     labels.push({parent:route,point:new T.Vector3(-13.8,2,11),text:'Dispatch',max:18});
     labels.push({parent:route,point:new T.Vector3(-13.8,1.9,5),text:'Returns',max:18});
@@ -64,7 +64,7 @@ OTR.fpWorld = {
       box(route,13,2.1,s.z,6,4.2,9,colors[i],null,true);
       box(route,13,4.35,s.z,6.7,0.5,9.7,0x65626B);
       box(route,8,0.08,s.z,4,0.15,3,0xC9C4B8);
-      box(route,9.94,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
+      box(route,9.94,1.3,s.z,0.08,2.5,1.25,0x4D5C6E,'door'+i);
       [-2.8,2.8].forEach(dz=>box(route,9.96,2.4,s.z+dz,0.06,1.1,1.25,0x68889A));
       box(route,9.4,0.4,s.z+1.7,0.65,0.8,0.75,0x927557);
       labels.push({parent:route,point:new T.Vector3(9.8,3.2,s.z),text:s.address,max:30});
@@ -94,7 +94,7 @@ OTR.fpWorld = {
     box(van,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
     const tyreBulge=box(van,-1.24,0.43,-1.6,0.17,0.28,0.3,0x555B65,'tyres');
     const lampGood=material(0xF8E8AE),lampBad=material(0x3D4148);
-    const cargoDoor=box(van,0,1.8,2.62,1.9,2.5,0.08,0x65517F,'cargo',true);
+    const cargoDoor=box(van,0,1.8,2.62,1.9,2.5,0.08,0x53677D,'cargo',true);
     box(van,1.15,1.65,2.68,0.22,0.4,0.17,0xD9AE55,'cargo');
     box(van,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
     const slotMeshes=OTR.fpMission.slots.map(s=>box(van,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));

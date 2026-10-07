@@ -33,8 +33,8 @@ class DialogueScene extends BaseScenarioScene {
       street: { kind: 'street', tod: 'afternoon', weather: 'clear', ground: 'path' },
       storm: { kind: 'street', tod: 'evening', weather: 'storm', ground: 'path' },
       office: { kind: 'interior', tod: 'midday', weather: 'clear', sign: 'BRIGHTLINE', accent: 0x3DA5FF },
-      depot: { kind: 'interior', tod: 'morning', weather: 'clear', sign: 'DISPATCH', accent: 0x4D148C, counter: true },
-      warehouse: { kind: 'interior', tod: 'morning', weather: 'clear', sign: 'STATION', accent: 0xFF6600, counter: true },
+      depot: { kind: 'interior', tod: 'morning', weather: 'clear', sign: 'DISPATCH', accent: OTR_DATA.theme.primary, counter: true },
+      warehouse: { kind: 'interior', tod: 'morning', weather: 'clear', sign: 'STATION', accent: OTR_DATA.theme.accent, counter: true },
       lot: { kind: 'street', tod: 'evening', weather: 'clear', ground: 'concrete' },
       // on the road in the storm: the van driving, the courier in the cab (m4-storm's driving decisions)
       road: { kind: 'road', tod: 'evening', weather: 'storm' },
@@ -210,9 +210,9 @@ class DialogueScene extends BaseScenarioScene {
     // it appears when its person joins the scene (it used to show Priya's mood from the first line, before anyone
     // had mentioned her, while the neighbour actually being spoken to had none)
     const mp = this.moodPanel = this.add.container(190, 92).setDepth(820).setScrollFactor(0).setAlpha(0);
-    mp.add(OTR.ui.panel(this, 0, 0, 320, 54, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x6A45A0, borderWidth: 2, radius: 14, shadow: 0.3 }));
+    mp.add(OTR.ui.panel(this, 0, 0, 320, 54, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.mid, borderWidth: 2, radius: 14, shadow: 0.3 }));
     // "Priya (on the phone)" → PRIYA'S MOOD
-    mp.add(OTR.txt(this, -144, -12, `${who.name.replace(/\s*\(.*\)\s*$/, '').toUpperCase()}'S MOOD`, 11, '#C9B3F0', { ox: 0 }));
+    mp.add(OTR.txt(this, -144, -12, `${who.name.replace(/\s*\(.*\)\s*$/, '').toUpperCase()}'S MOOD`, 11, OTR_DATA.theme.css('tint'), { ox: 0 }));
     this.moodBar = OTR.ui.bar(this, -144, 12, 250, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x2BC48A, v), bgAlpha: 0.4 });
     mp.add(this.moodBar);
     this.moodFace = OTR.txt(this, 130, 2, '', 24, '#ffffff');
@@ -237,7 +237,7 @@ class DialogueScene extends BaseScenarioScene {
     const cast = {};
     Object.keys(dlg.cast || {}).forEach(k => {
       const c = dlg.cast[k];
-      cast[k] = { name: c.name, color: c.color || 0x4D148C, rig: null, moodStart: c.moodStart || 0, dog: (c.portrait || {}).kind === 'dog' };
+      cast[k] = { name: c.name, color: c.color || OTR_DATA.theme.primary, rig: null, moodStart: c.moodStart || 0, dog: (c.portrait || {}).kind === 'dog' };
     });
     this.cast = cast;
 
@@ -407,7 +407,7 @@ class DialogueScene extends BaseScenarioScene {
     const outcome = node.outcome || 'mixed';
     const col = outcome === 'good' ? 0x2BC48A : outcome === 'mixed' ? 0xFFB020 : 0xF0435A;
     const stampText = outcome === 'good' ? 'RESOLVED' : outcome === 'mixed' ? 'PARTIAL' : 'INCIDENT';
-    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x0B0418, 0).setDepth(4000).setScrollFactor(0).setInteractive();
+    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x050D17, 0).setDepth(4000).setScrollFactor(0).setInteractive();
     this.tweens.add({ targets: dim, fillAlpha: 0.62, duration: 300 });
     const w = 760;
     // notes: [{ if, text }] — sentences added for the mistakes that were actually made, so an ending names those
@@ -415,12 +415,12 @@ class DialogueScene extends BaseScenarioScene {
     const flags = (this.ctl && this.ctl.flags) || {};
     const notes = (node.notes || []).filter(n => OTR.talk.test(n.if, flags)).map(n => n.text);
     const text = [node.text || ''].concat(notes).join(' ');
-    const body = OTR.txt(this, 0, 0, text, notes.length > 2 ? 18 : 21, '#3A2A50', { bold: false, wrap: w - 90, lineSpacing: 5, align: 'center' });
+    const body = OTR.txt(this, 0, 0, text, notes.length > 2 ? 18 : 21, OTR_DATA.theme.css('inkSoft'), { bold: false, wrap: w - 90, lineSpacing: 5, align: 'center' });
     const h = body.height + 250;
     const c = this.add.container(OTR.W / 2, OTR.H / 2).setDepth(4001).setScrollFactor(0);
-    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: col, borderWidth: 5, radius: 24 }));
+    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: col, borderWidth: 5, radius: 24 }));
     c.add(OTR.txt(this, 0, -h / 2 + 50, 'OUTCOME', 15, OTR.color.css(col), { weight: '900' }));
-    c.add(OTR.txt(this, 0, -h / 2 + 90, node.title || '', 34, '#250849', { weight: '900', align: 'center', wrap: w - 60 }));
+    c.add(OTR.txt(this, 0, -h / 2 + 90, node.title || '', 34, OTR_DATA.theme.css('primaryDark'), { weight: '900', align: 'center', wrap: w - 60 }));
     body.setPosition(0, -h / 2 + 132).setOrigin(0.5, 0);
     c.add(body);
     const btn = OTR.ui.button(this, 0, h / 2 - 52, 'See Results ▶', () => this.complete(node), { w: 280, h: 56, skin: 'orange', key: ['ENTER', 'SPACE'] });

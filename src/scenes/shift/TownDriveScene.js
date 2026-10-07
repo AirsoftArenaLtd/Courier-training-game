@@ -337,7 +337,7 @@ class TownDriveScene extends Phaser.Scene {
     this.blinkLamps = [glow(0xFFB020, 0.34), glow(0xFFB020, 0.34)];   // the indicator side's front and rear corner
 
     this.skidKey = OTR.tex.make(this, 'td_skid', 12, 12, (ctx, w, h) => {
-      ctx.beginPath(); ctx.arc(w / 2, h / 2, w / 2 - 1, 0, Math.PI * 2); ctx.fillStyle = '#1A1620'; ctx.fill();
+      ctx.beginPath(); ctx.arc(w / 2, h / 2, w / 2 - 1, 0, Math.PI * 2); ctx.fillStyle = '#161b20'; ctx.fill();
     });
     this.skidPool = [];
     this.skidNext = 0;
@@ -352,7 +352,7 @@ class TownDriveScene extends Phaser.Scene {
       r.lot = lot;
       const bay = this.parkBay(lot);
       r.zone = this.add.image((bay.x0 + bay.x1) / 2, lot.park.y, OTR.townArt.stopZone(this, bay.x1 - bay.x0)).setDepth(-86).setVisible(false);
-      r.flag = this.add.image(lot.park.x, lot.park.y - 46, 'ic_pin').setDisplaySize(34, 34).setTint(0xFF6600).setDepth(45).setVisible(false);
+      r.flag = this.add.image(lot.park.x, lot.park.y - 46, 'ic_pin').setDisplaySize(34, 34).setTint(OTR_DATA.theme.accent).setDepth(45).setVisible(false);
     });
     this.activeIndex = 0;
     this.showActiveStop();
@@ -377,11 +377,11 @@ class TownDriveScene extends Phaser.Scene {
     const W = OTR.W;
     this.hudLayer = this.add.container(0, 0).setScrollFactor(0).setDepth(800);
     this.hudLayer.add(OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x16062B, 0.86); g.fillRect(0, 0, W, 56);
-      g.fillStyle(0xFF6600, 1); g.fillRect(0, 56, W, 3);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.86); g.fillRect(0, 0, W, 56);
+      g.fillStyle(OTR_DATA.theme.accent, 1); g.fillRect(0, 56, W, 3);
     }));
     this.hudLayer.add(OTR.ui.iconButton(this, 32, 28, 'ic_pause', () => this.openPause(), { size: 40, skin: 'dark' }));
-    this.stopLabel = OTR.txt(this, 64, 18, 'NEXT STOP', 12, '#C9B3F0', { ox: 0 });
+    this.stopLabel = OTR.txt(this, 64, 18, 'NEXT STOP', 12, OTR_DATA.theme.css('tint'), { ox: 0 });
     this.stopText = OTR.txt(this, 64, 38, '', 20, '#ffffff', { ox: 0, weight: '900' });
     this.hudLayer.add([this.stopLabel, this.stopText]);
     this.clockText = OTR.txt(this, W / 2, 28, '', 22, '#ffffff', { weight: '900' });
@@ -390,13 +390,13 @@ class TownDriveScene extends Phaser.Scene {
     const sx = 108, sy = OTR.H - 92;
     const sp = this.add.container(sx, sy).setScrollFactor(0).setDepth(800);
     sp.add(OTR.tex.shape(this, (sg) => {
-      sg.fillStyle(0x16062B, 0.86); sg.fillCircle(0, 0, 66);
-      sg.lineStyle(3, 0x6A45A0, 1); sg.strokeCircle(0, 0, 66);
+      sg.fillStyle(OTR_DATA.theme.primaryDeep, 0.86); sg.fillCircle(0, 0, 66);
+      sg.lineStyle(3, OTR_DATA.theme.mid, 1); sg.strokeCircle(0, 0, 66);
     }));
     this.speedArc = OTR.tex.liveShape(this);
     sp.add(this.speedArc);
     this.speedText = OTR.txt(this, 0, -2, '0', 40, '#ffffff', { weight: '900' });
-    sp.add([this.speedText, OTR.txt(this, 0, 30, 'MPH', 13, '#C9B3F0', {})]);
+    sp.add([this.speedText, OTR.txt(this, 0, 30, 'MPH', 13, OTR_DATA.theme.css('tint'), {})]);
     // the indicator arrows, in the dial as on a dashboard
     this.sigArrows = { left: OTR.txt(this, -30, -40, '◀', 20, '#FFB020', { weight: '900' }), right: OTR.txt(this, 30, -40, '▶', 20, '#FFB020', { weight: '900' }) };
     sp.add([this.sigArrows.left, this.sigArrows.right]);
@@ -411,10 +411,10 @@ class TownDriveScene extends Phaser.Scene {
     this.limitSign = this.add.container(sx + 96, sy - 22).setScrollFactor(0).setDepth(800);
     const lg = OTR.tex.shape(this, (lg) => {
       lg.fillStyle(0xFFFFFF, 1); lg.fillRoundedRect(-28, -36, 56, 72, 6);
-      lg.lineStyle(3, 0x1D1030, 1); lg.strokeRoundedRect(-24, -32, 48, 64, 4);
+      lg.lineStyle(3, OTR_DATA.theme.ink, 1); lg.strokeRoundedRect(-24, -32, 48, 64, 4);
     });
-    this.limitText = OTR.txt(this, 0, 8, '25', 30, '#1D1030', { weight: '900' });
-    this.limitSign.add([lg, OTR.txt(this, 0, -18, 'SPEED', 11, '#1D1030', { weight: '900' }), this.limitText]);
+    this.limitText = OTR.txt(this, 0, 8, '25', 30, OTR_DATA.theme.css('ink'), { weight: '900' });
+    this.limitSign.add([lg, OTR.txt(this, 0, -18, 'SPEED', 11, OTR_DATA.theme.css('ink'), { weight: '900' }), this.limitText]);
 
     // one line above the speedometer for the gearbox and the backing check
     this.gearHint = this.add.container(40, OTR.H - 196).setScrollFactor(0).setDepth(802).setVisible(false);
@@ -434,12 +434,12 @@ class TownDriveScene extends Phaser.Scene {
     // the next one becomes active, and the van arrow is an image turned to the van's heading.
     const T = this.T, msx = this.mapW / T.W, msy = this.mapH / T.H;
     OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 1); g.fillRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
-      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
+      g.fillStyle(OTR_DATA.theme.night, 1); g.fillRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.8); g.strokeRoundedRect(this.mapX - 6, this.mapY - 6, this.mapW + 12, this.mapH + 12, 10);
       g.lineStyle(3, 0x5A5668, 1);
       T.hy.forEach(y => g.lineBetween(this.mapX, this.mapY + y * msy, this.mapX + this.mapW, this.mapY + y * msy));
       T.vx.forEach(x => g.lineBetween(this.mapX + x * msx, this.mapY, this.mapX + x * msx, this.mapY + this.mapH));
-      g.fillStyle(0x4D148C, 1); g.fillRect(this.mapX + T.depot.x * msx - 5, this.mapY + T.depot.y * msy - 4, 10, 8);
+      g.fillStyle(OTR_DATA.theme.primary, 1); g.fillRect(this.mapX + T.depot.x * msx - 5, this.mapY + T.depot.y * msy - 4, 10, 8);
     }).setScrollFactor(0).setDepth(801);
     this.mapDots = OTR.tex.liveShape(this).setScrollFactor(0).setDepth(801);
     this.mapVan = OTR.tex.shape(this, (g) => { g.fillStyle(0xFFFFFF, 1); g.fillTriangle(7, 0, -4, 5, -4, -5); }).setScrollFactor(0).setDepth(801);
@@ -447,7 +447,7 @@ class TownDriveScene extends Phaser.Scene {
     this.beltPill = OTR.txt(this, OTR.W - 20, OTR.H - 24, '', 15, '#FF8A9A', { ox: 1, weight: '900' }).setScrollFactor(0).setDepth(800);
     // on a dark strip, so it reads over sidewalks, crosswalks and the white van (it used to sit straight on the map)
     const ctl = OTR.txt(this, OTR.W / 2 + 90, OTR.H - 22, 'W go · S brake · A/D steer · Q/E signal · SPACE brake · R reverse · M mirrors · B belt · L lights · G look · P park · TAB handheld · V cab', 13, '#ffffff', { bold: false, fit: 830 }).setScrollFactor(0).setDepth(800);
-    OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.72); g.fillRoundedRect(-ctl.displayWidth / 2 - 14, -13, ctl.displayWidth + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
+    OTR.tex.shape(this, (g) => { g.fillStyle(OTR_DATA.theme.primaryDeep, 0.72); g.fillRoundedRect(-ctl.displayWidth / 2 - 14, -13, ctl.displayWidth + 28, 26, 13); }, ctl.x, ctl.y).setScrollFactor(0).setDepth(799);
   }
 
   /**
@@ -507,7 +507,7 @@ class TownDriveScene extends Phaser.Scene {
     this.signHintText.setText(text);
     const w = this.signHintText.width + 44, h = 40;
     this.signHintBg.redraw((g) => {
-      g.fillStyle(0x16062B, 0.9); g.fillRoundedRect(-w / 2, -h / 2, w, h, 20);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.9); g.fillRoundedRect(-w / 2, -h / 2, w, h, 20);
       g.lineStyle(3, color || 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 20);
     });
     this.signHintText.setColor(color === 0x2BC48A ? '#8BF0C6' : '#ffffff');
@@ -521,7 +521,7 @@ class TownDriveScene extends Phaser.Scene {
     this.gearHintText.setText(text);
     const w = this.gearHintText.width + 32, h = 32;
     this.gearHintBg.redraw((g) => {
-      g.fillStyle(0x16062B, 0.92); g.fillRoundedRect(0, -h / 2, w, h, 16);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.92); g.fillRoundedRect(0, -h / 2, w, h, 16);
       g.lineStyle(2, 0xFFC83D, 1); g.strokeRoundedRect(0, -h / 2, w, h, 16);
     });
     this.gearHint.setVisible(true);
@@ -535,7 +535,7 @@ class TownDriveScene extends Phaser.Scene {
       this._mapDotsKey = dotsKey;
       this.mapDots.redraw((g) => {
         this.route.forEach((r, i) => {
-          const c = r.done ? 0x2BC48A : i === this.activeIndex ? 0xFF6600 : 0xFFC83D;
+          const c = r.done ? 0x2BC48A : i === this.activeIndex ? OTR_DATA.theme.accent : 0xFFC83D;
           g.fillStyle(c, 1);
           g.fillCircle(this.mapX + r.lot.park.x * sx, this.mapY + r.lot.park.y * sy, i === this.activeIndex ? 5 : 3.5);
           // the active stop shows which way to face: with the traffic on that kerb (east on the south side)
@@ -580,7 +580,7 @@ class TownDriveScene extends Phaser.Scene {
     OTR.onKey(this, 'keydown-L', () => {
       this.lights = !this.lights;
       OTR.audio.play('click');
-      this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : 0xC9B3F0);
+      this.toast(this.lights ? 'Headlights on' : 'Headlights off', this.lights ? 0xFFC83D : OTR_DATA.theme.tint);
     });
     OTR.onKey(this, 'keydown-G', () => this.getOutAndLook());
     OTR.onKey(this, 'keydown-V', () => OTR.cab.toggle(this));      // the cab view (a prototype): src/core/cab.js
@@ -631,7 +631,7 @@ class TownDriveScene extends Phaser.Scene {
   /** G.O.A.L.: only from a standstill, and it takes the time it takes to walk round the van. */
   getOutAndLook() {
     if (this.goalBusy || this.parked || this.leaving) return;
-    if (!OTR.vehicle.stopped(this.van)) { this.toast('Stop first, then get out and look', 0xC9B3F0); return; }
+    if (!OTR.vehicle.stopped(this.van)) { this.toast('Stop first, then get out and look', OTR_DATA.theme.tint); return; }
     this.goalBusy = true;
     OTR.audio.play('door_open');
     // (the HUD hint says what is happening: a toast saying the same thing at the same time was noise)
@@ -665,7 +665,7 @@ class TownDriveScene extends Phaser.Scene {
   /** One toast at a time: a newer message replaces the one on screen instead of stacking over it. */
   toast(text, color) {
     if (this._toast && this._toast.active) this._toast.destroy();
-    this._toast = OTR.ui.toast(this, text, { color: 0x16062B, border: color || 0xFF6600, hold: 1800, y: 150 });
+    this._toast = OTR.ui.toast(this, text, { color: OTR_DATA.theme.primaryDeep, border: color || OTR_DATA.theme.accent, hold: 1800, y: 150 });
   }
 
   violation(key, label, cat, pts, lesson) {
@@ -745,7 +745,7 @@ class TownDriveScene extends Phaser.Scene {
     if (ev.shifted) {
       OTR.audio.play('click');
       this.toast(v.gear < 0 ? 'R — reverse: W backs up, S brakes. R again for drive.' : 'D — drive', v.gear < 0 ? 0xFFC83D : 0x2BC48A);
-    } else if (ev.shiftRefused) this.toast('Stop first, then R to change gear', 0xC9B3F0);
+    } else if (ev.shiftRefused) this.toast('Stop first, then R to change gear', OTR_DATA.theme.tint);
 
     const bodies = this.cars.map(c => ({
       x: c.x, y: c.y, heading: c.heading, hl: c.hl, hw: c.hw, mass: 1500, ref: c,
@@ -1208,8 +1208,8 @@ class TownDriveScene extends Phaser.Scene {
       else L.glow(l.x, door, 80, PORCH, 0.6);
     });
     const D = this.T.depot;
-    [-0.36, -0.12, 0.12, 0.36].forEach(u => L.glow(D.x + u * D.w, D.y + D.h / 2 + 30, 130, 0xF4F0FF, 0.55));
-    [-0.3, 0.3].forEach(u => L.glow(D.x + u * D.w, D.y - D.h / 2 - 20, 120, 0xF4F0FF, 0.45));
+    [-0.36, -0.12, 0.12, 0.36].forEach(u => L.glow(D.x + u * D.w, D.y + D.h / 2 + 30, 130, 0xF1F7FE, 0.55));
+    [-0.3, 0.3].forEach(u => L.glow(D.x + u * D.w, D.y - D.h / 2 - 20, 120, 0xF1F7FE, 0.45));
     // the van: dipped headlights only when they are on (driving without them is driving in the dark)
     if (this.lights) {
       const nose = V.point(v, g.nose, 0);
@@ -1341,12 +1341,12 @@ class TownDriveScene extends Phaser.Scene {
 
   showMsgBadge(on) {
     if (!this.msgBadge) {
-      const t = OTR.txt(this, 0, 0, '1 NEW MESSAGE · pull over, then P', 14, '#16062B', { weight: '900', ox: 0 });
+      const t = OTR.txt(this, 0, 0, '1 NEW MESSAGE · pull over, then P', 14, OTR_DATA.theme.css('primaryDeep'), { weight: '900', ox: 0 });
       const w = t.width + 54;
       t.x = -w / 2 + 40;
       const c = this.add.container(16 + w / 2, 80).setScrollFactor(0).setDepth(801);
-      c.add([OTR.tex.shape(this, (g) => { g.fillStyle(0xFFC83D, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, 0x16062B, 0.6); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }),
-        this.add.image(-w / 2 + 22, 0, 'ic_chat').setDisplaySize(18, 18).setTint(0x16062B), t]);
+      c.add([OTR.tex.shape(this, (g) => { g.fillStyle(0xFFC83D, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, OTR_DATA.theme.primaryDeep, 0.6); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }),
+        this.add.image(-w / 2 + 22, 0, 'ic_chat').setDisplaySize(18, 18).setTint(OTR_DATA.theme.primaryDeep), t]);
       this.msgBadge = c;
       this.syncCameras();
     }
@@ -1357,10 +1357,10 @@ class TownDriveScene extends Phaser.Scene {
   pullOverToRead() {
     const v = this.van, V = OTR.vehicle, A = OTR.townArt, R = A.ROAD / 2, P = this.P;
     const D = OTR.shift.state.dispatch;
-    if (!V.stopped(v)) { this.toast('Stop first: pull in to the curb, then P to read the message', 0xC9B3F0); return true; }
+    if (!V.stopped(v)) { this.toast('Stop first: pull in to the curb, then P to read the message', OTR_DATA.theme.tint); return true; }
     // alongside the right-hand curb: parallel to the street and close to its edge (the left-hand one used to count)
     const ax = OTR.driveAids.axis(this);
-    if (!ax || ax.gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', 0xC9B3F0); return true; }
+    if (!ax || ax.gap > 1.6) { this.toast('Pull in close to the curb and stop out of the traffic lane, then P', OTR_DATA.theme.tint); return true; }
     OTR.shift.readDispatch(this.log, 'pulled over');
     if (OTR.shift.state) { OTR.shift.state.log = this.log.toJSON(); OTR.shift.save(); }
     this.showMsgBadge(false);
@@ -1646,7 +1646,7 @@ class TownDriveScene extends Phaser.Scene {
     const away = along > 220 || fromCentre < -20 || Math.abs(bc.y - street) > OTR.townArt.ROAD / 2 + 60;
     if (away && D && D.sent && !D.read && this.pullOverToRead()) return;
     if (away) {
-      this.toast('Not at the stop yet — pull in to the curb inside the marked zone', 0xC9B3F0); return;
+      this.toast('Not at the stop yet — pull in to the curb inside the marked zone', OTR_DATA.theme.tint); return;
     }
     // "stopped" allows the moment after the brake is lifted, while the automatic creeps (P used to be refused then)
     if (!V.stopped(v) && !(this.elapsed - this.stoppedAt < 1 && V.mph(v) < 1.5)) { this.toast('Come to a full stop first (hold S or SPACE, then P)', 0xF0435A); return; }
@@ -1701,7 +1701,7 @@ class TownDriveScene extends Phaser.Scene {
       this._gearShown = gear;
       this.gearBg.redraw((g) => {
         g.fillStyle(gear === 'R' ? 0xFFC83D : 0x2BC48A, 1); g.fillRoundedRect(-24, -18, 48, 36, 10);
-        g.lineStyle(3, 0x16062B, 1); g.strokeRoundedRect(-24, -18, 48, 36, 10);
+        g.lineStyle(3, OTR_DATA.theme.primaryDeep, 1); g.strokeRoundedRect(-24, -18, 48, 36, 10);
       });
       this.gearText.setText(gear).setColor(gear === 'R' ? '#3A2200' : '#0B2A1C');
     }

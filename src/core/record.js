@@ -98,15 +98,15 @@ OTR.record = {
     const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T((OTR.registry.get(c.id) || {}).title || c.id)}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
       @page { size: A4; margin: 14mm; }
-      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #1b1030; margin: 0; }
-      header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #FF6600; padding-bottom: 8px; margin-bottom: 14px; }
-      h1 { font-size: 20pt; margin: 0; color: #4D148C; } h2 { font-size: 13pt; color: #4D148C; margin: 18px 0 6px; }
-      .brand { font-weight: 900; color: #4D148C; } .brand b { color: #FF6600; }
+      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
+      header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid ${OTR_DATA.theme.css('accent')}; padding-bottom: 8px; margin-bottom: 14px; }
+      h1 { font-size: 20pt; margin: 0; color: ${OTR_DATA.theme.css('primary')}; } h2 { font-size: 13pt; color: ${OTR_DATA.theme.css('primary')}; margin: 18px 0 6px; }
+      .brand { font-weight: 900; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
       .meta { text-align: right; font-size: 10pt; color: #555; }
       .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 6px; }
-      .summary div { border: 1px solid #d8cdea; border-radius: 6px; padding: 6px 8px; } .summary b { display: block; font-size: 15pt; color: #4D148C; }
+      .summary div { border: 1px solid #cedbe9; border-radius: 6px; padding: 6px 8px; } .summary b { display: block; font-size: 15pt; color: ${OTR_DATA.theme.css('primary')}; }
       table { width: 100%; border-collapse: collapse; font-size: 10pt; } td, th { padding: 3px 6px; border-bottom: 1px solid #eee; text-align: left; }
-      tr.mod th { background: #f1eafb; color: #4D148C; padding-top: 6px; } tr.mod th.q { font-weight: 400; font-size: 9pt; text-align: right; } thead th { font-size: 9pt; color: #666; }
+      tr.mod th { background: #ebf2fa; color: ${OTR_DATA.theme.css('primary')}; padding-top: 6px; } tr.mod th.q { font-weight: 400; font-size: 9pt; text-align: right; } thead th { font-size: 9pt; color: #666; }
       .pass { color: #1E7E55; font-weight: 700; } .fail { color: #B3122E; font-weight: 700; } .none { color: #888; }
       .stars { letter-spacing: 1px; color: #C98A00; white-space: nowrap; } .n { color: #888; } .crit li { color: #B3122E; }
       .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; } .sign div { border-top: 1px solid #333; padding-top: 4px; font-size: 9pt; color: #555; }
@@ -135,11 +135,11 @@ OTR.record = {
     const last = Math.max(...R.all.map(s => (s.assess && s.assess.at) || 0));
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Certificate: {0}', E(name))}</title><style>
       @page { size: A4 landscape; margin: 0; }
-      body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #1b1030; }
+      body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #121f2e; }
       .page { box-sizing: border-box; width: 297mm; height: 210mm; padding: 18mm; }
-      .frame { box-sizing: border-box; height: 100%; border: 6px solid #4D148C; outline: 2px solid #FF6600; outline-offset: -14px; text-align: center; padding: 22mm 20mm; }
-      .brand { font: 900 20pt "Segoe UI", Arial, sans-serif; color: #4D148C; } .brand b { color: #FF6600; }
-      h1 { font-size: 34pt; margin: 14mm 0 4mm; letter-spacing: 1px; } .name { font-size: 30pt; color: #4D148C; border-bottom: 1px solid #999; display: inline-block; padding: 0 20mm 2mm; margin: 6mm 0; }
+      .frame { box-sizing: border-box; height: 100%; border: 6px solid ${OTR_DATA.theme.css('primary')}; outline: 2px solid ${OTR_DATA.theme.css('accent')}; outline-offset: -14px; text-align: center; padding: 22mm 20mm; }
+      .brand { font: 900 20pt "Segoe UI", Arial, sans-serif; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
+      h1 { font-size: 34pt; margin: 14mm 0 4mm; letter-spacing: 1px; } .name { font-size: 30pt; color: ${OTR_DATA.theme.css('primary')}; border-bottom: 1px solid #999; display: inline-block; padding: 0 20mm 2mm; margin: 6mm 0; }
       p { font-size: 14pt; margin: 3mm 0; } .small { font-size: 10pt; color: #666; }
       .sign { display: flex; justify-content: space-around; margin-top: 18mm; } .sign div { width: 70mm; border-top: 1px solid #333; padding-top: 2mm; font-size: 10pt; color: #555; }
     </style></head><body><div class="page"><div class="frame">
