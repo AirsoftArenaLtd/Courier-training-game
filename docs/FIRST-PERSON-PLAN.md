@@ -4,9 +4,59 @@ Branch: `codex-first-person`, starting from published main at `b41026191ca3af034
 
 The target is a complete first-person courier game. Every playable module takes place in a consistent 3D environment with shared movement, interactions and art direction. Full work days are the main game, forming a courier campaign. Individual modules offer focused practice and assessment in the same world and style. Retain the existing sign-in/start scaffold and useful interface controls; the user proposes a walkable 3D hub for selecting modules and starting the day.
 
+## Current connected prototype — October 7, 2026
+
+This branch now implements the next small playable slice: **hub → depot preparation and physical loading → three delivery stops → returns → debrief → hub**, plus an isolated cargo practice activity. The former one-parcel demo is historical; use the instructions in this section for the current build. This remains a prototype for manual review, not a replacement for the released course or a completed 30–45 minute campaign day. The smaller slice targets roughly 10–15 minutes; actual play duration has not been measured.
+
+### Open and play
+
+Download the `codex-first-person` branch ZIP, extract it completely, then open **`first-person.html`** in a desktop browser. It redirects to `index.html?lab=firstperson`; the regular `index.html` still opens the existing game. For low quality, open `first-person.html?gfx=low`, or use H → Settings → Low graphics. No installation, build, CDN or web server is required by the game. Local-file launch still needs browser verification for this revision.
+
+1. Read the short introduction, enter the hub, then walk to **Workday** and press E, or press H and choose Start workday. Cargo practice and the last debrief have their own stations and menu choices. Activities fade through black.
+2. At the depot, inspect the tyres on the driver's side and the lamps at the front. Choose whether each is serviceable or needs repair. This slice includes one visible defect; an accepted repair is immediate.
+3. Approach the three parcels on the table. **F** opens a readable label close-up; **A/D** rotates it, **Space** scans and **Esc** returns. **E** picks up the physical parcel. **Tab** opens the handheld and manifest.
+4. Open the purple rear cargo doors with E. Carry each parcel inside, aim at one of six shelf pads and press E to place it. Placement is remembered. To put a carried parcel back on its depot table position, stand near that position, look at the table and press E. Aim at the gold restraint near the rear floor and press E to secure the load, step outside, then close the doors.
+5. Enter through the blue driver's door. **B** fastens the belt; **M** briefly shows a live left mirror. **Q/C** toggle left/right signals. **Space** toggles the parking brake. **W/S** accelerate/brake, **A/D** steer, **R** selects drive/reverse at a standstill. Steering centres when released; the view follows the vehicle. Mouse look checks the sides; **V** looks forward again.
+6. Keep right, observe the 15 mph sign, stop before the first junction line and respond to traffic and the pedestrian crossing. Three addresses are on the right as you drive north. Park beside the road, stop, set the parking brake and press E to exit. Retrieve the actual parcel from its shelf; check its label/address before approaching the door.
+7. At each door, attempt contact and choose an outcome matching the shipment requirements: handover, authorised porch-box release, or a recipient-absent exception for the signature parcel. Wrong choices remain possible and are recorded. The similar addresses are deliberate. A retained parcel must be carried back and placed in the van before driving again.
+8. Use the turning area at the far end to return south to the depot. Carry retained parcels to **Returns** and press E to scan them back in. Check in at **Dispatch** to finish and read the paged debrief, then return to the hub.
+
+Cargo practice shares the same parcels, shelves, scanner and restraint. Load all three, retrieve the requested parcel, replace it, secure the load and finish at Dispatch. Vehicle entry is blocked in this activity. It has its own checkpoint so practice does not overwrite a suspended workday.
+
+**General controls:** WASD/arrow keys move; mouse looks; E/Enter or a click interacts. If mouse capture is unavailable, hold the left mouse button and drag. H/Esc opens the menu; panels accept clicks, number keys or arrows + Enter. Esc backs out. Focus loss pauses movement. Existing key remaps apply to existing mapped actions; the new F/C/H/V shortcuts are not yet in the main game's remapping editor. Mouse sensitivity can be adjusted in the prototype Settings for the current visit, or set in the URL with `?sensitivity=0.001`.
+
+### Included systems and limits
+
+- Three stable parcel identities with six selectable shelf positions, scanning, carrying, rearrangement, wrong-parcel recovery and physical exception returns. Handheld shelf information comes from the recorded placement. The label close-up is readable Phaser text alongside a rotatable box, not a new image asset.
+- A small deterministic service rotation gives each workday one handover, one authorised release and one absent-signature case. The full adaptive encounter/exposure system, responsibility progression, other modules and trainer-controlled assessments remain planned work.
+- Two traffic vehicles, a contextual crossing, a stop line, speed/lane checks, belt/load feedback and a left mirror looking at the actual route. Mirror + signal + traffic gap influence pullout feedback. These are prototype heuristics, not validated assessment criteria. Other mirrors, full incident response, detailed handling, proof of delivery, varied pedestrians/weather and realistic vehicle physics remain future work. Traffic/pedestrian contact stops the van and records feedback; it does not yet end a shift.
+- Automatic local checkpoints every three active seconds and at actions, pauses, hub transitions and page exit. Cargo, mission choices, actors and event IDs restore; repeated events are deduplicated. Pausing/menus/hub time do not advance the shift. Invalid saves are rejected without crashing. A storage failure appears in the footer.
+- Saves use the existing local key with a separate `_firstperson_v2` suffix. They are browser-local prototype state, not LMS/company-cloud progress or official assessment records. `lab=firstperson` retains the existing lab bypass of sign-in. Sign-in/profile migration, official grades and trainer integration must be designed before release. Keep the extracted folder in the same location/browser when resuming; local-file storage behaviour varies by browser.
+- Geometry is deliberately simple; no generated/replacement graphics or new binary art. Static details are instanced by material. Low quality reduces main rendering resolution, removes decorative trees and uses a smaller mirror target. Only one mirror renders, and only while requested. No dynamic shadows/postprocessing. Performance has **not** been measured.
+- All new words go through `OTR.txt`; the English source inventory is in [FIRST-PERSON-STRINGS.md](FIRST-PERSON-STRINGS.md). Translation files, the language picker and font are unchanged. Existing Language and Main game entries remain available. Complete translation and layout verification are pending.
+
+### Changed files and checks
+
+`src/core/fpmission.js` contains mission/checkpoint logic; `src/core/fpworld.js` contains the shared hub/depot/town geometry; `src/core/world3d.js` owns the main and mirror targets on Phaser's GL context; `src/scenes/FirstPersonScene.js` connects input, menus, tools and transitions. `index.html` adds the two classic scripts. Original `firstperson.js` motion helpers and its tests remain unchanged. The shared renderer retains its own depth targets and disposes owned resources without losing Phaser's context.
+
+Renderer-free checks for this revision:
+
+| Command/check | Result |
+| --- | --- |
+| `node test/firstperson.js` | 18/18 passed, exit 0; legacy movement/collision checks |
+| `node test/fpmission.js` | 20/20 passed, exit 0; mission outcomes, persistence, invalid saves, traffic, practice boundaries |
+| `node test/fpworld.js` | 11/11 passed, exit 0; real Three.js CPU raycasts, cargo reachability, mirror direction, low-quality targets, save/transition isolation |
+| Combined `node --test test/firstperson.js test/fpmission.js test/fpworld.js` | 49 passed, 0 failed, 0 skipped |
+| `node --check` on the six new/changed JavaScript files | 6/6 passed |
+| Script paths/order, protected files, `git diff --check` | All 94 script paths exist; load order passes; protected files unchanged from branch base; no whitespace errors |
+
+The bundled Three.js classic build emits its existing deprecation notice during CPU tests. ES modules have not been introduced. Dependency setup: `cd test && npm install` initially failed (exit 1) because the default npm cache was unwritable. Retrying `npm install --cache /tmp/otr-npm-cache` succeeded (exit 0). No dependency/lockfile changes are included.
+
+**Not run:** browser playthrough, `QA_FPS_FLOOR=0 QA_PORT=8300 node qa.js`, `town3d.js`, `art.js`, `driving.js`, Hindi layout checks and high/low benchmarks (average plus worst 1%). The user requested manual review before graphic testing. This branch is ready for that review; source/CPU checks do not certify rendering, HUD fit, browser launch, shared-context lifetime or integrated-GPU performance. After approval, run those checks using ports 8300+, plus the connected prototype's file-launch/resume/transition paths. Stop any owned long-running process by PID. Do not merge to main without explicit permission.
+
 ## Campaign and focused modules: product direction
 
-The following requirements reflect the user's latest direction. They are a planning update; they do not implement campaign persistence or convert additional modules.
+The following sections retain the agreed broader product direction. The current slice implements only the subset described above.
 
 | Mode | Player experience | Available activities |
 | --- | --- | --- |
@@ -298,7 +348,7 @@ Use ports 8300 and above. Keep protected repository tests unchanged and stop own
 The planning commit changes documentation only. It does not add a playable first-person scene, generate assets or require a game QA rerun. The graphics revision's ambulance assertion and intermittent Drive Map navigation test remain recorded in `docs/GRAPHICS-NOTES.md`; this plan does not resolve them.
 
 
-## First prototype: implemented for manual review
+## Historical first prototype (superseded by the connected slice above)
 
 Entry point: **`first-person.html`**. Extract the branch checkout or ZIP before opening this file in a browser. It redirects to `index.html?lab=firstperson`. The usual `index.html` menu continues to open the existing training game; module conversion is still future work. `first-person.html?gfx=low` selects the cheaper render target and omits decorative meshes. `?sensitivity=0.001` halves the default mouse sensitivity; the accepted range is 0.0005–0.006.
 

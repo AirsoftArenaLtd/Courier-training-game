@@ -1,0 +1,268 @@
+# Connected first-person prototype: English string inventory
+
+This is a review/translation handoff, not a runtime catalogue. It covers the new connected prototype in `codex-first-person`. Existing translation files and the language/font implementation are untouched. All displayed words are passed through `OTR.txt`; new English is intentionally not translated yet.
+
+Entries below are source literals, including the pieces used to assemble dynamic labels and debrief sentences. Leading/trailing spaces and literal `\n` escapes are retained inside the code blocks. Adjacent pieces concatenate with runtime values (address, service, tracking code, shelf number, speed, key binding, counts or page number); translate complete templates when integrating with i18n rather than independently translating every fragment. Existing reusable strings are included so the handoff is complete. Text in the historical one-parcel section of FIRST-PERSON-PLAN.md is superseded.
+
+## Dynamic values and templates
+
+- Addresses: `214 Maple Ave`, `216 Maple Ave`, `214 Birch Lane` (stable address identities).
+- Shelf names: `{Left|Right} shelf {1|2|3}`. Inspection parts: `tyres`, `lights`.
+- Tracking: `OTR-{day-derived number}-{piece number}`; weight: `{weight} kg`.
+- Graphics values: `low`, `high`; gear indicators: `D`, `R`.
+- Objective: `{address} · {distance} m · {service requirement}`.
+- Cab: `{mph} mph · {D|R} · {Brake on|Brake off} · {Belt on|Belt off} · {signal arrow}`.
+- Debrief: `Good decisions: {count} · To review: {count}`, event sentences and `Page {page} / {pages}`.
+- Manifest: `{address} — {service requirement}` with an optional completion tick.
+- Choice labels have a numerical prefix, e.g. `1. Start workday`.
+- Key-binding names use the existing accessibility labels where available. F/C/H/V remain prototype shortcuts.
+
+## src/core/fpmission.js
+
+```text
+214 Maple Ave
+216 Maple Ave
+214 Birch Lane
+Left
+Right
+ shelf 
+Move close to the parcel and face its label.
+Scanner identified a parcel for a different stop.
+This parcel is for a different stop. Check the address before carrying it out.
+Verified 
+ on the scanner.
+Signature required
+Leave in the porch box if nobody answers
+Hand to the resident
+Put down the parcel you are carrying first.
+Retrieved the requested parcel after checking its label.
+Retrieved the requested parcel without scanning it.
+Open the cargo doors and move close to a shelf.
+That shelf position is occupied.
+Return to the parcel table or choose an empty cargo shelf.
+Move close to the inspection point.
+Correctly assessed the 
+Recheck the condition of the 
+Dispatch arranged the repair. The vehicle is now serviceable.
+Inspection recorded.
+Inspection recorded. Review the condition before departure.
+Stop and secure the van before opening cargo.
+Step outside before closing the cargo doors.
+Place the parcel and move to the cargo restraints.
+Load secured.
+This lesson covers loading and retrieval. Driving is available in the workday.
+Place the parcel before entering the cab.
+Close the cargo doors before entering the cab.
+Approach the correct delivery point.
+The resident answers and confirms the address.
+Nobody answers the door.
+Choose a delivery outcome.
+Approach an unfinished delivery point.
+Retrieve the parcel from the van first.
+Attempted a delivery with the wrong parcel.
+The address does not match. Return this parcel to the van and retrieve the correct one.
+Prepare and load this parcel at the depot first.
+Attempt contact before recording the outcome.
+Tried to record a handover with no recipient present.
+Nobody is present to receive the parcel. Choose an outcome that matches the situation.
+Completed a stop without scanning the parcel.
+Retained the signature parcel when the recipient was absent.
+Followed the delivery requirements at 
+The outcome did not match the requirements at 
+Exception recorded. Keep the parcel and return it to the depot.
+Delivery recorded.
+Outcome recorded. Review this decision in the debrief.
+Bring an undelivered parcel to the returns desk.
+Scanned the undelivered parcel back into the depot.
+Return recorded.
+Return to the dispatch desk.
+Retrieve the requested parcel, put it back and secure the load before finishing.
+Complete the remaining delivery stops first.
+Bring retained parcels to the returns desk first.
+Return the van to the depot and set the parking brake.
+Completed the 
+ check before departure.
+Departed without a correct 
+ check.
+Secured the load before departure.
+Departed with an unsecured load.
+Loaded and scanned 
+A parcel was unscanned or left at the depot.
+Moved the van without fastening the seatbelt.
+Moved the van before securing the load.
+Exceeded the posted 15 mph limit.
+Drove onto the pavement beside the road.
+Travelled on the wrong side of the road.
+Pulled into the path of approaching traffic.
+Pulled away without signalling left.
+Pulled away without a recent mirror check.
+Checked, signalled and waited for a clear gap.
+Stopped before the junction line.
+Passed the junction stop line without stopping.
+Contact with traffic: stop and review the manoeuvre.
+The van contacted an obstacle.
+Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.
+Reduced speed early for the developing crossing hazard.
+Passed the crossing without an early speed reduction.
+OTR-
+```
+
+## src/core/fpworld.js
+
+```text
+Workday
+Cargo practice
+Last debrief
+Dispatch
+Returns
+STOP
+15 mph
+```
+
+## src/scenes/FirstPersonScene.js
+
+```text
+Welcome to On The Route
+Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.
+Enter the hub
+The prototype could not start
+WebGL is required. Reload to try again.
+Reload
+ON THE ROUTE
+Loading…
+Left mirror
+A/D rotate · Space scan · Esc return
+Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.
+\n\nCheck the tyres and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.
+Resume your shift
+Cargo practice
+Your workday
+Continue
+Begin preparation
+Back to hub
+Resume workday
+Start workday
+Resume cargo practice
+Last debrief
+Save and return to hub
+Handheld
+Settings
+Main game
+Your training hub
+Paused
+Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.
+The shift is paused. Progress is saved on this device; you can resume from the hub.
+Graphics: 
+\nMouse sensitivity: 
+\nExisting key remaps apply. Course settings and trainer tools are available through Main game.
+Low graphics
+High graphics
+Slower mouse look
+Faster mouse look
+Language
+Back
+Used the handheld before parking safely.
+ kg\n
+Scanned
+Not scanned
+\nRecorded shelf: 
+Not recorded
+Scan parcel
+Route and next stop
+Route
+Driving is outside this cargo lesson.
+Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.
+All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.
+Parcel label
+\nWeight: 
+Scan
+Return to walking
+Pick up
+A bulge is visible in the tyre sidewall.
+The tyre sidewalls are intact and the tread is visible.
+The left headlamp does not illuminate during the light test.
+Both headlamps illuminate during the light test.
+Tyre inspection
+Light test
+Mark serviceable
+Request repair
+This stop already has a recorded outcome.
+The resident confirms the address.
+Nobody answers.
+Attempt contact, then follow the shipment requirements.
+\nCarrying: 
+No parcel
+Record handover
+Record porch-box delivery
+Record recipient absent
+Knock / ring
+Delivery
+Dispatch
+Finish practice
+Finish workday
+View manifest
+Complete a workday or a cargo lesson to see its results.
+Good decisions: 
+ · To review: 
+\n\nPage 
+Previous
+Next
+Return to hub
+Practice debrief
+Workday debrief
+Stop and set the parking brake before exiting.
+Stop before selecting drive or reverse.
+Choose a workday or a focused cargo lesson.
+Scan and place all three parcels in the van. Choose your shelf positions.
+Retrieve 
+ from the shelf where you loaded it.
+Replace the parcel, secure the load, then finish at Dispatch.
+Check tyres and lights, scan and load three parcels, then secure the load and close cargo.
+Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.
+Review the shift, then return to the hub.
+ m · 
+ON THE ROUTE · HUB
+CARGO PRACTICE
+ON THE ROUTE · WORKDAY
+ mph · 
+D
+R
+Brake on
+Brake off
+Belt on
+Belt off
+Carrying: 
+ parcels in cargo
+ accelerate / brake · 
+ steer · 
+ parking brake · 
+ gear · 
+ belt
+ move · 
+ interact · F inspect · 
+ handheld · H menu
+ left mirror · 
+ / C signals · V look forward · 
+ exit · H menu
+Mouse looks · Click or E interacts · Drag to look without mouse capture · Esc pauses
+Saved on this device
+Saving unavailable — keep this window open
+E resume workday
+E start workday
+E cargo practice
+E last debrief
+H opens the hub menu
+Set your belt, check the mirror and release the parking brake.
+15 mph limit · Keep right · Stop at the junction line
+E enter cab
+E close cargo doors
+E open cargo doors
+E secure the load
+E inspect 
+E check in at Dispatch
+E scan a retained parcel back into the depot
+ · E pick up · F inspect · Tab handheld
+ · E place the parcel
+ · E attempt delivery
+Choose an empty cargo shelf, or approach the correct delivery point.
+```
