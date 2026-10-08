@@ -217,8 +217,15 @@ async function unit() {
     check(made.every(id => D.has(id)) && !rs.some(r => !r.ok && D.has('bulk' + rs.indexOf(r))), 'only the accounts that were hashed exist');
     reset();
     rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.resetPassword(made[i % made.length])));
-    check(hashes <= cap && most <= D.config.maxHashing && rs.some(r => r.reason === 'busy') && rs.every(r => r.ok || r.reason === 'busy'),
-      `100 resets at once: ${hashes} hashes, at most ${most} at a time (${JSON.stringify(tally(rs))})`);
+    check(hashes <= Math.min(cap, made.length) && most <= D.config.maxHashing && rs.every(r => r.ok || r.reason === 'busy' || r.reason === 'inprogress'),
+      `100 resets at once of ${made.length} accounts: ${hashes} hashes (one per account at most), at most ${most} at a time (${JSON.stringify(tally(rs))})`);
+    const perId = {};
+    rs.filter(r => r.ok).forEach(r => { perId[r.id] = (perId[r.id] || []).concat(r.tempPassword); });
+    let resetsWork = true;
+    for (const id of Object.keys(perId)) resetsWork = resetsWork && perId[id].length === 1 && !!(await D.signIn(id, perId[id][0], 'ip-rs-' + id)).ok;
+    check(Object.keys(perId).length > 0 && resetsWork, `at most one reset per account succeeds, and the password it returned is the one that works (${Object.keys(perId).length} accounts)`);
+    reset();
+    rs = await Promise.all(Array.from({ length: 60 }, (_, i) => D.createAccount('bulk2-' + i)));
     const busy = rs.find(r => r.reason === 'busy');
     check(busy && busy.status === 503 && busy.error === auth.MESSAGES.busy, 'a trainer turned away is told the server is busy (503)');
 
@@ -246,6 +253,8 @@ async function unit() {
     check(rr2.ok && midR.reason === 'expired' && (await D.signIn('crowd' + left, rr2.tempPassword, 'ip-cl')).ok, 'a reset while a change is being checked: the change is refused, the reset stands');
   }
 
+  await races();
+
   console.log('\ntiming');
   const T = auth.createAuth({});
   const acct = await T.createAccount('e5000', 'Timed');
@@ -256,6 +265,210 @@ async function unit() {
   check(acct.ok, 'timing account made');
 }
 
+/*
+ * A password check or hash that can be held part-way: holdNext() traps the next call only (later ones run as usual);
+ * its `in` resolves once the call is held, release() lets it go on. throwNext() makes the next call fail.
+ */
+function holdable(real) {
+  const traps = [];
+  const f = async (...a) => {
+    const t = traps.shift();
+    if (t) { t.entered(); await t.gate; if (t.boom) throw new Error('test: hash failed'); }
+    return real(...a);
+  };
+  f.holdNext = () => { const t = {}; t.gate = new Promise(r => { t.release = r; }); t.in = new Promise(r => { t.entered = r; }); traps.push(t); return t; };
+  f.throwNext = () => { const t = f.holdNext(); t.boom = true; t.release(); return t; };
+  f.calls = 0;
+  return f;
+}
+
+async function races() {
+  console.log('\nraces: every commit after an await re-checks the account version');
+  const verify = holdable((pw, h) => { verify.calls++; return auth.verifyPassword(pw, h); });
+  const hash = holdable((pw, prm) => { hash.calls++; return auth.hashPassword(pw, prm); });
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-race-'));
+  const file = path.join(dir, 'accounts.json');
+  const R = auth.createAuth({ file, now: clock(), scrypt: FAST, verify, hash });
+  let n = 0;
+  const ip = () => 'ip-race-' + (n++);
+  /** A fresh account with its own password chosen; returns that password. */
+  async function ready(id) {
+    const m = await R.createAccount(id, id);
+    const c = await R.changePassword((await R.signIn(id, m.tempPassword, ip())).sid, id + ' own pass');
+    if (!c.ok) throw new Error('setup ' + id);
+    return id + ' own pass';
+  }
+  const sessionsOf = async (id, pw) => { const r = await R.signIn(id, pw, ip()); return r; };
+
+  // sign-in held in its password check, then a reset: the old password must not yield a session
+  let pw = await ready('r1');
+  let t = verify.holdNext();
+  let si = R.signIn('r1', pw, ip());
+  await t.in;
+  const rr = await R.resetPassword('r1');
+  t.release();
+  let res = await si;
+  check(rr.ok && !res.ok && !res.sid, `sign-in checked while a reset lands: no session for the old password (${res.reason})`);
+  check((await sessionsOf('r1', rr.tempPassword)).ok && !(await sessionsOf('r1', pw)).ok, '... the reset password works and the old one does not');
+
+  // ... then a password change from another session
+  pw = await ready('r2');
+  const other = (await R.signIn('r2', pw, ip())).sid;
+  t = verify.holdNext();
+  si = R.signIn('r2', pw, ip());
+  await t.in;
+  const ch = await R.changePassword(other, 'r2 newer pass', pw);
+  t.release();
+  res = await si;
+  check(ch.ok && !res.ok && !res.sid, `sign-in checked while the password changes: no session for the old password (${res.reason})`);
+
+  // ... then the account is removed, and removed and made again
+  pw = await ready('r3');
+  t = verify.holdNext();
+  si = R.signIn('r3', pw, ip());
+  await t.in;
+  R.removeAccount('r3');
+  t.release();
+  res = await si;
+  check(!res.ok && !res.sid, `sign-in checked while the account is removed: no session (${res.reason})`);
+  pw = await ready('r4');
+  t = verify.holdNext();
+  si = R.signIn('r4', pw, ip());
+  await t.in;
+  R.removeAccount('r4');
+  const again = await R.createAccount('r4', 'Again');
+  t.release();
+  res = await si;
+  check(again.ok && !res.ok && !res.sid, `... or removed and made again under the same ID: the old password gets no session (${res.reason})`);
+
+  // two resets at once: exactly one succeeds, without a second hash, and the password it returns is the stored one
+  pw = await ready('r5');
+  hash.calls = 0;
+  t = hash.holdNext();
+  const ra = R.resetPassword('r5');
+  await t.in;
+  const rb = await R.resetPassword('r5');
+  t.release();
+  const raR = await ra;
+  check(raR.ok && !rb.ok && rb.reason === 'inprogress' && rb.status === 409 && !rb.tempPassword && hash.calls === 1,
+    `two resets at once: one succeeds, the other is told one is under way (409) with no hashing (${hash.calls} hash)`);
+  check((await sessionsOf('r5', raR.tempPassword)).ok, '... and the password the successful one returned is the one that works');
+
+  // a reset hashing while the account changes under it does not report success
+  pw = await ready('r6');
+  const s6 = (await R.signIn('r6', pw, ip())).sid;
+  t = hash.holdNext();
+  const rc = R.resetPassword('r6');
+  await t.in;
+  const c6 = await R.changePassword(s6, 'r6 newer pass', pw);
+  t.release();
+  const rcR = await rc;
+  check(c6.ok && !rcR.ok && !rcR.tempPassword && rcR.reason === 'inprogress' && (await sessionsOf('r6', 'r6 newer pass')).ok,
+    `a reset overtaken by a password change: the reset reports no success and the change stands (${rcR.reason})`);
+  pw = await ready('r7');
+  t = hash.holdNext();
+  const rd = R.resetPassword('r7');
+  await t.in;
+  R.removeAccount('r7');
+  t.release();
+  const rdR = await rd;
+  check(!rdR.ok && rdR.reason === 'missing' && !R.has('r7'), 'a reset overtaken by a removal: missing, and the account is not brought back');
+
+  // a password change held, then the account is removed, or removed and made again
+  pw = await ready('r8');
+  let s8 = (await R.signIn('r8', pw, ip())).sid;
+  t = verify.holdNext();
+  let cg = R.changePassword(s8, 'r8 newer pass', pw);
+  await t.in;
+  R.removeAccount('r8');
+  t.release();
+  res = await cg;
+  check(!res.ok && res.reason === 'expired' && !R.has('r8'), `a change overtaken by a removal: expired, the account stays gone (${res.reason})`);
+  pw = await ready('r9');
+  s8 = (await R.signIn('r9', pw, ip())).sid;
+  t = verify.holdNext();
+  cg = R.changePassword(s8, 'r9 newer pass', pw);
+  await t.in;
+  R.removeAccount('r9');
+  const made9 = await R.createAccount('r9', 'Again');
+  t.release();
+  res = await cg;
+  check(!res.ok && res.reason === 'expired' && (await sessionsOf('r9', made9.tempPassword)).ok && !(await sessionsOf('r9', 'r9 newer pass')).ok,
+    `... or removed and made again: the change does not land on the new account (${res.reason})`);
+
+  // a change whose current password is wrong, overtaken by a reset: not counted as a guess
+  pw = await ready('r10');
+  const s10 = (await R.signIn('r10', pw, ip())).sid;
+  t = verify.holdNext();
+  cg = R.changePassword(s10, 'r10 newer pass', 'not it');
+  await t.in;
+  await R.resetPassword('r10');
+  t.release();
+  res = await cg;
+  check(res.reason === 'expired', `a change overtaken by a reset: expired (${res.reason})`);
+
+  // the same ID created twice at once: one account, one hash
+  hash.calls = 0;
+  t = hash.holdNext();
+  const ca = R.createAccount('r11', 'One');
+  await t.in;
+  const cb = await R.createAccount('r11', 'Two');
+  t.release();
+  const caR = await ca;
+  check(caR.ok && !cb.ok && cb.reason === 'inprogress' && hash.calls === 1 && R.list().find(a => a.id === 'r11').name === 'One' &&
+    (await sessionsOf('r11', caR.tempPassword)).ok, `the same ID created twice at once: one succeeds, the other is turned away (${cb.reason}) with no hashing`);
+  check((await R.createAccount('r11', 'Three')).reason === 'exists', '... and afterwards it exists');
+
+  // errors part-way give back every turn and count
+  pw = await ready('r12');
+  for (let i = 0; i < R.config.maxHashing + R.config.maxQueue + 2; i++) {
+    verify.throwNext();
+    let threw = false;
+    try { await R.signIn('r12', 'x' + i, ip()); } catch (e) { threw = true; }
+    if (!threw) { check(false, 'a failing check should throw'); break; }
+  }
+  check((await sessionsOf('r12', pw)).ok, 'sign-ins whose check fails with an error give back their turn and in-flight count (the next sign-in works)');
+  const s12 = (await R.signIn('r12', pw, ip())).sid;
+  hash.throwNext();
+  let threw = false;
+  try { await R.changePassword(s12, 'r12 newer pass', pw); } catch (e) { threw = true; }
+  res = await R.changePassword(s12, 'r12 newer pass', pw);
+  check(threw && res.ok, `a change whose hash fails with an error frees the account for the next change (${res.reason || 'ok'})`);
+  hash.throwNext();
+  threw = false;
+  try { await R.resetPassword('r12'); } catch (e) { threw = true; }
+  check(threw && (await R.resetPassword('r12')).ok, '... and so does a reset');
+  hash.throwNext();
+  threw = false;
+  try { await R.createAccount('r13'); } catch (e) { threw = true; }
+  check(threw && (await R.createAccount('r13')).ok, '... and a new account');
+
+  // the accounts file: written whole, a failed write changes nothing
+  const left = fs.readdirSync(dir).filter(f => f !== 'accounts.json');
+  const disk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  check(!left.length && Object.keys(disk.accounts).sort().join() === R.list().map(a => a.id).join(), `the file matches memory, no temporary files left (${left.join() || 'none'})`);
+  const pw15 = await ready('r15');
+  const s13 = (await R.signIn('r15', pw15, ip())).sid;
+  const tmp = file + '.' + process.pid + '.tmp';
+  fs.mkdirSync(tmp);                                      // the temporary file cannot be written
+  const beforeTxt = fs.readFileSync(file, 'utf8');
+  const quiet = console.error; console.error = () => {};
+  let fr, fc, fx, fz;
+  try {
+    fr = await R.resetPassword('r15');
+    fc = await R.createAccount('r14');
+    fx = R.removeAccount('r15');
+    fz = await R.changePassword(s13, 'r15 newest pass', pw15);
+  } finally { console.error = quiet; fs.rmdirSync(tmp); }
+  check([fr, fc, fx, fz].every(r => !r.ok && r.reason === 'storage' && r.status === 500 && !r.tempPassword) && fs.readFileSync(file, 'utf8') === beforeTxt,
+    'a write that fails: the reset, creation, removal and change all report it and the file is untouched');
+  check(R.has('r15') && !R.has('r14') && !!R.session(s13) && (await sessionsOf('r15', pw15)).ok, '... and nothing changed in memory either (the session and password stand)');
+  const burst = await Promise.all(Array.from({ length: 12 }, (_, i) => R.createAccount('burstfile' + i)));
+  const disk2 = JSON.parse(fs.readFileSync(file, 'utf8'));
+  check(burst.filter(r => r.ok).every(r => disk2.accounts[r.id]) && Object.keys(disk2.accounts).length === R.size, 'many writes at once: the file always parses and holds every account');
+  fs.rmSync(dir, { recursive: true, force: true });
+}
+
 /* ------------------------------------------------------------------ the API */
 function request(base, method, p, o) {
   o = o || {};
@@ -263,6 +476,7 @@ function request(base, method, p, o) {
     const headers = Object.assign({}, o.headers || {});
     let data = null;
     if (o.json !== undefined) { data = JSON.stringify(o.json); headers['Content-Type'] = headers['Content-Type'] || 'application/json'; }
+    if (o.raw !== undefined) data = o.raw;
     if (o.cookie) headers.Cookie = o.cookie;
     const req = http.request(base + p, { method, headers }, res => {
       let d = ''; res.on('data', c => d += c);
@@ -300,6 +514,11 @@ async function api() {
     check(r.body.id === 'jdoe', 'a company sign-in header still names the trainee');
 
     check((await request(base, 'POST', 'api/accounts', { json: { id: 'e2001', name: 'Ana Ruiz' } })).code === 401, 'creating an account needs the trainer PIN');
+    r = await request(base, 'POST', 'api/signin', { raw: '{bad json', headers: { 'Content-Type': 'application/json' } });
+    const alive = await request(base, 'GET', 'api/whoami');
+    check(r.code === 400 && alive.code === 200, 'a malformed sign-in body is answered 400 and the server keeps running');
+    r = await request(base, 'POST', 'api/accounts', { raw: '{bad json', headers: Object.assign({ 'Content-Type': 'application/json' }, PIN) });
+    check(r.code === 400 && (await request(base, 'GET', 'api/whoami')).code === 200, '... and a malformed trainer body too');
     r = await request(base, 'POST', 'api/accounts', { json: { id: 'E2001', name: 'Ana Ruiz' }, headers: PIN });
     const temp = r.body.tempPassword;
     check(r.code === 200 && r.body.id === 'e2001' && temp, 'a trainer creates an account');

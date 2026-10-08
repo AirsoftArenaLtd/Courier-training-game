@@ -192,10 +192,11 @@ async function api(req, res, url) {
       }
       return send(res, 200, out);
     }
-    if (accounts && (route === 'signin' || route === 'password' || route === 'signout')) return signInApi(req, res, route);
+    // awaited here, so a bad body (malformed JSON) is answered by the catch below instead of escaping and stopping the server
+    if (accounts && (route === 'signin' || route === 'password' || route === 'signout')) return await signInApi(req, res, route);
     if (accounts && (route === 'accounts' || route.startsWith('accounts/'))) {
       const t = trainerOk(req); if (!t.ok) return send(res, t.code, { error: t.error });
-      return accountsApi(req, res, route);
+      return await accountsApi(req, res, route);
     }
     if (route === 'progress') {
       if (!who) return send(res, 401, { error: 'Not signed in.' });
@@ -203,7 +204,10 @@ async function api(req, res, url) {
       if (req.method === 'GET') return send(res, 200, { id: who.id, progress: readJSON(f, null) });
       if (req.method === 'PUT' || req.method === 'POST') {
         const b = await body(req, 4 * 1024 * 1024);
-        if (!b || typeof b.progress !== 'object') return send(res, 400, { error: 'Expected { progress }.' });
+        // the sign-in may have ended (signed out, reset, removed) while the body arrived: check it again
+        const still = whoIs(req, url);
+        if (!still || still.id !== who.id) return send(res, 401, { error: 'Not signed in.' });
+        if (!b || typeof b.progress !== 'object' || b.progress === null) return send(res, 400, { error: 'Expected { progress }.' });
         const old = readJSON(f, null);
         // a stale tab must not overwrite newer progress from another PC
         if (old && (old.savedAt || 0) > (b.progress.savedAt || 0)) return send(res, 409, { error: 'A newer save exists.', savedAt: old.savedAt });

@@ -23,6 +23,13 @@
  *   is turned away as 'pending' without hashing. A wrong current password counts towards the same lock as sign-in.
  * - Sessions live in memory under a random id (the cookie holds only that id); they end after sessionMs, after
  *   idleMs unused, when the password changes or is reset, and when the server restarts.
+ * - Concurrency: every account has an in-memory version, a number from one counter that only goes up, given anew
+ *   whenever the account is created, its password changed or reset, or it is removed. Anything that awaits (a turn,
+ *   a password check, a hash) reads the version and the hash it checks against first, and commits only if the
+ *   version is still the same afterwards (and the session, for a change, is still the same live one). A session
+ *   carries the version it was issued under and is over once that changes. One reset and one creation per ID at a
+ *   time ('inprogress', without hashing). The accounts file is written whole to a temporary file, flushed and renamed
+ *   over the old one, before memory changes: a failed write changes nothing ('storage'), a crash never leaves half.
  * Results that fail carry { reason, status, error }: reason is a code the sign-in screen words for itself, error the
  * same in English for API users.
  */
@@ -49,9 +56,12 @@ const MESSAGES = {
   pending: 'Your password is already being changed. Try again in a moment.',
   id: 'An employee ID is 1 to 64 letters, digits and . _ @ - (starting with a letter or digit).',
   exists: 'There is already an account with that employee ID.',
-  missing: 'There is no account with that employee ID.'
+  missing: 'There is no account with that employee ID.',
+  inprogress: 'That account is being changed by another request right now. Try again in a moment.',
+  storage: 'The accounts file could not be saved, so nothing was changed. Tell IT.'
 };
-const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, long: 400, same: 400, expired: 401, pending: 409, id: 400, exists: 409, missing: 404 };
+const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, long: 400, same: 400, expired: 401, pending: 409, id: 400, exists: 409, missing: 404,
+  inprogress: 409, storage: 500 };
 const fail = (reason) => ({ ok: false, reason, status: STATUS[reason], error: MESSAGES[reason] });
 
 /** Employee IDs are compared without case or surrounding spaces. '' when it cannot be one. */
@@ -119,29 +129,54 @@ function createAuth(o) {
     scrypt: Object.assign({}, SCRYPT, o.scrypt)
   };
   const accounts = new Map();                    // id -> { name, hash, mustChange, createdAt, changedAt }
-  const sessions = new Map();                    // sid -> { id, created, last, mustChange }
+  const sessions = new Map();                    // sid -> { id, v, created, last, mustChange }
+  const versions = new Map();                    // id -> its version (see the top): what every commit after an await re-checks
+  let lastVersion = 0;
+  const bump = (id) => { versions.set(id, ++lastVersion); };
   const fails = new Map();                       // id (existing or not) -> { n, until }
   const ipFails = new Map();                     // address -> { n, start }
   const pending = new Map();                     // id -> sign-ins being checked right now
   const verify = o.verify || verifyPassword;     // tests count the password checks ...
   const hasher = o.hash || hashPassword;         // ... and the hashes
   const changing = new Set();                    // ids with a password change being checked right now
+  const resetting = new Set();                   // ids with a trainer's reset being hashed right now
+  const creating = new Set();                    // ids with a new account being hashed right now
   // unknown IDs are checked against this, so they cost the same time as known ones
   const dummy = hashPassword(crypto.randomBytes(18).toString('base64'), cfg.scrypt);
 
   if (cfg.file && fs.existsSync(cfg.file)) {
     // an unreadable accounts file stops the server rather than starting with nobody (and overwriting it)
     const db = JSON.parse(fs.readFileSync(cfg.file, 'utf8'));
-    Object.keys((db && db.accounts) || {}).forEach(id => { if (normalizeId(id) === id) accounts.set(id, db.accounts[id]); });
+    Object.keys((db && db.accounts) || {}).forEach(id => { if (normalizeId(id) === id) { accounts.set(id, db.accounts[id]); bump(id); } });
   }
-  function save() {
-    if (!cfg.file) return;
-    const out = { version: 1, accounts: {} };
-    accounts.forEach((a, id) => { out.accounts[id] = a; });
-    fs.mkdirSync(path.dirname(cfg.file), { recursive: true });
-    const tmp = cfg.file + '.' + process.pid + '.tmp';
-    fs.writeFileSync(tmp, JSON.stringify(out, null, 1), { mode: 0o600 });
-    fs.renameSync(tmp, cfg.file);
+  /*
+   * The one way an account changes: the whole file is written with the change (a temporary file, flushed, then renamed
+   * over the old one, so a crash leaves the old file or the new one, never half), and only then memory, with a new
+   * version. Synchronous, so writes never interleave. A failed write throws and changes nothing.
+   */
+  function writeFile(file, text) {
+    const tmp = file + '.' + process.pid + '.tmp';
+    try {
+      const fd = fs.openSync(tmp, 'w', 0o600);
+      try { fs.writeSync(fd, text); fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+      fs.renameSync(tmp, file);
+    } catch (e) { try { fs.unlinkSync(tmp); } catch (e2) { /* never made */ } throw e; }
+  }
+  function commit(id, a) {
+    if (cfg.file) {
+      const out = { version: 1, accounts: {} };
+      accounts.forEach((x, k) => { if (k !== id) out.accounts[k] = x; });
+      if (a) out.accounts[id] = a;
+      fs.mkdirSync(path.dirname(cfg.file), { recursive: true });
+      writeFile(cfg.file, JSON.stringify(out, null, 1));
+    }
+    if (a) { accounts.set(id, a); bump(id); } else { accounts.delete(id); versions.delete(id); }
+    fails.delete(id);
+    endSessions(id);
+  }
+  /** commit(), or false when the file could not be written (nothing changed). */
+  function tryCommit(id, a) {
+    try { commit(id, a); return true; } catch (e) { console.error('accounts file not saved: ' + (e && e.message)); return false; }
   }
 
   const cap = (m) => { if (m.size > 10000) [...m.keys()].slice(0, 2000).forEach(k => m.delete(k)); };
@@ -203,7 +238,7 @@ function createAuth(o) {
   function newSession(id, mustChange) {
     const sid = crypto.randomBytes(32).toString('base64url');
     const t = now();
-    sessions.set(sid, { id, created: t, last: t, mustChange: !!mustChange });
+    sessions.set(sid, { id, v: versions.get(id), created: t, last: t, mustChange: !!mustChange });
     return sid;
   }
   function endSessions(id) { sessions.forEach((s, sid) => { if (s.id === id) sessions.delete(sid); }); }
@@ -212,7 +247,7 @@ function createAuth(o) {
     sessions.forEach((s, sid) => { if (expired(s, t)) sessions.delete(sid); });
   }
   function expired(s, t) {
-    return t - s.created > (s.mustChange ? Math.min(cfg.changeMs, cfg.sessionMs) : cfg.sessionMs) || t - s.last > cfg.idleMs || !accounts.has(s.id);
+    return t - s.created > (s.mustChange ? Math.min(cfg.changeMs, cfg.sessionMs) : cfg.sessionMs) || t - s.last > cfg.idleMs || !accounts.has(s.id) || versions.get(s.id) !== s.v;
   }
 
   return {
@@ -250,18 +285,22 @@ function createAuth(o) {
       const turn = acquire();
       if (!turn) { giveBack(); return fail('busy'); }
       pending.set(id, (pending.get(id) || 0) + 1);
-      let ok = false, a;
+      let ok = false, a, v;
       try {
         await turn;
         const h = await dummy;                    // (ready long before anyone signs in)
-        a = accounts.get(id);
+        // the account, its version and the hash checked, all read at the same moment, right before the check
+        a = accounts.get(id); v = versions.get(id);
         ok = await verify(pw, a ? a.hash : h);
       } finally {
+        // the turn and the in-flight count go back however the check ends, a thrown error included
         release();
         const n = (pending.get(id) || 1) - 1;
         if (n) pending.set(id, n); else pending.delete(id);
       }
-      if (!ok || !a || accounts.get(id) !== a) return fail(noteFail(id) ? 'locked' : 'bad');
+      // a password that was right for a version reset, changed or removed meanwhile is not right now
+      if (!ok || !a || accounts.get(id) !== a || versions.get(id) !== v) return fail(noteFail(id) ? 'locked' : 'bad');
+      if (lockedNow(id)) return fail('locked');
       giveBack();
       fails.delete(id);
       prune();
@@ -277,7 +316,7 @@ function createAuth(o) {
       if (!s) return fail('expired');
       if (typeof password !== 'string' || password.length < MIN_LEN) return fail('short');
       if (password.length > MAX_LEN) return fail('long');
-      const id = s.id, so = sessions.get(sid), a = accounts.get(id), was = a.hash;
+      const id = s.id, so = sessions.get(sid), a = accounts.get(id), v = versions.get(id), was = a.hash;
       // one change per account at a time, claimed before anything is awaited: a burst gets one try, the rest no hashing
       if (changing.has(id)) return fail('pending');
       const needCurrent = !so.mustChange;
@@ -287,8 +326,9 @@ function createAuth(o) {
       let r;
       try {
         r = await rationed(async () => {
-          if (needCurrent && !(await verify(typeof current === 'string' ? current : '', a.hash))) return 'bad';
-          if (await verify(password, a.hash)) return 'same';
+          // checked against the hash captured with the version, never one swapped in while this waited
+          if (needCurrent && !(await verify(typeof current === 'string' ? current : '', was))) return 'bad';
+          if (await verify(password, was)) return 'same';
           return hasher(password, cfg.scrypt);
         });
       } finally {
@@ -296,14 +336,13 @@ function createAuth(o) {
         if (needCurrent) { const n = (pending.get(id) || 1) - 1; if (n) pending.set(id, n); else pending.delete(id); }
       }
       if (r.busy) return fail('busy');
-      if (r.value === 'bad') return fail(noteFail(id) ? 'locked' : 'bad');
+      // still the same account version and session (not reset, removed, re-created, changed, signed out or expired)
+      const live = accounts.get(id) === a && versions.get(id) === v && sessions.get(sid) === so && !expired(so, now());
+      if (r.value === 'bad') return live ? fail(noteFail(id) ? 'locked' : 'bad') : fail('expired');
+      if (!live) return fail('expired');
       if (r.value === 'same') return fail('same');
-      // still the same account, password and session (not reset, removed, changed, signed out or expired meanwhile)
-      if (accounts.get(id) !== a || a.hash !== was || sessions.get(sid) !== so || expired(so, now())) return fail('expired');
-      a.hash = r.value; a.mustChange = false; a.changedAt = now();
-      save();
-      fails.delete(id);
-      endSessions(id);
+      if (needCurrent && lockedNow(id)) return fail('locked');
+      if (!tryCommit(id, Object.assign({}, a, { hash: r.value, mustChange: false, changedAt: now() }))) return fail('storage');
       return { ok: true, sid: newSession(id, false) };
     },
 
@@ -314,43 +353,44 @@ function createAuth(o) {
       const id = normalizeId(rawId);
       if (!id) return fail('id');
       if (accounts.has(id)) return fail('exists');
+      // one creation per ID at a time, claimed before anything is awaited: a second gets no hashing
+      if (creating.has(id)) return fail('inprogress');
+      creating.add(id);
       const temp = tempPassword();
-      const r = await rationed(() => hasher(temp, cfg.scrypt));
+      let r;
+      try { r = await rationed(() => hasher(temp, cfg.scrypt)); } finally { creating.delete(id); }
       if (r.busy) return fail('busy');
-      const hash = r.value;
       if (accounts.has(id)) return fail('exists');
-      const a = { name: tidyName(name) || null, hash, mustChange: true, createdAt: now(), changedAt: null };
-      accounts.set(id, a);
-      save();
-      fails.delete(id);
+      const a = { name: tidyName(name) || null, hash: r.value, mustChange: true, createdAt: now(), changedAt: null };
+      if (!tryCommit(id, a)) return fail('storage');
       return { ok: true, id, name: a.name, tempPassword: temp };
     },
 
     /** A new temporary password: it unlocks the account and signs it out everywhere. */
     async resetPassword(rawId) {
       const id = normalizeId(rawId);
-      const a = accounts.get(id);
+      const a = accounts.get(id), v = versions.get(id);
       if (!a) return fail('missing');
+      // one reset per account at a time, claimed before anything is awaited: a second gets no hashing and no password
+      if (resetting.has(id)) return fail('inprogress');
+      resetting.add(id);
       const temp = tempPassword();
-      const r = await rationed(() => hasher(temp, cfg.scrypt));
+      let r;
+      try { r = await rationed(() => hasher(temp, cfg.scrypt)); } finally { resetting.delete(id); }
       if (r.busy) return fail('busy');
-      const hash = r.value;
-      if (accounts.get(id) !== a) return fail('missing');
-      a.hash = hash; a.mustChange = true; a.changedAt = now();
-      save();
-      fails.delete(id);
-      endSessions(id);
-      return { ok: true, id, name: a.name || null, tempPassword: temp };
+      if (!accounts.has(id)) return fail('missing');
+      // changed (a new password, or removed and made again) while this was hashing: this one does not count
+      if (accounts.get(id) !== a || versions.get(id) !== v) return fail('inprogress');
+      const next = Object.assign({}, a, { hash: r.value, mustChange: true, changedAt: now() });
+      if (!tryCommit(id, next)) return fail('storage');
+      return { ok: true, id, name: next.name || null, tempPassword: temp };
     },
 
     /** Removes the sign-in only; the trainee's progress stays. */
     removeAccount(rawId) {
       const id = normalizeId(rawId);
       if (!accounts.has(id)) return fail('missing');
-      accounts.delete(id);
-      save();
-      fails.delete(id);
-      endSessions(id);
+      if (!tryCommit(id, null)) return fail('storage');
       return { ok: true, id };
     }
   };

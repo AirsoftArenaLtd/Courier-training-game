@@ -108,6 +108,19 @@ restores its last session may keep it).
   changed or been reset meanwhile, so only one of a burst of changes can succeed; it then ends every other session as
   usual. A wrong current password counts towards the same 5-in-a-row lock as a wrong sign-in, so a stolen session
   cannot be used to guess the current password either.
+- **Requests at the same moment (concurrency)**: each account has an in-memory version number that goes up whenever
+  it is created, its password is changed or reset, or it is removed. Anything that waits (for a turn, a password
+  check or a hash) notes the version and the hash it checks against first, and acts only if the version is still the
+  same afterwards. So a sign-in checked while a reset, change or removal lands gets no session, even with the old
+  password; a change overtaken by a reset or removal is refused ("expired"); and a session issued under an older
+  version is over. A reset or new account for an ID already being reset or created is answered at once, without
+  hashing, with "That account is being changed by another request right now" (HTTP 409); a reset overtaken by a
+  password change or removal reports no success, so a trainer is only ever shown a temporary password that works.
+  Turns and in-flight counts are given back on every path, errors included.
+- **The accounts file** is written whole to a temporary file, flushed to disk, then renamed over the old one, and
+  only then does the server's memory change. A crash leaves the old file or the new one, never half of one; a write
+  that fails (disk full, permissions) changes nothing and is reported as "The accounts file could not be saved"
+  (HTTP 500). A malformed request body is answered with HTTP 400 and never stops the server.
 - **No hints about who has an account**: an ID that does not exist gets the same message, the same lock and a
   password check of the same cost as one that does.
 - **Cross-site requests**: sign-in and password changes take only a JSON body, which a form on another site cannot
