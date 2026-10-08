@@ -4,7 +4,7 @@ OTR.fpMission = {
   VERSION: 2,
   addresses: ['214 Maple Ave', '216 Maple Ave', '214 Birch Lane'],
   slots: Array.from({ length: 6 }, (_, i) => ({
-    id: 'slot' + i, name: (i < 3 ? 'Left' : 'Right') + ' shelf ' + (i % 3 + 1),
+    id: 'slot' + i, name: i < 3 ? `Left shelf ${i % 3 + 1}` : `Right shelf ${i % 3 + 1}`,
     x: i < 3 ? -0.72 : 0.72, y: 1.35, z: 2.05 - (i % 3) * 1.05
   })),
   clone(value) { return JSON.parse(JSON.stringify(value)); },
@@ -164,9 +164,9 @@ OTR.fpMission = {
         }
         if (this.kind === 'campaign' && p.loaded && !this.stop(p.stop).resolved && this.atDelivery(p)) {
           p.stopScanned = true;
-          this.log('stop-scan:' + p.id, 'verification', 'good', 'Scanned the parcel at ' + p.address + ' before delivery.');
+          this.log('stop-scan:' + p.id, 'verification', 'good', `Scanned the parcel at ${p.address} before delivery.`);
         }
-        this.log('scan:' + p.id, 'verification', 'good', 'Verified ' + p.address + ' on the scanner.');
+        this.log('scan:' + p.id, 'verification', 'good', `Verified ${p.address} on the scanner.`);
         return p.address + ' · ' + this.serviceLabel(p.stop);
       },
       serviceLabel(id) {
@@ -204,8 +204,10 @@ OTR.fpMission = {
         const defect = !this.repaired && this.fault === part;
         const correct = decision === (defect ? 'repair' : 'ready');
         this.checks[part] = correct;
-        const label = part === 'tyres' ? 'tires' : part;
-        this.log('inspect:' + part, 'inspection', correct ? 'good' : 'needs', correct ? 'Correctly assessed the ' + label + '.' : 'Recheck the condition of the ' + label + '.');
+        // whole sentences, so each language can word them its own way
+        const said = part === 'tyres' ? (correct ? 'Correctly assessed the tires.' : 'Recheck the condition of the tires.')
+          : (correct ? 'Correctly assessed the lights.' : 'Recheck the condition of the lights.');
+        this.log('inspect:' + part, 'inspection', correct ? 'good' : 'needs', said);
         if (defect && decision === 'repair') { this.repaired = true; this.touch(); return 'Dispatch arranged the repair. The vehicle is now serviceable.'; }
         this.touch(); return correct ? 'Inspection recorded.' : 'Inspection recorded. Review the condition before departure.';
       },
@@ -264,8 +266,8 @@ OTR.fpMission = {
         const expected = s.service === 'handover' ? 'handover' : s.service === 'safeplace' ? 'safeplace' : 'exception';
         const correct = outcome === expected;
         this.log('outcome:' + id, 'delivery', correct ? 'good' : 'needs', correct ?
-          (outcome === 'exception' ? 'Retained the signature parcel when the recipient was absent.' : 'Followed the delivery requirements at ' + s.address + '.') :
-          'The outcome did not match the requirements at ' + s.address + '.');
+          (outcome === 'exception' ? 'Retained the signature parcel when the recipient was absent.' : `Followed the delivery requirements at ${s.address}.`) :
+          `The outcome did not match the requirements at ${s.address}.`);
         s.resolved = true; s.outcome = outcome;
         if (outcome !== 'exception') { p.location = 'delivered'; this.heldId = null; }
         else p.returnRequired = true;
@@ -294,11 +296,13 @@ OTR.fpMission = {
       preparation() {
         this.departed = true; this.phase = 'route';
         ['tyres','lights'].forEach(part => {
-          const label = part === 'tyres' ? 'tires' : part;
-          this.log('departure:' + part, 'inspection', this.checks[part] ? 'good' : 'needs', this.checks[part] ? 'Completed the ' + label + ' check before departure.' : 'Departed without a correct ' + label + ' check.');
+          const ok = this.checks[part], said = part === 'tyres'
+            ? (ok ? 'Completed the tire check before departure.' : 'Departed without a correct tire check.')
+            : (ok ? 'Completed the lights check before departure.' : 'Departed without a correct lights check.');
+          this.log('departure:' + part, 'inspection', ok ? 'good' : 'needs', said);
         });
         this.log('departure:load', 'loading', this.secured ? 'good' : 'needs', this.secured ? 'Secured the load before departure.' : 'Departed with an unsecured load.');
-        this.parcels.forEach(p => this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? 'Loaded and scanned ' + p.address + '.' : 'A parcel was unscanned or left at the depot.'));
+        this.parcels.forEach(p => this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? `Loaded and scanned ${p.address}.` : 'A parcel was unscanned or left at the depot.'));
       },
       tick(input, dt) {
         this.elapsed += dt;

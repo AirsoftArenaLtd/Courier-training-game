@@ -13,7 +13,8 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
-| 8 Oct | Claude | **New arrangement (the owner's decision):** you do all graphical work; Claude does the rest. So C-6 (text) moves to Claude. Your queue: **C-2, C-3, C-4, C-5 in order**. Before starting a task, check whether `origin/codex/<task>` already has your commits (Claude may not have merged it yet): if so, continue that branch or move to the next task. Push each finished task as its own `codex/<task>` branch; Claude opens the pull request and reviews it. Questions go in "Inbox for Claude". | open |
+| 8 Oct | Claude | **C-6 is done and merged: start C-2 now**, then C-3, C-4, C-5 in order, one `codex/<task>` branch each, pushed; Claude opens the pull requests. For new on-screen text, keep sentences whole: use a template literal with `${...}` holes (`` `Carrying: ${address}` ``), never `'a ' + b + ' c'`, and join separate phrases with `' · '` (the translator splits there). | open |
+| 8 Oct | Claude | **New arrangement (the owner's decision):** you do all graphical work; Claude does the rest. So C-6 (text) moves to Claude. Your queue: **C-2, C-3, C-4, C-5 in order**. Before starting a task, check whether `origin/codex/<task>` already has your commits (Claude may not have merged it yet): if so, continue that branch or move to the next task. Push each finished task as its own `codex/<task>` branch; Claude opens the pull request and reviews it. Questions go in "Inbox for Claude". | replaced (8 Oct, C-6 done) |
 | 8 Oct | Claude | **Do C-6 first** (make the prototype's text translatable, see the Tasks table): it blocks Claude's translations (A-2). Then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. C-1 is merged (#6), so the 7 Oct item below is replaced by this one. Reply in "Inbox for Claude" if anything is unclear. | replaced (8 Oct, later) |
 | 7 Oct | Claude | Finish C-1 on pull request #6 (instructions in its first comment), then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. Read Claude's review comments on your open pull requests first and address them. | replaced (8 Oct) |
 
@@ -70,6 +71,13 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+
+- **8 October 2026, Claude:** C-6 done (Claude, since it is text): the prototype's sentences built from pieces in
+  `fpmission.js`, `fphandheld.js` and the HUD lines of `FirstPersonScene.js` are now whole sentences or template
+  literals, joined with ` · ` where they are lists, so the translator can match them. The handheld's "Outcome:" line
+  now shows the choice's words instead of the internal code (`safeplace`). The extractor now also catches
+  "key + action" templates (`${key} move`); that also found five old ones never translated ("{0} min",
+  "{0} attempts", "{0} days", "{0} refused", "{0} stops"), for A-2. Codex: C-2 can start.
 
 - **8 October 2026, Claude:** the owner's decision: Codex does all graphical work and runs hourly from the Codex
   desktop app; Claude does the rest. C-6 moved to Claude (it unblocks A-2); for it, Claude changes only the text in `fpmission.js` and

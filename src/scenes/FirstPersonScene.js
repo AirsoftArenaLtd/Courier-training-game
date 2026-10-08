@@ -225,14 +225,18 @@ class FirstPersonScene extends Phaser.Scene {
     this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
     this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
-    const status=!m?'':mode==='cab'?Math.round(Math.abs(m.van.speed)*2.23694)+' mph · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
-      m.heldId?'Carrying: '+m.parcel(m.heldId).address:m.parcels.filter(p=>p.location.startsWith('slot')).length+' parcels in cargo';this.setText('status',status,790);
+    // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
+    const loaded=m?m.parcels.filter(p=>p.location.startsWith('slot')).length:0;
+    const status=!m?'':mode==='cab'?[`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`,m.van.gear>0?'D':'R',m.van.hand?'Brake on':'Brake off',m.van.belt?'Belt on':'Belt off',m.signal<0?'←':m.signal>0?'→':'—'].join(' · '):
+      m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:loaded===1?'1 parcel in cargo':`${loaded} parcels in cargo`;this.setText('status',status,790);
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
-    if(!device){this.setText('controls',mode==='cab'?k('KeyW')+'/'+k('KeyS')+' accelerate / brake · '+k('KeyA')+'/'+k('KeyD')+' steer · '+k('Space')+' parking brake · '+k('KeyR')+' gear · '+k('KeyB')+' belt':k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD')+' move · '+k('KeyE')+' interact · F inspect · '+k('Tab')+' handheld · H menu',1230);
-    this.setText('help',(mode==='cab'?k('KeyM')+' left mirror · '+k('KeyQ')+' / C signals · V look forward · '+k('KeyE')+' exit · H menu':'Mouse looks · Click or E interacts · Drag to look without mouse capture · Esc pauses')+'   |   '+(this.saved?'Saved on this device':'Saving unavailable — keep this window open'),1220);
+    const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
+    if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
+    // the two halves are translated before they are joined: "   |   " is not a place the translator splits
+    this.setText('help',t((mode==='cab'?[`${k('KeyM')} left mirror`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:['Mouse looks','Click or E interacts','Drag to look without mouse capture','Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
     }else{
-      this.setText('controls',aiming?k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD')+' move · Mouse aim · Hold '+k('Space')+' or left click to scan':'Click or use number keys · Backspace goes back',790);
-      this.setText('help',k('Tab')+' put away · Esc back · H pause   |   '+(this.saved?'Saved on this device':'Saving unavailable — keep this window open'),790);
+      this.setText('controls',aiming?[`${wasd} move`,'Mouse aim',`Hold ${k('Space')} or left click to scan`].join(' · '):'Click or use number keys · Backspace goes back',790);
+      this.setText('help',t([`${k('Tab')} put away`,'Esc back',`${k('KeyH')} pause`].join(' · '))+'   |   '+t(saving),790);
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
