@@ -106,6 +106,62 @@ const storage = (p) => p.evaluate(() => JSON.stringify(Object.assign({}, localSt
     await tp.keyboard.press('Escape');
     await wait(500);
 
+    /* ---- an email-style employee ID (_ and @, 40 characters) through the same form, at larger text */
+    check(await tp.evaluate(() => !!(OTR.identity.idRule && OTR.identity.idRule.max === 64)), 'the server hands the game its employee ID rule (64 characters)');
+    await tp.evaluate(() => { OTR.a11y.settings().large = true; });
+    /** Every text of the open entry inside the modal, and the typed ID inside its field. */
+    const entryFits = () => tp.evaluate(() => {
+      const s = OTR.game.scene.getScene('TrainerScene'), root = s._modalStack[s._modalStack.length - 1], box = root.list[1], out = [];
+      const L = box.x - 310, R = box.x + 310, T = box.y - 170, B = box.y + 170;
+      box.list.forEach(o => { if (o.type !== 'Text' || !o.visible) return; const b = o.getBounds(); if (b.x < L || b.right > R || b.y < T || b.bottom > B) out.push(o.text); });
+      const field = box.list.find(o => o.type === 'Text' && o.style.fontSize === '34px');
+      const fb = field.getBounds();
+      if (fb.x < box.x - 230 || fb.right > box.x + 230) out.push('field: ' + field.text);
+      return { out, field: field.text, count: (box.list.find(o => o.type === 'Text' && / \/ /.test(o.text)) || {}).text };
+    });
+    await tp.evaluate(() => OTR.game.scene.getScene('TrainerScene').newAccount());
+    await wait(500);
+    const long = 'WM_m.W@Mw-'.repeat(7).slice(0, 64);                           // 64 characters, wide ones
+    await tp.keyboard.type(long + 'Z');                                          // one too many
+    const full = await entryFits();
+    check(long.length === 64 && full.field === long && full.count === '64 / 64' && !full.out.length,
+      `a 64-character ID fits the entry at larger text, and a 65th is refused (${full.count}${full.out.length ? '; outside: ' + full.out.join(', ') : ''})`);
+    await tp.screenshot({ path: path.join(OUT, 'signin-trainer-long-id.png') });
+    for (let i = 0; i < 64; i++) await tp.keyboard.press('Backspace');
+    const email = 'Jane_Doe.van-der-berg@depotnorth.example';
+    await tp.keyboard.type(email);
+    const typed = await entryFits();
+    check(email.length === 40 && typed.field === email && !typed.out.length, `a 40-character email-style ID with _ and @ is typed in full (${typed.field})`);
+    await tp.keyboard.press('Enter');
+    await wait(700);
+    await tp.keyboard.type('Jane Doe'); await tp.keyboard.press('Enter');
+    const idLow = email.toLowerCase();
+    await tp.waitForFunction((id) => { const s = OTR.game.scene.getScene('TrainerScene'); let hit = false; const walk = (o) => { if (o.type === 'Text' && o.text === 'Temporary password') hit = true; (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return hit; }, { timeout: 10000 }, idLow);
+    await wait(500);
+    const temp2 = (await sceneTexts(tp, 'TrainerScene')).find(t => /^[a-hjkmnp-z2-9]{10}$/.test(t));
+    const tempFits = await tp.evaluate(() => {
+      const s = OTR.game.scene.getScene('TrainerScene'), root = s._modalStack[s._modalStack.length - 1], box = root.list[1], out = [];
+      const panel = box.list[0], w = panel.width || panel.displayWidth, h = panel.height || panel.displayHeight;
+      box.list.forEach(o => { if (o.type !== 'Text' || !o.visible) return; const b = o.getBounds(); if (b.x < box.x - w / 2 || b.right > box.x + w / 2 || b.bottom > box.y + h / 2) out.push(o.text); });
+      return out;
+    });
+    await tp.screenshot({ path: path.join(OUT, 'signin-trainer-email-temp.png') });
+    check(!!temp2 && accounts.has(idLow) && !tempFits.length, `the trainer is shown a temporary password for ${idLow}${tempFits.length ? '; outside: ' + tempFits.join(' | ') : ''}`);
+    await tp.keyboard.press('Enter');
+    await tp.evaluate(() => { OTR.a11y.settings().large = false; });
+    await wait(800);
+    {
+      const { p: ep, ctx: ectx } = await open(browser, base);
+      await formShown(ep);
+      await ep.type('#otr-id', email); await ep.type('#otr-password', temp2); await ep.keyboard.press('Enter');
+      await ep.waitForSelector('#otr-again', { timeout: 10000 });
+      await ep.type('#otr-password', 'jane picks one'); await ep.type('#otr-again', 'jane picks one'); await ep.keyboard.press('Enter');
+      await titleUp(ep);
+      const ew = await ep.evaluate(() => ({ mode: OTR.identity.mode, id: OTR.identity.id, session: OTR.identity.session }));
+      check(ew.mode === 'server' && ew.id === idLow && ew.session, 'the email-style ID signs in with its temporary password and then its own ' + JSON.stringify(ew));
+      await ectx.close();
+    }
+
     /* ---- the trainee, on another PC */
     let { p, ctx } = await open(browser, base);
     await formShown(p);

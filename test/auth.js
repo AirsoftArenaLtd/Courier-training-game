@@ -254,6 +254,7 @@ async function unit() {
   }
 
   await races();
+  await stale();
 
   console.log('\ntiming');
   const T = auth.createAuth({});
@@ -467,6 +468,89 @@ async function races() {
   const disk2 = JSON.parse(fs.readFileSync(file, 'utf8'));
   check(burst.filter(r => r.ok).every(r => disk2.accounts[r.id]) && Object.keys(disk2.accounts).length === R.size, 'many writes at once: the file always parses and holds every account');
   fs.rmSync(dir, { recursive: true, force: true });
+}
+
+/*
+ * Wrong passwords checked against an account version that is gone (a reset or a password change landed while they
+ * were in flight) are 'stale': the usual answer, still counted against the address, never against the new version.
+ */
+async function stale() {
+  console.log('\nstale guesses: a reset or change is never locked by wrong passwords made before it');
+  const verify = holdable((pw, h) => auth.verifyPassword(pw, h));
+  const S = auth.createAuth({ now: clock(), scrypt: FAST, verify, maxHashing: 8 });
+  let n = 0;
+  const ip = () => 'ip-stale-' + (n++);
+  const locked = (id) => S.list().find(a => a.id === id).locked;
+  /** k wrong sign-ins for id, each held inside its password check; resolves once all are held. */
+  async function hold(id, k, from) {
+    const traps = Array.from({ length: k }, () => verify.holdNext());
+    const tries = traps.map((_, i) => S.signIn(id, 'wrong guess ' + i, from ? from() : ip()));
+    await Promise.all(traps.map(t => t.in));
+    return { tries, release: async () => { traps.forEach(t => t.release()); return Promise.all(tries); } };
+  }
+  async function ready(id) {
+    const m = await S.createAccount(id, id);
+    const c = await S.changePassword((await S.signIn(id, m.tempPassword, ip())).sid, id + ' own pass');
+    if (!c.ok) throw new Error('setup ' + id);
+    return id + ' own pass';
+  }
+
+  // a trainer's reset while five wrong passwords are being checked
+  const pw1 = await ready('st1');
+  const h1 = await hold('st1', 5, () => 'ip-st1');
+  check((await S.signIn('st1', pw1, ip())).reason === 'locked', 'five wrong passwords in flight: the account counts as locked meanwhile');
+  const rr = await S.resetPassword('st1');
+  const during = await S.signIn('st1', rr.tempPassword, ip());
+  check(rr.ok && during.ok, `the reset's temporary password signs in while the old guesses are still in flight (${during.reason || 'ok'})`);
+  const r1 = await h1.release();
+  check(r1.every(r => !r.ok && r.reason === 'bad' && r.status === 401 && r.error === auth.MESSAGES.bad),
+    `the old guesses get the usual answer, nothing more (${[...new Set(r1.map(r => r.reason))].join()})`);
+  check(!locked('st1'), '... and they do not lock the reset account');
+  const after = await S.signIn('st1', rr.tempPassword, ip());
+  check(after.ok && after.mustChange, `the fresh temporary password signs in after they finish (${after.reason || 'ok'})`);
+  // the address still counts every try: 5 stale + 5 more = its 10, then it is throttled
+  const more = [];
+  for (let i = 0; i < 5; i++) more.push(await S.signIn('st-ghost', 'nope ' + i, 'ip-st1'));
+  const eleventh = await S.signIn('st-ghost2', 'nope', 'ip-st1');
+  check(more.every(r => r.reason !== 'throttled') && eleventh.reason === 'throttled', `stale guesses still count against their address (the 11th try: ${eleventh.reason})`);
+
+  // the trainee chooses their own password (a temporary-password session) while five wrong ones are in flight
+  const m2 = await S.createAccount('st2', 'Two');
+  const sid2 = (await S.signIn('st2', m2.tempPassword, ip())).sid;
+  const h2 = await hold('st2', 5);
+  const c2 = await S.changePassword(sid2, 'st2 own pass');
+  const r2 = await h2.release();
+  check(c2.ok && r2.every(r => r.reason === 'bad') && !locked('st2'), `a trainee's new password while five guesses are in flight: not locked when they finish (${c2.reason || 'ok'})`);
+  check((await S.signIn('st2', 'st2 own pass', ip())).ok, '... and the new password signs in');
+
+  // ... and a change that needs the current password, with four in flight (a fifth would lock it meanwhile)
+  const pw3 = await ready('st3');
+  const sid3 = (await S.signIn('st3', pw3, ip())).sid;
+  const h3 = await hold('st3', 4);
+  const c3 = await S.changePassword(sid3, 'st3 newer pass', pw3);
+  await h3.release();
+  for (let i = 0; i < 4; i++) await S.signIn('st3', 'later wrong ' + i, ip());
+  check(c3.ok && !locked('st3'), `a change with four guesses in flight: those four do not count with four later ones (${c3.reason || 'ok'})`);
+  check((await S.signIn('st3', 'st3 newer pass', ip())).ok, '... and the new password signs in');
+
+  // a password change with a wrong current password, overtaken by a reset: not charged to the reset account
+  const pw4 = await ready('st4');
+  const sid4 = (await S.signIn('st4', pw4, ip())).sid;
+  const t4 = verify.holdNext();
+  const c4 = S.changePassword(sid4, 'st4 newer pass', 'not the current one');
+  await t4.in;
+  const rr4 = await S.resetPassword('st4');
+  t4.release();
+  const c4r = await c4;
+  for (let i = 0; i < 4; i++) await S.signIn('st4', 'later wrong ' + i, ip());
+  check(c4r.reason === 'expired' && !locked('st4') && (await S.signIn('st4', rr4.tempPassword, ip())).ok,
+    `a wrong current password checked while a reset lands: expired, and not counted (${c4r.reason})`);
+
+  // without any reset, wrong passwords lock as before
+  const pw5 = await ready('st5');
+  const h5 = await hold('st5', 5);
+  const r5 = await h5.release();
+  check(locked('st5') && r5.some(r => r.reason === 'locked') && (await S.signIn('st5', pw5, ip())).reason === 'locked', 'with no reset, five wrong passwords at once still lock the account');
 }
 
 /* ------------------------------------------------------------------ the API */

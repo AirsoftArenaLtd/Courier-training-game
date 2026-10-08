@@ -181,9 +181,13 @@ class TrainerScene extends Phaser.Scene {
 
   /** A new employee account: their ID, their name, then the temporary password to give them. */
   newAccount() {
+    // the server's own rule (server/auth.js, sent with api/whoami); the same rule written out if an older server sent none
+    const rule = OTR.identity.idRule || { pattern: '^[a-z0-9][a-z0-9._@-]{0,63}$', chars: '[a-z0-9._@-]', max: 64 };
+    const whole = new RegExp(rule.pattern, 'i'), one = new RegExp('^' + rule.chars + '$', 'i');
     OTR.ui.nameEntry(this, { title: 'New account: employee ID', confirm: 'Next', hint: 'Their employee ID · Enter to confirm',
+      max: rule.max, chars: one, refused: 'Letters, numbers and . _ @ - only', empty: 'Type their employee ID first',
       onDone: (id) => {
-        if (!/^[A-Za-z0-9][A-Za-z0-9._@-]*$/.test(id)) { OTR.ui.toast(this, 'An employee ID has letters, numbers and . _ @ - only, with no spaces.', 0xF0435A); return; }
+        if (!whole.test(id)) { OTR.ui.toast(this, 'An employee ID has letters, numbers and . _ @ - only, with no spaces.', 0xF0435A); return; }
         this.time.delayedCall(200, () => OTR.ui.nameEntry(this, { title: 'Their name', confirm: 'Create',
           onDone: (name) => OTR.academy.trainerApi('accounts', 'POST', { id, name })
             .then(r => { this.showTemp(r); this.loadTrainees(); })

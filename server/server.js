@@ -26,6 +26,7 @@
  * API (JSON):
  *   GET  api/whoami                 { id, name, trainerPinSet } or { id: null }; with accounts on also accounts: true,
  *                                   session: true (signed in by password) or mustChange: true (must choose a password)
+ *                                   and idRule: { pattern, chars, max }, what an employee ID may be (server/auth.js)
  *   With accounts on (JSON bodies, Content-Type: application/json):
  *   POST api/signin                 body { id, password }: sets the session cookie; { ok, mustChange }
  *   POST api/password               body { password, current }: a new password (current not needed after a temporary one)
@@ -187,6 +188,7 @@ async function api(req, res, url) {
       const out = who ? Object.assign({ trainerPinSet: !!PIN }, who) : { id: null, trainerPinSet: !!PIN };
       if (accounts) {
         out.accounts = true;
+        out.idRule = auth.ID_RULE;                // what an employee ID may be, so the trainer tools ask for exactly that
         const s = !who && accounts.session(auth.sidFrom(req));
         if (s && s.mustChange) out.mustChange = true;
       }

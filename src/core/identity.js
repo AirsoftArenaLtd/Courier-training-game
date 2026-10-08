@@ -25,6 +25,7 @@ OTR.identity = {
   scorm: null,
   accounts: false,  // the server signs trainees in with an employee ID and password
   session: false,   // ... and this trainee signed in that way (Settings offers Sign out)
+  idRule: null,     // ... what an employee ID may be, from the server: { pattern, chars, max } (server/auth.js)
 
   resolve() {
     const q = new URLSearchParams(window.location.search);
@@ -54,6 +55,7 @@ OTR.identity = {
           this.locked = true;
           this.trainerPinSet = !!who.trainerPinSet;
           this.accounts = !!who.accounts;
+          this.idRule = who.idRule || null;
           this.session = !!who.session;
           return this;
         }

@@ -28,7 +28,9 @@
  *   a password check, a hash) reads the version and the hash it checks against first, and commits only if the
  *   version is still the same afterwards (and the session, for a change, is still the same live one). A session
  *   carries the version it was issued under and is over once that changes. One reset and one creation per ID at a
- *   time ('inprogress', without hashing). The accounts file is written whole to a temporary file, flushed and renamed
+ *   time ('inprogress', without hashing). A wrong password checked against a version that has since gone is
+ *   'stale': it gets the usual answer but never counts towards the new version's lock (a reset or change is not locked
+ *   by guesses made before it), and tries in flight count only towards the version they were made against. The accounts file is written whole to a temporary file, flushed and renamed
  *   over the old one, before memory changes: a failed write changes nothing ('storage'), a crash never leaves half.
  * Results that fail carry { reason, status, error }: reason is a code the sign-in screen words for itself, error the
  * same in English for API users.
@@ -64,11 +66,19 @@ const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, l
   inprogress: 409, storage: 500 };
 const fail = (reason) => ({ ok: false, reason, status: STATUS[reason], error: MESSAGES[reason] });
 
+/*
+ * What an employee ID may be: the one rule. api/whoami hands it to the game (ID_RULE), so the trainer tools' New
+ * account entry takes exactly these characters and length.
+ */
+const ID_MAX = 64, ID_FIRST = '[a-z0-9]', ID_CHARS = '[a-z0-9._@-]';
+const ID_RE = new RegExp(`^${ID_FIRST}${ID_CHARS}{0,${ID_MAX - 1}}$`);
+const ID_RULE = Object.freeze({ pattern: ID_RE.source, chars: ID_CHARS, max: ID_MAX });   // compared without case
+
 /** Employee IDs are compared without case or surrounding spaces. '' when it cannot be one. */
 function normalizeId(id) {
   if (typeof id !== 'string' && typeof id !== 'number') return '';
   const s = String(id).trim().toLowerCase();
-  return /^[a-z0-9][a-z0-9._@-]{0,63}$/.test(s) ? s : '';
+  return ID_RE.test(s) ? s : '';
 }
 
 const tidyName = (n) => String(n == null ? '' : n).replace(/[\u0000-\u001f\u007f]/g, '').trim().slice(0, 80);
@@ -135,7 +145,9 @@ function createAuth(o) {
   const bump = (id) => { versions.set(id, ++lastVersion); };
   const fails = new Map();                       // id (existing or not) -> { n, until }
   const ipFails = new Map();                     // address -> { n, start }
-  const pending = new Map();                     // id -> sign-ins being checked right now
+  // id -> version -> wrong-password checks in flight: each is held under the version it was made against, so a reset
+  // or change (a new version) leaves the old version's guesses out of the new one's lock
+  const pending = new Map();
   const verify = o.verify || verifyPassword;     // tests count the password checks ...
   const hasher = o.hash || hashPassword;         // ... and the hashes
   const changing = new Set();                    // ids with a password change being checked right now
@@ -208,11 +220,29 @@ function createAuth(o) {
     cap(ipFails);
     return () => { if (ipFails.get(ip) === f && f.n > 0) f.n--; };
   }
-  /** An ID with enough tries already being checked to lock it, if they are all wrong. */
+  /** The version a try is made against: 0 for an ID with no account (versions start at 1). */
+  const verOf = (id) => versions.get(id) || 0;
+  /** A try in flight against the ID's current version; returns that version, for dropPending(). */
+  function holdPending(id) {
+    const v = verOf(id);
+    let m = pending.get(id);
+    if (!m) pending.set(id, m = new Map());
+    m.set(v, (m.get(v) || 0) + 1);
+    return v;
+  }
+  function dropPending(id, v) {
+    const m = pending.get(id);
+    if (!m) return;
+    const n = (m.get(v) || 1) - 1;
+    if (n) m.set(v, n); else m.delete(v);
+    if (!m.size) pending.delete(id);
+  }
+  /** An ID with enough tries already being checked (against its current version) to lock it, if they are all wrong. */
   function lockPending(id) {
     const f = fails.get(id), t = now();
     const n = f && !(f.until && f.until <= t) ? f.n : 0;
-    return n + (pending.get(id) || 0) >= cfg.lockAfter;
+    const m = pending.get(id);
+    return n + ((m && m.get(verOf(id))) || 0) >= cfg.lockAfter;
   }
 
   /* ---- every password check or hash, a few at a time: a burst queues briefly or is turned away, never piles up */
@@ -284,22 +314,24 @@ function createAuth(o) {
       if (lockedNow(id) || lockPending(id)) return fail('locked');
       const turn = acquire();
       if (!turn) { giveBack(); return fail('busy'); }
-      pending.set(id, (pending.get(id) || 0) + 1);
+      const v0 = holdPending(id);
       let ok = false, a, v;
       try {
         await turn;
         const h = await dummy;                    // (ready long before anyone signs in)
         // the account, its version and the hash checked, all read at the same moment, right before the check
-        a = accounts.get(id); v = versions.get(id);
+        a = accounts.get(id); v = verOf(id);
         ok = await verify(pw, a ? a.hash : h);
       } finally {
         // the turn and the in-flight count go back however the check ends, a thrown error included
         release();
-        const n = (pending.get(id) || 1) - 1;
-        if (n) pending.set(id, n); else pending.delete(id);
+        dropPending(id, v0);
       }
-      // a password that was right for a version reset, changed or removed meanwhile is not right now
-      if (!ok || !a || accounts.get(id) !== a || versions.get(id) !== v) return fail(noteFail(id) ? 'locked' : 'bad');
+      // stale: the account was reset, changed, removed or made again since this try arrived. A password that was right
+      // for the old version is not right now, and a wrong one is not held against the new version (a reset must not be
+      // locked by guesses made before it); the answer is the same as for any wrong password, and the address keeps it.
+      if (accounts.get(id) !== a || verOf(id) !== v || v !== v0) return fail(lockedNow(id) ? 'locked' : 'bad');
+      if (!ok || !a) return fail(noteFail(id) ? 'locked' : 'bad');
       if (lockedNow(id)) return fail('locked');
       giveBack();
       fails.delete(id);
@@ -322,7 +354,7 @@ function createAuth(o) {
       const needCurrent = !so.mustChange;
       if (needCurrent && (lockedNow(id) || lockPending(id))) return fail('locked');
       changing.add(id);
-      if (needCurrent) pending.set(id, (pending.get(id) || 0) + 1);
+      const pv = needCurrent ? holdPending(id) : 0;
       let r;
       try {
         r = await rationed(async () => {
@@ -333,10 +365,11 @@ function createAuth(o) {
         });
       } finally {
         changing.delete(id);
-        if (needCurrent) { const n = (pending.get(id) || 1) - 1; if (n) pending.set(id, n); else pending.delete(id); }
+        if (needCurrent) dropPending(id, pv);
       }
       if (r.busy) return fail('busy');
-      // still the same account version and session (not reset, removed, re-created, changed, signed out or expired)
+      // still the same account version and session (not reset, removed, re-created, changed, signed out or expired);
+      // a wrong current password checked against a version that has since gone is never held against the new one
       const live = accounts.get(id) === a && versions.get(id) === v && sessions.get(sid) === so && !expired(so, now());
       if (r.value === 'bad') return live ? fail(noteFail(id) ? 'locked' : 'bad') : fail('expired');
       if (!live) return fail('expired');
@@ -396,4 +429,4 @@ function createAuth(o) {
   };
 }
 
-module.exports = { createAuth, hashPassword, verifyPassword, normalizeId, tempPassword, sidFrom, cookie, clearCookie, MESSAGES, MIN_LEN, MAX_LEN, COOKIE };
+module.exports = { createAuth, hashPassword, verifyPassword, normalizeId, ID_RULE, tempPassword, sidFrom, cookie, clearCookie, MESSAGES, MIN_LEN, MAX_LEN, COOKIE };

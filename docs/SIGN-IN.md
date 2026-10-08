@@ -66,8 +66,10 @@ curl -X POST -H "X-Trainer-Pin: 4821" http://localhost:8080/api/accounts/e1234/r
 curl -X DELETE -H "X-Trainer-Pin: 4821" http://localhost:8080/api/accounts/e1234
 ```
 
-Employee IDs are 1 to 64 letters, digits and `. _ @ -`, starting with a letter or digit. Case does not matter
-(`E1234` and `e1234` are the same account), and progress is filed under the lower-case ID.
+Employee IDs are 1 to 64 letters, digits and `. _ @ -`, starting with a letter or digit, so email-style IDs such as
+`jane_doe@depot.example` work. Case does not matter (`E1234` and `e1234` are the same account), and progress is filed
+under the lower-case ID. The rule lives in one place, `server/auth.js`; the server hands it to the game with
+`api/whoami` (`idRule`), so the New account entry takes exactly those characters and up to 64 of them.
 
 ## For trainees
 
@@ -117,6 +119,11 @@ restores its last session may keep it).
   hashing, with "That account is being changed by another request right now" (HTTP 409); a reset overtaken by a
   password change or removal reports no success, so a trainer is only ever shown a temporary password that works.
   Turns and in-flight counts are given back on every path, errors included.
+- **Guesses overtaken by a reset or change are not held against the new password**: a wrong password (at sign-in, or
+  as the current password in a change) that was checked against a version that has since gone gets the usual answer
+  and still counts against its address, but never towards the lock of the reset or changed account. Tries in flight
+  count towards the lock only of the version they were made against. So guesses in flight when a trainer gives a new
+  password, or when the trainee chooses their own, cannot lock the account and make the new password unusable.
 - **The accounts file** is written whole to a temporary file, flushed to disk, then renamed over the old one, and
   only then does the server's memory change. A crash leaves the old file or the new one, never half of one; a write
   that fails (disk full, permissions) changes nothing and is reported as "The accounts file could not be saved"

@@ -409,10 +409,14 @@ OTR.ui = {
    * Any letter in any language is accepted (José, Zoë, Siobhán), up to 24 characters with a counter; a refused key or
    * an empty name says why on the hint line (they used to be silently ignored).
    */
-  /** o: { title, initial, confirm, onDone, onCancel, pin: true (4-8 digits, shown as dots), hint } */
+  /**
+   * o: { title, initial, confirm, onDone, onCancel, pin: true (4-8 digits, shown as dots), hint, and for other text
+   * than a name: max (characters), chars (a RegExp one typed character must match), refused (what the hint line
+   * says when one does not), empty (what it says when Enter is pressed with nothing typed) }
+   */
   nameEntry(scene, o) {
     o = o || {};
-    const MAX = o.pin ? 8 : 24;
+    const MAX = o.pin ? 8 : o.max || 24;
     const HINT = o.hint || (o.pin ? 'Type the PIN (4 to 8 digits) · Enter to confirm' : 'Type your name · Enter to confirm');
     let value = (o.initial || '').slice(0, MAX);
     let field, caret, hint, count, confirmBtn;
@@ -426,7 +430,7 @@ OTR.ui = {
         });
         field = OTR.txt(scene, 0, -5, value, 34, OTR_DATA.theme.css('primaryDark'), { weight: '900' });
         caret = scene.add.rectangle(0, -5, 4, 38, OTR_DATA.theme.accent);
-        hint = OTR.txt(scene, 0, 56, HINT, 15, OTR_DATA.theme.css('muted'), { bold: false });
+        hint = OTR.txt(scene, 0, 56, HINT, 15, OTR_DATA.theme.css('muted'), { bold: false, fit: 560 });
         count = OTR.txt(scene, 222, 14, '', 12, OTR_DATA.theme.css('mutedLight'), { ox: 1, weight: '800' });
         box.add([fg, field, caret, hint, count]);
         scene.tweens.add({ targets: caret, alpha: 0, duration: 450, yoyo: true, repeat: -1 });
@@ -438,10 +442,12 @@ OTR.ui = {
     });
     confirmBtn = modal.box.list.filter(c => c.label && OTR.i18n.src(c.label) === (o.confirm || 'Let\'s Roll!'))[0];
     let hintTimer = null;
+    // the hint line shrinks to fit the box when its words are long (larger text, another language)
+    const setHint = (msg, color) => { hint.setScale(1).setText(msg).setColor(color); hint.setScale(Math.min(1, 560 / Math.max(1, hint.width))); };
     const say = (msg) => {
-      hint.setText(msg).setColor('#C8243B');
+      setHint(msg, '#C8243B');
       if (hintTimer) hintTimer.remove();
-      hintTimer = scene.time.delayedCall(1800, () => hint.setText(HINT).setColor(OTR_DATA.theme.css('muted')));
+      hintTimer = scene.time.delayedCall(1800, () => setHint(HINT, OTR_DATA.theme.css('muted')));
     };
     const refresh = () => {
       field.setText(o.pin ? '•'.repeat(value.length) || ' ' : value || ' ');
@@ -454,7 +460,7 @@ OTR.ui = {
       const name = value.trim();
       if (!name || (o.pin && name.length < 4)) {
         OTR.audio.play('fail');
-        say(o.pin ? 'At least 4 digits' : 'Type your name first');
+        say(o.pin ? 'At least 4 digits' : o.empty || 'Type your name first');
         scene.tweens.add({ targets: modal.box, x: modal.box.x + 10, duration: 40, yoyo: true, repeat: 3 });
         return;
       }
@@ -467,7 +473,7 @@ OTR.ui = {
       if (e.key === 'Escape') { cleanup(); modal.close(o.onCancel); return; }
       if (e.key.length === 1 || /^\p{L}\p{M}*$/u.test(e.key)) {
         if (o.pin && !/^\d$/.test(e.key)) { say('Digits only'); return; }
-        if (!/^[\p{L}\p{M}\p{N} .'\-]+$/u.test(e.key)) { say('Letters, numbers, spaces and . \' - only'); return; }
+        if (o.chars ? !o.chars.test(e.key) : !/^[\p{L}\p{M}\p{N} .'\-]+$/u.test(e.key)) { say(o.chars ? o.refused || 'Not that character' : 'Letters, numbers, spaces and . \' - only'); return; }
         if (value.length >= MAX) { say(`That is the most it takes: ${MAX} characters`); return; }
         if (e.key === ' ' && (!value || value.endsWith(' '))) return;
         value += e.key;
