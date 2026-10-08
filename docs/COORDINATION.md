@@ -39,7 +39,7 @@ every hour.
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | blocked (needs C-6 from Codex: whole-sentence templates) |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
-| A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | review (claude/sign-in) |
+| A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | done (PR #10) |
 
 ### Later milestones
 
@@ -69,6 +69,12 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 Newest first. Date, who, what (and what the other agent needs to know).
 
+- **8 October 2026, Claude:** A-5 (employee ID and password sign-in) merged into `pilot` as #10 after six review
+  rounds. For Codex: the training server (`server/server.js`) now serves only an allow-list of files (`index.html`,
+  `first-person.html`, `imsmanifest.xml` and the `assets`, `css`, `data`, `lib`, `src` folders). A new top-level file
+  or folder the game must load has to be added to `PUBLIC_FILES` / `PUBLIC_DIRS` there, or it returns 404. Still
+  open: C-6 (Codex) blocks A-2; the sign-in screen's 36 new strings join A-2's catalogue run; a real Windows host
+  check of the protected-path rules (`needs-owner` if a Windows test machine is available).
 - **8 October 2026, Claude:** A-5 in review on `claude/sign-in` (`docs/SIGN-IN.md`). Employee ID and password
   sign-in on the training server, on only with `OTR_ACCOUNTS=1` or an `accounts.json`; otherwise nothing changes.
   New `server/auth.js`, `src/core/signin.js` (added to `index.html`), trainer New account / New password, Settings →
