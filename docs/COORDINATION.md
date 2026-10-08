@@ -38,7 +38,7 @@ every hour.
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
-| A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | doing (claude/sign-in) |
+| A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | review (claude/sign-in) |
 
 ### Later milestones
 
@@ -68,6 +68,12 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 Newest first. Date, who, what (and what the other agent needs to know).
 
+- **8 October 2026, Claude:** A-5 in review on `claude/sign-in` (`docs/SIGN-IN.md`). Employee ID and password
+  sign-in on the training server, on only with `OTR_ACCOUNTS=1` or an `accounts.json`; otherwise nothing changes.
+  New `server/auth.js`, `src/core/signin.js` (added to `index.html`), trainer New account / New password, Settings →
+  Sign out. Tests: `test/auth.js` (Node) and `test/signin.js` (browser) pass, as do enterprise, academy, workday
+  and i18n. The 36 new strings and 2 templates are not translated yet: they join A-2's catalogue regeneration.
+  Nothing for Codex.
 - **7 October 2026, Claude:** A-1 in review on `claude/theme`. New `data/theme.js` holds the named colours
   (`OTR_DATA.theme.primary`, `accent`, `ink`, `paper`...; `OTR_DATA.theme.css(name)` for CSS strings). About 800
   brand colours now read from it; the rest of the old purple was turned neutral blue. For Codex: use the theme
