@@ -232,10 +232,10 @@ class FirstPersonScene extends Phaser.Scene {
     const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
       m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:loaded===1?'1 parcel in cargo':`${loaded} parcels in cargo`;this.setText('status',status,790);
     // the key hints change only with the mode, the handheld, saving and the key map: built again only then, not every frame
+    const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
     const keys=OTR.a11y?OTR.a11y.settings().keys:null,c=this.hints||(this.hints={});
     if(c.mode!==mode||c.device!==device||c.aiming!==aiming||c.saved!==this.saved||c.keys!==keys){
       Object.assign(c,{mode,device,aiming,saved:this.saved,keys});
-      const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
       const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
       if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
       // the two halves are translated before they are joined: "   |   " is not a place the translator splits
