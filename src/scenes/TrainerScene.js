@@ -104,6 +104,8 @@ class TrainerScene extends Phaser.Scene {
     this.list = this.add.container(0, 0);
     this.page = 0;
     if (OTR.identity.mode === 'server') {
+      // a server with employee accounts: the trainer makes them here (docs/SIGN-IN.md)
+      if (OTR.identity.accounts) this.focusables.push(OTR.ui.button(this, x + w - 112, top + 34, 'New account', () => this.newAccount(), { w: 190, h: 40, skin: 'purple', fontSize: 15 }));
       this.status = OTR.txt(this, x + w / 2, top + 120, 'Loading…', 16, '#7A8CA0', { bold: false });
       this.loadTrainees();
     } else {
@@ -154,12 +156,19 @@ class TrainerScene extends Phaser.Scene {
   }
 
   manage(t) {
+    const acct = OTR.identity.accounts && t.account;
     OTR.ui.modal(this, {
-      title: t.name, w: 560, h: 330, escClose: true,
-      body: 'Allow another attempt at every assessment they have not passed, or reset all their progress (their old ' +
+      title: t.name, w: acct ? 840 : 560, h: acct ? 360 : 330, escClose: true,
+      // one literal, so the catalogue (test/tools/i18n-extract.js) has the whole text to translate
+      body: acct ? 'Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.'
+        : 'Allow another attempt at every assessment they have not passed, or reset all their progress (their old ' +
         'progress is kept on the server as a backup). Do this while they are not signed in.',
       buttons: [
         { label: 'Back', skin: 'ghost' },
+        ...(acct ? [{ label: 'New password', skin: 'purple', onClick: () => this.time.delayedCall(250, () => OTR.ui.confirm(this, `A new password for ${t.name}?`,
+          'Their password stops working and they are signed out. They sign in with the temporary password and choose their own.', () =>
+            OTR.academy.trainerApi(`accounts/${encodeURIComponent(t.id)}/reset`, 'POST').then(r => this.showTemp(r))
+              .catch(e => OTR.ui.toast(this, this.accountError(e), 0xF0435A)), { yes: 'New password' })) }] : []),
         { label: 'Allow retakes', skin: 'purple', onClick: () => this.time.delayedCall(250, () => OTR.academy.trainerApi(`trainees/${encodeURIComponent(t.id)}/allow`, 'POST')
           .then(r => OTR.ui.toast(this, `${t.name}: ${r.allowed} assessment${r.allowed === 1 ? '' : 's'} opened for another attempt`, 0x2BC48A))
           .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A))) },
@@ -167,6 +176,38 @@ class TrainerScene extends Phaser.Scene {
           OTR.academy.trainerApi(`trainees/${encodeURIComponent(t.id)}`, 'DELETE').then(() => { OTR.ui.toast(this, `${t.name} was reset`, 0x2BC48A); this.loadTrainees(); })
             .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { yes: 'Reset', danger: true })) }
       ]
+    });
+  }
+
+  /** A new employee account: their ID, their name, then the temporary password to give them. */
+  newAccount() {
+    OTR.ui.nameEntry(this, { title: 'New account: employee ID', confirm: 'Next', hint: 'Their employee ID · Enter to confirm',
+      onDone: (id) => {
+        if (!/^[A-Za-z0-9][A-Za-z0-9._@-]*$/.test(id)) { OTR.ui.toast(this, 'An employee ID has letters, numbers and . _ @ - only, with no spaces.', 0xF0435A); return; }
+        this.time.delayedCall(200, () => OTR.ui.nameEntry(this, { title: 'Their name', confirm: 'Create',
+          onDone: (name) => OTR.academy.trainerApi('accounts', 'POST', { id, name })
+            .then(r => { this.showTemp(r); this.loadTrainees(); })
+            .catch(e => OTR.ui.toast(this, this.accountError(e), 0xF0435A)) }));
+      } });
+  }
+
+  accountError(e) {
+    return { exists: 'There is already an account with that employee ID.', id: 'An employee ID has letters, numbers and . _ @ - only, with no spaces.',
+      missing: 'That trainee has no account.' }[e && e.reason] || String((e && e.message) || e);
+  }
+
+  /** The temporary password, shown once: the server keeps only its hash. */
+  showTemp(r) {
+    OTR.ui.modal(this, {
+      title: 'Temporary password', w: 620, h: 400, escClose: true,
+      body: `Give this to ${r.name || r.id} (employee ID ${r.id}). It works once: they choose their own password when they sign in. It will not be shown again.`,
+      build: (box) => {
+        const pw = OTR.txt(this, 0, 70, '', 40, OTR_DATA.theme.css('primaryDark'), { weight: '900' });
+        pw.noTranslate = true;                 // a password, not words
+        pw.setText(r.tempPassword);
+        box.add(pw);
+      },
+      buttons: [{ label: 'Done', skin: 'orange', key: 'ENTER', hint: '⏎' }]
     });
   }
 
