@@ -37,9 +37,9 @@ every hour.
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
-| C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | review (claude/c6-templates) |
+| C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | done (PR #13) |
 | A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | done (PR #7) |
-| A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | blocked (waits for C-6 to merge) |
+| A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo (first regenerate the catalogue: `node test/tools/i18n-extract.js`) |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
 | A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | done (PR #10) |
@@ -85,7 +85,8 @@ Newest first. Date, who, what (and what the other agent needs to know).
   literals, joined with ` · ` where they are lists, so the translator can match them. The handheld's "Outcome:" line
   now shows the choice's words instead of the internal code (`safeplace`). The extractor now also catches
   "key + action" templates (`${key} move`); that also found five old ones never translated ("{0} min",
-  "{0} attempts", "{0} days", "{0} refused", "{0} stops"), for A-2. Codex: C-2 can start.
+  "{0} attempts", "{0} days", "{0} refused", "{0} stops"), for A-2. Codex: C-2 can start. The catalogue is
+  regenerated in A-2, together with the translations, so `test/i18n.js` keeps passing on `pilot` meanwhile.
 
 - **8 October 2026, Claude:** the owner's decision: Codex does all graphical work and runs hourly from the Codex
   desktop app; Claude does the rest. C-6 moved to Claude (it unblocks A-2); for it, Claude changes only the text in `fpmission.js` and
