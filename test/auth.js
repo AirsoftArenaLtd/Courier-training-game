@@ -164,6 +164,88 @@ async function unit() {
     check(JSON.stringify(tally(ghost)) === JSON.stringify(tally(same)), 'an ID that does not exist answers a burst the same way');
   }
 
+  console.log('\nsimultaneous password changes and trainer hashing');
+  {
+    let checks = 0, hashes = 0, at = 0, most = 0;
+    const busyNow = async (f) => { at++; most = Math.max(most, at); try { return await f(); } finally { at--; } };
+    const verify = (pw, h) => { checks++; return busyNow(() => auth.verifyPassword(pw, h)); };
+    const hash = (pw, prm) => { hashes++; return busyNow(() => auth.hashPassword(pw, prm)); };
+    const D = auth.createAuth({ now: clock(), scrypt: FAST, verify, hash });
+    const cap = D.config.maxHashing + D.config.maxQueue;
+    const tally = (rs) => rs.reduce((m, r) => { m[r.reason || 'ok'] = (m[r.reason || 'ok'] || 0) + 1; return m; }, {});
+    const reset = () => { checks = 0; hashes = 0; most = 0; };
+
+    // the temporary-password session: no current password needed, so the cheapest to flood
+    const acc = await D.createAccount('e8000', 'Flood');
+    const tmpSid = (await D.signIn('e8000', acc.tempPassword, 'ip-f')).sid;
+    reset();
+    let rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.changePassword(tmpSid, 'flood pass ' + i)));
+    let won = rs.filter(r => r.ok);
+    check(checks + hashes <= cap && most <= D.config.maxHashing, `100 changes at once on a temporary session: ${checks} checks + ${hashes} hashes (at most ${cap}), at most ${most} at a time`);
+    check(won.length === 1 && rs.filter(r => r.reason === 'pending').length === 99, `exactly one succeeds, the rest are told one is under way (${JSON.stringify(tally(rs))})`);
+    const pend = rs.find(r => r.reason === 'pending');
+    check(pend && pend.status === 409 && pend.error === auth.MESSAGES.pending, 'pending: 409, "' + (pend && pend.error) + '"');
+    const winPw = 'flood pass ' + rs.indexOf(won[0]);
+    check(D.session(tmpSid) === null && !!D.session(won[0].sid) && (await D.signIn('e8000', winPw, 'ip-f2')).ok, 'the one new password works, and the temporary session is over');
+
+    // a signed-in session (current password needed), several sessions of one account at once
+    const s1 = (await D.signIn('e8000', winPw, 'ip-g1')).sid, s2 = (await D.signIn('e8000', winPw, 'ip-g2')).sid;
+    reset();
+    rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.changePassword(i % 2 ? s1 : s2, 'second pass ' + i, winPw)));
+    won = rs.filter(r => r.ok);
+    check(checks + hashes <= cap && most <= D.config.maxHashing && won.length === 1,
+      `100 changes at once from two sessions of one account: ${checks} checks + ${hashes} hashes, exactly one succeeds (${JSON.stringify(tally(rs))})`);
+    check(D.session(s1) === null && D.session(s2) === null && !!D.session(won[0].sid), 'and every other session of the account ends');
+    const pw2 = 'second pass ' + rs.indexOf(won[0]);
+
+    // guessing the current password with a stolen session: the account's lock, a burst or one at a time
+    const s3 = won[0].sid;
+    reset();
+    rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.changePassword(s3, 'stolen pass 1', 'guess ' + i)));
+    check(checks <= 2 && hashes === 0 && !rs.some(r => r.ok), `100 guesses at once with one session: ${checks} checks, no hashes (${JSON.stringify(tally(rs))})`);
+    const seq = [];
+    for (let i = 0; i < 6; i++) seq.push((await D.changePassword(s3, 'stolen pass 1', 'guess again ' + i)).reason);
+    check(seq.slice(-2).join() === 'locked,locked' && seq.filter(x => x === 'bad').length <= 4, `wrong current passwords lock the account like wrong sign-ins (${seq.join()})`);
+    check((await D.changePassword(s3, 'stolen pass 1', pw2)).reason === 'locked' && (await D.signIn('e8000', pw2, 'ip-h')).reason === 'locked', 'then even the right one waits, here and at sign-in');
+
+    // a trainer making or resetting many accounts at once
+    reset();
+    rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.createAccount('bulk' + i, 'Bulk ' + i)));
+    check(hashes <= cap && most <= D.config.maxHashing && rs.filter(r => r.ok).length + rs.filter(r => r.reason === 'busy').length === 100 && rs.some(r => r.reason === 'busy'),
+      `100 new accounts at once: ${hashes} hashes (at most ${cap}), at most ${most} at a time, the rest busy (${JSON.stringify(tally(rs))})`);
+    const made = rs.filter(r => r.ok).map(r => r.id);
+    check(made.every(id => D.has(id)) && !rs.some(r => !r.ok && D.has('bulk' + rs.indexOf(r))), 'only the accounts that were hashed exist');
+    reset();
+    rs = await Promise.all(Array.from({ length: 100 }, (_, i) => D.resetPassword(made[i % made.length])));
+    check(hashes <= cap && most <= D.config.maxHashing && rs.some(r => r.reason === 'busy') && rs.every(r => r.ok || r.reason === 'busy'),
+      `100 resets at once: ${hashes} hashes, at most ${most} at a time (${JSON.stringify(tally(rs))})`);
+    const busy = rs.find(r => r.reason === 'busy');
+    check(busy && busy.status === 503 && busy.error === auth.MESSAGES.busy, 'a trainer turned away is told the server is busy (503)');
+
+    // and once things are quiet, everything works one at a time
+    const rr = await D.resetPassword('e8000');
+    const t1 = await D.signIn('e8000', rr.tempPassword, 'ip-q');
+    const c1 = await D.changePassword(t1.sid, 'quiet pass 1');
+    const c2 = await D.changePassword(c1.sid, 'quiet pass 2', 'quiet pass 1');
+    check(rr.ok && t1.ok && t1.mustChange && c1.ok && c2.ok && (await D.signIn('e8000', 'quiet pass 2', 'ip-q')).ok, 'afterwards a reset, the first-sign-in change and a normal change all work');
+
+    // many accounts changing at once share the same ration as sign-in; a reset meanwhile wins
+    const crowd = [];
+    for (let i = 0; i < 40; i++) {
+      const m = await D.createAccount('crowd' + i, 'Crowd ' + i);
+      crowd.push((await D.signIn('crowd' + i, m.tempPassword, 'ip-c' + i)).sid);
+    }
+    reset();
+    rs = await Promise.all(crowd.map((sid, i) => D.changePassword(sid, 'crowd pass ' + i)));
+    check(checks + hashes <= 2 * cap && most <= D.config.maxHashing && rs.some(r => r.reason === 'busy') && rs.every(r => r.ok || r.reason === 'busy'),
+      `40 accounts changing at once: ${checks} checks + ${hashes} hashes in at most ${cap} turns, at most ${most} at a time (${JSON.stringify(tally(rs))})`);
+    const left = crowd.findIndex((sid, i) => rs[i].reason === 'busy');
+    const mid = D.changePassword(crowd[left], 'crowd pass late');
+    const rr2 = await D.resetPassword('crowd' + left);
+    const midR = await mid;
+    check(rr2.ok && midR.reason === 'expired' && (await D.signIn('crowd' + left, rr2.tempPassword, 'ip-cl')).ok, 'a reset while a change is being checked: the change is refused, the reset stands');
+  }
+
   console.log('\ntiming');
   const T = auth.createAuth({});
   const acct = await T.createAccount('e5000', 'Timed');
@@ -260,7 +342,10 @@ async function api() {
     r = await request(base, 'POST', 'api/signin', { json: { id: 'e2001', password: r.body.tempPassword } });
     check(r.code === 200 && r.body.mustChange, 'and they choose a password again');
     const ck3 = 'otr_sid=' + sidOf(r.cookie);
-    await request(base, 'POST', 'api/password', { json: { password: 'ana again 2026' }, cookie: ck3 });
+    const burst = await Promise.all(Array.from({ length: 30 }, () => request(base, 'POST', 'api/password', { json: { password: 'ana again 2026' }, cookie: ck3 })));
+    const codes = burst.map(x => x.code);
+    check(codes.filter(c => c === 200).length === 1 && codes.every(c => c === 200 || c === 409 || c === 401),
+      `30 password changes at once over HTTP: exactly one saved, the rest 409 or 401 (${codes.filter(c => c === 200).length}/${codes.filter(c => c === 409).length}/${codes.filter(c => c === 401).length})`);
     r = await request(base, 'POST', 'api/signin', { json: { id: 'e2001', password: 'ana again 2026' } });
     const ck4 = 'otr_sid=' + sidOf(r.cookie);
     r = await request(base, 'POST', 'api/signout', { cookie: ck4 });

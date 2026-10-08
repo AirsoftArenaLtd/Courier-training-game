@@ -114,7 +114,8 @@ OTR.signin = {
       short: 'Use at least 8 characters.',
       long: 'That password is too long.',
       same: 'Choose a new password, not the one your trainer gave you.',
-      expired: 'Your sign-in has expired. Sign in again.'
+      expired: 'Your sign-in has expired. Sign in again.',
+      pending: 'Your password is already being changed. Try again in a moment.'
     }[reason] || 'The training server isn\'t answering.';
   },
 

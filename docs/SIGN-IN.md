@@ -95,11 +95,19 @@ restores its last session may keep it).
   the password is checked (a successful sign-in gives its count back). So 200 tries sent at once from one address
   get at most 10 password checks, and tries sent at once at one ID get at most 5 before it locks.
 - **Password checks are rationed**: each one deliberately costs about 50 ms of CPU and 16 MB of memory, so the server
-  runs at most 4 at a time with up to 16 more waiting their turn. Any sign-in beyond that is answered at once,
-  without hashing, with "The training server is busy. Try again in a moment." (HTTP 503) and is not counted against
-  its address. A flood of sign-ins from many addresses therefore cannot tie up the server's CPU or its worker
-  threads; the game, progress saves and sessions already signed in carry on. (These are `maxHashing` and `maxQueue`
-  in `server/auth.js`.)
+  runs at most 4 at a time with up to 16 more waiting their turn. This one ration covers every password check and
+  hash: sign-in, a trainee changing their password, and a trainer's New account and New password. Any request beyond
+  that is answered at once, without hashing, with "The training server is busy. Try again in a moment." (HTTP 503);
+  a sign-in turned away is not counted against its address. A flood from many addresses, or a trainer creating many
+  accounts at once, therefore cannot tie up the server's CPU or its worker threads; the game, progress saves and
+  sessions already signed in carry on. (These are `maxHashing` and `maxQueue` in `server/auth.js`.)
+- **Password changes, one at a time**: each account changes its password one request at a time. Another change that
+  arrives while one is being checked (from the same session or another session of that account) is answered at once,
+  without hashing, with "Your password is already being changed. Try again in a moment." (HTTP 409). Before the new
+  password is saved the server checks again that the session is still the same live one and the password has not
+  changed or been reset meanwhile, so only one of a burst of changes can succeed; it then ends every other session as
+  usual. A wrong current password counts towards the same 5-in-a-row lock as a wrong sign-in, so a stolen session
+  cannot be used to guess the current password either.
 - **No hints about who has an account**: an ID that does not exist gets the same message, the same lock and a
   password check of the same cost as one that does.
 - **Cross-site requests**: sign-in and password changes take only a JSON body, which a form on another site cannot

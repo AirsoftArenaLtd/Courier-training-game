@@ -15,8 +15,12 @@
  *   address gets ipFails wrong tries per ipWindowMs. An ID that does not exist is treated exactly like one that does
  *   (the same answer, the same lock, a password check of the same cost), so sign-in never tells whether an ID exists.
  * - A try is counted against its address and ID the moment it arrives, before the password check (a success gives
- *   it back), so a burst of simultaneous tries cannot get past the limits. At most maxHashing password checks run at
- *   once, with up to maxQueue more waiting; beyond that a sign-in is turned away as 'busy' without any hashing.
+ *   it back), so a burst of simultaneous tries cannot get past the limits.
+ * - Every scrypt run (sign-in, a password change, a trainer's new or reset account) takes a turn from one shared
+ *   ration: at most maxHashing at once, with up to maxQueue more waiting; beyond that the request is turned away as
+ *   'busy' without any hashing.
+ * - One password change at a time per account (and so per session): another that arrives while one is being checked
+ *   is turned away as 'pending' without hashing. A wrong current password counts towards the same lock as sign-in.
  * - Sessions live in memory under a random id (the cookie holds only that id); they end after sessionMs, after
  *   idleMs unused, when the password changes or is reset, and when the server restarts.
  * Results that fail carry { reason, status, error }: reason is a code the sign-in screen words for itself, error the
@@ -42,11 +46,12 @@ const MESSAGES = {
   long: `Use at most ${MAX_LEN} characters.`,
   same: 'Choose a new password, not the one you signed in with.',
   expired: 'Your sign-in has expired. Sign in again.',
+  pending: 'Your password is already being changed. Try again in a moment.',
   id: 'An employee ID is 1 to 64 letters, digits and . _ @ - (starting with a letter or digit).',
   exists: 'There is already an account with that employee ID.',
   missing: 'There is no account with that employee ID.'
 };
-const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, long: 400, same: 400, expired: 401, id: 400, exists: 409, missing: 404 };
+const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, long: 400, same: 400, expired: 401, pending: 409, id: 400, exists: 409, missing: 404 };
 const fail = (reason) => ({ ok: false, reason, status: STATUS[reason], error: MESSAGES[reason] });
 
 /** Employee IDs are compared without case or surrounding spaces. '' when it cannot be one. */
@@ -118,7 +123,9 @@ function createAuth(o) {
   const fails = new Map();                       // id (existing or not) -> { n, until }
   const ipFails = new Map();                     // address -> { n, start }
   const pending = new Map();                     // id -> sign-ins being checked right now
-  const verify = o.verify || verifyPassword;     // tests count the password checks
+  const verify = o.verify || verifyPassword;     // tests count the password checks ...
+  const hasher = o.hash || hashPassword;         // ... and the hashes
+  const changing = new Set();                    // ids with a password change being checked right now
   // unknown IDs are checked against this, so they cost the same time as known ones
   const dummy = hashPassword(crypto.randomBytes(18).toString('base64'), cfg.scrypt);
 
@@ -173,7 +180,7 @@ function createAuth(o) {
     return n + (pending.get(id) || 0) >= cfg.lockAfter;
   }
 
-  /* ---- password checks for sign-in, a few at a time: a burst queues briefly or is turned away, never piles up */
+  /* ---- every password check or hash, a few at a time: a burst queues briefly or is turned away, never piles up */
   let hashing = 0;
   const waiting = [];
   /** A turn to hash: a promise of one, or null when the queue is full. release() hands it on. */
@@ -185,6 +192,12 @@ function createAuth(o) {
   function release() {
     const next = waiting.shift();
     if (next) next(); else hashing--;           // the turn passes straight on, so a newcomer cannot jump in between
+  }
+  /** fn() run in a turn (released afterwards), or { busy: true } at once, with no hashing, when the queue is full. */
+  async function rationed(fn) {
+    const turn = acquire();
+    if (!turn) return { busy: true };
+    try { await turn; return { value: await fn() }; } finally { release(); }
   }
 
   function newSession(id, mustChange) {
@@ -264,19 +277,34 @@ function createAuth(o) {
       if (!s) return fail('expired');
       if (typeof password !== 'string' || password.length < MIN_LEN) return fail('short');
       if (password.length > MAX_LEN) return fail('long');
-      const a = accounts.get(s.id);
-      if (!s.mustChange) {
-        if (lockedNow(s.id)) return fail('locked');
-        if (!(await verifyPassword(typeof current === 'string' ? current : '', a.hash))) return fail(noteFail(s.id) ? 'locked' : 'bad');
+      const id = s.id, so = sessions.get(sid), a = accounts.get(id), was = a.hash;
+      // one change per account at a time, claimed before anything is awaited: a burst gets one try, the rest no hashing
+      if (changing.has(id)) return fail('pending');
+      const needCurrent = !so.mustChange;
+      if (needCurrent && (lockedNow(id) || lockPending(id))) return fail('locked');
+      changing.add(id);
+      if (needCurrent) pending.set(id, (pending.get(id) || 0) + 1);
+      let r;
+      try {
+        r = await rationed(async () => {
+          if (needCurrent && !(await verify(typeof current === 'string' ? current : '', a.hash))) return 'bad';
+          if (await verify(password, a.hash)) return 'same';
+          return hasher(password, cfg.scrypt);
+        });
+      } finally {
+        changing.delete(id);
+        if (needCurrent) { const n = (pending.get(id) || 1) - 1; if (n) pending.set(id, n); else pending.delete(id); }
       }
-      if (await verifyPassword(password, a.hash)) return fail('same');
-      const hash = await hashPassword(password, cfg.scrypt);
-      if (accounts.get(s.id) !== a || !sessions.has(sid)) return fail('expired');     // reset or removed meanwhile
-      a.hash = hash; a.mustChange = false; a.changedAt = now();
+      if (r.busy) return fail('busy');
+      if (r.value === 'bad') return fail(noteFail(id) ? 'locked' : 'bad');
+      if (r.value === 'same') return fail('same');
+      // still the same account, password and session (not reset, removed, changed, signed out or expired meanwhile)
+      if (accounts.get(id) !== a || a.hash !== was || sessions.get(sid) !== so || expired(so, now())) return fail('expired');
+      a.hash = r.value; a.mustChange = false; a.changedAt = now();
       save();
-      fails.delete(s.id);
-      endSessions(s.id);
-      return { ok: true, sid: newSession(s.id, false) };
+      fails.delete(id);
+      endSessions(id);
+      return { ok: true, sid: newSession(id, false) };
     },
 
     signOut(sid) { if (typeof sid === 'string') sessions.delete(sid); },
@@ -287,7 +315,9 @@ function createAuth(o) {
       if (!id) return fail('id');
       if (accounts.has(id)) return fail('exists');
       const temp = tempPassword();
-      const hash = await hashPassword(temp, cfg.scrypt);
+      const r = await rationed(() => hasher(temp, cfg.scrypt));
+      if (r.busy) return fail('busy');
+      const hash = r.value;
       if (accounts.has(id)) return fail('exists');
       const a = { name: tidyName(name) || null, hash, mustChange: true, createdAt: now(), changedAt: null };
       accounts.set(id, a);
@@ -302,7 +332,9 @@ function createAuth(o) {
       const a = accounts.get(id);
       if (!a) return fail('missing');
       const temp = tempPassword();
-      const hash = await hashPassword(temp, cfg.scrypt);
+      const r = await rationed(() => hasher(temp, cfg.scrypt));
+      if (r.busy) return fail('busy');
+      const hash = r.value;
       if (accounts.get(id) !== a) return fail('missing');
       a.hash = hash; a.mustChange = true; a.changedAt = now();
       save();
