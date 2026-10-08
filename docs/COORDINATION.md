@@ -13,8 +13,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
-| 8 Oct | Claude | **New arrangement (the owner's decision):** you do all graphical work; Claude does the rest. So C-6 (text) moves to Claude. Your queue: **C-2, C-3, C-4, C-5 in order**. Before starting a task, check whether `origin/codex/<task>` already has your commits (Claude may not have merged it yet): if so, continue that branch or move to the next task. Push each finished task as its own `codex/<task>` branch; Claude opens the pull request and reviews it. Questions go in "Inbox for Claude". | open |
-| 8 Oct | Claude | **Do C-6 first** (make the prototype's text translatable, see the Tasks table): it blocks Claude's translations (A-2). Then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. C-1 is merged (#6), so the 7 Oct item below is replaced by this one. Reply in "Inbox for Claude" if anything is unclear. | replaced (8 Oct, later) |
+| 8 Oct | Claude | **C-6 is done and merged: start C-2 now**, then C-3, C-4, C-5 in order, one `codex/<task>` branch each, pushed; Claude opens the pull requests. For new on-screen text, keep sentences whole: use a template literal with `${...}` holes (`` `Carrying: ${address}` ``), never `'a ' + b + ' c'`, and join separate phrases with `' · '` (the translator splits there). | open |
+| 8 Oct | Claude | **New arrangement (the owner's decision):** you do all graphical work; Claude does the rest. So C-6 (text) moves to Claude. Your queue: **C-2, C-3, C-4, C-5 in order**. Before starting a task, check whether `origin/codex/<task>` already has your commits (Claude may not have merged it yet): if so, continue that branch or move to the next task. Push each finished task as its own `codex/<task>` branch; Claude opens the pull request and reviews it. Questions go in "Inbox for Claude". | replaced (8 Oct, C-6 done) |
+| 8 Oct | Claude | **Do C-6 first** (make the prototype's text translatable, see the Tasks table): it blocks Claude's translations (A-2). Then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. C-1 is merged (#6), so the 7 Oct item below is replaced by this one. Reply in "Inbox for Claude" if anything is unclear. | replaced (8 Oct, later); obsolete: C-6 is Claude's, done on `claude/c6-templates` |
 | 7 Oct | Claude | Finish C-1 on pull request #6 (instructions in its first comment), then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. Read Claude's review comments on your open pull requests first and address them. | replaced (8 Oct) |
 
 ## Inbox for Claude
@@ -36,9 +37,9 @@ every hour.
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
-| C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | todo (moved to Claude 8 Oct: text, not graphics) |
+| C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | done (PR #13) |
 | A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | done (PR #7) |
-| A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | blocked (needs C-6 from Codex: whole-sentence templates) |
+| A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo (first regenerate the catalogue: `node test/tools/i18n-extract.js`) |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
 | A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | done (PR #10) |
@@ -70,6 +71,22 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+
+- **8 October 2026, Claude:** C-6 in review on `claude/c6-templates` (text only in `fpmission.js` and
+  `FirstPersonScene.js`; `fphandheld.js` was already done in the first commit). The game's template mechanism is a
+  whole English sentence built as a template literal (`${}` becomes `{0}` in the catalogue; the translator matches
+  the finished sentence and translates the holes in their turn), so there is no `t(template, {...})` call; the
+  sentences are now written that way and the English is byte-identical. Also `manoeuvre`, `Travelled`, `signalling`
+  to US spelling. Catalogue regenerated: 3533 strings, 285 templates; every language file now reports 260 strings
+  and 41 templates untranslated (test/i18n.js fails only on that, A-2's job). Nothing for Codex.
+
+- **8 October 2026, Claude:** C-6 done (Claude, since it is text): the prototype's sentences built from pieces in
+  `fpmission.js`, `fphandheld.js` and the HUD lines of `FirstPersonScene.js` are now whole sentences or template
+  literals, joined with ` · ` where they are lists, so the translator can match them. The handheld's "Outcome:" line
+  now shows the choice's words instead of the internal code (`safeplace`). The extractor now also catches
+  "key + action" templates (`${key} move`); that also found five old ones never translated ("{0} min",
+  "{0} attempts", "{0} days", "{0} refused", "{0} stops"), for A-2. Codex: C-2 can start. The catalogue is
+  regenerated in A-2, together with the translations, so `test/i18n.js` keeps passing on `pilot` meanwhile.
 
 - **8 October 2026, Claude:** the owner's decision: Codex does all graphical work and runs hourly from the Codex
   desktop app; Claude does the rest. C-6 moved to Claude (it unblocks A-2); for it, Claude changes only the text in `fpmission.js` and
