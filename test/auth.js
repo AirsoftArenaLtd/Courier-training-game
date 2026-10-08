@@ -8,6 +8,8 @@
  *   for IDs that do not exist), the per-address throttle, session expiry, a trainer's reset and removal, the file;
  * - the API, on a server started with accounts on: the cookie's flags, what a half-signed-in session can do, progress
  *   under the password session, the trainer's endpoints, and that the header sign-in still works;
+ * - a burst of simultaneous sign-ins: counted before any hashing, and only a few password checks at once;
+ * - which files are served: only the game's own, whatever the case, encoding or Windows spelling of a private path;
  * - a server with accounts off answers exactly as before (no sign-in API, ?user= links work).
  */
 'use strict';
@@ -130,6 +132,37 @@ async function unit() {
   try { auth.createAuth({ file }); } catch (e) { threw = true; }
   check(threw, 'a damaged accounts file stops the server instead of starting with nobody');
   fs.rmSync(dir, { recursive: true, force: true });
+
+  console.log('\nsimultaneous sign-ins');
+  {
+    let runs = 0, now2 = 0, most = 0;
+    const verify = async (pw, h) => { runs++; now2++; most = Math.max(most, now2); try { return await auth.verifyPassword(pw, h); } finally { now2--; } };
+    const C = auth.createAuth({ now: clock(), scrypt: FAST, verify });
+    const acc = await C.createAccount('e7000', 'Burst');
+    const first = await C.changePassword((await C.signIn('e7000', acc.tempPassword, 'setup')).sid, 'burst pass 1');
+    check(first.ok, 'account ready');
+    runs = 0; most = 0;
+    const one = await Promise.all(Array.from({ length: 200 }, (_, i) => C.signIn('burst' + i, 'wrong', 'ip-burst')));
+    const tally = (rs) => rs.reduce((m, r) => { m[r.reason] = (m[r.reason] || 0) + 1; return m; }, {});
+    check(runs <= 10 && one.every(r => !r.ok), `200 at once from one address: ${runs} password checks, the rest turned away (${JSON.stringify(tally(one))})`);
+    check(most <= C.config.maxHashing, `at most ${C.config.maxHashing} checks at a time (${most})`);
+    check((await C.signIn('e7000', 'burst pass 1', 'ip-burst')).reason === 'throttled', 'that address then waits');
+    runs = 0; most = 0;
+    const many = await Promise.all(Array.from({ length: 200 }, (_, i) => C.signIn('spread' + i, 'wrong', 'ip-spread-' + i)));
+    const cap = C.config.maxHashing + C.config.maxQueue;
+    check(runs <= cap && many.filter(r => r.reason === 'busy').length >= 200 - cap && most <= C.config.maxHashing,
+      `200 at once from 200 addresses: ${runs} password checks (at most ${cap}), at most ${most} at a time, the rest told the server is busy`);
+    const busy = many.find(r => r.reason === 'busy');
+    check(busy && busy.status === 503 && busy.error === auth.MESSAGES.busy, 'busy: 503, "' + (busy && busy.error) + '"');
+    check(!!(await C.signIn('e7000', 'burst pass 1', 'ip-another')).ok, 'afterwards a trainee from another address signs in fine');
+    check(!!(await C.signIn('e7000', 'burst pass 1', 'ip-spread-7')).ok, '... and so does one whose address was turned away as busy (it was not held against it)');
+    runs = 0;
+    const same = await Promise.all(Array.from({ length: 40 }, (_, i) => C.signIn('e7000', 'wrong ' + i, 'ip-one-id-' + i)));
+    check(runs <= C.config.lockAfter && (await C.signIn('e7000', 'burst pass 1', 'ip-late')).reason === 'locked',
+      `40 at once at one ID from 40 addresses: ${runs} password checks, then the ID is locked (${JSON.stringify(tally(same))})`);
+    const ghost = await Promise.all(Array.from({ length: 40 }, (_, i) => C.signIn('e7999', 'wrong ' + i, 'ip-ghost-' + i)));
+    check(JSON.stringify(tally(ghost)) === JSON.stringify(tally(same)), 'an ID that does not exist answers a burst the same way');
+  }
 
   console.log('\ntiming');
   const T = auth.createAuth({});
@@ -263,8 +296,82 @@ async function api() {
   }
 }
 
+/* ------------------------------------------------------------------ which files are served */
+/** A GET with the path sent exactly as written (no URL tidying on the way). */
+function rawGet(base, p) {
+  const u = new URL(base);
+  return new Promise((resolve, reject) => {
+    const req = http.request({ host: u.hostname, port: u.port, path: p, method: 'GET' }, res => {
+      let d = ''; res.on('data', c => d += c); res.on('end', () => resolve({ code: res.statusCode, raw: d }));
+    });
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+const PRIVATE_PATHS = (dataRel) => {
+  const d = dataRel, D = dataRel.toUpperCase(), up = (s) => s.replace(/[a-z]/g, (c, i) => (i % 2 ? c.toUpperCase() : c));
+  const e = (s) => s.replace(/[a-z]/g, c => '%' + c.charCodeAt(0).toString(16));
+  return [
+    `/${d}/accounts.json`, `/${D}/ACCOUNTS.JSON`, `/${up(d)}/Accounts.json`, `/${d}/accounts.json.`, `/${d}/accounts.json%20`,
+    `/${d}/accounts.json::$DATA`, `/${d}/accounts.json%3A%3A%24DATA`, `/${e(d)}/${e('accounts.json')}`, `/${d.replace(/\//g, '%2F')}%2Faccounts.json`,
+    `/${d.replace(/\//g, '\\')}\\accounts.json`, `/${d.replace(/\//g, '%5C')}%5Caccounts.json`, `/${d.replace(/\//g, '%255C')}%255Caccounts.json`,
+    `/${d.replace(/\//g, '%252F')}%252Faccounts.json`, `/src/..%2F..%2F${d}/accounts.json`, `/src/%2e%2e/${d}/accounts.json`,
+    `/src/%252e%252e/${d}/accounts.json`, `/src/%2E%2E%5C${d}/accounts.json`, `/${d}/`, `/${D}/`,
+    '/server/server.js', '/SERVER/SERVER.JS', '/Server/auth.js', '/server./auth.js', '/server%20/auth.js', '/SERVER~1/auth.js', '/server%7E1/auth.js',
+    '/%73erver/auth.js', '/%2573erver/auth.js', '/server%5Cauth.js', '/server\\auth.js', '/src/../server/auth.js', '/src/%2e%2e/server/auth.js',
+    '/src%2F..%2Fserver%2Fauth.js', '/.git/config', '/.GIT/config', '/%2egit/config', '/test/auth.js', '/TEST/auth.js', '/docs/SIGN-IN.md',
+    '/DOCS/sign-in.md', '/README.md', '/CLAUDE.md', '/server/config.json', '/src/core/signin.js.', '/con', '/src/nul.js', '/src/core/%00signin.js',
+    '/%E0%A4%A', '/data/../server/auth.js'
+  ];
+};
+
+async function files() {
+  console.log('\nwhich files are served');
+  const ROOT = path.resolve(__dirname, '..');
+  // the data folder inside a folder the game is served from: the hardest place to keep it private
+  const dataRel = 'data/otr-authtest-' + process.pid;
+  const DATA = path.join(ROOT, dataRel);
+  const prevData = process.env.OTR_DATA_DIR, prevAcc = process.env.OTR_ACCOUNTS;
+  process.env.OTR_DATA_DIR = dataRel; process.env.OTR_ACCOUNTS = '0';
+  const { publicFile } = require('../server/server.js');
+  if (prevData === undefined) delete process.env.OTR_DATA_DIR; else process.env.OTR_DATA_DIR = prevData;
+  if (prevAcc === undefined) delete process.env.OTR_ACCOUNTS; else process.env.OTR_ACCOUNTS = prevAcc;
+  try {
+    const leaks = PRIVATE_PATHS(dataRel).concat(PRIVATE_PATHS('server/data')).filter(p => publicFile(p) !== null);
+    check(!leaks.length, 'no case, encoding, backslash, short-name or trailing-dot spelling of a private path is a servable file' + (leaks.length ? ': ' + leaks.join(' ') : ''));
+    const game = ['/', '/index.html', '/first-person.html', '/imsmanifest.xml', '/css/style.css', '/src/core/signin.js', '/data/i18n/'];
+    check(game.every(p => publicFile(p) !== null), 'the game\'s own files are still served');
+
+    const { child, base } = await startServer({ OTR_DATA_DIR: dataRel, OTR_ACCOUNTS: '1', OTR_TRAINER_PIN: '4821' });
+    try {
+      const made = await request(base, 'POST', 'api/accounts', { json: { id: 'e3001', name: 'Kept Safe' }, headers: { 'x-trainer-pin': '4821' } });
+      check(made.code === 200 && fs.existsSync(path.join(DATA, 'accounts.json')), 'an accounts file inside the served data folder');
+      const secret = /"salt"|"hash"|scrypt|createAuth|require\(|\[core\]/;
+      const bad = [];
+      for (const p of PRIVATE_PATHS(dataRel).concat(PRIVATE_PATHS('server/data'))) {
+        const r = await rawGet(base, p);
+        if (r.code === 200 || secret.test(r.raw)) bad.push(p + ' ' + r.code);
+      }
+      check(!bad.length, `none of ${PRIVATE_PATHS(dataRel).length * 2} private-path spellings is served over HTTP` + (bad.length ? ': ' + bad.join(', ') : ''));
+      const ok = await rawGet(base, '/css/style.css'), home = await rawGet(base, '/');
+      check(ok.code === 200 && home.code === 200 && /<html/i.test(home.raw), 'the game and its files still load');
+      if (process.platform !== 'win32') {
+        const link = path.join(ROOT, 'src', 'otr-authtest-link-' + process.pid + '.json');
+        try {
+          fs.symlinkSync(path.join(DATA, 'accounts.json'), link);
+          const r = await rawGet(base, '/src/' + path.basename(link));
+          check(r.code === 404 && !secret.test(r.raw), 'a link from a served folder to the accounts file is not followed');
+        } finally { try { fs.unlinkSync(link); } catch (e) { /* gone */ } }
+      }
+    } finally { child.kill(); }
+  } finally {
+    fs.rmSync(DATA, { recursive: true, force: true });
+  }
+}
+
 (async () => {
-  try { await unit(); await api(); } catch (e) { check(false, 'script error: ' + (e && e.stack || e)); }
+  try { await unit(); await api(); await files(); } catch (e) { check(false, 'script error: ' + (e && e.stack || e)); }
   console.log(fails ? `\n${fails} failed` : '\nall sign-in checks passed');
   process.exit(fails ? 1 : 0);
 })();

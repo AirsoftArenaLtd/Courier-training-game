@@ -91,11 +91,27 @@ restores its last session may keep it).
 - **Wrong passwords**: 5 in a row lock that employee ID for 15 minutes; 10 from one address in a minute make that
   address wait a minute. Behind a proxy every trainee may share one address, so the address limit is kept small and
   short. The lock counts are in memory, so a restart clears them.
+- **Bursts of sign-ins**: each try counts against its address and its employee ID the moment it arrives, before
+  the password is checked (a successful sign-in gives its count back). So 200 tries sent at once from one address
+  get at most 10 password checks, and tries sent at once at one ID get at most 5 before it locks.
+- **Password checks are rationed**: each one deliberately costs about 50 ms of CPU and 16 MB of memory, so the server
+  runs at most 4 at a time with up to 16 more waiting their turn. Any sign-in beyond that is answered at once,
+  without hashing, with "The training server is busy. Try again in a moment." (HTTP 503) and is not counted against
+  its address. A flood of sign-ins from many addresses therefore cannot tie up the server's CPU or its worker
+  threads; the game, progress saves and sessions already signed in carry on. (These are `maxHashing` and `maxQueue`
+  in `server/auth.js`.)
 - **No hints about who has an account**: an ID that does not exist gets the same message, the same lock and a
   password check of the same cost as one that does.
 - **Cross-site requests**: sign-in and password changes take only a JSON body, which a form on another site cannot
   send, and the `SameSite=Strict` cookie is never sent from another site.
-- The data folder (progress and accounts) is never served as a file, wherever `OTR_DATA_DIR` puts it.
+- **Which files are served**: only the game's own (an allow-list: `index.html`, `first-person.html`,
+  `imsmanifest.xml` and the `assets`, `css`, `data`, `lib` and `src` folders). The data folder (progress and
+  accounts), `server/`, `docs/`, `test/` and `.git` are never served, wherever `OTR_DATA_DIR` puts the data folder.
+  These checks ignore case (Windows and macOS disks do too, so `/SERVER/DATA/accounts.json` is refused like the
+  lower-case path), and refuse any path with a backslash, `%` left after decoding (double encoding), `~` (Windows
+  short names like `SERVER~1`), a trailing dot or space, `:` (alternate streams such as `accounts.json::$DATA`), a
+  leading dot or a Windows device name. The file actually opened is checked again after links and short names are
+  resolved.
 
 The code is `server/auth.js` (the logic), `server/server.js` (its API), `src/core/signin.js` (the screen) and
 `src/core/identity.js`. Tests: `node test/auth.js` (Node only) and `node test/signin.js` (a browser).

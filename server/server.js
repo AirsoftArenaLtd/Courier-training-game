@@ -84,8 +84,37 @@ const secureReq = (req) => COOKIE_SECURE === '1' || (COOKIE_SECURE !== '0' && (!
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json',
   '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.xml': 'application/xml', '.woff2': 'font/woff2' };
-// never served: the server itself, its data (everyone's progress) and the repository's own files
-const PRIVATE = [/^\/server(\/|$)/, /^\/\.git(\/|$)/, /^\/test(\/|$)/, /^\/docs(\/|$)/];
+/*
+ * Files served: only what the game is made of (an allow-list), never the server itself, its data (everyone's
+ * progress, the accounts file) or the repository's own files. Names are checked as Windows would read them too
+ * (any case, no 8.3 short names like SERVER~1, no trailing dots or spaces, no a:b streams or device names), and the
+ * file actually opened is checked again after links and short names are resolved.
+ */
+const PUBLIC_FILES = new Set(['index.html', 'first-person.html', 'imsmanifest.xml']);
+const PUBLIC_DIRS = new Set(['assets', 'css', 'data', 'lib', 'src']);
+const SAFE_PART = /^[A-Za-z0-9_][A-Za-z0-9_.-]*$/;          // no %, \, ~, :, spaces, or a leading dot ('..', '.git')
+const DEVICE = /^(con|prn|aux|nul|com\d|lpt\d|conin\$|conout\$)(\.|$)/i;
+const realOr = (p) => { try { return fs.realpathSync.native(p); } catch (e) { return path.resolve(p); } };
+const ROOT_REAL = realOr(ROOT);
+/** f is dir or inside it, compared without case (so it holds on Windows and macOS disks as well). */
+const within = (f, dir) => { const a = f.toLowerCase(), b = dir.toLowerCase().replace(/[\\/]+$/, ''); return a === b || a.startsWith(b + path.sep); };
+const PRIVATE_DIRS = [DATA, realOr(DATA), __dirname, realOr(__dirname)].concat(['.git', 'test', 'docs'].map(d => path.join(ROOT, d)));
+const privatePath = (f) => (!within(f, ROOT_REAL) && !within(f, ROOT)) || PRIVATE_DIRS.some(d => within(f, d));
+/** The file a URL path names, or null when it is not one of the game's files. */
+function publicFile(pathname) {
+  let p;
+  try { p = decodeURIComponent(pathname); } catch (e) { return null; }
+  if (p.endsWith('/')) p += 'index.html';
+  const parts = p.split('/');
+  if (parts.shift() !== '' || !parts.length) return null;
+  if (!parts.every(s => SAFE_PART.test(s) && !s.endsWith('.') && !DEVICE.test(s))) return null;
+  const top = parts[0].toLowerCase();
+  if (parts.length === 1 ? !PUBLIC_FILES.has(top) : !PUBLIC_DIRS.has(top)) return null;
+  const f = path.resolve(ROOT, ...parts);
+  const rel = path.relative(ROOT, f);
+  if (!rel || rel.startsWith('..') || path.isAbsolute(rel) || privatePath(f)) return null;
+  return f;
+}
 
 function roster() {
   try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'trainees.json'), 'utf8')); } catch (e) { return {}; }
@@ -272,17 +301,17 @@ async function accountsApi(req, res, route) {
 }
 
 function serveFile(req, res, url) {
-  let p = decodeURIComponent(url.pathname);
-  if (p.endsWith('/')) p += 'index.html';
-  if (PRIVATE.some(r => r.test(p))) { res.writeHead(404); return res.end('Not found'); }
-  const f = path.join(ROOT, path.normalize(p));
-  if (!f.startsWith(ROOT + path.sep)) { res.writeHead(403); return res.end('Forbidden'); }
-  // the data folder (progress, accounts) is never served, wherever OTR_DATA_DIR puts it
-  if (f === DATA || f.startsWith(DATA + path.sep)) { res.writeHead(404); return res.end('Not found'); }
+  const notFound = () => { res.writeHead(404); res.end('Not found'); };
+  const f = publicFile(url.pathname);
+  if (!f) return notFound();
   fs.stat(f, (err, st) => {
-    if (err || !st.isFile()) { res.writeHead(404); return res.end('Not found'); }
+    if (err || !st.isFile()) return notFound();
+    // the data folder (progress, accounts) is never served, wherever OTR_DATA_DIR or a link puts it
+    let real;
+    try { real = fs.realpathSync.native(f); } catch (e) { return notFound(); }
+    if (privatePath(real)) return notFound();
     res.writeHead(200, { 'Content-Type': TYPES[path.extname(f).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
-    fs.createReadStream(f).pipe(res);
+    fs.createReadStream(real).pipe(res);
   });
 }
 
@@ -301,4 +330,4 @@ if (require.main === module) {
     if (accounts) console.log(`  sign-in: employee ID and password (${accounts.size} account${accounts.size === 1 ? '' : 's'}; docs/SIGN-IN.md)`);
   });
 }
-module.exports = { server, accounts };
+module.exports = { server, accounts, publicFile };

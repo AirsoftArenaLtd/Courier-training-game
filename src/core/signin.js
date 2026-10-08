@@ -110,6 +110,7 @@ OTR.signin = {
       bad: 'That employee ID and password don\'t match.',
       locked: 'Too many wrong tries. Try again later, or ask a trainer to reset your password.',
       throttled: 'Too many wrong tries from this computer. Wait a minute, then try again.',
+      busy: 'The training server is busy. Try again in a moment.',
       short: 'Use at least 8 characters.',
       long: 'That password is too long.',
       same: 'Choose a new password, not the one your trainer gave you.',

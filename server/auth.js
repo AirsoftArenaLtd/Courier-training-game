@@ -14,6 +14,9 @@
  * - Wrong passwords: lockAfter in a row lock that employee ID for lockMs (a trainer's reset unlocks it), and one
  *   address gets ipFails wrong tries per ipWindowMs. An ID that does not exist is treated exactly like one that does
  *   (the same answer, the same lock, a password check of the same cost), so sign-in never tells whether an ID exists.
+ * - A try is counted against its address and ID the moment it arrives, before the password check (a success gives
+ *   it back), so a burst of simultaneous tries cannot get past the limits. At most maxHashing password checks run at
+ *   once, with up to maxQueue more waiting; beyond that a sign-in is turned away as 'busy' without any hashing.
  * - Sessions live in memory under a random id (the cookie holds only that id); they end after sessionMs, after
  *   idleMs unused, when the password changes or is reset, and when the server restarts.
  * Results that fail carry { reason, status, error }: reason is a code the sign-in screen words for itself, error the
@@ -34,6 +37,7 @@ const MESSAGES = {
   bad: 'That employee ID and password do not match.',
   locked: 'Too many wrong tries. Try again later, or ask a trainer to reset the password.',
   throttled: 'Too many wrong tries from this computer. Wait a minute, then try again.',
+  busy: 'The training server is busy. Try again in a moment.',
   short: `Use at least ${MIN_LEN} characters.`,
   long: `Use at most ${MAX_LEN} characters.`,
   same: 'Choose a new password, not the one you signed in with.',
@@ -42,7 +46,7 @@ const MESSAGES = {
   exists: 'There is already an account with that employee ID.',
   missing: 'There is no account with that employee ID.'
 };
-const STATUS = { bad: 401, locked: 429, throttled: 429, short: 400, long: 400, same: 400, expired: 401, id: 400, exists: 409, missing: 404 };
+const STATUS = { bad: 401, locked: 429, throttled: 429, busy: 503, short: 400, long: 400, same: 400, expired: 401, id: 400, exists: 409, missing: 404 };
 const fail = (reason) => ({ ok: false, reason, status: STATUS[reason], error: MESSAGES[reason] });
 
 /** Employee IDs are compared without case or surrounding spaces. '' when it cannot be one. */
@@ -105,12 +109,16 @@ function createAuth(o) {
     sessionMs: o.sessionMs || 10 * 60 * 60 * 1000,
     idleMs: o.idleMs || 2 * 60 * 60 * 1000,
     changeMs: o.changeMs || 15 * 60 * 1000,      // a session that may only choose a new password
+    maxHashing: o.maxHashing || 4,                // sign-in password checks at once (Node hashes on 4 threads)
+    maxQueue: o.maxQueue || 16,                   // ... and waiting for a turn; more are turned away as 'busy'
     scrypt: Object.assign({}, SCRYPT, o.scrypt)
   };
   const accounts = new Map();                    // id -> { name, hash, mustChange, createdAt, changedAt }
   const sessions = new Map();                    // sid -> { id, created, last, mustChange }
   const fails = new Map();                       // id (existing or not) -> { n, until }
   const ipFails = new Map();                     // address -> { n, start }
+  const pending = new Map();                     // id -> sign-ins being checked right now
+  const verify = o.verify || verifyPassword;     // tests count the password checks
   // unknown IDs are checked against this, so they cost the same time as known ones
   const dummy = hashPassword(crypto.randomBytes(18).toString('base64'), cfg.scrypt);
 
@@ -149,10 +157,34 @@ function createAuth(o) {
     const f = ipFails.get(ip);
     return !!(f && now() - f.start < cfg.ipWindowMs && f.n >= cfg.ipFails);
   }
+  /** Counts a try against an address; the returned function gives it back (a success, or turned away as busy). */
   function noteIpFail(ip) {
-    const t = now(), f = ipFails.get(ip);
-    if (!f || t - f.start >= cfg.ipWindowMs) ipFails.set(ip, { n: 1, start: t }); else f.n++;
+    const t = now();
+    let f = ipFails.get(ip);
+    if (!f || t - f.start >= cfg.ipWindowMs) { f = { n: 0, start: t }; ipFails.set(ip, f); }
+    f.n++;
     cap(ipFails);
+    return () => { if (ipFails.get(ip) === f && f.n > 0) f.n--; };
+  }
+  /** An ID with enough tries already being checked to lock it, if they are all wrong. */
+  function lockPending(id) {
+    const f = fails.get(id), t = now();
+    const n = f && !(f.until && f.until <= t) ? f.n : 0;
+    return n + (pending.get(id) || 0) >= cfg.lockAfter;
+  }
+
+  /* ---- password checks for sign-in, a few at a time: a burst queues briefly or is turned away, never piles up */
+  let hashing = 0;
+  const waiting = [];
+  /** A turn to hash: a promise of one, or null when the queue is full. release() hands it on. */
+  function acquire() {
+    if (hashing < cfg.maxHashing) { hashing++; return Promise.resolve(); }
+    if (waiting.length >= cfg.maxQueue) return null;
+    return new Promise(resolve => waiting.push(resolve));
+  }
+  function release() {
+    const next = waiting.shift();
+    if (next) next(); else hashing--;           // the turn passes straight on, so a newcomer cannot jump in between
   }
 
   function newSession(id, mustChange) {
@@ -195,17 +227,29 @@ function createAuth(o) {
     async signIn(rawId, password, ip) {
       ip = String(ip || '');
       if (ipThrottled(ip)) return fail('throttled');
+      // counted now, before anything is awaited, so simultaneous tries all see each other
+      const giveBack = noteIpFail(ip);
       const id = normalizeId(rawId);
       const pw = typeof password === 'string' ? password : '';
       // nothing that could be an account: no lock to keep, but the address's count still goes up
-      if (!id || !pw || pw.length > MAX_LEN) { noteIpFail(ip); return fail('bad'); }
-      if (lockedNow(id)) { noteIpFail(ip); return fail('locked'); }
-      const a = accounts.get(id);
-      const ok = await verifyPassword(pw, a ? a.hash : await dummy);
-      if (!ok || !a || accounts.get(id) !== a) {
-        noteIpFail(ip);
-        return fail(noteFail(id) ? 'locked' : 'bad');
+      if (!id || !pw || pw.length > MAX_LEN) return fail('bad');
+      if (lockedNow(id) || lockPending(id)) return fail('locked');
+      const turn = acquire();
+      if (!turn) { giveBack(); return fail('busy'); }
+      pending.set(id, (pending.get(id) || 0) + 1);
+      let ok = false, a;
+      try {
+        await turn;
+        const h = await dummy;                    // (ready long before anyone signs in)
+        a = accounts.get(id);
+        ok = await verify(pw, a ? a.hash : h);
+      } finally {
+        release();
+        const n = (pending.get(id) || 1) - 1;
+        if (n) pending.set(id, n); else pending.delete(id);
       }
+      if (!ok || !a || accounts.get(id) !== a) return fail(noteFail(id) ? 'locked' : 'bad');
+      giveBack();
       fails.delete(id);
       prune();
       return { ok: true, id, sid: newSession(id, a.mustChange), mustChange: !!a.mustChange };
