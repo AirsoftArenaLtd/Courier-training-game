@@ -88,9 +88,13 @@ class FirstPersonScene extends Phaser.Scene {
   launch(kind){this.transition(()=>{
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;m=OTR.fpMission.create(kind,this.progress.sequence);}
     this.model=m;this.area='route';this.target=null;this.checkpoint();
+    if(kind==='campaign'&&!m.briefing&&!m.departed){
+      const day=OTR.shift.generate(m.seed,m.seed);
+      m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};m.touch();this.checkpoint();
+    }
     const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
       m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
-    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
+    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
   });}
   toHub(){this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});}
   showPause(){
@@ -140,11 +144,40 @@ class FirstPersonScene extends Phaser.Scene {
     const choices=s.contacted?[{label:'Record on handheld',action:()=>this.handheld.delivery(id)}]:[{label:'Knock / ring',action:()=>{this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
     choices.push({label:'Back',action:()=>this.closePanel()});this.showPanel('Delivery',body,choices,{back:()=>this.closePanel()});
   }
+  showMorningBrief(nodeId,feedback){
+    const m=this.model;if(!m||!m.briefing||!m.near('dispatch'))return;
+    const brief=OTR_DATA.briefs[(m.briefing.day-1)%OTR_DATA.briefs.length],nodes=brief.talk.nodes;
+    const node=nodes[nodeId||brief.talk.start],back=()=>this.closePanel();
+    if(!node||node.type==='end'){this.showManifest(0,true);return;}
+    if(feedback){this.showPanel('Morning briefing',feedback,[{label:'Continue',action:()=>this.showMorningBrief(nodeId)}],{back});return;}
+    const choices=node.choices?[{label:'View answers',action:()=>this.showBriefAnswer(nodeId||brief.talk.start,0)}]:[{label:'Continue',action:()=>this.showMorningBrief(node.next)}];
+    this.showPanel(brief.topic,node.text,choices,{back});
+  }
+  showBriefAnswer(nodeId,index){
+    const m=this.model;if(!m||!m.briefing||!m.near('dispatch'))return;
+    const brief=OTR_DATA.briefs[(m.briefing.day-1)%OTR_DATA.briefs.length],node=brief.talk.nodes[nodeId],choice=node.choices[index];
+    this.showPanel('Morning safety check',choice.text,[
+      {label:'Choose this answer',action:()=>this.showMorningBrief(choice.next,choice.feedback)},
+      {label:'Next answer',action:()=>this.showBriefAnswer(nodeId,(index+1)%node.choices.length)},
+      {label:'Read question',action:()=>this.showMorningBrief(nodeId)}
+    ],{back:()=>this.closePanel()});
+  }
+  showManifest(page=0,complete=false){
+    const m=this.model;if(!m||!m.near('dispatch'))return;
+    const s=m.stops[page],p=m.parcels.find(p=>p.stop===s.id),day=m.briefing;
+    const body=[day?`Day ${day.day}`:'Route manifest',day?day.weather:'',day?`Start: ${OTR.shift.clockStr(day.clockMin)}`:'',s.address,p.tracking,m.serviceLabel(s.id)].filter(Boolean).join('\n');
+    const choices=[];
+    if(page+1<m.stops.length)choices.push({label:'Next',action:()=>this.showManifest(page+1,complete)});
+    else choices.push({label:'Begin preparation',action:()=>{if(complete)m.readBrief();this.checkpoint();this.closePanel();}});
+    if(page>0)choices.push({label:'Previous',action:()=>this.showManifest(page-1,complete)});
+    this.showPanel('Route manifest',body,choices,{back:()=>this.closePanel()});
+  }
   showDispatch(){
+    if(this.model.briefing&&!this.model.events[this.model.briefKey]){this.showMorningBrief();return;}
     const m=this.model;this.showPanel('Dispatch',this.objectiveText(),[
       {label:m.kind==='practice'?'Finish practice':'Finish workday',action:()=>{const message=m.finish();if(message){this.message(message);this.closePanel();return;}
         this.progress.last={kind:m.kind,seed:m.seed,logs:OTR.fpMission.clone(m.logs),elapsed:Math.round(m.elapsed)};this.progress[m.kind]=null;this.write();this.showDebrief(this.progress.last);}},
-      {label:'View manifest',action:()=>this.showScanner()},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+      {label:'View manifest',action:()=>this.showManifest()},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showDebrief(result,page=0){
     if(!result){this.showPanel('Last debrief','Complete a workday or a cargo lesson to see its results.',[{label:'Back',action:()=>this.showPause()}]);return;}
@@ -216,6 +249,7 @@ class FirstPersonScene extends Phaser.Scene {
     const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
       if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
+    if(m.briefing&&!m.events[m.briefKey])return 'Walk to Dispatch to read the morning brief and route manifest.';
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';

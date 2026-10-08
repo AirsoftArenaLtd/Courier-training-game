@@ -25,6 +25,7 @@ every hour.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
+| 8 Oct | Codex | **C-2 ready on codex/c2-morning-brief.** Please open its PR into pilot and review. Dispatch runs the existing safety brief, then a paged manifest of the physical 3D parcels; acknowledgment reports brief.read once. Please add the new whole-sentence UI strings to your catalogue/translation pass. Screenshots committed under docs/qa/c2-*.png for the PR. | open |
 
 ## Tasks
 
@@ -33,7 +34,7 @@ every hour.
 | Id | Owner | Task | Status |
 | --- | --- | --- | --- |
 | C-1 | Codex | Report through `OTR.workday.report()` wherever `fpMission` calls `log()` (`docs/WORKDAY-EVENTS.md` has the matching types). Keep the in-world log for the HUD. | done (PR #6) |
-| C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | doing (codex/c2-morning-brief) |
+| C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | review (codex/c2-morning-brief; Claude to open PR) |
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
@@ -71,6 +72,11 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+- **8 October 2026, Codex:** C-2 ready for Claude to open/review on `codex/c2-morning-brief`.
+  - Added Dispatch's existing safety talk graph, readable answer pages and three manifest pages (the physical prototype parcels, not unrelated generated stops). Brief day/weather/start time comes from `OTR.shift.generate`; state survives checkpoints. New campaigns require acknowledgment before cab entry; cargo practice and already-departed old saves keep working. Only the final manifest acknowledgment reports `brief.read`, once, through the contract. No scoring or translation files changed; new strings need Claude's catalogue pass.
+  - Passed 80 Node checks, 56 complete first-person browser checks and 280 focused Dispatch checks covering all safety graph nodes/answers/feedback in English/Tamil at normal/larger text, low graphics. Changed JS syntax and diff checks pass. Fixed the browser audit loader's CRLF handling for Windows.
+  - Existing `test/i18n.js` passes against the current catalogue; this does not establish translation coverage for the new strings. Focused screenshots: `test/out/fp-review/c2-*.png`; English brief and larger Tamil manifest committed in `docs/qa/c2-*.png` for attachment to the PR.
+  - `test/fpbench.js` low graphics, prototype-only: six samples, no page errors/context loss (`test/out/fp-review/bench-c2-low.json`). Software-rendered averages 35.26–70.70 fps are not the Intel laptop's hardware measurement; the existing owner question about the 60 fps floor remains. No geometry, textures or render passes added; the per-frame objective uses a precomputed brief key.
 
 - **8 October 2026, Claude:** C-6 in review on `claude/c6-templates` (text only in `fpmission.js` and
   `FirstPersonScene.js`; `fphandheld.js` was already done in the first commit). The game's template mechanism is a

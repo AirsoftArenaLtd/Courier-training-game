@@ -10,6 +10,26 @@ for (const file of ['data/workday_events.js','src/core/scorelog.js','src/core/wo
 const M = context.OTR.fpMission, S = context.OTR.fpStore;
 const W = context.OTR.workday;
 test.beforeEach(() => W.begin());
+test('dispatch brief completion is local, once-only and persists without replay', () => {
+  const m = M.create('campaign', 1); m.briefing = { day: 1, weather: 'clear', clockMin: 500 };
+  assert.equal(m.readBrief(), false);
+  const point = m.point('dispatch'); Object.assign(m.player, { x: point.x + 1.5, z: point.z });
+  assert.equal(m.readBrief(), true); assert.equal(m.readBrief(), true);
+  assert.equal(m.logs.filter(l => l.id === 'brief:1').length, 1);
+  assert.equal(W.events.filter(l => l.type === 'brief.read').length, 1);
+  const restored = M.restore(m.snapshot()); assert.ok(restored);
+  W.begin(); restored.readBrief(); assert.equal(W.events.length, 0);
+  const old = m.snapshot(); delete old.briefing; assert.ok(M.restore(old));
+  const bad = m.snapshot(); bad.briefing.day = -1; assert.equal(M.restore(bad), null);
+});
+test('campaign briefing prevents cab entry until acknowledged; practice remains separate', () => {
+  const m = M.create('campaign', 1); m.briefing = { day: 1, weather: 'clear', clockMin: 500 };
+  const door = m.point('driver'); Object.assign(m.player, door);
+  assert.match(m.enter(), /morning brief/); assert.equal(m.mode, 'walk');
+  const desk = m.point('dispatch'); Object.assign(m.player, { x: desk.x + 1.5, z: desk.z }); m.readBrief();
+  Object.assign(m.player, door); assert.equal(m.enter(), '');
+  const practice = M.create('practice', 2); assert.equal(practice.readBrief(), false);
+});
 const make = kind => { const m = M.create(kind, 7); m.paused = false; return m; };
 const at = (m, id) => { const p = m.point(id); m.player.x = p.x; m.player.z = p.z + 0.65; };
 function load(m) {

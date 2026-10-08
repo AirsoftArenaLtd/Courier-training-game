@@ -5,7 +5,7 @@ const puppeteer=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8302';
 const LANG=process.env.QA_LANG||'en',GFX=process.env.QA_GFX||'high';
 const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:true});
-const qa=fs.readFileSync(path.join(__dirname,'qa.js'),'utf8');
+const qa=fs.readFileSync(path.join(__dirname,'qa.js'),'utf8').replace(/\r\n/g,'\n');
 const audit=qa.slice(qa.indexOf('function auditLayout()'),qa.indexOf('\n}\n',qa.indexOf('function auditLayout()'))+2);
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok '+text);};
@@ -43,6 +43,12 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   await open();check(await ev(()=>!!OTR.game.scene.getScene('FirstPersonScene').view),'3D renderer starts');await shot('welcome');
   await press('Enter');await press('KeyH');await shot('hub');await press('Digit2');await wait(750);await press('Enter');
   check((await state()).m.kind==='campaign','hub starts a workday');
+  await pose(-12.1,11,'dispatch');await press('KeyE');await shot('morning-brief');
+  for(let step=0;step<30;step++){
+   if((await state()).m.events['brief:'+(await state()).m.seed])break;
+   await press('Digit1');
+  }
+  check(!!(await state()).m.events['brief:'+(await state()).m.seed],'read dispatch brief and all manifest pages');
   // Load all three using the real pickup, scanner and shelf interactions.
   for(let i=0;i<3;i++){
    await pose(-9,4-i*3,'parcel'+i);await press('KeyE');check((await state()).m.heldId==='parcel'+i,'pick up parcel '+i);

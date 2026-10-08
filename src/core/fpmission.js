@@ -23,10 +23,11 @@ OTR.fpMission = {
     const variant = seed % 3;
     const m = {
       version: M.VERSION, kind: kind === 'practice' ? 'practice' : 'campaign', seed,
+      briefKey: 'brief:' + seed,
       phase: 'prepare', mode: 'walk', paused: true, elapsed: 0, revision: 0,
       player: { x: -9, z: 10, yaw: 0, pitch: 0 },
       van: { x: 4, z: 8, yaw: 0, speed: 0, steer: 0, gear: 1, hand: true, belt: false, look: 0 },
-      cargoOpen: false, secured: false, heldId: null, lastScan: null,
+      cargoOpen: false, secured: false, heldId: null, lastScan: null, briefing: null,
       checks: { tyres: null, lights: null }, repaired: false, fault: seed % 2 ? 'lights' : 'tyres',
       stops: [-42, -72, -105].map((z, i) => ({ id: i, x: 10, z, address: M.addresses[i],
         service: ['handover', 'safeplace', 'signature'][(i + variant) % 3], contacted: false, resolved: false })),
@@ -61,6 +62,7 @@ OTR.fpMission = {
         const d = { key, ok: outcome !== 'needs' };
         let type, driving = false;
         switch (event) {
+          case 'brief': type = 'brief.read'; d.key = this.seed; break;
           case 'scan': type = 'scan.load'; break;
           case 'stop-scan': case 'unverified':
             type = 'scan.stop'; d.stop = this.parcel(key).stop; break;
@@ -99,6 +101,11 @@ OTR.fpMission = {
           d.where = { x: this.van.x, z: this.van.z, mph: Math.abs(this.van.speed) * 2.2369362921 };
         }
         OTR.workday.report(type, d);
+      },
+      readBrief() {
+        if (this.kind !== 'campaign' || !this.briefing || this.mode !== 'walk' || !this.near('dispatch')) return false;
+        this.log(this.briefKey, 'service', 'good', 'Read the morning brief and route manifest at Dispatch.');
+        return true;
       },
       parcel(id) { return this.parcels.find(p => p.id === id); },
       stop(id) { return this.stops.find(s => s.id === Number(id)); },
@@ -223,6 +230,7 @@ OTR.fpMission = {
       },
       enter() {
         if (this.kind === 'practice') return 'This lesson covers loading and retrieval. Driving is available in the workday.';
+        if (this.briefing && !this.events[this.briefKey]) return 'Read the morning brief and manifest at Dispatch before entering the cab.';
         if (this.mode !== 'walk' || this.heldId || !this.near('driver')) return 'Place the parcel before entering the cab.';
         if (this.cargoOpen) return 'Close the cargo doors before entering the cab.';
         this.mode = 'cab'; this.van.look = 0; this.player.pitch = 0; this.touch(); return '';
@@ -374,7 +382,7 @@ OTR.fpMission = {
         for (let i = 0; i < n; i++) this.tick(input, dt / n);
       },
       snapshot() {
-        const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
+        const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -387,6 +395,9 @@ OTR.fpMission = {
     try {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed), data = this.clone(raw);
+      if (data.briefing === undefined) data.briefing = null;
+      if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
+        typeof data.briefing.weather !== 'string' || !Number.isFinite(data.briefing.clockMin))) return null;
       if (!['prepare','route','return','debrief'].includes(data.phase) || !['walk','cab'].includes(data.mode)) return null;
       if (data.kind === 'practice' && data.mode === 'cab') return null;
       if (!Number.isFinite(data.elapsed) || data.elapsed < 0 || !Number.isFinite(data.seed)) return null;
