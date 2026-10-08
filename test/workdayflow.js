@@ -57,6 +57,7 @@ function helpers() {
     };
     OTR.game.scene.getScene(key).children.list.forEach(walk);
     if (!hit) return false;
+    if (hit.enabled === false) return 'disabled';       // (the results screen holds its buttons while it counts up)
     hit.press();
     return true;
   };
@@ -142,7 +143,12 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
   const until = async (fn, ms, arg) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await ev(fn, arg).catch(() => false)) return true; await wait(150); } return false; };
   const sceneIs = async (k) => { const ok = await until((k) => OTR.game.scene.isActive(k) && !OTR.game.scene.getScene(k).sys.isTransitioning(), 20000, k); if (!ok) throw new Error(k + ' never opened'); await wait(400); };
   const texts = (k) => ev((k) => window.__texts(k), k);
-  const press = async (k, label) => { const ok = await ev((k, l) => window.__press(k, l), k, label); if (!ok) throw new Error(`no "${label}" on ${k}`); };
+  const press = async (k, label) => {
+    const t0 = Date.now();
+    let ok = false;
+    while (Date.now() - t0 < 10000 && (ok = await ev((k, l) => window.__press(k, l), k, label)) === 'disabled') await wait(200);
+    if (ok !== true) throw new Error(`no "${label}" on ${k}${ok ? ' (disabled)' : ''}`);
+  };
   const shot = async (name) => {
     await wait(1300);
     await p.screenshot({ path: path.join(OUT, `workday-${TAG ? TAG + '-' : ''}${name}.png`) });
