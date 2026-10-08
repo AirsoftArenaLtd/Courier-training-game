@@ -9,6 +9,8 @@
  *   'server' - served by server/server.js (or anything implementing its small API): the server says who is signed in
  *              (from the header a company proxy or Windows sign-in sets, or the ?user= on the launch link) and keeps
  *              each trainee's progress in its own file. A trainee on any company PC gets their own progress back.
+ *              With employee accounts on (docs/SIGN-IN.md), nobody is named yet: the sign-in screen (signin.js) asks
+ *              for an employee ID and password first, and the server keeps the session in an HttpOnly cookie.
  *   'local'  - opened from disk or a plain web server: progress stays in this browser, as before. A ?user= on the
  *              link still keeps trainees apart on a shared PC.
  * In 'scorm' and 'server' modes the trainee's name comes from the sign-in (locked: no name entry, no "new profile").
@@ -21,6 +23,8 @@ OTR.identity = {
   name: null,
   locked: false,
   scorm: null,
+  accounts: false,  // the server signs trainees in with an employee ID and password
+  session: false,   // ... and this trainee signed in that way (Settings offers Sign out)
 
   resolve() {
     const q = new URLSearchParams(window.location.search);
@@ -40,6 +44,8 @@ OTR.identity = {
     const user = q.get('user');
     if (window.location.protocol === 'file:') return Promise.resolve(this.localUser(user, q.get('name')));
     return this.fetchJSON('api/whoami' + (user ? '?user=' + encodeURIComponent(user) : ''), 2500)
+      // a server with employee accounts and nobody signed in: the sign-in screen, until somebody is
+      .then(who => (who && !who.id && who.accounts && OTR.signin ? OTR.signin.run(who) : who))
       .then(who => {
         if (who && who.id) {
           this.mode = 'server';
@@ -47,6 +53,8 @@ OTR.identity = {
           this.name = who.name && who.name !== who.id ? who.name : OTR.identity.nameFromId(this.id);
           this.locked = true;
           this.trainerPinSet = !!who.trainerPinSet;
+          this.accounts = !!who.accounts;
+          this.session = !!who.session;
           return this;
         }
         return this.localUser(user, q.get('name'));
