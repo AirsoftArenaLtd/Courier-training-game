@@ -117,6 +117,8 @@ OTR.save = {
       if (!I.scorm.v2004) {
         const d = JSON.parse(json);
         while (out.length > 4000 && d.route && d.route.history && d.route.history.length) { d.route.history.shift(); out = JSON.stringify(d); }
+        // then the last workday's lines (its stars and score stay; its debrief then lists nothing)
+        if (out.length > 4000 && d.workday && d.workday.last && d.workday.last.events) { d.workday.last.events = []; out = JSON.stringify(d); }
       }
       this.failed = !(I.scorm.set('cmi.suspend_data', out) && I.scorm.commit());
       this.reportLms();
