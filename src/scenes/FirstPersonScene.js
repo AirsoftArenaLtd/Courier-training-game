@@ -221,6 +221,8 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
     const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;return s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
   }
+  // parcels on the cargo shelves, counted without making a new array (refresh runs every frame)
+  cargoLine(m){let n=0;for(let i=0;i<m.parcels.length;i++)if(m.parcels[i].location.startsWith('slot'))n++;return n===1?'1 parcel in cargo':`${n} parcels in cargo`;}
   refresh(){
     if(this.loading)return;const m=this.model,mode=m?m.mode:'walk';
     const device=!!(this.handheld&&this.handheld.isOpen),aiming=device&&this.handheld.aiming;
@@ -228,9 +230,8 @@ class FirstPersonScene extends Phaser.Scene {
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
     this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
     // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
-    const loaded=m?m.parcels.filter(p=>p.location.startsWith('slot')).length:0;
     const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
-      m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:loaded===1?'1 parcel in cargo':`${loaded} parcels in cargo`;this.setText('status',status,790);
+      m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
     // the key hints change only with the mode, the handheld, saving and the key map: built again only then, not every frame
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
     const keys=OTR.a11y?OTR.a11y.settings().keys:null,c=this.hints||(this.hints={});
