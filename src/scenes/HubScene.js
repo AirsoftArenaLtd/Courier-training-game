@@ -203,12 +203,12 @@ class HubScene extends Phaser.Scene {
       'The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.',
       () => WD.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }), { w: 240, h: 50, skin: 'orange', fontSize: 18, key: this.fresh ? undefined : 'ENTER', hint: this.fresh ? undefined : '⏎' }));
     // the 2D route day stays, one step down
-    link(top + 156, '2D route day ›', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
+    link(top + 154, '2D route day ›', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
       'Briefing, pre-trip, loading, then five stops: about half an hour. The day is saved as you go, and ESC pauses.',
       () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }));
     const last = WD.saved().last, r = save.data.route;
-    if (last) link(top + 180, `Day ${last.day}'s workday debrief ›`, () => OTR.fx.transition(this, 'WorkdayDebriefScene', {}));
-    else if (r && r.last) link(top + 180, `Day ${r.last.day}'s debrief ›`, () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true }));
+    if (last) link(top + 177, `Day ${last.day}'s workday debrief ›`, () => OTR.fx.transition(this, 'WorkdayDebriefScene', {}));
+    else if (r && r.last) link(top + 177, `Day ${r.last.day}'s debrief ›`, () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true }));
   }
 
   /* ---------------------------------------------------------------- academy board */

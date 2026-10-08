@@ -51,6 +51,7 @@ class WorkdayDebriefScene extends Phaser.Scene {
     const pins = S.pins.length;
     this.focusables.push(OTR.ui.button(this, W - 470, 684, pins ? `Drive review (${pins}) ›` : 'Drive review ›', () => this.openReview(), { w: 250, h: 50, skin: pins ? 'purple' : 'ghost', fontSize: 16 }));
     this.focusables.push(OTR.ui.button(this, W - 180, 684, 'Back to the station ▶', () => OTR.fx.transition(this, 'HubScene'), { w: 300, h: 54, skin: 'orange', fontSize: 18, key: 'ENTER', hint: '⏎', keyAfter: 600 }));
+    this.prev = this.next = this.pageText = null;            // (the scene object is reused: nothing from last time)
     if (this.pages > 1) {
       this.prev = OTR.ui.button(this, 60, 684, '‹', () => this.showPage(this.page - 1), { w: 56, h: 46, skin: 'ghost', fontSize: 22 });
       this.next = OTR.ui.button(this, 260, 684, '›', () => this.showPage(this.page + 1), { w: 56, h: 46, skin: 'ghost', fontSize: 22 });
@@ -63,7 +64,7 @@ class WorkdayDebriefScene extends Phaser.Scene {
 
   /** Section titles: the phase's name, or the stop's number (and address, when the 3D world gave it). */
   title(sec) {
-    const names = { brief: 'Morning brief', pretrip: 'Pre-trip inspection', load: 'Loading the van', drive: 'Driving', end: 'End of the day' };
+    const names = { brief: 'Morning brief', pretrip: 'Pre-trip inspection', load: 'Loading the van', drive: 'Driving', stop: 'At the stops', end: 'End of the day' };
     if (names[sec.group]) return names[sec.group];
     const m = /^stop(-?\d+)$/.exec(sec.group);
     if (!m) return sec.group;

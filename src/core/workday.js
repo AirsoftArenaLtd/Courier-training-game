@@ -186,7 +186,16 @@ OTR.workday = {
   pause(scene) {
     if (this.current) { this.clock(); this.persist(); }
     this.detach();
-    if (scene) OTR.fx.transition(scene, 'HubScene');
+    if (scene) this.leave(scene, 'HubScene');
+  },
+
+  /**
+   * Out of the 3D scene. It does not open with OTR.fx.enter, which clears the flag a transition leaves set, so the
+   * second workday of a session would otherwise never leave it.
+   */
+  leave(scene, key, data) {
+    scene._leaving = false;
+    OTR.fx.transition(scene, key, data);
   },
 
   /** The saved workday is thrown away, unscored. */
@@ -212,7 +221,7 @@ OTR.workday = {
     // frozen: the record keeps its own copy, and a report that arrives after this starts an unsaved log of its own
     this.detach();
     const out = this.keep(rec);
-    if (scene) OTR.fx.transition(scene, 'ResultsScene', this.resultsData(rec, out));
+    if (scene) this.leave(scene, 'ResultsScene', this.resultsData(rec, out));
     return rec;
   },
 
@@ -282,6 +291,7 @@ OTR.workday = {
     const r = this.replay(rec.events);
     const log = r.log;
     const takeaways = log.takeaways(undefined, cats);
+    if (!log.items.length) takeaways.push({ text: 'Nothing was recorded on this workday.', n: 1 });
     const verdict = { untested: rec.untested || [], criticals: log.criticals(undefined, cats).map(it => ({ cat: it.cat, label: it.label })), takeaways, mistakes: log.mistakes(undefined, cats).length };
     return {
       scenarioId: 'workday',
@@ -297,7 +307,7 @@ OTR.workday = {
   summaryLine(rec) {
     const parts = [];
     if (rec.stops && rec.stops.length) parts.push(`${rec.delivered} of ${rec.stops.length} stops delivered`);
-    if (rec.seconds) parts.push(`${Math.max(1, Math.round(rec.seconds / 60))} min`);
+    if (rec.seconds >= 30) parts.push(`${Math.round(rec.seconds / 60)} min`);
     return parts.join(' · ');
   },
 
