@@ -317,12 +317,12 @@ OTR.fpMission = {
           if (Math.abs(v.speed) > 6.71) this.log('speed:' + this.leg, 'driving', 'needs', 'Exceeded the posted 15 mph limit.');
           const junction = Math.abs(v.z + 27) < 7 || Math.abs(v.z + 89) < 7 || v.z < -116 || v.z > -8;
           if (!junction && Math.abs(v.x) > 5.2) this.log('pavement:' + this.leg, 'driving', 'needs', 'Drove onto the sidewalk beside the road.');
-          if (!junction && Math.abs(v.speed) > 1 && ((Math.cos(v.yaw) > 0.7 && v.x < -0.4) || (Math.cos(v.yaw) < -0.7 && v.x > 0.4))) this.log('lane:' + this.leg, 'driving', 'needs', 'Travelled on the wrong side of the road.');
+          if (!junction && Math.abs(v.speed) > 1 && ((Math.cos(v.yaw) > 0.7 && v.x < -0.4) || (Math.cos(v.yaw) < -0.7 && v.x > 0.4))) this.log('lane:' + this.leg, 'driving', 'needs', 'Traveled on the wrong side of the road.');
         }
         if (old.x >= 3.1 && v.x < 3.1 && v.speed > 0.3 && Math.cos(v.yaw) > 0.5) {
           const conflict = this.traffic.some(c => c.yaw === 0 && c.z > v.z - 4 && c.z < v.z + 17);
           this.log('pullout:' + this.leg, 'observation', !conflict && this.signal === -1 && this.elapsed - this.mirrorAt < 10 ? 'good' : 'needs',
-            conflict ? 'Pulled into the path of approaching traffic.' : this.signal !== -1 ? 'Pulled away without signalling left.' : this.elapsed - this.mirrorAt >= 10 ? 'Pulled away without a recent mirror check.' : 'Checked, signalled and waited for a clear gap.');
+            conflict ? 'Pulled into the path of approaching traffic.' : this.signal !== -1 ? 'Pulled away without signaling left.' : this.elapsed - this.mirrorAt >= 10 ? 'Pulled away without a recent mirror check.' : 'Checked, signalled and waited for a clear gap.');
           this.signal = 0;
         }
         const front = F.local(v, 0, -2.7), mark = this.stopSign;
@@ -332,7 +332,7 @@ OTR.fpMission = {
         }
         this.tickCrossing(dt, old);
         const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w: 1.8, d: 3.6 }));
-        if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
+        if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the maneuver.'); }
         if (!hitCar && Math.abs(old.speed) > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
       },
       tickTraffic(dt) {
