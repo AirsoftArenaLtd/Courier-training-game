@@ -16,7 +16,7 @@ window.OTR_DATA = window.OTR_DATA || {};
 OTR_DATA.stopSets = OTR_DATA.stopSets || {};
 
 (function () {
-  const winter = { jacket: 0x4D148C, sleeves: 'long', pants: 0x2C2A3C };
+  const winter = { jacket: OTR_DATA.theme.primary, sleeves: 'long', pants: 0x2C2A3C };
   const summer = { shorts: true, sleeves: 'short' };
   const P = {
     sam: { skin: 0x8D5A3B, hair: 0x1E1410, hairStyle: 'curly', shirt: 0xFFC83D, beard: true, sleeves: 'long' },
@@ -156,7 +156,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         id: 'dg1',
         brief: '22 Maple Ave: standard delivery. Customer note: "Dog in yard."',
         par: 140,
-        lot: { kind: 'house', spec: { number: '22', steps: 2, wall: 0xF3E1D6, roof: 0x4F4458, door: 0xB8324A, siding: 'lap', porchW: 440, porchX: 380 } },
+        lot: { kind: 'house', spec: { number: '22', steps: 2, wall: 0xF3E1D6, roof: 0x454D57, door: 0xB8324A, siding: 'lap', porchW: 440, porchX: 380 } },
         fence: { x0: -120, x1: 980, gate: 40, color: 0xFFFFFF },
         props: [
           { type: 'mailbox', x: -200, art: { number: '22' } },
@@ -363,7 +363,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
           { type: 'mailbox', x: -200, art: { number: '1400' } },
           { type: 'streetsign', x: -270, art: { text: 'SUNSET BLVD' } },
           { type: 'tree', x: 200, depth: 9, shade: true },
-          { type: 'umbrella', x: 'porchX1+140', depth: 7, art: { color: 0xFF8A3D }, shade: true, shadeW: 70 }
+          { type: 'umbrella', x: 'porchX1+140', depth: 7, art: { color: OTR_DATA.theme.accentWarm }, shade: true, shadeW: 70 }
         ],
         spots: [
           { id: 'mat', label: 'In the shade by the door', x: 0, grade: 'good' },

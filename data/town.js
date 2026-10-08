@@ -31,7 +31,7 @@ OTR_DATA.town = {
     { name: 'Tomas Vela', spec: { skin: 0xE0B08A, hair: 0x5A3A2A, hairStyle: 'short', shirt: 0x2F8F83, mustache: true } },
     { name: 'Grace Kim', spec: { skin: 0xE8C09A, hair: 0x1E1410, hairStyle: 'long', shirt: 0x3E6FB0, glasses: true } },
     { name: 'Ray Ruiz', spec: { skin: 0xD9A77F, hair: 0x1E1410, hairStyle: 'short', shirt: 0xC8243B } },
-    { name: 'Alma Kowalski', spec: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'short', shirt: 0x7B3FC4, glasses: true } },
+    { name: 'Alma Kowalski', spec: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'short', shirt: OTR_DATA.theme.primaryLight, glasses: true } },
     { name: 'Dee Harper', spec: { skin: 0x8D5A3B, hair: 0x2A1A14, hairStyle: 'long', shirt: 0xE8A33D } }
   ],
 
@@ -39,7 +39,7 @@ OTR_DATA.town = {
     { name: 'BRIGHTLINE', accent: 0x3DA5FF },
     { name: 'NORTHWIND DENTAL', accent: 0x2F8F83 },
     { name: 'HARBOR CAFE', accent: 0xE8A33D },
-    { name: 'KESTREL MEDIA', accent: 0xC86BE0 },
+    { name: 'KESTREL MEDIA', accent: 0x71A2DA },
     { name: 'ORCHARD FOODS', accent: 0x2BC48A }
   ]
 };

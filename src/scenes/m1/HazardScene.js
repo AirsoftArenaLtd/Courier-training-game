@@ -60,7 +60,7 @@ class HazardScene extends TownDriveScene {
     this.flagPill = this.add.container(OTR.W / 2, OTR.H - 96).setScrollFactor(0).setDepth(806);
     const t = OTR.txt(this, 0, 0, 'SPACE or click: a hazard is developing', 18, '#ffffff', { weight: '900' });
     const w = t.width + 50;
-    this.flagPill.add([OTR.tex.shape(this, (g) => { g.fillStyle(0x16062B, 0.9); g.fillRoundedRect(-w / 2, -21, w, 42, 21); g.lineStyle(3, 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -21, w, 42, 21); }), t]);
+    this.flagPill.add([OTR.tex.shape(this, (g) => { g.fillStyle(OTR_DATA.theme.primaryDeep, 0.9); g.fillRoundedRect(-w / 2, -21, w, 42, 21); g.lineStyle(3, 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -21, w, 42, 21); }), t]);
     this.flagPill.setVisible(false);
     this.marks = this.add.container(0, 0).setScrollFactor(0).setDepth(806);
     this.syncCameras();
@@ -73,8 +73,8 @@ class HazardScene extends TownDriveScene {
       build: (box, api, w, h) => {
         let y = -h / 2 + 96;
         C.intro.lines.forEach(line => {
-          box.add(this.add.image(-w / 2 + 56, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(0xFF6600));
-          const t = OTR.txt(this, -w / 2 + 78, y, line, 18, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
+          box.add(this.add.image(-w / 2 + 56, y + 12, 'ic_arrow').setDisplaySize(20, 20).setTint(OTR_DATA.theme.accent));
+          const t = OTR.txt(this, -w / 2 + 78, y, line, 18, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 140, lineSpacing: 3 });
           box.add(t);
           y += t.height + 14;
         });
@@ -155,7 +155,7 @@ class HazardScene extends TownDriveScene {
       const cx = it ? it.x - dir * (A.ROAD / 2 + 24) : R.hx;
       R.hx = cx;
       const ped = this.img(A.pedTop(this, 0x3DA5FF), cx - dir * 260, walkY, 0, 29);
-      const phone = this.add.rectangle(0, 0, 6, 9, 0x16062B).setDepth(30); this.actors.push(phone);
+      const phone = this.add.rectangle(0, 0, 6, 9, OTR_DATA.theme.primaryDeep).setDepth(30); this.actors.push(phone);
       R.script = (t) => {
         // walking along the sidewalk to the crossing, then straight off the curb without a look
         if (t < at + 1.2) ped.x = cx - dir * Math.max(0, 260 - t * 26);
@@ -163,10 +163,10 @@ class HazardScene extends TownDriveScene {
         phone.setPosition(ped.x + 8, ped.y - 8);
       };
     } else if (clip.kind === 'door') {
-      const car = parked(R.hx, 0x7B3FC4);
+      const car = parked(R.hx, OTR_DATA.theme.primaryLight);
       const brake = [this.add.rectangle(0, 0, 6, 4, 0xFF3040).setDepth(29), this.add.rectangle(0, 0, 6, 4, 0xFF3040).setDepth(29)];
       brake.forEach(b => { b.setVisible(false); this.actors.push(b); });
-      const door = this.add.rectangle(R.hx + dir * 18, kerbY - dir * 20, 34, 5, 0x7B3FC4).setDepth(29).setStrokeStyle(1, 0x16062B).setVisible(false);
+      const door = this.add.rectangle(R.hx + dir * 18, kerbY - dir * 20, 34, 5, OTR_DATA.theme.primaryLight).setDepth(29).setStrokeStyle(1, OTR_DATA.theme.primaryDeep).setVisible(false);
       this.actors.push(door);
       R.script = (t) => {
         brake[0].setPosition(R.hx - dir * 46, kerbY - 10); brake[1].setPosition(R.hx - dir * 46, kerbY + 10);

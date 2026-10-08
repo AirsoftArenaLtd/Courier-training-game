@@ -7,7 +7,7 @@ class LabScene extends Phaser.Scene {
   create() {
     const fn = this['lab_' + this.which];
     if (this.which === 'rig') this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0xDCEBF5);
-    OTR.txt(this, 20, 20, 'LAB: ' + this.which, 18, '#250849', { ox: 0, oy: 0 }).setScrollFactor(0).setDepth(2000);
+    OTR.txt(this, 20, 20, 'LAB: ' + this.which, 18, OTR_DATA.theme.css('primaryDark'), { ox: 0, oy: 0 }).setScrollFactor(0).setDepth(2000);
     if (fn) fn.call(this);
   }
 

@@ -64,7 +64,7 @@ OTR_DATA.modules = [
     id: 'm2',
     title: 'Package Handling',
     subtitle: 'Sort it, lift it, label it',
-    color: 0xFF6600,
+    color: OTR_DATA.theme.accent,
     icon: 'ic_box',
     scenarios: [
       {
@@ -254,7 +254,7 @@ OTR_DATA.modules = [
     id: 'm6',
     title: 'Loading the Truck',
     subtitle: 'Sequence, weight, secure',
-    color: 0x7B3FC4,
+    color: OTR_DATA.theme.primaryLight,
     icon: 'ic_box',
     scenarios: [
       {

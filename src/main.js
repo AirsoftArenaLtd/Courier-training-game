@@ -14,7 +14,7 @@
       parent: 'game',
       width: OTR.W,
       height: OTR.H,
-      backgroundColor: '#16062b',
+      backgroundColor: OTR_DATA.theme.css('primaryDeep'),
       scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH

@@ -109,24 +109,24 @@ OTR.TalkController = class {
 
     this.panel = s.add.container(0, 0);
     const g = OTR.tex.shape(s, (g) => {
-      g.fillStyle(0x0E0620, 0.86); g.fillRoundedRect(24, 566, OTR.W - 48, 140, 18);
-      g.lineStyle(2, 0x6A45A0, 0.8); g.strokeRoundedRect(24, 566, OTR.W - 48, 140, 18);
-      g.fillStyle(0xFF6600, 1); g.fillRect(44, 566, 120, 3);
+      g.fillStyle(OTR_DATA.theme.night, 0.86); g.fillRoundedRect(24, 566, OTR.W - 48, 140, 18);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.8); g.strokeRoundedRect(24, 566, OTR.W - 48, 140, 18);
+      g.fillStyle(OTR_DATA.theme.accent, 1); g.fillRect(44, 566, 120, 3);
     });
     this.panel.add(g);
     this.nameBg = OTR.tex.liveShape(s);
     this.nameText = OTR.txt(s, 0, 0, '', 18, '#ffffff', { weight: '900' });
     this.panel.add([this.nameBg, this.nameText]);
-    this.lineText = OTR.txt(s, 56, 600, '', 22, '#F4ECFF', { ox: 0, oy: 0, bold: false, wrap: OTR.W - 150, lineSpacing: 5 });
+    this.lineText = OTR.txt(s, 56, 600, '', 22, OTR_DATA.theme.css('paperTint'), { ox: 0, oy: 0, bold: false, wrap: OTR.W - 150, lineSpacing: 5 });
     this.panel.add(this.lineText);
-    this.arrow = s.add.image(OTR.W - 60, 684, 'ic_arrow').setDisplaySize(20, 20).setTint(0xFF6600).setAngle(90).setVisible(false);
+    this.arrow = s.add.image(OTR.W - 60, 684, 'ic_arrow').setDisplaySize(20, 20).setTint(OTR_DATA.theme.accent).setAngle(90).setVisible(false);
     s.tweens.add({ targets: this.arrow, y: 690, duration: 380, yoyo: true, repeat: -1 });
     this.panel.add(this.arrow);
     // bottom-right, left of the arrow: how to read an earlier line (or, while reading one, how to come back)
-    this.recallHint = OTR.txt(s, OTR.W - 84, 690, '', 12, '#8A7AA8', { ox: 1, bold: false });
+    this.recallHint = OTR.txt(s, OTR.W - 84, 690, '', 12, '#7c90a6', { ox: 1, bold: false });
     this.panel.add(this.recallHint);
     // top-right of the panel: a timed decision is announced while its question is read, before the clock starts
-    this.timedTag = OTR.txt(s, OTR.W - 48, 566, '⏱ TIMED DECISION', 13, '#FFC83D', { ox: 1, weight: '900', stroke: '#1D1030', strokeW: 4 }).setVisible(false);
+    this.timedTag = OTR.txt(s, OTR.W - 48, 566, '⏱ TIMED DECISION', 13, '#FFC83D', { ox: 1, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setVisible(false);
     this.panel.add(this.timedTag);
     this.root.add(this.panel);
     this.panelDY = this.o.top ? -476 : 0;           // top layout: the panel spans y 90-230, its name tag just under the HUD
@@ -137,7 +137,7 @@ OTR.TalkController = class {
     this.coachLayer = s.add.container(0, 0);
     this.root.add([this.choiceLayer, this.coachLayer]);
 
-    this.pointer = s.add.image(0, 0, 'ic_arrow').setDisplaySize(26, 26).setTint(0xFF6600).setAngle(90).setDepth(this.depth - 1).setVisible(false);
+    this.pointer = s.add.image(0, 0, 'ic_arrow').setDisplaySize(26, 26).setTint(OTR_DATA.theme.accent).setAngle(90).setDepth(this.depth - 1).setVisible(false);
     this.pointerTw = s.tweens.add({ targets: this.pointer, displayHeight: 22, duration: 300, yoyo: true, repeat: -1 });
     this._upd = () => this.trackPointer();
     s.events.on('update', this._upd);
@@ -202,9 +202,9 @@ OTR.TalkController = class {
   }
 
   who(key) {
-    if (key === 'courier') return { name: (this.o.courier && this.o.courier.name) || 'You', color: 0xFF6600, rig: this.o.courier && this.o.courier.rig };
+    if (key === 'courier') return { name: (this.o.courier && this.o.courier.name) || 'You', color: OTR_DATA.theme.accent, rig: this.o.courier && this.o.courier.rig };
     if (key === 'narrator' || !key) return null;
-    return this.cast[key] || { name: key, color: 0x4D148C };
+    return this.cast[key] || { name: key, color: OTR_DATA.theme.primary };
   }
 
   say(n, onDone) {
@@ -233,12 +233,12 @@ OTR.TalkController = class {
     const named = !!(w || tag);
     this.nameBg.redraw((g) => {
       if (!named) return;
-      g.fillStyle(w ? (w.color || 0x4D148C) : 0x4A3A66, 1);
+      g.fillStyle(w ? (w.color || OTR_DATA.theme.primary) : 0x3C4F64, 1);
       g.fillRoundedRect(44, 548, tw, 34, 12);
     });
     if (named) this.nameText.setPosition(44 + tw / 2, 565);
     this.lineText.setFontStyle(w ? 'normal' : 'italic');
-    this.lineText.setColor(w ? '#F4ECFF' : '#C9B3F0');
+    this.lineText.setColor(w ? OTR_DATA.theme.css('paperTint') : OTR_DATA.theme.css('tint'));
     this.lineText.setText(text);
     this.updateRecallHint();
   }
@@ -361,13 +361,13 @@ OTR.TalkController = class {
       const c = s.add.container(cx, y + h / 2);
       const bg = OTR.tex.liveShape(s);
       const draw = (hover) => bg.redraw((bg) => {
-        bg.fillStyle(hover ? 0x3A1870 : 0x1A0B33, 0.94); bg.fillRoundedRect(-w / 2, -h / 2, w, h, 14);
-        bg.lineStyle(2, hover ? 0xFF6600 : 0x6A45A0, 1); bg.strokeRoundedRect(-w / 2, -h / 2, w, h, 14);
-        bg.fillStyle(hover ? 0xFF6600 : 0x4D148C, 1); bg.fillRoundedRect(-w / 2 + 12, -15, 30, 30, 9);
+        bg.fillStyle(hover ? 0x1C416C : 0x0D1E31, 0.94); bg.fillRoundedRect(-w / 2, -h / 2, w, h, 14);
+        bg.lineStyle(2, hover ? OTR_DATA.theme.accent : OTR_DATA.theme.mid, 1); bg.strokeRoundedRect(-w / 2, -h / 2, w, h, 14);
+        bg.fillStyle(hover ? OTR_DATA.theme.accent : OTR_DATA.theme.primary, 1); bg.fillRoundedRect(-w / 2 + 12, -15, 30, 30, 9);
       });
       draw(false);
       const num = OTR.txt(s, -w / 2 + 27, 0, String(i + 1), 16, '#ffffff', { weight: '900' });
-      const t = OTR.txt(s, -w / 2 + 56, 0, ch.text, 19, '#F4ECFF', { ox: 0, bold: false, wrap: w - 100, lineSpacing: 2 });
+      const t = OTR.txt(s, -w / 2 + 56, 0, ch.text, 19, OTR_DATA.theme.css('paperTint'), { ox: 0, bold: false, wrap: w - 100, lineSpacing: 2 });
       const hit = s.add.zone(0, 0, w, h).setInteractive({ useHandCursor: true }).setScrollFactor(0);
       hit.on('pointerover', () => { draw(true); OTR.audio.play('hover'); });
       hit.on('pointerout', () => draw(false));
@@ -389,7 +389,7 @@ OTR.TalkController = class {
       this.timerSecs = secs;
       const bar = OTR.ui.bar(s, cx - w / 2 + 20, top - 22, w - 40, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0xFFC83D, v), bgAlpha: 0.55, value: 1 });
       const name = n.timerLabel || 'DECIDE!';
-      const label = OTR.txt(s, cx, top - 42, `${name}  ${secs}s`, 15, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 4 });
+      const label = OTR.txt(s, cx, top - 42, `${name}  ${secs}s`, 15, '#FFC83D', { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 });
       this.choiceLayer.add([bar, label]);
       bar.setValue(0, true, secs * 1000, 'Linear');
       this.choiceTimer = s.time.delayedCall(secs * 1000, () => {
@@ -497,7 +497,7 @@ OTR.TalkController = class {
         if (r && r.emote && this.o.feedback !== 'deferred') this.pointerQuietUntil = Date.now() + 1400;
         // the right answer can still disappoint someone: that shows as "…", not an anger bubble next to GOOD CALL
         const sad = eff.mood < 0 && ch && ch.grade === 'good';
-        if (r && r.emote && this.o.feedback !== 'deferred') r.emote(eff.mood > 0 ? '♥' : sad ? '…' : '💢', { color: eff.mood > 0 ? '#FF5C8A' : sad ? '#9A8AB0' : '#F0435A', size: 22 });
+        if (r && r.emote && this.o.feedback !== 'deferred') r.emote(eff.mood > 0 ? '♥' : sad ? '…' : '💢', { color: eff.mood > 0 ? '#FF5C8A' : sad ? OTR_DATA.theme.css('mutedLight') : '#F0435A', size: 22 });
       }
       this.flags['mood_' + key] = this.moods[key];
     }
@@ -521,18 +521,18 @@ OTR.TalkController = class {
     const unsafe = ch.grade === 'bad' && (ch.critical || (ch.effects && ch.effects.safety < 0));
     const head = ch.grade === 'good' ? '✓  GOOD CALL' : ch.grade === 'ok' ? '~  OKAY, BUT…' : unsafe ? '✗  UNSAFE' : '✗  NOT QUITE';
     const w = 760;
-    const body = OTR.txt(s, 0, 0, ch.feedback, 19, '#F4ECFF', { bold: false, wrap: w - 70, lineSpacing: 4 });
+    const body = OTR.txt(s, 0, 0, ch.feedback, 19, OTR_DATA.theme.css('paperTint'), { bold: false, wrap: w - 70, lineSpacing: 4 });
     const h = body.height + 90;
     // below the HUD's meters (a mood meter reaches y 119), above the caption box
     const c = s.add.container(OTR.W / 2, (this.o.top ? 250 : 132) + h / 2);
     const g = OTR.tex.shape(s, (g) => {
-      g.fillStyle(0x0E0620, 0.94); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
+      g.fillStyle(OTR_DATA.theme.night, 0.94); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
       g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);
       g.fillStyle(col, 1); g.fillRoundedRect(-w / 2 + 22, -h / 2 + 16, 190, 32, 16);
     });
     const ht = OTR.txt(s, -w / 2 + 117, -h / 2 + 32, head, 15, '#ffffff', { weight: '900' });
     body.setOrigin(0, 0).setPosition(-w / 2 + 34, -h / 2 + 60);
-    const hint = OTR.txt(s, w / 2 - 24, -h / 2 + 32, 'click / SPACE ▶', 13, '#9A8AB0', { ox: 1 });
+    const hint = OTR.txt(s, w / 2 - 24, -h / 2 + 32, 'click / SPACE ▶', 13, OTR_DATA.theme.css('mutedLight'), { ox: 1 });
     c.add([g, ht, body, hint]);
     c.setScale(0.9).setAlpha(0);
     s.tweens.add({ targets: c, scale: 1, alpha: 1, duration: 200, ease: 'Back.out' });

@@ -139,7 +139,7 @@ class StopScene extends BaseScenarioScene {
       (d.props || []).forEach(p => {
         if (!p.shade) return;
         const sx = this.resolveX(p.x, lotX), w = p.shadeW || 150;
-        OTR.tex.shape(this, (g) => { g.fillStyle(0x1A1030, 0.22); g.fillEllipse(0, 0, w * 2, 26); }, sx, st.G + 6).setDepth(-19);
+        OTR.tex.shape(this, (g) => { g.fillStyle(0x121F2E, 0.22); g.fillEllipse(0, 0, w * 2, 26); }, sx, st.G + 6).setDepth(-19);
       });
     }
     if (d.stepHazard) this.addHazard({ hazard: d.stepHazard, id: 'steps', label: 'the steps' }, this.stepGlaze(d.stepHazard), (this.lot.stepsX0 + this.lot.porchX0) / 2, this.lot.stepsX0 - 10, this.lot.porchX0 + 10);
@@ -492,7 +492,7 @@ class StopScene extends BaseScenarioScene {
       cast[ans.talk || 'resident'] = person;
       cast.owner = person;
     }
-    cast.dispatch = { name: 'Dispatch', color: 0x4D148C, rig: null };
+    cast.dispatch = { name: 'Dispatch', color: OTR_DATA.theme.primary, rig: null };
     // someone who isn't the customer (a "neighbour" at the gate): the stop's stranger, once they have walked up
     if (this.def.stranger) cast.stranger = { name: this.def.stranger.name, color: 0x8A5A2B, rig: this.stranger || null };
     return cast;
@@ -668,11 +668,11 @@ class StopScene extends BaseScenarioScene {
     this.heat = { hyd: c ? c.hyd : (H.hydration || 70), temp: c ? c.temp : (H.bodyHeat || 35), drinks: 0, cools: 0, maxTemp: 0, minHyd: 100, warned: false };
     const p = this.heatHud = this.add.container(OTR.W - 300, 72).setDepth(820).setScrollFactor(0);
     p.add(OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
-      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
+      g.fillStyle(OTR_DATA.theme.night, 0.8); g.fillRoundedRect(0, 0, 280, 84, 14);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.7); g.strokeRoundedRect(0, 0, 280, 84, 14);
     }));
     p.add(OTR.txt(this, 16, 24, 'HYDRATION', 12, '#8FD3FF', { ox: 0, weight: '900' }));
-    p.add(OTR.txt(this, 16, 60, 'BODY HEAT', 12, '#FFB27A', { ox: 0, weight: '900' }));
+    p.add(OTR.txt(this, 16, 60, 'BODY HEAT', 12, OTR_DATA.theme.css('accentSoft'), { ox: 0, weight: '900' }));
     this.hydBar = OTR.ui.bar(this, 118, 24, 146, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x3DA5FF, v), bgAlpha: 0.5 });
     this.tempBar = OTR.ui.bar(this, 118, 60, 146, 12, { color: (v) => OTR.color.lerp(0x2BC48A, 0xF0435A, v), bgAlpha: 0.5 });
     p.add([this.hydBar, this.tempBar]);
@@ -855,17 +855,17 @@ class StopScene extends BaseScenarioScene {
     const items = this.objectives();
     const w = 330, h = 40 + items.length * 26;
     c.add(OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
-      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
+      g.fillStyle(OTR_DATA.theme.night, 0.78); g.fillRoundedRect(0, 0, w, h, 14);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.7); g.strokeRoundedRect(0, 0, w, h, 14);
     }));
-    c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, '#FF9447', { ox: 0, weight: '900', fit: w - 32 }));
+    c.add(OTR.txt(this, 16, 18, 'THIS STOP', 12, OTR_DATA.theme.css('accentLight'), { ox: 0, weight: '900', fit: w - 32 }));
     items.forEach((it, i) => {
       const y = 44 + i * 26;
       c.add(OTR.tex.shape(this, (box) => {
-        box.lineStyle(2, it.done ? 0x2BC48A : 0x9A8AB0, 1); box.strokeRoundedRect(0, -8, 16, 16, 4);
+        box.lineStyle(2, it.done ? 0x2BC48A : OTR_DATA.theme.mutedLight, 1); box.strokeRoundedRect(0, -8, 16, 16, 4);
         if (it.done) { box.fillStyle(0x2BC48A, 1); box.fillRoundedRect(0, -8, 16, 16, 4); }
       }, 16, y));
-      c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : '#F4ECFF', { ox: 0, bold: false, fit: w - 54 }));
+      c.add(OTR.txt(this, 42, y, it.text, 14, it.done ? '#8BF0C6' : OTR_DATA.theme.css('paperTint'), { ox: 0, bold: false, fit: w - 54 }));
     });
   }
 
@@ -873,7 +873,7 @@ class StopScene extends BaseScenarioScene {
     // one message at a time: a new one replaces the last (two used to print on top of each other)
     if (this.sayText && this.sayText.active) { this.tweens.killTweensOf(this.sayText); this.sayText.destroy(); }
     // narrow enough to stay clear of the objectives panel on the left and the heat meters on the right
-    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6, align: 'center', wrap: 520 }).setScrollFactor(0).setDepth(950);
+    const t = this.sayText = OTR.txt(this, OTR.W / 2, 108, text, 20, color || '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 6, align: 'center', wrap: 520 }).setScrollFactor(0).setDepth(950);
     // on a dark backing, so it reads over a busy backdrop too (a lobby's name sign sits right behind it)
     t.setBackgroundColor('rgba(22,6,43,0.72)').setPadding(16, 8, 16, 8);
     t.setAlpha(0).setScale(0.8);
@@ -894,13 +894,13 @@ class StopScene extends BaseScenarioScene {
       w: 660, h, depth: 5000,
       build: (box, api, w, h) => {
         box.list.forEach(ch => ch.setScrollFactor && ch.setScrollFactor(0));
-        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(OTR_DATA.theme.primary, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 84, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const idx = this.shiftStop ? this.shiftStop.index : this.stopIndex + 1;
-        box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 28, `STOP ${idx}  ·  ${this.clockStr}  ·  ${W.toUpperCase()}`, 14, '#FFB27A', { ox: 0, weight: '900' }));
+        box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 28, `STOP ${idx}  ·  ${this.clockStr}  ·  ${W.toUpperCase()}`, 14, OTR_DATA.theme.css('accentSoft'), { ox: 0, weight: '900' }));
         box.add(OTR.txt(this, -w / 2 + 34, -h / 2 + 58, `${pkg.number} ${pkg.street}${pkg.unit ? ' #' + pkg.unit : ''}`, 30, '#ffffff', { ox: 0, weight: '900' }));
-        box.add(this.add.image(-w / 2 + 50, -h / 2 + 122, 'ic_chat').setDisplaySize(26, 26).setTint(0xFF6600));
-        box.add(OTR.txt(this, -w / 2 + 76, -h / 2 + 108, 'DISPATCH', 13, '#FF6600', { ox: 0, oy: 0, weight: '900' }));
-        box.add(OTR.txt(this, -w / 2 + 76, -h / 2 + 130, d.brief || '', 19, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 120, lineSpacing: 3 }));
+        box.add(this.add.image(-w / 2 + 50, -h / 2 + 122, 'ic_chat').setDisplaySize(26, 26).setTint(OTR_DATA.theme.accent));
+        box.add(OTR.txt(this, -w / 2 + 76, -h / 2 + 108, 'DISPATCH', 13, OTR_DATA.theme.css('accent'), { ox: 0, oy: 0, weight: '900' }));
+        box.add(OTR.txt(this, -w / 2 + 76, -h / 2 + 130, d.brief || '', 19, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 120, lineSpacing: 3 }));
       },
       buttons: [{ label: 'Let\'s go ▶', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: onGo }]
     });
@@ -980,7 +980,7 @@ class StopScene extends BaseScenarioScene {
           this.S.returned = this.S.carrying.slice();
           this.S.carrying = [];
           this.me.hold(null);
-          if (good) this.say('Package back on the shelf.', '#C9B3F0');   // the safety message matters more
+          if (good) this.say('Package back on the shelf.', OTR_DATA.theme.css('tint'));   // the safety message matters more
         }
         if (this.S.outcome) this.time.delayedCall(400, () => this.confirmFinish());
         else { if (this.S.pulls > 0) this.S.vanTrips++; this.refreshObjectives(); }   // before any package was pulled it is not an extra trip
@@ -1070,7 +1070,7 @@ class StopScene extends BaseScenarioScene {
     this.me.play('scan');
     const root = this.add.container(0, 0).setDepth(4000).setScrollFactor(0);
     this._openModals++;
-    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x08030F, 0.8).setInteractive().setScrollFactor(0);
+    const dim = this.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x04090E, 0.8).setInteractive().setScrollFactor(0);
     root.add(dim);
     // cargo interior backdrop
     const bgKey = OTR.tex.make(this, 'cargo_shelves', 820, 600, (ctx, w, h) => {
@@ -1080,7 +1080,7 @@ class StopScene extends BaseScenarioScene {
       for (let r = 0; r < 3; r++) {
         const y = 60 + r * 175 + 130;
         ctx.fillStyle = cv.lin(ctx, 0, y, 0, y + 18, [[0, '#C9C6D2'], [1, '#8A8898']]); ctx.fillRect(20, y, w - 40, 18);
-        ctx.fillStyle = '#FF6600'; ctx.fillRect(20, y + 18, w - 40, 4);
+        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(20, y + 18, w - 40, 4);
         ctx.fillStyle = '#fff'; ctx.font = '900 13px "Segoe UI"';
         for (let c = 0; c < 4; c++) { ctx.fillText(`${String.fromCharCode(65 + r)}${c + 1}`, 40 + c * 195, y + 38); }
       }
@@ -1089,18 +1089,18 @@ class StopScene extends BaseScenarioScene {
     root.add(this.add.image(440, 370, bgKey).setScrollFactor(0));
     root.add(OTR.txt(this, 440, 50, 'CARGO SHELVES — find this stop\'s package', 22, '#ffffff', { weight: '900' }).setScrollFactor(0));
     const pkg0 = this.def.packages[0];
-    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box (or the arrow keys) to read its label`, 15, '#FFB27A', { bold: false }).setScrollFactor(0));
+    root.add(OTR.txt(this, 440, 80, `Stop address: ${pkg0.number} ${pkg0.street}${pkg0.unit ? ' #' + pkg0.unit : ''}  ·  hover a box (or the arrow keys) to read its label`, 15, OTR_DATA.theme.css('accentSoft'), { bold: false }).setScrollFactor(0));
 
     // label preview panel
     const panel = this.add.container(1080, 380).setScrollFactor(0);
     root.add(panel);
     panel.add(OTR.tex.shape(this, (pg) => {
-      pg.fillStyle(0x16062B, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
-      pg.lineStyle(2, 0x6A45A0, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
+      pg.fillStyle(OTR_DATA.theme.primaryDeep, 0.95); pg.fillRoundedRect(-180, -300, 360, 600, 18);
+      pg.lineStyle(2, OTR_DATA.theme.mid, 1); pg.strokeRoundedRect(-180, -300, 360, 600, 18);
     }));
     const lblImg = this.add.image(0, -130, '__DEFAULT').setVisible(false).setScrollFactor(0);
     panel.add(lblImg);
-    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it\n\n(or the arrow keys, then ENTER)', 16, '#C9B3F0', { align: 'center', bold: false }).setScrollFactor(0);
+    const hint = OTR.txt(this, 0, -130, 'Hover a package to read its label,\nclick it to pick it\n\n(or the arrow keys, then ENTER)', 16, OTR_DATA.theme.css('tint'), { align: 'center', bold: false }).setScrollFactor(0);
     panel.add(hint);
     const carryTxt = OTR.txt(this, 0, 120, '', 15, '#8BF0C6', { align: 'center', wrap: 320 }).setScrollFactor(0);
     panel.add(carryTxt);
@@ -1151,8 +1151,8 @@ class StopScene extends BaseScenarioScene {
         const x = 30 + 40 + p.slot.c * 195 + 80, y = 70 + 60 + p.slot.r * 175 + 130 - bh / 2 - 2;
         const key = OTR.tex.make(this, `shelfpkg_${p.size || 'm'}_${p.service || 'standard'}`, bw + 30, bh + 30, (ctx) => {
           if (p.size === 'env') {
-            OTR.cv.rr(ctx, 4, 8, bw, bh, 3); ctx.fillStyle = '#F4F1FA'; ctx.fill();
-            ctx.fillStyle = '#4D148C'; ctx.fillRect(4, 8, bw, 6); ctx.fillStyle = '#FF6600'; ctx.fillRect(4, 14, bw, 2);
+            OTR.cv.rr(ctx, 4, 8, bw, bh, 3); ctx.fillStyle = '#f1f5fa'; ctx.fill();
+            ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(4, 8, bw, 6); ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(4, 14, bw, 2);
           } else {
             OTR.draw.box(ctx, { fw: bw, fh: bh, d: 12, x: 4, y: 16, color: 0xC99A62 });
             ctx.fillStyle = '#fff'; ctx.fillRect(10, 16 + bh * 0.35, bw * 0.5, bh * 0.35);
@@ -1171,7 +1171,7 @@ class StopScene extends BaseScenarioScene {
         img.on('pointerout', () => { showLabel(selected); if (p !== selected) img.clearTint(); });
         img.on('pointerup', () => select(p));
         boxLayer.add(img);
-        if (!p.onShelf) boxLayer.add(OTR.txt(this, x, y - bh / 2 - 6, 'IN HAND', 12, '#8BF0C6', { weight: '900', stroke: '#16062B', strokeW: 4 }).setScrollFactor(0));
+        if (!p.onShelf) boxLayer.add(OTR.txt(this, x, y - bh / 2 - 6, 'IN HAND', 12, '#8BF0C6', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setScrollFactor(0));
       });
       const held = pkgs.filter(p => !p.onShelf);
       carryTxt.setText(held.length ? `Carrying: ${held.map(p => `${p.number} ${p.street}`).join(', ')}\n(click a box marked IN HAND to put it back)` : 'Carrying nothing yet');
@@ -1243,11 +1243,11 @@ class StopScene extends BaseScenarioScene {
     OTR.ui.modal(this, {
       title: 'Address check', w: 600, h: 330, depth: 5000,
       build: (box) => {
-        box.add(OTR.txt(this, -140, -70, 'ON THE BUILDING', 13, '#9A8AB0', { weight: '900' }));
-        box.add(OTR.txt(this, -140, -20, houseNo, 54, '#250849', { weight: '900' }));
-        box.add(OTR.txt(this, 140, -70, 'ON THE LABEL', 13, '#9A8AB0', { weight: '900' }));
-        box.add(OTR.txt(this, 140, -20, `${pkg.number}`, 54, '#250849', { weight: '900' }));
-        box.add(OTR.txt(this, 140, 26, pkg.street, 17, '#3A2A50', { bold: false }));
+        box.add(OTR.txt(this, -140, -70, 'ON THE BUILDING', 13, OTR_DATA.theme.css('mutedLight'), { weight: '900' }));
+        box.add(OTR.txt(this, -140, -20, houseNo, 54, OTR_DATA.theme.css('primaryDark'), { weight: '900' }));
+        box.add(OTR.txt(this, 140, -70, 'ON THE LABEL', 13, OTR_DATA.theme.css('mutedLight'), { weight: '900' }));
+        box.add(OTR.txt(this, 140, -20, `${pkg.number}`, 54, OTR_DATA.theme.css('primaryDark'), { weight: '900' }));
+        box.add(OTR.txt(this, 140, 26, pkg.street, 17, OTR_DATA.theme.css('inkSoft'), { bold: false }));
         box.add(OTR.txt(this, 0, 64, match ? 'Numbers match. You\'re at the right place.' : 'These don\'t match!', 18, match ? '#1E9E6B' : '#C8243B', { weight: '900' }));
       },
       buttons: [{ label: 'OK', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: () => { this.me.play('idle'); this.refreshObjectives(); } }]
@@ -1442,7 +1442,7 @@ class StopScene extends BaseScenarioScene {
     const flags = [];
     const svc = OTR.labelArt.SERVICE[pkg.service || 'standard'];
     flags.push({ text: svc.text, color: svc.color });
-    if (this.def.packages.length > 1) flags.push({ text: `${this.def.packages.length} PIECES`, color: 0x3A2A50 });
+    if (this.def.packages.length > 1) flags.push({ text: `${this.def.packages.length} PIECES`, color: OTR_DATA.theme.inkSoft });
     if (this.def.flags) this.def.flags.forEach(f => flags.push(f));
     return { type: 'stopcard', stop: { index: this.shiftStop ? this.shiftStop.index : this.stopIndex + 1, number: pkg.number, street: pkg.street, unit: pkg.unit, to: pkg.to, note: pkg.note || this.def.customerNote }, flags };
   }
@@ -1457,9 +1457,9 @@ class StopScene extends BaseScenarioScene {
     opts.push({ label: 'Close', onPick: () => hh.close(), skin: 'ghost' });
     hh.show({
       title: S.outcome ? 'STOP RECORDED' : 'STOP DETAILS',
-      color: S.outcome ? 0x1E9E6B : 0x4D148C,
+      color: S.outcome ? 0x1E9E6B : OTR_DATA.theme.primary,
       widget: this.stopCardWidget(),
-      lines: S.outcome ? [{ text: S.outcome === 'delivered' ? '✓ Delivery recorded. Head back to the van.' : `✓ Exception ${S.code} recorded.`, color: '#1E9E6B', bold: true }] : (carrying ? [] : [{ text: 'Pull the package from the shelves first.', color: '#7A6A90' }]),
+      lines: S.outcome ? [{ text: S.outcome === 'delivered' ? '✓ Delivery recorded. Head back to the van.' : `✓ Exception ${S.code} recorded.`, color: '#1E9E6B', bold: true }] : (carrying ? [] : [{ text: 'Pull the package from the shelves first.', color: OTR_DATA.theme.css('muted') }]),
       options: opts
     });
   }
@@ -1481,7 +1481,7 @@ class StopScene extends BaseScenarioScene {
     const svc = d.packages[0].service;
     if (svc === 'signature') lines.push('This package needs a signature. Don\'t leave it unattended.');
     if (svc === 'adult') lines.push('Adult signature: check a valid photo ID, 21 or older.');
-    if (d.packages[0].note) lines.push({ text: 'Customer note: ' + d.packages[0].note, color: '#6A3FB0' });
+    if (d.packages[0].note) lines.push({ text: 'Customer note: ' + d.packages[0].note, color: '#4574aa' });
     if (bad) { OTR.audio.play('error'); OTR.fx.shake(this, 120, 0.004); }
     else OTR.audio.play('success');
     this.refreshObjectives();
@@ -1500,7 +1500,7 @@ class StopScene extends BaseScenarioScene {
     // decision lists are all plain buttons: a highlighted first option reads as the recommended answer
     const opts = Object.keys(T).map(id => ({ label: T[id].label, skin: 'ghost', onPick: () => this.deliverAs(id) }));
     opts.push({ label: 'Back', skin: 'ghost', onPick: () => this.hhHome(hh) });
-    hh.show({ title: 'DELIVER: HOW?', lines: [{ text: 'How is this package being delivered?', color: '#3A2A50' }], options: opts });
+    hh.show({ title: 'DELIVER: HOW?', lines: [{ text: 'How is this package being delivered?', color: OTR_DATA.theme.css('inkSoft') }], options: opts });
   }
 
   personHere() {
@@ -1547,8 +1547,8 @@ class StopScene extends BaseScenarioScene {
       { label: 'ID expired / doesn\'t match', skin: 'ghost', onPick: then(() => { this.S.idResult = 'invalid'; this.idRefused(); }) }
     ];
     hh.show({
-      title: 'CHECK PHOTO ID', color: 0x7B3FC4,
-      lines: [{ text: today, color: '#3A2A50', bold: true }, `${person.name} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.`],
+      title: 'CHECK PHOTO ID', color: OTR_DATA.theme.primaryLight,
+      lines: [{ text: today, color: OTR_DATA.theme.css('inkSoft'), bold: true }, `${person.name} holds up a photo ID. Compare the photo with the face in front of you, then the name, the date of birth and the expiry date.`],
       options: OTR.util.shuffle(opts),
       back: then(() => this.hhDeliver())
     });
@@ -1559,10 +1559,10 @@ class StopScene extends BaseScenarioScene {
     // left of the courier and the customer, under the objectives panel, so both faces stay in view for the comparison
     const c = this.add.container(250, 400).setDepth(2590).setScrollFactor(0);
     const g = OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
-      g.lineStyle(2, 0x7B3FC4, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
+      g.fillStyle(OTR_DATA.theme.night, 0.82); g.fillRoundedRect(-196, -150, 392, 300, 18);
+      g.lineStyle(2, OTR_DATA.theme.primaryLight, 1); g.strokeRoundedRect(-196, -150, 392, 300, 18);
     });
-    c.add([g,this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, '#C9B3F0', { weight: '900' })]);
+    c.add([g,this.add.image(0, 10, key), OTR.txt(this, 0, -128, `PHOTO ID · ${name.toUpperCase()}`, 13, OTR_DATA.theme.css('tint'), { weight: '900' })]);
     c.setAlpha(0).setScale(0.9);
     this.tweens.add({ targets: c, alpha: 1, scale: 1, duration: 200, ease: 'Back.out' });
     this.idCardView = c;
@@ -1583,8 +1583,8 @@ class StopScene extends BaseScenarioScene {
     r.play('sign');
     this.me.play('stand');
     hh.show({
-      title: 'SIGNATURE', color: 0xFF6600,
-      lines: [{ text: `${person.name} is signing…`, color: '#3A2A50' }],
+      title: 'SIGNATURE', color: OTR_DATA.theme.accent,
+      lines: [{ text: `${person.name} is signing…`, color: OTR_DATA.theme.css('inkSoft') }],
       widget: {
         type: 'signature', onDone: () => {
           r.play('idle');
@@ -1601,7 +1601,7 @@ class StopScene extends BaseScenarioScene {
     if (this.def.extraNames) this.def.extraNames.forEach(n => names.push(n));
     const uniq = names.filter((n, i) => names.indexOf(n) === i);
     const opts = OTR.util.shuffle(uniq).map(n => ({ label: n, skin: 'ghost', onPick: () => { this.S.signer = n; this.completeDelivery(); } }));
-    hh.show({ title: 'PRINTED NAME', color: 0xFF6600, lines: ['Who signed? Record the printed name of the person who actually signed.'], options: opts });
+    hh.show({ title: 'PRINTED NAME', color: OTR_DATA.theme.accent, lines: ['Who signed? Record the printed name of the person who actually signed.'], options: opts });
   }
 
   completeDelivery() {
@@ -1698,7 +1698,7 @@ class StopScene extends BaseScenarioScene {
       g.lineStyle(1, 0xFFFFFF, 0.5);
       g.strokeCircle(0, 0, 10);
     }).setScrollFactor(0);
-    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 6 }).setScrollFactor(0);
+    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click', 20, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 6 }).setScrollFactor(0);
     root.add([shade, frame, info]);
     const catcher = this.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive({ useHandCursor: true }).setScrollFactor(0);
     root.add(catcher);
@@ -1800,7 +1800,7 @@ class StopScene extends BaseScenarioScene {
       OTR.audio.play('beep');
       if (ex.doorTag) {
         hh.show({
-          title: 'DOOR TAG', color: 0xFF6600,
+          title: 'DOOR TAG', color: OTR_DATA.theme.accent,
           // asked plainly: the question used to argue for the tag, so it answered itself
           lines: [`Exception ${ex.id} recorded.`, 'Door tag for this attempt?'],
           options: [
@@ -1978,9 +1978,9 @@ class StopScene extends BaseScenarioScene {
     OTR.ui.modal(this, {
       w, h, depth: 5000,
       build: (box, api) => {
-        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(0x4D148C, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
+        box.add(OTR.tex.shape(this, (hg) => { hg.fillStyle(OTR_DATA.theme.primary, 1); hg.fillRoundedRect(-w / 2, -h / 2, w, 86, { tl: 22, tr: 22, bl: 0, br: 0 }); }));
         const pkg = this.def.packages[0];
-        box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, `STOP ${idx} REPORT`, 14, '#FFB27A', { ox: 0, weight: '900' }));
+        box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, `STOP ${idx} REPORT`, 14, OTR_DATA.theme.css('accentSoft'), { ox: 0, weight: '900' }));
         const oc = this.S.leftRestricted ? 'LEFT UNATTENDED' : this.S.outcome === 'delivered' ? 'DELIVERED' : this.S.outcome === 'exception' ? `EXCEPTION ${this.S.code}` : 'NOT COMPLETED';
         box.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 58, `${pkg.number} ${pkg.street} · ${oc}`, 26, '#ffffff', { ox: 0, weight: '900' }));
         // per-category mini stars
@@ -2000,7 +2000,7 @@ class StopScene extends BaseScenarioScene {
         const rows = shown.map((it, i) => {
           const good = isGood(it);
           const lesson = !good && (it.feedback || it.lesson)
-            ? OTR.txt(this, -w / 2 + 88, 0, '↳ ' + (it.lesson || it.feedback), 13, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: w - 180 })
+            ? OTR.txt(this, -w / 2 + 88, 0, '↳ ' + (it.lesson || it.feedback), 13, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false, wrap: w - 180 })
             : null;
           return { it, i, good, lesson, h: 26 + (lesson ? lesson.height + 4 : 0) };
         });
@@ -2019,7 +2019,7 @@ class StopScene extends BaseScenarioScene {
           box.add(this.add.image(-w / 2 + 70, y + 11, def.icon).setDisplaySize(16, 16).setTint(def.color));
           // one answer scored in two categories reads as two lines: name the category so they are not identical
           const twin = shown.filter(o => o.label === it.label).length > 1 ? ` (${def.label.toLowerCase()})` : '';
-          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label + twin, 16, it.critical ? '#B3122E' : '#250849', { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
+          box.add(OTR.txt(this, -w / 2 + 88, y + 1, (it.critical ? 'CRITICAL · ' : '') + it.label + twin, 16, it.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'), { ox: 0, oy: 0, weight: good ? 'normal' : 'bold', wrap: w - 220 }));
           box.add(OTR.txt(this, w / 2 - 30, y + 11, it.kind === 'penalty' ? `${it.got}` : `${it.got}/${it.max}`, 15, OTR.color.css(col), { ox: 1, weight: '900' }));
           y += 26;
           if (r.lesson) { r.lesson.setY(y - 2); box.add(r.lesson); y += r.lesson.height + 4; }
@@ -2028,7 +2028,7 @@ class StopScene extends BaseScenarioScene {
         rows.slice(drawn).forEach(r => { if (r.lesson) r.lesson.destroy(); });
         if (drawn < rows.length) {
           const rest = rows.slice(drawn), bad = rest.filter(r => !r.good).length;
-          box.add(OTR.txt(this, -w / 2 + 88, y + 2, bad ? `+ ${rest.length} more check${rest.length > 1 ? 's' : ''} (${bad} to work on)` : `+ ${rest.length} more check${rest.length > 1 ? 's' : ''}, all passed`, 14, '#7A6A90', { ox: 0, oy: 0, bold: false }));
+          box.add(OTR.txt(this, -w / 2 + 88, y + 2, bad ? `+ ${rest.length} more check${rest.length > 1 ? 's' : ''} (${bad} to work on)` : `+ ${rest.length} more check${rest.length > 1 ? 's' : ''}, all passed`, 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false }));
         }
         void api;
       },

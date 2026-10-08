@@ -58,7 +58,7 @@ OTR.truckArt = {
   },
 
   bodyGradient(ctx, x, y, w, h) {
-    return OTR.cv.lin(ctx, 0, y, 0, y + h, [[0, '#FFFFFF'], [0.65, '#EDEAF3'], [1, '#C9C5D4']]);
+    return OTR.cv.lin(ctx, 0, y, 0, y + h, [[0, '#FFFFFF'], [0.65, '#eaeef3'], [1, '#c6ccd3']]);
   },
 
   draw_driver(ctx, w, h, s) { OTR.truckArt.sideView(ctx, w, h, s, true, false); },
@@ -89,13 +89,13 @@ OTR.truckArt = {
     ctx.fillStyle = cv.lin(ctx, 0, 84, 0, h * 0.42, [[0, '#A8D6F2'], [1, '#3C6A92']]);
     cv.rr(ctx, w * 0.655, 84, w * 0.11, h * 0.30, 4); ctx.fill();
     // brand band
-    ctx.fillStyle = '#4D148C'; ctx.fillRect(30, h * 0.60, w * 0.93, 34);
-    ctx.fillStyle = '#FF6600'; ctx.fillRect(30, h * 0.60 + 34, w * 0.93, 10);
+    ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(30, h * 0.60, w * 0.93, 34);
+    ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(30, h * 0.60 + 34, w * 0.93, 10);
     // lettering is painted the right way round even on the mirrored side
     ctx.save();
     if (mirrored) { ctx.translate(w, 0); ctx.scale(-1, 1); }
     const brand = OTR_DATA.config.brand;
-    ctx.fillStyle = brand ? '#4D148C' : '#FF6600'; ctx.font = `900 ${Math.round(h * (brand ? 0.16 : 0.1))}px "Segoe UI", Arial`;
+    ctx.fillStyle = brand ? OTR_DATA.theme.css('primary') : OTR_DATA.theme.css('accent'); ctx.font = `900 ${Math.round(h * (brand ? 0.16 : 0.1))}px "Segoe UI", Arial`;
     ctx.textAlign = mirrored ? 'right' : 'left'; ctx.textBaseline = 'alphabetic';
     ctx.fillText(brand || OTR_DATA.config.title.toUpperCase(), mirrored ? w - 80 : 80, h * 0.48);
     ctx.restore();
@@ -213,7 +213,7 @@ OTR.truckArt = {
     ctx.fillStyle = D.plate_front ? '#9A98A6' : '#F4F4F8'; ctx.fill();
     ctx.strokeStyle = '#2A2830'; ctx.lineWidth = 2; ctx.stroke();
     if (!D.plate_front) {
-      ctx.fillStyle = '#1D1030'; ctx.font = '900 22px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = '900 22px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('7C4 812', w / 2, h * 0.758);
     }
     // mirrors
@@ -227,8 +227,8 @@ OTR.truckArt = {
     cv.rr(ctx, 50, 30, w - 100, h - 80, 14);
     ctx.fillStyle = OTR.truckArt.bodyGradient(ctx, 50, 30, w - 100, h - 80); ctx.fill();
     // roll-up door
-    ctx.fillStyle = '#DAD6E2';
-    for (let y = 60; y < h * 0.70; y += 34) { ctx.fillStyle = (y / 34) % 2 === 0 ? '#E4E1EC' : '#D2CEDC'; ctx.fillRect(70, y, w - 140, 30); }
+    ctx.fillStyle = '#d7dce1';
+    for (let y = 60; y < h * 0.70; y += 34) { ctx.fillStyle = (y / 34) % 2 === 0 ? '#e2e6eb' : '#cfd5db'; ctx.fillRect(70, y, w - 140, 30); }
     if (D.rear_door) {
       ctx.strokeStyle = '#C8243B'; ctx.lineWidth = 6;
       ctx.beginPath(); ctx.moveTo(w / 2 - 40, h * 0.66); ctx.lineTo(w / 2 + 40, h * 0.66); ctx.stroke();
@@ -247,7 +247,7 @@ OTR.truckArt = {
     // plate
     cv.rr(ctx, w / 2 - 62, h * 0.71, 124, 46, 4);
     ctx.fillStyle = '#F4F4F8'; ctx.fill();
-    ctx.fillStyle = '#1D1030'; ctx.font = '900 22px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = '900 22px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText('7C4 812', w / 2, h * 0.733);
     // mud flap + reflectors
     ctx.fillStyle = D.mudflap ? '#4A4852' : '#2A2830';
@@ -272,10 +272,10 @@ OTR.truckArt = {
     ctx.fillStyle = '#3A3844'; cv.rr(ctx, 30, h * 0.34, w - 60, h * 0.30, 16); ctx.fill();
     // gauges
     const gx = w * 0.46, gy = h * 0.30 + 40;
-    cv.rr(ctx, gx - 120, gy - 34, 240, 96, 12); ctx.fillStyle = '#1C1A24'; ctx.fill();
+    cv.rr(ctx, gx - 120, gy - 34, 240, 96, 12); ctx.fillStyle = '#1a1f24'; ctx.fill();
     [[-70, 'FUEL'], [0, 'AIR'], [70, 'TEMP']].forEach(([dx, label], i) => {
       ctx.beginPath(); ctx.arc(gx + dx, gy + 8, 30, 0, Math.PI * 2);
-      ctx.fillStyle = '#2A2833'; ctx.fill();
+      ctx.fillStyle = '#292d32'; ctx.fill();
       ctx.strokeStyle = '#5A5866'; ctx.lineWidth = 2; ctx.stroke();
       // needle: the air gauge reads low when the brakes are the defect
       const low = (i === 1 && D.gauges);
@@ -289,27 +289,27 @@ OTR.truckArt = {
       ctx.fillStyle = '#FF4A5A'; ctx.beginPath(); ctx.arc(gx + 104, gy - 14, 10, 0, Math.PI * 2); ctx.fill();
     }
     // steering wheel + horn
-    ctx.strokeStyle = '#1C1A24'; ctx.lineWidth = 18;
+    ctx.strokeStyle = '#1a1f24'; ctx.lineWidth = 18;
     ctx.beginPath(); ctx.arc(w * 0.46, h * 0.52, 92, 0, Math.PI * 2); ctx.stroke();
-    ctx.fillStyle = '#2A2833'; ctx.beginPath(); ctx.arc(w * 0.46, h * 0.52, 34, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#292d32'; ctx.beginPath(); ctx.arc(w * 0.46, h * 0.52, 34, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = D.horn ? '#5A5866' : '#6A6878'; ctx.beginPath(); ctx.arc(w * 0.46, h * 0.52, 22, 0, Math.PI * 2); ctx.fill();
     // seat + belt
     cv.rr(ctx, w * 0.70, h * 0.42, 190, h * 0.44, 18); ctx.fillStyle = '#39353F'; ctx.fill();
-    ctx.strokeStyle = D.seatbelt ? '#8A7A5A' : '#1C1A24'; ctx.lineWidth = 14; ctx.lineCap = 'round';
+    ctx.strokeStyle = D.seatbelt ? '#8A7A5A' : '#1a1f24'; ctx.lineWidth = 14; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(w * 0.72, h * 0.44); ctx.lineTo(w * 0.83, h * 0.72); ctx.stroke();
     if (D.seatbelt) {
       ctx.strokeStyle = 'rgba(200,60,60,0.8)'; ctx.lineWidth = 4;
       ctx.beginPath(); ctx.moveTo(w * 0.77, h * 0.56); ctx.lineTo(w * 0.80, h * 0.60); ctx.stroke();
     }
     // pedals
-    ctx.fillStyle = '#1C1A24';
+    ctx.fillStyle = '#1a1f24';
     cv.rr(ctx, w * 0.26, h * 0.82, 70, 44, 6); ctx.fill();
     cv.rr(ctx, w * 0.36, h * 0.84, 56, 38, 6); ctx.fill();
     ctx.fillStyle = '#5A5866'; ctx.font = '800 11px "Segoe UI", Arial'; ctx.textAlign = 'center';
     ctx.fillText('BRAKE', w * 0.26 + 35, h * 0.82 + 26);
     // parking brake
     cv.rr(ctx, w * 0.60, h * 0.64, 40, 78, 10); ctx.fillStyle = D.park_brake ? '#6A5A5A' : '#F0C040'; ctx.fill();
-    ctx.fillStyle = '#1C1A24'; ctx.font = '900 10px "Segoe UI", Arial';
+    ctx.fillStyle = '#1a1f24'; ctx.font = '900 10px "Segoe UI", Arial';
     ctx.fillText('PARK', w * 0.60 + 20, h * 0.64 + 42);
     // light switch
     cv.rr(ctx, w * 0.17, h * 0.26, 64, 40, 8); ctx.fillStyle = s.lights ? '#8BF0C6' : '#4A4656'; ctx.fill();
@@ -384,7 +384,7 @@ OTR.truckArt = {
     ctx.fillStyle = 'rgba(255,255,255,0.05)'; ctx.fillRect(30, 6, W - 60, 5);
     if (o.bad && o.variant === 'gouge') {
       // a gash through the sidewall with the cords showing in it; the tread itself is fine
-      ctx.fillStyle = '#0E0C12';
+      ctx.fillStyle = '#0c0f12';
       ctx.beginPath(); ctx.moveTo(140, 22); ctx.lineTo(175, 10); ctx.lineTo(215, 16); ctx.lineTo(260, 8); ctx.lineTo(300, 20);
       ctx.lineTo(262, 32); ctx.lineTo(214, 28); ctx.lineTo(172, 34); ctx.closePath(); ctx.fill();
       ctx.strokeStyle = 'rgba(210,200,170,0.75)'; ctx.lineWidth = 2;
@@ -397,7 +397,7 @@ OTR.truckArt = {
       cv.rr(ctx, bx, 26, bw, 58, 10); ctx.fill();
       ctx.strokeStyle = '#9A94AA'; ctx.lineWidth = 2; ctx.stroke();
       ctx.textAlign = 'center';
-      ctx.fillStyle = '#9A8AB0'; ctx.font = '700 11px "Segoe UI", Arial';
+      ctx.fillStyle = OTR_DATA.theme.css('mutedLight'); ctx.font = '700 11px "Segoe UI", Arial';
       ctx.fillText('TREAD DEPTH', bx + bw / 2, 45);
       ctx.fillStyle = '#FFFFFF'; ctx.font = '900 26px "Segoe UI", Arial';
       ctx.fillText(`${o.reading}/32"`, bx + bw / 2, 73);
@@ -411,7 +411,7 @@ OTR.truckArt = {
     cv.rr(ctx, 90, 70, W - 180, H - 140, 16);
     ctx.fillStyle = on ? cv.rad(ctx, W / 2, H / 2, 10, 200, [[0, '#FFFDF0'], [0.5, '#FFE08A'], [1, '#E8A33D']]) : (o.lights ? '#4A4650' : '#C8C6D2');
     ctx.fill();
-    ctx.strokeStyle = '#1C1A24'; ctx.lineWidth = 8; ctx.stroke();
+    ctx.strokeStyle = '#1a1f24'; ctx.lineWidth = 8; ctx.stroke();
     // lens detail
     ctx.strokeStyle = 'rgba(0,0,0,0.18)'; ctx.lineWidth = 2;
     for (let x = 110; x < W - 110; x += 22) { ctx.beginPath(); ctx.moveTo(x, 80); ctx.lineTo(x, H - 80); ctx.stroke(); }
@@ -494,7 +494,7 @@ OTR.truckArt = {
     ctx.lineCap = 'round';
     ctx.strokeStyle = '#3A3844'; ctx.lineWidth = 14;
     ctx.beginPath(); ctx.moveTo(x0, y0 - 12); ctx.lineTo(x1, y1 - 12); ctx.stroke();
-    ctx.strokeStyle = '#141218'; ctx.lineWidth = 8;
+    ctx.strokeStyle = '#121518'; ctx.lineWidth = 8;
     if (!o.bad) {
       // one clean, even rubber edge the whole length
       ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
@@ -516,7 +516,7 @@ OTR.truckArt = {
 
   close_belt(ctx, W, H, o) {
     ctx.fillStyle = '#39353F'; ctx.fillRect(0, 0, W, H);
-    ctx.strokeStyle = o.bad ? '#8A7A5A' : '#1C1A24'; ctx.lineWidth = 46; ctx.lineCap = 'round';
+    ctx.strokeStyle = o.bad ? '#8A7A5A' : '#1a1f24'; ctx.lineWidth = 46; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(80, 60); ctx.lineTo(W - 90, H - 70); ctx.stroke();
     ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 4;
     ctx.beginPath(); ctx.moveTo(80, 60); ctx.lineTo(W - 90, H - 70); ctx.stroke();
@@ -538,7 +538,7 @@ OTR.truckArt = {
     // a failing one keeps creeping down past it while the pressure is held (it used to jump to a lower spot with
     // nothing to compare it to, so "sinks slowly" could not be seen)
     const drop = o.drop !== undefined ? o.drop : o.pressed ? (o.bad ? 96 : 34) : 0;
-    cv.rr(ctx, 150, 90 + drop, 150, 120, 12); ctx.fillStyle = '#1C1A24'; ctx.fill();
+    cv.rr(ctx, 150, 90 + drop, 150, 120, 12); ctx.fillStyle = '#1a1f24'; ctx.fill();
     ctx.fillStyle = '#3A3844';
     for (let y = 0; y < 5; y++) ctx.fillRect(160, 100 + drop + y * 22, 130, 8);
     // travel scale down the side
@@ -547,7 +547,7 @@ OTR.truckArt = {
     for (let i = 0; i <= 3; i++) { ctx.beginPath(); ctx.moveTo(334, 90 + i * 50); ctx.lineTo(352, 90 + i * 50); ctx.stroke(); }
     // the travel marker is one neutral colour, and the caption says what you are doing, not what it means (it
     // said "holding" while the pedal sank)
-    ctx.fillStyle = '#E8E4F0';
+    ctx.fillStyle = '#e5eaef';
     ctx.beginPath(); ctx.arc(340, 96 + drop, 9, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = '#9A94AA'; ctx.font = '800 13px "Segoe UI", Arial'; ctx.textAlign = 'left';
     ctx.fillText(o.pressed ? 'steady pressure' : 'press and hold', 366, 100 + drop);
@@ -563,13 +563,13 @@ OTR.truckArt = {
     ctx.fillStyle = '#2BC48A'; ctx.beginPath(); ctx.arc(255, 120, 36, Math.PI * 1.15, Math.PI * 1.55); ctx.lineTo(255, 120); ctx.fill();
     ctx.fillStyle = '#E8304A'; ctx.beginPath(); ctx.arc(255, 120, 36, Math.PI * 1.6, Math.PI * 1.95); ctx.lineTo(255, 120); ctx.fill();
     const ang = o.bad ? Math.PI * 1.78 : Math.PI * 1.34;
-    ctx.strokeStyle = '#1D1030'; ctx.lineWidth = 4;
+    ctx.strokeStyle = OTR_DATA.theme.css('ink'); ctx.lineWidth = 4;
     ctx.beginPath(); ctx.moveTo(255, 120); ctx.lineTo(255 + Math.cos(ang) * 32, 120 + Math.sin(ang) * 32); ctx.stroke();
     // inspection tag: there, or just the empty tie where it should hang
     ctx.strokeStyle = '#9A94AA'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(318, 150); ctx.lineTo(340, 160); ctx.stroke();
     if (!o.bad) {
       cv.rr(ctx, 330, 150, 90, 60, 6); ctx.fillStyle = '#FFF4C0'; ctx.fill();
-      ctx.fillStyle = '#3A2A50'; ctx.font = '800 11px "Segoe UI", Arial'; ctx.textAlign = 'center';
+      ctx.fillStyle = OTR_DATA.theme.css('inkSoft'); ctx.font = '800 11px "Segoe UI", Arial'; ctx.textAlign = 'center';
       ctx.fillText('INSPECTED', 375, 176);
       ctx.fillText('THIS YEAR', 375, 192);
     }
@@ -584,9 +584,9 @@ OTR.truckArt = {
       // the open case, empty inside
       ctx.fillStyle = 'rgba(40,40,52,0.9)'; cv.rr(ctx, 160, 150, 200, 96, 8); ctx.fill();
     } else {
-      ctx.fillStyle = '#E8E4F0';
+      ctx.fillStyle = '#e5eaef';
       [0, 1, 2].forEach(i => cv.rr(ctx, 170 + i * 66, 170, 54, 60, 6), ctx.fill());
-      ctx.fillStyle = '#C9C5D4';
+      ctx.fillStyle = '#c6ccd3';
       [0, 1, 2].forEach(i => { cv.rr(ctx, 170 + i * 66, 170, 54, 60, 6); ctx.fill(); });
     }
   },
@@ -605,17 +605,17 @@ OTR.truckArt = {
 
   close_door(ctx, W, H, o) {
     const cv = OTR.cv;
-    ctx.fillStyle = '#D2CEDC'; ctx.fillRect(40, 30, W - 80, H - 60);
-    for (let y = 40; y < H - 60; y += 34) { ctx.fillStyle = (y / 34) % 2 === 0 ? '#E4E1EC' : '#CFCBDA'; ctx.fillRect(50, y, W - 100, 28); }
+    ctx.fillStyle = '#cfd5db'; ctx.fillRect(40, 30, W - 80, H - 60);
+    for (let y = 40; y < H - 60; y += 34) { ctx.fillStyle = (y / 34) % 2 === 0 ? '#e2e6eb' : '#ccd2d9'; ctx.fillRect(50, y, W - 100, 28); }
     cv.rr(ctx, W / 2 - 60, H - 130, 120, 46, 8); ctx.fillStyle = '#5A5866'; ctx.fill();
     // The latch looks the same either way; the pull test shows it (PRP-5): a bad latch lets the door swing open
     // under a pull, a good one holds.
     if (o.pressed && o.bad) {
-      ctx.fillStyle = '#16141C'; ctx.fillRect(W - 110, 30, 70, H - 60);                     // the gap as it swings
+      ctx.fillStyle = '#14181c'; ctx.fillRect(W - 110, 30, 70, H - 60);                     // the gap as it swings
       ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(W - 130, 30, 20, H - 60);
     }
     if (o.pressed) {
-      ctx.fillStyle = '#E8E4F0'; ctx.font = '800 13px "Segoe UI", Arial'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#e5eaef'; ctx.font = '800 13px "Segoe UI", Arial'; ctx.textAlign = 'center';
       ctx.fillText('you pull hard on the handle', W / 2, 24);
     }
   },
@@ -671,16 +671,16 @@ OTR.truckArt = {
       ctx.beginPath(); ctx.ellipse(W / 2, H / 2 + 110, 120, 26, 0, 0, Math.PI * 2); ctx.fill();
     } else {
       ctx.beginPath(); ctx.arc(W / 2, H / 2, 66, 0, Math.PI * 2);
-      ctx.fillStyle = cv.rad(ctx, W / 2 - 20, H / 2 - 20, 4, 70, [[0, '#C9C5D4'], [1, '#7A7888']]); ctx.fill();
+      ctx.fillStyle = cv.rad(ctx, W / 2 - 20, H / 2 - 20, 4, 70, [[0, '#c6ccd3'], [1, '#7A7888']]); ctx.fill();
       ctx.strokeStyle = '#3A3844'; ctx.lineWidth = 6; ctx.stroke();
     }
   },
 
   close_gauge(ctx, W, H, o) {
     const cv = OTR.cv;
-    ctx.fillStyle = '#1C1A24'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#1a1f24'; ctx.fillRect(0, 0, W, H);
     ctx.beginPath(); ctx.arc(W / 2, H / 2, 110, 0, Math.PI * 2);
-    ctx.fillStyle = '#2A2833'; ctx.fill();
+    ctx.fillStyle = '#292d32'; ctx.fill();
     ctx.strokeStyle = '#5A5866'; ctx.lineWidth = 5; ctx.stroke();
     // scale
     for (let i = 0; i <= 10; i++) {
@@ -695,7 +695,7 @@ OTR.truckArt = {
     // a step van's oil pressure gauge (hydraulic brakes, so no air gauge), with its warning lamp beside it
     const val = o.bad ? 0.18 : 0.62;
     const a = Math.PI * 0.75 + val * Math.PI * 1.5;
-    ctx.strokeStyle = '#F4F0F8'; ctx.lineWidth = 6;
+    ctx.strokeStyle = '#f0f4f8'; ctx.lineWidth = 6;
     ctx.beginPath(); ctx.moveTo(W / 2, H / 2); ctx.lineTo(W / 2 + Math.cos(a) * 84, H / 2 + Math.sin(a) * 84); ctx.stroke();
     ctx.fillStyle = '#9A94AA'; ctx.font = '800 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
     ctx.fillText('OIL PRESSURE', W / 2, H / 2 + 70);
@@ -709,7 +709,7 @@ OTR.truckArt = {
   close_horn(ctx, W, H, o) {
     const cv = OTR.cv;
     ctx.fillStyle = '#2A2830'; ctx.fillRect(0, 0, W, H);
-    ctx.strokeStyle = '#1C1A24'; ctx.lineWidth = 26;
+    ctx.strokeStyle = '#1a1f24'; ctx.lineWidth = 26;
     ctx.beginPath(); ctx.arc(W / 2, H / 2, 120, 0, Math.PI * 2); ctx.stroke();
     ctx.fillStyle = '#3A3844'; ctx.beginPath(); ctx.arc(W / 2, H / 2, 62, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = o.pressed ? '#8A8898' : '#6A6878';
@@ -731,7 +731,7 @@ OTR.truckArt = {
     ctx.fillStyle = '#39353F'; ctx.fillRect(0, 0, W, H);
     cv.rr(ctx, W / 2 - 40, 80, 80, 170, 14);
     ctx.fillStyle = o.bad ? '#6A5A5A' : '#F0C040'; ctx.fill();
-    ctx.fillStyle = '#1C1A24'; ctx.font = '900 16px "Segoe UI", Arial'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#1a1f24'; ctx.font = '900 16px "Segoe UI", Arial'; ctx.textAlign = 'center';
     ctx.fillText('PARK', W / 2, 180);
     if (o.bad) {
       ctx.strokeStyle = '#C8243B'; ctx.lineWidth = 6;
@@ -745,7 +745,7 @@ OTR.truckArt = {
   gauge(scene) {
     return OTR.tex.make(scene, 'tread_gauge', 90, 210, (ctx, w, h) => {
       const cv = OTR.cv;
-      cv.rr(ctx, 26, 0, 38, 150, 6); ctx.fillStyle = '#E8E4F0'; ctx.fill();
+      cv.rr(ctx, 26, 0, 38, 150, 6); ctx.fillStyle = '#e5eaef'; ctx.fill();
       ctx.strokeStyle = '#3A3844'; ctx.lineWidth = 3; ctx.stroke();
       ctx.fillStyle = '#3A3844';
       for (let i = 0; i <= 8; i++) {

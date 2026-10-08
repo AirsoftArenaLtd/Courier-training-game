@@ -361,8 +361,8 @@ OTR.Stage = class {
     const t = OTR.txt(s, 16, 0, it.label, 17, '#ffffff', { ox: 0, weight: '900' });
     const w = t.width + 58, h = 36;
     const g = OTR.tex.shape(s, (g) => {
-      g.fillStyle(0x16062B, 0.88); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
-      g.lineStyle(2, 0xFF6600, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.88); g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
+      g.lineStyle(2, OTR_DATA.theme.accent, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);
     });
     const cap = OTR.ui.keyCap(s, -w / 2 + 22, 0, 'E', { size: 13 });
     t.setX(-w / 2 + 40);

@@ -4,7 +4,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #16062b radial-gradient(ellipse at center, #3a1470 0%, #16062b 70%);
+  background: var(--otr-primary-deep, #081828) radial-gradient(ellipse at center, var(--otr-primary, #1f4e79) 0%, var(--otr-primary-deep, #081828) 70%);
   font-family: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
 }
 

@@ -13,8 +13,8 @@ OTR_DATA.dialogues.m4_recover = {
   moodMeter: null,
   cast: {
     dispatch: {
-      name: 'Dispatch', color: 0x4D148C, moodStart: 0, remote: true,
-      portrait: { kind: 'person', skin: 0x9C6B4A, hair: 0x1C1414, hairStyle: 'ponytail', shirt: 0x4D148C, uniform: true }
+      name: 'Dispatch', color: OTR_DATA.theme.primary, moodStart: 0, remote: true,
+      portrait: { kind: 'person', skin: 0x9C6B4A, hair: 0x1C1414, hairStyle: 'ponytail', shirt: OTR_DATA.theme.primary, uniform: true }
     },
     pat: {
       name: 'Pat Kowalski', color: 0x3E6FB0, moodStart: 0,

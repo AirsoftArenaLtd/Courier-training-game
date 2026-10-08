@@ -11,7 +11,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
 
 (function () {
   const P = {
-    dana: { skin: 0xF1C7A5, hair: 0x6B3F2A, hairStyle: 'long', shirt: 0x7A4FB5, sleeves: 'long' },
+    dana: { skin: 0xF1C7A5, hair: 0x6B3F2A, hairStyle: 'long', shirt: 0x547FB0, sleeves: 'long' },
     ana: { skin: 0xC98E6B, hair: 0x1E1410, hairStyle: 'bun', shirt: 0x2E7D5B, glasses: true },
     guy: { skin: 0xE0B08A, hair: 0x3A2418, hairStyle: 'short', shirt: 0x6B7B8C, jacket: 0x2A2A32, beard: true }
   };

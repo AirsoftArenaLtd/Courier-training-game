@@ -14,7 +14,7 @@ class ResultsScene extends Phaser.Scene {
     const mod = OTR.registry.moduleOf(scenarioId);
     OTR.fx.enter(this);
 
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'results_bg', [[0, '#3A1270'], [1, '#12041F']]));
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'results_bg', [[0, '#173e6b'], [1, OTR_DATA.theme.css('nightDeep')]]));
     const rays = this.add.image(W / 2, 250, OTR.tex.make(this, 'rays', 900, 900, (ctx) => {
       ctx.translate(450, 450);
       for (let i = 0; i < 16; i++) {
@@ -40,7 +40,7 @@ class ResultsScene extends Phaser.Scene {
     const px = W / 2, py = H / 2 + 4;
     const pw = 820, ph = 668;
     const panel = this.add.container(px, py);
-    panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 26 }));
+    panel.add(OTR.ui.panel(this, 0, 0, pw, ph, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 26 }));
     // a critical mistake turns the header red: nothing about this screen may read as praise
     panel.add(OTR.tex.shape(this, (hg) => {
       hg.fillStyle(A ? (A.passed ? 0x1E9E6B : 0xC8243B) : head.critical ? 0xC8243B : mod.color, 1);
@@ -59,8 +59,8 @@ class ResultsScene extends Phaser.Scene {
     this.tweens.add({ targets: panel, scale: 1, alpha: 1, duration: 380, ease: 'Back.out' });
 
     // stars earned out of the stars this run could earn (a bare score had no scale and differed per scenario)
-    const starsLabel = OTR.txt(this, -pw / 2 + 60, -ph / 2 + 150, 'STARS', 14, '#9A8AB0', { ox: 0 });
-    const starsText = OTR.txt(this, -pw / 2 + 60, -ph / 2 + 188, `0 / ${max}`, 48, '#250849', { ox: 0, weight: '900' });
+    const starsLabel = OTR.txt(this, -pw / 2 + 60, -ph / 2 + 150, 'STARS', 14, OTR_DATA.theme.css('mutedLight'), { ox: 0 });
+    const starsText = OTR.txt(this, -pw / 2 + 60, -ph / 2 + 188, `0 / ${max}`, 48, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
     panel.add([starsLabel, starsText]);
     const counter = { v: 0 };
     this.tweens.add({
@@ -78,7 +78,7 @@ class ResultsScene extends Phaser.Scene {
       chip.x = catX - 60 + chip.width / 2 - 40;
       panel.add(chip);
       if (verdict.untested.indexOf(cat) >= 0) {
-        panel.add(OTR.txt(this, catX + 170, y + 18, 'not tested this run', 17, '#9A8AB0', { bold: false }));
+        panel.add(OTR.txt(this, catX + 170, y + 18, 'not tested this run', 17, OTR_DATA.theme.css('mutedLight'), { bold: false }));
         return;
       }
       const row = OTR.ui.stars(this, catX + 170, y + 18, 0, { size: rowH > 60 ? 44 : 34, dark: true });
@@ -101,15 +101,15 @@ class ResultsScene extends Phaser.Scene {
     const ly = -ph / 2 + 150 + Math.max(2, cats.length) * rowH + 26;
     const boxBottom = cy - 24;
     panel.add(OTR.tex.shape(this, (lg) => {
-      lg.fillStyle(0x4D148C, 0.06);
+      lg.fillStyle(OTR_DATA.theme.primary, 0.06);
       lg.fillRoundedRect(-pw / 2 + 40, ly - 10, pw - 80, boxBottom - (ly - 10), 16);
     }));
-    panel.add(this.add.image(-pw / 2 + 70, ly + 16, 'ic_book').setDisplaySize(24, 24).setTint(0xFF6600));
-    panel.add(OTR.txt(this, -pw / 2 + 92, ly + 16, 'KEY TAKEAWAYS', 15, '#FF6600', { ox: 0, weight: '900' }));
+    panel.add(this.add.image(-pw / 2 + 70, ly + 16, 'ic_book').setDisplaySize(24, 24).setTint(OTR_DATA.theme.accent));
+    panel.add(OTR.txt(this, -pw / 2 + 92, ly + 16, 'KEY TAKEAWAYS', 15, OTR_DATA.theme.css('accent'), { ox: 0, weight: '900' }));
     let yy = ly + 40;
     if (result.summary) {
       // the run's numbers get their own line, so they never lose their place to a lesson
-      const s = OTR.txt(this, -pw / 2 + 72, yy, result.summary, 14, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: pw - 150 });
+      const s = OTR.txt(this, -pw / 2 + 72, yy, result.summary, 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false, wrap: pw - 150 });
       panel.add(s);
       yy += s.height + 8;
     }
@@ -119,7 +119,7 @@ class ResultsScene extends Phaser.Scene {
 
     // career line: the bar is progress within the current rank, and says so
     const info = OTR.save.rankInfo(rec.careerAfter);
-    panel.add(OTR.txt(this, -pw / 2 + 50, cy, `CAREER  ${rec.careerAfter} ★  ·  ${OTR.save.rankLabel(info)}`, 15, '#4D148C', { ox: 0, weight: '900' }));
+    panel.add(OTR.txt(this, -pw / 2 + 50, cy, `CAREER  ${rec.careerAfter} ★  ·  ${OTR.save.rankLabel(info)}`, 15, OTR_DATA.theme.css('primary'), { ox: 0, weight: '900' }));
     // a direct test link never saves, good run or bad (it used to promise "+N new career stars" that were never kept)
     const label = (c) => OTR_DATA.config.categories[c].label;
     const gainText = A ? (A.passed ? `Passed: ${A.need.safety === A.need.efficiency && A.need.efficiency === A.need.service ? A.need.safety + '★ or better in every category' : 'the pass mark in every category'}`
@@ -127,12 +127,12 @@ class ResultsScene extends Phaser.Scene {
         : `Needed ${A.short.map(c => `${A.need[c]}★ in ${label(c)} (got ${stars[c] || 0})`).join(', ')}`)
       : OTR.flow.testId ? 'Test mode — progress not saved'
         : rec.starsGained > 0 ? `+${rec.starsGained} new career star${rec.starsGained === 1 ? '' : 's'}` : 'Beat your best stars to grow your rank';
-    const gainCol = A ? (A.passed ? '#1E9E6B' : '#B3122E') : rec.starsGained > 0 && !OTR.flow.testId ? '#1E9E6B' : '#9A8AB0';
+    const gainCol = A ? (A.passed ? '#1E9E6B' : '#B3122E') : rec.starsGained > 0 && !OTR.flow.testId ? '#1E9E6B' : OTR_DATA.theme.css('mutedLight');
     const gain = OTR.txt(this, pw / 2 - 50, cy, gainText, 15, gainCol, { ox: 1, weight: A || (rec.starsGained > 0 && !OTR.flow.testId) ? 'bold' : 'normal' });
     const room = pw - 100 - 20 - panel.list[panel.list.length - 1].width;
     if (gain.width > room) gain.setScale(room / gain.width);
     panel.add(gain);
-    const bar = OTR.ui.bar(this, -pw / 2 + 50, cy + 26, pw - 100, 12, { color: 0xFF6600, bgAlpha: 0.12 });
+    const bar = OTR.ui.bar(this, -pw / 2 + 50, cy + 26, pw - 100, 12, { color: OTR_DATA.theme.accent, bgAlpha: 0.12 });
     panel.add(bar);
     bar.setValue(OTR.save.rankInfo(rec.careerBefore).index === info.index ? OTR.save.rankInfo(rec.careerBefore).progress : 0);
     this.time.delayedCall(delay, () => bar.setValue(info.progress, true, 800));
@@ -167,7 +167,7 @@ class ResultsScene extends Phaser.Scene {
       }
       // stamped under the star count, clear of the category rows and their "▲ BEST" tags
       if (!rec.firstPlay && got > OTR.save.starSum(rec.prevBest)) {
-        OTR.fx.stamp(this, px - pw / 2 + 150, py - ph / 2 + 250, 'NEW BEST', 0xFF6600, { size: 26, angle: -8, keep: true, depth: 20 });
+        OTR.fx.stamp(this, px - pw / 2 + 150, py - ph / 2 + 250, 'NEW BEST', OTR_DATA.theme.accent, { size: 26, angle: -8, keep: true, depth: 20 });
       }
       if (rec.rankAfter > rec.rankBefore) this.rankUp(OTR_DATA.config.ranks[rec.rankAfter]);
     });
@@ -186,7 +186,7 @@ class ResultsScene extends Phaser.Scene {
         const t = list[i];
         const rest = list.length - i - 1;
         const label = (t.critical ? 'Critical: ' : '') + t.text + (t.n > 1 ? `  (× ${t.n})` : '');
-        const txt = OTR.txt(this, x + 18, yy, label, size, t.critical ? '#B3122E' : '#3A2A50', { ox: 0, oy: 0, bold: !!t.critical, wrap, lineSpacing: 2 });
+        const txt = OTR.txt(this, x + 18, yy, label, size, t.critical ? '#B3122E' : OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: !!t.critical, wrap, lineSpacing: 2 });
         // keep room for the "+ N more" line unless this is the last row
         if (yy + txt.height > bottom - (rest ? size + 6 : 0)) { txt.destroy(); break; }
         rows.push({ txt, y: yy, critical: t.critical });
@@ -201,13 +201,13 @@ class ResultsScene extends Phaser.Scene {
       out = build(size);
     }
     out.rows.forEach((r, i) => {
-      const dot = this.add.circle(x, r.y + 9, 5, r.critical ? 0xE8304A : 0x4D148C);
+      const dot = this.add.circle(x, r.y + 9, 5, r.critical ? 0xE8304A : OTR_DATA.theme.primary);
       panel.add([dot, r.txt]);
       dot.setAlpha(0); r.txt.setAlpha(0);
       this.tweens.add({ targets: [dot, r.txt], alpha: 1, delay: 700 + i * 160, duration: 300 });
     });
     const more = list.length - out.rows.length;
-    if (more > 0) panel.add(OTR.txt(this, x + 18, out.yy, `+ ${more} more to work on`, 14, '#7A6A90', { ox: 0, oy: 0, weight: '900' }));
+    if (more > 0) panel.add(OTR.txt(this, x + 18, out.yy, `+ ${more} more to work on`, 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, weight: '900' }));
   }
 
   rankUp(rank) {
@@ -218,8 +218,8 @@ class ResultsScene extends Phaser.Scene {
       w: 520, h: 330, depth: 7000,
       build: (box) => {
         box.add(this.add.image(0, -70, 'ic_badge').setDisplaySize(90, 90).setTint(rank.color));
-        box.add(OTR.txt(this, 0, 10, 'RANK UP!', 40, '#FF6600', { weight: '900' }));
-        box.add(OTR.txt(this, 0, 56, `You're now ${rank.name}`, 24, '#250849', { weight: 'bold' }));
+        box.add(OTR.txt(this, 0, 10, 'RANK UP!', 40, OTR_DATA.theme.css('accent'), { weight: '900' }));
+        box.add(OTR.txt(this, 0, 56, `You're now ${rank.name}`, 24, OTR_DATA.theme.css('primaryDark'), { weight: 'bold' }));
       },
       // ENTER as well as SPACE, like every other card (SHELL-11)
       buttons: [{ label: 'Nice!', skin: 'orange', key: ['ENTER', 'SPACE'], keyAfter: 500, hint: '⏎' }]

@@ -15,9 +15,9 @@ OTR.labelArt = {
   SERVICE: {
     standard: { text: 'GROUND', color: 0x3DA5FF },
     priority: { text: 'PRIORITY', color: 0xE8304A },
-    signature: { text: 'SIGNATURE REQUIRED', color: 0xFF6600 },
-    adult: { text: 'ADULT SIG 21+', color: 0x7B3FC4 },
-    hazmat: { text: 'DANGEROUS GOODS', color: 0x1D1030 }
+    signature: { text: 'SIGNATURE REQUIRED', color: OTR_DATA.theme.accent },
+    adult: { text: 'ADULT SIG 21+', color: OTR_DATA.theme.primaryLight },
+    hazmat: { text: 'DANGEROUS GOODS', color: OTR_DATA.theme.ink }
   },
 
   /** pkg: { to, number, street, unit, city, service, weight, pieces, piece, tracking, marks: [] } */
@@ -32,23 +32,23 @@ OTR.labelArt = {
     ctx.fillText(svc.text, x + 10 * k, y + 15 * k);
     ctx.textAlign = 'right';
     ctx.fillText(`${pkg.piece || 1} of ${pkg.pieces || 1}`, x + w - 10 * k, y + 15 * k);
-    ctx.textAlign = 'left'; ctx.fillStyle = '#6A5A80'; ctx.font = `800 ${11 * k}px "Segoe UI", Arial`;
+    ctx.textAlign = 'left'; ctx.fillStyle = '#5c6c7e'; ctx.font = `800 ${11 * k}px "Segoe UI", Arial`;
     ctx.fillText('SHIP TO:', x + 10 * k, y + 46 * k);
-    ctx.fillStyle = '#1D1030'; ctx.font = `900 ${19 * k}px "Segoe UI", Arial`;
+    ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = `900 ${19 * k}px "Segoe UI", Arial`;
     ctx.fillText(String(pkg.to || '').toUpperCase(), x + 10 * k, y + 68 * k);
     ctx.font = `800 ${17 * k}px "Segoe UI", Arial`;
     ctx.fillText(`${pkg.number || ''} ${String(pkg.street || '').toUpperCase()}${pkg.unit ? '  UNIT ' + pkg.unit : ''}`, x + 10 * k, y + 92 * k);
-    ctx.font = `700 ${14 * k}px "Segoe UI", Arial`; ctx.fillStyle = '#3A2A50';
+    ctx.font = `700 ${14 * k}px "Segoe UI", Arial`; ctx.fillStyle = OTR_DATA.theme.css('inkSoft');
     ctx.fillText(pkg.city || 'MAPLE GROVE', x + 10 * k, y + 112 * k);
     // barcode
     let bx = x + 10 * k;
     const seed = String(pkg.tracking || pkg.to || 'x');
     for (let i = 0; bx < x + w * 0.66; i++) {
       const lw = ((seed.charCodeAt(i % seed.length) + i * 7) % 3 + 1) * 1.4 * k;
-      ctx.fillStyle = '#1D1030'; ctx.fillRect(bx, y + 124 * k, lw, 30 * k);
+      ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.fillRect(bx, y + 124 * k, lw, 30 * k);
       bx += lw + 1.6 * k;
     }
-    ctx.font = `700 ${11 * k}px "Consolas", monospace`; ctx.fillStyle = '#1D1030';
+    ctx.font = `700 ${11 * k}px "Consolas", monospace`; ctx.fillStyle = OTR_DATA.theme.css('ink');
     ctx.fillText(pkg.tracking || '', x + 10 * k, y + 165 * k);
     ctx.textAlign = 'right'; ctx.font = `900 ${16 * k}px "Segoe UI", Arial`;
     ctx.fillText(`${pkg.weight || 5} LB`, x + w - 10 * k, y + 140 * k);
@@ -57,7 +57,7 @@ OTR.labelArt = {
       OTR.draw.mark(ctx, m, x + w - 26 * k - i * 44 * k, y + 60 * k, 18 * k);
     });
     if (pkg.note) {
-      ctx.textAlign = 'left'; ctx.font = `italic 700 ${11 * k}px "Segoe UI", Arial`; ctx.fillStyle = '#6A3FB0';
+      ctx.textAlign = 'left'; ctx.font = `italic 700 ${11 * k}px "Segoe UI", Arial`; ctx.fillStyle = '#4574aa';
       ctx.fillText('NOTE: ' + pkg.note, x + 10 * k, y + 186 * k);
     }
   },
@@ -86,10 +86,10 @@ OTR.labelArt = {
       const tex = scene.textures.get('pt_id_' + OTR.rig.hash(person.spec) + '_neutral').getSourceImage();
       ctx.fillStyle = '#fff'; ctx.fillRect(14, 54, 96, 118);
       ctx.drawImage(tex, 40, 40, 280, 340, 14, 54, 96, 118);
-      ctx.textAlign = 'left'; ctx.fillStyle = '#1D1030';
+      ctx.textAlign = 'left'; ctx.fillStyle = OTR_DATA.theme.css('ink');
       const row = (label, val, y) => {
         ctx.font = '800 10px "Segoe UI"'; ctx.fillStyle = '#6A7A90'; ctx.fillText(label, 124, y);
-        ctx.font = '900 15px "Segoe UI"'; ctx.fillStyle = '#1D1030'; ctx.fillText(val, 124, y + 16);
+        ctx.font = '900 15px "Segoe UI"'; ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.fillText(val, 124, y + 16);
       };
       row('NAME', String(person.name).toUpperCase(), 62);
       row('DATE OF BIRTH', person.dob, 102);
@@ -137,21 +137,21 @@ OTR.Handheld = class {
       const cv = OTR.cv, W = this.W, H = this.H;
       cv.shadow(ctx, 24, 10, 0.5);
       cv.rr(ctx, 20, 20, W, H, 44);
-      ctx.fillStyle = cv.lin(ctx, 20, 0, 20 + W, 0, [[0, '#2A2733'], [0.5, '#3E3A4A'], [1, '#24212C']]); ctx.fill();
+      ctx.fillStyle = cv.lin(ctx, 20, 0, 20 + W, 0, [[0, '#282d32'], [0.5, '#3b4249'], [1, '#22262b']]); ctx.fill();
       cv.noShadow(ctx);
       // grip bumpers
-      ctx.fillStyle = '#FF6600';
+      ctx.fillStyle = OTR_DATA.theme.css('accent');
       cv.rr(ctx, 20, 70, 12, 160, 6); ctx.fill();
       cv.rr(ctx, 8 + W, 70, 12, 160, 6); ctx.fill();
       // scan window at top
       cv.rr(ctx, 20 + W / 2 - 60, 30, 120, 18, 9); ctx.fillStyle = '#8A1A20'; ctx.fill();
       ctx.fillStyle = 'rgba(255,90,90,0.5)'; ctx.fillRect(20 + W / 2 - 50, 36, 100, 6);
       // screen bezel
-      cv.rr(ctx, 44, 64, W - 48, 470, 16); ctx.fillStyle = '#111016'; ctx.fill();
+      cv.rr(ctx, 44, 64, W - 48, 470, 16); ctx.fillStyle = '#101316'; ctx.fill();
       // keypad
       for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) {
         cv.rr(ctx, 60 + c * 80, 550 + r * 44, 64, 34, 10);
-        ctx.fillStyle = r === 0 && c === 0 ? '#FF6600' : '#4A4656'; ctx.fill();
+        ctx.fillStyle = r === 0 && c === 0 ? OTR_DATA.theme.css('accent') : '#4A4656'; ctx.fill();
       }
       ctx.fillStyle = '#9A94AA'; ctx.font = '900 12px "Segoe UI"'; ctx.textAlign = 'center';
       ctx.fillText(OTR_DATA.config.brand ? OTR_DATA.config.brand.toUpperCase() + ' HANDHELD' : 'HANDHELD', 20 + W / 2, 648);
@@ -172,8 +172,8 @@ OTR.Handheld = class {
     // collapsed tab button
     this.tab = s.add.container(OTR.W - 92, OTR.H - 40).setDepth(this.depth - 1).setScrollFactor(0);
     const tg = OTR.tex.shape(s, (tg) => {
-      tg.fillStyle(0x16062B, 0.92); tg.fillRoundedRect(-80, -26, 160, 52, 16);
-      tg.lineStyle(2, 0xFF6600, 1); tg.strokeRoundedRect(-80, -26, 160, 52, 16);
+      tg.fillStyle(OTR_DATA.theme.primaryDeep, 0.92); tg.fillRoundedRect(-80, -26, 160, 52, 16);
+      tg.lineStyle(2, OTR_DATA.theme.accent, 1); tg.strokeRoundedRect(-80, -26, 160, 52, 16);
     });
     const ti = s.add.image(-48, 0, OTR.rig.itemTex(s, 'scanner')).setScale(0.62);
     const tt = OTR.txt(s, 12, -8, 'HANDHELD', 14, '#ffffff', { weight: '900', fit: 84 });   // between the icon and the edge
@@ -238,8 +238,8 @@ OTR.Handheld = class {
     this.clear();
     const x0 = this.sx, y0 = this.sy, w = this.sw, h = this.sh;
     const g = OTR.tex.shape(s, (g) => {
-      g.fillStyle(0xF4F1FA, 1); g.fillRoundedRect(x0, y0, w, h, 10);
-      g.fillStyle(def.color !== undefined ? def.color : 0x4D148C, 1); g.fillRoundedRect(x0, y0, w, 44, { tl: 10, tr: 10, bl: 0, br: 0 });
+      g.fillStyle(0xF1F5FA, 1); g.fillRoundedRect(x0, y0, w, h, 10);
+      g.fillStyle(def.color !== undefined ? def.color : OTR_DATA.theme.primary, 1); g.fillRoundedRect(x0, y0, w, 44, { tl: 10, tr: 10, bl: 0, br: 0 });
     });
     this.screen.add(g);
     this.screen.add(OTR.txt(s, x0 + 14, y0 + 22, def.title || '', 16, '#ffffff', { ox: 0, weight: '900' }));
@@ -248,7 +248,7 @@ OTR.Handheld = class {
     this.screen.add(this.clockText);
     let y = y0 + 58;
     if (def.back) {
-      const b = OTR.txt(s, x0 + w - 14, y0 + h - 16, '⌫ Back', 13, '#7A6A90', { ox: 1, weight: '800' });
+      const b = OTR.txt(s, x0 + w - 14, y0 + h - 16, '⌫ Back', 13, OTR_DATA.theme.css('muted'), { ox: 1, weight: '800' });
       b.setInteractive({ useHandCursor: true }).setScrollFactor(0);
       b.on('pointerup', () => { OTR.audio.play('back'); def.back(); });
       this.screen.add(b);
@@ -261,7 +261,7 @@ OTR.Handheld = class {
     if (def.card) { y = def.card(this.screen, x0 + 10, y, w - 20) + 8; }
     (def.lines || []).forEach(ln => {
       const L = typeof ln === 'string' ? { text: ln } : ln;
-      const t = OTR.txt(s, x0 + 14, y, L.text, L.size || 15, L.color || '#2A1A40', { ox: 0, oy: 0, bold: !!L.bold, weight: L.bold ? '900' : 'normal', wrap: w - 28, lineSpacing: 2 });
+      const t = OTR.txt(s, x0 + 14, y, L.text, L.size || 15, L.color || '#1c2c3e', { ox: 0, oy: 0, bold: !!L.bold, weight: L.bold ? '900' : 'normal', wrap: w - 28, lineSpacing: 2 });
       this.screen.add(t);
       y += t.height + 6;
     });
@@ -277,7 +277,7 @@ OTR.Handheld = class {
       this.optionBtns.push(btn);
       oy += bh + 6;
     });
-    if (def.footer) this.screen.add(OTR.txt(s, x0 + 14, y0 + h - 16, def.footer, 12, '#9A8AB0', { ox: 0, bold: false }));
+    if (def.footer) this.screen.add(OTR.txt(s, x0 + 14, y0 + h - 16, def.footer, 12, OTR_DATA.theme.css('mutedLight'), { ox: 0, bold: false }));
     return this;
   }
 
@@ -287,11 +287,11 @@ OTR.Handheld = class {
       const ph = 150;
       const pad = OTR.tex.shape(s, (pad) => {
         pad.fillStyle(0xFFFFFF, 1); pad.fillRoundedRect(x0 + 10, y, w - 20, ph, 8);
-        pad.lineStyle(2, 0xC9B3F0, 1); pad.strokeRoundedRect(x0 + 10, y, w - 20, ph, 8);
-        pad.lineStyle(1, 0x9A8AB0, 1); pad.lineBetween(x0 + 30, y + ph - 34, x0 + w - 30, y + ph - 34);
+        pad.lineStyle(2, OTR_DATA.theme.tint, 1); pad.strokeRoundedRect(x0 + 10, y, w - 20, ph, 8);
+        pad.lineStyle(1, OTR_DATA.theme.mutedLight, 1); pad.lineBetween(x0 + 30, y + ph - 34, x0 + w - 30, y + ph - 34);
       });
       this.screen.add(pad);
-      this.screen.add(OTR.txt(s, x0 + 30, y + ph - 20, '✕  sign above', 11, '#9A8AB0', { ox: 0, bold: false }));
+      this.screen.add(OTR.txt(s, x0 + 30, y + ph - 20, '✕  sign above', 11, OTR_DATA.theme.css('mutedLight'), { ox: 0, bold: false }));
       const ink = OTR.tex.liveShape(s);
       this.screen.add(ink);
       // animated scribble
@@ -306,7 +306,7 @@ OTR.Handheld = class {
         delay: 22, repeat: pts.length - 2, callback: () => {
           const upTo = k;
           ink.redraw((g) => {
-            g.lineStyle(3, 0x1D1030, 1);
+            g.lineStyle(3, OTR_DATA.theme.ink, 1);
             for (let j = 1; j <= upTo; j++) g.lineBetween(pts[j - 1].x, pts[j - 1].y, pts[j].x, pts[j].y);
           });
           k++;
@@ -320,12 +320,12 @@ OTR.Handheld = class {
       const st = wd.stop;
       const card = OTR.tex.shape(s, (card) => {
         card.fillStyle(0xFFFFFF, 1); card.fillRoundedRect(x0 + 10, y, w - 20, 140, 10);
-        card.lineStyle(2, 0xE0D4F2, 1); card.strokeRoundedRect(x0 + 10, y, w - 20, 140, 10);
+        card.lineStyle(2, 0xD6E2F0, 1); card.strokeRoundedRect(x0 + 10, y, w - 20, 140, 10);
       });
       this.screen.add(card);
-      this.screen.add(OTR.txt(s, x0 + 24, y + 12, `STOP ${st.index || ''}`, 12, '#FF6600', { ox: 0, oy: 0, weight: '900' }));
-      this.screen.add(OTR.txt(s, x0 + 24, y + 30, `${st.number} ${st.street}${st.unit ? ' #' + st.unit : ''}`, 19, '#1D1030', { ox: 0, oy: 0, weight: '900' }));
-      this.screen.add(OTR.txt(s, x0 + 24, y + 58, st.to || '', 15, '#3A2A50', { ox: 0, oy: 0, bold: false }));
+      this.screen.add(OTR.txt(s, x0 + 24, y + 12, `STOP ${st.index || ''}`, 12, OTR_DATA.theme.css('accent'), { ox: 0, oy: 0, weight: '900' }));
+      this.screen.add(OTR.txt(s, x0 + 24, y + 30, `${st.number} ${st.street}${st.unit ? ' #' + st.unit : ''}`, 19, OTR_DATA.theme.css('ink'), { ox: 0, oy: 0, weight: '900' }));
+      this.screen.add(OTR.txt(s, x0 + 24, y + 58, st.to || '', 15, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false }));
       let fx = x0 + 24;
       (wd.flags || []).forEach(f => {
         const t = OTR.txt(s, 0, 0, f.text, 11, '#ffffff', { weight: '900' });
@@ -335,7 +335,7 @@ OTR.Handheld = class {
         this.screen.add([fg, t]);
         fx += fw + 6;
       });
-      if (st.note) this.screen.add(OTR.txt(s, x0 + 24, y + 116, '✎ ' + st.note, 12, '#6A5A80', { ox: 0, oy: 0, italic: true, bold: false, wrap: w - 50 }));
+      if (st.note) this.screen.add(OTR.txt(s, x0 + 24, y + 116, '✎ ' + st.note, 12, '#5c6c7e', { ox: 0, oy: 0, italic: true, bold: false, wrap: w - 50 }));
       return y + 146;
     }
     return y;

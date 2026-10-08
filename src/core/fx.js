@@ -38,7 +38,7 @@ OTR.fx = {
       gravityY: 700,
       rotate: { start: 0, end: 720 },
       alpha: { start: 1, end: 0.2 },
-      tint: [0xFF6600, 0x4D148C, 0xFFC83D, 0x2BC48A, 0x3DA5FF, 0xFF5C8A, 0xFFFFFF],
+      tint: [OTR_DATA.theme.accent, OTR_DATA.theme.primary, 0xFFC83D, 0x2BC48A, 0x3DA5FF, 0xFF5C8A, 0xFFFFFF],
       emitting: false
     });
     em.setDepth(o.depth || 950);
@@ -57,7 +57,7 @@ OTR.fx = {
 
   floatText(scene, x, y, text, color, o) {
     o = o || {};
-    const t = OTR.txt(scene, x, y, text, o.size || 28, color || '#ffffff', { stroke: '#1D1030', strokeW: 6, weight: '900' });
+    const t = OTR.txt(scene, x, y, text, o.size || 28, color || '#ffffff', { stroke: OTR_DATA.theme.css('ink'), strokeW: 6, weight: '900' });
     t.setDepth(o.depth || 960).setScale(0.4);
     scene.tweens.add({ targets: t, scale: 1, duration: 180, ease: 'Back.out' });
     scene.tweens.add({
@@ -107,8 +107,8 @@ OTR.fx = {
     scene._leaving = true;
     OTR.audio.play('whoosh');
     const c = scene.add.container(0, 0).setDepth(10000).setScrollFactor(0);
-    const r1 = scene.add.rectangle(0, 0, OTR.W + 200, OTR.H, 0x4D148C).setOrigin(0, 0);
-    const r2 = scene.add.rectangle(OTR.W + 200, 0, 40, OTR.H, 0xFF6600).setOrigin(0, 0);
+    const r1 = scene.add.rectangle(0, 0, OTR.W + 200, OTR.H, OTR_DATA.theme.primary).setOrigin(0, 0);
+    const r2 = scene.add.rectangle(OTR.W + 200, 0, 40, OTR.H, OTR_DATA.theme.accent).setOrigin(0, 0);
     c.add([r1, r2]);
     c.x = -(OTR.W + 260);
     scene.input.enabled = false;
@@ -125,8 +125,8 @@ OTR.fx = {
     scene._leaving = false;
     if (OTR.a11y) OTR.a11y.applyColour(scene);
     const c = scene.add.container(-60, 0).setDepth(10000).setScrollFactor(0);
-    const r1 = scene.add.rectangle(0, 0, OTR.W + 200, OTR.H, 0x4D148C).setOrigin(0, 0);
-    const r2 = scene.add.rectangle(OTR.W + 200, 0, 40, OTR.H, 0xFF6600).setOrigin(0, 0);
+    const r1 = scene.add.rectangle(0, 0, OTR.W + 200, OTR.H, OTR_DATA.theme.primary).setOrigin(0, 0);
+    const r2 = scene.add.rectangle(OTR.W + 200, 0, 40, OTR.H, OTR_DATA.theme.accent).setOrigin(0, 0);
     c.add([r1, r2]);
     scene.tweens.add({ targets: c, x: OTR.W + 60, duration: 380, ease: 'Cubic.out', delay: 40, onComplete: () => c.destroy() });
   }

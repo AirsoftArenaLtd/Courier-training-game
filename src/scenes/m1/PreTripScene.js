@@ -62,7 +62,7 @@ class PreTripScene extends BaseScenarioScene {
     // view arrows
     this.leftArrow = this.viewButton(52, '◀', () => this.turn(-1));
     this.rightArrow = this.viewButton(OTR.W - 52, '▶', () => this.turn(1));
-    this.viewLabel = OTR.txt(this, OTR.W / 2, 84, '', 20, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 5 }).setScrollFactor(0).setDepth(820);
+    this.viewLabel = OTR.txt(this, OTR.W / 2, 84, '', 20, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 5 }).setScrollFactor(0).setDepth(820);
     this.cabBtn = OTR.ui.button(this, OTR.W / 2, OTR.H - 54, 'Climb into the cab (C)', () => this.toggleCab(), { w: 280, h: 46, skin: 'purple', fontSize: 16, key: 'C' });
     this.cabBtn.setDepth(820).setScrollFactor(0);
     this.signBtn = OTR.ui.button(this, OTR.W - 190, OTR.H - 54, 'Sign off ▶', () => this.signOff(), { w: 220, h: 48, skin: 'orange', fontSize: 17 });
@@ -73,8 +73,8 @@ class PreTripScene extends BaseScenarioScene {
     ['keydown-LEFT', 'keydown-A'].forEach(k => OTR.onKey(this, k, walk(-1)));
     ['keydown-RIGHT', 'keydown-D'].forEach(k => OTR.onKey(this, k, walk(1)));
     OTR.onKey(this, 'keydown-L', () => { if (this.running && this.view === 'cab' && !(this._openModals > 0)) this.toggleLights(); });
-    OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
-    OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, '#C9B3F0', { weight: '900', stroke: '#16062B', strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
+    OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
+    OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
   }
 
   toggleLights() {
@@ -87,8 +87,8 @@ class PreTripScene extends BaseScenarioScene {
   viewButton(x, label, onClick) {
     const c = this.add.container(x, OTR.H / 2).setDepth(820).setScrollFactor(0);
     const g = OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x16062B, 0.7); g.fillCircle(0, 0, 34);
-      g.lineStyle(2, 0xFF6600, 0.9); g.strokeCircle(0, 0, 34);
+      g.fillStyle(OTR_DATA.theme.primaryDeep, 0.7); g.fillCircle(0, 0, 34);
+      g.lineStyle(2, OTR_DATA.theme.accent, 0.9); g.strokeCircle(0, 0, 34);
     });
     const t = OTR.txt(this, 0, -2, label, 28, '#ffffff', { weight: '900' });
     const hit = this.add.zone(0, 0, 76, 76).setInteractive({ useHandCursor: true }).setScrollFactor(0);
@@ -148,7 +148,7 @@ class PreTripScene extends BaseScenarioScene {
       const marked = this.marks[it.id];
       const col = marked === 'pass' ? 0x2BC48A : marked === 'flag' ? 0xF0435A : 0xFFC83D;
       const halo = OTR.tex.shape(this, (g) => {
-        g.fillStyle(0x16062B, 0.55); g.fillCircle(0, 0, 25);
+        g.fillStyle(OTR_DATA.theme.primaryDeep, 0.55); g.fillCircle(0, 0, 25);
         g.lineStyle(2, 0xFFFFFF, 0.85); g.strokeCircle(0, 0, 25);
       }, x, y);
       this.spotLayer.add(halo);
@@ -187,7 +187,7 @@ class PreTripScene extends BaseScenarioScene {
 
   showTip(text, x, y) {
     this.hideTip();
-    this.tip = OTR.txt(this, x, y, text, 15, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 5 }).setDepth(900);
+    this.tip = OTR.txt(this, x, y, text, 15, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 5 }).setDepth(900);
   }
 
   hideTip() { if (this.tip) { this.tip.destroy(); this.tip = null; } }
@@ -208,24 +208,24 @@ class PreTripScene extends BaseScenarioScene {
     const names = { front: 'FRONT', driver: 'DRIVER SIDE', rear: 'REAR', passenger: 'CURB SIDE', cab: 'IN THE CAB' };
     const w = 260, h = 108 + here.length * 24;
     c.add(OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.82); g.fillRoundedRect(-w / 2, 72, w, h, 14);
-      g.lineStyle(2, 0x6A45A0, 0.7); g.strokeRoundedRect(-w / 2, 72, w, h, 14);
+      g.fillStyle(OTR_DATA.theme.night, 0.82); g.fillRoundedRect(-w / 2, 72, w, h, 14);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.7); g.strokeRoundedRect(-w / 2, 72, w, h, 14);
     }));
-    c.add(OTR.txt(this, -w / 2 + 14, 92, 'CHECKLIST  ' + done + '/' + items.length, 13, '#FF9447', { ox: 0, weight: '900' }));
-    const bar = OTR.ui.bar(this, -w / 2 + 14, 112, w - 28, 8, { color: 0xFF6600, bgAlpha: 0.35 });
+    c.add(OTR.txt(this, -w / 2 + 14, 92, 'CHECKLIST  ' + done + '/' + items.length, 13, OTR_DATA.theme.css('accentLight'), { ox: 0, weight: '900' }));
+    const bar = OTR.ui.bar(this, -w / 2 + 14, 112, w - 28, 8, { color: OTR_DATA.theme.accent, bgAlpha: 0.35 });
     bar.setValue(done / items.length);
     c.add(bar);
-    c.add(OTR.txt(this, -w / 2 + 14, 134, names[this.view] || '', 12, '#C9B3F0', { ox: 0, weight: '900' }));
+    c.add(OTR.txt(this, -w / 2 + 14, 134, names[this.view] || '', 12, OTR_DATA.theme.css('tint'), { ox: 0, weight: '900' }));
     let y = 158;
     here.forEach(it => {
       const m = this.marks[it.id];
-      const col = m === 'pass' ? '#8BF0C6' : m === 'flag' ? '#FF9A9A' : '#F4ECFF';
+      const col = m === 'pass' ? '#8BF0C6' : m === 'flag' ? '#FF9A9A' : OTR_DATA.theme.css('paperTint');
       const icon = m === 'pass' ? '\u2713' : m === 'flag' ? '!' : '\u00b7';
       c.add(OTR.txt(this, -w / 2 + 16, y, icon + ' ' + it.name, 12, col, { ox: 0, bold: false }));
       y += 24;
     });
     const left = items.length - done;
-    c.add(OTR.txt(this, -w / 2 + 16, 72 + h - 20, left ? left + ' still to check' : 'All checked \u2014 sign off', 12, left ? '#9A8AB0' : '#8BF0C6', { ox: 0, bold: false }));
+    c.add(OTR.txt(this, -w / 2 + 16, 72 + h - 20, left ? left + ' still to check' : 'All checked \u2014 sign off', 12, left ? OTR_DATA.theme.css('mutedLight') : '#8BF0C6', { ox: 0, bold: false }));
     this.signBtn.setEnabled(done === items.length);
   }
 
@@ -346,7 +346,7 @@ class PreTripScene extends BaseScenarioScene {
     const m = OTR.ui.modal(this, {
       w: 640, h: 560, escClose: true, depth: 5000,
       build: (box, api, w, h) => {
-        box.add(OTR.txt(s, 0, -h / 2 + 34, item.name.toUpperCase(), 17, '#FF6600', { weight: '900' }));
+        box.add(OTR.txt(s, 0, -h / 2 + 34, item.name.toUpperCase(), 17, OTR_DATA.theme.css('accent'), { weight: '900' }));
         build(box, { box, api }, w, h);
         passBtn = OTR.ui.button(s, -110, h / 2 - 48, 'Pass (P)', () => api.close(() => onDecide('pass')), { w: 190, h: 50, skin: 'green', fontSize: 18, key: 'P' });
         flagBtn = OTR.ui.button(s, 110, h / 2 - 48, 'Flag defect (F)', () => api.close(() => onDecide('flag')), { w: 190, h: 50, skin: 'red', fontSize: 18, key: 'F' });
@@ -432,11 +432,11 @@ class PreTripScene extends BaseScenarioScene {
         let y = -h / 2 + 108;
         for (let i = 0; i < rows.length; i++) {
           const r = rows[i];
-          const t = OTR.txt(this, -w / 2 + 62, y, r.text, 15, '#250849', { ox: 0, oy: 0, bold: false, wrap: w - 120 });
+          const t = OTR.txt(this, -w / 2 + 62, y, r.text, 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, oy: 0, bold: false, wrap: w - 120 });
           let hgt = t.height + 10;
           let sub = null;
           if (r.sub) {
-            sub = OTR.txt(this, -w / 2 + 62, y + hgt - 4, r.sub, 13, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: w - 140 });
+            sub = OTR.txt(this, -w / 2 + 62, y + hgt - 4, r.sub, 13, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false, wrap: w - 140 });
             hgt += sub.height + 8;
           }
           const room = i === rows.length - 1 ? limit : limit - 40;   // leave space for the summary line
@@ -451,7 +451,7 @@ class PreTripScene extends BaseScenarioScene {
               return `${list.length} ${more}${label} (${names})`;
             };
             const parts = [group('missed', 'missed'), group('flagged', 'wrongly flagged'), group('caught', 'caught')].filter(Boolean);
-            box.add(OTR.txt(this, -w / 2 + 62, y + 2, '+ ' + parts.join(' · '), 14, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: w - 120 }));
+            box.add(OTR.txt(this, -w / 2 + 62, y + 2, '+ ' + parts.join(' · '), 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false, wrap: w - 120 }));
             break;
           }
           box.add(this.add.image(-w / 2 + 40, y + 10, r.icon).setDisplaySize(16, 16).setTint(r.col));

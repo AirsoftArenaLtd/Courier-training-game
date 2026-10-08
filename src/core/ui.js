@@ -33,7 +33,7 @@ OTR.ui = {
     }
     let capW = 0;
     if (o.hint && label) {
-      const cap = OTR.ui.keyCap(scene, 0, 0, o.hint, { size: 12, bg: skin === 'ghost' ? 0xEFE7FA : 0xFFFFFF });
+      const cap = OTR.ui.keyCap(scene, 0, 0, o.hint, { size: 12, bg: skin === 'ghost' ? 0xE8F0F9 : 0xFFFFFF });
       capW = cap.capW;
       cap.x = w / 2 - 12 - capW / 2;
       c.add(cap);
@@ -200,7 +200,7 @@ OTR.ui = {
       g.fillRoundedRect(0, -h / 2, w, h, h / 2);
       const fw = w * v;
       if (fw > 1) {
-        const col = typeof o.color === 'function' ? o.color(v) : (o.color || 0xFF6600);
+        const col = typeof o.color === 'function' ? o.color(v) : (o.color || OTR_DATA.theme.accent);
         g.fillStyle(col, 1);
         g.fillRoundedRect(0, -h / 2, Math.max(fw, Math.min(h, w)), h, Math.min(h / 2, fw / 2));
         g.fillStyle(0xFFFFFF, 0.25);
@@ -270,19 +270,19 @@ OTR.ui = {
       scene._openModals = Math.max(0, (scene._openModals || 1) - 1);
       scene._modalStack = (scene._modalStack || []).filter(m => m !== root);
     });
-    const dim = scene.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x0B0418, 0.65).setScrollFactor(0).setInteractive();
+    const dim = scene.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0x050D17, 0.65).setScrollFactor(0).setInteractive();
     root.add(dim);
     const box = scene.add.container(OTR.W / 2, OTR.H / 2);
     root.add(box);
-    box.add(OTR.ui.panel(scene, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
+    box.add(OTR.ui.panel(scene, 0, 0, w, h, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 22 }));
     let y = -h / 2 + 44;
     if (o.title) {
-      const t = OTR.txt(scene, 0, y, o.title, o.titleSize || 32, '#4D148C', { weight: '900', align: 'center', wrap: w - 60 });
+      const t = OTR.txt(scene, 0, y, o.title, o.titleSize || 32, OTR_DATA.theme.css('primary'), { weight: '900', align: 'center', wrap: w - 60 });
       box.add(t);
       y += t.height / 2 + 26;
     }
     if (o.body) {
-      const b = OTR.txt(scene, 0, y, o.body, o.bodySize || 19, '#3A2A50', { bold: false, align: 'center', wrap: w - 80, oy: 0, lineSpacing: 4 });
+      const b = OTR.txt(scene, 0, y, o.body, o.bodySize || 19, OTR_DATA.theme.css('inkSoft'), { bold: false, align: 'center', wrap: w - 80, oy: 0, lineSpacing: 4 });
       box.add(b);
     }
     let closed = false;
@@ -373,9 +373,9 @@ OTR.ui = {
     const t = OTR.txt(scene, 0, 0, text, o.size || 20, '#ffffff', { align: 'center', wrap: 760 });
     const w = Math.max(260, t.width + 50), h = t.height + 26;
     const g = OTR.tex.shape(scene, (g) => {
-      g.fillStyle(o.color || 0x250849, 0.95);
+      g.fillStyle(o.color || OTR_DATA.theme.primaryDark, 0.95);
       g.fillRoundedRect(-w / 2, -h / 2, w, h, h / 2);
-      g.lineStyle(2, o.border || 0xFF6600, 1);
+      g.lineStyle(2, o.border || OTR_DATA.theme.accent, 1);
       g.strokeRoundedRect(-w / 2, -h / 2, w, h, h / 2);
     });
     c.add([g, t]);
@@ -393,7 +393,7 @@ OTR.ui = {
   keyCap(scene, x, y, label, o) {
     o = o || {};
     const c = scene.add.container(x, y);
-    const t = OTR.txt(scene, 0, -1, label, o.size || 14, o.color || '#4D148C', { weight: '900' });
+    const t = OTR.txt(scene, 0, -1, label, o.size || 14, o.color || OTR_DATA.theme.css('primary'), { weight: '900' });
     const w = Math.max(24, t.width + 12), h = (o.size || 14) + 12;
     c.capW = w;
     const g = OTR.tex.shape(scene, (g) => {
@@ -421,13 +421,13 @@ OTR.ui = {
       w: 620, h: 340, focus: false,
       build(box) {
         const fg = OTR.tex.shape(scene, (fg) => {
-          fg.fillStyle(0x4D148C, 0.08); fg.fillRoundedRect(-230, -40, 460, 70, 14);
-          fg.lineStyle(3, 0xFF6600, 1); fg.strokeRoundedRect(-230, -40, 460, 70, 14);
+          fg.fillStyle(OTR_DATA.theme.primary, 0.08); fg.fillRoundedRect(-230, -40, 460, 70, 14);
+          fg.lineStyle(3, OTR_DATA.theme.accent, 1); fg.strokeRoundedRect(-230, -40, 460, 70, 14);
         });
-        field = OTR.txt(scene, 0, -5, value, 34, '#250849', { weight: '900' });
-        caret = scene.add.rectangle(0, -5, 4, 38, 0xFF6600);
-        hint = OTR.txt(scene, 0, 56, HINT, 15, '#7A6A90', { bold: false });
-        count = OTR.txt(scene, 222, 14, '', 12, '#9A8AB0', { ox: 1, weight: '800' });
+        field = OTR.txt(scene, 0, -5, value, 34, OTR_DATA.theme.css('primaryDark'), { weight: '900' });
+        caret = scene.add.rectangle(0, -5, 4, 38, OTR_DATA.theme.accent);
+        hint = OTR.txt(scene, 0, 56, HINT, 15, OTR_DATA.theme.css('muted'), { bold: false });
+        count = OTR.txt(scene, 222, 14, '', 12, OTR_DATA.theme.css('mutedLight'), { ox: 1, weight: '800' });
         box.add([fg, field, caret, hint, count]);
         scene.tweens.add({ targets: caret, alpha: 0, duration: 450, yoyo: true, repeat: -1 });
       },
@@ -441,7 +441,7 @@ OTR.ui = {
     const say = (msg) => {
       hint.setText(msg).setColor('#C8243B');
       if (hintTimer) hintTimer.remove();
-      hintTimer = scene.time.delayedCall(1800, () => hint.setText(HINT).setColor('#7A6A90'));
+      hintTimer = scene.time.delayedCall(1800, () => hint.setText(HINT).setColor(OTR_DATA.theme.css('muted')));
     };
     const refresh = () => {
       field.setText(o.pin ? '•'.repeat(value.length) || ' ' : value || ' ');
@@ -524,7 +524,7 @@ OTR.ui = {
       drawn = key;
       ring.setVisible(true).redraw((g) => {
         const w = b.w + 12, h = b.h + 12, r = Math.min(18, h / 2);
-        g.lineStyle(6, 0x250849, 0.55); g.strokeRoundedRect(b.x - w / 2, b.y - h / 2, w, h, r);
+        g.lineStyle(6, OTR_DATA.theme.primaryDark, 0.55); g.strokeRoundedRect(b.x - w / 2, b.y - h / 2, w, h, r);
         g.lineStyle(3, 0xFFC83D, 1); g.strokeRoundedRect(b.x - w / 2, b.y - h / 2, w, h, r);
       });
     };
