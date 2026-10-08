@@ -43,6 +43,8 @@ trainee is comes from:
    authentication, an SSO proxy, a load balancer) and have it pass the user name in `X-Remote-User`. Set
    `OTR_ALLOW_QUERY_USER=0` so the link below can't be used to open someone else's progress.
 2. **The launch link**: an intranet page that knows who is signed in opens `https://training.example/?user=jdoe`.
+3. **An employee ID and password** typed on the game's own sign-in screen, for a company with neither of the above.
+   Start the server with `OTR_ACCOUNTS=1`; trainers create the accounts. See [`docs/SIGN-IN.md`](docs/SIGN-IN.md).
 
 Display names come from an `X-Remote-Name` header or `server/trainees.json` (`{ "jdoe": "Jane Doe" }`). Settings
 (environment variables, or the same names in `server/config.json`):
@@ -52,8 +54,9 @@ Display names come from an `X-Remote-Name` header or `server/trainees.json` (`{ 
 | `OTR_PORT` | 8080 | Port to serve on |
 | `OTR_DATA_DIR` | `server/data` | Where progress and academy settings are kept (back this up) |
 | `OTR_USER_HEADER` / `OTR_NAME_HEADER` | `x-remote-user` / `x-remote-name` | The sign-in headers |
-| `OTR_ALLOW_QUERY_USER` | 1 | Accept `?user=` on the link |
+| `OTR_ALLOW_QUERY_USER` | 1 (0 with accounts on) | Accept `?user=` on the link |
 | `OTR_TRAINER_PIN` | none | Turns on the trainer tools |
+| `OTR_ACCOUNTS` | on if `accounts.json` exists | Employee ID and password sign-in (`docs/SIGN-IN.md` has its other settings) |
 
 If the server can't be reached mid-session, progress is kept on that PC and sent the next time it answers.
 
@@ -260,7 +263,8 @@ Console helpers (with `?dev=1`): `OTR.debug.start('m5-pod')`, `OTR.debug.finishN
 and fails on any crash, layout fault or playthrough that does not finish and score the way it should. See
 [`test/README.md`](test/README.md) for how to run it and add to it, and [`docs/QA-REPORT.md`](docs/QA-REPORT.md) for
 what the last full pass found and fixed. `node test/enterprise.js` checks the sign-in and progress storage (the
-training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/academy.js` checks
+training server, SCORM 1.2 and 2004 with a stand-in LMS, and browser-only mode); `node test/auth.js` (no browser)
+and `node test/signin.js` check the employee ID and password sign-in; `node test/academy.js` checks
 assessments, the trainer tools and the trainee record. `node test/i18n.js` checks the translations, and
 `QA_LANG=es node test/qa.js` plays the whole suite in Spanish, so the layout audit checks the translated text fits.
 

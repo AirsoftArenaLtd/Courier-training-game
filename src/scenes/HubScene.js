@@ -401,7 +401,7 @@ class HubScene extends Phaser.Scene {
   openSettings() {
     // volume and the route-day checklist, besides the profile (SHELL-12)
     OTR.ui.modal(this, {
-      title: 'Settings', w: 540, h: OTR.identity.locked ? 520 : 600, escClose: true,
+      title: 'Settings', w: 540, h: OTR.identity.locked && !OTR.identity.session ? 520 : 600, escClose: true,
       build: (box, api, w, h) => {
         const top = -h / 2;
         // trainer tools, behind the PIN, in the corner away from a trainee's own settings
@@ -455,6 +455,8 @@ class HubScene extends Phaser.Scene {
           }));
         }, { w: 300, h: 56, skin: 'purple' }));
         box.add(OTR.ui.button(this, 0, 90, 'Back to Title', () => OTR.fx.transition(this, 'TitleScene'), { w: 300, h: 56, skin: 'ghost' }));
+        // signed in with an employee ID and password: a shared PC is handed over by signing out
+        if (OTR.identity.session) box.add(OTR.ui.button(this, 0, 160, 'Sign out', () => api.close(() => OTR.signin.signOut()), { w: 300, h: 56, skin: 'ghost' }));
         if (!locked) box.add(OTR.ui.button(this, 0, 160, 'Reset All Progress', () => {
           OTR.ui.confirm(this, 'Reset all progress?', 'This permanently deletes your profile, rank, stars and shift history.', () => {
             OTR.save.reset();

@@ -12,14 +12,25 @@
  *      (default "x-remote-name") or from server/trainees.json ({ "jdoe": "Jane Doe", ... }).
  *   2. ?user=<id> on the launch link (a portal or intranet page that already knows who is signed in). Turn this off
  *      with OTR_ALLOW_QUERY_USER=0 once a sign-in header is in place, so nobody can open someone else's progress.
- * With neither, the game falls back to saving in the browser.
+ *   3. an employee ID and password typed on the game's sign-in screen, when accounts are on (OTR_ACCOUNTS=1, or a
+ *      server/data/accounts.json exists). A trainer creates the accounts; see docs/SIGN-IN.md. ?user= links are then
+ *      off unless OTR_ALLOW_QUERY_USER=1 is set, so nobody can skip the password.
+ * With none of these, the game falls back to saving in the browser.
  *
  * Settings (environment variables, or the same names in server/config.json):
  *   OTR_PORT (8080) · OTR_HOST (0.0.0.0) · OTR_DATA_DIR (server/data) · OTR_USER_HEADER · OTR_NAME_HEADER
- *   OTR_ALLOW_QUERY_USER (1) · OTR_TRAINER_PIN (none: trainer tools are off until one is set)
+ *   OTR_ALLOW_QUERY_USER (1, or 0 with accounts on) · OTR_TRAINER_PIN (none: trainer tools are off until one is set)
+ *   OTR_ACCOUNTS (on when accounts.json exists; 1 on, 0 off) · OTR_SESSION_HOURS (10) · OTR_SESSION_IDLE_MINUTES (120)
+ *   OTR_LOCK_AFTER (5) · OTR_LOCK_MINUTES (15) · OTR_COOKIE_SECURE (auto: on over HTTPS; 1 always)
  *
  * API (JSON):
- *   GET  api/whoami                 { id, name, trainerPinSet } or { id: null }
+ *   GET  api/whoami                 { id, name, trainerPinSet } or { id: null }; with accounts on also accounts: true,
+ *                                   session: true (signed in by password) or mustChange: true (must choose a password)
+ *                                   and idRule: { pattern, chars, max }, what an employee ID may be (server/auth.js)
+ *   With accounts on (JSON bodies, Content-Type: application/json):
+ *   POST api/signin                 body { id, password }: sets the session cookie; { ok, mustChange }
+ *   POST api/password               body { password, current }: a new password (current not needed after a temporary one)
+ *   POST api/signout                ends the session
  *   GET  api/progress               { progress } for the signed-in trainee
  *   PUT  api/progress (POST too)    body { progress }
  *   GET  api/settings               the academy settings (pass marks, required mode): everyone reads them
@@ -30,12 +41,18 @@
  *   GET  api/trainees/<id>          { id, progress }
  *   DELETE api/trainees/<id>        resets that trainee (their old file is kept as <id>.json.<time>.bak)
  *   POST api/trainees/<id>/allow    one more attempt at every assessment they have not passed
+ *   With accounts on, trainer only:
+ *   GET  api/accounts               [{ id, name, mustChange, locked, createdAt, changedAt }]
+ *   POST api/accounts               body { id, name }: { id, name, tempPassword } (shown once, never stored)
+ *   POST api/accounts/<id>/reset    { tempPassword }: unlocks the account and signs it out everywhere
+ *   DELETE api/accounts/<id>        removes the sign-in (progress stays)
  */
 'use strict';
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const auth = require('./auth.js');
 
 const ROOT = path.resolve(__dirname, '..');
 let fileCfg = {};
@@ -47,15 +64,58 @@ const HOST = cfg('OTR_HOST', '0.0.0.0');
 const DATA = path.resolve(ROOT, cfg('OTR_DATA_DIR', 'server/data'));
 const USER_HEADER = String(cfg('OTR_USER_HEADER', 'x-remote-user')).toLowerCase();
 const NAME_HEADER = String(cfg('OTR_NAME_HEADER', 'x-remote-name')).toLowerCase();
-const ALLOW_QUERY = String(cfg('OTR_ALLOW_QUERY_USER', '1')) !== '0';
 const PIN = cfg('OTR_TRAINER_PIN', '') ? String(cfg('OTR_TRAINER_PIN', '')) : '';
 const PROGRESS = path.join(DATA, 'progress');
 fs.mkdirSync(PROGRESS, { recursive: true });
+// employee ID and password sign-in (server/auth.js): off unless asked for, so an existing install behaves as before
+const ACCOUNTS_FILE = path.join(DATA, 'accounts.json');
+const ACC_FLAG = String(cfg('OTR_ACCOUNTS', ''));
+const accounts = ACC_FLAG === '1' || (ACC_FLAG !== '0' && fs.existsSync(ACCOUNTS_FILE)) ? auth.createAuth({
+  file: ACCOUNTS_FILE,
+  sessionMs: Number(cfg('OTR_SESSION_HOURS', 10)) * 3600 * 1000,
+  idleMs: Number(cfg('OTR_SESSION_IDLE_MINUTES', 120)) * 60 * 1000,
+  lockAfter: Number(cfg('OTR_LOCK_AFTER', 5)),
+  lockMs: Number(cfg('OTR_LOCK_MINUTES', 15)) * 60 * 1000
+}) : null;
+// with passwords on, a ?user= link would skip them: off unless IT turns it back on
+const QUERY_FLAG = String(cfg('OTR_ALLOW_QUERY_USER', ''));
+const ALLOW_QUERY = QUERY_FLAG === '' ? !accounts : QUERY_FLAG !== '0';
+const COOKIE_SECURE = String(cfg('OTR_COOKIE_SECURE', ''));
+const secureReq = (req) => COOKIE_SECURE === '1' || (COOKIE_SECURE !== '0' && (!!req.socket.encrypted || req.headers['x-forwarded-proto'] === 'https'));
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json',
   '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.xml': 'application/xml', '.woff2': 'font/woff2' };
-// never served: the server itself, its data (everyone's progress) and the repository's own files
-const PRIVATE = [/^\/server(\/|$)/, /^\/\.git(\/|$)/, /^\/test(\/|$)/, /^\/docs(\/|$)/];
+/*
+ * Files served: only what the game is made of (an allow-list), never the server itself, its data (everyone's
+ * progress, the accounts file) or the repository's own files. Names are checked as Windows would read them too
+ * (any case, no 8.3 short names like SERVER~1, no trailing dots or spaces, no a:b streams or device names), and the
+ * file actually opened is checked again after links and short names are resolved.
+ */
+const PUBLIC_FILES = new Set(['index.html', 'first-person.html', 'imsmanifest.xml']);
+const PUBLIC_DIRS = new Set(['assets', 'css', 'data', 'lib', 'src']);
+const SAFE_PART = /^[A-Za-z0-9_][A-Za-z0-9_.-]*$/;          // no %, \, ~, :, spaces, or a leading dot ('..', '.git')
+const DEVICE = /^(con|prn|aux|nul|com\d|lpt\d|conin\$|conout\$)(\.|$)/i;
+const realOr = (p) => { try { return fs.realpathSync.native(p); } catch (e) { return path.resolve(p); } };
+const ROOT_REAL = realOr(ROOT);
+/** f is dir or inside it, compared without case (so it holds on Windows and macOS disks as well). */
+const within = (f, dir) => { const a = f.toLowerCase(), b = dir.toLowerCase().replace(/[\\/]+$/, ''); return a === b || a.startsWith(b + path.sep); };
+const PRIVATE_DIRS = [DATA, realOr(DATA), __dirname, realOr(__dirname)].concat(['.git', 'test', 'docs'].map(d => path.join(ROOT, d)));
+const privatePath = (f) => (!within(f, ROOT_REAL) && !within(f, ROOT)) || PRIVATE_DIRS.some(d => within(f, d));
+/** The file a URL path names, or null when it is not one of the game's files. */
+function publicFile(pathname) {
+  let p;
+  try { p = decodeURIComponent(pathname); } catch (e) { return null; }
+  if (p.endsWith('/')) p += 'index.html';
+  const parts = p.split('/');
+  if (parts.shift() !== '' || !parts.length) return null;
+  if (!parts.every(s => SAFE_PART.test(s) && !s.endsWith('.') && !DEVICE.test(s))) return null;
+  const top = parts[0].toLowerCase();
+  if (parts.length === 1 ? !PUBLIC_FILES.has(top) : !PUBLIC_DIRS.has(top)) return null;
+  const f = path.resolve(ROOT, ...parts);
+  const rel = path.relative(ROOT, f);
+  if (!rel || rel.startsWith('..') || path.isAbsolute(rel) || privatePath(f)) return null;
+  return f;
+}
 
 function roster() {
   try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'trainees.json'), 'utf8')); } catch (e) { return {}; }
@@ -64,6 +124,10 @@ function roster() {
 /** The signed-in trainee for a request, or null. Windows sign-ins ("CORP\\jdoe") keep only the account name. */
 function whoIs(req, url) {
   let id = req.headers[USER_HEADER];
+  if (!id && accounts) {
+    const s = accounts.session(auth.sidFrom(req));
+    if (s && !s.mustChange) return { id: s.id, name: s.name || roster()[s.id] || s.id, session: true };
+  }
   if (!id && ALLOW_QUERY) id = url.searchParams.get('user');
   if (!id) return null;
   id = String(id).trim().replace(/^.*\\/, '').slice(0, 120);
@@ -80,8 +144,8 @@ function writeJSON(f, obj) {
   fs.renameSync(tmp, f);            // atomic: a crash mid-write never leaves half a save
 }
 
-const send = (res, code, obj) => {
-  res.writeHead(code, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+const send = (res, code, obj, headers) => {
+  res.writeHead(code, Object.assign({ 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }, headers || {}));
   res.end(JSON.stringify(obj));
 };
 
@@ -120,14 +184,32 @@ async function api(req, res, url) {
   const route = url.pathname.replace(/^\/api\//, '');
   const who = whoIs(req, url);
   try {
-    if (route === 'whoami') return send(res, 200, who ? Object.assign({ trainerPinSet: !!PIN }, who) : { id: null, trainerPinSet: !!PIN });
+    if (route === 'whoami') {
+      const out = who ? Object.assign({ trainerPinSet: !!PIN }, who) : { id: null, trainerPinSet: !!PIN };
+      if (accounts) {
+        out.accounts = true;
+        out.idRule = auth.ID_RULE;                // what an employee ID may be, so the trainer tools ask for exactly that
+        const s = !who && accounts.session(auth.sidFrom(req));
+        if (s && s.mustChange) out.mustChange = true;
+      }
+      return send(res, 200, out);
+    }
+    // awaited here, so a bad body (malformed JSON) is answered by the catch below instead of escaping and stopping the server
+    if (accounts && (route === 'signin' || route === 'password' || route === 'signout')) return await signInApi(req, res, route);
+    if (accounts && (route === 'accounts' || route.startsWith('accounts/'))) {
+      const t = trainerOk(req); if (!t.ok) return send(res, t.code, { error: t.error });
+      return await accountsApi(req, res, route);
+    }
     if (route === 'progress') {
       if (!who) return send(res, 401, { error: 'Not signed in.' });
       const f = fileFor(who.id);
       if (req.method === 'GET') return send(res, 200, { id: who.id, progress: readJSON(f, null) });
       if (req.method === 'PUT' || req.method === 'POST') {
         const b = await body(req, 4 * 1024 * 1024);
-        if (!b || typeof b.progress !== 'object') return send(res, 400, { error: 'Expected { progress }.' });
+        // the sign-in may have ended (signed out, reset, removed) while the body arrived: check it again
+        const still = whoIs(req, url);
+        if (!still || still.id !== who.id) return send(res, 401, { error: 'Not signed in.' });
+        if (!b || typeof b.progress !== 'object' || b.progress === null) return send(res, 400, { error: 'Expected { progress }.' });
         const old = readJSON(f, null);
         // a stale tab must not overwrite newer progress from another PC
         if (old && (old.savedAt || 0) > (b.progress.savedAt || 0)) return send(res, 409, { error: 'A newer save exists.', savedAt: old.savedAt });
@@ -158,6 +240,12 @@ async function api(req, res, url) {
           const id = (p.profile && p.profile.id) || n.replace(/\.json$/, '');
           return { id, name: (p.profile && p.profile.name) || names[id] || id, savedAt: p.savedAt || null, summary: summary(p) };
         });
+        // with accounts on, everyone who can sign in is listed, trained yet or not
+        if (accounts) {
+          const seen = new Set(list.map(t => t.id));
+          list.forEach(t => { t.account = accounts.has(t.id); });
+          accounts.list().forEach(a => { if (!seen.has(a.id)) list.push({ id: a.id, name: a.name || names[a.id] || a.id, savedAt: null, summary: summary(null), account: true }); });
+        }
         return send(res, 200, list.sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0)));
       }
       let id = decodeURIComponent(route.slice('trainees/'.length));
@@ -184,16 +272,52 @@ async function api(req, res, url) {
   }
 }
 
+/** Sign-in, a new password, sign-out. A JSON body only: a form on another site cannot post one. */
+async function signInApi(req, res, route) {
+  const secure = secureReq(req);
+  if (req.method !== 'POST') return send(res, 405, { error: 'Use POST.' });
+  if (route === 'signout') {
+    accounts.signOut(auth.sidFrom(req));
+    return send(res, 200, { ok: true }, { 'Set-Cookie': auth.clearCookie(secure) });
+  }
+  if (!/^application\/json\b/i.test(req.headers['content-type'] || '')) return send(res, 415, { error: 'Expected a JSON body.' });
+  const b = await body(req, 4096);
+  const r = route === 'signin'
+    ? await accounts.signIn(b.id, b.password, req.socket.remoteAddress)
+    : await accounts.changePassword(auth.sidFrom(req), b.password, b.current);
+  if (!r.ok) {
+    const h = r.reason === 'expired' ? { 'Set-Cookie': auth.clearCookie(secure) } : {};
+    return send(res, r.status, { error: r.error, reason: r.reason }, h);
+  }
+  return send(res, 200, { ok: true, mustChange: !!r.mustChange }, { 'Set-Cookie': auth.cookie(r.sid, secure) });
+}
+
+/** A trainer's accounts: list, create, reset a password, remove. */
+async function accountsApi(req, res, route) {
+  const reply = (r) => send(res, r.ok ? 200 : r.status, r.ok ? r : { error: r.error, reason: r.reason });
+  if (route === 'accounts') {
+    if (req.method === 'GET') return send(res, 200, accounts.list());
+    if (req.method === 'POST') { const b = await body(req, 4096); return reply(await accounts.createAccount(b.id, b.name)); }
+  } else {
+    let id = decodeURIComponent(route.slice('accounts/'.length));
+    if (id.endsWith('/reset') && req.method === 'POST') return reply(await accounts.resetPassword(id.slice(0, -'/reset'.length)));
+    if (req.method === 'DELETE') return reply(accounts.removeAccount(id));
+  }
+  return send(res, 404, { error: 'No such API.' });
+}
+
 function serveFile(req, res, url) {
-  let p = decodeURIComponent(url.pathname);
-  if (p.endsWith('/')) p += 'index.html';
-  if (PRIVATE.some(r => r.test(p))) { res.writeHead(404); return res.end('Not found'); }
-  const f = path.join(ROOT, path.normalize(p));
-  if (!f.startsWith(ROOT + path.sep)) { res.writeHead(403); return res.end('Forbidden'); }
+  const notFound = () => { res.writeHead(404); res.end('Not found'); };
+  const f = publicFile(url.pathname);
+  if (!f) return notFound();
   fs.stat(f, (err, st) => {
-    if (err || !st.isFile()) { res.writeHead(404); return res.end('Not found'); }
+    if (err || !st.isFile()) return notFound();
+    // the data folder (progress, accounts) is never served, wherever OTR_DATA_DIR or a link puts it
+    let real;
+    try { real = fs.realpathSync.native(f); } catch (e) { return notFound(); }
+    if (privatePath(real)) return notFound();
     res.writeHead(200, { 'Content-Type': TYPES[path.extname(f).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
-    fs.createReadStream(f).pipe(res);
+    fs.createReadStream(real).pipe(res);
   });
 }
 
@@ -209,6 +333,7 @@ if (require.main === module) {
     console.log(`On The Route training server: http://localhost:${PORT}/`);
     console.log(`  trainee from: ${USER_HEADER} header${ALLOW_QUERY ? ' or ?user= on the link' : ' only'} · progress in ${DATA}`);
     console.log(`  trainer tools: ${PIN ? 'on (PIN set)' : 'off (set OTR_TRAINER_PIN)'}`);
+    if (accounts) console.log(`  sign-in: employee ID and password (${accounts.size} account${accounts.size === 1 ? '' : 's'}; docs/SIGN-IN.md)`);
   });
 }
-module.exports = { server };
+module.exports = { server, accounts, publicFile };

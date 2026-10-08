@@ -102,10 +102,12 @@ OTR.academy = {
     return Promise.resolve(true);
   },
 
-  /** Trainer calls on the server, with the PIN. */
-  trainerApi(pathname, method) {
-    return fetch('api/' + pathname, { method: method || 'GET', headers: { 'X-Trainer-Pin': this.pin || '' }, credentials: 'same-origin' })
-      .then(r => r.json().then(b => { if (!r.ok) throw new Error(b.error || 'HTTP ' + r.status); return b; }));
+  /** Trainer calls on the server, with the PIN (and a JSON body if given). A refusal throws, with the server's reason. */
+  trainerApi(pathname, method, body) {
+    const headers = { 'X-Trainer-Pin': this.pin || '' };
+    if (body !== undefined) headers['Content-Type'] = 'application/json';
+    return fetch('api/' + pathname, { method: method || 'GET', headers, credentials: 'same-origin', body: body !== undefined ? JSON.stringify(body) : undefined })
+      .then(r => r.json().then(b => { if (!r.ok) { const e = new Error(b.error || 'HTTP ' + r.status); e.reason = b.reason; throw e; } return b; }));
   },
 
   get() { return this.settings || (this.settings = this.defaults()); },

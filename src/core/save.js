@@ -132,7 +132,7 @@ OTR.save = {
     }
   },
 
-  /** Send the save to the server now (beacon: as the page closes). */
+  /** Send the save to the server now (beacon: as the page closes). Returns the request, for whoever waits on it. */
   flush(beacon) {
     const I = OTR.identity || {};
     if (this.ephemeral || !this.data) return;
@@ -141,7 +141,7 @@ OTR.save = {
     clearTimeout(this._putT);
     const body = JSON.stringify({ progress: this.data });
     if (beacon && navigator.sendBeacon) { navigator.sendBeacon(this.apiUrl(), new Blob([body], { type: 'application/json' })); return; }
-    fetch(this.apiUrl(), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body })
+    return fetch(this.apiUrl(), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body })
       .then(r => { this.failed = !r.ok; })
       .catch(() => { this.failed = true; });
   },
