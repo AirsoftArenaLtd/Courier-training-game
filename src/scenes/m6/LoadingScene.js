@@ -83,7 +83,7 @@ class LoadingScene extends BaseScenarioScene {
   drawSlots(highlight) {
     this.slotG.redraw((g) => this.slots.forEach(s => {
       const hot = highlight && highlight.indexOf(s) >= 0;
-      g.fillStyle(s.hazmat ? 0x3A2410 : 0x201B2A, hot ? 0.85 : 0.5);
+      g.fillStyle(s.hazmat ? 0x3A2410 : 0x1C2229, hot ? 0.85 : 0.5);
       g.fillRoundedRect(s.x, s.y, s.w, s.h, 8);
       g.lineStyle(hot ? 3 : 2, hot ? 0xFFC83D : (s.hazmat ? 0xE8A33D : 0x6A6478), hot ? 1 : 0.7);
       g.strokeRoundedRect(s.x, s.y, s.w, s.h, 8);
@@ -92,14 +92,14 @@ class LoadingScene extends BaseScenarioScene {
 
   buildPanel() {
     const px = 1090;
-    this.add.image(px, 388, OTR.tex.panel(this, 340, 600, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x6A45A0, radius: 18 })).setDepth(2);
-    this.panelTitle = OTR.txt(this, px, 116, this.mode === 'load' ? 'CART' : 'THIS STOP', 16, '#FF9447', { weight: '900' }).setDepth(3);
+    this.add.image(px, 388, OTR.tex.panel(this, 340, 600, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.mid, radius: 18 })).setDepth(2);
+    this.panelTitle = OTR.txt(this, px, 116, this.mode === 'load' ? 'CART' : 'THIS STOP', 16, OTR_DATA.theme.css('accentLight'), { weight: '900' }).setDepth(3);
     this.panelBody = this.add.container(0, 0).setDepth(3);
     this.hintText = OTR.txt(this, px, 630, '', 13, '#FFC83D', { align: 'center', wrap: 296, bold: false, lineSpacing: 2 }).setDepth(3);
 
     if (this.mode === 'load') {
       // the controls own the bottom of the panel; the cart is laid out above them (see layoutCart)
-      this.balanceLabel = OTR.txt(this, px - 150, 548, 'WEIGHT OVERHEAD', 12, '#C9B3F0', { ox: 0 }).setDepth(26);
+      this.balanceLabel = OTR.txt(this, px - 150, 548, 'WEIGHT OVERHEAD', 12, OTR_DATA.theme.css('tint'), { ox: 0 }).setDepth(26);
       this.balanceBar = OTR.ui.bar(this, px - 150, 570, 300, 12, { color: (v) => OTR.color.lerp(0x2BC48A, 0xF0435A, v), bgAlpha: 0.4 }).setDepth(26);
       this.strapBtn = OTR.ui.button(this, px, 606, 'Strap the floor load (T)', () => this.strapLoad(), { w: 300, h: 44, skin: 'purple', fontSize: 16, key: 'T' }).setDepth(26);
       this.doneBtn = OTR.ui.button(this, px, 658, 'Close up & roll out (R) ▶', () => this.finishLoad(), { w: 300, h: 46, skin: 'orange', fontSize: 17, key: 'R' }).setDepth(26);
@@ -114,8 +114,8 @@ class LoadingScene extends BaseScenarioScene {
     return OTR.tex.make(this, key, dims[0] + 26, dims[1] + 34, (ctx, w, h) => {
       const cv = OTR.cv;
       if (p.size === 'env') {
-        cv.rr(ctx, 4, 10, dims[0], dims[1], 3); ctx.fillStyle = '#F4F1FA'; ctx.fill();
-        ctx.fillStyle = '#4D148C'; ctx.fillRect(4, 10, dims[0], 6);
+        cv.rr(ctx, 4, 10, dims[0], dims[1], 3); ctx.fillStyle = '#f1f5fa'; ctx.fill();
+        ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(4, 10, dims[0], 6);
       } else {
         OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 16, x: 4, y: 22, color: p.hazmat ? 0xD8C9A8 : 0xC99A62 });
       }
@@ -127,7 +127,7 @@ class LoadingScene extends BaseScenarioScene {
       const lw = dims[0] - 12;
       const lh = env ? 20 : small ? 34 : 38;
       cv.rr(ctx, 8, ly, lw, lh, 2); ctx.fillStyle = '#fff'; ctx.fill();
-      ctx.fillStyle = '#1D1030'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       const num = `${p.number}${p.unit ? ' #' + p.unit : ''}`;
       if (env) cv.fitText(ctx, `${num} ${p.street || ''}`, 12, ly + 10, lw - 8, 15);
       else {
@@ -138,7 +138,7 @@ class LoadingScene extends BaseScenarioScene {
       const heavy = p.weight >= 35;
       if (!env) {
         const wy = ly + lh + (small ? 2 : 4), th = small ? 13 : 16;
-        cv.rr(ctx, 10, wy, small ? 40 : 46, th, 3); ctx.fillStyle = heavy ? '#E8304A' : '#3A2A50'; ctx.fill();
+        cv.rr(ctx, 10, wy, small ? 40 : 46, th, 3); ctx.fillStyle = heavy ? '#E8304A' : OTR_DATA.theme.css('inkSoft'); ctx.fill();
         ctx.fillStyle = '#fff'; ctx.font = `900 ${small ? 10 : 11}px "Segoe UI", Arial`; ctx.textAlign = 'left';
         ctx.fillText(`${p.weight} LB`, 13, wy + th / 2 + 0.5);
       }
@@ -148,7 +148,7 @@ class LoadingScene extends BaseScenarioScene {
       // the stop badge helps while loading; finding a package has to be done by reading its address (the badge
       // used to answer the rounds without it)
       if (this.mode === 'load') {
-        ctx.beginPath(); ctx.arc(dims[0] + 6, 16, 13, 0, Math.PI * 2); ctx.fillStyle = '#FF6600'; ctx.fill();
+        ctx.beginPath(); ctx.arc(dims[0] + 6, 16, 13, 0, Math.PI * 2); ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fill();
         ctx.fillStyle = '#fff'; ctx.font = '900 14px "Segoe UI", Arial'; ctx.textAlign = 'center';
         ctx.fillText(String(p.stop), dims[0] + 6, 17);
       }
@@ -420,7 +420,7 @@ class LoadingScene extends BaseScenarioScene {
     x = OTR.util.clamp(x, w / 2 + 10, 912 - w / 2);
     const y = OTR.util.clamp(img.y, 78 + h / 2, OTR.H - 44 - h / 2);
     const c = this.add.container(x, y).setDepth(70);
-    const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x0E0620, 0.55); g.fillRoundedRect(-w / 2 - 6, -h / 2 - 4, w + 12, h + 38, 10); });
+    const g = OTR.tex.shape(this, (g) => { g.fillStyle(OTR_DATA.theme.night, 0.55); g.fillRoundedRect(-w / 2 - 6, -h / 2 - 4, w + 12, h + 38, 10); });
     const tags = [];
     if (p.weight >= 35) tags.push('HEAVY');
     if (p.fragile) tags.push('FRAGILE');
@@ -501,8 +501,8 @@ class LoadingScene extends BaseScenarioScene {
       title: clean ? 'Load report: a clean load' : 'Load report: fix these next time',
       build: (box, api, w, h) => {
         box.add(OTR.txt(this, 0, -h / 2 + 96, `${right} of ${total} pieces in the right place${this.strapped ? ' · floor load strapped' : ''}`, 17, clean ? '#1E9E6B' : '#B26A00', { weight: '900' }));
-        rows.slice(0, 6).forEach((r, i) => box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + i * 30, '✗  ' + r, 15, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 90 })));
-        if (rows.length > 6) box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + 6 * 30, `+ ${rows.length - 6} more`, 14, '#7A6A90', { ox: 0, oy: 0, weight: '900' }));
+        rows.slice(0, 6).forEach((r, i) => box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + i * 30, '✗  ' + r, 15, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 90 })));
+        if (rows.length > 6) box.add(OTR.txt(this, -w / 2 + 44, -h / 2 + 124 + 6 * 30, `+ ${rows.length - 6} more`, 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, weight: '900' }));
       },
       buttons: [{ label: this.shiftMode ? 'Roll out ▶' : 'Finish ▶', skin: 'orange', key: ['ENTER', 'SPACE'], onClick: () => this.endScenario() }]
     });
@@ -522,10 +522,10 @@ class LoadingScene extends BaseScenarioScene {
     this.panelBody.removeAll(true);
     const px = 1090;
     this.panelTitle.setText(`PACKAGE ${this.roundIndex + 1} OF ${C.rounds.length}`);
-    this.panelBody.add(OTR.txt(this, px, 160, `FIND THIS ADDRESS  ·  STOP ${r.stop}`, 13, '#FF9447', { weight: '900' }));
+    this.panelBody.add(OTR.txt(this, px, 160, `FIND THIS ADDRESS  ·  STOP ${r.stop}`, 13, OTR_DATA.theme.css('accentLight'), { weight: '900' }));
     this.panelBody.add(OTR.txt(this, px, 206, `${p.number} ${p.street}`, 26, '#ffffff', { weight: '900', align: 'center', wrap: 300 }));
     if (p.unit) this.panelBody.add(OTR.txt(this, px, 242, `Unit ${p.unit}`, 20, '#FFC83D', { weight: '900' }));
-    this.panelBody.add(OTR.txt(this, px, 278, p.to, 17, '#C9B3F0', { bold: false }));
+    this.panelBody.add(OTR.txt(this, px, 278, p.to, 17, OTR_DATA.theme.css('tint'), { bold: false }));
     this.panelBody.add(OTR.txt(this, px, 326, 'Click the matching package in the truck', 14, '#8FD3FF', { align: 'center', wrap: 300, bold: false }));
     this.roundTimerText = OTR.txt(this, px, 396, '0.0s', 34, '#FFC83D', { weight: '900' });
     this.panelBody.add(this.roundTimerText);

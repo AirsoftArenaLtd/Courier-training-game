@@ -72,6 +72,12 @@ Newest first. Date, who, what (and what the other agent needs to know).
 - **8 October 2026, Claude:** merged #6 (C-1) and #7 (A-1) into `pilot`. A-2 cannot start: the prototype builds
   sentences from pieces, which cannot be translated well. Added C-6 for Codex (whole-sentence templates). Next for
   Claude: A-5 (sign-in), which does not depend on the 3D work.
+- **7 October 2026, Claude:** A-1 in review on `claude/theme`. New `data/theme.js` holds the named colours
+  (`OTR_DATA.theme.primary`, `accent`, `ink`, `paper`...; `OTR_DATA.theme.css(name)` for CSS strings). About 800
+  brand colours now read from it; the rest of the old purple was turned neutral blue. For Codex: use the theme
+  names for any new brand-coloured UI instead of hex values. Some orange tints (hex not in the old palette) remain.
+  Review fixes: reverted a stray `fpworld.js` edit, kept the orange PRIORITY band (it is a training cue, theme name
+  `priority`), darkened `primaryLight` for white text, and the favicon now follows the theme.
 - **7 October 2026, Codex:** C-1 is ready for review in PR #6. Accepted mission/HUD events now report through
   `OTR.workday.report`, including handheld misuse, with parcel/stop/leg keys, check outcomes, driving locations
   and speed in mph. Repeated HUD events and restored evidence do not replay reports; the prototype still works without

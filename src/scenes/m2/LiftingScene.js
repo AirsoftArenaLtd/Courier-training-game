@@ -12,7 +12,7 @@ class LiftingScene extends BaseScenarioScene {
     this.liftIndex = -1;
     this.backGlow = 0;
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: 0x12041F, alpha: 0.35 }));
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.art.setting(this, 'warehouse', { color: OTR_DATA.theme.nightDeep, alpha: 0.35 }));
     OTR.tex.shape(this, (floor) => {
       floor.fillStyle(0x000000, 0.25); floor.fillRect(0, this.G, OTR.W, OTR.H - this.G);
       floor.fillStyle(0xFFC83D, 0.9); floor.fillRect(0, this.G, OTR.W, 4);
@@ -46,7 +46,7 @@ class LiftingScene extends BaseScenarioScene {
 
     this.hud({});
     this.buildHealth();
-    this.liftText = OTR.txt(this, OTR.W - 24, 84, '', 16, '#E6DAF7', { ox: 1, weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(810);
+    this.liftText = OTR.txt(this, OTR.W - 24, 84, '', 16, OTR_DATA.theme.css('line'), { ox: 1, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setDepth(810);
     this.banner = this.add.container(640, 150).setDepth(60).setVisible(false);
 
     this.setupInput();
@@ -56,10 +56,10 @@ class LiftingScene extends BaseScenarioScene {
   /* ------------------------------------------------------------ UI */
   buildHealth() {
     const c = this.add.container(170, 100).setDepth(810);
-    c.add(OTR.ui.panel(this, 0, 0, 300, 58, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x6A45A0, borderWidth: 2, radius: 14, shadow: 0.3 }));
+    c.add(OTR.ui.panel(this, 0, 0, 300, 58, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.mid, borderWidth: 2, radius: 14, shadow: 0.3 }));
     this.heart = this.add.image(-122, 0, 'ic_heart').setDisplaySize(28, 28).setTint(0xFF5C8A);
     c.add(this.heart);
-    c.add(OTR.txt(this, -98, -12, 'BACK HEALTH', 12, '#C9B3F0', { ox: 0 }));
+    c.add(OTR.txt(this, -98, -12, 'BACK HEALTH', 12, OTR_DATA.theme.css('tint'), { ox: 0 }));
     this.healthBar = OTR.ui.bar(this, -98, 11, 190, 12, { color: (v) => OTR.color.lerp(0xF0435A, 0x2BC48A, v), bgAlpha: 0.4, value: 1 });
     this.healthText = OTR.txt(this, 128, 0, '100', 20, '#ffffff', { ox: 1, weight: '900' });
     c.add([this.healthBar, this.healthText]);
@@ -156,7 +156,7 @@ class LiftingScene extends BaseScenarioScene {
     // weight tag
     if (this.tag) this.tag.destroy();
     this.tag = this.add.container(this.boxState.x, this.boxState.bottom - L.h - 60).setDepth(9);
-    const tg = OTR.tex.shape(this, (tg) => { tg.fillStyle(L.weight >= 60 ? 0xF0435A : 0x250849, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18); });
+    const tg = OTR.tex.shape(this, (tg) => { tg.fillStyle(L.weight >= 60 ? 0xF0435A : OTR_DATA.theme.primaryDark, 0.95); tg.fillRoundedRect(-52, -18, 104, 36, 18); });
     this.tag.add([tg, OTR.txt(this, 0, 0, `${L.weight} lb`, 18, '#ffffff', { weight: '900' })]);
     this.tag.setAlpha(0);
     this.tweens.add({ targets: this.tag, alpha: 1, delay: 400, duration: 200 });
@@ -169,12 +169,12 @@ class LiftingScene extends BaseScenarioScene {
     const n = L.options.length;
     // Held up at the top of the view, as tall as its text, and clear of the courier's head (it covered the head and
     // shoulders) and of the back-health panel on the left.
-    const prompt = OTR.txt(this, 0, 0, L.prompt, 19, '#250849', { bold: true, wrap: 580, align: 'center' });
+    const prompt = OTR.txt(this, 0, 0, L.prompt, 19, OTR_DATA.theme.css('primaryDark'), { bold: true, wrap: 580, align: 'center' });
     const firstY = 50 + prompt.height + 44;
     const h = firstY + (n - 1) * 60 + 28 + 18;
     const c = this.add.container(640, 66 + h / 2).setDepth(70);
-    c.add(OTR.ui.panel(this, 0, 0, 640, h, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 22 }));
-    c.add(OTR.txt(this, 0, -h / 2 + 28, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, '#FF6600', { weight: '900' }));
+    c.add(OTR.ui.panel(this, 0, 0, 640, h, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 22 }));
+    c.add(OTR.txt(this, 0, -h / 2 + 28, `SIZE UP THE LOAD · ${L.name.toUpperCase()}`, 15, OTR_DATA.theme.css('accent'), { weight: '900' }));
     prompt.setPosition(0, -h / 2 + 50 + prompt.height / 2);
     c.add(prompt);
     const opts = OTR.util.shuffle(L.options);
@@ -212,12 +212,12 @@ class LiftingScene extends BaseScenarioScene {
   coach(head, text, col, next) {
     if (!OTR.academy.coaching()) { next(); return; }   // an assessment: the verdict comes on the results screen
     const w = 760;
-    const body = OTR.txt(this, 0, 0, text, 19, '#3A2A50', { bold: false, wrap: w - 70, lineSpacing: 3 });
+    const body = OTR.txt(this, 0, 0, text, 19, OTR_DATA.theme.css('inkSoft'), { bold: false, wrap: w - 70, lineSpacing: 3 });
     const h = body.height + 90;
     const c = this.add.container(640, 250).setDepth(70);
-    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF6F1FD, border: col, borderWidth: 4, radius: 18 }));
+    c.add(OTR.ui.panel(this, 0, 0, w, h, { top: 0xFFFFFF, bottom: 0xF2F7FC, border: col, borderWidth: 4, radius: 18 }));
     c.add(OTR.txt(this, -w / 2 + 30, -h / 2 + 28, head.toUpperCase(), 18, OTR.color.css(col), { ox: 0, weight: '900' }));
-    c.add(OTR.txt(this, w / 2 - 24, -h / 2 + 28, 'click / SPACE ▶', 13, '#9A8AB0', { ox: 1 }));
+    c.add(OTR.txt(this, w / 2 - 24, -h / 2 + 28, 'click / SPACE ▶', 13, OTR_DATA.theme.css('mutedLight'), { ox: 1 }));
     body.setOrigin(0, 0).setPosition(-w / 2 + 30, -h / 2 + 50);
     c.add(body);
     c.setAlpha(0);
@@ -340,7 +340,7 @@ class LiftingScene extends BaseScenarioScene {
   buildPostureHud() {
     if (this.postureHud) this.postureHud.destroy();
     const c = this.add.container(1108, 330).setDepth(60);
-    c.add(OTR.ui.panel(this, 0, 0, 200, 300, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x6A45A0, borderWidth: 2, radius: 18, shadow: 0.3 }));
+    c.add(OTR.ui.panel(this, 0, 0, 200, 300, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.mid, borderWidth: 2, radius: 18, shadow: 0.3 }));
     c.add(OTR.txt(this, 0, -122, 'SPINE LOAD', 14, '#FFC83D', { weight: '900' }));
     this.loadG = this.add.graphics();
     c.add(this.loadG);
@@ -348,8 +348,8 @@ class LiftingScene extends BaseScenarioScene {
     c.add(this.loadNum);
     this.postureHud = c;
     this.buildPad();
-    this.phaseText = OTR.txt(this, 640, 128, '', 20, '#FFC83D', { weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(60);
-    this.coachText = OTR.txt(this, 640, 160, '', 18, '#ffffff', { weight: '900', stroke: '#1D1030', strokeW: 5 }).setDepth(60);
+    this.phaseText = OTR.txt(this, 640, 128, '', 20, '#FFC83D', { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 5 }).setDepth(60);
+    this.coachText = OTR.txt(this, 640, 160, '', 18, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 5 }).setDepth(60);
   }
 
   /**
@@ -458,7 +458,7 @@ class LiftingScene extends BaseScenarioScene {
       g.fillStyle(0x000000, 0.3); g.fillRoundedRect(-w / 2, top, w, h, 10);
       g.lineStyle(3, 0xFFFFFF, 0.35);
       g.lineBetween(-w / 2 - 8, top + h * 0.5, w / 2 + 8, top + h * 0.5);
-      this.loadNum.setText('NOT LIFTING').setColor('#9A8AB0');
+      this.loadNum.setText('NOT LIFTING').setColor(OTR_DATA.theme.css('mutedLight'));
       return;
     }
     const v = OTR.util.clamp01(load);
@@ -612,7 +612,7 @@ class LiftingScene extends BaseScenarioScene {
       onComplete: () => {
         OTR.audio.play('thud');
         OTR.fx.shake(this, 200, 0.012);
-        OTR.fx.burst(this, this.boxState.x, this.PALLET_TOP, { texture: 'p_smoke', tint: 0xD9CFE8, count: 16, blend: 'NORMAL' });
+        OTR.fx.burst(this, this.boxState.x, this.PALLET_TOP, { texture: 'p_smoke', tint: 0xD0DBE7, count: 16, blend: 'NORMAL' });
         OTR.fx.floatText(this, 640, 250, 'Dropped it!', '#FF6B7F', { size: 30 });
       }
     });
@@ -681,7 +681,7 @@ class LiftingScene extends BaseScenarioScene {
     const head = { x: hp.x + d * Math.sin(lean) * (torso + 26), y: hp.y - Math.cos(lean) * (torso + 26) };
 
     const pants = 0x2B2F4A, shoe = 0x15151C, skin = 0xC98E6B;
-    const shirt = OTR.color.lerp(0x4D148C, 0xE8304A, P.twist);
+    const shirt = OTR.color.lerp(OTR_DATA.theme.primary, 0xE8304A, P.twist);
 
     // far leg & shoe
     const off = -d * 7;
@@ -706,15 +706,15 @@ class LiftingScene extends BaseScenarioScene {
 
     // torso
     this.limb(gB, [{ x: hp.x, y: hp.y }, { x: sh.x, y: sh.y }], 34, shirt);
-    gB.fillStyle(0xFF6600, 1);
+    gB.fillStyle(OTR_DATA.theme.accent, 1);
     gB.fillCircle(sh.x, sh.y, 8);
     // head & cap
     gB.fillStyle(skin, 1); gB.fillCircle(head.x, head.y, 19);
-    gB.fillStyle(0x4D148C, 1);
+    gB.fillStyle(OTR_DATA.theme.primary, 1);
     gB.slice(head.x, head.y - 2, 20, Phaser.Math.DegToRad(180), Phaser.Math.DegToRad(360), false);
     gB.fillPath();
     gB.fillRect(head.x + (d > 0 ? 4 : -26), head.y - 6, 22, 6);
-    gB.fillStyle(0x1D1030, 1); gB.fillCircle(head.x + d * 9, head.y + 2, 2.6);
+    gB.fillStyle(OTR_DATA.theme.ink, 1); gB.fillCircle(head.x + d * 9, head.y + 2, 2.6);
 
     // near leg & shoe
     this.limb(gF, [{ x: ax, y: ay }, { x: knee.x, y: knee.y }, { x: hp.x, y: hp.y }], 22, pants);

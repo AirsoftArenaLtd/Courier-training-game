@@ -45,9 +45,9 @@ OTR_DATA.routes = {
   schoolDelay: 4,
 
   services: {
-    first:    { label: 'Early AM',           short: 'EARLY',    by: 8 * 60 + 30,  color: 0x7B3FC4, weight: 3 },
+    first:    { label: 'Early AM',           short: 'EARLY',    by: 8 * 60 + 30,  color: OTR_DATA.theme.primaryLight, weight: 3 },
     priority: { label: 'Priority AM',        short: 'PRIORITY', by: 10 * 60 + 30, color: 0xE8304A, weight: 2 },
-    standard: { label: 'Standard',           short: 'STANDARD', by: 15 * 60,      color: 0xFF6600, weight: 1 },
+    standard: { label: 'Standard',           short: 'STANDARD', by: 15 * 60,      color: OTR_DATA.theme.accent, weight: 1 },
     // (the no-deadline pieces; the id is kept for the data below)
     ground:   { label: 'Economy',            short: 'ECONOMY',  by: null,         color: 0x3DA5FF, weight: 1 },
     pickup:   { label: 'Scheduled Pickup',   short: 'PICKUP',   by: null,         color: 0x2BC48A, weight: 3 }

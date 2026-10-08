@@ -48,8 +48,8 @@ OTR_DATA.dialogues.m8_incident = {
       portrait: { kind: 'person', skin: 0xC98D62, hair: 0x3A2A1E, hairStyle: 'short', shirt: 0x37639B, beard: true }
     },
     dispatch: {
-      name: 'Dispatch', color: 0x4D148C, moodStart: 0, remote: true,
-      portrait: { kind: 'person', skin: 0x9C6B4A, hair: 0x1C1414, hairStyle: 'ponytail', shirt: 0x4D148C, uniform: true }
+      name: 'Dispatch', color: OTR_DATA.theme.primary, moodStart: 0, remote: true,
+      portrait: { kind: 'person', skin: 0x9C6B4A, hair: 0x1C1414, hairStyle: 'ponytail', shirt: OTR_DATA.theme.primary, uniform: true }
     },
     neighbor: {
       name: 'Mrs. Whitfield', color: 0x2E7D5B, moodStart: 1,

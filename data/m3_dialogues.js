@@ -237,7 +237,7 @@ OTR_DATA.dialogues.m3_signature = {
       portrait: { kind: 'person', skin: 0xC99A77, hair: 0xD9D9D9, hairStyle: 'buzz', shirt: 0xB5563C, glasses: 0x333333, mustache: true, collar: true }
     },
     priya: {
-      name: 'Priya (on the phone)', color: 0x7B3FC4, moodStart: -1, remote: true,
+      name: 'Priya (on the phone)', color: OTR_DATA.theme.primaryLight, moodStart: -1, remote: true,
       portrait: { kind: 'person', skin: 0xB07D58, hair: 0x1C1414, hairStyle: 'bun', shirt: 0x3D5A99, earrings: 0xE8E8F0, collar: true }
     }
   },
@@ -416,7 +416,7 @@ OTR_DATA.dialogues.m3_twostops = {
   cast: {
     morgan: {
       name: 'Morgan (Reception)', color: 0x2B3A55, moodStart: 0,
-      portrait: { kind: 'person', skin: 0x8D5B3E, hair: 0x241A14, hairStyle: 'curly', shirt: 0x5A6B8C, lanyard: 0xFF6600, collar: true }
+      portrait: { kind: 'person', skin: 0x8D5B3E, hair: 0x241A14, hairStyle: 'curly', shirt: 0x5A6B8C, lanyard: OTR_DATA.theme.accent, collar: true }
     },
     biscuit: {
       name: 'Biscuit', color: 0xB5563C, moodStart: -2, spot: 720,     // on the lawn, clear of the porch railing
@@ -424,7 +424,7 @@ OTR_DATA.dialogues.m3_twostops = {
     },
     chen: {
       name: 'Mrs. Chen', color: 0x2F6B5A, moodStart: -1,
-      portrait: { kind: 'person', skin: 0xEFCFAE, hair: 0x2A2A2A, hairStyle: 'short', shirt: 0xD96C8A, glasses: 0x7A3FC4 }
+      portrait: { kind: 'person', skin: 0xEFCFAE, hair: 0x2A2A2A, hairStyle: 'short', shirt: 0xD96C8A, glasses: 0x467EBD }
     }
   },
   keyLessons: [

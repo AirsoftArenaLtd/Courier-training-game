@@ -36,13 +36,13 @@ OTR.draw = {
       ctx.beginPath();
       ctx.moveTo(138, 326); ctx.lineTo(180, 382); ctx.lineTo(222, 326); ctx.lineTo(206, 322); ctx.lineTo(180, 356); ctx.lineTo(154, 322);
       ctx.closePath();
-      ctx.fillStyle = cv.c(0xFF6600);
+      ctx.fillStyle = cv.c(OTR_DATA.theme.accent);
       ctx.fill();
       cv.rr(ctx, 230, 372, 50, 16, 4);
       ctx.fillStyle = '#ffffff';
       ctx.fill();
       cv.rr(ctx, 234, 376, 18, 8, 2);
-      ctx.fillStyle = cv.c(0xFF6600);
+      ctx.fillStyle = cv.c(OTR_DATA.theme.accent);
       ctx.fill();
     } else if (spec.collar) {
       ctx.beginPath();
@@ -148,7 +148,7 @@ OTR.draw = {
       ctx.fillStyle = cv.c(hair);
       [[104, 208], [256, 208]].forEach(([x]) => { cv.ellipse(ctx, x, 190, 10, 26); ctx.fill(); });
     } else if (style === 'cap') {
-      const capC = spec.capColor || 0x4D148C;
+      const capC = spec.capColor || OTR_DATA.theme.primary;
       ctx.fillStyle = cv.c(hair);
       [[110, 0], [250, 0]].forEach(([x]) => { cv.ellipse(ctx, x, 182, 7, 14); ctx.fill(); });
       ctx.beginPath();
@@ -163,7 +163,7 @@ OTR.draw = {
       ctx.fillStyle = cv.c(OTR.color.shade(capC, -0.3));
       ctx.fill();
       cv.rr(ctx, 160, 122, 40, 18, 5);
-      ctx.fillStyle = cv.c(0xFF6600);
+      ctx.fillStyle = cv.c(OTR_DATA.theme.accent);
       ctx.fill();
     }
   },
@@ -409,7 +409,7 @@ OTR.draw = {
   vanSide(ctx, w, h, o) {
     o = o || {};
     const cv = OTR.cv;
-    const body = o.body || 0xF4F2F8;
+    const body = o.body || 0xF2F5F8;
     // shadow
     cv.ellipse(ctx, w * 0.5, h - 12, w * 0.46, 10); ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.fill();
     // cargo body
@@ -429,16 +429,16 @@ OTR.draw = {
     ctx.beginPath(); ctx.moveTo(w * 0.77, 50); ctx.lineTo(w * 0.8, 50); ctx.lineTo(w * 0.76, h * 0.46); ctx.lineTo(w * 0.745, h * 0.46); ctx.closePath();
     ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fill();
     // stripes
-    ctx.fillStyle = cv.c(0x4D148C);
+    ctx.fillStyle = cv.c(OTR_DATA.theme.primary);
     ctx.fillRect(8, h * 0.52, w - 16, 16);
-    ctx.fillStyle = cv.c(0xFF6600);
+    ctx.fillStyle = cv.c(OTR_DATA.theme.accent);
     ctx.fillRect(8, h * 0.52 + 16, w - 16, 6);
     // box emblem
     ctx.save();
     ctx.translate(w * 0.3, h * 0.3);
-    ctx.fillStyle = cv.c(0x4D148C);
+    ctx.fillStyle = cv.c(OTR_DATA.theme.primary);
     ctx.beginPath(); ctx.moveTo(0, -18); ctx.lineTo(22, -8); ctx.lineTo(22, 14); ctx.lineTo(0, 24); ctx.lineTo(-22, 14); ctx.lineTo(-22, -8); ctx.closePath(); ctx.fill();
-    ctx.strokeStyle = cv.c(0xFF6600); ctx.lineWidth = 3;
+    ctx.strokeStyle = cv.c(OTR_DATA.theme.accent); ctx.lineWidth = 3;
     ctx.beginPath(); ctx.moveTo(-22, -8); ctx.lineTo(0, 2); ctx.lineTo(22, -8); ctx.moveTo(0, 2); ctx.lineTo(0, 24); ctx.stroke();
     ctx.restore();
     // door line & handle
@@ -460,15 +460,15 @@ OTR.draw = {
     const cv = OTR.cv;
     cv.shadow(ctx, 10, 4, 0.4);
     cv.rr(ctx, 6, 8, w - 12, h - 14, 12);
-    ctx.fillStyle = cv.lin(ctx, 6, 0, w - 6, 0, [[0, '#DCD8E6'], [0.5, '#FFFFFF'], [1, '#DCD8E6']]);
+    ctx.fillStyle = cv.lin(ctx, 6, 0, w - 6, 0, [[0, '#d9dfe5'], [0.5, '#FFFFFF'], [1, '#d9dfe5']]);
     ctx.fill();
     cv.noShadow(ctx);
     // windshield (front = top)
     cv.rr(ctx, 12, 18, w - 24, 20, 6);
     ctx.fillStyle = cv.lin(ctx, 0, 18, 0, 38, [[0, '#6FA8DC'], [1, '#1D3A5C']]); ctx.fill();
     // roof stripes
-    ctx.fillStyle = cv.c(0x4D148C); ctx.fillRect(w * 0.5 - 7, 44, 14, h - 56);
-    ctx.fillStyle = cv.c(0xFF6600); ctx.fillRect(w * 0.5 + 7, 44, 4, h - 56);
+    ctx.fillStyle = cv.c(OTR_DATA.theme.primary); ctx.fillRect(w * 0.5 - 7, 44, 14, h - 56);
+    ctx.fillStyle = cv.c(OTR_DATA.theme.accent); ctx.fillRect(w * 0.5 + 7, 44, 4, h - 56);
     // mirrors
     ctx.fillStyle = '#333'; cv.rr(ctx, 0, 32, 8, 10, 2); ctx.fill(); cv.rr(ctx, w - 8, 32, 8, 10, 2); ctx.fill();
     // lights
@@ -551,14 +551,14 @@ OTR.draw = {
     ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.lineWidth = 1; ctx.stroke();
     if (o.stripe !== undefined) { ctx.fillStyle = cv.c(o.stripe); ctx.fillRect(x, y, w, Math.max(4, h * 0.16)); }
     if (o.code) {
-      ctx.fillStyle = '#1D1030';
+      ctx.fillStyle = OTR_DATA.theme.css('ink');
       ctx.font = `900 ${Math.round(h * 0.62)}px "Segoe UI", Arial`;
       ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       ctx.fillText(o.code, x + w * 0.05, y + h * 0.58);
     }
     // barcode
     const bx = o.code ? x + w * 0.62 : x + w * 0.1, bw = o.code ? w * 0.32 : w * 0.8;
-    ctx.fillStyle = '#1D1030';
+    ctx.fillStyle = OTR_DATA.theme.css('ink');
     let px = bx;
     let i = 0;
     while (px < bx + bw) {
@@ -837,7 +837,7 @@ OTR.draw = {
         const houseCol = (c) => storm ? OTR.color.shade(c, -tint) : c;
         D.house(ctx, 60, 300, 300, 200, houseCol(0xF3D9B1), houseCol(0x9C4A3A));
         D.house(ctx, 470, 280, 340, 220, houseCol(0xC9DCEB), houseCol(0x44546E), houseCol(0x2F6B5A));
-        D.house(ctx, 930, 310, 290, 190, houseCol(0xE9E3F4), houseCol(0x6A4A8C));
+        D.house(ctx, 930, 310, 290, 190, houseCol(0xE4EBF3), houseCol(0x4D6989));
         // lawn & road
         ctx.fillStyle = storm ? '#2F5238' : '#6CC06E'; ctx.fillRect(0, 500, w, 60);
         ctx.fillStyle = storm ? '#8A8F9A' : '#D8D8DE'; ctx.fillRect(0, 548, w, 24);
@@ -854,10 +854,10 @@ OTR.draw = {
       }
       case 'depot':
       case 'warehouse': {
-        D.sky(ctx, w, h, '#3A3550', '#262236');
+        D.sky(ctx, w, h, '#36424f', '#232b35');
         // back wall panels
         for (let x = 0; x < w; x += 200) {
-          ctx.fillStyle = cv.lin(ctx, x, 0, x + 200, 0, [[0, '#4A4462'], [1, '#3E3955']]);
+          ctx.fillStyle = cv.lin(ctx, x, 0, x + 200, 0, [[0, '#465261'], [1, '#3a4654']]);
           ctx.fillRect(x, 0, 196, 470);
         }
         // high windows
@@ -879,7 +879,7 @@ OTR.draw = {
         }
         // roll-up doors
         [700, 980].forEach(x => {
-          ctx.fillStyle = '#5B5670'; ctx.fillRect(x, 150, 220, 320);
+          ctx.fillStyle = '#57626f'; ctx.fillRect(x, 150, 220, 320);
           ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 3;
           for (let y = 160; y < 470; y += 20) { ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 220, y); ctx.stroke(); }
           ctx.fillStyle = '#FFC83D'; ctx.fillRect(x - 10, 140, 240, 10);
@@ -901,12 +901,12 @@ OTR.draw = {
         D.sky(ctx, w, h, '#FF9F6B', '#FFE0B8');
         ctx.fillStyle = 'rgba(255,240,200,0.9)';
         ctx.beginPath(); ctx.arc(1080, 210, 70, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = '#5E4A72';
+        ctx.fillStyle = '#4c5d70';
         for (let i = 0; i < 18; i++) {
           const bw = 50 + (i * 37) % 60, bh = 80 + (i * 53) % 160;
           ctx.fillRect(i * 74 - 10, 380 - bh, bw, bh + 20);
         }
-        ctx.fillStyle = '#7A6690';
+        ctx.fillStyle = '#687a8e';
         ctx.fillRect(0, 360, w, 40);
         ctx.fillStyle = cv.lin(ctx, 0, 400, 0, h, [[0, '#6E6C7C'], [1, '#45434F']]);
         ctx.fillRect(0, 400, w, h - 400);
@@ -917,7 +917,7 @@ OTR.draw = {
         break;
       }
       default:
-        D.sky(ctx, w, h, '#4D148C', '#16062B');
+        D.sky(ctx, w, h, OTR_DATA.theme.css('primary'), OTR_DATA.theme.css('primaryDeep'));
     }
   }
 };
@@ -976,7 +976,7 @@ OTR.art = {
         ctx.save();
         ctx.beginPath(); ctx.rect(x, y, dims[0], dims[1]); ctx.clip();
         ctx.translate(x + 24, y + 22); ctx.rotate(-Math.PI / 4);
-        ctx.fillStyle = '#FF6600'; ctx.fillRect(-60, -10, 120, 20);
+        ctx.fillStyle = OTR_DATA.theme.css('priority'); ctx.fillRect(-60, -10, 120, 20);
         ctx.fillStyle = '#fff'; ctx.font = '900 10px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText('PRIORITY', 0, 1);
         ctx.restore();

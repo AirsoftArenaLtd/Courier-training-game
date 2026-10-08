@@ -62,7 +62,7 @@ class PickupScene extends BaseScenarioScene {
       g.lineStyle(4, 0xFFC83D, 0.9);
       g.strokeRect(282, floorY - 150, 626, 162);
     }).setDepth(26);
-    OTR.txt(this, 292, floorY - 164, 'OUTGOING — COUNT THESE', 13, '#FFC83D', { ox: 0, weight: '900', stroke: '#1D1030', strokeW: 4 }).setDepth(26);
+    OTR.txt(this, 292, floorY - 164, 'OUTGOING — COUNT THESE', 13, '#FFC83D', { ox: 0, weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 4 }).setDepth(26);
     // a click on the shelves behind the counter is answered, not ignored
     this.add.zone(700, 250, 900, 300).setInteractive().on('pointerup', () => {
       if (this.running && !this.talkCtl && !this.countAnswered) OTR.ui.toast(this, 'That is the shop\'s own stock. Count what is waiting in the OUTGOING area.', { hold: 2400, y: 672 });
@@ -98,22 +98,22 @@ class PickupScene extends BaseScenarioScene {
       const issues = p.issues || [];
       const dmg = issues.indexOf('crushed') >= 0 ? 'crushed' : (issues.indexOf('leaking') >= 0 || issues.indexOf('wet') >= 0) ? 'leak' : null;
       if (p.size === 'env') {
-        cv.rr(ctx, 4, 12, dims[0], dims[1], 3); ctx.fillStyle = '#F4F1FA'; ctx.fill();
-        ctx.fillStyle = '#4D148C'; ctx.fillRect(4, 12, dims[0], 7);
+        cv.rr(ctx, 4, 12, dims[0], dims[1], 3); ctx.fillStyle = '#f1f5fa'; ctx.fill();
+        ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(4, 12, dims[0], 7);
       } else {
         OTR.draw.box(ctx, { fw: dims[0], fh: dims[1], d: 18, x: 4, y: 26, color: p.color || (p.declared ? 0xD8C9A8 : 0xC99A62), damage: dmg });
       }
       const ly = p.size === 'env' ? 18 : 40;
       if (issues.indexOf('no_label') < 0) {
         cv.rr(ctx, 14, ly, dims[0] * 0.62, 26, 2); ctx.fillStyle = '#fff'; ctx.fill();
-        ctx.fillStyle = '#1D1030'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
         cv.fitText(ctx, `${p.number} ${p.street || ''}`, 18, ly + 9, dims[0] * 0.62 - 8, 12);
-        ctx.fillStyle = '#6A5A80';
+        ctx.fillStyle = '#5c6c7e';
         cv.fitText(ctx, String(p.city || ''), 18, ly + 20, dims[0] * 0.62 - 8, 10, { weight: '800' });
       }
       // (a missing label is simply not there, and the weight tag is the same for every piece: judging is the
       // trainee's job, not the art's)
-      cv.rr(ctx, 14, ly + 30, 52, 18, 3); ctx.fillStyle = '#3A2A50'; ctx.fill();
+      cv.rr(ctx, 14, ly + 30, 52, 18, 3); ctx.fillStyle = OTR_DATA.theme.css('inkSoft'); ctx.fill();
       ctx.fillStyle = '#fff'; ctx.font = '900 11px "Segoe UI", Arial'; ctx.textBaseline = 'middle';
       ctx.fillText(`${p.weight} LB`, 19, ly + 39);
       (p.marks || []).forEach((m, i) => OTR.draw.mark(ctx, m, dims[0] - 10 - i * 34, ly + 26, 17));
@@ -128,7 +128,7 @@ class PickupScene extends BaseScenarioScene {
   /* ------------------------------------------------------------------ side panel */
   buildPanel() {
     const px = 1108;
-    this.panelBg = this.add.image(px, 388, OTR.tex.panel(this, 316, 596, { top: 0x2A0F4F, bottom: 0x1A0733, border: 0x6A45A0, radius: 18 })).setDepth(40);
+    this.panelBg = this.add.image(px, 388, OTR.tex.panel(this, 316, 596, { top: OTR_DATA.theme.primaryNight, bottom: OTR_DATA.theme.nightPanel, border: OTR_DATA.theme.mid, radius: 18 })).setDepth(40);
     this.panel = this.add.container(0, 0).setDepth(41);
     this.px = px;
     this.refreshPanel();
@@ -150,8 +150,8 @@ class PickupScene extends BaseScenarioScene {
     const px = this.px, C = this.content;
     this.panel.removeAll(true);
     const add = (o) => { this.panel.add(o); return o; };
-    add(OTR.txt(this, px, 116, 'PICKUP MANIFEST', 15, '#FF9447', { weight: '900' }));
-    add(OTR.txt(this, px - 132, 152, `Account: ${(C.place && C.place.sign) || ''}`, 14, '#C9B3F0', { ox: 0, bold: false }));
+    add(OTR.txt(this, px, 116, 'PICKUP MANIFEST', 15, OTR_DATA.theme.css('accentLight'), { weight: '900' }));
+    add(OTR.txt(this, px - 132, 152, `Account: ${(C.place && C.place.sign) || ''}`, 14, OTR_DATA.theme.css('tint'), { ox: 0, bold: false }));
     const corrected = this.manifest !== C.manifest;
     add(OTR.txt(this, px - 132, 178, corrected ? `Manifest: ${this.manifest} pieces (corrected from ${C.manifest})` : `Manifest says: ${this.manifest} piece${this.manifest === 1 ? '' : 's'}`, corrected ? 15 : 17, '#ffffff', { ox: 0, weight: '900', wrap: 272 }));
     const countedN = Object.keys(this.counted).length;
@@ -160,7 +160,7 @@ class PickupScene extends BaseScenarioScene {
 
     let y = 246;
     if (!this.countAnswered) {
-      add(OTR.txt(this, px, y, 'Click each piece waiting for pickup to count it, then confirm your count.', 14, '#F3ECFF', { align: 'center', wrap: 280, bold: false }));
+      add(OTR.txt(this, px, y, 'Click each piece waiting for pickup to count it, then confirm your count.', 14, '#edf5fe', { align: 'center', wrap: 280, bold: false }));
       y += 64;
       const b = OTR.ui.button(this, px, y, 'Confirm the count', () => this.confirmCount(), { w: 280, h: 46, skin: 'orange', fontSize: 16 });
       b.setEnabled(countedN > 0);
@@ -171,7 +171,7 @@ class PickupScene extends BaseScenarioScene {
       y += 30;
       this.pieces.forEach(p => {
         const d = this.decided[p.id];
-        const col = !d ? '#9A8AB0' : d.accept ? '#8BF0C6' : '#FF9A9A';
+        const col = !d ? OTR_DATA.theme.css('mutedLight') : d.accept ? '#8BF0C6' : '#FF9A9A';
         const label = !d ? 'not inspected' : d.accept ? 'accepted' : `refused (${d.reason})`;
         add(OTR.txt(this, px - 132, y, `${p.number ? p.number + ' ' + p.street : 'no label'} · ${label}`, 13, col, { ox: 0, bold: false, wrap: 272 }));
         y += 22;
@@ -320,12 +320,12 @@ class PickupScene extends BaseScenarioScene {
     OTR.ui.modal(this, {
       w: 760, h: 520, escClose: true,
       build: (box, api, w, h) => {
-        box.add(OTR.txt(this, 0, -h / 2 + 34, 'INSPECT THIS PIECE', 15, '#FF6600', { weight: '900' }));
+        box.add(OTR.txt(this, 0, -h / 2 + 34, 'INSPECT THIS PIECE', 15, OTR_DATA.theme.css('accent'), { weight: '900' }));
         if (issues.indexOf('no_label') < 0) {
           box.add(this.add.image(-w / 2 + 210, -h / 2 + 170, OTR.labelArt.key(this, p, 330, 220)).setDisplaySize(330, 220));
         } else {
           box.add(OTR.tex.shape(this, (g) => {
-            g.fillStyle(0xEDE7F6, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
+            g.fillStyle(0xE8EEF5, 1); g.fillRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
             g.lineStyle(3, 0xE8304A, 1); g.strokeRoundedRect(-w / 2 + 45, -h / 2 + 60, 330, 220, 10);
           }));
           box.add(OTR.txt(this, -w / 2 + 210, -h / 2 + 170, 'NO LABEL', 32, '#C8243B', { weight: '900' }));
@@ -333,12 +333,12 @@ class PickupScene extends BaseScenarioScene {
         // notes column, padded clear of the modal's right edge
         let y = -h / 2 + 70;
         noteLines.forEach(l => {
-          box.add(this.add.image(w / 2 - 318, y + 10, 'ic_flag').setDisplaySize(16, 16).setTint(0xFF6600));
-          const t = OTR.txt(this, w / 2 - 300, y, l, 16, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: 262, lineSpacing: 2 });
+          box.add(this.add.image(w / 2 - 318, y + 10, 'ic_flag').setDisplaySize(16, 16).setTint(OTR_DATA.theme.accent));
+          const t = OTR.txt(this, w / 2 - 300, y, l, 16, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: 262, lineSpacing: 2 });
           box.add(t);
           y += t.height + 12;
         });
-        box.add(OTR.txt(this, w / 2 - 300, Math.min(y + 6, h / 2 - 104), `Service: ${(OTR.labelArt.SERVICE[p.service || 'standard'] || {}).text || ''}`, 14, '#7A6A90', { ox: 0, oy: 0, bold: false, wrap: 262 }));
+        box.add(OTR.txt(this, w / 2 - 300, Math.min(y + 6, h / 2 - 104), `Service: ${(OTR.labelArt.SERVICE[p.service || 'standard'] || {}).text || ''}`, 14, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0, bold: false, wrap: 262 }));
       },
       // A accepts, R refuses; the reasons are numbered and say what each one covers
       buttons: [
@@ -352,7 +352,7 @@ class PickupScene extends BaseScenarioScene {
                 R.forEach((r, i) => {
                   const y = -h2 / 2 + 110 + i * 84;
                   box2.add(OTR.ui.button(this, 0, y, `${i + 1}.  ${r.label}`, () => api2.close(() => this.decide(p, false, r.id)), { w: w2 - 80, h: 52, skin: 'ghost', fontSize: 16, key: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'][i] }));
-                  box2.add(OTR.txt(this, 0, y + 36, r.desc, 13, '#7A6A90', { bold: false }));
+                  box2.add(OTR.txt(this, 0, y + 36, r.desc, 13, OTR_DATA.theme.css('muted'), { bold: false }));
                 });
               }
             });
@@ -400,23 +400,23 @@ class PickupScene extends BaseScenarioScene {
       build: (box, api, w, h) => {
         box.add(OTR.tex.shape(this, (g) => {
           g.fillStyle(0xFFFFFF, 1); g.fillRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
-          g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
+          g.lineStyle(2, OTR_DATA.theme.tint, 1); g.strokeRoundedRect(-w / 2 + 30, -h / 2 + 30, w - 60, h - 120, 10);
         }));
-        box.add(OTR.txt(this, 0, -h / 2 + 58, D.title, 22, '#250849', { weight: '900' }));
-        box.add(OTR.txt(this, 0, -h / 2 + 84, readOnly ? 'Your findings are marked in red.' : D.instructions, 14, '#7A6A90', { bold: false }));
+        box.add(OTR.txt(this, 0, -h / 2 + 58, D.title, 22, OTR_DATA.theme.css('primaryDark'), { weight: '900' }));
+        box.add(OTR.txt(this, 0, -h / 2 + 84, readOnly ? 'Your findings are marked in red.' : D.instructions, 14, OTR_DATA.theme.css('muted'), { bold: false }));
         let y = -h / 2 + 116;
         D.fields.forEach((f, i) => {
           const row = this.add.container(0, y + 18);
           const rg = OTR.tex.liveShape(this);
           const draw = () => rg.redraw((g) => {
             const on = !!flags[i];
-            g.fillStyle(on ? 0xFFE0E6 : 0xF6F1FD, 1); g.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
-            g.lineStyle(2, on ? 0xE8304A : 0xE0D4F2, 1); g.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+            g.fillStyle(on ? 0xFFE0E6 : 0xF2F7FC, 1); g.fillRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
+            g.lineStyle(2, on ? 0xE8304A : 0xD6E2F0, 1); g.strokeRoundedRect(-w / 2 + 50, -17, w - 100, 34, 8);
           });
           draw();
           row.add(rg);
-          row.add(OTR.txt(this, -w / 2 + 66, 0, f.label, 14, '#7A6A90', { ox: 0 }));
-          row.add(OTR.txt(this, -w / 2 + 300, 0, f.value, 15, '#250849', { ox: 0, weight: '900' }));
+          row.add(OTR.txt(this, -w / 2 + 66, 0, f.label, 14, OTR_DATA.theme.css('muted'), { ox: 0 }));
+          row.add(OTR.txt(this, -w / 2 + 300, 0, f.value, 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' }));
           if (!readOnly) {
             const hit = this.add.zone(0, 0, w - 100, 34).setInteractive({ useHandCursor: true });
             hit.on('pointerup', () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); });

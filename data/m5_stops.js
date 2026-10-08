@@ -113,7 +113,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         id: 'pod3',
         brief: 'Brightline Logistics, 900 Market St — business delivery for a staff member.',
         par: 130,
-        lot: { kind: 'business', spec: { number: '900', name: 'BRIGHTLINE', awning: 0x3DA5FF, wall: 0xB9B3C4, siding: 'stucco', hours: 'MON–FRI\n8AM–6PM', open: true, steps: 1 }, interior: { kind: 'lobby', sign: 'BRIGHTLINE', accent: 0x3DA5FF } },
+        lot: { kind: 'business', spec: { number: '900', name: 'BRIGHTLINE', awning: 0x3DA5FF, wall: 0xB4BBC3, siding: 'stucco', hours: 'MON–FRI\n8AM–6PM', open: true, steps: 1 }, interior: { kind: 'lobby', sign: 'BRIGHTLINE', accent: 0x3DA5FF } },
         props: [
           { type: 'streetsign', x: -260, art: { text: 'MARKET ST' } },
           { type: 'hydrant', x: -120 },
@@ -152,7 +152,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
 
   /* ------------------------------------------------------------------------------------------ exceptions */
   const more = {
-    alma: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'short', shirt: 0x7B3FC4, glasses: true, sleeves: 'long' },
+    alma: { skin: 0xF1C7A5, hair: 0xB8B8C0, hairStyle: 'short', shirt: OTR_DATA.theme.primaryLight, glasses: true, sleeves: 'long' },
     helen: { skin: 0xD9A77F, hair: 0x5A3A2A, hairStyle: 'bun', shirt: 0x2F8F83, earrings: 0xFFC83D },
     tyler: { skin: 0xF4D2B0, hair: 0xC8A060, hairStyle: 'short', shirt: 0xE8504A, shorts: true },
     grace: { skin: 0xE8C09A, hair: 0x1E1410, hairStyle: 'long', shirt: 0x3E6FB0, glasses: 0x8A4B2A }
@@ -220,7 +220,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         id: 'ex3',
         brief: '77 Willow Way: standard delivery.',
         par: 120,
-        lot: { kind: 'house', spec: { number: '77', steps: 3, wall: 0xF3E1D6, roof: 0x5A4A6A, door: 0x6B3F3A, siding: 'shingle', porchW: 440, shutters: 0x6B3F3A } },
+        lot: { kind: 'house', spec: { number: '77', steps: 3, wall: 0xF3E1D6, roof: 0x4C5968, door: 0x6B3F3A, siding: 'shingle', porchW: 440, shutters: 0x6B3F3A } },
         props: [
           { type: 'mailbox', x: -200, art: { number: '77' } },
           { type: 'streetsign', x: -260, art: { text: 'WILLOW WAY' } },
@@ -281,7 +281,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         id: 'ad1',
         brief: '18 Aspen Ct: adult signature (wine club shipment).',
         par: 130,
-        lot: { kind: 'house', spec: { number: '18', steps: 2, wall: 0xE6D9F2, roof: 0x3E4A5C, door: 0x7B3FC4, siding: 'lap', stories: 2, porchW: 420, wreath: true } },
+        lot: { kind: 'house', spec: { number: '18', steps: 2, wall: 0xDAE5F1, roof: 0x3E4A5C, door: OTR_DATA.theme.primaryLight, siding: 'lap', stories: 2, porchW: 420, wreath: true } },
         props: [
           { type: 'mailbox', x: -200, art: { number: '18' } },
           { type: 'streetsign', x: -260, art: { text: 'ASPEN CT' } },
@@ -317,7 +317,7 @@ OTR_DATA.stopSets = OTR_DATA.stopSets || {};
         id: 'ad2',
         brief: '402 Spruce St: adult signature.',
         par: 140,
-        lot: { kind: 'house', spec: { number: '402', steps: 3, wall: 0xDCE6EE, roof: 0x4F4458, door: 0x2F6B5A, siding: 'lap', porchW: 460, shutters: 0x2F6B5A } },
+        lot: { kind: 'house', spec: { number: '402', steps: 3, wall: 0xDCE6EE, roof: 0x454D57, door: 0x2F6B5A, siding: 'lap', porchW: 460, shutters: 0x2F6B5A } },
         props: [
           { type: 'mailbox', x: -200, art: { number: '402' } },
           { type: 'streetsign', x: -260, art: { text: 'SPRUCE ST' } },

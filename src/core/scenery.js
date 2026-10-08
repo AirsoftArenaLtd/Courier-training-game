@@ -30,8 +30,8 @@ OTR.scenery = {
     morning:   { top: 0x78BDEB, bottom: 0xFFE2BC, far: 0x9DB7CC, sun: [0.16, 0.5], sunCol: 0xFFE9B0, tint: 0xFFF3E0, dark: 0.0 },
     midday:    { top: 0x4A9FE8, bottom: 0xCFEBFF, far: 0x9ABCD4, sun: [0.72, 0.12], sunCol: 0xFFFFFF, tint: 0xFFFFFF, dark: 0.0 },
     afternoon: { top: 0x5B93D2, bottom: 0xFFD7A6, far: 0xA3A6BE, sun: [0.82, 0.38], sunCol: 0xFFE0A0, tint: 0xFFEBD0, dark: 0.06 },
-    evening:   { top: 0x3B2D70, bottom: 0xFF8E5E, far: 0x6E5480, sun: [0.86, 0.7], sunCol: 0xFFB070, tint: 0xFFB590, dark: 0.26 },
-    dusk:      { top: 0x231E4E, bottom: 0xB0587A, far: 0x40345E, sun: null, sunCol: 0xFFB070, tint: 0xA088C0, dark: 0.42 },
+    evening:   { top: 0x304C6D, bottom: 0xFF8E5E, far: 0x56697E, sun: [0.86, 0.7], sunCol: 0xFFB070, tint: 0xFFB590, dark: 0.26 },
+    dusk:      { top: 0x231E4E, bottom: 0xB0587A, far: 0x36485C, sun: null, sunCol: 0xFFB070, tint: 0x8BA2BD, dark: 0.42 },
     night:     { top: 0x0C1030, bottom: 0x2B2E5E, far: 0x24284E, sun: null, sunCol: 0xDDE6FF, tint: 0x7080C0, dark: 0.55 }
   },
 
@@ -194,7 +194,7 @@ OTR.scenery = {
             break;
           }
           case 'tile': {
-            ctx.fillStyle = '#D9D4DE'; ctx.fillRect(x0, 0, sw, h);
+            ctx.fillStyle = '#d5d9de'; ctx.fillRect(x0, 0, sw, h);
             ctx.strokeStyle = 'rgba(90,80,110,0.2)'; ctx.lineWidth = 2;
             for (let x = x0; x < sg.x1; x += 70) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x - 40, h); ctx.stroke(); }
             for (let y = 20; y < h; y += 36) { ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(sg.x1, y); ctx.stroke(); }
@@ -286,7 +286,7 @@ OTR.scenery = {
     ctx.fillRect(x, y, w, h);
     // curtains
     if (o.curtain !== false) {
-      const cc = o.curtain || 0xF2E6F7;
+      const cc = o.curtain || 0xE7EEF6;
       ctx.fillStyle = cv.c(cc, 0.9);
       ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w * 0.26, y); ctx.quadraticCurveTo(x + w * 0.12, y + h * 0.5, x + w * 0.2, y + h); ctx.lineTo(x, y + h); ctx.closePath(); ctx.fill();
       ctx.beginPath(); ctx.moveTo(x + w, y); ctx.lineTo(x + w * 0.74, y); ctx.quadraticCurveTo(x + w * 0.88, y + h * 0.5, x + w * 0.8, y + h); ctx.lineTo(x + w, y + h); ctx.closePath(); ctx.fill();
@@ -303,7 +303,7 @@ OTR.scenery = {
     cv.rr(ctx, x - 14, y + h + 6, w + 28, 10, 3); ctx.fillStyle = cv.c(S(trim, -0.08)); ctx.fill();
     if (o.box) {
       cv.rr(ctx, x - 6, y + h + 16, w + 12, 22, 4); ctx.fillStyle = '#8B5A3A'; ctx.fill();
-      const cols = ['#E8506A', '#FFC83D', '#FF8AB0', '#C86BE0'];
+      const cols = ['#E8506A', '#FFC83D', '#FF8AB0', '#71a2da'];
       for (let i = 0; i < 7; i++) { ctx.fillStyle = cols[i % 4]; ctx.beginPath(); ctx.arc(x + (i + 0.5) * w / 7, y + h + 14, 7, 0, Math.PI * 2); ctx.fill(); }
       ctx.fillStyle = '#3E8B4A';
       for (let i = 0; i < 8; i++) { ctx.beginPath(); ctx.arc(x + i * w / 7, y + h + 18, 6, 0, Math.PI * 2); ctx.fill(); }
@@ -334,7 +334,7 @@ OTR.scenery = {
     const tw = ctx.measureText(text).width;
     const w = tw + 22, h = size + 14;
     cv.shadow(ctx, 6, 2, 0.3);
-    cv.rr(ctx, x - w / 2, y - h / 2, w, h, 5); ctx.fillStyle = o.bg || '#2A2438'; ctx.fill();
+    cv.rr(ctx, x - w / 2, y - h / 2, w, h, 5); ctx.fillStyle = o.bg || '#252d37'; ctx.fill();
     cv.noShadow(ctx);
     ctx.strokeStyle = o.border || '#D8B45A'; ctx.lineWidth = 2; cv.rr(ctx, x - w / 2 + 3, y - h / 2 + 3, w - 6, h - 6, 3); ctx.stroke();
     ctx.fillStyle = o.color || '#F4E3B0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -343,7 +343,7 @@ OTR.scenery = {
 
   /* ================================================================= house */
   houseDefaults: {
-    w: 1000, stories: 2, wall: 0xE9DCC3, trim: 0xFFFFFF, roof: 0x4F4458, door: 0x2F6B5A, siding: 'lap',
+    w: 1000, stories: 2, wall: 0xE9DCC3, trim: 0xFFFFFF, roof: 0x454D57, door: 0x2F6B5A, siding: 'lap',
     number: '214', steps: 3, porchX: 300, porchW: 440, doorAt: 0.62, shutters: null, chimney: true,
     railing: true, light: true, bell: true, bushes: 0x3E8B4A, flowers: true, wreath: false, curtain: 0xF6EEDC,
     numberOn: 'wall', mailbox: false, garage: false, lit: false, snow: false
@@ -430,7 +430,7 @@ OTR.scenery = {
       if (s.garage) {
         const gx = W - 330, gw = 280, gh = 210;
         ctx.fillStyle = cv.c(s.trim); ctx.fillRect(gx - 10, H - gh - 10, gw + 20, gh + 10);
-        ctx.fillStyle = cv.lin(ctx, 0, H - gh, 0, H, [[0, '#F0EEF4'], [1, '#C9C6D2']]); ctx.fillRect(gx, H - gh, gw, gh);
+        ctx.fillStyle = cv.lin(ctx, 0, H - gh, 0, H, [[0, '#eef1f4'], [1, '#C9C6D2']]); ctx.fillRect(gx, H - gh, gw, gh);
         ctx.fillStyle = 'rgba(0,0,0,0.12)';
         for (let y = H - gh + 44; y < H; y += 46) ctx.fillRect(gx, y, gw, 3);
       }
@@ -445,15 +445,15 @@ OTR.scenery = {
       ctx.fillStyle = cv.lin(ctx, 0, L.doorTop - 44, 0, L.doorTop - 8, [[0, '#CFE9F9'], [1, '#6E9CBF']]);
       ctx.fillRect(dx, L.doorTop - 44, L.doorW, 34);
       // door (dark recess; the door leaf is a separate sprite)
-      ctx.fillStyle = '#1B1622'; ctx.fillRect(dx, L.doorTop, L.doorW, L.doorH);
+      ctx.fillStyle = '#171c21'; ctx.fillRect(dx, L.doorTop, L.doorW, L.doorH);
       // porch light
       if (s.light) {
-        cv.rr(ctx, L.lightX - 12, L.lightY - 26, 24, 44, 6); ctx.fillStyle = '#2A2432'; ctx.fill();
+        cv.rr(ctx, L.lightX - 12, L.lightY - 26, 24, 44, 6); ctx.fillStyle = '#252b31'; ctx.fill();
         cv.rr(ctx, L.lightX - 8, L.lightY - 20, 16, 30, 4); ctx.fillStyle = s.lit ? '#FFE9A8' : '#F4EED8'; ctx.fill();
         if (s.lit) { ctx.fillStyle = cv.rad(ctx, L.lightX, L.lightY, 0, 90, [[0, 'rgba(255,230,160,0.55)'], [1, 'rgba(255,230,160,0)']]); ctx.fillRect(L.lightX - 90, L.lightY - 90, 180, 180); }
       }
       if (s.bell) {
-        cv.rr(ctx, L.bellX - 9, L.bellY - 14, 18, 28, 4); ctx.fillStyle = '#3A3444'; ctx.fill();
+        cv.rr(ctx, L.bellX - 9, L.bellY - 14, 18, 28, 4); ctx.fillStyle = '#353c43'; ctx.fill();
         ctx.beginPath(); ctx.arc(L.bellX, L.bellY, 5, 0, Math.PI * 2); ctx.fillStyle = '#FFD86A'; ctx.fill();
       }
       if (s.mailbox) {
@@ -485,7 +485,7 @@ OTR.scenery = {
       cv.rr(ctx, L.doorX - 60, floorY - 6, 120, 10, 3); ctx.fillStyle = '#8C3A34'; ctx.fill();
       // foundation bushes
       if (s.bushes) {
-        const fl = s.flowers ? ['#FF7A9A', '#FFD34D', '#FFFFFF', '#C07AF0'] : null;
+        const fl = s.flowers ? ['#FF7A9A', '#FFD34D', '#FFFFFF', '#80b1ea'] : null;
         SC.bush(ctx, 40, H, Math.max(60, L.stepsX0 - 70), 70, s.bushes, R, { flowers: fl, snow: s.snow });
         if (L.porchX1 + 40 < W - 60) SC.bush(ctx, L.porchX1 + 20, H, W - L.porchX1 - 60, 64, S(s.bushes, 0.08), R, { flowers: fl, snow: s.snow });
       }
@@ -589,7 +589,7 @@ OTR.scenery = {
         ctx.fillStyle = cv.c(s.trim); ctx.fillRect(0, L.floorY - 330, W, 24);
         const winY = L.floorY - 280, winH = 220;
         [[40, L.doorX - L.doorW / 2 - 60], [L.doorX + L.doorW / 2 + 60, W - 40]].forEach(([x0, x1]) => {
-          ctx.fillStyle = '#2F2A38'; ctx.fillRect(x0 - 8, winY - 8, x1 - x0 + 16, winH + 16);
+          ctx.fillStyle = '#2b3137'; ctx.fillRect(x0 - 8, winY - 8, x1 - x0 + 16, winH + 16);
           ctx.fillStyle = s.lit ? cv.lin(ctx, 0, winY, 0, winY + winH, [[0, '#FFE8B0'], [1, '#E0A868']]) : cv.lin(ctx, x0, winY, x1, winY + winH, [[0, '#CDEBFA'], [0.5, '#6C9CC0'], [1, '#34597A']]);
           ctx.fillRect(x0, winY, x1 - x0, winH);
           // shelves / displays inside
@@ -611,7 +611,7 @@ OTR.scenery = {
           for (let x = 70; x < W - 150; x += 190) {
             if (fl === 2 && Math.abs(x + 55 - L.doorX) < 220) continue;
             const y = 50 + fl * 190;
-            SC.window(ctx, x, y, 110, 120, { trim: s.trim, curtain: R() < 0.7 ? OTR.util.pick([0xF2E6F7, 0xDDEBFF, 0xFFF1D6]) : false, lit: s.lit && R() < 0.5, box: R() < 0.2 });
+            SC.window(ctx, x, y, 110, 120, { trim: s.trim, curtain: R() < 0.7 ? OTR.util.pick([0xE7EEF6, 0xDDEBFF, 0xFFF1D6]) : false, lit: s.lit && R() < 0.5, box: R() < 0.2 });
             if (R() < 0.25) { cv.rr(ctx, x + 26, y + 92, 58, 36, 3); ctx.fillStyle = '#C9C6D0'; ctx.fill(); ctx.fillStyle = 'rgba(0,0,0,0.3)'; for (let k = 0; k < 4; k++) ctx.fillRect(x + 32, y + 98 + k * 7, 46, 2); }
           }
         }
@@ -621,7 +621,7 @@ OTR.scenery = {
       // entry
       const dx = L.doorX - L.doorW / 2;
       ctx.fillStyle = cv.c(s.trim); ctx.fillRect(dx - 16, L.doorTop - 20, L.doorW + 32, L.doorH + 20);
-      ctx.fillStyle = '#1B1622'; ctx.fillRect(dx, L.doorTop, L.doorW, L.doorH);
+      ctx.fillStyle = '#171c21'; ctx.fillRect(dx, L.doorTop, L.doorW, L.doorH);
       // buzzer / intercom panel
       if (s.style !== 'business') {
         cv.rr(ctx, L.panelX - 22, L.panelY - 44, 44, 88, 5); ctx.fillStyle = '#B8B6C0'; ctx.fill();
@@ -630,7 +630,7 @@ OTR.scenery = {
       } else {
         // hours placard next to the door
         cv.rr(ctx, L.doorX + L.doorW / 2 + 22, L.floorY - 190, 70, 90, 4); ctx.fillStyle = '#FFFFFF'; ctx.fill();
-        ctx.fillStyle = '#2A2438'; ctx.font = '900 12px "Segoe UI", Arial'; ctx.textAlign = 'center';
+        ctx.fillStyle = '#252d37'; ctx.font = '900 12px "Segoe UI", Arial'; ctx.textAlign = 'center';
         ctx.fillText('HOURS', L.doorX + L.doorW / 2 + 57, L.floorY - 170);
         ctx.font = '700 10px "Segoe UI", Arial';
         String(s.hours).split('\n').forEach((ln, i) => ctx.fillText(ln, L.doorX + L.doorW / 2 + 57, L.floorY - 150 + i * 14));
@@ -659,7 +659,7 @@ OTR.scenery = {
         const cy = L.doorTop - 40;
         ctx.fillStyle = cv.c(S(s.trim, -0.35)); ctx.fillRect(L.doorX - 200, cy, 400, 26);
         ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.fillRect(L.doorX - 200, cy + 26, 400, 8);
-        ctx.strokeStyle = '#3A3444'; ctx.lineWidth = 4;
+        ctx.strokeStyle = '#353c43'; ctx.lineWidth = 4;
         ctx.beginPath(); ctx.moveTo(L.doorX - 180, cy); ctx.lineTo(L.doorX - 150, cy - 90); ctx.moveTo(L.doorX + 180, cy); ctx.lineTo(L.doorX + 150, cy - 90); ctx.stroke();
       }
     }, { trim: true });
@@ -683,7 +683,7 @@ OTR.scenery = {
   /* ================================================================= interiors */
   /** Lobby / reception / pickup counter. spec: { kind: 'lobby'|'counter', wall, sign, w } */
   interior(scene, spec) {
-    const s = Object.assign({ kind: 'lobby', wall: 0xE7E2EE, accent: 0x3DA5FF, sign: 'BRIGHTLINE', w: 1600, counterX: 1050, lit: true }, spec);
+    const s = Object.assign({ kind: 'lobby', wall: 0xE3E8ED, accent: 0x3DA5FF, sign: 'BRIGHTLINE', w: 1600, counterX: 1050, lit: true }, spec);
     const id = OTR.rig.hash(s);
     const key = `int_${id}`, frontKey = `intf_${id}`;
     const H = 700, W = s.w;
@@ -702,14 +702,14 @@ OTR.scenery = {
         ctx.beginPath(); ctx.moveTo(x - 60, 22); ctx.lineTo(x + 60, 22); ctx.lineTo(x + 160, 300); ctx.lineTo(x - 160, 300); ctx.closePath(); ctx.fill();
       }
       // entry glass door frame on the left
-      ctx.fillStyle = '#3A3444'; ctx.fillRect(40, H - 300, 170, 300);
+      ctx.fillStyle = '#353c43'; ctx.fillRect(40, H - 300, 170, 300);
       ctx.fillStyle = 'rgba(170,215,240,0.7)'; ctx.fillRect(52, H - 288, 146, 288);
       ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fillRect(70, H - 280, 12, 270);
       // elevator
       ctx.fillStyle = '#9E9AA8'; ctx.fillRect(layout.elevatorX - 90, H - 330, 180, 330);
-      ctx.fillStyle = cv.lin(ctx, layout.elevatorX - 80, 0, layout.elevatorX + 80, 0, [[0, '#C9C7D2'], [0.5, '#EEEDF3'], [1, '#B8B6C2']]);
+      ctx.fillStyle = cv.lin(ctx, layout.elevatorX - 80, 0, layout.elevatorX + 80, 0, [[0, '#C9C7D2'], [0.5, '#edf0f3'], [1, '#B8B6C2']]);
       ctx.fillRect(layout.elevatorX - 78, H - 318, 76, 318); ctx.fillRect(layout.elevatorX + 2, H - 318, 76, 318);
-      cv.rr(ctx, layout.elevatorX + 96, H - 190, 18, 40, 4); ctx.fillStyle = '#3A3444'; ctx.fill();
+      cv.rr(ctx, layout.elevatorX + 96, H - 190, 18, 40, 4); ctx.fillStyle = '#353c43'; ctx.fill();
       // wall sign
       if (s.sign) {
         // over the counter, but whole in the view from the entrance (the camera starts at the lobby's left edge); a
@@ -721,7 +721,7 @@ OTR.scenery = {
       }
       // plants + chairs
       [[820, 1], [W - 120, 1]].forEach(([px]) => {
-        cv.rr(ctx, px - 30, H - 90, 60, 90, 8); ctx.fillStyle = '#E0DCE6'; ctx.fill();
+        cv.rr(ctx, px - 30, H - 90, 60, 90, 8); ctx.fillStyle = '#dce1e6'; ctx.fill();
         SC.bush(ctx, px - 60, H - 80, 120, 150, 0x3E8B4A, R);
       });
       if (s.kind === 'counter') {
@@ -731,7 +731,7 @@ OTR.scenery = {
           ctx.fillStyle = '#6E6878'; ctx.fillRect(s.counterX - 300, H - 460 + r * 100 + 90, 600, 8);
           for (let x = s.counterX - 290; x < s.counterX + 280; x += 60 + R() * 30) {
             const bw = 40 + R() * 30, bh = 40 + R() * 40;
-            OTR.draw.box(ctx, { fw: bw, fh: bh, d: 10, x, y: H - 460 + r * 100 + 90 - bh, color: OTR.util.pick([0xC99A62, 0xB88A55, 0xD8B080, 0xF2F0F4]) });
+            OTR.draw.box(ctx, { fw: bw, fh: bh, d: 10, x, y: H - 460 + r * 100 + 90 - bh, color: OTR.util.pick([0xC99A62, 0xB88A55, 0xD8B080, 0xF0F2F4]) });
           }
         }
       }
@@ -739,17 +739,17 @@ OTR.scenery = {
     OTR.tex.make(scene, frontKey, W, H, (ctx) => {
       const cx = s.counterX, top = layout.counterTop;
       cv.shadow(ctx, 16, 6, 0.3);
-      ctx.fillStyle = cv.lin(ctx, 0, top, 0, H, [[0, '#5B4A6E'], [1, '#3A2E48']]);
+      ctx.fillStyle = cv.lin(ctx, 0, top, 0, H, [[0, '#4c5b6c'], [1, '#2f3a47']]);
       ctx.fillRect(cx - 230, top + 14, 460, H - top - 14);
       cv.noShadow(ctx);
-      ctx.fillStyle = cv.lin(ctx, 0, top, 0, top + 18, [[0, '#F4F0F8'], [1, '#C9C3D2']]);
+      ctx.fillStyle = cv.lin(ctx, 0, top, 0, top + 18, [[0, '#f0f4f8'], [1, '#c4cad1']]);
       ctx.fillRect(cx - 250, top, 500, 18);
       ctx.fillStyle = cv.c(s.accent); ctx.fillRect(cx - 230, top + 44, 460, 8);
       if (s.kind === 'counter') {
-        ctx.fillStyle = '#2A2432'; cv.rr(ctx, cx + 120, top - 70, 90, 70, 6); ctx.fill();
+        ctx.fillStyle = '#252b31'; cv.rr(ctx, cx + 120, top - 70, 90, 70, 6); ctx.fill();
         ctx.fillStyle = '#7FD4FF'; ctx.fillRect(cx + 128, top - 62, 74, 48);
       } else {
-        ctx.fillStyle = '#2A2432'; cv.rr(ctx, cx - 180, top - 64, 100, 64, 5); ctx.fill();
+        ctx.fillStyle = '#252b31'; cv.rr(ctx, cx - 180, top - 64, 100, 64, 5); ctx.fill();
         ctx.fillStyle = '#8FD3FF'; ctx.fillRect(cx - 172, top - 56, 84, 44);
         ctx.fillStyle = '#FFFFFF'; cv.rr(ctx, cx + 90, top - 22, 60, 22, 3); ctx.fill();
       }
@@ -772,38 +772,38 @@ OTR.scenery = {
       // ground shadow
       cv.ellipse(ctx, w * 0.5, h - 6, w * 0.47, 12); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fill();
       // cargo box
-      ctx.fillStyle = cv.lin(ctx, 0, 14, 0, 290, [[0, '#FFFFFF'], [0.7, '#ECE9F2'], [1, '#C9C5D4']]);
+      ctx.fillStyle = cv.lin(ctx, 0, 14, 0, 290, [[0, '#FFFFFF'], [0.7, '#e9edf2'], [1, '#c6ccd3']]);
       cv.rr(ctx, 14, 14, 420, 280, 14); ctx.fill();
       // roof cap + rear door seam
-      ctx.fillStyle = '#DAD6E2'; cv.rr(ctx, 14, 14, 420, 16, 8); ctx.fill();
+      ctx.fillStyle = '#d7dce1'; cv.rr(ctx, 14, 14, 420, 16, 8); ctx.fill();
       ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(40, 30); ctx.lineTo(40, 286); ctx.stroke();
       // cab
       ctx.beginPath();
       ctx.moveTo(430, 30); ctx.lineTo(540, 30); ctx.quadraticCurveTo(560, 32, 572, 70);
       ctx.lineTo(606, 196); ctx.quadraticCurveTo(612, 214, 612, 234); ctx.lineTo(612, 290); ctx.lineTo(430, 290); ctx.closePath();
-      ctx.fillStyle = cv.lin(ctx, 0, 30, 0, 290, [[0, '#FFFFFF'], [0.7, '#ECE9F2'], [1, '#C9C5D4']]); ctx.fill();
+      ctx.fillStyle = cv.lin(ctx, 0, 30, 0, 290, [[0, '#FFFFFF'], [0.7, '#e9edf2'], [1, '#c6ccd3']]); ctx.fill();
       // windshield
       ctx.beginPath(); ctx.moveTo(532, 44); ctx.lineTo(558, 48); ctx.lineTo(596, 190); ctx.lineTo(532, 190); ctx.closePath();
       ctx.fillStyle = cv.lin(ctx, 532, 44, 596, 190, [[0, '#9FD0F0'], [0.5, '#2E5578'], [1, '#1A3048']]); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.beginPath(); ctx.moveTo(542, 52); ctx.lineTo(552, 54); ctx.lineTo(548, 150); ctx.lineTo(538, 150); ctx.closePath(); ctx.fill();
       // brand band
-      ctx.fillStyle = '#4D148C'; ctx.fillRect(14, 196, 598, 30);
-      ctx.fillStyle = '#FF6600'; ctx.fillRect(14, 226, 598, 8);
+      ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(14, 196, 598, 30);
+      ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(14, 226, 598, 8);
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       if (brand) {
-        ctx.fillStyle = '#4D148C'; ctx.font = '900 64px "Segoe UI", Arial';
+        ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.font = '900 64px "Segoe UI", Arial';
         ctx.fillText(brand, 90, 150);
-        ctx.fillStyle = '#FF6600'; ctx.font = '900 30px "Segoe UI", Arial';
+        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.font = '900 30px "Segoe UI", Arial';
         ctx.fillText(OTR_DATA.config.title.toUpperCase(), 94 + ctx.measureText(brand).width * 0.02, 184);
       } else {
-        ctx.fillStyle = '#FF6600'; ctx.font = '900 44px "Segoe UI", Arial';
+        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.font = '900 44px "Segoe UI", Arial';
         ctx.fillText(OTR_DATA.config.title.toUpperCase(), 70, 170);
       }
       // cab doorway
       const d0 = L.doorX0, d1 = L.doorX1;
       if (state === 'open') {
-        ctx.fillStyle = cv.lin(ctx, 0, 44, 0, 290, [[0, '#2C2834'], [1, '#18151E']]);
+        ctx.fillStyle = cv.lin(ctx, 0, 44, 0, 290, [[0, '#292e33'], [1, '#15191e']]);
         ctx.fillRect(d0, 44, d1 - d0, 246);
         // seat + wheel silhouette
         ctx.fillStyle = '#3E3A48'; cv.rr(ctx, d1 - 44, 150, 40, 90, 8); ctx.fill();
@@ -862,7 +862,7 @@ OTR.scenery = {
       rows.forEach(y => {
         ctx.fillStyle = cv.lin(ctx, 0, y, 0, y + 16, [[0, '#C9C6D2'], [1, '#7E7B88']]);
         ctx.fillRect(28, y, 880, 14);
-        ctx.fillStyle = '#FF6600'; ctx.fillRect(28, y + 14, 880, 4);
+        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(28, y + 14, 880, 4);
         ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(28, y + 18, 880, 10);
       });
       // uprights + section labels
@@ -872,7 +872,7 @@ OTR.scenery = {
         ctx.fillStyle = 'rgba(255,255,255,0.10)';
         ctx.fillRect(cx - 6, 92, 5, 420);
         cv.rr(ctx, cx + 8, 84, colW - 26, 24, 10);
-        ctx.fillStyle = i === 0 ? '#2BC48A' : i === 1 ? '#3DA5FF' : '#C86BE0'; ctx.fill();
+        ctx.fillStyle = i === 0 ? '#2BC48A' : i === 1 ? '#3DA5FF' : '#71a2da'; ctx.fill();
         ctx.fillStyle = '#fff'; ctx.font = '900 14px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(lab, cx + 8 + (colW - 26) / 2, 96);
       });
@@ -905,9 +905,9 @@ OTR.scenery = {
       ctx.fillStyle = 'rgba(255,255,255,0.5)';
       ctx.fillText('FLOOR / BULK', x0 + 22, 542);
       // rear door frame on the right
-      ctx.fillStyle = '#26242E'; ctx.fillRect(922, 0, w - 922, h);
+      ctx.fillStyle = '#24292e'; ctx.fillRect(922, 0, w - 922, h);
       ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(922, 0, 14, h);
-      ctx.fillStyle = cv.c(S(0xE9E6F0, -0.1));
+      ctx.fillStyle = cv.c(S(0xE7EBF0, -0.1));
       for (let y = 40; y < h; y += 40) { ctx.fillStyle = y % 80 === 0 ? '#3A3744' : '#454250'; ctx.fillRect(944, y, w - 960, 34); }
       ctx.fillStyle = 'rgba(255,255,255,0.06)'; ctx.fillRect(944, 0, w - 960, h);
       void R;
@@ -1101,12 +1101,12 @@ OTR.scenery = {
       });
       case 'package': return P(90, 80, (ctx) => {
         OTR.draw.box(ctx, { fw: 60, fh: 44, d: 16, x: 6, y: 26, color: o.color || 0xC99A62, damage: o.damage });
-        ctx.fillStyle = '#fff'; ctx.fillRect(14, 44, 26, 14); ctx.fillStyle = '#4D148C'; ctx.fillRect(14, 44, 26, 3);
+        ctx.fillStyle = '#fff'; ctx.fillRect(14, 44, 26, 14); ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(14, 44, 26, 3);
       });
       case 'doortag': return P(24, 40, (ctx) => {
         cv.rr(ctx, 2, 2, 20, 36, 3); ctx.fillStyle = '#FFFFFF'; ctx.fill();
-        ctx.fillStyle = '#FF6600'; ctx.fillRect(2, 2, 20, 9);
-        ctx.fillStyle = '#4D148C'; ctx.fillRect(5, 16, 14, 2); ctx.fillRect(5, 21, 10, 2); ctx.fillRect(5, 26, 12, 2);
+        ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(2, 2, 20, 9);
+        ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(5, 16, 14, 2); ctx.fillRect(5, 21, 10, 2); ctx.fillRect(5, 26, 12, 2);
       });
       case 'bench': return P(160, 70, (ctx, w, h) => {
         ctx.fillStyle = '#7A5638'; ctx.fillRect(4, 14, w - 8, 10); ctx.fillRect(4, 34, w - 8, 10);

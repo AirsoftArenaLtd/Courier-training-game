@@ -52,14 +52,14 @@ OTR.rig = {
         return OTR.rig.make(scene, 'rig_item_box', 70, 60, (ctx) => {
           OTR.draw.box(ctx, { fw: 52, fh: 38, d: 14, x: 4, y: 14, color: 0xC99A62 });
           ctx.fillStyle = '#fff'; ctx.fillRect(12, 34, 22, 12);
-          ctx.fillStyle = '#4D148C'; ctx.fillRect(12, 34, 22, 3);
+          ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(12, 34, 22, 3);
         });
       case 'leakbox':
         // crushed at a corner and dripping (m4-damaged: the courier has just lifted it off the shelf)
         return OTR.rig.make(scene, 'rig_item_leakbox', 70, 80, (ctx) => {
           OTR.draw.box(ctx, { fw: 52, fh: 38, d: 14, x: 4, y: 14, color: 0xC99A62, damage: 'leak' });
           ctx.fillStyle = '#fff'; ctx.fillRect(12, 34, 22, 12);
-          ctx.fillStyle = '#4D148C'; ctx.fillRect(12, 34, 22, 3);
+          ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(12, 34, 22, 3);
           // held at arm's height it is small on screen: a darker soaked corner and drips big enough to see
           ctx.fillStyle = 'rgba(40,30,20,0.55)';
           ctx.beginPath(); ctx.moveTo(34, 52); ctx.quadraticCurveTo(38, 36, 56, 30); ctx.lineTo(56, 52); ctx.closePath(); ctx.fill();
@@ -83,15 +83,15 @@ OTR.rig = {
         });
       case 'envelope':
         return OTR.rig.make(scene, 'rig_item_env', 44, 32, (ctx) => {
-          cv.rr(ctx, 2, 4, 40, 26, 3); ctx.fillStyle = '#F4F1FA'; ctx.fill();
-          ctx.fillStyle = '#4D148C'; ctx.fillRect(2, 4, 40, 6);
-          ctx.fillStyle = '#FF6600'; ctx.fillRect(2, 10, 40, 2);
+          cv.rr(ctx, 2, 4, 40, 26, 3); ctx.fillStyle = '#f1f5fa'; ctx.fill();
+          ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(2, 4, 40, 6);
+          ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(2, 10, 40, 2);
         });
       case 'scanner':
         return OTR.rig.make(scene, 'rig_item_scanner', 30, 40, (ctx) => {
           cv.rr(ctx, 4, 2, 22, 36, 5); ctx.fillStyle = '#2B2B36'; ctx.fill();
           cv.rr(ctx, 7, 6, 16, 14, 2); ctx.fillStyle = '#7FD4FF'; ctx.fill();
-          ctx.fillStyle = '#FF6600'; ctx.fillRect(7, 24, 16, 4);
+          ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(7, 24, 16, 4);
           ctx.fillStyle = '#555'; for (let i = 0; i < 3; i++) ctx.fillRect(8 + i * 5, 31, 3, 3);
         });
       case 'bottle':
@@ -108,8 +108,8 @@ OTR.rig = {
       case 'doortag':
         return OTR.rig.make(scene, 'rig_item_tag', 24, 36, (ctx) => {
           cv.rr(ctx, 2, 2, 20, 32, 3); ctx.fillStyle = '#FFFFFF'; ctx.fill();
-          ctx.fillStyle = '#FF6600'; ctx.fillRect(2, 2, 20, 8);
-          ctx.fillStyle = '#4D148C'; ctx.fillRect(5, 14, 14, 2); ctx.fillRect(5, 19, 10, 2); ctx.fillRect(5, 24, 12, 2);
+          ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(2, 2, 20, 8);
+          ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(5, 14, 14, 2); ctx.fillRect(5, 19, 10, 2); ctx.fillRect(5, 24, 12, 2);
         });
       case 'clipboard':
         return OTR.rig.make(scene, 'rig_item_clip', 32, 42, (ctx) => {
@@ -193,9 +193,9 @@ OTR.rigArt = {
     } else if (spec.uniform) {
       // orange V collar and name patch
       ctx.beginPath(); ctx.moveTo(33, 17); ctx.lineTo(43, 34); ctx.lineTo(53, 17); ctx.lineTo(49, 16); ctx.lineTo(43, 27); ctx.lineTo(37, 16); ctx.closePath();
-      ctx.fillStyle = '#FF6600'; ctx.fill();
+      ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fill();
       cv.rr(ctx, 44, 40, 11, 6, 1.5); ctx.fillStyle = '#fff'; ctx.fill();
-      ctx.fillStyle = '#FF6600'; ctx.fillRect(45, 41.5, 4, 3);
+      ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(45, 41.5, 4, 3);
       // shoulder stripe
       ctx.fillStyle = 'rgba(255,102,0,0.9)'; ctx.fillRect(15, 40, 43, 2);
     } else if (spec.collar) {
@@ -267,7 +267,7 @@ OTR.rigArt = {
     } else {
       cv.rr(ctx, 5, 12, 16, 42, 8); ctx.fillStyle = cv.lin(ctx, 5, 0, 21, 0, [[0, OTR.color.shade(C.skin, -0.2)], [1, OTR.color.shade(C.skin, 0.06)]]); ctx.fill();
       cv.rr(ctx, 3, 0, 20, 24, 9); ctx.fillStyle = cv.lin(ctx, 3, 0, 23, 0, [[0, OTR.color.shade(C.top, -0.25)], [1, OTR.color.shade(C.top, 0.08)]]); ctx.fill();
-      if (spec.uniform) { ctx.fillStyle = '#FF6600'; ctx.fillRect(3, 20, 20, 3); }
+      if (spec.uniform) { ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(3, 20, 20, 3); }
     }
   },
 
@@ -415,7 +415,7 @@ OTR.BaseRig = class {
     const s = this.scene;
     const h = this.headHeight ? this.headHeight() : 280;
     const c = s.add.container(this.c.x, this.c.y - h * this.baseScale - 10).setDepth((this.c.depth || 0) + 1);
-    const t = OTR.txt(s, 0, -2, text, o.size || 26, o.color || '#250849', { weight: '900' });
+    const t = OTR.txt(s, 0, -2, text, o.size || 26, o.color || OTR_DATA.theme.css('primaryDark'), { weight: '900' });
     const w = Math.max(44, t.width + 22), hh = t.height + 14;
     const g = OTR.tex.shape(s, (g) => {
       g.fillStyle(0x000000, 0.2); g.fillRoundedRect(-w / 2, -hh / 2 + 3, w, hh, 14);
@@ -491,7 +491,7 @@ OTR.PersonRig = class extends OTR.BaseRig {
   build() {
     const s = this.scene, inv = 1 / OTR.rig.RES;
     const img = (key, ox, oy) => s.add.image(0, 0, key).setOrigin(ox, oy).setScale(inv);
-    const back = 0xB9B3C6;
+    const back = 0xB4BCC5;
     this.shadow = s.add.image(0, 0, OTR.rig.shadowTex(s)).setScale(0.75, 0.9);
     const hbH = 340;
     this.hairBack = img(this.headTex('hairBack'), 0.5, (286 - 40) / hbH);
@@ -905,7 +905,7 @@ OTR.DogRig = class extends OTR.BaseRig {
   build() {
     const s = this.scene, inv = 1 / OTR.rig.RES;
     const img = (key, ox, oy) => s.add.image(0, 0, key).setOrigin(ox, oy).setScale(inv);
-    const back = 0xA9A2B6;
+    const back = 0xA3ABB5;
     this.shadow = s.add.image(0, 0, OTR.rig.shadowTex(s)).setScale(1.2, 0.9);
     this.legs = {
       bb: img(this.tex('legB'), 12 / 24, 4 / 58).setTint(back),

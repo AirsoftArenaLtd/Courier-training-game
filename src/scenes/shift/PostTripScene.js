@@ -11,7 +11,7 @@ class PostTripScene extends Phaser.Scene {
     const st = OTR.shift.state;
     if (!st) { this.scene.start('HubScene'); return; }
     OTR.fx.enter(this);
-    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'posttrip_bg', [[0, '#1A0A36'], [0.6, '#4A2270'], [1, '#C8703D']]));
+    this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'posttrip_bg', [[0, '#0c1f34'], [0.6, '#26476c'], [1, '#C8703D']]));
     OTR.txt(this, W / 2, 50, 'BACK AT THE STATION', 34, '#ffffff', { weight: '900', shadow: true });
     this.qs = OTR.shift.postTripQuestions(st);
     OTR.txt(this, W / 2, 86, `The post-trip: ${['', 'one thing', 'two things', 'three things', 'four things'][this.qs.length] || this.qs.length + ' things'} before you clock off`, 18, '#FFE3C8', { bold: false });
@@ -34,8 +34,8 @@ class PostTripScene extends Phaser.Scene {
     this.body.removeAll(true);
     this.answered = false;
     this.body.add(OTR.txt(this, W / 2, 128, `${this.i + 1} of ${this.qs.length} · ${q.topic}`, 15, '#FFC83D', { weight: '900' }));
-    this.body.add(this.add.image(W / 2, 214, OTR.tex.panel(this, 1000, 132, { top: 0xFFFFFF, bottom: 0xF1EAFB, border: 0xC9B3F0, radius: 18 })));
-    const t = OTR.txt(this, W / 2, 214, q.text, 21, '#250849', { weight: '900', align: 'center', wrap: 940, lineSpacing: 4 });
+    this.body.add(this.add.image(W / 2, 214, OTR.tex.panel(this, 1000, 132, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 18 })));
+    const t = OTR.txt(this, W / 2, 214, q.text, 21, OTR_DATA.theme.css('primaryDark'), { weight: '900', align: 'center', wrap: 940, lineSpacing: 4 });
     if (t.height > 112) t.setScale(112 / t.height);
     this.body.add(t);
     this.opts = q.options.map((o, k) => {

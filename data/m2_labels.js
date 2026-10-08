@@ -39,7 +39,7 @@ OTR_DATA.labels = {
     belt:    { label: 'BELT',             sub: 'standard handling',      color: 0x3DA5FF },
     upright: { label: 'UPRIGHT CART',     sub: 'arrows stay up',         color: 0x2F8F83 },
     fragile: { label: 'FRAGILE SHELF',    sub: 'nothing stacked on top', color: 0xE8A33D },
-    dry:     { label: 'DRY RACK',         sub: 'out of the wet',         color: 0x7B3FC4 },
+    dry:     { label: 'DRY RACK',         sub: 'out of the wet',         color: OTR_DATA.theme.primaryLight },
     hazmat:  { label: 'HAZMAT CAGE',      sub: 'segregated · DG papers', color: 0xC8243B },
     isolate: { label: 'ISOLATE & REPORT', sub: 'do not move it on',      color: 0x8A1020 }
   },

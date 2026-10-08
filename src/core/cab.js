@@ -34,7 +34,7 @@ OTR.cab = {
     if (s.cab && s.cab.on) { this.setOn(s, false); return; }
     if (!s.sys.game.renderer || s.sys.game.renderer.type !== Phaser.WEBGL) { s.toast('The cab view needs WebGL', 0xF0435A); return; }
     if (s.cab) { this.setOn(s, true); return; }
-    s.toast('Cab view: loading…', 0xC9B3F0);
+    s.toast('Cab view: loading…', OTR_DATA.theme.tint);
     this.load().then(() => {
       if (!s.sys.isActive() || s.leaving) return;
       try { s.cab = this.build(s); this.setOn(s, true); } catch (e) { console.warn('cab view', e); s.toast('The cab view could not start on this computer', 0xF0435A); }
@@ -48,7 +48,7 @@ OTR.cab = {
     s.cameras.main.setVisible(!on);                       // the view from above is not drawn under it
     if (s.lighting) s.lighting.rt.setVisible(!on);         // the light map is the top-down view's
     if (s.wx && s.wx.fogImg) s.wx.fogImg.setVisible(!on);  // and so is the fog round the screen (the cab's is in 3D)
-    s.toast(on ? 'Cab view (V for the view from above)' : 'View from above (V for the cab)', 0xC9B3F0);
+    s.toast(on ? 'Cab view (V for the view from above)' : 'View from above (V for the cab)', OTR_DATA.theme.tint);
   },
 
   /** A colour from a texture: its average over the visible pixels (a roof or a tree's overall colour). */
@@ -208,7 +208,7 @@ OTR.cab = {
     // the station's name on its street side
     {
       const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 128; const x = cv.getContext('2d');
-      x.fillStyle = '#4D148C'; x.fillRect(0, 0, 1024, 128); x.fillStyle = '#FF6600'; x.fillRect(0, 110, 1024, 18);
+      x.fillStyle = OTR_DATA.theme.css('primary'); x.fillRect(0, 0, 1024, 128); x.fillStyle = OTR_DATA.theme.css('accent'); x.fillRect(0, 110, 1024, 18);
       x.fillStyle = '#fff'; x.font = '900 72px "Segoe UI", Arial'; x.textAlign = 'center'; x.textBaseline = 'middle';
       x.fillText(OTR_DATA.config.brand ? OTR_DATA.config.brand.toUpperCase() + ' STATION' : 'DELIVERY STATION', 512, 58);
       const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
@@ -389,9 +389,9 @@ OTR.cab = {
     // the cab round the windscreen: the dash, the pillars and the wheel
     const fr = s.add.graphics().setScrollFactor(0).setDepth(691);
     const W = OTR.W, H = OTR.H;
-    fr.fillStyle(0x1A1820, 1);
+    fr.fillStyle(0x181C20, 1);
     fr.fillPoints([{ x: 0, y: H }, { x: 0, y: H - 150 }, { x: W * 0.3, y: H - 175 }, { x: W * 0.7, y: H - 175 }, { x: W, y: H - 150 }, { x: W, y: H }], true);
-    fr.fillStyle(0x24222C, 1);
+    fr.fillStyle(0x23272C, 1);
     fr.fillPoints([{ x: 0, y: 58 }, { x: 70, y: 58 }, { x: 34, y: H - 150 }, { x: 0, y: H - 150 }], true);
     fr.fillPoints([{ x: W, y: 58 }, { x: W - 70, y: 58 }, { x: W - 34, y: H - 150 }, { x: W, y: H - 150 }], true);
     if (high) {

@@ -29,8 +29,8 @@ OTR.driveAids = {
     s.insetFrames = s.add.container(0, 0).setScrollFactor(0).setDepth(790).setVisible(false);
     s.rearFrame = s.add.container(0, 0).setScrollFactor(0).setDepth(790).setVisible(false);
     const frame = (c, x, y, w, h, label) => {
-      c.add(OTR.tex.shape(s, (g) => { g.lineStyle(4, 0x16062B, 1); g.strokeRoundedRect(x - 2, y - 2, w + 4, h + 4, 10); g.lineStyle(2, 0xC9B3F0, 1); g.strokeRoundedRect(x, y, w, h, 8); }));
-      c.add(OTR.txt(s, x + w / 2, y + h + 12, label, 12, '#ffffff', { weight: '900', stroke: '#16062B', strokeW: 4 }));
+      c.add(OTR.tex.shape(s, (g) => { g.lineStyle(4, OTR_DATA.theme.primaryDeep, 1); g.strokeRoundedRect(x - 2, y - 2, w + 4, h + 4, 10); g.lineStyle(2, OTR_DATA.theme.tint, 1); g.strokeRoundedRect(x, y, w, h, 8); }));
+      c.add(OTR.txt(s, x + w / 2, y + h + 12, label, 12, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }));
     };
     frame(s.insetFrames, 16, MY, 200, 130, 'LEFT MIRROR');
     frame(s.insetFrames, W - 216, MY, 200, 130, 'RIGHT MIRROR');
@@ -92,7 +92,7 @@ OTR.driveAids = {
       const t = OTR.txt(s, 0, 0, 'BREAK DUE · pull over, then K', 14, '#ffffff', { weight: '900', ox: 0 });
       const w = t.width + 30; t.x = -w / 2 + 15;
       s.breakBadge = s.add.container(16 + w / 2, 116).setScrollFactor(0).setDepth(801);
-      s.breakBadge.add([OTR.tex.shape(s, (g) => { g.fillStyle(0x4D148C, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }), t]);
+      s.breakBadge.add([OTR.tex.shape(s, (g) => { g.fillStyle(OTR_DATA.theme.primary, 1); g.fillRoundedRect(-w / 2, -15, w, 30, 15); g.lineStyle(2, 0xFFC83D, 1); g.strokeRoundedRect(-w / 2, -15, w, 30, 15); }), t]);
       s.syncCameras();
     }
     if (s.breakBadge) s.breakBadge.setVisible(due);
@@ -106,8 +106,8 @@ OTR.driveAids = {
     if (!s.shiftMode || !st || s.parked || s.leaving || s.incidentOpen) return;
     const V = OTR.vehicle;
     const ax = this.axis(s);
-    if (!V.stopped(s.van) || !ax || ax.gap > 1.8) { s.toast('For a break: pull in to the curb and stop, then K', 0xC9B3F0); return; }
-    if (this.sinceBreak(s) < 45) { s.toast('You had a break a little while ago: keep going', 0xC9B3F0); return; }
+    if (!V.stopped(s.van) || !ax || ax.gap > 1.8) { s.toast('For a break: pull in to the curb and stop, then K', OTR_DATA.theme.tint); return; }
+    if (this.sinceBreak(s) < 45) { s.toast('You had a break a little while ago: keep going', OTR_DATA.theme.tint); return; }
     st.clockMin += 10;
     st.lastBreakMin = this.clockNow(s);
     st.breaks = (st.breaks || 0) + 1;
@@ -178,7 +178,7 @@ OTR.driveAids = {
     const col = secs < 2 ? 0xF0435A : secs < 4 ? 0xFFB020 : 0x2BC48A;
     s.gapText.setText(`${key} s behind`);
     const w = s.gapText.width + 30;
-    s.gapBg.redraw((g) => { g.fillStyle(0x16062B, 0.9); g.fillRoundedRect(-w / 2, -16, w, 32, 16); g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -16, w, 32, 16); });
+    s.gapBg.redraw((g) => { g.fillStyle(OTR_DATA.theme.primaryDeep, 0.9); g.fillRoundedRect(-w / 2, -16, w, 32, 16); g.lineStyle(3, col, 1); g.strokeRoundedRect(-w / 2, -16, w, 32, 16); });
     s.gapPill.setVisible(true);
   },
 

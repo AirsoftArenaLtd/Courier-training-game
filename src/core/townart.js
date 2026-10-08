@@ -7,7 +7,7 @@ window.OTR = window.OTR || {};
 OTR.townArt = {
   ROAD: 210,      // asphalt width (two lanes wide enough for a step van to pass a car)
   WALK: 30,       // sidewalk strip on each side
-  ROOF_TINTS: [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0xA98CB8, 0xD0C0A8],   // house roofs on the map, by lot index
+  ROOF_TINTS: [0xB8848C, 0x8CA3B8, 0xB8A98C, 0x9AB88C, 0x8EA1B6, 0xD0C0A8],   // house roofs on the map, by lot index
   CORNER: 80,     // kerb radius at junction corners, px (4 m)
   STOP_LINE: 58,  // stop line, px out from the junction box: just clear of the crosswalk (R+1 to R+47). It was at
                   // 18, in the middle of the stripes, so "stop at the line" parked the nose on the crossing.
@@ -199,7 +199,7 @@ OTR.townArt = {
       const cv = OTR.cv;
       cv.shadow(ctx, 20, 8, 0.4);
       cv.rr(ctx, 14, 10, w0, h0, 4);
-      ctx.fillStyle = '#B9B3C4'; ctx.fill();
+      ctx.fillStyle = '#b4bbc3'; ctx.fill();
       cv.noShadow(ctx);
       ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(20, 16, w0 - 12, h0 - 12);
       // roof units
@@ -228,8 +228,8 @@ OTR.townArt = {
   depot(scene) {
     // the sign band is painted over a real roof image too, so the name always sits exactly in it
     const band = (ctx) => {
-      ctx.fillStyle = '#4D148C'; ctx.fillRect(16, 12, 660, 70);
-      ctx.fillStyle = '#FF6600'; ctx.fillRect(16, 82, 660, 12);
+      ctx.fillStyle = OTR_DATA.theme.css('primary'); ctx.fillRect(16, 12, 660, 70);
+      ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(16, 82, 660, 12);
       sign(ctx);
     };
     const sign = (ctx) => {
@@ -240,7 +240,7 @@ OTR.townArt = {
       const cv = OTR.cv;
       cv.shadow(ctx, 26, 10, 0.45);
       cv.rr(ctx, 16, 12, 660, 380, 8);
-      ctx.fillStyle = '#C9C5D4'; ctx.fill();
+      ctx.fillStyle = '#c6ccd3'; ctx.fill();
       cv.noShadow(ctx);
       band(ctx);
       ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(40, 110, 610, 260);
@@ -320,13 +320,13 @@ OTR.townArt = {
         ctx.beginPath(); ctx.moveTo(23, 4); ctx.lineTo(42, 23); ctx.lineTo(23, 42); ctx.lineTo(4, 23); ctx.closePath();
         ctx.fillStyle = '#F5D547'; ctx.fill();
         cv.noShadow(ctx);
-        ctx.fillStyle = '#1D1030'; ctx.font = '900 11px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = '900 11px "Segoe UI", Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText('SCH', 23, 20); ctx.fillText('15', 23, 32);
       } else {
         cv.rr(ctx, 8, 4, 30, 38, 3); ctx.fillStyle = '#fff'; ctx.fill();
         cv.noShadow(ctx);
-        ctx.strokeStyle = '#1D1030'; ctx.lineWidth = 2; ctx.strokeRect(8, 4, 30, 38);
-        ctx.fillStyle = '#1D1030'; ctx.font = '900 9px "Segoe UI", Arial'; ctx.textAlign = 'center';
+        ctx.strokeStyle = OTR_DATA.theme.css('ink'); ctx.lineWidth = 2; ctx.strokeRect(8, 4, 30, 38);
+        ctx.fillStyle = OTR_DATA.theme.css('ink'); ctx.font = '900 9px "Segoe UI", Arial'; ctx.textAlign = 'center';
         ctx.fillText('SPEED', 23, 16); ctx.font = '900 16px "Segoe UI", Arial'; ctx.fillText(String(kind), 23, 32);
       }
     });
@@ -336,7 +336,7 @@ OTR.townArt = {
     return OTR.tex.make(scene, `td_light_${state}`, 30, 66, (ctx, w, h) => {
       const cv = OTR.cv;
       cv.shadow(ctx, 10, 4, 0.5);
-      cv.rr(ctx, 3, 3, 24, 60, 6); ctx.fillStyle = '#2A2833'; ctx.fill();
+      cv.rr(ctx, 3, 3, 24, 60, 6); ctx.fillStyle = '#292d32'; ctx.fill();
       cv.noShadow(ctx);
       const cols = [['red', '#E8304A'], ['amber', '#FFB020'], ['green', '#2BC48A']];
       cols.forEach(([name, col], i) => {

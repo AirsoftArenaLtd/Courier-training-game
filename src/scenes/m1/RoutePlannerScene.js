@@ -27,7 +27,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.MAP = { x: 16, y: 68, w: 796, h: 635 };
     this.PANEL = { x: 824, y: 68, w: 440, h: 635 };
 
-    this.add.image(OTR.W / 2, OTR.H / 2, OTR.tex.bg(this, 'route_bg', [[0, '#1E0B3C'], [1, '#12041F']]));
+    this.add.image(OTR.W / 2, OTR.H / 2, OTR.tex.bg(this, 'route_bg', [[0, '#0d223a'], [1, OTR_DATA.theme.css('nightDeep')]]));
     this.hud({ timer: true });
     this.timerText.setFontSize(21);
 
@@ -67,7 +67,7 @@ class RoutePlannerScene extends BaseScenarioScene {
       }
 
       // sidewalks, then asphalt
-      ctx.fillStyle = '#B9B4C6';
+      ctx.fillStyle = '#b5bcc5';
       T.hy.forEach(y => ctx.fillRect(0, S(y - road / 2 - walk), w, S(road + walk * 2)));
       T.vx.forEach(x => ctx.fillRect(S(x - road / 2 - walk), 0, S(road + walk * 2), h));
       ctx.fillStyle = '#4A4D57';
@@ -115,14 +115,14 @@ class RoutePlannerScene extends BaseScenarioScene {
       const d = T.depot;
       const dw = S(d.w), dh = S(d.h);
       ctx.fillStyle = 'rgba(0,0,0,0.3)'; cv.rr(ctx, S(d.x) - dw / 2 + 2, S(d.y) - dh / 2 + 3, dw, dh, 3); ctx.fill();
-      ctx.fillStyle = '#4D148C'; cv.rr(ctx, S(d.x) - dw / 2, S(d.y) - dh / 2, dw, dh, 3); ctx.fill();
-      ctx.fillStyle = '#FF6600'; ctx.fillRect(S(d.x) - dw / 2, S(d.y) + dh / 2 - S(60), dw, S(60));
+      ctx.fillStyle = OTR_DATA.theme.css('primary'); cv.rr(ctx, S(d.x) - dw / 2, S(d.y) - dh / 2, dw, dh, 3); ctx.fill();
+      ctx.fillStyle = OTR_DATA.theme.css('accent'); ctx.fillRect(S(d.x) - dw / 2, S(d.y) + dh / 2 - S(60), dw, S(60));
       ctx.fillStyle = '#FFFFFF'; ctx.font = '900 9px "Segoe UI", Arial';
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('STATION', S(d.x), S(d.y) - S(40));
 
       // street names
-      ctx.fillStyle = '#F2EEFA'; ctx.font = '800 10px "Segoe UI", Arial';
+      ctx.fillStyle = '#eff4f9'; ctx.font = '800 10px "Segoe UI", Arial';
       ctx.shadowColor = 'rgba(0,0,0,0.65)'; ctx.shadowBlur = 3;
       ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       OTR_DATA.town.streetsH.forEach((name, r) => ctx.fillText(name, 6, S(T.hy[r])));
@@ -134,9 +134,9 @@ class RoutePlannerScene extends BaseScenarioScene {
     });
 
     OTR.tex.shape(this, (frame) => {
-      frame.fillStyle(0x0E0620, 0.85);
+      frame.fillStyle(OTR_DATA.theme.night, 0.85);
       frame.fillRoundedRect(this.MAP.x, this.MAP.y, this.MAP.w, this.MAP.h, 16);
-      frame.lineStyle(2, 0x6A45A0, 0.9);
+      frame.lineStyle(2, OTR_DATA.theme.mid, 0.9);
       frame.strokeRoundedRect(this.MAP.x, this.MAP.y, this.MAP.w, this.MAP.h, 16);
     }).setDepth(0);
     this.add.image(this.mx, this.my, key).setOrigin(0, 0).setDepth(1);
@@ -152,20 +152,20 @@ class RoutePlannerScene extends BaseScenarioScene {
   buildPanel() {
     const P = this.PANEL;
     OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x0E0620, 0.85); g.fillRoundedRect(P.x, P.y, P.w, P.h, 16);
-      g.lineStyle(2, 0x6A45A0, 0.9); g.strokeRoundedRect(P.x, P.y, P.w, P.h, 16);
+      g.fillStyle(OTR_DATA.theme.night, 0.85); g.fillRoundedRect(P.x, P.y, P.w, P.h, 16);
+      g.lineStyle(2, OTR_DATA.theme.mid, 0.9); g.strokeRoundedRect(P.x, P.y, P.w, P.h, 16);
     }).setDepth(0);
     this.roundTitle = OTR.txt(this, P.x + 18, P.y + 16, '', 17, '#ffffff', { ox: 0, oy: 0, weight: '900' }).setDepth(2);
-    this.roundBrief = OTR.txt(this, P.x + 18, P.y + 40, '', 12, '#C9B3F0', { ox: 0, oy: 0, bold: false, wrap: P.w - 36, lineSpacing: 2 }).setDepth(2);
+    this.roundBrief = OTR.txt(this, P.x + 18, P.y + 40, '', 12, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false, wrap: P.w - 36, lineSpacing: 2 }).setDepth(2);
     this.cardLayer = this.add.container(0, 0).setDepth(2);
 
     // totals and controls live under the manifest
     const sy = P.y + 484;
-    OTR.tex.shape(this, (div) => { div.lineStyle(1, 0x4A2A70, 1); div.lineBetween(P.x + 18, sy - 12, P.x + P.w - 18, sy - 12); }).setDepth(1);
+    OTR.tex.shape(this, (div) => { div.lineStyle(1, 0x2D4B6C, 1); div.lineBetween(P.x + 18, sy - 12, P.x + P.w - 18, sy - 12); }).setDepth(1);
     this.readouts = [];
     [['SEQUENCED', 0, 0], ['MILES', 1, 0], ['BACK AT STATION', 0, 1], ['COMMITMENTS', 1, 1]].forEach(([lab, cx, cy]) => {
       const x = P.x + 22 + cx * 214, y = sy + cy * 46;
-      OTR.txt(this, x, y, lab, 10, '#9A8AB0', { ox: 0, weight: '900' }).setDepth(2);
+      OTR.txt(this, x, y, lab, 10, OTR_DATA.theme.css('mutedLight'), { ox: 0, weight: '900' }).setDepth(2);
       this.readouts.push(OTR.txt(this, x, y + 24, '—', 21, '#ffffff', { ox: 0, weight: '900' }).setDepth(2));
     });
     this.warnText = OTR.txt(this, P.x + 22, P.y + 438, '', 12, '#FFB020', { ox: 0, oy: 0, weight: '900', wrap: P.w - 44, lineSpacing: 2 }).setDepth(3);
@@ -202,7 +202,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.dispatchBtn.setLabel('DISPATCH');
     this.refresh();
     const label = this.round.name.split('·');                  // "Round 2 · The Pickup Window" → THE PICKUP WINDOW
-    OTR.fx.stamp(this, this.MAP.x + this.MAP.w / 2, 360, (label[1] || label[0]).trim().toUpperCase(), 0xFF6600, { size: 40, hold: 800 });
+    OTR.fx.stamp(this, this.MAP.x + this.MAP.w / 2, 360, (label[1] || label[0]).trim().toUpperCase(), OTR_DATA.theme.accent, { size: 40, hold: 800 });
   }
 
   /** Picks the addresses this round's stops land on, spread across the map. */
@@ -496,11 +496,11 @@ class RoutePlannerScene extends BaseScenarioScene {
       const c = this.add.container(x, y);
       const g = OTR.tex.liveShape(this);
       const label = OTR.txt(this, 0, -19, '', 13, '#ffffff', { weight: '900' });
-      const badge = OTR.txt(this, 0, 6, '', 11, '#ffffff', { weight: '900', stroke: '#1D1030', strokeW: 3 });
+      const badge = OTR.txt(this, 0, 6, '', 11, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('ink'), strokeW: 3 });
       // sequenced pins are solid, unsequenced ones are hollow — readable whatever the service colour is
       const draw = (seq) => g.redraw((g) => {
         g.fillStyle(0x000000, 0.35); g.fillEllipse(0, 2, 18, 7);
-        g.fillStyle(seq ? 0x2BC48A : 0x1A0733, 1);
+        g.fillStyle(seq ? 0x2BC48A : OTR_DATA.theme.nightPanel, 1);
         g.fillCircle(0, -19, 14);
         g.fillTriangle(-9, -10, 9, -10, 0, 2);
         g.lineStyle(seq ? 2.5 : 3.5, seq ? 0xFFFFFF : s.svc.color, 1); g.strokeCircle(0, -19, 14);
@@ -537,10 +537,10 @@ class RoutePlannerScene extends BaseScenarioScene {
         s.by ? `${s.svc.label} · commit ${this.clock(s.by)}` : `${s.svc.label} · no time commitment`
     ];
     if (s.note) lines.push(s.note);
-    const t = OTR.txt(this, 0, 0, lines.join('\n'), 12, '#F4ECFF', { bold: false, lineSpacing: 3 });
+    const t = OTR.txt(this, 0, 0, lines.join('\n'), 12, OTR_DATA.theme.css('paperTint'), { bold: false, lineSpacing: 3 });
     const w = t.width + 22, h = t.height + 16;
     const g = OTR.tex.shape(this, (g) => {
-      g.fillStyle(0x1A0733, 0.96); g.fillRoundedRect(-w / 2, -h / 2, w, h, 8);
+      g.fillStyle(OTR_DATA.theme.nightPanel, 0.96); g.fillRoundedRect(-w / 2, -h / 2, w, h, 8);
       g.lineStyle(1.5, s.svc.color, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 8);
     });
     this.tip.add([g, t]);
@@ -566,8 +566,8 @@ class RoutePlannerScene extends BaseScenarioScene {
       const c = this.add.container(P.x + P.w / 2, y);
       const w = P.w - 24, h = ch - 6;
       const g = OTR.tex.liveShape(this).redraw((g) => {
-        g.fillStyle(0x1A0733, 0.9); g.fillRoundedRect(-w / 2, -h / 2, w, h, 9);
-        g.lineStyle(1.5, 0x4A2A70, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 9);
+        g.fillStyle(OTR_DATA.theme.nightPanel, 0.9); g.fillRoundedRect(-w / 2, -h / 2, w, h, 9);
+        g.lineStyle(1.5, 0x2D4B6C, 1); g.strokeRoundedRect(-w / 2, -h / 2, w, h, 9);
       });
       const hl = OTR.tex.shape(this, (hl) => { hl.lineStyle(2, 0xFFC83D, 1); hl.strokeRoundedRect(-w / 2, -h / 2, w, h, 9); }).setVisible(false);
       const seq = OTR.tex.liveShape(this);
@@ -575,8 +575,8 @@ class RoutePlannerScene extends BaseScenarioScene {
       const line1 = OTR.txt(this, -w / 2 + 46, -11, s.address, 15, '#ffffff', { ox: 0, weight: '900' });
       const chip = OTR.tex.shape(this, (chip) => { chip.fillStyle(s.svc.color, 1); chip.fillRoundedRect(-w / 2 + 46, 3, 62, 15, 4); });
       const chipText = OTR.txt(this, -w / 2 + 77, 11, s.svc.short, 9, '#ffffff', { weight: '900' });
-      const line2 = OTR.txt(this, -w / 2 + 114, 11, this.commitText(s), 11, '#C9B3F0', { ox: 0, bold: false });
-      const eta = OTR.txt(this, w / 2 - 14, 0, '', 15, '#9A8AB0', { ox: 1, weight: '900' });
+      const line2 = OTR.txt(this, -w / 2 + 114, 11, this.commitText(s), 11, OTR_DATA.theme.css('tint'), { ox: 0, bold: false });
+      const eta = OTR.txt(this, w / 2 - 14, 0, '', 15, OTR_DATA.theme.css('mutedLight'), { ox: 1, weight: '900' });
       const hit = this.add.rectangle(0, 0, w, h, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       hit.on('pointerover', () => this.hoverStop(s.i, true));
       hit.on('pointerout', () => this.hoverStop(s.i, false));
@@ -644,23 +644,23 @@ class RoutePlannerScene extends BaseScenarioScene {
       pin.badge.setColor(f && f.bad ? '#FF6B7F' : '#FFC83D');
 
       card.seq.redraw((g) => {
-        g.fillStyle(seq ? 0x2BC48A : 0x2A1546, 1);
+        g.fillStyle(seq ? 0x2BC48A : 0x172C44, 1);
         g.fillCircle(-card.w / 2 + 22, 0, 13);
       });
       card.seqText.setText(seq ? String(pos + 1) : '·');
       card.g.redraw((g) => {
-        g.fillStyle(seq ? 0x241046 : 0x1A0733, 0.92);
+        g.fillStyle(seq ? 0x132943 : OTR_DATA.theme.nightPanel, 0.92);
         g.fillRoundedRect(-card.w / 2, -card.h / 2, card.w, card.h, 9);
-        g.lineStyle(1.5, seq ? 0x2BC48A : 0x4A2A70, 1);
+        g.lineStyle(1.5, seq ? 0x2BC48A : 0x2D4B6C, 1);
         g.strokeRoundedRect(-card.w / 2, -card.h / 2, card.w, card.h, 9);
       });
       if (seq) {
         const eta = ev.arrive[s.i];
         card.eta.setText(this.clock(eta));
-        card.eta.setColor(f.bad ? '#FF6B7F' : f.waited ? '#FFC83D' : f.ok ? '#5CF0B0' : '#E6DAF7');
+        card.eta.setColor(f.bad ? '#FF6B7F' : f.waited ? '#FFC83D' : f.ok ? '#5CF0B0' : OTR_DATA.theme.css('line'));
       } else {
         card.eta.setText('—');
-        card.eta.setColor('#6A5A80');
+        card.eta.setColor('#5c6c7e');
       }
     });
 
@@ -695,7 +695,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.slowTags = this.add.container(0, 0).setDepth(6);
     ev.legs.filter(L => L.slowed).forEach(L => {
       const mid = this.nodes[L.path[Math.floor(L.path.length / 2)]];
-      this.slowTags.add(OTR.txt(this, this.sx(mid.x), this.sy(mid.y) - 14, `+${this.content.schoolDelay} min`, 12, '#FFC83D', { weight: '900', stroke: '#16062B', strokeW: 4 }));
+      this.slowTags.add(OTR.txt(this, this.sx(mid.x), this.sy(mid.y) - 14, `+${this.content.schoolDelay} min`, 12, '#FFC83D', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }));
     });
     this.pathG.redraw((g) => {
       if (!ev.legs.length) return;
@@ -713,8 +713,8 @@ class RoutePlannerScene extends BaseScenarioScene {
         });
         g.strokePath();
       };
-      line(7, 0x190833, 0.55, 2);
-      line(4, 0xFF6600, 1, 0);
+      line(7, 0x0A1C31, 0.55, 2);
+      line(4, OTR_DATA.theme.accent, 1, 0);
       // legs the school zone slowed, in amber (which leg paid the delay used to be invisible)
       g.lineStyle(4, 0xFFC83D, 1);
       ev.legs.filter(L => L.slowed).forEach(L => {
@@ -723,7 +723,7 @@ class RoutePlannerScene extends BaseScenarioScene {
         g.strokePath();
       });
       // spur from the street centre line out to each sequenced pin, so the route reads as one thread
-      g.lineStyle(3, 0xFF6600, 0.95);
+      g.lineStyle(3, OTR_DATA.theme.accent, 0.95);
       this.order.forEach(i => {
         const lot = this.stops[i - 1].lot;
         g.lineBetween(this.sx(lot.x), this.sy(this.T.hy[lot.row]), this.sx(lot.x), this.sy(lot.curb.y));
@@ -892,11 +892,11 @@ class RoutePlannerScene extends BaseScenarioScene {
       build: (box, api, w, h) => {
         const top = -h / 2 + 98;
         rows.forEach((r, i) => {
-          box.add(OTR.txt(this, -w / 2 + 56, top + i * 34, r[0], 17, '#5A4A70', { ox: 0, bold: false }));
-          box.add(OTR.txt(this, w / 2 - 56, top + i * 34, r[1], 18, i === 2 ? '#FF6600' : '#250849', { ox: 1, weight: '900' }));
+          box.add(OTR.txt(this, -w / 2 + 56, top + i * 34, r[0], 17, '#4c5c6e', { ox: 0, bold: false }));
+          box.add(OTR.txt(this, w / 2 - 56, top + i * 34, r[1], 18, i === 2 ? OTR_DATA.theme.css('accent') : OTR_DATA.theme.css('primaryDark'), { ox: 1, weight: '900' }));
         });
         const y = top + rows.length * 34 + 16;
-        box.add(OTR.txt(this, -w / 2 + 56, y, notes[0], 15, '#3A2A50', { ox: 0, oy: 0, bold: false, wrap: w - 112, lineSpacing: 3 }));
+        box.add(OTR.txt(this, -w / 2 + 56, y, notes[0], 15, OTR_DATA.theme.css('inkSoft'), { ox: 0, oy: 0, bold: false, wrap: w - 112, lineSpacing: 3 }));
       },
       buttons: [{
         label: this.roundIndex + 1 < this.content.rounds.length ? 'Next Round ▶' : 'Finish ▶',
