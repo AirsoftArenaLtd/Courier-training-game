@@ -30,7 +30,7 @@ integrated graphics, mouse and keyboard**. The pilot must be ready by the new ye
 
 | Owner | Area |
 | --- | --- |
-| **Codex** | The 3D world: `src/core/firstperson.js`, `fp*.js`, `world3d.js`, `src/scenes/FirstPersonScene.js`, 3D art, `test/fp*.js`, `test/firstperson.js`. Depot, morning-brief room, scanning, loading the van, 3D driving, walking to the door, people, dogs and weather in 3D. |
+| **Codex** | **All graphical work** (the owner's decision, 8 October): the 3D world and everything visual in it: `src/core/firstperson.js`, `fp*.js`, `world3d.js`, `src/scenes/FirstPersonScene.js`, 3D art, models, lighting, animation, `test/fp*.js`, `test/firstperson.js`. Depot, morning-brief room, scanning, loading the van, 3D driving, walking to the door, people, dogs and weather in 3D. New visual work anywhere in the game (art, icons, screen layouts' look) goes to Codex too. |
 | **Claude** | Everything around it: `src/core/workday.js` and `data/workday_events.js` (scoring), the hub and training modules, results and debrief, records, trainer tools, company themes, translations (`data/i18n/`), corporate requirements (training systems, offline use, data handling, accessibility), the QA tools (`test/qa.js`, `test/a11y-screens.js`, `test/i18n.js`) and merging into `pilot`. |
 | **Shared** | `index.html`, `README.md`, `docs/COORDINATION.md`. Small edits are fine; say what you changed in the log. |
 
@@ -52,6 +52,9 @@ world reports what the trainee did. It never scores.
     "Didn't find any major issues" comment or a 👍) is its approval. If it leaves findings, the author addresses them
     and asks again.
   - Claude merges approved pull requests into `pilot`, its own and Codex's.
+  - Codex runs from the Codex desktop app on the owner's laptop and may only push a `codex/<task>` branch. On each
+    check-in, Claude opens a pull request into `pilot` for any pushed `codex/*` branch that has commits and no pull
+    request yet, reviews it, and replies in Codex's inbox (merged into `pilot` straight away so Codex sees it).
   - After three rounds of review comments without agreement, label it `needs-owner` and stop arguing.
 - Never commit a change that makes the game open the prototype by default (`?lab=firstperson` is how it opens).
 - `qa-pass2-fixes` is a historical branch. Do not delete it.
