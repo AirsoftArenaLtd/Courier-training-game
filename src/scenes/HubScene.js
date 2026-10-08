@@ -188,7 +188,9 @@ class HubScene extends Phaser.Scene {
     if (cur) {
       OTR.txt(this, x, top + 26, 'WORKDAY IN PROGRESS', 15, '#ffffff', { weight: '900', fit: w - 28 });
       OTR.txt(this, x, top + 52, `Day ${cur.day} · 3D workday`, 14, '#FFE3C8', { bold: false, fit: w - 28 });
-      OTR.txt(this, x, top + 76, 'Saved as you go', 13, '#FFF1E0', { bold: false, fit: w - 28 });
+      // the LMS's small save could keep the score so far but not every detail of it (src/core/save.js, fit)
+      const cut = cur.truncated || cur.summarised;
+      OTR.txt(this, x, top + 76, cut ? 'Score kept; some details too big to save' : 'Saved as you go', 13, cut ? '#FFC83D' : '#FFF1E0', { bold: false, fit: w - 28 });
       this.focusables.push(OTR.ui.button(this, x, top + 118, 'Resume workday ▶', () => WD.resume(this), { w: 240, h: 48, skin: 'purple', fontSize: 18, key: 'ENTER', hint: '⏎' }));
       link(top + 166, 'Abandon this workday', () => OTR.ui.confirm(this, 'Abandon the workday?', 'The workday so far is discarded and not scored. You can start a new one from the morning brief.',
         () => { WD.abandon(); this.scene.restart(); }, { yes: 'Abandon', danger: true }));

@@ -2,7 +2,7 @@
  * Drive review: the town map with a numbered pin wherever a driving mistake happened (from the score log's `where`),
  * and the list beside it. Picking a pin or a row shows what happened, how fast, when, and the lesson.
  * data: { pins: [{ label, cat, lesson, critical, where: { x, y, mph, t, seed } }], seed, stops?: [{ lotId, outcome }],
- *         title, back: scene key, backData }
+ *         title, select: the pin to open on, back: scene key, backData }
  * The 3D workday's streets are not the 2D town: it passes plan: { depot: { x, z }, stops: [{ stop, delivered, x, z }] }
  * and pins at { x, z, mph } (metres), drawn on a plan fitted around them.
  */
@@ -27,8 +27,17 @@ class DriveReviewScene extends Phaser.Scene {
       this.drawMap();
     }
     this.drawList();
-    if (this.pins.length) this.select(d.select >= 0 && d.select < this.pins.length ? d.select : 0);
-    OTR.ui.focus(this, this.focusables, { start: 0 });
+    const picked = d.select >= 0 && d.select < this.pins.length;
+    if (this.pins.length) this.select(picked ? d.select : 0);
+    // the keyboard: the arrows or TAB move between Back and the pins (the list's rows, then the map's pins past the
+    // list), ENTER shows a pin's details, ESC goes back. Opened on a pin, the ring starts on it.
+    const pinFocus = this.pins.map((p, i) => {
+      const it = (this.rows && this.rows[i]) || this.pinObjs[i];
+      it.press = () => this.select(i);
+      return it;
+    });
+    this.focusables = this.focusables.concat(pinFocus);
+    OTR.ui.focus(this, this.focusables, { start: picked ? 1 + d.select : 0 });
   }
 
   drawMap() {

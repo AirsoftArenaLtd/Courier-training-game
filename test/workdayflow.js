@@ -275,6 +275,46 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
     check(await ev((n) => OTR.game.scene.getScene('DriveReviewScene').pinObjs[n].ring.visible, pin), 'map link opens the review on that pin');
     await press('DriveReviewScene', 'Back');
     await sceneIs('WorkdayDebriefScene');
+
+    // the same by keyboard only: TAB to the second map link, ENTER, the next pin, ESC back, and back on that link
+    // (the first page with two map links: with larger text the driving lines spread over more pages)
+    const linkPage = await ev(() => {
+      const d = OTR.game.scene.getScene('WorkdayDebriefScene');
+      const pageOf = (lk) => d.rows.find(r => r.objs.includes(lk)).page;
+      const per = {};
+      d.links.forEach(lk => { per[pageOf(lk)] = (per[pageOf(lk)] || 0) + 1; });
+      return { all: d.links.length, page: Object.keys(per).map(Number).sort((a, b) => a - b).find(pg => per[pg] >= 2) };
+    });
+    check(linkPage.all >= 6 && linkPage.page !== undefined, `debrief: a map link on each pinned driving mistake (${linkPage.all}), two on page ${linkPage.page + 1}`);
+    await ev((pg) => OTR.game.scene.getScene('WorkdayDebriefScene').scene.start('WorkdayDebriefScene', { page: pg }), linkPage.page);
+    await sceneIs('WorkdayDebriefScene');
+    const key = async (k, n) => { for (let i = 0; i < (n || 1); i++) { await p.keyboard.press(k); await wait(250); } };
+    const reviewPin = () => ev(() => { const d = OTR.game.scene.getScene('DriveReviewScene'); return d.pinObjs.findIndex(c => c.ring.visible); });
+    const links = await ev(() => OTR.game.scene.getScene('WorkdayDebriefScene').links.filter(l => l.visible).map(l => l.pin));
+    await key('Tab', 3);                                       // the ring shows on Back to the station, then wraps to the links
+    const ringOn = await ev(() => { const d = OTR.game.scene.getScene('WorkdayDebriefScene'); return d._focusOn && d._focusOn.showing(); });
+    check(ringOn, 'debrief: TAB shows the focus ring');
+    await shot('debrief-keyboard');
+    await key('Enter');
+    await sceneIs('DriveReviewScene');
+    let on = await reviewPin();
+    t = await texts('DriveReviewScene');
+    check(on === links[1] && t.some(x => x.indexOf(`${links[1] + 1}. `) === 0), `keyboard: the second map link opens the review on its pin (${on}, expected ${links[1]})`);
+    const npins = await ev(() => OTR.game.scene.getScene('DriveReviewScene').pins.length);
+    const nextPin = links[1] + 1 < npins ? links[1] + 1 : links[1] - 1;     // the next pin, or the one before the last
+    await key(nextPin > links[1] ? 'ArrowDown' : 'ArrowUp', 2);   // the ring shows on that pin's row, then moves on
+    await shot('review-keyboard');
+    await key('Enter');
+    on = await reviewPin();
+    t = await texts('DriveReviewScene');
+    check(on === nextPin && t.some(x => x.indexOf(`${nextPin + 1}. `) === 0), `keyboard: an arrow then ENTER shows the next pin's details (${on}, expected ${nextPin})`);
+    await key('Escape');
+    await sceneIs('WorkdayDebriefScene');
+    await key('Tab'); await key('Enter');                     // the ring comes back on the link it left from
+    await sceneIs('DriveReviewScene');
+    check(await reviewPin() === links[1], 'keyboard: back on the debrief, the ring starts on the same map link');
+    await key('Escape');
+    await sceneIs('WorkdayDebriefScene');
     await press('WorkdayDebriefScene', 'Back to the station ▶');
     await sceneIs('HubScene');
 

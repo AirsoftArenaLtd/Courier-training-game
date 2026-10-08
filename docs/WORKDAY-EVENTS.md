@@ -71,11 +71,23 @@ stops and the pins; north is up (smaller `z`).
   log. The day counts as a route day (the hub's day moves on, and its best stars join the route's), is a run on the
   record ("Workday": recent runs, what to work on, critical mistakes, the trainer's view and the printed record), and
   stays as the last workday's debrief, which the hub can open again.
+- A SCORM 1.2 LMS keeps only 4096 characters of progress (`cmi.suspend_data`; the game aims for 4000). When the save
+  is bigger, `OTR.save.fit` makes it smaller in a fixed order, and stops at the first step that fits: the oldest
+  route history; the last workday's lines; the day in progress packed into short tuples (nothing lost but extra place
+  detail); the trainee record cut to its ten latest runs; the day in progress cut to what its score needs (per type,
+  the keys counted right and wrong: its stops and drive-review places go, and it is marked `summarised`); the rest of
+  the record; keys kept only as counts (marked `truncated`: the total stays right, but a report of a dropped key sent
+  again would count twice); last, only the career. The JSON is never cut and never over the limit, a reload reads
+  every step back to a day with the same score, and the hub says "Score kept; some details too big to save" when a
+  day lost detail. SCORM 2004, local and server saves are not limited. `node test/savesize.js` checks every step.
 - The saved lines are event types. The debrief and drive review look up each type's line and lesson in
   `data/workday_events.js` when they are shown, and skip a type the catalogue no longer has.
 
 **The screens.** Results (stars by category, the takeaways, "Drive map") → Debrief (every line, phase by phase and
-stop by stop, the lesson under each mistake, a map link on each driving mistake) → Back to the station. They are
+stop by stop, the lesson under each mistake, a map link on each driving mistake) → Back to the station. By
+keyboard: TAB (or the arrows) moves the focus ring through the page's map links and buttons, ENTER opens the drive
+review on that link's pin; in the drive review the arrows or TAB move between Back and the pins, ENTER shows a pin's
+details and ESC goes back, to the same page with the ring on the same link. They are
 tested without the 3D world by `test/workdayflow.js`, which plays a good day, a bad day resumed after a reload, an
 empty day and an abandoned one through the hub.
 

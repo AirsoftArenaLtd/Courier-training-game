@@ -3,7 +3,8 @@
  * brief, the pre-trip, loading, driving, each stop, the end of the day), with the lesson under each mistake and a link
  * to where a driving mistake happened on the drive review. Built from the last finished workday
  * (OTR.save.data.workday.last, see src/core/workday.js), so the hub can open it again.
- * data: { page } (the page to open on, when coming back from the drive review)
+ * data: { page, link } (the page to open on, and the map link the keyboard ring starts on, coming back from the
+ *       drive review)
  */
 class WorkdayDebriefScene extends Phaser.Scene {
   constructor() { super('WorkdayDebriefScene'); }
@@ -59,7 +60,11 @@ class WorkdayDebriefScene extends Phaser.Scene {
       this.focusables.unshift(this.prev, this.next);
     }
     this.showPage(Math.min(this.pages - 1, Math.max(0, this.d.page || 0)));
-    OTR.ui.focus(this, this.focusables, { start: this.focusables.length - 1 });
+    // TAB goes through this page's map links first (a hidden page's are skipped), then the buttons; the ring starts
+    // on Back to the station, or on the link a trainee came back from the drive review by
+    this.focusables = this.links.concat(this.focusables);
+    const back = this.d.link >= 0 && this.d.link < this.links.length ? this.d.link : this.focusables.length - 1;
+    OTR.ui.focus(this, this.focusables, { start: back });
   }
 
   /** Section titles: the phase's name, or the stop's number (and address, when the 3D world gave it). */
@@ -82,6 +87,7 @@ class WorkdayDebriefScene extends Phaser.Scene {
       g.lineStyle(2, OTR_DATA.theme.mid, 0.8); g.strokeRoundedRect(x, top, cw, bottom - top, 16);
     }));
     const rows = [];
+    this.links = [];                                          // the map links, in reading order, for the keyboard
     S.sections.forEach(sec => {
       const t = OTR.txt(this, 0, 0, this.title(sec), 15, OTR_DATA.theme.css('accentLight'), { ox: 0, oy: 0, weight: '900', wrap: cw - 48 });
       rows.push({ objs: [t], h: t.height + 8, head: true, place: (x, y) => t.setPosition(x + 22, y) });
@@ -98,8 +104,11 @@ class WorkdayDebriefScene extends Phaser.Scene {
         let lk = null;
         if (link) {
           lk = OTR.txt(this, 0, 0, 'map ›', 13, '#FFC83D', { ox: 1, oy: 0, weight: '900', fit: 70 });
-          lk.setInteractive({ useHandCursor: true }).on('pointerup', () => this.openReview(l.pin));
+          lk.pin = l.pin;
+          lk.press = () => this.openReview(l.pin);                  // the keyboard ring presses it too (OTR.ui.focus)
+          lk.setInteractive({ useHandCursor: true }).on('pointerup', lk.press);
           objs.push(lk);
+          this.links.push(lk);
         }
         rows.push({ objs, h: h + 2, place: (x, y) => { t.setPosition(x + 30, y); if (ls) ls.setPosition(x + 44, y + t.height + 3); if (lk) lk.setPosition(x + cw - 20, y + 2); } });
       });
@@ -138,8 +147,9 @@ class WorkdayDebriefScene extends Phaser.Scene {
 
   openReview(pin) {
     const rec = this.rec;
+    const link = pin >= 0 ? this.links.findIndex(lk => lk.pin === pin) : -1;
     OTR.fx.transition(this, 'DriveReviewScene', OTR.workday.reviewData(rec, OTR.workday.replay(rec.events).log, {
-      select: pin, back: 'WorkdayDebriefScene', backData: { page: this.page }
+      select: pin, back: 'WorkdayDebriefScene', backData: { page: this.page, link }
     }));
   }
 }
