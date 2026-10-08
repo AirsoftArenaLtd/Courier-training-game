@@ -126,6 +126,8 @@ class HubScene extends Phaser.Scene {
     const x = 152, top = 412, w = 272, h = 196;
     const st = OTR.shift && OTR.shift.state;
     const live = OTR.shift && OTR.shift.active();
+    // the 3D workday, when it is offered or one is saved part-way (a 2D route in progress keeps the card)
+    if (!live && OTR.workday && (OTR.workday.active() || OTR.workday.offered())) { this.buildWorkday(x, top, w, h); return; }
     this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: live ? OTR_DATA.theme.accentWarm : OTR_DATA.theme.primary, bottom: live ? OTR_DATA.theme.accentDark : OTR_DATA.theme.primaryNight, border: OTR_DATA.theme.accentSoft, radius: 20 }));
     OTR.txt(this, x, top + 26, live ? 'ROUTE IN PROGRESS' : 'TODAY\'S ROUTE', 15, '#ffffff', { weight: '900', fit: w - 28 });
 
@@ -164,6 +166,51 @@ class HubScene extends Phaser.Scene {
         this.focusables.push(link);
       }
     }
+  }
+
+  /**
+   * The 3D workday's card: "Start workday" as the main action, with the 2D route day a link below it, or, with a
+   * workday saved part-way, "Resume workday" and the way to abandon it.
+   */
+  buildWorkday(x, top, w, h) {
+    const save = OTR.save, WD = OTR.workday;
+    const cur = WD.active() ? WD.saved().current : null;
+    this.add.image(x, top + h / 2, OTR.tex.panel(this, w, h, { top: cur ? OTR_DATA.theme.accentWarm : OTR_DATA.theme.primary, bottom: cur ? OTR_DATA.theme.accentDark : OTR_DATA.theme.primaryNight, border: OTR_DATA.theme.accentSoft, radius: 20 }));
+    const link = (y, label, press) => {
+      const t = OTR.txt(this, x, y, label, 13, '#FFC83D', { weight: '900', fit: w - 28 });
+      const ul = OTR.tex.shape(this, (g) => { g.fillStyle(0xFFC83D, 0.9); g.fillRect(x - t.displayWidth / 2, y + 9, t.displayWidth, 2); });
+      t.press = press;
+      t.setInteractive({ useHandCursor: true }).on('pointerup', press);
+      t.on('pointerover', () => ul.setAlpha(0.4)).on('pointerout', () => ul.setAlpha(1));
+      this.focusables.push(t);
+      return t;
+    };
+    if (cur) {
+      OTR.txt(this, x, top + 26, 'WORKDAY IN PROGRESS', 15, '#ffffff', { weight: '900', fit: w - 28 });
+      OTR.txt(this, x, top + 52, `Day ${cur.day} · 3D workday`, 14, '#FFE3C8', { bold: false, fit: w - 28 });
+      // the LMS's small save could keep the score so far but not every detail of it (src/core/save.js, fit)
+      const cut = cur.truncated || cur.summarised;
+      OTR.txt(this, x, top + 76, cut ? 'Score kept; some details too big to save' : 'Saved as you go', 13, cut ? '#FFC83D' : '#FFF1E0', { bold: false, fit: w - 28 });
+      this.focusables.push(OTR.ui.button(this, x, top + 118, 'Resume workday ▶', () => WD.resume(this), { w: 240, h: 48, skin: 'purple', fontSize: 18, key: 'ENTER', hint: '⏎' }));
+      link(top + 166, 'Abandon this workday', () => OTR.ui.confirm(this, 'Abandon the workday?', 'The workday so far is discarded and not scored. You can start a new one from the morning brief.',
+        () => { WD.abandon(); this.scene.restart(); }, { yes: 'Abandon', danger: true }));
+      return;
+    }
+    const weather = OTR.shift ? OTR.shift.weatherFor(save.data.day) : 'clear';
+    const wLabel = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Extreme heat' }[weather] || weather;
+    OTR.txt(this, x, top + 26, 'TODAY\'S WORKDAY', 15, '#ffffff', { weight: '900', fit: w - 28 });
+    OTR.txt(this, x, top + 52, `Day ${save.data.day}  ·  ${wLabel}`, 16, '#ffffff', { weight: '900', fit: w - 28 });
+    OTR.txt(this, x, top + 76, 'Brief → load → drive → deliver, in 3D', 13, OTR_DATA.theme.css('line'), { bold: false, fit: w - 28 });
+    this.focusables.push(OTR.ui.button(this, x, top + 114, 'Start workday ▶', () => OTR.ui.confirm(this, 'Start the workday?',
+      'The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.',
+      () => WD.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }), { w: 240, h: 50, skin: 'orange', fontSize: 18, key: this.fresh ? undefined : 'ENTER', hint: this.fresh ? undefined : '⏎' }));
+    // the 2D route day stays, one step down
+    link(top + 154, '2D route day ›', () => OTR.ui.confirm(this, `Start day ${save.data.day}'s route?`,
+      'Briefing, pre-trip, loading, then five stops: about half an hour. The day is saved as you go, and ESC pauses.',
+      () => OTR.shift.start(this), { yes: 'Start ▶', key: 'ENTER', hint: '⏎' }));
+    const last = WD.saved().last, r = save.data.route;
+    if (last) link(top + 177, `Day ${last.day}'s workday debrief ›`, () => OTR.fx.transition(this, 'WorkdayDebriefScene', {}));
+    else if (r && r.last) link(top + 177, `Day ${r.last.day}'s debrief ›`, () => OTR.fx.transition(this, 'ShiftDebriefScene', { review: true }));
   }
 
   /* ---------------------------------------------------------------- academy board */

@@ -133,8 +133,7 @@ class RecordScene extends Phaser.Scene {
     if (!R.criticals.length) this.body.add(OTR.txt(this, 836, y, 'None recorded.', 16, '#1E7E55', { ox: 0, oy: 0, weight: '900' }));
     R.criticals.forEach(c => {
       if (y > 670) return;
-      const sc = OTR.registry.get(c.id);
-      this.body.add(OTR.txt(this, 836, y, `${OTR.record.date(c.at)} · ${sc ? sc.title : c.id}`, 12, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0 }));
+      this.body.add(OTR.txt(this, 836, y, `${OTR.record.date(c.at)} · ${OTR.record.runTitle(c.id)}`, 12, OTR_DATA.theme.css('muted'), { ox: 0, oy: 0 }));
       const t = OTR.txt(this, 836, y + 18, c.text, 14, '#B3122E', { ox: 0, oy: 0, weight: '900', wrap: 390 });
       this.body.add(t);
       y += t.height + 30;
@@ -152,10 +151,10 @@ class RecordScene extends Phaser.Scene {
       const sc = OTR.registry.get(h.id);
       const cats = sc ? OTR.scoring.ordered(sc.categories) : OTR.scoring.CATS;
       this.body.add(OTR.txt(this, 56, y, OTR.record.date(h.at), 14, OTR_DATA.theme.css('inkSoft'), { ox: 0, bold: false }));
-      const t = OTR.txt(this, 200, y, sc ? sc.title : h.id, 14, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
+      const t = OTR.txt(this, 200, y, OTR.record.runTitle(h.id), 14, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
       if (t.width > 250) t.setScale(250 / t.width);
       this.body.add(t);
-      this.body.add(OTR.txt(this, 470, y, h.assess ? 'Assessment' : 'Practice', 14, h.assess ? '#B26A00' : OTR_DATA.theme.css('muted'), { ox: 0, weight: h.assess ? '900' : 'normal' }));
+      this.body.add(OTR.txt(this, 470, y, h.assess ? 'Assessment' : h.kind === 'workday' ? 'Workday' : 'Practice', 14, h.assess ? '#B26A00' : OTR_DATA.theme.css('muted'), { ox: 0, weight: h.assess ? '900' : 'normal', fit: 112 }));
       this.body.add(OTR.txt(this, 590, y, OTR.record.stars(h.stars, cats), 14, '#C98A00', { ox: 0 }));
       const fix = (h.criticals && h.criticals[0]) || (h.lessons && h.lessons[0]) || 'Nothing: a clean run';
       const f = OTR.txt(this, 780, y, fix, 13, h.criticals && h.criticals.length ? '#B3122E' : OTR_DATA.theme.css('inkSoft'), { ox: 0, bold: false });

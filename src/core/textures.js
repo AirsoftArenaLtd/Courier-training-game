@@ -162,9 +162,11 @@ OTR.tex = {
       g.clear();
       draw(g);
       const b = OTR.tex.shapeBounds(g.commandBuffer) || { x: 0, y: 0, w: 1, h: 1 };
-      if (!tex || b.w > cw || b.h > ch) {
+      // a new canvas whenever the drawing changes size, not only when it grows: a focus ring moved from a wide button
+      // to a small link near the edge kept an empty margin that reached off the screen
+      if (!tex || b.w !== cw || b.h !== ch) {
         const old = tex;
-        cw = Math.max(cw, b.w); ch = Math.max(ch, b.h);
+        cw = b.w; ch = b.h;
         const canvas = document.createElement('canvas');
         canvas.width = cw; canvas.height = ch;
         ctx = canvas.getContext('2d', { willReadFrequently: true });

@@ -81,6 +81,8 @@ OTR.save = {
       if (parsed.shift && typeof parsed.shift === 'object') d.shift = parsed.shift;
       if (parsed.route && typeof parsed.route === 'object') d.route = Object.assign(d.route, parsed.route);
       Object.keys(parsed).forEach(k => { if (!(k in d)) d[k] = parsed[k]; });   // anything newer features keep
+      // a workday in progress that SCORM 1.2's size limit packed or summarised (see fit) has its reports back
+      if (d.workday && typeof d.workday === 'object' && d.workday.current) d.workday.current = this.unpackDay(d.workday.current);
     }
     // signed in through the company or the LMS: the profile is that person, with no name to type
     if (I.locked && I.name) {
@@ -112,12 +114,8 @@ OTR.save = {
     this.data.savedAt = Date.now();
     const json = JSON.stringify(this.data);
     if (I.mode === 'scorm') {
-      // SCORM 1.2 holds 4096 characters of suspend data: drop the oldest route history until it fits
-      let out = json;
-      if (!I.scorm.v2004) {
-        const d = JSON.parse(json);
-        while (out.length > 4000 && d.route && d.route.history && d.route.history.length) { d.route.history.shift(); out = JSON.stringify(d); }
-      }
+      // SCORM 1.2 holds 4096 characters of suspend data (2004 holds 64000: it is sent as it is)
+      const out = I.scorm.v2004 ? json : this.fit(json, this.SCORM12_LIMIT);
       this.failed = !(I.scorm.set('cmi.suspend_data', out) && I.scorm.commit());
       this.reportLms();
       return;
@@ -130,6 +128,170 @@ OTR.save = {
       clearTimeout(this._putT);
       this._putT = setTimeout(() => this.flush(false), 600);
     }
+  },
+
+  SCORM12_LIMIT: 4000,      // under SCORM 1.2's 4096 characters of cmi.suspend_data, with room to spare
+
+  /**
+   * The save as JSON of at most `limit` characters (SCORM 1.2's suspend data). Each step below is tried in order, and
+   * the first result that fits is kept, so a save that already fits is sent as it is:
+   *   1. the oldest route-history entries go, one by one
+   *   2. the last finished workday's lines (its stars and score stay; its debrief then lists nothing)
+   *   3. the workday in progress is packed: its reports as short tuples (nothing is lost but extra place detail)
+   *   4. the trainee record keeps its 10 most recent runs
+   *   5. the workday in progress keeps only what its score needs: per report type, the keys counted right and wrong
+   *      (its stops and drive-review places are lost; flagged `summarised`)
+   *   6. the trainee record is emptied, then the last workday's stop list and the 2D route day's last day
+   *   7. keys of step 5 go, each kept as a count so the score stays whole (flagged `truncated`: a report of a dropped
+   *      key that the 3D world sends again would count twice)
+   *   8. only the career: profile, day, settings, best stars, academy results, the workday's summary; then less
+   * The JSON is never cut: a reload reads every stage back (see unpackDay). Local and server saves are not limited.
+   */
+  fit(json, limit) {
+    if (json.length <= limit) return json;
+    let d = JSON.parse(json), out = json;
+    const size = () => (out = JSON.stringify(d)).length;
+    const over = () => size() > limit;
+    const W = () => (d.workday && typeof d.workday === 'object' ? d.workday : null);
+    const cur = () => { const w = W(); return w && w.current && typeof w.current === 'object' ? w.current : null; };
+    // drop from the front of a list until it fits (about as many as the excess needs each time, so it stays quick)
+    const shed = (list, keep) => {
+      while (list && list.length > (keep || 0) && over()) {
+        const each = Math.max(1, JSON.stringify(list).length / list.length);
+        list.splice(0, Math.min(list.length - (keep || 0), Math.max(1, Math.floor((out.length - limit) / each))));
+      }
+    };
+    const steps = [
+      () => shed(d.route && d.route.history),
+      () => { const w = W(); if (w && w.last && Array.isArray(w.last.events)) w.last.events = []; },
+      () => { if (cur()) d.workday.current = this.packDay(cur()); },
+      () => shed(Array.isArray(d.history) ? d.history : null, 10),
+      () => { if (cur()) d.workday.current = this.summariseDay(cur()); },
+      () => {
+        shed(Array.isArray(d.history) ? d.history : null);
+        const w = W();
+        if (over() && w && w.last) { delete w.last.stops; delete w.last.lessons; }
+        if (over() && d.route) delete d.route.last;
+      },
+      () => { if (cur()) this.trimSummary(cur(), () => size() - limit); },
+      () => {
+        const c = cur(), last = W() && W().last;
+        const keep = { version: d.version, profile: d.profile, day: d.day, settings: d.settings, scenarios: d.scenarios,
+          route: { days: (d.route && d.route.days) || 0, best: d.route && d.route.best }, assess: d.assess, quiz: d.quiz,
+          workday: { current: c || null, last: last ? { day: last.day, at: last.at, stars: last.stars, ratios: last.ratios, score: last.score, untested: last.untested, events: [] } : null },
+          savedAt: d.savedAt, truncated: true };
+        d = keep;
+        if (over()) { if (d.settings) delete d.settings.a11y; delete d.quiz; }
+        if (over()) d.workday.last = null;
+        if (over()) d = { version: d.version, profile: d.profile, day: d.day, route: d.route, workday: { current: c ? this.trimSummary(c, () => Infinity) : null, last: null }, savedAt: d.savedAt, truncated: true };
+        if (over()) d = { version: d.version, profile: d.profile && { name: String(d.profile.name).slice(0, 40), id: d.profile.id }, day: d.day, truncated: true };
+        if (over()) d = { version: d.version, day: d.day, truncated: true };
+      }
+    ];
+    for (const step of steps) {
+      step();
+      if (!over()) return out;
+    }
+    return out.length <= limit ? out : '{"version":1,"truncated":true}';   // (cannot happen: step 8 ends this small)
+  },
+
+  /**
+   * A workday in progress with its reports packed: { ..., packed: { t: [type names], e: [[t, key, ok, stop, x, z,
+   * mph, t]] } } (ok 1 or 0; trailing nulls left off; a place only when it has x and z). unpackDay reverses it.
+   */
+  packDay(c) {
+    if (!Array.isArray(c.events)) return c;
+    const out = Object.assign({}, c), types = [], e = [];
+    delete out.events;
+    const num = (v, r) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * r) / r : null);
+    c.events.forEach(ev => {
+      if (!ev || typeof ev.type !== 'string') return;
+      let ti = types.indexOf(ev.type);
+      if (ti < 0) { ti = types.length; types.push(ev.type); }
+      const w = ev.where && num(ev.where.x, 10) !== null && num(ev.where.z, 10) !== null ? ev.where : null;
+      const row = [ti, ev.key === undefined ? null : ev.key, ev.ok === false ? 0 : 1, ev.stop === undefined ? null : ev.stop,
+        w ? num(w.x, 10) : null, w ? num(w.z, 10) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
+      while (row.length > 3 && row[row.length - 1] === null) row.pop();
+      e.push(row);
+    });
+    out.packed = { t: types, e };
+    return out;
+  },
+
+  /**
+   * Only what the score needs: { ..., summary: [[type, keys right, keys wrong, more right, more wrong]], summarised }
+   * ("more": reports whose keys were dropped by trimSummary, still counted). Accepts a full or a packed workday.
+   */
+  summariseDay(c) {
+    const full = this.unpackDay(c), out = Object.assign({}, full), by = new Map();
+    delete out.events;
+    (Array.isArray(full.events) ? full.events : []).forEach(ev => {
+      if (!ev || typeof ev.type !== 'string') return;
+      if (!by.has(ev.type)) by.set(ev.type, [ev.type, [], [], 0, 0]);
+      const r = by.get(ev.type), lost = typeof ev.key === 'string' && ev.key.indexOf(this.LOST) === 0;
+      if (lost) r[ev.ok === false ? 4 : 3]++;
+      else r[ev.ok === false ? 2 : 1].push(ev.key === undefined ? null : ev.key);
+    });
+    out.summary = [...by.values()].map(r => { while (r.length > 3 && !r[r.length - 1]) r.pop(); return r; });
+    out.summarised = true;
+    return out;
+  },
+
+  /** Drop summary keys (keeping each as a count) until `excess()` is no longer above 0; flags the workday `truncated`. */
+  trimSummary(c, excess) {
+    if (!Array.isArray(c.summary)) return c;
+    let ex = excess();
+    while (ex > 0) {
+      // the type with the most keys gives up as many as the excess needs
+      let best = null, n = 0;
+      c.summary.forEach(r => { const k = (r[1] || []).length + (r[2] || []).length; if (k > n) { n = k; best = r; } });
+      if (!best) break;
+      let freed = 0;
+      while (freed < ex && ((best[1] || []).length || (best[2] || []).length)) {
+        const wrong = (best[2] || []).length >= (best[1] || []).length;
+        const k = (wrong ? best[2] : best[1]).pop();
+        while (best.length < 5) best.push(best.length < 3 ? [] : 0);
+        best[wrong ? 4 : 3]++;
+        freed += JSON.stringify(k).length + 1;
+      }
+      c.truncated = true;
+      if (excess() === Infinity) continue;
+      ex = excess();
+    }
+    return c;
+  },
+
+  LOST: '~lost~',           // the key a report kept only as a count is given back, so it cannot match a real one
+
+  /** A saved workday in progress, packed or summarised by fit(), back to { ..., events } as the workday keeps it. */
+  unpackDay(c) {
+    if (!c || typeof c !== 'object' || Array.isArray(c.events)) return c;
+    const out = Object.assign({}, c), events = [];
+    if (c.packed && Array.isArray(c.packed.e)) {
+      const types = Array.isArray(c.packed.t) ? c.packed.t : [];
+      c.packed.e.forEach(r => {
+        if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
+        const ev = { type: types[r[0]], key: r[1] === undefined ? null : r[1], ok: r[2] !== 0, stop: r[3] === undefined ? null : r[3] };
+        if (Number.isFinite(r[4]) && Number.isFinite(r[5])) {
+          ev.where = { x: r[4], z: r[5] };
+          if (Number.isFinite(r[6])) ev.where.mph = r[6];
+          if (Number.isFinite(r[7])) ev.where.t = r[7];
+        }
+        events.push(ev);
+      });
+    } else if (Array.isArray(c.summary)) {
+      c.summary.forEach(r => {
+        if (!Array.isArray(r) || typeof r[0] !== 'string') return;
+        (r[1] || []).forEach(k => events.push({ type: r[0], key: k, ok: true, stop: null }));
+        (r[2] || []).forEach(k => events.push({ type: r[0], key: k, ok: false, stop: null }));
+        let n = 0;
+        for (let i = 0; i < (r[3] || 0); i++) events.push({ type: r[0], key: this.LOST + n++, ok: true, stop: null });
+        for (let i = 0; i < (r[4] || 0); i++) events.push({ type: r[0], key: this.LOST + n++, ok: false, stop: null });
+      });
+    } else return c;
+    delete out.packed; delete out.summary;
+    out.events = events;
+    return out;
   },
 
   /** Send the save to the server now (beacon: as the page closes). Returns the request, for whoever waits on it. */
