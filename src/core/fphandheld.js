@@ -28,7 +28,7 @@ OTR.fpHandheld = class {
     this.mode = aiming ? 'aim' : 'menu'; this.trigger = false; this.progress = 0; this.focusId = null;
     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
-    if (OTR.a11y) OTR.a11y.say([def.title].concat((def.lines || []).map(line => typeof line === 'string' ? line : line.text)).map(t => OTR.i18n.t(t)).join('. '));
+    if (OTR.a11y) OTR.a11y.say(OTR.i18n.t(def.title) + '. ' + (def.lines || []).map(line => OTR.i18n.t(typeof line === 'string' ? line : line.text)).join(' '));
     return true;
   }
   close(resume = true) {
