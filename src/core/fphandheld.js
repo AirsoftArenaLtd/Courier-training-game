@@ -28,7 +28,7 @@ OTR.fpHandheld = class {
     this.mode = aiming ? 'aim' : 'menu'; this.trigger = false; this.progress = 0; this.focusId = null;
     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
-    if (OTR.a11y) OTR.a11y.say(def.title + '. ' + (def.lines || []).map(line => typeof line === 'string' ? line : line.text).join(' '));
+    if (OTR.a11y) OTR.a11y.say(OTR.i18n.t(def.title) + '. ' + (def.lines || []).map(line => OTR.i18n.t(typeof line === 'string' ? line : line.text)).join(' '));
     return true;
   }
   close(resume = true) {
@@ -51,7 +51,7 @@ OTR.fpHandheld = class {
     const p = m.parcel(m.heldId), stop = m.stop(m.activeStop);
     this.show({ title: 'HANDHELD', lines: [
       { text: stop.address, bold: true },
-      p ? 'Carrying: ' + p.address : 'Retrieve the parcel from its cargo shelf.',
+      p ? `Carrying: ${p.address}` : 'Retrieve the parcel from its cargo shelf.',
       m.serviceLabel(stop.id)
     ], options: [
       { label: 'Scan package', onPick: () => this.scan() },
@@ -70,8 +70,8 @@ OTR.fpHandheld = class {
     const shelf = OTR.fpMission.slots.find(slot => slot.id === p.zone);
     this.show({ title: stop.resolved ? 'STOP RECORDED' : 'STOP DETAILS', lines: [
       { text: stop.address, bold: true }, m.serviceLabel(id),
-      'Recorded shelf: ' + (shelf ? shelf.name : 'Not recorded'),
-      stop.resolved ? 'Outcome: ' + stop.outcome : p.stopScanned ? 'Scanned at this stop' : 'Delivery scan required'
+      `Recorded shelf: ${shelf ? shelf.name : 'Not recorded'}`,
+      stop.resolved ? `Outcome: ${({ handover: 'Handed to resident', safeplace: 'Left in porch box', exception: 'Recipient absent' })[stop.outcome] || stop.outcome}` : p.stopScanned ? 'Scanned at this stop' : 'Delivery scan required'
     ], options: [
       { label: 'Scan package', onPick: () => this.scan(), disabled: stop.resolved },
       { label: 'Record delivery / exception', onPick: () => this.delivery(id), disabled: stop.resolved || m.kind === 'practice' },

@@ -9,6 +9,8 @@ class FirstPersonScene extends Phaser.Scene {
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
     this.makeHud();const token={};this.loadingToken=token;
     this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
+    // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
+    const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
     OTR.world3d.load().then(()=>{
       if(!this.sys.isActive()||this.loadingToken!==token)return;
       this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
@@ -59,12 +61,12 @@ class FirstPersonScene extends Phaser.Scene {
     choices.forEach((choice,i)=>{
       const bw=(w-80)/columns-12,x=cx+(columns===1?0:(i%2?1:-1)*(bw+20)/2),y=firstY+Math.floor(i/columns)*58+24;
       const hit=this.add.rectangle(x,y,bw,46,0x42556A,1).setInteractive({useHandCursor:true});
-      const label=OTR.txt(this,x,y,(i+1)+'. '+choice.label,18,'#ffffff',{fit:bw-24});
+      const label=OTR.txt(this,x,y,`${i+1}. ${choice.label}`,18,'#ffffff',{fit:bw-24});
       hit.on('pointerover',()=>{if(this.panel){this.panel.index=i;this.highlight();}});hit.on('pointerdown',()=>this.choose(i));
       root.add([hit,label]);this.panel.buttons.push(hit);
     });
     if(options.inspect)root.add(OTR.txt(this,303,514,'A/D rotate · Space use scanner · Esc return',17,'#ffffff',{fit:530,stroke:'#1B2634',strokeW:4}));
-    this.highlight();if(OTR.a11y)OTR.a11y.say(title+'. '+body);this.refresh();
+    this.highlight();if(OTR.a11y)OTR.a11y.say(OTR.i18n?[title,body].map(t=>OTR.i18n.t(t)).join('. '):title+'. '+body);this.refresh();
   }
   highlight(){if(this.panel)this.panel.buttons.forEach((b,i)=>b.setFillStyle(i===this.panel.index?0x97713D:0x42556A));}
   choose(index){if(!this.panel||this.transitioning)return;const choice=this.panel.choices[index];if(choice){this.inputBlockedUntil=this.time.now+180;choice.action();}}
@@ -87,7 +89,7 @@ class FirstPersonScene extends Phaser.Scene {
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;m=OTR.fpMission.create(kind,this.progress.sequence);}
     this.model=m;this.area='route';this.target=null;this.checkpoint();
     const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
-      m.stops.map(s=>s.address+' — '+m.serviceLabel(s.id)).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
+      m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
   });}
   toHub(){this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});}
@@ -102,7 +104,7 @@ class FirstPersonScene extends Phaser.Scene {
   leavePrototype(){this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
     const quality=level=>{this.checkpoint();const q=new URLSearchParams(location.search);q.set('gfx',level);location.assign('index.html?'+q.toString());};
-    this.showPanel('Settings','Graphics: '+OTR.gfx.level()+'\nMouse sensitivity: '+this.sensitivity.toFixed(4)+'\nExisting key remaps apply. Course settings and trainer tools are available through Main game.',[
+    this.showPanel('Settings',`Graphics: ${OTR.gfx.level()}\nMouse sensitivity: ${this.sensitivity.toFixed(4)}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.`,[
       {label:'Low graphics',action:()=>quality('low')},{label:'High graphics',action:()=>quality('high')},
       {label:'Slower mouse look',action:()=>{this.sensitivity=Math.max(0.0005,this.sensitivity-0.0005);this.showSettings();}},
       {label:'Faster mouse look',action:()=>{this.sensitivity=Math.min(0.006,this.sensitivity+0.0005);this.showSettings();}},
@@ -121,7 +123,7 @@ class FirstPersonScene extends Phaser.Scene {
   showParcel(id){
     if(!id)this.aimTarget();
     const m=this.model,p=m&&m.parcel(id||m.heldId||this.target);if(!m||!m.canParcel(p))return;this.inspectId=p.id;this.inspectAngle=0;
-    this.showPanel('Parcel label',p.address+'\n'+p.tracking+'\nWeight: '+p.weight+' kg\n'+m.serviceLabel(p.stop)+'\n'+(p.scanned?'Scanned':'Not scanned'),[
+    this.showPanel('Parcel label',[p.address,p.tracking,`Weight: ${p.weight} kg`,m.serviceLabel(p.stop),p.scanned?'Scanned':'Not scanned'].join('\n'),[
       {label:'Use scanner',action:()=>this.handheld.scan()},
       {label:p.location==='held'?'Return to walking':'Pick up',action:()=>{if(p.location!=='held')this.message(m.pickup(p.id));this.checkpoint();this.closePanel();}},
       {label:'Back',action:()=>this.closePanel()}],{inspect:true,back:()=>this.closePanel()});
@@ -134,7 +136,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   showDoor(id){
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
-    const held=m.parcel(m.heldId),body=s.address+'\n'+m.serviceLabel(id)+'\n\n'+(s.contacted?(s.service==='handover'?'The resident confirms the address.':'Nobody answers.'):'Attempt contact, then follow the shipment requirements.')+'\nCarrying: '+(held?held.address:'No parcel');
+    const held=m.parcel(m.heldId),body=[s.address,m.serviceLabel(id),'',s.contacted?(s.service==='handover'?'The resident confirms the address.':'Nobody answers.'):'Attempt contact, then follow the shipment requirements.',`Carrying: ${held?held.address:'No parcel'}`].join('\n');
     const choices=s.contacted?[{label:'Record on handheld',action:()=>this.handheld.delivery(id)}]:[{label:'Knock / ring',action:()=>{this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
     choices.push({label:'Back',action:()=>this.closePanel()});this.showPanel('Delivery',body,choices,{back:()=>this.closePanel()});
   }
@@ -148,7 +150,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(!result){this.showPanel('Last debrief','Complete a workday or a cargo lesson to see its results.',[{label:'Back',action:()=>this.showPause()}]);return;}
     const logs=result.logs,good=logs.filter(l=>l.outcome==='good').length,needs=logs.filter(l=>l.outcome==='needs').length;
     const sorted=logs.filter(l=>l.outcome!=='good').concat(logs.filter(l=>l.outcome==='good')),pages=Math.max(1,Math.ceil(sorted.length/5));page=OTR.fp.clamp(page,0,pages-1);
-    const body='Good decisions: '+good+' · To review: '+needs+'\n\n'+sorted.slice(page*5,page*5+5).map(l=>(l.outcome==='good'?'✓ ':l.outcome==='recovered'?'↺ ':'• ')+l.text).join('\n')+'\n\nPage '+(page+1)+' / '+pages;
+    const body=[`Good decisions: ${good} · To review: ${needs}`,'',sorted.slice(page*5,page*5+5).map(l=>(l.outcome==='good'?'✓ ':l.outcome==='recovered'?'↺ ':'• ')+l.text).join('\n'),'',`Page ${page+1} / ${pages}`].join('\n');
     const choices=[];if(page>0)choices.push({label:'Previous',action:()=>this.showDebrief(result,page-1)});if(page+1<pages)choices.push({label:'Next',action:()=>this.showDebrief(result,page+1)});
     const back=()=>this.area==='hub'?this.showPause():this.toHub();
     choices.push({label:'Return to hub',action:back});this.showPanel(result.kind==='practice'?'Practice debrief':'Workday debrief',body,choices,{back});
@@ -213,37 +215,47 @@ class FirstPersonScene extends Phaser.Scene {
   objectiveText(){
     const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
-      if(!m.retrievals)return 'Retrieve '+m.parcel(m.requested).address+' from the shelf where you loaded it.';return 'Replace the parcel, secure the load, then finish at Dispatch.';}
+      if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
     const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;return s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
   }
+  // parcels on the cargo shelves, counted without making a new array (refresh runs every frame)
+  cargoLine(m){let n=0;for(let i=0;i<m.parcels.length;i++)if(m.parcels[i].location.startsWith('slot'))n++;return n===1?'1 parcel in cargo':`${n} parcels in cargo`;}
   refresh(){
     if(this.loading)return;const m=this.model,mode=m?m.mode:'walk';
     const device=!!(this.handheld&&this.handheld.isOpen),aiming=device&&this.handheld.aiming;
     this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
     this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
-    const status=!m?'':mode==='cab'?Math.round(Math.abs(m.van.speed)*2.23694)+' mph · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
-      m.heldId?'Carrying: '+m.parcel(m.heldId).address:m.parcels.filter(p=>p.location.startsWith('slot')).length+' parcels in cargo';this.setText('status',status,790);
+    // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
+    const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
+      m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
+    // the key hints change only with the mode, the handheld, saving and the key map: built again only then, not every frame
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
-    if(!device){this.setText('controls',mode==='cab'?k('KeyW')+'/'+k('KeyS')+' accelerate / brake · '+k('KeyA')+'/'+k('KeyD')+' steer · '+k('Space')+' parking brake · '+k('KeyR')+' gear · '+k('KeyB')+' belt':k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD')+' move · '+k('KeyE')+' interact · F inspect · '+k('Tab')+' handheld · H menu',1230);
-    this.setText('help',(mode==='cab'?k('KeyM')+' left mirror · '+k('KeyQ')+' / C signals · V look forward · '+k('KeyE')+' exit · H menu':'Mouse looks · Click or E interacts · Drag to look without mouse capture · Esc pauses')+'   |   '+(this.saved?'Saved on this device':'Saving unavailable — keep this window open'),1220);
-    }else{
-      this.setText('controls',aiming?k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD')+' move · Mouse aim · Hold '+k('Space')+' or left click to scan':'Click or use number keys · Backspace goes back',790);
-      this.setText('help',k('Tab')+' put away · Esc back · H pause   |   '+(this.saved?'Saved on this device':'Saving unavailable — keep this window open'),790);
+    const keys=OTR.a11y?OTR.a11y.settings().keys:null,c=this.hints||(this.hints={});
+    if(c.mode!==mode||c.device!==device||c.aiming!==aiming||c.saved!==this.saved||c.keys!==keys){
+      Object.assign(c,{mode,device,aiming,saved:this.saved,keys});
+      const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
+      if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
+      // the two halves are translated before they are joined: "   |   " is not a place the translator splits
+      this.setText('help',t((mode==='cab'?[`${k('KeyM')} left mirror`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:['Mouse looks','Click or E interacts','Drag to look without mouse capture','Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
+      }else{
+        this.setText('controls',aiming?[`${wasd} move`,'Mouse aim',`Hold ${k('Space')} or left click to scan`].join(' · '):'Click or use number keys · Backspace goes back',790);
+        this.setText('help',t([`${k('Tab')} put away`,'Esc back',`${k('KeyH')} pause`].join(' · '))+'   |   '+t(saving),790);
+      }
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
     else if(mode==='cab')hint=m.van.hand?'Set your belt, check the mirror and release the parking brake.':'15 mph limit · Keep right · Stop at the junction line';
     else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
-    else if(id==='tyres'||id==='lights')hint='E inspect '+(id==='tyres'?'tires':id);else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
+    else if(id==='tyres'||id==='lights')hint=id==='tyres'?'E inspect tires':'E inspect lights';else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
     else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · E pick up · F inspect · Tab handheld';}
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · E place the parcel';
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · E attempt delivery';else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
-    if(aiming)hint=this.handheld.focusId?'Barcode in sight · Hold '+k('Space')+' or left click to scan':'Aim at the barcode, or pick up the parcel to bring its label closer.';
+    if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
     const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked&&mode==='walk');this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);

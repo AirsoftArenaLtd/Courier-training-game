@@ -98,8 +98,10 @@ const scanCode = (src, rel) => {
         s += src[j++];
       }
       const plain = s.replace(/\{\d+\}/g, ' ');
-      // a template with one word between its holes ("Day ${n} · ${rank}") is text too
-      if ((textish(plain) || (holes && /\b[A-Za-z][a-z]{2,}\b/.test(plain))) && !/<|\bstyle\b|;\s*$/.test(s) && !notText(plain.trim() || 'x')) {
+      // a template with one word between its holes ("Day ${n} · ${rank}") is text too, and so is a key and its action
+      // ("${key} move": a hole, a space, a word), which the code test below would take for an identifier
+      const keyAction = holes && /^\{\d+\} [a-z]{3,}$|^[A-Za-z][a-z]{2,} \{\d+\}$/.test(s);
+      if ((textish(plain) || (holes && /\b[A-Za-z][a-z]{2,}\b/.test(plain))) && !/<|\bstyle\b|;\s*$/.test(s) && (keyAction || !notText(plain.trim() || 'x'))) {
         if (holes) { if (!templates.has(s)) templates.set(s, rel); } else add(s, rel);
       }
       i = j + 1; prev = 'x'; continue;
