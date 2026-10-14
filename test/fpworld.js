@@ -99,3 +99,31 @@ test('scene transition saves before swapping models and ignores duplicate reques
   s.tweens={add:o=>queue.push(o)};s.transition(()=>actions++);s.transition(()=>actions++);
   assert.equal(saves,1);assert.equal(actions,0);queue.shift().onComplete();assert.equal(actions,1);queue.shift().onComplete();assert.equal(s.transitioning,false);
 });
+test('both hub-workday exit choices checkpoint then pause without entering the prototype hub',()=>{
+  const original=context.OTR.workday;
+  try{
+    for(const method of ['toHub','leavePrototype']){
+      const s=new context.SceneClass(),calls=[];s.hubWorkday=true;
+      s.checkpoint=()=>calls.push('save');s.closePanel=()=>{};s.releaseMouse=()=>{};
+      s.transition=()=>assert.fail('must not enter the prototype hub');
+      context.OTR.workday={pause:scene=>{assert.equal(scene,s);calls.push('pause');}};
+      s[method]();assert.equal(calls.join(','),'save,pause');
+    }
+  }finally{context.OTR.workday=original;}
+});
+test('successful hub workday dispatch hands the numbered summary to results and clears its checkpoint',()=>{
+  const original=context.OTR.workday;
+  try{
+    const s=new context.SceneClass();s.hubWorkday=true;s.model=context.OTR.fpMission.create('campaign',1);
+    const m=s.model;m.stops.forEach((stop,i)=>{stop.resolved=true;stop.outcome=i===0?'handover':'retained';});
+    m.elapsed=123.4;m.player={x:-12,z:11};s.progress={campaign:m.snapshot()};
+    s.objectiveText=()=>'';s.showPanel=(title,body,choices)=>{s.choices=choices;};s.write=()=>true;
+    s.closePanel=()=>{};s.releaseMouse=()=>{};s.showDebrief=()=>assert.fail('hub day uses results');
+    let summary;context.OTR.workday={finish:(scene,value)=>{assert.equal(scene,s);summary=value;}};
+    s.showDispatch();s.choices[0].action();
+    assert.equal(s.progress.campaign,null);assert.equal(summary.seconds,123);
+    assert.equal(summary.stops.map(s=>s.stop).join(','),'1,2,3');
+    assert.equal(summary.stops.map(s=>s.delivered).join(','),'true,false,false');
+    assert.equal(summary.depot.x,4);assert.equal(summary.depot.z,8);
+  }finally{context.OTR.workday=original;}
+});
