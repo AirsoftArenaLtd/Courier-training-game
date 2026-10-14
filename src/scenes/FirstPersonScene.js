@@ -47,6 +47,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   setText(key,value,max) {
     if(this.ui[key]===value&&this.ui[key+'Width']===max)return;this.ui[key]=value;this.ui[key+'Width']=max;const object=this[key];object.setText(value).setScale(1);
+    if(key==='objective'){object.setWordWrapWidth(max);return;}
     if(object.width>max)object.setScale(max/object.width);
   }
   showPanel(title,body,choices,options) {
@@ -265,6 +266,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
     const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;
+    if(m.mode==='walk'&&m.heldId){const parcel=m.parcel(m.heldId);if(parcel.stop===s.id&&!parcel.stopScanned)return `${s.address} · Scan the parcel at the door before recording the outcome.`;}
     return m.mode==='cab'?`${s.address} · ${m.driveHint()}`:s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
   }
   // parcels on the cargo shelves, counted without making a new array (refresh runs every frame)
