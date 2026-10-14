@@ -3212,7 +3212,13 @@ window.OTR_I18N.pa = {
 "Morning brief": "ਸਵੇਰ ਦੀ ਬ੍ਰੀਫ਼",
 "Loading the van": "ਵੈਨ ਲੋਡ ਕਰਨਾ",
 "At the stops": "ਸਟਾਪਾਂ 'ਤੇ",
-"End of the day": "ਦਿਨ ਦਾ ਅੰਤ"
+"End of the day": "ਦਿਨ ਦਾ ਅੰਤ",
+"Fasten the seatbelt before moving.": "ਚੱਲਣ ਤੋਂ ਪਹਿਲਾਂ ਸੀਟ ਬੈਲਟ ਬੰਨ੍ਹੋ।",
+"Parked at the stop. Check traffic before exiting.": "ਸਟਾਪ 'ਤੇ ਪਾਰਕ ਹੋ ਗਿਆ। ਉੱਤਰਨ ਤੋਂ ਪਹਿਲਾਂ ਟ੍ਰੈਫ਼ਿਕ ਦੇਖੋ।",
+"Pull over on the right at the address. Stop and set the parking brake.": "ਪਤੇ 'ਤੇ ਸੱਜੇ ਪਾਸੇ ਗੱਡੀ ਰੋਕੋ। ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਾਓ।",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "ਸ਼ੀਸ਼ੇ ਦੇਖੋ, ਖੱਬਾ ਇੰਡੀਕੇਟਰ ਦਿਓ ਅਤੇ ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਖਾਲੀ ਥਾਂ ਦੀ ਉਡੀਕ ਕਰੋ।",
+"Stop before the white junction line. Yield before continuing north.": "ਚਿੱਟੀ ਜੰਕਸ਼ਨ ਲਾਈਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ। ਉੱਤਰ ਵੱਲ ਵਧਣ ਤੋਂ ਪਹਿਲਾਂ ਰਾਹ ਦਿਓ।",
+"Continue north in the right lane. Speed limit: 15 mph.": "ਸੱਜੀ ਲੇਨ ਵਿੱਚ ਉੱਤਰ ਵੱਲ ਚੱਲਦੇ ਰਹੋ। ਗਤੀ ਸੀਮਾ: 15 mph।"
 },
 "templates": [
 [

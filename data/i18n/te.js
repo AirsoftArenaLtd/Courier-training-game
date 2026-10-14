@@ -3211,7 +3211,13 @@ window.OTR_I18N.te = {
 "Morning brief": "ఉదయం బ్రీఫ్",
 "Loading the van": "వ్యాన్ లోడ్ చేయడం",
 "At the stops": "స్టాప్‌ల వద్ద",
-"End of the day": "రోజు ముగింపు"
+"End of the day": "రోజు ముగింపు",
+"Fasten the seatbelt before moving.": "కదిలే ముందు సీట్ బెల్ట్ పెట్టుకోండి.",
+"Parked at the stop. Check traffic before exiting.": "స్టాప్ వద్ద పార్క్ చేశారు. దిగే ముందు ట్రాఫిక్ చూడండి.",
+"Pull over on the right at the address. Stop and set the parking brake.": "చిరునామా వద్ద కుడి వైపు ఆపండి. ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "అద్దాలు చూడండి, ఎడమ ఇండికేటర్ ఇవ్వండి, బయలుదేరే ముందు ఖాళీ కోసం వేచి ఉండండి.",
+"Stop before the white junction line. Yield before continuing north.": "తెల్లటి జంక్షన్ గీతకు ముందు ఆగండి. ఉత్తరం వైపు సాగే ముందు దారి ఇవ్వండి.",
+"Continue north in the right lane. Speed limit: 15 mph.": "కుడి లేన్‌లో ఉత్తరం వైపు సాగండి. వేగ పరిమితి: 15 mph."
 },
 "templates": [
 [

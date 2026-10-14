@@ -3211,7 +3211,13 @@ window.OTR_I18N.gu = {
 "Morning brief": "સવારનો સારાંશ",
 "Loading the van": "વૅન ભરવી",
 "At the stops": "સ્ટૉપ પર",
-"End of the day": "દિવસનો અંત"
+"End of the day": "દિવસનો અંત",
+"Fasten the seatbelt before moving.": "નીકળતાં પહેલાં સીટ બેલ્ટ બાંધો.",
+"Parked at the stop. Check traffic before exiting.": "સ્ટૉપ પર પાર્ક થયું. ઊતરતાં પહેલાં ટ્રાફિક જુઓ.",
+"Pull over on the right at the address. Stop and set the parking brake.": "સરનામે જમણી બાજુ ગાડી ઊભી રાખો. થોભો અને પાર્કિંગ બ્રેક લગાવો.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "અરીસા જુઓ, ડાબો સિગ્નલ આપો અને નીકળતાં પહેલાં ખાલી જગ્યાની રાહ જુઓ.",
+"Stop before the white junction line. Yield before continuing north.": "સફેદ જંક્શન લાઇન પહેલાં થોભો. ઉત્તર તરફ આગળ વધતાં પહેલાં રસ્તો આપો.",
+"Continue north in the right lane. Speed limit: 15 mph.": "જમણી લેનમાં ઉત્તર તરફ આગળ વધો. ઝડપ મર્યાદા: 15 mph."
 },
 "templates": [
 [

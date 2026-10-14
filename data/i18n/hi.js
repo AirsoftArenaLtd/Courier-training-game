@@ -3210,7 +3210,13 @@ window.OTR_I18N.hi = {
 "Morning brief": "सुबह की ब्रीफ़",
 "Loading the van": "वैन की लोडिंग",
 "At the stops": "स्टॉप पर",
-"End of the day": "दिन का अंत"
+"End of the day": "दिन का अंत",
+"Fasten the seatbelt before moving.": "चलने से पहले सीट बेल्ट बाँधें।",
+"Parked at the stop. Check traffic before exiting.": "स्टॉप पर पार्क हो गया। उतरने से पहले ट्रैफ़िक देखें।",
+"Pull over on the right at the address. Stop and set the parking brake.": "पते पर दाईं ओर गाड़ी रोकें। रुकें और पार्किंग ब्रेक लगाएँ।",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "शीशे देखें, बायाँ इंडिकेटर दें और निकलने से पहले खाली जगह का इंतज़ार करें।",
+"Stop before the white junction line. Yield before continuing north.": "सफ़ेद जंक्शन रेखा से पहले रुकें। उत्तर की ओर बढ़ने से पहले रास्ता दें।",
+"Continue north in the right lane. Speed limit: 15 mph.": "दाईं लेन में उत्तर की ओर चलते रहें। गति सीमा: 15 mph।"
 },
 "templates": [
 [
