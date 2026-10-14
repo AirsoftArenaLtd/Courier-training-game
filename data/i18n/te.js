@@ -3217,7 +3217,9 @@ window.OTR_I18N.te = {
 "Pull over on the right at the address. Stop and set the parking brake.": "చిరునామా వద్ద కుడి వైపు ఆపండి. ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
 "Check mirrors, signal left and wait for a clear gap before pulling out.": "అద్దాలు చూడండి, ఎడమ ఇండికేటర్ ఇవ్వండి, బయలుదేరే ముందు ఖాళీ కోసం వేచి ఉండండి.",
 "Stop before the white junction line. Yield before continuing north.": "తెల్లటి జంక్షన్ గీతకు ముందు ఆగండి. ఉత్తరం వైపు సాగే ముందు దారి ఇవ్వండి.",
-"Continue north in the right lane. Speed limit: 15 mph.": "కుడి లేన్‌లో ఉత్తరం వైపు సాగండి. వేగ పరిమితి: 15 mph."
+"Continue north in the right lane. Speed limit: 15 mph.": "కుడి లేన్‌లో ఉత్తరం వైపు సాగండి. వేగ పరిమితి: 15 mph.",
+"Park the van near this address and set the parking brake first.": "వ్యాన్‌ను ఈ చిరునామా దగ్గర పార్క్ చేసి ముందుగా పార్కింగ్ బ్రేక్ వేయండి.",
+"Scan this parcel at the door before recording the outcome.": "ఫలితం నమోదు చేసే ముందు తలుపు వద్ద ఈ ప్యాకేజీని స్కాన్ చేయండి."
 },
 "templates": [
 [
@@ -4495,6 +4497,10 @@ window.OTR_I18N.te = {
 [
 "{0} stops",
 "{0} స్టాప్‌లు"
+],
+[
+"{0} · Scan the parcel at the door before recording the outcome.",
+"{0} · ఫలితం నమోదు చేసే ముందు తలుపు వద్ద ప్యాకేజీని స్కాన్ చేయండి."
 ]
 ],
 "keep": [

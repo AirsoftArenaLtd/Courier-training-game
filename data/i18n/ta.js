@@ -3217,7 +3217,9 @@ window.OTR_I18N.ta = {
 "Pull over on the right at the address. Stop and set the parking brake.": "முகவரியில் வலப்புறம் ஒதுக்கி நிறுத்துங்கள். நின்று பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
 "Check mirrors, signal left and wait for a clear gap before pulling out.": "கண்ணாடிகளைப் பாருங்கள், இடது இண்டிகேட்டர் போடுங்கள், புறப்படும் முன் காலி இடைவெளிக்காகக் காத்திருங்கள்.",
 "Stop before the white junction line. Yield before continuing north.": "வெள்ளை சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள். வடக்கே தொடரும் முன் வழிவிடுங்கள்.",
-"Continue north in the right lane. Speed limit: 15 mph.": "வலது பாதையில் வடக்கே தொடருங்கள். வேக வரம்பு: 15 mph."
+"Continue north in the right lane. Speed limit: 15 mph.": "வலது பாதையில் வடக்கே தொடருங்கள். வேக வரம்பு: 15 mph.",
+"Park the van near this address and set the parking brake first.": "வேனை இந்த முகவரிக்கு அருகில் நிறுத்தி, முதலில் பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
+"Scan this parcel at the door before recording the outcome.": "முடிவைப் பதிவு செய்யும் முன் கதவில் இந்த பார்சலை ஸ்கேன் செய்யுங்கள்."
 },
 "templates": [
 [
@@ -4495,6 +4497,10 @@ window.OTR_I18N.ta = {
 [
 "{0} stops",
 "{0} நிறுத்தங்கள்"
+],
+[
+"{0} · Scan the parcel at the door before recording the outcome.",
+"{0} · முடிவைப் பதிவு செய்யும் முன் கதவில் பார்சலை ஸ்கேன் செய்யுங்கள்."
 ]
 ],
 "keep": [

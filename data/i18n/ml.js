@@ -3217,7 +3217,9 @@ window.OTR_I18N.ml = {
 "Pull over on the right at the address. Stop and set the parking brake.": "വിലാസത്തിൽ വലതുവശത്ത് ഒതുക്കി നിർത്തുക. നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
 "Check mirrors, signal left and wait for a clear gap before pulling out.": "കണ്ണാടികൾ നോക്കുക, ഇടത് സിഗ്നൽ നൽകുക, പുറപ്പെടുന്നതിന് മുമ്പ് ഒഴിഞ്ഞ ഇടത്തിനായി കാത്തിരിക്കുക.",
 "Stop before the white junction line. Yield before continuing north.": "വെളുത്ത ജംഗ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക. വടക്കോട്ട് തുടരുന്നതിന് മുമ്പ് വഴി നൽകുക.",
-"Continue north in the right lane. Speed limit: 15 mph.": "വലത് ലെയ്നിൽ വടക്കോട്ട് തുടരുക. വേഗപരിധി: 15 mph."
+"Continue north in the right lane. Speed limit: 15 mph.": "വലത് ലെയ്നിൽ വടക്കോട്ട് തുടരുക. വേഗപരിധി: 15 mph.",
+"Park the van near this address and set the parking brake first.": "വാൻ ഈ വിലാസത്തിന് അടുത്ത് പാർക്ക് ചെയ്ത് ആദ്യം പാർക്കിങ് ബ്രേക്ക് ഇടുക.",
+"Scan this parcel at the door before recording the outcome.": "ഫലം രേഖപ്പെടുത്തും മുമ്പ് വാതിൽക്കൽ ഈ പാക്കേജ് സ്കാൻ ചെയ്യുക."
 },
 "templates": [
 [
@@ -4495,6 +4497,10 @@ window.OTR_I18N.ml = {
 [
 "{0} stops",
 "{0} സ്റ്റോപ്പുകൾ"
+],
+[
+"{0} · Scan the parcel at the door before recording the outcome.",
+"{0} · ഫലം രേഖപ്പെടുത്തും മുമ്പ് വാതിൽക്കൽ പാക്കേജ് സ്കാൻ ചെയ്യുക."
 ]
 ],
 "keep": [

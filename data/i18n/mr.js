@@ -3217,7 +3217,9 @@ window.OTR_I18N.mr = {
 "Pull over on the right at the address. Stop and set the parking brake.": "पत्त्यावर उजवीकडे गाडी थांबवा. थांबा आणि पार्किंग ब्रेक लावा.",
 "Check mirrors, signal left and wait for a clear gap before pulling out.": "आरसे पाहा, डावा इंडिकेटर द्या आणि निघण्यापूर्वी रिकाम्या जागेची वाट पाहा.",
 "Stop before the white junction line. Yield before continuing north.": "पांढऱ्या जंक्शन रेषेपूर्वी थांबा. उत्तरेकडे पुढे जाण्यापूर्वी वाट द्या.",
-"Continue north in the right lane. Speed limit: 15 mph.": "उजव्या लेनमध्ये उत्तरेकडे चालत राहा. वेगमर्यादा: 15 mph."
+"Continue north in the right lane. Speed limit: 15 mph.": "उजव्या लेनमध्ये उत्तरेकडे चालत राहा. वेगमर्यादा: 15 mph.",
+"Park the van near this address and set the parking brake first.": "व्हॅन या पत्त्याजवळ पार्क करा आणि आधी पार्किंग ब्रेक लावा.",
+"Scan this parcel at the door before recording the outcome.": "निकाल नोंदवण्यापूर्वी दारात हे पॅकेज स्कॅन करा."
 },
 "templates": [
 [
@@ -4495,6 +4497,10 @@ window.OTR_I18N.mr = {
 [
 "{0} stops",
 "{0} स्टॉप"
+],
+[
+"{0} · Scan the parcel at the door before recording the outcome.",
+"{0} · निकाल नोंदवण्यापूर्वी दारात पॅकेज स्कॅन करा."
 ]
 ],
 "keep": [
