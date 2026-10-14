@@ -138,6 +138,18 @@ OTR.fpMission = {
         return !!p && Math.hypot(this.player.x - p.x, this.player.z - p.z) < (distance || 2.65);
       },
       parked() { return Math.abs(this.van.speed) < 0.12 && this.van.hand; },
+      driveHint() {
+        const v = this.van, s = this.stop(this.activeStop);
+        if (this.mode !== 'cab' || this.kind !== 'campaign' || this.phase === 'return') return '';
+        if (!v.belt) return 'Fasten the seatbelt before moving.';
+        const atStop = Math.abs(v.z - s.z) < 6 && v.x >= 3.1 && Math.cos(v.yaw) > 0.85;
+        if (this.parked() && atStop) return 'Parked at the stop. Check traffic before exiting.';
+        if (Math.abs(v.z - s.z) < 10) return 'Pull over on the right at the address. Stop and set the parking brake.';
+        if (v.hand) return 'Check mirrors, signal left and wait for a clear gap before pulling out.';
+        if (!this.stopSign.resolved && v.z > -24 && v.z < -10)
+          return 'Stop before the white junction line. Yield before continuing north.';
+        return 'Continue north in the right lane. Speed limit: 15 mph.';
+      },
       blocked(x, z, radius) {
         const r = radius || 0.24, b = this.bounds;
         if (x - r < b.x0 || x + r > b.x1 || z - r < b.z0 || z + r > b.z1) return true;

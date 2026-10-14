@@ -250,10 +250,12 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
       if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
     if(m.briefing&&!m.events[m.briefKey])return 'Walk to Dispatch to read the morning brief and route manifest.';
+    if(m.mode==='cab'&&m.phase==='prepare')return `${m.stop(m.activeStop).address} · ${m.driveHint()}`;
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
-    const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;return s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
+    const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;
+    return m.mode==='cab'?`${s.address} · ${m.driveHint()}`:s.address+' · '+Math.round(Math.hypot(p.x-s.x,p.z-s.z))+' m · '+m.serviceLabel(s.id);
   }
   // parcels on the cargo shelves, counted without making a new array (refresh runs every frame)
   cargoLine(m){let n=0;for(let i=0;i<m.parcels.length;i++)if(m.parcels[i].location.startsWith('slot'))n++;return n===1?'1 parcel in cargo':`${n} parcels in cargo`;}
