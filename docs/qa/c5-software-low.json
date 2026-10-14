@@ -1,0 +1,183 @@
+{
+  "tag": "c5",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "hub": {
+      "frames": 703,
+      "avgFPS": 70.29,
+      "low1FPS": 53.73,
+      "p99ms": 18,
+      "maxMs": 20.1,
+      "peak": {
+        "calls": 13,
+        "triangles": 146,
+        "textures": 1,
+        "geometries": 2,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "depot": {
+      "frames": 621,
+      "avgFPS": 62.04,
+      "low1FPS": 50.11,
+      "p99ms": 19.7,
+      "maxMs": 20.6,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 1,
+        "geometries": 2,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "cab": {
+      "frames": 610,
+      "avgFPS": 60.98,
+      "low1FPS": 46.57,
+      "p99ms": 19.8,
+      "maxMs": 29.1,
+      "peak": {
+        "calls": 32,
+        "triangles": 1106,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "mirror": {
+      "frames": 571,
+      "avgFPS": 57.09,
+      "low1FPS": 46.33,
+      "p99ms": 21,
+      "maxMs": 23.2,
+      "peak": {
+        "calls": 53,
+        "triangles": 1636,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "handheld": {
+      "frames": 532,
+      "avgFPS": 53.17,
+      "low1FPS": 43.57,
+      "p99ms": 22.4,
+      "maxMs": 24.1,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "barcodeAim": {
+      "frames": 520,
+      "avgFPS": 51.93,
+      "low1FPS": 43.89,
+      "p99ms": 22.4,
+      "maxMs": 24.1,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "firstStop": {
+      "frames": 601,
+      "avgFPS": 60.04,
+      "low1FPS": 47.46,
+      "p99ms": 20.6,
+      "maxMs": 21.9,
+      "peak": {
+        "calls": 24,
+        "triangles": 998,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "doorstep": {
+      "frames": 518,
+      "avgFPS": 51.78,
+      "low1FPS": 42.05,
+      "p99ms": 23,
+      "maxMs": 26.8,
+      "peak": {
+        "calls": 17,
+        "triangles": 770,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "returns": {
+      "frames": 565,
+      "avgFPS": 56.46,
+      "low1FPS": 45.98,
+      "p99ms": 21.2,
+      "maxMs": 23.7,
+      "peak": {
+        "calls": 15,
+        "triangles": 506,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    }
+  },
+  "errors": []
+}

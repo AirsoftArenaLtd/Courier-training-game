@@ -1,0 +1,188 @@
+{
+  "tag": "c5-native",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A7A8) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "hub": {
+      "frames": 1441,
+      "avgFPS": 144.03,
+      "low1FPS": 127.44,
+      "p99ms": 7.3,
+      "maxMs": 11.8,
+      "peak": {
+        "calls": 13,
+        "triangles": 146,
+        "textures": 1,
+        "geometries": 2,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "depot": {
+      "frames": 1441,
+      "avgFPS": 144.06,
+      "low1FPS": 132.86,
+      "p99ms": 7.3,
+      "maxMs": 9.4,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 1,
+        "geometries": 2,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "cab": {
+      "frames": 1441,
+      "avgFPS": 144.08,
+      "low1FPS": 132.04,
+      "p99ms": 7.3,
+      "maxMs": 8.6,
+      "peak": {
+        "calls": 32,
+        "triangles": 1106,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "mirror": {
+      "frames": 1442,
+      "avgFPS": 144.11,
+      "low1FPS": 131.58,
+      "p99ms": 7.3,
+      "maxMs": 8.7,
+      "peak": {
+        "calls": 53,
+        "triangles": 1636,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "handheld": {
+      "frames": 1441,
+      "avgFPS": 144.05,
+      "low1FPS": 133.93,
+      "p99ms": 7.3,
+      "maxMs": 7.9,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "barcodeAim": {
+      "frames": 1441,
+      "avgFPS": 144.04,
+      "low1FPS": 131.58,
+      "p99ms": 7.4,
+      "maxMs": 8.1,
+      "peak": {
+        "calls": 44,
+        "triangles": 1262,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "firstStop": {
+      "frames": 1441,
+      "avgFPS": 144.03,
+      "low1FPS": 134.41,
+      "p99ms": 7.3,
+      "maxMs": 7.6,
+      "peak": {
+        "calls": 24,
+        "triangles": 998,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "doorstep": {
+      "frames": 1441,
+      "avgFPS": 144.07,
+      "low1FPS": 132.28,
+      "p99ms": 7.3,
+      "maxMs": 8.2,
+      "peak": {
+        "calls": 17,
+        "triangles": 770,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "returns": {
+      "frames": 1441,
+      "avgFPS": 144.06,
+      "low1FPS": 131.23,
+      "p99ms": 7.4,
+      "maxMs": 8.2,
+      "peak": {
+        "calls": 15,
+        "triangles": 506,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    }
+  },
+  "phaserTextures": {
+    "count": 83,
+    "baseLevelRGBABytes": 2730028,
+    "withMipmapsUpperBytes": 3640038
+  },
+  "errors": []
+}
