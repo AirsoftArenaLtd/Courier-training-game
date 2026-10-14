@@ -3116,7 +3116,7 @@ window.OTR_I18N.es = {
 "Save and continue": "Guardar y continuar",
 "The two passwords don't match.": "Las dos contraseñas no coinciden.",
 "This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "Este navegador no conservó la sesión. Permite las cookies de este sitio e inicia sesión de nuevo.",
-"Not that character": "Ese no es el personaje",
+"Not that character": "Carácter no permitido",
 "The 3D workday isn't available yet.": "La jornada en 3D aún no está disponible.",
 "Nothing was recorded on this workday.": "No se registró nada en esta jornada.",
 "Your workday": "Tu jornada",

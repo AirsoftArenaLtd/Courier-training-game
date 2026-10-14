@@ -2925,7 +2925,293 @@ window.OTR_I18N.ml = {
 "★ or better in every category": "ഓരോ വിഭാഗത്തിലും ★ അല്ലെങ്കിൽ കൂടുതൽ",
 "QUIZ": "ക്വിസ്",
 "TODAY'S ROUTE": "ഇന്നത്തെ റൂട്ട്",
-"TODAY'S MANIFEST": "ഇന്നത്തെ മാനിഫെസ്റ്റ്"
+"TODAY'S MANIFEST": "ഇന്നത്തെ മാനിഫെസ്റ്റ്",
+"Read the morning brief before leaving dispatch": "ഡിസ്പാച്ച് വിടും മുമ്പ് രാവിലത്തെ ബ്രീഫ് വായിക്കുക",
+"Left dispatch without reading the morning brief": "രാവിലത്തെ ബ്രീഫ് വായിക്കാതെ ഡിസ്പാച്ച് വിട്ടു",
+"The brief has the day's weather, hazards and route notes. Read it before you load.": "ബ്രീഫിൽ ഇന്നത്തെ കാലാവസ്ഥ, അപകടസാധ്യതകൾ, റൂട്ട് കുറിപ്പുകൾ എന്നിവയുണ്ട്. ലോഡ് ചെയ്യും മുമ്പ് വായിക്കുക.",
+"Assessed the tires correctly": "ടയറുകൾ ശരിയായി വിലയിരുത്തി",
+"Misjudged the condition of the tires": "ടയറുകളുടെ അവസ്ഥ തെറ്റായി വിലയിരുത്തി",
+"Check tread, sidewalls and pressure on every tire before the van moves.": "വാൻ നീങ്ങും മുമ്പ് ഓരോ ടയറിന്റെയും ട്രെഡ്, സൈഡ്‌വാൾ, പ്രഷർ എന്നിവ പരിശോധിക്കുക.",
+"Assessed the lights correctly": "ലൈറ്റുകൾ ശരിയായി വിലയിരുത്തി",
+"Misjudged the condition of the lights": "ലൈറ്റുകളുടെ അവസ്ഥ തെറ്റായി വിലയിരുത്തി",
+"Walk round and check every light works, including brake lights and signals.": "ചുറ്റും നടന്ന് ബ്രേക്ക് ലൈറ്റുകളും സിഗ്നലുകളും ഉൾപ്പെടെ എല്ലാ ലൈറ്റുകളും പ്രവർത്തിക്കുന്നുണ്ടോ എന്ന് പരിശോധിക്കുക.",
+"Left the depot without finishing the pre-trip inspection": "യാത്രയ്ക്ക് മുമ്പുള്ള പരിശോധന പൂർത്തിയാക്കാതെ ഡിപ്പോ വിട്ടു",
+"A van with a fault you have not found is a danger to you and everyone on the road.": "നിങ്ങൾ കണ്ടെത്താത്ത തകരാറുള്ള വാൻ നിങ്ങൾക്കും റോഡിലെ എല്ലാവർക്കും അപകടമാണ്.",
+"Scanned the package at load-out": "ലോഡ്-ഔട്ടിൽ പാക്കേജ് സ്കാൻ ചെയ്തു",
+"Loaded a package without scanning it": "സ്കാൻ ചെയ്യാതെ പാക്കേജ് ലോഡ് ചെയ്തു",
+"Scan every package as you load it: a missed scan is a package the system thinks is still at the depot.": "ഓരോ പാക്കേജും ലോഡ് ചെയ്യുമ്പോൾ സ്കാൻ ചെയ്യുക: സ്കാൻ വിട്ടുപോയാൽ ആ പാക്കേജ് ഇപ്പോഴും ഡിപ്പോയിലാണെന്ന് സിസ്റ്റം കരുതും.",
+"Loaded the package on its shelf in stop order": "സ്റ്റോപ്പ് ക്രമത്തിൽ പാക്കേജ് അതിന്റെ ഷെൽഫിൽ ലോഡ് ചെയ്തു",
+"Loaded a package on the wrong shelf": "പാക്കേജ് തെറ്റായ ഷെൽഫിൽ ലോഡ് ചെയ്തു",
+"Load in stop order so each package is where you expect it. A bad load costs time at every stop.": "സ്റ്റോപ്പ് ക്രമത്തിൽ ലോഡ് ചെയ്യുക, അപ്പോൾ ഓരോ പാക്കേജും നിങ്ങൾ പ്രതീക്ഷിക്കുന്ന ഇടത്തുണ്ടാകും. മോശം ലോഡിംഗ് ഓരോ സ്റ്റോപ്പിലും സമയം കളയും.",
+"Secured the load before driving": "ഓടിക്കും മുമ്പ് ലോഡ് സുരക്ഷിതമാക്കി",
+"Drove with an unsecured load": "സുരക്ഷിതമാക്കാത്ത ലോഡുമായി ഓടിച്ചു",
+"An unsecured load shifts under braking: it damages packages and can injure you when you open the doors.": "സുരക്ഷിതമാക്കാത്ത ലോഡ് ബ്രേക്ക് ചെയ്യുമ്പോൾ നീങ്ങും: പാക്കേജുകൾ കേടാകും, വാതിൽ തുറക്കുമ്പോൾ നിങ്ങൾക്ക് പരിക്കേൽക്കാനും സാധ്യതയുണ്ട്.",
+"Moved the van without a seatbelt": "സീറ്റ്ബെൽറ്റ് ഇല്ലാതെ വാൻ നീക്കി",
+"Belt on before the van moves, every time, even for a few yards between stops.": "വാൻ നീങ്ങും മുമ്പ് ബെൽറ്റ് ഇടുക, ഓരോ തവണയും, സ്റ്റോപ്പുകൾക്കിടയിലെ ഏതാനും യാർഡ് ദൂരത്തിനും.",
+"Exceeded the speed limit": "വേഗപരിധി മറികടന്നു",
+"Residential limits are low for a reason: children, pets and parked cars.": "താമസമേഖലയിൽ പരിധി കുറവായതിന് കാരണമുണ്ട്: കുട്ടികൾ, വളർത്തുമൃഗങ്ങൾ, പാർക്ക് ചെയ്ത കാറുകൾ.",
+"Drove onto the sidewalk": "നടപ്പാതയിലേക്ക് ഓടിച്ചുകയറ്റി",
+"Stay on the road. Take a corner wider and slower rather than clip the curb.": "റോഡിൽ തന്നെ തുടരുക. നടപ്പാതയുടെ അരികിൽ തട്ടുന്നതിന് പകരം തിരിവ് കൂടുതൽ വീതിയിലും പതുക്കെയും എടുക്കുക.",
+"Drove on the wrong side of the road": "റോഡിന്റെ തെറ്റായ വശത്തുകൂടി ഓടിച്ചു",
+"Keep to your side, even on a quiet street: the car you cannot see yet is coming.": "ശാന്തമായ തെരുവിലും നിങ്ങളുടെ വശത്തുതന്നെ തുടരുക: ഇതുവരെ കാണാത്ത കാർ വരുന്നുണ്ടാകും.",
+"Came to a full stop at the stop line": "സ്റ്റോപ്പ് ലൈനിൽ പൂർണമായി നിർത്തി",
+"A full stop behind the line, then look both ways before you go.": "ലൈനിന് പിന്നിൽ പൂർണമായി നിർത്തുക, പോകും മുമ്പ് ഇരുവശത്തും നോക്കുക.",
+"Slowed early for a developing hazard": "രൂപപ്പെടുന്ന അപകടത്തിന് നേരത്തേ വേഗം കുറച്ചു",
+"Reacted late to a developing hazard": "രൂപപ്പെടുന്ന അപകടത്തോട് വൈകി പ്രതികരിച്ചു",
+"Look well ahead. Ease off as soon as a hazard starts to develop, not when it is in front of you.": "ദൂരേക്ക് നോക്കുക. അപകടം രൂപപ്പെട്ടു തുടങ്ങുമ്പോൾ തന്നെ വേഗം കുറയ്ക്കുക, അത് മുന്നിൽ എത്തുമ്പോഴല്ല.",
+"Conflict with a pedestrian": "കാൽനടയാത്രക്കാരനുമായി സംഘർഷസാഹചര്യം",
+"Never assume a pedestrian has seen you. Slow down, cover the brake and give way.": "കാൽനടയാത്രക്കാരൻ നിങ്ങളെ കണ്ടുവെന്ന് ഒരിക്കലും കരുതരുത്. വേഗം കുറയ്ക്കുക, ബ്രേക്കിൽ കാൽ വയ്ക്കുക, വഴി നൽകുക.",
+"The van hit something": "വാൻ എന്തിലോ ഇടിച്ചു",
+"Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.": "ഏത് സമ്പർക്കവും ഒരു സംഭവമാണ്: നിർത്തുക, പരിശോധിക്കുക, റിപ്പോർട്ട് ചെയ്യുക. തടസ്സങ്ങൾക്ക് സമീപം വേഗം കുറയ്ക്കുക, കണ്ണാടികൾ ഉപയോഗിക്കുക.",
+"Used the handheld before parking safely": "സുരക്ഷിതമായി പാർക്ക് ചെയ്യും മുമ്പ് ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിച്ചു",
+"Park, set the brake, then pick up the scanner. Never at the wheel and never at a light.": "പാർക്ക് ചെയ്യുക, ബ്രേക്ക് ഇടുക, പിന്നെ സ്കാനർ എടുക്കുക. ഒരിക്കലും വളയത്തിലിരുന്നോ ട്രാഫിക് ലൈറ്റിൽ നിൽക്കുമ്പോഴോ അരുത്.",
+"Scanned the package at the stop before delivering": "ഡെലിവർ ചെയ്യും മുമ്പ് സ്റ്റോപ്പിൽ പാക്കേജ് സ്കാൻ ചെയ്തു",
+"Completed a stop without scanning the package": "പാക്കേജ് സ്കാൻ ചെയ്യാതെ സ്റ്റോപ്പ് പൂർത്തിയാക്കി",
+"Scan at the door: it confirms the right package, the right address and the delivery time.": "വാതിലിൽ വച്ച് സ്കാൻ ചെയ്യുക: ശരിയായ പാക്കേജ്, ശരിയായ വിലാസം, ഡെലിവറി സമയം എന്നിവ അത് ഉറപ്പാക്കും.",
+"Caught a package for a different stop": "മറ്റൊരു സ്റ്റോപ്പിലെ പാക്കേജ് കണ്ടെത്തി",
+"Tried to deliver the wrong package": "തെറ്റായ പാക്കേജ് ഡെലിവർ ചെയ്യാൻ ശ്രമിച്ചു",
+"Check the address on the label against the house number every time.": "ലേബലിലെ വിലാസം വീട്ടുനമ്പറുമായി ഓരോ തവണയും ഒത്തുനോക്കുക.",
+"Recorded a handover with nobody there": "ആരുമില്ലാതിരുന്നിട്ടും കൈമാറ്റം രേഖപ്പെടുത്തി",
+"Only record a handover when you hand it to a person. Otherwise follow the safe-place or attempt rules.": "ഒരാൾക്ക് കൈമാറുമ്പോൾ മാത്രം കൈമാറ്റം രേഖപ്പെടുത്തുക. അല്ലെങ്കിൽ സുരക്ഷിത സ്ഥലം അല്ലെങ്കിൽ ശ്രമ നിയമങ്ങൾ പാലിക്കുക.",
+"Chose the right delivery outcome": "ശരിയായ ഡെലിവറി ഫലം തിരഞ്ഞെടുത്തു",
+"Chose the wrong delivery outcome": "തെറ്റായ ഡെലിവറി ഫലം തിരഞ്ഞെടുത്തു",
+"Signature, safe place or attempt: the package's service and who is at the door decide which.": "ഒപ്പ്, സുരക്ഷിത സ്ഥലം, അല്ലെങ്കിൽ ശ്രമം: ഏതെന്ന് തീരുമാനിക്കുന്നത് പാക്കേജിന്റെ സേവനവും വാതിൽക്കൽ ആരുണ്ട് എന്നതുമാണ്.",
+"Checked the label before taking a package from the shelf": "ഷെൽഫിൽ നിന്ന് പാക്കേജ് എടുക്കും മുമ്പ് ലേബൽ പരിശോധിച്ചു",
+"Took a package from the shelf without checking it": "പരിശോധിക്കാതെ ഷെൽഫിൽ നിന്ന് പാക്കേജ് എടുത്തു",
+"Check the label as you pick: the wrong package found at the door is a second trip.": "എടുക്കുമ്പോൾ ലേബൽ പരിശോധിക്കുക: വാതിൽക്കൽ വച്ച് തെറ്റായ പാക്കേജ് കണ്ടെത്തിയാൽ വീണ്ടും ഒരു യാത്ര വേണ്ടിവരും.",
+"Scanned the undelivered package back in at the depot": "ഡെലിവർ ചെയ്യാത്ത പാക്കേജ് ഡിപ്പോയിൽ തിരികെ സ്കാൻ ചെയ്തു",
+"Left an undelivered package unscanned": "ഡെലിവർ ചെയ്യാത്ത പാക്കേജ് സ്കാൻ ചെയ്യാതെ വിട്ടു",
+"Every package that comes back must be scanned in, or it is lost as far as the system knows.": "തിരികെ വരുന്ന ഓരോ പാക്കേജും സ്കാൻ ചെയ്ത് ചേർക്കണം, അല്ലെങ്കിൽ സിസ്റ്റത്തെ സംബന്ധിച്ച് അത് നഷ്ടപ്പെട്ടതാണ്.",
+"Delivery complete — press N to restart": "ഡെലിവറി പൂർത്തിയായി — വീണ്ടും തുടങ്ങാൻ N അമർത്തുക",
+"Inspect and scan the package on the table": "മേശയിലെ പാക്കേജ് പരിശോധിച്ച് സ്കാൻ ചെയ്യുക",
+"Pick up the scanned package": "സ്കാൻ ചെയ്ത പാക്കേജ് എടുക്കുക",
+"Take the package to the front door": "പാക്കേജ് മുൻവാതിലിലേക്ക് കൊണ്ടുപോകുക",
+"Load the package through the rear of the van": "വാനിന്റെ പിൻഭാഗത്തുകൂടി പാക്കേജ് ലോഡ് ചെയ്യുക",
+"Exit and retrieve the package from the rear": "പുറത്തിറങ്ങി പിൻഭാഗത്തുനിന്ന് പാക്കേജ് എടുക്കുക",
+"Drive to the orange delivery bay and park": "ഓറഞ്ച് ഡെലിവറി ബേയിലേക്ക് ഓടിച്ച് പാർക്ക് ചെയ്യുക",
+"Tried to use the handheld before parking safely.": "സുരക്ഷിതമായി പാർക്ക് ചെയ്യും മുമ്പ് ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിക്കാൻ ശ്രമിച്ചു.",
+"Stop and set the parking brake before using the handheld.": "ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിക്കും മുമ്പ് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Retrieve the parcel from its cargo shelf.": "പാഴ്സൽ അതിന്റെ കാർഗോ ഷെൽഫിൽ നിന്ന് എടുക്കുക.",
+"Stop details": "സ്റ്റോപ്പ് വിവരങ്ങൾ",
+"TAB put away": "TAB മാറ്റിവയ്ക്കുക",
+"Choose a stop to see its requirements and recorded shelf.": "ആവശ്യകതകളും രേഖപ്പെടുത്തിയ ഷെൽഫും കാണാൻ ഒരു സ്റ്റോപ്പ് തിരഞ്ഞെടുക്കുക.",
+"Left in porch box": "പോർച്ച് ബോക്സിൽ വച്ചു",
+"Recipient absent": "സ്വീകർത്താവ് ഇല്ല",
+"Scanned at this stop": "ഈ സ്റ്റോപ്പിൽ സ്കാൻ ചെയ്തു",
+"Delivery scan required": "ഡെലിവറി സ്കാൻ ആവശ്യമാണ്",
+"Record delivery / exception": "ഡെലിവറി / ഒഴിവാക്കൽ രേഖപ്പെടുത്തുക",
+"Set as next stop": "അടുത്ത സ്റ്റോപ്പായി സജ്ജമാക്കുക",
+"Step out of the cab and find the physical parcel first.": "ആദ്യം ക്യാബിൽ നിന്ന് ഇറങ്ങി യഥാർത്ഥ പാഴ്സൽ കണ്ടെത്തുക.",
+"Aim at the barcode on the parcel.": "പാഴ്സലിലെ ബാർകോഡിലേക്ക് ലക്ഷ്യം വയ്ക്കുക.",
+"Hold Space or the left mouse button until the scan completes.": "സ്കാൻ പൂർത്തിയാകുന്നതുവരെ Space അല്ലെങ്കിൽ ഇടത് മൗസ് ബട്ടൺ അമർത്തിപ്പിടിക്കുക.",
+"Approach the delivery point with the parcel first.": "ആദ്യം പാഴ്സലുമായി ഡെലിവറി പോയിന്റിലേക്ക് ചെല്ലുക.",
+"Retrieve and scan the physical parcel at this stop before recording a delivery.": "ഡെലിവറി രേഖപ്പെടുത്തും മുമ്പ് ഈ സ്റ്റോപ്പിൽ യഥാർത്ഥ പാഴ്സൽ എടുത്ത് സ്കാൻ ചെയ്യുക.",
+"Leave in porch box": "പോർച്ച് ബോക്സിൽ വയ്ക്കുക",
+"Read the morning brief and route manifest at Dispatch.": "ഡിസ്പാച്ചിൽ രാവിലത്തെ ബ്രീഫും റൂട്ട് മാനിഫെസ്റ്റും വായിക്കുക.",
+"Move close to the parcel and face its label.": "പാഴ്സലിനോട് അടുത്തുചെന്ന് അതിന്റെ ലേബലിന് നേരെ നോക്കുക.",
+"Scanner identified a parcel for a different stop.": "സ്കാനർ മറ്റൊരു സ്റ്റോപ്പിലെ പാഴ്സൽ തിരിച്ചറിഞ്ഞു.",
+"This parcel is for a different stop. Check the address before carrying it out.": "ഈ പാഴ്സൽ മറ്റൊരു സ്റ്റോപ്പിലേതാണ്. പുറത്തേക്ക് കൊണ്ടുപോകും മുമ്പ് വിലാസം പരിശോധിക്കുക.",
+"Signature required": "ഒപ്പ് ആവശ്യമാണ്",
+"Leave in the porch box if nobody answers": "ആരും വാതിൽ തുറന്നില്ലെങ്കിൽ പോർച്ച് ബോക്സിൽ വയ്ക്കുക",
+"Hand to the resident": "താമസക്കാരന് കൈമാറുക",
+"Put down the parcel you are carrying first.": "ആദ്യം നിങ്ങൾ കൊണ്ടുപോകുന്ന പാഴ്സൽ താഴെ വയ്ക്കുക.",
+"Retrieved the requested parcel after checking its label.": "ലേബൽ പരിശോധിച്ച ശേഷം ആവശ്യപ്പെട്ട പാഴ്സൽ എടുത്തു.",
+"Retrieved the requested parcel without scanning it.": "സ്കാൻ ചെയ്യാതെ ആവശ്യപ്പെട്ട പാഴ്സൽ എടുത്തു.",
+"Open the cargo doors and move close to a shelf.": "കാർഗോ വാതിലുകൾ തുറന്ന് ഒരു ഷെൽഫിനടുത്തേക്ക് ചെല്ലുക.",
+"That shelf position is occupied.": "ആ ഷെൽഫ് സ്ഥാനം ഉപയോഗത്തിലാണ്.",
+"Return to the parcel table or choose an empty cargo shelf.": "പാഴ്സൽ മേശയിലേക്ക് മടങ്ങുക, അല്ലെങ്കിൽ ഒഴിഞ്ഞ കാർഗോ ഷെൽഫ് തിരഞ്ഞെടുക്കുക.",
+"Move close to the inspection point.": "പരിശോധനാ പോയിന്റിനടുത്തേക്ക് ചെല്ലുക.",
+"Correctly assessed the tires.": "ടയറുകൾ ശരിയായി വിലയിരുത്തി.",
+"Recheck the condition of the tires.": "ടയറുകളുടെ അവസ്ഥ വീണ്ടും പരിശോധിക്കുക.",
+"Correctly assessed the lights.": "ലൈറ്റുകൾ ശരിയായി വിലയിരുത്തി.",
+"Recheck the condition of the lights.": "ലൈറ്റുകളുടെ അവസ്ഥ വീണ്ടും പരിശോധിക്കുക.",
+"Dispatch arranged the repair. The vehicle is now serviceable.": "ഡിസ്പാച്ച് അറ്റകുറ്റപ്പണി ഏർപ്പാടാക്കി. വാഹനം ഇപ്പോൾ ഉപയോഗയോഗ്യമാണ്.",
+"Inspection recorded.": "പരിശോധന രേഖപ്പെടുത്തി.",
+"Inspection recorded. Review the condition before departure.": "പരിശോധന രേഖപ്പെടുത്തി. പുറപ്പെടും മുമ്പ് അവസ്ഥ വീണ്ടും പരിശോധിക്കുക.",
+"Stop and secure the van before opening cargo.": "കാർഗോ തുറക്കും മുമ്പ് വാൻ നിർത്തി സുരക്ഷിതമാക്കുക.",
+"Step outside before closing the cargo doors.": "കാർഗോ വാതിലുകൾ അടയ്ക്കും മുമ്പ് പുറത്തിറങ്ങുക.",
+"Place the parcel and move to the cargo restraints.": "പാഴ്സൽ വച്ച് കാർഗോ റെസ്‌ട്രെയിന്റുകൾക്കടുത്തേക്ക് ചെല്ലുക.",
+"Load secured.": "ലോഡ് സുരക്ഷിതമാക്കി.",
+"This lesson covers loading and retrieval. Driving is available in the workday.": "ഈ പാഠം ലോഡിംഗും തിരിച്ചെടുക്കലുമാണ് ഉൾക്കൊള്ളുന്നത്. ഡ്രൈവിംഗ് ജോലിദിനത്തിൽ ലഭ്യമാണ്.",
+"Read the morning brief and manifest at Dispatch before entering the cab.": "ക്യാബിൽ കയറും മുമ്പ് ഡിസ്പാച്ചിൽ രാവിലത്തെ ബ്രീഫും മാനിഫെസ്റ്റും വായിക്കുക.",
+"Place the parcel before entering the cab.": "ക്യാബിൽ കയറും മുമ്പ് പാഴ്സൽ വയ്ക്കുക.",
+"Close the cargo doors before entering the cab.": "ക്യാബിൽ കയറും മുമ്പ് കാർഗോ വാതിലുകൾ അടയ്ക്കുക.",
+"Approach the correct delivery point.": "ശരിയായ ഡെലിവറി പോയിന്റിലേക്ക് ചെല്ലുക.",
+"The resident answers and confirms the address.": "താമസക്കാരൻ വാതിൽ തുറന്ന് വിലാസം സ്ഥിരീകരിക്കുന്നു.",
+"Nobody answers the door.": "ആരും വാതിൽ തുറക്കുന്നില്ല.",
+"Choose a delivery outcome.": "ഒരു ഡെലിവറി ഫലം തിരഞ്ഞെടുക്കുക.",
+"Approach an unfinished delivery point.": "പൂർത്തിയാകാത്ത ഒരു ഡെലിവറി പോയിന്റിലേക്ക് ചെല്ലുക.",
+"Retrieve the parcel from the van first.": "ആദ്യം വാനിൽ നിന്ന് പാഴ്സൽ എടുക്കുക.",
+"Attempted a delivery with the wrong parcel.": "തെറ്റായ പാഴ്സലുമായി ഡെലിവറിക്ക് ശ്രമിച്ചു.",
+"The address does not match. Return this parcel to the van and retrieve the correct one.": "വിലാസം ഒത്തുപോകുന്നില്ല. ഈ പാഴ്സൽ വാനിൽ തിരികെ വച്ച് ശരിയായത് എടുക്കുക.",
+"Prepare and load this parcel at the depot first.": "ആദ്യം ഡിപ്പോയിൽ ഈ പാഴ്സൽ ഒരുക്കി ലോഡ് ചെയ്യുക.",
+"Attempt contact before recording the outcome.": "ഫലം രേഖപ്പെടുത്തും മുമ്പ് ബന്ധപ്പെടാൻ ശ്രമിക്കുക.",
+"Scan this parcel at the delivery stop before recording the outcome.": "ഫലം രേഖപ്പെടുത്തും മുമ്പ് ഡെലിവറി സ്റ്റോപ്പിൽ ഈ പാഴ്സൽ സ്കാൻ ചെയ്യുക.",
+"Tried to record a handover with no recipient present.": "സ്വീകർത്താവ് ഇല്ലാതെ കൈമാറ്റം രേഖപ്പെടുത്താൻ ശ്രമിച്ചു.",
+"Nobody is present to receive the parcel. Choose an outcome that matches the situation.": "പാഴ്സൽ സ്വീകരിക്കാൻ ആരുമില്ല. സാഹചര്യത്തിന് യോജിക്കുന്ന ഫലം തിരഞ്ഞെടുക്കുക.",
+"Completed a stop without scanning the parcel.": "പാഴ്സൽ സ്കാൻ ചെയ്യാതെ സ്റ്റോപ്പ് പൂർത്തിയാക്കി.",
+"Retained the signature parcel when the recipient was absent.": "സ്വീകർത്താവ് ഇല്ലാതിരുന്നപ്പോൾ ഒപ്പ് ആവശ്യമുള്ള പാഴ്സൽ കൈവശം വച്ചു.",
+"Delivery recorded.": "ഡെലിവറി രേഖപ്പെടുത്തി.",
+"Outcome recorded. Review this decision in the debrief.": "ഫലം രേഖപ്പെടുത്തി. ഈ തീരുമാനം ഡീബ്രീഫിൽ പരിശോധിക്കുക.",
+"Bring an undelivered parcel to the returns desk.": "ഡെലിവർ ചെയ്യാത്ത ഒരു പാഴ്സൽ റിട്ടേൺസ് ഡെസ്കിൽ എത്തിക്കുക.",
+"Scanned the undelivered parcel back into the depot.": "ഡെലിവർ ചെയ്യാത്ത പാഴ്സൽ ഡിപ്പോയിൽ തിരികെ സ്കാൻ ചെയ്തു.",
+"Return recorded.": "മടക്കം രേഖപ്പെടുത്തി.",
+"Return to the dispatch desk.": "ഡിസ്പാച്ച് ഡെസ്കിലേക്ക് മടങ്ങുക.",
+"Retrieve the requested parcel, put it back and secure the load before finishing.": "ആവശ്യപ്പെട്ട പാഴ്സൽ എടുക്കുക, തിരികെ വയ്ക്കുക, അവസാനിപ്പിക്കും മുമ്പ് ലോഡ് സുരക്ഷിതമാക്കുക.",
+"Complete the remaining delivery stops first.": "ആദ്യം ബാക്കിയുള്ള ഡെലിവറി സ്റ്റോപ്പുകൾ പൂർത്തിയാക്കുക.",
+"Bring retained parcels to the returns desk first.": "ആദ്യം കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസ് ഡെസ്കിൽ എത്തിക്കുക.",
+"Return the van to the depot and set the parking brake.": "വാൻ ഡിപ്പോയിൽ തിരികെ എത്തിച്ച് പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Completed the tire check before departure.": "പുറപ്പെടും മുമ്പ് ടയർ പരിശോധന പൂർത്തിയാക്കി.",
+"Departed without a correct tire check.": "ശരിയായ ടയർ പരിശോധന ഇല്ലാതെ പുറപ്പെട്ടു.",
+"Completed the lights check before departure.": "പുറപ്പെടും മുമ്പ് ലൈറ്റ് പരിശോധന പൂർത്തിയാക്കി.",
+"Departed without a correct lights check.": "ശരിയായ ലൈറ്റ് പരിശോധന ഇല്ലാതെ പുറപ്പെട്ടു.",
+"Secured the load before departure.": "പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമാക്കി.",
+"Departed with an unsecured load.": "സുരക്ഷിതമാക്കാത്ത ലോഡുമായി പുറപ്പെട്ടു.",
+"A parcel was unscanned or left at the depot.": "ഒരു പാഴ്സൽ സ്കാൻ ചെയ്യാതെ അല്ലെങ്കിൽ ഡിപ്പോയിൽ ഉപേക്ഷിച്ച നിലയിലായിരുന്നു.",
+"Moved the van without fastening the seatbelt.": "സീറ്റ്ബെൽറ്റ് ഇടാതെ വാൻ നീക്കി.",
+"Moved the van before securing the load.": "ലോഡ് സുരക്ഷിതമാക്കും മുമ്പ് വാൻ നീക്കി.",
+"Exceeded the posted 15 mph limit.": "പ്രദർശിപ്പിച്ച 15 mph പരിധി മറികടന്നു.",
+"Drove onto the sidewalk beside the road.": "റോഡരികിലെ നടപ്പാതയിലേക്ക് ഓടിച്ചുകയറ്റി.",
+"Travelled on the wrong side of the road.": "റോഡിന്റെ തെറ്റായ വശത്തുകൂടി സഞ്ചരിച്ചു.",
+"Pulled into the path of approaching traffic.": "അടുത്തുവരുന്ന വാഹനങ്ങളുടെ പാതയിലേക്ക് കയറി.",
+"Pulled away without signaling left.": "ഇടത് സിഗ്നൽ നൽകാതെ വാൻ എടുത്തു.",
+"Pulled away without a recent mirror check.": "അടുത്തിടെ കണ്ണാടി നോക്കാതെ വാൻ എടുത്തു.",
+"Checked, signaled and waited for a clear gap.": "പരിശോധിച്ചു, സിഗ്നൽ നൽകി, വ്യക്തമായ ഇടവേളയ്ക്കായി കാത്തു.",
+"Stopped before the junction line.": "ജംഗ്ഷൻ ലൈനിന് മുമ്പ് നിർത്തി.",
+"Passed the junction stop line without stopping.": "നിർത്താതെ ജംഗ്ഷൻ സ്റ്റോപ്പ് ലൈൻ കടന്നു.",
+"Contact with traffic: stop and review the manoeuvre.": "വാഹനവുമായി സമ്പർക്കം: നിർത്തി നീക്കം വിലയിരുത്തുക.",
+"The van contacted an obstacle.": "വാൻ ഒരു തടസ്സത്തിൽ തട്ടി.",
+"Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.": "കാൽനടയാത്രക്കാരനുമായി സംഘർഷസാഹചര്യം: വാഹനം നിർത്തി. സമീപനവും വഴി നൽകലും വിലയിരുത്തുക.",
+"Reduced speed early for the developing crossing hazard.": "രൂപപ്പെടുന്ന ക്രോസിംഗ് അപകടത്തിന് നേരത്തേ വേഗം കുറച്ചു.",
+"Passed the crossing without an early speed reduction.": "നേരത്തേ വേഗം കുറയ്ക്കാതെ ക്രോസിംഗ് കടന്നു.",
+"Missing field": "വിവരം ഇല്ല",
+"Cargo practice": "കാർഗോ പരിശീലനം",
+"Last debrief": "അവസാന ഡീബ്രീഫ്",
+"Forgot your password? A trainer can reset it.": "പാസ്‌വേഡ് മറന്നോ? ഒരു പരിശീലകന് അത് റീസെറ്റ് ചെയ്യാം.",
+"That employee ID and password don't match.": "ആ എംപ്ലോയീ ഐഡിയും പാസ്‌വേഡും ഒത്തുപോകുന്നില്ല.",
+"Too many wrong tries. Try again later, or ask a trainer to reset your password.": "തെറ്റായ ശ്രമങ്ങൾ വളരെയധികമായി. പിന്നീട് വീണ്ടും ശ്രമിക്കുക, അല്ലെങ്കിൽ പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യാൻ ഒരു പരിശീലകനോട് ആവശ്യപ്പെടുക.",
+"Too many wrong tries from this computer. Wait a minute, then try again.": "ഈ കമ്പ്യൂട്ടറിൽ നിന്ന് തെറ്റായ ശ്രമങ്ങൾ വളരെയധികമായി. ഒരു മിനിറ്റ് കാത്തിരുന്ന് വീണ്ടും ശ്രമിക്കുക.",
+"The training server is busy. Try again in a moment.": "പരിശീലന സെർവർ തിരക്കിലാണ്. അൽപം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+"That password is too long.": "ആ പാസ്‌വേഡ് വളരെ നീളമുള്ളതാണ്.",
+"Choose a new password, not the one your trainer gave you.": "പരിശീലകൻ നൽകിയതല്ലാത്ത ഒരു പുതിയ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.",
+"Your sign-in has expired. Sign in again.": "നിങ്ങളുടെ സൈൻ-ഇൻ കാലഹരണപ്പെട്ടു. വീണ്ടും സൈൻ ഇൻ ചെയ്യുക.",
+"Your password is already being changed. Try again in a moment.": "നിങ്ങളുടെ പാസ്‌വേഡ് ഇതിനകം മാറ്റിക്കൊണ്ടിരിക്കുകയാണ്. അൽപം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+"Sign in with your employee ID and password to keep your training progress.": "പരിശീലന പുരോഗതി നിലനിർത്താൻ എംപ്ലോയീ ഐഡിയും പാസ്‌വേഡും ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക.",
+"Type your employee ID.": "നിങ്ങളുടെ എംപ്ലോയീ ഐഡി ടൈപ്പ് ചെയ്യുക.",
+"Type your password.": "നിങ്ങളുടെ പാസ്‌വേഡ് ടൈപ്പ് ചെയ്യുക.",
+"Choose your password": "നിങ്ങളുടെ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക",
+"You signed in with a temporary password. Choose your own: at least 8 characters, that only you know.": "നിങ്ങൾ താൽക്കാലിക പാസ്‌വേഡ് ഉപയോഗിച്ചാണ് സൈൻ ഇൻ ചെയ്തത്. സ്വന്തം പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക: കുറഞ്ഞത് 8 അക്ഷരങ്ങൾ, നിങ്ങൾക്ക് മാത്രം അറിയാവുന്നത്.",
+"Save and continue": "സേവ് ചെയ്ത് തുടരുക",
+"The two passwords don't match.": "രണ്ട് പാസ്‌വേഡുകളും ഒത്തുപോകുന്നില്ല.",
+"This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "ഈ ബ്രൗസർ സൈൻ-ഇൻ നിലനിർത്തിയില്ല. ഈ സൈറ്റിന് കുക്കികൾ അനുവദിച്ച ശേഷം വീണ്ടും സൈൻ ഇൻ ചെയ്യുക.",
+"Not that character": "ആ അക്ഷരം പാടില്ല",
+"The 3D workday isn't available yet.": "3D ജോലിദിനം ഇതുവരെ ലഭ്യമല്ല.",
+"Nothing was recorded on this workday.": "ഈ ജോലിദിനത്തിൽ ഒന്നും രേഖപ്പെടുത്തിയില്ല.",
+"Your workday": "നിങ്ങളുടെ ജോലിദിനം",
+"Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ചതുരം: ഡിപ്പോ · വൃത്തങ്ങൾ: നിങ്ങളുടെ സ്റ്റോപ്പുകൾ (പച്ച ഡെലിവർ ചെയ്തത്) · നമ്പറിട്ട പിന്നുകൾ: ഓരോ തെറ്റും സംഭവിച്ച സ്ഥലം",
+"Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.": "ജോലിദിനം തുടങ്ങാൻ ഡിസ്പാച്ചിലേക്ക് നടക്കുക, അല്ലെങ്കിൽ ഒരു ലക്ഷ്യാധിഷ്ഠിത പാഠത്തിന് കാർഗോ പരിശീലനം തിരഞ്ഞെടുക്കുക.\n\nWASD ഉപയോഗിച്ച് നീങ്ങുക, മൗസ് ഉപയോഗിച്ച് ചുറ്റും നോക്കുക, ഇടപഴകാൻ E ഉപയോഗിക്കുക. H ഇതേ തിരഞ്ഞെടുപ്പുകൾ ഒരു മെനുവായി തുറക്കുന്നു. നിങ്ങളുടെ പ്രോട്ടോടൈപ്പ് പുരോഗതി ഈ ഉപകരണത്തിൽ സേവ് ചെയ്യപ്പെടുന്നു.",
+"Enter the hub": "ഹബ്ബിൽ പ്രവേശിക്കുക",
+"The prototype could not start": "പ്രോട്ടോടൈപ്പ് തുടങ്ങാൻ കഴിഞ്ഞില്ല",
+"WebGL is required. Reload to try again.": "WebGL ആവശ്യമാണ്. വീണ്ടും ശ്രമിക്കാൻ റീലോഡ് ചെയ്യുക.",
+"first-person prototype": "ഫസ്റ്റ്-പേഴ്സൺ പ്രോട്ടോടൈപ്പ്",
+"Left mirror": "ഇടത് കണ്ണാടി",
+"Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.": "മൂന്ന് പാഴ്സലുകളും സ്കാൻ ചെയ്ത് നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന സ്ഥാനങ്ങളിൽ ലോഡ് ചെയ്യുക. പിന്നെ ആവശ്യപ്പെട്ട പാഴ്സൽ എടുക്കുക, തിരികെ വയ്ക്കുക, ലോഡ് സുരക്ഷിതമാക്കുക. അവസാനിപ്പിക്കാൻ ഡിസ്പാച്ചിലേക്ക് മടങ്ങുക.",
+"\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.": "\n\nടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, പാഴ്സലുകൾ സ്കാൻ ചെയ്യുക, ലോഡ് സുരക്ഷിതമാക്കുക. ഓരോ സ്റ്റോപ്പിലും ഡെലിവർ ചെയ്യുക, കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ എത്തിക്കുക, പിന്നെ ഡിസ്പാച്ചിൽ ചെക്ക് ഇൻ ചെയ്യുക.",
+"Resume your shift": "നിങ്ങളുടെ ഷിഫ്റ്റ് തുടരുക",
+"Walk to Dispatch and read the morning brief, then the route manifest.": "ഡിസ്പാച്ചിലേക്ക് നടന്ന് രാവിലത്തെ ബ്രീഫും തുടർന്ന് റൂട്ട് മാനിഫെസ്റ്റും വായിക്കുക.",
+"Begin preparation": "തയ്യാറെടുപ്പ് തുടങ്ങുക",
+"Resume workday": "ജോലിദിനം തുടരുക",
+"Start workday": "ജോലിദിനം തുടങ്ങുക",
+"Resume cargo practice": "കാർഗോ പരിശീലനം തുടരുക",
+"Main game": "പ്രധാന ഗെയിം",
+"Your training hub": "നിങ്ങളുടെ പരിശീലന ഹബ്",
+"Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.": "ഒരു സ്റ്റേഷനിലേക്ക് നടന്ന്, അതിലേക്ക് ചൂണ്ടി E അമർത്തുക. താഴെ നിന്നും തിരഞ്ഞെടുക്കാം.\nമൗസ് ക്യാപ്ചർ ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക, അല്ലെങ്കിൽ ഇടത് ബട്ടൺ അമർത്തിപ്പിടിച്ച് വലിച്ച് ചുറ്റും നോക്കുക.",
+"High graphics": "ഉയർന്ന ഗ്രാഫിക്സ്",
+"Slower mouse look": "മൗസ് നോട്ടം വേഗം കുറച്ച്",
+"Faster mouse look": "മൗസ് നോട്ടം വേഗം കൂട്ടി",
+"Driving is outside this cargo lesson.": "ഡ്രൈവിംഗ് ഈ കാർഗോ പാഠത്തിന് പുറത്താണ്.",
+"All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.": "എല്ലാ സ്റ്റോപ്പുകൾക്കും ഫലം രേഖപ്പെടുത്തി. തെക്കോട്ട് ഡിപ്പോയിലേക്ക് മടങ്ങുക. കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ എത്തിക്കുക, പിന്നെ ഡിസ്പാച്ചിൽ ചെക്ക് ഇൻ ചെയ്യുക.",
+"Parcel label": "പാഴ്സൽ ലേബൽ",
+"A bulge is visible in the tire sidewall.": "ടയറിന്റെ സൈഡ്‌വാളിൽ ഒരു മുഴ കാണുന്നുണ്ട്.",
+"The tire sidewalls are intact and the tread is visible.": "ടയർ സൈഡ്‌വാളുകൾ കേടില്ലാതെയുണ്ട്, ട്രെഡ് വ്യക്തമായി കാണാം.",
+"The left headlamp does not illuminate during the light test.": "ലൈറ്റ് പരിശോധനയിൽ ഇടത് ഹെഡ്‌ലാമ്പ് തെളിയുന്നില്ല.",
+"Both headlamps illuminate during the light test.": "ലൈറ്റ് പരിശോധനയിൽ രണ്ട് ഹെഡ്‌ലാമ്പുകളും തെളിയുന്നു.",
+"Tire inspection": "ടയർ പരിശോധന",
+"Light test": "ലൈറ്റ് പരിശോധന",
+"Mark serviceable": "ഉപയോഗയോഗ്യം എന്ന് അടയാളപ്പെടുത്തുക",
+"Request repair": "അറ്റകുറ്റപ്പണി ആവശ്യപ്പെടുക",
+"This stop already has a recorded outcome.": "ഈ സ്റ്റോപ്പിന് ഇതിനകം ഒരു ഫലം രേഖപ്പെടുത്തിയിട്ടുണ്ട്.",
+"The resident confirms the address.": "താമസക്കാരൻ വിലാസം സ്ഥിരീകരിക്കുന്നു.",
+"Nobody answers.": "ആരും വാതിൽ തുറക്കുന്നില്ല.",
+"Attempt contact, then follow the shipment requirements.": "ബന്ധപ്പെടാൻ ശ്രമിക്കുക, തുടർന്ന് ഷിപ്പ്‌മെന്റ് ആവശ്യകതകൾ പാലിക്കുക.",
+"View answers": "ഉത്തരങ്ങൾ കാണുക",
+"Choose this answer": "ഈ ഉത്തരം തിരഞ്ഞെടുക്കുക",
+"Next answer": "അടുത്ത ഉത്തരം",
+"Read question": "ചോദ്യം വായിക്കുക",
+"Route manifest": "റൂട്ട് മാനിഫെസ്റ്റ്",
+"Finish practice": "പരിശീലനം അവസാനിപ്പിക്കുക",
+"Finish workday": "ജോലിദിനം അവസാനിപ്പിക്കുക",
+"View manifest": "മാനിഫെസ്റ്റ് കാണുക",
+"Complete a workday or a cargo lesson to see its results.": "ഫലങ്ങൾ കാണാൻ ഒരു ജോലിദിനമോ കാർഗോ പാഠമോ പൂർത്തിയാക്കുക.",
+"Practice debrief": "പരിശീലന ഡീബ്രീഫ്",
+"Workday debrief": "ജോലിദിന ഡീബ്രീഫ്",
+"Stop and set the parking brake before exiting.": "ഇറങ്ങും മുമ്പ് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Stop before selecting drive or reverse.": "ഡ്രൈവോ റിവേഴ്സോ തിരഞ്ഞെടുക്കും മുമ്പ് നിർത്തുക.",
+"Choose a workday or a focused cargo lesson.": "ഒരു ജോലിദിനമോ ലക്ഷ്യാധിഷ്ഠിത കാർഗോ പാഠമോ തിരഞ്ഞെടുക്കുക.",
+"Scan and place all three parcels in the van. Choose your shelf positions.": "മൂന്ന് പാഴ്സലുകളും സ്കാൻ ചെയ്ത് വാനിൽ വയ്ക്കുക. ഷെൽഫ് സ്ഥാനങ്ങൾ തിരഞ്ഞെടുക്കുക.",
+"Replace the parcel, secure the load, then finish at Dispatch.": "പാഴ്സൽ തിരികെ വയ്ക്കുക, ലോഡ് സുരക്ഷിതമാക്കുക, പിന്നെ ഡിസ്പാച്ചിൽ അവസാനിപ്പിക്കുക.",
+"Walk to Dispatch to read the morning brief and route manifest.": "രാവിലത്തെ ബ്രീഫും റൂട്ട് മാനിഫെസ്റ്റും വായിക്കാൻ ഡിസ്പാച്ചിലേക്ക് നടക്കുക.",
+"Check tires and lights, scan and load three parcels, then secure the load and close cargo.": "ടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, മൂന്ന് പാഴ്സലുകൾ സ്കാൻ ചെയ്ത് ലോഡ് ചെയ്യുക, പിന്നെ ലോഡ് സുരക്ഷിതമാക്കി കാർഗോ അടയ്ക്കുക.",
+"Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "തെക്കോട്ട് ഡിപ്പോയിലേക്ക് മടങ്ങുക. കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ സ്കാൻ ചെയ്യുക, പിന്നെ ഡിസ്പാച്ചിൽ അവസാനിപ്പിക്കുക.",
+"Brake off": "ബ്രേക്ക് ഓഫ്",
+"Saved on this device": "ഈ ഉപകരണത്തിൽ സേവ് ചെയ്തു",
+"Saving unavailable — keep this window open": "സേവ് ചെയ്യാനാകില്ല — ഈ വിൻഡോ തുറന്നുതന്നെ വയ്ക്കുക",
+"Mouse looks": "മൗസ് നോട്ടം",
+"Drag to look without mouse capture": "മൗസ് ക്യാപ്ചർ ഇല്ലാതെ ചുറ്റും നോക്കാൻ വലിക്കുക",
+"Mouse aim": "മൗസ് ലക്ഷ്യം",
+"Click or use number keys · Backspace goes back": "ക്ലിക്ക് ചെയ്യുക അല്ലെങ്കിൽ നമ്പർ കീകൾ ഉപയോഗിക്കുക · Backspace പിന്നോട്ട് പോകുന്നു",
+"E resume workday": "E ജോലിദിനം തുടരുക",
+"E start workday": "E ജോലിദിനം തുടങ്ങുക",
+"E cargo practice": "E കാർഗോ പരിശീലനം",
+"E last debrief": "E അവസാന ഡീബ്രീഫ്",
+"H opens the hub menu": "H ഹബ് മെനു തുറക്കുന്നു",
+"Set your belt, check the mirror and release the parking brake.": "ബെൽറ്റ് ഇടുക, കണ്ണാടി പരിശോധിക്കുക, പാർക്കിംഗ് ബ്രേക്ക് വിടുക.",
+"15 mph limit · Keep right · Stop at the junction line": "15 mph പരിധി · വലത്തുകൂടി പോകുക · ജംഗ്ഷൻ ലൈനിൽ നിർത്തുക",
+"E enter cab": "E ക്യാബിൽ കയറുക",
+"E close cargo doors": "E കാർഗോ വാതിലുകൾ അടയ്ക്കുക",
+"E open cargo doors": "E കാർഗോ വാതിലുകൾ തുറക്കുക",
+"E secure the load": "E ലോഡ് സുരക്ഷിതമാക്കുക",
+"E inspect tires": "E ടയറുകൾ പരിശോധിക്കുക",
+"E inspect lights": "E ലൈറ്റുകൾ പരിശോധിക്കുക",
+" · E place the parcel": " · E പാഴ്സൽ വയ്ക്കുക",
+" · E attempt delivery": " · E ഡെലിവറിക്ക് ശ്രമിക്കുക",
+"Choose an empty cargo shelf, or approach the correct delivery point.": "ഒഴിഞ്ഞ കാർഗോ ഷെൽഫ് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ശരിയായ ഡെലിവറി പോയിന്റിലേക്ക് ചെല്ലുക.",
+"Aim at the barcode, or pick up the parcel to bring its label closer.": "ബാർകോഡിലേക്ക് ലക്ഷ്യം വയ്ക്കുക, അല്ലെങ്കിൽ ലേബൽ അടുത്തു കാണാൻ പാഴ്സൽ എടുക്കുക.",
+"Resume workday ▶": "ജോലിദിനം തുടരുക ▶",
+"Abandon this workday": "ഈ ജോലിദിനം ഉപേക്ഷിക്കുക",
+"Abandon the workday?": "ജോലിദിനം ഉപേക്ഷിക്കണോ?",
+"The workday so far is discarded and not scored. You can start a new one from the morning brief.": "ഇതുവരെയുള്ള ജോലിദിനം ഒഴിവാക്കും, സ്കോർ ചെയ്യില്ല. രാവിലത്തെ ബ്രീഫിൽ നിന്ന് പുതിയത് തുടങ്ങാം.",
+"Start workday ▶": "ജോലിദിനം തുടങ്ങുക ▶",
+"Start the workday?": "ജോലിദിനം തുടങ്ങണോ?",
+"The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.": "രാവിലത്തെ ബ്രീഫ്, വാൻ ലോഡ് ചെയ്യൽ, ഡ്രൈവ്, നിങ്ങളുടെ സ്റ്റോപ്പുകൾ, എല്ലാം 3D-യിൽ. മുന്നോട്ട് പോകുമ്പോൾ സേവ് ചെയ്യപ്പെടും: ഇടയ്ക്ക് വിട്ടുപോയി സ്റ്റേഷനിൽ നിന്ന് തുടരാം.",
+"2D route day ›": "2D റൂട്ട് ദിനം ›",
+"Sign out": "സൈൻ ഔട്ട്",
+"Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.": "വിജയിക്കാത്ത ഓരോ വിലയിരുത്തലിനും മറ്റൊരു ശ്രമം അനുവദിക്കുക, അവരുടെ എല്ലാ പുരോഗതിയും റീസെറ്റ് ചെയ്യുക (പഴയ പുരോഗതി ബാക്കപ്പായി സെർവറിൽ സൂക്ഷിക്കും), അല്ലെങ്കിൽ സൈൻ ഇൻ ചെയ്യാൻ പുതിയ പാസ്‌വേഡ് നൽകുക. അവർ സൈൻ ഇൻ ചെയ്തിട്ടില്ലാത്തപ്പോൾ ഇത് ചെയ്യുക.",
+"Their password stops working and they are signed out. They sign in with the temporary password and choose their own.": "അവരുടെ പാസ്‌വേഡ് പ്രവർത്തിക്കാതാകുകയും അവർ സൈൻ ഔട്ട് ആകുകയും ചെയ്യും. താൽക്കാലിക പാസ്‌വേഡ് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്ത് അവർ സ്വന്തം പാസ്‌വേഡ് തിരഞ്ഞെടുക്കും.",
+"Their employee ID · Enter to confirm": "അവരുടെ എംപ്ലോയീ ഐഡി · സ്ഥിരീകരിക്കാൻ Enter",
+"Letters, numbers and . _ @ - only": "അക്ഷരങ്ങൾ, അക്കങ്ങൾ, . _ @ - എന്നിവ മാത്രം",
+"Type their employee ID first": "ആദ്യം അവരുടെ എംപ്ലോയീ ഐഡി ടൈപ്പ് ചെയ്യുക",
+"An employee ID has letters, numbers and . _ @ - only, with no spaces.": "എംപ്ലോയീ ഐഡിയിൽ അക്ഷരങ്ങൾ, അക്കങ്ങൾ, . _ @ - എന്നിവ മാത്രമേ ഉണ്ടാകാവൂ, സ്പേസുകൾ പാടില്ല.",
+"Their name": "അവരുടെ പേര്",
+"There is already an account with that employee ID.": "ആ എംപ്ലോയീ ഐഡിയിൽ ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ട്.",
+"That trainee has no account.": "ആ ട്രെയിനിക്ക് അക്കൗണ്ട് ഇല്ല.",
+"Temporary password": "താൽക്കാലിക പാസ്‌വേഡ്",
+"not tested": "പരിശോധിച്ചിട്ടില്ല",
+"Critical mistake": "ഗുരുതരമായ തെറ്റ്",
+"Morning brief": "രാവിലത്തെ ബ്രീഫ്",
+"Loading the van": "വാൻ ലോഡ് ചെയ്യൽ",
+"At the stops": "സ്റ്റോപ്പുകളിൽ",
+"End of the day": "ദിവസാവസാനം"
 },
 "templates": [
 [
@@ -4011,6 +4297,198 @@ window.OTR_I18N.ml = {
 [
 "Avoided {0}",
 "ഒഴിവാക്കി: {0}"
+],
+[
+"Carrying: {0}",
+"കൈവശമുള്ളത്: {0}"
+],
+[
+"Recorded shelf: {0}",
+"രേഖപ്പെടുത്തിയ ഷെൽഫ്: {0}"
+],
+[
+"Outcome: {0}",
+"ഫലം: {0}"
+],
+[
+"Left shelf {0}",
+"ഇടത് ഷെൽഫ് {0}"
+],
+[
+"Right shelf {0}",
+"വലത് ഷെൽഫ് {0}"
+],
+[
+"Scanned the parcel at {0} before delivery.",
+"ഡെലിവറിക്ക് മുമ്പ് {0}-ൽ പാഴ്സൽ സ്കാൻ ചെയ്തു."
+],
+[
+"Verified {0} on the scanner.",
+"സ്കാനറിൽ {0} പരിശോധിച്ചുറപ്പിച്ചു."
+],
+[
+"Followed the delivery requirements at {0}.",
+"{0}-ൽ ഡെലിവറി ആവശ്യകതകൾ പാലിച്ചു."
+],
+[
+"The outcome did not match the requirements at {0}.",
+"{0}-ലെ ആവശ്യകതകളുമായി ഫലം ഒത്തുപോയില്ല."
+],
+[
+"Loaded and scanned {0}.",
+"{0} ലോഡ് ചെയ്ത് സ്കാൻ ചെയ്തു."
+],
+[
+"{0} min",
+"{0} മിനിറ്റ്"
+],
+[
+"{0} of {1} stops delivered",
+"{1} സ്റ്റോപ്പുകളിൽ {0} ഡെലിവർ ചെയ്തു"
+],
+[
+"Workday · day {0}",
+"ജോലിദിനം · ദിവസം {0}"
+],
+[
+"Graphics: {0}\nMouse sensitivity: {1}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.",
+"ഗ്രാഫിക്സ്: {0}\nമൗസ് സെൻസിറ്റിവിറ്റി: {1}\nനിലവിലെ കീ റീമാപ്പുകൾ ബാധകമാണ്. കോഴ്സ് ക്രമീകരണങ്ങളും പരിശീലക ഉപകരണങ്ങളും പ്രധാന ഗെയിം വഴി ലഭ്യമാണ്."
+],
+[
+"Weight: {0} kg",
+"ഭാരം: {0} kg"
+],
+[
+"Start: {0}",
+"തുടക്കം: {0}"
+],
+[
+"Good decisions: {0} · To review: {1}",
+"നല്ല തീരുമാനങ്ങൾ: {0} · പരിശോധിക്കാനുള്ളവ: {1}"
+],
+[
+"Page {0} / {1}",
+"പേജ് {0} / {1}"
+],
+[
+"Retrieve {0} from the shelf where you loaded it.",
+"നിങ്ങൾ ലോഡ് ചെയ്ത ഷെൽഫിൽ നിന്ന് {0} എടുക്കുക."
+],
+[
+"{0} parcels in cargo",
+"കാർഗോയിൽ {0} പാഴ്സലുകൾ"
+],
+[
+"{0} mph",
+"{0} mph"
+],
+[
+"{0}/{1} accelerate / brake",
+"{0}/{1} ആക്സിലറേറ്റ് / ബ്രേക്ക്"
+],
+[
+"{0}/{1} steer",
+"{0}/{1} സ്റ്റിയർ"
+],
+[
+"{0} parking brake",
+"{0} പാർക്കിംഗ് ബ്രേക്ക്"
+],
+[
+"{0} gear",
+"{0} ഗിയർ"
+],
+[
+"{0} belt",
+"{0} ബെൽറ്റ്"
+],
+[
+"{0} move",
+"{0} നീങ്ങുക"
+],
+[
+"{0} interact",
+"{0} ഇടപഴകുക"
+],
+[
+"{0} inspect",
+"{0} പരിശോധിക്കുക"
+],
+[
+"{0} handheld",
+"{0} ഹാൻഡ്‌ഹെൽഡ്"
+],
+[
+"{0} menu",
+"{0} മെനു"
+],
+[
+"{0} left mirror",
+"{0} ഇടത് കണ്ണാടി"
+],
+[
+"{0} / {1} signals",
+"{0} / {1} സിഗ്നലുകൾ"
+],
+[
+"{0} look forward",
+"{0} മുന്നോട്ട് നോക്കുക"
+],
+[
+"{0} exit",
+"{0} പുറത്തിറങ്ങുക"
+],
+[
+"Hold {0} or left click to scan",
+"സ്കാൻ ചെയ്യാൻ {0} അമർത്തിപ്പിടിക്കുക അല്ലെങ്കിൽ ഇടത് ക്ലിക്ക് ചെയ്യുക"
+],
+[
+"{0} put away",
+"{0} മാറ്റിവയ്ക്കുക"
+],
+[
+"{0} pause",
+"{0} താൽക്കാലികമായി നിർത്തുക"
+],
+[
+"Barcode in sight · Hold {0} or left click to scan",
+"ബാർകോഡ് കാണാം · സ്കാൻ ചെയ്യാൻ {0} അമർത്തിപ്പിടിക്കുക അല്ലെങ്കിൽ ഇടത് ക്ലിക്ക് ചെയ്യുക"
+],
+[
+"Day {0} · 3D workday",
+"ദിവസം {0} · 3D ജോലിദിനം"
+],
+[
+"Day {0}  ·  {1}",
+"ദിവസം {0}  ·  {1}"
+],
+[
+"Day {0}'s workday debrief ›",
+"ദിവസം {0}-ലെ ജോലിദിന ഡീബ്രീഫ് ›"
+],
+[
+"A new password for {0}?",
+"{0}-ന് പുതിയ പാസ്‌വേഡ് വേണോ?"
+],
+[
+"Give this to {0} (employee ID {1}). It works once: they choose their own password when they sign in. It will not be shown again.",
+"ഇത് {0}-ന് നൽകുക (എംപ്ലോയീ ഐഡി {1}). ഇത് ഒരു തവണ മാത്രമേ പ്രവർത്തിക്കൂ: സൈൻ ഇൻ ചെയ്യുമ്പോൾ അവർ സ്വന്തം പാസ്‌വേഡ് തിരഞ്ഞെടുക്കും. ഇത് വീണ്ടും കാണിക്കില്ല."
+],
+[
+"Stop {0}: {1}",
+"സ്റ്റോപ്പ് {0}: {1}"
+],
+[
+"Stop {0}",
+"സ്റ്റോപ്പ് {0}"
+],
+[
+"{0} refused",
+"{0} നിരസിച്ചു"
+],
+[
+"{0} stops",
+"{0} സ്റ്റോപ്പുകൾ"
 ]
 ],
 "keep": [
