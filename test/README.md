@@ -57,6 +57,7 @@ the golden pass, auditing the layout at the moments they care about.
   none leaves the asphalt, drives into a building or takes the wrong lane, none stands still for more than half a
   minute, nobody is left standing in a traffic lane, and the two streets of a traffic light are never both let
   through and each gets a real share of the green. It is the check for changes to the traffic model.
+- **`workday-3d`** (started with `?workday3d=1`) plays the 3D workday from the hub as a new courier: "Start workday", the morning brief at Dispatch, loading the van with the real pickup, scanner and shelf interactions, the pre-trip, the first leg on throttle and brake with the stop line, parking, the doorstep scan and a delivery outcome at three stops (position fixtures skip the walking between tasks), the return scan, "Finish workday", then the results screen, the debrief and the record. The layout audit runs at each screen, including the 3D prototype's own text and the handheld's screen. It takes a few minutes in software rendering.
 - **`hub-briefs`** opens every scenario's brief from the hub, as a trainee does, and fails if its text runs into the
   star ratings or the buttons, or it does not fit on screen.
 - **`academy-screens`** plays the academy's own screens with the mouse and keys: a trainer chooses a PIN, changes the
