@@ -2926,7 +2926,293 @@ window.OTR_I18N.bn = {
 "★ or better in every category": "প্রতিটি বিভাগে ★ বা তার বেশি",
 "QUIZ": "কুইজ",
 "TODAY'S ROUTE": "আজকের রুট",
-"TODAY'S MANIFEST": "আজকের ম্যানিফেস্ট"
+"TODAY'S MANIFEST": "আজকের ম্যানিফেস্ট",
+"Read the morning brief before leaving dispatch": "ডিসপ্যাচ ছাড়ার আগে সকালের ব্রিফ পড়েছেন",
+"Left dispatch without reading the morning brief": "সকালের ব্রিফ না পড়েই ডিসপ্যাচ ছেড়েছেন",
+"The brief has the day's weather, hazards and route notes. Read it before you load.": "ব্রিফে দিনের আবহাওয়া, ঝুঁকি আর রুটের নোট থাকে। লোড করার আগে এটি পড়ুন।",
+"Assessed the tires correctly": "টায়ার সঠিকভাবে যাচাই করেছেন",
+"Misjudged the condition of the tires": "টায়ারের অবস্থা ভুল বুঝেছেন",
+"Check tread, sidewalls and pressure on every tire before the van moves.": "ভ্যান নড়ার আগে প্রতিটি টায়ারের ট্রেড, পাশের দেয়াল আর চাপ দেখুন।",
+"Assessed the lights correctly": "আলো সঠিকভাবে যাচাই করেছেন",
+"Misjudged the condition of the lights": "আলোর অবস্থা ভুল বুঝেছেন",
+"Walk round and check every light works, including brake lights and signals.": "চারদিকে ঘুরে প্রতিটি আলো ঠিকমতো জ্বলছে কি না দেখুন, ব্রেক লাইট ও সিগন্যালসহ।",
+"Left the depot without finishing the pre-trip inspection": "যাত্রার আগের পরিদর্শন শেষ না করেই ডিপো ছেড়েছেন",
+"A van with a fault you have not found is a danger to you and everyone on the road.": "আপনার অজানা ত্রুটিসহ ভ্যান আপনার ও রাস্তার সবার জন্য বিপজ্জনক।",
+"Scanned the package at load-out": "লোড-আউটের সময় প্যাকেজ স্ক্যান করেছেন",
+"Loaded a package without scanning it": "স্ক্যান না করেই প্যাকেজ লোড করেছেন",
+"Scan every package as you load it: a missed scan is a package the system thinks is still at the depot.": "লোড করার সময় প্রতিটি প্যাকেজ স্ক্যান করুন: স্ক্যান বাদ গেলে সিস্টেম মনে করে প্যাকেজটি এখনও ডিপোতে আছে।",
+"Loaded the package on its shelf in stop order": "স্টপের ক্রম অনুযায়ী প্যাকেজ তাকে রেখেছেন",
+"Loaded a package on the wrong shelf": "প্যাকেজ ভুল তাকে রেখেছেন",
+"Load in stop order so each package is where you expect it. A bad load costs time at every stop.": "স্টপের ক্রম অনুযায়ী লোড করুন যাতে প্রতিটি প্যাকেজ আপনার প্রত্যাশিত জায়গায় থাকে। খারাপ লোড প্রতিটি স্টপে সময় নষ্ট করে।",
+"Secured the load before driving": "গাড়ি চালানোর আগে মাল বেঁধেছেন",
+"Drove with an unsecured load": "না বেঁধে মাল নিয়ে গাড়ি চালিয়েছেন",
+"An unsecured load shifts under braking: it damages packages and can injure you when you open the doors.": "না বাঁধা মাল ব্রেক করলে সরে যায়: প্যাকেজ নষ্ট হয় আর দরজা খোলার সময় আপনি আহত হতে পারেন।",
+"Moved the van without a seatbelt": "সিটবেল্ট ছাড়াই ভ্যান চালিয়েছেন",
+"Belt on before the van moves, every time, even for a few yards between stops.": "ভ্যান নড়ার আগে প্রতিবার বেল্ট বাঁধুন, দুই স্টপের মাঝে কয়েক গজ গেলেও।",
+"Exceeded the speed limit": "গতিসীমা ছাড়িয়েছেন",
+"Residential limits are low for a reason: children, pets and parked cars.": "আবাসিক এলাকায় গতিসীমা কম থাকে কারণ সেখানে শিশু, পোষা প্রাণী আর পার্ক করা গাড়ি থাকে।",
+"Drove onto the sidewalk": "ফুটপাতে উঠে গেছেন",
+"Stay on the road. Take a corner wider and slower rather than clip the curb.": "রাস্তায় থাকুন। কার্ব ঘষে যাওয়ার চেয়ে মোড় আরও চওড়া ও ধীরে নিন।",
+"Drove on the wrong side of the road": "রাস্তার ভুল পাশে চালিয়েছেন",
+"Keep to your side, even on a quiet street: the car you cannot see yet is coming.": "নিজের পাশে থাকুন, নির্জন রাস্তাতেও: যে গাড়িটি এখনও দেখা যাচ্ছে না সেটি আসছে।",
+"Came to a full stop at the stop line": "স্টপ লাইনে পুরোপুরি থেমেছেন",
+"A full stop behind the line, then look both ways before you go.": "লাইনের পেছনে পুরোপুরি থামুন, তারপর দুই দিক দেখে এগোন।",
+"Slowed early for a developing hazard": "বিপদ তৈরি হতে দেখে আগেই গতি কমিয়েছেন",
+"Reacted late to a developing hazard": "বিপদ তৈরি হতে দেখে দেরিতে সাড়া দিয়েছেন",
+"Look well ahead. Ease off as soon as a hazard starts to develop, not when it is in front of you.": "অনেক দূর পর্যন্ত দেখুন। বিপদ তৈরি হতে শুরু করলেই গতি কমান, সামনে এসে পড়ার অপেক্ষা করবেন না।",
+"Conflict with a pedestrian": "পথচারীর সঙ্গে সংঘাত",
+"Never assume a pedestrian has seen you. Slow down, cover the brake and give way.": "ধরে নেবেন না যে পথচারী আপনাকে দেখেছেন। গতি কমান, ব্রেকে পা রাখুন আর পথ ছেড়ে দিন।",
+"The van hit something": "ভ্যান কিছুতে ধাক্কা দিয়েছে",
+"Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.": "যেকোনো ছোঁয়া একটি ঘটনা: থামুন, দেখুন আর রিপোর্ট করুন। বাধার কাছে গতি কমান ও আয়না ব্যবহার করুন।",
+"Used the handheld before parking safely": "নিরাপদে পার্ক করার আগে হ্যান্ডহেল্ড ব্যবহার করেছেন",
+"Park, set the brake, then pick up the scanner. Never at the wheel and never at a light.": "পার্ক করুন, ব্রেক টানুন, তারপর স্ক্যানার তুলুন। স্টিয়ারিংয়ে বা সিগন্যালে দাঁড়িয়ে কখনও নয়।",
+"Scanned the package at the stop before delivering": "ডেলিভারির আগে স্টপে প্যাকেজ স্ক্যান করেছেন",
+"Completed a stop without scanning the package": "প্যাকেজ স্ক্যান না করেই স্টপ শেষ করেছেন",
+"Scan at the door: it confirms the right package, the right address and the delivery time.": "দরজায় স্ক্যান করুন: এতে সঠিক প্যাকেজ, সঠিক ঠিকানা আর ডেলিভারির সময় নিশ্চিত হয়।",
+"Caught a package for a different stop": "অন্য স্টপের প্যাকেজ ধরে ফেলেছেন",
+"Tried to deliver the wrong package": "ভুল প্যাকেজ ডেলিভারির চেষ্টা করেছেন",
+"Check the address on the label against the house number every time.": "প্রতিবার লেবেলের ঠিকানা বাড়ির নম্বরের সঙ্গে মিলিয়ে দেখুন।",
+"Recorded a handover with nobody there": "কেউ না থাকা সত্ত্বেও হস্তান্তর রেকর্ড করেছেন",
+"Only record a handover when you hand it to a person. Otherwise follow the safe-place or attempt rules.": "শুধু কোনো ব্যক্তির হাতে দিলেই হস্তান্তর রেকর্ড করুন। নইলে নিরাপদ স্থান বা চেষ্টার নিয়ম মানুন।",
+"Chose the right delivery outcome": "সঠিক ডেলিভারি ফলাফল বেছেছেন",
+"Chose the wrong delivery outcome": "ভুল ডেলিভারি ফলাফল বেছেছেন",
+"Signature, safe place or attempt: the package's service and who is at the door decide which.": "সই, নিরাপদ স্থান বা চেষ্টা: প্যাকেজের পরিষেবা আর দরজায় কে আছেন তার ওপর নির্ভর করে কোনটি হবে।",
+"Checked the label before taking a package from the shelf": "তাক থেকে প্যাকেজ নেওয়ার আগে লেবেল দেখেছেন",
+"Took a package from the shelf without checking it": "না দেখেই তাক থেকে প্যাকেজ নিয়েছেন",
+"Check the label as you pick: the wrong package found at the door is a second trip.": "তোলার সময়ই লেবেল দেখুন: দরজায় ভুল প্যাকেজ পাওয়া মানে দ্বিতীয়বার যাওয়া।",
+"Scanned the undelivered package back in at the depot": "ডিপোতে অবিতরিত প্যাকেজ আবার স্ক্যান করে ঢুকিয়েছেন",
+"Left an undelivered package unscanned": "অবিতরিত প্যাকেজ স্ক্যান না করে রেখে দিয়েছেন",
+"Every package that comes back must be scanned in, or it is lost as far as the system knows.": "ফেরত আসা প্রতিটি প্যাকেজ স্ক্যান করে ঢোকাতে হবে, নইলে সিস্টেমের কাছে সেটি হারিয়ে গেছে।",
+"Delivery complete — press N to restart": "ডেলিভারি সম্পূর্ণ — আবার শুরু করতে N চাপুন",
+"Inspect and scan the package on the table": "টেবিলের প্যাকেজটি পরীক্ষা করে স্ক্যান করুন",
+"Pick up the scanned package": "স্ক্যান করা প্যাকেজটি তুলুন",
+"Take the package to the front door": "প্যাকেজটি সামনের দরজায় নিয়ে যান",
+"Load the package through the rear of the van": "ভ্যানের পেছন দিয়ে প্যাকেজ লোড করুন",
+"Exit and retrieve the package from the rear": "নেমে এসে পেছন থেকে প্যাকেজটি বের করুন",
+"Drive to the orange delivery bay and park": "কমলা ডেলিভারি বে-তে গিয়ে পার্ক করুন",
+"Tried to use the handheld before parking safely.": "নিরাপদে পার্ক করার আগে হ্যান্ডহেল্ড ব্যবহারের চেষ্টা করেছেন।",
+"Stop and set the parking brake before using the handheld.": "হ্যান্ডহেল্ড ব্যবহারের আগে থামুন ও পার্কিং ব্রেক টানুন।",
+"Retrieve the parcel from its cargo shelf.": "কার্গো তাক থেকে পার্সেলটি বের করুন।",
+"Stop details": "স্টপের বিবরণ",
+"TAB put away": "TAB রেখে দিন",
+"Choose a stop to see its requirements and recorded shelf.": "কোনো স্টপ বেছে নিন, তার প্রয়োজনীয়তা আর রেকর্ড করা তাক দেখুন।",
+"Left in porch box": "বারান্দার বাক্সে রেখেছেন",
+"Recipient absent": "প্রাপক অনুপস্থিত",
+"Scanned at this stop": "এই স্টপে স্ক্যান হয়েছে",
+"Delivery scan required": "ডেলিভারি স্ক্যান দরকার",
+"Record delivery / exception": "ডেলিভারি / ব্যতিক্রম রেকর্ড করুন",
+"Set as next stop": "পরের স্টপ করুন",
+"Step out of the cab and find the physical parcel first.": "ক্যাব থেকে নামুন, আগে আসল পার্সেলটি খুঁজে নিন।",
+"Aim at the barcode on the parcel.": "পার্সেলের বারকোডের দিকে লক্ষ্য করুন।",
+"Hold Space or the left mouse button until the scan completes.": "স্ক্যান শেষ না হওয়া পর্যন্ত Space বা মাউসের বাঁ বোতাম চেপে ধরে রাখুন।",
+"Approach the delivery point with the parcel first.": "পার্সেল নিয়ে ডেলিভারি পয়েন্টে যান।",
+"Retrieve and scan the physical parcel at this stop before recording a delivery.": "ডেলিভারি রেকর্ড করার আগে এই স্টপে আসল পার্সেলটি বের করে স্ক্যান করুন।",
+"Leave in porch box": "বারান্দার বাক্সে রাখুন",
+"Read the morning brief and route manifest at Dispatch.": "ডিসপ্যাচে সকালের ব্রিফ ও রুট ম্যানিফেস্ট পড়ুন।",
+"Move close to the parcel and face its label.": "পার্সেলের কাছে গিয়ে এর লেবেলের দিকে মুখ করুন।",
+"Scanner identified a parcel for a different stop.": "স্ক্যানার অন্য স্টপের একটি পার্সেল শনাক্ত করেছে।",
+"This parcel is for a different stop. Check the address before carrying it out.": "এই পার্সেল অন্য স্টপের। বাইরে নেওয়ার আগে ঠিকানা মিলিয়ে দেখুন।",
+"Signature required": "সই দরকার",
+"Leave in the porch box if nobody answers": "কেউ সাড়া না দিলে বারান্দার বাক্সে রাখুন",
+"Hand to the resident": "বাসিন্দার হাতে দিন",
+"Put down the parcel you are carrying first.": "যে পার্সেলটি বহন করছেন আগে সেটি নামিয়ে রাখুন।",
+"Retrieved the requested parcel after checking its label.": "লেবেল দেখে অনুরোধ করা পার্সেলটি বের করেছেন।",
+"Retrieved the requested parcel without scanning it.": "স্ক্যান না করেই অনুরোধ করা পার্সেলটি বের করেছেন।",
+"Open the cargo doors and move close to a shelf.": "কার্গো দরজা খুলুন এবং তাকের কাছে যান।",
+"That shelf position is occupied.": "সেই তাকের জায়গা ভরা আছে।",
+"Return to the parcel table or choose an empty cargo shelf.": "পার্সেল টেবিলে ফিরুন বা একটি খালি কার্গো তাক বেছে নিন।",
+"Move close to the inspection point.": "পরিদর্শন বিন্দুর কাছে যান।",
+"Correctly assessed the tires.": "টায়ার সঠিকভাবে যাচাই করেছেন।",
+"Recheck the condition of the tires.": "টায়ারের অবস্থা আবার দেখুন।",
+"Correctly assessed the lights.": "আলো সঠিকভাবে যাচাই করেছেন।",
+"Recheck the condition of the lights.": "আলোর অবস্থা আবার দেখুন।",
+"Dispatch arranged the repair. The vehicle is now serviceable.": "ডিসপ্যাচ মেরামতের ব্যবস্থা করেছে। যানটি এখন ব্যবহারযোগ্য।",
+"Inspection recorded.": "পরিদর্শন রেকর্ড হয়েছে।",
+"Inspection recorded. Review the condition before departure.": "পরিদর্শন রেকর্ড হয়েছে। রওনা দেওয়ার আগে অবস্থাটি আবার দেখুন।",
+"Stop and secure the van before opening cargo.": "কার্গো খোলার আগে ভ্যান থামিয়ে সুরক্ষিত করুন।",
+"Step outside before closing the cargo doors.": "কার্গো দরজা বন্ধ করার আগে বাইরে আসুন।",
+"Place the parcel and move to the cargo restraints.": "পার্সেলটি রেখে কার্গো রেস্ট্রেইন্টের কাছে যান।",
+"Load secured.": "মাল বাঁধা হয়েছে।",
+"This lesson covers loading and retrieval. Driving is available in the workday.": "এই পাঠে লোডিং ও পার্সেল বের করা শেখানো হয়। গাড়ি চালানো কর্মদিবসে পাওয়া যায়।",
+"Read the morning brief and manifest at Dispatch before entering the cab.": "ক্যাবে ঢোকার আগে ডিসপ্যাচে সকালের ব্রিফ ও ম্যানিফেস্ট পড়ুন।",
+"Place the parcel before entering the cab.": "ক্যাবে ঢোকার আগে পার্সেলটি রাখুন।",
+"Close the cargo doors before entering the cab.": "ক্যাবে ঢোকার আগে কার্গো দরজা বন্ধ করুন।",
+"Approach the correct delivery point.": "সঠিক ডেলিভারি পয়েন্টে যান।",
+"The resident answers and confirms the address.": "বাসিন্দা সাড়া দিয়ে ঠিকানা নিশ্চিত করছেন।",
+"Nobody answers the door.": "কেউ দরজায় সাড়া দিচ্ছে না।",
+"Choose a delivery outcome.": "একটি ডেলিভারি ফলাফল বেছে নিন।",
+"Approach an unfinished delivery point.": "অসম্পূর্ণ ডেলিভারি পয়েন্টে যান।",
+"Retrieve the parcel from the van first.": "আগে ভ্যান থেকে পার্সেলটি বের করুন।",
+"Attempted a delivery with the wrong parcel.": "ভুল পার্সেল নিয়ে ডেলিভারির চেষ্টা করেছেন।",
+"The address does not match. Return this parcel to the van and retrieve the correct one.": "ঠিকানা মেলেনি। এই পার্সেলটি ভ্যানে ফিরিয়ে দিন আর সঠিকটি বের করুন।",
+"Prepare and load this parcel at the depot first.": "আগে ডিপোতে এই পার্সেলটি প্রস্তুত করে লোড করুন।",
+"Attempt contact before recording the outcome.": "ফলাফল রেকর্ড করার আগে যোগাযোগের চেষ্টা করুন।",
+"Scan this parcel at the delivery stop before recording the outcome.": "ফলাফল রেকর্ড করার আগে ডেলিভারি স্টপে এই পার্সেল স্ক্যান করুন।",
+"Tried to record a handover with no recipient present.": "প্রাপক উপস্থিত না থাকা সত্ত্বেও হস্তান্তর রেকর্ড করার চেষ্টা করেছেন।",
+"Nobody is present to receive the parcel. Choose an outcome that matches the situation.": "পার্সেল নেওয়ার মতো কেউ নেই। পরিস্থিতির সঙ্গে মেলে এমন ফলাফল বেছে নিন।",
+"Completed a stop without scanning the parcel.": "পার্সেল স্ক্যান না করেই স্টপ শেষ করেছেন।",
+"Retained the signature parcel when the recipient was absent.": "প্রাপক অনুপস্থিত থাকায় সইয়ের পার্সেলটি রেখে দিয়েছেন।",
+"Delivery recorded.": "ডেলিভারি রেকর্ড হয়েছে।",
+"Outcome recorded. Review this decision in the debrief.": "ফলাফল রেকর্ড হয়েছে। ডিব্রিফে এই সিদ্ধান্তটি দেখে নিন।",
+"Bring an undelivered parcel to the returns desk.": "অবিতরিত পার্সেল রিটার্ন ডেস্কে নিয়ে যান।",
+"Scanned the undelivered parcel back into the depot.": "অবিতরিত পার্সেল ডিপোতে আবার স্ক্যান করে ঢুকিয়েছেন।",
+"Return recorded.": "ফেরত রেকর্ড হয়েছে।",
+"Return to the dispatch desk.": "ডিসপ্যাচ ডেস্কে ফিরুন।",
+"Retrieve the requested parcel, put it back and secure the load before finishing.": "অনুরোধ করা পার্সেলটি বের করুন, আবার রেখে দিন আর শেষ করার আগে মাল বাঁধুন।",
+"Complete the remaining delivery stops first.": "আগে বাকি ডেলিভারি স্টপগুলো শেষ করুন।",
+"Bring retained parcels to the returns desk first.": "আগে রেখে দেওয়া পার্সেলগুলো রিটার্ন ডেস্কে আনুন।",
+"Return the van to the depot and set the parking brake.": "ভ্যান ডিপোতে ফিরিয়ে পার্কিং ব্রেক টানুন।",
+"Completed the tire check before departure.": "রওনা দেওয়ার আগে টায়ার পরীক্ষা শেষ করেছেন।",
+"Departed without a correct tire check.": "সঠিক টায়ার পরীক্ষা ছাড়াই রওনা দিয়েছেন।",
+"Completed the lights check before departure.": "রওনা দেওয়ার আগে আলো পরীক্ষা শেষ করেছেন।",
+"Departed without a correct lights check.": "সঠিক আলো পরীক্ষা ছাড়াই রওনা দিয়েছেন।",
+"Secured the load before departure.": "রওনা দেওয়ার আগে মাল বেঁধেছেন।",
+"Departed with an unsecured load.": "না বাঁধা মাল নিয়ে রওনা দিয়েছেন।",
+"A parcel was unscanned or left at the depot.": "একটি পার্সেল স্ক্যান করা হয়নি বা ডিপোতে রয়ে গেছে।",
+"Moved the van without fastening the seatbelt.": "সিটবেল্ট না বেঁধেই ভ্যান চালিয়েছেন।",
+"Moved the van before securing the load.": "মাল না বেঁধেই ভ্যান চালিয়েছেন।",
+"Exceeded the posted 15 mph limit.": "নির্ধারিত 15 mph গতিসীমা ছাড়িয়েছেন।",
+"Drove onto the sidewalk beside the road.": "রাস্তার পাশের ফুটপাতে উঠে গেছেন।",
+"Travelled on the wrong side of the road.": "রাস্তার ভুল পাশ দিয়ে চলেছেন।",
+"Pulled into the path of approaching traffic.": "আসন্ন ট্রাফিকের পথে ঢুকে পড়েছেন।",
+"Pulled away without signaling left.": "বাঁ দিকে সিগন্যাল না দিয়েই রওনা দিয়েছেন।",
+"Pulled away without a recent mirror check.": "সাম্প্রতিক আয়না দেখা ছাড়াই রওনা দিয়েছেন।",
+"Checked, signaled and waited for a clear gap.": "দেখেছেন, সিগন্যাল দিয়েছেন আর ফাঁকা জায়গার জন্য অপেক্ষা করেছেন।",
+"Stopped before the junction line.": "জংশনের লাইনের আগে থেমেছেন।",
+"Passed the junction stop line without stopping.": "না থেমেই জংশনের স্টপ লাইন পেরিয়েছেন।",
+"Contact with traffic: stop and review the manoeuvre.": "ট্রাফিকের সঙ্গে ছোঁয়া: থামুন আর চালনাটি পর্যালোচনা করুন।",
+"The van contacted an obstacle.": "ভ্যান একটি বাধায় লেগেছে।",
+"Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.": "পথচারীর সঙ্গে সংঘাত: যানটি থামানো হয়েছে। এগোনোর ধরন আর পথ ছেড়ে দেওয়া পর্যালোচনা করুন।",
+"Reduced speed early for the developing crossing hazard.": "সামনের ক্রসিংয়ের বিপদে আগেই গতি কমিয়েছেন।",
+"Passed the crossing without an early speed reduction.": "আগে গতি না কমিয়েই ক্রসিং পেরিয়েছেন।",
+"Missing field": "ঘর অনুপস্থিত",
+"Cargo practice": "কার্গো অনুশীলন",
+"Last debrief": "সর্বশেষ ডিব্রিফ",
+"Forgot your password? A trainer can reset it.": "পাসওয়ার্ড ভুলে গেছেন? প্রশিক্ষক রিসেট করে দিতে পারেন।",
+"That employee ID and password don't match.": "কর্মী আইডি আর পাসওয়ার্ড মিলছে না।",
+"Too many wrong tries. Try again later, or ask a trainer to reset your password.": "অনেকবার ভুল হয়েছে। পরে আবার চেষ্টা করুন, অথবা প্রশিক্ষককে পাসওয়ার্ড রিসেট করতে বলুন।",
+"Too many wrong tries from this computer. Wait a minute, then try again.": "এই কম্পিউটার থেকে অনেকবার ভুল হয়েছে। এক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।",
+"The training server is busy. Try again in a moment.": "প্রশিক্ষণ সার্ভার ব্যস্ত। একটু পরে আবার চেষ্টা করুন।",
+"That password is too long.": "পাসওয়ার্ডটি খুব লম্বা।",
+"Choose a new password, not the one your trainer gave you.": "নতুন পাসওয়ার্ড বেছে নিন, প্রশিক্ষকের দেওয়াটি নয়।",
+"Your sign-in has expired. Sign in again.": "আপনার সাইন-ইনের মেয়াদ শেষ। আবার সাইন ইন করুন।",
+"Your password is already being changed. Try again in a moment.": "আপনার পাসওয়ার্ড ইতিমধ্যে বদলানো হচ্ছে। একটু পরে আবার চেষ্টা করুন।",
+"Sign in with your employee ID and password to keep your training progress.": "প্রশিক্ষণের অগ্রগতি রাখতে কর্মী আইডি ও পাসওয়ার্ড দিয়ে সাইন ইন করুন।",
+"Type your employee ID.": "আপনার কর্মী আইডি লিখুন।",
+"Type your password.": "আপনার পাসওয়ার্ড লিখুন।",
+"Choose your password": "আপনার পাসওয়ার্ড বেছে নিন",
+"You signed in with a temporary password. Choose your own: at least 8 characters, that only you know.": "আপনি অস্থায়ী পাসওয়ার্ড দিয়ে সাইন ইন করেছেন। নিজের পাসওয়ার্ড বেছে নিন: কমপক্ষে 8 অক্ষরের, যা শুধু আপনি জানেন।",
+"Save and continue": "সংরক্ষণ করে চালিয়ে যান",
+"The two passwords don't match.": "দুটি পাসওয়ার্ড মিলছে না।",
+"This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "এই ব্রাউজার সাইন-ইন ধরে রাখেনি। এই সাইটের জন্য কুকি অনুমতি দিন, তারপর আবার সাইন ইন করুন।",
+"Not that character": "এই অক্ষর নয়",
+"The 3D workday isn't available yet.": "3D কর্মদিবস এখনও পাওয়া যায় না।",
+"Nothing was recorded on this workday.": "এই কর্মদিবসে কিছু রেকর্ড হয়নি।",
+"Your workday": "আপনার কর্মদিবস",
+"Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "চতুষ্কোণ: ডিপো · বৃত্ত: আপনার স্টপ (সবুজ মানে ডেলিভারি হয়েছে) · সংখ্যাযুক্ত পিন: প্রতিটি ভুল যেখানে ঘটেছে",
+"Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.": "কর্মদিবস শুরু করতে ডিসপ্যাচে হেঁটে যান, অথবা নির্দিষ্ট পাঠের জন্য কার্গো অনুশীলন বেছে নিন।\n\nWASD দিয়ে চলুন, মাউস দিয়ে চারদিক দেখুন আর E দিয়ে কাজ করুন। H একই বিকল্প মেনু হিসেবে খোলে। আপনার প্রোটোটাইপের অগ্রগতি এই ডিভাইসে সংরক্ষিত থাকে।",
+"Enter the hub": "হাবে ঢুকুন",
+"The prototype could not start": "প্রোটোটাইপ চালু করা যায়নি",
+"WebGL is required. Reload to try again.": "WebGL দরকার। আবার চেষ্টা করতে রিলোড করুন।",
+"first-person prototype": "ফার্স্ট-পারসন প্রোটোটাইপ",
+"Left mirror": "বাঁ আয়না",
+"Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.": "তিনটি পার্সেল স্ক্যান করে নিজের পছন্দের জায়গায় লোড করুন। তারপর অনুরোধ করা পার্সেলটি বের করুন, আবার রেখে দিন আর মাল বাঁধুন। শেষ করতে ডিসপ্যাচে ফিরুন।",
+"\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.": "\n\nটায়ার ও আলো পরীক্ষা করুন, পার্সেল স্ক্যান করুন আর মাল বাঁধুন। প্রতিটি স্টপে ডেলিভারি দিন, রেখে দেওয়া পার্সেল রিটার্নসে আনুন, তারপর ডিসপ্যাচে চেক ইন করুন।",
+"Resume your shift": "আপনার শিফট আবার শুরু করুন",
+"Walk to Dispatch and read the morning brief, then the route manifest.": "ডিসপ্যাচে গিয়ে সকালের ব্রিফ পড়ুন, তারপর রুট ম্যানিফেস্ট।",
+"Begin preparation": "প্রস্তুতি শুরু করুন",
+"Resume workday": "কর্মদিবস আবার শুরু করুন",
+"Start workday": "কর্মদিবস শুরু করুন",
+"Resume cargo practice": "কার্গো অনুশীলন আবার শুরু করুন",
+"Main game": "মূল গেম",
+"Your training hub": "আপনার প্রশিক্ষণ হাব",
+"Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.": "একটি স্টেশনে হেঁটে গিয়ে সেদিকে লক্ষ্য করুন আর E চাপুন। নিচ থেকেও বেছে নিতে পারেন।\nমাউস ধরতে ক্লিক করুন, অথবা বাঁ বোতাম চেপে টেনে চারদিক দেখুন।",
+"High graphics": "উচ্চ গ্রাফিক্স",
+"Slower mouse look": "ধীর মাউস লুক",
+"Faster mouse look": "দ্রুত মাউস লুক",
+"Driving is outside this cargo lesson.": "গাড়ি চালানো এই কার্গো পাঠের বাইরে।",
+"All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.": "সব স্টপের ফলাফল রেকর্ড হয়েছে। দক্ষিণে ডিপোতে ফিরুন। রেখে দেওয়া পার্সেল রিটার্নসে আনুন, তারপর ডিসপ্যাচে চেক ইন করুন।",
+"Parcel label": "পার্সেল লেবেল",
+"A bulge is visible in the tire sidewall.": "টায়ারের পাশের দেয়ালে ফোলা অংশ দেখা যাচ্ছে।",
+"The tire sidewalls are intact and the tread is visible.": "টায়ারের পাশের দেয়াল অক্ষত আর ট্রেড দেখা যাচ্ছে।",
+"The left headlamp does not illuminate during the light test.": "আলো পরীক্ষার সময় বাঁ হেডল্যাম্প জ্বলছে না।",
+"Both headlamps illuminate during the light test.": "আলো পরীক্ষার সময় দুটি হেডল্যাম্পই জ্বলছে।",
+"Tire inspection": "টায়ার পরিদর্শন",
+"Light test": "আলো পরীক্ষা",
+"Mark serviceable": "ব্যবহারযোগ্য চিহ্নিত করুন",
+"Request repair": "মেরামত চান",
+"This stop already has a recorded outcome.": "এই স্টপের ফলাফল ইতিমধ্যে রেকর্ড হয়েছে।",
+"The resident confirms the address.": "বাসিন্দা ঠিকানা নিশ্চিত করছেন।",
+"Nobody answers.": "কেউ সাড়া দিচ্ছে না।",
+"Attempt contact, then follow the shipment requirements.": "যোগাযোগের চেষ্টা করুন, তারপর শিপমেন্টের প্রয়োজনীয়তা মানুন।",
+"View answers": "উত্তর দেখুন",
+"Choose this answer": "এই উত্তর বেছে নিন",
+"Next answer": "পরের উত্তর",
+"Read question": "প্রশ্ন পড়ুন",
+"Route manifest": "রুট ম্যানিফেস্ট",
+"Finish practice": "অনুশীলন শেষ করুন",
+"Finish workday": "কর্মদিবস শেষ করুন",
+"View manifest": "ম্যানিফেস্ট দেখুন",
+"Complete a workday or a cargo lesson to see its results.": "ফলাফল দেখতে একটি কর্মদিবস বা কার্গো পাঠ সম্পূর্ণ করুন।",
+"Practice debrief": "অনুশীলনের ডিব্রিফ",
+"Workday debrief": "কর্মদিবসের ডিব্রিফ",
+"Stop and set the parking brake before exiting.": "বের হওয়ার আগে থামুন ও পার্কিং ব্রেক টানুন।",
+"Stop before selecting drive or reverse.": "ড্রাইভ বা রিভার্স বেছে নেওয়ার আগে থামুন।",
+"Choose a workday or a focused cargo lesson.": "একটি কর্মদিবস বা নির্দিষ্ট কার্গো পাঠ বেছে নিন।",
+"Scan and place all three parcels in the van. Choose your shelf positions.": "তিনটি পার্সেলই স্ক্যান করে ভ্যানে রাখুন। তাকের জায়গা আপনি বেছে নিন।",
+"Replace the parcel, secure the load, then finish at Dispatch.": "পার্সেলটি আবার রাখুন, মাল বাঁধুন, তারপর ডিসপ্যাচে শেষ করুন।",
+"Walk to Dispatch to read the morning brief and route manifest.": "সকালের ব্রিফ ও রুট ম্যানিফেস্ট পড়তে ডিসপ্যাচে যান।",
+"Check tires and lights, scan and load three parcels, then secure the load and close cargo.": "টায়ার ও আলো দেখুন, তিনটি পার্সেল স্ক্যান করে লোড করুন, তারপর মাল বাঁধুন আর কার্গো বন্ধ করুন।",
+"Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "দক্ষিণে ডিপোতে ফিরুন। রিটার্নসে রেখে দেওয়া পার্সেল স্ক্যান করুন, তারপর ডিসপ্যাচে শেষ করুন।",
+"Brake off": "ব্রেক ছাড়া",
+"Saved on this device": "এই ডিভাইসে সংরক্ষিত",
+"Saving unavailable — keep this window open": "সংরক্ষণ সম্ভব নয় — এই উইন্ডো খোলা রাখুন",
+"Mouse looks": "মাউস দিয়ে দেখুন",
+"Drag to look without mouse capture": "মাউস ধরা ছাড়াই টেনে দেখুন",
+"Mouse aim": "মাউস নিশানা",
+"Click or use number keys · Backspace goes back": "ক্লিক করুন বা নম্বর কী ব্যবহার করুন · Backspace-এ পিছনে যান",
+"E resume workday": "E কর্মদিবস আবার শুরু",
+"E start workday": "E কর্মদিবস শুরু",
+"E cargo practice": "E কার্গো অনুশীলন",
+"E last debrief": "E সর্বশেষ ডিব্রিফ",
+"H opens the hub menu": "H হাব মেনু খোলে",
+"Set your belt, check the mirror and release the parking brake.": "বেল্ট বাঁধুন, আয়না দেখুন আর পার্কিং ব্রেক ছাড়ুন।",
+"15 mph limit · Keep right · Stop at the junction line": "15 mph সীমা · ডান দিকে থাকুন · জংশনের লাইনে থামুন",
+"E enter cab": "E ক্যাবে ঢুকুন",
+"E close cargo doors": "E কার্গো দরজা বন্ধ করুন",
+"E open cargo doors": "E কার্গো দরজা খুলুন",
+"E secure the load": "E মাল বাঁধুন",
+"E inspect tires": "E টায়ার পরিদর্শন",
+"E inspect lights": "E আলো পরিদর্শন",
+" · E place the parcel": " · E পার্সেল রাখুন",
+" · E attempt delivery": " · E ডেলিভারির চেষ্টা",
+"Choose an empty cargo shelf, or approach the correct delivery point.": "খালি কার্গো তাক বেছে নিন, অথবা সঠিক ডেলিভারি পয়েন্টে যান।",
+"Aim at the barcode, or pick up the parcel to bring its label closer.": "বারকোডের দিকে লক্ষ্য করুন, অথবা লেবেল কাছে আনতে পার্সেলটি তুলুন।",
+"Resume workday ▶": "কর্মদিবস আবার শুরু করুন ▶",
+"Abandon this workday": "এই কর্মদিবস বাতিল করুন",
+"Abandon the workday?": "কর্মদিবস বাতিল করবেন?",
+"The workday so far is discarded and not scored. You can start a new one from the morning brief.": "এ পর্যন্ত কর্মদিবসটি বাতিল হবে আর স্কোর হবে না। সকালের ব্রিফ থেকে নতুন একটি শুরু করতে পারবেন।",
+"Start workday ▶": "কর্মদিবস শুরু করুন ▶",
+"Start the workday?": "কর্মদিবস শুরু করবেন?",
+"The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.": "সকালের ব্রিফ, ভ্যান লোড করা, গাড়ি চালানো আর আপনার স্টপ, সবই 3D-তে। এগোনোর সঙ্গে সঙ্গে সংরক্ষিত হয়: স্টেশন থেকে বেরিয়ে আবার শুরু করতে পারবেন।",
+"2D route day ›": "2D রুটের দিন ›",
+"Sign out": "সাইন আউট",
+"Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.": "যেসব মূল্যায়নে পাস করেননি সেগুলোর প্রতিটিতে আরেকবার সুযোগ দিন, তাঁর সব অগ্রগতি রিসেট করুন (পুরোনো অগ্রগতি ব্যাকআপ হিসেবে সার্ভারে থাকে), অথবা সাইন ইন করার জন্য নতুন পাসওয়ার্ড দিন। এটি তাঁর সাইন ইন না থাকা অবস্থায় করুন।",
+"Their password stops working and they are signed out. They sign in with the temporary password and choose their own.": "তাঁর পাসওয়ার্ড আর কাজ করবে না এবং তিনি সাইন আউট হয়ে যাবেন। তিনি অস্থায়ী পাসওয়ার্ড দিয়ে সাইন ইন করে নিজের পাসওয়ার্ড বেছে নেবেন।",
+"Their employee ID · Enter to confirm": "তাঁর কর্মী আইডি · নিশ্চিত করতে Enter",
+"Letters, numbers and . _ @ - only": "শুধু অক্ষর, সংখ্যা আর . _ @ -",
+"Type their employee ID first": "আগে তাঁর কর্মী আইডি লিখুন",
+"An employee ID has letters, numbers and . _ @ - only, with no spaces.": "কর্মী আইডিতে শুধু অক্ষর, সংখ্যা আর . _ @ - থাকতে পারে, ফাঁকা জায়গা নয়।",
+"Their name": "তাঁর নাম",
+"There is already an account with that employee ID.": "এই কর্মী আইডি দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট আছে।",
+"That trainee has no account.": "এই প্রশিক্ষণার্থীর কোনো অ্যাকাউন্ট নেই।",
+"Temporary password": "অস্থায়ী পাসওয়ার্ড",
+"not tested": "পরীক্ষা হয়নি",
+"Critical mistake": "গুরুতর ভুল",
+"Morning brief": "সকালের ব্রিফ",
+"Loading the van": "ভ্যান লোড করা",
+"At the stops": "স্টপগুলোতে",
+"End of the day": "দিনের শেষ"
 },
 "templates": [
 [
@@ -4012,6 +4298,198 @@ window.OTR_I18N.bn = {
 [
 "Avoided {0}",
 "এড়িয়ে গেছেন: {0}"
+],
+[
+"Carrying: {0}",
+"বহন করছেন: {0}"
+],
+[
+"Recorded shelf: {0}",
+"রেকর্ড করা তাক: {0}"
+],
+[
+"Outcome: {0}",
+"ফলাফল: {0}"
+],
+[
+"Left shelf {0}",
+"বাঁ তাক {0}"
+],
+[
+"Right shelf {0}",
+"ডান তাক {0}"
+],
+[
+"Scanned the parcel at {0} before delivery.",
+"ডেলিভারির আগে {0}-এ পার্সেল স্ক্যান করেছেন।"
+],
+[
+"Verified {0} on the scanner.",
+"স্ক্যানারে {0} যাচাই করেছেন।"
+],
+[
+"Followed the delivery requirements at {0}.",
+"{0}-এ ডেলিভারির প্রয়োজনীয়তা মেনেছেন।"
+],
+[
+"The outcome did not match the requirements at {0}.",
+"{0}-এ ফলাফল প্রয়োজনীয়তার সঙ্গে মেলেনি।"
+],
+[
+"Loaded and scanned {0}.",
+"{0} লোড করে স্ক্যান করেছেন।"
+],
+[
+"{0} min",
+"{0} মিনিট"
+],
+[
+"{0} of {1} stops delivered",
+"{1}টির মধ্যে {0}টি স্টপে ডেলিভারি হয়েছে"
+],
+[
+"Workday · day {0}",
+"কর্মদিবস · দিন {0}"
+],
+[
+"Graphics: {0}\nMouse sensitivity: {1}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.",
+"গ্রাফিক্স: {0}\nমাউস সংবেদনশীলতা: {1}\nআগের কী রিম্যাপ প্রযোজ্য। কোর্স সেটিংস ও প্রশিক্ষকের টুল মূল গেমের মাধ্যমে পাওয়া যায়।"
+],
+[
+"Weight: {0} kg",
+"ওজন: {0} kg"
+],
+[
+"Start: {0}",
+"শুরু: {0}"
+],
+[
+"Good decisions: {0} · To review: {1}",
+"ভালো সিদ্ধান্ত: {0} · দেখে নেওয়ার: {1}"
+],
+[
+"Page {0} / {1}",
+"পৃষ্ঠা {0} / {1}"
+],
+[
+"Retrieve {0} from the shelf where you loaded it.",
+"যে তাকে লোড করেছিলেন সেখান থেকে {0} বের করুন।"
+],
+[
+"{0} parcels in cargo",
+"কার্গোতে {0}টি পার্সেল"
+],
+[
+"{0} mph",
+"{0} mph"
+],
+[
+"{0}/{1} accelerate / brake",
+"{0}/{1} গতি বাড়ান / ব্রেক"
+],
+[
+"{0}/{1} steer",
+"{0}/{1} স্টিয়ার"
+],
+[
+"{0} parking brake",
+"{0} পার্কিং ব্রেক"
+],
+[
+"{0} gear",
+"{0} গিয়ার"
+],
+[
+"{0} belt",
+"{0} বেল্ট"
+],
+[
+"{0} move",
+"{0} চলা"
+],
+[
+"{0} interact",
+"{0} কাজ করা"
+],
+[
+"{0} inspect",
+"{0} পরিদর্শন"
+],
+[
+"{0} handheld",
+"{0} হ্যান্ডহেল্ড"
+],
+[
+"{0} menu",
+"{0} মেনু"
+],
+[
+"{0} left mirror",
+"{0} বাঁ আয়না"
+],
+[
+"{0} / {1} signals",
+"{0} / {1} সিগন্যাল"
+],
+[
+"{0} look forward",
+"{0} সামনে দেখা"
+],
+[
+"{0} exit",
+"{0} বের হওয়া"
+],
+[
+"Hold {0} or left click to scan",
+"স্ক্যান করতে {0} চেপে ধরুন বা বাঁ ক্লিক করুন"
+],
+[
+"{0} put away",
+"{0} রেখে দিন"
+],
+[
+"{0} pause",
+"{0} বিরতি"
+],
+[
+"Barcode in sight · Hold {0} or left click to scan",
+"বারকোড দেখা যাচ্ছে · স্ক্যান করতে {0} চেপে ধরুন বা বাঁ ক্লিক করুন"
+],
+[
+"Day {0} · 3D workday",
+"দিন {0} · 3D কর্মদিবস"
+],
+[
+"Day {0}  ·  {1}",
+"দিন {0}  ·  {1}"
+],
+[
+"Day {0}'s workday debrief ›",
+"দিন {0}-এর কর্মদিবসের ডিব্রিফ ›"
+],
+[
+"A new password for {0}?",
+"{0}-এর জন্য নতুন পাসওয়ার্ড?"
+],
+[
+"Give this to {0} (employee ID {1}). It works once: they choose their own password when they sign in. It will not be shown again.",
+"এটি {0}-কে দিন (কর্মী আইডি {1})। এটি একবারই কাজ করে: সাইন ইন করার সময় তিনি নিজের পাসওয়ার্ড বেছে নেবেন। এটি আর দেখানো হবে না।"
+],
+[
+"Stop {0}: {1}",
+"স্টপ {0}: {1}"
+],
+[
+"Stop {0}",
+"স্টপ {0}"
+],
+[
+"{0} refused",
+"{0} প্রত্যাখ্যাত"
+],
+[
+"{0} stops",
+"{0}টি স্টপ"
 ]
 ],
 "keep": [
