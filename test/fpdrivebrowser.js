@@ -12,17 +12,19 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
    await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');OTR.a11y.settings().large=large;s.closePanel();s.launch('campaign');},large);
    await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
-   for(const stage of ['belt','departure','road','junction','approach','parked']){
+   for(const stage of ['belt','departure','road','junction','approach','parked','doorstep']){
     const result=await p.evaluate(stage=>{
      const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();
      m.mode='cab';m.phase=['belt','departure'].includes(stage)?'prepare':'route';m.departed=true;m.paused=true;m.events[m.briefKey]=true;
      Object.assign(m.van,{x:stage==='parked'?4:2.5,z:stage==='junction'?-18:stage==='approach'||stage==='parked'?-42:0,speed:0,belt:stage!=='belt',hand:['belt','departure','parked'].includes(stage)});
      m.stopSign.resolved=false;s.sync();s.refresh();
+     if(stage==='doorstep'){m.mode='walk';m.heldId='parcel0';m.parcels[0].location='held';Object.assign(m.player,{x:8.4,z:m.stops[0].z});s.sync();s.refresh();}
      const o=s.objective,b=o.getBounds();return {text:o.text,x:b.x,right:b.right,bottom:b.bottom,font:parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY)};
     },stage);
     assert.ok(result.x>=0&&result.right<=1281&&result.bottom<110,JSON.stringify(result));
     assert.ok(result.font>=17,JSON.stringify(result));checks++;
     if(stage==='junction'||stage==='parked')await p.screenshot({path:path.join(OUT,`c3-${lang}-${large?'large':'normal'}-${stage}.png`)});
+    if(stage==='doorstep')await p.screenshot({path:path.join(OUT,`c4-${lang}-${large?'large':'normal'}-doorstep.png`)});
    }
    await p.close();
   }

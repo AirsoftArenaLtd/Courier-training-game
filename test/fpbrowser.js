@@ -87,9 +87,11 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
    const vz=(await state()).m.van.z;await pose(4,vz+4,'cargo');await press('KeyE');
    check((await state()).m.cargoOpen,'open cargo at delivery '+i);
    const pz=vz+2.05-i*1.05;await pose(4,pz+1.15,'parcel'+i,true);
-   await scan();check((await state()).m.parcels[i].stopScanned,'fresh delivery scan '+i);if(i===0)await shot('delivery-scan');await press('Digit1');
+   await scan();check(!(await state()).m.parcels[i].stopScanned,'cargo scan cannot replace doorstep verification '+i);await press('Digit1');
    await pose(4,pz+0.65,'parcel'+i);await press('KeyE');check((await state()).m.heldId==='parcel'+i,'retrieve physical parcel '+i);
-   const stop=(await state()).m.stops[i];await pose(8.4,stop.z,'door'+i);await press('KeyE');await press('Digit1');await shot('contact-'+i);await press('Digit1');
+   const stop=(await state()).m.stops[i];await pose(8.4,stop.z,'door'+i);
+   await scan();check((await state()).m.parcels[i].stopScanned,'fresh doorstep scan '+i);if(i===0)await shot('delivery-scan');await press('Digit1');
+   await press('KeyE');await press('Digit1');await shot('contact-'+i);await press('Digit1');
    check((await state()).device,'door opens delivery on handheld');await shot('delivery-options-'+i);
    await press(stop.service==='handover'?'Digit1':stop.service==='safeplace'?'Digit2':'Digit3');check((await state()).m.stops[i].resolved,'record supported delivery outcome '+i);await shot('receipt-'+i);await press('Digit1');
    if(stop.service==='signature'){await pose(4,pz+0.65,'slot'+i);await press('KeyE');check((await state()).m.parcels[i].location==='slot'+i,'retain signature parcel in cargo');}

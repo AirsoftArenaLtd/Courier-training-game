@@ -107,7 +107,7 @@ test('delivery, authorised release and correct exception lead to return and debr
   const m=make(); load(m);
   for (const s of m.stops) {
     m.van.z=s.z;m.phase='route';m.activeStop=s.id;
-    at(m,'parcel'+s.id); m.pickup('parcel'+s.id);m.scan(); at(m,'door'+s.id); m.contact(s.id);
+    at(m,'parcel'+s.id); m.pickup('parcel'+s.id);at(m,'door'+s.id);m.scan();  m.contact(s.id);
     const outcome=s.service==='signature'?'exception':s.service;
     m.deliver(s.id,outcome); assert.equal(s.resolved,true);
     if (outcome==='exception') { at(m,'slot'+s.id); m.place('slot'+s.id); }
@@ -125,7 +125,7 @@ test('unsupported outcomes cannot poison the recorded delivery decision', () => 
 test('an absent recipient cannot receive a handover and the parcel remains recoverable', () => {
   const m=make(); load(m); const s=m.stops.find(s=>s.service==='signature');
   m.van.z=s.z;m.activeStop=s.id;m.phase='route';
-  at(m,'parcel'+s.id);m.pickup('parcel'+s.id);m.scan();at(m,'door'+s.id);m.contact(s.id);
+  at(m,'parcel'+s.id);m.pickup('parcel'+s.id);at(m,'door'+s.id);m.scan();m.contact(s.id);
   m.deliver(s.id,'handover');assert.equal(s.resolved,false);assert.equal(m.heldId,'parcel'+s.id);
   m.deliver(s.id,'exception');assert.equal(s.resolved,true);assert.equal(m.parcel(m.heldId).returnRequired,true);
 });
@@ -135,11 +135,19 @@ test('depot scanning cannot replace a fresh scan at the delivery stop', () => {
   m.deliver(0,s.service==='signature'?'exception':s.service);assert.equal(s.resolved,false);
   m.scan();assert.equal(p.stopScanned,true);m.deliver(0,s.service==='signature'?'exception':s.service);assert.equal(s.resolved,true);
 });
+test('cargo scans do not verify a doorstep and an unsecured van blocks recording after a valid scan', () => {
+  const m=make();load(m);const p=m.parcels[0],s=m.stop(0);m.phase='route';m.van.z=s.z;
+  at(m,p.id);m.scan(p.id);assert.equal(p.stopScanned,false);
+  m.pickup(p.id);m.scan();assert.equal(p.stopScanned,false);
+  at(m,'door0');m.scan();m.contact(0);assert.equal(p.stopScanned,true);
+  m.van.hand=false;assert.match(m.deliver(0,s.service),/parking brake/);assert.equal(s.resolved,false);
+  m.van.hand=true;assert.equal(m.deliver(0,s.service),'Delivery recorded.');assert.equal(s.resolved,true);
+});
 test('scanning the wrong stop or scanning with an unsecured vehicle does not verify delivery', () => {
   const m=make();load(m);m.phase='route';m.van.z=m.stop(1).z;at(m,'parcel1');m.pickup('parcel1');m.scan();
   assert.equal(m.parcel('parcel1').stopScanned,false);
   m.activeStop=1;m.van.hand=false;m.scan();assert.equal(m.parcel('parcel1').stopScanned,false);
-  m.van.hand=true;m.scan();assert.equal(m.parcel('parcel1').stopScanned,true);
+  m.van.hand=true;at(m,'door1');m.scan();assert.equal(m.parcel('parcel1').stopScanned,true);
 });
 test('older checkpoints retain cargo and require fresh delivery verification', () => {
   const m=make();load(m);const raw=m.snapshot();raw.parcels.forEach(p=>delete p.stopScanned);
@@ -272,7 +280,7 @@ test('stop scans, absent handovers, delivery decisions and returns use parcel an
     W.begin(); const m = make(); load(m);
     const s = m.stops.find(s => s.service === 'signature'), p = m.parcels[s.id];
     m.phase = 'route'; m.activeStop = s.id; m.van.z = s.z;
-    at(m, p.id); m.pickup(p.id); m.scan(); m.scan();
+    at(m, p.id); m.pickup(p.id); at(m, 'door' + s.id); m.scan(); m.scan();
     report('scan.stop', p.id, true, s.id + 1);
     assert.equal(W.events.filter(e => e.type === 'scan.stop').length, 1);
     at(m, 'door' + s.id); m.contact(s.id); m.deliver(s.id, 'handover');
@@ -300,7 +308,7 @@ test('legacy unverified completion maps to a failed stop scan', () => {
   const m = make(); load(m); const p = m.parcels[0], s = m.stop(0);
   at(m, p.id); m.pickup(p.id); p.stopScanned = true; p.scanned = false;
   // The current scanner sets both flags; exercise the retained legacy log branch explicitly.
-  at(m, 'door0'); m.contact(0); m.deliver(0, s.service);
+  m.van.z=s.z; at(m, 'door0'); m.contact(0); m.deliver(0, s.service);
   report('scan.stop', p.id, false, 1);
 });
 

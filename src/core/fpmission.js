@@ -171,7 +171,7 @@ OTR.fpMission = {
       atDelivery(p) {
         const s = p && this.stop(p.stop);
         return !!s && this.parked() && Math.hypot(this.van.x - s.x, this.van.z - s.z) < 18 &&
-          Math.hypot(this.player.x - s.x, this.player.z - s.z) < 18;
+          this.near('door' + s.id);
       },
       scan(id) {
         const p = this.parcel(id || this.heldId);
@@ -276,8 +276,9 @@ OTR.fpMission = {
           return 'The address does not match. Return this parcel to the van and retrieve the correct one.';
         }
         if (!p.loaded) return 'Prepare and load this parcel at the depot first.';
+        if (!this.atDelivery(p)) return 'Park the van near this address and set the parking brake first.';
         if (!s.contacted) return 'Attempt contact before recording the outcome.';
-        if (!p.stopScanned) return 'Scan this parcel at the delivery stop before recording the outcome.';
+        if (!p.stopScanned) return 'Scan this parcel at the door before recording the outcome.';
         if (outcome === 'handover' && s.service !== 'handover') {
           this.log('absent-handover:' + id, 'delivery', 'needs', 'Tried to record a handover with no recipient present.');
           return 'Nobody is present to receive the parcel. Choose an outcome that matches the situation.';
