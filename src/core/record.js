@@ -58,6 +58,12 @@ OTR.record = {
     };
   },
 
+  /** A scored run's name: its scenario's title, "Workday" for the 3D workday, or the id of one no longer listed. */
+  runTitle(id) {
+    const sc = OTR.registry.get(id);
+    return sc ? sc.title : id === 'workday' ? 'Workday' : String(id || '');
+  },
+
   date(t) { return t ? new Date(t).toLocaleDateString(OTR.i18n ? OTR.i18n.lang : undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—'; },
   duration(s) {
     if (!s) return 'under a minute';
@@ -95,7 +101,7 @@ OTR.record = {
         <td>${E(OTR.record.date(s.lastPlayed))}</td>
       </tr>`).join('')}`).join('');
     const lessons = R.lessons.length ? `<ol>${R.lessons.map(l => `<li>${T(l.text)}${l.n > 1 ? ` <span class="n">(${l.n}×)</span>` : ''}</li>`).join('')}</ol>` : `<p>${T('No recurring mistakes recorded.')}</p>`;
-    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T((OTR.registry.get(c.id) || {}).title || c.id)}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
+    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T(OTR.record.runTitle(c.id))}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
       @page { size: A4; margin: 14mm; }
       body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }

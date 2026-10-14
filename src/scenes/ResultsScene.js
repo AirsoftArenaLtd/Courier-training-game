@@ -10,8 +10,9 @@ class ResultsScene extends Phaser.Scene {
     const { scenarioId, result, stars, rec } = this.d;
     // the verdict comes from OTR.flow.complete; a caller that has none gets a plain one
     const verdict = this.d.verdict || { untested: [], criticals: [], takeaways: (result.lessons || []).filter(Boolean).map(text => ({ text, n: 1 })), mistakes: 0 };
-    const sc = OTR.registry.get(scenarioId);
-    const mod = OTR.registry.moduleOf(scenarioId);
+    // a run that is not one of the academy's scenarios (the 3D workday) brings its own: { id, title, categories }
+    const sc = this.d.scenario || OTR.registry.get(scenarioId);
+    const mod = this.d.scenario ? { color: OTR_DATA.theme.primary } : OTR.registry.moduleOf(scenarioId);
     OTR.fx.enter(this);
 
     this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'results_bg', [[0, '#173e6b'], [1, OTR_DATA.theme.css('nightDeep')]]));
@@ -49,11 +50,12 @@ class ResultsScene extends Phaser.Scene {
     panel.add(OTR.txt(this, 0, -ph / 2 + 34, head.text, 16, 'rgba(255,255,255,0.9)', { weight: '900' }));
     panel.add(OTR.txt(this, 0, -ph / 2 + 68, sc.title, 34, '#ffffff', { weight: '900', shadow: true }));
     // a drive: where each mistake happened, on the map
-    const pins = result.log ? OTR.drive.pins(result.log) : [];
-    if (pins.length || sc.scene === 'DrivingScene') {
-      panel.add(OTR.ui.button(this, pw / 2 - 90, -ph / 2 + 52, pins.length ? `Drive map (${pins.length})` : 'Drive map', () => OTR.fx.transition(this, 'DriveReviewScene', {
-        pins, seed: pins[0] && pins[0].where.seed, title: sc.title, back: 'ResultsScene', backData: Object.assign({}, this.d, { again: true })
-      }), { w: 150, h: 40, skin: 'ghost', fontSize: 15 }));
+    // (a caller with its own map passes the review's data: the 3D workday's plan of its streets)
+    const pins = this.d.review ? this.d.review.pins : result.log ? OTR.drive.pins(result.log) : [];
+    if (pins.length || sc.scene === 'DrivingScene' || this.d.review) {
+      panel.add(OTR.ui.button(this, pw / 2 - 90, -ph / 2 + 52, pins.length ? `Drive map (${pins.length})` : 'Drive map', () => OTR.fx.transition(this, 'DriveReviewScene', Object.assign({
+        pins, seed: pins[0] && pins[0].where.seed, title: sc.title
+      }, this.d.review || {}, { back: 'ResultsScene', backData: Object.assign({}, this.d, { again: true }) })), { w: 150, h: 40, skin: 'ghost', fontSize: 15 }));
     }
     panel.setScale(0.9).setAlpha(0);
     this.tweens.add({ targets: panel, scale: 1, alpha: 1, duration: 380, ease: 'Back.out' });
@@ -141,16 +143,18 @@ class ResultsScene extends Phaser.Scene {
     // after an assessment: a retake only while attempts remain (asked first), otherwise practice if it's allowed
     const left = A ? OTR.academy.attemptsLeft(scenarioId) : 0;
     let retry = null;
-    if (!A) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
+    if (this.d.next) retry = null;                       // a run with its own next step (the workday's debrief)
+    else if (!A) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retry', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
     else if (!A.passed && left > 0) {
       retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Retake', () => OTR.ui.confirm(this, 'Retake the assessment?',
         `${left === Infinity ? 'It' : `This uses ${left === 1 ? 'your last attempt' : 'one of your ' + left + ' attempts'}. It`} is scored the same way: no hints, and no restarting.`,
         () => OTR.flow.startScenario(this, scenarioId, { assess: true }), { yes: 'Start', key: 'ENTER', hint: '⏎' }), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
     } else if (OTR.academy.practiceAllowed()) retry = OTR.ui.button(this, -150, ph / 2 - 46, 'Practice it', () => OTR.flow.startScenario(this, scenarioId), { w: 220, h: 56, skin: 'ghost', key: 'R', hint: 'R' });
     // in a drill of past mistakes, the main button plays the next one
-    const dn = !A ? OTR.drill.next(scenarioId) : null;
-    const next = OTR.ui.button(this, retry ? 130 : 0, ph / 2 - 46, dn ? (dn.id ? `Next drill (${dn.n} of ${dn.of}) ▶` : 'Drills done ▶') : 'To the station ▶',
-      () => (dn ? OTR.drill.advance(this) : OTR.flow.toHub(this)), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
+    const dn = !A && !this.d.next ? OTR.drill.next(scenarioId) : null;
+    const nx = this.d.next;
+    const next = OTR.ui.button(this, retry ? 130 : 0, ph / 2 - 46, nx ? nx.label : dn ? (dn.id ? `Next drill (${dn.n} of ${dn.of}) ▶` : 'Drills done ▶') : 'To the station ▶',
+      () => (nx ? OTR.fx.transition(this, nx.scene, nx.data || {}) : dn ? OTR.drill.advance(this) : OTR.flow.toHub(this)), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
     const btns = retry ? [retry, next] : [next];
     panel.add(btns);
     OTR.ui.focus(this, btns, { start: btns.length - 1 });

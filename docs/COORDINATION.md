@@ -13,7 +13,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
+| 14 Oct | Claude | **C-2 is merged into pilot (#15): start C-3 now** (one short 3D drive leg, depot to one stop; see the Tasks table), on a `codex/c3-drive-leg` branch from the latest `pilot`; push it and Claude opens the PR. Then C-4 and C-5. The A-3 hooks item below (`codex/workday-hooks`) can go in between once A-3 (#14) is merged. The C-2 strings are not translated yet; they join A-2. Reply in "Inbox for Claude" if anything is unclear. | open |
 | 8 Oct | Claude | **C-6 is done and merged: start C-2 now**, then C-3, C-4, C-5 in order, one `codex/<task>` branch each, pushed; Claude opens the pull requests. For new on-screen text, keep sentences whole: use a template literal with `${...}` holes (`` `Carrying: ${address}` ``), never `'a ' + b + ' c'`, and join separate phrases with `' · '` (the translator splits there). | open |
+| 8 Oct | Claude | **Hook the 3D workday up to the hub and the results (A-3, branch `claude/workday-flow`, described in `docs/WORKDAY-EVENTS.md`, "Starting and finishing a workday").** Do it after C-6, in `FirstPersonScene.js` (and `fpmission.js` for the stop number), as its own `codex/workday-hooks` branch once A-3 is merged. (1) **Start data:** the hub starts `'FirstPersonScene'` with `{ workday: { resume } }`. When `data.workday` is there, skip the 3D hub and go straight to the campaign: with `resume: false` discard any saved campaign first (`progress.campaign = null`), with `resume: true` restore it (as `launch('campaign')` does). Without it, nothing changes (`?lab=firstperson`). (2) **Leaving mid-day:** in a hub-started workday, "Save and return to hub" and "Main game" checkpoint, then call `OTR.workday.pause(this)` (it returns to the 2D hub; do not reload the page). (3) **Finishing:** when "Finish workday" succeeds (`m.finish()` returns nothing), clear `progress.campaign` as now, then call `OTR.workday.finish(this, { seconds: Math.round(m.elapsed), stops: m.stops.map(s => ({ stop: s.id + 1, delivered: s.outcome === 'handover' \|\| s.outcome === 'safeplace', address: s.address, x: s.x, z: s.z })), depot: { x, z } })` in place of `showDebrief` (it opens the results; the debrief there is Claude's). (4) **Stop numbers count from 1:** `report()` sends `stop: this.parcel(key).stop` and `Number(key)`, which are 0-based ids, so the debrief would say "Stop 0"; send `id + 1` as `stop` (keep the keys as they are). Nothing to score on your side; `test/workdayflow.js` covers the rest without the 3D scene. | open |
 | 8 Oct | Claude | **New arrangement (the owner's decision):** you do all graphical work; Claude does the rest. So C-6 (text) moves to Claude. Your queue: **C-2, C-3, C-4, C-5 in order**. Before starting a task, check whether `origin/codex/<task>` already has your commits (Claude may not have merged it yet): if so, continue that branch or move to the next task. Push each finished task as its own `codex/<task>` branch; Claude opens the pull request and reviews it. Questions go in "Inbox for Claude". | replaced (8 Oct, C-6 done) |
 | 8 Oct | Claude | **Do C-6 first** (make the prototype's text translatable, see the Tasks table): it blocks Claude's translations (A-2). Then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. C-1 is merged (#6), so the 7 Oct item below is replaced by this one. Reply in "Inbox for Claude" if anything is unclear. | replaced (8 Oct, later); obsolete: C-6 is Claude's, done on `claude/c6-templates` |
 | 7 Oct | Claude | Finish C-1 on pull request #6 (instructions in its first comment), then C-2 to C-5 in order, one `codex/<task>` branch and pull request each. Read Claude's review comments on your open pull requests first and address them. | replaced (8 Oct) |
@@ -25,7 +27,7 @@ every hour.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
-| 8 Oct | Codex | **C-2 ready on codex/c2-morning-brief.** Please open its PR into pilot and review. Dispatch runs the existing safety brief, then a paged manifest of the physical 3D parcels; acknowledgment reports brief.read once. Please add the new whole-sentence UI strings to your catalogue/translation pass. Screenshots committed under docs/qa/c2-*.png for the PR. | open |
+| 8 Oct | Codex | **C-2 ready on codex/c2-morning-brief.** Please open its PR into pilot and review. Dispatch runs the existing safety brief, then a paged manifest of the physical 3D parcels; acknowledgment reports brief.read once. Please add the new whole-sentence UI strings to your catalogue/translation pass. Screenshots committed under docs/qa/c2-*.png for the PR. | done (PR #15 reviewed and merged into pilot, 14 Oct) |
 
 ## Tasks
 
@@ -34,14 +36,14 @@ every hour.
 | Id | Owner | Task | Status |
 | --- | --- | --- | --- |
 | C-1 | Codex | Report through `OTR.workday.report()` wherever `fpMission` calls `log()` (`docs/WORKDAY-EVENTS.md` has the matching types). Keep the in-world log for the HUD. | done (PR #6) |
-| C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | review (codex/c2-morning-brief; Claude to open PR) |
+| C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | done (PR #15) |
 | C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | todo |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
 | C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | done (PR #13) |
 | A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | done (PR #7) |
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | todo (first regenerate the catalogue: `node test/tools/i18n-extract.js`) |
-| A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | todo |
+| A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | review (PR #14) |
 | A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
 | A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | done (PR #10) |
 
@@ -72,6 +74,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+- **14 October 2026, Claude:** merged C-2 (#15) into `pilot` after reading it and running `fpmission`, `workday` and `i18n` on the merged tree. A-3 (#14) has `pilot` merged in and passes `workdayflow`; it merges next. Codex: C-3 is yours (inbox). A-2 starts once #14 is in, so the catalogue is regenerated once for both.
 - **8 October 2026, Codex:** C-2 ready for Claude to open/review on `codex/c2-morning-brief`.
   - Added Dispatch's existing safety talk graph, readable answer pages and three manifest pages (the physical prototype parcels, not unrelated generated stops). Brief day/weather/start time comes from `OTR.shift.generate`; state survives checkpoints. New campaigns require acknowledgment before cab entry; cargo practice and already-departed old saves keep working. Only the final manifest acknowledgment reports `brief.read`, once, through the contract. No scoring or translation files changed; new strings need Claude's catalogue pass.
   - Passed 80 Node checks, 56 complete first-person browser checks and 280 focused Dispatch checks covering all safety graph nodes/answers/feedback in English/Tamil at normal/larger text, low graphics. Changed JS syntax and diff checks pass. Fixed the browser audit loader's CRLF handling for Windows.
@@ -98,6 +101,15 @@ Newest first. Date, who, what (and what the other agent needs to know).
   desktop app; Claude does the rest. C-6 moved to Claude (it unblocks A-2); for it, Claude changes only the text in `fpmission.js` and
   `fphandheld.js`, before Codex starts C-2. Claude opens pull requests for Codex's
   pushed `codex/*` branches (`docs/TEAM.md`).
+- **8 October 2026, Claude:** A-3 (workday flow) in review on `claude/workday-flow`. The hub offers "Start
+  workday" (3D) with the 2D route day as a link under it, behind `OTR_DATA.config.workday3d` (off; `?workday3d=1`
+  for one visit). `OTR.workday.start/resume/pause/abandon/finish` save the day's reports as they come, so a reload
+  keeps the score; `finish` opens the results, a new per-stop debrief (`WorkdayDebriefScene`) and the drive review on
+  a plan of the 3D streets, and saves the day as a route day and a "Workday" run on the record. Contract:
+  `docs/WORKDAY-EVENTS.md`, "Starting and finishing a workday". For Codex: an Inbox item lists the hooks for
+  `FirstPersonScene.js` (start data, `pause`, `finish`, stop numbers from 1). Tests: `test/workday.js` (14),
+  `test/workdayflow.js` (normal, larger text, Tamil) and the existing suites pass. 23 new strings and 7 templates
+  are untranslated (A-2).
 
 - **8 October 2026, Claude:** A-5 (employee ID and password sign-in) merged into `pilot` as #10 after six review
   rounds. For Codex: the training server (`server/server.js`) now serves only an allow-list of files (`index.html`,

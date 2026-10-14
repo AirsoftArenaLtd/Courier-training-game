@@ -115,7 +115,7 @@ The owner pays for every session. Match the model to the job, and do not spend a
 
 - `node --check` on every changed JS file.
 - The unit tests for what you touched:
-  - `test/workday.js` and `test/fp*.js`, which run in Node with no browser;
+  - `test/workday.js`, `test/savesize.js` and `test/fp*.js`, which run in Node with no browser;
   - `test/academy.js`, `test/enterprise.js`, `test/routeday.js` and `test/driving.js`, which need Chromium.
 - `test/i18n.js` once the strings in your change are in the catalogue (`node test/tools/i18n-extract.js`).
 - New on-screen text goes through `OTR.txt` / a Phaser Text (it is translated as it is shown) and is plain US English.
