@@ -77,7 +77,11 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
     await wait(120);
    }throw Error('drive leg did not arrive');
   }
-  await driveTo(-20);await driveTo(-42);await press('Space');await press('KeyE');check((await state()).m.mode==='walk','park and exit after a driven leg');
+  await driveTo(-20);await wait(500);check((await state()).m.stopSign.stopped,'full stop before the junction line');await shot('c3-junction');
+  await driveTo(-42);await press('Space');
+  check((await state()).m.logs.some(l=>l.id==='stop-sign'&&l.outcome==='good'),'driven leg reports the safe stop-line response');
+  await shot('c3-arrival');
+  await press('KeyE');check((await state()).m.mode==='walk','park and exit after a driven leg');
   for(let i=0;i<3;i++){
    if(i>0)await ev(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,{x:4,z:m.stops[i].z,yaw:0,speed:0,hand:true});m.activeStop=i;s.sync();},i);
    const vz=(await state()).m.van.z;await pose(4,vz+4,'cargo');await press('KeyE');

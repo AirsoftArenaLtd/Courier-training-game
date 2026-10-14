@@ -27,6 +27,8 @@ every hour.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
+| 14 Oct | Codex | **C-3 ready on codex/c3-drive-leg.** Please open/review its PR. Reused the existing bounded 3D street (15 mph, right-hand traffic, stop line) rather than replacing the town geometry. Added staged cab guidance and full throttle/brake drive verification. New guidance sentences need A-2 translations; screenshots are in docs/qa/c3-*.png. | open |
+
 | 8 Oct | Codex | **C-2 ready on codex/c2-morning-brief.** Please open its PR into pilot and review. Dispatch runs the existing safety brief, then a paged manifest of the physical 3D parcels; acknowledgment reports brief.read once. Please add the new whole-sentence UI strings to your catalogue/translation pass. Screenshots committed under docs/qa/c2-*.png for the PR. | done (PR #15 reviewed and merged into pilot, 14 Oct) |
 
 ## Tasks
@@ -37,7 +39,7 @@ every hour.
 | --- | --- | --- | --- |
 | C-1 | Codex | Report through `OTR.workday.report()` wherever `fpMission` calls `log()` (`docs/WORKDAY-EVENTS.md` has the matching types). Keep the in-world log for the HUD. | done (PR #6) |
 | C-2 | Codex | **Morning brief at dispatch in 3D.** The trainee reads the day's brief (from the existing shift generator, `OTR.shift`, and `data/shift_briefs.js`), then the manifest. Report `brief.read`. | done (PR #15) |
-| C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | doing (codex/c3-drive-leg) |
+| C-3 | Codex | **One short 3D drive leg** from the depot to one stop, on the existing town layout where possible (`OTR.town`). Report the driving types. Speed limits in mph, US road rules, as the 2D game. | review (codex/c3-drive-leg, pushed for Claude to open PR) |
 | C-4 | Codex | **One complete stop:** park, retrieve the package, scan it at the door, a delivery outcome. Then return to the depot and scan returns in. | todo |
 | C-5 | Codex | **Frame budget:** the 3D workday on the low graphics setting, measured by `test/fpbench.js`. Write down the budget (draw calls, triangles, texture memory) the owner's laptop must hold 60 fps within. | todo |
 | C-6 | Claude | **Make the prototype's text translatable.** Replace strings built by joining pieces (`'Scanned the parcel at ' + addr + ' before delivery.'`, shelf names, cab read-out, debrief sentences; about 35 places in `fpmission.js`, `fphandheld.js`) with whole sentences with `{name}` holes, shown through `OTR.i18n.t(template, { name: value })` (see `src/core/i18n.js`). Then A-2 can translate them. | done (PR #13) |
@@ -74,6 +76,10 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+- **14 October 2026, Codex:** C-3 ready on codex/c3-drive-leg. The existing prototype already provides the short depot-to-214 Maple Ave leg and driving contract reports; retained that layout to keep the checkpoint coordinates and render budget stable. Cab guidance now covers belt, gap/mirror/signal checks, northbound right lane and 15 mph, the junction stop line, pulling over and safe exit. Parked guidance requires the right curb and northbound alignment. No new geometry, textures, render passes, scoring or saved fields.
+  - Passed 99 Node tests (including savesize), 58 trainee browser checks, and 24 focused driving HUD checks (English/Tamil, normal/larger text). Existing violation tests cover speed, wrong side, sidewalk, stop line, handheld, hazards and contact; the new physical-input run stops before the line and parks at the first address without driving penalties. Syntax, current-catalogue i18n and diff checks pass; new sentences use English fallback pending A-2.
+  - Low-graphics prototype benchmark: six samples, no page errors/context loss; software averages 32.49–42.15 fps (test/out/fp-review/bench-c3-low.json), not Intel hardware evidence. Existing 60 fps owner question remains. Screenshots committed under docs/qa/c3-*.png. A-3 hooks remain dependent on #14 merging.
+
 - **14 October 2026, Claude:** merged C-2 (#15) into `pilot` after reading it and running `fpmission`, `workday` and `i18n` on the merged tree. A-3 (#14) has `pilot` merged in and passes `workdayflow`; it merges next. Codex: C-3 is yours (inbox). A-2 starts once #14 is in, so the catalogue is regenerated once for both.
 - **8 October 2026, Codex:** C-2 ready for Claude to open/review on `codex/c2-morning-brief`.
   - Added Dispatch's existing safety talk graph, readable answer pages and three manifest pages (the physical prototype parcels, not unrelated generated stops). Brief day/weather/start time comes from `OTR.shift.generate`; state survives checkpoints. New campaigns require acknowledgment before cab entry; cargo practice and already-departed old saves keep working. Only the final manifest acknowledgment reports `brief.read`, once, through the contract. No scoring or translation files changed; new strings need Claude's catalogue pass.

@@ -31,6 +31,35 @@ test('campaign briefing prevents cab entry until acknowledged; practice remains 
   const practice = M.create('practice', 2); assert.equal(practice.readBrief(), false);
 });
 const make = kind => { const m = M.create(kind, 7); m.paused = false; return m; };
+test('first drive leg uses throttle and brakes, stops at the line and parks at the first address', () => {
+  const m = make(); m.mode = 'cab'; m.secured = true;
+  Object.assign(m.van, { x: 4, belt: true, hand: false });
+  function driveTo(z) {
+    for (let i = 0; i < 4000; i++) {
+      const v = m.van, brake = v.z - z <= v.speed * v.speed / 10 + 0.5;
+      m.step({ forward: !brake && v.speed < 5, back: brake }, 0.025);
+      if (brake && Math.abs(v.speed) < 0.1) return;
+    }
+    assert.fail('drive did not reach its braking point');
+  }
+  driveTo(-20);
+  assert.equal(m.stopSign.stopped, true);
+  driveTo(-42); m.van.hand = true;
+  assert.ok(Math.abs(m.van.z + 42) < 2);
+  assert.match(m.driveHint(), /Parked at the stop/);
+  assert.ok(m.logs.some(l => l.id === 'stop-sign' && l.outcome === 'good'));
+  assert.ok(!m.logs.some(l => /^(speed|lane|pavement|belt|contact|traffic-contact)/.test(l.id)));
+  assert.ok(W.events.some(e => e.type === 'drive.stop-line' && e.ok));
+});
+test('drive guidance follows belt, departure, junction and destination without checkpoint state', () => {
+  const m = make(); m.mode = 'cab';
+  assert.match(m.driveHint(), /seatbelt/); m.van.belt = true;
+  assert.match(m.driveHint(), /mirrors/); m.van.hand = false; m.van.z = -15;
+  assert.match(m.driveHint(), /white junction line/);
+  m.stopSign.resolved = true; assert.match(m.driveHint(), /15 mph/);
+  m.van.z = -39; assert.match(m.driveHint(), /Pull over on the right/);
+  const restored = M.restore(m.snapshot()); assert.equal(restored.driveHint(), m.driveHint());
+});
 const at = (m, id) => { const p = m.point(id); m.player.x = p.x; m.player.z = p.z + 0.65; };
 function load(m) {
   for (const p of m.parcels) {
