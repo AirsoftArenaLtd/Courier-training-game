@@ -2925,7 +2925,293 @@ window.OTR_I18N.ta = {
 "★ or better in every category": "ஒவ்வொரு பிரிவிலும் ★ அல்லது அதற்கு மேல்",
 "QUIZ": "வினாடி வினா",
 "TODAY'S ROUTE": "இன்றைய வழித்தடம்",
-"TODAY'S MANIFEST": "இன்றைய பட்டியல்"
+"TODAY'S MANIFEST": "இன்றைய பட்டியல்",
+"Read the morning brief before leaving dispatch": "டிஸ்பாட்சை விட்டுச் செல்லும் முன் காலை விளக்கத்தைப் படித்தீர்கள்",
+"Left dispatch without reading the morning brief": "காலை விளக்கத்தைப் படிக்காமல் டிஸ்பாட்சை விட்டுச் சென்றீர்கள்",
+"The brief has the day's weather, hazards and route notes. Read it before you load.": "விளக்கத்தில் அன்றைய வானிலை, ஆபத்துகள், வழித்தடக் குறிப்புகள் இருக்கும். ஏற்றுவதற்கு முன் படியுங்கள்.",
+"Assessed the tires correctly": "டயர்களைச் சரியாக மதிப்பிட்டீர்கள்",
+"Misjudged the condition of the tires": "டயர்களின் நிலையைத் தவறாக மதிப்பிட்டீர்கள்",
+"Check tread, sidewalls and pressure on every tire before the van moves.": "வேன் நகரும் முன் ஒவ்வொரு டயரின் ட்ரெட், பக்கச்சுவர், காற்றழுத்தத்தைச் சரிபாருங்கள்.",
+"Assessed the lights correctly": "விளக்குகளைச் சரியாக மதிப்பிட்டீர்கள்",
+"Misjudged the condition of the lights": "விளக்குகளின் நிலையைத் தவறாக மதிப்பிட்டீர்கள்",
+"Walk round and check every light works, including brake lights and signals.": "வேனைச் சுற்றி நடந்து, பிரேக் விளக்குகள், சிக்னல்கள் உட்பட ஒவ்வொரு விளக்கும் எரிகிறதா எனப் பாருங்கள்.",
+"Left the depot without finishing the pre-trip inspection": "பயணத்துக்கு முந்தைய சோதனையை முடிக்காமல் டிப்போவை விட்டுச் சென்றீர்கள்",
+"A van with a fault you have not found is a danger to you and everyone on the road.": "நீங்கள் கண்டுபிடிக்காத கோளாறு உள்ள வேன் உங்களுக்கும் சாலையில் உள்ள அனைவருக்கும் ஆபத்து.",
+"Scanned the package at load-out": "ஏற்றும்போது பார்சலை ஸ்கேன் செய்தீர்கள்",
+"Loaded a package without scanning it": "பார்சலை ஸ்கேன் செய்யாமல் ஏற்றினீர்கள்",
+"Scan every package as you load it: a missed scan is a package the system thinks is still at the depot.": "ஒவ்வொரு பார்சலையும் ஏற்றும்போதே ஸ்கேன் செய்யுங்கள்: ஸ்கேன் தவறினால் அது இன்னும் டிப்போவில் இருப்பதாகவே அமைப்பு நினைக்கும்.",
+"Loaded the package on its shelf in stop order": "பார்சலை நிறுத்த வரிசைப்படி அதன் அலமாரியில் ஏற்றினீர்கள்",
+"Loaded a package on the wrong shelf": "பார்சலைத் தவறான அலமாரியில் ஏற்றினீர்கள்",
+"Load in stop order so each package is where you expect it. A bad load costs time at every stop.": "நிறுத்த வரிசைப்படி ஏற்றுங்கள்; அப்போது ஒவ்வொரு பார்சலும் நீங்கள் எதிர்பார்க்கும் இடத்தில் இருக்கும். மோசமான ஏற்றம் ஒவ்வொரு நிறுத்தத்திலும் நேரத்தை வீணாக்கும்.",
+"Secured the load before driving": "ஓட்டும் முன் சுமையைப் பாதுகாப்பாகக் கட்டினீர்கள்",
+"Drove with an unsecured load": "சுமையைக் கட்டாமல் ஓட்டினீர்கள்",
+"An unsecured load shifts under braking: it damages packages and can injure you when you open the doors.": "கட்டப்படாத சுமை பிரேக் போடும்போது நகரும்: பார்சல்கள் சேதமடையும், கதவுகளைத் திறக்கும்போது உங்களுக்கும் காயம் ஏற்படலாம்.",
+"Moved the van without a seatbelt": "சீட்பெல்ட் இல்லாமல் வேனை நகர்த்தினீர்கள்",
+"Belt on before the van moves, every time, even for a few yards between stops.": "வேன் நகரும் முன் ஒவ்வொரு முறையும் பெல்ட் அணியுங்கள்; நிறுத்தங்களுக்கு இடையே சில கெஜம் என்றாலும் சரி.",
+"Exceeded the speed limit": "வேக வரம்பை மீறினீர்கள்",
+"Residential limits are low for a reason: children, pets and parked cars.": "குடியிருப்புப் பகுதி வேக வரம்புகள் குறைவாக இருப்பதற்குக் காரணம் உண்டு: குழந்தைகள், செல்லப்பிராணிகள், நிறுத்திய கார்கள்.",
+"Drove onto the sidewalk": "நடைபாதையில் ஏறி ஓட்டினீர்கள்",
+"Stay on the road. Take a corner wider and slower rather than clip the curb.": "சாலையிலேயே இருங்கள். கர்பில் உரசுவதை விட, திருப்பத்தை அகலமாகவும் மெதுவாகவும் எடுங்கள்.",
+"Drove on the wrong side of the road": "சாலையின் தவறான பக்கத்தில் ஓட்டினீர்கள்",
+"Keep to your side, even on a quiet street: the car you cannot see yet is coming.": "அமைதியான தெருவிலும் உங்கள் பக்கத்திலேயே ஓட்டுங்கள்: இன்னும் உங்களுக்குத் தெரியாத கார் வந்துகொண்டிருக்கிறது.",
+"Came to a full stop at the stop line": "நிறுத்தக் கோட்டில் முழுமையாக நின்றீர்கள்",
+"A full stop behind the line, then look both ways before you go.": "கோட்டுக்குப் பின்னால் முழுமையாக நில்லுங்கள், பிறகு செல்லும் முன் இரு பக்கமும் பாருங்கள்.",
+"Slowed early for a developing hazard": "உருவாகும் ஆபத்துக்காக முன்கூட்டியே வேகத்தைக் குறைத்தீர்கள்",
+"Reacted late to a developing hazard": "உருவாகும் ஆபத்துக்குத் தாமதமாகச் செயல்பட்டீர்கள்",
+"Look well ahead. Ease off as soon as a hazard starts to develop, not when it is in front of you.": "வெகு தொலைவு முன்னே பாருங்கள். ஆபத்து உருவாகத் தொடங்கியவுடனே வேகத்தைக் குறையுங்கள், அது உங்கள் முன் வந்த பிறகு அல்ல.",
+"Conflict with a pedestrian": "பாதசாரியுடன் மோதல் நிலை ஏற்பட்டது",
+"Never assume a pedestrian has seen you. Slow down, cover the brake and give way.": "பாதசாரி உங்களைப் பார்த்துவிட்டார் என ஒருபோதும் நினைக்காதீர்கள். வேகத்தைக் குறைத்து, பிரேக்கில் கால் வைத்து, வழிவிடுங்கள்.",
+"The van hit something": "வேன் எதன் மீதோ மோதியது",
+"Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.": "எந்தத் தொடுதலும் ஒரு சம்பவமே: நின்று, சரிபார்த்து, புகாரளியுங்கள். தடைகளுக்கு அருகில் வேகத்தைக் குறைத்து கண்ணாடிகளைப் பயன்படுத்துங்கள்.",
+"Used the handheld before parking safely": "பாதுகாப்பாக நிறுத்தும் முன் ஹேண்ட்ஹெல்டைப் பயன்படுத்தினீர்கள்",
+"Park, set the brake, then pick up the scanner. Never at the wheel and never at a light.": "வேனை நிறுத்தி, பிரேக் போட்டு, பிறகு ஸ்கேனரை எடுங்கள். ஸ்டியரிங்கில் இருக்கும்போதோ சிக்னலில் நிற்கும்போதோ ஒருபோதும் வேண்டாம்.",
+"Scanned the package at the stop before delivering": "டெலிவரி செய்யும் முன் நிறுத்தத்தில் பார்சலை ஸ்கேன் செய்தீர்கள்",
+"Completed a stop without scanning the package": "பார்சலை ஸ்கேன் செய்யாமல் நிறுத்தத்தை முடித்தீர்கள்",
+"Scan at the door: it confirms the right package, the right address and the delivery time.": "கதவருகே ஸ்கேன் செய்யுங்கள்: சரியான பார்சல், சரியான முகவரி, டெலிவரி நேரம் ஆகியவற்றை அது உறுதிப்படுத்தும்.",
+"Caught a package for a different stop": "வேறு நிறுத்தத்துக்கான பார்சலைக் கண்டுபிடித்தீர்கள்",
+"Tried to deliver the wrong package": "தவறான பார்சலை டெலிவரி செய்ய முயன்றீர்கள்",
+"Check the address on the label against the house number every time.": "ஒவ்வொரு முறையும் லேபிளில் உள்ள முகவரியை வீட்டு எண்ணுடன் ஒப்பிட்டுப் பாருங்கள்.",
+"Recorded a handover with nobody there": "யாரும் இல்லாதபோது ஒப்படைப்பைப் பதிவு செய்தீர்கள்",
+"Only record a handover when you hand it to a person. Otherwise follow the safe-place or attempt rules.": "ஒருவரிடம் கொடுக்கும்போது மட்டுமே ஒப்படைப்பைப் பதிவு செய்யுங்கள். இல்லையெனில் பாதுகாப்பான இடம் அல்லது முயற்சி விதிகளைப் பின்பற்றுங்கள்.",
+"Chose the right delivery outcome": "சரியான டெலிவரி முடிவைத் தேர்ந்தெடுத்தீர்கள்",
+"Chose the wrong delivery outcome": "தவறான டெலிவரி முடிவைத் தேர்ந்தெடுத்தீர்கள்",
+"Signature, safe place or attempt: the package's service and who is at the door decide which.": "கையொப்பம், பாதுகாப்பான இடம் அல்லது முயற்சி: பார்சலின் சேவையும் கதவருகே யார் இருக்கிறார்கள் என்பதும் எது என்பதை முடிவு செய்யும்.",
+"Checked the label before taking a package from the shelf": "அலமாரியிலிருந்து பார்சலை எடுக்கும் முன் லேபிளைச் சரிபார்த்தீர்கள்",
+"Took a package from the shelf without checking it": "சரிபார்க்காமல் அலமாரியிலிருந்து பார்சலை எடுத்தீர்கள்",
+"Check the label as you pick: the wrong package found at the door is a second trip.": "எடுக்கும்போதே லேபிளைச் சரிபாருங்கள்: கதவருகே தவறான பார்சல் என்று தெரிந்தால் இரண்டாவது முறை செல்ல வேண்டும்.",
+"Scanned the undelivered package back in at the depot": "டெலிவரி ஆகாத பார்சலை டிப்போவில் மீண்டும் ஸ்கேன் செய்து உள்ளே சேர்த்தீர்கள்",
+"Left an undelivered package unscanned": "டெலிவரி ஆகாத பார்சலை ஸ்கேன் செய்யாமல் விட்டீர்கள்",
+"Every package that comes back must be scanned in, or it is lost as far as the system knows.": "திரும்பி வரும் ஒவ்வொரு பார்சலும் ஸ்கேன் செய்து உள்ளே சேர்க்கப்பட வேண்டும்; இல்லையெனில் அமைப்பின் பார்வையில் அது காணாமல் போனது.",
+"Delivery complete — press N to restart": "டெலிவரி முடிந்தது — மீண்டும் தொடங்க N அழுத்தவும்",
+"Inspect and scan the package on the table": "மேசையில் உள்ள பார்சலைச் சோதித்து ஸ்கேன் செய்யுங்கள்",
+"Pick up the scanned package": "ஸ்கேன் செய்த பார்சலை எடுங்கள்",
+"Take the package to the front door": "பார்சலை முன் கதவுக்குக் கொண்டு செல்லுங்கள்",
+"Load the package through the rear of the van": "வேனின் பின்புறம் வழியாகப் பார்சலை ஏற்றுங்கள்",
+"Exit and retrieve the package from the rear": "வெளியே இறங்கி பின்புறத்திலிருந்து பார்சலை எடுங்கள்",
+"Drive to the orange delivery bay and park": "ஆரஞ்சு நிற டெலிவரி பேக்குச் சென்று வேனை நிறுத்துங்கள்",
+"Tried to use the handheld before parking safely.": "பாதுகாப்பாக நிறுத்தும் முன் ஹேண்ட்ஹெல்டைப் பயன்படுத்த முயன்றீர்கள்.",
+"Stop and set the parking brake before using the handheld.": "ஹேண்ட்ஹெல்டைப் பயன்படுத்தும் முன் நின்று பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
+"Retrieve the parcel from its cargo shelf.": "சரக்கு அலமாரியிலிருந்து பார்சலை எடுங்கள்.",
+"Stop details": "நிறுத்த விவரங்கள்",
+"TAB put away": "TAB வைத்துவிடு",
+"Choose a stop to see its requirements and recorded shelf.": "ஒரு நிறுத்தத்தைத் தேர்ந்தெடுத்தால் அதன் தேவைகளையும் பதிவான அலமாரியையும் காணலாம்.",
+"Left in porch box": "போர்ச் பெட்டியில் வைக்கப்பட்டது",
+"Recipient absent": "பெறுநர் இல்லை",
+"Scanned at this stop": "இந்த நிறுத்தத்தில் ஸ்கேன் செய்யப்பட்டது",
+"Delivery scan required": "டெலிவரி ஸ்கேன் தேவை",
+"Record delivery / exception": "டெலிவரி / விதிவிலக்கைப் பதிவு செய்",
+"Set as next stop": "அடுத்த நிறுத்தமாக அமை",
+"Step out of the cab and find the physical parcel first.": "முதலில் கேபினிலிருந்து இறங்கி, உண்மையான பார்சலைக் கண்டுபிடியுங்கள்.",
+"Aim at the barcode on the parcel.": "பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.",
+"Hold Space or the left mouse button until the scan completes.": "ஸ்கேன் முடியும் வரை Space அல்லது இடது மவுஸ் பொத்தானை அழுத்திப் பிடியுங்கள்.",
+"Approach the delivery point with the parcel first.": "முதலில் பார்சலுடன் டெலிவரி இடத்தை அணுகுங்கள்.",
+"Retrieve and scan the physical parcel at this stop before recording a delivery.": "டெலிவரியைப் பதிவு செய்யும் முன் இந்த நிறுத்தத்தில் உண்மையான பார்சலை எடுத்து ஸ்கேன் செய்யுங்கள்.",
+"Leave in porch box": "போர்ச் பெட்டியில் வையுங்கள்",
+"Read the morning brief and route manifest at Dispatch.": "டிஸ்பாட்சில் காலை விளக்கத்தையும் வழித்தட மேனிஃபெஸ்ட்டையும் படியுங்கள்.",
+"Move close to the parcel and face its label.": "பார்சலுக்கு அருகில் சென்று அதன் லேபிளை நோக்கி நில்லுங்கள்.",
+"Scanner identified a parcel for a different stop.": "ஸ்கேனர் வேறு நிறுத்தத்துக்கான பார்சலை அடையாளம் கண்டது.",
+"This parcel is for a different stop. Check the address before carrying it out.": "இந்தப் பார்சல் வேறு நிறுத்தத்துக்கானது. வெளியே கொண்டு செல்லும் முன் முகவரியைச் சரிபாருங்கள்.",
+"Signature required": "கையொப்பம் தேவை",
+"Leave in the porch box if nobody answers": "யாரும் பதிலளிக்கவில்லை என்றால் போர்ச் பெட்டியில் வையுங்கள்",
+"Hand to the resident": "குடியிருப்பாளரிடம் கொடுங்கள்",
+"Put down the parcel you are carrying first.": "முதலில் நீங்கள் சுமந்துள்ள பார்சலைக் கீழே வையுங்கள்.",
+"Retrieved the requested parcel after checking its label.": "லேபிளைச் சரிபார்த்த பிறகு கேட்கப்பட்ட பார்சலை எடுத்தீர்கள்.",
+"Retrieved the requested parcel without scanning it.": "கேட்கப்பட்ட பார்சலை ஸ்கேன் செய்யாமல் எடுத்தீர்கள்.",
+"Open the cargo doors and move close to a shelf.": "சரக்குக் கதவுகளைத் திறந்து அலமாரிக்கு அருகில் செல்லுங்கள்.",
+"That shelf position is occupied.": "அந்த அலமாரி இடம் நிரம்பியுள்ளது.",
+"Return to the parcel table or choose an empty cargo shelf.": "பார்சல் மேசைக்குத் திரும்புங்கள் அல்லது காலியான சரக்கு அலமாரியைத் தேர்ந்தெடுங்கள்.",
+"Move close to the inspection point.": "சோதனை இடத்துக்கு அருகில் செல்லுங்கள்.",
+"Correctly assessed the tires.": "டயர்களைச் சரியாக மதிப்பிட்டீர்கள்.",
+"Recheck the condition of the tires.": "டயர்களின் நிலையை மீண்டும் சரிபாருங்கள்.",
+"Correctly assessed the lights.": "விளக்குகளைச் சரியாக மதிப்பிட்டீர்கள்.",
+"Recheck the condition of the lights.": "விளக்குகளின் நிலையை மீண்டும் சரிபாருங்கள்.",
+"Dispatch arranged the repair. The vehicle is now serviceable.": "டிஸ்பாட்ச் பழுது பார்க்க ஏற்பாடு செய்தது. வாகனம் இப்போது பயன்படுத்தத் தகுந்தது.",
+"Inspection recorded.": "சோதனை பதிவு செய்யப்பட்டது.",
+"Inspection recorded. Review the condition before departure.": "சோதனை பதிவு செய்யப்பட்டது. புறப்படும் முன் நிலையை மீண்டும் பாருங்கள்.",
+"Stop and secure the van before opening cargo.": "சரக்கைத் திறக்கும் முன் வேனை நிறுத்திப் பாதுகாப்பாக்குங்கள்.",
+"Step outside before closing the cargo doors.": "சரக்குக் கதவுகளை மூடும் முன் வெளியே வாருங்கள்.",
+"Place the parcel and move to the cargo restraints.": "பார்சலை வைத்துவிட்டு சரக்குக் கட்டுகளிடம் செல்லுங்கள்.",
+"Load secured.": "சுமை பாதுகாப்பாகக் கட்டப்பட்டது.",
+"This lesson covers loading and retrieval. Driving is available in the workday.": "இந்தப் பாடம் ஏற்றுதலையும் எடுத்தலையும் பற்றியது. ஓட்டுதல் வேலைநாளில் உள்ளது.",
+"Read the morning brief and manifest at Dispatch before entering the cab.": "கேபினுக்குள் நுழையும் முன் டிஸ்பாட்சில் காலை விளக்கத்தையும் மேனிஃபெஸ்ட்டையும் படியுங்கள்.",
+"Place the parcel before entering the cab.": "கேபினுக்குள் நுழையும் முன் பார்சலை வையுங்கள்.",
+"Close the cargo doors before entering the cab.": "கேபினுக்குள் நுழையும் முன் சரக்குக் கதவுகளை மூடுங்கள்.",
+"Approach the correct delivery point.": "சரியான டெலிவரி இடத்தை அணுகுங்கள்.",
+"The resident answers and confirms the address.": "குடியிருப்பாளர் பதிலளித்து முகவரியை உறுதிப்படுத்துகிறார்.",
+"Nobody answers the door.": "கதவுக்கு யாரும் பதிலளிக்கவில்லை.",
+"Choose a delivery outcome.": "டெலிவரி முடிவைத் தேர்ந்தெடுங்கள்.",
+"Approach an unfinished delivery point.": "முடியாத டெலிவரி இடத்தை அணுகுங்கள்.",
+"Retrieve the parcel from the van first.": "முதலில் வேனிலிருந்து பார்சலை எடுங்கள்.",
+"Attempted a delivery with the wrong parcel.": "தவறான பார்சலுடன் டெலிவரிக்கு முயன்றீர்கள்.",
+"The address does not match. Return this parcel to the van and retrieve the correct one.": "முகவரி பொருந்தவில்லை. இந்தப் பார்சலை வேனுக்குத் திருப்பி வைத்து, சரியானதை எடுங்கள்.",
+"Prepare and load this parcel at the depot first.": "முதலில் டிப்போவில் இந்தப் பார்சலைத் தயார் செய்து ஏற்றுங்கள்.",
+"Attempt contact before recording the outcome.": "முடிவைப் பதிவு செய்யும் முன் தொடர்பு கொள்ள முயலுங்கள்.",
+"Scan this parcel at the delivery stop before recording the outcome.": "முடிவைப் பதிவு செய்யும் முன் டெலிவரி நிறுத்தத்தில் இந்தப் பார்சலை ஸ்கேன் செய்யுங்கள்.",
+"Tried to record a handover with no recipient present.": "பெறுநர் இல்லாதபோது ஒப்படைப்பைப் பதிவு செய்ய முயன்றீர்கள்.",
+"Nobody is present to receive the parcel. Choose an outcome that matches the situation.": "பார்சலைப் பெற யாரும் இல்லை. நிலைமைக்குப் பொருந்தும் முடிவைத் தேர்ந்தெடுங்கள்.",
+"Completed a stop without scanning the parcel.": "பார்சலை ஸ்கேன் செய்யாமல் நிறுத்தத்தை முடித்தீர்கள்.",
+"Retained the signature parcel when the recipient was absent.": "பெறுநர் இல்லாதபோது கையொப்பம் தேவைப்படும் பார்சலை வைத்திருந்தீர்கள்.",
+"Delivery recorded.": "டெலிவரி பதிவு செய்யப்பட்டது.",
+"Outcome recorded. Review this decision in the debrief.": "முடிவு பதிவு செய்யப்பட்டது. இந்த முடிவை மறுஆய்வில் பாருங்கள்.",
+"Bring an undelivered parcel to the returns desk.": "டெலிவரி ஆகாத பார்சலை திருப்பல் மேசைக்குக் கொண்டு வாருங்கள்.",
+"Scanned the undelivered parcel back into the depot.": "டெலிவரி ஆகாத பார்சலை டிப்போவில் மீண்டும் ஸ்கேன் செய்து சேர்த்தீர்கள்.",
+"Return recorded.": "திருப்பல் பதிவு செய்யப்பட்டது.",
+"Return to the dispatch desk.": "டிஸ்பாட்ச் மேசைக்குத் திரும்புங்கள்.",
+"Retrieve the requested parcel, put it back and secure the load before finishing.": "முடிக்கும் முன் கேட்கப்பட்ட பார்சலை எடுத்து, மீண்டும் வைத்து, சுமையைப் பாதுகாப்பாகக் கட்டுங்கள்.",
+"Complete the remaining delivery stops first.": "முதலில் மீதமுள்ள டெலிவரி நிறுத்தங்களை முடியுங்கள்.",
+"Bring retained parcels to the returns desk first.": "முதலில் வைத்திருக்கும் பார்சல்களை திருப்பல் மேசைக்குக் கொண்டு வாருங்கள்.",
+"Return the van to the depot and set the parking brake.": "வேனை டிப்போவுக்குத் திருப்பி, பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
+"Completed the tire check before departure.": "புறப்படும் முன் டயர் சோதனையை முடித்தீர்கள்.",
+"Departed without a correct tire check.": "சரியான டயர் சோதனை இல்லாமல் புறப்பட்டீர்கள்.",
+"Completed the lights check before departure.": "புறப்படும் முன் விளக்குச் சோதனையை முடித்தீர்கள்.",
+"Departed without a correct lights check.": "சரியான விளக்குச் சோதனை இல்லாமல் புறப்பட்டீர்கள்.",
+"Secured the load before departure.": "புறப்படும் முன் சுமையைப் பாதுகாப்பாகக் கட்டினீர்கள்.",
+"Departed with an unsecured load.": "சுமையைக் கட்டாமல் புறப்பட்டீர்கள்.",
+"A parcel was unscanned or left at the depot.": "ஒரு பார்சல் ஸ்கேன் செய்யப்படவில்லை அல்லது டிப்போவில் விடப்பட்டது.",
+"Moved the van without fastening the seatbelt.": "சீட்பெல்ட் அணியாமல் வேனை நகர்த்தினீர்கள்.",
+"Moved the van before securing the load.": "சுமையைக் கட்டும் முன் வேனை நகர்த்தினீர்கள்.",
+"Exceeded the posted 15 mph limit.": "அறிவிக்கப்பட்ட 15 mph வரம்பை மீறினீர்கள்.",
+"Drove onto the sidewalk beside the road.": "சாலையோர நடைபாதையில் ஏறி ஓட்டினீர்கள்.",
+"Travelled on the wrong side of the road.": "சாலையின் தவறான பக்கத்தில் பயணித்தீர்கள்.",
+"Pulled into the path of approaching traffic.": "எதிரே வரும் வாகனங்களின் பாதையில் புகுந்தீர்கள்.",
+"Pulled away without signaling left.": "இடது சிக்னல் போடாமல் புறப்பட்டீர்கள்.",
+"Pulled away without a recent mirror check.": "சமீபத்தில் கண்ணாடியைப் பார்க்காமல் புறப்பட்டீர்கள்.",
+"Checked, signaled and waited for a clear gap.": "சரிபார்த்து, சிக்னல் போட்டு, தெளிவான இடைவெளிக்காகக் காத்திருந்தீர்கள்.",
+"Stopped before the junction line.": "சந்திப்புக் கோட்டுக்கு முன் நின்றீர்கள்.",
+"Passed the junction stop line without stopping.": "நிற்காமல் சந்திப்பு நிறுத்தக் கோட்டைக் கடந்தீர்கள்.",
+"Contact with traffic: stop and review the manoeuvre.": "வாகனங்களுடன் தொடர்பு ஏற்பட்டது: நின்று, செய்த நகர்வை மறுஆய்வு செய்யுங்கள்.",
+"The van contacted an obstacle.": "வேன் ஒரு தடையின் மீது உரசியது.",
+"Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.": "பாதசாரியுடன் மோதல் நிலை: வாகனம் நிறுத்தப்பட்டது. அணுகுமுறையையும் வழிவிடுதலையும் மறுஆய்வு செய்யுங்கள்.",
+"Reduced speed early for the developing crossing hazard.": "உருவாகும் கடவு ஆபத்துக்காக முன்கூட்டியே வேகத்தைக் குறைத்தீர்கள்.",
+"Passed the crossing without an early speed reduction.": "முன்கூட்டியே வேகத்தைக் குறைக்காமல் கடவைக் கடந்தீர்கள்.",
+"Missing field": "விடுபட்ட புலம்",
+"Cargo practice": "சரக்குப் பயிற்சி",
+"Last debrief": "கடைசி மறுஆய்வு",
+"Forgot your password? A trainer can reset it.": "கடவுச்சொல்லை மறந்துவிட்டீர்களா? பயிற்சியாளர் அதை மீட்டமைக்க முடியும்.",
+"That employee ID and password don't match.": "அந்த ஊழியர் ஐடியும் கடவுச்சொல்லும் பொருந்தவில்லை.",
+"Too many wrong tries. Try again later, or ask a trainer to reset your password.": "பல முறை தவறாக முயன்றீர்கள். பின்னர் மீண்டும் முயலுங்கள் அல்லது கடவுச்சொல்லை மீட்டமைக்கப் பயிற்சியாளரிடம் கேளுங்கள்.",
+"Too many wrong tries from this computer. Wait a minute, then try again.": "இந்தக் கணினியிலிருந்து பல தவறான முயற்சிகள். ஒரு நிமிடம் காத்திருந்து மீண்டும் முயலுங்கள்.",
+"The training server is busy. Try again in a moment.": "பயிற்சி சர்வர் பிஸியாக உள்ளது. சிறிது நேரம் கழித்து மீண்டும் முயலுங்கள்.",
+"That password is too long.": "அந்தக் கடவுச்சொல் மிக நீளமாக உள்ளது.",
+"Choose a new password, not the one your trainer gave you.": "புதிய கடவுச்சொல்லைத் தேர்ந்தெடுங்கள், பயிற்சியாளர் கொடுத்ததை அல்ல.",
+"Your sign-in has expired. Sign in again.": "உங்கள் உள்நுழைவு காலாவதியாகிவிட்டது. மீண்டும் உள்நுழையுங்கள்.",
+"Your password is already being changed. Try again in a moment.": "உங்கள் கடவுச்சொல் ஏற்கெனவே மாற்றப்படுகிறது. சிறிது நேரம் கழித்து மீண்டும் முயலுங்கள்.",
+"Sign in with your employee ID and password to keep your training progress.": "பயிற்சி முன்னேற்றத்தைச் சேமிக்க ஊழியர் ஐடி மற்றும் கடவுச்சொல்லுடன் உள்நுழையுங்கள்.",
+"Type your employee ID.": "உங்கள் ஊழியர் ஐடியை உள்ளிடுங்கள்.",
+"Type your password.": "உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள்.",
+"Choose your password": "உங்கள் கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்",
+"You signed in with a temporary password. Choose your own: at least 8 characters, that only you know.": "தற்காலிகக் கடவுச்சொல்லுடன் உள்நுழைந்தீர்கள். உங்களுக்கு மட்டுமே தெரிந்த, குறைந்தது 8 எழுத்துகள் கொண்ட சொந்தக் கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்.",
+"Save and continue": "சேமித்துத் தொடர்",
+"The two passwords don't match.": "இரண்டு கடவுச்சொற்களும் பொருந்தவில்லை.",
+"This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "இந்த உலாவி உள்நுழைவைச் சேமிக்கவில்லை. இந்தத் தளத்துக்குக் குக்கீகளை அனுமதித்து மீண்டும் உள்நுழையுங்கள்.",
+"Not that character": "அந்த எழுத்து அல்ல",
+"The 3D workday isn't available yet.": "3D வேலைநாள் இன்னும் கிடைக்கவில்லை.",
+"Nothing was recorded on this workday.": "இந்த வேலைநாளில் எதுவும் பதிவாகவில்லை.",
+"Your workday": "உங்கள் வேலைநாள்",
+"Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "சதுரம்: டிப்போ · வட்டங்கள்: உங்கள் நிறுத்தங்கள் (பச்சை = டெலிவரி ஆனது) · எண்ணிட்ட பின்கள்: ஒவ்வொரு தவறும் நடந்த இடம்",
+"Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.": "வேலைநாளைத் தொடங்க டிஸ்பாட்சுக்கு நடந்து செல்லுங்கள், அல்லது குறிப்பிட்ட பாடத்துக்கு சரக்குப் பயிற்சியைத் தேர்ந்தெடுங்கள்.\n\nWASD மூலம் நகருங்கள், மவுஸால் சுற்றிப் பாருங்கள், செயல்பட E அழுத்துங்கள். H அதே தேர்வுகளை மெனுவாகத் திறக்கும். உங்கள் முன்மாதிரி முன்னேற்றம் இந்தச் சாதனத்தில் சேமிக்கப்படுகிறது.",
+"Enter the hub": "மையத்துக்குள் நுழையுங்கள்",
+"The prototype could not start": "முன்மாதிரியைத் தொடங்க முடியவில்லை",
+"WebGL is required. Reload to try again.": "WebGL தேவை. மீண்டும் முயல மறுஏற்றம் செய்யுங்கள்.",
+"first-person prototype": "முதல்-நபர் பார்வை முன்மாதிரி",
+"Left mirror": "இடது கண்ணாடி",
+"Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.": "மூன்று பார்சல்களை ஸ்கேன் செய்து, நீங்கள் தேர்ந்தெடுக்கும் இடங்களில் ஏற்றுங்கள். பிறகு கேட்கப்பட்ட பார்சலை எடுத்து, மீண்டும் வைத்து, சுமையைப் பாதுகாப்பாகக் கட்டுங்கள். முடிக்க டிஸ்பாட்சுக்குத் திரும்புங்கள்.",
+"\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.": "\n\nடயர்களையும் விளக்குகளையும் சரிபாருங்கள், பார்சல்களை ஸ்கேன் செய்யுங்கள், சுமையைப் பாதுகாப்பாகக் கட்டுங்கள். ஒவ்வொரு நிறுத்தத்திலும் டெலிவரி செய்யுங்கள், வைத்திருக்கும் பார்சல்களைத் திருப்பலில் சேர்த்து, பிறகு டிஸ்பாட்சில் பதிவு செய்யுங்கள்.",
+"Resume your shift": "உங்கள் பணிநேரத்தைத் தொடருங்கள்",
+"Walk to Dispatch and read the morning brief, then the route manifest.": "டிஸ்பாட்சுக்கு நடந்து சென்று காலை விளக்கத்தையும், பிறகு வழித்தட மேனிஃபெஸ்ட்டையும் படியுங்கள்.",
+"Begin preparation": "தயாரிப்பைத் தொடங்கு",
+"Resume workday": "வேலைநாளைத் தொடர்",
+"Start workday": "வேலைநாளைத் தொடங்கு",
+"Resume cargo practice": "சரக்குப் பயிற்சியைத் தொடர்",
+"Main game": "முதன்மை விளையாட்டு",
+"Your training hub": "உங்கள் பயிற்சி மையம்",
+"Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.": "ஒரு நிலையத்துக்கு நடந்து, அதை நோக்கிக் குறிவைத்து E அழுத்துங்கள். கீழேயும் தேர்ந்தெடுக்கலாம்.\nமவுஸைப் பிடிக்க கிளிக் செய்யுங்கள், அல்லது இடது பொத்தானை அழுத்திப் பிடித்து இழுத்துப் பாருங்கள்.",
+"High graphics": "உயர் வரைகலை",
+"Slower mouse look": "மெதுவான மவுஸ் பார்வை",
+"Faster mouse look": "வேகமான மவுஸ் பார்வை",
+"Driving is outside this cargo lesson.": "ஓட்டுதல் இந்தச் சரக்குப் பாடத்தில் இல்லை.",
+"All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.": "அனைத்து நிறுத்தங்களுக்கும் முடிவு பதிவாகிவிட்டது. தெற்கே டிப்போவுக்குத் திரும்புங்கள். வைத்திருக்கும் பார்சல்களைத் திருப்பலில் சேர்த்து, பிறகு டிஸ்பாட்சில் பதிவு செய்யுங்கள்.",
+"Parcel label": "பார்சல் லேபிள்",
+"A bulge is visible in the tire sidewall.": "டயரின் பக்கச்சுவரில் வீக்கம் தெரிகிறது.",
+"The tire sidewalls are intact and the tread is visible.": "டயர் பக்கச்சுவர்கள் சேதமின்றி உள்ளன, ட்ரெட் தெளிவாகத் தெரிகிறது.",
+"The left headlamp does not illuminate during the light test.": "விளக்குச் சோதனையில் இடது ஹெட்லேம்ப் எரியவில்லை.",
+"Both headlamps illuminate during the light test.": "விளக்குச் சோதனையில் இரு ஹெட்லேம்ப்களும் எரிகின்றன.",
+"Tire inspection": "டயர் சோதனை",
+"Light test": "விளக்குச் சோதனை",
+"Mark serviceable": "பயன்படுத்தத் தகுந்தது எனக் குறி",
+"Request repair": "பழுது பார்க்கக் கோரு",
+"This stop already has a recorded outcome.": "இந்த நிறுத்தத்துக்கு ஏற்கெனவே முடிவு பதிவாகிவிட்டது.",
+"The resident confirms the address.": "குடியிருப்பாளர் முகவரியை உறுதிப்படுத்துகிறார்.",
+"Nobody answers.": "யாரும் பதிலளிக்கவில்லை.",
+"Attempt contact, then follow the shipment requirements.": "தொடர்பு கொள்ள முயன்று, பிறகு ஷிப்மென்ட் தேவைகளைப் பின்பற்றுங்கள்.",
+"View answers": "பதில்களைக் காண்",
+"Choose this answer": "இந்தப் பதிலைத் தேர்ந்தெடு",
+"Next answer": "அடுத்த பதில்",
+"Read question": "கேள்வியைப் படி",
+"Route manifest": "வழித்தட மேனிஃபெஸ்ட்",
+"Finish practice": "பயிற்சியை முடி",
+"Finish workday": "வேலைநாளை முடி",
+"View manifest": "மேனிஃபெஸ்ட்டைக் காண்",
+"Complete a workday or a cargo lesson to see its results.": "முடிவுகளைக் காண வேலைநாள் அல்லது சரக்குப் பாடத்தை முடியுங்கள்.",
+"Practice debrief": "பயிற்சி மறுஆய்வு",
+"Workday debrief": "வேலைநாள் மறுஆய்வு",
+"Stop and set the parking brake before exiting.": "வெளியேறும் முன் நின்று பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
+"Stop before selecting drive or reverse.": "டிரைவ் அல்லது ரிவர்ஸைத் தேர்ந்தெடுக்கும் முன் நில்லுங்கள்.",
+"Choose a workday or a focused cargo lesson.": "வேலைநாளையோ குறிப்பிட்ட சரக்குப் பாடத்தையோ தேர்ந்தெடுங்கள்.",
+"Scan and place all three parcels in the van. Choose your shelf positions.": "மூன்று பார்சல்களையும் ஸ்கேன் செய்து வேனில் வையுங்கள். அலமாரி இடங்களை நீங்களே தேர்ந்தெடுங்கள்.",
+"Replace the parcel, secure the load, then finish at Dispatch.": "பார்சலை மீண்டும் வைத்து, சுமையைப் பாதுகாப்பாகக் கட்டி, பிறகு டிஸ்பாட்சில் முடியுங்கள்.",
+"Walk to Dispatch to read the morning brief and route manifest.": "காலை விளக்கத்தையும் வழித்தட மேனிஃபெஸ்ட்டையும் படிக்க டிஸ்பாட்சுக்கு நடந்து செல்லுங்கள்.",
+"Check tires and lights, scan and load three parcels, then secure the load and close cargo.": "டயர்களையும் விளக்குகளையும் சரிபாருங்கள், மூன்று பார்சல்களை ஸ்கேன் செய்து ஏற்றுங்கள், பிறகு சுமையைக் கட்டி சரக்கை மூடுங்கள்.",
+"Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "தெற்கே டிப்போவுக்குத் திரும்புங்கள். வைத்திருக்கும் பார்சல்களைத் திருப்பலில் ஸ்கேன் செய்து, பிறகு டிஸ்பாட்சில் முடியுங்கள்.",
+"Brake off": "பிரேக் விடுபட்டது",
+"Saved on this device": "இந்தச் சாதனத்தில் சேமிக்கப்பட்டது",
+"Saving unavailable — keep this window open": "சேமிக்க இயலவில்லை — இந்தச் சாளரத்தைத் திறந்தே வையுங்கள்",
+"Mouse looks": "மவுஸ் பார்வை",
+"Drag to look without mouse capture": "மவுஸைப் பிடிக்காமல் இழுத்துப் பார்க்கலாம்",
+"Mouse aim": "மவுஸ் குறி",
+"Click or use number keys · Backspace goes back": "கிளிக் செய்யுங்கள் அல்லது எண் விசைகளைப் பயன்படுத்துங்கள் · Backspace பின்செல்லும்",
+"E resume workday": "E வேலைநாளைத் தொடர்",
+"E start workday": "E வேலைநாளைத் தொடங்கு",
+"E cargo practice": "E சரக்குப் பயிற்சி",
+"E last debrief": "E கடைசி மறுஆய்வு",
+"H opens the hub menu": "H மைய மெனுவைத் திறக்கும்",
+"Set your belt, check the mirror and release the parking brake.": "பெல்ட்டை அணிந்து, கண்ணாடியைப் பார்த்து, பார்க்கிங் பிரேக்கை விடுவியுங்கள்.",
+"15 mph limit · Keep right · Stop at the junction line": "15 mph வரம்பு · வலது பக்கம் செல்லுங்கள் · சந்திப்புக் கோட்டில் நில்லுங்கள்",
+"E enter cab": "E கேபினுக்குள் நுழை",
+"E close cargo doors": "E சரக்குக் கதவுகளை மூடு",
+"E open cargo doors": "E சரக்குக் கதவுகளைத் திற",
+"E secure the load": "E சுமையைக் கட்டு",
+"E inspect tires": "E டயர்களைச் சோதி",
+"E inspect lights": "E விளக்குகளைச் சோதி",
+" · E place the parcel": " · E பார்சலை வை",
+" · E attempt delivery": " · E டெலிவரிக்கு முயல்",
+"Choose an empty cargo shelf, or approach the correct delivery point.": "காலியான சரக்கு அலமாரியைத் தேர்ந்தெடுங்கள், அல்லது சரியான டெலிவரி இடத்தை அணுகுங்கள்.",
+"Aim at the barcode, or pick up the parcel to bring its label closer.": "பார்கோடை நோக்கிக் குறிவையுங்கள், அல்லது லேபிளை அருகில் கொண்டு வர பார்சலை எடுங்கள்.",
+"Resume workday ▶": "வேலைநாளைத் தொடர் ▶",
+"Abandon this workday": "இந்த வேலைநாளைக் கைவிடு",
+"Abandon the workday?": "வேலைநாளைக் கைவிடவா?",
+"The workday so far is discarded and not scored. You can start a new one from the morning brief.": "இதுவரையிலான வேலைநாள் நீக்கப்படும், மதிப்பெண் வழங்கப்படாது. காலை விளக்கத்திலிருந்து புதியதைத் தொடங்கலாம்.",
+"Start workday ▶": "வேலைநாளைத் தொடங்கு ▶",
+"Start the workday?": "வேலைநாளைத் தொடங்கவா?",
+"The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.": "காலை விளக்கம், வேனை ஏற்றுதல், ஓட்டுதல், உங்கள் நிறுத்தங்கள் — அனைத்தும் 3D-யில். நீங்கள் செல்லும்போதே சேமிக்கப்படும்: வெளியேறி நிலையத்திலிருந்து தொடரலாம்.",
+"2D route day ›": "2D வழித்தட நாள் ›",
+"Sign out": "வெளியேறு",
+"Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.": "அவர்கள் தேறாத ஒவ்வொரு மதிப்பீட்டுக்கும் மீண்டும் ஒரு முயற்சியை அனுமதிக்கலாம், அவர்களின் முழு முன்னேற்றத்தையும் மீட்டமைக்கலாம் (பழைய முன்னேற்றம் காப்புப் பிரதியாக சர்வரில் இருக்கும்), அல்லது உள்நுழைய புதிய கடவுச்சொல் கொடுக்கலாம். அவர்கள் உள்நுழைந்திராதபோது இதைச் செய்யுங்கள்.",
+"Their password stops working and they are signed out. They sign in with the temporary password and choose their own.": "அவர்களின் கடவுச்சொல் செயலிழக்கும், அவர்கள் வெளியேற்றப்படுவார்கள். தற்காலிகக் கடவுச்சொல்லுடன் உள்நுழைந்து சொந்தக் கடவுச்சொல்லைத் தேர்ந்தெடுப்பார்கள்.",
+"Their employee ID · Enter to confirm": "அவர்களின் ஊழியர் ஐடி · உறுதிப்படுத்த Enter",
+"Letters, numbers and . _ @ - only": "எழுத்துகள், எண்கள் மற்றும் . _ @ - மட்டும்",
+"Type their employee ID first": "முதலில் அவர்களின் ஊழியர் ஐடியை உள்ளிடுங்கள்",
+"An employee ID has letters, numbers and . _ @ - only, with no spaces.": "ஊழியர் ஐடியில் எழுத்துகள், எண்கள் மற்றும் . _ @ - மட்டுமே இருக்கும், இடைவெளிகள் கூடாது.",
+"Their name": "அவர்களின் பெயர்",
+"There is already an account with that employee ID.": "அந்த ஊழியர் ஐடியில் ஏற்கெனவே கணக்கு உள்ளது.",
+"That trainee has no account.": "அந்தப் பயிற்சியாளருக்குக் கணக்கு இல்லை.",
+"Temporary password": "தற்காலிகக் கடவுச்சொல்",
+"not tested": "சோதிக்கப்படவில்லை",
+"Critical mistake": "மிக முக்கியமான தவறு",
+"Morning brief": "காலை விளக்கம்",
+"Loading the van": "வேனை ஏற்றுதல்",
+"At the stops": "நிறுத்தங்களில்",
+"End of the day": "நாள் முடிவு"
 },
 "templates": [
 [
@@ -4011,6 +4297,198 @@ window.OTR_I18N.ta = {
 [
 "Avoided {0}",
 "தவிர்த்தீர்கள்: {0}"
+],
+[
+"Carrying: {0}",
+"சுமப்பது: {0}"
+],
+[
+"Recorded shelf: {0}",
+"பதிவான அலமாரி: {0}"
+],
+[
+"Outcome: {0}",
+"முடிவு: {0}"
+],
+[
+"Left shelf {0}",
+"இடது அலமாரி {0}"
+],
+[
+"Right shelf {0}",
+"வலது அலமாரி {0}"
+],
+[
+"Scanned the parcel at {0} before delivery.",
+"டெலிவரிக்கு முன் {0}-இல் பார்சலை ஸ்கேன் செய்தீர்கள்."
+],
+[
+"Verified {0} on the scanner.",
+"ஸ்கேனரில் {0}-ஐச் சரிபார்த்தீர்கள்."
+],
+[
+"Followed the delivery requirements at {0}.",
+"{0}-இல் டெலிவரி தேவைகளைப் பின்பற்றினீர்கள்."
+],
+[
+"The outcome did not match the requirements at {0}.",
+"{0}-இல் முடிவு தேவைகளுடன் பொருந்தவில்லை."
+],
+[
+"Loaded and scanned {0}.",
+"{0}-ஐ ஏற்றி ஸ்கேன் செய்தீர்கள்."
+],
+[
+"{0} min",
+"{0} நிமி"
+],
+[
+"{0} of {1} stops delivered",
+"{1} நிறுத்தங்களில் {0} டெலிவரி ஆனது"
+],
+[
+"Workday · day {0}",
+"வேலைநாள் · நாள் {0}"
+],
+[
+"Graphics: {0}\nMouse sensitivity: {1}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.",
+"வரைகலை: {0}\nமவுஸ் உணர்திறன்: {1}\nஏற்கெனவே உள்ள விசை மாற்றங்கள் பொருந்தும். பாட அமைப்புகளும் பயிற்சியாளர் கருவிகளும் முதன்மை விளையாட்டு மூலம் கிடைக்கும்."
+],
+[
+"Weight: {0} kg",
+"எடை: {0} kg"
+],
+[
+"Start: {0}",
+"தொடக்கம்: {0}"
+],
+[
+"Good decisions: {0} · To review: {1}",
+"நல்ல முடிவுகள்: {0} · மறுஆய்வுக்கு: {1}"
+],
+[
+"Page {0} / {1}",
+"பக்கம் {0} / {1}"
+],
+[
+"Retrieve {0} from the shelf where you loaded it.",
+"{0}-ஐ நீங்கள் ஏற்றிய அலமாரியிலிருந்து எடுங்கள்."
+],
+[
+"{0} parcels in cargo",
+"சரக்கில் {0} பார்சல்கள்"
+],
+[
+"{0} mph",
+"{0} mph"
+],
+[
+"{0}/{1} accelerate / brake",
+"{0}/{1} வேகமெடு / பிரேக்"
+],
+[
+"{0}/{1} steer",
+"{0}/{1} திருப்பு"
+],
+[
+"{0} parking brake",
+"{0} பார்க்கிங் பிரேக்"
+],
+[
+"{0} gear",
+"{0} கியர்"
+],
+[
+"{0} belt",
+"{0} பெல்ட்"
+],
+[
+"{0} move",
+"{0} நகர்"
+],
+[
+"{0} interact",
+"{0} செயல்படு"
+],
+[
+"{0} inspect",
+"{0} சோதி"
+],
+[
+"{0} handheld",
+"{0} ஹேண்ட்ஹெல்ட்"
+],
+[
+"{0} menu",
+"{0} மெனு"
+],
+[
+"{0} left mirror",
+"{0} இடது கண்ணாடி"
+],
+[
+"{0} / {1} signals",
+"{0} / {1} சிக்னல்கள்"
+],
+[
+"{0} look forward",
+"{0} முன்னே பார்"
+],
+[
+"{0} exit",
+"{0} வெளியேறு"
+],
+[
+"Hold {0} or left click to scan",
+"ஸ்கேன் செய்ய {0} அழுத்திப் பிடியுங்கள் அல்லது இடது கிளிக் செய்யுங்கள்"
+],
+[
+"{0} put away",
+"{0} வைத்துவிடு"
+],
+[
+"{0} pause",
+"{0} இடைநிறுத்து"
+],
+[
+"Barcode in sight · Hold {0} or left click to scan",
+"பார்கோடு தெரிகிறது · ஸ்கேன் செய்ய {0} அழுத்திப் பிடியுங்கள் அல்லது இடது கிளிக் செய்யுங்கள்"
+],
+[
+"Day {0} · 3D workday",
+"நாள் {0} · 3D வேலைநாள்"
+],
+[
+"Day {0}  ·  {1}",
+"நாள் {0}  ·  {1}"
+],
+[
+"Day {0}'s workday debrief ›",
+"நாள் {0}-இன் வேலைநாள் மறுஆய்வு ›"
+],
+[
+"A new password for {0}?",
+"{0}-க்குப் புதிய கடவுச்சொல்லா?"
+],
+[
+"Give this to {0} (employee ID {1}). It works once: they choose their own password when they sign in. It will not be shown again.",
+"இதை {0}-இடம் கொடுங்கள் (ஊழியர் ஐடி {1}). இது ஒரு முறை மட்டுமே செயல்படும்: உள்நுழையும்போது அவர்கள் சொந்தக் கடவுச்சொல்லைத் தேர்ந்தெடுப்பார்கள். இது மீண்டும் காட்டப்படாது."
+],
+[
+"Stop {0}: {1}",
+"நிறுத்தம் {0}: {1}"
+],
+[
+"Stop {0}",
+"நிறுத்தம் {0}"
+],
+[
+"{0} refused",
+"{0} மறுத்தார்"
+],
+[
+"{0} stops",
+"{0} நிறுத்தங்கள்"
 ]
 ],
 "keep": [
