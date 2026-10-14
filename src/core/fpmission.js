@@ -65,13 +65,13 @@ OTR.fpMission = {
           case 'brief': type = 'brief.read'; d.key = this.seed; break;
           case 'scan': type = 'scan.load'; break;
           case 'stop-scan': case 'unverified':
-            type = 'scan.stop'; d.stop = this.parcel(key).stop; break;
+            type = 'scan.stop'; d.stop = this.parcel(key).stop + 1; break;
           case 'mismatch': case 'wrong':
             type = event === 'mismatch' ? 'scan.mismatch-caught' : 'deliver.wrong-package';
-            d.key = key + ':' + stop; d.stop = Number(stop); break;
+            d.key = key + ':' + stop; d.stop = Number(stop) + 1; break;
           case 'absent-handover': case 'outcome':
             type = event === 'outcome' ? 'deliver.outcome' : 'deliver.no-recipient';
-            d.key = d.stop = Number(key); break;
+            d.key = Number(key); d.stop = Number(key) + 1; break;
           case 'practice': type = 'retrieve.checked'; d.key = this.requested; break;
           case 'inspect': type = key === 'tyres' ? 'inspect.tires' : 'inspect.lights'; break;
           case 'departure':

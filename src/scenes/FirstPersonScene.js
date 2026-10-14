@@ -1,9 +1,11 @@
 /* Connected prototype: shared interactions and local checkpoints, separate from course records. */
 class FirstPersonScene extends Phaser.Scene {
   constructor() { super('FirstPersonScene'); }
-  create() {
+  create(data) {
     Object.assign(this,{view:null,model:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},saved:true,loading:true});
+    this.hubWorkday=!!(data&&data.workday);
     this.held=Object.create(null);this.progress=OTR.fpStore.read();
+    if(this.hubWorkday&&!data.workday.resume){this.progress.campaign=null;this.write();}
     this.sensitivity=OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity'))||0.002,0.0005,0.006);
     this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
@@ -17,6 +19,7 @@ class FirstPersonScene extends Phaser.Scene {
       this.handheld=new OTR.fpHandheld(this);
       this.labels=this.art.labels.map(label=>({label,object:OTR.txt(this,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,fit:220}).setDepth(9).setVisible(false)}));
       this.installInput();this.loading=false;this.sync();
+      if(this.hubWorkday){this.launch('campaign');return;}
       if(!this.progress.welcomed)this.showPanel('Welcome to On The Route',
         'Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.',
         [{label:'Enter the hub',action:()=>{this.progress.welcomed=true;this.write();this.closePanel();}}]);
@@ -96,7 +99,10 @@ class FirstPersonScene extends Phaser.Scene {
       m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
   });}
-  toHub(){this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});}
+  toHub(){
+    if(this.hubWorkday){this.checkpoint();this.closePanel(false);this.releaseMouse();OTR.workday.pause(this);return;}
+    this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});
+  }
   showPause(){
     if(this.loading||this.external||this.transitioning)return;if(this.model&&this.model.phase==='debrief'){this.showDebrief(this.progress.last);return;}
     const choices=[{label:'Continue',action:()=>this.closePanel()}];
@@ -105,7 +111,7 @@ class FirstPersonScene extends Phaser.Scene {
     choices.push({label:'Settings',action:()=>this.showSettings()},{label:'Main game',action:()=>this.leavePrototype()});
     this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?'Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.':'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices);this.checkpoint();
   }
-  leavePrototype(){this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
+  leavePrototype(){if(this.hubWorkday){this.toHub();return;}this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
     const quality=level=>{this.checkpoint();const q=new URLSearchParams(location.search);q.set('gfx',level);location.assign('index.html?'+q.toString());};
     this.showPanel('Settings',`Graphics: ${OTR.gfx.level()}\nMouse sensitivity: ${this.sensitivity.toFixed(4)}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.`,[
@@ -176,7 +182,11 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.model.briefing&&!this.model.events[this.model.briefKey]){this.showMorningBrief();return;}
     const m=this.model;this.showPanel('Dispatch',this.objectiveText(),[
       {label:m.kind==='practice'?'Finish practice':'Finish workday',action:()=>{const message=m.finish();if(message){this.message(message);this.closePanel();return;}
-        this.progress.last={kind:m.kind,seed:m.seed,logs:OTR.fpMission.clone(m.logs),elapsed:Math.round(m.elapsed)};this.progress[m.kind]=null;this.write();this.showDebrief(this.progress.last);}},
+        this.progress.last={kind:m.kind,seed:m.seed,logs:OTR.fpMission.clone(m.logs),elapsed:Math.round(m.elapsed)};this.progress[m.kind]=null;this.write();
+        if(this.hubWorkday&&m.kind==='campaign'){
+          this.closePanel(false);this.releaseMouse();
+          OTR.workday.finish(this,{seconds:Math.round(m.elapsed),stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome==='handover'||s.outcome==='safeplace',address:s.address,x:s.x,z:s.z})),depot:{x:4,z:8}});
+        }else this.showDebrief(this.progress.last);}},
       {label:'View manifest',action:()=>this.showManifest()},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showDebrief(result,page=0){

@@ -273,12 +273,12 @@ test('stop scans, absent handovers, delivery decisions and returns use parcel an
     const s = m.stops.find(s => s.service === 'signature'), p = m.parcels[s.id];
     m.phase = 'route'; m.activeStop = s.id; m.van.z = s.z;
     at(m, p.id); m.pickup(p.id); m.scan(); m.scan();
-    report('scan.stop', p.id, true, s.id);
+    report('scan.stop', p.id, true, s.id + 1);
     assert.equal(W.events.filter(e => e.type === 'scan.stop').length, 1);
     at(m, 'door' + s.id); m.contact(s.id); m.deliver(s.id, 'handover');
-    report('deliver.no-recipient', s.id, false, s.id);
+    report('deliver.no-recipient', s.id, false, s.id + 1);
     m.deliver(s.id, correct ? 'exception' : 'safeplace');
-    report('deliver.outcome', s.id, correct, s.id);
+    report('deliver.outcome', s.id, correct, s.id + 1);
     if (correct) { at(m, 'returns'); m.returnParcel(); report('return.scanned', p.id, true); }
     else assert.equal(W.events.some(e => e.type === 'return.scanned'), false);
   }
@@ -289,9 +289,9 @@ test('wrong parcels and recovered mismatches are distinct for each target stop',
   at(m, 'parcel2'); m.pickup('parcel2');
   for (const stop of [0, 1]) {
     m.activeStop = stop; m.scan(); m.scan();
-    report('scan.mismatch-caught', 'parcel2:' + stop, true, stop);
+    report('scan.mismatch-caught', 'parcel2:' + stop, true, stop + 1);
     at(m, 'door' + stop); m.deliver(stop, 'handover');
-    report('deliver.wrong-package', 'parcel2:' + stop, false, stop);
+    report('deliver.wrong-package', 'parcel2:' + stop, false, stop + 1);
   }
   assert.equal(W.events.filter(e => e.type === 'scan.mismatch-caught').length, 2);
 });
@@ -301,7 +301,7 @@ test('legacy unverified completion maps to a failed stop scan', () => {
   at(m, p.id); m.pickup(p.id); p.stopScanned = true; p.scanned = false;
   // The current scanner sets both flags; exercise the retained legacy log branch explicitly.
   at(m, 'door0'); m.contact(0); m.deliver(0, s.service);
-  report('scan.stop', p.id, false, 0);
+  report('scan.stop', p.id, false, 1);
 });
 
 test('safe driving stays unpenalized, violations are once per leg and map to van coordinates in mph', () => {
