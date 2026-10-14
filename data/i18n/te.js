@@ -2925,7 +2925,293 @@ window.OTR_I18N.te = {
 "★ or better in every category": "ప్రతి విభాగంలో ★ లేదా అంతకంటే ఎక్కువ",
 "QUIZ": "క్విజ్",
 "TODAY'S ROUTE": "ఈ రోజు రూట్",
-"TODAY'S MANIFEST": "ఈ రోజు మ్యానిఫెస్ట్"
+"TODAY'S MANIFEST": "ఈ రోజు మ్యానిఫెస్ట్",
+"Read the morning brief before leaving dispatch": "బయలుదేరే ముందు డిస్పాచ్‌లో ఉదయం బ్రీఫ్ చదివారు",
+"Left dispatch without reading the morning brief": "ఉదయం బ్రీఫ్ చదవకుండానే డిస్పాచ్ వదిలి వెళ్లారు",
+"The brief has the day's weather, hazards and route notes. Read it before you load.": "బ్రీఫ్‌లో రోజు వాతావరణం, ప్రమాదాలు, రూట్ గమనికలు ఉంటాయి. లోడ్ చేసే ముందు చదవండి.",
+"Assessed the tires correctly": "టైర్ల స్థితిని సరిగ్గా అంచనా వేశారు",
+"Misjudged the condition of the tires": "టైర్ల స్థితిని తప్పుగా అంచనా వేశారు",
+"Check tread, sidewalls and pressure on every tire before the van moves.": "వ్యాన్ కదిలే ముందు ప్రతి టైర్ ట్రెడ్, సైడ్‌వాల్, ప్రెషర్ తనిఖీ చేయండి.",
+"Assessed the lights correctly": "లైట్ల స్థితిని సరిగ్గా అంచనా వేశారు",
+"Misjudged the condition of the lights": "లైట్ల స్థితిని తప్పుగా అంచనా వేశారు",
+"Walk round and check every light works, including brake lights and signals.": "చుట్టూ నడిచి ప్రతి లైటు పనిచేస్తోందో చూడండి, బ్రేక్ లైట్లు, సిగ్నల్స్‌తో సహా.",
+"Left the depot without finishing the pre-trip inspection": "ప్రీ-ట్రిప్ తనిఖీ పూర్తి చేయకుండానే డిపో వదిలి వెళ్లారు",
+"A van with a fault you have not found is a danger to you and everyone on the road.": "మీరు గుర్తించని లోపం ఉన్న వ్యాన్ మీకూ, రోడ్డుపై ఉన్న అందరికీ ప్రమాదం.",
+"Scanned the package at load-out": "లోడ్-అవుట్ వద్ద ప్యాకేజీని స్కాన్ చేశారు",
+"Loaded a package without scanning it": "స్కాన్ చేయకుండానే ప్యాకేజీని లోడ్ చేశారు",
+"Scan every package as you load it: a missed scan is a package the system thinks is still at the depot.": "లోడ్ చేసేటప్పుడు ప్రతి ప్యాకేజీని స్కాన్ చేయండి: స్కాన్ మిస్ అయితే సిస్టమ్ ఆ ప్యాకేజీ ఇంకా డిపోలోనే ఉందని అనుకుంటుంది.",
+"Loaded the package on its shelf in stop order": "ప్యాకేజీని స్టాప్ క్రమంలో దాని అరలో లోడ్ చేశారు",
+"Loaded a package on the wrong shelf": "ప్యాకేజీని తప్పు అరలో లోడ్ చేశారు",
+"Load in stop order so each package is where you expect it. A bad load costs time at every stop.": "స్టాప్ క్రమంలో లోడ్ చేయండి, అప్పుడు ప్రతి ప్యాకేజీ మీరు ఊహించిన చోటే ఉంటుంది. చెడ్డ లోడ్ ప్రతి స్టాప్‌లో సమయం వృథా చేస్తుంది.",
+"Secured the load before driving": "నడిపే ముందు లోడ్‌ను భద్రపరిచారు",
+"Drove with an unsecured load": "భద్రపరచని లోడ్‌తో నడిపారు",
+"An unsecured load shifts under braking: it damages packages and can injure you when you open the doors.": "భద్రపరచని లోడ్ బ్రేక్ వేసినప్పుడు జరుగుతుంది: ప్యాకేజీలు పాడవుతాయి, తలుపులు తెరిచేటప్పుడు మీకు గాయం కావచ్చు.",
+"Moved the van without a seatbelt": "సీట్‌బెల్ట్ లేకుండా వ్యాన్ కదిలించారు",
+"Belt on before the van moves, every time, even for a few yards between stops.": "వ్యాన్ కదిలే ముందు ప్రతిసారీ బెల్ట్ పెట్టుకోండి, స్టాప్‌ల మధ్య కొన్ని గజాలకైనా సరే.",
+"Exceeded the speed limit": "వేగ పరిమితిని మించారు",
+"Residential limits are low for a reason: children, pets and parked cars.": "నివాస ప్రాంతాల్లో పరిమితి తక్కువగా ఉండటానికి కారణం ఉంది: పిల్లలు, పెంపుడు జంతువులు, పార్క్ చేసిన కార్లు.",
+"Drove onto the sidewalk": "ఫుట్‌పాత్ మీదికి నడిపారు",
+"Stay on the road. Take a corner wider and slower rather than clip the curb.": "రోడ్డుపైనే ఉండండి. ఫుట్‌పాత్ అంచును తాకే బదులు మలుపును వెడల్పుగా, నెమ్మదిగా తీసుకోండి.",
+"Drove on the wrong side of the road": "రోడ్డు తప్పు వైపున నడిపారు",
+"Keep to your side, even on a quiet street: the car you cannot see yet is coming.": "నిశ్శబ్ద వీధిలో కూడా మీ వైపే ఉండండి: మీకు ఇంకా కనిపించని కారు వస్తూ ఉంటుంది.",
+"Came to a full stop at the stop line": "స్టాప్ లైన్ వద్ద పూర్తిగా ఆగారు",
+"A full stop behind the line, then look both ways before you go.": "లైన్ వెనుక పూర్తిగా ఆగండి, తర్వాత రెండు వైపులా చూసి వెళ్లండి.",
+"Slowed early for a developing hazard": "ఏర్పడుతున్న ప్రమాదం కోసం ముందే వేగం తగ్గించారు",
+"Reacted late to a developing hazard": "ఏర్పడుతున్న ప్రమాదానికి ఆలస్యంగా స్పందించారు",
+"Look well ahead. Ease off as soon as a hazard starts to develop, not when it is in front of you.": "చాలా ముందుకు చూడండి. ప్రమాదం ఏర్పడటం మొదలైన వెంటనే వేగం తగ్గించండి, అది మీ ముందుకు వచ్చాక కాదు.",
+"Conflict with a pedestrian": "పాదచారితో ఘర్షణ",
+"Never assume a pedestrian has seen you. Slow down, cover the brake and give way.": "పాదచారి మిమ్మల్ని చూశారని ఎప్పుడూ అనుకోకండి. వేగం తగ్గించండి, కాలు బ్రేక్‌పై ఉంచండి, దారి ఇవ్వండి.",
+"The van hit something": "వ్యాన్ దేనినో ఢీకొట్టింది",
+"Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.": "ఏ తాకిడి అయినా ఘటనే: ఆగండి, పరిశీలించండి, నివేదించండి. అడ్డంకుల దగ్గర వేగం తగ్గించి అద్దాలు వాడండి.",
+"Used the handheld before parking safely": "సురక్షితంగా పార్క్ చేయకముందే హ్యాండ్‌హెల్డ్ వాడారు",
+"Park, set the brake, then pick up the scanner. Never at the wheel and never at a light.": "పార్క్ చేసి, బ్రేక్ వేసి, తర్వాత స్కానర్ తీసుకోండి. స్టీరింగ్ వద్ద ఎప్పుడూ వద్దు, సిగ్నల్ వద్ద కూడా వద్దు.",
+"Scanned the package at the stop before delivering": "డెలివరీ చేసే ముందు స్టాప్ వద్ద ప్యాకేజీని స్కాన్ చేశారు",
+"Completed a stop without scanning the package": "ప్యాకేజీని స్కాన్ చేయకుండానే స్టాప్ పూర్తి చేశారు",
+"Scan at the door: it confirms the right package, the right address and the delivery time.": "తలుపు వద్ద స్కాన్ చేయండి: ఇది సరైన ప్యాకేజీ, సరైన చిరునామా, డెలివరీ సమయాన్ని నిర్ధారిస్తుంది.",
+"Caught a package for a different stop": "వేరే స్టాప్ ప్యాకేజీని పట్టుకున్నారు",
+"Tried to deliver the wrong package": "తప్పు ప్యాకేజీని డెలివరీ చేయడానికి ప్రయత్నించారు",
+"Check the address on the label against the house number every time.": "ప్రతిసారీ లేబుల్‌పై చిరునామాను ఇంటి నంబర్‌తో సరిచూడండి.",
+"Recorded a handover with nobody there": "ఎవరూ లేకుండానే అందజేతను నమోదు చేశారు",
+"Only record a handover when you hand it to a person. Otherwise follow the safe-place or attempt rules.": "వ్యక్తికి చేతికి ఇచ్చినప్పుడు మాత్రమే అందజేతను నమోదు చేయండి. లేకపోతే సురక్షిత స్థలం లేదా ప్రయత్న నియమాలు పాటించండి.",
+"Chose the right delivery outcome": "సరైన డెలివరీ ఫలితాన్ని ఎంచుకున్నారు",
+"Chose the wrong delivery outcome": "తప్పు డెలివరీ ఫలితాన్ని ఎంచుకున్నారు",
+"Signature, safe place or attempt: the package's service and who is at the door decide which.": "సంతకం, సురక్షిత స్థలం లేదా ప్రయత్నం: ప్యాకేజీ సేవ మరియు తలుపు వద్ద ఎవరున్నారన్నదే ఏది అనేది నిర్ణయిస్తాయి.",
+"Checked the label before taking a package from the shelf": "అర నుండి ప్యాకేజీ తీసే ముందు లేబుల్ చూశారు",
+"Took a package from the shelf without checking it": "లేబుల్ చూడకుండానే అర నుండి ప్యాకేజీ తీశారు",
+"Check the label as you pick: the wrong package found at the door is a second trip.": "తీసేటప్పుడే లేబుల్ చూడండి: తలుపు వద్ద తప్పు ప్యాకేజీ దొరికితే అది రెండో ట్రిప్.",
+"Scanned the undelivered package back in at the depot": "డెలివరీ కాని ప్యాకేజీని డిపోలో తిరిగి స్కాన్ చేశారు",
+"Left an undelivered package unscanned": "డెలివరీ కాని ప్యాకేజీని స్కాన్ చేయకుండా వదిలారు",
+"Every package that comes back must be scanned in, or it is lost as far as the system knows.": "తిరిగి వచ్చిన ప్రతి ప్యాకేజీని స్కాన్ చేయాలి, లేకపోతే సిస్టమ్ దృష్టిలో అది పోయినట్టే.",
+"Delivery complete — press N to restart": "డెలివరీ పూర్తయింది — మళ్లీ ప్రారంభించడానికి N నొక్కండి",
+"Inspect and scan the package on the table": "టేబుల్‌పై ఉన్న ప్యాకేజీని తనిఖీ చేసి స్కాన్ చేయండి",
+"Pick up the scanned package": "స్కాన్ చేసిన ప్యాకేజీని తీసుకోండి",
+"Take the package to the front door": "ప్యాకేజీని ముందు తలుపు వద్దకు తీసుకెళ్లండి",
+"Load the package through the rear of the van": "వ్యాన్ వెనుక భాగం నుండి ప్యాకేజీని లోడ్ చేయండి",
+"Exit and retrieve the package from the rear": "దిగి వెనుక నుండి ప్యాకేజీని తీసుకోండి",
+"Drive to the orange delivery bay and park": "నారింజ డెలివరీ బే వద్దకు నడిపి పార్క్ చేయండి",
+"Tried to use the handheld before parking safely.": "సురక్షితంగా పార్క్ చేయకముందే హ్యాండ్‌హెల్డ్ వాడటానికి ప్రయత్నించారు.",
+"Stop and set the parking brake before using the handheld.": "హ్యాండ్‌హెల్డ్ వాడే ముందు ఆగి, పార్కింగ్ బ్రేక్ వేయండి.",
+"Retrieve the parcel from its cargo shelf.": "కార్గో అర నుండి ప్యాకేజీని తీసుకోండి.",
+"Stop details": "స్టాప్ వివరాలు",
+"TAB put away": "TAB పెట్టేయండి",
+"Choose a stop to see its requirements and recorded shelf.": "స్టాప్ అవసరాలు, నమోదైన అరను చూడటానికి ఒక స్టాప్‌ను ఎంచుకోండి.",
+"Left in porch box": "వరండా పెట్టెలో వదిలారు",
+"Recipient absent": "గ్రహీత లేరు",
+"Scanned at this stop": "ఈ స్టాప్ వద్ద స్కాన్ చేశారు",
+"Delivery scan required": "డెలివరీ స్కాన్ అవసరం",
+"Record delivery / exception": "డెలివరీ / మినహాయింపు నమోదు చేయండి",
+"Set as next stop": "తదుపరి స్టాప్‌గా సెట్ చేయండి",
+"Step out of the cab and find the physical parcel first.": "ముందు క్యాబ్ నుండి దిగి నిజమైన ప్యాకేజీని కనుగొనండి.",
+"Aim at the barcode on the parcel.": "ప్యాకేజీపై బార్‌కోడ్ వైపు గురి పెట్టండి.",
+"Hold Space or the left mouse button until the scan completes.": "స్కాన్ పూర్తయ్యే వరకు Space లేదా ఎడమ మౌస్ బటన్ నొక్కి ఉంచండి.",
+"Approach the delivery point with the parcel first.": "ముందు ప్యాకేజీతో డెలివరీ పాయింట్ వద్దకు వెళ్లండి.",
+"Retrieve and scan the physical parcel at this stop before recording a delivery.": "డెలివరీ నమోదు చేసే ముందు ఈ స్టాప్ వద్ద నిజమైన ప్యాకేజీని తీసి స్కాన్ చేయండి.",
+"Leave in porch box": "వరండా పెట్టెలో వదలండి",
+"Read the morning brief and route manifest at Dispatch.": "డిస్పాచ్ వద్ద ఉదయం బ్రీఫ్, రూట్ మానిఫెస్ట్ చదవండి.",
+"Move close to the parcel and face its label.": "ప్యాకేజీకి దగ్గరగా వెళ్లి దాని లేబుల్ వైపు చూడండి.",
+"Scanner identified a parcel for a different stop.": "స్కానర్ వేరే స్టాప్ కోసం ఉన్న ప్యాకేజీని గుర్తించింది.",
+"This parcel is for a different stop. Check the address before carrying it out.": "ఈ ప్యాకేజీ వేరే స్టాప్‌కు చెందినది. తీసుకెళ్లే ముందు చిరునామా సరిచూడండి.",
+"Signature required": "సంతకం అవసరం",
+"Leave in the porch box if nobody answers": "ఎవరూ తీయకపోతే వరండా పెట్టెలో వదలండి",
+"Hand to the resident": "నివాసికి అందజేయండి",
+"Put down the parcel you are carrying first.": "ముందు మీరు మోస్తున్న ప్యాకేజీని కింద పెట్టండి.",
+"Retrieved the requested parcel after checking its label.": "లేబుల్ చూసిన తర్వాత కోరిన ప్యాకేజీని తీశారు.",
+"Retrieved the requested parcel without scanning it.": "స్కాన్ చేయకుండానే కోరిన ప్యాకేజీని తీశారు.",
+"Open the cargo doors and move close to a shelf.": "కార్గో తలుపులు తెరిచి అరకు దగ్గరగా వెళ్లండి.",
+"That shelf position is occupied.": "ఆ అర స్థానం ఖాళీగా లేదు.",
+"Return to the parcel table or choose an empty cargo shelf.": "ప్యాకేజీ టేబుల్ వద్దకు తిరిగి వెళ్లండి లేదా ఖాళీ కార్గో అరను ఎంచుకోండి.",
+"Move close to the inspection point.": "తనిఖీ పాయింట్‌కు దగ్గరగా వెళ్లండి.",
+"Correctly assessed the tires.": "టైర్లను సరిగ్గా అంచనా వేశారు.",
+"Recheck the condition of the tires.": "టైర్ల స్థితిని మళ్లీ చూడండి.",
+"Correctly assessed the lights.": "లైట్లను సరిగ్గా అంచనా వేశారు.",
+"Recheck the condition of the lights.": "లైట్ల స్థితిని మళ్లీ చూడండి.",
+"Dispatch arranged the repair. The vehicle is now serviceable.": "డిస్పాచ్ మరమ్మతు ఏర్పాటు చేసింది. వాహనం ఇప్పుడు వాడటానికి సిద్ధం.",
+"Inspection recorded.": "తనిఖీ నమోదైంది.",
+"Inspection recorded. Review the condition before departure.": "తనిఖీ నమోదైంది. బయలుదేరే ముందు స్థితిని సమీక్షించండి.",
+"Stop and secure the van before opening cargo.": "కార్గో తెరిచే ముందు వ్యాన్‌ను ఆపి భద్రపరచండి.",
+"Step outside before closing the cargo doors.": "కార్గో తలుపులు మూసే ముందు బయటకు దిగండి.",
+"Place the parcel and move to the cargo restraints.": "ప్యాకేజీని ఉంచి కార్గో స్ట్రాప్‌ల వద్దకు వెళ్లండి.",
+"Load secured.": "లోడ్ భద్రపరిచారు.",
+"This lesson covers loading and retrieval. Driving is available in the workday.": "ఈ పాఠం లోడింగ్, తిరిగి తీయడం గురించి. డ్రైవింగ్ వర్క్‌డేలో ఉంది.",
+"Read the morning brief and manifest at Dispatch before entering the cab.": "క్యాబ్‌లోకి ఎక్కే ముందు డిస్పాచ్ వద్ద ఉదయం బ్రీఫ్, మానిఫెస్ట్ చదవండి.",
+"Place the parcel before entering the cab.": "క్యాబ్‌లోకి ఎక్కే ముందు ప్యాకేజీని ఉంచండి.",
+"Close the cargo doors before entering the cab.": "క్యాబ్‌లోకి ఎక్కే ముందు కార్గో తలుపులు మూసివేయండి.",
+"Approach the correct delivery point.": "సరైన డెలివరీ పాయింట్ వద్దకు వెళ్లండి.",
+"The resident answers and confirms the address.": "నివాసి తలుపు తీసి చిరునామా నిర్ధారిస్తారు.",
+"Nobody answers the door.": "తలుపు ఎవరూ తీయలేదు.",
+"Choose a delivery outcome.": "డెలివరీ ఫలితాన్ని ఎంచుకోండి.",
+"Approach an unfinished delivery point.": "పూర్తికాని డెలివరీ పాయింట్ వద్దకు వెళ్లండి.",
+"Retrieve the parcel from the van first.": "ముందు వ్యాన్ నుండి ప్యాకేజీని తీసుకోండి.",
+"Attempted a delivery with the wrong parcel.": "తప్పు ప్యాకేజీతో డెలివరీకి ప్రయత్నించారు.",
+"The address does not match. Return this parcel to the van and retrieve the correct one.": "చిరునామా సరిపోలలేదు. ఈ ప్యాకేజీని వ్యాన్‌కు తిరిగి ఇచ్చి సరైనది తీసుకోండి.",
+"Prepare and load this parcel at the depot first.": "ముందు డిపోలో ఈ ప్యాకేజీని సిద్ధం చేసి లోడ్ చేయండి.",
+"Attempt contact before recording the outcome.": "ఫలితం నమోదు చేసే ముందు సంప్రదించడానికి ప్రయత్నించండి.",
+"Scan this parcel at the delivery stop before recording the outcome.": "ఫలితం నమోదు చేసే ముందు డెలివరీ స్టాప్ వద్ద ఈ ప్యాకేజీని స్కాన్ చేయండి.",
+"Tried to record a handover with no recipient present.": "గ్రహీత లేకుండానే అందజేతను నమోదు చేయడానికి ప్రయత్నించారు.",
+"Nobody is present to receive the parcel. Choose an outcome that matches the situation.": "ప్యాకేజీని అందుకోవడానికి ఎవరూ లేరు. పరిస్థితికి సరిపోయే ఫలితాన్ని ఎంచుకోండి.",
+"Completed a stop without scanning the parcel.": "ప్యాకేజీని స్కాన్ చేయకుండానే స్టాప్ పూర్తి చేశారు.",
+"Retained the signature parcel when the recipient was absent.": "గ్రహీత లేనప్పుడు సంతకం ప్యాకేజీని తమ వద్దే ఉంచుకున్నారు.",
+"Delivery recorded.": "డెలివరీ నమోదైంది.",
+"Outcome recorded. Review this decision in the debrief.": "ఫలితం నమోదైంది. డీబ్రీఫ్‌లో ఈ నిర్ణయాన్ని సమీక్షించండి.",
+"Bring an undelivered parcel to the returns desk.": "డెలివరీ కాని ప్యాకేజీని రిటర్న్స్ డెస్క్‌కు తీసుకురండి.",
+"Scanned the undelivered parcel back into the depot.": "డెలివరీ కాని ప్యాకేజీని డిపోలో తిరిగి స్కాన్ చేశారు.",
+"Return recorded.": "రిటర్న్ నమోదైంది.",
+"Return to the dispatch desk.": "డిస్పాచ్ డెస్క్ వద్దకు తిరిగి వెళ్లండి.",
+"Retrieve the requested parcel, put it back and secure the load before finishing.": "కోరిన ప్యాకేజీని తీసి, తిరిగి ఉంచి, ముగించే ముందు లోడ్ భద్రపరచండి.",
+"Complete the remaining delivery stops first.": "ముందు మిగిలిన డెలివరీ స్టాప్‌లు పూర్తి చేయండి.",
+"Bring retained parcels to the returns desk first.": "ముందు మిగిలిన ప్యాకేజీలను రిటర్న్స్ డెస్క్‌కు తీసుకురండి.",
+"Return the van to the depot and set the parking brake.": "వ్యాన్‌ను డిపోకు తిరిగి తీసుకెళ్లి పార్కింగ్ బ్రేక్ వేయండి.",
+"Completed the tire check before departure.": "బయలుదేరే ముందు టైర్ తనిఖీ పూర్తి చేశారు.",
+"Departed without a correct tire check.": "సరైన టైర్ తనిఖీ లేకుండా బయలుదేరారు.",
+"Completed the lights check before departure.": "బయలుదేరే ముందు లైట్ల తనిఖీ పూర్తి చేశారు.",
+"Departed without a correct lights check.": "సరైన లైట్ల తనిఖీ లేకుండా బయలుదేరారు.",
+"Secured the load before departure.": "బయలుదేరే ముందు లోడ్ భద్రపరిచారు.",
+"Departed with an unsecured load.": "భద్రపరచని లోడ్‌తో బయలుదేరారు.",
+"A parcel was unscanned or left at the depot.": "ఒక ప్యాకేజీ స్కాన్ కాలేదు లేదా డిపోలో ఉండిపోయింది.",
+"Moved the van without fastening the seatbelt.": "సీట్‌బెల్ట్ పెట్టుకోకుండా వ్యాన్ కదిలించారు.",
+"Moved the van before securing the load.": "లోడ్ భద్రపరచకముందే వ్యాన్ కదిలించారు.",
+"Exceeded the posted 15 mph limit.": "నిర్దేశిత 15 mph పరిమితిని మించారు.",
+"Drove onto the sidewalk beside the road.": "రోడ్డు పక్కన ఉన్న ఫుట్‌పాత్ మీదికి నడిపారు.",
+"Travelled on the wrong side of the road.": "రోడ్డు తప్పు వైపున ప్రయాణించారు.",
+"Pulled into the path of approaching traffic.": "ఎదురుగా వస్తున్న ట్రాఫిక్ దారిలోకి ప్రవేశించారు.",
+"Pulled away without signaling left.": "ఎడమ సిగ్నల్ ఇవ్వకుండా బయలుదేరారు.",
+"Pulled away without a recent mirror check.": "ఇటీవల అద్దాలు చూడకుండా బయలుదేరారు.",
+"Checked, signaled and waited for a clear gap.": "చూసి, సిగ్నల్ ఇచ్చి, ఖాళీ గ్యాప్ కోసం వేచి ఉన్నారు.",
+"Stopped before the junction line.": "జంక్షన్ లైన్ ముందే ఆగారు.",
+"Passed the junction stop line without stopping.": "ఆగకుండా జంక్షన్ స్టాప్ లైన్ దాటారు.",
+"Contact with traffic: stop and review the manoeuvre.": "ట్రాఫిక్‌తో తాకిడి: ఆగి, ఆ కదలికను సమీక్షించండి.",
+"The van contacted an obstacle.": "వ్యాన్ ఒక అడ్డంకిని తాకింది.",
+"Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.": "పాదచారితో ఘర్షణ: వాహనం ఆపబడింది. సమీపించడం, దారి ఇవ్వడాన్ని సమీక్షించండి.",
+"Reduced speed early for the developing crossing hazard.": "ఏర్పడుతున్న క్రాసింగ్ ప్రమాదానికి ముందే వేగం తగ్గించారు.",
+"Passed the crossing without an early speed reduction.": "ముందస్తుగా వేగం తగ్గించకుండా క్రాసింగ్ దాటారు.",
+"Missing field": "లేని ఫీల్డ్",
+"Cargo practice": "కార్గో ప్రాక్టీస్",
+"Last debrief": "చివరి డీబ్రీఫ్",
+"Forgot your password? A trainer can reset it.": "పాస్‌వర్డ్ మర్చిపోయారా? ట్రైనర్ రీసెట్ చేయగలరు.",
+"That employee ID and password don't match.": "ఆ ఉద్యోగి ID, పాస్‌వర్డ్ సరిపోలలేదు.",
+"Too many wrong tries. Try again later, or ask a trainer to reset your password.": "చాలాసార్లు తప్పు ప్రయత్నాలు. తర్వాత మళ్లీ ప్రయత్నించండి, లేదా పాస్‌వర్డ్ రీసెట్ చేయమని ట్రైనర్‌ను అడగండి.",
+"Too many wrong tries from this computer. Wait a minute, then try again.": "ఈ కంప్యూటర్ నుండి చాలాసార్లు తప్పు ప్రయత్నాలు. ఒక నిమిషం ఆగి, మళ్లీ ప్రయత్నించండి.",
+"The training server is busy. Try again in a moment.": "శిక్షణ సర్వర్ రద్దీగా ఉంది. కొద్దిసేపట్లో మళ్లీ ప్రయత్నించండి.",
+"That password is too long.": "ఆ పాస్‌వర్డ్ చాలా పొడవుగా ఉంది.",
+"Choose a new password, not the one your trainer gave you.": "మీ ట్రైనర్ ఇచ్చినది కాకుండా కొత్త పాస్‌వర్డ్ ఎంచుకోండి.",
+"Your sign-in has expired. Sign in again.": "మీ సైన్-ఇన్ గడువు ముగిసింది. మళ్లీ సైన్ ఇన్ చేయండి.",
+"Your password is already being changed. Try again in a moment.": "మీ పాస్‌వర్డ్ ఇప్పటికే మార్చబడుతోంది. కొద్దిసేపట్లో మళ్లీ ప్రయత్నించండి.",
+"Sign in with your employee ID and password to keep your training progress.": "మీ శిక్షణ పురోగతిని ఉంచుకోవడానికి ఉద్యోగి ID, పాస్‌వర్డ్‌తో సైన్ ఇన్ చేయండి.",
+"Type your employee ID.": "మీ ఉద్యోగి IDని టైప్ చేయండి.",
+"Type your password.": "మీ పాస్‌వర్డ్ టైప్ చేయండి.",
+"Choose your password": "మీ పాస్‌వర్డ్ ఎంచుకోండి",
+"You signed in with a temporary password. Choose your own: at least 8 characters, that only you know.": "మీరు తాత్కాలిక పాస్‌వర్డ్‌తో సైన్ ఇన్ చేశారు. మీ సొంతది ఎంచుకోండి: కనీసం 8 అక్షరాలు, మీకు మాత్రమే తెలిసినది.",
+"Save and continue": "సేవ్ చేసి కొనసాగండి",
+"The two passwords don't match.": "రెండు పాస్‌వర్డ్‌లు సరిపోలలేదు.",
+"This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "ఈ బ్రౌజర్ సైన్-ఇన్‌ను ఉంచుకోలేదు. ఈ సైట్‌కు కుకీలను అనుమతించి, మళ్లీ సైన్ ఇన్ చేయండి.",
+"Not that character": "ఆ అక్షరం కాదు",
+"The 3D workday isn't available yet.": "3D వర్క్‌డే ఇంకా అందుబాటులో లేదు.",
+"Nothing was recorded on this workday.": "ఈ వర్క్‌డేలో ఏదీ నమోదు కాలేదు.",
+"Your workday": "మీ వర్క్‌డే",
+"Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "చతురస్రం: డిపో · వృత్తాలు: మీ స్టాప్‌లు (ఆకుపచ్చ అంటే డెలివరీ అయినవి) · సంఖ్య పిన్‌లు: ప్రతి పొరపాటు జరిగిన చోటు",
+"Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.": "వర్క్‌డే ప్రారంభించడానికి డిస్పాచ్ వద్దకు నడవండి, లేదా ప్రత్యేక పాఠం కోసం కార్గో ప్రాక్టీస్ ఎంచుకోండి.\n\nWASDతో కదలండి, మౌస్‌తో చూడండి, చర్యకు E వాడండి. H అవే ఎంపికలను మెనూగా తెరుస్తుంది. మీ ప్రోటోటైప్ పురోగతి ఈ పరికరంలో సేవ్ అవుతుంది.",
+"Enter the hub": "హబ్‌లోకి ప్రవేశించండి",
+"The prototype could not start": "ప్రోటోటైప్ ప్రారంభం కాలేదు",
+"WebGL is required. Reload to try again.": "WebGL అవసరం. మళ్లీ ప్రయత్నించడానికి రీలోడ్ చేయండి.",
+"first-person prototype": "ఫస్ట్-పర్సన్ ప్రోటోటైప్",
+"Left mirror": "ఎడమ అద్దం",
+"Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.": "మూడు ప్యాకేజీలను స్కాన్ చేసి మీరు ఎంచుకున్న స్థానాల్లో లోడ్ చేయండి. తర్వాత కోరిన ప్యాకేజీని తీసి, తిరిగి ఉంచి, లోడ్ భద్రపరచండి. ముగించడానికి డిస్పాచ్‌కు తిరిగి వెళ్లండి.",
+"\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.": "\n\nటైర్లు, లైట్లు తనిఖీ చేయండి, ప్యాకేజీలను స్కాన్ చేయండి, లోడ్ భద్రపరచండి. ప్రతి స్టాప్‌కు డెలివరీ చేయండి, మిగిలిన ప్యాకేజీలను రిటర్న్స్‌కు తీసుకురండి, తర్వాత డిస్పాచ్ వద్ద చెక్ ఇన్ చేయండి.",
+"Resume your shift": "మీ షిఫ్ట్ కొనసాగించండి",
+"Walk to Dispatch and read the morning brief, then the route manifest.": "డిస్పాచ్‌కు నడిచి ఉదయం బ్రీఫ్ చదవండి, తర్వాత రూట్ మానిఫెస్ట్.",
+"Begin preparation": "సన్నాహాన్ని ప్రారంభించండి",
+"Resume workday": "వర్క్‌డే కొనసాగించండి",
+"Start workday": "వర్క్‌డే ప్రారంభించండి",
+"Resume cargo practice": "కార్గో ప్రాక్టీస్ కొనసాగించండి",
+"Main game": "ప్రధాన గేమ్",
+"Your training hub": "మీ శిక్షణ హబ్",
+"Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.": "ఒక స్టేషన్ వద్దకు నడిచి, దాని వైపు గురి పెట్టి E నొక్కండి. కింద నుండి కూడా ఎంచుకోవచ్చు.\nమౌస్‌ను క్యాప్చర్ చేయడానికి క్లిక్ చేయండి, లేదా ఎడమ బటన్ నొక్కి లాగి చూడండి.",
+"High graphics": "హై గ్రాఫిక్స్",
+"Slower mouse look": "మౌస్ లుక్ నెమ్మదిగా",
+"Faster mouse look": "మౌస్ లుక్ వేగంగా",
+"Driving is outside this cargo lesson.": "ఈ కార్గో పాఠంలో డ్రైవింగ్ లేదు.",
+"All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.": "అన్ని స్టాప్‌లకు ఫలితం నమోదైంది. దక్షిణం వైపు డిపోకు తిరిగి వెళ్లండి. మిగిలిన ప్యాకేజీలను రిటర్న్స్‌కు తీసుకురండి, తర్వాత డిస్పాచ్ వద్ద చెక్ ఇన్ చేయండి.",
+"Parcel label": "ప్యాకేజీ లేబుల్",
+"A bulge is visible in the tire sidewall.": "టైర్ సైడ్‌వాల్‌లో ఉబ్బు కనిపిస్తోంది.",
+"The tire sidewalls are intact and the tread is visible.": "టైర్ సైడ్‌వాల్‌లు చెక్కుచెదరలేదు, ట్రెడ్ కనిపిస్తోంది.",
+"The left headlamp does not illuminate during the light test.": "లైట్ టెస్ట్ సమయంలో ఎడమ హెడ్‌ల్యాంప్ వెలగడం లేదు.",
+"Both headlamps illuminate during the light test.": "లైట్ టెస్ట్ సమయంలో రెండు హెడ్‌ల్యాంప్‌లు వెలుగుతున్నాయి.",
+"Tire inspection": "టైర్ తనిఖీ",
+"Light test": "లైట్ టెస్ట్",
+"Mark serviceable": "వాడటానికి సిద్ధం అని గుర్తించండి",
+"Request repair": "మరమ్మతు కోరండి",
+"This stop already has a recorded outcome.": "ఈ స్టాప్‌కు ఇప్పటికే ఫలితం నమోదైంది.",
+"The resident confirms the address.": "నివాసి చిరునామాను నిర్ధారిస్తారు.",
+"Nobody answers.": "ఎవరూ తీయరు.",
+"Attempt contact, then follow the shipment requirements.": "సంప్రదించడానికి ప్రయత్నించి, ఆపై షిప్‌మెంట్ అవసరాలు పాటించండి.",
+"View answers": "జవాబులు చూడండి",
+"Choose this answer": "ఈ జవాబును ఎంచుకోండి",
+"Next answer": "తదుపరి జవాబు",
+"Read question": "ప్రశ్న చదవండి",
+"Route manifest": "రూట్ మానిఫెస్ట్",
+"Finish practice": "ప్రాక్టీస్ ముగించండి",
+"Finish workday": "వర్క్‌డే ముగించండి",
+"View manifest": "మానిఫెస్ట్ చూడండి",
+"Complete a workday or a cargo lesson to see its results.": "ఫలితాలు చూడటానికి వర్క్‌డే లేదా కార్గో పాఠం పూర్తి చేయండి.",
+"Practice debrief": "ప్రాక్టీస్ డీబ్రీఫ్",
+"Workday debrief": "వర్క్‌డే డీబ్రీఫ్",
+"Stop and set the parking brake before exiting.": "దిగే ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"Stop before selecting drive or reverse.": "డ్రైవ్ లేదా రివర్స్ ఎంచుకునే ముందు ఆగండి.",
+"Choose a workday or a focused cargo lesson.": "వర్క్‌డే లేదా ప్రత్యేక కార్గో పాఠాన్ని ఎంచుకోండి.",
+"Scan and place all three parcels in the van. Choose your shelf positions.": "మూడు ప్యాకేజీలనూ స్కాన్ చేసి వ్యాన్‌లో ఉంచండి. మీ అర స్థానాలను ఎంచుకోండి.",
+"Replace the parcel, secure the load, then finish at Dispatch.": "ప్యాకేజీని తిరిగి ఉంచి, లోడ్ భద్రపరచి, తర్వాత డిస్పాచ్ వద్ద ముగించండి.",
+"Walk to Dispatch to read the morning brief and route manifest.": "ఉదయం బ్రీఫ్, రూట్ మానిఫెస్ట్ చదవడానికి డిస్పాచ్‌కు నడవండి.",
+"Check tires and lights, scan and load three parcels, then secure the load and close cargo.": "టైర్లు, లైట్లు తనిఖీ చేయండి, మూడు ప్యాకేజీలను స్కాన్ చేసి లోడ్ చేయండి, తర్వాత లోడ్ భద్రపరచి కార్గో మూసివేయండి.",
+"Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "దక్షిణం వైపు డిపోకు తిరిగి వెళ్లండి. రిటర్న్స్ వద్ద మిగిలిన ప్యాకేజీలను స్కాన్ చేయండి, తర్వాత డిస్పాచ్ వద్ద ముగించండి.",
+"Brake off": "బ్రేక్ తీసివేయబడింది",
+"Saved on this device": "ఈ పరికరంలో సేవ్ అయింది",
+"Saving unavailable — keep this window open": "సేవ్ చేయడం సాధ్యం కాదు — ఈ విండోను తెరిచే ఉంచండి",
+"Mouse looks": "మౌస్ లుక్",
+"Drag to look without mouse capture": "మౌస్ క్యాప్చర్ లేకుండా లాగి చూడండి",
+"Mouse aim": "మౌస్ గురి",
+"Click or use number keys · Backspace goes back": "క్లిక్ చేయండి లేదా నంబర్ కీలు వాడండి · Backspace వెనక్కి తీసుకెళ్తుంది",
+"E resume workday": "E వర్క్‌డే కొనసాగించండి",
+"E start workday": "E వర్క్‌డే ప్రారంభించండి",
+"E cargo practice": "E కార్గో ప్రాక్టీస్",
+"E last debrief": "E చివరి డీబ్రీఫ్",
+"H opens the hub menu": "H హబ్ మెనూ తెరుస్తుంది",
+"Set your belt, check the mirror and release the parking brake.": "బెల్ట్ పెట్టుకోండి, అద్దం చూడండి, పార్కింగ్ బ్రేక్ విడుదల చేయండి.",
+"15 mph limit · Keep right · Stop at the junction line": "15 mph పరిమితి · కుడివైపు ఉండండి · జంక్షన్ లైన్ వద్ద ఆగండి",
+"E enter cab": "E క్యాబ్‌లోకి ఎక్కండి",
+"E close cargo doors": "E కార్గో తలుపులు మూసివేయండి",
+"E open cargo doors": "E కార్గో తలుపులు తెరవండి",
+"E secure the load": "E లోడ్ భద్రపరచండి",
+"E inspect tires": "E టైర్లు తనిఖీ చేయండి",
+"E inspect lights": "E లైట్లు తనిఖీ చేయండి",
+" · E place the parcel": " · E ప్యాకేజీని ఉంచండి",
+" · E attempt delivery": " · E డెలివరీకి ప్రయత్నించండి",
+"Choose an empty cargo shelf, or approach the correct delivery point.": "ఖాళీ కార్గో అరను ఎంచుకోండి, లేదా సరైన డెలివరీ పాయింట్ వద్దకు వెళ్లండి.",
+"Aim at the barcode, or pick up the parcel to bring its label closer.": "బార్‌కోడ్ వైపు గురి పెట్టండి, లేదా లేబుల్‌ను దగ్గరగా తేవడానికి ప్యాకేజీని ఎత్తండి.",
+"Resume workday ▶": "వర్క్‌డే కొనసాగించండి ▶",
+"Abandon this workday": "ఈ వర్క్‌డేను వదిలేయండి",
+"Abandon the workday?": "వర్క్‌డేను వదిలేయాలా?",
+"The workday so far is discarded and not scored. You can start a new one from the morning brief.": "ఇప్పటి వరకు జరిగిన వర్క్‌డే తొలగించబడుతుంది, స్కోర్ చేయబడదు. ఉదయం బ్రీఫ్ నుండి కొత్తది ప్రారంభించవచ్చు.",
+"Start workday ▶": "వర్క్‌డే ప్రారంభించండి ▶",
+"Start the workday?": "వర్క్‌డే ప్రారంభించాలా?",
+"The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.": "ఉదయం బ్రీఫ్, వ్యాన్ లోడ్ చేయడం, డ్రైవ్, మీ స్టాప్‌లు, 3Dలో. ఇది మీరు సాగుతున్న కొద్దీ సేవ్ అవుతుంది: వదిలి వెళ్లి స్టేషన్ నుండి కొనసాగించవచ్చు.",
+"2D route day ›": "2D రూట్ డే ›",
+"Sign out": "సైన్ అవుట్",
+"Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.": "వారు ఇంకా ఉత్తీర్ణులు కాని ప్రతి అసెస్‌మెంట్‌కు మరో ప్రయత్నం ఇవ్వండి, వారి పురోగతి అంతా రీసెట్ చేయండి (పాత పురోగతి సర్వర్‌లో బ్యాకప్‌గా ఉంటుంది), లేదా సైన్ ఇన్ కోసం కొత్త పాస్‌వర్డ్ ఇవ్వండి. వారు సైన్ ఇన్ చేసి లేనప్పుడు ఇది చేయండి.",
+"Their password stops working and they are signed out. They sign in with the temporary password and choose their own.": "వారి పాస్‌వర్డ్ పనిచేయదు, వారు సైన్ అవుట్ అవుతారు. వారు తాత్కాలిక పాస్‌వర్డ్‌తో సైన్ ఇన్ చేసి తమ సొంతది ఎంచుకుంటారు.",
+"Their employee ID · Enter to confirm": "వారి ఉద్యోగి ID · నిర్ధారించడానికి Enter",
+"Letters, numbers and . _ @ - only": "అక్షరాలు, సంఖ్యలు మరియు . _ @ - మాత్రమే",
+"Type their employee ID first": "ముందు వారి ఉద్యోగి IDని టైప్ చేయండి",
+"An employee ID has letters, numbers and . _ @ - only, with no spaces.": "ఉద్యోగి IDలో అక్షరాలు, సంఖ్యలు మరియు . _ @ - మాత్రమే ఉండాలి, ఖాళీలు ఉండకూడదు.",
+"Their name": "వారి పేరు",
+"There is already an account with that employee ID.": "ఆ ఉద్యోగి IDతో ఇప్పటికే ఖాతా ఉంది.",
+"That trainee has no account.": "ఆ ట్రైనీకి ఖాతా లేదు.",
+"Temporary password": "తాత్కాలిక పాస్‌వర్డ్",
+"not tested": "పరీక్షించలేదు",
+"Critical mistake": "తీవ్రమైన పొరపాటు",
+"Morning brief": "ఉదయం బ్రీఫ్",
+"Loading the van": "వ్యాన్ లోడ్ చేయడం",
+"At the stops": "స్టాప్‌ల వద్ద",
+"End of the day": "రోజు ముగింపు"
 },
 "templates": [
 [
@@ -4011,6 +4297,198 @@ window.OTR_I18N.te = {
 [
 "Avoided {0}",
 "తప్పించుకున్నారు: {0}"
+],
+[
+"Carrying: {0}",
+"మోస్తున్నది: {0}"
+],
+[
+"Recorded shelf: {0}",
+"నమోదైన అర: {0}"
+],
+[
+"Outcome: {0}",
+"ఫలితం: {0}"
+],
+[
+"Left shelf {0}",
+"ఎడమ అర {0}"
+],
+[
+"Right shelf {0}",
+"కుడి అర {0}"
+],
+[
+"Scanned the parcel at {0} before delivery.",
+"డెలివరీకి ముందు {0} వద్ద ప్యాకేజీని స్కాన్ చేశారు."
+],
+[
+"Verified {0} on the scanner.",
+"స్కానర్‌లో {0}ని ధృవీకరించారు."
+],
+[
+"Followed the delivery requirements at {0}.",
+"{0} వద్ద డెలివరీ అవసరాలు పాటించారు."
+],
+[
+"The outcome did not match the requirements at {0}.",
+"{0} వద్ద ఫలితం అవసరాలకు సరిపోలలేదు."
+],
+[
+"Loaded and scanned {0}.",
+"{0} లోడ్ చేసి స్కాన్ చేశారు."
+],
+[
+"{0} min",
+"{0} నిమి"
+],
+[
+"{0} of {1} stops delivered",
+"{1} స్టాప్‌లలో {0} డెలివరీ అయ్యాయి"
+],
+[
+"Workday · day {0}",
+"వర్క్‌డే · రోజు {0}"
+],
+[
+"Graphics: {0}\nMouse sensitivity: {1}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.",
+"గ్రాఫిక్స్: {0}\nమౌస్ సున్నితత్వం: {1}\nఉన్న కీ రీమ్యాప్‌లు వర్తిస్తాయి. కోర్సు సెట్టింగ్‌లు, ట్రైనర్ టూల్స్ ప్రధాన గేమ్ ద్వారా అందుబాటులో ఉన్నాయి."
+],
+[
+"Weight: {0} kg",
+"బరువు: {0} kg"
+],
+[
+"Start: {0}",
+"ప్రారంభం: {0}"
+],
+[
+"Good decisions: {0} · To review: {1}",
+"సరైన నిర్ణయాలు: {0} · సమీక్షించాలి: {1}"
+],
+[
+"Page {0} / {1}",
+"పేజీ {0} / {1}"
+],
+[
+"Retrieve {0} from the shelf where you loaded it.",
+"మీరు లోడ్ చేసిన అర నుండి {0}ని తీసుకోండి."
+],
+[
+"{0} parcels in cargo",
+"కార్గోలో {0} ప్యాకేజీలు"
+],
+[
+"{0} mph",
+"{0} mph"
+],
+[
+"{0}/{1} accelerate / brake",
+"{0}/{1} వేగం పెంచు / బ్రేక్"
+],
+[
+"{0}/{1} steer",
+"{0}/{1} స్టీర్"
+],
+[
+"{0} parking brake",
+"{0} పార్కింగ్ బ్రేక్"
+],
+[
+"{0} gear",
+"{0} గేర్"
+],
+[
+"{0} belt",
+"{0} బెల్ట్"
+],
+[
+"{0} move",
+"{0} కదలిక"
+],
+[
+"{0} interact",
+"{0} చర్య"
+],
+[
+"{0} inspect",
+"{0} తనిఖీ"
+],
+[
+"{0} handheld",
+"{0} హ్యాండ్‌హెల్డ్"
+],
+[
+"{0} menu",
+"{0} మెనూ"
+],
+[
+"{0} left mirror",
+"{0} ఎడమ అద్దం"
+],
+[
+"{0} / {1} signals",
+"{0} / {1} సిగ్నల్స్"
+],
+[
+"{0} look forward",
+"{0} ముందుకు చూడండి"
+],
+[
+"{0} exit",
+"{0} దిగండి"
+],
+[
+"Hold {0} or left click to scan",
+"స్కాన్ చేయడానికి {0} లేదా ఎడమ క్లిక్ నొక్కి ఉంచండి"
+],
+[
+"{0} put away",
+"{0} పెట్టేయండి"
+],
+[
+"{0} pause",
+"{0} పాజ్"
+],
+[
+"Barcode in sight · Hold {0} or left click to scan",
+"బార్‌కోడ్ కనిపిస్తోంది · స్కాన్ చేయడానికి {0} లేదా ఎడమ క్లిక్ నొక్కి ఉంచండి"
+],
+[
+"Day {0} · 3D workday",
+"రోజు {0} · 3D వర్క్‌డే"
+],
+[
+"Day {0}  ·  {1}",
+"రోజు {0}  ·  {1}"
+],
+[
+"Day {0}'s workday debrief ›",
+"రోజు {0} వర్క్‌డే డీబ్రీఫ్ ›"
+],
+[
+"A new password for {0}?",
+"{0} కోసం కొత్త పాస్‌వర్డ్?"
+],
+[
+"Give this to {0} (employee ID {1}). It works once: they choose their own password when they sign in. It will not be shown again.",
+"దీన్ని {0}కి ఇవ్వండి (ఉద్యోగి ID {1}). ఇది ఒక్కసారి మాత్రమే పనిచేస్తుంది: వారు సైన్ ఇన్ చేసినప్పుడు తమ సొంత పాస్‌వర్డ్ ఎంచుకుంటారు. ఇది మళ్లీ చూపబడదు."
+],
+[
+"Stop {0}: {1}",
+"స్టాప్ {0}: {1}"
+],
+[
+"Stop {0}",
+"స్టాప్ {0}"
+],
+[
+"{0} refused",
+"{0} నిరాకరించారు"
+],
+[
+"{0} stops",
+"{0} స్టాప్‌లు"
 ]
 ],
 "keep": [

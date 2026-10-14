@@ -2910,7 +2910,293 @@ window.OTR_I18N.fr = {
 "Arrow keys still steer and walk; ENTER and ESC always work.": "Les flèches servent toujours à diriger et marcher ; ENTRÉE et ÉCHAP fonctionnent toujours.",
 "★ or better in every category": "★ ou plus dans chaque catégorie",
 "TODAY'S ROUTE": "TOURNÉE DU JOUR",
-"TODAY'S MANIFEST": "MANIFESTE DU JOUR"
+"TODAY'S MANIFEST": "MANIFESTE DU JOUR",
+"Read the morning brief before leaving dispatch": "Lis le briefing du matin avant de quitter la répartition",
+"Left dispatch without reading the morning brief": "Parti de la répartition sans lire le briefing du matin",
+"The brief has the day's weather, hazards and route notes. Read it before you load.": "Le briefing contient la météo, les dangers et les notes de tournée. Lis-le avant de charger.",
+"Assessed the tires correctly": "Pneus évalués correctement",
+"Misjudged the condition of the tires": "État des pneus mal évalué",
+"Check tread, sidewalls and pressure on every tire before the van moves.": "Vérifie la bande de roulement, les flancs et la pression de chaque pneu avant de déplacer la camionnette.",
+"Assessed the lights correctly": "Feux évalués correctement",
+"Misjudged the condition of the lights": "État des feux mal évalué",
+"Walk round and check every light works, including brake lights and signals.": "Fais le tour et vérifie que chaque feu fonctionne, y compris les feux stop et les clignotants.",
+"Left the depot without finishing the pre-trip inspection": "Quitté le dépôt sans terminer l'inspection avant départ",
+"A van with a fault you have not found is a danger to you and everyone on the road.": "Une camionnette avec un défaut non repéré est un danger pour toi et pour tous les usagers de la route.",
+"Scanned the package at load-out": "Colis scanné au chargement",
+"Loaded a package without scanning it": "Colis chargé sans être scanné",
+"Scan every package as you load it: a missed scan is a package the system thinks is still at the depot.": "Scanne chaque colis en le chargeant : un scan manqué, c'est un colis que le système croit encore au dépôt.",
+"Loaded the package on its shelf in stop order": "Colis chargé sur son étagère dans l'ordre des arrêts",
+"Loaded a package on the wrong shelf": "Colis chargé sur la mauvaise étagère",
+"Load in stop order so each package is where you expect it. A bad load costs time at every stop.": "Charge dans l'ordre des arrêts pour que chaque colis soit là où tu l'attends. Un mauvais chargement fait perdre du temps à chaque arrêt.",
+"Secured the load before driving": "Chargement arrimé avant de rouler",
+"Drove with an unsecured load": "Roulé avec un chargement non arrimé",
+"An unsecured load shifts under braking: it damages packages and can injure you when you open the doors.": "Un chargement non arrimé bouge au freinage : il abîme les colis et peut te blesser quand tu ouvres les portes.",
+"Moved the van without a seatbelt": "Déplacé la camionnette sans ceinture de sécurité",
+"Belt on before the van moves, every time, even for a few yards between stops.": "Ceinture attachée avant que la camionnette bouge, à chaque fois, même pour quelques mètres entre deux arrêts.",
+"Exceeded the speed limit": "Limite de vitesse dépassée",
+"Residential limits are low for a reason: children, pets and parked cars.": "Les limites en zone résidentielle sont basses pour une raison : enfants, animaux et voitures garées.",
+"Drove onto the sidewalk": "Roulé sur le trottoir",
+"Stay on the road. Take a corner wider and slower rather than clip the curb.": "Reste sur la chaussée. Prends un virage plus large et plus lentement plutôt que de toucher le trottoir.",
+"Drove on the wrong side of the road": "Roulé du mauvais côté de la route",
+"Keep to your side, even on a quiet street: the car you cannot see yet is coming.": "Reste de ton côté, même dans une rue calme : la voiture que tu ne vois pas encore arrive.",
+"Came to a full stop at the stop line": "Arrêt complet à la ligne d'arrêt",
+"A full stop behind the line, then look both ways before you go.": "Un arrêt complet derrière la ligne, puis regarde des deux côtés avant de repartir.",
+"Slowed early for a developing hazard": "Ralenti tôt face à un danger qui se développe",
+"Reacted late to a developing hazard": "Réagi tard face à un danger qui se développe",
+"Look well ahead. Ease off as soon as a hazard starts to develop, not when it is in front of you.": "Regarde loin devant. Lève le pied dès qu'un danger commence à se former, pas quand il est devant toi.",
+"Conflict with a pedestrian": "Conflit avec un piéton",
+"Never assume a pedestrian has seen you. Slow down, cover the brake and give way.": "Ne suppose jamais qu'un piéton t'a vu. Ralentis, prépare le freinage et cède le passage.",
+"The van hit something": "La camionnette a heurté quelque chose",
+"Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.": "Tout contact est un incident : arrête-toi, vérifie et signale-le. Ralentis près des obstacles et utilise tes rétroviseurs.",
+"Used the handheld before parking safely": "Terminal utilisé avant de se garer en sécurité",
+"Park, set the brake, then pick up the scanner. Never at the wheel and never at a light.": "Gare-toi, serre le frein, puis prends le scanner. Jamais au volant et jamais à un feu.",
+"Scanned the package at the stop before delivering": "Colis scanné à l'arrêt avant la livraison",
+"Completed a stop without scanning the package": "Arrêt terminé sans scanner le colis",
+"Scan at the door: it confirms the right package, the right address and the delivery time.": "Scanne à la porte : cela confirme le bon colis, la bonne adresse et l'heure de livraison.",
+"Caught a package for a different stop": "Colis destiné à un autre arrêt repéré",
+"Tried to deliver the wrong package": "Tentative de livrer le mauvais colis",
+"Check the address on the label against the house number every time.": "Compare à chaque fois l'adresse de l'étiquette avec le numéro de la maison.",
+"Recorded a handover with nobody there": "Remise enregistrée sans personne sur place",
+"Only record a handover when you hand it to a person. Otherwise follow the safe-place or attempt rules.": "N'enregistre une remise que si tu remets le colis à une personne. Sinon, suis les règles du lieu sûr ou de la tentative.",
+"Chose the right delivery outcome": "Bon résultat de livraison choisi",
+"Chose the wrong delivery outcome": "Mauvais résultat de livraison choisi",
+"Signature, safe place or attempt: the package's service and who is at the door decide which.": "Signature, lieu sûr ou tentative : le service du colis et la personne à la porte décident.",
+"Checked the label before taking a package from the shelf": "Étiquette vérifiée avant de prendre un colis sur l'étagère",
+"Took a package from the shelf without checking it": "Colis pris sur l'étagère sans vérification",
+"Check the label as you pick: the wrong package found at the door is a second trip.": "Vérifie l'étiquette en prenant le colis : le mauvais colis découvert à la porte, c'est un deuxième trajet.",
+"Scanned the undelivered package back in at the depot": "Colis non livré rescanné au dépôt",
+"Left an undelivered package unscanned": "Colis non livré laissé sans scan",
+"Every package that comes back must be scanned in, or it is lost as far as the system knows.": "Chaque colis qui revient doit être scanné à l'entrée, sinon il est perdu pour le système.",
+"Delivery complete — press N to restart": "Livraison terminée — appuie sur N pour recommencer",
+"Inspect and scan the package on the table": "Inspecte et scanne le colis sur la table",
+"Pick up the scanned package": "Prends le colis scanné",
+"Take the package to the front door": "Apporte le colis à la porte d'entrée",
+"Load the package through the rear of the van": "Charge le colis par l'arrière de la camionnette",
+"Exit and retrieve the package from the rear": "Sors et récupère le colis à l'arrière",
+"Drive to the orange delivery bay and park": "Conduis jusqu'à la zone de livraison orange et gare-toi",
+"Tried to use the handheld before parking safely.": "Tentative d'utiliser le terminal avant de se garer en sécurité.",
+"Stop and set the parking brake before using the handheld.": "Arrête-toi et serre le frein de stationnement avant d'utiliser le terminal.",
+"Retrieve the parcel from its cargo shelf.": "Récupère le colis sur son étagère de chargement.",
+"Stop details": "Détails de l'arrêt",
+"TAB put away": "TAB rangé",
+"Choose a stop to see its requirements and recorded shelf.": "Choisis un arrêt pour voir ses exigences et son étagère enregistrée.",
+"Left in porch box": "Laissé dans la boîte du porche",
+"Recipient absent": "Destinataire absent",
+"Scanned at this stop": "Scanné à cet arrêt",
+"Delivery scan required": "Scan de livraison requis",
+"Record delivery / exception": "Enregistrer la livraison / l'exception",
+"Set as next stop": "Définir comme prochain arrêt",
+"Step out of the cab and find the physical parcel first.": "Sors de la cabine et trouve d'abord le colis physique.",
+"Aim at the barcode on the parcel.": "Vise le code-barres du colis.",
+"Hold Space or the left mouse button until the scan completes.": "Maintiens ESPACE ou le bouton gauche de la souris jusqu'à la fin du scan.",
+"Approach the delivery point with the parcel first.": "Approche-toi du point de livraison avec le colis d'abord.",
+"Retrieve and scan the physical parcel at this stop before recording a delivery.": "Récupère et scanne le colis physique à cet arrêt avant d'enregistrer une livraison.",
+"Leave in porch box": "Laisser dans la boîte du porche",
+"Read the morning brief and route manifest at Dispatch.": "Lis le briefing du matin et le manifeste de tournée à la Répartition.",
+"Move close to the parcel and face its label.": "Approche-toi du colis et fais face à son étiquette.",
+"Scanner identified a parcel for a different stop.": "Le scanner a identifié un colis destiné à un autre arrêt.",
+"This parcel is for a different stop. Check the address before carrying it out.": "Ce colis est destiné à un autre arrêt. Vérifie l'adresse avant de l'emporter.",
+"Signature required": "Signature requise",
+"Leave in the porch box if nobody answers": "Laisser dans la boîte du porche si personne ne répond",
+"Hand to the resident": "Remettre à l'habitant",
+"Put down the parcel you are carrying first.": "Pose d'abord le colis que tu portes.",
+"Retrieved the requested parcel after checking its label.": "Colis demandé récupéré après vérification de son étiquette.",
+"Retrieved the requested parcel without scanning it.": "Colis demandé récupéré sans le scanner.",
+"Open the cargo doors and move close to a shelf.": "Ouvre les portes de chargement et approche-toi d'une étagère.",
+"That shelf position is occupied.": "Cet emplacement d'étagère est occupé.",
+"Return to the parcel table or choose an empty cargo shelf.": "Retourne à la table des colis ou choisis une étagère libre.",
+"Move close to the inspection point.": "Approche-toi du point d'inspection.",
+"Correctly assessed the tires.": "Pneus évalués correctement.",
+"Recheck the condition of the tires.": "Revérifie l'état des pneus.",
+"Correctly assessed the lights.": "Feux évalués correctement.",
+"Recheck the condition of the lights.": "Revérifie l'état des feux.",
+"Dispatch arranged the repair. The vehicle is now serviceable.": "La répartition a organisé la réparation. Le véhicule est maintenant en état de rouler.",
+"Inspection recorded.": "Inspection enregistrée.",
+"Inspection recorded. Review the condition before departure.": "Inspection enregistrée. Revois l'état du véhicule avant le départ.",
+"Stop and secure the van before opening cargo.": "Arrête-toi et sécurise la camionnette avant d'ouvrir le chargement.",
+"Step outside before closing the cargo doors.": "Sors de la camionnette avant de fermer les portes de chargement.",
+"Place the parcel and move to the cargo restraints.": "Pose le colis et va aux sangles d'arrimage.",
+"Load secured.": "Chargement arrimé.",
+"This lesson covers loading and retrieval. Driving is available in the workday.": "Cette leçon porte sur le chargement et la reprise des colis. La conduite est disponible dans la journée de travail.",
+"Read the morning brief and manifest at Dispatch before entering the cab.": "Lis le briefing du matin et le manifeste à la Répartition avant de monter dans la cabine.",
+"Place the parcel before entering the cab.": "Pose le colis avant de monter dans la cabine.",
+"Close the cargo doors before entering the cab.": "Ferme les portes de chargement avant de monter dans la cabine.",
+"Approach the correct delivery point.": "Approche-toi du bon point de livraison.",
+"The resident answers and confirms the address.": "L'habitant répond et confirme l'adresse.",
+"Nobody answers the door.": "Personne ne répond à la porte.",
+"Choose a delivery outcome.": "Choisis un résultat de livraison.",
+"Approach an unfinished delivery point.": "Approche-toi d'un point de livraison inachevé.",
+"Retrieve the parcel from the van first.": "Récupère d'abord le colis dans la camionnette.",
+"Attempted a delivery with the wrong parcel.": "Tentative de livraison avec le mauvais colis.",
+"The address does not match. Return this parcel to the van and retrieve the correct one.": "L'adresse ne correspond pas. Remets ce colis dans la camionnette et récupère le bon.",
+"Prepare and load this parcel at the depot first.": "Prépare et charge d'abord ce colis au dépôt.",
+"Attempt contact before recording the outcome.": "Tente d'abord un contact avant d'enregistrer le résultat.",
+"Scan this parcel at the delivery stop before recording the outcome.": "Scanne ce colis à l'arrêt de livraison avant d'enregistrer le résultat.",
+"Tried to record a handover with no recipient present.": "Tentative d'enregistrer une remise sans destinataire présent.",
+"Nobody is present to receive the parcel. Choose an outcome that matches the situation.": "Personne n'est là pour recevoir le colis. Choisis un résultat adapté à la situation.",
+"Completed a stop without scanning the parcel.": "Arrêt terminé sans scanner le colis.",
+"Retained the signature parcel when the recipient was absent.": "Colis à signature conservé alors que le destinataire était absent.",
+"Delivery recorded.": "Livraison enregistrée.",
+"Outcome recorded. Review this decision in the debrief.": "Résultat enregistré. Revois cette décision lors du débriefing.",
+"Bring an undelivered parcel to the returns desk.": "Apporte un colis non livré au guichet des retours.",
+"Scanned the undelivered parcel back into the depot.": "Colis non livré rescanné au dépôt.",
+"Return recorded.": "Retour enregistré.",
+"Return to the dispatch desk.": "Retourne au bureau de la répartition.",
+"Retrieve the requested parcel, put it back and secure the load before finishing.": "Récupère le colis demandé, remets-le en place et arrime le chargement avant de terminer.",
+"Complete the remaining delivery stops first.": "Termine d'abord les arrêts de livraison restants.",
+"Bring retained parcels to the returns desk first.": "Apporte d'abord les colis conservés au guichet des retours.",
+"Return the van to the depot and set the parking brake.": "Ramène la camionnette au dépôt et serre le frein de stationnement.",
+"Completed the tire check before departure.": "Vérification des pneus effectuée avant le départ.",
+"Departed without a correct tire check.": "Départ sans vérification correcte des pneus.",
+"Completed the lights check before departure.": "Vérification des feux effectuée avant le départ.",
+"Departed without a correct lights check.": "Départ sans vérification correcte des feux.",
+"Secured the load before departure.": "Chargement arrimé avant le départ.",
+"Departed with an unsecured load.": "Départ avec un chargement non arrimé.",
+"A parcel was unscanned or left at the depot.": "Un colis n'a pas été scanné ou a été laissé au dépôt.",
+"Moved the van without fastening the seatbelt.": "Camionnette déplacée sans ceinture de sécurité attachée.",
+"Moved the van before securing the load.": "Camionnette déplacée avant d'arrimer le chargement.",
+"Exceeded the posted 15 mph limit.": "Limite affichée de 15 mph dépassée.",
+"Drove onto the sidewalk beside the road.": "Roulé sur le trottoir le long de la route.",
+"Travelled on the wrong side of the road.": "Circulé du mauvais côté de la route.",
+"Pulled into the path of approaching traffic.": "Engagé sur la trajectoire de la circulation venant en face.",
+"Pulled away without signaling left.": "Démarré sans mettre le clignotant gauche.",
+"Pulled away without a recent mirror check.": "Démarré sans vérifier récemment le rétroviseur.",
+"Checked, signaled and waited for a clear gap.": "Vérifié, signalé et attendu un créneau dégagé.",
+"Stopped before the junction line.": "Arrêt avant la ligne du carrefour.",
+"Passed the junction stop line without stopping.": "Ligne d'arrêt du carrefour franchie sans s'arrêter.",
+"Contact with traffic: stop and review the manoeuvre.": "Contact avec la circulation : arrête-toi et revois la manœuvre.",
+"The van contacted an obstacle.": "La camionnette a heurté un obstacle.",
+"Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.": "Conflit avec un piéton : le véhicule a été arrêté. Revois l'approche et la priorité cédée.",
+"Reduced speed early for the developing crossing hazard.": "Vitesse réduite tôt face au danger du passage piéton.",
+"Passed the crossing without an early speed reduction.": "Passage piéton franchi sans réduction de vitesse anticipée.",
+"Missing field": "Champ manquant",
+"Cargo practice": "Exercice de chargement",
+"Last debrief": "Dernier débriefing",
+"Forgot your password? A trainer can reset it.": "Mot de passe oublié ? Un formateur peut le réinitialiser.",
+"That employee ID and password don't match.": "Cet identifiant d'employé et ce mot de passe ne correspondent pas.",
+"Too many wrong tries. Try again later, or ask a trainer to reset your password.": "Trop d'essais erronés. Réessaie plus tard ou demande à un formateur de réinitialiser ton mot de passe.",
+"Too many wrong tries from this computer. Wait a minute, then try again.": "Trop d'essais erronés depuis cet ordinateur. Attends une minute, puis réessaie.",
+"The training server is busy. Try again in a moment.": "Le serveur de formation est occupé. Réessaie dans un instant.",
+"That password is too long.": "Ce mot de passe est trop long.",
+"Choose a new password, not the one your trainer gave you.": "Choisis un nouveau mot de passe, pas celui que ton formateur t'a donné.",
+"Your sign-in has expired. Sign in again.": "Ta connexion a expiré. Connecte-toi de nouveau.",
+"Your password is already being changed. Try again in a moment.": "Ton mot de passe est déjà en cours de modification. Réessaie dans un instant.",
+"Sign in with your employee ID and password to keep your training progress.": "Connecte-toi avec ton identifiant d'employé et ton mot de passe pour conserver ta progression.",
+"Type your employee ID.": "Saisis ton identifiant d'employé.",
+"Type your password.": "Saisis ton mot de passe.",
+"Choose your password": "Choisis ton mot de passe",
+"You signed in with a temporary password. Choose your own: at least 8 characters, that only you know.": "Tu t'es connecté avec un mot de passe temporaire. Choisis le tien : au moins 8 caractères, que toi seul connais.",
+"Save and continue": "Enregistrer et continuer",
+"The two passwords don't match.": "Les deux mots de passe ne correspondent pas.",
+"This browser didn't keep the sign-in. Allow cookies for this site, then sign in again.": "Ce navigateur n'a pas conservé la connexion. Autorise les cookies pour ce site, puis reconnecte-toi.",
+"Not that character": "Pas ce caractère",
+"The 3D workday isn't available yet.": "La journée de travail en 3D n'est pas encore disponible.",
+"Nothing was recorded on this workday.": "Rien n'a été enregistré pendant cette journée de travail.",
+"Your workday": "Ta journée de travail",
+"Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "Carré : le dépôt · cercles : tes arrêts (vert = livré) · repères numérotés : où chaque erreur s'est produite",
+"Walk to Dispatch to start a workday, or choose Cargo practice for a focused lesson.\n\nMove with WASD, look with the mouse and use E to interact. H opens the same choices as a menu. Your prototype progress is saved on this device.": "Va à la Répartition pour commencer une journée de travail, ou choisis Exercice de chargement pour une leçon ciblée.\n\nDéplace-toi avec WASD, regarde avec la souris et utilise E pour interagir. H ouvre les mêmes choix sous forme de menu. Ta progression du prototype est enregistrée sur cet appareil.",
+"Enter the hub": "Entrer dans le hub",
+"The prototype could not start": "Le prototype n'a pas pu démarrer",
+"WebGL is required. Reload to try again.": "WebGL est requis. Recharge la page pour réessayer.",
+"first-person prototype": "prototype à la première personne",
+"Left mirror": "Rétroviseur gauche",
+"Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.": "Scanne et charge les trois colis aux emplacements de ton choix. Puis récupère le colis demandé, remets-le en place et arrime le chargement. Retourne à la Répartition pour terminer.",
+"\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.": "\n\nVérifie les pneus et les feux, scanne les colis et arrime le chargement. Livre chaque arrêt, apporte les colis conservés aux Retours, puis présente-toi à la Répartition.",
+"Resume your shift": "Reprendre ton service",
+"Walk to Dispatch and read the morning brief, then the route manifest.": "Va à la Répartition et lis le briefing du matin, puis le manifeste de tournée.",
+"Begin preparation": "Commencer la préparation",
+"Resume workday": "Reprendre la journée de travail",
+"Start workday": "Commencer la journée de travail",
+"Resume cargo practice": "Reprendre l'exercice de chargement",
+"Main game": "Jeu principal",
+"Your training hub": "Ton hub de formation",
+"Walk to a station, point at it and press E. You can also choose below.\nClick to capture the mouse, or hold the left button and drag to look.": "Va à un poste, vise-le et appuie sur E. Tu peux aussi choisir ci-dessous.\nClique pour capturer la souris, ou maintiens le bouton gauche et glisse pour regarder.",
+"High graphics": "Graphismes élevés",
+"Slower mouse look": "Souris plus lente",
+"Faster mouse look": "Souris plus rapide",
+"Driving is outside this cargo lesson.": "La conduite ne fait pas partie de cette leçon de chargement.",
+"All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.": "Tous les arrêts ont un résultat enregistré. Retourne vers le sud, au dépôt. Apporte les colis conservés aux Retours, puis présente-toi à la Répartition.",
+"Parcel label": "Étiquette du colis",
+"A bulge is visible in the tire sidewall.": "Une bosse est visible sur le flanc du pneu.",
+"The tire sidewalls are intact and the tread is visible.": "Les flancs du pneu sont intacts et la bande de roulement est visible.",
+"The left headlamp does not illuminate during the light test.": "Le phare gauche ne s'allume pas pendant le test des feux.",
+"Both headlamps illuminate during the light test.": "Les deux phares s'allument pendant le test des feux.",
+"Tire inspection": "Inspection des pneus",
+"Light test": "Test des feux",
+"Mark serviceable": "Marquer en état de service",
+"Request repair": "Demander une réparation",
+"This stop already has a recorded outcome.": "Cet arrêt a déjà un résultat enregistré.",
+"The resident confirms the address.": "L'habitant confirme l'adresse.",
+"Nobody answers.": "Personne ne répond.",
+"Attempt contact, then follow the shipment requirements.": "Tente un contact, puis suis les exigences de l'envoi.",
+"View answers": "Voir les réponses",
+"Choose this answer": "Choisir cette réponse",
+"Next answer": "Réponse suivante",
+"Read question": "Lire la question",
+"Route manifest": "Manifeste de tournée",
+"Finish practice": "Terminer l'exercice",
+"Finish workday": "Terminer la journée de travail",
+"View manifest": "Voir le manifeste",
+"Complete a workday or a cargo lesson to see its results.": "Termine une journée de travail ou une leçon de chargement pour voir ses résultats.",
+"Practice debrief": "Débriefing de l'exercice",
+"Workday debrief": "Débriefing de la journée de travail",
+"Stop and set the parking brake before exiting.": "Arrête-toi et serre le frein de stationnement avant de sortir.",
+"Stop before selecting drive or reverse.": "Arrête-toi avant de sélectionner la marche avant ou arrière.",
+"Choose a workday or a focused cargo lesson.": "Choisis une journée de travail ou une leçon de chargement ciblée.",
+"Scan and place all three parcels in the van. Choose your shelf positions.": "Scanne et place les trois colis dans la camionnette. Choisis tes emplacements d'étagère.",
+"Replace the parcel, secure the load, then finish at Dispatch.": "Remets le colis en place, arrime le chargement, puis termine à la Répartition.",
+"Walk to Dispatch to read the morning brief and route manifest.": "Va à la Répartition pour lire le briefing du matin et le manifeste de tournée.",
+"Check tires and lights, scan and load three parcels, then secure the load and close cargo.": "Vérifie les pneus et les feux, scanne et charge trois colis, puis arrime le chargement et ferme le compartiment de chargement.",
+"Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Retourne vers le sud, au dépôt. Scanne les colis conservés aux Retours, puis termine à la Répartition.",
+"Brake off": "Frein desserré",
+"Saved on this device": "Enregistré sur cet appareil",
+"Saving unavailable — keep this window open": "Enregistrement indisponible — garde cette fenêtre ouverte",
+"Mouse looks": "Regard à la souris",
+"Drag to look without mouse capture": "Glisse pour regarder sans capture de la souris",
+"Mouse aim": "Visée à la souris",
+"Click or use number keys · Backspace goes back": "Clique ou utilise les touches numériques · Retour arrière pour revenir",
+"E resume workday": "E reprendre la journée de travail",
+"E start workday": "E commencer la journée de travail",
+"E cargo practice": "E exercice de chargement",
+"E last debrief": "E dernier débriefing",
+"H opens the hub menu": "H ouvre le menu du hub",
+"Set your belt, check the mirror and release the parking brake.": "Attache ta ceinture, vérifie le rétroviseur et desserre le frein de stationnement.",
+"15 mph limit · Keep right · Stop at the junction line": "Limite de 15 mph · Roule à droite · Arrête-toi à la ligne du carrefour",
+"E enter cab": "E monter dans la cabine",
+"E close cargo doors": "E fermer les portes de chargement",
+"E open cargo doors": "E ouvrir les portes de chargement",
+"E secure the load": "E arrimer le chargement",
+"E inspect tires": "E inspecter les pneus",
+"E inspect lights": "E inspecter les feux",
+" · E place the parcel": " · E poser le colis",
+" · E attempt delivery": " · E tenter la livraison",
+"Choose an empty cargo shelf, or approach the correct delivery point.": "Choisis une étagère libre, ou approche-toi du bon point de livraison.",
+"Aim at the barcode, or pick up the parcel to bring its label closer.": "Vise le code-barres, ou prends le colis pour rapprocher son étiquette.",
+"Resume workday ▶": "Reprendre la journée de travail ▶",
+"Abandon this workday": "Abandonner cette journée de travail",
+"Abandon the workday?": "Abandonner la journée de travail ?",
+"The workday so far is discarded and not scored. You can start a new one from the morning brief.": "La journée de travail en cours est supprimée et n'est pas notée. Tu pourras en commencer une nouvelle depuis le briefing du matin.",
+"Start workday ▶": "Commencer la journée de travail ▶",
+"Start the workday?": "Commencer la journée de travail ?",
+"The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.": "Le briefing du matin, le chargement de la camionnette, la conduite et tes arrêts, en 3D. Elle est enregistrée au fur et à mesure : tu peux partir et la reprendre depuis le poste.",
+"2D route day ›": "Journée de tournée en 2D ›",
+"Sign out": "Se déconnecter",
+"Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.": "Autoriser un nouvel essai pour chaque évaluation non réussie, réinitialiser toute sa progression (son ancienne progression est conservée sur le serveur comme sauvegarde), ou lui donner un nouveau mot de passe pour se connecter. Fais-le pendant qu'il n'est pas connecté.",
+"Their password stops working and they are signed out. They sign in with the temporary password and choose their own.": "Son mot de passe cesse de fonctionner et il est déconnecté. Il se connecte avec le mot de passe temporaire et choisit le sien.",
+"Their employee ID · Enter to confirm": "Son identifiant d'employé · Entrée pour confirmer",
+"Letters, numbers and . _ @ - only": "Lettres, chiffres et . _ @ - uniquement",
+"Type their employee ID first": "Saisis d'abord son identifiant d'employé",
+"An employee ID has letters, numbers and . _ @ - only, with no spaces.": "Un identifiant d'employé contient uniquement des lettres, chiffres et . _ @ -, sans espaces.",
+"Their name": "Son nom",
+"There is already an account with that employee ID.": "Un compte existe déjà avec cet identifiant d'employé.",
+"That trainee has no account.": "Ce stagiaire n'a pas de compte.",
+"Temporary password": "Mot de passe temporaire",
+"not tested": "non testé",
+"Critical mistake": "Erreur critique",
+"Morning brief": "Briefing du matin",
+"Loading the van": "Chargement de la camionnette",
+"At the stops": "Aux arrêts",
+"End of the day": "Fin de la journée"
 },
 "templates": [
 [
@@ -3996,6 +4282,198 @@ window.OTR_I18N.fr = {
 [
 "Avoided {0}",
 "Évité : {0}"
+],
+[
+"Carrying: {0}",
+"Transporté : {0}"
+],
+[
+"Recorded shelf: {0}",
+"Étagère enregistrée : {0}"
+],
+[
+"Outcome: {0}",
+"Résultat : {0}"
+],
+[
+"Left shelf {0}",
+"Étagère gauche {0}"
+],
+[
+"Right shelf {0}",
+"Étagère droite {0}"
+],
+[
+"Scanned the parcel at {0} before delivery.",
+"Colis scanné à {0} avant la livraison."
+],
+[
+"Verified {0} on the scanner.",
+"{0} vérifié sur le scanner."
+],
+[
+"Followed the delivery requirements at {0}.",
+"Exigences de livraison respectées à {0}."
+],
+[
+"The outcome did not match the requirements at {0}.",
+"Le résultat ne correspondait pas aux exigences à {0}."
+],
+[
+"Loaded and scanned {0}.",
+"{0} chargé et scanné."
+],
+[
+"{0} min",
+"{0} min"
+],
+[
+"{0} of {1} stops delivered",
+"{0} arrêts livrés sur {1}"
+],
+[
+"Workday · day {0}",
+"Journée de travail · jour {0}"
+],
+[
+"Graphics: {0}\nMouse sensitivity: {1}\nExisting key remaps apply. Course settings and trainer tools are available through Main game.",
+"Graphismes : {0}\nSensibilité de la souris : {1}\nLes réaffectations de touches existantes s'appliquent. Les paramètres du cours et les outils de formateur sont accessibles via Jeu principal."
+],
+[
+"Weight: {0} kg",
+"Poids : {0} kg"
+],
+[
+"Start: {0}",
+"Départ : {0}"
+],
+[
+"Good decisions: {0} · To review: {1}",
+"Bonnes décisions : {0} · À revoir : {1}"
+],
+[
+"Page {0} / {1}",
+"Page {0} / {1}"
+],
+[
+"Retrieve {0} from the shelf where you loaded it.",
+"Récupère {0} sur l'étagère où tu l'as chargé."
+],
+[
+"{0} parcels in cargo",
+"{0} colis dans le chargement"
+],
+[
+"{0} mph",
+"{0} mph"
+],
+[
+"{0}/{1} accelerate / brake",
+"{0}/{1} accélérer / freiner"
+],
+[
+"{0}/{1} steer",
+"{0}/{1} direction"
+],
+[
+"{0} parking brake",
+"{0} frein de stationnement"
+],
+[
+"{0} gear",
+"{0} vitesse"
+],
+[
+"{0} belt",
+"{0} ceinture"
+],
+[
+"{0} move",
+"{0} se déplacer"
+],
+[
+"{0} interact",
+"{0} interagir"
+],
+[
+"{0} inspect",
+"{0} inspecter"
+],
+[
+"{0} handheld",
+"{0} terminal"
+],
+[
+"{0} menu",
+"{0} menu"
+],
+[
+"{0} left mirror",
+"{0} rétroviseur gauche"
+],
+[
+"{0} / {1} signals",
+"{0} / {1} clignotants"
+],
+[
+"{0} look forward",
+"{0} regarder devant"
+],
+[
+"{0} exit",
+"{0} sortir"
+],
+[
+"Hold {0} or left click to scan",
+"Maintiens {0} ou clic gauche pour scanner"
+],
+[
+"{0} put away",
+"{0} ranger"
+],
+[
+"{0} pause",
+"{0} pause"
+],
+[
+"Barcode in sight · Hold {0} or left click to scan",
+"Code-barres en vue · Maintiens {0} ou clic gauche pour scanner"
+],
+[
+"Day {0} · 3D workday",
+"Jour {0} · Journée de travail 3D"
+],
+[
+"Day {0}  ·  {1}",
+"Jour {0}  ·  {1}"
+],
+[
+"Day {0}'s workday debrief ›",
+"Débriefing de la journée de travail du jour {0} ›"
+],
+[
+"A new password for {0}?",
+"Un nouveau mot de passe pour {0} ?"
+],
+[
+"Give this to {0} (employee ID {1}). It works once: they choose their own password when they sign in. It will not be shown again.",
+"Donne-le à {0} (identifiant d'employé {1}). Il ne fonctionne qu'une fois : il choisira son propre mot de passe à sa connexion. Il ne sera plus affiché."
+],
+[
+"Stop {0}: {1}",
+"Arrêt {0} : {1}"
+],
+[
+"Stop {0}",
+"Arrêt {0}"
+],
+[
+"{0} refused",
+"{0} refusé"
+],
+[
+"{0} stops",
+"{0} arrêts"
 ]
 ],
 "keep": [
