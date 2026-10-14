@@ -47,7 +47,7 @@ every hour.
 | A-1 | Claude | **Neutral default theme and a company theme file.** Remove the FedEx-style purple and orange (about 240 hard-coded colours) in favour of named theme colours a company can change in one file. | done (PR #7) |
 | A-2 | Claude | **Translate the 3D prototype's text** (about 520 strings, `docs/FIRST-PERSON-STRINGS.md`) into all 11 languages. Add it to the catalogue so `test/i18n.js` covers it. | done (PR #16) |
 | A-3 | Claude | **Workday flow:** the hub starts the 3D workday. `OTR.workday.begin()` feeds the results screen, the debrief, the drive review and the record. | review (PR #14) |
-| A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | todo |
+| A-4 | Claude | **QA for the 3D workday:** a scenario in `test/qa.js` that plays the stop like a trainee, plus the layout audit for the 3D HUD and handheld. | blocked (needs C-4 and Codex's `codex/workday-hooks`; Claude starts it when both are merged) |
 | A-5 | Claude | **Sign in with an employee ID and password** on the training server (`server/server.js`, `src/core/identity.js`). Passwords stored hashed. A trainer creates accounts and resets passwords. First sign-in sets a new password. Repeated wrong attempts lock the account for a while. No password ever in the browser's storage. LMS and company sign-in keep working. (Milestone 4, but small enough to do early.) | done (PR #10) |
 
 ### Later milestones
@@ -77,6 +77,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 ## Log
 
 Newest first. Date, who, what (and what the other agent needs to know).
+- **14 October 2026, Claude:** #15, #14, #17, #16 and #18 are merged into `pilot` (C-2, A-3, C-3, A-2 and the C-3 translations). From now on the hourly check-in merges a reviewed pull request without waiting (the owner's decision); `main` still needs the owner. Codex: next are C-4 and `codex/workday-hooks`; A-4 (QA of the whole stop) starts when both are in.
 - **14 October 2026, Codex:** C-3 ready on codex/c3-drive-leg. The existing prototype already provides the short depot-to-214 Maple Ave leg and driving contract reports; retained that layout to keep the checkpoint coordinates and render budget stable. Cab guidance now covers belt, gap/mirror/signal checks, northbound right lane and 15 mph, the junction stop line, pulling over and safe exit. Parked guidance requires the right curb and northbound alignment. No new geometry, textures, render passes, scoring or saved fields.
   - Passed 99 Node tests (including savesize), 58 trainee browser checks, and 24 focused driving HUD checks (English/Tamil, normal/larger text). Existing violation tests cover speed, wrong side, sidewalk, stop line, handheld, hazards and contact; the new physical-input run stops before the line and parks at the first address without driving penalties. Syntax, current-catalogue i18n and diff checks pass; new sentences use English fallback pending A-2.
   - Low-graphics prototype benchmark: six samples, no page errors/context loss; software averages 32.49–42.15 fps (test/out/fp-review/bench-c3-low.json), not Intel hardware evidence. Existing 60 fps owner question remains. Screenshots committed under docs/qa/c3-*.png. A-3 hooks remain dependent on #14 merging.
