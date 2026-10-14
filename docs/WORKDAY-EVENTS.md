@@ -108,10 +108,38 @@ Do not rename or delete a type that has shipped: saved records refer to it. Mark
 | --- | --- |
 | brief | `brief.read` |
 | pretrip | `inspect.tires`, `inspect.lights`, `depart.uninspected` |
-| load | `scan.load`, `load.shelf`, `load.secured` |
-| drive | `drive.belt`, `drive.speed`, `drive.sidewalk`, `drive.wrong-side`, `drive.stop-line`, `drive.hazard-early`, `drive.pedestrian`, `drive.contact`, `drive.handheld` |
-| stop | `scan.stop`, `scan.mismatch-caught`, `deliver.wrong-package`, `deliver.no-recipient`, `deliver.outcome`, `retrieve.checked` |
+| load | `scan.load`, `load.shelf`, `load.secured`, `load.count`, `load.missort-caught`, `load.missort-missed`, `load.extra-caught`, `load.missing-found`, `load.found-later` (the last files under the stop where it turned up) |
+| drive | `drive.belt`, `drive.speed`, `drive.sidewalk`, `drive.wrong-side`, `drive.stop-line`, `drive.hazard-early`, `drive.pedestrian`, `drive.contact`, `drive.handheld`, `drive.following`, `drive.mirrors`, `drive.backing`, `drive.school-bus`, `drive.school-bus-pass`, `drive.siren`, `drive.weather`, `dispatch.update` |
+| stop | `scan.stop`, `scan.mismatch-caught`, `deliver.wrong-package`, `deliver.no-recipient`, `deliver.outcome`, `retrieve.checked`, `stop.dog`, `stop.wrong-address`, `stop.age-check`, `stop.difficult`, `stop.hazard` |
 | end | `return.scanned` |
 
 These cover what the prototype (`src/core/fpmission.js`) already records with its own `log()`. Its log can stay
 for the in-world HUD. Each `log()` call should also call `report()` with the matching type (board task C-1).
+
+### Added for the full day (board task A-6)
+
+The 3D world reports these from the milestone 3 tasks (C-7 to C-11). `ok: false` marks a wrong check; a penalty or
+bonus is reported when it happens. Use the key that makes "the same thing again" the same mistake (`parcel.id`, the
+stop number, the drive leg or the hazard's id).
+
+| Type | Report it when |
+| --- | --- |
+| `load.count` | the trainee confirms the load against the manifest (`ok: false` if the count was not checked or was wrong) |
+| `load.missort-caught` / `load.missort-missed` | a package for another route is on the shelf: caught while scanning, or loaded anyway |
+| `load.extra-caught` | a package not on the manifest is found and set aside |
+| `load.missing-found` | a package is missing: reported to dispatch before leaving (`ok: false` if the trainee rolled out without saying) |
+| `load.found-later` | a package missed at load-out turns up at a stop (pass `stop`) |
+| `drive.following` | a gap check while following traffic (`ok: false` under three seconds); key by the leg |
+| `drive.mirrors` | each time the van pulls out from the curb |
+| `drive.backing` | each reversing manoeuvre; `ok: false` if the trainee did not get out and look (G.O.A.L.) |
+| `drive.school-bus` / `drive.school-bus-pass` | a school bus with flashing lights: stopped for it, or drove past it |
+| `drive.siren` | an emergency vehicle behind: pulled over to the right, or did not |
+| `drive.weather` | once per leg in rain, storm, snow or heat: speed and gap suited the conditions |
+| `dispatch.update` | a dispatch message arrived on the handheld: acted on correctly, or missed |
+| `stop.dog` | a dog at the stop: handled safely, or approached |
+| `stop.wrong-address` | a label whose address does not match the door: caught, or delivered anyway |
+| `stop.age-check` | an age-restricted package: photo ID checked (critical: a skipped check caps service at one star) |
+| `stop.difficult` | a difficult customer: handled calmly, or escalated |
+| `stop.hazard` | the trainee slipped or tripped at the door |
+
+The points are a first draft, tuned once a whole day can be played.

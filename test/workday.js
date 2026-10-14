@@ -194,3 +194,22 @@ test('the lab (no workday started at the hub) still reports into an unsaved log'
   assert.equal(log.items.length, 1);
   assert.equal(OTR.save.data.workday, undefined, 'nothing saved');
 });
+
+test('the full-day types score: checks, penalties, bonuses, criticals and the stop they file under', () => {
+  const log = W.begin();
+  const fullDay = ['load.count', 'load.missort-caught', 'load.missort-missed', 'load.extra-caught', 'load.missing-found', 'load.found-later',
+    'drive.following', 'drive.mirrors', 'drive.backing', 'drive.school-bus', 'drive.school-bus-pass', 'drive.siren', 'drive.weather',
+    'dispatch.update', 'stop.dog', 'stop.wrong-address', 'stop.age-check', 'stop.difficult', 'stop.hazard'];
+  fullDay.forEach((type, i) => { assert.ok(E[type], type + ' exists'); assert.notEqual(W.report(type, { key: i, stop: 2, ok: false }), null, type); });
+  assert.equal(log.items.length, fullDay.length);
+  for (const item of log.items) {
+    assert.ok(item.label, 'every line has words');
+    if (item.kind === 'check') assert.equal(item.got, 0, 'a wrong check scores nothing');
+  }
+  const crit = log.items.filter((i) => i.critical).map((i) => i.id || i.type);
+  assert.ok(log.items.some((i) => i.critical), 'a critical full-day mistake reaches the log: ' + crit);
+  // a right check scores its full marks
+  fresh(); const good = W.begin();
+  W.report('drive.following', { key: 'leg1' }); W.report('stop.age-check', { key: 'p1', stop: 1 });
+  assert.equal(JSON.stringify(good.items.map((i) => [i.got, i.max])), '[[2,2],[2,2]]');
+});
