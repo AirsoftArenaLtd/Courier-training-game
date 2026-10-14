@@ -3211,7 +3211,13 @@ window.OTR_I18N.ml = {
 "Morning brief": "രാവിലത്തെ ബ്രീഫ്",
 "Loading the van": "വാൻ ലോഡ് ചെയ്യൽ",
 "At the stops": "സ്റ്റോപ്പുകളിൽ",
-"End of the day": "ദിവസാവസാനം"
+"End of the day": "ദിവസാവസാനം",
+"Fasten the seatbelt before moving.": "നീങ്ങുന്നതിന് മുമ്പ് സീറ്റ് ബെൽറ്റ് ധരിക്കുക.",
+"Parked at the stop. Check traffic before exiting.": "സ്റ്റോപ്പിൽ പാർക്ക് ചെയ്തു. ഇറങ്ങുന്നതിന് മുമ്പ് ട്രാഫിക് നോക്കുക.",
+"Pull over on the right at the address. Stop and set the parking brake.": "വിലാസത്തിൽ വലതുവശത്ത് ഒതുക്കി നിർത്തുക. നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "കണ്ണാടികൾ നോക്കുക, ഇടത് സിഗ്നൽ നൽകുക, പുറപ്പെടുന്നതിന് മുമ്പ് ഒഴിഞ്ഞ ഇടത്തിനായി കാത്തിരിക്കുക.",
+"Stop before the white junction line. Yield before continuing north.": "വെളുത്ത ജംഗ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക. വടക്കോട്ട് തുടരുന്നതിന് മുമ്പ് വഴി നൽകുക.",
+"Continue north in the right lane. Speed limit: 15 mph.": "വലത് ലെയ്നിൽ വടക്കോട്ട് തുടരുക. വേഗപരിധി: 15 mph."
 },
 "templates": [
 [

@@ -3196,7 +3196,13 @@ window.OTR_I18N.fr = {
 "Morning brief": "Briefing du matin",
 "Loading the van": "Chargement de la camionnette",
 "At the stops": "Aux arrêts",
-"End of the day": "Fin de la journée"
+"End of the day": "Fin de la journée",
+"Fasten the seatbelt before moving.": "Attache ta ceinture de sécurité avant de bouger.",
+"Parked at the stop. Check traffic before exiting.": "Garé à l'arrêt. Vérifie la circulation avant de descendre.",
+"Pull over on the right at the address. Stop and set the parking brake.": "Range-toi à droite à l'adresse. Arrête-toi et serre le frein à main.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "Vérifie les rétroviseurs, mets le clignotant gauche et attends un créneau libre avant de partir.",
+"Stop before the white junction line. Yield before continuing north.": "Arrête-toi avant la ligne blanche du carrefour. Cède le passage avant de continuer vers le nord.",
+"Continue north in the right lane. Speed limit: 15 mph.": "Continue vers le nord dans la voie de droite. Vitesse limitée à 15 mph."
 },
 "templates": [
 [

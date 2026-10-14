@@ -3212,7 +3212,13 @@ window.OTR_I18N.bn = {
 "Morning brief": "সকালের ব্রিফ",
 "Loading the van": "ভ্যান লোড করা",
 "At the stops": "স্টপগুলোতে",
-"End of the day": "দিনের শেষ"
+"End of the day": "দিনের শেষ",
+"Fasten the seatbelt before moving.": "চলার আগে সিট বেল্ট বাঁধুন।",
+"Parked at the stop. Check traffic before exiting.": "স্টপে পার্ক করা হয়েছে। নামার আগে ট্রাফিক দেখে নিন।",
+"Pull over on the right at the address. Stop and set the parking brake.": "ঠিকানায় ডান দিকে গাড়ি দাঁড় করান। থামুন এবং পার্কিং ব্রেক দিন।",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "আয়না দেখুন, বাঁ ইন্ডিকেটর দিন এবং বেরোনোর আগে ফাঁকা জায়গার জন্য অপেক্ষা করুন।",
+"Stop before the white junction line. Yield before continuing north.": "সাদা জংশন লাইনের আগে থামুন। উত্তর দিকে এগোনোর আগে পথ ছেড়ে দিন।",
+"Continue north in the right lane. Speed limit: 15 mph.": "ডান লেনে উত্তর দিকে চলতে থাকুন। গতিসীমা: 15 mph।"
 },
 "templates": [
 [

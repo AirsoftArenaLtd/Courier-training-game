@@ -3211,7 +3211,13 @@ window.OTR_I18N.kn = {
 "Morning brief": "ಬೆಳಗಿನ ಬ್ರೀಫ್",
 "Loading the van": "ವ್ಯಾನ್ ಲೋಡ್ ಮಾಡುವುದು",
 "At the stops": "ಸ್ಟಾಪ್‌ಗಳಲ್ಲಿ",
-"End of the day": "ದಿನದ ಅಂತ್ಯ"
+"End of the day": "ದಿನದ ಅಂತ್ಯ",
+"Fasten the seatbelt before moving.": "ಹೊರಡುವ ಮೊದಲು ಸೀಟ್ ಬೆಲ್ಟ್ ಹಾಕಿಕೊಳ್ಳಿ.",
+"Parked at the stop. Check traffic before exiting.": "ಸ್ಟಾಪ್‌ನಲ್ಲಿ ನಿಲ್ಲಿಸಲಾಗಿದೆ. ಇಳಿಯುವ ಮೊದಲು ಟ್ರಾಫಿಕ್ ನೋಡಿ.",
+"Pull over on the right at the address. Stop and set the parking brake.": "ವಿಳಾಸದಲ್ಲಿ ಬಲಬದಿಗೆ ನಿಲ್ಲಿಸಿ. ನಿಂತು ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "ಕನ್ನಡಿಗಳನ್ನು ನೋಡಿ, ಎಡ ಸಿಗ್ನಲ್ ಕೊಡಿ, ಹೊರಡುವ ಮೊದಲು ಖಾಲಿ ಅಂತರಕ್ಕಾಗಿ ಕಾಯಿರಿ.",
+"Stop before the white junction line. Yield before continuing north.": "ಬಿಳಿ ಜಂಕ್ಷನ್ ಗೆರೆಯ ಮೊದಲು ನಿಲ್ಲಿ. ಉತ್ತರಕ್ಕೆ ಮುಂದುವರಿಯುವ ಮೊದಲು ದಾರಿ ಬಿಡಿ.",
+"Continue north in the right lane. Speed limit: 15 mph.": "ಬಲ ಲೇನ್‌ನಲ್ಲಿ ಉತ್ತರಕ್ಕೆ ಮುಂದುವರಿಯಿರಿ. ವೇಗ ಮಿತಿ: 15 mph."
 },
 "templates": [
 [

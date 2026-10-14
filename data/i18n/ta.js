@@ -3211,7 +3211,13 @@ window.OTR_I18N.ta = {
 "Morning brief": "காலை விளக்கம்",
 "Loading the van": "வேனை ஏற்றுதல்",
 "At the stops": "நிறுத்தங்களில்",
-"End of the day": "நாள் முடிவு"
+"End of the day": "நாள் முடிவு",
+"Fasten the seatbelt before moving.": "நகரும் முன் சீட் பெல்ட்டை அணியுங்கள்.",
+"Parked at the stop. Check traffic before exiting.": "நிறுத்தத்தில் நிறுத்தியாகிவிட்டது. இறங்கும் முன் போக்குவரத்தைப் பாருங்கள்.",
+"Pull over on the right at the address. Stop and set the parking brake.": "முகவரியில் வலப்புறம் ஒதுக்கி நிறுத்துங்கள். நின்று பார்க்கிங் பிரேக்கைப் போடுங்கள்.",
+"Check mirrors, signal left and wait for a clear gap before pulling out.": "கண்ணாடிகளைப் பாருங்கள், இடது இண்டிகேட்டர் போடுங்கள், புறப்படும் முன் காலி இடைவெளிக்காகக் காத்திருங்கள்.",
+"Stop before the white junction line. Yield before continuing north.": "வெள்ளை சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள். வடக்கே தொடரும் முன் வழிவிடுங்கள்.",
+"Continue north in the right lane. Speed limit: 15 mph.": "வலது பாதையில் வடக்கே தொடருங்கள். வேக வரம்பு: 15 mph."
 },
 "templates": [
 [
