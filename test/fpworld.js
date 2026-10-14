@@ -13,6 +13,23 @@ function world(high=true){
   const art=context.OTR.fpWorld.build(scene),m=context.OTR.fpMission.create('campaign',1);
   return {scene,art,m,camera};
 }
+test('render diagnostics count world, mirror and composite once per frame without accumulating',()=>{
+  const original=THREE.WebGLRenderer;
+  try{
+    THREE.WebGLRenderer=class{
+      constructor(){this.info={autoReset:true,render:{calls:0,triangles:0},memory:{textures:2,geometries:4},reset(){this.render.calls=0;this.render.triangles=0;}};}
+      resetState(){} setScissorTest(){} setRenderTarget(){} setViewport(){} clear(){}
+      render(root){if(this.info.autoReset)this.info.reset();this.info.render.calls+=root.children.some(o=>o.isCamera)?3:1;this.info.render.triangles+=root.children.some(o=>o.isCamera)?36:2;}
+    };
+    context.OTR.gfx={high:()=>false};context.OTR.W=1280;context.OTR.H=720;
+    const scene={sys:{game:{canvas:{},renderer:{gl:{drawingBufferWidth:1280,drawingBufferHeight:720},pipelines:{clear(){},rebind(){}}}}},add:{extern:()=>({setDepth(){return this;}})},events:{once(){}}};
+    const view=context.OTR.world3d.create(scene),d=view.diagnostics;
+    view.extern.render();assert.equal(d.calls,4);assert.equal(d.triangles,38);
+    view.mirror.on=true;view.extern.render();assert.equal(d.calls,7);assert.equal(d.triangles,74);
+    view.extern.render();assert.equal(view.diagnostics,d);assert.equal(d.calls,7);
+    assert.equal(d.targetWidth,832);assert.equal(d.targetHeight,468);assert.equal(d.attachmentBytes,3575808);
+  }finally{THREE.WebGLRenderer=original;}
+});
 function aim(w,position,id){
   const {art,m,camera}=w;Object.assign(m.player,position);art.sync(m,null,'route');
   const candidates=art.interactions.filter(o=>o.userData.interaction===id);

@@ -13,6 +13,9 @@ OTR.world3d = {
     if (!gl) throw new Error('WebGL is required');
     const renderer = new THREE.WebGLRenderer({ canvas: scene.sys.game.canvas, context: gl, antialias: false });
     renderer.autoClear = false;
+    // Count the whole frame: world, optional mirror and final composite.
+    renderer.info.autoReset = false;
+    const diagnostics = { calls:0, triangles:0, textures:0, geometries:0, targetWidth:0, targetHeight:0, attachmentBytes:0 };
     const world = new THREE.Scene();
     world.background = new THREE.Color(0xA7C7DE);
     world.fog = new THREE.Fog(0xA7C7DE, 65, 165);
@@ -48,7 +51,7 @@ OTR.world3d = {
       }
       phaser.pipelines.clear();
       try {
-        renderer.resetState(); renderer.setScissorTest(false);
+        renderer.info.reset(); renderer.resetState(); renderer.setScissorTest(false);
         renderer.setRenderTarget(target); renderer.setViewport(0, 0, w, h);
         renderer.clear(true, true, false); renderer.render(world, camera);
         mirrorQuad.visible = mirror.on;
@@ -63,6 +66,11 @@ OTR.world3d = {
         }
         renderer.setRenderTarget(null); renderer.setViewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
         renderer.render(screen, screenCamera);
+        diagnostics.calls=renderer.info.render.calls;diagnostics.triangles=renderer.info.render.triangles;
+        diagnostics.textures=renderer.info.memory.textures;diagnostics.geometries=renderer.info.memory.geometries;
+        diagnostics.targetWidth=w;diagnostics.targetHeight=h;
+        // RGBA8 plus up-to-32-bit depth, including the allocated mirror target while off.
+        diagnostics.attachmentBytes=(w*h+mirrorTarget.width*mirrorTarget.height)*8;
       } finally { renderer.resetState(); phaser.pipelines.rebind(); }
     };
     const dispose = () => {
@@ -81,6 +89,6 @@ OTR.world3d = {
       target.dispose(); mirrorTarget.dispose(); renderer.dispose(); // Never call forceContextLoss on the shared context.
     };
     scene.events.once('shutdown', dispose);
-    return { world, camera, mirror, extern, dispose };
+    return { world, camera, mirror, extern, dispose, diagnostics };
   }
 };
