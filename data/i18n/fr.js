@@ -3202,7 +3202,9 @@ window.OTR_I18N.fr = {
 "Pull over on the right at the address. Stop and set the parking brake.": "Range-toi à droite à l'adresse. Arrête-toi et serre le frein à main.",
 "Check mirrors, signal left and wait for a clear gap before pulling out.": "Vérifie les rétroviseurs, mets le clignotant gauche et attends un créneau libre avant de partir.",
 "Stop before the white junction line. Yield before continuing north.": "Arrête-toi avant la ligne blanche du carrefour. Cède le passage avant de continuer vers le nord.",
-"Continue north in the right lane. Speed limit: 15 mph.": "Continue vers le nord dans la voie de droite. Vitesse limitée à 15 mph."
+"Continue north in the right lane. Speed limit: 15 mph.": "Continue vers le nord dans la voie de droite. Vitesse limitée à 15 mph.",
+"Park the van near this address and set the parking brake first.": "Gare la camionnette près de cette adresse et serre d'abord le frein à main.",
+"Scan this parcel at the door before recording the outcome.": "Scanne ce colis à la porte avant d'enregistrer le résultat."
 },
 "templates": [
 [
@@ -4480,6 +4482,10 @@ window.OTR_I18N.fr = {
 [
 "{0} stops",
 "{0} arrêts"
+],
+[
+"{0} · Scan the parcel at the door before recording the outcome.",
+"{0} · Scanne le colis à la porte avant d'enregistrer le résultat."
 ]
 ],
 "keep": [
