@@ -56,8 +56,18 @@ OTR.fpHandheld = class {
     ], options: [
       { label: 'Scan package', onPick: () => this.scan() },
       { label: 'Stop details', onPick: () => this.stop(stop.id) },
-      { label: 'Route', onPick: () => this.route() }
+      { label: 'Route', onPick: () => this.route() },
+      ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[])
     ], footer: 'TAB put away' });
+  }
+  loadCheck(){
+    const m=this.scene.model;if(!m||!m.loadout)return;
+    const action=fn=>{const text=fn();this.scene.checkpoint();this.show({title:'LOAD CHECK',lines:[text],options:[{label:'Back',onPick:()=>this.loadCheck()},{label:'Put away',onPick:()=>this.close()}]});};
+    this.show({title:'LOAD CHECK',lines:[`The manifest lists ${m.stops.length} packages.`,m.departed?'Bring missing or unlisted packages to Dispatch.':'Match the loaded packages to the manifest.'],options:[
+      {label:'Confirm the load count',disabled:m.departed,onPick:()=>{if(!m.near('dispatch')){action(()=> 'Confirm the load count at Dispatch.');return;}this.close(false);this.scene.showLoadCount();}},
+      {label:'Report a missing package',onPick:()=>action(()=>OTR.fpLoadout.missing(m))},
+      {label:'Set the unlisted package aside',onPick:()=>action(()=>OTR.fpLoadout.aside(m))}
+    ],back:()=>this.home()});
   }
   route() {
     const m = this.scene.model;
@@ -101,7 +111,7 @@ OTR.fpHandheld = class {
     if (this.focusId !== id) { this.focusId = id; this.progress = 0; }
     this.progress += Math.min(Math.max(seconds, 0), 0.05);
     if (this.progress < 0.45) return;
-    const result = m.scan(id), mismatch = m.phase === 'route' && p.stop !== m.activeStop && !p.returnRequired;
+    const result = m.scan(id), mismatch = !!p.anomaly || m.phase === 'route' && p.stop !== m.activeStop && !p.returnRequired;
     const returned = p.returnRequired && m.heldId === p.id && m.near('returns');
     const receipt = returned ? m.returnParcel() : result;
     s.checkpoint(); if (OTR.audio) OTR.audio.play(mismatch ? 'error' : 'scan');

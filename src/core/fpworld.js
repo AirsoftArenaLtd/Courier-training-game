@@ -1,7 +1,7 @@
 /* Shared placeholder depot, cargo and town. Text stays in Phaser; no texture downloads. */
 window.OTR = window.OTR || {};
 OTR.fpWorld = {
-  build(scene) {
+  build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera;
     const cube = new T.BoxGeometry(1, 1, 1), mats = new Map(), batches = new Map();
     const occluders = [], interactions = [], labels = [];
@@ -53,7 +53,7 @@ OTR.fpWorld = {
     }
     for (let x=-4.7;x<5;x+=1.1) box(route,x,0.05,-57,0.5,0.02,2.6,0xEFEEE5);
     box(route,2.75,0.05,-24,5.4,0.02,0.28,0xEFEEE5);
-    const base = OTR.fpMission.create('campaign',1);
+    const base = model || OTR.fpMission.create('campaign',1);
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     box(route,-13.8,0.5,11,2,1,1.2,0x5D4777,'dispatch',true);
     box(route,-13.8,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
@@ -140,6 +140,11 @@ OTR.fpWorld = {
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
     const api={hub,route,van,parcels,labels,occluders,interactions,ray,
+      dispose(){
+        const geometries=new Set();
+        for(const root of [hub,route,carried,inspected,dash]){root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent();}
+        geometries.add(cube);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
+      },
       sync(model,hubPlayer,area) {
         const inHub=area==='hub';hub.visible=inHub;route.visible=!inHub;
         carried.visible=false;dash.visible=false;inspected.visible=false;
