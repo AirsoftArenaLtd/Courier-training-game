@@ -2,7 +2,7 @@
  * The 3D workday from the hub, the way a new courier plays it (flow, from index.html?dev=1&workday3d=1):
  * name entry, the hub's "Start workday", the morning brief at Dispatch, loading the van with the real pickup, scanner
  * and shelf interactions, the pre-trip, belt, the first drive leg on throttle and brake (stop line included), parking,
- * the doorstep scan and a delivery outcome at each of the three stops, the return scan, "Finish workday", then the
+ * the doorstep scan and a delivery outcome at each of the five stops, the return scan, "Finish workday", then the
  * results screen, the debrief and the record. The layout audit runs at the moments a trainee reads the screen,
  * including the 3D prototype's own text (it is not scroll-factor pinned, so the generic audit cannot see all of it).
  * Position fixtures skip walking between tasks (as test/fpbrowser.js does); everything else is real input.
@@ -35,18 +35,30 @@ module.exports = async (page, ctx) => {
     must(!bad.length, `(${label}) text off the canvas: ${JSON.stringify(bad.slice(0, 3))}`);
     await ctx.snap('3d-' + label);
   };
-  const pose = async (x, z, id, barcode = false) => {
-    await ev((x, z, id, barcode) => {
-      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.player, { x, z }); s.sync();
+  // stand where the player would stand to use a thing, looking at it (the geometry comes from the model, so the flow
+  // follows the generated route instead of fixed coordinates); the use itself is a real key press
+  const at = async (id, barcode = false) => {
+    await ev((id, barcode) => {
+      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, pt = m.point(id); s.handheld.close(); s.closePanel();
+      Object.assign(m.player, { x: pt.x, z: pt.z });
+      if (id.startsWith('parcel') && m.parcel(id).location === 'depot') m.player.x -= 1.6;
+      else if (id.startsWith('door')) m.player.x -= m.stop(id.slice(4)).side * 1.5;
+      else if (id === 'dispatch' || id === 'returns') m.player.x -= 1.6;
+      else if (id.startsWith('slot') || (id.startsWith('parcel') && m.parcel(id).location.startsWith('slot'))) { const d = barcode ? 1.15 : 0.65; m.player.x -= Math.sin(m.van.yaw) * d; m.player.z += Math.cos(m.van.yaw) * d; }
+      else if (id === 'cargo' || id === 'secure') { const d = id === 'cargo' ? 1.25 : 0.65; m.player.x -= Math.sin(m.van.yaw) * d; m.player.z += Math.cos(m.van.yaw) * d; }
+      else if (id === 'lights') m.player.z -= 1.2;
+      else if (id === 'tyres' || id === 'driver') m.player.x -= 0.09;   // the tyre and the driver's door share a spot: the aim picks one
+      else m.player.z += 0.65;
+      s.sync();
       const visible = (o) => { for (let a = o; a; a = a.parent) if (!a.visible) return false; return true; };
       const o = barcode ? s.art.parcels[Number(id.slice(6))].userData.barcode : s.art.interactions.find((o) => o.userData.interaction === id && visible(o));
-      if (!o) throw Error('No visible target ' + id);
+      if (!o) throw Error('No visible target ' + id + ' ' + JSON.stringify({ n: s.art.interactions.filter((o) => o.userData.interaction === id).length, mode: m.mode, van: m.van, player: m.player }));
       const v = o.getWorldPosition(new THREE.Vector3()), eye = s.view.camera.position, dx = v.x - eye.x, dz = v.z - eye.z;
       m.player.yaw = Math.atan2(dx, -dz); m.player.pitch = Math.atan2(eye.y - v.y, Math.hypot(dx, dz)); s.sync();
-    }, x, z, id, barcode);
+    }, id, barcode);
     await wait(100);
   };
-  const aimPoint = async (id) => { const pt = await ev((id) => OTR.game.scene.getScene('FirstPersonScene').model.point(id), id); await pose(pt.x, pt.z + 1.5, id); };
+  const use = async (id) => { await at(id); await press('KeyE'); };
   const scan = async () => {
     await press('Tab'); await press('Digit1');
     must((await state()).aiming, 'the scanner did not enter aiming mode');
@@ -76,39 +88,40 @@ module.exports = async (page, ctx) => {
 
   // ---- the opening panel ("Walk to Dispatch and read the morning brief"), then dispatch: the brief and the manifest
   if ((await state()).panel) { await press('Digit1'); must(!(await state()).panel, 'the opening panel did not close'); }
-  await pose(-12.1, 11, 'dispatch'); await press('KeyE'); await shot('morning-brief');
-  for (let i = 0; i < 30; i++) {
+  await use('dispatch'); await shot('morning-brief');
+  for (let i = 0; i < 40; i++) {
     const s = await state();
     if (s.m.events['brief:' + s.m.seed]) break;
     await press('Digit1');
   }
   { const s = await state(); must(!!s.m.events['brief:' + s.m.seed], 'the brief and manifest could not be read to the end'); }
+  const N = (await state()).m.stops.length;
+  must(N === 5, 'the generated day should have five stops, not ' + N);
 
-  // ---- load the van with the real interactions
-  for (let i = 0; i < 3; i++) {
-    await pose(-9, 4 - i * 3, 'parcel' + i); await press('KeyE');
+  // ---- load the van with the real interactions: every parcel scanned at the table, on its own shelf, in stop order
+  for (let i = 0; i < N; i++) {
+    await use('parcel' + i);
     must((await state()).m.heldId === 'parcel' + i, 'could not pick up parcel ' + i);
     await scan(); must((await state()).m.parcels[i].scanned, 'the depot scan did not register for parcel ' + i);
     if (i === 0) await shot('scan-result');
     await press('Digit1');
-    if (i === 0) { await aimPoint('cargo'); await press('KeyE'); must((await state()).m.cargoOpen, 'the cargo doors did not open'); }
-    await pose(4, 8 + 2.05 - i * 1.05 + 0.65, 'slot' + i); await press('KeyE');
+    if (i === 0) { await use('cargo'); must((await state()).m.cargoOpen, 'the cargo doors did not open'); }
+    await use('slot' + i);
     must((await state()).m.parcels[i].location === 'slot' + i, 'could not place parcel ' + i + ' on its shelf');
   }
-  await aimPoint('secure'); await press('KeyE'); must((await state()).m.secured, 'the cargo restraint did not secure the load');
+  await use('secure'); must((await state()).m.secured, 'the cargo restraint did not secure the load');
   await shot('cargo');
-  await pose(5.5, 11.6, 'cargo'); await press('KeyE'); must(!(await state()).m.cargoOpen, 'the cargo doors did not close');
+  await use('cargo'); must(!(await state()).m.cargoOpen, 'the cargo doors did not close');
 
   // ---- pre-trip walkaround
   for (const part of ['tyres', 'lights']) {
-    if (part === 'tyres') await pose(1.6, 6.4, part); else await pose(4, 4, part);
-    await press('KeyE'); await shot('inspection-' + part);
+    await use(part); await shot('inspection-' + part);
     const fault = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.fault);
     await press(part === fault ? 'Digit2' : 'Digit1');
   }
 
-  // ---- the cab: belt, parking brake, the first leg on throttle and brake
-  await pose(1.6, 6.3, 'driver'); await press('KeyE');
+  // ---- the cab: belt, parking brake, then the start of the first leg on throttle and brake, through the first junction
+  await use('driver');
   must((await state()).m.mode === 'cab', 'could not enter the cab');
   await press('KeyB'); await press('KeyM'); await shot('cab-guidance');
   await press('Space');
@@ -123,26 +136,30 @@ module.exports = async (page, ctx) => {
     }
     throw new Error('workday-3d: the drive leg did not arrive');
   };
-  await driveTo(-20); await wait(500);
-  must((await state()).m.stopSign.stopped, 'the van did not make a full stop at the junction line');
+  // the first junction line is ahead of the depot street: stop before it (the model logs the full stop), then go through
+  const junctionZ = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.town.zs[1]);
+  await driveTo(junctionZ + 9.5); await wait(500);
   await shot('junction');
-  await driveTo(-42); await press('Space');
-  must((await state()).m.logs.some((l) => l.id === 'stop-sign' && l.outcome === 'good'), 'the safe stop-line response was not logged');
-  await shot('arrival');
+  await driveTo(junctionZ - 9);
+  must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good');
+  // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
+  const parkAt = async (i) => {
+    await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
+    await wait(150);
+  };
+  await parkAt(0); await shot('arrival');
   await press('KeyE'); must((await state()).m.mode === 'walk', 'could not park and get out');
 
-  // ---- three stops
-  for (let i = 0; i < 3; i++) {
-    if (i > 0) await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, { x: 4, z: m.stops[i].z, yaw: 0, speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
-    const vz = (await state()).m.van.z;
-    await pose(4, vz + 4, 'cargo'); await press('KeyE'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
-    const pz = vz + 2.05 - i * 1.05;
-    await pose(4, pz + 1.15, 'parcel' + i, true);
+  // ---- five stops
+  for (let i = 0; i < N; i++) {
+    if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
+    await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
+    await at('parcel' + i, true);
     await scan(); must(!(await state()).m.parcels[i].stopScanned, 'a cargo scan must not count as the doorstep scan (stop ' + i + ')');
     await press('Digit1');
-    await pose(4, pz + 0.65, 'parcel' + i); await press('KeyE'); must((await state()).m.heldId === 'parcel' + i, 'could not take parcel ' + i + ' out of the van');
+    await use('parcel' + i); must((await state()).m.heldId === 'parcel' + i, 'could not take parcel ' + i + ' out of the van');
     const stop = (await state()).m.stops[i];
-    await pose(8.4, stop.z, 'door' + i);
+    await at('door' + i);
     await scan(); must((await state()).m.parcels[i].stopScanned, 'the doorstep scan did not register (stop ' + i + ')');
     if (i === 0) await shot('doorstep-scan');
     await press('Digit1');
@@ -152,24 +169,26 @@ module.exports = async (page, ctx) => {
     await press(stop.service === 'handover' ? 'Digit1' : stop.service === 'safeplace' ? 'Digit2' : 'Digit3');
     must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
     await shot('receipt-' + i); await press('Digit1');
-    if (stop.service === 'signature') { await pose(4, pz + 0.65, 'slot' + i); await press('KeyE'); must((await state()).m.parcels[i].location === 'slot' + i, 'could not put the signature parcel back'); }
-    await aimPoint('secure'); await press('KeyE'); await pose(5.5, vz + 3.6, 'cargo'); await press('KeyE');
+    if ((await state()).m.heldId) await use('slot' + i);
+    await use('secure'); await use('cargo');
   }
-  must((await state()).m.phase === 'return', 'the three stops did not lead to the return phase');
+  must((await state()).m.phase === 'return', 'the five stops did not lead to the return phase');
 
-  // ---- back at the depot: the retained parcel is scanned in at Returns, then Dispatch finishes the day
-  await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); Object.assign(s.model.van, { x: 4, z: 8, yaw: 0, speed: 0, hand: true }); s.sync(); });
-  await aimPoint('cargo'); await press('KeyE');
-  const ret = (await state()).m.parcels.find((p) => p.returnRequired);
-  must(!!ret, 'no parcel to return (the day should keep one)');
-  const slot = Number(ret.location.slice(4));
-  await pose(4, 8 + 2.05 - (slot % 3) * 1.05 + 0.65, ret.id); await press('KeyE');
-  await pose(-12.2, 5, 'returns'); await press('KeyE');
-  must((await state()).aiming, 'Returns did not open the barcode scanner');
-  await page.keyboard.down('Space'); await ctx.until(`!${FP}.handheld.aiming`, 20000); await page.keyboard.up('Space'); await wait(200);
-  must((await state()).m.parcels[ret.stop].location === 'returned', 'the return scan did not check the parcel in');
-  await shot('return-receipt'); await press('Digit1');
-  await pose(-12.1, 11, 'dispatch'); await press('KeyE'); await shot('dispatch-finish');
+  // ---- back at the depot: retained parcels are scanned in at Returns, then Dispatch finishes the day
+  await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); Object.assign(s.model.van, { x: 2.84, z: 8, yaw: 0, speed: 0, hand: true }); s.sync(); });
+  await use('cargo');
+  const retained = (await state()).m.parcels.filter((p) => p.returnRequired);
+  // a day keeps a parcel only when a stop needs a signature and nobody is home; today's seed may have none
+  for (const ret of retained) {
+    await use(ret.id);
+    await at('returns'); await press('KeyE');
+    must((await state()).aiming, 'Returns did not open the barcode scanner');
+    await page.keyboard.down('Space'); await ctx.until(`!${FP}.handheld.aiming`, 20000); await page.keyboard.up('Space'); await wait(200);
+    must((await state()).m.parcels[ret.stop].location === 'returned', 'the return scan did not check the parcel in');
+    await press('Digit1');
+  }
+  if (retained.length) await shot('return-receipt');
+  await use('dispatch'); await shot('dispatch-finish');
   await press('Digit1');                                       // Finish workday
 
   // ---- the shared workday flow takes over: results, debrief, record
