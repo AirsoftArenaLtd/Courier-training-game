@@ -131,6 +131,7 @@ OTR.fpMission = {
         if (p.location.startsWith('slot')) return this.point(p.location);
         if (p.location === 'held') return { x: this.player.x, y: 1.1, z: this.player.z };
         const s = this.stop(p.stop);
+        if(p.location==='delivered'&&this.routeDay&&OTR.fpDay.planter(this,p.stop))return {x:s.x-(s.side||1)*.6,y:.28,z:s.z+2.35};
         if (p.location === 'delivered') return { x: s.x - (s.side || 1) * 0.6, y: 0.28, z: s.z + 1.4 };
         if (p.location === 'returned') return { x: this.routePlan ? 13.8 : -13.8, y: 1.1, z: 4.5 + p.stop * 0.5 };
         return null;
@@ -210,6 +211,7 @@ OTR.fpMission = {
       },
       serviceLabel(id) {
         const s = this.stop(id);
+        if(this.routeDay&&OTR.fpDay.planter(this,id))return 'Leave the parcel behind the planter, as dispatch requested.';
         return s.service === 'signature' ? 'Signature required' : s.service === 'safeplace' ? 'Leave in the porch box if nobody answers' : 'Hand to the resident';
       },
       pickup(id) {
@@ -272,6 +274,7 @@ OTR.fpMission = {
         for (const side of [-1.8, 1.8]) {
           const p = F.local(this.van, side, -1.7);
           if (!this.blocked(p.x, p.z)) {
+            if(this.routeDay)OTR.fpDay.endLeg(this);
             Object.assign(this.player, p, { yaw: this.van.yaw, pitch: 0 });
             this.mode = 'walk'; this.leg++; this.van.belt = false; this.touch(); return true;
           }
@@ -287,7 +290,8 @@ OTR.fpMission = {
         return s.service === 'handover' ? 'The resident answers and confirms the address.' : 'Nobody answers the door.';
       },
       deliver(id, outcome) {
-        const s = this.stop(id), p = this.parcel(this.heldId);
+        const s = this.stop(id), p = this.parcel(this.heldId),choice=outcome;
+        if(outcome==='planter'&&this.routeDay&&OTR.fpDay.planter(this,id))outcome='safeplace';
         if (!['handover','safeplace','exception'].includes(outcome)) return 'Choose a delivery outcome.';
         if (this.kind !== 'campaign' || !s || s.resolved || !this.near('door' + id) || this.mode !== 'walk') return 'Approach an unfinished delivery point.';
         if (!p) return 'Retrieve the parcel from the van first.';
@@ -305,7 +309,8 @@ OTR.fpMission = {
         }
         if (!p.scanned) this.log('unverified:' + p.id, 'verification', 'needs', 'Completed a stop without scanning the parcel.');
         const expected = s.service === 'handover' ? 'handover' : s.service === 'safeplace' ? 'safeplace' : 'exception';
-        const correct = outcome === expected;
+        const response=this.routeDay?OTR.fpDay.outcome(this,s,choice):null;
+        const correct = outcome === expected&&response!==false;
         this.log('outcome:' + id, 'delivery', correct ? 'good' : 'needs', correct ?
           (outcome === 'exception' ? 'Retained the signature parcel when the recipient was absent.' : `Followed the delivery requirements at ${s.address}.`) :
           `The outcome did not match the requirements at ${s.address}.`);
@@ -352,6 +357,7 @@ OTR.fpMission = {
         if (this.kind === 'campaign') this.tickTraffic(dt);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
+        if(this.routeDay)OTR.fpDay.tick(this,dt);
         if (this.mode !== 'cab') return;
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
@@ -420,6 +426,7 @@ OTR.fpMission = {
       snapshot() {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         if (this.routePlan) fields.push('routePlan', 'junctions');
+        if(this.routeDay)fields.push('routeDay');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -433,6 +440,7 @@ OTR.fpMission = {
     try {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
+      if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay))return null;OTR.fpDay.configure(m,data.routeDay);}
       if (data.briefing === undefined) data.briefing = null;
       if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
         typeof data.briefing.weather !== 'string' || !Number.isFinite(data.briefing.clockMin))) return null;
@@ -475,6 +483,7 @@ OTR.fpMission = {
       if (!Array.isArray(data.traffic) || data.traffic.length !== 2 || data.traffic.some(c => ![c.x,c.z,c.yaw,c.speed].every(Number.isFinite))) return null;
       if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
+      if(m.routeDay)OTR.fpDay.attach(m);
       m.paused = true; return m;
     } catch (_) { return null; }
   }

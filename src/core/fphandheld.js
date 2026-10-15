@@ -56,8 +56,18 @@ OTR.fpHandheld = class {
     ], options: [
       { label: 'Scan package', onPick: () => this.scan() },
       { label: 'Stop details', onPick: () => this.stop(stop.id) },
-      { label: 'Route', onPick: () => this.route() }
+      { label: 'Route', onPick: () => this.route() },
+      ...(m.routeDay&&m.phase!=='prepare'?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
     ], footer: 'TAB put away' });
+  }
+  day(){
+    const m=this.scene.model,d=m.routeDay.dispatch;
+    this.show({title:'ROUTE-DAY UPDATES',lines:[`The forecast is ${m.routeDay.weather}.`,d&&d.sent?'Dispatch has sent a stop update.':'There is no dispatch update yet.'],options:[
+      {label:'Read the dispatch update',disabled:!d||!d.sent,onPick:()=>{if(!this.allowed())return;this.show({title:'DISPATCH UPDATE',lines:[OTR.fpDay.read(m)],options:[{label:'Back',onPick:()=>this.day()}]});}},
+      {label:'Weather and breaks',onPick:()=>this.show({title:'TODAY’S WEATHER',lines:[OTR.fpDay.driveText(m)||'Conditions are clear. Follow the posted speed limits.'],options:[
+        ...(m.routeDay.weather==='heat'?[{label:'Take a water and shade break',onPick:()=>{this.scene.message(OTR.fpDay.rest(m));this.scene.checkpoint();this.close();}}]:[]),
+        {label:'Back',onPick:()=>this.day()}]})}
+    ],back:()=>this.home()});
   }
   route() {
     const m = this.scene.model;
@@ -132,7 +142,8 @@ OTR.fpHandheld = class {
     this.show({ title: 'DELIVERY', lines: [stop.address, m.serviceLabel(id)], options: [
       { label: 'Hand to resident', skin: 'ghost', onPick: () => record('handover') },
       { label: 'Leave in porch box', skin: 'ghost', onPick: () => record('safeplace') },
-      { label: 'Recipient absent', skin: 'ghost', onPick: () => record('exception') }
+      { label: 'Recipient absent', skin: 'ghost', onPick: () => record('exception') },
+      ...(m.routeDay&&OTR.fpDay.planter(m,id)?[{label:'Place behind the planter',skin:'ghost',onPick:()=>record('planter')}]:[])
     ], back: () => this.stop(id) });
   }
 };
