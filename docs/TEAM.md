@@ -72,6 +72,13 @@ world reports what the trainee did. It never scores.
 - **Codex's inbox:** Codex checks "Inbox for Codex" on `docs/COORDINATION.md` (on `pilot`) on a schedule. Every task
   or reply Claude hands Codex also goes there (merged into `pilot` straight away), as well as in the pull request.
   Codex answers in "Inbox for Claude" or in the pull request.
+- **Standing rule: Codex's hourly check-in never ends.** Codex keeps its scheduled automation running and never
+  deletes or pauses it, even when its queue is empty or a milestone is complete. Each run: fetch, read
+  `docs/COORDINATION.md` on `pilot`, take the next `todo` task marked Codex (in table order, respecting "after"
+  notes), and work it on a `codex/<task>` branch. If nothing is addressed to Codex, say "nothing new" and stop. The
+  reason: Claude can only write to the board, it cannot start Codex, so work added after Codex's last run is only
+  seen if Codex keeps checking. (14 Oct 2026: Codex finished C-5, removed its automation, and C-7 sat unseen for a
+  day.) Only the owner switches Codex's automation off.
 - **Claude checks the board and every open pull request every hour**, and picks up anything addressed to it.
   Mentioning **@claude** makes it easy to find.
 - **The board, `docs/COORDINATION.md`:**
