@@ -163,6 +163,24 @@ OTR.fpWorld = {
       box(g,0,1.1,0,0.45,0.75,0.27,0x608987);box(g,0,1.65,0,0.3,0.32,0.3,0xB68F72);
       [-0.12,0.12].forEach(x=>box(g,x,0.38,0,0.16,0.75,0.19,0x43515E));return g;
     });
+    let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
+    if(base.driving){
+      bus=new T.Group();route.add(bus);
+      box(bus,0,1.45,0,2.4,2.6,7.6,0xE4B64A,null,true);
+      for(const x of [-1.21,1.21]){
+        for(const z of [-2.4,-0.8,0.8,2.4])box(bus,x,2,z,0.04,0.7,1.05,0x343B46);
+        for(const z of [-2.3,2.3])box(bus,x,0.45,z,0.15,0.8,0.8,0x343B46);
+      }
+      busLamps=new T.Group();bus.add(busLamps);
+      for(const x of [-0.8,0.8])box(busLamps,x,2.8,3.83,0.3,0.3,0.08,0xE33E44);
+      emergency=new T.Group();route.add(emergency);
+      box(emergency,0,0.65,0,1.45,1.1,4,0xE5E9E8,null,true);
+      box(emergency,0,1.3,-0.2,1.3,0.65,1.7,0x343B46);
+      for(const x of [-0.75,0.75])for(const z of [-1.25,1.25])box(emergency,x,0.35,z,0.12,0.6,0.6,0x343B46);
+      emergencyLamps=new T.Group();emergency.add(emergencyLamps);
+      for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
+    }
+    const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach((matrices,color)=>{
       const mesh=new T.InstancedMesh(color>=0x1000000?plane:cube,material(color%0x1000000),matrices.length);
@@ -223,6 +241,13 @@ OTR.fpWorld = {
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
           m.stops.forEach((s,i)=>residents[i].visible=s.contacted&&s.service==='handover'&&!s.resolved);
+          if(bus&&m.driving){
+            const b=m.driving.bus,e=m.driving.siren,flash=Math.floor(m.elapsed*3)%2===0;
+            bus.visible=b.state==='flashing'||b.state==='leaving';bus.position.set(b.x,0,b.z);bus.rotation.y=-b.yaw;
+            busLamps.visible=b.state==='flashing'&&flash;
+            emergency.visible=e.state==='approaching'||e.state==='passing';emergency.position.set(e.x,0,e.z);emergency.rotation.y=-e.yaw;
+            for(const lamp of emergencyLamps.children)lamp.material=flash?flashRed:flashBlue;
+          }
           const eye=OTR.fp.local(v,-1.3,-1.55);
           view.mirror.camera.position.set(eye.x,2.1,eye.z);view.mirror.camera.rotation.set(0,Math.PI-v.yaw-0.18,0,'YXZ');
           view.mirror.on=m.mode==='cab'&&!m.paused&&m.elapsed-m.mirrorAt<3.5;

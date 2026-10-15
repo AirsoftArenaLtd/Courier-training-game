@@ -56,6 +56,14 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    await sample('stop'+(i+1)+'Mirror');
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__mirrorBench);s.model.mirrorAt=-100;});
   }
+  if(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').model.driving)){
+   for(const look of ['front','mirror','walk']){
+    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.paused=true;m.phase='route';m.mode=look==='walk'?'walk':'cab';m.elapsed=0;
+     const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.van,{x,z,yaw:0,speed:0,hand:true});Object.assign(m.player,{x:x-2,z:z+8,yaw:0,pitch:0});
+     Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);m.mirrorAt=look==='mirror'?0:-100;s.sync();},look);
+    await sample('hazards'+look);
+   }
+  }
   report.phaserTextures=await p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;rgbaBytes+=source.width*source.height*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));
   if(Object.values(report.prototype).some(sample=>sample.contextLost))throw Error('Shared WebGL context was lost');
