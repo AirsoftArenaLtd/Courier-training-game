@@ -61,6 +61,7 @@ OTR.fpHandheld = class {
   }
   route() {
     const m = this.scene.model;
+    if(m.town){this.close(false);this.scene.showRoute();return;}
     this.show({ title: 'ROUTE', lines: ['Choose a stop to see its requirements and recorded shelf.'],
       options: m.stops.map(stop => ({ label: (stop.resolved ? '✓ ' : '') + stop.address, onPick: () => this.stop(stop.id) })),
       back: () => this.home() });

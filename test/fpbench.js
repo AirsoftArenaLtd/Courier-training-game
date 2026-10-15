@@ -46,9 +46,16 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   const hasAim=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!s.handheld)return false;
    const p=s.model.parcels[0];p.location='held';s.model.heldId=p.id;s.handheld.scan();return true;});
   if(hasAim)await sample('barcodeAim');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.model.mode='cab';Object.assign(s.model.van,{x:4,z:-42,yaw:0,speed:0,hand:true});s.sync();});await sample('firstStop');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.mode='walk';Object.assign(s.model.player,{x:8.4,z:-42,yaw:Math.PI/2,pitch:0});s.sync();});await sample('doorstep');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.phase='return';Object.assign(s.model.van,{x:4,z:8,yaw:0,speed:0,hand:true});Object.assign(s.model.player,{x:-12.2,z:5,yaw:-Math.PI/2,pitch:0});s.sync();});await sample('returns');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.model.mode='cab';Object.assign(s.model.van,s.model.stops[0].park||{x:4,z:-42,yaw:0},{speed:0,hand:true});s.sync();});await sample('firstStop');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.mode='walk';const stop=s.model.stops[0];Object.assign(s.model.player,{x:stop.x-(stop.side||1)*1.5,z:stop.z,yaw:(stop.side||1)*Math.PI/2,pitch:0});s.sync();});await sample('doorstep');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.phase='return';Object.assign(s.model.van,{x:4,z:8,yaw:0,speed:0,hand:true});Object.assign(s.model.player,{x:12.2,z:5,yaw:-Math.PI/2,pitch:0});s.sync();});await sample('returns');
+  for(let i=0;i<5;i++){
+   await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;if(!m.stops[i])return;m.mode='cab';m.phase='route';Object.assign(m.van,m.stops[i].park||{x:4,z:m.stops[i].z,yaw:0},{speed:0,hand:true});s.sync();},i);
+   if(i>0)await sample('stop'+(i+1));
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);});
+   await sample('stop'+(i+1)+'Mirror');
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__mirrorBench);s.model.mirrorAt=-100;});
+  }
   report.phaserTextures=await p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;rgbaBytes+=source.width*source.height*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));
   if(Object.values(report.prototype).some(sample=>sample.contextLost))throw Error('Shared WebGL context was lost');

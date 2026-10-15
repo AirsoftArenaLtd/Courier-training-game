@@ -1,9 +1,9 @@
 /* Shared placeholder depot, cargo and town. Text stays in Phaser; no texture downloads. */
 window.OTR = window.OTR || {};
 OTR.fpWorld = {
-  build(scene) {
+  build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera;
-    const cube = new T.BoxGeometry(1, 1, 1), mats = new Map(), batches = new Map();
+    const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
     const occluders = [], interactions = [], labels = [];
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
     const material = color => {
@@ -11,11 +11,13 @@ OTR.fpWorld = {
       return mats.get(color);
     };
     function box(parent, x, y, z, w, h, d, color, id, solid) {
-      const mesh = new T.Mesh(cube, material(color)); mesh.position.set(x,y,z); mesh.scale.set(w,h,d);
+      const flat=h<=0.15&&(w>1||d>1);
+      const mesh = new T.Mesh(flat?plane:cube, material(color)); mesh.position.set(x,y,z); mesh.scale.set(w,h,d);
       mesh.updateMatrix(); mesh.matrixAutoUpdate = false;
       if (!id && !solid) {
         let pool = batches.get(parent); if (!pool) { pool = new Map(); batches.set(parent,pool); }
-        if (!pool.has(color)) pool.set(color,[]); pool.get(color).push(mesh.matrix.clone());
+        const key=color+(flat?0x1000000:0);
+        if (!pool.has(key)) pool.set(key,[]); pool.get(key).push(mesh.matrix.clone());
       } else {
         parent.add(mesh);
         if (solid) occluders.push(mesh);
@@ -41,6 +43,10 @@ OTR.fpWorld = {
     station('hub-record',4,-2.4,0x3E747B,'Last debrief');
     box(hub,0,0.025,3,2.2,0.04,3,0x6B538B);
 
+    const base = model || OTR.fpMission.create('campaign',1);
+    const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity;
+    if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;}
+    if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,0x789069);
     box(route,0,-0.015,-57,11,0.06,155,0x4B5058);
     [-6.3,6.3].forEach(x=>box(route,x,0.05,-63,1.6,0.13,128,0xC2C0B6));
@@ -53,30 +59,57 @@ OTR.fpWorld = {
     }
     for (let x=-4.7;x<5;x+=1.1) box(route,x,0.05,-57,0.5,0.02,2.6,0xEFEEE5);
     box(route,2.75,0.05,-24,5.4,0.02,0.28,0xEFEEE5);
-    const base = OTR.fpMission.create('campaign',1);
+    }
+    if (base.town) {
+      const b=base.bounds,town=base.town,cx=(b.x0+b.x1)/2,cz=(b.z0+b.z1)/2;
+      box(route,cx,-0.12,cz,b.x1-b.x0,0.2,b.z1-b.z0,0x789069);
+      town.xs.forEach(x=>box(route,x,-0.015,cz,town.road,0.06,b.z1-b.z0,0x4B5058));
+      town.zs.forEach(z=>box(route,cx,-0.015,z,b.x1-b.x0,0.06,town.road,0x4B5058));
+      box(route,9,0,5,15,0.1,24,0xC4C1B6);
+      const half=town.road/2;
+      // Every junction is stop-controlled in the pilot's 3D grid. Shared batches stay bounded.
+      for(const x of town.xs) for(const z of town.zs) {
+        box(route,x+half/2,0.05,z+half+0.25,half,0.02,0.2,0xEFEEE5);
+        box(route,x-half/2,0.05,z-half-0.25,half,0.02,0.2,0xEFEEE5);
+        box(route,x-half-0.25,0.05,z+half/2,0.2,0.02,half,0xEFEEE5);
+        box(route,x+half+0.25,0.05,z-half/2,0.2,0.02,half,0xEFEEE5);
+      }
+      for(const x of town.xs)for(let z=b.z0+4;z<b.z1;z+=8){
+        if(!town.zs.some(cz=>Math.abs(z-cz)<half+3))box(route,x,0.05,z,0.1,0.02,3,0xEDD385);
+      }
+      for(const z of town.zs)for(let x=b.x0+4;x<b.x1;x+=8){
+        if(!town.xs.some(cx=>Math.abs(x-cx)<half+3))box(route,x,0.05,z,3,0.02,0.1,0xEDD385);
+      }
+      // One simple footprint per non-delivery lot; active facades are drawn below.
+      town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id)).forEach(l=>box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE));
+    }
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
-    box(route,-13.8,0.5,11,2,1,1.2,0x5D4777,'dispatch',true);
-    box(route,-13.8,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
-    labels.push({parent:route,point:new T.Vector3(-13.8,2,11),text:'Dispatch',max:18});
-    labels.push({parent:route,point:new T.Vector3(-13.8,1.9,5),text:'Returns',max:18});
+    const depotSide=base.town?-1:1;
+    box(route,-13.8*depotSide,0.5,11,2,1,1.2,0x5D4777,'dispatch',true);
+    box(route,-13.8*depotSide,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
+    labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,2,11),text:'Dispatch',max:18});
+    labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,1.9,5),text:'Returns',max:18});
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];
     base.stops.forEach((s,i)=>{
-      box(route,13,2.1,s.z,6,4.2,9,colors[i],null,true);
-      box(route,13,4.35,s.z,6.7,0.5,9.7,0x65626B);
-      box(route,8,0.08,s.z,4,0.15,3,0xC9C4B8);
-      box(route,9.94,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
-      [-2.8,2.8].forEach(dz=>box(route,9.96,2.4,s.z+dz,0.06,1.1,1.25,0x68889A));
-      box(route,9.4,0.4,s.z+1.7,0.65,0.8,0.75,0x927557);
-      labels.push({parent:route,point:new T.Vector3(9.8,3.2,s.z),text:s.address,max:30});
+      const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
+      const side=s.side||1;
+      box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true);
+      box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,0x65626B);
+      box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
+      box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
+      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,0x927557);
+      labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
-    box(route,6,1.2,-24,0.12,2.4,0.12,0x6E737B);
-    sign(route,6,2.6,-24,'STOP',0xB94649,1.15);
-    box(route,6,1.2,-10,0.12,2.4,0.12,0x6E737B);
-    sign(route,6,2.6,-10,'15 mph',0xE5E1D6,1.4);
-    if (OTR.gfx.high()) {
-      [-15,16].forEach(x=>[-18,-49,-81,-115].forEach(z=>{
-        box(route,x,1.3,z,0.4,2.6,0.4,0x826B53);
-        box(route,x,3.5,z,3.8,3.5,3.6,0x607D54);
+    if (!base.town) {
+      box(route,6,1.2,-24,0.12,2.4,0.12,0x6E737B);
+      sign(route,6,2.6,-24,'STOP',0xB94649,1.15);
+      box(route,6,1.2,-10,0.12,2.4,0.12,0x6E737B);
+      sign(route,6,2.6,-10,'15 mph',0xE5E1D6,1.4);
+    }
+    if (OTR.gfx.high()&&!base.town) {
+      (base.town?base.town.xs:[-15,16]).forEach(x=>[-18,-49,-81,-115].forEach(z=>{
+        box(route,x+9,1.3,z,0.4,2.6,0.4,0x826B53);
+        box(route,x+9,3.5,z,3.8,3.5,3.6,0x607D54);
       }));
     }
 
@@ -126,33 +159,53 @@ OTR.fpWorld = {
     box(person,0,1.65,0,0.3,0.32,0.3,0xB68F72);
     [-0.12,0.12].forEach(x=>box(person,x,0.38,0,0.16,0.75,0.19,0x43515E));
     const residents=base.stops.map(s=>{
-      const g=new T.Group();route.add(g);g.position.set(9.1,0,s.z);
+      const g=new T.Group();route.add(g);g.position.set(s.x-(s.side||1)*0.8,0,s.z);
       box(g,0,1.1,0,0.45,0.75,0.27,0x608987);box(g,0,1.65,0,0.3,0.32,0.3,0xB68F72);
       [-0.12,0.12].forEach(x=>box(g,x,0.38,0,0.16,0.75,0.19,0x43515E));return g;
     });
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach((matrices,color)=>{
-      const mesh=new T.InstancedMesh(cube,material(color),matrices.length);
+      const mesh=new T.InstancedMesh(color>=0x1000000?plane:cube,material(color%0x1000000),matrices.length);
       matrices.forEach((matrix,i)=>mesh.setMatrixAt(i,matrix));mesh.instanceMatrix.needsUpdate=true;
       mesh.computeBoundingSphere();parent.add(mesh);
+      if(base.town&&parent===route)staticBatches.push({mesh,matrices});
     }));
     const ray=new T.Raycaster();ray.far=2.65;
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
     const api={hub,route,van,parcels,labels,occluders,interactions,ray,
+      dispose() {
+        const geometries=new Set();
+        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
+        geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
+      },
       sync(model,hubPlayer,area) {
         const inHub=area==='hub';hub.visible=inHub;route.visible=!inHub;
         carried.visible=false;dash.visible=false;inspected.visible=false;
         if(inHub){camera.position.set(hubPlayer.x,1.65,hubPlayer.z);camera.rotation.set(-hubPlayer.pitch,-hubPlayer.yaw,0,'YXZ');view.mirror.on=false;}
         else if(model){
-          const m=model,v=m.van,p=m.player;
+          const m=model,v=m.van,p=m.player,cx=m.mode==='cab'?v.x:p.x,cz=m.mode==='cab'?v.z:p.z;
+          if(base.town&&(Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3)){
+            sceneryX=cx;sceneryZ=cz;
+            // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
+            for(const batch of staticBatches){let count=0;
+              for(const matrix of batch.matrices){const e=matrix.elements;
+                if(Math.max(Math.abs(e[0]),Math.abs(e[10]))>20 || (e[12]-cx)**2+(e[14]-cz)**2<sceneryRadius*sceneryRadius)batch.mesh.setMatrixAt(count++,matrix);
+              }
+              batch.mesh.count=count;batch.mesh.instanceMatrix.needsUpdate=true;
+            }
+          }
+          if(base.town){
+            for(const mesh of occluders)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
+            for(const mesh of interactions)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
+          }
           van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;van.visible=m.mode!=='cab';
           cargoDoor.visible=!m.cargoOpen;
           slotMeshes.forEach((mesh,i)=>mesh.visible=m.cargoOpen&&!m.parcels.some(p=>p.location===OTR.fpMission.slots[i].id));
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;
           tyreBulge.visible=!m.repaired&&m.fault==='tyres';
           m.parcels.forEach((p,i)=>{
-            const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held';
+            const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<20*20);
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
           });
           carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';wheel.rotation.z=-v.steer*3;

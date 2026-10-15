@@ -24,7 +24,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    assert.ok(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model.elapsed>=123&&s.model.player.x===-8&&OTR.workday.events.some(e=>e.type==='brief.read');}));checks++;
    await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').leavePrototype());await active('HubScene');
    await p.evaluate(()=>OTR.workday.resume(OTR.game.scene.getScene('HubScene')));await ready();
-   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.events[m.briefKey]=true;m.stops.forEach(stop=>{stop.resolved=true;stop.outcome='handover';});m.phase='return';Object.assign(m.player,{x:-12,z:11});s.showDispatch();s.panel.choices[0].action();});
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.events[m.briefKey]=true;m.stops.forEach(stop=>{stop.resolved=true;stop.outcome='handover';});m.phase='return';const desk=m.point('dispatch');Object.assign(m.player,{x:desk.x-1.7,z:desk.z});s.showDispatch();s.panel.choices[0].action();});
    await active('ResultsScene');assert.equal(await p.evaluate(()=>OTR.fpStore.read().campaign),null);checks++;
    await p.screenshot({path:path.join(OUT,`hooks-${lang}-${large?'large':'normal'}-results.png`)});
    await p.close();
