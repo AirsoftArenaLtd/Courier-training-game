@@ -1,0 +1,112 @@
+{
+  "tag": "c11-final",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "depot": {
+      "frames": 253,
+      "avgFPS": 25.26,
+      "low1FPS": 9.16,
+      "p99ms": 87.8,
+      "maxMs": 147.8,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "weatherrainMirror": {
+      "frames": 209,
+      "avgFPS": 20.88,
+      "low1FPS": 8.07,
+      "p99ms": 101.4,
+      "maxMs": 163.9,
+      "peak": {
+        "calls": 40,
+        "triangles": 1274,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "weatherstormMirror": {
+      "frames": 217,
+      "avgFPS": 21.64,
+      "low1FPS": 9.53,
+      "p99ms": 98.6,
+      "maxMs": 115.2,
+      "peak": {
+        "calls": 40,
+        "triangles": 1274,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "weathersnowMirror": {
+      "frames": 210,
+      "avgFPS": 20.9,
+      "low1FPS": 10.01,
+      "p99ms": 98.8,
+      "maxMs": 101.9,
+      "peak": {
+        "calls": 42,
+        "triangles": 1288,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "weatherheatMirror": {
+      "frames": 221,
+      "avgFPS": 22.08,
+      "low1FPS": 10.32,
+      "p99ms": 95.1,
+      "maxMs": 99.5,
+      "peak": {
+        "calls": 38,
+        "triangles": 842,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    }
+  },
+  "phaserTextures": {
+    "count": 83,
+    "baseLevelRGBABytes": 2729764,
+    "withMipmapsUpperBytes": 3639686
+  },
+  "errors": []
+}

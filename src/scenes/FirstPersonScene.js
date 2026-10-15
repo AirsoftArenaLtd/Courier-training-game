@@ -327,7 +327,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(mode==='cab'&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
-    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked&&mode==='walk');this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
+    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked&&mode==='walk');this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);
       if(this.handheld.progress>0){this.scanBeam.fillStyle(0x1B2634,0.9);this.scanBeam.fillRect(570,395,140,8);this.scanBeam.fillStyle(color,1);this.scanBeam.fillRect(570,395,140*Math.min(1,this.handheld.progress/0.45),8);}}

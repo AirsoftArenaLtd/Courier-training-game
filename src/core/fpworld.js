@@ -196,7 +196,8 @@ OTR.fpWorld = {
           const m=model,v=m.van,p=m.player,cx=m.mode==='cab'?v.x:p.x,cz=m.mode==='cab'?v.z:p.z;
           if(weatherDrops){
             for(let i=0;i<weatherDrops.count;i++){
-              const t=m.elapsed*(snow?.7:9),z=((i*11.73)%18)-9;let x=((i*7.31)%18)-9;if(m.mode==='cab'&&Math.abs(x)<1.5&&Math.abs(z)<3)x+=3;
+              const t=m.elapsed*(snow?.7:9),c=Math.cos(v.yaw),s=Math.sin(v.yaw);let x=((i*7.31)%18)-9,z=((i*11.73)%18)-9;
+              if(m.mode==='cab'&&Math.abs(x*c+z*s)<1.5&&Math.abs(-x*s+z*c)<3){x+=c*3;z+=s*3;}
               dropPosition.set(cx+x+(snow?Math.sin(m.elapsed+i)*.3:0),.3+((i*.63-t)%8+8)%8,cz+z);
               dropMatrix.compose(dropPosition,dropRotation,dropScale);weatherDrops.setMatrixAt(i,dropMatrix);
             }
