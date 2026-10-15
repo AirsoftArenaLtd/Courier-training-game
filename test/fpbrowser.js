@@ -43,6 +43,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   await open();check(await ev(()=>!!OTR.game.scene.getScene('FirstPersonScene').view),'3D renderer starts');await shot('welcome');
   await press('Enter');await press('KeyH');await shot('hub');await press('Digit2');await wait(750);await press('Enter');
   check((await state()).m.kind==='campaign','hub starts a workday');
+  await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model=OTR.fpMission.create('campaign',1);s.model.briefing={day:1,weather:'clear',clockMin:500};s.rebuildWorld();s.sync();});
   await pose(-12.1,11,'dispatch');await press('KeyE');await shot('morning-brief');
   for(let step=0;step<30;step++){
    if((await state()).m.events['brief:'+(await state()).m.seed])break;

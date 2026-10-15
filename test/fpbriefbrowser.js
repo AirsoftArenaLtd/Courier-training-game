@@ -12,7 +12,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    await page.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
    await page.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');OTR.a11y.settings().large=large;s.progress.welcomed=true;s.closePanel();s.launch('campaign');},large);
    await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
-   await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();Object.assign(s.model.player,{x:-12.1,z:11});OTR.workday.begin();s.showDispatch();});
+   await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();const desk=s.model.point('dispatch');Object.assign(s.model.player,{x:desk.x-1.7,z:desk.z});OTR.workday.begin();s.showDispatch();});
    const audit=async tag=>{
     const issues=await page.evaluate(()=>{
      const s=OTR.game.scene.getScene('FirstPersonScene'),panel=s.panel,issues=[];

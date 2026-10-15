@@ -53,7 +53,10 @@ test('all six empty shelf positions and the restraint are selectable from the ca
 test('loaded parcel raycasts follow the parked van rotation and obey the closed door',()=>{
   const w=world();w.m.cargoOpen=true;w.m.parcels[0].location='slot0';w.m.van.yaw=Math.PI/3;
   const p=context.OTR.fp.local(w.m.van,0,3.2);assert.equal(aim(w,p,'parcel0'),'parcel0');
-  w.m.cargoOpen=false;assert.notEqual(aim(w,p,'parcel0'),'parcel0');
+  w.m.cargoOpen=false;w.art.sync(w.m,null,'route');
+  assert.equal(w.art.parcels[0].visible,false,'closed cargo hides its contents');
+  w.camera.lookAt(w.art.parcels[0].userData.barcode.getWorldPosition(new THREE.Vector3()));w.camera.updateMatrixWorld(true);
+  assert.notEqual(w.art.pick(),'parcel0');
 });
 test('all customer doors are outside the house occluder and reachable from the path',()=>{
   const w=world();for(const s of w.m.stops)assert.equal(aim(w,{x:8.4,z:s.z},'door'+s.id),'door'+s.id);
