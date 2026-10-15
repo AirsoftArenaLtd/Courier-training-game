@@ -26,6 +26,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
   const sample=async name=>{
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))return;
    await wait(1500);
    const value=await p.evaluate(()=>new Promise(resolve=>{const frames=[],keys=['calls','triangles','textures','geometries','attachmentBytes'],peak={calls:0,triangles:0,textures:0,geometries:0,attachmentBytes:0};let prev=performance.now(),start=prev;const onFrame=()=>{const now=performance.now();frames.push(now-prev);prev=now;
     const d=OTR.game.scene.getScene('FirstPersonScene').view.diagnostics;
@@ -58,7 +59,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   if(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').model.driving)){
    for(const look of ['front','mirror','walk']){
-    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.paused=true;m.phase='route';m.mode=look==='walk'?'walk':'cab';m.elapsed=0;
+    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.paused=false;m.step=()=>{};m.phase='route';m.mode=look==='walk'?'walk':'cab';m.elapsed=0;
      const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.van,{x,z,yaw:0,speed:0,hand:true});Object.assign(m.player,{x:x-2,z:z+8,yaw:0,pitch:0});
      Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);m.mirrorAt=look==='mirror'?0:-100;s.sync();},look);
     await sample('hazards'+look);

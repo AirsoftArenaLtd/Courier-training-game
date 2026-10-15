@@ -247,7 +247,7 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){

@@ -7,11 +7,11 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   const p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>{errors.push(e.message);console.error(e.stack);});
   const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx=low');
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.closePanel();s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
   await p.addScriptTag({url:base+'/data/i18n/ta.js'});
   for(const lang of ['en','ta'])for(const large of [false,true])for(const hazard of ['bus','siren','backing','goal']){
    await p.evaluate(({lang,large,hazard})=>{
-    OTR.i18n.use(lang);OTR.a11y.settings().large=large;const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();s.handheld.close();m.paused=true;m.phase='route';m.mode='cab';s.hint.setFontSize(OTR.a11y.size(18));m.departed=true;m.events[m.briefKey]=true;s.notice='';
+    OTR.i18n.use(lang);OTR.a11y.settings().large=large;const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();s.handheld.close();m.paused=hazard!=='siren';m.step=()=>{};m.phase='route';m.mode='cab';s.hint.setFontSize(OTR.a11y.size(18));m.departed=true;m.events[m.briefKey]=true;s.notice='';
     Object.assign(m.van,{x:m.town.xs[0]+2,z:m.town.zs[1]+25,yaw:0,speed:0,hand:true,gear:1});m.driving.bus.state=m.driving.siren.state='done';
     if(hazard==='bus')Object.assign(m.driving.bus,{state:'flashing',x:m.van.x,z:m.van.z-18,yaw:0,clock:1,hold:0,passed:false});
     m.mirrorAt=hazard==='siren'?m.elapsed:-100;
@@ -25,6 +25,8 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
     return out;});assert.deepEqual(issues,[],`${lang} ${large} ${hazard}`);checks++;
    if(lang==='en'&&!large||lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c10-${hazard}-${lang}-${large?'large':'normal'}.png`)});
   }
+  await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await p.keyboard.press('g');
+  assert.equal(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').panel),true);checks++;
   // Confirm from the real rear-of-van position, enter through its physical driver door, and reverse.
   const result=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.workday.begin();s.choose(0);const checked=m.driving.goalClear;
    Object.assign(m.player,m.point('driver'));const entered=m.enter();m.van.gear=-1;m.van.hand=false;m.van.speed=-.5;OTR.fpDriving.tick(m,.1);
