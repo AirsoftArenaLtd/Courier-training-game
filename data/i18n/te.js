@@ -3266,7 +3266,16 @@ window.OTR_I18N.te = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "అడుగు వేసే ముందు దారిని చూడండి: మంచు, తడి ఆకులు, బొమ్మలు సాధారణంగా కారణాలు. చిన్న, జాగ్రత్తైన అడుగులు వేయండి.",
 "Acted correctly on a dispatch update": "డిస్పాచ్ అప్‌డేట్‌పై సరిగ్గా స్పందించారు",
 "Missed or ignored a dispatch update": "డిస్పాచ్ అప్‌డేట్‌ను చూడలేదు లేదా పట్టించుకోలేదు",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "వాహనం ఆపినప్పుడు డిస్పాచ్ సందేశాలు చదివి, తర్వాత చర్య తీసుకోండి: మారిన స్టాప్ లేదా కస్టమర్ అభ్యర్థన కస్టమర్‌కు ఇచ్చిన మాట."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "వాహనం ఆపినప్పుడు డిస్పాచ్ సందేశాలు చదివి, తర్వాత చర్య తీసుకోండి: మారిన స్టాప్ లేదా కస్టమర్ అభ్యర్థన కస్టమర్‌కు ఇచ్చిన మాట.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "అద్దాలు చూడండి, సిగ్నల్ ఇవ్వండి, ఖాళీ దొరికే వరకు ఆగి ఆ తర్వాత బయటకు తీయండి.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "వేగ పరిమితి: 15 mph. ప్రతి జంక్షన్ లైన్ వద్ద ఆగండి. వాహనం ఆపిన తర్వాత రూట్ మ్యాప్ చూడండి.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "వేగ పరిమితి: 25 mph. ప్రతి జంక్షన్ లైన్ వద్ద ఆగండి. వాహనం ఆపిన తర్వాత రూట్ మ్యాప్ చూడండి.",
+"Loaded the parcel in stop order.": "పార్సిల్‌ను స్టాప్ క్రమంలో లోడ్ చేశారు.",
+"The parcel was not loaded in stop order.": "పార్సిల్‌ను స్టాప్ క్రమంలో లోడ్ చేయలేదు.",
+"Exceeded the posted speed limit.": "సూచించిన వేగ పరిమితిని మించారు.",
+"Traveled on the wrong side of the road.": "రోడ్డుకు తప్పు వైపున నడిపారు.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "టైర్లు, లైట్లు తనిఖీ చేయండి, ఐదు పార్సిళ్లను స్కాన్ చేసి స్టాప్ క్రమంలో లోడ్ చేయండి, ఆ తర్వాత లోడ్‌ను భద్రపరచి కార్గో మూసివేయండి.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "డిపోకు తిరిగి వెళ్లండి. ఉంచుకున్న పార్సిళ్లను Returns వద్ద స్కాన్ చేయండి, ఆ తర్వాత Dispatch వద్ద ముగించండి."
 },
 "templates": [
 [
@@ -4548,6 +4557,22 @@ window.OTR_I18N.te = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · ఫలితం నమోదు చేసే ముందు తలుపు వద్ద ప్యాకేజీని స్కాన్ చేయండి."
+],
+[
+"Weight: {0} lb",
+"బరువు: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1}లో స్టాప్ {0} కోసం పార్సిల్‌ను లోడ్ చేయండి."
+],
+[
+"Return to the depot. {0}",
+"డిపోకు తిరిగి వెళ్లండి. {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4555,6 +4580,8 @@ window.OTR_I18N.te = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

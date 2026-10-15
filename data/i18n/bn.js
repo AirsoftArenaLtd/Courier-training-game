@@ -3267,7 +3267,16 @@ window.OTR_I18N.bn = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "পা ফেলার আগে পথটা দেখুন: বরফ, ভেজা পাতা আর খেলনাই সাধারণ কারণ। ছোট, সাবধানি পা ফেলুন।",
 "Acted correctly on a dispatch update": "ডিসপ্যাচের আপডেটে ঠিকভাবে সাড়া দিয়েছেন",
 "Missed or ignored a dispatch update": "ডিসপ্যাচের আপডেট মিস করেছেন বা উপেক্ষা করেছেন",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "গাড়ি পার্ক করা অবস্থায় ডিসপ্যাচের বার্তা পড়ুন, তারপর সেই অনুযায়ী কাজ করুন: বদলানো স্টপ বা গ্রাহকের অনুরোধ গ্রাহকের কাছে একটি প্রতিশ্রুতি।"
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "গাড়ি পার্ক করা অবস্থায় ডিসপ্যাচের বার্তা পড়ুন, তারপর সেই অনুযায়ী কাজ করুন: বদলানো স্টপ বা গ্রাহকের অনুরোধ গ্রাহকের কাছে একটি প্রতিশ্রুতি।",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "বের হওয়ার আগে আয়না দেখুন, সিগন্যাল দিন আর ফাঁকা জায়গার জন্য অপেক্ষা করুন।",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "গতিসীমা: 15 mph। প্রতিটি মোড়ের লাইনে থামুন। গাড়ি দাঁড় করিয়ে রুটের ম্যাপ দেখুন।",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "গতিসীমা: 25 mph। প্রতিটি মোড়ের লাইনে থামুন। গাড়ি দাঁড় করিয়ে রুটের ম্যাপ দেখুন।",
+"Loaded the parcel in stop order.": "আপনি পার্সেলটি স্টপের ক্রমে লোড করেছেন।",
+"The parcel was not loaded in stop order.": "পার্সেলটি স্টপের ক্রমে লোড করা হয়নি।",
+"Exceeded the posted speed limit.": "নির্ধারিত গতিসীমা ছাড়িয়ে গেছেন।",
+"Traveled on the wrong side of the road.": "রাস্তার ভুল পাশ দিয়ে চালিয়েছেন।",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "টায়ার আর লাইট দেখুন, পাঁচটি পার্সেল স্ক্যান করে স্টপের ক্রমে লোড করুন, তারপর মাল বেঁধে নিন আর কার্গো বন্ধ করুন।",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ডিপোতে ফিরে যান। রেখে দেওয়া পার্সেলগুলো Returns-এ স্ক্যান করুন, তারপর Dispatch-এ শেষ করুন।"
 },
 "templates": [
 [
@@ -4549,6 +4558,22 @@ window.OTR_I18N.bn = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · ফল নথিভুক্ত করার আগে দরজায় প্যাকেজ স্ক্যান করুন।"
+],
+[
+"Weight: {0} lb",
+"ওজন: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1}-এ স্টপ {0}-এর পার্সেলটি লোড করুন।"
+],
+[
+"Return to the depot. {0}",
+"ডিপোতে ফিরে যান। {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4556,6 +4581,8 @@ window.OTR_I18N.bn = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

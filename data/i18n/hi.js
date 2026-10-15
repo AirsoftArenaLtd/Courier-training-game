@@ -3265,7 +3265,16 @@ window.OTR_I18N.hi = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "कदम रखने से पहले रास्ते को देखें: बर्फ़, गीले पत्ते और खिलौने आम कारण हैं। छोटे, सावधान कदम रखें।",
 "Acted correctly on a dispatch update": "डिस्पैच अपडेट पर सही कार्रवाई की",
 "Missed or ignored a dispatch update": "डिस्पैच अपडेट छोड़ दिया या अनदेखा किया",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "गाड़ी खड़ी होने पर डिस्पैच के संदेश पढ़ें, फिर कार्रवाई करें: बदला हुआ स्टॉप या ग्राहक का अनुरोध ग्राहक से किया गया वादा है।"
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "गाड़ी खड़ी होने पर डिस्पैच के संदेश पढ़ें, फिर कार्रवाई करें: बदला हुआ स्टॉप या ग्राहक का अनुरोध ग्राहक से किया गया वादा है।",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "बाहर निकलने से पहले शीशे देखें, इंडिकेटर दें और रास्ता साफ़ होने तक रुकें।",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "गति सीमा: 15 mph। हर जंक्शन की लाइन पर रुकें। रूट मैप गाड़ी खड़ी करके देखें।",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "गति सीमा: 25 mph। हर जंक्शन की लाइन पर रुकें। रूट मैप गाड़ी खड़ी करके देखें।",
+"Loaded the parcel in stop order.": "पार्सल स्टॉप के क्रम में लोड किया।",
+"The parcel was not loaded in stop order.": "पार्सल स्टॉप के क्रम में लोड नहीं किया गया।",
+"Exceeded the posted speed limit.": "लिखी हुई गति सीमा पार की।",
+"Traveled on the wrong side of the road.": "सड़क के गलत ओर चले।",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "टायर और लाइटें जाँचें, पाँच पार्सल स्कैन करके स्टॉप के क्रम में लोड करें, फिर सामान बाँधकर सुरक्षित करें और कार्गो बंद करें।",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "डिपो लौटें। रोके गए पार्सल Returns पर स्कैन करें, फिर Dispatch पर काम पूरा करें।"
 },
 "templates": [
 [
@@ -4547,6 +4556,22 @@ window.OTR_I18N.hi = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · नतीजा दर्ज करने से पहले दरवाज़े पर पैकेज स्कैन करें।"
+],
+[
+"Weight: {0} lb",
+"वज़न: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1} पर स्टॉप {0} का पार्सल लोड करें।"
+],
+[
+"Return to the depot. {0}",
+"डिपो लौटें। {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4554,6 +4579,8 @@ window.OTR_I18N.hi = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

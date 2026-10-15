@@ -3266,7 +3266,16 @@ window.OTR_I18N.ta = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "அடி எடுத்து வைக்கும் முன் பாதையைப் பாருங்கள்: உறைபனி, ஈர இலைகள், பொம்மைகள் வழக்கமான காரணங்கள். சிறிய, கவனமான அடிகள்.",
 "Acted correctly on a dispatch update": "டிஸ்பாட்ச் அறிவிப்பின்படி சரியாகச் செயல்பட்டீர்கள்",
 "Missed or ignored a dispatch update": "டிஸ்பாட்ச் அறிவிப்பைத் தவறவிட்டீர்கள் அல்லது புறக்கணித்தீர்கள்",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "வாகனத்தை நிறுத்தியிருக்கும்போது டிஸ்பாட்ச் செய்திகளைப் படியுங்கள், பிறகு செயல்படுங்கள்: மாறிய நிறுத்தமோ வாடிக்கையாளர் கோரிக்கையோ வாடிக்கையாளருக்கு அளித்த வாக்குறுதி."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "வாகனத்தை நிறுத்தியிருக்கும்போது டிஸ்பாட்ச் செய்திகளைப் படியுங்கள், பிறகு செயல்படுங்கள்: மாறிய நிறுத்தமோ வாடிக்கையாளர் கோரிக்கையோ வாடிக்கையாளருக்கு அளித்த வாக்குறுதி.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "வெளியே செல்லும் முன் கண்ணாடிகளைப் பாருங்கள், சிக்னல் போடுங்கள், வழி தெளிவாகும் வரை காத்திருங்கள்.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "வேக வரம்பு: 15 mph. ஒவ்வொரு சந்திப்புக் கோட்டிலும் நில்லுங்கள். வாகனம் நிறுத்தியிருக்கும்போது ரூட் வரைபடத்தைப் பாருங்கள்.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "வேக வரம்பு: 25 mph. ஒவ்வொரு சந்திப்புக் கோட்டிலும் நில்லுங்கள். வாகனம் நிறுத்தியிருக்கும்போது ரூட் வரைபடத்தைப் பாருங்கள்.",
+"Loaded the parcel in stop order.": "பார்சலை நிறுத்த வரிசைப்படி ஏற்றினீர்கள்.",
+"The parcel was not loaded in stop order.": "பார்சல் நிறுத்த வரிசைப்படி ஏற்றப்படவில்லை.",
+"Exceeded the posted speed limit.": "அறிவிக்கப்பட்ட வேக வரம்பை மீறினீர்கள்.",
+"Traveled on the wrong side of the road.": "சாலையின் தவறான பக்கத்தில் சென்றீர்கள்.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "டயர்களையும் விளக்குகளையும் சரிபாருங்கள், ஐந்து பார்சல்களை ஸ்கேன் செய்து நிறுத்த வரிசைப்படி ஏற்றுங்கள், பிறகு சுமையைப் பாதுகாப்பாகக் கட்டி சரக்கறையை மூடுங்கள்.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "டிப்போவுக்குத் திரும்புங்கள். வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்யுங்கள், பிறகு டிஸ்பாட்சில் முடியுங்கள்."
 },
 "templates": [
 [
@@ -4548,6 +4557,22 @@ window.OTR_I18N.ta = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · முடிவைப் பதிவு செய்யும் முன் கதவில் பார்சலை ஸ்கேன் செய்யுங்கள்."
+],
+[
+"Weight: {0} lb",
+"எடை: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1} இல் உள்ள நிறுத்தம் {0}-க்கான பார்சலை ஏற்றுங்கள்."
+],
+[
+"Return to the depot. {0}",
+"டிப்போவுக்குத் திரும்புங்கள். {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4555,6 +4580,8 @@ window.OTR_I18N.ta = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

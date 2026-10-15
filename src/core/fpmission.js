@@ -17,7 +17,7 @@ OTR.fpMission = {
     const x = p.x - v.x, z = p.z - v.z, c = Math.cos(v.yaw), s = Math.sin(v.yaw);
     return { x: c * x + s * z, z: -s * x + c * z };
   },
-  create(kind, seed) {
+  create(kind, seed, routePlan) {
     const F = OTR.fp, M = this, motor = F.create();
     seed = (Number(seed) >>> 0) || 1;
     const variant = seed % 3;
@@ -80,14 +80,16 @@ OTR.fpMission = {
               type = 'depart.uninspected';
             } else if (key === 'load') {
               type = 'load.secured'; d.key = this.leg;
-            } else type = 'load.shelf';
+            } else { if (this.routePlan) return; type = 'load.shelf'; }
             break;
+          case 'shelf': type = 'load.shelf'; break;
           case 'load': type = 'load.secured'; d.key = Number(key); break;
           case 'belt': type = 'drive.belt'; d.key = Number(key); break;
           case 'handheld': type = 'drive.handheld'; d.key = Number(key); break;
           case 'speed': type = 'drive.speed'; driving = true; break;
           case 'pavement': type = 'drive.sidewalk'; driving = true; break;
           case 'lane': type = 'drive.wrong-side'; driving = true; break;
+          case 'junction': type = 'drive.stop-line'; d.key = id.slice(9); driving = true; break;
           case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
           case 'traffic-contact': case 'contact': type = 'drive.contact'; driving = true; break;
           case 'pedestrian':
@@ -97,7 +99,7 @@ OTR.fpMission = {
           default: return;
         }
         if (driving) {
-          if (key !== undefined) d.key = Number(key);
+          if (key !== undefined && event !== 'junction') d.key = Number(key);
           d.where = { x: this.van.x, z: this.van.z, mph: Math.abs(this.van.speed) * 2.2369362921 };
         }
         OTR.workday.report(type, d);
@@ -115,24 +117,34 @@ OTR.fpMission = {
         if (id === 'cargo') return Object.assign({ y: 1.4 }, F.local(this.van, 0, 2.75));
         if (id === 'tyres') return Object.assign({ y: 0.4 }, F.local(this.van, -1.15, -1.6));
         if (id === 'lights') return Object.assign({ y: 0.95 }, F.local(this.van, 0, -2.75));
-        if (id === 'dispatch') return { x: -13.8, y: 1.3, z: 11 };
-        if (id === 'returns') return { x: -13.8, y: 1, z: 5 };
+        if (id === 'dispatch') return { x: this.routePlan ? 13.8 : -13.8, y: 1.3, z: 11 };
+        if (id === 'returns') return { x: this.routePlan ? 13.8 : -13.8, y: 1, z: 5 };
         if (id === 'secure') return Object.assign({ y: 0.8 }, F.local(this.van, 0, 2.5));
         if (id && id.startsWith('slot')) {
           const s = M.slots.find(s => s.id === id);
           return s ? Object.assign({ y: s.y }, F.local(this.van, s.x, s.z)) : null;
         }
-        if (id && id.startsWith('door')) { const s = this.stop(id.slice(4)); return s && { x: 9.92, y: 1.5, z: s.z }; }
+        if (id && id.startsWith('door')) { const s = this.stop(id.slice(4)); return s && { x: s.x, y: 1.5, z: s.z }; }
         const p = this.parcel(id);
         if (!p) return null;
         if(p.anomaly&&p.location==='depot'){const desk=this.point('dispatch');return {x:desk.x,y:1.2,z:desk.z};}
-        if (p.location === 'depot') return { x: -11, y: 1.2, z: 4 - p.stop * 3 };
+        if (p.location === 'depot') return this.depotPoint(p);
         if (p.location.startsWith('slot')) return this.point(p.location);
         if (p.location === 'held') return { x: this.player.x, y: 1.1, z: this.player.z };
         const s = this.stop(p.stop);
-        if (p.location === 'delivered') return { x: 9.3, y: 0.28, z: s.z + 1.4 };
-        if (p.location === 'returned') return { x: -13.8, y: 1.1, z: 4.5 + p.stop * 0.5 };
+        if (p.location === 'delivered') return { x: s.x - (s.side || 1) * 0.6, y: 0.28, z: s.z + 1.4 };
+        if (p.location === 'returned') return { x: this.routePlan ? 13.8 : -13.8, y: 1.1, z: 4.5 + p.stop * 0.5 };
         return null;
+      },
+      depotPoint(p) { return { x: this.routePlan ? 11 : -11, y: 1.2, z: 4 - p.stop * (this.routePlan ? 2 : 3) }; },
+      driveAllowed(v) {
+        if (!this.town) return true;
+        const c=Math.cos(v.yaw),s=Math.sin(v.yaw);
+        for(let i=-1;i<=1;i+=2)for(let j=-1;j<=1;j+=2){
+          const x=v.x+c*i*1.08-s*j*2.7,z=v.z+s*i*1.08+c*j*2.7;
+          if(!OTR.fpRoute.onStreet(this,x,z)&&!(x>=1&&x<=8&&z>=-7&&z<=17))return false;
+        }
+        return true;
       },
       near(id, distance) {
         const p = this.point(id);
@@ -141,7 +153,15 @@ OTR.fpMission = {
       parked() { return Math.abs(this.van.speed) < 0.12 && this.van.hand; },
       driveHint() {
         const v = this.van, s = this.stop(this.activeStop);
-        if (this.mode !== 'cab' || this.kind !== 'campaign' || this.phase === 'return') return '';
+        if (this.mode !== 'cab' || this.kind !== 'campaign') return '';
+        if (this.town) {
+          if (!v.belt) return 'Fasten the seatbelt before moving.';
+          const tx=this.phase==='return'?4:s.park.x,tz=this.phase==='return'?8:s.park.z;
+          if (this.parked() && Math.hypot(v.x-tx,v.z-tz) < 6) return 'Parked at the stop. Check traffic before exiting.';
+          if (v.hand) return 'Check mirrors, signal and wait for a clear gap before pulling out.';
+          return OTR.fpRoute.limit(this) === 15 ? 'Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.' : 'Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.';
+        }
+        if (this.phase === 'return') return '';
         if (!v.belt) return 'Fasten the seatbelt before moving.';
         const atStop = Math.abs(v.z - s.z) < 6 && v.x >= 3.1 && Math.cos(v.yaw) > 0.85;
         if (this.parked() && atStop) return 'Parked at the stop. Check traffic before exiting.';
@@ -218,7 +238,7 @@ OTR.fpMission = {
       },
       putBack() {
         const p = this.parcel(this.heldId);
-        if (!p || Math.hypot(this.player.x + 11, this.player.z - (4 - p.stop * 3)) > 2.8) return 'Return to the parcel table or choose an empty cargo shelf.';
+        if (!p || Math.hypot(this.player.x - this.depotPoint(p).x, this.player.z - this.depotPoint(p).z) > 2.8) return 'Return to the parcel table or choose an empty cargo shelf.';
         p.location = 'depot'; this.heldId = null; this.touch(); return '';
       },
       inspectVan(part, decision) {
@@ -326,7 +346,9 @@ OTR.fpMission = {
           this.log('departure:' + part, 'inspection', ok ? 'good' : 'needs', said);
         });
         this.log('departure:load', 'loading', this.secured ? 'good' : 'needs', this.secured ? 'Secured the load before departure.' : 'Departed with an unsecured load.');
-        this.parcels.filter(p=>!p.anomaly).forEach(p => this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? `Loaded and scanned ${p.address}.` : 'A parcel was unscanned or left at the depot.'));
+        this.parcels.filter(p=>!p.anomaly).forEach(p => {
+          if (this.routePlan) this.log('shelf:' + p.id, 'loading', p.location === 'slot' + p.stop ? 'good' : 'needs', p.location === 'slot' + p.stop ? 'Loaded the parcel in stop order.' : 'The parcel was not loaded in stop order.');
+          this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? `Loaded and scanned ${p.address}.` : 'A parcel was unscanned or left at the depot.'); });
         if(this.loadout)OTR.fpLoadout.depart(this);
       },
       tick(input, dt) {
@@ -340,10 +362,10 @@ OTR.fpMission = {
         if (Math.abs(v.speed) > 0.3) {
           if (!v.belt) this.log('belt:' + this.leg, 'safety', 'needs', 'Moved the van without fastening the seatbelt.');
           if (!this.secured) this.log('load:' + this.leg, 'loading', 'needs', 'Moved the van before securing the load.');
-          if (Math.abs(v.speed) > 6.71) this.log('speed:' + this.leg, 'driving', 'needs', 'Exceeded the posted 15 mph limit.');
+          if (!this.town && Math.abs(v.speed) > 6.71) this.log('speed:' + this.leg, 'driving', 'needs', 'Exceeded the posted 15 mph limit.');
           const junction = Math.abs(v.z + 27) < 7 || Math.abs(v.z + 89) < 7 || v.z < -116 || v.z > -8;
-          if (!junction && Math.abs(v.x) > 5.2) this.log('pavement:' + this.leg, 'driving', 'needs', 'Drove onto the sidewalk beside the road.');
-          if (!junction && Math.abs(v.speed) > 1 && ((Math.cos(v.yaw) > 0.7 && v.x < -0.4) || (Math.cos(v.yaw) < -0.7 && v.x > 0.4))) this.log('lane:' + this.leg, 'driving', 'needs', 'Travelled on the wrong side of the road.');
+          if (!this.town && !junction && Math.abs(v.x) > 5.2) this.log('pavement:' + this.leg, 'driving', 'needs', 'Drove onto the sidewalk beside the road.');
+          if (!this.town && !junction && Math.abs(v.speed) > 1 && ((Math.cos(v.yaw) > 0.7 && v.x < -0.4) || (Math.cos(v.yaw) < -0.7 && v.x > 0.4))) this.log('lane:' + this.leg, 'driving', 'needs', 'Travelled on the wrong side of the road.');
         }
         if (old.x >= 3.1 && v.x < 3.1 && v.speed > 0.3 && Math.cos(v.yaw) > 0.5) {
           const conflict = this.traffic.some(c => c.yaw === 0 && c.z > v.z - 4 && c.z < v.z + 17);
@@ -352,10 +374,11 @@ OTR.fpMission = {
           this.signal = 0;
         }
         const front = F.local(v, 0, -2.7), mark = this.stopSign;
-        if (!mark.resolved && v.x > 0 && Math.cos(v.yaw) > 0.7) {
+        if (!this.town && !mark.resolved && v.x > 0 && Math.cos(v.yaw) > 0.7) {
           if (front.z > -24.1 && front.z < -19 && Math.abs(v.speed) < 0.1) mark.stopped = true;
           if (front.z < -24) { mark.resolved = true; this.log('stop-sign', 'driving', mark.stopped ? 'good' : 'needs', mark.stopped ? 'Stopped before the junction line.' : 'Passed the junction stop line without stopping.'); }
         }
+        if (this.town) OTR.fpRoute.tick(this, old);
         this.tickCrossing(dt, old);
         const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w: 1.8, d: 3.6 }));
         if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
@@ -372,22 +395,22 @@ OTR.fpMission = {
           const atLine = dir < 0 && c.z > -22.3 && c.z < -21.9 && !c.stopPassed;
           if (atLine) { c.wait = (c.wait || 0) + dt; if (c.wait >= 1) c.stopPassed = true; }
           if (!blocked && !pedestrian && !atLine) c.z += dir * c.speed * dt;
-          if (c.z < -134 && this.van.z > -112) { c.z = 35; c.stopPassed = false; c.wait = 0; }
-          if (c.z > 34 && this.van.z < 12) c.z = -134;
+          if (c.z < (this.town ? this.bounds.z0 + 2 : -134) && this.van.z > (this.town ? this.bounds.z0 + 24 : -112)) { c.z = this.town ? this.bounds.z1 - 2 : 35; c.stopPassed = false; c.wait = 0; }
+          if (c.z > (this.town ? this.bounds.z1 - 2 : 34) && this.van.z < (this.town ? this.bounds.z1 - 24 : 12)) c.z = this.town ? this.bounds.z0 + 2 : -134;
         });
       },
       tickCrossing(dt, old) {
         const h = this.crossing, v = this.van;
-        if (h.state === 'waiting' && v.z < -34 && v.z > -54 && Math.cos(v.yaw) > 0.5) { h.state = 'developing'; this.touch(); }
+        if (h.state === 'waiting' && v.z < h.z+23 && v.z > h.z+3 && Math.cos(v.yaw) > 0.5) { h.state = 'developing'; this.touch(); }
         if (h.state === 'waiting' || h.state === 'resolved') return;
         h.clock += dt;
-        if (v.z > -50 && Math.abs(v.speed) < 3) h.early = true;
+        if (v.z > h.z+7 && Math.abs(v.speed) < 3) h.early = true;
         if (h.clock > 2) { h.state = 'crossing'; h.x = Math.min(7, h.x + 1.1 * dt); }
         if (F.vanBox(v, { x: h.x, z: h.z, w: 0.55, d: 0.55 })) {
           v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true;
           this.log('pedestrian', 'safety', 'needs', 'Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.');
         }
-        if (v.z < -61 || h.x >= 7) {
+        if (v.z < h.z-4 || h.x >= 7) {
           h.state = 'resolved';
           if (!this.events.pedestrian) this.log('pedestrian', 'anticipation', h.early ? 'good' : 'needs', h.early ? 'Reduced speed early for the developing crossing hazard.' : 'Passed the crossing without an early speed reduction.');
           this.touch();
@@ -401,12 +424,14 @@ OTR.fpMission = {
       },
       snapshot() {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
+        if (this.routePlan) fields.push('routePlan', 'junctions');
         if(this.loadout)fields.push('loadout');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
+    if (routePlan && m.kind === 'campaign') OTR.fpRoute.apply(m, routePlan);
     m.parcels = m.stops.map(s => ({ id: 'parcel' + s.id, stop: s.id, address: s.address,
-      tracking: 'OTR-' + (10000 + seed % 80000) + '-' + (s.id + 1), weight: [4, 7, 3][s.id],
+      tracking: routePlan ? routePlan.route[s.id].stop.packages[0].tracking : 'OTR-' + (10000 + seed % 80000) + '-' + (s.id + 1), weight: routePlan ? routePlan.route[s.id].stop.packages[0].weight : [4, 7, 3][s.id],
       location: 'depot', zone: null, scanned: false, stopScanned: false, loaded: false, returnRequired: false }));
     return m;
   },
@@ -423,10 +448,10 @@ OTR.fpMission = {
       if (!Number.isFinite(data.elapsed) || data.elapsed < 0 || !Number.isFinite(data.seed)) return null;
       for (const actor of [data.player, data.van]) {
         if (!actor || !['x','z','yaw'].every(k => Number.isFinite(actor[k]))) return null;
-        if (actor.x < m.bounds.x0 || actor.x > m.bounds.x1 || actor.z < m.bounds.z0 || actor.z > Math.max(40,m.bounds.z1)) return null;
+        if (actor.x < m.bounds.x0 || actor.x > m.bounds.x1 || actor.z < m.bounds.z0 || actor.z > Math.max(40, m.bounds.z1)) return null;
       }
       if (!['speed','steer','gear','look'].every(k => Number.isFinite(data.van[k])) || !Number.isFinite(data.player.pitch)) return null;
-      if (![1,-1].includes(data.van.gear) || !m.stops.some(s=>s.id===data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
+      if (![1,-1].includes(data.van.gear) || !m.stops.some(s => s.id === data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
       if (!['retrievals','leg','mirrorAt'].every(k => Number.isFinite(data[k]))) return null;
       if (!data.checks || !['tyres','lights'].every(k => [null,true,false].includes(data.checks[k]))) return null;
       if (!data.stopSign || !['stopped','resolved'].every(k => typeof data.stopSign[k] === 'boolean')) return null;
@@ -466,6 +491,7 @@ OTR.fpMission = {
       if (!data.crossing || !['waiting','developing','crossing','resolved'].includes(data.crossing.state)) return null;
       if (![data.crossing.x,data.crossing.z,data.crossing.clock].every(Number.isFinite)) return null;
       if (!Array.isArray(data.traffic) || data.traffic.length !== 2 || data.traffic.some(c => ![c.x,c.z,c.yaw,c.speed].every(Number.isFinite))) return null;
+      if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
       m.paused = true; return m;
     } catch (_) { return null; }

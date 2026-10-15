@@ -3251,7 +3251,16 @@ window.OTR_I18N.fr = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "Regarde le chemin avant de poser le pied : verglas, feuilles mouillées et jouets en sont les causes habituelles. Fais de petits pas prudents.",
 "Acted correctly on a dispatch update": "Tu as agi correctement après un message du répartiteur",
 "Missed or ignored a dispatch update": "Tu as manqué ou ignoré un message du répartiteur",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "Lis les messages du répartiteur quand tu es garé, puis agis : un arrêt modifié ou une demande du client est une promesse faite au client."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "Lis les messages du répartiteur quand tu es garé, puis agis : un arrêt modifié ou une demande du client est une promesse faite au client.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "Vérifie les rétroviseurs, mets ton clignotant et attends une place libre avant de t'engager.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "Limite de vitesse : 15 mph. Arrête-toi à chaque ligne d'intersection. Consulte la carte de la tournée à l'arrêt.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "Limite de vitesse : 25 mph. Arrête-toi à chaque ligne d'intersection. Consulte la carte de la tournée à l'arrêt.",
+"Loaded the parcel in stop order.": "Colis chargé dans l'ordre des arrêts.",
+"The parcel was not loaded in stop order.": "Le colis n'a pas été chargé dans l'ordre des arrêts.",
+"Exceeded the posted speed limit.": "Limite de vitesse affichée dépassée.",
+"Traveled on the wrong side of the road.": "Tu as roulé du mauvais côté de la route.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "Vérifie les pneus et les feux, scanne et charge cinq colis dans l'ordre des arrêts, puis cale le chargement et ferme la soute.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Retourne au dépôt. Scanne les colis conservés à Returns, puis termine à Dispatch."
 },
 "templates": [
 [
@@ -4533,6 +4542,22 @@ window.OTR_I18N.fr = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · Scanne le colis à la porte avant d'enregistrer le résultat."
+],
+[
+"Weight: {0} lb",
+"Poids : {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"Charge le colis de l'arrêt {0} sur {1}."
+],
+[
+"Return to the depot. {0}",
+"Retourne au dépôt. {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4540,6 +4565,8 @@ window.OTR_I18N.fr = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

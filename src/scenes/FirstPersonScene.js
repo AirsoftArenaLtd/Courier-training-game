@@ -90,7 +90,8 @@ class FirstPersonScene extends Phaser.Scene {
     this.tweens.add({targets:this.fade,alpha:1,duration:180,onComplete:()=>{action();this.sync();this.tweens.add({targets:this.fade,alpha:0,duration:240,onComplete:()=>{this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}}});}});
   }
   launch(kind){this.transition(()=>{
-    let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;m=OTR.fpMission.create(kind,this.progress.sequence);if(kind==='campaign')OTR.fpLoadout.configure(m);}
+    let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
+      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign')OTR.fpLoadout.configure(m);}
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
     if(kind==='campaign'&&!m.briefing&&!m.departed){
       const day=OTR.shift.generate(m.seed,m.seed);
@@ -135,12 +136,23 @@ class FirstPersonScene extends Phaser.Scene {
   showScanner(){if(!this.model){this.showPause();return;}if(this.handheld)this.handheld.toggle();}
   showRoute(){
     const m=this.model,choices=m.pending().map(s=>({label:s.address,action:()=>{m.activeStop=s.id;m.touch();this.checkpoint();this.closePanel();}}));choices.push({label:'Back',action:()=>this.closePanel()});
-    this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.':'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
+    this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?(m.town?'The map shows the streets and numbered stops. D marks the depot; the yellow dot marks your van.':'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.'):'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
+    if(m.town)this.drawRouteMap();
+  }
+  drawRouteMap(){
+    const m=this.model,b=m.bounds,root=this.panel.root,g=this.add.graphics();root.add(g);
+    const scale=Math.min(500/(b.x1-b.x0),160/(b.z1-b.z0)),x=v=>640+(v-(b.x0+b.x1)/2)*scale,y=v=>330+(v-(b.z0+b.z1)/2)*scale;
+    g.fillStyle(0x789069);g.fillRect(x(b.x0),y(b.z0),(b.x1-b.x0)*scale,(b.z1-b.z0)*scale);
+    g.lineStyle(m.town.road*scale,0x4B5058);
+    m.town.xs.forEach(v=>g.lineBetween(x(v),y(b.z0),x(v),y(b.z1)));m.town.zs.forEach(v=>g.lineBetween(x(b.x0),y(v),x(b.x1),y(v)));
+    for(const s of m.stops)root.add(OTR.txt(this,x(s.x),y(s.z),String(s.id+1),18,s.resolved?'#c9d5d0':'#ffffff',{stroke:'#243039',strokeW:4}));
+    root.add(OTR.txt(this,x(4),y(8),'D',18,'#ffffff',{stroke:'#243039',strokeW:4}));
+    g.fillStyle(0xFFE35A);g.fillCircle(x(m.van.x),y(m.van.z),4);
   }
   showParcel(id){
     if(!id)this.aimTarget();
     const m=this.model,p=m&&m.parcel(id||m.heldId||this.target);if(!m||!m.canParcel(p))return;this.inspectId=p.id;this.inspectAngle=0;
-    this.showPanel('Parcel label',[p.address,p.tracking,`Weight: ${p.weight} kg`,m.serviceLabel(p.stop),p.scanned?'Scanned':'Not scanned'].join('\n'),[
+    this.showPanel('Parcel label',[p.address,p.tracking,m.routePlan?`Weight: ${p.weight} lb`:`Weight: ${p.weight} kg`,m.serviceLabel(p.stop),p.scanned?'Scanned':'Not scanned'].join('\n'),[
       {label:'Use scanner',action:()=>this.handheld.scan()},
       {label:p.location==='held'?'Return to walking':'Pick up',action:()=>{if(p.location!=='held')this.message(m.pickup(p.id));this.checkpoint();this.closePanel();}},
       {label:'Back',action:()=>this.closePanel()}],{inspect:true,back:()=>this.closePanel()});
@@ -178,7 +190,7 @@ class FirstPersonScene extends Phaser.Scene {
   showManifest(page=0,complete=false){
     const m=this.model;if(!m||!m.near('dispatch'))return;
     const s=m.stops[page],p=m.parcels.find(p=>p.stop===s.id),day=m.briefing;
-    const body=[day?`Day ${day.day}`:'Route manifest',day?day.weather:'',day?`Start: ${OTR.shift.clockStr(day.clockMin)}`:'',s.address,p.tracking,m.serviceLabel(s.id)].filter(Boolean).join('\n');
+    const body=[day?`Day ${day.day}`:'Route manifest',day?day.weather:'',day?`Start: ${OTR.shift.clockStr(day.clockMin)}`:'',s.address,p.tracking,m.serviceLabel(s.id),m.routePlan?`Load the parcel for stop ${s.id+1} on ${OTR.fpMission.slots[s.id].name}.`:null].filter(Boolean).join('\n');
     const choices=[];
     if(page+1<m.stops.length)choices.push({label:'Next',action:()=>this.showManifest(page+1,complete)});
     else choices.push({label:'Begin preparation',action:()=>{if(complete)m.readBrief();this.checkpoint();this.closePanel();}});
@@ -274,7 +286,9 @@ class FirstPersonScene extends Phaser.Scene {
       if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
     if(m.briefing&&!m.events[m.briefKey])return 'Walk to Dispatch to read the morning brief and route manifest.';
     if(m.mode==='cab'&&m.phase==='prepare')return `${m.stop(m.activeStop).address} · ${m.driveHint()}`;
+    if(m.phase==='prepare'&&m.routePlan)return 'Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.';
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
+    if(m.phase==='return'&&m.routePlan)return m.mode==='cab'?`Return to the depot. ${m.driveHint()}`:'Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';
     const s=m.stop(m.activeStop),p=m.mode==='cab'?m.van:m.player;

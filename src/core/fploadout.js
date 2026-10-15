@@ -13,7 +13,7 @@ OTR.fpLoadout = {
       const decoys=window.OTR_DATA&&OTR_DATA.loading&&OTR_DATA.loading.m6_find.packages;
       const decoy=decoys&&decoys.find(p=>!m.stops.some(s=>s.address===`${p.number} ${p.street}`));
       m.parcels.push({id:'parcel'+m.stops.length,stop:-1,address:decoy?`${decoy.number} ${decoy.street}`:'216 Birch Ct',
-        tracking:`OTR-UNLISTED-${m.seed}`,weight:4,anomaly:kind,location:'depot',zone:null,scanned:false,stopScanned:false,loaded:false,returnRequired:false});
+        tracking:`OTR-${90000+m.seed%9000}-${m.stops.length+1}`,weight:4,anomaly:kind,location:'depot',zone:null,scanned:false,stopScanned:false,loaded:false,returnRequired:false});
     }
   },
   fire(m,type,key,ok,text,stop) {
@@ -68,8 +68,10 @@ OTR.fpLoadout = {
     }
   },
   findLater(m) {
-    const L=m.loadout;if(!L||L.kind!=='late'||L.found||!m.departed||m.phase!=='route'||m.mode!=='walk'||!m.cargoOpen||!m.parked()||!m.near('cargo'))return;
-    const s=m.stop(m.activeStop);
+    const L=m.loadout;if(!L||L.kind!=='late'||L.found||!m.departed||m.phase!=='route'||m.mode!=='walk'||!m.cargoOpen||!m.parked())return;
+    const x=m.van.x-Math.sin(m.van.yaw)*2.75,z=m.van.z+Math.cos(m.van.yaw)*2.75;
+    if(Math.hypot(m.player.x-x,m.player.z-z)>=2.65)return;
+    const s=m.stops[m.activeStop];
     if(Math.hypot(m.van.x-s.x,m.van.z-s.z)>18)return;
     const slot=OTR.fpMission.slots.find(slot=>!m.parcels.some(p=>p.location===slot.id));
     if(!slot)return;

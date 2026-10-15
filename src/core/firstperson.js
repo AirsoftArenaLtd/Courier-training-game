@@ -139,7 +139,7 @@ OTR.fp = {
         const b = this.bounds;
         const outside = [F.local(next, -1.08, -2.7), F.local(next, 1.08, -2.7), F.local(next, -1.08, 2.7), F.local(next, 1.08, 2.7)]
           .some(p => p.x < b.x0 || p.x > b.x1 || p.z < b.z0 || p.z > b.z1);
-        if (outside || this.solids.some(o => F.vanBox(next, o))) { v.speed = 0; return; }
+        if (outside || (this.driveAllowed && !this.driveAllowed(next)) || this.solids.some(o => F.vanBox(next, o))) { v.speed = 0; return; }
         v.x = next.x; v.z = next.z; v.yaw = Math.atan2(Math.sin(next.yaw), Math.cos(next.yaw));
       }
     };

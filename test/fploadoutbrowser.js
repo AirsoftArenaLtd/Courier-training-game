@@ -13,7 +13,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.loadout.kind),'missort');checks++;
   await p.addScriptTag({url:base+'/data/i18n/ta.js'});
   const fixture=async(kind,lang,large)=>p.evaluate(({kind,lang,large})=>{
-   const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const m=OTR.fpMission.create('campaign',1);OTR.fpLoadout.configure(m,kind);m.briefing={day:1,weather:'clear',clockMin:500};m.events[m.briefKey]=true;
+   const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const m=OTR.fpMission.create('campaign',1,OTR.fpRoute?OTR.fpRoute.plan(1,1):null);OTR.fpLoadout.configure(m,kind);m.briefing={day:1,weather:'clear',clockMin:500};m.events[m.briefKey]=true;
    OTR.i18n.lang='en';OTR.i18n.cache.clear();if(lang==='ta')OTR.i18n.use('ta');OTR.a11y.settings().large=large;
    s.model=m;s.area='route';s.rebuildWorld();const desk=m.point('dispatch');Object.assign(m.player,{x:desk.x+1.6,z:desk.z,yaw:-Math.PI/2,pitch:0});m.paused=true;OTR.workday.begin();s.sync();s.refresh();
   },{kind,lang,large});
@@ -29,7 +29,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    const tag=lang+'-'+(large?'large':'normal');await fixture('extra',lang,large);
    await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.home());await audit(tag+'-home');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.close());
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,p=m.parcels.at(-1),point=m.point(p.id);Object.assign(m.player,{x:point.x,z:point.z+1.5});s.sync();const v=s.art.parcels.at(-1).getWorldPosition(new THREE.Vector3()),eye=s.view.camera.position;m.player.yaw=Math.atan2(v.x-eye.x,-(v.z-eye.z));m.player.pitch=Math.atan2(eye.y-v.y,Math.hypot(v.x-eye.x,v.z-eye.z));s.sync();s.interact();});
-   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.heldId),'parcel3');checks++;
+   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.heldId),'parcel5');checks++;
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.scan();s.handheld.trigger=true;});
    await p.waitForFunction(()=>{const h=OTR.game.scene.getScene('FirstPersonScene').handheld;return h.isOpen&&!h.aiming;},{timeout:15000});await audit(tag+'-scan-alert');
    await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.loadCheck());await audit(tag+'-load-check');
@@ -38,10 +38,10 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    assert.equal(await p.evaluate(()=>OTR.workday.events.filter(e=>e.type==='load.extra-caught').length),1);checks++;
    await audit(tag+'-aside');
    await fixture('clear',lang,large);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;for(const p of m.parcels){p.location='slot'+p.stop;p.zone=p.location;p.scanned=p.loaded=true;}s.showLoadCount();});await audit(tag+'-count');
-   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').choose(3));assert.equal(await p.evaluate(()=>OTR.workday.events.find(e=>e.type==='load.count').ok),true);checks++;
+   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').choose(5));assert.equal(await p.evaluate(()=>OTR.workday.events.find(e=>e.type==='load.count').ok),true);checks++;
    await fixture('missing',lang,large);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.loadCheck();s.handheld.choose(1);});await audit(tag+'-missing');
    assert.equal(await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.parcel(m.loadout.missingId).location;}),'depot');checks++;
-   await fixture('late',lang,large);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.fpLoadout.missing(m);m.preparation();m.mode='walk';m.cargoOpen=true;m.van.z=m.stops[0].z;Object.assign(m.player,m.point('cargo'));m.player.z+=1.2;m.paused=false;m.step({},0.025);s.sync();s.refresh();s.checkpoint();});
+   await fixture('late',lang,large);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.fpLoadout.missing(m);m.preparation();m.mode='walk';m.cargoOpen=true;Object.assign(m.van,m.stops[0].park||{z:m.stops[0].z});Object.assign(m.player,m.point('cargo'));m.player.z+=1.2;m.paused=false;m.step({},0.025);s.sync();s.refresh();s.checkpoint();});
    assert.equal(await p.evaluate(()=>OTR.workday.events.filter(e=>e.type==='load.found-later'&&e.stop===1).length),1);checks++;
    assert.equal(await p.evaluate(()=>OTR.fpStore.read().campaign.loadout.found),true);checks++;
   }

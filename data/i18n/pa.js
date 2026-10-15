@@ -3267,7 +3267,16 @@ window.OTR_I18N.pa = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "ਕਦਮ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਰਾਹ ਦੇਖੋ: ਬਰਫ਼, ਗਿੱਲੇ ਪੱਤੇ ਅਤੇ ਖਿਡੌਣੇ ਆਮ ਕਾਰਨ ਹਨ। ਛੋਟੇ, ਸਾਵਧਾਨ ਕਦਮ ਪੁੱਟੋ।",
 "Acted correctly on a dispatch update": "ਡਿਸਪੈਚ ਦੇ ਅਪਡੇਟ 'ਤੇ ਸਹੀ ਕਾਰਵਾਈ ਕੀਤੀ",
 "Missed or ignored a dispatch update": "ਡਿਸਪੈਚ ਦਾ ਅਪਡੇਟ ਖੁੰਝਾ ਦਿੱਤਾ ਜਾਂ ਅਣਡਿੱਠ ਕੀਤਾ",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "ਡਿਸਪੈਚ ਦੇ ਸੁਨੇਹੇ ਗੱਡੀ ਖੜ੍ਹੀ ਹੋਣ 'ਤੇ ਪੜ੍ਹੋ, ਫਿਰ ਕਾਰਵਾਈ ਕਰੋ: ਬਦਲਿਆ ਸਟਾਪ ਜਾਂ ਗਾਹਕ ਦੀ ਬੇਨਤੀ ਗਾਹਕ ਨਾਲ ਕੀਤਾ ਵਾਅਦਾ ਹੈ।"
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "ਡਿਸਪੈਚ ਦੇ ਸੁਨੇਹੇ ਗੱਡੀ ਖੜ੍ਹੀ ਹੋਣ 'ਤੇ ਪੜ੍ਹੋ, ਫਿਰ ਕਾਰਵਾਈ ਕਰੋ: ਬਦਲਿਆ ਸਟਾਪ ਜਾਂ ਗਾਹਕ ਦੀ ਬੇਨਤੀ ਗਾਹਕ ਨਾਲ ਕੀਤਾ ਵਾਅਦਾ ਹੈ।",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਸ਼ੀਸ਼ੇ ਦੇਖੋ, ਸਿਗਨਲ ਦਿਓ ਅਤੇ ਖਾਲੀ ਥਾਂ ਮਿਲਣ ਦੀ ਉਡੀਕ ਕਰੋ।",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "ਰਫ਼ਤਾਰ ਦੀ ਹੱਦ: 15 mph। ਹਰ ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ 'ਤੇ ਰੁਕੋ। ਰੂਟ ਦਾ ਨਕਸ਼ਾ ਗੱਡੀ ਖੜ੍ਹੀ ਕਰਕੇ ਦੇਖੋ।",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "ਰਫ਼ਤਾਰ ਦੀ ਹੱਦ: 25 mph। ਹਰ ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ 'ਤੇ ਰੁਕੋ। ਰੂਟ ਦਾ ਨਕਸ਼ਾ ਗੱਡੀ ਖੜ੍ਹੀ ਕਰਕੇ ਦੇਖੋ।",
+"Loaded the parcel in stop order.": "ਪਾਰਸਲ ਸਟਾਪ ਦੇ ਕ੍ਰਮ ਵਿੱਚ ਲੋਡ ਕੀਤਾ।",
+"The parcel was not loaded in stop order.": "ਪਾਰਸਲ ਸਟਾਪ ਦੇ ਕ੍ਰਮ ਵਿੱਚ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।",
+"Exceeded the posted speed limit.": "ਲਿਖੀ ਹੋਈ ਰਫ਼ਤਾਰ ਦੀ ਹੱਦ ਪਾਰ ਕੀਤੀ।",
+"Traveled on the wrong side of the road.": "ਸੜਕ ਦੇ ਗ਼ਲਤ ਪਾਸੇ ਚੱਲੇ।",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ਟਾਇਰ ਅਤੇ ਲਾਈਟਾਂ ਦੇਖੋ, ਪੰਜ ਪਾਰਸਲ ਸਕੈਨ ਕਰਕੇ ਸਟਾਪ ਦੇ ਕ੍ਰਮ ਵਿੱਚ ਲੋਡ ਕਰੋ, ਫਿਰ ਸਮਾਨ ਬੰਨ੍ਹੋ ਅਤੇ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ। ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ Returns 'ਤੇ ਸਕੈਨ ਕਰੋ, ਫਿਰ Dispatch 'ਤੇ ਖ਼ਤਮ ਕਰੋ।"
 },
 "templates": [
 [
@@ -4549,6 +4558,22 @@ window.OTR_I18N.pa = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · ਨਤੀਜਾ ਦਰਜ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਦਰਵਾਜ਼ੇ 'ਤੇ ਪੈਕੇਜ ਸਕੈਨ ਕਰੋ।"
+],
+[
+"Weight: {0} lb",
+"ਭਾਰ: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1} 'ਤੇ ਸਟਾਪ {0} ਦਾ ਪਾਰਸਲ ਲੋਡ ਕਰੋ।"
+],
+[
+"Return to the depot. {0}",
+"ਡਿਪੋ ਵਾਪਸ ਜਾਓ। {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4556,6 +4581,8 @@ window.OTR_I18N.pa = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

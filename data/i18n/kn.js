@@ -3266,7 +3266,16 @@ window.OTR_I18N.kn = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "ಹೆಜ್ಜೆ ಇಡುವ ಮುನ್ನ ದಾರಿಯನ್ನು ನೋಡಿ: ಮಂಜುಗಡ್ಡೆ, ಒದ್ದೆ ಎಲೆಗಳು ಮತ್ತು ಆಟಿಕೆಗಳೇ ಸಾಮಾನ್ಯ ಕಾರಣಗಳು. ಸಣ್ಣ, ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳನ್ನಿಡಿ.",
 "Acted correctly on a dispatch update": "ಡಿಸ್ಪ್ಯಾಚ್ ಅಪ್‌ಡೇಟ್‌ಗೆ ಸರಿಯಾಗಿ ಕ್ರಮ ಕೈಗೊಂಡಿರಿ",
 "Missed or ignored a dispatch update": "ಡಿಸ್ಪ್ಯಾಚ್ ಅಪ್‌ಡೇಟ್ ಅನ್ನು ತಪ್ಪಿಸಿಕೊಂಡಿರಿ ಅಥವಾ ನಿರ್ಲಕ್ಷಿಸಿದಿರಿ",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "ವಾಹನ ನಿಲ್ಲಿಸಿದಾಗ ಡಿಸ್ಪ್ಯಾಚ್ ಸಂದೇಶಗಳನ್ನು ಓದಿ, ನಂತರ ಕ್ರಮ ಕೈಗೊಳ್ಳಿ: ಬದಲಾದ ಸ್ಟಾಪ್ ಅಥವಾ ಗ್ರಾಹಕರ ವಿನಂತಿ ಗ್ರಾಹಕರಿಗೆ ಕೊಟ್ಟ ಭರವಸೆ."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "ವಾಹನ ನಿಲ್ಲಿಸಿದಾಗ ಡಿಸ್ಪ್ಯಾಚ್ ಸಂದೇಶಗಳನ್ನು ಓದಿ, ನಂತರ ಕ್ರಮ ಕೈಗೊಳ್ಳಿ: ಬದಲಾದ ಸ್ಟಾಪ್ ಅಥವಾ ಗ್ರಾಹಕರ ವಿನಂತಿ ಗ್ರಾಹಕರಿಗೆ ಕೊಟ್ಟ ಭರವಸೆ.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "ಕನ್ನಡಿಗಳನ್ನು ನೋಡಿ, ಸಿಗ್ನಲ್ ಹಾಕಿ ಮತ್ತು ಹೊರಡುವ ಮುನ್ನ ಖಾಲಿ ಜಾಗ ಸಿಗುವವರೆಗೆ ಕಾಯಿರಿ.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "ವೇಗದ ಮಿತಿ: 15 mph. ಪ್ರತಿ ಜಂಕ್ಷನ್ ಗೆರೆಯಲ್ಲಿ ನಿಲ್ಲಿ. ರೂಟ್ ನಕ್ಷೆಯನ್ನು ವಾಹನ ನಿಲ್ಲಿಸಿದಾಗ ನೋಡಿ.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "ವೇಗದ ಮಿತಿ: 25 mph. ಪ್ರತಿ ಜಂಕ್ಷನ್ ಗೆರೆಯಲ್ಲಿ ನಿಲ್ಲಿ. ರೂಟ್ ನಕ್ಷೆಯನ್ನು ವಾಹನ ನಿಲ್ಲಿಸಿದಾಗ ನೋಡಿ.",
+"Loaded the parcel in stop order.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ಸ್ಟಾಪ್ ಕ್ರಮದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿದಿರಿ.",
+"The parcel was not loaded in stop order.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ಸ್ಟಾಪ್ ಕ್ರಮದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿಲ್ಲ.",
+"Exceeded the posted speed limit.": "ಸೂಚಿತ ವೇಗದ ಮಿತಿ ಮೀರಿದಿರಿ.",
+"Traveled on the wrong side of the road.": "ರಸ್ತೆಯ ತಪ್ಪು ಬದಿಯಲ್ಲಿ ಚಲಿಸಿದಿರಿ.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ಟೈರ್ ಮತ್ತು ಲೈಟ್‌ಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ, ಐದು ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಸ್ಟಾಪ್ ಕ್ರಮದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿ, ನಂತರ ಲೋಡ್ ಅನ್ನು ಭದ್ರಪಡಿಸಿ ಮತ್ತು ಕಾರ್ಗೋ ಬಾಗಿಲು ಮುಚ್ಚಿ.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ. ಉಳಿದ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು Returns ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ Dispatch ನಲ್ಲಿ ಮುಗಿಸಿ."
 },
 "templates": [
 [
@@ -4548,6 +4557,22 @@ window.OTR_I18N.kn = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · ಫಲಿತಾಂಶ ದಾಖಲಿಸುವ ಮುನ್ನ ಬಾಗಿಲಲ್ಲಿ ಪ್ಯಾಕೇಜ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ."
+],
+[
+"Weight: {0} lb",
+"ತೂಕ: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1} ನಲ್ಲಿ ಸ್ಟಾಪ್ {0} ರ ಪಾರ್ಸೆಲ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಿ."
+],
+[
+"Return to the depot. {0}",
+"ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ. {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4555,6 +4580,8 @@ window.OTR_I18N.kn = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };
