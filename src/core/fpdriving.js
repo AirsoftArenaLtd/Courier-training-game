@@ -12,7 +12,7 @@ OTR.fpDriving = {
   attach(m) {
     if(!m._driveSolids){
       m._driveSolids={bus:{x:1e6,z:1e6,w:2.4,d:7.6,h:3},siren:{x:1e6,z:1e6,w:1.45,d:4,h:1.8}};
-      m._drivePose={x:0,z:0,yaw:0};m.solids.push(m._driveSolids.bus,m._driveSolids.siren);
+      m._drivePose={x:0,z:0,yaw:0};m._driveNext={x:0,z:0,w:0,d:0};m.solids.push(m._driveSolids.bus,m._driveSolids.siren);
     }
     this.syncActors(m);
   },
@@ -41,7 +41,9 @@ OTR.fpDriving = {
     const p=OTR.fpMission.local(v,m.player);
     if(Math.abs(p.x)>1.8||p.z<3.2||p.z>5.2||Math.cos(m.player.yaw-v.yaw)>-0.7)return 'Stand behind the van and look along the reversing path.';
     const point=OTR.fp.local(v,0,6.5),path={x:point.x,z:point.z,yaw:v.yaw};
-    let clear=m.driveAllowed(path)&&!m.solids.some(b=>OTR.fp.vanBox(path,b));
+    const bounds=m.bounds,h=m.crossing;
+    let clear=m.driveAllowed(path)&&point.x>bounds.x0+3&&point.x<bounds.x1-3&&point.z>bounds.z0+3&&point.z<bounds.z1-3&&!m.solids.some(b=>OTR.fp.vanBox(path,b));
+    if(h.state==='crossing'&&OTR.fp.vanBox(path,{x:h.x,z:h.z,w:.6,d:.6}))clear=false;
     for(const car of m.traffic)if(OTR.fp.vanBox(path,{x:car.x,z:car.z,w:1.8,d:3.6}))clear=false;
     d.goalAt=m.elapsed;d.goalX=v.x;d.goalZ=v.z;d.goalYaw=v.yaw;d.goalClear=clear;d.reverseActive=false;m.touch();
     return clear?'The reversing path is clear. Return to the cab and keep watching as you reverse.':'The reversing path is blocked. Wait for it to clear and check again.';
@@ -72,7 +74,16 @@ OTR.fpDriving = {
       if(ahead>0&&ahead<12&&Math.abs(side)<2.5)return true;
     }return false;
   },
-  tick(m,dt) {
+  advance(m,a,speed,dt,width,length) {
+    const b=m._driveNext,vertical=Math.abs(Math.cos(a.yaw))>0.7;
+    b.x=a.x+Math.sin(a.yaw)*speed*dt;b.z=a.z-Math.cos(a.yaw)*speed*dt;b.w=vertical?width:length;b.d=vertical?length:width;
+    if(OTR.fp.vanBox(m.van,b)||(m.mode==='walk'&&OTR.fp.circleBox(m.player.x,m.player.z,.4,b)))return false;
+    for(const car of m.traffic)if(OTR.fp.vanBox(car,b))return false;
+    const other=a===m.driving.bus?m._driveSolids.siren:m._driveSolids.bus;
+    if(Math.abs(b.x-other.x)<(b.w+other.w)/2&&Math.abs(b.z-other.z)<(b.d+other.d)/2)return false;
+    a.x=b.x;a.z=b.z;return true;
+  },
+  tick(m,dt,old) {
     const d=m.driving,v=m.van,F=OTR.fp;if(!d)return;
     if(m.mode==='cab'){
       if(m.parked()&&this.atRight(m))d.mirrorDone=false;
@@ -103,6 +114,7 @@ OTR.fpDriving = {
     if(b.state==='flashing'){
       b.clock+=dt;
       const ahead=(b.x-v.x)*Math.sin(b.yaw)-(b.z-v.z)*Math.cos(b.yaw),side=(v.x-b.x)*Math.cos(b.yaw)+(v.z-b.z)*Math.sin(b.yaw);
+      if(old&&Math.abs(old.speed)>1&&v.speed===0&&ahead<7.1&&ahead>=6.5&&Math.abs(side)<2.5)this.fire(m,'drive.school-bus','bus',false,'Contacted the school bus instead of stopping with a safe gap.');
       if(!b.passed&&ahead<6.5&&Math.abs(side)<(m.town?m.town.road:11)){
         b.passed=true;this.fire(m,'drive.school-bus','bus',false,'Passed a school bus while its red lights were flashing.');
         this.fire(m,'drive.school-bus-pass','bus',false,'Drove past a school bus while children were boarding.');
@@ -111,7 +123,7 @@ OTR.fpDriving = {
       if(!b.passed&&b.hold>=3&&b.clock>=4){this.fire(m,'drive.school-bus','bus',true,'Stopped and waited until the school bus switched off its red lights.');b.state='leaving';}
       else if(b.clock>=14)b.state='leaving';
     }else if(b.state==='leaving'){
-      b.x+=Math.sin(b.yaw)*4*dt;b.z-=Math.cos(b.yaw)*4*dt;
+      this.advance(m,b,4,dt,2.4,7.6);
       if(Math.hypot(b.x-v.x,b.z-v.z)>55||b.x<m.bounds.x0+4||b.x>m.bounds.x1-4||b.z<m.bounds.z0+4||b.z>m.bounds.z1-4)b.state='done';
     }
     if(e.state==='waiting'&&m.leg>=1&&m.mode==='cab'&&v.speed>1.5&&m.phase==='route'){
@@ -129,8 +141,8 @@ OTR.fpDriving = {
       if(e.state==='passing')e.offset=F.approach(e.offset,e.yielded?1.3:0,dt*1.5);
       if(vertical)e.x=e.road+e.offset*Math.cos(e.yaw);else e.z=e.road+e.offset*Math.sin(e.yaw);
       const ahead=(v.x-e.x)*Math.sin(e.yaw)-(v.z-e.z)*Math.cos(e.yaw);
-      if((e.state==='passing'&&(e.yielded||e.offset<0.15))||ahead>10){e.x+=Math.sin(e.yaw)*7*dt;e.z-=Math.cos(e.yaw)*7*dt;}
-      if(ahead< -16||e.x<m.bounds.x0+3||e.x>m.bounds.x1-3||e.z<m.bounds.z0+3||e.z>m.bounds.z1-3){
+      if((e.state==='passing'&&(e.yielded||e.offset<0.15))||ahead>10){this.advance(m,e,7,dt,1.45,4);}
+      if(e.clock>45||ahead< -16||e.x<m.bounds.x0+3||e.x>m.bounds.x1-3||e.z<m.bounds.z0+3||e.z>m.bounds.z1-3){
         if(e.yielded)this.fire(m,'drive.siren','siren',true,'Pulled over to the right and waited for the emergency vehicle to pass.');
         else this.fire(m,'drive.siren','siren',false,'Did not pull over and stop for the emergency vehicle.');e.state='done';
       }

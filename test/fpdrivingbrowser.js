@@ -11,9 +11,10 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   await p.addScriptTag({url:base+'/data/i18n/ta.js'});
   for(const lang of ['en','ta'])for(const large of [false,true])for(const hazard of ['bus','siren','backing','goal']){
    await p.evaluate(({lang,large,hazard})=>{
-    OTR.i18n.use(lang);OTR.a11y.settings().large=large;const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();s.handheld.close();m.paused=true;m.phase='route';m.mode='cab';m.departed=true;m.events[m.briefKey]=true;s.notice='';
+    OTR.i18n.use(lang);OTR.a11y.settings().large=large;const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();s.handheld.close();m.paused=true;m.phase='route';m.mode='cab';s.hint.setFontSize(OTR.a11y.size(18));m.departed=true;m.events[m.briefKey]=true;s.notice='';
     Object.assign(m.van,{x:m.town.xs[0]+2,z:m.town.zs[1]+25,yaw:0,speed:0,hand:true,gear:1});m.driving.bus.state=m.driving.siren.state='done';
     if(hazard==='bus')Object.assign(m.driving.bus,{state:'flashing',x:m.van.x,z:m.van.z-18,yaw:0,clock:1,hold:0,passed:false});
+    m.mirrorAt=hazard==='siren'?m.elapsed:-100;
     if(hazard==='siren')Object.assign(m.driving.siren,{state:'approaching',x:m.van.x,z:m.van.z+16,yaw:0,road:m.town.xs[0],offset:1.3,clock:1,yielded:false});
     if(hazard==='backing')m.van.gear=-1;
     if(hazard==='goal'){m.mode='walk';Object.assign(m.player,{x:m.van.x,z:m.van.z+4,yaw:Math.PI,pitch:0});s.showGoal();}

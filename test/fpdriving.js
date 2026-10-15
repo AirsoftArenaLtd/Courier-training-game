@@ -31,8 +31,10 @@ test('G.O.A.L. requires physically standing behind the parked van and looking ba
  const r=M.restore(m.snapshot());assert.ok(r);W.begin();D.tick(r,.1);assert.equal(events('drive.backing').length,0);
 });
 test('stale, moved and blocked reversing checks cannot approve backing',()=>{
- for(const condition of ['absent','stale','moved','blocked']){
+ for(const condition of ['absent','stale','moved','blocked','pedestrian','boundary']){
   const m=make();if(condition==='blocked')m.traffic=[{id:0,x:4,z:-63.5,yaw:0,speed:0,target:0}];
+  if(condition==='pedestrian')Object.assign(m.crossing,{state:'crossing',x:4,z:-63.5});
+  if(condition==='boundary')m.van.z=m.bounds.z1-5;
   if(condition!=='absent')goal(m);if(condition==='stale')m.elapsed=61;if(condition==='moved')m.van.z-=3;
   reverse(m);assert.equal(events('drive.backing')[0].ok,false,condition);
  }
@@ -72,4 +74,23 @@ test('a mid-siren checkpoint keeps physical actor bounds and waits for actual pa
 test('a long day bounds the HUD history while retaining once-only evidence',()=>{
  const m=make();for(let i=0;i<350;i++)m.log('observation:'+i,'driving','good','Observed the route.');
  assert.equal(m.logs.length,300);assert.equal(Object.keys(m.events).length,350);assert.ok(M.restore(m.snapshot()));
+});
+
+test('a real motor collision with the bus cannot turn into waiting credit',()=>{
+ const m=make();bus(m);D.syncActors(m);Object.assign(m.van,{x:1.7,speed:4,hand:false});m.paused=false;m.secured=true;
+ for(let i=0;i<260;i++)m.step({forward:true,back:false,left:false,right:false},.025);
+ assert.equal(c.OTR.fp.vanBox(m.van,m._driveSolids.bus),false);assert.equal(events('drive.school-bus').length,1);assert.equal(events('drive.school-bus')[0].ok,false);
+ assert.ok(events('drive.contact').length);
+});
+test('live hazards appear naturally on a clear road and practice keeps the old state',()=>{
+ const m=make();m.driving.bus.state='waiting';m.van.speed=2;D.tick(m,.1);assert.equal(m.driving.bus.state,'flashing');
+ m.driving.siren.state='waiting';m.leg=1;D.tick(m,.1);assert.equal(m.driving.siren.state,'approaching');
+ const practice=M.create('practice',1);D.configure(practice);assert.equal(practice.driving,undefined);assert.ok(M.restore(practice.snapshot()));
+});
+
+test('moving hazard vehicles wait for a person or van blocking their path',()=>{
+ const m=make();bus(m);m.driving.bus.state='leaving';m.mode='walk';Object.assign(m.player,{x:1.7,z:-86.3});
+ D.syncActors(m);D.tick(m,.1);assert.equal(m.driving.bus.z,-82);
+ m.player.x=10;Object.assign(m.van,{x:1.7,z:-88.5,yaw:0,speed:0});D.tick(m,.1);assert.equal(m.driving.bus.z,-82);
+ m.van.x=5;D.tick(m,.1);assert.ok(m.driving.bus.z<-82);
 });

@@ -354,7 +354,7 @@ OTR.fpMission = {
         if (this.kind === 'campaign') this.tickTraffic(dt);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
-        if(this.driving)OTR.fpDriving.tick(this,dt);
+        if(this.driving)OTR.fpDriving.tick(this,dt,old);
         if (this.mode !== 'cab') return;
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
