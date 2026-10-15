@@ -3266,7 +3266,16 @@ window.OTR_I18N.ml = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "കാലെടുത്തുവയ്ക്കും മുമ്പ് വഴി നോക്കുക: ഐസ്, നനഞ്ഞ ഇലകൾ, കളിപ്പാട്ടങ്ങൾ എന്നിവയാണ് സാധാരണ കാരണങ്ങൾ. ചെറിയ, ശ്രദ്ധയുള്ള ചുവടുകൾ വയ്ക്കുക.",
 "Acted correctly on a dispatch update": "ഡിസ്പാച്ച് അപ്ഡേറ്റിൽ ശരിയായി പ്രവർത്തിച്ചു",
 "Missed or ignored a dispatch update": "ഡിസ്പാച്ച് അപ്ഡേറ്റ് കാണാതെ പോയി അല്ലെങ്കിൽ അവഗണിച്ചു",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "വാഹനം പാർക്ക് ചെയ്തിരിക്കുമ്പോൾ ഡിസ്പാച്ച് സന്ദേശങ്ങൾ വായിക്കുക, എന്നിട്ട് പ്രവർത്തിക്കുക: മാറിയ സ്റ്റോപ്പോ ഉപഭോക്താവിന്റെ അഭ്യർഥനയോ ഉപഭോക്താവിന് നൽകിയ വാക്കാണ്."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "വാഹനം പാർക്ക് ചെയ്തിരിക്കുമ്പോൾ ഡിസ്പാച്ച് സന്ദേശങ്ങൾ വായിക്കുക, എന്നിട്ട് പ്രവർത്തിക്കുക: മാറിയ സ്റ്റോപ്പോ ഉപഭോക്താവിന്റെ അഭ്യർഥനയോ ഉപഭോക്താവിന് നൽകിയ വാക്കാണ്.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "പുറത്തേക്ക് എടുക്കും മുമ്പ് കണ്ണാടികൾ നോക്കുക, ഇൻഡിക്കേറ്റർ ഇടുക, വഴി ഒഴിയുന്നതുവരെ കാത്തിരിക്കുക.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "വേഗപരിധി: 15 mph. ഓരോ ജംഗ്ഷൻ ലൈനിലും നിർത്തുക. പാർക്ക് ചെയ്തിരിക്കുമ്പോൾ റൂട്ട് മാപ്പ് നോക്കുക.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "വേഗപരിധി: 25 mph. ഓരോ ജംഗ്ഷൻ ലൈനിലും നിർത്തുക. പാർക്ക് ചെയ്തിരിക്കുമ്പോൾ റൂട്ട് മാപ്പ് നോക്കുക.",
+"Loaded the parcel in stop order.": "പാഴ്സൽ സ്റ്റോപ്പ് ക്രമത്തിൽ കയറ്റി.",
+"The parcel was not loaded in stop order.": "പാഴ്സൽ സ്റ്റോപ്പ് ക്രമത്തിൽ കയറ്റിയില്ല.",
+"Exceeded the posted speed limit.": "പ്രദർശിപ്പിച്ച വേഗപരിധി കടന്നു.",
+"Traveled on the wrong side of the road.": "റോഡിന്റെ തെറ്റായ വശത്തുകൂടി സഞ്ചരിച്ചു.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, അഞ്ച് പാഴ്സലുകൾ സ്കാൻ ചെയ്ത് സ്റ്റോപ്പ് ക്രമത്തിൽ കയറ്റുക, പിന്നെ ലോഡ് ഉറപ്പിച്ച് കാർഗോ അടയ്ക്കുക.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക. നിലനിർത്തിയ പാഴ്സലുകൾ Returns-ൽ സ്കാൻ ചെയ്യുക, പിന്നെ ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുക."
 },
 "templates": [
 [
@@ -4548,6 +4557,22 @@ window.OTR_I18N.ml = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · ഫലം രേഖപ്പെടുത്തും മുമ്പ് വാതിൽക്കൽ പാക്കേജ് സ്കാൻ ചെയ്യുക."
+],
+[
+"Weight: {0} lb",
+"ഭാരം: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"{1}-ലെ സ്റ്റോപ്പ് {0}-നുള്ള പാഴ്സൽ കയറ്റുക."
+],
+[
+"Return to the depot. {0}",
+"ഡിപ്പോയിലേക്ക് മടങ്ങുക. {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
@@ -4555,6 +4580,8 @@ window.OTR_I18N.ml = {
 "#game canvas",
 "¡Hola! ¿Es un paquete para mí?",
 "¿Perdón? No entiendo…",
-"¡Ah, sí! Ana Morales. ¡Gracias!"
+"¡Ah, sí! Ana Morales. ¡Gracias!",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };

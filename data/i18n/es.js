@@ -3278,7 +3278,16 @@ window.OTR_I18N.es = {
 "Look at the path before you step: ice, wet leaves and toys are the usual causes. Short, careful steps.": "Mira el camino antes de dar un paso: el hielo, las hojas mojadas y los juguetes son las causas habituales. Da pasos cortos y con cuidado.",
 "Acted correctly on a dispatch update": "Actuaste correctamente ante una actualización del despacho",
 "Missed or ignored a dispatch update": "Pasaste por alto o ignoraste una actualización del despacho",
-"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "Lee los mensajes del despacho cuando estés estacionado y luego actúa: una parada modificada o la petición de un cliente es una promesa al cliente."
+"Read dispatch messages when you are parked, then act: a changed stop or a customer request is a promise to the customer.": "Lee los mensajes del despacho cuando estés estacionado y luego actúa: una parada modificada o la petición de un cliente es una promesa al cliente.",
+"Check mirrors, signal and wait for a clear gap before pulling out.": "Revisa los espejos, pon el intermitente y espera a que haya un hueco libre antes de incorporarte.",
+"Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.": "Límite de velocidad: 15 mph. Detente en cada línea de cruce. Consulta el mapa de la ruta con el vehículo estacionado.",
+"Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.": "Límite de velocidad: 25 mph. Detente en cada línea de cruce. Consulta el mapa de la ruta con el vehículo estacionado.",
+"Loaded the parcel in stop order.": "Cargaste el paquete en el orden de las paradas.",
+"The parcel was not loaded in stop order.": "El paquete no se cargó en el orden de las paradas.",
+"Exceeded the posted speed limit.": "Superaste el límite de velocidad indicado.",
+"Traveled on the wrong side of the road.": "Circulaste por el lado equivocado de la vía.",
+"Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "Revisa los neumáticos y las luces, escanea y carga cinco paquetes en el orden de las paradas, asegura la carga y cierra el compartimento.",
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Vuelve al centro. Escanea los paquetes retenidos en Returns y termina en Dispatch."
 },
 "templates": [
 [
@@ -4560,10 +4569,28 @@ window.OTR_I18N.es = {
 [
 "{0} · Scan the parcel at the door before recording the outcome.",
 "{0} · Escanea el paquete en la puerta antes de registrar el resultado."
+],
+[
+"Weight: {0} lb",
+"Peso: {0} lb"
+],
+[
+"Load the parcel for stop {0} on {1}.",
+"Carga el paquete de la parada {0} en {1}."
+],
+[
+"Return to the depot. {0}",
+"Vuelve al centro. {0}"
+],
+[
+"junction:{0}:{1}:{2}",
+"junction:{0}:{1}:{2}"
 ]
 ],
 "keep": [
 "three.js did not load",
-"#game canvas"
+"#game canvas",
+"Invalid route plan",
+"Invalid route stop"
 ]
 };
