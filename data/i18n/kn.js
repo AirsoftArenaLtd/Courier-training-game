@@ -3554,7 +3554,30 @@ window.OTR_I18N.kn = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "ಉಳಿಸಿಕೊಂಡ ಪ್ರತಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ತಂದು, ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮುನ್ನ ಮರಳಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
 "Start a workday first": "ಮೊದಲು ಕೆಲಸದ ದಿನ ಆರಂಭಿಸಿ",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "ಕೆಲಸದ ದಿನ ಅಥವಾ ಸರಕು ಅಭ್ಯಾಸದ ವೇಳೆ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಲಭ್ಯ. ಹಬ್‌ನಿಂದ ಒಂದನ್ನು ಆರಂಭಿಸಿ, ನಂತರ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ತೆರೆಯಿರಿ.",
-"Return to Dispatch": "ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ಹಿಂತಿರುಗಿ"
+"Return to Dispatch": "ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ಹಿಂತಿರುಗಿ",
+"The engine is running.": "ಎಂಜಿನ್ ಚಾಲನೆಯಲ್ಲಿದೆ.",
+"Rain is falling.": "ಮಳೆ ಬೀಳುತ್ತಿದೆ.",
+"The brakes are slowing the van.": "ಬ್ರೇಕ್‌ಗಳು ವ್ಯಾನ್ ಅನ್ನು ನಿಧಾನಗೊಳಿಸುತ್ತಿವೆ.",
+"The left turn signal is on.": "ಎಡ ಟರ್ನ್ ಸಿಗ್ನಲ್ ಆನ್ ಆಗಿದೆ.",
+"The right turn signal is on.": "ಬಲ ಟರ್ನ್ ಸಿಗ್ನಲ್ ಆನ್ ಆಗಿದೆ.",
+"A dog is barking nearby.": "ಹತ್ತಿರದಲ್ಲಿ ನಾಯಿ ಬೊಗಳುತ್ತಿದೆ.",
+"An emergency vehicle is approaching.": "ತುರ್ತು ವಾಹನ ಹತ್ತಿರ ಬರುತ್ತಿದೆ.",
+"Sound settings": "ಧ್ವನಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+"Sound effects are muted.": "ಧ್ವನಿ ಪರಿಣಾಮಗಳು ಮ್ಯೂಟ್ ಆಗಿವೆ.",
+"Sound effects are on.": "ಧ್ವನಿ ಪರಿಣಾಮಗಳು ಆನ್ ಆಗಿವೆ.",
+"Sounds pause for narration. Text cues remain visible when muted.": "ನಿರೂಪಣೆಗಾಗಿ ಧ್ವನಿಗಳು ನಿಲ್ಲುತ್ತವೆ. ಮ್ಯೂಟ್ ಆಗಿದ್ದರೂ ಪಠ್ಯ ಸೂಚನೆಗಳು ಕಾಣಿಸುತ್ತವೆ.",
+"Make sound quieter": "ಧ್ವನಿ ಕಡಿಮೆ ಮಾಡಿ",
+"Make sound louder": "ಧ್ವನಿ ಹೆಚ್ಚಿಸಿ",
+"Turn sound effects on": "ಧ್ವನಿ ಪರಿಣಾಮಗಳನ್ನು ಆನ್ ಮಾಡಿ",
+"Mute sound effects": "ಧ್ವನಿ ಪರಿಣಾಮಗಳನ್ನು ಮ್ಯೂಟ್ ಮಾಡಿ",
+"You knock on the door.": "ನೀವು ಬಾಗಿಲು ತಟ್ಟುತ್ತೀರಿ.",
+"The cab door opens.": "ಕ್ಯಾಬಿನ್ ಬಾಗಿಲು ತೆರೆಯುತ್ತದೆ.",
+"The cab door closes.": "ಕ್ಯಾಬಿನ್ ಬಾಗಿಲು ಮುಚ್ಚುತ್ತದೆ.",
+"The cargo doors open.": "ಸರಕಿನ ಬಾಗಿಲುಗಳು ತೆರೆಯುತ್ತವೆ.",
+"The cargo doors close.": "ಸರಕಿನ ಬಾಗಿಲುಗಳು ಮುಚ್ಚುತ್ತವೆ.",
+"You pick up the package.": "ನೀವು ಪ್ಯಾಕೇಜ್ ಎತ್ತುತ್ತೀರಿ.",
+"You put down the package.": "ನೀವು ಪ್ಯಾಕೇಜ್ ಕೆಳಗೆ ಇಡುತ್ತೀರಿ.",
+"The cargo restraints are secure.": "ಸರಕಿನ ಪಟ್ಟಿಗಳು ಭದ್ರವಾಗಿವೆ."
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.kn = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "ಯಾವ ಗುರಿಯೂ ಆಯ್ಕೆಯಾಗಿಲ್ಲ. ಹತ್ತಿರ ಹೋಗಿ ಅಥವಾ ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿ ಆರಿಸಲು {0} ಒತ್ತಿ."
+],
+[
+"Sound effects volume is {0}%.",
+"ಧ್ವನಿ ಪರಿಣಾಮಗಳ ಮಟ್ಟ {0}%."
 ]
 ],
 "keep": [

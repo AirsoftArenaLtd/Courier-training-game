@@ -3554,7 +3554,30 @@ window.OTR_I18N.te = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "ఉంచుకున్న ప్రతి ప్యాకేజీని ఇక్కడికి తెచ్చి, డిస్పాచ్ వద్ద ముగించే ముందు మళ్లీ స్కాన్ చేయండి.",
 "Start a workday first": "ముందు పని దినం మొదలుపెట్టండి",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "పని దినం లేదా కార్గో ప్రాక్టీస్‌లో హ్యాండ్‌హెల్డ్ అందుబాటులో ఉంటుంది. హబ్ నుండి ఒకటి మొదలుపెట్టి, హ్యాండ్‌హెల్డ్ తెరవండి.",
-"Return to Dispatch": "డిస్పాచ్‌కి తిరిగి వెళ్ళండి"
+"Return to Dispatch": "డిస్పాచ్‌కి తిరిగి వెళ్ళండి",
+"The engine is running.": "ఇంజిన్ నడుస్తోంది.",
+"Rain is falling.": "వర్షం పడుతోంది.",
+"The brakes are slowing the van.": "బ్రేకులు వ్యాన్ వేగం తగ్గిస్తున్నాయి.",
+"The left turn signal is on.": "ఎడమ ఇండికేటర్ ఆన్‌లో ఉంది.",
+"The right turn signal is on.": "కుడి ఇండికేటర్ ఆన్‌లో ఉంది.",
+"A dog is barking nearby.": "దగ్గరలో కుక్క మొరుగుతోంది.",
+"An emergency vehicle is approaching.": "అత్యవసర వాహనం దగ్గరకు వస్తోంది.",
+"Sound settings": "శబ్ద సెట్టింగ్‌లు",
+"Sound effects are muted.": "శబ్ద ప్రభావాలు మ్యూట్‌లో ఉన్నాయి.",
+"Sound effects are on.": "శబ్ద ప్రభావాలు ఆన్‌లో ఉన్నాయి.",
+"Sounds pause for narration. Text cues remain visible when muted.": "వివరణ సమయంలో శబ్దాలు ఆగుతాయి. మ్యూట్‌లో టెక్స్ట్ సూచనలు కనిపిస్తాయి.",
+"Make sound quieter": "శబ్దం తగ్గించండి",
+"Make sound louder": "శబ్దం పెంచండి",
+"Turn sound effects on": "శబ్ద ప్రభావాలు ఆన్ చేయండి",
+"Mute sound effects": "శబ్ద ప్రభావాలు మ్యూట్ చేయండి",
+"You knock on the door.": "మీరు తలుపు తడతారు.",
+"The cab door opens.": "క్యాబ్ తలుపు తెరుచుకుంటుంది.",
+"The cab door closes.": "క్యాబ్ తలుపు మూసుకుంటుంది.",
+"The cargo doors open.": "సరుకు తలుపులు తెరుచుకుంటాయి.",
+"The cargo doors close.": "సరుకు తలుపులు మూసుకుంటాయి.",
+"You pick up the package.": "మీరు ప్యాకేజీని ఎత్తుతారు.",
+"You put down the package.": "మీరు ప్యాకేజీని కింద పెడతారు.",
+"The cargo restraints are secure.": "సరుకు బెల్టులు సురక్షితంగా ఉన్నాయి."
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.te = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "ఏ లక్ష్యమూ ఎంచుకోలేదు. దగ్గరగా వెళ్లండి లేదా దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"Sound effects volume is {0}%.",
+"శబ్ద స్థాయి {0}%."
 ]
 ],
 "keep": [

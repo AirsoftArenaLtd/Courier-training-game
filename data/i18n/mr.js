@@ -3554,7 +3554,30 @@ window.OTR_I18N.mr = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "ठेवलेले प्रत्येक पॅकेज इथे आणा आणि डिस्पॅचवर संपवण्यापूर्वी परत स्कॅन करा.",
 "Start a workday first": "आधी कामाचा दिवस सुरू करा",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "कामाच्या दिवसात किंवा कार्गो सरावात हँडहेल्ड मिळतो. हबमधून एक सुरू करा, मग हँडहेल्ड उघडा.",
-"Return to Dispatch": "डिस्पॅचला परत जा"
+"Return to Dispatch": "डिस्पॅचला परत जा",
+"The engine is running.": "इंजिन सुरू आहे.",
+"Rain is falling.": "पाऊस पडतोय.",
+"The brakes are slowing the van.": "ब्रेकमुळे व्हॅन हळू होतेय.",
+"The left turn signal is on.": "डावा इंडिकेटर चालू आहे.",
+"The right turn signal is on.": "उजवा इंडिकेटर चालू आहे.",
+"A dog is barking nearby.": "जवळ कुत्रा भुंकतोय.",
+"An emergency vehicle is approaching.": "आपत्कालीन वाहन जवळ येतंय.",
+"Sound settings": "आवाज सेटिंग्ज",
+"Sound effects are muted.": "आवाजाचे इफेक्ट बंद आहेत.",
+"Sound effects are on.": "आवाजाचे इफेक्ट चालू आहेत.",
+"Sounds pause for narration. Text cues remain visible when muted.": "निवेदनासाठी आवाज थांबतात. बंद असताना मजकूर सूचना दिसतात.",
+"Make sound quieter": "आवाज कमी करा",
+"Make sound louder": "आवाज वाढवा",
+"Turn sound effects on": "आवाजाचे इफेक्ट चालू करा",
+"Mute sound effects": "आवाजाचे इफेक्ट बंद करा",
+"You knock on the door.": "तुम्ही दरवाजा ठोठावता.",
+"The cab door opens.": "कॅबचा दरवाजा उघडतो.",
+"The cab door closes.": "कॅबचा दरवाजा बंद होतो.",
+"The cargo doors open.": "माल कप्प्याचे दरवाजे उघडतात.",
+"The cargo doors close.": "माल कप्प्याचे दरवाजे बंद होतात.",
+"You pick up the package.": "तुम्ही पॅकेज उचलता.",
+"You put down the package.": "तुम्ही पॅकेज खाली ठेवता.",
+"The cargo restraints are secure.": "मालाचे बंध सुरक्षित आहेत."
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.mr = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "कोणतेही लक्ष्य निवडलेले नाही. जवळ जा किंवा जवळचे दिसणारे लक्ष्य निवडण्यासाठी {0} दाबा."
+],
+[
+"Sound effects volume is {0}%.",
+"आवाजाचा स्तर {0}% आहे."
 ]
 ],
 "keep": [

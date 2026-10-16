@@ -3555,7 +3555,30 @@ window.OTR_I18N.pa = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "ਆਪਣੇ ਕੋਲ ਰੱਖਿਆ ਹਰ ਪੈਕੇਜ ਇੱਥੇ ਲਿਆਓ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਸ ਸਕੈਨ ਕਰੋ।",
 "Start a workday first": "ਪਹਿਲਾਂ ਕੰਮ ਦਾ ਦਿਨ ਸ਼ੁਰੂ ਕਰੋ",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "ਹੈਂਡਹੈਲਡ ਕੰਮ ਦੇ ਦਿਨ ਜਾਂ ਮਾਲ ਦੇ ਅਭਿਆਸ ਦੌਰਾਨ ਉਪਲਬਧ ਹੈ। ਹੱਬ ਤੋਂ ਇੱਕ ਸ਼ੁਰੂ ਕਰੋ, ਫਿਰ ਹੈਂਡਹੈਲਡ ਖੋਲ੍ਹੋ।",
-"Return to Dispatch": "ਡਿਸਪੈਚ ਤੇ ਵਾਪਸ ਜਾਓ"
+"Return to Dispatch": "ਡਿਸਪੈਚ ਤੇ ਵਾਪਸ ਜਾਓ",
+"The engine is running.": "ਇੰਜਣ ਚੱਲ ਰਿਹਾ ਹੈ।",
+"Rain is falling.": "ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ।",
+"The brakes are slowing the van.": "ਬ੍ਰੇਕਾਂ ਵੈਨ ਨੂੰ ਹੌਲੀ ਕਰ ਰਹੀਆਂ ਹਨ।",
+"The left turn signal is on.": "ਖੱਬਾ ਟਰਨ ਸਿਗਨਲ ਚਾਲੂ ਹੈ।",
+"The right turn signal is on.": "ਸੱਜਾ ਟਰਨ ਸਿਗਨਲ ਚਾਲੂ ਹੈ।",
+"A dog is barking nearby.": "ਨੇੜੇ ਕੋਈ ਕੁੱਤਾ ਭੌਂਕ ਰਿਹਾ ਹੈ।",
+"An emergency vehicle is approaching.": "ਇੱਕ ਐਮਰਜੈਂਸੀ ਗੱਡੀ ਨੇੜੇ ਆ ਰਹੀ ਹੈ।",
+"Sound settings": "ਆਵਾਜ਼ ਸੈਟਿੰਗਾਂ",
+"Sound effects are muted.": "ਆਵਾਜ਼ ਪ੍ਰਭਾਵ ਮਿਊਟ ਹਨ।",
+"Sound effects are on.": "ਆਵਾਜ਼ ਪ੍ਰਭਾਵ ਚਾਲੂ ਹਨ।",
+"Sounds pause for narration. Text cues remain visible when muted.": "ਬੋਲਣ ਵੇਲੇ ਆਵਾਜ਼ਾਂ ਰੁਕ ਜਾਂਦੀਆਂ ਹਨ। ਮਿਊਟ ਹੋਣ 'ਤੇ ਵੀ ਲਿਖਤੀ ਸੰਕੇਤ ਦਿਸਦੇ ਹਨ।",
+"Make sound quieter": "ਆਵਾਜ਼ ਘੱਟ ਕਰੋ",
+"Make sound louder": "ਆਵਾਜ਼ ਵਧਾਓ",
+"Turn sound effects on": "ਆਵਾਜ਼ ਪ੍ਰਭਾਵ ਚਾਲੂ ਕਰੋ",
+"Mute sound effects": "ਆਵਾਜ਼ ਪ੍ਰਭਾਵ ਮਿਊਟ ਕਰੋ",
+"You knock on the door.": "ਤੁਸੀਂ ਦਰਵਾਜ਼ਾ ਖੜਕਾਉਂਦੇ ਹੋ।",
+"The cab door opens.": "ਕੈਬਿਨ ਦਾ ਦਰਵਾਜ਼ਾ ਖੁੱਲ੍ਹਦਾ ਹੈ।",
+"The cab door closes.": "ਕੈਬਿਨ ਦਾ ਦਰਵਾਜ਼ਾ ਬੰਦ ਹੁੰਦਾ ਹੈ।",
+"The cargo doors open.": "ਮਾਲ ਵਾਲੇ ਦਰਵਾਜ਼ੇ ਖੁੱਲ੍ਹਦੇ ਹਨ।",
+"The cargo doors close.": "ਮਾਲ ਵਾਲੇ ਦਰਵਾਜ਼ੇ ਬੰਦ ਹੁੰਦੇ ਹਨ।",
+"You pick up the package.": "ਤੁਸੀਂ ਪੈਕੇਜ ਚੁੱਕਦੇ ਹੋ।",
+"You put down the package.": "ਤੁਸੀਂ ਪੈਕੇਜ ਹੇਠਾਂ ਰੱਖਦੇ ਹੋ।",
+"The cargo restraints are secure.": "ਮਾਲ ਦੀਆਂ ਪੱਟੀਆਂ ਪੱਕੀਆਂ ਹਨ।"
 },
 "templates": [
 [
@@ -5085,6 +5108,10 @@ window.OTR_I18N.pa = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "ਕੋਈ ਨਿਸ਼ਾਨਾ ਚੁਣਿਆ ਨਹੀਂ ਗਿਆ। ਨੇੜੇ ਜਾਓ ਜਾਂ ਨੇੜੇ ਦਿਸਦਾ ਨਿਸ਼ਾਨਾ ਚੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Sound effects volume is {0}%.",
+"ਆਵਾਜ਼ ਪ੍ਰਭਾਵਾਂ ਦਾ ਪੱਧਰ {0}%."
 ]
 ],
 "keep": [

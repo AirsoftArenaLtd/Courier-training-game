@@ -3549,7 +3549,30 @@ window.OTR_I18N.fr = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "Rapporte ici chaque colis conservé et rescanne-le avant de finir à la répartition.",
 "Start a workday first": "Commence d'abord une journée",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "Le terminal est disponible pendant une journée ou un exercice de chargement. Lances-en un depuis le hub, puis ouvre le terminal.",
-"Return to Dispatch": "Retour à la répartition"
+"Return to Dispatch": "Retour à la répartition",
+"The engine is running.": "Le moteur tourne.",
+"Rain is falling.": "Il pleut.",
+"The brakes are slowing the van.": "Les freins ralentissent la camionnette.",
+"The left turn signal is on.": "Le clignotant gauche est allumé.",
+"The right turn signal is on.": "Le clignotant droit est allumé.",
+"A dog is barking nearby.": "Un chien aboie tout près.",
+"An emergency vehicle is approaching.": "Un véhicule d'urgence approche.",
+"Sound settings": "Réglages du son",
+"Sound effects are muted.": "Les effets sonores sont coupés.",
+"Sound effects are on.": "Les effets sonores sont activés.",
+"Sounds pause for narration. Text cues remain visible when muted.": "Les sons font pause pendant la narration. Les indications écrites restent visibles en sourdine.",
+"Make sound quieter": "Baisser le son",
+"Make sound louder": "Augmenter le son",
+"Turn sound effects on": "Activer les effets sonores",
+"Mute sound effects": "Couper les effets sonores",
+"You knock on the door.": "Tu frappes à la porte.",
+"The cab door opens.": "La porte de la cabine s'ouvre.",
+"The cab door closes.": "La porte de la cabine se ferme.",
+"The cargo doors open.": "Les portes de chargement s'ouvrent.",
+"The cargo doors close.": "Les portes de chargement se ferment.",
+"You pick up the package.": "Tu prends le colis.",
+"You put down the package.": "Tu poses le colis.",
+"The cargo restraints are secure.": "Les sangles de la cargaison sont bien fixées."
 },
 "templates": [
 [
@@ -5079,6 +5102,10 @@ window.OTR_I18N.fr = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "Aucune cible sélectionnée. Rapproche-toi ou appuie sur {0} pour choisir une cible visible proche."
+],
+[
+"Sound effects volume is {0}%.",
+"Le volume des effets sonores est de {0} %."
 ]
 ],
 "keep": [

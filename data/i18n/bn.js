@@ -3555,7 +3555,30 @@ window.OTR_I18N.bn = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "রেখে দেওয়া প্রতিটি প্যাকেজ এখানে আনুন এবং ডিসপ্যাচে শেষ করার আগে আবার স্ক্যান করুন।",
 "Start a workday first": "আগে কর্মদিবস শুরু করুন",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "হ্যান্ডহেল্ড কর্মদিবসে বা কার্গো অনুশীলনে মেলে। হাব থেকে একটা শুরু করুন, তারপর হ্যান্ডহেল্ড খুলুন।",
-"Return to Dispatch": "ডিসপ্যাচে ফিরুন"
+"Return to Dispatch": "ডিসপ্যাচে ফিরুন",
+"The engine is running.": "ইঞ্জিন চলছে।",
+"Rain is falling.": "বৃষ্টি হচ্ছে।",
+"The brakes are slowing the van.": "ব্রেক ভ্যানের গতি কমাচ্ছে।",
+"The left turn signal is on.": "বাঁ টার্ন সিগন্যাল জ্বলছে।",
+"The right turn signal is on.": "ডান টার্ন সিগন্যাল জ্বলছে।",
+"A dog is barking nearby.": "কাছেই একটি কুকুর ডাকছে।",
+"An emergency vehicle is approaching.": "একটি জরুরি যান এগিয়ে আসছে।",
+"Sound settings": "সাউন্ড সেটিংস",
+"Sound effects are muted.": "সাউন্ড এফেক্ট মিউট করা আছে।",
+"Sound effects are on.": "সাউন্ড এফেক্ট চালু আছে।",
+"Sounds pause for narration. Text cues remain visible when muted.": "নারেশনের সময় শব্দ থেমে যায়। মিউট থাকলেও লেখা সংকেত দেখা যায়।",
+"Make sound quieter": "আওয়াজ কমান",
+"Make sound louder": "আওয়াজ বাড়ান",
+"Turn sound effects on": "সাউন্ড এফেক্ট চালু করুন",
+"Mute sound effects": "সাউন্ড এফেক্ট মিউট করুন",
+"You knock on the door.": "আপনি দরজায় টোকা দেন।",
+"The cab door opens.": "কেবিনের দরজা খোলে।",
+"The cab door closes.": "কেবিনের দরজা বন্ধ হয়।",
+"The cargo doors open.": "কার্গোর দরজা খোলে।",
+"The cargo doors close.": "কার্গোর দরজা বন্ধ হয়।",
+"You pick up the package.": "আপনি প্যাকেজ তোলেন।",
+"You put down the package.": "আপনি প্যাকেজ নামিয়ে রাখেন।",
+"The cargo restraints are secure.": "কার্গোর বেল্ট শক্ত করে আটকানো আছে।"
 },
 "templates": [
 [
@@ -5085,6 +5108,10 @@ window.OTR_I18N.bn = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "কোনো লক্ষ্য বাছা নেই। কাছে যান বা দেখা যাওয়া লক্ষ্য বাছতে {0} চাপুন।"
+],
+[
+"Sound effects volume is {0}%.",
+"সাউন্ড এফেক্টের আওয়াজ {0}%।"
 ]
 ],
 "keep": [
