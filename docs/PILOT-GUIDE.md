@@ -7,7 +7,10 @@ what to do when something goes wrong. Plain words; the technical detail is in th
 loading, stops), and play a **workday**: a full courier day in 3D. They read the morning brief at Dispatch, check the
 load against the manifest, load the van, check it, drive, deliver five stops (dogs, signatures, ID checks, wrong
 addresses, weather, messages from Dispatch), return what they could not deliver and finish at Dispatch. Safety, efficiency
-and service are scored from 0 to 3 stars each. The day ends with a results screen, a debrief that shows what went well and
+and service are scored from 0 to 3 stars each. The first day is gentle and a short guide (opened again with **H**)
+explains the controls. Later days ask more: a signature on every parcel, photo ID checks, fog, rain and ice on a set
+schedule, and a street closed by road works with a detour. Planning windows on later days are a guide only and never
+score points. The day ends with a results screen, a debrief that shows what went well and
 what to fix, and a record you can print.
 
 ## Before the first session
@@ -33,7 +36,9 @@ each scenario allows, and when a **refresher quiz** is due. These apply to every
 (and `brand` in `data/config.js`). The van, depot sign, handheld and uniform in 3D then use them.
 
 **5. Language and comfort.** Each trainee can pick their language, larger text, a colour-blind setting, key
-remapping, reduced motion and narration in **Settings → Accessibility**. If a PC struggles with the 3D, set
+remapping, reduced motion and narration in **Settings → Accessibility**. Sound (engine, indicators, doors, scans, rain)
+has a volume and a mute (the speaker button or the pause menu); every sound also has a text caption, and sound pauses while
+narration speaks, so no one needs to hear it to play. If a PC struggles with the 3D, set
 **Settings → Graphics → Low**. Translations are machine drafts until native speakers have reviewed them
 (`docs/review/`); tell trainees to report wording that looks wrong.
 
