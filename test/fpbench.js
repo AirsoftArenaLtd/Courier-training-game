@@ -8,7 +8,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
  const args=['--no-sandbox','--autoplay-policy=no-user-gesture-required'];
  if(process.env.QA_NATIVE_GPU!=='1')args.push('--use-angle=swiftshader','--enable-unsafe-swiftshader');
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args});
- const errors=[];let report={tag:TAG,quality:GFX};
+ const errors=[];let report={tag:TAG,quality:GFX,textureDimensions:"intrinsic image/canvas"};
  try{
   const p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));
   if(process.env.QA_THEME){const theme=JSON.parse(process.env.QA_THEME);report.companyTheme=theme.companyName||'custom';await p.setRequestInterception(true);p.on('request',r=>{if(r.url().endsWith('/data/theme.js'))r.respond({status:200,contentType:'application/javascript',body:fs.readFileSync(path.join(__dirname,'../data/theme.js'),'utf8')+'\nObject.assign(OTR_DATA.theme,'+JSON.stringify(theme)+');'});else r.continue();});}
@@ -25,6 +25,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   await p.goto(BASE+'/first-person.html?gfx='+GFX);
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
+  if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(OTR.a11y.size(18));}},report.accessibility);
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
@@ -32,7 +33,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   const inventory=async()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),geometries=new Set(),materials=new Set(),arrays=new Set();let geometryBytes=0,instanceBytes=0,meshes=0,instances=0,shadowCasters=0;
    s.view.world.traverse(o=>{if(!o.isMesh)return;meshes++;if(o.castShadow)shadowCasters++;if(o.isInstancedMesh){instances+=o.count;instanceBytes+=o.instanceMatrix.array.byteLength+(o.instanceColor?o.instanceColor.array.byteLength:0);}if(o.material)materials.add(o.material);if(o.geometry&&!geometries.has(o.geometry)){geometries.add(o.geometry);for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){const array=a.array||a.data&&a.data.array;if(array&&!arrays.has(array)){arrays.add(array);geometryBytes+=array.byteLength;}}}});
    return {meshes,instances,geometries:geometries.size,materials:materials.size,geometryBytes,instanceBytes,shadowCasters};});
-  const textures=async()=>p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;rgbaBytes+=source.width*source.height*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
+  const textures=async()=>p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;const image=source.image,w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;rgbaBytes+=w*h*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
   const sample=async name=>{
    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))return;
    await wait(1500);
@@ -47,6 +48,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
   if(await p.evaluate(()=>!!OTR.fpGuide)){await p.evaluate(()=>OTR.fpGuide.open(OTR.game.scene.getScene('FirstPersonScene')));await sample('guide');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());}
+  if(await p.evaluate(()=>!!OTR.fpSound)){await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').workdaySound.menu());await sample('soundsettings');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());}
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').launch('campaign'));
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('depot');

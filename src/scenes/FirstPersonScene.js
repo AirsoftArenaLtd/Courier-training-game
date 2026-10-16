@@ -2,14 +2,14 @@
 class FirstPersonScene extends Phaser.Scene {
   constructor() { super('FirstPersonScene'); }
   create(data) {
-    Object.assign(this,{view:null,model:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,saved:true,loading:true});
+    Object.assign(this,{view:null,model:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',saved:true,loading:true});
     this.hubWorkday=!!(data&&data.workday);
     this.held=Object.create(null);this.progress=OTR.fpStore.read();
     if(this.hubWorkday&&!data.workday.resume){this.progress.campaign=null;this.write();}
     this.sensitivity=OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity'))||0.002,0.0005,0.006);
     this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
-    this.makeHud();if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
+    OTR.fpAccess.textResolution(this);this.makeHud();this.workdaySound=new OTR.fpSound(this);if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
     this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
     const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
@@ -38,6 +38,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.title=OTR.txt(this,24,25,'ON THE ROUTE',18,'#EBC889',{ox:0,fit:410}).setDepth(21);
     this.status=OTR.txt(this,1256,25,'',16,'#ffffff',{ox:1,fit:790}).setDepth(21);
     this.objective=OTR.txt(this,24,48,'Loading…',OTR.a11y&&OTR.a11y.large?23:19,'#ffffff',{ox:0,oy:0,wrap:1220}).setDepth(21);
+    this.soundCue=OTR.txt(this,24,82,'',17,'#D5DEDF',{ox:0,oy:0,wrap:1220}).setResolution(OTR.gfx.high()?2:1).setDepth(21);
     this.hintBack=this.add.rectangle(640,574,1210,48,0x1B2634,0.88).setDepth(19);
     this.hint=OTR.txt(this,640,574,'',18,'#ffffff',{fit:1160}).setDepth(21);
     this.controls=OTR.txt(this,640,638,'',15,'#ffffff',{fit:1230}).setDepth(21);
@@ -49,7 +50,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   setText(key,value,max) {
     if(this.ui[key]===value&&this.ui[key+'Width']===max)return;this.ui[key]=value;this.ui[key+'Width']=max;const object=this[key];object.setText(value).setScale(1);
-    if(key==='objective'||key==='hint'){object.setWordWrapWidth(max);return;}
+    if(key==='objective'||key==='hint'||key==='soundCue'){object.setWordWrapWidth(max);return;}
     if(object.width>max)object.setScale(max/object.width);
   }
   showPanel(title,body,choices,options) {
@@ -135,7 +136,7 @@ class FirstPersonScene extends Phaser.Scene {
       {label:'Low graphics',action:()=>quality('low')},{label:'High graphics',action:()=>quality('high')},
       {label:'Slower mouse look',action:()=>{this.sensitivity=Math.max(0.0005,this.sensitivity-0.0005);this.showSettings();}},
       {label:'Faster mouse look',action:()=>{this.sensitivity=Math.min(0.006,this.sensitivity+0.0005);this.showSettings();}},
-      {label:'Language',action:()=>this.showLanguages()},{label:'Accessibility',action:()=>OTR.fpAccess.menu(this)},{label:'Back',action:()=>this.showPause()}]);
+      {label:'Language',action:()=>this.showLanguages()},{label:'Accessibility',action:()=>OTR.fpAccess.menu(this)},{label:'Sound settings',action:()=>this.workdaySound.menu()},{label:'Back',action:()=>this.showPause()}]);
   }
   showLanguages(){
     this.closePanel(false);this.external=true;const before=new Set(this.children.list);OTR.ui.languages(this);
@@ -182,7 +183,7 @@ class FirstPersonScene extends Phaser.Scene {
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
     const held=m.parcel(m.heldId),body=[s.address,m.serviceLabel(id),'',s.contacted?(s.service==='handover'?'The resident confirms the address.':'Nobody answers.'):'Attempt contact, then follow the shipment requirements.',`Carrying: ${held?held.address:'No parcel'}`].join('\n');
     if(m.doorsteps&&m._doorSpecs[id].dog&&!m.doorsteps.stops[id].dogSecured){this.showGate(id);return;}
-    const choices=s.contacted?[{label:'Record on handheld',action:()=>this.handheld.delivery(id)}]:[{label:'Knock / ring',action:()=>{this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
+    const choices=s.contacted?[{label:'Record on handheld',action:()=>this.handheld.delivery(id)}]:[{label:'Knock / ring',action:()=>{this.workdaySound.effect('door','You knock on the door.');this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
     choices.push({label:'Back',action:()=>this.closePanel()});this.showPanel('Delivery',body,choices,{back:()=>this.closePanel()});
   }
   showGate(id){
@@ -276,14 +277,16 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.panel||this.external||this.transitioning||(this.handheld&&this.handheld.isOpen))return;const id=this.aimTarget(),m=this.model;
     if(!id&&(!m||m.mode==='walk')&&!(m&&m.heldId)){this.message(`No target is selected. Move closer or press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target.`);return;}
     if(this.area==='hub'){if(id==='hub-day')this.launch('campaign');else if(id==='hub-practice')this.launch('practice');else if(id==='hub-record')this.showDebrief(this.progress.last);return;}
-    if(m.mode==='cab'){if(!m.exit())this.message('Stop and set the parking brake before exiting.');this.checkpoint();return;}
-    let result='';
+    if(m.mode==='cab'){if(!m.exit())this.message('Stop and set the parking brake before exiting.');else this.workdaySound.effect('door','The cab door opens.');this.checkpoint();return;}
+    const before={mode:m.mode,cargo:m.cargoOpen,held:m.heldId,secured:m.secured};let result='';
     if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
     else if(id==='tyres'||id==='lights'){this.showInspection(id);return;}else if(id==='dispatch'){this.showDispatch();return;}
     else if(id==='returns'){this.handheld.scan();return;}else if(id&&id.startsWith('gate')){this.showGate(Number(id.slice(4)));return;}else if(id&&id.startsWith('hazard')){result=OTR.fpDoors.clearHazard(m,Number(id.slice(6)));}
     else if(id&&id.startsWith('door')){this.showDoor(Number(id.slice(4)));return;}
     else if(id&&id.startsWith('slot'))result=m.place(id);else if(id&&id.startsWith('parcel')){if(m.heldId)result=m.putBack();else result=m.pickup(id);}
-    else if(m.heldId)result=m.putBack();if(result)this.message(result);this.checkpoint();this.sync();this.refresh();
+    else if(m.heldId)result=m.putBack();if(result)this.message(result);
+    if(!result){if(before.mode!==m.mode)this.workdaySound.effect('door','The cab door closes.');else if(before.cargo!==m.cargoOpen)this.workdaySound.effect('cargo',m.cargoOpen?'The cargo doors open.':'The cargo doors close.');else if(before.held!==m.heldId)this.workdaySound.effect('cargo',m.heldId?'You pick up the package.':'You put down the package.');else if(!before.secured&&m.secured)this.workdaySound.effect('cargo','The cargo restraints are secure.');}
+    this.checkpoint();this.sync();this.refresh();
   }
   installInput(){
     OTR.fpAccess.syncKeys();
@@ -362,7 +365,8 @@ class FirstPersonScene extends Phaser.Scene {
     this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
     this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
-    if(this.headerBack){const height=Math.max(100,this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
+    this.setText('soundCue',this.soundCaption||'',device?790:1220);this.soundCue.setY(this.objective.y+this.objective.height+6);
+    if(this.headerBack){const height=Math.max(100,this.soundCue.text?this.soundCue.y+this.soundCue.height+10:this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
     // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
     const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
       m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
@@ -406,11 +410,8 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
-    if(this.model&&this.model.driving&&!this.model.paused&&(this.model.driving.siren.state==='approaching'||this.model.driving.siren.state==='passing')&&time-(this.sirenToneAt||-1000)>1000){
-      this.sirenToneAt=time;if(OTR.audio){OTR.audio.tone(650,0.45,{type:'triangle',vol:0.07,slideTo:1000});OTR.audio.tone(1000,0.45,{type:'triangle',vol:0.07,slideTo:650,delay:0.45});}
-    }
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
-    if(this.model&&this.model.dogNearby&&!this.model.paused&&time-(this.dogSoundAt||-2000)>1800){this.dogSoundAt=time;if(OTR.audio){OTR.audio.noise(.12,{freq:450,vol:.06});OTR.audio.noise(.12,{freq:350,vol:.05,delay:.18});}}
+    this.soundCaption=this.workdaySound.tick(time);
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'))?this.art.pick():null;this.lastAim=time;const occupied=[];
       this.labels.forEach(({label,object})=>{const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;

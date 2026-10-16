@@ -5,7 +5,8 @@ OTR.fpHandheld = class {
     this.scene = scene;
     this.mode = 'closed'; this.trigger = false; this.focusId = null; this.progress = 0;
     const Device=OTR.fpBrand?class extends OTR.Handheld{
-      deviceTex(){return OTR.fpBrand.deviceTexture(this.scene,this);}
+      deviceTex(){return OTR.gfx.high()?OTR.fpBrand.deviceTexture(this.scene,this):'__WHITE';}
+      build(){super.build();if(!OTR.gfx.high()){this.body.destroy();this.body=OTR.fpBrand.deviceSkin(this);this.root.addAt(this.body,0);this.root.add(OTR.txt(this.scene,0,this.H/2-12,OTR.fpBrand.read().name,14,'#ffffff',{fit:this.W-44,weight:'900'}));}}
       show(def){super.show(def);OTR.fpBrand.deviceBackground(this,def);return this;}
     }:OTR.Handheld;
     this.device = new Device(scene, { depth: 110, canToggle: () => false, tabVisible: () => false });

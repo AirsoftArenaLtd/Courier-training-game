@@ -1,6 +1,11 @@
 /* Accessibility adapters for the owned 3D scene. Shared settings and remapping stay in OTR.a11y. */
 window.OTR=window.OTR||{};
 OTR.fpAccess={
+  textResolution(scene){
+    // The shared text helper requests 2x canvases. On Low, keep native-size glyphs at 1x backing resolution.
+    if(!scene.fpTextFactory)scene.fpTextFactory=scene.add.text;
+    scene.add.text=(x,y,text,style)=>scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,{resolution:OTR.gfx.high()?2:1}));
+  },
   settings(){return OTR.a11y?OTR.a11y.settings():{};},
   reduced(){const a=this.settings();if(typeof a.reducedMotion==='boolean')return a.reducedMotion;if(!this.motionQuery&&window.matchMedia)this.motionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');return !!(this.motionQuery&&this.motionQuery.matches);},
   key(code){return OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;},

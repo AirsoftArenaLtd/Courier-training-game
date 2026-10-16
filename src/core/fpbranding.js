@@ -42,6 +42,21 @@ OTR.fpBrand={
     ctx.fillStyle='#FFFFFF';ctx.textAlign='center';ctx.textBaseline='middle';OTR.cv.fitText(ctx,b.name,20+W/2,648,W-44,14,{min:10});
     texture.fpBrand=signature;texture.refresh();return key;
   },
+  deviceSkin(device){
+    // On Low, the case is flat vector art; keep all screen text at its native size without a large canvas.
+    const s=device.scene,b=this.read(),g=s.add.graphics(),x=-device.W/2,y=-device.H/2;
+    g.fillStyle(0x000000,.2);g.fillRoundedRect(x+6,y+8,device.W,device.H,44);
+    g.fillStyle(b.dark);g.fillRoundedRect(x,y,device.W,device.H,44);
+    g.fillStyle(b.accent);for(const grip of [x,x+device.W-12])g.fillRoundedRect(grip,y+50,12,160,6);
+    g.fillStyle(0x8A1A20);g.fillRoundedRect(-60,y+10,120,18,9);g.fillStyle(0xF26B73);g.fillRect(-50,y+16,100,6);
+    g.fillStyle(b.ink);g.fillRoundedRect(x+24,y+44,device.W-48,470,16);
+    for(let row=0;row<2;row++)for(let col=0;col<4;col++){g.fillStyle(col===0&&row===0?b.accent:b.primary);g.fillRoundedRect(x+40+col*80,y+530+row*44,64,34,10);}
+    this.releaseUnused(s,'handheld_body');return g;
+  },
+  releaseUnused(scene,key){
+    if(!scene.textures.exists(key))return;const uses=o=>!!(o.texture&&o.texture.key===key)||(o.list||[]).some(uses);
+    if(!scene.game.scene.scenes.some(s=>s.children&&s.children.list.some(uses)))scene.textures.remove(key);
+  },
   deviceBackground(device,def){
     // Generic handheld pages cache a full screen image for every header colour. The 3D adapter needs none.
     const old=device.screen.list[0],texture=old&&old.texture&&old.texture.key;if(old)old.destroy();
@@ -54,7 +69,6 @@ OTR.fpBrand={
     const g=device.scene.add.graphics(),b=this.read();g.fillStyle(0xF1F5FA);g.fillRoundedRect(device.sx,device.sy,device.sw,device.sh,10);
     g.fillStyle(def.color===undefined?b.primary:def.color);g.fillRoundedRect(device.sx,device.sy,device.sw,header,{tl:10,tr:10,bl:0,br:0});device.screen.addAt(g,0);
     if(!texture||!texture.startsWith('gfx_'))return;
-    const uses=o=>!!(o.texture&&o.texture.key===texture)||(o.list||[]).some(uses);
-    if(!device.scene.game.scene.scenes.some(s=>s.children&&s.children.list.some(uses)))device.scene.textures.remove(texture);
+    this.releaseUnused(device.scene,texture);
   }
 };
