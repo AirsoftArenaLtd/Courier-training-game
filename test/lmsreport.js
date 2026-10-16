@@ -131,3 +131,15 @@ test('lmsWorkday: false, or ?workday3d=0, reports as before the workday', () => 
   SAVE.write();
   assert.equal(last().complete, true); assert.ok(Math.abs(last().score - 12 / 18 * 100) < 1e-9);
 });
+
+test('the first finished day is kept in a few numbers for the before-and-after report, and never replaced', () => {
+  fresh(false);
+  const bad = finishDay(false);
+  const first = SAVE.data.workday.first;
+  assert.deepEqual(first.stars, bad.stars); assert.equal(first.score, bad.score); assert.equal(first.at, bad.at);
+  assert.equal(first.criticals, bad.criticals.length);
+  assert.ok(JSON.stringify(first).length < 160, 'small: ' + JSON.stringify(first).length);
+  finishDay(true);
+  assert.deepEqual(SAVE.data.workday.first.stars, bad.stars, 'the first day stays the first');
+  assert.notDeepEqual(SAVE.data.workday.last.stars, bad.stars);
+});

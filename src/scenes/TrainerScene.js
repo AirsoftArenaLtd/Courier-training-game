@@ -106,6 +106,9 @@ class TrainerScene extends Phaser.Scene {
     if (OTR.identity.mode === 'server') {
       // a server with employee accounts: the trainer makes them here (docs/SIGN-IN.md)
       if (OTR.identity.accounts) this.focusables.push(OTR.ui.button(this, x + w - 112, top + 34, 'New account', () => this.newAccount(), { w: 190, h: 40, skin: 'purple', fontSize: 15 }));
+      // the before-and-after report: the first and latest workday of every trainee, to print
+      this.focusables.push(OTR.ui.button(this, x + w - (OTR.identity.accounts ? 330 : 112), top + 34, 'Before and after', () => OTR.academy.trainerApi('report/before-after')
+        .then(data => OTR.pilotReport.print(data)).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { w: 210, h: 40, skin: 'ghost', fontSize: 15 }));
       this.status = OTR.txt(this, x + w / 2, top + 120, 'Loading…', 16, '#7A8CA0', { bold: false });
       this.loadTrainees();
     } else {

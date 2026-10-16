@@ -29,6 +29,7 @@
  * Saved in the trainee's progress (OTR.save.data.workday):
  *   current   the workday in progress: { id, day, startedAt, seconds, events } (the events rebuild its score)
  *   last      the last finished workday, for the debrief: its frozen stars and score, and its events
+ *   first     the first finished workday in a few numbers { at, score, stars, criticals }, for the before-and-after report
  */
 window.OTR = window.OTR || {};
 
@@ -294,6 +295,12 @@ OTR.workday = {
     h.push({ id: 'workday', kind: 'workday', at: rec.at, assess: false, score: rec.score, stars: rec.stars, dur: rec.seconds, criticals: rec.criticals, lessons: rec.lessons });
     if (h.length > 400) h.splice(0, h.length - 400);
     const W = this.saved();
+    // the very first finished day is kept in a few numbers, so the before-and-after report still has it once the record
+    // of runs has moved on (an older save without it gets its oldest run still on the record)
+    if (!W.first) {
+      const oldest = rec && h.find(x => x && x.id === 'workday' && x.at < rec.at && x.stars) || rec;
+      W.first = { at: oldest.at, score: oldest.score, stars: Object.assign({}, oldest.stars), criticals: Array.isArray(oldest.criticals) ? oldest.criticals.length : (oldest.criticals || 0) };
+    }
     W.last = rec;
     W.current = null;
     OTR.save.endDay();                                           // writes the save
