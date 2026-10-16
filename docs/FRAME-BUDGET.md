@@ -94,3 +94,7 @@ On 16 October 2026, `pilot` at `d3330dd` passed all 30 prototype viewpoints in t
 | Combined attachment/Phaser estimate | 7,532,118 bytes | 8 MiB |
 
 The largest Phaser inventory contains 92 sources, with 2,967,232 RGBA8 base-level bytes; it includes the existing signature pad and ink. No page errors or WebGL context loss occurred. Raw report: `docs/qa/pilot-merged-low.json`. Chromium identified ANGLE SwiftShader: its software frame rates do not establish Intel acceptance. O-1 should use the reproduction command above with `QA_NATIVE_GPU=1` and `QA_FPS_FLOOR=60` on the owner's laptop.
+
+## C-13: company appearance
+
+On 16 October 2026, the custom company theme with a local logo and larger text/colour/reduced motion passed seven low viewpoints: peak 50 calls, 2,112 triangles, two Three.js target textures and 3,575,808 attachment bytes. The Phaser full-mipmap estimate reached 3,257,168 bytes (3.11 MiB), including the single 256 × 64 company-logo canvas; combined estimate 6,832,976 bytes (6.52 MiB). The handheld skin repaints its existing canvas. Its page backgrounds use native graphics and release generated images only when no other scene references them: opening the home, scanning and changing eight header colours no longer retains a full canvas per colour. Livery and sleeves reuse shared flat materials; company labels use the existing Phaser overlay. No errors or context loss occurred. Report: `docs/qa/c13-low.json`. These remain software resource checks; native Intel acceptance is still O-1.

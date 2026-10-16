@@ -11,6 +11,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
  const errors=[];let report={tag:TAG,quality:GFX};
  try{
   const p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));
+  if(process.env.QA_THEME){const theme=JSON.parse(process.env.QA_THEME);report.companyTheme=theme.companyName||'custom';await p.setRequestInterception(true);p.on('request',r=>{if(r.url().endsWith('/data/theme.js'))r.respond({status:200,contentType:'application/javascript',body:fs.readFileSync(path.join(__dirname,'../data/theme.js'),'utf8')+'\nObject.assign(OTR_DATA.theme,'+JSON.stringify(theme)+');'});else r.continue();});}
   if(process.env.QA_PROTOTYPE_ONLY!=='1'){
   await p.goto(BASE+'/index.html?bench=1&gfx='+GFX);
   const end=Date.now()+360000;let last=-1;
