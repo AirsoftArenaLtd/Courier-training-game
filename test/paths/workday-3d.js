@@ -11,7 +11,10 @@ const { wait, clickText } = require('./lib/ui');
 
 const FP = "OTR.game.scene.getScene('FirstPersonScene')";
 
-module.exports = async (page, ctx) => {
+// opts.seq / opts.day choose the day's generated route (the courier's workday number and the route's seed), so other days'
+// doorstep situations are played too: node test/qa.js --only workday-3d-b,workday-3d-c (test/paths/workday-3d-b.js, -c.js)
+const make = (opts) => async (page, ctx) => {
+  opts = opts || {};
   const ev = (fn, ...args) => page.evaluate(fn, ...args);
   const state = () => ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; return { area: s.area, panel: !!s.panel, device: s.handheld.isOpen, aiming: s.handheld.aiming, m: m && m.snapshot() }; });
   const press = async (key) => { await page.keyboard.press(key); await wait(180); };
@@ -39,7 +42,7 @@ module.exports = async (page, ctx) => {
   // follows the generated route instead of fixed coordinates); the use itself is a real key press
   const at = async (id, barcode = false) => {
     await ev((id, barcode) => {
-      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, pt = m.point(id); s.handheld.close(); s.closePanel();
+      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, pt = m.point(id); if (!pt) throw Error('No point ' + id); s.handheld.close(); s.closePanel();
       Object.assign(m.player, { x: pt.x, z: pt.z });
       if (id.startsWith('parcel') && m.parcel(id).location === 'depot') m.player.x -= 1.6;
       else if (id.startsWith('door')) m.player.x -= m.stop(id.slice(4)).side * 1.5;
@@ -94,6 +97,12 @@ module.exports = async (page, ctx) => {
   must(await ctx.until(`OTR.game.scene.getScenes(true).some(s => s.sys.settings.key === 'HubScene')`, 15000), 'never reached the hub');
   await wait(900);
   await ctx.audit('hub with the workday card');
+  if (opts.seq || opts.day) {
+    await ev((o) => {
+      const empty = OTR.fpStore.empty(); empty.sequence = (o.seq || 1) - 1; OTR.fpStore.write(empty);   // the next route's seed
+      OTR.save.data.route = OTR.save.data.route || { days: 0, best: {}, history: [] }; OTR.save.data.route.days = (o.day || 1) - 1;
+    }, opts);
+  }
   await clickText(page, 'HubScene', /Start workday/);
   must(await ctx.until(`(OTR.game.scene.getScene('HubScene')._modalStack || []).length > 0`, 4000), 'Start workday opened no confirmation');
   await ctx.audit('start confirmation');
@@ -146,10 +155,10 @@ module.exports = async (page, ctx) => {
   const driveTo = async (z) => {
     const end = Date.now() + 60000; let fwd = false, brake = false;
     while (Date.now() < end) {
-      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 10 + 0.6, gas = !stop && v.speed < 5.5;
+      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < 4;
       if (gas !== fwd) { await page.keyboard[gas ? 'down' : 'up']('KeyW'); fwd = gas; }
       if (stop !== brake) { await page.keyboard[stop ? 'down' : 'up']('KeyS'); brake = stop; }
-      if (stop && Math.abs(v.speed) < 0.12) { await page.keyboard.up('KeyW'); await page.keyboard.up('KeyS'); return; }
+      if (stop && Math.abs(v.speed) < 0.04) { await page.keyboard.up('KeyW'); await page.keyboard.up('KeyS'); return; }
       await wait(120);
     }
     throw new Error('workday-3d: the drive leg did not arrive');
@@ -159,7 +168,7 @@ module.exports = async (page, ctx) => {
   await driveTo(junctionZ + 9.5); await wait(500);
   await shot('junction');
   await driveTo(junctionZ - 9);
-  must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good');
+  must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
   // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
   const parkAt = async (i) => {
     await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
@@ -252,3 +261,6 @@ module.exports = async (page, ctx) => {
   must(rows >= 3, 'the debrief lists too few lines: ' + rows);
   await ctx.snap('debrief');
 };
+
+module.exports = make();
+module.exports.variant = make;
