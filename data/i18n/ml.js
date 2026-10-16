@@ -3530,7 +3530,31 @@ window.OTR_I18N.ml = {
 "WORKDAY IN PROGRESS": "ജോലിദിനം തുടരുന്നു",
 "TODAY'S WORKDAY": "ഇന്നത്തെ ജോലിദിനം",
 "WORKDAY DEBRIEF": "ജോലിദിന അവലോകനം",
-"NEXT": "അടുത്തത്"
+"NEXT": "അടുത്തത്",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "ഡിസ്പാച്ചിൽ തുടങ്ങുക. വാൻ പരിശോധിച്ച് ലോഡ് ചെയ്യും മുമ്പ് രാവിലത്തെ ബ്രീഫ് വായിക്കുക.",
+"Your first workday": "നിങ്ങളുടെ ആദ്യ ജോലിദിനം",
+"Workday steps": "ജോലിദിനത്തിലെ ഘട്ടങ്ങൾ",
+"Controls and guidance": "നിയന്ത്രണങ്ങളും മാർഗനിർദേശവും",
+"Change the 3D controls": "3D നിയന്ത്രണങ്ങൾ മാറ്റുക",
+"Prepare the workday": "ജോലിദിനം തയ്യാറാക്കുക",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "ഡിസ്പാച്ചിൽ ബ്രീഫും പട്ടികയുടെ എല്ലാ പേജും വായിക്കുക. ടയറും ലൈറ്റും പരിശോധിക്കുക, ആവശ്യമെങ്കിൽ റിപ്പയർ ആവശ്യപ്പെടുക. ഓരോ പാക്കേജും പട്ടികയുമായി ഒത്തുനോക്കി സ്കാൻ ചെയ്ത് നമ്പറുള്ള ഷെൽഫിൽ വയ്ക്കുക. കാണാത്തതോ പട്ടികയിലില്ലാത്തതോ ആയ പാക്കേജ് റിപ്പോർട്ട് ചെയ്യുക, ലോഡ് എണ്ണം സ്ഥിരീകരിക്കുക, സ്ട്രാപ്പുകൾ ഉറപ്പിക്കുക.",
+"Drive safely": "സുരക്ഷിതമായി ഓടിക്കുക",
+"Complete each stop": "ഓരോ സ്റ്റോപ്പും പൂർത്തിയാക്കുക",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "ഇവിടെ രാവിലത്തെ ബ്രീഫും പട്ടികയുടെ എല്ലാ പേജും വായിക്കുക. റൂട്ട് കഴിഞ്ഞ് ഇവിടേക്ക് മടങ്ങുക.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "പുറപ്പെടും മുമ്പ് ടയർ പരിശോധിക്കുക. തകരാർ കണ്ടാൽ റിപ്പയർ ആവശ്യപ്പെടുക.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "പുറപ്പെടും മുമ്പ് ലൈറ്റുകൾ പരിശോധിക്കുക. ലാമ്പ് കത്തുന്നില്ലെങ്കിൽ റിപ്പയർ ആവശ്യപ്പെടുക.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "ലേബൽ പട്ടികയുമായി ഒത്തുനോക്കുക. പാക്കേജ് എടുത്ത് ഹാൻഡ്‌ഹെൽഡിൽ സ്കാൻ ചെയ്യുക.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "ഓരോ പാക്കേജും നമ്പറുള്ള ഷെൽഫിൽ വയ്ക്കുക. രേഖപ്പെടുത്തിയ ഷെൽഫ് സ്റ്റോപ്പിൽ കണ്ടെത്താൻ സഹായിക്കും.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "പാക്കേജ് വയ്ക്കാനോ എടുക്കാനോ ചരക്ക് വാതിൽ തുറക്കുക. വാതിൽ അടയ്ക്കും മുമ്പ് പുറത്തിറങ്ങുക.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "പാക്കേജ് വച്ചതിനോ എടുത്തതിനോ ശേഷം, വീണ്ടും ഓടിക്കും മുമ്പ് സ്ട്രാപ്പുകൾ ഉറപ്പിക്കുക.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "സീറ്റ്ബെൽറ്റ് ഇടുക. മിററും സിഗ്നലും നോക്കുക, വഴി ഒഴിഞ്ഞാൽ പാർക്കിങ് ബ്രേക്ക് വിടുക.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "ശരിയായ പാക്കേജ് ഇവിടെ സ്കാൻ ചെയ്യുക, ബന്ധപ്പെടാൻ ശ്രമിക്കുക, ഫലം രേഖപ്പെടുത്തും മുമ്പ് ആവശ്യമായ പരിശോധനകൾ പൂർത്തിയാക്കുക.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "അടച്ച ഗേറ്റിന് പുറത്ത് നിൽക്കുക. നായയെ കെട്ടാൻ ഉടമയെ വിളിക്കുക, അല്ലെങ്കിൽ പാക്കേജ് നിലനിർത്തി സുരക്ഷിതമല്ലാത്ത പ്രവേശന ഒഴിവ് രേഖപ്പെടുത്തുക.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "പാക്കേജുമായി കടക്കും മുമ്പ് വഴി നോക്കുക. നീക്കാവുന്ന തടസ്സങ്ങൾ കാലി കൈകളോടെ മാറ്റുക, അല്ലെങ്കിൽ വഴുക്കുള്ള ഭാഗം ഒഴിവാക്കുക.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "നിലനിർത്തിയ ഓരോ പാക്കേജും ഇവിടെ കൊണ്ടുവന്ന്, ഡിസ്പാച്ചിൽ അവസാനിപ്പിക്കും മുമ്പ് തിരികെ സ്കാൻ ചെയ്യുക.",
+"Start a workday first": "ആദ്യം ഒരു ജോലിദിനം തുടങ്ങുക",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "ജോലിദിനത്തിലോ ചരക്ക് പരിശീലനത്തിലോ ഹാൻഡ്‌ഹെൽഡ് ലഭ്യമാണ്. ഹബ്ബിൽ നിന്ന് ഒന്ന് തുടങ്ങി, ഹാൻഡ്‌ഹെൽഡ് തുറക്കുക.",
+"Return to Dispatch": "ഡിസ്പാച്ചിലേക്ക് മടങ്ങുക"
 },
 "templates": [
 [
@@ -5028,6 +5052,38 @@ window.OTR_I18N.ml = {
 [
 "{0} attempts delivery.",
 "{0} ഡെലിവറി ശ്രമിക്കുന്നു."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"നീങ്ങാൻ {0}/{1}/{2}/{3}, നോക്കാൻ {4} ഉപയോഗിക്കുക."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"അടുത്തുള്ള ദൃശ്യമായ ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക. ഇടപെടാൻ {1} അമർത്തുക."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"ഹാൻഡ്‌ഹെൽഡിന് {0} അമർത്തുക. തിരഞ്ഞെടുക്കാൻ ആരോകളും Enter-ഉം ഉപയോഗിക്കുക, സ്കാൻ ചെയ്യാൻ {1} അമർത്തിപ്പിടിക്കുക."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"നിയന്ത്രണങ്ങളും മാർഗനിർദേശവും എപ്പോൾ വേണമെങ്കിലും വീണ്ടും തുറക്കാൻ {0} അമർത്തുക."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"ക്യാബിനിൽ കയറും മുമ്പ് ചരക്ക് വാതിൽ അടയ്ക്കുക. സീറ്റ്ബെൽറ്റിന് {0}, മിററിന് {1}, പാർക്കിങ് ബ്രേക്കിന് {2} അമർത്തുക. വേഗം കൂട്ടാനും ബ്രേക്കിനും {3}/{4}, തിരിക്കാൻ {5}/{6} ഉപയോഗിക്കുക. ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിക്കുംമുമ്പോ ഇറങ്ങുംമുമ്പോ നിർത്തി പാർക്കിങ് ബ്രേക്ക് ഇടുക."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"നീങ്ങാൻ {0}/{1}/{2}/{3}, നോക്കാൻ {4} അല്ലെങ്കിൽ മൗസ് ഉപയോഗിക്കുക. അടുത്തുള്ള ദൃശ്യമായ ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {5}, ഇടപെടാൻ {6} അമർത്തുക.\n\nഹബ് മെനുവിൽ നിന്ന് ജോലിദിനമോ ചരക്ക് പരിശീലനമോ തിരഞ്ഞെടുക്കുക. നിയന്ത്രണങ്ങളും മാർഗനിർദേശവും കാണാൻ {7} അമർത്തുക. നിങ്ങളുടെ പുരോഗതി ഈ ഉപകരണത്തിൽ സേവ് ചെയ്യപ്പെടും."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"ഒരു സ്റ്റേഷൻ തിരഞ്ഞെടുക്കുക അല്ലെങ്കിൽ താഴെയുള്ള മെനു ഉപയോഗിക്കുക. അടുത്തുള്ള ദൃശ്യമായ ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {0}, ഇടപെടാൻ {1} അമർത്തുക. നോക്കാൻ {2} അല്ലെങ്കിൽ മൗസ് ഉപയോഗിക്കുക."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"ലക്ഷ്യമൊന്നും തിരഞ്ഞെടുത്തിട്ടില്ല. അടുത്തേക്ക് നീങ്ങുക അല്ലെങ്കിൽ അടുത്തുള്ള ദൃശ്യമായ ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
 ]
 ],
 "keep": [

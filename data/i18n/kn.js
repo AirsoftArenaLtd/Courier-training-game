@@ -3530,7 +3530,31 @@ window.OTR_I18N.kn = {
 "WORKDAY IN PROGRESS": "ಕೆಲಸದ ದಿನ ನಡೆಯುತ್ತಿದೆ",
 "TODAY'S WORKDAY": "ಇಂದಿನ ಕೆಲಸದ ದಿನ",
 "WORKDAY DEBRIEF": "ಕೆಲಸದ ದಿನ ಪರಾಮರ್ಶೆ",
-"NEXT": "ಮುಂದೆ"
+"NEXT": "ಮುಂದೆ",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಆರಂಭಿಸಿ. ವ್ಯಾನ್ ಪರಿಶೀಲಿಸಿ ತುಂಬುವ ಮುನ್ನ ಬೆಳಗಿನ ಸಾರಾಂಶ ಓದಿ.",
+"Your first workday": "ನಿಮ್ಮ ಮೊದಲ ಕೆಲಸದ ದಿನ",
+"Workday steps": "ಕೆಲಸದ ದಿನದ ಹಂತಗಳು",
+"Controls and guidance": "ನಿಯಂತ್ರಣ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ",
+"Change the 3D controls": "3D ನಿಯಂತ್ರಣ ಬದಲಿಸಿ",
+"Prepare the workday": "ಕೆಲಸದ ದಿನ ಸಿದ್ಧಪಡಿಸಿ",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಸಾರಾಂಶ ಮತ್ತು ಪಟ್ಟಿಯ ಎಲ್ಲಾ ಪುಟಗಳನ್ನು ಓದಿ. ಟೈರ್ ಮತ್ತು ದೀಪ ಪರಿಶೀಲಿಸಿ, ಅಗತ್ಯವಿದ್ದರೆ ದುರಸ್ತಿ ಕೇಳಿ. ಪ್ರತಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಪಟ್ಟಿಗೆ ಹೋಲಿಸಿ, ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಸಂಖ್ಯೆಯ ಶೆಲ್ಫ್‌ನಲ್ಲಿ ಇಡಿ. ಕಾಣೆಯಾದ ಅಥವಾ ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ವರದಿ ಮಾಡಿ, ಲೋಡ್ ಎಣಿಕೆ ದೃಢೀಕರಿಸಿ, ಬಂಧಕಗಳನ್ನು ಭದ್ರಪಡಿಸಿ.",
+"Drive safely": "ಸುರಕ್ಷಿತವಾಗಿ ಚಲಾಯಿಸಿ",
+"Complete each stop": "ಪ್ರತಿ ನಿಲುಗಡೆ ಪೂರ್ಣಗೊಳಿಸಿ",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "ಇಲ್ಲಿ ಬೆಳಗಿನ ಸಾರಾಂಶ ಮತ್ತು ಪಟ್ಟಿಯ ಎಲ್ಲಾ ಪುಟಗಳನ್ನು ಓದಿ. ಮಾರ್ಗ ಮುಗಿದ ಮೇಲೆ ಇಲ್ಲಿಗೆ ಮರಳಿ.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "ಹೊರಡುವ ಮುನ್ನ ಟೈರ್ ಪರಿಶೀಲಿಸಿ. ದೋಷ ಕಂಡರೆ ದುರಸ್ತಿ ಕೇಳಿ.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "ಹೊರಡುವ ಮುನ್ನ ದೀಪ ಪರೀಕ್ಷಿಸಿ. ದೀಪ ಉರಿಯದಿದ್ದರೆ ದುರಸ್ತಿ ಕೇಳಿ.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "ಲೇಬಲ್ ಅನ್ನು ಪಟ್ಟಿಗೆ ಹೋಲಿಸಿ. ಪ್ಯಾಕೇಜ್ ಎತ್ತಿಕೊಂಡು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "ಪ್ರತಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಅದರ ಸಂಖ್ಯೆಯ ಶೆಲ್ಫ್‌ನಲ್ಲಿ ಇಡಿ. ದಾಖಲಾದ ಶೆಲ್ಫ್ ನಿಲುಗಡೆಯಲ್ಲಿ ಹುಡುಕಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "ಪ್ಯಾಕೇಜ್ ಇಡಲು ಅಥವಾ ತೆಗೆಯಲು ಸರಕು ಬಾಗಿಲು ತೆರೆಯಿರಿ. ಬಾಗಿಲು ಮುಚ್ಚುವ ಮುನ್ನ ಹೊರಗೆ ಬನ್ನಿ.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "ಪ್ಯಾಕೇಜ್ ಇಟ್ಟ ಅಥವಾ ತೆಗೆದ ನಂತರ, ಮತ್ತೆ ಚಲಾಯಿಸುವ ಮುನ್ನ ಬಂಧಕಗಳನ್ನು ಭದ್ರಪಡಿಸಿ.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "ಸೀಟ್‌ಬೆಲ್ಟ್ ಹಾಕಿ. ಕನ್ನಡಿ ಮತ್ತು ಸಿಗ್ನಲ್ ನೋಡಿ, ದಾರಿ ಖಾಲಿಯಾದಾಗ ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಬಿಡಿ.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "ಇಲ್ಲಿ ಸರಿಯಾದ ಪ್ಯಾಕೇಜ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಿ, ಫಲಿತಾಂಶ ದಾಖಲಿಸುವ ಮುನ್ನ ಅಗತ್ಯ ಪರಿಶೀಲನೆ ಮುಗಿಸಿ.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "ಮುಚ್ಚಿದ ಗೇಟ್‌ನ ಹೊರಗೇ ಇರಿ. ನಾಯಿಯನ್ನು ಕಟ್ಟಿಸಲು ಮಾಲೀಕರಿಗೆ ಕರೆ ಮಾಡಿ, ಅಥವಾ ಪ್ಯಾಕೇಜ್ ಉಳಿಸಿಕೊಂಡು ಅಸುರಕ್ಷಿತ ಪ್ರವೇಶದ ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "ಪ್ಯಾಕೇಜ್ ಹೊತ್ತು ಹೋಗುವ ಮುನ್ನ ದಾರಿ ನೋಡಿ. ಸರಿಸಬಹುದಾದ ಅಡೆತಡೆಗಳನ್ನು ಖಾಲಿ ಕೈಯಲ್ಲಿ ತೆಗೆದುಹಾಕಿ, ಅಥವಾ ಜಾರುವ ಜಾಗ ತಪ್ಪಿಸಿ.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "ಉಳಿಸಿಕೊಂಡ ಪ್ರತಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ತಂದು, ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮುನ್ನ ಮರಳಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
+"Start a workday first": "ಮೊದಲು ಕೆಲಸದ ದಿನ ಆರಂಭಿಸಿ",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "ಕೆಲಸದ ದಿನ ಅಥವಾ ಸರಕು ಅಭ್ಯಾಸದ ವೇಳೆ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಲಭ್ಯ. ಹಬ್‌ನಿಂದ ಒಂದನ್ನು ಆರಂಭಿಸಿ, ನಂತರ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ತೆರೆಯಿರಿ.",
+"Return to Dispatch": "ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ಹಿಂತಿರುಗಿ"
 },
 "templates": [
 [
@@ -5028,6 +5052,38 @@ window.OTR_I18N.kn = {
 [
 "{0} attempts delivery.",
 "{0} ಡೆಲಿವರಿಗೆ ಪ್ರಯತ್ನಿಸುತ್ತದೆ."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"ಚಲಿಸಲು {0}/{1}/{2}/{3}, ನೋಡಲು {4} ಬಳಸಿ."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿ ಆರಿಸಲು {0} ಒತ್ತಿ. ಸಂವಹನಕ್ಕೆ {1} ಒತ್ತಿ."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ಗೆ {0} ಒತ್ತಿ. ಆರಿಸಲು ಬಾಣಗಳು ಮತ್ತು Enter ಬಳಸಿ, ಸ್ಕ್ಯಾನ್‌ಗೆ {1} ಹಿಡಿದಿಡಿ."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"ನಿಯಂತ್ರಣ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ ಯಾವಾಗ ಬೇಕಾದರೂ ಮತ್ತೆ ತೆರೆಯಲು {0} ಒತ್ತಿ."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"ಕ್ಯಾಬ್‌ಗೆ ಹತ್ತುವ ಮುನ್ನ ಸರಕು ಬಾಗಿಲು ಮುಚ್ಚಿ. ಸೀಟ್‌ಬೆಲ್ಟ್‌ಗೆ {0}, ಕನ್ನಡಿಗೆ {1}, ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್‌ಗೆ {2} ಒತ್ತಿ. ವೇಗ ಹೆಚ್ಚಿಸಲು/ಬ್ರೇಕ್‌ಗೆ {3}/{4}, ತಿರುಗಿಸಲು {5}/{6} ಬಳಸಿ. ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಬಳಸುವ ಅಥವಾ ಇಳಿಯುವ ಮುನ್ನ ನಿಲ್ಲಿಸಿ, ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"ಚಲಿಸಲು {0}/{1}/{2}/{3}, ನೋಡಲು {4} ಅಥವಾ ಮೌಸ್ ಬಳಸಿ. ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿ ಆರಿಸಲು {5}, ಸಂವಹನಕ್ಕೆ {6} ಒತ್ತಿ.\n\nಹಬ್ ಮೆನುವಿನಿಂದ ಕೆಲಸದ ದಿನ ಅಥವಾ ಸರಕು ಅಭ್ಯಾಸ ಆರಿಸಿ. ನಿಯಂತ್ರಣ ಮತ್ತು ಮಾರ್ಗದರ್ಶನಕ್ಕೆ {7} ಒತ್ತಿ. ನಿಮ್ಮ ಪ್ರಗತಿ ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಯುತ್ತದೆ."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"ಸ್ಥಳ ಆರಿಸಿ ಅಥವಾ ಕೆಳಗಿನ ಮೆನು ಬಳಸಿ. ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿ ಆರಿಸಲು {0}, ಸಂವಹನಕ್ಕೆ {1} ಒತ್ತಿ. ನೋಡಲು {2} ಅಥವಾ ಮೌಸ್ ಬಳಸಿ."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"ಯಾವ ಗುರಿಯೂ ಆಯ್ಕೆಯಾಗಿಲ್ಲ. ಹತ್ತಿರ ಹೋಗಿ ಅಥವಾ ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿ ಆರಿಸಲು {0} ಒತ್ತಿ."
 ]
 ],
 "keep": [
