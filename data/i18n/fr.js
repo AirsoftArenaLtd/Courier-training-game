@@ -3403,7 +3403,31 @@ window.OTR_I18N.fr = {
 "Acknowledge the problem and offer a clear next step": "Reconnaître le problème et proposer une prochaine étape claire",
 "Blame the customer and argue": "Accuser le client et se disputer",
 "E checks the gate. Keep outside while the dog is loose.": "E vérifie le portail. Reste à l'extérieur tant que le chien est en liberté.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "Examine le chemin avec E. Maintiens Shift pour de petits pas prudents."
+"Inspect the path with E. Hold Shift for short, careful steps.": "Examine le chemin avec E. Maintiens Shift pour de petits pas prudents.",
+"Their data": "Ses données",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "Télécharge dans un fichier tout ce que le serveur de formation conserve sur ce stagiaire, ou efface tout définitivement : sa progression, toutes ses sauvegardes et sa connexion.",
+"Download data": "Télécharger les données",
+"Erase all data": "Effacer toutes les données",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "Cela supprime sa progression, toutes ses sauvegardes et sa connexion, et ne peut pas être annulé. Les résultats déjà envoyés au système d'enregistrement de la formation de l'entreprise y restent.",
+"First workday": "Première journée",
+"Latest workday": "Dernière journée",
+"Critical errors per day": "Erreurs critiques par jour",
+"Met every pass mark": "Toutes les notes de réussite atteintes",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "Aucun stagiaire n'a encore terminé deux journées, il n'y a donc rien à comparer.",
+"Nobody has finished a workday yet.": "Personne n'a encore terminé de journée.",
+"Before and after: the training pilot": "Avant et après : le pilote de formation",
+"trainees who finished a workday": "stagiaires ayant terminé une journée",
+"with two or more workdays": "avec deux journées ou plus",
+"The group, first workday to latest": "Le groupe, de la première à la dernière journée",
+"Each trainee": "Chaque stagiaire",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "Première et dernière journée terminées de chaque stagiaire. Les étoiles vont de 0 à 3 en sécurité, efficacité et service. Les chiffres du groupe portent sur les stagiaires ayant au moins deux journées. Une note de réussite est atteinte lorsque chaque catégorie obtient les étoiles fixées par le formateur.",
+"Before and after": "Avant et après",
+"Score": "Score",
+"Trainee": "Stagiaire",
+"Workdays": "Journées",
+"improved": "améliorés",
+"unchanged or lower": "inchangés ou en baisse",
+"One workday so far": "Une seule journée pour l'instant"
 },
 "templates": [
 [
@@ -4777,6 +4801,22 @@ window.OTR_I18N.fr = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0} : données téléchargées"
+],
+[
+"Erase all data for {0}?",
+"Effacer toutes les données de {0} ?"
+],
+[
+"{0}: all data erased",
+"{0} : toutes les données effacées"
+],
+[
+"{0} stars",
+"{0} étoiles"
 ]
 ],
 "keep": [

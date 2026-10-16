@@ -3418,7 +3418,31 @@ window.OTR_I18N.ta = {
 "Acknowledge the problem and offer a clear next step": "பிரச்சனையை ஏற்றுக்கொண்டு தெளிவான அடுத்த படியை வழங்குங்கள்",
 "Blame the customer and argue": "வாடிக்கையாளர் மீது பழி சுமத்தி வாதிடுங்கள்",
 "E checks the gate. Keep outside while the dog is loose.": "E கேட்டைச் சோதிக்கும். நாய் கட்டப்படாமல் இருக்கும்போது வெளியே இருங்கள்.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E மூலம் பாதையைச் சோதியுங்கள். சிறிய, கவனமான அடிகளுக்கு Shift-ஐ அழுத்திப் பிடியுங்கள்."
+"Inspect the path with E. Hold Shift for short, careful steps.": "E மூலம் பாதையைச் சோதியுங்கள். சிறிய, கவனமான அடிகளுக்கு Shift-ஐ அழுத்திப் பிடியுங்கள்.",
+"Their data": "அவர்களின் தரவு",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "இந்தப் பயிற்சி பெறுபவரைப் பற்றி பயிற்சி சர்வரில் உள்ள அனைத்தையும் கோப்பாகப் பதிவிறக்கலாம், அல்லது அனைத்தையும் நிரந்தரமாக அழிக்கலாம்: அவர்களின் முன்னேற்றம், அதன் அனைத்து காப்புப்பிரதிகள், அவர்களின் உள்நுழைவு.",
+"Download data": "தரவைப் பதிவிறக்கு",
+"Erase all data": "அனைத்துத் தரவையும் அழி",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "இது அவர்களின் முன்னேற்றம், அதன் அனைத்து காப்புப்பிரதிகள், அவர்களின் உள்நுழைவு ஆகியவற்றை நிரந்தரமாக நீக்கும்; இதைத் திரும்பப் பெற முடியாது. நிறுவனத்தின் கற்றல் பதிவுக் களஞ்சியத்துக்கு ஏற்கெனவே அனுப்பிய முடிவுகள் அங்கேயே இருக்கும்.",
+"First workday": "முதல் வேலை நாள்",
+"Latest workday": "சமீபத்திய வேலை நாள்",
+"Critical errors per day": "நாளுக்கு முக்கிய தவறுகள்",
+"Met every pass mark": "அனைத்து தேர்ச்சி மதிப்பெண்களும் எட்டப்பட்டன",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "இன்னும் எந்தப் பயிற்சி பெறுநரும் இரண்டு வேலை நாள்களை முடிக்கவில்லை, எனவே ஒப்பிட எதுவுமில்லை.",
+"Nobody has finished a workday yet.": "இன்னும் யாரும் வேலை நாளை முடிக்கவில்லை.",
+"Before and after: the training pilot": "முன்பும் பின்பும்: பயிற்சி முன்னோட்டத் திட்டம்",
+"trainees who finished a workday": "வேலை நாளை முடித்த பயிற்சி பெறுநர்கள்",
+"with two or more workdays": "இரண்டு அல்லது அதற்கு மேற்பட்ட வேலை நாள்கள் உள்ளவர்கள்",
+"The group, first workday to latest": "குழு: முதல் வேலை நாள் முதல் சமீபத்தியது வரை",
+"Each trainee": "ஒவ்வொரு பயிற்சி பெறுநரும்",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "ஒவ்வொரு பயிற்சி பெறுநரின் முதல் மற்றும் சமீபத்திய முடிந்த வேலை நாள். நட்சத்திரங்கள் பாதுகாப்பு, திறன், சேவை ஆகியவற்றில் 0 முதல் 3 வரை. குழு புள்ளிவிவரங்கள் இரண்டு அல்லது அதற்கு மேற்பட்ட வேலை நாள்கள் உள்ள பயிற்சி பெறுநர்களை அடிப்படையாகக் கொண்டவை. ஒவ்வொரு பிரிவும் பயிற்சியாளர் நிர்ணயித்த நட்சத்திரங்களை எட்டினால் தேர்ச்சி மதிப்பெண் எட்டப்பட்டதாகும்.",
+"Before and after": "முன்பும் பின்பும்",
+"Score": "மதிப்பெண்",
+"Trainee": "பயிற்சி பெறுநர்",
+"Workdays": "வேலை நாள்கள்",
+"improved": "மேம்பட்டவர்கள்",
+"unchanged or lower": "மாற்றமில்லை அல்லது குறைவு",
+"One workday so far": "இதுவரை ஒரு வேலை நாள்"
 },
 "templates": [
 [
@@ -4792,6 +4816,22 @@ window.OTR_I18N.ta = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: தரவு பதிவிறக்கப்பட்டது"
+],
+[
+"Erase all data for {0}?",
+"{0} என்பவரின் அனைத்துத் தரவையும் அழிக்கவா?"
+],
+[
+"{0}: all data erased",
+"{0}: அனைத்துத் தரவும் அழிக்கப்பட்டது"
+],
+[
+"{0} stars",
+"{0} நட்சத்திரங்கள்"
 ]
 ],
 "keep": [

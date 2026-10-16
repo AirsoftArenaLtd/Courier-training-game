@@ -82,7 +82,7 @@ function statementsFor(trainee, rec, homepage, passMarks) {
 function create(o) {
   o = o || {};
   const endpoint = String(o.endpoint || '').replace(/\/+$/, '');
-  if (!endpoint) return { enabled: false, onProgress() {}, flush() { return Promise.resolve(); }, pending: () => 0, stop() {} };
+  if (!endpoint) return { enabled: false, onProgress() {}, flush() { return Promise.resolve(); }, pending: () => 0, forget: () => 0, stop() {} };
   let homepage = String(o.homepage || '').replace(/\/+$/, '');
   if (!homepage) { try { homepage = new URL(endpoint).origin; } catch (e) { homepage = 'https://ontheroute.example'; } }
   const file = o.outbox || null;
@@ -159,6 +159,13 @@ function create(o) {
         if (queue.length > MAX_QUEUE) queue = queue.slice(-MAX_QUEUE);
         save(); schedule(); flush();
       } catch (e) { log('xapi: ' + e.message); }
+    },
+    /** A trainee's data is being erased: drop their statements that have not been sent yet; returns how many. */
+    forget(id) {
+      const n = queue.length;
+      queue = queue.filter(q => !(q.actor && q.actor.account && q.actor.account.name === String(id)));
+      if (queue.length !== n) save();
+      return n - queue.length;
     },
     flush,
     stop() { if (timer) clearInterval(timer); timer = null; }

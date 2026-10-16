@@ -3419,7 +3419,31 @@ window.OTR_I18N.pa = {
 "Acknowledge the problem and offer a clear next step": "ਸਮੱਸਿਆ ਮੰਨੋ ਅਤੇ ਅਗਲਾ ਕਦਮ ਸਾਫ਼ ਦੱਸੋ",
 "Blame the customer and argue": "ਗਾਹਕ ਨੂੰ ਦੋਸ਼ ਦਿਓ ਅਤੇ ਬਹਿਸ ਕਰੋ",
 "E checks the gate. Keep outside while the dog is loose.": "E ਨਾਲ ਗੇਟ ਦੇਖੋ। ਕੁੱਤਾ ਖੁੱਲ੍ਹਾ ਹੋਣ ਤੱਕ ਬਾਹਰ ਰਹੋ।",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E ਨਾਲ ਰਸਤੇ ਦੀ ਜਾਂਚ ਕਰੋ। ਛੋਟੇ, ਸਾਵਧਾਨ ਕਦਮਾਂ ਲਈ Shift ਦਬਾਈ ਰੱਖੋ।"
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ਨਾਲ ਰਸਤੇ ਦੀ ਜਾਂਚ ਕਰੋ। ਛੋਟੇ, ਸਾਵਧਾਨ ਕਦਮਾਂ ਲਈ Shift ਦਬਾਈ ਰੱਖੋ।",
+"Their data": "ਉਨ੍ਹਾਂ ਦਾ ਡੇਟਾ",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ਇਸ ਸਿਖਿਆਰਥੀ ਬਾਰੇ ਸਿਖਲਾਈ ਸਰਵਰ ਕੋਲ ਜੋ ਕੁਝ ਵੀ ਹੈ, ਉਹ ਸਭ ਫ਼ਾਈਲ ਵਜੋਂ ਡਾਊਨਲੋਡ ਕਰੋ, ਜਾਂ ਸਭ ਕੁਝ ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾ ਦਿਓ: ਉਨ੍ਹਾਂ ਦੀ ਤਰੱਕੀ, ਉਸ ਦੇ ਸਾਰੇ ਬੈਕਅੱਪ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਈਨ-ਇਨ।",
+"Download data": "ਡੇਟਾ ਡਾਊਨਲੋਡ ਕਰੋ",
+"Erase all data": "ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਓ",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ਇਹ ਉਨ੍ਹਾਂ ਦੀ ਤਰੱਕੀ, ਉਸ ਦੇ ਸਾਰੇ ਬੈਕਅੱਪ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਈਨ-ਇਨ ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਕੰਪਨੀ ਦੇ ਲਰਨਿੰਗ ਰਿਕਾਰਡ ਸਟੋਰ ਨੂੰ ਪਹਿਲਾਂ ਹੀ ਭੇਜੇ ਜਾ ਚੁੱਕੇ ਨਤੀਜੇ ਉੱਥੇ ਹੀ ਰਹਿਣਗੇ।",
+"First workday": "ਪਹਿਲਾ ਕੰਮ ਦਾ ਦਿਨ",
+"Latest workday": "ਤਾਜ਼ਾ ਕੰਮ ਦਾ ਦਿਨ",
+"Critical errors per day": "ਪ੍ਰਤੀ ਦਿਨ ਗੰਭੀਰ ਗਲਤੀਆਂ",
+"Met every pass mark": "ਸਾਰੇ ਪਾਸ ਅੰਕ ਪ੍ਰਾਪਤ ਕੀਤੇ",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "ਅਜੇ ਤੱਕ ਕਿਸੇ ਸਿਖਿਆਰਥੀ ਨੇ ਦੋ ਕੰਮ ਦੇ ਦਿਨ ਪੂਰੇ ਨਹੀਂ ਕੀਤੇ, ਇਸ ਲਈ ਤੁਲਨਾ ਕਰਨ ਲਈ ਕੁਝ ਨਹੀਂ ਹੈ।",
+"Nobody has finished a workday yet.": "ਅਜੇ ਤੱਕ ਕਿਸੇ ਨੇ ਕੰਮ ਦਾ ਦਿਨ ਪੂਰਾ ਨਹੀਂ ਕੀਤਾ।",
+"Before and after: the training pilot": "ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ: ਸਿਖਲਾਈ ਪਾਇਲਟ",
+"trainees who finished a workday": "ਕੰਮ ਦਾ ਦਿਨ ਪੂਰਾ ਕਰਨ ਵਾਲੇ ਸਿਖਿਆਰਥੀ",
+"with two or more workdays": "ਦੋ ਜਾਂ ਵੱਧ ਕੰਮ ਦੇ ਦਿਨਾਂ ਵਾਲੇ",
+"The group, first workday to latest": "ਸਮੂਹ: ਪਹਿਲੇ ਕੰਮ ਦੇ ਦਿਨ ਤੋਂ ਤਾਜ਼ਾ ਤੱਕ",
+"Each trainee": "ਹਰ ਸਿਖਿਆਰਥੀ",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "ਹਰ ਸਿਖਿਆਰਥੀ ਦਾ ਪਹਿਲਾ ਅਤੇ ਤਾਜ਼ਾ ਪੂਰਾ ਕੀਤਾ ਕੰਮ ਦਾ ਦਿਨ। ਤਾਰੇ ਸੁਰੱਖਿਆ, ਕੁਸ਼ਲਤਾ ਅਤੇ ਸੇਵਾ ਵਿੱਚ 0 ਤੋਂ 3 ਹਨ। ਸਮੂਹ ਦੇ ਅੰਕੜਿਆਂ ਵਿੱਚ ਸਿਰਫ਼ ਦੋ ਜਾਂ ਵੱਧ ਕੰਮ ਦੇ ਦਿਨਾਂ ਵਾਲੇ ਸਿਖਿਆਰਥੀ ਸ਼ਾਮਲ ਹਨ। ਪਾਸ ਅੰਕ ਉਦੋਂ ਪ੍ਰਾਪਤ ਮੰਨਿਆ ਜਾਂਦਾ ਹੈ ਜਦੋਂ ਹਰ ਸ਼੍ਰੇਣੀ ਟ੍ਰੇਨਰ ਵੱਲੋਂ ਤੈਅ ਕੀਤੇ ਤਾਰਿਆਂ ਤੱਕ ਪਹੁੰਚ ਜਾਵੇ।",
+"Before and after": "ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ",
+"Score": "ਸਕੋਰ",
+"Trainee": "ਸਿਖਿਆਰਥੀ",
+"Workdays": "ਕੰਮ ਦੇ ਦਿਨ",
+"improved": "ਸੁਧਰੇ",
+"unchanged or lower": "ਬਦਲਾਅ ਨਹੀਂ ਜਾਂ ਘੱਟ",
+"One workday so far": "ਹੁਣ ਤੱਕ ਇੱਕ ਕੰਮ ਦਾ ਦਿਨ"
 },
 "templates": [
 [
@@ -4793,6 +4817,22 @@ window.OTR_I18N.pa = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: ਡੇਟਾ ਡਾਊਨਲੋਡ ਹੋ ਗਿਆ"
+],
+[
+"Erase all data for {0}?",
+"{0} ਦਾ ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਉਣਾ ਹੈ?"
+],
+[
+"{0}: all data erased",
+"{0}: ਸਾਰਾ ਡੇਟਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ"
+],
+[
+"{0} stars",
+"{0} ਤਾਰੇ"
 ]
 ],
 "keep": [
