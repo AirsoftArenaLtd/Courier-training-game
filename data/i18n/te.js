@@ -3530,7 +3530,31 @@ window.OTR_I18N.te = {
 "WORKDAY IN PROGRESS": "పనిదినం కొనసాగుతోంది",
 "TODAY'S WORKDAY": "నేటి పనిదినం",
 "WORKDAY DEBRIEF": "పనిదిన సమీక్ష",
-"NEXT": "తర్వాత"
+"NEXT": "తర్వాత",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "డిస్పాచ్ వద్ద మొదలుపెట్టండి. వ్యాన్ తనిఖీ, లోడింగ్ ముందు ఉదయం బ్రీఫ్ చదవండి.",
+"Your first workday": "మీ మొదటి పని దినం",
+"Workday steps": "పని దినపు దశలు",
+"Controls and guidance": "నియంత్రణలు మరియు మార్గదర్శకం",
+"Change the 3D controls": "3D నియంత్రణలు మార్చండి",
+"Prepare the workday": "పని దినానికి సిద్ధం కండి",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "డిస్పాచ్ వద్ద బ్రీఫ్, జాబితా పేజీలన్నీ చదవండి. టైర్లు, లైట్లు తనిఖీ చేసి, అవసరమైతే మరమ్మతు కోరండి. ప్రతి ప్యాకేజీని జాబితాతో సరిపోల్చి, స్కాన్ చేసి, దాని నంబర్ షెల్ఫ్‌లో లోడ్ చేయండి. లేని లేదా జాబితాలో లేని ప్యాకేజీలను రిపోర్ట్ చేయండి, లోడ్ లెక్క నిర్ధారించి, బెల్టులు బిగించండి.",
+"Drive safely": "సురక్షితంగా నడపండి",
+"Complete each stop": "ప్రతి స్టాప్ పూర్తి చేయండి",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "ఇక్కడ ఉదయం బ్రీఫ్, జాబితా పేజీలన్నీ చదవండి. రూట్ ముగిశాక ఇక్కడికి తిరిగి రండి.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "బయలుదేరే ముందు టైర్లు తనిఖీ చేయండి. లోపం కనిపిస్తే మరమ్మతు కోరండి.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "బయలుదేరే ముందు లైట్లు పరీక్షించండి. దీపం పనిచేయకపోతే మరమ్మతు కోరండి.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "లేబుల్‌ను జాబితాతో సరిపోల్చండి. ప్యాకేజీని తీసుకుని, హ్యాండ్‌హెల్డ్‌లో స్కాన్ చేయండి.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "ప్రతి ప్యాకేజీని దాని నంబర్ షెల్ఫ్‌లో లోడ్ చేయండి. నమోదైన షెల్ఫ్ స్టాప్‌లో వెతకడానికి సహాయపడుతుంది.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "ప్యాకేజీలు లోడ్ చేయడానికి లేదా తీయడానికి కార్గో తెరవండి. కార్గో తలుపులు మూసే ముందు బయటకు రండి.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "ప్యాకేజీ లోడ్ చేసిన లేదా తీసిన తర్వాత, మళ్లీ నడిపే ముందు బెల్టులు బిగించండి.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "సీట్‌బెల్ట్ పెట్టుకోండి. మిర్రర్లు, సిగ్నల్స్ చూసి, దారి ఖాళీగా ఉన్నప్పుడు పార్కింగ్ బ్రేక్ విడుదల చేయండి.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "ఇక్కడ సరైన ప్యాకేజీని స్కాన్ చేయండి, సంప్రదించి, ఫలితం నమోదు చేసే ముందు అవసరమైన తనిఖీలు పూర్తి చేయండి.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "మూసిన గేటు బయటే ఉండండి. కుక్కను కట్టేయడానికి యజమానిని పిలవండి, లేదా ప్యాకేజీని ఉంచుకుని సురక్షితం కాని ప్రవేశ మినహాయింపు నమోదు చేయండి.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "ప్యాకేజీ మోసుకెళ్లే ముందు దారిని చూడండి. కదిలించగల అడ్డంకులను ఖాళీ చేతులతో తొలగించండి, లేదా జారే చోటును తప్పించండి.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "ఉంచుకున్న ప్రతి ప్యాకేజీని ఇక్కడికి తెచ్చి, డిస్పాచ్ వద్ద ముగించే ముందు మళ్లీ స్కాన్ చేయండి.",
+"Start a workday first": "ముందు పని దినం మొదలుపెట్టండి",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "పని దినం లేదా కార్గో ప్రాక్టీస్‌లో హ్యాండ్‌హెల్డ్ అందుబాటులో ఉంటుంది. హబ్ నుండి ఒకటి మొదలుపెట్టి, హ్యాండ్‌హెల్డ్ తెరవండి.",
+"Return to Dispatch": "డిస్పాచ్‌కి తిరిగి వెళ్ళండి"
 },
 "templates": [
 [
@@ -5028,6 +5052,38 @@ window.OTR_I18N.te = {
 [
 "{0} attempts delivery.",
 "{0} డెలివరీకి ప్రయత్నిస్తుంది."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"కదలడానికి {0}/{1}/{2}/{3}, చూడటానికి {4} వాడండి."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {0} నొక్కండి. చర్యకు {1} నొక్కండి."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"హ్యాండ్‌హెల్డ్ కోసం {0} నొక్కండి. ఎంచుకోవడానికి బాణాలు, Enter వాడండి, స్కాన్‌కు {1} నొక్కి ఉంచండి."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"నియంత్రణలు మరియు మార్గదర్శకం ఎప్పుడైనా తెరవడానికి {0} నొక్కండి."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"క్యాబ్‌లోకి ఎక్కే ముందు కార్గో మూసివేయండి. సీట్‌బెల్ట్‌కు {0}, మిర్రర్‌కు {1}, పార్కింగ్ బ్రేక్‌కు {2} నొక్కండి. వేగం/బ్రేక్‌కు {3}/{4}, స్టీరింగ్‌కు {5}/{6} వాడండి. హ్యాండ్‌హెల్డ్ వాడే ముందు లేదా దిగే ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"{0}/{1}/{2}/{3}తో కదలండి, {4} లేదా మౌస్‌తో చూడండి. దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {5}, చర్యకు {6} నొక్కండి.\n\nహబ్ మెనూ నుండి పని దినం లేదా కార్గో ప్రాక్టీస్ ఎంచుకోండి. నియంత్రణలు మరియు మార్గదర్శకానికి {7} నొక్కండి. మీ పురోగతి ఈ పరికరంలో సేవ్ అవుతుంది."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"స్టేషన్ ఎంచుకోండి లేదా కింది మెనూ వాడండి. దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {0}, చర్యకు {1} నొక్కండి. చూడటానికి {2} లేదా మౌస్ వాడండి."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"ఏ లక్ష్యమూ ఎంచుకోలేదు. దగ్గరగా వెళ్లండి లేదా దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {0} నొక్కండి."
 ]
 ],
 "keep": [

@@ -3541,7 +3541,31 @@ window.OTR_I18N.es = {
 "CARGO PRACTICE": "PRÁCTICA DE CARGA",
 "WORKDAY IN PROGRESS": "JORNADA EN CURSO",
 "TODAY'S WORKDAY": "JORNADA DE HOY",
-"WORKDAY DEBRIEF": "BALANCE DE JORNADA"
+"WORKDAY DEBRIEF": "BALANCE DE JORNADA",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "Empieza en el despacho. Lee el resumen de la mañana antes de inspeccionar y cargar la furgoneta.",
+"Your first workday": "Tu primera jornada",
+"Workday steps": "Pasos de la jornada",
+"Controls and guidance": "Controles y guía",
+"Change the 3D controls": "Cambiar los controles 3D",
+"Prepare the workday": "Prepara la jornada",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "Lee el resumen y todas las páginas del manifiesto en el despacho. Revisa los neumáticos y las luces y pide una reparación si hace falta. Compara cada paquete con el manifiesto, escanéalo y cárgalo en su estante numerado. Informa de paquetes faltantes o no listados, confirma el recuento y asegura las sujeciones.",
+"Drive safely": "Conduce con seguridad",
+"Complete each stop": "Completa cada parada",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "Lee el resumen de la mañana y todas las páginas del manifiesto aquí. Vuelve aquí al terminar la ruta.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "Revisa los neumáticos antes de salir. Pide una reparación si hay un defecto.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "Prueba las luces antes de salir. Pide una reparación si alguna no funciona.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "Compara la etiqueta con el manifiesto. Recoge el paquete y escanéalo con el escáner de mano.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "Carga cada paquete en su estante numerado. El estante registrado te ayuda a encontrarlo en la parada.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "Abre la carga para cargar o sacar paquetes. Sal fuera antes de cerrar las puertas de carga.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "Asegura las sujeciones tras cargar o sacar un paquete, antes de volver a conducir.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "Abróchate el cinturón. Revisa espejos e intermitentes y suelta el freno de mano cuando el camino esté libre.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "Escanea aquí el paquete correcto, intenta el contacto y completa las comprobaciones antes de registrar un resultado.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "Quédate fuera de la verja cerrada. Llama al dueño para que sujete al perro, o conserva el paquete y registra una excepción por acceso inseguro.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "Mira el camino antes de pasar con el paquete. Retira peligros movibles con las manos libres, o evita la zona resbaladiza.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "Trae aquí cada paquete retenido y escanéalo de vuelta antes de terminar en el despacho.",
+"Start a workday first": "Empieza primero una jornada",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "El escáner está disponible durante una jornada o práctica de carga. Inicia una desde el centro y abre el escáner.",
+"Return to Dispatch": "Volver al despacho"
 },
 "templates": [
 [
@@ -5039,6 +5063,38 @@ window.OTR_I18N.es = {
 [
 "{0} attempts delivery.",
 "{0} intenta la entrega."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"Usa {0}/{1}/{2}/{3} para moverte y {4} para mirar."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"Pulsa {0} para elegir un objetivo visible cercano. Pulsa {1} para interactuar."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"Pulsa {0} para el escáner. Usa las flechas y Enter para elegir, y mantén {1} para escanear."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"Pulsa {0} para reabrir Controles y guía en cualquier momento."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"Cierra la carga antes de entrar en la cabina. Pulsa {0} para el cinturón, {1} para el espejo y {2} para el freno de mano. Usa {3}/{4} para acelerar o frenar y {5}/{6} para girar. Detente y pon el freno de mano antes de usar el escáner o bajar."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"Muévete con {0}/{1}/{2}/{3} y mira con {4} o el ratón. Pulsa {5} para elegir un objetivo visible cercano y {6} para interactuar.\n\nElige una jornada o práctica de carga en el menú del centro. Pulsa {7} para Controles y guía. Tu progreso se guarda en este dispositivo."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"Elige una estación o usa el menú de abajo. Pulsa {0} para elegir un objetivo visible cercano y {1} para interactuar. Usa {2} o el ratón para mirar."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"No hay ningún objetivo seleccionado. Acércate o pulsa {0} para elegir un objetivo visible cercano."
 ]
 ],
 "keep": [

@@ -3530,7 +3530,31 @@ window.OTR_I18N.mr = {
 "WORKDAY IN PROGRESS": "कामाचा दिवस सुरू",
 "TODAY'S WORKDAY": "आजचा कामाचा दिवस",
 "WORKDAY DEBRIEF": "दिवसाचा आढावा",
-"NEXT": "पुढे"
+"NEXT": "पुढे",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "डिस्पॅचपासून सुरू करा. व्हॅनची तपासणी आणि लोडिंगआधी सकाळचा ब्रीफ वाचा.",
+"Your first workday": "तुमचा पहिला कामाचा दिवस",
+"Workday steps": "कामाच्या दिवसाचे टप्पे",
+"Controls and guidance": "नियंत्रणे आणि मार्गदर्शन",
+"Change the 3D controls": "3D नियंत्रणे बदला",
+"Prepare the workday": "कामाच्या दिवसाची तयारी",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "डिस्पॅचवर ब्रीफ आणि यादीची प्रत्येक पाने वाचा. टायर आणि लाइट तपासा, गरज असल्यास दुरुस्ती मागा. प्रत्येक पॅकेज यादीशी जुळवा, स्कॅन करा आणि त्याच्या क्रमांकित शेल्फवर लोड करा. हरवलेली किंवा यादीत नसलेली पॅकेज कळवा, लोड संख्या पक्की करा आणि बंधने लावा.",
+"Drive safely": "सुरक्षित चालवा",
+"Complete each stop": "प्रत्येक स्टॉप पूर्ण करा",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "सकाळचा ब्रीफ आणि यादीची प्रत्येक पाने इथे वाचा. रूट संपल्यावर इथे परत या.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "निघण्यापूर्वी टायर तपासा. दोष आढळल्यास दुरुस्ती मागा.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "निघण्यापूर्वी लाइट तपासा. दिवा चालत नसेल तर दुरुस्ती मागा.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "लेबल यादीशी जुळवा. पॅकेज उचला, मग हँडहेल्डवर स्कॅन करा.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "प्रत्येक पॅकेज त्याच्या क्रमांकित शेल्फवर लोड करा. नोंदवलेला शेल्फ स्टॉपवर शोधायला मदत करतो.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "पॅकेज लोड किंवा काढण्यासाठी कार्गो उघडा. कार्गो दरवाजे बंद करण्यापूर्वी बाहेर या.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "पॅकेज लोड किंवा काढल्यानंतर, पुन्हा चालवण्यापूर्वी बंधने लावा.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "सीटबेल्ट लावा. आरसे आणि सिग्नल तपासा, मार्ग मोकळा असेल तेव्हा पार्किंग ब्रेक सोडा.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "इथे योग्य पॅकेज स्कॅन करा, संपर्क साधा आणि निकाल नोंदवण्यापूर्वी आवश्यक तपासण्या पूर्ण करा.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "बंद गेटच्या बाहेर थांबा. कुत्र्याला बांधण्यासाठी मालकाला बोलवा, किंवा पॅकेज ठेवून असुरक्षित प्रवेशाचा अपवाद नोंदवा.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "पॅकेज घेऊन जाण्यापूर्वी मार्ग बघा. हलवता येणारे अडथळे रिकाम्या हातांनी काढा, किंवा निसरडी जागा टाळा.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "ठेवलेले प्रत्येक पॅकेज इथे आणा आणि डिस्पॅचवर संपवण्यापूर्वी परत स्कॅन करा.",
+"Start a workday first": "आधी कामाचा दिवस सुरू करा",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "कामाच्या दिवसात किंवा कार्गो सरावात हँडहेल्ड मिळतो. हबमधून एक सुरू करा, मग हँडहेल्ड उघडा.",
+"Return to Dispatch": "डिस्पॅचला परत जा"
 },
 "templates": [
 [
@@ -5028,6 +5052,38 @@ window.OTR_I18N.mr = {
 [
 "{0} attempts delivery.",
 "{0} ने डिलिव्हरीचा प्रयत्न करता."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"हलण्यासाठी {0}/{1}/{2}/{3} आणि बघण्यासाठी {4} वापरा."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"जवळचे दिसणारे लक्ष्य निवडण्यासाठी {0} दाबा. कृतीसाठी {1} दाबा."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"हँडहेल्डसाठी {0} दाबा. निवडण्यासाठी बाण आणि Enter वापरा, स्कॅनसाठी {1} दाबून ठेवा."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"नियंत्रणे आणि मार्गदर्शन केव्हाही पुन्हा उघडण्यासाठी {0} दाबा."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"केबिनमध्ये बसण्यापूर्वी कार्गो बंद करा. सीटबेल्टसाठी {0}, आरशासाठी {1}, पार्किंग ब्रेकसाठी {2} दाबा. वेग/ब्रेकसाठी {3}/{4} आणि स्टिअरिंगसाठी {5}/{6} वापरा. हँडहेल्ड वापरण्यापूर्वी किंवा उतरण्यापूर्वी थांबा आणि पार्किंग ब्रेक लावा."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"{0}/{1}/{2}/{3} ने हला आणि {4} किंवा माउसने बघा. जवळचे दिसणारे लक्ष्य निवडण्यासाठी {5} दाबा, मग कृतीसाठी {6}.\n\nहब मेनूमधून कामाचा दिवस किंवा कार्गो सराव निवडा. नियंत्रणे आणि मार्गदर्शनासाठी {7} दाबा. तुमची प्रगती या डिव्हाइसवर सेव्ह होते."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"स्टेशन निवडा किंवा खालील मेनू वापरा. जवळचे दिसणारे लक्ष्य निवडण्यासाठी {0} दाबा, मग कृतीसाठी {1}. बघण्यासाठी {2} किंवा माउस वापरा."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"कोणतेही लक्ष्य निवडलेले नाही. जवळ जा किंवा जवळचे दिसणारे लक्ष्य निवडण्यासाठी {0} दाबा."
 ]
 ],
 "keep": [
