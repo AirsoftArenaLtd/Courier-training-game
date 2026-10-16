@@ -3,7 +3,8 @@
  * The translations (data/i18n/<lang>.js), checked without a browser:
  *
  *   - the file loads, and every template's holes are ones its English has ({n} and {n:plural|singular} only)
- *   - nothing the game shows is missing (against data/i18n/catalogue.json, which test/tools/i18n-extract.js writes)
+ *   - nothing the game shows is missing (against data/i18n/catalogue.json, which test/tools/i18n-extract.js writes; names,
+ *     codes and the like are listed in data/i18n/not-text.json, so a new label cannot slip past by being short)
  *   - the quiz and conversation rules hold in the translation too: the right answer can't be found by its length
  *     (src/core/validate.js, run on the translated text), since a translation can make the right one the longest
  *   - a sample of composed messages comes out whole (plural choices, nested pieces)
@@ -23,6 +24,7 @@ const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 (html.match(/data\/[a-z0-9_]+\.js/g) || []).forEach(f => { eval(fs.readFileSync(path.join(ROOT, f), 'utf8')); });
 ['src/core/i18n.js', 'src/core/validate.js'].forEach(f => eval(fs.readFileSync(path.join(ROOT, f), 'utf8')));
 const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'i18n', 'catalogue.json'), 'utf8'));
+const notText = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'i18n', 'not-text.json'), 'utf8')));
 
 let fails = 0;
 const check = (ok, what) => { console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) fails++; };
@@ -59,8 +61,11 @@ Object.keys(OTR.i18n.LANGS).filter(l => l !== 'en').forEach(lang => {
   // the catalogue: what is still English (text kept as it is, such as names and codes, is listed in the file itself)
   const have = new Set(Object.keys(L.strings)), haveT = new Set(L.templates.map(t => t[0].trim()));
   const kept = new Set(L.keep || []);
-  const words = (s) => /[a-z]{3,}\s+[a-z]{3,}/.test(s);
-  const missing = cat.strings.filter(s => !have.has(s) && !have.has(s.trim()) && !kept.has(s) && words(s) && !/^\[|^\(debug/.test(s));
+  // everything in the catalogue is text to translate unless it is on the reviewed list of names, street signs, codes and
+  // fragments (data/i18n/not-text.json), or is plainly an id (drive.speed), a colour or a debug line. Short labels count:
+  // "Pick up", "SCORE" and "Sign in" are text too.
+  const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s);
+  const missing = cat.strings.filter(s => !have.has(s) && !have.has(s.trim()) && !kept.has(s) && !notText.has(s) && !idlike(s));
   const missingT = cat.templates.filter(t => !haveT.has(t.trim()));
   check(!missing.length && !missingT.length, `every sentence in the catalogue is translated${missing.length + missingT.length ? ` (${missing.length} strings, ${missingT.length} templates missing, e.g. ${JSON.stringify(missing.concat(missingT).slice(0, 3))})` : ''}`);
 
