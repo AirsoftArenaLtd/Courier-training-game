@@ -57,7 +57,8 @@ OTR.fpHandheld = class {
       { label: 'Scan package', onPick: () => this.scan() },
       { label: 'Stop details', onPick: () => this.stop(stop.id) },
       { label: 'Route', onPick: () => this.route() },
-      ...(m.routeDay&&m.phase!=='prepare'?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
+      ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[]),
+      ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
     ], footer: 'TAB put away' });
   }
   day(){
@@ -67,8 +68,7 @@ OTR.fpHandheld = class {
       {label:'Weather and breaks',onPick:()=>this.show({title:'TODAY’S WEATHER',lines:[OTR.fpDay.driveText(m)||'Conditions are clear. Follow the posted speed limits.'],options:[
         ...(m.routeDay.weather==='heat'?[{label:'Take a water and shade break',onPick:()=>{this.scene.message(OTR.fpDay.rest(m));this.scene.checkpoint();this.close();}}]:[]),
         {label:'Back',onPick:()=>this.day()}]})}
-      ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[])
-    ], footer: 'TAB put away' });
+    ],back:()=>this.home()});
   }
   loadCheck(){
     const m=this.scene.model;if(!m||!m.loadout)return;

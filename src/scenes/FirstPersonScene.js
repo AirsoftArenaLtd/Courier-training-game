@@ -91,7 +91,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind){this.transition(()=>{
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign')OTR.fpLoadout.configure(m);}
+      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
     if(kind==='campaign'&&!m.briefing&&!m.departed){
@@ -157,6 +157,12 @@ class FirstPersonScene extends Phaser.Scene {
       {label:'Use scanner',action:()=>this.handheld.scan()},
       {label:p.location==='held'?'Return to walking':'Pick up',action:()=>{if(p.location!=='held')this.message(m.pickup(p.id));this.checkpoint();this.closePanel();}},
       {label:'Back',action:()=>this.closePanel()}],{inspect:true,back:()=>this.closePanel()});
+  }
+  showGoal(){
+    const m=this.model;if(!m||!m.driving)return;
+    this.showPanel('Check the reversing path','Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.',[
+      {label:'Confirm the path check',action:()=>{this.message(OTR.fpDriving.checkGoal(m));this.checkpoint();this.closePanel();}},
+      {label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showInspection(part){
     const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;
@@ -248,7 +254,7 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
@@ -269,6 +275,7 @@ class FirstPersonScene extends Phaser.Scene {
       }
       if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
       if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
+      if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
       const m=this.model;if(m&&m.mode==='cab'){
         if(e.code==='Space')m.van.hand=!m.van.hand;if(e.code==='KeyB')m.van.belt=!m.van.belt;
         if(e.code==='KeyR'&&!m.shiftGear())this.message('Stop before selecting drive or reverse.');if(e.code==='KeyM')m.mirror();
@@ -286,6 +293,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
       if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
     if(m.briefing&&!m.events[m.briefKey])return 'Walk to Dispatch to read the morning brief and route manifest.';
+    if(m.driving&&m.mode==='cab'){const warning=OTR.fpDriving.hint(m);if(warning)return warning;}
     if(m.routeDay){const update=OTR.fpDay.hint(m);if(update)return update;}
     if(m.mode==='cab'&&m.phase==='prepare')return `${m.stop(m.activeStop).address} · ${m.driveHint()}`;
     if(m.phase==='prepare'&&m.routePlan)return 'Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.';
@@ -324,8 +332,9 @@ class FirstPersonScene extends Phaser.Scene {
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
-    else if(mode==='cab')hint=m.van.hand?'Set your belt, check the mirror and release the parking brake.':'15 mph limit · Keep right · Stop at the junction line';
-    else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
+    else if(mode==='cab'){hint=m.driving?OTR.fpDriving.hint(m):'';
+      if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
+    else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?'E inspect tires':'E inspect lights';else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
     else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · E pick up · F inspect · Tab handheld';}
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · E place the parcel';
@@ -344,6 +353,9 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!h.KeyD)-Number(!!h.KeyA))*Math.min(delta/1000,0.05)*1.8;
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
+    if(this.model&&this.model.driving&&!this.model.paused&&(this.model.driving.siren.state==='approaching'||this.model.driving.siren.state==='passing')&&time-(this.sirenToneAt||-1000)>1000){
+      this.sirenToneAt=time;if(OTR.audio){OTR.audio.tone(650,0.45,{type:'triangle',vol:0.07,slideTo:1000});OTR.audio.tone(1000,0.45,{type:'triangle',vol:0.07,slideTo:650,delay:0.45});}
+    }
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'))?this.art.pick():null;this.lastAim=time;const occupied=[];
       this.labels.forEach(({label,object})=>{const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;

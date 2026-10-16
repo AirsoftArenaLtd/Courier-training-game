@@ -51,6 +51,7 @@ OTR.fpMission = {
         if (this.events[id]) return;
         this.events[id] = true;
         this.logs.push({ id, skill, outcome, text, at: Math.round(this.elapsed) });
+        if(this.logs.length>300)this.logs.shift();
         this.touch();
         this.report(id, skill, outcome);
       },
@@ -278,6 +279,7 @@ OTR.fpMission = {
           const p = F.local(this.van, side, -1.7);
           if (!this.blocked(p.x, p.z)) {
             if(this.routeDay)OTR.fpDay.endLeg(this);
+            if(this.driving)OTR.fpDriving.endLeg(this);
             Object.assign(this.player, p, { yaw: this.van.yaw, pitch: 0 });
             this.mode = 'walk'; this.leg++; this.van.belt = false; this.touch(); return true;
           }
@@ -363,6 +365,7 @@ OTR.fpMission = {
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
         if(this.routeDay)OTR.fpDay.tick(this,dt);
+        if(this.driving)OTR.fpDriving.tick(this,dt,old);
         if (this.mode !== 'cab') return;
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
@@ -396,7 +399,7 @@ OTR.fpMission = {
           const ahead = (this.van.z - c.z) * dir;
           const personAhead = (this.player.z - c.z) * dir;
           const walker = this.mode === 'walk' && Math.abs(this.player.x - c.x) < 1.3 && personAhead > 0 && personAhead < 4;
-          const blocked = (Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9) || walker;
+          const blocked = (this.driving&&OTR.fpDriving.blockTraffic(this,c)) || (Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9) || walker;
           const h = this.crossing, pedestrian = h.state === 'crossing' && Math.abs(h.x - c.x) < 2 && (h.z - c.z) * dir > 0 && (h.z - c.z) * dir < 10;
           const atLine = dir < 0 && c.z > -22.3 && c.z < -21.9 && !c.stopPassed;
           if (atLine) { c.wait = (c.wait || 0) + dt; if (c.wait >= 1) c.stopPassed = true; }
@@ -432,6 +435,7 @@ OTR.fpMission = {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         if (this.routePlan) fields.push('routePlan', 'junctions');
         if(this.routeDay)fields.push('routeDay');
+        if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
@@ -447,6 +451,7 @@ OTR.fpMission = {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay))return null;OTR.fpDay.configure(m,data.routeDay);}
+      if(data.driving){if(data.kind!=='campaign')return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
       if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
       if (data.briefing === undefined) data.briefing = null;
       if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
@@ -502,6 +507,7 @@ OTR.fpMission = {
       if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
       if(m.routeDay)OTR.fpDay.attach(m);
+      if(m.driving)OTR.fpDriving.attach(m);
       m.paused = true; return m;
     } catch (_) { return null; }
   }
