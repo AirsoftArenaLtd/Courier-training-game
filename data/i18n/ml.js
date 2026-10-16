@@ -3275,7 +3275,39 @@ window.OTR_I18N.ml = {
 "Exceeded the posted speed limit.": "പ്രദർശിപ്പിച്ച വേഗപരിധി കടന്നു.",
 "Traveled on the wrong side of the road.": "റോഡിന്റെ തെറ്റായ വശത്തുകൂടി സഞ്ചരിച്ചു.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, അഞ്ച് പാഴ്സലുകൾ സ്കാൻ ചെയ്ത് സ്റ്റോപ്പ് ക്രമത്തിൽ കയറ്റുക, പിന്നെ ലോഡ് ഉറപ്പിച്ച് കാർഗോ അടയ്ക്കുക.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക. നിലനിർത്തിയ പാഴ്സലുകൾ Returns-ൽ സ്കാൻ ചെയ്യുക, പിന്നെ ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുക."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക. നിലനിർത്തിയ പാഴ്സലുകൾ Returns-ൽ സ്കാൻ ചെയ്യുക, പിന്നെ ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുക.",
+"Check the load": "ലോഡ് പരിശോധിക്കുക",
+"Bring missing or unlisted packages to Dispatch.": "കാണാതായതോ പട്ടികയിലില്ലാത്തതോ ആയ പാക്കേജുകൾ ഡിസ്പാച്ചിൽ എത്തിക്കുക.",
+"Match the loaded packages to the manifest.": "ലോഡ് ചെയ്ത പാക്കേജുകൾ മാനിഫെസ്റ്റുമായി ഒത്തുനോക്കുക.",
+"Confirm the load count": "ലോഡ് എണ്ണം സ്ഥിരീകരിക്കുക",
+"Confirm the load count at Dispatch.": "ഡിസ്പാച്ചിൽ ലോഡ് എണ്ണം സ്ഥിരീകരിക്കുക.",
+"Report a missing package": "കാണാതായ പാക്കേജ് റിപ്പോർട്ട് ചെയ്യുക",
+"Set the unlisted package aside": "പട്ടികയിലില്ലാത്ത പാക്കേജ് മാറ്റിവയ്ക്കുക",
+"Identified a package for another route during the load-out scan.": "ലോഡ്-ഔട്ട് സ്കാനിനിടെ മറ്റൊരു റൂട്ടിലേക്കുള്ള ഒരു പാക്കേജ് കണ്ടെത്തി.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "ഈ പാക്കേജ് റൂട്ട് മാനിഫെസ്റ്റിലില്ല. ഇത് ഡിസ്പാച്ചിൽ കൊണ്ടുപോയി മാറ്റിവയ്ക്കുക.",
+"Bring the unlisted package to Dispatch first.": "ആദ്യം പട്ടികയിലില്ലാത്ത പാക്കേജ് ഡിസ്പാച്ചിൽ എത്തിക്കുക.",
+"Set the unlisted package aside at Dispatch.": "പട്ടികയിലില്ലാത്ത പാക്കേജ് ഡിസ്പാച്ചിൽ മാറ്റിവയ്ക്കുക.",
+"The unlisted package is set aside. It will not go on this route.": "പട്ടികയിലില്ലാത്ത പാക്കേജ് മാറ്റിവച്ചു. ഇത് ഈ റൂട്ടിൽ പോകില്ല.",
+"Check the manifest and report a missing package at Dispatch.": "മാനിഫെസ്റ്റ് പരിശോധിച്ച് കാണാതായ പാക്കേജ് ഡിസ്പാച്ചിൽ റിപ്പോർട്ട് ചെയ്യുക.",
+"The missing package has already been located.": "കാണാതായ പാക്കേജ് ഇതിനകം കണ്ടെത്തിയിട്ടുണ്ട്.",
+"Reported the missing package after departure.": "പുറപ്പെട്ടശേഷം കാണാതായ പാക്കേജ് റിപ്പോർട്ട് ചെയ്തു.",
+"Reported the missing package to Dispatch before leaving.": "പുറപ്പെടും മുമ്പ് കാണാതായ പാക്കേജ് ഡിസ്പാച്ചിൽ റിപ്പോർട്ട് ചെയ്തു.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "ഡിസ്പാച്ച് പാക്കേജ് ഡിപ്പോയിൽ കണ്ടെത്തി. പുറപ്പെടും മുമ്പ് അത് സ്കാൻ ചെയ്ത് ലോഡ് ചെയ്യുക.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "ഡിസ്പാച്ച് കാണാതായ പാക്കേജ് രേഖപ്പെടുത്തി. അടുത്ത സ്റ്റോപ്പിൽ കാർഗോ വീണ്ടും പരിശോധിക്കുക.",
+"The departure load check is already closed.": "പുറപ്പെടുമ്പോഴുള്ള ലോഡ് പരിശോധന ഇതിനകം അടച്ചു.",
+"Count the packages and confirm the load at Dispatch.": "പാക്കേജുകൾ എണ്ണി ഡിസ്പാച്ചിൽ ലോഡ് സ്ഥിരീകരിക്കുക.",
+"Checked the loaded packages against the manifest.": "ലോഡ് ചെയ്ത പാക്കേജുകൾ മാനിഫെസ്റ്റുമായി ഒത്തുനോക്കി.",
+"The load count did not match the checked manifest.": "ലോഡ് എണ്ണം പരിശോധിച്ച മാനിഫെസ്റ്റുമായി ഒത്തില്ല.",
+"The load count is recorded. Secure the load before departure.": "ലോഡ് എണ്ണം രേഖപ്പെടുത്തി. പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമായി ഉറപ്പിക്കുക.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "എണ്ണമോ ലോഡോ മാനിഫെസ്റ്റുമായി ഒത്തില്ല. കാണാതായതും പട്ടികയിലില്ലാത്തതുമായ പാക്കേജുകൾ വീണ്ടും പരിശോധിക്കുക.",
+"Left without checking the load count against the manifest.": "ലോഡ് എണ്ണം മാനിഫെസ്റ്റുമായി ഒത്തുനോക്കാതെ പുറപ്പെട്ടു.",
+"Departed with a package for another route.": "മറ്റൊരു റൂട്ടിലേക്കുള്ള പാക്കേജുമായി പുറപ്പെട്ടു.",
+"Left without reporting the missing package to Dispatch.": "കാണാതായ പാക്കേജ് ഡിസ്പാച്ചിൽ റിപ്പോർട്ട് ചെയ്യാതെ പുറപ്പെട്ടു.",
+"Found a package that had been missed during load-out.": "ലോഡ്-ഔട്ടിനിടെ വിട്ടുപോയ ഒരു പാക്കേജ് കണ്ടെത്തി.",
+"This package is not on the route manifest.": "ഈ പാക്കേജ് റൂട്ട് മാനിഫെസ്റ്റിലില്ല.",
+"I counted one package.": "ഞാൻ ഒരു പാക്കേജ് എണ്ണി.",
+"Load count": "ലോഡ് എണ്ണം",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "നേരത്തെ വിട്ടുപോയ ഒരു പാക്കേജ് കാർഗോയിൽ കണ്ടെത്തി. അത് സ്കാൻ ചെയ്ത് വിലാസം പരിശോധിക്കുക."
 },
 "templates": [
 [
@@ -4573,6 +4605,22 @@ window.OTR_I18N.ml = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"മാനിഫെസ്റ്റിൽ {0} പാക്കേജുകൾ ഉണ്ട്."
+],
+[
+"I counted {0} packages.",
+"ഞാൻ {0} പാക്കേജുകൾ എണ്ണി."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"മാനിഫെസ്റ്റിൽ {0} പാക്കേജുകൾ ഉണ്ട്. സ്ഥിരീകരിക്കുംമുമ്പ് വാനിലെ പാക്കേജുകൾ എണ്ണുക."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4582,6 +4630,7 @@ window.OTR_I18N.ml = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };

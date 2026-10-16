@@ -3275,7 +3275,39 @@ window.OTR_I18N.te = {
 "Exceeded the posted speed limit.": "సూచించిన వేగ పరిమితిని మించారు.",
 "Traveled on the wrong side of the road.": "రోడ్డుకు తప్పు వైపున నడిపారు.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "టైర్లు, లైట్లు తనిఖీ చేయండి, ఐదు పార్సిళ్లను స్కాన్ చేసి స్టాప్ క్రమంలో లోడ్ చేయండి, ఆ తర్వాత లోడ్‌ను భద్రపరచి కార్గో మూసివేయండి.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "డిపోకు తిరిగి వెళ్లండి. ఉంచుకున్న పార్సిళ్లను Returns వద్ద స్కాన్ చేయండి, ఆ తర్వాత Dispatch వద్ద ముగించండి."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "డిపోకు తిరిగి వెళ్లండి. ఉంచుకున్న పార్సిళ్లను Returns వద్ద స్కాన్ చేయండి, ఆ తర్వాత Dispatch వద్ద ముగించండి.",
+"Check the load": "లోడ్‌ను తనిఖీ చేయండి",
+"Bring missing or unlisted packages to Dispatch.": "కనిపించని లేదా జాబితాలో లేని ప్యాకేజీలను డిస్పాచ్‌కు తీసుకెళ్లండి.",
+"Match the loaded packages to the manifest.": "ఎక్కించిన ప్యాకేజీలను మానిఫెస్ట్‌తో సరిపోల్చండి.",
+"Confirm the load count": "లోడ్ లెక్కను నిర్ధారించండి",
+"Confirm the load count at Dispatch.": "డిస్పాచ్ వద్ద లోడ్ లెక్కను నిర్ధారించండి.",
+"Report a missing package": "కనిపించని ప్యాకేజీ గురించి తెలియజేయండి",
+"Set the unlisted package aside": "జాబితాలో లేని ప్యాకేజీని పక్కన పెట్టండి",
+"Identified a package for another route during the load-out scan.": "లోడ్-అవుట్ స్కాన్ సమయంలో వేరే రూట్ ప్యాకేజీని గుర్తించారు.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "ఈ ప్యాకేజీ రూట్ మానిఫెస్ట్‌లో లేదు. దాన్ని డిస్పాచ్‌కు తీసుకెళ్లి పక్కన పెట్టండి.",
+"Bring the unlisted package to Dispatch first.": "ముందు జాబితాలో లేని ప్యాకేజీని డిస్పాచ్‌కు తీసుకెళ్లండి.",
+"Set the unlisted package aside at Dispatch.": "జాబితాలో లేని ప్యాకేజీని డిస్పాచ్ వద్ద పక్కన పెట్టండి.",
+"The unlisted package is set aside. It will not go on this route.": "జాబితాలో లేని ప్యాకేజీని పక్కన పెట్టారు. అది ఈ రూట్‌లో వెళ్లదు.",
+"Check the manifest and report a missing package at Dispatch.": "మానిఫెస్ట్ చూసి, కనిపించని ప్యాకేజీ గురించి డిస్పాచ్ వద్ద తెలియజేయండి.",
+"The missing package has already been located.": "కనిపించని ప్యాకేజీ ఇప్పటికే దొరికింది.",
+"Reported the missing package after departure.": "బయలుదేరిన తర్వాత కనిపించని ప్యాకేజీ గురించి తెలియజేశారు.",
+"Reported the missing package to Dispatch before leaving.": "బయలుదేరే ముందు కనిపించని ప్యాకేజీ గురించి డిస్పాచ్‌కు తెలియజేశారు.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "డిస్పాచ్ ప్యాకేజీని డిపోలో కనుగొంది. బయలుదేరే ముందు దాన్ని స్కాన్ చేసి ఎక్కించండి.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "డిస్పాచ్ కనిపించని ప్యాకేజీని నమోదు చేసింది. తదుపరి స్టాప్‌లో కార్గోను మళ్లీ చూడండి.",
+"The departure load check is already closed.": "బయలుదేరే ముందు లోడ్ తనిఖీ ఇప్పటికే ముగిసింది.",
+"Count the packages and confirm the load at Dispatch.": "ప్యాకేజీలను లెక్కించి, డిస్పాచ్ వద్ద లోడ్‌ను నిర్ధారించండి.",
+"Checked the loaded packages against the manifest.": "ఎక్కించిన ప్యాకేజీలను మానిఫెస్ట్‌తో సరిచూశారు.",
+"The load count did not match the checked manifest.": "లోడ్ లెక్క తనిఖీ చేసిన మానిఫెస్ట్‌తో సరిపోలలేదు.",
+"The load count is recorded. Secure the load before departure.": "లోడ్ లెక్క నమోదైంది. బయలుదేరే ముందు లోడ్‌ను సురక్షితంగా కట్టండి.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "లెక్క లేదా లోడ్ మానిఫెస్ట్‌తో సరిపోలడం లేదు. కనిపించని మరియు జాబితాలో లేని ప్యాకేజీలను మళ్లీ చూడండి.",
+"Left without checking the load count against the manifest.": "లోడ్ లెక్కను మానిఫెస్ట్‌తో సరిచూడకుండానే బయలుదేరారు.",
+"Departed with a package for another route.": "వేరే రూట్ ప్యాకేజీతో బయలుదేరారు.",
+"Left without reporting the missing package to Dispatch.": "కనిపించని ప్యాకేజీ గురించి డిస్పాచ్‌కు చెప్పకుండానే బయలుదేరారు.",
+"Found a package that had been missed during load-out.": "లోడ్-అవుట్ సమయంలో వదిలేసిన ప్యాకేజీని కనుగొన్నారు.",
+"This package is not on the route manifest.": "ఈ ప్యాకేజీ రూట్ మానిఫెస్ట్‌లో లేదు.",
+"I counted one package.": "నేను ఒక ప్యాకేజీని లెక్కించాను.",
+"Load count": "లోడ్ లెక్క",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "ఇంతకుముందు కనిపించని ప్యాకేజీ కార్గోలో దొరికింది. దాన్ని స్కాన్ చేసి చిరునామా చూడండి."
 },
 "templates": [
 [
@@ -4573,6 +4605,22 @@ window.OTR_I18N.te = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"మానిఫెస్ట్‌లో {0} ప్యాకేజీలు ఉన్నాయి."
+],
+[
+"I counted {0} packages.",
+"నేను {0} ప్యాకేజీలను లెక్కించాను."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"మానిఫెస్ట్‌లో {0} ప్యాకేజీలు ఉన్నాయి. నిర్ధారించే ముందు వ్యాన్‌లోని ప్యాకేజీలను లెక్కించండి."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4582,6 +4630,7 @@ window.OTR_I18N.te = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };
