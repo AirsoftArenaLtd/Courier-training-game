@@ -39,6 +39,7 @@
  *   Trainer only, with header X-Trainer-Pin:
  *   POST api/trainer/check          { ok }
  *   PUT  api/settings               body: settings
+ *   GET  api/report/before-after    each trainee's first and latest workday side by side, and how the group moved (PIN)
  *   GET  api/trainees               [{ id, name, savedAt, summary }]
  *   GET  api/trainees/<id>          { id, progress }
  *   DELETE api/trainees/<id>        resets that trainee (their old file is kept as <id>.json.<time>.bak)
@@ -58,6 +59,7 @@ const path = require('path');
 const crypto = require('crypto');
 const auth = require('./auth.js');
 const xapiLib = require('./xapi.js');
+const report = require('./report.js');
 
 const ROOT = path.resolve(__dirname, '..');
 let fileCfg = {};
@@ -264,6 +266,18 @@ async function api(req, res, url) {
     if (route === 'trainer/check') {
       const t = trainerOk(req);
       return send(res, t.ok ? 200 : t.code, t.ok ? { ok: true } : { error: t.error });
+    }
+    if (route === 'report/before-after' && req.method === 'GET') {
+      const t = trainerOk(req); if (!t.ok) return send(res, t.code, { error: t.error });
+      const names = roster();
+      const list = fs.readdirSync(PROGRESS).filter(n => n.endsWith('.json')).map(n => {
+        const p = readJSON(path.join(PROGRESS, n), {});
+        const id = (p.profile && p.profile.id) || n.replace(/\.json$/, '');
+        return { id, name: (p.profile && p.profile.name) || names[id] || id, progress: p };
+      });
+      const set = readJSON(path.join(DATA, 'settings.json'), {});
+      audit('report:before-after', '*');
+      return send(res, 200, report.beforeAfter(list, set && set.passStars));
     }
     if (route === 'trainees' || route.startsWith('trainees/')) {
       const t = trainerOk(req); if (!t.ok) return send(res, t.code, { error: t.error });

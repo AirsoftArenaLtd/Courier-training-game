@@ -3424,7 +3424,26 @@ window.OTR_I18N.bn = {
 "Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "প্রশিক্ষণ সার্ভার এই প্রশিক্ষণার্থীর সম্পর্কে যা কিছু রাখে, তা ফাইল হিসেবে ডাউনলোড করুন, অথবা সব কিছু চিরতরে মুছে দিন: তাঁর অগ্রগতি, তার সব ব্যাকআপ এবং তাঁর সাইন ইন।",
 "Download data": "ডেটা ডাউনলোড করুন",
 "Erase all data": "সব ডেটা মুছুন",
-"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "এতে তাঁর অগ্রগতি, তার সব ব্যাকআপ এবং তাঁর সাইন ইন স্থায়ীভাবে মুছে যাবে, এবং এটি আর ফেরানো যাবে না। কোম্পানির লার্নিং রেকর্ড স্টোরে আগে পাঠানো ফলাফল সেখানেই থেকে যাবে।"
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "এতে তাঁর অগ্রগতি, তার সব ব্যাকআপ এবং তাঁর সাইন ইন স্থায়ীভাবে মুছে যাবে, এবং এটি আর ফেরানো যাবে না। কোম্পানির লার্নিং রেকর্ড স্টোরে আগে পাঠানো ফলাফল সেখানেই থেকে যাবে।",
+"First workday": "প্রথম কর্মদিবস",
+"Latest workday": "সর্বশেষ কর্মদিবস",
+"Critical errors per day": "প্রতিদিন গুরুতর ভুল",
+"Met every pass mark": "সব পাস মার্ক পূরণ হয়েছে",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "এখনও কোনো প্রশিক্ষণার্থী দুটি কর্মদিবস শেষ করেননি, তাই তুলনা করার কিছু নেই।",
+"Nobody has finished a workday yet.": "এখনও কেউ কোনো কর্মদিবস শেষ করেননি।",
+"Before and after: the training pilot": "আগে ও পরে: প্রশিক্ষণ পাইলট",
+"trainees who finished a workday": "যাঁরা একটি কর্মদিবস শেষ করেছেন",
+"with two or more workdays": "দুই বা বেশি কর্মদিবস সহ",
+"The group, first workday to latest": "দল, প্রথম থেকে সর্বশেষ কর্মদিবস",
+"Each trainee": "প্রত্যেক প্রশিক্ষণার্থী",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "প্রত্যেক প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ শেষ করা কর্মদিবস। তারা নিরাপত্তা, দক্ষতা ও পরিষেবায় ০ থেকে ৩। দলের হিসাবে দুই বা বেশি কর্মদিবস আছে এমন প্রশিক্ষণার্থীদের ধরা হয়েছে। প্রতিটি বিভাগ প্রশিক্ষকের ঠিক করা তারায় পৌঁছালে পাস মার্ক পূরণ হয়।",
+"Before and after": "আগে ও পরে",
+"Score": "স্কোর",
+"Trainee": "প্রশিক্ষণার্থী",
+"Workdays": "কর্মদিবস",
+"improved": "উন্নতি হয়েছে",
+"unchanged or lower": "অপরিবর্তিত বা কম",
+"One workday so far": "এখন পর্যন্ত একটি কর্মদিবস"
 },
 "templates": [
 [
@@ -4810,6 +4829,10 @@ window.OTR_I18N.bn = {
 [
 "{0}: all data erased",
 "{0}: সব ডেটা মুছে ফেলা হয়েছে"
+],
+[
+"{0} stars",
+"{0} তারা"
 ]
 ],
 "keep": [

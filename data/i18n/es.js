@@ -3435,7 +3435,26 @@ window.OTR_I18N.es = {
 "Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "Descarga como archivo todo lo que el servidor de capacitación guarda sobre este aprendiz, o bórralo todo de forma definitiva: su progreso, todas las copias de seguridad y su inicio de sesión.",
 "Download data": "Descargar datos",
 "Erase all data": "Borrar todos los datos",
-"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "Esto elimina su progreso, todas las copias de seguridad y su inicio de sesión, y no se puede deshacer. Los resultados ya enviados al sistema de registro de aprendizaje de la empresa permanecen allí."
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "Esto elimina su progreso, todas las copias de seguridad y su inicio de sesión, y no se puede deshacer. Los resultados ya enviados al sistema de registro de aprendizaje de la empresa permanecen allí.",
+"First workday": "Primera jornada",
+"Latest workday": "Última jornada",
+"Critical errors per day": "Errores críticos por día",
+"Met every pass mark": "Cumplió todas las notas de aprobación",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "Ningún aprendiz ha terminado aún dos jornadas, así que no hay nada que comparar.",
+"Nobody has finished a workday yet.": "Nadie ha terminado una jornada todavía.",
+"Before and after: the training pilot": "Antes y después: el piloto de capacitación",
+"trainees who finished a workday": "aprendices que terminaron una jornada",
+"with two or more workdays": "con dos o más jornadas",
+"The group, first workday to latest": "El grupo, de la primera a la última jornada",
+"Each trainee": "Cada aprendiz",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "Primera y última jornada terminada de cada aprendiz. Las estrellas van de 0 a 3 en seguridad, eficiencia y servicio. Las cifras del grupo usan a los aprendices con dos o más jornadas. Una nota de aprobación se cumple cuando todas las categorías alcanzan las estrellas fijadas por el capacitador.",
+"Before and after": "Antes y después",
+"Score": "Puntuación",
+"Trainee": "Aprendiz",
+"Workdays": "Jornadas",
+"improved": "mejoraron",
+"unchanged or lower": "sin cambios o peor",
+"One workday so far": "Solo una jornada por ahora"
 },
 "templates": [
 [
@@ -4821,6 +4840,10 @@ window.OTR_I18N.es = {
 [
 "{0}: all data erased",
 "{0}: todos los datos borrados"
+],
+[
+"{0} stars",
+"{0} estrellas"
 ]
 ],
 "keep": [

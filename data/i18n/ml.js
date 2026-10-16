@@ -3423,7 +3423,26 @@ window.OTR_I18N.ml = {
 "Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ഈ പരിശീലനാർഥിയെക്കുറിച്ച് പരിശീലന സെർവറിലുള്ളതെല്ലാം ഒരു ഫയലായി ഡൗൺലോഡ് ചെയ്യുക, അല്ലെങ്കിൽ എല്ലാം എന്നെന്നേക്കുമായി മായ്ക്കുക: അവരുടെ പുരോഗതി, അതിന്റെ എല്ലാ ബാക്കപ്പുകളും, അവരുടെ സൈൻ-ഇനും.",
 "Download data": "ഡാറ്റ ഡൗൺലോഡ് ചെയ്യുക",
 "Erase all data": "എല്ലാ ഡാറ്റയും മായ്ക്കുക",
-"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ഇത് അവരുടെ പുരോഗതി, അതിന്റെ എല്ലാ ബാക്കപ്പുകൾ, അവരുടെ സൈൻ-ഇൻ എന്നിവ എന്നെന്നേക്കുമായി ഇല്ലാതാക്കും; ഇത് തിരിച്ചെടുക്കാനാവില്ല. കമ്പനിയുടെ ലേണിംഗ് റെക്കോർഡ് സ്റ്റോറിലേക്ക് ഇതിനകം അയച്ച ഫലങ്ങൾ അവിടെത്തന്നെ തുടരും."
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ഇത് അവരുടെ പുരോഗതി, അതിന്റെ എല്ലാ ബാക്കപ്പുകൾ, അവരുടെ സൈൻ-ഇൻ എന്നിവ എന്നെന്നേക്കുമായി ഇല്ലാതാക്കും; ഇത് തിരിച്ചെടുക്കാനാവില്ല. കമ്പനിയുടെ ലേണിംഗ് റെക്കോർഡ് സ്റ്റോറിലേക്ക് ഇതിനകം അയച്ച ഫലങ്ങൾ അവിടെത്തന്നെ തുടരും.",
+"First workday": "ആദ്യ ജോലിദിനം",
+"Latest workday": "ഏറ്റവും പുതിയ ജോലിദിനം",
+"Critical errors per day": "ദിവസേനയുള്ള ഗുരുതര പിഴവുകൾ",
+"Met every pass mark": "എല്ലാ വിജയ മാർക്കും നേടി",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "രണ്ട് ജോലിദിനങ്ങൾ പൂർത്തിയാക്കിയ പരിശീലനാർഥികൾ ഇതുവരെ ഇല്ല, അതിനാൽ താരതമ്യം ചെയ്യാൻ ഒന്നുമില്ല.",
+"Nobody has finished a workday yet.": "ഇതുവരെ ആരും ഒരു ജോലിദിനം പൂർത്തിയാക്കിയിട്ടില്ല.",
+"Before and after: the training pilot": "മുമ്പും ശേഷവും: പരിശീലന പൈലറ്റ്",
+"trainees who finished a workday": "ജോലിദിനം പൂർത്തിയാക്കിയ പരിശീലനാർഥികൾ",
+"with two or more workdays": "രണ്ടോ അതിലധികമോ ജോലിദിനങ്ങളുള്ളവർ",
+"The group, first workday to latest": "ഗ്രൂപ്പ്: ആദ്യ ജോലിദിനം മുതൽ ഏറ്റവും പുതിയത് വരെ",
+"Each trainee": "ഓരോ പരിശീലനാർഥിയും",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "ഓരോ പരിശീലനാർഥിയുടെയും പൂർത്തിയാക്കിയ ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനം. നക്ഷത്രങ്ങൾ സുരക്ഷ, കാര്യക്ഷമത, സേവനം എന്നിവയിൽ 0 മുതൽ 3 വരെയാണ്. ഗ്രൂപ്പ് കണക്കുകളിൽ രണ്ടോ അതിലധികമോ ജോലിദിനങ്ങളുള്ള പരിശീലനാർഥികളെ മാത്രം ഉൾപ്പെടുത്തിയിരിക്കുന്നു. പരിശീലകൻ നിശ്ചയിച്ച നക്ഷത്രങ്ങൾ എല്ലാ വിഭാഗങ്ങളും നേടിയാൽ വിജയ മാർക്ക് നേടിയതായി കണക്കാക്കും.",
+"Before and after": "മുമ്പും ശേഷവും",
+"Score": "സ്കോർ",
+"Trainee": "പരിശീലനാർഥി",
+"Workdays": "ജോലിദിനങ്ങൾ",
+"improved": "മെച്ചപ്പെട്ടു",
+"unchanged or lower": "മാറ്റമില്ല അല്ലെങ്കിൽ കുറഞ്ഞു",
+"One workday so far": "ഇതുവരെ ഒരു ജോലിദിനം"
 },
 "templates": [
 [
@@ -4809,6 +4828,10 @@ window.OTR_I18N.ml = {
 [
 "{0}: all data erased",
 "{0}: എല്ലാ ഡാറ്റയും മായ്ച്ചു"
+],
+[
+"{0} stars",
+"{0} നക്ഷത്രങ്ങൾ"
 ]
 ],
 "keep": [
