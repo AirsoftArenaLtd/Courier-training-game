@@ -15,7 +15,7 @@ available (see [Running it at a company](#running-it-at-a-company)).
 
 - **Easiest:** double-click `index.html` (it works straight from disk).
 - **Or serve it:** `python -m http.server 8080` in this folder, then open http://localhost:8080.
-- **Offline:** the page loads Phaser from the jsdelivr CDN, falling back to the local copy in `lib/phaser.min.js`.
+- **Offline:** everything is local (`lib/phaser.min.js`, `lib/three.min.js`, the game's own files): the game makes no request to the internet (`node test/offline.js` checks it). See `docs/IT-NOTES.md`.
 
 Desktop browser recommended. Sound is generated in-browser. Use the speaker button (or the pause menu) to mute.
 
