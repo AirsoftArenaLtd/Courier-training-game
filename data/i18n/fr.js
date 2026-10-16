@@ -3344,7 +3344,66 @@ window.OTR_I18N.fr = {
 "Confirm the path check": "Confirmer la vérification du trajet",
 "Check mirrors and signals before moving.": "Vérifie les rétroviseurs et les clignotants avant de bouger.",
 "Keep right. The speed limit is 25 mph.": "Tiens ta droite. La limitation de vitesse est de 25 mph.",
-"Keep right. The speed limit is 15 mph.": "Tiens ta droite. La limitation de vitesse est de 15 mph."
+"Keep right. The speed limit is 15 mph.": "Tiens ta droite. La limitation de vitesse est de 15 mph.",
+"Entered the yard while the dog was loose.": "Tu es entré dans la cour alors que le chien était en liberté.",
+"Slipped or tripped on the delivery path.": "Tu as glissé ou trébuché sur le chemin de livraison.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "Tu as glissé ou trébuché. Regarde le chemin et fais de petits pas prudents.",
+"Stay outside the gate and call the owner.": "Reste devant le portail, à l'extérieur, et appelle le propriétaire.",
+"Waited outside while the owner secured the dog.": "Tu as attendu à l'extérieur pendant que le propriétaire mettait le chien en sécurité.",
+"The owner has secured the dog. The gate is safe to use.": "Le propriétaire a mis le chien en sécurité. Tu peux utiliser le portail sans risque.",
+"Approach the gate from outside.": "Approche-toi du portail depuis l'extérieur.",
+"Opened the gate while the dog was loose.": "Tu as ouvert le portail alors que le chien était en liberté.",
+"The gate is open. Keep away from the loose dog.": "Le portail est ouvert. Reste loin du chien en liberté.",
+"Move close enough to inspect the path.": "Approche-toi assez pour examiner le chemin.",
+"Use short, careful steps or walk around the slippery patch.": "Fais de petits pas prudents ou contourne la zone glissante.",
+"Put the parcel on a cargo shelf before clearing the path.": "Pose le colis sur une étagère de chargement avant de dégager le chemin.",
+"The trip hazard is clear of the path.": "L'obstacle qui risquait de te faire trébucher n'est plus sur le chemin.",
+"The label does not match this door. Keep the parcel and report an address exception.": "L'étiquette ne correspond pas à cette porte. Garde le colis et signale une exception d'adresse.",
+"Check the photo ID at the door first.": "Vérifie d'abord la pièce d'identité avec photo à la porte.",
+"Your ID decision is recorded. Follow the delivery requirements.": "Ta décision sur la pièce d'identité est enregistrée. Respecte les exigences de livraison.",
+"The recipient must be present with the parcel before signing.": "Le destinataire doit être présent avec le colis avant de signer.",
+"The signature and printed name are recorded.": "La signature et le nom en lettres capitales sont enregistrés.",
+"Speak to the customer at the door first.": "Parle d'abord au client à la porte.",
+"The customer response is already recorded.": "La réponse au client est déjà enregistrée.",
+"Acknowledged the problem and offered a clear next step.": "Tu as reconnu le problème et proposé une prochaine étape claire.",
+"Argued with the customer instead of helping.": "Tu t'es disputé avec le client au lieu de l'aider.",
+"The customer is ready to continue calmly.": "Le client est prêt à poursuivre calmement.",
+"The customer is more upset. Review your response in the debrief.": "Le client est encore plus mécontent. Revois ta réponse lors du débriefing.",
+"Checked the label against the door and recorded the address response.": "Tu as comparé l'étiquette à la porte et enregistré la réponse pour l'adresse.",
+"Checked the ID requirements before recording the outcome.": "Tu as vérifié les exigences sur la pièce d'identité avant d'enregistrer le résultat.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "Tu as enregistré un résultat pour un colis soumis à une limite d'âge sans avoir terminé le contrôle obligatoire de la pièce d'identité avec photo.",
+"Completed the stop without addressing the customer’s concern.": "Tu as terminé l'arrêt sans répondre à la préoccupation du client.",
+"Recorded the response to unsafe access with a loose dog.": "Tu as enregistré ta réaction face à un accès dangereux à cause d'un chien en liberté.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "Un chien en liberté empêche d'accéder en sécurité. Reste à l'extérieur du portail ou enregistre une exception.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "Une pièce d'identité avec photo et la signature d'un adulte sont obligatoires. Le destinataire doit avoir 21 ans ou plus.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "Enregistre la signature du destinataire et son nom en lettres capitales avant de remettre le colis.",
+"Nobody is present to receive the parcel.": "Personne n'est là pour recevoir le colis.",
+"Review the photo ID": "Examiner la pièce d'identité avec photo",
+"Check the photo ID": "Vérifier la pièce d'identité avec photo",
+"Review the signature": "Examiner la signature",
+"Capture the signature": "Recueillir la signature",
+"Speak with the customer": "Parler au client",
+"Record the delivery outcome": "Enregistrer le résultat de la livraison",
+"The recipient signs below.": "Le destinataire signe ci-dessous.",
+"Record the name of the person who signs.": "Enregistre le nom de la personne qui signe.",
+"Record a delivery exception": "Enregistrer une exception de livraison",
+"Delivery checks": "Contrôles de livraison",
+"Retained the parcel and recorded the delivery exception.": "Tu as gardé le colis et enregistré l'exception de livraison.",
+"Keep the gate shut. A dog is loose.": "Garde le portail fermé. Un chien est en liberté.",
+"A dog is loose in the yard": "Un chien est en liberté dans la cour",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "Garde le portail fermé. Appelle le propriétaire pour qu'il mette le chien en sécurité avant d'entrer, ou enregistre une exception d'accès dangereux.",
+"Call the owner to secure the dog": "Appeler le propriétaire pour qu'il mette le chien en sécurité",
+"Record an unsafe-access exception": "Enregistrer une exception d'accès dangereux",
+"Open the gate with the dog loose": "Ouvrir le portail alors que le chien est en liberté",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "Compare les deux photos. Dans cet exercice, le destinataire doit avoir 21 ans ou plus.",
+"Accept the photo ID": "Accepter la pièce d'identité avec photo",
+"Decline the photo ID and retain the parcel": "Refuser la pièce d'identité avec photo et garder le colis",
+"At the door": "À la porte",
+"The customer is upset about a late delivery.": "Le client est mécontent d'une livraison en retard.",
+"Acknowledge the problem and offer a clear next step": "Reconnaître le problème et proposer une prochaine étape claire",
+"Blame the customer and argue": "Accuser le client et se disputer",
+"E checks the gate. Keep outside while the dog is loose.": "E vérifie le portail. Reste à l'extérieur tant que le chien est en liberté.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "Examine le chemin avec E. Maintiens Shift pour de petits pas prudents."
 },
 "templates": [
 [
@@ -4686,6 +4745,38 @@ window.OTR_I18N.fr = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"Personne à la porte : {0}"
+],
+[
+"Printed name: {0}",
+"Nom en lettres capitales : {0}"
+],
+[
+"Record {0}",
+"Enregistrer {0}"
+],
+[
+"Name on ID: {0}",
+"Nom sur la pièce d'identité : {0}"
+],
+[
+"Date of birth: {0}",
+"Date de naissance : {0}"
+],
+[
+"Expires: {0}",
+"Expire le : {0}"
+],
+[
+"Training date: {0}",
+"Date de la formation : {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

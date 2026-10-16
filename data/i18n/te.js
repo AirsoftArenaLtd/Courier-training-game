@@ -3359,7 +3359,66 @@ window.OTR_I18N.te = {
 "Confirm the path check": "దారి తనిఖీని నిర్ధారించండి",
 "Check mirrors and signals before moving.": "కదలడానికి ముందు అద్దాలు, సిగ్నల్స్ చూడండి.",
 "Keep right. The speed limit is 25 mph.": "కుడివైపు ఉండండి. వేగ పరిమితి 25 mph.",
-"Keep right. The speed limit is 15 mph.": "కుడివైపు ఉండండి. వేగ పరిమితి 15 mph."
+"Keep right. The speed limit is 15 mph.": "కుడివైపు ఉండండి. వేగ పరిమితి 15 mph.",
+"Entered the yard while the dog was loose.": "కుక్క వదిలి ఉన్నప్పుడు మీరు పెరట్లోకి వెళ్లారు.",
+"Slipped or tripped on the delivery path.": "డెలివరీ దారిలో జారి పడ్డారు లేదా తడబడ్డారు.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "మీరు జారారు లేదా తడబడ్డారు. దారిని చూడండి, చిన్న జాగ్రత్త అడుగులు వేయండి.",
+"Stay outside the gate and call the owner.": "గేట్ బయటే ఉండండి, యజమానికి కాల్ చేయండి.",
+"Waited outside while the owner secured the dog.": "యజమాని కుక్కను కట్టేసే వరకు బయట వేచి ఉన్నారు.",
+"The owner has secured the dog. The gate is safe to use.": "యజమాని కుక్కను కట్టేశారు. గేట్ వాడటం సురక్షితం.",
+"Approach the gate from outside.": "బయట నుండి గేట్ దగ్గరకు వెళ్లండి.",
+"Opened the gate while the dog was loose.": "కుక్క వదిలి ఉన్నప్పుడు గేట్ తెరిచారు.",
+"The gate is open. Keep away from the loose dog.": "గేట్ తెరిచి ఉంది. వదిలి ఉన్న కుక్కకు దూరంగా ఉండండి.",
+"Move close enough to inspect the path.": "దారిని పరిశీలించడానికి సరిపడా దగ్గరకు వెళ్లండి.",
+"Use short, careful steps or walk around the slippery patch.": "చిన్న జాగ్రత్త అడుగులు వేయండి లేదా జారే చోటును చుట్టి నడవండి.",
+"Put the parcel on a cargo shelf before clearing the path.": "దారిని శుభ్రం చేసే ముందు ప్యాకేజీని కార్గో అరలో పెట్టండి.",
+"The trip hazard is clear of the path.": "తడబడే అడ్డంకి దారి నుండి తొలగిపోయింది.",
+"The label does not match this door. Keep the parcel and report an address exception.": "లేబుల్ ఈ తలుపుకు సరిపోలడం లేదు. ప్యాకేజీని మీ వద్దే ఉంచి, చిరునామా మినహాయింపు నమోదు చేయండి.",
+"Check the photo ID at the door first.": "ముందు తలుపు వద్ద ఫోటో ID చూడండి.",
+"Your ID decision is recorded. Follow the delivery requirements.": "ID పై మీ నిర్ణయం నమోదైంది. డెలివరీ నిబంధనలను పాటించండి.",
+"The recipient must be present with the parcel before signing.": "సంతకం చేసే ముందు గ్రహీత ప్యాకేజీ దగ్గర ఉండాలి.",
+"The signature and printed name are recorded.": "సంతకం, ముద్రిత పేరు నమోదయ్యాయి.",
+"Speak to the customer at the door first.": "ముందు తలుపు వద్ద కస్టమర్‌తో మాట్లాడండి.",
+"The customer response is already recorded.": "కస్టమర్ స్పందన ఇప్పటికే నమోదైంది.",
+"Acknowledged the problem and offered a clear next step.": "సమస్యను అంగీకరించి, స్పష్టమైన తదుపరి అడుగు చెప్పారు.",
+"Argued with the customer instead of helping.": "సహాయం చేయకుండా కస్టమర్‌తో వాదించారు.",
+"The customer is ready to continue calmly.": "కస్టమర్ ప్రశాంతంగా కొనసాగడానికి సిద్ధంగా ఉన్నారు.",
+"The customer is more upset. Review your response in the debrief.": "కస్టమర్ మరింత కలత చెందారు. డీబ్రీఫ్‌లో మీ స్పందనను సమీక్షించండి.",
+"Checked the label against the door and recorded the address response.": "లేబుల్‌ను తలుపుతో సరిచూసి, చిరునామా స్పందనను నమోదు చేశారు.",
+"Checked the ID requirements before recording the outcome.": "ఫలితం నమోదు చేసే ముందు ID నిబంధనలను తనిఖీ చేశారు.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "అవసరమైన ఫోటో ID తనిఖీ పూర్తి చేయకుండా వయోపరిమితి ఉన్న ప్యాకేజీ ఫలితాన్ని నమోదు చేశారు.",
+"Completed the stop without addressing the customer’s concern.": "కస్టమర్ ఆందోళనను పరిష్కరించకుండా స్టాప్ పూర్తి చేశారు.",
+"Recorded the response to unsafe access with a loose dog.": "వదిలి ఉన్న కుక్క వల్ల అసురక్షిత ప్రవేశానికి మీ స్పందనను నమోదు చేశారు.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "వదిలి ఉన్న కుక్క వల్ల సురక్షితంగా వెళ్లలేరు. గేట్ బయటే ఉండండి లేదా మినహాయింపు నమోదు చేయండి.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "ఫోటో ID, పెద్దవారి సంతకం అవసరం. గ్రహీత వయసు 21 లేదా అంతకంటే ఎక్కువ ఉండాలి.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "ప్యాకేజీ ఇచ్చే ముందు గ్రహీత సంతకం, ముద్రిత పేరు నమోదు చేయండి.",
+"Nobody is present to receive the parcel.": "ప్యాకేజీ తీసుకోవడానికి ఎవరూ లేరు.",
+"Review the photo ID": "ఫోటో IDని పరిశీలించండి",
+"Check the photo ID": "ఫోటో IDని తనిఖీ చేయండి",
+"Review the signature": "సంతకాన్ని పరిశీలించండి",
+"Capture the signature": "సంతకాన్ని తీసుకోండి",
+"Speak with the customer": "కస్టమర్‌తో మాట్లాడండి",
+"Record the delivery outcome": "డెలివరీ ఫలితాన్ని నమోదు చేయండి",
+"The recipient signs below.": "గ్రహీత కింద సంతకం చేస్తారు.",
+"Record the name of the person who signs.": "సంతకం చేసే వ్యక్తి పేరును నమోదు చేయండి.",
+"Record a delivery exception": "డెలివరీ మినహాయింపును నమోదు చేయండి",
+"Delivery checks": "డెలివరీ తనిఖీలు",
+"Retained the parcel and recorded the delivery exception.": "ప్యాకేజీని మీ వద్దే ఉంచి, డెలివరీ మినహాయింపును నమోదు చేశారు.",
+"Keep the gate shut. A dog is loose.": "గేట్ మూసే ఉంచండి. కుక్క వదిలి ఉంది.",
+"A dog is loose in the yard": "పెరట్లో కుక్క వదిలి ఉంది",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "గేట్ మూసే ఉంచండి. లోపలికి వెళ్లే ముందు కుక్కను కట్టేయమని యజమానికి కాల్ చేయండి, లేదా అసురక్షిత ప్రవేశ మినహాయింపు నమోదు చేయండి.",
+"Call the owner to secure the dog": "కుక్కను కట్టేయమని యజమానికి కాల్ చేయండి",
+"Record an unsafe-access exception": "అసురక్షిత ప్రవేశ మినహాయింపును నమోదు చేయండి",
+"Open the gate with the dog loose": "కుక్క వదిలి ఉండగా గేట్ తెరవండి",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "రెండు ఫోటోలను పోల్చండి. ఈ సాధనలో గ్రహీత వయసు 21 లేదా అంతకంటే ఎక్కువ ఉండాలి.",
+"Accept the photo ID": "ఫోటో IDని అంగీకరించండి",
+"Decline the photo ID and retain the parcel": "ఫోటో IDని తిరస్కరించి, ప్యాకేజీని మీ వద్దే ఉంచండి",
+"At the door": "తలుపు వద్ద",
+"The customer is upset about a late delivery.": "ఆలస్యమైన డెలివరీ గురించి కస్టమర్ కలత చెందారు.",
+"Acknowledge the problem and offer a clear next step": "సమస్యను అంగీకరించి, స్పష్టమైన తదుపరి అడుగు చెప్పండి",
+"Blame the customer and argue": "కస్టమర్‌ను నిందించి వాదించండి",
+"E checks the gate. Keep outside while the dog is loose.": "E తో గేట్‌ను చూడండి. కుక్క వదిలి ఉన్నప్పుడు బయటే ఉండండి.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E తో దారిని పరిశీలించండి. చిన్న జాగ్రత్త అడుగుల కోసం Shift నొక్కి ఉంచండి."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.te = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"తలుపు వద్ద ఉన్న వ్యక్తి: {0}"
+],
+[
+"Printed name: {0}",
+"ముద్రిత పేరు: {0}"
+],
+[
+"Record {0}",
+"{0} నమోదు చేయండి"
+],
+[
+"Name on ID: {0}",
+"IDలో పేరు: {0}"
+],
+[
+"Date of birth: {0}",
+"పుట్టిన తేదీ: {0}"
+],
+[
+"Expires: {0}",
+"గడువు ముగింపు: {0}"
+],
+[
+"Training date: {0}",
+"శిక్షణ తేదీ: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

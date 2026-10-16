@@ -3359,7 +3359,66 @@ window.OTR_I18N.gu = {
 "Confirm the path check": "રસ્તાની તપાસ પાક્કી કરો",
 "Check mirrors and signals before moving.": "આગળ વધતા પહેલાં મિરર અને સિગ્નલ તપાસો.",
 "Keep right. The speed limit is 25 mph.": "જમણી બાજુ રહો. ઝડપ મર્યાદા 25 mph છે.",
-"Keep right. The speed limit is 15 mph.": "જમણી બાજુ રહો. ઝડપ મર્યાદા 15 mph છે."
+"Keep right. The speed limit is 15 mph.": "જમણી બાજુ રહો. ઝડપ મર્યાદા 15 mph છે.",
+"Entered the yard while the dog was loose.": "કૂતરો છૂટો હતો ત્યારે તમે આંગણામાં પ્રવેશ્યા.",
+"Slipped or tripped on the delivery path.": "ડિલિવરીના રસ્તા પર તમે લપસ્યા અથવા ઠોકર ખાધી.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "તમે લપસ્યા અથવા ઠોકર ખાધી. રસ્તા પર નજર રાખો અને નાનાં, સાવચેતીભર્યાં પગલાં ભરો.",
+"Stay outside the gate and call the owner.": "દરવાજાની બહાર રહો અને માલિકને બોલાવો.",
+"Waited outside while the owner secured the dog.": "માલિકે કૂતરાને બાંધ્યો ત્યાં સુધી તમે બહાર રાહ જોઈ.",
+"The owner has secured the dog. The gate is safe to use.": "માલિકે કૂતરાને બાંધી દીધો છે. દરવાજો વાપરવા માટે સુરક્ષિત છે.",
+"Approach the gate from outside.": "બહારથી દરવાજા પાસે જાઓ.",
+"Opened the gate while the dog was loose.": "કૂતરો છૂટો હતો ત્યારે તમે દરવાજો ખોલ્યો.",
+"The gate is open. Keep away from the loose dog.": "દરવાજો ખુલ્લો છે. છૂટા કૂતરાથી દૂર રહો.",
+"Move close enough to inspect the path.": "રસ્તો તપાસી શકાય એટલા નજીક જાઓ.",
+"Use short, careful steps or walk around the slippery patch.": "નાનાં, સાવચેતીભર્યાં પગલાં ભરો અથવા લપસણી જગ્યાથી ફરીને ચાલો.",
+"Put the parcel on a cargo shelf before clearing the path.": "રસ્તો સાફ કરતાં પહેલાં પાર્સલ કાર્ગો છાજલી પર મૂકો.",
+"The trip hazard is clear of the path.": "ઠોકર ખવડાવતી અડચણ રસ્તા પરથી હટી ગઈ છે.",
+"The label does not match this door. Keep the parcel and report an address exception.": "લેબલ આ દરવાજા સાથે મેળ ખાતું નથી. પાર્સલ તમારી પાસે રાખો અને સરનામાનો અપવાદ નોંધો.",
+"Check the photo ID at the door first.": "પહેલાં દરવાજે ફોટો ઓળખપત્ર તપાસો.",
+"Your ID decision is recorded. Follow the delivery requirements.": "ઓળખપત્ર અંગેનો તમારો નિર્ણય નોંધાઈ ગયો છે. ડિલિવરીની જરૂરિયાતો મુજબ આગળ વધો.",
+"The recipient must be present with the parcel before signing.": "સહી કરતાં પહેલાં પાર્સલ લેનાર વ્યક્તિ પાર્સલ સાથે હાજર હોવી જોઈએ.",
+"The signature and printed name are recorded.": "સહી અને છાપેલું નામ નોંધાઈ ગયાં છે.",
+"Speak to the customer at the door first.": "પહેલાં દરવાજે ગ્રાહક સાથે વાત કરો.",
+"The customer response is already recorded.": "ગ્રાહકનો પ્રતિભાવ પહેલેથી નોંધાઈ ગયો છે.",
+"Acknowledged the problem and offered a clear next step.": "તમે સમસ્યા સ્વીકારી અને આગળનું સ્પષ્ટ પગલું જણાવ્યું.",
+"Argued with the customer instead of helping.": "મદદ કરવાને બદલે તમે ગ્રાહક સાથે દલીલ કરી.",
+"The customer is ready to continue calmly.": "ગ્રાહક શાંતિથી આગળ વધવા તૈયાર છે.",
+"The customer is more upset. Review your response in the debrief.": "ગ્રાહક વધુ નારાજ છે. ડિબ્રીફમાં તમારા પ્રતિભાવની સમીક્ષા કરો.",
+"Checked the label against the door and recorded the address response.": "તમે લેબલને દરવાજા સાથે ચકાસ્યું અને સરનામા અંગેનો પ્રતિભાવ નોંધ્યો.",
+"Checked the ID requirements before recording the outcome.": "પરિણામ નોંધતાં પહેલાં તમે ઓળખપત્રની જરૂરિયાતો તપાસી.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "જરૂરી ફોટો ઓળખપત્રની તપાસ પૂરી કર્યા વિના તમે ઉંમર-મર્યાદાવાળા પાર્સલનું પરિણામ નોંધ્યું.",
+"Completed the stop without addressing the customer’s concern.": "ગ્રાહકની ચિંતા સંભાળ્યા વિના તમે સ્ટોપ પૂરો કર્યો.",
+"Recorded the response to unsafe access with a loose dog.": "છૂટા કૂતરાને કારણે અસુરક્ષિત પ્રવેશ અંગેનો તમારો પ્રતિભાવ નોંધાયો.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "છૂટો કૂતરો સુરક્ષિત પ્રવેશ રોકે છે. દરવાજાની બહાર રહો અથવા અપવાદ નોંધો.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "ફોટો ઓળખપત્ર અને પુખ્ત વ્યક્તિની સહી જરૂરી છે. પાર્સલ લેનારની ઉંમર 21 કે તેથી વધુ હોવી જોઈએ.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "પાર્સલ સોંપતાં પહેલાં લેનારની સહી અને છાપેલું નામ નોંધો.",
+"Nobody is present to receive the parcel.": "પાર્સલ લેવા માટે કોઈ હાજર નથી.",
+"Review the photo ID": "ફોટો ઓળખપત્ર જુઓ",
+"Check the photo ID": "ફોટો ઓળખપત્ર તપાસો",
+"Review the signature": "સહી જુઓ",
+"Capture the signature": "સહી લો",
+"Speak with the customer": "ગ્રાહક સાથે વાત કરો",
+"Record the delivery outcome": "ડિલિવરીનું પરિણામ નોંધો",
+"The recipient signs below.": "પાર્સલ લેનાર નીચે સહી કરે છે.",
+"Record the name of the person who signs.": "સહી કરનાર વ્યક્તિનું નામ નોંધો.",
+"Record a delivery exception": "ડિલિવરીનો અપવાદ નોંધો",
+"Delivery checks": "ડિલિવરીની તપાસો",
+"Retained the parcel and recorded the delivery exception.": "તમે પાર્સલ તમારી પાસે રાખ્યું અને ડિલિવરીનો અપવાદ નોંધ્યો.",
+"Keep the gate shut. A dog is loose.": "દરવાજો બંધ રાખો. કૂતરો છૂટો છે.",
+"A dog is loose in the yard": "આંગણામાં કૂતરો છૂટો છે",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "દરવાજો બંધ રાખો. અંદર જતાં પહેલાં માલિકને કૂતરો બાંધવા બોલાવો, અથવા અસુરક્ષિત-પ્રવેશનો અપવાદ નોંધો.",
+"Call the owner to secure the dog": "કૂતરાને બાંધવા માલિકને બોલાવો",
+"Record an unsafe-access exception": "અસુરક્ષિત-પ્રવેશનો અપવાદ નોંધો",
+"Open the gate with the dog loose": "કૂતરો છૂટો હોય ત્યારે દરવાજો ખોલો",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "બંને ફોટા સરખાવો. આ કસરતમાં પાર્સલ લેનારની ઉંમર 21 કે તેથી વધુ હોવી જોઈએ.",
+"Accept the photo ID": "ફોટો ઓળખપત્ર સ્વીકારો",
+"Decline the photo ID and retain the parcel": "ફોટો ઓળખપત્ર નકારો અને પાર્સલ તમારી પાસે રાખો",
+"At the door": "દરવાજે",
+"The customer is upset about a late delivery.": "મોડી ડિલિવરીને કારણે ગ્રાહક નારાજ છે.",
+"Acknowledge the problem and offer a clear next step": "સમસ્યા સ્વીકારો અને આગળનું સ્પષ્ટ પગલું જણાવો",
+"Blame the customer and argue": "ગ્રાહકને દોષ આપો અને દલીલ કરો",
+"E checks the gate. Keep outside while the dog is loose.": "E થી દરવાજો તપાસાય છે. કૂતરો છૂટો હોય ત્યાં સુધી બહાર રહો.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E થી રસ્તો તપાસો. નાનાં, સાવચેતીભર્યાં પગલાં માટે Shift દબાવી રાખો."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.gu = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"દરવાજે રહેલી વ્યક્તિ: {0}"
+],
+[
+"Printed name: {0}",
+"છાપેલું નામ: {0}"
+],
+[
+"Record {0}",
+"{0} નોંધો"
+],
+[
+"Name on ID: {0}",
+"ઓળખપત્ર પરનું નામ: {0}"
+],
+[
+"Date of birth: {0}",
+"જન્મ તારીખ: {0}"
+],
+[
+"Expires: {0}",
+"મુદત પૂરી થાય: {0}"
+],
+[
+"Training date: {0}",
+"તાલીમની તારીખ: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

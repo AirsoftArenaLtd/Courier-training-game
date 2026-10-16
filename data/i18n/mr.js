@@ -3359,7 +3359,66 @@ window.OTR_I18N.mr = {
 "Confirm the path check": "मार्ग तपासणी निश्चित करा",
 "Check mirrors and signals before moving.": "निघण्यापूर्वी आरसे आणि सिग्नल तपासा.",
 "Keep right. The speed limit is 25 mph.": "उजवीकडे राहा. वेगमर्यादा 25 mph आहे.",
-"Keep right. The speed limit is 15 mph.": "उजवीकडे राहा. वेगमर्यादा 15 mph आहे."
+"Keep right. The speed limit is 15 mph.": "उजवीकडे राहा. वेगमर्यादा 15 mph आहे.",
+"Entered the yard while the dog was loose.": "कुत्रा मोकळा असताना अंगणात शिरलात.",
+"Slipped or tripped on the delivery path.": "डिलिव्हरीच्या वाटेवर घसरलात किंवा अडखळलात.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "तुम्ही घसरलात किंवा अडखळलात. वाट नीट पाहा आणि लहान, काळजीपूर्वक पावले टाका.",
+"Stay outside the gate and call the owner.": "गेटच्या बाहेरच थांबा आणि मालकाला फोन करा.",
+"Waited outside while the owner secured the dog.": "मालकाने कुत्र्याला बांधेपर्यंत बाहेर थांबलात.",
+"The owner has secured the dog. The gate is safe to use.": "मालकाने कुत्र्याला सुरक्षित बांधले आहे. गेट वापरणे सुरक्षित आहे.",
+"Approach the gate from outside.": "गेटजवळ बाहेरून जा.",
+"Opened the gate while the dog was loose.": "कुत्रा मोकळा असताना गेट उघडलात.",
+"The gate is open. Keep away from the loose dog.": "गेट उघडे आहे. मोकळ्या कुत्र्यापासून दूर राहा.",
+"Move close enough to inspect the path.": "वाट तपासण्याइतके जवळ जा.",
+"Use short, careful steps or walk around the slippery patch.": "लहान, काळजीपूर्वक पावले टाका किंवा घसरड्या जागेला वळसा घालून जा.",
+"Put the parcel on a cargo shelf before clearing the path.": "वाट मोकळी करण्यापूर्वी पार्सल कार्गो शेल्फवर ठेवा.",
+"The trip hazard is clear of the path.": "अडखळण्याचा धोका वाटेतून दूर झाला आहे.",
+"The label does not match this door. Keep the parcel and report an address exception.": "लेबल या दारासोबत जुळत नाही. पार्सल स्वतःकडे ठेवा आणि पत्त्याचा अपवाद नोंदवा.",
+"Check the photo ID at the door first.": "आधी दारावर फोटो ID तपासा.",
+"Your ID decision is recorded. Follow the delivery requirements.": "तुमचा ID निर्णय नोंदवला आहे. डिलिव्हरीच्या अटींचे पालन करा.",
+"The recipient must be present with the parcel before signing.": "सही करण्यापूर्वी प्राप्तकर्ता पार्सलसह हजर असला पाहिजे.",
+"The signature and printed name are recorded.": "सही आणि छापील नाव नोंदवले आहे.",
+"Speak to the customer at the door first.": "आधी दारावर ग्राहकाशी बोला.",
+"The customer response is already recorded.": "ग्राहकाचा प्रतिसाद आधीच नोंदवला आहे.",
+"Acknowledged the problem and offered a clear next step.": "समस्या मान्य केली आणि पुढची स्पष्ट पायरी सांगितली.",
+"Argued with the customer instead of helping.": "मदत करण्याऐवजी ग्राहकाशी वाद घातला.",
+"The customer is ready to continue calmly.": "ग्राहक शांतपणे पुढे जाण्यास तयार आहे.",
+"The customer is more upset. Review your response in the debrief.": "ग्राहक जास्त नाराज झाला आहे. डीब्रीफमध्ये तुमचा प्रतिसाद पुन्हा पाहा.",
+"Checked the label against the door and recorded the address response.": "लेबल दारासोबत पडताळले आणि पत्त्याचा प्रतिसाद नोंदवला.",
+"Checked the ID requirements before recording the outcome.": "निकाल नोंदवण्यापूर्वी ID च्या आवश्यकता तपासल्या.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "आवश्यक फोटो ID तपासणी पूर्ण न करता वयोमर्यादा असलेल्या पार्सलचा निकाल नोंदवला.",
+"Completed the stop without addressing the customer’s concern.": "ग्राहकाच्या तक्रारीकडे लक्ष न देता थांबा पूर्ण केला.",
+"Recorded the response to unsafe access with a loose dog.": "मोकळ्या कुत्र्यामुळे असुरक्षित प्रवेशाला दिलेला प्रतिसाद नोंदवला.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "मोकळा कुत्रा सुरक्षित प्रवेश अडवत आहे. गेटच्या बाहेर थांबा किंवा अपवाद नोंदवा.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "फोटो ID आणि प्रौढ व्यक्तीची सही आवश्यक आहे. प्राप्तकर्ता 21 किंवा त्यापेक्षा जास्त वयाचा असला पाहिजे.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "पार्सल देण्यापूर्वी प्राप्तकर्त्याची सही आणि छापील नाव नोंदवा.",
+"Nobody is present to receive the parcel.": "पार्सल स्वीकारण्यासाठी कोणीही हजर नाही.",
+"Review the photo ID": "फोटो ID पाहा",
+"Check the photo ID": "फोटो ID तपासा",
+"Review the signature": "सही पाहा",
+"Capture the signature": "सही घ्या",
+"Speak with the customer": "ग्राहकाशी बोला",
+"Record the delivery outcome": "डिलिव्हरीचा निकाल नोंदवा",
+"The recipient signs below.": "प्राप्तकर्ता खाली सही करतो.",
+"Record the name of the person who signs.": "सही करणाऱ्या व्यक्तीचे नाव नोंदवा.",
+"Record a delivery exception": "डिलिव्हरी अपवाद नोंदवा",
+"Delivery checks": "डिलिव्हरी तपासण्या",
+"Retained the parcel and recorded the delivery exception.": "पार्सल स्वतःकडे ठेवले आणि डिलिव्हरी अपवाद नोंदवला.",
+"Keep the gate shut. A dog is loose.": "गेट बंद ठेवा. कुत्रा मोकळा आहे.",
+"A dog is loose in the yard": "अंगणात कुत्रा मोकळा आहे",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "गेट बंद ठेवा. आत जाण्यापूर्वी मालकाला फोन करून कुत्र्याला बांधायला सांगा, किंवा असुरक्षित प्रवेशाचा अपवाद नोंदवा.",
+"Call the owner to secure the dog": "मालकाला फोन करून कुत्र्याला बांधायला सांगा",
+"Record an unsafe-access exception": "असुरक्षित प्रवेशाचा अपवाद नोंदवा",
+"Open the gate with the dog loose": "कुत्रा मोकळा असताना गेट उघडा",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "दोन्ही फोटो जुळवून पाहा. या सरावात प्राप्तकर्ता 21 किंवा त्यापेक्षा जास्त वयाचा असला पाहिजे.",
+"Accept the photo ID": "फोटो ID स्वीकारा",
+"Decline the photo ID and retain the parcel": "फोटो ID नाकारा आणि पार्सल स्वतःकडे ठेवा",
+"At the door": "दारावर",
+"The customer is upset about a late delivery.": "ग्राहक उशिरा झालेल्या डिलिव्हरीमुळे नाराज आहे.",
+"Acknowledge the problem and offer a clear next step": "समस्या मान्य करा आणि पुढची स्पष्ट पायरी सांगा",
+"Blame the customer and argue": "ग्राहकाला दोष द्या आणि वाद घाला",
+"E checks the gate. Keep outside while the dog is loose.": "E ने गेट तपासा. कुत्रा मोकळा असताना बाहेरच राहा.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ने वाट तपासा. लहान, काळजीपूर्वक पावले टाकण्यासाठी Shift दाबून ठेवा."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.mr = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"दारावरील व्यक्ती: {0}"
+],
+[
+"Printed name: {0}",
+"छापील नाव: {0}"
+],
+[
+"Record {0}",
+"{0} नोंदवा"
+],
+[
+"Name on ID: {0}",
+"ID वरील नाव: {0}"
+],
+[
+"Date of birth: {0}",
+"जन्मतारीख: {0}"
+],
+[
+"Expires: {0}",
+"मुदत संपते: {0}"
+],
+[
+"Training date: {0}",
+"प्रशिक्षणाची तारीख: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

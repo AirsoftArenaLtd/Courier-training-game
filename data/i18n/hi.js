@@ -3358,7 +3358,66 @@ window.OTR_I18N.hi = {
 "Confirm the path check": "रास्ते की जाँच की पुष्टि करें",
 "Check mirrors and signals before moving.": "चलने से पहले शीशे और सिग्नल जाँचें।",
 "Keep right. The speed limit is 25 mph.": "दाईं ओर रहें। गति सीमा 25 mph है।",
-"Keep right. The speed limit is 15 mph.": "दाईं ओर रहें। गति सीमा 15 mph है।"
+"Keep right. The speed limit is 15 mph.": "दाईं ओर रहें। गति सीमा 15 mph है।",
+"Entered the yard while the dog was loose.": "कुत्ता खुला था, फिर भी आप आँगन में घुस गए।",
+"Slipped or tripped on the delivery path.": "डिलीवरी के रास्ते पर फिसल गए या ठोकर खा गए।",
+"You slipped or tripped. Look at the path and use short, careful steps.": "आप फिसल गए या ठोकर खा गए। रास्ते को देखें और छोटे, सावधान कदम रखें।",
+"Stay outside the gate and call the owner.": "गेट के बाहर रहें और मालिक को बुलाएँ।",
+"Waited outside while the owner secured the dog.": "मालिक के कुत्ते को बाँधने तक बाहर इंतज़ार किया।",
+"The owner has secured the dog. The gate is safe to use.": "मालिक ने कुत्ते को बाँध दिया है। गेट इस्तेमाल करना सुरक्षित है।",
+"Approach the gate from outside.": "बाहर से गेट के पास जाएँ।",
+"Opened the gate while the dog was loose.": "कुत्ता खुला था, फिर भी गेट खोल दिया।",
+"The gate is open. Keep away from the loose dog.": "गेट खुला है। खुले कुत्ते से दूर रहें।",
+"Move close enough to inspect the path.": "रास्ते की जाँच करने के लिए इतने पास जाएँ कि साफ़ दिखे।",
+"Use short, careful steps or walk around the slippery patch.": "छोटे, सावधान कदम रखें या फिसलन वाली जगह से बचकर चलें।",
+"Put the parcel on a cargo shelf before clearing the path.": "रास्ता साफ़ करने से पहले पार्सल को कार्गो शेल्फ़ पर रखें।",
+"The trip hazard is clear of the path.": "ठोकर लगने का ख़तरा रास्ते से हट गया है।",
+"The label does not match this door. Keep the parcel and report an address exception.": "लेबल इस दरवाज़े से मेल नहीं खाता। पार्सल अपने पास रखें और पते का अपवाद दर्ज करें।",
+"Check the photo ID at the door first.": "पहले दरवाज़े पर फ़ोटो आईडी जाँचें।",
+"Your ID decision is recorded. Follow the delivery requirements.": "आपका आईडी वाला फ़ैसला दर्ज हो गया है। डिलीवरी की शर्तों का पालन करें।",
+"The recipient must be present with the parcel before signing.": "हस्ताक्षर से पहले पाने वाले का पार्सल के साथ मौजूद होना ज़रूरी है।",
+"The signature and printed name are recorded.": "हस्ताक्षर और छपा हुआ नाम दर्ज हो गए हैं।",
+"Speak to the customer at the door first.": "पहले दरवाज़े पर ग्राहक से बात करें।",
+"The customer response is already recorded.": "ग्राहक का जवाब पहले ही दर्ज हो चुका है।",
+"Acknowledged the problem and offered a clear next step.": "समस्या मानी और आगे का साफ़ कदम बताया।",
+"Argued with the customer instead of helping.": "मदद करने के बजाय ग्राहक से बहस की।",
+"The customer is ready to continue calmly.": "ग्राहक शांति से आगे बढ़ने को तैयार है।",
+"The customer is more upset. Review your response in the debrief.": "ग्राहक और ज़्यादा नाराज़ है। डीब्रीफ़ में अपना जवाब देखें।",
+"Checked the label against the door and recorded the address response.": "लेबल को दरवाज़े से मिलाकर देखा और पते पर की गई कार्रवाई दर्ज की।",
+"Checked the ID requirements before recording the outcome.": "नतीजा दर्ज करने से पहले आईडी की शर्तें जाँचीं।",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "ज़रूरी फ़ोटो आईडी जाँच पूरी किए बिना उम्र-सीमा वाले पार्सल का नतीजा दर्ज किया।",
+"Completed the stop without addressing the customer’s concern.": "ग्राहक की चिंता पर ध्यान दिए बिना स्टॉप पूरा किया।",
+"Recorded the response to unsafe access with a loose dog.": "खुले कुत्ते की वजह से असुरक्षित पहुँच पर की गई कार्रवाई दर्ज की।",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "खुला कुत्ता सुरक्षित पहुँच रोक रहा है। गेट के बाहर रहें या अपवाद दर्ज करें।",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "फ़ोटो आईडी और वयस्क के हस्ताक्षर ज़रूरी हैं। पाने वाले की उम्र 21 साल या उससे ज़्यादा होनी चाहिए।",
+"Record the recipient’s signature and printed name before handing over the parcel.": "पार्सल सौंपने से पहले पाने वाले के हस्ताक्षर और छपा हुआ नाम दर्ज करें।",
+"Nobody is present to receive the parcel.": "पार्सल लेने के लिए कोई मौजूद नहीं है।",
+"Review the photo ID": "फ़ोटो आईडी देखें",
+"Check the photo ID": "फ़ोटो आईडी जाँचें",
+"Review the signature": "हस्ताक्षर देखें",
+"Capture the signature": "हस्ताक्षर लें",
+"Speak with the customer": "ग्राहक से बात करें",
+"Record the delivery outcome": "डिलीवरी का नतीजा दर्ज करें",
+"The recipient signs below.": "पाने वाला नीचे हस्ताक्षर करे।",
+"Record the name of the person who signs.": "हस्ताक्षर करने वाले व्यक्ति का नाम दर्ज करें।",
+"Record a delivery exception": "डिलीवरी का अपवाद दर्ज करें",
+"Delivery checks": "डिलीवरी की जाँचें",
+"Retained the parcel and recorded the delivery exception.": "पार्सल अपने पास रखा और डिलीवरी का अपवाद दर्ज किया।",
+"Keep the gate shut. A dog is loose.": "गेट बंद रखें। कुत्ता खुला है।",
+"A dog is loose in the yard": "आँगन में कुत्ता खुला है",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "गेट बंद रखें। अंदर जाने से पहले मालिक को बुलाकर कुत्ता बँधवाएँ, या असुरक्षित पहुँच का अपवाद दर्ज करें।",
+"Call the owner to secure the dog": "कुत्ता बाँधने के लिए मालिक को बुलाएँ",
+"Record an unsafe-access exception": "असुरक्षित पहुँच का अपवाद दर्ज करें",
+"Open the gate with the dog loose": "कुत्ता खुला होने पर भी गेट खोलें",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "दोनों फ़ोटो मिलाकर देखें। इस अभ्यास में पाने वाले की उम्र 21 साल या उससे ज़्यादा होनी चाहिए।",
+"Accept the photo ID": "फ़ोटो आईडी स्वीकार करें",
+"Decline the photo ID and retain the parcel": "फ़ोटो आईडी अस्वीकार करें और पार्सल अपने पास रखें",
+"At the door": "दरवाज़े पर",
+"The customer is upset about a late delivery.": "ग्राहक देर से हुई डिलीवरी से नाराज़ है।",
+"Acknowledge the problem and offer a clear next step": "समस्या मानें और आगे का साफ़ कदम बताएँ",
+"Blame the customer and argue": "ग्राहक को दोष दें और बहस करें",
+"E checks the gate. Keep outside while the dog is loose.": "E से गेट जाँचें। कुत्ता खुला हो तो बाहर रहें।",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E से रास्ते की जाँच करें। छोटे, सावधान कदमों के लिए Shift दबाए रखें।"
 },
 "templates": [
 [
@@ -4700,6 +4759,38 @@ window.OTR_I18N.hi = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"दरवाज़े पर मौजूद व्यक्ति: {0}"
+],
+[
+"Printed name: {0}",
+"छपा हुआ नाम: {0}"
+],
+[
+"Record {0}",
+"{0} दर्ज करें"
+],
+[
+"Name on ID: {0}",
+"आईडी पर नाम: {0}"
+],
+[
+"Date of birth: {0}",
+"जन्म तिथि: {0}"
+],
+[
+"Expires: {0}",
+"समाप्ति: {0}"
+],
+[
+"Training date: {0}",
+"प्रशिक्षण की तारीख़: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

@@ -3359,7 +3359,66 @@ window.OTR_I18N.ta = {
 "Confirm the path check": "பாதைச் சரிபார்ப்பை உறுதிசெய்ய",
 "Check mirrors and signals before moving.": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
 "Keep right. The speed limit is 25 mph.": "வலப்புறம் செல்லுங்கள். வேக வரம்பு 25 mph.",
-"Keep right. The speed limit is 15 mph.": "வலப்புறம் செல்லுங்கள். வேக வரம்பு 15 mph."
+"Keep right. The speed limit is 15 mph.": "வலப்புறம் செல்லுங்கள். வேக வரம்பு 15 mph.",
+"Entered the yard while the dog was loose.": "நாய் கட்டப்படாமல் இருந்தபோது முற்றத்துக்குள் நுழைந்தீர்கள்.",
+"Slipped or tripped on the delivery path.": "டெலிவரி பாதையில் வழுக்கி விழுந்தீர்கள் அல்லது தடுக்கி விழுந்தீர்கள்.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "நீங்கள் வழுக்கினீர்கள் அல்லது தடுக்கினீர்கள். பாதையைப் பாருங்கள், சிறிய, கவனமான அடிகளை வையுங்கள்.",
+"Stay outside the gate and call the owner.": "கேட்டுக்கு வெளியே இருங்கள், உரிமையாளரை அழையுங்கள்.",
+"Waited outside while the owner secured the dog.": "உரிமையாளர் நாயைக் கட்டிப் பாதுகாக்கும் வரை வெளியே காத்திருந்தீர்கள்.",
+"The owner has secured the dog. The gate is safe to use.": "உரிமையாளர் நாயைப் பாதுகாப்பாகக் கட்டிவிட்டார். கேட்டைப் பயன்படுத்துவது பாதுகாப்பானது.",
+"Approach the gate from outside.": "வெளியிலிருந்து கேட்டை நெருங்குங்கள்.",
+"Opened the gate while the dog was loose.": "நாய் கட்டப்படாமல் இருந்தபோது கேட்டைத் திறந்தீர்கள்.",
+"The gate is open. Keep away from the loose dog.": "கேட் திறந்திருக்கிறது. கட்டப்படாத நாயிடமிருந்து விலகி இருங்கள்.",
+"Move close enough to inspect the path.": "பாதையைச் சோதிக்க போதுமான அளவு அருகில் செல்லுங்கள்.",
+"Use short, careful steps or walk around the slippery patch.": "சிறிய, கவனமான அடிகளை வையுங்கள் அல்லது வழுக்கும் இடத்தைச் சுற்றி நடங்கள்.",
+"Put the parcel on a cargo shelf before clearing the path.": "பாதையை அகற்றும் முன் பார்சலை சரக்கு அலமாரியில் வையுங்கள்.",
+"The trip hazard is clear of the path.": "தடுக்கி விழும் ஆபத்து பாதையிலிருந்து அகற்றப்பட்டது.",
+"The label does not match this door. Keep the parcel and report an address exception.": "லேபிள் இந்த வாசலுடன் பொருந்தவில்லை. பார்சலை உங்களிடமே வைத்திருங்கள், முகவரி விதிவிலக்கைப் புகாரளியுங்கள்.",
+"Check the photo ID at the door first.": "முதலில் வாசலில் புகைப்பட ID-யைச் சரிபாருங்கள்.",
+"Your ID decision is recorded. Follow the delivery requirements.": "உங்கள் ID முடிவு பதிவு செய்யப்பட்டது. டெலிவரி தேவைகளைப் பின்பற்றுங்கள்.",
+"The recipient must be present with the parcel before signing.": "கையெழுத்திடும் முன் பெறுபவர் பார்சலுடன் நேரில் இருக்க வேண்டும்.",
+"The signature and printed name are recorded.": "கையெழுத்தும் அச்சிட்ட பெயரும் பதிவு செய்யப்பட்டன.",
+"Speak to the customer at the door first.": "முதலில் வாசலில் வாடிக்கையாளரிடம் பேசுங்கள்.",
+"The customer response is already recorded.": "வாடிக்கையாளர் பதில் ஏற்கனவே பதிவு செய்யப்பட்டுள்ளது.",
+"Acknowledged the problem and offered a clear next step.": "பிரச்சனையை ஏற்றுக்கொண்டு தெளிவான அடுத்த படியை வழங்கினீர்கள்.",
+"Argued with the customer instead of helping.": "உதவுவதற்குப் பதிலாக வாடிக்கையாளருடன் வாதிட்டீர்கள்.",
+"The customer is ready to continue calmly.": "வாடிக்கையாளர் அமைதியாகத் தொடரத் தயாராக இருக்கிறார்.",
+"The customer is more upset. Review your response in the debrief.": "வாடிக்கையாளர் மேலும் வருத்தமடைந்துள்ளார். உங்கள் பதிலை மறுஆய்வில் பாருங்கள்.",
+"Checked the label against the door and recorded the address response.": "லேபிளை வாசலுடன் ஒப்பிட்டுச் சரிபார்த்து, முகவரி தொடர்பான பதிலைப் பதிவு செய்தீர்கள்.",
+"Checked the ID requirements before recording the outcome.": "முடிவைப் பதிவு செய்யும் முன் ID தேவைகளைச் சரிபார்த்தீர்கள்.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "தேவையான புகைப்பட ID சரிபார்ப்பை முடிக்காமல் வயது வரம்புள்ள பொருளின் முடிவைப் பதிவு செய்தீர்கள்.",
+"Completed the stop without addressing the customer’s concern.": "வாடிக்கையாளரின் கவலையைக் கவனிக்காமல் நிறுத்தத்தை முடித்தீர்கள்.",
+"Recorded the response to unsafe access with a loose dog.": "கட்டப்படாத நாயால் பாதுகாப்பற்ற அணுகல் குறித்த பதிலைப் பதிவு செய்தீர்கள்.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "கட்டப்படாத நாய் பாதுகாப்பான அணுகலைத் தடுக்கிறது. கேட்டுக்கு வெளியே இருங்கள் அல்லது விதிவிலக்கைப் பதிவு செய்யுங்கள்.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.",
+"Nobody is present to receive the parcel.": "பார்சலைப் பெற யாரும் இல்லை.",
+"Review the photo ID": "புகைப்பட ID-யைப் பாருங்கள்",
+"Check the photo ID": "புகைப்பட ID-யைச் சரிபாருங்கள்",
+"Review the signature": "கையெழுத்தைப் பாருங்கள்",
+"Capture the signature": "கையெழுத்தைப் பெறுங்கள்",
+"Speak with the customer": "வாடிக்கையாளரிடம் பேசுங்கள்",
+"Record the delivery outcome": "டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+"The recipient signs below.": "பெறுபவர் கீழே கையெழுத்திடுகிறார்.",
+"Record the name of the person who signs.": "கையெழுத்திடுபவரின் பெயரைப் பதிவு செய்யுங்கள்.",
+"Record a delivery exception": "டெலிவரி விதிவிலக்கைப் பதிவு செய்யுங்கள்",
+"Delivery checks": "டெலிவரி சரிபார்ப்புகள்",
+"Retained the parcel and recorded the delivery exception.": "பார்சலை உங்களிடமே வைத்து, டெலிவரி விதிவிலக்கைப் பதிவு செய்தீர்கள்.",
+"Keep the gate shut. A dog is loose.": "கேட்டை மூடியே வையுங்கள். ஒரு நாய் கட்டப்படாமல் உள்ளது.",
+"A dog is loose in the yard": "முற்றத்தில் ஒரு நாய் கட்டப்படாமல் உள்ளது",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "கேட்டை மூடியே வையுங்கள். உள்ளே நுழையும் முன் நாயைக் கட்டிப் பாதுகாக்க உரிமையாளரை அழையுங்கள், அல்லது பாதுகாப்பற்ற அணுகல் விதிவிலக்கைப் பதிவு செய்யுங்கள்.",
+"Call the owner to secure the dog": "நாயைக் கட்டிப் பாதுகாக்க உரிமையாளரை அழையுங்கள்",
+"Record an unsafe-access exception": "பாதுகாப்பற்ற அணுகல் விதிவிலக்கைப் பதிவு செய்யுங்கள்",
+"Open the gate with the dog loose": "நாய் கட்டப்படாமல் இருக்கும்போது கேட்டைத் திறங்கள்",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "இரு புகைப்படங்களையும் ஒப்பிடுங்கள். இந்தப் பயிற்சியில் பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+"Accept the photo ID": "புகைப்பட ID-யை ஏற்றுக்கொள்ளுங்கள்",
+"Decline the photo ID and retain the parcel": "புகைப்பட ID-யை நிராகரித்து பார்சலை உங்களிடமே வைத்திருங்கள்",
+"At the door": "வாசலில்",
+"The customer is upset about a late delivery.": "தாமதமான டெலிவரியால் வாடிக்கையாளர் வருத்தத்தில் இருக்கிறார்.",
+"Acknowledge the problem and offer a clear next step": "பிரச்சனையை ஏற்றுக்கொண்டு தெளிவான அடுத்த படியை வழங்குங்கள்",
+"Blame the customer and argue": "வாடிக்கையாளர் மீது பழி சுமத்தி வாதிடுங்கள்",
+"E checks the gate. Keep outside while the dog is loose.": "E கேட்டைச் சோதிக்கும். நாய் கட்டப்படாமல் இருக்கும்போது வெளியே இருங்கள்.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E மூலம் பாதையைச் சோதியுங்கள். சிறிய, கவனமான அடிகளுக்கு Shift-ஐ அழுத்திப் பிடியுங்கள்."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.ta = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"வாசலில் இருப்பவர்: {0}"
+],
+[
+"Printed name: {0}",
+"அச்சிட்ட பெயர்: {0}"
+],
+[
+"Record {0}",
+"{0}-ஐப் பதிவு செய்யுங்கள்"
+],
+[
+"Name on ID: {0}",
+"ID-யில் உள்ள பெயர்: {0}"
+],
+[
+"Date of birth: {0}",
+"பிறந்த தேதி: {0}"
+],
+[
+"Expires: {0}",
+"காலாவதி: {0}"
+],
+[
+"Training date: {0}",
+"பயிற்சி தேதி: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [
