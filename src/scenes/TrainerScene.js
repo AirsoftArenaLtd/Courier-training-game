@@ -158,7 +158,7 @@ class TrainerScene extends Phaser.Scene {
   manage(t) {
     const acct = OTR.identity.accounts && t.account;
     OTR.ui.modal(this, {
-      title: t.name, w: acct ? 840 : 560, h: acct ? 360 : 330, escClose: true,
+      title: t.name, w: acct ? 980 : 720, h: acct ? 360 : 330, escClose: true,
       // one literal, so the catalogue (test/tools/i18n-extract.js) has the whole text to translate
       body: acct ? 'Allow another attempt at every assessment they have not passed, reset all their progress (their old progress is kept on the server as a backup), or give them a new password to sign in with. Do this while they are not signed in.'
         : 'Allow another attempt at every assessment they have not passed, or reset all their progress (their old ' +
@@ -174,7 +174,30 @@ class TrainerScene extends Phaser.Scene {
           .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A))) },
         { label: 'Reset', skin: 'red', onClick: () => this.time.delayedCall(250, () => OTR.ui.confirm(this, `Reset ${t.name}?`, 'All their stars, assessments and route days start again from nothing.', () =>
           OTR.academy.trainerApi(`trainees/${encodeURIComponent(t.id)}`, 'DELETE').then(() => { OTR.ui.toast(this, `${t.name} was reset`, 0x2BC48A); this.loadTrainees(); })
-            .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { yes: 'Reset', danger: true })) }
+            .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { yes: 'Reset', danger: true })) },
+        { label: 'Their data', skin: 'ghost', onClick: () => this.time.delayedCall(250, () => this.manageData(t)) }
+      ]
+    });
+  }
+
+  /** What the training server holds about one trainee (docs/DATA.md): download it, or erase all of it. */
+  manageData(t) {
+    OTR.ui.modal(this, {
+      title: t.name, w: 760, h: 330, escClose: true,
+      body: 'Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.',
+      buttons: [
+        { label: 'Back', skin: 'ghost' },
+        { label: 'Download data', skin: 'purple', onClick: () => this.time.delayedCall(250, () => OTR.academy.trainerApi(`trainees/${encodeURIComponent(t.id)}/export`)
+          .then(data => {
+            const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+            const a = document.createElement('a'); a.href = url; a.download = `trainee-${String(t.id).replace(/[^\w.@-]/g, '_')}.json`;
+            document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+            OTR.ui.toast(this, `${t.name}: data downloaded`, 0x2BC48A);
+          }).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A))) },
+        { label: 'Erase all data', skin: 'red', onClick: () => this.time.delayedCall(250, () => OTR.ui.confirm(this, `Erase all data for ${t.name}?`,
+          'This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.', () =>
+          OTR.academy.trainerApi(`trainees/${encodeURIComponent(t.id)}/erase`, 'POST').then(() => { OTR.ui.toast(this, `${t.name}: all data erased`, 0x2BC48A); this.loadTrainees(); })
+            .catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { yes: 'Erase', danger: true })) }
       ]
     });
   }

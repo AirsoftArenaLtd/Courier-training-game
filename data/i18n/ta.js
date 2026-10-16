@@ -3418,7 +3418,12 @@ window.OTR_I18N.ta = {
 "Acknowledge the problem and offer a clear next step": "பிரச்சனையை ஏற்றுக்கொண்டு தெளிவான அடுத்த படியை வழங்குங்கள்",
 "Blame the customer and argue": "வாடிக்கையாளர் மீது பழி சுமத்தி வாதிடுங்கள்",
 "E checks the gate. Keep outside while the dog is loose.": "E கேட்டைச் சோதிக்கும். நாய் கட்டப்படாமல் இருக்கும்போது வெளியே இருங்கள்.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E மூலம் பாதையைச் சோதியுங்கள். சிறிய, கவனமான அடிகளுக்கு Shift-ஐ அழுத்திப் பிடியுங்கள்."
+"Inspect the path with E. Hold Shift for short, careful steps.": "E மூலம் பாதையைச் சோதியுங்கள். சிறிய, கவனமான அடிகளுக்கு Shift-ஐ அழுத்திப் பிடியுங்கள்.",
+"Their data": "அவர்களின் தரவு",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "இந்தப் பயிற்சி பெறுபவரைப் பற்றி பயிற்சி சர்வரில் உள்ள அனைத்தையும் கோப்பாகப் பதிவிறக்கலாம், அல்லது அனைத்தையும் நிரந்தரமாக அழிக்கலாம்: அவர்களின் முன்னேற்றம், அதன் அனைத்து காப்புப்பிரதிகள், அவர்களின் உள்நுழைவு.",
+"Download data": "தரவைப் பதிவிறக்கு",
+"Erase all data": "அனைத்துத் தரவையும் அழி",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "இது அவர்களின் முன்னேற்றம், அதன் அனைத்து காப்புப்பிரதிகள், அவர்களின் உள்நுழைவு ஆகியவற்றை நிரந்தரமாக நீக்கும்; இதைத் திரும்பப் பெற முடியாது. நிறுவனத்தின் கற்றல் பதிவுக் களஞ்சியத்துக்கு ஏற்கெனவே அனுப்பிய முடிவுகள் அங்கேயே இருக்கும்."
 },
 "templates": [
 [
@@ -4792,6 +4797,18 @@ window.OTR_I18N.ta = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: தரவு பதிவிறக்கப்பட்டது"
+],
+[
+"Erase all data for {0}?",
+"{0} என்பவரின் அனைத்துத் தரவையும் அழிக்கவா?"
+],
+[
+"{0}: all data erased",
+"{0}: அனைத்துத் தரவும் அழிக்கப்பட்டது"
 ]
 ],
 "keep": [

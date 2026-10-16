@@ -3418,7 +3418,12 @@ window.OTR_I18N.te = {
 "Acknowledge the problem and offer a clear next step": "సమస్యను అంగీకరించి, స్పష్టమైన తదుపరి అడుగు చెప్పండి",
 "Blame the customer and argue": "కస్టమర్‌ను నిందించి వాదించండి",
 "E checks the gate. Keep outside while the dog is loose.": "E తో గేట్‌ను చూడండి. కుక్క వదిలి ఉన్నప్పుడు బయటే ఉండండి.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E తో దారిని పరిశీలించండి. చిన్న జాగ్రత్త అడుగుల కోసం Shift నొక్కి ఉంచండి."
+"Inspect the path with E. Hold Shift for short, careful steps.": "E తో దారిని పరిశీలించండి. చిన్న జాగ్రత్త అడుగుల కోసం Shift నొక్కి ఉంచండి.",
+"Their data": "వారి డేటా",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ఈ శిక్షణార్థి గురించి శిక్షణ సర్వర్‌లో ఉన్న మొత్తం సమాచారాన్ని ఫైల్‌గా డౌన్‌లోడ్ చేయండి, లేదా దాన్నంతటినీ శాశ్వతంగా తొలగించండి: వారి ప్రగతి, దాని అన్ని బ్యాకప్‌లు, వారి సైన్-ఇన్.",
+"Download data": "డేటా డౌన్‌లోడ్ చేయండి",
+"Erase all data": "మొత్తం డేటాను తొలగించండి",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ఇది వారి ప్రగతిని, దాని అన్ని బ్యాకప్‌లను, వారి సైన్-ఇన్‌ను శాశ్వతంగా తొలగిస్తుంది; దీన్ని తిరిగి పొందడం సాధ్యం కాదు. కంపెనీ లెర్నింగ్ రికార్డ్ స్టోర్‌కు ఇప్పటికే పంపిన ఫలితాలు అక్కడే ఉంటాయి."
 },
 "templates": [
 [
@@ -4792,6 +4797,18 @@ window.OTR_I18N.te = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: డేటా డౌన్‌లోడ్ అయింది"
+],
+[
+"Erase all data for {0}?",
+"{0} మొత్తం డేటాను తొలగించాలా?"
+],
+[
+"{0}: all data erased",
+"{0}: మొత్తం డేటా తొలగించబడింది"
 ]
 ],
 "keep": [

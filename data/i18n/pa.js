@@ -3419,7 +3419,12 @@ window.OTR_I18N.pa = {
 "Acknowledge the problem and offer a clear next step": "ਸਮੱਸਿਆ ਮੰਨੋ ਅਤੇ ਅਗਲਾ ਕਦਮ ਸਾਫ਼ ਦੱਸੋ",
 "Blame the customer and argue": "ਗਾਹਕ ਨੂੰ ਦੋਸ਼ ਦਿਓ ਅਤੇ ਬਹਿਸ ਕਰੋ",
 "E checks the gate. Keep outside while the dog is loose.": "E ਨਾਲ ਗੇਟ ਦੇਖੋ। ਕੁੱਤਾ ਖੁੱਲ੍ਹਾ ਹੋਣ ਤੱਕ ਬਾਹਰ ਰਹੋ।",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E ਨਾਲ ਰਸਤੇ ਦੀ ਜਾਂਚ ਕਰੋ। ਛੋਟੇ, ਸਾਵਧਾਨ ਕਦਮਾਂ ਲਈ Shift ਦਬਾਈ ਰੱਖੋ।"
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ਨਾਲ ਰਸਤੇ ਦੀ ਜਾਂਚ ਕਰੋ। ਛੋਟੇ, ਸਾਵਧਾਨ ਕਦਮਾਂ ਲਈ Shift ਦਬਾਈ ਰੱਖੋ।",
+"Their data": "ਉਨ੍ਹਾਂ ਦਾ ਡੇਟਾ",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ਇਸ ਸਿਖਿਆਰਥੀ ਬਾਰੇ ਸਿਖਲਾਈ ਸਰਵਰ ਕੋਲ ਜੋ ਕੁਝ ਵੀ ਹੈ, ਉਹ ਸਭ ਫ਼ਾਈਲ ਵਜੋਂ ਡਾਊਨਲੋਡ ਕਰੋ, ਜਾਂ ਸਭ ਕੁਝ ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾ ਦਿਓ: ਉਨ੍ਹਾਂ ਦੀ ਤਰੱਕੀ, ਉਸ ਦੇ ਸਾਰੇ ਬੈਕਅੱਪ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਈਨ-ਇਨ।",
+"Download data": "ਡੇਟਾ ਡਾਊਨਲੋਡ ਕਰੋ",
+"Erase all data": "ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਓ",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ਇਹ ਉਨ੍ਹਾਂ ਦੀ ਤਰੱਕੀ, ਉਸ ਦੇ ਸਾਰੇ ਬੈਕਅੱਪ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਈਨ-ਇਨ ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਕੰਪਨੀ ਦੇ ਲਰਨਿੰਗ ਰਿਕਾਰਡ ਸਟੋਰ ਨੂੰ ਪਹਿਲਾਂ ਹੀ ਭੇਜੇ ਜਾ ਚੁੱਕੇ ਨਤੀਜੇ ਉੱਥੇ ਹੀ ਰਹਿਣਗੇ।"
 },
 "templates": [
 [
@@ -4793,6 +4798,18 @@ window.OTR_I18N.pa = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: ਡੇਟਾ ਡਾਊਨਲੋਡ ਹੋ ਗਿਆ"
+],
+[
+"Erase all data for {0}?",
+"{0} ਦਾ ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਉਣਾ ਹੈ?"
+],
+[
+"{0}: all data erased",
+"{0}: ਸਾਰਾ ਡੇਟਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ"
 ]
 ],
 "keep": [

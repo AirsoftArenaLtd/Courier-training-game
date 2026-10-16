@@ -20,6 +20,7 @@
  * Settings (environment variables, or the same names in server/config.json):
  *   OTR_PORT (8080) · OTR_HOST (0.0.0.0) · OTR_DATA_DIR (server/data) · OTR_USER_HEADER · OTR_NAME_HEADER
  *   OTR_ALLOW_QUERY_USER (1, or 0 with accounts on) · OTR_TRAINER_PIN (none: trainer tools are off until one is set)
+ *   OTR_BACKUP_DAYS (30: how long a reset trainee's old progress is kept as a backup; 0 keeps it for ever)
  *   OTR_XAPI_ENDPOINT · OTR_XAPI_AUTH · OTR_XAPI_HOMEPAGE (xAPI statements for finished workdays, off unless an endpoint is set)
  *   OTR_ACCOUNTS (on when accounts.json exists; 1 on, 0 off) · OTR_SESSION_HOURS (10) · OTR_SESSION_IDLE_MINUTES (120)
  *   OTR_LOCK_AFTER (5) · OTR_LOCK_MINUTES (15) · OTR_COOKIE_SECURE (auto: on over HTTPS; 1 always)
@@ -41,6 +42,8 @@
  *   GET  api/trainees               [{ id, name, savedAt, summary }]
  *   GET  api/trainees/<id>          { id, progress }
  *   DELETE api/trainees/<id>        resets that trainee (their old file is kept as <id>.json.<time>.bak)
+ *   GET  api/trainees/<id>/export   everything held about the trainee, as a JSON download (never a password hash)
+ *   POST api/trainees/<id>/erase    deletes it all: progress, its backups, the sign-in, unsent xAPI statements (audit.log keeps the id and time)
  *   POST api/trainees/<id>/allow    one more attempt at every assessment they have not passed
  *   With accounts on, trainer only:
  *   GET  api/accounts               [{ id, name, mustChange, locked, createdAt, changedAt }]
@@ -146,6 +149,27 @@ function whoIs(req, url) {
 }
 
 const fileFor = (id) => path.join(PROGRESS, id.replace(/[^\w.@-]/g, '_') + '.json');
+const backupsFor = (id) => {
+  const base = path.basename(fileFor(id));
+  try { return fs.readdirSync(PROGRESS).filter(n => n.startsWith(base + '.') && n.endsWith('.bak')); } catch (e) { return []; }
+};
+// what the server did to a trainee's data and when (never the data itself): one JSON line per action, docs/DATA.md
+const AUDIT = path.join(DATA, 'audit.log');
+const audit = (action, id) => { try { fs.appendFileSync(AUDIT, JSON.stringify({ at: new Date().toISOString(), action, trainee: id }) + '\n'); } catch (e) { /* the action still happened */ } };
+// reset keeps the old file as a backup for a while; the backups go after OTR_BACKUP_DAYS (30; 0 keeps them for ever)
+const BACKUP_DAYS = Number(cfg('OTR_BACKUP_DAYS', 30));
+function purgeBackups() {
+  if (!(BACKUP_DAYS > 0)) return 0;
+  let n = 0;
+  try {
+    fs.readdirSync(PROGRESS).filter(f => f.endsWith('.bak')).forEach(f => {
+      const full = path.join(PROGRESS, f);
+      try { if (Date.now() - fs.statSync(full).mtimeMs > BACKUP_DAYS * 86400000) { fs.unlinkSync(full); n++; } } catch (e) { /* gone already */ }
+    });
+  } catch (e) { /* no folder */ }
+  if (n) audit('backups-purged:' + n, '*');
+  return n;
+}
 const readJSON = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 function writeJSON(f, obj) {
   const tmp = f + '.' + process.pid + '.tmp';
@@ -269,6 +293,28 @@ async function api(req, res, url) {
         writeJSON(f2, p);
         return send(res, 200, { ok: true, allowed: n });
       }
+      if (id.endsWith('/export') && req.method === 'GET') {
+        id = id.slice(0, -'/export'.length);
+        const p = readJSON(fileFor(id), null), acct = accounts && accounts.has(id) ? accounts.list().find(a => a.id === id) : null;
+        if (!p && !acct) return send(res, 404, { error: 'No data for that trainee.' });
+        audit('export', id);
+        return send(res, 200, { exportedAt: new Date().toISOString(), id, name: (p && p.profile && p.profile.name) || (acct && acct.name) || names[id] || id,
+          account: acct, progress: p, backups: backupsFor(id), note: 'Everything the training server holds about this trainee (docs/DATA.md). Password hashes are never included.' },
+          { 'Content-Disposition': `attachment; filename="trainee-${id.replace(/[^\w.@-]/g, '_')}.json"` });
+      }
+      if (id.endsWith('/erase') && req.method === 'POST') {
+        id = id.slice(0, -'/erase'.length);
+        // all of it: progress, every backup of it, the sign-in (which ends their sessions) and statements still waiting for the learning record store
+        let removed = 0;
+        const f1 = fileFor(id);
+        if (fs.existsSync(f1)) { fs.unlinkSync(f1); removed++; }
+        backupsFor(id).forEach(n => { try { fs.unlinkSync(path.join(PROGRESS, n)); removed++; } catch (e) { /* gone */ } });
+        let account = false;
+        if (accounts && accounts.has(id)) { const r = accounts.removeAccount(id); if (!r.ok) return send(res, 500, { error: 'The sign-in could not be removed; nothing more was erased.' }); account = true; }
+        const queued = xapi.forget(id);
+        audit('erase', id);
+        return send(res, 200, { ok: true, removed, account, xapiQueued: queued, note: 'Statements already sent to a learning record store are held by that store.' });
+      }
       const f = fileFor(id);
       if (req.method === 'GET') return send(res, 200, { id, progress: readJSON(f, null) });
       if (req.method === 'DELETE') {
@@ -339,6 +385,7 @@ const server = http.createServer((req, res) => {
 });
 
 if (require.main === module) {
+  purgeBackups(); setInterval(purgeBackups, 24 * 3600 * 1000).unref();
   server.listen(PORT, HOST, () => {
     console.log(`On The Route training server: http://localhost:${PORT}/`);
     console.log(`  trainee from: ${USER_HEADER} header${ALLOW_QUERY ? ' or ?user= on the link' : ' only'} · progress in ${DATA}`);
@@ -346,4 +393,4 @@ if (require.main === module) {
     if (accounts) console.log(`  sign-in: employee ID and password (${accounts.size} account${accounts.size === 1 ? '' : 's'}; docs/SIGN-IN.md)`);
   });
 }
-module.exports = { server, accounts, publicFile };
+module.exports = { server, accounts, publicFile, purgeBackups };
