@@ -28,7 +28,8 @@ OTR.fpHandheld = class {
     this.signatureToken=null;this.mode = aiming ? 'aim' : 'menu'; this.trigger = false; this.progress = 0; this.focusId = null;
     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
-    if (OTR.a11y) OTR.a11y.say(OTR.i18n.t(def.title) + '. ' + (def.lines || []).map(line => OTR.i18n.t(typeof line === 'string' ? line : line.text)).join(' '));
+    if(OTR.fpAccess)OTR.fpAccess.layoutDevice(this);
+    if (OTR.a11y) OTR.a11y.say([def.title,...(def.lines||[]).map(line=>typeof line==='string'?line:line.text),...(def.options||[]).map(o=>o.label)].map(t=>OTR.i18n.t(t)).join('. '));
     return true;
   }
   close(resume = true) {
@@ -59,7 +60,7 @@ OTR.fpHandheld = class {
       { label: 'Route', onPick: () => this.route() },
       ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[]),
       ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
-    ], footer: 'TAB put away' });
+    ], footer: OTR.fpAccess?`Press ${OTR.fpAccess.key('Tab')} to put the handheld away.`:'TAB put away' });
   }
   day(){
     const m=this.scene.model,d=m.routeDay.dispatch;
@@ -107,8 +108,8 @@ OTR.fpHandheld = class {
         options: [{ label: 'Back', onPick: () => this.home() }] }); return;
     }
     if (!this.show({ title: 'SCAN', lines: [
-      'Aim at the barcode on the parcel.', 'Hold Space or the left mouse button until the scan completes.'
-    ], options: [{ label: 'Cancel', onPick: () => this.home() }], footer: 'TAB put away' }, true)) return;
+      'Aim at the barcode on the parcel.', OTR.fpAccess?`Hold ${OTR.fpAccess.key('Space')} or the left mouse button until the scan completes.`:'Hold Space or the left mouse button until the scan completes.'
+    ], options: [{ label: 'Cancel', onPick: () => this.home() }], footer: OTR.fpAccess?`Press ${OTR.fpAccess.key('Tab')} to put the handheld away.`:'TAB put away' }, true)) return;
     // Locked-pointer trigger clicks must not also press a device button under the old cursor position.
     (this.device.optionBtns || []).forEach(button => button.bg.disableInteractive());
     this.mode = 'aim'; m.paused = false; this.scene.capture(); this.scene.sync();
