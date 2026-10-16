@@ -1,0 +1,83 @@
+{
+  "keyboard": {
+    "day": 4,
+    "weather": "ice",
+    "later": {
+      "departAt": 12.235819999999846,
+      "arrivals": [
+        16.026609999999653,
+        20.644919999999434,
+        24.994919999999187,
+        28.394919999998994,
+        33.50322999999921
+      ]
+    },
+    "seed": 1,
+    "keys": {
+      "KeyE": "KeyO",
+      "KeyW": "KeyI",
+      "KeyP": "KeyN",
+      "Tab": "KeyU",
+      "Space": "KeyL"
+    },
+    "pointerLock": false,
+    "narrated": 288
+  },
+  "motion": {
+    "weatherMoves": true,
+    "normalBusChanges": true,
+    "reducedWeatherAndLightsStayStill": true,
+    "cameraStaysStill": true
+  },
+  "filter": {
+    "off": {
+      "main": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "mirror": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "calls": 2,
+      "triangles": 4,
+      "textures": 2,
+      "geometries": 5,
+      "targetWidth": 832,
+      "targetHeight": 468,
+      "attachmentBytes": 3575808
+    },
+    "on": {
+      "main": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "mirror": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "calls": 2,
+      "triangles": 4,
+      "textures": 2,
+      "geometries": 5,
+      "targetWidth": 832,
+      "targetHeight": 468,
+      "attachmentBytes": 3575808
+    }
+  },
+  "layout": {
+    "bad": [],
+    "objectiveFont": 23,
+    "key": "KeyO"
+  },
+  "checks": 171,
+  "errors": []
+}

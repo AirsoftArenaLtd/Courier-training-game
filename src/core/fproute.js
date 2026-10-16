@@ -40,6 +40,7 @@ OTR.fpRoute = {
     m.briefing = { day: plan.day, weather: plan.weather, clockMin: plan.clockMin };
     m.traffic = [{ x: 1.7, z: m.town.zs[0], yaw: 0, speed: 4 }, { x: -1.7, z: m.town.zs[m.town.zs.length - 1], yaw: Math.PI, speed: 3.7 }];
     m.crossing.z = (m.town.zs[0] + m.town.zs[1]) / 2;
+    if(OTR.fpLater)OTR.fpLater.layout(m);
     m.junctions = [];
     m.town.xs.forEach(x => m.town.zs.forEach(z => m.junctions.push({ x, z, stopped: false, passed: false })));
   },

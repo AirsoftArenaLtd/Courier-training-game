@@ -1,12 +1,13 @@
 /* The generated day's weather and actionable dispatch messages. No scoring rules. */
 window.OTR=window.OTR||{};
 OTR.fpDay={
-  conditions:{clear:{mph:25,gap:3,grip:1},cloudy:{mph:25,gap:3,grip:1},rain:{mph:18,gap:4,grip:.65},storm:{mph:12,gap:5,grip:.55},snow:{mph:10,gap:6,grip:.45},heat:{mph:20,gap:4,grip:1}},
+  conditions:{fog:{mph:12,gap:5,grip:1},ice:{mph:8,gap:6,grip:.35},clear:{mph:25,gap:3,grip:1},cloudy:{mph:25,gap:3,grip:1},rain:{mph:18,gap:4,grip:.65},storm:{mph:12,gap:5,grip:.55},snow:{mph:10,gap:6,grip:.45},heat:{mph:20,gap:4,grip:1}},
   configure(m,saved){
     if(m.kind!=='campaign'||!m.routePlan)return;
     const source=m.routePlan.dispatch;
     m.routeDay=saved||{weather:m.routePlan.weather,distance:0,closeTime:0,fastTime:0,failed:false,heat:0,
       dispatch:source?{stop:source.stop,kind:source.kind,sent:false,read:false,resolved:false}:null};
+    if(!saved&&OTR.fpLater)OTR.fpLater.configure(m);
     this.attach(m);
   },
   attach(m){
@@ -52,7 +53,7 @@ OTR.fpDay={
   hint(m){const day=m.routeDay,d=day&&day.dispatch;if(d&&d.sent&&!d.read&&!d.resolved)return 'Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.';return day&&day.weather==='heat'&&day.heat>.8?'Heat exposure is building. Park safely for a water and shade break now.':'';},
   driveText(m){
     const w=m.routeDay.weather;
-    return w==='snow'?'Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.':w==='storm'?'The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.':w==='rain'?'Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.':w==='heat'?'Heat builds during the drive. Slow down and park safely for water and shade breaks.':'';
+    return w==='fog'?'Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.':w==='ice'?'Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.':w==='snow'?'Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.':w==='storm'?'The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.':w==='rain'?'Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.':w==='heat'?'Heat builds during the drive. Slow down and park safely for water and shade breaks.':'';
   },
   message(m){const d=m.routeDay.dispatch;return d.kind==='signature'?`Stop ${d.stop+1} now needs a signature. If nobody can sign, retain the parcel.`:`Stop ${d.stop+1} requests delivery behind the planter. Keep the package out of view.`;},
   read(m){
@@ -70,7 +71,8 @@ OTR.fpDay={
     const ok=d.read&&(safeException||(d.kind==='signature'?choice==='exception':choice==='planter'));d.resolved=true;
     this.fire(m,'dispatch.update',s.id,ok,ok?'Followed the updated dispatch instruction at the stop.':'Missed the updated dispatch instruction at the stop.',s.id+1);return ok;
   },
-  valid(m,d){
+  valid(m,d,raw){
+    if(OTR.fpLater&&!OTR.fpLater.valid(m,d,raw))return false;
     if(!d||d.weather!==m.routePlan.weather||!this.conditions[d.weather]||typeof d.failed!=='boolean')return false;
     if(!['distance','closeTime','fastTime','heat'].every(k=>Number.isFinite(d[k])&&d[k]>=0)||d.heat>1.1)return false;
     const source=m.routePlan.dispatch,a=d.dispatch;
