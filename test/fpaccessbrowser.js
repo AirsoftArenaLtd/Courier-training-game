@@ -6,6 +6,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let p,checks=0;const errors=[],report={};
  try{
   p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));
+  if(process.env.QA_NO_AUDIO==='1'){await p.evaluateOnNewDocument(()=>{window.AudioContext=undefined;window.webkitAudioContext=undefined;});report.audioUnavailable=true;}
   const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx=low');
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
   const press=async key=>{await p.keyboard.press(key);await wait(200);};

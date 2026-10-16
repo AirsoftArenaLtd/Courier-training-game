@@ -1,0 +1,51 @@
+{
+  "start": {
+    "nodes": 6,
+    "pauseListeners": 2,
+    "engine": 0.025,
+    "rain": 0.025,
+    "caption": "The engine is running. · Rain is falling. · The left turn signal is on. · A dog is barking nearby.",
+    "captionCanvas": [
+      766,
+      21
+    ],
+    "captionSourceMetadata": [
+      1,
+      1
+    ]
+  },
+  "audibleRMS": 0.011012172422808067,
+  "duckedRMS": 0,
+  "restoredRMS": 0.01130199768448528,
+  "settings": {
+    "volume": 0.35,
+    "muted": true,
+    "saved": {
+      "muted": true,
+      "hints": true,
+      "volume": 0.35,
+      "a11y": {
+        "keys": {},
+        "large": false,
+        "colour": false,
+        "narrate": false
+      }
+    },
+    "caption": [
+      "Sound settings",
+      "Sound effects volume is 35%.\nSound effects are muted.\nSounds pause for narration. Text cues remain visible when muted.",
+      "1. Make sound quieter",
+      "2. Make sound louder",
+      "3. Turn sound effects on",
+      "4. Back"
+    ]
+  },
+  "mutedRMS": 0,
+  "reloaded": {
+    "volume": 0.35,
+    "muted": true,
+    "nodes": 0
+  },
+  "checks": 45,
+  "errors": []
+}

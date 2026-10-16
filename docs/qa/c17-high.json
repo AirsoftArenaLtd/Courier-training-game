@@ -1,0 +1,130 @@
+{
+  "tag": "c17-final",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "companyTheme": "Example Two",
+  "audioContext": "running",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "prototype": {
+    "guide": {
+      "frames": 84,
+      "avgFPS": 8.35,
+      "low1FPS": 2.7,
+      "p99ms": 370.3,
+      "maxMs": 370.3,
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 7833600
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 5102828,
+        "withMipmapsUpperBytes": 6803771
+      },
+      "worldProfile": {
+        "meshes": 93,
+        "instances": 153,
+        "geometries": 3,
+        "materials": 42,
+        "geometryBytes": 6532,
+        "instanceBytes": 11436,
+        "shadowCasters": 0
+      }
+    },
+    "doormirror": {
+      "frames": 87,
+      "avgFPS": 8.69,
+      "low1FPS": 3.73,
+      "p99ms": 268.4,
+      "maxMs": 268.4,
+      "peak": {
+        "calls": 42,
+        "triangles": 3304,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 8409600
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 88,
+        "baseLevelRGBABytes": 4787156,
+        "withMipmapsUpperBytes": 6382875
+      },
+      "worldProfile": {
+        "meshes": 115,
+        "instances": 350,
+        "geometries": 3,
+        "materials": 41,
+        "geometryBytes": 6532,
+        "instanceBytes": 34120,
+        "shadowCasters": 0
+      }
+    },
+    "doorsignature": {
+      "frames": 74,
+      "avgFPS": 7.23,
+      "low1FPS": 3.35,
+      "p99ms": 298.1,
+      "maxMs": 298.1,
+      "peak": {
+        "calls": 20,
+        "triangles": 1368,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 8409600
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 88,
+        "baseLevelRGBABytes": 4295724,
+        "withMipmapsUpperBytes": 5727632
+      },
+      "worldProfile": {
+        "meshes": 113,
+        "instances": 303,
+        "geometries": 3,
+        "materials": 42,
+        "geometryBytes": 6532,
+        "instanceBytes": 33232,
+        "shadowCasters": 0
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 6608044,
+    "withMipmapsUpperBytes": 8810726
+  },
+  "phaserTexturesPeak": {
+    "count": 96,
+    "baseLevelRGBABytes": 6608044,
+    "withMipmapsUpperBytes": 8810726
+  },
+  "errors": []
+}
