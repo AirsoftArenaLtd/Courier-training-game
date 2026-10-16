@@ -40,8 +40,8 @@ goes (`OTR.save.data.workday.current`), a fresh score log (`begin`), then the sc
 
 With this data the scene goes straight to the workday (its campaign), not to its own 3D hub. Without it (opened
 with `?lab=firstperson`), it behaves as it does today and its reports go to an unsaved log. The game still opens
-on the title screen; the hub offers "Start workday" only when `OTR_DATA.config.workday3d` is on (off until pilot
-milestone 3) or the link has `?workday3d=1`. The 2D route day stays, as a link under it.
+on the title screen; the hub offers "Start workday" while `OTR_DATA.config.workday3d` is on (on since the full-length
+route, 15 October 2026) and the link does not have `?workday3d=0`. The 2D route day stays, as a link under it.
 
 **2. The trainee leaves mid-day: `OTR.workday.pause(scene)`.** From the 3D pause menu's "Save and return to hub"
 and "Main game" (after the 3D world has saved its own checkpoint). The day is kept, not scored, and the hub offers

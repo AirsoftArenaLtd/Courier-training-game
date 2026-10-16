@@ -45,9 +45,9 @@ OTR_DATA.config = {
     { name: 'Elite Courier',  stars: 100, color: OTR_DATA.theme.accent }
   ],
 
-  // The 3D workday at the hub (docs/WORKDAY-EVENTS.md): "Start workday" beside the 2D route day. Off until the 3D
-  // workday is complete (pilot milestone 3); ?workday3d=1 turns it on for one visit, ?workday3d=0 off.
-  workday3d: false,
+  // The 3D workday at the hub (docs/WORKDAY-EVENTS.md): "Start workday", with the 2D route day as a link under it. On since the
+  // full-length route (C-7) is in; ?workday3d=0 turns it off for one visit (the 2D route day), ?workday3d=1 on.
+  workday3d: true,
 
   // Performance ratio (0-1) needed for 1, 2 and 3 stars. Scenarios may override.
   starThresholds: [0.35, 0.65, 0.9],
