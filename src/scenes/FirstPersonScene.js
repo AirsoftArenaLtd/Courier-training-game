@@ -13,11 +13,12 @@ class FirstPersonScene extends Phaser.Scene {
     this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
     const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
-    OTR.world3d.load().then(()=>{
+    OTR.world3d.load().then(async()=>{
       if(!this.sys.isActive()||this.loadingToken!==token)return;
+      this.companyLogo=await OTR.fpBrand.loadLogo(this);if(!this.sys.isActive()||this.loadingToken!==token)return;
       this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
       this.handheld=new OTR.fpHandheld(this);
-      this.labels=this.art.labels.map(label=>({label,object:OTR.txt(this,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,fit:220}).setDepth(9).setVisible(false)}));
+      this.labels=OTR.fpBrand.labels(this);
       this.installInput();this.loading=false;this.sync();
       if(this.hubWorkday){this.launch('campaign');return;}
       if(!this.progress.welcomed)this.showPanel('Welcome to On The Route',
@@ -109,7 +110,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.labels)this.labels.forEach(({object})=>object.destroy());
     if(this.art)this.art.dispose();
     this.art=OTR.fpWorld.build(this,this.model);
-    this.labels=this.art.labels.map(label=>({label,object:OTR.txt(this,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,fit:220}).setDepth(9).setVisible(false)}));
+    this.labels=OTR.fpBrand.labels(this);
   }
   toHub(){
     if(this.hubWorkday){this.checkpoint();this.closePanel(false);this.releaseMouse();OTR.workday.pause(this);return;}

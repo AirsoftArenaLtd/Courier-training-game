@@ -4,7 +4,11 @@ OTR.fpHandheld = class {
   constructor(scene) {
     this.scene = scene;
     this.mode = 'closed'; this.trigger = false; this.focusId = null; this.progress = 0;
-    this.device = new OTR.Handheld(scene, { depth: 110, canToggle: () => false, tabVisible: () => false });
+    const Device=OTR.fpBrand?class extends OTR.Handheld{
+      deviceTex(){return OTR.fpBrand.deviceTexture(this.scene,this);}
+      show(def){super.show(def);OTR.fpBrand.deviceBackground(this,def);return this;}
+    }:OTR.Handheld;
+    this.device = new Device(scene, { depth: 110, canToggle: () => false, tabVisible: () => false });
     this.device.Yopen = OTR.H / 2;
     this.device.setTabVisible(false);
     // The first-person scene owns input, including pointer lock and pause. Do not answer keys twice.
