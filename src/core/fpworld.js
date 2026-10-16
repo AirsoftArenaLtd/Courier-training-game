@@ -165,11 +165,29 @@ OTR.fpWorld = {
     box(person,0,1.1,0,0.45,0.75,0.25,0xBD9155);
     box(person,0,1.65,0,0.3,0.32,0.3,0xB68F72);
     [-0.12,0.12].forEach(x=>box(person,x,0.38,0,0.16,0.75,0.19,0x43515E));
-    const residents=base.stops.map(s=>{
-      const g=new T.Group();route.add(g);g.position.set(s.x-(s.side||1)*0.8,0,s.z);
-      box(g,0,1.1,0,0.45,0.75,0.27,0x608987);box(g,0,1.65,0,0.3,0.32,0.3,0xB68F72);
-      [-0.12,0.12].forEach(x=>box(g,x,0.38,0,0.16,0.75,0.19,0x43515E));return g;
-    });
+    const residentParts=[],residentBatch=new T.InstancedMesh(cube,material(0xFFFFFF),base.stops.length*4);
+    residentBatch.frustumCulled=false;residentBatch.count=0;route.add(residentBatch);
+    for(const stop of base.stops){
+      const a=base.doorsteps?base._doorSpecs[stop.id]:null,x=stop.x-(stop.side||1)*.8;
+      const part=(dx,y,w,h,d,color)=>{const matrix=new T.Matrix4().compose(new T.Vector3(x+dx,y,stop.z),new T.Quaternion(),new T.Vector3(w,h,d));residentParts.push({id:stop.id,matrix,color:new T.Color(color)});};
+      part(0,1.1,.45,.75,.27,a?a.shirt:0x608987);part(0,1.65,.3,.32,.3,a?a.skin:0xB68F72);
+      if(OTR.gfx.high()){part(-.12,.38,.16,.75,.19,0x43515E);part(.12,.38,.16,.75,.19,0x43515E);}else part(0,.38,.38,.75,.19,0x43515E);
+    }
+    const dogs=[],gates=[],hazards=[];
+    if(base.doorsteps)for(let i=0;i<base.stops.length;i++){
+      const s=base.stops[i],a=base._doorSpecs[i];
+      if(a.dog){
+        const p=OTR.fpDoors.point(base,i,'gate');gates[i]=box(route,p.x,.6,p.z,.16,1.2,4.8,0x65626B,'gate'+i,true);
+        for(const z of [-3.1,3.1])box(route,p.x,.6,s.z+z,.16,1.2,1.4,0x65626B);
+        labels.push({parent:route,point:new T.Vector3(p.x,1.8,p.z),text:'Keep the gate shut. A dog is loose.',max:15});
+        const dog=new T.Group();route.add(dog);dogs[i]=dog;const fur=a.fur;
+        box(dog,0,.45,0,.85,.4,.35,fur);box(dog,-.45,.65,0,.38,.36,.36,fur);box(dog,-.64,.57,0,.28,.18,.25,fur);
+        for(const x of [-.3,.3])for(const z of [-.13,.13])box(dog,x,.18,z,.12,.36,.12,fur);
+        box(dog,.49,.65,0,.35,.12,.12,fur);box(dog,-.42,.9,.1,.13,.22,.12,fur);box(dog,-.42,.9,-.1,.13,.22,.12,fur);
+        dog.rotation.y=s.side>0?0:Math.PI;
+      }
+      if(a.hazard){const p=OTR.fpDoors.point(base,i,'hazard'),slippery=a.hazard==='ice'||a.hazard==='wet';hazards[i]=box(route,p.x,.11,p.z,slippery?1.15:.95,slippery?.04:.1,slippery?1.2:.8,slippery?0x506673:0x927557,'hazard'+i);}
+    }
     let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
     if(base.driving){
       bus=new T.Group();route.add(bus);
@@ -200,7 +218,7 @@ OTR.fpWorld = {
     const ray=new T.Raycaster();ray.far=2.65;
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
-    const api={hub,route,van,parcels,labels,occluders,interactions,ray,
+    const api={hub,route,van,parcels,dogs,gates,hazards,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -258,7 +276,15 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
-          m.stops.forEach((s,i)=>residents[i].visible=s.contacted&&s.service==='handover'&&!s.resolved);
+          let residentCount=0;
+          for(const part of residentParts){const s=m.stops[part.id];if(!s.contacted||s.resolved||!(m.doorsteps?m._doorSpecs[part.id].present:s.service==='handover')||(s.x-cx)**2+(s.z-cz)**2>sceneryRadius*sceneryRadius)continue;
+            residentBatch.setMatrixAt(residentCount,part.matrix);residentBatch.setColorAt(residentCount++,part.color);
+          }
+          residentBatch.count=residentCount;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
+          if(m.doorsteps)for(let i=0;i<m.stops.length;i++){const d=m.doorsteps.stops[i],s=m.stops[i];
+            if(dogs[i]){const p=m._doorSolids[i].dog;dogs[i].visible=!d.dogSecured&&Math.hypot(p.x-cx,p.z-cz)<35;dogs[i].position.set(p.x,0,p.z);gates[i].visible=!d.gateOpen&&!d.dogSecured&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;}
+            if(hazards[i])hazards[i].visible=!d.hazardCleared&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;
+          }
           if(bus&&m.driving){
             const b=m.driving.bus,e=m.driving.siren,flash=Math.floor(m.elapsed*3)%2===0;
             bus.visible=b.state==='flashing'||b.state==='leaving';bus.position.set(b.x,0,b.z);bus.rotation.y=-b.yaw;

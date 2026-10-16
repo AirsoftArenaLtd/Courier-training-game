@@ -71,3 +71,9 @@ The 15 October cloud run passes all 18 existing route viewpoints and three new h
 `test/fproute.js` includes active hazards, loaded/depot cargo and a live mirror at every curb position over 30 generated days. New vehicles reuse box geometry, instanced colour groups and the existing mirror; no image textures or render passes were added. `QA_VIEWS=hazardsfront,hazardsmirror,hazardswalk` can restrict benchmark sampling to changed viewpoints; every selected sample still lasts ten seconds.
 
 On 16 October, the merged C-8/C-10/C-11 tree passed seven live hazard/weather views at 48 calls and 1564 triangles. Both road actors, the sixth package and weather are configured together. Attachments and Phaser estimates stay within the same ceilings; report: `docs/qa/c11-pilot-low.json`.
+
+## C-9: doorstep situations
+
+The 16 October combined C-8/C-9/C-10/C-11 run passes nine weather, gate, hazard, live-mirror, signature and ID views. Peak complete-frame submissions are 48 calls / 2,084 triangles. The two targets still use 3,575,808 attachment bytes. Phaser's largest observed full-mipmap estimate is 3,956,310 bytes (3.78 MiB), including the existing signature pad and live ink. The benchmark records Phaser inventories per view so closing the handheld cannot hide that peak. No page errors or context loss occurred. Raw report: `docs/qa/c9-combined-low.json`; cloud SwiftShader FPS does not establish the Intel 60 fps floor (O-1).
+
+Residents use one preallocated coloured instance batch, with three body parts on low graphics and four on high. Gates, dogs and path patches reuse box geometry and shared materials, with bounded visibility; the ID comparison uses native Phaser Graphics. There are no new image assets or render passes. The 30-day route geometry test configures all four model extensions, the extra package, active road actors and every contacted resident before checking every stop with a live mirror.

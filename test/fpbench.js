@@ -25,6 +25,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.goto(BASE+'/first-person.html?gfx='+GFX);
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
+  const textures=async()=>p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;rgbaBytes+=source.width*source.height*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
   const sample=async name=>{
    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))return;
    await wait(1500);
@@ -34,7 +35,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(now-start<10000)return;
     OTR.game.events.off('step',onFrame);frames.sort((a,b)=>a-b);const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,worst=frames.slice(Math.floor(frames.length*.99));
     resolve({frames:frames.length,avgFPS:+(1000/mean(frames)).toFixed(2),low1FPS:+(1000/mean(worst)).toFixed(2),p99ms:+frames[Math.floor(frames.length*.99)].toFixed(2),maxMs:+frames[frames.length-1].toFixed(2),peak,target:d&&{width:d.targetWidth,height:d.targetHeight},contextLost:OTR.game.renderer.gl.isContextLost()});};OTR.game.events.on('step',onFrame);}));
-   console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;
+   value.phaserTextures=await textures();console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;
   };
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
@@ -67,15 +68,34 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   if(await p.evaluate(()=>!!OTR.fpDay))for(const day of [2,6,4,3]){
    const weather=await p.evaluate(day=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const m=OTR.fpMission.create('campaign',7,OTR.fpRoute.plan(day,7));OTR.fpDay.configure(m);if(OTR.fpLoadout)OTR.fpLoadout.configure(m,'extra');
+    if(OTR.fpDoors){OTR.fpDoors.configure(m);m.stops.forEach(stop=>stop.contacted=true);OTR.fpDoors.sync(m);}
     if(OTR.fpDriving){OTR.fpDriving.configure(m);const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);}
     s.model=m;s.rebuildWorld();m.mode='cab';m.paused=false;m.step=()=>{};Object.assign(m.van,{x:m.town.xs[0]+2,z:m.town.zs[1]+25,yaw:0,speed:0,hand:true});s.__weatherMirror=()=>{m.mirrorAt=m.elapsed;m.elapsed+=.016;};s.events.on('update',s.__weatherMirror);s.sync();return m.routeDay.weather;},day);
    await sample('weather'+weather+'Mirror');await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__weatherMirror);});
   }
-  report.phaserTextures=await p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;rgbaBytes+=source.width*source.height*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
+  if(await p.evaluate(()=>!!OTR.fpDoors))for(const look of ['gate','hazard','mirror','signature','id']){
+   await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();let m,id;
+    for(let seed=1;seed<100;seed++){
+     m=OTR.fpMission.create('campaign',seed,OTR.fpRoute.plan(4,seed));OTR.fpDay.configure(m);OTR.fpLoadout.configure(m,'extra');OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);
+     id=m._doorSpecs.findIndex(a=>look==='gate'||look==='mirror'?a.dog:look==='hazard'?!!a.hazard:look==='id'?a.adult:a.signature&&a.present&&!a.dog&&!a.wrong);if(id>=0)break;
+    }if(id<0)throw Error('No doorstep benchmark fixture');
+    const stop=m.stops[id],p=m.parcels[id];m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);m.activeStop=id;m.phase='route';m.departed=true;m.events[m.briefKey]=true;m.mode=look==='mirror'?'cab':'walk';m.paused=false;m.step=()=>{};
+    Object.assign(m.van,stop.park,{speed:0,hand:true});Object.assign(m.player,{x:stop.x-stop.side*(look==='gate'?3.8:3.2),z:stop.z,yaw:stop.side*Math.PI/2,pitch:look==='hazard'?.5:.1});
+    Object.assign(m.driving.bus,{state:'flashing',x:m.van.x,z:m.van.z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:m.van.x-1,z:m.van.z+14,yaw:0});OTR.fpDriving.syncActors(m);
+    s.model=m;s.rebuildWorld();m.mirrorAt=look==='mirror'?m.elapsed:-100;s.sync();
+    if(look==='signature'){
+     Object.assign(m.player,{x:stop.x-stop.side*1.5,z:stop.z});Object.assign(p,{location:'held',loaded:true,scanned:true,stopScanned:true});m.heldId=p.id;
+     // Keep the existing live signature widget visible through the measurement, including its ink texture.
+     s.handheld.show({title:'SIGNATURE',lines:['The recipient signs below.'],widget:{type:'signature',onDone:()=>{}},options:[{label:'Cancel',onPick:()=>s.handheld.close()}]});
+    }else if(look==='id'){Object.assign(m.player,{x:stop.x-stop.side*1.5,z:stop.z});s.showIdentity(id);}
+   },look);await sample('door'+look);
+  }
+  report.phaserTextures=await textures();
+  report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));
   if(Object.values(report.prototype).some(sample=>sample.contextLost))throw Error('Shared WebGL context was lost');
   if(GFX==='low'&&Object.values(report.prototype).some(s=>s.peak.calls>64||s.peak.triangles>2500||s.peak.textures>2||s.peak.attachmentBytes>4*1024*1024))throw Error('Low graphics exceeded the documented 1280x720 3D resource budget');
-  if(GFX==='low'&&report.phaserTextures.withMipmapsUpperBytes>4*1024*1024)throw Error('Low graphics exceeded the documented Phaser texture estimate');
+  if(GFX==='low'&&report.phaserTexturesPeak.withMipmapsUpperBytes>4*1024*1024)throw Error('Low graphics exceeded the documented Phaser texture estimate');
   const floor=Number(process.env.QA_FPS_FLOOR)||0;
   if(floor&&Object.values(report.prototype).some(s=>s.avgFPS<floor||s.low1FPS<floor))throw Error('Frame-rate floor failed; see the saved renderer and sample results');
   if(errors.length)throw Error(errors.join('\n'));

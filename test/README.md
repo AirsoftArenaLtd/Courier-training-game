@@ -15,6 +15,8 @@ node test/qa.js        # every pass, every scenario and flow (about 45 minutes)
 The suite serves the project itself on port 8123, so nothing else needs to be running. The exit code is non-zero if
 anything failed, so it can gate a release.
 
+The 3D model checks include `node test/fpdoors.js`: generated doorstep requirements, signatures, photo-ID decisions, wrong-address exceptions, physical gates/residents, customer responses, path hazards and optional checkpoints. With the game served on `QA_BASE` (default `http://127.0.0.1:8302`), `node test/fpdoorsbrowser.js` exercises real gate raycasts, signature completion/cancellation, ID panels, handheld outcomes and Shift walking in English/Tamil at both text sizes. `test/fproutebrowser.js` completes the five-stop route with those required checks before each delivery. These position fixtures skip the long walks and drives.
+
 | Option | Effect |
 | --- | --- |
 | `--only m6-find,m7-dg` | just those scenarios |

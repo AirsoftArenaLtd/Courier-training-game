@@ -65,9 +65,9 @@ OTR.fpDay={
     m.routeDay.heat=Math.max(0,m.routeDay.heat-.6);m.elapsed+=30;m.touch();return 'You took a water and shade break. Keep drinking regularly during the day.';
   },
   planter(m,id){const d=m.routeDay&&m.routeDay.dispatch;return !!(d&&d.sent&&d.kind==='planter'&&d.stop===id);},
-  outcome(m,s,choice){
+  outcome(m,s,choice,safeException=false){
     const d=m.routeDay.dispatch;if(!d||!d.sent||d.stop!==s.id||d.resolved)return null;
-    const ok=d.read&&(d.kind==='signature'?choice==='exception':choice==='planter');d.resolved=true;
+    const ok=d.read&&(safeException||(d.kind==='signature'?choice==='exception':choice==='planter'));d.resolved=true;
     this.fire(m,'dispatch.update',s.id,ok,ok?'Followed the updated dispatch instruction at the stop.':'Missed the updated dispatch instruction at the stop.',s.id+1);return ok;
   },
   valid(m,d){

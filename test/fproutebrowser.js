@@ -15,6 +15,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.handheld.close();s.closePanel();m.paused=true;
    const point=m.point(id);Object.assign(m.player,{x:point.x,z:point.z});
    if(id.startsWith('parcel')&&m.parcel(id).location==='depot')m.player.x-=1.6;
+   else if(id.startsWith('gate'))m.player.x-=m.stop(id.slice(4)).side*1.2;
    else if(id.startsWith('door'))m.player.x-=m.stop(id.slice(4)).side*1.5;
    else if(id==='dispatch'||id==='returns')m.player.x-=1.6;
    else if(id.startsWith('slot')||(id.startsWith('parcel')&&m.parcel(id).location.startsWith('slot'))){const d=barcode?1.15:0.65;m.player.x-=Math.sin(m.van.yaw)*d;m.player.z+=Math.cos(m.van.yaw)*d;}
@@ -58,9 +59,18 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    await use('cargo');await fixture('parcel'+i,true);
    await scan();
    assert.equal(await p.evaluate(i=>OTR.game.scene.getScene('FirstPersonScene').model.parcels[i].stopScanned,i),false);checks++;
-   await use('parcel'+i);await fixture('door'+i);await scan();
+   await use('parcel'+i);
+   if(await p.evaluate(i=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.doorsteps&&m._doorSpecs[i].dog;},i)){await use('gate'+i);await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').choose(0));}
+   await fixture('door'+i);await scan();
    assert.equal(await p.evaluate(i=>OTR.game.scene.getScene('FirstPersonScene').model.parcels[i].stopScanned,i),true);checks++;
-   await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.contact(i);s.handheld.delivery(i);s.handheld.choose(m.stops[i].service==='handover'?0:m.stops[i].service==='safeplace'?1:2);s.handheld.close();},i);
+   const signer=await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.contact(i);if(!m.doorsteps)return false;const a=m._doorSpecs[i];
+    if(a.adult){s.showIdentity(i);s.choose(OTR.fpDoors.validID(m,i)?0:1);}
+    if(a.difficult){s.showCustomer(i);s.choose(0);}
+    const sign=a.signature&&a.present&&OTR.fpDoors.expected(m,i)==='handover';if(sign){s.handheld.signature(i);s.handheld.choose(0);}return sign;
+   },i);
+   if(signer)await p.waitForFunction(i=>!!OTR.game.scene.getScene('FirstPersonScene').model.doorsteps.stops[i].signatureName,{timeout:15000},i);
+   await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,choice=m.doorsteps?OTR.fpDoors.expected(m,i):m.stops[i].service==='handover'?'handover':m.stops[i].service==='safeplace'?'safeplace':'exception';s.handheld.delivery(i);s.handheld.choose(choice==='handover'?0:choice==='safeplace'?1:2);s.handheld.close();},i);
+   assert.equal(await p.evaluate(i=>{const logs=OTR.game.scene.getScene('FirstPersonScene').model.logs;return logs.find(e=>e.id==='outcome:'+i)?.outcome;},i),'good');checks++;
    assert.equal(await p.evaluate(i=>OTR.game.scene.getScene('FirstPersonScene').model.stops[i].resolved,i),true);checks++;
    const retained=await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').model.heldId);
    if(retained)await use('slot'+i);
