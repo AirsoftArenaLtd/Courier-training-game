@@ -3423,7 +3423,26 @@ window.OTR_I18N.gu = {
 "Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "આ તાલીમાર્થી વિશે તાલીમ સર્વર પર રહેલું બધું ફાઇલ તરીકે ડાઉનલોડ કરો, અથવા તે બધું કાયમ માટે ભૂંસી નાખો: તેમની પ્રગતિ, તેના બધા બેકઅપ અને તેમનું સાઇન ઇન.",
 "Download data": "ડેટા ડાઉનલોડ કરો",
 "Erase all data": "બધો ડેટા ભૂંસી નાખો",
-"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "આનાથી તેમની પ્રગતિ, તેના બધા બેકઅપ અને તેમનું સાઇન ઇન કાયમ માટે ડિલીટ થશે અને તે પાછું લાવી શકાશે નહીં. કંપનીના લર્નિંગ રેકોર્ડ સ્ટોરમાં પહેલેથી મોકલાયેલા પરિણામો ત્યાં જ રહેશે."
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "આનાથી તેમની પ્રગતિ, તેના બધા બેકઅપ અને તેમનું સાઇન ઇન કાયમ માટે ડિલીટ થશે અને તે પાછું લાવી શકાશે નહીં. કંપનીના લર્નિંગ રેકોર્ડ સ્ટોરમાં પહેલેથી મોકલાયેલા પરિણામો ત્યાં જ રહેશે.",
+"First workday": "પહેલો કામકાજનો દિવસ",
+"Latest workday": "તાજેતરનો કામકાજનો દિવસ",
+"Critical errors per day": "રોજની ગંભીર ભૂલો",
+"Met every pass mark": "બધા પાસ ગુણ મેળવ્યા",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "હજી કોઈ તાલીમાર્થીએ બે કામકાજના દિવસ પૂરા કર્યા નથી, તેથી સરખામણી કરવા કંઈ નથી.",
+"Nobody has finished a workday yet.": "હજી કોઈએ કામકાજનો દિવસ પૂરો કર્યો નથી.",
+"Before and after: the training pilot": "પહેલાં અને પછી: તાલીમ પાયલટ",
+"trainees who finished a workday": "કામકાજનો દિવસ પૂરો કરનાર તાલીમાર્થીઓ",
+"with two or more workdays": "બે કે વધુ કામકાજના દિવસ ધરાવતા",
+"The group, first workday to latest": "જૂથ: પહેલા કામકાજના દિવસથી તાજેતરના સુધી",
+"Each trainee": "દરેક તાલીમાર્થી",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "દરેક તાલીમાર્થીનો પહેલો અને તાજેતરનો પૂરો થયેલો કામકાજનો દિવસ. તારા સલામતી, કાર્યક્ષમતા અને સેવામાં 0 થી 3 હોય છે. જૂથના આંકડા બે કે વધુ કામકાજના દિવસ ધરાવતા તાલીમાર્થીઓ પર આધારિત છે. દરેક વિભાગ પ્રશિક્ષકે નક્કી કરેલા તારા સુધી પહોંચે ત્યારે પાસ ગુણ મળ્યો ગણાય.",
+"Before and after": "પહેલાં અને પછી",
+"Score": "સ્કોર",
+"Trainee": "તાલીમાર્થી",
+"Workdays": "કામકાજના દિવસ",
+"improved": "સુધર્યા",
+"unchanged or lower": "એમના એમ કે ઓછા",
+"One workday so far": "અત્યાર સુધી એક કામકાજનો દિવસ"
 },
 "templates": [
 [
@@ -4809,6 +4828,10 @@ window.OTR_I18N.gu = {
 [
 "{0}: all data erased",
 "{0}: બધો ડેટા ભૂંસી નાખ્યો"
+],
+[
+"{0} stars",
+"{0} તારા"
 ]
 ],
 "keep": [

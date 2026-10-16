@@ -3423,7 +3423,26 @@ window.OTR_I18N.te = {
 "Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ఈ శిక్షణార్థి గురించి శిక్షణ సర్వర్‌లో ఉన్న మొత్తం సమాచారాన్ని ఫైల్‌గా డౌన్‌లోడ్ చేయండి, లేదా దాన్నంతటినీ శాశ్వతంగా తొలగించండి: వారి ప్రగతి, దాని అన్ని బ్యాకప్‌లు, వారి సైన్-ఇన్.",
 "Download data": "డేటా డౌన్‌లోడ్ చేయండి",
 "Erase all data": "మొత్తం డేటాను తొలగించండి",
-"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ఇది వారి ప్రగతిని, దాని అన్ని బ్యాకప్‌లను, వారి సైన్-ఇన్‌ను శాశ్వతంగా తొలగిస్తుంది; దీన్ని తిరిగి పొందడం సాధ్యం కాదు. కంపెనీ లెర్నింగ్ రికార్డ్ స్టోర్‌కు ఇప్పటికే పంపిన ఫలితాలు అక్కడే ఉంటాయి."
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ఇది వారి ప్రగతిని, దాని అన్ని బ్యాకప్‌లను, వారి సైన్-ఇన్‌ను శాశ్వతంగా తొలగిస్తుంది; దీన్ని తిరిగి పొందడం సాధ్యం కాదు. కంపెనీ లెర్నింగ్ రికార్డ్ స్టోర్‌కు ఇప్పటికే పంపిన ఫలితాలు అక్కడే ఉంటాయి.",
+"First workday": "మొదటి పని దినం",
+"Latest workday": "తాజా పని దినం",
+"Critical errors per day": "రోజుకు తీవ్ర తప్పులు",
+"Met every pass mark": "అన్ని పాస్ మార్కులు సాధించారు",
+"No trainee has finished two workdays yet, so there is nothing to compare.": "ఇంకా ఏ శిక్షణార్థీ రెండు పని దినాలు పూర్తి చేయలేదు, కాబట్టి పోల్చడానికి ఏమీ లేదు.",
+"Nobody has finished a workday yet.": "ఇంకా ఎవరూ పని దినం పూర్తి చేయలేదు.",
+"Before and after: the training pilot": "ముందు మరియు తర్వాత: శిక్షణ పైలట్",
+"trainees who finished a workday": "పని దినం పూర్తి చేసిన శిక్షణార్థులు",
+"with two or more workdays": "రెండు లేదా అంతకంటే ఎక్కువ పని దినాలు ఉన్నవారు",
+"The group, first workday to latest": "గ్రూప్: మొదటి పని దినం నుండి తాజా దినం వరకు",
+"Each trainee": "ప్రతి శిక్షణార్థి",
+"Each trainee's first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.": "ప్రతి శిక్షణార్థి మొదటి మరియు తాజా పూర్తయిన పని దినం. నక్షత్రాలు భద్రత, సామర్థ్యం, సేవలలో 0 నుండి 3 వరకు ఉంటాయి. గ్రూప్ గణాంకాలు రెండు లేదా అంతకంటే ఎక్కువ పని దినాలు ఉన్న శిక్షణార్థులపై ఆధారపడినవి. ప్రతి విభాగం శిక్షకుడు నిర్ణయించిన నక్షత్రాలను చేరుకుంటే పాస్ మార్కు సాధించినట్టు.",
+"Before and after": "ముందు మరియు తర్వాత",
+"Score": "స్కోరు",
+"Trainee": "శిక్షణార్థి",
+"Workdays": "పని దినాలు",
+"improved": "మెరుగైనవారు",
+"unchanged or lower": "మారనివారు లేదా తగ్గినవారు",
+"One workday so far": "ఇప్పటివరకు ఒక పని దినం"
 },
 "templates": [
 [
@@ -4809,6 +4828,10 @@ window.OTR_I18N.te = {
 [
 "{0}: all data erased",
 "{0}: మొత్తం డేటా తొలగించబడింది"
+],
+[
+"{0} stars",
+"{0} నక్షత్రాలు"
 ]
 ],
 "keep": [
