@@ -48,9 +48,14 @@ module.exports = async (page, ctx) => {
       else if (id === 'cargo' || id === 'secure') { const d = id === 'cargo' ? 1.25 : 0.65; m.player.x -= Math.sin(m.van.yaw) * d; m.player.z += Math.cos(m.van.yaw) * d; }
       else if (id.startsWith('gate')) m.player.x -= m.stop(id.slice(4)).side * 1.2;   // outside the gate, away from the yard
       else if (id === 'lights') m.player.z -= 1.2;
-      else if (id === 'tyres' || id === 'driver') m.player.x -= 0.09;   // the tyre and the driver's door share a spot: the aim picks one
+      else if (id === 'tyres') m.player.x -= 1.0;                          // beside the wheel, looking down at it: the driver's door above it shares the spot
+      else if (id === 'driver') m.player.x -= 0.09;
       else m.player.z += 0.65;
       s.sync();
+    }, id, barcode);
+    await wait(160);                                  // a frame, so the camera has moved to the new place before aiming from it
+    await ev((id, barcode) => {
+      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
       const visible = (o) => { for (let a = o; a; a = a.parent) if (!a.visible) return false; return true; };
       const o = barcode ? s.art.parcels[Number(id.slice(6))].userData.barcode : s.art.interactions.find((o) => o.userData.interaction === id && visible(o));
       if (!o) throw Error('No visible target ' + id + ' ' + JSON.stringify({ n: s.art.interactions.filter((o) => o.userData.interaction === id).length, mode: m.mode, van: m.van, player: m.player }));
