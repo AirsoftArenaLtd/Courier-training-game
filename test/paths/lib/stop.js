@@ -27,7 +27,7 @@ function driver(page, ctx) {
   /** Wait until nothing is animating the courier, no modal, no talk, the stage is unlocked. */
   const settle = async (ms) => {
     const t0 = Date.now();
-    while (Date.now() - t0 < (ms || 30000)) {   // a dog scene at 14 fps under a loaded suite can hold the stage for over 15 s
+    while (Date.now() - t0 < (ms || 90000)) {   // a dog scene at 14 fps under a loaded suite can hold the stage for over 15 s (and a full suite run once took longer than 30 s)
       const s = await state();
       if (!s) return;
       if (s.talk) { await runTalk(page, `${S}.talkCtl`, { timeout: 150000 }); continue; }
@@ -35,7 +35,8 @@ function driver(page, ctx) {
       await wait(80);
     }
     const s = await state();
-    throw new Error(`the stop never settled (locked or a modal stayed open): ${JSON.stringify({ modals: s && s.modals, locked: s && s.locked, once: s && s.once, talk: s && s.talk, x: s && Math.round(s.x), k: s && s.k })}`);
+    const open = await ev(`(() => { const s = ${S}; return ((s && s._modalStack) || []).filter(m => m && m.active).map(m => String((m.title && m.title.text) || m.title || (m.opts && m.opts.title) || '?')).slice(0, 3); })()`).catch(() => []);
+    throw new Error(`the stop never settled (open: ${JSON.stringify(open)}) (locked or a modal stayed open): ${JSON.stringify({ modals: s && s.modals, locked: s && s.locked, once: s && s.once, talk: s && s.talk, x: s && Math.round(s.x), k: s && s.k })}`);
   };
 
   /**
