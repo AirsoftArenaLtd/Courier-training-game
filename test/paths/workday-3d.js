@@ -46,6 +46,7 @@ module.exports = async (page, ctx) => {
       else if (id === 'dispatch' || id === 'returns') m.player.x -= 1.6;
       else if (id.startsWith('slot') || (id.startsWith('parcel') && m.parcel(id).location.startsWith('slot'))) { const d = barcode ? 1.15 : 0.65; m.player.x -= Math.sin(m.van.yaw) * d; m.player.z += Math.cos(m.van.yaw) * d; }
       else if (id === 'cargo' || id === 'secure') { const d = id === 'cargo' ? 1.25 : 0.65; m.player.x -= Math.sin(m.van.yaw) * d; m.player.z += Math.cos(m.van.yaw) * d; }
+      else if (id.startsWith('gate')) m.player.x -= m.stop(id.slice(4)).side * 1.2;   // outside the gate, away from the yard
       else if (id === 'lights') m.player.z -= 1.2;
       else if (id === 'tyres' || id === 'driver') m.player.x -= 0.09;   // the tyre and the driver's door share a spot: the aim picks one
       else m.player.z += 0.65;
@@ -59,6 +60,18 @@ module.exports = async (page, ctx) => {
     await wait(100);
   };
   const use = async (id) => { await at(id); await press('KeyE'); };
+  // choose an option of whatever is on screen (a panel or the handheld) by its English text, with a real number key
+  const pick = async (re) => {
+    const find = () => ev((src, flags) => {
+      const re = new RegExp(src, flags), s = OTR.game.scene.getScene('FirstPersonScene');
+      const opts = s.panel ? s.panel.choices : s.handheld.isOpen ? (s.handheld.device.current.options || []) : [];
+      return opts.findIndex((o) => re.test(o.label) && !o.disabled);
+    }, re.source, re.flags);
+    let i = -1;
+    for (let t = 0; t < 40 && i < 0; t++) { i = await find(); if (i < 0) await wait(150); }
+    must(i >= 0, 'no option matching ' + re + ' on screen: ' + JSON.stringify(await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return { panel: s.panel ? s.panel.choices.map((o) => o.label) : null, device: s.handheld.isOpen ? (s.handheld.device.current.options || []).map((o) => o.label) : null }; })));
+    await press('Digit' + (i + 1));
+  };
   const scan = async () => {
     await press('Tab'); await press('Digit1');
     must((await state()).aiming, 'the scanner did not enter aiming mode');
@@ -158,15 +171,39 @@ module.exports = async (page, ctx) => {
     await scan(); must(!(await state()).m.parcels[i].stopScanned, 'a cargo scan must not count as the doorstep scan (stop ' + i + ')');
     await press('Digit1');
     await use('parcel' + i); must((await state()).m.heldId === 'parcel' + i, 'could not take parcel ' + i + ' out of the van');
-    const stop = (await state()).m.stops[i];
+    const spec = await ev((i) => JSON.parse(JSON.stringify(OTR.game.scene.getScene('FirstPersonScene').model._doorSpecs[i])), i);
+    // a loose dog: stay outside the gate and have the owner secure it before going up the path
+    if (spec.dog) { await at('gate' + i); await press('KeyE'); await shot('dog-gate-' + i); await pick(/Call the owner to secure the dog/); must(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').model.doorsteps.stops[i].dogSecured, i), 'the owner did not secure the dog (stop ' + i + ')'); }
     await at('door' + i);
-    await scan(); must((await state()).m.parcels[i].stopScanned, 'the doorstep scan did not register (stop ' + i + ')');
+    await scan();
+    if (!spec.wrong) must((await state()).m.parcels[i].stopScanned, 'the doorstep scan did not register (stop ' + i + ')');
     if (i === 0) await shot('doorstep-scan');
     await press('Digit1');
-    await press('KeyE'); await press('Digit1'); await shot('contact-' + i); await press('Digit1');
+    await press('KeyE');
+    // the owner who secured the dog has already come to the door; otherwise knock
+    if (!(await state()).m.stops[i].contacted) await pick(/Knock/);
+    await shot('contact-' + i); await pick(/Record on handheld/);
     must((await state()).device, 'the door did not open the delivery on the handheld');
+    // what the situation at this door needs: the model says which outcome is right; the checks are done through the UI
+    const expected = await ev((i) => OTR.fpDoors.expected(OTR.game.scene.getScene('FirstPersonScene').model, i), i);
+    if (spec.adult || (spec.signature && spec.present) || spec.difficult) {
+      await pick(/Delivery checks/);
+      if (spec.adult) {
+        const valid = await ev((i) => OTR.fpDoors.validID(OTR.game.scene.getScene('FirstPersonScene').model, i), i);
+        await pick(/Check the photo ID/); await shot('id-check-' + i);
+        await pick(valid ? /Accept the photo ID/ : /Decline the photo ID/);
+      }
+      if (spec.signature && spec.present && expected === 'handover') {
+        await pick(/Capture the signature/); await pick(new RegExp('^Record ' + spec.person.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+        must(await ctx.until(`${FP}.model.doorsteps.stops[${i}].signatureName !== null`, 20000), 'the signature was not recorded (stop ' + i + ')');
+        await pick(/^Back/);
+      }
+      if (spec.difficult) { await pick(/Speak with the customer/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
+      await pick(/Record the delivery outcome/);
+    }
+    console.log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
     await shot('delivery-options-' + i);
-    await press(stop.service === 'handover' ? 'Digit1' : stop.service === 'safeplace' ? 'Digit2' : 'Digit3');
+    await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
     must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
     await shot('receipt-' + i); await press('Digit1');
     if ((await state()).m.heldId) await use('slot' + i);
