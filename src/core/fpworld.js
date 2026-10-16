@@ -14,12 +14,16 @@ OTR.fpWorld = {
       const flat=h<=0.15&&(w>1||d>1);
       const mesh = new T.Mesh(flat?plane:cube, material(color)); mesh.position.set(x,y,z); mesh.scale.set(w,h,d);
       mesh.updateMatrix(); mesh.matrixAutoUpdate = false;
-      if (!id && !solid) {
+      if (!id) {
         let pool = batches.get(parent); if (!pool) { pool = new Map(); batches.set(parent,pool); }
-        const key=color+(flat?0x1000000:0);
-        if (!pool.has(key)) pool.set(key,[]); pool.get(key).push(mesh.matrix.clone());
-      } else {
+        // Ground/scenery retain material ordering, including distant depth ties with the ground box.
+        const key=(flat?'plane:':'box:')+(parent===route||flat?color:'all')+(parent===route&&solid?':solid':'');
+        if (!pool.has(key)) pool.set(key,[]); pool.get(key).push({matrix:mesh.matrix.clone(),color:new T.Color(color),hex:color,flat,bounded:!!solid});
+      }
+      if(id||solid){
         parent.add(mesh);
+        // Solid-only meshes remain exact raycast proxies. Their pixels come from the instance batch.
+        if(!id)mesh.layers.set(1);
         if (solid) occluders.push(mesh);
         if (id) { mesh.userData.interaction = id; interactions.push(mesh); }
       }
@@ -49,7 +53,7 @@ OTR.fpWorld = {
     const sky=weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
     if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
     const cabParcelRange2=OTR.gfx.high()?400:64;
-    const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity;
+    const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity,solidX=Infinity,solidZ=Infinity;
     if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,grassColour);
@@ -216,15 +220,22 @@ OTR.fpWorld = {
     }
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
-    batches.forEach((pool,parent)=>pool.forEach((matrices,color)=>{
-      const mesh=new T.InstancedMesh(color>=0x1000000?plane:cube,material(color%0x1000000),matrices.length);
-      matrices.forEach((matrix,i)=>mesh.setMatrixAt(i,matrix));mesh.instanceMatrix.needsUpdate=true;
+    batches.forEach((pool,parent)=>pool.forEach(entries=>{
+      const flat=entries[0].flat,coloured=parent===route||flat;
+      const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
+      entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
       mesh.computeBoundingSphere();parent.add(mesh);
-      if(base.town&&parent===route)staticBatches.push({mesh,matrices});
+      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded});
     }));
-    const ray=new T.Raycaster();ray.far=2.65;
+    const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
-    const scanObjects=[...new Set([...occluders,...interactions])];
+    labelRay.layers.enable(1);let residentMask=-1;
+    const scanObjects=[...new Set([...occluders,...interactions])],visibleObjects=[],hits=[],projected=new T.Vector3();
+    const cast=(ray,objects)=>{
+      visibleObjects.length=0;hits.length=0;
+      for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
+      return ray.intersectObjects(visibleObjects,false,hits);
+    };
     const api={hub,route,van,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
@@ -247,14 +258,15 @@ OTR.fpWorld = {
             }
             weatherDrops.instanceMatrix.needsUpdate=true;
           }
-          if(base.town&&(Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3)){
-            sceneryX=cx;sceneryZ=cz;
+          const sceneryMoved=Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3,solidMoved=cx!==solidX||cz!==solidZ;
+          if(base.town&&(sceneryMoved||solidMoved)){
+            if(sceneryMoved){sceneryX=cx;sceneryZ=cz;}solidX=cx;solidZ=cz;
             // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
-            for(const batch of staticBatches){let count=0;
-              for(const matrix of batch.matrices){const e=matrix.elements;
-                if(Math.max(Math.abs(e[0]),Math.abs(e[10]))>20 || (e[12]-cx)**2+(e[14]-cz)**2<sceneryRadius*sceneryRadius)batch.mesh.setMatrixAt(count++,matrix);
+            for(const batch of staticBatches){if(!sceneryMoved&&!batch.bounded)continue;let count=0;
+              for(const entry of batch.entries){const e=entry.matrix.elements;
+                if((!entry.bounded&&Math.max(Math.abs(e[0]),Math.abs(e[10]))>20) || (e[12]-cx)**2+(e[14]-cz)**2<sceneryRadius*sceneryRadius){batch.mesh.setMatrixAt(count,entry.matrix);if(batch.mesh.instanceColor)batch.mesh.setColorAt(count,entry.color);count++;}
               }
-              batch.mesh.count=count;batch.mesh.instanceMatrix.needsUpdate=true;
+              batch.mesh.count=count;batch.mesh.visible=count>0;batch.mesh.instanceMatrix.needsUpdate=true;if(batch.mesh.instanceColor)batch.mesh.instanceColor.needsUpdate=true;
             }
           }
           if(base.town){
@@ -284,11 +296,11 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
-          let residentCount=0;
-          for(const part of residentParts){const s=m.stops[part.id];if(!s.contacted||s.resolved||!(m.doorsteps?m._doorSpecs[part.id].present:s.service==='handover')||(s.x-cx)**2+(s.z-cz)**2>sceneryRadius*sceneryRadius)continue;
-            residentBatch.setMatrixAt(residentCount,part.matrix);residentBatch.setColorAt(residentCount++,part.color);
+          let mask=0;for(const s of m.stops)if(s.contacted&&!s.resolved&&(m.doorsteps?m._doorSpecs[s.id].present:s.service==='handover')&&(s.x-cx)**2+(s.z-cz)**2<=sceneryRadius*sceneryRadius)mask|=1<<s.id;
+          if(mask!==residentMask){let count=0;residentMask=mask;
+            for(const part of residentParts)if(mask&(1<<part.id)){residentBatch.setMatrixAt(count,part.matrix);residentBatch.setColorAt(count++,part.color);}
+            residentBatch.count=count;residentBatch.visible=count>0;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
           }
-          residentBatch.count=residentCount;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
           if(m.doorsteps)for(let i=0;i<m.stops.length;i++){const d=m.doorsteps.stops[i],s=m.stops[i];
             if(dogs[i]){const p=m._doorSolids[i].dog;dogs[i].visible=!d.dogSecured&&Math.hypot(p.x-cx,p.z-cz)<35;dogs[i].position.set(p.x,0,p.z);gates[i].visible=!d.gateOpen&&!d.dogSecured&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;}
             if(hazards[i])hazards[i].visible=!d.hazardCleared&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;
@@ -306,11 +318,10 @@ OTR.fpWorld = {
         }
         world.updateMatrixWorld(true);
       },
-      pick(){return OTR.world3d.pick(camera,occluders,interactions,ray);},
+      pick(){ray.setFromCamera({x:0,y:0},camera);const hit=cast(ray,scanObjects)[0];return hit?hit.object.userData.interaction||null:null;},
       scanTarget(){
         ray.setFromCamera({x:0,y:0},camera);
-        const visible=scanObjects.filter(o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;});
-        const hit=ray.intersectObjects(visible,false)[0];
+        const hit=cast(ray,scanObjects)[0];
         if(!hit||!hit.object.userData.scanId)return null;
         hit.object.getWorldQuaternion(scanRotation);hit.object.getWorldPosition(scanPoint);
         scanNormal.set(0,0,1).applyQuaternion(scanRotation);direction.copy(camera.position).sub(scanPoint).normalize();
@@ -320,13 +331,12 @@ OTR.fpWorld = {
         if(!label.parent.visible)return null;
         if(label.local){label.point.copy(label.local);label.parent.localToWorld(label.point);direction.copy(label.normal).transformDirection(label.parent.matrixWorld);scanPoint.copy(camera.position).sub(label.point);if(direction.dot(scanPoint)<=0)return null;}
         if(camera.position.distanceTo(label.point)>label.max)return null;
-        const p=label.point.clone().project(camera);
+        const p=projected.copy(label.point).project(camera);
         if(p.z< -1||p.z>1||Math.abs(p.x)>0.83||p.y>0.65||p.y< -0.53)return null;
         direction.copy(label.point).sub(camera.position);const distance=direction.length();direction.normalize();
         labelRay.set(camera.position,direction);labelRay.far=distance-0.2;
-        const objects=occluders.filter(o=>{for(let a=o;a;a=a.parent)if(!a.visible)return false;return true;});
-        if(labelRay.intersectObjects(objects,false).length)return null;
-        return {x:(p.x+1)*OTR.W/2,y:(1-p.y)*OTR.H/2};
+        if(cast(labelRay,occluders).length)return null;
+        const screen=label.screen||(label.screen={x:0,y:0});screen.x=(p.x+1)*OTR.W/2;screen.y=(1-p.y)*OTR.H/2;return screen;
       }
     };
     view.mirror.before=()=>{van.visible=true;dash.visible=false;world.updateMatrixWorld(true);};

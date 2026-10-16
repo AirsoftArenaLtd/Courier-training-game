@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "quality": "low",
+      "view": "depot",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    },
+    {
+      "quality": "low",
+      "view": "mirror",
+      "pixels": 2,
+      "maxChannel": 38,
+      "fraction": 0.000002170138888888889
+    },
+    {
+      "quality": "low",
+      "view": "door",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    },
+    {
+      "quality": "low",
+      "view": "parcel",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    },
+    {
+      "quality": "high",
+      "view": "depot",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    },
+    {
+      "quality": "high",
+      "view": "mirror",
+      "pixels": 8,
+      "maxChannel": 47,
+      "fraction": 0.000008680555555555556
+    },
+    {
+      "quality": "high",
+      "view": "door",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    },
+    {
+      "quality": "high",
+      "view": "parcel",
+      "pixels": 0,
+      "maxChannel": 0,
+      "fraction": 0
+    }
+  ],
+  "errors": []
+}
