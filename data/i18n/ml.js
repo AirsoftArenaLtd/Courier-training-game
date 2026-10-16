@@ -3359,7 +3359,66 @@ window.OTR_I18N.ml = {
 "Confirm the path check": "വഴി പരിശോധന സ്ഥിരീകരിക്കുക",
 "Check mirrors and signals before moving.": "നീങ്ങും മുമ്പ് മിററുകളും സിഗ്നലുകളും പരിശോധിക്കുക.",
 "Keep right. The speed limit is 25 mph.": "വലത്തേക്ക് ചേർന്ന് പോകുക. വേഗപരിധി 25 mph ആണ്.",
-"Keep right. The speed limit is 15 mph.": "വലത്തേക്ക് ചേർന്ന് പോകുക. വേഗപരിധി 15 mph ആണ്."
+"Keep right. The speed limit is 15 mph.": "വലത്തേക്ക് ചേർന്ന് പോകുക. വേഗപരിധി 15 mph ആണ്.",
+"Entered the yard while the dog was loose.": "നായ അഴിഞ്ഞുനിൽക്കെ നിങ്ങൾ മുറ്റത്ത് കയറി.",
+"Slipped or tripped on the delivery path.": "ഡെലിവറി വഴിയിൽ നിങ്ങൾ തെന്നിവീഴുകയോ തട്ടിവീഴുകയോ ചെയ്തു.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "നിങ്ങൾ തെന്നിവീഴുകയോ തട്ടിവീഴുകയോ ചെയ്തു. വഴിയിലേക്ക് നോക്കി ചെറിയ, ശ്രദ്ധയുള്ള ചുവടുകൾ വയ്ക്കുക.",
+"Stay outside the gate and call the owner.": "ഗേറ്റിന് പുറത്ത് നിൽക്കുക, ഉടമയെ വിളിക്കുക.",
+"Waited outside while the owner secured the dog.": "ഉടമ നായയെ കെട്ടിയിടുന്നതുവരെ നിങ്ങൾ പുറത്ത് കാത്തുനിന്നു.",
+"The owner has secured the dog. The gate is safe to use.": "ഉടമ നായയെ കെട്ടിയിട്ടു. ഗേറ്റ് ഉപയോഗിക്കുന്നത് സുരക്ഷിതമാണ്.",
+"Approach the gate from outside.": "പുറത്തുനിന്ന് ഗേറ്റിനടുത്തേക്ക് ചെല്ലുക.",
+"Opened the gate while the dog was loose.": "നായ അഴിഞ്ഞുനിൽക്കെ നിങ്ങൾ ഗേറ്റ് തുറന്നു.",
+"The gate is open. Keep away from the loose dog.": "ഗേറ്റ് തുറന്നിരിക്കുന്നു. അഴിഞ്ഞുനിൽക്കുന്ന നായയിൽ നിന്ന് അകന്നുനിൽക്കുക.",
+"Move close enough to inspect the path.": "വഴി പരിശോധിക്കാൻ പാകത്തിന് അടുത്തേക്ക് നീങ്ങുക.",
+"Use short, careful steps or walk around the slippery patch.": "ചെറിയ, ശ്രദ്ധയുള്ള ചുവടുകൾ വയ്ക്കുക, അല്ലെങ്കിൽ വഴുക്കലുള്ള ഭാഗം ചുറ്റിപ്പോകുക.",
+"Put the parcel on a cargo shelf before clearing the path.": "വഴി ഒഴിവാക്കുന്നതിന് മുമ്പ് പാഴ്സൽ കാർഗോ ഷെൽഫിൽ വയ്ക്കുക.",
+"The trip hazard is clear of the path.": "വഴിയിലെ തടസ്സം മാറ്റി.",
+"The label does not match this door. Keep the parcel and report an address exception.": "ലേബൽ ഈ വാതിലിനോട് യോജിക്കുന്നില്ല. പാഴ്സൽ കൈവശം വയ്ക്കുക, വിലാസ ഒഴിവ് റിപ്പോർട്ട് ചെയ്യുക.",
+"Check the photo ID at the door first.": "ആദ്യം വാതിൽക്കൽ വച്ച് ഫോട്ടോ ഐഡി പരിശോധിക്കുക.",
+"Your ID decision is recorded. Follow the delivery requirements.": "നിങ്ങളുടെ ഐഡി തീരുമാനം രേഖപ്പെടുത്തി. ഡെലിവറി വ്യവസ്ഥകൾ പാലിക്കുക.",
+"The recipient must be present with the parcel before signing.": "ഒപ്പിടുന്നതിന് മുമ്പ് സ്വീകർത്താവ് പാഴ്സലിനൊപ്പം സ്ഥലത്തുണ്ടായിരിക്കണം.",
+"The signature and printed name are recorded.": "ഒപ്പും അച്ചടിച്ച പേരും രേഖപ്പെടുത്തി.",
+"Speak to the customer at the door first.": "ആദ്യം വാതിൽക്കൽ ഉപഭോക്താവിനോട് സംസാരിക്കുക.",
+"The customer response is already recorded.": "ഉപഭോക്താവിന്റെ പ്രതികരണം ഇതിനകം രേഖപ്പെടുത്തിയിട്ടുണ്ട്.",
+"Acknowledged the problem and offered a clear next step.": "പ്രശ്നം അംഗീകരിച്ച് വ്യക്തമായ അടുത്ത ഘട്ടം വാഗ്ദാനം ചെയ്തു.",
+"Argued with the customer instead of helping.": "സഹായിക്കുന്നതിന് പകരം ഉപഭോക്താവുമായി തർക്കിച്ചു.",
+"The customer is ready to continue calmly.": "ഉപഭോക്താവ് ശാന്തമായി തുടരാൻ തയ്യാറാണ്.",
+"The customer is more upset. Review your response in the debrief.": "ഉപഭോക്താവ് കൂടുതൽ അസ്വസ്ഥനാണ്. നിങ്ങളുടെ പ്രതികരണം ഡിബ്രീഫിൽ പരിശോധിക്കുക.",
+"Checked the label against the door and recorded the address response.": "ലേബൽ വാതിലുമായി ഒത്തുനോക്കി, വിലാസ പ്രതികരണം രേഖപ്പെടുത്തി.",
+"Checked the ID requirements before recording the outcome.": "ഫലം രേഖപ്പെടുത്തുന്നതിന് മുമ്പ് ഐഡി വ്യവസ്ഥകൾ പരിശോധിച്ചു.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "ആവശ്യമായ ഫോട്ടോ ഐഡി പരിശോധന പൂർത്തിയാക്കാതെ പ്രായപരിധിയുള്ള ഡെലിവറിയുടെ ഫലം രേഖപ്പെടുത്തി.",
+"Completed the stop without addressing the customer’s concern.": "ഉപഭോക്താവിന്റെ ആശങ്ക പരിഹരിക്കാതെ സ്റ്റോപ്പ് പൂർത്തിയാക്കി.",
+"Recorded the response to unsafe access with a loose dog.": "അഴിഞ്ഞുനിൽക്കുന്ന നായ കാരണമുള്ള സുരക്ഷിതമല്ലാത്ത പ്രവേശനത്തിനുള്ള പ്രതികരണം രേഖപ്പെടുത്തി.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "അഴിഞ്ഞുനിൽക്കുന്ന നായ സുരക്ഷിതമായ പ്രവേശനം തടയുന്നു. ഗേറ്റിന് പുറത്ത് നിൽക്കുക, അല്ലെങ്കിൽ ഒഴിവ് രേഖപ്പെടുത്തുക.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "ഫോട്ടോ ഐഡിയും മുതിർന്നയാളുടെ ഒപ്പും ആവശ്യമാണ്. സ്വീകർത്താവിന് 21 വയസ്സോ അതിൽ കൂടുതലോ ആയിരിക്കണം.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "പാഴ്സൽ കൈമാറുന്നതിന് മുമ്പ് സ്വീകർത്താവിന്റെ ഒപ്പും അച്ചടിച്ച പേരും രേഖപ്പെടുത്തുക.",
+"Nobody is present to receive the parcel.": "പാഴ്സൽ സ്വീകരിക്കാൻ ആരും സ്ഥലത്തില്ല.",
+"Review the photo ID": "ഫോട്ടോ ഐഡി പരിശോധിക്കുക",
+"Check the photo ID": "ഫോട്ടോ ഐഡി പരിശോധിക്കുക",
+"Review the signature": "ഒപ്പ് പരിശോധിക്കുക",
+"Capture the signature": "ഒപ്പ് പകർത്തുക",
+"Speak with the customer": "ഉപഭോക്താവിനോട് സംസാരിക്കുക",
+"Record the delivery outcome": "ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക",
+"The recipient signs below.": "സ്വീകർത്താവ് താഴെ ഒപ്പിടുന്നു.",
+"Record the name of the person who signs.": "ഒപ്പിടുന്നയാളുടെ പേര് രേഖപ്പെടുത്തുക.",
+"Record a delivery exception": "ഡെലിവറി ഒഴിവ് രേഖപ്പെടുത്തുക",
+"Delivery checks": "ഡെലിവറി പരിശോധനകൾ",
+"Retained the parcel and recorded the delivery exception.": "പാഴ്സൽ കൈവശം വച്ച് ഡെലിവറി ഒഴിവ് രേഖപ്പെടുത്തി.",
+"Keep the gate shut. A dog is loose.": "ഗേറ്റ് അടച്ചിടുക. നായ അഴിഞ്ഞുനിൽക്കുന്നു.",
+"A dog is loose in the yard": "മുറ്റത്ത് നായ അഴിഞ്ഞുനിൽക്കുന്നു",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "ഗേറ്റ് അടച്ചിടുക. അകത്ത് കയറുംമുമ്പ് നായയെ കെട്ടിയിടാൻ ഉടമയെ വിളിക്കുക, അല്ലെങ്കിൽ സുരക്ഷിതമല്ലാത്ത പ്രവേശന ഒഴിവ് രേഖപ്പെടുത്തുക.",
+"Call the owner to secure the dog": "നായയെ കെട്ടിയിടാൻ ഉടമയെ വിളിക്കുക",
+"Record an unsafe-access exception": "സുരക്ഷിതമല്ലാത്ത പ്രവേശന ഒഴിവ് രേഖപ്പെടുത്തുക",
+"Open the gate with the dog loose": "നായ അഴിഞ്ഞുനിൽക്കെ ഗേറ്റ് തുറക്കുക",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "രണ്ട് ഫോട്ടോകളും താരതമ്യം ചെയ്യുക. ഈ പരിശീലനത്തിൽ സ്വീകർത്താവിന് 21 വയസ്സോ അതിൽ കൂടുതലോ ആയിരിക്കണം.",
+"Accept the photo ID": "ഫോട്ടോ ഐഡി സ്വീകരിക്കുക",
+"Decline the photo ID and retain the parcel": "ഫോട്ടോ ഐഡി നിരസിച്ച് പാഴ്സൽ കൈവശം വയ്ക്കുക",
+"At the door": "വാതിൽക്കൽ",
+"The customer is upset about a late delivery.": "വൈകിയ ഡെലിവറിയെക്കുറിച്ച് ഉപഭോക്താവ് അസ്വസ്ഥനാണ്.",
+"Acknowledge the problem and offer a clear next step": "പ്രശ്നം അംഗീകരിച്ച് വ്യക്തമായ അടുത്ത ഘട്ടം വാഗ്ദാനം ചെയ്യുക",
+"Blame the customer and argue": "ഉപഭോക്താവിനെ കുറ്റപ്പെടുത്തി തർക്കിക്കുക",
+"E checks the gate. Keep outside while the dog is loose.": "E ഗേറ്റ് പരിശോധിക്കുന്നു. നായ അഴിഞ്ഞുനിൽക്കുമ്പോൾ പുറത്തുനിൽക്കുക.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ഉപയോഗിച്ച് വഴി പരിശോധിക്കുക. ചെറിയ, ശ്രദ്ധയുള്ള ചുവടുകൾക്ക് Shift അമർത്തിപ്പിടിക്കുക."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.ml = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"വാതിൽക്കൽ ഉള്ളയാൾ: {0}"
+],
+[
+"Printed name: {0}",
+"അച്ചടിച്ച പേര്: {0}"
+],
+[
+"Record {0}",
+"{0} രേഖപ്പെടുത്തുക"
+],
+[
+"Name on ID: {0}",
+"ഐഡിയിലെ പേര്: {0}"
+],
+[
+"Date of birth: {0}",
+"ജനനത്തീയതി: {0}"
+],
+[
+"Expires: {0}",
+"കാലാവധി തീരുന്നത്: {0}"
+],
+[
+"Training date: {0}",
+"പരിശീലന തീയതി: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

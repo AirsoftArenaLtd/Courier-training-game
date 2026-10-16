@@ -3360,7 +3360,66 @@ window.OTR_I18N.bn = {
 "Confirm the path check": "পথ দেখা হয়েছে বলে নিশ্চিত করুন",
 "Check mirrors and signals before moving.": "চলার আগে মিরর ও সিগন্যাল দেখুন।",
 "Keep right. The speed limit is 25 mph.": "ডানদিক ধরে চলুন। গতিসীমা ২৫ mph।",
-"Keep right. The speed limit is 15 mph.": "ডানদিক ধরে চলুন। গতিসীমা ১৫ mph।"
+"Keep right. The speed limit is 15 mph.": "ডানদিক ধরে চলুন। গতিসীমা ১৫ mph।",
+"Entered the yard while the dog was loose.": "কুকুর ছাড়া থাকা অবস্থায় আপনি উঠানে ঢুকেছেন।",
+"Slipped or tripped on the delivery path.": "ডেলিভারির পথে পিছলে গেছেন বা হোঁচট খেয়েছেন।",
+"You slipped or tripped. Look at the path and use short, careful steps.": "আপনি পিছলে গেছেন বা হোঁচট খেয়েছেন। পথটা দেখুন আর ছোট, সাবধানি পদক্ষেপে চলুন।",
+"Stay outside the gate and call the owner.": "গেটের বাইরে থাকুন আর মালিককে ডাকুন।",
+"Waited outside while the owner secured the dog.": "মালিক কুকুরটিকে বেঁধে রাখা পর্যন্ত বাইরে অপেক্ষা করেছেন।",
+"The owner has secured the dog. The gate is safe to use.": "মালিক কুকুরটিকে বেঁধে রেখেছেন। গেট ব্যবহার করা নিরাপদ।",
+"Approach the gate from outside.": "বাইরে থেকে গেটের কাছে যান।",
+"Opened the gate while the dog was loose.": "কুকুর ছাড়া থাকা অবস্থায় গেট খুলেছেন।",
+"The gate is open. Keep away from the loose dog.": "গেট খোলা। ছাড়া কুকুর থেকে দূরে থাকুন।",
+"Move close enough to inspect the path.": "পথটা ভালো করে দেখার মতো কাছে যান।",
+"Use short, careful steps or walk around the slippery patch.": "ছোট, সাবধানি পদক্ষেপে চলুন, অথবা পিছল জায়গাটা ঘুরে যান।",
+"Put the parcel on a cargo shelf before clearing the path.": "পথ পরিষ্কার করার আগে প্যাকেজটি কার্গো তাকে রাখুন।",
+"The trip hazard is clear of the path.": "হোঁচট খাওয়ার ঝুঁকিটি পথ থেকে সরানো হয়েছে।",
+"The label does not match this door. Keep the parcel and report an address exception.": "লেবেল এই দরজার সাথে মেলে না। প্যাকেজটি নিজের কাছে রাখুন আর ঠিকানার ব্যতিক্রম জানান।",
+"Check the photo ID at the door first.": "আগে দরজায় ছবিযুক্ত আইডি যাচাই করুন।",
+"Your ID decision is recorded. Follow the delivery requirements.": "আইডি নিয়ে আপনার সিদ্ধান্ত রেকর্ড হয়েছে। ডেলিভারির শর্ত মেনে চলুন।",
+"The recipient must be present with the parcel before signing.": "সই করার আগে প্রাপককে প্যাকেজের সামনে উপস্থিত থাকতে হবে।",
+"The signature and printed name are recorded.": "সই আর ছাপা নাম রেকর্ড হয়েছে।",
+"Speak to the customer at the door first.": "আগে দরজায় গ্রাহকের সাথে কথা বলুন।",
+"The customer response is already recorded.": "গ্রাহকের প্রতিক্রিয়া আগেই রেকর্ড হয়েছে।",
+"Acknowledged the problem and offered a clear next step.": "সমস্যাটি স্বীকার করেছেন আর পরের ধাপ স্পষ্ট করে বলেছেন।",
+"Argued with the customer instead of helping.": "সাহায্য না করে গ্রাহকের সাথে তর্ক করেছেন।",
+"The customer is ready to continue calmly.": "গ্রাহক শান্তভাবে এগোতে প্রস্তুত।",
+"The customer is more upset. Review your response in the debrief.": "গ্রাহক আরও বিরক্ত। ডিব্রিফে আপনার প্রতিক্রিয়াটি দেখে নিন।",
+"Checked the label against the door and recorded the address response.": "লেবেলটি দরজার সাথে মিলিয়ে দেখেছেন আর ঠিকানার সাড়া রেকর্ড করেছেন।",
+"Checked the ID requirements before recording the outcome.": "ফলাফল রেকর্ড করার আগে আইডির শর্ত যাচাই করেছেন।",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "ছবিযুক্ত আইডির প্রয়োজনীয় যাচাই শেষ না করেই বয়স-সীমাবদ্ধ ডেলিভারির ফলাফল রেকর্ড করেছেন।",
+"Completed the stop without addressing the customer’s concern.": "গ্রাহকের উদ্বেগের কথা না শুনেই স্টপ শেষ করেছেন।",
+"Recorded the response to unsafe access with a loose dog.": "ছাড়া কুকুরের কারণে অনিরাপদ প্রবেশপথে আপনার সাড়া রেকর্ড করেছেন।",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "একটি ছাড়া কুকুর নিরাপদ প্রবেশে বাধা দিচ্ছে। গেটের বাইরে থাকুন, নয়তো ব্যতিক্রম রেকর্ড করুন।",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "ছবিযুক্ত আইডি আর প্রাপ্তবয়স্কের সই লাগবে। প্রাপকের বয়স ২১ বা তার বেশি হতে হবে।",
+"Record the recipient’s signature and printed name before handing over the parcel.": "প্যাকেজ হস্তান্তরের আগে প্রাপকের সই আর ছাপা নাম রেকর্ড করুন।",
+"Nobody is present to receive the parcel.": "প্যাকেজ নেওয়ার জন্য কেউ উপস্থিত নেই।",
+"Review the photo ID": "ছবিযুক্ত আইডি দেখুন",
+"Check the photo ID": "ছবিযুক্ত আইডি যাচাই করুন",
+"Review the signature": "সই দেখুন",
+"Capture the signature": "সই নিন",
+"Speak with the customer": "গ্রাহকের সাথে কথা বলুন",
+"Record the delivery outcome": "ডেলিভারির ফলাফল রেকর্ড করুন",
+"The recipient signs below.": "প্রাপক নিচে সই করবেন।",
+"Record the name of the person who signs.": "যিনি সই করছেন তাঁর নাম রেকর্ড করুন।",
+"Record a delivery exception": "ডেলিভারির ব্যতিক্রম রেকর্ড করুন",
+"Delivery checks": "ডেলিভারি যাচাই",
+"Retained the parcel and recorded the delivery exception.": "প্যাকেজটি নিজের কাছে রেখেছেন আর ডেলিভারির ব্যতিক্রম রেকর্ড করেছেন।",
+"Keep the gate shut. A dog is loose.": "গেট বন্ধ রাখুন। একটি কুকুর ছাড়া আছে।",
+"A dog is loose in the yard": "উঠানে একটি কুকুর ছাড়া আছে",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "গেট বন্ধ রাখুন। ঢোকার আগে মালিককে ডেকে কুকুরটিকে বাঁধতে বলুন, নয়তো অনিরাপদ প্রবেশের ব্যতিক্রম রেকর্ড করুন।",
+"Call the owner to secure the dog": "কুকুর বাঁধতে মালিককে ডাকুন",
+"Record an unsafe-access exception": "অনিরাপদ প্রবেশের ব্যতিক্রম রেকর্ড করুন",
+"Open the gate with the dog loose": "কুকুর ছাড়া থাকা অবস্থায় গেট খুলুন",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "দুটি ছবি মিলিয়ে দেখুন। এই অনুশীলনে প্রাপকের বয়স ২১ বা তার বেশি হতে হবে।",
+"Accept the photo ID": "ছবিযুক্ত আইডি গ্রহণ করুন",
+"Decline the photo ID and retain the parcel": "ছবিযুক্ত আইডি প্রত্যাখ্যান করুন আর প্যাকেজ নিজের কাছে রাখুন",
+"At the door": "দরজায়",
+"The customer is upset about a late delivery.": "দেরিতে ডেলিভারির জন্য গ্রাহক বিরক্ত।",
+"Acknowledge the problem and offer a clear next step": "সমস্যাটি স্বীকার করুন আর পরের ধাপ স্পষ্ট করে বলুন",
+"Blame the customer and argue": "গ্রাহককে দোষ দিন আর তর্ক করুন",
+"E checks the gate. Keep outside while the dog is loose.": "E দিয়ে গেট দেখুন। কুকুর ছাড়া থাকলে বাইরে থাকুন।",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E দিয়ে পথ দেখুন। ছোট, সাবধানি পদক্ষেপে চলতে Shift চেপে রাখুন।"
 },
 "templates": [
 [
@@ -4702,6 +4761,38 @@ window.OTR_I18N.bn = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"দরজায় থাকা ব্যক্তি: {0}"
+],
+[
+"Printed name: {0}",
+"ছাপা নাম: {0}"
+],
+[
+"Record {0}",
+"{0} রেকর্ড করুন"
+],
+[
+"Name on ID: {0}",
+"আইডিতে নাম: {0}"
+],
+[
+"Date of birth: {0}",
+"জন্ম তারিখ: {0}"
+],
+[
+"Expires: {0}",
+"মেয়াদ শেষ: {0}"
+],
+[
+"Training date: {0}",
+"প্রশিক্ষণের তারিখ: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [

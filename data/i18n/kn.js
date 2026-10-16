@@ -3359,7 +3359,66 @@ window.OTR_I18N.kn = {
 "Confirm the path check": "ಮಾರ್ಗ ಪರಿಶೀಲನೆಯನ್ನು ದೃಢೀಕರಿಸಿ",
 "Check mirrors and signals before moving.": "ಚಲಿಸುವ ಮೊದಲು ಕನ್ನಡಿಗಳು ಮತ್ತು ಸಿಗ್ನಲ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
 "Keep right. The speed limit is 25 mph.": "ಬಲಕ್ಕೆ ಇರಿ. ವೇಗ ಮಿತಿ 25 mph.",
-"Keep right. The speed limit is 15 mph.": "ಬಲಕ್ಕೆ ಇರಿ. ವೇಗ ಮಿತಿ 15 mph."
+"Keep right. The speed limit is 15 mph.": "ಬಲಕ್ಕೆ ಇರಿ. ವೇಗ ಮಿತಿ 15 mph.",
+"Entered the yard while the dog was loose.": "ನಾಯಿ ಬಿಡಿಯಾಗಿದ್ದಾಗ ನೀವು ಅಂಗಳಕ್ಕೆ ಪ್ರವೇಶಿಸಿದಿರಿ.",
+"Slipped or tripped on the delivery path.": "ಡೆಲಿವರಿ ದಾರಿಯಲ್ಲಿ ಜಾರಿದಿರಿ ಅಥವಾ ಎಡವಿದಿರಿ.",
+"You slipped or tripped. Look at the path and use short, careful steps.": "ನೀವು ಜಾರಿದಿರಿ ಅಥವಾ ಎಡವಿದಿರಿ. ದಾರಿಯನ್ನು ನೋಡಿ, ಚಿಕ್ಕ ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳನ್ನು ಇಡಿ.",
+"Stay outside the gate and call the owner.": "ಗೇಟ್‌ನ ಹೊರಗೇ ಇರಿ ಮತ್ತು ಮಾಲೀಕರಿಗೆ ಕರೆ ಮಾಡಿ.",
+"Waited outside while the owner secured the dog.": "ಮಾಲೀಕರು ನಾಯಿಯನ್ನು ಕಟ್ಟಿ ಹಾಕುವವರೆಗೆ ಹೊರಗೆ ಕಾದಿರಿ.",
+"The owner has secured the dog. The gate is safe to use.": "ಮಾಲೀಕರು ನಾಯಿಯನ್ನು ಕಟ್ಟಿ ಹಾಕಿದ್ದಾರೆ. ಗೇಟ್ ಬಳಸಲು ಸುರಕ್ಷಿತ.",
+"Approach the gate from outside.": "ಹೊರಗಿನಿಂದ ಗೇಟ್ ಬಳಿ ಹೋಗಿ.",
+"Opened the gate while the dog was loose.": "ನಾಯಿ ಬಿಡಿಯಾಗಿದ್ದಾಗ ಗೇಟ್ ತೆರೆದಿರಿ.",
+"The gate is open. Keep away from the loose dog.": "ಗೇಟ್ ತೆರೆದಿದೆ. ಬಿಡಿಯಾಗಿರುವ ನಾಯಿಯಿಂದ ದೂರವಿರಿ.",
+"Move close enough to inspect the path.": "ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಸಾಕಷ್ಟು ಹತ್ತಿರ ಹೋಗಿ.",
+"Use short, careful steps or walk around the slippery patch.": "ಚಿಕ್ಕ ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳನ್ನು ಇಡಿ ಅಥವಾ ಜಾರುವ ಜಾಗವನ್ನು ಸುತ್ತಿ ನಡೆಯಿರಿ.",
+"Put the parcel on a cargo shelf before clearing the path.": "ದಾರಿಯನ್ನು ತೆರವುಗೊಳಿಸುವ ಮೊದಲು ಪಾರ್ಸೆಲ್ ಅನ್ನು ಸರಕು ಶೆಲ್ಫ್‌ನಲ್ಲಿ ಇರಿಸಿ.",
+"The trip hazard is clear of the path.": "ಎಡವುವ ಅಪಾಯ ದಾರಿಯಿಂದ ತೆರವಾಗಿದೆ.",
+"The label does not match this door. Keep the parcel and report an address exception.": "ಲೇಬಲ್ ಈ ಬಾಗಿಲಿಗೆ ಹೊಂದುವುದಿಲ್ಲ. ಪಾರ್ಸೆಲ್ ನಿಮ್ಮ ಬಳಿಯೇ ಇಟ್ಟುಕೊಳ್ಳಿ ಮತ್ತು ವಿಳಾಸ ವಿನಾಯಿತಿಯನ್ನು ವರದಿ ಮಾಡಿ.",
+"Check the photo ID at the door first.": "ಮೊದಲು ಬಾಗಿಲಲ್ಲಿ ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ.",
+"Your ID decision is recorded. Follow the delivery requirements.": "ನಿಮ್ಮ ಗುರುತಿನ ಚೀಟಿ ನಿರ್ಧಾರ ದಾಖಲಾಗಿದೆ. ಡೆಲಿವರಿ ನಿಯಮಗಳನ್ನು ಪಾಲಿಸಿ.",
+"The recipient must be present with the parcel before signing.": "ಸಹಿ ಮಾಡುವ ಮೊದಲು ಸ್ವೀಕರಿಸುವವರು ಪಾರ್ಸೆಲ್ ಜೊತೆ ಹಾಜರಿರಬೇಕು.",
+"The signature and printed name are recorded.": "ಸಹಿ ಮತ್ತು ಮುದ್ರಿತ ಹೆಸರು ದಾಖಲಾಗಿವೆ.",
+"Speak to the customer at the door first.": "ಮೊದಲು ಬಾಗಿಲಲ್ಲಿ ಗ್ರಾಹಕರ ಜೊತೆ ಮಾತನಾಡಿ.",
+"The customer response is already recorded.": "ಗ್ರಾಹಕರ ಪ್ರತಿಕ್ರಿಯೆ ಈಗಾಗಲೇ ದಾಖಲಾಗಿದೆ.",
+"Acknowledged the problem and offered a clear next step.": "ಸಮಸ್ಯೆಯನ್ನು ಒಪ್ಪಿಕೊಂಡು ಸ್ಪಷ್ಟವಾದ ಮುಂದಿನ ಹೆಜ್ಜೆಯನ್ನು ಹೇಳಿದಿರಿ.",
+"Argued with the customer instead of helping.": "ಸಹಾಯ ಮಾಡುವ ಬದಲು ಗ್ರಾಹಕರ ಜೊತೆ ವಾದ ಮಾಡಿದಿರಿ.",
+"The customer is ready to continue calmly.": "ಗ್ರಾಹಕರು ಶಾಂತವಾಗಿ ಮುಂದುವರಿಯಲು ಸಿದ್ಧರಿದ್ದಾರೆ.",
+"The customer is more upset. Review your response in the debrief.": "ಗ್ರಾಹಕರು ಇನ್ನಷ್ಟು ಕೋಪಗೊಂಡಿದ್ದಾರೆ. ಡಿಬ್ರೀಫ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಪರಿಶೀಲಿಸಿ.",
+"Checked the label against the door and recorded the address response.": "ಲೇಬಲ್ ಅನ್ನು ಬಾಗಿಲಿನೊಂದಿಗೆ ಹೋಲಿಸಿ ನೋಡಿ, ವಿಳಾಸದ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Checked the ID requirements before recording the outcome.": "ಫಲಿತಾಂಶ ದಾಖಲಿಸುವ ಮೊದಲು ಗುರುತಿನ ಚೀಟಿ ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಿದಿರಿ.",
+"Recorded an age-restricted outcome without completing the required photo ID check.": "ಅಗತ್ಯವಾದ ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಪರಿಶೀಲನೆ ಪೂರ್ಣಗೊಳಿಸದೆ ವಯಸ್ಸಿನ ನಿರ್ಬಂಧವಿರುವ ಫಲಿತಾಂಶವನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Completed the stop without addressing the customer’s concern.": "ಗ್ರಾಹಕರ ಕಳವಳವನ್ನು ಗಮನಿಸದೆ ಈ ನಿಲುಗಡೆಯನ್ನು ಮುಗಿಸಿದಿರಿ.",
+"Recorded the response to unsafe access with a loose dog.": "ಬಿಡಿ ನಾಯಿಯಿಂದ ಅಸುರಕ್ಷಿತವಾದ ಪ್ರವೇಶಕ್ಕೆ ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"A loose dog blocks safe access. Keep outside the gate or record an exception.": "ಬಿಡಿ ನಾಯಿ ಸುರಕ್ಷಿತ ಪ್ರವೇಶವನ್ನು ತಡೆಯುತ್ತಿದೆ. ಗೇಟ್‌ನ ಹೊರಗೇ ಇರಿ ಅಥವಾ ವಿನಾಯಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Photo ID and an adult signature are required. The recipient must be 21 or older.": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಮತ್ತು ವಯಸ್ಕರ ಸಹಿ ಅಗತ್ಯ. ಸ್ವೀಕರಿಸುವವರಿಗೆ 21 ವರ್ಷ ಅಥವಾ ಹೆಚ್ಚು ವಯಸ್ಸಾಗಿರಬೇಕು.",
+"Record the recipient’s signature and printed name before handing over the parcel.": "ಪಾರ್ಸೆಲ್ ಕೊಡುವ ಮೊದಲು ಸ್ವೀಕರಿಸುವವರ ಸಹಿ ಮತ್ತು ಮುದ್ರಿತ ಹೆಸರನ್ನು ದಾಖಲಿಸಿ.",
+"Nobody is present to receive the parcel.": "ಪಾರ್ಸೆಲ್ ಸ್ವೀಕರಿಸಲು ಯಾರೂ ಇಲ್ಲ.",
+"Review the photo ID": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+"Check the photo ID": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+"Review the signature": "ಸಹಿಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+"Capture the signature": "ಸಹಿಯನ್ನು ಪಡೆಯಿರಿ",
+"Speak with the customer": "ಗ್ರಾಹಕರ ಜೊತೆ ಮಾತನಾಡಿ",
+"Record the delivery outcome": "ಡೆಲಿವರಿ ಫಲಿತಾಂಶವನ್ನು ದಾಖಲಿಸಿ",
+"The recipient signs below.": "ಸ್ವೀಕರಿಸುವವರು ಕೆಳಗೆ ಸಹಿ ಮಾಡುತ್ತಾರೆ.",
+"Record the name of the person who signs.": "ಸಹಿ ಮಾಡುವವರ ಹೆಸರನ್ನು ದಾಖಲಿಸಿ.",
+"Record a delivery exception": "ಡೆಲಿವರಿ ವಿನಾಯಿತಿಯನ್ನು ದಾಖಲಿಸಿ",
+"Delivery checks": "ಡೆಲಿವರಿ ಪರಿಶೀಲನೆಗಳು",
+"Retained the parcel and recorded the delivery exception.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ನಿಮ್ಮ ಬಳಿಯೇ ಇಟ್ಟುಕೊಂಡು ಡೆಲಿವರಿ ವಿನಾಯಿತಿಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Keep the gate shut. A dog is loose.": "ಗೇಟ್ ಮುಚ್ಚಿಯೇ ಇಡಿ. ನಾಯಿ ಬಿಡಿಯಾಗಿದೆ.",
+"A dog is loose in the yard": "ಅಂಗಳದಲ್ಲಿ ನಾಯಿ ಬಿಡಿಯಾಗಿದೆ",
+"Keep the gate shut. Call the owner to secure the dog before entering, or record an unsafe-access exception.": "ಗೇಟ್ ಮುಚ್ಚಿಯೇ ಇಡಿ. ಒಳಗೆ ಹೋಗುವ ಮೊದಲು ನಾಯಿಯನ್ನು ಕಟ್ಟಿ ಹಾಕಲು ಮಾಲೀಕರಿಗೆ ಕರೆ ಮಾಡಿ, ಅಥವಾ ಅಸುರಕ್ಷಿತ ಪ್ರವೇಶದ ವಿನಾಯಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Call the owner to secure the dog": "ನಾಯಿಯನ್ನು ಕಟ್ಟಿ ಹಾಕಲು ಮಾಲೀಕರಿಗೆ ಕರೆ ಮಾಡಿ",
+"Record an unsafe-access exception": "ಅಸುರಕ್ಷಿತ ಪ್ರವೇಶದ ವಿನಾಯಿತಿಯನ್ನು ದಾಖಲಿಸಿ",
+"Open the gate with the dog loose": "ನಾಯಿ ಬಿಡಿಯಾಗಿರುವಾಗ ಗೇಟ್ ತೆರೆಯಿರಿ",
+"Compare both photos. In this exercise, the recipient must be 21 or older.": "ಎರಡೂ ಫೋಟೋಗಳನ್ನು ಹೋಲಿಸಿ ನೋಡಿ. ಈ ಅಭ್ಯಾಸದಲ್ಲಿ ಸ್ವೀಕರಿಸುವವರಿಗೆ 21 ವರ್ಷ ಅಥವಾ ಹೆಚ್ಚು ವಯಸ್ಸಾಗಿರಬೇಕು.",
+"Accept the photo ID": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಿ",
+"Decline the photo ID and retain the parcel": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ತಿರಸ್ಕರಿಸಿ ಮತ್ತು ಪಾರ್ಸೆಲ್ ಅನ್ನು ನಿಮ್ಮ ಬಳಿಯೇ ಇಟ್ಟುಕೊಳ್ಳಿ",
+"At the door": "ಬಾಗಿಲಲ್ಲಿ",
+"The customer is upset about a late delivery.": "ತಡವಾದ ಡೆಲಿವರಿಯ ಬಗ್ಗೆ ಗ್ರಾಹಕರು ಕೋಪಗೊಂಡಿದ್ದಾರೆ.",
+"Acknowledge the problem and offer a clear next step": "ಸಮಸ್ಯೆಯನ್ನು ಒಪ್ಪಿಕೊಂಡು ಸ್ಪಷ್ಟವಾದ ಮುಂದಿನ ಹೆಜ್ಜೆಯನ್ನು ಹೇಳಿ",
+"Blame the customer and argue": "ಗ್ರಾಹಕರನ್ನು ದೂಷಿಸಿ ವಾದ ಮಾಡಿ",
+"E checks the gate. Keep outside while the dog is loose.": "E ಒತ್ತಿದರೆ ಗೇಟ್ ಪರಿಶೀಲಿಸುತ್ತದೆ. ನಾಯಿ ಬಿಡಿಯಾಗಿರುವಾಗ ಹೊರಗೇ ಇರಿ.",
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ಒತ್ತಿ ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಚಿಕ್ಕ ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳಿಗೆ Shift ಒತ್ತಿ ಹಿಡಿಯಿರಿ."
 },
 "templates": [
 [
@@ -4701,6 +4760,38 @@ window.OTR_I18N.kn = {
 [
 "driver:{0}:{1}",
 "driver:{0}:{1}"
+],
+[
+"Person at the door: {0}",
+"ಬಾಗಿಲಲ್ಲಿರುವ ವ್ಯಕ್ತಿ: {0}"
+],
+[
+"Printed name: {0}",
+"ಮುದ್ರಿತ ಹೆಸರು: {0}"
+],
+[
+"Record {0}",
+"{0} ದಾಖಲಿಸಿ"
+],
+[
+"Name on ID: {0}",
+"ಗುರುತಿನ ಚೀಟಿಯಲ್ಲಿರುವ ಹೆಸರು: {0}"
+],
+[
+"Date of birth: {0}",
+"ಹುಟ್ಟಿದ ದಿನಾಂಕ: {0}"
+],
+[
+"Expires: {0}",
+"ಮುಕ್ತಾಯ ದಿನಾಂಕ: {0}"
+],
+[
+"Training date: {0}",
+"ತರಬೇತಿ ದಿನಾಂಕ: {0}"
+],
+[
+"door:{0}:{1}",
+"door:{0}:{1}"
 ]
 ],
 "keep": [
