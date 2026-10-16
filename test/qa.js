@@ -59,15 +59,15 @@ const SCENARIOS = [
   { id: 'm8-incident', scene: 'DialogueScene' },
   // flows start from the title screen with a fresh profile rather than from one scenario; they only run the
   // golden pass, and their path audits the layout at the moments it cares about
-  { id: 'route-day', scene: 'HubScene', flow: 'index.html?dev=1' },
-  { id: 'route-legs', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
-  { id: 'town-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
-  { id: 'hub-briefs', scene: 'HubScene', flow: 'index.html?dev=1' },
-  { id: 'academy-screens', scene: 'HubScene', flow: 'index.html?dev=1' },
-  { id: 'drive-review', scene: 'HubScene', flow: 'index.html?dev=1' },
-  { id: 'certificate', scene: 'HubScene', flow: 'index.html?dev=1' },
-  { id: 'van-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
-  { id: 'drive-fuzz', scene: 'TownDriveScene', flow: 'index.html?dev=1' },
+  { id: 'route-day', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'route-legs', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'town-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'hub-briefs', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'academy-screens', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'drive-review', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'certificate', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'van-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'drive-fuzz', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'workday-3d', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' }
 ];
 
