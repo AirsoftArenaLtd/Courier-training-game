@@ -3530,7 +3530,31 @@ window.OTR_I18N.ta = {
 "WORKDAY IN PROGRESS": "பணிநாள் நடக்கிறது",
 "TODAY'S WORKDAY": "இன்றைய பணிநாள்",
 "WORKDAY DEBRIEF": "பணிநாள் மதிப்பாய்வு",
-"NEXT": "அடுத்து"
+"NEXT": "அடுத்து",
+"Start at Dispatch. Read the morning brief before inspecting and loading the van.": "டிஸ்பாச்சில் தொடங்குங்கள். வேனைச் சோதித்து ஏற்றும் முன் காலை விளக்கத்தைப் படியுங்கள்.",
+"Your first workday": "உங்கள் முதல் பணிநாள்",
+"Workday steps": "பணிநாள் படிகள்",
+"Controls and guidance": "கட்டுப்பாடுகளும் வழிகாட்டலும்",
+"Change the 3D controls": "3D கட்டுப்பாடுகளை மாற்றுக",
+"Prepare the workday": "பணிநாளுக்குத் தயாராகுங்கள்",
+"Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "டிஸ்பாச்சில் விளக்கத்தையும் பட்டியலின் எல்லாப் பக்கங்களையும் படியுங்கள். டயர், விளக்குகளைச் சோதித்து, தேவைப்பட்டால் பழுது கோருங்கள். ஒவ்வொரு பொதியையும் பட்டியலுடன் பொருத்தி, ஸ்கேன் செய்து, எண்ணிட்ட அடுக்கில் ஏற்றுங்கள். காணாத அல்லது பட்டியலில் இல்லாத பொதிகளைத் தெரிவியுங்கள், எண்ணிக்கையை உறுதிசெய்து, கட்டுகளை இறுக்குங்கள்.",
+"Drive safely": "பாதுகாப்பாக ஓட்டுங்கள்",
+"Complete each stop": "ஒவ்வொரு நிறுத்தத்தையும் முடியுங்கள்",
+"Read the morning brief and every manifest page here. Return here after completing the route.": "காலை விளக்கத்தையும் பட்டியலின் எல்லாப் பக்கங்களையும் இங்கே படியுங்கள். ரூட் முடிந்ததும் இங்கே திரும்புங்கள்.",
+"Inspect the tires before departure. Request a repair if you find a defect.": "புறப்படும் முன் டயர்களைச் சோதியுங்கள். குறை இருந்தால் பழுது கோருங்கள்.",
+"Test the lights before departure. Request a repair if a lamp does not work.": "புறப்படும் முன் விளக்குகளைச் சோதியுங்கள். விளக்கு எரியாவிட்டால் பழுது கோருங்கள்.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "லேபிளைப் பட்டியலுடன் பொருத்துங்கள். பொதியை எடுத்து, ஹேண்ட்ஹெல்டில் ஸ்கேன் செய்யுங்கள்.",
+"Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "ஒவ்வொரு பொதியையும் அதன் எண்ணிட்ட அடுக்கில் ஏற்றுங்கள். பதிந்த அடுக்கு நிறுத்தத்தில் தேட உதவும்.",
+"Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "பொதிகளை ஏற்ற அல்லது எடுக்க சரக்கைத் திறங்கள். சரக்குக் கதவுகளை மூடும் முன் வெளியே வாருங்கள்.",
+"Secure the restraints after loading or retrieving a package, before driving again.": "பொதியை ஏற்றிய அல்லது எடுத்த பின், மீண்டும் ஓட்டும் முன் கட்டுகளை இறுக்குங்கள்.",
+"Fasten the seatbelt. Check mirrors and signals, then release the parking brake when the path is clear.": "சீட்பெல்ட் அணியுங்கள். கண்ணாடிகள், சிக்னல்களைப் பார்த்து, பாதை தெளிவானதும் பார்க்கிங் பிரேக்கை விடுவியுங்கள்.",
+"Scan the correct package here, attempt contact and complete the required checks before recording an outcome.": "இங்கே சரியான பொதியை ஸ்கேன் செய்து, தொடர்பு கொண்டு, முடிவைப் பதியும் முன் தேவையான சோதனைகளை முடியுங்கள்.",
+"Stay outside the closed gate. Call the owner to secure the dog, or retain the package and record an unsafe-access exception.": "மூடிய கேட்டுக்கு வெளியே நில்லுங்கள். நாயைக் கட்ட உரிமையாளரை அழையுங்கள், அல்லது பொதியை வைத்திருந்து பாதுகாப்பற்ற அணுகல் விதிவிலக்கைப் பதியுங்கள்.",
+"Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "பொதியைக் கொண்டு செல்லும் முன் பாதையைப் பாருங்கள். நகர்த்தக்கூடிய தடைகளை வெறும் கைகளுடன் அகற்றுங்கள், அல்லது வழுக்கும் இடத்தைத் தவிருங்கள்.",
+"Bring each retained package here and scan it back in before finishing at Dispatch.": "வைத்திருக்கும் ஒவ்வொரு பொதியையும் இங்கே கொண்டுவந்து, டிஸ்பாச்சில் முடிக்கும் முன் மீண்டும் ஸ்கேன் செய்யுங்கள்.",
+"Start a workday first": "முதலில் பணிநாளைத் தொடங்குங்கள்",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "பணிநாள் அல்லது சரக்குப் பயிற்சியில் ஹேண்ட்ஹெல்ட் கிடைக்கும். மையத்திலிருந்து ஒன்றைத் தொடங்கி, ஹேண்ட்ஹெல்டைத் திறங்கள்.",
+"Return to Dispatch": "டிஸ்பாட்சுக்குத் திரும்பு"
 },
 "templates": [
 [
@@ -5028,6 +5052,38 @@ window.OTR_I18N.ta = {
 [
 "{0} attempts delivery.",
 "{0} டெலிவரியை முயற்சிக்கும்."
+],
+[
+"Use {0}/{1}/{2}/{3} to move and {4} to look.",
+"நகர {0}/{1}/{2}/{3}, பார்க்க {4} பயன்படுத்துங்கள்."
+],
+[
+"Press {0} to select a visible nearby target. Press {1} to interact.",
+"அருகிலுள்ள தெரியும் இலக்கைத் தேர்ந்தெடுக்க {0} அழுத்துங்கள். செயல்பட {1} அழுத்துங்கள்."
+],
+[
+"Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
+"ஹேண்ட்ஹெல்டுக்கு {0} அழுத்துங்கள். தேர்வுக்கு அம்புகள், Enter பயன்படுத்துங்கள்; ஸ்கேனுக்கு {1} பிடித்திருங்கள்."
+],
+[
+"Press {0} to reopen Controls and guidance at any time.",
+"கட்டுப்பாடுகளும் வழிகாட்டலும் எப்போதும் திறக்க {0} அழுத்துங்கள்."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"வண்டியில் ஏறும் முன் சரக்கை மூடுங்கள். சீட்பெல்ட்டுக்கு {0}, கண்ணாடிக்கு {1}, பார்க்கிங் பிரேக்குக்கு {2} அழுத்துங்கள். வேகம்/பிரேக்குக்கு {3}/{4}, திருப்ப {5}/{6} பயன்படுத்துங்கள். ஹேண்ட்ஹெல்ட் பயன்படுத்தும் முன் அல்லது இறங்கும் முன் நின்று பார்க்கிங் பிரேக் போடுங்கள்."
+],
+[
+"Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
+"{0}/{1}/{2}/{3} மூலம் நகருங்கள்; {4} அல்லது மவுஸால் பாருங்கள். அருகிலுள்ள தெரியும் இலக்கைத் தேர்ந்தெடுக்க {5}, செயல்பட {6} அழுத்துங்கள்.\n\nமைய மெனுவிலிருந்து பணிநாள் அல்லது சரக்குப் பயிற்சியைத் தேர்ந்தெடுங்கள். கட்டுப்பாடுகளும் வழிகாட்டலுக்கு {7} அழுத்துங்கள். உங்கள் முன்னேற்றம் இந்தச் சாதனத்தில் சேமிக்கப்படும்."
+],
+[
+"Choose a station or use the menu below. Press {0} to select a visible nearby target, then {1} to interact. Use {2} or the mouse to look.",
+"நிலையத்தைத் தேர்ந்தெடுங்கள் அல்லது கீழ் மெனுவைப் பயன்படுத்துங்கள். அருகிலுள்ள தெரியும் இலக்கைத் தேர்ந்தெடுக்க {0}, செயல்பட {1} அழுத்துங்கள். பார்க்க {2} அல்லது மவுஸ் பயன்படுத்துங்கள்."
+],
+[
+"No target is selected. Move closer or press {0} to select a visible nearby target.",
+"இலக்கு எதுவும் தேர்வாகவில்லை. அருகில் செல்லுங்கள் அல்லது அருகிலுள்ள தெரியும் இலக்கைத் தேர்ந்தெடுக்க {0} அழுத்துங்கள்."
 ]
 ],
 "keep": [
