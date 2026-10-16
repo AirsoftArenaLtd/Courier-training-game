@@ -1,7 +1,7 @@
 /* Day-specific physics, dispatch actions and compatibility without a browser. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={THREE:require('../lib/three.min.js')};c.window=c;vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpday.js','src/core/world3d.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpday.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};const M=c.OTR.fpMission,D=c.OTR.fpDay,W=c.OTR.workday;
 const make=(day=2)=>{W.begin();const m=M.create('campaign',7,c.OTR.fpRoute.plan(day,7));D.configure(m);m.mode='cab';m.phase='route';m.departed=true;for(const car of m.traffic){car.x=-100;car.z=0;}return m;};
 const events=t=>W.events.filter(e=>e.type===t);

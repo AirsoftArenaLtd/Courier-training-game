@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const THREE=require('../lib/three.min.js'),c={THREE};c.window=c;vm.createContext(c);
-for(const f of ['data/m6_loading.js','data/workday_events.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fploadout.js','src/core/world3d.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+for(const f of ['data/m6_loading.js','data/workday_events.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fploadout.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const M=c.OTR.fpMission,L=c.OTR.fpLoadout,W=c.OTR.workday;
 const make=kind=>{W.begin();const m=M.create('campaign',1);L.configure(m,kind);return m;};
 const at=(m,id)=>{Object.assign(m.player,m.point(id));m.player.x+=1.5;};

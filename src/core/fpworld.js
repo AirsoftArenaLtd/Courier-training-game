@@ -2,7 +2,7 @@
 window.OTR = window.OTR || {};
 OTR.fpWorld = {
   build(scene, model) {
-    const T = THREE, view = scene.view, world = view.world, camera = view.camera;
+    const T = THREE, view = scene.view, world = view.world, camera = view.camera,brand=OTR.fpBrand.read();
     const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
     const occluders = [], interactions = [], labels = [];
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
@@ -32,30 +32,31 @@ OTR.fpWorld = {
     box(hub,0,-0.1,0,16,0.2,16,0xB9B5AC);
     box(hub,0,2,-6,16,4,0.2,0xDBE0DF,null,true);
     [-8,8].forEach(x=>box(hub,x,2,0,0.2,4,12,0xC5D0D4,null,true));
-    box(hub,0,3.5,-5.84,16,0.25,0.1,0x5D4777);
+    box(hub,0,3.5,-5.84,16,0.25,0.1,brand.primary);
     const station = (id,x,z,color,text) => {
       box(hub,x,0.55,z,1.8,1.1,0.8,0x4C515F,null,true);
       box(hub,x,1.55,z,1.9,0.9,0.2,color,id);
       labels.push({ parent:hub,point:new T.Vector3(x,2.2,z),text,max:18 });
     };
-    station('hub-day',-4,-2.4,0xDD9844,'Workday');
-    station('hub-practice',0,-3.3,0x6B538B,'Cargo practice');
-    station('hub-record',4,-2.4,0x3E747B,'Last debrief');
-    box(hub,0,0.025,3,2.2,0.04,3,0x6B538B);
+    station('hub-day',-4,-2.4,brand.accent,'Workday');
+    station('hub-practice',0,-3.3,brand.primary,'Cargo practice');
+    station('hub-record',4,-2.4,brand.primary,'Last debrief');
+    box(hub,0,0.025,3,2.2,0.04,3,brand.primary);
 
     const base = model || OTR.fpMission.create('campaign',1);
     const weather=base.routeDay?base.routeDay.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
+    const roadColour=wet?0x3D4951:snow?0x7B8994:0x4B5058,grassColour=wet?0x6A806C:snow?0xE0E5E4:0x789069,roofColour=snow?0xC5CFD3:0x65626B;
     const sky=weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
     if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
     const cabParcelRange2=OTR.gfx.high()?400:64;
     const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity;
     if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if (!base.town) {
-    box(route,0,-0.12,-56,40,0.2,158,0x789069);
-    box(route,0,-0.015,-57,11,0.06,155,0x4B5058);
+    box(route,0,-0.12,-56,40,0.2,158,grassColour);
+    box(route,0,-0.015,-57,11,0.06,155,roadColour);
     [-6.3,6.3].forEach(x=>box(route,x,0.05,-63,1.6,0.13,128,0xC2C0B6));
-    [-27,-89].forEach(z=>box(route,0,0,z,40,0.08,8,0x4B5058));
-    box(route,0,0,-124,27,0.1,17,0x4B5058);
+    [-27,-89].forEach(z=>box(route,0,0,z,40,0.08,8,roadColour));
+    box(route,0,0,-124,27,0.1,17,roadColour);
     box(route,-9,0,5,15,0.1,24,0xC4C1B6);
     for (let z=14; z>-119; z-=6) {
       if (Math.abs(z+27)<7||Math.abs(z+89)<7) continue;
@@ -66,9 +67,9 @@ OTR.fpWorld = {
     }
     if (base.town) {
       const b=base.bounds,town=base.town,cx=(b.x0+b.x1)/2,cz=(b.z0+b.z1)/2;
-      box(route,cx,-0.12,cz,b.x1-b.x0,0.2,b.z1-b.z0,0x789069);
-      town.xs.forEach(x=>box(route,x,-0.015,cz,town.road,0.06,b.z1-b.z0,0x4B5058));
-      town.zs.forEach(z=>box(route,cx,-0.015,z,b.x1-b.x0,0.06,town.road,0x4B5058));
+      box(route,cx,-0.12,cz,b.x1-b.x0,0.2,b.z1-b.z0,grassColour);
+      town.xs.forEach(x=>box(route,x,-0.015,cz,town.road,0.06,b.z1-b.z0,roadColour));
+      town.zs.forEach(z=>box(route,cx,-0.015,z,b.x1-b.x0,0.06,town.road,roadColour));
       box(route,9,0,5,15,0.1,24,0xC4C1B6);
       const half=town.road/2;
       // Every junction is stop-controlled in the pilot's 3D grid. Shared batches stay bounded.
@@ -89,8 +90,10 @@ OTR.fpWorld = {
     }
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     const depotSide=base.town?-1:1;
-    box(route,-13.8*depotSide,0.5,11,2,1,1.2,0x5D4777,'dispatch',true);
-    box(route,-13.8*depotSide,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
+    box(route,-13.8*depotSide,0.5,11,2,1,1.2,brand.primary,'dispatch',true);
+    box(route,-13.8*depotSide,0.48,5,1.8,0.96,1.6,brand.accent,'returns',true);
+    box(route,-13.8*depotSide,3.1,13,3.2,1.15,.1,brand.primary);
+    labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,3.1,13.08),text:brand.name,brand:true,max:24});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,2,11),text:'Dispatch',max:18});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,1.9,5),text:'Returns',max:18});
     const weatherDrops=(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),OTR.gfx.high()?36:18):null;
@@ -101,10 +104,10 @@ OTR.fpWorld = {
       const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
       const side=s.side||1;
       box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true);
-      box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,0x65626B);
+      box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
       box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
-      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?0x789069:0x927557);
+      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
     if (!base.town) {
@@ -122,10 +125,15 @@ OTR.fpWorld = {
 
     const van = new T.Group(); route.add(van);
     box(van,0,0.42,0,2.16,0.25,5.4,0x454955,null,true);
-    box(van,0,0.75,-1.85,2.1,0.8,1.7,0xECE9E0,null,true);
-    box(van,0,1.7,-0.95,2.1,2.55,0.15,0xE0DDD3,null,true);
-    [-1.03,1.03].forEach(x=>box(van,x,1.78,0.8,0.12,2.65,3.5,0xE0DDD3,null,true));
-    box(van,0,3.15,0.8,2.2,0.12,3.8,0xECE9E0,null,true);
+    box(van,0,0.75,-1.85,2.1,0.8,1.7,brand.body,null,true);
+    box(van,0,1.7,-0.95,2.1,2.55,0.15,brand.body,null,true);
+    [-1.03,1.03].forEach(x=>box(van,x,1.78,0.8,0.12,2.65,3.5,brand.body,null,true));
+    box(van,0,3.15,0.8,2.2,0.12,3.8,brand.body,null,true);
+    for(const side of [-1,1]){
+      box(van,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);
+      box(van,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);
+      labels.push({parent:van,local:new T.Vector3(side*1.13,2.1,.6),point:new T.Vector3(),normal:new T.Vector3(side,0,0),text:brand.name,brand:true,max:16});
+    }
     [-0.8,0.8].forEach(x=>box(van,x,1.06,0.9,0.48,0.12,3.3,0x827D74,null,true));
     [-1.09,1.09].forEach(x=>[-1.6,1.7].forEach(z=>box(van,x,0.42,z,0.22,0.7,0.7,0x2A2E35,x<0&&z<0?'tyres':null)));
     box(van,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');
@@ -134,7 +142,7 @@ OTR.fpWorld = {
     box(van,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
     const tyreBulge=box(van,-1.24,0.43,-1.6,0.17,0.28,0.3,0x555B65,'tyres');
     const lampGood=material(0xF8E8AE),lampBad=material(0x3D4148);
-    const cargoDoor=box(van,0,1.8,2.62,1.9,2.5,0.08,0x65517F,'cargo',true);
+    const cargoDoor=box(van,0,1.8,2.62,1.9,2.5,0.08,brand.primary,'cargo',true);
     box(van,1.15,1.65,2.68,0.22,0.4,0.17,0xD9AE55,'cargo');
     box(van,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
     const slotMeshes=OTR.fpMission.slots.map(s=>box(van,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));
@@ -150,6 +158,7 @@ OTR.fpWorld = {
     }
     const parcels=base.parcels.map(p=>parcel(route,p.id));
     const carried=parcel(camera,null); carried.position.set(0.4,-0.48,-0.85); carried.rotation.y=-0.15;
+    for(const x of [-.29,.29])box(carried,x,-.32,.1,.14,.25,.35,brand.uniform);
     const inspected=parcel(camera,null); inspected.position.set(-0.63,-0.02,-1.45); inspected.scale.setScalar(1.7);
     const dash=new T.Group();camera.add(dash);
     box(dash,0,-0.68,-1.1,2.5,0.25,0.5,0x383D47);
@@ -177,8 +186,8 @@ OTR.fpWorld = {
     if(base.doorsteps)for(let i=0;i<base.stops.length;i++){
       const s=base.stops[i],a=base._doorSpecs[i];
       if(a.dog){
-        const p=OTR.fpDoors.point(base,i,'gate');gates[i]=box(route,p.x,.6,p.z,.16,1.2,4.8,0x65626B,'gate'+i,true);
-        for(const z of [-3.1,3.1])box(route,p.x,.6,s.z+z,.16,1.2,1.4,0x65626B);
+        const p=OTR.fpDoors.point(base,i,'gate');gates[i]=box(route,p.x,.6,p.z,.16,1.2,4.8,roofColour,'gate'+i,true);
+        for(const z of [-3.1,3.1])box(route,p.x,.6,s.z+z,.16,1.2,1.4,roofColour);
         labels.push({parent:route,point:new T.Vector3(p.x,1.8,p.z),text:'Keep the gate shut. A dog is loose.',max:15});
         const dog=new T.Group();route.add(dog);dogs[i]=dog;const fur=a.fur;
         box(dog,0,.45,0,.85,.4,.35,fur);box(dog,-.45,.65,0,.38,.36,.36,fur);box(dog,-.64,.57,0,.28,.18,.25,fur);
@@ -213,12 +222,10 @@ OTR.fpWorld = {
       mesh.computeBoundingSphere();parent.add(mesh);
       if(base.town&&parent===route)staticBatches.push({mesh,matrices});
     }));
-    if(wet){material(0x4B5058).color.setHex(0x3D4951);material(0x789069).color.setHex(0x6A806C);}
-    if(snow){material(0x789069).color.setHex(0xE0E5E4);material(0x4B5058).color.setHex(0x7B8994);material(0x65626B).color.setHex(0xC5CFD3);}
     const ray=new T.Raycaster();ray.far=2.65;
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
-    const api={hub,route,van,parcels,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
+    const api={hub,route,van,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -310,7 +317,9 @@ OTR.fpWorld = {
         return scanNormal.dot(direction)>0.45?hit.object.userData.scanId:null;
       },
       labelPosition(label){
-        if(!label.parent.visible||camera.position.distanceTo(label.point)>label.max)return null;
+        if(!label.parent.visible)return null;
+        if(label.local){label.point.copy(label.local);label.parent.localToWorld(label.point);direction.copy(label.normal).transformDirection(label.parent.matrixWorld);scanPoint.copy(camera.position).sub(label.point);if(direction.dot(scanPoint)<=0)return null;}
+        if(camera.position.distanceTo(label.point)>label.max)return null;
         const p=label.point.clone().project(camera);
         if(p.z< -1||p.z>1||Math.abs(p.x)>0.83||p.y>0.65||p.y< -0.53)return null;
         direction.copy(label.point).sub(camera.position);const distance=direction.length();direction.normalize();
