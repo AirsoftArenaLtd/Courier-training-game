@@ -3260,7 +3260,39 @@ window.OTR_I18N.fr = {
 "Exceeded the posted speed limit.": "Limite de vitesse affichée dépassée.",
 "Traveled on the wrong side of the road.": "Tu as roulé du mauvais côté de la route.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "Vérifie les pneus et les feux, scanne et charge cinq colis dans l'ordre des arrêts, puis cale le chargement et ferme la soute.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Retourne au dépôt. Scanne les colis conservés à Returns, puis termine à Dispatch."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Retourne au dépôt. Scanne les colis conservés à Returns, puis termine à Dispatch.",
+"Check the load": "Vérifie le chargement",
+"Bring missing or unlisted packages to Dispatch.": "Apporte les colis manquants ou non listés au répartiteur.",
+"Match the loaded packages to the manifest.": "Compare les colis chargés avec le manifeste.",
+"Confirm the load count": "Confirme le nombre de colis",
+"Confirm the load count at Dispatch.": "Confirme le nombre de colis auprès du répartiteur.",
+"Report a missing package": "Signale un colis manquant",
+"Set the unlisted package aside": "Mets le colis non listé de côté",
+"Identified a package for another route during the load-out scan.": "Colis d'une autre tournée repéré pendant le scan du chargement.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "Ce colis n'est pas sur le manifeste de la tournée. Apporte-le au répartiteur et mets-le de côté.",
+"Bring the unlisted package to Dispatch first.": "Apporte d'abord le colis non listé au répartiteur.",
+"Set the unlisted package aside at Dispatch.": "Mets le colis non listé de côté chez le répartiteur.",
+"The unlisted package is set aside. It will not go on this route.": "Le colis non listé est mis de côté. Il ne partira pas sur cette tournée.",
+"Check the manifest and report a missing package at Dispatch.": "Vérifie le manifeste et signale un colis manquant au répartiteur.",
+"The missing package has already been located.": "Le colis manquant a déjà été retrouvé.",
+"Reported the missing package after departure.": "Colis manquant signalé après le départ.",
+"Reported the missing package to Dispatch before leaving.": "Colis manquant signalé au répartiteur avant le départ.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "Le répartiteur a retrouvé le colis au dépôt. Scanne-le et charge-le avant de partir.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "Le répartiteur a enregistré le colis manquant. Revérifie la cargaison au prochain arrêt.",
+"The departure load check is already closed.": "Le contrôle du chargement au départ est déjà clos.",
+"Count the packages and confirm the load at Dispatch.": "Compte les colis et confirme le chargement auprès du répartiteur.",
+"Checked the loaded packages against the manifest.": "Colis chargés vérifiés avec le manifeste.",
+"The load count did not match the checked manifest.": "Le nombre de colis ne correspondait pas au manifeste vérifié.",
+"The load count is recorded. Secure the load before departure.": "Le nombre de colis est enregistré. Cale la cargaison avant de partir.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "Le nombre ou le chargement ne correspond pas au manifeste. Revérifie les colis manquants et non listés.",
+"Left without checking the load count against the manifest.": "Parti sans comparer le nombre de colis au manifeste.",
+"Departed with a package for another route.": "Parti avec un colis d'une autre tournée.",
+"Left without reporting the missing package to Dispatch.": "Parti sans signaler le colis manquant au répartiteur.",
+"Found a package that had been missed during load-out.": "Colis oublié au chargement retrouvé.",
+"This package is not on the route manifest.": "Ce colis n'est pas sur le manifeste de la tournée.",
+"I counted one package.": "J'ai compté un colis.",
+"Load count": "Nombre de colis",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "Un colis oublié plus tôt est réapparu dans la cargaison. Scanne-le et vérifie l'adresse."
 },
 "templates": [
 [
@@ -4558,6 +4590,22 @@ window.OTR_I18N.fr = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"Le manifeste liste {0} colis."
+],
+[
+"I counted {0} packages.",
+"J'ai compté {0} colis."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"Le manifeste liste {0} colis. Compte les colis dans la camionnette avant de confirmer."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4567,6 +4615,7 @@ window.OTR_I18N.fr = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };

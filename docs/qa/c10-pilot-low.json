@@ -1,0 +1,74 @@
+{
+  "tag": "c10-pilot",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "hazardsfront": {
+      "frames": 230,
+      "avgFPS": 22.98,
+      "low1FPS": 8.8,
+      "p99ms": 96.1,
+      "maxMs": 127.7,
+      "peak": {
+        "calls": 33,
+        "triangles": 1126,
+        "textures": 1,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "hazardsmirror": {
+      "frames": 220,
+      "avgFPS": 21.88,
+      "low1FPS": 9.38,
+      "p99ms": 98.3,
+      "maxMs": 114,
+      "peak": {
+        "calls": 60,
+        "triangles": 1598,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "hazardswalk": {
+      "frames": 243,
+      "avgFPS": 24.26,
+      "low1FPS": 9.87,
+      "p99ms": 92.5,
+      "maxMs": 118.5,
+      "peak": {
+        "calls": 42,
+        "triangles": 794,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    }
+  },
+  "phaserTextures": {
+    "count": 83,
+    "baseLevelRGBABytes": 2729764,
+    "withMipmapsUpperBytes": 3639686
+  },
+  "errors": []
+}

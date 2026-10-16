@@ -133,7 +133,7 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
 (async () => {
   await new Promise(r => server.listen(0, '127.0.0.1', r));
   const base = `http://127.0.0.1:${server.address().port}/`;
-  const url = (flag) => base + '?user=sam.lee' + (flag ? '&workday3d=1' : '') + (LANG ? `&lang=${LANG}&dev=1` : '');
+  const url = (flag) => base + '?user=sam.lee' + (flag ? '&workday3d=1' : '&workday3d=0') + (LANG ? `&lang=${LANG}&dev=1` : '');
   const browser = await puppeteer.launch({ executablePath: BROWSER, headless: 'new', args: ['--no-sandbox', '--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
   const p = await browser.newPage();
   await p.setViewport({ width: 1280, height: 720 });

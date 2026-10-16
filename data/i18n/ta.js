@@ -3275,7 +3275,39 @@ window.OTR_I18N.ta = {
 "Exceeded the posted speed limit.": "அறிவிக்கப்பட்ட வேக வரம்பை மீறினீர்கள்.",
 "Traveled on the wrong side of the road.": "சாலையின் தவறான பக்கத்தில் சென்றீர்கள்.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "டயர்களையும் விளக்குகளையும் சரிபாருங்கள், ஐந்து பார்சல்களை ஸ்கேன் செய்து நிறுத்த வரிசைப்படி ஏற்றுங்கள், பிறகு சுமையைப் பாதுகாப்பாகக் கட்டி சரக்கறையை மூடுங்கள்.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "டிப்போவுக்குத் திரும்புங்கள். வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்யுங்கள், பிறகு டிஸ்பாட்சில் முடியுங்கள்."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "டிப்போவுக்குத் திரும்புங்கள். வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்யுங்கள், பிறகு டிஸ்பாட்சில் முடியுங்கள்.",
+"Check the load": "லோடைச் சரிபார்க்கவும்",
+"Bring missing or unlisted packages to Dispatch.": "காணாமல் போன அல்லது பட்டியலில் இல்லாத பார்சல்களை டிஸ்பாட்சுக்குக் கொண்டு செல்லுங்கள்.",
+"Match the loaded packages to the manifest.": "ஏற்றிய பார்சல்களை மேனிஃபெஸ்ட்டுடன் ஒப்பிட்டுப் பாருங்கள்.",
+"Confirm the load count": "லோடு எண்ணிக்கையை உறுதிசெய்யவும்",
+"Confirm the load count at Dispatch.": "டிஸ்பாட்சில் லோடு எண்ணிக்கையை உறுதிசெய்யுங்கள்.",
+"Report a missing package": "காணாமல் போன பார்சலைப் புகாரளிக்கவும்",
+"Set the unlisted package aside": "பட்டியலில் இல்லாத பார்சலை ஒதுக்கி வையுங்கள்",
+"Identified a package for another route during the load-out scan.": "லோடு-அவுட் ஸ்கேனின் போது வேறொரு ரூட்டுக்கான பார்சலைக் கண்டறிந்தீர்கள்.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "இந்தப் பார்சல் ரூட் மேனிஃபெஸ்ட்டில் இல்லை. இதை டிஸ்பாட்சுக்குக் கொண்டு சென்று ஒதுக்கி வையுங்கள்.",
+"Bring the unlisted package to Dispatch first.": "முதலில் பட்டியலில் இல்லாத பார்சலை டிஸ்பாட்சுக்குக் கொண்டு வாருங்கள்.",
+"Set the unlisted package aside at Dispatch.": "பட்டியலில் இல்லாத பார்சலை டிஸ்பாட்சில் ஒதுக்கி வையுங்கள்.",
+"The unlisted package is set aside. It will not go on this route.": "பட்டியலில் இல்லாத பார்சல் ஒதுக்கி வைக்கப்பட்டது. அது இந்த ரூட்டில் செல்லாது.",
+"Check the manifest and report a missing package at Dispatch.": "மேனிஃபெஸ்ட்டைச் சரிபார்த்து, காணாமல் போன பார்சலை டிஸ்பாட்சில் புகாரளியுங்கள்.",
+"The missing package has already been located.": "காணாமல் போன பார்சல் ஏற்கனவே கண்டுபிடிக்கப்பட்டுவிட்டது.",
+"Reported the missing package after departure.": "புறப்பட்ட பிறகு காணாமல் போன பார்சலைப் புகாரளித்தீர்கள்.",
+"Reported the missing package to Dispatch before leaving.": "புறப்படும் முன் காணாமல் போன பார்சலை டிஸ்பாட்சில் புகாரளித்தீர்கள்.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "டிஸ்பாட்ச் அந்தப் பார்சலை டிப்போவில் கண்டுபிடித்தது. புறப்படும் முன் அதை ஸ்கேன் செய்து ஏற்றுங்கள்.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "காணாமல் போன பார்சலை டிஸ்பாட்ச் பதிவு செய்தது. அடுத்த நிறுத்தத்தில் சரக்கை மீண்டும் சரிபாருங்கள்.",
+"The departure load check is already closed.": "புறப்பாட்டு லோடு சரிபார்ப்பு ஏற்கனவே முடிந்துவிட்டது.",
+"Count the packages and confirm the load at Dispatch.": "பார்சல்களை எண்ணி, டிஸ்பாட்சில் லோடை உறுதிசெய்யுங்கள்.",
+"Checked the loaded packages against the manifest.": "ஏற்றிய பார்சல்களை மேனிஃபெஸ்ட்டுடன் சரிபார்த்தீர்கள்.",
+"The load count did not match the checked manifest.": "லோடு எண்ணிக்கை சரிபார்த்த மேனிஃபெஸ்ட்டுடன் பொருந்தவில்லை.",
+"The load count is recorded. Secure the load before departure.": "லோடு எண்ணிக்கை பதிவு செய்யப்பட்டது. புறப்படும் முன் லோடைப் பாதுகாப்பாகக் கட்டுங்கள்.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "எண்ணிக்கை அல்லது லோடு மேனிஃபெஸ்ட்டுடன் பொருந்தவில்லை. காணாமல் போன மற்றும் பட்டியலில் இல்லாத பார்சல்களை மீண்டும் சரிபாருங்கள்.",
+"Left without checking the load count against the manifest.": "லோடு எண்ணிக்கையை மேனிஃபெஸ்ட்டுடன் சரிபார்க்காமல் புறப்பட்டீர்கள்.",
+"Departed with a package for another route.": "வேறொரு ரூட்டுக்கான பார்சலுடன் புறப்பட்டீர்கள்.",
+"Left without reporting the missing package to Dispatch.": "காணாமல் போன பார்சலை டிஸ்பாட்சில் புகாரளிக்காமல் புறப்பட்டீர்கள்.",
+"Found a package that had been missed during load-out.": "லோடு-அவுட்டின் போது விடுபட்ட பார்சலைக் கண்டுபிடித்தீர்கள்.",
+"This package is not on the route manifest.": "இந்தப் பார்சல் ரூட் மேனிஃபெஸ்ட்டில் இல்லை.",
+"I counted one package.": "ஒரு பார்சலை எண்ணினேன்.",
+"Load count": "லோடு எண்ணிக்கை",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "முன்பு விடுபட்ட பார்சல் சரக்கில் கிடைத்தது. அதை ஸ்கேன் செய்து முகவரியைச் சரிபாருங்கள்."
 },
 "templates": [
 [
@@ -4573,6 +4605,22 @@ window.OTR_I18N.ta = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"மேனிஃபெஸ்ட்டில் {0} பார்சல்கள் உள்ளன."
+],
+[
+"I counted {0} packages.",
+"நான் {0} பார்சல்களை எண்ணினேன்."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"மேனிஃபெஸ்ட்டில் {0} பார்சல்கள் உள்ளன. உறுதிசெய்யும் முன் வேனில் உள்ள பார்சல்களை எண்ணுங்கள்."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4582,6 +4630,7 @@ window.OTR_I18N.ta = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };

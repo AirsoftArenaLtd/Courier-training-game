@@ -1,0 +1,359 @@
+{
+  "tag": "c8-full",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "hub": {
+      "frames": 205,
+      "avgFPS": 20.3,
+      "low1FPS": 7.28,
+      "p99ms": 117.9,
+      "maxMs": 147.9,
+      "peak": {
+        "calls": 13,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "depot": {
+      "frames": 177,
+      "avgFPS": 17.7,
+      "low1FPS": 6.5,
+      "p99ms": 153.2,
+      "maxMs": 154.3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "cab": {
+      "frames": 238,
+      "avgFPS": 23.78,
+      "low1FPS": 10.43,
+      "p99ms": 94.9,
+      "maxMs": 97.6,
+      "peak": {
+        "calls": 22,
+        "triangles": 720,
+        "textures": 1,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "mirror": {
+      "frames": 221,
+      "avgFPS": 22.06,
+      "low1FPS": 10.09,
+      "p99ms": 96.4,
+      "maxMs": 102.7,
+      "peak": {
+        "calls": 46,
+        "triangles": 1110,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "handheld": {
+      "frames": 204,
+      "avgFPS": 20.26,
+      "low1FPS": 7.88,
+      "p99ms": 107.2,
+      "maxMs": 138.3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "barcodeAim": {
+      "frames": 202,
+      "avgFPS": 20.2,
+      "low1FPS": 9.73,
+      "p99ms": 101.5,
+      "maxMs": 105.1,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "firstStop": {
+      "frames": 252,
+      "avgFPS": 25.19,
+      "low1FPS": 10.99,
+      "p99ms": 88.1,
+      "maxMs": 94,
+      "peak": {
+        "calls": 19,
+        "triangles": 560,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "doorstep": {
+      "frames": 213,
+      "avgFPS": 21.29,
+      "low1FPS": 8.78,
+      "p99ms": 105.5,
+      "maxMs": 120.4,
+      "peak": {
+        "calls": 25,
+        "triangles": 530,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "returns": {
+      "frames": 235,
+      "avgFPS": 23.5,
+      "low1FPS": 10.87,
+      "p99ms": 91.1,
+      "maxMs": 92.9,
+      "peak": {
+        "calls": 35,
+        "triangles": 664,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop1Mirror": {
+      "frames": 221,
+      "avgFPS": 22.09,
+      "low1FPS": 9.76,
+      "p99ms": 96.4,
+      "maxMs": 106,
+      "peak": {
+        "calls": 36,
+        "triangles": 812,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop2": {
+      "frames": 254,
+      "avgFPS": 25.39,
+      "low1FPS": 10.27,
+      "p99ms": 89.2,
+      "maxMs": 110.8,
+      "peak": {
+        "calls": 20,
+        "triangles": 694,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop2Mirror": {
+      "frames": 212,
+      "avgFPS": 21.17,
+      "low1FPS": 9.25,
+      "p99ms": 107.9,
+      "maxMs": 108.4,
+      "peak": {
+        "calls": 42,
+        "triangles": 1200,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop3": {
+      "frames": 230,
+      "avgFPS": 22.89,
+      "low1FPS": 10.38,
+      "p99ms": 93.4,
+      "maxMs": 101.3,
+      "peak": {
+        "calls": 17,
+        "triangles": 704,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop3Mirror": {
+      "frames": 214,
+      "avgFPS": 21.4,
+      "low1FPS": 10.15,
+      "p99ms": 95.8,
+      "maxMs": 102.4,
+      "peak": {
+        "calls": 39,
+        "triangles": 1256,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop4": {
+      "frames": 244,
+      "avgFPS": 24.38,
+      "low1FPS": 11.57,
+      "p99ms": 84.6,
+      "maxMs": 89.2,
+      "peak": {
+        "calls": 15,
+        "triangles": 734,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop4Mirror": {
+      "frames": 229,
+      "avgFPS": 22.86,
+      "low1FPS": 10.66,
+      "p99ms": 92.3,
+      "maxMs": 96.6,
+      "peak": {
+        "calls": 38,
+        "triangles": 1354,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop5": {
+      "frames": 252,
+      "avgFPS": 25.07,
+      "low1FPS": 10.61,
+      "p99ms": 91.2,
+      "maxMs": 97.6,
+      "peak": {
+        "calls": 11,
+        "triangles": 474,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    },
+    "stop5Mirror": {
+      "frames": 230,
+      "avgFPS": 22.99,
+      "low1FPS": 10.36,
+      "p99ms": 90.8,
+      "maxMs": 106.8,
+      "peak": {
+        "calls": 33,
+        "triangles": 870,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false
+    }
+  },
+  "phaserTextures": {
+    "count": 83,
+    "baseLevelRGBABytes": 2729764,
+    "withMipmapsUpperBytes": 3639686
+  },
+  "errors": []
+}

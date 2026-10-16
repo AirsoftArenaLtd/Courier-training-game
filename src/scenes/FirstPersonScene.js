@@ -91,7 +91,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind){this.transition(()=>{
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign')OTR.fpDriving.configure(m);}
+      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
     if(kind==='campaign'&&!m.briefing&&!m.departed){
       const day=OTR.shift.generate(m.seed,m.seed);
@@ -203,6 +203,12 @@ class FirstPersonScene extends Phaser.Scene {
     if(page>0)choices.push({label:'Previous',action:()=>this.showManifest(page-1,complete)});
     this.showPanel('Route manifest',body,choices,{back:()=>this.closePanel()});
   }
+  showLoadCount(){
+    const m=this.model;if(!m.loadout||!m.near('dispatch'))return;
+    const choices=Array.from({length:OTR.fpMission.slots.length+1},(_,n)=>({label:n===1?'I counted one package.':`I counted ${n} packages.`,action:()=>{this.message(OTR.fpLoadout.count(m,n));this.checkpoint();this.closePanel();}}));
+    choices.push({label:'Back',action:()=>this.handheld.loadCheck()});
+    this.showPanel('Load count',`The manifest lists ${m.stops.length} packages. Count the packages in the van before confirming.`,choices,{back:()=>this.handheld.loadCheck()});
+  }
   showDispatch(){
     if(this.model.briefing&&!this.model.events[this.model.briefKey]){this.showMorningBrief();return;}
     const m=this.model;this.showPanel('Dispatch',this.objectiveText(),[
@@ -212,7 +218,7 @@ class FirstPersonScene extends Phaser.Scene {
           this.closePanel(false);this.releaseMouse();
           OTR.workday.finish(this,{seconds:Math.round(m.elapsed),stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome==='handover'||s.outcome==='safeplace',address:s.address,x:s.x,z:s.z})),depot:{x:4,z:8}});
         }else this.showDebrief(this.progress.last);}},
-      {label:'View manifest',action:()=>this.showManifest()},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+      {label:'View manifest',action:()=>this.showManifest()},...(m.loadout?[{label:'Check the load',action:()=>this.handheld.loadCheck()}]:[]),{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showDebrief(result,page=0){
     if(!result){this.showPanel('Last debrief','Complete a workday or a cargo lesson to see its results.',[{label:'Back',action:()=>this.showPause()}]);return;}
@@ -342,7 +348,7 @@ class FirstPersonScene extends Phaser.Scene {
   update(time,delta){
     if(this.loading||!this.view)return;const h=this.held,controls={forward:!!(h.KeyW||h.ArrowUp),back:!!(h.KeyS||h.ArrowDown),left:!!(h.KeyA||h.ArrowLeft),right:!!(h.KeyD||h.ArrowRight)};
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!h.KeyD)-Number(!!h.KeyA))*Math.min(delta/1000,0.05)*1.8;
-    if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}this.sync();
+    if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.driving&&!this.model.paused&&(this.model.driving.siren.state==='approaching'||this.model.driving.siren.state==='passing')&&time-(this.sirenToneAt||-1000)>1000){
       this.sirenToneAt=time;if(OTR.audio){OTR.audio.tone(650,0.45,{type:'triangle',vol:0.07,slideTo:1000});OTR.audio.tone(1000,0.45,{type:'triangle',vol:0.07,slideTo:650,delay:0.45});}
     }

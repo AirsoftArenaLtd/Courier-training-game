@@ -3276,7 +3276,39 @@ window.OTR_I18N.bn = {
 "Exceeded the posted speed limit.": "নির্ধারিত গতিসীমা ছাড়িয়ে গেছেন।",
 "Traveled on the wrong side of the road.": "রাস্তার ভুল পাশ দিয়ে চালিয়েছেন।",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "টায়ার আর লাইট দেখুন, পাঁচটি পার্সেল স্ক্যান করে স্টপের ক্রমে লোড করুন, তারপর মাল বেঁধে নিন আর কার্গো বন্ধ করুন।",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ডিপোতে ফিরে যান। রেখে দেওয়া পার্সেলগুলো Returns-এ স্ক্যান করুন, তারপর Dispatch-এ শেষ করুন।"
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ডিপোতে ফিরে যান। রেখে দেওয়া পার্সেলগুলো Returns-এ স্ক্যান করুন, তারপর Dispatch-এ শেষ করুন।",
+"Check the load": "লোড যাচাই করুন",
+"Bring missing or unlisted packages to Dispatch.": "হারানো বা তালিকাবহির্ভূত প্যাকেজ ডিসপ্যাচে নিয়ে যান।",
+"Match the loaded packages to the manifest.": "লোড করা প্যাকেজগুলো ম্যানিফেস্টের সঙ্গে মিলিয়ে দেখুন।",
+"Confirm the load count": "লোডের সংখ্যা নিশ্চিত করুন",
+"Confirm the load count at Dispatch.": "ডিসপ্যাচে লোডের সংখ্যা নিশ্চিত করুন।",
+"Report a missing package": "হারানো প্যাকেজের কথা জানান",
+"Set the unlisted package aside": "তালিকাবহির্ভূত প্যাকেজটা আলাদা করে রাখুন",
+"Identified a package for another route during the load-out scan.": "লোড-আউট স্ক্যানের সময় অন্য রুটের একটা প্যাকেজ চিনে ফেলেছেন।",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "এই প্যাকেজ রুটের ম্যানিফেস্টে নেই। এটা ডিসপ্যাচে নিয়ে গিয়ে আলাদা করে রাখুন।",
+"Bring the unlisted package to Dispatch first.": "আগে তালিকাবহির্ভূত প্যাকেজটা ডিসপ্যাচে নিয়ে যান।",
+"Set the unlisted package aside at Dispatch.": "ডিসপ্যাচে তালিকাবহির্ভূত প্যাকেজটা আলাদা করে রাখুন।",
+"The unlisted package is set aside. It will not go on this route.": "তালিকাবহির্ভূত প্যাকেজটা আলাদা করে রাখা হয়েছে। এটা এই রুটে যাবে না।",
+"Check the manifest and report a missing package at Dispatch.": "ম্যানিফেস্ট দেখুন এবং ডিসপ্যাচে হারানো প্যাকেজের কথা জানান।",
+"The missing package has already been located.": "হারানো প্যাকেজটা ইতিমধ্যে পাওয়া গেছে।",
+"Reported the missing package after departure.": "রওনা দেওয়ার পরে হারানো প্যাকেজের কথা জানিয়েছেন।",
+"Reported the missing package to Dispatch before leaving.": "বেরোনোর আগে ডিসপ্যাচকে হারানো প্যাকেজের কথা জানিয়েছেন।",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "ডিসপ্যাচ ডিপোতে প্যাকেজটা পেয়েছে। বেরোনোর আগে এটা স্ক্যান করে লোড করুন।",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "ডিসপ্যাচ হারানো প্যাকেজটা নথিভুক্ত করেছে। পরের স্টপে কার্গো আবার দেখে নিন।",
+"The departure load check is already closed.": "রওনা দেওয়ার আগের লোড যাচাই ইতিমধ্যে শেষ।",
+"Count the packages and confirm the load at Dispatch.": "প্যাকেজ গুনুন এবং ডিসপ্যাচে লোড নিশ্চিত করুন।",
+"Checked the loaded packages against the manifest.": "লোড করা প্যাকেজগুলো ম্যানিফেস্টের সঙ্গে মিলিয়ে দেখেছেন।",
+"The load count did not match the checked manifest.": "লোডের সংখ্যা যাচাই করা ম্যানিফেস্টের সঙ্গে মেলেনি।",
+"The load count is recorded. Secure the load before departure.": "লোডের সংখ্যা নথিভুক্ত হয়েছে। রওনা দেওয়ার আগে লোড বেঁধে নিরাপদ করুন।",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "সংখ্যা বা লোড ম্যানিফেস্টের সঙ্গে মেলেনি। হারানো ও তালিকাবহির্ভূত প্যাকেজ আবার দেখুন।",
+"Left without checking the load count against the manifest.": "ম্যানিফেস্টের সঙ্গে লোডের সংখ্যা না মিলিয়েই বেরিয়ে গেছেন।",
+"Departed with a package for another route.": "অন্য রুটের একটা প্যাকেজ নিয়ে রওনা দিয়েছেন।",
+"Left without reporting the missing package to Dispatch.": "ডিসপ্যাচকে হারানো প্যাকেজের কথা না জানিয়েই বেরিয়ে গেছেন।",
+"Found a package that had been missed during load-out.": "লোড-আউটের সময় বাদ পড়া একটা প্যাকেজ খুঁজে পেয়েছেন।",
+"This package is not on the route manifest.": "এই প্যাকেজ রুটের ম্যানিফেস্টে নেই।",
+"I counted one package.": "আমি একটা প্যাকেজ গুনেছি।",
+"Load count": "লোডের সংখ্যা",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "আগে বাদ পড়া একটা প্যাকেজ কার্গোতে পাওয়া গেছে। এটা স্ক্যান করে ঠিকানা দেখে নিন।"
 },
 "templates": [
 [
@@ -4574,6 +4606,22 @@ window.OTR_I18N.bn = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"ম্যানিফেস্টে {0}টা প্যাকেজ আছে।"
+],
+[
+"I counted {0} packages.",
+"আমি {0}টা প্যাকেজ গুনেছি।"
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"ম্যানিফেস্টে {0}টা প্যাকেজ আছে। নিশ্চিত করার আগে ভ্যানের প্যাকেজ গুনে নিন।"
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4583,6 +4631,7 @@ window.OTR_I18N.bn = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };
