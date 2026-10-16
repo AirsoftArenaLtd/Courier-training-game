@@ -8,7 +8,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));
   await p.goto((process.env.QA_BASE||'http://127.0.0.1:8302')+'/first-person.html?gfx=low');
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();s.launch('campaign');});
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.closePanel();s.launch('campaign');});
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.stops.length),5);checks++;
   const fixture=async(id,barcode=false)=>p.evaluate((id,barcode)=>{
@@ -69,7 +69,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
     await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.checkpoint();s.toHub();});
     await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
     await p.reload();await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
-    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();s.launch('campaign');});
+    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.closePanel();s.launch('campaign');});
     await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
     assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.stops.filter(s=>s.resolved).length),2);checks++;
    }
