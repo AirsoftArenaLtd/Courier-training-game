@@ -3307,7 +3307,59 @@ window.OTR_I18N.mr = {
 "This package is not on the route manifest.": "हे पॅकेज रूट मॅनिफेस्टवर नाही.",
 "I counted one package.": "मी एक पॅकेज मोजले.",
 "Load count": "मालाची संख्या",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "आधी राहून गेलेले पॅकेज मालात सापडले आहे. ते स्कॅन करा आणि पत्ता तपासा."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "आधी राहून गेलेले पॅकेज मालात सापडले आहे. ते स्कॅन करा आणि पत्ता तपासा.",
+"Adjusted speed and following distance to the weather.": "हवामानानुसार वेग आणि पुढच्या वाहनापासूनचे अंतर समायोजित केले.",
+"Continued driving without a water and shade break.": "पाणी आणि सावलीत विश्रांती न घेता गाडी चालवत राहिलात.",
+"Speed or following distance did not suit the weather.": "वेग किंवा पुढच्या वाहनापासूनचे अंतर हवामानाला योग्य नव्हते.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "डिस्पॅचने रूट अपडेट पाठवले आहे. हँडहेल्ड उघडण्यापूर्वी गाडी सुरक्षितपणे पार्क करा.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "डिस्पॅचने रूट अपडेट पाठवले आहे. गाडी सुरक्षितपणे पार्क करा, मग हँडहेल्डवर रूट-दिवस अपडेट उघडा.",
+"Heat exposure is building. Park safely for a water and shade break now.": "उष्णतेचा त्रास वाढत आहे. आता गाडी सुरक्षितपणे पार्क करून पाणी पिण्यासाठी आणि सावलीत विश्रांती घ्या.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "बर्फामुळे पकड कमी होते. 10 mph पेक्षा कमी वेग ठेवा आणि पुढच्या वाहनापासून सहा सेकंदांचे अंतर सोडा.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "वादळामुळे दृश्यमानता कमी होते. 12 mph पेक्षा कमी वेग ठेवा आणि पुढच्या वाहनापासून पाच सेकंदांचे अंतर सोडा.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "ओल्या रस्त्यांवर पकड कमी होते. 18 mph पेक्षा कमी वेग ठेवा आणि पुढच्या वाहनापासून चार सेकंदांचे अंतर सोडा.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "गाडी चालवताना उष्णता वाढते. वेग कमी करा आणि पाणी व सावलीतील विश्रांतीसाठी गाडी सुरक्षितपणे पार्क करा.",
+"There is no dispatch update yet.": "अजून डिस्पॅच अपडेट नाही.",
+"Stop and set the parking brake before reading the update.": "अपडेट वाचण्यापूर्वी गाडी थांबवा आणि पार्किंग ब्रेक लावा.",
+"Park safely before taking a water and shade break.": "पाणी आणि सावलीत विश्रांती घेण्यापूर्वी गाडी सुरक्षितपणे पार्क करा.",
+"You took a water and shade break. Keep drinking regularly during the day.": "तुम्ही पाणी आणि सावलीत विश्रांती घेतली. दिवसभर नियमितपणे पाणी पित राहा.",
+"Followed the updated dispatch instruction at the stop.": "स्टॉपवर अद्ययावत डिस्पॅच सूचनेचे पालन केले.",
+"Missed the updated dispatch instruction at the stop.": "स्टॉपवरील अद्ययावत डिस्पॅच सूचना चुकवली.",
+"Kept a three-second following gap on this leg.": "या टप्प्यात पुढच्या वाहनापासून तीन सेकंदांचे अंतर राखले.",
+"Park the van and get out before checking the reversing path.": "गाडी पार्क करा आणि खाली उतरा, मगच मागे घेण्याचा मार्ग तपासा.",
+"Stand behind the van and look along the reversing path.": "गाडीच्या मागे उभे राहा आणि मागे घेण्याच्या मार्गावर नजर टाका.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "मागे घेण्याचा मार्ग मोकळा आहे. केबिनमध्ये परत या आणि गाडी मागे घेताना लक्ष ठेवत राहा.",
+"The reversing path is blocked. Wait for it to clear and check again.": "मागे घेण्याचा मार्ग अडलेला आहे. तो मोकळा होईपर्यंत थांबा आणि पुन्हा तपासा.",
+"Checked the mirrors before pulling out.": "गाडी बाहेर काढण्यापूर्वी आरसे तपासले.",
+"Pulled out without checking the mirrors.": "आरसे न तपासता गाडी बाहेर काढली.",
+"Followed traffic with less than a three-second gap.": "तीन सेकंदांपेक्षा कमी अंतर ठेवून पुढच्या वाहनामागे गेलात.",
+"Got out and checked the reversing path before backing.": "गाडी मागे घेण्यापूर्वी खाली उतरून मार्ग तपासला.",
+"Reversed without a current clear-path check.": "मार्ग मोकळा असल्याची ताजी तपासणी न करता गाडी मागे घेतली.",
+"Contacted the school bus instead of stopping with a safe gap.": "सुरक्षित अंतरावर थांबण्याऐवजी स्कूल बसला धडक दिली.",
+"Passed a school bus while its red lights were flashing.": "स्कूल बसचे लाल दिवे चमकत असताना तिला ओलांडले.",
+"Drove past a school bus while children were boarding.": "मुले बसमध्ये चढत असताना स्कूल बसच्या बाजूने पुढे गेलात.",
+"Stopped and waited until the school bus switched off its red lights.": "थांबलात आणि स्कूल बसने लाल दिवे बंद करेपर्यंत वाट पाहिली.",
+"Did not pull over and stop for the emergency vehicle.": "आपत्कालीन वाहनासाठी बाजूला घेऊन थांबला नाहीत.",
+"Pulled out before the emergency vehicle had passed.": "आपत्कालीन वाहन पुढे जाण्यापूर्वीच गाडी बाहेर काढली.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "उजवीकडे बाजूला घेतले आणि आपत्कालीन वाहन जाईपर्यंत थांबलात.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "तुमच्या मागे आपत्कालीन वाहन आहे. सिग्नल द्या, उजवीकडे बाजूला घ्या आणि थांबा.",
+"Wait until the emergency vehicle has passed before pulling out.": "गाडी बाहेर काढण्यापूर्वी आपत्कालीन वाहन पुढे जाईपर्यंत थांबा.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "स्कूल बसचे लाल दिवे चमकत आहेत. बसच्या आधी थांबा आणि दिवे बंद होईपर्यंत थांबून राहा.",
+"Reverse slowly and keep watching the path.": "गाडी हळू मागे घ्या आणि मार्गावर नजर ठेवा.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "मागे घेण्यापूर्वी थांबा आणि खाली उतरून पाहा. गाडीच्या मागे उभे राहा, मागे घेण्याच्या मार्गाकडे तोंड करा आणि G दाबा.",
+"Route-day updates": "रूट-दिवस अपडेट",
+"Dispatch has sent a stop update.": "डिस्पॅचने स्टॉप अपडेट पाठवले आहे.",
+"Read the dispatch update": "डिस्पॅच अपडेट वाचा",
+"Weather and breaks": "हवामान आणि विश्रांती",
+"Conditions are clear. Follow the posted speed limits.": "परिस्थिती स्वच्छ आहे. दर्शवलेल्या वेगमर्यादांचे पालन करा.",
+"Take a water and shade break": "पाणी आणि सावलीत विश्रांती घ्या",
+"Place behind the planter": "कुंडीमागे ठेवा",
+"Leave the parcel behind the planter, as dispatch requested.": "डिस्पॅचने सांगितल्याप्रमाणे पार्सल कुंडीमागे ठेवा.",
+"Check the reversing path": "मागे घेण्याचा मार्ग तपासा",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "गाडी पार्क करून सुरक्षित करा. खाली उतरा, गाडीच्या मागे जा आणि मागे घ्यायच्या मार्गावर नजर टाका. माणसे आणि वाहतूक दूर ठेवा.",
+"Confirm the path check": "मार्ग तपासणी निश्चित करा",
+"Check mirrors and signals before moving.": "निघण्यापूर्वी आरसे आणि सिग्नल तपासा.",
+"Keep right. The speed limit is 25 mph.": "उजवीकडे राहा. वेगमर्यादा 25 mph आहे.",
+"Keep right. The speed limit is 15 mph.": "उजवीकडे राहा. वेगमर्यादा 15 mph आहे."
 },
 "templates": [
 [
@@ -4621,6 +4673,34 @@ window.OTR_I18N.mr = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"स्टॉप {0} ला आता सही हवी आहे. कोणी सही करू शकत नसेल तर पार्सल स्वतःकडे ठेवा."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"स्टॉप {0} वर पार्सल कुंडीमागे ठेवण्याची विनंती आहे. पॅकेज नजरेआड ठेवा."
+],
+[
+"The forecast is {0}.",
+"अंदाज {0} आहे."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} कार्गो बंद करतो. {1} मागे घेण्याचा मार्ग तपासतो."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} कार्गो उघडतो. {1} मागे घेण्याचा मार्ग तपासतो."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [

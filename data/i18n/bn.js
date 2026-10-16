@@ -3308,7 +3308,59 @@ window.OTR_I18N.bn = {
 "This package is not on the route manifest.": "এই প্যাকেজ রুটের ম্যানিফেস্টে নেই।",
 "I counted one package.": "আমি একটা প্যাকেজ গুনেছি।",
 "Load count": "লোডের সংখ্যা",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "আগে বাদ পড়া একটা প্যাকেজ কার্গোতে পাওয়া গেছে। এটা স্ক্যান করে ঠিকানা দেখে নিন।"
+"A previously missed package has turned up in cargo. Scan it and check the address.": "আগে বাদ পড়া একটা প্যাকেজ কার্গোতে পাওয়া গেছে। এটা স্ক্যান করে ঠিকানা দেখে নিন।",
+"Adjusted speed and following distance to the weather.": "আবহাওয়া অনুযায়ী গতি ও সামনের গাড়ির সঙ্গে দূরত্ব ঠিক করেছেন।",
+"Continued driving without a water and shade break.": "পানি পান ও ছায়ায় বিরতি না নিয়েই গাড়ি চালিয়ে গেছেন।",
+"Speed or following distance did not suit the weather.": "গতি বা সামনের গাড়ির সঙ্গে দূরত্ব আবহাওয়ার উপযোগী ছিল না।",
+"Dispatch sent a route update. Park safely before opening the handheld.": "ডিসপ্যাচ রুটের আপডেট পাঠিয়েছে। হ্যান্ডহেল্ড খোলার আগে নিরাপদে গাড়ি থামান।",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "ডিসপ্যাচ রুটের আপডেট পাঠিয়েছে। নিরাপদে গাড়ি থামান, তারপর হ্যান্ডহেল্ডে \"রুট-দিবসের আপডেট\" খুলুন।",
+"Heat exposure is building. Park safely for a water and shade break now.": "গরমের প্রভাব বাড়ছে। এখনই নিরাপদে গাড়ি থামিয়ে পানি পান ও ছায়ায় বিরতি নিন।",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "বরফে টায়ারের গ্রিপ কমে যায়। ১০ mph-এর নিচে চালান এবং সামনের গাড়ি থেকে ছয় সেকেন্ডের দূরত্ব রাখুন।",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "ঝড়ে দৃষ্টিসীমা কমে যায়। ১২ mph-এর নিচে চালান এবং সামনের গাড়ি থেকে পাঁচ সেকেন্ডের দূরত্ব রাখুন।",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "ভেজা রাস্তায় টায়ারের গ্রিপ কমে যায়। ১৮ mph-এর নিচে চালান এবং সামনের গাড়ি থেকে চার সেকেন্ডের দূরত্ব রাখুন।",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "গাড়ি চালানোর সময় গরম বাড়তে থাকে। গতি কমান এবং পানি পান ও ছায়ায় বিরতির জন্য নিরাপদে গাড়ি থামান।",
+"There is no dispatch update yet.": "এখনও কোনো ডিসপ্যাচ আপডেট নেই।",
+"Stop and set the parking brake before reading the update.": "আপডেট পড়ার আগে গাড়ি থামান এবং পার্কিং ব্রেক লাগান।",
+"Park safely before taking a water and shade break.": "পানি পান ও ছায়ায় বিরতি নেওয়ার আগে নিরাপদে গাড়ি থামান।",
+"You took a water and shade break. Keep drinking regularly during the day.": "আপনি পানি পান ও ছায়ায় বিরতি নিয়েছেন। সারাদিন নিয়মিত পানি খেতে থাকুন।",
+"Followed the updated dispatch instruction at the stop.": "স্টপে ডিসপ্যাচের নতুন নির্দেশ মেনেছেন।",
+"Missed the updated dispatch instruction at the stop.": "স্টপে ডিসপ্যাচের নতুন নির্দেশ মানেননি।",
+"Kept a three-second following gap on this leg.": "এই অংশে সামনের গাড়ির সঙ্গে তিন সেকেন্ডের দূরত্ব রেখেছেন।",
+"Park the van and get out before checking the reversing path.": "রিভার্সের পথ দেখার আগে ভ্যান থামিয়ে বাইরে নামুন।",
+"Stand behind the van and look along the reversing path.": "ভ্যানের পেছনে দাঁড়ান এবং রিভার্সের পথ ধরে দেখুন।",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "রিভার্সের পথ খালি। ক্যাবে ফিরে যান এবং রিভার্স করার সময় নজর রাখুন।",
+"The reversing path is blocked. Wait for it to clear and check again.": "রিভার্সের পথ বন্ধ। পথ খালি হওয়া পর্যন্ত অপেক্ষা করুন, তারপর আবার দেখুন।",
+"Checked the mirrors before pulling out.": "বের হওয়ার আগে মিরর দেখেছেন।",
+"Pulled out without checking the mirrors.": "মিরর না দেখেই বের হয়েছেন।",
+"Followed traffic with less than a three-second gap.": "সামনের গাড়ির সঙ্গে তিন সেকেন্ডের কম দূরত্বে চলেছেন।",
+"Got out and checked the reversing path before backing.": "পেছনে যাওয়ার আগে নেমে রিভার্সের পথ দেখেছেন।",
+"Reversed without a current clear-path check.": "পথ খালি আছে কি না এখনই না দেখে রিভার্স করেছেন।",
+"Contacted the school bus instead of stopping with a safe gap.": "নিরাপদ দূরত্বে না থেমে স্কুল বাসের সঙ্গে ধাক্কা লাগিয়েছেন।",
+"Passed a school bus while its red lights were flashing.": "স্কুল বাসের লাল বাতি জ্বলতে থাকা অবস্থায় বাসটিকে পার হয়েছেন।",
+"Drove past a school bus while children were boarding.": "শিশুরা বাসে উঠছিল, তখন স্কুল বাসের পাশ দিয়ে চলে গেছেন।",
+"Stopped and waited until the school bus switched off its red lights.": "থেমেছেন এবং স্কুল বাস লাল বাতি নেভানো পর্যন্ত অপেক্ষা করেছেন।",
+"Did not pull over and stop for the emergency vehicle.": "জরুরি যানের জন্য সরে গিয়ে থামেননি।",
+"Pulled out before the emergency vehicle had passed.": "জরুরি যান পার হওয়ার আগেই বের হয়েছেন।",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "ডানদিকে সরে গিয়ে জরুরি যান পার হওয়া পর্যন্ত অপেক্ষা করেছেন।",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "আপনার পেছনে একটি জরুরি যান আছে। সিগন্যাল দিন, ডানদিকে সরে যান এবং থামুন।",
+"Wait until the emergency vehicle has passed before pulling out.": "বের হওয়ার আগে জরুরি যান পার হওয়া পর্যন্ত অপেক্ষা করুন।",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "স্কুল বাসের লাল বাতি জ্বলছে। বাসের আগে থামুন এবং বাতি নেভা পর্যন্ত অপেক্ষা করুন।",
+"Reverse slowly and keep watching the path.": "ধীরে রিভার্স করুন এবং পথের দিকে নজর রাখুন।",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "পেছনে যাওয়ার আগে থামুন এবং নেমে দেখুন। ভ্যানের পেছনে দাঁড়ান, রিভার্সের পথের দিকে মুখ করুন এবং G চাপুন।",
+"Route-day updates": "রুট-দিবসের আপডেট",
+"Dispatch has sent a stop update.": "ডিসপ্যাচ স্টপের আপডেট পাঠিয়েছে।",
+"Read the dispatch update": "ডিসপ্যাচ আপডেট পড়ুন",
+"Weather and breaks": "আবহাওয়া ও বিরতি",
+"Conditions are clear. Follow the posted speed limits.": "পরিস্থিতি ভালো। নির্ধারিত গতিসীমা মেনে চলুন।",
+"Take a water and shade break": "পানি পান ও ছায়ায় বিরতি নিন",
+"Place behind the planter": "প্লান্টারের পেছনে রাখুন",
+"Leave the parcel behind the planter, as dispatch requested.": "ডিসপ্যাচের অনুরোধ অনুযায়ী পার্সেলটি প্লান্টারের পেছনে রাখুন।",
+"Check the reversing path": "রিভার্সের পথ দেখুন",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "ভ্যান থামিয়ে সুরক্ষিত করুন। নেমে ভ্যানের পেছনে যান এবং যে পথে রিভার্স করতে চান সেটি ধরে দেখুন। মানুষ ও যানবাহনকে দূরে রাখুন।",
+"Confirm the path check": "পথ দেখা হয়েছে বলে নিশ্চিত করুন",
+"Check mirrors and signals before moving.": "চলার আগে মিরর ও সিগন্যাল দেখুন।",
+"Keep right. The speed limit is 25 mph.": "ডানদিক ধরে চলুন। গতিসীমা ২৫ mph।",
+"Keep right. The speed limit is 15 mph.": "ডানদিক ধরে চলুন। গতিসীমা ১৫ mph।"
 },
 "templates": [
 [
@@ -4622,6 +4674,34 @@ window.OTR_I18N.bn = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"স্টপ {0}-এ এখন স্বাক্ষর লাগবে। কেউ স্বাক্ষর করতে না পারলে পার্সেলটি নিজের কাছে রাখুন।"
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"স্টপ {0}-এ প্লান্টারের পেছনে ডেলিভারি দিতে বলা হয়েছে। প্যাকেজটি চোখের আড়ালে রাখুন।"
+],
+[
+"The forecast is {0}.",
+"পূর্বাভাস: {0}।"
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} কার্গো বন্ধ করেন। {1} রিভার্সের পথ দেখেন।"
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} কার্গো খোলেন। {1} রিভার্সের পথ দেখেন।"
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [

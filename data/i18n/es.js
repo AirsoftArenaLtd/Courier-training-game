@@ -3319,7 +3319,59 @@ window.OTR_I18N.es = {
 "This package is not on the route manifest.": "Este paquete no está en el manifiesto de la ruta.",
 "I counted one package.": "Conté un paquete.",
 "Load count": "Recuento de la carga",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "Un paquete que se había pasado por alto ha aparecido en la carga. Escanéalo y comprueba la dirección."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "Un paquete que se había pasado por alto ha aparecido en la carga. Escanéalo y comprueba la dirección.",
+"Adjusted speed and following distance to the weather.": "Ajustaste la velocidad y la distancia de seguimiento al clima.",
+"Continued driving without a water and shade break.": "Seguiste conduciendo sin una pausa para beber agua y descansar a la sombra.",
+"Speed or following distance did not suit the weather.": "La velocidad o la distancia de seguimiento no eran adecuadas para el clima.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "El despacho envió una actualización de ruta. Estaciona en un lugar seguro antes de abrir el escáner.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "El despacho envió una actualización de ruta. Estaciona en un lugar seguro y abre Actualizaciones del día en el escáner.",
+"Heat exposure is building. Park safely for a water and shade break now.": "Cada vez llevas más tiempo expuesto al calor. Estaciona en un lugar seguro y haz ahora una pausa para beber agua y descansar a la sombra.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "La nieve reduce la adherencia. Mantente por debajo de 10 mph y deja seis segundos de distancia con el vehículo de adelante.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "La tormenta reduce la visibilidad. Mantente por debajo de 12 mph y deja cinco segundos de distancia con el vehículo de adelante.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "El pavimento mojado reduce la adherencia. Mantente por debajo de 18 mph y deja cuatro segundos de distancia con el vehículo de adelante.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "El calor aumenta durante el recorrido. Reduce la velocidad y estaciona en un lugar seguro para hacer pausas de agua y sombra.",
+"There is no dispatch update yet.": "Todavía no hay ninguna actualización del despacho.",
+"Stop and set the parking brake before reading the update.": "Detente y pon el freno de estacionamiento antes de leer la actualización.",
+"Park safely before taking a water and shade break.": "Estaciona en un lugar seguro antes de hacer una pausa para beber agua y descansar a la sombra.",
+"You took a water and shade break. Keep drinking regularly during the day.": "Hiciste una pausa para beber agua y descansar a la sombra. Sigue bebiendo con regularidad durante el día.",
+"Followed the updated dispatch instruction at the stop.": "Seguiste la instrucción actualizada del despacho en la parada.",
+"Missed the updated dispatch instruction at the stop.": "No seguiste la instrucción actualizada del despacho en la parada.",
+"Kept a three-second following gap on this leg.": "Mantuviste una distancia de seguimiento de tres segundos en este tramo.",
+"Park the van and get out before checking the reversing path.": "Estaciona la furgoneta y baja antes de revisar la trayectoria de marcha atrás.",
+"Stand behind the van and look along the reversing path.": "Colócate detrás de la furgoneta y mira a lo largo de la trayectoria de marcha atrás.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "La trayectoria de marcha atrás está despejada. Vuelve a la cabina y sigue vigilando mientras retrocedes.",
+"The reversing path is blocked. Wait for it to clear and check again.": "La trayectoria de marcha atrás está bloqueada. Espera a que se despeje y revísala de nuevo.",
+"Checked the mirrors before pulling out.": "Revisaste los espejos antes de salir.",
+"Pulled out without checking the mirrors.": "Saliste sin revisar los espejos.",
+"Followed traffic with less than a three-second gap.": "Seguiste al tráfico a menos de tres segundos de distancia.",
+"Got out and checked the reversing path before backing.": "Bajaste y revisaste la trayectoria de marcha atrás antes de retroceder.",
+"Reversed without a current clear-path check.": "Retrocediste sin revisar antes que la trayectoria estuviera despejada.",
+"Contacted the school bus instead of stopping with a safe gap.": "Tocaste el autobús escolar en lugar de detenerte a una distancia segura.",
+"Passed a school bus while its red lights were flashing.": "Pasaste un autobús escolar con las luces rojas intermitentes encendidas.",
+"Drove past a school bus while children were boarding.": "Pasaste un autobús escolar mientras los niños estaban subiendo.",
+"Stopped and waited until the school bus switched off its red lights.": "Te detuviste y esperaste hasta que el autobús escolar apagó sus luces rojas.",
+"Did not pull over and stop for the emergency vehicle.": "No te orillaste ni te detuviste para el vehículo de emergencia.",
+"Pulled out before the emergency vehicle had passed.": "Saliste antes de que pasara el vehículo de emergencia.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "Te orillaste a la derecha y esperaste a que pasara el vehículo de emergencia.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "Hay un vehículo de emergencia detrás de ti. Señaliza, oríllate a la derecha y detente.",
+"Wait until the emergency vehicle has passed before pulling out.": "Espera a que pase el vehículo de emergencia antes de salir.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "El autobús escolar tiene las luces rojas intermitentes. Detente antes del autobús y espera a que se apaguen las luces.",
+"Reverse slowly and keep watching the path.": "Retrocede despacio y sigue vigilando la trayectoria.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "Detente y baja a mirar antes de retroceder. Colócate detrás de la furgoneta, de frente a la trayectoria de marcha atrás, y pulsa G.",
+"Route-day updates": "Actualizaciones del día",
+"Dispatch has sent a stop update.": "El despacho envió una actualización de parada.",
+"Read the dispatch update": "Leer la actualización del despacho",
+"Weather and breaks": "Clima y pausas",
+"Conditions are clear. Follow the posted speed limits.": "Las condiciones son buenas. Respeta los límites de velocidad indicados.",
+"Take a water and shade break": "Hacer una pausa de agua y sombra",
+"Place behind the planter": "Dejar detrás de la maceta",
+"Leave the parcel behind the planter, as dispatch requested.": "Deja el paquete detrás de la maceta, como pidió el despacho.",
+"Check the reversing path": "Revisar la trayectoria de marcha atrás",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "Estaciona y asegura la furgoneta. Baja, camina hasta la parte de atrás y mira a lo largo de la trayectoria por la que piensas retroceder. Mantén alejadas a las personas y al tráfico.",
+"Confirm the path check": "Confirmar la revisión de la trayectoria",
+"Check mirrors and signals before moving.": "Revisa los espejos y las señales antes de avanzar.",
+"Keep right. The speed limit is 25 mph.": "Mantente a la derecha. El límite de velocidad es de 25 mph.",
+"Keep right. The speed limit is 15 mph.": "Mantente a la derecha. El límite de velocidad es de 15 mph."
 },
 "templates": [
 [
@@ -4633,6 +4685,34 @@ window.OTR_I18N.es = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"La parada {0} ahora requiere firma. Si nadie puede firmar, conserva el paquete."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"La parada {0} pide la entrega detrás de la maceta. Mantén el paquete fuera de la vista."
+],
+[
+"The forecast is {0}.",
+"El pronóstico es: {0}."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} cierra la carga. {1} revisa la trayectoria de marcha atrás."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} abre la carga. {1} revisa la trayectoria de marcha atrás."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [
