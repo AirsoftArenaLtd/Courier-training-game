@@ -1,0 +1,62 @@
+{
+  "checks": 39,
+  "report": [
+    {
+      "theme": "Example One",
+      "skin": {
+        "name": "Example One",
+        "logo": "fp_company_logo",
+        "logoWidth": 256,
+        "logoHeight": 64,
+        "body": [
+          19,
+          42,
+          53,
+          255
+        ],
+        "handheldTextures": 0,
+        "labels": 3
+      },
+      "resources": {
+        "calls": 36,
+        "triangles": 1156,
+        "textures": 1,
+        "geometries": 3,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3575808,
+        "phaserMipBytes": 2031462,
+        "bodyKind": "Graphics"
+      }
+    },
+    {
+      "theme": "Example Two",
+      "skin": {
+        "name": "Example Two",
+        "logo": "fp_company_logo",
+        "logoWidth": 256,
+        "logoHeight": 64,
+        "body": [
+          30,
+          48,
+          32,
+          255
+        ],
+        "handheldTextures": 0,
+        "labels": 3
+      },
+      "resources": {
+        "calls": 36,
+        "triangles": 1156,
+        "textures": 1,
+        "geometries": 3,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3575808,
+        "phaserMipBytes": 2031462,
+        "bodyKind": "Graphics"
+      }
+    }
+  ],
+  "errors": []
+}

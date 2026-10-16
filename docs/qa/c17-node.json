@@ -1,0 +1,92 @@
+[
+  {
+    "suite": "firstperson",
+    "exitCode": 0,
+    "summary": "\u2139 tests 18; \u2139 pass 18; \u2139 fail 0"
+  },
+  {
+    "suite": "fpmission",
+    "exitCode": 0,
+    "summary": "\u2139 tests 39; \u2139 pass 39; \u2139 fail 0"
+  },
+  {
+    "suite": "fphandheld",
+    "exitCode": 0,
+    "summary": "\u2139 tests 8; \u2139 pass 8; \u2139 fail 0"
+  },
+  {
+    "suite": "fpworld",
+    "exitCode": 0,
+    "summary": "\u2139 tests 17; \u2139 pass 17; \u2139 fail 0"
+  },
+  {
+    "suite": "fproute",
+    "exitCode": 0,
+    "summary": "\u2139 tests 11; \u2139 pass 11; \u2139 fail 0"
+  },
+  {
+    "suite": "fploadout",
+    "exitCode": 0,
+    "summary": "\u2139 tests 11; \u2139 pass 11; \u2139 fail 0"
+  },
+  {
+    "suite": "fpdriving",
+    "exitCode": 0,
+    "summary": "\u2714 opposing traffic and interrupted close-gap samples do not earn or fail following checks (0.27048ms); \u2714 going around either side of the flashing bus reports a critical pass once (0.569483ms); \u2139 tests 15; \u2139 pass 15; \u2139 fail 0"
+  },
+  {
+    "suite": "fpday",
+    "exitCode": 0,
+    "summary": "\u2139 tests 10; \u2139 pass 10; \u2139 fail 0"
+  },
+  {
+    "suite": "fpdoors",
+    "exitCode": 0,
+    "summary": "\u2139 tests 16; \u2139 pass 16; \u2139 fail 0"
+  },
+  {
+    "suite": "fpaccess",
+    "exitCode": 0,
+    "summary": "\u2139 tests 7; \u2139 pass 7; \u2139 fail 0"
+  },
+  {
+    "suite": "fpbranding",
+    "exitCode": 0,
+    "summary": "\u2139 tests 4; \u2139 pass 4; \u2139 fail 0"
+  },
+  {
+    "suite": "fpguide",
+    "exitCode": 0,
+    "summary": "\u2139 tests 3; \u2139 pass 3; \u2139 fail 0"
+  },
+  {
+    "suite": "fpperf",
+    "exitCode": 0,
+    "summary": "\u2139 tests 2; \u2139 pass 2; \u2139 fail 0"
+  },
+  {
+    "suite": "fpresume",
+    "exitCode": 0,
+    "summary": "\u2139 tests 2; \u2139 pass 2; \u2139 fail 0"
+  },
+  {
+    "suite": "fpsound",
+    "exitCode": 0,
+    "summary": "\u2139 tests 7; \u2139 pass 7; \u2139 fail 0"
+  },
+  {
+    "suite": "workday",
+    "exitCode": 0,
+    "summary": "\u2714 an empty day scores nothing and tests nothing (0.271452ms); \u2139 tests 15; \u2139 pass 15; \u2139 fail 0"
+  },
+  {
+    "suite": "savesize",
+    "exitCode": 0,
+    "summary": "\u2139 tests 8; \u2139 pass 8; \u2139 fail 0"
+  },
+  {
+    "suite": "i18n",
+    "exitCode": 0,
+    "summary": "all translation checks passed"
+  }
+]

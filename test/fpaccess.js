@@ -32,3 +32,9 @@ test('keyboard target selection reaches tires and lamps from outside the van',()
  const m=c.OTR.fpMission.create('campaign',1),s={model:m,target:null,view:{camera,world,mirror:{camera:new T.PerspectiveCamera(),on:false}},message(){}};s.art=c.OTR.fpWorld.build(s,m);s.sync=()=>s.art.sync(m,null,'route');
  for(const [id,x,z] of [['tyres',1.6,6.4],['lights',4,4]]){Object.assign(m.player,{x,z,yaw:Math.PI,pitch:0});s.target=null;s.sync();let hit;for(let n=0;n<8&&hit!==id;n++)hit=A.focus(s);assert.equal(hit,id);assert.equal(s.art.pick(),id);}s.art.dispose();
 });
+
+test('Low text uses native canvases without shrinking fonts or stacking factories on restart',()=>{
+ const calls=[],factory=function(x,y,text,style){calls.push({owner:this,x,y,text,style});return style;},scene={add:{text:factory}};let high=false;c.OTR.gfx={high:()=>high};
+ A.textResolution(scene);let value=scene.add.text(1,2,'Text',{fontSize:'21px',resolution:2});assert.equal(value.resolution,1);assert.equal(value.fontSize,'21px');assert.equal(calls[0].owner,scene.add);
+ A.textResolution(scene);assert.equal(scene.fpTextFactory,factory);high=true;value=scene.add.text(1,2,'Text',{fontSize:'21px',resolution:2});assert.equal(value.resolution,2);assert.equal(calls.length,2);
+});

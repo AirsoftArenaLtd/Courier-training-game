@@ -3554,7 +3554,30 @@ window.OTR_I18N.ml = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "നിലനിർത്തിയ ഓരോ പാക്കേജും ഇവിടെ കൊണ്ടുവന്ന്, ഡിസ്പാച്ചിൽ അവസാനിപ്പിക്കും മുമ്പ് തിരികെ സ്കാൻ ചെയ്യുക.",
 "Start a workday first": "ആദ്യം ഒരു ജോലിദിനം തുടങ്ങുക",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "ജോലിദിനത്തിലോ ചരക്ക് പരിശീലനത്തിലോ ഹാൻഡ്‌ഹെൽഡ് ലഭ്യമാണ്. ഹബ്ബിൽ നിന്ന് ഒന്ന് തുടങ്ങി, ഹാൻഡ്‌ഹെൽഡ് തുറക്കുക.",
-"Return to Dispatch": "ഡിസ്പാച്ചിലേക്ക് മടങ്ങുക"
+"Return to Dispatch": "ഡിസ്പാച്ചിലേക്ക് മടങ്ങുക",
+"The engine is running.": "എഞ്ചിൻ പ്രവർത്തിക്കുന്നു.",
+"Rain is falling.": "മഴ പെയ്യുന്നു.",
+"The brakes are slowing the van.": "ബ്രേക്കുകൾ വാനിന്റെ വേഗം കുറയ്ക്കുന്നു.",
+"The left turn signal is on.": "ഇടത് ടേൺ സിഗ്നൽ ഓണാണ്.",
+"The right turn signal is on.": "വലത് ടേൺ സിഗ്നൽ ഓണാണ്.",
+"A dog is barking nearby.": "അടുത്ത് ഒരു നായ കുരയ്ക്കുന്നു.",
+"An emergency vehicle is approaching.": "ഒരു അടിയന്തര വാഹനം അടുത്തുവരുന്നു.",
+"Sound settings": "ശബ്ദ ക്രമീകരണങ്ങൾ",
+"Sound effects are muted.": "ശബ്ദ ഇഫക്റ്റുകൾ മ്യൂട്ട് ചെയ്തിരിക്കുന്നു.",
+"Sound effects are on.": "ശബ്ദ ഇഫക്റ്റുകൾ ഓണാണ്.",
+"Sounds pause for narration. Text cues remain visible when muted.": "വിവരണത്തിനായി ശബ്ദങ്ങൾ നിൽക്കും. മ്യൂട്ട് ചെയ്താലും എഴുത്തു സൂചനകൾ കാണാം.",
+"Make sound quieter": "ശബ്ദം കുറയ്ക്കുക",
+"Make sound louder": "ശബ്ദം കൂട്ടുക",
+"Turn sound effects on": "ശബ്ദ ഇഫക്റ്റുകൾ ഓണാക്കുക",
+"Mute sound effects": "ശബ്ദ ഇഫക്റ്റുകൾ മ്യൂട്ട് ചെയ്യുക",
+"You knock on the door.": "നിങ്ങൾ വാതിലിൽ മുട്ടുന്നു.",
+"The cab door opens.": "ക്യാബിൻ വാതിൽ തുറക്കുന്നു.",
+"The cab door closes.": "ക്യാബിൻ വാതിൽ അടയുന്നു.",
+"The cargo doors open.": "ചരക്ക് വാതിലുകൾ തുറക്കുന്നു.",
+"The cargo doors close.": "ചരക്ക് വാതിലുകൾ അടയുന്നു.",
+"You pick up the package.": "നിങ്ങൾ പാക്കേജ് എടുക്കുന്നു.",
+"You put down the package.": "നിങ്ങൾ പാക്കേജ് താഴെ വയ്ക്കുന്നു.",
+"The cargo restraints are secure.": "ചരക്ക് ബെൽറ്റുകൾ ഉറപ്പിച്ചിരിക്കുന്നു."
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.ml = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "ലക്ഷ്യമൊന്നും തിരഞ്ഞെടുത്തിട്ടില്ല. അടുത്തേക്ക് നീങ്ങുക അല്ലെങ്കിൽ അടുത്തുള്ള ദൃശ്യമായ ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"Sound effects volume is {0}%.",
+"ശബ്ദ ഇഫക്റ്റുകളുടെ നില {0}%."
 ]
 ],
 "keep": [

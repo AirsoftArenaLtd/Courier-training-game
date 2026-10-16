@@ -3554,7 +3554,30 @@ window.OTR_I18N.ta = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "வைத்திருக்கும் ஒவ்வொரு பொதியையும் இங்கே கொண்டுவந்து, டிஸ்பாச்சில் முடிக்கும் முன் மீண்டும் ஸ்கேன் செய்யுங்கள்.",
 "Start a workday first": "முதலில் பணிநாளைத் தொடங்குங்கள்",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "பணிநாள் அல்லது சரக்குப் பயிற்சியில் ஹேண்ட்ஹெல்ட் கிடைக்கும். மையத்திலிருந்து ஒன்றைத் தொடங்கி, ஹேண்ட்ஹெல்டைத் திறங்கள்.",
-"Return to Dispatch": "டிஸ்பாட்சுக்குத் திரும்பு"
+"Return to Dispatch": "டிஸ்பாட்சுக்குத் திரும்பு",
+"The engine is running.": "என்ஜின் ஓடுகிறது.",
+"Rain is falling.": "மழை பெய்கிறது.",
+"The brakes are slowing the van.": "பிரேக் வேனை நிறுத்துகிறது.",
+"The left turn signal is on.": "இடது சிக்னல் எரிகிறது.",
+"The right turn signal is on.": "வலது சிக்னல் எரிகிறது.",
+"A dog is barking nearby.": "அருகில் நாய் குரைக்கிறது.",
+"An emergency vehicle is approaching.": "அவசர வாகனம் நெருங்குகிறது.",
+"Sound settings": "ஒலி அமைப்புகள்",
+"Sound effects are muted.": "ஒலி விளைவுகள் முடக்கம்.",
+"Sound effects are on.": "ஒலி விளைவுகள் இயக்கம்.",
+"Sounds pause for narration. Text cues remain visible when muted.": "விளக்கத்தின் போது ஒலி நிற்கும். முடக்கத்திலும் எழுத்துக் குறிப்புகள் தெரியும்.",
+"Make sound quieter": "ஒலியைக் குறை",
+"Make sound louder": "ஒலியைக் கூட்டு",
+"Turn sound effects on": "ஒலி விளைவுகளை இயக்கு",
+"Mute sound effects": "ஒலி விளைவுகளை முடக்கு",
+"You knock on the door.": "நீங்கள் கதவைத் தட்டுகிறீர்கள்.",
+"The cab door opens.": "கேபின் கதவு திறக்கிறது.",
+"The cab door closes.": "கேபின் கதவு மூடுகிறது.",
+"The cargo doors open.": "சரக்குக் கதவுகள் திறக்கின்றன.",
+"The cargo doors close.": "சரக்குக் கதவுகள் மூடுகின்றன.",
+"You pick up the package.": "நீங்கள் பொதியை எடுக்கிறீர்கள்.",
+"You put down the package.": "நீங்கள் பொதியை வைக்கிறீர்கள்.",
+"The cargo restraints are secure.": "சரக்குப் பட்டைகள் பாதுகாப்பாக உள்ளன."
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.ta = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "இலக்கு எதுவும் தேர்வாகவில்லை. அருகில் செல்லுங்கள் அல்லது அருகிலுள்ள தெரியும் இலக்கைத் தேர்ந்தெடுக்க {0} அழுத்துங்கள்."
+],
+[
+"Sound effects volume is {0}%.",
+"ஒலி அளவு {0}%."
 ]
 ],
 "keep": [

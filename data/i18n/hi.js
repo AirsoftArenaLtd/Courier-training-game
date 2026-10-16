@@ -3554,7 +3554,30 @@ window.OTR_I18N.hi = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "रोके हुए हर पैकेज को यहाँ लाएँ और डिस्पैच पर खत्म करने से पहले दोबारा स्कैन करें।",
 "Start a workday first": "पहले कार्यदिवस शुरू करें",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "हैंडहेल्ड कार्यदिवस या कार्गो अभ्यास में मिलता है। हब से एक शुरू करें, फिर हैंडहेल्ड खोलें।",
-"Return to Dispatch": "डिस्पैच पर लौटें"
+"Return to Dispatch": "डिस्पैच पर लौटें",
+"The engine is running.": "इंजन चल रहा है।",
+"Rain is falling.": "बारिश हो रही है।",
+"The brakes are slowing the van.": "ब्रेक वैन को धीमा कर रहे हैं।",
+"The left turn signal is on.": "बायाँ टर्न सिग्नल चालू है।",
+"The right turn signal is on.": "दायाँ टर्न सिग्नल चालू है।",
+"A dog is barking nearby.": "पास में कुत्ता भौंक रहा है।",
+"An emergency vehicle is approaching.": "इमरजेंसी वाहन पास आ रहा है।",
+"Sound settings": "साउंड सेटिंग",
+"Sound effects are muted.": "साउंड इफ़ेक्ट म्यूट हैं।",
+"Sound effects are on.": "साउंड इफ़ेक्ट चालू हैं।",
+"Sounds pause for narration. Text cues remain visible when muted.": "नैरेशन के समय आवाज़ें रुक जाती हैं। म्यूट होने पर टेक्स्ट संकेत दिखते रहते हैं।",
+"Make sound quieter": "आवाज़ कम करें",
+"Make sound louder": "आवाज़ बढ़ाएँ",
+"Turn sound effects on": "साउंड इफ़ेक्ट चालू करें",
+"Mute sound effects": "साउंड इफ़ेक्ट म्यूट करें",
+"You knock on the door.": "आप दरवाज़ा खटखटाते हैं।",
+"The cab door opens.": "केबिन का दरवाज़ा खुलता है।",
+"The cab door closes.": "केबिन का दरवाज़ा बंद होता है।",
+"The cargo doors open.": "कार्गो के दरवाज़े खुलते हैं।",
+"The cargo doors close.": "कार्गो के दरवाज़े बंद होते हैं।",
+"You pick up the package.": "आप पैकेज उठाते हैं।",
+"You put down the package.": "आप पैकेज नीचे रखते हैं।",
+"The cargo restraints are secure.": "कार्गो के बेल्ट कसे हुए हैं।"
 },
 "templates": [
 [
@@ -5084,6 +5107,10 @@ window.OTR_I18N.hi = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "कोई लक्ष्य चुना नहीं है। पास जाएँ या दिखता लक्ष्य चुनने के लिए {0} दबाएँ।"
+],
+[
+"Sound effects volume is {0}%.",
+"साउंड इफ़ेक्ट की आवाज़ {0}% है।"
 ]
 ],
 "keep": [

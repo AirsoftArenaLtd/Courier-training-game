@@ -3565,7 +3565,30 @@ window.OTR_I18N.es = {
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "Trae aquí cada paquete retenido y escanéalo de vuelta antes de terminar en el despacho.",
 "Start a workday first": "Empieza primero una jornada",
 "The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "El escáner está disponible durante una jornada o práctica de carga. Inicia una desde el centro y abre el escáner.",
-"Return to Dispatch": "Volver al despacho"
+"Return to Dispatch": "Volver al despacho",
+"The engine is running.": "El motor está en marcha.",
+"Rain is falling.": "Está lloviendo.",
+"The brakes are slowing the van.": "Los frenos reducen la velocidad de la furgoneta.",
+"The left turn signal is on.": "El intermitente izquierdo está encendido.",
+"The right turn signal is on.": "El intermitente derecho está encendido.",
+"A dog is barking nearby.": "Un perro ladra cerca.",
+"An emergency vehicle is approaching.": "Se acerca un vehículo de emergencia.",
+"Sound settings": "Ajustes de sonido",
+"Sound effects are muted.": "Los efectos de sonido están silenciados.",
+"Sound effects are on.": "Los efectos de sonido están activados.",
+"Sounds pause for narration. Text cues remain visible when muted.": "Los sonidos se pausan durante la narración. Los avisos de texto siguen visibles en silencio.",
+"Make sound quieter": "Bajar el sonido",
+"Make sound louder": "Subir el sonido",
+"Turn sound effects on": "Activar efectos de sonido",
+"Mute sound effects": "Silenciar efectos de sonido",
+"You knock on the door.": "Llamas a la puerta.",
+"The cab door opens.": "La puerta de la cabina se abre.",
+"The cab door closes.": "La puerta de la cabina se cierra.",
+"The cargo doors open.": "Las puertas de carga se abren.",
+"The cargo doors close.": "Las puertas de carga se cierran.",
+"You pick up the package.": "Recoges el paquete.",
+"You put down the package.": "Dejas el paquete.",
+"The cargo restraints are secure.": "Las sujeciones de la carga están firmes."
 },
 "templates": [
 [
@@ -5095,6 +5118,10 @@ window.OTR_I18N.es = {
 [
 "No target is selected. Move closer or press {0} to select a visible nearby target.",
 "No hay ningún objetivo seleccionado. Acércate o pulsa {0} para elegir un objetivo visible cercano."
+],
+[
+"Sound effects volume is {0}%.",
+"El volumen de los efectos es {0}%."
 ]
 ],
 "keep": [
