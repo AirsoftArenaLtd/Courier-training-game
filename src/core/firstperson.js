@@ -127,7 +127,7 @@ OTR.fp = {
           return;
         }
         const v = this.van;
-        if (v.hand || input.back) v.speed = F.approach(v.speed, 0, (v.hand ? 8 : 5) * dt);
+        if (v.hand || input.back) v.speed = F.approach(v.speed, 0, (v.hand ? 8 : 5) * (this.traction || 1) * dt);
         else if (input.forward) v.speed = F.clamp(v.speed + v.gear * 2.4 * dt, -2.5, 8);
         else v.speed = F.approach(v.speed, 0, 0.7 * dt);
         const angle = (input.right - input.left) * (0.48 - 0.15 * Math.min(1, Math.abs(v.speed) / 8));

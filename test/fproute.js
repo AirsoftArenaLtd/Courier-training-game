@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/world3d.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/world3d.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 const full=(day=1,variant=7)=>M.create('campaign',variant,R.plan(day,variant));
@@ -94,7 +94,7 @@ test('the van can steer around a right-hand grid corner without crossing buildin
 });
 test('low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror',()=>{
  for(let day=1;day<=30;day++){
- const m=full(day);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');m.mode='cab';m.paused=false;
+ const m=full(day);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);m.mode='cab';m.paused=false;
  c.OTR.gfx={high:()=>false};
  const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
  const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,0.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);
@@ -120,7 +120,7 @@ test('low graphics stays within the complete-frame geometry budget at every stop
 });
 
 test('the generated route resumes every load-out variant, including the sixth physical package',()=>{
- for(const kind of c.OTR.fpLoadout.kinds){const m=full();c.OTR.fpLoadout.configure(m,kind);c.OTR.fpDriving.configure(m);
+ for(const kind of c.OTR.fpLoadout.kinds){const m=full();c.OTR.fpLoadout.configure(m,kind);c.OTR.fpDriving.configure(m);c.OTR.fpDay.configure(m);
   assert.equal(m.stops.length,5);assert.equal(m.parcels.length,['extra','missort'].includes(kind)?6:5);
   const restored=M.restore(m.snapshot());assert.ok(restored,kind);assert.equal(JSON.stringify(restored.snapshot()),JSON.stringify(m.snapshot()));
  }
