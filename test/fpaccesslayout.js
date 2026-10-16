@@ -20,6 +20,6 @@ const fonts={ta:'Tamil',hi:'Devanagari',mr:'Devanagari',bn:'Bengali',gu:'Gujarat
    if(large&&['scan','identity','controls','intro','guide'].includes(page))await p.screenshot({path:path.join(OUT,`${page==='intro'||page==='guide'?'c15':'c12'}-${page}-${lang}-large.png`)});
   }
  }
- assert.deepEqual(errors,[]);console.log(checks+' accessibility layout checks passed');
+ assert.deepEqual(errors,[]);fs.writeFileSync(path.join(OUT,'c15-layouts.json'),JSON.stringify({languages:LANGS,font:process.env.QA_FONT||'system',sizes:['normal','larger'],checks,errors},null,2));console.log(checks+' accessibility layout checks passed');
  }finally{await b.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});
