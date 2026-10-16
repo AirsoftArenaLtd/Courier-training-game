@@ -52,6 +52,15 @@ test('closed gates block actual walking; waiting outside removes the loose-dog b
 test('unsafe gate opening is recorded once and survives recovery and reload',()=>{
  const {m,id}=find(a=>a.dog),s=m.stops[id];Object.assign(m.van,s.park);m.mode='walk';Object.assign(m.player,{x:s.x-s.side*3.4,z:s.z});D.openGate(m,id);D.secureDog(m,id);assert.equal(events('stop.dog').length,1);assert.equal(events('stop.dog')[0].ok,false);const r=M.restore(m.snapshot());assert.ok(r);assert.equal(r.solids.length,m.solids.length);W.begin();D.secureDog(r,id);assert.equal(W.events.length,0);
 });
+test('both fixed fence sections block walking even after the dog is secured',()=>{
+ const {m,id}=find(a=>a.dog),s=m.stops[id];Object.assign(m.van,s.park);m.mode='walk';m.paused=false;
+ for(const secured of [false,true])for(const dz of [-3.1,3.1]){
+  if(secured){Object.assign(m.player,{x:s.x-s.side*3.4,z:s.z});D.secureDog(m,id);}
+  Object.assign(m.player,{x:s.x-s.side*4,z:s.z+dz,yaw:s.side*Math.PI/2});
+  for(let i=0;i<80;i++)m.step({forward:true},.025);
+  assert.ok((s.x-m.player.x)*s.side>2.8,`Walked through the fence at ${dz}, secured: ${secured}`);
+ }assert.ok(M.restore(m.snapshot()));
+});
 test('a safe-access exception can be scanned and recorded from outside the closed gate',()=>{
  const {m,id}=find(a=>a.dog),s=m.stops[id],p=atDoor(m,id);Object.assign(m.player,{x:s.x-s.side*3.4,z:s.z});m.scan();assert.equal(m.atDelivery(p),true);assert.match(m.deliver(id,'exception'),/Exception recorded/);assert.equal(events('stop.dog')[0].ok,true);
 });

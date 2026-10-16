@@ -24,7 +24,9 @@ OTR.fpDoors={
     if(!m._doorSolids){m._doorSolids=m.stops.map((s,i)=>{
       const resident={x:1e6,z:s.z,w:.55,d:.5,h:1.9};m.solids.push(resident);
       if(!m._doorSpecs[i].dog)return {resident};
-      const gate={x:1e6,z:s.z,w:.16,d:4.8,h:1.1},dog={x:1e6,z:s.z,w:1.6,d:.65,h:.7};m.solids.push(gate,dog);return {resident,gate,dog};
+      const gate={x:1e6,z:s.z,w:.16,d:4.8,h:1.1},dog={x:1e6,z:s.z,w:1.6,d:.65,h:.7};
+      const fences=[-3.1,3.1].map(dz=>({x:s.x-s.side*2.6,z:s.z+dz,w:.16,d:1.4,h:1.2}));
+      m.solids.push(gate,dog,...fences);return {resident,gate,dog,fences};
     });}this.sync(m);
   },
   point(m,id,type){const s=m.stops[id];return {x:s.x-s.side*(type==='gate'?2.6:1.5),y:type==='gate'?1:.05,z:s.z};},
