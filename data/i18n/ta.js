@@ -3307,7 +3307,59 @@ window.OTR_I18N.ta = {
 "This package is not on the route manifest.": "இந்தப் பார்சல் ரூட் மேனிஃபெஸ்ட்டில் இல்லை.",
 "I counted one package.": "ஒரு பார்சலை எண்ணினேன்.",
 "Load count": "லோடு எண்ணிக்கை",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "முன்பு விடுபட்ட பார்சல் சரக்கில் கிடைத்தது. அதை ஸ்கேன் செய்து முகவரியைச் சரிபாருங்கள்."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "முன்பு விடுபட்ட பார்சல் சரக்கில் கிடைத்தது. அதை ஸ்கேன் செய்து முகவரியைச் சரிபாருங்கள்.",
+"Adjusted speed and following distance to the weather.": "வானிலைக்கு ஏற்ப வேகத்தையும் பின்தொடரும் இடைவெளியையும் சரிசெய்தீர்கள்.",
+"Continued driving without a water and shade break.": "தண்ணீர் மற்றும் நிழல் ஓய்வு எடுக்காமல் தொடர்ந்து ஓட்டினீர்கள்.",
+"Speed or following distance did not suit the weather.": "வேகமோ பின்தொடரும் இடைவெளியோ வானிலைக்குப் பொருந்தவில்லை.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "டிஸ்பாட்ச் ரூட் அப்டேட் அனுப்பியுள்ளது. ஹேண்ட்ஹெல்டைத் திறக்கும் முன் பாதுகாப்பாக வாகனத்தை நிறுத்துங்கள்.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "டிஸ்பாட்ச் ரூட் அப்டேட் அனுப்பியுள்ளது. பாதுகாப்பாக நிறுத்திவிட்டு, ஹேண்ட்ஹெல்டில் ரூட் நாள் அப்டேட்களைத் திறங்கள்.",
+"Heat exposure is building. Park safely for a water and shade break now.": "வெப்பம் அதிகரித்து வருகிறது. இப்போதே பாதுகாப்பாக நிறுத்தி, தண்ணீர் மற்றும் நிழல் ஓய்வு எடுங்கள்.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "பனி பிடிப்பைக் குறைக்கும். 10 mph-க்குக் கீழே செல்லுங்கள், முன் வாகனத்தைவிட ஆறு விநாடி இடைவெளி விடுங்கள்.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "புயலால் பார்வைத் தெளிவு குறைகிறது. 12 mph-க்குக் கீழே செல்லுங்கள், முன் வாகனத்தைவிட ஐந்து விநாடி இடைவெளி விடுங்கள்.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "ஈரமான சாலை பிடிப்பைக் குறைக்கும். 18 mph-க்குக் கீழே செல்லுங்கள், முன் வாகனத்தைவிட நான்கு விநாடி இடைவெளி விடுங்கள்.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "ஓட்டும்போது வெப்பம் அதிகரிக்கும். வேகத்தைக் குறைத்து, பாதுகாப்பாக நிறுத்தி தண்ணீர் மற்றும் நிழல் ஓய்வு எடுங்கள்.",
+"There is no dispatch update yet.": "டிஸ்பாட்ச் அப்டேட் இன்னும் இல்லை.",
+"Stop and set the parking brake before reading the update.": "அப்டேட்டைப் படிக்கும் முன் வாகனத்தை நிறுத்தி, பார்க்கிங் பிரேக் போடுங்கள்.",
+"Park safely before taking a water and shade break.": "தண்ணீர் மற்றும் நிழல் ஓய்வு எடுக்கும் முன் பாதுகாப்பாக நிறுத்துங்கள்.",
+"You took a water and shade break. Keep drinking regularly during the day.": "தண்ணீர் மற்றும் நிழல் ஓய்வு எடுத்தீர்கள். நாள் முழுவதும் தொடர்ந்து தண்ணீர் குடியுங்கள்.",
+"Followed the updated dispatch instruction at the stop.": "நிறுத்தத்தில் புதுப்பிக்கப்பட்ட டிஸ்பாட்ச் அறிவுறுத்தலைப் பின்பற்றினீர்கள்.",
+"Missed the updated dispatch instruction at the stop.": "நிறுத்தத்தில் புதுப்பிக்கப்பட்ட டிஸ்பாட்ச் அறிவுறுத்தலைத் தவறவிட்டீர்கள்.",
+"Kept a three-second following gap on this leg.": "இந்தப் பகுதியில் மூன்று விநாடி பின்தொடரும் இடைவெளியைப் பராமரித்தீர்கள்.",
+"Park the van and get out before checking the reversing path.": "பின்னோக்கிச் செல்லும் பாதையைச் சரிபார்க்கும் முன் வேனை நிறுத்தி வெளியே இறங்குங்கள்.",
+"Stand behind the van and look along the reversing path.": "வேனுக்குப் பின்னால் நின்று, பின்னோக்கிச் செல்லும் பாதையை நெடுக பாருங்கள்.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "பின்னோக்கிச் செல்லும் பாதை தெளிவாக உள்ளது. கேபினுக்குத் திரும்புங்கள், பின்னோக்கிச் செல்லும்போது தொடர்ந்து கவனியுங்கள்.",
+"The reversing path is blocked. Wait for it to clear and check again.": "பின்னோக்கிச் செல்லும் பாதை தடைபட்டுள்ளது. தெளிவாகும் வரை காத்திருந்து மீண்டும் சரிபாருங்கள்.",
+"Checked the mirrors before pulling out.": "வாகனத்தை எடுக்கும் முன் கண்ணாடிகளைச் சரிபார்த்தீர்கள்.",
+"Pulled out without checking the mirrors.": "கண்ணாடிகளைச் சரிபார்க்காமல் வாகனத்தை எடுத்தீர்கள்.",
+"Followed traffic with less than a three-second gap.": "மூன்று விநாடிக்கும் குறைவான இடைவெளியில் முன் வாகனத்தைப் பின்தொடர்ந்தீர்கள்.",
+"Got out and checked the reversing path before backing.": "பின்னோக்கி எடுக்கும் முன் இறங்கி, பின்னோக்கிச் செல்லும் பாதையைச் சரிபார்த்தீர்கள்.",
+"Reversed without a current clear-path check.": "தற்போதைய பாதை தெளிவுச் சரிபார்ப்பு இல்லாமல் பின்னோக்கி எடுத்தீர்கள்.",
+"Contacted the school bus instead of stopping with a safe gap.": "பாதுகாப்பான இடைவெளியில் நிற்காமல் பள்ளிப் பேருந்தின் மீது மோதினீர்கள்.",
+"Passed a school bus while its red lights were flashing.": "பள்ளிப் பேருந்தின் சிவப்பு விளக்குகள் ஒளிரும்போது அதைக் கடந்து சென்றீர்கள்.",
+"Drove past a school bus while children were boarding.": "குழந்தைகள் ஏறிக்கொண்டிருக்கும்போது பள்ளிப் பேருந்தைக் கடந்து சென்றீர்கள்.",
+"Stopped and waited until the school bus switched off its red lights.": "நின்று, பள்ளிப் பேருந்து சிவப்பு விளக்குகளை அணைக்கும் வரை காத்திருந்தீர்கள்.",
+"Did not pull over and stop for the emergency vehicle.": "அவசரகால வாகனத்திற்காக ஓரமாக ஒதுங்கி நிற்கவில்லை.",
+"Pulled out before the emergency vehicle had passed.": "அவசரகால வாகனம் கடக்கும் முன் வாகனத்தை எடுத்தீர்கள்.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "வலப்புறம் ஒதுங்கி, அவசரகால வாகனம் கடக்கும் வரை காத்திருந்தீர்கள்.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "அவசரகால வாகனம் உங்கள் பின்னால் வருகிறது. சிக்னல் போட்டு, வலப்புறம் ஒதுங்கி நில்லுங்கள்.",
+"Wait until the emergency vehicle has passed before pulling out.": "வாகனத்தை எடுக்கும் முன் அவசரகால வாகனம் கடக்கும் வரை காத்திருங்கள்.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "பள்ளிப் பேருந்தின் சிவப்பு விளக்குகள் ஒளிர்கின்றன. பேருந்துக்கு முன்பே நின்று, விளக்குகள் அணையும் வரை காத்திருங்கள்.",
+"Reverse slowly and keep watching the path.": "மெதுவாகப் பின்னோக்கி எடுங்கள், பாதையைத் தொடர்ந்து கவனியுங்கள்.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "பின்னோக்கி எடுக்கும் முன் நின்று, இறங்கிப் பாருங்கள். வேனுக்குப் பின்னால் நின்று, பின்னோக்கிச் செல்லும் பாதையை நோக்கி G அழுத்துங்கள்.",
+"Route-day updates": "ரூட் நாள் அப்டேட்கள்",
+"Dispatch has sent a stop update.": "டிஸ்பாட்ச் நிறுத்த அப்டேட் அனுப்பியுள்ளது.",
+"Read the dispatch update": "டிஸ்பாட்ச் அப்டேட்டைப் படிக்க",
+"Weather and breaks": "வானிலை மற்றும் ஓய்வுகள்",
+"Conditions are clear. Follow the posted speed limits.": "நிலைமை தெளிவாக உள்ளது. அறிவிக்கப்பட்ட வேக வரம்புகளைப் பின்பற்றுங்கள்.",
+"Take a water and shade break": "தண்ணீர் மற்றும் நிழல் ஓய்வு எடுக்க",
+"Place behind the planter": "செடித் தொட்டிக்குப் பின்னால் வைக்க",
+"Leave the parcel behind the planter, as dispatch requested.": "டிஸ்பாட்ச் கேட்டபடி பார்சலை செடித் தொட்டிக்குப் பின்னால் வையுங்கள்.",
+"Check the reversing path": "பின்னோக்கிச் செல்லும் பாதையைச் சரிபார்க்க",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "வேனை நிறுத்திப் பாதுகாப்பாக்குங்கள். இறங்கி, பின்புறம் நடந்து, பின்னோக்கிச் செல்ல எண்ணும் பாதையை நெடுக பாருங்கள். ஆட்களையும் வாகனங்களையும் விலக்கி வையுங்கள்.",
+"Confirm the path check": "பாதைச் சரிபார்ப்பை உறுதிசெய்ய",
+"Check mirrors and signals before moving.": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+"Keep right. The speed limit is 25 mph.": "வலப்புறம் செல்லுங்கள். வேக வரம்பு 25 mph.",
+"Keep right. The speed limit is 15 mph.": "வலப்புறம் செல்லுங்கள். வேக வரம்பு 15 mph."
 },
 "templates": [
 [
@@ -4621,6 +4673,34 @@ window.OTR_I18N.ta = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"நிறுத்தம் {0}-க்கு இப்போது கையொப்பம் தேவை. யாரும் கையொப்பமிட முடியாவிட்டால் பார்சலை உங்களிடமே வைத்திருங்கள்."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"நிறுத்தம் {0} செடித் தொட்டிக்குப் பின்னால் டெலிவரி செய்யக் கேட்கிறது. பார்சல் கண்ணில் படாமல் வையுங்கள்."
+],
+[
+"The forecast is {0}.",
+"வானிலை முன்னறிவிப்பு: {0}."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} சரக்குப் பகுதியை மூடுகிறார். {1} பின்னோக்கிச் செல்லும் பாதையைச் சரிபார்க்கிறார்."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} சரக்குப் பகுதியைத் திறக்கிறார். {1} பின்னோக்கிச் செல்லும் பாதையைச் சரிபார்க்கிறார்."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [

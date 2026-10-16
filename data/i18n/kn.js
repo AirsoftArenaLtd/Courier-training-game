@@ -3307,7 +3307,59 @@ window.OTR_I18N.kn = {
 "This package is not on the route manifest.": "ಈ ಪ್ಯಾಕೇಜ್ ಮಾರ್ಗದ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನಲ್ಲಿ ಇಲ್ಲ.",
 "I counted one package.": "ನಾನು ಒಂದು ಪ್ಯಾಕೇಜ್ ಎಣಿಸಿದೆ.",
 "Load count": "ಲೋಡ್ ಎಣಿಕೆ",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "ಮೊದಲು ಬಿಟ್ಟುಹೋಗಿದ್ದ ಪ್ಯಾಕೇಜ್ ಸರಕಿನಲ್ಲಿ ಸಿಕ್ಕಿದೆ. ಅದನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ವಿಳಾಸ ಪರಿಶೀಲಿಸಿ."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "ಮೊದಲು ಬಿಟ್ಟುಹೋಗಿದ್ದ ಪ್ಯಾಕೇಜ್ ಸರಕಿನಲ್ಲಿ ಸಿಕ್ಕಿದೆ. ಅದನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ವಿಳಾಸ ಪರಿಶೀಲಿಸಿ.",
+"Adjusted speed and following distance to the weather.": "ಹವಾಮಾನಕ್ಕೆ ತಕ್ಕಂತೆ ವೇಗ ಮತ್ತು ಹಿಂದಿನ ವಾಹನದ ಅಂತರವನ್ನು ಹೊಂದಿಸಿದಿರಿ.",
+"Continued driving without a water and shade break.": "ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮ ಇಲ್ಲದೆ ಚಾಲನೆ ಮುಂದುವರಿಸಿದಿರಿ.",
+"Speed or following distance did not suit the weather.": "ವೇಗ ಅಥವಾ ಹಿಂದಿನ ವಾಹನದ ಅಂತರ ಹವಾಮಾನಕ್ಕೆ ಸೂಕ್ತವಾಗಿರಲಿಲ್ಲ.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "ಡಿಸ್ಪ್ಯಾಚ್ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಕಳುಹಿಸಿದೆ. ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ತೆರೆಯುವ ಮೊದಲು ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "ಡಿಸ್ಪ್ಯಾಚ್ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಕಳುಹಿಸಿದೆ. ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ, ನಂತರ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ರೂಟ್-ದಿನದ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.",
+"Heat exposure is building. Park safely for a water and shade break now.": "ಶಾಖದ ಪರಿಣಾಮ ಹೆಚ್ಚುತ್ತಿದೆ. ಈಗಲೇ ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮ ತೆಗೆದುಕೊಳ್ಳಿ.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "ಹಿಮದಿಂದ ಹಿಡಿತ ಕಡಿಮೆಯಾಗುತ್ತದೆ. 10 mph ಗಿಂತ ಕಡಿಮೆ ವೇಗದಲ್ಲಿ ಚಲಿಸಿ ಮತ್ತು ಮುಂದಿನ ವಾಹನದಿಂದ ಆರು ಸೆಕೆಂಡಿನ ಅಂತರ ಬಿಡಿ.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "ಬಿರುಗಾಳಿಯಿಂದ ಕಾಣುವಿಕೆ ಕಡಿಮೆಯಾಗುತ್ತದೆ. 12 mph ಗಿಂತ ಕಡಿಮೆ ವೇಗದಲ್ಲಿ ಚಲಿಸಿ ಮತ್ತು ಮುಂದಿನ ವಾಹನದಿಂದ ಐದು ಸೆಕೆಂಡಿನ ಅಂತರ ಬಿಡಿ.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "ಒದ್ದೆ ರಸ್ತೆಯಲ್ಲಿ ಹಿಡಿತ ಕಡಿಮೆಯಾಗುತ್ತದೆ. 18 mph ಗಿಂತ ಕಡಿಮೆ ವೇಗದಲ್ಲಿ ಚಲಿಸಿ ಮತ್ತು ಮುಂದಿನ ವಾಹನದಿಂದ ನಾಲ್ಕು ಸೆಕೆಂಡಿನ ಅಂತರ ಬಿಡಿ.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "ಚಾಲನೆಯ ವೇಳೆ ಶಾಖ ಹೆಚ್ಚುತ್ತದೆ. ನಿಧಾನಿಸಿ, ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮಕ್ಕಾಗಿ ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ.",
+"There is no dispatch update yet.": "ಇನ್ನೂ ಡಿಸ್ಪ್ಯಾಚ್ ಅಪ್‌ಡೇಟ್ ಇಲ್ಲ.",
+"Stop and set the parking brake before reading the update.": "ಅಪ್‌ಡೇಟ್ ಓದುವ ಮೊದಲು ನಿಲ್ಲಿಸಿ ಮತ್ತು ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ.",
+"Park safely before taking a water and shade break.": "ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮ ತೆಗೆದುಕೊಳ್ಳುವ ಮೊದಲು ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ.",
+"You took a water and shade break. Keep drinking regularly during the day.": "ನೀವು ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮ ತೆಗೆದುಕೊಂಡಿರಿ. ದಿನವಿಡೀ ನಿಯಮಿತವಾಗಿ ನೀರು ಕುಡಿಯುತ್ತಿರಿ.",
+"Followed the updated dispatch instruction at the stop.": "ಸ್ಟಾಪ್‌ನಲ್ಲಿ ಹೊಸ ಡಿಸ್ಪ್ಯಾಚ್ ಸೂಚನೆಯನ್ನು ಪಾಲಿಸಿದಿರಿ.",
+"Missed the updated dispatch instruction at the stop.": "ಸ್ಟಾಪ್‌ನಲ್ಲಿ ಹೊಸ ಡಿಸ್ಪ್ಯಾಚ್ ಸೂಚನೆಯನ್ನು ತಪ್ಪಿಸಿದಿರಿ.",
+"Kept a three-second following gap on this leg.": "ಈ ಹಂತದಲ್ಲಿ ಮೂರು ಸೆಕೆಂಡಿನ ಅಂತರ ಕಾಯ್ದುಕೊಂಡಿರಿ.",
+"Park the van and get out before checking the reversing path.": "ರಿವರ್ಸ್ ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸುವ ಮೊದಲು ವ್ಯಾನ್ ನಿಲ್ಲಿಸಿ ಕೆಳಗಿಳಿಯಿರಿ.",
+"Stand behind the van and look along the reversing path.": "ವ್ಯಾನ್‌ನ ಹಿಂದೆ ನಿಂತು ರಿವರ್ಸ್ ಮಾರ್ಗದ ಉದ್ದಕ್ಕೂ ನೋಡಿ.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "ರಿವರ್ಸ್ ಮಾರ್ಗ ಖಾಲಿಯಾಗಿದೆ. ಕ್ಯಾಬಿನ್‌ಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ರಿವರ್ಸ್ ಮಾಡುವಾಗ ನೋಡುತ್ತಲೇ ಇರಿ.",
+"The reversing path is blocked. Wait for it to clear and check again.": "ರಿವರ್ಸ್ ಮಾರ್ಗಕ್ಕೆ ಅಡ್ಡಿಯಿದೆ. ಖಾಲಿಯಾಗುವವರೆಗೆ ಕಾಯಿರಿ ಮತ್ತು ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.",
+"Checked the mirrors before pulling out.": "ಹೊರಡುವ ಮೊದಲು ಕನ್ನಡಿಗಳನ್ನು ಪರಿಶೀಲಿಸಿದಿರಿ.",
+"Pulled out without checking the mirrors.": "ಕನ್ನಡಿಗಳನ್ನು ಪರಿಶೀಲಿಸದೆ ಹೊರಟಿರಿ.",
+"Followed traffic with less than a three-second gap.": "ಮೂರು ಸೆಕೆಂಡಿಗಿಂತ ಕಡಿಮೆ ಅಂತರದಲ್ಲಿ ವಾಹನವನ್ನು ಹಿಂಬಾಲಿಸಿದಿರಿ.",
+"Got out and checked the reversing path before backing.": "ಹಿಂದಕ್ಕೆ ಚಲಿಸುವ ಮೊದಲು ಕೆಳಗಿಳಿದು ರಿವರ್ಸ್ ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸಿದಿರಿ.",
+"Reversed without a current clear-path check.": "ಈಗಿನ ಮಾರ್ಗ ಖಾಲಿ ಇರುವುದನ್ನು ಪರಿಶೀಲಿಸದೆ ರಿವರ್ಸ್ ಮಾಡಿದಿರಿ.",
+"Contacted the school bus instead of stopping with a safe gap.": "ಸುರಕ್ಷಿತ ಅಂತರದಲ್ಲಿ ನಿಲ್ಲುವ ಬದಲು ಶಾಲಾ ಬಸ್‌ಗೆ ಡಿಕ್ಕಿ ಹೊಡೆದಿರಿ.",
+"Passed a school bus while its red lights were flashing.": "ಶಾಲಾ ಬಸ್‌ನ ಕೆಂಪು ದೀಪಗಳು ಮಿನುಗುತ್ತಿರುವಾಗ ಅದನ್ನು ದಾಟಿದಿರಿ.",
+"Drove past a school bus while children were boarding.": "ಮಕ್ಕಳು ಬಸ್ ಹತ್ತುತ್ತಿರುವಾಗ ಶಾಲಾ ಬಸ್‌ನ ಪಕ್ಕದಿಂದ ಚಲಿಸಿದಿರಿ.",
+"Stopped and waited until the school bus switched off its red lights.": "ನಿಂತು, ಶಾಲಾ ಬಸ್ ತನ್ನ ಕೆಂಪು ದೀಪಗಳನ್ನು ಆರಿಸುವವರೆಗೆ ಕಾದಿರಿ.",
+"Did not pull over and stop for the emergency vehicle.": "ತುರ್ತು ವಾಹನಕ್ಕೆ ದಾರಿ ಬಿಟ್ಟು ನಿಲ್ಲಿಸಲಿಲ್ಲ.",
+"Pulled out before the emergency vehicle had passed.": "ತುರ್ತು ವಾಹನ ಹಾದುಹೋಗುವ ಮೊದಲೇ ಹೊರಟಿರಿ.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "ಬಲಕ್ಕೆ ಸರಿದು ನಿಂತು ತುರ್ತು ವಾಹನ ಹಾದುಹೋಗುವವರೆಗೆ ಕಾದಿರಿ.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "ತುರ್ತು ವಾಹನ ನಿಮ್ಮ ಹಿಂದೆ ಇದೆ. ಸಿಗ್ನಲ್ ಹಾಕಿ, ಬಲಕ್ಕೆ ಸರಿದು ನಿಲ್ಲಿಸಿ.",
+"Wait until the emergency vehicle has passed before pulling out.": "ಹೊರಡುವ ಮೊದಲು ತುರ್ತು ವಾಹನ ಹಾದುಹೋಗುವವರೆಗೆ ಕಾಯಿರಿ.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "ಶಾಲಾ ಬಸ್‌ನ ಕೆಂಪು ದೀಪಗಳು ಮಿನುಗುತ್ತಿವೆ. ಬಸ್‌ಗಿಂತ ಮೊದಲೇ ನಿಲ್ಲಿಸಿ ಮತ್ತು ದೀಪಗಳು ಆರುವವರೆಗೆ ಕಾಯಿರಿ.",
+"Reverse slowly and keep watching the path.": "ನಿಧಾನವಾಗಿ ರಿವರ್ಸ್ ಮಾಡಿ ಮತ್ತು ಮಾರ್ಗವನ್ನು ನೋಡುತ್ತಲೇ ಇರಿ.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "ಹಿಂದಕ್ಕೆ ಚಲಿಸುವ ಮೊದಲು ನಿಂತು ಕೆಳಗಿಳಿದು ನೋಡಿ. ವ್ಯಾನ್‌ನ ಹಿಂದೆ ನಿಂತು, ರಿವರ್ಸ್ ಮಾರ್ಗದ ಕಡೆ ಮುಖ ಮಾಡಿ G ಒತ್ತಿ.",
+"Route-day updates": "ರೂಟ್-ದಿನದ ಅಪ್‌ಡೇಟ್‌ಗಳು",
+"Dispatch has sent a stop update.": "ಡಿಸ್ಪ್ಯಾಚ್ ಸ್ಟಾಪ್ ಅಪ್‌ಡೇಟ್ ಕಳುಹಿಸಿದೆ.",
+"Read the dispatch update": "ಡಿಸ್ಪ್ಯಾಚ್ ಅಪ್‌ಡೇಟ್ ಓದಿ",
+"Weather and breaks": "ಹವಾಮಾನ ಮತ್ತು ವಿರಾಮಗಳು",
+"Conditions are clear. Follow the posted speed limits.": "ಪರಿಸ್ಥಿತಿ ಸ್ಪಷ್ಟವಾಗಿದೆ. ಸೂಚಿತ ವೇಗ ಮಿತಿಗಳನ್ನು ಪಾಲಿಸಿ.",
+"Take a water and shade break": "ನೀರು ಮತ್ತು ನೆರಳಿನ ವಿರಾಮ ತೆಗೆದುಕೊಳ್ಳಿ",
+"Place behind the planter": "ಪ್ಲಾಂಟರ್ ಹಿಂದೆ ಇಡಿ",
+"Leave the parcel behind the planter, as dispatch requested.": "ಡಿಸ್ಪ್ಯಾಚ್ ಕೋರಿದಂತೆ ಪಾರ್ಸೆಲ್ ಅನ್ನು ಪ್ಲಾಂಟರ್ ಹಿಂದೆ ಇಡಿ.",
+"Check the reversing path": "ರಿವರ್ಸ್ ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸಿ",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "ವ್ಯಾನ್ ನಿಲ್ಲಿಸಿ ಭದ್ರಪಡಿಸಿ. ಕೆಳಗಿಳಿದು, ಅದರ ಹಿಂದೆ ನಡೆದು, ನೀವು ರಿವರ್ಸ್ ಮಾಡಲಿರುವ ಮಾರ್ಗದ ಉದ್ದಕ್ಕೂ ನೋಡಿ. ಜನರು ಮತ್ತು ವಾಹನಗಳು ದೂರವಿರುವಂತೆ ನೋಡಿಕೊಳ್ಳಿ.",
+"Confirm the path check": "ಮಾರ್ಗ ಪರಿಶೀಲನೆಯನ್ನು ದೃಢೀಕರಿಸಿ",
+"Check mirrors and signals before moving.": "ಚಲಿಸುವ ಮೊದಲು ಕನ್ನಡಿಗಳು ಮತ್ತು ಸಿಗ್ನಲ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+"Keep right. The speed limit is 25 mph.": "ಬಲಕ್ಕೆ ಇರಿ. ವೇಗ ಮಿತಿ 25 mph.",
+"Keep right. The speed limit is 15 mph.": "ಬಲಕ್ಕೆ ಇರಿ. ವೇಗ ಮಿತಿ 15 mph."
 },
 "templates": [
 [
@@ -4621,6 +4673,34 @@ window.OTR_I18N.kn = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"ಸ್ಟಾಪ್ {0} ಗೆ ಈಗ ಸಹಿ ಬೇಕು. ಯಾರೂ ಸಹಿ ಮಾಡಲಾಗದಿದ್ದರೆ ಪಾರ್ಸೆಲ್ ಅನ್ನು ನಿಮ್ಮ ಬಳಿಯೇ ಇಟ್ಟುಕೊಳ್ಳಿ."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"ಸ್ಟಾಪ್ {0} ಪ್ಲಾಂಟರ್ ಹಿಂದೆ ಡೆಲಿವರಿ ಕೋರಿದೆ. ಪ್ಯಾಕೇಜ್ ಕಣ್ಣಿಗೆ ಕಾಣದಂತೆ ಇಡಿ."
+],
+[
+"The forecast is {0}.",
+"ಮುನ್ಸೂಚನೆ: {0}."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} ಕಾರ್ಗೋ ಮುಚ್ಚುತ್ತಾರೆ. {1} ರಿವರ್ಸ್ ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸುತ್ತಾರೆ."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} ಕಾರ್ಗೋ ತೆರೆಯುತ್ತಾರೆ. {1} ರಿವರ್ಸ್ ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸುತ್ತಾರೆ."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [

@@ -3307,7 +3307,59 @@ window.OTR_I18N.te = {
 "This package is not on the route manifest.": "ఈ ప్యాకేజీ రూట్ మానిఫెస్ట్‌లో లేదు.",
 "I counted one package.": "నేను ఒక ప్యాకేజీని లెక్కించాను.",
 "Load count": "లోడ్ లెక్క",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "ఇంతకుముందు కనిపించని ప్యాకేజీ కార్గోలో దొరికింది. దాన్ని స్కాన్ చేసి చిరునామా చూడండి."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "ఇంతకుముందు కనిపించని ప్యాకేజీ కార్గోలో దొరికింది. దాన్ని స్కాన్ చేసి చిరునామా చూడండి.",
+"Adjusted speed and following distance to the weather.": "వాతావరణానికి తగినట్లు వేగాన్ని, ముందు వాహనంతో దూరాన్ని సర్దుబాటు చేశారు.",
+"Continued driving without a water and shade break.": "నీరు, నీడ కోసం విరామం తీసుకోకుండా డ్రైవింగ్ కొనసాగించారు.",
+"Speed or following distance did not suit the weather.": "వేగం లేదా ముందు వాహనంతో దూరం వాతావరణానికి తగినట్లు లేదు.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "డిస్పాచ్ రూట్ అప్‌డేట్ పంపింది. హ్యాండ్‌హెల్డ్ తెరవడానికి ముందు సురక్షితంగా పార్క్ చేయండి.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "డిస్పాచ్ రూట్ అప్‌డేట్ పంపింది. సురక్షితంగా పార్క్ చేసి, హ్యాండ్‌హెల్డ్‌లో రూట్-డే అప్‌డేట్స్ తెరవండి.",
+"Heat exposure is building. Park safely for a water and shade break now.": "వేడి ప్రభావం పెరుగుతోంది. ఇప్పుడే సురక్షితంగా పార్క్ చేసి నీరు, నీడ కోసం విరామం తీసుకోండి.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "మంచు వల్ల పట్టు తగ్గుతుంది. 10 mph కంటే తక్కువ వేగంతో వెళ్లండి, ముందు ట్రాఫిక్‌కు ఆరు సెకన్ల దూరం ఉంచండి.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "తుఫాను వల్ల కనిపించే దూరం తగ్గుతుంది. 12 mph కంటే తక్కువ వేగంతో వెళ్లండి, ముందు ట్రాఫిక్‌కు ఐదు సెకన్ల దూరం ఉంచండి.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "తడి రోడ్ల వల్ల పట్టు తగ్గుతుంది. 18 mph కంటే తక్కువ వేగంతో వెళ్లండి, ముందు ట్రాఫిక్‌కు నాలుగు సెకన్ల దూరం ఉంచండి.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "డ్రైవ్ సమయంలో వేడి పెరుగుతుంది. వేగం తగ్గించి, నీరు, నీడ విరామాల కోసం సురక్షితంగా పార్క్ చేయండి.",
+"There is no dispatch update yet.": "ఇంకా డిస్పాచ్ అప్‌డేట్ లేదు.",
+"Stop and set the parking brake before reading the update.": "అప్‌డేట్ చదివే ముందు ఆగి, పార్కింగ్ బ్రేక్ వేయండి.",
+"Park safely before taking a water and shade break.": "నీరు, నీడ కోసం విరామం తీసుకునే ముందు సురక్షితంగా పార్క్ చేయండి.",
+"You took a water and shade break. Keep drinking regularly during the day.": "మీరు నీరు, నీడ కోసం విరామం తీసుకున్నారు. రోజంతా క్రమం తప్పకుండా నీరు తాగుతూ ఉండండి.",
+"Followed the updated dispatch instruction at the stop.": "ఆ స్టాప్ వద్ద కొత్త డిస్పాచ్ సూచనను పాటించారు.",
+"Missed the updated dispatch instruction at the stop.": "ఆ స్టాప్ వద్ద కొత్త డిస్పాచ్ సూచనను పాటించలేదు.",
+"Kept a three-second following gap on this leg.": "ఈ భాగంలో మూడు సెకన్ల దూరం పాటించారు.",
+"Park the van and get out before checking the reversing path.": "వెనక్కి వెళ్లే దారిని తనిఖీ చేసే ముందు వ్యాన్‌ను పార్క్ చేసి, కిందకు దిగండి.",
+"Stand behind the van and look along the reversing path.": "వ్యాన్ వెనుక నిలబడి, వెనక్కి వెళ్లే దారి వెంట చూడండి.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "వెనక్కి వెళ్లే దారి ఖాళీగా ఉంది. క్యాబ్‌లోకి తిరిగి వెళ్లండి, వెనక్కి వెళ్తున్నప్పుడు కూడా గమనిస్తూ ఉండండి.",
+"The reversing path is blocked. Wait for it to clear and check again.": "వెనక్కి వెళ్లే దారి అడ్డుగా ఉంది. అది ఖాళీ అయ్యే వరకు వేచి ఉండి, మళ్లీ తనిఖీ చేయండి.",
+"Checked the mirrors before pulling out.": "బయలుదేరే ముందు అద్దాలను చూశారు.",
+"Pulled out without checking the mirrors.": "అద్దాలు చూడకుండానే బయలుదేరారు.",
+"Followed traffic with less than a three-second gap.": "మూడు సెకన్ల కంటే తక్కువ దూరంతో ముందు వాహనాన్ని అనుసరించారు.",
+"Got out and checked the reversing path before backing.": "వెనక్కి వెళ్లే ముందు కిందకు దిగి, వెనుక దారిని తనిఖీ చేశారు.",
+"Reversed without a current clear-path check.": "ఇప్పటి దారి ఖాళీగా ఉందో లేదో తనిఖీ చేయకుండానే వెనక్కి వెళ్లారు.",
+"Contacted the school bus instead of stopping with a safe gap.": "సురక్షిత దూరంతో ఆగకుండా స్కూల్ బస్సును తాకారు.",
+"Passed a school bus while its red lights were flashing.": "స్కూల్ బస్సు ఎరుపు లైట్లు వెలుగుతున్నప్పుడు దాన్ని దాటి వెళ్లారు.",
+"Drove past a school bus while children were boarding.": "పిల్లలు ఎక్కుతున్నప్పుడు స్కూల్ బస్సును దాటి వెళ్లారు.",
+"Stopped and waited until the school bus switched off its red lights.": "స్కూల్ బస్సు ఎరుపు లైట్లు ఆపే వరకు ఆగి వేచి ఉన్నారు.",
+"Did not pull over and stop for the emergency vehicle.": "అత్యవసర వాహనానికి దారి ఇస్తూ పక్కకు ఆగలేదు.",
+"Pulled out before the emergency vehicle had passed.": "అత్యవసర వాహనం వెళ్లకముందే బయలుదేరారు.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "కుడివైపు ఆగి, అత్యవసర వాహనం వెళ్లే వరకు వేచి ఉన్నారు.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "అత్యవసర వాహనం మీ వెనుక ఉంది. సిగ్నల్ ఇచ్చి, కుడివైపు ఆపండి.",
+"Wait until the emergency vehicle has passed before pulling out.": "బయలుదేరే ముందు అత్యవసర వాహనం వెళ్లే వరకు వేచి ఉండండి.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "స్కూల్ బస్సు ఎరుపు లైట్లు వెలుగుతున్నాయి. బస్సు ముందే ఆగి, లైట్లు ఆరే వరకు వేచి ఉండండి.",
+"Reverse slowly and keep watching the path.": "నెమ్మదిగా వెనక్కి వెళ్లండి, దారిని గమనిస్తూ ఉండండి.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "వెనక్కి వెళ్లే ముందు ఆగి, కిందకు దిగి చూడండి. వ్యాన్ వెనుక నిలబడి, వెనక్కి వెళ్లే దారి వైపు చూసి G నొక్కండి.",
+"Route-day updates": "రూట్-డే అప్‌డేట్స్",
+"Dispatch has sent a stop update.": "డిస్పాచ్ స్టాప్ అప్‌డేట్ పంపింది.",
+"Read the dispatch update": "డిస్పాచ్ అప్‌డేట్ చదవండి",
+"Weather and breaks": "వాతావరణం, విరామాలు",
+"Conditions are clear. Follow the posted speed limits.": "పరిస్థితులు స్పష్టంగా ఉన్నాయి. నిర్దేశిత వేగ పరిమితులను పాటించండి.",
+"Take a water and shade break": "నీరు, నీడ కోసం విరామం తీసుకోండి",
+"Place behind the planter": "ప్లాంటర్ వెనుక ఉంచండి",
+"Leave the parcel behind the planter, as dispatch requested.": "డిస్పాచ్ కోరినట్లు పార్సిల్‌ను ప్లాంటర్ వెనుక ఉంచండి.",
+"Check the reversing path": "వెనక్కి వెళ్లే దారిని తనిఖీ చేయండి",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "వ్యాన్‌ను పార్క్ చేసి భద్రపరచండి. కిందకు దిగి, దాని వెనుకకు నడిచి, మీరు వెనక్కి వెళ్లాలనుకునే దారి వెంట చూడండి. మనుషులను, ట్రాఫిక్‌ను దూరంగా ఉంచండి.",
+"Confirm the path check": "దారి తనిఖీని నిర్ధారించండి",
+"Check mirrors and signals before moving.": "కదలడానికి ముందు అద్దాలు, సిగ్నల్స్ చూడండి.",
+"Keep right. The speed limit is 25 mph.": "కుడివైపు ఉండండి. వేగ పరిమితి 25 mph.",
+"Keep right. The speed limit is 15 mph.": "కుడివైపు ఉండండి. వేగ పరిమితి 15 mph."
 },
 "templates": [
 [
@@ -4621,6 +4673,34 @@ window.OTR_I18N.te = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"స్టాప్ {0} కు ఇప్పుడు సంతకం అవసరం. ఎవరూ సంతకం చేయలేకపోతే పార్సిల్‌ను మీ వద్దే ఉంచుకోండి."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"స్టాప్ {0} లో ప్లాంటర్ వెనుక డెలివరీ చేయమని కోరారు. ప్యాకేజీ కనిపించకుండా ఉంచండి."
+],
+[
+"The forecast is {0}.",
+"వాతావరణ అంచనా: {0}."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} కార్గో మూసివేస్తారు. {1} వెనక్కి వెళ్లే దారిని తనిఖీ చేస్తారు."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} కార్గో తెరుస్తారు. {1} వెనక్కి వెళ్లే దారిని తనిఖీ చేస్తారు."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [
