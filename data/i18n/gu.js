@@ -3418,7 +3418,12 @@ window.OTR_I18N.gu = {
 "Acknowledge the problem and offer a clear next step": "સમસ્યા સ્વીકારો અને આગળનું સ્પષ્ટ પગલું જણાવો",
 "Blame the customer and argue": "ગ્રાહકને દોષ આપો અને દલીલ કરો",
 "E checks the gate. Keep outside while the dog is loose.": "E થી દરવાજો તપાસાય છે. કૂતરો છૂટો હોય ત્યાં સુધી બહાર રહો.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E થી રસ્તો તપાસો. નાનાં, સાવચેતીભર્યાં પગલાં માટે Shift દબાવી રાખો."
+"Inspect the path with E. Hold Shift for short, careful steps.": "E થી રસ્તો તપાસો. નાનાં, સાવચેતીભર્યાં પગલાં માટે Shift દબાવી રાખો.",
+"Their data": "તેમનો ડેટા",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "આ તાલીમાર્થી વિશે તાલીમ સર્વર પર રહેલું બધું ફાઇલ તરીકે ડાઉનલોડ કરો, અથવા તે બધું કાયમ માટે ભૂંસી નાખો: તેમની પ્રગતિ, તેના બધા બેકઅપ અને તેમનું સાઇન ઇન.",
+"Download data": "ડેટા ડાઉનલોડ કરો",
+"Erase all data": "બધો ડેટા ભૂંસી નાખો",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "આનાથી તેમની પ્રગતિ, તેના બધા બેકઅપ અને તેમનું સાઇન ઇન કાયમ માટે ડિલીટ થશે અને તે પાછું લાવી શકાશે નહીં. કંપનીના લર્નિંગ રેકોર્ડ સ્ટોરમાં પહેલેથી મોકલાયેલા પરિણામો ત્યાં જ રહેશે."
 },
 "templates": [
 [
@@ -4792,6 +4797,18 @@ window.OTR_I18N.gu = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: ડેટા ડાઉનલોડ થયો"
+],
+[
+"Erase all data for {0}?",
+"{0} નો બધો ડેટા ભૂંસી નાખવો?"
+],
+[
+"{0}: all data erased",
+"{0}: બધો ડેટા ભૂંસી નાખ્યો"
 ]
 ],
 "keep": [

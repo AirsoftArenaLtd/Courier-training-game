@@ -3403,7 +3403,12 @@ window.OTR_I18N.fr = {
 "Acknowledge the problem and offer a clear next step": "Reconnaître le problème et proposer une prochaine étape claire",
 "Blame the customer and argue": "Accuser le client et se disputer",
 "E checks the gate. Keep outside while the dog is loose.": "E vérifie le portail. Reste à l'extérieur tant que le chien est en liberté.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "Examine le chemin avec E. Maintiens Shift pour de petits pas prudents."
+"Inspect the path with E. Hold Shift for short, careful steps.": "Examine le chemin avec E. Maintiens Shift pour de petits pas prudents.",
+"Their data": "Ses données",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "Télécharge dans un fichier tout ce que le serveur de formation conserve sur ce stagiaire, ou efface tout définitivement : sa progression, toutes ses sauvegardes et sa connexion.",
+"Download data": "Télécharger les données",
+"Erase all data": "Effacer toutes les données",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "Cela supprime sa progression, toutes ses sauvegardes et sa connexion, et ne peut pas être annulé. Les résultats déjà envoyés au système d'enregistrement de la formation de l'entreprise y restent."
 },
 "templates": [
 [
@@ -4777,6 +4782,18 @@ window.OTR_I18N.fr = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0} : données téléchargées"
+],
+[
+"Erase all data for {0}?",
+"Effacer toutes les données de {0} ?"
+],
+[
+"{0}: all data erased",
+"{0} : toutes les données effacées"
 ]
 ],
 "keep": [

@@ -3417,7 +3417,12 @@ window.OTR_I18N.hi = {
 "Acknowledge the problem and offer a clear next step": "समस्या मानें और आगे का साफ़ कदम बताएँ",
 "Blame the customer and argue": "ग्राहक को दोष दें और बहस करें",
 "E checks the gate. Keep outside while the dog is loose.": "E से गेट जाँचें। कुत्ता खुला हो तो बाहर रहें।",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E से रास्ते की जाँच करें। छोटे, सावधान कदमों के लिए Shift दबाए रखें।"
+"Inspect the path with E. Hold Shift for short, careful steps.": "E से रास्ते की जाँच करें। छोटे, सावधान कदमों के लिए Shift दबाए रखें।",
+"Their data": "उनका डेटा",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "प्रशिक्षण सर्वर इस प्रशिक्षु के बारे में जो कुछ भी रखता है, उसे फ़ाइल के रूप में डाउनलोड करें, या सब कुछ हमेशा के लिए मिटा दें: उनकी प्रगति, उसके सभी बैकअप और उनका साइन इन।",
+"Download data": "डेटा डाउनलोड करें",
+"Erase all data": "सारा डेटा मिटाएँ",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "इससे उनकी प्रगति, उसके सभी बैकअप और उनका साइन इन स्थायी रूप से हट जाएगा, और इसे वापस नहीं किया जा सकता। कंपनी के लर्निंग रिकॉर्ड स्टोर को पहले भेजे जा चुके परिणाम वहीं रहेंगे।"
 },
 "templates": [
 [
@@ -4791,6 +4796,18 @@ window.OTR_I18N.hi = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: डेटा डाउनलोड हुआ"
+],
+[
+"Erase all data for {0}?",
+"{0} का सारा डेटा मिटाएँ?"
+],
+[
+"{0}: all data erased",
+"{0}: सारा डेटा मिटा दिया गया"
 ]
 ],
 "keep": [

@@ -3419,7 +3419,12 @@ window.OTR_I18N.bn = {
 "Acknowledge the problem and offer a clear next step": "সমস্যাটি স্বীকার করুন আর পরের ধাপ স্পষ্ট করে বলুন",
 "Blame the customer and argue": "গ্রাহককে দোষ দিন আর তর্ক করুন",
 "E checks the gate. Keep outside while the dog is loose.": "E দিয়ে গেট দেখুন। কুকুর ছাড়া থাকলে বাইরে থাকুন।",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E দিয়ে পথ দেখুন। ছোট, সাবধানি পদক্ষেপে চলতে Shift চেপে রাখুন।"
+"Inspect the path with E. Hold Shift for short, careful steps.": "E দিয়ে পথ দেখুন। ছোট, সাবধানি পদক্ষেপে চলতে Shift চেপে রাখুন।",
+"Their data": "তাঁদের ডেটা",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "প্রশিক্ষণ সার্ভার এই প্রশিক্ষণার্থীর সম্পর্কে যা কিছু রাখে, তা ফাইল হিসেবে ডাউনলোড করুন, অথবা সব কিছু চিরতরে মুছে দিন: তাঁর অগ্রগতি, তার সব ব্যাকআপ এবং তাঁর সাইন ইন।",
+"Download data": "ডেটা ডাউনলোড করুন",
+"Erase all data": "সব ডেটা মুছুন",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "এতে তাঁর অগ্রগতি, তার সব ব্যাকআপ এবং তাঁর সাইন ইন স্থায়ীভাবে মুছে যাবে, এবং এটি আর ফেরানো যাবে না। কোম্পানির লার্নিং রেকর্ড স্টোরে আগে পাঠানো ফলাফল সেখানেই থেকে যাবে।"
 },
 "templates": [
 [
@@ -4793,6 +4798,18 @@ window.OTR_I18N.bn = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: ডেটা ডাউনলোড হয়েছে"
+],
+[
+"Erase all data for {0}?",
+"{0}-এর সব ডেটা মুছবেন?"
+],
+[
+"{0}: all data erased",
+"{0}: সব ডেটা মুছে ফেলা হয়েছে"
 ]
 ],
 "keep": [

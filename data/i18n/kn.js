@@ -3418,7 +3418,12 @@ window.OTR_I18N.kn = {
 "Acknowledge the problem and offer a clear next step": "ಸಮಸ್ಯೆಯನ್ನು ಒಪ್ಪಿಕೊಂಡು ಸ್ಪಷ್ಟವಾದ ಮುಂದಿನ ಹೆಜ್ಜೆಯನ್ನು ಹೇಳಿ",
 "Blame the customer and argue": "ಗ್ರಾಹಕರನ್ನು ದೂಷಿಸಿ ವಾದ ಮಾಡಿ",
 "E checks the gate. Keep outside while the dog is loose.": "E ಒತ್ತಿದರೆ ಗೇಟ್ ಪರಿಶೀಲಿಸುತ್ತದೆ. ನಾಯಿ ಬಿಡಿಯಾಗಿರುವಾಗ ಹೊರಗೇ ಇರಿ.",
-"Inspect the path with E. Hold Shift for short, careful steps.": "E ಒತ್ತಿ ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಚಿಕ್ಕ ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳಿಗೆ Shift ಒತ್ತಿ ಹಿಡಿಯಿರಿ."
+"Inspect the path with E. Hold Shift for short, careful steps.": "E ಒತ್ತಿ ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಚಿಕ್ಕ ಎಚ್ಚರಿಕೆಯ ಹೆಜ್ಜೆಗಳಿಗೆ Shift ಒತ್ತಿ ಹಿಡಿಯಿರಿ.",
+"Their data": "ಅವರ ಡೇಟಾ",
+"Download everything the training server holds about this trainee as a file, or erase all of it for good: their progress, every backup of it and their sign-in.": "ಈ ತರಬೇತಿದಾರರ ಬಗ್ಗೆ ತರಬೇತಿ ಸರ್ವರ್‌ನಲ್ಲಿರುವ ಎಲ್ಲವನ್ನೂ ಫೈಲ್ ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ, ಅಥವಾ ಎಲ್ಲವನ್ನೂ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ: ಅವರ ಪ್ರಗತಿ, ಅದರ ಎಲ್ಲಾ ಬ್ಯಾಕಪ್‌ಗಳು ಮತ್ತು ಅವರ ಸೈನ್-ಇನ್.",
+"Download data": "ಡೇಟಾ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+"Erase all data": "ಎಲ್ಲಾ ಡೇಟಾ ಅಳಿಸಿ",
+"This deletes their progress, every backup of it and their sign-in, and cannot be undone. Results already sent to a company learning record store stay there.": "ಇದು ಅವರ ಪ್ರಗತಿ, ಅದರ ಎಲ್ಲಾ ಬ್ಯಾಕಪ್‌ಗಳು ಮತ್ತು ಅವರ ಸೈನ್-ಇನ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ ಮತ್ತು ಇದನ್ನು ಹಿಂದಿರುಗಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಕಂಪನಿಯ ಕಲಿಕೆ ದಾಖಲೆ ಸಂಗ್ರಹಕ್ಕೆ (learning record store) ಈಗಾಗಲೇ ಕಳುಹಿಸಿದ ಫಲಿತಾಂಶಗಳು ಅಲ್ಲೇ ಉಳಿಯುತ್ತವೆ."
 },
 "templates": [
 [
@@ -4792,6 +4797,18 @@ window.OTR_I18N.kn = {
 [
 "door:{0}:{1}",
 "door:{0}:{1}"
+],
+[
+"{0}: data downloaded",
+"{0}: ಡೇಟಾ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ"
+],
+[
+"Erase all data for {0}?",
+"{0} ಅವರ ಎಲ್ಲಾ ಡೇಟಾ ಅಳಿಸಬೇಕೇ?"
+],
+[
+"{0}: all data erased",
+"{0}: ಎಲ್ಲಾ ಡೇಟಾ ಅಳಿಸಲಾಗಿದೆ"
 ]
 ],
 "keep": [
