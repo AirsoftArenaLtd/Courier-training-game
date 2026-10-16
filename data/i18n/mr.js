@@ -3442,7 +3442,47 @@ window.OTR_I18N.mr = {
 "Workdays": "कामाचे दिवस",
 "improved": "सुधारले",
 "unchanged or lower": "तसेच किंवा कमी",
-"One workday so far": "आतापर्यंत एक कामाचा दिवस"
+"One workday so far": "आतापर्यंत एक कामाचा दिवस",
+"Move forward or accelerate": "पुढे जा किंवा वेग वाढवा",
+"Move back or brake": "मागे जा किंवा ब्रेक लावा",
+"Move or steer left": "डावीकडे जा किंवा वळवा",
+"Move or steer right": "उजवीकडे जा किंवा वळवा",
+"Look left": "डावीकडे पाहा",
+"Look right": "उजवीकडे पाहा",
+"Look down": "खाली पाहा",
+"Interact or exit the cab": "संवाद साधा किंवा केबिनमधून बाहेर पडा",
+"Select the next nearby target": "जवळचे पुढील लक्ष्य निवडा",
+"Inspect the parcel": "पार्सल तपासा",
+"Open or close the handheld": "हँडहेल्ड उघडा किंवा बंद करा",
+"Scan or set the parking brake": "स्कॅन करा किंवा पार्किंग ब्रेक लावा",
+"Check the mirror": "आरसा पाहा",
+"Fasten the seatbelt": "सीटबेल्ट लावा",
+"Change gear": "गिअर बदला",
+"Signal right": "उजवा सिग्नल द्या",
+"Look forward": "पुढे पाहा",
+"Open the menu": "मेनू उघडा",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "जवळ कोणतेही लक्ष्य दिसत नाही. जवळ जा किंवा पाहण्यासाठी बाण की वापरा.",
+"the parcel": "पार्सल",
+"the cab": "केबिन",
+"the cargo doors": "मालाची दारे",
+"the load restraint": "माल बांधण्याची पट्टी",
+"the tires": "टायर",
+"the lights": "लाइट",
+"the workday station": "वर्कडे स्टेशन",
+"the cargo practice station": "कार्गो सराव स्टेशन",
+"the debrief station": "डीब्रीफ स्टेशन",
+"the dog gate": "कुत्र्याचे गेट",
+"the path hazard": "वाटेवरील धोका",
+"Turn reduced motion off": "कमी हालचाल बंद करा",
+"Turn reduced motion on": "कमी हालचाल चालू करा",
+"Turn the color-blind filter off": "रंगअंधत्व फिल्टर बंद करा",
+"Turn the color-blind filter on": "रंगअंधत्व फिल्टर चालू करा",
+"Turn narration off": "निवेदन बंद करा",
+"Turn narration on": "निवेदन चालू करा",
+"Use normal text": "सामान्य मजकूर वापरा",
+"Use larger text": "मोठा मजकूर वापरा",
+"Next page": "पुढचे पान",
+"Use arrows and Enter, or number keys. Backspace goes back.": "बाण की आणि Enter वापरा, किंवा नंबर की. Backspace ने मागे जा."
 },
 "templates": [
 [
@@ -4832,6 +4872,114 @@ window.OTR_I18N.mr = {
 [
 "{0} stars",
 "{0} तारे"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"निवडले: {0}. संवादासाठी {1} दाबा."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"पाहण्यासाठी {0} आणि चालण्या-चालवण्यासाठी हालचालीच्या की वापरा. प्रत्येक पर्याय त्याच्या नंबर कीनेही निवडता येतो. Enter ने निवडलेला पर्याय पक्का होतो."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"या की सेटिंग्ज आणि अॅक्सेसिबिलिटीमधील जतन केलेल्या की मॅपप्रमाणेच आहेत. माउसशिवाय जवळचे दिसणारे लक्ष्य निवडण्यासाठी {0} दाबा."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0} साठी नवीन की दाबा. Escape ने रद्द होते."
+],
+[
+"Press {0} to put the handheld away.",
+"हँडहेल्ड ठेवून देण्यासाठी {0} दाबा."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"स्कॅन पूर्ण होईपर्यंत {0} किंवा माउसचे डावे बटण धरून ठेवा."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"फिरवण्यासाठी {0}/{1} वापरा. स्कॅन करण्यासाठी {2} दाबा. Escape ने परत जा."
+],
+[
+"{0} look",
+"{0} पाहा"
+],
+[
+"{0} selects a nearby target",
+"{0} ने जवळचे लक्ष्य निवडले जाते"
+],
+[
+"{0} aim",
+"{0} ने लक्ष्य साधा"
+],
+[
+"{0} resumes the workday.",
+"{0} ने वर्कडे पुन्हा सुरू होतो."
+],
+[
+"{0} starts the workday.",
+"{0} ने वर्कडे सुरू होतो."
+],
+[
+"{0} starts cargo practice.",
+"{0} ने कार्गो सराव सुरू होतो."
+],
+[
+"{0} opens the last debrief.",
+"{0} ने शेवटचा डीब्रीफ उघडतो."
+],
+[
+"{0} opens the hub menu.",
+"{0} ने हब मेनू उघडतो."
+],
+[
+"{0} enters the cab.",
+"{0} ने केबिनमध्ये चढता."
+],
+[
+"{0} closes the cargo doors.",
+"{0} ने मालाची दारे बंद होतात."
+],
+[
+"{0} opens the cargo doors.",
+"{0} ने मालाची दारे उघडतात."
+],
+[
+"{0} secures the load.",
+"{0} ने माल सुरक्षित बांधला जातो."
+],
+[
+"{0} inspects the tires.",
+"{0} ने टायर तपासता."
+],
+[
+"{0} inspects the lights.",
+"{0} ने लाइट तपासता."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} ने डिस्पॅचला हजेरी लावता."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} ने पार्सल उचलता. {1} ने ते तपासता. {2} ने हँडहेल्ड उघडता."
+],
+[
+"{0} places the parcel.",
+"{0} ने पार्सल ठेवता."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} ने गेट तपासता. कुत्रा मोकळा असताना बाहेरच राहा."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} ने वाट तपासता. लहान, सावध पावलांसाठी {1} धरून ठेवा."
+],
+[
+"{0} attempts delivery.",
+"{0} ने डिलिव्हरीचा प्रयत्न करता."
 ]
 ],
 "keep": [

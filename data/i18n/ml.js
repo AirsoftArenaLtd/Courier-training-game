@@ -3442,7 +3442,47 @@ window.OTR_I18N.ml = {
 "Workdays": "ജോലിദിനങ്ങൾ",
 "improved": "മെച്ചപ്പെട്ടു",
 "unchanged or lower": "മാറ്റമില്ല അല്ലെങ്കിൽ കുറഞ്ഞു",
-"One workday so far": "ഇതുവരെ ഒരു ജോലിദിനം"
+"One workday so far": "ഇതുവരെ ഒരു ജോലിദിനം",
+"Move forward or accelerate": "മുന്നോട്ട് പോകുക അല്ലെങ്കിൽ വേഗം കൂട്ടുക",
+"Move back or brake": "പിന്നോട്ട് പോകുക അല്ലെങ്കിൽ ബ്രേക്ക് ചെയ്യുക",
+"Move or steer left": "ഇടത്തേക്ക് പോകുക അല്ലെങ്കിൽ തിരിക്കുക",
+"Move or steer right": "വലത്തേക്ക് പോകുക അല്ലെങ്കിൽ തിരിക്കുക",
+"Look left": "ഇടത്തേക്ക് നോക്കുക",
+"Look right": "വലത്തേക്ക് നോക്കുക",
+"Look down": "താഴേക്ക് നോക്കുക",
+"Interact or exit the cab": "പ്രവർത്തിക്കുക അല്ലെങ്കിൽ ക്യാബിൽ നിന്ന് ഇറങ്ങുക",
+"Select the next nearby target": "അടുത്തുള്ള അടുത്ത ലക്ഷ്യം തിരഞ്ഞെടുക്കുക",
+"Inspect the parcel": "പാഴ്സൽ പരിശോധിക്കുക",
+"Open or close the handheld": "ഹാൻഡ്‌ഹെൽഡ് തുറക്കുക അല്ലെങ്കിൽ അടയ്ക്കുക",
+"Scan or set the parking brake": "സ്കാൻ ചെയ്യുക അല്ലെങ്കിൽ പാർക്കിങ് ബ്രേക്ക് ഇടുക",
+"Check the mirror": "കണ്ണാടി നോക്കുക",
+"Fasten the seatbelt": "സീറ്റ്ബെൽറ്റ് ഇടുക",
+"Change gear": "ഗിയർ മാറ്റുക",
+"Signal right": "വലത് സിഗ്നൽ ഇടുക",
+"Look forward": "മുന്നോട്ട് നോക്കുക",
+"Open the menu": "മെനു തുറക്കുക",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "അടുത്ത് ലക്ഷ്യമൊന്നും കാണുന്നില്ല. അടുത്തേക്ക് നീങ്ങുക അല്ലെങ്കിൽ ആരോ കീകൾ കൊണ്ട് നോക്കുക.",
+"the parcel": "പാഴ്സൽ",
+"the cab": "ക്യാബ്",
+"the cargo doors": "കാർഗോ വാതിലുകൾ",
+"the load restraint": "ലോഡ് കെട്ടുന്ന ബെൽറ്റ്",
+"the tires": "ടയറുകൾ",
+"the lights": "ലൈറ്റുകൾ",
+"the workday station": "വർക്ക്ഡേ സ്റ്റേഷൻ",
+"the cargo practice station": "കാർഗോ പരിശീലന സ്റ്റേഷൻ",
+"the debrief station": "ഡീബ്രീഫ് സ്റ്റേഷൻ",
+"the dog gate": "നായ ഗേറ്റ്",
+"the path hazard": "വഴിയിലെ അപകടം",
+"Turn reduced motion off": "കുറഞ്ഞ ചലനം ഓഫ് ചെയ്യുക",
+"Turn reduced motion on": "കുറഞ്ഞ ചലനം ഓൺ ചെയ്യുക",
+"Turn the color-blind filter off": "വർണാന്ധത ഫിൽറ്റർ ഓഫ് ചെയ്യുക",
+"Turn the color-blind filter on": "വർണാന്ധത ഫിൽറ്റർ ഓൺ ചെയ്യുക",
+"Turn narration off": "വിവരണം ഓഫ് ചെയ്യുക",
+"Turn narration on": "വിവരണം ഓൺ ചെയ്യുക",
+"Use normal text": "സാധാരണ അക്ഷരം ഉപയോഗിക്കുക",
+"Use larger text": "വലിയ അക്ഷരം ഉപയോഗിക്കുക",
+"Next page": "അടുത്ത പേജ്",
+"Use arrows and Enter, or number keys. Backspace goes back.": "ആരോ കീകളും Enter-ഉം അല്ലെങ്കിൽ നമ്പർ കീകളും ഉപയോഗിക്കുക. Backspace പിന്നോട്ട് പോകും."
 },
 "templates": [
 [
@@ -4832,6 +4872,114 @@ window.OTR_I18N.ml = {
 [
 "{0} stars",
 "{0} നക്ഷത്രങ്ങൾ"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"{0} തിരഞ്ഞെടുത്തു. പ്രവർത്തിക്കാൻ {1} അമർത്തുക."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"നോക്കാൻ {0} ഉം നടക്കാനോ ഓടിക്കാനോ ചലന കീകളും ഉപയോഗിക്കുക. ഓരോ തിരഞ്ഞെടുപ്പിനും അതിന്റെ നമ്പർ കീയും പ്രവർത്തിക്കും. തിരഞ്ഞെടുത്തത് Enter ഉറപ്പിക്കും."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"ഈ നിയന്ത്രണങ്ങൾ ക്രമീകരണങ്ങളിലെയും ആക്സസിബിലിറ്റിയിലെയും അതേ സേവ് ചെയ്ത കീ മാപ്പ് ഉപയോഗിക്കുന്നു. മൗസ് ഇല്ലാതെ കാണുന്ന അടുത്ത ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0}-ന് പുതിയ കീ അമർത്തുക. Escape റദ്ദാക്കും."
+],
+[
+"Press {0} to put the handheld away.",
+"ഹാൻഡ്‌ഹെൽഡ് മാറ്റിവയ്ക്കാൻ {0} അമർത്തുക."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"സ്കാൻ തീരുംവരെ {0} അല്ലെങ്കിൽ ഇടത് മൗസ് ബട്ടൺ അമർത്തിപ്പിടിക്കുക."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"തിരിക്കാൻ {0}/{1} ഉപയോഗിക്കുക. സ്കാൻ ചെയ്യാൻ {2} അമർത്തുക. Escape തിരികെ പോകും."
+],
+[
+"{0} look",
+"{0} നോട്ടം"
+],
+[
+"{0} selects a nearby target",
+"{0} അടുത്തുള്ള ലക്ഷ്യം തിരഞ്ഞെടുക്കുന്നു"
+],
+[
+"{0} aim",
+"{0} ലക്ഷ്യം"
+],
+[
+"{0} resumes the workday.",
+"{0} വർക്ക്ഡേ തുടരുന്നു."
+],
+[
+"{0} starts the workday.",
+"{0} വർക്ക്ഡേ തുടങ്ങുന്നു."
+],
+[
+"{0} starts cargo practice.",
+"{0} കാർഗോ പരിശീലനം തുടങ്ങുന്നു."
+],
+[
+"{0} opens the last debrief.",
+"{0} അവസാന ഡീബ്രീഫ് തുറക്കുന്നു."
+],
+[
+"{0} opens the hub menu.",
+"{0} ഹബ് മെനു തുറക്കുന്നു."
+],
+[
+"{0} enters the cab.",
+"{0} ക്യാബിൽ കയറുന്നു."
+],
+[
+"{0} closes the cargo doors.",
+"{0} കാർഗോ വാതിലുകൾ അടയ്ക്കുന്നു."
+],
+[
+"{0} opens the cargo doors.",
+"{0} കാർഗോ വാതിലുകൾ തുറക്കുന്നു."
+],
+[
+"{0} secures the load.",
+"{0} ലോഡ് ഉറപ്പിക്കുന്നു."
+],
+[
+"{0} inspects the tires.",
+"{0} ടയറുകൾ പരിശോധിക്കുന്നു."
+],
+[
+"{0} inspects the lights.",
+"{0} ലൈറ്റുകൾ പരിശോധിക്കുന്നു."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} ഡിസ്പാച്ചിൽ ചെക്ക് ഇൻ ചെയ്യുന്നു."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} പാഴ്സൽ എടുക്കുന്നു. {1} അത് പരിശോധിക്കുന്നു. {2} ഹാൻഡ്‌ഹെൽഡ് തുറക്കുന്നു."
+],
+[
+"{0} places the parcel.",
+"{0} പാഴ്സൽ വയ്ക്കുന്നു."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} ഗേറ്റ് പരിശോധിക്കുന്നു. നായ അഴിഞ്ഞുനടക്കുമ്പോൾ പുറത്തുതന്നെ നിൽക്കുക."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} വഴി പരിശോധിക്കുന്നു. ചെറിയ, ശ്രദ്ധയോടെയുള്ള ചുവടുകൾക്ക് {1} അമർത്തിപ്പിടിക്കുക."
+],
+[
+"{0} attempts delivery.",
+"{0} ഡെലിവറി ശ്രമിക്കുന്നു."
 ]
 ],
 "keep": [
