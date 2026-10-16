@@ -3276,7 +3276,39 @@ window.OTR_I18N.pa = {
 "Exceeded the posted speed limit.": "ਲਿਖੀ ਹੋਈ ਰਫ਼ਤਾਰ ਦੀ ਹੱਦ ਪਾਰ ਕੀਤੀ।",
 "Traveled on the wrong side of the road.": "ਸੜਕ ਦੇ ਗ਼ਲਤ ਪਾਸੇ ਚੱਲੇ।",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ਟਾਇਰ ਅਤੇ ਲਾਈਟਾਂ ਦੇਖੋ, ਪੰਜ ਪਾਰਸਲ ਸਕੈਨ ਕਰਕੇ ਸਟਾਪ ਦੇ ਕ੍ਰਮ ਵਿੱਚ ਲੋਡ ਕਰੋ, ਫਿਰ ਸਮਾਨ ਬੰਨ੍ਹੋ ਅਤੇ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ। ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ Returns 'ਤੇ ਸਕੈਨ ਕਰੋ, ਫਿਰ Dispatch 'ਤੇ ਖ਼ਤਮ ਕਰੋ।"
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ। ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ Returns 'ਤੇ ਸਕੈਨ ਕਰੋ, ਫਿਰ Dispatch 'ਤੇ ਖ਼ਤਮ ਕਰੋ।",
+"Check the load": "ਲੋਡ ਦੀ ਜਾਂਚ ਕਰੋ",
+"Bring missing or unlisted packages to Dispatch.": "ਗੁੰਮ ਜਾਂ ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦੇ ਪੈਕੇਜ ਡਿਸਪੈਚ ਕੋਲ ਲੈ ਜਾਓ।",
+"Match the loaded packages to the manifest.": "ਲੋਡ ਕੀਤੇ ਪੈਕੇਜਾਂ ਨੂੰ ਮੈਨੀਫ਼ੈਸਟ ਨਾਲ ਮਿਲਾਓ।",
+"Confirm the load count": "ਲੋਡ ਦੀ ਗਿਣਤੀ ਪੱਕੀ ਕਰੋ",
+"Confirm the load count at Dispatch.": "ਡਿਸਪੈਚ 'ਤੇ ਲੋਡ ਦੀ ਗਿਣਤੀ ਪੱਕੀ ਕਰੋ।",
+"Report a missing package": "ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+"Set the unlisted package aside": "ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦਾ ਪੈਕੇਜ ਇੱਕ ਪਾਸੇ ਰੱਖੋ",
+"Identified a package for another route during the load-out scan.": "ਲੋਡ-ਆਊਟ ਸਕੈਨ ਦੌਰਾਨ ਕਿਸੇ ਹੋਰ ਰੂਟ ਦਾ ਪੈਕੇਜ ਮਿਲਿਆ।",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "ਇਹ ਪੈਕੇਜ ਰੂਟ ਮੈਨੀਫ਼ੈਸਟ ਵਿੱਚ ਨਹੀਂ ਹੈ। ਇਸ ਨੂੰ ਡਿਸਪੈਚ ਕੋਲ ਲੈ ਜਾਓ ਅਤੇ ਇੱਕ ਪਾਸੇ ਰੱਖ ਦਿਓ।",
+"Bring the unlisted package to Dispatch first.": "ਪਹਿਲਾਂ ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦਾ ਪੈਕੇਜ ਡਿਸਪੈਚ ਕੋਲ ਲੈ ਜਾਓ।",
+"Set the unlisted package aside at Dispatch.": "ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦਾ ਪੈਕੇਜ ਡਿਸਪੈਚ 'ਤੇ ਇੱਕ ਪਾਸੇ ਰੱਖੋ।",
+"The unlisted package is set aside. It will not go on this route.": "ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦਾ ਪੈਕੇਜ ਇੱਕ ਪਾਸੇ ਰੱਖ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਇਹ ਇਸ ਰੂਟ 'ਤੇ ਨਹੀਂ ਜਾਵੇਗਾ।",
+"Check the manifest and report a missing package at Dispatch.": "ਮੈਨੀਫ਼ੈਸਟ ਦੇਖੋ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।",
+"The missing package has already been located.": "ਗੁੰਮ ਪੈਕੇਜ ਪਹਿਲਾਂ ਹੀ ਲੱਭ ਲਿਆ ਗਿਆ ਹੈ।",
+"Reported the missing package after departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਬਾਅਦ ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ।",
+"Reported the missing package to Dispatch before leaving.": "ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਡਿਸਪੈਚ ਨੂੰ ਦਿੱਤੀ।",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "ਡਿਸਪੈਚ ਨੂੰ ਪੈਕੇਜ ਡਿਪੂ ਵਿੱਚ ਮਿਲ ਗਿਆ। ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਸਕੈਨ ਕਰਕੇ ਲੋਡ ਕਰੋ।",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "ਡਿਸਪੈਚ ਨੇ ਗੁੰਮ ਪੈਕੇਜ ਦਰਜ ਕਰ ਲਿਆ। ਅਗਲੇ ਸਟਾਪ 'ਤੇ ਮਾਲ ਦੁਬਾਰਾ ਜਾਂਚੋ।",
+"The departure load check is already closed.": "ਰਵਾਨਗੀ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਲੋਡ ਜਾਂਚ ਪਹਿਲਾਂ ਹੀ ਬੰਦ ਹੋ ਚੁੱਕੀ ਹੈ।",
+"Count the packages and confirm the load at Dispatch.": "ਪੈਕੇਜ ਗਿਣੋ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਲੋਡ ਪੱਕਾ ਕਰੋ।",
+"Checked the loaded packages against the manifest.": "ਲੋਡ ਕੀਤੇ ਪੈਕੇਜਾਂ ਨੂੰ ਮੈਨੀਫ਼ੈਸਟ ਨਾਲ ਮਿਲਾ ਕੇ ਦੇਖਿਆ।",
+"The load count did not match the checked manifest.": "ਲੋਡ ਦੀ ਗਿਣਤੀ ਜਾਂਚੇ ਹੋਏ ਮੈਨੀਫ਼ੈਸਟ ਨਾਲ ਨਹੀਂ ਮਿਲੀ।",
+"The load count is recorded. Secure the load before departure.": "ਲੋਡ ਦੀ ਗਿਣਤੀ ਦਰਜ ਹੋ ਗਈ। ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋਡ ਨੂੰ ਬੰਨ੍ਹ ਕੇ ਪੱਕਾ ਕਰੋ।",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "ਗਿਣਤੀ ਜਾਂ ਲੋਡ ਮੈਨੀਫ਼ੈਸਟ ਨਾਲ ਨਹੀਂ ਮਿਲਦਾ। ਗੁੰਮ ਅਤੇ ਸੂਚੀ ਤੋਂ ਬਾਹਰ ਦੇ ਪੈਕੇਜ ਦੁਬਾਰਾ ਜਾਂਚੋ।",
+"Left without checking the load count against the manifest.": "ਮੈਨੀਫ਼ੈਸਟ ਨਾਲ ਲੋਡ ਦੀ ਗਿਣਤੀ ਮਿਲਾਏ ਬਿਨਾਂ ਨਿਕਲ ਗਏ।",
+"Departed with a package for another route.": "ਕਿਸੇ ਹੋਰ ਰੂਟ ਦਾ ਪੈਕੇਜ ਲੈ ਕੇ ਰਵਾਨਾ ਹੋ ਗਏ।",
+"Left without reporting the missing package to Dispatch.": "ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਡਿਸਪੈਚ ਨੂੰ ਦਿੱਤੇ ਬਿਨਾਂ ਨਿਕਲ ਗਏ।",
+"Found a package that had been missed during load-out.": "ਇੱਕ ਪੈਕੇਜ ਮਿਲਿਆ ਜੋ ਲੋਡ-ਆਊਟ ਦੌਰਾਨ ਰਹਿ ਗਿਆ ਸੀ।",
+"This package is not on the route manifest.": "ਇਹ ਪੈਕੇਜ ਰੂਟ ਮੈਨੀਫ਼ੈਸਟ ਵਿੱਚ ਨਹੀਂ ਹੈ।",
+"I counted one package.": "ਮੈਂ ਇੱਕ ਪੈਕੇਜ ਗਿਣਿਆ।",
+"Load count": "ਲੋਡ ਦੀ ਗਿਣਤੀ",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "ਪਹਿਲਾਂ ਰਹਿ ਗਿਆ ਇੱਕ ਪੈਕੇਜ ਮਾਲ ਵਿੱਚ ਮਿਲ ਗਿਆ ਹੈ। ਇਸ ਨੂੰ ਸਕੈਨ ਕਰੋ ਅਤੇ ਪਤਾ ਦੇਖੋ।"
 },
 "templates": [
 [
@@ -4574,6 +4606,22 @@ window.OTR_I18N.pa = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"ਮੈਨੀਫ਼ੈਸਟ ਵਿੱਚ {0} ਪੈਕੇਜ ਹਨ।"
+],
+[
+"I counted {0} packages.",
+"ਮੈਂ {0} ਪੈਕੇਜ ਗਿਣੇ।"
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"ਮੈਨੀਫ਼ੈਸਟ ਵਿੱਚ {0} ਪੈਕੇਜ ਹਨ। ਪੱਕਾ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਵਿਚਲੇ ਪੈਕੇਜ ਗਿਣੋ।"
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4583,6 +4631,7 @@ window.OTR_I18N.pa = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };

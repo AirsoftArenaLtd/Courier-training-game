@@ -3287,7 +3287,39 @@ window.OTR_I18N.es = {
 "Exceeded the posted speed limit.": "Superaste el límite de velocidad indicado.",
 "Traveled on the wrong side of the road.": "Circulaste por el lado equivocado de la vía.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "Revisa los neumáticos y las luces, escanea y carga cinco paquetes en el orden de las paradas, asegura la carga y cierra el compartimento.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Vuelve al centro. Escanea los paquetes retenidos en Returns y termina en Dispatch."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "Vuelve al centro. Escanea los paquetes retenidos en Returns y termina en Dispatch.",
+"Check the load": "Revisa la carga",
+"Bring missing or unlisted packages to Dispatch.": "Lleva al Despacho los paquetes que faltan o que no están en la lista.",
+"Match the loaded packages to the manifest.": "Compara los paquetes cargados con el manifiesto.",
+"Confirm the load count": "Confirma el recuento de la carga",
+"Confirm the load count at Dispatch.": "Confirma el recuento de la carga en el Despacho.",
+"Report a missing package": "Avisa de un paquete que falta",
+"Set the unlisted package aside": "Aparta el paquete que no está en la lista",
+"Identified a package for another route during the load-out scan.": "Detectaste un paquete de otra ruta al escanear la carga.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "Este paquete no está en el manifiesto de la ruta. Llévalo al Despacho y déjalo aparte.",
+"Bring the unlisted package to Dispatch first.": "Primero lleva el paquete que no está en la lista al Despacho.",
+"Set the unlisted package aside at Dispatch.": "Deja aparte en el Despacho el paquete que no está en la lista.",
+"The unlisted package is set aside. It will not go on this route.": "El paquete que no estaba en la lista queda aparte. No irá en esta ruta.",
+"Check the manifest and report a missing package at Dispatch.": "Revisa el manifiesto y avisa en el Despacho de un paquete que falta.",
+"The missing package has already been located.": "El paquete que faltaba ya se ha encontrado.",
+"Reported the missing package after departure.": "Avisaste del paquete que faltaba después de salir.",
+"Reported the missing package to Dispatch before leaving.": "Avisaste al Despacho del paquete que faltaba antes de salir.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "El Despacho encontró el paquete en el depósito. Escanéalo y cárgalo antes de salir.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "El Despacho registró el paquete que faltaba. Vuelve a revisar la carga en la próxima parada.",
+"The departure load check is already closed.": "La revisión de la carga de salida ya está cerrada.",
+"Count the packages and confirm the load at Dispatch.": "Cuenta los paquetes y confirma la carga en el Despacho.",
+"Checked the loaded packages against the manifest.": "Comparaste los paquetes cargados con el manifiesto.",
+"The load count did not match the checked manifest.": "El recuento de la carga no coincidía con el manifiesto revisado.",
+"The load count is recorded. Secure the load before departure.": "El recuento de la carga está registrado. Asegura la carga antes de salir.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "El recuento o la carga no coincide con el manifiesto. Vuelve a revisar los paquetes que faltan y los que no están en la lista.",
+"Left without checking the load count against the manifest.": "Saliste sin comprobar el recuento de la carga con el manifiesto.",
+"Departed with a package for another route.": "Saliste con un paquete de otra ruta.",
+"Left without reporting the missing package to Dispatch.": "Saliste sin avisar al Despacho del paquete que faltaba.",
+"Found a package that had been missed during load-out.": "Encontraste un paquete que se había pasado por alto al cargar.",
+"This package is not on the route manifest.": "Este paquete no está en el manifiesto de la ruta.",
+"I counted one package.": "Conté un paquete.",
+"Load count": "Recuento de la carga",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "Un paquete que se había pasado por alto ha aparecido en la carga. Escanéalo y comprueba la dirección."
 },
 "templates": [
 [
@@ -4585,12 +4617,29 @@ window.OTR_I18N.es = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"El manifiesto indica {0} paquetes."
+],
+[
+"I counted {0} packages.",
+"Conté {0} paquetes."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"El manifiesto indica {0} paquetes. Cuenta los paquetes de la furgoneta antes de confirmar."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
 "three.js did not load",
 "#game canvas",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };
