@@ -47,6 +47,22 @@ OTR.workday = {
     return !!(window.OTR_DATA && OTR_DATA.config && OTR_DATA.config.workday3d);
   },
 
+  /**
+   * What an LMS needs to know about the workday: has a day been finished, did the best one meet the academy's pass
+   * marks in every category, and its stars (best day per category). `counts` is false when the 3D workday is not
+   * offered or the company turned it off (OTR_DATA.config.lmsWorkday), and then the LMS reports as before.
+   */
+  lmsState() {
+    const cfg = (window.OTR_DATA && OTR_DATA.config) || {};
+    const S = OTR.save && OTR.save.data;
+    const days = S && S.route && Array.isArray(S.route.history) ? S.route.history.filter(h => h && h.kind === 'workday' && h.stars) : [];
+    const cats = (OTR.scoring && OTR.scoring.CATS) || ['safety', 'efficiency', 'service'];
+    const need = (OTR.academy && OTR.academy.get && OTR.academy.get().passStars) || {};
+    const metBy = (h) => cats.every(c => (h.stars[c] || 0) >= (need[c] || 0));
+    const best = {}; cats.forEach(c => { best[c] = days.reduce((m, h) => Math.max(m, h.stars[c] || 0), 0); });
+    return { counts: cfg.lmsWorkday !== false && this.offered(), finished: days.length > 0, passed: days.some(metBy), stars: best };
+  },
+
   /** The trainee's saved workdays: { current, last }. */
   saved() {
     const S = OTR.save && OTR.save.data;

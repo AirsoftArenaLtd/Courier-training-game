@@ -20,6 +20,7 @@
  * Settings (environment variables, or the same names in server/config.json):
  *   OTR_PORT (8080) · OTR_HOST (0.0.0.0) · OTR_DATA_DIR (server/data) · OTR_USER_HEADER · OTR_NAME_HEADER
  *   OTR_ALLOW_QUERY_USER (1, or 0 with accounts on) · OTR_TRAINER_PIN (none: trainer tools are off until one is set)
+ *   OTR_XAPI_ENDPOINT · OTR_XAPI_AUTH · OTR_XAPI_HOMEPAGE (xAPI statements for finished workdays, off unless an endpoint is set)
  *   OTR_ACCOUNTS (on when accounts.json exists; 1 on, 0 off) · OTR_SESSION_HOURS (10) · OTR_SESSION_IDLE_MINUTES (120)
  *   OTR_LOCK_AFTER (5) · OTR_LOCK_MINUTES (15) · OTR_COOKIE_SECURE (auto: on over HTTPS; 1 always)
  *
@@ -53,6 +54,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const auth = require('./auth.js');
+const xapiLib = require('./xapi.js');
 
 const ROOT = path.resolve(__dirname, '..');
 let fileCfg = {};
@@ -80,6 +82,13 @@ const accounts = ACC_FLAG === '1' || (ACC_FLAG !== '0' && fs.existsSync(ACCOUNTS
 // with passwords on, a ?user= link would skip them: off unless IT turns it back on
 const QUERY_FLAG = String(cfg('OTR_ALLOW_QUERY_USER', ''));
 const ALLOW_QUERY = QUERY_FLAG === '' ? !accounts : QUERY_FLAG !== '0';
+// optional: finished workdays go to the company's learning record store as xAPI statements (server/xapi.js)
+const xapi = xapiLib.create({
+  endpoint: cfg('OTR_XAPI_ENDPOINT', ''), auth: cfg('OTR_XAPI_AUTH', ''), homepage: cfg('OTR_XAPI_HOMEPAGE', ''),
+  outbox: path.join(DATA, 'xapi-outbox.json'),
+  passMarks: () => { const t = readJSON(path.join(DATA, 'settings.json'), {}); return t && t.passStars ? t.passStars : null; },
+  log: (m) => console.log(m)
+});
 const COOKIE_SECURE = String(cfg('OTR_COOKIE_SECURE', ''));
 const secureReq = (req) => COOKIE_SECURE === '1' || (COOKIE_SECURE !== '0' && (!!req.socket.encrypted || req.headers['x-forwarded-proto'] === 'https'));
 
@@ -214,6 +223,7 @@ async function api(req, res, url) {
         // a stale tab must not overwrite newer progress from another PC
         if (old && (old.savedAt || 0) > (b.progress.savedAt || 0)) return send(res, 409, { error: 'A newer save exists.', savedAt: old.savedAt });
         writeJSON(f, b.progress);
+        xapi.onProgress(who, old, b.progress);
         return send(res, 200, { ok: true });
       }
     }

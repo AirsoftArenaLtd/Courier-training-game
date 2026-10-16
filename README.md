@@ -28,7 +28,10 @@ they use later carries on where they left off. Nothing is shared between trainee
 
 Zip the game folder (with `imsmanifest.xml` at the top of the zip) and upload it to the LMS as a SCORM 1.2 package.
 The LMS says who the learner is; progress is kept in the LMS, and the LMS sees the course as complete once every
-module is passed in assessment mode. SCORM 2004 LMSs work too.
+module is passed in assessment mode **and a 3D workday has been finished** (passed once the best day met the trainer's
+pass marks in every category; the score counts the workday's stars as one more part of the course). To keep the
+older module-only report, set `lmsWorkday: false` in `data/config.js`. SCORM 2004 LMSs work too. `node test/lmsreport.js`
+checks it.
 
 ### B. On a company web server
 
@@ -59,6 +62,14 @@ Display names come from an `X-Remote-Name` header or `server/trainees.json` (`{ 
 | `OTR_ACCOUNTS` | on if `accounts.json` exists | Employee ID and password sign-in (`docs/SIGN-IN.md` has its other settings) |
 
 If the server can't be reached mid-session, progress is kept on that PC and sent the next time it answers.
+
+**xAPI (optional).** To send each finished workday to the company's learning record store, start the server with
+`OTR_XAPI_ENDPOINT=https://lrs.example.com/xapi/` and `OTR_XAPI_AUTH="Basic ..."` (the whole Authorization header; the
+credentials stay on the server, never in the browser). Each finished day becomes a "completed" statement for the day
+(score, stars, duration, success against the pass marks) and one per stop, sent in the background: a store that is down
+or slow never holds up the game, and the statements wait in `xapi-outbox.json` and go when it is back. Only the
+employee ID and display name are sent. `OTR_XAPI_HOMEPAGE` names the accounts (default the store's address).
+`node test/xapi.js` checks it.
 
 ### C. Without either
 
