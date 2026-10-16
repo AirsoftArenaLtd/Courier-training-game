@@ -3442,7 +3442,47 @@ window.OTR_I18N.ta = {
 "Workdays": "வேலை நாள்கள்",
 "improved": "மேம்பட்டவர்கள்",
 "unchanged or lower": "மாற்றமில்லை அல்லது குறைவு",
-"One workday so far": "இதுவரை ஒரு வேலை நாள்"
+"One workday so far": "இதுவரை ஒரு வேலை நாள்",
+"Move forward or accelerate": "முன்னே செல்லுங்கள் அல்லது வேகத்தை கூட்டுங்கள்",
+"Move back or brake": "பின்னே செல்லுங்கள் அல்லது பிரேக் போடுங்கள்",
+"Move or steer left": "இடப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+"Move or steer right": "வலப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+"Look left": "இடப்பக்கம் பாருங்கள்",
+"Look right": "வலப்பக்கம் பாருங்கள்",
+"Look down": "கீழே பாருங்கள்",
+"Interact or exit the cab": "செயல்படு அல்லது இறங்கு",
+"Select the next nearby target": "அருகிலுள்ள அடுத்த இலக்கைத் தேர்ந்தெடுங்கள்",
+"Inspect the parcel": "பார்சலைப் பரிசோதியுங்கள்",
+"Open or close the handheld": "ஹேண்ட்ஹெல்டைத் திறங்கள் அல்லது மூடுங்கள்",
+"Scan or set the parking brake": "ஸ்கேன் செய்யுங்கள் அல்லது பார்க்கிங் பிரேக் போடுங்கள்",
+"Check the mirror": "கண்ணாடியைப் பாருங்கள்",
+"Fasten the seatbelt": "சீட்பெல்ட் அணியுங்கள்",
+"Change gear": "கியரை மாற்றுங்கள்",
+"Signal right": "வலது சிக்னல் போடுங்கள்",
+"Look forward": "முன்னே பாருங்கள்",
+"Open the menu": "மெனுவைத் திறங்கள்",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "அருகில் இலக்கு எதுவும் தெரியவில்லை. அருகில் செல்லுங்கள் அல்லது பார்க்க அம்புக்குறி விசைகளைப் பயன்படுத்துங்கள்.",
+"the parcel": "பார்சல்",
+"the cab": "கேபின்",
+"the cargo doors": "சரக்குக் கதவுகள்",
+"the load restraint": "சரக்குக் கட்டுப்பட்டை",
+"the tires": "டயர்கள்",
+"the lights": "விளக்குகள்",
+"the workday station": "வேலைநாள் நிலையம்",
+"the cargo practice station": "சரக்குப் பயிற்சி நிலையம்",
+"the debrief station": "டிப்ரீஃப் நிலையம்",
+"the dog gate": "நாய் கேட்",
+"the path hazard": "பாதையிலுள்ள ஆபத்து",
+"Turn reduced motion off": "குறைந்த இயக்கத்தை அணையுங்கள்",
+"Turn reduced motion on": "குறைந்த இயக்கத்தை இயக்குங்கள்",
+"Turn the color-blind filter off": "நிறக்குருடு வடிகட்டியை அணையுங்கள்",
+"Turn the color-blind filter on": "நிறக்குருடு வடிகட்டியை இயக்குங்கள்",
+"Turn narration off": "விவரிப்பை அணையுங்கள்",
+"Turn narration on": "விவரிப்பை இயக்குங்கள்",
+"Use normal text": "சாதாரண எழுத்தைப் பயன்படுத்துங்கள்",
+"Use larger text": "பெரிய எழுத்தைப் பயன்படுத்துங்கள்",
+"Next page": "அடுத்த பக்கம்",
+"Use arrows and Enter, or number keys. Backspace goes back.": "அம்புக்குறி விசைகள், Enter அல்லது எண் விசைகளைப் பயன்படுத்துங்கள். Backspace பின்னே கொண்டு செல்லும்."
 },
 "templates": [
 [
@@ -4832,6 +4872,114 @@ window.OTR_I18N.ta = {
 [
 "{0} stars",
 "{0} நட்சத்திரங்கள்"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"தேர்ந்தெடுத்தது: {0}. உரையாட {1} அழுத்துங்கள்."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"பார்க்க {0}, நடக்க அல்லது ஓட்ட இயக்க விசைகளைப் பயன்படுத்துங்கள். ஒவ்வொரு தேர்வும் அதன் எண் விசையையும் ஏற்கும். தேர்ந்தெடுத்த தேர்வை Enter உறுதிசெய்யும்."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"இந்த விசைகள் அமைப்புகள் மற்றும் அணுகல்தன்மையில் சேமித்த அதே விசை வரைபடத்தைப் பயன்படுத்துகின்றன. மவுஸ் இல்லாமல் தெரியும் அருகிலுள்ள இலக்கைத் தேர்ந்தெடுக்க {0} அழுத்துங்கள்."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0}-க்கான புதிய விசையை அழுத்துங்கள். ரத்து செய்ய Escape."
+],
+[
+"Press {0} to put the handheld away.",
+"மூட {0} அழுத்தவும்."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"ஸ்கேன் முடியும் வரை {0} அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"சுழற்ற {0}/{1} பயன்படுத்துங்கள். ஸ்கேன் செய்ய {2} அழுத்துங்கள். திரும்ப Escape."
+],
+[
+"{0} look",
+"{0} பார்க்க"
+],
+[
+"{0} selects a nearby target",
+"{0} அருகிலுள்ள இலக்கைத் தேர்ந்தெடுக்கும்"
+],
+[
+"{0} aim",
+"{0} குறிபார்க்க"
+],
+[
+"{0} resumes the workday.",
+"{0} வேலைநாளைத் தொடரும்."
+],
+[
+"{0} starts the workday.",
+"{0} வேலைநாளைத் தொடங்கும்."
+],
+[
+"{0} starts cargo practice.",
+"{0} சரக்குப் பயிற்சியைத் தொடங்கும்."
+],
+[
+"{0} opens the last debrief.",
+"{0} கடைசி டிப்ரீஃபைத் திறக்கும்."
+],
+[
+"{0} opens the hub menu.",
+"{0} ஹப் மெனுவைத் திறக்கும்."
+],
+[
+"{0} enters the cab.",
+"{0} கேபினுக்குள் ஏற்றும்."
+],
+[
+"{0} closes the cargo doors.",
+"{0} சரக்குக் கதவுகளை மூடும்."
+],
+[
+"{0} opens the cargo doors.",
+"{0} சரக்குக் கதவுகளைத் திறக்கும்."
+],
+[
+"{0} secures the load.",
+"{0} சரக்கைப் பாதுகாப்பாகக் கட்டும்."
+],
+[
+"{0} inspects the tires.",
+"{0} டயர்களைப் பரிசோதிக்கும்."
+],
+[
+"{0} inspects the lights.",
+"{0} விளக்குகளைப் பரிசோதிக்கும்."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} டிஸ்பாச்சில் பதிவு செய்யும்."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} பார்சலை எடுக்கும். {1} அதைப் பரிசோதிக்கும். {2} ஹேண்ட்ஹெல்டைத் திறக்கும்."
+],
+[
+"{0} places the parcel.",
+"{0} பார்சலை வைக்கும்."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} கேட்டைப் பரிசோதிக்கும். நாய் கட்டவிழ்ந்திருக்கும்போது வெளியிலேயே இருங்கள்."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} பாதையைப் பரிசோதிக்கும். சிறிய, கவனமான அடிகளுக்கு {1} பிடித்திருங்கள்."
+],
+[
+"{0} attempts delivery.",
+"{0} டெலிவரியை முயற்சிக்கும்."
 ]
 ],
 "keep": [

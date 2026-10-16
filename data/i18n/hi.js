@@ -3441,7 +3441,47 @@ window.OTR_I18N.hi = {
 "Workdays": "कार्यदिवस",
 "improved": "सुधार हुआ",
 "unchanged or lower": "समान या कम",
-"One workday so far": "अभी तक एक ही कार्यदिवस"
+"One workday so far": "अभी तक एक ही कार्यदिवस",
+"Move forward or accelerate": "आगे बढ़ें या तेज़ करें",
+"Move back or brake": "पीछे जाएँ या ब्रेक लगाएँ",
+"Move or steer left": "बाएँ चलें या मोड़ें",
+"Move or steer right": "दाएँ चलें या मोड़ें",
+"Look left": "बाएँ देखें",
+"Look right": "दाएँ देखें",
+"Look down": "नीचे देखें",
+"Interact or exit the cab": "बातचीत करें या केबिन से बाहर निकलें",
+"Select the next nearby target": "अगला पास का लक्ष्य चुनें",
+"Inspect the parcel": "पैकेज की जाँच करें",
+"Open or close the handheld": "हैंडहेल्ड खोलें या बंद करें",
+"Scan or set the parking brake": "स्कैन करें या पार्किंग ब्रेक लगाएँ",
+"Check the mirror": "मिरर देखें",
+"Fasten the seatbelt": "सीटबेल्ट बाँधें",
+"Change gear": "गियर बदलें",
+"Signal right": "दाएँ सिग्नल दें",
+"Look forward": "सामने देखें",
+"Open the menu": "मेन्यू खोलें",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "पास में कोई लक्ष्य दिख नहीं रहा। पास जाएँ या देखने के लिए तीर वाली कुंजियाँ दबाएँ।",
+"the parcel": "पैकेज",
+"the cab": "केबिन",
+"the cargo doors": "कार्गो दरवाज़े",
+"the load restraint": "लोड बाँधने की पट्टी",
+"the tires": "टायर",
+"the lights": "लाइटें",
+"the workday station": "वर्कडे स्टेशन",
+"the cargo practice station": "कार्गो अभ्यास स्टेशन",
+"the debrief station": "डीब्रीफ़ स्टेशन",
+"the dog gate": "कुत्ते का गेट",
+"the path hazard": "रास्ते की रुकावट",
+"Turn reduced motion off": "कम गति वाले एनिमेशन बंद करें",
+"Turn reduced motion on": "कम गति वाले एनिमेशन चालू करें",
+"Turn the color-blind filter off": "रंग-अंधता फ़िल्टर बंद करें",
+"Turn the color-blind filter on": "रंग-अंधता फ़िल्टर चालू करें",
+"Turn narration off": "नैरेशन बंद करें",
+"Turn narration on": "नैरेशन चालू करें",
+"Use normal text": "सामान्य टेक्स्ट इस्तेमाल करें",
+"Use larger text": "बड़ा टेक्स्ट इस्तेमाल करें",
+"Next page": "अगला पेज",
+"Use arrows and Enter, or number keys. Backspace goes back.": "तीर वाली कुंजियाँ और Enter, या नंबर कुंजियाँ इस्तेमाल करें। Backspace से पीछे जाएँ।"
 },
 "templates": [
 [
@@ -4831,6 +4871,114 @@ window.OTR_I18N.hi = {
 [
 "{0} stars",
 "{0} सितारे"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"चुना गया: {0}। बातचीत के लिए {1} दबाएँ।"
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"देखने के लिए {0} और चलने या चलाने के लिए मूवमेंट कुंजियाँ इस्तेमाल करें। हर विकल्प अपनी नंबर कुंजी भी मानता है। Enter चुने हुए विकल्प को पक्का करता है।"
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"कंट्रोल वही सहेजा हुआ की-मैप इस्तेमाल करते हैं जो सेटिंग्स और एक्सेसिबिलिटी में है। माउस के बिना पास का दिखता लक्ष्य चुनने के लिए {0} दबाएँ।"
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0} के लिए नई कुंजी दबाएँ। रद्द करने के लिए Escape।"
+],
+[
+"Press {0} to put the handheld away.",
+"हैंडहेल्ड रखने के लिए {0} दबाएँ।"
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"स्कैन पूरा होने तक {0} या माउस का बायाँ बटन दबाए रखें।"
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"घुमाने के लिए {0}/{1} इस्तेमाल करें। स्कैन के लिए {2} दबाएँ। वापस जाने के लिए Escape।"
+],
+[
+"{0} look",
+"{0} देखना"
+],
+[
+"{0} selects a nearby target",
+"{0} पास का लक्ष्य चुनता है"
+],
+[
+"{0} aim",
+"{0} निशाना"
+],
+[
+"{0} resumes the workday.",
+"{0} वर्कडे फिर शुरू करता है।"
+],
+[
+"{0} starts the workday.",
+"{0} वर्कडे शुरू करता है।"
+],
+[
+"{0} starts cargo practice.",
+"{0} कार्गो अभ्यास शुरू करता है।"
+],
+[
+"{0} opens the last debrief.",
+"{0} पिछला डीब्रीफ़ खोलता है।"
+],
+[
+"{0} opens the hub menu.",
+"{0} हब मेन्यू खोलता है।"
+],
+[
+"{0} enters the cab.",
+"{0} केबिन में बैठाता है।"
+],
+[
+"{0} closes the cargo doors.",
+"{0} कार्गो दरवाज़े बंद करता है।"
+],
+[
+"{0} opens the cargo doors.",
+"{0} कार्गो दरवाज़े खोलता है।"
+],
+[
+"{0} secures the load.",
+"{0} लोड को बाँधता है।"
+],
+[
+"{0} inspects the tires.",
+"{0} टायरों की जाँच करता है।"
+],
+[
+"{0} inspects the lights.",
+"{0} लाइटों की जाँच करता है।"
+],
+[
+"{0} checks in at Dispatch.",
+"{0} डिस्पैच में चेक-इन करता है।"
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} पैकेज उठाता है। {1} उसकी जाँच करता है। {2} हैंडहेल्ड खोलता है।"
+],
+[
+"{0} places the parcel.",
+"{0} पैकेज रखता है।"
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} गेट की जाँच करता है। कुत्ता खुला हो तो बाहर ही रहें।"
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} रास्ते की जाँच करता है। छोटे, सावधान कदमों के लिए {1} दबाए रखें।"
+],
+[
+"{0} attempts delivery.",
+"{0} डिलीवरी की कोशिश करता है।"
 ]
 ],
 "keep": [

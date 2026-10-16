@@ -3442,7 +3442,47 @@ window.OTR_I18N.kn = {
 "Workdays": "ಕೆಲಸದ ದಿನಗಳು",
 "improved": "ಸುಧಾರಿಸಿದೆ",
 "unchanged or lower": "ಬದಲಾವಣೆ ಇಲ್ಲ ಅಥವಾ ಕಡಿಮೆ",
-"One workday so far": "ಇಲ್ಲಿಯವರೆಗೆ ಒಂದು ಕೆಲಸದ ದಿನ"
+"One workday so far": "ಇಲ್ಲಿಯವರೆಗೆ ಒಂದು ಕೆಲಸದ ದಿನ",
+"Move forward or accelerate": "ಮುಂದೆ ಹೋಗಿ ಅಥವಾ ವೇಗ ಹೆಚ್ಚಿಸಿ",
+"Move back or brake": "ಹಿಂದೆ ಹೋಗಿ ಅಥವಾ ಬ್ರೇಕ್ ಹಾಕಿ",
+"Move or steer left": "ಎಡಕ್ಕೆ ಹೋಗಿ ಅಥವಾ ತಿರುಗಿಸಿ",
+"Move or steer right": "ಬಲಕ್ಕೆ ಹೋಗಿ ಅಥವಾ ತಿರುಗಿಸಿ",
+"Look left": "ಎಡಕ್ಕೆ ನೋಡಿ",
+"Look right": "ಬಲಕ್ಕೆ ನೋಡಿ",
+"Look down": "ಕೆಳಗೆ ನೋಡಿ",
+"Interact or exit the cab": "ಕ್ರಿಯೆ ಮಾಡಿ ಅಥವಾ ಕ್ಯಾಬ್‌ನಿಂದ ಇಳಿಯಿರಿ",
+"Select the next nearby target": "ಹತ್ತಿರದ ಮುಂದಿನ ಗುರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+"Inspect the parcel": "ಪಾರ್ಸೆಲ್ ಪರಿಶೀಲಿಸಿ",
+"Open or close the handheld": "ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ತೆರೆಯಿರಿ ಅಥವಾ ಮುಚ್ಚಿ",
+"Scan or set the parking brake": "ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಅಥವಾ ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ",
+"Check the mirror": "ಕನ್ನಡಿ ನೋಡಿ",
+"Fasten the seatbelt": "ಸೀಟ್‌ಬೆಲ್ಟ್ ಹಾಕಿ",
+"Change gear": "ಗೇರ್ ಬದಲಿಸಿ",
+"Signal right": "ಬಲ ಸಿಗ್ನಲ್ ಹಾಕಿ",
+"Look forward": "ಮುಂದೆ ನೋಡಿ",
+"Open the menu": "ಮೆನು ತೆರೆಯಿರಿ",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "ಹತ್ತಿರ ಯಾವುದೇ ಗುರಿ ಕಾಣುತ್ತಿಲ್ಲ. ಹತ್ತಿರ ಹೋಗಿ ಅಥವಾ ಬಾಣದ ಕೀಗಳಿಂದ ನೋಡಿ.",
+"the parcel": "ಪಾರ್ಸೆಲ್",
+"the cab": "ಕ್ಯಾಬ್",
+"the cargo doors": "ಸರಕು ಬಾಗಿಲುಗಳು",
+"the load restraint": "ಸರಕು ಕಟ್ಟುವ ಪಟ್ಟಿ",
+"the tires": "ಟೈರ್‌ಗಳು",
+"the lights": "ದೀಪಗಳು",
+"the workday station": "ವರ್ಕ್‌ಡೇ ಸ್ಟೇಷನ್",
+"the cargo practice station": "ಸರಕು ಅಭ್ಯಾಸ ಸ್ಟೇಷನ್",
+"the debrief station": "ಡಿಬ್ರೀಫ್ ಸ್ಟೇಷನ್",
+"the dog gate": "ನಾಯಿ ಗೇಟ್",
+"the path hazard": "ದಾರಿಯ ಅಪಾಯ",
+"Turn reduced motion off": "ಕಡಿಮೆ ಚಲನೆಯನ್ನು ಆಫ್ ಮಾಡಿ",
+"Turn reduced motion on": "ಕಡಿಮೆ ಚಲನೆಯನ್ನು ಆನ್ ಮಾಡಿ",
+"Turn the color-blind filter off": "ಬಣ್ಣಕುರುಡು ಫಿಲ್ಟರ್ ಆಫ್ ಮಾಡಿ",
+"Turn the color-blind filter on": "ಬಣ್ಣಕುರುಡು ಫಿಲ್ಟರ್ ಆನ್ ಮಾಡಿ",
+"Turn narration off": "ನಿರೂಪಣೆ ಆಫ್ ಮಾಡಿ",
+"Turn narration on": "ನಿರೂಪಣೆ ಆನ್ ಮಾಡಿ",
+"Use normal text": "ಸಾಮಾನ್ಯ ಅಕ್ಷರ ಬಳಸಿ",
+"Use larger text": "ದೊಡ್ಡ ಅಕ್ಷರ ಬಳಸಿ",
+"Next page": "ಮುಂದಿನ ಪುಟ",
+"Use arrows and Enter, or number keys. Backspace goes back.": "ಬಾಣದ ಕೀಗಳು ಮತ್ತು Enter ಅಥವಾ ಸಂಖ್ಯೆ ಕೀಗಳನ್ನು ಬಳಸಿ. Backspace ಹಿಂದಕ್ಕೆ ಹೋಗುತ್ತದೆ."
 },
 "templates": [
 [
@@ -4832,6 +4872,114 @@ window.OTR_I18N.kn = {
 [
 "{0} stars",
 "{0} ನಕ್ಷತ್ರಗಳು"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"{0} ಆಯ್ಕೆಯಾಗಿದೆ. ಕ್ರಿಯೆಗೆ {1} ಒತ್ತಿ."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"ನೋಡಲು {0} ಮತ್ತು ನಡೆಯಲು ಅಥವಾ ಚಲಾಯಿಸಲು ಚಲನೆ ಕೀಗಳನ್ನು ಬಳಸಿ. ಪ್ರತಿ ಆಯ್ಕೆಗೂ ಅದರ ಸಂಖ್ಯೆ ಕೀ ಕೆಲಸ ಮಾಡುತ್ತದೆ. Enter ಆಯ್ದ ಆಯ್ಕೆಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"ಈ ಕೀಗಳು ಸೆಟ್ಟಿಂಗ್ಸ್ ಮತ್ತು ಪ್ರವೇಶಸಾಧ್ಯತೆಯಲ್ಲಿನ ಉಳಿಸಿದ ಕೀ ಮ್ಯಾಪ್‌ನಂತೆಯೇ ಇವೆ. ಮೌಸ್ ಇಲ್ಲದೆ ಕಾಣುವ ಹತ್ತಿರದ ಗುರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಲು {0} ಒತ್ತಿ."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0} ಗಾಗಿ ಹೊಸ ಕೀ ಒತ್ತಿ. Escape ರದ್ದುಮಾಡುತ್ತದೆ."
+],
+[
+"Press {0} to put the handheld away.",
+"ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಇಡಲು {0} ಒತ್ತಿ."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"ಸ್ಕ್ಯಾನ್ ಮುಗಿಯುವವರೆಗೆ {0} ಅಥವಾ ಎಡ ಮೌಸ್ ಬಟನ್ ಒತ್ತಿ ಹಿಡಿಯಿರಿ."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"ತಿರುಗಿಸಲು {0}/{1} ಬಳಸಿ. ಸ್ಕ್ಯಾನ್ ಮಾಡಲು {2} ಒತ್ತಿ. Escape ಹಿಂದಕ್ಕೆ ಹೋಗುತ್ತದೆ."
+],
+[
+"{0} look",
+"{0} ನೋಟ"
+],
+[
+"{0} selects a nearby target",
+"{0} ಹತ್ತಿರದ ಗುರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡುತ್ತದೆ"
+],
+[
+"{0} aim",
+"{0} ಗುರಿ"
+],
+[
+"{0} resumes the workday.",
+"{0} ವರ್ಕ್‌ಡೇ ಮುಂದುವರಿಸುತ್ತದೆ."
+],
+[
+"{0} starts the workday.",
+"{0} ವರ್ಕ್‌ಡೇ ಪ್ರಾರಂಭಿಸುತ್ತದೆ."
+],
+[
+"{0} starts cargo practice.",
+"{0} ಸರಕು ಅಭ್ಯಾಸ ಪ್ರಾರಂಭಿಸುತ್ತದೆ."
+],
+[
+"{0} opens the last debrief.",
+"{0} ಕೊನೆಯ ಡಿಬ್ರೀಫ್ ತೆರೆಯುತ್ತದೆ."
+],
+[
+"{0} opens the hub menu.",
+"{0} ಹಬ್ ಮೆನು ತೆರೆಯುತ್ತದೆ."
+],
+[
+"{0} enters the cab.",
+"{0} ಕ್ಯಾಬ್ ಒಳಗೆ ಹೋಗುತ್ತದೆ."
+],
+[
+"{0} closes the cargo doors.",
+"{0} ಸರಕು ಬಾಗಿಲುಗಳನ್ನು ಮುಚ್ಚುತ್ತದೆ."
+],
+[
+"{0} opens the cargo doors.",
+"{0} ಸರಕು ಬಾಗಿಲುಗಳನ್ನು ತೆರೆಯುತ್ತದೆ."
+],
+[
+"{0} secures the load.",
+"{0} ಸರಕನ್ನು ಭದ್ರಪಡಿಸುತ್ತದೆ."
+],
+[
+"{0} inspects the tires.",
+"{0} ಟೈರ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ."
+],
+[
+"{0} inspects the lights.",
+"{0} ದೀಪಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಚೆಕ್ ಇನ್ ಮಾಡುತ್ತದೆ."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} ಪಾರ್ಸೆಲ್ ಎತ್ತಿಕೊಳ್ಳುತ್ತದೆ. {1} ಅದನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ. {2} ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ತೆರೆಯುತ್ತದೆ."
+],
+[
+"{0} places the parcel.",
+"{0} ಪಾರ್ಸೆಲ್ ಇಡುತ್ತದೆ."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} ಗೇಟ್ ಪರಿಶೀಲಿಸುತ್ತದೆ. ನಾಯಿ ಬಿಡಿಯಾಗಿರುವಾಗ ಹೊರಗೇ ಇರಿ."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ. ಚಿಕ್ಕ, ಎಚ್ಚರದ ಹೆಜ್ಜೆಗಳಿಗೆ {1} ಒತ್ತಿ ಹಿಡಿಯಿರಿ."
+],
+[
+"{0} attempts delivery.",
+"{0} ಡೆಲಿವರಿಗೆ ಪ್ರಯತ್ನಿಸುತ್ತದೆ."
 ]
 ],
 "keep": [
