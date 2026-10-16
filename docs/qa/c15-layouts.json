@@ -1,0 +1,23 @@
+{
+  "languages": [
+    "en",
+    "ta",
+    "hi",
+    "bn",
+    "mr",
+    "te",
+    "gu",
+    "kn",
+    "ml",
+    "pa",
+    "es",
+    "fr"
+  ],
+  "font": "noto",
+  "sizes": [
+    "normal",
+    "larger"
+  ],
+  "checks": 216,
+  "errors": []
+}

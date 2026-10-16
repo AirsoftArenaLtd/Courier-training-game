@@ -45,8 +45,14 @@ OTR.fpBrand={
   deviceBackground(device,def){
     // Generic handheld pages cache a full screen image for every header colour. The 3D adapter needs none.
     const old=device.screen.list[0],texture=old&&old.texture&&old.texture.key;if(old)old.destroy();
+    const title=device.screen.list.find(o=>o.type==='Text'&&o.x===device.sx+14&&o.y===device.sy+22);
+    if(title)title.setWordWrapWidth(device.sw-28,true);
+    const header=Math.max(44,title?title.height+12:44);
+    if(title)title.setY(device.sy+header/2);
+    if(device.clockText)device.clockText.setY(device.sy+header/2);
+    for(const o of device.screen.list)if(o!==title&&o!==device.clockText&&o.y>=device.sy+44&&o.y<device.sy+device.sh-30)o.y+=header-44;
     const g=device.scene.add.graphics(),b=this.read();g.fillStyle(0xF1F5FA);g.fillRoundedRect(device.sx,device.sy,device.sw,device.sh,10);
-    g.fillStyle(def.color===undefined?b.primary:def.color);g.fillRoundedRect(device.sx,device.sy,device.sw,44,{tl:10,tr:10,bl:0,br:0});device.screen.addAt(g,0);
+    g.fillStyle(def.color===undefined?b.primary:def.color);g.fillRoundedRect(device.sx,device.sy,device.sw,header,{tl:10,tr:10,bl:0,br:0});device.screen.addAt(g,0);
     if(!texture||!texture.startsWith('gfx_'))return;
     const uses=o=>!!(o.texture&&o.texture.key===texture)||(o.list||[]).some(uses);
     if(!device.scene.game.scene.scenes.some(s=>s.children&&s.children.list.some(uses)))device.scene.textures.remove(texture);

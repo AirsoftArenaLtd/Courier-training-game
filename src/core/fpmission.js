@@ -526,12 +526,13 @@ OTR.fpMission = {
 /* Local prototype checkpoints are deliberately separate from course/LMS records. */
 OTR.fpStore = {
   key() { return (OTR.save ? OTR.save.localKey() : 'otr_save_v1') + '_firstperson_v2'; },
-  empty() { return { version: 2, sequence: 0, welcomed: false, campaign: null, practice: null, last: null }; },
+  empty() { return { version: 2, sequence: 0, welcomed: false, campaign: null, practice: null, last: null, guidance:{intro:false,seen:[]} }; },
   read() {
     try {
       const data = JSON.parse(window.localStorage.getItem(this.key()));
       if (!data || data.version !== 2) return this.empty();
       const out = this.empty(); out.sequence = Number.isSafeInteger(data.sequence) && data.sequence >= 0 ? data.sequence : 0; out.welcomed = !!data.welcomed;
+      if(data.guidance&&typeof data.guidance.intro==='boolean'&&Array.isArray(data.guidance.seen))out.guidance={intro:data.guidance.intro,seen:[...new Set(data.guidance.seen.filter(k=>typeof k==='string'&&/^[a-z]{1,20}$/.test(k)))].slice(0,24)};
       ['campaign','practice'].forEach(k => { const m = OTR.fpMission.restore(data[k]); out[k] = m && m.kind === k ? m.snapshot() : null; });
       const last = data.last;
       out.last = last && ['campaign','practice'].includes(last.kind) && Number.isFinite(last.seed) &&
