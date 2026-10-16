@@ -26,14 +26,22 @@ OTR.world3d = {
     sun.position.set(-12, 25, 8); world.add(sun);
     const target = new THREE.WebGLRenderTarget(1, 1, { depthBuffer: true, stencilBuffer: false });
     target.texture.colorSpace = THREE.SRGBColorSpace;
+    // Transform each existing composite, including the mirror. No extra target, texture or render pass.
+    const colour={value:0};
+    const composite=texture=>{
+      const material=new THREE.MeshBasicMaterial({map:texture,depthTest:false,depthWrite:false,toneMapped:false});
+      material.onBeforeCompile=shader=>{shader.uniforms.otrColour=colour;shader.fragmentShader='uniform float otrColour;\n'+shader.fragmentShader.replace('#include <dithering_fragment>',
+        '#include <dithering_fragment>\nif (otrColour > 0.5) { vec3 c = gl_FragColor.rgb; gl_FragColor.rgb = clamp(vec3(c.r, dot(c, vec3(0.163,0.725,0.112)), dot(c, vec3(0.455,-0.645,1.191))), 0.0, 1.0); }');};
+      material.customProgramCacheKey=()=> 'otr-colour-v1';return material;
+    };
     const screen = new THREE.Scene(), screenCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    screen.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false,toneMapped:false})));
+    screen.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), composite(target.texture)));
     // One live mirror while requested. It observes the same actors and uses its own depth target.
     const mirrorTarget = new THREE.WebGLRenderTarget(320, 180, { depthBuffer: true, stencilBuffer: false });
     mirrorTarget.texture.colorSpace = THREE.SRGBColorSpace;
     const mirrorCamera = new THREE.PerspectiveCamera(55, 16 / 9, 0.08, 100);
     mirrorCamera.rotation.order = 'YXZ';
-    const mirrorQuad = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), new THREE.MeshBasicMaterial({map:mirrorTarget.texture,depthTest:false,depthWrite:false,toneMapped:false}));
+    const mirrorQuad = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), composite(mirrorTarget.texture));
     mirrorQuad.position.set(-0.7125, 0.4111, 0); mirrorQuad.scale.x = -1;
     mirrorQuad.material.side = THREE.DoubleSide; mirrorQuad.renderOrder = 1;
     screen.add(mirrorQuad);
@@ -42,6 +50,8 @@ OTR.world3d = {
     let width = 0, height = 0, disposed = false;
     extern.render = function () {
       if (disposed) return;
+      colour.value=OTR.a11y&&OTR.a11y.settings().colour?1:0;
+      mirrorQuad.position.y=1-2*((mirror.top||122)+90)/OTR.H;
       const scale = OTR.gfx.high() ? 1 : 0.65;
       const w = Math.max(1, Math.round(gl.drawingBufferWidth * scale));
       const h = Math.max(1, Math.round(gl.drawingBufferHeight * scale));
@@ -89,6 +99,6 @@ OTR.world3d = {
       target.dispose(); mirrorTarget.dispose(); renderer.dispose(); // Never call forceContextLoss on the shared context.
     };
     scene.events.once('shutdown', dispose);
-    return { world, camera, mirror, extern, dispose, diagnostics };
+    return { world, camera, mirror, extern, dispose, diagnostics, colour };
   }
 };

@@ -9,7 +9,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.sensitivity=OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity'))||0.002,0.0005,0.006);
     this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
-    this.makeHud();const token={};this.loadingToken=token;
+    this.makeHud();if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
     this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
     const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
@@ -32,10 +32,11 @@ class FirstPersonScene extends Phaser.Scene {
     });
   }
   makeHud() {
-    const g=this.add.graphics().setDepth(20);g.fillStyle(0x1B2634,0.93);g.fillRect(0,0,1280,100);g.fillRect(0,608,1280,112);
+    const g=this.add.graphics().setDepth(20);g.fillStyle(0x1B2634,0.93);g.fillRect(0,608,1280,112);
+    this.headerBack=this.add.rectangle(0,0,1280,100,0x1B2634,0.93).setOrigin(0).setDepth(20);
     this.title=OTR.txt(this,24,25,'ON THE ROUTE',18,'#EBC889',{ox:0,fit:410}).setDepth(21);
     this.status=OTR.txt(this,1256,25,'',16,'#ffffff',{ox:1,fit:790}).setDepth(21);
-    this.objective=OTR.txt(this,24,64,'Loading…',19,'#ffffff',{ox:0,fit:1220}).setDepth(21);
+    this.objective=OTR.txt(this,24,48,'Loading…',OTR.a11y&&OTR.a11y.large?23:19,'#ffffff',{ox:0,oy:0,wrap:1220}).setDepth(21);
     this.hintBack=this.add.rectangle(640,574,1210,48,0x1B2634,0.88).setDepth(19);
     this.hint=OTR.txt(this,640,574,'',18,'#ffffff',{fit:1160}).setDepth(21);
     this.controls=OTR.txt(this,640,638,'',15,'#ffffff',{fit:1230}).setDepth(21);
@@ -65,28 +66,29 @@ class FirstPersonScene extends Phaser.Scene {
     choices.forEach((choice,i)=>{
       const bw=(w-80)/columns-12,x=cx+(columns===1?0:(i%2?1:-1)*(bw+20)/2),y=firstY+Math.floor(i/columns)*58+24;
       const hit=this.add.rectangle(x,y,bw,46,0x42556A,1).setInteractive({useHandCursor:true});
-      const label=OTR.txt(this,x,y,`${i+1}. ${choice.label}`,18,'#ffffff',{fit:bw-24});
+      const label=OTR.txt(this,x,y,`${i+1}. ${OTR.i18n.t(choice.label)}`,18,'#ffffff',{wrap:bw-24,align:'center'});
       hit.on('pointerover',()=>{if(this.panel){this.panel.index=i;this.highlight();}});hit.on('pointerdown',()=>this.choose(i));
       root.add([hit,label]);this.panel.buttons.push(hit);
     });
-    if(options.inspect)root.add(OTR.txt(this,303,514,'A/D rotate · Space use scanner · Esc return',17,'#ffffff',{fit:530,stroke:'#1B2634',strokeW:4}));
-    this.highlight();if(OTR.a11y)OTR.a11y.say(OTR.i18n?[title,body].map(t=>OTR.i18n.t(t)).join('. '):title+'. '+body);this.refresh();
+    if(options.inspect)root.add(OTR.txt(this,303,514,`Use ${OTR.fpAccess.key('KeyA')}/${OTR.fpAccess.key('KeyD')} to rotate. Press ${OTR.fpAccess.key('Space')} to scan. Escape returns.`,17,'#ffffff',{wrap:530,align:'center',stroke:'#1B2634',strokeW:4}));
+    this.highlight();if(OTR.a11y)OTR.a11y.say([title,body,...choices.map(c=>c.label)].map(t=>OTR.i18n?OTR.i18n.t(t):t).join('. '));this.refresh();
   }
-  highlight(){if(this.panel)this.panel.buttons.forEach((b,i)=>b.setFillStyle(i===this.panel.index?0x97713D:0x42556A));}
+  highlight(speak=false){if(this.panel){this.panel.buttons.forEach((b,i)=>{b.setFillStyle(i===this.panel.index?0x97713D:0x42556A);b.setStrokeStyle(i===this.panel.index?3:0,0xffffff);});if(speak&&OTR.a11y)OTR.a11y.say(this.panel.choices[this.panel.index].label);}}
   choose(index){if(!this.panel||this.transitioning)return;const choice=this.panel.choices[index];if(choice){this.inputBlockedUntil=this.time.now+180;choice.action();}}
   closePanel(resume=true){
     if(this.panel){this.panel.root.destroy();this.panel=null;}this.held=Object.create(null);if(OTR.a11y)OTR.a11y.hush();
     if(resume){if(this.model)this.model.paused=this.model.phase==='debrief';this.hubMotion.paused=false;this.capture();}
   }
-  capture(){const canvas=this.sys.game.canvas;if(!canvas.requestPointerLock||document.pointerLockElement===canvas)return;
+  capture(){const canvas=this.sys.game.canvas;if(this.keyboardMode||!canvas.requestPointerLock||document.pointerLockElement===canvas)return;
     try{const p=canvas.requestPointerLock();if(p&&p.catch)p.catch(()=>{});}catch(_){/* Drag look remains available. */}}
   releaseMouse(){if(document.pointerLockElement===this.sys.game.canvas)document.exitPointerLock();}
-  message(text){this.notice=text||'';this.noticeUntil=this.time.now+5000;}
+  message(text){this.notice=text||'';this.noticeUntil=this.time.now+5000;if(text&&OTR.a11y)OTR.a11y.say(text);}
   write(){this.saved=OTR.fpStore.write(this.progress);return this.saved;}
   checkpoint(){if(!this.progress)return;if(this.model&&this.model.phase!=='debrief')this.progress[this.model.kind]=this.model.snapshot();this.write();this.lastSave=this.time?this.time.now:0;}
   transition(action){
     if(this.handheld)this.handheld.close(false);
     if(this.transitioning)return;this.transitioning=true;this.closePanel(false);this.checkpoint();this.capture();
+    if(OTR.fpAccess&&OTR.fpAccess.reduced()){action();this.sync();this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}return;}
     this.tweens.add({targets:this.fade,alpha:1,duration:180,onComplete:()=>{action();this.sync();this.tweens.add({targets:this.fade,alpha:0,duration:240,onComplete:()=>{this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}}});}});
   }
   launch(kind){this.transition(()=>{
@@ -128,7 +130,7 @@ class FirstPersonScene extends Phaser.Scene {
       {label:'Low graphics',action:()=>quality('low')},{label:'High graphics',action:()=>quality('high')},
       {label:'Slower mouse look',action:()=>{this.sensitivity=Math.max(0.0005,this.sensitivity-0.0005);this.showSettings();}},
       {label:'Faster mouse look',action:()=>{this.sensitivity=Math.min(0.006,this.sensitivity+0.0005);this.showSettings();}},
-      {label:'Language',action:()=>this.showLanguages()},{label:'Back',action:()=>this.showPause()}]);
+      {label:'Language',action:()=>this.showLanguages()},{label:'Accessibility',action:()=>OTR.fpAccess.menu(this)},{label:'Back',action:()=>this.showPause()}]);
   }
   showLanguages(){
     this.closePanel(false);this.external=true;const before=new Set(this.children.list);OTR.ui.languages(this);
@@ -278,8 +280,9 @@ class FirstPersonScene extends Phaser.Scene {
     else if(m.heldId)result=m.putBack();if(result)this.message(result);this.checkpoint();this.sync();this.refresh();
   }
   installInput(){
+    OTR.fpAccess.syncKeys();
     const canvas=this.sys.game.canvas,handlers=[],listen=(o,name,fn)=>{o.addEventListener(name,fn);handlers.push(()=>o.removeEventListener(name,fn));};
-    listen(canvas,'pointerdown',e=>{if(e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
+    listen(canvas,'pointerdown',e=>{this.keyboardMode=false;if(e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
       if(this.handheld&&this.handheld.isOpen){if(this.handheld.aiming){this.handheld.trigger=true;this.capture();}return;}
       if(document.pointerLockElement===canvas)this.interact();else this.pointerStart={x:e.clientX,y:e.clientY};});
     listen(window,'pointerup',()=>{if(this.handheld)this.handheld.trigger=false;});
@@ -289,9 +292,9 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
-      if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
+      if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
         const hh=this.handheld;
         if(e.code==='Tab')hh.close();
@@ -299,18 +302,23 @@ class FirstPersonScene extends Phaser.Scene {
         else if(e.code==='KeyH'){hh.close(false);this.showPause();}
         else if(e.code==='Backspace'){const back=hh.device.current&&hh.device.current.back;if(back)back();else hh.home();}
         else if(/^Digit[1-9]$/.test(e.code))hh.choose(Number(e.code.slice(5))-1);
+        else if(!hh.aiming&&e.code==='Enter')hh.choose(hh.index||0);
+        else if(!hh.aiming&&/^Arrow/.test(e.code)){hh.index=(hh.index||0)+(e.code==='ArrowUp'||e.code==='ArrowLeft'?-1:1);OTR.fpAccess.deviceFocus(hh);}
+        else if(hh.aiming&&e.code==='KeyP')OTR.fpAccess.focus(this);
         return;
       }
       if(this.panel){
         if(e.code==='Escape'){if(this.panel.back)this.panel.back();else this.closePanel();return;}
         if(this.panel.type==='inspect'&&e.code==='Space'){this.handheld.scan();return;}
         if(/^Digit[1-9]$/.test(e.code)){this.choose(Number(e.code.slice(5))-1);return;}
-        if(e.code==='ArrowDown'||e.code==='ArrowUp'){this.panel.index=(this.panel.index+(e.code==='ArrowDown'?1:-1)+this.panel.choices.length)%this.panel.choices.length;this.highlight();return;}
+        if(this.panel.type==='inspect'&&(e.code==='ArrowLeft'||e.code==='ArrowRight'))return;
+        if(/^Arrow/.test(e.code)||e.code==='Tab'){this.panel.index=(this.panel.index+(e.code==='ArrowUp'||e.code==='ArrowLeft'||e.code==='Tab'&&e.shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
         if(e.code==='Enter')this.choose(this.panel.index);return;
       }
       if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
       if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
       if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
+      if(e.code==='KeyP'){OTR.fpAccess.focus(this);return;}
       const m=this.model;if(m&&m.mode==='cab'){
         if(e.code==='Space')m.van.hand=!m.van.hand;if(e.code==='KeyB')m.van.belt=!m.van.belt;
         if(e.code==='KeyR'&&!m.shiftGear())this.message('Stop before selecting drive or reverse.');if(e.code==='KeyM')m.mirror();
@@ -348,6 +356,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
     this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
+    if(this.headerBack){const height=Math.max(100,this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
     // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
     const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
       m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
@@ -359,22 +368,22 @@ class FirstPersonScene extends Phaser.Scene {
       const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
       if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
       // the two halves are translated before they are joined: "   |   " is not a place the translator splits
-      this.setText('help',t((mode==='cab'?[`${k('KeyM')} left mirror`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:['Mouse looks','Click or E interacts','Drag to look without mouse capture','Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
+      this.setText('help',t((mode==='cab'?[`${k('KeyM')} left mirror`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:[`${OTR.fpAccess.lookKeys()} look`,`${k('KeyP')} selects a nearby target`,'Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
       }else{
-        this.setText('controls',aiming?[`${wasd} move`,'Mouse aim',`Hold ${k('Space')} or left click to scan`].join(' · '):'Click or use number keys · Backspace goes back',790);
+        this.setText('controls',aiming?[`${wasd} move`,`${OTR.fpAccess.lookKeys()} aim`,`Hold ${k('Space')} or left click to scan`].join(' · '):'Use arrows and Enter, or number keys. Backspace goes back.',790);
         this.setText('help',t([`${k('Tab')} put away`,'Esc back',`${k('KeyH')} pause`].join(' · '))+'   |   '+t(saving),790);
       }
     }
     let hint='';const id=this.target;
-    if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?'E resume workday':'E start workday'):id==='hub-practice'?'E cargo practice':id==='hub-record'?'E last debrief':'H opens the hub menu';
+    if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
     else if(mode==='cab'){hint=m.driving?OTR.fpDriving.hint(m):'';
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
-    else if(id==='driver')hint='E enter cab';else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?'E close cargo doors':'E open cargo doors';else if(id==='secure')hint='E secure the load';
-    else if(id==='tyres'||id==='lights')hint=id==='tyres'?'E inspect tires':'E inspect lights';else if(id==='dispatch')hint='E check in at Dispatch';else if(id==='returns')hint='E use scanner to return the retained parcel';
-    else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · E pick up · F inspect · Tab handheld';}
-    else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · E place the parcel';
-    else if(id&&id.startsWith('gate'))hint='E checks the gate. Keep outside while the dog is loose.';else if(id&&id.startsWith('hazard'))hint='Inspect the path with E. Hold Shift for short, careful steps.';
-    else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · E attempt delivery';else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
+    else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
+    else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
+    else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · '+`${k('KeyE')} picks up the parcel. ${k('KeyF')} inspects it. ${k('Tab')} opens the handheld.`;}
+    else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · '+`${k('KeyE')} places the parcel.`;
+    else if(id&&id.startsWith('gate'))hint=`${k('KeyE')} checks the gate. Keep outside while the dog is loose.`;else if(id&&id.startsWith('hazard'))hint=`${k('KeyE')} inspects the path. Hold ${k('ShiftLeft')} for short, careful steps.`;
+    else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
     if(mode==='cab'&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
@@ -385,8 +394,9 @@ class FirstPersonScene extends Phaser.Scene {
   }
   sync(){if(this.art)this.art.sync(this.model,this.hubMotion.player,this.area);}
   update(time,delta){
-    if(this.loading||!this.view)return;const h=this.held,controls={forward:!!(h.KeyW||h.ArrowUp),back:!!(h.KeyS||h.ArrowDown),left:!!(h.KeyA||h.ArrowLeft),right:!!(h.KeyD||h.ArrowRight),careful:!!(h.ShiftLeft||h.ShiftRight)};
-    if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!h.KeyD)-Number(!!h.KeyA))*Math.min(delta/1000,0.05)*1.8;
+    if(this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
+    if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
+    if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.driving&&!this.model.paused&&(this.model.driving.siren.state==='approaching'||this.model.driving.siren.state==='passing')&&time-(this.sirenToneAt||-1000)>1000){
