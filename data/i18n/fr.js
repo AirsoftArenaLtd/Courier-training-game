@@ -3292,7 +3292,59 @@ window.OTR_I18N.fr = {
 "This package is not on the route manifest.": "Ce colis n'est pas sur le manifeste de la tournée.",
 "I counted one package.": "J'ai compté un colis.",
 "Load count": "Nombre de colis",
-"A previously missed package has turned up in cargo. Scan it and check the address.": "Un colis oublié plus tôt est réapparu dans la cargaison. Scanne-le et vérifie l'adresse."
+"A previously missed package has turned up in cargo. Scan it and check the address.": "Un colis oublié plus tôt est réapparu dans la cargaison. Scanne-le et vérifie l'adresse.",
+"Adjusted speed and following distance to the weather.": "Tu as adapté ta vitesse et ta distance de suivi à la météo.",
+"Continued driving without a water and shade break.": "Tu as continué à rouler sans pause eau et ombre.",
+"Speed or following distance did not suit the weather.": "Ta vitesse ou ta distance de suivi n'étaient pas adaptées à la météo.",
+"Dispatch sent a route update. Park safely before opening the handheld.": "Le répartiteur a envoyé une mise à jour de tournée. Gare-toi en sécurité avant d'ouvrir le terminal.",
+"Dispatch has sent a route update. Park safely, then open Route-day updates on the handheld.": "Le répartiteur a envoyé une mise à jour de tournée. Gare-toi en sécurité, puis ouvre Mises à jour de la journée sur le terminal.",
+"Heat exposure is building. Park safely for a water and shade break now.": "L'exposition à la chaleur augmente. Gare-toi en sécurité et fais une pause eau et ombre maintenant.",
+"Snow reduces grip. Keep below 10 mph and leave six seconds behind traffic.": "La neige réduit l'adhérence. Reste sous 10 mph et garde six secondes derrière le véhicule qui te précède.",
+"The storm reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "L'orage réduit la visibilité. Reste sous 12 mph et garde cinq secondes derrière le véhicule qui te précède.",
+"Wet roads reduce grip. Keep below 18 mph and leave four seconds behind traffic.": "La chaussée mouillée réduit l'adhérence. Reste sous 18 mph et garde quatre secondes derrière le véhicule qui te précède.",
+"Heat builds during the drive. Slow down and park safely for water and shade breaks.": "La chaleur monte pendant la conduite. Ralentis et gare-toi en sécurité pour faire des pauses eau et ombre.",
+"There is no dispatch update yet.": "Il n'y a pas encore de mise à jour du répartiteur.",
+"Stop and set the parking brake before reading the update.": "Arrête-toi et serre le frein à main avant de lire la mise à jour.",
+"Park safely before taking a water and shade break.": "Gare-toi en sécurité avant de faire une pause eau et ombre.",
+"You took a water and shade break. Keep drinking regularly during the day.": "Tu as fait une pause eau et ombre. Continue à boire régulièrement pendant la journée.",
+"Followed the updated dispatch instruction at the stop.": "Tu as suivi la nouvelle consigne du répartiteur à l'arrêt.",
+"Missed the updated dispatch instruction at the stop.": "Tu as manqué la nouvelle consigne du répartiteur à l'arrêt.",
+"Kept a three-second following gap on this leg.": "Tu as gardé trois secondes de distance de suivi sur ce tronçon.",
+"Park the van and get out before checking the reversing path.": "Gare le fourgon et descends avant de vérifier le trajet de marche arrière.",
+"Stand behind the van and look along the reversing path.": "Place-toi derrière le fourgon et regarde le long du trajet de marche arrière.",
+"The reversing path is clear. Return to the cab and keep watching as you reverse.": "Le trajet de marche arrière est dégagé. Retourne dans la cabine et continue de surveiller en reculant.",
+"The reversing path is blocked. Wait for it to clear and check again.": "Le trajet de marche arrière est bloqué. Attends qu'il se dégage et vérifie de nouveau.",
+"Checked the mirrors before pulling out.": "Tu as vérifié les rétroviseurs avant de démarrer.",
+"Pulled out without checking the mirrors.": "Tu as démarré sans vérifier les rétroviseurs.",
+"Followed traffic with less than a three-second gap.": "Tu as suivi le véhicule de devant à moins de trois secondes.",
+"Got out and checked the reversing path before backing.": "Tu es descendu vérifier le trajet de marche arrière avant de reculer.",
+"Reversed without a current clear-path check.": "Tu as reculé sans vérification récente que le trajet était dégagé.",
+"Contacted the school bus instead of stopping with a safe gap.": "Tu as touché le bus scolaire au lieu de t'arrêter à bonne distance.",
+"Passed a school bus while its red lights were flashing.": "Tu as dépassé un bus scolaire dont les feux rouges clignotaient.",
+"Drove past a school bus while children were boarding.": "Tu as dépassé un bus scolaire pendant que des enfants montaient.",
+"Stopped and waited until the school bus switched off its red lights.": "Tu t'es arrêté et tu as attendu que le bus scolaire éteigne ses feux rouges.",
+"Did not pull over and stop for the emergency vehicle.": "Tu ne t'es pas rangé ni arrêté pour le véhicule d'urgence.",
+"Pulled out before the emergency vehicle had passed.": "Tu as redémarré avant le passage du véhicule d'urgence.",
+"Pulled over to the right and waited for the emergency vehicle to pass.": "Tu t'es rangé à droite et tu as attendu le passage du véhicule d'urgence.",
+"An emergency vehicle is behind you. Signal, pull over to the right and stop.": "Un véhicule d'urgence arrive derrière toi. Mets ton clignotant, range-toi à droite et arrête-toi.",
+"Wait until the emergency vehicle has passed before pulling out.": "Attends que le véhicule d'urgence soit passé avant de redémarrer.",
+"The school bus has flashing red lights. Stop before the bus and wait until the lights go off.": "Le bus scolaire a ses feux rouges clignotants. Arrête-toi avant le bus et attends que les feux s'éteignent.",
+"Reverse slowly and keep watching the path.": "Recule lentement et continue de surveiller le trajet.",
+"Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.": "Arrête-toi et descends regarder avant de reculer. Place-toi derrière le fourgon, face au trajet de marche arrière, et appuie sur G.",
+"Route-day updates": "Mises à jour de la journée",
+"Dispatch has sent a stop update.": "Le répartiteur a envoyé une mise à jour d'arrêt.",
+"Read the dispatch update": "Lire la mise à jour du répartiteur",
+"Weather and breaks": "Météo et pauses",
+"Conditions are clear. Follow the posted speed limits.": "Les conditions sont bonnes. Respecte les limitations de vitesse affichées.",
+"Take a water and shade break": "Faire une pause eau et ombre",
+"Place behind the planter": "Déposer derrière la jardinière",
+"Leave the parcel behind the planter, as dispatch requested.": "Laisse le colis derrière la jardinière, comme le répartiteur l'a demandé.",
+"Check the reversing path": "Vérifier le trajet de marche arrière",
+"Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.": "Gare et sécurise le fourgon. Descends, va derrière et regarde le long du trajet que tu comptes emprunter en reculant. Tiens les personnes et la circulation à l'écart.",
+"Confirm the path check": "Confirmer la vérification du trajet",
+"Check mirrors and signals before moving.": "Vérifie les rétroviseurs et les clignotants avant de bouger.",
+"Keep right. The speed limit is 25 mph.": "Tiens ta droite. La limitation de vitesse est de 25 mph.",
+"Keep right. The speed limit is 15 mph.": "Tiens ta droite. La limitation de vitesse est de 15 mph."
 },
 "templates": [
 [
@@ -4606,6 +4658,34 @@ window.OTR_I18N.fr = {
 [
 "loadout:{0}:{1}",
 "loadout:{0}:{1}"
+],
+[
+"Stop {0} now needs a signature. If nobody can sign, retain the parcel.",
+"L'arrêt {0} exige maintenant une signature. Si personne ne peut signer, garde le colis."
+],
+[
+"Stop {0} requests delivery behind the planter. Keep the package out of view.",
+"L'arrêt {0} demande une livraison derrière la jardinière. Garde le colis hors de vue."
+],
+[
+"The forecast is {0}.",
+"La météo prévoit : {0}."
+],
+[
+"{0} closes cargo. {1} checks the reversing path.",
+"{0} ferme le compartiment de chargement. {1} vérifie le trajet de marche arrière."
+],
+[
+"{0} opens cargo. {1} checks the reversing path.",
+"{0} ouvre le compartiment de chargement. {1} vérifie le trajet de marche arrière."
+],
+[
+"day:{0}:{1}",
+"day:{0}:{1}"
+],
+[
+"driver:{0}:{1}",
+"driver:{0}:{1}"
 ]
 ],
 "keep": [
