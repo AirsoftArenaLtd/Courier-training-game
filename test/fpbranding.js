@@ -4,11 +4,12 @@ const c={THREE:require('../lib/three.min.js')};c.window=c;vm.createContext(c);fo
 c.OTR.gfx={high:()=>false};
 const themes=[{companyName:'Example One',primary:0x274d62,accent:0xc27a34,vanBody:0xf1e8d4,uniform:0x2c6573,logoText:'E1'},
  {companyName:'Example Two',primary:0x354f36,accent:0xacc7e8,vanBody:0xb8ccad,uniform:0x495275,logoText:'E2'}];
+const colours=root=>{const out=[],colour=new c.THREE.Color();root.traverse(o=>{if(!o.material||!(o.layers.mask&1))return;if(o.isInstancedMesh&&o.instanceColor){for(let i=0;i<o.count;i++){o.getColorAt(i,colour);out.push(colour.clone().multiply(o.material.color).getHex());}}else out.push(o.material.color.getHex());});return out;};
 test('two company themes reach the actual van, livery and uniform materials',()=>{
  for(const theme of themes){c.OTR_DATA={theme};const T=c.THREE,world=new T.Scene(),camera=new T.PerspectiveCamera(68,16/9,.08,180);world.add(camera);const m=c.OTR.fpMission.create('campaign',1),s={view:{world,camera,mirror:{camera:new T.PerspectiveCamera(),on:false}},model:m};const art=c.OTR.fpWorld.build(s,m);
-  assert.equal(art.brand.name,theme.companyName);const colours=root=>{const out=[];root.traverse(o=>{if(o.material)out.push(o.material.color.getHex());});return out;};
+  assert.equal(art.brand.name,theme.companyName);
   assert.ok(colours(art.van).includes(theme.vanBody));assert.ok(colours(art.van).includes(theme.primary));assert.ok(colours(art.van).includes(theme.accent));assert.ok(colours(art.carried).includes(theme.uniform));
-  const paint=art.van.children.filter(o=>o.material&&o.material.color.getHex()===theme.vanBody);assert.ok(paint.length>=4);assert.ok(paint.every(o=>o.material===paint[0].material),'body shares one material');assert.equal(art.labels.filter(l=>l.brand).length,3);art.dispose();
+  assert.ok(colours(art.van).filter(value=>value===theme.vanBody).length>=4);assert.equal(art.labels.filter(l=>l.brand).length,3);art.dispose();
  }
 });
 test('van labels follow a moved/rotated van and do not show through its opposite side',()=>{
@@ -21,5 +22,5 @@ test('neutral defaults and the existing config brand remain usable without optio
 });
 test('weather cannot repaint company colours that happen to match the road, grass or roofs',()=>{
  const theme={primary:0x4b5058,vanBody:0x789069,uniform:0x65626b};c.OTR_DATA={theme};const T=c.THREE;
- for(const weather of ['rain','snow']){const world=new T.Scene(),camera=new T.PerspectiveCamera();world.add(camera);const m=c.OTR.fpMission.create('campaign',1);m.routeDay={weather};const a=c.OTR.fpWorld.build({view:{world,camera,mirror:{camera:new T.PerspectiveCamera(),on:false}}},m);const colours=[];a.van.traverse(o=>{if(o.material)colours.push(o.material.color.getHex());});assert.ok(colours.includes(theme.primary));assert.ok(colours.includes(theme.vanBody));const sleeves=[];a.carried.traverse(o=>{if(o.material)sleeves.push(o.material.color.getHex());});assert.ok(sleeves.includes(theme.uniform));a.dispose();}
+ for(const weather of ['rain','snow']){const world=new T.Scene(),camera=new T.PerspectiveCamera();world.add(camera);const m=c.OTR.fpMission.create('campaign',1);m.routeDay={weather};const a=c.OTR.fpWorld.build({view:{world,camera,mirror:{camera:new T.PerspectiveCamera(),on:false}}},m);assert.ok(colours(a.van).includes(theme.primary));assert.ok(colours(a.van).includes(theme.vanBody));assert.ok(colours(a.carried).includes(theme.uniform));a.dispose();}
 });

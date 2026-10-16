@@ -1,0 +1,28 @@
+{
+  "suites": [
+    "firstperson",
+    "fpmission",
+    "fphandheld",
+    "fpworld",
+    "fproute",
+    "fploadout",
+    "fpdriving",
+    "fpday",
+    "fpdoors",
+    "fpaccess",
+    "fpbranding",
+    "fpguide",
+    "fpresume",
+    "fpperf",
+    "workday",
+    "savesize",
+    "i18n"
+  ],
+  "passed": 17,
+  "failed": 0,
+  "physicalBrowserChecks": {
+    "keyboard": 145,
+    "doorstep": 394,
+    "companyThemes": 39
+  }
+}
