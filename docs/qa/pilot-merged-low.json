@@ -1,0 +1,742 @@
+{
+  "tag": "pilot-merged",
+  "quality": "low",
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "prototype": {
+    "hub": {
+      "frames": 267,
+      "avgFPS": 26.68,
+      "low1FPS": 9.94,
+      "p99ms": 94.9,
+      "maxMs": 106.1,
+      "peak": {
+        "calls": 13,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 74,
+        "baseLevelRGBABytes": 1881148,
+        "withMipmapsUpperBytes": 2508198
+      }
+    },
+    "depot": {
+      "frames": 239,
+      "avgFPS": 23.78,
+      "low1FPS": 8.79,
+      "p99ms": 95.7,
+      "maxMs": 128.4,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 75,
+        "baseLevelRGBABytes": 1881152,
+        "withMipmapsUpperBytes": 2508203
+      }
+    },
+    "cab": {
+      "frames": 238,
+      "avgFPS": 23.76,
+      "low1FPS": 7.89,
+      "p99ms": 96.7,
+      "maxMs": 158.9,
+      "peak": {
+        "calls": 14,
+        "triangles": 480,
+        "textures": 1,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 75,
+        "baseLevelRGBABytes": 1881152,
+        "withMipmapsUpperBytes": 2508203
+      }
+    },
+    "mirror": {
+      "frames": 207,
+      "avgFPS": 20.57,
+      "low1FPS": 9.46,
+      "p99ms": 102.4,
+      "maxMs": 109.9,
+      "peak": {
+        "calls": 38,
+        "triangles": 870,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 75,
+        "baseLevelRGBABytes": 1881152,
+        "withMipmapsUpperBytes": 2508203
+      }
+    },
+    "handheld": {
+      "frames": 186,
+      "avgFPS": 18.53,
+      "low1FPS": 8.12,
+      "p99ms": 107.5,
+      "maxMs": 138.9,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 88,
+        "baseLevelRGBABytes": 2729784,
+        "withMipmapsUpperBytes": 3639712
+      }
+    },
+    "barcodeAim": {
+      "frames": 193,
+      "avgFPS": 19.27,
+      "low1FPS": 7.18,
+      "p99ms": 112.6,
+      "maxMs": 165.8,
+      "peak": {
+        "calls": 41,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "firstStop": {
+      "frames": 255,
+      "avgFPS": 25.49,
+      "low1FPS": 11.45,
+      "p99ms": 84.8,
+      "maxMs": 91.7,
+      "peak": {
+        "calls": 19,
+        "triangles": 560,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "doorstep": {
+      "frames": 198,
+      "avgFPS": 19.63,
+      "low1FPS": 8.48,
+      "p99ms": 105.1,
+      "maxMs": 130.8,
+      "peak": {
+        "calls": 25,
+        "triangles": 530,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "returns": {
+      "frames": 236,
+      "avgFPS": 23.45,
+      "low1FPS": 10.12,
+      "p99ms": 92.7,
+      "maxMs": 110.8,
+      "peak": {
+        "calls": 35,
+        "triangles": 664,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop1Mirror": {
+      "frames": 240,
+      "avgFPS": 23.94,
+      "low1FPS": 11.2,
+      "p99ms": 88.6,
+      "maxMs": 89.7,
+      "peak": {
+        "calls": 36,
+        "triangles": 812,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop2": {
+      "frames": 234,
+      "avgFPS": 23.27,
+      "low1FPS": 10.41,
+      "p99ms": 93.9,
+      "maxMs": 99.7,
+      "peak": {
+        "calls": 20,
+        "triangles": 694,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop2Mirror": {
+      "frames": 225,
+      "avgFPS": 22.43,
+      "low1FPS": 10.18,
+      "p99ms": 96.4,
+      "maxMs": 101.3,
+      "peak": {
+        "calls": 42,
+        "triangles": 1200,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop3": {
+      "frames": 234,
+      "avgFPS": 23.39,
+      "low1FPS": 10.97,
+      "p99ms": 90.6,
+      "maxMs": 91.8,
+      "peak": {
+        "calls": 17,
+        "triangles": 704,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop3Mirror": {
+      "frames": 217,
+      "avgFPS": 21.63,
+      "low1FPS": 8.11,
+      "p99ms": 102,
+      "maxMs": 155.8,
+      "peak": {
+        "calls": 40,
+        "triangles": 1268,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop4": {
+      "frames": 250,
+      "avgFPS": 24.88,
+      "low1FPS": 10.2,
+      "p99ms": 93.1,
+      "maxMs": 100.9,
+      "peak": {
+        "calls": 15,
+        "triangles": 746,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop4Mirror": {
+      "frames": 230,
+      "avgFPS": 22.96,
+      "low1FPS": 9.69,
+      "p99ms": 94.4,
+      "maxMs": 114.6,
+      "peak": {
+        "calls": 38,
+        "triangles": 1378,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop5": {
+      "frames": 268,
+      "avgFPS": 26.74,
+      "low1FPS": 11.6,
+      "p99ms": 83.2,
+      "maxMs": 92,
+      "peak": {
+        "calls": 11,
+        "triangles": 498,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "stop5Mirror": {
+      "frames": 240,
+      "avgFPS": 23.93,
+      "low1FPS": 9.95,
+      "p99ms": 96.3,
+      "maxMs": 104.5,
+      "peak": {
+        "calls": 33,
+        "triangles": 918,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "hazardsfront": {
+      "frames": 223,
+      "avgFPS": 22.14,
+      "low1FPS": 9.62,
+      "p99ms": 102.4,
+      "maxMs": 106.5,
+      "peak": {
+        "calls": 19,
+        "triangles": 670,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "hazardsmirror": {
+      "frames": 218,
+      "avgFPS": 21.77,
+      "low1FPS": 9.72,
+      "p99ms": 100.1,
+      "maxMs": 107.6,
+      "peak": {
+        "calls": 44,
+        "triangles": 1118,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "hazardswalk": {
+      "frames": 234,
+      "avgFPS": 23.27,
+      "low1FPS": 10.64,
+      "p99ms": 90.2,
+      "maxMs": 101.5,
+      "peak": {
+        "calls": 44,
+        "triangles": 818,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "weatherrainMirror": {
+      "frames": 219,
+      "avgFPS": 21.77,
+      "low1FPS": 10.14,
+      "p99ms": 97.7,
+      "maxMs": 99.7,
+      "peak": {
+        "calls": 46,
+        "triangles": 1550,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "weatherstormMirror": {
+      "frames": 185,
+      "avgFPS": 18.36,
+      "low1FPS": 6.06,
+      "p99ms": 153.7,
+      "maxMs": 176.1,
+      "peak": {
+        "calls": 46,
+        "triangles": 1550,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 83,
+        "baseLevelRGBABytes": 2729764,
+        "withMipmapsUpperBytes": 3639686
+      }
+    },
+    "weathersnowMirror": {
+      "frames": 157,
+      "avgFPS": 15.6,
+      "low1FPS": 5.66,
+      "p99ms": 158.9,
+      "maxMs": 194.3,
+      "peak": {
+        "calls": 48,
+        "triangles": 1564,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 83,
+        "baseLevelRGBABytes": 2729764,
+        "withMipmapsUpperBytes": 3639686
+      }
+    },
+    "weatherheatMirror": {
+      "frames": 190,
+      "avgFPS": 18.98,
+      "low1FPS": 6.06,
+      "p99ms": 151.9,
+      "maxMs": 178.1,
+      "peak": {
+        "calls": 45,
+        "triangles": 1130,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "doorgate": {
+      "frames": 214,
+      "avgFPS": 21.39,
+      "low1FPS": 9.55,
+      "p99ms": 102.2,
+      "maxMs": 106.6,
+      "peak": {
+        "calls": 18,
+        "triangles": 898,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "doorhazard": {
+      "frames": 214,
+      "avgFPS": 21.38,
+      "low1FPS": 9.28,
+      "p99ms": 96.8,
+      "maxMs": 127.1,
+      "peak": {
+        "calls": 19,
+        "triangles": 758,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 83,
+        "baseLevelRGBABytes": 2729764,
+        "withMipmapsUpperBytes": 3639686
+      }
+    },
+    "doormirror": {
+      "frames": 221,
+      "avgFPS": 22.1,
+      "low1FPS": 9.96,
+      "p99ms": 97.4,
+      "maxMs": 103.8,
+      "peak": {
+        "calls": 48,
+        "triangles": 2084,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2729768,
+        "withMipmapsUpperBytes": 3639691
+      }
+    },
+    "doorsignature": {
+      "frames": 171,
+      "avgFPS": 17.03,
+      "low1FPS": 8.2,
+      "p99ms": 120.4,
+      "maxMs": 123.5,
+      "peak": {
+        "calls": 26,
+        "triangles": 834,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 84,
+        "baseLevelRGBABytes": 2967200,
+        "withMipmapsUpperBytes": 3956267
+      }
+    },
+    "doorid": {
+      "frames": 136,
+      "avgFPS": 13.51,
+      "low1FPS": 5.75,
+      "p99ms": 172.4,
+      "maxMs": 175.6,
+      "peak": {
+        "calls": 13,
+        "triangles": 846,
+        "textures": 2,
+        "geometries": 4,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 2967232,
+        "withMipmapsUpperBytes": 3956310
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 92,
+    "baseLevelRGBABytes": 2967232,
+    "withMipmapsUpperBytes": 3956310
+  },
+  "phaserTexturesPeak": {
+    "count": 92,
+    "baseLevelRGBABytes": 2967232,
+    "withMipmapsUpperBytes": 3956310
+  },
+  "errors": []
+}

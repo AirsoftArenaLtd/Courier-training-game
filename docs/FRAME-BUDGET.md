@@ -1,6 +1,6 @@
 # Low-graphics 3D workday budget
 
-The pilot targets 60 fps on the owner's Intel integrated-graphics laptop. This resource budget is a regression ceiling. The native headless Edge run below passed 60 fps on Intel UHD Graphics at the benchmark viewport; the owner's interactive check remains useful for full-screen behavior and sustained use.
+The pilot targets 60 fps on the owner's Intel integrated-graphics laptop. This resource budget is a regression ceiling. The latest merged-pilot resource measurements are in the final section. The native C-5 Edge run below passed 60 fps on the earlier route; O-1 still needs a native measurement of the expanded five-stop day.
 
 At a 1280 × 720 drawing buffer, the low setting renders the world at 832 × 468 (65% in each dimension), with a 320 × 180 mirror only while requested. The mirror target remains allocated while hidden. There are no shadow maps, postprocessing passes or downloaded 3D textures. The world uses shared box geometry and instanced static scenery; high quality adds trees and increases target sizes.
 
@@ -77,3 +77,18 @@ On 16 October, the merged C-8/C-10/C-11 tree passed seven live hazard/weather vi
 The 16 October combined C-8/C-9/C-10/C-11 run passes nine weather, gate, hazard, live-mirror, signature and ID views. Peak complete-frame submissions are 48 calls / 2,084 triangles. The two targets still use 3,575,808 attachment bytes. Phaser's largest observed full-mipmap estimate is 3,956,310 bytes (3.78 MiB), including the existing signature pad and live ink. The benchmark records Phaser inventories per view so closing the handheld cannot hide that peak. No page errors or context loss occurred. Raw report: `docs/qa/c9-combined-low.json`; cloud SwiftShader FPS does not establish the Intel 60 fps floor (O-1).
 
 Residents use one preallocated coloured instance batch, with three body parts on low graphics and four on high. Gates, dogs and path patches reuse box geometry and shared materials, with bounded visibility; the ID comparison uses native Phaser Graphics. There are no new image assets or render passes. The 30-day route geometry test configures all four model extensions, the extra package, active road actors and every contacted resident before checking every stop with a live mirror.
+
+## Merged pilot: all milestone 3 features
+
+On 16 October 2026, `pilot` at `d3330dd` passed all 30 prototype viewpoints in the low-graphics benchmark at 1280 × 720. This includes the five generated curb positions and their live mirrors; depot, cargo/scanning and return views; both road hazards; rain/storm/snow/heat; and dog gate, path hazard, signature and photo-ID views. The weather and doorstep fixtures configure the full route, load-out extra, road actors and doorstep props together. Each selected viewpoint samples ten seconds.
+
+| Complete-frame resource | Merged-pilot peak | Ceiling |
+| --- | ---: | ---: |
+| Draw calls, including mirror/composite | 48 | 64 |
+| Submitted triangles | 2,084 | 2,500 |
+| Render-target textures | 2 | 2 |
+| Color/depth attachment estimate | 3,575,808 bytes | 4 MiB |
+| Phaser RGBA8 full-mipmap estimate | 3,956,310 bytes | 4 MiB |
+| Combined attachment/Phaser estimate | 7,532,118 bytes | 8 MiB |
+
+The largest Phaser inventory contains 92 sources, with 2,967,232 RGBA8 base-level bytes; it includes the existing signature pad and ink. No page errors or WebGL context loss occurred. Raw report: `docs/qa/pilot-merged-low.json`. Chromium identified ANGLE SwiftShader: its software frame rates do not establish Intel acceptance. O-1 should use the reproduction command above with `QA_NATIVE_GPU=1` and `QA_FPS_FLOOR=60` on the owner's laptop.
