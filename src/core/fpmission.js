@@ -127,6 +127,7 @@ OTR.fpMission = {
         if (id && id.startsWith('door')) { const s = this.stop(id.slice(4)); return s && { x: s.x, y: 1.5, z: s.z }; }
         const p = this.parcel(id);
         if (!p) return null;
+        if(p.anomaly&&p.location==='depot'){const desk=this.point('dispatch');return {x:desk.x,y:1.2,z:desk.z};}
         if (p.location === 'depot') return this.depotPoint(p);
         if (p.location.startsWith('slot')) return this.point(p.location);
         if (p.location === 'held') return { x: this.player.x, y: 1.1, z: this.player.z };
@@ -197,6 +198,7 @@ OTR.fpMission = {
       scan(id) {
         const p = this.parcel(id || this.heldId);
         if (!this.canParcel(p)) return 'Move close to the parcel and face its label.';
+        if(p.anomaly)return OTR.fpLoadout.scan(this,p);
         p.scanned = true; this.lastScan = p.id; this.touch();
         if (p.stop !== this.activeStop && this.phase === 'route' && !p.returnRequired) {
           this.log('mismatch:' + p.id + ':' + this.activeStop, 'verification', 'recovered', 'Scanner identified a parcel for a different stop.');
@@ -212,6 +214,7 @@ OTR.fpMission = {
       serviceLabel(id) {
         const s = this.stop(id);
         if(this.routeDay&&OTR.fpDay.planter(this,id))return 'Leave the parcel behind the planter, as dispatch requested.';
+        if(!s)return 'This package is not on the route manifest.';
         return s.service === 'signature' ? 'Signature required' : s.service === 'safeplace' ? 'Leave in the porch box if nobody answers' : 'Hand to the resident';
       },
       pickup(id) {
@@ -348,13 +351,15 @@ OTR.fpMission = {
           this.log('departure:' + part, 'inspection', ok ? 'good' : 'needs', said);
         });
         this.log('departure:load', 'loading', this.secured ? 'good' : 'needs', this.secured ? 'Secured the load before departure.' : 'Departed with an unsecured load.');
-        this.parcels.forEach(p => {
+        this.parcels.filter(p=>!p.anomaly).forEach(p => {
           if (this.routePlan) this.log('shelf:' + p.id, 'loading', p.location === 'slot' + p.stop ? 'good' : 'needs', p.location === 'slot' + p.stop ? 'Loaded the parcel in stop order.' : 'The parcel was not loaded in stop order.');
           this.log('departure:' + p.id, 'loading', p.scanned && p.location.startsWith('slot') ? 'good' : 'needs', p.scanned && p.location.startsWith('slot') ? `Loaded and scanned ${p.address}.` : 'A parcel was unscanned or left at the depot.'); });
+        if(this.loadout)OTR.fpLoadout.depart(this);
       },
       tick(input, dt) {
         this.elapsed += dt;
         if (this.kind === 'campaign') this.tickTraffic(dt);
+        if(this.loadout)OTR.fpLoadout.findLater(this);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
         if(this.routeDay)OTR.fpDay.tick(this,dt);
@@ -427,6 +432,7 @@ OTR.fpMission = {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         if (this.routePlan) fields.push('routePlan', 'junctions');
         if(this.routeDay)fields.push('routeDay');
+        if(this.loadout)fields.push('loadout');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -441,6 +447,7 @@ OTR.fpMission = {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay))return null;OTR.fpDay.configure(m,data.routeDay);}
+      if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
       if (data.briefing === undefined) data.briefing = null;
       if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
         typeof data.briefing.weather !== 'string' || !Number.isFinite(data.briefing.clockMin))) return null;
@@ -458,22 +465,33 @@ OTR.fpMission = {
       if (!data.stopSign || !['stopped','resolved'].every(k => typeof data.stopSign[k] === 'boolean')) return null;
       if (!['cargoOpen','secured','repaired','departed'].every(k => typeof data[k] === 'boolean') ||
         !['hand','belt'].every(k => typeof data.van[k] === 'boolean')) return null;
-      if (![null,...m.parcels.map(p => p.id)].includes(data.lastScan) || ![null,...m.parcels.map(p => p.id)].includes(data.requested)) return null;
+      if (![null,...m.parcels.map(p=>p.id)].includes(data.lastScan) || ![null,...m.parcels.map(p=>p.id)].includes(data.requested)) return null;
       if (!Array.isArray(data.parcels) || data.parcels.length !== m.parcels.length || !Array.isArray(data.stops) || data.stops.length !== m.stops.length) return null;
       const places = new Set(), held = [];
-      for (let i = 0; i < m.stops.length; i++) {
-        const p = data.parcels[i], s = data.stops[i];
-        // Existing v2 saves preserve loading scans; unfinished stops require a new delivery scan.
-        if (p && p.stopScanned === undefined) p.stopScanned = false;
-        if (p.id !== 'parcel' + i || p.stop !== i || s.id !== i || s.address !== m.stops[i].address || p.address !== s.address) return null;
-        if (s.x !== m.stops[i].x || s.z !== m.stops[i].z || s.service !== m.stops[i].service) return null;
-        if (!['contacted','resolved'].every(k => typeof s[k] === 'boolean') || (s.resolved && !['handover','safeplace','exception'].includes(s.outcome))) return null;
-        if (!['scanned','stopScanned','loaded','returnRequired'].every(k => typeof p[k] === 'boolean') || typeof p.tracking !== 'string' || !Number.isFinite(p.weight)) return null;
-        if (p.zone !== null && !this.slots.some(s => s.id === p.zone)) return null;
-        if (!['depot','held','delivered','returned',...this.slots.map(s => s.id)].includes(p.location)) return null;
-        if (!['handover','safeplace','signature'].includes(s.service)) return null;
-        if (p.location.startsWith('slot')) { if (places.has(p.location)) return null; places.add(p.location); }
-        if (p.location === 'held') held.push(p.id);
+      for(let i=0;i<m.stops.length;i++){
+        const s=data.stops[i],expected=m.stops[i];
+        if(!s||s.id!==expected.id||s.address!==expected.address||s.x!==expected.x||s.z!==expected.z||s.service!==expected.service)return null;
+        if(!['contacted','resolved'].every(k=>typeof s[k]==='boolean')||(s.resolved&&!['handover','safeplace','exception'].includes(s.outcome)))return null;
+      }
+      for (let i = 0; i < m.parcels.length; i++) {
+        const p=data.parcels[i],expected=m.parcels[i];
+        if(p&&p.stopScanned===undefined)p.stopScanned=false;
+        if(!p||p.id!==expected.id||p.stop!==expected.stop||p.address!==expected.address||p.anomaly!==expected.anomaly)return null;
+        if(!['scanned','stopScanned','loaded','returnRequired'].every(k=>typeof p[k]==='boolean')||typeof p.tracking!=='string'||!Number.isFinite(p.weight))return null;
+        if(p.zone!==null&&!this.slots.some(s=>s.id===p.zone))return null;
+        const locations=['depot','held','delivered','returned',...this.slots.map(s=>s.id)];
+        if(expected.anomaly)locations.push('aside');
+        if(m.loadout&&p.id===m.loadout.missingId)locations.push('pending');
+        if(!locations.includes(p.location))return null;
+        if(p.anomaly&&(['delivered','returned'].includes(p.location)||p.returnRequired||p.stopScanned))return null;
+        if(p.location.startsWith('slot')){if(places.has(p.location))return null;places.add(p.location);}
+        if(p.location==='held')held.push(p.id);
+      }
+      if(data.loadout){const L=data.loadout,p=data.parcels.find(p=>p.id===L.missingId);
+        if(!p&&(L.missingReported||L.found||L.notice))return null;
+        if(L.found&&(L.kind!=='late'||p.location==='pending'))return null;
+        if(L.notice&&!L.found)return null;
+        if(L.kind==='missing'&&L.missingReported&&p.location==='pending')return null;
       }
       if (held.length > 1 || (held[0] || null) !== data.heldId || !this.validLogs(data.logs)) return null;
       if (!data.events || typeof data.events !== 'object' || Array.isArray(data.events) || Object.values(data.events).some(v => v !== true)) return null;

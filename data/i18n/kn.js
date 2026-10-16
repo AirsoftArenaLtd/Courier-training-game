@@ -3275,7 +3275,39 @@ window.OTR_I18N.kn = {
 "Exceeded the posted speed limit.": "ಸೂಚಿತ ವೇಗದ ಮಿತಿ ಮೀರಿದಿರಿ.",
 "Traveled on the wrong side of the road.": "ರಸ್ತೆಯ ತಪ್ಪು ಬದಿಯಲ್ಲಿ ಚಲಿಸಿದಿರಿ.",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "ಟೈರ್ ಮತ್ತು ಲೈಟ್‌ಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ, ಐದು ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಸ್ಟಾಪ್ ಕ್ರಮದಲ್ಲಿ ಲೋಡ್ ಮಾಡಿ, ನಂತರ ಲೋಡ್ ಅನ್ನು ಭದ್ರಪಡಿಸಿ ಮತ್ತು ಕಾರ್ಗೋ ಬಾಗಿಲು ಮುಚ್ಚಿ.",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ. ಉಳಿದ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು Returns ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ Dispatch ನಲ್ಲಿ ಮುಗಿಸಿ."
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ. ಉಳಿದ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು Returns ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ Dispatch ನಲ್ಲಿ ಮುಗಿಸಿ.",
+"Check the load": "ಲೋಡ್ ಪರಿಶೀಲಿಸಿ",
+"Bring missing or unlisted packages to Dispatch.": "ಕಾಣೆಯಾದ ಅಥವಾ ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ತನ್ನಿ.",
+"Match the loaded packages to the manifest.": "ಲೋಡ್ ಮಾಡಿದ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಮ್ಯಾನಿಫೆಸ್ಟ್‌ಗೆ ಹೊಂದಿಸಿ.",
+"Confirm the load count": "ಲೋಡ್ ಎಣಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ",
+"Confirm the load count at Dispatch.": "ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಲೋಡ್ ಎಣಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ.",
+"Report a missing package": "ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ತಿಳಿಸಿ",
+"Set the unlisted package aside": "ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಪಕ್ಕಕ್ಕೆ ಇಡಿ",
+"Identified a package for another route during the load-out scan.": "ಲೋಡ್-ಔಟ್ ಸ್ಕ್ಯಾನ್ ಸಮಯದಲ್ಲಿ ಬೇರೆ ಮಾರ್ಗದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಗುರುತಿಸಿದಿರಿ.",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "ಈ ಪ್ಯಾಕೇಜ್ ಮಾರ್ಗದ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನಲ್ಲಿ ಇಲ್ಲ. ಅದನ್ನು ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ತೆಗೆದುಕೊಂಡು ಹೋಗಿ ಪಕ್ಕಕ್ಕೆ ಇಡಿ.",
+"Bring the unlisted package to Dispatch first.": "ಮೊದಲು ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ತನ್ನಿ.",
+"Set the unlisted package aside at Dispatch.": "ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಪಕ್ಕಕ್ಕೆ ಇಡಿ.",
+"The unlisted package is set aside. It will not go on this route.": "ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಪಕ್ಕಕ್ಕೆ ಇಡಲಾಗಿದೆ. ಅದು ಈ ಮಾರ್ಗದಲ್ಲಿ ಹೋಗುವುದಿಲ್ಲ.",
+"Check the manifest and report a missing package at Dispatch.": "ಮ್ಯಾನಿಫೆಸ್ಟ್ ನೋಡಿ ಮತ್ತು ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ತಿಳಿಸಿ.",
+"The missing package has already been located.": "ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಈಗಾಗಲೇ ಸಿಕ್ಕಿದೆ.",
+"Reported the missing package after departure.": "ಹೊರಟ ನಂತರ ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ತಿಳಿಸಿದಿರಿ.",
+"Reported the missing package to Dispatch before leaving.": "ಹೊರಡುವ ಮುನ್ನ ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ತಿಳಿಸಿದಿರಿ.",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "ಡಿಸ್ಪ್ಯಾಚ್ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಡಿಪೋದಲ್ಲಿ ಹುಡುಕಿತು. ಹೊರಡುವ ಮುನ್ನ ಅದನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಲೋಡ್ ಮಾಡಿ.",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "ಡಿಸ್ಪ್ಯಾಚ್ ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ದಾಖಲಿಸಿತು. ಮುಂದಿನ ಸ್ಟಾಪ್‌ನಲ್ಲಿ ಸರಕನ್ನು ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.",
+"The departure load check is already closed.": "ಹೊರಡುವ ಮುನ್ನದ ಲೋಡ್ ಪರಿಶೀಲನೆ ಈಗಾಗಲೇ ಮುಗಿದಿದೆ.",
+"Count the packages and confirm the load at Dispatch.": "ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಎಣಿಸಿ ಮತ್ತು ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಲೋಡ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ.",
+"Checked the loaded packages against the manifest.": "ಲೋಡ್ ಮಾಡಿದ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನೊಂದಿಗೆ ಹೋಲಿಸಿ ಪರಿಶೀಲಿಸಿದಿರಿ.",
+"The load count did not match the checked manifest.": "ಲೋಡ್ ಎಣಿಕೆ ಪರಿಶೀಲಿಸಿದ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ.",
+"The load count is recorded. Secure the load before departure.": "ಲೋಡ್ ಎಣಿಕೆಯನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ. ಹೊರಡುವ ಮುನ್ನ ಲೋಡ್ ಅನ್ನು ಭದ್ರಪಡಿಸಿ.",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "ಎಣಿಕೆ ಅಥವಾ ಲೋಡ್ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ. ಕಾಣೆಯಾದ ಮತ್ತು ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲದ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.",
+"Left without checking the load count against the manifest.": "ಲೋಡ್ ಎಣಿಕೆಯನ್ನು ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನೊಂದಿಗೆ ಪರಿಶೀಲಿಸದೆ ಹೊರಟಿರಿ.",
+"Departed with a package for another route.": "ಬೇರೆ ಮಾರ್ಗದ ಪ್ಯಾಕೇಜ್ ಜೊತೆಗೆ ಹೊರಟಿರಿ.",
+"Left without reporting the missing package to Dispatch.": "ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ತಿಳಿಸದೆ ಹೊರಟಿರಿ.",
+"Found a package that had been missed during load-out.": "ಲೋಡ್-ಔಟ್ ಸಮಯದಲ್ಲಿ ಬಿಟ್ಟುಹೋಗಿದ್ದ ಪ್ಯಾಕೇಜ್ ಸಿಕ್ಕಿತು.",
+"This package is not on the route manifest.": "ಈ ಪ್ಯಾಕೇಜ್ ಮಾರ್ಗದ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನಲ್ಲಿ ಇಲ್ಲ.",
+"I counted one package.": "ನಾನು ಒಂದು ಪ್ಯಾಕೇಜ್ ಎಣಿಸಿದೆ.",
+"Load count": "ಲೋಡ್ ಎಣಿಕೆ",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "ಮೊದಲು ಬಿಟ್ಟುಹೋಗಿದ್ದ ಪ್ಯಾಕೇಜ್ ಸರಕಿನಲ್ಲಿ ಸಿಕ್ಕಿದೆ. ಅದನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ವಿಳಾಸ ಪರಿಶೀಲಿಸಿ."
 },
 "templates": [
 [
@@ -4573,6 +4605,22 @@ window.OTR_I18N.kn = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನಲ್ಲಿ {0} ಪ್ಯಾಕೇಜ್‌ಗಳಿವೆ."
+],
+[
+"I counted {0} packages.",
+"ನಾನು {0} ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಎಣಿಸಿದೆ."
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"ಮ್ಯಾನಿಫೆಸ್ಟ್‌ನಲ್ಲಿ {0} ಪ್ಯಾಕೇಜ್‌ಗಳಿವೆ. ದೃಢೀಕರಿಸುವ ಮುನ್ನ ವ್ಯಾನ್‌ನಲ್ಲಿರುವ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಎಣಿಸಿ."
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4582,6 +4630,7 @@ window.OTR_I18N.kn = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };

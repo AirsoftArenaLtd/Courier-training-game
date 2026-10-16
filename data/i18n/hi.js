@@ -3274,7 +3274,39 @@ window.OTR_I18N.hi = {
 "Exceeded the posted speed limit.": "लिखी हुई गति सीमा पार की।",
 "Traveled on the wrong side of the road.": "सड़क के गलत ओर चले।",
 "Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.": "टायर और लाइटें जाँचें, पाँच पार्सल स्कैन करके स्टॉप के क्रम में लोड करें, फिर सामान बाँधकर सुरक्षित करें और कार्गो बंद करें।",
-"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "डिपो लौटें। रोके गए पार्सल Returns पर स्कैन करें, फिर Dispatch पर काम पूरा करें।"
+"Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.": "डिपो लौटें। रोके गए पार्सल Returns पर स्कैन करें, फिर Dispatch पर काम पूरा करें।",
+"Check the load": "लोड जाँचें",
+"Bring missing or unlisted packages to Dispatch.": "गायब या सूची में न होने वाले पैकेज डिस्पैच के पास ले जाएँ।",
+"Match the loaded packages to the manifest.": "लोड किए पैकेजों को सूची से मिलाएँ।",
+"Confirm the load count": "लोड की गिनती पक्की करें",
+"Confirm the load count at Dispatch.": "डिस्पैच पर लोड की गिनती पक्की करें।",
+"Report a missing package": "गायब पैकेज की सूचना दें",
+"Set the unlisted package aside": "सूची से बाहर का पैकेज अलग रखें",
+"Identified a package for another route during the load-out scan.": "लोड-आउट स्कैन के दौरान दूसरे रूट का एक पैकेज पहचाना।",
+"This package is not on the route manifest. Take it to Dispatch and set it aside.": "यह पैकेज रूट की सूची में नहीं है। इसे डिस्पैच के पास ले जाएँ और अलग रख दें।",
+"Bring the unlisted package to Dispatch first.": "पहले सूची से बाहर का पैकेज डिस्पैच के पास ले जाएँ।",
+"Set the unlisted package aside at Dispatch.": "सूची से बाहर का पैकेज डिस्पैच पर अलग रख दें।",
+"The unlisted package is set aside. It will not go on this route.": "सूची से बाहर का पैकेज अलग रख दिया गया है। यह इस रूट पर नहीं जाएगा।",
+"Check the manifest and report a missing package at Dispatch.": "सूची जाँचें और गायब पैकेज की सूचना डिस्पैच को दें।",
+"The missing package has already been located.": "गायब पैकेज पहले ही मिल चुका है।",
+"Reported the missing package after departure.": "निकलने के बाद गायब पैकेज की सूचना दी।",
+"Reported the missing package to Dispatch before leaving.": "निकलने से पहले गायब पैकेज की सूचना डिस्पैच को दी।",
+"Dispatch found the package at the depot. Scan and load it before leaving.": "डिस्पैच को पैकेज डिपो में मिल गया। निकलने से पहले उसे स्कैन करके लोड करें।",
+"Dispatch recorded the missing package. Recheck the cargo at the next stop.": "डिस्पैच ने गायब पैकेज दर्ज कर लिया। अगले स्टॉप पर माल दोबारा जाँचें।",
+"The departure load check is already closed.": "निकलने से पहले की लोड जाँच पहले ही पूरी हो चुकी है।",
+"Count the packages and confirm the load at Dispatch.": "पैकेज गिनें और डिस्पैच पर लोड पक्का करें।",
+"Checked the loaded packages against the manifest.": "लोड किए पैकेजों को सूची से मिलाकर जाँचा।",
+"The load count did not match the checked manifest.": "लोड की गिनती जाँची हुई सूची से मेल नहीं खाई।",
+"The load count is recorded. Secure the load before departure.": "लोड की गिनती दर्ज हो गई। निकलने से पहले माल अच्छे से बाँध लें।",
+"The count or load does not match the manifest. Recheck missing and unlisted packages.": "गिनती या लोड सूची से मेल नहीं खाता। गायब और सूची से बाहर के पैकेज दोबारा जाँचें।",
+"Left without checking the load count against the manifest.": "लोड की गिनती सूची से मिलाए बिना निकल गए।",
+"Departed with a package for another route.": "दूसरे रूट के पैकेज के साथ निकल गए।",
+"Left without reporting the missing package to Dispatch.": "गायब पैकेज की सूचना डिस्पैच को दिए बिना निकल गए।",
+"Found a package that had been missed during load-out.": "एक पैकेज मिला जो लोड-आउट के समय छूट गया था।",
+"This package is not on the route manifest.": "यह पैकेज रूट की सूची में नहीं है।",
+"I counted one package.": "मैंने एक पैकेज गिना।",
+"Load count": "लोड की गिनती",
+"A previously missed package has turned up in cargo. Scan it and check the address.": "पहले छूटा हुआ एक पैकेज माल में मिल गया है। उसे स्कैन करें और पता जाँचें।"
 },
 "templates": [
 [
@@ -4572,6 +4604,22 @@ window.OTR_I18N.hi = {
 [
 "junction:{0}:{1}:{2}",
 "junction:{0}:{1}:{2}"
+],
+[
+"The manifest lists {0} packages.",
+"सूची में {0} पैकेज हैं।"
+],
+[
+"I counted {0} packages.",
+"मैंने {0} पैकेज गिने।"
+],
+[
+"The manifest lists {0} packages. Count the packages in the van before confirming.",
+"सूची में {0} पैकेज हैं। पक्का करने से पहले वैन में पैकेज गिनें।"
+],
+[
+"loadout:{0}:{1}",
+"loadout:{0}:{1}"
 ]
 ],
 "keep": [
@@ -4581,6 +4629,7 @@ window.OTR_I18N.hi = {
 "¿Perdón? No entiendo…",
 "¡Ah, sí! Ana Morales. ¡Gracias!",
 "Invalid route plan",
-"Invalid route stop"
+"Invalid route stop",
+"Invalid load-out"
 ]
 };
