@@ -218,23 +218,24 @@ OTR.fpWorld = {
     const ray=new T.Raycaster();ray.far=2.65;
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
-    const api={hub,route,van,parcels,dogs,gates,hazards,labels,occluders,interactions,ray,
+    const api={hub,route,van,parcels,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
       sync(model,hubPlayer,area) {
-        const inHub=area==='hub';hub.visible=inHub;route.visible=!inHub;
+        const inHub=area==='hub',reduced=OTR.fpAccess&&OTR.fpAccess.reduced();hub.visible=inHub;route.visible=!inHub;
         carried.visible=false;dash.visible=false;inspected.visible=false;
         if(inHub){camera.position.set(hubPlayer.x,1.65,hubPlayer.z);camera.rotation.set(-hubPlayer.pitch,-hubPlayer.yaw,0,'YXZ');view.mirror.on=false;}
         else if(model){
           const m=model,v=m.van,p=m.player,cx=m.mode==='cab'?v.x:p.x,cz=m.mode==='cab'?v.z:p.z;
           if(weatherDrops){
             for(let i=0;i<weatherDrops.count;i++){
-              const t=m.elapsed*(snow?.7:9),c=Math.cos(v.yaw),s=Math.sin(v.yaw);let x=((i*7.31)%18)-9,z=((i*11.73)%18)-9;
+              const time=reduced?0:m.elapsed;
+              const t=time*(snow?.7:9),c=Math.cos(v.yaw),s=Math.sin(v.yaw);let x=((i*7.31)%18)-9,z=((i*11.73)%18)-9;
               if(m.mode==='cab'&&Math.abs(x*c+z*s)<1.5&&Math.abs(-x*s+z*c)<3){x+=c*3;z+=s*3;}
-              dropPosition.set(cx+x+(snow?Math.sin(m.elapsed+i)*.3:0),.3+((i*.63-t)%8+8)%8,cz+z);
+              dropPosition.set(cx+x+(snow?Math.sin(time+i)*.3:0),.3+((i*.63-t)%8+8)%8,cz+z);
               dropMatrix.compose(dropPosition,dropRotation,dropScale);weatherDrops.setMatrixAt(i,dropMatrix);
             }
             weatherDrops.instanceMatrix.needsUpdate=true;
@@ -286,11 +287,11 @@ OTR.fpWorld = {
             if(hazards[i])hazards[i].visible=!d.hazardCleared&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;
           }
           if(bus&&m.driving){
-            const b=m.driving.bus,e=m.driving.siren,flash=Math.floor(m.elapsed*3)%2===0;
+            const b=m.driving.bus,e=m.driving.siren,flash=reduced||Math.floor(m.elapsed*2)%2===0;
             bus.visible=b.state==='flashing'||b.state==='leaving';bus.position.set(b.x,0,b.z);bus.rotation.y=-b.yaw;
             busLamps.visible=b.state==='flashing'&&flash;
             emergency.visible=e.state==='approaching'||e.state==='passing';emergency.position.set(e.x,0,e.z);emergency.rotation.y=-e.yaw;
-            for(const lamp of emergencyLamps.children)lamp.material=flash?flashRed:flashBlue;
+            for(let i=0;i<emergencyLamps.children.length;i++)emergencyLamps.children[i].material=reduced?(i%2?flashBlue:flashRed):flash?flashRed:flashBlue;
           }
           const eye=OTR.fp.local(v,-1.3,-1.55);
           view.mirror.camera.position.set(eye.x,2.1,eye.z);view.mirror.camera.rotation.set(0,Math.PI-v.yaw-0.18,0,'YXZ');

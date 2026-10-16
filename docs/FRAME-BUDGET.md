@@ -1,5 +1,7 @@
 # Low-graphics 3D workday budget
 
+C-12 accessibility measurement (16 October 2026): with larger text, the colour filter and reduced motion enabled together, seven selected depot, mirror, driving-hazard, snow and doorstep views still peak at 48 calls, 2,084 triangles, two Three.js targets and 3,575,808 attachment bytes. The Phaser texture estimate peaks at 3,956,310 bytes including mipmaps. No page errors or context loss occurred. Report: `docs/qa/c12-low.json`. The colour matrix runs in the existing main/mirror composite shaders; keyboard focus uses native graphics, and wrapping handheld choices reuses their existing button textures. No additional 3D pass or image texture was introduced. The software renderer does not establish the Intel laptop's 60 fps floor.
+
 The pilot targets 60 fps on the owner's Intel integrated-graphics laptop. This resource budget is a regression ceiling. The latest merged-pilot resource measurements are in the final section. The native C-5 Edge run below passed 60 fps on the earlier route; O-1 still needs a native measurement of the expanded five-stop day.
 
 At a 1280 × 720 drawing buffer, the low setting renders the world at 832 × 468 (65% in each dimension), with a 320 × 180 mirror only while requested. The mirror target remains allocated while hidden. There are no shadow maps, postprocessing passes or downloaded 3D textures. The world uses shared box geometry and instanced static scenery; high quality adds trees and increases target sizes.
