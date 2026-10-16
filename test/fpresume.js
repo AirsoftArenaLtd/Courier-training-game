@@ -1,17 +1,18 @@
 /* Seeded model journeys. Travel positions are fixtures; actions, reports and checkpoint readers are real. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const storage=new Map(),c={console,URLSearchParams};c.window=c;c.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};c.addEventListener=()=>{};c.location={search:''};vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
 c.OTR.identity={mode:'local',id:'seeded-model'};const O=c.OTR,M=O.fpMission,W=O.workday,S=O.save;
+const later=process.env.QA_LATER==='1';
 const plain=o=>JSON.parse(JSON.stringify(o)),score=log=>({score:log.score(),ratios:plain(log.ratios(O.scoring.CATS)),criticals:log.criticals().map(i=>[i.cat,i.label])});
 const report={resume:[],soak:[],failures:[],phases:[],weathers:[],loadouts:[],scormMax:0,scormChecks:0},coverage=new Set();
-const saveReport=()=>{const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'c14-resume-soak.json'),JSON.stringify({...report,coverage:[...coverage].sort()},null,2));};
+const saveReport=()=>{const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,later?'c18-resume-soak.json':'c14-resume-soak.json'),JSON.stringify({...report,coverage:[...coverage].sort()},null,2));};
 const shuffle=(items,rng)=>{const out=[...items];for(let i=out.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;};
 function play(seed,resume=false,scorm=false){
  let stage='start',checkpoints=0,randomState=seed*2654435761>>>0,m;const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
  try{
-  storage.clear();W.detach();S.data=S.defaults();S.data.townSeed=1;W.begin();m=M.create('campaign',seed,O.fpRoute.plan(seed,seed));O.fpLoadout.configure(m);O.fpDriving.configure(m);O.fpDay.configure(m);O.fpDoors.configure(m);m.doorsteps.date='2026-10-16';O.fpDoors.configure(m,m.doorsteps);
-  const day=O.shift.generate(seed,seed);m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};
+  storage.clear();W.detach();S.data=S.defaults();S.data.townSeed=1;W.begin();m=M.create('campaign',seed,later?O.fpLater.prepare(O.fpRoute.plan(seed,seed)):O.fpRoute.plan(seed,seed));O.fpLoadout.configure(m);O.fpDriving.configure(m);O.fpDay.configure(m);O.fpDoors.configure(m);m.doorsteps.date='2026-10-16';O.fpDoors.configure(m,m.doorsteps);
+  const day=m.routePlan;m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};
   if(!report.weathers.includes(m.routeDay.weather))report.weathers.push(m.routeDay.weather);if(!report.loadouts.includes(m.loadout.kind))report.loadouts.push(m.loadout.kind);
   const checkpoint=label=>{
    stage=label;checkpoints++;coverage.add(label.replace(/:\d+/g,':n'));if(!report.phases.includes(m.phase))report.phases.push(m.phase);

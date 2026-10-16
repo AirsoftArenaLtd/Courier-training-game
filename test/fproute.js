@@ -4,10 +4,10 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
-const full=(day=1,variant=7)=>M.create('campaign',variant,R.plan(day,variant));
+const full=(day=1,variant=7)=>M.create('campaign',variant,process.env.QA_LATER==='1'?c.OTR.fpLater.prepare(R.plan(day,variant)):R.plan(day,variant));
 const at=(m,id)=>{Object.assign(m.player,m.point(id));m.player.z+=0.6;};
 test('five seeded stops match the route-day generator, addresses and package identities',()=>{
  for(let day=1;day<=14;day++){
@@ -93,8 +93,9 @@ test('the van can steer around a right-hand grid corner without crossing buildin
  assert.equal(m.driveAllowed(m.van),true);
 });
 test('low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror',()=>{
- for(let day=1;day<=30;day++){
- const m=full(day);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
+ const records=[];
+ for(const variant of (process.env.QA_LATER==='1'?[1,2,3,4,5,6,7,8,9,10]:[7]))for(let day=1;day<=30;day++){
+ const m=full(day,variant);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
  c.OTR.gfx={high:()=>false};
  const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
  const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,0.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);
@@ -112,11 +113,13 @@ test('low graphics stays within the complete-frame geometry budget at every stop
    m.mirror();art.sync(m,null,'route');const main=count(camera);
    scene.view.mirror.before();const mirror=count(scene.view.mirror.camera);scene.view.mirror.after();
    const total={calls:main.calls+mirror.calls+2,triangles:main.triangles+mirror.triangles+4};
-   assert.ok(total.calls<=64&&total.triangles<=2500,`${s.address}, loaded=${loaded}: ${JSON.stringify(total)}`);
+   records.push({day,variant,stop:s.id,loaded,...total});
+   assert.ok(total.calls<=64&&total.triangles<=2500,`${day}/${variant}, ${s.address}, loaded=${loaded}: ${JSON.stringify(total)}`);
   }
  }
  art.dispose();
  }
+ if(process.env.QA_LATER==='1'){fs.mkdirSync(__dirname+'/out/fp-review',{recursive:true});fs.writeFileSync(__dirname+'/out/fp-review/c18-geometry.json',JSON.stringify({views:records.length,peakCalls:Math.max(...records.map(r=>r.calls)),peakTriangles:Math.max(...records.map(r=>r.triangles)),worst:records.reduce((a,b)=>a.triangles>b.triangles?a:b)},null,2));}
 });
 
 test('the generated route resumes every load-out variant, including the sixth physical package',()=>{

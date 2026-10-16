@@ -3577,7 +3577,24 @@ window.OTR_I18N.kn = {
 "The cargo doors close.": "ಸರಕಿನ ಬಾಗಿಲುಗಳು ಮುಚ್ಚುತ್ತವೆ.",
 "You pick up the package.": "ನೀವು ಪ್ಯಾಕೇಜ್ ಎತ್ತುತ್ತೀರಿ.",
 "You put down the package.": "ನೀವು ಪ್ಯಾಕೇಜ್ ಕೆಳಗೆ ಇಡುತ್ತೀರಿ.",
-"The cargo restraints are secure.": "ಸರಕಿನ ಪಟ್ಟಿಗಳು ಭದ್ರವಾಗಿವೆ."
+"The cargo restraints are secure.": "ಸರಕಿನ ಪಟ್ಟಿಗಳು ಭದ್ರವಾಗಿವೆ.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "ಮಂಜು ಗೋಚರತೆ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. 12 mph ಕ್ಕಿಂತ ಕಡಿಮೆ ಚಲಿಸಿ, ಮುಂದಿನ ವಾಹನದಿಂದ ಐದು ಸೆಕೆಂಡ್ ಅಂತರ ಬಿಡಿ.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "ಮಂಜುಗಡ್ಡೆ ಹಿಡಿತ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. 8 mph ಕ್ಕಿಂತ ಕಡಿಮೆ ಚಲಿಸಿ, ನಿಧಾನವಾಗಿ ಬ್ರೇಕ್ ಹಾಕಿ, ಮುಂದಿನ ವಾಹನದಿಂದ ಆರು ಸೆಕೆಂಡ್ ಅಂತರ ಬಿಡಿ.",
+"View the workday plan": "ದಿನದ ಯೋಜನೆಯನ್ನು ನೋಡಿ",
+"Invalid later-day version": "ಅಮಾನ್ಯ ನಂತರದ ದಿನದ ಆವೃತ್ತಿ",
+"Invalid later-day plan": "ಅಮಾನ್ಯ ನಂತರದ ದಿನದ ಯೋಜನೆ",
+"No accessible road-works location": "ಪ್ರವೇಶಿಸಬಹುದಾದ ರಸ್ತೆ ಕಾಮಗಾರಿ ಸ್ಥಳ ಇಲ್ಲ",
+"The planning clock starts when the van first leaves the depot.": "ವ್ಯಾನ್ ಮೊದಲ ಬಾರಿ ಡಿಪೋ ಬಿಟ್ಟಾಗ ಯೋಜನೆಯ ಗಡಿಯಾರ ಆರಂಭವಾಗುತ್ತದೆ.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "ಅಭ್ಯಾಸದ ಅವಧಿ ಮುಗಿದಿದೆ. ಸುರಕ್ಷಿತವಾಗಿ ಮುಂದುವರಿಸಿ ಮತ್ತು ವಿಳಂಬದ ಬಗ್ಗೆ ಡಿಸ್ಪ್ಯಾಚ್ ಜೊತೆ ಮಾತನಾಡಿ.",
+"Every package needs a signature. Check the label for photo ID requirements.": "ಪ್ರತಿ ಪ್ಯಾಕೇಜ್‌ಗೆ ಸಹಿ ಬೇಕು. ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಅಗತ್ಯವಿದೆಯೇ ಎಂದು ಲೇಬಲ್ ನೋಡಿ.",
+"Road works close the red-marked street on the route map. Use another cross street.": "ರಸ್ತೆ ಕಾಮಗಾರಿಯಿಂದ ನಕ್ಷೆಯಲ್ಲಿ ಕೆಂಪು ಗುರುತಿನ ಬೀದಿ ಮುಚ್ಚಿದೆ. ಬೇರೆ ಅಡ್ಡ ರಸ್ತೆ ಬಳಸಿ.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "ಅಭ್ಯಾಸದ ಅವಧಿಗಳು ಯೋಜನೆಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತವೆ, ಅಂಕದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ. ಸುರಕ್ಷತೆಗೆ ಮೊದಲ ಆದ್ಯತೆ.",
+"View the stop windows": "ಸ್ಟಾಪ್ ಅವಧಿಗಳನ್ನು ನೋಡಿ",
+"Next stop": "ಮುಂದಿನ ಸ್ಟಾಪ್",
+"Your workday plan": "ನಿಮ್ಮ ದಿನದ ಯೋಜನೆ",
+"This street is closed.": "ಈ ಬೀದಿ ಮುಚ್ಚಿದೆ.",
+"Fog": "ಮಂಜು",
+"Ice": "ಮಂಜುಗಡ್ಡೆ"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.kn = {
 [
 "Sound effects volume is {0}%.",
 "ಧ್ವನಿ ಪರಿಣಾಮಗಳ ಮಟ್ಟ {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"ಡಿಪೋ ಬಿಟ್ಟ {1} ರಿಂದ {2} ನಿಮಿಷಗಳ ನಂತರ ಸ್ಟಾಪ್ {0} ಯೋಜಿಸಿ."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"ಈ ಸ್ಟಾಪ್ ಹೊರಟ {0} ನಿಮಿಷಗಳ ನಂತರ ದಾಖಲಾಗಿದೆ."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"ಹೊರಟ ನಂತರ {0} ನಿಮಿಷಗಳಾಗಿವೆ ಎಂದು ಯೋಜನೆಯ ಗಡಿಯಾರ ತೋರಿಸುತ್ತದೆ."
 ]
 ],
 "keep": [

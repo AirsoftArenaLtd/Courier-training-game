@@ -3577,7 +3577,24 @@ window.OTR_I18N.ml = {
 "The cargo doors close.": "ചരക്ക് വാതിലുകൾ അടയുന്നു.",
 "You pick up the package.": "നിങ്ങൾ പാക്കേജ് എടുക്കുന്നു.",
 "You put down the package.": "നിങ്ങൾ പാക്കേജ് താഴെ വയ്ക്കുന്നു.",
-"The cargo restraints are secure.": "ചരക്ക് ബെൽറ്റുകൾ ഉറപ്പിച്ചിരിക്കുന്നു."
+"The cargo restraints are secure.": "ചരക്ക് ബെൽറ്റുകൾ ഉറപ്പിച്ചിരിക്കുന്നു.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "മഞ്ഞ് കാഴ്ച കുറയ്ക്കുന്നു. 12 mph-ൽ താഴെ ഓടിക്കുക, മുന്നിലെ വാഹനത്തിൽ നിന്ന് അഞ്ച് സെക്കൻഡ് അകലം പാലിക്കുക.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "ഐസ് പിടുത്തം കുറയ്ക്കുന്നു. 8 mph-ൽ താഴെ ഓടിക്കുക, പതുക്കെ ബ്രേക്ക് ചെയ്യുക, മുന്നിലെ വാഹനത്തിൽ നിന്ന് ആറ് സെക്കൻഡ് അകലം പാലിക്കുക.",
+"View the workday plan": "വർക്ക്ഡേ പ്ലാൻ കാണുക",
+"Invalid later-day version": "അസാധുവായ പിന്നത്തെ ദിവസ പതിപ്പ്",
+"Invalid later-day plan": "അസാധുവായ പിന്നത്തെ ദിവസ പ്ലാൻ",
+"No accessible road-works location": "പ്രവേശിക്കാവുന്ന റോഡ് പണി സ്ഥലം ഇല്ല",
+"The planning clock starts when the van first leaves the depot.": "വാൻ ആദ്യമായി ഡിപ്പോ വിടുമ്പോൾ പ്ലാനിംഗ് ക്ലോക്ക് തുടങ്ങും.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "പരിശീലന സമയം കഴിഞ്ഞു. സുരക്ഷിതമായി തുടരുക, വൈകിയതിനെക്കുറിച്ച് ഡിസ്പാച്ചുമായി സംസാരിക്കുക.",
+"Every package needs a signature. Check the label for photo ID requirements.": "ഓരോ പാക്കേജിനും ഒപ്പ് വേണം. ഫോട്ടോ ഐഡി ആവശ്യമുണ്ടോ എന്ന് ലേബൽ നോക്കുക.",
+"Road works close the red-marked street on the route map. Use another cross street.": "റോഡ് പണി കാരണം റൂട്ട് മാപ്പിൽ ചുവപ്പ് അടയാളമുള്ള തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് സ്ട്രീറ്റ് ഉപയോഗിക്കുക.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "പരിശീലന സമയങ്ങൾ പ്ലാനിംഗിന് വഴികാട്ടുന്നു, സ്കോറിനെ ബാധിക്കില്ല. സുരക്ഷ ആദ്യം.",
+"View the stop windows": "സ്റ്റോപ്പ് സമയങ്ങൾ കാണുക",
+"Next stop": "അടുത്ത സ്റ്റോപ്പ്",
+"Your workday plan": "നിങ്ങളുടെ വർക്ക്ഡേ പ്ലാൻ",
+"This street is closed.": "ഈ തെരുവ് അടച്ചിരിക്കുന്നു.",
+"Fog": "മഞ്ഞ്",
+"Ice": "ഐസ്"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.ml = {
 [
 "Sound effects volume is {0}%.",
 "ശബ്ദ ഇഫക്റ്റുകളുടെ നില {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"ഡിപ്പോ വിട്ട് {1} മുതൽ {2} മിനിറ്റിനു ശേഷം സ്റ്റോപ്പ് {0} പ്ലാൻ ചെയ്യുക."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"ഈ സ്റ്റോപ്പ് പുറപ്പെട്ട് {0} മിനിറ്റിനു ശേഷം രേഖപ്പെടുത്തി."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"പുറപ്പെട്ടിട്ട് {0} മിനിറ്റായെന്ന് പ്ലാനിംഗ് ക്ലോക്ക് കാണിക്കുന്നു."
 ]
 ],
 "keep": [

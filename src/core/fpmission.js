@@ -325,6 +325,7 @@ OTR.fpMission = {
           (outcome === 'exception' ? 'Retained the parcel and recorded the delivery exception.' : `Followed the delivery requirements at ${s.address}.`) :
           `The outcome did not match the requirements at ${s.address}.`);
         s.resolved = true; s.outcome = outcome;
+        if(OTR.fpLater)OTR.fpLater.arrive(this,id);
         if (outcome !== 'exception') { p.location = 'delivered'; this.heldId = null; }
         else p.returnRequired = true;
         this.activeStop = this.pending().length ? this.pending()[0].id : this.activeStop;
@@ -352,6 +353,7 @@ OTR.fpMission = {
       },
       preparation() {
         this.departed = true; this.phase = 'route';
+        if(OTR.fpLater)OTR.fpLater.depart(this);
         ['tyres','lights'].forEach(part => {
           const ok = this.checks[part], said = part === 'tyres'
             ? (ok ? 'Completed the tire check before departure.' : 'Departed without a correct tire check.')
@@ -458,8 +460,9 @@ OTR.fpMission = {
     try {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
+      if(OTR.fpLater&&OTR.fpLater.enabled(m)&&(!data.routeDay||!data.doorsteps))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
-      if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay))return null;OTR.fpDay.configure(m,data.routeDay);}
+      if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
       if(data.driving){if(data.kind!=='campaign')return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
       if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
       if (data.briefing === undefined) data.briefing = null;

@@ -3577,7 +3577,24 @@ window.OTR_I18N.te = {
 "The cargo doors close.": "సరుకు తలుపులు మూసుకుంటాయి.",
 "You pick up the package.": "మీరు ప్యాకేజీని ఎత్తుతారు.",
 "You put down the package.": "మీరు ప్యాకేజీని కింద పెడతారు.",
-"The cargo restraints are secure.": "సరుకు బెల్టులు సురక్షితంగా ఉన్నాయి."
+"The cargo restraints are secure.": "సరుకు బెల్టులు సురక్షితంగా ఉన్నాయి.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "పొగమంచులో కనిపించే దూరం తగ్గుతుంది. 12 mph కంటే తక్కువలో నడపండి, ముందు వాహనానికి ఐదు సెకన్ల దూరం ఉంచండి.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "మంచు వల్ల పట్టు తగ్గుతుంది. 8 mph కంటే తక్కువలో నడపండి, మెల్లగా బ్రేక్ వేయండి, ముందు వాహనానికి ఆరు సెకన్ల దూరం ఉంచండి.",
+"View the workday plan": "వర్క్‌డే ప్లాన్ చూడండి",
+"Invalid later-day version": "చెల్లని తర్వాతి రోజు వెర్షన్",
+"Invalid later-day plan": "చెల్లని తర్వాతి రోజు ప్లాన్",
+"No accessible road-works location": "అందుబాటులో ఉన్న రోడ్డు పనుల స్థలం లేదు",
+"The planning clock starts when the van first leaves the depot.": "వ్యాన్ మొదటిసారి డిపో నుండి బయలుదేరినప్పుడు ప్లానింగ్ గడియారం మొదలవుతుంది.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "ప్రాక్టీస్ సమయం దాటిపోయింది. సురక్షితంగా కొనసాగండి, ఆలస్యం గురించి డిస్పాచ్‌తో మాట్లాడండి.",
+"Every package needs a signature. Check the label for photo ID requirements.": "ప్రతి ప్యాకేజీకి సంతకం కావాలి. ఫోటో ID అవసరాల కోసం లేబుల్ చూడండి.",
+"Road works close the red-marked street on the route map. Use another cross street.": "రోడ్డు పనుల వల్ల రూట్ మ్యాప్‌లో ఎరుపు గుర్తు ఉన్న వీధి మూసివేశారు. వేరే అడ్డ వీధిని వాడండి.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "ప్రాక్టీస్ సమయాలు ప్లానింగ్‌కు మార్గదర్శకం మాత్రమే, స్కోరును ప్రభావితం చేయవు. భద్రతే ముందు.",
+"View the stop windows": "స్టాప్ సమయాలు చూడండి",
+"Next stop": "తర్వాతి స్టాప్",
+"Your workday plan": "మీ వర్క్‌డే ప్లాన్",
+"This street is closed.": "ఈ వీధి మూసివేశారు.",
+"Fog": "పొగమంచు",
+"Ice": "మంచు"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.te = {
 [
 "Sound effects volume is {0}%.",
 "శబ్ద స్థాయి {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"డిపో నుండి బయలుదేరిన {1} నుండి {2} నిమిషాల తర్వాత స్టాప్ {0} ప్లాన్ చేయండి."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"ఈ స్టాప్ బయలుదేరిన {0} నిమిషాల తర్వాత నమోదైంది."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"బయలుదేరినప్పటి నుండి ప్లానింగ్ గడియారం {0} నిమిషాలు చూపుతోంది."
 ]
 ],
 "keep": [

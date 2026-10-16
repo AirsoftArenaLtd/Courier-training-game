@@ -3578,7 +3578,24 @@ window.OTR_I18N.bn = {
 "The cargo doors close.": "কার্গোর দরজা বন্ধ হয়।",
 "You pick up the package.": "আপনি প্যাকেজ তোলেন।",
 "You put down the package.": "আপনি প্যাকেজ নামিয়ে রাখেন।",
-"The cargo restraints are secure.": "কার্গোর বেল্ট শক্ত করে আটকানো আছে।"
+"The cargo restraints are secure.": "কার্গোর বেল্ট শক্ত করে আটকানো আছে।",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "কুয়াশায় দৃশ্যমানতা কমে। 12 mph-এর নিচে চালান এবং সামনের গাড়ি থেকে পাঁচ সেকেন্ডের দূরত্ব রাখুন।",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "বরফে গ্রিপ কমে। 8 mph-এর নিচে চালান, আস্তে ব্রেক করুন এবং সামনের গাড়ি থেকে ছয় সেকেন্ডের দূরত্ব রাখুন।",
+"View the workday plan": "কর্মদিবসের পরিকল্পনা দেখুন",
+"Invalid later-day version": "অবৈধ পরবর্তী দিনের সংস্করণ",
+"Invalid later-day plan": "অবৈধ পরবর্তী দিনের পরিকল্পনা",
+"No accessible road-works location": "রাস্তার কাজের কোনো অ্যাক্সেসযোগ্য জায়গা নেই",
+"The planning clock starts when the van first leaves the depot.": "ভ্যান প্রথমবার ডিপো ছাড়লে পরিকল্পনার ঘড়ি চালু হয়।",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "অনুশীলনের সময় পেরিয়ে গেছে। নিরাপদে চালিয়ে যান এবং দেরির কথা ডিসপ্যাচারের সাথে আলোচনা করুন।",
+"Every package needs a signature. Check the label for photo ID requirements.": "প্রতিটি প্যাকেজে সই লাগে। ছবিযুক্ত পরিচয়পত্র লাগবে কি না, লেবেলে দেখুন।",
+"Road works close the red-marked street on the route map. Use another cross street.": "রাস্তার কাজের জন্য রুটের মানচিত্রে লাল চিহ্নিত রাস্তা বন্ধ। অন্য আড়াআড়ি রাস্তা নিন।",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "অনুশীলনের সময় পরিকল্পনায় সাহায্য করে, স্কোরে প্রভাব ফেলে না। আগে নিরাপত্তা।",
+"View the stop windows": "স্টপের সময়সীমা দেখুন",
+"Next stop": "পরের স্টপ",
+"Your workday plan": "আপনার কর্মদিবসের পরিকল্পনা",
+"This street is closed.": "এই রাস্তা বন্ধ।",
+"Fog": "কুয়াশা",
+"Ice": "বরফ"
 },
 "templates": [
 [
@@ -5112,6 +5129,18 @@ window.OTR_I18N.bn = {
 [
 "Sound effects volume is {0}%.",
 "সাউন্ড এফেক্টের আওয়াজ {0}%।"
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"স্টপ {0}-এর পরিকল্পনা করুন ডিপো ছাড়ার {1} থেকে {2} মিনিট পরের জন্য।"
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"এই স্টপ রওনা হওয়ার {0} মিনিট পরে নথিভুক্ত হয়েছে।"
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"পরিকল্পনার ঘড়ি রওনা হওয়ার পর {0} মিনিট দেখাচ্ছে।"
 ]
 ],
 "keep": [

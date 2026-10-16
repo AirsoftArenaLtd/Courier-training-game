@@ -71,6 +71,7 @@ OTR.fpHandheld = class {
     const m=this.scene.model,d=m.routeDay.dispatch;
     this.show({title:'ROUTE-DAY UPDATES',lines:[`The forecast is ${m.routeDay.weather}.`,d&&d.sent?'Dispatch has sent a stop update.':'There is no dispatch update yet.'],options:[
       {label:'Read the dispatch update',disabled:!d||!d.sent,onPick:()=>{if(!this.allowed())return;this.show({title:'DISPATCH UPDATE',lines:[OTR.fpDay.read(m)],options:[{label:'Back',onPick:()=>this.day()}]});}},
+      ...(OTR.fpLater&&OTR.fpLater.enabled(m)?[{label:'View the workday plan',onPick:()=>{this.close(false);OTR.fpLater.open(this.scene);}}]:[]),
       {label:'Weather and breaks',onPick:()=>this.show({title:'TODAY’S WEATHER',lines:[OTR.fpDay.driveText(m)||'Conditions are clear. Follow the posted speed limits.'],options:[
         ...(m.routeDay.weather==='heat'?[{label:'Take a water and shade break',onPick:()=>{this.scene.message(OTR.fpDay.rest(m));this.scene.checkpoint();this.close();}}]:[]),
         {label:'Back',onPick:()=>this.day()}]})}
