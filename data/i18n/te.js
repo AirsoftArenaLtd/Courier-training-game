@@ -3442,7 +3442,47 @@ window.OTR_I18N.te = {
 "Workdays": "పని దినాలు",
 "improved": "మెరుగైనవారు",
 "unchanged or lower": "మారనివారు లేదా తగ్గినవారు",
-"One workday so far": "ఇప్పటివరకు ఒక పని దినం"
+"One workday so far": "ఇప్పటివరకు ఒక పని దినం",
+"Move forward or accelerate": "ముందుకు వెళ్లండి లేదా వేగం పెంచండి",
+"Move back or brake": "వెనక్కి వెళ్లండి లేదా బ్రేక్ వేయండి",
+"Move or steer left": "ఎడమవైపు వెళ్లండి లేదా తిప్పండి",
+"Move or steer right": "కుడివైపు వెళ్లండి లేదా తిప్పండి",
+"Look left": "ఎడమవైపు చూడండి",
+"Look right": "కుడివైపు చూడండి",
+"Look down": "కిందకు చూడండి",
+"Interact or exit the cab": "మాట్లాడండి లేదా క్యాబిన్ నుండి బయటకు రండి",
+"Select the next nearby target": "దగ్గరలోని తదుపరి లక్ష్యాన్ని ఎంచుకోండి",
+"Inspect the parcel": "పార్సెల్‌ను తనిఖీ చేయండి",
+"Open or close the handheld": "హ్యాండ్‌హెల్డ్ తెరవండి లేదా మూసివేయండి",
+"Scan or set the parking brake": "స్కాన్ చేయండి లేదా పార్కింగ్ బ్రేక్ వేయండి",
+"Check the mirror": "అద్దం చూడండి",
+"Fasten the seatbelt": "సీట్‌బెల్ట్ పెట్టుకోండి",
+"Change gear": "గేర్ మార్చండి",
+"Signal right": "కుడి సిగ్నల్ ఇవ్వండి",
+"Look forward": "ముందుకు చూడండి",
+"Open the menu": "మెనూ తెరవండి",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "దగ్గరలో లక్ష్యం ఏదీ కనిపించడం లేదు. దగ్గరకు వెళ్లండి లేదా చూడటానికి బాణం కీలు వాడండి.",
+"the parcel": "పార్సెల్",
+"the cab": "క్యాబిన్",
+"the cargo doors": "సరుకు తలుపులు",
+"the load restraint": "సరుకు కట్టే పట్టీ",
+"the tires": "టైర్లు",
+"the lights": "లైట్లు",
+"the workday station": "వర్క్‌డే స్టేషన్",
+"the cargo practice station": "కార్గో ప్రాక్టీస్ స్టేషన్",
+"the debrief station": "డీబ్రీఫ్ స్టేషన్",
+"the dog gate": "కుక్కల గేటు",
+"the path hazard": "దారిలోని ప్రమాదం",
+"Turn reduced motion off": "తగ్గిన కదలికను ఆఫ్ చేయండి",
+"Turn reduced motion on": "తగ్గిన కదలికను ఆన్ చేయండి",
+"Turn the color-blind filter off": "వర్ణాంధత్వ ఫిల్టర్‌ను ఆఫ్ చేయండి",
+"Turn the color-blind filter on": "వర్ణాంధత్వ ఫిల్టర్‌ను ఆన్ చేయండి",
+"Turn narration off": "వివరణ చెప్పడాన్ని ఆఫ్ చేయండి",
+"Turn narration on": "వివరణ చెప్పడాన్ని ఆన్ చేయండి",
+"Use normal text": "సాధారణ అక్షరాలు వాడండి",
+"Use larger text": "పెద్ద అక్షరాలు వాడండి",
+"Next page": "తదుపరి పేజీ",
+"Use arrows and Enter, or number keys. Backspace goes back.": "బాణం కీలు, Enter లేదా నంబర్ కీలు వాడండి. Backspace వెనక్కి తీసుకెళ్తుంది."
 },
 "templates": [
 [
@@ -4832,6 +4872,114 @@ window.OTR_I18N.te = {
 [
 "{0} stars",
 "{0} నక్షత్రాలు"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"ఎంచుకున్నది: {0}. మాట్లాడటానికి {1} నొక్కండి."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"చూడటానికి {0}, నడవడానికి లేదా నడపడానికి కదలిక కీలు వాడండి. ప్రతి ఎంపికకూ దాని నంబర్ కీ కూడా పనిచేస్తుంది. ఎంచుకున్న ఎంపికను Enter ఖరారు చేస్తుంది."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"ఈ కంట్రోల్స్ సెట్టింగ్స్, యాక్సెసిబిలిటీలో సేవ్ చేసిన కీ మ్యాప్‌నే వాడతాయి. మౌస్ లేకుండా కనిపించే దగ్గరి లక్ష్యాన్ని ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"{0} కోసం కొత్త కీ నొక్కండి. రద్దు చేయడానికి Escape."
+],
+[
+"Press {0} to put the handheld away.",
+"హ్యాండ్‌హెల్డ్‌ను పక్కన పెట్టడానికి {0} నొక్కండి."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"స్కాన్ పూర్తయ్యే వరకు {0} లేదా మౌస్ ఎడమ బటన్‌ను పట్టుకోండి."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"తిప్పడానికి {0}/{1} వాడండి. స్కాన్ చేయడానికి {2} నొక్కండి. వెనక్కి వెళ్లడానికి Escape."
+],
+[
+"{0} look",
+"{0} చూడండి"
+],
+[
+"{0} selects a nearby target",
+"{0} దగ్గరి లక్ష్యాన్ని ఎంచుకుంటుంది"
+],
+[
+"{0} aim",
+"{0} గురి పెట్టండి"
+],
+[
+"{0} resumes the workday.",
+"{0} వర్క్‌డేను కొనసాగిస్తుంది."
+],
+[
+"{0} starts the workday.",
+"{0} వర్క్‌డేను ప్రారంభిస్తుంది."
+],
+[
+"{0} starts cargo practice.",
+"{0} కార్గో ప్రాక్టీస్‌ను ప్రారంభిస్తుంది."
+],
+[
+"{0} opens the last debrief.",
+"{0} చివరి డీబ్రీఫ్‌ను తెరుస్తుంది."
+],
+[
+"{0} opens the hub menu.",
+"{0} హబ్ మెనూను తెరుస్తుంది."
+],
+[
+"{0} enters the cab.",
+"{0} క్యాబిన్‌లోకి ఎక్కిస్తుంది."
+],
+[
+"{0} closes the cargo doors.",
+"{0} సరుకు తలుపులను మూసివేస్తుంది."
+],
+[
+"{0} opens the cargo doors.",
+"{0} సరుకు తలుపులను తెరుస్తుంది."
+],
+[
+"{0} secures the load.",
+"{0} సరుకును భద్రంగా కడుతుంది."
+],
+[
+"{0} inspects the tires.",
+"{0} టైర్లను తనిఖీ చేస్తుంది."
+],
+[
+"{0} inspects the lights.",
+"{0} లైట్లను తనిఖీ చేస్తుంది."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} డిస్పాచ్‌లో చెక్ ఇన్ చేస్తుంది."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} పార్సెల్‌ను తీసుకుంటుంది. {1} దాన్ని తనిఖీ చేస్తుంది. {2} హ్యాండ్‌హెల్డ్‌ను తెరుస్తుంది."
+],
+[
+"{0} places the parcel.",
+"{0} పార్సెల్‌ను ఉంచుతుంది."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} గేటును తనిఖీ చేస్తుంది. కుక్క బయట ఉన్నంతసేపు బయటే ఉండండి."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} దారిని తనిఖీ చేస్తుంది. చిన్న, జాగ్రత్త అడుగుల కోసం {1} పట్టుకోండి."
+],
+[
+"{0} attempts delivery.",
+"{0} డెలివరీకి ప్రయత్నిస్తుంది."
 ]
 ],
 "keep": [

@@ -3427,7 +3427,47 @@ window.OTR_I18N.fr = {
 "Workdays": "Journées",
 "improved": "améliorés",
 "unchanged or lower": "inchangés ou en baisse",
-"One workday so far": "Une seule journée pour l'instant"
+"One workday so far": "Une seule journée pour l'instant",
+"Move forward or accelerate": "Avancer ou accélérer",
+"Move back or brake": "Reculer ou freiner",
+"Move or steer left": "Aller ou tourner à gauche",
+"Move or steer right": "Aller ou tourner à droite",
+"Look left": "Regarder à gauche",
+"Look right": "Regarder à droite",
+"Look down": "Regarder vers le bas",
+"Interact or exit the cab": "Interagir ou sortir de la cabine",
+"Select the next nearby target": "Sélectionner la prochaine cible proche",
+"Inspect the parcel": "Inspecter le colis",
+"Open or close the handheld": "Ouvrir ou fermer le terminal",
+"Scan or set the parking brake": "Scanner ou serrer le frein à main",
+"Check the mirror": "Vérifier le rétroviseur",
+"Fasten the seatbelt": "Attacher la ceinture",
+"Change gear": "Changer de vitesse",
+"Signal right": "Mettre le clignotant à droite",
+"Look forward": "Regarder devant",
+"Open the menu": "Ouvrir le menu",
+"No nearby target is visible. Move closer or use the arrow keys to look.": "Aucune cible proche n'est visible. Rapproche-toi ou utilise les flèches pour regarder.",
+"the parcel": "le colis",
+"the cab": "la cabine",
+"the cargo doors": "les portes de chargement",
+"the load restraint": "la sangle de chargement",
+"the tires": "les pneus",
+"the lights": "les feux",
+"the workday station": "le poste de la journée",
+"the cargo practice station": "le poste d'entraînement au chargement",
+"the debrief station": "le poste de débriefing",
+"the dog gate": "le portail du chien",
+"the path hazard": "l'obstacle sur le chemin",
+"Turn reduced motion off": "Désactiver la réduction des animations",
+"Turn reduced motion on": "Activer la réduction des animations",
+"Turn the color-blind filter off": "Désactiver le filtre daltonien",
+"Turn the color-blind filter on": "Activer le filtre daltonien",
+"Turn narration off": "Désactiver la narration",
+"Turn narration on": "Activer la narration",
+"Use normal text": "Utiliser le texte normal",
+"Use larger text": "Utiliser un texte plus grand",
+"Next page": "Page suivante",
+"Use arrows and Enter, or number keys. Backspace goes back.": "Utilise les flèches et Entrée, ou les touches numériques. Retour arrière revient en arrière."
 },
 "templates": [
 [
@@ -4817,6 +4857,114 @@ window.OTR_I18N.fr = {
 [
 "{0} stars",
 "{0} étoiles"
+],
+[
+"Selected {0}. Press {1} to interact.",
+"Sélection : {0}. Appuie sur {1} pour interagir."
+],
+[
+"Use {0} to look and the movement keys to walk or drive. Every choice also accepts its number key. Enter confirms the selected choice.",
+"Utilise {0} pour regarder et les touches de déplacement pour marcher ou conduire. Chaque choix accepte aussi sa touche numérique. Entrée confirme le choix sélectionné."
+],
+[
+"The controls use the same saved key map as Settings and Accessibility. Press {0} to select a visible nearby target without the mouse.",
+"Les commandes utilisent la même configuration de touches enregistrée que Paramètres et Accessibilité. Appuie sur {0} pour sélectionner une cible proche visible sans la souris."
+],
+[
+"Press the new key for {0}. Escape cancels.",
+"Appuie sur la nouvelle touche pour {0}. Échap annule."
+],
+[
+"Press {0} to put the handheld away.",
+"Appuie sur {0} pour ranger le terminal."
+],
+[
+"Hold {0} or the left mouse button until the scan completes.",
+"Maintiens {0} ou le bouton gauche de la souris jusqu'à la fin du scan."
+],
+[
+"Use {0}/{1} to rotate. Press {2} to scan. Escape returns.",
+"Utilise {0}/{1} pour tourner. Appuie sur {2} pour scanner. Échap pour revenir."
+],
+[
+"{0} look",
+"{0} regarder"
+],
+[
+"{0} selects a nearby target",
+"{0} sélectionne une cible proche"
+],
+[
+"{0} aim",
+"{0} viser"
+],
+[
+"{0} resumes the workday.",
+"{0} reprend la journée."
+],
+[
+"{0} starts the workday.",
+"{0} lance la journée."
+],
+[
+"{0} starts cargo practice.",
+"{0} lance l'entraînement au chargement."
+],
+[
+"{0} opens the last debrief.",
+"{0} ouvre le dernier débriefing."
+],
+[
+"{0} opens the hub menu.",
+"{0} ouvre le menu du hub."
+],
+[
+"{0} enters the cab.",
+"{0} monte dans la cabine."
+],
+[
+"{0} closes the cargo doors.",
+"{0} ferme les portes de chargement."
+],
+[
+"{0} opens the cargo doors.",
+"{0} ouvre les portes de chargement."
+],
+[
+"{0} secures the load.",
+"{0} sécurise le chargement."
+],
+[
+"{0} inspects the tires.",
+"{0} inspecte les pneus."
+],
+[
+"{0} inspects the lights.",
+"{0} inspecte les feux."
+],
+[
+"{0} checks in at Dispatch.",
+"{0} te signale au répartiteur."
+],
+[
+"{0} picks up the parcel. {1} inspects it. {2} opens the handheld.",
+"{0} prend le colis. {1} l'inspecte. {2} ouvre le terminal."
+],
+[
+"{0} places the parcel.",
+"{0} dépose le colis."
+],
+[
+"{0} checks the gate. Keep outside while the dog is loose.",
+"{0} vérifie le portail. Reste dehors tant que le chien est en liberté."
+],
+[
+"{0} inspects the path. Hold {1} for short, careful steps.",
+"{0} inspecte le chemin. Maintiens {1} pour de petits pas prudents."
+],
+[
+"{0} attempts delivery.",
+"{0} tente la livraison."
 ]
 ],
 "keep": [
