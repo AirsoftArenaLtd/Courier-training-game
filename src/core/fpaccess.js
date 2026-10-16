@@ -80,11 +80,13 @@ OTR.fpAccess={
   },
   layoutDevice(hh){
     const d=hh.device;if(!d.optionBtns||!d.screen)return;const t=s=>OTR.i18n?OTR.i18n.t(s):s,opts=d.current.options||[];
+    let footerSpace=30;const footer=d.current.footer&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+14&&o.y===d.sy+d.sh-16);
+    if(footer){footer.setWordWrapWidth(d.sw-28,true).setOrigin(0,1).setY(d.sy+d.sh-8);footerSpace=Math.max(30,footer.height+16);}
     let total=0;for(let i=0;i<d.optionBtns.length;i++){
       const b=d.optionBtns[i];b.label.setText(`${i+1}  ${t(opts[i].label)}`).setScale(1);
       const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+6;
     }
-    let y=d.sy+d.sh-30-total;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+6;}
+    let y=d.sy+d.sh-footerSpace-total;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+6;}
     if(this.reduced()){hh.scene.tweens.killTweensOf(d.root);d.root.setY(d.Yopen);}
     hh.index=0;this.deviceFocus(hh,false);
   },

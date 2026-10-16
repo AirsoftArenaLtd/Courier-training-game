@@ -90,6 +90,10 @@ test('inspection refreshes the raycast rather than opening a formerly aimed-at p
   Object.assign(s.model.player,{x:-9,z:4});s.target='parcel0';s.sync=()=>{};s.art={pick:()=>null};
   s.showPanel=()=>assert.fail('occluded parcel must not open');s.showParcel();assert.equal(s.target,null);
 });
+test('a carried package can still be put back on its empty depot table without another target',()=>{
+  const s=new context.SceneClass(),m=context.OTR.fpMission.create('campaign',1);Object.assign(m.player,m.point('parcel0'));assert.equal(m.pickup('parcel0'),'');
+  Object.assign(s,{model:m,area:'route',aimTarget:()=>null,checkpoint(){},sync(){},refresh(){},message(){}});s.interact();assert.equal(m.heldId,null);assert.equal(m.parcels[0].location,'depot');
+});
 test('scanner reads the barcode face, not the back of a box or through a closed door',()=>{
   const w=world();
   const scan=(position)=>{Object.assign(w.m.player,position);w.art.sync(w.m,null,'route');

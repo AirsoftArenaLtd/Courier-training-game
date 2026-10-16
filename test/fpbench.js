@@ -42,6 +42,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   };
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
+  if(await p.evaluate(()=>!!OTR.fpGuide)){await p.evaluate(()=>OTR.fpGuide.open(OTR.game.scene.getScene('FirstPersonScene')));await sample('guide');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());}
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').launch('campaign'));
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('depot');
