@@ -20,7 +20,7 @@ What the game needs from a company network, in plain words. Checked by `node tes
 | Port | `OTR_PORT`, default **8080**, plain HTTP |
 | Listens on | `OTR_HOST`, default `0.0.0.0` (all addresses) |
 | Files it writes | one folder, `OTR_DATA_DIR` (default `server/data`): one JSON file per trainee, the trainer settings, and `accounts.json` when employee ID sign-in is on |
-| Needs the internet | No. It makes no outgoing connections. |
+| Needs the internet | No. It makes no outgoing connections, except to the company's learning record store if xAPI is switched on (`OTR_XAPI_ENDPOINT`; off by default). |
 
 Put it behind the company's web server or load balancer for HTTPS (passwords cross the network when employee ID
 sign-in is on; see `docs/SIGN-IN.md`). Over HTTPS the sign-in cookie is marked `Secure` automatically; behind a proxy
@@ -39,7 +39,8 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
 | --- | --- | --- | --- |
 | Training PCs | the training server | 8080 (or the HTTPS port of the proxy in front) | the game and the trainee's saved progress |
 | The proxy or load balancer | the training server | 8080 | when a proxy sits in front |
-| Nothing | the internet | none | the server and the game never go out |
+| The training server | the company's learning record store (only if xAPI is on) | the store's HTTPS port | finished workdays sent as xAPI statements |
+| Anything else | the internet | none | the server and the game never go out otherwise |
 
 ### Sign-in options (pick what the company already has)
 

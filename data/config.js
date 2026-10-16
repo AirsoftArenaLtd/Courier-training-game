@@ -49,6 +49,11 @@ OTR_DATA.config = {
   // full-length route (C-7) is in; ?workday3d=0 turns it off for one visit (the 2D route day), ?workday3d=1 on.
   workday3d: true,
 
+  // A company's LMS (SCORM) sees the 3D workday as one more part of the course: its stars count in the score, and the
+  // course is complete only once a workday is finished (passed once one met the academy's pass marks). false: the
+  // LMS reports as it did before the workday existed. Ignored when the workday is not offered.
+  lmsWorkday: true,
+
   // Performance ratio (0-1) needed for 1, 2 and 3 stars. Scenarios may override.
   starThresholds: [0.35, 0.65, 0.9],
 
