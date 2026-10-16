@@ -101,7 +101,7 @@ test('low graphics stays within the complete-frame geometry budget at every stop
  const count=cam=>{
   cam.updateMatrixWorld(true);const frustum=new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
   let calls=0,triangles=0;
-  world.traverseVisible(o=>{if(!o.isMesh||(o.frustumCulled&&!frustum.intersectsObject(o)))return;calls++;const g=o.geometry;triangles+=(g.index?g.index.count:g.attributes.position.count)/3*(o.isInstancedMesh?o.count:1);});
+  world.traverseVisible(o=>{if(!o.isMesh||!o.layers.test(cam.layers)||(o.frustumCulled&&!frustum.intersectsObject(o)))return;calls++;const g=o.geometry;triangles+=(g.index?g.index.count:g.attributes.position.count)/3*(o.isInstancedMesh?o.count:1);});
   return {calls,triangles};
  };
  for(const loaded of [false,true]){
