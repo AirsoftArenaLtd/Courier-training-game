@@ -119,7 +119,7 @@ OTR.fp = {
           let f = input.forward - input.back, r = input.right - input.left;
           const length = Math.hypot(f, r);
           if (length > 1) { f /= length; r /= length; }
-          const p = this.player, speed = 2.5;
+          const p = this.player, speed = input.careful ? 1 : 2.5;
           const dx = (Math.sin(p.yaw) * f + Math.cos(p.yaw) * r) * speed * dt;
           const dz = (-Math.cos(p.yaw) * f + Math.sin(p.yaw) * r) * speed * dt;
           if (!this.blocked(p.x + dx, p.z)) p.x += dx;
@@ -127,7 +127,7 @@ OTR.fp = {
           return;
         }
         const v = this.van;
-        if (v.hand || input.back) v.speed = F.approach(v.speed, 0, (v.hand ? 8 : 5) * dt);
+        if (v.hand || input.back) v.speed = F.approach(v.speed, 0, (v.hand ? 8 : 5) * (this.traction || 1) * dt);
         else if (input.forward) v.speed = F.clamp(v.speed + v.gear * 2.4 * dt, -2.5, 8);
         else v.speed = F.approach(v.speed, 0, 0.7 * dt);
         const angle = (input.right - input.left) * (0.48 - 0.15 * Math.min(1, Math.abs(v.speed) / 8));

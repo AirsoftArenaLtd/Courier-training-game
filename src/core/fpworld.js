@@ -44,8 +44,12 @@ OTR.fpWorld = {
     box(hub,0,0.025,3,2.2,0.04,3,0x6B538B);
 
     const base = model || OTR.fpMission.create('campaign',1);
+    const weather=base.routeDay?base.routeDay.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
+    const sky=weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
+    if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
+    const cabParcelRange2=OTR.gfx.high()?400:64;
     const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity;
-    if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;}
+    if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,0x789069);
     box(route,0,-0.015,-57,11,0.06,155,0x4B5058);
@@ -89,6 +93,9 @@ OTR.fpWorld = {
     box(route,-13.8*depotSide,0.48,5,1.8,0.96,1.6,0x608987,'returns',true);
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,2,11),text:'Dispatch',max:18});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,1.9,5),text:'Returns',max:18});
+    const weatherDrops=(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),OTR.gfx.high()?36:18):null;
+    const dropMatrix=new T.Matrix4(),dropPosition=new T.Vector3(),dropScale=new T.Vector3(snow?.09:.025,snow?.09:.7,snow?.09:.025),dropRotation=new T.Quaternion();
+    if(weatherDrops){weatherDrops.frustumCulled=false;route.add(weatherDrops);}
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];
     base.stops.forEach((s,i)=>{
       const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
@@ -97,7 +104,7 @@ OTR.fpWorld = {
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,0x65626B);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
       box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
-      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,0x927557);
+      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?0x789069:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
     if (!base.town) {
@@ -158,11 +165,47 @@ OTR.fpWorld = {
     box(person,0,1.1,0,0.45,0.75,0.25,0xBD9155);
     box(person,0,1.65,0,0.3,0.32,0.3,0xB68F72);
     [-0.12,0.12].forEach(x=>box(person,x,0.38,0,0.16,0.75,0.19,0x43515E));
-    const residents=base.stops.map(s=>{
-      const g=new T.Group();route.add(g);g.position.set(s.x-(s.side||1)*0.8,0,s.z);
-      box(g,0,1.1,0,0.45,0.75,0.27,0x608987);box(g,0,1.65,0,0.3,0.32,0.3,0xB68F72);
-      [-0.12,0.12].forEach(x=>box(g,x,0.38,0,0.16,0.75,0.19,0x43515E));return g;
-    });
+    const residentParts=[],residentBatch=new T.InstancedMesh(cube,material(0xFFFFFF),base.stops.length*4);
+    residentBatch.frustumCulled=false;residentBatch.count=0;route.add(residentBatch);
+    for(const stop of base.stops){
+      const a=base.doorsteps?base._doorSpecs[stop.id]:null,x=stop.x-(stop.side||1)*.8;
+      const part=(dx,y,w,h,d,color)=>{const matrix=new T.Matrix4().compose(new T.Vector3(x+dx,y,stop.z),new T.Quaternion(),new T.Vector3(w,h,d));residentParts.push({id:stop.id,matrix,color:new T.Color(color)});};
+      part(0,1.1,.45,.75,.27,a?a.shirt:0x608987);part(0,1.65,.3,.32,.3,a?a.skin:0xB68F72);
+      if(OTR.gfx.high()){part(-.12,.38,.16,.75,.19,0x43515E);part(.12,.38,.16,.75,.19,0x43515E);}else part(0,.38,.38,.75,.19,0x43515E);
+    }
+    const dogs=[],gates=[],hazards=[];
+    if(base.doorsteps)for(let i=0;i<base.stops.length;i++){
+      const s=base.stops[i],a=base._doorSpecs[i];
+      if(a.dog){
+        const p=OTR.fpDoors.point(base,i,'gate');gates[i]=box(route,p.x,.6,p.z,.16,1.2,4.8,0x65626B,'gate'+i,true);
+        for(const z of [-3.1,3.1])box(route,p.x,.6,s.z+z,.16,1.2,1.4,0x65626B);
+        labels.push({parent:route,point:new T.Vector3(p.x,1.8,p.z),text:'Keep the gate shut. A dog is loose.',max:15});
+        const dog=new T.Group();route.add(dog);dogs[i]=dog;const fur=a.fur;
+        box(dog,0,.45,0,.85,.4,.35,fur);box(dog,-.45,.65,0,.38,.36,.36,fur);box(dog,-.64,.57,0,.28,.18,.25,fur);
+        for(const x of [-.3,.3])for(const z of [-.13,.13])box(dog,x,.18,z,.12,.36,.12,fur);
+        box(dog,.49,.65,0,.35,.12,.12,fur);box(dog,-.42,.9,.1,.13,.22,.12,fur);box(dog,-.42,.9,-.1,.13,.22,.12,fur);
+        dog.rotation.y=s.side>0?0:Math.PI;
+      }
+      if(a.hazard){const p=OTR.fpDoors.point(base,i,'hazard'),slippery=a.hazard==='ice'||a.hazard==='wet';hazards[i]=box(route,p.x,.11,p.z,slippery?1.15:.95,slippery?.04:.1,slippery?1.2:.8,slippery?0x506673:0x927557,'hazard'+i);}
+    }
+    let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
+    if(base.driving){
+      bus=new T.Group();route.add(bus);
+      box(bus,0,1.45,0,2.4,2.6,7.6,0xE4B64A,null,true);
+      for(const x of [-1.21,1.21]){
+        for(const z of [-2.4,-0.8,0.8,2.4])box(bus,x,2,z,0.04,0.7,1.05,0x343B46);
+        for(const z of [-2.3,2.3])box(bus,x,0.45,z,0.15,0.8,0.8,0x343B46);
+      }
+      busLamps=new T.Group();bus.add(busLamps);
+      for(const x of [-0.8,0.8])box(busLamps,x,2.8,3.83,0.3,0.3,0.08,0xE33E44);
+      emergency=new T.Group();route.add(emergency);
+      box(emergency,0,0.65,0,1.45,1.1,4,0xE5E9E8,null,true);
+      box(emergency,0,1.3,-0.2,1.3,0.65,1.7,0x343B46);
+      for(const x of [-0.75,0.75])for(const z of [-1.25,1.25])box(emergency,x,0.35,z,0.12,0.6,0.6,0x343B46);
+      emergencyLamps=new T.Group();emergency.add(emergencyLamps);
+      for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
+    }
+    const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach((matrices,color)=>{
       const mesh=new T.InstancedMesh(color>=0x1000000?plane:cube,material(color%0x1000000),matrices.length);
@@ -170,10 +213,12 @@ OTR.fpWorld = {
       mesh.computeBoundingSphere();parent.add(mesh);
       if(base.town&&parent===route)staticBatches.push({mesh,matrices});
     }));
+    if(wet){material(0x4B5058).color.setHex(0x3D4951);material(0x789069).color.setHex(0x6A806C);}
+    if(snow){material(0x789069).color.setHex(0xE0E5E4);material(0x4B5058).color.setHex(0x7B8994);material(0x65626B).color.setHex(0xC5CFD3);}
     const ray=new T.Raycaster();ray.far=2.65;
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     const scanObjects=[...new Set([...occluders,...interactions])];
-    const api={hub,route,van,parcels,labels,occluders,interactions,ray,
+    const api={hub,route,van,parcels,dogs,gates,hazards,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -185,6 +230,15 @@ OTR.fpWorld = {
         if(inHub){camera.position.set(hubPlayer.x,1.65,hubPlayer.z);camera.rotation.set(-hubPlayer.pitch,-hubPlayer.yaw,0,'YXZ');view.mirror.on=false;}
         else if(model){
           const m=model,v=m.van,p=m.player,cx=m.mode==='cab'?v.x:p.x,cz=m.mode==='cab'?v.z:p.z;
+          if(weatherDrops){
+            for(let i=0;i<weatherDrops.count;i++){
+              const t=m.elapsed*(snow?.7:9),c=Math.cos(v.yaw),s=Math.sin(v.yaw);let x=((i*7.31)%18)-9,z=((i*11.73)%18)-9;
+              if(m.mode==='cab'&&Math.abs(x*c+z*s)<1.5&&Math.abs(-x*s+z*c)<3){x+=c*3;z+=s*3;}
+              dropPosition.set(cx+x+(snow?Math.sin(m.elapsed+i)*.3:0),.3+((i*.63-t)%8+8)%8,cz+z);
+              dropMatrix.compose(dropPosition,dropRotation,dropScale);weatherDrops.setMatrixAt(i,dropMatrix);
+            }
+            weatherDrops.instanceMatrix.needsUpdate=true;
+          }
           if(base.town&&(Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3)){
             sceneryX=cx;sceneryZ=cz;
             // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
@@ -205,7 +259,7 @@ OTR.fpWorld = {
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;
           tyreBulge.visible=!m.repaired&&m.fault==='tyres';
           m.parcels.forEach((p,i)=>{
-            const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<20*20);
+            const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
           });
           carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';wheel.rotation.z=-v.steer*3;
@@ -222,7 +276,22 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
-          m.stops.forEach((s,i)=>residents[i].visible=s.contacted&&s.service==='handover'&&!s.resolved);
+          let residentCount=0;
+          for(const part of residentParts){const s=m.stops[part.id];if(!s.contacted||s.resolved||!(m.doorsteps?m._doorSpecs[part.id].present:s.service==='handover')||(s.x-cx)**2+(s.z-cz)**2>sceneryRadius*sceneryRadius)continue;
+            residentBatch.setMatrixAt(residentCount,part.matrix);residentBatch.setColorAt(residentCount++,part.color);
+          }
+          residentBatch.count=residentCount;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
+          if(m.doorsteps)for(let i=0;i<m.stops.length;i++){const d=m.doorsteps.stops[i],s=m.stops[i];
+            if(dogs[i]){const p=m._doorSolids[i].dog;dogs[i].visible=!d.dogSecured&&Math.hypot(p.x-cx,p.z-cz)<35;dogs[i].position.set(p.x,0,p.z);gates[i].visible=!d.gateOpen&&!d.dogSecured&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;}
+            if(hazards[i])hazards[i].visible=!d.hazardCleared&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;
+          }
+          if(bus&&m.driving){
+            const b=m.driving.bus,e=m.driving.siren,flash=Math.floor(m.elapsed*3)%2===0;
+            bus.visible=b.state==='flashing'||b.state==='leaving';bus.position.set(b.x,0,b.z);bus.rotation.y=-b.yaw;
+            busLamps.visible=b.state==='flashing'&&flash;
+            emergency.visible=e.state==='approaching'||e.state==='passing';emergency.position.set(e.x,0,e.z);emergency.rotation.y=-e.yaw;
+            for(const lamp of emergencyLamps.children)lamp.material=flash?flashRed:flashBlue;
+          }
           const eye=OTR.fp.local(v,-1.3,-1.55);
           view.mirror.camera.position.set(eye.x,2.1,eye.z);view.mirror.camera.rotation.set(0,Math.PI-v.yaw-0.18,0,'YXZ');
           view.mirror.on=m.mode==='cab'&&!m.paused&&m.elapsed-m.mirrorAt<3.5;

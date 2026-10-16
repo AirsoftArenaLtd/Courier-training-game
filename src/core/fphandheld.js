@@ -25,7 +25,7 @@ OTR.fpHandheld = class {
   show(def, aiming = false) {
     if (!this.allowed()) return false;
     const s = this.scene;
-    this.mode = aiming ? 'aim' : 'menu'; this.trigger = false; this.progress = 0; this.focusId = null;
+    this.signatureToken=null;this.mode = aiming ? 'aim' : 'menu'; this.trigger = false; this.progress = 0; this.focusId = null;
     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
     if (OTR.a11y) OTR.a11y.say(OTR.i18n.t(def.title) + '. ' + (def.lines || []).map(line => OTR.i18n.t(typeof line === 'string' ? line : line.text)).join(' '));
@@ -34,7 +34,7 @@ OTR.fpHandheld = class {
   close(resume = true) {
     if (!this.isOpen) return;
     const s = this.scene;
-    this.mode = 'closed'; this.trigger = false; this.progress = 0; this.focusId = null;
+    this.signatureToken=null;this.mode = 'closed'; this.trigger = false; this.progress = 0; this.focusId = null;
     this.device.close(); this.device.root.setVisible(false);
     if (OTR.a11y) OTR.a11y.hush();
     s.held = Object.create(null); s.pointerStart = null; s.inputBlockedUntil = s.time.now + 180;
@@ -57,8 +57,18 @@ OTR.fpHandheld = class {
       { label: 'Scan package', onPick: () => this.scan() },
       { label: 'Stop details', onPick: () => this.stop(stop.id) },
       { label: 'Route', onPick: () => this.route() },
-      ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[])
+      ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[]),
+      ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
     ], footer: 'TAB put away' });
+  }
+  day(){
+    const m=this.scene.model,d=m.routeDay.dispatch;
+    this.show({title:'ROUTE-DAY UPDATES',lines:[`The forecast is ${m.routeDay.weather}.`,d&&d.sent?'Dispatch has sent a stop update.':'There is no dispatch update yet.'],options:[
+      {label:'Read the dispatch update',disabled:!d||!d.sent,onPick:()=>{if(!this.allowed())return;this.show({title:'DISPATCH UPDATE',lines:[OTR.fpDay.read(m)],options:[{label:'Back',onPick:()=>this.day()}]});}},
+      {label:'Weather and breaks',onPick:()=>this.show({title:'TODAY’S WEATHER',lines:[OTR.fpDay.driveText(m)||'Conditions are clear. Follow the posted speed limits.'],options:[
+        ...(m.routeDay.weather==='heat'?[{label:'Take a water and shade break',onPick:()=>{this.scene.message(OTR.fpDay.rest(m));this.scene.checkpoint();this.close();}}]:[]),
+        {label:'Back',onPick:()=>this.day()}]})}
+    ],back:()=>this.home()});
   }
   loadCheck(){
     const m=this.scene.model;if(!m||!m.loadout)return;
@@ -122,10 +132,32 @@ OTR.fpHandheld = class {
         { label: 'Stop details', onPick: () => this.stop(m.activeStop) }
       ] });
   }
+  checks(id){
+    const m=this.scene.model,a=m._doorSpecs[id],d=m.doorsteps.stops[id];if(!OTR.fpDoors.can(m,id))return;
+    this.show({title:'DELIVERY CHECKS',lines:[a.person?`Person at the door: ${a.person}`:'Nobody is present to receive the parcel.',m.serviceLabel(id)],options:[
+      ...(a.adult?[{label:d.idViewed?'Review the photo ID':'Check the photo ID',onPick:()=>{this.close(false);this.scene.showIdentity(id);}}]:[]),
+      ...(a.signature&&a.present?[{label:d.signatureName?'Review the signature':'Capture the signature',onPick:()=>this.signature(id)}]:[]),
+      ...(a.difficult?[{label:'Speak with the customer',onPick:()=>{this.close(false);this.scene.showCustomer(id);}}]:[]),
+      {label:'Record the delivery outcome',onPick:()=>this.delivery(id)}
+    ],back:()=>this.delivery(id)});
+  }
+  signature(id){
+    const m=this.scene.model,a=m._doorSpecs[id];if(!OTR.fpDoors.can(m,id)||!a.present)return;
+    const sign=name=>{
+      const token={};this.show({title:'SIGNATURE',lines:['The recipient signs below.'],widget:{type:'signature',onDone:()=>{
+        if(this.signatureToken!==token||!this.isOpen)return;
+        const text=OTR.fpDoors.sign(m,id,name);this.scene.checkpoint();this.show({title:'SIGNATURE RECORDED',lines:[text,`Printed name: ${name}`],options:[{label:'Back',onPick:()=>this.checks(id)}]});
+      }},options:[{label:'Cancel',onPick:()=>this.checks(id)}]});this.signatureToken=token;
+    };
+    this.show({title:'SIGNER’S PRINTED NAME',lines:[`Person at the door: ${a.person}`,'Record the name of the person who signs.'],options:[
+      {label:`Record ${a.person}`,onPick:()=>sign(a.person)},
+      ...(a.to!==a.person?[{label:`Record ${a.to}`,onPick:()=>sign(a.to)}]:[{label:'Record Occupant',onPick:()=>sign('Occupant')}]),
+      {label:'Back',onPick:()=>this.checks(id)}]});
+  }
   delivery(id) {
     const m = this.scene.model, stop = m.stop(id);
     if (!stop || m.kind !== 'campaign') return;
-    if (!m.near('door' + id) || m.mode !== 'walk') {
+    if (!(m.doorsteps?OTR.fpDoors.near(m,id):m.near('door' + id)) || m.mode !== 'walk') {
       this.show({ title: 'DELIVERY', lines: ['Approach the delivery point with the parcel first.'],
         options: [{ label: 'Back', onPick: () => this.stop(id) }] }); return;
     }
@@ -142,7 +174,9 @@ OTR.fpHandheld = class {
     this.show({ title: 'DELIVERY', lines: [stop.address, m.serviceLabel(id)], options: [
       { label: 'Hand to resident', skin: 'ghost', onPick: () => record('handover') },
       { label: 'Leave in porch box', skin: 'ghost', onPick: () => record('safeplace') },
-      { label: 'Recipient absent', skin: 'ghost', onPick: () => record('exception') }
+      { label: m.doorsteps?'Record a delivery exception':'Recipient absent', skin: 'ghost', onPick: () => record('exception') },
+      ...(m.doorsteps&&(m._doorSpecs[id].adult||m._doorSpecs[id].signature&&m._doorSpecs[id].present||m._doorSpecs[id].difficult)?[{label:'Delivery checks',skin:'ghost',onPick:()=>this.checks(id)}]:[]),
+      ...(m.routeDay&&OTR.fpDay.planter(m,id)?[{label:'Place behind the planter',skin:'ghost',onPick:()=>record('planter')}]:[])
     ], back: () => this.stop(id) });
   }
 };

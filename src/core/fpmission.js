@@ -51,6 +51,7 @@ OTR.fpMission = {
         if (this.events[id]) return;
         this.events[id] = true;
         this.logs.push({ id, skill, outcome, text, at: Math.round(this.elapsed) });
+        if(this.logs.length>300)this.logs.shift();
         this.touch();
         this.report(id, skill, outcome);
       },
@@ -124,6 +125,8 @@ OTR.fpMission = {
           const s = M.slots.find(s => s.id === id);
           return s ? Object.assign({ y: s.y }, F.local(this.van, s.x, s.z)) : null;
         }
+        if(this.doorsteps&&id&&id.startsWith('gate'))return OTR.fpDoors.point(this,Number(id.slice(4)),'gate');
+        if(this.doorsteps&&id&&id.startsWith('hazard'))return OTR.fpDoors.point(this,Number(id.slice(6)),'hazard');
         if (id && id.startsWith('door')) { const s = this.stop(id.slice(4)); return s && { x: s.x, y: 1.5, z: s.z }; }
         const p = this.parcel(id);
         if (!p) return null;
@@ -132,6 +135,7 @@ OTR.fpMission = {
         if (p.location.startsWith('slot')) return this.point(p.location);
         if (p.location === 'held') return { x: this.player.x, y: 1.1, z: this.player.z };
         const s = this.stop(p.stop);
+        if(p.location==='delivered'&&this.routeDay&&OTR.fpDay.planter(this,p.stop))return {x:s.x-(s.side||1)*.6,y:.28,z:s.z+2.35};
         if (p.location === 'delivered') return { x: s.x - (s.side || 1) * 0.6, y: 0.28, z: s.z + 1.4 };
         if (p.location === 'returned') return { x: this.routePlan ? 13.8 : -13.8, y: 1.1, z: 4.5 + p.stop * 0.5 };
         return null;
@@ -192,7 +196,7 @@ OTR.fpMission = {
       atDelivery(p) {
         const s = p && this.stop(p.stop);
         return !!s && this.parked() && Math.hypot(this.van.x - s.x, this.van.z - s.z) < 18 &&
-          this.near('door' + s.id);
+          (this.doorsteps?OTR.fpDoors.near(this,s.id):this.near('door' + s.id));
       },
       scan(id) {
         const p = this.parcel(id || this.heldId);
@@ -208,11 +212,14 @@ OTR.fpMission = {
           this.log('stop-scan:' + p.id, 'verification', 'good', `Scanned the parcel at ${p.address} before delivery.`);
         }
         this.log('scan:' + p.id, 'verification', 'good', `Verified ${p.address} on the scanner.`);
-        return p.address + ' · ' + this.serviceLabel(p.stop);
+        const addressAlert=this.doorsteps?OTR.fpDoors.address(this,p):'';
+        return addressAlert||p.address + ' · ' + this.serviceLabel(p.stop);
       },
       serviceLabel(id) {
         const s = this.stop(id);
         if(!s)return 'This package is not on the route manifest.';
+        if(this.doorsteps){const text=OTR.fpDoors.label(this,id);if(text)return text;}
+        if(this.routeDay&&OTR.fpDay.planter(this,id))return 'Leave the parcel behind the planter, as dispatch requested.';
         return s.service === 'signature' ? 'Signature required' : s.service === 'safeplace' ? 'Leave in the porch box if nobody answers' : 'Hand to the resident';
       },
       pickup(id) {
@@ -275,6 +282,8 @@ OTR.fpMission = {
         for (const side of [-1.8, 1.8]) {
           const p = F.local(this.van, side, -1.7);
           if (!this.blocked(p.x, p.z)) {
+            if(this.routeDay)OTR.fpDay.endLeg(this);
+            if(this.driving)OTR.fpDriving.endLeg(this);
             Object.assign(this.player, p, { yaw: this.van.yaw, pitch: 0 });
             this.mode = 'walk'; this.leg++; this.van.belt = false; this.touch(); return true;
           }
@@ -285,14 +294,15 @@ OTR.fpMission = {
       mirror() { if (this.mode === 'cab') { this.mirrorAt = this.elapsed; this.touch(); } },
       contact(id) {
         const s = this.stop(id);
-        if (this.kind !== 'campaign' || !s || !this.near('door' + id) || this.mode !== 'walk') return 'Approach the correct delivery point.';
-        s.contacted = true; this.touch();
+        if (this.kind !== 'campaign' || !s || !(this.doorsteps?OTR.fpDoors.near(this,id):this.near('door' + id)) || this.mode !== 'walk') return 'Approach the correct delivery point.';
+        s.contacted = true;if(this.doorsteps)OTR.fpDoors.sync(this);this.touch();
         return s.service === 'handover' ? 'The resident answers and confirms the address.' : 'Nobody answers the door.';
       },
       deliver(id, outcome) {
-        const s = this.stop(id), p = this.parcel(this.heldId);
+        const s = this.stop(id), p = this.parcel(this.heldId),choice=outcome;
+        if(outcome==='planter'&&this.routeDay&&OTR.fpDay.planter(this,id))outcome='safeplace';
         if (!['handover','safeplace','exception'].includes(outcome)) return 'Choose a delivery outcome.';
-        if (this.kind !== 'campaign' || !s || s.resolved || !this.near('door' + id) || this.mode !== 'walk') return 'Approach an unfinished delivery point.';
+        if (this.kind !== 'campaign' || !s || s.resolved || !(this.doorsteps?OTR.fpDoors.near(this,id):this.near('door' + id)) || this.mode !== 'walk') return 'Approach an unfinished delivery point.';
         if (!p) return 'Retrieve the parcel from the van first.';
         if (p.stop !== s.id) {
           this.log('wrong:' + p.id + ':' + id, 'verification', 'needs', 'Attempted a delivery with the wrong parcel.');
@@ -308,15 +318,18 @@ OTR.fpMission = {
         }
         if (!p.scanned) this.log('unverified:' + p.id, 'verification', 'needs', 'Completed a stop without scanning the parcel.');
         const expected = s.service === 'handover' ? 'handover' : s.service === 'safeplace' ? 'safeplace' : 'exception';
-        const correct = outcome === expected;
+        const doorCorrect=this.doorsteps?OTR.fpDoors.assess(this,id,outcome):outcome===expected;
+        const response=this.routeDay?OTR.fpDay.outcome(this,s,choice,!!this.doorsteps&&doorCorrect&&outcome==='exception'):null;
+        const correct=doorCorrect&&response!==false;
         this.log('outcome:' + id, 'delivery', correct ? 'good' : 'needs', correct ?
-          (outcome === 'exception' ? 'Retained the signature parcel when the recipient was absent.' : `Followed the delivery requirements at ${s.address}.`) :
+          (outcome === 'exception' ? 'Retained the parcel and recorded the delivery exception.' : `Followed the delivery requirements at ${s.address}.`) :
           `The outcome did not match the requirements at ${s.address}.`);
         s.resolved = true; s.outcome = outcome;
         if (outcome !== 'exception') { p.location = 'delivered'; this.heldId = null; }
         else p.returnRequired = true;
         this.activeStop = this.pending().length ? this.pending()[0].id : this.activeStop;
         if (!this.pending().length) this.phase = 'return';
+        if(this.doorsteps)OTR.fpDoors.sync(this);
         this.touch();
         return correct ? (outcome === 'exception' ? 'Exception recorded. Keep the parcel and return it to the depot.' : 'Delivery recorded.') : 'Outcome recorded. Review this decision in the debrief.';
       },
@@ -357,6 +370,9 @@ OTR.fpMission = {
         if(this.loadout)OTR.fpLoadout.findLater(this);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
+        if(this.doorsteps)OTR.fpDoors.tick(this,input);
+        if(this.routeDay)OTR.fpDay.tick(this,dt);
+        if(this.driving)OTR.fpDriving.tick(this,dt,old);
         if (this.mode !== 'cab') return;
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
@@ -390,7 +406,7 @@ OTR.fpMission = {
           const ahead = (this.van.z - c.z) * dir;
           const personAhead = (this.player.z - c.z) * dir;
           const walker = this.mode === 'walk' && Math.abs(this.player.x - c.x) < 1.3 && personAhead > 0 && personAhead < 4;
-          const blocked = (Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9) || walker;
+          const blocked = (this.driving&&OTR.fpDriving.blockTraffic(this,c)) || (Math.abs(this.van.x - c.x) < 2 && ahead > 0 && ahead < 9) || walker;
           const h = this.crossing, pedestrian = h.state === 'crossing' && Math.abs(h.x - c.x) < 2 && (h.z - c.z) * dir > 0 && (h.z - c.z) * dir < 10;
           const atLine = dir < 0 && c.z > -22.3 && c.z < -21.9 && !c.stopPassed;
           if (atLine) { c.wait = (c.wait || 0) + dt; if (c.wait >= 1) c.stopPassed = true; }
@@ -425,6 +441,9 @@ OTR.fpMission = {
       snapshot() {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         if (this.routePlan) fields.push('routePlan', 'junctions');
+        if(this.doorsteps)fields.push('doorsteps');
+        if(this.routeDay)fields.push('routeDay');
+        if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
@@ -439,6 +458,9 @@ OTR.fpMission = {
     try {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
+      if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
+      if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay))return null;OTR.fpDay.configure(m,data.routeDay);}
+      if(data.driving){if(data.kind!=='campaign')return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
       if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
       if (data.briefing === undefined) data.briefing = null;
       if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
@@ -493,6 +515,9 @@ OTR.fpMission = {
       if (!Array.isArray(data.traffic) || data.traffic.length !== 2 || data.traffic.some(c => ![c.x,c.z,c.yaw,c.speed].every(Number.isFinite))) return null;
       if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
+      if(m.doorsteps)OTR.fpDoors.attach(m);
+      if(m.routeDay)OTR.fpDay.attach(m);
+      if(m.driving)OTR.fpDriving.attach(m);
       m.paused = true; return m;
     } catch (_) { return null; }
   }
