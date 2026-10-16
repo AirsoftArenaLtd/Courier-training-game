@@ -3588,7 +3588,24 @@ window.OTR_I18N.es = {
 "The cargo doors close.": "Las puertas de carga se cierran.",
 "You pick up the package.": "Recoges el paquete.",
 "You put down the package.": "Dejas el paquete.",
-"The cargo restraints are secure.": "Las sujeciones de la carga están firmes."
+"The cargo restraints are secure.": "Las sujeciones de la carga están firmes.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "La niebla reduce la visibilidad. Mantén menos de 12 mph y deja cinco segundos con el tráfico de delante.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "El hielo reduce el agarre. Mantén menos de 8 mph, frena con suavidad y deja seis segundos con el tráfico de delante.",
+"View the workday plan": "Ver el plan de la jornada",
+"Invalid later-day version": "Versión de otro día no válida",
+"Invalid later-day plan": "Plan de otro día no válido",
+"No accessible road-works location": "Sin ubicación accesible de obras",
+"The planning clock starts when the van first leaves the depot.": "El reloj de planificación empieza cuando la camioneta sale por primera vez del depósito.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "La ventana de práctica ya pasó. Sigue con seguridad y comenta el retraso con Despacho.",
+"Every package needs a signature. Check the label for photo ID requirements.": "Cada paquete necesita firma. Revisa la etiqueta por si exige identificación con foto.",
+"Road works close the red-marked street on the route map. Use another cross street.": "Las obras cierran la calle marcada en rojo en el mapa de ruta. Usa otra calle transversal.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "Las ventanas de práctica ayudan a planificar y no afectan la puntuación. Primero la seguridad.",
+"View the stop windows": "Ver las ventanas de las paradas",
+"Next stop": "Siguiente parada",
+"Your workday plan": "Tu plan de la jornada",
+"This street is closed.": "Esta calle está cerrada.",
+"Fog": "Niebla",
+"Ice": "Hielo"
 },
 "templates": [
 [
@@ -5122,6 +5139,18 @@ window.OTR_I18N.es = {
 [
 "Sound effects volume is {0}%.",
 "El volumen de los efectos es {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"Planifica la parada {0} para {1} a {2} minutos después de salir del depósito."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"Esta parada se registró {0} minutos después de la salida."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"El reloj de planificación marca {0} minutos desde la salida."
 ]
 ],
 "keep": [

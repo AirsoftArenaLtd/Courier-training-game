@@ -3577,7 +3577,24 @@ window.OTR_I18N.mr = {
 "The cargo doors close.": "माल कप्प्याचे दरवाजे बंद होतात.",
 "You pick up the package.": "तुम्ही पॅकेज उचलता.",
 "You put down the package.": "तुम्ही पॅकेज खाली ठेवता.",
-"The cargo restraints are secure.": "मालाचे बंध सुरक्षित आहेत."
+"The cargo restraints are secure.": "मालाचे बंध सुरक्षित आहेत.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "धुक्यात दिसणे कमी होते. 12 mph खाली चालवा आणि समोरच्या वाहनापासून पाच सेकंदांचे अंतर ठेवा.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "बर्फावर पकड कमी असते. 8 mph खाली चालवा, हळूवार ब्रेक लावा आणि समोरच्या वाहनापासून सहा सेकंदांचे अंतर ठेवा.",
+"View the workday plan": "वर्कडे प्लॅन पाहा",
+"Invalid later-day version": "नंतरच्या दिवसाची आवृत्ती अवैध",
+"Invalid later-day plan": "नंतरच्या दिवसाचा प्लॅन अवैध",
+"No accessible road-works location": "रस्त्याच्या कामाचे ठिकाण उपलब्ध नाही",
+"The planning clock starts when the van first leaves the depot.": "व्हॅन डेपोतून पहिल्यांदा निघते तेव्हा प्लॅनिंग घड्याळ सुरू होते.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "सराव वेळ उलटून गेली. सुरक्षितपणे पुढे चला आणि उशिराबद्दल डिस्पॅचशी बोला.",
+"Every package needs a signature. Check the label for photo ID requirements.": "प्रत्येक पॅकेजला सही लागते. फोटो ID च्या अटींसाठी लेबल तपासा.",
+"Road works close the red-marked street on the route map. Use another cross street.": "रस्त्याच्या कामामुळे रूट नकाशावर लाल खूण असलेला रस्ता बंद आहे. दुसरा आडवा रस्ता वापरा.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "सराव वेळा नियोजनासाठी आहेत आणि गुणांवर परिणाम करत नाहीत. सुरक्षा प्रथम.",
+"View the stop windows": "स्टॉपच्या वेळा पाहा",
+"Next stop": "पुढचा स्टॉप",
+"Your workday plan": "तुमचा वर्कडे प्लॅन",
+"This street is closed.": "हा रस्ता बंद आहे.",
+"Fog": "धुके",
+"Ice": "बर्फ"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.mr = {
 [
 "Sound effects volume is {0}%.",
 "आवाजाचा स्तर {0}% आहे."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"स्टॉप {0} साठी डेपोतून निघाल्यानंतर {1} ते {2} मिनिटांनी योजना करा."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"हा स्टॉप निघाल्यानंतर {0} मिनिटांनी नोंदवला गेला."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"प्लॅनिंग घड्याळ निघाल्यापासून {0} मिनिटे दाखवते."
 ]
 ],
 "keep": [

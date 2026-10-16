@@ -98,7 +98,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind){this.transition(()=>{
     let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpRoute.plan(day,this.progress.sequence):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
+      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
@@ -146,7 +146,7 @@ class FirstPersonScene extends Phaser.Scene {
   showScanner(){if(!this.model){this.showPanel('Start a workday first','The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.',[{label:'Back',action:()=>this.showPause()}]);return;}if(this.handheld)this.handheld.toggle();}
   showRoute(){
     const m=this.model,choices=m.pending().map(s=>({label:s.address,action:()=>{m.activeStop=s.id;m.touch();this.checkpoint();this.closePanel();}}));choices.push({label:'Back',action:()=>this.closePanel()});
-    this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?(m.town?'The map shows the streets and numbered stops. D marks the depot; the yellow dot marks your van.':'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.'):'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
+    this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?(m.roadworks?'The map shows your van and numbered stops. The red bar marks road works; use another cross street.':m.town?'The map shows the streets and numbered stops. D marks the depot; the yellow dot marks your van.':'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.'):'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
     if(m.town)this.drawRouteMap();
   }
   drawRouteMap(){
@@ -155,6 +155,7 @@ class FirstPersonScene extends Phaser.Scene {
     g.fillStyle(0x789069);g.fillRect(x(b.x0),y(b.z0),(b.x1-b.x0)*scale,(b.z1-b.z0)*scale);
     g.lineStyle(m.town.road*scale,0x4B5058);
     m.town.xs.forEach(v=>g.lineBetween(x(v),y(b.z0),x(v),y(b.z1)));m.town.zs.forEach(v=>g.lineBetween(x(b.x0),y(v),x(b.x1),y(v)));
+    if(m.roadworks){const r=m.roadworks;g.lineStyle(7,0x111820);g.lineBetween(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));g.lineStyle(4,0xF06D58);g.lineBetween(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));}
     for(const s of m.stops)root.add(OTR.txt(this,x(s.x),y(s.z),String(s.id+1),18,s.resolved?'#c9d5d0':'#ffffff',{stroke:'#243039',strokeW:4}));
     root.add(OTR.txt(this,x(4),y(8),'D',18,'#ffffff',{stroke:'#243039',strokeW:4}));
     g.fillStyle(0xFFE35A);g.fillCircle(x(m.van.x),y(m.van.z),4);
@@ -261,7 +262,7 @@ class FirstPersonScene extends Phaser.Scene {
           this.closePanel(false);this.releaseMouse();
           OTR.workday.finish(this,{seconds:Math.round(m.elapsed),stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome==='handover'||s.outcome==='safeplace',address:s.address,x:s.x,z:s.z})),depot:{x:4,z:8}});
         }else this.showDebrief(this.progress.last);}},
-      {label:'View manifest',action:()=>this.showManifest()},...(m.loadout?[{label:'Check the load',action:()=>this.handheld.loadCheck()}]:[]),{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+      ...(OTR.fpLater&&OTR.fpLater.enabled(m)?[{label:'View the workday plan',action:()=>OTR.fpLater.open(this)}]:[]),{label:'View manifest',action:()=>this.showManifest()},...(m.loadout?[{label:'Check the load',action:()=>this.handheld.loadCheck()}]:[]),{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
   showDebrief(result,page=0){
     if(!result){this.showPanel('Last debrief','Complete a workday or a cargo lesson to see its results.',[{label:'Back',action:()=>this.showPause()}]);return;}

@@ -49,12 +49,12 @@ OTR.fpWorld = {
 
     const base = model || OTR.fpMission.create('campaign',1);
     const weather=base.routeDay?base.routeDay.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
-    const roadColour=wet?0x3D4951:snow?0x7B8994:0x4B5058,grassColour=wet?0x6A806C:snow?0xE0E5E4:0x789069,roofColour=snow?0xC5CFD3:0x65626B;
-    const sky=weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
+    const roadColour=weather==='ice'?0x718D9A:wet?0x3D4951:snow?0x7B8994:0x4B5058,grassColour=wet?0x6A806C:snow?0xE0E5E4:0x789069,roofColour=snow?0xC5CFD3:0x65626B;
+    const sky=weather==='fog'?0xB8C3C8:weather==='ice'?0xC7D4DD:weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
     if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
     const cabParcelRange2=OTR.gfx.high()?400:64;
     const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity,solidX=Infinity,solidZ=Infinity;
-    if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
+    if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='fog'){world.fog.near=6;world.fog.far=28;}else if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,grassColour);
     box(route,0,-0.015,-57,11,0.06,155,roadColour);
@@ -100,7 +100,19 @@ OTR.fpWorld = {
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,3.1,13.08),text:brand.name,brand:true,max:24});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,2,11),text:'Dispatch',max:18});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,1.9,5),text:'Returns',max:18});
-    const weatherDrops=(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),OTR.gfx.high()?36:18):null;
+    if(base.roadworks){
+      const r=base.roadworks;
+      if(OTR.gfx.high()){
+        box(route,r.x,.8,r.z,r.w,.6,.4,0xF2B84B,null,true);
+        for(const dx of [-r.w/2+.6,r.w/2-.6])box(route,r.x+dx,.5,r.z,.3,1,.8,0x42556A);
+        box(route,r.x,.8,r.z,r.w*.85,.18,.42,0xEFEEE5);
+      }else{
+        box(route,r.x,.55,r.z,r.w,1.1,1,0xF2B84B,null,true);
+        box(route,r.x,1.115,r.z,r.w,.03,1.03,0xEFEEE5);
+      }
+      labels.push({parent:route,point:new T.Vector3(r.x,1.6,r.z),text:'This street is closed.',wrap:216,max:25});
+    }
+    const weatherDrops=(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),OTR.gfx.high()?36:base.routePlan&&base.routePlan.later===1?12:18):null;
     const dropMatrix=new T.Matrix4(),dropPosition=new T.Vector3(),dropScale=new T.Vector3(snow?.09:.025,snow?.09:.7,snow?.09:.025),dropRotation=new T.Quaternion();
     if(weatherDrops){weatherDrops.frustumCulled=false;route.add(weatherDrops);}
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];

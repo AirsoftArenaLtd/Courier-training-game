@@ -196,10 +196,12 @@ class HubScene extends Phaser.Scene {
         () => { WD.abandon(); this.scene.restart(); }, { yes: 'Abandon', danger: true }));
       return;
     }
-    const weather = OTR.shift ? OTR.shift.weatherFor(save.data.day) : 'clear';
-    const wLabel = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Extreme heat' }[weather] || weather;
+    // the 3D workday's own number and forecast (from the second one on, the later-day profile: fog, rain, ice)
+    const wDay = ((save.data.route && save.data.route.days) || 0) + 1;
+    const weather = wDay >= 2 && OTR.fpLater ? OTR.fpLater.weather(wDay) : OTR.shift ? OTR.shift.weatherFor(wDay) : 'clear';
+    const wLabel = { clear: 'Clear', cloudy: 'Overcast', rain: 'Rain', storm: 'Storms', snow: 'Snow and ice', heat: 'Extreme heat', fog: 'Fog', ice: 'Ice' }[weather] || weather;
     OTR.txt(this, x, top + 26, 'TODAY\'S WORKDAY', 15, '#ffffff', { weight: '900', fit: w - 28 });
-    OTR.txt(this, x, top + 52, `Day ${save.data.day}  ·  ${wLabel}`, 16, '#ffffff', { weight: '900', fit: w - 28 });
+    OTR.txt(this, x, top + 52, `Day ${wDay}  ·  ${wLabel}`, 16, '#ffffff', { weight: '900', fit: w - 28 });
     OTR.txt(this, x, top + 76, 'Brief → load → drive → deliver, in 3D', 13, OTR_DATA.theme.css('line'), { bold: false, fit: w - 28 });
     this.focusables.push(OTR.ui.button(this, x, top + 114, 'Start workday ▶', () => OTR.ui.confirm(this, 'Start the workday?',
       'The morning brief, loading the van, the drive and your stops, in 3D. It is saved as you go: you can leave and resume it from the station.',

@@ -3577,7 +3577,24 @@ window.OTR_I18N.ta = {
 "The cargo doors close.": "சரக்குக் கதவுகள் மூடுகின்றன.",
 "You pick up the package.": "நீங்கள் பொதியை எடுக்கிறீர்கள்.",
 "You put down the package.": "நீங்கள் பொதியை வைக்கிறீர்கள்.",
-"The cargo restraints are secure.": "சரக்குப் பட்டைகள் பாதுகாப்பாக உள்ளன."
+"The cargo restraints are secure.": "சரக்குப் பட்டைகள் பாதுகாப்பாக உள்ளன.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "மூடுபனியில் பார்வை குறையும். 12 mph-க்குக் கீழே ஓட்டுங்கள், முன் வாகனத்தைவிட ஐந்து விநாடி இடைவெளி விடுங்கள்.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "பனிக்கட்டியில் பிடிப்பு குறையும். 8 mph-க்குக் கீழே ஓட்டுங்கள், மெதுவாக பிரேக் போடுங்கள், ஆறு விநாடி இடைவெளி விடுங்கள்.",
+"View the workday plan": "வேலைநாள் திட்டத்தைப் பாருங்கள்",
+"Invalid later-day version": "செல்லாத அடுத்த நாள் பதிப்பு",
+"Invalid later-day plan": "செல்லாத அடுத்த நாள் திட்டம்",
+"No accessible road-works location": "அணுகக்கூடிய சாலைப் பணி இடம் இல்லை",
+"The planning clock starts when the van first leaves the depot.": "வேன் முதலில் டிப்போவை விட்டுப் புறப்படும்போது திட்டமிடல் கடிகாரம் தொடங்கும்.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "பயிற்சி நேரம் கடந்துவிட்டது. பாதுகாப்பாகத் தொடருங்கள், தாமதம் பற்றி டிஸ்பாட்சிடம் பேசுங்கள்.",
+"Every package needs a signature. Check the label for photo ID requirements.": "ஒவ்வொரு பொதிக்கும் கையெழுத்து தேவை. புகைப்பட ID விதிகளுக்கு லேபிளைப் பாருங்கள்.",
+"Road works close the red-marked street on the route map. Use another cross street.": "சாலைப் பணியால் வழித்தட வரைபடத்தில் சிவப்புக் குறியிட்ட தெரு மூடப்பட்டுள்ளது. வேறு குறுக்குத் தெருவைப் பயன்படுத்துங்கள்.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "பயிற்சி நேரங்கள் திட்டமிட உதவும், மதிப்பெண்ணைப் பாதிக்காது. பாதுகாப்பே முதன்மை.",
+"View the stop windows": "நிறுத்த நேரங்களைப் பாருங்கள்",
+"Next stop": "அடுத்த நிறுத்தம்",
+"Your workday plan": "உங்கள் வேலைநாள் திட்டம்",
+"This street is closed.": "இந்தத் தெரு மூடப்பட்டுள்ளது.",
+"Fog": "மூடுபனி",
+"Ice": "பனிக்கட்டி"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.ta = {
 [
 "Sound effects volume is {0}%.",
 "ஒலி அளவு {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"டிப்போவிலிருந்து புறப்பட்ட {1} முதல் {2} நிமிடத்தில் நிறுத்தம் {0}-ஐத் திட்டமிடுங்கள்."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"இந்த நிறுத்தம் புறப்பட்ட {0} நிமிடத்தில் பதிவானது."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"புறப்பட்டு {0} நிமிடங்கள் என்று திட்டமிடல் கடிகாரம் காட்டுகிறது."
 ]
 ],
 "keep": [

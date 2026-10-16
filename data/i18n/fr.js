@@ -3572,7 +3572,24 @@ window.OTR_I18N.fr = {
 "The cargo doors close.": "Les portes de chargement se ferment.",
 "You pick up the package.": "Tu prends le colis.",
 "You put down the package.": "Tu poses le colis.",
-"The cargo restraints are secure.": "Les sangles de la cargaison sont bien fixées."
+"The cargo restraints are secure.": "Les sangles de la cargaison sont bien fixées.",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "Le brouillard réduit la visibilité. Reste sous 12 mph et laisse cinq secondes derrière le véhicule précédent.",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "Le verglas réduit l'adhérence. Reste sous 8 mph, freine en douceur et laisse six secondes derrière le véhicule précédent.",
+"View the workday plan": "Voir le plan de la journée",
+"Invalid later-day version": "Version d'un autre jour non valide",
+"Invalid later-day plan": "Plan d'un autre jour non valide",
+"No accessible road-works location": "Aucun lieu de travaux accessible",
+"The planning clock starts when the van first leaves the depot.": "Le chrono de planification démarre quand la camionnette quitte le dépôt pour la première fois.",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "La fenêtre d'entraînement est passée. Continue en sécurité et parle du retard avec le Répartiteur.",
+"Every package needs a signature. Check the label for photo ID requirements.": "Chaque colis exige une signature. Vérifie l'étiquette pour une pièce d'identité avec photo.",
+"Road works close the red-marked street on the route map. Use another cross street.": "Des travaux ferment la rue marquée en rouge sur la carte de tournée. Prends une autre rue transversale.",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "Les fenêtres d'entraînement aident à planifier et n'affectent pas le score. La sécurité d'abord.",
+"View the stop windows": "Voir les fenêtres des arrêts",
+"Next stop": "Arrêt suivant",
+"Your workday plan": "Ton plan de la journée",
+"This street is closed.": "Cette rue est fermée.",
+"Fog": "Brouillard",
+"Ice": "Verglas"
 },
 "templates": [
 [
@@ -5106,6 +5123,18 @@ window.OTR_I18N.fr = {
 [
 "Sound effects volume is {0}%.",
 "Le volume des effets sonores est de {0} %."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"Planifie l'arrêt {0} pour {1} à {2} minutes après avoir quitté le dépôt."
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"Cet arrêt a été enregistré {0} minutes après le départ."
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"Le chrono de planification indique {0} minutes depuis le départ."
 ]
 ],
 "keep": [

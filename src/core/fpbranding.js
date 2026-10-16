@@ -25,7 +25,7 @@ OTR.fpBrand={
         if(scene.companyLogo)object.add(scene.add.image(0,-14,scene.companyLogo).setDisplaySize(112,28));
         else object.add(OTR.txt(scene,0,-14,brand.mark,21,'#ffffff',{fit:112,stroke:'#243039',strokeW:4}));
         object.add(OTR.txt(scene,0,17,brand.name,17,'#ffffff',{fit:220,stroke:'#243039',strokeW:4}));
-      }else object=OTR.txt(scene,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,fit:220}).setDepth(9).setVisible(false);
+      }else object=OTR.txt(scene,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,...(label.wrap?{wrap:label.wrap}:{fit:220})}).setDepth(9).setVisible(false);
       return {label,object};
     });
   },

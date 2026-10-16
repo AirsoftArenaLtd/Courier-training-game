@@ -1,6 +1,7 @@
 /* Keyboard-only route. Position fixtures skip travel; every interaction and menu uses real keys. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:true});
+const day=Number(process.env.QA_DAY)||1,tag=day>1?'c18':'c12';
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let p,checks=0;const errors=[],report={};
@@ -14,6 +15,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    const item=await p.evaluate(label=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.handheld,opts=s.panel?s.panel.choices:h.device.current.options;return {index:opts.findIndex(o=>o.label===label),current:s.panel?s.panel.index:h.index,labels:opts.map(o=>o.label)};},label);
    assert.ok(item.index>=0,'Missing choice '+label+' in '+item.labels);for(let i=0;i<(item.index-item.current+item.labels.length)%item.labels.length;i++)await press('ArrowDown');await press('Enter');checks++;
   };
+  await p.evaluate(day=>{OTR.save.data.route.days=day-1;},day);
   await pick('Enter the hub');await press('h');await pick('Start workday');await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);await pick('Begin preparation');
   // The standalone lab normally suppresses course writes; use normal storage in this isolated browser context.
   await p.evaluate(()=>{OTR.save.ephemeral=false;window.spoken=[];speechSynthesis.speak=u=>window.spoken.push(u.text);speechSynthesis.cancel=()=>{};});
@@ -50,6 +52,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   };
   await use('dispatch');for(let n=0;n<45&&!await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return !!m.events[m.briefKey];});n++)await press('Enter');
   assert.equal(await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return !!m.events[m.briefKey];}),true);checks++;await p.evaluate(()=>OTR.workday.begin());
+  if(day>1){await use('dispatch');await pick('View the workday plan');await pick('View the stop windows');assert.match(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.root.list.filter(o=>o.type==='Text').map(o=>o.text).join(' ')),/minutes after leaving/);checks++;await pick('Back');}
   for(let i=0;i<5;i++){await use('parcel'+i);await scan();if(!i)await use('cargo');await use('slot'+i);}
   await use('secure');await use('cargo');
   for(const id of ['tyres','lights']){await use(id);const repair=await p.evaluate(id=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.fault===id&&!m.repaired;},id);await pick(repair?'Request repair':'Mark serviceable');}
@@ -76,8 +79,8 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');Object.assign(s.model.van,{x:2.84,z:8,yaw:0,speed:0,hand:true});s.sync();});await use('cargo');
   for(const id of await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.parcels.filter(p=>p.returnRequired).map(p=>p.id))){await use(id);await use('returns');await scan();}
   await use('dispatch');await pick('Finish workday');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.phase),'debrief');checks++;
-  report.keyboard=await p.evaluate(()=>({seed:OTR.game.scene.getScene('FirstPersonScene').model.seed,keys:OTR.a11y.settings().keys,pointerLock:!!document.pointerLockElement,narrated:window.spoken.length}));assert.equal(report.keyboard.pointerLock,false);assert.ok(report.keyboard.narrated>20);checks+=2;
-  await p.screenshot({path:path.join(OUT,'c12-keyboard-day.png')});
+  report.keyboard=await p.evaluate(()=>({day:OTR.game.scene.getScene('FirstPersonScene').model.routePlan.day,weather:OTR.game.scene.getScene('FirstPersonScene').model.routeDay.weather,later:OTR.game.scene.getScene('FirstPersonScene').model.routeDay.later||null,seed:OTR.game.scene.getScene('FirstPersonScene').model.seed,keys:OTR.a11y.settings().keys,pointerLock:!!document.pointerLockElement,narrated:window.spoken.length}));assert.equal(report.keyboard.pointerLock,false);assert.ok(report.keyboard.narrated>20);checks+=2;if(day>1){assert.equal(report.keyboard.day,day);assert.equal(report.keyboard.weather,['fog','rain','ice'][(day-2)%3]);assert.ok(report.keyboard.later.departAt!==null&&report.keyboard.later.arrivals.every(a=>a!==null));checks+=3;}
+  await p.screenshot({path:path.join(OUT,tag+'-keyboard-day.png')});
   report.motion=await p.evaluate(()=>{
    const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();const m=OTR.fpMission.create('campaign',7,OTR.fpRoute.plan(2,7));OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);s.model=m;s.rebuildWorld();m.mode='cab';m.phase='route';m.paused=false;m.step=()=>{};
    const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.van,{x,z,yaw:0,speed:0,hand:true});Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);
@@ -97,13 +100,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   });
   for(const view of ['main','mirror']){const off=report.filter.off[view],on=report.filter.on[view];assert.ok(off[0]>230,JSON.stringify(report.filter));assert.ok(off[1]<5);assert.ok(Math.abs(on[1]-(off[0]*.163+off[1]*.725+off[2]*.112))<4,JSON.stringify(report.filter));assert.ok(Math.abs(on[2]-(off[0]*.455-off[1]*.645+off[2]*1.191))<4,JSON.stringify(report.filter));checks+=4;}
   assert.equal(report.filter.on.textures,2);assert.equal(report.filter.on.calls,report.filter.off.calls);checks+=2;
-  fs.writeFileSync(path.join(OUT,'c12-accessibility.json'),JSON.stringify(report,null,2));
+  fs.writeFileSync(path.join(OUT,tag+'-accessibility.json'),JSON.stringify(report,null,2));
   // Recreate the scene, retaining the actual saved remaps, then exercise large Tamil controls.
   await p.reload();await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
   await p.addScriptTag({url:base+'/data/i18n/ta.js'});await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.layoutToken=s.loadingToken;OTR.i18n.use('ta');OTR.a11y.settings().large=true;OTR.a11y.save();s.scene.restart();});
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.loadingToken!==window.layoutToken&&!s.loading;});await press('h');await pick('Settings');await pick('Accessibility');await pick('3D controls');
   report.layout=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),bad=[];for(const o of s.panel.root.list)if(o.type==='Text'){const b=o.getBounds();if(b.x<100||b.right>1180||b.y<90||b.bottom>635||parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY)<17)bad.push(o.text);}return {bad,objectiveFont:parseFloat(s.objective.style.fontSize),key:OTR.a11y.settings().keys.KeyE};});assert.deepEqual(report.layout.bad,[]);assert.equal(report.layout.objectiveFont,23);assert.equal(report.layout.key,'KeyO');checks+=3;
   await p.screenshot({path:path.join(OUT,'c12-controls-ta-large.png')});assert.deepEqual(errors,[]);checks++;
-  report.checks=checks;report.errors=errors;fs.writeFileSync(path.join(OUT,'c12-accessibility.json'),JSON.stringify(report,null,2));console.log(checks+' keyboard accessibility checks passed');
+  report.checks=checks;report.errors=errors;fs.writeFileSync(path.join(OUT,tag+'-accessibility.json'),JSON.stringify(report,null,2));console.log(checks+' keyboard accessibility checks passed');
  }catch(e){if(p)await p.screenshot({path:path.join(OUT,'c12-failure.png')}).catch(()=>{});throw e;}finally{await browser.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

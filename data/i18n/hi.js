@@ -3577,7 +3577,24 @@ window.OTR_I18N.hi = {
 "The cargo doors close.": "कार्गो के दरवाज़े बंद होते हैं।",
 "You pick up the package.": "आप पैकेज उठाते हैं।",
 "You put down the package.": "आप पैकेज नीचे रखते हैं।",
-"The cargo restraints are secure.": "कार्गो के बेल्ट कसे हुए हैं।"
+"The cargo restraints are secure.": "कार्गो के बेल्ट कसे हुए हैं।",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "कोहरे में दिखाई कम देता है। 12 mph से कम रखें और आगे के वाहन से पाँच सेकंड की दूरी छोड़ें।",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "बर्फ़ पर पकड़ कम होती है। 8 mph से कम रखें, धीरे ब्रेक लगाएँ और आगे के वाहन से छह सेकंड की दूरी छोड़ें।",
+"View the workday plan": "कार्यदिवस की योजना देखें",
+"Invalid later-day version": "अमान्य बाद के दिन का संस्करण",
+"Invalid later-day plan": "अमान्य बाद के दिन की योजना",
+"No accessible road-works location": "सड़क के काम की पहुँच-योग्य जगह नहीं",
+"The planning clock starts when the van first leaves the depot.": "योजना की घड़ी तब शुरू होती है जब वैन पहली बार डिपो से निकलती है।",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "अभ्यास की समय-सीमा निकल गई। सुरक्षित चलते रहें और देरी के बारे में डिस्पैचर से बात करें।",
+"Every package needs a signature. Check the label for photo ID requirements.": "हर पैकेज पर हस्ताक्षर चाहिए। फ़ोटो पहचान पत्र की ज़रूरत के लिए लेबल देखें।",
+"Road works close the red-marked street on the route map. Use another cross street.": "सड़क के काम से रूट नक्शे पर लाल निशान वाली गली बंद है। दूसरी आड़ी गली लें।",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "अभ्यास की समय-सीमाएँ योजना में मदद करती हैं और स्कोर पर असर नहीं डालतीं। सुरक्षा पहले।",
+"View the stop windows": "स्टॉप की समय-सीमाएँ देखें",
+"Next stop": "अगला स्टॉप",
+"Your workday plan": "आपके कार्यदिवस की योजना",
+"This street is closed.": "यह गली बंद है।",
+"Fog": "कोहरा",
+"Ice": "बर्फ़"
 },
 "templates": [
 [
@@ -5111,6 +5128,18 @@ window.OTR_I18N.hi = {
 [
 "Sound effects volume is {0}%.",
 "साउंड इफ़ेक्ट की आवाज़ {0}% है।"
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"स्टॉप {0} की योजना डिपो छोड़ने के {1} से {2} मिनट बाद के लिए बनाएँ।"
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"यह स्टॉप रवाना होने के {0} मिनट बाद दर्ज हुआ।"
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"योजना की घड़ी रवानगी के बाद {0} मिनट दिखा रही है।"
 ]
 ],
 "keep": [

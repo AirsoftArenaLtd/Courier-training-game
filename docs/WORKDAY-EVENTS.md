@@ -134,7 +134,7 @@ stop number, the drive leg or the hazard's id).
 | `drive.backing` | each reversing manoeuvre; `ok: false` if the trainee did not get out and look (G.O.A.L.) |
 | `drive.school-bus` / `drive.school-bus-pass` | a school bus with flashing lights: stopped for it, or drove past it |
 | `drive.siren` | an emergency vehicle behind: pulled over to the right, or did not |
-| `drive.weather` | once per leg in rain, storm, snow or heat: speed and gap suited the conditions |
+| `drive.weather` | once per leg in rain, storm, snow, heat, fog or ice: speed and gap suited the conditions |
 | `dispatch.update` | a dispatch message arrived on the handheld: acted on correctly, or missed |
 | `stop.dog` | a dog at the stop: handled safely, or approached |
 | `stop.wrong-address` | a label whose address does not match the door: caught, or delivered anyway |

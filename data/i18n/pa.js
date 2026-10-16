@@ -3578,7 +3578,24 @@ window.OTR_I18N.pa = {
 "The cargo doors close.": "ਮਾਲ ਵਾਲੇ ਦਰਵਾਜ਼ੇ ਬੰਦ ਹੁੰਦੇ ਹਨ।",
 "You pick up the package.": "ਤੁਸੀਂ ਪੈਕੇਜ ਚੁੱਕਦੇ ਹੋ।",
 "You put down the package.": "ਤੁਸੀਂ ਪੈਕੇਜ ਹੇਠਾਂ ਰੱਖਦੇ ਹੋ।",
-"The cargo restraints are secure.": "ਮਾਲ ਦੀਆਂ ਪੱਟੀਆਂ ਪੱਕੀਆਂ ਹਨ।"
+"The cargo restraints are secure.": "ਮਾਲ ਦੀਆਂ ਪੱਟੀਆਂ ਪੱਕੀਆਂ ਹਨ।",
+"Fog reduces visibility. Keep below 12 mph and leave five seconds behind traffic.": "ਧੁੰਦ ਦਿੱਖ ਘਟਾਉਂਦੀ ਹੈ। 12 mph ਤੋਂ ਹੇਠਾਂ ਚਲਾਓ ਅਤੇ ਅੱਗੇ ਵਾਲੀ ਆਵਾਜਾਈ ਤੋਂ ਪੰਜ ਸਕਿੰਟ ਦਾ ਫ਼ਾਸਲਾ ਰੱਖੋ।",
+"Ice reduces grip. Keep below 8 mph, brake gently and leave six seconds behind traffic.": "ਬਰਫ਼ ਪਕੜ ਘਟਾਉਂਦੀ ਹੈ। 8 mph ਤੋਂ ਹੇਠਾਂ ਚਲਾਓ, ਹੌਲੀ-ਹੌਲੀ ਬ੍ਰੇਕ ਲਗਾਓ ਅਤੇ ਅੱਗੇ ਵਾਲੀ ਆਵਾਜਾਈ ਤੋਂ ਛੇ ਸਕਿੰਟ ਦਾ ਫ਼ਾਸਲਾ ਰੱਖੋ।",
+"View the workday plan": "ਕੰਮ ਦੇ ਦਿਨ ਦੀ ਯੋਜਨਾ ਵੇਖੋ",
+"Invalid later-day version": "ਅਗਲੇ ਦਿਨ ਦਾ ਅਵੈਧ ਸੰਸਕਰਣ",
+"Invalid later-day plan": "ਅਗਲੇ ਦਿਨ ਦੀ ਅਵੈਧ ਯੋਜਨਾ",
+"No accessible road-works location": "ਸੜਕ ਦੇ ਕੰਮ ਦੀ ਕੋਈ ਪਹੁੰਚਯੋਗ ਥਾਂ ਨਹੀਂ",
+"The planning clock starts when the van first leaves the depot.": "ਯੋਜਨਾ ਦੀ ਘੜੀ ਉਦੋਂ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ ਜਦੋਂ ਵੈਨ ਪਹਿਲੀ ਵਾਰ ਡਿਪੋ ਤੋਂ ਨਿਕਲਦੀ ਹੈ।",
+"The practice window has passed. Continue safely and discuss the delay with Dispatch.": "ਅਭਿਆਸ ਦੀ ਮਿਆਦ ਲੰਘ ਗਈ ਹੈ। ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਜਾਰੀ ਰੱਖੋ ਅਤੇ ਦੇਰੀ ਬਾਰੇ ਡਿਸਪੈਚ ਨਾਲ ਗੱਲ ਕਰੋ।",
+"Every package needs a signature. Check the label for photo ID requirements.": "ਹਰ ਪੈਕੇਜ ਲਈ ਦਸਤਖ਼ਤ ਚਾਹੀਦੇ ਹਨ। ਫ਼ੋਟੋ ਪਛਾਣ ਪੱਤਰ ਦੀ ਲੋੜ ਲਈ ਲੇਬਲ ਵੇਖੋ।",
+"Road works close the red-marked street on the route map. Use another cross street.": "ਸੜਕ ਦੇ ਕੰਮ ਕਾਰਨ ਰੂਟ ਨਕਸ਼ੇ 'ਤੇ ਲਾਲ ਨਿਸ਼ਾਨ ਵਾਲੀ ਗਲੀ ਬੰਦ ਹੈ। ਕੋਈ ਹੋਰ ਕਰਾਸ ਗਲੀ ਵਰਤੋ।",
+"Practice windows guide planning and do not affect the score. Safety comes first.": "ਅਭਿਆਸ ਦੀਆਂ ਮਿਆਦਾਂ ਯੋਜਨਾ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ ਅਤੇ ਸਕੋਰ 'ਤੇ ਅਸਰ ਨਹੀਂ ਪਾਉਂਦੀਆਂ। ਸੁਰੱਖਿਆ ਪਹਿਲਾਂ।",
+"View the stop windows": "ਸਟਾਪ ਦੀਆਂ ਮਿਆਦਾਂ ਵੇਖੋ",
+"Next stop": "ਅਗਲਾ ਸਟਾਪ",
+"Your workday plan": "ਤੁਹਾਡੇ ਕੰਮ ਦੇ ਦਿਨ ਦੀ ਯੋਜਨਾ",
+"This street is closed.": "ਇਹ ਗਲੀ ਬੰਦ ਹੈ।",
+"Fog": "ਧੁੰਦ",
+"Ice": "ਬਰਫ਼"
 },
 "templates": [
 [
@@ -5112,6 +5129,18 @@ window.OTR_I18N.pa = {
 [
 "Sound effects volume is {0}%.",
 "ਆਵਾਜ਼ ਪ੍ਰਭਾਵਾਂ ਦਾ ਪੱਧਰ {0}%."
+],
+[
+"Plan stop {0} for {1} to {2} minutes after leaving the depot.",
+"ਡਿਪੋ ਤੋਂ ਨਿਕਲਣ ਦੇ {1} ਤੋਂ {2} ਮਿੰਟ ਬਾਅਦ ਸਟਾਪ {0} ਦੀ ਯੋਜਨਾ ਬਣਾਓ।"
+],
+[
+"This stop was recorded {0} minutes after departure.",
+"ਇਹ ਸਟਾਪ ਰਵਾਨਗੀ ਤੋਂ {0} ਮਿੰਟ ਬਾਅਦ ਦਰਜ ਹੋਇਆ।"
+],
+[
+"The planning clock shows {0} minutes since departure.",
+"ਯੋਜਨਾ ਦੀ ਘੜੀ ਰਵਾਨਗੀ ਤੋਂ {0} ਮਿੰਟ ਦਿਖਾਉਂਦੀ ਹੈ।"
 ]
 ],
 "keep": [
