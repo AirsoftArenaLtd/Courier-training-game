@@ -2438,7 +2438,7 @@ window.OTR_I18N.ta = {
 "The top shelf is for light packages, under 15 lb": "மேல் அலமாரி லேசான பார்சல்களுக்கு, 15 lb-க்குக் கீழ்",
 "Fragile stays off the floor": "உடையக்கூடியவை தரையில் வேண்டாம்",
 "The floor bays are for heavy or bulky freight": "தரை அறைகள் கனமான அல்லது பருமனான சரக்குக்கு",
-"TOP SHELF  ·  nothing heavy up high": "மேல் அலமாரி  ·  உயரத்தில் கனமானது எதுவும் வேண்டாம்",
+"TOP SHELF  ·  nothing heavy up high": "மேல் அலமாரி  ·  கனமானது வேண்டாம்",
 "Load strapped ✓": "சுமை கட்டப்பட்டது ✓",
 "Floor load strapped. Nothing shifts when you brake.": "தரைச் சரக்கு கட்டப்பட்டது. பிரேக் போடும்போது எதுவும் நகராது.",
 "The floor load changed: strap it again before you roll.": "தரைச் சரக்கு மாறியது: புறப்படும் முன் மீண்டும் கட்டுங்கள்.",
