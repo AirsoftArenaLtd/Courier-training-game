@@ -1,48 +1,59 @@
-# C-28 van and characters (in progress)
+# Van and character models
 
-`codex/c28-van-characters` is stacked on pushed C-27 `5e4568a`. Latest pilot `61a45ca` was
-fetched/read before starting. The task is **not ready for review**: runtime placement, theme/livery,
-physical inspection/control integration, animation and Low detail remain pending.
+C-28 replaces the van exterior, courier, crossing pedestrian and nearby resident art with locally bundled
+CC0 assets. `codex/c28-van-characters` is stacked on C-27 `5e4568a`; all cab controls, inspection/parcel/door
+raycasts, solid footprints, scores and save fields remain owned by the existing model.
 
-The first slice prepares three CC0 source-detail models outside the game:
+The Kenney delivery van retains its named body, cargo door and four wheels. High keeps 2,461 source
+triangles; Low uses a 190-triangle source-bounds shell, sloped cab, windshield and hexagonal tires. The
+body and door follow the sprung chassis, front wheels steer, tires rotate from signed travel speed, and
+the rear door lifts under the roof, staying inside the existing physical footprint. The existing cargo shelves, packages, restraint, fault lamp and tire defect
+remain visible/selectable. Source pixels do not replace the original interaction or collision proxies.
+The existing local company livery/name/logo and theme body colour remain; short stalks join the physical
+mirrors to the cab. The interior reflection uses the retained procedural cab shell, because the source
+windshield would otherwise occlude the original C-23 physical mirror camera. The new exterior remains
+visible in outside, side-mirror and rear-camera views; every mirror position and gaze check stays intact. Existing procedural van art remains when the model fails to load.
 
-| Source | Prepared bytes | Triangles | Parts | Bones |
-| --- | ---: | ---: | ---: | ---: |
-| Kenney delivery van | 191,432 | 2,461 | 1 flattened preparation mesh | 0 |
-| Quaternius male worker | 771,740 | 5,240 | 13 | 62 |
-| Quaternius female worker | 871,104 | 6,112 | 12 | 62 |
+Quaternius Worker supplies the courier; Casual and Casual_2 supply residents and the crossing pedestrian.
+The source rigs retain `Idle_Neutral`, `Walk`, `Wave` and `Interact`. Each Low figure is 88 triangles;
+High keeps its source geometry. The converter removes unused clips and unreferenced binary data.
+Each pack keeps its original CC0 licence bytes (including the older title in the women's licence),
+source link and source/output SHA-256 hashes. Incoming zips never enter the game.
 
-The 1,834,276-byte output is temporary. No new asset has entered the game manifest. Each temporary
-pack keeps the original CC0 licence bytes and source/output hashes. The van preparation bakes the
-palette and original static transforms using the C-27 converter. Its source has separate `door`, four
-wheel and `body` nodes: runtime conversion must preserve those semantic parts for animation rather
-than treating the flattened preparation mesh as finished.
+Each scene clones independent bones, merges a figure's coloured primitives into one ordinary mesh and
+CPU-poses positions and normals at 10 Hz on Low or 20 Hz on High. No rendered `SkinnedMesh`, bone texture,
+image map or additional render pass is used. Pose changes use existing model time and reuse buffers.
+The nearest eligible resident within 22 metres on Low or 35 on High gets the rig; farther residents
+keep the existing simple art. The pedestrian also has a 35-metre range. Hidden residents do no animation
+work. The bounded set is a crossing figure, one resident and the courier in the existing mirrors.
 
-The worker converter keeps the rig, skin, mesh/morph attributes and only `Idle_Neutral`, `Walk`,
-`Wave` and `Interact`. It remaps accessors/buffer views and drops unused animation data; no external
-buffer URI or image survives. The original author licence is retained verbatim, including the older
-pack title in the women's archive. Three synthetic conversion tests pass. The real vendored loader
-parses all three prepared GLBs, verifies finite dimensions/no image maps and plays a CPU Wave pose on
-both workers with changed bone transforms. This validates preparation; it does not bypass the shipped
-bank's current static-only adapter or establish a runtime budget.
+A new contact opens the facade panel inward, brings the resident to the existing standing point, waves,
+then uses the source Interact gesture while talking. The stationary interaction/collision target remains
+at the original facade. An absent recipient never appears. Resolution closes the visual door. A resumed
+contact starts already open, without replaying an invented new contact or changing the checkpoint.
+The courier follows the first-person walking position and appears in physical reflections; existing
+first-person uniform sleeves remain. Only visual state is transient. Reduced motion uses one still
+idle pose and immediate door changes; colour mode still uses the existing composites. Keyboard/remapped
+controls and larger text keep their original paths. No new UI sentence or scoring event is introduced.
 
-Next: retain animated van parts and theme/livery zones; merge/simplify character primitives and build
-Low geometry/animation that keeps the two-texture and complete-frame limits. A normal GPU skeleton
-can allocate a bone texture, so Low must be profiled with an approach that preserves its existing
-allocation ceiling. The current 62-bone, 12/13-part source workers are High preparation, not Low models.
-Keep the old procedural van/courier/residents as fallback. Preserve every physical control, accessible
-shortcut, inspection/raycast target, saved state and score event. Validate the new runtime with the
-existing model/browser/resume suites and `test/fpbench.js`; record final screenshots and figures.
+Preload validates the required clip names, normals/skin attributes, bone cap and semantic van parts.
+Missing, corrupt or semantically incomplete actor files keep their procedural fallback; healthy town
+models still load. The static instance adapter refuses character rigs. Scene disposal releases cloned
+skeletons, mixers, pose geometry and material after restoring lighting/weather hooks; the asset bank
+retains ownership of the source geometry until its own disposal.
 
-Reproduce this source slice (Pillow and the existing test dependencies are needed):
+Rebuild into a temporary directory (Node, the test dependencies and Pillow are needed):
 
 ```sh
-# Extract the two owner-supplied character zips with git archive into a temporary directory.
 python3 test/fpactorsprepare.py
-python3 test/tools/prepare-actors.py /tmp/c27-incoming/assets/_incoming/kenney_car-kit.zip /tmp/c28-incoming/assets/_incoming /tmp/c28-prepared
-node test/tools/validate-actors.js /tmp/c28-prepared
+python3 test/tools/prepare-actors-runtime.py CAR_KIT_ZIP CHARACTER_ZIP_DIRECTORY OUTPUT
+node test/fpactors.js
 ```
 
-The current source-validation report is `docs/review/set-8/c28-prepared-validation.json`.
-No production, scoring, save, Settings or i18n code changes in this slice; C-27's frame figures remain
-unchanged. There is no owner blocker, and the hourly check-in remains enabled without an end date.
+The ten runtime variants reproduce byte for byte. Copy only their GLBs, original licences and source
+notes into the existing packs, retaining the town provenance note in Kenney Car Kit, and update the
+manifest byte counts. The initial source-only report `c28-prepared-validation.json` records the earlier
+rig inspection; it is not the final runtime gate. Final resource figures, browser checks and screenshots
+are recorded in `docs/PERF.md` and `docs/review/set-8/c28.md`. The unchanged Low gate is 64 calls, 2,500
+triangles, two Three textures and 4 MiB each for attachments and estimated Phaser textures at 1280×720.
+The owner's native Intel 60 fps measurement remains O-1; cloud SwiftShader timing is not acceptance.

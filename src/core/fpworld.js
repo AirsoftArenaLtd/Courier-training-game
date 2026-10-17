@@ -4,7 +4,7 @@ OTR.fpWorld = {
   build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera,brand=OTR.fpBrand.read();
     const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
-    const occluders = [], interactions = [], labels = [], assetGroups=[];let townArt=null;
+    const occluders = [], interactions = [], labels = [], assetGroups=[],exterior=[],stopDoors=[];let townArt=null,exteriorCapture=false;
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
     const material = color => {
       if (!mats.has(color)) mats.set(color, new T.MeshLambertMaterial({ color }));
@@ -28,7 +28,7 @@ OTR.fpWorld = {
         if (solid) occluders.push(mesh);
         if (id) { mesh.userData.interaction = id; interactions.push(mesh); }
       }
-      return mesh;
+      if(exteriorCapture){mesh.userData.fpParent=parent;exterior.push(mesh);}return mesh;
     }
     const sign = (parent,x,y,z,text,color,w) => {
       box(parent,x,y,z,w||1.4,0.85,0.08,color,null,false);
@@ -140,7 +140,7 @@ OTR.fpWorld = {
       box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true);
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
-      box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
+      stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
       box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
@@ -158,20 +158,22 @@ OTR.fpWorld = {
     }
 
     const van = new T.Group(); route.add(van);
-    const chassis = new T.Group();van.add(chassis);
+    const chassis = new T.Group();van.add(chassis);exteriorCapture=true;
     box(chassis,0,0.42,0,2.16,0.25,5.4,0x454955,null,true);
     box(chassis,0,0.75,-1.85,2.1,0.8,1.7,brand.body,null,true);
     box(chassis,0,1.7,-0.95,2.1,2.55,0.15,brand.body,null,true);
     [-1.03,1.03].forEach(x=>box(chassis,x,1.78,0.8,0.12,2.65,3.5,brand.body,null,true));
     box(chassis,0,3.15,0.8,2.2,0.12,3.8,brand.body,null,true);
+    exteriorCapture=false;
     for(const side of [-1,1]){
       box(chassis,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);
       box(chassis,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);
       labels.push({parent:chassis,local:new T.Vector3(side*1.13,2.1,.6),point:new T.Vector3(),normal:new T.Vector3(side,0,0),text:brand.name,brand:true,max:16});
     }
     [-0.8,0.8].forEach(x=>box(chassis,x,1.06,0.9,0.48,0.12,3.3,0x827D74,null,true));
+    exteriorCapture=true;
     [-1.09,1.09].forEach(x=>[-1.6,1.7].forEach(z=>box(van,x,0.42,z,0.22,0.7,0.7,0x2A2E35,x<0&&z<0?'tyres':null)));
-    box(chassis,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');
+    box(chassis,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');exteriorCapture=false;
     box(chassis,0,0.96,-2.73,1.6,0.3,0.06,0xC9C8BD,'lights');
     const faultLamp=box(chassis,-0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
     box(chassis,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
@@ -255,9 +257,19 @@ OTR.fpWorld = {
       emergencyLamps=new T.Group();emergency.add(emergencyLamps);
       for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
     }
+    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
+    const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
+    if(actors&&actors.vehicle){
+      // The physical interior mirror stays at its C-23 location. Its view uses the retained cab shell,
+      // since the source exterior's sloped windshield would sit between that camera and the cab.
+      const entries=exterior.filter(mesh=>mesh.userData.fpParent===chassis&&mesh.userData.fpBatchEntry).map(mesh=>mesh.userData.fpBatchEntry);
+      innerVan=new T.InstancedMesh(cube,material(0xFFFFFF),entries.length);for(let i=0;i<entries.length;i++){innerVan.setMatrixAt(i,entries[i].matrix);innerVan.setColorAt(i,entries[i].color);}innerVan.visible=false;innerVan.frustumCulled=false;innerVan.name='actor:retained-cab-shell';chassis.add(innerVan);
+      for(const mesh of exterior.concat(cargoDoor)){if(mesh.parent)mesh.layers.set(1);const entry=mesh.userData.fpBatchEntry;if(entry){const pool=batches.get(mesh===cargoDoor?chassis:mesh.parent||mesh.userData.fpParent);if(pool)for(const entries of pool.values()){const at=entries.indexOf(entry);if(at>=0)entries.splice(at,1);}}}
+    }
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
+      if(!entries.length)return;
       const flat=entries[0].flat,coloured=parent!==route&&flat;
       const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
@@ -277,9 +289,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -348,7 +360,10 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
+          if(actors)actors.sync(m,cx,cz,!!reduced);
+          if(actors&&actors.crossing)person.visible=false;
           let mask=0;for(const s of m.stops)if(s.contacted&&!s.resolved&&(m.doorsteps?m._doorSpecs[s.id].present:s.service==='handover')&&(s.x-cx)**2+(s.z-cz)**2<=sceneryRadius*sceneryRadius)mask|=1<<s.id;
+          if(actors)mask&=~actors.residentMask;
           if(mask!==residentMask){let count=0;residentMask=mask;
             for(const part of residentParts)if(mask&(1<<part.id)){residentBatch.setMatrixAt(count,part.matrix);residentBatch.setColorAt(count++,part.color);}
             residentBatch.count=count;residentBatch.visible=count>0;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
@@ -400,10 +415,10 @@ OTR.fpWorld = {
     const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
     const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches));
     for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;}
-    let vanWas=false,dashWas=false,screenWas=false;
+    let vanWas=false,dashWas=false,screenWas=false,vehicleWas=false;
     view.mirror.before=(index=0)=>{
       if(view.mirror.cameras)view.mirror.camera=index===3?view.mirror.rearCamera:view.mirror.cameras[index];
-      vanWas=van.visible;dashWas=dash.visible;van.visible=true;dash.visible=index===2;if(mirrors)mirrors.hide(true);
+      vanWas=van.visible;dashWas=dash.visible;van.visible=true;if(innerVan){vehicleWas=actors.vehicle.mesh.visible;if(index===2){actors.vehicle.mesh.visible=false;innerVan.visible=true;}}if(actors&&model)actors.reflect(true,model);dash.visible=index===2;if(mirrors)mirrors.hide(true);
       if(rear){screenWas=rear.screen.visible;rear.screen.visible=false;}
       const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
       for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);let count=0;
@@ -417,7 +432,7 @@ OTR.fpWorld = {
       world.updateMatrixWorld(true);
     };
     view.mirror.after=()=>{
-      van.visible=vanWas;dash.visible=dashWas;if(mirrors)mirrors.hide(false);
+      van.visible=vanWas;if(innerVan){actors.vehicle.mesh.visible=vehicleWas;innerVan.visible=false;}if(actors&&model)actors.reflect(false,model);dash.visible=dashWas;if(mirrors)mirrors.hide(false);
       if(rear)rear.screen.visible=screenWas;
       for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
       world.updateMatrixWorld(true);

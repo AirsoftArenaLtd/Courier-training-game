@@ -152,6 +152,14 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(m.mode==='walk'){const c=s.art.townArt.choices.find(c=>c.use==='town-'+kind),x=m.town.xs.reduce((a,b)=>Math.abs(a-c.x)<Math.abs(b-c.x)?a:b),z=c.z+3,d=Math.hypot(c.x-x,c.z-z);Object.assign(m.player,{x,z,yaw:Math.atan2(c.x-x,-(c.z-z)),pitch:Math.atan2(1.65-c.height*.4,d)});}s.sync();s.refresh();
    },kind);if(kind==='reverse')await lookAtTarget('cab-camera');await sample('town'+kind);
   }
+  if(process.env.QA_ACTORS==='1'&&await p.evaluate(()=>!!OTR.fpActors))for(const kind of ['van','cargo','resident','wave','mirror']){
+   await p.evaluate(kind=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpRoute.plan(1,7);plan.timeOfDay='midday';const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);m.phase='route';m.departed=m.repaired=true;m.paused=false;m.step=()=>{};m.mode='walk';m.cargoOpen=kind==='cargo';for(const p of m.parcels)p.location='slot'+p.stop;s.model=m;s.rebuildWorld();
+    const v=m.van;if(kind==='resident'||kind==='wave'){const id=m._doorSpecs.findIndex(a=>a.present&&!a.dog),stop=m.stops[id];Object.assign(v,stop.park);Object.assign(m.player,{x:stop.x-stop.side*2.7,z:stop.z,yaw:stop.side*Math.PI/2,pitch:.04});s.sync();stop.contacted=true;OTR.fpDoors.sync(m);s.sync();m.elapsed=kind==='wave'?1.3:4;}
+    else if(kind==='mirror')Object.assign(m.player,{x:v.x-1.6,z:v.z-.5,yaw:Math.atan2(.38,1.8),pitch:-.25});
+    else{const back=kind==='cargo';Object.assign(m.player,{x:v.x+(back?0:5),z:v.z+(back?4.5:-6),yaw:back?v.yaw:Math.atan2(-5,-6),pitch:0});}
+    s.__actorBench=()=>{m.elapsed+=.016;};s.events.on('update',s.__actorBench);s.sync();s.refresh();
+   },kind);await sample('actors'+kind);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__actorBench);});
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));

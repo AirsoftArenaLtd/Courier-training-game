@@ -76,7 +76,7 @@ OTR.fpAssets={
     const F=this,T=THREE,high=!!options.high,controller=new AbortController(),signal=controller.signal,models=new Map(),textures=new Map(),audio=new Map();let closed=false;
     const bank={models,textures,audio,stats:{quality:high?'high':'low',loaded:0,failed:0,bytes:0,decodedBytes:0,errors:[]},
       add(parent,use,placements){
-        const model=models.get(use);if(closed||!model||!placements.length||placements.length>512)return null;
+        const model=models.get(use);if(closed||!model||model.animated||!placements.length||placements.length>512)return null;
         const group=new T.Group();group.name='asset:'+use;group.userData.batches=[];
         for(const part of model.parts){
           const mesh=new T.InstancedMesh(part.geometry,part.material,placements.length),entries=[];
@@ -107,9 +107,11 @@ OTR.fpAssets={
             const decoded=F.validateGLB(data,high);if(bank.stats.decodedBytes+decoded>(high?64:16)*1024*1024)throw Error('Decoded assets are over budget');bank.stats.decodedBytes+=decoded;await untilAbort(F.loader());
             const gltf=await untilAbort(new T.GLTFLoader().parseAsync(data,'').then(g=>{if(signal.aborted||closed)F.release(g);return g;}));
             try{gltf.scene.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),parts=[];
-              gltf.scene.traverse(o=>{if(o.isMesh){if(o.isSkinnedMesh||o.isInstancedMesh||Array.isArray(o.material))throw Error('Model needs an animated adapter');parts.push({geometry:o.geometry,material:o.material,matrix:o.matrixWorld.clone()});}});
+              gltf.scene.traverse(o=>{if(o.isMesh){if(o.isInstancedMesh||Array.isArray(o.material)||o.isSkinnedMesh&&!['worker-men','worker-women','resident-men','resident-women'].includes(job.use))throw Error('Model needs an animated adapter');parts.push({geometry:o.geometry,material:o.material,matrix:o.matrixWorld.clone(),name:o.name});}});
               if(!parts.length||parts.length>32||![size.x,size.y,size.z].every(n=>Number.isFinite(n)&&n>.0001))throw Error('Invalid model bounds');
-              if(signal.aborted||closed)throw Error('Asset loading cancelled');models.set(job.use,{gltf,parts,size,origin:new T.Matrix4().makeTranslation(-(bounds.min.x+bounds.max.x)/2,-bounds.min.y,-(bounds.min.z+bounds.max.z)/2)});
+              if(['worker-men','worker-women','resident-men','resident-women'].includes(job.use)){const clips=new Set(gltf.animations.map(a=>a.name));if(!['Idle_Neutral','Walk','Wave','Interact'].every(n=>clips.has(n))||parts.some(p=>!p.geometry.attributes.skinIndex||!p.geometry.attributes.skinWeight||!p.geometry.attributes.normal||p.material.map))throw Error('Invalid workday rig');let invalid=false;gltf.scene.traverse(o=>{if(o.isSkinnedMesh&&(!o.skeleton||o.skeleton.bones.length>64))invalid=true;});if(invalid)throw Error('Workday rig is over budget');}
+              if(job.use==='van-exterior'&&(!['body','door','wheel-front-left','wheel-front-right','wheel-back-left','wheel-back-right'].every(n=>parts.some(p=>p.name===n))||parts.some(p=>p.material.map)))throw Error('Invalid van parts');
+              if(signal.aborted||closed)throw Error('Asset loading cancelled');models.set(job.use,{gltf,parts,size,animated:parts.some(p=>p.geometry.attributes.skinIndex),origin:new T.Matrix4().makeTranslation(-(bounds.min.x+bounds.max.x)/2,-bounds.min.y,-(bounds.min.z+bounds.max.z)/2)});
             }catch(error){F.release(gltf);throw error;}
           }else if(['png','jpg','jpeg'].includes(f.ext)){
             const mime=f.ext==='png'?'image/png':'image/jpeg',[w,h]=F.imageSize(new Uint8Array(data),mime),limit=high?2048:1024;if(!w||!h||w>limit||h>limit)throw Error('Image is over budget');

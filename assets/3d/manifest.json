@@ -126,6 +126,76 @@
       "pack": "kenney-car-kit",
       "quality": "high",
       "use": "town-parked-car"
+    },
+    {
+      "path": "kenney-car-kit/models/delivery-low.glb",
+      "bytes": 18448,
+      "pack": "kenney-car-kit",
+      "quality": "low",
+      "use": "van-exterior"
+    },
+    {
+      "path": "kenney-car-kit/models/delivery-high.glb",
+      "bytes": 195040,
+      "pack": "kenney-car-kit",
+      "quality": "high",
+      "use": "van-exterior"
+    },
+    {
+      "path": "quaternius-modular-men/models/worker-low.glb",
+      "bytes": 193880,
+      "pack": "quaternius-modular-men",
+      "quality": "low",
+      "use": "worker-men"
+    },
+    {
+      "path": "quaternius-modular-men/models/worker-high.glb",
+      "bytes": 771740,
+      "pack": "quaternius-modular-men",
+      "quality": "high",
+      "use": "worker-men"
+    },
+    {
+      "path": "quaternius-modular-women/models/worker-low.glb",
+      "bytes": 193972,
+      "pack": "quaternius-modular-women",
+      "quality": "low",
+      "use": "worker-women"
+    },
+    {
+      "path": "quaternius-modular-women/models/worker-high.glb",
+      "bytes": 871104,
+      "pack": "quaternius-modular-women",
+      "quality": "high",
+      "use": "worker-women"
+    },
+    {
+      "path": "quaternius-modular-men/models/resident-low.glb",
+      "bytes": 193884,
+      "pack": "quaternius-modular-men",
+      "quality": "low",
+      "use": "resident-men"
+    },
+    {
+      "path": "quaternius-modular-men/models/resident-high.glb",
+      "bytes": 842348,
+      "pack": "quaternius-modular-men",
+      "quality": "high",
+      "use": "resident-men"
+    },
+    {
+      "path": "quaternius-modular-women/models/resident-low.glb",
+      "bytes": 193972,
+      "pack": "quaternius-modular-women",
+      "quality": "low",
+      "use": "resident-women"
+    },
+    {
+      "path": "quaternius-modular-women/models/resident-high.glb",
+      "bytes": 900916,
+      "pack": "quaternius-modular-women",
+      "quality": "high",
+      "use": "resident-women"
     }
   ]
 }
