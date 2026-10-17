@@ -4,3 +4,4 @@ server/data/
 server/config.json
 server/trainees.json
 dist/
+assets/_incoming/
