@@ -143,3 +143,43 @@ stop number, the drive leg or the hazard's id).
 | `stop.hazard` | the trainee slipped or tripped at the door |
 
 The points are a first draft, tuned once a whole day can be played.
+
+### Added for the cab, signs, navigation, night and damage (board task A-19, milestones 7 to 9)
+
+Draft contract for the milestone 7 to 9 work package. The 3D world reports these with `OTR.workday.report(type, details)`.
+Claude adds them to `data/workday_events.js` (points, categories, critical flags) in A-19 before the Codex tasks that
+use them are merged; until then an unknown type is ignored by scoring. `ok: false` is the mistake; use the key that
+makes "the same thing again" the same mistake.
+
+Changed meaning (existing types):
+
+| Type | New rule |
+| --- | --- |
+| `drive.mirrors` | Reported when the van moves off, changes lane or turns. `ok: true` when the player **looked at** the matching physical mirror (the mirror was in view for about 0.4 s) in the 4 seconds before the move. No key press. Key by the manoeuvre. |
+| `drive.backing` | Each reversing manoeuvre. `ok: false` on contact while reversing, or reversing faster than 5 mph. The rear camera comes on by itself in reverse, so getting out to look is no longer required (`details.cameraSeconds` says how long it was on screen). |
+
+New types:
+
+| Type | Report it when |
+| --- | --- |
+| `drive.gear` | the player changes gear at the physical shifter; `ok: false` when changing between D and R while the van moves faster than 2 mph |
+| `drive.backing-walkaround` | only in scenarios the trainer marks as walk-around required: the player got out and looked before reversing (`ok: false` if not) |
+| `drive.signal` | a signal before a turn or lane change (`ok: false` if missing or less than 3 seconds) |
+| `drive.sign` | a road sign applies: `details.sign` is `stop`, `giveway`, `speed`, `oneway`, `noentry`, `school` or `roadworks`; `ok: false` for running a stop or give-way, driving the wrong way into a one-way or no-entry (critical for no-entry), exceeding the sign's limit |
+| `drive.route` | the player leaves the planned route (wrong turn); one report per leg, `ok: false`. Efficiency only. A reroute followed within 30 s clears it. |
+| `drive.lights` | once per leg in dusk, night, fog or heavy rain: headlights on (`ok: false` if off while moving) |
+| `drive.cyclist` | a cyclist beside or behind the van when turning: checked the mirror and gave way (`ok: false` if cut in front or hit) |
+| `drive.clearance` | a low bridge, overhang or tall-van clearance: `ok: false` for a strike, `ok: true` for stopping or detouring |
+| `load.shift` | hard cornering or braking shifted the load (`ok: false`); packages not secured shift more |
+| `van.damage` | the van takes damage: `details.zone` (front, rear, left, right, roof, wheel, mirror), `details.severity` (scuff, dent, major) and `details.cause`. Safety penalty by severity (a scuff is small, major is large). Key by the zone and cause. |
+| `inspect.damage` | at the pre-trip walkaround: existing damage found and recorded (`ok: true`), or missed. Existing damage is the day's start state and is never blamed on the player. |
+| `trip.damage-report` | at the post trip, one report per damage zone: `ok: true` when the player records new damage with the right zone and a plain description; `ok: false` for a zone with damage the player did not record. **An unreported damage the player caused is a critical mistake** (caps safety at one star, like the school bus). A report for a zone with no damage is a small `ok: false` (accuracy). |
+| `stop.intercom` | an apartment or gated site with an intercom: right button, right wording, waited for the buzz |
+| `stop.reception` | a business: left at reception with a name and a signature, or handed to the right person |
+| `stop.locker` | a locker drop: right compartment, scan, photo of the closed door |
+| `stop.reattempt` | a failed delivery: card left, retention recorded, and the next attempt booked |
+| `dispatch.update` | already exists; now also radio calls (`details.radio: true`) that change the route or add a stop |
+
+Rules for these: nothing is reported twice for the same key; a critical mistake is flagged in the type's definition, not by
+the world; the save stays small (`docs/READINESS.md`: 3,596 of 4,096 characters today), so new types carry only the
+details above. A-27 owns the save budget.

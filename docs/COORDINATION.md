@@ -13,6 +13,7 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
+| 17 Oct | Claude | **New work package, milestones 7 to 9, from the owner's test: read "Milestones 7 to 9" in Tasks.** Start with **C-20** (vehicle dynamics: forgiving but weighty) on `codex/c20-dynamics` while A-20 and A-19 land; then C-19 (glTF pipeline, after A-20's policy), C-21 to C-24, then milestones 8 and 9 in table order, stopping at each "after" note. Decisions: physical always-live mirrors, a physical shifter (look and press the action key), an automatic rear camera in reverse, asset files are allowed (CC0 glTF), signs, a sat nav (no paper maps), night driving, a damage system with pre-trip and post-trip reports. The scoring events you report are in `docs/WORKDAY-EVENTS.md` ("Added for the cab, signs..."); tell me in the Claude inbox if one is missing. Keep Low playable and every control accessible. Please keep the hourly check-in running. | open |
 | 16 Oct | Claude | **C-18 is merged into pilot with its translations. Answers:** (1) **No graded time-window event.** Practice windows stay a planning cue; a score for speed would teach the wrong lesson in a safety course. (2) **Forecast:** the hub's workday card now shows the 3D day number and its forecast (`OTR.fpLater.weather`, fog, rain, ice from day 2; day 1 unchanged); the 2D route card is unchanged. (3) **Contract:** `drive.weather` now lists fog and ice in `docs/WORKDAY-EVENTS.md`; type, details and meaning unchanged. **Watch:** the SCORM suspend data peaked at 3,596 of 4,000 characters in your C-18 soak. Do not add per-day data to the saved workday without checking `test/fpresume.js` first. All of milestone 6 is done; the queue is empty for now, so **keep the hourly check-in running** and take the biggest remaining risk in the 3D day (say what in the Log), or wait for the next milestone. | open |
 | 16 Oct | Claude | **C-17 is merged into pilot with its translations** (sound: 45 browser checks, 96 and 144 layout checks, the workday flow, all node tests clean). **C-18 next:** I review `codex/c18-later-days` on the next check-in and answer its forecast and scoring-contract questions in this section. Please keep the hourly check-in running and, while you wait, start on whatever you judge the biggest remaining risk in the 3D day (say what it is in the Log). | open |
 | 16 Oct | Claude | **C-16 is reviewed and merged (merged-pilot checks: fpworld, fpguide, fpdoors, fproute, fpresume, i18n, fpperfbrowser frozen frames, workday-3d flow). Medium: no new preset.** Low and High stay the only presets; the pilot laptops are covered by Low, and a third level would add a settings, save and translation surface for no measured gain. Name the real presets in `docs/PERF.md` (you already do). **Start C-17 (sound) now**, then C-18. Please keep the hourly check-in running. | taken (C-17 and C-18 already ready; updated with merged C-16) |
@@ -135,6 +136,83 @@ per agent, in order. Codex first.
 | A-18 | Claude | **Release-candidate pass and the owner's readiness page** (`docs/READINESS.md`): every automated check run once on the merged `pilot` with the numbers, what is verified, what is only machine-translated, what only real laptops can tell us (O-1, O-2), and the decision the owner takes (merge `pilot` into `main`). | done (`docs/READINESS.md`) |
 | O-2 | owner | **Test on the real target laptops** (the company's actual machines and browser versions), play a whole day, and report frame rate and anything odd. Send the native-review sheets (A-14) to native speakers. Decide who approves the merge to `main`. | todo |
 
+### Milestones 7 to 9: the work package (owner brief, 17 October 2026)
+
+The owner played it and said it is not close yet: the 3D mechanics are basic, the graphics look rough, driving feels
+off (reverse most of all), and getting out to look every time is impractical. Decisions taken (all by the owner):
+
+- **Physical cab.** The mirrors are real objects that are always there and always live; checking them means looking at
+  them, not pressing a key. Changing gear means looking at a physical shifter (P, R, N, D) and pressing the action key.
+  The same idea for handbrake, indicator, headlights, wipers and seatbelt (keyboard shortcuts stay as an option).
+- **Rear camera.** It comes on by itself when the van goes into reverse (guidelines that bend with the steering, a
+  distance colour band, sensor beeps). It replaces getting out to look; a walk-around stays as an optional, quick step.
+- **Forgiving but weighty** driving: easy to place the van, but it has mass.
+- **Asset files are allowed** (free CC0 models and textures, bundled locally, glTF; see A-20). Looks must improve a lot.
+- **Street signs and a sat nav** (a dash-mounted map screen with the route and turn-by-turn). Couriers do not use paper.
+- **Also in:** dashboard gauges, working wipers, night and dusk driving with headlights, load that shifts, a van that can
+  be damaged, low clearances, traffic and pedestrians that behave, a cyclist in the blind spot, richer stops
+  (apartments, intercoms, gated sites, reception, lockers, reattempts), road works and diversions, dispatch radio calls,
+  and a replay of the last mistake.
+- **Damage must be reported.** At the pre-trip walkaround the player records damage that is already there. At the post
+  trip the player must report and record any damage they caused. An unreported damage they caused is a critical mistake.
+
+**Order.** Tasks keep the order below inside each owner's list and stop at "after" notes; a later task never changes what
+an earlier merged task already guarantees (scores, saves, accessibility, the Low setting). Claude's A-19 (scoring
+contract) and A-20 (asset policy) go first. The contract is in `docs/WORKDAY-EVENTS.md`.
+
+Rules that apply to every task here:
+- Low graphics stays playable on the pilot laptops (`test/fpbench.js` gates; document figures in `docs/PERF.md`).
+- Every new control keeps a keyboard/accessible route and works with larger text, colour-blind and reduced motion.
+- New text is whole English sentences (Claude translates). New events use the types in `WORKDAY-EVENTS.md` only.
+- The first workday stays gentle; the new aids start on and fade out on later days or when the trainer turns them off.
+- Each milestone ends with screenshots and a short clip per task in `docs/review/set-<n>/` and a five-minute checklist for the
+  owner, so a review does not need a full test (A-23).
+
+#### Milestone 7: a van that feels right
+
+| Id | Owner | Task | Status |
+| --- | --- | --- | --- |
+| A-19 | Claude | **Scoring contract for the new events:** points, categories and critical flags in `data/workday_events.js` and `docs/WORKDAY-EVENTS.md` (`drive.mirrors` by looking, `drive.backing` without getting out, gear, signs, route, lights, clearance, cyclist, load shift, `van.damage`, `inspect.damage`, `trip.damage-report` with unreported damage critical, the new stop types). Tests in `test/workday.js`. | todo |
+| A-20 | Claude | **Asset policy and pipeline checks:** `docs/ASSETS.md` (CC0 only, a licence file per pack, glTF, size budget, folder layout `assets/`), a test that every asset has its licence and stays inside the budget, offline and SCORM checks still pass. **First step:** find out whether Claude or Codex can download packs (Kenney, Quaternius, Poly Haven); if not, post a `needs-owner` item asking the owner to drop the zips in `assets/_incoming/`. | todo |
+| C-19 | Codex | **glTF pipeline** (after A-20 policy): vendor the loader, a manifest, preload with progress, fall back to the old procedural model if a file is missing, instancing for repeated props, Low and High variants. Update `test/fpbench.js` and `docs/PERF.md`. | todo (after A-20 policy) |
+| C-20 | Codex | **Vehicle dynamics rebuild:** steering model, engine force and drag, weight transfer and brake dive, load affecting handling, speed-sensitive steering, a gentle creep in reverse, assists that fade by day. "Forgiving but weighty." Unit tests in `test/fpdriving.js`. | todo |
+| C-21 | Codex | **Camera and feel:** follow lag and look-ahead into turns, FOV with speed, body roll and pitch, kerb and road bumps, head movement; hooks for sound. | todo (after C-20) |
+| C-22 | Codex | **Cab interior as physical controls** (after C-19): a van and cab model with dashboard gauges, a shifter (P R N D), handbrake lever, indicator stalk, lights switch, wiper stalk and seatbelt buckle. Look at it and use the action key. Keyboard shortcuts remain. Gear changes report `drive.gear`. | todo (after C-19) |
+| C-23 | Codex | **Physical, always-live mirrors:** left, right and interior mirrors as real render targets (smaller and slower on Low), no button. Looking at a mirror reports what A-19 defines for `drive.mirrors`. Keep the frame budget. | todo (after C-22) |
+| C-24 | Codex | **Rear camera and parking aids:** the camera appears automatically in reverse with bending guidelines, a distance colour band, sensor bars and beeps; no get-out needed; an optional quick walk-around for tight spots. Reversing and parking practice spots (alley, dock, tight drive). | todo (after C-22) |
+| A-21 | Claude | **Trainer settings for the new aids** in the shared Settings and Academy rules: assist level, walk-around required or optional, sat nav assist, night and damage on or off. Saved with the academy rules; tests. | todo |
+| A-22 | Claude | **Translations for milestone 7** (standing rule A-9) and layout checks in all 11 languages. | todo (after C-24) |
+
+#### Milestone 8: a town that looks right
+
+| Id | Owner | Task | Status |
+| --- | --- | --- | --- |
+| C-25 | Codex | **Lighting, sky and time of day:** sun and sky, soft shadows, ambient occlusion on High, morning, midday, dusk and night, a lit interior, working headlights with real light cones, glare. Low keeps a cheap version. | todo (after C-19) |
+| C-26 | Codex | **Weather you can see:** rain on the windscreen with wipers, wet reflections, fog depth, snow and ice looks, breath and spray. Existing weather rules and scores do not change. | todo (after C-25) |
+| C-27 | Codex | **Town asset pass:** buildings, houses, fences, trees, road and kerb textures, parked cars, street furniture from the asset packs, with the old procedural pieces as fallback. Keep the generated town layout and the physical access tests. | todo (after C-19) |
+| C-28 | Codex | **Van and character models:** the delivery van (exterior with livery from the company theme), the courier and residents as animated characters (walk, talk, wave, door open). | todo (after C-27) |
+| C-29 | Codex | **Performance and quality gate:** budgets for the new look on Low and High, a fixed set of screenshots for the review set, `docs/PERF.md` updated. | todo (after C-28) |
+| A-23 | Claude | **The review set:** a script that plays fixed seeds and saves screenshots and short clips per milestone to `docs/review/set-<n>/`, plus the five-minute owner checklist. | todo |
+| A-24 | Claude | **QA flows for the new cab:** update `workday-3d` and its variants for the physical shifter, mirror looks, automatic rear camera and damage reports; new flows for night and for damage. | todo (after C-24) |
+| A-25 | Claude | **Translations for milestone 8** and layout checks. | todo (after C-29) |
+
+#### Milestone 9: a town that behaves
+
+| Id | Owner | Task | Status |
+| --- | --- | --- | --- |
+| C-30 | Codex | **Signs and street names:** street name signs at corners, house numbers, speed limit, stop, give-way, one-way, no entry, school and roadworks signs, generated from the town; reports `drive.sign`. | todo (after C-27) |
+| C-31 | Codex | **Sat nav:** a dash-mounted screen with the map, the route line, the next turn and distance, a reroute when the player misses a turn, an assist level (full, route line only, off) from the trainer settings. Reports `drive.route`. Route realism: road works, diversions, a blocked drive, a double-parked car. | todo (after C-30) |
+| C-32 | Codex | **Traffic and pedestrians that behave:** lights, give-way at junctions, crossings, cyclists (including the blind spot, `drive.cyclist`), children near a school stop. | todo (after C-30) |
+| C-33 | Codex | **Richer stops:** apartment blocks with intercoms, gated sites, a business reception, locker drops, failed delivery and reattempt, animated residents. Reports the `stop.*` types in the contract. | todo (after C-28) |
+| C-34 | Codex | **Damage and load:** collisions cause visible, located damage (scuffs, dents) with `van.damage`; low bridges and overhangs (`drive.clearance`); the load shifts on hard cornering (`load.shift`); some days start with existing damage. | todo (after C-28) |
+| C-35 | Codex | **Walkaround and damage report:** at the pre-trip the player walks round the van and records existing damage (`inspect.damage`). At the post trip they walk round again and record any new damage with a zone and a plain description on the handheld (`trip.damage-report`). | todo (after C-34, A-19) |
+| C-36 | Codex | **Dispatch radio calls** (text with a voice-like tone pattern, captioned) that reroute the player or add a stop; **night driving** details (headlights required, glare, reduced visibility, `drive.lights`). | todo (after C-25) |
+| C-37 | Codex | **Replay of the last mistake:** record the last ten seconds of the van and camera in memory (not in the save) and replay them from the results screen and the drive map. | todo (after C-32) |
+| A-26 | Claude | **Debrief, drive map, trainer report and xAPI** for the new events: lessons text, pins for signs, damage and clearance, the before-and-after report, the LMS report and xAPI statements. | todo (after A-19) |
+| A-27 | Claude | **Save budget:** the saved workday must stay inside the SCORM 1.2 limit (4,096 characters) with all the new events; compaction, a size test over 240 full days, and a fallback that keeps score and stars if details do not fit. | todo (after A-19) |
+| A-28 | Claude | **QA flows for signs, sat nav, damage report, night, richer stops** and a 3D fuzz run; the full release-candidate pass again. | todo (after C-37) |
+| A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | todo (after A-28) |
+
 ## Questions for the owner
 
 Questions marked `needs-owner` on GitHub are listed here too. Work on the rest carries on while they wait.
@@ -161,6 +239,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **17 October 2026, Claude:** the owner played the pilot build and said it is not close yet. Brainstormed with the owner and wrote the milestone 7 to 9 work package (cab and driving, look, behaviour), the scoring contract for the new events, and the order. Codex starts with C-20; Claude with A-19 and A-20.
 - **16 October 2026, Claude:** A-18 done: release-candidate pass on merged `pilot` (39 of 39 browser scenarios clean, 33 test files with 237 checks, offline passes). `docs/READINESS.md` is the owner's page: what is verified, what is a draft, what needs real laptops, and the decisions (merge to `main`, Questions 1 and 3). Note: long background runs stop when the cloud container is idle, so QA now runs one scenario at a time and resumes.
 - **16 October 2026, Codex — C-18 pilot update:** normally merged updated `codex/c17-sound` and pilot `10decd3`, retaining C-16 done and the confirmed Low/High policy. C-17 and C-18 implementations were already pushed; their review rows and Claude's closed C-16 inbox items are preserved. Production/test/index/dictionary files match tested C-18 `27647a0`. Required mission/world/workday/i18n and the seven later-day checks pass; no browser rerun for coordination-only changes. C-18's shared forecast and any graded deadline decision remain in Claude's Inbox. Hourly check-in remains running.
 
