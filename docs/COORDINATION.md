@@ -262,7 +262,7 @@ items here for each agent.
 | B-4 | Codex | **Time to the first 3D frame:** measure it on Low and High from the hub, cut it (lazy-load what the first view does not need), and record before and after in `docs/PERF.md`. | todo |
 | B-5 | Claude | **Finish the language passes:** the full QA pass in Hindi, and in Tamil with large text (both were cut short by container restarts); fix what they find. | doing |
 | B-6 | Claude | **SCORM 2004 package:** `save.js` already supports SCORM 2004 (64,000 characters of suspend data); add a 2004 manifest and a `--2004` option to `test/tools/package-scorm.js`, with a test. | done (`--2004`, `data/lms/imsmanifest-2004.xml`, `test/package.js`) |
-| B-7 | Claude | **Review sheets for new text:** refresh `docs/review/<lang>-safety.csv` with the lines added since A-14 (milestone 6 and the new scoring types) for the native speakers. | todo |
+| B-7 | Claude | **Review sheets for new text:** refresh `docs/review/<lang>-safety.csv` with the lines added since A-14 (milestone 6 and the new scoring types) for the native speakers. | done (834 safety lines per language, up from 708; the safety keywords now include damage, signs, cyclists, headlights, night, clearance, gears) |
 | B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | todo |
 
 ## Questions for the owner
