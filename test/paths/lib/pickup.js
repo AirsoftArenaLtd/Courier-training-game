@@ -20,7 +20,7 @@ module.exports = async (page, ctx) => {
   if (new RegExp(`of ${pieces.length}\\b`).test(shown)) throw new Error('the panel gives away how many pieces there are: ' + shown);
 
   await clickText(page, 'PickupScene', /^Confirm the count$/);
-  await wait(600);
+  if (!(await ctx.until(`Array.isArray(${S}.countChoices) && ${S}.countChoices.length > 0`, 4000))) throw new Error('the count choices never appeared');
   const best = await ctx.eval(`(() => { const c = ${S}.countChoices; let bi = 0; c.forEach((o, i) => { if (o.got > c[bi].got) bi = i; }); return bi; })()`);
   await page.keyboard.press('Digit' + (best + 1));
   await wait(800);

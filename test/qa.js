@@ -345,7 +345,9 @@ async function passGolden(page, sc, row) {
   // the paths' timeouts are written for a normal frame rate; a slow PC (or a busy one) plays the same moves slower, so
   // stretch every wait-until by how far the boot sample fell below 30 fps (at most four times). A step that never
   // happens still fails, only later.
-  const slow = Math.min(4, Math.max(1, 30 / (row.fps || 30)));
+  // a flow that starts its own scene has no boot sample (row.fps 0): take one now, so its waits stretch as well (B-18)
+  const fps = row.fps || (await liveScene(page, true)).fps;
+  const slow = Math.min(4, Math.max(1, 30 / (fps || 30)));
   global.__qaSlow = slow;                                              // test/paths/lib/ui.js stretches its waits too
   const ctx = {
     wait,
