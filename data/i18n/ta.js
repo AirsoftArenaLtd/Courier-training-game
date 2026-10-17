@@ -3746,7 +3746,19 @@ window.OTR_I18N.ta = {
 "It is dusk. The headlights are on.": "மாலை நேரம். முகப்பு விளக்குகள் எரிகின்றன.",
 "It is dusk. Switch on the headlights before moving.": "மாலை நேரம். புறப்படும் முன் முகப்பு விளக்குகளை இயக்குங்கள்.",
 "It is morning.": "காலை நேரம்.",
-"It is midday.": "மதிய நேரம்."
+"It is midday.": "மதிய நேரம்.",
+"Accessibility": "அணுகல்தன்மை",
+"Continue": "தொடரவும்",
+"Create": "உருவாக்கு",
+"Delivery": "டெலிவரி",
+"Driving": "ஓட்டுதல்",
+"Employee ID": "ஊழியர் ஐடி",
+"Erase": "அழி",
+"Password": "கடவுச்சொல்",
+"Previous": "முந்தையது",
+"Reload": "மீண்டும் ஏற்று",
+"Returns": "ரிட்டர்ன்ஸ்",
+"Scanned": "ஸ்கேன் செய்யப்பட்டது"
 },
 "templates": [
 [

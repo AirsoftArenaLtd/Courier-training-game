@@ -3746,7 +3746,19 @@ window.OTR_I18N.gu = {
 "It is dusk. The headlights are on.": "સાંજ છે. હેડલાઇટ ચાલુ છે.",
 "It is dusk. Switch on the headlights before moving.": "સાંજ છે. ચલાવતા પહેલાં હેડલાઇટ ચાલુ કરો.",
 "It is morning.": "સવાર છે.",
-"It is midday.": "બપોર છે."
+"It is midday.": "બપોર છે.",
+"Accessibility": "ઍક્સેસિબિલિટી",
+"Continue": "ચાલુ રાખો",
+"Create": "બનાવો",
+"Delivery": "ડિલિવરી",
+"Driving": "ડ્રાઇવિંગ",
+"Employee ID": "કર્મચારી ID",
+"Erase": "કાઢી નાખો",
+"Password": "પાસવર્ડ",
+"Previous": "પાછલું",
+"Reload": "રીલોડ",
+"Returns": "રિટર્ન્સ",
+"Scanned": "સ્કેન થયું"
 },
 "templates": [
 [
