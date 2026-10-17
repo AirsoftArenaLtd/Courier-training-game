@@ -24,7 +24,16 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
 const VIEWS = [
   ['depot', 'The depot in the morning: the van, the shelves, Dispatch', (s) => { s.closePanel(); return true; }],
   ['cab', 'Sitting in the cab: the dashboard, the controls, the view ahead', (s) => { const m = s.model; m.mode = 'cab'; m.paused = false; s.sync(); return true; }],
-  ['mirror', 'The mirrors from the driver\'s seat', (s) => { const m = s.model; m.mode = 'cab'; m.player.yaw = -0.9; m.mirrorAt = m.elapsed; s.sync(); return true; }],
+  ['mirror', 'The left mirror from the driver\'s seat', (s) => {
+    const m = s.model, M = OTR.fpMirrors; m.mode = 'cab'; m.paused = false;
+    if (!M || !M.specs) { m.van.look = -0.9; s.sync(); return true; }        // before C-23: roughly where the mirror was
+    // on the street (as the street view), so the mirror shows the road behind rather than the depot wall; then look
+    // straight at the physical left mirror from the driver's eye, the way OTR.fpMirrors.looking() measures it
+    const z = m.town && m.town.zs ? m.town.zs[1] + 22 : -20;
+    Object.assign(m.van, { z, yaw: 0, speed: 0, hand: true });
+    const sp = M.specs[0], dx = sp.x + 0.45, dy = sp.y - 2.05, dz = sp.z + 1.85;
+    m.van.look = Math.atan2(dx, -dz); m.player.pitch = -Math.asin(dy / Math.hypot(dx, dy, dz)); s.sync(); return true;
+  }],
   ['street', 'Driving along the first street towards a junction', (s) => {
     const m = s.model; m.mode = 'cab'; m.player.yaw = 0; m.player.pitch = 0;
     const z = m.town && m.town.zs ? m.town.zs[1] + 22 : -20;
@@ -67,6 +76,11 @@ const VIEWS = [
         const file = `${id}-${gfx}.jpg`;
         if (shown === true) {
           await wait(1200);
+          // the mirror view must be what the game itself counts as looking at the left mirror
+          if (id === 'mirror' && await p.evaluate(() => !!(window.OTR.fpMirrors && OTR.fpMirrors.looking) && OTR.fpMirrors.looking(OTR.game.scene.getScene('FirstPersonScene').model) !== 0))
+            errors.push('the mirror view is not aimed at the left mirror (' + gfx + ')');
+          if (id === 'mirror' && await p.evaluate(() => { const v = OTR.game.scene.getScene('FirstPersonScene').view; return !!(v.mirror && v.mirror.updates) && !(v.mirror.updates[0] > 0); }))
+            errors.push('the left mirror never rendered its reflection (' + gfx + ')');
           await p.screenshot({ path: path.join(OUT, file), type: 'jpeg', quality: 78 });
         }
         rows.push({ id, what, gfx, file: shown === true ? file : null, note: shown === true ? '' : shown === false ? 'not built yet' : shown });
