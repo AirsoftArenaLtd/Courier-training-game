@@ -14,6 +14,118 @@
       "pack": "kenney-city-starter",
       "quality": "high",
       "use": "town-garage"
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-a-low.glb",
+      "bytes": 3848,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-house"
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-a-high.glb",
+      "bytes": 83704,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-house"
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-c-low.glb",
+      "bytes": 3848,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-house-wide"
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-c-high.glb",
+      "bytes": 84312,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-house-wide"
+    },
+    {
+      "path": "kenney-city-suburban/models/tree-small-low.glb",
+      "bytes": 5120,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-tree"
+    },
+    {
+      "path": "kenney-city-suburban/models/tree-small-high.glb",
+      "bytes": 5120,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-tree"
+    },
+    {
+      "path": "kenney-city-suburban/models/fence-low.glb",
+      "bytes": 1904,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-fence"
+    },
+    {
+      "path": "kenney-city-suburban/models/fence-high.glb",
+      "bytes": 7268,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-fence"
+    },
+    {
+      "path": "kenney-city-commercial/models/building-a-low.glb",
+      "bytes": 2684,
+      "pack": "kenney-city-commercial",
+      "quality": "low",
+      "use": "town-shop"
+    },
+    {
+      "path": "kenney-city-commercial/models/building-a-high.glb",
+      "bytes": 83572,
+      "pack": "kenney-city-commercial",
+      "quality": "high",
+      "use": "town-shop"
+    },
+    {
+      "path": "kenney-city-roads/models/road-straight-low.glb",
+      "bytes": 3764,
+      "pack": "kenney-city-roads",
+      "quality": "low",
+      "use": "town-road"
+    },
+    {
+      "path": "kenney-city-roads/models/road-straight-high.glb",
+      "bytes": 3764,
+      "pack": "kenney-city-roads",
+      "quality": "high",
+      "use": "town-road"
+    },
+    {
+      "path": "kenney-city-roads/models/light-curved-low.glb",
+      "bytes": 2700,
+      "pack": "kenney-city-roads",
+      "quality": "low",
+      "use": "town-streetlight"
+    },
+    {
+      "path": "kenney-city-roads/models/light-curved-high.glb",
+      "bytes": 7148,
+      "pack": "kenney-city-roads",
+      "quality": "high",
+      "use": "town-streetlight"
+    },
+    {
+      "path": "kenney-car-kit/models/sedan-low.glb",
+      "bytes": 3468,
+      "pack": "kenney-car-kit",
+      "quality": "low",
+      "use": "town-parked-car"
+    },
+    {
+      "path": "kenney-car-kit/models/sedan-high.glb",
+      "bytes": 155372,
+      "pack": "kenney-car-kit",
+      "quality": "high",
+      "use": "town-parked-car"
     }
   ]
 }

@@ -1,4 +1,4 @@
-/* Validate prepared source-detail models through the real scene loader without shipping them. */
+/* Validate converted town variants through the real scene loader without changing the game. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'../..'),prepared=process.argv[2],repeated=process.argv[3];
 if(!prepared)throw Error('Pass the prepared asset directory, and optionally a repeated conversion to compare.');
@@ -8,10 +8,10 @@ const F=require(root+'/test/tools/fpassets-context.js').install(c);
 const manifest=JSON.parse(fs.readFileSync(prepared+'/manifest.json','utf8'));
 const local=async url=>new Response(fs.readFileSync(url==='assets/3d/manifest.json'?prepared+'/manifest.json':path.join(prepared,url.slice('assets/3d/'.length))));
 (async()=>{
- const bank=await F.preload({high:true,fetch:local,timeout:6000});
+ const high=process.env.QA_GFX!=='low',bank=await F.preload({high,fetch:local,timeout:6000});
  assert.equal(bank.stats.loaded,8);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.errors.length,0);
- const out={fixture:'Offline source-detail preparation only. No game manifest or runtime scenery is changed.',models:[],stats:bank.stats};
- for(const entry of manifest.files){
+ const out={fixture:'Offline conversion validation. The command only reads models; it does not modify gameplay.',models:[],stats:bank.stats};
+ for(const entry of manifest.files.filter(f=>f.quality===(high?'high':'low'))){
   const f=entry.path,raw=fs.readFileSync(path.join(prepared,f));if(repeated)assert.ok(raw.equals(fs.readFileSync(path.join(repeated,f))),'deterministic '+f);
   const model=bank.models.get(entry.use);assert.ok(model);assert.equal(model.parts.length,1);
   const p=model.parts[0],geometry=p.geometry;assert.ok(geometry.attributes.color);assert.ok(!p.material.map);assert.equal(p.material.side,c.THREE.FrontSide);

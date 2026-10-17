@@ -2,8 +2,8 @@
 
 Usage: python3 test/tools/prepare-town.py INCOMING_DIRECTORY OUTPUT_DIRECTORY
 Raw zip files stay outside the game. Requires Pillow, as does prepare-garage.py.
-This foundation preserves source triangles and flattens static node transforms;
-Low geometry selection and the runtime town replacements are the next C-27 slice.
+High preserves source triangles and flattens static node transforms. Low uses
+closed silhouettes and source-palette facade detail; small trees/roads stay exact.
 """
 import hashlib
 import io
@@ -182,6 +182,96 @@ def encode(positions, normals, colours):
     return struct.pack('<5I', 0x46546c67, 2, 28+len(text)+len(binary), len(text), 0x4e4f534a)+text+struct.pack('<2I', len(binary), 0x004e4942)+binary
 
 
+def low_detail(use, source):
+    """Closed silhouette LODs using the source bounds and palette, with no tiny bevels.
+
+    Trees and road pieces already have few triangles and retain their exact source mesh.
+    This is an offline export, never runtime simplification.
+    """
+    if use in ('town-tree', 'town-road'):
+        return source
+    points, normals, colours = source
+    lo = [min(p[i] for p in points) for i in range(3)]
+    size = [max(p[i] for p in points)-lo[i] for i in range(3)]
+    palette = {}
+    roof_palette = {}
+    for at in range(0,len(points),3):
+        a,b,d = points[at:at+3]
+        u = [b[i]-a[i] for i in range(3)];v = [d[i]-a[i] for i in range(3)]
+        area = math.sqrt(sum(x*x for x in (u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])))
+        colour = colours[at];palette[colour] = palette.get(colour, 0)+area
+        if normals[at][1] > .3 and (a[1]+b[1]+d[1])/3 > lo[1]+size[1]*.45:
+            roof_palette[colour] = roof_palette.get(colour, 0)+area
+    wall = max(palette, key=lambda c: sum(c))
+    roof = max(roof_palette or palette, key=(roof_palette or palette).get)
+    glass = {c:weight for c,weight in palette.items() if sum(c)<2.5 and c[2]>c[0]*1.1 and c[2]>c[1]*1.02}
+    dark = max(glass,key=glass.get) if glass else min(palette, key=lambda c: sum(c))
+    frames = {c:weight for c,weight in palette.items() if 1.2<sum(c)<2.4}
+    frame = max(frames,key=frames.get) if frames else wall
+    paint = max(palette, key=lambda c: palette[c]*(max(c)-min(c)))
+    p, n, c = [], [], []
+
+    def triangle(a, b, d, colour):
+        vertices = [tuple(lo[i]+v[i]*size[i] for i in range(3)) for v in (a, b, d)]
+        u = [vertices[1][i]-vertices[0][i] for i in range(3)]
+        v = [vertices[2][i]-vertices[0][i] for i in range(3)]
+        normal = (u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2], u[0]*v[1]-u[1]*v[0])
+        length = math.sqrt(sum(x*x for x in normal))
+        if length > 1e-12:
+            p.extend(vertices);n.extend([tuple(x/length for x in normal)]*3);c.extend([colour]*3)
+
+    def quad(a, b, d, e, colour):
+        triangle(a, b, d, colour);triangle(a, d, e, colour)
+
+    def box(x0, y0, z0, x1, y1, z1, colour):
+        quad((x0,y0,z0),(x0,y1,z0),(x1,y1,z0),(x1,y0,z0),colour)
+        quad((x1,y0,z1),(x1,y1,z1),(x0,y1,z1),(x0,y0,z1),colour)
+        quad((x0,y0,z1),(x0,y1,z1),(x0,y1,z0),(x0,y0,z0),colour)
+        quad((x1,y0,z0),(x1,y1,z0),(x1,y1,z1),(x1,y0,z1),colour)
+        quad((x0,y1,z0),(x0,y1,z1),(x1,y1,z1),(x1,y1,z0),colour)
+        quad((x0,y0,z1),(x0,y0,z0),(x1,y0,z0),(x1,y0,z1),colour)
+
+    if use in ('town-house', 'town-house-wide'):
+        box(0,0,0,1,.68,1,wall)
+        # Gabled roof, closed at both ends; the source palette keeps each pack's roof colour.
+        triangle((0,.68,0),(.5,1,0),(1,.68,0),roof)
+        triangle((1,.68,1),(.5,1,1),(0,.68,1),roof)
+        quad((0,.68,0),(0,.68,1),(.5,1,1),(.5,1,0),roof)
+        quad((.5,1,0),(.5,1,1),(1,.68,1),(1,.68,0),roof)
+        for x0, x1 in ((.1,.32),(.68,.9)):
+            quad((x0,.26,1.001),(x1,.26,1.001),(x1,.52,1.001),(x0,.52,1.001),frame)
+            quad((x0+.025,.29,1.002),(x1-.025,.29,1.002),(x1-.025,.49,1.002),(x0+.025,.49,1.002),dark)
+        quad((.43,0,1.002),(.59,0,1.002),(.59,.49,1.002),(.43,.49,1.002),dark)
+        for x in (-.001,1.001):
+            if x < 0:
+                quad((x,.26,.3),(x,.26,.6),(x,.52,.6),(x,.52,.3),frame)
+                quad((x-.001,.29,.325),(x-.001,.29,.575),(x-.001,.49,.575),(x-.001,.49,.325),dark)
+            else:
+                quad((x,.26,.6),(x,.26,.3),(x,.52,.3),(x,.52,.6),frame)
+                quad((x+.001,.29,.575),(x+.001,.29,.325),(x+.001,.49,.325),(x+.001,.49,.575),dark)
+    elif use == 'town-shop':
+        box(0,0,0,1,1,1,wall)
+        for x0, x1 in ((.1,.4),(.6,.9)):
+            for y0, y1 in ((.12,.4),(.6,.88)):
+                quad((x0,y0,1.001),(x1,y0,1.001),(x1,y1,1.001),(x0,y1,1.001),dark)
+        quad((0,1.001,0),(0,1.001,1),(1,1.001,1),(1,1.001,0),roof)
+    elif use == 'town-fence':
+        box(0,0,0,1,1,1,paint)
+    elif use == 'town-streetlight':
+        box(0,0,0,1,1,.16,wall);box(0,.9,.16,1,1,1,wall)
+    elif use == 'town-parked-car':
+        box(0,.15,0,1,.55,1,paint)
+        box(.08,.55,.25,.92,1,.72,dark)
+        # Wide tyre faces retain side/front visibility at Low without cylinder segments.
+        for x in (-.001,1.001):
+            for z in (.2,.8):
+                if x < 0:quad((x,0,z-.1),(x,0,z+.1),(x,.3,z+.1),(x,.3,z-.1),dark)
+                else:quad((x,0,z+.1),(x,0,z-.1),(x,.3,z-.1),(x,.3,z+.1),dark)
+    else:
+        raise ValueError('Define a bounded Low silhouette for this use')
+    return p, n, c
+
+
 def prepare(incoming, output):
     manifest = {'version': 1, 'files': []}
     for filename, pack, title, url, models in PACKS:
@@ -202,16 +292,18 @@ def prepare(incoming, output):
                      'Static node transforms are baked, palette sRGB becomes linear vertex colour,',
                      'source winding yields flat normals, and identical vertices are deduplicated.',
                      'No external URI, image, decoder or additional GPU texture is retained.',
-                     'These source-detail exports are preparation for C-27; Low selection/runtime integration remain pending.', '',
-                     '| Source model | Source SHA-256 | Converted triangles | Bytes | Output SHA-256 |',
+                     'Low exports use closed silhouette LODs with the source bounds and palette; trees/roads retain their small source mesh.', '',
+                     '| Source model / quality | Source SHA-256 | Converted triangles | Bytes | Output SHA-256 |',
                      '| --- | --- | ---: | ---: | --- |']
             for name, use in models:
                 raw = archive.read('Models/GLB format/'+name+'.glb')
-                p, n, c = flatten(raw, image);converted = encode(p, n, c)
-                target = folder/'models'/(name+'-high.glb');target.parent.mkdir(exist_ok=True)
-                target.write_bytes(converted)
-                manifest['files'].append({'path': str(target.relative_to(output)), 'bytes': len(converted), 'pack': pack, 'quality': 'high', 'use': use})
-                notes.append(f'| {name} | `{digest(raw)}` | {len(p)//3} | {len(converted)} | `{digest(converted)}` |')
+                source = flatten(raw, image)
+                for quality, (p, n, c) in [('low', low_detail(use, source)), ('high', source)]:
+                    converted = encode(p, n, c)
+                    target = folder/'models'/(name+'-'+quality+'.glb');target.parent.mkdir(exist_ok=True)
+                    target.write_bytes(converted)
+                    manifest['files'].append({'path': str(target.relative_to(output)), 'bytes': len(converted), 'pack': pack, 'quality': quality, 'use': use})
+                    notes.append(f'| {name} / {quality} | `{digest(raw)}` | {len(p)//3} | {len(converted)} | `{digest(converted)}` |')
             (folder/'SOURCE.md').write_text('\n'.join(notes)+'\n')
     output.mkdir(parents=True, exist_ok=True)
     (output/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
@@ -222,4 +314,4 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         raise SystemExit(__doc__)
     result = prepare(Path(sys.argv[1]), Path(sys.argv[2]))
-    print(f"Prepared {len(result['files'])} source-detail models; {sum(f['bytes'] for f in result['files']):,} bytes. Low/runtime integration remains pending.")
+    print(f"Prepared {len(result['files'])} Low/High models; {sum(f['bytes'] for f in result['files']):,} bytes.")

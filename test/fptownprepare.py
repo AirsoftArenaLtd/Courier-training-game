@@ -79,6 +79,19 @@ class TownConversion(unittest.TestCase):
         self.assertTrue(all(v['byteOffset'] % 4 == 0 for v in doc['bufferViews']))
         self.assertEqual(len(binary), doc['buffers'][0]['byteLength'])
 
+    def test_low_silhouettes_keep_finite_normals_source_palette_and_bounded_geometry(self):
+        points = [(0,0,0),(1,0,0),(0,0,1),(0,1,0),(1,1,0),(0,1,1)]
+        normals = [(0,-1,0)]*3+[(0,1,0)]*3
+        colours = [(.9,.9,.9)]*3+[(.1,.6,.2)]*3
+        for use in ['town-house','town-house-wide','town-shop','town-fence','town-streetlight','town-parked-car']:
+            p,n,c = P.low_detail(use,(points,normals,colours))
+            self.assertLessEqual(len(p)//3,44)
+            self.assertTrue(all(abs(sum(v*v for v in normal)-1)<1e-10 for normal in n))
+            self.assertTrue(all(-.003<=v<=1.003 for point in p for v in point))
+            self.assertTrue(set(c).issubset(set(colours)))
+        _,_,c = P.low_detail('town-house',(points,normals,colours))
+        self.assertIn((.1,.6,.2),c,'The broad roof surface keeps the source roof palette.')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -8,7 +8,7 @@ try{
 const page=await browser.newPage();await page.setViewport({width:1120,height:640,deviceScaleFactor:1});
 await page.setContent('<html><body style="margin:0;background:#c0cdd5;font:16px sans-serif"><canvas></canvas><div id="labels"></div></body></html>');
 await page.addScriptTag({url:base.replace(/\/$/,'')+'/lib/three.min.js'});await page.addScriptTag({url:base.replace(/\/$/,'')+'/lib/GLTFLoader.min.js'});
-const root=path.resolve(prepared),files=JSON.parse(fs.readFileSync(root+'/manifest.json')).files;
+const root=path.resolve(prepared),files=JSON.parse(fs.readFileSync(root+'/manifest.json')).files.filter(f=>f.quality===(process.env.QA_GFX||'high'));
 const info=await page.evaluate(async files=>{
  const renderer=new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true,preserveDrawingBuffer:true});renderer.setSize(1120,640);renderer.setScissorTest(true);renderer.outputColorSpace=THREE.SRGBColorSpace;
  const out=[];

@@ -1,7 +1,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const THREE=require('../lib/three.min.js'),{install,local,root}=require('./tools/fpassets-context');
+const THREE=require('../lib/three.min.js'),{install,local:assetLocal,root}=require('./tools/fpassets-context');
 function context(){const c={THREE:{...THREE}};c.window=c;vm.createContext(c);return {c,F:install(c)};}
-const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/3d/manifest.json')));
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/3d/manifest.json')));manifest.files=manifest.files.filter(f=>f.use==='town-garage');
+const local=url=>url.endsWith('manifest.json')?Promise.resolve(new Response(JSON.stringify(manifest))):assetLocal(url);
 const bytes=quality=>fs.readFileSync(path.join(root,'assets/3d',manifest.files.find(f=>f.quality===quality).path));
 test('the real vendored loader selects Low and High and parses the bundled CC0 variants',async()=>{
  for(const high of [false,true]){const {F}=context(),requests=[],progress=[];
