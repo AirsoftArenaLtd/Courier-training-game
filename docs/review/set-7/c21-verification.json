@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-17",
+  "branch": "codex/c21-camera-feel",
+  "base": "a3cbfe2",
+  "node": [
+    {
+      "command": "node test/firstperson.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/fpmission.js",
+      "passed": 39
+    },
+    {
+      "command": "node test/fphandheld.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/fpworld.js",
+      "passed": 20
+    },
+    {
+      "command": "node test/fproute.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fploadout.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fpdriving.js",
+      "passed": 23
+    },
+    {
+      "command": "node test/fpday.js",
+      "passed": 10
+    },
+    {
+      "command": "node test/fpdoors.js",
+      "passed": 16
+    },
+    {
+      "command": "node test/fpaccess.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpbranding.js",
+      "passed": 4
+    },
+    {
+      "command": "node test/fpguide.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/fpperf.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fpsound.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/fplater.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpresume.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fpcamera.js",
+      "passed": 9
+    },
+    {
+      "command": "node test/workday.js",
+      "passed": 19
+    },
+    {
+      "command": "node test/savesize.js",
+      "passed": 10
+    },
+    {
+      "command": "node test/assets.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/aids.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/lmsreport.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/i18n.js",
+      "result": "all translation checks passed"
+    }
+  ],
+  "browser": {
+    "camera": 28,
+    "keyboard": 145,
+    "sound": 45,
+    "cameraClipSeconds": 9.16
+  },
+  "geometry": {
+    "procedural": {
+      "views": 12000,
+      "peakCalls": 55,
+      "peakTriangles": 2472,
+      "worst": {
+        "day": 18,
+        "variant": 2,
+        "stop": 4,
+        "loaded": true,
+        "pose": "turn",
+        "calls": 55,
+        "triangles": 2472
+      }
+    },
+    "withAssets": {
+      "views": 12000,
+      "peakCalls": 56,
+      "peakTriangles": 2456,
+      "worst": {
+        "day": 18,
+        "variant": 2,
+        "stop": 4,
+        "loaded": true,
+        "pose": "turn",
+        "calls": 56,
+        "triangles": 2456
+      }
+    }
+  },
+  "compatibility": {
+    "method": "Detached latest-pilot checkout plus C-19 topic diff, then C-21 topic diff. No merge or protected branch change. Only the overlapping resume callback and QA asset-bank injection needed manual context resolution.",
+    "pilot": "a3cbfe2",
+    "assetsBranch": "codex/c19-gltf-pipeline",
+    "assetsHead": "93d8220"
+  },
+  "automation": {
+    "id": "6ad15094682081918a30ead6de97a235",
+    "enabled": true,
+    "rule": "FREQ=HOURLY",
+    "end": null
+  },
+  "limits": "SwiftShader validates counters and behaviour only; native Intel FPS remains O-1.",
+  "rendered": {
+    "low": {
+      "views": 7,
+      "peak": {
+        "calls": 56,
+        "triangles": 2456,
+        "textures": 2,
+        "attachmentBytes": 3575808
+      },
+      "phaserEstimateBytes": 2503643
+    },
+    "high": {
+      "views": 2,
+      "peak": {
+        "calls": 58,
+        "triangles": 4580,
+        "textures": 2,
+        "attachmentBytes": 8409600
+      },
+      "phaserEstimateBytes": 6205147
+    },
+    "reduced": {
+      "views": 1,
+      "peak": {
+        "calls": 55,
+        "triangles": 2408,
+        "textures": 2,
+        "attachmentBytes": 3575808
+      },
+      "phaserEstimateBytes": 2503643
+    }
+  }
+}

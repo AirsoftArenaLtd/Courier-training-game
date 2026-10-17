@@ -35,6 +35,45 @@ software FPS cannot establish the owner's Intel 60 fps floor. O-1 remains the na
 temporary runtime-file SCORM archive is 12,090,109 compressed bytes, includes the loader and every listed model,
 excludes `_incoming/` and stays below the 100 MiB package limit. Claude's packaging implementation is unchanged.
 
+## C-21: camera and feel (17 October 2026)
+
+The reused rig adds no render pass, image texture, target or mesh. Speed FOV and head movement can expose more
+of the existing town. The new 12,000-view Low sweep initially reached 2,528 triangles with C-20's steering wheel;
+changing only Low's wheel from 216 to 160 triangles brings the procedural peak to **55 calls / 2,472 triangles**.
+The same 12,000 views with C-19's loaded glTF instances peak at **56 calls / 2,456 triangles**. No ceiling was raised.
+Source geometry is 5,204 bytes with procedural scenery, 7,028 with the Low starter; High remains 19,948 with its
+starter. C-19's procedural-building replacement can reduce submitted triangles despite adding a material batch.
+
+C-19 and C-21 topic diffs were applied to a separate detached checkout of pilot `a3cbfe2` for compatibility checks;
+no merge or protected-branch change was made. The rendered seven-view Low gate includes mirror, barcode aiming,
+loaded braking, both turn directions, reverse and the starter asset close-up. Larger text, colour mode and sound
+are enabled, with optional camera motion enabled. It peaks at **56 calls / 2,456 triangles / two allocated targets**,
+**3,575,808 attachment bytes** and **2,503,643 Phaser intrinsic RGBA bytes with the full-mipmap estimate**. The loaded
+turn fixture has a 69.333-degree FOV at 8 m/s. High's same loaded brake/turn views peak at **58 calls / 4,580
+triangles**, two targets, 8,409,600 attachment bytes and 6,205,147 Phaser estimated bytes; High retains wheel detail.
+All samples are 1280 × 720. Low keeps the original 64-call / 2,500-triangle / two-target / 4 MiB attachment /
+4 MiB Phaser ceilings. Reduced motion is checked separately at exactly 68 degrees with no body rotation.
+
+The camera and sound adapters consume existing transient motor telemetry; saves, scoring and input stay with
+the mission. RPM and road-impact sound hooks reuse six voices. Camera movement is damped by the trainer's aids;
+the approved Academy getter is cached on launch, checkpoint restore and return from Settings.
+
+```sh
+QA_CAMERA=1 QA_LATER=1 node test/fproute.js
+# With C-19 present, also exercise its real parser and loaded model bank:
+QA_ASSETS=1 QA_CAMERA=1 QA_LATER=1 QA_TAG=c21-with-assets node test/fproute.js
+QA_BASE=http://127.0.0.1:8321 QA_GFX=low QA_TAG=c21-assets QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,barcodeAim,laterstressbrake,laterstressturn,laterstressturnleft,laterstressreverse,assets QA_SHOTS=1 node test/fpbench.js
+QA_BASE=http://127.0.0.1:8321 QA_GFX=high QA_TAG=c21-assets QA_PROTOTYPE_ONLY=1 QA_VIEWS=laterstressbrake,laterstressturn QA_SHOTS=1 node test/fpbench.js
+QA_BASE=http://127.0.0.1:8321 QA_GFX=low QA_TAG=c21-reduced QA_PROTOTYPE_ONLY=1 QA_A11Y=large,colour,reduced QA_VIEWS=laterstressturn QA_SHOTS=1 node test/fpbench.js
+QA_CLIP=1 node test/fpcamerabrowser.js
+```
+
+The 23 Node suites, 28 camera-browser checks, 145 keyboard-only checks and 45 actual AudioContext checks pass.
+Resume/SCORM soak stays at 3,596 of 4,000 characters, with 240 scored round trips. Raw reports, screenshots and the
+nine-second real-key clip are indexed in `docs/review/set-7/c21.md`. SwiftShader FPS is recorded only for diagnosis;
+O-1 still needs the owner's native Intel measurement. No new on-screen text needs translation for C-21.
+
+
 ## C-20: vehicle dynamics (17 October 2026)
 
 The rear-axle motor reuses a scratch collision pose and one transient telemetry object. Body pitch/roll split the

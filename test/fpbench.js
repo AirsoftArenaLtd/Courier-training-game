@@ -44,7 +44,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(now-start<10000)return;
     OTR.game.events.off('step',onFrame);frames.sort((a,b)=>a-b);const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,worst=frames.slice(Math.floor(frames.length*.99));
     resolve({frames:frames.length,avgFPS:+(1000/mean(frames)).toFixed(2),low1FPS:+(1000/mean(worst)).toFixed(2),p99ms:+frames[Math.floor(frames.length*.99)].toFixed(2),maxMs:+frames[frames.length-1].toFixed(2),peak,target:d&&{width:d.targetWidth,height:d.targetHeight},contextLost:OTR.game.renderer.gl.isContextLost()});};OTR.game.events.on('step',onFrame);}));
-   value.phaserTextures=await textures();value.worldProfile=await inventory();console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
+   value.phaserTextures=await textures();value.worldProfile=await inventory();value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
   };
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
@@ -101,7 +101,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     }else if(look==='id'){Object.assign(m.player,{x:stop.x-stop.side*1.5,z:stop.z});s.showIdentity(id);}
    },look);await sample('door'+look);
   }
-  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake']){
+  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake','stressturn','stressturnleft','stressreverse']){
    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
     const stress=look.startsWith('stress'),day=stress?18:look==='icemirror'?4:look==='rainmirror'?3:2,seed=stress?2:7,m=OTR.fpMission.create('campaign',seed,OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)));
     OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);const r=m.roadworks,reverse=look==='fogreverse';
@@ -109,6 +109,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     Object.assign(m.van,{x:r.x+(reverse?-1.7:1.7),z:r.z+(reverse?-10:10),yaw:reverse?Math.PI:0,speed:0,hand:true,belt:true});
     m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);if(stress){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,m.stops[4].park);for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
     if(look==='stressbrake')OTR.fp.suspension(m,1,-6,4);
+    if(look==='stressturn'||look==='stressturnleft'||look==='stressreverse'){
+      const reverse=look==='stressreverse',side=look==='stressturnleft'?-1:1;m.driveAssist=0;Object.assign(m.van,{speed:reverse?-2:8,steer:side*.16,hand:false,gear:reverse?-1:1});OTR.fp.suspension(m,1,0,reverse?-.5:side*4);m.motion.roll=reverse?-.003:side*.025;
+    }
     s.model=m;s.rebuildWorld();m.mirrorAt=look.includes('mirror')||stress?m.elapsed:-100;s.sync();s.refresh();
     if(look==='plan')OTR.fpLater.open(s);
    },look);await sample('later'+look);

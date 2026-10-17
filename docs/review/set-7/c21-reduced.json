@@ -1,0 +1,89 @@
+{
+  "tag": "c21-reduced",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 1,
+    "failed": 0,
+    "bytes": 2716,
+    "decodedBytes": 1824,
+    "errors": []
+  },
+  "prototype": {
+    "laterstressturn": {
+      "frames": 114,
+      "avgFPS": 11.39,
+      "low1FPS": 6.6,
+      "p99ms": 113.1,
+      "maxMs": 190.1,
+      "peak": {
+        "calls": 55,
+        "triangles": 2408,
+        "textures": 2,
+        "geometries": 6,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1877732,
+        "withMipmapsUpperBytes": 2503643
+      },
+      "worldProfile": {
+        "meshes": 119,
+        "instances": 264,
+        "geometries": 4,
+        "materials": 43,
+        "geometryBytes": 7028,
+        "instanceBytes": 32712,
+        "shadowCasters": 0
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 41.900000000000006,
+          "y": 2.05,
+          "z": -28.316666666666663,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 41.900000000000006,
+          "baseZ": -28.316666666666663,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 90,
+    "baseLevelRGBABytes": 1690812,
+    "withMipmapsUpperBytes": 2254416
+  },
+  "phaserTexturesPeak": {
+    "count": 92,
+    "baseLevelRGBABytes": 1877732,
+    "withMipmapsUpperBytes": 2503643
+  },
+  "errors": []
+}

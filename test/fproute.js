@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
@@ -114,19 +114,24 @@ test('low graphics stays within the complete-frame geometry budget at every stop
  };
  for(const loaded of [false,true]){
   for(const p of m.parcels)p.location=loaded?'slot'+(p.anomaly?5:p.stop):'depot';
-  for(const s of m.stops){
+  for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake']:['steady'])){
    Object.assign(m.van,s.park);m.elapsed=0;
+   if(process.env.QA_CAMERA==='1'){
+    const turning=pose==='turn'||pose==='turnleft',side=pose==='turnleft'?-1:1;
+    m.driveAssist=0;m.van.speed=turning?8:pose==='brake'?4:0;m.van.steer=turning?side*.16:0;
+    c.OTR.fp.suspension(m,1,pose==='brake'?-6:0,turning?side*4:0);m.motion.pitch=pose==='brake'?-.035:0;m.motion.roll=turning?side*.025:0;art.resetCamera();
+   }
    for(const [name,z] of [['bus',-18],['siren',14]]){const p=c.OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}
    m.mirror();art.sync(m,null,'route');const main=count(camera);
    scene.view.mirror.before();const mirror=count(scene.view.mirror.camera);scene.view.mirror.after();
    const total={calls:main.calls+mirror.calls+2,triangles:main.triangles+mirror.triangles+4};
-   records.push({day,variant,stop:s.id,loaded,...total});
-   assert.ok(total.calls<=64&&total.triangles<=2500,`${day}/${variant}, ${s.address}, loaded=${loaded}: ${JSON.stringify(total)}`);
+   records.push({day,variant,stop:s.id,loaded,pose,...total});
+   assert.ok(total.calls<=64&&total.triangles<=2500,`${day}/${variant}, ${s.address}, loaded=${loaded}, ${pose}: ${JSON.stringify(total)}`);
   }
  }
  art.dispose();
  }
- if(process.env.QA_LATER==='1'){fs.mkdirSync(__dirname+'/out/fp-review',{recursive:true});fs.writeFileSync(__dirname+'/out/fp-review/'+(c.assetBank?'c19':'c18')+'-geometry.json',JSON.stringify({views:records.length,peakCalls:Math.max(...records.map(r=>r.calls)),peakTriangles:Math.max(...records.map(r=>r.triangles)),worst:records.reduce((a,b)=>a.triangles>b.triangles?a:b)},null,2));}
+ if(process.env.QA_LATER==='1'){fs.mkdirSync(__dirname+'/out/fp-review',{recursive:true});const tag=process.env.QA_TAG||(process.env.QA_CAMERA==='1'?'c21':c.assetBank?'c19':'c18');fs.writeFileSync(__dirname+'/out/fp-review/'+tag+'-geometry.json',JSON.stringify({views:records.length,peakCalls:Math.max(...records.map(r=>r.calls)),peakTriangles:Math.max(...records.map(r=>r.triangles)),worst:records.reduce((a,b)=>a.triangles>b.triangles?a:b)},null,2));}
 });
 
 test('the generated route resumes every load-out variant, including the sixth physical package',()=>{
