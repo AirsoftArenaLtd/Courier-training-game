@@ -3,3 +3,4 @@ test/out/
 server/data/
 server/config.json
 server/trainees.json
+dist/
