@@ -101,18 +101,20 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     }else if(look==='id'){Object.assign(m.player,{x:stop.x-stop.side*1.5,z:stop.z});s.showIdentity(id);}
    },look);await sample('door'+look);
   }
-  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake','stressturn','stressturnleft','stressreverse']){
+  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake','stressturn','stressturnleft','stressreverse','stresscab']){
+   if(look==='stresscab'&&!await p.evaluate(()=>!!OTR.fpCab))continue;
    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
     const stress=look.startsWith('stress'),day=stress?18:look==='icemirror'?4:look==='rainmirror'?3:2,seed=stress?2:7,m=OTR.fpMission.create('campaign',seed,OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)));
     OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);const r=m.roadworks,reverse=look==='fogreverse';
     m.mode='cab';m.phase='route';m.departed=true;OTR.fpLater.depart(m);m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};
     Object.assign(m.van,{x:r.x+(reverse?-1.7:1.7),z:r.z+(reverse?-10:10),yaw:reverse?Math.PI:0,speed:0,hand:true,belt:true});
-    m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);if(stress){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,m.stops[4].park);for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
+    m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);if(stress){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,m.stops[look==='stresscab'?3:4].park);for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
     if(look==='stressbrake')OTR.fp.suspension(m,1,-6,4);
     if(look==='stressturn'||look==='stressturnleft'||look==='stressreverse'){
       const reverse=look==='stressreverse',side=look==='stressturnleft'?-1:1;m.driveAssist=0;Object.assign(m.van,{speed:reverse?-2:8,steer:side*.16,hand:false,gear:reverse?-1:1});OTR.fp.suspension(m,1,0,reverse?-.5:side*4);m.motion.roll=reverse?-.003:side*.025;
     }
     s.model=m;s.rebuildWorld();m.mirrorAt=look.includes('mirror')||stress?m.elapsed:-100;s.sync();s.refresh();
+    if(look==='stresscab'){s.target=null;let found=false;for(let n=0;n<11;n++)if(OTR.fpAccess.focus(s)==='cab-headlights'){found=true;break;}if(!found)throw Error('Cab benchmark target is unreachable');}
     if(look==='plan')OTR.fpLater.open(s);
    },look);await sample('later'+look);
   }

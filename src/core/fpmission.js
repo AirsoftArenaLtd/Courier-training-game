@@ -291,6 +291,7 @@ OTR.fpMission = {
         return false;
       },
       shiftGear: motor.shiftGear,
+      selectGear: motor.selectGear,
       mirror() { if (this.mode === 'cab') { this.mirrorAt = this.elapsed; this.touch(); } },
       contact(id) {
         const s = this.stop(id);
@@ -476,7 +477,9 @@ OTR.fpMission = {
         if (actor.x < m.bounds.x0 || actor.x > m.bounds.x1 || actor.z < m.bounds.z0 || actor.z > Math.max(40, m.bounds.z1)) return null;
       }
       if (!['speed','steer','gear','look'].every(k => Number.isFinite(data.van[k])) || !Number.isFinite(data.player.pitch)) return null;
-      if (![1,-1].includes(data.van.gear) || !m.stops.some(s => s.id === data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
+      if (![2,-1,0,1].includes(data.van.gear) || !m.stops.some(s => s.id === data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
+      if(['headlights','wipers'].some(k=>data.van[k]!==undefined&&typeof data.van[k]!=='boolean') ||
+        data.van.shifts!==undefined&&(!Number.isSafeInteger(data.van.shifts)||data.van.shifts<0))return null;
       if (!['retrievals','leg','mirrorAt'].every(k => Number.isFinite(data[k]))) return null;
       if (!data.checks || !['tyres','lights'].every(k => [null,true,false].includes(data.checks[k]))) return null;
       if (!data.stopSign || !['stopped','resolved'].every(k => typeof data.stopSign[k] === 'boolean')) return null;

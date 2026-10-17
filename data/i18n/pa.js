@@ -3685,7 +3685,12 @@ window.OTR_I18N.pa = {
 "Optional": "ਵਿਕਲਪਿਕ",
 "Required": "ਲਾਜ਼ਮੀ",
 "3D workday aids…": "3D ਕੰਮ ਦੇ ਦਿਨ ਦੀ ਮਦਦ…",
-"Your workday is loading.": "ਤੁਹਾਡਾ ਕੰਮ ਦਾ ਦਿਨ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ।"
+"Your workday is loading.": "ਤੁਹਾਡਾ ਕੰਮ ਦਾ ਦਿਨ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ।",
+"Switch the headlights.": "ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ/ਬੰਦ ਕਰੋ।",
+"Switch the wipers.": "ਵਾਈਪਰ ਚਾਲੂ/ਬੰਦ ਕਰੋ।",
+"Stop before selecting a different gear.": "ਹੋਰ ਗੀਅਰ ਚੁਣਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",
+"The speed is 0 mph.": "ਰਫ਼ਤਾਰ 0 mph ਹੈ।",
+"The engine is at 800 RPM.": "ਇੰਜਣ 800 RPM 'ਤੇ ਹੈ।"
 },
 "templates": [
 [
@@ -5231,6 +5236,82 @@ window.OTR_I18N.pa = {
 [
 "The planning clock shows {0} minutes since departure.",
 "ਯੋਜਨਾ ਦੀ ਘੜੀ ਰਵਾਨਗੀ ਤੋਂ {0} ਮਿੰਟ ਦਿਖਾਉਂਦੀ ਹੈ।"
+],
+[
+"Press {0} to select park (P).",
+"ਪਾਰਕ (P) ਚੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to select reverse (R).",
+"ਰਿਵਰਸ (R) ਚੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to select neutral (N).",
+"ਨਿਊਟਰਲ (N) ਚੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to select drive (D).",
+"ਡਰਾਈਵ (D) ਚੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲੱਗੀ ਹੈ। ਛੱਡਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲੱਗੀ ਨਹੀਂ ਹੈ। ਲਾਉਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"ਸੀਟ ਬੈਲਟ ਬੰਨ੍ਹੀ ਹੋਈ ਹੈ। ਖੋਲ੍ਹਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"ਸੀਟ ਬੈਲਟ ਬੰਨ੍ਹੀ ਨਹੀਂ ਹੈ। ਬੰਨ੍ਹਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਹਨ। ਬੰਦ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"ਹੈੱਡਲਾਈਟਾਂ ਬੰਦ ਹਨ। ਚਾਲੂ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"ਵਾਈਪਰ ਚਾਲੂ ਹਨ। ਬੰਦ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"ਵਾਈਪਰ ਬੰਦ ਹਨ। ਚਾਲੂ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"ਖੱਬਾ ਇੰਡੀਕੇਟਰ ਚਾਲੂ ਹੈ। ਬੰਦ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to signal left.",
+"ਖੱਬਾ ਇੰਡੀਕੇਟਰ ਦੇਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"ਸੱਜਾ ਇੰਡੀਕੇਟਰ ਚਾਲੂ ਹੈ। ਬੰਦ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to signal right.",
+"ਸੱਜਾ ਇੰਡੀਕੇਟਰ ਦੇਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Press {0} to open the cab door and get out.",
+"ਕੈਬ ਦਾ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹ ਕੇ ਬਾਹਰ ਨਿਕਲਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"The speed is {0} mph.",
+"ਰਫ਼ਤਾਰ {0} mph ਹੈ।"
+],
+[
+"The engine is at {0} RPM.",
+"ਇੰਜਣ {0} RPM 'ਤੇ ਹੈ।"
 ]
 ],
 "keep": [

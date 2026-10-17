@@ -56,10 +56,10 @@ OTR.fp = {
     if (!(dt > 0)) return;
     const v = m.van, speed = v.speed, assist = this.driveAssist(m), mass = 2400 + this.payload(m);
     const grip = this.clamp(Number(m.traction) || 1, 0.2, 1), abs = Math.abs(speed);
-    if (v.hand || input.back) {
+    if (v.hand || v.gear === 2 || input.back) {
       const braking = v.hand ? 19200 : 13500 + assist * 1000;
       v.speed = this.approach(speed, 0, braking / mass * grip * dt);
-    } else if (input.forward) {
+    } else if (input.forward && v.gear !== 0) {
       const force = v.gear * 6200 / (1 + abs * abs * 0.016), drag = Math.sign(speed) * (500 + 8 * abs * abs);
       v.speed = this.clamp(speed + (force - drag) / mass * dt, -(1.7 + (1 - assist) * 0.4), 12 - assist * 4);
     } else if (v.gear < 0) {
@@ -88,7 +88,7 @@ OTR.fp = {
     if (contact) v.speed = 0;
     else { v.x = next.x; v.z = next.z; v.yaw = next.yaw; }
     const d = this.suspension(m, dt, (v.speed - speed) / dt, contact ? 0 : turn / dt * (speed + v.speed) * 0.5);
-    d.contact = contact; d.rpm += input.forward && !input.back && !v.hand ? 400 : 0;
+    d.contact = contact; d.rpm += input.forward && !input.back && !v.hand && (v.gear===1||v.gear===-1) ? 400 : 0;
   },
   create() {
     const F = this;
@@ -167,8 +167,16 @@ OTR.fp = {
         return false;
       },
       shiftGear() {
-        if (this.mode !== 'cab' || Math.abs(this.van.speed) >= 0.15) return false;
-        this.van.gear *= -1; this.van.speed = 0; return true;
+        return this.selectGear(this.van.gear===1?-1:1);
+      },
+      selectGear(gear) {
+        if(this.mode!=='cab'||![2,-1,0,1].includes(gear))return false;
+        const v=this.van;if(v.gear===gear)return true;
+        if(Math.abs(v.speed)>=.15){
+          if(v.gear*gear===-1&&Math.abs(v.speed)*2.23694>2&&OTR.fpCab)OTR.fpCab.gearReport(this,false);
+          return false;
+        }
+        v.gear=gear;v.speed=0;if(OTR.fpCab)OTR.fpCab.gearReport(this,true);if(this.touch)this.touch();return true;
       },
       objective() {
         if (this.complete) return 'Delivery complete — press N to restart';

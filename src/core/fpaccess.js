@@ -15,7 +15,7 @@ OTR.fpAccess={
     ['ArrowLeft','Look left'],['ArrowRight','Look right'],['ArrowUp','Look up'],['ArrowDown','Look down'],
     ['KeyE','Interact or exit the cab'],['KeyP','Select the next nearby target'],['KeyF','Inspect the parcel'],['Tab','Open or close the handheld'],
     ['Space','Scan or set the parking brake'],['ShiftLeft','Walk carefully'],['KeyM','Check the mirror'],['KeyG','Get out and look'],
-    ['KeyB','Fasten the seatbelt'],['KeyR','Change gear'],['KeyQ','Signal left'],['KeyC','Signal right'],['KeyV','Look forward'],['KeyH','Open the menu']
+    ['KeyL','Switch the headlights.'],['KeyK','Switch the wipers.'],['KeyB','Fasten the seatbelt'],['KeyR','Change gear'],['KeyQ','Signal left'],['KeyC','Signal right'],['KeyV','Look forward'],['KeyH','Open the menu']
   ],
   syncKeys(){
     // The shared screen knows the course controls. Give a displaced 3D-only control the freed key.
@@ -33,19 +33,19 @@ OTR.fpAccess={
     p.pitch=OTR.fp.clamp(p.pitch+tilt*dt*1.2,-1.05,1.05);
   },
   focus(scene){
-    const m=scene.model,p=m?m.player:scene.hubMotion.player;if(m&&m.mode!=='walk')return;
+    const m=scene.model,p=m?m.player:scene.hubMotion.player,cab=m&&m.mode==='cab';if(m&&m.mode!=='walk'&&!cab)return;
     const ids=[],objects=[],point=new THREE.Vector3(),eye=scene.view.camera.position;
     for(const o of scene.art.interactions){let visible=true;for(let parent=o;parent;parent=parent.parent)if(!parent.visible){visible=false;break;}
       const id=o.userData.interaction;if(!visible||!id)continue;o.getWorldPosition(point);
       if(eye.distanceTo(point)>2.65)continue;if(!ids.includes(id))ids.push(id);objects.push(o);
     }
-    const start=ids.indexOf(scene.target),yaw=p.yaw,pitch=p.pitch;
+    const start=ids.indexOf(scene.target),yaw=cab?m.van.look:p.yaw,pitch=p.pitch;
     for(let n=1;n<=ids.length;n++){
       const i=(start+n)%ids.length;for(const object of objects){if(object.userData.interaction!==ids[i])continue;object.getWorldPosition(point);
-      p.yaw=Math.atan2(point.x-eye.x,-(point.z-eye.z));p.pitch=OTR.fp.clamp(Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z)),-1.05,1.05);
-      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`);return ids[i];}}
+      const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(cab)m.van.look=OTR.fp.clamp(Math.atan2(Math.sin(heading-m.van.yaw),Math.cos(heading-m.van.yaw)),-1.5,1.5);else p.yaw=heading;p.pitch=OTR.fp.clamp(Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z)),-1.05,1.05);
+      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(cab?OTR.fpCab.hint(ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`);return ids[i];}}
     }
-    p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
+    if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },
   targetName(scene,id){
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}

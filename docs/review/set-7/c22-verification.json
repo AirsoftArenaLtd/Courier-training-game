@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-17",
+  "base": "49f484a",
+  "branch": "codex/c22-physical-cab",
+  "node": [
+    {
+      "suite": "firstperson",
+      "passed": 18
+    },
+    {
+      "suite": "fpmission",
+      "passed": 39
+    },
+    {
+      "suite": "fphandheld",
+      "passed": 8
+    },
+    {
+      "suite": "fpworld",
+      "passed": 20
+    },
+    {
+      "suite": "fproute",
+      "passed": 11
+    },
+    {
+      "suite": "fploadout",
+      "passed": 11
+    },
+    {
+      "suite": "fpdriving",
+      "passed": 24
+    },
+    {
+      "suite": "fpday",
+      "passed": 10
+    },
+    {
+      "suite": "fpdoors",
+      "passed": 16
+    },
+    {
+      "suite": "fpaccess",
+      "passed": 7
+    },
+    {
+      "suite": "fpbranding",
+      "passed": 4
+    },
+    {
+      "suite": "fpguide",
+      "passed": 3
+    },
+    {
+      "suite": "fpperf",
+      "passed": 2
+    },
+    {
+      "suite": "fpsound",
+      "passed": 8
+    },
+    {
+      "suite": "fplater",
+      "passed": 7
+    },
+    {
+      "suite": "fpcamera",
+      "passed": 9
+    },
+    {
+      "suite": "fpcab",
+      "passed": 10
+    },
+    {
+      "suite": "fpassets",
+      "passed": 9
+    },
+    {
+      "suite": "workday",
+      "passed": 19
+    },
+    {
+      "suite": "savesize",
+      "passed": 10
+    },
+    {
+      "suite": "assets",
+      "passed": 3
+    },
+    {
+      "suite": "aids",
+      "passed": 3
+    },
+    {
+      "suite": "lmsreport",
+      "passed": 8
+    },
+    {
+      "suite": "i18n",
+      "result": "all translation checks passed"
+    },
+    {
+      "suite": "fpresume",
+      "passed": 2
+    }
+  ],
+  "geometry": {
+    "c22-geometry.json": {
+      "views": 45000,
+      "peakCalls": 60,
+      "peakTriangles": 2500,
+      "worst": {
+        "day": 18,
+        "variant": 2,
+        "stop": 3,
+        "loaded": true,
+        "pose": "cab-headlights",
+        "calls": 55,
+        "triangles": 2500
+      }
+    },
+    "c22-fallback-geometry.json": {
+      "views": 45000,
+      "peakCalls": 59,
+      "peakTriangles": 2500,
+      "worst": {
+        "day": 18,
+        "variant": 2,
+        "stop": 3,
+        "loaded": true,
+        "pose": "cab-headlights",
+        "calls": 55,
+        "triangles": 2500
+      }
+    }
+  },
+  "scorm": {
+    "command": "QA_CAB=1 QA_LATER=1 node test/fpresume.js",
+    "roundTrips": 240,
+    "peakCharacters": 3944
+  },
+  "automation": {
+    "id": "6ad15094682081918a30ead6de97a235",
+    "promptUpdatedToStackAndContinue": true,
+    "enabled": true,
+    "schedule": "FREQ=HOURLY",
+    "end": null
+  },
+  "physicalBrowserChecks": 200,
+  "rendered": {
+    "low": {
+      "views": 7,
+      "peak": {
+        "calls": 60,
+        "triangles": 2444,
+        "textures": 2,
+        "attachmentBytes": 3575808
+      },
+      "phaserEstimateBytes": 2573947,
+      "geometryBytes": 4224
+    },
+    "high": {
+      "views": 2,
+      "peak": {
+        "calls": 62,
+        "triangles": 4782,
+        "textures": 2,
+        "attachmentBytes": 8409600
+      },
+      "phaserEstimateBytes": 6471942,
+      "geometryBytes": 20088
+    },
+    "cabFocus": {
+      "views": 1,
+      "peak": {
+        "calls": 55,
+        "triangles": 2500,
+        "textures": 2,
+        "geometries": 7,
+        "attachmentBytes": 3575808
+      },
+      "phaserEstimateBytes": 2521035
+    }
+  },
+  "keyboardBrowserChecks": 145,
+  "cameraBrowserChecks": 28,
+  "clipSeconds": 5
+}

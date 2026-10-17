@@ -184,9 +184,13 @@ OTR.fpWorld = {
     const dash=new T.Group();camera.add(dash);
     dash.name='cab-dashboard';const cameraRig=OTR.fpCamera?OTR.fpCamera.create():null,cabAnchor=new T.Object3D();
     if(cameraRig)dash.matrixAutoUpdate=false;
-    box(dash,0,-0.68,-1.1,2.5,0.25,0.5,0x383D47);
-    const wheel=new T.Mesh(new T.TorusGeometry(0.18,0.022,OTR.gfx.high()?6:5,OTR.gfx.high()?18:16),material(0x242A31));
-    wheel.position.set(-0.28,-0.5,-0.74);dash.add(wheel);
+    const cab=OTR.fpCab?OTR.fpCab.build(dash,cube,interactions,labels,OTR.gfx.high()):null;
+    let wheel=cab&&cab.wheel;
+    if(!cab){
+      box(dash,0,-0.68,-1.1,2.5,0.25,0.5,0x383D47);
+      wheel=new T.Mesh(new T.TorusGeometry(0.18,0.022,OTR.gfx.high()?6:5,OTR.gfx.high()?18:16),material(0x242A31));
+      wheel.position.set(-0.28,-0.5,-0.74);dash.add(wheel);
+    }
     const cars=base.traffic.map((c,i)=>{
       const g=new T.Group();route.add(g);
       box(g,0,0.55,0,1.7,0.8,3.5,i?0x74909D:0xBD8975,null,true);
@@ -255,9 +259,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();
+        const geometries=new Set();if(cab)cab.dispose();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -305,7 +309,7 @@ OTR.fpWorld = {
             const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
           });
-          carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';wheel.rotation.z=-v.steer*3;
+          carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';if(cab)cab.sync(m);else wheel.rotation.z=-v.steer*3;
           const scanning=scene.handheld&&scene.handheld.aiming;
           carried.position.set(scanning?0:0.4,scanning?0:-0.48,-0.85);
           carried.userData.barcode.userData.scanId=scanning?m.heldId:null;
@@ -360,7 +364,8 @@ OTR.fpWorld = {
       },
       labelPosition(label){
         if(!label.parent.visible)return null;
-        if(label.local){label.point.copy(label.local);label.parent.localToWorld(label.point);direction.copy(label.normal).transformDirection(label.parent.matrixWorld);scanPoint.copy(camera.position).sub(label.point);if(direction.dot(scanPoint)<=0)return null;}
+        if(label.cab){label.point.copy(label.local);label.parent.localToWorld(label.point);}
+        else if(label.local){label.point.copy(label.local);label.parent.localToWorld(label.point);direction.copy(label.normal).transformDirection(label.parent.matrixWorld);scanPoint.copy(camera.position).sub(label.point);if(direction.dot(scanPoint)<=0)return null;}
         if(camera.position.distanceTo(label.point)>label.max)return null;
         const p=projected.copy(label.point).project(camera);
         if(p.z< -1||p.z>1||Math.abs(p.x)>0.83||p.y>0.65||p.y< -0.53)return null;
