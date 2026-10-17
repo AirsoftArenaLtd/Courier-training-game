@@ -1,5 +1,47 @@
 # 3D workday rendering cost
 
+## C-22: physical cab controls (17 October 2026)
+
+The PRND selector, brake, belt, indicator, light/wiper switches and speed/RPM gauges share batched procedural cab
+geometry. The dials use one shader quad; there are no image maps or added render targets/passes. Low uses a
+16-sided ring rim and flat pillar/door/backrest/hub surfaces; High retains a tube rim, solid trim and additional
+seat/console pieces. Low's cab submits 160 triangles, versus C-21's 172 for the old wheel/dashboard. Source
+geometry storage is 4,224 bytes with the loaded Low starter and 20,088 on High. Functional switch positions and
+dials remain live under reduced motion; the existing cosmetic camera movement remains suppressed.
+
+The initial four-pose sweep missed the view when looking down at the controls: the extended sweep reached 2,530
+triangles. Low trim was simplified to bring **both 45,000-view sweeps** (loaded glTF and missing-model procedural
+fallback) inside the unchanged ceilings, at **60 calls / 2,500 triangles** with assets and **59 / 2,500** without.
+The sweep covers every stop on 30 days and ten variants, empty/loaded, four driving poses and all eleven physical
+cab targets. Its strict 2,500-triangle assertion is unchanged. At the peak there is no triangle headroom; subsequent
+mirror/camera work must reserve its own room within this ceiling.
+
+Seven rendered Low samples (cab, mirror, barcode aim, loaded braking, both turns, reverse) with sound, larger text
+and colour mode peak at **60 calls / 2,444 triangles / two targets**, **3,575,808 attachment bytes**, and **2,573,947
+Phaser intrinsic RGBA bytes including the full-mipmap estimate**. High's cab/loaded-turn pair reaches **62 calls /
+4,782 triangles**, two targets, 8,409,600 attachment bytes and 6,471,942 Phaser estimated bytes. The separate loaded fourth-stop headlight-switch view confirms the CPU maximum in an actual complete frame at
+55 calls / 2,500 triangles, the same two targets / 3,575,808 attachment bytes and 2,521,035 Phaser estimated bytes.
+No context loss or page errors occur. These are complete rendered frames at 1280 × 720; the original Low limits remain 64 calls,
+2,500 triangles, two textures, 4 MiB attachments and 4 MiB Phaser estimate.
+
+```sh
+QA_CAB=1 QA_CAMERA=1 QA_LATER=1 QA_TAG=c22-fallback node test/fproute.js
+QA_ASSETS=1 QA_CAB=1 QA_CAMERA=1 QA_LATER=1 QA_TAG=c22 node test/fproute.js
+QA_CAB=1 QA_LATER=1 node test/fpresume.js
+QA_CLIP=1 node test/fpcabbrowser.js
+QA_GFX=low QA_TAG=c22 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=cab,mirror,barcodeAim,laterstressbrake,laterstressturn,laterstressturnleft,laterstressreverse QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c22 QA_PROTOTYPE_ONLY=1 QA_VIEWS=cab,laterstressturn QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_TAG=c22-cabfocus QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=laterstresscab QA_SHOTS=1 node test/fpbench.js
+```
+
+Twenty-five Node suites pass, including ten cab tests and 24 driving checks. The physical browser flow passes 200
+assertions across English/Tamil normal/larger layouts, colour mode, reduced motion, shortcuts, saved-control reload
+and physical exit. The new-control resume soak preserves all score/event identity and its 240 SCORM round trips
+peak at **3,944 / 4,000 characters**. Raw counters, a five-second clip and screenshots are in
+`docs/review/set-7/c22.md`. New prompts await Claude's translations. Cloud SwiftShader FPS is diagnostic only;
+native Intel 60 fps remains O-1.
+
+
 ## C-19: local glTF starter pipeline (17 October 2026)
 
 The scene-owned bank loads one quality variant from a local manifest. The two CC0 starter files total 17,052 bytes;

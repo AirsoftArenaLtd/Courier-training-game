@@ -1,7 +1,7 @@
 /* Keyboard aim, physical target selection and persisted comfort preferences. No WebGL required. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={THREE:require('../lib/three.min.js')};c.window=c;vm.createContext(c);
-for(const f of ['firstperson','fpmission','world3d','fpbranding','fpworld','fpaccess'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+f+'.js','utf8'),c);
+for(const f of ['firstperson','fpmission','world3d','fpbranding','fpcab','fpworld','fpaccess'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+f+'.js','utf8'),c);
 let settings,queries;const A=c.OTR.fpAccess;
 test.beforeEach(()=>{settings={keys:{},large:false,colour:false};queries=0;A.motionQuery=null;c.matchMedia=()=>{queries++;return {matches:true};};c.OTR.a11y={settings:()=>settings,physical:code=>settings.keys[code]||code,label:code=>code};});
 test('system reduced motion is read once and an explicit saved choice overrides it',()=>{

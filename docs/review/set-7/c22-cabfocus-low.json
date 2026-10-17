@@ -1,0 +1,89 @@
+{
+  "tag": "c22-cabfocus",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [
+    "large",
+    "colour"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 1,
+    "failed": 0,
+    "bytes": 2716,
+    "decodedBytes": 1824,
+    "errors": []
+  },
+  "prototype": {
+    "laterstresscab": {
+      "frames": 108,
+      "avgFPS": 10.79,
+      "low1FPS": 4,
+      "p99ms": 197,
+      "maxMs": 303.6,
+      "peak": {
+        "calls": 55,
+        "triangles": 2500,
+        "textures": 2,
+        "geometries": 7,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 98,
+        "baseLevelRGBABytes": 1890776,
+        "withMipmapsUpperBytes": 2521035
+      },
+      "worldProfile": {
+        "meshes": 134,
+        "instances": 283,
+        "geometries": 5,
+        "materials": 45,
+        "geometryBytes": 4224,
+        "instanceBytes": 34272,
+        "shadowCasters": 0
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 48.1,
+          "y": 2.05,
+          "z": -72.43333333333332,
+          "yaw": -0.44751997515716735,
+          "pitch": -0.25571798341858637,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 48.1,
+          "baseZ": -72.43333333333332,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 1741460,
+    "withMipmapsUpperBytes": 2321947
+  },
+  "phaserTexturesPeak": {
+    "count": 98,
+    "baseLevelRGBABytes": 1890776,
+    "withMipmapsUpperBytes": 2521035
+  },
+  "errors": []
+}

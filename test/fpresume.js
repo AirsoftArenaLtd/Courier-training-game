@@ -1,7 +1,7 @@
 /* Seeded model journeys. Travel positions are fixtures; actions, reports and checkpoint readers are real. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const storage=new Map(),c={console,URLSearchParams};c.window=c;c.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};c.addEventListener=()=>{};c.location={search:''};vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
 c.OTR.identity={mode:'local',id:'seeded-model'};const O=c.OTR,M=O.fpMission,W=O.workday,S=O.save;
 const later=process.env.QA_LATER==='1';
 const plain=o=>JSON.parse(JSON.stringify(o)),score=log=>({score:log.score(),ratios:plain(log.ratios(O.scoring.CATS)),criticals:log.criticals().map(i=>[i.cat,i.label])});
@@ -40,7 +40,7 @@ function play(seed,resume=false,scorm=false){
   for(const id of shuffle(m.parcels.filter(p=>!p.anomaly&&p.location!=='pending').map(p=>p.id),random)){
    at(id);act('load:pickup:'+m.parcel(id).stop,()=>assert.equal(m.pickup(id),''));act('load:scan:'+m.parcel(id).stop,()=>m.scan());const slot='slot'+m.parcel(id).stop;at(slot);act('load:place:'+m.parcel(id).stop,()=>m.place(slot));assert.equal(m.parcel(id).location,slot);
   }
-  if(!earlyInspection)inspect();at('dispatch');act('count',()=>O.fpLoadout.count(m,m.parcels.filter(p=>p.location.startsWith('slot')).length));act('secure',secure);act('close:cargo',cargo);act('prepared',enter);act('departure',move);assert.equal(m.phase,'route');
+  if(!earlyInspection)inspect();at('dispatch');act('count',()=>O.fpLoadout.count(m,m.parcels.filter(p=>p.location.startsWith('slot')).length));act('secure',secure);act('close:cargo',cargo);act('prepared',enter);if(process.env.QA_CAB==='1'){for(const id of ['cab-park','cab-neutral','cab-reverse','cab-drive','cab-headlights','cab-wipers'])act(id,()=>assert.equal(O.fpCab.act(m,id),''));}act('departure',move);assert.equal(m.phase,'route');
   for(const id of shuffle(m.stops.map(s=>s.id),random)){
    m.activeStop=id;m.touch();const stop=m.stops[id];
    // A short real drive exercises actor/mirror state; fixtures cover the long inter-stop distance.
