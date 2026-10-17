@@ -3695,7 +3695,12 @@ window.OTR_I18N.es = {
 "Optional": "Opcional",
 "Required": "Obligatorio",
 "3D workday aids…": "Ayudas de la jornada 3D…",
-"Your workday is loading.": "Tu jornada se está cargando."
+"Your workday is loading.": "Tu jornada se está cargando.",
+"Switch the headlights.": "Enciende o apaga los faros.",
+"Switch the wipers.": "Activa o desactiva las escobillas.",
+"Stop before selecting a different gear.": "Detente antes de elegir otra marcha.",
+"The speed is 0 mph.": "La velocidad es 0 mph.",
+"The engine is at 800 RPM.": "El motor está a 800 RPM."
 },
 "templates": [
 [
@@ -5241,6 +5246,82 @@ window.OTR_I18N.es = {
 [
 "The planning clock shows {0} minutes since departure.",
 "El reloj de planificación marca {0} minutos desde la salida."
+],
+[
+"Press {0} to select park (P).",
+"Pulsa {0} para elegir estacionar (P)."
+],
+[
+"Press {0} to select reverse (R).",
+"Pulsa {0} para elegir reversa (R)."
+],
+[
+"Press {0} to select neutral (N).",
+"Pulsa {0} para elegir punto muerto (N)."
+],
+[
+"Press {0} to select drive (D).",
+"Pulsa {0} para elegir avanzar (D)."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"El freno de mano está puesto. Pulsa {0} para soltarlo."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"El freno de mano está quitado. Pulsa {0} para ponerlo."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"El cinturón está abrochado. Pulsa {0} para soltarlo."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"El cinturón está desabrochado. Pulsa {0} para abrocharlo."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"Los faros están encendidos. Pulsa {0} para apagarlos."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"Los faros están apagados. Pulsa {0} para encenderlos."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"Las escobillas están activadas. Pulsa {0} para desactivarlas."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"Las escobillas están desactivadas. Pulsa {0} para activarlas."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"El intermitente izquierdo está activado. Pulsa {0} para cancelarlo."
+],
+[
+"Press {0} to signal left.",
+"Pulsa {0} para señalizar a la izquierda."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"El intermitente derecho está activado. Pulsa {0} para cancelarlo."
+],
+[
+"Press {0} to signal right.",
+"Pulsa {0} para señalizar a la derecha."
+],
+[
+"Press {0} to open the cab door and get out.",
+"Pulsa {0} para abrir la puerta de la cabina y bajar."
+],
+[
+"The speed is {0} mph.",
+"La velocidad es {0} mph."
+],
+[
+"The engine is at {0} RPM.",
+"El motor está a {0} RPM."
 ]
 ],
 "keep": [

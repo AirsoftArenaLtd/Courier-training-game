@@ -3684,7 +3684,12 @@ window.OTR_I18N.te = {
 "Optional": "ఐచ్ఛికం",
 "Required": "తప్పనిసరి",
 "3D workday aids…": "3D వర్క్‌డే సహాయాలు…",
-"Your workday is loading.": "మీ పనిదినం లోడ్ అవుతోంది."
+"Your workday is loading.": "మీ పనిదినం లోడ్ అవుతోంది.",
+"Switch the headlights.": "హెడ్‌లైట్లను ఆన్/ఆఫ్ చేయండి.",
+"Switch the wipers.": "వైపర్లను ఆన్/ఆఫ్ చేయండి.",
+"Stop before selecting a different gear.": "వేరే గేర్ ఎంచుకునే ముందు ఆగండి.",
+"The speed is 0 mph.": "వేగం 0 mph.",
+"The engine is at 800 RPM.": "ఇంజిన్ 800 RPM వద్ద ఉంది."
 },
 "templates": [
 [
@@ -5230,6 +5235,82 @@ window.OTR_I18N.te = {
 [
 "The planning clock shows {0} minutes since departure.",
 "బయలుదేరినప్పటి నుండి ప్లానింగ్ గడియారం {0} నిమిషాలు చూపుతోంది."
+],
+[
+"Press {0} to select park (P).",
+"పార్క్ (P) ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to select reverse (R).",
+"రివర్స్ (R) ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to select neutral (N).",
+"న్యూట్రల్ (N) ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to select drive (D).",
+"డ్రైవ్ (D) ఎంచుకోవడానికి {0} నొక్కండి."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"పార్కింగ్ బ్రేక్ వేసి ఉంది. విడుదల చేయడానికి {0} నొక్కండి."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"పార్కింగ్ బ్రేక్ వేయలేదు. వేయడానికి {0} నొక్కండి."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"సీట్‌బెల్ట్ పెట్టుకుని ఉన్నారు. తీయడానికి {0} నొక్కండి."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"సీట్‌బెల్ట్ పెట్టుకోలేదు. పెట్టుకోవడానికి {0} నొక్కండి."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"హెడ్‌లైట్లు వెలుగుతున్నాయి. ఆర్పడానికి {0} నొక్కండి."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"హెడ్‌లైట్లు ఆరి ఉన్నాయి. వెలిగించడానికి {0} నొక్కండి."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"వైపర్లు ఆన్‌లో ఉన్నాయి. ఆఫ్ చేయడానికి {0} నొక్కండి."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"వైపర్లు ఆఫ్‌లో ఉన్నాయి. ఆన్ చేయడానికి {0} నొక్కండి."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"ఎడమ ఇండికేటర్ ఆన్‌లో ఉంది. రద్దు చేయడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to signal left.",
+"ఎడమ ఇండికేటర్ వేయడానికి {0} నొక్కండి."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"కుడి ఇండికేటర్ ఆన్‌లో ఉంది. రద్దు చేయడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to signal right.",
+"కుడి ఇండికేటర్ వేయడానికి {0} నొక్కండి."
+],
+[
+"Press {0} to open the cab door and get out.",
+"క్యాబ్ తలుపు తెరిచి దిగడానికి {0} నొక్కండి."
+],
+[
+"The speed is {0} mph.",
+"వేగం {0} mph."
+],
+[
+"The engine is at {0} RPM.",
+"ఇంజిన్ {0} RPM వద్ద ఉంది."
 ]
 ],
 "keep": [

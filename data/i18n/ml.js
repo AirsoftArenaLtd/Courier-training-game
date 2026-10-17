@@ -3684,7 +3684,12 @@ window.OTR_I18N.ml = {
 "Optional": "ഓപ്ഷണൽ",
 "Required": "നിർബന്ധം",
 "3D workday aids…": "3D ജോലിദിന സഹായങ്ങൾ…",
-"Your workday is loading.": "നിങ്ങളുടെ പ്രവൃത്തിദിനം ലോഡ് ചെയ്യുന്നു."
+"Your workday is loading.": "നിങ്ങളുടെ പ്രവൃത്തിദിനം ലോഡ് ചെയ്യുന്നു.",
+"Switch the headlights.": "ഹെഡ്‌ലൈറ്റുകൾ ഓൺ/ഓഫ് ചെയ്യുക.",
+"Switch the wipers.": "വൈപ്പറുകൾ ഓൺ/ഓഫ് ചെയ്യുക.",
+"Stop before selecting a different gear.": "മറ്റൊരു ഗിയർ തിരഞ്ഞെടുക്കും മുമ്പ് നിർത്തുക.",
+"The speed is 0 mph.": "വേഗത 0 mph ആണ്.",
+"The engine is at 800 RPM.": "എൻജിൻ 800 RPM-ൽ ആണ്."
 },
 "templates": [
 [
@@ -5230,6 +5235,82 @@ window.OTR_I18N.ml = {
 [
 "The planning clock shows {0} minutes since departure.",
 "പുറപ്പെട്ടിട്ട് {0} മിനിറ്റായെന്ന് പ്ലാനിംഗ് ക്ലോക്ക് കാണിക്കുന്നു."
+],
+[
+"Press {0} to select park (P).",
+"പാർക്ക് (P) തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to select reverse (R).",
+"റിവേഴ്സ് (R) തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to select neutral (N).",
+"ന്യൂട്രൽ (N) തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to select drive (D).",
+"ഡ്രൈവ് (D) തിരഞ്ഞെടുക്കാൻ {0} അമർത്തുക."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"പാർക്കിംഗ് ബ്രേക്ക് ഇട്ടിരിക്കുന്നു. വിടാൻ {0} അമർത്തുക."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"പാർക്കിംഗ് ബ്രേക്ക് ഇട്ടിട്ടില്ല. ഇടാൻ {0} അമർത്തുക."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"സീറ്റ്ബെൽറ്റ് ധരിച്ചിരിക്കുന്നു. അഴിക്കാൻ {0} അമർത്തുക."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"സീറ്റ്ബെൽറ്റ് ധരിച്ചിട്ടില്ല. ധരിക്കാൻ {0} അമർത്തുക."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്. ഓഫാക്കാൻ {0} അമർത്തുക."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"ഹെഡ്‌ലൈറ്റുകൾ ഓഫാണ്. ഓണാക്കാൻ {0} അമർത്തുക."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"വൈപ്പറുകൾ ഓണാണ്. ഓഫാക്കാൻ {0} അമർത്തുക."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"വൈപ്പറുകൾ ഓഫാണ്. ഓണാക്കാൻ {0} അമർത്തുക."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"ഇടത് ഇൻഡിക്കേറ്റർ ഓണാണ്. റദ്ദാക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to signal left.",
+"ഇടത് ഇൻഡിക്കേറ്റർ ഇടാൻ {0} അമർത്തുക."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"വലത് ഇൻഡിക്കേറ്റർ ഓണാണ്. റദ്ദാക്കാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to signal right.",
+"വലത് ഇൻഡിക്കേറ്റർ ഇടാൻ {0} അമർത്തുക."
+],
+[
+"Press {0} to open the cab door and get out.",
+"ക്യാബിന്റെ വാതിൽ തുറന്ന് ഇറങ്ങാൻ {0} അമർത്തുക."
+],
+[
+"The speed is {0} mph.",
+"വേഗത {0} mph ആണ്."
+],
+[
+"The engine is at {0} RPM.",
+"എൻജിൻ {0} RPM-ൽ ആണ്."
 ]
 ],
 "keep": [

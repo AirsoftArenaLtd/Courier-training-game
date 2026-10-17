@@ -3685,7 +3685,12 @@ window.OTR_I18N.bn = {
 "Optional": "ঐচ্ছিক",
 "Required": "বাধ্যতামূলক",
 "3D workday aids…": "3D কর্মদিবসের সহায়তা…",
-"Your workday is loading.": "আপনার কর্মদিবস লোড হচ্ছে।"
+"Your workday is loading.": "আপনার কর্মদিবস লোড হচ্ছে।",
+"Switch the headlights.": "হেডলাইট চালু বা বন্ধ করুন।",
+"Switch the wipers.": "ওয়াইপার চালু বা বন্ধ করুন।",
+"Stop before selecting a different gear.": "অন্য গিয়ার বাছার আগে থামুন।",
+"The speed is 0 mph.": "গতি 0 mph।",
+"The engine is at 800 RPM.": "ইঞ্জিন 800 RPM-এ চলছে।"
 },
 "templates": [
 [
@@ -5231,6 +5236,82 @@ window.OTR_I18N.bn = {
 [
 "The planning clock shows {0} minutes since departure.",
 "পরিকল্পনার ঘড়ি রওনা হওয়ার পর {0} মিনিট দেখাচ্ছে।"
+],
+[
+"Press {0} to select park (P).",
+"পার্ক (P) বেছে নিতে {0} চাপুন।"
+],
+[
+"Press {0} to select reverse (R).",
+"রিভার্স (R) বেছে নিতে {0} চাপুন।"
+],
+[
+"Press {0} to select neutral (N).",
+"নিউট্রাল (N) বেছে নিতে {0} চাপুন।"
+],
+[
+"Press {0} to select drive (D).",
+"ড্রাইভ (D) বেছে নিতে {0} চাপুন।"
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"পার্কিং ব্রেক দেওয়া আছে। ছাড়তে {0} চাপুন।"
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"পার্কিং ব্রেক দেওয়া নেই। দিতে {0} চাপুন।"
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"সিটবেল্ট বাঁধা আছে। খুলতে {0} চাপুন।"
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"সিটবেল্ট বাঁধা নেই। বাঁধতে {0} চাপুন।"
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"হেডলাইট জ্বলছে। নেভাতে {0} চাপুন।"
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"হেডলাইট নেভানো আছে। জ্বালাতে {0} চাপুন।"
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"ওয়াইপার চালু আছে। বন্ধ করতে {0} চাপুন।"
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"ওয়াইপার বন্ধ আছে। চালু করতে {0} চাপুন।"
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"বাঁ ইন্ডিকেটর চালু আছে। বন্ধ করতে {0} চাপুন।"
+],
+[
+"Press {0} to signal left.",
+"বাঁয়ে ইন্ডিকেটর দিতে {0} চাপুন।"
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"ডান ইন্ডিকেটর চালু আছে। বন্ধ করতে {0} চাপুন।"
+],
+[
+"Press {0} to signal right.",
+"ডানে ইন্ডিকেটর দিতে {0} চাপুন।"
+],
+[
+"Press {0} to open the cab door and get out.",
+"ক্যাবের দরজা খুলে নামতে {0} চাপুন।"
+],
+[
+"The speed is {0} mph.",
+"গতি {0} mph।"
+],
+[
+"The engine is at {0} RPM.",
+"ইঞ্জিন {0} RPM-এ চলছে।"
 ]
 ],
 "keep": [

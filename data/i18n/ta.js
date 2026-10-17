@@ -3684,7 +3684,12 @@ window.OTR_I18N.ta = {
 "Optional": "விருப்பம்",
 "Required": "கட்டாயம்",
 "3D workday aids…": "3D வேலைநாள் உதவிகள்…",
-"Your workday is loading.": "உங்கள் பணிநாள் ஏற்றப்படுகிறது."
+"Your workday is loading.": "உங்கள் பணிநாள் ஏற்றப்படுகிறது.",
+"Switch the headlights.": "முகப்பு விளக்குகளை மாற்றுங்கள்.",
+"Switch the wipers.": "வைப்பர்களை மாற்றுங்கள்.",
+"Stop before selecting a different gear.": "வேறு கியர் தேர்வு செய்யும் முன் நிறுத்துங்கள்.",
+"The speed is 0 mph.": "வேகம் 0 mph.",
+"The engine is at 800 RPM.": "என்ஜின் 800 RPM-இல் உள்ளது."
 },
 "templates": [
 [
@@ -5230,6 +5235,82 @@ window.OTR_I18N.ta = {
 [
 "The planning clock shows {0} minutes since departure.",
 "புறப்பட்டு {0} நிமிடங்கள் என்று திட்டமிடல் கடிகாரம் காட்டுகிறது."
+],
+[
+"Press {0} to select park (P).",
+"பார்க் (P) தேர்வு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to select reverse (R).",
+"ரிவர்ஸ் (R) தேர்வு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to select neutral (N).",
+"நியூட்ரல் (N) தேர்வு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to select drive (D).",
+"டிரைவ் (D) தேர்வு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"பார்க்கிங் பிரேக் போடப்பட்டுள்ளது. விடுவிக்க {0} அழுத்துங்கள்."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"பார்க்கிங் பிரேக் போடப்படவில்லை. போட {0} அழுத்துங்கள்."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"சீட்பெல்ட் அணியப்பட்டுள்ளது. கழற்ற {0} அழுத்துங்கள்."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"சீட்பெல்ட் அணியப்படவில்லை. அணிய {0} அழுத்துங்கள்."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"முகப்பு விளக்குகள் எரிகின்றன. அணைக்க {0} அழுத்துங்கள்."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"முகப்பு விளக்குகள் அணைந்துள்ளன. எரியவிட {0} அழுத்துங்கள்."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"வைப்பர்கள் இயங்குகின்றன. நிறுத்த {0} அழுத்துங்கள்."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"வைப்பர்கள் நின்றுள்ளன. இயக்க {0} அழுத்துங்கள்."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"இடது இண்டிகேட்டர் இயங்குகிறது. நிறுத்த {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to signal left.",
+"இடது இண்டிகேட்டர் போட {0} அழுத்துங்கள்."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"வலது இண்டிகேட்டர் இயங்குகிறது. நிறுத்த {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to signal right.",
+"வலது இண்டிகேட்டர் போட {0} அழுத்துங்கள்."
+],
+[
+"Press {0} to open the cab door and get out.",
+"கேபின் கதவைத் திறந்து இறங்க {0} அழுத்துங்கள்."
+],
+[
+"The speed is {0} mph.",
+"வேகம் {0} mph."
+],
+[
+"The engine is at {0} RPM.",
+"என்ஜின் {0} RPM-இல் உள்ளது."
 ]
 ],
 "keep": [

@@ -3684,7 +3684,12 @@ window.OTR_I18N.mr = {
 "Optional": "ऐच्छिक",
 "Required": "आवश्यक",
 "3D workday aids…": "3D वर्कडे सहाय्य…",
-"Your workday is loading.": "तुमचा कामाचा दिवस लोड होत आहे."
+"Your workday is loading.": "तुमचा कामाचा दिवस लोड होत आहे.",
+"Switch the headlights.": "हेडलाइट चालू/बंद करा.",
+"Switch the wipers.": "वायपर चालू/बंद करा.",
+"Stop before selecting a different gear.": "दुसरा गियर निवडण्यापूर्वी थांबा.",
+"The speed is 0 mph.": "वेग 0 mph आहे.",
+"The engine is at 800 RPM.": "इंजिन 800 RPM वर आहे."
 },
 "templates": [
 [
@@ -5230,6 +5235,82 @@ window.OTR_I18N.mr = {
 [
 "The planning clock shows {0} minutes since departure.",
 "प्लॅनिंग घड्याळ निघाल्यापासून {0} मिनिटे दाखवते."
+],
+[
+"Press {0} to select park (P).",
+"पार्क (P) निवडण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to select reverse (R).",
+"रिव्हर्स (R) निवडण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to select neutral (N).",
+"न्यूट्रल (N) निवडण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to select drive (D).",
+"ड्राइव्ह (D) निवडण्यासाठी {0} दाबा."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"पार्किंग ब्रेक लावलेला आहे. सोडण्यासाठी {0} दाबा."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"पार्किंग ब्रेक लावलेला नाही. लावण्यासाठी {0} दाबा."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"सीटबेल्ट लावलेला आहे. काढण्यासाठी {0} दाबा."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"सीटबेल्ट लावलेला नाही. लावण्यासाठी {0} दाबा."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"हेडलाइट चालू आहेत. बंद करण्यासाठी {0} दाबा."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"हेडलाइट बंद आहेत. चालू करण्यासाठी {0} दाबा."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"वायपर चालू आहेत. बंद करण्यासाठी {0} दाबा."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"वायपर बंद आहेत. चालू करण्यासाठी {0} दाबा."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"डावा इंडिकेटर चालू आहे. बंद करण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to signal left.",
+"डावा इंडिकेटर देण्यासाठी {0} दाबा."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"उजवा इंडिकेटर चालू आहे. बंद करण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to signal right.",
+"उजवा इंडिकेटर देण्यासाठी {0} दाबा."
+],
+[
+"Press {0} to open the cab door and get out.",
+"कॅबचा दरवाजा उघडून बाहेर पडण्यासाठी {0} दाबा."
+],
+[
+"The speed is {0} mph.",
+"वेग {0} mph आहे."
+],
+[
+"The engine is at {0} RPM.",
+"इंजिन {0} RPM वर आहे."
 ]
 ],
 "keep": [

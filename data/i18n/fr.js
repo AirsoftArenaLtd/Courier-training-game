@@ -3679,7 +3679,12 @@ window.OTR_I18N.fr = {
 "Optional": "Facultatif",
 "Required": "Obligatoire",
 "3D workday aids…": "Aides de la journée 3D…",
-"Your workday is loading.": "Ta journée se charge."
+"Your workday is loading.": "Ta journée se charge.",
+"Switch the headlights.": "Change l'état des phares.",
+"Switch the wipers.": "Change l'état des essuie-glaces.",
+"Stop before selecting a different gear.": "Arrête-toi avant de choisir une autre vitesse.",
+"The speed is 0 mph.": "La vitesse est de 0 mph.",
+"The engine is at 800 RPM.": "Le moteur tourne à 800 RPM."
 },
 "templates": [
 [
@@ -5225,6 +5230,82 @@ window.OTR_I18N.fr = {
 [
 "The planning clock shows {0} minutes since departure.",
 "Le chrono de planification indique {0} minutes depuis le départ."
+],
+[
+"Press {0} to select park (P).",
+"Appuie sur {0} pour choisir stationnement (P)."
+],
+[
+"Press {0} to select reverse (R).",
+"Appuie sur {0} pour choisir marche arrière (R)."
+],
+[
+"Press {0} to select neutral (N).",
+"Appuie sur {0} pour choisir point mort (N)."
+],
+[
+"Press {0} to select drive (D).",
+"Appuie sur {0} pour choisir marche avant (D)."
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"Le frein à main est serré. Appuie sur {0} pour le desserrer."
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"Le frein à main est desserré. Appuie sur {0} pour le serrer."
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"La ceinture est attachée. Appuie sur {0} pour la détacher."
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"La ceinture est détachée. Appuie sur {0} pour l'attacher."
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"Les phares sont allumés. Appuie sur {0} pour les éteindre."
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"Les phares sont éteints. Appuie sur {0} pour les allumer."
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"Les essuie-glaces sont activés. Appuie sur {0} pour les arrêter."
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"Les essuie-glaces sont arrêtés. Appuie sur {0} pour les activer."
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"Le clignotant gauche est activé. Appuie sur {0} pour l'annuler."
+],
+[
+"Press {0} to signal left.",
+"Appuie sur {0} pour signaler à gauche."
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"Le clignotant droit est activé. Appuie sur {0} pour l'annuler."
+],
+[
+"Press {0} to signal right.",
+"Appuie sur {0} pour signaler à droite."
+],
+[
+"Press {0} to open the cab door and get out.",
+"Appuie sur {0} pour ouvrir la porte de la cabine et descendre."
+],
+[
+"The speed is {0} mph.",
+"La vitesse est de {0} mph."
+],
+[
+"The engine is at {0} RPM.",
+"Le moteur tourne à {0} RPM."
 ]
 ],
 "keep": [

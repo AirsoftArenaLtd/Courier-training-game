@@ -3684,7 +3684,12 @@ window.OTR_I18N.hi = {
 "Optional": "वैकल्पिक",
 "Required": "ज़रूरी",
 "3D workday aids…": "3D कार्यदिवस की सहायता…",
-"Your workday is loading.": "आपका कार्यदिवस लोड हो रहा है।"
+"Your workday is loading.": "आपका कार्यदिवस लोड हो रहा है।",
+"Switch the headlights.": "हेडलाइट चालू/बंद करें।",
+"Switch the wipers.": "वाइपर चालू/बंद करें।",
+"Stop before selecting a different gear.": "दूसरा गियर चुनने से पहले रुकें।",
+"The speed is 0 mph.": "रफ़्तार 0 mph है।",
+"The engine is at 800 RPM.": "इंजन 800 RPM पर है।"
 },
 "templates": [
 [
@@ -5230,6 +5235,82 @@ window.OTR_I18N.hi = {
 [
 "The planning clock shows {0} minutes since departure.",
 "योजना की घड़ी रवानगी के बाद {0} मिनट दिखा रही है।"
+],
+[
+"Press {0} to select park (P).",
+"पार्क (P) चुनने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to select reverse (R).",
+"रिवर्स (R) चुनने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to select neutral (N).",
+"न्यूट्रल (N) चुनने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to select drive (D).",
+"ड्राइव (D) चुनने के लिए {0} दबाएँ।"
+],
+[
+"The parking brake is on. Press {0} to release it.",
+"पार्किंग ब्रेक लगा है। इसे छोड़ने के लिए {0} दबाएँ।"
+],
+[
+"The parking brake is off. Press {0} to set it.",
+"पार्किंग ब्रेक नहीं लगा है। इसे लगाने के लिए {0} दबाएँ।"
+],
+[
+"The seatbelt is fastened. Press {0} to release it.",
+"सीट बेल्ट बंधी है। इसे खोलने के लिए {0} दबाएँ।"
+],
+[
+"The seatbelt is unfastened. Press {0} to fasten it.",
+"सीट बेल्ट नहीं बंधी है। इसे बाँधने के लिए {0} दबाएँ।"
+],
+[
+"The headlights are on. Press {0} to switch them off.",
+"हेडलाइट चालू हैं। इन्हें बंद करने के लिए {0} दबाएँ।"
+],
+[
+"The headlights are off. Press {0} to switch them on.",
+"हेडलाइट बंद हैं। इन्हें चालू करने के लिए {0} दबाएँ।"
+],
+[
+"The wipers are on. Press {0} to switch them off.",
+"वाइपर चालू हैं। इन्हें बंद करने के लिए {0} दबाएँ।"
+],
+[
+"The wipers are off. Press {0} to switch them on.",
+"वाइपर बंद हैं। इन्हें चालू करने के लिए {0} दबाएँ।"
+],
+[
+"The left signal is on. Press {0} to cancel it.",
+"बायाँ इंडिकेटर चालू है। इसे बंद करने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to signal left.",
+"बायाँ इंडिकेटर देने के लिए {0} दबाएँ।"
+],
+[
+"The right signal is on. Press {0} to cancel it.",
+"दायाँ इंडिकेटर चालू है। इसे बंद करने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to signal right.",
+"दायाँ इंडिकेटर देने के लिए {0} दबाएँ।"
+],
+[
+"Press {0} to open the cab door and get out.",
+"कैब का दरवाज़ा खोलकर बाहर निकलने के लिए {0} दबाएँ।"
+],
+[
+"The speed is {0} mph.",
+"रफ़्तार {0} mph है।"
+],
+[
+"The engine is at {0} RPM.",
+"इंजन {0} RPM पर है।"
 ]
 ],
 "keep": [
