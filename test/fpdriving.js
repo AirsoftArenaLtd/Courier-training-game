@@ -94,3 +94,65 @@ test('moving hazard vehicles wait for a person or van blocking their path',()=>{
  m.player.x=10;Object.assign(m.van,{x:1.7,z:-88.5,yaw:0,speed:0});D.tick(m,.1);assert.equal(m.driving.bus.z,-82);
  m.van.x=5;D.tick(m,.1);assert.ok(m.driving.bus.z<-82);
 });
+
+/* C-20: use open space to measure the motor, independently from the observation scenarios above. */
+const F=c.OTR.fp;
+function vehicle(day=1){
+ const m=make();m.solids=[];m.traffic=[];m.crossing.state='resolved';m.secured=true;m.paused=false;
+ m.bounds={x0:-1000,x1:1000,z0:-2000,z1:1000};m.briefing={day,weather:'clear',clockMin:500};return m;
+}
+function runMotor(m,input,seconds,fps=60){for(let i=0;i<Math.round(seconds*fps);i++)m.step(input,1/fps);return m;}
+test('reverse creeps gently without throttle, while either brake takes priority and holds zero',()=>{
+ const m=vehicle();m.van.gear=-1;runMotor(m,{},3);assert.ok(m.van.speed<-.3&&m.van.speed>-.36);assert.ok(m.van.z>-70);
+ runMotor(m,{back:true,forward:true},2);assert.equal(m.van.speed,0);assert.equal(m.van.gear,-1);
+ m.van.hand=true;runMotor(m,{},2);assert.equal(m.van.speed,0);
+ m.van.hand=false;runMotor(m,{forward:true},4);assert.ok(m.van.speed>=-1.7&&m.van.speed< -1.6);
+ runMotor(m,{},4);assert.ok(Math.abs(m.van.speed+.35)<.001);
+});
+test('rear-axle reverse steering swings the nose left and the rear bumper right for right lock',()=>{
+ const m=vehicle();Object.assign(m.van,{gear:-1,speed:-1.2,steer:.4});
+ const body=m.van.x,front=F.local(m.van,0,-2.7),rear=F.local(m.van,0,2.7),axle=F.local(m.van,0,1.7);
+ m.step({right:true},.01);
+ assert.ok(m.van.yaw<0);assert.ok(m.van.x<body);assert.ok(F.local(m.van,0,-2.7).x<front.x);assert.ok(F.local(m.van,0,2.7).x>rear.x);
+ assert.ok(Math.abs(F.local(m.van,0,1.7).x-axle.x)<.0001,'rear axle has no sideways tyre slip');
+ const stopped=vehicle();stopped.van.hand=true;const pose=[stopped.van.x,stopped.van.z,stopped.van.yaw];runMotor(stopped,{right:true},3);assert.deepEqual([stopped.van.x,stopped.van.z,stopped.van.yaw],pose);
+});
+test('assists fade by workday, preserve the gentle first-day speed ceiling, and accept a trainer override',()=>{
+ assert.deepEqual([1,2,3,4,5,9].map(day=>F.driveAssist(vehicle(day))),[1,.75,.5,.25,0,0]);
+ const a=vehicle(),b=vehicle(5);runMotor(a,{forward:true},30);runMotor(b,{forward:true},30);
+ assert.equal(a.van.speed,8);assert.ok(b.van.speed>11);assert.ok(b.van.speed<=12);
+ a.driveAssist=0;assert.equal(F.driveAssist(a),0);a.driveAssist=4;assert.equal(F.driveAssist(a),1);a.driveAssist=-1;assert.equal(F.driveAssist(a),0);
+});
+test('actual cargo mass slows acceleration and lengthens braking; delivered and depot parcels add no load',()=>{
+ const empty=vehicle(),loaded=vehicle();for(const p of loaded.parcels){p.location='slot'+p.stop;p.weight=50;}
+ runMotor(empty,{forward:true},2);runMotor(loaded,{forward:true},2);assert.ok(empty.van.speed>loaded.van.speed+.1);assert.equal(loaded.motion.payload,150);
+ Object.assign(empty.van,{speed:6,z:-70});Object.assign(loaded.van,{speed:6,z:-70});
+ runMotor(empty,{back:true},2);runMotor(loaded,{back:true},2);assert.ok(loaded.van.z<empty.van.z-.1);assert.equal(empty.van.speed,0);assert.equal(loaded.van.speed,0);
+ loaded.parcels[0].location='delivered';loaded.parcels[1].location='depot';loaded.parcels[2].location='held';assert.equal(F.payload(loaded),0);
+ assert.ok(Math.abs(F.payload({routePlan:{},parcels:[{location:'slot0',weight:100}]})-45.359237)<.000001,'full-route label pounds convert to kilograms');
+});
+test('speed and low grip reduce steering authority without changing steering direction',()=>{
+ const low=vehicle(),fast=vehicle(),ice=vehicle();low.van.speed=2;fast.van.speed=ice.van.speed=8;ice.traction=.35;
+ for(const m of [low,fast,ice])runMotor(m,{right:true},.6);
+ assert.ok(low.van.steer>fast.van.steer);assert.ok(fast.van.steer>ice.van.steer);assert.ok(ice.van.steer>0);
+ assert.ok(Math.abs(fast.motion.roll)<=.025);assert.ok(Math.abs(fast.motion.pitch)<=.035);
+});
+test('braking transfers weight to the front and dives the sprung body, then settles at rest',()=>{
+ const m=vehicle();m.van.speed=5;runMotor(m,{back:true},.5);const d=m.motion;
+ assert.ok(d.acceleration<0);assert.ok(d.frontLoad>d.rearLoad);assert.ok(d.pitch<-.01);assert.ok(Math.abs(d.frontLoad+d.rearLoad-d.mass*9.81)<.00001);
+ runMotor(m,{back:true},2);assert.equal(m.van.speed,0);assert.ok(Math.abs(d.pitch)<.001);assert.ok(Math.abs(d.frontLoad-d.rearLoad)<.001);
+});
+test('restoring mid-reverse preserves the exact future mission and reports without new saved fields',()=>{
+ const m=make();m.paused=false;m.secured=true;Object.assign(m.van,{gear:-1,speed:-.4,steer:.15});runMotor(m,{right:true},.4);
+ const raw=m.snapshot(),events=JSON.stringify(W.events),r=M.restore(raw);assert.ok(r);assert.equal(JSON.stringify(W.events),events);
+ assert.equal(raw.motion,undefined);assert.equal(raw._motorPose,undefined);assert.equal(r.motion,undefined);assert.deepEqual(Object.keys(raw.van).sort(),['x','z','yaw','speed','steer','gear','hand','belt','look'].sort());
+ r.paused=false;for(const input of [{right:true},{},{back:true},{left:true,forward:true}])for(let i=0;i<30;i++){m.step(input,1/60);r.step(input,1/60);assert.equal(JSON.stringify(r.snapshot()),JSON.stringify(m.snapshot()));}
+});
+test('a forward and reversing S-curve stays consistent at 30, 60 and 120 FPS and caps a stalled frame',()=>{
+ for(const gear of [1,-1]){
+  const models=[30,60,120].map(fps=>{const m=vehicle(5);m.van.gear=gear;runMotor(m,{forward:true,right:true},2,fps);runMotor(m,{forward:true,left:true},2,fps);return m;});
+  for(const m of models){assert.ok(Math.hypot(m.van.x-models[0].van.x,m.van.z-models[0].van.z)<.06);assert.ok(Math.abs(m.van.yaw-models[0].van.yaw)<.01);}
+ }
+ const m=vehicle(5);m.van.speed=12;const z=m.van.z,t=m.elapsed;m.step({forward:true},30);assert.ok(Math.abs(m.van.z-z)<=.601);assert.ok(m.elapsed-t<=.050001);
+ const frozen=m.snapshot();m.step({forward:true,right:true},0);assert.equal(JSON.stringify(m.snapshot()),JSON.stringify(frozen));assert.ok(Number.isFinite(m.motion.pitch));
+});
