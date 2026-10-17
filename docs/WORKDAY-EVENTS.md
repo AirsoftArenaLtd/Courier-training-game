@@ -162,18 +162,20 @@ New types:
 
 | Type | Report it when |
 | --- | --- |
-| `drive.gear` | the player changes gear at the physical shifter; `ok: false` when changing between D and R while the van moves faster than 2 mph |
+| `drive.gear` | the player changes gear at the physical shifter; `ok: false` when changing between D and R while the van moves faster than 2 mph (key by the gear change) |
 | `drive.backing-walkaround` | only in scenarios the trainer marks as walk-around required: the player got out and looked before reversing (`ok: false` if not) |
 | `drive.signal` | a signal before a turn or lane change (`ok: false` if missing or less than 3 seconds) |
-| `drive.sign` | a road sign applies: `details.sign` is `stop`, `giveway`, `speed`, `oneway`, `noentry`, `school` or `roadworks`; `ok: false` for running a stop or give-way, driving the wrong way into a one-way or no-entry (critical for no-entry), exceeding the sign's limit |
+| `drive.sign-stop`, `drive.sign-giveway`, `drive.sign-speed`, `drive.sign-school`, `drive.sign-roadworks` | a road sign applies; one check each (`ok: false` for not stopping, not giving way, exceeding the limit, not slowing in a school zone, ignoring the diversion); key by the sign's id |
+| `drive.sign-oneway`, `drive.sign-noentry` | driving into a one-way street against the flow, or into a no-entry street; these are penalties (report them only when it happens); no-entry is critical |
 | `drive.route` | the player leaves the planned route (wrong turn); one report per leg, `ok: false`. Efficiency only. A reroute followed within 30 s clears it. |
 | `drive.lights` | once per leg in dusk, night, fog or heavy rain: headlights on (`ok: false` if off while moving) |
 | `drive.cyclist` | a cyclist beside or behind the van when turning: checked the mirror and gave way (`ok: false` if cut in front or hit) |
 | `drive.clearance` | a low bridge, overhang or tall-van clearance: `ok: false` for a strike, `ok: true` for stopping or detouring |
 | `load.shift` | hard cornering or braking shifted the load (`ok: false`); packages not secured shift more |
-| `van.damage` | the van takes damage: `details.zone` (front, rear, left, right, roof, wheel, mirror), `details.severity` (scuff, dent, major) and `details.cause`. Safety penalty by severity (a scuff is small, major is large). Key by the zone and cause. |
+| `van.damage-scuff`, `van.damage-dent`, `van.damage-major` | the van takes damage; a penalty by severity (major is critical). Key by `<zone>:<cause>` with the zone one of front, rear, left, right, roof, wheel, mirror. The three severities are separate types because the save keeps only the type and the key. |
 | `inspect.damage` | at the pre-trip walkaround: existing damage found and recorded (`ok: true`), or missed. Existing damage is the day's start state and is never blamed on the player. |
-| `trip.damage-report` | at the post trip, one report per damage zone: `ok: true` when the player records new damage with the right zone and a plain description; `ok: false` for a zone with damage the player did not record. **An unreported damage the player caused is a critical mistake** (caps safety at one star, like the school bus). A report for a zone with no damage is a small `ok: false` (accuracy). |
+| `trip.damage-report` | at the post trip, one check per damage zone the player caused (key = the zone): `ok: true` when recorded with the right zone and a plain description; `ok: false` when not recorded. **Unreported damage the player caused is a critical mistake** (the check is critical, like the school bus; the lesson says why). |
+| `trip.damage-false` | a penalty when the player reports damage in a zone that has none (key = the zone) |
 | `stop.intercom` | an apartment or gated site with an intercom: right button, right wording, waited for the buzz |
 | `stop.reception` | a business: left at reception with a name and a signature, or handed to the right person |
 | `stop.locker` | a locker drop: right compartment, scan, photo of the closed door |

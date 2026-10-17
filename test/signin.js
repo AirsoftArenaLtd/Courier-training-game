@@ -83,7 +83,9 @@ const storage = (p) => p.evaluate(() => JSON.stringify(Object.assign({}, localSt
     await tp.evaluate(() => OTR.game.scene.getScene('TrainerScene').newAccount());
     await wait(500);
     await tp.keyboard.type('E3001'); await tp.keyboard.press('Enter');
-    await wait(700);
+    // the name prompt opens a moment after the ID is accepted: type only once it is on screen (a busy machine is slower)
+    for (let i = 0; i < 50 && !(await sceneTexts(tp, 'TrainerScene')).includes('Their name'); i++) await wait(100);
+    await wait(150);
     await tp.keyboard.type('Rosa Diaz'); await tp.keyboard.press('Enter');
     await tp.waitForFunction(() => { const s = OTR.game.scene.getScene('TrainerScene'); let hit = false; const walk = (o) => { if (o.type === 'Text' && o.text === 'Temporary password') hit = true; (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return hit; }, { timeout: 10000 });
     await wait(500);
@@ -133,7 +135,8 @@ const storage = (p) => p.evaluate(() => JSON.stringify(Object.assign({}, localSt
     const typed = await entryFits();
     check(email.length === 40 && typed.field === email && !typed.out.length, `a 40-character email-style ID with _ and @ is typed in full (${typed.field})`);
     await tp.keyboard.press('Enter');
-    await wait(700);
+    for (let i = 0; i < 50 && !(await sceneTexts(tp, 'TrainerScene')).includes('Their name'); i++) await wait(100);
+    await wait(150);
     await tp.keyboard.type('Jane Doe'); await tp.keyboard.press('Enter');
     const idLow = email.toLowerCase();
     await tp.waitForFunction((id) => { const s = OTR.game.scene.getScene('TrainerScene'); let hit = false; const walk = (o) => { if (o.type === 'Text' && o.text === 'Temporary password') hit = true; (o.list || []).forEach(walk); }; s.children.list.forEach(walk); return hit; }, { timeout: 10000 }, idLow);
