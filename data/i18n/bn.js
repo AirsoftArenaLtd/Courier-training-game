@@ -3684,7 +3684,8 @@ window.OTR_I18N.bn = {
 "Turn by turn": "বাঁকে বাঁকে",
 "Optional": "ঐচ্ছিক",
 "Required": "বাধ্যতামূলক",
-"3D workday aids…": "3D কর্মদিবসের সহায়তা…"
+"3D workday aids…": "3D কর্মদিবসের সহায়তা…",
+"Your workday is loading.": "আপনার কর্মদিবস লোড হচ্ছে।"
 },
 "templates": [
 [

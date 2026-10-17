@@ -20,10 +20,15 @@ OTR.fp = {
       Math.abs(-dx * s + dz * c) < 2.7 + Math.abs(s) * b.w / 2 + Math.abs(c) * b.d / 2;
   },
   driveAssist(m) {
-    // A-21 can supply a transient trainer override; the default fades from full assistance to unassisted by day five.
+    // Launch/resume caches A-21's approved trainer result. The standalone motor retains its original fallback.
     if (Number.isFinite(m.driveAssist)) return this.clamp(m.driveAssist, 0, 1);
     const day = m.routePlan ? m.routePlan.day : m.briefing ? m.briefing.day : 1;
     return this.clamp(1 - (day - 1) / 4, 0, 1);
+  },
+  applyDriveRules(m) {
+    if(!m||!OTR.academy||!OTR.academy.workdayRules)return;
+    const day=m.routePlan?m.routePlan.day:m.briefing?m.briefing.day:1,rules=OTR.academy.workdayRules(day);
+    if(rules.assists==='full')m.driveAssist=1;else if(rules.assists==='light')m.driveAssist=.5;else if(rules.assists==='off')m.driveAssist=0;
   },
   payload(m) {
     if (!m.parcels) return m.package === 'loaded' ? 5 : 0;

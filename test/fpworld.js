@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const THREE=require('../lib/three.min.js');
 const context={THREE,Phaser:{Scene:class{}},URLSearchParams,location:{search:''}};context.window=context;
 vm.createContext(context);
-for(const name of ['firstperson','fpmission','world3d','fpbranding','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
+for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
 context.OTR.registerScene=C=>{context.SceneClass=C;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
 function world(high=true){
@@ -87,6 +87,18 @@ test('the sprung body dives and rolls without tilting the tyres, and reduced mot
       reduced=false;w.m.motion=undefined;w.art.sync(w.m,null,'route');assert.equal(w.art.chassis.rotation.x,0);assert.equal(w.art.chassis.rotation.z,0);
       w.art.dispose();
     }
+  }finally{context.OTR.fpAccess=old;}
+});
+test('turning the head moves the view without carrying the dashboard or changing the saved mission',()=>{
+  const w=world(false);w.m.mode='cab';w.art.sync(w.m,null,'route');const dash=w.camera.getObjectByName('cab-dashboard'),before=dash.matrixWorld.clone();
+  w.m.van.look=.7;w.m.elapsed+=.02;const saved=JSON.stringify(w.m.snapshot());w.art.sync(w.m,null,'route');
+  for(let i=0;i<16;i++)assert.ok(Math.abs(dash.matrixWorld.elements[i]-before.elements[i])<1e-9);
+  assert.ok(Math.abs(w.camera.rotation.y+.7)<1e-9);assert.equal(JSON.stringify(w.m.snapshot()),saved);w.art.dispose();
+});
+test('reduced motion clears even the last fractional degree of speed zoom',()=>{
+  const old=context.OTR.fpAccess;let reduced=false;context.OTR.fpAccess={reduced:()=>reduced};
+  try{const w=world(false);w.m.mode='cab';w.m.driveAssist=0;w.m.van.speed=8;w.art.sync(w.m,null,'route');w.m.van.speed=0;
+    for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,68);w.art.dispose();
   }finally{context.OTR.fpAccess=old;}
 });
 test('mirror observes live route actors only while requested and cab state restores afterward',()=>{

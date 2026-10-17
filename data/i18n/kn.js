@@ -3683,7 +3683,8 @@ window.OTR_I18N.kn = {
 "Turn by turn": "ತಿರುವು ತಿರುವಾಗಿ",
 "Optional": "ಐಚ್ಛಿಕ",
 "Required": "ಕಡ್ಡಾಯ",
-"3D workday aids…": "3D ಕೆಲಸದ ದಿನದ ಸಹಾಯ…"
+"3D workday aids…": "3D ಕೆಲಸದ ದಿನದ ಸಹಾಯ…",
+"Your workday is loading.": "ನಿಮ್ಮ ಕೆಲಸದ ದಿನ ಲೋಡ್ ಆಗುತ್ತಿದೆ."
 },
 "templates": [
 [

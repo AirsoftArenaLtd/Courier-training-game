@@ -1,10 +1,10 @@
-/* Shared placeholder depot, cargo and town. Text stays in Phaser; no texture downloads. */
+/* Procedural depot, cargo and town, with optional locally bundled static models. Text stays in Phaser. */
 window.OTR = window.OTR || {};
 OTR.fpWorld = {
   build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera,brand=OTR.fpBrand.read();
     const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
-    const occluders = [], interactions = [], labels = [];
+    const occluders = [], interactions = [], labels = [], assetGroups=[];
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
     const material = color => {
       if (!mats.has(color)) mats.set(color, new T.MeshLambertMaterial({ color }));
@@ -89,8 +89,12 @@ OTR.fpWorld = {
       for(const z of town.zs)for(let x=b.x0+4;x<b.x1;x+=8){
         if(!town.xs.some(cx=>Math.abs(x-cx)<half+3))box(route,x,0.05,z,3,0.02,0.1,0xEDD385);
       }
-      // One simple footprint per non-delivery lot; active facades are drawn below.
-      town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id)).forEach(l=>box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE));
+      // A small pipeline example; the full town pass is C-27. Delivery facades/solids remain their own geometry.
+      const lots=town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id));
+      const sample=lots.slice().sort((a,b)=>(a.x-4)**2+(a.z-8)**2-((b.x-4)**2+(b.z-8)**2)).slice(0,2);
+      const group=scene.assetBank&&scene.assetBank.add(route,'town-garage',sample.map(l=>({x:l.x,z:l.z,w:l.w,h:l.h,d:l.d})));
+      if(group)assetGroups.push(group);
+      lots.forEach(l=>{if(!group||!sample.includes(l))box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE);});
     }
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     const depotSide=base.town?-1:1;
@@ -178,8 +182,10 @@ OTR.fpWorld = {
     for(const x of [-.29,.29])box(carried,x,-.32,.1,.14,.25,.35,brand.uniform);
     const inspected=parcel(camera,null); inspected.position.set(-0.63,-0.02,-1.45); inspected.scale.setScalar(1.7);
     const dash=new T.Group();camera.add(dash);
+    dash.name='cab-dashboard';const cameraRig=OTR.fpCamera?OTR.fpCamera.create():null,cabAnchor=new T.Object3D();
+    if(cameraRig)dash.matrixAutoUpdate=false;
     box(dash,0,-0.68,-1.1,2.5,0.25,0.5,0x383D47);
-    const wheel=new T.Mesh(new T.TorusGeometry(0.18,0.022,6,18),material(0x242A31));
+    const wheel=new T.Mesh(new T.TorusGeometry(0.18,0.022,OTR.gfx.high()?6:5,OTR.gfx.high()?18:16),material(0x242A31));
     wheel.position.set(-0.28,-0.5,-0.74);dash.add(wheel);
     const cars=base.traffic.map((c,i)=>{
       const g=new T.Group();route.add(g);
@@ -249,10 +255,10 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
+    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
         const geometries=new Set();
-        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
+        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
       sync(model,hubPlayer,area) {
@@ -273,6 +279,7 @@ OTR.fpWorld = {
           }
           const sceneryMoved=Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3,solidMoved=cx!==solidX||cz!==solidZ;
           if(base.town&&(sceneryMoved||solidMoved)){
+            if(sceneryMoved&&scene.assetBank)for(const group of assetGroups)scene.assetBank.cull(group,cx,cz,sceneryRadius);
             if(sceneryMoved){sceneryX=cx;sceneryZ=cz;}solidX=cx;solidZ=cz;
             // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
             for(const batch of staticBatches){if(!sceneryMoved&&!batch.bounded)continue;let count=0;
@@ -286,7 +293,10 @@ OTR.fpWorld = {
             for(const mesh of occluders)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
             for(const mesh of interactions)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
           }
-          van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;chassis.rotation.set(reduced?0:m.motion&&m.motion.pitch||0,0,reduced?0:m.motion&&m.motion.roll||0);van.visible=m.mode!=='cab';
+          const precise=!!(scene.panel&&scene.panel.type==='inspect'||m.mode!=='cab'&&scene.target||scene.handheld&&scene.handheld.aiming);
+          const pose=cameraRig?OTR.fpCamera.update(cameraRig,m,!!reduced,OTR.gfx.high(),precise):null;
+          van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;
+          chassis.position.y=pose?pose.heave:0;chassis.rotation.set(pose?pose.bodyPitch:reduced?0:m.motion&&m.motion.pitch||0,0,pose?pose.bodyRoll:reduced?0:m.motion&&m.motion.roll||0);van.visible=m.mode!=='cab';
           cargoDoor.visible=!m.cargoOpen;
           slotMeshes.forEach((mesh,i)=>mesh.visible=m.cargoOpen&&!m.parcels.some(p=>p.location===OTR.fpMission.slots[i].id));
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;
@@ -301,7 +311,14 @@ OTR.fpWorld = {
           carried.userData.barcode.userData.scanId=scanning?m.heldId:null;
           inspected.visible=!!(scene.panel&&scene.panel.type==='inspect');inspected.rotation.y=scene.inspectAngle||0;
           if(inspected.visible)carried.visible=false;
-          if(m.mode==='cab'){
+          if(pose){
+            camera.position.set(pose.x,pose.y,pose.z);camera.rotation.set(pose.pitch,-pose.yaw,pose.roll,'YXZ');
+            if(camera.fov!==pose.fov&&(reduced||precise||Math.abs(camera.fov-pose.fov)>.0001)){camera.fov=pose.fov;camera.updateProjectionMatrix();}
+            if(m.mode==='cab'){
+              // Keep the dashboard on the van while the driver's head moves and turns independently.
+              cabAnchor.position.set(pose.baseX,2.05+pose.bodyY,pose.baseZ);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
+            }
+          }else if(m.mode==='cab'){
             const eye=OTR.fp.local(v,-0.45,-1.85);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
           }else{
             const local=OTR.fpMission.local(v,p),inside=m.cargoOpen&&Math.abs(local.x)<0.75&&local.z>-0.8&&local.z<2.6;
@@ -331,6 +348,7 @@ OTR.fpWorld = {
         }
         world.updateMatrixWorld(true);
       },
+      resetCamera(){if(cameraRig)cameraRig.model=null;},
       pick(){ray.setFromCamera({x:0,y:0},camera);const hit=cast(ray,scanObjects)[0];return hit?hit.object.userData.interaction||null:null;},
       scanTarget(){
         ray.setFromCamera({x:0,y:0},camera);

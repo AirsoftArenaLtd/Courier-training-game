@@ -3683,7 +3683,8 @@ window.OTR_I18N.mr = {
 "Turn by turn": "वळणावळणाने",
 "Optional": "ऐच्छिक",
 "Required": "आवश्यक",
-"3D workday aids…": "3D वर्कडे सहाय्य…"
+"3D workday aids…": "3D वर्कडे सहाय्य…",
+"Your workday is loading.": "तुमचा कामाचा दिवस लोड होत आहे."
 },
 "templates": [
 [

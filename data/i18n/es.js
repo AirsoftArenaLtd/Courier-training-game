@@ -3694,7 +3694,8 @@ window.OTR_I18N.es = {
 "Turn by turn": "Paso a paso",
 "Optional": "Opcional",
 "Required": "Obligatorio",
-"3D workday aids…": "Ayudas de la jornada 3D…"
+"3D workday aids…": "Ayudas de la jornada 3D…",
+"Your workday is loading.": "Tu jornada se está cargando."
 },
 "templates": [
 [

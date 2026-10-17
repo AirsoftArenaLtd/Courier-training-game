@@ -3683,7 +3683,8 @@ window.OTR_I18N.gu = {
 "Turn by turn": "વળાંક-દર-વળાંક",
 "Optional": "વૈકલ્પિક",
 "Required": "ફરજિયાત",
-"3D workday aids…": "3D વર્કડે સહાય…"
+"3D workday aids…": "3D વર્કડે સહાય…",
+"Your workday is loading.": "તમારો કાર્યદિવસ લોડ થઈ રહ્યો છે."
 },
 "templates": [
 [
