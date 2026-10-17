@@ -39,3 +39,8 @@ test('engine RPM and road feel reuse the existing voices and keep invalid teleme
  const x=setup();x.m.motion={rpm:2800};x.m.cameraMotion={roadImpact:.75};x.tick(0);assert.equal(x.sound.engine.frequency,85);assert.equal(x.sound.engine.cutoff,300);assert.equal(x.nodes.length,6);
  x.m.motion.rpm=3800;x.m.cameraMotion.roadImpact=NaN;x.tick(200);assert.equal(x.sound.engine.frequency,105);assert.equal(x.sound.engine.cutoff,240);assert.equal(x.nodes.length,6);x.sound.dispose();
 });
+test('parking beeps accelerate with proximity, stay quiet when muted and retain their text cue',()=>{
+ const x=setup();x.m.signal=0;x.m.van.gear=-1;x.m.rearSense={distance:2};x.tick(0);assert.equal(x.calls.filter(c=>c[0]==='tone').length,1);x.tick(300);assert.equal(x.calls.filter(c=>c[0]==='tone').length,1);
+ x.m.rearSense.distance=.4;x.tick(500);assert.equal(x.calls.filter(c=>c[0]==='tone').length,2);x.tick(700);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);assert.ok(x.calls.filter(c=>c[0]==='tone').every(c=>c[1]===1050&&c[3].vol<=.025));
+ x.c.OTR.audio.muted=true;assert.match(x.tick(1200),/parking sensors/);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);x.c.OTR.audio.muted=false;x.settings.narrate=true;x.c.speechSynthesis.speaking=true;x.tick(1600);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);x.m.rearSense.distance=6;assert.doesNotMatch(x.tick(2000),/parking sensors/);x.sound.dispose();
+});

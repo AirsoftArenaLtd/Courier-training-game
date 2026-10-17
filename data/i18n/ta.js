@@ -3712,7 +3712,35 @@ window.OTR_I18N.ta = {
 "no night runs": "இரவுப் பயணங்கள் இல்லை",
 "no van damage": "வேனுக்குச் சேதம் இல்லை",
 "Workday, aided": "வேலை நாள், உதவிகளுடன்",
-"Workday": "வேலை நாள்"
+"Workday": "வேலை நாள்",
+"Reverse safely.": "பாதுகாப்பாக ரிவர்ஸ் செய்யுங்கள்.",
+"Park inside the practice bay and set the parking brake first.": "முதலில் பயிற்சி பேக்குள் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"Practice reversing in the alley.": "சந்தில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+"Practice reversing to the dock.": "டாக் வரை ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+"Practice reversing in the tight driveway.": "குறுகிய டிரைவ்வேயில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+"Reversed at a safe speed without contact.": "பாதுகாப்பான வேகத்தில், எதிலும் படாமல் ரிவர்ஸ் செய்தீர்கள்.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "ரிவர்ஸ் செய்யும்போது தடையில் பட்டீர்கள் அல்லது 5 mph-ஐ மீறினீர்கள்.",
+"Checked the tight reversing space on foot before backing.": "பின்னால் செல்லும் முன் குறுகிய இடத்தை நடந்து பார்த்தீர்கள்.",
+"Reversed in a required tight space without checking it on foot.": "தேவையான குறுகிய இடத்தில் நடந்து பார்க்காமல் ரிவர்ஸ் செய்தீர்கள்.",
+"Parked inside the practice bay and set the parking brake.": "பயிற்சி பேக்குள் நிறுத்தி பார்க்கிங் பிரேக் போட்டீர்கள்.",
+"The rear camera switches on automatically in reverse.": "ரிவர்ஸில் ரியர் கேமரா தானாக ஆன் ஆகும்.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "ரியர் கேமரா ஆன். மெதுவாக ரிவர்ஸ் செய்து பாதையைப் பார்த்துக்கொண்டே இருங்கள்.",
+"Stop. A rear obstacle is within 0.5 meters.": "நில்லுங்கள். பின்னால் 0.5 மீட்டருக்குள் தடை உள்ளது.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "ரியர் கேமரா ஆன். பின்னால் மிக அருகிலுள்ள தடை ஒரு மீட்டர் தொலைவில் உள்ளது.",
+"The parking sensors are sounding.": "பார்க்கிங் சென்சார்கள் ஒலிக்கின்றன.",
+"Reverse into the marked bay and set the parking brake.": "குறித்த பேயில் ரிவர்ஸ் செய்து பார்க்கிங் பிரேக் போடுங்கள்.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "ஷிஃப்டரில் ரிவர்ஸைத் தேர்ந்தெடுங்கள், கேமராவையும் கண்ணாடிகளையும் பாருங்கள், குறித்த பேயில் மெதுவாக ரிவர்ஸ் செய்யுங்கள். நேராக ஆனதும் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"Practice reversing safely.": "பாதுகாப்பாக ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+"Begin reversing practice.": "ரிவர்ஸ் பயிற்சியைத் தொடங்குங்கள்.",
+"Choose a reversing space.": "ரிவர்ஸ் செய்யும் இடத்தைத் தேர்ந்தெடுங்கள்.",
+"Resume reversing practice.": "ரிவர்ஸ் பயிற்சியைத் தொடருங்கள்.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "பயிற்சி தனி செக்பாயின்ட்டைப் பயன்படுத்தும். உங்கள் வேலை நாளும் சரக்குப் பாடமும் சேமிக்கப்பட்டிருக்கும்.",
+"Use the cab camera and mirrors for this practice.": "இந்தப் பயிற்சிக்கு கேப் கேமராவையும் கண்ணாடிகளையும் பயன்படுத்துங்கள்.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "குறுகிய இடத்தில் வேனை நிறுத்திப் பாதுகாப்பாக்குங்கள், பிறகு அதன் பின்னால் நடந்து ரிவர்ஸ் பாதையைப் பாருங்கள். இந்தச் சூழலில் பயிற்றுநர் கட்டாயமாக்காவிட்டால் இந்தச் சோதனை விருப்பத்திற்குரியது. மக்களையும் போக்குவரத்தையும் விலக்கி வையுங்கள்.",
+"You parked in the practice bay. Open the menu to choose another space.": "நீங்கள் பயிற்சி பேயில் நிறுத்தினீர்கள். வேறு இடம் தேர்ந்தெடுக்க மெனுவைத் திறங்கள்.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "இங்கே பயிற்றுநர் வாக்-அரவுண்ட் கட்டாயம் என்கிறார். ரிவர்ஸுக்கு முன் நிறுத்தி, இறங்கி வேனுக்குப் பின்னால் பாருங்கள்.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "ரிவர்ஸைத் தேர்ந்தெடுத்து குறித்த பேயில் பின்னால் செல்லுங்கள். நேராக ஆனதும் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்."
 },
 "templates": [
 [
@@ -5338,6 +5366,18 @@ window.OTR_I18N.ta = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "கேபினில் ஏறும் முன் சரக்கை மூடுங்கள். சீட்பெல்ட்டுக்கு {0}, பார்க்கிங் பிரேக்குக்கு {1} அழுத்துங்கள். நகரும் அல்லது திரும்பும் முன் உண்மையான கண்ணாடியை ஒரு கணம் பாருங்கள். விசைப்பலகையால் தேர்ந்தெடுக்க {2} அழுத்துங்கள். வேகப்படுத்த/பிரேக் போட {3}/{4}, திருப்ப {5}/{6} பயன்படுத்துங்கள். ஹேண்ட்ஹெல்டைப் பயன்படுத்தும் அல்லது இறங்கும் முன் நின்று பார்க்கிங் பிரேக் போடுங்கள்."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"நில்லுங்கள், ஷிஃப்டரில் R நிலையைப் பாருங்கள், {0} அழுத்துங்கள். ரியர் கேமரா தானாக ஆன் ஆகும். விசைப்பலகையில் அதன் திரையைப் பார்க்க {1} அழுத்துங்கள். வழிகாட்டிக் கோடுகள் ஸ்டீயரிங்குடன் வளையும், தூரப் பட்டைகள், சென்சார் பட்டைகள், எழுத்து அருகிலுள்ள தடைகளைக் காட்டும். நடக்கும் வேகத்தில் ரிவர்ஸ் செய்யுங்கள். குறுகிய இடத்தில் பயிற்றுநர் கட்டாயமாக்காவிட்டால் வாக்-அரவுண்ட் விருப்பத்திற்குரியது."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"ரியர் கேமரா ஆன். பின்னால் மிக அருகிலுள்ள தடை {0} மீட்டர் தொலைவில் உள்ளது."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"இந்தக் குறுகிய இடத்தில் பயிற்றுநர் வாக்-அரவுண்ட் கட்டாயம் என்கிறார். நிறுத்தி இறங்குங்கள். வேனுக்குப் பின்னால் ரிவர்ஸ் பாதையை நோக்கி நின்று, சோதனையைப் பதிவு செய்ய {0} அழுத்துங்கள். பிறகு கேமராவையும் கண்ணாடிகளையும் பயன்படுத்தி பேயில் ரிவர்ஸ் செய்யுங்கள்."
 ]
 ],
 "keep": [

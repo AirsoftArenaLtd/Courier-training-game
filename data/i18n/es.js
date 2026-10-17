@@ -3723,7 +3723,35 @@ window.OTR_I18N.es = {
 "no night runs": "sin rutas nocturnas",
 "no van damage": "sin daños en la furgoneta",
 "Workday, aided": "Jornada, con ayudas",
-"Workday": "Jornada"
+"Workday": "Jornada",
+"Reverse safely.": "Retrocede con seguridad.",
+"Park inside the practice bay and set the parking brake first.": "Estaciona dentro del espacio de práctica y pon primero el freno de mano.",
+"Practice reversing in the alley.": "Practica retroceder en el callejón.",
+"Practice reversing to the dock.": "Practica retroceder hasta el muelle.",
+"Practice reversing in the tight driveway.": "Practica retroceder en la entrada estrecha.",
+"Reversed at a safe speed without contact.": "Retrocediste a una velocidad segura sin contacto.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "Tocaste un obstáculo o superaste 5 mph al retroceder.",
+"Checked the tight reversing space on foot before backing.": "Revisaste a pie el espacio estrecho antes de retroceder.",
+"Reversed in a required tight space without checking it on foot.": "Retrocediste en un espacio estrecho obligatorio sin revisarlo a pie.",
+"Parked inside the practice bay and set the parking brake.": "Estacionaste dentro del espacio de práctica y pusiste el freno de mano.",
+"The rear camera switches on automatically in reverse.": "La cámara trasera se enciende sola al poner reversa.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "La cámara trasera está activa. Retrocede despacio y sigue mirando el camino.",
+"Stop. A rear obstacle is within 0.5 meters.": "Alto. Hay un obstáculo atrás a menos de 0.5 metros.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "La cámara trasera está activa. Los sensores traseros no detectan obstáculos a menos de seis metros.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "La cámara trasera está activa. El obstáculo trasero más cercano está a un metro.",
+"The parking sensors are sounding.": "Suenan los sensores de estacionamiento.",
+"Reverse into the marked bay and set the parking brake.": "Retrocede hasta el espacio marcado y pon el freno de mano.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "Pon la palanca en reversa, revisa la cámara y los espejos, y retrocede despacio hasta el espacio marcado. Al quedar alineado, detente y pon el freno de mano.",
+"Practice reversing safely.": "Practica retroceder con seguridad.",
+"Begin reversing practice.": "Empieza la práctica de reversa.",
+"Choose a reversing space.": "Elige un espacio para retroceder.",
+"Resume reversing practice.": "Reanuda la práctica de reversa.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "La práctica usa un punto de control aparte. Tu jornada y la lección de carga siguen guardadas.",
+"Use the cab camera and mirrors for this practice.": "Usa la cámara de la cabina y los espejos en esta práctica.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "En un espacio estrecho, estaciona y asegura la camioneta, luego camina detrás de ella y mira el camino de retroceso. Esta revisión es opcional salvo que el instructor la exija en este escenario. Mantén despejadas a las personas y el tráfico.",
+"You parked in the practice bay. Open the menu to choose another space.": "Estacionaste en el espacio de práctica. Abre el menú para elegir otro espacio.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "El instructor exige una vuelta de inspección aquí. Estaciona, bájate y mira detrás de la camioneta antes de retroceder.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Pon reversa y retrocede hasta el espacio marcado. Al quedar alineado, detente y pon el freno de mano."
 },
 "templates": [
 [
@@ -5349,6 +5377,18 @@ window.OTR_I18N.es = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "Cierra la carga antes de entrar en la cabina. Pulsa {0} para el cinturón y {1} para el freno de mano. Mira un espejo físico un momento antes de avanzar o girar. Pulsa {2} para seleccionarlo con el teclado. Usa {3}/{4} para acelerar o frenar y {5}/{6} para girar. Detente y pon el freno de mano antes de usar el terminal o bajar."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"Detente, mira la posición R en la palanca y pulsa {0}. La cámara trasera se enciende sola. Pulsa {1} para ver su pantalla con el teclado. Las guías se curvan con el volante, y las bandas de distancia, las barras de los sensores y el texto muestran los obstáculos cercanos. Retrocede a paso de peatón. La vuelta de inspección es opcional salvo que tu instructor la exija en un espacio estrecho."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"La cámara trasera está activa. El obstáculo trasero más cercano está a {0} metros."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"El instructor exige una vuelta de inspección en este espacio estrecho. Estaciona y bájate. Ponte detrás de la camioneta, mira hacia el camino de retroceso y pulsa {0} para registrar la revisión. Luego usa la cámara y los espejos para retroceder hasta el espacio."
 ]
 ],
 "keep": [

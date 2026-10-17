@@ -3713,7 +3713,35 @@ window.OTR_I18N.bn = {
 "no night runs": "রাতের ট্রিপ নেই",
 "no van damage": "ভ্যানের ক্ষতি নেই",
 "Workday, aided": "কর্মদিবস, সহায়তাসহ",
-"Workday": "কর্মদিবস"
+"Workday": "কর্মদিবস",
+"Reverse safely.": "নিরাপদে রিভার্স করুন।",
+"Park inside the practice bay and set the parking brake first.": "আগে প্র্যাকটিস বে-র ভেতরে পার্ক করুন এবং পার্কিং ব্রেক দিন।",
+"Practice reversing in the alley.": "গলিতে রিভার্স করার অনুশীলন করুন।",
+"Practice reversing to the dock.": "ডক পর্যন্ত রিভার্স করার অনুশীলন করুন।",
+"Practice reversing in the tight driveway.": "সরু ড্রাইভওয়েতে রিভার্স করার অনুশীলন করুন।",
+"Reversed at a safe speed without contact.": "নিরাপদ গতিতে, কিছুতে না লেগে রিভার্স করেছেন।",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "রিভার্স করার সময় বাধায় লেগেছে বা 5 mph ছাড়িয়েছে।",
+"Checked the tight reversing space on foot before backing.": "পিছোনোর আগে সরু জায়গাটি হেঁটে দেখে নিয়েছেন।",
+"Reversed in a required tight space without checking it on foot.": "বাধ্যতামূলক সরু জায়গায় হেঁটে না দেখেই রিভার্স করেছেন।",
+"Parked inside the practice bay and set the parking brake.": "প্র্যাকটিস বে-র ভেতরে পার্ক করে পার্কিং ব্রেক দিয়েছেন।",
+"The rear camera switches on automatically in reverse.": "রিভার্স গিয়ারে রিয়ার ক্যামেরা নিজে থেকে চালু হয়।",
+"The rear camera is live. Reverse slowly and keep watching the path.": "রিয়ার ক্যামেরা চালু। ধীরে রিভার্স করুন এবং পথের দিকে নজর রাখুন।",
+"Stop. A rear obstacle is within 0.5 meters.": "থামুন। পিছনে ০.৫ মিটারের মধ্যে বাধা আছে।",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "রিয়ার ক্যামেরা চালু। পিছনের সেন্সর ছয় মিটারের মধ্যে কোনো বাধা পায়নি।",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "রিয়ার ক্যামেরা চালু। পিছনের সবচেয়ে কাছের বাধা এক মিটার দূরে।",
+"The parking sensors are sounding.": "পার্কিং সেন্সর বাজছে।",
+"Reverse into the marked bay and set the parking brake.": "চিহ্নিত বে-তে রিভার্স করুন এবং পার্কিং ব্রেক দিন।",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "শিফটারে রিভার্স বেছে নিন, ক্যামেরা ও আয়না দেখুন, এবং চিহ্নিত বে-তে ধীরে রিভার্স করুন। সোজা হলে থামুন এবং পার্কিং ব্রেক দিন।",
+"Practice reversing safely.": "নিরাপদে রিভার্স করার অনুশীলন করুন।",
+"Begin reversing practice.": "রিভার্স অনুশীলন শুরু করুন।",
+"Choose a reversing space.": "রিভার্স করার জায়গা বেছে নিন।",
+"Resume reversing practice.": "রিভার্স অনুশীলন আবার শুরু করুন।",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "অনুশীলনে আলাদা চেকপয়েন্ট ব্যবহার হয়। আপনার কর্মদিবস ও কার্গো পাঠ সংরক্ষিত থাকে।",
+"Use the cab camera and mirrors for this practice.": "এই অনুশীলনে ক্যাব ক্যামেরা ও আয়না ব্যবহার করুন।",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "সরু জায়গায় ভ্যান পার্ক করে সুরক্ষিত করুন, তারপর পিছনে হেঁটে গিয়ে রিভার্সের পথ দেখুন। এই পরীক্ষা ঐচ্ছিক, তবে এই পরিস্থিতিতে প্রশিক্ষক চাইলে বাধ্যতামূলক। মানুষ ও যান চলাচল দূরে রাখুন।",
+"You parked in the practice bay. Open the menu to choose another space.": "আপনি প্র্যাকটিস বে-তে পার্ক করেছেন। অন্য জায়গা বাছতে মেনু খুলুন।",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "এখানে প্রশিক্ষক ওয়াক-অ্যারাউন্ড চান। রিভার্সের আগে পার্ক করুন, নেমে ভ্যানের পিছনে দেখুন।",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "রিভার্স বেছে নিয়ে চিহ্নিত বে-তে পিছোন। সোজা হলে থামুন এবং পার্কিং ব্রেক দিন।"
 },
 "templates": [
 [
@@ -5339,6 +5367,18 @@ window.OTR_I18N.bn = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "ক্যাবে ঢোকার আগে কার্গো বন্ধ করুন। সিটবেল্টের জন্য {0} এবং পার্কিং ব্রেকের জন্য {1} চাপুন। চলা বা বাঁক নেওয়ার আগে একটি আসল আয়না এক মুহূর্ত দেখুন। কীবোর্ডে বেছে নিতে {2} চাপুন। গতি বাড়াতে/ব্রেক করতে {3}/{4} এবং স্টিয়ার করতে {5}/{6} ব্যবহার করুন। হ্যান্ডহেল্ড ব্যবহার বা নামার আগে থামুন ও পার্কিং ব্রেক দিন।"
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"থামুন, শিফটারে R অবস্থান দেখুন এবং {0} চাপুন। রিয়ার ক্যামেরা নিজে থেকে চালু হয়। কিবোর্ডে এর স্ক্রিন দেখতে {1} চাপুন। গাইড লাইন স্টিয়ারিংয়ের সঙ্গে বাঁকে, আর দূরত্বের ব্যান্ড, সেন্সর বার ও লেখা কাছের বাধা দেখায়। হাঁটার গতিতে রিভার্স করুন। ওয়াক-অ্যারাউন্ড ঐচ্ছিক, তবে সরু জায়গায় প্রশিক্ষক চাইলে বাধ্যতামূলক।"
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"রিয়ার ক্যামেরা চালু। পিছনের সবচেয়ে কাছের বাধা {0} মিটার দূরে।"
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"এই সরু জায়গায় প্রশিক্ষক ওয়াক-অ্যারাউন্ড চান। পার্ক করে নামুন। ভ্যানের পিছনে রিভার্সের পথের দিকে মুখ করে দাঁড়ান এবং পরীক্ষা নথিভুক্ত করতে {0} চাপুন। তারপর ক্যামেরা ও আয়নার সাহায্যে বে-তে রিভার্স করুন।"
 ]
 ],
 "keep": [

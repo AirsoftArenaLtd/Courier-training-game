@@ -3712,7 +3712,35 @@ window.OTR_I18N.ml = {
 "no night runs": "രാത്രി ട്രിപ്പുകൾ ഇല്ല",
 "no van damage": "വാനിന് കേടുപാടില്ല",
 "Workday, aided": "ജോലിദിനം, സഹായത്തോടെ",
-"Workday": "ജോലിദിനം"
+"Workday": "ജോലിദിനം",
+"Reverse safely.": "സുരക്ഷിതമായി റിവേഴ്സ് ചെയ്യുക.",
+"Park inside the practice bay and set the parking brake first.": "ആദ്യം പ്രാക്ടീസ് ബേയ്ക്കുള്ളിൽ പാർക്ക് ചെയ്ത് പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Practice reversing in the alley.": "ഇടവഴിയിൽ റിവേഴ്സ് ചെയ്യാൻ പരിശീലിക്കുക.",
+"Practice reversing to the dock.": "ഡോക്ക് വരെ റിവേഴ്സ് ചെയ്യാൻ പരിശീലിക്കുക.",
+"Practice reversing in the tight driveway.": "ഇടുങ്ങിയ ഡ്രൈവ്‌വേയിൽ റിവേഴ്സ് ചെയ്യാൻ പരിശീലിക്കുക.",
+"Reversed at a safe speed without contact.": "സുരക്ഷിതമായ വേഗത്തിൽ, ഒന്നിലും തട്ടാതെ റിവേഴ്സ് ചെയ്തു.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "റിവേഴ്സ് ചെയ്യുമ്പോൾ തടസ്സത്തിൽ തട്ടി അല്ലെങ്കിൽ 5 mph കവിഞ്ഞു.",
+"Checked the tight reversing space on foot before backing.": "പിന്നോട്ടെടുക്കുംമുമ്പ് ഇടുങ്ങിയ സ്ഥലം നടന്നു നോക്കി.",
+"Reversed in a required tight space without checking it on foot.": "നിർബന്ധമായ ഇടുങ്ങിയ സ്ഥലത്ത് നടന്നു നോക്കാതെ റിവേഴ്സ് ചെയ്തു.",
+"Parked inside the practice bay and set the parking brake.": "പ്രാക്ടീസ് ബേയ്ക്കുള്ളിൽ പാർക്ക് ചെയ്ത് പാർക്കിംഗ് ബ്രേക്ക് ഇട്ടു.",
+"The rear camera switches on automatically in reverse.": "റിവേഴ്സിൽ റിയർ ക്യാമറ തനിയെ ഓണാകും.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "റിയർ ക്യാമറ ഓണാണ്. പതുക്കെ റിവേഴ്സ് ചെയ്യുക, വഴി നോക്കിക്കൊണ്ടിരിക്കുക.",
+"Stop. A rear obstacle is within 0.5 meters.": "നിർത്തുക. പിന്നിൽ 0.5 മീറ്ററിനുള്ളിൽ തടസ്സമുണ്ട്.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "റിയർ ക്യാമറ ഓണാണ്. പിന്നിലെ സെൻസറുകൾ ആറ് മീറ്ററിനുള്ളിൽ തടസ്സമൊന്നും കണ്ടെത്തിയില്ല.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "റിയർ ക്യാമറ ഓണാണ്. പിന്നിലെ ഏറ്റവും അടുത്ത തടസ്സം ഒരു മീറ്റർ അകലെയാണ്.",
+"The parking sensors are sounding.": "പാർക്കിംഗ് സെൻസറുകൾ ശബ്ദിക്കുന്നു.",
+"Reverse into the marked bay and set the parking brake.": "അടയാളപ്പെടുത്തിയ ബേയിലേക്ക് റിവേഴ്സ് ചെയ്ത് പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "ഷിഫ്റ്ററിൽ റിവേഴ്സ് തിരഞ്ഞെടുക്കുക, ക്യാമറയും കണ്ണാടികളും നോക്കുക, അടയാളപ്പെടുത്തിയ ബേയിലേക്ക് പതുക്കെ റിവേഴ്സ് ചെയ്യുക. നേരെയായാൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Practice reversing safely.": "സുരക്ഷിതമായി റിവേഴ്സ് ചെയ്യാൻ പരിശീലിക്കുക.",
+"Begin reversing practice.": "റിവേഴ്സ് പരിശീലനം തുടങ്ങുക.",
+"Choose a reversing space.": "റിവേഴ്സ് ചെയ്യാനുള്ള സ്ഥലം തിരഞ്ഞെടുക്കുക.",
+"Resume reversing practice.": "റിവേഴ്സ് പരിശീലനം തുടരുക.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "പരിശീലനം പ്രത്യേക ചെക്ക്പോയിന്റ് ഉപയോഗിക്കുന്നു. നിങ്ങളുടെ വർക്ക്ഡേയും കാർഗോ പാഠവും സേവ് ആയിരിക്കും.",
+"Use the cab camera and mirrors for this practice.": "ഈ പരിശീലനത്തിന് ക്യാബ് ക്യാമറയും കണ്ണാടികളും ഉപയോഗിക്കുക.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "ഇടുങ്ങിയ സ്ഥലത്ത് വാൻ പാർക്ക് ചെയ്ത് സുരക്ഷിതമാക്കുക, എന്നിട്ട് അതിന്റെ പിന്നിലേക്ക് നടന്ന് റിവേഴ്സ് വഴി നോക്കുക. ഈ സാഹചര്യത്തിൽ ട്രെയിനർ ആവശ്യപ്പെടുന്നില്ലെങ്കിൽ ഈ പരിശോധന ഓപ്ഷണലാണ്. ആളുകളെയും ട്രാഫിക്കിനെയും അകറ്റി നിർത്തുക.",
+"You parked in the practice bay. Open the menu to choose another space.": "നിങ്ങൾ പ്രാക്ടീസ് ബേയിൽ പാർക്ക് ചെയ്തു. മറ്റൊരു സ്ഥലം തിരഞ്ഞെടുക്കാൻ മെനു തുറക്കുക.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "ഇവിടെ ട്രെയിനർ വാക്ക്-എറൗണ്ട് ആവശ്യപ്പെടുന്നു. റിവേഴ്സിന് മുമ്പ് പാർക്ക് ചെയ്ത്, ഇറങ്ങി വാനിന് പിന്നിൽ നോക്കുക.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "റിവേഴ്സ് തിരഞ്ഞെടുത്ത് അടയാളപ്പെടുത്തിയ ബേയിലേക്ക് പിന്നോട്ടെടുക്കുക. നേരെയായാൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക."
 },
 "templates": [
 [
@@ -5338,6 +5366,18 @@ window.OTR_I18N.ml = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "ക്യാബിനിൽ കയറുന്നതിന് മുമ്പ് കാർഗോ അടയ്ക്കുക. സീറ്റ്ബെൽറ്റിന് {0}, പാർക്കിംഗ് ബ്രേക്കിന് {1} അമർത്തുക. നീങ്ങുന്നതിനോ തിരിയുന്നതിനോ മുമ്പ് യഥാർത്ഥ കണ്ണാടി ഒരു നിമിഷം നോക്കുക. കീബോർഡ് കൊണ്ട് തിരഞ്ഞെടുക്കാൻ {2} അമർത്തുക. വേഗത കൂട്ടാൻ/ബ്രേക്ക് ചെയ്യാൻ {3}/{4}, സ്റ്റിയർ ചെയ്യാൻ {5}/{6} ഉപയോഗിക്കുക. ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിക്കുന്നതിനോ ഇറങ്ങുന്നതിനോ മുമ്പ് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"നിർത്തുക, ഷിഫ്റ്ററിൽ R സ്ഥാനം നോക്കി {0} അമർത്തുക. റിയർ ക്യാമറ തനിയെ ഓണാകും. കീബോർഡിൽ അതിന്റെ സ്ക്രീൻ കാണാൻ {1} അമർത്തുക. ഗൈഡ് ലൈനുകൾ സ്റ്റിയറിംഗിനൊപ്പം വളയുന്നു, ദൂര ബാൻഡുകളും സെൻസർ ബാറുകളും എഴുത്തും അടുത്തുള്ള തടസ്സങ്ങൾ കാണിക്കുന്നു. നടക്കുന്ന വേഗത്തിൽ റിവേഴ്സ് ചെയ്യുക. ഇടുങ്ങിയ സ്ഥലത്ത് ട്രെയിനർ ആവശ്യപ്പെടുന്നില്ലെങ്കിൽ വാക്ക്-എറൗണ്ട് ഓപ്ഷണലാണ്."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"റിയർ ക്യാമറ ഓണാണ്. പിന്നിലെ ഏറ്റവും അടുത്ത തടസ്സം {0} മീറ്റർ അകലെയാണ്."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"ഈ ഇടുങ്ങിയ സ്ഥലത്ത് ട്രെയിനർ വാക്ക്-എറൗണ്ട് ആവശ്യപ്പെടുന്നു. പാർക്ക് ചെയ്ത് ഇറങ്ങുക. വാനിന് പിന്നിൽ റിവേഴ്സ് വഴിക്ക് അഭിമുഖമായി നിന്ന് പരിശോധന രേഖപ്പെടുത്താൻ {0} അമർത്തുക. പിന്നെ ക്യാമറയും കണ്ണാടികളും ഉപയോഗിച്ച് ബേയിലേക്ക് റിവേഴ്സ് ചെയ്യുക."
 ]
 ],
 "keep": [

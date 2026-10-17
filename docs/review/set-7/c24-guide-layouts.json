@@ -1,0 +1,142 @@
+{
+  "checks": 85,
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "guide": {
+        "phaserBytes": 2050832,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 19,
+        "left": 152,
+        "right": 1122,
+        "top": 170,
+        "bottom": 278,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2000998,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 19,
+        "left": 152,
+        "right": 1086,
+        "top": 170,
+        "bottom": 222,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 1937638,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 19,
+        "left": 152,
+        "right": 861,
+        "top": 170,
+        "bottom": 194,
+        "buttonsTop": 438
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "guide": {
+        "phaserBytes": 2356624,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 23,
+        "left": 152,
+        "right": 1091,
+        "top": 170,
+        "bottom": 326,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2341952,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 23,
+        "left": 152,
+        "right": 1112,
+        "top": 170,
+        "bottom": 262,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 2182843,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 23,
+        "left": 152,
+        "right": 1011,
+        "top": 170,
+        "bottom": 198,
+        "buttonsTop": 424
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "guide": {
+        "phaserBytes": 2229830,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 19,
+        "left": 152,
+        "right": 1122,
+        "top": 170,
+        "bottom": 278,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2165990,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 19,
+        "left": 152,
+        "right": 1086,
+        "top": 170,
+        "bottom": 222,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 2099334,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 19,
+        "left": 152,
+        "right": 861,
+        "top": 170,
+        "bottom": 194,
+        "buttonsTop": 438
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "guide": {
+        "phaserBytes": 2598203,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 23,
+        "left": 152,
+        "right": 1092,
+        "top": 170,
+        "bottom": 331,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2548304,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 23,
+        "left": 152,
+        "right": 1112,
+        "top": 170,
+        "bottom": 265,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 2373931,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 23,
+        "left": 152,
+        "right": 1011,
+        "top": 170,
+        "bottom": 199,
+        "buttonsTop": 422
+      }
+    }
+  ],
+  "errors": []
+}

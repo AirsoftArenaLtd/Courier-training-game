@@ -3713,7 +3713,35 @@ window.OTR_I18N.pa = {
 "no night runs": "ਰਾਤ ਦੇ ਗੇੜੇ ਨਹੀਂ",
 "no van damage": "ਵੈਨ ਨੂੰ ਨੁਕਸਾਨ ਨਹੀਂ",
 "Workday, aided": "ਕੰਮ ਦਾ ਦਿਨ, ਸਹਾਇਤਾ ਸਮੇਤ",
-"Workday": "ਕੰਮ ਦਾ ਦਿਨ"
+"Workday": "ਕੰਮ ਦਾ ਦਿਨ",
+"Reverse safely.": "ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰਿਵਰਸ ਕਰੋ।",
+"Park inside the practice bay and set the parking brake first.": "ਪਹਿਲਾਂ ਪ੍ਰੈਕਟਿਸ ਬੇ ਦੇ ਅੰਦਰ ਪਾਰਕ ਕਰੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"Practice reversing in the alley.": "ਗਲੀ ਵਿੱਚ ਰਿਵਰਸ ਕਰਨ ਦਾ ਅਭਿਆਸ ਕਰੋ।",
+"Practice reversing to the dock.": "ਡੌਕ ਤੱਕ ਰਿਵਰਸ ਕਰਨ ਦਾ ਅਭਿਆਸ ਕਰੋ।",
+"Practice reversing in the tight driveway.": "ਭੀੜੇ ਡਰਾਈਵਵੇਅ ਵਿੱਚ ਰਿਵਰਸ ਕਰਨ ਦਾ ਅਭਿਆਸ ਕਰੋ।",
+"Reversed at a safe speed without contact.": "ਸੁਰੱਖਿਅਤ ਰਫ਼ਤਾਰ ਨਾਲ, ਬਿਨਾਂ ਕਿਸੇ ਚੀਜ਼ ਨੂੰ ਛੂਹੇ ਰਿਵਰਸ ਕੀਤਾ।",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "ਰਿਵਰਸ ਕਰਦੇ ਸਮੇਂ ਰੁਕਾਵਟ ਨਾਲ ਲੱਗੇ ਜਾਂ 5 mph ਤੋਂ ਵੱਧ ਚੱਲੇ।",
+"Checked the tight reversing space on foot before backing.": "ਪਿੱਛੇ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ ਭੀੜੀ ਜਗ੍ਹਾ ਪੈਦਲ ਜਾ ਕੇ ਦੇਖੀ।",
+"Reversed in a required tight space without checking it on foot.": "ਲੋੜੀਂਦੀ ਭੀੜੀ ਜਗ੍ਹਾ ਵਿੱਚ ਪੈਦਲ ਦੇਖੇ ਬਿਨਾਂ ਰਿਵਰਸ ਕੀਤਾ।",
+"Parked inside the practice bay and set the parking brake.": "ਪ੍ਰੈਕਟਿਸ ਬੇ ਦੇ ਅੰਦਰ ਪਾਰਕ ਕਰਕੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਇਆ।",
+"The rear camera switches on automatically in reverse.": "ਰਿਵਰਸ ਵਿੱਚ ਰੀਅਰ ਕੈਮਰਾ ਆਪਣੇ-ਆਪ ਚਾਲੂ ਹੋ ਜਾਂਦਾ ਹੈ।",
+"The rear camera is live. Reverse slowly and keep watching the path.": "ਰੀਅਰ ਕੈਮਰਾ ਚਾਲੂ ਹੈ। ਹੌਲੀ ਰਿਵਰਸ ਕਰੋ ਅਤੇ ਰਸਤੇ ਉੱਤੇ ਨਜ਼ਰ ਰੱਖੋ।",
+"Stop. A rear obstacle is within 0.5 meters.": "ਰੁਕੋ। ਪਿੱਛੇ 0.5 ਮੀਟਰ ਦੇ ਅੰਦਰ ਰੁਕਾਵਟ ਹੈ।",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "ਰੀਅਰ ਕੈਮਰਾ ਚਾਲੂ ਹੈ। ਪਿਛਲੇ ਸੈਂਸਰਾਂ ਨੂੰ ਛੇ ਮੀਟਰ ਦੇ ਅੰਦਰ ਕੋਈ ਰੁਕਾਵਟ ਨਹੀਂ ਮਿਲੀ।",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "ਰੀਅਰ ਕੈਮਰਾ ਚਾਲੂ ਹੈ। ਪਿੱਛੇ ਦੀ ਸਭ ਤੋਂ ਨੇੜੇ ਦੀ ਰੁਕਾਵਟ ਇੱਕ ਮੀਟਰ ਦੂਰ ਹੈ।",
+"The parking sensors are sounding.": "ਪਾਰਕਿੰਗ ਸੈਂਸਰ ਵੱਜ ਰਹੇ ਹਨ।",
+"Reverse into the marked bay and set the parking brake.": "ਨਿਸ਼ਾਨ ਵਾਲੇ ਬੇ ਵਿੱਚ ਰਿਵਰਸ ਕਰੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "ਸ਼ਿਫ਼ਟਰ ਤੋਂ ਰਿਵਰਸ ਚੁਣੋ, ਕੈਮਰਾ ਅਤੇ ਸ਼ੀਸ਼ੇ ਦੇਖੋ, ਅਤੇ ਨਿਸ਼ਾਨ ਵਾਲੇ ਬੇ ਵਿੱਚ ਹੌਲੀ ਰਿਵਰਸ ਕਰੋ। ਸਿੱਧੇ ਹੁੰਦਿਆਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"Practice reversing safely.": "ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰਿਵਰਸ ਕਰਨ ਦਾ ਅਭਿਆਸ ਕਰੋ।",
+"Begin reversing practice.": "ਰਿਵਰਸ ਅਭਿਆਸ ਸ਼ੁਰੂ ਕਰੋ।",
+"Choose a reversing space.": "ਰਿਵਰਸ ਕਰਨ ਲਈ ਜਗ੍ਹਾ ਚੁਣੋ।",
+"Resume reversing practice.": "ਰਿਵਰਸ ਅਭਿਆਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ।",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "ਅਭਿਆਸ ਵੱਖਰਾ ਚੈੱਕਪੁਆਇੰਟ ਵਰਤਦਾ ਹੈ। ਤੁਹਾਡਾ ਵਰਕਡੇ ਅਤੇ ਕਾਰਗੋ ਪਾਠ ਸੁਰੱਖਿਅਤ ਰਹਿੰਦੇ ਹਨ।",
+"Use the cab camera and mirrors for this practice.": "ਇਸ ਅਭਿਆਸ ਲਈ ਕੈਬ ਕੈਮਰਾ ਅਤੇ ਸ਼ੀਸ਼ੇ ਵਰਤੋ।",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "ਭੀੜੀ ਜਗ੍ਹਾ ਵਿੱਚ ਵੈਨ ਪਾਰਕ ਕਰਕੇ ਸੁਰੱਖਿਅਤ ਕਰੋ, ਫਿਰ ਉਸ ਦੇ ਪਿੱਛੇ ਤੁਰ ਕੇ ਰਿਵਰਸ ਦੇ ਰਸਤੇ ਨੂੰ ਦੇਖੋ। ਇਹ ਜਾਂਚ ਵਿਕਲਪਿਕ ਹੈ, ਜਦੋਂ ਤੱਕ ਇਸ ਸਥਿਤੀ ਵਿੱਚ ਟ੍ਰੇਨਰ ਲਾਜ਼ਮੀ ਨਾ ਕਰੇ। ਲੋਕਾਂ ਅਤੇ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਦੂਰ ਰੱਖੋ।",
+"You parked in the practice bay. Open the menu to choose another space.": "ਤੁਸੀਂ ਪ੍ਰੈਕਟਿਸ ਬੇ ਵਿੱਚ ਪਾਰਕ ਕੀਤਾ। ਹੋਰ ਜਗ੍ਹਾ ਚੁਣਨ ਲਈ ਮੀਨੂ ਖੋਲ੍ਹੋ।",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "ਇੱਥੇ ਟ੍ਰੇਨਰ ਵਾਕ-ਅਰਾਊਂਡ ਲਾਜ਼ਮੀ ਕਰਦਾ ਹੈ। ਰਿਵਰਸ ਤੋਂ ਪਹਿਲਾਂ ਪਾਰਕ ਕਰੋ, ਉੱਤਰੋ ਅਤੇ ਵੈਨ ਦੇ ਪਿੱਛੇ ਦੇਖੋ।",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "ਰਿਵਰਸ ਚੁਣੋ ਅਤੇ ਨਿਸ਼ਾਨ ਵਾਲੇ ਬੇ ਵਿੱਚ ਪਿੱਛੇ ਜਾਓ। ਸਿੱਧੇ ਹੁੰਦਿਆਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।"
 },
 "templates": [
 [
@@ -5339,6 +5367,18 @@ window.OTR_I18N.pa = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "ਕੈਬ ਵਿੱਚ ਬੈਠਣ ਤੋਂ ਪਹਿਲਾਂ ਕਾਰਗੋ ਬੰਦ ਕਰੋ। ਸੀਟਬੈਲਟ ਲਈ {0} ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਈ {1} ਦਬਾਓ। ਤੁਰਨ ਜਾਂ ਮੁੜਨ ਤੋਂ ਪਹਿਲਾਂ ਅਸਲੀ ਸ਼ੀਸ਼ੇ ਨੂੰ ਇੱਕ ਪਲ ਦੇਖੋ। ਕੀਬੋਰਡ ਨਾਲ ਚੁਣਨ ਲਈ {2} ਦਬਾਓ। ਤੇਜ਼ ਕਰਨ/ਬ੍ਰੇਕ ਲਾਉਣ ਲਈ {3}/{4} ਅਤੇ ਸਟੀਅਰਿੰਗ ਲਈ {5}/{6} ਵਰਤੋ। ਹੈਂਡਹੈਲਡ ਵਰਤਣ ਜਾਂ ਉਤਰਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਾਓ।"
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"ਰੁਕੋ, ਸ਼ਿਫ਼ਟਰ ਉੱਤੇ R ਦੀ ਥਾਂ ਦੇਖੋ ਅਤੇ {0} ਦਬਾਓ। ਰੀਅਰ ਕੈਮਰਾ ਆਪਣੇ-ਆਪ ਚਾਲੂ ਹੋ ਜਾਂਦਾ ਹੈ। ਕੀਬੋਰਡ ਨਾਲ ਉਸ ਦੀ ਸਕ੍ਰੀਨ ਦੇਖਣ ਲਈ {1} ਦਬਾਓ। ਗਾਈਡ ਲਾਈਨਾਂ ਸਟੀਅਰਿੰਗ ਨਾਲ ਮੁੜਦੀਆਂ ਹਨ, ਅਤੇ ਦੂਰੀ ਦੀਆਂ ਪੱਟੀਆਂ, ਸੈਂਸਰ ਬਾਰ ਅਤੇ ਲਿਖਤ ਨੇੜਲੀਆਂ ਰੁਕਾਵਟਾਂ ਦਿਖਾਉਂਦੇ ਹਨ। ਤੁਰਨ ਦੀ ਰਫ਼ਤਾਰ ਨਾਲ ਰਿਵਰਸ ਕਰੋ। ਵਾਕ-ਅਰਾਊਂਡ ਵਿਕਲਪਿਕ ਹੈ, ਜਦੋਂ ਤੱਕ ਭੀੜੀ ਜਗ੍ਹਾ ਵਿੱਚ ਤੁਹਾਡਾ ਟ੍ਰੇਨਰ ਲਾਜ਼ਮੀ ਨਾ ਕਰੇ।"
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"ਰੀਅਰ ਕੈਮਰਾ ਚਾਲੂ ਹੈ। ਪਿੱਛੇ ਦੀ ਸਭ ਤੋਂ ਨੇੜੇ ਦੀ ਰੁਕਾਵਟ {0} ਮੀਟਰ ਦੂਰ ਹੈ।"
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"ਇਸ ਭੀੜੀ ਜਗ੍ਹਾ ਵਿੱਚ ਟ੍ਰੇਨਰ ਵਾਕ-ਅਰਾਊਂਡ ਲਾਜ਼ਮੀ ਕਰਦਾ ਹੈ। ਪਾਰਕ ਕਰਕੇ ਉੱਤਰੋ। ਵੈਨ ਦੇ ਪਿੱਛੇ ਰਿਵਰਸ ਦੇ ਰਸਤੇ ਵੱਲ ਮੂੰਹ ਕਰਕੇ ਖੜ੍ਹੇ ਹੋਵੋ ਅਤੇ ਜਾਂਚ ਦਰਜ ਕਰਨ ਲਈ {0} ਦਬਾਓ। ਫਿਰ ਕੈਮਰਾ ਅਤੇ ਸ਼ੀਸ਼ਿਆਂ ਨਾਲ ਬੇ ਵਿੱਚ ਰਿਵਰਸ ਕਰੋ।"
 ]
 ],
 "keep": [

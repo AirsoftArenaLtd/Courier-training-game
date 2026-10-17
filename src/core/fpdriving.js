@@ -2,7 +2,7 @@
 window.OTR = window.OTR || {};
 OTR.fpDriving = {
   configure(m) {
-    if(m.kind!=='campaign'||m.driving)return;
+    if(!['campaign','parking'].includes(m.kind)||m.driving)return;
     m.driving={mirrorDone:false,mirrorCount:0,followingSeen:false,followingFailed:false,closeTime:0,
       goalAt:-100,goalX:0,goalZ:0,goalYaw:0,goalClear:false,reverseActive:false,reverseSafe:false,reverseCount:0,
       bus:{state:'waiting',x:0,z:0,yaw:0,clock:0,hold:0,passed:false},
@@ -24,14 +24,15 @@ OTR.fpDriving = {
     this.syncActor(m.driving.bus,m._driveSolids.bus,2.4,7.6);
     this.syncActor(m.driving.siren,m._driveSolids.siren,1.45,4);
   },
-  fire(m,type,key,ok,text) {
+  fire(m,type,key,ok,text,extra) {
     const id=`driver:${type}:${key}`;if(m.events[id])return;
     m.log(id,'driving',ok?'good':'needs',text);
-    if(OTR.workday)OTR.workday.report(type,{key,ok,stop:m.phase==='route'?m.activeStop+1:undefined,
+    if(OTR.workday&&m.kind!=='parking')OTR.workday.report(type,{key,ok,stop:m.phase==='route'?m.activeStop+1:undefined,...extra,
       where:{x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921}});
   },
   endLeg(m) {
     const d=m.driving;if(!d)return;
+    if(OTR.fpRear)OTR.fpRear.finish(m);
     if(d.followingSeen&&!d.followingFailed)this.fire(m,'drive.following',m.leg,true,'Kept a three-second following gap on this leg.');
     d.mirrorDone=false;d.followingSeen=false;d.followingFailed=false;d.closeTime=0;
     d.reverseActive=false;d.reverseSafe=false;d.goalAt=-100;d.goalClear=false;if(d.mirrorTurn)d.mirrorTurn[0]=0;
@@ -85,6 +86,7 @@ OTR.fpDriving = {
   },
   tick(m,dt,old) {
     const d=m.driving,v=m.van,F=OTR.fp;if(!d)return;
+    if(OTR.fpRear)OTR.fpRear.tick(m,dt,old||v);
     if(m.mode==='cab'){
       if(Math.abs(v.speed)<.15&&(v.hand||v.gear===2))d.mirrorDone=false;
       if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');}
@@ -100,13 +102,8 @@ OTR.fpDriving = {
           if(d.closeTime>=0.5&&!d.followingFailed){d.followingFailed=true;this.fire(m,'drive.following',m.leg,false,'Followed traffic with less than a three-second gap.');}
         }else d.closeTime=0;
       }else d.closeTime=0;
-      if(v.gear>=0&&v.speed>=0){d.reverseActive=false;d.reverseSafe=false;}
-      if(v.speed< -0.3&&!d.reverseActive){
-        d.reverseActive=true;d.reverseCount++;
-        const ok=d.goalClear&&m.elapsed-d.goalAt>=0&&m.elapsed-d.goalAt<60&&Math.hypot(v.x-d.goalX,v.z-d.goalZ)<2&&Math.abs(v.yaw-d.goalYaw)<0.2;
-        d.reverseSafe=ok;this.fire(m,'drive.backing',d.reverseCount,ok,ok?'Got out and checked the reversing path before backing.':'Reversed without a current clear-path check.');d.goalAt=-100;
-      }
     }
+    if(m.kind==='parking')return;
     const b=d.bus,e=d.siren;
     if(b.state==='waiting'&&m.mode==='cab'&&v.speed>1.5&&m.departed&&m.phase==='route'&&Math.hypot(v.x-4,v.z-8)>18){
       const yaw=Math.round(v.yaw/(Math.PI/2))*Math.PI/2,x=v.x+Math.sin(yaw)*25,z=v.z-Math.cos(yaw)*25;
@@ -157,14 +154,14 @@ OTR.fpDriving = {
     const b=d.bus,ahead=(b.x-m.van.x)*Math.sin(b.yaw)-(b.z-m.van.z)*Math.cos(b.yaw),side=(m.van.x-b.x)*Math.cos(b.yaw)+(m.van.z-b.z)*Math.sin(b.yaw);
     if(b.state==='flashing'&&ahead>0&&ahead<40&&Math.abs(side)<6)return 'The school bus has flashing red lights. Stop before the bus and wait until the lights go off.';
     if(m.van.gear<0){
-      if(d.reverseActive&&d.reverseSafe)return 'Reverse slowly and keep watching the path.';
-      if(!d.goalClear||m.elapsed-d.goalAt>60)return 'Stop and get out to look before backing. Stand behind the van, face the reversing path and press G.';
+      return OTR.fpRear?OTR.fpRear.hint(m):'Reverse slowly and keep watching the path.';
     }
     return '';
   },
   valid(m,d,elapsed) {
     if(!d||!['mirrorDone','followingSeen','followingFailed','goalClear','reverseActive','reverseSafe'].every(k=>typeof d[k]==='boolean'))return false;
     if(OTR.fpMirrors&&!OTR.fpMirrors.validTurn(d.mirrorTurn,elapsed))return false;
+    if(OTR.fpRear&&!OTR.fpRear.valid(d.backing,elapsed))return false;
     if(!['reverseCount','mirrorCount'].every(k=>Number.isSafeInteger(d[k])&&d[k]>=0))return false;
     if(!['closeTime','goalAt','goalX','goalZ','goalYaw'].every(k=>Number.isFinite(d[k]))||d.goalAt>elapsed)return false;
     for(const name of ['bus','siren']){

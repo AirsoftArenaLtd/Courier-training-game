@@ -22,7 +22,7 @@ OTR.fpMission = {
     seed = (Number(seed) >>> 0) || 1;
     const variant = seed % 3;
     const m = {
-      version: M.VERSION, kind: kind === 'practice' ? 'practice' : 'campaign', seed,
+      version: M.VERSION, kind: kind === 'parking' ? 'parking' : kind === 'practice' ? 'practice' : 'campaign', seed,
       briefKey: 'brief:' + seed,
       phase: 'prepare', mode: 'walk', paused: true, elapsed: 0, revision: 0,
       player: { x: -9, z: 10, yaw: 0, pitch: 0 },
@@ -56,7 +56,7 @@ OTR.fpMission = {
         this.report(id, skill, outcome);
       },
       report(id, skill, outcome) {
-        if (!OTR.workday) return;
+        if (!OTR.workday || this.kind==='parking') return;
         // Map only accepted HUD outcomes, so repeated driving ticks allocate nothing here.
         // Keep legacy HUD/save ids (tyres, pavement) separate from the report vocabulary.
         const [event, key, stop] = id.split(':');
@@ -342,6 +342,7 @@ OTR.fpMission = {
         this.log('returned:' + p.id, 'returns', 'good', 'Scanned the undelivered parcel back into the depot.'); this.touch(); return 'Return recorded.';
       },
       finish() {
+        if(this.kind==='parking')return this.parking.done?'':'Park inside the practice bay and set the parking brake first.';
         if (!this.near('dispatch') || this.mode !== 'walk') return 'Return to the dispatch desk.';
         if (this.kind === 'practice') {
           if (!this.retrievals || this.heldId || !this.secured || this.parcels.some(p => !p.location.startsWith('slot'))) return 'Retrieve the requested parcel, put it back and secure the load before finishing.';
@@ -369,6 +370,7 @@ OTR.fpMission = {
       },
       tick(input, dt) {
         this.elapsed += dt;
+        this._rearContact=false;
         if(OTR.fpMirrors)OTR.fpMirrors.tick(this,dt);
         if (this.kind === 'campaign') this.tickTraffic(dt);
         if(this.loadout)OTR.fpLoadout.findLater(this);
@@ -401,7 +403,8 @@ OTR.fpMission = {
         if (this.town) OTR.fpRoute.tick(this, old);
         this.tickCrossing(dt, old);
         const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w: 1.8, d: 3.6 }));
-        if (hitCar) { v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
+        if (hitCar) { this._rearContact=true;v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
+        if(this._rearContact&&OTR.fpRear&&this.driving)OTR.fpRear.tick(this,0,old);
         if (!hitCar && Math.abs(old.speed) > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
       },
       tickTraffic(dt) {
@@ -427,6 +430,7 @@ OTR.fpMission = {
         if (v.z > h.z+7 && Math.abs(v.speed) < 3) h.early = true;
         if (h.clock > 2) { h.state = 'crossing'; h.x = Math.min(7, h.x + 1.1 * dt); }
         if (F.vanBox(v, { x: h.x, z: h.z, w: 0.55, d: 0.55 })) {
+          this._rearContact=true;
           v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true;
           this.log('pedestrian', 'safety', 'needs', 'Pedestrian conflict: the vehicle was stopped. Review the approach and yielding.');
         }
@@ -449,6 +453,7 @@ OTR.fpMission = {
         if(this.routeDay)fields.push('routeDay');
         if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
+        if(this.parking)fields.push('parking');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -456,16 +461,18 @@ OTR.fpMission = {
     m.parcels = m.stops.map(s => ({ id: 'parcel' + s.id, stop: s.id, address: s.address,
       tracking: routePlan ? routePlan.route[s.id].stop.packages[0].tracking : 'OTR-' + (10000 + seed % 80000) + '-' + (s.id + 1), weight: routePlan ? routePlan.route[s.id].stop.packages[0].weight : [4, 7, 3][s.id],
       location: 'depot', zone: null, scanned: false, stopScanned: false, loaded: false, returnRequired: false }));
+    if(m.kind==='parking')OTR.fpRear.setupPractice(m);
     return m;
   },
   restore(raw) {
     try {
-      if (!raw || raw.version !== this.VERSION || !['campaign','practice'].includes(raw.kind)) return null;
+      if (!raw || raw.version !== this.VERSION || !['campaign','practice','parking'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
       if(OTR.fpLater&&OTR.fpLater.enabled(m)&&(!data.routeDay||!data.doorsteps))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
-      if(data.driving){if(data.kind!=='campaign')return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
+      if(data.driving){if(!['campaign','parking'].includes(data.kind))return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
+      if(data.kind==='parking'&&(!data.parking||typeof data.parking.done!=='boolean'||data.routePlan||data.loadout||data.routeDay||data.doorsteps))return null;
       if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
       if (data.briefing === undefined) data.briefing = null;
       if (data.briefing !== null && (!Number.isSafeInteger(data.briefing.day) || data.briefing.day < 1 ||
@@ -534,14 +541,14 @@ OTR.fpMission = {
 /* Local prototype checkpoints are deliberately separate from course/LMS records. */
 OTR.fpStore = {
   key() { return (OTR.save ? OTR.save.localKey() : 'otr_save_v1') + '_firstperson_v2'; },
-  empty() { return { version: 2, sequence: 0, welcomed: false, campaign: null, practice: null, last: null, guidance:{intro:false,seen:[]} }; },
+  empty() { return { version: 2, sequence: 0, welcomed: false, campaign: null, practice: null, parking:null, last: null, guidance:{intro:false,seen:[]} }; },
   read() {
     try {
       const data = JSON.parse(window.localStorage.getItem(this.key()));
       if (!data || data.version !== 2) return this.empty();
       const out = this.empty(); out.sequence = Number.isSafeInteger(data.sequence) && data.sequence >= 0 ? data.sequence : 0; out.welcomed = !!data.welcomed;
       if(data.guidance&&typeof data.guidance.intro==='boolean'&&Array.isArray(data.guidance.seen))out.guidance={intro:data.guidance.intro,seen:[...new Set(data.guidance.seen.filter(k=>typeof k==='string'&&/^[a-z]{1,20}$/.test(k)))].slice(0,24)};
-      ['campaign','practice'].forEach(k => { const m = OTR.fpMission.restore(data[k]); out[k] = m && m.kind === k ? m.snapshot() : null; });
+      ['campaign','practice','parking'].forEach(k => { const m = OTR.fpMission.restore(data[k]); out[k] = m && m.kind === k ? m.snapshot() : null; });
       const last = data.last;
       out.last = last && ['campaign','practice'].includes(last.kind) && Number.isFinite(last.seed) &&
         Number.isFinite(last.elapsed) && last.elapsed >= 0 && OTR.fpMission.validLogs(last.logs) ? last : null; return out;

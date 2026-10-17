@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
@@ -114,18 +114,18 @@ test('low graphics stays within the complete-frame geometry budget at every stop
  };
  for(const loaded of [false,true]){
   for(const p of m.parcels)p.location=loaded?'slot'+(p.anomaly?5:p.stop):'depot';
-  for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews]:['steady'])){
-   Object.assign(m.van,s.park);m.van.look=0;m.player.pitch=0;m.elapsed=0;
+  for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews,...(process.env.QA_REAR==='1'?['reverse','cab-camera']:[])]:['steady'])){
+   Object.assign(m.van,s.park);m.van.look=0;m.player.pitch=0;m.elapsed=0;m.van.gear=pose==='reverse'||pose==='cab-camera'?-1:1;
    if(process.env.QA_CAMERA==='1'){
     const turning=pose==='turn'||pose==='turnleft',side=pose==='turnleft'?-1:1;
-    m.driveAssist=0;m.van.speed=turning?8:pose==='brake'?4:0;m.van.steer=turning?side*.16:0;
+    m.driveAssist=0;m.van.speed=turning?8:pose==='brake'?4:pose==='reverse'?-2:0;m.van.steer=turning?side*.16:0;
     c.OTR.fp.suspension(m,1,pose==='brake'?-6:0,turning?side*4:0);m.motion.pitch=pose==='brake'?-.035:0;m.motion.roll=turning?side*.025:0;art.resetCamera();
    }
    for(const [name,z] of [['bus',-18],['siren',14]]){const p=c.OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}
    art.sync(m,null,'route');
    if(pose.startsWith('cab-')||pose.startsWith('mirror-')){const at=art.interactions.find(o=>o.userData.interaction===pose).getWorldPosition(new THREE.Vector3()),eye=camera.position;m.van.look=Math.atan2(at.x-eye.x,-(at.z-eye.z))-m.van.yaw;m.player.pitch=Math.atan2(eye.y-at.y,Math.hypot(at.x-eye.x,at.z-eye.z));art.sync(m,null,'route');}
    const main=count(camera);
-   for(const reflection of (process.env.QA_MIRRORS==='1'?[0,1,2]:[0])){
+   for(const reflection of (process.env.QA_REAR==='1'?[0,1,2,3]:process.env.QA_MIRRORS==='1'?[0,1,2]:[0])){
     scene.view.mirror.before(reflection);const mirror=count(scene.view.mirror.camera);scene.view.mirror.after();
     const total={calls:main.calls+mirror.calls+1,triangles:main.triangles+mirror.triangles+2};
     records.push({day,variant,stop:s.id,loaded,pose,reflection,...total});

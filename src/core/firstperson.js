@@ -28,6 +28,7 @@ OTR.fp = {
   applyDriveRules(m) {
     if(!m||!OTR.academy||!OTR.academy.workdayRules)return;
     const day=m.routePlan?m.routePlan.day:m.briefing?m.briefing.day:1,rules=OTR.academy.workdayRules(day);
+    m.workdayRules={...rules};
     if(rules.assists==='full')m.driveAssist=1;else if(rules.assists==='light')m.driveAssist=.5;else if(rules.assists==='off')m.driveAssist=0;
   },
   payload(m) {
