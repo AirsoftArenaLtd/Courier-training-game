@@ -91,6 +91,13 @@ test('B-22: the day statement names its critical mistakes, type and label; older
   assert.equal(X.statementsFor(trainee, rec, 'https://h', {})[0].id, X.statementsFor(trainee, day(), 'https://h', {})[0].id);
 });
 
+test('B-21: the day statement says which aids were on (null for a day saved before)', () => {
+  const ext = (rec) => X.statementsFor(trainee, rec, 'https://h', {})[0].result.extensions['https://ontheroute.example/xapi/extensions/aids'];
+  assert.deepEqual(ext(day({ aids: 'lfr10' })), { assists: 'light', satnav: 'full', walkaround: 'required', night: true, damage: false });
+  assert.equal(ext(day()), null);
+  assert.equal(ext(day({ aids: 'q' })), null);
+});
+
 test('a finished day is posted once, with the right headers, and never twice', async () => {
   reset();
   const x = X.create({ endpoint: endpoint(), auth: 'Basic dXNlcjpwYXNz', outbox: path.join(DATA, 'o1.json') });

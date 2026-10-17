@@ -55,6 +55,19 @@ function criticalMistakes(rec) {
 }
 
 /**
+ * Which help the trainee had that day (B-21), from the record's five letters (src/core/workday.js, AIDS): driving assists,
+ * sat nav, walk-round rule, night runs, van damage. null for a day saved before aids were kept.
+ */
+function aids(code) {
+  const T = [['assists', { f: 'full', l: 'light', o: 'off' }], ['satnav', { f: 'full', l: 'line', o: 'off' }], ['walkaround', { o: 'optional', r: 'required' }],
+    ['night', { 1: true, 0: false }], ['damage', { 1: true, 0: false }]];
+  if (typeof code !== 'string' || code.length !== T.length) return null;
+  const out = {};
+  for (let i = 0; i < T.length; i++) { if (!(code[i] in T[i][1])) return null; out[T[i][0]] = T[i][1][code[i]]; }
+  return out;
+}
+
+/**
  * The statements for one finished workday record (progress.workday.last). `passMarks` is { safety, efficiency, service }
  * stars needed. Pure: no clock, no network.
  */
@@ -74,7 +87,7 @@ function statementsFor(trainee, rec, homepage, passMarks) {
       completion: true, success: passed, duration: duration(rec.seconds),
       extensions: { [EXT + 'stars']: { safety: stars.safety || 0, efficiency: stars.efficiency || 0, service: stars.service || 0 },
         [EXT + 'criticalErrors']: (rec.criticals || []).length, [EXT + 'criticalMistakes']: criticalMistakes(rec),
-        [EXT + 'delivered']: rec.delivered || 0, [EXT + 'points']: rec.score || 0 }
+        [EXT + 'delivered']: rec.delivered || 0, [EXT + 'points']: rec.score || 0, [EXT + 'aids']: aids(rec.aids) }
     }
   }];
   (rec.stops || []).forEach(s => {

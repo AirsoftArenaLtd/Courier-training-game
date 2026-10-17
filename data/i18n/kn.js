@@ -3701,7 +3701,18 @@ window.OTR_I18N.kn = {
 "road sign": "ರಸ್ತೆ ಚಿಹ್ನೆ",
 "damage to the van": "ವ್ಯಾನ್‌ಗೆ ಹಾನಿ",
 "low bridge or clearance": "ಕೆಳಮಟ್ಟದ ಸೇತುವೆ ಅಥವಾ ಎತ್ತರದ ಮಿತಿ",
-"load shifted": "ಸರಕು ಜರುಗಿದೆ"
+"load shifted": "ಸರಕು ಜರುಗಿದೆ",
+"full driving assists": "ಸಂಪೂರ್ಣ ಡ್ರೈವಿಂಗ್ ಸಹಾಯ",
+"light driving assists": "ಹಗುರ ಡ್ರೈವಿಂಗ್ ಸಹಾಯ",
+"no driving assists": "ಡ್ರೈವಿಂಗ್ ಸಹಾಯ ಇಲ್ಲ",
+"turn-by-turn sat nav": "ತಿರುವು-ತಿರುವಿನ ಸ್ಯಾಟ್ ನ್ಯಾವ್",
+"sat nav route line only": "ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಮಾರ್ಗರೇಖೆ ಮಾತ್ರ",
+"no sat nav": "ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಇಲ್ಲ",
+"walk-round required before reversing": "ರಿವರ್ಸ್ ಮಾಡುವ ಮೊದಲು ವ್ಯಾನ್ ಸುತ್ತ ನಡೆದು ನೋಡುವುದು ಕಡ್ಡಾಯ",
+"no night runs": "ರಾತ್ರಿ ಟ್ರಿಪ್ ಇಲ್ಲ",
+"no van damage": "ವ್ಯಾನ್‌ಗೆ ಹಾನಿ ಇಲ್ಲ",
+"Workday, aided": "ಕೆಲಸದ ದಿನ, ಸಹಾಯದೊಂದಿಗೆ",
+"Workday": "ಕೆಲಸದ ದಿನ"
 },
 "templates": [
 [

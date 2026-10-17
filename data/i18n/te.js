@@ -3701,7 +3701,18 @@ window.OTR_I18N.te = {
 "road sign": "రహదారి సూచిక",
 "damage to the van": "వ్యాన్‌కు నష్టం",
 "low bridge or clearance": "తక్కువ ఎత్తు వంతెన లేదా ఎత్తు పరిమితి",
-"load shifted": "సరుకు జరిగింది"
+"load shifted": "సరుకు జరిగింది",
+"full driving assists": "పూర్తి డ్రైవింగ్ సహాయాలు",
+"light driving assists": "తేలికపాటి డ్రైవింగ్ సహాయాలు",
+"no driving assists": "డ్రైవింగ్ సహాయాలు లేవు",
+"turn-by-turn sat nav": "మలుపు-మలుపు నావిగేషన్",
+"sat nav route line only": "నావిగేషన్ రూట్ లైన్ మాత్రమే",
+"no sat nav": "నావిగేషన్ లేదు",
+"walk-round required before reversing": "రివర్స్ చేసే ముందు వ్యాన్ చుట్టూ నడిచి చూడాలి",
+"no night runs": "రాత్రి ట్రిప్పులు లేవు",
+"no van damage": "వ్యాన్‌కు నష్టం లేదు",
+"Workday, aided": "పని దినం, సహాయాలతో",
+"Workday": "పని దినం"
 },
 "templates": [
 [

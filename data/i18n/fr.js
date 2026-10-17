@@ -3696,7 +3696,18 @@ window.OTR_I18N.fr = {
 "road sign": "panneau de signalisation",
 "damage to the van": "dommages au véhicule",
 "low bridge or clearance": "pont bas ou hauteur limitée",
-"load shifted": "chargement déplacé"
+"load shifted": "chargement déplacé",
+"full driving assists": "aides à la conduite complètes",
+"light driving assists": "aides à la conduite légères",
+"no driving assists": "sans aides à la conduite",
+"turn-by-turn sat nav": "GPS guidage pas à pas",
+"sat nav route line only": "GPS avec tracé de l'itinéraire seul",
+"no sat nav": "sans GPS",
+"walk-round required before reversing": "tour du véhicule obligatoire avant la marche arrière",
+"no night runs": "sans tournées de nuit",
+"no van damage": "aucun dommage au véhicule",
+"Workday, aided": "Journée, avec aides",
+"Workday": "Journée"
 },
 "templates": [
 [

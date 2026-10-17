@@ -3701,7 +3701,18 @@ window.OTR_I18N.ml = {
 "road sign": "റോഡ് അടയാളം",
 "damage to the van": "വാനിന് കേടുപാട്",
 "low bridge or clearance": "താഴ്ന്ന പാലം അല്ലെങ്കിൽ ഉയരപരിധി",
-"load shifted": "ചരക്ക് നീങ്ങി"
+"load shifted": "ചരക്ക് നീങ്ങി",
+"full driving assists": "പൂർണ്ണ ഡ്രൈവിംഗ് സഹായം",
+"light driving assists": "ലഘു ഡ്രൈവിംഗ് സഹായം",
+"no driving assists": "ഡ്രൈവിംഗ് സഹായം ഇല്ല",
+"turn-by-turn sat nav": "ഓരോ തിരിവിലും സാറ്റ് നാവ് നിർദേശം",
+"sat nav route line only": "സാറ്റ് നാവ് റൂട്ട് ലൈൻ മാത്രം",
+"no sat nav": "സാറ്റ് നാവ് ഇല്ല",
+"walk-round required before reversing": "റിവേഴ്സ് എടുക്കുംമുമ്പ് വാനിനു ചുറ്റും നടന്നു നോക്കണം",
+"no night runs": "രാത്രി ട്രിപ്പുകൾ ഇല്ല",
+"no van damage": "വാനിന് കേടുപാടില്ല",
+"Workday, aided": "ജോലിദിനം, സഹായത്തോടെ",
+"Workday": "ജോലിദിനം"
 },
 "templates": [
 [

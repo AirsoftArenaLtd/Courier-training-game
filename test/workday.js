@@ -278,3 +278,33 @@ test('A-26: the cab, sign, night and damage events reach the debrief, the drive 
   rec.criticalTypes.forEach((t, i) => assert.equal(rec.criticals[i], E[t].fail || E[t].label, t));
   assert.ok(rec.criticalTypes.includes('trip.damage-report') && rec.criticalTypes.includes('drive.sign-noentry'));
 });
+
+test('B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without', () => {
+  const real = OTR.academy;
+  // the trainer's rules as the academy gives them: assists full on day 1, off from day 4 (the default "fade by day")
+  OTR.academy = { workdayRules: (d) => ({ assists: d === 1 ? 'full' : d <= 3 ? 'light' : 'off', satnav: d <= 3 ? 'full' : 'line', walkaround: 'optional', night: true, damage: d < 4 }) };
+  try {
+    fresh(); W.start(null);
+    assert.equal(W.current.aids, 'ffo11', 'day 1: full assists, turn-by-turn, walk-round optional, night and damage on');
+    W.report('brief.read');
+    const first = W.finish(null, { stops: [] });
+    assert.equal(first.aids, 'ffo11');
+    assert.ok(W.aided(first.aids));
+    assert.match(W.resultsData(first, { prevBest: {}, firstPlay: true }).result.summary, /full driving assists · turn-by-turn sat nav$/);
+    assert.doesNotMatch(W.summaryLine(first), /assists/, 'the debrief\'s short line stays short');
+    assert.equal(OTR.save.data.history.slice(-1)[0].aids, 'ffo11', 'the trainer\'s record has it');
+    assert.equal(OTR.save.data.route.history.slice(-1)[0].aids, 'ffo11');
+
+    OTR.save.data.route.days = 3;                                  // the fourth workday: the aids have faded
+    W.start(null); W.report('brief.read');
+    const fourth = W.finish(null, { stops: [] });
+    assert.equal(fourth.aids, 'olo10');
+    assert.ok(!W.aided(fourth.aids), 'no driving assists: not an aided day');
+    assert.equal(JSON.stringify(W.aidsWords(fourth.aids)), '["no driving assists","sat nav route line only","no van damage"]');
+  } finally { OTR.academy = real; }
+  // round trip, a damaged code and a day saved before aids were kept
+  assert.equal(JSON.stringify(W.aidsRules('lfr10')), '{"assists":"light","satnav":"full","walkaround":"required","night":true,"damage":false}');
+  assert.equal(W.aidsCode(W.aidsRules('lfr10')), 'lfr10');
+  assert.equal(W.aidsRules('xx'), null); assert.equal(W.aidsRules('zfo11'), null);
+  assert.equal(W.aidsWords(undefined).length, 0); assert.equal(W.aided(undefined), false);
+});

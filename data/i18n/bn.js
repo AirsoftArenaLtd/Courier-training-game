@@ -3702,7 +3702,18 @@ window.OTR_I18N.bn = {
 "road sign": "রাস্তার চিহ্ন",
 "damage to the van": "ভ্যানের ক্ষতি",
 "low bridge or clearance": "নিচু সেতু বা উচ্চতার সীমা",
-"load shifted": "মাল সরে গেছে"
+"load shifted": "মাল সরে গেছে",
+"full driving assists": "পূর্ণ ড্রাইভিং সহায়তা",
+"light driving assists": "হালকা ড্রাইভিং সহায়তা",
+"no driving assists": "ড্রাইভিং সহায়তা নেই",
+"turn-by-turn sat nav": "ধাপে ধাপে জিপিএস নির্দেশনা",
+"sat nav route line only": "শুধু জিপিএস রুট লাইন",
+"no sat nav": "জিপিএস নেই",
+"walk-round required before reversing": "পিছোনোর আগে গাড়ির চারপাশ ঘুরে দেখা বাধ্যতামূলক",
+"no night runs": "রাতের ট্রিপ নেই",
+"no van damage": "ভ্যানের ক্ষতি নেই",
+"Workday, aided": "কর্মদিবস, সহায়তাসহ",
+"Workday": "কর্মদিবস"
 },
 "templates": [
 [

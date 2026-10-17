@@ -151,7 +151,9 @@ class RecordScene extends Phaser.Scene {
       const sc = OTR.registry.get(h.id);
       const cats = sc ? OTR.scoring.ordered(sc.categories) : OTR.scoring.CATS;
       this.body.add(OTR.txt(this, 56, y, OTR.record.date(h.at), 14, OTR_DATA.theme.css('inkSoft'), { ox: 0, bold: false }));
-      const t = OTR.txt(this, 200, y, OTR.record.runTitle(h.id), 14, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
+      // a workday played with driving assists on says so, so a trainer can tell it from one without (B-21)
+      const aided = h.kind === 'workday' && OTR.workday && OTR.workday.aided(h.aids);
+      const t = OTR.txt(this, 200, y, aided ? 'Workday, aided' : OTR.record.runTitle(h.id), 14, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
       if (t.width > 250) t.setScale(250 / t.width);
       this.body.add(t);
       this.body.add(OTR.txt(this, 470, y, h.assess ? 'Assessment' : h.kind === 'workday' ? 'Workday' : 'Practice', 14, h.assess ? '#B26A00' : OTR_DATA.theme.css('muted'), { ox: 0, weight: h.assess ? '900' : 'normal', fit: 112 }));
