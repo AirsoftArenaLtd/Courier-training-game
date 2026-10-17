@@ -25,7 +25,7 @@ identifiers. No trainee data is sent to any third party; the game makes no reque
 | Where | What | How long |
 | --- | --- | --- |
 | **The browser** (`localStorage`, key `otr_save_v1`), when there is no training server and no LMS | everything above for the one trainee on that PC | until the browser's site data is cleared, or "Reset their progress" in Settings → Trainer |
-| **An LMS** (SCORM suspend data and score/completion fields) | the same progress, packed to fit (SCORM 1.2 holds 4096 characters), a 0–100 score, complete/passed | the LMS's own retention rules |
+| **An LMS** (SCORM suspend data and score/completion fields) | the same progress, packed to fit (SCORM 1.2 holds 4096 characters: scenario and assessment records become compact tables, times to the minute; a workday in progress is shortened before any course result is), a 0–100 score, complete/passed | the LMS's own retention rules |
 | **The training server** `progress/<id>.json` | one file per trainee with everything above | until a trainer erases it |
 | `progress/<id>.json.<time>.bak` | the old progress of a trainee a trainer reset | `OTR_BACKUP_DAYS`, default **30 days**, then deleted automatically (0 keeps them for ever); erasing the trainee deletes them at once |
 | `accounts.json` (employee ID sign-in only) | ID, name, a salted scrypt hash of the password (never the password), when it was made and last changed, the wrong-password count | until the account is removed or the trainee is erased |

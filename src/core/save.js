@@ -68,6 +68,7 @@ OTR.save = {
     }
     const d = this.defaults();
     if (parsed && typeof parsed === 'object') {
+      parsed = this.unpackCareer(parsed);
       d.profile = parsed.profile && typeof parsed.profile.name === 'string' ? parsed.profile : null;
       d.day = Number.isFinite(parsed.day) && parsed.day > 0 ? parsed.day : 1;
       if (parsed.scenarios && typeof parsed.scenarios === 'object') d.scenarios = parsed.scenarios;
@@ -135,6 +136,7 @@ OTR.save = {
   /**
    * The save as JSON of at most `limit` characters (SCORM 1.2's suspend data). Each step below is tried in order, and
    * the first result that fits is kept, so a save that already fits is sent as it is:
+   *   0. the scenario and assessment records become compact tables (packCareer: nothing lost but seconds)
    *   1. the oldest route-history entries go, one by one
    *   2. the last finished workday's lines (its stars and score stay; its debrief then lists nothing)
    *   3. the workday in progress is packed: its reports as short tuples (nothing is lost but extra place detail)
@@ -144,7 +146,8 @@ OTR.save = {
    *   6. the trainee record is emptied, then the last workday's stop list and the 2D route day's last day
    *   7. keys of step 5 go, each kept as a count so the score stays whole (flagged `truncated`: a report of a dropped
    *      key that the 3D world sends again would count twice)
-   *   8. only the career: profile, day, settings, best stars, academy results, the workday's summary; then less
+   *   8. only the career: profile, day, settings, best stars, academy results, the workday's summary; then the
+   *      assessments' lesson and critical texts (counts kept); the scenario and assessment tables are the last to go
    * The JSON is never cut: a reload reads every stage back (see unpackDay). Local and server saves are not limited.
    */
   fit(json, limit) {
@@ -162,6 +165,9 @@ OTR.save = {
       }
     };
     const steps = [
+      // 0. the scenario and assessment records as compact tables (lossless but for times to the minute): a trainee who
+      //    has played the whole course has more of these than SCORM 1.2 holds as plain JSON (A-27)
+      () => this.packCareer(d),
       () => shed(d.route && d.route.history),
       () => { const w = W(); if (w && w.last && Array.isArray(w.last.events)) w.last.events = []; },
       () => { if (cur()) d.workday.current = this.packDay(cur()); },
@@ -176,14 +182,20 @@ OTR.save = {
       () => { if (cur()) this.trimSummary(cur(), () => size() - limit); },
       () => {
         const c = cur(), last = W() && W().last;
-        const keep = { version: d.version, profile: d.profile, day: d.day, settings: d.settings, scenarios: d.scenarios,
-          route: { days: (d.route && d.route.days) || 0, best: d.route && d.route.best }, assess: d.assess, quiz: d.quiz,
+        const keep = { version: d.version, profile: d.profile, day: d.day, settings: d.settings, scenarios: d.scenarios, sc: d.sc,
+          route: { days: (d.route && d.route.days) || 0, best: d.route && d.route.best }, assess: d.assess, as: d.as, quiz: d.quiz,
           workday: { current: c || null, last: last ? { day: last.day, at: last.at, stars: last.stars, ratios: last.ratios, score: last.score, untested: last.untested, events: [] } : null },
           savedAt: d.savedAt, truncated: true };
         d = keep;
         if (over()) { if (d.settings) delete d.settings.a11y; delete d.quiz; }
         if (over()) d.workday.last = null;
-        if (over()) d = { version: d.version, profile: d.profile, day: d.day, route: d.route, workday: { current: c ? this.trimSummary(c, () => Infinity) : null, last: null }, savedAt: d.savedAt, truncated: true };
+        if (over()) this.slimCareer(d);
+        const day = () => ({ current: c ? this.trimSummary(c, () => Infinity) : null, last: null });
+        const career = { version: d.version, profile: d.profile, day: d.day, route: d.route, sc: d.sc, as: d.as, savedAt: d.savedAt, truncated: true };
+        // the career (stars and assessments) with the day in progress; then the career alone when it fits (a course is
+        // worth more than one day); a career too big even packed keeps the day instead, as before A-27
+        if (over()) d = Object.assign({}, career, { workday: day() });
+        if (over()) { d = career; if (over()) d = { version: d.version, profile: d.profile, day: d.day, route: d.route, workday: day(), savedAt: d.savedAt, truncated: true }; }
         if (over()) d = { version: d.version, profile: d.profile && { name: String(d.profile.name).slice(0, 40), id: d.profile.id }, day: d.day, truncated: true };
         if (over()) d = { version: d.version, day: d.day, truncated: true };
       }
@@ -197,25 +209,115 @@ OTR.save = {
 
   /**
    * A workday in progress with its reports packed: { ..., packed: { t: [type names], e: [[t, key, ok, stop, x, z,
-   * mph, t]] } } (ok 1 or 0; trailing nulls left off; a place only when it has x and z). unpackDay reverses it.
+   * mph, t]], g: [[t, key, key, ...]] } } (ok 1 or 0; trailing nulls left off; a place only when it has x and z, and only
+   * for a wrong check or a penalty, the reports the drive review pins; g: right checks with no stop and no place, only
+   * their keys, by type). unpackDay reverses it (the grouped reports come back after the others).
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
-    const out = Object.assign({}, c), types = [], e = [];
+    const out = Object.assign({}, c), types = [], e = [], g = {};
     delete out.events;
     const num = (v, r) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * r) / r : null);
     c.events.forEach(ev => {
       if (!ev || typeof ev.type !== 'string') return;
       let ti = types.indexOf(ev.type);
       if (ti < 0) { ti = types.length; types.push(ev.type); }
-      const w = ev.where && num(ev.where.x, 10) !== null && num(ev.where.z, 10) !== null ? ev.where : null;
-      const row = [ti, ev.key === undefined ? null : ev.key, ev.ok === false ? 0 : 1, ev.stop === undefined ? null : ev.stop,
+      // a place is kept only where the drive review pins one: a wrong check or a penalty (a right check's place is
+      // never shown, and the cab, signs and route events of milestones 7 to 9 are mostly right checks)
+      const E = window.OTR_DATA && OTR_DATA.workdayEvents && OTR_DATA.workdayEvents[ev.type];
+      const pinned = ev.ok === false || !E || E.kind === 'penalty';
+      const w = pinned && ev.where && num(ev.where.x, 10) !== null && num(ev.where.z, 10) !== null ? ev.where : null;
+      const stop = ev.stop === undefined ? null : ev.stop, key = ev.key === undefined ? null : ev.key;
+      // a right check with no stop and no place is only its key: grouped by type, each key written once (A-27)
+      if (ev.ok !== false && stop === null && !w && key !== null) { (g[ti] = g[ti] || []).push(key); return; }
+      const row = [ti, key, ev.ok === false ? 0 : 1, stop,
         w ? num(w.x, 10) : null, w ? num(w.z, 10) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });
     out.packed = { t: types, e };
+    const groups = Object.keys(g).map(ti => [Number(ti)].concat(g[ti]));
+    if (groups.length) out.packed.g = groups;
     return out;
+  },
+
+  /**
+   * The career tables for SCORM 1.2 (A-27): save.scenarios and save.assess, each { id: record }, as
+   * { c: [[field, codec]], r: { id: [values in field order] } } under `sc` and `as`. Codecs: 's' stars
+   * { safety, efficiency, service } as one string of three digits, 't' a time to the minute, 'b' true/false as 1/0;
+   * other values as they are; trailing nulls left off. unpackCareer reverses it; both leave anything else alone.
+   */
+  TIMES: ['at', 'lastPlayed', 'startedAt'],
+  packTable(obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj;
+    const ids = Object.keys(obj), cols = [], codec = {};
+    const isStars = (v) => v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).every(k => ['safety', 'efficiency', 'service'].includes(k) && Number.isInteger(v[k]) && v[k] >= 0 && v[k] <= 9);
+    ids.forEach(id => { const r = obj[id]; if (r && typeof r === 'object') Object.keys(r).forEach(k => { if (!cols.includes(k)) cols.push(k); }); });
+    cols.forEach(k => {
+      const vals = ids.map(id => obj[id] && obj[id][k]).filter(v => v !== undefined && v !== null);
+      codec[k] = vals.length && vals.every(isStars) ? 's' : vals.length && this.TIMES.includes(k) && vals.every(v => Number.isFinite(v)) ? 't'
+        : vals.length && vals.every(v => typeof v === 'boolean') ? 'b' : '';
+    });
+    const r = {};
+    ids.forEach(id => {
+      const rec = obj[id];
+      if (!rec || typeof rec !== 'object') { r[id] = rec; return; }
+      const row = cols.map(k => {
+        const v = rec[k];
+        if (v === undefined || v === null) return null;
+        if (codec[k] === 's') return ['safety', 'efficiency', 'service'].map(c => (v[c] === undefined ? 'x' : v[c])).join('');
+        if (codec[k] === 't') return Math.round(v / 60000);
+        if (codec[k] === 'b') return v ? 1 : 0;
+        return v;
+      });
+      while (row.length && row[row.length - 1] === null) row.pop();
+      r[id] = row;
+    });
+    return { c: cols.map(k => (codec[k] ? [k, codec[k]] : [k])), r };
+  },
+  unpackTable(t) {
+    if (!t || typeof t !== 'object' || !Array.isArray(t.c) || !t.r || typeof t.r !== 'object') return null;
+    const out = {};
+    Object.keys(t.r).forEach(id => {
+      const row = t.r[id];
+      if (!Array.isArray(row)) { out[id] = row; return; }
+      const rec = {};
+      t.c.forEach(([k, codec], i) => {
+        const v = row[i];
+        if (v === undefined || v === null) return;
+        if (codec === 's') { rec[k] = {}; ['safety', 'efficiency', 'service'].forEach((c, j) => { if (String(v)[j] !== undefined && String(v)[j] !== 'x') rec[k][c] = Number(String(v)[j]); }); }
+        else if (codec === 't') rec[k] = v * 60000;
+        else if (codec === 'b') rec[k] = !!v;
+        else rec[k] = v;
+      });
+      out[id] = rec;
+    });
+    return out;
+  },
+  packCareer(d) {
+    if (d.scenarios && typeof d.scenarios === 'object' && Object.keys(d.scenarios).length) { d.sc = this.packTable(d.scenarios); delete d.scenarios; }
+    if (d.assess && typeof d.assess === 'object' && Object.keys(d.assess).length) { d.as = this.packTable(d.assess); delete d.assess; }
+    return d;
+  },
+  unpackCareer(p) {
+    if (!p || typeof p !== 'object') return p;
+    const sc = p.sc && this.unpackTable(p.sc), as = p.as && this.unpackTable(p.as);
+    if (!sc && !as) return p;
+    const out = Object.assign({}, p);
+    if (sc) { out.scenarios = sc; delete out.sc; }
+    if (as) { out.assess = as; delete out.as; }
+    return out;
+  },
+  /** Last resort before the career goes: assessments keep their verdict, stars and score, not their lesson texts. */
+  slimCareer(d) {
+    const t = d.as;
+    if (!t || !Array.isArray(t.c)) return;
+    const li = t.c.findIndex(c => c[0] === 'lessons'), ci = t.c.findIndex(c => c[0] === 'criticals');
+    Object.values(t.r).forEach(row => {
+      if (!Array.isArray(row)) return;
+      if (li >= 0 && Array.isArray(row[li])) row[li] = [];
+      if (ci >= 0 && Array.isArray(row[ci])) row[ci] = row[ci].map(() => '');
+    });
   },
 
   /**
@@ -278,6 +380,10 @@ OTR.save = {
           if (Number.isFinite(r[7])) ev.where.t = r[7];
         }
         events.push(ev);
+      });
+      (Array.isArray(c.packed.g) ? c.packed.g : []).forEach(r => {
+        if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
+        r.slice(1).forEach(k => events.push({ type: types[r[0]], key: k, ok: true, stop: null }));
       });
     } else if (Array.isArray(c.summary)) {
       c.summary.forEach(r => {

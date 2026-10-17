@@ -120,6 +120,74 @@ test('step 3: a long day is packed, and comes back whole, places and all', () =>
   assert.ok(W.sections(rec).sections.some(x => x.group === 'stop6'));
 });
 
+// a day of the milestone 7 to 9 work package (A-27): five legs with mirrors, signals, gear changes, signs, lights and the
+// route checked all the way, a few mistakes, damage and the post-trip report, five stops with the new stop types
+const packageDay = () => {
+  const list = [['brief.read'], ['inspect.tires'], ['inspect.lights'], ['inspect.damage', { key: 'rear' }]];
+  for (let s = 1; s <= 5; s++) list.push(['scan.load', { key: 'p' + s }], ['load.shelf', { key: 'p' + s }]);
+  list.push(['load.secured'], ['load.count']);
+  const at = (i) => ({ x: 3.17 * i, z: -11.3 * i, mph: 18.4, t: 40 * i });
+  let i = 0;
+  for (let leg = 1; leg <= 5; leg++) {
+    for (let k = 0; k < 6; k++) list.push(['drive.mirrors', { key: `${leg}.${k}`, where: at(++i) }], ['drive.signal', { key: `${leg}.${k}`, where: at(++i) }]);
+    list.push(['drive.gear', { key: `${leg}.d`, where: at(++i) }], ['drive.gear', { key: `${leg}.r`, where: at(++i) }]);
+    ['drive.sign-stop', 'drive.sign-giveway', 'drive.sign-speed', 'drive.sign-school'].forEach((ty, n) => list.push([ty, { key: `${leg}.${n}`, where: at(++i) }]));
+    list.push(['drive.lights', { key: leg, where: at(++i) }], ['drive.route', { key: leg, ok: leg !== 3, where: at(++i) }], ['drive.following', { key: leg, where: at(++i) }]);
+    list.push(['drive.backing', { key: leg, ok: leg !== 4, where: at(++i) }]);
+    list.push(['scan.stop', { key: 'p' + leg, stop: leg }], ['deliver.outcome', { key: leg, stop: leg }], [['stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt', 'stop.dog'][leg - 1], { key: leg, stop: leg }]);
+  }
+  list.push(['drive.signal', { key: 'x1', ok: false, where: at(++i) }], ['drive.sign-stop', { key: 'x2', ok: false, where: at(++i) }]);
+  list.push(['van.damage-scuff', { key: 'left:post', where: at(++i) }], ['drive.clearance', { key: 'bridge1', where: at(++i) }], ['load.shift', { key: 'corner2', where: at(++i) }]);
+  list.push(['trip.damage-report', { key: 'left' }], ['return.scanned', { key: 'p5' }]);
+  return list;
+};
+
+test('A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  const list = packageDay();
+  play(list);
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.ok(list.length > 140, `a busy day: ${list.length} reports`);
+  assert.equal(stage(stored()), 'packed', 'the day is packed, not summarised: stops and drive-review pins are kept');
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every mistake keeps its pin on the drive review');
+  assert.ok(pinsLive >= 6, `pins for the mistakes and penalties (${pinsLive})`);
+  play(list);                                                     // the 3D world replays: nothing counts twice
+  assert.equal(W.log.score(), live.score);
+});
+
+test('A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost', () => {
+  asScorm(false);
+  heavy();
+  W.start(null);
+  play(packageDay());
+  const live = summary(W.log);
+  assert.equal(lms.refused, 0);
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the score survives (the day may be summarised)');
+  // a trainee who has passed the whole course: 27 scenarios played and assessed, with their lessons
+  const ids = []; for (let m = 1; m <= 8; m++) for (let s = 0; s < 4; s++) ids.push(`m${m}-scenario${s}`);
+  const d = SAVE.defaults(); d.profile = { name: 'Sam Rivera', id: 'lms042', createdAt: 1 }; d.day = 30; d.assess = {};
+  ids.forEach((id, i) => {
+    d.scenarios[id] = { plays: 4, bestScore: 870, bestStars: { safety: 3, efficiency: 2, service: 3 }, lastPlayed: 29333333 * 60000 + i * 60000 };   // times are kept to the minute
+    d.assess[id] = { attempts: 1, passed: true, at: 29333333 * 60000 + i * 60000, stars: { safety: 3, efficiency: 2, service: 3 }, score: 870, criticals: [], lessons: ['Scan every package as you load it.'], pending: false };
+  });
+  const packed = SAVE.fit(JSON.stringify(d), SAVE.SCORM12_LIMIT), back = SAVE.unpackCareer(JSON.parse(packed));
+  assert.ok(JSON.stringify(d).length > 2 * SAVE.SCORM12_LIMIT, 'as plain JSON the course is far over the limit');
+  assert.ok(packed.length <= SAVE.SCORM12_LIMIT);
+  assert.equal(JSON.stringify(back.scenarios), JSON.stringify(d.scenarios), 'every scenario record comes back exactly');
+  const verdict = (a) => JSON.stringify(Object.fromEntries(Object.entries(a).map(([k, r]) => [k, { attempts: r.attempts, passed: r.passed, at: r.at, stars: r.stars, score: r.score, criticals: r.criticals.length }])));
+  assert.equal(verdict(back.assess), verdict(d.assess), 'every assessment keeps its attempts, verdict, time, stars, score and critical count');
+  // with room to spare (a shorter career), the lesson texts stay too
+  const few = JSON.parse(JSON.stringify(d)); Object.keys(few.assess).slice(12).forEach(k => { delete few.assess[k]; delete few.scenarios[k]; });
+  const back2 = SAVE.unpackCareer(JSON.parse(SAVE.fit(JSON.stringify(few), SAVE.SCORM12_LIMIT)));
+  assert.equal(JSON.stringify(back2.assess), JSON.stringify(few.assess), 'a shorter career comes back exactly, lessons and all');
+});
+
 test('step 4 and 5: a very long day on a heavy save keeps its score only, and says so', () => {
   const { saved, live } = roundTrip({ runs: 60, scenarios: 2 }, 60, 6);
   assert.equal(stage(saved), 'summary');
