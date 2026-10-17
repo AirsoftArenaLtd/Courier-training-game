@@ -18,7 +18,7 @@ OTR.fpGuide={
       {label:resumed?'Continue':'Begin preparation',action:begin},
       {label:'Workday steps',action:()=>this.steps(scene,0,()=>this.opening(scene,resumed))},
       {label:'Back to hub',action:()=>scene.toHub()}
-    ]);return true;
+    ],{preserveGaze:resumed});return true;
   },
   open(scene,back){
     back=back||(()=>scene.showPause());scene.showPanel('Controls and guidance',this.controls(),[
@@ -30,7 +30,7 @@ OTR.fpGuide={
   steps(scene,page,back){
     const k=code=>OTR.fpAccess.key(code),pages=[
       ['Prepare the workday','Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.'],
-      ['Drive safely',`Close cargo before entering the cab. Press ${k('KeyB')} for the seatbelt, ${k('KeyM')} for the mirror and ${k('Space')} for the parking brake. Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Stop and set the parking brake before using the handheld or getting out.`],
+      ['Drive safely',`Close cargo before entering the cab. Press ${k('KeyB')} for the seatbelt and ${k('Space')} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press ${k('KeyP')} to select it with the keyboard. Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Stop and set the parking brake before using the handheld or getting out.`],
       ['Complete each stop','Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.'],
       ['Return to Dispatch','After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.']
     ];

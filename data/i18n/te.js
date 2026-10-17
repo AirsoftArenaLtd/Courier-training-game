@@ -3689,7 +3689,15 @@ window.OTR_I18N.te = {
 "Switch the wipers.": "వైపర్లను ఆన్/ఆఫ్ చేయండి.",
 "Stop before selecting a different gear.": "వేరే గేర్ ఎంచుకునే ముందు ఆగండి.",
 "The speed is 0 mph.": "వేగం 0 mph.",
-"The engine is at 800 RPM.": "ఇంజిన్ 800 RPM వద్ద ఉంది."
+"The engine is at 800 RPM.": "ఇంజిన్ 800 RPM వద్ద ఉంది.",
+"Checked the matching mirror before turning or changing lanes.": "తిరిగే లేదా లేన్ మార్చే ముందు సంబంధిత అద్దాన్ని చూశారు.",
+"Turned or changed lanes without a current check of the matching mirror.": "సంబంధిత అద్దాన్ని చూడకుండా తిరిగారు లేదా లేన్ మార్చారు.",
+"Your left mirror check is current.": "మీ ఎడమ అద్దం తనిఖీ తాజాగా ఉంది.",
+"Look at the left mirror for a moment to check it.": "ఎడమ అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి.",
+"Your right mirror check is current.": "మీ కుడి అద్దం తనిఖీ తాజాగా ఉంది.",
+"Look at the right mirror for a moment to check it.": "కుడి అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి.",
+"Your interior mirror check is current.": "మీ లోపలి అద్దం తనిఖీ తాజాగా ఉంది.",
+"Look at the interior mirror for a moment to check it.": "లోపలి అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి."
 },
 "templates": [
 [
@@ -5311,6 +5319,10 @@ window.OTR_I18N.te = {
 [
 "The engine is at {0} RPM.",
 "ఇంజిన్ {0} RPM వద్ద ఉంది."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"క్యాబిన్‌లోకి ఎక్కే ముందు కార్గో మూసివేయండి. సీట్‌బెల్ట్‌కు {0}, పార్కింగ్ బ్రేక్‌కు {1} నొక్కండి. కదిలే లేదా తిరిగే ముందు నిజమైన అద్దాన్ని ఒక క్షణం చూడండి. కీబోర్డ్‌తో ఎంచుకోవడానికి {2} నొక్కండి. వేగం పెంచడానికి/బ్రేక్ వేయడానికి {3}/{4}, స్టీరింగ్‌కు {5}/{6} ఉపయోగించండి. హ్యాండ్‌హెల్డ్ వాడే లేదా దిగే ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి."
 ]
 ],
 "keep": [

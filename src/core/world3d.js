@@ -13,7 +13,7 @@ OTR.world3d = {
     if (!gl) throw new Error('WebGL is required');
     const renderer = new THREE.WebGLRenderer({ canvas: scene.sys.game.canvas, context: gl, antialias: false });
     renderer.autoClear = false;
-    // Count the whole frame: world, optional mirror and final composite.
+    // Count the whole frame: reflection update, world and final composite.
     renderer.info.autoReset = false;
     const diagnostics = { calls:0, triangles:0, textures:0, geometries:0, targetWidth:0, targetHeight:0, attachmentBytes:0 };
     const world = new THREE.Scene();
@@ -36,22 +36,18 @@ OTR.world3d = {
     };
     const screen = new THREE.Scene(), screenCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     screen.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), composite(target.texture)));
-    // One live mirror while requested. It observes the same actors and uses its own depth target.
-    const mirrorTarget = new THREE.WebGLRenderTarget(320, 180, { depthBuffer: true, stencilBuffer: false });
-    mirrorTarget.texture.colorSpace = THREE.SRGBColorSpace;
-    const mirrorCamera = new THREE.PerspectiveCamera(55, 16 / 9, 0.08, 100);
-    mirrorCamera.rotation.order = 'YXZ';
-    const mirrorQuad = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), composite(mirrorTarget.texture));
-    mirrorQuad.position.set(-0.7125, 0.4111, 0); mirrorQuad.scale.x = -1;
-    mirrorQuad.material.side = THREE.DoubleSide; mirrorQuad.renderOrder = 1;
-    screen.add(mirrorQuad);
-    const mirror = { on: false, camera: mirrorCamera, before: null, after: null };
+    // Physical mirrors sample three tiles from one atlas. At most one reflection pass runs in a frame.
+    const mirrorTarget=new THREE.WebGLRenderTarget(384,144,{depthBuffer:true,stencilBuffer:false});
+    mirrorTarget.texture.colorSpace=THREE.SRGBColorSpace;
+    const mirrorCameras=[0,1,2].map(i=>{const c=new THREE.PerspectiveCamera(i===2?45:65,i===2?8/3:2/3,.08,i===2?(OTR.gfx.high()?24:12):(OTR.gfx.high()?75:40));c.rotation.order='YXZ';return c;});
+    const mirror={on:false,physical:false,texture:mirrorTarget.texture,camera:mirrorCameras[0],cameras:mirrorCameras,before:null,after:null,
+      next:0,nextAt:0,filled:0,updated:[-100,-100,-100],updates:[0,0,0]};
+    const tiles=[{x:0,y:0,w:96,h:144},{x:96,y:0,w:96,h:144},{x:192,y:0,w:192,h:72}];
     const extern = scene.add.extern().setDepth(-100);
     let width = 0, height = 0, disposed = false;
     extern.render = function () {
       if (disposed) return;
       colour.value=OTR.a11y&&OTR.a11y.settings().colour?1:0;
-      mirrorQuad.position.y=1-2*((mirror.top||122)+90)/OTR.H;
       const scale = OTR.gfx.high() ? 1 : 0.65;
       const w = Math.max(1, Math.round(gl.drawingBufferWidth * scale));
       const h = Math.max(1, Math.round(gl.drawingBufferHeight * scale));
@@ -62,18 +58,23 @@ OTR.world3d = {
       phaser.pipelines.clear();
       try {
         renderer.info.reset(); renderer.resetState(); renderer.setScissorTest(false);
-        renderer.setRenderTarget(target); renderer.setViewport(0, 0, w, h);
-        renderer.clear(true, true, false); renderer.render(world, camera);
-        mirrorQuad.visible = mirror.on;
-        if (mirror.on) {
-          const mw = OTR.gfx.high() ? 480 : 320, mh = mw * 9 / 16;
-          if (mirrorTarget.width !== mw) mirrorTarget.setSize(mw, mh);
-          try {
-            if (mirror.before) mirror.before();
-            renderer.setRenderTarget(mirrorTarget); renderer.setViewport(0, 0, mw, mh);
-            renderer.clear(true, true, false); renderer.render(world, mirrorCamera);
-          } finally { if (mirror.after) mirror.after(); }
+        const now=(typeof performance!=='undefined'?performance.now():Date.now())/1000;
+        if(mirror.on&&(mirror.filled!==7||now>=mirror.nextAt)){
+          const scale=OTR.gfx.high()?2:1,mw=384*scale,mh=144*scale;
+          if(mirrorTarget.width!==mw||mirrorTarget.height!==mh){mirrorTarget.setSize(mw,mh);mirror.filled=0;}
+          renderer.setRenderTarget(mirrorTarget);
+          if(!mirror.filled){renderer.setViewport(0,0,mw,mh);renderer.clear(true,true,false);}
+          const index=mirror.next,cell=tiles[index];mirror.camera=mirror.cameras[index];
+          try{
+            if(mirror.before)mirror.before(index);
+            renderer.setRenderTarget(mirrorTarget);renderer.setViewport(cell.x*scale,cell.y*scale,cell.w*scale,cell.h*scale);
+            renderer.setScissor(cell.x*scale,cell.y*scale,cell.w*scale,cell.h*scale);renderer.setScissorTest(true);
+            renderer.clear(true,true,false);renderer.render(world,mirror.camera);
+            mirror.filled|=1<<index;mirror.updated[index]=now;mirror.updates[index]++;mirror.next=(index+1)%3;mirror.nextAt=now+(OTR.gfx.high()?1/90:1/30);
+          }finally{if(mirror.after)mirror.after(index);}
         }
+        renderer.setScissorTest(false);renderer.setRenderTarget(target);renderer.setViewport(0,0,w,h);
+        renderer.clear(true,true,false);renderer.render(world,camera);
         renderer.setRenderTarget(null); renderer.setViewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
         renderer.render(screen, screenCamera);
         diagnostics.calls=renderer.info.render.calls;diagnostics.triangles=renderer.info.render.triangles;

@@ -66,7 +66,8 @@ Object.keys(OTR.i18n.LANGS).filter(l => l !== 'en').forEach(lang => {
   // "Pick up", "SCORE" and "Sign in" are text too.
   const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s);
   const missing = cat.strings.filter(s => !have.has(s) && !have.has(s.trim()) && !kept.has(s) && !notText.has(s) && !idlike(s));
-  const missingT = cat.templates.filter(t => !haveT.has(t.trim()));
+  // a template that is an id once its holes are filled (an event key such as turn:{0}:{1}) is not text either
+  const missingT = cat.templates.filter(t => !haveT.has(t.trim()) && !idlike(t.replace(/\{\d+\}/g, '0')));
   check(!missing.length && !missingT.length, `every sentence in the catalogue is translated${missing.length + missingT.length ? ` (${missing.length} strings, ${missingT.length} templates missing, e.g. ${JSON.stringify(missing.concat(missingT).slice(0, 3))})` : ''}`);
 
   // the quizzes, translated, against the same rules as the English

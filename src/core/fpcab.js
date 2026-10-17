@@ -69,9 +69,10 @@ OTR.fpCab={
     sheets.forEach((p,i)=>{panels.setMatrixAt(i,p.matrix);panels.setColorAt(i,p.color);});
     const wheel=new T.Group();wheel.position.set(0,-.39,-.7);root.add(wheel);
     const rim=new T.Mesh(high?new T.TorusGeometry(.18,.023,6,18):new T.RingGeometry(.157,.183,16),rimPaint);wheel.add(rim);
-    const hub=new T.Mesh(high?cube:sheet,rimPaint);hub.scale.set(.075,.065,.035);wheel.add(hub);
-    const spokes=new T.InstancedMesh(sheet,rimPaint,3);spokes.frustumCulled=false;wheel.add(spokes);
+    if(high){const hub=new T.Mesh(cube,rimPaint);hub.scale.set(.075,.065,.035);wheel.add(hub);}
+    const spokes=new T.InstancedMesh(sheet,rimPaint,high?3:4);spokes.frustumCulled=false;wheel.add(spokes);
     for(let i=0;i<3;i++){const a=i*2*Math.PI/3;scratch.position.set(Math.sin(a)*.08,Math.cos(a)*.08,0);scratch.rotation.set(0,0,-a);scratch.scale.set(.018,.16,1);scratch.updateMatrix();spokes.setMatrixAt(i,scratch.matrix);}
+    if(!high){scratch.position.set(0,0,0);scratch.rotation.set(0,0,0);scratch.scale.set(.075,.065,1);scratch.updateMatrix();spokes.setMatrixAt(3,scratch.matrix);}
     const gaugePaint=new T.ShaderMaterial({uniforms:{speed:{value:0},rpm:{value:.2}},vertexShader:'varying vec2 p; void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
       precision mediump float; varying vec2 p; uniform float speed; uniform float rpm;
       float dial(vec2 v,float value){float r=length(v);float ring=smoothstep(.96,.9,r)*smoothstep(.8,.85,r);

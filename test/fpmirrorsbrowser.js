@@ -1,0 +1,50 @@
+/* Live reflected geometry, gaze-only reporting, keyboard access and saved dwell in the real shared GL context. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
+const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});const wait=ms=>new Promise(r=>setTimeout(r,ms));
+(async()=>{
+ const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let p,recording,checks=0,state;const errors=[],report={layouts:[],live:[],fixture:'First workday, loaded van at the depot. Target selection, looking and driving use real keys. Coloured 3D markers prove live reflections.'};
+ try{
+  p=await b.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx=low');
+  const ready=()=>p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});await ready();await p.addScriptTag({url:base+'/data/i18n/ta.js'});
+  state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {mode:m.mode,elapsed:m.elapsed,look:m.van.look,pitch:m.player.pitch,speed:m.van.speed,mirrors:m.van.mirrors&&[...m.van.mirrors],updates:[...s.view.mirror.updates],events:OTR.workday.events.filter(e=>e.type==='drive.mirrors'),on:s.view.mirror.on};});
+  const focus=async id=>{for(let n=0;n<15;n++){await p.keyboard.press('p');await wait(100);if(await p.evaluate(id=>OTR.game.scene.getScene('FirstPersonScene').target===id,id)){checks++;return;}}throw Error('Cannot focus '+id);};
+  const current=async index=>p.waitForFunction(i=>{const s=OTR.game.scene.getScene('FirstPersonScene');return OTR.fpMirrors.recent(s.model,i)&&s.model.van.mirrors[3]===i&&s.model.van.mirrors[4]>=.4-1e-8;},{timeout:30000},index);
+  const pixel=async index=>p.evaluate(i=>new Promise(resolve=>{const s=OTR.game.scene.getScene('FirstPersonScene'),v=s.view,before=v.mirror.updates[i];const done=()=>{if(v.mirror.updates[i]<before+2)return;s.game.events.off('postrender',done);const bytes=new Uint8Array(4);OTR.game.renderer.gl.readPixels(640,360,1,1,OTR.game.renderer.gl.RGBA,OTR.game.renderer.gl.UNSIGNED_BYTE,bytes);resolve([...bytes]);};s.game.events.on('postrender',done);}),index);
+  for(const [lang,large] of (process.env.QA_FIRST_ONLY==='1'?[['en',false]]:[['en',false],['en',true],['ta',false],['ta',true]])){
+   console.log('mirrors '+lang+' large='+large);
+   if(lang==='ta')await p.addScriptTag({url:base+'/data/i18n/ta.js'}); // The English reload exercise replaces the page's dictionaries.
+   await p.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.mirrorToken=s.loadingToken;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:large});s.scene.restart();},{lang,large});
+   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.loading&&s.loadingToken!==window.mirrorToken;});await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.keyboardMode=true;s.closePanel();s.progress.sequence=9;s.progress.campaign=null;s.progress.welcomed=true;s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.secured=true;m.events[m.briefKey]=true;Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,hand:true,belt:true,look:0});m.player.pitch=0;for(const p of m.parcels)Object.assign(p,{location:'slot'+p.stop,loaded:true,scanned:true});OTR.workday.begin();s.sync();});
+   assert.equal(await p.evaluate(()=>OTR.i18n.lang),lang);checks++;
+   const before=await state();await p.keyboard.press('m');await wait(200);const after=await state();assert.equal(after.look,before.look);assert.equal(after.pitch,before.pitch);assert.ok(after.mirrors.slice(0,3).every(t=>t===-100));assert.equal(after.on,true);checks+=4;
+   if(lang==='en'&&!large&&process.env.QA_CLIP==='1')recording=await p.screencast({path:path.join(OUT,'c23-mirrors.webm'),fps:12,quality:35});
+   for(const [index,id] of [[2,'mirror-interior'],[1,'mirror-right'],[0,'mirror-left']]){
+    await focus(id);await current(index);const checked=await state();assert.equal(checked.mirrors[3],index);assert.equal(checked.events.length,0,'looking records evidence, not an early manoeuvre grade');checks+=2;
+    if(lang==='en'&&!large){
+     await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),cam=s.view.mirror.cameras[i],d=cam.getWorldDirection(new THREE.Vector3());s.qaMirrorMarker=new THREE.Mesh(new THREE.BoxGeometry(.35,.35,.35),new THREE.MeshBasicMaterial({color:0xff0000}));s.qaMirrorMarker.position.copy(cam.position).addScaledVector(d,.8);s.view.world.add(s.qaMirrorMarker);s.reticle.clear();},index);
+     const red=await pixel(index);await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').qaMirrorMarker.material.color.setHex(0x0000ff));const blue=await pixel(index);
+     assert.ok(red[0]>180&&red[0]>blue[0]+100,JSON.stringify({index,red,blue}));assert.ok(blue[2]>150&&blue[0]<80,JSON.stringify({index,red,blue}));checks+=2;report.live.push({index,id,red,blue});
+     await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),o=s.qaMirrorMarker;o.removeFromParent();o.geometry.dispose();o.material.dispose();delete s.qaMirrorMarker;});await pixel(index);
+    }
+    if(lang==='en'&&!large||lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c23-${id}-${lang}-${large?'large':'normal'}.png`)});
+    const audit=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds();return {font:parseFloat(h.style.fontSize)*h.scaleY,x:r.x,right:r.right,y:r.y,bottom:r.bottom,pointerLock:!!document.pointerLockElement,fov:s.view.camera.fov};});assert.ok(audit.font>=18);assert.ok(audit.x>=0&&audit.right<=1280&&audit.y>=0&&audit.bottom<=720);assert.equal(audit.pointerLock,false);if(large)assert.equal(audit.fov,68);checks+=large?4:3;report.layouts.push({lang,large,id,audit});
+   }
+   if(recording){await recording.stop();recording=null;}
+   await p.keyboard.press('v');await p.keyboard.press('Space');await p.keyboard.down('w');await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').model.van.speed>.5,{timeout:30000});await p.keyboard.up('w');const moved=await state();assert.equal(moved.events.filter(e=>e.key==='0:1').length,1);assert.equal(moved.events.find(e=>e.key==='0:1').ok,true);checks+=2;
+   await p.keyboard.down('s');await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').model.van.speed===0,{timeout:30000});await p.keyboard.up('s');await p.keyboard.press('Space');
+   if(lang==='en'&&!large){
+    await focus('mirror-left');await current(0);await focus('mirror-right');
+    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;m.van.mirrors[3]=-1;m.van.mirrors[4]=0;});
+    await p.waitForFunction(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;if(m.van.mirrors[3]===1&&m.van.mirrors[4]>=.18){m.paused=true;return true;}return false;},{timeout:30000});
+    const saved=await state();assert.ok(saved.mirrors[4]>=.18&&saved.mirrors[4]<.4);checks++;await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').checkpoint());await p.reload();await ready();
+    report.reloadRaw=await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').progress.campaign.van.mirrors);assert.equal(report.reloadRaw[4],saved.mirrors[4]);checks++;
+    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.keyboardMode=true;s.closePanel();s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
+    const partial=await state();assert.equal(partial.mirrors[3],saved.mirrors[3]);assert.equal(partial.mirrors[4],saved.mirrors[4]);checks+=2;
+    await p.keyboard.press('Enter');await current(1);const restored=await state();assert.ok(restored.mirrors[0]>=saved.mirrors[0]);assert.equal(restored.mode,'cab');assert.equal(restored.on,true);checks+=3;report.reload={saved,partial,restored};
+   }
+   await p.evaluate(()=>OTR.fpGuide.steps(OTR.game.scene.getScene('FirstPersonScene'),1,()=>{}));const guide=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),body=s.panel.root.list.find(o=>o.type==='Text'&&o.y===170),top=Math.min(...s.panel.buttons.map(o=>o.getBounds().top));return {bodyBottom:body.getBounds().bottom,buttonTop:top,font:parseFloat(body.style.fontSize)*body.scaleY};});assert.ok(guide.bodyBottom<=guide.buttonTop-8);assert.ok(guide.font>=17);checks+=2;await p.screenshot({path:path.join(OUT,`c23-guide-${lang}-${large?'large':'normal'}.png`)});
+  }
+  assert.deepEqual(errors,[]);assert.equal(await p.evaluate(()=>OTR.game.renderer.gl.isContextLost()),false);assert.equal(await p.evaluate(()=>OTR.game.renderer.gl.getError()),0);checks+=3;report.checks=checks;report.errors=errors;fs.writeFileSync(path.join(OUT,(process.env.QA_TAG||'c23')+'-mirrors.json'),JSON.stringify(report,null,2));console.log(checks+' physical mirror browser checks passed');
+ }catch(e){if(p){await p.screenshot({path:path.join(OUT,'c23-failure.png')}).catch(()=>{});console.error(await state().catch(()=>({})));}throw e;}finally{if(recording)await recording.stop();await b.close();}
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});

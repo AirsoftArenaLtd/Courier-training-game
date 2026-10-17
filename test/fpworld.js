@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const THREE=require('../lib/three.min.js');
 const context={THREE,Phaser:{Scene:class{}},URLSearchParams,location:{search:''}};context.window=context;
 vm.createContext(context);
-for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
+for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
 context.OTR.registerScene=C=>{context.SceneClass=C;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
 function world(high=true){
@@ -18,7 +18,7 @@ test('render diagnostics count world, mirror and composite once per frame withou
   try{
     THREE.WebGLRenderer=class{
       constructor(){this.info={autoReset:true,render:{calls:0,triangles:0},memory:{textures:2,geometries:4},reset(){this.render.calls=0;this.render.triangles=0;}};}
-      resetState(){} setScissorTest(){} setRenderTarget(){} setViewport(){} clear(){}
+      resetState(){} setScissorTest(){} setScissor(){} setRenderTarget(){} setViewport(){} clear(){}
       render(root){if(this.info.autoReset)this.info.reset();this.info.render.calls+=root.children.some(o=>o.isCamera)?3:1;this.info.render.triangles+=root.children.some(o=>o.isCamera)?36:2;}
     };
     context.OTR.gfx={high:()=>false};context.OTR.W=1280;context.OTR.H=720;
@@ -27,7 +27,7 @@ test('render diagnostics count world, mirror and composite once per frame withou
     view.extern.render();assert.equal(d.calls,4);assert.equal(d.triangles,38);
     view.mirror.on=true;view.extern.render();assert.equal(d.calls,7);assert.equal(d.triangles,74);
     view.extern.render();assert.equal(view.diagnostics,d);assert.equal(d.calls,7);
-    assert.equal(d.targetWidth,832);assert.equal(d.targetHeight,468);assert.equal(d.attachmentBytes,3575808);
+    assert.equal(d.targetWidth,832);assert.equal(d.targetHeight,468);assert.equal(d.attachmentBytes,3557376);
   }finally{THREE.WebGLRenderer=original;}
 });
 function aim(w,position,id){
@@ -101,16 +101,13 @@ test('reduced motion clears even the last fractional degree of speed zoom',()=>{
     for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,68);w.art.dispose();
   }finally{context.OTR.fpAccess=old;}
 });
-test('mirror observes live route actors only while requested and cab state restores afterward',()=>{
-  const w=world();w.m.mode='cab';w.m.paused=false;w.m.mirror();w.art.sync(w.m,null,'route');
-  assert.equal(w.scene.view.mirror.on,true);assert.equal(w.art.van.visible,false);
-  w.scene.view.mirror.before();assert.equal(w.art.van.visible,true);
-  const mirror=w.scene.view.mirror.camera;mirror.updateMatrixWorld(true);
-  const direction=mirror.getWorldDirection(new THREE.Vector3()),ray=new THREE.Raycaster(mirror.position,direction,0.08,20);
-  assert.ok(direction.z>0.9);assert.ok(direction.x<0);
-  assert.equal(ray.intersectObject(w.art.van,true).length,0,'mirror centre can see behind the van');
-  w.scene.view.mirror.after();assert.equal(w.art.van.visible,false);
-  w.m.elapsed+=4;w.art.sync(w.m,null,'route');assert.equal(w.scene.view.mirror.on,false);
+test('three physical mirrors remain live without a button and reflection visibility restores exactly',()=>{
+ const w=world();w.m.mode='cab';w.m.paused=false;w.art.sync(w.m,null,'route');
+ assert.equal(w.scene.view.mirror.on,true);assert.equal(w.art.van.visible,false);
+ for(let i=0;i<3;i++){w.scene.view.mirror.before(i);assert.equal(w.art.van.visible,true);assert.equal(w.art.mirrors.root.visible,false);
+  w.scene.view.mirror.camera.updateMatrixWorld(true);assert.ok(w.scene.view.mirror.camera.getWorldDirection(new THREE.Vector3()).z>.8);
+  w.scene.view.mirror.after();assert.equal(w.art.van.visible,false);assert.equal(w.art.mirrors.root.visible,true);}
+ w.m.elapsed+=10;w.art.sync(w.m,null,'route');assert.equal(w.scene.view.mirror.on,true);w.m.mode='walk';w.art.sync(w.m,null,'route');assert.equal(w.scene.view.mirror.on,true);w.art.dispose();
 });
 test('inspection refreshes the raycast rather than opening a formerly aimed-at parcel',()=>{
   const s=new context.SceneClass();s.model=context.OTR.fpMission.create('campaign',1);

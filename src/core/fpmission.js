@@ -292,7 +292,7 @@ OTR.fpMission = {
       },
       shiftGear: motor.shiftGear,
       selectGear: motor.selectGear,
-      mirror() { if (this.mode === 'cab') { this.mirrorAt = this.elapsed; this.touch(); } },
+      mirror() { return false; }, // Retained for old integrations; only physical gaze can establish a check.
       contact(id) {
         const s = this.stop(id);
         if (this.kind !== 'campaign' || !s || !(this.doorsteps?OTR.fpDoors.near(this,id):this.near('door' + id)) || this.mode !== 'walk') return 'Approach the correct delivery point.';
@@ -369,6 +369,7 @@ OTR.fpMission = {
       },
       tick(input, dt) {
         this.elapsed += dt;
+        if(OTR.fpMirrors)OTR.fpMirrors.tick(this,dt);
         if (this.kind === 'campaign') this.tickTraffic(dt);
         if(this.loadout)OTR.fpLoadout.findLater(this);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
@@ -388,8 +389,8 @@ OTR.fpMission = {
         }
         if (old.x >= 3.1 && v.x < 3.1 && v.speed > 0.3 && Math.cos(v.yaw) > 0.5) {
           const conflict = this.traffic.some(c => c.yaw === 0 && c.z > v.z - 4 && c.z < v.z + 17);
-          this.log('pullout:' + this.leg, 'observation', !conflict && this.signal === -1 && this.elapsed - this.mirrorAt < 10 ? 'good' : 'needs',
-            conflict ? 'Pulled into the path of approaching traffic.' : this.signal !== -1 ? 'Pulled away without signaling left.' : this.elapsed - this.mirrorAt >= 10 ? 'Pulled away without a recent mirror check.' : 'Checked, signaled and waited for a clear gap.');
+          this.log('pullout:' + this.leg, 'observation', !conflict && this.signal === -1 && (OTR.fpMirrors?OTR.fpMirrors.recent(this,0):false) ? 'good' : 'needs',
+            conflict ? 'Pulled into the path of approaching traffic.' : this.signal !== -1 ? 'Pulled away without signaling left.' : !(OTR.fpMirrors&&OTR.fpMirrors.recent(this,0)) ? 'Pulled away without a recent mirror check.' : 'Checked, signaled and waited for a clear gap.');
           this.signal = 0;
         }
         const front = F.local(v, 0, -2.7), mark = this.stopSign;
@@ -480,6 +481,7 @@ OTR.fpMission = {
       if (![2,-1,0,1].includes(data.van.gear) || !m.stops.some(s => s.id === data.activeStop) || ![-1,0,1].includes(data.signal)) return null;
       if(['headlights','wipers'].some(k=>data.van[k]!==undefined&&typeof data.van[k]!=='boolean') ||
         data.van.shifts!==undefined&&(!Number.isSafeInteger(data.van.shifts)||data.van.shifts<0))return null;
+      if(OTR.fpMirrors&&!OTR.fpMirrors.valid(data.van.mirrors,data.elapsed))return null;
       if (!['retrievals','leg','mirrorAt'].every(k => Number.isFinite(data[k]))) return null;
       if (!data.checks || !['tyres','lights'].every(k => [null,true,false].includes(data.checks[k]))) return null;
       if (!data.stopSign || !['stopped','resolved'].every(k => typeof data.stopSign[k] === 'boolean')) return null;

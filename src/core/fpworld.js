@@ -250,6 +250,7 @@ OTR.fpWorld = {
       mesh.computeBoundingSphere();parent.add(mesh);
       if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded});
     }));
+    const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -259,9 +260,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();if(cab)cab.dispose();
+        const geometries=new Set();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -318,10 +319,9 @@ OTR.fpWorld = {
           if(pose){
             camera.position.set(pose.x,pose.y,pose.z);camera.rotation.set(pose.pitch,-pose.yaw,pose.roll,'YXZ');
             if(camera.fov!==pose.fov&&(reduced||precise||Math.abs(camera.fov-pose.fov)>.0001)){camera.fov=pose.fov;camera.updateProjectionMatrix();}
-            if(m.mode==='cab'){
-              // Keep the dashboard on the van while the driver's head moves and turns independently.
-              cabAnchor.position.set(pose.baseX,2.05+pose.bodyY,pose.baseZ);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
-            }
+            // Anchor the cab even on foot so the interior mirror can reflect it from its physical position.
+            const cc=Math.cos(v.yaw),ss=Math.sin(v.yaw);
+            cabAnchor.position.set(v.x-.45*cc+1.85*ss,2.05+pose.bodyY,v.z-.45*ss-1.85*cc);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
           }else if(m.mode==='cab'){
             const eye=OTR.fp.local(v,-0.45,-1.85);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
           }else{
@@ -346,10 +346,9 @@ OTR.fpWorld = {
             emergency.visible=e.state==='approaching'||e.state==='passing';emergency.position.set(e.x,0,e.z);emergency.rotation.y=-e.yaw;
             for(let i=0;i<emergencyLamps.children.length;i++)emergencyLamps.children[i].material=reduced?(i%2?flashBlue:flashRed):flash?flashRed:flashBlue;
           }
-          const eye=OTR.fp.local(v,-1.3,-1.55);
-          view.mirror.camera.position.set(eye.x,2.1,eye.z);view.mirror.camera.rotation.set(0,Math.PI-v.yaw-0.18,0,'YXZ');
-          view.mirror.on=m.mode==='cab'&&!m.paused&&m.elapsed-m.mirrorAt<3.5;
+          if(!mirrors)view.mirror.on=false;
         }
+        if(mirrors)mirrors.sync(model,area);
         world.updateMatrixWorld(true);
       },
       resetCamera(){if(cameraRig)cameraRig.model=null;},
@@ -375,8 +374,27 @@ OTR.fpWorld = {
         const screen=label.screen||(label.screen={x:0,y:0});screen.x=(p.x+1)*OTR.W/2;screen.y=(1-p.y)*OTR.H/2;return screen;
       }
     };
-    view.mirror.before=()=>{van.visible=true;dash.visible=false;world.updateMatrixWorld(true);};
-    view.mirror.after=()=>{van.visible=false;dash.visible=true;};
+    // Reflection passes cull individual fixed instances, then restore the main-view buffers exactly.
+    const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
+    for(const batch of staticBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;}
+    let vanWas=false,dashWas=false;
+    view.mirror.before=(index=0)=>{
+      if(view.mirror.cameras)view.mirror.camera=view.mirror.cameras[index];
+      vanWas=van.visible;dashWas=dash.visible;van.visible=true;dash.visible=index===2;if(mirrors)mirrors.hide(true);
+      const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
+      for(const batch of staticBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);let count=0;
+        for(const entry of batch.entries){const e=entry.matrix.elements;reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;
+          if(!reflectFrustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);count++;
+        }
+        mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
+      }
+      world.updateMatrixWorld(true);
+    };
+    view.mirror.after=()=>{
+      van.visible=vanWas;dash.visible=dashWas;if(mirrors)mirrors.hide(false);
+      for(const batch of staticBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
+      world.updateMatrixWorld(true);
+    };
     return api;
   }
 };
