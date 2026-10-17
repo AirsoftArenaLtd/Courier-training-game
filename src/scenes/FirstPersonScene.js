@@ -2,7 +2,7 @@
 class FirstPersonScene extends Phaser.Scene {
   constructor() { super('FirstPersonScene'); }
   create(data) {
-    Object.assign(this,{view:null,model:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',saved:true,loading:true});
+    Object.assign(this,{view:null,model:null,assetBank:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',saved:true,loading:true});
     this.hubWorkday=!!(data&&data.workday);
     this.held=Object.create(null);this.progress=OTR.fpStore.read();
     if(this.hubWorkday&&!data.workday.resume){this.progress.campaign=null;this.write();}
@@ -10,12 +10,19 @@ class FirstPersonScene extends Phaser.Scene {
     this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
     OTR.fpAccess.textResolution(this);this.makeHud();this.workdaySound=new OTR.fpSound(this);if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
-    this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
+    const assetAbort=new AbortController();
+    this.events.once('shutdown',()=>{this.loadingToken=null;assetAbort.abort();this.checkpoint();if(this.art){this.art.dispose();this.art=null;}if(this.assetBank)this.assetBank.dispose();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
     const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
     OTR.world3d.load().then(async()=>{
       if(!this.sys.isActive()||this.loadingToken!==token)return;
       this.companyLogo=await OTR.fpBrand.loadLogo(this);if(!this.sys.isActive()||this.loadingToken!==token)return;
+      const bar=this.add.graphics().setDepth(21);this.events.once('shutdown',()=>bar.destroy());
+      this.setText('objective','Your workday is loading.',1220);if(OTR.a11y)OTR.a11y.say('Your workday is loading.');
+      this.assetBank=await OTR.fpAssets.preload({high:OTR.gfx.high(),signal:assetAbort.signal,progress:ratio=>{
+        if(this.loadingToken!==token)return;bar.clear();bar.fillStyle(0x42556A);bar.fillRect(24,84,600,8);bar.fillStyle(0xEBC889);bar.fillRect(24,84,600*ratio,8);
+      }});
+      bar.destroy();if(!this.sys.isActive()||this.loadingToken!==token){this.assetBank.dispose();return;}
       this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
       this.handheld=new OTR.fpHandheld(this);
       this.labels=OTR.fpBrand.labels(this);

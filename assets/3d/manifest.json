@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "kenney-city-starter/models/garage-low.glb",
+      "bytes": 2716,
+      "pack": "kenney-city-starter",
+      "quality": "low",
+      "use": "town-garage"
+    },
+    {
+      "path": "kenney-city-starter/models/garage-high.glb",
+      "bytes": 14336,
+      "pack": "kenney-city-starter",
+      "quality": "high",
+      "use": "town-garage"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
-/* Shared placeholder depot, cargo and town. Text stays in Phaser; no texture downloads. */
+/* Procedural depot, cargo and town, with optional locally bundled static models. Text stays in Phaser. */
 window.OTR = window.OTR || {};
 OTR.fpWorld = {
   build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera,brand=OTR.fpBrand.read();
     const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
-    const occluders = [], interactions = [], labels = [];
+    const occluders = [], interactions = [], labels = [], assetGroups=[];
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
     const material = color => {
       if (!mats.has(color)) mats.set(color, new T.MeshLambertMaterial({ color }));
@@ -89,8 +89,12 @@ OTR.fpWorld = {
       for(const z of town.zs)for(let x=b.x0+4;x<b.x1;x+=8){
         if(!town.xs.some(cx=>Math.abs(x-cx)<half+3))box(route,x,0.05,z,3,0.02,0.1,0xEDD385);
       }
-      // One simple footprint per non-delivery lot; active facades are drawn below.
-      town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id)).forEach(l=>box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE));
+      // A small pipeline example; the full town pass is C-27. Delivery facades/solids remain their own geometry.
+      const lots=town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id));
+      const sample=lots.slice().sort((a,b)=>(a.x-4)**2+(a.z-8)**2-((b.x-4)**2+(b.z-8)**2)).slice(0,2);
+      const group=scene.assetBank&&scene.assetBank.add(route,'town-garage',sample.map(l=>({x:l.x,z:l.z,w:l.w,h:l.h,d:l.d})));
+      if(group)assetGroups.push(group);
+      lots.forEach(l=>{if(!group||!sample.includes(l))box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE);});
     }
     base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     const depotSide=base.town?-1:1;
@@ -249,10 +253,10 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
+    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
         const geometries=new Set();
-        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
+        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
       sync(model,hubPlayer,area) {
@@ -273,6 +277,7 @@ OTR.fpWorld = {
           }
           const sceneryMoved=Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3,solidMoved=cx!==solidX||cz!==solidZ;
           if(base.town&&(sceneryMoved||solidMoved)){
+            if(sceneryMoved&&scene.assetBank)for(const group of assetGroups)scene.assetBank.cull(group,cx,cz,sceneryRadius);
             if(sceneryMoved){sceneryX=cx;sceneryZ=cz;}solidX=cx;solidZ=cz;
             // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
             for(const batch of staticBatches){if(!sceneryMoved&&!batch.bounded)continue;let count=0;

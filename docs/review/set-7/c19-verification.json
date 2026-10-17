@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-17",
+  "base": "b28821f",
+  "branch": "codex/c19-gltf-pipeline",
+  "node": [
+    {
+      "command": "node test/firstperson.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/fpmission.js",
+      "passed": 39
+    },
+    {
+      "command": "node test/fphandheld.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/fpworld.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/fproute.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fploadout.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fpdriving.js",
+      "passed": 23
+    },
+    {
+      "command": "node test/fpday.js",
+      "passed": 10
+    },
+    {
+      "command": "node test/fpdoors.js",
+      "passed": 16
+    },
+    {
+      "command": "node test/fpaccess.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpbranding.js",
+      "passed": 4
+    },
+    {
+      "command": "node test/fpguide.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/fpperf.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fplater.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpresume.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fpsound.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpassets.js",
+      "passed": 9
+    },
+    {
+      "command": "node test/assets.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/workday.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/savesize.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/aids.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/i18n.js",
+      "passed": true
+    },
+    {
+      "command": "node test/lmsreport.js",
+      "passed": 8
+    }
+  ],
+  "browser": {
+    "command": "QA_CLIP=1 node test/fpassetsbrowser.js",
+    "passed": 49,
+    "clip": {
+      "duration": "1.920000",
+      "size": "52066"
+    }
+  },
+  "keyboard": {
+    "command": "QA_BROWSER=/usr/bin/chromium QA_NO_AUDIO=1 node test/fpaccessbrowser.js",
+    "passed": 145
+  },
+  "offline": {
+    "command": "QA_BROWSER=/usr/bin/chromium node test/offline.js",
+    "passed": true
+  },
+  "package": {
+    "purpose": "Temporary SCORM runtime-file smoke archive; no packaging implementation changed.",
+    "files": 472,
+    "compressedBytes": 12090109,
+    "ceilingBytes": 104857600,
+    "listed3dAssetsIncluded": 2,
+    "incomingExcluded": true
+  },
+  "assetFiles": [
+    {
+      "path": "kenney-city-starter/models/garage-low.glb",
+      "bytes": 2716,
+      "pack": "kenney-city-starter",
+      "quality": "low",
+      "use": "town-garage",
+      "sha256": "2d6ad13547be273417853b76b388ccb0c043a3761bfa75596d4bb747a707d446"
+    },
+    {
+      "path": "kenney-city-starter/models/garage-high.glb",
+      "bytes": 14336,
+      "pack": "kenney-city-starter",
+      "quality": "high",
+      "use": "town-garage",
+      "sha256": "42bca9fae4dd19e483215801ec96296b43cf562d2676e095e582ebc4bb105925"
+    }
+  ],
+  "latestPilotCompatibility": {
+    "base": "a3cbfe2",
+    "method": "Applied only the C-19 topic diff (excluding the board) to a detached latest-pilot worktree. Shared save/report changes remain exactly upstream. No merge performed.",
+    "tests": [
+      {
+        "command": "node test/fpassets.js",
+        "passed": 9
+      },
+      {
+        "command": "node test/fpmission.js",
+        "passed": 39
+      },
+      {
+        "command": "node test/fpworld.js",
+        "passed": 18
+      },
+      {
+        "command": "node test/fpresume.js",
+        "passed": 2
+      },
+      {
+        "command": "node test/workday.js",
+        "passed": 19
+      },
+      {
+        "command": "node test/savesize.js",
+        "passed": 10
+      },
+      {
+        "command": "node test/i18n.js",
+        "passed": true
+      },
+      {
+        "command": "node test/lmsreport.js",
+        "passed": 8
+      },
+      {
+        "command": "node test/aids.js",
+        "passed": 3
+      }
+    ]
+  }
+}

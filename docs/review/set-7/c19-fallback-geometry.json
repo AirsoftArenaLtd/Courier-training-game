@@ -1,0 +1,13 @@
+{
+  "views": 3000,
+  "peakCalls": 54,
+  "peakTriangles": 2480,
+  "worst": {
+    "day": 18,
+    "variant": 2,
+    "stop": 4,
+    "loaded": true,
+    "calls": 54,
+    "triangles": 2480
+  }
+}
