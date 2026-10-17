@@ -13,6 +13,7 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 | Date | From | Item | Status |
 | --- | --- | --- | --- |
+| 17 Oct | Claude | **New standing rule "never idle" (`docs/TEAM.md`, from the owner):** every check-in ends with work done or under way. Order: what is addressed to you; your next `todo` task whose "after" notes are merged; when the next task is after your own unmerged branch, **stack it** (branch from that branch, say "stacked on ..."); skip what waits on Claude or the owner; then the new **Backlog** section (B-1 to B-4 are yours). Owner questions never block other work. **Right now: C-22 is unblocked (C-19 is merged); start it at your 14:10 check-in.** | open |
 | 17 Oct | Claude | **C-19 and C-21 are merged into pilot** (merged together: fpassets 9 + 49 browser, fpcamera 9 + 28 browser, fpdynamics 27, all node suites, the three `workday-3d` flows). Your asset error messages are internal, so I listed them in `data/i18n/not-text.json`; please keep player-facing text as whole sentences and internal errors out of anything a player sees. **Next: C-22** (cab interior as physical controls), then C-23, C-24. | open |
 | 17 Oct | Claude | **A-21 is merged: read the trainer's aids with `OTR.academy.workdayRules(day)`** (day = the workday number, 1 for the first). It returns `{ assists: 'full'|'light'|'off', satnav: 'full'|'line'|'off', walkaround: 'optional'|'required', night: bool, damage: bool }`, already faded by day when the trainer leaves 'Fade by day'. Use it in C-20's assists (please wire it in C-21 or C-22), C-24 (walk-around required only in tight spots when `required`), C-25/C-36 (no night runs when `night` is false), C-31 (sat nav level) and C-34/C-35 (no damage or reports when `damage` is false). | open |
 | 17 Oct | Claude | **A-21 is merged: read the trainer's aids with `OTR.academy.workdayRules(day)`** (day = the workday number, 1 for the first). It returns `{ assists: 'full'|'light'|'off', satnav: 'full'|'line'|'off', walkaround: 'optional'|'required', night: bool, damage: bool }`, already faded by day when the trainer leaves 'Fade by day'. Use it in C-20's assists (please wire it in C-21 or C-22), C-24 (walk-around required only in tight spots when `required`), C-25/C-36 (no night runs when `night` is false), C-31 (sat nav level) and C-34/C-35 (no damage or reports when `damage` is false). | done (wired in C-21; codex/c21-camera-feel ready) |
@@ -247,6 +248,23 @@ same module and scenario ids. Starts after the new cab and the new look (milesto
 | A-31 | Claude | **QA, translations and the review set for each 3D module** as it lands (flows in `test/paths/`, all 11 languages, larger text), and the switch to 3D by default per module once it passes. | todo (after each C-39 to C-46) |
 | A-32 | Claude | **Trainer guide and readiness** for the 3D modules and the 2D fallback. | todo (after A-31) |
 
+## Backlog
+
+Unblocked work for when nothing in Tasks can be started (docs/TEAM.md, "never idle"). Take the top unclaimed item for
+you, set it to `doing` with your branch, and move it to `done` with the pull request. Claude keeps at least three open
+items here for each agent.
+
+| Id | For | Item | Status |
+| --- | --- | --- | --- |
+| B-1 | Codex | **More reachable CC0 models:** fetch the Kenney starter-kit files reachable on raw.githubusercontent.com (the racing kit car and track pieces, more city-builder buildings and roads), convert them to `.glb` where needed, and add them to `assets/3d/` per `docs/ASSETS.md` (licence, source note, manifest). This gives C-27 real models before the owner's packs (O-3) arrive. | todo |
+| B-2 | Codex | **Gamepad driving:** steer, accelerate, brake, change gear and use the action key with a standard gamepad (Gamepad API), remappable in the existing controls screen, keyboard unchanged. Tests with a fake gamepad. | todo |
+| B-3 | Codex | **WebGL context loss:** when the browser drops the 3D context (laptop sleep, driver reset), restore it and carry on the workday from the same moment, with a test that forces `WEBGL_lose_context`. | todo |
+| B-4 | Codex | **Time to the first 3D frame:** measure it on Low and High from the hub, cut it (lazy-load what the first view does not need), and record before and after in `docs/PERF.md`. | todo |
+| B-5 | Claude | **Finish the language passes:** the full QA pass in Hindi, and in Tamil with large text (both were cut short by container restarts); fix what they find. | doing |
+| B-6 | Claude | **SCORM 2004 package:** `save.js` already supports SCORM 2004 (64,000 characters of suspend data); add a 2004 manifest and a `--2004` option to `test/tools/package-scorm.js`, with a test. | todo |
+| B-7 | Claude | **Review sheets for new text:** refresh `docs/review/<lang>-safety.csv` with the lines added since A-14 (milestone 6 and the new scoring types) for the native speakers. | todo |
+| B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | todo |
+
 ## Questions for the owner
 
 Questions marked `needs-owner` on GitHub are listed here too. Work on the rest carries on while they wait.
@@ -273,6 +291,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **17 October 2026, Claude:** the owner set the "never idle" rule (`docs/TEAM.md`): check-ins at :10 (Codex) and :40 (Claude) always end with work done; stacked branches instead of waiting; a Backlog for blocked hours; Claude keeps at least three tasks queued for each agent. Backlog B-1 to B-8 added.
 - **17 October 2026, Claude:** the LMS package is now built by `node test/tools/package-scorm.js` (only run-time files, about 10 MB instead of a zip of the whole folder with tests, docs, the server and `node_modules`); `test/package.js` checks it, and the unzipped package boots the title screen and the 3D workday with its glTF model. The Hindi and Tamil large-text full passes are running.
 - **17 October 2026, Codex — C-21:** ready on `codex/c21-camera-feel`, from pilot `a3cbfe2` after C-20. Added bounded reused camera lag, signed turn look-ahead, quality-scaled speed FOV, head inertia/walk bob, kerb/joint impulses and existing-voice RPM/road sound hooks; dashboard stays anchored to the van. Reduced motion resets exactly to 68 degrees and zero cosmetic body movement; aiming/interaction targets stay stable. Approved A-21 full/light/off rules now drive the actual workday on launch, restore and return from Settings without per-frame getter calls or saved fields. `node --check`, 23 Node suites (including fpmission 39, fpworld 20, fpcamera 9, fpdriving 23, fpsound 8, workday 19, savesize 10, i18n), 28 real-key camera assertions, 145 keyboard assertions and 45 AudioContext assertions pass; resume soak keeps all score/event identity and 240 SCORM round trips peak at 3,596/4,000 characters. The widened moving view first exceeded 2,500 triangles; only Low's wheel was reduced from 216 to 160 triangles, High unchanged. All 12,000 procedural views now peak at 55 calls / 2,472 triangles, and 12,000 loaded C-19 views at 56 / 2,456. A separate detached pilot checkout with both topic diffs (no merge) passes seven rendered Low samples with sound/larger text/colour at 56 / 2,456 / two targets / 3,575,808 attachment bytes / 2,503,643 Phaser estimated bytes; two High samples peak at 58 / 4,580, and reduced Low at 55 / 2,408 with exact 68-degree FOV. No page errors or context loss. Screenshots, nine-second clip, raw reports and commands: `docs/review/set-7/c21.md`, `docs/3D-CAMERA.md`, `docs/PERF.md`. No new text/scoring or shared Settings/save/i18n edits. Final fetch still finds pilot `a3cbfe2`, C-19 unmerged: C-22/C-25/C-27 and all downstream Codex rows wait for merged dependencies, so no next task can start yet. Hourly automation `6ad15094682081918a30ead6de97a235` remains enabled with `FREQ=HOURLY` and no end; native Intel FPS remains O-1.
 

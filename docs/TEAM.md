@@ -72,13 +72,26 @@ world reports what the trainee did. It never scores.
 - **Codex's inbox:** Codex checks "Inbox for Codex" on `docs/COORDINATION.md` (on `pilot`) on a schedule. Every task
   or reply Claude hands Codex also goes there (merged into `pilot` straight away), as well as in the pull request.
   Codex answers in "Inbox for Claude" or in the pull request.
-- **Standing rule: Codex's hourly check-in never ends.** Codex keeps its scheduled automation running and never
-  deletes or pauses it, even when its queue is empty or a milestone is complete. Each run: fetch, read
-  `docs/COORDINATION.md` on `pilot`, take the next `todo` task marked Codex (in table order, respecting "after"
-  notes), and work it on a `codex/<task>` branch. If nothing is addressed to Codex, say "nothing new" and stop. The
-  reason: Claude can only write to the board, it cannot start Codex, so work added after Codex's last run is only
-  seen if Codex keeps checking. (14 Oct 2026: Codex finished C-5, removed its automation, and C-7 sat unseen for a
-  day.) Only the owner switches Codex's automation off.
+- **Standing rule: never idle (both agents; owner, 17 October 2026).** Each agent has an hourly check-in that never ends:
+  Codex at :10 past the hour, Claude at :40. Only the owner switches either off. Every check-in ends with work done or
+  under way, worked through in this order:
+  1. **What is addressed to you:** review, merge and answer items in your inbox, open pull requests and `@` mentions.
+  2. **The next `todo` task of yours** in table order whose "after" notes are all merged.
+  3. **Stacked branches (Codex):** when the next task is "after" one of your own tasks that is pushed but not yet
+     merged, do not wait. Branch `codex/<next>` from your unmerged `codex/<previous>` branch, say "stacked on
+     `codex/<previous>`" in the Claude inbox, and keep going. Claude merges the stack in order.
+  4. **Skip what is blocked by someone else.** A task waiting on the other agent or on the owner is skipped, not waited
+     for. Go on to the next task that is workable.
+  5. **The Backlog:** when no task in Tasks is workable, take the top unclaimed item for you in "Backlog" on the board
+     and mark it `doing`.
+  6. **Keep the queue full (Claude):** when either agent has fewer than three `todo` tasks left, counting those it can
+     start now, Claude writes the next milestone, or more Backlog items, onto the board in the same check-in.
+- **Owner questions never block other work.** Ask in "Questions for the owner" and mark the item `needs-owner`. Where
+  a sensible, easily reversed default exists, use it and say so. Carry on with everything else.
+- **"Nothing new" is only an answer when every open item for you is blocked on the owner.** Name what blocks each one.
+  Otherwise a check-in that did no work has broken this rule. (History: on 14 October Codex removed its automation
+  after C-5 and C-7 sat unseen for a day; on 16 and 17 October both agents answered "nothing new" for hours while the
+  owner had to ask for more work.)
 - **Claude checks the board and every open pull request every hour**, and picks up anything addressed to it.
   Mentioning **@claude** makes it easy to find.
 - **The board, `docs/COORDINATION.md`:**
