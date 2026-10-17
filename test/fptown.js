@@ -38,6 +38,14 @@ test('missing individual models retain their procedural lots without hiding heal
  assert.equal(bank.stats.loaded,8);assert.equal(bank.stats.failed,1);
  const w=world(false,bank),t=w.art.townArt,house=t.choices.find(x=>x.use==='town-house');assert.equal(house.available,false);t.select(house.x,house.z);assert.equal(house.selected,false);assert.equal(t.fallback({town:house}),true);assert.ok(t.choices.some(x=>x.available&&x.selected));w.art.dispose();bank.dispose();
 });
+test('front-yard props stay inside their original lot and outside the building',()=>{
+ for(const high of [false,true]){const w=world(high),bounds=new Map();
+  for(const batch of w.art.townArt.batches){batch.mesh.geometry.computeBoundingBox();for(const e of batch.entries)bounds.set(e.town,batch.mesh.geometry.boundingBox.clone().applyMatrix4(e.matrix));}
+  for(const [choice,b] of bounds){if(!choice.lotId)continue;const l=w.m.town.lots.find(l=>l.id===choice.lotId);assert.ok(b.min.x>=l.x-l.w/2-.001&&b.max.x<=l.x+l.w/2+.001&&b.min.z>=l.z-l.d/2-.001&&b.max.z<=l.z+l.d/2+.001,choice.use+' stays inside '+l.id);
+   if(!choice.house){const house=w.art.townArt.choices.find(c=>c.house&&c.lotId===l.id),h=bounds.get(house);assert.ok(b.max.x<=h.min.x+.001||b.min.x>=h.max.x-.001,choice.use+' stays outside the house on '+l.id);}
+  }w.art.dispose();
+ }
+});
 test('all four reflection passes restore every static/asset matrix, colour, count and visibility',()=>{
  const w=world();w.m.mode='cab';w.m.van.wipers=true;w.m.van.gear=-1;w.m.paused=false;w.art.sync(w.m,null,'route');const meshes=[];
  w.art.route.traverse(o=>{if(o.isInstancedMesh)meshes.push(o);});

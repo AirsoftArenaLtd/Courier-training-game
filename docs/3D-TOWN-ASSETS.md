@@ -21,7 +21,7 @@ No incoming zip, external URI, image texture or new player-facing text ships.
 ## Placement, fallback and physical access
 
 `src/core/fptown.js` owns scene-only art state. Houses face the street and fit the generated non-delivery
-lots; roofs, windows, roadside trees/furniture and parked cars add visual detail. Existing customer facades,
+lots, with a private front yard keeping props outside the building; roofs, windows, roadside trees/furniture and parked cars add visual detail. Existing customer facades,
 front doors, labels, exact collision solids, public paths, road markings, parking points and generated
 route identities stay intact. Decoration remains inside already-solid non-delivery lots. The original lot
 footprint remains the collision boundary, including visible yards; delivery paths remain accessible.
