@@ -3697,7 +3697,11 @@ window.OTR_I18N.ta = {
 "Your right mirror check is current.": "உங்கள் வலது கண்ணாடி சோதனை சமீபத்தியது.",
 "Look at the right mirror for a moment to check it.": "வலது கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்.",
 "Your interior mirror check is current.": "உங்கள் உள் கண்ணாடி சோதனை சமீபத்தியது.",
-"Look at the interior mirror for a moment to check it.": "உள் கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்."
+"Look at the interior mirror for a moment to check it.": "உள் கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்.",
+"road sign": "சாலை அடையாளம்",
+"damage to the van": "வேனுக்கு சேதம்",
+"low bridge or clearance": "தாழ்வான பாலம் அல்லது உயர வரம்பு",
+"load shifted": "சரக்கு நகர்ந்தது"
 },
 "templates": [
 [

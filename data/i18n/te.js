@@ -3697,7 +3697,11 @@ window.OTR_I18N.te = {
 "Your right mirror check is current.": "మీ కుడి అద్దం తనిఖీ తాజాగా ఉంది.",
 "Look at the right mirror for a moment to check it.": "కుడి అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి.",
 "Your interior mirror check is current.": "మీ లోపలి అద్దం తనిఖీ తాజాగా ఉంది.",
-"Look at the interior mirror for a moment to check it.": "లోపలి అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి."
+"Look at the interior mirror for a moment to check it.": "లోపలి అద్దాన్ని ఒక క్షణం చూసి తనిఖీ చేయండి.",
+"road sign": "రహదారి సూచిక",
+"damage to the van": "వ్యాన్‌కు నష్టం",
+"low bridge or clearance": "తక్కువ ఎత్తు వంతెన లేదా ఎత్తు పరిమితి",
+"load shifted": "సరుకు జరిగింది"
 },
 "templates": [
 [

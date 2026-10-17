@@ -3697,7 +3697,11 @@ window.OTR_I18N.kn = {
 "Your right mirror check is current.": "ನಿಮ್ಮ ಬಲ ಕನ್ನಡಿ ಪರಿಶೀಲನೆ ಇತ್ತೀಚಿನದು.",
 "Look at the right mirror for a moment to check it.": "ಬಲ ಕನ್ನಡಿಯನ್ನು ಒಂದು ಕ್ಷಣ ನೋಡಿ ಪರಿಶೀಲಿಸಿ.",
 "Your interior mirror check is current.": "ನಿಮ್ಮ ಒಳಗಿನ ಕನ್ನಡಿ ಪರಿಶೀಲನೆ ಇತ್ತೀಚಿನದು.",
-"Look at the interior mirror for a moment to check it.": "ಒಳಗಿನ ಕನ್ನಡಿಯನ್ನು ಒಂದು ಕ್ಷಣ ನೋಡಿ ಪರಿಶೀಲಿಸಿ."
+"Look at the interior mirror for a moment to check it.": "ಒಳಗಿನ ಕನ್ನಡಿಯನ್ನು ಒಂದು ಕ್ಷಣ ನೋಡಿ ಪರಿಶೀಲಿಸಿ.",
+"road sign": "ರಸ್ತೆ ಚಿಹ್ನೆ",
+"damage to the van": "ವ್ಯಾನ್‌ಗೆ ಹಾನಿ",
+"low bridge or clearance": "ಕೆಳಮಟ್ಟದ ಸೇತುವೆ ಅಥವಾ ಎತ್ತರದ ಮಿತಿ",
+"load shifted": "ಸರಕು ಜರುಗಿದೆ"
 },
 "templates": [
 [

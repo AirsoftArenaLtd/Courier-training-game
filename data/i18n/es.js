@@ -3708,7 +3708,11 @@ window.OTR_I18N.es = {
 "Your right mirror check is current.": "Tu revisión del espejo derecho está al día.",
 "Look at the right mirror for a moment to check it.": "Mira un momento el espejo derecho para revisarlo.",
 "Your interior mirror check is current.": "Tu revisión del espejo interior está al día.",
-"Look at the interior mirror for a moment to check it.": "Mira un momento el espejo interior para revisarlo."
+"Look at the interior mirror for a moment to check it.": "Mira un momento el espejo interior para revisarlo.",
+"road sign": "señal de tráfico",
+"damage to the van": "daños en la furgoneta",
+"low bridge or clearance": "puente bajo o gálibo",
+"load shifted": "carga desplazada"
 },
 "templates": [
 [

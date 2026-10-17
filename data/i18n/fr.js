@@ -3692,7 +3692,11 @@ window.OTR_I18N.fr = {
 "Your right mirror check is current.": "Votre contrôle du rétroviseur droit est à jour.",
 "Look at the right mirror for a moment to check it.": "Regardez un instant le rétroviseur droit pour le contrôler.",
 "Your interior mirror check is current.": "Votre contrôle du rétroviseur intérieur est à jour.",
-"Look at the interior mirror for a moment to check it.": "Regardez un instant le rétroviseur intérieur pour le contrôler."
+"Look at the interior mirror for a moment to check it.": "Regardez un instant le rétroviseur intérieur pour le contrôler.",
+"road sign": "panneau de signalisation",
+"damage to the van": "dommages au véhicule",
+"low bridge or clearance": "pont bas ou hauteur limitée",
+"load shifted": "chargement déplacé"
 },
 "templates": [
 [
