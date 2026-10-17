@@ -34,7 +34,7 @@ OTR.fpDriving = {
     const d=m.driving;if(!d)return;
     if(d.followingSeen&&!d.followingFailed)this.fire(m,'drive.following',m.leg,true,'Kept a three-second following gap on this leg.');
     d.mirrorDone=false;d.followingSeen=false;d.followingFailed=false;d.closeTime=0;
-    d.reverseActive=false;d.reverseSafe=false;d.goalAt=-100;d.goalClear=false;
+    d.reverseActive=false;d.reverseSafe=false;d.goalAt=-100;d.goalClear=false;if(d.mirrorTurn)d.mirrorTurn[0]=0;
   },
   checkGoal(m) {
     const d=m.driving,v=m.van;if(!d||m.mode!=='walk'||!m.parked()||m.heldId)return 'Park the van and get out before checking the reversing path.';
@@ -86,8 +86,9 @@ OTR.fpDriving = {
   tick(m,dt,old) {
     const d=m.driving,v=m.van,F=OTR.fp;if(!d)return;
     if(m.mode==='cab'){
-      if(m.parked()&&this.atRight(m))d.mirrorDone=false;
-      if(!d.mirrorDone&&v.speed>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=m.elapsed-m.mirrorAt>=0&&m.elapsed-m.mirrorAt<10;this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');}
+      if(Math.abs(v.speed)<.15&&(v.hand||v.gear===2))d.mirrorDone=false;
+      if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');}
+      if(OTR.fpMirrors)OTR.fpMirrors.maneuvers(m);
       if(v.speed>1){let gap=Infinity;
         for(const car of m.traffic){
           if(Math.cos(car.yaw-v.yaw)<0.85)continue;
@@ -163,6 +164,7 @@ OTR.fpDriving = {
   },
   valid(m,d,elapsed) {
     if(!d||!['mirrorDone','followingSeen','followingFailed','goalClear','reverseActive','reverseSafe'].every(k=>typeof d[k]==='boolean'))return false;
+    if(OTR.fpMirrors&&!OTR.fpMirrors.validTurn(d.mirrorTurn,elapsed))return false;
     if(!['reverseCount','mirrorCount'].every(k=>Number.isSafeInteger(d[k])&&d[k]>=0))return false;
     if(!['closeTime','goalAt','goalX','goalZ','goalYaw'].every(k=>Number.isFinite(d[k]))||d.goalAt>elapsed)return false;
     for(const name of ['bus','siren']){

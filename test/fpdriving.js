@@ -1,7 +1,7 @@
 /* Live driving observations, hazard outcomes and checkpoint continuity. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={};c.window=c;vm.createContext(c);
-for(const file of ['data/workday_events.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpdriving.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+for(const file of ['data/workday_events.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpmirrors.js','src/core/fpdriving.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 const M=c.OTR.fpMission,D=c.OTR.fpDriving,W=c.OTR.workday;
 const make=()=>{W.begin();const m=M.create('campaign',7);D.configure(m);m.mode='cab';m.phase='route';m.departed=true;for(const car of m.traffic){car.x=-100;car.z=30;}m.driving.bus.state=m.driving.siren.state='done';Object.assign(m.van,{x:4,z:-70,yaw:0,hand:false,belt:true});return m;};
 const events=type=>W.events.filter(e=>e.type===type);
@@ -11,7 +11,7 @@ test('selecting Neutral or Park ends the previous reversing manoeuvre',()=>{
   m.selectGear(-1);m.van.speed=-.5;D.tick(m,.1);assert.equal(events('drive.backing').length,2);}
 });
 test('each curb departure needs a recent mirror check and restores without replay',()=>{
- const m=make();m.mirror();m.van.speed=2;D.tick(m,.1);D.tick(m,.1);assert.equal(events('drive.mirrors').length,1);assert.equal(events('drive.mirrors')[0].ok,true);
+ const m=make(),s=c.OTR.fpMirrors.specs[0];m.paused=false;m.van.look=Math.atan2(s.x+.45,-(s.z+1.85));m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(s.x+.45,s.z+1.85));for(let i=0;i<40;i++){m.elapsed+=.01;c.OTR.fpMirrors.tick(m,.01);}m.van.speed=2;D.tick(m,.1);D.tick(m,.1);assert.equal(events('drive.mirrors').length,1);assert.equal(events('drive.mirrors')[0].ok,true);
  m.van.speed=0;m.van.hand=true;D.tick(m,.1);m.elapsed=20;m.van.hand=false;m.van.speed=2;D.tick(m,.1);
  assert.equal(events('drive.mirrors').length,2);assert.equal(events('drive.mirrors')[1].ok,false);
  const r=M.restore(m.snapshot());assert.ok(r);assert.equal(r.solids.length,m.solids.length);W.begin();D.tick(r,.1);assert.equal(W.events.length,0);
@@ -147,10 +147,10 @@ test('braking transfers weight to the front and dives the sprung body, then sett
  assert.ok(d.acceleration<0);assert.ok(d.frontLoad>d.rearLoad);assert.ok(d.pitch<-.01);assert.ok(Math.abs(d.frontLoad+d.rearLoad-d.mass*9.81)<.00001);
  runMotor(m,{back:true},2);assert.equal(m.van.speed,0);assert.ok(Math.abs(d.pitch)<.001);assert.ok(Math.abs(d.frontLoad-d.rearLoad)<.001);
 });
-test('restoring mid-reverse preserves the exact future mission and reports without new saved fields',()=>{
+test('restoring mid-reverse preserves the exact future mission and reports with transient motor telemetry',()=>{
  const m=make();m.paused=false;m.secured=true;Object.assign(m.van,{gear:-1,speed:-.4,steer:.15});runMotor(m,{right:true},.4);
  const raw=m.snapshot(),events=JSON.stringify(W.events),r=M.restore(raw);assert.ok(r);assert.equal(JSON.stringify(W.events),events);
- assert.equal(raw.motion,undefined);assert.equal(raw._motorPose,undefined);assert.equal(r.motion,undefined);assert.deepEqual(Object.keys(raw.van).sort(),['x','z','yaw','speed','steer','gear','hand','belt','look'].sort());
+ assert.equal(raw.motion,undefined);assert.equal(raw._motorPose,undefined);assert.equal(r.motion,undefined);assert.deepEqual(Object.keys(raw.van).sort(),['x','z','yaw','speed','steer','gear','hand','belt','look','mirrors'].sort());
  r.paused=false;for(const input of [{right:true},{},{back:true},{left:true,forward:true}])for(let i=0;i<30;i++){m.step(input,1/60);r.step(input,1/60);assert.equal(JSON.stringify(r.snapshot()),JSON.stringify(m.snapshot()));}
 });
 test('a forward and reversing S-curve stays consistent at 30, 60 and 120 FPS and caps a stalled frame',()=>{

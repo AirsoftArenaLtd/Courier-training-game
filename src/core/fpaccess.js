@@ -14,7 +14,7 @@ OTR.fpAccess={
     ['KeyW','Move forward or accelerate'],['KeyS','Move back or brake'],['KeyA','Move or steer left'],['KeyD','Move or steer right'],
     ['ArrowLeft','Look left'],['ArrowRight','Look right'],['ArrowUp','Look up'],['ArrowDown','Look down'],
     ['KeyE','Interact or exit the cab'],['KeyP','Select the next nearby target'],['KeyF','Inspect the parcel'],['Tab','Open or close the handheld'],
-    ['Space','Scan or set the parking brake'],['ShiftLeft','Walk carefully'],['KeyM','Check the mirror'],['KeyG','Get out and look'],
+    ['Space','Scan or set the parking brake'],['ShiftLeft','Walk carefully'],['KeyG','Get out and look'],
     ['KeyL','Switch the headlights.'],['KeyK','Switch the wipers.'],['KeyB','Fasten the seatbelt'],['KeyR','Change gear'],['KeyQ','Signal left'],['KeyC','Signal right'],['KeyV','Look forward'],['KeyH','Open the menu']
   ],
   syncKeys(){
@@ -43,7 +43,7 @@ OTR.fpAccess={
     for(let n=1;n<=ids.length;n++){
       const i=(start+n)%ids.length;for(const object of objects){if(object.userData.interaction!==ids[i])continue;object.getWorldPosition(point);
       const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(cab)m.van.look=OTR.fp.clamp(Math.atan2(Math.sin(heading-m.van.yaw),Math.cos(heading-m.van.yaw)),-1.5,1.5);else p.yaw=heading;p.pitch=OTR.fp.clamp(Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z)),-1.05,1.05);
-      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(cab?OTR.fpCab.hint(ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`);return ids[i];}}
+      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(OTR.fpMirrors&&OTR.fpMirrors.hint(ids[i],m)||(cab?OTR.fpCab.hint(ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`));return ids[i];}}
     }
     if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },

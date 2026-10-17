@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-17",
+  "branch": "codex/c23-live-mirrors",
+  "stackedOn": "codex/c22-physical-cab at 08efa85; merged into pilot during C-23",
+  "latestPilotChecked": "54431cf",
+  "node": [
+    {
+      "suite": "firstperson",
+      "passed": 18
+    },
+    {
+      "suite": "fpmission",
+      "passed": 39
+    },
+    {
+      "suite": "fphandheld",
+      "passed": 8
+    },
+    {
+      "suite": "fpworld",
+      "passed": 20
+    },
+    {
+      "suite": "fproute",
+      "passed": 11
+    },
+    {
+      "suite": "fploadout",
+      "passed": 11
+    },
+    {
+      "suite": "fpdriving",
+      "passed": 24
+    },
+    {
+      "suite": "fpday",
+      "passed": 10
+    },
+    {
+      "suite": "fpdoors",
+      "passed": 16
+    },
+    {
+      "suite": "fpaccess",
+      "passed": 7
+    },
+    {
+      "suite": "fpbranding",
+      "passed": 4
+    },
+    {
+      "suite": "fpguide",
+      "passed": 3
+    },
+    {
+      "suite": "fpperf",
+      "passed": 2
+    },
+    {
+      "suite": "fpsound",
+      "passed": 8
+    },
+    {
+      "suite": "fplater",
+      "passed": 7
+    },
+    {
+      "suite": "fpcamera",
+      "passed": 9
+    },
+    {
+      "suite": "fpcab",
+      "passed": 10
+    },
+    {
+      "suite": "fpassets",
+      "passed": 9
+    },
+    {
+      "suite": "fpmirrors",
+      "passed": 11
+    },
+    {
+      "suite": "workday",
+      "passed": 19
+    },
+    {
+      "suite": "savesize",
+      "passed": 10
+    },
+    {
+      "suite": "assets",
+      "passed": 3
+    },
+    {
+      "suite": "aids",
+      "passed": 3
+    },
+    {
+      "suite": "lmsreport",
+      "passed": 8
+    },
+    {
+      "suite": "i18n",
+      "passed": "all translation checks"
+    },
+    {
+      "suite": "fpresume",
+      "passed": 2
+    }
+  ],
+  "browser": {
+    "physicalMirrors": 132,
+    "focusedPartialReload": 44,
+    "keyboardFullDay": 145,
+    "cameraRegressions": 28,
+    "languages": [
+      "en",
+      "ta"
+    ],
+    "layouts": [
+      "normal",
+      "larger"
+    ],
+    "colourFilter": true,
+    "reducedMotion": true,
+    "liveGeometryPixels": [
+      {
+        "index": 2,
+        "id": "mirror-interior",
+        "red": [
+          255,
+          42,
+          116,
+          255
+        ],
+        "blue": [
+          0,
+          29,
+          255,
+          255
+        ]
+      },
+      {
+        "index": 1,
+        "id": "mirror-right",
+        "red": [
+          255,
+          42,
+          116,
+          255
+        ],
+        "blue": [
+          0,
+          29,
+          255,
+          255
+        ]
+      },
+      {
+        "index": 0,
+        "id": "mirror-left",
+        "red": [
+          255,
+          42,
+          116,
+          255
+        ],
+        "blue": [
+          0,
+          29,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  "geometry": {
+    "c23-geometry": {
+      "views": 162000,
+      "peakCalls": 59,
+      "peakTriangles": 2090,
+      "worst": {
+        "day": 6,
+        "variant": 9,
+        "stop": 0,
+        "loaded": true,
+        "pose": "cab-wipers",
+        "reflection": 2,
+        "calls": 58,
+        "triangles": 2090
+      }
+    },
+    "c23-fallback-geometry": {
+      "views": 162000,
+      "peakCalls": 58,
+      "peakTriangles": 2082,
+      "worst": {
+        "day": 6,
+        "variant": 9,
+        "stop": 0,
+        "loaded": true,
+        "pose": "cab-wipers",
+        "reflection": 2,
+        "calls": 57,
+        "triangles": 2082
+      }
+    }
+  },
+  "rendered": {
+    "c23-low": {
+      "samples": 7,
+      "peak": {
+        "calls": 58,
+        "triangles": 2090,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserTextureEstimate": 2581472,
+      "errors": []
+    },
+    "c23-high": {
+      "samples": 4,
+      "peak": {
+        "calls": 64,
+        "triangles": 4066,
+        "textures": 2,
+        "attachmentBytes": 9142272
+      },
+      "phaserTextureEstimate": 6663515,
+      "errors": []
+    },
+    "c23-reduced-low": {
+      "samples": 2,
+      "peak": {
+        "calls": 58,
+        "triangles": 2090,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserTextureEstimate": 2528539,
+      "errors": []
+    }
+  },
+  "resume": {
+    "seedComparisons": 30,
+    "soakDays": 100,
+    "scormChecks": 240,
+    "scormMaxCharacters": 3943,
+    "limit": 4000
+  },
+  "syntax": "Every changed and new JavaScript file passed node --check.",
+  "nativeFps": "Not measured on this software renderer; owner O-1 remains open."
+}

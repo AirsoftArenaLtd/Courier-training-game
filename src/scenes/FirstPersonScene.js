@@ -63,9 +63,9 @@ class FirstPersonScene extends Phaser.Scene {
   showPanel(title,body,choices,options) {
     if(this.handheld)this.handheld.close(false);
     options=options||{};this.closePanel(false);this.held=Object.create(null);
-    if(this.model)this.model.paused=true;this.hubMotion.paused=true;
+    if(this.model){this.model.paused=true;if(OTR.fpMirrors&&!options.preserveGaze)OTR.fpMirrors.reset(this.model);}this.hubMotion.paused=true;
     const root=this.add.container(0,0).setDepth(100);
-    this.panel={root,choices,index:0,type:options.inspect?'inspect':'normal',buttons:[],back:options.back||null};this.releaseMouse();
+    this.panel={root,choices,index:0,preserveGaze:!!options.preserveGaze,type:options.inspect?'inspect':'normal',buttons:[],back:options.back||null};this.releaseMouse();
     root.add(this.add.rectangle(640,360,1280,720,0x101A25,options.inspect?0.27:0.7));
     const cx=options.inspect?958:640,w=options.inspect?570:1040;
     root.add(this.add.rectangle(cx,360,w,544,0x263545,0.98));root.add(OTR.txt(this,cx,127,title,27,'#EBC889',{fit:w-60}));
@@ -117,7 +117,7 @@ class FirstPersonScene extends Phaser.Scene {
     const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
       m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     if(OTR.fpGuide&&kind==='campaign'&&OTR.fpGuide.opening(this,resumed))return;
-    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}]);
+    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}],{preserveGaze:resumed});
   });}
   rebuildWorld(){
     if(this.labels)this.labels.forEach(({object})=>object.destroy());
@@ -129,13 +129,13 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.hubWorkday){this.checkpoint();this.closePanel(false);this.releaseMouse();OTR.workday.pause(this);return;}
     this.transition(()=>{this.model=null;this.area='hub';this.target=null;Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});});
   }
-  showPause(){
+  showPause(preserveGaze=false){
     if(this.loading||this.external||this.transitioning)return;if(this.model&&this.model.phase==='debrief'){this.showDebrief(this.progress.last);return;}
     const choices=[{label:'Continue',action:()=>this.closePanel()}];
     if(this.area==='hub')choices.push({label:this.progress.campaign?'Resume workday':'Start workday',action:()=>this.launch('campaign')},{label:this.progress.practice?'Resume cargo practice':'Cargo practice',action:()=>this.launch('practice')},{label:'Last debrief',action:()=>this.showDebrief(this.progress.last)});
     else choices.push({label:'Save and return to hub',action:()=>this.toHub()},{label:'Handheld',action:()=>this.showScanner()});
     choices.push({label:'Controls and guidance',action:()=>OTR.fpGuide.open(this)},{label:'Settings',action:()=>this.showSettings()},{label:'Main game',action:()=>this.leavePrototype()});
-    this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?`Choose a station or use the menu below. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target, then ${OTR.fpAccess.key('KeyE')} to interact. Use ${OTR.fpAccess.lookKeys()} or the mouse to look.`:'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices);this.checkpoint();
+    this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?`Choose a station or use the menu below. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target, then ${OTR.fpAccess.key('KeyE')} to interact. Use ${OTR.fpAccess.lookKeys()} or the mouse to look.`:'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices,{preserveGaze});this.checkpoint();
   }
   leavePrototype(){if(this.hubWorkday){this.toHub();return;}this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
@@ -286,6 +286,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.panel||this.external||this.transitioning||(this.handheld&&this.handheld.isOpen))return;const id=this.aimTarget(),m=this.model;
     if(!id&&(!m||m.mode==='walk')&&!(m&&m.heldId)){this.message(`No target is selected. Move closer or press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target.`);return;}
     if(this.area==='hub'){if(id==='hub-day')this.launch('campaign');else if(id==='hub-practice')this.launch('practice');else if(id==='hub-record')this.showDebrief(this.progress.last);return;}
+    if(id&&id.startsWith('mirror-'))return;
     if(m.mode==='cab'){if(id&&id.startsWith('cab-')&&id!=='cab-exit'){this.cabAction(id);return;}if(!m.exit())this.message('Stop and set the parking brake before exiting.');else this.workdaySound.effect('door','The cab door opens.');this.checkpoint();return;}
     const before={mode:m.mode,cargo:m.cargoOpen,held:m.heldId,secured:m.secured};let result='';
     if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
@@ -315,7 +316,7 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyL','KeyK','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyL','KeyK','KeyR','KeyB','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
@@ -345,12 +346,12 @@ class FirstPersonScene extends Phaser.Scene {
       const m=this.model;if(m&&m.mode==='cab'){
         if(e.code==='Space')this.cabAction('cab-handbrake');if(e.code==='KeyB')this.cabAction('cab-belt');
         if(e.code==='KeyL')this.cabAction('cab-headlights');if(e.code==='KeyK')this.cabAction('cab-wipers');
-        if(e.code==='KeyR')this.cabAction(m.van.gear===1?'cab-reverse':'cab-drive');if(e.code==='KeyM')m.mirror();
+        if(e.code==='KeyR')this.cabAction(m.van.gear===1?'cab-reverse':'cab-drive');
         if(e.code==='KeyQ')this.cabAction('cab-signal-left');if(e.code==='KeyC')this.cabAction('cab-signal-right');if(e.code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
       }
     });
     listen(window,'keyup',e=>{delete this.held[e.code];});
-    const pause=()=>{this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause();};
+    const pause=()=>{this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause(true);};
     listen(window,'blur',pause);listen(document,'visibilitychange',()=>{if(document.hidden)pause();});
     listen(document,'pointerlockchange',()=>{if(document.pointerLockElement!==canvas&&!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming))pause();});
     listen(window,'pagehide',()=>this.checkpoint());this.events.once('shutdown',()=>{handlers.forEach(remove=>remove());this.held=Object.create(null);this.releaseMouse();});
@@ -393,7 +394,7 @@ class FirstPersonScene extends Phaser.Scene {
       const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
       if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
       // the two halves are translated before they are joined: "   |   " is not a place the translator splits
-      this.setText('help',t((mode==='cab'?[`${k('KeyM')} left mirror`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:[`${OTR.fpAccess.lookKeys()} look`,`${k('KeyP')} selects a nearby target`,'Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
+      this.setText('help',t((mode==='cab'?[`${k('KeyP')} selects a nearby target`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:[`${OTR.fpAccess.lookKeys()} look`,`${k('KeyP')} selects a nearby target`,'Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
       }else{
         this.setText('controls',aiming?[`${wasd} move`,`${OTR.fpAccess.lookKeys()} aim`,`Hold ${k('Space')} or left click to scan`].join(' · '):'Use arrows and Enter, or number keys. Backspace goes back.',790);
         this.setText('help',t([`${k('Tab')} put away`,'Esc back',`${k('KeyH')} pause`].join(' · '))+'   |   '+t(saving),790);
@@ -401,7 +402,7 @@ class FirstPersonScene extends Phaser.Scene {
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
-    else if(mode==='cab'){hint=OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
+    else if(mode==='cab'){hint=OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
@@ -409,11 +410,11 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · '+`${k('KeyE')} places the parcel.`;
     else if(id&&id.startsWith('gate'))hint=`${k('KeyE')} checks the gate. Keep outside while the dog is loose.`;else if(id&&id.startsWith('hazard'))hint=`${k('KeyE')} inspects the path. Hold ${k('ShiftLeft')} for short, careful steps.`;
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
-    if(mode==='cab'&&!(id&&id.startsWith('cab-'))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
+    if(mode==='cab'&&!(id&&(id.startsWith('cab-')||id.startsWith('mirror-')))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
-    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked);this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
+    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked);this.mirrorLabel.setVisible(false);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);
       if(this.handheld.progress>0){this.scanBeam.fillStyle(0x1B2634,0.9);this.scanBeam.fillRect(570,395,140,8);this.scanBeam.fillStyle(color,1);this.scanBeam.fillRect(570,395,140*Math.min(1,this.handheld.progress/0.45),8);}}
@@ -423,6 +424,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
     if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
+    if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;}
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
@@ -432,7 +434,7 @@ class FirstPersonScene extends Phaser.Scene {
       this.labels.forEach(({label,object})=>{
         if(label.gauge&&this.model){const text=label.gauge==='speed'?`The speed is ${Math.round(Math.abs(this.model.van.speed)*2.23694)} mph.`:`The engine is at ${Math.round((this.model.motion?this.model.motion.rpm:800)/100)*100} RPM.`;if(label.text!==text){label.text=text;object.setText(text);}}
         const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
-        if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)||(this.view.mirror.on&&p.x<380&&p.y<310)){object.setVisible(false);return;}
+        if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)){object.setVisible(false);return;}
         if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
     if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();
   }
