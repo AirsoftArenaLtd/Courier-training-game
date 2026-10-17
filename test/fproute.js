@@ -116,6 +116,7 @@ test('low graphics stays within the complete-frame geometry budget at every stop
   for(const p of m.parcels)p.location=loaded?'slot'+(p.anomaly?5:p.stop):'depot';
   for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews,...(process.env.QA_REAR==='1'?['reverse','cab-camera']:[])]:['steady'])){
    Object.assign(m.van,s.park);m.van.look=0;m.player.pitch=0;m.elapsed=0;m.van.gear=pose==='reverse'||pose==='cab-camera'?-1:1;
+   if(process.env.QA_WEATHER==='1')m.van.wipers=true;
    if(process.env.QA_LIGHTING==='1')m.routePlan.timeOfDay=c.OTR.fpLighting.times[(day+s.id)%4];
    if(process.env.QA_CAMERA==='1'){
     const turning=pose==='turn'||pose==='turnleft',side=pose==='turnleft'?-1:1;

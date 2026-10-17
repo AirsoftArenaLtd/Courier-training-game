@@ -123,7 +123,9 @@ OTR.fpWorld = {
       }
       labels.push({parent:route,point:new T.Vector3(r.x,1.6,r.z),text:'This street is closed.',wrap:216,max:25});
     }
-    const weatherDrops=(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),OTR.gfx.high()?36:base.routePlan&&base.routePlan.later===1?12:18):null;
+    const particleCount=OTR.gfx.high()?36:base.routePlan&&base.routePlan.later===1?12:18;
+    const weatherParticles=OTR.fpWeather&&(wet||snow||weather==='ice')?OTR.fpWeather.particles(scene,plane,weather,particleCount):null;
+    const weatherDrops=weatherParticles?weatherParticles.mesh:(wet||snow)?new T.InstancedMesh(cube,material(snow?0xE7ECED:0xC4D7E1),particleCount):null;
     const dropMatrix=new T.Matrix4(),dropPosition=new T.Vector3(),dropScale=new T.Vector3(snow?.09:.025,snow?.09:.7,snow?.09:.025),dropRotation=new T.Quaternion();
     if(weatherDrops){weatherDrops.frustumCulled=false;route.add(weatherDrops);}
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];
@@ -260,7 +262,7 @@ OTR.fpWorld = {
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions):null;
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
-    const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab):null;
+    const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -270,9 +272,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -282,7 +284,7 @@ OTR.fpWorld = {
         if(inHub){camera.position.set(hubPlayer.x,1.65,hubPlayer.z);camera.rotation.set(-hubPlayer.pitch,-hubPlayer.yaw,0,'YXZ');view.mirror.on=false;}
         else if(model){
           const m=model,v=m.van,p=m.player,cx=m.mode==='cab'?v.x:p.x,cz=m.mode==='cab'?v.z:p.z;
-          if(weatherDrops){
+          if(weatherDrops&&!weatherParticles){
             for(let i=0;i<weatherDrops.count;i++){
               const time=reduced?0:m.elapsed;
               const t=time*(snow?.7:9),c=Math.cos(v.yaw),s=Math.sin(v.yaw);let x=((i*7.31)%18)-9,z=((i*11.73)%18)-9;
@@ -359,6 +361,7 @@ OTR.fpWorld = {
           if(!mirrors)view.mirror.on=false;
         }
         if(mirrors)mirrors.sync(model,area);
+        if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         world.updateMatrixWorld(true);
         if(rear&&model)rear.sync(model,mirrors);else view.mirror.rearOn=false;
         if(lighting)lighting.sync(model||base,area);

@@ -139,6 +139,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);s.model=m;s.rebuildWorld();s.sync();s.refresh();
    },preset);await lookAtTarget(preset==='nightreverse'?'cab-camera':'cab-wipers');await sample('lighting'+preset);
   }
+  if(process.env.QA_WEATHER==='1'&&await p.evaluate(()=>!!OTR.fpWeather))for(const spec of ['rain','rainnight','rainreverse','storm','fog','snow','ice','snowwalk','icewalk']){
+   await p.evaluate(spec=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const weather=spec.startsWith('rain')?'rain':spec.startsWith('snow')?'snow':spec.startsWith('ice')?'ice':spec;let plan=OTR.fpRoute.plan(6,9);if(weather==='rain')plan=OTR.fpLater.prepare(plan);else plan.weather=weather;plan.timeOfDay=spec==='rainnight'?'night':'midday';
+    const m=OTR.fpMission.create('campaign',9,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpLoadout.configure(m,'extra');OTR.fpDoors.configure(m);m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);
+    const walk=spec.endsWith('walk'),reverse=spec==='rainreverse';m.mode=walk?'walk':'cab';m.phase='route';m.departed=m.secured=m.repaired=true;m.events[m.briefKey]=true;m.paused=false;m.step=(_controls,dt)=>m.elapsed+=Math.min(.05,dt);Object.assign(m.van,m.stops[0].park,{speed:weather==='rain'?(reverse?-2:4):0,hand:true,belt:true,wipers:true,headlights:true,gear:reverse?-1:1});Object.assign(m.player,{x:m.van.x-2,z:m.van.z+7,yaw:0,pitch:.1});
+    for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);s.model=m;s.rebuildWorld();s.sync();s.refresh();
+   },spec);if(!spec.endsWith('walk'))await lookAtTarget(spec==='rainreverse'?'cab-camera':'cab-wipers');await sample('visibleweather'+spec);
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));
