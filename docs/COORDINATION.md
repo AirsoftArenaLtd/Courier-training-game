@@ -284,7 +284,7 @@ items here for each agent.
 | B-19 | Claude | **Age-checked signature stops at very low frame rates:** `m8-heat` and `m8-steps` in Hindi stop on a handheld screen showing only Back instead of the printed-name list (after "Verified: 21 or older" and the self-drawing signature) when the page runs at 4-5 fps with other browsers rendering; both passed before. Rerun alone; if it reproduces, find why the signature's `onDone` never reaches `printedName` (the scribble is a 60-step timer, one step a frame). | todo |
 | B-20 | Claude | **Pilot guide after the rear camera:** when C-24 merges, rewrite the "Reversing" bullet in `docs/PILOT-GUIDE.md` (now: get out and look until C-24) and the walkaround aid sentence, from what C-24 actually does. After C-24. | todo |
 | B-21 | Claude | **Which aids were on, in the record:** a trainer reading a workday's results (and the LMS/xAPI record) cannot tell whether driving assists, the sat nav line or the walkaround rule were on that day. Save the day's `workdayRules` with the day, show them on the results and in the trainer's report, and send them with the xAPI result; test that a day with assists on and one with them off are told apart. | todo |
-| B-22 | Claude | **xAPI names the critical mistakes:** `server/xapi.js` sends a day's `criticalErrors` as a count only, so an LMS report cannot say why a day failed (unreported damage, no-entry, major damage). Add the critical event types and their English labels as a result extension on the day statement (stable ids, no personal data beyond what is sent now, `docs/DATA.md` updated) and a test in the server's xAPI tests. | todo |
+| B-22 | Claude | **xAPI names the critical mistakes:** `server/xapi.js` sends a day's `criticalErrors` as a count only, so an LMS report cannot say why a day failed (unreported damage, no-entry, major damage). Add the critical event types and their English labels as a result extension on the day statement (stable ids, no personal data beyond what is sent now, `docs/DATA.md` updated) and a test in the server's xAPI tests. | done |
 
 ## Questions for the owner
 
@@ -311,6 +311,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-22:** the xAPI day statement now names its critical mistakes: extension `criticalMistakes`, a list of `{ type, label }` (the event type, e.g. `trip.damage-report`, and its English label) beside the existing `criticalErrors` count. The workday record keeps `criticalTypes` in step with `criticals`; days saved before this send `type: null`. Statement ids are unchanged, so nothing already sent is sent again. `docs/DATA.md` says so; tests in `test/xapi.js` and `test/workday.js`.
 
 - **17 October 2026, Claude — B-17:** `docs/PILOT-GUIDE.md` has a short "The cab, before they drive" part for trainers: mirrors are checked by looking (no button; left mirror before moving off, matching mirror before a turn or lane change, about four seconds), the P-R-N-D selector (look and action key, or R), the other controls and their keys, P for keyboard-only use; the debrief row names the drive-map marker shapes. Reversing is described as it is today (get out and look until C-24); B-20 updates it when C-24 lands. The in-game text needed nothing: the 3D cab's hints come from C-22/C-23 and are translated; the 2D drive keeps its M key on purpose (fallback).
 
