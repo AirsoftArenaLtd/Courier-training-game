@@ -103,9 +103,9 @@ class FirstPersonScene extends Phaser.Scene {
     if(OTR.fpAccess&&OTR.fpAccess.reduced()){action();this.sync();this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}return;}
     this.tweens.add({targets:this.fade,alpha:1,duration:180,onComplete:()=>{action();this.sync();this.tweens.add({targets:this.fade,alpha:0,duration:240,onComplete:()=>{this.transitioning=false;if(!this.panel){if(this.model)this.model.paused=false;this.hubMotion.paused=false;}}});}});
   }
-  launch(kind){this.transition(()=>{
-    let m=OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,this.progress.sequence,kind==='campaign'?OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
+  launch(kind,spot){this.transition(()=>{
+    let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
+      m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,kind==='campaign'?OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
@@ -114,10 +114,10 @@ class FirstPersonScene extends Phaser.Scene {
       m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};m.touch();this.checkpoint();
     }
     OTR.fp.applyDriveRules(m);
-    const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
+    const body=kind==='parking'?'Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.':kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
       m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     if(OTR.fpGuide&&kind==='campaign'&&OTR.fpGuide.opening(this,resumed))return;
-    this.showPanel(resumed?'Resume your shift':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}],{preserveGaze:resumed});
+    this.showPanel(resumed?'Resume your shift':kind==='parking'?'Practice reversing safely.':kind==='practice'?'Cargo practice':'Your workday',kind==='campaign'&&m.briefing&&!m.events[m.briefKey]?'Walk to Dispatch and read the morning brief, then the route manifest.':body,[{label:resumed?'Continue':kind==='parking'?'Begin reversing practice.':'Begin preparation',action:()=>this.closePanel()},{label:'Back to hub',action:()=>this.toHub()}],{preserveGaze:resumed});
   });}
   rebuildWorld(){
     if(this.labels)this.labels.forEach(({object})=>object.destroy());
@@ -134,8 +134,15 @@ class FirstPersonScene extends Phaser.Scene {
     const choices=[{label:'Continue',action:()=>this.closePanel()}];
     if(this.area==='hub')choices.push({label:this.progress.campaign?'Resume workday':'Start workday',action:()=>this.launch('campaign')},{label:this.progress.practice?'Resume cargo practice':'Cargo practice',action:()=>this.launch('practice')},{label:'Last debrief',action:()=>this.showDebrief(this.progress.last)});
     else choices.push({label:'Save and return to hub',action:()=>this.toHub()},{label:'Handheld',action:()=>this.showScanner()});
+    choices.push({label:'Choose a reversing space.',action:()=>this.showParkingMenu()});
     choices.push({label:'Controls and guidance',action:()=>OTR.fpGuide.open(this)},{label:'Settings',action:()=>this.showSettings()},{label:'Main game',action:()=>this.leavePrototype()});
     this.showPanel(this.area==='hub'?'Your training hub':'Paused',this.area==='hub'?`Choose a station or use the menu below. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target, then ${OTR.fpAccess.key('KeyE')} to interact. Use ${OTR.fpAccess.lookKeys()} or the mouse to look.`:'The shift is paused. Progress is saved on this device; you can resume from the hub.',choices,{preserveGaze});this.checkpoint();
+  }
+  showParkingMenu(){
+    const choices=OTR.fpRear.spots.map((spot,i)=>({label:OTR.fpRear.names[i],action:()=>this.launch('parking',spot)}));
+    if(this.progress.parking&&!this.progress.parking.parking.done)choices.push({label:'Resume reversing practice.',action:()=>this.launch('parking')});
+    choices.push({label:'Back',action:()=>this.showPause()});
+    this.showPanel('Choose a reversing space.','Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.',choices);
   }
   leavePrototype(){if(this.hubWorkday){this.toHub();return;}this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
@@ -151,7 +158,7 @@ class FirstPersonScene extends Phaser.Scene {
     const root=this.children.list.find(o=>!before.has(o)&&o.type==='Container');
     if(root)root.once('destroy',()=>{this.external=false;this.showSettings();});else{this.external=false;this.showSettings();}
   }
-  showScanner(){if(!this.model){this.showPanel('Start a workday first','The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.',[{label:'Back',action:()=>this.showPause()}]);return;}if(this.handheld)this.handheld.toggle();}
+  showScanner(){if(this.model&&this.model.kind==='parking'){this.message('Use the cab camera and mirrors for this practice.');return;}if(!this.model){this.showPanel('Start a workday first','The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.',[{label:'Back',action:()=>this.showPause()}]);return;}if(this.handheld)this.handheld.toggle();}
   showRoute(){
     const m=this.model,choices=m.pending().map(s=>({label:s.address,action:()=>{m.activeStop=s.id;m.touch();this.checkpoint();this.closePanel();}}));choices.push({label:'Back',action:()=>this.closePanel()});
     this.showPanel('Route',m.kind==='practice'?'Driving is outside this cargo lesson.':m.pending().length?(m.roadworks?'The map shows your van and numbered stops. The red bar marks road works; use another cross street.':m.town?'The map shows the streets and numbered stops. D marks the depot; the yellow dot marks your van.':'Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.'):'All stops have a recorded outcome. Return south to the depot. Bring retained parcels to Returns, then check in at Dispatch.',choices,{back:()=>this.closePanel()});
@@ -178,7 +185,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   showGoal(){
     const m=this.model;if(!m||!m.driving)return;
-    this.showPanel('Check the reversing path','Park and secure the van. Get out, walk behind it and look along the path you intend to reverse. Keep people and traffic clear.',[
+    this.showPanel('Check the reversing path','For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.',[
       {label:'Confirm the path check',action:()=>{this.message(OTR.fpDriving.checkGoal(m));this.checkpoint();this.closePanel();}},
       {label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
@@ -299,6 +306,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.checkpoint();this.sync();this.refresh();
   }
   cabAction(id){
+    if(id==='cab-camera'){this.message(OTR.fpRear.hint(this.model));return;}
     const result=OTR.fpCab.act(this.model,id);
     this.message(result||OTR.fpCab.hint(id,this.model,OTR.fpAccess.key('KeyE')));
     this.checkpoint();this.sync();this.refresh();
@@ -358,6 +366,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   objectiveText(){
     const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
+    if(m.kind==='parking')return m.parking.done?'You parked in the practice bay. Open the menu to choose another space.':m.van.gear===-1?OTR.fpRear.hint(m):'Select reverse and back into the marked bay. Stop and set the parking brake when aligned.';
     if(m.kind==='practice'){if(!m.requested)return 'Scan and place all three parcels in the van. Choose your shelf positions.';
       if(!m.retrievals)return `Retrieve ${m.parcel(m.requested).address} from the shelf where you loaded it.`;return 'Replace the parcel, secure the load, then finish at Dispatch.';}
     if(m.briefing&&!m.events[m.briefKey])return 'Walk to Dispatch to read the morning brief and route manifest.';
@@ -380,7 +389,7 @@ class FirstPersonScene extends Phaser.Scene {
     const device=!!(this.handheld&&this.handheld.isOpen),aiming=device&&this.handheld.aiming;
     this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
     this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
-    this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
+    this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='parking'?'Practice reversing safely.':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
     this.setText('soundCue',this.soundCaption||'',device?790:1220);this.soundCue.setY(this.objective.y+this.objective.height+6);
     if(this.headerBack){const height=Math.max(100,this.soundCue.text?this.soundCue.y+this.soundCue.height+10:this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
     // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
@@ -402,7 +411,7 @@ class FirstPersonScene extends Phaser.Scene {
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
-    else if(mode==='cab'){hint=OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
+    else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpRear.hint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
@@ -424,7 +433,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
     if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
-    if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;}
+    if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;this.model.rearVisible=visible&&!!(this.art.rear&&this.art.rear.inView);}
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}

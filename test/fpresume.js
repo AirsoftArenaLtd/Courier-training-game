@@ -1,7 +1,7 @@
 /* Seeded model journeys. Travel positions are fixtures; actions, reports and checkpoint readers are real. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const storage=new Map(),c={console,URLSearchParams};c.window=c;c.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};c.addEventListener=()=>{};c.location={search:''};vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
 c.OTR.identity={mode:'local',id:'seeded-model'};const O=c.OTR,M=O.fpMission,W=O.workday,S=O.save;
 const later=process.env.QA_LATER==='1';
 const plain=o=>JSON.parse(JSON.stringify(o)),score=log=>({score:log.score(),ratios:plain(log.ratios(O.scoring.CATS)),criticals:log.criticals().map(i=>[i.cat,i.label])});
@@ -29,6 +29,10 @@ function play(seed,resume=false,scorm=false){
   const cargo=()=>{const p=m.point('cargo');Object.assign(m.player,{x:p.x-Math.sin(m.van.yaw)*.7,z:p.z+Math.cos(m.van.yaw)*.7});assert.equal(m.toggleCargo(),'','cargo toggle');};
   const secure=()=>{at('secure');assert.equal(m.secure(),'Load secured.');};
   const enter=()=>{at('driver');assert.equal(m.enter(),'');m.van.belt=true;m.van.hand=true;m.paused=false;const s=O.fpMirrors.specs[0];m.van.look=Math.atan2(s.x+.45,-(s.z+1.85));m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(s.x+.45,s.z+1.85));for(let i=0;i<34;i++)m.step({},.0125);m.van.look=0;m.player.pitch=0;m.van.hand=false;};
+  const reverse=()=>{
+   act('reverse:start',()=>{m.paused=false;assert.equal(m.selectGear(-1),true);m.van.hand=false;for(let i=0;i<12;i++)m.step({forward:true},.025);assert.equal(m.driving.reverseActive,true);});
+   act('reverse:finish',()=>{m.paused=false;for(let i=0;i<20;i++)m.step({back:true},.025);m.van.hand=true;m.step({},.025);assert.equal(m.driving.reverseActive,false);assert.equal(m.selectGear(1),true);m.step({},.025);m.van.hand=false;});
+  };
   const move=()=>{m.paused=false;for(let i=0,n=8+Math.floor(random()*7);i<n;i++){m.step({forward:true},.05);if(m.van.hand)break;}assert.ok(m.departed,'actual initial acceleration begins the route');};
   const leaveAt=stop=>{Object.assign(m.van,stop.park,{speed:0,hand:true});assert.equal(m.exit(),true,'parked cab exit');};
   checkpoint('morning');at('dispatch');act('brief',()=>m.readBrief());
@@ -40,11 +44,11 @@ function play(seed,resume=false,scorm=false){
   for(const id of shuffle(m.parcels.filter(p=>!p.anomaly&&p.location!=='pending').map(p=>p.id),random)){
    at(id);act('load:pickup:'+m.parcel(id).stop,()=>assert.equal(m.pickup(id),''));act('load:scan:'+m.parcel(id).stop,()=>m.scan());const slot='slot'+m.parcel(id).stop;at(slot);act('load:place:'+m.parcel(id).stop,()=>m.place(slot));assert.equal(m.parcel(id).location,slot);
   }
-  if(!earlyInspection)inspect();at('dispatch');act('count',()=>O.fpLoadout.count(m,m.parcels.filter(p=>p.location.startsWith('slot')).length));act('secure',secure);act('close:cargo',cargo);act('prepared',enter);if(process.env.QA_CAB==='1'){for(const id of ['cab-park','cab-neutral','cab-reverse','cab-drive','cab-headlights','cab-wipers'])act(id,()=>assert.equal(O.fpCab.act(m,id),''));}act('departure',move);assert.equal(m.phase,'route');
+  if(!earlyInspection)inspect();at('dispatch');act('count',()=>O.fpLoadout.count(m,m.parcels.filter(p=>p.location.startsWith('slot')).length));act('secure',secure);act('close:cargo',cargo);act('prepared',enter);if(process.env.QA_CAB==='1'){for(const id of ['cab-park','cab-neutral','cab-reverse','cab-drive','cab-headlights','cab-wipers'])act(id,()=>assert.equal(O.fpCab.act(m,id),''));}if(process.env.QA_REAR==='1')reverse();act('departure',move);assert.equal(m.phase,'route');
   for(const id of shuffle(m.stops.map(s=>s.id),random)){
    m.activeStop=id;m.touch();const stop=m.stops[id];
    // A short real drive exercises actor/mirror state; fixtures cover the long inter-stop distance.
-   if(m.mode==='walk'){act('enter:'+id,enter);act('move:'+id,move);}
+   if(m.mode==='walk'){act('enter:'+id,enter);if(process.env.QA_REAR==='1')reverse();act('move:'+id,move);}
    if(m.routeDay.dispatch&&m.routeDay.dispatch.stop===id){m.routeDay.distance=11;act('dispatch:arrival',()=>O.fpDay.tick(m,.05));}
    act('park:'+id,()=>leaveAt(stop));if(m.routeDay.dispatch&&m.routeDay.dispatch.sent&&!m.routeDay.dispatch.read)act('dispatch:read',()=>O.fpDay.read(m));
    act('cargo:'+id,cargo);m.paused=false;act('late:search:'+id,()=>{at('cargo');m.step({},.025);});
@@ -62,7 +66,7 @@ function play(seed,resume=false,scorm=false){
    if(m.heldId){at('slot'+id);act('retained:'+id,()=>m.place('slot'+id));assert.equal(m.heldId,null);}
    act('secure:'+id,secure);act('close:'+id,cargo);
   }
-  assert.equal(m.phase,'return');checkpoint('return');act('return:enter',enter);act('return:move',move);act('depot',()=>leaveAt({park:{x:2.84,z:8,yaw:0}}));act('depot:cargo',cargo);
+  assert.equal(m.phase,'return');checkpoint('return');act('return:enter',enter);if(process.env.QA_REAR==='1')reverse();act('return:move',move);act('depot',()=>leaveAt({park:{x:2.84,z:8,yaw:0}}));act('depot:cargo',cargo);
   for(const id of m.parcels.filter(p=>p.returnRequired).map(p=>p.id)){at(id);act('return:pickup:'+m.parcel(id).stop,()=>m.pickup(id));at('returns');act('return:scan:'+m.parcel(id).stop,()=>m.scan());act('return:record:'+m.parcel(id).stop,()=>m.returnParcel());assert.equal(m.parcel(id).location,'returned');}
   at('dispatch');act('complete',()=>assert.equal(m.finish(),''));assert.equal(m.phase,'debrief');assert.equal(m.stops.filter(s=>s.resolved).length,5);assert.equal(W.events.filter(e=>e.type==='deliver.outcome').length,5);
   const rec=W.score(W.log,{seconds:m.elapsed,stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome!=='exception'}))}),max=W.log.items.reduce((n,i)=>n+(i.kind==='bonus'?i.got:Math.max(0,i.max||0)),0)*100;
