@@ -3740,7 +3740,13 @@ window.OTR_I18N.hi = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "तंग जगह में वैन पार्क करके सुरक्षित करें, फिर उसके पीछे पैदल जाएँ और रिवर्स के रास्ते को देखें। यह जाँच वैकल्पिक है, जब तक इस परिदृश्य में ट्रेनर ज़रूरी न बताए। लोगों और ट्रैफ़िक को दूर रखें।",
 "You parked in the practice bay. Open the menu to choose another space.": "आपने प्रैक्टिस बे में पार्क किया। दूसरी जगह चुनने के लिए मेनू खोलें।",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "यहाँ ट्रेनर वॉक-अराउंड ज़रूरी बताता है। रिवर्स से पहले पार्क करें, उतरें और वैन के पीछे देखें।",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "रिवर्स चुनें और निशान लगे बे में पीछे जाएँ। सीध में आते ही रुकें और पार्किंग ब्रेक लगाएँ।"
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "रिवर्स चुनें और निशान लगे बे में पीछे जाएँ। सीध में आते ही रुकें और पार्किंग ब्रेक लगाएँ।",
+"It is night. The headlights are on.": "रात है। हेडलाइट चालू है।",
+"It is night. Switch on the headlights before moving.": "रात है। चलने से पहले हेडलाइट चालू करें।",
+"It is dusk. The headlights are on.": "शाम है। हेडलाइट चालू है।",
+"It is dusk. Switch on the headlights before moving.": "शाम है। चलने से पहले हेडलाइट चालू करें।",
+"It is morning.": "सुबह है।",
+"It is midday.": "दोपहर है।"
 },
 "templates": [
 [

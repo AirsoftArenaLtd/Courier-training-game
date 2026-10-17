@@ -3735,7 +3735,13 @@ window.OTR_I18N.fr = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "Dans un espace étroit, garez et sécurisez la camionnette, puis marchez derrière et regardez le trajet de recul. Ce contrôle est facultatif, sauf si le formateur l'exige dans ce scénario. Gardez personnes et circulation à distance.",
 "You parked in the practice bay. Open the menu to choose another space.": "Vous vous êtes garé dans la place d'entraînement. Ouvrez le menu pour choisir un autre espace.",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "Le formateur exige un tour de contrôle ici. Garez-vous, descendez et regardez derrière la camionnette avant de reculer.",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Passez en marche arrière et reculez dans la place marquée. Arrêtez-vous et serrez le frein à main une fois aligné."
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Passez en marche arrière et reculez dans la place marquée. Arrêtez-vous et serrez le frein à main une fois aligné.",
+"It is night. The headlights are on.": "C'est la nuit. Les phares sont allumés.",
+"It is night. Switch on the headlights before moving.": "C'est la nuit. Allume les phares avant de rouler.",
+"It is dusk. The headlights are on.": "C'est le crépuscule. Les phares sont allumés.",
+"It is dusk. Switch on the headlights before moving.": "C'est le crépuscule. Allume les phares avant de rouler.",
+"It is morning.": "C'est le matin.",
+"It is midday.": "C'est midi."
 },
 "templates": [
 [

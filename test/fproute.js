@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
@@ -116,6 +116,7 @@ test('low graphics stays within the complete-frame geometry budget at every stop
   for(const p of m.parcels)p.location=loaded?'slot'+(p.anomaly?5:p.stop):'depot';
   for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews,...(process.env.QA_REAR==='1'?['reverse','cab-camera']:[])]:['steady'])){
    Object.assign(m.van,s.park);m.van.look=0;m.player.pitch=0;m.elapsed=0;m.van.gear=pose==='reverse'||pose==='cab-camera'?-1:1;
+   if(process.env.QA_LIGHTING==='1')m.routePlan.timeOfDay=c.OTR.fpLighting.times[(day+s.id)%4];
    if(process.env.QA_CAMERA==='1'){
     const turning=pose==='turn'||pose==='turnleft',side=pose==='turnleft'?-1:1;
     m.driveAssist=0;m.van.speed=turning?8:pose==='brake'?4:pose==='reverse'?-2:0;m.van.steer=turning?side*.16:0;

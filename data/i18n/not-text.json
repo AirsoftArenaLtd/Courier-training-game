@@ -131,6 +131,7 @@
  "Invalid asset manifest",
  "Invalid asset path",
  "Invalid buffer view",
+ "Invalid lighting time",
  "Invalid model bounds",
  "Jo Lindqvist",
  "Jo Okafor",
@@ -280,5 +281,6 @@
  "X-Trainer-Pin",
  "YXZ",
  "data:image/",
- "one of your "
+ "one of your ",
+ "|otr-contact-ao-1"
 ]

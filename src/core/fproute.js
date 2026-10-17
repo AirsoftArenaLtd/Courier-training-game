@@ -10,6 +10,7 @@ OTR.fpRoute = {
   apply(m, plan) {
     if (!plan || !Number.isSafeInteger(plan.day) || plan.day < 1 || !Number.isSafeInteger(plan.townSeed) ||
       !Array.isArray(plan.route) || plan.route.length !== 5) throw Error('Invalid route plan');
+    if(plan.timeOfDay!==undefined&&!['morning','midday','dusk','night'].includes(plan.timeOfDay))throw Error('Invalid lighting time');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {

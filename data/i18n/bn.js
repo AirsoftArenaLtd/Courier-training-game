@@ -3741,7 +3741,13 @@ window.OTR_I18N.bn = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "সরু জায়গায় ভ্যান পার্ক করে সুরক্ষিত করুন, তারপর পিছনে হেঁটে গিয়ে রিভার্সের পথ দেখুন। এই পরীক্ষা ঐচ্ছিক, তবে এই পরিস্থিতিতে প্রশিক্ষক চাইলে বাধ্যতামূলক। মানুষ ও যান চলাচল দূরে রাখুন।",
 "You parked in the practice bay. Open the menu to choose another space.": "আপনি প্র্যাকটিস বে-তে পার্ক করেছেন। অন্য জায়গা বাছতে মেনু খুলুন।",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "এখানে প্রশিক্ষক ওয়াক-অ্যারাউন্ড চান। রিভার্সের আগে পার্ক করুন, নেমে ভ্যানের পিছনে দেখুন।",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "রিভার্স বেছে নিয়ে চিহ্নিত বে-তে পিছোন। সোজা হলে থামুন এবং পার্কিং ব্রেক দিন।"
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "রিভার্স বেছে নিয়ে চিহ্নিত বে-তে পিছোন। সোজা হলে থামুন এবং পার্কিং ব্রেক দিন।",
+"It is night. The headlights are on.": "এখন রাত। হেডলাইট জ্বলছে।",
+"It is night. Switch on the headlights before moving.": "এখন রাত। চলার আগে হেডলাইট জ্বালান।",
+"It is dusk. The headlights are on.": "এখন সন্ধ্যা। হেডলাইট জ্বলছে।",
+"It is dusk. Switch on the headlights before moving.": "এখন সন্ধ্যা। চলার আগে হেডলাইট জ্বালান।",
+"It is morning.": "এখন সকাল।",
+"It is midday.": "এখন দুপুর।"
 },
 "templates": [
 [

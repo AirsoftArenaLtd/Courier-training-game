@@ -1,0 +1,15 @@
+{
+  "views": 162000,
+  "peakCalls": 60,
+  "peakTriangles": 2086,
+  "worst": {
+    "day": 6,
+    "variant": 9,
+    "stop": 0,
+    "loaded": true,
+    "pose": "cab-wipers",
+    "reflection": 2,
+    "calls": 59,
+    "triangles": 2086
+  }
+}

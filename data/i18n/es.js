@@ -3751,7 +3751,13 @@ window.OTR_I18N.es = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "En un espacio estrecho, estaciona y asegura la camioneta, luego camina detrás de ella y mira el camino de retroceso. Esta revisión es opcional salvo que el instructor la exija en este escenario. Mantén despejadas a las personas y el tráfico.",
 "You parked in the practice bay. Open the menu to choose another space.": "Estacionaste en el espacio de práctica. Abre el menú para elegir otro espacio.",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "El instructor exige una vuelta de inspección aquí. Estaciona, bájate y mira detrás de la camioneta antes de retroceder.",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Pon reversa y retrocede hasta el espacio marcado. Al quedar alineado, detente y pon el freno de mano."
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Pon reversa y retrocede hasta el espacio marcado. Al quedar alineado, detente y pon el freno de mano.",
+"It is night. The headlights are on.": "Es de noche. Los faros están encendidos.",
+"It is night. Switch on the headlights before moving.": "Es de noche. Enciende los faros antes de avanzar.",
+"It is dusk. The headlights are on.": "Es el anochecer. Los faros están encendidos.",
+"It is dusk. Switch on the headlights before moving.": "Es el anochecer. Enciende los faros antes de avanzar.",
+"It is morning.": "Es de mañana.",
+"It is midday.": "Es mediodía."
 },
 "templates": [
 [
