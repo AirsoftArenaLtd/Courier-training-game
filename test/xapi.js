@@ -101,7 +101,8 @@ test('a finished day is posted once, with the right headers, and never twice', a
   assert.equal(lrs.headers[0].auth, 'Basic dXNlcjpwYXNz');
   assert.equal(lrs.headers[0].version, '1.0.3');
   assert.match(lrs.headers[0].type, /application\/json/);
-  assert.equal(x.pending(), 0);
+  // the store has them when it answers; the outbox empties once the answers are back (not in the same instant)
+  assert.ok(await until(() => x.pending() === 0), 'the outbox emptied: ' + x.pending());
   // the same save again (a reload, another PC), and a save with no new day: nothing more is sent
   x.onProgress(trainee, after, { workday: { last: day() } });
   x.onProgress(trainee, after, { workday: { last: day() }, other: 1 });
