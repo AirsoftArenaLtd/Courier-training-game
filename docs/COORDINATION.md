@@ -264,6 +264,9 @@ items here for each agent.
 | B-6 | Claude | **SCORM 2004 package:** `save.js` already supports SCORM 2004 (64,000 characters of suspend data); add a 2004 manifest and a `--2004` option to `test/tools/package-scorm.js`, with a test. | done (`--2004`, `data/lms/imsmanifest-2004.xml`, `test/package.js`) |
 | B-7 | Claude | **Review sheets for new text:** refresh `docs/review/<lang>-safety.csv` with the lines added since A-14 (milestone 6 and the new scoring types) for the native speakers. | done (834 safety lines per language, up from 708; the safety keywords now include damage, signs, cyclists, headlights, night, clearance, gears) |
 | B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | todo |
+| B-9 | Claude | **Offline check covers the 3D models:** `test/offline.js` also checks that the glTF files load from the game folder with the internet blocked, and that a missing file falls back without a page error. | done (the offline test checks the models load with no internet; the missing-file fallback is in `fpassetsbrowser`) |
+| B-10 | Claude | **Trainer and IT docs for the new pieces:** the 3D workday aids in `docs/PILOT-GUIDE.md`; the package script (1.2 and 2004), the asset folder and its budget in `docs/IT-NOTES.md`. | done |
+| B-11 | Claude | **The trainer aids end to end:** a browser flow that sets the aids off in Settings → Trainer, starts a workday and checks the 3D world got them (`OTR.academy.workdayRules` as read by C-21's assists). | todo |
 
 ## Questions for the owner
 

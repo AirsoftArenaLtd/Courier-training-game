@@ -69,6 +69,9 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
           check(gl, 'the 3D view is running');
           const brief = await p.evaluate(() => !!OTR.game.scene.getScene('FirstPersonScene').model.briefing);
           check(brief, 'the day has its Dispatch brief');
+          // the 3D models come from the game folder too (docs/ASSETS.md): every listed file loaded, none failed
+          const bank = await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return s.assetBank ? JSON.parse(JSON.stringify(s.assetBank.stats)) : null; });
+          check(bank && bank.loaded > 0 && bank.failed === 0 && !bank.errors.length, `the 3D models load from the game folder with no internet (${JSON.stringify(bank)})`);
         }
       }
     }
