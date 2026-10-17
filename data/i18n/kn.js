@@ -3758,7 +3758,9 @@ window.OTR_I18N.kn = {
 "Previous": "ಹಿಂದಿನದು",
 "Reload": "ರೀಲೋಡ್",
 "Returns": "ರಿಟರ್ನ್ಸ್",
-"Scanned": "ಸ್ಕ್ಯಾನ್ ಆಗಿದೆ"
+"Scanned": "ಸ್ಕ್ಯಾನ್ ಆಗಿದೆ",
+"Help that day": "ಆ ದಿನದ ಸಹಾಯ",
+"Stars": "ನಕ್ಷತ್ರಗಳು"
 },
 "templates": [
 [

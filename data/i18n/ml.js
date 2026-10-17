@@ -3758,7 +3758,9 @@ window.OTR_I18N.ml = {
 "Previous": "മുമ്പത്തെ",
 "Reload": "റീലോഡ്",
 "Returns": "റിട്ടേൺസ്",
-"Scanned": "സ്കാൻ ചെയ്തു"
+"Scanned": "സ്കാൻ ചെയ്തു",
+"Help that day": "ആ ദിവസത്തെ സഹായം",
+"Stars": "നക്ഷത്രങ്ങൾ"
 },
 "templates": [
 [

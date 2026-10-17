@@ -3769,7 +3769,9 @@ window.OTR_I18N.es = {
 "Previous": "Anterior",
 "Reload": "Recargar",
 "Returns": "Devoluciones",
-"Scanned": "Escaneado"
+"Scanned": "Escaneado",
+"Help that day": "Ayuda ese día",
+"Stars": "Estrellas"
 },
 "templates": [
 [

@@ -3759,7 +3759,9 @@ window.OTR_I18N.hi = {
 "Reload": "रीलोड",
 "Returns": "रिटर्न",
 "Scanned": "स्कैन हो गया",
-"Undo": "पूर्ववत करें"
+"Undo": "पूर्ववत करें",
+"Help that day": "उस दिन की मदद",
+"Stars": "सितारे"
 },
 "templates": [
 [

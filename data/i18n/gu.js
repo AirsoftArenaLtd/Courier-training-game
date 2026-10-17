@@ -3758,7 +3758,9 @@ window.OTR_I18N.gu = {
 "Previous": "પાછલું",
 "Reload": "રીલોડ",
 "Returns": "રિટર્ન્સ",
-"Scanned": "સ્કેન થયું"
+"Scanned": "સ્કેન થયું",
+"Help that day": "તે દિવસની મદદ",
+"Stars": "તારા"
 },
 "templates": [
 [

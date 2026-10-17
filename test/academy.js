@@ -164,6 +164,17 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     check(rec && rec.passed === 1 && rec.runs >= 3, `record from the server: ${JSON.stringify(rec)}`);
     const html = await ev(() => OTR.record.html(OTR.game.scene.getScene('RecordScene').R, 'Sam Lee', 'sam.lee'));
     check(/Training record: Sam Lee/.test(html) && /Passed/.test(html) && /Not passed/.test(html) && /Trainer signature/.test(html), 'printable record');
+    // B-26: the printed record lists the workdays with the aids each had, and marks an aided day's critical mistakes
+    const html2 = await ev(() => {
+      const day = (at, aids, criticals) => ({ id: 'workday', kind: 'workday', at, stars: { safety: 1, efficiency: 2, service: 3 }, aids, criticals });
+      const R = Object.assign({}, OTR.game.scene.getScene('RecordScene').R, {
+        workdays: [day(Date.UTC(2026, 9, 17), 'llo10', ['Drove into a no-entry street']), day(Date.UTC(2026, 9, 16), undefined, [])],
+        criticals: [{ text: 'Drove into a no-entry street', id: 'workday', at: Date.UTC(2026, 9, 17), aids: 'llo10' }] });
+      return OTR.record.html(R, 'Sam Lee', 'sam.lee');
+    });
+    check(/<h2>Workdays<\/h2>/.test(html2) && /light driving assists, sat nav route line only, no van damage/.test(html2), 'the printed record lists each workday\'s aids');
+    check(/Workday, aided: Drove into a no-entry street/.test(html2), 'an aided day\'s critical mistake says the day was aided');
+    check(/<td>—<\/td>/.test(html2), 'a day saved before aids were kept shows a dash');
     check(!errors.length, 'no page errors' + (errors.length ? ': ' + errors.join(' / ') : ''));
   } catch (e) {
     check(false, 'script error: ' + (e && e.stack || e));

@@ -35,7 +35,7 @@ OTR.record = {
     hist.forEach(h => (h.lessons || []).forEach(t => { counts[t] = (counts[t] || 0) + 1; }));
     const lessons = Object.keys(counts).map(t => ({ text: t, n: counts[t] })).sort((a, b) => b.n - a.n).slice(0, 12);
     const criticals = [];
-    hist.forEach(h => (h.criticals || []).forEach(c => criticals.push({ text: c, id: h.id, at: h.at })));
+    hist.forEach(h => (h.criticals || []).forEach(c => criticals.push({ text: c, id: h.id, at: h.at, aids: h.aids })));
     const seconds = hist.reduce((n, h) => n + (h.dur || 0), 0) + ((p.route && p.route.seconds) || 0);
     const ratio = {}; cats.forEach(c => { ratio[c] = catTot[c].max ? catTot[c].got / catTot[c].max : 0; });
     const played = cats.filter(c => catTot[c].got > 0);
@@ -53,6 +53,7 @@ OTR.record = {
       seconds, ratio, weakest, lessons,
       criticals: criticals.slice(-10).reverse(),
       recent: hist.slice(-20).reverse(),
+      workdays: hist.filter(h => h && h.kind === 'workday').slice(-10).reverse(),   // with the aids each had (B-26)
       firstAt: (p.profile && p.profile.createdAt) || (hist[0] && hist[0].at) || null,
       lastAt: p.savedAt || null
     };
@@ -101,7 +102,13 @@ OTR.record = {
         <td>${E(OTR.record.date(s.lastPlayed))}</td>
       </tr>`).join('')}`).join('');
     const lessons = R.lessons.length ? `<ol>${R.lessons.map(l => `<li>${T(l.text)}${l.n > 1 ? ` <span class="n">(${l.n}×)</span>` : ''}</li>`).join('')}</ol>` : `<p>${T('No recurring mistakes recorded.')}</p>`;
-    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T(OTR.record.runTitle(c.id))}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
+    // a workday played with driving assists says so, as on the record screen (B-21, B-26)
+    const title = (h) => h.id === 'workday' && OTR.workday && OTR.workday.aided(h.aids) ? 'Workday, aided' : OTR.record.runTitle(h.id);
+    const crit = R.criticals.length ? `<ul class="crit">${R.criticals.map(c => `<li>${E(OTR.record.date(c.at))} · ${T(title(c))}: ${T(c.text)}</li>`).join('')}</ul>` : `<p>${T('None.')}</p>`;
+    const days = (R.workdays || []).map(h => `<tr><td>${E(OTR.record.date(h.at))}</td><td class="stars">${E(OTR.record.stars(h.stars, OTR.scoring.CATS))}</td>
+        <td>${OTR.workday ? OTR.workday.aidsWords(h.aids).map(w => E(T(w))).join(', ') || '—' : '—'}</td>
+        <td class="${(h.criticals || []).length ? 'fail' : 'n'}">${(h.criticals || []).length ? (h.criticals || []).map(c => E(T(c))).join('; ') : E(T('None.'))}</td></tr>`).join('');
+    const workdays = days ? `<h2>${T('Workdays')}</h2><table><thead><tr><th>${T('Date')}</th><th>${T('Stars')}</th><th>${T('Help that day')}</th><th>${T('Critical mistakes')}</th></tr></thead><tbody>${days}</tbody></table>` : '';
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
       @page { size: A4; margin: 14mm; }
       body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
@@ -129,6 +136,7 @@ OTR.record = {
       <p>${F('Strongest to weakest (best stars earned): {0}', OTR.scoring.CATS.slice().sort((a, b) => R.ratio[b] - R.ratio[a]).map(c => `${T(lab(c))} ${Math.round(R.ratio[c] * 100)}%`).join(' · '))}</p>
       <h2>${T('Modules')}</h2>
       <table><thead><tr><th>${T('Scenario')}</th><th>${T('Assessment')}</th><th>${T('Best practice stars')}</th><th>${T('Runs')}</th><th>${T('Last played')}</th></tr></thead><tbody>${rows}</tbody></table>
+      ${workdays}
       <h2>${T('What to work on')}</h2>${lessons}
       <h2>${T('Critical mistakes')}</h2>${crit}
       <div class="sign"><div>${T('Trainee signature and date')}</div><div>${T('Trainer signature and date')}</div></div>
