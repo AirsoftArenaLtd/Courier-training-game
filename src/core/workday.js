@@ -268,6 +268,7 @@ OTR.workday = {
       at: Date.now(), seconds: Math.min(4 * 3600, seconds),
       stars, ratios, untested, score: log.score(),
       criticals: criticals.map(it => it.label),
+      criticalTypes: criticals.map(it => it.type || null),        // the same mistakes as event types, for the LMS (B-22)
       lessons: log.takeaways(undefined, cats).slice(0, 5).map(t => t.text),
       stops, delivered: stops.filter(s => s.delivered).length,
       events: (cur ? cur.events : this.events).slice()
