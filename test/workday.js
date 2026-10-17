@@ -241,3 +241,34 @@ test('the old mirror and reversing events keep their types (old saves replay) wi
   assert.match(E['drive.backing'].fail, /Reversed|hit/);
   assert.ok(!/got out/i.test(E['drive.backing'].label), 'getting out is no longer what the score asks for');
 });
+
+test('A-26: the cab, sign, night and damage events reach the debrief, the drive map and the results verdict', () => {
+  fresh(); W.start(null);
+  const at = (i) => ({ x: 4 * i, z: -10 * i, mph: 12 + i, t: 30 * i });
+  W.report('inspect.damage', { key: 'rear' });
+  W.report('drive.mirrors', { key: 'pull1', where: at(1) });
+  W.report('drive.signal', { key: 't1', ok: false, where: at(2) });
+  W.report('drive.sign-stop', { key: 's1', ok: false, where: at(3) });
+  W.report('drive.sign-noentry', { key: 'n1', where: at(4) });
+  W.report('drive.lights', { key: 1, where: at(5) });
+  W.report('drive.clearance', { key: 'b1', ok: false, where: at(6) });
+  W.report('van.damage-dent', { key: 'left:post', where: at(7) });
+  W.report('load.shift', { key: 'c1', where: at(8) });
+  W.report('stop.intercom', { key: 1, stop: 1 });
+  W.report('trip.damage-report', { key: 'left', ok: false });
+  const rec = W.finish(null, { stops: [{ stop: 1, delivered: true, address: '4 Elm St' }] });
+  const { sections, pins } = W.sections(rec);
+  const groups = sections.map(s => s.group);
+  ['pretrip', 'drive', 'stop1', 'end'].forEach(g => assert.ok(groups.includes(g), 'a debrief section for ' + g));
+  const lines = sections.flatMap(s => s.lines);
+  [['drive.signal', 'fail'], ['drive.sign-stop', 'fail'], ['drive.sign-noentry', 'label'], ['drive.clearance', 'fail'], ['van.damage-dent', 'label'],
+    ['trip.damage-report', 'fail'], ['inspect.damage', 'label'], ['stop.intercom', 'label']].forEach(([t, k]) =>
+    assert.ok(lines.some(l => l.label === E[t][k]), `the debrief has the line for ${t}`));
+  assert.ok(lines.filter(l => l.lesson).length >= 6, 'mistakes carry their lessons');
+  // pins: wrong checks and penalties with a place (signal, stop sign, no entry, clearance, dent, load shift); not the right checks
+  assert.equal(pins.length, 6, 'a pin for every placed mistake, none for the mirrors and lights done right');
+  const d = W.resultsData(rec, { prevBest: {}, firstPlay: false });
+  const crit = d.verdict.criticals.map(c => c.label || c);
+  assert.ok(crit.some(c => /no-entry/i.test(c)) && crit.some(c => /did not report damage/i.test(c)), 'no entry and unreported damage are critical: ' + JSON.stringify(crit));
+  assert.ok(d.stars.safety <= 1, 'safety capped at one star or below');
+});
