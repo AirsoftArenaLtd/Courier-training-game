@@ -3757,7 +3757,19 @@ window.OTR_I18N.es = {
 "It is dusk. The headlights are on.": "Es el anochecer. Los faros están encendidos.",
 "It is dusk. Switch on the headlights before moving.": "Es el anochecer. Enciende los faros antes de avanzar.",
 "It is morning.": "Es de mañana.",
-"It is midday.": "Es mediodía."
+"It is midday.": "Es mediodía.",
+"Accessibility": "Accesibilidad",
+"Continue": "Continuar",
+"Create": "Crear",
+"Delivery": "Entrega",
+"Driving": "Conducción",
+"Employee ID": "ID de empleado",
+"Erase": "Borrar",
+"Password": "Contraseña",
+"Previous": "Anterior",
+"Reload": "Recargar",
+"Returns": "Devoluciones",
+"Scanned": "Escaneado"
 },
 "templates": [
 [

@@ -293,7 +293,7 @@ items here for each agent.
 | B-20 | Claude | **Pilot guide after the rear camera:** when C-24 merges, rewrite the "Reversing" bullet in `docs/PILOT-GUIDE.md` (now: get out and look until C-24) and the walkaround aid sentence, from what C-24 actually does. After C-24. | done |
 | B-21 | Claude | **Which aids were on, in the record:** a trainer reading a workday's results (and the LMS/xAPI record) cannot tell whether driving assists, the sat nav line or the walkaround rule were on that day. Save the day's `workdayRules` with the day, show them on the results and in the trainer's report, and send them with the xAPI result; test that a day with assists on and one with them off are told apart. | done |
 | B-22 | Claude | **xAPI names the critical mistakes:** `server/xapi.js` sends a day's `criticalErrors` as a count only, so an LMS report cannot say why a day failed (unreported damage, no-entry, major damage). Add the critical event types and their English labels as a result extension on the day statement (stable ids, no personal data beyond what is sent now, `docs/DATA.md` updated) and a test in the server's xAPI tests. | done |
-| B-23 | Claude | **Real text hidden in `data/i18n/not-text.json`:** "Workday" was listed there, so the trainer's record showed it in English in every language (fixed in B-21). Go through the list (about 290 entries) and take out every word a trainee or trainer reads as text, translating each into all 11 languages; keep names, street signs, codes and fragments. | todo |
+| B-23 | Claude | **Real text hidden in `data/i18n/not-text.json`:** "Workday" was listed there, so the trainer's record showed it in English in every language (fixed in B-21). Go through the list (about 290 entries) and take out every word a trainee or trainer reads as text, translating each into all 11 languages; keep names, street signs, codes and fragments. | done |
 
 ## Questions for the owner
 
@@ -320,6 +320,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-23:** 19 words a trainee or trainer reads were wrongly listed in `data/i18n/not-text.json`, so they showed in English: Accessibility (the 3D menu), Continue, Create and Erase (buttons), Employee ID and Password (sign-in), Previous, Reload, Undo, Delivery (a panel title), Driving (a debrief section), Returns (the depot area), Scanned (a parcel's status), Date (the certificate), Modules (a record tab), Bonus, Service, Standard and Fragile. They are off the list and translated in all 11 languages (12 were missing in every language; French keeps Bonus, Date, Fragile, Modules, Service and Standard as they are spelled the same). The 265 entries left are names, streets, company and brand names, key names, internal error messages and code identifiers.
 
 - **17 October 2026, Claude — A-24:** `test/paths/workday-3d.js` (and so `-b`, `-c` and `workday-aids`) plays the physical cab as a trainee without a mouse would: the target key steps to the P-R-N-D selector and the action key selects Drive; the old M key is gone and the flow looks at the left mirror until the game counts the check, then asserts that moving off was reported as a mirror check; at the first stop it selects R, asserts the rear camera came on by itself, reverses a metre at walking pace, stops, sets the parking brake and selects P, and asserts a safe `drive.backing`. Night and damage flows wait for C-34 to C-36 (new A-24b).
 

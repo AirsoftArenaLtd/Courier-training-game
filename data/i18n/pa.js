@@ -3747,7 +3747,19 @@ window.OTR_I18N.pa = {
 "It is dusk. The headlights are on.": "ਸ਼ਾਮ ਹੈ। ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਹਨ।",
 "It is dusk. Switch on the headlights before moving.": "ਸ਼ਾਮ ਹੈ। ਤੁਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਕਰੋ।",
 "It is morning.": "ਸਵੇਰ ਹੈ।",
-"It is midday.": "ਦੁਪਹਿਰ ਹੈ।"
+"It is midday.": "ਦੁਪਹਿਰ ਹੈ।",
+"Accessibility": "ਪਹੁੰਚਯੋਗਤਾ",
+"Continue": "ਜਾਰੀ ਰੱਖੋ",
+"Create": "ਬਣਾਓ",
+"Delivery": "ਡਿਲੀਵਰੀ",
+"Driving": "ਡ੍ਰਾਈਵਿੰਗ",
+"Employee ID": "ਕਰਮਚਾਰੀ ਆਈਡੀ",
+"Erase": "ਮਿਟਾਓ",
+"Password": "ਪਾਸਵਰਡ",
+"Previous": "ਪਿਛਲਾ",
+"Reload": "ਰੀਲੋਡ",
+"Returns": "ਰਿਟਰਨ",
+"Scanned": "ਸਕੈਨ ਹੋਇਆ"
 },
 "templates": [
 [

@@ -3746,7 +3746,19 @@ window.OTR_I18N.te = {
 "It is dusk. The headlights are on.": "సాయంత్రం అయింది. హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి.",
 "It is dusk. Switch on the headlights before moving.": "సాయంత్రం అయింది. కదలడానికి ముందు హెడ్‌లైట్లు ఆన్ చేయండి.",
 "It is morning.": "ఉదయం అయింది.",
-"It is midday.": "మధ్యాహ్నం అయింది."
+"It is midday.": "మధ్యాహ్నం అయింది.",
+"Accessibility": "యాక్సెసిబిలిటీ",
+"Continue": "కొనసాగించండి",
+"Create": "సృష్టించండి",
+"Delivery": "డెలివరీ",
+"Driving": "డ్రైవింగ్",
+"Employee ID": "ఉద్యోగి ఐడి",
+"Erase": "తొలగించండి",
+"Password": "పాస్‌వర్డ్",
+"Previous": "మునుపటి",
+"Reload": "రీలోడ్",
+"Returns": "రిటర్న్స్",
+"Scanned": "స్కాన్ అయింది"
 },
 "templates": [
 [
