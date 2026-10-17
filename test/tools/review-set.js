@@ -41,8 +41,8 @@ const VIEWS = [
   }],
   ['reverse', 'Reversing: the rear camera and the guidelines', (s) => {
     const m = s.model; m.mode = 'cab';
-    if (!('gear' in m.van) || !s.rearCamera) return false;                     // C-24 adds the automatic rear camera
-    m.van.gear = -1; s.sync(); return true;
+    if (!('gear' in m.van) || !OTR.fpRear) return false;                       // C-24 adds the automatic rear camera
+    m.van.gear = -1; m.player.yaw = 0; m.van.look = 0.45; m.player.pitch = -0.12; s.sync(); return true;   // looking at the dash screen
   }],
   ['stop', 'Parked at the first stop', (s) => {
     const m = s.model; m.mode = 'cab'; m.phase = 'route';
@@ -53,7 +53,15 @@ const VIEWS = [
     Object.assign(m.player, { x: st.x - (st.side || 1) * 1.5, z: st.z, yaw: (st.side || 1) * Math.PI / 2, pitch: 0 }); s.sync(); return true;
   }],
   ['satnav', 'The sat nav with the route', (s) => { if (!s.satnav) return false; s.model.mode = 'cab'; s.sync(); return true; }],
-  ['night', 'Driving at night with headlights', (s) => { if (!s.setTimeOfDay) return false; s.setTimeOfDay('night'); s.model.mode = 'cab'; s.sync(); return true; }],
+  ['night', 'Driving at night with headlights', (s) => {
+    const m = s.model; if (!OTR.fpLighting || !m.routePlan) return false;          // C-25: time of day from the route plan
+    m.routePlan.timeOfDay = 'night'; m.mode = 'cab'; m.van.gear = 1; m.van.look = 0; m.player.pitch = 0; m.van.headlights = true; s.sync(); return true;
+  }],
+  ['rain', 'Rain on the windscreen with the wipers on', (s) => {
+    const m = s.model; if (!OTR.fpWeather || !m.routePlan) return false;           // C-26: weather you can see
+    m.routePlan.timeOfDay = 'midday'; m.routePlan.weather = 'rain'; if (m.routeDay) m.routeDay.weather = 'rain';
+    m.mode = 'cab'; m.van.headlights = false; m.van.wipers = true; m.van.look = 0; m.player.pitch = 0; s.sync(); return true;
+  }],
   ['damage', 'The walk-round damage report', (s) => { if (!s.damageReport) return false; s.damageReport(); return true; }]
 ];
 
@@ -71,7 +79,14 @@ const VIEWS = [
       await p.waitForFunction(() => window.OTR && OTR.game && OTR.game.scene.isActive('FirstPersonScene') && !OTR.game.scene.getScene('FirstPersonScene').loading, { timeout: 60000 });
       await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); s.closePanel(); s.launch('campaign'); });
       await p.waitForFunction(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return s.model && !s.transitioning; }, { timeout: 60000 });
+      // each view starts from the day as it was launched: a view's weather, time or lights must not leak into the next
+      await p.evaluate(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, r = m.routePlan || {};
+        window.__dayAsLaunched = { weather: r.weather, timeOfDay: r.timeOfDay, dayWeather: m.routeDay && m.routeDay.weather }; });
       for (const [id, what, setup] of VIEWS) {
+        await p.evaluate(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = window.__dayAsLaunched;
+          if (m.routePlan) { m.routePlan.weather = d.weather; m.routePlan.timeOfDay = d.timeOfDay; }
+          if (m.routeDay) m.routeDay.weather = d.dayWeather;
+          Object.assign(m.van, { headlights: false, wipers: false, gear: 1, look: 0 }); m.player.pitch = 0; });
         const shown = await p.evaluate((src) => { const s = OTR.game.scene.getScene('FirstPersonScene'); try { return !!(new Function('return ' + src)())(s); } catch (e) { return 'error: ' + e.message; } }, setup.toString());
         const file = `${id}-${gfx}.jpg`;
         if (shown === true) {
