@@ -42,6 +42,40 @@ const make = (opts) => async (page, ctx) => {
     must(!bad.length, `(${label}) text off the canvas: ${JSON.stringify(bad.slice(0, 3))}`);
     await ctx.snap('3d-' + label);
   };
+  // in the cab, step the view to a control with the target key (P) and use it with the action key, as a trainee
+  // without a mouse does (the mouse and the arrow keys reach the same controls)
+  const focus = async (id) => {
+    for (let n = 0; n < 40; n++) {
+      if (await ev((id) => OTR.game.scene.getScene('FirstPersonScene').target === id, id)) return;
+      await press('KeyP');
+    }
+    throw new Error('workday-3d: the target key never reached ' + id);
+  };
+  const cabUse = async (id) => { await focus(id); await press('KeyE'); };
+  // look at a mirror until the game counts the check (0.4 s of simulated time, longer on a slow PC)
+  const lookAt = async (id, index) => {
+    await focus(id);
+    must(await ctx.until(`OTR.fpMirrors.recent(${FP}.model, ${index})`, 6000), 'looking at ' + id + ' did not count as a mirror check');
+  };
+  // reverse the given distance at walking pace: release the parking brake, throttle in R, then stop and set the brake
+  const reverseBy = async (metres) => {
+    const from = (await state()).m.van;
+    await press('Space');                                            // parking brake off
+    const end = Date.now() + 30000;
+    await page.keyboard.down('KeyW');
+    try {
+      while (Date.now() < end) {
+        const v = (await state()).m.van;
+        if (Math.hypot(v.x - from.x, v.z - from.z) >= metres) break;
+        if (v.speed < -1.2) { await page.keyboard.up('KeyW'); await wait(150); await page.keyboard.down('KeyW'); }   // stay at walking pace
+        await wait(60);
+      }
+    } finally { await page.keyboard.up('KeyW'); }
+    await page.keyboard.down('KeyS');
+    must(await ctx.until(`Math.abs(${FP}.model.van.speed) < 0.04`, 8000), 'the van did not stop after reversing');
+    await page.keyboard.up('KeyS');
+    await press('Space');                                            // parking brake on: the manoeuvre ends
+  };
   // stand where the player would stand to use a thing, looking at it (the geometry comes from the model, so the flow
   // follows the generated route instead of fixed coordinates); the use itself is a real key press
   const at = async (id, barcode = false) => {
@@ -167,7 +201,12 @@ const make = (opts) => async (page, ctx) => {
   // ---- the cab: belt, parking brake, then the start of the first leg on throttle and brake, through the first junction
   await use('driver');
   must((await state()).m.mode === 'cab', 'could not enter the cab');
-  await press('KeyB'); await press('KeyM'); await shot('cab-guidance');
+  await press('KeyB'); await shot('cab-guidance');
+  // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
+  // checked by looking at it (there is no mirror button since C-23); the left mirror just before moving off
+  await cabUse('cab-drive'); must((await state()).m.van.gear === 1, 'the selector did not put the van in Drive');
+  await lookAt('mirror-left', 0);
+  await press('KeyV');                                             // look forward again
   await press('Space');
   const driveTo = async (z) => {
     const end = Date.now() + 60000; let fwd = false, brake = false;
@@ -186,12 +225,23 @@ const make = (opts) => async (page, ctx) => {
   await shot('junction');
   await driveTo(junctionZ - 9);
   must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
+  must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.mirrors' && /^\d+:1$/.test(String(e.key)) && e.ok)), 'moving off after the mirror look was not reported as a mirror check');
   // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
   const parkAt = async (i) => {
     await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
     await wait(150);
   };
   await parkAt(0); await shot('arrival');
+  // reverse a metre with the automatic rear camera (C-24): R at the selector, the screen comes on by itself, back slowly,
+  // stop and set the parking brake, which ends the manoeuvre and reports it
+  await cabUse('cab-reverse');
+  must((await state()).m.van.gear === -1, 'the selector did not put the van in Reverse');
+  must(await ctx.until(`${FP}.view.mirror.rearOn === true`, 3000), 'the rear camera did not switch on in reverse');
+  await shot('rear-camera');
+  await reverseBy(1);
+  await cabUse('cab-park');
+  must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.backing' && e.ok)), 'a slow reverse with the camera was not reported as safe backing');
+  await press('KeyV');                                             // look forward: the action key now opens the door
   await press('KeyE'); must((await state()).m.mode === 'walk', 'could not park and get out');
 
   // ---- five stops
