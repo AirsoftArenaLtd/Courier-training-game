@@ -1,5 +1,14 @@
 # Low-graphics 3D workday budget
 
+**C-26 visible-weather update (17 October 2026):** two 240,000-view loaded/fallback sweeps peak at
+64/63 calls and 1,886 triangles. Soft precipitation quads replace the old cubes; breath and wheel spray
+reuse the same bounded batch. Wet/snow/ice surface shaders allocate no textures or reflection targets.
+The windscreen adds one main-view call/two triangles and is excluded from mirrors. Ten rendered Low
+views peak at 63 calls / 1,888 triangles, two Three.js textures, 3,557,376 attachment bytes and
+2,580,838 estimated Phaser texture bytes. Reduced motion also passes. All existing ceilings remain
+unchanged. Details: `docs/PERF.md`; screenshots, clip and reports: `docs/review/set-8/c26.md`.
+The native Intel frame-rate check remains O-1.
+
 **C-24 rear-camera update (17 October 2026):** reverse uses the spare quarter of the C-23 atlas and alternates
 rear/mirror updates, still at most one reflection pass per frame. Attachment allocation and the two-texture
 ceiling are unchanged. Two 240,000-view loaded/fallback sweeps peak at 61/60 calls and 2,120 triangles; 324

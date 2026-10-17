@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-17",
+  "basePilot": "492dcb1",
+  "latestPilotRead": "7c19f9f",
+  "nodeSuites": {
+    "firstperson": 18,
+    "fpmission": 39,
+    "fphandheld": 8,
+    "fpworld": 21,
+    "fpdriving": 24,
+    "fpcamera": 9,
+    "fpcab": 10,
+    "fpmirrors": 11,
+    "fprear": 16,
+    "fplighting": 12,
+    "fpweather": 11,
+    "fpassets": 9,
+    "fproute": 11,
+    "fploadout": 11,
+    "fpday": 10,
+    "fpdoors": 16,
+    "fpaccess": 7,
+    "fpbranding": 4,
+    "fpguide": 3,
+    "fpperf": 2,
+    "fplater": 7,
+    "fpsound": 9,
+    "workday": 20,
+    "savesize": 12,
+    "aids": 3,
+    "lmsreport": 8,
+    "i18n": "passed",
+    "fpresume": 2
+  },
+  "browserAssertions": {
+    "weatherLow": 48,
+    "weatherHigh": 46,
+    "wiperClip": 12,
+    "cab": 200,
+    "mirrors": 132,
+    "rearCamera": 146,
+    "accessibility": 145,
+    "camera": 28,
+    "driving": 24,
+    "routeDay": 127,
+    "guide": 85
+  },
+  "packageFormats": [
+    "SCORM 1.2",
+    "SCORM 2004"
+  ],
+  "packagingAssertions": 3,
+  "offlineAssertions": 9,
+  "nativeIntelFPS": "Pending O-1; software FPS is not acceptance.",
+  "sourceNotes": "All browser suites ran serially. Final particle billboarding uses the active camera in its vertex shader; final rendered Low, High, reduced-motion, clip and offline checks exercise that source.",
+  "rendered": {
+    "c26-low": {
+      "views": 10,
+      "peak": {
+        "calls": 63,
+        "triangles": 1888,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "geometryBytes": 5464,
+      "phaserTextureBytes": 2580838
+    },
+    "c26-high": {
+      "views": 5,
+      "peak": {
+        "calls": 97,
+        "triangles": 4942,
+        "textures": 3,
+        "attachmentBytes": 11239424
+      },
+      "geometryBytes": 22240,
+      "phaserTextureBytes": 6872710
+    },
+    "c26-reduced-low": {
+      "views": 2,
+      "peak": {
+        "calls": 63,
+        "triangles": 1878,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "geometryBytes": 5464,
+      "phaserTextureBytes": 2580838
+    }
+  }
+}
