@@ -205,7 +205,7 @@ Rules that apply to every task here:
 | C-23 | Codex | **Physical, always-live mirrors:** left, right and interior mirrors as real render targets (smaller and slower on Low), no button. Looking at a mirror reports what A-19 defines for `drive.mirrors`. Keep the frame budget. | done |
 | C-24 | Codex | **Rear camera and parking aids:** the camera appears automatically in reverse with bending guidelines, a distance colour band, sensor bars and beeps; no get-out needed; an optional quick walk-around for tight spots. Reversing and parking practice spots (alley, dock, tight drive). | done |
 | A-21 | Claude | **Trainer settings for the new aids** in the shared Settings and Academy rules: assist level, walk-around required or optional, sat nav assist, night and damage on or off. Saved with the academy rules; tests. | done (`OTR.academy.workdayRules(day)`; trainer dialog "3D workday aids…"; `test/aids.js`, `test/academy.js`, the `academy-screens` flow) |
-| A-22 | Claude | **Translations for milestone 7** (standing rule A-9) and layout checks in all 11 languages. | todo (after C-24) |
+| A-22 | Claude | **Translations for milestone 7** (standing rule A-9) and layout checks in all 11 languages. | done |
 
 #### Milestone 8: a town that looks right
 
@@ -318,6 +318,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — A-22:** milestone 7's text is translated in all 11 languages (done with each merge, C-19 to C-25; `test/i18n.js` passes), and the new `test/fplangsbrowser.js` checks its layout: it opens `first-person.html?lang=xx` for each of the twelve languages at larger text, puts a loaded van on the route with the trainee in the cab, and checks every cab control, mirror and rear-screen hint (15 targets), reverse with the camera, dusk and night with the headlights off and on, and every page of the 3D guide. 312 views, no line off the canvas, outside its panel or squeezed below 12 px. (A run with the floor at 30 px reports 204 problems, so the check does find them.) `QA_LANGS` and `QA_LARGE=0` narrow it.
 
 - **17 October 2026, Claude — C-25 merged:** lighting, sky and time of day are in, merged after C-24 with the code conflicts resolved by keeping both (rear camera and lighting build, sync and dispose side by side in `fpworld.js`). Checked the combination Codex could only test on a separate checkout: all suites, browser checks and the four `workday-3d` flows pass, and the combined sweep stays inside the Low budget (62 calls / 2,124 triangles at worst). The morning/midday/dusk/night hint lines are translated.
 
