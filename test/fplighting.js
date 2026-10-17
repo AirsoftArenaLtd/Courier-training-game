@@ -35,6 +35,9 @@ test('High installs contact occlusion and soft-shadow casters; Low uses no shado
 test('shadow rendering happens with the van visible after the main view, then restores its original visibility',()=>{
  const s=scene(true),a=s.art.lighting;let calls=0;s.view.renderSunShadow=()=>{assert.equal(s.art.van.visible,true);calls++;};const visible=s.art.van.visible;s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,1);assert.equal(s.art.van.visible,visible);s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,1);s.model.elapsed+=.13;s.sync();s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,2);s.art.dispose();
 });
+test('the bounded shadow area follows the walking viewpoint while van light beams stay on the chassis',()=>{
+ const s=scene(true),a=s.art.lighting,beam=a.front[0].position.clone();s.model.mode='walk';s.model.player.x=100;s.model.player.z=-80;s.sync();assert.ok(Math.abs(a.sun.target.position.x-100)<.18);assert.ok(Math.abs(a.sun.target.position.z+80)<.18);assert.ok(a.front[0].position.distanceTo(beam)<1e-10);s.art.dispose();
+});
 test('reflection sky uses the actual camera rotation and FOV, and disposal removes private geometry and hooks',()=>{
  const s=scene(true),a=s.art.lighting,cam=s.view.mirror.cameras[0];a.sky.onBeforeRender({},s.view.world,cam);assert.equal(a.sky.material.uniforms.projection.value.y,1/cam.projectionMatrix.elements[5]);const root=s.view.world,sky=a.sky;s.art.dispose();assert.equal(sky.parent,null);assert.equal(root.getObjectByName('workday-sky'),undefined);assert.equal(s.view.mirror.on,false);
 });

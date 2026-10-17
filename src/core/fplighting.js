@@ -79,13 +79,13 @@ OTR.fpLighting={
         if(paint)paint.color.copy(paintColour).multiplyScalar(dim);if(parts.lampGood)parts.lampGood.emissive.copy(glowColour.setHex(on?0xD6B887:0x000000));
         const centre=m.mode==='walk'?m.player:v;
         rectangles[0].set(v.x,v.z,Math.abs(c)*1.08+Math.abs(s)*2.7,Math.abs(s)*1.08+Math.abs(c)*2.7);
-        if(high&&(m.elapsed-lastSelection>.25||phaseChanged||Math.abs(v.x-shadowX)>1||Math.abs(v.z-shadowZ)>1)){
+        if(high&&(m.elapsed-lastSelection>.25||phaseChanged||Math.abs(centre.x-shadowX)>1||Math.abs(centre.z-shadowZ)>1)){
           for(const e of nearest){e.distance=Infinity;e.rect=null;}
           for(const box of m.solids){const dx=Math.max(0,Math.abs(centre.x-box.x)-box.w/2),dz=Math.max(0,Math.abs(centre.z-box.z)-box.d/2),distance=dx*dx+dz*dz;for(let i=0;i<7;i++){if(distance>=nearest[i].distance)continue;for(let j=6;j>i;j--){nearest[j].distance=nearest[j-1].distance;nearest[j].rect=nearest[j-1].rect;}nearest[i].distance=distance;nearest[i].rect=box;break;}}
           for(let i=0;i<7;i++){const box=nearest[i].rect;if(box)rectangles[i+1].set(box.x,box.z,box.w/2,box.d/2);else rectangles[i+1].set(1e6,1e6,0,0);}lastSelection=m.elapsed;
         }
-        if(!high||phaseChanged||m.elapsed-shadowAt>=.125||Math.abs(v.x-shadowX)>.5||Math.abs(v.z-shadowZ)>.5||Math.abs(v.yaw-shadowYaw)>.03){
-          const grid=90/512,x=Math.round(v.x/grid)*grid,z=Math.round(v.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=v.x;shadowZ=v.z;shadowYaw=v.yaw;shadowWanted=high;
+        if(!high||phaseChanged||m.elapsed-shadowAt>=.125||Math.abs(centre.x-shadowX)>.5||Math.abs(centre.z-shadowZ)>.5||Math.abs(v.yaw-shadowYaw)>.03){
+          const grid=90/512,x=Math.round(centre.x/grid)*grid,z=Math.round(centre.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=centre.x;shadowZ=centre.z;shadowYaw=v.yaw;shadowWanted=high;
         }
       },
       caption(){return visible?OTR.fpLighting.caption(time,!!current.van.headlights):'';},

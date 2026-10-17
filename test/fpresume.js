@@ -12,7 +12,7 @@ function play(seed,resume=false,scorm=false){
  let stage='start',checkpoints=0,randomState=seed*2654435761>>>0,m;const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
  try{
   storage.clear();W.detach();S.data=S.defaults();S.data.townSeed=1;W.begin();m=M.create('campaign',seed,later?O.fpLater.prepare(O.fpRoute.plan(seed,seed)):O.fpRoute.plan(seed,seed));O.fpLoadout.configure(m);O.fpDriving.configure(m);O.fpDay.configure(m);O.fpDoors.configure(m);m.doorsteps.date='2026-10-16';O.fpDoors.configure(m,m.doorsteps);
-  const day=m.routePlan;m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};
+  const day=m.routePlan;if(process.env.QA_LIGHTING==='1'){day.timeOfDay=['morning','midday','dusk','night'][seed%4];coverage.add('lighting:'+day.timeOfDay);}m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};
   if(!report.weathers.includes(m.routeDay.weather))report.weathers.push(m.routeDay.weather);if(!report.loadouts.includes(m.loadout.kind))report.loadouts.push(m.loadout.kind);
   const checkpoint=label=>{
    stage=label;checkpoints++;coverage.add(label.replace(/:\d+/g,':n'));if(!report.phases.includes(m.phase))report.phases.push(m.phase);
