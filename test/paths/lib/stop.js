@@ -109,7 +109,7 @@ function driver(page, ctx) {
   /** Press the number key of the handheld option whose label matches. */
   const hhPick = async (re, timeout) => {
     const t0 = Date.now();
-    while (Date.now() - t0 < (timeout || 6000)) {
+    while (Date.now() - t0 < (timeout || 6000) * (global.__qaSlow || 1)) {      // qa.js: longer on a slow PC
       const i = await ev(`(() => { const hh = ${S}.hh; if (!hh.isOpen || !hh.optionBtns) return -1;
         const rx = new RegExp(${JSON.stringify(re.source)}, '${re.flags}');
         return hh.optionBtns.findIndex(b => b.active && b.enabled && rx.test((b.label.srcText ?? b.label.text).replace(/^\\d+\\s+/, ''))); })()`);
