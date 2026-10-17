@@ -3701,7 +3701,18 @@ window.OTR_I18N.ta = {
 "road sign": "சாலை அடையாளம்",
 "damage to the van": "வேனுக்கு சேதம்",
 "low bridge or clearance": "தாழ்வான பாலம் அல்லது உயர வரம்பு",
-"load shifted": "சரக்கு நகர்ந்தது"
+"load shifted": "சரக்கு நகர்ந்தது",
+"full driving assists": "முழு ஓட்டுநர் உதவிகள்",
+"light driving assists": "இலகு ஓட்டுநர் உதவிகள்",
+"no driving assists": "ஓட்டுநர் உதவிகள் இல்லை",
+"turn-by-turn sat nav": "படிப்படியான வழிகாட்டி",
+"sat nav route line only": "வழிகாட்டி பாதைக்கோடு மட்டும்",
+"no sat nav": "வழிகாட்டி இல்லை",
+"walk-round required before reversing": "பின்னோக்கிச் செல்லும் முன் வேனைச் சுற்றிப் பார்க்க வேண்டும்",
+"no night runs": "இரவுப் பயணங்கள் இல்லை",
+"no van damage": "வேனுக்குச் சேதம் இல்லை",
+"Workday, aided": "வேலை நாள், உதவிகளுடன்",
+"Workday": "வேலை நாள்"
 },
 "templates": [
 [

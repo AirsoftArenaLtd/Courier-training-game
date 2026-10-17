@@ -3701,7 +3701,18 @@ window.OTR_I18N.hi = {
 "road sign": "सड़क संकेत",
 "damage to the van": "वैन को नुकसान",
 "low bridge or clearance": "नीचा पुल या ऊँचाई की सीमा",
-"load shifted": "सामान खिसक गया"
+"load shifted": "सामान खिसक गया",
+"full driving assists": "पूरी ड्राइविंग सहायता",
+"light driving assists": "हल्की ड्राइविंग सहायता",
+"no driving assists": "ड्राइविंग सहायता नहीं",
+"turn-by-turn sat nav": "मोड़-दर-मोड़ जीपीएस",
+"sat nav route line only": "सिर्फ़ जीपीएस रूट लाइन",
+"no sat nav": "जीपीएस नहीं",
+"walk-round required before reversing": "रिवर्स करने से पहले वैन का चक्कर लगाकर देखना ज़रूरी",
+"no night runs": "रात की डिलीवरी नहीं",
+"no van damage": "वैन को नुकसान नहीं",
+"Workday, aided": "कार्यदिवस, सहायता सहित",
+"Workday": "कार्यदिवस"
 },
 "templates": [
 [

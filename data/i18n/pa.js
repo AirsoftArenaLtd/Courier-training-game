@@ -3702,7 +3702,18 @@ window.OTR_I18N.pa = {
 "road sign": "ਸੜਕ ਦਾ ਚਿੰਨ੍ਹ",
 "damage to the van": "ਵੈਨ ਨੂੰ ਨੁਕਸਾਨ",
 "low bridge or clearance": "ਨੀਵਾਂ ਪੁਲ ਜਾਂ ਉਚਾਈ ਦੀ ਹੱਦ",
-"load shifted": "ਮਾਲ ਖਿਸਕ ਗਿਆ"
+"load shifted": "ਮਾਲ ਖਿਸਕ ਗਿਆ",
+"full driving assists": "ਪੂਰੀ ਡਰਾਈਵਿੰਗ ਸਹਾਇਤਾ",
+"light driving assists": "ਹਲਕੀ ਡਰਾਈਵਿੰਗ ਸਹਾਇਤਾ",
+"no driving assists": "ਡਰਾਈਵਿੰਗ ਸਹਾਇਤਾ ਨਹੀਂ",
+"turn-by-turn sat nav": "ਮੋੜ-ਦਰ-ਮੋੜ ਸੈਟ ਨੈਵ",
+"sat nav route line only": "ਸਿਰਫ਼ ਸੈਟ ਨੈਵ ਰੂਟ ਲਾਈਨ",
+"no sat nav": "ਸੈਟ ਨੈਵ ਨਹੀਂ",
+"walk-round required before reversing": "ਰਿਵਰਸ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਦੁਆਲੇ ਗੇੜਾ ਮਾਰਨਾ ਲਾਜ਼ਮੀ",
+"no night runs": "ਰਾਤ ਦੇ ਗੇੜੇ ਨਹੀਂ",
+"no van damage": "ਵੈਨ ਨੂੰ ਨੁਕਸਾਨ ਨਹੀਂ",
+"Workday, aided": "ਕੰਮ ਦਾ ਦਿਨ, ਸਹਾਇਤਾ ਸਮੇਤ",
+"Workday": "ਕੰਮ ਦਾ ਦਿਨ"
 },
 "templates": [
 [

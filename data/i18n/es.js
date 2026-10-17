@@ -3712,7 +3712,18 @@ window.OTR_I18N.es = {
 "road sign": "señal de tráfico",
 "damage to the van": "daños en la furgoneta",
 "low bridge or clearance": "puente bajo o gálibo",
-"load shifted": "carga desplazada"
+"load shifted": "carga desplazada",
+"full driving assists": "asistencias de conducción completas",
+"light driving assists": "asistencias de conducción ligeras",
+"no driving assists": "sin asistencias de conducción",
+"turn-by-turn sat nav": "GPS paso a paso",
+"sat nav route line only": "GPS solo con línea de ruta",
+"no sat nav": "sin GPS",
+"walk-round required before reversing": "vuelta de inspección obligatoria antes de marcha atrás",
+"no night runs": "sin rutas nocturnas",
+"no van damage": "sin daños en la furgoneta",
+"Workday, aided": "Jornada, con ayudas",
+"Workday": "Jornada"
 },
 "templates": [
 [

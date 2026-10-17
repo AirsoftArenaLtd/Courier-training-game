@@ -170,6 +170,8 @@ OTR.workday = {
   start(scene) {
     const W = this.saved();
     this.current = W.current = { id: Date.now().toString(36), day: OTR.save.data.day || 1, startedAt: Date.now(), seconds: 0, events: [] };
+    const aids = this.aidsNow();
+    if (aids) this.current.aids = aids;
     this.since = Date.now();
     this.begin();
     this.enter(scene, false);
@@ -268,7 +270,8 @@ OTR.workday = {
       at: Date.now(), seconds: Math.min(4 * 3600, seconds),
       stars, ratios, untested, score: log.score(),
       criticals: criticals.map(it => it.label),
-      criticalTypes: criticals.map(it => it.type || null),        // the same mistakes as event types, for the LMS (B-22)
+      criticalTypes: criticals.map(it => it.type || null),
+      aids: (cur && cur.aids) || this.aidsNow() || undefined,     // which help was on that day (B-21)        // the same mistakes as event types, for the LMS (B-22)
       lessons: log.takeaways(undefined, cats).slice(0, 5).map(t => t.text),
       stops, delivered: stops.filter(s => s.delivered).length,
       events: (cur ? cur.events : this.events).slice()
@@ -291,10 +294,10 @@ OTR.workday = {
     const prevBest = Object.assign({}, S.route.best), firstPlay = !this.saved().last;
     S.route.days = (S.route.days || 0) + 1;
     OTR.scoring.CATS.forEach(c => { S.route.best[c] = Math.max(S.route.best[c] || 0, rec.stars[c]); });
-    S.route.history.push({ kind: 'workday', day: rec.day, at: rec.at, stars: rec.stars, ratios: rec.ratios, delivered: rec.delivered, minutes: Math.round(rec.seconds / 60) });
+    S.route.history.push({ kind: 'workday', day: rec.day, at: rec.at, stars: rec.stars, ratios: rec.ratios, delivered: rec.delivered, minutes: Math.round(rec.seconds / 60), aids: rec.aids });
     S.route.history = S.route.history.slice(-10);
     const h = S.history = S.history || [];
-    h.push({ id: 'workday', kind: 'workday', at: rec.at, assess: false, score: rec.score, stars: rec.stars, dur: rec.seconds, criticals: rec.criticals, lessons: rec.lessons });
+    h.push({ id: 'workday', kind: 'workday', at: rec.at, assess: false, score: rec.score, stars: rec.stars, dur: rec.seconds, criticals: rec.criticals, lessons: rec.lessons, aids: rec.aids });
     if (h.length > 400) h.splice(0, h.length - 400);
     const W = this.saved();
     // the very first finished day is kept in a few numbers, so the before-and-after report still has it once the record
@@ -328,12 +331,57 @@ OTR.workday = {
     };
   },
 
-  /** "2 of 3 stops delivered · 24 min" (empty when the 3D world said nothing about stops or time). */
+  /**
+   * "2 of 3 stops delivered · 24 min · light driving assists · turn-by-turn sat nav" (empty when the 3D world said
+   * nothing about stops or time and the day kept no aids).
+   */
   summaryLine(rec) {
     const parts = [];
     if (rec.stops && rec.stops.length) parts.push(`${rec.delivered} of ${rec.stops.length} stops delivered`);
     if (rec.seconds >= 30) parts.push(`${Math.round(rec.seconds / 60)} min`);
-    return parts.join(' · ');
+    return parts.concat(this.aidsWords(rec.aids)).join(' · ');
+  },
+
+  /*
+   * The 3D workday's aids on a day (B-21), kept in five letters so the save stays small: driving assists f/l/o (full,
+   * light, off), sat nav f/l/o (turn by turn, route line, off), walk-round o/r (optional, required), night runs 1/0,
+   * van damage 1/0. "flo11": full assists, the route line, walk-round optional, night and damage on.
+   */
+  AIDS: [['assists', ['full', 'light', 'off']], ['satnav', ['full', 'line', 'off']], ['walkaround', ['optional', 'required']], ['night', [true, false]], ['damage', [true, false]]],
+  AID_LETTERS: [['f', 'l', 'o'], ['f', 'l', 'o'], ['o', 'r'], ['1', '0'], ['1', '0']],
+
+  /** The aids the 3D world applies today: it reads the trainer's rules for its own day number (route days + 1). */
+  aidsNow() {
+    if (!OTR.academy || !OTR.academy.workdayRules || !OTR.save || !OTR.save.data) return null;
+    return this.aidsCode(OTR.academy.workdayRules(((OTR.save.data.route || {}).days || 0) + 1));
+  },
+  aidsCode(rules) {
+    if (!rules) return null;
+    return this.AIDS.map(([k, vals], i) => { const j = vals.indexOf(rules[k]); return this.AID_LETTERS[i][j < 0 ? 0 : j]; }).join('');
+  },
+  /** The rules back from the five letters, or null for a day saved before they were kept (or a damaged code). */
+  aidsRules(code) {
+    if (typeof code !== 'string' || code.length !== this.AIDS.length) return null;
+    const out = {};
+    for (let i = 0; i < code.length; i++) {
+      const j = this.AID_LETTERS[i].indexOf(code[i]);
+      if (j < 0) return null;
+      out[this.AIDS[i][0]] = this.AIDS[i][1][j];
+    }
+    return out;
+  },
+  /** Whether the van drove itself a little that day (driving assists on): what "aided" means in the record. */
+  aided(code) { const r = this.aidsRules(code); return !!r && r.assists !== 'off'; },
+  /** The aids in words, each a whole phrase (translated one by one); what is on by default is left out. */
+  aidsWords(code) {
+    const r = this.aidsRules(code);
+    if (!r) return [];
+    const w = [{ full: 'full driving assists', light: 'light driving assists', off: 'no driving assists' }[r.assists],
+      { full: 'turn-by-turn sat nav', line: 'sat nav route line only', off: 'no sat nav' }[r.satnav]];
+    if (r.walkaround === 'required') w.push('walk-round required before reversing');
+    if (!r.night) w.push('no night runs');
+    if (!r.damage) w.push('no van damage');
+    return w;
   },
 
   /** The drive review's data for a finished workday: its pins on a plan of the 3D streets. */
