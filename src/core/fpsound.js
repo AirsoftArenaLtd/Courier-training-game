@@ -38,7 +38,12 @@ OTR.fpSound=class {
     if(this.lastActive===active&&time-this.lastTick<100)return this.lastCaption||'';this.lastActive=active;this.lastTick=time;
     const driving=active&&m.mode==='cab',weather=active&&m.routeDay&&m.routeDay.weather,wet=weather==='rain'||weather==='storm',speed=driving?Math.abs(m.van.speed):0;
     if(active)this.voices();this.level(this.engine,driving?.025:0);this.level(this.rain,wet?.025:0);
-    if(this.engine){const frequency=Math.round(45+Math.min(16,speed)*4);if(frequency!==this.engine.frequency){this.engine.frequency=frequency;this.engine.source.frequency.setTargetAtTime(frequency,OTR.audio.ctx.currentTime,.1);}}
+    if(this.engine){
+      const rpm=m&&m.motion&&m.motion.rpm,frequency=Math.round(45+(driving&&Number.isFinite(rpm)?Math.max(0,Math.min(3200,rpm-800))/50:Math.min(16,speed)*4));
+      if(frequency!==this.engine.frequency){this.engine.frequency=frequency;this.engine.source.frequency.setTargetAtTime(frequency,OTR.audio.ctx.currentTime,.1);}
+      const impact=driving&&m.cameraMotion&&Number.isFinite(m.cameraMotion.roadImpact)?m.cameraMotion.roadImpact:0,cutoff=Math.round(240+Math.max(0,Math.min(1,impact))*80);
+      if(cutoff!==this.engine.cutoff){this.engine.cutoff=cutoff;this.engine.filter.frequency.setTargetAtTime(cutoff,OTR.audio.ctx.currentTime,.1);}
+    }
     const brake=driving&&!!s.held.KeyS&&speed>1;if(brake&&!this.braking)this.effect('brake','The brakes are slowing the van.');this.braking=brake;
     const signal=driving&&m.signal;if(signal&&time-this.indicatorAt>=600){this.indicatorAt=time;this.effect('indicator');}
     if(active&&m.dogNearby&&time-this.dogAt>=1800){this.dogAt=time;this.effect('dog');}

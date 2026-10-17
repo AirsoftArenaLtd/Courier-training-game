@@ -14,11 +14,13 @@ Reverse creeps at 0.35 m/s on the first day, rising to 0.45 m/s after the aids f
 reverse speed up to 1.7–2.1 m/s (3.8–4.7 mph). The service brake and parking brake override the accelerator, stop in
 either direction and hold zero until released. The existing stopped-only keyboard gear change remains available.
 
-Assistance defaults to 1, 0.75, 0.5, 0.25 and 0 on days one through five. Full assistance retains the first-day 8 m/s
-forward ceiling, limits high-speed steering and strengthens braking and steering centring. Later days gradually
-allow 12 m/s. `OTR.fp.driveAssist(model)` accepts an optional transient `model.driveAssist` override in 0–1. Claude's
-A-21 owns the saved trainer setting; its approved API still needs connecting in the owned launch/resume adapter.
-No shared Settings, scoring definitions, translations or save implementation were changed for C-20.
+The workday adapter now reads A-21's approved `OTR.academy.workdayRules(day)` on launch, restore and return from
+Settings. It caches full/light/off as transient `model.driveAssist` values 1/0.5/0. With the trainer's default fade,
+day one is full, days two and three are light, and day four onwards is off. Trainer overrides apply at every day.
+Full assistance retains the first-day 8 m/s forward ceiling, limits high-speed steering and strengthens braking and
+steering centring; no assistance allows 12 m/s. `OTR.fp.driveAssist(model)` still accepts a numeric 0–1 override.
+The standalone motor, when used without the Academy API, retains C-20's linear day-one-to-five fallback.
+No shared Settings, scoring definitions, translations or save implementation were changed for C-20 or C-21.
 
 `model.motion` exposes acceleration, lateral acceleration, payload, mass, front/rear axle loads, RPM, assistance,
 contact, pitch and roll. Weight transfer follows acceleration and load height. The sprung body pitches and rolls

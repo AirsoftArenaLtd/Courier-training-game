@@ -35,3 +35,7 @@ test('braking and indicators use bounded effect rates and have visible sentences
 test('Settings changes the existing saved volume and mute with clamped values',()=>{
  const x=setup(false);x.sound.menu();for(let i=0;i<20;i++)x.scene.page.choices[0].action();assert.equal(x.c.OTR.audio.volume,0);for(let i=0;i<20;i++)x.scene.page.choices[1].action();assert.equal(x.c.OTR.audio.volume,1);x.scene.page.choices[2].action();assert.equal(x.c.OTR.audio.muted,true);assert.deepEqual(x.saves.at(-1),['muted',true]);assert.match(x.scene.page.body,/100%/);assert.match(x.scene.page.body,/muted/);assert.equal(x.nodes.length,0);x.sound.dispose();
 });
+test('engine RPM and road feel reuse the existing voices and keep invalid telemetry silent',()=>{
+ const x=setup();x.m.motion={rpm:2800};x.m.cameraMotion={roadImpact:.75};x.tick(0);assert.equal(x.sound.engine.frequency,85);assert.equal(x.sound.engine.cutoff,300);assert.equal(x.nodes.length,6);
+ x.m.motion.rpm=3800;x.m.cameraMotion.roadImpact=NaN;x.tick(200);assert.equal(x.sound.engine.frequency,105);assert.equal(x.sound.engine.cutoff,240);assert.equal(x.nodes.length,6);x.sound.dispose();
+});

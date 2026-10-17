@@ -12,7 +12,7 @@ class FirstPersonScene extends Phaser.Scene {
     OTR.fpAccess.textResolution(this);this.makeHud();this.workdaySound=new OTR.fpSound(this);if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
     this.events.once('shutdown',()=>{this.loadingToken=null;this.checkpoint();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
-    const freshHints=()=>{this.hints=null;};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
+    const freshHints=()=>{this.hints=null;OTR.fp.applyDriveRules(this.model);};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
     OTR.world3d.load().then(async()=>{
       if(!this.sys.isActive()||this.loadingToken!==token)return;
       this.companyLogo=await OTR.fpBrand.loadLogo(this);if(!this.sys.isActive()||this.loadingToken!==token)return;
@@ -106,6 +106,7 @@ class FirstPersonScene extends Phaser.Scene {
       const day=OTR.shift.generate(m.seed,m.seed);
       m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};m.touch();this.checkpoint();
     }
+    OTR.fp.applyDriveRules(m);
     const body=kind==='practice'?'Scan and load the three parcels into positions you choose. Then retrieve the requested parcel, put it back and secure the load. Return to Dispatch to finish.':
       m.stops.map(s=>`${s.address} — ${m.serviceLabel(s.id)}`).join('\n')+'\n\nCheck the tires and lights, scan the parcels and secure the load. Deliver each stop, bring retained parcels to Returns, then check in at Dispatch.';
     if(OTR.fpGuide&&kind==='campaign'&&OTR.fpGuide.opening(this,resumed))return;
