@@ -3668,7 +3668,22 @@ window.OTR_I18N.ml = {
 "Handled a failed delivery correctly": "പരാജയപ്പെട്ട ഡെലിവറി ശരിയായി കൈകാര്യം ചെയ്തു",
 "Did not leave a card or record the retention for a failed delivery": "പരാജയപ്പെട്ട ഡെലിവറിക്ക് കാർഡ് ഇട്ടില്ല അല്ലെങ്കിൽ പാഴ്സൽ സൂക്ഷിച്ചത് രേഖപ്പെടുത്തിയില്ല",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "കാർഡ് ഇടുക, കാരണം രേഖപ്പെടുത്തുക, പാഴ്സൽ സുരക്ഷിതമായി സൂക്ഷിക്കുക, അടുത്ത ശ്രമം ബുക്ക് ചെയ്യുക.",
-"Cut across or hit a cyclist": "സൈക്കിൾ യാത്രക്കാരന്റെ മുന്നിലൂടെ വെട്ടിച്ചു അല്ലെങ്കിൽ ഇടിച്ചു"
+"Cut across or hit a cyclist": "സൈക്കിൾ യാത്രക്കാരന്റെ മുന്നിലൂടെ വെട്ടിച്ചു അല്ലെങ്കിൽ ഇടിച്ചു",
+"3D workday aids": "3D ജോലിദിന സഹായങ്ങൾ",
+"Driving assists": "ഡ്രൈവിങ് സഹായങ്ങൾ",
+"Route line": "റൂട്ട് ലൈൻ",
+"Get out and look before a tight reverse": "ഇടുങ്ങിയ സ്ഥലത്ത് റിവേഴ്സിന് മുമ്പ് ഇറങ്ങി നോക്കുക",
+"Night and dusk runs": "രാത്രി, സന്ധ്യാ റൺ",
+"Van damage and damage reports": "വാൻ കേടുപാടും കേടുപാട് റിപ്പോർട്ടും",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "ദിവസംതോറും കുറയും: ആദ്യ ജോലിദിനത്തിൽ പൂർണ സഹായം, അടുത്ത രണ്ടിൽ കുറവ്, നാലാം ദിനം മുതൽ നാമമാത്രം. ശേഷം നിയമങ്ങൾ സേവ് ചെയ്യുക അമർത്തുക.",
+"Fade by day": "ദിവസംതോറും കുറയ്ക്കുക",
+"Full": "പൂർണം",
+"Light": "ലഘു",
+"Sat nav": "സാറ്റ് നാവ്",
+"Turn by turn": "വളവ് വളവായി",
+"Optional": "ഓപ്ഷണൽ",
+"Required": "നിർബന്ധം",
+"3D workday aids…": "3D ജോലിദിന സഹായങ്ങൾ…"
 },
 "templates": [
 [

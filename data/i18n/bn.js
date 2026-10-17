@@ -3669,7 +3669,22 @@ window.OTR_I18N.bn = {
 "Handled a failed delivery correctly": "ব্যর্থ ডেলিভারি ঠিকভাবে সামলেছেন",
 "Did not leave a card or record the retention for a failed delivery": "ব্যর্থ ডেলিভারিতে কার্ড রাখেননি বা পার্সেল আটকে রাখার নথি করেননি",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "কার্ড রেখে যান, কারণ লিখুন, পার্সেল নিরাপদে রাখুন এবং পরের চেষ্টার সময় ঠিক করুন।",
-"Cut across or hit a cyclist": "সাইকেল আরোহীর সামনে দিয়ে কেটে গেছেন বা তাকে ধাক্কা দিয়েছেন"
+"Cut across or hit a cyclist": "সাইকেল আরোহীর সামনে দিয়ে কেটে গেছেন বা তাকে ধাক্কা দিয়েছেন",
+"3D workday aids": "3D কর্মদিবসের সহায়তা",
+"Driving assists": "ড্রাইভিং সহায়তা",
+"Route line": "রুট লাইন",
+"Get out and look before a tight reverse": "সংকীর্ণ জায়গায় রিভার্সের আগে নেমে দেখুন",
+"Night and dusk runs": "রাত ও গোধূলির রান",
+"Van damage and damage reports": "ভ্যানের ক্ষতি ও ক্ষতির রিপোর্ট",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "দিনে দিনে কমবে: প্রথম কর্মদিবসে পূর্ণ সহায়তা, পরের দুই দিনে কম, চতুর্থ দিন থেকে সামান্য। এরপর নিয়ম সেভ করুন চাপুন।",
+"Fade by day": "দিনে কমবে",
+"Full": "পূর্ণ",
+"Light": "হালকা",
+"Sat nav": "জিপিএস",
+"Turn by turn": "বাঁকে বাঁকে",
+"Optional": "ঐচ্ছিক",
+"Required": "বাধ্যতামূলক",
+"3D workday aids…": "3D কর্মদিবসের সহায়তা…"
 },
 "templates": [
 [

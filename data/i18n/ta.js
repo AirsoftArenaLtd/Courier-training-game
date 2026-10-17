@@ -3668,7 +3668,22 @@ window.OTR_I18N.ta = {
 "Handled a failed delivery correctly": "தோல்வியடைந்த டெலிவரியைச் சரியாகக் கையாண்டீர்கள்",
 "Did not leave a card or record the retention for a failed delivery": "தோல்வியடைந்த டெலிவரிக்கு அட்டையை விடவில்லை அல்லது பார்சல் வைத்திருப்பதைப் பதிவு செய்யவில்லை",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "அட்டையை விட்டு, காரணத்தைப் பதிவு செய்து, பார்சலைப் பத்திரமாக வைத்து, அடுத்த முயற்சியைப் பதிவு செய்யுங்கள்.",
-"Cut across or hit a cyclist": "சைக்கிள் ஓட்டுநரின் குறுக்கே சென்றீர்கள் அல்லது மோதினீர்கள்"
+"Cut across or hit a cyclist": "சைக்கிள் ஓட்டுநரின் குறுக்கே சென்றீர்கள் அல்லது மோதினீர்கள்",
+"3D workday aids": "3D வேலைநாள் உதவிகள்",
+"Driving assists": "ஓட்டும் உதவிகள்",
+"Route line": "வழிக் கோடு",
+"Get out and look before a tight reverse": "இடுக்கான இடத்தில் பின்னோக்கிச் செல்லும் முன் இறங்கிப் பாருங்கள்",
+"Night and dusk runs": "இரவு, மாலை ஓட்டங்கள்",
+"Van damage and damage reports": "வேன் சேதமும் சேத அறிக்கைகளும்",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "நாள்தோறும் குறையும்: முதல் வேலைநாளில் முழு உதவி, அடுத்த இரண்டில் குறைவு, நான்காம் நாளிலிருந்து சிறிதளவு. பிறகு விதிகளைச் சேமி என்பதை அழுத்துங்கள்.",
+"Fade by day": "நாள்தோறும் குறை",
+"Full": "முழு",
+"Light": "இலகு",
+"Sat nav": "வழிகாட்டி",
+"Turn by turn": "திருப்பம் திருப்பமாக",
+"Optional": "விருப்பம்",
+"Required": "கட்டாயம்",
+"3D workday aids…": "3D வேலைநாள் உதவிகள்…"
 },
 "templates": [
 [
