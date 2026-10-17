@@ -1,5 +1,14 @@
 # Low-graphics 3D workday budget
 
+**C-27 town update (17 October 2026):** static per-instance colour batching recovers calls before
+adding art: the loaded 240,000-view sweep first falls to 48 calls / 1,890 triangles. With all town
+templates, it peaks at 58 / 2,306; fallback peaks at 47 / 2,266. Low selects nearby detail within a
+290-triangle allowance and keeps procedural distant buildings. Twenty-two rendered Low samples
+peak at 57 / 2,306, two textures, 3,557,376 attachment bytes and 2,600,662 estimated Phaser bytes.
+Three reduced-motion views also pass. Every existing ceiling below remains unchanged. High uses
+source-detail models; its figures are recorded separately in `docs/PERF.md`. No image texture or
+additional render pass is added. Review evidence: `docs/review/set-8/c27.md`; native Intel FPS remains O-1.
+
 **C-26 visible-weather update (17 October 2026):** two 240,000-view loaded/fallback sweeps peak at
 64/63 calls and 1,886 triangles. Soft precipitation quads replace the old cubes; breath and wheel spray
 reuse the same bounded batch. Wet/snow/ice surface shaders allocate no textures or reflection targets.

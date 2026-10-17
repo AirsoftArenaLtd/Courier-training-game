@@ -16,7 +16,7 @@ OTR.fpWorld = {
       mesh.updateMatrix(); mesh.matrixAutoUpdate = false;
       if (!id) {
         let pool = batches.get(parent); if (!pool) { pool = new Map(); batches.set(parent,pool); }
-        // Ground/scenery retain material ordering, including distant depth ties with the ground box.
+        // Keep flat surfaces and solid proxies in separate batches; colours are per instance.
         const key=(flat?'plane:':'box:')+(parent===route?'all':flat?color:'all')+(parent===route&&solid?':solid':'');
         const entry={matrix:mesh.matrix.clone(),color:new T.Color(color),hex:color,flat,bounded:!!solid};
         if (!pool.has(key)) pool.set(key,[]); pool.get(key).push(entry);mesh.userData.fpBatchEntry=entry;
