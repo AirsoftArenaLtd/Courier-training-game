@@ -235,7 +235,7 @@ same module and scenario ids. Starts after the new cab and the new look (milesto
 
 | Id | Owner | Task | Status |
 | --- | --- | --- | --- |
-| C-38 | Codex | **3D scenario runner:** loads a small set-piece (part of the depot, one street, one doorstep, the cab), gives a goal and a timer, runs practice and assessment, and hands the result to the existing results screen. One scenario per data entry; the 2D fallback is chosen when 3D is not available. | todo (after C-24, C-27) |
+| C-38 | Codex | **3D scenario runner** (contract: `docs/3D-MODULES.md`): loads a small set-piece (part of the depot, one street, one doorstep, the cab), gives a goal and a timer, runs practice and assessment, and hands the result to the existing results screen. One scenario per data entry; the 2D fallback is chosen when 3D is not available. | todo (after C-24, C-27) |
 | A-30 | Claude | **Scoring and records for 3D scenarios:** each 3D scenario reports into its module's existing stars, attempts, certificate rules, LMS and xAPI; the trainer can choose 3D or the 2D fallback per module; old records still read. Tests. | todo (after C-38) |
 | C-39 | Codex | **Route & Driving in 3D:** pre-trip inspection walking round the real van, route planning on the sat nav, defensive driving drills, parking and reversing with the rear camera; new: junctions, school zone, night. | todo (after C-38) |
 | C-40 | Codex | **Package Handling in 3D:** sorting at the belt, lifting with the right posture in first person, reading real labels; new: heavy or awkward items, team lifts. | todo (after C-38) |
@@ -267,6 +267,7 @@ items here for each agent.
 | B-9 | Claude | **Offline check covers the 3D models:** `test/offline.js` also checks that the glTF files load from the game folder with the internet blocked, and that a missing file falls back without a page error. | done (the offline test checks the models load with no internet; the missing-file fallback is in `fpassetsbrowser`) |
 | B-10 | Claude | **Trainer and IT docs for the new pieces:** the 3D workday aids in `docs/PILOT-GUIDE.md`; the package script (1.2 and 2004), the asset folder and its budget in `docs/IT-NOTES.md`. | done |
 | B-11 | Claude | **The trainer aids end to end:** a browser flow that sets the aids off in Settings → Trainer, starts a workday and checks the 3D world got them (`OTR.academy.workdayRules` as read by C-21's assists). | done (QA flow `workday-aids`; `workday-3d` checks full assists on a first day) |
+| B-12 | Claude | **Milestone 10 contract** (`docs/3D-MODULES.md`): how a 3D scenario keeps its id, categories and records, the `scene3d` / `default3d` fields, finishing through `OTR.flow.complete`, assessments, and what A-30 and A-31 check. C-38 builds against it. | done |
 
 ## Questions for the owner
 
