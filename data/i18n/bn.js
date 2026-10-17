@@ -3698,7 +3698,11 @@ window.OTR_I18N.bn = {
 "Your right mirror check is current.": "আপনার ডান আয়নার পরীক্ষা সাম্প্রতিক।",
 "Look at the right mirror for a moment to check it.": "ডান আয়নাটি এক মুহূর্ত দেখে পরীক্ষা করুন।",
 "Your interior mirror check is current.": "আপনার ভেতরের আয়নার পরীক্ষা সাম্প্রতিক।",
-"Look at the interior mirror for a moment to check it.": "ভেতরের আয়নাটি এক মুহূর্ত দেখে পরীক্ষা করুন।"
+"Look at the interior mirror for a moment to check it.": "ভেতরের আয়নাটি এক মুহূর্ত দেখে পরীক্ষা করুন।",
+"road sign": "রাস্তার চিহ্ন",
+"damage to the van": "ভ্যানের ক্ষতি",
+"low bridge or clearance": "নিচু সেতু বা উচ্চতার সীমা",
+"load shifted": "মাল সরে গেছে"
 },
 "templates": [
 [

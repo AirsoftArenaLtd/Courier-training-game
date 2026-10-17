@@ -111,7 +111,8 @@ OTR.workday = {
       lesson: E.lesson || null,
       critical: !!E.critical,
       where: d.where || null,
-      group: stop === null ? E.phase : 'stop' + stop
+      group: stop === null ? E.phase : 'stop' + stop,
+      type                                                       // the drive review's marker for this kind (B-15)
     };
     if (E.kind === 'penalty') return into.log.penalty(E.cat, E.pts, E.label, Object.assign(o, { severity: E.severity || 'minor' }));
     if (E.kind === 'bonus') return into.log.bonus(E.cat, E.pts, E.label, o);

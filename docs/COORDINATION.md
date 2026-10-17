@@ -277,9 +277,10 @@ items here for each agent.
 | B-12 | Claude | **Milestone 10 contract** (`docs/3D-MODULES.md`): how a 3D scenario keeps its id, categories and records, the `scene3d` / `default3d` fields, finishing through `OTR.flow.complete`, assessments, and what A-30 and A-31 check. C-38 builds against it. | done |
 | B-13 | Claude | **Close out the Claude inbox:** old Codex items that were merged long ago still said `open`. | done |
 | B-14 | Claude | **QA flows that survive a slow machine:** `m1-pretrip`, `m2-labels`, `m2-lift` and `m3-missing` fail when the frame rate drops below about 10 fps (two browsers at once). Replace their fixed waits with waits on the game's own state, so the language passes and a busy CI give real results. | done |
-| B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | todo |
+| B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | done |
 | B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | done |
 | B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | todo |
+| B-18 | Claude | **Slow-PC waits for flows without a boot sample:** `drive-review` (and the other flows that start their own scene: `fps=0`, `boot=null`) get no `ctx.slow`, so its 480 s drive times out while another browser renders (fails the same on unchanged pilot). Measure a frame-rate sample at the flow's start in `test/qa.js` when the boot pass is skipped, so these waits stretch too. | todo |
 
 ## Questions for the owner
 
@@ -306,6 +307,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-15:** the drive map gives each new kind of mistake its own marker: a diamond for a road sign, a star for damage to the van, a triangle for a low bridge or clearance, a hexagon for a shifted load (the square stays the depot), a circle for everything else. Colours keep their meaning (red critical, orange otherwise), and a legend line under the map names the markers shown. The caption and legend are laid out first and the map fitted above them, so a two-line caption in Tamil at larger text no longer pushes the legend off screen. Score-log items keep their event `type`; `OTR.drive.pins` adds `mark`. Also fixed: the detail heading showed the mistake in English in every language (`"1. " + label` was never a translated sentence). Legend translated into all 11 languages; checked in English normal and large and in Tamil large; `test/workday.js` asserts the markers.
 
 - **17 October 2026, Claude — B-16:** a day with a mirror check on every turn (C-23's `turn:<leg>:<n>` keys) filled SCORM 1.2 suspend data to 3,905 of 4,000 characters at 14 turns a leg, and at 20 a leg dropped to the summary stage (score kept, drive-review pins lost). `src/core/save.js` now writes runs of numbered keys in a packed day once (`packRuns`: `["turn:3:", 1, 20]`; exact, in order; old saves read as before), so the 20-turn day stays packed with every pin. `test/savesize.js`: the 20-turn day (reloaded and replayed without double counting) and the run round-trip edge cases.
 

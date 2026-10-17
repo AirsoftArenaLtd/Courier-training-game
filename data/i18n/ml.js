@@ -3697,7 +3697,11 @@ window.OTR_I18N.ml = {
 "Your right mirror check is current.": "നിങ്ങളുടെ വലത് കണ്ണാടി പരിശോധന പുതിയതാണ്.",
 "Look at the right mirror for a moment to check it.": "വലത് കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക.",
 "Your interior mirror check is current.": "നിങ്ങളുടെ ഉള്ളിലെ കണ്ണാടി പരിശോധന പുതിയതാണ്.",
-"Look at the interior mirror for a moment to check it.": "ഉള്ളിലെ കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക."
+"Look at the interior mirror for a moment to check it.": "ഉള്ളിലെ കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക.",
+"road sign": "റോഡ് അടയാളം",
+"damage to the van": "വാനിന് കേടുപാട്",
+"low bridge or clearance": "താഴ്ന്ന പാലം അല്ലെങ്കിൽ ഉയരപരിധി",
+"load shifted": "ചരക്ക് നീങ്ങി"
 },
 "templates": [
 [

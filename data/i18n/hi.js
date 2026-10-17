@@ -3697,7 +3697,11 @@ window.OTR_I18N.hi = {
 "Your right mirror check is current.": "आपकी दाएँ शीशे की जाँच ताज़ा है।",
 "Look at the right mirror for a moment to check it.": "दाएँ शीशे को एक पल देखकर जाँचें।",
 "Your interior mirror check is current.": "आपकी अंदरूनी शीशे की जाँच ताज़ा है।",
-"Look at the interior mirror for a moment to check it.": "अंदरूनी शीशे को एक पल देखकर जाँचें।"
+"Look at the interior mirror for a moment to check it.": "अंदरूनी शीशे को एक पल देखकर जाँचें।",
+"road sign": "सड़क संकेत",
+"damage to the van": "वैन को नुकसान",
+"low bridge or clearance": "नीचा पुल या ऊँचाई की सीमा",
+"load shifted": "सामान खिसक गया"
 },
 "templates": [
 [

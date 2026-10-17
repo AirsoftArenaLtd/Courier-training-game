@@ -1,7 +1,7 @@
 /*
  * Drive review: the town map with a numbered pin wherever a driving mistake happened (from the score log's `where`),
  * and the list beside it. Picking a pin or a row shows what happened, how fast, when, and the lesson.
- * data: { pins: [{ label, cat, lesson, critical, where: { x, y, mph, t, seed } }], seed, stops?: [{ lotId, outcome }],
+ * data: { pins: [{ label, cat, lesson, critical, mark?, where: { x, y, mph, t, seed } }], seed, stops?: [{ lotId, outcome }],
  *         title, select: the pin to open on, back: scene key, backData }
  * The 3D workday's streets are not the 2D town: it passes plan: { depot: { x, z }, stops: [{ stop, delivered, x, z }] }
  * and pins at { x, z, mph } (metres), drawn on a plan fitted around them.
@@ -42,7 +42,8 @@ class DriveReviewScene extends Phaser.Scene {
 
   drawMap() {
     const T = this.T, A = OTR.townArt;
-    const aw = 820, ah = 596, ax = 24, ay = 84;
+    const aw = 820, ax = 24, ay = 84;
+    const ah = Math.min(596, this.drawFoot(ax, aw, 'Small red dots: stop signs · yellow: traffic lights · numbered pins: where each mistake happened') - 14 - ay);
     const s = Math.min(aw / T.W, ah / T.H);
     const mw = T.W * s, mh = T.H * s, mx = ax + (aw - mw) / 2, my = ay + (ah - mh) / 2;
     this.map = { s, mx, my };
@@ -72,7 +73,6 @@ class DriveReviewScene extends Phaser.Scene {
         g.fillStyle(r.outcome === 'delivered' ? 0x2BC48A : 0xFFB020, 1); g.fillCircle(p.x, p.y, 5);
       });
     });
-    OTR.txt(this, mx, Math.min(OTR.H - 10, my + mh + 16), 'Small red dots: stop signs · yellow: traffic lights · numbered pins: where each mistake happened', 12, OTR_DATA.theme.css('tint'), { ox: 0, bold: false });
     this.placePins(p => P(p.where.x, p.where.y));
   }
 
@@ -81,7 +81,8 @@ class DriveReviewScene extends Phaser.Scene {
    * a 10 m grid. Nothing else is known about its streets here, so the plan draws only what was reported.
    */
   drawPlan(plan) {
-    const aw = 820, ah = 572, ax = 24, ay = 84;
+    const aw = 820, ax = 24, ay = 84;
+    const ah = Math.min(572, this.drawFoot(ax, aw, 'Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened') - 20 - ay);
     const pts = [];
     if (plan.depot) pts.push(plan.depot);
     (plan.stops || []).forEach(s => { if (Number.isFinite(s.x) && Number.isFinite(s.z)) pts.push(s); });
@@ -112,7 +113,6 @@ class DriveReviewScene extends Phaser.Scene {
       const q = P(st.x, st.z);
       OTR.txt(this, q.x, q.y, String(st.stop), 11, OTR_DATA.theme.css('primaryDeep'), { weight: '900' });
     });
-    OTR.txt(this, ax, ay + ah + 12, 'Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened', 12, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false, wrap: aw });
     this.placePins(p => P(p.where.x, p.where.z));
   }
 
@@ -123,11 +123,56 @@ class DriveReviewScene extends Phaser.Scene {
       const col = p.critical ? 0xE8304A : OTR_DATA.theme.accent;
       const c = this.add.container(q.x, q.y).setDepth(10);
       const ring = this.add.circle(0, 0, 18, 0xffffff, 0).setStrokeStyle(3, 0xffffff, 1).setVisible(false);
-      c.add([ring, this.add.circle(0, 0, 11, col).setStrokeStyle(2, OTR_DATA.theme.primaryDeep, 1), OTR.txt(this, 0, 0, String(i + 1), 11, '#ffffff', { weight: '900' })]);
+      c.add([ring, this.marker(p.mark, 0, 0, 1, col), OTR.txt(this, 0, 0, String(i + 1), 11, '#ffffff', { weight: '900' })]);
       c.ring = ring;
       c.setSize(26, 26).setInteractive({ useHandCursor: true }).on('pointerup', () => this.select(i));
       return c;
     });
+  }
+
+  /**
+   * A pin's shape, by its kind of mistake (B-15): a diamond for a road sign, a star for damage to the van, a triangle
+   * for a low bridge or clearance, a hexagon for a shifted load (the square is the depot), a circle for anything else. `k` scales it (the legend).
+   */
+  marker(mark, x, y, k, col) {
+    const edge = OTR_DATA.theme.primaryDeep, r = 11 * k;
+    let m;
+    if (mark === 'sign') m = this.add.rectangle(x, y, r * 1.7, r * 1.7, col).setAngle(45);
+    else if (mark === 'damage') m = this.add.star(x, y, 6, r * 0.75, r * 1.35, col);
+    else if (mark === 'clearance') m = this.add.triangle(x, y, 0, r * 2.3, r * 1.3, 0, r * 2.6, r * 2.3, col).setOrigin(0.5, 0.62);
+    else if (mark === 'load') m = this.add.polygon(x, y, [0, -1, 0.87, -0.5, 0.87, 0.5, 0, 1, -0.87, 0.5, -0.87, -0.5].map(v => (v + 1) * r * 1.3), col);   // points from 0: Phaser centres a polygon on its bounds
+    else m = this.add.circle(x, y, r, col);
+    return m.setStrokeStyle(2 * Math.max(k, 0.6), edge, 1);
+  }
+
+  /**
+   * The lines under the map naming each marker on it, from x, y down; returns the objects and the height they take
+   * (nothing when every pin is a plain one), so the map can be fitted above them.
+   */
+  drawMarkLegend(x, y, w) {
+    const used = OTR.drive.MARKS.filter(([m]) => this.pins.some(p => p.mark === m)), objs = [], y0 = y;
+    if (!used.length) return { objs, h: 0 };
+    let cx = x;
+    used.forEach(([m, words]) => {
+      const t = OTR.txt(this, 0, y, words, 12, OTR_DATA.theme.css('tint'), { ox: 0, bold: false });
+      if (cx > x && cx + 22 + t.width > x + w) { cx = x; y += 22; t.y = y; }      // wrap onto a new line (larger text)
+      objs.push(this.marker(m, cx + 8, y, 0.62, OTR_DATA.theme.accent), t);
+      t.x = cx + 20;
+      cx += 20 + t.width + 22;
+    });
+    return { objs, h: y - y0 + 22 };
+  }
+
+  /**
+   * The caption, then the marker legend, at the foot of the screen; returns the top of the caption, so the map ends
+   * above it whatever the language and text size.
+   */
+  drawFoot(x, w, caption) {
+    const cap = OTR.txt(this, x, 0, caption, 12, OTR_DATA.theme.css('tint'), { ox: 0, oy: 0, bold: false, wrap: w });
+    const leg = this.drawMarkLegend(x, 0, w), bottom = OTR.H - 12;
+    leg.objs.forEach(o => { o.y += bottom - leg.h + 11; });
+    cap.y = bottom - leg.h - (leg.h ? 4 : 0) - cap.height;
+    return cap.y;
   }
 
   drawList() {
@@ -168,7 +213,7 @@ class DriveReviewScene extends Phaser.Scene {
     this.pinObjs[i].ring.setScale(1).setAlpha(1);
     this.tweens.add({ targets: this.pinObjs[i].ring, scale: 1.5, alpha: 0.2, duration: 700, yoyo: true, repeat: -1 });
     if (!this.detailHead) return;
-    this.detailHead.setText(`${i + 1}. ${p.label}`).setColor(p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'));
+    this.detailHead.setText(`${i + 1}. ${OTR.i18n.tr(p.label)}`)              // the label alone is the translated sentence.setColor(p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'));
     const when = OTR.drive.when(p.where);
     this.detailMeta.setText([Number.isFinite(p.where.mph) ? Math.round(p.where.mph) + ' mph' : '', when ? `${when} into the drive` : '', p.critical ? 'CRITICAL' : ''].filter(Boolean).join(' · '));
     this.detailMeta.y = this.detailHead.y + this.detailHead.height + 4;
@@ -185,8 +230,23 @@ OTR.drive = {
   pins(log) {
     const items = (log && (log.items || log)) || [];
     return items.filter(it => it.where && (it.kind === 'penalty' || (it.kind === 'check' && it.got < it.max)))
-      .map(it => ({ label: it.label, cat: it.cat, lesson: it.lesson, critical: !!it.critical, where: it.where }));
+      .map(it => {
+        const pin = { label: it.label, cat: it.cat, lesson: it.lesson, critical: !!it.critical, where: it.where }, mark = OTR.drive.mark(it.type);
+        if (mark) pin.mark = mark;
+        return pin;
+      });
   },
+  /** The marker a kind of mistake gets on the map (B-15), or null for the plain round pin. */
+  mark(type) {
+    if (typeof type !== 'string') return null;
+    if (/^drive\.sign-/.test(type)) return 'sign';
+    if (/^van\.damage-/.test(type)) return 'damage';
+    if (type === 'drive.clearance') return 'clearance';
+    if (type === 'load.shift') return 'load';
+    return null;
+  },
+  /** The legend's words for each marker, in the order the legend lists them. */
+  MARKS: [['sign', 'road sign'], ['damage', 'damage to the van'], ['clearance', 'low bridge or clearance'], ['load', 'load shifted']],
   when(w) {
     if (!w || w.t === undefined) return '';
     const m = Math.floor(w.t / 60), s = w.t % 60;

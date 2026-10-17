@@ -3697,7 +3697,11 @@ window.OTR_I18N.gu = {
 "Your right mirror check is current.": "તમારી જમણા અરીસાની તપાસ તાજી છે.",
 "Look at the right mirror for a moment to check it.": "જમણા અરીસાને એક ક્ષણ જોઈને તપાસો.",
 "Your interior mirror check is current.": "તમારી અંદરના અરીસાની તપાસ તાજી છે.",
-"Look at the interior mirror for a moment to check it.": "અંદરના અરીસાને એક ક્ષણ જોઈને તપાસો."
+"Look at the interior mirror for a moment to check it.": "અંદરના અરીસાને એક ક્ષણ જોઈને તપાસો.",
+"road sign": "રસ્તાનું ચિહ્ન",
+"damage to the van": "વાનને નુકસાન",
+"low bridge or clearance": "નીચો પુલ કે ઊંચાઈની મર્યાદા",
+"load shifted": "માલ ખસી ગયો"
 },
 "templates": [
 [

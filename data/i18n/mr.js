@@ -3697,7 +3697,11 @@ window.OTR_I18N.mr = {
 "Your right mirror check is current.": "तुमची उजव्या आरशाची तपासणी ताजी आहे.",
 "Look at the right mirror for a moment to check it.": "उजवा आरसा क्षणभर पाहून तपासा.",
 "Your interior mirror check is current.": "तुमची आतील आरशाची तपासणी ताजी आहे.",
-"Look at the interior mirror for a moment to check it.": "आतील आरसा क्षणभर पाहून तपासा."
+"Look at the interior mirror for a moment to check it.": "आतील आरसा क्षणभर पाहून तपासा.",
+"road sign": "रस्ता चिन्ह",
+"damage to the van": "व्हॅनचे नुकसान",
+"low bridge or clearance": "खालचा पूल किंवा उंचीची मर्यादा",
+"load shifted": "माल सरकला"
 },
 "templates": [
 [
