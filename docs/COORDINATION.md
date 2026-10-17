@@ -266,7 +266,7 @@ items here for each agent.
 | B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | todo |
 | B-9 | Claude | **Offline check covers the 3D models:** `test/offline.js` also checks that the glTF files load from the game folder with the internet blocked, and that a missing file falls back without a page error. | done (the offline test checks the models load with no internet; the missing-file fallback is in `fpassetsbrowser`) |
 | B-10 | Claude | **Trainer and IT docs for the new pieces:** the 3D workday aids in `docs/PILOT-GUIDE.md`; the package script (1.2 and 2004), the asset folder and its budget in `docs/IT-NOTES.md`. | done |
-| B-11 | Claude | **The trainer aids end to end:** a browser flow that sets the aids off in Settings → Trainer, starts a workday and checks the 3D world got them (`OTR.academy.workdayRules` as read by C-21's assists). | todo |
+| B-11 | Claude | **The trainer aids end to end:** a browser flow that sets the aids off in Settings → Trainer, starts a workday and checks the 3D world got them (`OTR.academy.workdayRules` as read by C-21's assists). | done (QA flow `workday-aids`; `workday-3d` checks full assists on a first day) |
 
 ## Questions for the owner
 

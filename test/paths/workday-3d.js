@@ -103,6 +103,11 @@ const make = (opts) => async (page, ctx) => {
       OTR.save.data.route = OTR.save.data.route || { days: 0, best: {}, history: [] }; OTR.save.data.route.days = (o.day || 1) - 1;
     }, opts);
   }
+  // opts.aids: the trainer's 3D workday aids (A-21), saved as the trainer's Save rules does, before the day starts
+  if (opts.aids) {
+    const ok = await ev((aids) => { const s = OTR.academy.get(); return OTR.academy.saveSettings(Object.assign({}, s, { workday: Object.assign({}, s.workday, aids) })); }, opts.aids);
+    must(ok === true, 'the trainer aids could not be saved: ' + ok);
+  }
   await clickText(page, 'HubScene', /Start workday/);
   must(await ctx.until(`(OTR.game.scene.getScene('HubScene')._modalStack || []).length > 0`, 4000), 'Start workday opened no confirmation');
   await ctx.audit('start confirmation');
@@ -110,6 +115,14 @@ const make = (opts) => async (page, ctx) => {
   must(await ctx.until(`!!(OTR.game.scene.isActive('FirstPersonScene') && !${FP}.loading && ${FP}.model)`, 90000), 'the 3D scene never opened from the hub');
   await wait(800);
   must((await state()).m.kind === 'campaign', 'the hub did not start a campaign workday');
+  // the driving assists the 3D world applied (C-21 reads OTR.academy.workdayRules): full on a first day by default,
+  // or what the trainer chose
+  {
+    const assist = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.driveAssist);
+    const want = opts.expectAssist !== undefined ? opts.expectAssist : (opts.day || 1) === 1 ? 1 : undefined;
+    if (want !== undefined) must(assist === want, `the 3D world's driving assist is ${assist}, not ${want}`);
+  }
+  if (opts.stopAfterStart) return;
   must(await ev(() => !!OTR.workday.saved().current), 'no workday in progress after Start');
   await shot('start');
 

@@ -69,6 +69,7 @@ const SCENARIOS = [
   { id: 'van-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'drive-fuzz', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'workday-3d', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
+  { id: 'workday-aids', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
   { id: 'workday-3d-b', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
   { id: 'workday-3d-c', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' }
 ];
