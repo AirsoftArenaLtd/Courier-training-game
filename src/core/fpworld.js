@@ -251,6 +251,7 @@ OTR.fpWorld = {
       if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded});
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
+    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -260,9 +261,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,lighting,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(lighting)lighting.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -350,6 +351,7 @@ OTR.fpWorld = {
         }
         if(mirrors)mirrors.sync(model,area);
         world.updateMatrixWorld(true);
+        if(lighting)lighting.sync(model||base,area);
       },
       resetCamera(){if(cameraRig)cameraRig.model=null;},
       pick(){ray.setFromCamera({x:0,y:0},camera);const hit=cast(ray,scanObjects)[0];return hit?hit.object.userData.interaction||null:null;},

@@ -21,9 +21,11 @@ OTR.world3d = {
     world.fog = new THREE.Fog(0xA7C7DE, 65, 165);
     const camera = new THREE.PerspectiveCamera(68, OTR.W / OTR.H, 0.08, 180);
     camera.rotation.order = 'YXZ'; world.add(camera);
-    world.add(new THREE.HemisphereLight(0xE9F1FF, 0x63594C, 1.5));
+    const hemisphere=new THREE.HemisphereLight(0xE9F1FF, 0x63594C, 1.5);world.add(hemisphere);
     const sun = new THREE.DirectionalLight(0xFFF0DC, 1.4);
-    sun.position.set(-12, 25, 8); world.add(sun);
+    sun.position.set(-12, 25, 8); world.add(sun,sun.target);
+    if(renderer.shadowMap){renderer.shadowMap.enabled=OTR.gfx.high();renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=false;}
+    const shadowLights=[sun],renderSunShadow=()=>{if(renderer.shadowMap){renderer.shadowMap.needsUpdate=true;renderer.shadowMap.render(shadowLights,world,camera);}};
     const target = new THREE.WebGLRenderTarget(1, 1, { depthBuffer: true, stencilBuffer: false });
     target.texture.colorSpace = THREE.SRGBColorSpace;
     // Transform each existing composite, including the mirror. No extra target, texture or render pass.
@@ -82,6 +84,7 @@ OTR.world3d = {
         diagnostics.targetWidth=w;diagnostics.targetHeight=h;
         // RGBA8 plus up-to-32-bit depth, including the allocated mirror target while off.
         diagnostics.attachmentBytes=(w*h+mirrorTarget.width*mirrorTarget.height)*8;
+        for(const light of shadowLights){const shadow=light.shadow;if(shadow.map)diagnostics.attachmentBytes+=shadow.map.width*shadow.map.height*8;if(shadow.mapPass)diagnostics.attachmentBytes+=shadow.mapPass.width*shadow.mapPass.height*8;}
       } finally { renderer.resetState(); phaser.pipelines.rebind(); }
     };
     const dispose = () => {
@@ -100,6 +103,6 @@ OTR.world3d = {
       target.dispose(); mirrorTarget.dispose(); renderer.dispose(); // Never call forceContextLoss on the shared context.
     };
     scene.events.once('shutdown', dispose);
-    return { world, camera, mirror, extern, dispose, diagnostics, colour };
+    return { world, camera, mirror, extern, dispose, diagnostics, colour,lights:{sky:hemisphere,sun},renderSunShadow };
   }
 };
