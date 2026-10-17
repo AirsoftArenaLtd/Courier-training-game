@@ -30,6 +30,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(OTR.a11y.size(18));}},report.accessibility);
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
   report.actualQuality=await p.evaluate(()=>OTR.gfx.level());
+  report.assets=await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank?.stats||null);
   const inventory=async()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),geometries=new Set(),materials=new Set(),arrays=new Set();let geometryBytes=0,instanceBytes=0,meshes=0,instances=0,shadowCasters=0;
    s.view.world.traverse(o=>{if(!o.isMesh)return;meshes++;if(o.castShadow)shadowCasters++;if(o.isInstancedMesh){instances+=o.count;instanceBytes+=o.instanceMatrix.array.byteLength+(o.instanceColor?o.instanceColor.array.byteLength:0);}if(o.material)materials.add(o.material);if(o.geometry&&!geometries.has(o.geometry)){geometries.add(o.geometry);for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){const array=a.array||a.data&&a.data.array;if(array&&!arrays.has(array)){arrays.add(array);geometryBytes+=array.byteLength;}}}});
    return {meshes,instances,geometries:geometries.size,materials:materials.size,geometryBytes,instanceBytes,shadowCasters};});
@@ -111,6 +112,12 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.model=m;s.rebuildWorld();m.mirrorAt=look.includes('mirror')||stress?m.elapsed:-100;s.sync();s.refresh();
     if(look==='plan')OTR.fpLater.open(s);
    },look);await sample('later'+look);
+  }
+  if(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').assetBank?.models.has('town-garage'))){
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const m=OTR.fpMission.create('campaign',7,OTR.fpRoute.plan(1,7));s.model=m;s.rebuildWorld();m.mode='walk';m.paused=true;
+    const lot=m.town.lots.filter(l=>!m.stops.some(st=>st.lotId===l.id)).sort((a,b)=>(a.x-4)**2+(a.z-8)**2-((b.x-4)**2+(b.z-8)**2))[0],x=m.town.xs.reduce((a,b)=>Math.abs(a-lot.x)<Math.abs(b-lot.x)?a:b),z=lot.z+3;
+    Object.assign(m.player,{x,z,yaw:Math.atan2(lot.x-x,-(lot.z-z)),pitch:Math.atan2(1.65-lot.h*.4,Math.hypot(lot.x-x,lot.z-z))});s.sync();s.refresh();
+   });await sample('assets');
   }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);

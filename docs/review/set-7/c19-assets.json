@@ -1,0 +1,187 @@
+{
+  "scenarios": [
+    {
+      "mode": "low",
+      "stats": {
+        "quality": "low",
+        "loaded": 1,
+        "failed": 0,
+        "bytes": 2716,
+        "decodedBytes": 1824,
+        "errors": []
+      },
+      "groups": 1,
+      "instances": [
+        [
+          2
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/lib/GLTFLoader.min.js"
+      ]
+    },
+    {
+      "mode": "high",
+      "stats": {
+        "quality": "high",
+        "loaded": 1,
+        "failed": 0,
+        "bytes": 14336,
+        "decodedBytes": 13416,
+        "errors": []
+      },
+      "groups": 1,
+      "instances": [
+        [
+          2
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/lib/GLTFLoader.min.js"
+      ]
+    },
+    {
+      "mode": "missing",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 1,
+        "bytes": 0,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb"
+      ]
+    },
+    {
+      "mode": "corrupt",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 1,
+        "bytes": 2716,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Invalid GLB"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb"
+      ]
+    },
+    {
+      "mode": "loader",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 1,
+        "bytes": 2716,
+        "decodedBytes": 1824,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Missing glTF loader"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/lib/GLTFLoader.min.js"
+      ]
+    },
+    {
+      "mode": "manifest",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 1,
+        "bytes": 0,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "manifest",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 258,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 307,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 258,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 307,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    }
+  ],
+  "checks": 49,
+  "errors": [],
+  "outside": []
+}

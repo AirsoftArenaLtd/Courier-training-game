@@ -1,5 +1,40 @@
 # 3D workday rendering cost
 
+## C-19: local glTF starter pipeline (17 October 2026)
+
+The scene-owned bank loads one quality variant from a local manifest. The two CC0 starter files total 17,052 bytes;
+Low loads 2,716 bytes (16 triangles), High 14,336 bytes (196 triangles). Both bake palette colours into vertices and
+upload no image map. Two non-delivery lots share one source geometry/material and an instance batch. The source
+and licence are in `assets/3d/kenney-city-starter/`; the loader shares the existing Three.js r158 runtime.
+
+The actual loaded-model 30-day/ten-variant sweep passes 3,000 empty/loaded mirror views. The complete procedural
+fallback also passes 3,000 views. The rendered gate samples six Low views with larger text, colour, reduced motion
+and sound, and two focused High views. All reports have zero page errors/context loss.
+
+| Mode | Calls | Triangles | Targets | Attachment bytes | Phaser full-mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Loaded Low, six rendered views and 3,000 geometry views | 55 | 2,464 | 2 | 3,575,808 | 2,502,528 |
+| Procedural fallback, 3,000 geometry views | 54 | 2,480 | unchanged | unchanged | unchanged |
+| Loaded High, two rendered views | 57 | 4,532 | 2 | 8,409,600 | 6,200,688 |
+
+The Low ceilings remain 64 calls / 2,500 triangles / two targets / 4 MiB attachments / 4 MiB Phaser textures.
+The new model batch culls separately from the procedural lot batch, so this stress scene submits fewer triangles
+despite adding one call. Source vertex/index storage is 8,356 bytes on Low and 19,948 on High, versus 6,532 bytes
+without the starter. Instance buffers are reused and templates survive world rebuilds, then release on scene shutdown.
+No render pass, image map, scoring field or save data was added.
+
+```sh
+QA_ASSETS=1 QA_LATER=1 node test/fproute.js
+QA_LATER=1 node test/fproute.js
+QA_GFX=low QA_PROTOTYPE_ONLY=1 QA_A11Y=large,colour,reduced QA_SOUND=1 QA_TAG=c19 QA_VIEWS=depot,mirror,barcodeAim,laterstress,laterstressbrake,assets QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_PROTOTYPE_ONLY=1 QA_TAG=c19 QA_VIEWS=laterstressbrake,assets QA_SHOTS=1 node test/fpbench.js
+```
+
+Reports/screenshots/clip: `docs/review/set-7/c19.md`. Figures use Chromium/ANGLE SwiftShader at 1280 × 720;
+software FPS cannot establish the owner's Intel 60 fps floor. O-1 remains the native acceptance gate. The separate
+temporary runtime-file SCORM archive is 12,090,109 compressed bytes, includes the loader and every listed model,
+excludes `_incoming/` and stays below the 100 MiB package limit. Claude's packaging implementation is unchanged.
+
 ## C-20: vehicle dynamics (17 October 2026)
 
 The rear-axle motor reuses a scratch collision pose and one transient telemetry object. Body pitch/roll split the
