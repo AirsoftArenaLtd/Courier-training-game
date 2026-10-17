@@ -298,6 +298,8 @@ items here for each agent.
 | B-23 | Claude | **Real text hidden in `data/i18n/not-text.json`:** "Workday" was listed there, so the trainer's record showed it in English in every language (fixed in B-21). Go through the list (about 290 entries) and take out every word a trainee or trainer reads as text, translating each into all 11 languages; keep names, street signs, codes and fragments. | done |
 | B-24 | Claude | **Review set 7 for the owner:** milestone 7's cab, mirrors, rear camera, lighting and weather are all in, so capture `node test/tools/review-set.js 7` (Low and High) into `docs/review/set-7/views/`, fill in `docs/review/set-7/CHECKLIST.md` with what to look at in each, and tell the owner it is ready to compare with set 6. | done |
 | B-25 | Claude | **The LMS package after milestone 7:** rebuild the SCORM 1.2 and 2004 packages, check every new 3D file is in them, the size against the 100 MB budget, and update the figures in `docs/IT-NOTES.md`. | done |
+| B-26 | Claude | **The printed record matches the screens:** the trainer's Print / PDF record (`src/core/record.js`) should show which aids each workday had ("Workday, aided", B-21) and name each critical mistake, as the results and the record screen now do; check the print in English and Tamil. | todo |
+| B-27 | Claude | **Narration in the cab:** with narration on, the rear camera's distance sentence and the sensor beeps change many times a second while reversing, and mirror and cab hints change as the view moves. Check what the narrator actually reads while driving and reversing (no endless repeats, nothing important dropped) and fix or report it. | todo |
 
 ## Questions for the owner
 
