@@ -1,0 +1,14 @@
+{
+  "views": 324,
+  "peakCalls": 49,
+  "peakTriangles": 1014,
+  "worst": {
+    "spot": "tight-drive",
+    "z": -53,
+    "look": 1.1,
+    "steer": 0.4,
+    "reflection": 2,
+    "calls": 49,
+    "triangles": 1014
+  }
+}

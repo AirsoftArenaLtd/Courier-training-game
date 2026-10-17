@@ -42,7 +42,7 @@ OTR.world3d = {
     const mirrorCameras=[0,1,2].map(i=>{const c=new THREE.PerspectiveCamera(i===2?45:65,i===2?8/3:2/3,.08,i===2?(OTR.gfx.high()?24:12):(OTR.gfx.high()?75:40));c.rotation.order='YXZ';return c;});
     const mirror={on:false,physical:false,texture:mirrorTarget.texture,camera:mirrorCameras[0],cameras:mirrorCameras,before:null,after:null,
       next:0,nextAt:0,filled:0,updated:[-100,-100,-100],updates:[0,0,0]};
-    const tiles=[{x:0,y:0,w:96,h:144},{x:96,y:0,w:96,h:144},{x:192,y:0,w:192,h:72}];
+    const tiles=[{x:0,y:0,w:96,h:144},{x:96,y:0,w:96,h:144},{x:192,y:0,w:192,h:72},{x:192,y:72,w:192,h:72}];
     const extern = scene.add.extern().setDepth(-100);
     let width = 0, height = 0, disposed = false;
     extern.render = function () {
@@ -59,18 +59,18 @@ OTR.world3d = {
       try {
         renderer.info.reset(); renderer.resetState(); renderer.setScissorTest(false);
         const now=(typeof performance!=='undefined'?performance.now():Date.now())/1000;
-        if(mirror.on&&(mirror.filled!==7||now>=mirror.nextAt)){
+        if(mirror.on&&((mirror.filled&7)!==7||mirror.rearOn&&!(mirror.filled&8)||now>=mirror.nextAt)){
           const scale=OTR.gfx.high()?2:1,mw=384*scale,mh=144*scale;
           if(mirrorTarget.width!==mw||mirrorTarget.height!==mh){mirrorTarget.setSize(mw,mh);mirror.filled=0;}
           renderer.setRenderTarget(mirrorTarget);
           if(!mirror.filled){renderer.setViewport(0,0,mw,mh);renderer.clear(true,true,false);}
-          const index=mirror.next,cell=tiles[index];mirror.camera=mirror.cameras[index];
+          const index=mirror.rearOn&&mirror.last!==3?3:mirror.next,cell=tiles[index];mirror.camera=index===3?mirror.rearCamera:mirror.cameras[index];
           try{
             if(mirror.before)mirror.before(index);
             renderer.setRenderTarget(mirrorTarget);renderer.setViewport(cell.x*scale,cell.y*scale,cell.w*scale,cell.h*scale);
             renderer.setScissor(cell.x*scale,cell.y*scale,cell.w*scale,cell.h*scale);renderer.setScissorTest(true);
             renderer.clear(true,true,false);renderer.render(world,mirror.camera);
-            mirror.filled|=1<<index;mirror.updated[index]=now;mirror.updates[index]++;mirror.next=(index+1)%3;mirror.nextAt=now+(OTR.gfx.high()?1/90:1/30);
+            mirror.filled|=1<<index;mirror.updated[index]=now;mirror.updates[index]++;mirror.last=index;if(index<3)mirror.next=(index+1)%3;mirror.nextAt=now+(OTR.gfx.high()?1/90:1/30);
           }finally{if(mirror.after)mirror.after(index);}
         }
         renderer.setScissorTest(false);renderer.setRenderTarget(target);renderer.setViewport(0,0,w,h);

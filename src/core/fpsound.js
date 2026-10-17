@@ -2,7 +2,7 @@
 window.OTR=window.OTR||{};
 OTR.fpSound=class {
   constructor(scene){
-    this.scene=scene;this.nodes=[];this.engine=null;this.rain=null;this.caption='';this.captionUntil=0;this.indicatorAt=-1000;this.dogAt=-2000;this.sirenAt=-1000;this.braking=false;this.disposed=false;
+    this.scene=scene;this.nodes=[];this.engine=null;this.rain=null;this.caption='';this.captionUntil=0;this.indicatorAt=-1000;this.dogAt=-2000;this.sirenAt=-1000;this.parkingAt=-1000;this.braking=false;this.disposed=false;
     this.onPause=()=>this.silence();this.onHide=()=>{if(document.hidden)this.silence();};this.onShutdown=()=>this.dispose();
     scene.events.once('shutdown',this.onShutdown);scene.events.on('pause',this.onPause);scene.events.on('sleep',this.onPause);window.addEventListener('blur',this.onPause);document.addEventListener('visibilitychange',this.onHide);
   }
@@ -30,6 +30,7 @@ OTR.fpSound=class {
     else if(kind==='cargo'){a.noise(.13,{freq:850,vol:.045});a.tone(165,.09,{slideTo:85,vol:.025});}
     else if(kind==='brake')a.play('brake');
     else if(kind==='indicator')a.tone(1000,.025,{type:'sine',vol:.035});
+    else if(kind==='parking')a.tone(1050,.055,{type:'sine',vol:.025});
     else if(kind==='dog'){a.noise(.12,{freq:450,vol:.06});a.noise(.12,{freq:350,vol:.05,delay:.18});}
     else if(kind==='siren'){a.tone(650,.45,{type:'triangle',vol:.07,slideTo:1000});a.tone(1000,.45,{type:'triangle',vol:.07,slideTo:650,delay:.45});}
   }
@@ -46,9 +47,12 @@ OTR.fpSound=class {
     }
     const brake=driving&&!!s.held.KeyS&&speed>1;if(brake&&!this.braking)this.effect('brake','The brakes are slowing the van.');this.braking=brake;
     const signal=driving&&m.signal;if(signal&&time-this.indicatorAt>=600){this.indicatorAt=time;this.effect('indicator');}
+    const rear=driving&&m.van.gear===-1&&m.rearSense,distance=rear&&rear.distance;
+    if(rear&&distance<3&&time-this.parkingAt>=(distance<.5?200:distance<1.5?450:900)){this.parkingAt=time;this.effect('parking');}
     if(active&&m.dogNearby&&time-this.dogAt>=1800){this.dogAt=time;this.effect('dog');}
     const sirenState=active&&m.driving&&m.driving.siren.state,siren=sirenState==='approaching'||sirenState==='passing';if(siren&&time-this.sirenAt>=1000){this.sirenAt=time;this.effect('siren');}
     const cues=[];if(driving)cues.push('The engine is running.');if(wet)cues.push('Rain is falling.');if(signal)cues.push(signal<0?'The left turn signal is on.':'The right turn signal is on.');if(active&&m.dogNearby)cues.push('A dog is barking nearby.');if(siren)cues.push('An emergency vehicle is approaching.');if(active&&time<this.captionUntil&&this.caption)cues.push(this.caption);
+    if(rear&&distance<3)cues.push('The parking sensors are sounding.');
     return this.lastCaption=cues.join(' · ');
   }
   menu(){

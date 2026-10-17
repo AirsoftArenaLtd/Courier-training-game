@@ -3712,7 +3712,35 @@ window.OTR_I18N.te = {
 "no night runs": "రాత్రి ట్రిప్పులు లేవు",
 "no van damage": "వ్యాన్‌కు నష్టం లేదు",
 "Workday, aided": "పని దినం, సహాయాలతో",
-"Workday": "పని దినం"
+"Workday": "పని దినం",
+"Reverse safely.": "సురక్షితంగా రివర్స్ చేయండి.",
+"Park inside the practice bay and set the parking brake first.": "ముందుగా ప్రాక్టీస్ బే లోపల పార్క్ చేసి పార్కింగ్ బ్రేక్ వేయండి.",
+"Practice reversing in the alley.": "సందులో రివర్స్ చేయడం ప్రాక్టీస్ చేయండి.",
+"Practice reversing to the dock.": "డాక్ వరకు రివర్స్ చేయడం ప్రాక్టీస్ చేయండి.",
+"Practice reversing in the tight driveway.": "ఇరుకైన డ్రైవ్‌వేలో రివర్స్ చేయడం ప్రాక్టీస్ చేయండి.",
+"Reversed at a safe speed without contact.": "సురక్షితమైన వేగంతో, దేనికీ తగలకుండా రివర్స్ చేశారు.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "రివర్స్ చేస్తూ అడ్డంకికి తగిలారు లేదా 5 mph దాటారు.",
+"Checked the tight reversing space on foot before backing.": "వెనక్కి వెళ్లే ముందు ఇరుకు స్థలాన్ని నడిచి చూశారు.",
+"Reversed in a required tight space without checking it on foot.": "తప్పనిసరి ఇరుకు స్థలంలో నడిచి చూడకుండా రివర్స్ చేశారు.",
+"Parked inside the practice bay and set the parking brake.": "ప్రాక్టీస్ బే లోపల పార్క్ చేసి పార్కింగ్ బ్రేక్ వేశారు.",
+"The rear camera switches on automatically in reverse.": "రివర్స్‌లో రియర్ కెమెరా దానంతట అదే ఆన్ అవుతుంది.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "రియర్ కెమెరా ఆన్‌లో ఉంది. నెమ్మదిగా రివర్స్ చేసి దారిని గమనిస్తూ ఉండండి.",
+"Stop. A rear obstacle is within 0.5 meters.": "ఆగండి. వెనుక 0.5 మీటర్ల లోపల అడ్డంకి ఉంది.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక సెన్సర్లకు ఆరు మీటర్ల లోపల అడ్డంకి కనిపించలేదు.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక దగ్గరి అడ్డంకి ఒక మీటర్ దూరంలో ఉంది.",
+"The parking sensors are sounding.": "పార్కింగ్ సెన్సర్లు మోగుతున్నాయి.",
+"Reverse into the marked bay and set the parking brake.": "గుర్తించిన బేలోకి రివర్స్ చేసి పార్కింగ్ బ్రేక్ వేయండి.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "షిఫ్టర్‌లో రివర్స్ ఎంచుకోండి, కెమెరా మరియు అద్దాలు చూడండి, గుర్తించిన బేలోకి నెమ్మదిగా రివర్స్ చేయండి. నేరుగా అయ్యాక ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"Practice reversing safely.": "సురక్షితంగా రివర్స్ చేయడం ప్రాక్టీస్ చేయండి.",
+"Begin reversing practice.": "రివర్స్ ప్రాక్టీస్ ప్రారంభించండి.",
+"Choose a reversing space.": "రివర్స్ చేసే స్థలాన్ని ఎంచుకోండి.",
+"Resume reversing practice.": "రివర్స్ ప్రాక్టీస్ కొనసాగించండి.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "ప్రాక్టీస్ వేరే చెక్‌పాయింట్ ఉపయోగిస్తుంది. మీ వర్క్‌డే మరియు కార్గో పాఠం సేవ్ అయి ఉంటాయి.",
+"Use the cab camera and mirrors for this practice.": "ఈ ప్రాక్టీస్‌కు క్యాబ్ కెమెరా మరియు అద్దాలు ఉపయోగించండి.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "ఇరుకు స్థలంలో వ్యాన్‌ను పార్క్ చేసి భద్రపరచండి, తర్వాత దాని వెనుకకు నడిచి రివర్స్ దారిని చూడండి. ఈ సందర్భంలో ట్రైనర్ తప్పనిసరి చేస్తే తప్ప ఈ తనిఖీ ఐచ్ఛికం. ప్రజలను, ట్రాఫిక్‌ను దూరంగా ఉంచండి.",
+"You parked in the practice bay. Open the menu to choose another space.": "మీరు ప్రాక్టీస్ బేలో పార్క్ చేశారు. వేరే స్థలం ఎంచుకోవడానికి మెనూ తెరవండి.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "ఇక్కడ ట్రైనర్ వాక్-అరౌండ్ తప్పనిసరి అంటున్నారు. రివర్స్‌కు ముందు పార్క్ చేసి, దిగి వ్యాన్ వెనుక చూడండి.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "రివర్స్ ఎంచుకుని గుర్తించిన బేలోకి వెనక్కి వెళ్లండి. నేరుగా అయ్యాక ఆగి పార్కింగ్ బ్రేక్ వేయండి."
 },
 "templates": [
 [
@@ -5338,6 +5366,18 @@ window.OTR_I18N.te = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "క్యాబిన్‌లోకి ఎక్కే ముందు కార్గో మూసివేయండి. సీట్‌బెల్ట్‌కు {0}, పార్కింగ్ బ్రేక్‌కు {1} నొక్కండి. కదిలే లేదా తిరిగే ముందు నిజమైన అద్దాన్ని ఒక క్షణం చూడండి. కీబోర్డ్‌తో ఎంచుకోవడానికి {2} నొక్కండి. వేగం పెంచడానికి/బ్రేక్ వేయడానికి {3}/{4}, స్టీరింగ్‌కు {5}/{6} ఉపయోగించండి. హ్యాండ్‌హెల్డ్ వాడే లేదా దిగే ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"ఆగండి, షిఫ్టర్‌లో R స్థానం చూసి {0} నొక్కండి. రియర్ కెమెరా దానంతట అదే ఆన్ అవుతుంది. కీబోర్డ్‌తో దాని స్క్రీన్ చూడటానికి {1} నొక్కండి. గైడ్ లైన్లు స్టీరింగ్‌తో వంగుతాయి, దూరపు బ్యాండ్లు, సెన్సర్ బార్లు, టెక్స్ట్ దగ్గరి అడ్డంకులను చూపిస్తాయి. నడక వేగంతో రివర్స్ చేయండి. ఇరుకు స్థలంలో ట్రైనర్ తప్పనిసరి చేస్తే తప్ప వాక్-అరౌండ్ ఐచ్ఛికం."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక దగ్గరి అడ్డంకి {0} మీటర్ల దూరంలో ఉంది."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"ఈ ఇరుకు స్థలంలో ట్రైనర్ వాక్-అరౌండ్ తప్పనిసరి అంటున్నారు. పార్క్ చేసి దిగండి. వ్యాన్ వెనుక రివర్స్ దారి వైపు చూస్తూ నిలబడి, తనిఖీని నమోదు చేయడానికి {0} నొక్కండి. తర్వాత కెమెరా మరియు అద్దాలతో బేలోకి రివర్స్ చేయండి."
 ]
 ],
 "keep": [

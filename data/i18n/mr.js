@@ -3712,7 +3712,35 @@ window.OTR_I18N.mr = {
 "no night runs": "रात्रीच्या फेऱ्या नाहीत",
 "no van damage": "व्हॅनचे नुकसान नाही",
 "Workday, aided": "कामाचा दिवस, मदतीसह",
-"Workday": "कामाचा दिवस"
+"Workday": "कामाचा दिवस",
+"Reverse safely.": "सुरक्षितपणे रिव्हर्स करा.",
+"Park inside the practice bay and set the parking brake first.": "आधी सराव बेच्या आत पार्क करा आणि पार्किंग ब्रेक लावा.",
+"Practice reversing in the alley.": "गल्लीत रिव्हर्स करण्याचा सराव करा.",
+"Practice reversing to the dock.": "डॉकपर्यंत रिव्हर्स करण्याचा सराव करा.",
+"Practice reversing in the tight driveway.": "अरुंद ड्राइव्हवेमध्ये रिव्हर्स करण्याचा सराव करा.",
+"Reversed at a safe speed without contact.": "सुरक्षित वेगात, कशालाही न लागता रिव्हर्स केले.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "रिव्हर्स करताना अडथळ्याला लागलात किंवा 5 mph पेक्षा जास्त वेग झाला.",
+"Checked the tight reversing space on foot before backing.": "मागे घेण्यापूर्वी अरुंद जागा चालत जाऊन पाहिली.",
+"Reversed in a required tight space without checking it on foot.": "आवश्यक अरुंद जागेत चालत जाऊन न पाहता रिव्हर्स केले.",
+"Parked inside the practice bay and set the parking brake.": "सराव बेच्या आत पार्क करून पार्किंग ब्रेक लावला.",
+"The rear camera switches on automatically in reverse.": "रिव्हर्समध्ये रिअर कॅमेरा आपोआप सुरू होतो.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "रिअर कॅमेरा सुरू आहे. हळू रिव्हर्स करा आणि मार्गावर लक्ष ठेवा.",
+"Stop. A rear obstacle is within 0.5 meters.": "थांबा. मागे 0.5 मीटरच्या आत अडथळा आहे.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "रिअर कॅमेरा सुरू आहे. मागील सेन्सरना सहा मीटरच्या आत कोणताही अडथळा आढळला नाही.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "रिअर कॅमेरा सुरू आहे. मागील सर्वात जवळचा अडथळा एक मीटर दूर आहे.",
+"The parking sensors are sounding.": "पार्किंग सेन्सर वाजत आहेत.",
+"Reverse into the marked bay and set the parking brake.": "खूण केलेल्या बेमध्ये रिव्हर्स करा आणि पार्किंग ब्रेक लावा.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "शिफ्टरवर रिव्हर्स निवडा, कॅमेरा आणि आरसे पहा, आणि खूण केलेल्या बेमध्ये हळू रिव्हर्स करा. सरळ झाल्यावर थांबा आणि पार्किंग ब्रेक लावा.",
+"Practice reversing safely.": "सुरक्षितपणे रिव्हर्स करण्याचा सराव करा.",
+"Begin reversing practice.": "रिव्हर्स सराव सुरू करा.",
+"Choose a reversing space.": "रिव्हर्स करण्याची जागा निवडा.",
+"Resume reversing practice.": "रिव्हर्स सराव पुन्हा सुरू करा.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "सराव वेगळा चेकपॉइंट वापरतो. तुमचा वर्कडे आणि कार्गो धडा जतन राहतात.",
+"Use the cab camera and mirrors for this practice.": "या सरावासाठी कॅब कॅमेरा आणि आरसे वापरा.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "अरुंद जागेत व्हॅन पार्क करून सुरक्षित करा, मग तिच्या मागे चालत जा आणि रिव्हर्सचा मार्ग पहा. ही तपासणी ऐच्छिक आहे, या प्रसंगात ट्रेनरने सक्तीची केल्याशिवाय. लोक आणि वाहतूक दूर ठेवा.",
+"You parked in the practice bay. Open the menu to choose another space.": "तुम्ही सराव बेमध्ये पार्क केले. दुसरी जागा निवडण्यासाठी मेनू उघडा.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "येथे ट्रेनर वॉक-अराउंड आवश्यक मानतो. रिव्हर्सपूर्वी पार्क करा, उतरा आणि व्हॅनच्या मागे पहा.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "रिव्हर्स निवडा आणि खूण केलेल्या बेमध्ये मागे जा. सरळ झाल्यावर थांबा आणि पार्किंग ब्रेक लावा."
 },
 "templates": [
 [
@@ -5338,6 +5366,18 @@ window.OTR_I18N.mr = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "केबिनमध्ये बसण्यापूर्वी कार्गो बंद करा. सीटबेल्टसाठी {0} आणि पार्किंग ब्रेकसाठी {1} दाबा. निघण्यापूर्वी किंवा वळण्यापूर्वी खरा आरसा क्षणभर पाहा. कीबोर्डने निवडण्यासाठी {2} दाबा. वेग वाढवण्यासाठी/ब्रेक लावण्यासाठी {3}/{4} आणि स्टीअरिंगसाठी {5}/{6} वापरा. हँडहेल्ड वापरण्यापूर्वी किंवा उतरण्यापूर्वी थांबा आणि पार्किंग ब्रेक लावा."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"थांबा, शिफ्टरवर R स्थान पहा आणि {0} दाबा. रिअर कॅमेरा आपोआप सुरू होतो. कीबोर्डने त्याची स्क्रीन पाहण्यासाठी {1} दाबा. मार्गदर्शक रेषा स्टीअरिंगसोबत वळतात, आणि अंतराचे पट्टे, सेन्सर बार व मजकूर जवळचे अडथळे दाखवतात. चालण्याच्या वेगाने रिव्हर्स करा. अरुंद जागेत ट्रेनरने सक्तीचे केल्याशिवाय वॉक-अराउंड ऐच्छिक आहे."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"रिअर कॅमेरा सुरू आहे. मागील सर्वात जवळचा अडथळा {0} मीटर दूर आहे."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"या अरुंद जागेत ट्रेनर वॉक-अराउंड आवश्यक मानतो. पार्क करून उतरा. व्हॅनच्या मागे रिव्हर्सच्या मार्गाकडे तोंड करून उभे रहा आणि तपासणी नोंदवण्यासाठी {0} दाबा. मग कॅमेरा आणि आरशांचा वापर करून बेमध्ये रिव्हर्स करा."
 ]
 ],
 "keep": [

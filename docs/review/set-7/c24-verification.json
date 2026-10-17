@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-17",
+  "branch": "codex/c24-rear-camera",
+  "base": "153c3a8",
+  "history": "Started stacked on C-23; rebased the unpublished branch after C-23 merged.",
+  "node": [
+    {
+      "suite": "firstperson",
+      "passed": 18
+    },
+    {
+      "suite": "fpmission",
+      "passed": 39
+    },
+    {
+      "suite": "fphandheld",
+      "passed": 8
+    },
+    {
+      "suite": "fpworld",
+      "passed": 21
+    },
+    {
+      "suite": "fproute",
+      "passed": 11
+    },
+    {
+      "suite": "fploadout",
+      "passed": 11
+    },
+    {
+      "suite": "fpdriving",
+      "passed": 24
+    },
+    {
+      "suite": "fpday",
+      "passed": 10
+    },
+    {
+      "suite": "fpdoors",
+      "passed": 16
+    },
+    {
+      "suite": "fpaccess",
+      "passed": 7
+    },
+    {
+      "suite": "fpbranding",
+      "passed": 4
+    },
+    {
+      "suite": "fpguide",
+      "passed": 3
+    },
+    {
+      "suite": "fpperf",
+      "passed": 2
+    },
+    {
+      "suite": "fpsound",
+      "passed": 9
+    },
+    {
+      "suite": "fplater",
+      "passed": 7
+    },
+    {
+      "suite": "fpcamera",
+      "passed": 9
+    },
+    {
+      "suite": "fpcab",
+      "passed": 10
+    },
+    {
+      "suite": "fpassets",
+      "passed": 9
+    },
+    {
+      "suite": "fpmirrors",
+      "passed": 11
+    },
+    {
+      "suite": "fprear",
+      "passed": 16
+    },
+    {
+      "suite": "workday",
+      "passed": 19
+    },
+    {
+      "suite": "savesize",
+      "passed": 12
+    },
+    {
+      "suite": "assets",
+      "passed": 3
+    },
+    {
+      "suite": "aids",
+      "passed": 3
+    },
+    {
+      "suite": "lmsreport",
+      "passed": 8
+    },
+    {
+      "suite": "i18n",
+      "passed": "all translation checks"
+    },
+    {
+      "suite": "fpresume",
+      "passed": 2
+    }
+  ],
+  "browser": {
+    "rearCamera": 146,
+    "guidanceAndLayouts": 85,
+    "mirrorRegression": 132,
+    "mirrorCpuRate4": 45,
+    "mirrorCpuRate6": 45,
+    "keyboardFullDay": 145,
+    "cameraRegression": 28,
+    "physicalCabRegression": 200,
+    "errors": []
+  },
+  "guidance": {
+    "normalBodyPixels": 19,
+    "largerBodyPixels": 23,
+    "phaserPeakBytes": 2598203,
+    "languages": [
+      "en",
+      "ta"
+    ],
+    "layouts": [
+      "normal",
+      "larger"
+    ],
+    "resumeMenuChoices": 5
+  },
+  "geometry": {
+    "c24-geometry": {
+      "views": 240000,
+      "peakCalls": 61,
+      "peakTriangles": 2120,
+      "worst": {
+        "day": 21,
+        "variant": 10,
+        "stop": 1,
+        "loaded": true,
+        "pose": "cab-camera",
+        "reflection": 3,
+        "calls": 46,
+        "triangles": 2120
+      }
+    },
+    "c24-fallback-geometry": {
+      "views": 240000,
+      "peakCalls": 60,
+      "peakTriangles": 2120,
+      "worst": {
+        "day": 21,
+        "variant": 10,
+        "stop": 1,
+        "loaded": true,
+        "pose": "cab-camera",
+        "reflection": 3,
+        "calls": 46,
+        "triangles": 2120
+      }
+    },
+    "c24-practice-geometry": {
+      "views": 324,
+      "peakCalls": 49,
+      "peakTriangles": 1014,
+      "worst": {
+        "spot": "tight-drive",
+        "z": -53,
+        "look": 1.1,
+        "steer": 0.4,
+        "reflection": 2,
+        "calls": 49,
+        "triangles": 1014
+      }
+    }
+  },
+  "rendered": {
+    "c24-low": {
+      "samples": 10,
+      "peak": {
+        "calls": 58,
+        "triangles": 2120,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserTextureEstimate": 2581472,
+      "errors": []
+    },
+    "c24-high": {
+      "samples": 4,
+      "peak": {
+        "calls": 62,
+        "triangles": 3810,
+        "textures": 2,
+        "attachmentBytes": 9142272
+      },
+      "phaserTextureEstimate": 6760390,
+      "errors": []
+    },
+    "c24-reduced-low": {
+      "samples": 2,
+      "peak": {
+        "calls": 54,
+        "triangles": 2120,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserTextureEstimate": 2552758,
+      "errors": []
+    }
+  },
+  "resume": {
+    "seedComparisons": 30,
+    "soakDays": 100,
+    "reversesPerDay": 6,
+    "scormChecks": 240,
+    "scormMaxCharacters": 3869,
+    "limit": 4000
+  },
+  "syntax": "Every changed JavaScript file passed node --check.",
+  "nativeFps": "Not measured on this software renderer; owner O-1 remains open."
+}

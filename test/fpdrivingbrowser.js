@@ -30,6 +30,8 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   // Confirm from the real rear-of-van position, enter through its physical driver door, and reverse.
   const result=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.workday.begin();s.choose(0);const checked=m.driving.goalClear;
    Object.assign(m.player,m.point('driver'));const entered=m.enter();m.van.gear=-1;m.van.hand=false;m.van.speed=-.5;OTR.fpDriving.tick(m,.1);
+   // C-24: a safe reverse is reported when the manoeuvre ends (stopped with the parking brake set), not while rolling
+   m.van.speed=0;m.van.hand=true;OTR.fpDriving.tick(m,.1);
    const restored=OTR.fpMission.restore(m.snapshot());return {checked,entered,backing:OTR.workday.events.filter(e=>e.type==='drive.backing').map(e=>e.ok),restored:!!restored};});
   assert.deepEqual(result,{checked:true,entered:'',backing:[true],restored:true});checks+=4;
   // Neither walking nor driving can pass through the live bus body.

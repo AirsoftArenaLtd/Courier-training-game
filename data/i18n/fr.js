@@ -3707,7 +3707,35 @@ window.OTR_I18N.fr = {
 "no night runs": "sans tournées de nuit",
 "no van damage": "aucun dommage au véhicule",
 "Workday, aided": "Journée, avec aides",
-"Workday": "Journée"
+"Workday": "Journée",
+"Reverse safely.": "Reculez en toute sécurité.",
+"Park inside the practice bay and set the parking brake first.": "Garez-vous dans la place d'entraînement et serrez d'abord le frein à main.",
+"Practice reversing in the alley.": "Entraînez-vous à reculer dans la ruelle.",
+"Practice reversing to the dock.": "Entraînez-vous à reculer jusqu'au quai.",
+"Practice reversing in the tight driveway.": "Entraînez-vous à reculer dans l'allée étroite.",
+"Reversed at a safe speed without contact.": "Vous avez reculé à vitesse sûre, sans contact.",
+"Contacted an obstacle or exceeded 5 mph while reversing.": "Vous avez touché un obstacle ou dépassé 5 mph en reculant.",
+"Checked the tight reversing space on foot before backing.": "Vous avez vérifié à pied l'espace étroit avant de reculer.",
+"Reversed in a required tight space without checking it on foot.": "Vous avez reculé dans un espace étroit imposé sans le vérifier à pied.",
+"Parked inside the practice bay and set the parking brake.": "Vous vous êtes garé dans la place d'entraînement et avez serré le frein à main.",
+"The rear camera switches on automatically in reverse.": "La caméra de recul s'allume automatiquement en marche arrière.",
+"The rear camera is live. Reverse slowly and keep watching the path.": "La caméra de recul est active. Reculez lentement et surveillez le trajet.",
+"Stop. A rear obstacle is within 0.5 meters.": "Stop. Un obstacle est à moins de 0,5 mètre à l'arrière.",
+"The rear camera is live. The rear sensors detect no obstacle within six meters.": "La caméra de recul est active. Les capteurs arrière ne détectent aucun obstacle à moins de six mètres.",
+"The rear camera is live. The nearest rear obstacle is one meter away.": "La caméra de recul est active. L'obstacle arrière le plus proche est à un mètre.",
+"The parking sensors are sounding.": "Les capteurs de stationnement sonnent.",
+"Reverse into the marked bay and set the parking brake.": "Reculez dans la place marquée et serrez le frein à main.",
+"Select reverse at the shifter, check the camera and mirrors, and reverse slowly into the marked bay. Stop and set the parking brake when aligned.": "Passez en marche arrière avec le levier, vérifiez la caméra et les rétroviseurs, puis reculez lentement dans la place marquée. Arrêtez-vous et serrez le frein à main une fois aligné.",
+"Practice reversing safely.": "Entraînez-vous à reculer en sécurité.",
+"Begin reversing practice.": "Commencez l'entraînement à la marche arrière.",
+"Choose a reversing space.": "Choisissez un espace pour reculer.",
+"Resume reversing practice.": "Reprenez l'entraînement à la marche arrière.",
+"Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.": "L'entraînement utilise un point de sauvegarde séparé. Votre journée de travail et la leçon de chargement restent enregistrées.",
+"Use the cab camera and mirrors for this practice.": "Utilisez la caméra de cabine et les rétroviseurs pour cet exercice.",
+"For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "Dans un espace étroit, garez et sécurisez la camionnette, puis marchez derrière et regardez le trajet de recul. Ce contrôle est facultatif, sauf si le formateur l'exige dans ce scénario. Gardez personnes et circulation à distance.",
+"You parked in the practice bay. Open the menu to choose another space.": "Vous vous êtes garé dans la place d'entraînement. Ouvrez le menu pour choisir un autre espace.",
+"The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "Le formateur exige un tour de contrôle ici. Garez-vous, descendez et regardez derrière la camionnette avant de reculer.",
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "Passez en marche arrière et reculez dans la place marquée. Arrêtez-vous et serrez le frein à main une fois aligné."
 },
 "templates": [
 [
@@ -5333,6 +5361,18 @@ window.OTR_I18N.fr = {
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
 "Fermez la cargaison avant de monter en cabine. Appuyez sur {0} pour la ceinture et {1} pour le frein à main. Regardez un rétroviseur physique un instant avant de rouler ou de tourner. Appuyez sur {2} pour le sélectionner au clavier. Utilisez {3}/{4} pour accélérer ou freiner et {5}/{6} pour diriger. Arrêtez-vous et serrez le frein à main avant d'utiliser le terminal ou de descendre."
+],
+[
+"Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+"Arrêtez-vous, repérez la position R sur le levier et appuyez sur {0}. La caméra de recul s'allume automatiquement. Appuyez sur {1} pour voir son écran au clavier. Les lignes de guidage suivent le volant, et les bandes de distance, les barres des capteurs et le texte montrent les obstacles proches. Reculez à la vitesse de la marche. Le tour de contrôle est facultatif, sauf si votre formateur l'exige dans un espace étroit."
+],
+[
+"The rear camera is live. The nearest rear obstacle is {0} meters away.",
+"La caméra de recul est active. L'obstacle arrière le plus proche est à {0} mètres."
+],
+[
+"The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
+"Le formateur exige un tour de contrôle dans cet espace étroit. Garez-vous et descendez. Placez-vous derrière la camionnette, face au trajet de recul, et appuyez sur {0} pour enregistrer le contrôle. Ensuite, utilisez la caméra et les rétroviseurs pour reculer dans la place."
 ]
 ],
 "keep": [

@@ -32,8 +32,8 @@ password**. If the company already signs trainees in (an LMS or the company logi
 assessment, or only one of them), the **pass mark** (stars needed in each category), how many **assessment attempts**
 each scenario allows, and when a **refresher quiz** is due. These apply to everyone on the server.
 **3D workday aids…** (next to Save rules) sets the help in the 3D workday: driving assists, the sat nav, whether
-trainees must also get out and look before a tight reverse (optional by default once the rear camera is in), night and
-dusk runs, and van damage with its damage reports.
+trainees must also get out and look before reversing into a tight space (optional by default: the rear camera does that
+job; "Required" applies to the tight-driveway practice), night and dusk runs, and van damage with its damage reports.
 "Fade by day" (the default) gives full help on a trainee's first workday, less on the next two and little from the
 fourth. Press **Save rules** afterwards.
 
@@ -64,9 +64,11 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
   results, and a missed check is a pin on the drive map.
 - **Gears** are the P-R-N-D selector by the wheel: look at it and press the action key (E), or press R to switch
   between Drive and Reverse. The van must be stopped to change gear.
-- **Reversing:** until the rear camera arrives (milestone 7, task C-24), trainees get out and look behind the van
-  before a reverse, then reverse slowly with the mirrors. With the rear camera, its view and guidelines come on by
-  themselves in reverse, and getting out is only needed if your aids require it. (This guide is updated when it lands.)
+- **Reversing:** selecting R switches on the rear camera screen on the dashboard by itself. Its guidelines bend with
+  the steering, and coloured distance marks, sensor bars, a written distance and quiet beeps warn of anything behind.
+  Trainees do not need to get out and look; they should reverse at walking speed and keep watching. Contact, or more
+  than 5 mph in reverse, is marked on the results. **Choose a reversing space** in the 3D menu (H) offers an alley, a
+  loading dock and a tight driveway to practise on their own, without affecting the workday.
 - **The rest is where it is in a van:** parking brake (Space or the lever), belt (B or the buckle), indicators (Q and C
   or the stalk), headlights (L) and wipers (K). P turns the view to each control in turn and says what it does, so a
   trainee who cannot use a mouse can do all of it from the keyboard.
