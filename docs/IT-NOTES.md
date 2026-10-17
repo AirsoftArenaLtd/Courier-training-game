@@ -47,8 +47,11 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
 1. **Company sign-in in front of the server** (IIS/Windows authentication, an SSO proxy): the proxy sets
    `X-Remote-User` (and optionally `X-Remote-Name`); the game uses it. Set `OTR_ALLOW_QUERY_USER=0` so nobody can
    open someone else's progress through the link.
-2. **An LMS** (SCORM 1.2 or 2004): the course is the game folder zipped with `imsmanifest.xml` at the top; progress
-   is kept in the LMS. No training server is needed, and no outside address either.
+2. **An LMS** (SCORM 1.2 or 2004): build the package with `node test/tools/package-scorm.js` (SCORM 1.2) or
+   `node test/tools/package-scorm.js --2004`. It holds only what the game loads (about 10 MB, `imsmanifest.xml` at the
+   top); progress is kept in the LMS. Prefer 2004 when the LMS offers it: it keeps much more saved progress (SCORM 1.2
+   holds 4,096 characters, so the game packs the progress to fit). No training server is needed, and no outside
+   address either.
 3. **Employee ID and password** on the game's own sign-in screen (`OTR_ACCOUNTS=1`, trainers create accounts).
 
 ## What can stop the 3D workday from starting
@@ -64,6 +67,10 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
 ## Checks the team can run
 
 - `node test/offline.js` (needs the test tools: `cd test && npm install`, plus any Chrome or Chromium) fails if any
-  request leaves the training server.
+  request leaves the training server, including the 3D models, which load from `assets/3d/` in the game folder.
+- `node test/package.js` checks the LMS package: only run-time files, every file a page loads, the size budget.
+- **3D model files:** free CC0 models and textures in `assets/3d/` (each pack with its licence; `docs/ASSETS.md`), at
+  most 40 MB in all and 15 MB for the Low graphics setting. They are served like the rest of the game; nothing is
+  downloaded from the internet. `node test/assets.js` checks the licences and sizes.
 - `node test/auth.js`, `node test/signin.js` and `node test/enterprise.js` cover sign-in, the training server and the
   LMS packaging.

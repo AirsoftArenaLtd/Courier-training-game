@@ -31,6 +31,10 @@ password**. If the company already signs trainees in (an LMS or the company logi
 **3. Your rules** (**Settings → Trainer**, left side, **Academy rules**). Choose what trainees can do (practice and
 assessment, or only one of them), the **pass mark** (stars needed in each category), how many **assessment attempts**
 each scenario allows, and when a **refresher quiz** is due. These apply to everyone on the server.
+**3D workday aids…** (next to Save rules) sets the help in the 3D workday: driving assists, the sat nav, whether
+trainees must get out and look before a tight reverse, night and dusk runs, and van damage with its damage reports.
+"Fade by day" (the default) gives full help on a trainee's first workday, less on the next two and little from the
+fourth. Press **Save rules** afterwards.
 
 **4. Company look.** Your IT or the game's maintainer fills in the company name, colours and logo in `data/theme.js`
 (and `brand` in `data/config.js`). The van, depot sign, handheld and uniform in 3D then use them.
