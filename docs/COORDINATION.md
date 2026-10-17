@@ -278,6 +278,8 @@ items here for each agent.
 | B-13 | Claude | **Close out the Claude inbox:** old Codex items that were merged long ago still said `open`. | done |
 | B-14 | Claude | **QA flows that survive a slow machine:** `m1-pretrip`, `m2-labels`, `m2-lift` and `m3-missing` fail when the frame rate drops below about 10 fps (two browsers at once). Replace their fixed waits with waits on the game's own state, so the language passes and a busy CI give real results. | done |
 | B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | todo |
+| B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | todo |
+| B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | todo |
 
 ## Questions for the owner
 
