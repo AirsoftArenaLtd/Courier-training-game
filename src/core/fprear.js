@@ -13,10 +13,10 @@ OTR.fpRear={
     m.crossing.state='resolved';
     OTR.fpDriving.configure(m);
   },
-  ray(x,z,dx,dz,b){
+  ray(x,z,dx,dz,b,padX=0,padZ=0){
     let near=0,far=6;
     for(let axis=0;axis<2;axis++){
-      const at=axis?z:x,dir=axis?dz:dx,centre=axis?b.z:b.x,half=(axis?b.d:b.w)/2;
+      const at=axis?z:x,dir=axis?dz:dx,centre=axis?b.z:b.x,half=(axis?b.d:b.w)/2+(axis?padZ:padX);
       if(Math.abs(dir)<1e-8){if(at<centre-half||at>centre+half)return 6;continue;}
       let a=(centre-half-at)/dir,c=(centre+half-at)/dir;if(a>c){const t=a;a=c;c=t;}near=Math.max(near,a);far=Math.min(far,c);if(near>far)return 6;
     }
@@ -26,15 +26,16 @@ OTR.fpRear={
     const r=m.rearSense||(m.rearSense={left:6,centre:6,right:6,distance:6,band:0}),v=m.van,c=Math.cos(v.yaw),s=Math.sin(v.yaw);
     const dynamic=m._rearBox||(m._rearBox={x:0,z:0,w:0,d:0});
     for(let i=0;i<3;i++){
-      const side=i-1,x=v.x+c*side-s*2.72,z=v.z+s*side+c*2.72;let distance=6;
-      for(const b of m.solids)distance=Math.min(distance,this.ray(x,z,-s,c,b));
-      for(const car of m.traffic){const vertical=Math.abs(Math.cos(car.yaw))>.7;dynamic.x=car.x;dynamic.z=car.z;dynamic.w=vertical?1.8:3.6;dynamic.d=vertical?3.6:1.8;distance=Math.min(distance,this.ray(x,z,-s,c,dynamic));}
-      if(m.crossing.state==='crossing'){dynamic.x=m.crossing.x;dynamic.z=m.crossing.z;dynamic.w=dynamic.d=.8;distance=Math.min(distance,this.ray(x,z,-s,c,dynamic));}
+      const side=(i-1)*.75,x=v.x+c*side-s*2.72,z=v.z+s*side+c*2.72,padX=Math.abs(c)*.45,padZ=Math.abs(s)*.45;let distance=6;
+      for(const b of m.solids)distance=Math.min(distance,this.ray(x,z,-s,c,b,padX,padZ));
+      for(const car of m.traffic){const vertical=Math.abs(Math.cos(car.yaw))>.7;dynamic.x=car.x;dynamic.z=car.z;dynamic.w=vertical?1.8:3.6;dynamic.d=vertical?3.6:1.8;distance=Math.min(distance,this.ray(x,z,-s,c,dynamic,padX,padZ));}
+      if(m.crossing.state==='crossing'){dynamic.x=m.crossing.x;dynamic.z=m.crossing.z;dynamic.w=dynamic.d=.8;distance=Math.min(distance,this.ray(x,z,-s,c,dynamic,padX,padZ));}
       if(i===0)r.left=distance;else if(i===1)r.centre=distance;else r.right=distance;
     }
     r.distance=Math.min(r.left,r.centre,r.right);r.band=r.distance<.5?3:r.distance<1.5?2:r.distance<3?1:0;return r;
   },
   checked(m){const d=m.driving,v=m.van;return !!d&&d.goalClear&&m.elapsed-d.goalAt>=0&&m.elapsed-d.goalAt<=60&&Math.hypot(v.x-d.goalX,v.z-d.goalZ)<2&&Math.abs(Math.atan2(Math.sin(v.yaw-d.goalYaw),Math.cos(v.yaw-d.goalYaw)))<.2;},
+  requiresWalk(m){return !!(m.workdayRules&&m.workdayRules.walkaround==='required'&&m.parkingSpot==='tight-drive');},
   finish(m){
     const d=m.driving;if(!d||!d.reverseActive)return;
     const seconds=d.backing?d.backing[0]:0;
@@ -46,9 +47,9 @@ OTR.fpRear={
     if(m.mode==='cab'&&v.gear===-1){
       const b=d.backing||(d.backing=[0,false,false]);
       if(m.rearVisible!==false)b[0]+=dt;
-      if(!d.reverseActive&&(v.speed<-.01||old.speed<-.01||!v.hand&&m.motion&&m.motion.contact||m._rearContact)){
+      if(!d.reverseActive&&(!v.hand&&(v.speed<-.01||old.speed<-.01||m.motion&&m.motion.contact)||m._rearContact)){
         d.reverseActive=true;d.reverseCount++;d.reverseSafe=true;
-        b[1]=!!(m.workdayRules&&m.workdayRules.walkaround==='required'&&m.parkingSpot==='tight-drive');b[2]=this.checked(m);d.goalAt=-100;
+        b[1]=this.requiresWalk(m);b[2]=this.checked(m);d.goalAt=-100;
         if(b[1])OTR.fpDriving.fire(m,'drive.backing-walkaround',d.reverseCount,b[2],b[2]?'Checked the tight reversing space on foot before backing.':'Reversed in a required tight space without checking it on foot.');
       }
     }
@@ -56,7 +57,7 @@ OTR.fpRear={
       if(Math.max(-v.speed,-old.speed)>5/2.2369362921||v.gear===-1&&(m._rearContact||m.motion&&m.motion.contact)){
         d.reverseSafe=false;OTR.fpDriving.fire(m,'drive.backing',d.reverseCount,false,'Contacted an obstacle or exceeded 5 mph while reversing.',{cameraSeconds:Math.round((d.backing?d.backing[0]:0)*100)/100});
       }
-      if(v.gear!==-1||v.hand||m.mode!=='cab')this.finish(m);
+      if(v.gear!==-1||v.hand&&Math.abs(v.speed)<.015||m.mode!=='cab')this.finish(m);
     }
     if(v.gear!==-1)delete d.backing;
     if(m.parking&&!m.parking.done&&m.parked()&&Math.hypot(v.x-m.parkingBay.x,v.z-m.parkingBay.z)<.7&&Math.abs(v.yaw)<.12){
@@ -66,9 +67,10 @@ OTR.fpRear={
   hint(m){
     if(!m||m.mode!=='cab'||m.van.gear!==-1)return 'The rear camera switches on automatically in reverse.';
     const r=m.rearSense;if(!r)return 'The rear camera is live. Reverse slowly and keep watching the path.';
-    if(r.distance<.5)return 'Stop. A rear obstacle is within 0.5 metres.';
-    if(r.distance>=6)return 'The rear camera is live. The rear sensors detect no obstacle within six metres.';
-    return `The rear camera is live. The nearest rear obstacle is ${Math.round(r.distance*10)/10} metres away.`;
+    if(r.distance<.5)return 'Stop. A rear obstacle is within 0.5 meters.';
+    if(r.distance>=6)return 'The rear camera is live. The rear sensors detect no obstacle within six meters.';
+    if(Math.round(r.distance*10)===10)return 'The rear camera is live. The nearest rear obstacle is one meter away.';
+    return `The rear camera is live. The nearest rear obstacle is ${Math.round(r.distance*10)/10} meters away.`;
   },
   path(steer,side,distance,out){
     const k=Math.tan(steer)/3.3,a=-k*distance,c=Math.cos(a),s=Math.sin(a);
@@ -94,7 +96,7 @@ OTR.fpRear={
     const api={screen,camera,inView:false,
       sync(m,mirrors){
         const on=m.mode==='cab'&&m.van.gear===-1;atlas.rearOn=on;uniform.active.value=on?1:0;
-        const r=OTR.fpRear.sense(m);uniform.distances.value.set(r.left,r.centre,r.right);
+        if(on){const r=OTR.fpRear.sense(m);uniform.distances.value.set(r.left,r.centre,r.right);}
         const anchor=mirrors&&mirrors.root;if(!anchor)return;
         camera.position.set(0,2.4,2.8);anchor.localToWorld(camera.position);camera.quaternion.copy(anchor.quaternion).multiply(rotation);camera.updateMatrixWorld(true);
         root.updateWorldMatrix(true,true);screen.getWorldPosition(point).project(v.camera);api.inView=on&&point.z>=-1&&point.z<=1&&Math.abs(point.x)<1&&Math.abs(point.y)<1;

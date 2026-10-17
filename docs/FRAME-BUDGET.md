@@ -1,5 +1,11 @@
 # Low-graphics 3D workday budget
 
+**C-24 rear-camera update (17 October 2026):** reverse uses the spare quarter of the C-23 atlas and alternates
+rear/mirror updates, still at most one reflection pass per frame. Attachment allocation and the two-texture
+ceiling are unchanged. Two 240,000-view loaded/fallback sweeps peak at 61/60 calls and 2,120 triangles; 324
+practice-space views peak at 49 calls / 1,014 triangles. The ceilings below remain the gate; current rendered
+figures are in `docs/PERF.md` and evidence is indexed in `docs/review/set-7/c24.md`.
+
 **C-23 mirror update (17 October 2026):** the current renderer has three always-live physical mirrors sharing a
 384 × 144 atlas on Low, with at most one reflection update per frame. The old requested floating mirror below
 is historical. The ceilings are unchanged. Two 162,000-view sweeps peak at 59 calls / 2,090 triangles with loaded

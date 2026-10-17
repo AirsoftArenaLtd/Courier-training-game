@@ -1,5 +1,71 @@
 # 3D workday rendering cost
 
+## C-24: automatic rear camera and parking practice (17 October 2026)
+
+The dash camera uses C-23's unused atlas quarter, so target allocation remains **3,557,376 bytes Low** /
+**9,142,272 High** at 1280 × 720 and **two Three.js textures**. One reflection pass updates either the rear
+camera or a physical mirror. In R, alternating rear/mirror scheduling permits approximately 15 rear updates
+and five per mirror per second on Low at 60 fps; High permits 30 and ten. Outside R the C-23 mirror schedule
+remains. The screen and mirror faces are hidden in all reflection passes to avoid framebuffer feedback.
+
+One small shader quad draws the image, projected steering guidelines and three distance/sensor sectors. The
+housing and stem join the existing flat cab batch. No image file, texture, postprocessing pass or audio sample
+is added. Sensor strips overlap across the van's width, check current collision rectangles/traffic/pedestrians
+without per-frame allocations and run only while the camera is on. Steering paths reuse 18 projected vectors;
+the rear camera shares the existing static-instance reflection culling and exact main-buffer restoration.
+
+The expanded route sweep includes four driving poses, eleven cab controls, three mirror looks, reverse and the
+rear screen, with all four possible reflection passes, empty/loaded at every stop of 30 days and ten variants.
+**240,000 loaded views** peak at **61 calls / 2,120 triangles**; **240,000 fallback views** peak at
+**60 / 2,120**. The densest view is day 21, variant 10, second stop, loaded, looking at the screen with the rear
+camera updating (`laterrearpeak` in the renderer gate). Another **324 practice-space views** peak at
+**49 calls / 1,014 triangles**. The 64-call / 2,500-triangle ceilings are unchanged.
+
+Actual rendered samples with sound, larger text and colour filtering:
+
+| Sample set | Calls | Triangles | Three.js textures | Attachment bytes | Phaser texture estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Low, ten views including all mirrors, barcode aim, loaded turn/reverse, the busiest rear view and three practice spaces | 58 | 2,120 | 2 | 3,557,376 | 2,581,472 |
+| High, four mirror/rear/practice views | 62 | 3,810 | 2 | 9,142,272 | 6,760,390 |
+| Low, rear/practice pair with reduced motion added | 54 | 2,120 | 2 | 3,557,376 | 2,552,758 |
+
+No page errors or context loss occur. Loaded source geometry is **4,972 bytes Low / 21,676 High**; the empty
+practice world uses **3,148 / 8,260 bytes** respectively. The intrinsic-canvas estimate and complete-frame
+counters retain C-17's corrected accounting.
+
+The new guide, practice-start and resume-selector layouts use 19 px body text normally and 23 px with larger
+text. All four English/Tamil layouts, including the five-choice resume menu, fit without shrinking; their
+largest Phaser texture estimate is **2,598,203 bytes**, also within Low's unchanged 4 MiB ceiling.
+
+The resume/soak now reverses six times per day, including checkpoints during unfinished manoeuvres and unique
+gear/backing reports. Thirty seeded comparisons, 100 complete days and **240 SCORM encode/decode checks** pass;
+the expanded run peaks at **3,869 / 4,000 characters**, with the score preserved through the merged save packer.
+Practice uses a separate owned checkpoint and cannot report into the workday. Shared save, Settings, scoring
+and translation sources were not edited. The unpublished branch was moved onto pilot `153c3a8` after C-23 merged.
+
+Commands (one Chromium at a time):
+
+```sh
+QA_ASSETS=1 QA_CAB=1 QA_CAMERA=1 QA_MIRRORS=1 QA_REAR=1 QA_LATER=1 QA_TAG=c24 node test/fproute.js
+QA_CAB=1 QA_CAMERA=1 QA_MIRRORS=1 QA_REAR=1 QA_LATER=1 QA_TAG=c24-fallback node test/fproute.js
+QA_CAB=1 QA_REAR=1 QA_LATER=1 node test/fpresume.js
+node test/fprear.js
+QA_CLIP=1 node test/fprearbrowser.js
+QA_TAG=c24-mirror-regression node test/fpmirrorsbrowser.js
+QA_FIRST_ONLY=1 QA_CPU_RATE=4 QA_TAG=c24-mirror-slow node test/fpmirrorsbrowser.js
+QA_FIRST_ONLY=1 QA_CPU_RATE=6 QA_TAG=c24-mirror-slower node test/fpmirrorsbrowser.js
+node test/fpguidebrowser.js
+QA_GFX=low QA_TAG=c24 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,mirrorRight,mirrorInterior,barcodeAim,laterstressturn,laterstressreverse,laterrearpeak,rear-alley,rear-dock,rear-tight-drive QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c24 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,mirrorInterior,laterrearpeak,rear-tight-drive QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_TAG=c24-reduced QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour,reduced QA_VIEWS=laterrearpeak,rear-tight-drive node test/fpbench.js
+```
+
+The WebGL 1 pixel check caught and fixed a guideline shader index unsupported by that context. The real browser
+proves a live image with red/blue world markers, rather than accepting a powered but blank screen. The mirror
+test launch-race follow-up now requires a non-null new loading token, retains fixture identity and waits on
+model/frame state; full and CPU-throttled runs cover it. Evidence: `docs/review/set-7/c24.md`; model and controls:
+`docs/3D-REAR-CAMERA.md`. Software rendering measures resources and behaviour; O-1 still requires native Intel FPS.
+
 ## C-23: three physical mirrors (17 October 2026)
 
 Three always-live mirrors replace the requested floating overlay. One atlas holds all three images; a maximum

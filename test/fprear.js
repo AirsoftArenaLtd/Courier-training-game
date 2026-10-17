@@ -18,6 +18,10 @@ test('contact and more than 5 mph fail immediately and cannot become a later pas
 test('a collision from rest while attempting reverse is still a backing failure',()=>{
  const m=make();m.van.speed=0;m.motion={contact:true};tick(m,.0125,{speed:0});assert.equal(backing().length,1);assert.equal(backing()[0].ok,false);
 });
+test('setting the parking brake while still rolling finishes one manoeuvre after stopping',()=>{
+ const m=make();m.driving.bus.state=m.driving.siren.state='done';m.step({forward:true},.05);assert.equal(m.driving.reverseActive,true);m.van.hand=true;
+ for(let i=0;i<100;i++)m.step({},.0125);assert.equal(m.van.speed,0);assert.equal(backing().length,1);assert.equal(backing()[0].ok,true);assert.equal(m.driving.reverseCount,1);assert.equal(m.driving.reverseActive,false);
+});
 test('camera time counts only when visible, in reverse and unpaused, and survives an unfinished reload',()=>{
  const m=make();tick(m,.2);m.rearVisible=false;tick(m,.2);assert.equal(m.driving.backing[0],.2);
  const r=M.restore(m.snapshot());assert.ok(r);assert.equal(r.driving.reverseActive,true);const elapsed=r.elapsed;r.step({forward:true},1);assert.equal(r.elapsed,elapsed);r.paused=false;r.rearVisible=true;tick(r,.1);r.van.speed=0;r.selectGear(0);tick(r);
@@ -26,6 +30,10 @@ test('camera time counts only when visible, in reverse and unpaused, and survive
 test('only trainer-required tight scenarios report the optional walk-around type',()=>{
  for(const [rules,spot,expected] of [['optional','tight-drive',false],['required','alley',false],['required','tight-drive',true]]){W.begin();raw.length=0;const m=make();m.workdayRules={walkaround:rules};m.parkingSpot=spot;tick(m);const e=raw.filter(e=>e.type==='drive.backing-walkaround');assert.equal(e.length,Number(expected));if(expected)assert.equal(e[0].ok,false);}
  const m=make();W.begin();raw.length=0;m.workdayRules={walkaround:'required'};m.parkingSpot='tight-drive';Object.assign(m.driving,{goalClear:true,goalAt:0,goalX:0,goalZ:-65,goalYaw:0});tick(m);assert.equal(raw.find(e=>e.type==='drive.backing-walkaround').ok,true);
+});
+test('trainer rules are cached outside the frame loop and never enter the mission checkpoint',()=>{
+ const m=make();let calls=0;O.academy={workdayRules(day){calls++;assert.equal(day,1);return {assists:'full',walkaround:'required',night:false,damage:false};}};
+ try{O.fp.applyDriveRules(m);assert.equal(m.driveAssist,1);assert.equal(m.workdayRules.walkaround,'required');for(let i=0;i<10;i++)tick(m);assert.equal(calls,1);assert.equal(m.snapshot().workdayRules,undefined);}finally{delete O.academy;}
 });
 test('invalid camera counters and malformed practice checkpoints are rejected without breaking old saves',()=>{
  const m=make();assert.ok(M.restore(m.snapshot()));for(const b of [[0],[100,false,false],[-1,false,false],[0,1,false],[0,false,false,1]]){const save=m.snapshot();save.driving.backing=b;assert.equal(M.restore(save),null);}
@@ -37,7 +45,10 @@ test('three sensor rays find rotated world obstacles, cars and a crossing pedest
  m.solids=[];Object.assign(m.van,{x:0,z:0,yaw:0});Object.assign(m.traffic[0],{x:0,z:5,yaw:0});assert.ok(P.sense(m).distance<.5);m.traffic[0].x=18;Object.assign(m.crossing,{state:'crossing',x:0,z:4});assert.ok(Math.abs(P.sense(m).centre-.88)<1e-8);
 });
 test('sensor bands and text distinguish distance without relying on colour or sound',()=>{
- const m=make();for(const [gap,band,words] of [[.4,3,/Stop/],[1,2,/1 metres/],[2,1,/2 metres/],[7,0,/no obstacle/]]){m.solids=[{x:0,z:m.van.z+2.72+gap+.05,w:3,d:.1}];const r=P.sense(m);assert.equal(r.band,band);assert.match(P.hint(m),words);}m.van.gear=1;assert.match(P.hint(m),/automatically/);
+ const m=make();for(const [gap,band,words] of [[.4,3,/Stop/],[1,2,/one meter/],[2,1,/2 meters/],[7,0,/no obstacle/]]){m.solids=[{x:0,z:m.van.z+2.72+gap+.05,w:3,d:.1}];const r=P.sense(m);assert.equal(r.band,band);assert.match(P.hint(m),words);}m.van.gear=1;assert.match(P.hint(m),/automatically/);
+});
+test('sensor sectors cover the van width without gaps between three thin rays',()=>{
+ const m=make();for(const x of [-1.05,-.5,0,.5,1.05]){m.solids=[{x,z:m.van.z+4,w:.05,d:.1}];assert.ok(P.sense(m).distance<2,String(x));}
 });
 test('guidelines follow reverse rear-axle arcs and bend in opposite directions',()=>{
  const a={},b={},straight={};P.path(0,-1.1,3,straight);assert.deepEqual(straight,{x:-1.1,y:.045,z:5.7});P.path(.3,0,4,a);P.path(-.3,0,4,b);assert.ok(a.x>0&&b.x<0);assert.ok(Math.abs(a.x+b.x)<1e-8);assert.equal(a.z,b.z);

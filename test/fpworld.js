@@ -6,6 +6,9 @@ vm.createContext(context);
 for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
 context.OTR.registerScene=C=>{context.SceneClass=C;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
+test('parking practice at Dispatch opens its own menu instead of a workday completion',()=>{
+ let opened=0;context.SceneClass.prototype.showDispatch.call({model:{kind:'parking'},showParkingMenu(){opened++;},showPanel(){assert.fail('Practice must not open the workday finish panel');}});assert.equal(opened,1);
+});
 function world(high=true){
   context.OTR.gfx={high:()=>high};
   const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);

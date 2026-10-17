@@ -31,10 +31,11 @@ OTR.fpGuide={
     const k=code=>OTR.fpAccess.key(code),pages=[
       ['Prepare the workday','Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.'],
       ['Drive safely',`Close cargo before entering the cab. Press ${k('KeyB')} for the seatbelt and ${k('Space')} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press ${k('KeyP')} to select it with the keyboard. Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Stop and set the parking brake before using the handheld or getting out.`],
+      ['Reverse safely.',`Stop, look at the R position on the shifter and press ${k('KeyE')}. The rear camera turns on automatically. Press ${k('KeyP')} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.`],
       ['Complete each stop','Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.'],
       ['Return to Dispatch','After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.']
     ];
-    const [title,body]=pages[page],choices=[];if(page+1<pages.length)choices.push({label:'Next',action:()=>this.steps(scene,page+1,back)});choices.push({label:'Back',action:back});scene.showPanel(title,body,choices);
+    const [title,body]=pages[page],choices=[];if(page+1<pages.length)choices.push({label:'Next',action:()=>this.steps(scene,page+1,back)});choices.push({label:'Back',action:back});scene.showPanel(title,body,choices,{accessibleText:title==='Reverse safely.'});
   },
   hint(scene,id){
     const m=scene.model;if(!m||!id||m.phase==='debrief'||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen)return null;
