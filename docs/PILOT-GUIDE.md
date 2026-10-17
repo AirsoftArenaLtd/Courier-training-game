@@ -32,7 +32,8 @@ password**. If the company already signs trainees in (an LMS or the company logi
 assessment, or only one of them), the **pass mark** (stars needed in each category), how many **assessment attempts**
 each scenario allows, and when a **refresher quiz** is due. These apply to everyone on the server.
 **3D workday aids…** (next to Save rules) sets the help in the 3D workday: driving assists, the sat nav, whether
-trainees must get out and look before a tight reverse, night and dusk runs, and van damage with its damage reports.
+trainees must also get out and look before a tight reverse (optional by default once the rear camera is in), night and
+dusk runs, and van damage with its damage reports.
 "Fade by day" (the default) gives full help on a trainee's first workday, less on the next two and little from the
 fourth. Press **Save rules** afterwards.
 
@@ -53,7 +54,22 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
 | 10 min | Welcome. Explain the day: the point is to learn safe habits, not to be fast. | Say that mistakes are the lesson, and the record is for training, as agreed with the company. |
 | 5 min | Sign in; check the language, text size and keys. | Show **Settings → Accessibility**. |
 | 30 min | Each trainee plays a **workday**. | This is an estimate: the first day is slower, a later one faster. Do not rush them; the day saves as they go. They can leave from the pause menu and resume later. |
-| 15 min | Debrief together. | Use **Results → Debrief** and the **drive map** (a pin at every driving mistake). Ask: what was the hardest stop, and what would you do differently? |
+| 15 min | Debrief together. | Use **Results → Debrief** and the **drive map** (a pin at every driving mistake; its shape shows the kind: a diamond for a road sign, a star for damage to the van, a triangle for a low bridge, a hexagon for a shifted load). Ask: what was the hardest stop, and what would you do differently? |
+
+**The cab, before they drive.** The 3D van's cab works like a real one, and it is worth one minute of showing:
+
+- **Mirrors** are always on and always live. There is no mirror button: a trainee checks a mirror by *looking at it*
+  for a moment. The left mirror must be checked just before moving off, and the mirror on the side they are turning
+  or changing lanes to just before they steer (a check counts for about four seconds). Each one is marked on the
+  results, and a missed check is a pin on the drive map.
+- **Gears** are the P-R-N-D selector by the wheel: look at it and press the action key (E), or press R to switch
+  between Drive and Reverse. The van must be stopped to change gear.
+- **Reversing:** until the rear camera arrives (milestone 7, task C-24), trainees get out and look behind the van
+  before a reverse, then reverse slowly with the mirrors. With the rear camera, its view and guidelines come on by
+  themselves in reverse, and getting out is only needed if your aids require it. (This guide is updated when it lands.)
+- **The rest is where it is in a van:** parking brake (Space or the lever), belt (B or the buckle), indicators (Q and C
+  or the stalk), headlights (L) and wipers (K). P turns the view to each control in turn and says what it does, so a
+  trainee who cannot use a mouse can do all of it from the keyboard.
 
 Practice modules and assessments can come before or after the workday. A good order is: one practice session on
 the modules the company cares about most, then the workday, then the assessments.

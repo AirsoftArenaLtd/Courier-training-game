@@ -279,9 +279,10 @@ items here for each agent.
 | B-14 | Claude | **QA flows that survive a slow machine:** `m1-pretrip`, `m2-labels`, `m2-lift` and `m3-missing` fail when the frame rate drops below about 10 fps (two browsers at once). Replace their fixed waits with waits on the game's own state, so the language passes and a busy CI give real results. | done |
 | B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | done |
 | B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | done |
-| B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | todo |
+| B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | done |
 | B-18 | Claude | **Slow-PC waits for flows without a boot sample:** `drive-review` (and the other flows that start their own scene: `fps=0`, `boot=null`) get no `ctx.slow`, so its 480 s drive times out while another browser renders (fails the same on unchanged pilot). Measure a frame-rate sample at the flow's start in `test/qa.js` when the boot pass is skipped, so these waits stretch too. | done |
 | B-19 | Claude | **Age-checked signature stops at very low frame rates:** `m8-heat` and `m8-steps` in Hindi stop on a handheld screen showing only Back instead of the printed-name list (after "Verified: 21 or older" and the self-drawing signature) when the page runs at 4-5 fps with other browsers rendering; both passed before. Rerun alone; if it reproduces, find why the signature's `onDone` never reaches `printedName` (the scribble is a 60-step timer, one step a frame). | todo |
+| B-20 | Claude | **Pilot guide after the rear camera:** when C-24 merges, rewrite the "Reversing" bullet in `docs/PILOT-GUIDE.md` (now: get out and look until C-24) and the walkaround aid sentence, from what C-24 actually does. After C-24. | todo |
 
 ## Questions for the owner
 
@@ -308,6 +309,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-17:** `docs/PILOT-GUIDE.md` has a short "The cab, before they drive" part for trainers: mirrors are checked by looking (no button; left mirror before moving off, matching mirror before a turn or lane change, about four seconds), the P-R-N-D selector (look and action key, or R), the other controls and their keys, P for keyboard-only use; the debrief row names the drive-map marker shapes. Reversing is described as it is today (get out and look until C-24); B-20 updates it when C-24 lands. The in-game text needed nothing: the 3D cab's hints come from C-22/C-23 and are translated; the 2D drive keeps its M key on purpose (fallback).
 
 - **17 October 2026, Claude — B-18:** flows that start their own scene (no boot pass, `fps=0`) now take a frame-rate sample when the golden path starts, so `ctx.slow` stretches their waits too; the handheld picker (`test/paths/lib/stop.js`) stretches by the same factor; the pickup path waits for the count choices instead of 600 ms. Under load in Hindi `drive-review` and `m7-dg` now pass (both failed before, `drive-review` on unchanged pilot too). `m8-heat` and `m8-steps` still fail at 4-5 fps on the signature step: B-19.
 
