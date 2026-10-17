@@ -32,7 +32,10 @@ const SAFETY = new RegExp('\\b(' + [
   'revers(e|ing)', 'backing', 'G\\.O\\.A\\.L\\.?', 'heat', 'water break', 'shade', 'storm', 'snow', 'icy', 'ice', 'slippery', 'visibility',
   'dog', 'gate', 'photo ID', 'age check', 'age-restricted', 'adult', 'hazards?', 'trip', 'lift(ing)?', 'heavy', 'injur\\w*',
   'secure[ds]?', 'restraint', 'straps?', 'strapped', 'unsecured', 'hazmat', 'flammable', 'wrong side', 'sidewalk', 'parking brake', 'wheel chock',
-  'critical', 'crash', 'collision', 'contact with traffic', 'unattended', 'handheld while'
+  'critical', 'crash', 'collision', 'contact with traffic', 'unattended', 'handheld while',
+  // the cab, signs, night and damage (milestones 7 to 9)
+  'damage', 'dent(ed)?', 'scuff(ed)?', 'no-entry', 'one-way', 'give way', 'school zone', 'road works', 'diversion', 'cyclists?',
+  'headlights?', 'dusk', 'night', 'fog', 'low bridge', 'clearance', 'overhang', 'rear camera', 'signal(led|ling)?', 'gear', 'load shift(ed)?'
 ].join('|') + ')\\b', 'i');
 
 const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
