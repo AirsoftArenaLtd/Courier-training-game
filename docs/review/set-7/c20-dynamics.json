@@ -1,0 +1,129 @@
+{
+  "fixture": "Day one, seed seven, loaded van at the depot. Gear, brakes, throttle and steering use real keys.",
+  "creep": {
+    "van": {
+      "x": 2.84,
+      "z": 8.957700297528755,
+      "yaw": 0,
+      "speed": -0.35,
+      "steer": 0,
+      "gear": -1,
+      "hand": false,
+      "belt": true,
+      "look": 0
+    },
+    "motion": {
+      "acceleration": 0,
+      "lateral": 0,
+      "pitch": -1.3367536254131728e-10,
+      "roll": 0,
+      "payload": 43.544867520000004,
+      "mass": 2443.54486752,
+      "frontLoad": 11985.5875751856,
+      "rearLoad": 11985.5875751856,
+      "rpm": 866.5,
+      "assist": 1,
+      "contact": false
+    },
+    "time": 3.4165700000000143,
+    "contextLost": false
+  },
+  "reverse": {
+    "van": {
+      "x": 2.644427944077528,
+      "z": 11.723391532691652,
+      "yaw": -0.4929269298863439,
+      "speed": -1.7,
+      "steer": 0.5737539896330889,
+      "gear": -1,
+      "hand": false,
+      "belt": true,
+      "look": 0
+    },
+    "motion": {
+      "acceleration": 0,
+      "lateral": 0.5659825327981197,
+      "pitch": -0.000002816438149665655,
+      "roll": 0.0028810565170506687,
+      "payload": 43.544867520000004,
+      "mass": 2443.54486752,
+      "frontLoad": 11985.5875751856,
+      "rearLoad": 11985.5875751856,
+      "rpm": 1523,
+      "assist": 1,
+      "contact": false
+    },
+    "time": 5.21657000000004,
+    "contextLost": false
+  },
+  "forward": {
+    "van": {
+      "x": 0.6021003110236318,
+      "z": 8.348230227316447,
+      "yaw": -0.5279717107022425,
+      "speed": 4.275234111454836,
+      "steer": 0,
+      "gear": 1,
+      "hand": false,
+      "belt": true,
+      "look": 0
+    },
+    "motion": {
+      "acceleration": 1.70373955964493,
+      "lateral": 0,
+      "pitch": 0.010557104227630941,
+      "roll": 4.31435126561256e-13,
+      "payload": 43.544867520000004,
+      "mass": 2443.54486752,
+      "frontLoad": 10939.712566058253,
+      "rearLoad": 13031.462584312947,
+      "rpm": 2012.2944811764187,
+      "assist": 1,
+      "contact": false
+    },
+    "time": 8.566570000000047,
+    "contextLost": false
+  },
+  "brake": {
+    "van": {
+      "x": 0.23113177384742387,
+      "z": 7.712134020705044,
+      "yaw": -0.5279717107022425,
+      "speed": 3.08843372217315,
+      "steer": 0,
+      "gear": 1,
+      "hand": false,
+      "belt": true,
+      "look": 0
+    },
+    "motion": {
+      "acceleration": -5.934001946408429,
+      "lateral": 0,
+      "pitch": -0.0237657564114949,
+      "roll": 1.0639059234776839e-13,
+      "payload": 43.544867520000004,
+      "mass": 2443.54486752,
+      "frontLoad": 15628.294762870451,
+      "rearLoad": 8342.880387500749,
+      "rpm": 1386.8024072128985,
+      "assist": 1,
+      "contact": false
+    },
+    "time": 8.766570000000035,
+    "contextLost": false
+  },
+  "body": {
+    "pitch": -0.0349680841312056,
+    "roll": 0.020344305358527378,
+    "tyres": 0
+  },
+  "reduced": {
+    "pitch": 0,
+    "roll": 0,
+    "speed": 0,
+    "font": 23,
+    "pointerLock": false
+  },
+  "checks": 27,
+  "errors": []
+}

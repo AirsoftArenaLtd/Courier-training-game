@@ -74,6 +74,21 @@ test('low graphics retains identical parcel, door and vehicle interaction target
   const ids=w=>w.art.interactions.map(o=>o.userData.interaction).sort().join('|');assert.equal(ids(a),ids(b));
   const count=w=>{let n=0;w.scene.view.world.traverse(o=>{if(o.isInstancedMesh)n+=o.count;});return n;};assert.ok(count(b)<count(a));
 });
+test('the sprung body dives and rolls without tilting the tyres, and reduced motion removes both',()=>{
+  const old=context.OTR.fpAccess;
+  try{
+    for(const high of [false,true]){
+      let reduced=false;context.OTR.fpAccess={reduced:()=>reduced};
+      const w=world(high);w.m.motion={pitch:-.03,roll:.02};w.art.sync(w.m,null,'route');
+      assert.equal(w.art.chassis.rotation.x,-.03);assert.equal(w.art.chassis.rotation.z,.02);
+      assert.equal(w.art.van.rotation.x,0);assert.equal(w.art.van.rotation.z,0);
+      const tyre=w.art.interactions.find(o=>o.userData.interaction==='tyres');assert.equal(tyre.parent,w.art.van);
+      reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.art.chassis.rotation.x,0);assert.equal(w.art.chassis.rotation.z,0);
+      reduced=false;w.m.motion=undefined;w.art.sync(w.m,null,'route');assert.equal(w.art.chassis.rotation.x,0);assert.equal(w.art.chassis.rotation.z,0);
+      w.art.dispose();
+    }
+  }finally{context.OTR.fpAccess=old;}
+});
 test('mirror observes live route actors only while requested and cab state restores afterward',()=>{
   const w=world();w.m.mode='cab';w.m.paused=false;w.m.mirror();w.art.sync(w.m,null,'route');
   assert.equal(w.scene.view.mirror.on,true);assert.equal(w.art.van.visible,false);
