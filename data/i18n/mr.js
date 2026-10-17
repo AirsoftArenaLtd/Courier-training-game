@@ -3758,7 +3758,9 @@ window.OTR_I18N.mr = {
 "Previous": "मागील",
 "Reload": "रीलोड",
 "Returns": "रिटर्न्स",
-"Scanned": "स्कॅन झाले"
+"Scanned": "स्कॅन झाले",
+"Help that day": "त्या दिवसाची मदत",
+"Stars": "तारे"
 },
 "templates": [
 [

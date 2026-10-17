@@ -3759,7 +3759,9 @@ window.OTR_I18N.pa = {
 "Previous": "ਪਿਛਲਾ",
 "Reload": "ਰੀਲੋਡ",
 "Returns": "ਰਿਟਰਨ",
-"Scanned": "ਸਕੈਨ ਹੋਇਆ"
+"Scanned": "ਸਕੈਨ ਹੋਇਆ",
+"Help that day": "ਉਸ ਦਿਨ ਦੀ ਮਦਦ",
+"Stars": "ਤਾਰੇ"
 },
 "templates": [
 [

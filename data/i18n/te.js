@@ -3758,7 +3758,9 @@ window.OTR_I18N.te = {
 "Previous": "మునుపటి",
 "Reload": "రీలోడ్",
 "Returns": "రిటర్న్స్",
-"Scanned": "స్కాన్ అయింది"
+"Scanned": "స్కాన్ అయింది",
+"Help that day": "ఆ రోజు సహాయం",
+"Stars": "నక్షత్రాలు"
 },
 "templates": [
 [

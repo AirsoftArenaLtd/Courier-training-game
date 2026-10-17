@@ -3759,7 +3759,9 @@ window.OTR_I18N.bn = {
 "Previous": "আগেরটি",
 "Reload": "রিলোড",
 "Returns": "রিটার্ন",
-"Scanned": "স্ক্যান হয়েছে"
+"Scanned": "স্ক্যান হয়েছে",
+"Help that day": "সেই দিনের সহায়তা",
+"Stars": "তারা"
 },
 "templates": [
 [

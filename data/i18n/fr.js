@@ -3759,7 +3759,9 @@ window.OTR_I18N.fr = {
 "Returns": "Retours",
 "Scanned": "Scanné",
 "Service": "Service",
-"Standard": "Standard"
+"Standard": "Standard",
+"Help that day": "Aide ce jour-là",
+"Stars": "Étoiles"
 },
 "templates": [
 [
