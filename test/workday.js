@@ -290,7 +290,8 @@ test('B-21: the day keeps which aids were on; the results, the record and the hi
     const first = W.finish(null, { stops: [] });
     assert.equal(first.aids, 'ffo11');
     assert.ok(W.aided(first.aids));
-    assert.match(W.summaryLine(first), /full driving assists · turn-by-turn sat nav$/);
+    assert.match(W.resultsData(first, { prevBest: {}, firstPlay: true }).result.summary, /full driving assists · turn-by-turn sat nav$/);
+    assert.doesNotMatch(W.summaryLine(first), /assists/, 'the debrief\'s short line stays short');
     assert.equal(OTR.save.data.history.slice(-1)[0].aids, 'ffo11', 'the trainer\'s record has it');
     assert.equal(OTR.save.data.route.history.slice(-1)[0].aids, 'ffo11');
 

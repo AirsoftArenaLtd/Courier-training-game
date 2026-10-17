@@ -324,22 +324,20 @@ OTR.workday = {
     return {
       scenarioId: 'workday',
       scenario: { id: 'workday', title: 'Your workday', categories: cats.slice() },
-      result: { score: rec.score, ratios: rec.ratios, log, summary: this.summaryLine(rec) },
+      // the results screen's line also names the aids that were on ("· light driving assists · turn-by-turn sat nav")
+      result: { score: rec.score, ratios: rec.ratios, log, summary: [this.summaryLine(rec)].concat(this.aidsWords(rec.aids)).filter(Boolean).join(' · ') },
       stars: rec.stars, rec: career, verdict,
       review: this.reviewData(rec, log, { back: 'ResultsScene' }),
       next: { label: 'Debrief ▶', scene: 'WorkdayDebriefScene', data: {} }
     };
   },
 
-  /**
-   * "2 of 3 stops delivered · 24 min · light driving assists · turn-by-turn sat nav" (empty when the 3D world said
-   * nothing about stops or time and the day kept no aids).
-   */
+  /** "2 of 3 stops delivered · 24 min" (empty when the 3D world said nothing about stops or time). */
   summaryLine(rec) {
     const parts = [];
     if (rec.stops && rec.stops.length) parts.push(`${rec.delivered} of ${rec.stops.length} stops delivered`);
     if (rec.seconds >= 30) parts.push(`${Math.round(rec.seconds / 60)} min`);
-    return parts.concat(this.aidsWords(rec.aids)).join(' · ');
+    return parts.join(' · ');
   },
 
   /*
