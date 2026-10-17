@@ -273,4 +273,8 @@ test('A-26: the cab, sign, night and damage events reach the debrief, the drive 
   const crit = d.verdict.criticals.map(c => c.label || c);
   assert.ok(crit.some(c => /no-entry/i.test(c)) && crit.some(c => /did not report damage/i.test(c)), 'no entry and unreported damage are critical: ' + JSON.stringify(crit));
   assert.ok(d.stars.safety <= 1, 'safety capped at one star or below');
+  // B-22: the record keeps each critical mistake's type beside its label, in the same order (for the LMS)
+  assert.equal(rec.criticalTypes.length, rec.criticals.length);
+  rec.criticalTypes.forEach((t, i) => assert.equal(rec.criticals[i], E[t].fail || E[t].label, t));
+  assert.ok(rec.criticalTypes.includes('trip.damage-report') && rec.criticalTypes.includes('drive.sign-noentry'));
 });

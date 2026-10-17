@@ -42,7 +42,8 @@ stores a password. Over plain HTTP a password is readable on the network, so ser
 ## Sent to a company learning record store (optional)
 
 Off unless the server is started with `OTR_XAPI_ENDPOINT`. Then each finished workday goes as xAPI "completed"
-statements (the day's score, stars, time and pass or fail, and one per stop with delivered or not), carrying the
+statements (the day's score, stars, time and pass or fail, which critical mistakes it had (each as its event type, such
+as `trip.damage-report`, and its English label), and one per stop with delivered or not), carrying the
 trainee's employee ID and display name and nothing else. See `README.md` ("xAPI") and `server/xapi.js`. Statements
 already delivered are the store's data, under the company's own rules; erasing a trainee here removes any still waiting
 in the outbox but cannot recall what was delivered.

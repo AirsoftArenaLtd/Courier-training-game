@@ -46,6 +46,15 @@ function duration(sec) {
 }
 
 /**
+ * Why a day failed, for an LMS report (B-22): each critical mistake as its event type (a stable id, such as
+ * "trip.damage-report"; null on days saved before types were kept) and its English label. Nothing personal.
+ */
+function criticalMistakes(rec) {
+  const labels = Array.isArray(rec.criticals) ? rec.criticals : [], types = Array.isArray(rec.criticalTypes) ? rec.criticalTypes : [];
+  return labels.map((label, i) => ({ type: typeof types[i] === 'string' ? types[i] : null, label: String(label) }));
+}
+
+/**
  * The statements for one finished workday record (progress.workday.last). `passMarks` is { safety, efficiency, service }
  * stars needed. Pure: no clock, no network.
  */
@@ -64,7 +73,8 @@ function statementsFor(trainee, rec, homepage, passMarks) {
       score: { raw: got, min: 0, max: 9, scaled: Math.round(got / 9 * 1000) / 1000 },
       completion: true, success: passed, duration: duration(rec.seconds),
       extensions: { [EXT + 'stars']: { safety: stars.safety || 0, efficiency: stars.efficiency || 0, service: stars.service || 0 },
-        [EXT + 'criticalErrors']: (rec.criticals || []).length, [EXT + 'delivered']: rec.delivered || 0, [EXT + 'points']: rec.score || 0 }
+        [EXT + 'criticalErrors']: (rec.criticals || []).length, [EXT + 'criticalMistakes']: criticalMistakes(rec),
+        [EXT + 'delivered']: rec.delivered || 0, [EXT + 'points']: rec.score || 0 }
     }
   }];
   (rec.stops || []).forEach(s => {

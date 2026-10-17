@@ -77,6 +77,20 @@ test('success follows the pass marks, and durations are ISO 8601', () => {
   assert.equal(X.duration(0), 'PT0S'); assert.equal(X.duration(125), 'PT2M5S'); assert.equal(X.duration(3725), 'PT1H2M5S'); assert.equal(X.duration(3600), 'PT1H0M0S');
 });
 
+test('B-22: the day statement names its critical mistakes, type and label; older days without types still send', () => {
+  const ext = (rec) => X.statementsFor(trainee, rec, 'https://h', {})[0].result.extensions;
+  const k = 'https://ontheroute.example/xapi/extensions/';
+  const rec = day({ criticals: ['Did not report damage you caused to the van', 'Drove into a no-entry street'], criticalTypes: ['trip.damage-report', 'drive.sign-noentry'] });
+  assert.equal(ext(rec)[k + 'criticalErrors'], 2);
+  assert.deepEqual(ext(rec)[k + 'criticalMistakes'], [
+    { type: 'trip.damage-report', label: 'Did not report damage you caused to the van' },
+    { type: 'drive.sign-noentry', label: 'Drove into a no-entry street' }]);
+  assert.deepEqual(ext(day({ criticals: ['Crashed'] }))[k + 'criticalMistakes'], [{ type: null, label: 'Crashed' }], 'a day saved before types');
+  assert.deepEqual(ext(day())[k + 'criticalMistakes'], [], 'a clean day');
+  // the statement id does not change: a day already sent is not sent again because of the new extension
+  assert.equal(X.statementsFor(trainee, rec, 'https://h', {})[0].id, X.statementsFor(trainee, day(), 'https://h', {})[0].id);
+});
+
 test('a finished day is posted once, with the right headers, and never twice', async () => {
   reset();
   const x = X.create({ endpoint: endpoint(), auth: 'Basic dXNlcjpwYXNz', outbox: path.join(DATA, 'o1.json') });
