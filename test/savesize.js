@@ -160,6 +160,42 @@ test('A-27: a full day of the cab, sign, route, night and damage events keeps ev
   assert.equal(W.log.score(), live.score);
 });
 
+test('B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  // C-23 reports drive.mirrors at every turn or lane change, keyed turn:<leg>:<n>: twenty a leg, a few missed
+  const list = packageDay().filter(([t]) => t !== 'drive.mirrors');
+  let i = 0;
+  for (let leg = 1; leg <= 5; leg++) for (let n = 1; n <= 20; n++) {
+    i++; list.push(['drive.mirrors', { key: `turn:${leg}:${n}`, ok: i % 23 !== 0, where: { x: 1.91 * i, z: -7.7 * i, mph: 14.2, t: 25 * i } }]);
+  }
+  play(list);
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.ok(lms.longest <= SAVE.SCORM12_LIMIT, `every save within the limit (longest ${lms.longest})`);
+  assert.equal(stage(stored()), 'packed', 'the day is packed, not summarised');
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every missed mirror check keeps its pin');
+  play(list);                                                     // every key came back exactly: nothing counts twice
+  assert.equal(W.log.score(), live.score);
+});
+
+test('B-16: runs of numbered keys pack once and come back exactly, in order', () => {
+  const cases = [
+    ['turn:1:1', 'turn:1:2', 'turn:1:3', 'turn:2:1', 'turn:2:2', 'turn:2:3', 'turn:2:4'],
+    ['a1', 'a2', 'b', 'a3', 'a4', 'a5', 7, 8, 9, 'x07', 'x08', 'x09', 'x9', 'x10', 'x11', '1.0', '1.1', '1.2', 'n5', 'n4', 'n3'],
+    []
+  ];
+  cases.forEach(keys => {
+    const packed = SAVE.packRuns(keys);
+    assert.equal(JSON.stringify(SAVE.unpackRuns(JSON.parse(JSON.stringify(packed)))), JSON.stringify(keys));
+  });
+  assert.equal(JSON.stringify(SAVE.packRuns(cases[0])), '[["turn:1:",1,3],["turn:2:",1,4]]');
+  assert.equal(JSON.stringify(SAVE.unpackRuns([['p', 3, 1], [5, 1, 2], 'k'])), '["k"]', 'a damaged range is dropped, not expanded');
+});
+
 test('A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost', () => {
   asScorm(false);
   heavy();

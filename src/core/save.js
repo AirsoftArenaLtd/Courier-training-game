@@ -211,7 +211,7 @@ OTR.save = {
    * A workday in progress with its reports packed: { ..., packed: { t: [type names], e: [[t, key, ok, stop, x, z,
    * mph, t]], g: [[t, key, key, ...]] } } (ok 1 or 0; trailing nulls left off; a place only when it has x and z, and only
    * for a wrong check or a penalty, the reports the drive review pins; g: right checks with no stop and no place, only
-   * their keys, by type). unpackDay reverses it (the grouped reports come back after the others).
+   * their keys, by type, runs of numbered keys written once: see packRuns). unpackDay reverses it (the grouped reports come back after the others).
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
@@ -236,8 +236,35 @@ OTR.save = {
       e.push(row);
     });
     out.packed = { t: types, e };
-    const groups = Object.keys(g).map(ti => [Number(ti)].concat(g[ti]));
+    const groups = Object.keys(g).map(ti => [Number(ti)].concat(this.packRuns(g[ti])));
     if (groups.length) out.packed.g = groups;
+    return out;
+  },
+
+  /**
+   * Grouped keys with runs written once (B-16): three or more string keys in a row that differ only in a counter at the
+   * end, one more each time (C-23's turn:<leg>:<n>), become [prefix, first, last]. A key is never an array, so
+   * unpackRuns tells the two apart; the order is kept exactly. A counter with a leading zero is left as it is.
+   */
+  packRuns(keys) {
+    const split = (k) => { const m = typeof k === 'string' && /^(.*?)(0|[1-9]\d{0,8})$/.exec(k); return m ? [m[1], Number(m[2])] : null; };
+    const out = [];
+    for (let i = 0; i < keys.length;) {
+      const a = split(keys[i]);
+      let j = i + 1;
+      if (a) while (j < keys.length) { const b = split(keys[j]); if (!b || b[0] !== a[0] || b[1] !== a[1] + (j - i)) break; j++; }
+      if (j - i >= 3) { out.push([a[0], a[1], a[1] + (j - i) - 1]); i = j; } else out.push(keys[i++]);
+    }
+    return out;
+  },
+
+  unpackRuns(items) {
+    const out = [];
+    items.forEach(k => {
+      if (!Array.isArray(k)) { out.push(k); return; }
+      if (typeof k[0] !== 'string' || !Number.isInteger(k[1]) || !Number.isInteger(k[2]) || k[2] < k[1] || k[2] - k[1] > 10000) return;
+      for (let n = k[1]; n <= k[2]; n++) out.push(k[0] + n);
+    });
     return out;
   },
 
@@ -383,7 +410,7 @@ OTR.save = {
       });
       (Array.isArray(c.packed.g) ? c.packed.g : []).forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
-        r.slice(1).forEach(k => events.push({ type: types[r[0]], key: k, ok: true, stop: null }));
+        this.unpackRuns(r.slice(1)).forEach(k => events.push({ type: types[r[0]], key: k, ok: true, stop: null }));
       });
     } else if (Array.isArray(c.summary)) {
       c.summary.forEach(r => {
