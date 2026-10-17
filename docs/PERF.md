@@ -1,5 +1,79 @@
 # 3D workday rendering cost
 
+## C-26: visible weather (17 October 2026)
+
+Rain beads and physical wipers share one texture-free cab pane, visible only to the main camera.
+Wet ground reflects the existing analytic sky/sun; snow coverage, ice patches and height mist reuse
+the Lambert surface shaders. No new render pass or texture is allocated. Clear/cloudy/heat materials
+keep their existing shaders. Wiping uses the saved physical switch and existing K shortcut; no scoring,
+weather schedule, collision, shared save, Settings or i18n source changed.
+
+One preallocated particle batch replaces the old precipitation cubes with two-triangle camera-facing
+quads. Its existing Low counts remain 12 on later days / 18 otherwise, and 36 on High. Walking breath
+and moving wheel spray reuse slots; every reflection uses its own camera for billboarding. Reduced
+motion freezes particles, drops and ripples while the wiper control still clears the pane. Geometry,
+materials, shader hooks and the instance buffer are released on world disposal.
+
+Two **240,000-view** Low sweeps include loaded/fallback assets, all four lighting presets, physical
+controls and mirror/rear reflections. Loaded peaks at **64 calls / 1,886 triangles**; fallback at
+**63 / 1,886**. The lower triangle count comes from replacing the old twelve-triangle precipitation
+cubes. The first clear day remains unchanged. Existing fog ranges remain 6–28 m (fog) / 12–40 m (storm).
+
+Actual rendered samples at the fixed 1280 × 720 viewport, with sound, larger text and colour filtering:
+
+| Sample set | Calls | Triangles | Three.js textures | Attachment bytes | Phaser texture estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Low, ten views: busiest rear view, rain/day/night/reverse, storm, fog, snow, ice and walking cold weather | 63 | 1,888 | 2 | 3,557,376 | 2,580,838 |
+| High, five rain/day/night/reverse, snow-walk and ice views | 97 | 4,942 | 3 | 11,239,424 | 6,872,710 |
+| Low, reduced-motion rain reverse and walking snow | 63 | 1,878 | 2 | 3,557,376 | 2,580,838 |
+
+Source geometry peaks at **5,464 bytes Low / 22,240 High**. High's third texture is the existing
+512-pixel sun shadow map, allocated only when needed. No errors or context loss occur. All Low ceilings
+remain 64 calls, 2,500 triangles, two textures, 4 MiB attachments and 4 MiB estimated Phaser textures.
+These software-rendered figures establish resources and functionality; native Intel FPS remains O-1.
+
+All **28 Node suites** pass, including eleven weather cases, mission/world/workday, savesize and i18n.
+Weather browser checks pass **48 Low / 46 High** assertions, plus **12** real-key clip assertions.
+Cab (200), mirrors (132), rear camera (146), keyboard accessibility (145), camera (28), driving (24),
+route-day (127) and guide (85) regressions also pass: **993 browser assertions** in total.
+The four English/Tamil normal/larger caption layouts use native Tamil glyphs and retain the existing
+17/18 px weather-caption sizes. Both SCORM package formats pass three packaging checks; nine offline
+checks confirm that the game, 3D models and Dispatch brief work without outside requests.
+Thirty seeded resume comparisons, 100 complete days and 240 SCORM score round trips preserve identity,
+with a maximum of **3,869 / 4,000 characters**. Final rendered samples and the clip exercise the active-camera
+particle shader; the broader control/palette regressions also cover the preceding equivalent main-view shader.
+
+The branch was moved onto pilot `492dcb1` after C-24/C-25 merged. The requested build/sync/dispose order
+is retained; weather restores material hooks before lighting and cab disposal. Latest pilot `7c19f9f`
+was read before publishing; its additions are the language audit, physical-cab QA flows and board updates.
+Evidence, fixture limits, screenshots and the real-key wiper clip: `docs/review/set-8/c26.md`.
+
+Commands (set `QA_BASE` to the checkout's HTTP server; one Chromium at a time):
+
+```sh
+node test/fpweather.js
+node test/fpworld.js
+node test/fpweatherbrowser.js
+QA_GFX=high node test/fpweatherbrowser.js
+QA_CLIP=1 QA_CLIP_ONLY=1 node test/fpweatherbrowser.js
+QA_ASSETS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_TAG=c26-loaded node test/fproute.js
+QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_TAG=c26-fallback node test/fproute.js
+QA_CAB=1 QA_REAR=1 QA_LATER=1 QA_LIGHTING=1 node test/fpresume.js
+QA_GFX=low QA_TAG=c26 QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=laterrearpeak,visibleweatherrain,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,visibleweatherfog,visibleweathersnow,visibleweatherice,visibleweathersnowwalk,visibleweathericewalk QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c26 QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=visibleweatherrain,visibleweatherrainnight,visibleweatherrainreverse,visibleweathersnowwalk,visibleweatherice node test/fpbench.js
+QA_GFX=low QA_TAG=c26-reduced QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour,reduced QA_VIEWS=visibleweatherrainreverse,visibleweathersnowwalk node test/fpbench.js
+node test/fpcabbrowser.js
+QA_TAG=c26-mirror node test/fpmirrorsbrowser.js
+node test/fprearbrowser.js
+node test/fpaccessbrowser.js
+node test/fpcamerabrowser.js
+node test/fpdrivingbrowser.js
+node test/fpdaybrowser.js
+node test/fpguidebrowser.js
+node --test test/package.js
+QA_BROWSER=/usr/bin/chromium node test/offline.js
+```
+
 ## C-24: automatic rear camera and parking practice (17 October 2026)
 
 The dash camera uses C-23's unused atlas quarter, so target allocation remains **3,557,376 bytes Low** /

@@ -1,0 +1,131 @@
+{
+  "fixture": "Stationary rain-day fixture. K uses the existing keyboard control. Mission time is frozen for the pixel comparison.",
+  "clearedPixels": 2058,
+  "state": {
+    "clear": 1,
+    "restored": true,
+    "reflects": false,
+    "events": 0,
+    "diagnostics": {
+      "calls": 53,
+      "triangles": 1718,
+      "textures": 3,
+      "geometries": 12,
+      "targetWidth": 1280,
+      "targetHeight": 720,
+      "attachmentBytes": 11239424
+    }
+  },
+  "weathers": [
+    {
+      "weather": "clear",
+      "active": false,
+      "fog": [
+        75,
+        95
+      ],
+      "particles": null
+    },
+    {
+      "weather": "rain",
+      "active": true,
+      "fog": [
+        75,
+        95
+      ],
+      "particles": 36,
+      "changed": 19579
+    },
+    {
+      "weather": "storm",
+      "active": true,
+      "fog": [
+        12,
+        40
+      ],
+      "particles": 36,
+      "changed": 19192
+    },
+    {
+      "weather": "fog",
+      "active": true,
+      "fog": [
+        6,
+        28
+      ],
+      "particles": null,
+      "changed": 4599
+    },
+    {
+      "weather": "snow",
+      "active": true,
+      "fog": [
+        75,
+        95
+      ],
+      "particles": 36,
+      "changed": 12288
+    },
+    {
+      "weather": "ice",
+      "active": true,
+      "fog": [
+        75,
+        95
+      ],
+      "particles": 36,
+      "changed": 19579
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "caption": "The engine is running. \u00b7 It is morning.",
+      "font": 17,
+      "left": 24,
+      "right": 342,
+      "bottom": 99,
+      "fov": 68
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "caption": "The engine is running. \u00b7 It is morning.",
+      "font": 18,
+      "left": 24,
+      "right": 361,
+      "bottom": 99,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "caption": "\u0b8e\u0ba9\u0bcd\u0b9c\u0bbf\u0ba9\u0bcd \u0b93\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1. \u00b7 \u0b95\u0bbe\u0bb2\u0bc8 \u0ba8\u0bc7\u0bb0\u0bae\u0bcd.",
+      "font": 17,
+      "left": 24,
+      "right": 362,
+      "bottom": 124,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "caption": "\u0b8e\u0ba9\u0bcd\u0b9c\u0bbf\u0ba9\u0bcd \u0b93\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1. \u00b7 \u0b95\u0bbe\u0bb2\u0bc8 \u0ba8\u0bc7\u0bb0\u0bae\u0bcd.",
+      "font": 18,
+      "left": 24,
+      "right": 382,
+      "bottom": 124,
+      "fov": 68
+    }
+  ],
+  "reduced": {
+    "before": 0,
+    "after": 0,
+    "angle": -1.35,
+    "clear": 1
+  },
+  "checks": 46,
+  "errors": [],
+  "fixtureClarification": "Cargo stays at the depot in the palette screenshots; the CPU sweep and rendered benchmark load the van. Only this fixture description was corrected after capture."
+}
