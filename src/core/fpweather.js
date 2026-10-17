@@ -20,7 +20,8 @@ OTR.fpWeather={
       vertexShader:`attribute float particleId;varying vec2 p;varying float kind;varying float life;uniform float clock;uniform float walking;uniform float spraying;uniform float cold;uniform float snow;
         #include <fog_pars_vertex>
         void main(){p=uv;float breath=cold*walking*(1.-step(4.,particleId));float spray=spraying*(1.-step(6.,particleId));kind=breath>.5?2.:spray>.5?3.:snow;
-          life=fract(clock*.8+particleId*.173);vec4 mvPosition=modelViewMatrix*instanceMatrix*vec4(position,1.);gl_Position=projectionMatrix*mvPosition;
+          life=fract(clock*.8+particleId*.173);vec4 mvPosition=modelViewMatrix*instanceMatrix*vec4(0.,0.,0.,1.);
+          mvPosition.xy+=position.xy*vec2(length(instanceMatrix[0].xyz),length(instanceMatrix[1].xyz));gl_Position=projectionMatrix*mvPosition;
           #include <fog_vertex>
         }`,
       fragmentShader:`varying vec2 p;varying float kind;varying float life;uniform vec3 tint;
@@ -36,7 +37,7 @@ OTR.fpWeather={
       sync(m,reduced){
         const v=m.van,p=m.player,walk=m.mode==='walk',speed=Math.abs(v.speed),spray=!walk&&speed>.6,time=reduced?0:m.elapsed,c=Math.cos(v.yaw),s=Math.sin(v.yaw),cx=walk?p.x:v.x,cz=walk?p.z:v.z;
         mesh.visible=!ice||walk||spray;uniforms.clock.value=time;uniforms.walking.value=walk?1:0;uniforms.spraying.value=spray?1:0;
-        const night=scene.art&&scene.art.lighting&&scene.art.lighting.time==='night';uniforms.tint.value.setHex(night?0x819BAF:0xCBD9E0);rotation.copy(scene.view.camera.quaternion);
+        const night=scene.art&&scene.art.lighting&&scene.art.lighting.time==='night';uniforms.tint.value.setHex(night?0x819BAF:0xCBD9E0);
         for(let i=0;i<count;i++){
           const life=(time*.8+i*.173)%1;
           if(cold&&walk&&i<4){const forward=.6+life*.75,side=(i-1.5)*.07;position.set(p.x+Math.sin(p.yaw)*forward+Math.cos(p.yaw)*side,1.47+life*.22,p.z-Math.cos(p.yaw)*forward+Math.sin(p.yaw)*side);scale.setScalar(.15+life*.32);}

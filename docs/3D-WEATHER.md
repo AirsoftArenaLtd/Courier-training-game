@@ -1,32 +1,46 @@
-# Visible weather: C-26 in progress
+# Visible weather
 
-`codex/c26-visible-weather` is stacked on pushed C-25 `57273e6`. C-26 remains **doing**.
+C-26, `codex/c26-visible-weather`. Originally stacked on C-25, then updated while unpublished to
+pilot `492dcb1` after C-24/C-25 merged. The saved route-day weather, traction, safe speeds, following
+rules, heat breaks and scores are unchanged. The first clear morning draws no weather pane or
+surface effect with the wipers off. There are no new controls, reports or saved fields.
 
-The first slice adds a physical, texture-free windscreen pane. The existing physical wiper stalk and
-K shortcut clear two swept areas; droplets return after switching off. The pane belongs to the cab,
-follows its body transform and appears only in the main view. It adds one call and two triangles,
-with no new image texture, target or reflection pass. Walking and the hub hide it. The first day's
-clear weather still draws no pane with the wipers off.
+`src/core/fpweather.js` owns the physical windscreen, material hooks and bounded particle batch.
+The existing physical wiper switch and remappable K shortcut clear two swept areas. Droplets
+return gradually after switching off. The glass stays on the cab as the driver looks around;
+walking and the hub hide it. Snow adds sparse melt droplets and snow/ice add subtle edge frost.
+The pane uses one main-view call and two triangles on a dedicated camera layer; reflections do
+not render this inside-facing pane. It allocates no image map or render target.
 
-Rain and wiping follow mission elapsed time. Pausing freezes cosmetic motion. Reduced motion keeps
-the blades parked and leaves the clearing effect functional. All runtime weather state belongs to
-the adapter; mission checkpoints retain only the existing saved wiper switch. This adds no reports,
-scoring rules, Settings or shared save fields.
+Wet surfaces reflect the current sky and sun analytically, with stronger grazing reflections
+and ripples on High. Ice adds blue glossy patches and fine crack/glint cues. Snow adds irregular
+coverage on upward-facing ground and roofs, while retaining road markings and access geometry.
+The hooks shade eligible surfaces and restore the prior lighting hooks on disposal. Dry worlds
+keep their original material shaders. The existing fog near/far ranges remain exactly 6/28 metres
+for fog and 12/40 for storms; a small low-height mist cue strengthens depth within that range.
 
-Initial validation: `test/fpweather.js` has five passing cases; `test/fpweatherbrowser.js` passes 13
-Low checks, including real K input, 2,302 changed pixels, restored switch state, no mirror-camera
-layer overlap, reduced motion, no new score events and a clean shader/GL error state. The fixed
-stationary rain fixture uses 46 calls / 1,260 triangles / two textures / 3,557,376 attachment bytes.
-The loaded 162,000-view Low sweep also passes at 62 calls / 2,096 triangles.
-These are initial slice checks, not the completed C-26 resource/review gate. C-25's twelve lighting
-regressions also pass. Screenshots/reports are under `test/out/fp-review/c26-*` locally.
+Rain and snow now share a soft billboard batch, with two triangles per particle instead of the
+old twelve-triangle cubes. The existing bounds stay at 12 later-day / 18 other Low particles and
+36 on High. Snow/ice walking uses four of those slots for cold breath in front of the courier.
+Moving vans reuse six slots for spray from the wheels, trailing the actual forward or reverse
+travel direction. Ice hides the batch in a stationary cab. The rest of the batch supplies falling
+rain/snow; no separate spray or breath draw is added. The particles observe the existing depth fog
+and follow the camera as billboards, including the live mirror/rear-camera renders.
 
-Remaining work before review:
+All motion follows mission time. Pause freezes it; reduced motion freezes droplet/particle motion
+and ripples, parks the blades and keeps clearing functional. Colour filtering runs through the
+existing world/Phaser pipeline. The physical switch, keyboard route, larger text and narration
+remain the existing cab features. There is no new on-screen text or translation surface.
 
-- Add bounded wet-road reflections/highlights, snow and ice surface cues, breath and tire spray.
-- Preserve existing fog/weather rule distances and scores while improving visible depth cues.
-- Extend real-browser coverage across all weather states, Low/High and accessible layouts.
-- Test the combined C-24/C-25/C-26 renderer. The existing combined CPU peak is 63 calls, so this pane
-  uses the final available Low call. Any further Low effects must reuse batches or recover calls.
-- Run the full Node, resume and `fpbench` gates, record final figures in `docs/PERF.md`, add the
-  screenshot evidence and mark the board review only when the complete task is ready.
+Only adapter-owned transient state is added. Mission snapshot identity and workday reports remain
+unchanged after rendering; the saved wiper boolean restores through the existing checkpoint code.
+Weather material hooks, particle GPU buffers, glass geometry/material and the camera layer are
+released on disposal, before lighting and cab disposal. The merged mirror/rear/lighting build,
+sync and disposal order has been checked and retained.
+
+Both 240,000-view complete-frame Low sweeps pass with wipers on, all control/look poses, loaded
+cargo and all four reflection cameras. Loaded assets peak at 64 calls / 1,886 triangles; procedural
+fallback peaks at 63 / 1,886. The ceilings remain 64 / 2,500, two Three.js textures, 4 MiB attachments
+and 4 MiB estimated Phaser textures. Final rendered measurements and commands are in `docs/PERF.md`;
+review images and reports are collected in `docs/review/set-8/c26.md`. Cloud software rendering
+cannot establish the native Intel 60 fps gate (the existing O-1 owner check).

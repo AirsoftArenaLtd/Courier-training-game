@@ -1,0 +1,21 @@
+{
+  "fixture": "Stationary rain-day fixture. K uses the existing keyboard control. Mission time is frozen for the pixel comparison.",
+  "clearedPixels": 2169,
+  "state": {
+    "clear": 1,
+    "restored": true,
+    "reflects": false,
+    "events": 0,
+    "diagnostics": {
+      "calls": 43,
+      "triangles": 782,
+      "textures": 2,
+      "geometries": 11,
+      "targetWidth": 832,
+      "targetHeight": 468,
+      "attachmentBytes": 3557376
+    }
+  },
+  "checks": 12,
+  "errors": []
+}
