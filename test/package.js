@@ -30,3 +30,16 @@ test('the zip builds with the manifest at the top and stays inside the budget', 
   assert.equal(names.length, r.files);
   fs.rmSync(path.dirname(out), { recursive: true, force: true });
 });
+
+test('the SCORM 2004 package has the 2004 manifest at the top and the same game files', { skip: !fs.existsSync('/usr/bin/zip') && 'zip is not installed' }, () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-pkg-')), out = path.join(dir, 'pkg2004.zip');
+  const r = P.build(out, true);
+  const names = execFileSync('unzip', ['-Z1', out]).toString().trim().split('\n');
+  assert.equal(names.length, r.files);
+  assert.equal(names.filter(n => n === 'imsmanifest.xml').length, 1, 'one manifest, at the top');
+  const manifest = execFileSync('unzip', ['-p', out, 'imsmanifest.xml']).toString();
+  assert.match(manifest, /2004 4th Edition/); assert.match(manifest, /adlcp:scormType="sco"/);
+  assert.ok(!names.some(n => n.startsWith('data/lms/')), 'the manifest source is not shipped twice');
+  ['index.html', 'first-person.html', 'src/core/identity.js'].forEach(f => assert.ok(names.includes(f), f));
+  fs.rmSync(dir, { recursive: true, force: true });
+});

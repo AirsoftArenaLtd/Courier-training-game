@@ -27,7 +27,8 @@ they use later carries on where they left off. Nothing is shared between trainee
 ### A. From a learning-management system (SCORM)
 
 Build the package with `node test/tools/package-scorm.js` (it writes `dist/on-the-route-scorm12.zip`: only the files the game
-loads, `imsmanifest.xml` at the top, about 10 MB) and upload it to the LMS as a SCORM 1.2 package.
+loads, `imsmanifest.xml` at the top, about 10 MB) and upload it to the LMS as a SCORM 1.2 package. For an LMS that
+prefers SCORM 2004, add `--2004` (`dist/on-the-route-scorm2004.zip`); 2004 also keeps much more saved progress.
 The LMS says who the learner is; progress is kept in the LMS, and the LMS sees the course as complete once every
 module is passed in assessment mode **and a 3D workday has been finished** (passed once the best day met the trainer's
 pass marks in every category; the score counts the workday's stars as one more part of the course). To keep the

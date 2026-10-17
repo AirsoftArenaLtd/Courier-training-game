@@ -2,7 +2,9 @@
 /*
  * The LMS package: a SCORM 1.2 zip with only what the game needs at run time (imsmanifest.xml at the top).
  *
- *   node test/tools/package-scorm.js [out.zip]        (default dist/on-the-route-scorm12.zip)
+ *   node test/tools/package-scorm.js [out.zip]          (default dist/on-the-route-scorm12.zip)
+ *   node test/tools/package-scorm.js --2004 [out.zip]   SCORM 2004 (default dist/on-the-route-scorm2004.zip): the same
+ *                                                       files with data/lms/imsmanifest-2004.xml as the manifest
  *
  * In: imsmanifest.xml, index.html, first-person.html, css/, lib/, src/, data/ (without the translators' sources and the
  * catalogue), assets/ (without assets/_incoming/). Out: docs, tests, the training server, agent notes. Fails when a file
@@ -16,7 +18,7 @@ const ROOT = path.join(__dirname, '..', '..');
 const PAGES = ['index.html', 'first-person.html'];
 const TOP = ['imsmanifest.xml', ...PAGES];
 const DIRS = ['css', 'lib', 'src', 'data', 'assets'];
-const SKIP = [/^data\/i18n\/src\//, /^data\/i18n\/catalogue\.json$/, /^data\/i18n\/missing-[^/]*\.json$/, /^data\/i18n\/not-text\.json$/,
+const SKIP = [/^data\/lms\//, /^data\/i18n\/src\//, /^data\/i18n\/catalogue\.json$/, /^data\/i18n\/missing-[^/]*\.json$/, /^data\/i18n\/not-text\.json$/,
   /^assets\/_incoming\//, /(^|\/)\.DS_Store$/, /(^|\/)Thumbs\.db$/];
 const BUDGET = 100 * 1024 * 1024;
 
@@ -40,23 +42,31 @@ function referenced() {
   return [...out];
 }
 
-function build(out) {
-  const list = files(), have = new Set(list);
+function build(out, v2004) {
+  const list = files().filter(p => !(v2004 && p === 'imsmanifest.xml')), have = new Set(list.concat('imsmanifest.xml'));
   const missing = referenced().filter(p => !have.has(p));
   if (missing.length) throw new Error('a page loads files that are not packaged: ' + missing.join(', '));
   fs.mkdirSync(path.dirname(out), { recursive: true });
   if (fs.existsSync(out)) fs.unlinkSync(out);
   // zip reads the names from stdin, so the list can be as long as it needs to be
   execFileSync('zip', ['-q', '-X', '-9', out, '-@'], { cwd: ROOT, input: list.join('\n') });
+  if (v2004) {
+    // the 2004 manifest goes in at the top under the name every LMS looks for
+    const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'otr-2004-'));
+    fs.copyFileSync(path.join(ROOT, 'data', 'lms', 'imsmanifest-2004.xml'), path.join(tmp, 'imsmanifest.xml'));
+    execFileSync('zip', ['-q', '-X', '-9', '-j', out, path.join(tmp, 'imsmanifest.xml')]);
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
   const bytes = fs.statSync(out).size;
   if (bytes > BUDGET) throw new Error(`the package is ${(bytes / 1048576).toFixed(1)} MB, over the 100 MB budget`);
-  return { out, files: list.length, bytes };
+  return { out, files: list.length + (v2004 ? 1 : 0), bytes };
 }
 
 module.exports = { files, referenced, build, BUDGET };
 
 if (require.main === module) {
-  const out = path.resolve(process.argv[2] || path.join(ROOT, 'dist', 'on-the-route-scorm12.zip'));
-  const r = build(out);
+  const args = process.argv.slice(2), v2004 = args.includes('--2004'), named = args.find(a => a !== '--2004');
+  const out = path.resolve(named || path.join(ROOT, 'dist', v2004 ? 'on-the-route-scorm2004.zip' : 'on-the-route-scorm12.zip'));
+  const r = build(out, v2004);
   console.log(`${path.relative(process.cwd(), r.out)}: ${r.files} files, ${(r.bytes / 1048576).toFixed(1)} MB`);
 }
