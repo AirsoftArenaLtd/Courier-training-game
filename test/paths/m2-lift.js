@@ -18,7 +18,7 @@ module.exports = async (page, ctx) => {
     await page.keyboard.down(key);
     const t0 = Date.now();
     try {
-      while (Date.now() - t0 < (ms || 4000)) { if (until(await st())) return true; await wait(16); }
+      while (Date.now() - t0 < (ms || 4000) * ctx.slow) { if (until(await st())) return true; await wait(16); }
       return false;
     } finally { await page.keyboard.up(key); }
   };
@@ -31,13 +31,18 @@ module.exports = async (page, ctx) => {
     const good = await ctx.eval(`${S}.lift.options.find(o => o.grade === 'good')`);
     await wait(1100);                                         // the box drops in, then the size-up card
     await clickText(page, 'LiftingScene', new RegExp('^\\d\\.\\s+' + esc(good.text) + '$'));
-    await wait(700);
-    await page.keyboard.press('Space');                       // the coaching card
+    // the coaching card only listens for SPACE a moment after it appears, longer on a slow PC: press until the lift
+    // moves on (a SPACE before the lift starts does nothing)
+    const next = good.effect === 'equipment' ? `${S}.liftIndex !== ${i}` : `${S}.postureOn && ${S}.phase === 'approach'`;
+    for (const t0 = Date.now(); !(await ctx.eval(next)) && Date.now() - t0 < 9000 * ctx.slow;) {
+      await wait(500);
+      if (!(await ctx.eval(next))) await page.keyboard.press('Space');
+    }
     if (good.effect === 'equipment') {
-      if (!(await ctx.until(`${S}.liftIndex !== ${i}`, 9000))) throw new Error('the hand truck never finished');
+      if (!(await ctx.eval(next))) throw new Error('the hand truck never finished');
       continue;
     }
-    if (!(await ctx.until(`${S}.postureOn && ${S}.phase === 'approach'`, 6000))) throw new Error(`lift ${i + 1}: never got to the lift`);
+    if (!(await ctx.eval(next))) throw new Error(`lift ${i + 1}: never got to the lift`);
     await wait(good.effect === 'stool' ? 500 : 100);
     // step in until the hands are at the load
     let s = await st();
