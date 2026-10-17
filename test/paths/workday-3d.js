@@ -23,6 +23,10 @@ const make = (opts) => async (page, ctx) => {
   // the prototype's visible text must stay on the canvas and inside the device screen
   const shot = async (label) => {
     await wait(400);
+    // the handheld slides up over about a quarter of a second of game time, which is longer on a slow PC: audit it
+    // where it stops, not on the way
+    await ctx.until(`(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), r = s.handheld.device.root;
+      return !s.tweens.isTweening(r) && (!s.panel || !s.panel.root || !s.tweens.isTweening(s.panel.root)); })()`, 5000);
     await ctx.audit(label);
     const bad = await ev(() => {
       const s = OTR.game.scene.getScene('FirstPersonScene'), hh = s.handheld.device, out = [];

@@ -27,7 +27,7 @@ async function findText(page, sceneKey, re) {
 async function clickText(page, sceneKey, re, timeout) {
   const t0 = Date.now();
   let pt = null;
-  while (!pt && Date.now() - t0 < (timeout || 4000)) {
+  while (!pt && Date.now() - t0 < (timeout || 4000) * (global.__qaSlow || 1)) {   // qa.js: longer on a slow PC
     pt = await findText(page, sceneKey, re);
     if (!pt) await wait(120);
   }

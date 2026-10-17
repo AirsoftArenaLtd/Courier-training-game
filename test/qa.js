@@ -293,6 +293,12 @@ async function passBoot(page, sc, row) {
   await openScenario(page, sc.id);
   await wait(700);                     // let the scene settle before judging frame rate
   const st = await liveScene(page, true);
+  // one second straight after a scene opens can catch its loading (or another program's burst) on a slow PC: below the
+  // floor, sample twice more a second apart and keep the best, so only a scene that stays slow fails
+  for (let i = 0; i < 2 && st.fps < FPS_FLOOR; i++) {
+    await wait(1000);
+    st.fps = Math.max(st.fps, (await liveScene(page, true)).fps);
+  }
   row.fps = st.fps;
   if (st.key !== sc.scene && st.key !== 'ResultsScene') {
     row.boot = `expected ${sc.scene}, got ${st.key}`;
@@ -336,14 +342,20 @@ async function passGolden(page, sc, row) {
   const file = path.join(__dirname, 'paths', sc.id + '.js');
   if (!fs.existsSync(file)) { row.golden = 'no script'; return; }
   const script = require(file);
+  // the paths' timeouts are written for a normal frame rate; a slow PC (or a busy one) plays the same moves slower, so
+  // stretch every wait-until by how far the boot sample fell below 30 fps (at most four times). A step that never
+  // happens still fails, only later.
+  const slow = Math.min(4, Math.max(1, 30 / (row.fps || 30)));
+  global.__qaSlow = slow;                                              // test/paths/lib/ui.js stretches its waits too
   const ctx = {
     wait,
+    slow,
     snap: (name) => page.screenshot({ path: path.join(OUT, `${sc.id}-${name}.png`) }),
     scene: (expr) => page.evaluate(`(() => { const s = OTR.game.scene.getScene('${sc.scene}'); return ${expr}; })()`),
     eval: (expr) => page.evaluate(expr),
     until: async (expr, ms) => {
       const t0 = Date.now();
-      while (Date.now() - t0 < (ms || 30000)) {
+      while (Date.now() - t0 < (ms || 30000) * slow) {
         if (await page.evaluate(expr).catch(() => false)) return true;
         await wait(200);
       }

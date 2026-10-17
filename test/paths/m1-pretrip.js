@@ -20,30 +20,34 @@ module.exports = async (page, ctx) => {
     for (const s of await spots()) {
       if (await marked(s.id)) continue;
       const item = await ctx.eval(`(() => { const it = ${S}.content.items.find(i => i.id === '${s.id}'); return { needs: it.needs || null, kind: it.kind, bad: !!${S}.defects[it.id] }; })()`);
-      await page.mouse.click(s.x, s.y);
-      await wait(450);
-      if (!(await ctx.eval(`(${S}._openModals || 0) > 0`))) throw new Error(`clicking ${s.id} did not open its close-up`);
+      // a close-up counts as open until its closing animation ends, and the scene ignores clicks until then: wait for
+      // it, and click again if a click still went nowhere (both take longer on a slow PC)
+      if (!(await ctx.until(`!(${S}._openModals > 0)`, 3000))) throw new Error(`the close-up before ${s.id} never closed`);
+      let opened = false;
+      for (let k = 0; k < 3 && !opened; k++) { await page.mouse.click(s.x, s.y); opened = await ctx.until(`(${S}._openModals || 0) > 0`, 1500); }
+      if (!opened) throw new Error(`clicking ${s.id} did not open its close-up`);
       if (item.needs === 'press' || item.needs === 'gauge') {
         if (await ctx.eval(`${S}._judge.pass.enabled || ${S}._judge.flag.enabled`)) throw new Error(`${s.id} could be judged before it was tested`);
       }
       if (item.needs === 'press') {
         await clickText(page, 'PreTripScene', /^(Press the horn|Press and hold the brake|Pull the belt out|Pull on the latch)( \(T\))?$/);
       } else if (item.needs === 'gauge') {
-        // drag the tread gauge from its tray onto the tyre
-        const g = await ctx.eval(`(() => { const m = ${S}.children.list.filter(o => o.depth === 5000).pop(); const box = m.list[1];
-          const img = box.list.find(o => o.type === 'Image' && o.input && o.input.draggable); return { x: box.x + img.x, y: box.y + img.y, bx: box.x, by: box.y }; })()`);
-        await page.mouse.move(g.x, g.y);
-        await page.mouse.down();
-        await page.mouse.move(g.bx - 40, g.by - 20, { steps: 12 });
-        await page.mouse.up();
-        await wait(300);
+        // drag the tread gauge from its tray onto the tyre (again if the close-up was still sliding in and it missed)
+        for (let k = 0; k < 3; k++) {
+          const g = await ctx.eval(`(() => { const m = ${S}.children.list.filter(o => o.depth === 5000).pop(); const box = m.list[1];
+            const img = box.list.find(o => o.type === 'Image' && o.input && o.input.draggable); return { x: box.x + img.x, y: box.y + img.y, bx: box.x, by: box.y }; })()`);
+          await page.mouse.move(g.x, g.y);
+          await page.mouse.down();
+          await page.mouse.move(g.bx - 40, g.by - 20, { steps: 12 });
+          await page.mouse.up();
+          if (await ctx.until(`${S}._judge.pass.enabled`, 1500)) break;
+        }
       }
       await wait(150);
       // (the brake's press plays out for a few seconds before it can be judged: a failing pedal creeps down)
       if (!(await ctx.until(`${S}._judge.pass.enabled`, 5000))) throw new Error(`${s.id} still cannot be judged after its test`);
       await clickText(page, 'PreTripScene', item.bad ? /^Flag defect/ : /^Pass/);
-      await wait(450);
-      if (!(await marked(s.id))) throw new Error(`the verdict on ${s.id} was not recorded`);
+      if (!(await ctx.until(`!!${S}.marks['${s.id}']`, 1500))) throw new Error(`the verdict on ${s.id} was not recorded`);
     }
   };
 
