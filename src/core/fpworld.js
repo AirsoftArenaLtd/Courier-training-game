@@ -17,7 +17,7 @@ OTR.fpWorld = {
       if (!id) {
         let pool = batches.get(parent); if (!pool) { pool = new Map(); batches.set(parent,pool); }
         // Ground/scenery retain material ordering, including distant depth ties with the ground box.
-        const key=(flat?'plane:':'box:')+(parent===route||flat?color:'all')+(parent===route&&solid?':solid':'');
+        const key=(flat?'plane:':'box:')+(parent===route?'all':flat?color:'all')+(parent===route&&solid?':solid':'');
         if (!pool.has(key)) pool.set(key,[]); pool.get(key).push({matrix:mesh.matrix.clone(),color:new T.Color(color),hex:color,flat,bounded:!!solid});
       }
       if(id||solid){
@@ -253,7 +253,7 @@ OTR.fpWorld = {
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
-      const flat=entries[0].flat,coloured=parent===route||flat;
+      const flat=entries[0].flat,coloured=parent!==route&&flat;
       const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
       mesh.computeBoundingSphere();parent.add(mesh);
