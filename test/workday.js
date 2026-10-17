@@ -213,3 +213,31 @@ test('the full-day types score: checks, penalties, bonuses, criticals and the st
   W.report('drive.following', { key: 'leg1' }); W.report('stop.age-check', { key: 'p1', stop: 1 });
   assert.equal(JSON.stringify(good.items.map((i) => [i.got, i.max])), '[[2,2],[2,2]]');
 });
+
+test('the cab, sign, night and damage events of the milestone 7 to 9 contract exist and score as written', () => {
+  const need = ['drive.gear', 'drive.backing-walkaround', 'drive.signal', 'drive.sign-stop', 'drive.sign-giveway', 'drive.sign-speed',
+    'drive.sign-oneway', 'drive.sign-noentry', 'drive.sign-school', 'drive.sign-roadworks', 'drive.route', 'drive.lights', 'drive.cyclist',
+    'drive.clearance', 'load.shift', 'van.damage-scuff', 'van.damage-dent', 'van.damage-major', 'inspect.damage', 'trip.damage-report',
+    'trip.damage-false', 'stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt'];
+  need.forEach(t => assert.ok(E[t], t + ' is in the catalogue'));
+  assert.equal(E['trip.damage-report'].critical, true, 'unreported damage the player caused is critical');
+  assert.equal(E['van.damage-major'].critical, true);
+  assert.equal(E['drive.sign-noentry'].critical, true);
+  assert.equal(E['inspect.damage'].critical, undefined, 'missing existing damage is not critical');
+  assert.ok(E['van.damage-scuff'].pts < E['van.damage-dent'].pts && E['van.damage-dent'].pts < E['van.damage-major'].pts, 'penalties grow with severity');
+});
+
+test('a damage report counts once per zone, and a missing one is recorded as a wrong check', () => {
+  fresh(); W.begin();
+  W.report('trip.damage-report', { key: 'rear', ok: true });
+  W.report('trip.damage-report', { key: 'left', ok: false });
+  W.report('trip.damage-report', { key: 'left', ok: false });             // the same zone again: the same mistake
+  const reports = W.events.filter(e => e.type === 'trip.damage-report');
+  assert.equal(JSON.stringify(reports.map(e => [e.key, e.ok])), JSON.stringify([['rear', true], ['left', false]]));
+});
+
+test('the old mirror and reversing events keep their types (old saves replay) with the new wording', () => {
+  assert.match(E['drive.mirrors'].label, /mirror/i);
+  assert.match(E['drive.backing'].fail, /Reversed|hit/);
+  assert.ok(!/got out/i.test(E['drive.backing'].label), 'getting out is no longer what the score asks for');
+});

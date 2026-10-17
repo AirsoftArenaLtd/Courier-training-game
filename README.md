@@ -3,7 +3,7 @@
 A browser training simulator: a **station hub** with 8 training modules (24 scenarios) and a **connected route day**
 where you brief, inspect, load, drive a town and work each stop with a handheld scanner.
 
-Built with Phaser 3. No build step and no asset files: every character, building and sound is generated in code.
+Built with Phaser 3 and three.js. No build step. The 3D world may use bundled CC0 asset files (models, textures, sounds; `docs/ASSETS.md`); everything still loads from this folder, offline.
 Progress is saved per trainee on a company training server or in the LMS, or in the browser when neither is
 available (see [Running it at a company](#running-it-at-a-company)).
 
