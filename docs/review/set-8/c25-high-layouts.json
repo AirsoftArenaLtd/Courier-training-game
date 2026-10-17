@@ -1,0 +1,75 @@
+{
+  "quality": "high",
+  "presets": [],
+  "fixture": "A stationary, repaired, loaded first-day van. Time presets and walk viewpoints are fixtures; L uses the real keyboard control.",
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "phaserBytes": 5273808,
+      "text": "The engine is running. · It is night. The headlights are on.",
+      "font": 17,
+      "left": 24,
+      "right": 508,
+      "top": 78,
+      "bottom": 99,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "phaserBytes": 5286352,
+      "text": "The engine is running. · It is night. The headlights are on.",
+      "font": 18,
+      "left": 24,
+      "right": 536,
+      "top": 78,
+      "bottom": 99,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "phaserBytes": 6479931,
+      "text": "என்ஜின் ஓடுகிறது. · It is night. The headlights are on.",
+      "font": 17,
+      "left": 24,
+      "right": 509,
+      "top": 102,
+      "bottom": 124,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "phaserBytes": 6493542,
+      "text": "என்ஜின் ஓடுகிறது. · It is night. The headlights are on.",
+      "font": 18,
+      "left": 24,
+      "right": 538,
+      "top": 102,
+      "bottom": 124,
+      "glare": 0,
+      "fov": 68
+    }
+  ],
+  "trainer": {
+    "time": "morning",
+    "planned": "night"
+  },
+  "resume": {
+    "seed": 10,
+    "clock": 500,
+    "restored": {
+      "seed": 10,
+      "clock": 500,
+      "preset": "night",
+      "headlights": true
+    }
+  },
+  "checks": 28,
+  "errors": []
+}

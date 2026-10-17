@@ -90,7 +90,7 @@ OTR.fpLighting={
       },
       caption(){return visible?OTR.fpLighting.caption(time,!!current.van.headlights):'';},
       dispose(){disposed=true;world.onAfterRender=oldAfter;sky.removeFromParent();rig.removeFromParent();skyGeometry.dispose();skyMaterial.dispose();for(const [m,h] of hooks){m.onBeforeCompile=h.before;m.customProgramCacheKey=h.key;m.needsUpdate=true;}if(paint)paint.color.copy(paintColour);
-        sun.castShadow=false;sun.shadow.dispose();sun.shadow.map=sun.shadow.mapPass=null;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;if(owned){world.remove(sun,sun.target,ambient);view.lights=null;}}
+        sun.castShadow=false;sun.shadow.dispose();sun.shadow.map=sun.shadow.mapPass=null;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog)world.fog.color.copy(original.fog);ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;if(owned){world.remove(sun,sun.target,ambient);view.lights=null;}}
     };return api;
   }
 };

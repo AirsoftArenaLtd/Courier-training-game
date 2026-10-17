@@ -41,3 +41,6 @@ test('the bounded shadow area follows the walking viewpoint while van light beam
 test('reflection sky uses the actual camera rotation and FOV, and disposal removes private geometry and hooks',()=>{
  const s=scene(true),a=s.art.lighting,cam=s.view.mirror.cameras[0];a.sky.onBeforeRender({},s.view.world,cam);assert.equal(a.sky.material.uniforms.projection.value.y,1/cam.projectionMatrix.elements[5]);const root=s.view.world,sky=a.sky;s.art.dispose();assert.equal(sky.parent,null);assert.equal(root.getObjectByName('workday-sky'),undefined);assert.equal(s.view.mirror.on,false);
 });
+test('world rebuilds restore the hub sun position, colours and fog before the next lighting adapter is created',()=>{
+ const s=scene(true);s.art.dispose();const sky=new THREE.HemisphereLight(0xE9F1FF,0x63594C,1.5),sun=new THREE.DirectionalLight(0xFFF0DC,1.4);sun.position.set(-12,25,8);s.view.lights={sky,sun};s.view.world.add(sky,sun,sun.target);s.view.world.background=new THREE.Color(0xA7C7DE);s.view.world.fog=new THREE.Fog(0xA7C7DE,65,165);s.art=O.fpWorld.build(s,s.model);s.model.routePlan.timeOfDay='night';s.sync();s.art.dispose();assert.deepEqual(sun.position.toArray(),[-12,25,8]);assert.deepEqual(sun.target.position.toArray(),[0,0,0]);assert.equal(s.view.world.background.getHex(),0xA7C7DE);assert.equal(s.view.world.fog.color.getHex(),0xA7C7DE);
+});

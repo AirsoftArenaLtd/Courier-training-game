@@ -1,0 +1,71 @@
+{
+  "base": "419e361",
+  "combinedC24": "2472760",
+  "nodeSuites": {
+    "firstperson": 18,
+    "fpmission": 39,
+    "fphandheld": 8,
+    "fpworld": 20,
+    "fpdriving": 24,
+    "fpcamera": 9,
+    "fpcab": 10,
+    "fpmirrors": 11,
+    "fplighting": 12,
+    "fpassets": 9,
+    "fproute": 11,
+    "fploadout": 11,
+    "fpday": 10,
+    "fpdoors": 16,
+    "fpaccess": 7,
+    "fpbranding": 4,
+    "fpguide": 3,
+    "fpperf": 2,
+    "fplater": 7,
+    "fpsound": 8,
+    "workday": 20,
+    "savesize": 12,
+    "aids": 3,
+    "lmsreport": 8,
+    "i18n": "passed",
+    "fpresume": 2
+  },
+  "rendered": {
+    "c25-low.json": {
+      "views": 9,
+      "peak": {
+        "calls": 62,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserBytes": 2600662
+    },
+    "c25-high.json": {
+      "views": 4,
+      "peak": {
+        "calls": 103,
+        "triangles": 5784,
+        "textures": 3,
+        "attachmentBytes": 11239424
+      },
+      "phaserBytes": 6952006
+    },
+    "c25-reduced-low.json": {
+      "views": 2,
+      "peak": {
+        "calls": 62,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "phaserBytes": 2600662
+    }
+  },
+  "browser": {
+    "low": 47,
+    "high": 45,
+    "lowLayouts": 32,
+    "highLayouts": 28,
+    "mirrors": 45
+  }
+}

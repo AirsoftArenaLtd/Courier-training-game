@@ -1,0 +1,866 @@
+{
+  "resume": [
+    {
+      "seed": 1,
+      "checkpoints": 101,
+      "events": 42,
+      "score": 6100
+    },
+    {
+      "seed": 2,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 6800
+    },
+    {
+      "seed": 3,
+      "checkpoints": 115,
+      "events": 46,
+      "score": 7700
+    },
+    {
+      "seed": 4,
+      "checkpoints": 111,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 5,
+      "checkpoints": 113,
+      "events": 45,
+      "score": 7100
+    },
+    {
+      "seed": 6,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 7,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 8,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 9,
+      "checkpoints": 114,
+      "events": 45,
+      "score": 7000
+    },
+    {
+      "seed": 10,
+      "checkpoints": 113,
+      "events": 43,
+      "score": 7000
+    },
+    {
+      "seed": 11,
+      "checkpoints": 116,
+      "events": 47,
+      "score": 6800
+    },
+    {
+      "seed": 12,
+      "checkpoints": 116,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 13,
+      "checkpoints": 114,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 14,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 15,
+      "checkpoints": 111,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 16,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 17,
+      "checkpoints": 118,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 18,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 19,
+      "checkpoints": 110,
+      "events": 45,
+      "score": 6900
+    },
+    {
+      "seed": 20,
+      "checkpoints": 117,
+      "events": 43,
+      "score": 6200
+    },
+    {
+      "seed": 21,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 22,
+      "checkpoints": 119,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 23,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7100
+    },
+    {
+      "seed": 24,
+      "checkpoints": 113,
+      "events": 49,
+      "score": 7000
+    },
+    {
+      "seed": 25,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 26,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 27,
+      "checkpoints": 118,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 28,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7300
+    },
+    {
+      "seed": 29,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 30,
+      "checkpoints": 109,
+      "events": 44,
+      "score": 6900
+    }
+  ],
+  "soak": [
+    {
+      "seed": 1,
+      "checkpoints": 101,
+      "events": 42,
+      "score": 6100
+    },
+    {
+      "seed": 2,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 6800
+    },
+    {
+      "seed": 3,
+      "checkpoints": 115,
+      "events": 46,
+      "score": 7700
+    },
+    {
+      "seed": 4,
+      "checkpoints": 111,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 5,
+      "checkpoints": 113,
+      "events": 45,
+      "score": 7100
+    },
+    {
+      "seed": 6,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 7,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 8,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 9,
+      "checkpoints": 114,
+      "events": 45,
+      "score": 7000
+    },
+    {
+      "seed": 10,
+      "checkpoints": 113,
+      "events": 43,
+      "score": 7000
+    },
+    {
+      "seed": 11,
+      "checkpoints": 116,
+      "events": 47,
+      "score": 6800
+    },
+    {
+      "seed": 12,
+      "checkpoints": 116,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 13,
+      "checkpoints": 114,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 14,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 15,
+      "checkpoints": 111,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 16,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 17,
+      "checkpoints": 118,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 18,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 19,
+      "checkpoints": 110,
+      "events": 45,
+      "score": 6900
+    },
+    {
+      "seed": 20,
+      "checkpoints": 117,
+      "events": 43,
+      "score": 6200
+    },
+    {
+      "seed": 21,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 22,
+      "checkpoints": 119,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 23,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7100
+    },
+    {
+      "seed": 24,
+      "checkpoints": 113,
+      "events": 49,
+      "score": 7000
+    },
+    {
+      "seed": 25,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 26,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 27,
+      "checkpoints": 118,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 28,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7300
+    },
+    {
+      "seed": 29,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 30,
+      "checkpoints": 109,
+      "events": 44,
+      "score": 6900
+    },
+    {
+      "seed": 31,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 32,
+      "checkpoints": 114,
+      "events": 46,
+      "score": 6700
+    },
+    {
+      "seed": 33,
+      "checkpoints": 116,
+      "events": 48,
+      "score": 7100
+    },
+    {
+      "seed": 34,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 6800
+    },
+    {
+      "seed": 35,
+      "checkpoints": 111,
+      "events": 42,
+      "score": 6800
+    },
+    {
+      "seed": 36,
+      "checkpoints": 113,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 37,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7300
+    },
+    {
+      "seed": 38,
+      "checkpoints": 113,
+      "events": 43,
+      "score": 7000
+    },
+    {
+      "seed": 39,
+      "checkpoints": 112,
+      "events": 46,
+      "score": 7200
+    },
+    {
+      "seed": 40,
+      "checkpoints": 110,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 41,
+      "checkpoints": 117,
+      "events": 47,
+      "score": 7000
+    },
+    {
+      "seed": 42,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 43,
+      "checkpoints": 117,
+      "events": 48,
+      "score": 6900
+    },
+    {
+      "seed": 44,
+      "checkpoints": 112,
+      "events": 45,
+      "score": 6900
+    },
+    {
+      "seed": 45,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 46,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 47,
+      "checkpoints": 114,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 48,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7200
+    },
+    {
+      "seed": 49,
+      "checkpoints": 109,
+      "events": 48,
+      "score": 6700
+    },
+    {
+      "seed": 50,
+      "checkpoints": 113,
+      "events": 41,
+      "score": 6400
+    },
+    {
+      "seed": 51,
+      "checkpoints": 121,
+      "events": 46,
+      "score": 7400
+    },
+    {
+      "seed": 52,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 53,
+      "checkpoints": 112,
+      "events": 46,
+      "score": 6800
+    },
+    {
+      "seed": 54,
+      "checkpoints": 112,
+      "events": 47,
+      "score": 7200
+    },
+    {
+      "seed": 55,
+      "checkpoints": 108,
+      "events": 43,
+      "score": 6100
+    },
+    {
+      "seed": 56,
+      "checkpoints": 120,
+      "events": 45,
+      "score": 6900
+    },
+    {
+      "seed": 57,
+      "checkpoints": 118,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 58,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7400
+    },
+    {
+      "seed": 59,
+      "checkpoints": 112,
+      "events": 45,
+      "score": 7000
+    },
+    {
+      "seed": 60,
+      "checkpoints": 112,
+      "events": 43,
+      "score": 6800
+    },
+    {
+      "seed": 61,
+      "checkpoints": 113,
+      "events": 43,
+      "score": 6900
+    },
+    {
+      "seed": 62,
+      "checkpoints": 119,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 63,
+      "checkpoints": 114,
+      "events": 46,
+      "score": 7800
+    },
+    {
+      "seed": 64,
+      "checkpoints": 112,
+      "events": 45,
+      "score": 7000
+    },
+    {
+      "seed": 65,
+      "checkpoints": 109,
+      "events": 42,
+      "score": 7100
+    },
+    {
+      "seed": 66,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7400
+    },
+    {
+      "seed": 67,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7300
+    },
+    {
+      "seed": 68,
+      "checkpoints": 116,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 69,
+      "checkpoints": 110,
+      "events": 46,
+      "score": 7300
+    },
+    {
+      "seed": 70,
+      "checkpoints": 105,
+      "events": 41,
+      "score": 6800
+    },
+    {
+      "seed": 71,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7200
+    },
+    {
+      "seed": 72,
+      "checkpoints": 123,
+      "events": 46,
+      "score": 7100
+    },
+    {
+      "seed": 73,
+      "checkpoints": 116,
+      "events": 45,
+      "score": 7300
+    },
+    {
+      "seed": 74,
+      "checkpoints": 112,
+      "events": 45,
+      "score": 6800
+    },
+    {
+      "seed": 75,
+      "checkpoints": 112,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 76,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7200
+    },
+    {
+      "seed": 77,
+      "checkpoints": 118,
+      "events": 44,
+      "score": 7000
+    },
+    {
+      "seed": 78,
+      "checkpoints": 116,
+      "events": 46,
+      "score": 7500
+    },
+    {
+      "seed": 79,
+      "checkpoints": 110,
+      "events": 45,
+      "score": 7100
+    },
+    {
+      "seed": 80,
+      "checkpoints": 111,
+      "events": 42,
+      "score": 6800
+    },
+    {
+      "seed": 81,
+      "checkpoints": 118,
+      "events": 49,
+      "score": 7200
+    },
+    {
+      "seed": 82,
+      "checkpoints": 115,
+      "events": 46,
+      "score": 6700
+    },
+    {
+      "seed": 83,
+      "checkpoints": 115,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 84,
+      "checkpoints": 113,
+      "events": 47,
+      "score": 7400
+    },
+    {
+      "seed": 85,
+      "checkpoints": 105,
+      "events": 40,
+      "score": 6800
+    },
+    {
+      "seed": 86,
+      "checkpoints": 121,
+      "events": 45,
+      "score": 7200
+    },
+    {
+      "seed": 87,
+      "checkpoints": 115,
+      "events": 47,
+      "score": 6900
+    },
+    {
+      "seed": 88,
+      "checkpoints": 113,
+      "events": 43,
+      "score": 7200
+    },
+    {
+      "seed": 89,
+      "checkpoints": 113,
+      "events": 46,
+      "score": 7200
+    },
+    {
+      "seed": 90,
+      "checkpoints": 110,
+      "events": 44,
+      "score": 7300
+    },
+    {
+      "seed": 91,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7100
+    },
+    {
+      "seed": 92,
+      "checkpoints": 114,
+      "events": 43,
+      "score": 7100
+    },
+    {
+      "seed": 93,
+      "checkpoints": 117,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 94,
+      "checkpoints": 114,
+      "events": 46,
+      "score": 7200
+    },
+    {
+      "seed": 95,
+      "checkpoints": 105,
+      "events": 41,
+      "score": 7000
+    },
+    {
+      "seed": 96,
+      "checkpoints": 114,
+      "events": 45,
+      "score": 7500
+    },
+    {
+      "seed": 97,
+      "checkpoints": 117,
+      "events": 44,
+      "score": 7200
+    },
+    {
+      "seed": 98,
+      "checkpoints": 115,
+      "events": 44,
+      "score": 7300
+    },
+    {
+      "seed": 99,
+      "checkpoints": 113,
+      "events": 46,
+      "score": 7200
+    },
+    {
+      "seed": 100,
+      "checkpoints": 115,
+      "events": 43,
+      "score": 7000
+    }
+  ],
+  "failures": [],
+  "phases": [
+    "debrief",
+    "prepare",
+    "return",
+    "route"
+  ],
+  "weathers": [
+    "cloudy",
+    "fog",
+    "ice",
+    "rain"
+  ],
+  "loadouts": [
+    "clear",
+    "extra",
+    "late",
+    "missing",
+    "missort"
+  ],
+  "scormMax": 3943,
+  "scormChecks": 240,
+  "coverage": [
+    "brief",
+    "cab-drive",
+    "cab-headlights",
+    "cab-neutral",
+    "cab-park",
+    "cab-reverse",
+    "cab-wipers",
+    "cargo:n",
+    "close:cargo",
+    "close:n",
+    "complete",
+    "contact:n",
+    "count",
+    "customer:n",
+    "departure",
+    "depot",
+    "depot:cargo",
+    "dispatch:arrival",
+    "dispatch:read",
+    "dog:n",
+    "enter:n",
+    "hazard:n",
+    "id:decision:n",
+    "id:view:n",
+    "inspection:lights",
+    "inspection:tyres",
+    "late:search:n",
+    "lighting:dusk",
+    "lighting:midday",
+    "lighting:morning",
+    "lighting:night",
+    "load:pickup:n",
+    "load:place:n",
+    "load:scan:n",
+    "missing",
+    "morning",
+    "move:n",
+    "open:cargo",
+    "outcome:n",
+    "park:n",
+    "prepared",
+    "retained:n",
+    "return",
+    "return:enter",
+    "return:move",
+    "return:pickup:n",
+    "return:record:n",
+    "return:scan:n",
+    "secure",
+    "secure:n",
+    "signature:n",
+    "stop:pickup:n",
+    "stop:scan:n",
+    "unlisted:aside",
+    "unlisted:pickup",
+    "unlisted:scan"
+  ]
+}
