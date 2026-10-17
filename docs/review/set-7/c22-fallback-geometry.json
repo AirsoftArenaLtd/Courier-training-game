@@ -1,0 +1,14 @@
+{
+  "views": 45000,
+  "peakCalls": 59,
+  "peakTriangles": 2500,
+  "worst": {
+    "day": 18,
+    "variant": 2,
+    "stop": 3,
+    "loaded": true,
+    "pose": "cab-headlights",
+    "calls": 55,
+    "triangles": 2500
+  }
+}

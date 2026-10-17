@@ -5,6 +5,11 @@ for(const file of ['data/workday_events.js','src/core/scorelog.js','src/core/wor
 const M=c.OTR.fpMission,D=c.OTR.fpDriving,W=c.OTR.workday;
 const make=()=>{W.begin();const m=M.create('campaign',7);D.configure(m);m.mode='cab';m.phase='route';m.departed=true;for(const car of m.traffic){car.x=-100;car.z=30;}m.driving.bus.state=m.driving.siren.state='done';Object.assign(m.van,{x:4,z:-70,yaw:0,hand:false,belt:true});return m;};
 const events=type=>W.events.filter(e=>e.type===type);
+test('selecting Neutral or Park ends the previous reversing manoeuvre',()=>{
+ for(const gear of [0,2]){const m=make();m.van.gear=-1;m.van.speed=-.5;D.tick(m,.1);assert.equal(m.driving.reverseActive,true);
+  m.van.speed=0;assert.equal(m.selectGear(gear),true);D.tick(m,.1);assert.equal(m.driving.reverseActive,false);assert.equal(m.driving.reverseSafe,false);
+  m.selectGear(-1);m.van.speed=-.5;D.tick(m,.1);assert.equal(events('drive.backing').length,2);}
+});
 test('each curb departure needs a recent mirror check and restores without replay',()=>{
  const m=make();m.mirror();m.van.speed=2;D.tick(m,.1);D.tick(m,.1);assert.equal(events('drive.mirrors').length,1);assert.equal(events('drive.mirrors')[0].ok,true);
  m.van.speed=0;m.van.hand=true;D.tick(m,.1);m.elapsed=20;m.van.hand=false;m.van.speed=2;D.tick(m,.1);

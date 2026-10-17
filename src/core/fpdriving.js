@@ -99,7 +99,7 @@ OTR.fpDriving = {
           if(d.closeTime>=0.5&&!d.followingFailed){d.followingFailed=true;this.fire(m,'drive.following',m.leg,false,'Followed traffic with less than a three-second gap.');}
         }else d.closeTime=0;
       }else d.closeTime=0;
-      if(v.gear>0&&v.speed>=0){d.reverseActive=false;d.reverseSafe=false;}
+      if(v.gear>=0&&v.speed>=0){d.reverseActive=false;d.reverseSafe=false;}
       if(v.speed< -0.3&&!d.reverseActive){
         d.reverseActive=true;d.reverseCount++;
         const ok=d.goalClear&&m.elapsed-d.goalAt>=0&&m.elapsed-d.goalAt<60&&Math.hypot(v.x-d.goalX,v.z-d.goalZ)<2&&Math.abs(v.yaw-d.goalYaw)<0.2;

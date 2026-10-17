@@ -286,7 +286,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.panel||this.external||this.transitioning||(this.handheld&&this.handheld.isOpen))return;const id=this.aimTarget(),m=this.model;
     if(!id&&(!m||m.mode==='walk')&&!(m&&m.heldId)){this.message(`No target is selected. Move closer or press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target.`);return;}
     if(this.area==='hub'){if(id==='hub-day')this.launch('campaign');else if(id==='hub-practice')this.launch('practice');else if(id==='hub-record')this.showDebrief(this.progress.last);return;}
-    if(m.mode==='cab'){if(!m.exit())this.message('Stop and set the parking brake before exiting.');else this.workdaySound.effect('door','The cab door opens.');this.checkpoint();return;}
+    if(m.mode==='cab'){if(id&&id.startsWith('cab-')&&id!=='cab-exit'){this.cabAction(id);return;}if(!m.exit())this.message('Stop and set the parking brake before exiting.');else this.workdaySound.effect('door','The cab door opens.');this.checkpoint();return;}
     const before={mode:m.mode,cargo:m.cargoOpen,held:m.heldId,secured:m.secured};let result='';
     if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
     else if(id==='tyres'||id==='lights'){this.showInspection(id);return;}else if(id==='dispatch'){this.showDispatch();return;}
@@ -295,6 +295,11 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('slot'))result=m.place(id);else if(id&&id.startsWith('parcel')){if(m.heldId)result=m.putBack();else result=m.pickup(id);}
     else if(m.heldId)result=m.putBack();if(result)this.message(result);
     if(!result){if(before.mode!==m.mode)this.workdaySound.effect('door','The cab door closes.');else if(before.cargo!==m.cargoOpen)this.workdaySound.effect('cargo',m.cargoOpen?'The cargo doors open.':'The cargo doors close.');else if(before.held!==m.heldId)this.workdaySound.effect('cargo',m.heldId?'You pick up the package.':'You put down the package.');else if(!before.secured&&m.secured)this.workdaySound.effect('cargo','The cargo restraints are secure.');}
+    this.checkpoint();this.sync();this.refresh();
+  }
+  cabAction(id){
+    const result=OTR.fpCab.act(this.model,id);
+    this.message(result||OTR.fpCab.hint(id,this.model,OTR.fpAccess.key('KeyE')));
     this.checkpoint();this.sync();this.refresh();
   }
   installInput(){
@@ -310,7 +315,7 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyL','KeyK','KeyR','KeyB','KeyM','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
@@ -338,9 +343,10 @@ class FirstPersonScene extends Phaser.Scene {
       if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
       if(e.code==='KeyP'){OTR.fpAccess.focus(this);return;}
       const m=this.model;if(m&&m.mode==='cab'){
-        if(e.code==='Space')m.van.hand=!m.van.hand;if(e.code==='KeyB')m.van.belt=!m.van.belt;
-        if(e.code==='KeyR'&&!m.shiftGear())this.message('Stop before selecting drive or reverse.');if(e.code==='KeyM')m.mirror();
-        if(e.code==='KeyQ')m.signal=m.signal===-1?0:-1;if(e.code==='KeyC')m.signal=m.signal===1?0:1;if(e.code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
+        if(e.code==='Space')this.cabAction('cab-handbrake');if(e.code==='KeyB')this.cabAction('cab-belt');
+        if(e.code==='KeyL')this.cabAction('cab-headlights');if(e.code==='KeyK')this.cabAction('cab-wipers');
+        if(e.code==='KeyR')this.cabAction(m.van.gear===1?'cab-reverse':'cab-drive');if(e.code==='KeyM')m.mirror();
+        if(e.code==='KeyQ')this.cabAction('cab-signal-left');if(e.code==='KeyC')this.cabAction('cab-signal-right');if(e.code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
       }
     });
     listen(window,'keyup',e=>{delete this.held[e.code];});
@@ -377,7 +383,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.setText('soundCue',this.soundCaption||'',device?790:1220);this.soundCue.setY(this.objective.y+this.objective.height+6);
     if(this.headerBack){const height=Math.max(100,this.soundCue.text?this.soundCue.y+this.soundCue.height+10:this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
     // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
-    const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+(m.van.gear>0?'D':'R')+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
+    const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+OTR.fpCab.gearName(m.van.gear)+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
       m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
     // the key hints change only with the mode, the handheld, saving and the key map: built again only then, not every frame
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
@@ -395,7 +401,7 @@ class FirstPersonScene extends Phaser.Scene {
     }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
-    else if(mode==='cab'){hint=m.driving?OTR.fpDriving.hint(m):'';
+    else if(mode==='cab'){hint=OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
@@ -403,11 +409,11 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · '+`${k('KeyE')} places the parcel.`;
     else if(id&&id.startsWith('gate'))hint=`${k('KeyE')} checks the gate. Keep outside while the dog is loose.`;else if(id&&id.startsWith('hazard'))hint=`${k('KeyE')} inspects the path. Hold ${k('ShiftLeft')} for short, careful steps.`;
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
-    if(mode==='cab'&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
+    if(mode==='cab'&&!(id&&id.startsWith('cab-'))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
-    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked&&mode==='walk');this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
+    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked);this.mirrorLabel.setVisible(!!this.view&&this.view.mirror.on&&!blocked);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);
       if(this.handheld.progress>0){this.scanBeam.fillStyle(0x1B2634,0.9);this.scanBeam.fillRect(570,395,140,8);this.scanBeam.fillStyle(color,1);this.scanBeam.fillRect(570,395,140*Math.min(1,this.handheld.progress/0.45),8);}}
@@ -422,10 +428,12 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
     this.soundCaption=this.workdaySound.tick(time);
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
-    if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'))?this.art.pick():null;this.lastAim=time;const occupied=[];
-      this.labels.forEach(({label,object})=>{const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
-        if(!p||occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)||(this.view.mirror.on&&p.x<380&&p.y<310)){object.setVisible(false);return;}
-        occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
+    if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'||this.model.mode==='cab'))?this.art.pick():null;this.lastAim=time;const occupied=[];
+      this.labels.forEach(({label,object})=>{
+        if(label.gauge&&this.model){const text=label.gauge==='speed'?`The speed is ${Math.round(Math.abs(this.model.van.speed)*2.23694)} mph.`:`The engine is at ${Math.round((this.model.motion?this.model.motion.rpm:800)/100)*100} RPM.`;if(label.text!==text){label.text=text;object.setText(text);}}
+        const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
+        if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)||(this.view.mirror.on&&p.x<380&&p.y<310)){object.setVisible(false);return;}
+        if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
     if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();
   }
 }
