@@ -3746,7 +3746,19 @@ window.OTR_I18N.kn = {
 "It is dusk. The headlights are on.": "ಸಂಜೆಯಾಗಿದೆ. ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಆಗಿದೆ.",
 "It is dusk. Switch on the headlights before moving.": "ಸಂಜೆಯಾಗಿದೆ. ಹೊರಡುವ ಮೊದಲು ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಮಾಡಿ.",
 "It is morning.": "ಬೆಳಗಾಗಿದೆ.",
-"It is midday.": "ಮಧ್ಯಾಹ್ನವಾಗಿದೆ."
+"It is midday.": "ಮಧ್ಯಾಹ್ನವಾಗಿದೆ.",
+"Accessibility": "ಪ್ರವೇಶಾರ್ಹತೆ",
+"Continue": "ಮುಂದುವರಿಸಿ",
+"Create": "ರಚಿಸಿ",
+"Delivery": "ಡೆಲಿವರಿ",
+"Driving": "ಡ್ರೈವಿಂಗ್",
+"Employee ID": "ಉದ್ಯೋಗಿ ಐಡಿ",
+"Erase": "ಅಳಿಸಿ",
+"Password": "ಪಾಸ್‌ವರ್ಡ್",
+"Previous": "ಹಿಂದಿನದು",
+"Reload": "ರೀಲೋಡ್",
+"Returns": "ರಿಟರ್ನ್ಸ್",
+"Scanned": "ಸ್ಕ್ಯಾನ್ ಆಗಿದೆ"
 },
 "templates": [
 [

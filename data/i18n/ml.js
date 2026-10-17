@@ -3746,7 +3746,19 @@ window.OTR_I18N.ml = {
 "It is dusk. The headlights are on.": "സന്ധ്യയാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്.",
 "It is dusk. Switch on the headlights before moving.": "സന്ധ്യയാണ്. നീങ്ങുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ ഓൺ ചെയ്യുക.",
 "It is morning.": "രാവിലെയാണ്.",
-"It is midday.": "ഉച്ചയാണ്."
+"It is midday.": "ഉച്ചയാണ്.",
+"Accessibility": "ആക്സസിബിലിറ്റി",
+"Continue": "തുടരുക",
+"Create": "സൃഷ്ടിക്കുക",
+"Delivery": "ഡെലിവറി",
+"Driving": "ഡ്രൈവിംഗ്",
+"Employee ID": "ജീവനക്കാരുടെ ഐഡി",
+"Erase": "മായ്ക്കുക",
+"Password": "പാസ്‌വേഡ്",
+"Previous": "മുമ്പത്തെ",
+"Reload": "റീലോഡ്",
+"Returns": "റിട്ടേൺസ്",
+"Scanned": "സ്കാൻ ചെയ്തു"
 },
 "templates": [
 [

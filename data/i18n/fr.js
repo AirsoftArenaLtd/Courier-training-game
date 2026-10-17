@@ -3741,7 +3741,25 @@ window.OTR_I18N.fr = {
 "It is dusk. The headlights are on.": "C'est le crépuscule. Les phares sont allumés.",
 "It is dusk. Switch on the headlights before moving.": "C'est le crépuscule. Allume les phares avant de rouler.",
 "It is morning.": "C'est le matin.",
-"It is midday.": "C'est midi."
+"It is midday.": "C'est midi.",
+"Accessibility": "Accessibilité",
+"Bonus": "Bonus",
+"Continue": "Continuer",
+"Create": "Créer",
+"Date": "Date",
+"Delivery": "Livraison",
+"Driving": "Conduite",
+"Employee ID": "Identifiant employé",
+"Erase": "Effacer",
+"Fragile": "Fragile",
+"Modules": "Modules",
+"Password": "Mot de passe",
+"Previous": "Précédent",
+"Reload": "Recharger",
+"Returns": "Retours",
+"Scanned": "Scanné",
+"Service": "Service",
+"Standard": "Standard"
 },
 "templates": [
 [

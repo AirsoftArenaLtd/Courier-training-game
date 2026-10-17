@@ -3747,7 +3747,19 @@ window.OTR_I18N.bn = {
 "It is dusk. The headlights are on.": "এখন সন্ধ্যা। হেডলাইট জ্বলছে।",
 "It is dusk. Switch on the headlights before moving.": "এখন সন্ধ্যা। চলার আগে হেডলাইট জ্বালান।",
 "It is morning.": "এখন সকাল।",
-"It is midday.": "এখন দুপুর।"
+"It is midday.": "এখন দুপুর।",
+"Accessibility": "অ্যাক্সেসিবিলিটি",
+"Continue": "চালিয়ে যান",
+"Create": "তৈরি করুন",
+"Delivery": "ডেলিভারি",
+"Driving": "ড্রাইভিং",
+"Employee ID": "কর্মচারী আইডি",
+"Erase": "মুছুন",
+"Password": "পাসওয়ার্ড",
+"Previous": "আগেরটি",
+"Reload": "রিলোড",
+"Returns": "রিটার্ন",
+"Scanned": "স্ক্যান হয়েছে"
 },
 "templates": [
 [
