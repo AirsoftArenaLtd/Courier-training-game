@@ -270,7 +270,7 @@ items here for each agent.
 | B-5 | Claude | **Finish the language passes:** the full QA pass in Hindi, and in Tamil with large text (both were cut short by container restarts); fix what they find. | doing |
 | B-6 | Claude | **SCORM 2004 package:** `save.js` already supports SCORM 2004 (64,000 characters of suspend data); add a 2004 manifest and a `--2004` option to `test/tools/package-scorm.js`, with a test. | done (`--2004`, `data/lms/imsmanifest-2004.xml`, `test/package.js`) |
 | B-7 | Claude | **Review sheets for new text:** refresh `docs/review/<lang>-safety.csv` with the lines added since A-14 (milestone 6 and the new scoring types) for the native speakers. | done (834 safety lines per language, up from 708; the safety keywords now include damage, signs, cyclists, headlights, night, clearance, gears) |
-| B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | todo |
+| B-8 | Claude | **The review set's mirror view** shows the road ahead, not the mirror; aim the fixture at the mirror (after C-23, at the physical mirror). | done |
 | B-9 | Claude | **Offline check covers the 3D models:** `test/offline.js` also checks that the glTF files load from the game folder with the internet blocked, and that a missing file falls back without a page error. | done (the offline test checks the models load with no internet; the missing-file fallback is in `fpassetsbrowser`) |
 | B-10 | Claude | **Trainer and IT docs for the new pieces:** the 3D workday aids in `docs/PILOT-GUIDE.md`; the package script (1.2 and 2004), the asset folder and its budget in `docs/IT-NOTES.md`. | done |
 | B-11 | Claude | **The trainer aids end to end:** a browser flow that sets the aids off in Settings → Trainer, starts a workday and checks the 3D world got them (`OTR.academy.workdayRules` as read by C-21's assists). | done (QA flow `workday-aids`; `workday-3d` checks full assists on a first day) |
@@ -304,6 +304,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-8:** the review set's `mirror` view (`test/tools/review-set.js`) now puts the van on the first street and looks straight at the physical left mirror, using `OTR.fpMirrors.specs` the same way the game's own gaze check does. The tool fails if the game does not count that view as looking at the left mirror, or if the mirror never rendered. It previously set the walking yaw, so the cab camera showed the road ahead. Earlier sets keep the old view.
 
 - **17 October 2026, Claude — C-23 merged:** live physical mirrors in. Reviewed in a fresh worktree from pilot `7c6d151`; board rebuilt from pilot plus Codex's C-23 entries (the old duplicate B-1 row removed); translated the 8 mirror sentences and the cab guide into all 11 languages; `test/i18n.js` now treats an id-like template (`turn:{0}:{1}`, an event key) as not text, as it already did for strings. All suites listed in the Codex inbox pass; `fpmirrorsbrowser` passes but is flaky under load (handed to Codex). B-8 (review-set mirror view) is now unblocked.
 
