@@ -3683,7 +3683,8 @@ window.OTR_I18N.ta = {
 "Turn by turn": "திருப்பம் திருப்பமாக",
 "Optional": "விருப்பம்",
 "Required": "கட்டாயம்",
-"3D workday aids…": "3D வேலைநாள் உதவிகள்…"
+"3D workday aids…": "3D வேலைநாள் உதவிகள்…",
+"Your workday is loading.": "உங்கள் பணிநாள் ஏற்றப்படுகிறது."
 },
 "templates": [
 [

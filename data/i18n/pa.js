@@ -3684,7 +3684,8 @@ window.OTR_I18N.pa = {
 "Turn by turn": "ਮੋੜ-ਦਰ-ਮੋੜ",
 "Optional": "ਵਿਕਲਪਿਕ",
 "Required": "ਲਾਜ਼ਮੀ",
-"3D workday aids…": "3D ਕੰਮ ਦੇ ਦਿਨ ਦੀ ਮਦਦ…"
+"3D workday aids…": "3D ਕੰਮ ਦੇ ਦਿਨ ਦੀ ਮਦਦ…",
+"Your workday is loading.": "ਤੁਹਾਡਾ ਕੰਮ ਦਾ ਦਿਨ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ।"
 },
 "templates": [
 [

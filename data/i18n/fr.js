@@ -3678,7 +3678,8 @@ window.OTR_I18N.fr = {
 "Turn by turn": "Guidage",
 "Optional": "Facultatif",
 "Required": "Obligatoire",
-"3D workday aids…": "Aides de la journée 3D…"
+"3D workday aids…": "Aides de la journée 3D…",
+"Your workday is loading.": "Ta journée se charge."
 },
 "templates": [
 [

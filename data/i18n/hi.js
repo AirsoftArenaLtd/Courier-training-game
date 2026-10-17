@@ -3683,7 +3683,8 @@ window.OTR_I18N.hi = {
 "Turn by turn": "मोड़-दर-मोड़",
 "Optional": "वैकल्पिक",
 "Required": "ज़रूरी",
-"3D workday aids…": "3D कार्यदिवस की सहायता…"
+"3D workday aids…": "3D कार्यदिवस की सहायता…",
+"Your workday is loading.": "आपका कार्यदिवस लोड हो रहा है।"
 },
 "templates": [
 [

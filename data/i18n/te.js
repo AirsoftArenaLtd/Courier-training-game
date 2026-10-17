@@ -3683,7 +3683,8 @@ window.OTR_I18N.te = {
 "Turn by turn": "మలుపు మలుపుగా",
 "Optional": "ఐచ్ఛికం",
 "Required": "తప్పనిసరి",
-"3D workday aids…": "3D వర్క్‌డే సహాయాలు…"
+"3D workday aids…": "3D వర్క్‌డే సహాయాలు…",
+"Your workday is loading.": "మీ పనిదినం లోడ్ అవుతోంది."
 },
 "templates": [
 [

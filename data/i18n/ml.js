@@ -3683,7 +3683,8 @@ window.OTR_I18N.ml = {
 "Turn by turn": "വളവ് വളവായി",
 "Optional": "ഓപ്ഷണൽ",
 "Required": "നിർബന്ധം",
-"3D workday aids…": "3D ജോലിദിന സഹായങ്ങൾ…"
+"3D workday aids…": "3D ജോലിദിന സഹായങ്ങൾ…",
+"Your workday is loading.": "നിങ്ങളുടെ പ്രവൃത്തിദിനം ലോഡ് ചെയ്യുന്നു."
 },
 "templates": [
 [
