@@ -3740,7 +3740,13 @@ window.OTR_I18N.te = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "ఇరుకు స్థలంలో వ్యాన్‌ను పార్క్ చేసి భద్రపరచండి, తర్వాత దాని వెనుకకు నడిచి రివర్స్ దారిని చూడండి. ఈ సందర్భంలో ట్రైనర్ తప్పనిసరి చేస్తే తప్ప ఈ తనిఖీ ఐచ్ఛికం. ప్రజలను, ట్రాఫిక్‌ను దూరంగా ఉంచండి.",
 "You parked in the practice bay. Open the menu to choose another space.": "మీరు ప్రాక్టీస్ బేలో పార్క్ చేశారు. వేరే స్థలం ఎంచుకోవడానికి మెనూ తెరవండి.",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "ఇక్కడ ట్రైనర్ వాక్-అరౌండ్ తప్పనిసరి అంటున్నారు. రివర్స్‌కు ముందు పార్క్ చేసి, దిగి వ్యాన్ వెనుక చూడండి.",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "రివర్స్ ఎంచుకుని గుర్తించిన బేలోకి వెనక్కి వెళ్లండి. నేరుగా అయ్యాక ఆగి పార్కింగ్ బ్రేక్ వేయండి."
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "రివర్స్ ఎంచుకుని గుర్తించిన బేలోకి వెనక్కి వెళ్లండి. నేరుగా అయ్యాక ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"It is night. The headlights are on.": "రాత్రి అయింది. హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి.",
+"It is night. Switch on the headlights before moving.": "రాత్రి అయింది. కదలడానికి ముందు హెడ్‌లైట్లు ఆన్ చేయండి.",
+"It is dusk. The headlights are on.": "సాయంత్రం అయింది. హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి.",
+"It is dusk. Switch on the headlights before moving.": "సాయంత్రం అయింది. కదలడానికి ముందు హెడ్‌లైట్లు ఆన్ చేయండి.",
+"It is morning.": "ఉదయం అయింది.",
+"It is midday.": "మధ్యాహ్నం అయింది."
 },
 "templates": [
 [

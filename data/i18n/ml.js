@@ -3740,7 +3740,13 @@ window.OTR_I18N.ml = {
 "For a tight space, park and secure the van, then walk behind it and look along the reversing path. This check is optional unless the trainer requires it in this scenario. Keep people and traffic clear.": "ഇടുങ്ങിയ സ്ഥലത്ത് വാൻ പാർക്ക് ചെയ്ത് സുരക്ഷിതമാക്കുക, എന്നിട്ട് അതിന്റെ പിന്നിലേക്ക് നടന്ന് റിവേഴ്സ് വഴി നോക്കുക. ഈ സാഹചര്യത്തിൽ ട്രെയിനർ ആവശ്യപ്പെടുന്നില്ലെങ്കിൽ ഈ പരിശോധന ഓപ്ഷണലാണ്. ആളുകളെയും ട്രാഫിക്കിനെയും അകറ്റി നിർത്തുക.",
 "You parked in the practice bay. Open the menu to choose another space.": "നിങ്ങൾ പ്രാക്ടീസ് ബേയിൽ പാർക്ക് ചെയ്തു. മറ്റൊരു സ്ഥലം തിരഞ്ഞെടുക്കാൻ മെനു തുറക്കുക.",
 "The trainer requires a walk-around here. Park, get out and look behind the van before reversing.": "ഇവിടെ ട്രെയിനർ വാക്ക്-എറൗണ്ട് ആവശ്യപ്പെടുന്നു. റിവേഴ്സിന് മുമ്പ് പാർക്ക് ചെയ്ത്, ഇറങ്ങി വാനിന് പിന്നിൽ നോക്കുക.",
-"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "റിവേഴ്സ് തിരഞ്ഞെടുത്ത് അടയാളപ്പെടുത്തിയ ബേയിലേക്ക് പിന്നോട്ടെടുക്കുക. നേരെയായാൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക."
+"Select reverse and back into the marked bay. Stop and set the parking brake when aligned.": "റിവേഴ്സ് തിരഞ്ഞെടുത്ത് അടയാളപ്പെടുത്തിയ ബേയിലേക്ക് പിന്നോട്ടെടുക്കുക. നേരെയായാൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"It is night. The headlights are on.": "രാത്രിയാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്.",
+"It is night. Switch on the headlights before moving.": "രാത്രിയാണ്. നീങ്ങുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ ഓൺ ചെയ്യുക.",
+"It is dusk. The headlights are on.": "സന്ധ്യയാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്.",
+"It is dusk. Switch on the headlights before moving.": "സന്ധ്യയാണ്. നീങ്ങുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ ഓൺ ചെയ്യുക.",
+"It is morning.": "രാവിലെയാണ്.",
+"It is midday.": "ഉച്ചയാണ്."
 },
 "templates": [
 [

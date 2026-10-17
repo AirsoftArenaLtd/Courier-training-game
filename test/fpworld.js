@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const THREE=require('../lib/three.min.js');
 const context={THREE,Phaser:{Scene:class{}},URLSearchParams,location:{search:''}};context.window=context;
 vm.createContext(context);
-for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
+for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fplighting','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
 context.OTR.registerScene=C=>{context.SceneClass=C;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
 test('parking practice at Dispatch opens its own menu instead of a workday completion',()=>{

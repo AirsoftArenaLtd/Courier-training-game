@@ -6,6 +6,14 @@ ceiling are unchanged. Two 240,000-view loaded/fallback sweeps peak at 61/60 cal
 practice-space views peak at 49 calls / 1,014 triangles. The ceilings below remain the gate; current rendered
 figures are in `docs/PERF.md` and evidence is indexed in `docs/review/set-7/c24.md`.
 
+**C-25 review update (17 October 2026):** the texture-free sky adds at most two calls and four triangles
+across the world and one reflection. Low keeps shadows/contact occlusion off, with two allocated Three.js
+textures and 3,557,376 estimated attachment bytes. Its loaded 162,000-view sweep peaks at 61 calls / 2,094
+triangles; fallback peaks at 60 / 2,086. A separate checkout with pushed C-24 rear-camera code passes
+240,000 views at 63 / 2,124. The same 64-call, 2,500-triangle and memory ceilings remain in force.
+High alone adds a bounded 512-pixel soft shadow map. Rendered figures and evidence: `docs/PERF.md`,
+`docs/review/set-8/c25.md`. SwiftShader does not establish the native Intel 60 fps floor.
+
 **C-23 mirror update (17 October 2026):** the current renderer has three always-live physical mirrors sharing a
 384 × 144 atlas on Low, with at most one reflection update per frame. The old requested floating mirror below
 is historical. The ceilings are unchanged. Two 162,000-view sweeps peak at 59 calls / 2,090 triangles with loaded

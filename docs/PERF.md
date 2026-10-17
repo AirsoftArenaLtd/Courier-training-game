@@ -66,6 +66,55 @@ test launch-race follow-up now requires a non-null new loading token, retains fi
 model/frame state; full and CPU-throttled runs cover it. Evidence: `docs/review/set-7/c24.md`; model and controls:
 `docs/3D-REAR-CAMERA.md`. Software rendering measures resources and behaviour; O-1 still requires native Intel FPS.
 
+## C-25: lighting and time of day (17 October 2026)
+
+The four clock-derived presets keep the first day's existing start time. The sky uses two triangles and
+no image texture; Low adds one combined headlight beam, an automatic reverse beam and interior illumination.
+High has two front beams, eight bounded contact-occlusion footprints and a 512 × 512 soft sun shadow map.
+The map refreshes at 8 Hz or after sufficient movement, after restoring main-view instance buffers.
+The bounded shadow area follows the current cab or walking viewpoint. Reduced motion removes sky glare.
+
+Low's 162,000-view loaded sweep peaks at **61 calls / 2,094 triangles**, and its procedural fallback at
+**60 / 2,086**. Both rotate through the four lighting presets across days/stops. A temporary checkout with
+pushed C-24 `2472760` and C-25 code passes **240,000 views at 63 / 2,124**, including the reverse reflection.
+It applies topic code without a merge and leaves both review branches intact. Low retains **two Three.js
+textures / 3,557,376 attachment bytes**. High's allocated shadow map brings its attachment estimate to
+**11,239,424 bytes**, including the world and reflection atlas. No Low ceiling changed.
+
+Nine rendered combined Low views peak at **62 calls / 2,124 triangles**, two textures, **3,557,376
+attachment bytes** and **2,600,662 estimated Phaser texture bytes**. Four High views, including actual
+shadow refresh frames, peak at **103 / 5,784**, three textures, **11,239,424 attachment bytes** and
+**6,952,006 Phaser bytes**. Two Low reduced-motion views also pass with the same texture ceilings.
+The two language/size caption audits pass 32 Low and 28 High assertions with native Tamil fonts; the
+existing live-mirror regression passes 45. The full lighting pixel/controls checks pass 47 Low and 45 High
+assertions. Caption audit Phaser memory stays below 2 MiB on Low. Combined source geometry storage is 5,112 bytes on Low and 21,816 on High. No page errors or context loss
+occur. Both the forward night scene and automatic rear camera remain live under the colour filter.
+
+All 26 Node suites pass, including twelve lighting cases, world, mission, driving, workday, savesize and
+the current i18n catalogue. Thirty seeded resume comparisons and the 100-day soak preserve complete
+mission/event identity with all four saved presets; 240 SCORM score round trips peak at **3,943 / 4,000**.
+The existing day number for trainer aids is unchanged. No shared save, scoring, Settings or i18n source
+was edited. New lighting sentences await Claude's translation pass. Resource and screenshot evidence:
+`docs/review/set-8/c25.md`; implementation details: `docs/3D-LIGHTING.md`. Cloud software FPS remains
+outside native Intel acceptance (O-1).
+
+Commands, one Chromium at a time (set `QA_BASE` to the chosen checkout's HTTP server):
+
+```sh
+node test/fplighting.js
+node test/fplightingbrowser.js
+QA_GFX=high node test/fplightingbrowser.js
+QA_LAYOUT_ONLY=1 node test/fplightingbrowser.js
+QA_LAYOUT_ONLY=1 QA_GFX=high node test/fplightingbrowser.js
+QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_LIGHTING=1 QA_TAG=c25-fallback node test/fproute.js
+QA_ASSETS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_LIGHTING=1 QA_TAG=c25-loaded node test/fproute.js
+QA_ASSETS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_TAG=c25-combined node test/fproute.js
+QA_CAB=1 QA_LATER=1 QA_LIGHTING=1 node test/fpresume.js
+QA_GFX=low QA_TAG=c25-combined QA_LIGHTING=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,barcodeAim,laterstressturn,laterrearpeak,lightingmorning,lightingmidday,lightingdusk,lightingnight,lightingnightreverse QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c25-combined QA_LIGHTING=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=lightingmorning,lightingmidday,lightingnight,lightingnightreverse QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_TAG=c25-reduced QA_LIGHTING=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour,reduced QA_VIEWS=laterrearpeak,lightingnightreverse QA_SHOTS=1 node test/fpbench.js
+```
+
 ## C-23: three physical mirrors (17 October 2026)
 
 Three always-live mirrors replace the requested floating overlay. One atlas holds all three images; a maximum
