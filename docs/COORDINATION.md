@@ -296,7 +296,7 @@ items here for each agent.
 | B-21 | Claude | **Which aids were on, in the record:** a trainer reading a workday's results (and the LMS/xAPI record) cannot tell whether driving assists, the sat nav line or the walkaround rule were on that day. Save the day's `workdayRules` with the day, show them on the results and in the trainer's report, and send them with the xAPI result; test that a day with assists on and one with them off are told apart. | done |
 | B-22 | Claude | **xAPI names the critical mistakes:** `server/xapi.js` sends a day's `criticalErrors` as a count only, so an LMS report cannot say why a day failed (unreported damage, no-entry, major damage). Add the critical event types and their English labels as a result extension on the day statement (stable ids, no personal data beyond what is sent now, `docs/DATA.md` updated) and a test in the server's xAPI tests. | done |
 | B-23 | Claude | **Real text hidden in `data/i18n/not-text.json`:** "Workday" was listed there, so the trainer's record showed it in English in every language (fixed in B-21). Go through the list (about 290 entries) and take out every word a trainee or trainer reads as text, translating each into all 11 languages; keep names, street signs, codes and fragments. | done |
-| B-24 | Claude | **Review set 7 for the owner:** milestone 7's cab, mirrors, rear camera, lighting and weather are all in, so capture `node test/tools/review-set.js 7` (Low and High) into `docs/review/set-7/views/`, fill in `docs/review/set-7/CHECKLIST.md` with what to look at in each, and tell the owner it is ready to compare with set 6. | todo |
+| B-24 | Claude | **Review set 7 for the owner:** milestone 7's cab, mirrors, rear camera, lighting and weather are all in, so capture `node test/tools/review-set.js 7` (Low and High) into `docs/review/set-7/views/`, fill in `docs/review/set-7/CHECKLIST.md` with what to look at in each, and tell the owner it is ready to compare with set 6. | done |
 | B-25 | Claude | **The LMS package after milestone 7:** rebuild the SCORM 1.2 and 2004 packages, check every new 3D file is in them, the size against the 100 MB budget, and update the figures in `docs/IT-NOTES.md`. | todo |
 
 ## Questions for the owner
@@ -324,6 +324,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-24:** review set 7 is captured in `docs/review/set-7/views/` (open `index.md`): depot, cab, the left mirror, the first street, the rear camera in reverse, the first stop, a doorstep, night with headlights and rain with the wipers, each at Low and High. `test/tools/review-set.js` now finds the C-24 rear camera and the C-25 time of day (its reverse and night views had said "not built yet"), has a rain view for C-26, and starts every view from the day as launched so one view's weather or time does not leak into the next. The sat nav and damage views wait for their tasks. `CHECKLIST.md` has two more lines, for lighting and weather. **Owner: set 7 is ready for your five minutes.**
 
 - **17 October 2026, Claude — C-26 merged:** visible weather (rain on the windscreen with the wipers, wet roads, fog, snow, breath and spray) is in; no scoring or text change. The full loaded sweep peaks at 64 calls on Low, exactly the ceiling, so the next 3D task must win calls back first (Codex inbox). One intermittent `workday-3d-c` signature failure, gone on rerun, is added to B-19.
 
