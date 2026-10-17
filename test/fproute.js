@@ -86,7 +86,8 @@ test('all five generated facade doors are raycastable at low graphics',()=>{
 });
 test('the van can steer around a right-hand grid corner without crossing buildings or leaving the street',()=>{
  const m=full();m.mode='cab';m.paused=false;m.secured=true;m.departed=true;m.crossing.state='resolved';m.traffic=[];
- const j=m.junctions[1];Object.assign(m.van,{x:j.x+2.1,z:j.z+8,yaw:0,speed:2,hand:false,belt:true});
+ // Turn in when the front axle reaches the junction; the rear-axle van now has a real tail swing.
+ const j=m.junctions[1];Object.assign(m.van,{x:j.x+2.1,z:j.z+6,yaw:0,speed:2,hand:false,belt:true});
  for(let i=0;i<800&&m.van.yaw<Math.PI/2-0.03;i++)m.step({forward:m.van.speed<2,right:true},0.025);
  assert.ok(m.van.yaw>1.5,JSON.stringify(m.van));
  assert.equal(m.solids.some(b=>c.OTR.fp.vanBox(m.van,b)),false);

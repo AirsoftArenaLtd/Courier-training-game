@@ -19,6 +19,72 @@ OTR.fp = {
       Math.abs(dx * c + dz * s) < 1.08 + Math.abs(c) * b.w / 2 + Math.abs(s) * b.d / 2 &&
       Math.abs(-dx * s + dz * c) < 2.7 + Math.abs(s) * b.w / 2 + Math.abs(c) * b.d / 2;
   },
+  driveAssist(m) {
+    // A-21 can supply a transient trainer override; the default fades from full assistance to unassisted by day five.
+    if (Number.isFinite(m.driveAssist)) return this.clamp(m.driveAssist, 0, 1);
+    const day = m.routePlan ? m.routePlan.day : m.briefing ? m.briefing.day : 1;
+    return this.clamp(1 - (day - 1) / 4, 0, 1);
+  },
+  payload(m) {
+    if (!m.parcels) return m.package === 'loaded' ? 5 : 0;
+    let kg = 0;
+    for (const p of m.parcels) if (p.location.startsWith('slot')) {
+      // Full-route labels use pounds; the original three-parcel lesson uses kilograms.
+      kg += this.clamp((Number(p.weight) || 0) * (m.routePlan ? 0.45359237 : 1), 0, 500);
+    }
+    return kg;
+  },
+  suspension(m, dt, acceleration = 0, lateral = 0) {
+    const d = m.motion || (m.motion = { acceleration:0, lateral:0, pitch:0, roll:0, payload:0, mass:2400,
+      frontLoad:0, rearLoad:0, rpm:800, assist:1, contact:false });
+    d.payload = this.payload(m); d.mass = 2400 + d.payload; d.assist = this.driveAssist(m);
+    d.acceleration = this.clamp(acceleration, -12, 12); d.lateral = lateral;
+    const cg = 0.8 + Math.min(0.2, d.payload / 1500), transfer = this.clamp(d.acceleration * cg / (9.81 * 3.3), -0.3, 0.3);
+    d.frontLoad = d.mass * 9.81 * (0.5 - transfer); d.rearLoad = d.mass * 9.81 * (0.5 + transfer);
+    const blend = 1 - Math.exp(-dt * 7);
+    d.pitch += (this.clamp(d.acceleration * 0.006, -0.035, 0.025) - d.pitch) * blend;
+    d.roll += (this.clamp(lateral * 0.005 * (1 + d.payload / 2400), -0.025, 0.025) - d.roll) * blend;
+    d.rpm = 800 + Math.min(2600, Math.abs(m.van.speed) * 190);
+    return d;
+  },
+  drive(m, input, dt) {
+    if (!(dt > 0)) return;
+    const v = m.van, speed = v.speed, assist = this.driveAssist(m), mass = 2400 + this.payload(m);
+    const grip = this.clamp(Number(m.traction) || 1, 0.2, 1), abs = Math.abs(speed);
+    if (v.hand || input.back) {
+      const braking = v.hand ? 19200 : 13500 + assist * 1000;
+      v.speed = this.approach(speed, 0, braking / mass * grip * dt);
+    } else if (input.forward) {
+      const force = v.gear * 6200 / (1 + abs * abs * 0.016), drag = Math.sign(speed) * (500 + 8 * abs * abs);
+      v.speed = this.clamp(speed + (force - drag) / mass * dt, -(1.7 + (1 - assist) * 0.4), 12 - assist * 4);
+    } else if (v.gear < 0) {
+      v.speed = this.approach(speed, -(0.45 - assist * 0.1), 0.6 * 2400 / mass * dt);
+    } else {
+      v.speed = this.approach(speed, 0, (500 + 8 * abs * abs) / mass * dt);
+    }
+    const oldSteer = v.steer;
+    const limit = Math.min(0.58 / (1 + (mass - 2400) / 4000), Math.atan((4.8 - assist) * grip * 3.3 / Math.max(1, abs * abs)));
+    const target = (Number(!!input.right) - Number(!!input.left)) * limit;
+    v.steer = this.approach(v.steer, target, (target ? 1.05 + assist * 0.35 : 1.5 + assist) * dt);
+    const distance = (speed + v.speed) * 0.5 * dt, turn = distance * Math.tan((oldSteer + v.steer) * 0.5) / 3.3;
+    const yaw = v.yaw + turn, mid = v.yaw + turn * 0.5, rear = 1.7;
+    // The stored position stays the body centre. Integrate the rear axle, then recover the body centre.
+    const next = m._motorPose || (m._motorPose = { x:0, z:0, yaw:0 });
+    next.x = v.x + Math.sin(mid) * distance + (Math.sin(yaw) - Math.sin(v.yaw)) * rear;
+    next.z = v.z - Math.cos(mid) * distance - (Math.cos(yaw) - Math.cos(v.yaw)) * rear;
+    next.yaw = Math.atan2(Math.sin(yaw), Math.cos(yaw));
+    const b = m.bounds, c = Math.cos(yaw), s = Math.sin(yaw); let outside = false;
+    for (let i = -1; i <= 1; i += 2) for (let j = -1; j <= 1; j += 2) {
+      const x = next.x + c * i * 1.08 - s * j * 2.7, z = next.z + s * i * 1.08 + c * j * 2.7;
+      if (x < b.x0 || x > b.x1 || z < b.z0 || z > b.z1) outside = true;
+    }
+    let contact = outside || !!(m.driveAllowed && !m.driveAllowed(next));
+    if (!contact) for (const solid of m.solids) if (this.vanBox(next, solid)) { contact = true; break; }
+    if (contact) v.speed = 0;
+    else { v.x = next.x; v.z = next.z; v.yaw = next.yaw; }
+    const d = this.suspension(m, dt, (v.speed - speed) / dt, contact ? 0 : turn / dt * (speed + v.speed) * 0.5);
+    d.contact = contact; d.rpm += input.forward && !input.back && !v.hand ? 400 : 0;
+  },
   create() {
     const F = this;
     const m = {
@@ -116,6 +182,7 @@ OTR.fp = {
           this.inspectYaw += (input.right - input.left) * dt * 1.8; return;
         }
         if (this.mode === 'walk') {
+          if (this.motion) F.suspension(this, dt);
           let f = input.forward - input.back, r = input.right - input.left;
           const length = Math.hypot(f, r);
           if (length > 1) { f /= length; r /= length; }
@@ -126,21 +193,7 @@ OTR.fp = {
           if (!this.blocked(p.x, p.z + dz)) p.z += dz;
           return;
         }
-        const v = this.van;
-        if (v.hand || input.back) v.speed = F.approach(v.speed, 0, (v.hand ? 8 : 5) * (this.traction || 1) * dt);
-        else if (input.forward) v.speed = F.clamp(v.speed + v.gear * 2.4 * dt, -2.5, 8);
-        else v.speed = F.approach(v.speed, 0, 0.7 * dt);
-        const angle = (input.right - input.left) * (0.48 - 0.15 * Math.min(1, Math.abs(v.speed) / 8));
-        v.steer += (angle - v.steer) * (1 - Math.exp(-dt * 9));
-        const next = Object.assign({}, v);
-        next.yaw += v.speed * Math.tan(v.steer) / 3.2 * dt;
-        next.x += Math.sin(next.yaw) * v.speed * dt;
-        next.z -= Math.cos(next.yaw) * v.speed * dt;
-        const b = this.bounds;
-        const outside = [F.local(next, -1.08, -2.7), F.local(next, 1.08, -2.7), F.local(next, -1.08, 2.7), F.local(next, 1.08, 2.7)]
-          .some(p => p.x < b.x0 || p.x > b.x1 || p.z < b.z0 || p.z > b.z1);
-        if (outside || (this.driveAllowed && !this.driveAllowed(next)) || this.solids.some(o => F.vanBox(next, o))) { v.speed = 0; return; }
-        v.x = next.x; v.z = next.z; v.yaw = Math.atan2(Math.sin(next.yaw), Math.cos(next.yaw));
+        F.drive(this, input, dt);
       }
     };
     return m;

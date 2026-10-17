@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-17",
+  "base": "1a6408b",
+  "branch": "codex/c20-dynamics",
+  "node": [
+    {
+      "command": "node test/firstperson.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/fpmission.js",
+      "passed": 39
+    },
+    {
+      "command": "node test/fphandheld.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/fpworld.js",
+      "passed": 18
+    },
+    {
+      "command": "node test/fproute.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fploadout.js",
+      "passed": 11
+    },
+    {
+      "command": "node test/fpdriving.js",
+      "passed": 23
+    },
+    {
+      "command": "node test/fpday.js",
+      "passed": 10
+    },
+    {
+      "command": "node test/fpdoors.js",
+      "passed": 16
+    },
+    {
+      "command": "node test/fpaccess.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpbranding.js",
+      "passed": 4
+    },
+    {
+      "command": "node test/fpguide.js",
+      "passed": 3
+    },
+    {
+      "command": "node test/fpperf.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fplater.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/fpresume.js",
+      "passed": 2
+    },
+    {
+      "command": "node test/fpsound.js",
+      "passed": 7
+    },
+    {
+      "command": "node test/workday.js",
+      "passed": 15
+    },
+    {
+      "command": "node test/savesize.js",
+      "passed": 8
+    },
+    {
+      "command": "node test/i18n.js",
+      "passed": true
+    }
+  ],
+  "laterResume": {
+    "command": "QA_LATER=1 node test/fpresume.js",
+    "resumeSeeds": 30,
+    "checkpoints": 3250,
+    "soakDays": 100,
+    "scormChecks": 240,
+    "scormPeakCharacters": 3596,
+    "failures": []
+  },
+  "geometry": {
+    "command": "QA_LATER=1 node test/fproute.js",
+    "views": 3000,
+    "peakCalls": 54,
+    "peakTriangles": 2480,
+    "worst": {
+      "day": 18,
+      "variant": 2,
+      "stop": 4,
+      "loaded": true,
+      "calls": 54,
+      "triangles": 2480
+    }
+  },
+  "keyboard": {
+    "command": "QA_BROWSER=/usr/bin/chromium QA_NO_AUDIO=1 node test/fpaccessbrowser.js",
+    "passed": 145,
+    "audioUnavailable": true,
+    "scope": "Real-key loading, scanning, cab controls, five stops, retained returns, finish, remapping, narration, reload and reduced-motion/colour checks; long travel uses position fixtures."
+  },
+  "dynamicsBrowser": {
+    "command": "QA_CLIP=1 node test/fpdynamicsbrowser.js",
+    "passed": 27,
+    "clipSeconds": 12.72
+  },
+  "renderGates": {
+    "low": {
+      "report": "c20-low.json",
+      "views": 6,
+      "passed": true
+    },
+    "lowReduced": {
+      "report": "c20-low-reduced.json",
+      "views": 1,
+      "passed": true
+    },
+    "high": {
+      "report": "c20-high.json",
+      "views": 1,
+      "passed": true
+    }
+  }
+}

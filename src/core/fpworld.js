@@ -140,28 +140,29 @@ OTR.fpWorld = {
     }
 
     const van = new T.Group(); route.add(van);
-    box(van,0,0.42,0,2.16,0.25,5.4,0x454955,null,true);
-    box(van,0,0.75,-1.85,2.1,0.8,1.7,brand.body,null,true);
-    box(van,0,1.7,-0.95,2.1,2.55,0.15,brand.body,null,true);
-    [-1.03,1.03].forEach(x=>box(van,x,1.78,0.8,0.12,2.65,3.5,brand.body,null,true));
-    box(van,0,3.15,0.8,2.2,0.12,3.8,brand.body,null,true);
+    const chassis = new T.Group();van.add(chassis);
+    box(chassis,0,0.42,0,2.16,0.25,5.4,0x454955,null,true);
+    box(chassis,0,0.75,-1.85,2.1,0.8,1.7,brand.body,null,true);
+    box(chassis,0,1.7,-0.95,2.1,2.55,0.15,brand.body,null,true);
+    [-1.03,1.03].forEach(x=>box(chassis,x,1.78,0.8,0.12,2.65,3.5,brand.body,null,true));
+    box(chassis,0,3.15,0.8,2.2,0.12,3.8,brand.body,null,true);
     for(const side of [-1,1]){
-      box(van,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);
-      box(van,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);
-      labels.push({parent:van,local:new T.Vector3(side*1.13,2.1,.6),point:new T.Vector3(),normal:new T.Vector3(side,0,0),text:brand.name,brand:true,max:16});
+      box(chassis,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);
+      box(chassis,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);
+      labels.push({parent:chassis,local:new T.Vector3(side*1.13,2.1,.6),point:new T.Vector3(),normal:new T.Vector3(side,0,0),text:brand.name,brand:true,max:16});
     }
-    [-0.8,0.8].forEach(x=>box(van,x,1.06,0.9,0.48,0.12,3.3,0x827D74,null,true));
+    [-0.8,0.8].forEach(x=>box(chassis,x,1.06,0.9,0.48,0.12,3.3,0x827D74,null,true));
     [-1.09,1.09].forEach(x=>[-1.6,1.7].forEach(z=>box(van,x,0.42,z,0.22,0.7,0.7,0x2A2E35,x<0&&z<0?'tyres':null)));
-    box(van,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');
-    box(van,0,0.96,-2.73,1.6,0.3,0.06,0xC9C8BD,'lights');
-    const faultLamp=box(van,-0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
-    box(van,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
+    box(chassis,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');
+    box(chassis,0,0.96,-2.73,1.6,0.3,0.06,0xC9C8BD,'lights');
+    const faultLamp=box(chassis,-0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
+    box(chassis,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
     const tyreBulge=box(van,-1.24,0.43,-1.6,0.17,0.28,0.3,0x555B65,'tyres');
     const lampGood=material(0xF8E8AE),lampBad=material(0x3D4148);
-    const cargoDoor=box(van,0,1.8,2.62,1.9,2.5,0.08,brand.primary,'cargo',true);
-    box(van,1.15,1.65,2.68,0.22,0.4,0.17,0xD9AE55,'cargo');
-    box(van,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
-    const slotMeshes=OTR.fpMission.slots.map(s=>box(van,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));
+    const cargoDoor=box(chassis,0,1.8,2.62,1.9,2.5,0.08,brand.primary,'cargo',true);
+    box(chassis,1.15,1.65,2.68,0.22,0.4,0.17,0xD9AE55,'cargo');
+    box(chassis,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
+    const slotMeshes=OTR.fpMission.slots.map(s=>box(chassis,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));
 
     function parcel(parent, id) {
       const g=new T.Group(); parent.add(g);
@@ -248,7 +249,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
+    const api={hub,route,van,chassis,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,ray,
       dispose() {
         const geometries=new Set();
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -285,7 +286,7 @@ OTR.fpWorld = {
             for(const mesh of occluders)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
             for(const mesh of interactions)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
           }
-          van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;van.visible=m.mode!=='cab';
+          van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;chassis.rotation.set(reduced?0:m.motion&&m.motion.pitch||0,0,reduced?0:m.motion&&m.motion.roll||0);van.visible=m.mode!=='cab';
           cargoDoor.visible=!m.cargoOpen;
           slotMeshes.forEach((mesh,i)=>mesh.visible=m.cargoOpen&&!m.parcels.some(p=>p.location===OTR.fpMission.slots[i].id));
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;

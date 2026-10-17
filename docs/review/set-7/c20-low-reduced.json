@@ -1,0 +1,62 @@
+{
+  "tag": "c20-reduced",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "prototype": {
+    "laterstressbrake": {
+      "frames": 123,
+      "avgFPS": 12.28,
+      "low1FPS": 4.87,
+      "p99ms": 175.8,
+      "maxMs": 234.6,
+      "peak": {
+        "calls": 54,
+        "triangles": 2480,
+        "textures": 2,
+        "geometries": 5,
+        "attachmentBytes": 3575808
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1876896,
+        "withMipmapsUpperBytes": 2502528
+      },
+      "worldProfile": {
+        "meshes": 118,
+        "instances": 264,
+        "geometries": 3,
+        "materials": 42,
+        "geometryBytes": 6532,
+        "instanceBytes": 32712,
+        "shadowCasters": 0
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 92,
+    "baseLevelRGBABytes": 1876896,
+    "withMipmapsUpperBytes": 2502528
+  },
+  "phaserTexturesPeak": {
+    "count": 92,
+    "baseLevelRGBABytes": 1876896,
+    "withMipmapsUpperBytes": 2502528
+  },
+  "errors": []
+}

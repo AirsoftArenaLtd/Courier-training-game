@@ -1,5 +1,33 @@
 # 3D workday rendering cost
 
+## C-20: vehicle dynamics (17 October 2026)
+
+The rear-axle motor reuses a scratch collision pose and one transient telemetry object. Body pitch/roll split the
+existing moving instances into a sprung body and level tyres; no geometry, image maps, render targets or render
+passes were added. The 30-day, ten-variant, five-stop empty/loaded mirror sweep passes all 3,000 views at a peak of
+54 calls and 2,480 triangles. That is one call above C-18's 53-call peak, within the unchanged Low ceilings of
+64 calls and 2,500 triangles. Source geometry storage remains 6,532 bytes.
+
+The six-view rendered Low gate (depot, cab, mirror, barcode aim, loaded day-18 stress mirror and the same scene
+under brake dive/roll) also peaks at 54 calls and 2,480 triangles. It keeps two targets and 3,575,808 attachment
+bytes. These views peak at 2,502,528 Phaser RGBA bytes with the conservative full-mipmap estimate, with larger
+text, the colour filter and sound enabled. No page errors or context loss occur. Raw reports and task screenshots
+are in `docs/review/set-7/`; the body pose does not increase the stress fixture's submitted triangles.
+
+A focused repeat with larger text, colour and reduced motion also passes at the same Low resource counts. The
+same braking fixture on High passes at 56 calls, 4,188 triangles, two targets, 8,409,600 attachment bytes and
+6,200,688 Phaser full-mipmap-estimate bytes. These are the actual Low/High presets; High does not use Low's ceilings.
+
+```sh
+QA_GFX=low QA_PROTOTYPE_ONLY=1 QA_A11Y=large,colour QA_SOUND=1 QA_TAG=c20 QA_VIEWS=depot,cab,mirror,barcodeAim,laterstress,laterstressbrake QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_PROTOTYPE_ONLY=1 QA_A11Y=large,colour,reduced QA_TAG=c20-reduced QA_VIEWS=laterstressbrake node test/fpbench.js
+QA_GFX=high QA_PROTOTYPE_ONLY=1 QA_TAG=c20 QA_VIEWS=laterstressbrake node test/fpbench.js
+```
+
+The measurements use Chromium/ANGLE SwiftShader at 1280 × 720. Their FPS cannot establish the Intel laptop's
+60 fps floor. Repeat the native command in `docs/FRAME-BUDGET.md` on the expanded workday, including
+`laterstressbrake`; the existing O-1 owner measurement remains necessary.
+
 **Texture-counter correction (C-17):** the earlier C-16 texture reports read `TextureSource.width/height`, which can remain 1×1 for resized Phaser Text canvases. They undercount text. C-17 uses intrinsic image/canvas dimensions, native-resolution Low text at the same font size, and a vector Low handheld case to retain the 4 MiB ceiling. Use the corrected C-17 texture reports in `docs/FRAME-BUDGET.md`; the C-16 draw-call/triangle comparisons remain valid. High keeps its existing text/case rendering.
 
 **C-17 follow-up:** the historical C-16 texture figures below undercount Phaser Text because source dimensions can remain 1×1 after canvas resizing. They cannot establish the 4 MiB limit. The ready `codex/c17-sound` tree includes C-16, the intrinsic-canvas counter and Low text/vector-case fixes; review/test that combined tree before publishing. Draw-call, triangle and Three.js-target figures remain valid.
