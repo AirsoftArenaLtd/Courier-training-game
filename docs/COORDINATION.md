@@ -297,7 +297,7 @@ items here for each agent.
 | B-22 | Claude | **xAPI names the critical mistakes:** `server/xapi.js` sends a day's `criticalErrors` as a count only, so an LMS report cannot say why a day failed (unreported damage, no-entry, major damage). Add the critical event types and their English labels as a result extension on the day statement (stable ids, no personal data beyond what is sent now, `docs/DATA.md` updated) and a test in the server's xAPI tests. | done |
 | B-23 | Claude | **Real text hidden in `data/i18n/not-text.json`:** "Workday" was listed there, so the trainer's record showed it in English in every language (fixed in B-21). Go through the list (about 290 entries) and take out every word a trainee or trainer reads as text, translating each into all 11 languages; keep names, street signs, codes and fragments. | done |
 | B-24 | Claude | **Review set 7 for the owner:** milestone 7's cab, mirrors, rear camera, lighting and weather are all in, so capture `node test/tools/review-set.js 7` (Low and High) into `docs/review/set-7/views/`, fill in `docs/review/set-7/CHECKLIST.md` with what to look at in each, and tell the owner it is ready to compare with set 6. | done |
-| B-25 | Claude | **The LMS package after milestone 7:** rebuild the SCORM 1.2 and 2004 packages, check every new 3D file is in them, the size against the 100 MB budget, and update the figures in `docs/IT-NOTES.md`. | todo |
+| B-25 | Claude | **The LMS package after milestone 7:** rebuild the SCORM 1.2 and 2004 packages, check every new 3D file is in them, the size against the 100 MB budget, and update the figures in `docs/IT-NOTES.md`. | done |
 
 ## Questions for the owner
 
@@ -324,6 +324,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-25:** the SCORM 1.2 and 2004 packages after milestone 7 are 10.4 MB and 164 files each (budget 100 MB); every new 3D module (cab, mirrors, rear camera, lighting, weather) is in, `test/package.js` passes, and the unpacked package boots to the title screen and into the 3D workday with its assets loaded and no page errors (the one 404 is the training-server probe, which an LMS does not have and the game expects). `docs/IT-NOTES.md` dated.
 
 - **17 October 2026, Claude — B-24:** review set 7 is captured in `docs/review/set-7/views/` (open `index.md`): depot, cab, the left mirror, the first street, the rear camera in reverse, the first stop, a doorstep, night with headlights and rain with the wipers, each at Low and High. `test/tools/review-set.js` now finds the C-24 rear camera and the C-25 time of day (its reverse and night views had said "not built yet"), has a rain view for C-26, and starts every view from the day as launched so one view's weather or time does not leak into the next. The sat nav and damage views wait for their tasks. `CHECKLIST.md` has two more lines, for lighting and weather. **Owner: set 7 is ready for your five minutes.**
 
