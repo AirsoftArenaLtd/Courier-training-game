@@ -3679,7 +3679,22 @@ window.OTR_I18N.es = {
 "Handled a failed delivery correctly": "Gestionaste bien una entrega fallida",
 "Did not leave a card or record the retention for a failed delivery": "No dejaste la tarjeta ni registraste la retención en una entrega fallida",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "Deja la tarjeta, registra el motivo, guarda el paquete en un lugar seguro y programa el siguiente intento.",
-"Cut across or hit a cyclist": "Cruzaste por delante de un ciclista o lo golpeaste"
+"Cut across or hit a cyclist": "Cruzaste por delante de un ciclista o lo golpeaste",
+"3D workday aids": "Ayudas de la jornada 3D",
+"Driving assists": "Ayudas de conducción",
+"Route line": "Línea de ruta",
+"Get out and look before a tight reverse": "Bajar y mirar antes de una reversa en espacio estrecho",
+"Night and dusk runs": "Rutas de noche y al anochecer",
+"Van damage and damage reports": "Daños a la camioneta e informes de daños",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "Reducción por día: ayuda completa en la primera jornada, menos en las dos siguientes y poca desde la cuarta. Después pulsa Guardar reglas.",
+"Fade by day": "Reducir por día",
+"Full": "Total",
+"Light": "Ligera",
+"Sat nav": "GPS",
+"Turn by turn": "Paso a paso",
+"Optional": "Opcional",
+"Required": "Obligatorio",
+"3D workday aids…": "Ayudas de la jornada 3D…"
 },
 "templates": [
 [

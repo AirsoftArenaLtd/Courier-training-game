@@ -139,6 +139,25 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await sceneIs('TrainerScene'); await wait(1500);
     const tr = await ev(() => { const out = []; const walk = (o) => { if (o.type === 'Text' && o.visible) out.push(o.text); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('TrainerScene').children.list.forEach(walk); return out.join('|'); });
     check(/Sam Lee/.test(tr) && /Assessment only/.test(tr), 'trainer tools list the trainee and the rules');
+    // the 3D workday aids (A-21): the dialog changes the draft, Save rules stores it on the server, the 3D rule follows
+    await ev(() => { const s = OTR.game.scene.getScene('TrainerScene'); s.workdayAids(); });
+    await wait(600);
+    const aidTexts = await ev(() => { const out = []; const walk = (o) => { if (o.type === 'Text' && o.visible) out.push(o.text); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('TrainerScene').children.list.forEach(walk); return out; });
+    check(['3D workday aids', 'Driving assists', 'Sat nav', 'Night and dusk runs', 'Van damage and damage reports'].every(x => aidTexts.includes(x)), 'the 3D workday aids dialog lists every aid');
+    const aids = await ev(() => {
+      const s = OTR.game.scene.getScene('TrainerScene'), btns = [];
+      const walk = (o) => { if (o.press && o.key !== undefined && o.val !== undefined) btns.push(o); (o.list || []).forEach(walk); };
+      s.children.list.forEach(walk);
+      const pick = (k, v) => btns.find(b => b.key === k && b.val === v).press();
+      pick('assists', 'off'); pick('night', false); pick('walkaround', 'required');
+      return JSON.parse(JSON.stringify(s.draft.workday));
+    });
+    check(aids.assists === 'off' && aids.night === false && aids.walkaround === 'required', `the dialog changes the draft: ${JSON.stringify(aids)}`);
+    await ev(() => { const s = OTR.game.scene.getScene('TrainerScene'); (s._modalStack || []).forEach(m => m.destroy()); s.saveRules(); });
+    await wait(1200);
+    const onServer2 = JSON.parse(fs.readFileSync(path.join(DATA, 'settings.json'), 'utf8'));
+    check(onServer2.workday && onServer2.workday.assists === 'off' && onServer2.workday.night === false, 'the aids are saved with the rules on the server');
+    check(await ev(() => { const r = OTR.academy.workdayRules(1); return r.assists === 'off' && r.walkaround === 'required' && r.night === false; }), 'the 3D world reads the trainer\'s aids at once');
     await ev(() => OTR.game.scene.getScene('TrainerScene').openRecord('sam.lee', 'Sam Lee'));
     await sceneIs('RecordScene'); await wait(1500);
     const rec = await ev(() => { const s = OTR.game.scene.getScene('RecordScene'); return s.R && { passed: s.R.passed, runs: s.R.runs }; });

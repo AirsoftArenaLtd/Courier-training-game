@@ -3668,7 +3668,22 @@ window.OTR_I18N.te = {
 "Handled a failed delivery correctly": "విఫలమైన డెలివరీని సరిగ్గా నిర్వహించారు",
 "Did not leave a card or record the retention for a failed delivery": "విఫలమైన డెలివరీకి కార్డు వదలలేదు లేదా పార్సెల్ ఉంచుకున్నట్లు నమోదు చేయలేదు",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "కార్డు వదలండి, కారణం నమోదు చేయండి, పార్సెల్‌ను భద్రంగా ఉంచండి, తర్వాతి ప్రయత్నాన్ని బుక్ చేయండి.",
-"Cut across or hit a cyclist": "సైక్లిస్ట్ ముందు నుంచి దూసుకెళ్లారు లేదా ఢీకొట్టారు"
+"Cut across or hit a cyclist": "సైక్లిస్ట్ ముందు నుంచి దూసుకెళ్లారు లేదా ఢీకొట్టారు",
+"3D workday aids": "3D వర్క్‌డే సహాయాలు",
+"Driving assists": "డ్రైవింగ్ సహాయాలు",
+"Route line": "రూట్ లైన్",
+"Get out and look before a tight reverse": "ఇరుకైన చోట రివర్స్ ముందు దిగి చూడండి",
+"Night and dusk runs": "రాత్రి, సంధ్య రన్‌లు",
+"Van damage and damage reports": "వ్యాన్ డ్యామేజ్, డ్యామేజ్ రిపోర్టులు",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "రోజుల వారీగా తగ్గుతుంది: మొదటి వర్క్‌డేలో పూర్తి సహాయం, తర్వాతి రెండింటిలో తక్కువ, నాలుగో రోజు నుంచి కొంచెం. తర్వాత నియమాలు సేవ్ చేయండి నొక్కండి.",
+"Fade by day": "రోజుల వారీగా తగ్గు",
+"Full": "పూర్తి",
+"Light": "తేలిక",
+"Sat nav": "నావిగేషన్",
+"Turn by turn": "మలుపు మలుపుగా",
+"Optional": "ఐచ్ఛికం",
+"Required": "తప్పనిసరి",
+"3D workday aids…": "3D వర్క్‌డే సహాయాలు…"
 },
 "templates": [
 [

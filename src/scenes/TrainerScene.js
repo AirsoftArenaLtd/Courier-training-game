@@ -63,10 +63,44 @@ class TrainerScene extends Phaser.Scene {
     this.refText = OTR.txt(this, x + 320, top + 510, '', 18, '#243447', { weight: '900' });
     this.focusables.push(OTR.ui.button(this, x + 390, top + 510, '+', () => this.step(['refresherDays'], 15, 15, 180), { w: 44, h: 40, skin: 'ghost', fontSize: 22 }));
 
-    this.saveBtn = OTR.ui.button(this, x + w / 2 - 70, top + h - 38, 'Save rules', () => this.saveRules(), { w: 220, h: 50, skin: 'orange', fontSize: 19 });
+    // the 3D workday's aids (assists, sat nav, walk-around, night, damage): a dialog, saved with the rules
+    this.focusables.push(OTR.ui.button(this, x + 124, top + h - 38, '3D workday aids…', () => this.workdayAids(), { w: 200, h: 50, skin: 'ghost', fontSize: 16 }));
+
+    this.saveBtn = OTR.ui.button(this, x + 340, top + h - 38, 'Save rules', () => this.saveRules(), { w: 190, h: 50, skin: 'orange', fontSize: 19 });
     this.focusables.push(this.saveBtn);
     this.saveNote = OTR.txt(this, x + w - 24, top + h - 38, '', 14, '#1E9E6B', { ox: 1, weight: '900' });
     this.refreshRules();
+  }
+
+  /** The 3D workday's aids: one row of choices each; Done keeps them in the draft, Save rules stores them. */
+  workdayAids() {
+    const w = this.draft.workday;
+    const rows = [
+      ['assists', 'Driving assists', [['auto', 'Fade by day'], ['full', 'Full'], ['light', 'Light'], ['off', 'Off']]],
+      ['satnav', 'Sat nav', [['auto', 'Fade by day'], ['full', 'Turn by turn'], ['line', 'Route line'], ['off', 'Off']]],
+      ['walkaround', 'Get out and look before a tight reverse', [['optional', 'Optional'], ['required', 'Required']]],
+      ['night', 'Night and dusk runs', [[true, 'On'], [false, 'Off']]],
+      ['damage', 'Van damage and damage reports', [[true, 'On'], [false, 'Off']]]
+    ];
+    OTR.ui.modal(this, {
+      title: '3D workday aids', w: 1000, h: 560, escClose: true,
+      build: (box) => {
+        const btns = [];
+        const paint = () => btns.forEach(b => b.setSkin(w[b.key] === b.val ? 'purple' : 'ghost'));
+        rows.forEach(([key, label, opts], r) => {
+          const y = -190 + r * 74;
+          box.add(OTR.txt(this, -470, y, label, 17, '#243447', { ox: 0, weight: '900', fit: 330 }));
+          opts.forEach(([val, text], i) => {
+            const b = OTR.ui.button(this, -40 + i * 150, y, text, () => { w[key] = val; OTR.audio.play('pop'); paint(); this.refreshRules(); }, { w: 140, h: 44, skin: 'ghost', fontSize: 15 });
+            b.key = key; b.val = val;
+            btns.push(b); box.add(b);
+          });
+        });
+        box.add(OTR.txt(this, 0, 186, 'Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.', 15, '#5B6B7D', { bold: false, align: 'center', wrap: 900 }));
+        paint();
+      },
+      buttons: [{ label: 'Done', skin: 'orange' }]
+    });
   }
 
   step(path, d, lo, hi) {

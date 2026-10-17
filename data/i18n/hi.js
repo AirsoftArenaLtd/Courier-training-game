@@ -3668,7 +3668,22 @@ window.OTR_I18N.hi = {
 "Handled a failed delivery correctly": "असफल डिलीवरी को सही तरीके से संभाला",
 "Did not leave a card or record the retention for a failed delivery": "असफल डिलीवरी पर कार्ड नहीं छोड़ा या पार्सल रोकने का रिकॉर्ड नहीं बनाया",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "कार्ड छोड़ें, कारण दर्ज करें, पार्सल सुरक्षित रखें और अगली कोशिश तय करें।",
-"Cut across or hit a cyclist": "साइकिल सवार के आगे से निकले या उसे टक्कर मार दी"
+"Cut across or hit a cyclist": "साइकिल सवार के आगे से निकले या उसे टक्कर मार दी",
+"3D workday aids": "3D कार्यदिवस की सहायता",
+"Driving assists": "ड्राइविंग सहायता",
+"Route line": "रूट लाइन",
+"Get out and look before a tight reverse": "तंग जगह में रिवर्स से पहले उतरकर देखें",
+"Night and dusk runs": "रात और शाम के रन",
+"Van damage and damage reports": "वैन का नुकसान और नुकसान रिपोर्ट",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "दिन के साथ घटाएँ: पहले कार्यदिवस पर पूरी मदद, अगले दो पर कम, चौथे से बहुत कम। इसके बाद नियम सेव करें दबाएँ।",
+"Fade by day": "दिन के साथ घटे",
+"Full": "पूरी",
+"Light": "हल्की",
+"Sat nav": "जीपीएस",
+"Turn by turn": "मोड़-दर-मोड़",
+"Optional": "वैकल्पिक",
+"Required": "ज़रूरी",
+"3D workday aids…": "3D कार्यदिवस की सहायता…"
 },
 "templates": [
 [

@@ -1,7 +1,8 @@
 /*
  * The academy's rules and assessments.
  *
- *   OTR.academy.settings          { mode, passStars, attempts, refresherDays } (data/config.js, then the trainer's)
+ *   OTR.academy.settings          { mode, passStars, attempts, refresherDays, workday } (data/config.js, then the trainer's)
+ *   OTR.academy.workdayRules(day) the 3D workday's aids for that workday number: { assists, satnav, walkaround, night, damage }
  *   OTR.academy.load()            Promise: the server's settings (server mode) or this PC's
  *   OTR.academy.checkPin(pin)     Promise<true | error text>
  *   OTR.academy.saveSettings(s)   Promise<true | error text> (needs the PIN checked first)
@@ -24,7 +25,27 @@ OTR.academy = {
       mode: d.mode || 'both',
       passStars: Object.assign({ safety: 2, efficiency: 2, service: 2 }, d.passStars || {}),
       attempts: d.attempts !== undefined ? d.attempts : 1,
-      refresherDays: d.refresherDays || 30
+      refresherDays: d.refresherDays || 30,
+      // the 3D workday's aids (board task A-21): 'auto' starts helpful and fades on later days
+      workday: Object.assign({ assists: 'auto', satnav: 'auto', walkaround: 'optional', night: true, damage: true }, d.workday || {})
+    };
+  },
+
+  WORKDAY: { assists: ['auto', 'full', 'light', 'off'], satnav: ['auto', 'full', 'line', 'off'], walkaround: ['optional', 'required'] },
+
+  /**
+   * What the 3D world switches on for one workday (1 = the trainee's first). 'auto' is the owner's rule: the first day is
+   * gentle and the aids fade: driving assists full on day 1, light on days 2 and 3, off from day 4; the sat nav gives
+   * turn-by-turn up to day 3 and the route line from day 4. night and damage say whether night runs and van damage happen.
+   */
+  workdayRules(day) {
+    const w = this.get().workday, n = Math.max(1, Number(day) || 1);
+    return {
+      assists: w.assists === 'auto' ? (n === 1 ? 'full' : n <= 3 ? 'light' : 'off') : w.assists,
+      satnav: w.satnav === 'auto' ? (n <= 3 ? 'full' : 'line') : w.satnav,
+      walkaround: w.walkaround,
+      night: !!w.night,
+      damage: !!w.damage
     };
   },
 
@@ -35,6 +56,11 @@ OTR.academy = {
     if (s.passStars) OTR.scoring.CATS.forEach(c => { const n = Number(s.passStars[c]); if (n >= 1 && n <= 3) d.passStars[c] = n; });
     if (Number.isFinite(Number(s.attempts)) && s.attempts >= 0) d.attempts = Math.round(s.attempts);
     if (Number(s.refresherDays) > 0) d.refresherDays = Math.round(s.refresherDays);
+    const w = s.workday;
+    if (w && typeof w === 'object') {
+      Object.keys(this.WORKDAY).forEach(k => { if (this.WORKDAY[k].indexOf(w[k]) >= 0) d.workday[k] = w[k]; });
+      ['night', 'damage'].forEach(k => { if (typeof w[k] === 'boolean') d.workday[k] = w[k]; });
+    }
     return d;
   },
 

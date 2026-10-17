@@ -79,10 +79,17 @@ module.exports = async (page, ctx) => {
   await ctx.audit('trainer');
   await clickBeside(page, 'TrainerScene', /^Safety$/, /^\+$/);           // 2 → 3 stars
   await clickBeside(page, 'TrainerScene', /^(1|no limit)$/, /^\+$/);    // attempts 1 → 2 (the stepper is under its label)
+  // the 3D workday aids (A-21): the dialog fits, a choice sticks, and it is saved with the rules
+  await clickText(page, 'TrainerScene', /^3D workday aids…$/);
+  if (!(await ctx.until(`(OTR.game.scene.getScene('TrainerScene')._modalStack || []).length > 0`, 4000))) throw new Error('the aids dialog did not open');
+  await ctx.audit('trainer-aids');
+  await clickBeside(page, 'TrainerScene', /^Driving assists$/, /^Off$/);
+  await clickText(page, 'TrainerScene', /^Done$/);
+  await ctx.until(`!(OTR.game.scene.getScene('TrainerScene')._modalStack || []).some(m => m.active)`, 4000);
   await clickText(page, 'TrainerScene', /^Save rules$/);
   if (!(await ctx.until(`OTR.game.scene.getScene('TrainerScene').saveNote.srcText === 'Saved'`, 5000))) throw new Error('the rules never saved');
   const rules = await ctx.eval('OTR.academy.get()');
-  if (rules.passStars.safety !== 3 || rules.attempts !== 2) throw new Error('the saved rules are not what was set: ' + JSON.stringify(rules));
+  if (rules.passStars.safety !== 3 || rules.attempts !== 2 || rules.workday.assists !== 'off') throw new Error('the saved rules are not what was set: ' + JSON.stringify(rules));
   await page.keyboard.press('Escape');                                  // Done
   await active('HubScene');
   // the PIN now guards the tools: a wrong one is refused, the right one opens them

@@ -3668,7 +3668,22 @@ window.OTR_I18N.kn = {
 "Handled a failed delivery correctly": "ವಿಫಲ ಡೆಲಿವರಿಯನ್ನು ಸರಿಯಾಗಿ ನಿಭಾಯಿಸಿದಿರಿ",
 "Did not leave a card or record the retention for a failed delivery": "ವಿಫಲ ಡೆಲಿವರಿಗೆ ಕಾರ್ಡ್ ಬಿಡಲಿಲ್ಲ ಅಥವಾ ಉಳಿಸಿಕೊಂಡಿದ್ದನ್ನು ದಾಖಲಿಸಲಿಲ್ಲ",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "ಕಾರ್ಡ್ ಬಿಡಿ, ಕಾರಣ ದಾಖಲಿಸಿ, ಪಾರ್ಸೆಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿಡಿ ಮತ್ತು ಮುಂದಿನ ಪ್ರಯತ್ನ ನಿಗದಿಪಡಿಸಿ.",
-"Cut across or hit a cyclist": "ಸೈಕಲ್ ಸವಾರರ ಅಡ್ಡ ಹೋದಿರಿ ಅಥವಾ ಡಿಕ್ಕಿ ಹೊಡೆದಿರಿ"
+"Cut across or hit a cyclist": "ಸೈಕಲ್ ಸವಾರರ ಅಡ್ಡ ಹೋದಿರಿ ಅಥವಾ ಡಿಕ್ಕಿ ಹೊಡೆದಿರಿ",
+"3D workday aids": "3D ಕೆಲಸದ ದಿನದ ಸಹಾಯ",
+"Driving assists": "ಚಾಲನೆ ಸಹಾಯ",
+"Route line": "ಮಾರ್ಗ ರೇಖೆ",
+"Get out and look before a tight reverse": "ಇಕ್ಕಟ್ಟಾದ ಜಾಗದಲ್ಲಿ ರಿವರ್ಸ್ ಮಾಡುವ ಮೊದಲು ಇಳಿದು ನೋಡಿ",
+"Night and dusk runs": "ರಾತ್ರಿ ಮತ್ತು ಸಂಜೆಯ ರನ್‌ಗಳು",
+"Van damage and damage reports": "ವ್ಯಾನ್ ಹಾನಿ ಮತ್ತು ಹಾನಿ ವರದಿಗಳು",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "ದಿನದಿಂದ ದಿನಕ್ಕೆ ಕಡಿಮೆ: ಮೊದಲ ಕೆಲಸದ ದಿನ ಪೂರ್ಣ ಸಹಾಯ, ಮುಂದಿನ ಎರಡರಲ್ಲಿ ಕಡಿಮೆ, ನಾಲ್ಕನೆಯಿಂದ ಅಲ್ಪ. ನಂತರ ನಿಯಮಗಳನ್ನು ಉಳಿಸಿ ಒತ್ತಿ.",
+"Fade by day": "ದಿನಕ್ಕೆ ಕಡಿಮೆ",
+"Full": "ಪೂರ್ಣ",
+"Light": "ಹಗುರ",
+"Sat nav": "ಸ್ಯಾಟ್ ನ್ಯಾವ್",
+"Turn by turn": "ತಿರುವು ತಿರುವಾಗಿ",
+"Optional": "ಐಚ್ಛಿಕ",
+"Required": "ಕಡ್ಡಾಯ",
+"3D workday aids…": "3D ಕೆಲಸದ ದಿನದ ಸಹಾಯ…"
 },
 "templates": [
 [

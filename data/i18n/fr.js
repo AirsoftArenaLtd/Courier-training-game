@@ -3663,7 +3663,22 @@ window.OTR_I18N.fr = {
 "Handled a failed delivery correctly": "Tu as bien géré une livraison échouée",
 "Did not leave a card or record the retention for a failed delivery": "Tu n'as pas laissé d'avis de passage ni noté la mise en instance d'une livraison échouée",
 "Leave the card, record why, keep the parcel safe and book the next attempt.": "Laisse l'avis, note la raison, garde le colis en sécurité et planifie la prochaine tentative.",
-"Cut across or hit a cyclist": "Tu as coupé la route à un cycliste ou tu l'as heurté"
+"Cut across or hit a cyclist": "Tu as coupé la route à un cycliste ou tu l'as heurté",
+"3D workday aids": "Aides de la journée 3D",
+"Driving assists": "Aides à la conduite",
+"Route line": "Tracé",
+"Get out and look before a tight reverse": "Descendre regarder avant une marche arrière serrée",
+"Night and dusk runs": "Tournées de nuit et au crépuscule",
+"Van damage and damage reports": "Dégâts du fourgon et rapports de dégâts",
+"Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.": "Dégressif : aide complète à la première journée de travail, moindre les deux suivantes, minimale dès la quatrième. Appuie ensuite sur Enregistrer les règles.",
+"Fade by day": "Dégressif",
+"Full": "Complète",
+"Light": "Légère",
+"Sat nav": "GPS",
+"Turn by turn": "Guidage",
+"Optional": "Facultatif",
+"Required": "Obligatoire",
+"3D workday aids…": "Aides de la journée 3D…"
 },
 "templates": [
 [
