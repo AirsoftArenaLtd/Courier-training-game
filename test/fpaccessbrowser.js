@@ -91,11 +91,14 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   // Keep the report compact; the equality assertions above compare every instance and lamp.
   report.motion={weatherMoves:true,normalBusChanges:true,reducedWeatherAndLightsStayStill:true,cameraStaysStill:true};
   await wait(300);await p.screenshot({path:path.join(OUT,'c12-colour-mirror.png')});
-  // Real shared-context pixels prove both composites receive the matrix, with no new render pass.
+  // Real shared-context pixels prove the main view and a sampled physical mirror receive the matrix exactly once.
   report.filter=await p.evaluate(async()=>{
    const s=OTR.game.scene.getScene('FirstPersonScene'),v=s.view,gl=OTR.game.renderer.gl;s.handheld.close();s.closePanel();s.sync=()=>{};s.refresh=()=>{};s.model.paused=true;
-   for(const o of s.children.list)if(o.type!=='Extern')o.setVisible(false);for(const o of v.world.children)o.visible=false;v.world.background.setHex(0xff0000);v.world.fog=null;v.mirror.on=true;v.mirror.before=null;v.mirror.after=null;
-   const sample=async colour=>{OTR.a11y.settings().colour=colour;OTR.a11y.applyColour(s);await new Promise(r=>s.game.events.once('postrender',r));return new Promise(resolve=>s.game.events.once('postrender',()=>{const read=(x,y)=>{const b=new Uint8Array(4);gl.readPixels(x,720-y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,b);return Array.from(b);};resolve({main:read(500,400),mirror:read(184,(v.mirror.top||122)+90),...v.diagnostics});}));};
+   for(const o of s.children.list)if(o.type!=='Extern')o.setVisible(false);for(const o of v.world.children)o.visible=false;v.world.background.setHex(0xff0000);v.world.fog=null;
+   const physical=s.art.mirrors;physical.root.visible=true;physical.frames.visible=false;if(physical.mounts!==physical.frames)physical.mounts.visible=false;
+   const eye=physical.root.localToWorld(new THREE.Vector3(-.45,2.05,-1.85)),point=physical.targets[0].getWorldPosition(new THREE.Vector3());v.camera.position.copy(eye);v.camera.lookAt(point);v.camera.updateMatrixWorld(true);
+   v.mirror.on=true;v.mirror.before=()=>physical.root.visible=false;v.mirror.after=()=>physical.root.visible=true;
+   const sample=async colour=>{OTR.a11y.settings().colour=colour;OTR.a11y.applyColour(s);const before=v.mirror.updates[0];return new Promise(resolve=>{const done=()=>{if(v.mirror.updates[0]<before+2)return;s.game.events.off('postrender',done);const read=(x,y)=>{const b=new Uint8Array(4);gl.readPixels(x,720-y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,b);return Array.from(b);};resolve({main:read(50,360),mirror:read(640,360),...v.diagnostics});};s.game.events.on('postrender',done);});};
    return {off:await sample(false),on:await sample(true)};
   });
   for(const view of ['main','mirror']){const off=report.filter.off[view],on=report.filter.on[view];assert.ok(off[0]>230,JSON.stringify(report.filter));assert.ok(off[1]<5);assert.ok(Math.abs(on[1]-(off[0]*.163+off[1]*.725+off[2]*.112))<4,JSON.stringify(report.filter));assert.ok(Math.abs(on[2]-(off[0]*.455-off[1]*.645+off[2]*1.191))<4,JSON.stringify(report.filter));checks+=4;}

@@ -1,0 +1,183 @@
+{
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-interior",
+      "audit": {
+        "font": 18,
+        "x": 404.5,
+        "right": 875.5,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-right",
+      "audit": {
+        "font": 18,
+        "x": 417,
+        "right": 863,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-left",
+      "audit": {
+        "font": 18,
+        "x": 423.5,
+        "right": 856.5,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    }
+  ],
+  "live": [
+    {
+      "index": 2,
+      "id": "mirror-interior",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    },
+    {
+      "index": 1,
+      "id": "mirror-right",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    },
+    {
+      "index": 0,
+      "id": "mirror-left",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    }
+  ],
+  "fixture": "First workday, loaded van at the depot. Target selection, looking and driving use real keys. Coloured 3D markers prove live reflections.",
+  "reloadRaw": [
+    7.331216666666738,
+    3.2862666666666818,
+    1.282939999999999,
+    1,
+    0.20000000000000004
+  ],
+  "reload": {
+    "saved": {
+      "mode": "cab",
+      "elapsed": 7.581216666666742,
+      "look": 1.3075827249416576,
+      "pitch": -0.046220410082218104,
+      "speed": 0,
+      "mirrors": [
+        7.331216666666738,
+        3.2862666666666818,
+        1.282939999999999,
+        1,
+        0.20000000000000004
+      ],
+      "updates": [
+        62,
+        62,
+        62
+      ],
+      "events": [
+        {
+          "type": "drive.mirrors",
+          "key": "0:1",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 1
+          }
+        }
+      ],
+      "on": true
+    },
+    "partial": {
+      "mode": "cab",
+      "elapsed": 7.581216666666742,
+      "look": 1.3075827249416576,
+      "pitch": -0.046220410082218104,
+      "speed": 0,
+      "mirrors": [
+        7.331216666666738,
+        3.2862666666666818,
+        1.282939999999999,
+        1,
+        0.20000000000000004
+      ],
+      "updates": [
+        2,
+        1,
+        1
+      ],
+      "events": [],
+      "on": true
+    },
+    "restored": {
+      "mode": "cab",
+      "elapsed": 7.797830000000078,
+      "look": 1.3075827249416576,
+      "pitch": -0.046220410082218104,
+      "speed": 0,
+      "mirrors": [
+        7.331216666666738,
+        7.797830000000078,
+        1.282939999999999,
+        1,
+        0.4
+      ],
+      "updates": [
+        5,
+        5,
+        5
+      ],
+      "events": [],
+      "on": true
+    }
+  },
+  "checks": 44,
+  "errors": []
+}

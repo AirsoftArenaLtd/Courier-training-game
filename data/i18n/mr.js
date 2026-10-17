@@ -3689,7 +3689,15 @@ window.OTR_I18N.mr = {
 "Switch the wipers.": "वायपर चालू/बंद करा.",
 "Stop before selecting a different gear.": "दुसरा गियर निवडण्यापूर्वी थांबा.",
 "The speed is 0 mph.": "वेग 0 mph आहे.",
-"The engine is at 800 RPM.": "इंजिन 800 RPM वर आहे."
+"The engine is at 800 RPM.": "इंजिन 800 RPM वर आहे.",
+"Checked the matching mirror before turning or changing lanes.": "वळण्यापूर्वी किंवा लेन बदलण्यापूर्वी संबंधित आरसा पाहिला.",
+"Turned or changed lanes without a current check of the matching mirror.": "संबंधित आरसा न पाहता वळलात किंवा लेन बदलली.",
+"Your left mirror check is current.": "तुमची डाव्या आरशाची तपासणी ताजी आहे.",
+"Look at the left mirror for a moment to check it.": "डावा आरसा क्षणभर पाहून तपासा.",
+"Your right mirror check is current.": "तुमची उजव्या आरशाची तपासणी ताजी आहे.",
+"Look at the right mirror for a moment to check it.": "उजवा आरसा क्षणभर पाहून तपासा.",
+"Your interior mirror check is current.": "तुमची आतील आरशाची तपासणी ताजी आहे.",
+"Look at the interior mirror for a moment to check it.": "आतील आरसा क्षणभर पाहून तपासा."
 },
 "templates": [
 [
@@ -5311,6 +5319,10 @@ window.OTR_I18N.mr = {
 [
 "The engine is at {0} RPM.",
 "इंजिन {0} RPM वर आहे."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"केबिनमध्ये बसण्यापूर्वी कार्गो बंद करा. सीटबेल्टसाठी {0} आणि पार्किंग ब्रेकसाठी {1} दाबा. निघण्यापूर्वी किंवा वळण्यापूर्वी खरा आरसा क्षणभर पाहा. कीबोर्डने निवडण्यासाठी {2} दाबा. वेग वाढवण्यासाठी/ब्रेक लावण्यासाठी {3}/{4} आणि स्टीअरिंगसाठी {5}/{6} वापरा. हँडहेल्ड वापरण्यापूर्वी किंवा उतरण्यापूर्वी थांबा आणि पार्किंग ब्रेक लावा."
 ]
 ],
 "keep": [

@@ -3689,7 +3689,15 @@ window.OTR_I18N.ta = {
 "Switch the wipers.": "வைப்பர்களை மாற்றுங்கள்.",
 "Stop before selecting a different gear.": "வேறு கியர் தேர்வு செய்யும் முன் நிறுத்துங்கள்.",
 "The speed is 0 mph.": "வேகம் 0 mph.",
-"The engine is at 800 RPM.": "என்ஜின் 800 RPM-இல் உள்ளது."
+"The engine is at 800 RPM.": "என்ஜின் 800 RPM-இல் உள்ளது.",
+"Checked the matching mirror before turning or changing lanes.": "திரும்புவதற்கு அல்லது லேன் மாற்றுவதற்கு முன் தொடர்புடைய கண்ணாடியைப் பார்த்தீர்கள்.",
+"Turned or changed lanes without a current check of the matching mirror.": "தொடர்புடைய கண்ணாடியைப் பார்க்காமல் திரும்பினீர்கள் அல்லது லேன் மாற்றினீர்கள்.",
+"Your left mirror check is current.": "உங்கள் இடது கண்ணாடி சோதனை சமீபத்தியது.",
+"Look at the left mirror for a moment to check it.": "இடது கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்.",
+"Your right mirror check is current.": "உங்கள் வலது கண்ணாடி சோதனை சமீபத்தியது.",
+"Look at the right mirror for a moment to check it.": "வலது கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்.",
+"Your interior mirror check is current.": "உங்கள் உள் கண்ணாடி சோதனை சமீபத்தியது.",
+"Look at the interior mirror for a moment to check it.": "உள் கண்ணாடியை ஒரு கணம் பார்த்து சரிபாருங்கள்."
 },
 "templates": [
 [
@@ -5311,6 +5319,10 @@ window.OTR_I18N.ta = {
 [
 "The engine is at {0} RPM.",
 "என்ஜின் {0} RPM-இல் உள்ளது."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"கேபினில் ஏறும் முன் சரக்கை மூடுங்கள். சீட்பெல்ட்டுக்கு {0}, பார்க்கிங் பிரேக்குக்கு {1} அழுத்துங்கள். நகரும் அல்லது திரும்பும் முன் உண்மையான கண்ணாடியை ஒரு கணம் பாருங்கள். விசைப்பலகையால் தேர்ந்தெடுக்க {2} அழுத்துங்கள். வேகப்படுத்த/பிரேக் போட {3}/{4}, திருப்ப {5}/{6} பயன்படுத்துங்கள். ஹேண்ட்ஹெல்டைப் பயன்படுத்தும் அல்லது இறங்கும் முன் நின்று பார்க்கிங் பிரேக் போடுங்கள்."
 ]
 ],
 "keep": [

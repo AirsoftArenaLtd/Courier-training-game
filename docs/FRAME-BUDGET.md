@@ -1,5 +1,11 @@
 # Low-graphics 3D workday budget
 
+**C-23 mirror update (17 October 2026):** the current renderer has three always-live physical mirrors sharing a
+384 × 144 atlas on Low, with at most one reflection update per frame. The old requested floating mirror below
+is historical. The ceilings are unchanged. Two 162,000-view sweeps peak at 59 calls / 2,090 triangles with loaded
+models and 58 / 2,082 with fallback. Allocated attachments are 3,557,376 bytes at 1280 × 720, with two Three.js
+textures. Current rendered measurements and the mirror schedule are in `docs/PERF.md` and `docs/3D-MIRRORS.md`.
+
 **C-17 measurement correction:** use the corrected C-17 texture figures below. Earlier Phaser texture estimates in this document used source metadata that can remain 1×1 for resized text canvases; they undercounted text. The benchmark now measures intrinsic image/canvas dimensions. Low uses native-resolution text at the same font size and a vector handheld case to keep the existing ceilings; High rendering is unchanged. Draw-call, triangle and Three.js target measurements are unaffected.
 
 **C-17 follow-up:** the historical C-16 texture figures below undercount Phaser Text because source dimensions can remain 1×1 after canvas resizing. They cannot establish the 4 MiB limit. The ready `codex/c17-sound` tree includes C-16, the intrinsic-canvas counter and Low text/vector-case fixes; review/test that combined tree before publishing. Draw-call, triangle and Three.js-target figures remain valid.

@@ -1,7 +1,7 @@
 /* Seeded model journeys. Travel positions are fixtures; actions, reports and checkpoint readers are real. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const storage=new Map(),c={console,URLSearchParams};c.window=c;c.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};c.addEventListener=()=>{};c.location={search:''};vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fpmission.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
 c.OTR.identity={mode:'local',id:'seeded-model'};const O=c.OTR,M=O.fpMission,W=O.workday,S=O.save;
 const later=process.env.QA_LATER==='1';
 const plain=o=>JSON.parse(JSON.stringify(o)),score=log=>({score:log.score(),ratios:plain(log.ratios(O.scoring.CATS)),criticals:log.criticals().map(i=>[i.cat,i.label])});
@@ -28,7 +28,7 @@ function play(seed,resume=false,scorm=false){
   const at=id=>{const p=m.point(id);Object.assign(m.player,{x:p.x,z:p.z+.6});};
   const cargo=()=>{const p=m.point('cargo');Object.assign(m.player,{x:p.x-Math.sin(m.van.yaw)*.7,z:p.z+Math.cos(m.van.yaw)*.7});assert.equal(m.toggleCargo(),'','cargo toggle');};
   const secure=()=>{at('secure');assert.equal(m.secure(),'Load secured.');};
-  const enter=()=>{at('driver');assert.equal(m.enter(),'');m.van.belt=true;m.mirror();m.van.hand=false;m.paused=false;};
+  const enter=()=>{at('driver');assert.equal(m.enter(),'');m.van.belt=true;m.van.hand=true;m.paused=false;const s=O.fpMirrors.specs[0];m.van.look=Math.atan2(s.x+.45,-(s.z+1.85));m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(s.x+.45,s.z+1.85));for(let i=0;i<34;i++)m.step({},.0125);m.van.look=0;m.player.pitch=0;m.van.hand=false;};
   const move=()=>{m.paused=false;for(let i=0,n=8+Math.floor(random()*7);i<n;i++){m.step({forward:true},.05);if(m.van.hand)break;}assert.ok(m.departed,'actual initial acceleration begins the route');};
   const leaveAt=stop=>{Object.assign(m.van,stop.park,{speed:0,hand:true});assert.equal(m.exit(),true,'parked cab exit');};
   checkpoint('morning');at('dispatch');act('brief',()=>m.readBrief());

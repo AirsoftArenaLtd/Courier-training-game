@@ -44,8 +44,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(now-start<10000)return;
     OTR.game.events.off('step',onFrame);frames.sort((a,b)=>a-b);const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,worst=frames.slice(Math.floor(frames.length*.99));
     resolve({frames:frames.length,avgFPS:+(1000/mean(frames)).toFixed(2),low1FPS:+(1000/mean(worst)).toFixed(2),p99ms:+frames[Math.floor(frames.length*.99)].toFixed(2),maxMs:+frames[frames.length-1].toFixed(2),peak,target:d&&{width:d.targetWidth,height:d.targetHeight},contextLost:OTR.game.renderer.gl.isContextLost()});};OTR.game.events.on('step',onFrame);}));
-   value.phaserTextures=await textures();value.worldProfile=await inventory();value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
+   value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene('FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
   };
+  const lookAtTarget=async id=>p.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors)return false;s.target=null;for(let n=0;n<14;n++)if(OTR.fpAccess.focus(s)===id){s.notice='';s.refresh();return true;}throw Error('Benchmark target is unreachable: '+id);},id);
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
   if(await p.evaluate(()=>!!OTR.fpGuide)){await p.evaluate(()=>OTR.fpGuide.open(OTR.game.scene.getScene('FirstPersonScene')));await sample('guide');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());}
@@ -54,8 +55,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('depot');
   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.mode='cab';s.model.paused=false;s.sync();});await sample('cab');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);});await sample('mirror');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__mirrorBench);s.model.mode='walk';s.showScanner();});await sample('handheld');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors){s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);}});await lookAtTarget('mirror-left');await sample('mirror');
+  if(await lookAtTarget('mirror-right'))await sample('mirrorRight');if(await lookAtTarget('mirror-interior'))await sample('mirrorInterior');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(s.__mirrorBench)s.events.off('update',s.__mirrorBench);s.model.van.look=0;s.model.player.pitch=0;s.model.mode='walk';s.showScanner();});await sample('handheld');
   const hasAim=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!s.handheld)return false;
    const p=s.model.parcels[0];p.location='held';s.model.heldId=p.id;s.handheld.scan();return true;});
   if(hasAim)await sample('barcodeAim');
@@ -65,16 +67,16 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   for(let i=0;i<5;i++){
    await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;if(!m.stops[i])return;m.mode='cab';m.phase='route';Object.assign(m.van,m.stops[i].park||{x:4,z:m.stops[i].z,yaw:0},{speed:0,hand:true});s.sync();},i);
    if(i>0)await sample('stop'+(i+1));
-   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);});
-   await sample('stop'+(i+1)+'Mirror');
-   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__mirrorBench);s.model.mirrorAt=-100;});
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors){s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);}});
+   await lookAtTarget('mirror-left');await sample('stop'+(i+1)+'Mirror');
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(s.__mirrorBench)s.events.off('update',s.__mirrorBench);s.model.van.look=0;s.model.player.pitch=0;s.model.mirrorAt=-100;});
   }
   if(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').model.driving)){
    for(const look of ['front','mirror','walk']){
     await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.paused=false;m.step=()=>{};m.phase='route';m.mode=look==='walk'?'walk':'cab';m.elapsed=0;
      const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.van,{x,z,yaw:0,speed:0,hand:true});Object.assign(m.player,{x:x-2,z:z+8,yaw:0,pitch:0});
      Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);m.mirrorAt=look==='mirror'?0:-100;s.sync();},look);
-    await sample('hazards'+look);
+    if(look==='mirror')await lookAtTarget('mirror-left');await sample('hazards'+look);
    }
   }
   if(await p.evaluate(()=>!!OTR.fpDay))for(const day of [2,6,4,3]){
@@ -82,7 +84,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(OTR.fpDoors){OTR.fpDoors.configure(m);m.stops.forEach(stop=>stop.contacted=true);OTR.fpDoors.sync(m);}
     if(OTR.fpDriving){OTR.fpDriving.configure(m);const x=m.town.xs[0]+2,z=m.town.zs[1]+25;Object.assign(m.driving.bus,{state:'flashing',x,z:z-18,yaw:0});Object.assign(m.driving.siren,{state:'passing',x:x-1,z:z+14,yaw:0});OTR.fpDriving.syncActors(m);}
     s.model=m;s.rebuildWorld();m.mode='cab';m.paused=false;m.step=()=>{};Object.assign(m.van,{x:m.town.xs[0]+2,z:m.town.zs[1]+25,yaw:0,speed:0,hand:true});s.__weatherMirror=()=>{m.mirrorAt=m.elapsed;m.elapsed+=.016;};s.events.on('update',s.__weatherMirror);s.sync();return m.routeDay.weather;},day);
-   await sample('weather'+weather+'Mirror');await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__weatherMirror);});
+   await lookAtTarget('mirror-left');await sample('weather'+weather+'Mirror');await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__weatherMirror);});
   }
   if(await p.evaluate(()=>!!OTR.fpDoors))for(const look of ['gate','hazard','mirror','signature','id']){
    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();let m,id;
@@ -99,16 +101,16 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      // Keep the existing live signature widget visible through the measurement, including its ink texture.
      s.handheld.show({title:'SIGNATURE',lines:['The recipient signs below.'],widget:{type:'signature',onDone:()=>{}},options:[{label:'Cancel',onPick:()=>s.handheld.close()}]});
     }else if(look==='id'){Object.assign(m.player,{x:stop.x-stop.side*1.5,z:stop.z});s.showIdentity(id);}
-   },look);await sample('door'+look);
+   },look);if(look==='mirror')await lookAtTarget('mirror-left');await sample('door'+look);
   }
-  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake','stressturn','stressturnleft','stressreverse','stresscab']){
+  if(await p.evaluate(()=>!!OTR.fpLater))for(const look of ['fog','fogmirror','fogreverse','rainmirror','icemirror','plan','stress','stressbrake','stressturn','stressturnleft','stressreverse','stresscab','mirrorpeak']){
    if(look==='stresscab'&&!await p.evaluate(()=>!!OTR.fpCab))continue;
    await p.evaluate(look=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
-    const stress=look.startsWith('stress'),day=stress?18:look==='icemirror'?4:look==='rainmirror'?3:2,seed=stress?2:7,m=OTR.fpMission.create('campaign',seed,OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)));
+    const stress=look.startsWith('stress')||look==='mirrorpeak',day=look==='mirrorpeak'?6:stress?18:look==='icemirror'?4:look==='rainmirror'?3:2,seed=look==='mirrorpeak'?9:stress?2:7,m=OTR.fpMission.create('campaign',seed,OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)));
     OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);const r=m.roadworks,reverse=look==='fogreverse';
     m.mode='cab';m.phase='route';m.departed=true;OTR.fpLater.depart(m);m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};
     Object.assign(m.van,{x:r.x+(reverse?-1.7:1.7),z:r.z+(reverse?-10:10),yaw:reverse?Math.PI:0,speed:0,hand:true,belt:true});
-    m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);if(stress){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,m.stops[look==='stresscab'?3:4].park);for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
+    m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);if(stress){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,m.stops[look==='mirrorpeak'?0:look==='stresscab'?3:4].park);for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
     if(look==='stressbrake')OTR.fp.suspension(m,1,-6,4);
     if(look==='stressturn'||look==='stressturnleft'||look==='stressreverse'){
       const reverse=look==='stressreverse',side=look==='stressturnleft'?-1:1;m.driveAssist=0;Object.assign(m.van,{speed:reverse?-2:8,steer:side*.16,hand:false,gear:reverse?-1:1});OTR.fp.suspension(m,1,0,reverse?-.5:side*4);m.motion.roll=reverse?-.003:side*.025;
@@ -116,7 +118,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.model=m;s.rebuildWorld();m.mirrorAt=look.includes('mirror')||stress?m.elapsed:-100;s.sync();s.refresh();
     if(look==='stresscab'){s.target=null;let found=false;for(let n=0;n<11;n++)if(OTR.fpAccess.focus(s)==='cab-headlights'){found=true;break;}if(!found)throw Error('Cab benchmark target is unreachable');}
     if(look==='plan')OTR.fpLater.open(s);
-   },look);await sample('later'+look);
+   },look);if(look.includes('mirror')&&look!=='mirrorpeak')await lookAtTarget('mirror-left');if(look==='mirrorpeak')await lookAtTarget('cab-wipers');await sample('later'+look);
   }
   if(await p.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScene').assetBank?.models.has('town-garage'))){
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const m=OTR.fpMission.create('campaign',7,OTR.fpRoute.plan(1,7));s.model=m;s.rebuildWorld();m.mode='walk';m.paused=true;

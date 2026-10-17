@@ -3684,7 +3684,15 @@ window.OTR_I18N.fr = {
 "Switch the wipers.": "Change l'état des essuie-glaces.",
 "Stop before selecting a different gear.": "Arrête-toi avant de choisir une autre vitesse.",
 "The speed is 0 mph.": "La vitesse est de 0 mph.",
-"The engine is at 800 RPM.": "Le moteur tourne à 800 RPM."
+"The engine is at 800 RPM.": "Le moteur tourne à 800 RPM.",
+"Checked the matching mirror before turning or changing lanes.": "Vous avez regardé le rétroviseur concerné avant de tourner ou de changer de voie.",
+"Turned or changed lanes without a current check of the matching mirror.": "Vous avez tourné ou changé de voie sans regarder le rétroviseur concerné.",
+"Your left mirror check is current.": "Votre contrôle du rétroviseur gauche est à jour.",
+"Look at the left mirror for a moment to check it.": "Regardez un instant le rétroviseur gauche pour le contrôler.",
+"Your right mirror check is current.": "Votre contrôle du rétroviseur droit est à jour.",
+"Look at the right mirror for a moment to check it.": "Regardez un instant le rétroviseur droit pour le contrôler.",
+"Your interior mirror check is current.": "Votre contrôle du rétroviseur intérieur est à jour.",
+"Look at the interior mirror for a moment to check it.": "Regardez un instant le rétroviseur intérieur pour le contrôler."
 },
 "templates": [
 [
@@ -5306,6 +5314,10 @@ window.OTR_I18N.fr = {
 [
 "The engine is at {0} RPM.",
 "Le moteur tourne à {0} RPM."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"Fermez la cargaison avant de monter en cabine. Appuyez sur {0} pour la ceinture et {1} pour le frein à main. Regardez un rétroviseur physique un instant avant de rouler ou de tourner. Appuyez sur {2} pour le sélectionner au clavier. Utilisez {3}/{4} pour accélérer ou freiner et {5}/{6} pour diriger. Arrêtez-vous et serrez le frein à main avant d'utiliser le terminal ou de descendre."
 ]
 ],
 "keep": [

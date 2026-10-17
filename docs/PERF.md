@@ -1,5 +1,54 @@
 # 3D workday rendering cost
 
+## C-23: three physical mirrors (17 October 2026)
+
+Three always-live mirrors replace the requested floating overlay. One atlas holds all three images; a maximum
+of one reflection pass runs in a frame, before the world and its single fullscreen composite. Low schedules
+30 aggregate updates per second (about 10 per mirror at 60 fps); High schedules 90 (about 20 per mirror at
+60 fps). Low's atlas is 384 × 144; High's is 768 × 288. The world still has two allocated Three.js textures.
+Total target attachments at 1280 × 720 are **3,557,376 bytes on Low** and **9,142,272 on High**. Colour filtering
+runs once in the existing composite and reaches both the world and physical reflections.
+
+The initial prototype exceeded the 64-call limit when the interior mirror also rendered the dashboard.
+Batching the Low wheel hub with its spokes and mirror mounts with the housings saves two calls without changing
+their geometry. Reflection cameras now cull individual static town instances into preallocated buffers and
+restore the main view exactly afterwards. Low side-camera range is 40 metres; interior range is 12 metres.
+The interior image shows the cab and bulkhead; it does not render the road through the solid body.
+
+The expanded geometry sweep renders every stop on 30 days and ten variants, empty/loaded, four driving poses,
+eleven cab controls and three mirror looks, with each of the three reflection passes. **162,000 loaded views**
+peak at **59 calls / 2,090 triangles**; **162,000 fallback views** peak at **58 / 2,082**. The densest view is
+day 6, variant 9, first stop, loaded van, looking at the wiper stalk with the interior reflection updating.
+The renderer fixture `latermirrorpeak` reproduces it. No resource ceiling changed.
+
+Seven actual Low samples with sound, larger text and colour filtering peak at **58 calls / 2,090 triangles**,
+**two textures**, **3,557,376 attachment bytes** and **2,581,472 estimated Phaser texture bytes**. They include
+all three mirror looks, barcode aim, a loaded turn, reverse and the densest cab angle. Four High samples peak
+at **64 calls / 4,066 triangles**, **two textures**, **9,142,272 attachment bytes** and **6,663,515 Phaser bytes**.
+Two Low samples with reduced motion added also pass, peaking at **58 / 2,090** and **2,528,539 Phaser bytes**.
+Loaded source geometry storage is 4,832 bytes on Low and 21,536 on High. No page errors or context loss occur.
+
+Commands (one Chromium at a time):
+
+```sh
+QA_ASSETS=1 QA_CAB=1 QA_CAMERA=1 QA_MIRRORS=1 QA_LATER=1 QA_TAG=c23 node test/fproute.js
+QA_CAB=1 QA_CAMERA=1 QA_MIRRORS=1 QA_LATER=1 QA_TAG=c23-fallback node test/fproute.js
+QA_GFX=low QA_TAG=c23 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,mirrorRight,mirrorInterior,barcodeAim,laterstressturn,laterstressreverse,latermirrorpeak QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c23 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=mirror,mirrorRight,mirrorInterior,latermirrorpeak QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_TAG=c23-reduced QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour,reduced QA_VIEWS=mirror,latermirrorpeak node test/fpbench.js
+QA_CAB=1 QA_LATER=1 node test/fpresume.js
+node test/fpmirrors.js
+QA_CLIP=1 node test/fpmirrorsbrowser.js
+node test/fpaccessbrowser.js
+node test/fpcamerabrowser.js
+```
+
+Mirrors and in-progress manoeuvres use compact optional arrays validated by the owned restore code. The
+new gaze/control checkpoints, 30 seeded resume comparisons and 100-day soak pass, with **3,943 / 4,000 SCORM
+characters** across 240 encode/decode checks. Shared save, settings, i18n and scoring sources are unchanged.
+The first day retains its gentle route. Software rendering establishes resource/behaviour regressions;
+O-1 still requires the owner's native Intel 60 fps check. Evidence: `docs/review/set-7/c23.md`.
+
 ## C-22: physical cab controls (17 October 2026)
 
 The PRND selector, brake, belt, indicator, light/wiper switches and speed/RPM gauges share batched procedural cab

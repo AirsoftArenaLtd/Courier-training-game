@@ -3689,7 +3689,15 @@ window.OTR_I18N.ml = {
 "Switch the wipers.": "വൈപ്പറുകൾ ഓൺ/ഓഫ് ചെയ്യുക.",
 "Stop before selecting a different gear.": "മറ്റൊരു ഗിയർ തിരഞ്ഞെടുക്കും മുമ്പ് നിർത്തുക.",
 "The speed is 0 mph.": "വേഗത 0 mph ആണ്.",
-"The engine is at 800 RPM.": "എൻജിൻ 800 RPM-ൽ ആണ്."
+"The engine is at 800 RPM.": "എൻജിൻ 800 RPM-ൽ ആണ്.",
+"Checked the matching mirror before turning or changing lanes.": "തിരിയുന്നതിനോ ലെയ്ൻ മാറുന്നതിനോ മുമ്പ് ബന്ധപ്പെട്ട കണ്ണാടി നോക്കി.",
+"Turned or changed lanes without a current check of the matching mirror.": "ബന്ധപ്പെട്ട കണ്ണാടി നോക്കാതെ തിരിഞ്ഞു അല്ലെങ്കിൽ ലെയ്ൻ മാറി.",
+"Your left mirror check is current.": "നിങ്ങളുടെ ഇടത് കണ്ണാടി പരിശോധന പുതിയതാണ്.",
+"Look at the left mirror for a moment to check it.": "ഇടത് കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക.",
+"Your right mirror check is current.": "നിങ്ങളുടെ വലത് കണ്ണാടി പരിശോധന പുതിയതാണ്.",
+"Look at the right mirror for a moment to check it.": "വലത് കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക.",
+"Your interior mirror check is current.": "നിങ്ങളുടെ ഉള്ളിലെ കണ്ണാടി പരിശോധന പുതിയതാണ്.",
+"Look at the interior mirror for a moment to check it.": "ഉള്ളിലെ കണ്ണാടി ഒരു നിമിഷം നോക്കി പരിശോധിക്കുക."
 },
 "templates": [
 [
@@ -5311,6 +5319,10 @@ window.OTR_I18N.ml = {
 [
 "The engine is at {0} RPM.",
 "എൻജിൻ {0} RPM-ൽ ആണ്."
+],
+[
+"Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
+"ക്യാബിനിൽ കയറുന്നതിന് മുമ്പ് കാർഗോ അടയ്ക്കുക. സീറ്റ്ബെൽറ്റിന് {0}, പാർക്കിംഗ് ബ്രേക്കിന് {1} അമർത്തുക. നീങ്ങുന്നതിനോ തിരിയുന്നതിനോ മുമ്പ് യഥാർത്ഥ കണ്ണാടി ഒരു നിമിഷം നോക്കുക. കീബോർഡ് കൊണ്ട് തിരഞ്ഞെടുക്കാൻ {2} അമർത്തുക. വേഗത കൂട്ടാൻ/ബ്രേക്ക് ചെയ്യാൻ {3}/{4}, സ്റ്റിയർ ചെയ്യാൻ {5}/{6} ഉപയോഗിക്കുക. ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിക്കുന്നതിനോ ഇറങ്ങുന്നതിനോ മുമ്പ് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക."
 ]
 ],
 "keep": [
