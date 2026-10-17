@@ -278,7 +278,7 @@ items here for each agent.
 | B-13 | Claude | **Close out the Claude inbox:** old Codex items that were merged long ago still said `open`. | done |
 | B-14 | Claude | **QA flows that survive a slow machine:** `m1-pretrip`, `m2-labels`, `m2-lift` and `m3-missing` fail when the frame rate drops below about 10 fps (two browsers at once). Replace their fixed waits with waits on the game's own state, so the language passes and a busy CI give real results. | done |
 | B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | todo |
-| B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | todo |
+| B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | done |
 | B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | todo |
 
 ## Questions for the owner
@@ -306,6 +306,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **17 October 2026, Claude — B-16:** a day with a mirror check on every turn (C-23's `turn:<leg>:<n>` keys) filled SCORM 1.2 suspend data to 3,905 of 4,000 characters at 14 turns a leg, and at 20 a leg dropped to the summary stage (score kept, drive-review pins lost). `src/core/save.js` now writes runs of numbered keys in a packed day once (`packRuns`: `["turn:3:", 1, 20]`; exact, in order; old saves read as before), so the 20-turn day stays packed with every pin. `test/savesize.js`: the 20-turn day (reloaded and replayed without double counting) and the run round-trip edge cases.
 
 - **17 October 2026, Claude — B-8:** the review set's `mirror` view (`test/tools/review-set.js`) now puts the van on the first street and looks straight at the physical left mirror, using `OTR.fpMirrors.specs` the same way the game's own gaze check does. The tool fails if the game does not count that view as looking at the left mirror, or if the mirror never rendered. It previously set the walking yaw, so the cab camera showed the road ahead. Earlier sets keep the old view.
 
