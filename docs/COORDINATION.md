@@ -280,6 +280,7 @@ items here for each agent.
 | B-15 | Claude | **Drive map for the new mistakes:** the drive review lists sign, damage, clearance and load-shift pins like any other; give each kind its own marker and a line in the legend, and check it at larger text. | done |
 | B-16 | Claude | **Save size with per-turn mirror checks:** C-23 reports `drive.mirrors` once per turn or lane change (key `turn:<leg>:<n>`), so a long day adds many events. Add a `test/savesize.js` case with a full day of turns (right and wrong) and make sure SCORM 1.2 suspend data stays inside 4,000 characters with the score intact; pack or group the turn events in `src/core/save.js` if it does not. | done |
 | B-17 | Claude | **Trainer and trainee guides for the physical cab:** `docs/PILOT-GUIDE.md` and the in-game help say how mirrors (look, no button), the gear selector (look and press the action key) and the cab switches work now, and what the trainer's report shows for them; translate the in-game text. | todo |
+| B-18 | Claude | **Slow-PC waits for flows without a boot sample:** `drive-review` (and the other flows that start their own scene: `fps=0`, `boot=null`) get no `ctx.slow`, so its 480 s drive times out while another browser renders (fails the same on unchanged pilot). Measure a frame-rate sample at the flow's start in `test/qa.js` when the boot pass is skipped, so these waits stretch too. | todo |
 
 ## Questions for the owner
 
