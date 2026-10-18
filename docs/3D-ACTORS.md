@@ -1,7 +1,7 @@
 # Van and character models
 
 C-28 replaces the van exterior, courier, crossing pedestrian and nearby resident art with locally bundled
-CC0 assets. `codex/c28-van-characters` is stacked on C-27 `5e4568a`; all cab controls, inspection/parcel/door
+CC0 assets. `codex/c28-van-characters` is stacked on B-30 `5667be9`, over pilot `951ef36`; C-27 is merged. All cab controls, inspection/parcel/door
 raycasts, solid footprints, scores and save fields remain owned by the existing model.
 
 The Kenney delivery van retains its named body, cargo door and four wheels. High keeps 2,461 source
@@ -58,3 +58,15 @@ rig inspection; it is not the final runtime gate. Final resource figures, browse
 are recorded in `docs/PERF.md` and `docs/review/set-8/c28.md`. The unchanged Low gate is 64 calls, 2,500
 triangles, two Three textures and 4 MiB each for attachments and estimated Phaser textures at 1280×720.
 The owner's native Intel 60 fps measurement remains O-1; cloud SwiftShader timing is not acceptance.
+
+The final Low pass also batches world parcels and empty shelf markers, retaining their exact
+pickup, shelf and barcode boxes solely for raycasts. A shared parcel palette has 30 triangles;
+High retains the original 120-triangle shape. Tape, barcode printing, livery, the restraint plate
+and moving facade panels use flat surfaces on Low. No image texture is added.
+
+Low's main town batches now compact individual instances against the camera frustum as well as
+the existing distance limit. The same buffers are temporarily compacted for each reflection and
+restored exactly. High retains offscreen main-view instances for shadow casting. Eight real Low
+pixel comparisons against disabled frustum tests retain every visible byte, and a Node regression
+keeps High's shadow candidates when the trainee turns around. The town detail allowance remains
+290 triangles; no scenery radius or physical proxy is reduced.

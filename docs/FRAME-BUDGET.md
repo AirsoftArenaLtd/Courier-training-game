@@ -1,5 +1,13 @@
 # Low-graphics 3D workday budget
 
+**C-28 van/people update (18 October 2026):** loaded and procedural-fallback sweeps now include
+standing behind and inside open cargo, for 264,000 complete-frame views each. Peaks are
+**63 calls / 2,480 triangles** loaded and **56 / 2,058** fallback. Parcel/shelf batching, Low
+surface details and main-view per-instance culling keep the original ceilings. Eight Low pixel
+comparisons against disabled frustum tests are exact; High retains offscreen shadow casters.
+Source and pose limits are in `docs/3D-ACTORS.md`; rendered gates, screenshots and review evidence
+are in `docs/PERF.md` and `docs/review/set-8/c28.md`. The native Intel O-1 check remains outstanding.
+
 **C-27 town update (17 October 2026):** static per-instance colour batching recovers calls before
 adding art: the loaded 240,000-view sweep first falls to 48 calls / 1,890 triangles. With all town
 templates, it peaks at 58 / 2,306; fallback peaks at 47 / 2,266. Low selects nearby detail within a
@@ -174,7 +182,10 @@ Reports: `docs/qa/c18-geometry.json`, `c18-weather-low.json`, `c18-low.json`, `c
 
 ### C-28: van and people
 
-The 240,000-view loaded Low sweep peaks at **58 calls / 2,422 triangles**; fallback peaks at **47 / 2,266**.
+The 264,000-view loaded Low sweep peaks at **63 calls / 2,480 triangles**; fallback peaks at **56 / 2,058**.
+It includes walking behind and inside open cargo. Parcels and shelf markers share instance batches;
+Low uses surfaces for printing, livery and moving facade panels. Main-view instance culling retains
+every visible pixel in eight comparisons, while High keeps its offscreen shadow candidates.
 The new Low van has 190 triangles and each Low figure 88. CPU poses on ordinary meshes avoid a bone
 texture; the existing main/reflection targets and pass schedule remain. The interior reflection keeps
 the C-23 cab shell so the imported windshield does not obstruct the unchanged physical mirror camera.
