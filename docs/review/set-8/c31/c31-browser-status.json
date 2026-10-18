@@ -1,0 +1,67 @@
+[
+  {
+    "name": "navigation-low",
+    "exit": 0,
+    "elapsed": 78.9
+  },
+  {
+    "name": "navigation-high",
+    "exit": 0,
+    "elapsed": 233.5
+  },
+  {
+    "name": "clip",
+    "exit": 0,
+    "elapsed": 88.9
+  },
+  {
+    "name": "quality",
+    "exit": 0,
+    "elapsed": 1124.6
+  },
+  {
+    "name": "hud-low",
+    "exit": 0,
+    "elapsed": 114.3
+  },
+  {
+    "name": "hud-high",
+    "exit": 0,
+    "elapsed": 356.0
+  },
+  {
+    "name": "narration",
+    "exit": 0,
+    "elapsed": 29.1
+  },
+  {
+    "name": "signs",
+    "exit": 0,
+    "elapsed": 50.9
+  },
+  {
+    "name": "town-low",
+    "exit": 0,
+    "elapsed": 16.5
+  },
+  {
+    "name": "town-high",
+    "exit": 0,
+    "elapsed": 48.2
+  },
+  {
+    "name": "guide",
+    "exit": 0,
+    "elapsed": 29.2
+  },
+  {
+    "name": "keyboard",
+    "exit": 0,
+    "elapsed": 92.9
+  },
+  {
+    "name": "offline",
+    "exit": 0,
+    "elapsed": 9.2
+  }
+]
