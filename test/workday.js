@@ -322,3 +322,16 @@ test('B-29: the day keeps its town seed so the drive review can draw its streets
   assert.equal(old.townSeed, undefined, 'no town, no seed');
   assert.equal(W.reviewData(old, { items: [] }).plan.townSeed, undefined);
 });
+
+test('B-31: the drive map names each street with the town\'s own names', () => {
+  // the town as OTR.town.build gives it (its own art and scenery are not needed here)
+  const spec = { streetsH: ['Harbor St', 'Maple Ave'], streetsV: ['1st St', '2nd St', '3rd St'] };
+  const town = OTR.town;
+  OTR.town = { build: () => ({ spec, hy: [100, 500], vx: [100, 500, 900], road: 80, depot: { x: 460 } }) };
+  let st;
+  try { st = vm.runInContext('DriveReviewScene.prototype.planStreets({ townSeed: 1 })', context); } finally { OTR.town = town; }
+  assert.equal(JSON.stringify(st.xNames), JSON.stringify(spec.streetsH));
+  assert.equal(JSON.stringify(st.zNames), JSON.stringify(spec.streetsV));
+  assert.equal(JSON.stringify(st.xs), '[0,20]', 'each name sits on its own street');
+  assert.equal(st.zs.length, 3);
+});
