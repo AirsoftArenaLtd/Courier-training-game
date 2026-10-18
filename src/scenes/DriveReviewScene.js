@@ -283,7 +283,7 @@ OTR.drive = {
   /** The marker a kind of mistake gets on the map (B-15), or null for the plain round pin. */
   mark(type) {
     if (typeof type !== 'string') return null;
-    if (/^drive\.sign-/.test(type)) return 'sign';
+    if (/^drive\.sign-/.test(type) || type === 'drive.red-light') return 'sign';   // a traffic light is a road sign on the map (C-32)
     if (/^van\.damage-/.test(type)) return 'damage';
     if (type === 'drive.clearance') return 'clearance';
     if (type === 'load.shift') return 'load';

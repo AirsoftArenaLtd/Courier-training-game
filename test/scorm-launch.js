@@ -3,8 +3,9 @@
  * test/tools/package-scorm.js, unpacked and opened inside a player page that gives the game a SCORM 1.2 API, as an
  * LMS's frame does. The game must find the LMS and read the learner and the saved progress; the 3D workday must load
  * every model at Low and High from the package; nothing may be missing from the zip, and nothing may come from outside.
+ * With --2004 (B-42) the same for the SCORM 2004 package, with the 2004 API (API_1484_11) and its learner fields.
  *
- *   QA_BROWSER=/path/to/chrome node test/scorm-launch.js [dist/on-the-route-scorm12.zip]   (builds it when not given)
+ *   QA_BROWSER=/path/to/chrome node test/scorm-launch.js [--2004] [package.zip]   (builds the package when not given)
  */
 'use strict';
 const fs = require('fs'), os = require('os'), path = require('path'), http = require('http'), cp = require('child_process');
@@ -35,19 +36,29 @@ function unzip(file, dir) {
   return count;
 }
 
-// a page standing in for the LMS: the SCORM 1.2 API on the parent window, the package in a frame
-const PLAYER = `<!doctype html><meta charset="utf-8"><title>SCORM 1.2 test player</title><script>
-window.calls = []; window.store = {};
-window.API = { LMSInitialize: () => { calls.push('init'); return 'true'; }, LMSFinish: () => 'true',
+// a page standing in for the LMS: the SCORM API on the parent window (1.2's API or 2004's API_1484_11), the package in a frame
+const V2004 = process.argv.includes('--2004');
+const API = V2004
+  ? `window.API_1484_11 = { Initialize: () => { calls.push('init'); return 'true'; }, Terminate: () => 'true',
+  GetValue: (k) => { calls.push('get ' + k); return store[k] || ({ 'cmi.learner_name': 'Rivera, Sam', 'cmi.learner_id': 'lms042' }[k] || ''); },
+  SetValue: (k, v) => { store[k] = String(v); return 'true'; }, Commit: () => 'true',
+  GetLastError: () => '0', GetErrorString: () => '', GetDiagnostic: () => '' };`
+  : `window.API = { LMSInitialize: () => { calls.push('init'); return 'true'; }, LMSFinish: () => 'true',
   LMSGetValue: (k) => { calls.push('get ' + k); return store[k] || ({ 'cmi.core.student_name': 'Rivera, Sam', 'cmi.core.student_id': 'lms042' }[k] || ''); },
   LMSSetValue: (k, v) => { store[k] = String(v); return 'true'; }, LMSCommit: () => 'true',
-  LMSGetLastError: () => '0', LMSGetErrorString: () => '', LMSGetDiagnostic: () => '' };
+  LMSGetLastError: () => '0', LMSGetErrorString: () => '', LMSGetDiagnostic: () => '' };`;
+const PLAYER = `<!doctype html><meta charset="utf-8"><title>SCORM ${V2004 ? '2004' : '1.2'} test player</title><script>
+window.calls = []; window.store = {};
+${API}
 </script><iframe id="sco" style="width:1280px;height:720px;border:0"></iframe>
 <script>document.getElementById('sco').src = new URLSearchParams(location.search).get('sco');</script>`;
 
 (async () => {
-  let zip = process.argv[2];
-  if (!zip) { zip = path.join(ROOT, 'dist', 'on-the-route-scorm12.zip'); cp.execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'package-scorm.js'), zip], { stdio: 'inherit' }); }
+  let zip = process.argv.slice(2).find(a => !a.startsWith('--'));
+  if (!zip) {
+    zip = path.join(ROOT, 'dist', V2004 ? 'on-the-route-scorm2004.zip' : 'on-the-route-scorm12.zip');
+    cp.execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'package-scorm.js'), ...(V2004 ? ['--2004'] : []), zip], { stdio: 'inherit' });
+  }
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-scorm-'));
   const files = unzip(zip, dir);
   fs.writeFileSync(path.join(dir, '__player.html'), PLAYER);
@@ -76,6 +87,7 @@ window.API = { LMSInitialize: () => { calls.push('init'); return 'true'; }, LMSF
     const calls = await p.evaluate(() => window.calls);
     if (who.mode !== 'scorm') problems.push('the game did not find the LMS (mode ' + who.mode + ')');
     if (!calls.includes('init') || !calls.includes('get cmi.suspend_data')) problems.push('the game did not start the LMS session or read the saved progress');
+    if (who.name !== 'Sam Rivera') problems.push('the game did not read the learner\'s name from the LMS (got "' + who.name + '")');
     console.log(`hub: ${who.mode}, learner "${who.name}", ${calls.length} LMS calls`);
     for (const gfx of ['low', 'high']) {
       await p.goto(base + '__player.html?sco=' + encodeURIComponent('first-person.html?gfx=' + gfx));
@@ -90,6 +102,6 @@ window.API = { LMSInitialize: () => { calls.push('init'); return 'true'; }, LMSF
   missing.forEach(u => problems.push('not in the package: ' + u));
   outside.forEach(u => problems.push('from outside the package: ' + u));
   problems.forEach(x => console.log('  ' + x));
-  console.log(problems.length ? `${problems.length} problems` : `the package (${files} files) launches in a SCORM 1.2 frame with everything it needs`);
+  console.log(problems.length ? `${problems.length} problems` : `the package (${files} files) launches in a SCORM ${V2004 ? '2004' : '1.2'} frame with everything it needs`);
   process.exit(problems.length ? 1 : 0);
 })();
