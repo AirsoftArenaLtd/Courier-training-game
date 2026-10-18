@@ -205,6 +205,14 @@ OTR.fpTraffic = {
   contact(m, role) {
     return !!(m.motion && m.motion.contact && m._motorPose && OTR.fp.vanBox(m._motorPose, m._trafficSolids[role]));
   },
+  handlesContact(m, role) {
+    if (!this.contact(m, role)) return false;
+    // A later impact is a new contact, after the crossing or turn was completed safely.
+    if (role === 'children') return m.crossing.state !== 'resolved';
+    const id = 'driver:drive.cyclist:cyclist:' + m.trafficControl.cyclist.leg;
+    for (const line of m.logs) if (line.id === id) return line.outcome !== 'good';
+    return true;
+  },
   after(m) {
     const c = m.trafficControl.cyclist, v = m.van;
     if (this.contact(m, 'children')) {

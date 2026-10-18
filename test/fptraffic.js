@@ -255,3 +255,19 @@ test('a cyclist held beside the van at red stays visible after a long wait',()=>
  T.cyclistStep(m,.0125);T.syncSolids(m);
  assert.equal(c.state,'beside');assert.equal(m._trafficSolids.cyclist.x,c.x);
 });
+
+test('a later impact after a completed school crossing still reports a physical contact',()=>{
+ const m=make(),h=m.crossing;h.state='resolved';h.x=m.town.school.x+m.town.road/2+1.2;T.syncSolids(m);m.tickTraffic=()=>{};
+ T.emit(m,'drive.pedestrian','school-crossing',true,'Waited for the children to finish crossing the road.');
+ Object.assign(m.van,{x:h.x,z:h.z+6,yaw:0,speed:2,hand:false,gear:1});
+ for(let i=0;i<120;i++)m.step({forward:true},.025);
+ assert.equal(reports('drive.pedestrian').length,1);assert.equal(reports('drive.pedestrian')[0].ok,true);
+ assert.equal(reports('drive.contact').length,1);assert.equal(reports('drive.contact')[0].ok,false);
+});
+test('a completed safe cyclist turn does not hide a later physical impact',()=>{
+ const m=make(),c=m.trafficControl.cyclist;Object.assign(c,{state:'clear',leg:m.leg,x:2.84,z:-18,yaw:0});T.syncSolids(m);
+ T.emit(m,'drive.cyclist','cyclist:'+m.leg,true,'Checked the right mirror and waited for the cyclist before turning.');
+ m.motion={contact:true};m._motorPose={x:c.x,z:c.z,yaw:0};
+ m.log('contact:'+m.leg,'safety','needs','The van contacted an obstacle.');T.after(m);
+ assert.equal(reports('drive.cyclist').length,1);assert.equal(reports('drive.cyclist')[0].ok,true);assert.equal(reports('drive.contact').length,1);
+});
