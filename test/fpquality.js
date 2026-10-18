@@ -19,6 +19,7 @@ function checkReport(report,profile,tag){
  if((report.errors||[]).length||(report.missingViews||[]).length)fail('A view or browser check failed.');
  const budget=BUDGETS[profile.quality],peak={calls:0,triangles:0,textures:0,attachmentBytes:0,phaserBytes:0};
  for(const name of profile.views.split(',')){
+  if(['mirror','mirrorRight','mirrorInterior'].includes(name)){const proof=report.mirrorProof&&report.mirrorProof[name],red=proof&&proof.red,blue=proof&&proof.blue;if(!red||!blue||!(red[0]>180&&red[0]>blue[0]+100&&blue[2]>150&&blue[0]<80))fail('No live reflected pixels for '+name+'.');}
   const sample=report.prototype&&report.prototype[name];if(!sample||!(sample.frames>0)||sample.contextLost)fail('No valid frames for '+name+'.');
   if(!sample.peak||!(sample.peak.calls>0)||!(sample.peak.triangles>0)||!(sample.peak.attachmentBytes>0))fail('An empty render was recorded for '+name+'.');
   for(const key of ['calls','triangles','textures','attachmentBytes']){const n=sample.peak&&sample.peak[key];if(!Number.isFinite(n)||n<0||n>budget[key])fail(name+' exceeds '+key+'.');peak[key]=Math.max(peak[key],n);}
@@ -30,11 +31,11 @@ function run(){
  fs.mkdirSync(OUT,{recursive:true});const selected=(process.env.QA_PROFILES||PROFILES.map(p=>p.id).join(',')).split(',').map(id=>id.trim()).filter(Boolean),tagBase=process.env.QA_TAG||'c29';
  if(!selected.length||selected.some(id=>!PROFILES.some(p=>p.id===id)))throw Error('Unknown or empty quality profile.');
  const summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),budgets:BUDGETS,profiles:[]};let failed=false;
- for(const profile of PROFILES.filter(p=>selected.includes(p.id))){
+ for(const profile of selected.map(id=>PROFILES.find(p=>p.id===id))){
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   const result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,encoding:'utf8',maxBuffer:16*MiB});
   fs.writeFileSync(path.join(OUT,tag+'.log'),(result.stdout||'')+(result.stderr||'')+(result.error?String(result.error):''));
   const item={id:profile.id,quality:profile.quality,views:profile.views.split(','),accessibility:profile.accessibility||'',fallback:!!profile.fallback,report:path.basename(reportFile),exit:result.status??1,elapsedMs:Date.now()-start};

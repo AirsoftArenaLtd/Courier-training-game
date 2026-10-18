@@ -53,6 +53,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene('FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical,rearCamera:!!v.rearCamera,reversing:!!v.rearOn};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
   };
   const lookAtTarget=async id=>p.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors)return false;s.target=null;for(let n=0;n<32;n++)if(OTR.fpAccess.focus(s)===id){s.notice='';s.refresh();return true;}throw Error('Benchmark target is unreachable: '+id);},id);
+  const probeMirror=async(index,name)=>{
+   if(process.env.QA_MIRROR_PROBE!=='1'||process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))return;
+   await p.evaluate(i=>{const s=OTR.game.scene.getScene('FirstPersonScene'),cam=s.view.mirror.cameras[i],d=cam.getWorldDirection(new THREE.Vector3()),o=new THREE.Mesh(new THREE.BoxGeometry(.35,.35,.35),new THREE.MeshBasicMaterial({color:0xff0000}));o.position.copy(cam.position).addScaledVector(d,.8);s.view.world.add(o);s.__qualityMarker=o;s.reticle.clear();},index);
+   const pixel=()=>p.evaluate(i=>new Promise((resolve,reject)=>{const s=OTR.game.scene.getScene('FirstPersonScene'),before=s.view.mirror.updates[i],done=()=>{if(s.view.mirror.updates[i]<before+2)return;clearTimeout(timer);s.game.events.off('postrender',done);const gl=s.game.renderer.gl,bytes=new Uint8Array(4);gl.readPixels(640,360,1,1,gl.RGBA,gl.UNSIGNED_BYTE,bytes);resolve([...bytes]);},timer=setTimeout(()=>{s.game.events.off('postrender',done);reject(Error('Mirror pixel probe timed out.'));},30000);s.game.events.on('postrender',done);}),index);
+   try{const red=await pixel();await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').__qualityMarker.material.color.setHex(0x0000ff));const blue=await pixel();(report.mirrorProof||(report.mirrorProof={}))[name]={index,red,blue};if(!(red[0]>180&&red[0]>blue[0]+100&&blue[2]>150&&blue[0]<80))throw Error('The physical mirror does not show live reflected pixels: '+name);}
+   finally{await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),o=s.__qualityMarker;o.removeFromParent();o.geometry.dispose();o.material.dispose();delete s.__qualityMarker;s.refresh();});await pixel();}
+  };
   report.prototype={};
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('hub');
   if(await p.evaluate(()=>!!OTR.fpGuide)){await p.evaluate(()=>OTR.fpGuide.open(OTR.game.scene.getScene('FirstPersonScene')));await sample('guide');await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());}
@@ -61,8 +68,8 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;});
   await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());await sample('depot');
   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.mode='cab';s.model.paused=false;s.sync();});await sample('cab');
-  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors){s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);}});await lookAtTarget('mirror-left');await sample('mirror');
-  if(await lookAtTarget('mirror-right'))await sample('mirrorRight');if(await lookAtTarget('mirror-interior'))await sample('mirrorInterior');
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors){s.__mirrorBench=()=>s.model.mirrorAt=s.model.elapsed;s.events.on('update',s.__mirrorBench);}});await lookAtTarget('mirror-left');await probeMirror(0,'mirror');await sample('mirror');
+  if(await lookAtTarget('mirror-right')){await probeMirror(1,'mirrorRight');await sample('mirrorRight');}if(await lookAtTarget('mirror-interior')){await probeMirror(2,'mirrorInterior');await sample('mirrorInterior');}
   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(s.__mirrorBench)s.events.off('update',s.__mirrorBench);s.model.van.look=0;s.model.player.pitch=0;s.model.mode='walk';s.showScanner();});await sample('handheld');
   const hasAim=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!s.handheld)return false;
    const p=s.model.parcels[0];p.location='held';s.model.heldId=p.id;s.handheld.scan();return true;});

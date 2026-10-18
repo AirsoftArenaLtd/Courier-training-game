@@ -21,3 +21,9 @@ test('accessibility and running sound cannot be silently omitted from the fixtur
  r.accessibility=['reduced','large','colour'];assert.ok(checkReport(r,p,'sample'));
  r.audioContext='suspended';assert.throws(()=>checkReport(r,p,'sample'),/live sound/);
 });
+test('a blank physical mirror cannot pass on resource counters alone',()=>{
+ const r=report(),p={...profile,views:'mirror'};r.prototype.mirror=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/live reflected pixels/);
+ r.mirrorProof={mirror:{red:[255,0,0,255],blue:[0,0,255,255]}};assert.ok(checkReport(r,p,'sample'));
+ r.mirrorProof.mirror.red=[35,49,60,255];r.mirrorProof.mirror.blue=[35,49,60,255];assert.throws(()=>checkReport(r,p,'sample'),/live reflected pixels/);
+});

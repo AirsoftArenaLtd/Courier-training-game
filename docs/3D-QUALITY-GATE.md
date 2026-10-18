@@ -2,7 +2,7 @@
 
 C-29, 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
 with Chromium (`QA_BROWSER`) and Puppeteer installed. One browser runs at a time. `QA_PROFILES`
-can select profile names, separated by commas, for a focused rerun; it defaults to all four.
+can select profile names, separated by commas, in run order; it defaults to all four.
 
 | Profile | Quality | Fixed views | Purpose |
 | --- | --- | ---: | --- |
@@ -30,6 +30,8 @@ generated town, physical targets, scores, saved state and trainer rules are reta
 High's ceilings bound its source-detail meshes and shadow/target work separately. They are not a
 native frame-rate claim. Low's original limits are not raised. Missing views, zero/empty renders,
 context loss, browser errors, a mismatched actual quality and incorrect asset fixtures fail the gate.
+Every selected mirror view must also show a red marker changing to blue in its real reflection.
+Markers are removed and disposed before resource samples and screenshots, retaining normal views.
 At least 14 models must load with no failures for healthy profiles. Fallback must load zero and
 fail at least the 14 selected models, so a misconfigured interception cannot pass as fallback proof.
 
@@ -37,6 +39,12 @@ fail at least the 14 selected models, so a misconfigured interception cannot pas
 manifest, licences and fonts remain available. It combines with the existing theme interception.
 Ordinary benchmark runs retain their previous request behavior. Every child report is regenerated;
 the aggregate command cannot read an old report after a failed child.
+
+The new High screenshots exposed opaque mirror housings in front of their reflective planes.
+C-29 moves those High housings 17 mm farther back; their full thickness now stays behind the
+surface. Low geometry, targets, gaze/scoring, reflection scheduling and render resources retain
+their behavior. A geometry regression test reproduces the former 4.5 mm front-face obstruction;
+the rendered marker probes prevent a flat housing from passing on resource counters alone.
 
 Reports and PNGs are saved under `test/out/fp-review/`, with a `c29-<profile>` prefix; the summary
 is `c29-quality.json`. `QA_TAG` changes that prefix. The summary records the checked Git revision,

@@ -52,7 +52,8 @@ OTR.fpMirrors={
     const targets=[];
     for(let i=0;i<3;i++){
       const s=this.specs[i];scratch.position.set(s.x,s.y,s.z);scratch.rotation.set(0,s.angle,0);scratch.scale.set(s.w,s.h,1);scratch.updateMatrix();faces.setMatrixAt(i,scratch.matrix);
-      scratch.position.add(new T.Vector3(0,0,-.008).applyAxisAngle(new T.Vector3(0,1,0),s.angle));scratch.scale.set(s.w*1.14,s.h*1.12,high?.025:1);scratch.updateMatrix();frames.setMatrixAt(i,scratch.matrix);
+      // Keep the entire High housing behind the reflective plane, including its front half.
+      scratch.position.add(new T.Vector3(0,0,high?-.025:-.008).applyAxisAngle(new T.Vector3(0,1,0),s.angle));scratch.scale.set(s.w*1.14,s.h*1.12,high?.025:1);scratch.updateMatrix();frames.setMatrixAt(i,scratch.matrix);
       const target=new T.Mesh(new T.PlaneGeometry(s.w,s.h),paint);target.position.set(s.x,s.y,s.z);target.rotation.y=s.angle;target.layers.set(1);target.userData.interaction=s.id;root.add(target);interactions.push(target);targets.push(target);
       if(i<2){scratch.position.set(s.x,s.y-.3,s.z-.02);scratch.rotation.set(0,s.angle,0);scratch.scale.set(.035,.2,1);scratch.updateMatrix();mounts.setMatrixAt(high?i:i+3,scratch.matrix);}
     }
