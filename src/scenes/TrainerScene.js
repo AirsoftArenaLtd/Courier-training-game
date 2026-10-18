@@ -68,7 +68,16 @@ class TrainerScene extends Phaser.Scene {
 
     this.saveBtn = OTR.ui.button(this, x + 340, top + h - 38, 'Save rules', () => this.saveRules(), { w: 190, h: 50, skin: 'orange', fontSize: 19 });
     this.focusables.push(this.saveBtn);
-    this.saveNote = OTR.txt(this, x + w - 24, top + h - 38, '', 14, '#1E9E6B', { ox: 1, weight: '900' });
+    // the room right of Save: wrapped, and a long single word shrinks (Tamil "Saved" ran under Save with larger text, B-39)
+    const room = (x + w - 24) - (x + 340 + 95 + 10);
+    const note = this.saveNote = OTR.txt(this, x + w - 24, top + h - 38, '', 14, '#1E9E6B', { ox: 1, weight: '900', align: 'right' });
+    const setText = note.setText.bind(note);
+    note.setText = (str) => {
+      note.setScale(1).setWordWrapWidth(null); setText(str);
+      if (note.width > room && /\s/.test(note.text)) note.setWordWrapWidth(room, false);      // a message wraps at its spaces
+      if (note.width > room) note.setScale(room / note.width);                               // a long word shrinks, never splits
+      return note;
+    };
     this.refreshRules();
   }
 
