@@ -76,6 +76,7 @@ const SCENARIOS = [
 
 const FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
 const A11Y = (process.env.QA_A11Y || '').split(',').filter(Boolean);   // e.g. large,colour (Settings → Accessibility)
+const GFX = /^(low|high)$/.test(process.env.QA_GFX || '') ? process.env.QA_GFX : '';   // Settings → Graphics for every run
 // QA_LANG=es plays every pass in that language (the layout audit then checks the translated text fits)
 const LANG_Q = process.env.QA_LANG ? `&lang=${process.env.QA_LANG}` : '';
 // On a laptop with two GPUs, Windows may hand a headless browser either one from day to day, and the frame rate
@@ -249,9 +250,10 @@ async function newPage(browser, row) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 720 });
   page.on('pageerror', e => row.errors.push('[pageerror] ' + String(e.message || e).split('\n')[0].slice(0, 180)));
-  // QA_A11Y=large,colour: every run with those accessibility settings on, set in the save as it loads
-  if (A11Y.length) {
-    await page.evaluateOnNewDocument((on) => {
+  // QA_A11Y=large,colour: every run with those accessibility settings on, and QA_GFX=low|high the graphics level, set in
+  // the save as it loads (a software-rendered QA machine draws High at a few frames a second)
+  if (A11Y.length || GFX) {
+    await page.evaluateOnNewDocument((on, gfx) => {
       const O = window.OTR = window.OTR || {};
       let save;
       Object.defineProperty(O, 'save', { configurable: true, get: () => save, set: (v) => {
@@ -261,10 +263,11 @@ async function newPage(browser, row) {
           const r = load.apply(this, arguments);
           this.data.settings.a11y = Object.assign({ keys: {}, large: false, colour: false, narrate: false }, this.data.settings.a11y);
           on.forEach(k => { this.data.settings.a11y[k] = true; });
+          if (gfx) this.data.settings.gfx = gfx;
           return r;
         };
       } });
-    }, A11Y);
+    }, A11Y, GFX);
   }
   // errors, and the warnings the game raises for broken content: a failed content check ([OTR data]), a
   // conversation or stop pointing at a node, act or situation that does not exist, an unknown scenario id
