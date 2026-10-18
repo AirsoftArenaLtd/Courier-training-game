@@ -1,0 +1,570 @@
+{
+  "runtimeSourceRevision": "6eb87fbf060f8dee854c7831c56aecbb7ad76ced",
+  "files": [
+    {
+      "file": "bench-c30-accessible-low-low.json",
+      "bytes": 12287,
+      "sha256": "3efa787e36cc4c608ba5206c373b9eb79c023fa0069d37e1bb6e51299ad2a237"
+    },
+    {
+      "file": "bench-c30-fallback-low-low.json",
+      "bytes": 14007,
+      "sha256": "b55f200d4d444a132edcc79c442412d422b2703477bbc859539590b5ada8c634"
+    },
+    {
+      "file": "bench-c30-loaded-high-high.json",
+      "bytes": 19710,
+      "sha256": "218593c594a841bd11cc85fd27e47726ac2ddad2823408eb18443dcf1ad45e68"
+    },
+    {
+      "file": "bench-c30-loaded-low-low.json",
+      "bytes": 40688,
+      "sha256": "5b51437a90f5ed52b2dfc56ffeba72747a35fb013927c7be3758202b9695e11a"
+    },
+    {
+      "file": "c30-accessible-low-low-actorscargoextra.png",
+      "bytes": 131588,
+      "sha256": "da235e2e3c8ebd688222bd5630009019f896aa135a5ac2ec51e0aa3e44212490"
+    },
+    {
+      "file": "c30-accessible-low-low-barcodeAim.png",
+      "bytes": 120411,
+      "sha256": "50da6a4261ffc597c02987be611a0e0e3aef88a3e496907e4b279cb3502278ed"
+    },
+    {
+      "file": "c30-accessible-low-low-cab.png",
+      "bytes": 211568,
+      "sha256": "04b9c73053da976d49239f1a5af432653d71fa682f2e829482a9679ad38cb938"
+    },
+    {
+      "file": "c30-accessible-low-low-laterrearpeak.png",
+      "bytes": 259802,
+      "sha256": "70ad59c4168ddcb963710247a0bb118b61cf8bba72cc5b9f24f33a951d5e89ec"
+    },
+    {
+      "file": "c30-accessible-low-low-mirrorInterior.png",
+      "bytes": 224162,
+      "sha256": "21acdc9e4d494fa14664b644398bede43c8a41073cc4c7235694a79ff4951618"
+    },
+    {
+      "file": "c30-accessible-low-low-signsjunction.png",
+      "bytes": 222833,
+      "sha256": "7a7b2a0aa57fce9e2d987b040fccaf5253c7c213b6ec5c5b308459817dfda0c6"
+    },
+    {
+      "file": "c30-accessible-low-low-signspeak.png",
+      "bytes": 116675,
+      "sha256": "521068742c4833b19c3fdde23ca387a71f684460c1850a31d58efda51052dc83"
+    },
+    {
+      "file": "c30-accessible-low-low-visibleweatherstorm.png",
+      "bytes": 257705,
+      "sha256": "ddcdcd61d454ba36baf2af18476c9feaef11732250469cc620100f42d473b79d"
+    },
+    {
+      "file": "c30-accessible-low.log",
+      "bytes": 6456,
+      "sha256": "78ce000f615b5411376b737f992ed32c36bea8ddd190f17bcec2fbfade4f35f3"
+    },
+    {
+      "file": "c30-browser-status.json",
+      "bytes": 1940,
+      "sha256": "0c10ff1b551d45d3676959046fee06730e396902672e52fadff9796e2f805990"
+    },
+    {
+      "file": "c30-clip.log",
+      "bytes": 36,
+      "sha256": "91098bbc0e9a527a8dd4140244ac8a3f1facc61184a3029544656d27286f93d6"
+    },
+    {
+      "file": "c30-fallback-final-geometry.json",
+      "bytes": 241,
+      "sha256": "1cc599b7a2ef71af3b540e42b712aca3d8deba41f813e33d942622fa647109aa"
+    },
+    {
+      "file": "c30-fallback-geometry.log",
+      "bytes": 1419,
+      "sha256": "9d1db971e266f40e678edb723d8e160604282a718ce43604754517920de904cf"
+    },
+    {
+      "file": "c30-fallback-low-low-actorscargoextra.png",
+      "bytes": 116877,
+      "sha256": "9bd3dfe299d074e1b481ea4075a57503d59a8ca3bb8dbb968d9b522d9b147c77"
+    },
+    {
+      "file": "c30-fallback-low-low-actorsresident.png",
+      "bytes": 43269,
+      "sha256": "374205808b24fb3d60ddd0af96dc904e27ba2586e1924e01b04fa14fd785ecdb"
+    },
+    {
+      "file": "c30-fallback-low-low-cab.png",
+      "bytes": 193097,
+      "sha256": "4d1dcf9ab466681686a4b56f2f5915f68170eecafa6d3bd76b13f8e109f6f1e6"
+    },
+    {
+      "file": "c30-fallback-low-low-laterrearpeak.png",
+      "bytes": 229881,
+      "sha256": "58af9cb8bd062ce9a86bc8422e3c91f46ad9a028cfb8c00e3d2d8f21d86d10ba"
+    },
+    {
+      "file": "c30-fallback-low-low-lightingnightreverse.png",
+      "bytes": 206080,
+      "sha256": "7acb6b22300ac3ff0b158b73bfe27275633351d92ff5405bb2856d1ee3c26b12"
+    },
+    {
+      "file": "c30-fallback-low-low-mirrorInterior.png",
+      "bytes": 195286,
+      "sha256": "8040cbe935122cca290087a3fde6adc6ba56d9330f631d014493b0f4107e1006"
+    },
+    {
+      "file": "c30-fallback-low-low-signsjunction.png",
+      "bytes": 209550,
+      "sha256": "949b46ea6c4bc76cfff2c542bc88ea26a502fd9a6175f5b36a69bd47efe7261f"
+    },
+    {
+      "file": "c30-fallback-low-low-signspeak.png",
+      "bytes": 94297,
+      "sha256": "1746431ff6846ec7427e478c9d29fcc9dfb2f3820e539a0f65fd9cd2f1cd7bad"
+    },
+    {
+      "file": "c30-fallback-low.log",
+      "bytes": 6457,
+      "sha256": "e6dd916f34e503ee8fac8736c65d2624c08c790879b6aedd0df8659280acc2f5"
+    },
+    {
+      "file": "c30-fpaccess.log",
+      "bytes": 1195,
+      "sha256": "891b5101f68edec4c084779a3dd243d0ee012d678d62e65c826098ef8b711706"
+    },
+    {
+      "file": "c30-fpaccessbrowser.log",
+      "bytes": 121,
+      "sha256": "06f8c4aa1d8e3a69560353d32b0bd6bdfd0016b175a8bafd044c8aa21bd38378"
+    },
+    {
+      "file": "c30-fpcab.log",
+      "bytes": 1545,
+      "sha256": "3227e0aba84a5497fdd8e2834a036430a1621cfb0c39f7541f19ca0a9da5db71"
+    },
+    {
+      "file": "c30-fpcabbrowser.log",
+      "bytes": 141,
+      "sha256": "6f216e301a1e2fdc25674705620256c29900e3cdaf96ed04c318d5c41e98b981"
+    },
+    {
+      "file": "c30-fpdriving.log",
+      "bytes": 2471,
+      "sha256": "eb54253be12cd0ef150249198e0dd4926b9de16ce76e3088dd3ec7b3d74a1845"
+    },
+    {
+      "file": "c30-fpguide.log",
+      "bytes": 436,
+      "sha256": "42dde606744a5f2bcc3011ef51fdfe95a30453f98ea71f353e49489d5b870fa1"
+    },
+    {
+      "file": "c30-fpguidebrowser.log",
+      "bytes": 45,
+      "sha256": "0d71359cf300b03d244d4233535954250f14f77f133b52e2a39ee87944ad00bc"
+    },
+    {
+      "file": "c30-fphudbrowser.log",
+      "bytes": 112,
+      "sha256": "69b409c5461f1830e02344ced5d2a3c036feead646e5fbf8e940bf42dfc5dd9e"
+    },
+    {
+      "file": "c30-fplater.log",
+      "bytes": 1132,
+      "sha256": "5ddacd4b6bb29269df55741716b3c95f2bdc857de8275c57adf39e1fda5c6ae6"
+    },
+    {
+      "file": "c30-fpmirrorsbrowser.log",
+      "bytes": 132,
+      "sha256": "aa3391cab8f5d63b5c06b0c5f172983bd3ac6a350c3d846d6444ac0b413ce9c2"
+    },
+    {
+      "file": "c30-fpmission.log",
+      "bytes": 3784,
+      "sha256": "ca43e0de099d1dbcdca151bf99777910788794c9416d4419ce208b01e63d8d8d"
+    },
+    {
+      "file": "c30-fpnarrationbrowser.log",
+      "bytes": 39,
+      "sha256": "15b787328c52ae04c07c33e63db6aebd8499c599fff6d9e7b7b0034e10140f39"
+    },
+    {
+      "file": "c30-fpquality.log",
+      "bytes": 442,
+      "sha256": "8561a631a5fd67e0992b256580d9ffb114e80f19d0d189c1939b059fb90dd65d"
+    },
+    {
+      "file": "c30-fpqualitygate.log",
+      "bytes": 660,
+      "sha256": "6cf2e9b93d38093a47da40702d108f998a3b3ce775399ef728d94139e272e2fa"
+    },
+    {
+      "file": "c30-fprearbrowser.log",
+      "bytes": 116,
+      "sha256": "caade35b54644ccb09114809a6bdb3f81a12679d4ceb5f8df17d6175374fe356"
+    },
+    {
+      "file": "c30-fproute.log",
+      "bytes": 1408,
+      "sha256": "4de702ecfa4372bad7df274d5c80ff40900cc30eb8b008c1fa0fbc3681c1e04e"
+    },
+    {
+      "file": "c30-fpsigns.log",
+      "bytes": 2160,
+      "sha256": "31cafc45390a4c154b6bf5bec47c106be3f0e43d804c7f444d35b324a0fd8be2"
+    },
+    {
+      "file": "c30-fpsignsbrowser.log",
+      "bytes": 45,
+      "sha256": "1a55bf98214ce91ff67a2d02300fa1a7ac5edaa25bba3c76ecd116cc75b12b75"
+    },
+    {
+      "file": "c30-fpworld.log",
+      "bytes": 2472,
+      "sha256": "ae4bf687cd9b811ee90168885387dbfd34091770966d82c0f6af3a8c64df4423"
+    },
+    {
+      "file": "c30-kind-giveway.png",
+      "bytes": 163152,
+      "sha256": "02fd96a529db50139f1134553f2b4b857322c436adefeee277a698b813126517"
+    },
+    {
+      "file": "c30-kind-noentry.png",
+      "bytes": 190765,
+      "sha256": "bec29abd8ac908e03d1efd940100dd36d0eaed189113d25b68f82824490a8e61"
+    },
+    {
+      "file": "c30-kind-number.png",
+      "bytes": 150482,
+      "sha256": "4cc764a9ee88f18eeb6cc5607f135656cc1cd00e88ba1eb561416b9c7d76bb0e"
+    },
+    {
+      "file": "c30-kind-oneway.png",
+      "bytes": 181405,
+      "sha256": "11a27a076a07ad93f92cf97b5b3de9d6d61ac32ee2fe6db79c79e7ebde45c489"
+    },
+    {
+      "file": "c30-kind-roadworks.png",
+      "bytes": 192257,
+      "sha256": "478e6ecd129a936909baa983b8135c164618f74c2e2562336eb8f8bb68da88f1"
+    },
+    {
+      "file": "c30-kind-school.png",
+      "bytes": 189971,
+      "sha256": "1ea92aa49bf46bd9a4cdf239b1ebddd88af89fbac904dc4b5c57777a8c397b11"
+    },
+    {
+      "file": "c30-kind-speed.png",
+      "bytes": 169712,
+      "sha256": "a0c9dabc79941c3b39ab7c78a4d67f96c02e46a9068f25e24c36f38da655514c"
+    },
+    {
+      "file": "c30-kind-stop.png",
+      "bytes": 160880,
+      "sha256": "41b9f02b9bde4bf701f71122873dce884423ace675b93550a1cc2cd2172a1e27"
+    },
+    {
+      "file": "c30-kind-street.png",
+      "bytes": 170386,
+      "sha256": "b39f8702c8dc4b4546935a6a8d130fb9e42311938c0b83962411569a9434d275"
+    },
+    {
+      "file": "c30-loaded-final-geometry.json",
+      "bytes": 241,
+      "sha256": "a6c65f8bcef98b3352c018a6bbe3d70925d237589aa5eaf75041ecfe64385055"
+    },
+    {
+      "file": "c30-loaded-geometry.log",
+      "bytes": 1422,
+      "sha256": "4e69ee5a29ebb22b4d16a2ecc84e6920c3a34bc25824af5154a2c3ae55104a40"
+    },
+    {
+      "file": "c30-loaded-high-high-actorscargoextra.png",
+      "bytes": 169668,
+      "sha256": "3b4dcd701212347545bbb3ba6bef50e42a03a901b0374fe5a84b307839d7e021"
+    },
+    {
+      "file": "c30-loaded-high-high-actorsmirror.png",
+      "bytes": 213932,
+      "sha256": "1ed9403d7d6a4614b0a148ff047f0cb9b6723937432a4d3ea4a4a1bc001d717f"
+    },
+    {
+      "file": "c30-loaded-high-high-actorsresident.png",
+      "bytes": 71743,
+      "sha256": "dbd7b62778939cc50f850de5007db331740a28383c224baa8a7d0a00c6aaf3aa"
+    },
+    {
+      "file": "c30-loaded-high-high-cab.png",
+      "bytes": 208065,
+      "sha256": "afeb3d92518d2011213ad7751a44528f9f97b025b7cc7fd9c49862372cfae358"
+    },
+    {
+      "file": "c30-loaded-high-high-lightingnightreverse.png",
+      "bytes": 170620,
+      "sha256": "02766e5d45ef8844bf99fdebea3036bf1afa505b5e04a0258fc219ec283c5326"
+    },
+    {
+      "file": "c30-loaded-high-high-mirror.png",
+      "bytes": 163055,
+      "sha256": "602e2f7b507f189ea98ce567cccfc15ea6c0e35edff9d59f80cdd9a1d62fc345"
+    },
+    {
+      "file": "c30-loaded-high-high-mirrorInterior.png",
+      "bytes": 202723,
+      "sha256": "5405a4ef948c72afd22db385d41d7bf4c09a96ba38b86131a009c730fd06389f"
+    },
+    {
+      "file": "c30-loaded-high-high-mirrorRight.png",
+      "bytes": 248594,
+      "sha256": "a08d75f484a24b8e2bf958aa08122c0cd17bc733fcd04f52d62eb610e024ca25"
+    },
+    {
+      "file": "c30-loaded-high-high-signsjunction.png",
+      "bytes": 197411,
+      "sha256": "c1f4679f8f20da7f194ab800d73925a8fe93f0fd8056ed805b0355c6e7771e03"
+    },
+    {
+      "file": "c30-loaded-high-high-signsoneway.png",
+      "bytes": 198955,
+      "sha256": "7917fc63aaad9a02cab5db6a1825a229d4ea58a75e41e06682557ff83d55efe2"
+    },
+    {
+      "file": "c30-loaded-high-high-signspeak.png",
+      "bytes": 96331,
+      "sha256": "3eeb481680c2216fdcaa6667ce49a27988548dbcc5e21b26ae86f45af4303d77"
+    },
+    {
+      "file": "c30-loaded-high-high-townhouse.png",
+      "bytes": 280362,
+      "sha256": "e10a7b4ee54b9ad9e4a4fdfed3ea88b21f0245fcd433ee54fa5ce30bbe58bed1"
+    },
+    {
+      "file": "c30-loaded-high-high-townroad.png",
+      "bytes": 261296,
+      "sha256": "d0449ef918ceb1b3fd6582de80bffa8c6eccb94ac00f55aca7170f7bd1fd9934"
+    },
+    {
+      "file": "c30-loaded-high.log",
+      "bytes": 10538,
+      "sha256": "4d3914b93edd2a88b77ff4327417671beaaf6478dfae9fd47dff1b2d3491e765"
+    },
+    {
+      "file": "c30-loaded-low-low-actorscargoextra.png",
+      "bytes": 121358,
+      "sha256": "6f91019e4cd5b259d9f3ff395a175d2053aa1549c3e197a6fbc37b1531f48ee4"
+    },
+    {
+      "file": "c30-loaded-low-low-actorsmirror.png",
+      "bytes": 160709,
+      "sha256": "e4d1c3aab153d1bcf6f721088dacffe6187aff6e6d46ae49ea4e2c780b71ec10"
+    },
+    {
+      "file": "c30-loaded-low-low-actorsresident.png",
+      "bytes": 51616,
+      "sha256": "9a9c037e519151901481eaebe49b4433f8684babe99c0eab0ebb9be88629c371"
+    },
+    {
+      "file": "c30-loaded-low-low-actorsvan.png",
+      "bytes": 208625,
+      "sha256": "ddb63c8b9e31bf0e1dfbf1ada9f509689879351e02319bba0b5dbdae89d9b829"
+    },
+    {
+      "file": "c30-loaded-low-low-barcodeAim.png",
+      "bytes": 105115,
+      "sha256": "95f4d3b264591435ec89eef990ae57cb1b52d86dfa7ea5272ad1c54de792b838"
+    },
+    {
+      "file": "c30-loaded-low-low-cab.png",
+      "bytes": 191172,
+      "sha256": "e32d20b4985ce70de870b5f93ea1cb6eb2915db11effdfbea359b30bab929420"
+    },
+    {
+      "file": "c30-loaded-low-low-depot.png",
+      "bytes": 162539,
+      "sha256": "d3335a73a1951973d54ee0adf2c0adba98c7f4fb7fb8a232584dccbe27dddfee"
+    },
+    {
+      "file": "c30-loaded-low-low-doorid.png",
+      "bytes": 55203,
+      "sha256": "60354975ed5a5025d7d591f790528294cbc7ff398425ac7a7f771f6bdab68180"
+    },
+    {
+      "file": "c30-loaded-low-low-doorsignature.png",
+      "bytes": 37511,
+      "sha256": "acbc3843bb5335f38262e7847c0c89f42c0ba10c520a245db569432609886411"
+    },
+    {
+      "file": "c30-loaded-low-low-doorstep.png",
+      "bytes": 37417,
+      "sha256": "9e1cd8740deeecc23ea67d16ff2f77c16dd5f8f80f3111a20dde3232527186a7"
+    },
+    {
+      "file": "c30-loaded-low-low-firstStop.png",
+      "bytes": 195550,
+      "sha256": "cc07743da51b3a7d4b90899e21ec3b5e4f768be694c89403e59400812e6a99a8"
+    },
+    {
+      "file": "c30-loaded-low-low-handheld.png",
+      "bytes": 150731,
+      "sha256": "c3b455a992bc679dd53cb52b5dbcf3a2f70c7678b83c95424e77c6d8a5e1b735"
+    },
+    {
+      "file": "c30-loaded-low-low-laterrearpeak.png",
+      "bytes": 238432,
+      "sha256": "2bf9d2b113aa311067ddd5d51b272323c95fbf4fac405127fc2b046075b7de55"
+    },
+    {
+      "file": "c30-loaded-low-low-laterstressturnleft.png",
+      "bytes": 223228,
+      "sha256": "2c71b9d033b043d7a1922ffef686e520cf4c059b90280d3acc2e09ff5dac5816"
+    },
+    {
+      "file": "c30-loaded-low-low-lightingnightreverse.png",
+      "bytes": 206080,
+      "sha256": "2b82394a3c30443895f3a0ffedc29bfea340e43f379e751af0f2edbaf05d5127"
+    },
+    {
+      "file": "c30-loaded-low-low-mirror.png",
+      "bytes": 157983,
+      "sha256": "6aba1d350cb03ed13566229bf6579941e417679da388e0b84ffaade7a0cd6d6f"
+    },
+    {
+      "file": "c30-loaded-low-low-mirrorInterior.png",
+      "bytes": 198359,
+      "sha256": "237487e4be1396cd45eaef76c4a9ed6fe3a06a612178d8c6bc4a4afa12c9d98f"
+    },
+    {
+      "file": "c30-loaded-low-low-mirrorRight.png",
+      "bytes": 198345,
+      "sha256": "404d74913750036d82967a00e6a16ef9e0a406b3bfa62ab6ba7eb18810776b00"
+    },
+    {
+      "file": "c30-loaded-low-low-signsjunction.png",
+      "bytes": 212725,
+      "sha256": "82531f183679dde552f827b4e0f8a6f9c26120baab6bc03dc6eaa81a4c90bc38"
+    },
+    {
+      "file": "c30-loaded-low-low-signsnumber.png",
+      "bytes": 65887,
+      "sha256": "97d70b6413bc31e8affdf3672869705953d94cb841929dbf68e749995704b445"
+    },
+    {
+      "file": "c30-loaded-low-low-signsoneway.png",
+      "bytes": 179875,
+      "sha256": "bf25658157d6f1dfb907f7a3164ec3508264c5762888cf5104a33422490fdf06"
+    },
+    {
+      "file": "c30-loaded-low-low-signspeak.png",
+      "bytes": 99565,
+      "sha256": "b4d2ba933d6a8fdc3dbc39a46972d453f5cf55c4d5dce3605431535c8cc59513"
+    },
+    {
+      "file": "c30-loaded-low-low-towncab.png",
+      "bytes": 201031,
+      "sha256": "7f27dff672d5061b935e9f1a44f0c2aefdce7cfcc3193cbc16b9eb0b1dfa5b5a"
+    },
+    {
+      "file": "c30-loaded-low-low-townhouse.png",
+      "bytes": 199285,
+      "sha256": "a7fcf970fa7bdfbbbe0307971ec1817d9b821f6ca9127effa5d19aae8d664f54"
+    },
+    {
+      "file": "c30-loaded-low-low-townparked-car.png",
+      "bytes": 205231,
+      "sha256": "5589818ce2f85b09591e3a3c001b73cdcc791bde6d2520b558b5bf9eb326c953"
+    },
+    {
+      "file": "c30-loaded-low-low-townroad.png",
+      "bytes": 171031,
+      "sha256": "2728d9f7353bba2df584e45dd280f23d3e83c7eeb260c59ded337677197bbcc3"
+    },
+    {
+      "file": "c30-loaded-low-low-visibleweathersnowwalk.png",
+      "bytes": 220781,
+      "sha256": "eae0bb68e64e2dbc2d99d54e0e0452ee0470014f0f463e4481dadc65105af576"
+    },
+    {
+      "file": "c30-loaded-low-low-visibleweatherstorm.png",
+      "bytes": 253737,
+      "sha256": "9043dc8c33d9afe83591cb0990929394507487d74b6213a789ec3b8281afd2aa"
+    },
+    {
+      "file": "c30-loaded-low.log",
+      "bytes": 22466,
+      "sha256": "98c1e60548a350638c343a69b5ea69dc8d6fe44d091f0e0f1dbcef0a506ef494"
+    },
+    {
+      "file": "c30-node.json",
+      "bytes": 718,
+      "sha256": "216458612711f007256903abb7dcba110ccbfd235b1d2cd3a0906f2a9299a4b3"
+    },
+    {
+      "file": "c30-offline.log",
+      "bytes": 445,
+      "sha256": "c342ffa991fdfb05deecb6a802536d6f46161ff50ab38d1afa56f190f1f679ff"
+    },
+    {
+      "file": "c30-package.log",
+      "bytes": 379,
+      "sha256": "4515aeda0e50865ceebe073a268db023f37161f64ea5785c2a0fa972c9216371"
+    },
+    {
+      "file": "c30-quality.json",
+      "bytes": 3374,
+      "sha256": "f1bdeacc5349ae2e204d24be2af58ca58800d7d3e52ff811022f563129e8ff9a"
+    },
+    {
+      "file": "c30-resume-soak.json",
+      "bytes": 14143,
+      "sha256": "f061c0f2171e8253d019fcb21953aba8e5f79fd73686006601e670bf7849d75f"
+    },
+    {
+      "file": "c30-resume.log",
+      "bytes": 348,
+      "sha256": "e277352d36beed7a743e9fe58dd1d030ad32982a3f5f5bbf94bff9e4aaeafa86"
+    },
+    {
+      "file": "c30-sign-clip.json",
+      "bytes": 755,
+      "sha256": "5d6b792915b44479bf26a5a88a3aa2fec95c9a6b57aa10d66e6578c465129e58"
+    },
+    {
+      "file": "c30-signs-browser.json",
+      "bytes": 4654,
+      "sha256": "f87a91d2a00100b0cf2f43171176750e936663b6fad0e733088096f70eda08bb"
+    },
+    {
+      "file": "c30-signs-high-en-normal.png",
+      "bytes": 191267,
+      "sha256": "7373226f759f8c955d1f920473ced38773b3417e1edf84ead520516f76684c7d"
+    },
+    {
+      "file": "c30-signs-low-en-large.png",
+      "bytes": 202921,
+      "sha256": "842d17ba00b5c5a4c674160bfb0fd8db31d9bec64737c34869409aaa357d91a8"
+    },
+    {
+      "file": "c30-signs-low-en-normal.png",
+      "bytes": 199866,
+      "sha256": "973e5b0b12bc3824153dd84688d7ce21012333fff54695cf453c259a47b96b3a"
+    },
+    {
+      "file": "c30-signs-low-ta-large.png",
+      "bytes": 206811,
+      "sha256": "dbc02462ac9c362b506f521e78b9c664c36a15e64be2f38cf4f1f0e47cde1c3b"
+    },
+    {
+      "file": "c30-signs.webm",
+      "bytes": 114754,
+      "sha256": "6293aa0ec31706ec1d70334d3a9d15e2caada53c38592e974452982ed937643d"
+    },
+    {
+      "file": "c30-syntax.json",
+      "bytes": 1190,
+      "sha256": "1748d0bf6db7cfc24c0fa5b1a4cb78a3a5e04d2de4c5ddff90e26692e043cfa9"
+    }
+  ]
+}

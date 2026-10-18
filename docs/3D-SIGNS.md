@@ -8,13 +8,15 @@ segment without delivery facades. Day one retains the gentle two-way grid.
 Each sign is a two-triangle plane with analytic board/post cutouts. All signs share the existing
 route-plane instance batch. Low submits at most five signs per view, hence at most 20 additional
 triangles over a main/reflection frame, without another draw call, texture, target or pass. High
-allows 24. Instance shape, matrix and colour buffers are restored after reflection passes. Posts
+allows 24. Instance shape, matrix and colour buffers are restored after reflection passes. Sign shader
+hooks compose with the existing road-grain material hooks. Posts
 remain outside driving lanes and neighbouring regulatory signs have separate positions.
 
 Five reusable Phaser labels provide whole-sentence readings at 18 px or 22 px with larger text.
 They avoid captions, neighbouring labels, navigation and the projected physical mirrors/rear
 screen, and hide immediately for panels. J cycles visible readings without opening a device
-while driving. It uses the existing remappable keyboard and narration routes. Colour filtering
+while driving. It uses the existing remappable keyboard and narration routes. Physical signs remain readable
+even when a long or crowded projected label cannot fit. Colour filtering
 and reduced motion keep the same information. New English sentences/templates await Claude’s
 normal extraction/translation after review.
 

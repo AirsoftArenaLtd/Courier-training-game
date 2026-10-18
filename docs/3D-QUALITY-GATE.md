@@ -1,18 +1,18 @@
 # The integrated 3D review gate
 
-C-29, 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
+C-29, extended for C-30 signs on 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
 with Chromium (`QA_BROWSER`) and Puppeteer installed. One browser runs at a time. `QA_PROFILES`
 can select profile names, separated by commas, in run order; it defaults to all four.
 
 | Profile | Quality | Fixed views | Purpose |
 | --- | --- | ---: | --- |
-| `loaded-low` | Low | 24 | All mirrors, cab, scanning, five-stop workflow views, later traffic/reverse, night/weather, town and actors. |
-| `loaded-high` | High | 10 | Source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
-| `accessible-low` | Low | 6 | Larger text, colour filtering and reduced motion in cab, scanning, weather, cargo and reverse. |
-| `fallback-low` | Low | 6 | Actual HTTP 404 responses for every GLB, with the procedural cab/town/actors still rendered. |
+| `loaded-low` | Low | 28 | Junction/number/one-way/loaded-peak signs, all mirrors, cab, scanning, five-stop workflow views, later traffic/reverse, night/weather, town and actors. |
+| `loaded-high` | High | 13 | Signs and source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
+| `accessible-low` | Low | 8 | Signs, larger text, colour filtering and reduced motion in cab, scanning, weather, cargo and reverse. |
+| `fallback-low` | Low | 8 | Signs and actual HTTP 404 responses for every GLB, with the procedural cab/town/actors still rendered. |
 
 The exact named fixtures/seeds live in `test/fpbench.js`; the versioned profile lists live in
-`test/fpquality.js`. They cover C-22 through C-28 and C-47 without changing gameplay. The same
+`test/fpquality.js`. They cover C-22 through C-30 and C-47 without changing gameplay. The same
 default company theme and running audio/captions are used in every profile. The gate checks
 the accessibility flags and audio state as well as the model fixture and rendered resources. The
 generated town, physical targets, scores, saved state and trainer rules are retained. Run
@@ -37,7 +37,8 @@ fail at least the 14 selected models, so a misconfigured interception cannot pas
 
 `test/fpbench.js` also supports `QA_FALLBACK=1` directly. Only model requests get a 404; scripts,
 manifest, licences and fonts remain available. It combines with the existing theme interception.
-Ordinary benchmark runs retain their previous request behavior. Every child report is regenerated;
+Ordinary benchmark runs retain their previous request behavior. Each profile’s log streams measurements while it runs, so long resource checks can be inspected.
+Every child report is regenerated;
 the aggregate command cannot read an old report after a failed child.
 
 The new High screenshots exposed opaque mirror housings in front of their reflective planes.

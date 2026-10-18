@@ -1,5 +1,12 @@
 # Low-graphics 3D workday budget
 
+**C-30 signs (18 October 2026):** the existing route-plane batch holds at most five signs per Low view,
+adding at most 20 triangles including a reflection, without another draw call, texture, target or pass.
+All 57 fixed resource views pass unchanged ceilings. Full signed 264,000-view sweeps peak at **63 calls /
+2,492 triangles** loaded and **56 / 2,072** fallback. Five reused normal/larger text objects bound readings.
+Figures, screenshots, clip, raw reports and reproduction: `docs/PERF.md`, `docs/review/set-8/c30.md`.
+Native Intel 60 fps remains O-1.
+
 **C-29 fixed quality gate (18 October 2026):** `node test/fpquality.js` now runs fixed
 loaded Low/High, accessible Low and actual missing-model Low profiles, with 46 retained views.
 The original Low ceilings stay unchanged. High's separate review ceilings are 128 calls,
