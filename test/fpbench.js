@@ -31,6 +31,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   await p.goto(BASE+'/first-person.html?gfx='+GFX);
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
+  if(process.env.QA_NAV==='1'){report.navigationFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpNav.prepare(OTR.fpSigns.prepare(plan)):plan);};});}
   if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(22);if(s.navText){s.navText.setFontSize(21);s.soundCue.setFontSize(21);s.controls.setFontSize(22);s.help.setFontSize(22);}}},report.accessibility);
@@ -173,6 +174,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.__actorBench=()=>{m.elapsed+=.016;};s.events.on('update',s.__actorBench);s.sync();s.refresh();
    },kind);await sample('actors'+kind);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__actorBench);});
   }
+  if(process.env.QA_NAV==='1')for(const kind of ['full','line','reroute','blocked','double']){
+   await p.evaluate(kind=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpLater.prepare(OTR.fpRoute.plan(4,7));plan.timeOfDay='midday';const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');m.stops.forEach(s=>s.contacted=true);OTR.fpDoors.sync(m);for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);m.phase='route';m.departed=m.secured=m.repaired=true;OTR.fpLater.depart(m);m.paused=false;m.mode='cab';m.step=()=>{};m.workdayRules={satnav:kind==='line'?'line':'full'};Object.assign(m.van,{gear:1,hand:true,belt:true,look:0});s.notice='';s.target=null;
+    if(kind==='reroute'){OTR.fpNav.route(m);Object.assign(m.van,{x:135,z:-57.25,speed:3});m.elapsed=1;OTR.fpNav.tick(m,{...m.van});m.van.speed=0;}
+    if(kind==='blocked'||kind==='double'){const o=OTR.fpNav.obstacles(m).find(o=>o.id===(kind==='blocked'?'blocked-drive':'double-parked'));m.mode='walk';Object.assign(m.player,{x:o.x-5,z:o.z+7,yaw:Math.atan2(5,7),pitch:.04});}
+    s.model=m;s.rebuildWorld();s.sync();s.refresh();s.hud.navAt=-1000;OTR.fpHud.navigation(s);
+   },kind);await sample('nav'+kind);
+  }
   if(process.env.QA_SIGNS==='1'&&await p.evaluate(()=>!!OTR.fpSigns))for(const kind of ['junction','number','oneway','peak']){
    await p.evaluate(kind=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const peak=kind==='peak',day=peak?21:kind==='oneway'?3:1,seed=peak?10:7,plan=OTR.fpRoute.plan(day,seed);plan.timeOfDay=peak?'dusk':'midday';const m=OTR.fpMission.create('campaign',seed,OTR.fpSigns.prepare(day>1?OTR.fpLater.prepare(plan):plan));OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);if(peak)OTR.fpLoadout.configure(m,'extra');m.phase='route';m.departed=m.secured=m.repaired=true;m.paused=false;m.step=()=>{};m.mode=peak||kind==='number'?'walk':'cab';m.van.wipers=true;Object.assign(m.van,{gear:1,hand:true,belt:true});
     for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);if(peak){m.cargoOpen=true;Object.assign(m.van,m.stops[1].park);m.stops.forEach(s=>s.contacted=true);OTR.fpDoors.sync(m);const p=OTR.fp.local(m.van,0,4.5);Object.assign(m.player,{...p,yaw:m.van.yaw,pitch:0});for(const [name,z] of [['bus',-18],['siren',14]]){const p=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
@@ -185,7 +193,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){
    await p.evaluate(kind=>{
     const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
-    const peak=kind==='peak',day=peak?21:4,seed=peak?10:7,plan=OTR.fpTraffic.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed))));
+    const peak=kind==='peak',day=peak?21:4,seed=peak?10:7,plan=OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)))));
     const m=OTR.fpMission.create('campaign',seed,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
     m.phase='route';m.departed=m.secured=m.repaired=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.mode=kind==='cyclist'||kind==='school'||peak?'walk':'cab';
     for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,{speed:0,hand:true,belt:true,gear:1,look:0,wipers:true});

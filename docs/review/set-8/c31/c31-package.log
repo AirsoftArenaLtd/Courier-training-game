@@ -1,0 +1,11 @@
+✔ the package holds the run-time files and nothing else (7.534293ms)
+✔ the zip builds with the manifest at the top and stays inside the budget (3374.733031ms)
+✔ the SCORM 2004 package has the 2004 manifest at the top and the same game files (2804.373988ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6196.249226

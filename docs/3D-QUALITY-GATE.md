@@ -1,18 +1,22 @@
 # The integrated 3D review gate
 
-C-29, extended for C-30 signs on 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
+C-29, extended for C-30 signs and C-31 navigation on 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
 with Chromium (`QA_BROWSER`) and Puppeteer installed. One browser runs at a time. `QA_PROFILES`
 can select profile names, separated by commas, in run order; it defaults to all four.
 
 | Profile | Quality | Fixed views | Purpose |
 | --- | --- | ---: | --- |
-| `loaded-low` | Low | 28 | Junction/number/one-way/loaded-peak signs, all mirrors, cab, scanning, five-stop workflow views, later traffic/reverse, night/weather, town and actors. |
-| `loaded-high` | High | 13 | Signs and source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
-| `accessible-low` | Low | 8 | Signs, larger text, colour filtering and reduced motion in cab, scanning, weather, cargo and reverse. |
-| `fallback-low` | Low | 8 | Signs and actual HTTP 404 responses for every GLB, with the procedural cab/town/actors still rendered. |
+| `loaded-low` | Low | 33 | Junction/number/one-way/loaded-peak signs, all mirrors, cab, scanning, five-stop workflow views, later traffic/reverse, night/weather, town and actors. |
+| `loaded-high` | High | 18 | Signs and source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
+| `accessible-low` | Low | 11 | Signs, larger text, colour filtering and reduced motion in cab, scanning, weather, cargo and reverse. |
+| `fallback-low` | Low | 11 | Signs and actual HTTP 404 responses for every GLB, with the procedural cab/town/actors still rendered. |
+
+All four profiles include the full/rerouted dash screen and blocked approach; loaded profiles
+also show line-only aids and the double-parked car. `QA_NAV=1` versions every benchmark campaign
+and reads C-30’s one-way rule. The full gate has 73 fixed views.
 
 The exact named fixtures/seeds live in `test/fpbench.js`; the versioned profile lists live in
-`test/fpquality.js`. They cover C-22 through C-30 and C-47 without changing gameplay. The same
+`test/fpquality.js`. They cover C-22 through C-31 and C-47 without changing gameplay. The same
 default company theme and running audio/captions are used in every profile. The gate checks
 the accessibility flags and audio state as well as the model fixture and rendered resources. The
 generated town, physical targets, scores, saved state and trainer rules are retained. Run
@@ -32,7 +36,8 @@ native frame-rate claim. Low's original limits are not raised. Missing views, ze
 context loss, browser errors, a mismatched actual quality and incorrect asset fixtures fail the gate.
 Every selected mirror view must also show a red marker changing to blue in its real reflection.
 Markers are removed and disposed before resource samples and screenshots, retaining normal views.
-At least 14 models must load with no failures for healthy profiles. Fallback must load zero and
+At least 14 models must load with no failures and zero recovered fallbacks for healthy profiles.
+Navigation fixtures must explicitly confirm their versioned campaign setup. Fallback must load zero and
 fail at least the 14 selected models, so a misconfigured interception cannot pass as fallback proof.
 
 `test/fpbench.js` also supports `QA_FALLBACK=1` directly. Only model requests get a 404; scripts,

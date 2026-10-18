@@ -1,0 +1,38 @@
+[
+  {
+    "suite": "fpmission",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0
+  },
+  {
+    "suite": "fpnav",
+    "exit": 0
+  },
+  {
+    "suite": "fptown",
+    "exit": 0
+  },
+  {
+    "suite": "fpnarration",
+    "exit": 0
+  },
+  {
+    "suite": "workday",
+    "exit": 0
+  },
+  {
+    "suite": "savesize",
+    "exit": 0
+  },
+  {
+    "suite": "i18n",
+    "exit": 0
+  },
+  {
+    "suite": "fpqualitygate",
+    "exit": 0
+  }
+]

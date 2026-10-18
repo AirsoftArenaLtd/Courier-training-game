@@ -13,6 +13,7 @@ OTR.fpRoute = {
     if(plan.timeOfDay!==undefined&&!['morning','midday','dusk','night'].includes(plan.timeOfDay))throw Error('Invalid lighting time');
     if(plan.signs!==undefined&&plan.signs!==1)throw Error('Invalid road-sign version');
     if(plan.traffic!==undefined&&plan.traffic!==1)throw Error('Invalid traffic version');
+    if(plan.navigation!==undefined&&plan.navigation!==1)throw Error('Invalid navigation version');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {
@@ -44,6 +45,7 @@ OTR.fpRoute = {
     m.traffic = [{ x: 1.7, z: m.town.zs[0], yaw: 0, speed: 4 }, { x: -1.7, z: m.town.zs[m.town.zs.length - 1], yaw: Math.PI, speed: 3.7 }];
     m.crossing.z = (m.town.zs[0] + m.town.zs[1]) / 2;
     if(OTR.fpLater)OTR.fpLater.layout(m);
+    if(OTR.fpNav){OTR.fpNav.layout(m);OTR.fpNav.configure(m);}
     m.junctions = [];
     m.town.xs.forEach(x => m.town.zs.forEach(z => m.junctions.push({ x, z, stopped: false, passed: false })));
     if(OTR.fpTraffic)OTR.fpTraffic.configure(m);

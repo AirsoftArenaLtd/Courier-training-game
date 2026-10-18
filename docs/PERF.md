@@ -649,9 +649,28 @@ The Node geometry checks now respect camera layers, like the actual renderer, so
 
 The complete 32-view sound-enabled Low run uses intrinsic canvas/image dimensions and passes with 3,130,726 Phaser full-mipmap-estimate bytes, replacing the earlier undercounted texture figures. Draw calls remain 42 and triangles 2,160; target attachments remain 3,575,808 bytes. Low uses native-resolution text at unchanged font size and vector case graphics to stay below the original ceiling. High keeps its existing text and case. See `docs/qa/c17-low.json` and the C-17 section in `docs/FRAME-BUDGET.md`.
 
+## C-31: navigation and solid diversions (18 October 2026)
+
+The physical map reuses Phaser vectors and existing text. Two street/approach cars replace
+existing decorative choices; Low reduces that town allowance from 290 to 260 triangles.
+The final 264,000-view loaded sweep peaks at 62 calls / 2,444 triangles;
+fallback peaks at 56 / 2,072. No new model, image, target or pass.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 33 | 55 | 2,432 | 2 | 3,557,376 | 3,068,096 |
+| loaded-high | 18 | 98 | 220,885 | 3 | 11,239,424 | 7,278,470 |
+| accessible-low | 11 | 55 | 2,432 | 2 | 3,557,376 | 2,865,328 |
+| fallback-low | 11 | 52 | 2,060 | 2 | 3,557,376 | 2,698,950 |
+
+All 73 fixed resource views pass. Ceilings stay unchanged. Navigation uses cached small
+graphs and 150 ms projection polling; its two polling/reverse fields persist so resume is
+identical. Evidence and reproduction: `docs/review/set-8/c31.md` and `docs/3D-NAVIGATION.md`.
+Cloud SwiftShader resource figures do not establish native Intel 60 fps (O-1).
+
 ## C-32 controller progress (18 October 2026)
 
-The new pure traffic controller is not loaded by the scene yet and adds no render resource.
+At the initial claim, the pure controller was not loaded by the scene.
 The inherited C-30 loaded Low sweep remains 63 calls / 2,492 triangles. This is a baseline,
-not a C-32 measurement. Scene integration will recover geometry and rerun `test/fpbench.js`
+not a C-32 measurement. Scene integration now recovers geometry and will rerun `test/fpbench.js`
 and the quality gate before review. Status and controller evidence: `docs/3D-TRAFFIC.md`.

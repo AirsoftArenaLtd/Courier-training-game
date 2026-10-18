@@ -3810,6 +3810,13 @@ window.OTR_I18N.es = {
 "The street is closed. Follow another cross street.": "La calle está cortada. Sigue por otra calle transversal.",
 "Do not enter this street from this end.": "No entres en esta calle por este extremo.",
 "Look toward a road sign, then read it again.": "Mira hacia una señal de tráfico y vuelve a leerla.",
+"The trainer has turned navigation off.": "El instructor ha desactivado la navegación.",
+"Left the planned route without following the reroute in time.": "Te saliste de la ruta planificada sin seguir el nuevo itinerario a tiempo.",
+"Rejoin a public street when it is safe.": "Vuelve a una vía pública cuando sea seguro.",
+"You have reached the depot. Park safely.": "Has llegado al centro. Aparca con seguridad.",
+"You have reached the stop. Park safely at the curb.": "Has llegado a la parada. Aparca con seguridad junto al bordillo.",
+"Continue safely to the destination.": "Continúa con seguridad hacia el destino.",
+"Turn around when it is safe and follow the route.": "Da la vuelta cuando sea seguro y sigue la ruta.",
 "Stopped for a red traffic light": "Te detuviste en un semáforo en rojo",
 "Drove through a red traffic light": "Pasaste un semáforo en rojo",
 "Red means stop behind the line and wait for green, even when the junction looks empty.": "Rojo significa detenerse detrás de la línea y esperar el verde, aunque el cruce parezca vacío."
@@ -5498,6 +5505,22 @@ window.OTR_I18N.es = {
 [
 "Traffic travels east on {0}.",
 "El tráfico circula hacia el este por {0}."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"En {0} pies, gira a la derecha por {1}."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"En {0} pies, gira a la izquierda por {1}."
+],
+[
+"Continue for {0} feet to the depot.",
+"Continúa {0} pies hasta el centro."
+],
+[
+"Continue for {0} feet to the stop.",
+"Continúa {0} pies hasta la parada."
 ]
 ],
 "keep": [

@@ -13,7 +13,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
   await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.loading&&s.loadingToken!==window.trafficToken;},{timeout:60000});
   const fixture=await page.evaluate(()=>{
    const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.closePanel();s.keyboardMode=true;
-   const plan=OTR.fpTraffic.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4,7)))),m=OTR.fpMission.create('campaign',7,plan);
+   const plan=OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4,7))))),m=OTR.fpMission.create('campaign',7,plan);
    OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m);
    window.trafficStep=m.step;m.step=()=>{};m.phase='route';m.mode='cab';m.departed=m.secured=true;OTR.fpLater.depart(m);m.paused=false;m.events[m.briefKey]=true;
    const j=OTR.fpTraffic.layout(m).find(j=>j.kind==='signal');window.trafficJunction=j;

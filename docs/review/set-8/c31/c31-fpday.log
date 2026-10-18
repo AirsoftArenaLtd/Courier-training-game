@@ -1,0 +1,19 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the generated forecast sets real braking grip and survives checkpoints (138.330515ms)
+✔ weather credit waits for the end of a driven leg; excess speed cannot be hidden (38.986055ms)
+✔ wet-weather following requires more than the normal three-second gap (4.236812ms)
+✔ heat needs safely parked breaks and a break cannot erase a failed leg (1.472473ms)
+✔ dispatch arrives during the drive to its actual stop and reading waits for safe parking (1.90369ms)
+✔ signature updates change the actual shipment requirement and score the response once (10.670918ms)
+✔ an unread update or the old porch-box choice is a missed instruction (0.854191ms)
+✔ a planter update is fulfilled only by placing behind the planter (2.277031ms)
+✔ malformed day state is rejected and older full-route saves remain intact (10.681143ms)
+✔ weather with a live mirror stays inside the low resource budget across the town (219.608353ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 446.986553
