@@ -3799,7 +3799,14 @@ window.OTR_I18N.bn = {
 "Give way to traffic before leaving the depot.": "ডিপো থেকে বের হওয়ার আগে ট্রাফিককে পথ ছেড়ে দিন।",
 "The street is closed. Follow another cross street.": "রাস্তাটি বন্ধ। অন্য একটি আড়াআড়ি রাস্তা ধরুন।",
 "Do not enter this street from this end.": "এই প্রান্ত দিয়ে এই রাস্তায় ঢুকবেন না।",
-"Look toward a road sign, then read it again.": "কোনো রাস্তার সাইনের দিকে তাকান, তারপর আবার পড়ুন।"
+"Look toward a road sign, then read it again.": "কোনো রাস্তার সাইনের দিকে তাকান, তারপর আবার পড়ুন।",
+"The trainer has turned navigation off.": "প্রশিক্ষক নেভিগেশন বন্ধ করে দিয়েছেন।",
+"Left the planned route without following the reroute in time.": "সময়মতো রিরুট অনুসরণ না করে পরিকল্পিত রুট থেকে সরে গেছেন।",
+"Rejoin a public street when it is safe.": "নিরাপদ হলে একটি সরকারি রাস্তায় ফিরে যান।",
+"You have reached the depot. Park safely.": "আপনি ডিপোতে পৌঁছে গেছেন। নিরাপদে পার্ক করুন।",
+"You have reached the stop. Park safely at the curb.": "আপনি স্টপে পৌঁছে গেছেন। রাস্তার ধারে নিরাপদে পার্ক করুন।",
+"Continue safely to the destination.": "নিরাপদে গন্তব্যের দিকে এগিয়ে যান।",
+"Turn around when it is safe and follow the route.": "নিরাপদ হলে ঘুরে যান এবং রুট অনুসরণ করুন।"
 },
 "templates": [
 [
@@ -5485,6 +5492,22 @@ window.OTR_I18N.bn = {
 [
 "Traffic travels east on {0}.",
 "{0}-এ ট্রাফিক পূর্ব দিকে চলে।"
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} ফুট পরে {1}-এ ডানে ঘুরুন।"
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} ফুট পরে {1}-এ বাঁয়ে ঘুরুন।"
+],
+[
+"Continue for {0} feet to the depot.",
+"ডিপো পর্যন্ত {0} ফুট এগিয়ে যান।"
+],
+[
+"Continue for {0} feet to the stop.",
+"স্টপ পর্যন্ত {0} ফুট এগিয়ে যান।"
 ]
 ],
 "keep": [

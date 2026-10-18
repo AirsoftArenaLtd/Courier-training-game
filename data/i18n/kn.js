@@ -3798,7 +3798,14 @@ window.OTR_I18N.kn = {
 "Give way to traffic before leaving the depot.": "ಡಿಪೋದಿಂದ ಹೊರಡುವ ಮೊದಲು ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡಿ.",
 "The street is closed. Follow another cross street.": "ರಸ್ತೆ ಮುಚ್ಚಲಾಗಿದೆ. ಬೇರೊಂದು ಅಡ್ಡ ರಸ್ತೆಯನ್ನು ಅನುಸರಿಸಿ.",
 "Do not enter this street from this end.": "ಈ ತುದಿಯಿಂದ ಈ ರಸ್ತೆಯನ್ನು ಪ್ರವೇಶಿಸಬೇಡಿ.",
-"Look toward a road sign, then read it again.": "ಒಂದು ರಸ್ತೆ ಚಿಹ್ನೆಯ ಕಡೆಗೆ ನೋಡಿ, ನಂತರ ಅದನ್ನು ಮತ್ತೆ ಓದಿ."
+"Look toward a road sign, then read it again.": "ಒಂದು ರಸ್ತೆ ಚಿಹ್ನೆಯ ಕಡೆಗೆ ನೋಡಿ, ನಂತರ ಅದನ್ನು ಮತ್ತೆ ಓದಿ.",
+"The trainer has turned navigation off.": "ಟ್ರೈನರ್ ನ್ಯಾವಿಗೇಶನ್ ಆಫ್ ಮಾಡಿದ್ದಾರೆ.",
+"Left the planned route without following the reroute in time.": "ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಮರುಮಾರ್ಗವನ್ನು ಅನುಸರಿಸದೆ ಯೋಜಿತ ಮಾರ್ಗವನ್ನು ಬಿಟ್ಟಿದ್ದೀರಿ.",
+"Rejoin a public street when it is safe.": "ಸುರಕ್ಷಿತವಾದಾಗ ಸಾರ್ವಜನಿಕ ರಸ್ತೆಗೆ ಮರಳಿ ಸೇರಿ.",
+"You have reached the depot. Park safely.": "ನೀವು ಡಿಪೋಗೆ ತಲುಪಿದ್ದೀರಿ. ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ.",
+"You have reached the stop. Park safely at the curb.": "ನೀವು ಸ್ಟಾಪ್‌ಗೆ ತಲುಪಿದ್ದೀರಿ. ರಸ್ತೆಯ ಅಂಚಿನಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ.",
+"Continue safely to the destination.": "ಸುರಕ್ಷಿತವಾಗಿ ಗಮ್ಯಸ್ಥಾನದ ಕಡೆಗೆ ಮುಂದುವರಿಯಿರಿ.",
+"Turn around when it is safe and follow the route.": "ಸುರಕ್ಷಿತವಾದಾಗ ಯು-ಟರ್ನ್ ಮಾಡಿ ಮತ್ತು ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
 },
 "templates": [
 [
@@ -5484,6 +5491,22 @@ window.OTR_I18N.kn = {
 [
 "Traffic travels east on {0}.",
 "{0}ನಲ್ಲಿ ಸಂಚಾರ ಪೂರ್ವ ದಿಕ್ಕಿಗೆ ಸಾಗುತ್ತದೆ."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} ಅಡಿ ನಂತರ, {1} ಕಡೆಗೆ ಬಲಕ್ಕೆ ತಿರುಗಿ."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} ಅಡಿ ನಂತರ, {1} ಕಡೆಗೆ ಎಡಕ್ಕೆ ತಿರುಗಿ."
+],
+[
+"Continue for {0} feet to the depot.",
+"ಡಿಪೋವರೆಗೆ {0} ಅಡಿ ಮುಂದುವರಿಯಿರಿ."
+],
+[
+"Continue for {0} feet to the stop.",
+"ಸ್ಟಾಪ್‌ವರೆಗೆ {0} ಅಡಿ ಮುಂದುವರಿಯಿರಿ."
 ]
 ],
 "keep": [

@@ -3798,7 +3798,14 @@ window.OTR_I18N.ta = {
 "Give way to traffic before leaving the depot.": "டிப்போவிலிருந்து புறப்படுவதற்கு முன் போக்குவரத்துக்கு வழிவிடுங்கள்.",
 "The street is closed. Follow another cross street.": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
 "Do not enter this street from this end.": "இந்த முனையிலிருந்து இந்தத் தெருவில் நுழையாதீர்கள்.",
-"Look toward a road sign, then read it again.": "ஒரு சாலை அடையாளத்தின் பக்கம் பாருங்கள், பிறகு அதை மீண்டும் படியுங்கள்."
+"Look toward a road sign, then read it again.": "ஒரு சாலை அடையாளத்தின் பக்கம் பாருங்கள், பிறகு அதை மீண்டும் படியுங்கள்.",
+"The trainer has turned navigation off.": "பயிற்சியாளர் வழிசெலுத்தலை அணைத்துவிட்டார்.",
+"Left the planned route without following the reroute in time.": "மாற்று வழியை சரியான நேரத்தில் பின்பற்றாமல் திட்டமிட்ட வழியை விட்டு விலகினீர்கள்.",
+"Rejoin a public street when it is safe.": "பாதுகாப்பாக இருக்கும்போது பொதுச் சாலையில் மீண்டும் இணையுங்கள்.",
+"You have reached the depot. Park safely.": "நீங்கள் டிப்போவை அடைந்துவிட்டீர்கள். பாதுகாப்பாக நிறுத்துங்கள்.",
+"You have reached the stop. Park safely at the curb.": "நீங்கள் நிறுத்தத்தை அடைந்துவிட்டீர்கள். சாலையோரத்தில் பாதுகாப்பாக நிறுத்துங்கள்.",
+"Continue safely to the destination.": "பாதுகாப்பாக சேருமிடத்தை நோக்கித் தொடருங்கள்.",
+"Turn around when it is safe and follow the route.": "பாதுகாப்பாக இருக்கும்போது யு-டர்ன் செய்து வழியைப் பின்பற்றுங்கள்."
 },
 "templates": [
 [
@@ -5484,6 +5491,22 @@ window.OTR_I18N.ta = {
 [
 "Traffic travels east on {0}.",
 "{0} இல் போக்குவரத்து கிழக்கு நோக்கிச் செல்கிறது."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} அடி தூரத்தில், {1} இல் வலதுபுறம் திரும்புங்கள்."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} அடி தூரத்தில், {1} இல் இடதுபுறம் திரும்புங்கள்."
+],
+[
+"Continue for {0} feet to the depot.",
+"டிப்போ வரை {0} அடி தொடருங்கள்."
+],
+[
+"Continue for {0} feet to the stop.",
+"நிறுத்தம் வரை {0} அடி தொடருங்கள்."
 ]
 ],
 "keep": [

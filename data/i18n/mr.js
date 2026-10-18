@@ -3798,7 +3798,14 @@ window.OTR_I18N.mr = {
 "Give way to traffic before leaving the depot.": "डेपोतून बाहेर पडण्यापूर्वी वाहतुकीला वाट द्या.",
 "The street is closed. Follow another cross street.": "हा रस्ता बंद आहे. दुसऱ्या आडव्या रस्त्याने जा.",
 "Do not enter this street from this end.": "या टोकाकडून या रस्त्यात प्रवेश करू नका.",
-"Look toward a road sign, then read it again.": "एखाद्या रस्त्यावरील चिन्हाकडे पाहा, मग ते पुन्हा वाचा."
+"Look toward a road sign, then read it again.": "एखाद्या रस्त्यावरील चिन्हाकडे पाहा, मग ते पुन्हा वाचा.",
+"The trainer has turned navigation off.": "प्रशिक्षकाने नेव्हिगेशन बंद केले आहे.",
+"Left the planned route without following the reroute in time.": "वेळेत रीरूटचे पालन न करता नियोजित मार्ग सोडला.",
+"Rejoin a public street when it is safe.": "सुरक्षित असेल तेव्हा सार्वजनिक रस्त्यावर परत या.",
+"You have reached the depot. Park safely.": "तुम्ही डेपोत पोहोचला आहात. सुरक्षितपणे पार्क करा.",
+"You have reached the stop. Park safely at the curb.": "तुम्ही स्टॉपवर पोहोचला आहात. कडेला सुरक्षितपणे पार्क करा.",
+"Continue safely to the destination.": "सुरक्षितपणे गंतव्यस्थानाकडे पुढे जा.",
+"Turn around when it is safe and follow the route.": "सुरक्षित असेल तेव्हा यू-टर्न घ्या आणि मार्ग अनुसरा."
 },
 "templates": [
 [
@@ -5484,6 +5491,22 @@ window.OTR_I18N.mr = {
 [
 "Traffic travels east on {0}.",
 "{0} वर वाहतूक पूर्वेकडे जाते."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} फुटांनंतर {1} वर उजवीकडे वळा."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} फुटांनंतर {1} वर डावीकडे वळा."
+],
+[
+"Continue for {0} feet to the depot.",
+"डेपोपर्यंत {0} फूट पुढे जा."
+],
+[
+"Continue for {0} feet to the stop.",
+"स्टॉपपर्यंत {0} फूट पुढे जा."
 ]
 ],
 "keep": [

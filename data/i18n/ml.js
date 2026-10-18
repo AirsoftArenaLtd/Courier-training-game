@@ -3798,7 +3798,14 @@ window.OTR_I18N.ml = {
 "Give way to traffic before leaving the depot.": "ഡിപ്പോയിൽ നിന്ന് പുറപ്പെടുന്നതിന് മുമ്പ് ഗതാഗതത്തിന് വഴി നൽകുക.",
 "The street is closed. Follow another cross street.": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
 "Do not enter this street from this end.": "ഈ അറ്റത്തുനിന്ന് ഈ തെരുവിൽ പ്രവേശിക്കരുത്.",
-"Look toward a road sign, then read it again.": "ഒരു റോഡ് അടയാളത്തിലേക്ക് നോക്കുക, എന്നിട്ട് അത് വീണ്ടും വായിക്കുക."
+"Look toward a road sign, then read it again.": "ഒരു റോഡ് അടയാളത്തിലേക്ക് നോക്കുക, എന്നിട്ട് അത് വീണ്ടും വായിക്കുക.",
+"The trainer has turned navigation off.": "ട്രെയിനർ നാവിഗേഷൻ ഓഫ് ചെയ്തു.",
+"Left the planned route without following the reroute in time.": "സമയത്ത് റീറൂട്ട് പിന്തുടരാതെ ആസൂത്രിത റൂട്ട് വിട്ടു.",
+"Rejoin a public street when it is safe.": "സുരക്ഷിതമാകുമ്പോൾ ഒരു പൊതുവഴിയിലേക്ക് തിരികെ ചേരുക.",
+"You have reached the depot. Park safely.": "നിങ്ങൾ ഡിപ്പോയിൽ എത്തി. സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക.",
+"You have reached the stop. Park safely at the curb.": "നിങ്ങൾ സ്റ്റോപ്പിൽ എത്തി. കർബിനരികിൽ സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക.",
+"Continue safely to the destination.": "സുരക്ഷിതമായി ലക്ഷ്യസ്ഥാനത്തേക്ക് തുടരുക.",
+"Turn around when it is safe and follow the route.": "സുരക്ഷിതമാകുമ്പോൾ യു-ടേൺ എടുത്ത് റൂട്ട് പിന്തുടരുക."
 },
 "templates": [
 [
@@ -5484,6 +5491,22 @@ window.OTR_I18N.ml = {
 [
 "Traffic travels east on {0}.",
 "{0}-ൽ ഗതാഗതം കിഴക്കോട്ട് നീങ്ങുന്നു."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} അടി കഴിഞ്ഞ്, {1} ലേക്ക് വലത്തേക്ക് തിരിയുക."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} അടി കഴിഞ്ഞ്, {1} ലേക്ക് ഇടത്തേക്ക് തിരിയുക."
+],
+[
+"Continue for {0} feet to the depot.",
+"ഡിപ്പോ വരെ {0} അടി തുടരുക."
+],
+[
+"Continue for {0} feet to the stop.",
+"സ്റ്റോപ്പ് വരെ {0} അടി തുടരുക."
 ]
 ],
 "keep": [

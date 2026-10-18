@@ -3798,7 +3798,14 @@ window.OTR_I18N.te = {
 "Give way to traffic before leaving the depot.": "డిపో నుండి బయలుదేరే ముందు ట్రాఫిక్‌కు దారి ఇవ్వండి.",
 "The street is closed. Follow another cross street.": "ఈ వీధి మూసివేయబడింది. వేరే అడ్డ వీధిలో వెళ్లండి.",
 "Do not enter this street from this end.": "ఈ చివర నుండి ఈ వీధిలోకి ప్రవేశించవద్దు.",
-"Look toward a road sign, then read it again.": "ఒక రహదారి గుర్తు వైపు చూడండి, ఆపై దాన్ని మళ్లీ చదవండి."
+"Look toward a road sign, then read it again.": "ఒక రహదారి గుర్తు వైపు చూడండి, ఆపై దాన్ని మళ్లీ చదవండి.",
+"The trainer has turned navigation off.": "ట్రైనర్ నావిగేషన్‌ను ఆఫ్ చేశారు.",
+"Left the planned route without following the reroute in time.": "సమయానికి రీరూట్‌ను అనుసరించకుండా ప్లాన్ చేసిన మార్గాన్ని వదిలేశారు.",
+"Rejoin a public street when it is safe.": "సురక్షితంగా ఉన్నప్పుడు ప్రజా రహదారిలో తిరిగి చేరండి.",
+"You have reached the depot. Park safely.": "మీరు డిపోకు చేరుకున్నారు. సురక్షితంగా పార్క్ చేయండి.",
+"You have reached the stop. Park safely at the curb.": "మీరు స్టాప్‌కు చేరుకున్నారు. కర్బ్ దగ్గర సురక్షితంగా పార్క్ చేయండి.",
+"Continue safely to the destination.": "సురక్షితంగా గమ్యస్థానం వైపు కొనసాగండి.",
+"Turn around when it is safe and follow the route.": "సురక్షితంగా ఉన్నప్పుడు యూ-టర్న్ తీసుకుని మార్గాన్ని అనుసరించండి."
 },
 "templates": [
 [
@@ -5484,6 +5491,22 @@ window.OTR_I18N.te = {
 [
 "Traffic travels east on {0}.",
 "{0}లో ట్రాఫిక్ తూర్పు వైపు వెళ్తుంది."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} అడుగుల తర్వాత, {1} లో కుడివైపు తిరగండి."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} అడుగుల తర్వాత, {1} లో ఎడమవైపు తిరగండి."
+],
+[
+"Continue for {0} feet to the depot.",
+"డిపో వరకు {0} అడుగులు కొనసాగండి."
+],
+[
+"Continue for {0} feet to the stop.",
+"స్టాప్ వరకు {0} అడుగులు కొనసాగండి."
 ]
 ],
 "keep": [

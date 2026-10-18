@@ -3799,7 +3799,14 @@ window.OTR_I18N.fr = {
 "Give way to traffic before leaving the depot.": "Cède le passage à la circulation avant de quitter le dépôt.",
 "The street is closed. Follow another cross street.": "La rue est fermée. Prends une autre rue transversale.",
 "Do not enter this street from this end.": "N'entre pas dans cette rue par ce côté.",
-"Look toward a road sign, then read it again.": "Regarde vers un panneau routier, puis lis-le à nouveau."
+"Look toward a road sign, then read it again.": "Regarde vers un panneau routier, puis lis-le à nouveau.",
+"The trainer has turned navigation off.": "Le formateur a désactivé la navigation.",
+"Left the planned route without following the reroute in time.": "Tu as quitté l'itinéraire prévu sans suivre le nouvel itinéraire à temps.",
+"Rejoin a public street when it is safe.": "Rejoins une voie publique dès que c'est sûr.",
+"You have reached the depot. Park safely.": "Tu es arrivé au dépôt. Gare-toi en toute sécurité.",
+"You have reached the stop. Park safely at the curb.": "Tu es arrivé à l'arrêt. Gare-toi en toute sécurité le long du trottoir.",
+"Continue safely to the destination.": "Continue en toute sécurité jusqu'à la destination.",
+"Turn around when it is safe and follow the route.": "Fais demi-tour dès que c'est sûr et suis l'itinéraire."
 },
 "templates": [
 [
@@ -5485,6 +5492,22 @@ window.OTR_I18N.fr = {
 [
 "Traffic travels east on {0}.",
 "La circulation va vers l'est sur {0}."
+],
+[
+"In {0} feet, turn right onto {1}.",
+"Dans {0} pieds, tourne à droite sur {1}."
+],
+[
+"In {0} feet, turn left onto {1}.",
+"Dans {0} pieds, tourne à gauche sur {1}."
+],
+[
+"Continue for {0} feet to the depot.",
+"Continue sur {0} pieds jusqu'au dépôt."
+],
+[
+"Continue for {0} feet to the stop.",
+"Continue sur {0} pieds jusqu'à l'arrêt."
 ]
 ],
 "keep": [
