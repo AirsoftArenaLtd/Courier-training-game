@@ -304,6 +304,8 @@ items here for each agent.
 | B-25 | Claude | **The LMS package after milestone 7:** rebuild the SCORM 1.2 and 2004 packages, check every new 3D file is in them, the size against the 100 MB budget, and update the figures in `docs/IT-NOTES.md`. | done |
 | B-26 | Claude | **The printed record matches the screens:** the trainer's Print / PDF record (`src/core/record.js`) should show which aids each workday had ("Workday, aided", B-21) and name each critical mistake, as the results and the record screen now do; check the print in English and Tamil. | done |
 | B-27 | Claude | **Narration in the cab:** with narration on, the rear camera's distance sentence and the sensor beeps change many times a second while reversing, and mirror and cab hints change as the view moves. Check what the narrator actually reads while driving and reversing (no endless repeats, nothing important dropped) and fix or report it. | todo |
+| B-28 | Claude | **Credits for the asset packs:** the game ships CC0 models from Kenney (and later Poly Haven). CC0 asks for no credit, but say thank you: a "Credits" line in the game's about or settings screen and a list in `docs/ASSETS.md`, built from `assets/3d/manifest.json` so new packs appear by themselves; translate the screen text. | todo |
+| B-29 | Claude | **Streets on the 3D drive map:** the drive review for a 3D workday draws only the depot, the stops and the pins on a plain grid, so a trainer cannot see which street a mistake was on. Draw the day's streets (from the route plan the 3D world uses) under the pins, keep it readable at larger text, and keep the 2D map as it is. | todo |
 
 ## Questions for the owner
 
