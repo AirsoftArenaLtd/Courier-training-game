@@ -3763,7 +3763,8 @@ window.OTR_I18N.pa = {
 "Help that day": "ਉਸ ਦਿਨ ਦੀ ਮਦਦ",
 "Stars": "ਤਾਰੇ",
 "Credits": "ਕ੍ਰੈਡਿਟ",
-"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ਸ਼ਹਿਰ ਅਤੇ ਵਾਹਨਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਮਾਡਲ ਵਰਤੇ ਗਏ ਹਨ, ਜੋ ਉਨ੍ਹਾਂ ਦੇ ਬਣਾਉਣ ਵਾਲਿਆਂ ਨੇ ਸਭ ਨੂੰ ਦਿੱਤੇ ਹਨ (CC0)। ਇਨ੍ਹਾਂ ਦਾ ਧੰਨਵਾਦ:"
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ਸ਼ਹਿਰ ਅਤੇ ਵਾਹਨਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਮਾਡਲ ਵਰਤੇ ਗਏ ਹਨ, ਜੋ ਉਨ੍ਹਾਂ ਦੇ ਬਣਾਉਣ ਵਾਲਿਆਂ ਨੇ ਸਭ ਨੂੰ ਦਿੱਤੇ ਹਨ (CC0)। ਇਨ੍ਹਾਂ ਦਾ ਧੰਨਵਾਦ:",
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ਸਲੇਟੀ: ਸੜਕਾਂ · ਵਰਗ: ਡਿਪੋ · ਗੋਲੇ: ਤੁਹਾਡੇ ਸਟਾਪ (ਹਰਾ ਮਤਲਬ ਡਿਲੀਵਰ ਹੋਇਆ) · ਨੰਬਰ ਵਾਲੇ ਪਿੰਨ: ਹਰ ਗ਼ਲਤੀ ਕਿੱਥੇ ਹੋਈ"
 },
 "templates": [
 [

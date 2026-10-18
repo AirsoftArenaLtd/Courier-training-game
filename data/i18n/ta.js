@@ -3762,7 +3762,8 @@ window.OTR_I18N.ta = {
 "Help that day": "அந்த நாளின் உதவி",
 "Stars": "நட்சத்திரங்கள்",
 "Credits": "நன்றியுரை",
-"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D நகரத்திலும் வாகனங்களிலும் இலவச மாடல்கள் பயன்படுத்தப்பட்டுள்ளன; அவற்றை உருவாக்கியவர்கள் அனைவருக்கும் வழங்கியுள்ளனர் (CC0). நன்றி:"
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D நகரத்திலும் வாகனங்களிலும் இலவச மாடல்கள் பயன்படுத்தப்பட்டுள்ளன; அவற்றை உருவாக்கியவர்கள் அனைவருக்கும் வழங்கியுள்ளனர் (CC0). நன்றி:",
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "சாம்பல்: சாலைகள் · சதுரம்: டிப்போ · வட்டங்கள்: உங்கள் நிறுத்தங்கள் (பச்சை = டெலிவரி ஆனது) · எண்ணிட்ட பின்கள்: ஒவ்வொரு தவறும் நடந்த இடம்"
 },
 "templates": [
 [

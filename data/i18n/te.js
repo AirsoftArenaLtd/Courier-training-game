@@ -3762,7 +3762,8 @@ window.OTR_I18N.te = {
 "Help that day": "ఆ రోజు సహాయం",
 "Stars": "నక్షత్రాలు",
 "Credits": "క్రెడిట్స్",
-"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D పట్టణం, వాహనాల్లో ఉచిత మోడళ్లను ఉపయోగించాం; వాటి రూపకర్తలు వాటిని అందరికీ ఇచ్చారు (CC0). ధన్యవాదాలు:"
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D పట్టణం, వాహనాల్లో ఉచిత మోడళ్లను ఉపయోగించాం; వాటి రూపకర్తలు వాటిని అందరికీ ఇచ్చారు (CC0). ధన్యవాదాలు:",
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "బూడిద రంగు: రోడ్లు · చతురస్రం: డిపో · వృత్తాలు: మీ స్టాప్‌లు (ఆకుపచ్చ అంటే డెలివరీ అయినవి) · సంఖ్య పిన్‌లు: ప్రతి పొరపాటు జరిగిన చోటు"
 },
 "templates": [
 [
