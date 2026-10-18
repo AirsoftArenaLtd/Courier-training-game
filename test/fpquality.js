@@ -36,8 +36,10 @@ function run(){
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
   const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
-  const result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,encoding:'utf8',maxBuffer:16*MiB});
-  fs.writeFileSync(path.join(OUT,tag+'.log'),(result.stdout||'')+(result.stderr||'')+(result.error?String(result.error):''));
+  // Write measurements as they arrive, so a long profile can be inspected while it runs.
+  const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
+  try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}
+  if(result.error)fs.appendFileSync(logFile,String(result.error));
   const item={id:profile.id,quality:profile.quality,views:profile.views.split(','),accessibility:profile.accessibility||'',fallback:!!profile.fallback,report:path.basename(reportFile),exit:result.status??1,elapsedMs:Date.now()-start};
   try{if(result.status!==0)throw Error('Benchmark child failed; see '+tag+'.log');item.peak=checkReport(JSON.parse(fs.readFileSync(reportFile,'utf8')),profile,tag);}catch(e){item.exit=1;item.error=e.message;failed=true;}
   summary.profiles.push(item);fs.writeFileSync(path.join(OUT,tagBase+'-quality.json'),JSON.stringify(summary,null,2)+'\n');console.log(profile.id+': '+(item.exit?'FAIL '+item.error:'PASS '+JSON.stringify(item.peak)));
