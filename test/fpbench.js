@@ -162,7 +162,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
+  report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));
+  if(report.missingViews.length)throw Error('Requested benchmark views were not sampled: '+report.missingViews.join(', '));
   if(Object.values(report.prototype).some(sample=>sample.contextLost))throw Error('Shared WebGL context was lost');
   if(GFX==='low'&&Object.values(report.prototype).some(s=>s.peak.calls>64||s.peak.triangles>2500||s.peak.textures>2||s.peak.attachmentBytes>4*1024*1024))throw Error('Low graphics exceeded the documented 1280x720 3D resource budget');
   if(GFX==='low'&&report.phaserTexturesPeak.withMipmapsUpperBytes>4*1024*1024)throw Error('Low graphics exceeded the documented Phaser texture estimate');
