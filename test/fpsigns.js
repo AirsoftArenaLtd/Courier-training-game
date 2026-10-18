@@ -116,3 +116,7 @@ test('keyboard reading still reaches a visible physical sign when a long label c
 test('sign shader composition retains existing road-grain and material hooks',()=>{
  const T=c.THREE,previous=new T.MeshLambertMaterial(),geometry=new T.PlaneGeometry(),mesh=new T.InstancedMesh(geometry,previous,1);let called=0;previous.onBeforeCompile=function(shader){called++;shader.fragmentShader='road-grain\n'+shader.fragmentShader;assert.equal(this,mesh.material);};previous.customProgramCacheKey=()=> 'otr-town-grain-1';const a=O.fpSigns.decorate(mesh,[{sign:{kind:'stop'}}]);const shader={vertexShader:'#include <common>\n#include <begin_vertex>',fragmentShader:'#include <common>\n#include <color_fragment>'};mesh.material.onBeforeCompile(shader);assert.equal(called,1);assert.match(shader.fragmentShader,/road-grain/);assert.match(shader.fragmentShader,/signShape/);assert.equal(mesh.material.customProgramCacheKey(),'otr-town-grain-1|otr-sign-shapes-1');assert.equal(a.count,1);mesh.geometry.dispose();mesh.material.dispose();mesh.dispose();geometry.dispose();previous.dispose();
 });
+
+test('the depot give-way face points toward the loading-bay approach',()=>{
+ const m=make(),s=O.fpSigns.catalog(m).regulatory.find(s=>s.kind==='giveway');const dot=(2.84-s.x)*-Math.sin(s.yaw)+(8-s.z)*Math.cos(s.yaw);assert.ok(dot>0,'The departing driver sees the front of the sign.');
+});

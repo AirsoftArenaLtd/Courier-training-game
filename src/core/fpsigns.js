@@ -68,7 +68,7 @@ OTR.fpSigns = {
         street: lot.street, x: b.x - lot.side * (b.w / 2 + .08), z: b.z, side: lot.side });
     }
     const school = source.spec.schoolZone;
-    const regulatory = [{id:'yield:depot',kind:'giveway',x:8,z:2,yaw:-Math.PI/2},
+    const regulatory = [{id:'yield:depot',kind:'giveway',x:8,z:2,yaw:0},
       {id:'speed:depot',kind:'speed',limit:m.town.limit,x:half+.7,z:-1,yaw:0}];
     for(const [side,z,yaw] of [['north',m.town.school.z1+14,0],['south',m.town.school.z0-14,Math.PI]])regulatory.push({id:`school:${side}`,kind:'school',limit:m.town.schoolLimit,x:m.town.school.x+Math.cos(yaw)*(half+.7),z,yaw});
     if(m.roadworks){const advance=Math.min(18,Math.abs(m.town.zs[m.roadworks.to]-m.town.zs[m.roadworks.from])/2-half-1);for(const [side,offset,yaw] of [['north',advance,0],['south',-advance,Math.PI]])regulatory.push({id:`works:${side}`,kind:'roadworks',x:m.roadworks.x+Math.cos(yaw)*(half+2.2),z:m.roadworks.z+offset,yaw});}
