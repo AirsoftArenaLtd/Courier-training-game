@@ -283,7 +283,8 @@ const make = (opts) => async (page, ctx) => {
               stop: s.model.doorsteps.stops[i], mode: s.model.mode, panel: s.panel ? s.panel.choices.map((o) => o.label) : null,
               // the scribble is a timer on the device's scene clock: is that clock running?
               clock: { scene: d.scene && d.scene.sys.settings.key, active: d.scene && d.scene.sys.isActive(), paused: d.scene && d.scene.time.paused,
-                scale: d.scene && d.scene.time.timeScale, timers: d.scene && d.scene.time._active ? d.scene.time._active.length : null, now: d.scene && Math.round(d.scene.time.now) } }; }, i);
+                scale: d.scene && d.scene.time.timeScale, timers: d.scene && d.scene.time._active ? d.scene.time._active.map((e) => ({ delay: e.delay, repeat: e.repeatCount, elapsed: Math.round(e.elapsed), paused: e.paused, hasDispatched: e.hasDispatched })) : null,
+                now: d.scene && Math.round(d.scene.time.now), screenItems: d.screen ? d.screen.list.length : null, errors: (window.__qaErrors || []).slice(-3) } }; }, i);
           must(false, 'the signature was not recorded (stop ' + i + '): ' + JSON.stringify(seen));
         }
         await pick(/^Back/);
