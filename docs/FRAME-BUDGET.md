@@ -1,5 +1,13 @@
 # Low-graphics 3D workday budget
 
+**C-29 fixed quality gate (18 October 2026):** `node test/fpquality.js` now runs fixed
+loaded Low/High, accessible Low and actual missing-model Low profiles, with 46 retained views.
+The original Low ceilings stay unchanged. High's separate review ceilings are 128 calls,
+300,000 triangles, four Three textures, 16 MiB attachments and 16 MiB estimated Phaser textures;
+see `docs/3D-QUALITY-GATE.md`. These are regression ceilings, not native FPS acceptance.
+High mirror housings move behind their reflective faces; no render resources are added. Final per-profile figures, raw reports and screenshots:
+`docs/PERF.md` and `docs/review/set-8/c29.md`. Native Intel 60 fps remains O-1.
+
 **C-47 compact display (18 October 2026):** the physical dashboard/handheld replace full-width
 bars without adding any Three geometry, texture, target or pass. Fourteen rendered Low views and
 four larger/colour/reduced views peak at **56 calls / 2,400 triangles / two textures / 3,557,376

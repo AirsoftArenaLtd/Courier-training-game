@@ -1,5 +1,35 @@
 # 3D workday rendering cost
 
+## C-29: fixed integrated quality gate (18 October 2026)
+
+C-29 adds a repeatable review gate for the integrated cab, mirrors, rear camera, lighting,
+weather, local town, van/people and compact display. High mirror housings now sit behind their
+reflective faces. Targets, gaze, scoring, saves, controls, translations and Settings retain their
+behavior. This is stacked on pushed C-47 `55acbe3`, including C-28 and B-30 over pilot `951ef36`;
+Claude merges the stack in order.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 24 | 56 | 2,400 | 2 | 3,557,376 | 2,992,496 |
+| loaded-high | 10 | 96 | 215,348 | 3 | 11,239,424 | 6,494,182 |
+| accessible-low | 6 | 56 | 2,400 | 2 | 3,557,376 | 2,744,118 |
+| fallback-low | 6 | 51 | 1,914 | 2 | 3,557,376 | 2,609,430 |
+
+Low keeps its original **64 calls / 2,500 triangles / two textures / 4 MiB attachments /
+4 MiB estimated Phaser textures** at 1280×720. High now has separate explicit review ceilings:
+**128 calls / 300,000 triangles / four textures / 16 MiB attachments / 16 MiB estimated Phaser
+textures**. These bound its source-detail assets and shadows; they do not certify a native frame
+rate. Resource maxima are per column and include the complete frame's sampled passes.
+
+All 46 views pass with running audio, no page errors or context loss. The fallback profile
+actually fails all 14 GLB requests and renders procedural replacements; accessible Low enables
+large/colour/reduced settings. The checker rejects absent views/quality/aids/audio and exhausted
+budgets. Reproduce with `node test/fpquality.js`; the fixed sets, report provenance, screenshots
+and five-minute review are in `docs/3D-QUALITY-GATE.md` and `docs/review/set-8/c29.md`.
+Nine Node suites (including required mission/world/workday/i18n, save size, assets and credits)
+and six gate fault-injection cases pass. The High mirror housing fix adds no render resources. The unchanged
+C-28 loaded CPU peak remains 63 calls / 2,480 triangles. Native Intel 60 fps remains O-1.
+
 ## C-47: compact workday display (18 October 2026)
 
 The persistent objective/footer bars move into the physical cab and handheld. A bounded Phaser

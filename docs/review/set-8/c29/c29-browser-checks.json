@@ -1,0 +1,17 @@
+[
+  {
+    "suite": "fpquality",
+    "exit": 0,
+    "log": "c29-fpquality.log"
+  },
+  {
+    "suite": "fpmirrorsbrowser",
+    "exit": 0,
+    "log": "c29-fpmirrorsbrowser.log"
+  },
+  {
+    "suite": "fprearbrowser",
+    "exit": 0,
+    "log": "c29-fprearbrowser.log"
+  }
+]

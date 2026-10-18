@@ -42,6 +42,12 @@ test('a lane crossing also triggers a check and resumed turn keys cannot collide
 });
 function scene(high=false){O.gfx={high:()=>high};O.a11y={settings:()=>({reducedMotion:true}),physical:k=>k,label:k=>k};const m=make(),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);
  const s={model:m,view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},message(){}};s.art=O.fpWorld.build(s,m);s.sync=()=>s.art.sync(m,null,'route');s.sync();return s;}
+test('mirror housings stay behind the reflective faces on both presets',()=>{
+ for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,face=new THREE.Matrix4(),frame=new THREE.Matrix4();
+  for(let i=0;i<3;i++){r.faces.getMatrixAt(i,face);r.frames.getMatrixAt(i,frame);const front=new THREE.Vector3(0,0,high?.5:0).applyMatrix4(frame).applyMatrix4(face.clone().invert());assert.ok(front.z<-.002,`${high?'High':'Low'} mirror ${i} housing obscures its face at ${front.z}`);}
+  s.art.dispose();
+ }
+});
 test('all three physical mirrors stay on the van and retain the same reflection camera when the head turns',()=>{
  for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,before=r.root.matrixWorld.clone(),cameras=s.view.mirror.cameras.map(c=>c.matrixWorld.clone());s.model.van.look=.7;s.model.elapsed+=.02;const saved=JSON.stringify(s.model.snapshot());s.sync();
  assert.equal(s.view.mirror.on,true);assert.equal(s.model.snapshot().cameraMotion,undefined);assert.equal(JSON.stringify(s.model.snapshot()),saved);assert.deepEqual(r.root.matrixWorld,before);s.view.mirror.cameras.forEach((c,i)=>assert.deepEqual(c.matrixWorld,cameras[i]));
