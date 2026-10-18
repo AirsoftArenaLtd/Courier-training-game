@@ -41,8 +41,9 @@ Children wait by the school crossing, begin only after a clear traffic gap, and 
 solid while waiting, crossing and standing on the far curb. Each proposed walking step
 checks the van, walking trainee, traffic and solid bodies. Cars yield to the crossing;
 the existing school bus and emergency vehicle also stop before the new actors. A motor conflict reports
-one failed `drive.pedestrian`; finishing the crossing reports its successful obligation
-only if that key has no prior report. The same conflict does not add a generic contact
+one failed `drive.pedestrian`. Finishing without a conflict reports the existing
+`drive.hazard-early` check from the approach. `drive.pedestrian` is penalty-only and is
+never reported for a successful crossing. The same conflict does not add a generic contact
 penalty. A later physical impact after a safely completed crossing or cyclist turn still
 reports contact. First-day adult crossing behaviour is unchanged.
 
