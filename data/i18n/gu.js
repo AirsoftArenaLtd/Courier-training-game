@@ -3770,7 +3770,20 @@ window.OTR_I18N.gu = {
 "The van is in park.": "વેન પાર્કમાં છે.",
 "The van is in reverse.": "વેન રિવર્સમાં છે.",
 "The van is in neutral.": "વેન ન્યુટ્રલમાં છે.",
-"The van is in drive.": "વેન ડ્રાઇવમાં છે."
+"The van is in drive.": "વેન ડ્રાઇવમાં છે.",
+"Park is selected.": "પાર્ક પસંદ કર્યું છે.",
+"Reverse is selected.": "રિવર્સ પસંદ કર્યું છે.",
+"Neutral is selected.": "ન્યુટ્રલ પસંદ કર્યું છે.",
+"Drive is selected.": "ડ્રાઇવ પસંદ કર્યું છે.",
+"Read the workday details.": "કાર્યદિવસની વિગતો વાંચો.",
+"Your workday details.": "તમારા કાર્યદિવસની વિગતો.",
+"There is one parcel in cargo.": "કાર્ગોમાં એક પાર્સલ છે.",
+"Your hands are empty.": "તમારા હાથ ખાલી છે.",
+"Reverse into the marked bay.": "નિશાનીવાળી જગ્યામાં રિવર્સ કરો.",
+"This lesson takes place in the depot.": "આ પાઠ ડેપોમાં થાય છે.",
+"Prepare the van before departure.": "રવાના થતા પહેલાં વાન તૈયાર કરો.",
+"Return to the depot.": "ડેપો પર પાછા ફરો.",
+"Saving is unavailable. Keep this window open.": "સેવ કરી શકાતું નથી. આ વિન્ડો ખુલ્લી રાખો."
 },
 "templates": [
 [
@@ -5408,6 +5421,30 @@ window.OTR_I18N.gu = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "ટ્રેનર આ સાંકડી જગ્યામાં વૉક-અરાઉન્ડ જરૂરી ગણે છે. પાર્ક કરીને ઊતરો. વૅનની પાછળ રિવર્સના રસ્તા તરફ મોં રાખીને ઊભા રહો અને તપાસ નોંધવા {0} દબાવો. પછી કેમેરા અને અરીસાથી બેમાં રિવર્સ કરો."
+],
+[
+"There are {0} parcels in cargo.",
+"કાર્ગોમાં {0} પાર્સલ છે."
+],
+[
+"You are carrying the parcel for {0}.",
+"તમે {0} માટેનું પાર્સલ લઈ જઈ રહ્યા છો."
+],
+[
+"Drive to {0}.",
+"{0} સુધી ડ્રાઇવ કરો."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"ઝડપ વધારવા કે બ્રેક મારવા {0}/{1} અને વળવા {2}/{3} વાપરો. કેબિનનું નિયંત્રણ પસંદ કરવા {4} દબાવો."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"ચાલવા {0}/{1}/{2}/{3} વાપરો. લક્ષ્ય પસંદ કરવા {4} અને ક્રિયા કરવા {5} દબાવો."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"હૅન્ડહેલ્ડ માટે {0} અથવા નિયંત્રણો અને માર્ગદર્શન માટે {1} દબાવો."
 ]
 ],
 "keep": [

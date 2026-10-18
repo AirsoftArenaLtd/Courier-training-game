@@ -3771,7 +3771,20 @@ window.OTR_I18N.bn = {
 "The van is in park.": "ভ্যানটি পার্কে আছে।",
 "The van is in reverse.": "ভ্যানটি রিভার্সে আছে।",
 "The van is in neutral.": "ভ্যানটি নিউট্রালে আছে।",
-"The van is in drive.": "ভ্যানটি ড্রাইভে আছে।"
+"The van is in drive.": "ভ্যানটি ড্রাইভে আছে।",
+"Park is selected.": "পার্ক বেছে নেওয়া হয়েছে।",
+"Reverse is selected.": "রিভার্স বেছে নেওয়া হয়েছে।",
+"Neutral is selected.": "নিউট্রাল বেছে নেওয়া হয়েছে।",
+"Drive is selected.": "ড্রাইভ বেছে নেওয়া হয়েছে।",
+"Read the workday details.": "কর্মদিবসের বিবরণ পড়ুন।",
+"Your workday details.": "আপনার কর্মদিবসের বিবরণ।",
+"There is one parcel in cargo.": "কার্গোতে একটি পার্সেল আছে।",
+"Your hands are empty.": "আপনার হাত খালি।",
+"Reverse into the marked bay.": "চিহ্নিত জায়গায় রিভার্স করে ঢুকুন।",
+"This lesson takes place in the depot.": "এই পাঠ ডিপোতে হয়।",
+"Prepare the van before departure.": "রওনা হওয়ার আগে ভ্যান প্রস্তুত করুন।",
+"Return to the depot.": "ডিপোতে ফিরে যান।",
+"Saving is unavailable. Keep this window open.": "সেভ করা যাচ্ছে না। এই উইন্ডো খোলা রাখুন।"
 },
 "templates": [
 [
@@ -5409,6 +5422,30 @@ window.OTR_I18N.bn = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "এই সরু জায়গায় প্রশিক্ষক ওয়াক-অ্যারাউন্ড চান। পার্ক করে নামুন। ভ্যানের পিছনে রিভার্সের পথের দিকে মুখ করে দাঁড়ান এবং পরীক্ষা নথিভুক্ত করতে {0} চাপুন। তারপর ক্যামেরা ও আয়নার সাহায্যে বে-তে রিভার্স করুন।"
+],
+[
+"There are {0} parcels in cargo.",
+"কার্গোতে {0}টি পার্সেল আছে।"
+],
+[
+"You are carrying the parcel for {0}.",
+"আপনি {0}-এর পার্সেল বহন করছেন।"
+],
+[
+"Drive to {0}.",
+"{0}-এ ড্রাইভ করুন।"
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"গতি বাড়াতে বা ব্রেক করতে {0}/{1} এবং স্টিয়ার করতে {2}/{3} ব্যবহার করুন। ক্যাবের নিয়ন্ত্রণ বেছে নিতে {4} চাপুন।"
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"চলতে {0}/{1}/{2}/{3} ব্যবহার করুন। লক্ষ্য বেছে নিতে {4} এবং কাজ করতে {5} চাপুন।"
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"হ্যান্ডহেল্ডের জন্য {0} বা নিয়ন্ত্রণ ও নির্দেশনার জন্য {1} চাপুন।"
 ]
 ],
 "keep": [

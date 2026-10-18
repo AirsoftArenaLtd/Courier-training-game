@@ -27,7 +27,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
   if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
-  await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(OTR.a11y.size(18));}},report.accessibility);
+  await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(22);if(s.navText){s.navText.setFontSize(21);s.soundCue.setFontSize(21);s.controls.setFontSize(22);s.help.setFontSize(22);}}},report.accessibility);
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
   report.actualQuality=await p.evaluate(()=>OTR.gfx.level());
   report.assets=await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank?.stats||null);

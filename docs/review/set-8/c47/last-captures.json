@@ -1,0 +1,12 @@
+[
+  {
+    "suite": "fphudbrowser",
+    "exit": 0,
+    "result": "HUD en large=false\nHUD en large=true\nHUD ta large=false\nHUD ta large=true\n186 compact HUD browser checks passed\n"
+  },
+  {
+    "suite": "fphudcomparebrowser",
+    "exit": 0,
+    "result": "Two matched before/after HUD comparisons passed\n"
+  }
+]

@@ -3770,7 +3770,20 @@ window.OTR_I18N.mr = {
 "The van is in park.": "व्हॅन पार्कमध्ये आहे.",
 "The van is in reverse.": "व्हॅन रिव्हर्समध्ये आहे.",
 "The van is in neutral.": "व्हॅन न्यूट्रलमध्ये आहे.",
-"The van is in drive.": "व्हॅन ड्राइव्हमध्ये आहे."
+"The van is in drive.": "व्हॅन ड्राइव्हमध्ये आहे.",
+"Park is selected.": "पार्क निवडले आहे.",
+"Reverse is selected.": "रिव्हर्स निवडले आहे.",
+"Neutral is selected.": "न्यूट्रल निवडले आहे.",
+"Drive is selected.": "ड्राइव्ह निवडले आहे.",
+"Read the workday details.": "कामाच्या दिवसाचा तपशील वाचा.",
+"Your workday details.": "तुमच्या कामाच्या दिवसाचा तपशील.",
+"There is one parcel in cargo.": "कार्गोमध्ये एक पार्सल आहे.",
+"Your hands are empty.": "तुमचे हात रिकामे आहेत.",
+"Reverse into the marked bay.": "खूण केलेल्या जागेत रिव्हर्स घ्या.",
+"This lesson takes place in the depot.": "हा धडा डेपोत होतो.",
+"Prepare the van before departure.": "निघण्यापूर्वी व्हॅन तयार करा.",
+"Return to the depot.": "डेपोत परत जा.",
+"Saving is unavailable. Keep this window open.": "सेव्ह करता येत नाही. ही विंडो उघडी ठेवा."
 },
 "templates": [
 [
@@ -5408,6 +5421,30 @@ window.OTR_I18N.mr = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "या अरुंद जागेत ट्रेनर वॉक-अराउंड आवश्यक मानतो. पार्क करून उतरा. व्हॅनच्या मागे रिव्हर्सच्या मार्गाकडे तोंड करून उभे रहा आणि तपासणी नोंदवण्यासाठी {0} दाबा. मग कॅमेरा आणि आरशांचा वापर करून बेमध्ये रिव्हर्स करा."
+],
+[
+"There are {0} parcels in cargo.",
+"कार्गोमध्ये {0} पार्सल आहेत."
+],
+[
+"You are carrying the parcel for {0}.",
+"तुम्ही {0} यांचे पार्सल घेऊन जात आहात."
+],
+[
+"Drive to {0}.",
+"{0} येथे ड्राइव्ह करा."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"वेग वाढवण्यासाठी किंवा ब्रेक लावण्यासाठी {0}/{1} आणि वळवण्यासाठी {2}/{3} वापरा. केबिनचे नियंत्रण निवडण्यासाठी {4} दाबा."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"चालण्यासाठी {0}/{1}/{2}/{3} वापरा. लक्ष्य निवडण्यासाठी {4} आणि कृतीसाठी {5} दाबा."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"हँडहेल्डसाठी {0} किंवा नियंत्रणे आणि मार्गदर्शनासाठी {1} दाबा."
 ]
 ],
 "keep": [

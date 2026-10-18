@@ -3771,7 +3771,20 @@ window.OTR_I18N.fr = {
 "The van is in park.": "La camionnette est en stationnement.",
 "The van is in reverse.": "La camionnette est en marche arrière.",
 "The van is in neutral.": "La camionnette est au point mort.",
-"The van is in drive.": "La camionnette est en marche avant."
+"The van is in drive.": "La camionnette est en marche avant.",
+"Park is selected.": "Stationnement sélectionné.",
+"Reverse is selected.": "Marche arrière sélectionnée.",
+"Neutral is selected.": "Point mort sélectionné.",
+"Drive is selected.": "Marche avant sélectionnée.",
+"Read the workday details.": "Lis les détails de la journée.",
+"Your workday details.": "Les détails de ta journée.",
+"There is one parcel in cargo.": "Il y a un colis dans le chargement.",
+"Your hands are empty.": "Tes mains sont vides.",
+"Reverse into the marked bay.": "Recule dans l'emplacement marqué.",
+"This lesson takes place in the depot.": "Cette leçon se déroule au dépôt.",
+"Prepare the van before departure.": "Prépare la camionnette avant le départ.",
+"Return to the depot.": "Retourne au dépôt.",
+"Saving is unavailable. Keep this window open.": "Enregistrement impossible. Garde cette fenêtre ouverte."
 },
 "templates": [
 [
@@ -5409,6 +5422,30 @@ window.OTR_I18N.fr = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "Le formateur exige un tour de contrôle dans cet espace étroit. Garez-vous et descendez. Placez-vous derrière la camionnette, face au trajet de recul, et appuyez sur {0} pour enregistrer le contrôle. Ensuite, utilisez la caméra et les rétroviseurs pour reculer dans la place."
+],
+[
+"There are {0} parcels in cargo.",
+"Il y a {0} colis dans le chargement."
+],
+[
+"You are carrying the parcel for {0}.",
+"Tu transportes le colis pour {0}."
+],
+[
+"Drive to {0}.",
+"Conduis jusqu'à {0}."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"Utilise {0}/{1} pour accélérer ou freiner et {2}/{3} pour tourner. Appuie sur {4} pour choisir une commande de la cabine."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"Utilise {0}/{1}/{2}/{3} pour te déplacer. Appuie sur {4} pour choisir une cible et sur {5} pour interagir."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"Appuie sur {0} pour le terminal ou sur {1} pour Commandes et aide."
 ]
 ],
 "keep": [

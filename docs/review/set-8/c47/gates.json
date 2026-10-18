@@ -1,0 +1,48 @@
+[
+  {
+    "quality": "low",
+    "tag": "c47",
+    "requested": [
+      "cab",
+      "mirror",
+      "mirrorRight",
+      "mirrorInterior",
+      "handheld",
+      "barcodeAim",
+      "firstStop",
+      "doorsignature",
+      "doorid",
+      "lightingnightreverse",
+      "visibleweatherstorm",
+      "towncab",
+      "actorscargoextra",
+      "laterrearpeak"
+    ],
+    "accessibility": "",
+    "exit": 0
+  },
+  {
+    "quality": "high",
+    "tag": "c47",
+    "requested": [
+      "cab",
+      "mirror",
+      "lightingnightreverse",
+      "actorscargoextra"
+    ],
+    "accessibility": "",
+    "exit": 0
+  },
+  {
+    "quality": "low",
+    "tag": "c47-reduced",
+    "requested": [
+      "cab",
+      "barcodeAim",
+      "actorscargoextra",
+      "laterrearpeak"
+    ],
+    "accessibility": "large,colour,reduced",
+    "exit": 0
+  }
+]
