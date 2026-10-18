@@ -276,7 +276,16 @@ const make = (opts) => async (page, ctx) => {
       }
       if (spec.signature && spec.present && expected === 'handover') {
         await pick(/Capture the signature/); await pick(new RegExp('^Record ' + spec.person.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-        must(await ctx.until(`${FP}.model.doorsteps.stops[${i}].signatureName !== null`, 20000), 'the signature was not recorded (stop ' + i + ')');
+        if (!(await ctx.until(`${FP}.model.doorsteps.stops[${i}].signatureName !== null`, 20000))) {
+          // what the handheld was showing when it went wrong (B-33): the screen, its options and whether it is still open
+          const seen = await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), h = s.handheld, d = h.device, c = d.current || {};
+            return { open: h.isOpen, title: c.title, lines: c.lines, options: (c.options || []).map((o) => o.label), token: !!h.signatureToken,
+              stop: s.model.doorsteps.stops[i], mode: s.model.mode, panel: s.panel ? s.panel.choices.map((o) => o.label) : null,
+              // the scribble is a timer on the device's scene clock: is that clock running?
+              clock: { scene: d.scene && d.scene.sys.settings.key, active: d.scene && d.scene.sys.isActive(), paused: d.scene && d.scene.time.paused,
+                scale: d.scene && d.scene.time.timeScale, timers: d.scene && d.scene.time._active ? d.scene.time._active.length : null, now: d.scene && Math.round(d.scene.time.now) } }; }, i);
+          must(false, 'the signature was not recorded (stop ' + i + '): ' + JSON.stringify(seen));
+        }
         await pick(/^Back/);
       }
       if (spec.difficult) { await pick(/Speak with the customer/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
