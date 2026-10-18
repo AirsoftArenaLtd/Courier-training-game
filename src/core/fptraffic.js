@@ -190,10 +190,12 @@ OTR.fpTraffic = {
     const c = m.trafficControl.cyclist, v = m.van;
     if (m.routePlan.day < 4 || !m.departed || !['route', 'return'].includes(m.phase)) return;
     if (c.leg !== m.leg && m.mode === 'cab' && Math.abs(v.speed) < 3) {
-      const p = OTR.fp.local(v, 2, 2.5), next = m._trafficBodies.next; next.x = p.x; next.z = p.z; next.w = .7; next.d = 1.9;
-      if (OTR.fpRoute.onStreet(m, p.x, p.z) && !m.solids.some(s => s !== m._trafficSolids.cyclist &&
-        Math.abs(s.x - p.x) < (s.w + .7) / 2 && Math.abs(s.z - p.z) < (s.d + 1.9) / 2)) {
-        c.state = 'beside'; c.x = p.x; c.z = p.z; c.yaw = v.yaw; c.at = m.elapsed; c.leg = m.leg;
+      const next=m._trafficBodies.next,sin=Math.sin(v.yaw),cos=Math.cos(v.yaw);
+      next.x=v.x+cos*2-sin*2.5;next.z=v.z+sin*2+cos*2.5;next.w=.7;next.d=1.9;
+      let clear=OTR.fpRoute.onStreet(m,next.x,next.z);
+      if(clear)for(const solid of m.solids)if(solid!==m._trafficSolids.cyclist&&this.overlap(next,solid)){clear=false;break;}
+      if (clear) {
+        c.state = 'beside'; c.x = next.x; c.z = next.z; c.yaw = v.yaw; c.at = m.elapsed; c.leg = m.leg;
         c.checked = false; c.wait = 0; c.originYaw = v.yaw;c.rideSpeed=3.2;c.stopWait=0;c.junction=-1; m.touch();
       }
     }
