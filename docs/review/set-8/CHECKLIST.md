@@ -1,7 +1,7 @@
 # Milestone 8 review (so far): five minutes (owner)
 
 Milestone 8 is "a town that looks real". Compare `docs/review/set-7/views/` (before) with `docs/review/set-8/views/` (after;
-open `index.md` there: the same views at Low and High, plus a new view at the first door). The sat nav and the walk-round
+open `index.md` there: the same views at Low and High, plus a new view at the first door; `compare.md` puts set 7 and set 8 side by side). The sat nav and the walk-round
 damage report are not built yet; they come later in the milestone. Then play for five minutes with the steps below. Write
 one line per item: fine, or what feels wrong. That line goes to the board as the first task of the next round.
 
