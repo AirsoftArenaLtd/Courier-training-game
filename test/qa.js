@@ -218,6 +218,25 @@ function auditLayout() {
     const over = Math.max(best.x - t.x, t.right - best.right);
     if (over > TOL) out.push({ kind: 'text-outside-box', scene: scene.sys.settings.key, what: describe(obj), detail: `${Math.round(over)}px past its box (text ${Math.round(t.x)}–${Math.round(t.right)}, box ${Math.round(best.x)}–${Math.round(best.right)})` });
   });
+
+  // Text that a button in the same card covers (B-39: the credits ran under Close in Malayalam with larger text). A
+  // button is a container with its own press handler; its own label is not covered by it.
+  const buttons = [];
+  const findButtons = (o) => { if (!o || o.visible === false || (o.alpha !== undefined && o.alpha <= 0.05)) return; if (o.type === 'Container' && o.press) buttons.push(o); (o.list || []).forEach(findButtons); };
+  scenes.forEach(s => (s.children && s.children.list ? s.children.list : []).forEach(findButtons));
+  const inside = (o, c) => { for (let p = o.parentContainer; p; p = p.parentContainer) if (p === c) return true; return false; };
+  texts.forEach(({ obj, scene }) => {
+    let t; try { t = obj.getBounds(); } catch (e) { return; }
+    if (!t || t.width <= 0 || t.height <= 0) return;
+    buttons.forEach(btn => {
+      if (inside(obj, btn) || btn.scene !== scene || (btn.parentContainer || null) !== (obj.parentContainer || null)) return;
+      const bw = btn.width || 0, bh = btn.height || 0;
+      if (!bw || !bh) return;
+      const m = btn.getWorldTransformMatrix(), bx = m.tx - bw / 2, by = m.ty - bh / 2;
+      const ox = Math.min(t.right, bx + bw) - Math.max(t.x, bx), oy = Math.min(t.bottom, by + bh) - Math.max(t.y, by);
+      if (ox > TOL && oy > TOL) out.push({ kind: 'text-under-button', scene: scene.sys.settings.key, what: describe(obj), detail: `${Math.round(ox)}x${Math.round(oy)} px under a button at ${Math.round(bx)},${Math.round(by)}` });
+    });
+  });
   return out;
 }
 
