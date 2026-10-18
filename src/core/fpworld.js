@@ -4,7 +4,7 @@ OTR.fpWorld = {
   build(scene, model) {
     const T = THREE, view = scene.view, world = view.world, camera = view.camera,brand=OTR.fpBrand.read();
     const cube = new T.BoxGeometry(1, 1, 1), plane = new T.PlaneGeometry(1,1).rotateX(-Math.PI/2), staticBatches=[], mats = new Map(), batches = new Map();
-    const occluders = [], interactions = [], labels = [], assetGroups=[];let townArt=null;
+    const occluders = [], interactions = [], labels = [], assetGroups=[],exterior=[],stopDoors=[];let townArt=null,exteriorCapture=false;
     const hub = new T.Group(), route = new T.Group(); world.add(hub, route);
     const material = color => {
       if (!mats.has(color)) mats.set(color, new T.MeshLambertMaterial({ color }));
@@ -28,7 +28,7 @@ OTR.fpWorld = {
         if (solid) occluders.push(mesh);
         if (id) { mesh.userData.interaction = id; interactions.push(mesh); }
       }
-      return mesh;
+      if(exteriorCapture){mesh.userData.fpParent=parent;exterior.push(mesh);}return mesh;
     }
     const sign = (parent,x,y,z,text,color,w) => {
       box(parent,x,y,z,w||1.4,0.85,0.08,color,null,false);
@@ -140,7 +140,7 @@ OTR.fpWorld = {
       box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true);
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
-      box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
+      stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
       box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
@@ -158,20 +158,26 @@ OTR.fpWorld = {
     }
 
     const van = new T.Group(); route.add(van);
-    const chassis = new T.Group();van.add(chassis);
+    const chassis = new T.Group();van.add(chassis);exteriorCapture=true;
     box(chassis,0,0.42,0,2.16,0.25,5.4,0x454955,null,true);
     box(chassis,0,0.75,-1.85,2.1,0.8,1.7,brand.body,null,true);
     box(chassis,0,1.7,-0.95,2.1,2.55,0.15,brand.body,null,true);
     [-1.03,1.03].forEach(x=>box(chassis,x,1.78,0.8,0.12,2.65,3.5,brand.body,null,true));
     box(chassis,0,3.15,0.8,2.2,0.12,3.8,brand.body,null,true);
+    exteriorCapture=false;
+    let livery=null,liveryIndex=0;const liveryPart=new T.Object3D();
+    if(!OTR.gfx.high()){const paint=new T.MeshLambertMaterial({side:T.DoubleSide});mats.set('livery-palette',paint);livery=new T.InstancedMesh(new T.PlaneGeometry(1,1),paint,4);chassis.add(livery);}
     for(const side of [-1,1]){
-      box(chassis,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);
-      box(chassis,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);
+      if(livery)for(const [x,y,h,colour] of [[1.105,2.1,.8,brand.primary],[1.125,1.6,.12,brand.accent]]){
+        liveryPart.position.set(side*x,y,.6);liveryPart.rotation.y=side*Math.PI/2;liveryPart.scale.set(2.1,h,1);liveryPart.updateMatrix();livery.setMatrixAt(liveryIndex,liveryPart.matrix);livery.setColorAt(liveryIndex++,new T.Color(colour));
+      }else{box(chassis,side*1.105,2.1,.6,.025,.8,2.1,brand.primary);box(chassis,side*1.125,1.6,.6,.025,.12,2.1,brand.accent);}
       labels.push({parent:chassis,local:new T.Vector3(side*1.13,2.1,.6),point:new T.Vector3(),normal:new T.Vector3(side,0,0),text:brand.name,brand:true,max:16});
     }
+    if(livery)livery.computeBoundingSphere();
     [-0.8,0.8].forEach(x=>box(chassis,x,1.06,0.9,0.48,0.12,3.3,0x827D74,null,true));
+    exteriorCapture=true;
     [-1.09,1.09].forEach(x=>[-1.6,1.7].forEach(z=>box(van,x,0.42,z,0.22,0.7,0.7,0x2A2E35,x<0&&z<0?'tyres':null)));
-    box(chassis,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');
+    box(chassis,-1.08,1.65,-1.8,0.1,0.9,1.3,0x668193,'driver');exteriorCapture=false;
     box(chassis,0,0.96,-2.73,1.6,0.3,0.06,0xC9C8BD,'lights');
     const faultLamp=box(chassis,-0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
     box(chassis,0.68,1,-2.78,0.35,0.2,0.07,0xF8E8AE,'lights');
@@ -179,19 +185,43 @@ OTR.fpWorld = {
     const lampGood=material(0xF8E8AE),lampBad=material(0x3D4148);
     const cargoDoor=box(chassis,0,1.8,2.62,1.9,2.5,0.08,brand.primary,'cargo',true);
     box(chassis,1.15,1.65,2.68,0.22,0.4,0.17,0xD9AE55,'cargo');
-    box(chassis,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
-    const slotMeshes=OTR.fpMission.slots.map(s=>box(chassis,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));
-
-    function parcel(parent, id) {
-      const g=new T.Group(); parent.add(g);
-      box(g,0,0,0,0.43,0.4,0.52,0xB68D5C,id,true);
-      box(g,0,0.205,0,0.09,0.012,0.53,0xDEC9A4);
-      const label=box(g,0,0,0.268,0.27,0.17,0.012,0xF2EEE3,id,true);
-      label.userData.scanId=id;g.userData.barcode=label;
-      for(let i=0;i<7;i++)box(g,-0.09+i*0.028,0,0.278,i%2?0.01:0.016,0.1,0.006,0x343638);
-      return g;
+    const restraint=box(chassis,0,0.8,2.5,0.6,0.22,0.13,0xDBAE55,'secure');
+    if(!OTR.gfx.high()){
+      restraint.layers.set(1);const paint=new T.MeshLambertMaterial({color:0xDBAE55,side:T.DoubleSide});mats.set('restraint-surface',paint);
+      const face=new T.Mesh(new T.PlaneGeometry(1,1),paint);face.position.set(0,.8,2.565);face.scale.set(.6,.22,1);chassis.add(face);
     }
-    const parcels=base.parcels.map(p=>parcel(route,p.id));
+    const slotMeshes=OTR.fpMission.slots.map(s=>box(chassis,s.x,1.12,s.z,0.48,0.05,0.65,0xA6C2BF,s.id));
+    const slotBatch=new T.InstancedMesh(cube,material(0xA6C2BF),slotMeshes.length);let slotMask=-1;
+    slotMeshes.forEach((mesh,i)=>{mesh.layers.set(1);slotBatch.setMatrixAt(i,mesh.matrix);});slotBatch.computeBoundingSphere();chassis.add(slotBatch);
+
+    // All parcels share one palette mesh, while the original solid and barcode boxes remain
+    // exact raycast proxies. On Low the printing/tape are surfaces, rather than seven tiny boxes.
+    const parcelPositions=[],parcelNormals=[],parcelColours=[],parcelPlane=new T.PlaneGeometry(1,1);
+    const parcelPart=(x,y,z,w,h,d,hex,printed=false,top=false)=>{
+      const flat=printed&&!OTR.gfx.high(),geometry=(flat?parcelPlane:cube).clone();
+      if(flat&&top)geometry.rotateX(-Math.PI/2);
+      geometry.scale(w,flat&&top?1:h,flat?(top?d:1):d);geometry.translate(x,y,z);
+      const source=geometry.index?geometry.toNonIndexed():geometry,colour=new T.Color(hex),positions=source.attributes.position.array,normals=source.attributes.normal.array;
+      for(let i=0;i<positions.length;i++)parcelPositions.push(positions[i]);for(let i=0;i<normals.length;i++)parcelNormals.push(normals[i]);
+      for(let i=0;i<positions.length/3;i++)parcelColours.push(colour.r,colour.g,colour.b);
+      if(source!==geometry)source.dispose();geometry.dispose();
+    };
+    parcelPart(0,0,0,.43,.4,.52,0xB68D5C);
+    parcelPart(0,OTR.gfx.high()?.205:.211,0,.09,.012,.53,0xDEC9A4,true,true);
+    parcelPart(0,0,OTR.gfx.high()?.268:.274,.27,.17,.012,0xF2EEE3,true);
+    for(let i=0;i<7;i++)parcelPart(-.09+i*.028,0,OTR.gfx.high()?.278:.281,i%2?.01:.016,.1,.006,0x343638,true);
+    parcelPlane.dispose();const parcelGeometry=new T.BufferGeometry();
+    parcelGeometry.setAttribute('position',new T.Float32BufferAttribute(parcelPositions,3));parcelGeometry.setAttribute('normal',new T.Float32BufferAttribute(parcelNormals,3));parcelGeometry.setAttribute('color',new T.Float32BufferAttribute(parcelColours,3));parcelGeometry.computeBoundingSphere();
+    const parcelPaint=new T.MeshLambertMaterial({vertexColors:true});mats.set('parcel-palette',parcelPaint);
+    function parcel(parent, id,draw=true) {
+      const g=new T.Group();parent.add(g);if(draw){const visual=new T.Mesh(parcelGeometry,parcelPaint);visual.name='parcel-palette';g.add(visual);}
+      const proxy=(y,z,w,h,d,hex)=>{const o=new T.Mesh(cube,material(hex));o.position.set(0,y,z);o.scale.set(w,h,d);o.updateMatrix();o.matrixAutoUpdate=false;o.layers.set(1);g.add(o);occluders.push(o);if(id){o.userData.interaction=id;interactions.push(o);}return o;};
+      proxy(0,0,.43,.4,.52,0xB68D5C);const label=proxy(0,.268,.27,.17,.012,0xF2EEE3);
+      label.userData.scanId=id;g.userData.barcode=label;return g;
+    }
+    const parcels=base.parcels.map(p=>parcel(route,p.id,false));
+    const parcelEntries=parcels.map(mesh=>({matrix:mesh.matrix,sphere:new T.Sphere(),visible:false}));
+    const parcelBatch=new T.InstancedMesh(parcelGeometry,parcelPaint,parcels.length);parcelBatch.name='route-parcels';parcelBatch.frustumCulled=false;route.add(parcelBatch);
     const carried=parcel(camera,null); carried.position.set(0.4,-0.48,-0.85); carried.rotation.y=-0.15;
     for(const x of [-.29,.29])box(carried,x,-.32,.1,.14,.25,.35,brand.uniform);
     const inspected=parcel(camera,null); inspected.position.set(-0.63,-0.02,-1.45); inspected.scale.setScalar(1.7);
@@ -255,9 +285,19 @@ OTR.fpWorld = {
       emergencyLamps=new T.Group();emergency.add(emergencyLamps);
       for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
     }
+    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
+    const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
+    if(actors&&actors.vehicle){
+      // The physical interior mirror stays at its C-23 location. Its view uses the retained cab shell,
+      // since the source exterior's sloped windshield would sit between that camera and the cab.
+      const entries=exterior.filter(mesh=>mesh.userData.fpParent===chassis&&mesh.userData.fpBatchEntry).map(mesh=>mesh.userData.fpBatchEntry);
+      innerVan=new T.InstancedMesh(cube,material(0xFFFFFF),entries.length);for(let i=0;i<entries.length;i++){innerVan.setMatrixAt(i,entries[i].matrix);innerVan.setColorAt(i,entries[i].color);}innerVan.visible=false;innerVan.frustumCulled=false;innerVan.name='actor:retained-cab-shell';chassis.add(innerVan);
+      for(const mesh of exterior.concat(cargoDoor)){if(mesh.parent)mesh.layers.set(1);const entry=mesh.userData.fpBatchEntry;if(entry){const pool=batches.get(mesh===cargoDoor?chassis:mesh.parent||mesh.userData.fpParent);if(pool)for(const entries of pool.values()){const at=entries.indexOf(entry);if(at>=0)entries.splice(at,1);}}}
+    }
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
+      if(!entries.length)return;
       const flat=entries[0].flat,coloured=parent!==route&&flat;
       const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
@@ -277,9 +317,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
       dispose() {
-        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -303,14 +343,6 @@ OTR.fpWorld = {
           if(base.town&&(sceneryMoved||solidMoved)){
             if(sceneryMoved){if(townArt)townArt.select(cx,cz);else if(scene.assetBank)for(const group of assetGroups)scene.assetBank.cull(group,cx,cz,sceneryRadius);}
             if(sceneryMoved){sceneryX=cx;sceneryZ=cz;}solidX=cx;solidZ=cz;
-            // Compact nearby static instances in preallocated GPU buffers. Long street/ground planes always remain.
-            for(const batch of staticBatches){if(!sceneryMoved&&!batch.bounded)continue;let count=0;
-              for(const entry of batch.entries){const e=entry.matrix.elements;
-                if(townArt&&!townArt.fallback(entry))continue;
-                if((!entry.bounded&&Math.max(Math.abs(e[0]),Math.abs(e[10]))>20) || (e[12]-cx)**2+(e[14]-cz)**2<sceneryRadius*sceneryRadius){batch.mesh.setMatrixAt(count,entry.matrix);if(batch.mesh.instanceColor)batch.mesh.setColorAt(count,entry.color);count++;}
-              }
-              batch.mesh.count=count;batch.mesh.visible=count>0;batch.mesh.instanceMatrix.needsUpdate=true;if(batch.mesh.instanceColor)batch.mesh.instanceColor.needsUpdate=true;
-            }
           }
           if(base.town){
             for(const mesh of occluders)if(mesh.parent===route)mesh.visible=(mesh.position.x-cx)**2+(mesh.position.z-cz)**2<sceneryRadius*sceneryRadius;
@@ -321,13 +353,17 @@ OTR.fpWorld = {
           van.position.set(v.x,0,v.z);van.rotation.y=-v.yaw;
           chassis.position.y=pose?pose.heave:0;chassis.rotation.set(pose?pose.bodyPitch:reduced?0:m.motion&&m.motion.pitch||0,0,pose?pose.bodyRoll:reduced?0:m.motion&&m.motion.roll||0);van.visible=m.mode!=='cab';
           cargoDoor.visible=!m.cargoOpen;
-          slotMeshes.forEach((mesh,i)=>mesh.visible=m.cargoOpen&&!m.parcels.some(p=>p.location===OTR.fpMission.slots[i].id));
+          let emptySlots=0;slotMeshes.forEach((mesh,i)=>{mesh.visible=m.cargoOpen&&!m.parcels.some(p=>p.location===OTR.fpMission.slots[i].id);if(mesh.visible)emptySlots|=1<<i;});
+          if(emptySlots!==slotMask){slotMask=emptySlots;let count=0;for(const mesh of slotMeshes)if(mesh.visible)slotBatch.setMatrixAt(count++,mesh.matrix);slotBatch.count=count;slotBatch.visible=count>0;slotBatch.instanceMatrix.needsUpdate=true;}
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;
           tyreBulge.visible=!m.repaired&&m.fault==='tyres';
-          m.parcels.forEach((p,i)=>{
+          let parcelCount=0;m.parcels.forEach((p,i)=>{
             const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
+            const entry=parcelEntries[i];entry.visible=mesh.visible;
+            if(mesh.visible){mesh.updateMatrix();entry.sphere.copy(parcelGeometry.boundingSphere).applyMatrix4(mesh.matrix);parcelBatch.setMatrixAt(parcelCount++,mesh.matrix);}
           });
+          parcelBatch.count=parcelCount;parcelBatch.visible=parcelCount>0;parcelBatch.instanceMatrix.needsUpdate=true;
           carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';if(cab)cab.sync(m);else wheel.rotation.z=-v.steer*3;
           const scanning=scene.handheld&&scene.handheld.aiming;
           carried.position.set(scanning?0:0.4,scanning?0:-0.48,-0.85);
@@ -348,7 +384,10 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
+          if(actors)actors.sync(m,cx,cz,!!reduced);
+          if(actors&&actors.crossing)person.visible=false;
           let mask=0;for(const s of m.stops)if(s.contacted&&!s.resolved&&(m.doorsteps?m._doorSpecs[s.id].present:s.service==='handover')&&(s.x-cx)**2+(s.z-cz)**2<=sceneryRadius*sceneryRadius)mask|=1<<s.id;
+          if(actors)mask&=~actors.residentMask;
           if(mask!==residentMask){let count=0;residentMask=mask;
             for(const part of residentParts)if(mask&(1<<part.id)){residentBatch.setMatrixAt(count,part.matrix);residentBatch.setColorAt(count++,part.color);}
             residentBatch.count=count;residentBatch.visible=count>0;residentBatch.instanceMatrix.needsUpdate=true;if(residentBatch.instanceColor)residentBatch.instanceColor.needsUpdate=true;
@@ -369,6 +408,12 @@ OTR.fpWorld = {
         if(mirrors)mirrors.sync(model,area);
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         world.updateMatrixWorld(true);
+        if(model&&!inHub){
+          reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
+          // Use the same per-instance visibility in the main view as in reflections. A single
+          // town-wide bounding sphere otherwise submits every nearby box behind the trainee.
+          for(const batch of reflectBatches)compact(batch,reflectFrustum,true,model.mode==='cab'?model.van.x:model.player.x,model.mode==='cab'?model.van.z:model.player.z);
+        }
         if(rear&&model)rear.sync(model,mirrors);else view.mirror.rearOn=false;
         if(lighting)lighting.sync(model||base,area);
         if(weatherEffects)weatherEffects.sync(model||base,area);
@@ -398,26 +443,31 @@ OTR.fpWorld = {
     };
     // Reflection passes cull individual fixed instances, then restore the main-view buffers exactly.
     const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
-    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches));
+    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}]),cullMain=!OTR.gfx.high();
+    const compact=(batch,frustum,main=false,cx=0,cz=0)=>{
+      const mesh=batch.mesh;let count=0;
+      for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;
+        if(entry.town&&(mesh.userData.fpAsset?!entry.town.selected:townArt&&!townArt.fallback(entry)))continue;
+        if(main&&entry.visible===undefined&&(entry.bounded||Math.max(Math.abs(e[0]),Math.abs(e[10]))<=20)&&(e[12]-cx)**2+(e[14]-cz)**2>=sceneryRadius*sceneryRadius)continue;
+        reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;if(entry.sphere)reflectSphere.copy(entry.sphere);
+        // High keeps offscreen shadow casters in the main batch. Reflections and Low have no
+        // shadow pass that needs those instances, so their individual frusta can discard them.
+        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);count++;
+      }
+      mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
+    };
     for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;}
-    let vanWas=false,dashWas=false,screenWas=false;
+    let vanWas=false,dashWas=false,screenWas=false,vehicleWas=false;
     view.mirror.before=(index=0)=>{
       if(view.mirror.cameras)view.mirror.camera=index===3?view.mirror.rearCamera:view.mirror.cameras[index];
-      vanWas=van.visible;dashWas=dash.visible;van.visible=true;dash.visible=index===2;if(mirrors)mirrors.hide(true);
+      vanWas=van.visible;dashWas=dash.visible;van.visible=true;if(innerVan){vehicleWas=actors.vehicle.mesh.visible;if(index===2){actors.vehicle.mesh.visible=false;innerVan.visible=true;}}if(actors&&model)actors.reflect(true,model);dash.visible=index===2;if(mirrors)mirrors.hide(true);
       if(rear){screenWas=rear.screen.visible;rear.screen.visible=false;}
       const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
-      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);let count=0;
-        for(const entry of batch.entries){const e=entry.matrix.elements;reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;
-          if(entry.town&&(mesh.userData.fpAsset?!entry.town.selected:townArt&&!townArt.fallback(entry)))continue;
-          if(entry.sphere)reflectSphere.copy(entry.sphere);
-          if(!reflectFrustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);count++;
-        }
-        mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
-      }
+      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);compact(batch,reflectFrustum);}
       world.updateMatrixWorld(true);
     };
     view.mirror.after=()=>{
-      van.visible=vanWas;dash.visible=dashWas;if(mirrors)mirrors.hide(false);
+      van.visible=vanWas;if(innerVan){actors.vehicle.mesh.visible=vehicleWas;innerVan.visible=false;}if(actors&&model)actors.reflect(false,model);dash.visible=dashWas;if(mirrors)mirrors.hide(false);
       if(rear)rear.screen.visible=screenWas;
       for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
       world.updateMatrixWorld(true);

@@ -139,6 +139,10 @@ test('low graphics keeps barcode scanning on cargo shelves',()=>{
   w.camera.lookAt(w.art.parcels[0].userData.barcode.getWorldPosition(new THREE.Vector3()));w.camera.updateMatrixWorld(true);
   assert.equal(w.art.scanTarget(),'parcel0');
 });
+test('legacy parcel visibility keeps its original range when compacting render instances',()=>{
+ const w=world(false);Object.assign(w.m.player,{x:-9.5,z:65,yaw:0,pitch:0});w.art.sync(w.m,null,'route');
+ assert.ok(w.art.route.getObjectByName('route-parcels').count>0,'Legacy parcels stay visible before the original fog range.');w.art.dispose();
+});
 test('saving practice preserves a separate suspended workday',()=>{
   const s=new context.SceneClass();s.progress=context.OTR.fpStore.empty();s.progress.campaign=context.OTR.fpMission.create('campaign',9).snapshot();
   const original=JSON.stringify(s.progress.campaign);s.model=context.OTR.fpMission.create('practice',10);s.time={now:50};s.write=()=>true;

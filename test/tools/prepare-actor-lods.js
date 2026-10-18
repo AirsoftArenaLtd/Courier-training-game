@@ -1,0 +1,24 @@
+/* Offline source-rig Low silhouettes. Run after prepare-actors.py, then compact with that converter. */
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),THREE=require('../../lib/three.min.js');
+const c=vm.createContext({THREE});c.window=c;const F=require('./fpassets-context').install(c);
+const folder=process.argv[2];if(!folder)throw Error('Pass the prepared actor directory.');
+(async()=>{for(const kind of ['men','women'])for(const role of ['worker','resident']){
+ const file=path.join(folder,'quaternius-modular-'+kind,'models/'+role+'-high.glb'),raw=fs.readFileSync(file),n=raw.readUInt32LE(12),doc=JSON.parse(raw.subarray(20,20+n)),source=raw.subarray(28+n),data=await F.read(file,raw.length,new AbortController().signal,async()=>new Response(raw)),g=await new THREE.GLTFLoader().parseAsync(data,'');g.scene.updateMatrixWorld(true);
+ let skin;g.scene.traverse(o=>{if(o.isSkinnedMesh&&!skin)skin=o;});const skeleton=skin.skeleton,parts=[],joints=[],weights=[],colours=[],normals=[],positions=[];
+ // Closed boxes around source rig segments. One joint per segment; knees/elbows remain articulated.
+ const segments=[['Hips','Chest',.24,.15,0x66778a],['Head','Head',.125,.12,0xba9272],
+ ['UpperArm.L','LowerArm.L',.065,.065,0x66778a],['LowerArm.L','Wrist.L',.05,.05,0xba9272],
+ ['UpperArm.R','LowerArm.R',.065,.065,0x66778a],['LowerArm.R','Wrist.R',.05,.05,0xba9272],
+ ['UpperLeg.L','LowerLeg.L',.085,.08,0x3e4854],['LowerLeg.L','Foot.L',.07,.07,0x3e4854],
+ ['UpperLeg.R','LowerLeg.R',.085,.08,0x3e4854],['LowerLeg.R','Foot.R',.07,.07,0x3e4854]];
+ for(const [from,to,w,d,hex] of segments){const a=skeleton.bones.find(b=>b.name===from.replace('.', '')),b=skeleton.bones.find(b=>b.name===to.replace('.', ''));if(!a||!b)throw Error('Missing workday joint');
+  const start=a.getWorldPosition(new THREE.Vector3()),end=b.getWorldPosition(new THREE.Vector3()),delta=end.clone().sub(start),height=from==='Head'?.25:delta.length(),center=from==='Head'?start.clone().add(new THREE.Vector3(0,.06,0)):start.clone().add(end).multiplyScalar(.5),q=new THREE.Quaternion();if(delta.length()>0)q.setFromUnitVectors(new THREE.Vector3(0,1,0),delta.normalize());
+  const block=from==='Head'||from==='Hips';let geometry;
+  if(block)geometry=new THREE.BoxGeometry(w*2,height,d*2).toNonIndexed();else{const v=[],ids=[];for(const y of [height/2,-height/2])for(let i=0;i<3;i++)v.push(Math.cos(i*Math.PI*2/3)*w,y,Math.sin(i*Math.PI*2/3)*d);for(let i=0;i<3;i++){const j=(i+1)%3;ids.push(i,i+3,j+3,i,j+3,j);}ids.push(0,1,2,3,5,4);const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(v,3));g.setIndex(ids);geometry=g.toNonIndexed();geometry.computeVertexNormals();g.dispose();}geometry.applyQuaternion(q);geometry.translate(center.x,center.y,center.z);const colour=new THREE.Color(hex);
+  for(let i=0;i<geometry.attributes.position.count;i++){positions.push(geometry.attributes.position.getX(i),geometry.attributes.position.getY(i),geometry.attributes.position.getZ(i));normals.push(geometry.attributes.normal.getX(i),geometry.attributes.normal.getY(i),geometry.attributes.normal.getZ(i));colours.push(colour.r,colour.g,colour.b);joints.push(skeleton.bones.indexOf(a),0,0,0);weights.push(1,0,0,0);}geometry.dispose();
+ }
+ const buffers=[source];let size=source.length;const add=(array,type,componentType)=>{const padding=-size&3;if(padding){buffers.push(Buffer.alloc(padding));size+=padding;}const view=doc.bufferViews.length;doc.bufferViews.push({buffer:0,byteOffset:size,byteLength:array.byteLength});buffers.push(Buffer.from(array.buffer));size+=array.byteLength;const index=doc.accessors.length,item={bufferView:view,componentType,count:array.length/({VEC3:3,VEC4:4}[type]),type};if(type==='VEC3'&&array===p){item.min=[0,1,2].map(k=>Math.min(...positions.filter((_,i)=>i%3===k)));item.max=[0,1,2].map(k=>Math.max(...positions.filter((_,i)=>i%3===k)));}doc.accessors.push(item);return index;};
+ const p=new Float32Array(positions),attributes={POSITION:add(p,'VEC3',5126),NORMAL:add(new Float32Array(normals),'VEC3',5126),COLOR_0:add(new Float32Array(colours),'VEC3',5126),JOINTS_0:add(new Uint16Array(joints),'VEC4',5123),WEIGHTS_0:add(new Float32Array(weights),'VEC4',5126)};
+ doc.meshes=[{name:'WorkdayLow',primitives:[{attributes,material:0}]}];doc.materials=[{pbrMetallicRoughness:{baseColorFactor:[1,1,1,1],metallicFactor:0,roughnessFactor:1}}];let first=true;for(const node of doc.nodes)if(node.mesh!==undefined){if(first){node.mesh=0;first=false;}else{delete node.mesh;delete node.skin;}}
+ const binary=Buffer.concat(buffers);doc.buffers=[{byteLength:binary.length,uri:'data:application/octet-stream;base64,'+binary.toString('base64')}];fs.writeFileSync(file.replace('-high.glb','-low.gltf'),JSON.stringify(doc));F.release(g);console.log(kind+': 88 triangles, source workday rig retained.');
+}})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,69 @@
+[
+  {
+    "quality": "low",
+    "tag": "c28",
+    "requested": [
+      "depot",
+      "cab",
+      "mirror",
+      "mirrorRight",
+      "mirrorInterior",
+      "handheld",
+      "barcodeAim",
+      "firstStop",
+      "doorstep",
+      "hazardswalk",
+      "doorsignature",
+      "doorid",
+      "laterstressbrake",
+      "laterstressturnleft",
+      "laterstressreverse",
+      "laterstresscab",
+      "latermirrorpeak",
+      "laterrearpeak",
+      "lightingnight",
+      "lightingnightreverse",
+      "visibleweatherstorm",
+      "visibleweathersnowwalk",
+      "towncab",
+      "townreverse",
+      "actorsvan",
+      "actorscargo",
+      "actorscargoextra",
+      "actorsresident",
+      "actorswave",
+      "actorsmirror"
+    ],
+    "accessibility": "",
+    "exit": 0
+  },
+  {
+    "quality": "high",
+    "tag": "c28",
+    "requested": [
+      "cab",
+      "laterrearpeak",
+      "lightingnightreverse",
+      "townhouse",
+      "actorsvan",
+      "actorscargo",
+      "actorscargoextra",
+      "actorsresident",
+      "actorsmirror"
+    ],
+    "accessibility": "",
+    "exit": 0
+  },
+  {
+    "quality": "low",
+    "tag": "c28-reduced",
+    "requested": [
+      "cab",
+      "actorsresident",
+      "actorsmirror",
+      "actorscargoextra"
+    ],
+    "accessibility": "large,colour,reduced",
+    "exit": 0
+  }
+]

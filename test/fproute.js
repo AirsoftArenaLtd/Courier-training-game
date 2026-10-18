@@ -4,12 +4,12 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
  const {install,local}=require('./tools/fpassets-context');install(c);
- test.before(async()=>{c.assetBank=await c.OTR.fpAssets.preload({fetch:local});assert.equal(c.assetBank.stats.loaded,9,JSON.stringify(c.assetBank.stats));});
+ test.before(async()=>{c.assetBank=await c.OTR.fpAssets.preload({fetch:local});assert.equal(c.assetBank.stats.loaded,14,JSON.stringify(c.assetBank.stats));});
  test.after(()=>c.assetBank.dispose());
 }
 const full=(day=1,variant=7)=>M.create('campaign',variant,process.env.QA_LATER==='1'?c.OTR.fpLater.prepare(R.plan(day,variant)):R.plan(day,variant));
@@ -99,7 +99,7 @@ test('the van can steer around a right-hand grid corner without crossing buildin
  assert.equal(m.driveAllowed(m.van),true);
 });
 test('low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror',()=>{
- const records=[],cabViews=process.env.QA_CAB==='1'?['cab-park','cab-reverse','cab-neutral','cab-drive','cab-handbrake','cab-belt','cab-signal-left','cab-signal-right','cab-headlights','cab-wipers','cab-exit']:[],mirrorViews=process.env.QA_MIRRORS==='1'?['mirror-left','mirror-right','mirror-interior']:[];
+ const records=[],cabViews=process.env.QA_CAB==='1'?['cab-park','cab-reverse','cab-neutral','cab-drive','cab-handbrake','cab-belt','cab-signal-left','cab-signal-right','cab-headlights','cab-wipers','cab-exit']:[],mirrorViews=process.env.QA_MIRRORS==='1'?['mirror-left','mirror-right','mirror-interior']:[],cargoViews=process.env.QA_CARGO==='1'?['cargo-outside','cargo-inside']:[];
  for(const variant of (process.env.QA_LATER==='1'?[1,2,3,4,5,6,7,8,9,10]:[7]))for(let day=1;day<=30;day++){
  const m=full(day,variant);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
  c.OTR.gfx={high:()=>false};
@@ -114,8 +114,10 @@ test('low graphics stays within the complete-frame geometry budget at every stop
  };
  for(const loaded of [false,true]){
   for(const p of m.parcels)p.location=loaded?'slot'+(p.anomaly?5:p.stop):'depot';
-  for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews,...(process.env.QA_REAR==='1'?['reverse','cab-camera']:[])]:['steady'])){
+  for(const s of m.stops)for(const pose of (process.env.QA_CAMERA==='1'?['steady','turn','turnleft','brake',...cabViews,...mirrorViews,...(process.env.QA_REAR==='1'?['reverse','cab-camera']:[]),...cargoViews]:['steady',...cargoViews])){
    Object.assign(m.van,s.park);m.van.look=0;m.player.pitch=0;m.elapsed=0;m.van.gear=pose==='reverse'||pose==='cab-camera'?-1:1;
+   const cargo=pose.startsWith('cargo-');m.mode=cargo?'walk':'cab';m.cargoOpen=cargo;
+   if(cargo){const point=c.OTR.fp.local(m.van,0,pose==='cargo-inside'?1.9:4.5);Object.assign(m.player,{...point,yaw:m.van.yaw,pitch:0});}
    if(process.env.QA_WEATHER==='1')m.van.wipers=true;
    if(process.env.QA_LIGHTING==='1')m.routePlan.timeOfDay=c.OTR.fpLighting.times[(day+s.id)%4];
    if(process.env.QA_CAMERA==='1'){

@@ -1,0 +1,312 @@
+{
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-interior",
+      "audit": {
+        "font": 18,
+        "x": 474,
+        "right": 806,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-right",
+      "audit": {
+        "font": 18,
+        "x": 486,
+        "right": 794,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": "mirror-left",
+      "audit": {
+        "font": 18,
+        "x": 493,
+        "right": 787,
+        "y": 563.5,
+        "bottom": 584.5,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": "mirror-interior",
+      "audit": {
+        "font": 19,
+        "x": 391.5,
+        "right": 888.5,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": "mirror-right",
+      "audit": {
+        "font": 19,
+        "x": 404.5,
+        "right": 875.5,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": "mirror-left",
+      "audit": {
+        "font": 19,
+        "x": 411.5,
+        "right": 868.5,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": "mirror-interior",
+      "audit": {
+        "font": 18,
+        "x": 367,
+        "right": 913,
+        "y": 563,
+        "bottom": 585,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": "mirror-right",
+      "audit": {
+        "font": 18,
+        "x": 356,
+        "right": 924,
+        "y": 563,
+        "bottom": 585,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": "mirror-left",
+      "audit": {
+        "font": 18,
+        "x": 358.5,
+        "right": 921.5,
+        "y": 563,
+        "bottom": 585,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": "mirror-interior",
+      "audit": {
+        "font": 19,
+        "x": 352,
+        "right": 928,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": "mirror-right",
+      "audit": {
+        "font": 19,
+        "x": 340.5,
+        "right": 939.5,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": "mirror-left",
+      "audit": {
+        "font": 19,
+        "x": 343,
+        "right": 937,
+        "y": 562,
+        "bottom": 586,
+        "pointerLock": false,
+        "fov": 68
+      }
+    }
+  ],
+  "live": [
+    {
+      "index": 2,
+      "id": "mirror-interior",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    },
+    {
+      "index": 1,
+      "id": "mirror-right",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    },
+    {
+      "index": 0,
+      "id": "mirror-left",
+      "red": [
+        255,
+        42,
+        116,
+        255
+      ],
+      "blue": [
+        0,
+        29,
+        255,
+        255
+      ]
+    }
+  ],
+  "fixture": "First workday, loaded van at the depot. Target selection, looking and driving use real keys. Coloured 3D markers prove live reflections.",
+  "reloadRaw": [
+    7.2264333333334045,
+    3.3264333333333496,
+    1.2331266666666647,
+    1,
+    0.20000000000000004
+  ],
+  "reload": {
+    "saved": {
+      "mode": "cab",
+      "elapsed": 7.476433333333408,
+      "look": 1.3075810092625983,
+      "pitch": -0.04621998593213343,
+      "speed": 0,
+      "mirrors": [
+        7.2264333333334045,
+        3.3264333333333496,
+        1.2331266666666647,
+        1,
+        0.20000000000000004
+      ],
+      "updates": [
+        63,
+        62,
+        62,
+        0
+      ],
+      "events": [
+        {
+          "type": "drive.mirrors",
+          "key": "0:1",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 1
+          }
+        }
+      ],
+      "on": true
+    },
+    "partial": {
+      "mode": "cab",
+      "elapsed": 7.476433333333408,
+      "look": 1.3075810092625983,
+      "pitch": -0.04621998593213343,
+      "speed": 0,
+      "mirrors": [
+        7.2264333333334045,
+        3.3264333333333496,
+        1.2331266666666647,
+        1,
+        0.20000000000000004
+      ],
+      "updates": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "events": [],
+      "on": true
+    },
+    "restored": {
+      "mode": "cab",
+      "elapsed": 7.6930466666667465,
+      "look": 1.3075810092625983,
+      "pitch": -0.04621998593213343,
+      "speed": 0,
+      "mirrors": [
+        7.2264333333334045,
+        7.6930466666667465,
+        1.2331266666666647,
+        1,
+        0.4
+      ],
+      "updates": [
+        6,
+        5,
+        5,
+        0
+      ],
+      "events": [],
+      "on": true
+    }
+  },
+  "checks": 132,
+  "errors": []
+}

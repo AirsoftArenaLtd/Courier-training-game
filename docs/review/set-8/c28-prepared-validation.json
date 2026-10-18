@@ -1,0 +1,60 @@
+{
+  "fixture": "Source preparation only. The runtime/Low adapters, livery and controls integration remain pending.",
+  "models": [
+    {
+      "use": "van-exterior",
+      "bytes": 191432,
+      "decodedBytes": 190446,
+      "triangles": 2461,
+      "parts": 1,
+      "bones": 0,
+      "clips": [],
+      "waveChangesBones": false,
+      "size": {
+        "x": 1.5,
+        "y": 1.6499998927116393,
+        "z": 3.249999761581421
+      }
+    },
+    {
+      "use": "worker-men",
+      "bytes": 771740,
+      "decodedBytes": 643060,
+      "triangles": 5240,
+      "parts": 13,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5963977342373281,
+        "y": 1.8260367831902111,
+        "z": 0.638155094159439
+      }
+    },
+    {
+      "use": "worker-women",
+      "bytes": 871104,
+      "decodedBytes": 743660,
+      "triangles": 6112,
+      "parts": 12,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5378004667158518,
+        "y": 1.8206696049196713,
+        "z": 0.6169309483128196
+      }
+    }
+  ]
+}

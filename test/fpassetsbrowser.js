@@ -43,10 +43,10 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
      assert.ok(layout.x>=0&&layout.right<=1270&&layout.bottom<=82,JSON.stringify(layout));assert.ok(layout.font>=(large?23:19));assert.equal(layout.oldModels,0);checks+=3;report.layouts.push({lang,large,...layout});
      await p.screenshot({path:path.join(OUT,`${TAG}-loading-${lang}-${large?'large':'normal'}.png`)});
      await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
-     assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank.stats.loaded),9);checks++;
+     assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank.stats.loaded),14);checks++;
     }
    }else{
-    const result=await view(p),healthy=mode==='low'||mode==='high';assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?9:0);assert.equal(result.unchangedSolid,true);checks+=3;
+    const result=await view(p),healthy=mode==='low'||mode==='high';assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?14:0);assert.equal(result.unchangedSolid,true);checks+=3;
     if(healthy){assert.ok(result.instances.length===8&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(mode==='high'?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(mode==='high'?'garage-low.glb':'garage-high.glb')));checks+=3;}
     else{assert.ok(result.stats.failed>0);checks++;}
     await wait(250);await p.screenshot({path:path.join(OUT,TAG+'-'+mode+'.png')});report.scenarios.push({mode,...result,requests});
