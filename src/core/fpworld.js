@@ -88,7 +88,7 @@ OTR.fpWorld = {
         if(!town.zs.some(cz=>Math.abs(z-cz)<half+3))box(route,x,0.05,z,0.1,0.02,3,0xEDD385);
       }
       for(const z of town.zs)for(let x=b.x0+4;x<b.x1;x+=8){
-        if(!town.xs.some(cx=>Math.abs(x-cx)<half+3))box(route,x,0.05,z,3,0.02,0.1,0xEDD385);
+        if(!town.xs.some(cx=>Math.abs(x-cx)<half+3)){const oneWay=OTR.fpSigns&&OTR.fpSigns.enabled(base)&&base.routePlan.day>=3&&z===town.zs[0]&&x>town.xs[1]+half&&x<town.xs[2]-half;box(route,x,0.05,z,3,0.02,0.1,oneWay?0xEFEEE5:0xEDD385);}
       }
       // Town models replace non-delivery visual pieces. Delivery facades/solids remain their own geometry.
       const lots=town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id));

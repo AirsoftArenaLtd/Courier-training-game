@@ -1,6 +1,47 @@
 /* Generated sign locations and bounded visual/readout adapters. Shared scoring stays separate. */
 window.OTR = window.OTR || {};
 OTR.fpSigns = {
+  enabled(m){return !!(m&&m.kind==='campaign'&&m.town&&m.routePlan&&m.routePlan.signs===1);},
+  prepare(plan){const out=OTR.fpMission.clone(plan);out.signs=1;return out;},
+  runtime(m){
+    if(!this.cache)this.cache=new WeakMap();let data=this.cache.get(m);if(data)return data;
+    const catalog=this.catalog(m),grades=new Map(),types={stop:'drive.sign-stop',speed:'drive.sign-speed',school:'drive.sign-school',giveway:'drive.sign-giveway',roadworks:'drive.sign-roadworks',oneway:'drive.sign-oneway',noentry:'drive.sign-noentry'};
+    for(const s of [...catalog.stops,...catalog.regulatory])grades.set(s.id,{...s,type:types[s.kind],event:`driver:${types[s.kind]}:${s.id}`,seen:`sign-seen:${s.id}`});
+    data={catalog,grades,limit:grades.get('speed:depot'),north:grades.get('school:north'),south:grades.get('school:south'),yield:grades.get('yield:depot'),oneway:grades.get('oneway:edge'),noentry:grades.get('noentry:edge'),worksN:grades.get('works:north'),worksS:grades.get('works:south')};this.cache.set(m,data);return data;
+  },
+  stopId(m,index,approach){return this.runtime(m).catalog.stops[index*4+{n:0,e:1,s:2,w:3}[approach]].id;},
+  school(m,p){const s=m.town.school;return Math.abs(p.x-s.x)<=m.town.road/2&&p.z>=s.z0&&p.z<=s.z1;},
+  onOneWay(m){const g=this.runtime(m).oneway,v=m.van;return !!g&&v.x>g.from+m.town.road/2&&v.x<g.to-m.town.road/2&&Math.abs(v.z-g.roadZ)<=m.town.road/2;},
+  wrongWay(m){return this.onOneWay(m)&&m.van.speed*Math.sin(m.van.yaw)<-.1;},
+  emit(m,g,ok,atSign=false){
+    if(!g||m.events[g.event])return;const words={speed:['Kept to the posted speed limit.','Exceeded the posted speed limit.'],school:['Kept to the school-zone speed limit.','Exceeded the school-zone speed limit.'],giveway:['Gave way to traffic when leaving the depot.','Left the depot without giving way to nearby traffic.'],roadworks:['Used another street around the road closure.','Contacted the closure instead of following the diversion.'],oneway:['','Entered a one-way street against its direction.'],noentry:['','Entered a street from its prohibited end.']};
+    m.log(g.event,'driving',ok?'good':'needs',words[g.kind][ok?0:1]);
+    if(OTR.workday)OTR.workday.report(g.type,{key:g.id,stop:m.phase==='route'?m.activeStop+1:undefined,ok,where:{x:atSign?g.x:m.van.x,z:atSign?g.z:m.van.z,mph:atSign?0:Math.abs(m.van.speed)*2.2369362921}});
+  },
+  seen(m,g){if(g&&!m.events[g.seen]){m.events[g.seen]=true;m.touch();}},
+  finish(m){if(!this.enabled(m))return;for(const g of this.runtime(m).grades.values())if(['speed','school'].includes(g.kind)&&m.events[g.seen])this.emit(m,g,true,true);},
+  tick(m,old){
+    if(!this.enabled(m)||m.mode!=='cab'||!m.departed||m.paused)return;
+    const d=this.runtime(m),v=m.van,speed=Math.abs(v.speed),inSchool=this.school(m,v),wasSchool=this.school(m,old);
+    if(inSchool){if(!m.events['sign-active:north']&&!m.events['sign-active:south']){m.events[(v.speed<0?-1:1)*Math.cos(v.yaw)>=0?'sign-active:north':'sign-active:south']=true;m.touch();}}
+    else if(wasSchool||m.events['sign-active:north']||m.events['sign-active:south']){delete m.events['sign-active:north'];delete m.events['sign-active:south'];m.touch();}
+    const grade=inSchool?(m.events['sign-active:north']?d.north:d.south):d.limit;
+    if(speed>.3&&OTR.fpRoute.onStreet(m,v.x,v.z)){this.seen(m,grade);if(speed>OTR.fpRoute.limit(m)/2.2369362921)this.emit(m,grade,false);}
+    // The posted give-way belongs to departure from the loading bay, not through traffic.
+    if(m.leg===0&&Math.hypot(old.x-2.84,old.z-8)<=3&&Math.hypot(v.x-2.84,v.z-8)>3){
+      let clear=true;for(const car of m.traffic){const dx=car.x-v.x,dz=car.z-v.z,c=Math.cos(v.yaw),s=Math.sin(v.yaw),across=c*dx+s*dz,along=-s*dx+c*dz;if(Math.abs(across)<2.5&&Math.abs(along)<Math.max(6,Math.abs(car.speed)*2))clear=false;}this.emit(m,d.yield,clear);
+    }
+    if(d.oneway){const g=d.oneway,half=m.town.road/2,dx=v.x-old.x,inRoad=Math.abs(v.z-g.roadZ)<=half;
+      const extent=Math.abs(Math.cos(v.yaw))*1.08+Math.abs(Math.sin(v.yaw))*2.7,gate=d.noentry.x;
+      if(inRoad&&dx<-.00001&&old.x-extent>gate&&v.x-extent<=gate)this.emit(m,d.noentry,false);
+      else if(inRoad&&dx<-.00001&&v.x>g.from+half&&v.x<g.to-half&&!m.events[d.noentry.event])this.emit(m,d.oneway,false);
+    }
+    if(m.roadworks){const r=m.roadworks,side=old.z>=r.z?'north':'south',grade=side==='north'?d.worksN:d.worksS,seen=side==='north'?'sign-works:north':'sign-works:south';
+      if((r.z-old.z)*(v.z-old.z)>0&&Math.abs(v.x-r.x)<m.town.road/2+1&&Math.abs(v.z-r.z)<28&&!m.events[seen]){m.events[seen]=true;m.touch();}
+      if(m.motion&&m.motion.contact&&Math.abs(v.x-r.x)<r.w/2+1.1&&Math.abs(v.z-r.z)<r.d/2+3.2)this.emit(m,grade,false);
+      if((old.z-r.z)*(v.z-r.z)<0&&Math.abs(v.x-r.x)>r.w/2+1.1&&m.events[seen])this.emit(m,grade,true);
+    }
+  },
   catalog(m) {
     if (!m || !m.town || !m.routePlan) return null;
     const source = OTR.town.build(m.routePlan.townSeed), scale = OTR.fpRoute.SCALE;
@@ -27,12 +68,12 @@ OTR.fpSigns = {
     }
     const school = source.spec.schoolZone;
     const regulatory = [{id:'yield:depot',kind:'giveway',x:8,z:2,yaw:-Math.PI/2},
-      {id:'speed:depot',kind:'speed',limit:m.town.limit,x:half+.7,z:-14,yaw:0}];
-    for(const [side,z,yaw] of [['north',m.town.school.z1+1,0],['south',m.town.school.z0-1,Math.PI]])regulatory.push({id:`school:${side}`,kind:'school',limit:m.town.schoolLimit,x:m.town.school.x+Math.cos(yaw)*(half+.7),z,yaw});
-    if(m.roadworks)for(const [side,offset,yaw] of [['north',18,0],['south',-18,Math.PI]])regulatory.push({id:`works:${side}`,kind:'roadworks',x:m.roadworks.x+Math.cos(yaw)*(half+.7),z:m.roadworks.z+offset,yaw});
+      {id:'speed:depot',kind:'speed',limit:m.town.limit,x:half+.7,z:-1,yaw:0}];
+    for(const [side,z,yaw] of [['north',m.town.school.z1+14,0],['south',m.town.school.z0-14,Math.PI]])regulatory.push({id:`school:${side}`,kind:'school',limit:m.town.schoolLimit,x:m.town.school.x+Math.cos(yaw)*(half+.7),z,yaw});
+    if(m.roadworks){const advance=Math.min(18,Math.abs(m.town.zs[m.roadworks.to]-m.town.zs[m.roadworks.from])/2-half-1);for(const [side,offset,yaw] of [['north',advance,0],['south',-advance,Math.PI]])regulatory.push({id:`works:${side}`,kind:'roadworks',x:m.roadworks.x+Math.cos(yaw)*(half+2.2),z:m.roadworks.z+offset,yaw});}
     // A peripheral cross-street segment remains reachable from either end; no delivery facade
     // lies on it. Day one keeps the existing two-way grid.
-    if(m.routePlan.day>=3){const z=m.town.zs[0],from=m.town.xs[1],to=m.town.xs[2];
+    if(m.routePlan.day>=3&&this.enabled(m)){const z=m.town.zs[0],from=m.town.xs[1],to=m.town.xs[2];
       regulatory.push({id:'oneway:edge',kind:'oneway',x:from+half+1,z:z-half-.7,yaw:0,from,to,roadZ:z,street:source.spec.streetsV[0]});
       regulatory.push({id:'noentry:edge',kind:'noentry',x:to-half-1,z:z-half-.7,yaw:-Math.PI/2,from,to,roadZ:z});}
     return { streets, stops, numbers, regulatory, limit: m.town.limit, schoolLimit: m.town.schoolLimit,
@@ -42,7 +83,7 @@ OTR.fpSigns = {
     if(s.kind==='street')return `This is ${s.name}.`;
     if(s.kind==='number')return `This is number ${s.number} on ${s.street}.`;
     if(s.kind==='speed')return `The speed limit is ${s.limit} mph.`;
-    if(s.kind==='school')return `The school-zone speed limit is ${s.limit} mph.`;
+    if(s.kind==='school')return `A school zone starts ahead. Its speed limit is ${s.limit} mph.`;
     if(s.kind==='oneway')return `Traffic travels east on ${s.street}.`;
     return {stop:'Stop before the junction line.',giveway:'Give way to traffic before leaving the depot.',roadworks:'The street is closed. Follow another cross street.',noentry:'Do not enter this street from this end.'}[s.kind];
   },
@@ -52,7 +93,7 @@ OTR.fpSigns = {
     const shapes={street:1,stop:2,giveway:3,speed:4,school:5,roadworks:6,oneway:7,noentry:8,number:9};
     for(const sign of [...catalog.stops,...catalog.regulatory,...catalog.streets,...catalog.numbers]){
       const number=sign.kind==='number',street=sign.kind==='street',yaw=number?-sign.side*Math.PI/2:street?(sign.axis==='x'?Math.PI/2:0): -sign.yaw;
-      const w=number?.65:street?2.2:1.05,h=number?.3:street?2.9:2.7,y=number?2.7:h/2;
+      const w=number?.65:street?2.2:1.05,h=number?.3:street?3.4:2.7,y=number?2.7:h/2;
       o.position.set(sign.x,y,sign.z);o.rotation.set(Math.PI/2,yaw,0,'YXZ');o.scale.set(w,1,h);o.updateMatrix();
       const local=new T.Vector3(sign.x,number?y:h-.32,sign.z),normal=new T.Vector3(Math.sin(yaw),0,Math.cos(yaw));local.addScaledVector(normal,.025);
       const label={parent:route,local,normal,point:new T.Vector3(),max:32,text:this.text(sign)};

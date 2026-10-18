@@ -1,50 +1,44 @@
-# Generated street signs (C-30, in progress)
+# Generated street signs
 
-18 October 2026. Branch `codex/c30-signs` now continues on current pilot `a0084ae`, with
-C-27/C-28/C-47/C-29 merged and Claude’s fixes/translations retained. The prior stacked tip
-is preserved on the local `codex/c30-before-pilot-20261018` backup branch. Fetch pilot explicitly
-with `git fetch origin pilot:refs/remotes/origin/pilot`; its tracking ref is also now in the
-checkout’s default fetch configuration.
+C-30, 18 October 2026. `codex/c30-signs` derives street names, every existing junction stop
+approach, facade numbers, posted speed, school warnings and later road closures from the same
+seeded town projection as the mission. Day three introduces an eastbound peripheral one-way
+segment without delivery facades. Day one retains the gentle two-way grid.
 
-`src/core/fpsigns.js` currently derives the street-name plates, all existing junction stop
-approaches, house-number positions, speed limits and school-zone endpoints from the same town
-seed/projection as the route. The product now loads the bounded renderer and keyboard reader. Scoring integration remains
-pending the Claude-inbox clarification; this task is still doing.
+Each sign is a two-triangle plane with analytic board/post cutouts. All signs share the existing
+route-plane instance batch. Low submits at most five signs per view, hence at most 20 additional
+triangles over a main/reflection frame, without another draw call, texture, target or pass. High
+allows 24. Instance shape, matrix and colour buffers are restored after reflection passes. Posts
+remain outside driving lanes and neighbouring regulatory signs have separate positions.
 
-The catalogue adds no checkpoint field and emits no score. Its six Node tests check unchanged
-mission snapshots; both street names at every rotated junction; right-side approach placement
-before the existing stop lines; and exact delivered numbers/facade positions across 90 generated
-routes. The source town's three light junctions currently keep the 3D grid's existing stop rule;
-working traffic signals belong to C-32.
+Five reusable Phaser labels provide whole-sentence readings at 18 px or 22 px with larger text.
+They avoid captions, neighbouring labels, navigation and the projected physical mirrors/rear
+screen, and hide immediately for panels. J cycles visible readings without opening a device
+while driving. It uses the existing remappable keyboard and narration routes. Colour filtering
+and reduced motion keep the same information. New English sentences/templates await Claude’s
+normal extraction/translation after review.
 
-Rendering and access:
+Only new campaigns receive the optional `routePlan.signs: 1` marker. Older checkpoints retain
+legacy report types and their two-way peripheral street. No shared save/scoring file changes are
+needed. Invalid marker versions fail owned route validation. Sign runtime data is derived and
+cached outside snapshots; observation/deduplication flags use existing mission events.
 
-- One two-triangle plane describes the sign board and post; shader cutouts distinguish stop,
-  give-way, speed, school, works, one-way and no-entry signs without image textures. Instances
-  join the existing route-plane batch, with five per view on Low and 24 on High. Low adds at
-  most 20 submitted triangles across a main/reflection frame and no draw call or target.
-- A five-Text Phaser pool shows whole-sentence sign information; it wraps at normal/larger size,
-  avoids captions, other labels, the sat-nav screen and physical mirrors/rear camera, and hides
-  immediately for panels. J cycles visible readings without opening a device while driving;
-  the control remaps through the existing Accessibility key map and appears in the guide.
-- One-way/no-entry restrictions begin on day three on a peripheral cross-street segment with
-  no delivery facade; day one keeps the existing two-way grid. Existing roadworks are signed
-  from both approaches.
-- Queued speech now retains its target, current gear or displayed-notice context. A hint whose
-  context has gone away or expired is dropped before speech; rear urgency and other readers
-  retain their existing behavior.
+Claude’s 18 October contract answer requires one report per obligation. Signed junctions keep
+the original stop detection/HUD log but report `drive.sign-stop`, keyed by the sign id, instead
+of `drive.stop-line`. Posted speed and school checks similarly replace legacy `drive.speed`.
+Speed failures report immediately; positive speed/school checks wait until a valid day finish,
+so later speeding cannot hide behind an earlier successful leg. Give-way checks the initial
+loading-bay departure against nearby traffic. One-way/no-entry checks observe actual movement;
+entering the prohibited end reports no-entry alone, without a second wrong-way/wrong-side charge.
+Both eastbound lanes remain legal. Roadworks checks accept crossing the closure on another
+street after seeing its approach, or reject contact with the barrier. All seven sign types use
+`OTR.workday.report(type, { key, stop, ok, where })`; the world computes no points.
 
-Remaining implementation work:
+The queued-narration follow-up from B-30 is included: stale targets, hidden prompts, expired
+notices and superseded gear hints are dropped before speaking. Urgent rear warnings and other
+readers retain their existing lanes.
 
-- Recover geometry headroom before adding signs. The integrated C-28 loaded CPU ceiling is
-  already 63 calls / 2,480 triangles against 64 / 2,500. Use bounded instance batches and actual
-  loaded/fallback sweeps; the lighter fixed screenshot profile is not the worst case.
-- Keep physical signs consistent with actual obligations and road access. Add give-way, one-way,
-  no-entry, school and roadworks details without obstructing delivery or making day one harsh.
-- Keep text in a bounded Phaser pool, readable with larger text and colour filtering; new
-  instructions are whole sentences and narration/keyboard reading remains available.
-- Wire only the seven existing `drive.sign-*` contract types, with stable keys and resume tests.
-  The Claude inbox asks how the new stop-sign grade should coexist with `drive.stop-line` for
-  the same obligation; layout and budget work continue while that scoring question is open.
-- Run the required Node checks, affected browser/layout checks and C-29 resource profiles;
-  retain the screenshots/clip, frame figures and five-minute checklist before marking review.
+Validation and review evidence: `docs/review/set-8/c30.md`. The extended fixed quality gate
+includes junction, number, one-way and loaded-peak sign views across Low, High, accessibility
+and real missing-model profiles. Cloud SwiftShader measurements verify resource bounds only;
+native Intel 60 fps remains the owner’s O-1 measurement.

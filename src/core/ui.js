@@ -257,7 +257,8 @@ OTR.ui = {
    * focus (false: no arrow-key focus ring over its buttons, for a modal that takes typing)
    */
   modal(scene, o) {
-    const w = o.w || 620, h = o.h || 360;
+    const w = o.w || 620;
+    let h = o.h || 360;
     const depth = o.depth || 5000;
     const root = scene.add.container(0, 0).setDepth(depth).setScrollFactor(0);
     // a message still on screen is over now (a bottom one covered the invoice's Submit button)
@@ -274,17 +275,15 @@ OTR.ui = {
     root.add(dim);
     const box = scene.add.container(OTR.W / 2, OTR.H / 2);
     root.add(box);
+    const t = o.title ? OTR.txt(scene, 0, 0, o.title, o.titleSize || 32, OTR_DATA.theme.css('primary'), { weight: '900', align: 'center', wrap: w - 60 }) : null;
+    const b = o.body ? OTR.txt(scene, 0, 0, o.body, o.bodySize || 19, OTR_DATA.theme.css('inkSoft'), { bold: false, align: 'center', wrap: w - 80, oy: 0, lineSpacing: 4 }) : null;
+    // a long translation or larger text must not run under the buttons: the card grows to fit, up to the screen
+    // (the credits ran under Close in Malayalam with larger text, A-25)
+    if (b && !o.build) h = Math.max(h, Math.min(OTR.H - 20, 44 + (t ? t.height / 2 + 26 : 0) + b.height + 16 + ((o.buttons || []).length ? 84 : 20)));
     box.add(OTR.ui.panel(scene, 0, 0, w, h, { top: 0xFFFFFF, bottom: OTR_DATA.theme.paper, border: OTR_DATA.theme.tint, radius: 22 }));
     let y = -h / 2 + 44;
-    if (o.title) {
-      const t = OTR.txt(scene, 0, y, o.title, o.titleSize || 32, OTR_DATA.theme.css('primary'), { weight: '900', align: 'center', wrap: w - 60 });
-      box.add(t);
-      y += t.height / 2 + 26;
-    }
-    if (o.body) {
-      const b = OTR.txt(scene, 0, y, o.body, o.bodySize || 19, OTR_DATA.theme.css('inkSoft'), { bold: false, align: 'center', wrap: w - 80, oy: 0, lineSpacing: 4 });
-      box.add(b);
-    }
+    if (t) { t.setY(y); box.add(t); y += t.height / 2 + 26; }
+    if (b) { b.setY(y); box.add(b); }
     let closed = false;
     const api = {
       root, box,

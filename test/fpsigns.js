@@ -1,9 +1,9 @@
 /* Sign data must agree with generated routes and the 3D stop obligations. No WebGL. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={THREE:require('../lib/three.min.js')};c.window=c;vm.createContext(c);
-for(const name of ['data/theme.js','data/config.js','data/town.js','data/m3_doorsteps.js','data/m8_stops.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpsigns.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+name,'utf8'),c);
+for(const name of ['data/theme.js','data/config.js','data/town.js','data/m3_doorsteps.js','data/m8_stops.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fplater.js','src/core/fproute.js','src/core/fpsigns.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+name,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
-const O=c.OTR,make=(day=1,variant=7)=>O.fpMission.create('campaign',variant,O.fpRoute.plan(day,variant));
+const O=c.OTR,make=(day=1,variant=7)=>O.fpMission.create('campaign',variant,O.fpSigns.prepare(O.fpRoute.plan(day,variant)));
 test('signs are derived without changing the mission or its checkpoint',()=>{
  const m=make(),before=JSON.stringify(m.snapshot()),a=O.fpSigns.catalog(m),b=O.fpSigns.catalog(m);
  assert.equal(JSON.stringify(a),JSON.stringify(b));assert.equal(JSON.stringify(m.snapshot()),before);
@@ -50,4 +50,55 @@ test('Low shares one two-triangle surface and chooses at most five instances in 
  const plane=new T.PlaneGeometry(1,1).rotateX(-Math.PI/2),paint=new T.MeshLambertMaterial(),mesh=new T.InstancedMesh(plane,paint,entries.length),shapes=O.fpSigns.decorate(mesh,entries);
  assert.equal(mesh.geometry.index.count/3,2);assert.equal(shapes.count,entries.length);assert.notEqual(mesh.geometry,plane);assert.notEqual(mesh.material,paint);
  mesh.geometry.dispose();mesh.material.dispose();mesh.dispose();plane.dispose();paint.dispose();
+});
+test('posts stay off every driving lane, including the cross streets at junctions',()=>{
+ for(let day=1;day<=15;day++){const plan=O.fpSigns.prepare(O.fpLater.prepare(O.fpRoute.plan(day,7))),m=O.fpMission.create('campaign',7,plan),a=O.fpSigns.catalog(m);
+  for(const [i,sign] of a.regulatory.entries())for(const other of a.regulatory.slice(i+1))assert.ok(Math.hypot(sign.x-other.x,sign.z-other.z)>1.2,'Separate sign posts '+sign.id+' / '+other.id);
+  for(const sign of [...a.stops,...a.streets,...a.regulatory])assert.equal(O.fpRoute.onStreet(m,sign.x,sign.z),false,`${sign.id} at ${sign.x}, ${sign.z}`);
+ }
+});
+const signed=()=>{const m=O.fpMission.create('campaign',7,O.fpSigns.prepare(O.fpRoute.plan(3,7)));m.mode='cab';m.paused=false;m.departed=true;m.phase='route';m.van.hand=false;m.van.belt=true;return m;};
+test('new signed stops replace the legacy report and older checkpoints retain their type',()=>{
+ for(const enabled of [false,true]){O.workday.begin();const m=enabled?signed():O.fpMission.create('campaign',7,O.fpRoute.plan(3,7));m.log('junction:0:n:0','driving','needs','Passed the junction stop line without stopping.');m.log('junction:0:n:0','driving','needs','Repeated.');
+  assert.equal(O.workday.events.length,1);assert.equal(O.workday.events[0].type,enabled?'drive.sign-stop':'drive.stop-line');assert.equal(O.workday.events[0].key,enabled?'stop:0:0:n':'0:n:0');assert.ok(O.fpMission.restore(m.snapshot()));
+ }
+});
+test('signed speed and school checks cannot also emit the old speed type; violations survive resume',()=>{
+ O.workday.begin();let m=signed();Object.assign(m.van,{x:2.5,z:0,yaw:0,speed:12});O.fpRoute.tick(m,{x:2.5,z:.1,speed:12});assert.equal(O.workday.events.filter(e=>e.type==='drive.sign-speed').length,1);assert.ok(!O.workday.events.some(e=>e.type==='drive.speed'));
+ m=O.fpMission.restore(m.snapshot());assert.ok(m);m.paused=false;O.fpRoute.tick(m,{x:2.5,z:.1,speed:12});assert.equal(O.workday.events.filter(e=>e.type==='drive.sign-speed').length,1);
+ Object.assign(m.van,{x:m.town.school.x+2,z:(m.town.school.z0+m.town.school.z1)/2,speed:8});O.fpRoute.tick(m,{x:m.van.x,z:m.van.z+.1,speed:8});assert.equal(O.workday.events.filter(e=>e.type==='drive.sign-school').length,1);O.fpSigns.finish(m);assert.ok(O.workday.events.filter(e=>e.type.startsWith('drive.sign-')).every(e=>e.ok===false));
+});
+test('speed credit waits until the day ends, so an earlier safe leg cannot mask a later violation',()=>{
+ O.workday.begin();const m=signed();Object.assign(m.van,{x:2.5,z:0,yaw:0,speed:5});O.fpRoute.tick(m,{x:2.5,z:.1,speed:5});assert.ok(!O.workday.events.some(e=>e.type==='drive.sign-speed'));
+ m.leg++;m.van.speed=12;O.fpRoute.tick(m,{x:2.5,z:.1,speed:12});O.fpSigns.finish(m);const grade=O.workday.events.filter(e=>e.type==='drive.sign-speed');assert.equal(grade.length,1);assert.equal(grade[0].ok,false);
+ O.workday.begin();const safe=signed();Object.assign(safe.van,{x:2.5,z:0,yaw:0,speed:5});O.fpRoute.tick(safe,{x:2.5,z:.1,speed:5});O.fpSigns.finish(safe);assert.equal(O.workday.events.find(e=>e.type==='drive.sign-speed').ok,true);
+});
+test('no-entry and mid-segment wrong-way mistakes each produce one distinct penalty',()=>{
+ for(const entry of [true,false]){O.workday.begin();const m=signed(),d=O.fpSigns.runtime(m),g=d.oneway,extent=2.7;Object.assign(m.van,{x:entry?d.noentry.x+extent-.1:(g.from+g.to)/2,z:g.roadZ-2,yaw:-Math.PI/2,speed:2});
+  O.fpSigns.tick(m,{x:entry?d.noentry.x+extent+.1:m.van.x+.2,z:m.van.z,speed:2});O.fpSigns.tick(m,{x:m.van.x+.2,z:m.van.z,speed:2});
+  const penalties=O.workday.events.filter(e=>['drive.sign-oneway','drive.sign-noentry'].includes(e.type));assert.equal(penalties.length,1);assert.equal(penalties[0].type,entry?'drive.sign-noentry':'drive.sign-oneway');
+ }
+});
+test('depot departure grades available traffic space once',()=>{
+ for(const blocked of [false,true]){O.workday.begin();const m=signed();Object.assign(m.van,{x:2.84,z:4.9,yaw:0,speed:2});if(blocked)Object.assign(m.traffic[0],{x:2.5,z:8,speed:3});else m.traffic.forEach(car=>car.z=-100);
+  O.fpSigns.tick(m,{x:2.84,z:5.1,speed:2});const event=O.workday.events.find(e=>e.type==='drive.sign-giveway');assert.ok(event);assert.equal(event.ok,!blocked);
+ }
+});
+test('both lanes may travel east on the signed one-way segment without consuming a later lane check',()=>{
+ O.workday.begin();const m=signed(),g=O.fpSigns.runtime(m).oneway;Object.assign(m.van,{x:(g.from+g.to)/2,z:g.roadZ-2,yaw:Math.PI/2,speed:2});O.fpRoute.tick(m,{x:m.van.x-.1,z:m.van.z,speed:2});assert.ok(!m.events['lane:0']);assert.ok(!O.workday.events.some(e=>e.type==='drive.wrong-side'));
+ Object.assign(m.van,{x:m.town.xs[0]-2,z:(m.town.zs[1]+m.town.zs[2])/2,yaw:0,speed:2});O.fpRoute.tick(m,{x:m.van.x,z:m.van.z+.1,speed:2});assert.equal(O.workday.events.filter(e=>e.type==='drive.wrong-side').length,1);
+ const old=O.fpMission.create('campaign',7,O.fpRoute.plan(3,7));assert.ok(O.fpSigns.catalog(old).regulatory.every(s=>!['oneway','noentry'].includes(s.kind)));
+});
+test('a seen road closure accepts a real detour and rejects contact with its barrier',()=>{
+ for(const contact of [false,true]){O.workday.begin();const plan=O.fpSigns.prepare(O.fpLater.prepare(O.fpRoute.plan(3,7))),m=O.fpMission.create('campaign',7,plan);m.mode='cab';m.paused=false;m.departed=true;m.phase='route';m.van.hand=false;m.van.speed=2;const r=m.roadworks;
+  Object.assign(m.van,{x:r.x,z:r.z+10});O.fpSigns.tick(m,{x:r.x,z:r.z+11,speed:2});
+  if(contact){m.motion={contact:true};Object.assign(m.van,{x:r.x,z:r.z+3});O.fpSigns.tick(m,{x:r.x,z:r.z+3.1,speed:2});}
+  else{Object.assign(m.van,{x:r.x+45,z:r.z-1});O.fpSigns.tick(m,{x:r.x+45,z:r.z+1,speed:2});}
+  const grade=O.workday.events.find(e=>e.type==='drive.sign-roadworks');assert.ok(grade);assert.equal(grade.ok,!contact);
+ }
+});
+
+test('the signed route marker is validated and restoring a signed day emits nothing',()=>{
+ O.workday.begin();const m=signed(),snap=m.snapshot();const restored=O.fpMission.restore(snap);assert.ok(restored);assert.equal(O.workday.events.length,0);assert.equal(restored.routePlan.signs,1);
+ snap.routePlan.signs=2;assert.equal(O.fpMission.restore(snap),null);
 });

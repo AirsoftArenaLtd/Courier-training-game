@@ -4,10 +4,10 @@ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_pro
 const MiB=1024*1024,ROOT=path.join(__dirname,'..'),OUT=path.join(__dirname,'out/fp-review');
 const BUDGETS={low:{calls:64,triangles:2500,textures:2,attachmentBytes:4*MiB,phaserBytes:4*MiB},high:{calls:128,triangles:300000,textures:4,attachmentBytes:16*MiB,phaserBytes:16*MiB}};
 const PROFILES=[
- {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror'},
- {id:'loaded-high',quality:'high',views:'cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,townhouse,townroad,actorscargoextra,actorsresident,actorsmirror'},
- {id:'accessible-low',quality:'low',accessibility:'large,colour,reduced',views:'cab,mirrorInterior,barcodeAim,visibleweatherstorm,actorscargoextra,laterrearpeak'},
- {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident'}
+ {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsnumber,signsoneway,signspeak'},
+ {id:'loaded-high',quality:'high',views:'cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,townhouse,townroad,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsoneway,signspeak'},
+ {id:'accessible-low',quality:'low',accessibility:'large,colour,reduced',views:'cab,mirrorInterior,barcodeAim,visibleweatherstorm,actorscargoextra,laterrearpeak,signsjunction,signspeak'},
+ {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident,signsjunction,signspeak'}
 ];
 function checkReport(report,profile,tag){
  const fail=text=>{throw Error(profile.id+': '+text);};
@@ -35,7 +35,7 @@ function run(){
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   const result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,encoding:'utf8',maxBuffer:16*MiB});
   fs.writeFileSync(path.join(OUT,tag+'.log'),(result.stdout||'')+(result.stderr||'')+(result.error?String(result.error):''));
   const item={id:profile.id,quality:profile.quality,views:profile.views.split(','),accessibility:profile.accessibility||'',fallback:!!profile.fallback,report:path.basename(reportFile),exit:result.status??1,elapsedMs:Date.now()-start};

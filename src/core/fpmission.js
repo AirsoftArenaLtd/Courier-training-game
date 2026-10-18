@@ -87,10 +87,10 @@ OTR.fpMission = {
           case 'load': type = 'load.secured'; d.key = Number(key); break;
           case 'belt': type = 'drive.belt'; d.key = Number(key); break;
           case 'handheld': type = 'drive.handheld'; d.key = Number(key); break;
-          case 'speed': type = 'drive.speed'; driving = true; break;
+          case 'speed': if(OTR.fpSigns&&OTR.fpSigns.enabled(this))return;type = 'drive.speed'; driving = true; break;
           case 'pavement': type = 'drive.sidewalk'; driving = true; break;
-          case 'lane': type = 'drive.wrong-side'; driving = true; break;
-          case 'junction': type = 'drive.stop-line'; d.key = id.slice(9); driving = true; break;
+          case 'lane': if(OTR.fpSigns&&OTR.fpSigns.enabled(this)&&OTR.fpSigns.onOneWay(this))return;type = 'drive.wrong-side'; driving = true; break;
+          case 'junction': type = OTR.fpSigns&&OTR.fpSigns.enabled(this)?'drive.sign-stop':'drive.stop-line';d.key=type==='drive.sign-stop'?OTR.fpSigns.stopId(this,Number(key),stop):id.slice(9);if(type==='drive.sign-stop'&&this.phase==='route')d.stop=this.activeStop+1;driving = true; break;
           case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
           case 'traffic-contact': case 'contact': type = 'drive.contact'; driving = true; break;
           case 'pedestrian':
@@ -351,7 +351,7 @@ OTR.fpMission = {
           if (this.parcels.some(p => p.returnRequired && p.location !== 'returned')) return 'Bring retained parcels to the returns desk first.';
           if (Math.hypot(this.van.x - 4, this.van.z - 8) > 14 || !this.parked()) return 'Return the van to the depot and set the parking brake.';
         }
-        this.phase = 'debrief'; this.paused = true; this.touch(); return '';
+        if(OTR.fpSigns)OTR.fpSigns.finish(this);this.phase = 'debrief'; this.paused = true; this.touch(); return '';
       },
       preparation() {
         this.departed = true; this.phase = 'route';

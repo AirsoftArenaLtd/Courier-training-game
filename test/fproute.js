@@ -101,7 +101,7 @@ test('the van can steer around a right-hand grid corner without crossing buildin
 test('low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror',()=>{
  const records=[],cabViews=process.env.QA_CAB==='1'?['cab-park','cab-reverse','cab-neutral','cab-drive','cab-handbrake','cab-belt','cab-signal-left','cab-signal-right','cab-headlights','cab-wipers','cab-exit']:[],mirrorViews=process.env.QA_MIRRORS==='1'?['mirror-left','mirror-right','mirror-interior']:[],cargoViews=process.env.QA_CARGO==='1'?['cargo-outside','cargo-inside']:[];
  for(const variant of (process.env.QA_LATER==='1'?[1,2,3,4,5,6,7,8,9,10]:[7]))for(let day=1;day<=30;day++){
- const m=full(day,variant);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
+ const m=full(day,variant);if(process.env.QA_SIGNS==='1')m.routePlan.signs=1;c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
  c.OTR.gfx={high:()=>false};
  const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
  const scene={assetBank:c.assetBank,view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,0.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);

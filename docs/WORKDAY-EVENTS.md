@@ -166,6 +166,7 @@ New types:
 | `drive.backing-walkaround` | only in scenarios the trainer marks as walk-around required: the player got out and looked before reversing (`ok: false` if not) |
 | `drive.signal` | a signal before a turn or lane change (`ok: false` if missing or less than 3 seconds) |
 | `drive.sign-stop`, `drive.sign-giveway`, `drive.sign-speed`, `drive.sign-school`, `drive.sign-roadworks` | a road sign applies; one check each (`ok: false` for not stopping, not giving way, exceeding the limit, not slowing in a school zone, ignoring the diversion); key by the sign's id |
+| `drive.sign-stop` and `drive.stop-line` | one stop, one report. A junction with a stop sign reports `drive.sign-stop` (keyed by the sign's id) and **not** `drive.stop-line`; `drive.stop-line` stays for a stop line without a sign. Never both for the same stop: the trainee would lose the points twice and see the mistake twice in the debrief. Days and checkpoints saved before signs keep their `drive.stop-line` reports; the replay reads both types as before. |
 | `drive.sign-oneway`, `drive.sign-noentry` | driving into a one-way street against the flow, or into a no-entry street; these are penalties (report them only when it happens); no-entry is critical |
 | `drive.route` | the player leaves the planned route (wrong turn); one report per leg, `ok: false`. Efficiency only. A reroute followed within 30 s clears it. |
 | `drive.lights` | once per leg in dusk, night, fog or heavy rain: headlights on (`ok: false` if off while moving) |
