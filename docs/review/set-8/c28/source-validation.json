@@ -1,0 +1,205 @@
+{
+  "fixture": "All ten local runtime variants parse. Rig/clip parsing uses the real vendored loader. Complete game resources are measured separately by fpbench.js.",
+  "models": [
+    {
+      "use": "van-exterior",
+      "quality": "low",
+      "bytes": 18448,
+      "decodedBytes": 14244,
+      "triangles": 190,
+      "parts": 6,
+      "bones": 0,
+      "clips": [],
+      "waveChangesBones": false,
+      "size": {
+        "x": 1.5,
+        "y": 1.6500000000000001,
+        "z": 3.2
+      }
+    },
+    {
+      "use": "van-exterior",
+      "quality": "high",
+      "bytes": 195040,
+      "decodedBytes": 190446,
+      "triangles": 2461,
+      "parts": 6,
+      "bones": 0,
+      "clips": [],
+      "waveChangesBones": false,
+      "size": {
+        "x": 1.5,
+        "y": 1.6499998927116393,
+        "z": 3.249999761581421
+      }
+    },
+    {
+      "use": "worker-men",
+      "quality": "low",
+      "bytes": 193880,
+      "decodedBytes": 79692,
+      "triangles": 88,
+      "parts": 1,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5690561509330903,
+        "y": 1.6783110380319293,
+        "z": 0.7757155815865797
+      }
+    },
+    {
+      "use": "worker-men",
+      "quality": "high",
+      "bytes": 771740,
+      "decodedBytes": 643060,
+      "triangles": 5240,
+      "parts": 13,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5963977342373281,
+        "y": 1.8260367831902111,
+        "z": 0.638155094159439
+      }
+    },
+    {
+      "use": "worker-women",
+      "quality": "low",
+      "bytes": 193972,
+      "decodedBytes": 79692,
+      "triangles": 88,
+      "parts": 1,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5868110852913098,
+        "y": 1.6795069720552904,
+        "z": 0.7789103991946696
+      }
+    },
+    {
+      "use": "worker-women",
+      "quality": "high",
+      "bytes": 871104,
+      "decodedBytes": 743660,
+      "triangles": 6112,
+      "parts": 12,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5378004667158518,
+        "y": 1.8206696049196713,
+        "z": 0.6169309483128196
+      }
+    },
+    {
+      "use": "resident-men",
+      "quality": "low",
+      "bytes": 193884,
+      "decodedBytes": 79692,
+      "triangles": 88,
+      "parts": 1,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5690561509330903,
+        "y": 1.6783110380319293,
+        "z": 0.7757155815865797
+      }
+    },
+    {
+      "use": "resident-men",
+      "quality": "high",
+      "bytes": 842348,
+      "decodedBytes": 716764,
+      "triangles": 5776,
+      "parts": 10,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5963977343964,
+        "y": 1.8159395239497913,
+        "z": 0.6427059401632528
+      }
+    },
+    {
+      "use": "resident-women",
+      "quality": "low",
+      "bytes": 193972,
+      "decodedBytes": 79692,
+      "triangles": 88,
+      "parts": 1,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5868110852913098,
+        "y": 1.6795069720552904,
+        "z": 0.7789103991946696
+      }
+    },
+    {
+      "use": "resident-women",
+      "quality": "high",
+      "bytes": 900916,
+      "decodedBytes": 776732,
+      "triangles": 6424,
+      "parts": 9,
+      "bones": 62,
+      "clips": [
+        "Idle_Neutral",
+        "Interact",
+        "Walk",
+        "Wave"
+      ],
+      "waveChangesBones": true,
+      "size": {
+        "x": 0.5242449722249407,
+        "y": 1.8094860222054063,
+        "z": 0.6194891158009288
+      }
+    }
+  ]
+}

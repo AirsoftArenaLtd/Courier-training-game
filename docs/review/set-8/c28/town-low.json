@@ -1,0 +1,88 @@
+{
+  "quality": "low",
+  "fixture": "Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering.",
+  "views": [
+    {
+      "use": "town-house",
+      "changedPixels": 34629,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 748,
+        "unculled": 1034
+      }
+    },
+    {
+      "use": "town-house-wide",
+      "changedPixels": 42004,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 650,
+        "unculled": 938
+      }
+    },
+    {
+      "use": "town-shop",
+      "changedPixels": 170600,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 614,
+        "unculled": 892
+      }
+    },
+    {
+      "use": "town-tree",
+      "changedPixels": 4251,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 752,
+        "unculled": 1056
+      }
+    },
+    {
+      "use": "town-fence",
+      "changedPixels": 2463,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 666,
+        "unculled": 950
+      }
+    },
+    {
+      "use": "town-streetlight",
+      "changedPixels": 1599,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 666,
+        "unculled": 950
+      }
+    },
+    {
+      "use": "town-parked-car",
+      "changedPixels": 7467,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 734,
+        "unculled": 1034
+      }
+    },
+    {
+      "use": "town-road",
+      "changedPixels": 493637,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 688,
+        "unculled": 1096
+      }
+    }
+  ],
+  "checks": 66,
+  "errors": []
+}

@@ -5,6 +5,9 @@ standing behind and inside open cargo, for 264,000 complete-frame views each. Pe
 **63 calls / 2,480 triangles** loaded and **56 / 2,058** fallback. Parcel/shelf batching, Low
 surface details and main-view per-instance culling keep the original ceilings. Eight Low pixel
 comparisons against disabled frustum tests are exact; High retains offscreen shadow casters.
+Final rendered Low (30 views) and reduced Low (four) peak at **56 calls / 2,400 triangles**,
+two textures / 3,557,376 attachment bytes; estimated Phaser maxima are 3,045,024 / 2,381,510 bytes.
+High's nine-view gate passes separately. All requested views must now be sampled to pass.
 Source and pose limits are in `docs/3D-ACTORS.md`; rendered gates, screenshots and review evidence
 are in `docs/PERF.md` and `docs/review/set-8/c28.md`. The native Intel O-1 check remains outstanding.
 
@@ -191,3 +194,6 @@ texture; the existing main/reflection targets and pass schedule remain. The inte
 the C-23 cab shell so the imported windshield does not obstruct the unchanged physical mirror camera.
 Character distance/count limits and pose cadence are described in `docs/3D-ACTORS.md`; raw sweeps and
 rendered resource gates are in `docs/review/set-8/c28.md`. No ceiling is raised. Native Intel 60 fps is O-1.
+The final 30-view rendered Low gate peaks at 56 calls / 2,400 triangles / two textures /
+3,557,376 attachment bytes / 3,045,024 estimated Phaser bytes. Four large/colour/reduced views
+retain the same calls/triangles/attachments and peak at 2,381,510 Phaser bytes. High passes separately.

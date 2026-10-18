@@ -32,7 +32,23 @@ The ceilings remain **64 / 2,500**, two allocated
 Three textures, 4 MiB attachments and 4 MiB estimated Phaser textures at 1280×720. Native Intel 60 fps
 remains O-1; SwiftShader timing is not native performance evidence.
 
-Final rendered resource reports and screenshots are recorded with `docs/review/set-8/c28.md`.
+Final rendered gates pass every requested view with no context loss:
+
+| Quality | Views | Peak calls | Peak triangles | Textures | Attachments | Phaser estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Low | 30 | 56 | 2,400 | 2 | 3,557,376 B | 3,045,024 B |
+| High | 9 | 97 | 224,563 | 3 | 11,239,424 B | 6,580,955 B |
+| Low, large/colour/reduced | 4 | 56 | 2,400 | 2 | 3,557,376 B | 2,381,510 B |
+
+The six-parcel cargo view is included. Maxima are per column; High has its own quality limits.
+The gate now fails if any requested view is not sampled. Source/fallback browser checks, eight
+exact Low pixel comparisons, an actual High camera turn retaining offscreen shadow instances,
+all 33 Node suites, 1,852 browser assertions, nine conversion tests and both SCORM packages pass.
+Commands, raw resource reports, 18 screenshots, clip and regression evidence:
+`docs/review/set-8/c28.md`. Run rendered gates with `QA_ACTORS=1 QA_TOWN=1 QA_LIGHTING=1
+QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SHOTS=1 QA_TAG=c28`; view lists and accessibility flags are
+preserved in `docs/review/set-8/c28/gates.json`. The 30-seed / 100-day resume soak and 240 SCORM
+round trips preserve scores (3,595/4,000 characters for its later-day fixture).
 
 ## B-30: bounded cab narration (18 October 2026)
 
