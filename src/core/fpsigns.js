@@ -26,14 +26,14 @@ OTR.fpSigns = {
         street: lot.street, x: b.x - lot.side * (b.w / 2 + .08), z: b.z, side: lot.side });
     }
     const school = source.spec.schoolZone;
-    const regulatory = [{id:'yield:depot',kind:'giveway',x:half+.7,z:-5,yaw:0},
+    const regulatory = [{id:'yield:depot',kind:'giveway',x:8,z:2,yaw:-Math.PI/2},
       {id:'speed:depot',kind:'speed',limit:m.town.limit,x:half+.7,z:-14,yaw:0}];
     for(const [side,z,yaw] of [['north',m.town.school.z1+1,0],['south',m.town.school.z0-1,Math.PI]])regulatory.push({id:`school:${side}`,kind:'school',limit:m.town.schoolLimit,x:m.town.school.x+Math.cos(yaw)*(half+.7),z,yaw});
-    if(m.roadworks)for(const [side,offset,yaw] of [['north',10,0],['south',-10,Math.PI]])regulatory.push({id:`works:${side}`,kind:'roadworks',x:m.roadworks.x+Math.cos(yaw)*(half+.7),z:m.roadworks.z+offset,yaw});
+    if(m.roadworks)for(const [side,offset,yaw] of [['north',18,0],['south',-18,Math.PI]])regulatory.push({id:`works:${side}`,kind:'roadworks',x:m.roadworks.x+Math.cos(yaw)*(half+.7),z:m.roadworks.z+offset,yaw});
     // A peripheral cross-street segment remains reachable from either end; no delivery facade
     // lies on it. Day one keeps the existing two-way grid.
     if(m.routePlan.day>=3){const z=m.town.zs[0],from=m.town.xs[1],to=m.town.xs[2];
-      regulatory.push({id:'oneway:edge',kind:'oneway',x:from+half+1,z:z+half+.7,yaw:Math.PI/2,from,to,roadZ:z});
+      regulatory.push({id:'oneway:edge',kind:'oneway',x:from+half+1,z:z-half-.7,yaw:0,from,to,roadZ:z,street:source.spec.streetsV[0]});
       regulatory.push({id:'noentry:edge',kind:'noentry',x:to-half-1,z:z-half-.7,yaw:-Math.PI/2,from,to,roadZ:z});}
     return { streets, stops, numbers, regulatory, limit: m.town.limit, schoolLimit: m.town.schoolLimit,
       school: { from: project(source.vx[school.from], source.hy[school.row]), to: project(source.vx[school.to], source.hy[school.row]) } };
@@ -43,7 +43,8 @@ OTR.fpSigns = {
     if(s.kind==='number')return `This is number ${s.number} on ${s.street}.`;
     if(s.kind==='speed')return `The speed limit is ${s.limit} mph.`;
     if(s.kind==='school')return `The school-zone speed limit is ${s.limit} mph.`;
-    return {stop:'Stop before the junction line.',giveway:'Give way to traffic before leaving the depot.',roadworks:'The street is closed. Follow another cross street.',oneway:'Traffic travels one way toward the next cross street.',noentry:'Do not enter this street from this end.'}[s.kind];
+    if(s.kind==='oneway')return `Traffic travels east on ${s.street}.`;
+    return {stop:'Stop before the junction line.',giveway:'Give way to traffic before leaving the depot.',roadworks:'The street is closed. Follow another cross street.',noentry:'Do not enter this street from this end.'}[s.kind];
   },
   build(scene,m,route,add){
     const catalog=this.catalog(m);if(!catalog)return null;

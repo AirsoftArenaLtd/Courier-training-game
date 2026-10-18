@@ -38,6 +38,7 @@ test('later restrictions stay off day one and match their peripheral road segmen
  assert.ok(O.fpSigns.catalog(make(1)).regulatory.every(s=>!['oneway','noentry'].includes(s.kind)));
  const m=make(3),a=O.fpSigns.catalog(m),one=a.regulatory.find(s=>s.kind==='oneway'),no=a.regulatory.find(s=>s.kind==='noentry');
  assert.equal(one.from,no.from);assert.equal(one.to,no.to);assert.equal(one.roadZ,m.town.zs[0]);
+ assert.equal(one.yaw,0);assert.ok(one.z<one.roadZ);assert.match(O.fpSigns.text(one),/^Traffic travels east on /);
  assert.ok(m.stops.every(s=>s.park.z!==one.roadZ));
 });
 test('Low shares one two-triangle surface and chooses at most five instances in any view',()=>{
