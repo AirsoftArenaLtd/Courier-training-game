@@ -512,3 +512,31 @@ The Node geometry checks now respect camera layers, like the actual renderer, so
 ## Corrected texture gate with C-17
 
 The complete 32-view sound-enabled Low run uses intrinsic canvas/image dimensions and passes with 3,130,726 Phaser full-mipmap-estimate bytes, replacing the earlier undercounted texture figures. Draw calls remain 42 and triangles 2,160; target attachments remain 3,575,808 bytes. Low uses native-resolution text at unchanged font size and vector case graphics to stay below the original ceiling. High keeps its existing text and case. See `docs/qa/c17-low.json` and the C-17 section in `docs/FRAME-BUDGET.md`.
+
+
+## C-28: van and animated people (17 October 2026)
+
+C-28 is stacked on C-27. The new van exterior uses one CPU-updated mesh with separate semantic wheel
+and lifting-door transforms; the existing cab and physical inspection/collision targets stay in place.
+The interior reflection uses the retained cab shell, avoiding obstruction from the imported sloped
+windshield at the unchanged C-23 mirror-camera position. Other reflections use the new exterior.
+
+The Low figures have 88 triangles, the Low van 190. One nearby resident, the crossing figure and the
+reflected courier are bounded by distance; hidden characters do no pose work. All figures use ordinary
+CPU-posed meshes (10 Hz Low, 20 Hz High), shared vertex-colour material and no bone texture or image map.
+A dark, batched doorway recess gives the opening facade a visible interior shadow without changing its
+solid. The lifting cargo door stays inside the existing van footprint throughout its motion.
+
+There are 14 selected templates per quality. Ten new actor variants total 4,375,304 bytes; all shipped
+3D files total 4,849,952 bytes. Low selects 824,208 encoded bytes / 354,468 decoded accessor bytes; High
+selects 4,025,744 / 3,506,550. Source originals and unneeded animations do not ship. Seven scene-local
+figure buffers are the fixed maximum; only eligible visible poses are updated. Full source geometry is
+High only. The bank retains source CPU arrays separately from the live scene geometry inventory.
+
+The final CPU loaded sweep covers 240,000 views (30 days, ten seeds, cargo, camera/suspension, every cab
+control, all four reflection cells, lighting and weather): **58 calls / 2,422 triangles**. The procedural
+fallback sweep covers the same views at **47 / 2,266**. The ceilings remain **64 / 2,500**, two allocated
+Three textures, 4 MiB attachments and 4 MiB estimated Phaser textures at 1280×720. Native Intel 60 fps
+remains O-1; SwiftShader timing is not native performance evidence.
+
+Final rendered resource reports and screenshots are recorded with `docs/review/set-8/c28.md`.

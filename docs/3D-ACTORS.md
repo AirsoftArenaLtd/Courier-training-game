@@ -24,13 +24,14 @@ Each scene clones independent bones, merges a figure's coloured primitives into 
 CPU-poses positions and normals at 10 Hz on Low or 20 Hz on High. No rendered `SkinnedMesh`, bone texture,
 image map or additional render pass is used. Pose changes use existing model time and reuse buffers.
 The nearest eligible resident within 22 metres on Low or 35 on High gets the rig; farther residents
-keep the existing simple art. The pedestrian also has a 35-metre range. Hidden residents do no animation
-work. The bounded set is a crossing figure, one resident and the courier in the existing mirrors.
+keep the existing simple art. The pedestrian also has a 35-metre range. The reflected courier poses only within 35 metres of
+the van. Hidden residents do no animation work. The bounded set is a crossing figure, one resident and the courier in the existing mirrors.
 
 A new contact opens the facade panel inward, brings the resident to the existing standing point, waves,
 then uses the source Interact gesture while talking. The stationary interaction/collision target remains
 at the original facade. An absent recipient never appears. Resolution closes the visual door. A resumed
-contact starts already open, without replaying an invented new contact or changing the checkpoint.
+contact starts already open and continues the talking gesture, without replaying a walk-up or wave or
+changing the checkpoint. Resident skin and shirt colours still match the existing ID comparison.
 The courier follows the first-person walking position and appears in physical reflections; existing
 first-person uniform sleeves remain. Only visual state is transient. Reduced motion uses one still
 idle pose and immediate door changes; colour mode still uses the existing composites. Keyboard/remapped
