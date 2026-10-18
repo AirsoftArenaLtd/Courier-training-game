@@ -211,7 +211,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     }
     for(const [name,z] of [['bus',-18],['siren',14]]){const p=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}
     OTR.fpDriving.syncActors(m);OTR.fpTraffic.syncSolids(m);s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
-   },kind);if(kind==='mirror')await lookAtTarget('mirror-right');await sample('traffic'+kind);
+   },kind);report.trafficFixture=await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.routePlan.traffic===1&&m.routePlan.navigation===1&&!!m.trafficControl&&!!m.navigation;});if(kind==='mirror')await lookAtTarget('mirror-right');await sample('traffic'+kind);
   }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);

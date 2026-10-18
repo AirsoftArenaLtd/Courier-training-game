@@ -15,6 +15,7 @@ function checkReport(report,profile,tag){
  if(report.tag!==tag||report.actualQuality!==profile.quality||report.quality!==profile.quality)fail('The report does not match its requested tag and quality.');
  if(JSON.stringify([...(report.accessibility||[])].sort())!==JSON.stringify((profile.accessibility||'').split(',').filter(Boolean).sort()))fail('The accessibility fixture does not match its profile.');
  if(profile.views.split(',').some(v=>v.startsWith('nav'))&&report.navigationFixture!==true)fail('The navigation fixture was not exercised.');
+ if(profile.views.split(',').some(v=>v.startsWith('traffic'))&&report.trafficFixture!==true)fail('The combined traffic and navigation fixture was not exercised.');
  if(report.audioContext!=='running')fail('The live sound and caption fixture was not exercised.');
  const assets=report.assets,assetOK=assets&&assets.fallbacks===0&&(profile.fallback?report.assetFailure==='missing-model-files'&&assets.loaded===0&&assets.failed>=14:assets.loaded>=14&&assets.failed===0);
  if(!assetOK)fail('The asset fixture was not exercised.');
