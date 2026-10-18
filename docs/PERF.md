@@ -1,5 +1,25 @@
 # 3D workday rendering cost
 
+## C-47: compact workday display (18 October 2026)
+
+The persistent objective/footer bars move into the physical cab and handheld. A bounded Phaser
+vector overview reuses the existing dashboard mount, then clears for reverse, menus and trainer
+sat-nav-off. There is no added Three geometry, texture, render target or pass. Text canvases update
+only when their content/size changes; map work is bounded at a 90 ms cadence. First-day help wraps
+at full size, routine prompts expire, and active warnings/captions retain their independent display.
+
+| Rendered gate at 1280×720 | Views | Calls | Triangles | Textures | Attachments | Phaser mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Low | 14 | 56 | 2,400 | 2 | 3,557,376 B | 2,966,288 B |
+| High | 4 | 97 | 224,563 | 3 | 11,239,424 B | 6,476,006 B |
+| Low, larger/colour/reduced | 4 | 56 | 2,400 | 2 | 3,557,376 B | 2,744,118 B |
+
+Every requested view is sampled, with no errors/context loss. Maxima are per column. Low retains
+all original ceilings; the unchanged Three world retains C-28's conservative 264,000-view loaded
+peak of 63 calls / 2,480 triangles. Native Intel 60 fps remains O-1; SwiftShader is resource evidence.
+This branch is stacked on pushed C-28 `5c8279b`, over B-30 and pilot `951ef36`. Raw reports, exact
+view lists, matched before/after screenshots and regression evidence: `docs/review/set-8/c47.md`.
+
 ## C-28: van and animated people (18 October 2026)
 
 C-28 is stacked on pushed B-30 `5667be9`, over pilot `951ef36`; C-27 is merged.

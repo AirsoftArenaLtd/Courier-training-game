@@ -20,10 +20,10 @@ OTR.fpCab={
     m.touch();return '';
   },
   hint(id,m,key){
-    if(id==='cab-park')return `Press ${key} to select park (P).`;
-    if(id==='cab-reverse')return `Press ${key} to select reverse (R).`;
-    if(id==='cab-neutral')return `Press ${key} to select neutral (N).`;
-    if(id==='cab-drive')return `Press ${key} to select drive (D).`;
+    if(id==='cab-park')return m.van.gear===2?'Park is selected.':`Press ${key} to select park (P).`;
+    if(id==='cab-reverse')return m.van.gear===-1?'Reverse is selected.':`Press ${key} to select reverse (R).`;
+    if(id==='cab-neutral')return m.van.gear===0?'Neutral is selected.':`Press ${key} to select neutral (N).`;
+    if(id==='cab-drive')return m.van.gear===1?'Drive is selected.':`Press ${key} to select drive (D).`;
     if(id==='cab-handbrake')return m.van.hand?`The parking brake is on. Press ${key} to release it.`:`The parking brake is off. Press ${key} to set it.`;
     if(id==='cab-belt')return m.van.belt?`The seatbelt is fastened. Press ${key} to release it.`:`The seatbelt is unfastened. Press ${key} to fasten it.`;
     if(id==='cab-headlights')return m.van.headlights?`The headlights are on. Press ${key} to switch them off.`:`The headlights are off. Press ${key} to switch them on.`;
@@ -89,7 +89,8 @@ OTR.fpCab={
       scratch.position.set(p.x,y,z);scratch.rotation.set(rx,p.ry,rz);scratch.scale.set(p.w,p.h,p.d);scratch.updateMatrix();
       batch.setMatrixAt(p.index,scratch.matrix);colour.setHex(color);batch.setColorAt(p.index,colour);
     }
-    let state=-1;return {root,wheel,gauges,parts,batch,
+    const navigation={parent:root,cab:true,local:new T.Vector3(.78,-.085,-1.005),point:new T.Vector3(),max:2.5};
+    let state=-1;return {root,wheel,gauges,parts,batch,navigation,
       sync(m){
         const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;
         const next=v.gear+1+4*Number(v.hand)+8*Number(v.belt)+16*Number(!!v.headlights)+32*Number(!!v.wipers)+64*(m.signal+1);if(next===state)return;state=next;

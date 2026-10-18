@@ -3771,7 +3771,20 @@ window.OTR_I18N.hi = {
 "The van is in park.": "वैन पार्क में है।",
 "The van is in reverse.": "वैन रिवर्स में है।",
 "The van is in neutral.": "वैन न्यूट्रल में है।",
-"The van is in drive.": "वैन ड्राइव में है।"
+"The van is in drive.": "वैन ड्राइव में है।",
+"Park is selected.": "पार्क चुना गया है।",
+"Reverse is selected.": "रिवर्स चुना गया है।",
+"Neutral is selected.": "न्यूट्रल चुना गया है।",
+"Drive is selected.": "ड्राइव चुना गया है।",
+"Read the workday details.": "कार्यदिवस का ब्योरा पढ़ें।",
+"Your workday details.": "आपके कार्यदिवस का ब्योरा।",
+"There is one parcel in cargo.": "कार्गो में एक पार्सल है।",
+"Your hands are empty.": "आपके हाथ खाली हैं।",
+"Reverse into the marked bay.": "चिह्नित जगह में रिवर्स करें।",
+"This lesson takes place in the depot.": "यह पाठ डिपो में होता है।",
+"Prepare the van before departure.": "रवाना होने से पहले वैन तैयार करें।",
+"Return to the depot.": "डिपो लौटें।",
+"Saving is unavailable. Keep this window open.": "सेव नहीं हो सकता। इस विंडो को खुला रखें।"
 },
 "templates": [
 [
@@ -5409,6 +5422,30 @@ window.OTR_I18N.hi = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "ट्रेनर इस तंग जगह में वॉक-अराउंड ज़रूरी बताता है। पार्क करें और उतरें। वैन के पीछे रिवर्स के रास्ते की ओर मुँह करके खड़े हों और जाँच दर्ज करने के लिए {0} दबाएँ। फिर कैमरा और शीशों की मदद से बे में रिवर्स करें।"
+],
+[
+"There are {0} parcels in cargo.",
+"कार्गो में {0} पार्सल हैं।"
+],
+[
+"You are carrying the parcel for {0}.",
+"आप {0} का पार्सल लेकर चल रहे हैं।"
+],
+[
+"Drive to {0}.",
+"{0} तक ड्राइव करें।"
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"तेज़ चलाने या ब्रेक लगाने के लिए {0}/{1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। केबिन का नियंत्रण चुनने के लिए {4} दबाएँ।"
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"चलने के लिए {0}/{1}/{2}/{3} इस्तेमाल करें। लक्ष्य चुनने के लिए {4} और बातचीत के लिए {5} दबाएँ।"
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"हैंडहेल्ड के लिए {0} या नियंत्रण और मार्गदर्शन के लिए {1} दबाएँ।"
 ]
 ],
 "keep": [

@@ -4,6 +4,12 @@ const c={THREE};c.window=c;vm.createContext(c);
 for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fpcab.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js','src/core/fpaccess.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR,C=O.fpCab,F=O.fp,M=O.fpMission,W=O.workday,make=()=>{const m=M.create('campaign',7);m.mode='cab';m.paused=false;m.solids=[];return m;};
 const events=()=>W.events.filter(e=>e.type==='drive.gear');test.beforeEach(()=>W.begin());
+test('each selected shifter position confirms its state without asking for the same shift',()=>{
+ const m=make();for(const [id,gear] of Object.entries(C.gears)){
+  m.van.gear=gear;assert.equal(C.hint(id,m,'O'),{2:'Park is selected.','-1':'Reverse is selected.',0:'Neutral is selected.',1:'Drive is selected.'}[gear]);
+  for(const [other,value] of Object.entries(C.gears))if(value!==gear)assert.match(C.hint(other,m,'O'),/^Press O to select/);
+ }assert.equal(events().length,0);
+});
 test('Park holds the van with the parking brake released; Neutral has no engine force or creep',()=>{
  const m=make();m.van.hand=false;assert.equal(C.act(m,'cab-park'),'');for(let i=0;i<50;i++)F.drive(m,{forward:true},.05);assert.equal(m.van.speed,0);
  assert.equal(C.act(m,'cab-neutral'),'');for(let i=0;i<50;i++)F.drive(m,{forward:true},.05);assert.equal(m.van.speed,0);

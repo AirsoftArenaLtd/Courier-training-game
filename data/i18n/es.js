@@ -3781,7 +3781,20 @@ window.OTR_I18N.es = {
 "The van is in park.": "La furgoneta está en modo estacionar.",
 "The van is in reverse.": "La furgoneta está en modo reversa.",
 "The van is in neutral.": "La furgoneta está en punto muerto.",
-"The van is in drive.": "La furgoneta está en modo avanzar."
+"The van is in drive.": "La furgoneta está en modo avanzar.",
+"Park is selected.": "Modo estacionar seleccionado.",
+"Reverse is selected.": "Modo reversa seleccionado.",
+"Neutral is selected.": "Punto muerto seleccionado.",
+"Drive is selected.": "Modo avanzar seleccionado.",
+"Read the workday details.": "Lee los detalles de la jornada.",
+"Your workday details.": "Los detalles de tu jornada.",
+"There is one parcel in cargo.": "Hay un paquete en la carga.",
+"Your hands are empty.": "Tienes las manos vacías.",
+"Reverse into the marked bay.": "Da marcha atrás hasta el espacio marcado.",
+"This lesson takes place in the depot.": "Esta lección se realiza en el centro.",
+"Prepare the van before departure.": "Prepara la furgoneta antes de salir.",
+"Return to the depot.": "Vuelve al centro.",
+"Saving is unavailable. Keep this window open.": "No se puede guardar. Mantén esta ventana abierta."
 },
 "templates": [
 [
@@ -5419,6 +5432,30 @@ window.OTR_I18N.es = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "El instructor exige una vuelta de inspección en este espacio estrecho. Estaciona y bájate. Ponte detrás de la camioneta, mira hacia el camino de retroceso y pulsa {0} para registrar la revisión. Luego usa la cámara y los espejos para retroceder hasta el espacio."
+],
+[
+"There are {0} parcels in cargo.",
+"Hay {0} paquetes en la carga."
+],
+[
+"You are carrying the parcel for {0}.",
+"Llevas el paquete para {0}."
+],
+[
+"Drive to {0}.",
+"Conduce hasta {0}."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"Usa {0}/{1} para acelerar o frenar y {2}/{3} para girar. Pulsa {4} para elegir un mando de la cabina."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"Usa {0}/{1}/{2}/{3} para moverte. Pulsa {4} para elegir un objetivo y {5} para interactuar."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"Pulsa {0} para el escáner o {1} para Controles y guía."
 ]
 ],
 "keep": [

@@ -21,7 +21,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
     OTR.fpDriving.syncActors(m);s.sync();s.refresh();
    },{lang,large,hazard});
    const issues=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),out=[];
-    const texts=s.panel?s.panel.root.list.filter(o=>o.type==='Text'):[s.objective,s.hint];for(const o of texts){const b=o.getBounds();if(b.x<0||b.right>1280||b.y<0||b.bottom>(s.panel?635:608)||parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY)<17)out.push({text:o.text,b});}
+    const texts=s.panel?s.panel.root.list.filter(o=>o.type==='Text'):[s.objective,s.hint];for(const o of texts){if(!o.visible)continue;const b=o.getBounds();if(b.x<0||b.right>1280||b.y<0||b.bottom>(s.panel?635:720)||parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY)<17)out.push({text:o.text,b});}
     return out;});assert.deepEqual(issues,[],`${lang} ${large} ${hazard}`);checks++;
    if(lang==='en'&&!large||lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c10-${hazard}-${lang}-${large?'large':'normal'}.png`)});
   }

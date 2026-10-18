@@ -23,6 +23,13 @@ test('handheld stays closed while moving or unsecured and does not pause the veh
   m.van.speed=0;hh.home();assert.equal(hh.isOpen,false);assert.equal(m.logs.length,1);
   m.van.hand=true;hh.home();assert.equal(hh.isOpen,true);assert.equal(m.paused,true);
 });
+test('workday details retain the full objective and cargo state without changing the mission',()=>{
+ const {s,m,hh}=setup();s.objectiveText=()=> 'Return to Dispatch after completing the route.';
+ m.parcels[0].location='slot0';m.parcels[1].location='held';m.heldId='parcel1';const before=JSON.stringify(m.snapshot());
+ hh.home();assert.deepEqual(Array.from(hh.device.current.options.slice(0,3),o=>o.label),['Scan package','Stop details','Route']);
+ hh.choose(3);const page=hh.device.current,lines=Array.from(page.lines,l=>l.text);assert.equal(page.title,'Your workday details.');assert.ok(lines.includes(s.objectiveText()));assert.ok(lines.includes('There is one parcel in cargo.'));assert.ok(lines.some(l=>l.includes(m.parcels[1].address)));
+ const after=JSON.parse(JSON.stringify(m.snapshot())),original=JSON.parse(before);delete after.paused;delete original.paused;assert.deepEqual(after,original);
+});
 test('scanning needs a continuous trigger on one visible barcode and never picks up a box',()=>{
   const {m,hh,aim}=setup();hh.scan();trigger(hh,5);assert.equal(m.parcels[0].scanned,false);
   aim(null);hh.tick(0.05,true);assert.equal(hh.progress,0);

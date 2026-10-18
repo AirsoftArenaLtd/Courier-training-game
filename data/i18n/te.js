@@ -3770,7 +3770,20 @@ window.OTR_I18N.te = {
 "The van is in park.": "వ్యాన్ పార్క్‌లో ఉంది.",
 "The van is in reverse.": "వ్యాన్ రివర్స్‌లో ఉంది.",
 "The van is in neutral.": "వ్యాన్ న్యూట్రల్‌లో ఉంది.",
-"The van is in drive.": "వ్యాన్ డ్రైవ్‌లో ఉంది."
+"The van is in drive.": "వ్యాన్ డ్రైవ్‌లో ఉంది.",
+"Park is selected.": "పార్క్ ఎంచుకోబడింది.",
+"Reverse is selected.": "రివర్స్ ఎంచుకోబడింది.",
+"Neutral is selected.": "న్యూట్రల్ ఎంచుకోబడింది.",
+"Drive is selected.": "డ్రైవ్ ఎంచుకోబడింది.",
+"Read the workday details.": "పనిదినం వివరాలు చదవండి.",
+"Your workday details.": "మీ పనిదినం వివరాలు.",
+"There is one parcel in cargo.": "కార్గోలో ఒక పార్సెల్ ఉంది.",
+"Your hands are empty.": "మీ చేతులు ఖాళీగా ఉన్నాయి.",
+"Reverse into the marked bay.": "గుర్తించిన స్థలంలోకి రివర్స్ చేయండి.",
+"This lesson takes place in the depot.": "ఈ పాఠం డిపోలో జరుగుతుంది.",
+"Prepare the van before departure.": "బయలుదేరే ముందు వ్యాన్‌ను సిద్ధం చేయండి.",
+"Return to the depot.": "డిపోకు తిరిగి వెళ్లండి.",
+"Saving is unavailable. Keep this window open.": "సేవ్ చేయడం సాధ్యం కాదు. ఈ విండోను తెరిచే ఉంచండి."
 },
 "templates": [
 [
@@ -5408,6 +5421,30 @@ window.OTR_I18N.te = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "ఈ ఇరుకు స్థలంలో ట్రైనర్ వాక్-అరౌండ్ తప్పనిసరి అంటున్నారు. పార్క్ చేసి దిగండి. వ్యాన్ వెనుక రివర్స్ దారి వైపు చూస్తూ నిలబడి, తనిఖీని నమోదు చేయడానికి {0} నొక్కండి. తర్వాత కెమెరా మరియు అద్దాలతో బేలోకి రివర్స్ చేయండి."
+],
+[
+"There are {0} parcels in cargo.",
+"కార్గోలో {0} పార్సెల్స్ ఉన్నాయి."
+],
+[
+"You are carrying the parcel for {0}.",
+"మీరు {0} కోసం పార్సెల్ తీసుకెళ్తున్నారు."
+],
+[
+"Drive to {0}.",
+"{0} వరకు డ్రైవ్ చేయండి."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"వేగం పెంచడానికి లేదా బ్రేక్ వేయడానికి {0}/{1}, తిప్పడానికి {2}/{3} ఉపయోగించండి. క్యాబిన్ నియంత్రణ ఎంచుకోవడానికి {4} నొక్కండి."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"కదలడానికి {0}/{1}/{2}/{3} ఉపయోగించండి. లక్ష్యం ఎంచుకోవడానికి {4}, చర్యకు {5} నొక్కండి."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"హ్యాండ్‌హెల్డ్ కోసం {0} లేదా నియంత్రణలు మరియు మార్గదర్శకం కోసం {1} నొక్కండి."
 ]
 ],
 "keep": [

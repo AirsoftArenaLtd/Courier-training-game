@@ -3770,7 +3770,20 @@ window.OTR_I18N.ml = {
 "The van is in park.": "വാൻ പാർക്കിലാണ്.",
 "The van is in reverse.": "വാൻ റിവേഴ്സിലാണ്.",
 "The van is in neutral.": "വാൻ ന്യൂട്രലിലാണ്.",
-"The van is in drive.": "വാൻ ഡ്രൈവിലാണ്."
+"The van is in drive.": "വാൻ ഡ്രൈവിലാണ്.",
+"Park is selected.": "പാർക്ക് തിരഞ്ഞെടുത്തിരിക്കുന്നു.",
+"Reverse is selected.": "റിവേഴ്സ് തിരഞ്ഞെടുത്തിരിക്കുന്നു.",
+"Neutral is selected.": "ന്യൂട്രൽ തിരഞ്ഞെടുത്തിരിക്കുന്നു.",
+"Drive is selected.": "ഡ്രൈവ് തിരഞ്ഞെടുത്തിരിക്കുന്നു.",
+"Read the workday details.": "ജോലിദിവസത്തിന്റെ വിശദാംശങ്ങൾ വായിക്കുക.",
+"Your workday details.": "നിങ്ങളുടെ ജോലിദിവസത്തിന്റെ വിശദാംശങ്ങൾ.",
+"There is one parcel in cargo.": "കാർഗോയിൽ ഒരു പാഴ്സൽ ഉണ്ട്.",
+"Your hands are empty.": "നിങ്ങളുടെ കൈകൾ ഒഴിഞ്ഞിരിക്കുന്നു.",
+"Reverse into the marked bay.": "അടയാളപ്പെടുത്തിയ സ്ഥലത്തേക്ക് റിവേഴ്സ് എടുക്കുക.",
+"This lesson takes place in the depot.": "ഈ പാഠം ഡിപ്പോയിലാണ് നടക്കുന്നത്.",
+"Prepare the van before departure.": "പുറപ്പെടുന്നതിന് മുമ്പ് വാൻ ഒരുക്കുക.",
+"Return to the depot.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക.",
+"Saving is unavailable. Keep this window open.": "സേവ് ചെയ്യാൻ കഴിയില്ല. ഈ വിൻഡോ തുറന്നുതന്നെ വെക്കുക."
 },
 "templates": [
 [
@@ -5408,6 +5421,30 @@ window.OTR_I18N.ml = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "ഈ ഇടുങ്ങിയ സ്ഥലത്ത് ട്രെയിനർ വാക്ക്-എറൗണ്ട് ആവശ്യപ്പെടുന്നു. പാർക്ക് ചെയ്ത് ഇറങ്ങുക. വാനിന് പിന്നിൽ റിവേഴ്സ് വഴിക്ക് അഭിമുഖമായി നിന്ന് പരിശോധന രേഖപ്പെടുത്താൻ {0} അമർത്തുക. പിന്നെ ക്യാമറയും കണ്ണാടികളും ഉപയോഗിച്ച് ബേയിലേക്ക് റിവേഴ്സ് ചെയ്യുക."
+],
+[
+"There are {0} parcels in cargo.",
+"കാർഗോയിൽ {0} പാഴ്സലുകൾ ഉണ്ട്."
+],
+[
+"You are carrying the parcel for {0}.",
+"നിങ്ങൾ {0}-നുള്ള പാഴ്സൽ കൊണ്ടുപോകുന്നു."
+],
+[
+"Drive to {0}.",
+"{0}-ലേക്ക് ഡ്രൈവ് ചെയ്യുക."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"വേഗം കൂട്ടാനോ ബ്രേക്ക് ചെയ്യാനോ {0}/{1} ഉം തിരിക്കാൻ {2}/{3} ഉം ഉപയോഗിക്കുക. ക്യാബിൻ നിയന്ത്രണം തിരഞ്ഞെടുക്കാൻ {4} അമർത്തുക."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"നീങ്ങാൻ {0}/{1}/{2}/{3} ഉപയോഗിക്കുക. ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {4} ഉം പ്രവർത്തിക്കാൻ {5} ഉം അമർത്തുക."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"ഹാൻഡ്‌ഹെൽഡിന് {0} അല്ലെങ്കിൽ നിയന്ത്രണങ്ങളും മാർഗനിർദേശവും കാണാൻ {1} അമർത്തുക."
 ]
 ],
 "keep": [

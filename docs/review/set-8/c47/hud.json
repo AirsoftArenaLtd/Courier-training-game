@@ -1,0 +1,639 @@
+{
+  "checks": 186,
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "later": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "Check mirrors and signals before moving.",
+            "x": 453,
+            "y": 669,
+            "right": 827,
+            "bottom": 690
+          },
+          {
+            "text": "The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 475,
+            "bottom": 39
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 954.73193359375,
+            "y": 351.6406555175781,
+            "right": 1153.73193359375,
+            "bottom": 372.6406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 475
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": true,
+        "coverage": 0.06871853298611111
+      },
+      "reverse": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+            "x": 341,
+            "y": 648,
+            "right": 939,
+            "bottom": 690
+          },
+          {
+            "text": "The rear camera is live. The rear sensors detect no obstacle within six meters. · The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 696,
+            "bottom": 60
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 696
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.08294704861111112
+      },
+      "first": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "Check mirrors and signals before moving.",
+            "x": 453,
+            "y": 615,
+            "right": 827,
+            "bottom": 636
+          },
+          {
+            "text": "The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 475,
+            "bottom": 39
+          },
+          {
+            "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+            "x": 280.5,
+            "y": 650,
+            "right": 999.5,
+            "bottom": 675
+          },
+          {
+            "text": "Press TAB for the handheld or H for Controls and guidance.",
+            "x": 374.5,
+            "y": 683,
+            "right": 905.5,
+            "bottom": 708
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 954.73193359375,
+            "y": 351.6406555175781,
+            "right": 1153.73193359375,
+            "bottom": 372.6406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 475
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": true,
+        "help": true,
+        "nav": true,
+        "coverage": 0.102626953125
+      },
+      "walking": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "The engine is running. · Rain is falling. · An emergency vehicle is approaching. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 714,
+            "bottom": 60
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 714
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.044934895833333335
+      },
+      "details": {
+        "title": "Your workday details.",
+        "lines": [
+          "112 Maple Ave · Check mirrors, signal and wait for a clear gap before pulling out.",
+          "There are 0 parcels in cargo.",
+          "Your hands are empty."
+        ],
+        "bad": [],
+        "keys": false,
+        "hint": false,
+        "nav": false,
+        "caption": false
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "later": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "Check mirrors and signals before moving.",
+            "x": 411.5,
+            "y": 665,
+            "right": 868.5,
+            "bottom": 690
+          },
+          {
+            "text": "The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 582,
+            "bottom": 43
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 931.23193359375,
+            "y": 349.6406555175781,
+            "right": 1177.23193359375,
+            "bottom": 374.6406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 582
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": true,
+        "coverage": 0.08462782118055556
+      },
+      "reverse": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+            "x": 274.5,
+            "y": 640,
+            "right": 1005.5,
+            "bottom": 690
+          },
+          {
+            "text": "The rear camera is live. The rear sensors detect no obstacle within six meters. · The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 722,
+            "bottom": 68
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 722
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.10577473958333333
+      },
+      "first": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "Check mirrors and signals before moving.",
+            "x": 411.5,
+            "y": 603,
+            "right": 868.5,
+            "bottom": 628
+          },
+          {
+            "text": "The engine is running. · Rain is falling. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 582,
+            "bottom": 43
+          },
+          {
+            "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+            "x": 201,
+            "y": 642,
+            "right": 1079,
+            "bottom": 671
+          },
+          {
+            "text": "Press TAB for the handheld or H for Controls and guidance.",
+            "x": 316,
+            "y": 679,
+            "right": 964,
+            "bottom": 708
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 931.23193359375,
+            "y": 349.6406555175781,
+            "right": 1177.23193359375,
+            "bottom": 374.6406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 582
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": true,
+        "help": true,
+        "nav": true,
+        "coverage": 0.132646484375
+      },
+      "walking": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "The engine is running. · Rain is falling. · An emergency vehicle is approaching. · It is morning.",
+            "x": 24,
+            "y": 18,
+            "right": 698,
+            "bottom": 68
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 698
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.04998697916666667
+      },
+      "details": {
+        "title": "Your workday details.",
+        "lines": [
+          "112 Maple Ave · Check mirrors, signal and wait for a clear gap before pulling out.",
+          "There are 0 parcels in cargo.",
+          "Your hands are empty."
+        ],
+        "bad": [],
+        "keys": false,
+        "hint": false,
+        "nav": false,
+        "caption": false
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "later": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+            "x": 380,
+            "y": 646,
+            "right": 900,
+            "bottom": 690
+          },
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 545,
+            "bottom": 40
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 954.73193359375,
+            "y": 351.1406555175781,
+            "right": 1153.73193359375,
+            "bottom": 373.1406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 545
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": true,
+        "coverage": 0.09187282986111112
+      },
+      "reverse": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+            "x": 360.5,
+            "y": 646,
+            "right": 919.5,
+            "bottom": 690
+          },
+          {
+            "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை. · என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 700,
+            "bottom": 84
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 700
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.10023871527777778
+      },
+      "first": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+            "x": 380,
+            "y": 590,
+            "right": 900,
+            "bottom": 634
+          },
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 545,
+            "bottom": 40
+          },
+          {
+            "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+            "x": 279,
+            "y": 648,
+            "right": 1001,
+            "bottom": 674
+          },
+          {
+            "text": "Press TAB for the handheld or H for Controls and guidance.",
+            "x": 374.5,
+            "y": 682,
+            "right": 905.5,
+            "bottom": 708
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 954.73193359375,
+            "y": 351.1406555175781,
+            "right": 1153.73193359375,
+            "bottom": 373.1406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 545
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": true,
+        "help": true,
+        "nav": true,
+        "coverage": 0.1272222222222222
+      },
+      "walking": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · அவசர வாகனம் நெருங்குகிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 571,
+            "bottom": 62
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 571
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.03717447916666667
+      },
+      "details": {
+        "title": "Your workday details.",
+        "lines": [
+          "112 Maple Ave · Check mirrors, signal and wait for a clear gap before pulling out.",
+          "There are 0 parcels in cargo.",
+          "Your hands are empty."
+        ],
+        "bad": [],
+        "keys": false,
+        "hint": false,
+        "nav": false,
+        "caption": false
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "later": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+            "x": 322.5,
+            "y": 638,
+            "right": 957.5,
+            "bottom": 690
+          },
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 667,
+            "bottom": 44
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 931.23193359375,
+            "y": 349.1406555175781,
+            "right": 1177.23193359375,
+            "bottom": 375.1406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 667
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": true,
+        "coverage": 0.11669487847222222
+      },
+      "reverse": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+            "x": 298,
+            "y": 638,
+            "right": 982,
+            "bottom": 690
+          },
+          {
+            "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை. · என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 713,
+            "bottom": 96
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 713
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.12496310763888889
+      },
+      "first": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+            "x": 322.5,
+            "y": 574,
+            "right": 957.5,
+            "bottom": 626
+          },
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 667,
+            "bottom": 44
+          },
+          {
+            "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+            "x": 199.5,
+            "y": 640,
+            "right": 1080.5,
+            "bottom": 670
+          },
+          {
+            "text": "Press TAB for the handheld or H for Controls and guidance.",
+            "x": 316,
+            "y": 678,
+            "right": 964,
+            "bottom": 708
+          },
+          {
+            "text": "Drive to 112 Maple Ave.",
+            "x": 931.23193359375,
+            "y": 349.1406555175781,
+            "right": 1177.23193359375,
+            "bottom": 375.1406555175781
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 667
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": true,
+        "help": true,
+        "nav": true,
+        "coverage": 0.16646701388888888
+      },
+      "walking": {
+        "bad": [],
+        "rects": [
+          {
+            "text": "என்ஜின் ஓடுகிறது. · மழை பெய்கிறது. · அவசர வாகனம் நெருங்குகிறது. · காலை நேரம்.",
+            "x": 24,
+            "y": 18,
+            "right": 700,
+            "bottom": 70
+          }
+        ],
+        "header": {
+          "x": 12,
+          "width": 700
+        },
+        "title": false,
+        "objective": false,
+        "status": false,
+        "keys": false,
+        "help": false,
+        "nav": false,
+        "coverage": 0.05164930555555555
+      },
+      "details": {
+        "title": "Your workday details.",
+        "lines": [
+          "112 Maple Ave · Check mirrors, signal and wait for a clear gap before pulling out.",
+          "There are 0 parcels in cargo.",
+          "Your hands are empty."
+        ],
+        "bad": [],
+        "keys": false,
+        "hint": false,
+        "nav": false,
+        "caption": false
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Day two, seed ten. Positions and elapsed-time expiry are fixtures; P, gear selection, mirrors, handheld and details use real keys."
+}

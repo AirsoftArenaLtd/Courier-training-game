@@ -3770,7 +3770,20 @@ window.OTR_I18N.ta = {
 "The van is in park.": "வேன் பார்க்கில் உள்ளது.",
 "The van is in reverse.": "வேன் ரிவர்ஸில் உள்ளது.",
 "The van is in neutral.": "வேன் நியூட்ரலில் உள்ளது.",
-"The van is in drive.": "வேன் டிரைவில் உள்ளது."
+"The van is in drive.": "வேன் டிரைவில் உள்ளது.",
+"Park is selected.": "பார்க் தேர்ந்தெடுக்கப்பட்டது.",
+"Reverse is selected.": "ரிவர்ஸ் தேர்ந்தெடுக்கப்பட்டது.",
+"Neutral is selected.": "நியூட்ரல் தேர்ந்தெடுக்கப்பட்டது.",
+"Drive is selected.": "டிரைவ் தேர்ந்தெடுக்கப்பட்டது.",
+"Read the workday details.": "வேலைநாள் விவரங்களைப் படியுங்கள்.",
+"Your workday details.": "உங்கள் வேலைநாள் விவரங்கள்.",
+"There is one parcel in cargo.": "சரக்கில் ஒரு பார்சல் உள்ளது.",
+"Your hands are empty.": "உங்கள் கைகள் காலியாக உள்ளன.",
+"Reverse into the marked bay.": "குறிக்கப்பட்ட இடத்தில் ரிவர்ஸ் எடுங்கள்.",
+"This lesson takes place in the depot.": "இந்தப் பாடம் டிப்போவில் நடக்கிறது.",
+"Prepare the van before departure.": "புறப்படும் முன் வேனைத் தயார் செய்யுங்கள்.",
+"Return to the depot.": "டிப்போவுக்குத் திரும்புங்கள்.",
+"Saving is unavailable. Keep this window open.": "சேமிக்க முடியவில்லை. இந்த சாளரத்தைத் திறந்தே வையுங்கள்."
 },
 "templates": [
 [
@@ -5408,6 +5421,30 @@ window.OTR_I18N.ta = {
 [
 "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press {0} to record the check. Then use the camera and mirrors to reverse into the bay.",
 "இந்தக் குறுகிய இடத்தில் பயிற்றுநர் வாக்-அரவுண்ட் கட்டாயம் என்கிறார். நிறுத்தி இறங்குங்கள். வேனுக்குப் பின்னால் ரிவர்ஸ் பாதையை நோக்கி நின்று, சோதனையைப் பதிவு செய்ய {0} அழுத்துங்கள். பிறகு கேமராவையும் கண்ணாடிகளையும் பயன்படுத்தி பேயில் ரிவர்ஸ் செய்யுங்கள்."
+],
+[
+"There are {0} parcels in cargo.",
+"சரக்கில் {0} பார்சல்கள் உள்ளன."
+],
+[
+"You are carrying the parcel for {0}.",
+"நீங்கள் {0} க்கான பார்சலை எடுத்துச் செல்கிறீர்கள்."
+],
+[
+"Drive to {0}.",
+"{0} க்கு ஓட்டிச் செல்லுங்கள்."
+],
+[
+"Use {0}/{1} to accelerate or brake and {2}/{3} to steer. Press {4} to choose a cab control.",
+"வேகப்படுத்த அல்லது நிறுத்த {0}/{1} மற்றும் திருப்ப {2}/{3} பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க {4} அழுத்துங்கள்."
+],
+[
+"Use {0}/{1}/{2}/{3} to move. Press {4} to choose a target and {5} to interact.",
+"நகர {0}/{1}/{2}/{3} பயன்படுத்துங்கள். இலக்கைத் தேர்ந்தெடுக்க {4} மற்றும் செயல்பட {5} அழுத்துங்கள்."
+],
+[
+"Press {0} for the handheld or {1} for Controls and guidance.",
+"ஹேண்ட்ஹெல்டுக்கு {0} அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு {1} அழுத்துங்கள்."
 ]
 ],
 "keep": [

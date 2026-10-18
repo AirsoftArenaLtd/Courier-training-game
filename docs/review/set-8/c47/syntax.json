@@ -1,0 +1,58 @@
+[
+  {
+    "file": "src/core/fpaccess.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpcab.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fphandheld.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fphud.js",
+    "exit": 0
+  },
+  {
+    "file": "src/scenes/FirstPersonScene.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpaccesslayout.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpcab.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpdrivingbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpguidebrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fphandheld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fphud.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fphudbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fphudcomparebrowser.js",
+    "exit": 0
+  }
+]

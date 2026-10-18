@@ -40,7 +40,6 @@ class FirstPersonScene extends Phaser.Scene {
     });
   }
   makeHud() {
-    const g=this.add.graphics().setDepth(20);g.fillStyle(0x1B2634,0.93);g.fillRect(0,608,1280,112);
     this.headerBack=this.add.rectangle(0,0,1280,100,0x1B2634,0.93).setOrigin(0).setDepth(20);
     this.title=OTR.txt(this,24,25,'ON THE ROUTE',18,'#EBC889',{ox:0,fit:410}).setDepth(21);
     this.status=OTR.txt(this,1256,25,'',16,'#ffffff',{ox:1,fit:790}).setDepth(21);
@@ -48,16 +47,17 @@ class FirstPersonScene extends Phaser.Scene {
     this.soundCue=OTR.txt(this,24,82,'',17,'#D5DEDF',{ox:0,oy:0,wrap:1220}).setResolution(OTR.gfx.high()?2:1).setDepth(21);
     this.hintBack=this.add.rectangle(640,574,1210,48,0x1B2634,0.88).setDepth(19);
     this.hint=OTR.txt(this,640,574,'',18,'#ffffff',{fit:1160}).setDepth(21);
-    this.controls=OTR.txt(this,640,638,'',15,'#ffffff',{fit:1230}).setDepth(21);
-    this.help=OTR.txt(this,640,683,'',14,'#D5DEDF',{fit:1220}).setDepth(21);
+    this.controls=OTR.txt(this,640,638,'',18,'#ffffff',{wrap:1000,align:'center',stroke:'#1B2634',strokeW:4}).setDepth(21);
+    this.help=OTR.txt(this,640,683,'',18,'#D5DEDF',{wrap:1000,align:'center',stroke:'#1B2634',strokeW:4}).setDepth(21);
     this.reticle=this.add.graphics().setDepth(18);this.reticle.lineStyle(2,0xffffff,0.95);this.reticle.lineBetween(634,360,646,360);this.reticle.lineBetween(640,354,640,366);
     this.scanBeam=this.add.graphics().setDepth(18);
     this.mirrorLabel=OTR.txt(this,184,112,'Left mirror',16,'#ffffff',{stroke:'#1B2634',strokeW:4}).setDepth(21).setVisible(false);
     this.fade=this.add.rectangle(640,360,1280,720,0x000000,1).setDepth(2000).setAlpha(0);
+    OTR.fpHud.create(this);
   }
   setText(key,value,max) {
     if(this.ui[key]===value&&this.ui[key+'Width']===max)return;this.ui[key]=value;this.ui[key+'Width']=max;const object=this[key];object.setText(value).setScale(1);
-    if(key==='objective'||key==='hint'||key==='soundCue'){object.setWordWrapWidth(max);return;}
+    if(['objective','hint','soundCue','controls','help'].includes(key)){object.setWordWrapWidth(max);return;}
     if(object.width>max)object.setScale(max/object.width);
   }
   showPanel(title,body,choices,options) {
@@ -308,7 +308,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.checkpoint();this.sync();this.refresh();
   }
   cabAction(id){
-    if(id==='cab-camera'){this.message(OTR.fpRear.hint(this.model));return;}
+    if(id==='cab-camera'){this.message(OTR.fpHud.screenHint(this.model));return;}
     const result=OTR.fpCab.act(this.model,id);
     this.message(result||OTR.fpCab.hint(id,this.model,OTR.fpAccess.key('KeyE')));
     this.checkpoint();this.sync();this.refresh();
@@ -389,31 +389,12 @@ class FirstPersonScene extends Phaser.Scene {
   refresh(){
     if(this.loading)return;const m=this.model,mode=m?m.mode:'walk';
     const device=!!(this.handheld&&this.handheld.isOpen),aiming=device&&this.handheld.aiming;
-    this.status.setVisible(!device);this.controls.setX(device?414:640);this.help.setX(device?414:640);
-    this.hint.setX(device?414:640);this.hintBack.setX(device?414:640).setDisplaySize(device?790:1210,48);
-    this.setText('title',this.area==='hub'?'ON THE ROUTE · HUB':m.kind==='parking'?'Practice reversing safely.':m.kind==='practice'?'CARGO PRACTICE':'ON THE ROUTE · WORKDAY',410);this.setText('objective',this.objectiveText(),device?790:1220);
-    this.setText('soundCue',this.soundCaption||'',device?790:1220);this.soundCue.setY(this.objective.y+this.objective.height+6);
-    if(this.headerBack){const height=Math.max(100,this.soundCue.text?this.soundCue.y+this.soundCue.height+10:this.objective.y+this.objective.height+12);this.headerBack.setDisplaySize(1280,height);this.mirrorLabel.setY(height+12);if(this.view)this.view.mirror.top=height+22;}
-    // pieces joined by ' · ', each a whole phrase or a template, so every language can translate it
-    const status=!m?'':mode==='cab'?`${Math.round(Math.abs(m.van.speed)*2.23694)} mph`+' · '+OTR.fpCab.gearName(m.van.gear)+' · '+(m.van.hand?'Brake on':'Brake off')+' · '+(m.van.belt?'Belt on':'Belt off')+' · '+(m.signal<0?'←':m.signal>0?'→':'—'):
-      m.heldId?`Carrying: ${m.parcel(m.heldId).address}`:this.cargoLine(m);this.setText('status',status,790);
-    // the key hints change only with the mode, the handheld, saving and the key map: built again only then, not every frame
+    // Detailed workday context is available on the handheld; the live cab supplies its own gauges.
+    this.setText('objective','',1220);
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
-    const keys=OTR.a11y?OTR.a11y.settings().keys:null,c=this.hints||(this.hints={});
-    if(c.mode!==mode||c.device!==device||c.aiming!==aiming||c.saved!==this.saved||c.keys!==keys){
-      Object.assign(c,{mode,device,aiming,saved:this.saved,keys});
-      const wasd=k('KeyW')+k('KeyA')+k('KeyS')+k('KeyD'),t=s=>OTR.i18n.t(s),saving=this.saved?'Saved on this device':'Saving unavailable — keep this window open';
-      if(!device){this.setText('controls',(mode==='cab'?[`${k('KeyW')}/${k('KeyS')} accelerate / brake`,`${k('KeyA')}/${k('KeyD')} steer`,`${k('Space')} parking brake`,`${k('KeyR')} gear`,`${k('KeyB')} belt`]:[`${wasd} move`,`${k('KeyE')} interact`,`${k('KeyF')} inspect`,`${k('Tab')} handheld`,`${k('KeyH')} menu`]).join(' · '),1230);
-      // the two halves are translated before they are joined: "   |   " is not a place the translator splits
-      this.setText('help',t((mode==='cab'?[`${k('KeyP')} selects a nearby target`,`${k('KeyQ')} / ${k('KeyC')} signals`,`${k('KeyV')} look forward`,`${k('KeyE')} exit`,`${k('KeyH')} menu`]:[`${OTR.fpAccess.lookKeys()} look`,`${k('KeyP')} selects a nearby target`,'Esc pauses']).join(' · '))+'   |   '+t(saving),1220);
-      }else{
-        this.setText('controls',aiming?[`${wasd} move`,`${OTR.fpAccess.lookKeys()} aim`,`Hold ${k('Space')} or left click to scan`].join(' · '):'Use arrows and Enter, or number keys. Backspace goes back.',790);
-        this.setText('help',t([`${k('Tab')} put away`,'Esc back',`${k('KeyH')} pause`].join(' · '))+'   |   '+t(saving),790);
-      }
-    }
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
-    else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpRear.hint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
+    else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpHud.screenHint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
@@ -425,7 +406,8 @@ class FirstPersonScene extends Phaser.Scene {
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
-    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked);this.mirrorLabel.setVisible(false);
+    const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);
+    OTR.fpHud.refresh(this,hint,blocked,device,aiming);
     OTR.fpAccess.voiceTick(this,blocked);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);
@@ -449,6 +431,7 @@ class FirstPersonScene extends Phaser.Scene {
         const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
         if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)){object.setVisible(false);return;}
         if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
+    OTR.fpHud.navigation(this);
     if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();
   }
 }
