@@ -15,6 +15,6 @@ one line per item: fine, or what feels wrong. That line goes to the board as the
 | 4 | In the cab, look at a control and listen (narration on in Settings → Access) | The cab reads out what you are looking at and what it does, in your language |
 | 5 | On the title screen, press Credits | The 3D packs and who made them, with thanks |
 | 6 | Turn on Low graphics (Settings) and drive the same street | Plainer, but the same town and nothing missing that you need to drive |
-| 7 | Turn on larger text, then switch to Tamil or Hindi and look at the cab and the guide | Everything still fits and is readable |
+| 7 | Turn on larger text, then switch to Tamil or Hindi and look at the cab and the guide (the same fixed views in Tamil with larger text are in `views-ta-large/`) | Everything still fits and is readable; say if the lower part of the cab view feels too full of words |
 
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

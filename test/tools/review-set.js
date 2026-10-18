@@ -6,6 +6,8 @@
  *   QA_BROWSER=/path/to/chrome QA_BASE=http://127.0.0.1:8302 node test/tools/review-set.js <set-number>
  *
  *   node test/tools/review-set.js <set-number> --compare   only (re)writes compare.md from the views already captured
+ *   QA_LANG=ta QA_LARGE=1 ...                              as a Tamil trainee with larger text sees it (B-38), into
+ *                                                          views-ta-large/ (no compare.md: that is for the English set)
  *
  * Writes docs/review/set-<n>/views/<view>-<low|high>.jpg and docs/review/set-<n>/views/index.md, and compare.md (B-35):
  * each view from the previous set next to this one, so before and after are on one page. The views use the first
@@ -20,7 +22,8 @@ const pp = require(path.join(__dirname, '..', 'node_modules', 'puppeteer-core'))
 const SET = process.argv[2];
 if (!/^\d+$/.test(SET || '')) { console.error('usage: node test/tools/review-set.js <set-number>'); process.exit(2); }
 const BASE = process.env.QA_BASE || 'http://127.0.0.1:8302';
-const OUT = path.join(__dirname, '..', '..', 'docs', 'review', 'set-' + SET, 'views');
+const LANG = process.env.QA_LANG || '', LARGE = process.env.QA_LARGE === '1';
+const OUT = path.join(__dirname, '..', '..', 'docs', 'review', 'set-' + SET, 'views' + (LANG ? '-' + LANG : '') + (LARGE ? '-large' : ''));
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
 /** compare.md: each view of the newest earlier set that has views, beside this set's, at Low and at High. */
@@ -105,8 +108,14 @@ if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
       const p = await browser.newPage();
       await p.setViewport({ width: 1280, height: 720 });
       p.on('pageerror', e => errors.push(e.message));
-      await p.goto(BASE + '/first-person.html?gfx=' + gfx);
+      await p.goto(BASE + '/first-person.html?gfx=' + gfx + (LANG ? '&lang=' + LANG : ''));
       await p.waitForFunction(() => window.OTR && OTR.game && OTR.game.scene.isActive('FirstPersonScene') && !OTR.game.scene.getScene('FirstPersonScene').loading, { timeout: 60000 });
+      if (LANG) await p.waitForFunction((l) => OTR.i18n.lang === l, { timeout: 30000 }, LANG);
+      if (LARGE) {
+        // larger text applies as the scene builds its screen: restart it with the setting on (as test/fplangsbrowser.js)
+        await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); window.__token = s.loadingToken; OTR.a11y.settings().large = true; s.scene.restart(); });
+        await p.waitForFunction(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return !s.loading && s.loadingToken !== window.__token; }, { timeout: 60000 });
+      }
       await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); s.closePanel(); s.launch('campaign'); });
       await p.waitForFunction(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return s.model && !s.transitioning; }, { timeout: 60000 });
       // each view starts from the day as it was launched: a view's weather, time or lights must not leak into the next
@@ -135,7 +144,8 @@ if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
     }
   } finally { await browser.close(); }
   const ids = [...new Set(rows.map(r => r.id))];
-  const md = [`# Review set ${SET}: fixed views`, '', `Captured ${new Date().toISOString().slice(0, 10)} from \`first-person.html\` on the first campaign day,`,
+  const as = LANG || LARGE ? ` (${[LANG && 'language ' + LANG, LARGE && 'larger text'].filter(Boolean).join(', ')})` : '';
+  const md = [`# Review set ${SET}: fixed views${as}`, '', `Captured ${new Date().toISOString().slice(0, 10)} from \`first-person.html\` on the first campaign day,`,
     'Low and High graphics, by `node test/tools/review-set.js ' + SET + '`. The same views are taken at every milestone: open',
     'the same file in the previous set to compare. These are software-rendered (no graphics card), so they show the look,',
     'not the frame rate.', '', '| View | What to look at | Low | High |', '| --- | --- | --- | --- |',
@@ -144,7 +154,7 @@ if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
       return `| ${id} | ${lo.what} | ${cell(lo)} | ${cell(hi)} |`; }),
     '', errors.length ? 'Page errors while capturing: ' + errors.join(' / ') : 'No page errors while capturing.', ''].join('\n');
   fs.writeFileSync(path.join(OUT, 'index.md'), md);
-  writeCompare();
+  if (!LANG && !LARGE) writeCompare();
   console.log('wrote ' + path.relative(process.cwd(), OUT));
   process.exit(errors.length ? 1 : 0);
 })();
