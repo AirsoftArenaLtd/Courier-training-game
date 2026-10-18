@@ -195,7 +195,7 @@ OTR.fpTraffic = {
     this.carStep(m,body,dt);c.x=body.x;c.z=body.z;c.rideSpeed=body.speed;c.stopWait=body.wait;c.junction=body.junction;
     const ahead = (c.x - v.x) * Math.sin(c.yaw) - (c.z - v.z) * Math.cos(c.yaw);
     if (c.state === 'beside' && ahead > 7) { c.state = 'clear'; m.touch(); }
-    if (m.elapsed - c.at > 22 || Math.hypot(c.x - v.x, c.z - v.z) > 38 ||
+    if (Math.hypot(c.x - v.x, c.z - v.z) > 38 ||
       c.x < m.bounds.x0 + 1 || c.x > m.bounds.x1 - 1 || c.z < m.bounds.z0 + 1 || c.z > m.bounds.z1 - 1) { c.state = 'done'; m.touch(); }
   },
   before(m, dt) {

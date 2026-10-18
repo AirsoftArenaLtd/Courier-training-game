@@ -246,3 +246,12 @@ test('children also wait when a trainee is standing in their walking path',()=>{
  const m=make(),h=m.crossing;h.state='crossing';h.x=m.town.school.x-1;Object.assign(m.van,{x:0,z:20});m.mode='walk';
  Object.assign(m.player,{x:h.x+.1,z:h.z+.4});const before=h.x;T.crossingStep(m,.1);assert.equal(h.x,before);
 });
+
+test('a cyclist held beside the van at red stays visible after a long wait',()=>{
+ const m=make(),j=T.layout(m).find(j=>j.kind==='signal'),c=m.trafficControl.cyclist;
+ m.elapsed=(23-j.offset+54)%54+54;
+ Object.assign(m.van,{x:j.x+1.7,z:j.z+m.town.road/2+10,yaw:0,speed:0});
+ Object.assign(c,{state:'beside',x:j.x+3.7,z:j.z+m.town.road/2+3,yaw:0,leg:m.leg,at:m.elapsed-30,rideSpeed:0});
+ T.cyclistStep(m,.0125);T.syncSolids(m);
+ assert.equal(c.state,'beside');assert.equal(m._trafficSolids.cyclist.x,c.x);
+});
