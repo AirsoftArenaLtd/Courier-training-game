@@ -183,7 +183,8 @@ OTR.fpTraffic = {
     if(!blocked)h.x=next.x;
     if (h.x >= school.x + m.town.road / 2 + 1.2) {
       h.state = 'resolved'; m.touch();
-      this.emit(m, 'drive.pedestrian', 'school-crossing', true, 'Waited for the children to finish crossing the road.');
+      if(!m.events['driver:drive.pedestrian:school-crossing'])this.emit(m,'drive.hazard-early','school-crossing',h.early,
+        h.early?'Reduced speed early for the developing crossing hazard.':'Passed the crossing without an early speed reduction.');
     }
   },
   cyclistStep(m, dt) {
@@ -229,7 +230,7 @@ OTR.fpTraffic = {
     const c = m.trafficControl.cyclist, v = m.van;
     if (this.contact(m, 'children')) {
       m._rearContact = true;
-      this.emit(m, 'drive.pedestrian', 'school-crossing', false, 'Moved into the school crossing before the children were clear.');
+      if(m.crossing.state!=='resolved')this.emit(m, 'drive.pedestrian', 'school-crossing', false, 'Moved into the school crossing before the children were clear.');
     }
     if (c.state !== 'beside' && c.state !== 'clear') return;
     const turn = Math.atan2(Math.sin(v.yaw - c.originYaw), Math.cos(v.yaw - c.originYaw));

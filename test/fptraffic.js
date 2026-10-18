@@ -188,7 +188,7 @@ test('children wait on the curb for moving traffic, then cross in front of a sta
   T.crossingStep(m,3);assert.equal(h.state,'developing');const curb=h.x;
   Object.assign(m.van,{z:h.z+8,speed:0});T.crossingStep(m,.1);assert.equal(h.state,'crossing');assert.ok(h.x>curb);
   for(let i=0;i<200;i++)T.crossingStep(m,.1);
-  assert.equal(h.state,'resolved');assert.equal(reports('drive.pedestrian').length,1);assert.equal(reports('drive.pedestrian')[0].ok,true);
+  assert.equal(h.state,'resolved');assert.equal(reports('drive.pedestrian').length,0);assert.equal(reports('drive.hazard-early')[0].ok,true);assert.equal(W.log.items.some(i=>i.kind==='penalty'),false,'a safe crossing must never incur a penalty');
   const n=make(1);const original=n.crossing.x;T.crossingStep(n,20);assert.equal(n.crossing.x,original);
 });
 test('a cyclist appears beside the real van, remains solid and a turn across it fails once',()=>{
@@ -257,11 +257,10 @@ test('a cyclist held beside the van at red stays visible after a long wait',()=>
 });
 
 test('a later impact after a completed school crossing still reports a physical contact',()=>{
- const m=make(),h=m.crossing;h.state='resolved';h.x=m.town.school.x+m.town.road/2+1.2;T.syncSolids(m);m.tickTraffic=()=>{};
- T.emit(m,'drive.pedestrian','school-crossing',true,'Waited for the children to finish crossing the road.');
+ const m=make(),h=m.crossing;h.state='crossing';h.x=m.town.school.x+m.town.road/2+1.199;h.early=true;Object.assign(m.van,{x:100,z:10});T.crossingStep(m,.0125);assert.equal(h.state,'resolved');T.syncSolids(m);m.tickTraffic=()=>{};
  Object.assign(m.van,{x:h.x,z:h.z+6,yaw:0,speed:2,hand:false,gear:1});
  for(let i=0;i<120;i++)m.step({forward:true},.025);
- assert.equal(reports('drive.pedestrian').length,1);assert.equal(reports('drive.pedestrian')[0].ok,true);
+ assert.equal(reports('drive.pedestrian').length,0);assert.equal(reports('drive.hazard-early')[0].ok,true);
  assert.equal(reports('drive.contact').length,1);assert.equal(reports('drive.contact')[0].ok,false);
 });
 test('a completed safe cyclist turn does not hide a later physical impact',()=>{
