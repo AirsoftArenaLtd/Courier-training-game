@@ -299,3 +299,16 @@ test('both perpendicular traffic streams make progress through repeated signal c
  }
  assert.ok(distance[0]>50,JSON.stringify(distance));assert.ok(distance[1]>50,JSON.stringify(distance));
 });
+
+for(const file of ['src/core/fplater.js','src/core/fpnav.js','src/core/fpday.js','src/core/fpdoors.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+test('school crossings stay clear of the combined navigation obstructions and roadworks in 30 layouts',()=>{
+ for(let seed=1;seed<=30;seed++){
+  W.begin();const plan=T.prepare(c.OTR.fpNav.prepare(c.OTR.fpSigns.prepare(c.OTR.fpLater.prepare(R.plan(4,seed))))),m=M.create('campaign',seed,plan),h=m.crossing;
+  c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);m.phase='route';m.mode='cab';m.departed=true;c.OTR.fpLater.depart(m);
+  Object.assign(m.van,{x:m.town.school.x+1.7,z:h.z+8,speed:0});for(const car of m.traffic)Object.assign(car,{x:-10,z:m.bounds.z0+5,speed:0});
+  for(let i=0;i<600;i++){m.elapsed+=.05;T.crossingStep(m,.05);}
+  assert.equal(h.state,'resolved','seed '+seed);assert.equal(reports('drive.pedestrian').length,0);assert.equal(W.log.items.some(i=>i.kind==='penalty'),false);
+  const r=M.restore(m.snapshot());assert.ok(r,'restored school layout '+seed);assert.equal(r.crossing.z,h.z);
+  if(seed===7)assert.equal(h.z,(m.town.school.z0+m.town.school.z1)/2,'fixed rendered fixture unchanged');
+ }
+});

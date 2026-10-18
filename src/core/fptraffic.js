@@ -15,6 +15,18 @@ OTR.fpTraffic = {
     });
     this.layouts.set(m, layout); return layout;
   },
+  crossingZ(m) {
+    const school=m.town.school,center=(school.z0+school.z1)/2;
+    const path={x:school.x,z:0,w:m.town.road+3.1,d:2.5};
+    for(let n=0;n<=14;n++){
+      const z=center+(n?Math.ceil(n/2)*2*(n%2?-1:1):0);
+      if(z<Math.min(school.z0,school.z1)+8||z>Math.max(school.z0,school.z1)-8)continue;
+      path.z=z+.4;let clear=true;
+      for(const solid of m.solids)if(this.overlap(path,solid)){clear=false;break;}
+      if(clear)return z;
+    }
+    return center;
+  },
   configure(m) {
     if (!this.enabled(m)) return;
     m.trafficControl = { cyclist: { state: 'waiting', x: 0, z: 0, yaw: 0, at: 0, leg: -1,
@@ -24,7 +36,7 @@ OTR.fpTraffic = {
       Object.assign(m.traffic[0], { x: m.town.xs[1] + 1.7, z: m.bounds.z1 - 3, yaw: 0 });
       Object.assign(m.traffic[1], { x: m.bounds.x0 + 3, z: m.town.zs[1] + 1.7, yaw: Math.PI / 2 });
       Object.assign(m.crossing, { x: m.town.school.x - m.town.road / 2 - 1.2,
-        z: (m.town.school.z0 + m.town.school.z1) / 2, state: 'waiting', clock: 0, early: false });
+        z: this.crossingZ(m), state: 'waiting', clock: 0, early: false });
     }
     for (const car of m.traffic) Object.assign(car, { cruise: car.speed, speed: m.routePlan.day>=3?0:car.speed, wait: 0, junction: -1 });
     this.attach(m);
