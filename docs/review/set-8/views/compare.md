@@ -14,6 +14,8 @@ a set did not have says so.
 | reverse | ![reverse low, set 7](../../set-7/views/reverse-low.jpg) | ![reverse low, set 8](reverse-low.jpg) |
 | stop | ![stop low, set 7](../../set-7/views/stop-low.jpg) | ![stop low, set 8](stop-low.jpg) |
 | doorstep | ![doorstep low, set 7](../../set-7/views/doorstep-low.jpg) | ![doorstep low, set 8](doorstep-low.jpg) |
+| satnav | not in this set | ![satnav low, set 8](satnav-low.jpg) |
+| signs | not in this set | ![signs low, set 8](signs-low.jpg) |
 | night | ![night low, set 7](../../set-7/views/night-low.jpg) | ![night low, set 8](night-low.jpg) |
 | rain | ![rain low, set 7](../../set-7/views/rain-low.jpg) | ![rain low, set 8](rain-low.jpg) |
 
@@ -28,5 +30,7 @@ a set did not have says so.
 | reverse | ![reverse high, set 7](../../set-7/views/reverse-high.jpg) | ![reverse high, set 8](reverse-high.jpg) |
 | stop | ![stop high, set 7](../../set-7/views/stop-high.jpg) | ![stop high, set 8](stop-high.jpg) |
 | doorstep | ![doorstep high, set 7](../../set-7/views/doorstep-high.jpg) | ![doorstep high, set 8](doorstep-high.jpg) |
+| satnav | not in this set | ![satnav high, set 8](satnav-high.jpg) |
+| signs | not in this set | ![signs high, set 8](signs-high.jpg) |
 | night | ![night high, set 7](../../set-7/views/night-high.jpg) | ![night high, set 8](night-high.jpg) |
 | rain | ![rain high, set 7](../../set-7/views/rain-high.jpg) | ![rain high, set 8](rain-high.jpg) |

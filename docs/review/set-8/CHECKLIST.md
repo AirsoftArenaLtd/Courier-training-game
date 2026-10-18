@@ -16,5 +16,6 @@ one line per item: fine, or what feels wrong. That line goes to the board as the
 | 5 | On the title screen, press Credits | The 3D packs and who made them, with thanks |
 | 6 | Turn on Low graphics (Settings) and drive the same street | Plainer, but the same town and nothing missing that you need to drive |
 | 7 | Turn on larger text, then switch to Tamil or Hindi and look at the cab and the guide (the same fixed views in Tamil with larger text are in `views-ta-large/`) | Everything still fits and is readable; say if the lower part of the cab view feels too full of words |
+| 8 | Drive to the first stop following the sat nav, and stop at the first junction (views `satnav` and `signs`) | The dash screen tells you the next turn and how far; the stop sign and street names are where you expect. Say if the screen hides a sign you need to see (in `signs-high.jpg` it covers part of the stop sign on the right) |
 
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

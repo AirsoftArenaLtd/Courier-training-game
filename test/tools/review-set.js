@@ -83,7 +83,20 @@ const VIEWS = [
     const along = Math.min(6, d * 0.6), px = pt.x + dx / d * along - dz / d * 2.5, pz = pt.z + dz / d * along + dx / d * 2.5;
     Object.assign(m.player, { x: px, z: pz, yaw: Math.atan2(pt.x - px, -(pt.z - pz)), pitch: 0.05 }); s.sync(); return true;
   }],
-  ['satnav', 'The sat nav with the route', (s) => { if (!s.satnav) return false; s.model.mode = 'cab'; s.sync(); return true; }],
+  ['satnav', 'The sat nav with the route', (s) => {
+    // C-31: the dash screen, on the route to the first stop (as C-31's own fixed view in test/fpbench.js)
+    const m = s.model; if (!OTR.fpNav || !OTR.fpNav.enabled(m) || !OTR.fpHud || !OTR.fpHud.navigation) return false;
+    m.phase = 'route'; m.departed = m.secured = true; m.paused = false; m.mode = 'cab';
+    const z = m.town && m.town.zs ? m.town.zs[1] + 22 : -20;
+    Object.assign(m.van, { z, yaw: 0, speed: 0, gear: 1, hand: true, belt: true, look: 0 }); m.player.pitch = 0;
+    OTR.fpNav.configure(m); s.sync(); s.refresh(); if (s.hud) s.hud.navAt = -1000; OTR.fpHud.navigation(s); return true;
+  }],
+  ['signs', 'Approaching the first junction: its signs and street names', (s) => {
+    // C-30: the junction signs, from the cab as you come up to the first junction
+    const m = s.model; if (!OTR.fpSigns || !m.junctions || !m.junctions.length) return false;
+    const j = m.junctions[0]; m.mode = 'cab'; m.player.pitch = 0;
+    Object.assign(m.van, { x: j.x + 2.5, z: j.z + 17, yaw: 0, speed: 0, look: 0, hand: true }); s.sync(); return true;
+  }],
   ['night', 'Driving at night with headlights', (s) => {
     const m = s.model; if (!OTR.fpLighting || !m.routePlan) return false;          // C-25: time of day from the route plan
     m.routePlan.timeOfDay = 'night'; m.mode = 'cab'; m.van.gear = 1; m.van.look = 0; m.player.pitch = 0; m.van.headlights = true; s.sync(); return true;
