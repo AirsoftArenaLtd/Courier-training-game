@@ -1,0 +1,109 @@
+{
+  "fixture": "Offline conversion validation. The command only reads models; it does not modify gameplay.",
+  "models": [
+    {
+      "use": "town-house",
+      "bytes": 83704,
+      "triangles": 1156,
+      "bounds": {
+        "x": 1.2999999523162842,
+        "y": 0.8335409760475159,
+        "z": 1.0281378030776978
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-house-wide",
+      "bytes": 84312,
+      "triangles": 1180,
+      "bounds": {
+        "x": 1.2863802909851074,
+        "y": 1.033540964126587,
+        "z": 1.0281378030776978
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-tree",
+      "bytes": 5120,
+      "triangles": 42,
+      "bounds": {
+        "x": 0.21044418215751648,
+        "y": 0.5670000314712524,
+        "z": 0.24299998581409454
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-fence",
+      "bytes": 7268,
+      "triangles": 88,
+      "bounds": {
+        "x": 0.4750000238418579,
+        "y": 0.26999998092651367,
+        "z": 0.07500000298023224
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-shop",
+      "bytes": 83572,
+      "triangles": 1248,
+      "bounds": {
+        "x": 0.8835878968238831,
+        "y": 1.2929999828338623,
+        "z": 0.9399999976158142
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-road",
+      "bytes": 3764,
+      "triangles": 44,
+      "bounds": {
+        "x": 1,
+        "y": 0.019999999552965164,
+        "z": 1
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-streetlight",
+      "bytes": 7148,
+      "triangles": 92,
+      "bounds": {
+        "x": 0.05000000074505806,
+        "y": 0.6749999523162842,
+        "z": 0.22500000335276127
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-parked-car",
+      "bytes": 155372,
+      "triangles": 2026,
+      "bounds": {
+        "x": 1.5,
+        "y": 1.299999988079071,
+        "z": 2.549999952316284
+      },
+      "parts": 1,
+      "textures": 0
+    }
+  ],
+  "stats": {
+    "quality": "high",
+    "loaded": 8,
+    "failed": 0,
+    "bytes": 430260,
+    "decodedBytes": 422472,
+    "errors": []
+  }
+}

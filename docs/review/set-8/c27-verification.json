@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-17",
+  "basePilot": "3c92bb0",
+  "nodeSuites": {
+    "firstperson": 18,
+    "fpmission": 39,
+    "fphandheld": 8,
+    "fpworld": 21,
+    "fpdriving": 24,
+    "fpcamera": 9,
+    "fpcab": 10,
+    "fpmirrors": 11,
+    "fprear": 16,
+    "fplighting": 12,
+    "fpweather": 11,
+    "fptown": 8,
+    "fpassets": 9,
+    "fproute": 11,
+    "fploadout": 11,
+    "fpday": 10,
+    "fpdoors": 16,
+    "fpaccess": 7,
+    "fpbranding": 4,
+    "fpguide": 3,
+    "fpperf": 2,
+    "fplater": 7,
+    "fpsound": 9,
+    "workday": 20,
+    "savesize": 12,
+    "aids": 3,
+    "lmsreport": 8,
+    "i18n": "passed",
+    "fpresume": 2,
+    "assets": 3
+  },
+  "pythonConversionTests": 6,
+  "browserAssertions": {
+    "townLow": 50,
+    "townHigh": 50,
+    "assets": 49,
+    "cab": 200,
+    "mirrors": 132,
+    "rear": 146,
+    "keyboard": 145,
+    "driving": 24,
+    "camera": 28,
+    "day": 127,
+    "doorsteps": 394,
+    "guide": 85,
+    "themes": 39,
+    "lighting": 51,
+    "weather": 48,
+    "loadout": 53,
+    "fullRoute": 84
+  },
+  "browserTotal": 1705,
+  "packagingAssertions": 3,
+  "offlineAssertions": 9,
+  "nativeIntelFPS": "Pending O-1. Software FPS is not hardware acceptance.",
+  "fixtureNotes": "Town images use stationary viewpoint and travel fixtures. The isolated pixel check hides only the named model type. Private yards are within the original non-delivery lot collision footprint. Control, full-route, doorway and keyboard flows run separately. Browser suites ran serially.",
+  "notApplicable": "The historical C-16 pixel-identity comparison is for appearance-preserving optimisation; this task deliberately changes the town art.",
+  "rendered": {
+    "c27-low": {
+      "views": 22,
+      "peak": {
+        "calls": 57,
+        "triangles": 2306,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "geometryBytes": 23272,
+      "phaserTextureBytes": 2600662
+    },
+    "c27-high": {
+      "views": 6,
+      "peak": {
+        "calls": 92,
+        "triangles": 184814,
+        "textures": 3,
+        "attachmentBytes": 11239424
+      },
+      "geometryBytes": 431296,
+      "phaserTextureBytes": 6952006
+    },
+    "c27-reduced-low": {
+      "views": 3,
+      "peak": {
+        "calls": 57,
+        "triangles": 2306,
+        "textures": 2,
+        "attachmentBytes": 3557376
+      },
+      "geometryBytes": 23248,
+      "phaserTextureBytes": 2575206
+    }
+  }
+}

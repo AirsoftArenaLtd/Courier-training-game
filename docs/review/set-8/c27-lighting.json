@@ -1,0 +1,164 @@
+{
+  "quality": "low",
+  "presets": [
+    {
+      "time": "morning",
+      "caption": "The engine is running. \u00b7 It is morning.",
+      "shadow": false,
+      "map": false,
+      "interior": 0,
+      "diagnostics": {
+        "calls": 33,
+        "triangles": 1098,
+        "textures": 2,
+        "geometries": 11,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "time": "midday",
+      "caption": "The engine is running. \u00b7 It is midday.",
+      "shadow": false,
+      "map": false,
+      "interior": 0,
+      "diagnostics": {
+        "calls": 32,
+        "triangles": 1122,
+        "textures": 2,
+        "geometries": 11,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "time": "dusk",
+      "caption": "The engine is running. \u00b7 It is dusk. Switch on the headlights before moving.",
+      "shadow": false,
+      "map": false,
+      "interior": 0.45,
+      "diagnostics": {
+        "calls": 32,
+        "triangles": 1122,
+        "textures": 2,
+        "geometries": 11,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "time": "night",
+      "caption": "The engine is running. \u00b7 It is night. Switch on the headlights before moving.",
+      "shadow": false,
+      "map": false,
+      "interior": 0.45,
+      "diagnostics": {
+        "calls": 32,
+        "triangles": 1122,
+        "textures": 2,
+        "geometries": 11,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    }
+  ],
+  "fixture": "A stationary, repaired, loaded first-day van. Time presets and walk viewpoints are fixtures; L uses the real keyboard control.",
+  "headlights": {
+    "off": {
+      "x": 651,
+      "y": 411,
+      "rgb": [
+        12.99999999999999,
+        12.99999999999999,
+        21.999999999999975
+      ]
+    },
+    "on": {
+      "x": 651,
+      "y": 411,
+      "rgb": [
+        20.98765432098764,
+        21.999999999999975,
+        28.000000000000043
+      ]
+    }
+  },
+  "reverse": {
+    "on": 55,
+    "off": 0
+  },
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "phaserBytes": 1692550,
+      "text": "The engine is running. \u00b7 It is night. The headlights are on.",
+      "font": 17,
+      "left": 24,
+      "right": 508,
+      "top": 78,
+      "bottom": 99,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "phaserBytes": 1695686,
+      "text": "The engine is running. \u00b7 It is night. The headlights are on.",
+      "font": 18,
+      "left": 24,
+      "right": 536,
+      "top": 78,
+      "bottom": 99,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "phaserBytes": 1998000,
+      "text": "\u0b8e\u0ba9\u0bcd\u0b9c\u0bbf\u0ba9\u0bcd \u0b93\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1. \u00b7 \u0b87\u0bb0\u0bb5\u0bc1 \u0ba8\u0bc7\u0bb0\u0bae\u0bcd. \u0bae\u0bc1\u0b95\u0baa\u0bcd\u0baa\u0bc1 \u0bb5\u0bbf\u0bb3\u0b95\u0bcd\u0b95\u0bc1\u0b95\u0bb3\u0bcd \u0b8e\u0bb0\u0bbf\u0b95\u0bbf\u0ba9\u0bcd\u0bb1\u0ba9.",
+      "font": 17,
+      "left": 24,
+      "right": 659,
+      "top": 102,
+      "bottom": 124,
+      "glare": 0,
+      "fov": 68
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "phaserBytes": 2002342,
+      "text": "\u0b8e\u0ba9\u0bcd\u0b9c\u0bbf\u0ba9\u0bcd \u0b93\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1. \u00b7 \u0b87\u0bb0\u0bb5\u0bc1 \u0ba8\u0bc7\u0bb0\u0bae\u0bcd. \u0bae\u0bc1\u0b95\u0baa\u0bcd\u0baa\u0bc1 \u0bb5\u0bbf\u0bb3\u0b95\u0bcd\u0b95\u0bc1\u0b95\u0bb3\u0bcd \u0b8e\u0bb0\u0bbf\u0b95\u0bbf\u0ba9\u0bcd\u0bb1\u0ba9.",
+      "font": 18,
+      "left": 24,
+      "right": 696,
+      "top": 102,
+      "bottom": 124,
+      "glare": 0,
+      "fov": 68
+    }
+  ],
+  "trainer": {
+    "time": "morning",
+    "planned": "night"
+  },
+  "resume": {
+    "seed": 10,
+    "clock": 500,
+    "restored": {
+      "seed": 10,
+      "clock": 500,
+      "preset": "night",
+      "headlights": true
+    }
+  },
+  "checks": 51,
+  "errors": []
+}

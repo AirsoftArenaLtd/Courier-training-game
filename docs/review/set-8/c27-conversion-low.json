@@ -1,0 +1,109 @@
+{
+  "fixture": "Offline conversion validation. The command only reads models; it does not modify gameplay.",
+  "models": [
+    {
+      "use": "town-house",
+      "bytes": 3848,
+      "triangles": 36,
+      "bounds": {
+        "x": 1.305199952125549,
+        "y": 0.8335409760475159,
+        "z": 1.030194078683853
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-house-wide",
+      "bytes": 3848,
+      "triangles": 36,
+      "bounds": {
+        "x": 1.2915258121490476,
+        "y": 1.033540964126587,
+        "z": 1.030194078683853
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-tree",
+      "bytes": 5120,
+      "triangles": 42,
+      "bounds": {
+        "x": 0.21044418215751648,
+        "y": 0.5670000314712524,
+        "z": 0.24299998581409454
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-fence",
+      "bytes": 1904,
+      "triangles": 12,
+      "bounds": {
+        "x": 0.4750000238418579,
+        "y": 0.26999998092651367,
+        "z": 0.07500000298023224
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-shop",
+      "bytes": 2684,
+      "triangles": 22,
+      "bounds": {
+        "x": 0.8835878968238831,
+        "y": 1.294292982816696,
+        "z": 0.94093999761343
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-road",
+      "bytes": 3764,
+      "triangles": 44,
+      "bounds": {
+        "x": 1,
+        "y": 0.019999999552965164,
+        "z": 1
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-streetlight",
+      "bytes": 2700,
+      "triangles": 24,
+      "bounds": {
+        "x": 0.05000000074505806,
+        "y": 0.6749999523162842,
+        "z": 0.22500000335276127
+      },
+      "parts": 1,
+      "textures": 0
+    },
+    {
+      "use": "town-parked-car",
+      "bytes": 3468,
+      "triangles": 32,
+      "bounds": {
+        "x": 1.5029999999999997,
+        "y": 1.299999988079071,
+        "z": 2.549999952316284
+      },
+      "parts": 1,
+      "textures": 0
+    }
+  ],
+  "stats": {
+    "quality": "low",
+    "loaded": 8,
+    "failed": 0,
+    "bytes": 27336,
+    "decodedBytes": 19632,
+    "errors": []
+  }
+}
