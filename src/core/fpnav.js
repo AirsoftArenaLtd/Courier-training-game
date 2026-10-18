@@ -111,7 +111,7 @@ OTR.fpNav={
   reroute(m){const n=m.navigation;n.origin={x:m.van.x,z:m.van.z};n.progress=0;this.routes&&this.routes.delete(m);m.touch();return this.route(m);},
   report(m){
     const p=m.navigation.pending;if(!p)return;const key='nav:'+p.leg;
-    if(!m.events[key]){m.log(key,'route','needs','Left the planned route without following the reroute in time.');
+    if(!m.events[key]){m.log(key,'driving','needs','Left the planned route without following the reroute in time.');
       if(OTR.workday)OTR.workday.report('drive.route',{key:p.leg,stop:p.stop===null?undefined:p.stop,ok:false,where:p.where});}
     m.navigation.pending=null;m.touch();
   },
