@@ -62,7 +62,7 @@ OTR.fpHud={
   },
   refresh(s,hint,blocked,device,aiming){
     const m=s.model,mode=m?m.mode:'walk',now=s.time.now,first=this.firstDay(m),reduced=OTR.fpAccess.reduced();
-    const busy=!!s.panel||s.external||s.transitioning;
+    const busy=!!s.panel||s.external||s.transitioning,reading=busy||(device&&!aiming);
     if(busy||device||!this.navigationAllowed(m))s.navRoot.setVisible(false);
     s.title.setVisible(false);s.objective.setVisible(false);s.status.setVisible(false);
     const keys=first&&!busy&&!device;
@@ -87,10 +87,10 @@ OTR.fpHud={
     // Captions retain every audible cue. Routine light/time captions have the same reading-time fade.
     const alert=this.alert(s),saving=s.saved===false?'Saving is unavailable. Keep this window open.':'';
     let caption=s.soundCaption||'';if(saving)caption=saving+(caption?' · '+caption:'');if(alert)caption=alert+(caption?' · '+caption:'');
-    s.setText('soundCue',busy?'':caption,device?650:700);s.soundCue.setPosition(24,18);
+    s.setText('soundCue',reading?'':caption,device?650:700);s.soundCue.setPosition(24,18);
     const lightWarning=!!(m&&m.mode==='cab'&&!m.van.headlights&&s.art&&s.art.lighting&&['dusk','night'].includes(OTR.fpLighting.time(m)));
     const captionAlpha=this.alpha(s.hud.caption,caption,s.soundCue.text,now,!!alert||!!s.soundSource||lightWarning||s.saved===false,reduced);
-    s.soundCue.setVisible(!busy&&!!caption&&captionAlpha>0).setAlpha(captionAlpha);
+    s.soundCue.setVisible(!reading&&!!caption&&captionAlpha>0).setAlpha(captionAlpha);
     s.headerBack.setPosition(12,10).setDisplaySize(Math.min(device?674:724,s.soundCue.width+24),s.soundCue.height+16).setAlpha(captionAlpha*.9).setVisible(s.soundCue.visible);
     if(s.view)s.view.mirror.top=24;
     s.reticle.setVisible(!blocked);s.mirrorLabel.setVisible(false);
