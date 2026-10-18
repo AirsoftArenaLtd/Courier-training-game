@@ -32,7 +32,8 @@ const walk = (o, from, key) => {
   if (Array.isArray(o)) { o.forEach(v => walk(v, from, key)); return; }
   if (o && typeof o === 'object') Object.keys(o).forEach(k => walk(o[k], from, k));
 };
-Object.keys(window.OTR_DATA || {}).forEach(k => walk(window.OTR_DATA[k], 'data:' + k));
+// data/credits.js is names, authors and web addresses only (generated from assets/3d by test/tools/credits.js): not text
+Object.keys(window.OTR_DATA || {}).filter(k => k !== 'credits').forEach(k => walk(window.OTR_DATA[k], 'data:' + k));
 
 // ---- the code
 const templates = new Map();

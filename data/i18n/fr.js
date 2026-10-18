@@ -3761,7 +3761,9 @@ window.OTR_I18N.fr = {
 "Service": "Service",
 "Standard": "Standard",
 "Help that day": "Aide ce jour-là",
-"Stars": "Étoiles"
+"Stars": "Étoiles",
+"Credits": "Crédits",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "La ville 3D et les véhicules utilisent des modèles gratuits que leurs créateurs mettent à la disposition de tous (CC0). Merci à :"
 },
 "templates": [
 [

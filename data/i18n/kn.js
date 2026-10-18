@@ -3760,7 +3760,9 @@ window.OTR_I18N.kn = {
 "Returns": "ರಿಟರ್ನ್ಸ್",
 "Scanned": "ಸ್ಕ್ಯಾನ್ ಆಗಿದೆ",
 "Help that day": "ಆ ದಿನದ ಸಹಾಯ",
-"Stars": "ನಕ್ಷತ್ರಗಳು"
+"Stars": "ನಕ್ಷತ್ರಗಳು",
+"Credits": "ಕ್ರೆಡಿಟ್ಸ್",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ಪಟ್ಟಣ ಮತ್ತು ವಾಹನಗಳಲ್ಲಿ ಉಚಿತ ಮಾದರಿಗಳನ್ನು ಬಳಸಲಾಗಿದೆ; ಅವುಗಳ ರಚನೆಕಾರರು ಅವನ್ನು ಎಲ್ಲರಿಗೂ ಕೊಟ್ಟಿದ್ದಾರೆ (CC0). ಧನ್ಯವಾದಗಳು:"
 },
 "templates": [
 [

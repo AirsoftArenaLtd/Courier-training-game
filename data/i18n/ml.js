@@ -3760,7 +3760,9 @@ window.OTR_I18N.ml = {
 "Returns": "റിട്ടേൺസ്",
 "Scanned": "സ്കാൻ ചെയ്തു",
 "Help that day": "ആ ദിവസത്തെ സഹായം",
-"Stars": "നക്ഷത്രങ്ങൾ"
+"Stars": "നക്ഷത്രങ്ങൾ",
+"Credits": "ക്രെഡിറ്റുകൾ",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ടൗണിലും വാഹനങ്ങളിലും സൗജന്യ മോഡലുകളാണ് ഉപയോഗിച്ചിരിക്കുന്നത്; അവയുടെ നിർമ്മാതാക്കൾ അവ എല്ലാവർക്കും നൽകിയിരിക്കുന്നു (CC0). നന്ദി:"
 },
 "templates": [
 [
