@@ -18,10 +18,9 @@ OTR.fpNav={
   obstacles(m){
     if(!this.enabled(m)||m.routePlan.day<4)return [];
     if(!this.obstacleCache)this.obstacleCache=new WeakMap();if(this.obstacleCache.has(m))return this.obstacleCache.get(m);
-    const t=m.town,half=t.road/2,s=m.stops[0],out=[];
+    const t=m.town,half=t.road/2,out=[],s=m.stops.find((s,i)=>!m.routePlan.route[i].stop.dog&&Math.abs(s.x-s.side*3.2-s.park.x)>2.1);
     // The van still parks at the public curb. The private approach is walkable around the car.
-    const x=s.x-s.side*3.2;
-    if(Math.abs(x-s.park.x)>2.1)out.push({id:'blocked-drive',x,z:s.z,w:1.7,d:3.8,h:1.35,driveway:true});
+    if(s){const x=s.x-s.side*3.2;out.push({id:'blocked-drive',stop:s.id,x,z:s.z,w:1.7,d:3.8,h:1.35,driveway:true});}
     outer:for(const cx of t.xs.slice(1))for(let i=1;i<t.zs.length;i++){
       const z=(t.zs[i-1]+t.zs[i])/2;
       if(m.roadworks&&Math.abs(cx-m.roadworks.x)<1&&Math.abs(z-m.roadworks.z)<10)continue;

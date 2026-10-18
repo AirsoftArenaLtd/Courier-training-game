@@ -32,7 +32,7 @@ const ready=(day=4,seed=7)=>{const m=model(day,seed,true,true);m.phase='route';m
 const tick=(m,seconds=0)=>{m.elapsed+=seconds;O.fpNav.tick(m,{...m.van});};
 test('new days have solid reused obstacles, reachable stops and stable restored layout',()=>{
  assert.deepEqual(plain(O.fpNav.obstacles(model(1,7,true,true))),[]);
- for(let seed=1;seed<=30;seed++){const m=ready(4,seed),obs=O.fpNav.obstacles(m);assert.equal(obs.length,2);assert.ok(obs.some(o=>o.id==='blocked-drive'));assert.ok(obs.some(o=>o.id==='double-parked'));
+ for(let seed=1;seed<=30;seed++){const m=ready(4,seed),obs=O.fpNav.obstacles(m);assert.equal(obs.length,2);assert.ok(obs.some(o=>o.id==='blocked-drive'));assert.equal(!!m.routePlan.route[obs[0].stop].stop.dog,false,'car stays clear of dog gates');assert.ok(obs.some(o=>o.id==='double-parked'));
   for(const o of obs)assert.ok(m.solids.includes(o));
   for(const stop of m.stops){const p=O.fpNav.path(m,m.van,stop.park);assert.ok(p,'reachable curb');legal(m,p);assert.equal(m.blocked(stop.x-stop.side*1.5,stop.z),false,'door approach');assert.equal(O.fp.vanBox({...stop.park},obs[0]),false,'curb remains clear');}
   const restored=O.fpMission.restore(m.snapshot());assert.ok(restored);assert.deepEqual(plain(restored.solids),plain(m.solids));
@@ -78,9 +78,9 @@ test('a checkpoint taken in reverse preserves the next navigation transition exa
 });
 test('the blocked approach leaves a continuous walking route from a real cab exit to the doorway',()=>{
  for(const day of [4,8,21])for(let seed=1;seed<=20;seed++){
-  const m=ready(day,seed),s=m.stops[0];Object.assign(m.van,s.park,{speed:0,hand:true});
+  const m=ready(day,seed),s=m.stops[O.fpNav.obstacles(m).find(o=>o.driveway).stop];Object.assign(m.van,s.park,{speed:0,hand:true});
   // Existing dog safety remains a separate obligation; test this added car after the gate is safe.
-  Object.assign(m.doorsteps.stops[0],{dogSecured:true,gateOpen:true});O.fpDoors.sync(m);assert.equal(m.exit(),true);m.traffic=[];
+  Object.assign(m.doorsteps.stops[s.id],{dogSecured:true,gateOpen:true});O.fpDoors.sync(m);assert.equal(m.exit(),true);m.traffic=[];
   const start={x:m.player.x,z:m.player.z},goal={x:s.x-s.side*1.5,z:s.z},queue=[[0,0]],seen=new Set(['0:0']);let reached=false;
   for(let at=0;at<queue.length&&at<10000;at++){const [gx,gz]=queue[at],x=start.x+gx*.4,z=start.z+gz*.4;if(Math.hypot(x-goal.x,z-goal.z)<.45){reached=true;break;}
    for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]]){const nx=gx+dx,nz=gz+dz,key=nx+':'+nz,px=start.x+nx*.4,pz=start.z+nz*.4;if(seen.has(key)||px<Math.min(start.x,goal.x)-2||px>Math.max(start.x,goal.x)+2||Math.abs(pz-s.z)>5.5||m.blocked(px,pz)||m.blocked((px+x)/2,(pz+z)/2))continue;seen.add(key);queue.push([nx,nz]);}
