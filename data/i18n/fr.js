@@ -3799,7 +3799,10 @@ window.OTR_I18N.fr = {
 "Give way to traffic before leaving the depot.": "Cède le passage à la circulation avant de quitter le dépôt.",
 "The street is closed. Follow another cross street.": "La rue est fermée. Prends une autre rue transversale.",
 "Do not enter this street from this end.": "N'entre pas dans cette rue par ce côté.",
-"Look toward a road sign, then read it again.": "Regarde vers un panneau routier, puis lis-le à nouveau."
+"Look toward a road sign, then read it again.": "Regarde vers un panneau routier, puis lis-le à nouveau.",
+"Stopped for a red traffic light": "Tu t'es arrêté au feu rouge",
+"Drove through a red traffic light": "Tu as grillé un feu rouge",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rouge veut dire s'arrêter derrière la ligne et attendre le vert, même si le carrefour semble vide."
 },
 "templates": [
 [

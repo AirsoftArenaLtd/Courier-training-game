@@ -3809,7 +3809,10 @@ window.OTR_I18N.es = {
 "Give way to traffic before leaving the depot.": "Cede el paso al tráfico antes de salir del depósito.",
 "The street is closed. Follow another cross street.": "La calle está cortada. Sigue por otra calle transversal.",
 "Do not enter this street from this end.": "No entres en esta calle por este extremo.",
-"Look toward a road sign, then read it again.": "Mira hacia una señal de tráfico y vuelve a leerla."
+"Look toward a road sign, then read it again.": "Mira hacia una señal de tráfico y vuelve a leerla.",
+"Stopped for a red traffic light": "Te detuviste en un semáforo en rojo",
+"Drove through a red traffic light": "Pasaste un semáforo en rojo",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rojo significa detenerse detrás de la línea y esperar el verde, aunque el cruce parezca vacío."
 },
 "templates": [
 [
