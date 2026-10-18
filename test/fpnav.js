@@ -76,3 +76,15 @@ test('turning aids on after an off-aid checkpoint starts from the current positi
 test('a checkpoint taken in reverse preserves the next navigation transition exactly',()=>{
  const m=ready();m.navigation.progress=40;m.van.gear=-1;tick(m,1);assert.equal(m.navigation.reversing,true);const r=O.fpMission.restore(m.snapshot());assert.ok(r);r.paused=false;m.van.gear=r.van.gear=1;tick(m,1);tick(r,1);assert.deepEqual(plain(r.navigation),plain(m.navigation));
 });
+test('the blocked approach leaves a continuous walking route from a real cab exit to the doorway',()=>{
+ for(const day of [4,8,21])for(let seed=1;seed<=20;seed++){
+  const m=ready(day,seed),s=m.stops[0];Object.assign(m.van,s.park,{speed:0,hand:true});
+  // Existing dog safety remains a separate obligation; test this added car after the gate is safe.
+  Object.assign(m.doorsteps.stops[0],{dogSecured:true,gateOpen:true});O.fpDoors.sync(m);assert.equal(m.exit(),true);m.traffic=[];
+  const start={x:m.player.x,z:m.player.z},goal={x:s.x-s.side*1.5,z:s.z},queue=[[0,0]],seen=new Set(['0:0']);let reached=false;
+  for(let at=0;at<queue.length&&at<10000;at++){const [gx,gz]=queue[at],x=start.x+gx*.4,z=start.z+gz*.4;if(Math.hypot(x-goal.x,z-goal.z)<.45){reached=true;break;}
+   for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]]){const nx=gx+dx,nz=gz+dz,key=nx+':'+nz,px=start.x+nx*.4,pz=start.z+nz*.4;if(seen.has(key)||px<Math.min(start.x,goal.x)-2||px>Math.max(start.x,goal.x)+2||Math.abs(pz-s.z)>5.5||m.blocked(px,pz)||m.blocked((px+x)/2,(pz+z)/2))continue;seen.add(key);queue.push([nx,nz]);}
+  }
+  assert.equal(reached,true,'car blocks the doorway on day '+day+' seed '+seed);
+ }
+});
