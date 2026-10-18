@@ -23,6 +23,11 @@ test('Low scenery stays bounded through repeated culling and shares geometry/mat
   for(const g of t.groups)for(const mesh of g.children){assert.equal(mesh.material,t.paint);assert.ok(mesh.material.vertexColors);assert.ok(!mesh.material.map);assert.ok(mesh.userData.fpAsset);}
  }w.art.dispose();
 });
+test('High retains offscreen town instances for shadows when the trainee turns around',()=>{
+ const w=world(true),stop=w.m.stops[0];w.m.mode='walk';Object.assign(w.m.player,{x:stop.park.x,z:stop.park.z,yaw:0});w.art.sync(w.m,null,'route');
+ const counts=()=>w.art.assetGroups.flatMap(g=>g.children.map(mesh=>mesh.count)),before=counts();assert.ok(before.some(n=>n>0));
+ w.m.player.yaw=Math.PI;w.art.sync(w.m,null,'route');assert.deepEqual(counts(),before);w.art.dispose();
+});
 test('full source detail is limited by the existing High scenery distance',()=>{
  const w=world(true);w.art.townArt.select(0,0);const selected=w.art.townArt.choices.filter(x=>x.selected);assert.ok(selected.length>0);assert.ok(selected.every(x=>x.x*x.x+x.z*x.z<95*95));assert.equal(w.art.townArt.triangleLimit,Infinity);w.art.dispose();
 });

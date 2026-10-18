@@ -71,7 +71,8 @@ OTR.fpActors={
     const make=(kind,uniform,skin,role='resident')=>{const a=this.character(models.get(role+'-'+kind),paint,uniform,skin);if(a){route.add(a.mesh);a.mesh.visible=false;people.push(a);}return a;};
     const courier=make(m.seed%2?'men':'women',brand.uniform,undefined,'worker'),crossing=make('women',0x728e9a),residents=m.stops.map((s,i)=>{const a=m._doorSpecs&&m._doorSpecs[i];return make(i%2?'men':'women',a?a.shirt:0x608987,a&&a.skin);});
     if(vehicle)van.add(vehicle.mesh);
-    const panels=doors.map((proxy,i)=>{if(!residents[i])return null;const s=m.stops[i],root=new T.Group(),panel=new T.Mesh(proxy.geometry,proxy.material);root.position.set(s.x,0,s.z-.625);panel.position.set(0,1.3,.625);panel.scale.copy(proxy.scale);root.add(panel);route.add(root);proxy.layers.set(1);return root;});
+    const doorGeometry=high?null:new T.PlaneGeometry(1,1).rotateY(Math.PI/2),doorPaint=high?null:new T.MeshLambertMaterial({color:0x654B70,side:T.DoubleSide});
+    const panels=doors.map((proxy,i)=>{if(!residents[i])return null;const s=m.stops[i],root=new T.Group(),panel=new T.Mesh(doorGeometry||proxy.geometry,doorPaint||proxy.material);root.position.set(s.x,0,s.z-.625);panel.position.set(0,1.3,.625);panel.scale.copy(proxy.scale);root.add(panel);route.add(root);proxy.layers.set(1);return root;});
     const doorCount=panels.filter(Boolean).length,recessPaint=new T.MeshLambertMaterial({color:0x202832}),recess=doorCount?new T.InstancedMesh(new T.PlaneGeometry(1,1),recessPaint,doorCount):null;
     if(recess){const matrix=new T.Matrix4(),rotation=new T.Quaternion(),size=new T.Vector3(1.25,2.5,1),position=new T.Vector3();let at=0;for(const s of m.stops)if(panels[s.id]){position.set(s.x+s.side*.045,1.3,s.z);rotation.setFromAxisAngle(new T.Vector3(0,1,0),-s.side*Math.PI/2);matrix.compose(position,rotation,size);recess.setMatrixAt(at++,matrix);}recess.frustumCulled=false;recess.name='actor:door-recesses';route.add(recess);}
     const api={vehicle,courier,crossing,residents,paint,people,panels,recess,residentMask:0,opening:()=>cargo,
@@ -87,7 +88,7 @@ OTR.fpActors={
           if(!a)continue;a.mesh.visible=s.id===nearest;if(!a.mesh.visible)continue;api.residentMask|=1<<s.id;const age=start.has(s.id)?time-start.get(s.id):4,progress=reduced?1:Math.min(1,Math.max(0,(age-.25)/.65));
           a.mesh.position.set(s.x-s.side*.8*progress,0,s.z);a.mesh.rotation.y=-s.side*Math.PI/2;a.pose(age<.9?'Walk':age<3.2?'Wave':'Interact',age,reduced,high);
         }
-      },reflect(on,model){if(courier)courier.mesh.visible=!!(on&&model.mode==='walk'&&Math.hypot(model.player.x-model.van.x,model.player.z-model.van.z)<35);},dispose(){people.forEach(p=>p.dispose());if(vehicle)vehicle.dispose();paint.dispose();recessPaint.dispose();}
+      },reflect(on,model){if(courier)courier.mesh.visible=!!(on&&model.mode==='walk'&&Math.hypot(model.player.x-model.van.x,model.player.z-model.van.z)<35);},dispose(){people.forEach(p=>p.dispose());if(vehicle)vehicle.dispose();paint.dispose();recessPaint.dispose();if(doorPaint)doorPaint.dispose();if(doorGeometry&&!panels.some(Boolean))doorGeometry.dispose();}
     };return api;
   }
 };

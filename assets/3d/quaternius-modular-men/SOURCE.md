@@ -1,4 +1,4 @@
-# C-28 converted quaternius-modular-men
+# Ultimate Modular Men
 
 Author: Quaternius. Licence: CC0.
 Source: https://quaternius.com/

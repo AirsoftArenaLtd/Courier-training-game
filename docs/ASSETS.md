@@ -72,5 +72,7 @@ The packs the game ships, with thanks (the game lists them on the title screen u
 | City Kit Commercial 2.1 (`kenney-city-commercial`) | Kenney | CC0 | https://kenney.nl/assets/city-kit-commercial |
 | City Kit Roads (`kenney-city-roads`) | Kenney | CC0 | https://kenney.nl/assets/city-kit-roads |
 | Car Kit 3.1 (`kenney-car-kit`) | Kenney | CC0 | https://kenney.nl/assets/car-kit |
+| Ultimate Modular Men (`quaternius-modular-men`) | Quaternius | CC0 | https://quaternius.com/ |
+| Ultimate Modular Women (`quaternius-modular-women`) | Quaternius | CC0 | https://quaternius.com/ |
 
 <!-- /credits -->

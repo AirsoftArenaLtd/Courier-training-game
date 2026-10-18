@@ -1,4 +1,4 @@
-# C-28 converted quaternius-modular-women
+# Ultimate Modular Women
 
 Author: Quaternius. Licence: CC0.
 Source: https://quaternius.com/
