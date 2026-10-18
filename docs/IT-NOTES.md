@@ -69,8 +69,8 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
 - `node test/offline.js` (needs the test tools: `cd test && npm install`, plus any Chrome or Chromium) fails if any
   request leaves the training server, including the 3D models, which load from `assets/3d/` in the game folder.
 - `node test/package.js` checks the LMS package: only run-time files, every file a page loads, the size budget.
-- `node test/scorm-launch.js` (needs Chrome or Chromium) launches the SCORM 1.2 package as an LMS does, in a frame with
-  the SCORM API: the game must find the LMS and read the learner, the 3D workday must load every model at Low and High
+- `node test/scorm-launch.js` (needs Chrome or Chromium; `--2004` for the SCORM 2004 package) launches the package as an
+  LMS does, in a frame with that version's SCORM API: the game must find the LMS and read the learner, the 3D workday must load every model at Low and High
   from the zip, and nothing may be missing from it or come from outside it.
 - **3D model files:** free CC0 models and textures in `assets/3d/` (each pack with its licence; `docs/ASSETS.md`), at
   most 40 MB in all and 15 MB for the Low graphics setting. They are served like the rest of the game; nothing is

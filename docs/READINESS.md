@@ -19,6 +19,7 @@ rules for data and the learning system. Merging `pilot` into `main` is the owner
 | Languages | Every sentence has a translation in all 11 languages. Layout: the 3D screens in 12 languages at normal and larger text (216 layouts, C-15), and the browser scenarios in English for all 39, plus Tamil at larger text for 37 of them (one overflow found and fixed; the rest not rerun after a machine restart). A full pass in each other language was not run | translations complete; full-scenario layout pass done in English and mostly Tamil only |
 | Resume | 30 seeds saved and restored at 3,000+ checkpoints give the same day as an uninterrupted one; 100 shuffled days finish | passes (`test/fpresume.js`) |
 | LMS | SCORM 1.2 and 2004 with a stand-in LMS: complete needs a finished workday, passed needs the pass marks | passes |
+| LMS packages | `node test/scorm-launch.js` and `node test/scorm-launch.js --2004` build each package, unpack it and launch it in a frame with that version's API, as an LMS does: the learner and saved progress are read, every 3D model loads at Low and High from the zip (none falls back), nothing is missing and nothing comes from outside (B-40, B-42) | passes, 208 files each |
 | Rendering cost | Low graphics 42 draw calls at the busiest view (down from 50), High 52 (down from 69); frozen-frame comparisons match | passes (`docs/PERF.md`) |
 
 The QA machine renders in software (no graphics card), so its frame rates (10 to 30) say nothing about real laptops.
