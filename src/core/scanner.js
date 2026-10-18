@@ -301,16 +301,20 @@ OTR.Handheld = class {
         const t = i / 60;
         pts.push({ x: bx + t * span, y: by - 18 * Math.sin(t * 22) * (0.5 + 0.5 * Math.sin(t * 5)) - 10 * Math.sin(t * 3) });
       }
-      let k = 1;
+      // drawn by the clock, not by frames: about 1.3 s on any PC (one stroke a frame took 20 s and more on a slow one,
+      // and the signature waited for it: B-33)
+      const start = s.time.now, last = pts.length - 1;
+      let drawn = 0;
       const ev = s.time.addEvent({
-        delay: 22, repeat: pts.length - 2, callback: () => {
-          const upTo = k;
+        delay: 22, loop: true, callback: () => {
+          const upTo = Math.min(last, 1 + Math.floor((s.time.now - start) / 22));
+          if (upTo === drawn) return;
+          drawn = upTo;
           ink.redraw((g) => {
             g.lineStyle(3, OTR_DATA.theme.ink, 1);
             for (let j = 1; j <= upTo; j++) g.lineBetween(pts[j - 1].x, pts[j - 1].y, pts[j].x, pts[j].y);
           });
-          k++;
-          if (k >= pts.length && wd.onDone) wd.onDone();
+          if (upTo >= last) { ev.remove(); if (wd.onDone) wd.onDone(); }
         }
       });
       this.screen.once('destroy', () => ev.remove());
