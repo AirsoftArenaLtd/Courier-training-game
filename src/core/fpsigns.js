@@ -97,7 +97,7 @@ OTR.fpSigns = {
     for(const sign of [...catalog.stops,...catalog.regulatory,...catalog.streets,...catalog.numbers]){
       if(sign.kind==='priority')continue;
       const number=sign.kind==='number',street=sign.kind==='street',yaw=number?-sign.side*Math.PI/2:street?(sign.axis==='x'?Math.PI/2:0): -sign.yaw;
-      const w=number?.65:street?2.2:1.05,h=number?.3:street?3.4:2.7,y=number?2.7:h/2;
+      const w=number?.65:street?2.2:1.05,h=number?.3:street?3.4:sign.kind==='signal'?4.7:2.7,y=number?2.7:h/2;
       o.position.set(sign.x,y,sign.z);o.rotation.set(Math.PI/2,yaw,0,'YXZ');o.scale.set(w,1,h);o.updateMatrix();
       const local=new T.Vector3(sign.x,number?y:h-.32,sign.z),normal=new T.Vector3(Math.sin(yaw),0,Math.cos(yaw));local.addScaledVector(normal,.025);
       const label={parent:route,local,normal,point:new T.Vector3(),max:32,text:this.text(sign)};
@@ -125,7 +125,7 @@ OTR.fpSigns = {
     paint.onBeforeCompile=function(shader,renderer){before.call(this,shader,renderer);
       shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nattribute float otrSignShape; varying float signShape; varying vec2 signUV;').replace('#include <begin_vertex>','#include <begin_vertex>\nsignShape=otrSignShape;signUV=uv;');
       shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying float signShape; varying vec2 signUV;').replace('#include <color_fragment>',`#include <color_fragment>
-        if(signShape>.5){float bottom=signShape>12.5?0.:signShape>9.5?.48:signShape>8.5?0.:signShape<1.5?.83:.62;
+        if(signShape>.5){float bottom=signShape>12.5?0.:signShape>9.5?.7:signShape>8.5?0.:signShape<1.5?.83:.62;
           if(signUV.y<bottom){if(abs(signUV.x-.5)>.035)discard;diffuseColor.rgb=vec3(.32,.36,.38);}
           else{vec2 p=vec2(signUV.x,(signUV.y-bottom)/(1.-bottom));vec2 a=abs(p-.5);
             if(signShape>1.5&&signShape<2.5&&a.x+a.y>.72)discard;
@@ -148,10 +148,10 @@ OTR.fpSigns = {
           }
         }`);
       shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
-        if(signShape>9.5&&signShape<12.5&&signUV.y>.48){vec2 p=vec2(signUV.x,(signUV.y-.48)/.52);float lamp=signShape<10.5?.8:signShape<11.5?.5:.2;
+        if(signShape>9.5&&signShape<12.5&&signUV.y>.7){vec2 p=vec2(signUV.x,(signUV.y-.7)/.3);float lamp=signShape<10.5?.8:signShape<11.5?.5:.2;
           if(length(vec2((p.x-.5)*1.5,p.y-lamp))<.115)totalEmissiveRadiance+=diffuseColor.rgb*.65;}
       `);
-    };paint.customProgramCacheKey=()=>cache+'|otr-sign-shapes-2';paint.needsUpdate=true;return shapes;
+    };paint.customProgramCacheKey=()=>cache+'|otr-sign-shapes-3';paint.needsUpdate=true;return shapes;
   },
   createUI(scene){
     scene.signUI={lastAt:-1000,readIndex:-1,occupied:[],pool:Array.from({length:5},()=>({back:scene.add.rectangle(0,0,1,1,0x10232E,.9).setDepth(9).setVisible(false),text:OTR.txt(scene,0,0,'',OTR.fpAccess.settings().large?22:18,'#ffffff',{wrap:220,align:'center'}).setDepth(10).setVisible(false),entry:null}))};
