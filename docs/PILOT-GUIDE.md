@@ -73,6 +73,18 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
   or the stalk), headlights (L) and wipers (K). P turns the view to each control in turn and says what it does, so a
   trainee who cannot use a mouse can do all of it from the keyboard.
 
+**What the day looks like.** The town, the van and the people are 3D models now (free CC0 models; their makers are
+thanked under **Credits** on the title screen). Each workday has a time and weather of its own, so tell trainees what to
+expect:
+
+- **Time of day:** morning, midday, dusk or night. At dusk and at night the cab tells the trainee to switch the
+  headlights on before moving (L, or the light switch). Night runs can be turned off in **3D workday aids…**.
+- **Weather:** rain on the windscreen (the wipers clear it: K, or the stalk), fog that hides distance, snow and ice.
+  The weather changes what the trainee sees and how far ahead they can look, not the rules: drive to the conditions.
+- **People:** residents come to the door and the courier is animated; nothing about them is scored.
+
+If a PC is slow with all of this, **Settings → Graphics → Low** draws less and keeps the same day.
+
 Practice modules and assessments can come before or after the workday. A good order is: one practice session on
 the modules the company cares about most, then the workday, then the assessments.
 
