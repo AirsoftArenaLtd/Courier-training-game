@@ -180,10 +180,11 @@ OTR.fpTraffic = {
     if (m.routePlan.day < 3) return;
     const h = m.crossing, v = m.van, school = m.town.school;
     if (h.state === 'resolved') return;
-    if (h.state === 'waiting' && m.departed && Math.abs(v.x - school.x) < m.town.road && Math.abs(v.z - h.z) < 32) { h.state = 'developing'; m.touch(); }
+    const ahead=(h.z-v.z)*-Math.cos(v.yaw),approaching=Math.abs(Math.cos(v.yaw))>.7&&Math.abs(v.x-school.x)<m.town.road;
+    if (h.state === 'waiting' && m.departed && m.mode==='cab'&&approaching&&ahead>3&&ahead<32) { h.state = 'developing'; m.touch(); }
     if (h.state === 'waiting') return;
     h.clock += dt;
-    if (Math.abs(v.z - h.z) > 7 && Math.abs(v.speed) < 3) h.early = true;
+    if (approaching&&ahead>7&&Math.abs(v.speed)<3)h.early=true;
     if (h.state === 'developing' && h.clock >= 2 && this.crossingClear(m)) { h.state = 'crossing'; m.touch(); }
     if (h.state !== 'crossing') return;
     const next = m._trafficBodies.next; next.x = h.x + .95 * dt; next.z = h.z + .4; next.w = .7; next.d = 1.5;

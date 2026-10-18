@@ -312,3 +312,10 @@ test('school crossings stay clear of the combined navigation obstructions and ro
   if(seed===7)assert.equal(h.z,(m.town.school.z0+m.town.school.z1)/2,'fixed rendered fixture unchanged');
  }
 });
+
+test('anticipation credit belongs to a real approach, not cross-street driving or stopping afterwards',()=>{
+ const m=make(),h=m.crossing;Object.assign(m.van,{x:m.town.school.x,z:h.z+10,yaw:Math.PI/2,speed:0});
+ T.crossingStep(m,.1);assert.equal(h.state,'waiting');assert.equal(h.early,false);
+ h.state='developing';Object.assign(m.van,{yaw:0,z:h.z-10});T.crossingStep(m,.1);assert.equal(h.early,false,'a stop after passing is not early slowing');
+ Object.assign(m.van,{yaw:Math.PI});T.crossingStep(m,.1);assert.equal(h.early,true,'the opposite valid approach is supported');
+});
