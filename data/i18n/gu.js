@@ -3798,7 +3798,10 @@ window.OTR_I18N.gu = {
 "Give way to traffic before leaving the depot.": "ડેપોમાંથી નીકળતા પહેલાં ટ્રાફિકને રસ્તો આપો.",
 "The street is closed. Follow another cross street.": "આ શેરી બંધ છે. બીજી આડી શેરીમાં જાઓ.",
 "Do not enter this street from this end.": "આ છેડેથી આ શેરીમાં પ્રવેશ કરશો નહીં.",
-"Look toward a road sign, then read it again.": "કોઈ રસ્તાના ચિહ્ન તરફ જુઓ, પછી તેને ફરી વાંચો."
+"Look toward a road sign, then read it again.": "કોઈ રસ્તાના ચિહ્ન તરફ જુઓ, પછી તેને ફરી વાંચો.",
+"Stopped for a red traffic light": "લાલ ટ્રાફિક લાઇટ પર થોભ્યા",
+"Drove through a red traffic light": "લાલ ટ્રાફિક લાઇટ પરથી પસાર થઈ ગયા",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "લાલ એટલે લાઇનની પાછળ થોભવું અને લીલી લાઇટની રાહ જોવી, ભલે ચોકડી ખાલી લાગે."
 },
 "templates": [
 [

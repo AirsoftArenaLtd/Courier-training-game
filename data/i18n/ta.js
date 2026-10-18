@@ -3798,7 +3798,10 @@ window.OTR_I18N.ta = {
 "Give way to traffic before leaving the depot.": "டிப்போவிலிருந்து புறப்படுவதற்கு முன் போக்குவரத்துக்கு வழிவிடுங்கள்.",
 "The street is closed. Follow another cross street.": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
 "Do not enter this street from this end.": "இந்த முனையிலிருந்து இந்தத் தெருவில் நுழையாதீர்கள்.",
-"Look toward a road sign, then read it again.": "ஒரு சாலை அடையாளத்தின் பக்கம் பாருங்கள், பிறகு அதை மீண்டும் படியுங்கள்."
+"Look toward a road sign, then read it again.": "ஒரு சாலை அடையாளத்தின் பக்கம் பாருங்கள், பிறகு அதை மீண்டும் படியுங்கள்.",
+"Stopped for a red traffic light": "சிவப்பு சிக்னலில் நின்றீர்கள்",
+"Drove through a red traffic light": "சிவப்பு சிக்னலைத் தாண்டிச் சென்றீர்கள்",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "சிவப்பு என்றால் கோட்டுக்குப் பின் நின்று பச்சைக்காகக் காத்திருப்பது, சந்திப்பு காலியாகத் தெரிந்தாலும்."
 },
 "templates": [
 [

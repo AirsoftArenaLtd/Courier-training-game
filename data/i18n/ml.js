@@ -3798,7 +3798,10 @@ window.OTR_I18N.ml = {
 "Give way to traffic before leaving the depot.": "ഡിപ്പോയിൽ നിന്ന് പുറപ്പെടുന്നതിന് മുമ്പ് ഗതാഗതത്തിന് വഴി നൽകുക.",
 "The street is closed. Follow another cross street.": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
 "Do not enter this street from this end.": "ഈ അറ്റത്തുനിന്ന് ഈ തെരുവിൽ പ്രവേശിക്കരുത്.",
-"Look toward a road sign, then read it again.": "ഒരു റോഡ് അടയാളത്തിലേക്ക് നോക്കുക, എന്നിട്ട് അത് വീണ്ടും വായിക്കുക."
+"Look toward a road sign, then read it again.": "ഒരു റോഡ് അടയാളത്തിലേക്ക് നോക്കുക, എന്നിട്ട് അത് വീണ്ടും വായിക്കുക.",
+"Stopped for a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റിൽ നിർത്തി",
+"Drove through a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റ് കടന്നുപോയി",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ചുവപ്പ് എന്നാൽ വരയ്ക്ക് പിന്നിൽ നിർത്തി പച്ചയ്ക്കായി കാത്തിരിക്കുക, ജങ്ഷൻ ഒഴിഞ്ഞതായി തോന്നിയാലും."
 },
 "templates": [
 [

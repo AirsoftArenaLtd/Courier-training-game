@@ -3798,7 +3798,10 @@ window.OTR_I18N.kn = {
 "Give way to traffic before leaving the depot.": "ಡಿಪೋದಿಂದ ಹೊರಡುವ ಮೊದಲು ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡಿ.",
 "The street is closed. Follow another cross street.": "ರಸ್ತೆ ಮುಚ್ಚಲಾಗಿದೆ. ಬೇರೊಂದು ಅಡ್ಡ ರಸ್ತೆಯನ್ನು ಅನುಸರಿಸಿ.",
 "Do not enter this street from this end.": "ಈ ತುದಿಯಿಂದ ಈ ರಸ್ತೆಯನ್ನು ಪ್ರವೇಶಿಸಬೇಡಿ.",
-"Look toward a road sign, then read it again.": "ಒಂದು ರಸ್ತೆ ಚಿಹ್ನೆಯ ಕಡೆಗೆ ನೋಡಿ, ನಂತರ ಅದನ್ನು ಮತ್ತೆ ಓದಿ."
+"Look toward a road sign, then read it again.": "ಒಂದು ರಸ್ತೆ ಚಿಹ್ನೆಯ ಕಡೆಗೆ ನೋಡಿ, ನಂತರ ಅದನ್ನು ಮತ್ತೆ ಓದಿ.",
+"Stopped for a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಬಳಿ ನಿಂತಿರಿ",
+"Drove through a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ದಾಟಿ ಹೋದಿರಿ",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ಕೆಂಪು ಎಂದರೆ ಗೆರೆಯ ಹಿಂದೆ ನಿಂತು ಹಸಿರಿಗಾಗಿ ಕಾಯುವುದು, ಜಂಕ್ಷನ್ ಖಾಲಿ ಕಾಣಿಸಿದರೂ ಸರಿ."
 },
 "templates": [
 [
