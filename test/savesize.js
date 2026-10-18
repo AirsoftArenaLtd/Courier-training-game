@@ -295,3 +295,44 @@ test('SCORM 2004 and local saves are not cut', () => {
   assert.equal(stage(local), 'full'); assert.equal(local.history.length, 60); assert.equal(local.workday.last.events.length, 40);
   delete context.localStorage;
 });
+
+test('B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course', () => {
+  asScorm(false);
+  heavy();
+  // what the course is scored on (times are kept to the minute when the save is packed)
+  const marks = (d) => JSON.stringify([Object.entries(d.scenarios).map(([k, v]) => [k, v.plays, v.bestScore, v.bestStars]),
+    Object.entries(d.assess).map(([k, v]) => [k, v.passed])]);
+  const course = marks(SAVE.data);
+  // the trainer's aids, so every day records which help was on (B-21)
+  OTR.academy = { summary: () => null, get: () => ({}), workdayRules: (day) => ({ hints: day < 3, satnav: day < 5, mirrors: day < 8, rear: true, night: day % 2 === 0 }) };
+  const leave = W.leave; W.leave = () => {};                        // no screens in a Node test
+  let rec;
+  try {
+    for (let day = 1; day <= 25; day++) {
+      W.start(null);
+      const list = longDay(30, 12);
+      list.push(['drive.sign-stop', { key: 'run' + day, ok: false, where: { x: day, z: -day, mph: 12 } }]);
+      play(list);
+      rec = W.finish({ model: { routePlan: { townSeed: 1000 + day } } }, { stops: [] });
+      assert.equal(lms.refused, 0, `day ${day}: the LMS never refused a save`);
+      assert.ok(lms.longest <= SAVE.SCORM12_LIMIT, `day ${day}: every save within the limit (longest ${lms.longest})`);
+    }
+  } finally { W.leave = leave; delete OTR.academy; }
+  assert.ok(rec.aids, 'the day recorded its aids');
+  reload();
+  const S = SAVE.data, last = S.workday.last;
+  assert.equal(S.route.days, 35, 'every workday counted (10 before, 25 now)');
+  assert.equal(marks(S), course, 'the course\'s stars and assessments are never lost');
+  assert.ok(S.history.filter(h => h.id === 'workday').length >= 1, 'the Workdays table still has its latest days');
+  // the route history went first to make room; the LMS must still see the workday finished and passed
+  OTR.academy = { get: () => ({ passStars: { safety: 0, efficiency: 1, service: 1 } }) };
+  try {
+    const st = W.lmsState();
+    assert.ok(st.finished, 'the LMS still sees a finished workday');
+    assert.ok(st.passed, 'and a passed one');
+    assert.ok(st.stars.efficiency >= 2, 'with its best stars');
+  } finally { delete OTR.academy; }
+  assert.equal(last.score, rec.score, 'the last workday keeps its score');
+  assert.equal(last.townSeed, 1025, 'and its town, for the drive map');
+  assert.ok(S.workday.first && S.workday.first.at, 'the first day is kept for the before-and-after report');
+});

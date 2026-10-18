@@ -56,12 +56,17 @@ OTR.workday = {
   lmsState() {
     const cfg = (window.OTR_DATA && OTR_DATA.config) || {};
     const S = OTR.save && OTR.save.data;
-    const days = S && S.route && Array.isArray(S.route.history) ? S.route.history.filter(h => h && h.kind === 'workday' && h.stars) : [];
+    // the days on record: a full SCORM 1.2 save sheds the route history first (OTR.save.fit), so the record of runs, the
+    // last day and the route's own totals (days, best, passed) also count (B-36)
+    const R = (S && S.route) || {}, W = (S && S.workday) || {};
+    const days = [].concat(Array.isArray(R.history) ? R.history : [], Array.isArray(S && S.history) ? S.history.filter(h => h && h.id === 'workday') : [],
+      W.last ? [W.last] : []).filter(h => h && h.stars);
     const cats = (OTR.scoring && OTR.scoring.CATS) || ['safety', 'efficiency', 'service'];
     const need = (OTR.academy && OTR.academy.get && OTR.academy.get().passStars) || {};
     const metBy = (h) => cats.every(c => (h.stars[c] || 0) >= (need[c] || 0));
-    const best = {}; cats.forEach(c => { best[c] = days.reduce((m, h) => Math.max(m, h.stars[c] || 0), 0); });
-    return { counts: cfg.lmsWorkday !== false && this.offered(), finished: days.length > 0, passed: days.some(metBy), stars: best };
+    const best = {}; cats.forEach(c => { best[c] = Math.max((R.best && R.best[c]) || 0, days.reduce((m, h) => Math.max(m, h.stars[c] || 0), 0)); });
+    return { counts: cfg.lmsWorkday !== false && this.offered(), finished: days.length > 0 || (R.days || 0) > 0,
+      passed: !!R.passed || days.some(metBy), stars: best };
   },
 
   /** The trainee's saved workdays: { current, last }. */
@@ -273,8 +278,8 @@ OTR.workday = {
       at: Date.now(), seconds: Math.min(4 * 3600, seconds),
       stars, ratios, untested, score: log.score(),
       criticals: criticals.map(it => it.label),
-      criticalTypes: criticals.map(it => it.type || null),
-      aids: (cur && cur.aids) || this.aidsNow() || undefined,     // which help was on that day (B-21)        // the same mistakes as event types, for the LMS (B-22)
+      criticalTypes: criticals.map(it => it.type || null),        // the same mistakes as event types, for the LMS (B-22)
+      aids: (cur && cur.aids) || this.aidsNow() || undefined,     // which help was on that day (B-21)
       lessons: log.takeaways(undefined, cats).slice(0, 5).map(t => t.text),
       stops, delivered: stops.filter(s => s.delivered).length,
       events: (cur ? cur.events : this.events).slice()
@@ -300,6 +305,8 @@ OTR.workday = {
     const prevBest = Object.assign({}, S.route.best), firstPlay = !this.saved().last;
     S.route.days = (S.route.days || 0) + 1;
     OTR.scoring.CATS.forEach(c => { S.route.best[c] = Math.max(S.route.best[c] || 0, rec.stars[c]); });
+    const need = (OTR.academy && OTR.academy.get && OTR.academy.get().passStars) || {};
+    if (OTR.scoring.CATS.every(c => (rec.stars[c] || 0) >= (need[c] || 0))) S.route.passed = true;   // kept by every save (B-36)
     S.route.history.push({ kind: 'workday', day: rec.day, at: rec.at, stars: rec.stars, ratios: rec.ratios, delivered: rec.delivered, minutes: Math.round(rec.seconds / 60), aids: rec.aids });
     S.route.history = S.route.history.slice(-10);
     const h = S.history = S.history || [];

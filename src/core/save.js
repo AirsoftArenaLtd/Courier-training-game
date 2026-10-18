@@ -183,7 +183,7 @@ OTR.save = {
       () => {
         const c = cur(), last = W() && W().last;
         const keep = { version: d.version, profile: d.profile, day: d.day, settings: d.settings, scenarios: d.scenarios, sc: d.sc,
-          route: { days: (d.route && d.route.days) || 0, best: d.route && d.route.best }, assess: d.assess, as: d.as, quiz: d.quiz,
+          route: { days: (d.route && d.route.days) || 0, best: d.route && d.route.best, passed: d.route && d.route.passed }, assess: d.assess, as: d.as, quiz: d.quiz,
           workday: { current: c || null, last: last ? { day: last.day, at: last.at, stars: last.stars, ratios: last.ratios, score: last.score, untested: last.untested, events: [] } : null },
           savedAt: d.savedAt, truncated: true };
         d = keep;
