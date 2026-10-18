@@ -39,10 +39,12 @@ use `OTR.workday.report(type, { key, stop, ok, where })`; the 3D controller neve
 
 Children wait by the school crossing, begin only after a clear traffic gap, and remain
 solid while waiting, crossing and standing on the far curb. Each proposed walking step
-checks the van and walking trainee. Cars yield to the crossing. A motor conflict reports
+checks the van, walking trainee, traffic and solid bodies. Cars yield to the crossing;
+the existing school bus and emergency vehicle also stop before the new actors. A motor conflict reports
 one failed `drive.pedestrian`; finishing the crossing reports its successful obligation
 only if that key has no prior report. The same conflict does not add a generic contact
-penalty. First-day adult crossing behaviour is unchanged.
+penalty. A later physical impact after a safely completed crossing or cyclist turn still
+reports contact. First-day adult crossing behaviour is unchanged.
 
 The bicycle appears behind and to the right when the van is moving slowly on a street.
 Its collision body and controlled motion respect traffic, signals, people and solid
