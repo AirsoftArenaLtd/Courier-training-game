@@ -1,0 +1,91 @@
+{
+  "sixSelections": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 5086.5,
+      "lang": "en"
+    },
+    {
+      "text": "Drive is selected.",
+      "time": 6849.800000000745,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 8480.700000000186,
+      "lang": "en"
+    }
+  ],
+  "controlsAndMirror": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 5086.5,
+      "lang": "en"
+    },
+    {
+      "text": "Drive is selected.",
+      "time": 6849.800000000745,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 8480.700000000186,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in reverse.",
+      "time": 10038.600000000559,
+      "lang": "en"
+    },
+    {
+      "text": "The headlights are on. Press E to switch them off.",
+      "time": 11577.5,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in drive.",
+      "time": 13099.800000000745,
+      "lang": "en"
+    },
+    {
+      "text": "Look at the left mirror for a moment to check it.",
+      "time": 14701.900000000373,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 16497.700000000186,
+      "lang": "en"
+    }
+  ],
+  "panelProtectedForMs": 1900,
+  "stopAndBands": [
+    {
+      "text": "Stop. A rear obstacle is within 0.5 meters.",
+      "time": 19274.5,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within three meters.",
+      "time": 20864.900000000373,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within one meter.",
+      "time": 22468.400000000373,
+      "lang": "en"
+    }
+  ],
+  "reverseFourSeconds": {
+    "said": [
+      {
+        "text": "The parking brake is off. Press E to set it.",
+        "time": 25676.700000000186,
+        "lang": "en"
+      }
+    ],
+    "speed": -1.7
+  },
+  "checks": 19,
+  "errors": []
+}

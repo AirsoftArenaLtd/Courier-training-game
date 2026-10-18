@@ -497,6 +497,61 @@
       "sha256": "98c1e60548a350638c343a69b5ea69dc8d6fe44d091f0e0f1dbcef0a506ef494"
     },
     {
+      "file": "c30-narration-review-browser.log",
+      "bytes": 39,
+      "sha256": "15b787328c52ae04c07c33e63db6aebd8499c599fff6d9e7b7b0034e10140f39"
+    },
+    {
+      "file": "c30-narration-review-fpaccess.log",
+      "bytes": 1196,
+      "sha256": "4e10d6003410ac91a5ffc71d457785eb26eb2d0311fd5ad3a0d46be78c1c1329"
+    },
+    {
+      "file": "c30-narration-review-fpguide.log",
+      "bytes": 436,
+      "sha256": "91c7db2896d5e16078e300144fff3ddc04aec04172674fe4c6edefedd1b1bacc"
+    },
+    {
+      "file": "c30-narration-review-fphud.log",
+      "bytes": 885,
+      "sha256": "fcbb124009e3aeab1899ff80f7a075618030564a0018f6b4dacb34d34fcad028"
+    },
+    {
+      "file": "c30-narration-review-fpmission.log",
+      "bytes": 3783,
+      "sha256": "92420bb042ea51e6005906ed06c6b8f2b0de0310982a5046df1c70be91f20943"
+    },
+    {
+      "file": "c30-narration-review-fpsigns.log",
+      "bytes": 2154,
+      "sha256": "9fe40107c85fca9c42b688c6f31459df2244b946444ea31939903c7650026c37"
+    },
+    {
+      "file": "c30-narration-review-fpworld.log",
+      "bytes": 2472,
+      "sha256": "fb7c908804166f188ff21b5bb4f3a7fdc4c01c7e0a4f786266b3234f5169d418"
+    },
+    {
+      "file": "c30-narration-review-i18n.log",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "c30-narration-review-savesize.log",
+      "bytes": 1393,
+      "sha256": "2d85670af9ecb4656146b5a4f34e4e876112bca0a00193d343db99b220bb35eb"
+    },
+    {
+      "file": "c30-narration-review-unit.log",
+      "bytes": 1397,
+      "sha256": "a96c6fc0177d7002ef05c756aed8c52d489d6a12665673c60c7284510d65ac80"
+    },
+    {
+      "file": "c30-narration-review-workday.log",
+      "bytes": 2164,
+      "sha256": "e59db86adff6a3134e8c55972d376902120215024853b422e78344e9d6ddda5c"
+    },
+    {
       "file": "c30-node.json",
       "bytes": 718,
       "sha256": "216458612711f007256903abb7dcba110ccbfd235b1d2cd3a0906f2a9299a4b3"
@@ -565,6 +620,21 @@
       "file": "c30-syntax.json",
       "bytes": 1190,
       "sha256": "1748d0bf6db7cfc24c0fa5b1a4cb78a3a5e04d2de4c5ddff90e26692e043cfa9"
+    },
+    {
+      "file": "review-b30-narrated-cab.png",
+      "bytes": 176258,
+      "sha256": "7ce602d71ceff926e800eb0939a751e1f441604e772e46da7a23ff0008564577"
+    },
+    {
+      "file": "review-b30-narration.json",
+      "bytes": 1955,
+      "sha256": "7f87747aff565a6f67e242a190f9cebd7ba36e875b1ae5d57dfda268e75daf0b"
+    },
+    {
+      "file": "review-b30-stop-warning.png",
+      "bytes": 184158,
+      "sha256": "4a54d906193f40de3f1480b8917cda720556286c3cff796dbbe2f20c3e975f32"
     }
   ]
 }
