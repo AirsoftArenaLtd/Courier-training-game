@@ -73,8 +73,12 @@ const VIEWS = [
   }],
   ['doorstep', 'At the first door', (s) => {
     // three metres back from the door, looking at the house (the C-27 houses put the old 1.5 m view against the door)
-    const m = s.model, st = m.stops[0], side = st.side || 1, pt = (m.point && m.point('door0')) || st; m.mode = 'walk';
-    Object.assign(m.player, { x: pt.x - side * 3, z: pt.z, yaw: side * Math.PI / 2, pitch: 0.08 }); s.sync(); return true;
+    // from the front path, part-way to where the van parks and a step to the side, looking back at the door: the house
+    // front and whoever answers are in view, and the camera is never inside the van or a wall (B-37)
+    const m = s.model, st = m.stops[0], pt = (m.point && m.point('door0')) || st; m.mode = 'walk';
+    const to = st.park || { x: pt.x - (st.side || 1) * 8, z: pt.z }, dx = to.x - pt.x, dz = to.z - pt.z, d = Math.hypot(dx, dz) || 1;
+    const along = Math.min(6, d * 0.6), px = pt.x + dx / d * along - dz / d * 2.5, pz = pt.z + dz / d * along + dx / d * 2.5;
+    Object.assign(m.player, { x: px, z: pz, yaw: Math.atan2(pt.x - px, -(pt.z - pz)), pitch: 0.05 }); s.sync(); return true;
   }],
   ['satnav', 'The sat nav with the route', (s) => { if (!s.satnav) return false; s.model.mode = 'cab'; s.sync(); return true; }],
   ['night', 'Driving at night with headlights', (s) => {
