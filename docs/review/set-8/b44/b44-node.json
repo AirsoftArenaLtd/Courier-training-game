@@ -1,0 +1,38 @@
+[
+  {
+    "suite": "fpassets",
+    "exit": 0
+  },
+  {
+    "suite": "fpqualitygate",
+    "exit": 0
+  },
+  {
+    "suite": "fpmission",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0
+  },
+  {
+    "suite": "workday",
+    "exit": 0
+  },
+  {
+    "suite": "i18n",
+    "exit": 0
+  },
+  {
+    "suite": "savesize",
+    "exit": 0
+  },
+  {
+    "suite": "assets",
+    "exit": 0
+  },
+  {
+    "suite": "credits",
+    "exit": 0
+  }
+]

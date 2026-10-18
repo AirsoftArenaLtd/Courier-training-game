@@ -81,9 +81,10 @@ window.API = { LMSInitialize: () => { calls.push('init'); return 'true'; }, LMSF
       await p.goto(base + '__player.html?sco=' + encodeURIComponent('first-person.html?gfx=' + gfx));
       f = await frame();
       await f.waitForFunction(() => window.OTR && OTR.game && OTR.game.scene.isActive('FirstPersonScene') && !OTR.game.scene.getScene('FirstPersonScene').loading, { timeout: 120000 });
-      const st = await f.evaluate(() => { const k = OTR.game.scene.getScene('FirstPersonScene').assetBank; return k ? { loaded: k.stats.loaded, failed: k.stats.failed } : null; });
-      if (!st || st.failed || !st.loaded) problems.push(`${gfx}: models ${JSON.stringify(st)}`);
-      console.log(`${gfx}: ${st ? st.loaded : 0} models loaded, ${st ? st.failed : '?'} failed`);
+      const st = await f.evaluate(() => { const k = OTR.game.scene.getScene('FirstPersonScene').assetBank; return k ? { loaded: k.stats.loaded, failed: k.stats.failed, fallbacks: k.stats.fallbacks } : null; });
+      // a model that fell back to another (B-44) is missing from the package too
+      if (!st || st.failed || !st.loaded || st.fallbacks !== 0) problems.push(`${gfx}: models ${JSON.stringify(st)}`);
+      console.log(`${gfx}: ${st ? st.loaded : 0} models loaded, ${st ? st.failed : '?'} failed, ${st ? st.fallbacks : '?'} fell back`);
     }
   } finally { await b.close(); server.close(); fs.rmSync(dir, { recursive: true, force: true }); }
   missing.forEach(u => problems.push('not in the package: ' + u));

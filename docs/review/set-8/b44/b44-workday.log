@@ -1,0 +1,30 @@
+✔ every event type is complete (1.544971ms)
+✔ a check scores full marks when right and none when wrong, with the matching line (0.906222ms)
+✔ a type counts once per key (0.229928ms)
+✔ penalties, criticals, places and phases reach the score log (0.243147ms)
+✔ an unknown type is refused, not scored (0.183079ms)
+✔ finish scores the day from its reports, saves it as a route day and on the record (1.574935ms)
+✔ the results screen gets the day as a scenario of its own, its verdict and the debrief as the next step (0.901255ms)
+✔ abandon discards the workday without scoring it (0.250198ms)
+✔ a paused or reloaded workday resumes with its score, and replayed reports are not counted twice (0.7686ms)
+✔ a workday the 3D world cannot resume starts again from the morning (3.482379ms)
+✔ the debrief groups lines by phase, then stop by stop, and links driving mistakes to their pins (0.780588ms)
+✔ an empty day scores nothing and tests nothing (0.23161ms)
+✔ a saved workday with event types the catalogue no longer has still opens (0.227645ms)
+✔ the lab (no workday started at the hub) still reports into an unsaved log (0.148539ms)
+✔ the full-day types score: checks, penalties, bonuses, criticals and the stop they file under (0.400168ms)
+✔ the cab, sign, night and damage events of the milestone 7 to 9 contract exist and score as written (0.144453ms)
+✔ a damage report counts once per zone, and a missing one is recorded as a wrong check (0.123061ms)
+✔ the old mirror and reversing events keep their types (old saves replay) with the new wording (0.256257ms)
+✔ A-26: the cab, sign, night and damage events reach the debrief, the drive map and the results verdict (0.824472ms)
+✔ B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without (0.572461ms)
+✔ B-29: the day keeps its town seed so the drive review can draw its streets; days without one still review (0.293101ms)
+✔ B-31: the drive map names each street with the town's own names (0.27212ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.605069

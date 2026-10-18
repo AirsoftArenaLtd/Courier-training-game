@@ -11,7 +11,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
   let slowModels=0;const requests=[];p.on('request',async r=>{
    const url=r.url();if(url.endsWith('/assets/3d/manifest.json'))slowModels=0;if(!url.startsWith(BASE)&&!url.startsWith('data:')&&!url.startsWith('blob:')){outside.push(url);await r.abort();return;}
    if(url.includes('/assets/3d/')||url.endsWith('/lib/GLTFLoader.min.js'))requests.push(url.slice(BASE.length));
-   if(mode==='manifest'&&url.endsWith('/assets/3d/manifest.json')||mode==='loader'&&url.endsWith('/lib/GLTFLoader.min.js')||mode==='missing'&&url.endsWith('.glb')){await r.respond({status:404,body:''});return;}
+   if(mode==='manifest'&&url.endsWith('/assets/3d/manifest.json')||mode==='loader'&&url.endsWith('/lib/GLTFLoader.min.js')||mode==='missing'&&url.endsWith('.glb')||mode==='high-fallback'&&url.endsWith('/delivery-high.glb')){await r.respond({status:404,body:''});return;}
    if(url.endsWith('.glb')){
     await wait(mode==='layouts'?(slowModels++<2?1200:0):100);const bytes=fs.readFileSync(path.join(ROOT,new URL(url).pathname));
     if(mode==='corrupt')bytes.writeUInt32LE(0,0);await r.respond({status:200,contentType:'model/gltf-binary',body:bytes});return;
@@ -32,8 +32,8 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
   });
  };
  try{
-  for(const mode of (process.env.QA_MODES||'low,high,missing,corrupt,loader,manifest,layouts').split(',')){
-   const {p,requests}=await open(mode,mode==='high'?'high':'low');
+  for(const mode of (process.env.QA_MODES||'low,high,high-fallback,missing,corrupt,loader,manifest,layouts').split(',')){
+   const {p,requests}=await open(mode,mode.startsWith('high')?'high':'low');
    if(mode==='layouts'){
     await p.addScriptTag({url:BASE+'/data/i18n/ta.js'});
     for(const lang of ['en','ta'])for(const large of [false,true]){
@@ -46,8 +46,9 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
      assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank.stats.loaded),14);checks++;
     }
    }else{
-    const result=await view(p),healthy=mode==='low'||mode==='high';assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?14:0);assert.equal(result.unchangedSolid,true);checks+=3;
-    if(healthy){assert.ok(result.instances.length===8&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(mode==='high'?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(mode==='high'?'garage-low.glb':'garage-high.glb')));checks+=3;}
+    const result=await view(p),healthy=mode==='low'||mode.startsWith('high'),highVariant=mode.startsWith('high');assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?14:0);assert.equal(result.unchangedSolid,true);checks+=3;
+    assert.equal(result.stats.fallbacks,mode==='high-fallback'?1:0);checks++;
+    if(healthy){assert.equal(result.stats.failed,0);checks++;assert.ok(result.instances.length===8&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(highVariant?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(highVariant?'garage-low.glb':'garage-high.glb')));checks+=3;}
     else{assert.ok(result.stats.failed>0);checks++;}
     await wait(250);await p.screenshot({path:path.join(OUT,TAG+'-'+mode+'.png')});report.scenarios.push({mode,...result,requests});
     if(mode==='low'){
