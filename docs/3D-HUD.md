@@ -29,7 +29,7 @@ Panels/handheld pages suppress world overlays. Four shifter positions now say wh
 and selecting the same gear still adds no scoring event.
 
 The display never writes mission fields, save format, aids, scoring, shared Settings or i18n. Its fixed
-objects are two graphics/rectangle helpers, one destination text and one container; existing HUD Text
+objects are one rectangle, one graphics object, one destination Text and one container; existing HUD Text
 objects are reused. The map draws at most once per 90 ms with bounded generated streets/stops. There
 are no new Three textures, meshes, render targets or passes. Unchanged text does not regenerate its
 canvas every frame. The existing colour filter covers the map, whose van triangle, depot square and
@@ -39,5 +39,6 @@ destination ring also distinguish the symbols by shape.
 `test/fphudbrowser.js` uses real keys for P, shifter/actions, mirror gaze, reverse and the handheld in
 English/Tamil, normal/larger text, colour filtering and reduced motion. Named fixtures supply travel,
 expiry and hazards. Its coverage figure is the sum of active overlay background/text rectangles over
-1280×720, a conservative screen-area measure rather than pixel opacity. Review evidence and resource
-figures will be indexed in `docs/review/set-8/c47.md` and `docs/PERF.md` at handoff.
+1280×720, a conservative screen-area measure rather than pixel opacity. The final 186-check pass also
+expands the first-day controls/help to test stacked wrapping without clipping or shrinking. Review
+evidence and resource figures are indexed in `docs/review/set-8/c47.md` and `docs/PERF.md`.

@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-18",
+  "checks": 1901,
+  "suites": [
+    {
+      "suite": "fphudbrowser",
+      "exit": 0,
+      "result": "HUD en large=false\nHUD en large=true\nHUD ta large=false\nHUD ta large=true\n186 compact HUD browser checks passed\n",
+      "checks": 186
+    },
+    {
+      "suite": "fpaccesslayout",
+      "exit": 0,
+      "result": "48 accessibility layout checks passed\n",
+      "checks": 48
+    },
+    {
+      "suite": "fpcabbrowser",
+      "exit": 0,
+      "result": "cab layout en large=false\ncab layout en large=true\ncab layout ta large=false\ncab layout ta large=true\n200 physical cab browser checks passed\n",
+      "checks": 200
+    },
+    {
+      "suite": "fpmirrorsbrowser",
+      "exit": 0,
+      "result": "mirrors en large=false\nmirrors en large=true\nmirrors ta large=false\nmirrors ta large=true\n132 physical mirror browser checks passed\n",
+      "checks": 132
+    },
+    {
+      "suite": "fprearbrowser",
+      "exit": 0,
+      "result": "rear en large=false\nrear en large=true\nrear ta large=false\nrear ta large=true\n146 rear-camera browser checks passed\n",
+      "checks": 146
+    },
+    {
+      "suite": "fpnarrationbrowser",
+      "exit": 0,
+      "result": "19 cab narration browser checks passed\n",
+      "checks": 19
+    },
+    {
+      "suite": "fpguidebrowser",
+      "exit": 0,
+      "result": "85 first-time guidance browser checks passed\n",
+      "checks": 85
+    },
+    {
+      "suite": "fpaccessbrowser",
+      "exit": 0,
+      "result": "keyboard stop 1\nkeyboard stop 2\nkeyboard stop 3\nkeyboard stop 4\nkeyboard stop 5\n145 keyboard accessibility checks passed\n",
+      "checks": 145
+    },
+    {
+      "suite": "fploadoutbrowser",
+      "exit": 0,
+      "result": "53 load-out browser checks passed\n",
+      "checks": 53
+    },
+    {
+      "suite": "fpdaybrowser",
+      "exit": 0,
+      "result": "127 route-day browser checks passed\n",
+      "checks": 127
+    },
+    {
+      "suite": "fpdoorsbrowser",
+      "exit": 0,
+      "result": "394 doorstep browser checks passed\n",
+      "checks": 394
+    },
+    {
+      "suite": "fpdrivingbrowser",
+      "exit": 0,
+      "result": "24 driving browser checks passed\n",
+      "checks": 24
+    },
+    {
+      "suite": "fpcamerabrowser",
+      "exit": 0,
+      "result": "28 camera browser checks passed\n",
+      "checks": 28
+    },
+    {
+      "suite": "fpsoundbrowser",
+      "exit": 0,
+      "result": "45 procedural sound browser checks passed\n",
+      "checks": 45
+    },
+    {
+      "suite": "fpdrivebrowser",
+      "exit": 0,
+      "result": "28 driving HUD checks passed\n",
+      "checks": 28
+    },
+    {
+      "suite": "fplightingbrowser",
+      "exit": 0,
+      "result": "51 low lighting checks passed\n",
+      "checks": 51
+    },
+    {
+      "suite": "fpweatherbrowser",
+      "exit": 0,
+      "result": "48 low weather checks passed\n",
+      "checks": 48
+    },
+    {
+      "suite": "fproutebrowser",
+      "exit": 0,
+      "result": "completed stop 1\ncompleted stop 2\ncompleted stop 3\ncompleted stop 4\ncompleted stop 5\n84 full-route browser checks passed\n",
+      "checks": 84
+    },
+    {
+      "suite": "fpassetsbrowser",
+      "exit": 0,
+      "result": "assets browser low passed\nassets browser high passed\nassets browser missing passed\nassets browser corrupt passed\nassets browser loader passed\nassets browser manifest passed\nassets browser layouts passed\n49 asset browser checks passed\n",
+      "checks": 49
+    },
+    {
+      "suite": "offline",
+      "exit": 0,
+      "result": "ok   the title screen opens with no internet\nok   the hub opens\nok   the 3D workday opens\nok   the 3D view is running\nok   the day has its Dispatch brief\nok   the 3D models load from the game folder with no internet ({\"quality\":\"high\",\"loaded\":14,\"failed\":0,\"bytes\":4025744,\"decodedBytes\":3506550,\"errors\":[]})\nok   no request left the training server\nok   no request to the training server failed\nok   no page errors\n\nall offline checks passed\n",
+      "checks": 9
+    }
+  ],
+  "sourceRevision": "10c1afb",
+  "comparisonPairs": 2
+}

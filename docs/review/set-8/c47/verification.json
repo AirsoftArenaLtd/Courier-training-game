@@ -1,0 +1,10 @@
+{
+  "sourceRevision": "10c1afb",
+  "date": "2026-10-18",
+  "packaging": {
+    "command": "node --test test/package.js",
+    "checks": 3,
+    "exit": 0
+  },
+  "nativeFPS": "O-1 remains with the owner; SwiftShader is resource evidence."
+}

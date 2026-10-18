@@ -1,0 +1,15 @@
+{
+  "languages": [
+    "en",
+    "ta"
+  ],
+  "font": "noto",
+  "sizes": [
+    "normal",
+    "larger"
+  ],
+  "checks": 48,
+  "captionPeakRGBABytes": 351520,
+  "phaserTexturePeakWithMipmaps": 2948944,
+  "errors": []
+}

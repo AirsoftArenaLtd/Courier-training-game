@@ -1,0 +1,92 @@
+{
+  "samples": [
+    {
+      "name": "before",
+      "lang": "en",
+      "large": false,
+      "camera": [
+        2.3899999999999997,
+        2.05,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        "YXZ"
+      ],
+      "quality": "low",
+      "weather": "rain",
+      "events": 0,
+      "assets": 14,
+      "day": 2
+    },
+    {
+      "name": "after",
+      "lang": "en",
+      "large": false,
+      "camera": [
+        2.3899999999999997,
+        2.05,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        "YXZ"
+      ],
+      "quality": "low",
+      "weather": "rain",
+      "events": 0,
+      "assets": 14,
+      "day": 2
+    },
+    {
+      "name": "before",
+      "lang": "ta",
+      "large": true,
+      "camera": [
+        2.3899999999999997,
+        2.05,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        "YXZ"
+      ],
+      "quality": "low",
+      "weather": "rain",
+      "events": 0,
+      "assets": 14,
+      "day": 2
+    },
+    {
+      "name": "after",
+      "lang": "ta",
+      "large": true,
+      "camera": [
+        2.3899999999999997,
+        2.05,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        "YXZ"
+      ],
+      "quality": "low",
+      "weather": "rain",
+      "events": 0,
+      "assets": 14,
+      "day": 2
+    }
+  ],
+  "errors": [],
+  "beforeRevision": "5c8279b",
+  "afterRevision": "10c1afb",
+  "fixture": "Day two, seed ten, active captions, unchanged camera. Positions and time are fixtures, not driving or FPS evidence."
+}

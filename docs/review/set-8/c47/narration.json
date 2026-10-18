@@ -1,0 +1,96 @@
+{
+  "sixSelections": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 2733.699999999255,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to select neutral (N).",
+      "time": 4305.199999999255,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 5841.9000000003725,
+      "lang": "en"
+    }
+  ],
+  "controlsAndMirror": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 2733.699999999255,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to select neutral (N).",
+      "time": 4305.199999999255,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 5841.9000000003725,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in reverse.",
+      "time": 7417.699999999255,
+      "lang": "en"
+    },
+    {
+      "text": "The headlights are on. Press E to switch them off.",
+      "time": 9000.099999999627,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in drive.",
+      "time": 10505.300000000745,
+      "lang": "en"
+    },
+    {
+      "text": "Look at the left mirror for a moment to check it.",
+      "time": 12053.599999999627,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 13627.199999999255,
+      "lang": "en"
+    }
+  ],
+  "panelProtectedForMs": 1900,
+  "stopAndBands": [
+    {
+      "text": "Stop. A rear obstacle is within 0.5 meters.",
+      "time": 16248.800000000745,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 17794.099999999627,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within three meters.",
+      "time": 19300.199999999255,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within one meter.",
+      "time": 20801.300000000745,
+      "lang": "en"
+    }
+  ],
+  "reverseFourSeconds": {
+    "said": [
+      {
+        "text": "The parking brake is off. Press E to set it.",
+        "time": 24035.699999999255,
+        "lang": "en"
+      }
+    ],
+    "speed": -1.7
+  },
+  "checks": 19,
+  "errors": []
+}

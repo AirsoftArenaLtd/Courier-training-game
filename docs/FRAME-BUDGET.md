@@ -1,5 +1,12 @@
 # Low-graphics 3D workday budget
 
+**C-47 compact display (18 October 2026):** the physical dashboard/handheld replace full-width
+bars without adding any Three geometry, texture, target or pass. Fourteen rendered Low views and
+four larger/colour/reduced views peak at **56 calls / 2,400 triangles / two textures / 3,557,376
+attachment bytes**. Estimated Phaser maxima are **2,966,288 / 2,744,118 bytes**. High passes its
+separate four-view gate. Every requested view is sampled; no ceiling changes. C-28's unchanged CPU
+world sweep remains 63 / 2,480. Reports and matched captures: `docs/review/set-8/c47.md`. Native FPS is O-1.
+
 **C-28 van/people update (18 October 2026):** loaded and procedural-fallback sweeps now include
 standing behind and inside open cargo, for 264,000 complete-frame views each. Peaks are
 **63 calls / 2,480 triangles** loaded and **56 / 2,058** fallback. Parcel/shelf batching, Low
