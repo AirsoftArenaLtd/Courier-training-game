@@ -73,3 +73,6 @@ test('backtracking while in reverse replans before drive resumes without a wrong
 test('turning aids on after an off-aid checkpoint starts from the current position',()=>{
  const m=ready();m.workdayRules={satnav:'off'};tick(m,1);Object.assign(m.van,{x:135,z:-57.25});const r=O.fpMission.restore(m.snapshot());assert.ok(r);r.paused=false;r.workdayRules={satnav:'full'};O.workday.begin();tick(r,1);assert.equal(r.navigation.pending,null);assert.deepEqual(plain(r.navigation.origin),{x:135,z:-57.25});assert.equal(O.workday.events.length,0);
 });
+test('a checkpoint taken in reverse preserves the next navigation transition exactly',()=>{
+ const m=ready();m.navigation.progress=40;m.van.gear=-1;tick(m,1);assert.equal(m.navigation.reversing,true);const r=O.fpMission.restore(m.snapshot());assert.ok(r);r.paused=false;m.van.gear=r.van.gear=1;tick(m,1);tick(r,1);assert.deepEqual(plain(r.navigation),plain(m.navigation));
+});
