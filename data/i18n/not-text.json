@@ -125,6 +125,7 @@
  "Invalid buffer view",
  "Invalid lighting time",
  "Invalid model bounds",
+ "Invalid navigation version",
  "Invalid road-sign version",
  "Invalid van parts",
  "Invalid workday rig",

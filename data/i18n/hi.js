@@ -3800,6 +3800,13 @@ window.OTR_I18N.hi = {
 "The street is closed. Follow another cross street.": "यह सड़क बंद है। कोई दूसरी क्रॉस स्ट्रीट लीजिए।",
 "Do not enter this street from this end.": "इस सिरे से इस सड़क में प्रवेश न कीजिए।",
 "Look toward a road sign, then read it again.": "किसी सड़क संकेत की ओर देखिए, फिर उसे दोबारा पढ़िए।",
+"The trainer has turned navigation off.": "ट्रेनर ने नेविगेशन बंद कर दिया है।",
+"Left the planned route without following the reroute in time.": "समय पर रीरूट का पालन किए बिना नियोजित मार्ग छोड़ दिया।",
+"Rejoin a public street when it is safe.": "सुरक्षित होने पर किसी सार्वजनिक सड़क पर लौटें।",
+"You have reached the depot. Park safely.": "आप डिपो पहुँच गए हैं। सुरक्षित रूप से पार्क करें।",
+"You have reached the stop. Park safely at the curb.": "आप स्टॉप पर पहुँच गए हैं। कर्ब के पास सुरक्षित रूप से पार्क करें।",
+"Continue safely to the destination.": "सुरक्षित रूप से गंतव्य की ओर बढ़ते रहें।",
+"Turn around when it is safe and follow the route.": "सुरक्षित होने पर वापस मुड़ें और मार्ग का पालन करें।",
 "Stopped for a red traffic light": "लाल ट्रैफ़िक लाइट पर रुके",
 "Drove through a red traffic light": "लाल ट्रैफ़िक लाइट पार कर गए",
 "Red means stop behind the line and wait for green, even when the junction looks empty.": "लाल का मतलब है लाइन के पीछे रुकना और हरे का इंतज़ार करना, चाहे चौराहा खाली दिखे।"
@@ -5488,6 +5495,22 @@ window.OTR_I18N.hi = {
 [
 "Traffic travels east on {0}.",
 "{0} पर ट्रैफ़िक पूर्व की ओर चलता है।"
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} फ़ुट बाद, {1} पर दाएँ मुड़ें।"
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} फ़ुट बाद, {1} पर बाएँ मुड़ें।"
+],
+[
+"Continue for {0} feet to the depot.",
+"डिपो तक {0} फ़ुट आगे बढ़ते रहें।"
+],
+[
+"Continue for {0} feet to the stop.",
+"स्टॉप तक {0} फ़ुट आगे बढ़ते रहें।"
 ]
 ],
 "keep": [

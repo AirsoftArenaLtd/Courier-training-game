@@ -4,15 +4,16 @@ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_pro
 const MiB=1024*1024,ROOT=path.join(__dirname,'..'),OUT=path.join(__dirname,'out/fp-review');
 const BUDGETS={low:{calls:64,triangles:2500,textures:2,attachmentBytes:4*MiB,phaserBytes:4*MiB},high:{calls:128,triangles:300000,textures:4,attachmentBytes:16*MiB,phaserBytes:16*MiB}};
 const PROFILES=[
- {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsnumber,signsoneway,signspeak'},
- {id:'loaded-high',quality:'high',views:'cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,townhouse,townroad,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsoneway,signspeak'},
- {id:'accessible-low',quality:'low',accessibility:'large,colour,reduced',views:'cab,mirrorInterior,barcodeAim,visibleweatherstorm,actorscargoextra,laterrearpeak,signsjunction,signspeak'},
- {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident,signsjunction,signspeak'}
+ {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsnumber,signsoneway,signspeak,navfull,navline,navreroute,navblocked,navdouble'},
+ {id:'loaded-high',quality:'high',views:'cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,townhouse,townroad,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsoneway,signspeak,navfull,navline,navreroute,navblocked,navdouble'},
+ {id:'accessible-low',quality:'low',accessibility:'large,colour,reduced',views:'cab,mirrorInterior,barcodeAim,visibleweatherstorm,actorscargoextra,laterrearpeak,signsjunction,signspeak,navfull,navreroute,navblocked'},
+ {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident,signsjunction,signspeak,navfull,navreroute,navblocked'}
 ];
 function checkReport(report,profile,tag){
  const fail=text=>{throw Error(profile.id+': '+text);};
  if(report.tag!==tag||report.actualQuality!==profile.quality||report.quality!==profile.quality)fail('The report does not match its requested tag and quality.');
  if(JSON.stringify([...(report.accessibility||[])].sort())!==JSON.stringify((profile.accessibility||'').split(',').filter(Boolean).sort()))fail('The accessibility fixture does not match its profile.');
+ if(profile.views.split(',').some(v=>v.startsWith('nav'))&&report.navigationFixture!==true)fail('The navigation fixture was not exercised.');
  if(report.audioContext!=='running')fail('The live sound and caption fixture was not exercised.');
  const assets=report.assets,assetOK=assets&&assets.fallbacks===0&&(profile.fallback?report.assetFailure==='missing-model-files'&&assets.loaded===0&&assets.failed>=14:assets.loaded>=14&&assets.failed===0);
  if(!assetOK)fail('The asset fixture was not exercised.');
@@ -35,7 +36,7 @@ function run(){
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   // Write measurements as they arrive, so a long profile can be inspected while it runs.
   const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
   try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}

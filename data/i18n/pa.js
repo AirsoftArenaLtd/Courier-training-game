@@ -3800,6 +3800,13 @@ window.OTR_I18N.pa = {
 "The street is closed. Follow another cross street.": "ਇਹ ਗਲੀ ਬੰਦ ਹੈ। ਕੋਈ ਹੋਰ ਕਰਾਸ ਗਲੀ ਚੁਣੋ।",
 "Do not enter this street from this end.": "ਇਸ ਸਿਰੇ ਤੋਂ ਇਸ ਗਲੀ ਵਿੱਚ ਦਾਖ਼ਲ ਨਾ ਹੋਵੋ।",
 "Look toward a road sign, then read it again.": "ਕਿਸੇ ਸੜਕ ਚਿੰਨ੍ਹ ਵੱਲ ਵੇਖੋ, ਫਿਰ ਉਸਨੂੰ ਦੁਬਾਰਾ ਪੜ੍ਹੋ।",
+"The trainer has turned navigation off.": "ਟ੍ਰੇਨਰ ਨੇ ਨੈਵੀਗੇਸ਼ਨ ਬੰਦ ਕਰ ਦਿੱਤਾ ਹੈ।",
+"Left the planned route without following the reroute in time.": "ਸਮੇਂ ਸਿਰ ਰੀਰੂਟ ਦੀ ਪਾਲਣਾ ਕੀਤੇ ਬਿਨਾਂ ਯੋਜਨਾਬੱਧ ਰੂਟ ਛੱਡ ਦਿੱਤਾ।",
+"Rejoin a public street when it is safe.": "ਸੁਰੱਖਿਅਤ ਹੋਣ 'ਤੇ ਕਿਸੇ ਜਨਤਕ ਸੜਕ 'ਤੇ ਵਾਪਸ ਆਓ।",
+"You have reached the depot. Park safely.": "ਤੁਸੀਂ ਡਿਪੋ ਪਹੁੰਚ ਗਏ ਹੋ। ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਪਾਰਕ ਕਰੋ।",
+"You have reached the stop. Park safely at the curb.": "ਤੁਸੀਂ ਸਟਾਪ 'ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ। ਕਰਬ ਕੋਲ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਪਾਰਕ ਕਰੋ।",
+"Continue safely to the destination.": "ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਮੰਜ਼ਿਲ ਵੱਲ ਵਧਦੇ ਰਹੋ।",
+"Turn around when it is safe and follow the route.": "ਸੁਰੱਖਿਅਤ ਹੋਣ 'ਤੇ ਯੂ-ਟਰਨ ਲਓ ਅਤੇ ਰੂਟ ਦੀ ਪਾਲਣਾ ਕਰੋ।",
 "Stopped for a red traffic light": "ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ 'ਤੇ ਰੁਕੇ",
 "Drove through a red traffic light": "ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪਾਰ ਕਰ ਗਏ",
 "Red means stop behind the line and wait for green, even when the junction looks empty.": "ਲਾਲ ਦਾ ਮਤਲਬ ਹੈ ਲਾਈਨ ਦੇ ਪਿੱਛੇ ਰੁਕਣਾ ਅਤੇ ਹਰੇ ਦੀ ਉਡੀਕ ਕਰਨੀ, ਭਾਵੇਂ ਚੌਰਾਹਾ ਖਾਲੀ ਦਿਸੇ।"
@@ -5488,6 +5495,22 @@ window.OTR_I18N.pa = {
 [
 "Traffic travels east on {0}.",
 "{0} ਉੱਤੇ ਟ੍ਰੈਫ਼ਿਕ ਪੂਰਬ ਵੱਲ ਚੱਲਦਾ ਹੈ।"
+],
+[
+"In {0} feet, turn right onto {1}.",
+"{0} ਫੁੱਟ ਬਾਅਦ, {1} 'ਤੇ ਸੱਜੇ ਮੁੜੋ।"
+],
+[
+"In {0} feet, turn left onto {1}.",
+"{0} ਫੁੱਟ ਬਾਅਦ, {1} 'ਤੇ ਖੱਬੇ ਮੁੜੋ।"
+],
+[
+"Continue for {0} feet to the depot.",
+"ਡਿਪੋ ਤੱਕ {0} ਫੁੱਟ ਵਧਦੇ ਰਹੋ।"
+],
+[
+"Continue for {0} feet to the stop.",
+"ਸਟਾਪ ਤੱਕ {0} ਫੁੱਟ ਵਧਦੇ ਰਹੋ।"
 ]
 ],
 "keep": [

@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',quality=process.env.QA_GFX||'low',OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
- const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const errors=[],report={quality,fixture:'Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering.',views:[]};let checks=0;
+ const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const errors=[],report={quality,fixture:'Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering. Culling comparisons retain normal sign selection and exclude fading Phaser overlays; screenshots retain UI.',views:[]};let checks=0;
  try{
   const p=await b.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));await p.evaluateOnNewDocument(()=>localStorage.clear());
   await p.goto(BASE+'/first-person.html?gfx='+quality);await p.waitForFunction(()=>window.OTR?.game?.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
@@ -22,9 +22,14 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',quality=process.env.QA_G
    },use);
    assert.ok(changed.changed>100,use+' '+changed.changed);assert.equal(changed.glError,0);assert.equal(changed.snapshot,view.snapshot);assert.equal(changed.reports,view.reports);checks+=4;
    let culling=null;if(quality==='low'){
-    culling=await p.evaluate(async()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),gl=OTR.game.renderer.gl,atlas=s.view.mirror,original=THREE.Frustum.prototype.intersectsSphere,next=atlas.nextAt;atlas.nextAt=Infinity;
+    culling=await p.evaluate(async()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),gl=OTR.game.renderer.gl,atlas=s.view.mirror,original=THREE.Frustum.prototype.intersectsSphere,next=atlas.nextAt,signs=s.art.signs,choose=signs&&signs.choose;atlas.nextAt=Infinity;
+      // Keep the bounded sign selection identical. Only geometry culling is under comparison.
+      if(signs)signs.choose=function(...args){const active=THREE.Frustum.prototype.intersectsSphere;THREE.Frustum.prototype.intersectsSphere=original;try{return choose.apply(this,args);}finally{THREE.Frustum.prototype.intersectsSphere=active;}};
+      if(!s.children.list.some(o=>o.type==='Extern'&&o.visible))throw Error('The 3D compositor must stay visible during the pixel comparison.');
+      // Captions fade by wall clock even while mission time is frozen. Keep them out of this geometry proof.
+      const overlays=s.children.list.filter(o=>o.type!=='Extern').map(o=>[o,o.visible]),hide=()=>overlays.forEach(([o])=>o.setVisible(false));s.game.events.on('prerender',hide);
       const pixels=()=>new Promise(resolve=>OTR.game.events.once('postrender',()=>{const p=new Uint8Array(1280*720*4);gl.readPixels(0,0,1280,720,gl.RGBA,gl.UNSIGNED_BYTE,p);resolve(p);}));
-      try{const before=await pixels(),normal={...s.view.diagnostics};THREE.Frustum.prototype.intersectsSphere=()=>true;const after=await pixels(),unculled={...s.view.diagnostics};let changed=0;for(let i=0;i<before.length;i++)if(before[i]!==after[i])changed++;return{changedBytes:changed,normal:normal.triangles,unculled:unculled.triangles};}finally{THREE.Frustum.prototype.intersectsSphere=original;atlas.nextAt=next;}
+      try{const before=await pixels(),normal={...s.view.diagnostics};THREE.Frustum.prototype.intersectsSphere=()=>true;const after=await pixels(),unculled={...s.view.diagnostics};let changed=0;for(let i=0;i<before.length;i++)if(before[i]!==after[i])changed++;return{changedBytes:changed,normal:normal.triangles,unculled:unculled.triangles};}finally{THREE.Frustum.prototype.intersectsSphere=original;if(signs)signs.choose=choose;atlas.nextAt=next;s.game.events.off('prerender',hide);overlays.forEach(([o,v])=>o.setVisible(v));}
     });assert.equal(culling.changedBytes,0,'Frustum culling must retain every visible pixel: '+use);assert.ok(culling.unculled>=culling.normal);checks+=2;
    }
    report.views.push({use,changedPixels:changed.changed,selected:true,culling});

@@ -1,0 +1,19 @@
+✔ both qualities load all fourteen local templates and use one texture-free primitive per town model (323.781896ms)
+✔ Low scenery stays bounded through repeated culling and shares geometry/materials (111.910819ms)
+✔ High retains offscreen town instances for shadows when the trainee turns around (235.84868ms)
+✔ full source detail is limited by the existing High scenery distance (119.522149ms)
+✔ asset and procedural worlds keep identical snapshots, exact solids, all door targets and scores (793.92066ms)
+✔ missing individual models retain their procedural lots without hiding healthy neighbours (217.618449ms)
+✔ front-yard props stay inside their original lot and outside the building (130.22835ms)
+✔ all four reflection passes restore every static/asset matrix, colour, count and visibility (74.580087ms)
+✔ per-instance static colour batching retains several colours in one route draw (30.179479ms)
+✔ navigation obstacles reuse bounded car models and always remain visible with matching solids (283.712309ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2335.263204
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
