@@ -448,7 +448,7 @@ OTR.fpWorld = {
       const mesh=batch.mesh;let count=0;
       for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;
         if(entry.town&&(mesh.userData.fpAsset?!entry.town.selected:townArt&&!townArt.fallback(entry)))continue;
-        if(main&&(entry.bounded||Math.max(Math.abs(e[0]),Math.abs(e[10]))<=20)&&(e[12]-cx)**2+(e[14]-cz)**2>=sceneryRadius*sceneryRadius)continue;
+        if(main&&entry.visible===undefined&&(entry.bounded||Math.max(Math.abs(e[0]),Math.abs(e[10]))<=20)&&(e[12]-cx)**2+(e[14]-cz)**2>=sceneryRadius*sceneryRadius)continue;
         reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;if(entry.sphere)reflectSphere.copy(entry.sphere);
         // High keeps offscreen shadow casters in the main batch. Reflections and Low have no
         // shadow pass that needs those instances, so their individual frusta can discard them.
