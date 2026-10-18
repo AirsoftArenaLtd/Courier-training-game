@@ -53,7 +53,7 @@ OTR.fpTown={
       select(x,z){
         const radius=high?95:55;let remaining=this.triangleLimit;
         for(const c of choices){c.selected=false;c.distance=(c.x-x)**2+(c.z-z)**2;}
-        order.sort((a,b)=>a.distance<radius*radius&&b.distance<radius*radius&&a.obstruction!==b.obstruction?(a.obstruction?-1:1):compare(a,b));
+        order.sort((a,b)=>a.distance<radius*radius&&b.distance<radius*radius&&!!a.obstruction!==!!b.obstruction?(a.obstruction?-1:1):compare(a,b));
         for(const c of order){if(c.distance>=radius*radius)break;if(!c.available&&c.house)continue;if(c.cost>remaining)continue;c.selected=true;remaining-=c.cost;}
         for(const batch of batches){let count=0;for(const e of batch.entries)if(e.town.selected)batch.mesh.setMatrixAt(count++,e.matrix);batch.mesh.count=count;batch.mesh.visible=count>0;batch.mesh.instanceMatrix.needsUpdate=true;}
       },

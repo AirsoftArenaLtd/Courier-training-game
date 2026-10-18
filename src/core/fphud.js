@@ -46,7 +46,7 @@ OTR.fpHud={
     if(s.hud.navWidth!==w){s.hud.navWidth=w;s.navText.setWordWrapWidth(w-24);}s.navText.setPosition(0,0);
     const mapHeight=m.town?88:0,h=s.navText.height+mapHeight+20;
     // A screen may leave the view as the trainee looks around; never pin it over a mirror.
-    if(p.x-w/2<12||p.x+w/2>1268||p.y+h/2>700){s.navRoot.setVisible(false);return;}
+    if(p.x-w/2<12||p.x+w/2>1268||p.y+h/2>700||p.y-h/2<20){s.navRoot.setVisible(false);return;}
     s.navRoot.setPosition(p.x,p.y-h/2);s.navBack.setDisplaySize(w,h);
     const g=s.navMap;g.clear();if(!m.town)return;
     const b=m.bounds,left=-w/2+12,top=s.navText.height+6,mw=w-24;
