@@ -170,6 +170,13 @@ OTR.fpSigns = {
       for(const x of [-w/2,w/2])for(const y of [-h/2,h/2]){point.set(x,y,0).applyMatrix4(target.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
       if(Number.isFinite(left))bounds.push({x:(left+right)/2,y:(up+down)/2,w:right-left+12,h:down-up+12});
     }
+    // A projected street/name label must never conceal a real signal lamp.
+    for(const e of scene.art.signs.entries){
+      if(!e.mainVisible||e.sign.kind!=='signal')continue;
+      let left=Infinity,right=-Infinity,up=Infinity,down=-Infinity;
+      for(const x of [-.33,.33])for(const z of [-.5,-.2]){point.set(x,0,z).applyMatrix4(e.matrix).applyMatrix4(e.label.parent.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
+      if(Number.isFinite(left))bounds.push({x:(left+right)/2,y:(up+down)/2,w:right-left+12,h:down-up+12});
+    }
     for(const e of scene.art.signs.entries){if(!e.mainVisible)continue;const p=scene.art.labelPosition(e.label);if(!p||p.y<top||p.y>490&&scene.model.mode==='cab'||p.y>615||occupied.some(q=>Math.abs(q.x-p.x)<170&&Math.abs(q.y-p.y)<45))continue;
       const slot=ui.pool[count],text=OTR.i18n?OTR.i18n.t(e.label.text):e.label.text;if(slot.text.text!==text)slot.text.setText(e.label.text);
       const w=slot.text.width+16,h=slot.text.height+10,x=p.x;let y=p.y-h/2-8;
