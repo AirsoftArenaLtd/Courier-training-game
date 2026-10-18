@@ -82,3 +82,22 @@ test('100 seeded days with shuffled legal actions always resolve five stops and 
  for(let seed=1;seed<=100;seed++){const result=play(seed);report.soak.push({seed,checkpoints:result.checkpoints,events:result.events.length,score:result.scoring.score});}
  report.phases=[...new Set(report.phases)].sort();report.weathers=[...new Set(report.weathers)].sort();report.loadouts=[...new Set(report.loadouts)].sort();assert.equal(report.failures.length,0);saveReport();
 });
+
+test('C-32 signal and cyclist keys preserve scores and critical flags through SCORM compaction',()=>{
+ W.detach();W.begin();const plan=O.fpTraffic.prepare(O.fpNav.prepare(O.fpSigns.prepare(O.fpRoute.plan(4,7)))),m=M.create('campaign',7,plan);
+ m.phase='route';m.mode='cab';m.departed=true;m.van.gear=1;
+ for(const control of O.fpTraffic.layout(m).filter(j=>j.kind==='signal'))for(const yaw of [0,Math.PI/2,Math.PI,Math.PI*1.5]){
+  const t=Math.abs(Math.cos(yaw))>.7?23:0;m.elapsed=(t-control.offset+54)%54;
+  const p=O.fp.local({...control,yaw},1.7,m.town.road/2+3.5);Object.assign(m.van,p,{yaw,speed:1});const old={x:p.x,z:p.z};
+  m.van.x+=Math.sin(yaw);m.van.z-=Math.cos(yaw);O.fpTraffic.observeJunction(m,m.junctions[control.index],control.index,old);
+ }
+ assert.equal(W.events.filter(e=>e.type==='drive.red-light').length,12);
+ for(let leg=0;leg<6;leg++){m.leg=leg;Object.assign(m.trafficControl.cyclist,{state:'beside',leg,originYaw:0});Object.assign(m.van,{yaw:.1,speed:.5});O.fpTraffic.after(m);}
+ assert.equal(W.events.filter(e=>e.type==='drive.cyclist').length,6);
+ const before=score(W.log),d=S.defaults();d.profile={id:'traffic-save',name:'Test Courier',createdAt:1};d.history=[];
+ for(let i=0;i<40;i++)d.history.push({id:'m2-sort',at:1760000000000+i,score:700,stars:{safety:2,efficiency:2,service:3},dur:300,criticals:[],lessons:[]});
+ d.workday={current:{id:'traffic-save',day:4,seconds:240,events:plain(W.events)},last:null};
+ const packed=S.fit(JSON.stringify(d),S.SCORM12_LIMIT),decoded=S.unpackDay(JSON.parse(packed).workday.current);
+ assert.ok(packed.length<=4000);assert.deepEqual(score(W.replay(decoded.events).log),before);
+ const out=path.join(__dirname,'out/fp-review');fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'c32-traffic-scorm.json'),JSON.stringify({bytes:packed.length,events:decoded.events.length,redApproaches:12,cyclistLegs:6,scoreRestored:true,criticalFlagsRestored:true},null,2));
+});
