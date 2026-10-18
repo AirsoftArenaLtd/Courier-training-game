@@ -48,8 +48,8 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
    `X-Remote-User` (and optionally `X-Remote-Name`); the game uses it. Set `OTR_ALLOW_QUERY_USER=0` so nobody can
    open someone else's progress through the link.
 2. **An LMS** (SCORM 1.2 or 2004): build the package with `node test/tools/package-scorm.js` (SCORM 1.2) or
-   `node test/tools/package-scorm.js --2004`. It holds only what the game loads (about 10 MB and 164 files with the
-   milestone 7 cab, October 2026; `imsmanifest.xml` at the top); progress is kept in the LMS. Prefer 2004 when the LMS offers it: it keeps much more saved progress (SCORM 1.2
+   `node test/tools/package-scorm.js --2004`. It holds only what the game loads (about 11.5 MB and 206 files with the
+   milestone 8 town models, October 2026; `imsmanifest.xml` at the top); progress is kept in the LMS. Prefer 2004 when the LMS offers it: it keeps much more saved progress (SCORM 1.2
    holds 4,096 characters, so the game packs the progress to fit). No training server is needed, and no outside
    address either.
 3. **Employee ID and password** on the game's own sign-in screen (`OTR_ACCOUNTS=1`, trainers create accounts).
@@ -69,6 +69,9 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
 - `node test/offline.js` (needs the test tools: `cd test && npm install`, plus any Chrome or Chromium) fails if any
   request leaves the training server, including the 3D models, which load from `assets/3d/` in the game folder.
 - `node test/package.js` checks the LMS package: only run-time files, every file a page loads, the size budget.
+- `node test/scorm-launch.js` (needs Chrome or Chromium) launches the SCORM 1.2 package as an LMS does, in a frame with
+  the SCORM API: the game must find the LMS and read the learner, the 3D workday must load every model at Low and High
+  from the zip, and nothing may be missing from it or come from outside it.
 - **3D model files:** free CC0 models and textures in `assets/3d/` (each pack with its licence; `docs/ASSETS.md`), at
   most 40 MB in all and 15 MB for the Low graphics setting. They are served like the rest of the game; nothing is
   downloaded from the internet. `node test/assets.js` checks the licences and sizes.
