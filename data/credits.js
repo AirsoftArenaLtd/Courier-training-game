@@ -35,5 +35,19 @@ OTR_DATA.credits = [
 "author": "Kenney",
 "licence": "CC0",
 "url": "https://kenney.nl/assets/car-kit"
+},
+{
+"pack": "quaternius-modular-men",
+"name": "Ultimate Modular Men",
+"author": "Quaternius",
+"licence": "CC0",
+"url": "https://quaternius.com/"
+},
+{
+"pack": "quaternius-modular-women",
+"name": "Ultimate Modular Women",
+"author": "Quaternius",
+"licence": "CC0",
+"url": "https://quaternius.com/"
 }
 ];
