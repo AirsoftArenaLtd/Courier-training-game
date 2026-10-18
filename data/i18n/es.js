@@ -3816,7 +3816,10 @@ window.OTR_I18N.es = {
 "You have reached the depot. Park safely.": "Has llegado al centro. Aparca con seguridad.",
 "You have reached the stop. Park safely at the curb.": "Has llegado a la parada. Aparca con seguridad junto al bordillo.",
 "Continue safely to the destination.": "Continúa con seguridad hacia el destino.",
-"Turn around when it is safe and follow the route.": "Da la vuelta cuando sea seguro y sigue la ruta."
+"Turn around when it is safe and follow the route.": "Da la vuelta cuando sea seguro y sigue la ruta.",
+"Stopped for a red traffic light": "Te detuviste en un semáforo en rojo",
+"Drove through a red traffic light": "Pasaste un semáforo en rojo",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rojo significa detenerse detrás de la línea y esperar el verde, aunque el cruce parezca vacío."
 },
 "templates": [
 [

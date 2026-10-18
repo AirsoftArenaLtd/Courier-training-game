@@ -3806,7 +3806,10 @@ window.OTR_I18N.fr = {
 "You have reached the depot. Park safely.": "Tu es arrivé au dépôt. Gare-toi en toute sécurité.",
 "You have reached the stop. Park safely at the curb.": "Tu es arrivé à l'arrêt. Gare-toi en toute sécurité le long du trottoir.",
 "Continue safely to the destination.": "Continue en toute sécurité jusqu'à la destination.",
-"Turn around when it is safe and follow the route.": "Fais demi-tour dès que c'est sûr et suis l'itinéraire."
+"Turn around when it is safe and follow the route.": "Fais demi-tour dès que c'est sûr et suis l'itinéraire.",
+"Stopped for a red traffic light": "Tu t'es arrêté au feu rouge",
+"Drove through a red traffic light": "Tu as grillé un feu rouge",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rouge veut dire s'arrêter derrière la ligne et attendre le vert, même si le carrefour semble vide."
 },
 "templates": [
 [

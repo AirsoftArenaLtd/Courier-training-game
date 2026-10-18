@@ -3805,7 +3805,10 @@ window.OTR_I18N.ml = {
 "You have reached the depot. Park safely.": "നിങ്ങൾ ഡിപ്പോയിൽ എത്തി. സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക.",
 "You have reached the stop. Park safely at the curb.": "നിങ്ങൾ സ്റ്റോപ്പിൽ എത്തി. കർബിനരികിൽ സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക.",
 "Continue safely to the destination.": "സുരക്ഷിതമായി ലക്ഷ്യസ്ഥാനത്തേക്ക് തുടരുക.",
-"Turn around when it is safe and follow the route.": "സുരക്ഷിതമാകുമ്പോൾ യു-ടേൺ എടുത്ത് റൂട്ട് പിന്തുടരുക."
+"Turn around when it is safe and follow the route.": "സുരക്ഷിതമാകുമ്പോൾ യു-ടേൺ എടുത്ത് റൂട്ട് പിന്തുടരുക.",
+"Stopped for a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റിൽ നിർത്തി",
+"Drove through a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റ് കടന്നുപോയി",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ചുവപ്പ് എന്നാൽ വരയ്ക്ക് പിന്നിൽ നിർത്തി പച്ചയ്ക്കായി കാത്തിരിക്കുക, ജങ്ഷൻ ഒഴിഞ്ഞതായി തോന്നിയാലും."
 },
 "templates": [
 [

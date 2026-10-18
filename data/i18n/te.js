@@ -3805,7 +3805,10 @@ window.OTR_I18N.te = {
 "You have reached the depot. Park safely.": "మీరు డిపోకు చేరుకున్నారు. సురక్షితంగా పార్క్ చేయండి.",
 "You have reached the stop. Park safely at the curb.": "మీరు స్టాప్‌కు చేరుకున్నారు. కర్బ్ దగ్గర సురక్షితంగా పార్క్ చేయండి.",
 "Continue safely to the destination.": "సురక్షితంగా గమ్యస్థానం వైపు కొనసాగండి.",
-"Turn around when it is safe and follow the route.": "సురక్షితంగా ఉన్నప్పుడు యూ-టర్న్ తీసుకుని మార్గాన్ని అనుసరించండి."
+"Turn around when it is safe and follow the route.": "సురక్షితంగా ఉన్నప్పుడు యూ-టర్న్ తీసుకుని మార్గాన్ని అనుసరించండి.",
+"Stopped for a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ వద్ద ఆగారు",
+"Drove through a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ దాటి వెళ్లారు",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ఎరుపు అంటే గీత వెనుక ఆగి ఆకుపచ్చ కోసం వేచి ఉండటం, జంక్షన్ ఖాళీగా కనిపించినా సరే."
 },
 "templates": [
 [

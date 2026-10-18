@@ -3805,7 +3805,10 @@ window.OTR_I18N.kn = {
 "You have reached the depot. Park safely.": "ನೀವು ಡಿಪೋಗೆ ತಲುಪಿದ್ದೀರಿ. ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ.",
 "You have reached the stop. Park safely at the curb.": "ನೀವು ಸ್ಟಾಪ್‌ಗೆ ತಲುಪಿದ್ದೀರಿ. ರಸ್ತೆಯ ಅಂಚಿನಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ.",
 "Continue safely to the destination.": "ಸುರಕ್ಷಿತವಾಗಿ ಗಮ್ಯಸ್ಥಾನದ ಕಡೆಗೆ ಮುಂದುವರಿಯಿರಿ.",
-"Turn around when it is safe and follow the route.": "ಸುರಕ್ಷಿತವಾದಾಗ ಯು-ಟರ್ನ್ ಮಾಡಿ ಮತ್ತು ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
+"Turn around when it is safe and follow the route.": "ಸುರಕ್ಷಿತವಾದಾಗ ಯು-ಟರ್ನ್ ಮಾಡಿ ಮತ್ತು ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ.",
+"Stopped for a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಬಳಿ ನಿಂತಿರಿ",
+"Drove through a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ದಾಟಿ ಹೋದಿರಿ",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ಕೆಂಪು ಎಂದರೆ ಗೆರೆಯ ಹಿಂದೆ ನಿಂತು ಹಸಿರಿಗಾಗಿ ಕಾಯುವುದು, ಜಂಕ್ಷನ್ ಖಾಲಿ ಕಾಣಿಸಿದರೂ ಸರಿ."
 },
 "templates": [
 [

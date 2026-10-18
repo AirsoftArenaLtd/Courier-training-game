@@ -3805,7 +3805,10 @@ window.OTR_I18N.ta = {
 "You have reached the depot. Park safely.": "நீங்கள் டிப்போவை அடைந்துவிட்டீர்கள். பாதுகாப்பாக நிறுத்துங்கள்.",
 "You have reached the stop. Park safely at the curb.": "நீங்கள் நிறுத்தத்தை அடைந்துவிட்டீர்கள். சாலையோரத்தில் பாதுகாப்பாக நிறுத்துங்கள்.",
 "Continue safely to the destination.": "பாதுகாப்பாக சேருமிடத்தை நோக்கித் தொடருங்கள்.",
-"Turn around when it is safe and follow the route.": "பாதுகாப்பாக இருக்கும்போது யு-டர்ன் செய்து வழியைப் பின்பற்றுங்கள்."
+"Turn around when it is safe and follow the route.": "பாதுகாப்பாக இருக்கும்போது யு-டர்ன் செய்து வழியைப் பின்பற்றுங்கள்.",
+"Stopped for a red traffic light": "சிவப்பு சிக்னலில் நின்றீர்கள்",
+"Drove through a red traffic light": "சிவப்பு சிக்னலைத் தாண்டிச் சென்றீர்கள்",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "சிவப்பு என்றால் கோட்டுக்குப் பின் நின்று பச்சைக்காகக் காத்திருப்பது, சந்திப்பு காலியாகத் தெரிந்தாலும்."
 },
 "templates": [
 [

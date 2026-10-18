@@ -3806,7 +3806,10 @@ window.OTR_I18N.bn = {
 "You have reached the depot. Park safely.": "আপনি ডিপোতে পৌঁছে গেছেন। নিরাপদে পার্ক করুন।",
 "You have reached the stop. Park safely at the curb.": "আপনি স্টপে পৌঁছে গেছেন। রাস্তার ধারে নিরাপদে পার্ক করুন।",
 "Continue safely to the destination.": "নিরাপদে গন্তব্যের দিকে এগিয়ে যান।",
-"Turn around when it is safe and follow the route.": "নিরাপদ হলে ঘুরে যান এবং রুট অনুসরণ করুন।"
+"Turn around when it is safe and follow the route.": "নিরাপদ হলে ঘুরে যান এবং রুট অনুসরণ করুন।",
+"Stopped for a red traffic light": "লাল ট্রাফিক লাইটে থেমেছেন",
+"Drove through a red traffic light": "লাল ট্রাফিক লাইট পেরিয়ে গেছেন",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "লাল মানে লাইনের পেছনে থামা ও সবুজের জন্য অপেক্ষা করা, মোড় ফাঁকা দেখালেও।"
 },
 "templates": [
 [
