@@ -1,5 +1,55 @@
 # 3D workday rendering cost
 
+## C-28: van and animated people (18 October 2026)
+
+C-28 is stacked on pushed B-30 `5667be9`, over pilot `951ef36`; C-27 is merged.
+The new van exterior uses one CPU-updated mesh with separate semantic wheel
+and lifting-door transforms; the existing cab and physical inspection/collision targets stay in place.
+The interior reflection uses the retained cab shell, avoiding obstruction from the imported sloped
+windshield at the unchanged C-23 mirror-camera position. Other reflections use the new exterior.
+
+The Low figures have 88 triangles, the Low van 190. One nearby resident, the crossing figure and the
+reflected courier are bounded by distance; hidden characters do no pose work. All figures use ordinary
+CPU-posed meshes (10 Hz Low, 20 Hz High), shared vertex-colour material and no bone texture or image map.
+A dark, batched doorway recess gives the opening facade a visible interior shadow without changing its
+solid. The lifting cargo door stays inside the existing van footprint throughout its motion.
+
+There are 14 selected templates per quality. Ten new actor variants total 4,375,304 bytes; all shipped
+3D files total 4,849,952 bytes. Low selects 824,208 encoded bytes / 354,468 decoded accessor bytes; High
+selects 4,025,744 / 3,506,550. Source originals and unneeded animations do not ship. Seven scene-local
+figure buffers are the fixed maximum; only eligible visible poses are updated. Full source geometry is
+High only. The bank retains source CPU arrays separately from the live scene geometry inventory.
+
+The final CPU loaded sweep covers 264,000 views (30 days, ten seeds, camera/suspension, every cab
+control, all four reflection cells, lighting and weather, plus standing behind and inside open cargo):
+**63 calls / 2,480 triangles**. The procedural fallback sweep covers the same views at **56 / 2,058**.
+The original cab-only sweep missed open cargo. Its first rendered view failed at 81 calls / 2,882
+triangles; world parcels and shelf markers now share bounded instance batches, while every physical
+proxy remains exact. Low printing/livery/door panels are surfaces. Main-view per-instance frustum
+culling discards unseen town geometry, with eight exact pixel comparisons to disabled frustum tests.
+High keeps offscreen shadow candidates; the town's 290-triangle allowance and scenery radius remain.
+The ceilings remain **64 / 2,500**, two allocated
+Three textures, 4 MiB attachments and 4 MiB estimated Phaser textures at 1280×720. Native Intel 60 fps
+remains O-1; SwiftShader timing is not native performance evidence.
+
+Final rendered gates pass every requested view with no context loss:
+
+| Quality | Views | Peak calls | Peak triangles | Textures | Attachments | Phaser estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Low | 30 | 56 | 2,400 | 2 | 3,557,376 B | 3,045,024 B |
+| High | 9 | 97 | 224,563 | 3 | 11,239,424 B | 6,580,955 B |
+| Low, large/colour/reduced | 4 | 56 | 2,400 | 2 | 3,557,376 B | 2,381,510 B |
+
+The six-parcel cargo view is included. Maxima are per column; High has its own quality limits.
+The gate now fails if any requested view is not sampled. Source/fallback browser checks, eight
+exact Low pixel comparisons, an actual High camera turn retaining offscreen shadow instances,
+all 33 Node suites, 1,852 browser assertions, nine conversion tests and both SCORM packages pass.
+Commands, raw resource reports, 18 screenshots, clip and regression evidence:
+`docs/review/set-8/c28.md`. Run rendered gates with `QA_ACTORS=1 QA_TOWN=1 QA_LIGHTING=1
+QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SHOTS=1 QA_TAG=c28`; view lists and accessibility flags are
+preserved in `docs/review/set-8/c28/gates.json`. The 30-seed / 100-day resume soak and 240 SCORM
+round trips preserve scores (3,595/4,000 characters for its later-day fixture).
+
 ## B-30: bounded cab narration (18 October 2026)
 
 Narration adds no render resource or pass. The fixed 1280×720 Low gate samples the cab,

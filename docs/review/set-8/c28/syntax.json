@@ -1,0 +1,58 @@
+[
+  {
+    "file": "data/credits.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpactors.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpassets.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpactors.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpactorsbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpassetsbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fproute.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fptown.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fptownbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/prepare-actor-lods.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/validate-actors.js",
+    "exit": 0
+  }
+]

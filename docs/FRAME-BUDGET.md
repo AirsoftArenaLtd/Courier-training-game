@@ -1,5 +1,16 @@
 # Low-graphics 3D workday budget
 
+**C-28 van/people update (18 October 2026):** loaded and procedural-fallback sweeps now include
+standing behind and inside open cargo, for 264,000 complete-frame views each. Peaks are
+**63 calls / 2,480 triangles** loaded and **56 / 2,058** fallback. Parcel/shelf batching, Low
+surface details and main-view per-instance culling keep the original ceilings. Eight Low pixel
+comparisons against disabled frustum tests are exact; High retains offscreen shadow casters.
+Final rendered Low (30 views) and reduced Low (four) peak at **56 calls / 2,400 triangles**,
+two textures / 3,557,376 attachment bytes; estimated Phaser maxima are 3,045,024 / 2,381,510 bytes.
+High's nine-view gate passes separately. All requested views must now be sampled to pass.
+Source and pose limits are in `docs/3D-ACTORS.md`; rendered gates, screenshots and review evidence
+are in `docs/PERF.md` and `docs/review/set-8/c28.md`. The native Intel O-1 check remains outstanding.
+
 **C-27 town update (17 October 2026):** static per-instance colour batching recovers calls before
 adding art: the loaded 240,000-view sweep first falls to 48 calls / 1,890 triangles. With all town
 templates, it peaks at 58 / 2,306; fallback peaks at 47 / 2,266. Low selects nearby detail within a
@@ -170,3 +181,19 @@ On 16 October 2026, 3,000 CPU complete-frame geometry checks cover 30 workdays Ã
 Low's new closure is a two-piece block/cap; later-day rain uses twelve particles. High retains the new rail/legs and 36 particles. Day one and existing checkpoints retain their original rendering. The world uses the same shared source geometry and two composites; no new image, shadow or render target was added. The single closure caption wraps at full readable size and is visible from either approach. The 96 planning layouts and four English/Tamil caption layouts check actual canvas memory; their peak is 3,038,928 bytes.
 
 Reports: `docs/qa/c18-geometry.json`, `c18-weather-low.json`, `c18-low.json`, `c18-high.json`, `c18-layouts.json`, `c18-road-layouts.json`. Reproduce with `QA_LATER=1 node test/fproute.js` and `QA_SOUND=1 QA_GFX=low QA_PROTOTYPE_ONLY=1 QA_TAG=c18 QA_A11Y=large,colour,reduced QA_VIEWS=laterfogmirror,laterplan,laterstress node test/fpbench.js`. The existing Intel O-1 check remains; cloud SwiftShader FPS is not native performance evidence.
+
+
+### C-28: van and people
+
+The 264,000-view loaded Low sweep peaks at **63 calls / 2,480 triangles**; fallback peaks at **56 / 2,058**.
+It includes walking behind and inside open cargo. Parcels and shelf markers share instance batches;
+Low uses surfaces for printing, livery and moving facade panels. Main-view instance culling retains
+every visible pixel in eight comparisons, while High keeps its offscreen shadow candidates.
+The new Low van has 190 triangles and each Low figure 88. CPU poses on ordinary meshes avoid a bone
+texture; the existing main/reflection targets and pass schedule remain. The interior reflection keeps
+the C-23 cab shell so the imported windshield does not obstruct the unchanged physical mirror camera.
+Character distance/count limits and pose cadence are described in `docs/3D-ACTORS.md`; raw sweeps and
+rendered resource gates are in `docs/review/set-8/c28.md`. No ceiling is raised. Native Intel 60 fps is O-1.
+The final 30-view rendered Low gate peaks at 56 calls / 2,400 triangles / two textures /
+3,557,376 attachment bytes / 3,045,024 estimated Phaser bytes. Four large/colour/reduced views
+retain the same calls/triangles/attachments and peak at 2,381,510 Phaser bytes. High passes separately.
