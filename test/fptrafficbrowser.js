@@ -5,10 +5,10 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
  const quality=process.env.QA_GFX||'low',base=process.env.QA_BASE||'http://127.0.0.1:8336';
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  let page,checks=0;const errors=[],samples=[];
- try{for(const [lang,large] of (process.env.QA_SMOKE==='1'?[['en',false]]:[['en',false],['en',true],['ta',true]])){
+ try{for(const [lang,large] of (process.env.QA_SMOKE==='1'?[['en',false]]:[['en',false],['en',true],['ta',true]]).filter(([lang])=>!process.env.QA_LANGS||process.env.QA_LANGS.split(',').includes(lang))){
   page=await browser.newPage();await page.setViewport({width:1280,height:720});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/shader|WebGLProgram/i.test(m.text()))errors.push(m.text());});
-  await page.goto(base+'/first-person.html?gfx='+quality);await page.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
-  if(lang==='ta')await page.addScriptTag({url:base+'/data/i18n/ta.js'});
+  await page.goto(base+'/first-person.html?gfx='+quality+'&lang='+lang);await page.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
+  await page.waitForFunction(lang=>OTR.i18n.lang===lang,{timeout:30000},lang);
   await page.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.trafficToken=s.loadingToken;OTR.i18n.use(lang);Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true,narrate:false});s.scene.restart();},{lang,large});
   await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.loading&&s.loadingToken!==window.trafficToken;},{timeout:60000});
   const fixture=await page.evaluate(()=>{
@@ -50,6 +50,6 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
   const driven=await page.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return {z:m.van.z,events:OTR.workday.events.filter(e=>['drive.red-light','drive.sign-stop','drive.stop-line'].includes(e.type))};});assert.ok(driven.z<before);assert.equal(driven.events.length,1);assert.equal(driven.events[0].type,'drive.red-light');checks+=3;
   samples.push({lang,large,fixture,red,actors,checkpoint,driven});await page.close();page=null;
  }
- assert.deepEqual(errors,[]);checks++;fs.writeFileSync(path.join(OUT,`c32-${quality}-traffic.json`),JSON.stringify({checks,samples,errors},null,2));console.log(checks+' traffic browser checks passed');
+ assert.deepEqual(errors,[]);checks++;fs.writeFileSync(path.join(OUT,`${process.env.QA_TAG||'c32'}-${quality}-traffic.json`),JSON.stringify({checks,samples,errors},null,2));console.log(checks+' traffic browser checks passed');
  }catch(e){if(page){const state=await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {plan:m.routePlan,van:m.van,elapsed:m.elapsed,phase:m.phase,paused:m.paused,mode:m.mode,junctions:m.junctions,events:OTR.workday.events,modelEvents:m.events,junction:window.trafficJunction,controls:OTR.fpTraffic.layout(m),step:String(m.step),logs:m.logs};}).catch(()=>null);fs.writeFileSync(path.join(OUT,'c32-failure-state.json'),JSON.stringify(state,null,2));}if(page)await page.screenshot({path:path.join(OUT,'c32-failure.png')}).catch(()=>{});throw e;}finally{await browser.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});
