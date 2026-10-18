@@ -1,0 +1,38 @@
+{
+  "checks": 12,
+  "samples": [
+    {
+      "lang": "en",
+      "large": false,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "visible": [
+        {
+          "id": "stop:0:0:n",
+          "text": "Stop before the junction line.",
+          "x": 805.0369689906352,
+          "y": 285.15456416233087,
+          "right": 944.0369689906352,
+          "bottom": 327.15456416233087,
+          "font": 18
+        }
+      ],
+      "calls": 37,
+      "triangles": 926,
+      "context": false,
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

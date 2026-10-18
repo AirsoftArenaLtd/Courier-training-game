@@ -1,0 +1,82 @@
+[
+  {
+    "file": "src/core/fpaccess.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpguide.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpmission.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fproute.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpsigns.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/ui.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/scenes/FirstPersonScene.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpaccess.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpquality.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpresume.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fproute.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpsigns.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpsignsbrowser.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpworld.js",
+    "exit": 0,
+    "error": ""
+  }
+]

@@ -54,6 +54,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.mirrorLabel=OTR.txt(this,184,112,'Left mirror',16,'#ffffff',{stroke:'#1B2634',strokeW:4}).setDepth(21).setVisible(false);
     this.fade=this.add.rectangle(640,360,1280,720,0x000000,1).setDepth(2000).setAlpha(0);
     OTR.fpHud.create(this);
+    if(OTR.fpSigns)OTR.fpSigns.createUI(this);
   }
   setText(key,value,max) {
     if(this.ui[key]===value&&this.ui[key+'Width']===max)return;this.ui[key]=value;this.ui[key+'Width']=max;const object=this[key];object.setText(value).setScale(1);
@@ -61,6 +62,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(object.width>max)object.setScale(max/object.width);
   }
   showPanel(title,body,choices,options) {
+    if(this.signUI)for(const slot of this.signUI.pool){slot.text.setVisible(false);slot.back.setVisible(false);slot.entry=null;}
     if(this.handheld)this.handheld.close(false);
     options=options||{};this.closePanel(false);this.held=Object.create(null);
     const textSize=n=>options.accessibleText&&OTR.a11y&&OTR.a11y.large&&n<=19?n+4:n;
@@ -106,7 +108,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind,spot){this.transition(()=>{
     let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,kind==='campaign'?OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
+      m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,kind==='campaign'?OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence))):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
@@ -326,7 +328,7 @@ class FirstPersonScene extends Phaser.Scene {
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
-    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyL','KeyK','KeyR','KeyB','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
+    const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyJ','KeyL','KeyK','KeyR','KeyB','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
@@ -353,6 +355,7 @@ class FirstPersonScene extends Phaser.Scene {
       if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
       if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
       if(e.code==='KeyP'){OTR.fpAccess.focus(this);return;}
+      if(e.code==='KeyJ'&&OTR.fpSigns){OTR.fpSigns.read(this);return;}
       const m=this.model;if(m&&m.mode==='cab'){
         if(e.code==='Space')this.cabAction('cab-handbrake');if(e.code==='KeyB')this.cabAction('cab-belt');
         if(e.code==='KeyL')this.cabAction('cab-headlights');if(e.code==='KeyK')this.cabAction('cab-wipers');
@@ -430,9 +433,9 @@ class FirstPersonScene extends Phaser.Scene {
         if(label.gauge&&this.model){const text=label.gauge==='speed'?`The speed is ${Math.round(Math.abs(this.model.van.speed)*2.23694)} mph.`:`The engine is at ${Math.round((this.model.motion?this.model.motion.rpm:800)/100)*100} RPM.`;if(label.text!==text){label.text=text;object.setText(text);}}
         const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
         if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)){object.setVisible(false);return;}
-        if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});}
+        if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});if(this.signUI)this.signUI.occupied=occupied;}
     OTR.fpHud.navigation(this);
-    if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();
+    if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();if(OTR.fpSigns)OTR.fpSigns.updateUI(this,this.signUI.occupied);
   }
 }
 OTR.registerScene(FirstPersonScene);

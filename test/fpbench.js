@@ -173,6 +173,15 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.__actorBench=()=>{m.elapsed+=.016;};s.events.on('update',s.__actorBench);s.sync();s.refresh();
    },kind);await sample('actors'+kind);await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.events.off('update',s.__actorBench);});
   }
+  if(process.env.QA_SIGNS==='1'&&await p.evaluate(()=>!!OTR.fpSigns))for(const kind of ['junction','number','oneway','peak']){
+   await p.evaluate(kind=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const peak=kind==='peak',day=peak?21:kind==='oneway'?3:1,seed=peak?10:7,plan=OTR.fpRoute.plan(day,seed);plan.timeOfDay=peak?'dusk':'midday';const m=OTR.fpMission.create('campaign',seed,OTR.fpSigns.prepare(day>1?OTR.fpLater.prepare(plan):plan));OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);if(peak)OTR.fpLoadout.configure(m,'extra');m.phase='route';m.departed=m.secured=m.repaired=true;m.paused=false;m.step=()=>{};m.mode=peak||kind==='number'?'walk':'cab';m.van.wipers=true;Object.assign(m.van,{gear:1,hand:true,belt:true});
+    for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);if(peak){m.cargoOpen=true;Object.assign(m.van,m.stops[1].park);m.stops.forEach(s=>s.contacted=true);OTR.fpDoors.sync(m);const p=OTR.fp.local(m.van,0,4.5);Object.assign(m.player,{...p,yaw:m.van.yaw,pitch:0});for(const [name,z] of [['bus',-18],['siren',14]]){const p=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
+    else if(kind==='number'){const stop=m.stops[0];Object.assign(m.van,stop.park);Object.assign(m.player,{x:stop.x-stop.side*4,z:stop.z,yaw:stop.side*Math.PI/2,pitch:0});}
+    else if(kind==='oneway'){const sign=OTR.fpSigns.catalog(m).regulatory.find(s=>s.kind==='oneway');Object.assign(m.van,{x:sign.from-5,z:sign.roadZ+2.5,yaw:Math.PI/2,look:-.65});}
+    else{const j=m.junctions[0];Object.assign(m.van,{x:j.x+2.5,z:j.z+17,yaw:0,look:0});}
+    s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
+   },kind);await sample('signs'+kind);
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

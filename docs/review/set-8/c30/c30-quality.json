@@ -1,0 +1,150 @@
+{
+  "sourceRevision": "6eb87fbf060f8dee854c7831c56aecbb7ad76ced",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "depot",
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "handheld",
+        "barcodeAim",
+        "firstStop",
+        "doorstep",
+        "doorsignature",
+        "doorid",
+        "laterstressturnleft",
+        "laterrearpeak",
+        "lightingnightreverse",
+        "visibleweatherstorm",
+        "visibleweathersnowwalk",
+        "townhouse",
+        "townroad",
+        "townparked-car",
+        "towncab",
+        "actorsvan",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsnumber",
+        "signsoneway",
+        "signspeak"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c30-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 386627,
+      "peak": {
+        "calls": 57,
+        "triangles": 2480,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3106512
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "townhouse",
+        "townroad",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsoneway",
+        "signspeak"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c30-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 255882,
+      "peak": {
+        "calls": 98,
+        "triangles": 224937,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6978086
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "barcodeAim",
+        "visibleweatherstorm",
+        "actorscargoextra",
+        "laterrearpeak",
+        "signsjunction",
+        "signspeak"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c30-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 127532,
+      "peak": {
+        "calls": 57,
+        "triangles": 2480,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2865328
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "laterrearpeak",
+        "actorscargoextra",
+        "actorsresident",
+        "signsjunction",
+        "signspeak"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c30-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 121168,
+      "peak": {
+        "calls": 52,
+        "triangles": 2060,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2711126
+      }
+    }
+  ]
+}
