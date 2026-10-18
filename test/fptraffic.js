@@ -271,3 +271,19 @@ test('a completed safe cyclist turn does not hide a later physical impact',()=>{
  m.log('contact:'+m.leg,'safety','needs','The van contacted an obstacle.');T.after(m);
  assert.equal(reports('drive.cyclist').length,1);assert.equal(reports('drive.cyclist')[0].ok,true);assert.equal(reports('drive.contact').length,1);
 });
+
+test('children do not step through stopped traffic or a solid bus at the crossing',()=>{
+ for(const kind of ['car','bus']){const m=make(),h=m.crossing;h.state='crossing';h.x=m.town.school.x-2;Object.assign(m.van,{x:100,z:10});
+  if(kind==='car')Object.assign(m.traffic[0],{x:h.x+.5,z:h.z+.4,yaw:0,speed:0});
+  else m.solids.push({x:h.x+.5,z:h.z+.4,w:2.4,d:7.6});
+  const x=h.x;T.crossingStep(m,.1);assert.equal(h.x,x,kind);
+ }
+});
+test('a moving school bus or emergency vehicle cannot drive through the new people',()=>{
+ for(const role of ['children','cyclist']){const m=make();c.OTR.fpDriving.configure(m);Object.assign(m.van,{x:100,z:10});
+  if(role==='children'){m.crossing.state='crossing';m.crossing.x=20;m.crossing.z=-20;}
+  else Object.assign(m.trafficControl.cyclist,{state:'beside',x:20,z:-20,yaw:0});
+  T.syncSolids(m);const actor=m.driving.bus;Object.assign(actor,{x:20,z:-15,yaw:0,state:'leaving'});
+  assert.equal(c.OTR.fpDriving.advance(m,actor,4,.1,2.4,7.6),false);assert.equal(actor.z,-15);
+ }
+});

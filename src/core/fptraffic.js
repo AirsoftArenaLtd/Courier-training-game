@@ -158,6 +158,12 @@ OTR.fpTraffic = {
     return Math.abs(v.x - road) > m.town.road / 2 + 2 ||
       distance > Math.max(7, Math.abs(v.speed) * 4 + 3) || Math.abs(v.speed) < .1 && distance > 4;
   },
+  overlap(a, b) {
+    return Math.abs(a.x-b.x)<(a.w+b.w)/2&&Math.abs(a.z-b.z)<(a.d+b.d)/2;
+  },
+  blocksDrivingActor(m, box) {
+    return this.overlap(box,m._trafficSolids.children)||this.overlap(box,m._trafficSolids.cyclist);
+  },
   crossingStep(m, dt) {
     if (m.routePlan.day < 3) return;
     const h = m.crossing, v = m.van, school = m.town.school;
@@ -170,7 +176,11 @@ OTR.fpTraffic = {
     if (h.state !== 'crossing') return;
     const next = m._trafficBodies.next; next.x = h.x + .95 * dt; next.z = h.z + .4; next.w = .7; next.d = 1.5;
     // Check the proposed step, so children never walk into a stopped or moving van.
-    if (!OTR.fp.vanBox(v, next) && (m.mode!=='walk'||!OTR.fp.circleBox(m.player.x,m.player.z,.3,next))) h.x = next.x;
+    let blocked=OTR.fp.vanBox(v,next)||(m.mode==='walk'&&OTR.fp.circleBox(m.player.x,m.player.z,.3,next));
+    if(!blocked)for(const solid of m.solids)if(solid!==m._trafficSolids.children&&this.overlap(next,solid)){blocked=true;break;}
+    if(!blocked)for(const car of m.traffic){const vertical=Math.abs(Math.cos(car.yaw))>.7,w=vertical?1.8:3.6,d=vertical?3.6:1.8;
+      if(Math.abs(next.x-car.x)<(next.w+w)/2&&Math.abs(next.z-car.z)<(next.d+d)/2){blocked=true;break;}}
+    if(!blocked)h.x=next.x;
     if (h.x >= school.x + m.town.road / 2 + 1.2) {
       h.state = 'resolved'; m.touch();
       this.emit(m, 'drive.pedestrian', 'school-crossing', true, 'Waited for the children to finish crossing the road.');
