@@ -1,0 +1,86 @@
+{
+  "sixSelections": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 3330.1999999997206,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to select neutral (N).",
+      "time": 4857.799999999814,
+      "lang": "en"
+    }
+  ],
+  "controlsAndMirror": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 3330.1999999997206,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to select neutral (N).",
+      "time": 4857.799999999814,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in reverse.",
+      "time": 6495.299999999814,
+      "lang": "en"
+    },
+    {
+      "text": "The headlights are on. Press E to switch them off.",
+      "time": 8052.5,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in drive.",
+      "time": 9598.5,
+      "lang": "en"
+    },
+    {
+      "text": "Look at the left mirror for a moment to check it.",
+      "time": 11102.399999999907,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 12660.299999999814,
+      "lang": "en"
+    }
+  ],
+  "panelProtectedForMs": 1900,
+  "stopAndBands": [
+    {
+      "text": "Stop. A rear obstacle is within 0.5 meters.",
+      "time": 15103,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 16695.69999999972,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within three meters.",
+      "time": 18262.600000000093,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within one meter.",
+      "time": 19791.899999999907,
+      "lang": "en"
+    }
+  ],
+  "reverseFourSeconds": {
+    "said": [
+      {
+        "text": "The parking brake is off. Press E to set it.",
+        "time": 22972,
+        "lang": "en"
+      }
+    ],
+    "speed": -1.7
+  },
+  "checks": 18,
+  "errors": []
+}

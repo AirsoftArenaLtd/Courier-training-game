@@ -1,0 +1,14 @@
+[
+  {
+    "suite": "keyboard",
+    "exit": 0
+  },
+  {
+    "suite": "bench-low",
+    "exit": 0
+  },
+  {
+    "suite": "bench-high",
+    "exit": 0
+  }
+]
