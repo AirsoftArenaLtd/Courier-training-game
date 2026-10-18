@@ -3,7 +3,7 @@ class FirstPersonScene extends Phaser.Scene {
   constructor() { super('FirstPersonScene'); }
   create(data) {
     Object.assign(this,{view:null,model:null,assetBank:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',soundSource:null,lightSource:null,saved:true,loading:true});
-    this.hubWorkday=!!(data&&data.workday);
+    this.cabVoice=null;this.hubWorkday=!!(data&&data.workday);
     this.held=Object.create(null);this.progress=OTR.fpStore.read();
     if(this.hubWorkday&&!data.workday.resume){this.progress.campaign=null;this.write();}
     this.sensitivity=OTR.fp.clamp(Number(new URLSearchParams(location.search).get('sensitivity'))||0.002,0.0005,0.006);
@@ -95,7 +95,7 @@ class FirstPersonScene extends Phaser.Scene {
   capture(){const canvas=this.sys.game.canvas;if(this.keyboardMode||!canvas.requestPointerLock||document.pointerLockElement===canvas)return;
     try{const p=canvas.requestPointerLock();if(p&&p.catch)p.catch(()=>{});}catch(_){/* Drag look remains available. */}}
   releaseMouse(){if(document.pointerLockElement===this.sys.game.canvas)document.exitPointerLock();}
-  message(text){this.notice=text||'';this.noticeUntil=this.time.now+5000;if(text&&OTR.a11y)OTR.a11y.say(text);}
+  message(text){this.notice=text||'';this.noticeUntil=this.time.now+5000;if(text&&OTR.a11y){if(this.model&&this.model.mode==='cab')OTR.fpAccess.voiceHint(this,text);else OTR.a11y.say(text);}}
   write(){this.saved=OTR.fpStore.write(this.progress);return this.saved;}
   checkpoint(){if(!this.progress)return;if(this.model&&this.model.phase!=='debrief')this.progress[this.model.kind]=this.model.snapshot();this.write();this.lastSave=this.time?this.time.now:0;}
   transition(action){
@@ -426,6 +426,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
     const blocked=!!this.panel||this.external||this.transitioning||(device&&!aiming);this.setText('hint',blocked?'':hint,device?750:1160);this.hintBack.setDisplaySize(device?790:1210,Math.max(48,this.hint.height+12));this.hintBack.setVisible(!blocked&&!!hint);this.reticle.setVisible(!blocked);this.mirrorLabel.setVisible(false);
+    OTR.fpAccess.voiceTick(this,blocked);
     this.scanBeam.clear();
     if(aiming){const color=this.handheld.focusId?0x2BC48A:0xF0435A;this.scanBeam.lineStyle(2,color,0.9);this.scanBeam.strokeRect(609,340,62,40);
       if(this.handheld.progress>0){this.scanBeam.fillStyle(0x1B2634,0.9);this.scanBeam.fillRect(570,395,140,8);this.scanBeam.fillStyle(color,1);this.scanBeam.fillRect(570,395,140*Math.min(1,this.handheld.progress/0.45),8);}}

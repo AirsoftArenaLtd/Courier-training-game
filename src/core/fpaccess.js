@@ -7,6 +7,49 @@ OTR.fpAccess={
     scene.add.text=(x,y,text,style)=>scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,{resolution:OTR.gfx.high()?2:1}));
   },
   settings(){return OTR.a11y?OTR.a11y.settings():{};},
+  // Cab speech has two bounded slots. Ordinary hints wait for speech already in progress;
+  // an urgent rear stop can replace our own hint, but never another reader's utterance.
+  voiceState(scene){return scene.cabVoice||(scene.cabVoice={hint:null,rear:null,lastHint:'',target:'',band:null,gear:scene.model.van.gear,next:0,active:null});},
+  voiceHint(scene,text){
+    if(!this.settings().narrate||!window.speechSynthesis||!text)return;
+    const state=this.voiceState(scene);
+    // Selecting the camera must not read its continuously changing decimal distance.
+    if(scene.model.van.gear===-1&&OTR.fpRear&&text===OTR.fpRear.hint(scene.model))return;
+    if(text!==state.lastHint){state.lastHint=text;state.hint=text;}
+  },
+  voiceTick(scene,blocked){
+    const m=scene.model;
+    if(!m||m.mode!=='cab'||!this.settings().narrate||!window.speechSynthesis){scene.cabVoice=null;return;}
+    const state=this.voiceState(scene),speech=window.speechSynthesis;
+    if(blocked){state.hint=state.rear=null;state.lastHint=state.target='';state.band=null;state.gear=m.van.gear;state.active=null;return;}
+    const id=scene.target,text=OTR.fpMirrors&&OTR.fpMirrors.hint(id,m)||(id&&id!=='cab-camera'?OTR.fpCab.hint(id,m,this.key('KeyE')):'');
+    const target=(id||'')+'|'+text;
+    if(target!==state.target){const previous=state.target;state.target=target;if(text)this.voiceHint(scene,text);else if(previous)state.lastHint='';}
+    if(m.van.gear!==state.gear){
+      state.gear=m.van.gear;
+      this.voiceHint(scene,{'2':'The van is in park.','-1':'The van is in reverse.','0':'The van is in neutral.','1':'The van is in drive.'}[state.gear]);
+    }
+    if(m.van.gear===-1){
+      const distance=m.rearSense?m.rearSense.distance:6,band=distance<.5?3:distance<1?2:distance<3?1:0;
+      if(band!==state.band){state.band=band;state.rear=[
+        'The rear camera is live. The rear sensors detect no obstacle within three meters.',
+        'The rear camera is live. A rear obstacle is within three meters.',
+        'The rear camera is live. A rear obstacle is within one meter.',
+        'Stop. A rear obstacle is within 0.5 meters.'
+      ][band];}
+    }else{state.band=null;state.rear=null;}
+    const urgent=state.band===3&&!!state.rear;
+    if(speech.speaking||speech.pending){if(!urgent||!state.active)return;if(speech.cancel)speech.cancel();}
+    else state.active=null;
+    if(!urgent&&scene.time.now<state.next)return;
+    const lane=urgent?'rear':state.hint?'hint':'rear',line=state[lane];if(!line)return;
+    try{
+      const u=new window.SpeechSynthesisUtterance(OTR.i18n?OTR.i18n.t(line):line);
+      u.lang=OTR.i18n&&OTR.i18n.lang||'en';u.rate=1;u.volume=Math.max(.2,OTR.audio&&OTR.audio.volume||.6);
+      u.onend=u.onerror=()=>{if(state.active===u)state.active=null;};
+      state.active=u;state[lane]=null;state.next=scene.time.now+1500;speech.speak(u);
+    }catch{state.active=null;}
+  },
   reduced(){const a=this.settings();if(typeof a.reducedMotion==='boolean')return a.reducedMotion;if(!this.motionQuery&&window.matchMedia)this.motionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');return !!(this.motionQuery&&this.motionQuery.matches);},
   key(code){return OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;},
   lookKeys(){return ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].map(code=>this.key(code)).join('/');},
