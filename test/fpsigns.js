@@ -108,3 +108,7 @@ test('a physical closure collision replaces the generic contact report only on a
   const contact=O.workday.events.filter(e=>['drive.contact','drive.sign-roadworks'].includes(e.type));assert.equal(contact.length,1);assert.equal(contact[0].type,enabled?'drive.sign-roadworks':'drive.contact');assert.equal(contact[0].ok,false);
  }
 });
+
+test('keyboard reading still reaches a visible physical sign when a long label cannot fit',()=>{
+ let said='';const entry={mainVisible:true,label:{text:'Stop before the junction line.'}},scene={signUI:{pool:[],readIndex:-1},art:{signs:{entries:[entry]},labelPosition:()=>({x:640,y:300})},message:text=>said=text};O.fpSigns.read(scene);assert.equal(said,entry.label.text);entry.mainVisible=false;O.fpSigns.read(scene);assert.equal(said,'Look toward a road sign, then read it again.');
+});

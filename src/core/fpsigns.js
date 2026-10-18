@@ -160,7 +160,7 @@ OTR.fpSigns = {
     }
   },
   read(scene){
-    const visible=scene.signUI.pool.filter(s=>s.entry);if(!visible.length){scene.message('Look toward a road sign, then read it again.');return;}
-    scene.signUI.readIndex=(scene.signUI.readIndex+1)%visible.length;scene.message(visible[scene.signUI.readIndex].entry.label.text);
+    const visible=scene.art&&scene.art.signs?scene.art.signs.entries.filter(e=>e.mainVisible&&scene.art.labelPosition(e.label)):[];if(!visible.length){scene.message('Look toward a road sign, then read it again.');return;}
+    scene.signUI.readIndex=(scene.signUI.readIndex+1)%visible.length;scene.message(visible[scene.signUI.readIndex].label.text);
   }
 };
