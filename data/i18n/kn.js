@@ -3783,7 +3783,22 @@ window.OTR_I18N.kn = {
 "This lesson takes place in the depot.": "ಈ ಪಾಠ ಡಿಪೋದಲ್ಲಿ ನಡೆಯುತ್ತದೆ.",
 "Prepare the van before departure.": "ಹೊರಡುವ ಮೊದಲು ವ್ಯಾನ್ ಸಿದ್ಧಪಡಿಸಿ.",
 "Return to the depot.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ.",
-"Saving is unavailable. Keep this window open.": "ಉಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಈ ವಿಂಡೋವನ್ನು ತೆರೆದೇ ಇಡಿ."
+"Saving is unavailable. Keep this window open.": "ಉಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಈ ವಿಂಡೋವನ್ನು ತೆರೆದೇ ಇಡಿ.",
+"Read a visible road sign.": "ಕಾಣುವ ರಸ್ತೆ ಚಿಹ್ನೆಯನ್ನು ಓದಿ.",
+"Kept to the posted speed limit.": "ಸೂಚಿಸಿದ ವೇಗ ಮಿತಿಯನ್ನು ಪಾಲಿಸಲಾಯಿತು.",
+"Kept to the school-zone speed limit.": "ಶಾಲಾ ವಲಯದ ವೇಗ ಮಿತಿಯನ್ನು ಪಾಲಿಸಲಾಯಿತು.",
+"Exceeded the school-zone speed limit.": "ಶಾಲಾ ವಲಯದ ವೇಗ ಮಿತಿಯನ್ನು ಮೀರಲಾಯಿತು.",
+"Gave way to traffic when leaving the depot.": "ಡಿಪೋದಿಂದ ಹೊರಡುವಾಗ ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡಲಾಯಿತು.",
+"Left the depot without giving way to nearby traffic.": "ಹತ್ತಿರದ ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡದೆ ಡಿಪೋದಿಂದ ಹೊರಡಲಾಯಿತು.",
+"Used another street around the road closure.": "ರಸ್ತೆ ಮುಚ್ಚಿದ್ದರಿಂದ ಬೇರೆ ರಸ್ತೆಯನ್ನು ಬಳಸಲಾಯಿತು.",
+"Contacted the closure instead of following the diversion.": "ಬದಲಿ ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸುವ ಬದಲು ಮುಚ್ಚಿದ ರಸ್ತೆಯವರೆಗೆ ತಲುಪಲಾಯಿತು.",
+"Entered a one-way street against its direction.": "ಏಕಮುಖ ರಸ್ತೆಯನ್ನು ಅದರ ದಿಕ್ಕಿಗೆ ವಿರುದ್ಧವಾಗಿ ಪ್ರವೇಶಿಸಲಾಯಿತು.",
+"Entered a street from its prohibited end.": "ರಸ್ತೆಯನ್ನು ನಿಷೇಧಿತ ತುದಿಯಿಂದ ಪ್ರವೇಶಿಸಲಾಯಿತು.",
+"Stop before the junction line.": "ಜಂಕ್ಷನ್ ರೇಖೆಯ ಮೊದಲು ನಿಲ್ಲಿಸಿ.",
+"Give way to traffic before leaving the depot.": "ಡಿಪೋದಿಂದ ಹೊರಡುವ ಮೊದಲು ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡಿ.",
+"The street is closed. Follow another cross street.": "ರಸ್ತೆ ಮುಚ್ಚಲಾಗಿದೆ. ಬೇರೊಂದು ಅಡ್ಡ ರಸ್ತೆಯನ್ನು ಅನುಸರಿಸಿ.",
+"Do not enter this street from this end.": "ಈ ತುದಿಯಿಂದ ಈ ರಸ್ತೆಯನ್ನು ಪ್ರವೇಶಿಸಬೇಡಿ.",
+"Look toward a road sign, then read it again.": "ಒಂದು ರಸ್ತೆ ಚಿಹ್ನೆಯ ಕಡೆಗೆ ನೋಡಿ, ನಂತರ ಅದನ್ನು ಮತ್ತೆ ಓದಿ."
 },
 "templates": [
 [
@@ -5445,6 +5460,30 @@ window.OTR_I18N.kn = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ಗೆ {0} ಅಥವಾ ನಿಯಂತ್ರಣ ಮತ್ತು ಮಾರ್ಗದರ್ಶನಕ್ಕೆ {1} ಒತ್ತಿ."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"ಕಾಣುವ ರಸ್ತೆ ಚಿಹ್ನೆಯನ್ನು ಓದಲು {0} ಒತ್ತಿ. ಮುಂದಿನ ಚಿಹ್ನೆಯನ್ನು ಓದಲು ಅದನ್ನು ಮತ್ತೆ ಒತ್ತಿ."
+],
+[
+"This is {0}.",
+"ಇದು {0}."
+],
+[
+"This is number {0} on {1}.",
+"ಇದು {1}ನಲ್ಲಿ ಸಂಖ್ಯೆ {0}."
+],
+[
+"The speed limit is {0} mph.",
+"ವೇಗ ಮಿತಿ {0} mph."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"ಮುಂದೆ ಶಾಲಾ ವಲಯ ಆರಂಭವಾಗುತ್ತದೆ. ಅದರ ವೇಗ ಮಿತಿ {0} mph."
+],
+[
+"Traffic travels east on {0}.",
+"{0}ನಲ್ಲಿ ಸಂಚಾರ ಪೂರ್ವ ದಿಕ್ಕಿಗೆ ಸಾಗುತ್ತದೆ."
 ]
 ],
 "keep": [

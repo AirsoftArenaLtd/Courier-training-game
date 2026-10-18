@@ -3784,7 +3784,22 @@ window.OTR_I18N.hi = {
 "This lesson takes place in the depot.": "यह पाठ डिपो में होता है।",
 "Prepare the van before departure.": "रवाना होने से पहले वैन तैयार करें।",
 "Return to the depot.": "डिपो लौटें।",
-"Saving is unavailable. Keep this window open.": "सेव नहीं हो सकता। इस विंडो को खुला रखें।"
+"Saving is unavailable. Keep this window open.": "सेव नहीं हो सकता। इस विंडो को खुला रखें।",
+"Read a visible road sign.": "दिखाई दे रहा सड़क संकेत पढ़ें।",
+"Kept to the posted speed limit.": "निर्धारित गति सीमा का पालन किया।",
+"Kept to the school-zone speed limit.": "स्कूल क्षेत्र की गति सीमा का पालन किया।",
+"Exceeded the school-zone speed limit.": "स्कूल क्षेत्र की गति सीमा पार की।",
+"Gave way to traffic when leaving the depot.": "डिपो से निकलते समय ट्रैफ़िक को रास्ता दिया।",
+"Left the depot without giving way to nearby traffic.": "पास के ट्रैफ़िक को रास्ता दिए बिना डिपो से निकले।",
+"Used another street around the road closure.": "सड़क बंद होने पर दूसरी सड़क से होकर गए।",
+"Contacted the closure instead of following the diversion.": "डायवर्जन का पालन करने के बजाय बंद सड़क तक पहुँच गए।",
+"Entered a one-way street against its direction.": "एकतरफ़ा सड़क में उसकी दिशा के विपरीत प्रवेश किया।",
+"Entered a street from its prohibited end.": "सड़क में उसके निषिद्ध सिरे से प्रवेश किया।",
+"Stop before the junction line.": "जंक्शन की रेखा से पहले रुकिए।",
+"Give way to traffic before leaving the depot.": "डिपो से निकलने से पहले ट्रैफ़िक को रास्ता दीजिए।",
+"The street is closed. Follow another cross street.": "यह सड़क बंद है। कोई दूसरी क्रॉस स्ट्रीट लीजिए।",
+"Do not enter this street from this end.": "इस सिरे से इस सड़क में प्रवेश न कीजिए।",
+"Look toward a road sign, then read it again.": "किसी सड़क संकेत की ओर देखिए, फिर उसे दोबारा पढ़िए।"
 },
 "templates": [
 [
@@ -5446,6 +5461,30 @@ window.OTR_I18N.hi = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "हैंडहेल्ड के लिए {0} या नियंत्रण और मार्गदर्शन के लिए {1} दबाएँ।"
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"दिखाई दे रहे सड़क संकेत को पढ़ने के लिए {0} दबाइए। अगला संकेत पढ़ने के लिए इसे फिर दबाइए।"
+],
+[
+"This is {0}.",
+"यह {0} है।"
+],
+[
+"This is number {0} on {1}.",
+"यह {1} पर नंबर {0} है।"
+],
+[
+"The speed limit is {0} mph.",
+"गति सीमा {0} mph है।"
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"आगे स्कूल क्षेत्र शुरू हो रहा है। इसकी गति सीमा {0} mph है।"
+],
+[
+"Traffic travels east on {0}.",
+"{0} पर ट्रैफ़िक पूर्व की ओर चलता है।"
 ]
 ],
 "keep": [

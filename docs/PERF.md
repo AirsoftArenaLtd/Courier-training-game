@@ -1,5 +1,27 @@
 # 3D workday rendering cost
 
+## C-30: generated signs (18 October 2026)
+
+Signs share the existing route-plane batch: at most five two-triangle instances per view on Low, 24 on High,
+without a new draw call, texture, target or pass. Five reused Phaser text objects hold normal/larger readings.
+The integrated gate now retains 57 views, adding junction, number, one-way and loaded-peak sign fixtures.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 28 | 57 | 2,480 | 2 | 3,557,376 | 3,106,512 |
+| loaded-high | 13 | 98 | 224,937 | 3 | 11,239,424 | 6,978,086 |
+| accessible-low | 8 | 57 | 2,480 | 2 | 3,557,376 | 2,865,328 |
+| fallback-low | 8 | 52 | 2,060 | 2 | 3,557,376 | 2,711,126 |
+
+Full signed CPU sweeps cover 264,000 complete-frame views each and peak at **63 calls / 2,492 triangles** loaded
+and **56 / 2,072** fallback. All stops, full cargo, physical controls, mirrors, automatic rear camera, weather
+and lighting are included. The strictest loaded fixture is day 21 / variant 10 / stop 1 / open-cargo exterior.
+Low and High ceilings remain unchanged. SwiftShader verifies resources; native Intel 60 fps remains O-1.
+
+Rendered gate: `QA_TAG=c30 node test/fpquality.js`, with local server in `QA_BASE` and Chromium in `QA_BROWSER`.
+CPU sweep: `QA_SIGNS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=1 QA_ASSETS=1 node test/fproute.js`; repeat with `QA_ASSETS=0` for fallback.
+[Raw reports, screenshots, clip and checklist](review/set-8/c30.md).
+
 ## B-44: fallback diagnostics (18 October 2026)
 
 An additive asset-bank counter and healthy-fixture guard change no model selection or rendering. Two cab

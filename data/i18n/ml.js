@@ -3783,7 +3783,22 @@ window.OTR_I18N.ml = {
 "This lesson takes place in the depot.": "ഈ പാഠം ഡിപ്പോയിലാണ് നടക്കുന്നത്.",
 "Prepare the van before departure.": "പുറപ്പെടുന്നതിന് മുമ്പ് വാൻ ഒരുക്കുക.",
 "Return to the depot.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക.",
-"Saving is unavailable. Keep this window open.": "സേവ് ചെയ്യാൻ കഴിയില്ല. ഈ വിൻഡോ തുറന്നുതന്നെ വെക്കുക."
+"Saving is unavailable. Keep this window open.": "സേവ് ചെയ്യാൻ കഴിയില്ല. ഈ വിൻഡോ തുറന്നുതന്നെ വെക്കുക.",
+"Read a visible road sign.": "കാണുന്ന ഒരു റോഡ് അടയാളം വായിക്കുക.",
+"Kept to the posted speed limit.": "നിർദ്ദേശിച്ച വേഗപരിധി പാലിച്ചു.",
+"Kept to the school-zone speed limit.": "സ്കൂൾ മേഖലയിലെ വേഗപരിധി പാലിച്ചു.",
+"Exceeded the school-zone speed limit.": "സ്കൂൾ മേഖലയിലെ വേഗപരിധി മറികടന്നു.",
+"Gave way to traffic when leaving the depot.": "ഡിപ്പോയിൽ നിന്ന് പുറപ്പെടുമ്പോൾ ഗതാഗതത്തിന് വഴി നൽകി.",
+"Left the depot without giving way to nearby traffic.": "അടുത്തുള്ള ഗതാഗതത്തിന് വഴി നൽകാതെ ഡിപ്പോയിൽ നിന്ന് പുറപ്പെട്ടു.",
+"Used another street around the road closure.": "റോഡ് അടച്ചിരുന്നതിനാൽ മറ്റൊരു തെരുവ് ഉപയോഗിച്ചു.",
+"Contacted the closure instead of following the diversion.": "വഴിതിരിച്ചുവിടൽ പിന്തുടരാതെ അടച്ച റോഡിൽ എത്തി.",
+"Entered a one-way street against its direction.": "ഏകദിശാ തെരുവിൽ അതിന്റെ ദിശയ്ക്ക് എതിരായി പ്രവേശിച്ചു.",
+"Entered a street from its prohibited end.": "തെരുവിൽ വിലക്കിയ അറ്റത്തുനിന്ന് പ്രവേശിച്ചു.",
+"Stop before the junction line.": "ജംഗ്ഷൻ രേഖയ്ക്ക് മുമ്പ് നിർത്തുക.",
+"Give way to traffic before leaving the depot.": "ഡിപ്പോയിൽ നിന്ന് പുറപ്പെടുന്നതിന് മുമ്പ് ഗതാഗതത്തിന് വഴി നൽകുക.",
+"The street is closed. Follow another cross street.": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
+"Do not enter this street from this end.": "ഈ അറ്റത്തുനിന്ന് ഈ തെരുവിൽ പ്രവേശിക്കരുത്.",
+"Look toward a road sign, then read it again.": "ഒരു റോഡ് അടയാളത്തിലേക്ക് നോക്കുക, എന്നിട്ട് അത് വീണ്ടും വായിക്കുക."
 },
 "templates": [
 [
@@ -5445,6 +5460,30 @@ window.OTR_I18N.ml = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "ഹാൻഡ്‌ഹെൽഡിന് {0} അല്ലെങ്കിൽ നിയന്ത്രണങ്ങളും മാർഗനിർദേശവും കാണാൻ {1} അമർത്തുക."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"കാണുന്ന റോഡ് അടയാളം വായിക്കാൻ {0} അമർത്തുക. അടുത്ത അടയാളം വായിക്കാൻ വീണ്ടും അമർത്തുക."
+],
+[
+"This is {0}.",
+"ഇത് {0} ആണ്."
+],
+[
+"This is number {0} on {1}.",
+"ഇത് {1}-ലെ നമ്പർ {0} ആണ്."
+],
+[
+"The speed limit is {0} mph.",
+"വേഗപരിധി {0} mph ആണ്."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"മുന്നിൽ ഒരു സ്കൂൾ മേഖല തുടങ്ങുന്നു. അതിന്റെ വേഗപരിധി {0} mph ആണ്."
+],
+[
+"Traffic travels east on {0}.",
+"{0}-ൽ ഗതാഗതം കിഴക്കോട്ട് നീങ്ങുന്നു."
 ]
 ],
 "keep": [

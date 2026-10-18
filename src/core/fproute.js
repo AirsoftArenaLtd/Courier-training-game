@@ -11,6 +11,7 @@ OTR.fpRoute = {
     if (!plan || !Number.isSafeInteger(plan.day) || plan.day < 1 || !Number.isSafeInteger(plan.townSeed) ||
       !Array.isArray(plan.route) || plan.route.length !== 5) throw Error('Invalid route plan');
     if(plan.timeOfDay!==undefined&&!['morning','midday','dusk','night'].includes(plan.timeOfDay))throw Error('Invalid lighting time');
+    if(plan.signs!==undefined&&plan.signs!==1)throw Error('Invalid road-sign version');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {
@@ -57,13 +58,14 @@ OTR.fpRoute = {
   },
   tick(m, old) {
     const v = m.van, F = OTR.fp, half = m.town.road / 2;
+    if(OTR.fpSigns)OTR.fpSigns.tick(m,old);
     let nearX,nearZ;
     for(const x of m.town.xs)if(Math.abs(x-v.x)<=half){nearX=x;break;}
     for(const z of m.town.zs)if(Math.abs(z-v.z)<=half){nearZ=z;break;}
     if (Math.abs(v.speed) > this.limit(m) / 2.2369362921) m.log('speed:' + m.leg, 'driving', 'needs', 'Exceeded the posted speed limit.');
     if (Math.abs(v.speed) > 1 && !(nearX !== undefined && nearZ !== undefined)) {
       const wrong = nearX !== undefined ? (v.x - nearX) * Math.cos(v.yaw) < -0.4 : nearZ !== undefined && (v.z - nearZ) * Math.sin(v.yaw) < -0.4;
-      if (wrong) m.log('lane:' + m.leg, 'driving', 'needs', 'Traveled on the wrong side of the road.');
+      if (wrong&&!(OTR.fpSigns&&OTR.fpSigns.enabled(m)&&OTR.fpSigns.onOneWay(m))) m.log('lane:' + m.leg, 'driving', 'needs', 'Traveled on the wrong side of the road.');
     }
     const sx=Math.sin(v.yaw)*2.7,sz=Math.cos(v.yaw)*2.7;
     const fx=v.x+sx,fz=v.z-sz,px=old.x+sx,pz=old.z-sz;

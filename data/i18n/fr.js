@@ -3784,7 +3784,22 @@ window.OTR_I18N.fr = {
 "This lesson takes place in the depot.": "Cette leçon se déroule au dépôt.",
 "Prepare the van before departure.": "Prépare la camionnette avant le départ.",
 "Return to the depot.": "Retourne au dépôt.",
-"Saving is unavailable. Keep this window open.": "Enregistrement impossible. Garde cette fenêtre ouverte."
+"Saving is unavailable. Keep this window open.": "Enregistrement impossible. Garde cette fenêtre ouverte.",
+"Read a visible road sign.": "Lire un panneau visible.",
+"Kept to the posted speed limit.": "Tu as respecté la limite de vitesse affichée.",
+"Kept to the school-zone speed limit.": "Tu as respecté la limite de vitesse de la zone scolaire.",
+"Exceeded the school-zone speed limit.": "Tu as dépassé la limite de vitesse de la zone scolaire.",
+"Gave way to traffic when leaving the depot.": "Tu as cédé le passage à la circulation en quittant le dépôt.",
+"Left the depot without giving way to nearby traffic.": "Tu as quitté le dépôt sans céder le passage à la circulation proche.",
+"Used another street around the road closure.": "Tu as pris une autre rue pour contourner la fermeture de la route.",
+"Contacted the closure instead of following the diversion.": "Tu as atteint la fermeture au lieu de suivre la déviation.",
+"Entered a one-way street against its direction.": "Tu as pris une rue à sens unique à contresens.",
+"Entered a street from its prohibited end.": "Tu as emprunté une rue par son extrémité interdite.",
+"Stop before the junction line.": "Arrête-toi avant la ligne du carrefour.",
+"Give way to traffic before leaving the depot.": "Cède le passage à la circulation avant de quitter le dépôt.",
+"The street is closed. Follow another cross street.": "La rue est fermée. Prends une autre rue transversale.",
+"Do not enter this street from this end.": "N'entre pas dans cette rue par ce côté.",
+"Look toward a road sign, then read it again.": "Regarde vers un panneau routier, puis lis-le à nouveau."
 },
 "templates": [
 [
@@ -5446,6 +5461,30 @@ window.OTR_I18N.fr = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "Appuie sur {0} pour le terminal ou sur {1} pour Commandes et aide."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"Appuie sur {0} pour lire un panneau visible. Appuie à nouveau pour lire le panneau suivant."
+],
+[
+"This is {0}.",
+"Ici, c'est {0}."
+],
+[
+"This is number {0} on {1}.",
+"Voici le numéro {0} sur {1}."
+],
+[
+"The speed limit is {0} mph.",
+"La limite de vitesse est de {0} mph."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"Une zone scolaire commence plus loin. Sa limite de vitesse est de {0} mph."
+],
+[
+"Traffic travels east on {0}.",
+"La circulation va vers l'est sur {0}."
 ]
 ],
 "keep": [

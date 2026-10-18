@@ -1,0 +1,14 @@
+✔ a profile requires actual frames for every named view and its requested quality (2.096979ms)
+✔ resource overflow, lost contexts and page errors fail the integrated gate (0.360018ms)
+✔ a fallback profile must really fail every selected model without loading any (0.366528ms)
+✔ High has explicit separate ceilings while the original Low ceilings remain (0.19376ms)
+✔ accessibility and running sound cannot be silently omitted from the fixture (0.248071ms)
+✔ a blank physical mirror cannot pass on resource counters alone (1.123852ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.494049

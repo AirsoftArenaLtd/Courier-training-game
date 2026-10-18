@@ -6,6 +6,7 @@ OTR.fpGuide={
     const k=code=>OTR.fpAccess.key(code);return [
       `Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to move and ${OTR.fpAccess.lookKeys()} to look.`,
       `Press ${k('KeyP')} to select a visible nearby target. Press ${k('KeyE')} to interact.`,
+      `Press ${k('KeyJ')} to read a visible road sign. Press it again to read the next sign.`,
       `Press ${k('Tab')} for the handheld. Use arrows and Enter to choose, then hold ${k('Space')} to scan.`,
       'Start at Dispatch. Read the morning brief before inspecting and loading the van.',
       `Press ${k('KeyH')} to reopen Controls and guidance at any time.`

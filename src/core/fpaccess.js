@@ -10,12 +10,13 @@ OTR.fpAccess={
   // Cab speech has two bounded slots. Ordinary hints wait for speech already in progress;
   // an urgent rear stop can replace our own hint, but never another reader's utterance.
   voiceState(scene){return scene.cabVoice||(scene.cabVoice={hint:null,rear:null,lastHint:'',target:'',band:null,gear:scene.model.van.gear,next:0,active:null});},
-  voiceHint(scene,text){
+  voiceHint(scene,text,scope='notice'){
     if(!this.settings().narrate||!window.speechSynthesis||!text)return;
     const state=this.voiceState(scene);
     // Selecting the camera must not read its continuously changing decimal distance.
     if(scene.model.van.gear===-1&&OTR.fpRear&&text===OTR.fpRear.hint(scene.model))return;
     if(text!==state.lastHint){state.lastHint=text;state.hint=text;}
+    if(state.hint===text){state.hintScope=scope;state.hintContext=scope==='target'?state.target:scope==='gear'?scene.model.van.gear:text;}
   },
   voiceTick(scene,blocked){
     const m=scene.model;
@@ -24,10 +25,10 @@ OTR.fpAccess={
     if(blocked){state.hint=state.rear=null;state.lastHint=state.target='';state.band=null;state.gear=m.van.gear;state.active=null;return;}
     const id=scene.target,text=OTR.fpMirrors&&OTR.fpMirrors.hint(id,m)||(id==='cab-camera'&&m.van.gear!==-1&&OTR.fpHud?OTR.fpHud.screenHint(m):id&&id!=='cab-camera'?OTR.fpCab.hint(id,m,this.key('KeyE')):'');
     const target=(id||'')+'|'+text;
-    if(target!==state.target){const previous=state.target;state.target=target;if(text)this.voiceHint(scene,text);else if(previous)state.lastHint='';}
+    if(target!==state.target){const previous=state.target;state.target=target;if(text)this.voiceHint(scene,text,'target');else if(previous)state.lastHint='';}
     if(m.van.gear!==state.gear){
       state.gear=m.van.gear;
-      this.voiceHint(scene,{'2':'The van is in park.','-1':'The van is in reverse.','0':'The van is in neutral.','1':'The van is in drive.'}[state.gear]);
+      this.voiceHint(scene,{'2':'The van is in park.','-1':'The van is in reverse.','0':'The van is in neutral.','1':'The van is in drive.'}[state.gear],'gear');
     }
     if(m.van.gear===-1){
       const distance=m.rearSense?m.rearSense.distance:6,band=distance<.5?3:distance<1?2:distance<3?1:0;
@@ -39,6 +40,12 @@ OTR.fpAccess={
       ][band];}
     }else{state.band=null;state.rear=null;}
     const urgent=state.band===3&&!!state.rear;
+    if(state.hint){
+      const staleTarget=state.hintScope==='target'&&(state.hintContext!==state.target||scene.hint&&(!scene.hint.visible||scene.hint.alpha<=.01));
+      const staleGear=state.hintScope==='gear'&&state.hintContext!==m.van.gear;
+      const staleNotice=state.hintScope==='notice'&&(scene.notice!==state.hintContext||scene.time.now>=scene.noticeUntil);
+      if(staleTarget||staleGear||staleNotice){state.hint=null;state.lastHint='';}
+    }
     if(speech.speaking||speech.pending){if(!urgent||!state.active)return;if(speech.cancel)speech.cancel();}
     else state.active=null;
     if(!urgent&&scene.time.now<state.next)return;
@@ -57,6 +64,7 @@ OTR.fpAccess={
     ['KeyW','Move forward or accelerate'],['KeyS','Move back or brake'],['KeyA','Move or steer left'],['KeyD','Move or steer right'],
     ['ArrowLeft','Look left'],['ArrowRight','Look right'],['ArrowUp','Look up'],['ArrowDown','Look down'],
     ['KeyE','Interact or exit the cab'],['KeyP','Select the next nearby target'],['KeyF','Inspect the parcel'],['Tab','Open or close the handheld'],
+    ['KeyJ','Read a visible road sign.'],
     ['Space','Scan or set the parking brake'],['ShiftLeft','Walk carefully'],['KeyG','Get out and look'],
     ['KeyL','Switch the headlights.'],['KeyK','Switch the wipers.'],['KeyB','Fasten the seatbelt'],['KeyR','Change gear'],['KeyQ','Signal left'],['KeyC','Signal right'],['KeyV','Look forward'],['KeyH','Open the menu']
   ],

@@ -1,0 +1,86 @@
+[
+  {
+    "suite": "fpnarrationbrowser",
+    "exit": 0,
+    "seconds": 33.1,
+    "tail": [
+      "19 cab narration browser checks passed"
+    ]
+  },
+  {
+    "suite": "fpguidebrowser",
+    "exit": 0,
+    "seconds": 41.6,
+    "tail": [
+      "85 first-time guidance browser checks passed"
+    ]
+  },
+  {
+    "suite": "fpcabbrowser",
+    "exit": 0,
+    "seconds": 85.7,
+    "tail": [
+      "cab layout ta large=false",
+      "cab layout ta large=true",
+      "200 physical cab browser checks passed"
+    ]
+  },
+  {
+    "suite": "fpmirrorsbrowser",
+    "exit": 0,
+    "seconds": 86.4,
+    "tail": [
+      "mirrors ta large=false",
+      "mirrors ta large=true",
+      "132 physical mirror browser checks passed"
+    ]
+  },
+  {
+    "suite": "fprearbrowser",
+    "exit": 0,
+    "seconds": 96.9,
+    "tail": [
+      "rear ta large=false",
+      "rear ta large=true",
+      "146 rear-camera browser checks passed"
+    ]
+  },
+  {
+    "suite": "fphudbrowser",
+    "exit": 0,
+    "seconds": 104.9,
+    "tail": [
+      "HUD ta large=false",
+      "HUD ta large=true",
+      "186 compact HUD browser checks passed"
+    ]
+  },
+  {
+    "suite": "fpaccessbrowser",
+    "exit": 0,
+    "seconds": 92.2,
+    "tail": [
+      "keyboard stop 4",
+      "keyboard stop 5",
+      "145 keyboard accessibility checks passed"
+    ]
+  },
+  {
+    "suite": "fpsignsbrowser",
+    "exit": 0,
+    "seconds": 50.9,
+    "tail": [
+      "67 sign rendering and keyboard checks passed"
+    ]
+  },
+  {
+    "suite": "fpquality",
+    "exit": 0,
+    "seconds": 891.3,
+    "tail": [
+      "loaded-high: PASS {\"calls\":98,\"triangles\":224937,\"textures\":3,\"attachmentBytes\":11239424,\"phaserBytes\":6978086}",
+      "accessible-low: PASS {\"calls\":57,\"triangles\":2480,\"textures\":2,\"attachmentBytes\":3557376,\"phaserBytes\":2865328}",
+      "fallback-low: PASS {\"calls\":52,\"triangles\":2060,\"textures\":2,\"attachmentBytes\":3557376,\"phaserBytes\":2711126}"
+    ]
+  }
+]

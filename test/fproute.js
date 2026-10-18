@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpsigns.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
@@ -101,7 +101,7 @@ test('the van can steer around a right-hand grid corner without crossing buildin
 test('low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror',()=>{
  const records=[],cabViews=process.env.QA_CAB==='1'?['cab-park','cab-reverse','cab-neutral','cab-drive','cab-handbrake','cab-belt','cab-signal-left','cab-signal-right','cab-headlights','cab-wipers','cab-exit']:[],mirrorViews=process.env.QA_MIRRORS==='1'?['mirror-left','mirror-right','mirror-interior']:[],cargoViews=process.env.QA_CARGO==='1'?['cargo-outside','cargo-inside']:[];
  for(const variant of (process.env.QA_LATER==='1'?[1,2,3,4,5,6,7,8,9,10]:[7]))for(let day=1;day<=30;day++){
- const m=full(day,variant);c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
+ const m=full(day,variant);if(process.env.QA_SIGNS==='1')m.routePlan.signs=1;c.OTR.fpDriving.configure(m);c.OTR.fpLoadout.configure(m,'extra');c.OTR.fpDay.configure(m);c.OTR.fpDoors.configure(m);for(const s of m.stops)s.contacted=true;c.OTR.fpDoors.sync(m);m.mode='cab';m.paused=false;
  c.OTR.gfx={high:()=>false};
  const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
  const scene={assetBank:c.assetBank,view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,0.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);

@@ -3784,7 +3784,22 @@ window.OTR_I18N.bn = {
 "This lesson takes place in the depot.": "এই পাঠ ডিপোতে হয়।",
 "Prepare the van before departure.": "রওনা হওয়ার আগে ভ্যান প্রস্তুত করুন।",
 "Return to the depot.": "ডিপোতে ফিরে যান।",
-"Saving is unavailable. Keep this window open.": "সেভ করা যাচ্ছে না। এই উইন্ডো খোলা রাখুন।"
+"Saving is unavailable. Keep this window open.": "সেভ করা যাচ্ছে না। এই উইন্ডো খোলা রাখুন।",
+"Read a visible road sign.": "দৃশ্যমান একটি রাস্তার সাইন পড়ুন।",
+"Kept to the posted speed limit.": "নির্ধারিত গতিসীমা মেনে চলা হয়েছে।",
+"Kept to the school-zone speed limit.": "স্কুল এলাকার গতিসীমা মেনে চলা হয়েছে।",
+"Exceeded the school-zone speed limit.": "স্কুল এলাকার গতিসীমা ছাড়িয়ে যাওয়া হয়েছে।",
+"Gave way to traffic when leaving the depot.": "ডিপো থেকে বের হওয়ার সময় ট্রাফিককে পথ ছেড়ে দেওয়া হয়েছে।",
+"Left the depot without giving way to nearby traffic.": "কাছের ট্রাফিককে পথ না ছেড়ে ডিপো থেকে বের হওয়া হয়েছে।",
+"Used another street around the road closure.": "রাস্তা বন্ধ থাকায় অন্য একটি রাস্তা ব্যবহার করা হয়েছে।",
+"Contacted the closure instead of following the diversion.": "ডাইভারশন অনুসরণ না করে বন্ধ রাস্তা পর্যন্ত যাওয়া হয়েছে।",
+"Entered a one-way street against its direction.": "একমুখী রাস্তায় তার উল্টো দিক থেকে ঢোকা হয়েছে।",
+"Entered a street from its prohibited end.": "রাস্তায় নিষিদ্ধ প্রান্ত দিয়ে ঢোকা হয়েছে।",
+"Stop before the junction line.": "জংশনের রেখার আগে থামুন।",
+"Give way to traffic before leaving the depot.": "ডিপো থেকে বের হওয়ার আগে ট্রাফিককে পথ ছেড়ে দিন।",
+"The street is closed. Follow another cross street.": "রাস্তাটি বন্ধ। অন্য একটি আড়াআড়ি রাস্তা ধরুন।",
+"Do not enter this street from this end.": "এই প্রান্ত দিয়ে এই রাস্তায় ঢুকবেন না।",
+"Look toward a road sign, then read it again.": "কোনো রাস্তার সাইনের দিকে তাকান, তারপর আবার পড়ুন।"
 },
 "templates": [
 [
@@ -5446,6 +5461,30 @@ window.OTR_I18N.bn = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "হ্যান্ডহেল্ডের জন্য {0} বা নিয়ন্ত্রণ ও নির্দেশনার জন্য {1} চাপুন।"
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"দৃশ্যমান রাস্তার সাইন পড়তে {0} চাপুন। পরের সাইন পড়তে আবার চাপুন।"
+],
+[
+"This is {0}.",
+"এটি {0}।"
+],
+[
+"This is number {0} on {1}.",
+"এটি {1}-এর {0} নম্বর।"
+],
+[
+"The speed limit is {0} mph.",
+"গতিসীমা {0} mph।"
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"সামনে স্কুল এলাকা শুরু হচ্ছে। এর গতিসীমা {0} mph।"
+],
+[
+"Traffic travels east on {0}.",
+"{0}-এ ট্রাফিক পূর্ব দিকে চলে।"
 ]
 ],
 "keep": [
