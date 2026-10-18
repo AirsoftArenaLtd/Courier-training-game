@@ -63,6 +63,7 @@ OTR.fpHud={
   refresh(s,hint,blocked,device,aiming){
     const m=s.model,mode=m?m.mode:'walk',now=s.time.now,first=this.firstDay(m),reduced=OTR.fpAccess.reduced();
     const busy=!!s.panel||s.external||s.transitioning;
+    if(busy||device||!this.navigationAllowed(m))s.navRoot.setVisible(false);
     s.title.setVisible(false);s.objective.setVisible(false);s.status.setVisible(false);
     const keys=first&&!busy&&!device;
     const c=s.hints||(s.hints={});
