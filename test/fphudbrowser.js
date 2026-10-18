@@ -28,7 +28,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    // A stale routine prompt disappears, and a real keyboard target selection brings it back.
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.hud.prompt.at=s.time.now-20000;s.refresh();});assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').hint.visible),false);checks++;
    await focus('cab-park');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').hint.visible),true);checks++;
-   await focus('cab-camera');await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.hint.text===OTR.i18n.t(OTR.fpHud.destination(s.model));});checks++;
+   await focus('cab-camera');await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.hint.text===OTR.i18n.t(OTR.fpHud.screenHint(s.model));});checks++;
    for(const [id,gear,line] of [['cab-park',2,'Park is selected.'],['cab-neutral',0,'Neutral is selected.'],['cab-reverse',-1,'Reverse is selected.'],['cab-drive',1,'Drive is selected.']]){
     await focus(id);await press('e');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.van.gear),gear);await p.waitForFunction(text=>OTR.game.scene.getScene('FirstPersonScene').hint.text===OTR.i18n.t(text),{},line);const n=await p.evaluate(()=>OTR.workday.events.length);await press('e');assert.equal(await p.evaluate(()=>OTR.workday.events.length),n);checks+=3;
    }

@@ -6,10 +6,10 @@ OTR.fpNav={
   aid(m){return m.workdayRules&&m.workdayRules.satnav||'full';},
   destination(m){return m.phase==='return'?{x:2.84,z:8}:m.stop(m.activeStop).park;},
   context(m){return m.phase==='return'?'return':String(m.activeStop);},
-  configure(m){if(this.enabled(m))m.navigation={context:this.context(m),origin:{x:m.van.x,z:m.van.z},progress:0,pending:null};},
+  configure(m){if(this.enabled(m))m.navigation={context:this.context(m),aid:this.aid(m),origin:{x:m.van.x,z:m.van.z},progress:0,pending:null};},
   validState(m,n,raw){
     const point=p=>p&&Number.isFinite(p.x)&&Number.isFinite(p.z)&&p.x>=m.bounds.x0&&p.x<=m.bounds.x1&&p.z>=m.bounds.z0&&p.z<=m.bounds.z1;
-    if(!n||!['return',...m.stops.map(s=>String(s.id))].includes(n.context)||!point(n.origin)||!Number.isFinite(n.progress)||n.progress<0||n.progress>2000)return false;
+    if(!n||!['full','line','off'].includes(n.aid)||!['return',...m.stops.map(s=>String(s.id))].includes(n.context)||!point(n.origin)||!Number.isFinite(n.progress)||n.progress<0||n.progress>2000)return false;
     const p=n.pending;if(p===null)return true;
     return !!p&&Number.isSafeInteger(p.leg)&&p.leg>=0&&p.leg<=raw.leg&&Number.isFinite(p.at)&&p.at>=0&&p.at<=raw.elapsed&&
       (p.stop===null||Number.isSafeInteger(p.stop)&&p.stop>=1&&p.stop<=m.stops.length)&&point(p.where)&&Number.isFinite(p.where.mph)&&p.where.mph>=0&&p.where.mph<200;
@@ -90,7 +90,8 @@ OTR.fpNav={
     if(!m||!m.town||m.kind!=='campaign')return null;
     if(!this.routes)this.routes=new WeakMap();
     const n=m.navigation,origin=n?n.origin:m.van,key=this.context(m)+'|'+(n?origin.x+':'+origin.z:'legacy');
-    let r=this.routes.get(m);if(!r||r.key!==key){
+    let r=this.routes.get(m);if(!n&&r&&this.project(r,m.van).distance>m.town.road/2+5)r=null;
+    if(!r||r.key!==key){
       const path=this.path(m,this.valid(m,origin)?origin:this.nearest(m,origin),this.destination(m));
       const points=path?this.simplify(path.points):[];
       if(points.length>2&&Math.hypot(points[1].x-points[0].x,points[1].z-points[0].z)<4.5)points.shift();
@@ -117,13 +118,18 @@ OTR.fpNav={
   tick(m,old){
     if(!this.enabled(m)||m.paused)return;const n=m.navigation;if(!n)return;
     // The elapsed simulation clock persists through saves. Menus do not consume the grace period.
-    if(this.aid(m)==='off'){if(n.pending){n.pending=null;m.touch();}return;}
+    const aid=this.aid(m);
+    if(aid!==n.aid){const wasOff=n.aid==='off';n.aid=aid;if(wasOff)this.reroute(m);m.touch();}
+    if(aid==='off'){if(n.pending){n.pending=null;m.touch();}return;}
     if(n.pending&&m.elapsed-n.pending.at>=30)this.report(m);
     if(m.mode!=='cab'||!m.departed||!['route','return'].includes(m.phase))return;
     if(!this.clocks)this.clocks=new WeakMap();const last=this.clocks.get(m);
     if(last!==undefined&&m.elapsed-last<.15&&n.context===this.context(m))return;this.clocks.set(m,m.elapsed);
     if(n.context!==this.context(m)){n.context=this.context(m);this.reroute(m);}
-    let r=this.route(m),p=this.project(r,m.van);const moving=m.van.gear===1&&Math.abs(m.van.speed)>.3,arrived=Math.hypot(m.van.x-this.destination(m).x,m.van.z-this.destination(m).z)<9;
+    let r=this.route(m);
+    if(m.van.gear===-1){r.reversing=true;return;}
+    if(r.reversing)r=this.reroute(m);
+    let p=this.project(r,m.van);const moving=m.van.gear===1&&Math.abs(m.van.speed)>.3,arrived=Math.hypot(m.van.x-this.destination(m).x,m.van.z-this.destination(m).z)<9;
     if(n.pending&&arrived){n.pending=null;m.touch();}
     if(moving&&n.pending&&p.distance<3.5&&p.along>=Math.min(8,r.distance)&&p.along>n.progress+.001){n.pending=null;m.touch();}
     const missed=moving&&!arrived&&(p.distance>m.town.road/2+5||p.along<n.progress-12);

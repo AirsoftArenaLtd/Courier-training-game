@@ -66,3 +66,10 @@ test('off aids never grade an invisible route, and reverse or menus do not creat
 test('route cache is bounded per mission and unchanged frames never repeat graph searches',()=>{
  const m=ready(),r=O.fpNav.route(m);for(let i=0;i<1000;i++){Object.assign(m.van,{x:2.84,z:8-i*.001});assert.equal(O.fpNav.route(m),r);}assert.equal(O.fpNav.routes instanceof WeakMap,true);m.activeStop=1;assert.notEqual(O.fpNav.route(m),r);assert.equal(m.navigation.context,'0','display does not mutate saved state');
 });
+
+test('backtracking while in reverse replans before drive resumes without a wrong-turn penalty',()=>{
+ const m=ready();O.workday.begin();m.navigation.progress=40;m.van.gear=-1;tick(m,1);m.van.gear=1;tick(m,1);assert.equal(m.navigation.pending,null);assert.equal(O.workday.events.length,0);assert.ok(m.navigation.progress<40);
+});
+test('turning aids on after an off-aid checkpoint starts from the current position',()=>{
+ const m=ready();m.workdayRules={satnav:'off'};tick(m,1);Object.assign(m.van,{x:135,z:-57.25});const r=O.fpMission.restore(m.snapshot());assert.ok(r);r.paused=false;r.workdayRules={satnav:'full'};O.workday.begin();tick(r,1);assert.equal(r.navigation.pending,null);assert.deepEqual(plain(r.navigation.origin),{x:135,z:-57.25});assert.equal(O.workday.events.length,0);
+});
