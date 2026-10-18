@@ -31,3 +31,7 @@ test('a blank physical mirror cannot pass on resource counters alone',()=>{
 test('healthy profiles reject a recovered fallback and reports missing the fallback counter',()=>{
  const r=report();r.assets.fallbacks=1;assert.throws(()=>checkReport(r,profile,'sample'),/asset fixture/);delete r.assets.fallbacks;assert.throws(()=>checkReport(r,profile,'sample'),/asset fixture/);r.assets.fallbacks=0;assert.ok(checkReport(r,profile,'sample'));
 });
+
+test('navigation views must name their versioned campaign fixture',()=>{
+ const r=report(),p={...profile,views:'navfull'};r.prototype.navfull=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/navigation fixture/);r.navigationFixture=true;assert.ok(checkReport(r,p,'sample'));
+});

@@ -5,6 +5,7 @@ OTR.fpTown={
     if(!m.town)return null;
     const T=THREE,high=OTR.gfx.high(),bank=scene.assetBank,groups=[],choices=[],order=[],batches=[];
     const paint=new T.MeshLambertMaterial({color:0xFFFFFF,vertexColors:true});
+    const obstructions=OTR.fpNav?OTR.fpNav.obstacles(m):[];let obstructionIndex=0;
     const plans=new Map(),lots=m.town.lots.filter(l=>!m.stops.some(s=>s.lotId===l.id));
     const fallback=(choice,parts)=>{for(const part of parts){const mesh=box(parent,...part);mesh.userData.fpBatchEntry.town=choice;}};
     const choice=(use,placement,house,parts)=>{
@@ -21,7 +22,7 @@ OTR.fpTown={
       if(i%3===0){const x=l.x-side*l.w*.36,z=l.z+l.d*.34;choice('town-tree',{lotId:l.id,x,z,w:1.2,h:3.2,d:1.2},false,[[x,.7,z,.22,1.4,.22,0x826B53],[x,2,z,1.2,2.2,1.2,0x607D54]]);}
       if(i%2===0){const x=l.x-side*l.w*.36,z=l.z-l.d*.46;choice('town-fence',{lotId:l.id,x,z,w:l.w*.22,h:.8,d:.12},false,[[x,.4,z,l.w*.22,.8,.12,0x927557]]);}
       if(i%4===0){const x=l.x-side*l.w*.45,z=l.z-l.d*.35;choice('town-streetlight',{lotId:l.id,x,z,w:.18,h:3.5,d:1},false,[[x,1.75,z,.12,3.5,.12,0x6E737B],[x,3.4,z+.4,.18,.15,.9,0xD7DDDB]]);}
-      if(hasCar){const x=l.x-side*l.w*.38,z=l.z,w=Math.min(1.7,l.w*.18),d=Math.min(3.8,l.d*.7);choice('town-parked-car',{lotId:l.id,x,z,w,h:1.35,d},false,[[x,.4,z,w,.65,d,0x587C91],[x,.95,z,w*.8,.55,d*.5,0x668193]]);}
+      if(hasCar){const o=obstructions[obstructionIndex++],x=o?o.x:l.x-side*l.w*.38,z=o?o.z:l.z,w=o?o.w:Math.min(1.7,l.w*.18),d=o?o.d:Math.min(3.8,l.d*.7);const c=choice('town-parked-car',{lotId:o?null:l.id,x,z,w,h:1.35,d},false,[[x,.4,z,w,.65,d,0x587C91],[x,.95,z,w*.8,.55,d*.5,0x668193]]);c.obstruction=!!o;}
     });
     const town=m.town;
     for(const x of town.xs)for(let i=1;i<town.zs.length;i++){
@@ -48,11 +49,11 @@ OTR.fpTown={
     };ground.customProgramCacheKey=()=>cache.call(ground)+'|otr-town-grain-1';ground.needsUpdate=true;
     paint.onBeforeCompile=ground.onBeforeCompile;paint.customProgramCacheKey=()=>cache.call(paint)+'|otr-town-grain-1';
     const compare=(a,b)=>a.distance-b.distance;
-    return {groups,batches,choices,lots,paint,triangleLimit:high?Infinity:290,
+    return {groups,batches,choices,lots,paint,triangleLimit:high?Infinity:obstructions.length?260:290,
       select(x,z){
         const radius=high?95:55;let remaining=this.triangleLimit;
         for(const c of choices){c.selected=false;c.distance=(c.x-x)**2+(c.z-z)**2;}
-        order.sort(compare);
+        order.sort((a,b)=>a.distance<radius*radius&&b.distance<radius*radius&&a.obstruction!==b.obstruction?(a.obstruction?-1:1):compare(a,b));
         for(const c of order){if(c.distance>=radius*radius)break;if(!c.available&&c.house)continue;if(c.cost>remaining)continue;c.selected=true;remaining-=c.cost;}
         for(const batch of batches){let count=0;for(const e of batch.entries)if(e.town.selected)batch.mesh.setMatrixAt(count++,e.matrix);batch.mesh.count=count;batch.mesh.visible=count>0;batch.mesh.instanceMatrix.needsUpdate=true;}
       },

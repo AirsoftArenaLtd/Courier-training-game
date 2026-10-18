@@ -16,7 +16,7 @@ OTR.fpHud={
     return m.phase==='return'?'Return to the depot.':`Drive to ${m.stop(m.activeStop).address}.`;
   },
   navigationAllowed(m){return !!m&&m.mode==='cab'&&m.van.gear!==-1&&(!m.workdayRules||m.workdayRules.satnav!=='off');},
-  screenHint(m){return this.navigationAllowed(m)?this.destination(m):OTR.fpRear.hint(m);},
+  screenHint(m){if(m.van.gear===-1)return OTR.fpRear.hint(m);if(OTR.fpNav&&m.kind==='campaign'&&m.town)return OTR.fpNav.aid(m)==='full'?OTR.fpNav.instruction(m):OTR.fpNav.aid(m)==='off'?'The trainer has turned navigation off.':this.destination(m);return this.destination(m);},
   alert(s){
     const m=s.model;if(!m)return '';
     if(m.mode==='cab'){
@@ -41,22 +41,28 @@ OTR.fpHud={
     const m=s.model,cab=s.art&&s.art.cab;
     const p=this.navigationAllowed(m)&&!s.panel&&!s.external&&!s.transitioning&&!(s.handheld&&s.handheld.isOpen)&&cab?s.art.labelPosition(cab.navigation):null;
     s.navRoot.setVisible(!!p);if(!p)return;
-    const large=OTR.fpAccess.settings().large,w=large?310:290,text=this.destination(m);
+    const large=OTR.fpAccess.settings().large,w=large?310:290,text=this.screenHint(m);
     if(s.navText.text!==(OTR.i18n?OTR.i18n.t(text):text))s.navText.setText(text);
     if(s.hud.navWidth!==w){s.hud.navWidth=w;s.navText.setWordWrapWidth(w-24);}s.navText.setPosition(0,0);
-    const mapHeight=m.town?66:0,h=s.navText.height+mapHeight+20;
+    const mapHeight=m.town?88:0,h=s.navText.height+mapHeight+20;
     // A screen may leave the view as the trainee looks around; never pin it over a mirror.
     if(p.x-w/2<12||p.x+w/2>1268||p.y+h/2>700){s.navRoot.setVisible(false);return;}
     s.navRoot.setPosition(p.x,p.y-h/2);s.navBack.setDisplaySize(w,h);
     const g=s.navMap;g.clear();if(!m.town)return;
     const b=m.bounds,left=-w/2+12,top=s.navText.height+6,mw=w-24;
-    const scale=Math.min(mw/(b.x1-b.x0),mapHeight/(b.z1-b.z0));
-    const x=v=>(v-(b.x0+b.x1)/2)*scale,y=v=>top+mapHeight/2+(v-(b.z0+b.z1)/2)*scale;
+    const scale=mapHeight/70,cx=m.van.x+Math.sin(m.van.yaw)*15,cz=m.van.z-Math.cos(m.van.yaw)*15;
+    const x=v=>(v-cx)*scale,y=v=>top+mapHeight/2+(v-cz)*scale;
+    const inside=(px,py,pad=0)=>px>=left+pad&&px<=left+mw-pad&&py>=top+pad&&py<=top+mapHeight-pad;
+    // Clip vector lines numerically: no mask, render target or enlarged text canvas.
+    const line=(ax,ay,bx,by)=>{const dx=bx-ax,dy=by-ay;let lo=0,hi=1;for(const [p,q] of [[-dx,ax-left],[dx,left+mw-ax],[-dy,ay-top],[dy,top+mapHeight-ay]]){if(!p){if(q<0)return;}else{const t=q/p;if(p<0)lo=Math.max(lo,t);else hi=Math.min(hi,t);if(lo>hi)return;}}g.lineBetween(ax+lo*dx,ay+lo*dy,ax+hi*dx,ay+hi*dy);};
     g.fillStyle(0x233E42).fillRect(left,top,mw,mapHeight);
-    g.lineStyle(2,0x8799A3);for(const v of m.town.xs)g.lineBetween(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)g.lineBetween(x(b.x0),y(v),x(b.x1),y(v));
-    if(m.roadworks){const r=m.roadworks;g.lineStyle(4,0xF5BD63).lineBetween(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));}
-    g.lineStyle(2,0xffffff).strokeRect(x(4)-3,y(8)-3,6,6);
-    for(const stop of m.stops){const tx=x(stop.park.x),ty=y(stop.park.z);g.fillStyle(stop.resolved?0x8799A3:0xF5BD63).fillCircle(tx,ty,2);if(stop.id===m.activeStop&&m.phase!=='return')g.lineStyle(2,0xF5BD63).strokeCircle(tx,ty,5);}
+    g.lineStyle(2,0x8799A3);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
+    const nav=OTR.fpNav&&m.kind==='campaign'?OTR.fpNav.route(m):null;
+    if(nav&&nav.points.length>1){g.lineStyle(4,0x7BE6FA);for(let i=1;i<nav.points.length;i++)line(x(nav.points[i-1].x),y(nav.points[i-1].z),x(nav.points[i].x),y(nav.points[i].z));}
+    if(OTR.fpNav)for(const o of OTR.fpNav.obstacles(m)){if(!inside(x(o.x),y(o.z),4))continue;g.lineStyle(2,0xffffff).strokeRect(x(o.x)-3,y(o.z)-2,6,4);}
+    if(m.roadworks){const r=m.roadworks;g.lineStyle(4,0xF5BD63);line(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));}
+    if(inside(x(4),y(8),4))g.lineStyle(2,0xffffff).strokeRect(x(4)-3,y(8)-3,6,6);
+    for(const stop of m.stops){const tx=x(stop.park.x),ty=y(stop.park.z);if(!inside(tx,ty,6))continue;g.fillStyle(stop.resolved?0x8799A3:0xF5BD63).fillCircle(tx,ty,2);if(stop.id===m.activeStop&&m.phase!=='return')g.lineStyle(2,0xF5BD63).strokeCircle(tx,ty,5);}
     const vx=x(m.van.x),vy=y(m.van.z),a=m.van.yaw,sn=Math.sin(a),cs=Math.cos(a);
     g.fillStyle(0xffffff).fillTriangle(vx+sn*6,vy-cs*6,vx-cs*4-sn*3,vy-sn*4+cs*3,vx+cs*4-sn*3,vy+sn*4+cs*3);
   },

@@ -380,6 +380,7 @@ OTR.fpMission = {
         if(this.doorsteps)OTR.fpDoors.tick(this,input);
         if(this.routeDay)OTR.fpDay.tick(this,dt);
         if(this.driving)OTR.fpDriving.tick(this,dt,old);
+        if(OTR.fpNav)OTR.fpNav.tick(this,old);
         if (this.mode !== 'cab') return;
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
@@ -455,6 +456,7 @@ OTR.fpMission = {
         if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
         if(this.parking)fields.push('parking');
+        if(this.navigation)fields.push('navigation');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -470,6 +472,8 @@ OTR.fpMission = {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice','parking'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
       if(OTR.fpLater&&OTR.fpLater.enabled(m)&&(!data.routeDay||!data.doorsteps))return null;
+      if(OTR.fpNav&&OTR.fpNav.enabled(m)&&!OTR.fpNav.validState(m,data.navigation,data))return null;
+      if(data.navigation&&(!OTR.fpNav||!OTR.fpNav.enabled(m)))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
       if(data.driving){if(!['campaign','parking'].includes(data.kind))return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
