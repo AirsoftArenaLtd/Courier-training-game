@@ -1,0 +1,39 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ a button or a legacy timestamp cannot establish a physical mirror check (2.013778ms)
+✔ each actual mirror needs 0.4 continuous seconds and refreshes only its own four-second evidence (2.312364ms)
+✔ looking away, a hidden UI, walking and pause cannot complete a check (0.646349ms)
+✔ partial dwell and completed checks survive a real mission checkpoint without replaying reports (2.545563ms)
+✔ legacy and new mirror checkpoints validate timestamps, dwell and indexes (1.46185ms)
+✔ pulling out requires the current left mirror, independently of the other mirrors (1.647248ms)
+✔ turns use their matching mirror before the move, reject late looks, and count once per manoeuvre (1.31492ms)
+✔ a lane crossing also triggers a check and resumed turn keys cannot collide (1.180679ms)
+✖ mirror housings stay behind the reflective faces on both presets (22.295161ms)
+✔ all three physical mirrors stay on the van and retain the same reflection camera when the head turns (9.992231ms)
+✔ keyboard focus reaches all mirrors, and reflection passes restore cab and van state on foot or in the cab (10.989934ms)
+✔ reflection atlas refreshes all tiles at bounded rates with at most one extra world render per frame (2.841537ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.413598
+
+✖ failing tests:
+
+test at test/fpmirrors.js:45:1
+✖ mirror housings stay behind the reflective faces on both presets (22.295161ms)
+  AssertionError [ERR_ASSERTION]: High mirror 0 housing obscures its face at 0.00449994361887729
+      at TestContext.<anonymous> (/workspace/c29-quality/test/fpmirrors.js:47:190)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
