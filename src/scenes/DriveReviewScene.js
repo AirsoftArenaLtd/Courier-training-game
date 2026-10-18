@@ -81,8 +81,9 @@ class DriveReviewScene extends Phaser.Scene {
    * a 10 m grid. Nothing else is known about its streets here, so the plan draws only what was reported.
    */
   drawPlan(plan) {
-    const aw = 820, ax = 24, ay = 84;
-    const ah = Math.min(572, this.drawFoot(ax, aw, 'Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened') - 20 - ay);
+    const aw = 820, ax = 24, ay = 84, streets = this.planStreets(plan);
+    const ah = Math.min(572, this.drawFoot(ax, aw, streets ? 'Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened'
+      : 'Square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened') - 20 - ay);
     const pts = [];
     if (plan.depot) pts.push(plan.depot);
     (plan.stops || []).forEach(s => { if (Number.isFinite(s.x) && Number.isFinite(s.z)) pts.push(s); });
@@ -98,6 +99,13 @@ class DriveReviewScene extends Phaser.Scene {
     const P = (x, z) => ({ x: mx + (x - x0) * s, y: my + (z - z0) * s });
     OTR.tex.shape(this, (g) => {
       g.fillStyle(0x2E4A2A, 1); g.fillRoundedRect(mx - 8, my - 8, mw + 16, mh + 16, 12);
+      // the day's streets, where the record knows its town (B-29), cut to the map
+      if (streets) {
+        g.fillStyle(0x4E4B58, 1);
+        const half = streets.road / 2;
+        streets.xs.forEach(x => { if (x + half > x0 && x - half < x1) { const a = P(Math.max(x0, x - half), z0), b = P(Math.min(x1, x + half), z1); g.fillRect(a.x, a.y, b.x - a.x, b.y - a.y); } });
+        streets.zs.forEach(z => { if (z + half > z0 && z - half < z1) { const a = P(x0, Math.max(z0, z - half)), b = P(x1, Math.min(z1, z + half)); g.fillRect(a.x, a.y, b.x - a.x, b.y - a.y); } });
+      }
       g.lineStyle(1, 0xffffff, 0.08);
       for (let x = Math.ceil(x0 / 10) * 10; x <= x1; x += 10) g.lineBetween(P(x, z0).x, my, P(x, z0).x, my + mh);
       for (let z = Math.ceil(z0 / 10) * 10; z <= z1; z += 10) g.lineBetween(mx, P(x0, z).y, mx + mw, P(x0, z).y);
@@ -114,6 +122,16 @@ class DriveReviewScene extends Phaser.Scene {
       OTR.txt(this, q.x, q.y, String(st.stop), 11, OTR_DATA.theme.css('primaryDeep'), { weight: '900' });
     });
     this.placePins(p => P(p.where.x, p.where.z));
+  }
+
+  /**
+   * The 3D workday's streets from its town seed, in the 3D world's metres (the same projection as OTR.fpRoute.apply:
+   * x = (y - first street) * scale, z = 8 - (x - depot) * scale), or null when the record has no town.
+   */
+  planStreets(plan) {
+    if (!plan || !Number.isSafeInteger(plan.townSeed) || !OTR.town || !OTR.town.build) return null;
+    const T = OTR.town.build(plan.townSeed), scale = (OTR.fpRoute && OTR.fpRoute.SCALE) || 0.05;
+    return { xs: T.hy.map(y => (y - T.hy[0]) * scale), zs: T.vx.map(x => 8 - (x - T.depot.x) * scale), road: T.road * scale };
   }
 
   placePins(at) {

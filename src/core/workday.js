@@ -237,6 +237,9 @@ OTR.workday = {
    */
   finish(scene, summary) {
     if (!this.log) { if (this.active()) { this.current = this.saved().current; this.restore(this.current); } else this.begin(); }
+    // the 3D world finishes through its scene, whose route plan names the day's town (B-29)
+    const plan = scene && scene.model && scene.model.routePlan;
+    if (plan && summary && summary.townSeed === undefined) summary = Object.assign({}, summary, { townSeed: plan.townSeed });
     const rec = this.score(this.log, summary, this.current);
     // frozen: the record keeps its own copy, and a report that arrives after this starts an unsaved log of its own
     this.detach();
@@ -277,6 +280,9 @@ OTR.workday = {
       events: (cur ? cur.events : this.events).slice()
     };
     if (summary.depot && Number.isFinite(summary.depot.x) && Number.isFinite(summary.depot.z)) rec.depot = { x: summary.depot.x, z: summary.depot.z };
+    // the day's town, so the drive review can draw its streets under the pins (B-29): the 3D world builds its streets
+    // from OTR.town.build(townSeed), so the seed is all the record needs to keep
+    if (Number.isSafeInteger(summary.townSeed)) rec.townSeed = summary.townSeed;
     return rec;
   },
 
@@ -385,7 +391,7 @@ OTR.workday = {
   /** The drive review's data for a finished workday: its pins on a plan of the 3D streets. */
   reviewData(rec, log, o) {
     const pins = OTR.drive.pins(log);
-    return Object.assign({ pins, plan: { depot: rec.depot || null, stops: rec.stops || [] }, title: `Workday · day ${rec.day}` }, o || {});
+    return Object.assign({ pins, plan: { depot: rec.depot || null, stops: rec.stops || [], townSeed: rec.townSeed }, title: `Workday · day ${rec.day}` }, o || {});
   },
 
   /**

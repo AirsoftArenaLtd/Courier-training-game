@@ -308,3 +308,17 @@ test('B-21: the day keeps which aids were on; the results, the record and the hi
   assert.equal(W.aidsRules('xx'), null); assert.equal(W.aidsRules('zfo11'), null);
   assert.equal(W.aidsWords(undefined).length, 0); assert.equal(W.aided(undefined), false);
 });
+
+test('B-29: the day keeps its town seed so the drive review can draw its streets; days without one still review', () => {
+  fresh(); W.start(null); W.report('brief.read');
+  // the 3D world finishes through its scene; the record takes the seed from the scene's route plan
+  const leave = W.leave; W.leave = () => {};                        // no screens in a Node test
+  let rec;
+  try { rec = W.finish({ model: { routePlan: { townSeed: 4242 } } }, { stops: [] }); } finally { W.leave = leave; }
+  assert.equal(rec.townSeed, 4242);
+  assert.equal(W.reviewData(rec, { items: [] }).plan.townSeed, 4242);
+  fresh(); W.start(null); W.report('brief.read');
+  const old = W.finish(null, { stops: [] });
+  assert.equal(old.townSeed, undefined, 'no town, no seed');
+  assert.equal(W.reviewData(old, { items: [] }).plan.townSeed, undefined);
+});

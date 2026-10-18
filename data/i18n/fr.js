@@ -3763,7 +3763,8 @@ window.OTR_I18N.fr = {
 "Help that day": "Aide ce jour-là",
 "Stars": "Étoiles",
 "Credits": "Crédits",
-"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "La ville 3D et les véhicules utilisent des modèles gratuits que leurs créateurs mettent à la disposition de tous (CC0). Merci à :"
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "La ville 3D et les véhicules utilisent des modèles gratuits que leurs créateurs mettent à la disposition de tous (CC0). Merci à :",
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "Gris : les rues · carré : le dépôt · cercles : tes arrêts (vert = livré) · repères numérotés : où chaque erreur s'est produite"
 },
 "templates": [
 [
