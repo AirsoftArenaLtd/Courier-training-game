@@ -84,3 +84,8 @@ Final evidence, resource figures, screenshots and the owner's review checklist a
 `docs/review/set-9/c32.md`. The Low ceilings remain 64 calls, 2,500 triangles, two textures,
 4 MiB attachments and 4 MiB estimated Phaser textures. Cloud SwiftShader figures establish
 resource use, not native Intel 60 fps; that acceptance measurement remains O-1.
+
+Signal heads stand above the normal dashboard sight line on 4.7-metre posts, with
+a 1.41-metre head. All three lamps must remain visible above the sat nav in the
+normal and larger-text cab fixtures. The post and lamps still share one two-triangle
+shader surface; no draw call, texture or pass is added.
