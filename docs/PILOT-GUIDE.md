@@ -1,7 +1,7 @@
 # Trainer's guide to the pilot
 
 For the person running the training: how to get ready, how to run a first session, how to read the results, and
-what to do when something goes wrong. Plain words; the technical detail is in the other documents it points to.
+what to do when something goes wrong (one printable page: `docs/QUICK-START.md`). Plain words; the technical detail is in the other documents it points to.
 
 **What trainees do.** They sign in, practise and are assessed on the training modules (sorting, lifting, driving,
 loading, stops), and play a **workday**: a full courier day in 3D. They read the morning brief at Dispatch, check the
@@ -54,7 +54,7 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
 | 10 min | Welcome. Explain the day: the point is to learn safe habits, not to be fast. | Say that mistakes are the lesson, and the record is for training, as agreed with the company. |
 | 5 min | Sign in; check the language, text size and keys. | Show **Settings → Accessibility**. |
 | 30 min | Each trainee plays a **workday**. | This is an estimate: the first day is slower, a later one faster. Do not rush them; the day saves as they go. They can leave from the pause menu and resume later. |
-| 15 min | Debrief together. | Use **Results → Debrief** and the **drive map** (a pin at every driving mistake; its shape shows the kind: a diamond for a road sign, a star for damage to the van, a triangle for a low bridge, a hexagon for a shifted load). Ask: what was the hardest stop, and what would you do differently? |
+| 15 min | Debrief together. | Use **Results → Debrief** and the **drive map** (a pin at every driving mistake; its shape shows the kind: a diamond for a road sign or a red light, a star for damage to the van, a triangle for a low bridge, a hexagon for a shifted load). Ask: what was the hardest stop, and what would you do differently? |
 
 **The cab, before they drive.** The 3D van's cab works like a real one, and it is worth one minute of showing:
 
@@ -69,6 +69,13 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
   Trainees do not need to get out and look; they should reverse at walking speed and keep watching. Contact, or more
   than 5 mph in reverse, is marked on the results. **Choose a reversing space** in the 3D menu (H) offers an alley, a
   loading dock and a tight driveway to practise on their own, without affecting the workday.
+- **The sat nav** on the dashboard shows the route, the next turn, how far and the street. A missed turn reroutes, and
+  the trainee has 30 seconds to rejoin before it counts as leaving the route. **3D workday aids…** sets it to the full
+  map, the route line only, or off.
+- **Road signs** stand where they would in a town: street names at corners, house numbers, stop and give-way signs,
+  speed limits, school zones, one-way and no-entry streets, road works and traffic lights. **J** reads the sign in view
+  aloud (for trainees using narration). Each sign is one check: stopping fully, giving way, keeping to the limit,
+  stopping at a red light (driving through a red light or into a no-entry street is critical).
 - **The rest is where it is in a van:** parking brake (Space or the lever), belt (B or the buckle), indicators (Q and C
   or the stalk), headlights (L) and wipers (K). P turns the view to each control in turn and says what it does, so a
   trainee who cannot use a mouse can do all of it from the keyboard.

@@ -344,7 +344,7 @@ items here for each agent.
 | B-40 | Claude | **The LMS package after milestone 8:** build the SCORM zip as IT would (`docs/IT-NOTES.md`), check its size with the new 3D models, that `imsmanifest.xml` lists every file the game loads (no model missing from the package), and that it launches from the zip in a SCORM test player; update the package size in `docs/IT-NOTES.md`. | done |
 | B-41 | Claude | **An old save still works:** a node test that loads saves as they were before milestones 7 and 8 (no town seed, no aids code, no `route.passed`, older workday records) and checks they load, start and finish a workday, show in the record and the drive review, and report to the LMS; fix what does not. | done |
 | B-42 | Claude | **Run the launch check on SCORM 2004 too:** `test/scorm-launch.js --2004` with the 2004 API (`API_1484_11`, `cmi.suspend_data`, `cmi.learner_name`), so both packages IT may upload are launched in a frame; fold both into the release-candidate pass in `docs/READINESS.md`. | done |
-| B-43 | Claude | **A trainer's one-page quick start:** from `docs/PILOT-GUIDE.md`, one printable page for the person running a session (start a workday, the aids by day, reading the drive map and the record, what to do when a PC is slow), in English first; ask the owner in "Questions for the owner" which languages it needs. | todo |
+| B-43 | Claude | **A trainer's one-page quick start:** from `docs/PILOT-GUIDE.md`, one printable page for the person running a session (start a workday, the aids by day, reading the drive map and the record, what to do when a PC is slow), in English first; ask the owner in "Questions for the owner" which languages it needs. | done |
 | B-46 | Claude | **Review-set views for the sat nav and a signed junction:** `test/tools/review-set.js` still says "not built yet" for `satnav` (it looks for `s.satnav`); point it at C-31's dash screen, add a `signs` view at the first signed junction, and capture both into set 8 with `compare.md`. | todo |
 | B-47 | Claude | **The drive map's legend for milestone 8:** signs, red lights and wrong turns (`drive.route`) on the 3D drive map: check each new type gets the right pin shape and legend line, with a test per type, and that the legend still fits in Tamil with larger text. | todo |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
@@ -367,6 +367,10 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
    as passed once the best day met the pass marks (and every module is passed). Is that right for the pilot? To go back
    to modules only, set `lmsWorkday: false` in `data/config.js`.
 
+4. **The trainer's quick start (B-43):** `docs/QUICK-START.md` is one printable page for whoever runs a session, in
+   English. Which languages do the pilot's trainers need it in? Until you say, it stays English only (the game itself is
+   in all twelve).
+
 ### Answered
 
 - **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
@@ -376,6 +380,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **18 October 2026, Claude — B-43:** `docs/QUICK-START.md`, one printable page for the person running a session: before trainees arrive (a PC check, accounts, rules and aids), the hour's plan, a minute on the cab (mirrors, gears, the sat nav, road signs and J), reading the drive map's pin shapes, and the five commonest problems. `docs/PILOT-GUIDE.md` now covers the sat nav and road signs (C-30, C-31) and red lights on the map, and points to the page. Asked the owner which languages trainers need it in; English until then. C-32 has not moved for three hours.
 - **18 October 2026, Claude — B-42:** `test/scorm-launch.js --2004` launches the SCORM 2004 package with the 2004 API (`API_1484_11`, `cmi.learner_name`): the learner's name and saved progress are read, all 14 models load at Low and High with none falling back, nothing missing or from outside. Both packages are 208 files. Both launches are now rows of the release-candidate checks in `docs/READINESS.md`; `docs/IT-NOTES.md` says how to run them. C-32 is still in progress.
 - **18 October 2026, Claude — C-31 review:** merged. Node suites, i18n, 81 navigation and 67 sign browser checks, the quality gate (Low 55 calls / 2,432 triangles), 312 cab views in 12 languages at larger text and the `workday-3d` flows pass; `workday-3d-b` failed its golden once in a batch and passed twice since (no message caught; watched on the next review). The sat nav's 7 lines and 4 templates are in 11 languages.
 - **18 October 2026, Codex — C-31 progress:** implemented a pure deterministic street-graph/path layer in `fpnav.js`. Seven cases pass, including **375 delivery-curb paths across 75 generated days/seeds**, both-direction closure detours, directed/legacy streets, exact distances, invalid targets and unchanged checkpoints. Required mission/world/workday/i18n/save-size checks also pass; both new JS files pass syntax checks. The module is not loaded by the product yet. Physical-screen map/instructions, rerouting and 30-second grading, obstacle fixtures and final browser/resource evidence remain under way; C-31 stays doing. Design/status: `docs/3D-NAVIGATION.md`. C-30 and B-44 remain pushed for Claude review; hourly automation stays enabled.
