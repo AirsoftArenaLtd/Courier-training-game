@@ -56,6 +56,12 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await ev((on) => { const A = OTR.a11y.settings(); on.forEach(k => { A[k] = true; }); OTR.a11y.save(); }, ON);
     await go('TitleScene'); await active('TitleScene');
     await shot('title');
+    // the 3D models' credits (B-28), a card whose list grows with every pack
+    if (await ev(() => (OTR_DATA.credits || []).length > 0)) {
+      await ev(() => OTR.game.scene.getScene('TitleScene').showCredits());
+      await shot('credits');
+      await ev(() => { const s = OTR.game.scene.getScene('TitleScene'); (s._modalStack || []).forEach(m => m.destroy()); });
+    }
 
     // a drive with mistakes, ended: Results, then the drive map
     await ev(() => OTR.flow.startScenario(OTR.game.scene.getScene('TitleScene'), 'm1-driving'));
