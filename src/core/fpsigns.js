@@ -116,8 +116,9 @@ OTR.fpSigns = {
   },
   decorate(mesh,entries){
     if(!entries.some(e=>e.sign))return null;
+    const previous=mesh.material,before=previous.onBeforeCompile,cache=previous.customProgramCacheKey();
     const shapes=new THREE.InstancedBufferAttribute(new Float32Array(entries.length),1),geometry=mesh.geometry.clone(),paint=mesh.material.clone();geometry.setAttribute('otrSignShape',shapes);mesh.geometry=geometry;mesh.material=paint;
-    paint.onBeforeCompile=shader=>{
+    paint.onBeforeCompile=function(shader,renderer){before.call(this,shader,renderer);
       shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nattribute float otrSignShape; varying float signShape; varying vec2 signUV;').replace('#include <begin_vertex>','#include <begin_vertex>\nsignShape=otrSignShape;signUV=uv;');
       shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying float signShape; varying vec2 signUV;').replace('#include <color_fragment>',`#include <color_fragment>
         if(signShape>.5){float bottom=signShape>8.5?0.:signShape<1.5?.83:.62;
@@ -131,7 +132,7 @@ OTR.fpSigns = {
             if(signShape>6.5&&signShape<7.5){if((a.y<.065&&p.x>.15&&p.x<.72)||(p.x>.58&&abs(p.y-.5)<(.9-p.x)*.75))diffuseColor.rgb=vec3(.1,.15,.17);}
           }
         }`);
-    };paint.customProgramCacheKey=()=> 'otr-sign-shapes-1';paint.needsUpdate=true;return shapes;
+    };paint.customProgramCacheKey=()=>cache+'|otr-sign-shapes-1';paint.needsUpdate=true;return shapes;
   },
   createUI(scene){
     scene.signUI={lastAt:-1000,readIndex:-1,occupied:[],pool:Array.from({length:5},()=>({back:scene.add.rectangle(0,0,1,1,0x10232E,.9).setDepth(9).setVisible(false),text:OTR.txt(scene,0,0,'',OTR.fpAccess.settings().large?22:18,'#ffffff',{wrap:220,align:'center'}).setDepth(10).setVisible(false),entry:null}))};

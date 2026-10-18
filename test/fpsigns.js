@@ -112,3 +112,7 @@ test('a physical closure collision replaces the generic contact report only on a
 test('keyboard reading still reaches a visible physical sign when a long label cannot fit',()=>{
  let said='';const entry={mainVisible:true,label:{text:'Stop before the junction line.'}},scene={signUI:{pool:[],readIndex:-1},art:{signs:{entries:[entry]},labelPosition:()=>({x:640,y:300})},message:text=>said=text};O.fpSigns.read(scene);assert.equal(said,entry.label.text);entry.mainVisible=false;O.fpSigns.read(scene);assert.equal(said,'Look toward a road sign, then read it again.');
 });
+
+test('sign shader composition retains existing road-grain and material hooks',()=>{
+ const T=c.THREE,previous=new T.MeshLambertMaterial(),geometry=new T.PlaneGeometry(),mesh=new T.InstancedMesh(geometry,previous,1);let called=0;previous.onBeforeCompile=function(shader){called++;shader.fragmentShader='road-grain\n'+shader.fragmentShader;assert.equal(this,mesh.material);};previous.customProgramCacheKey=()=> 'otr-town-grain-1';const a=O.fpSigns.decorate(mesh,[{sign:{kind:'stop'}}]);const shader={vertexShader:'#include <common>\n#include <begin_vertex>',fragmentShader:'#include <common>\n#include <color_fragment>'};mesh.material.onBeforeCompile(shader);assert.equal(called,1);assert.match(shader.fragmentShader,/road-grain/);assert.match(shader.fragmentShader,/signShape/);assert.equal(mesh.material.customProgramCacheKey(),'otr-town-grain-1|otr-sign-shapes-1');assert.equal(a.count,1);mesh.geometry.dispose();mesh.material.dispose();mesh.dispose();geometry.dispose();previous.dispose();
+});
