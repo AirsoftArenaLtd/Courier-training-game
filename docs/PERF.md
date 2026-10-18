@@ -648,3 +648,10 @@ The Node geometry checks now respect camera layers, like the actual renderer, so
 ## Corrected texture gate with C-17
 
 The complete 32-view sound-enabled Low run uses intrinsic canvas/image dimensions and passes with 3,130,726 Phaser full-mipmap-estimate bytes, replacing the earlier undercounted texture figures. Draw calls remain 42 and triangles 2,160; target attachments remain 3,575,808 bytes. Low uses native-resolution text at unchanged font size and vector case graphics to stay below the original ceiling. High keeps its existing text and case. See `docs/qa/c17-low.json` and the C-17 section in `docs/FRAME-BUDGET.md`.
+
+## C-32 controller progress (18 October 2026)
+
+The new pure traffic controller is not loaded by the scene yet and adds no render resource.
+The inherited C-30 loaded Low sweep remains 63 calls / 2,492 triangles. This is a baseline,
+not a C-32 measurement. Scene integration will recover geometry and rerun `test/fpbench.js`
+and the quality gate before review. Status and controller evidence: `docs/3D-TRAFFIC.md`.

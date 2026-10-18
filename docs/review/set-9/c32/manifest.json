@@ -1,0 +1,60 @@
+{
+  "stage": "doing; controller not loaded by the scene",
+  "base": "42aba78",
+  "sources": {
+    "src/core/fptraffic.js": "5604501b15b4783264fe94894e05a5d1b23f9654077cd926385edc964f1dda43",
+    "test/fptraffic.js": "0f39c356944b77a28062547d6085c8f5c8708215c8238e43d12939177d4bc614"
+  },
+  "evidence": [
+    {
+      "file": "initial-fpdriving.log",
+      "bytes": 2471,
+      "sha256": "9e2e2c62d002d08983ee277f241dbe8461865ec7f47c1a35e442c28deb40a76e"
+    },
+    {
+      "file": "initial-fpmission.log",
+      "bytes": 3779,
+      "sha256": "c53cf62dbd1ebe10a2ed3088a0cf76a9abdd1bd6cc814fab2c811b1071fe04fc"
+    },
+    {
+      "file": "initial-fproute.log",
+      "bytes": 1409,
+      "sha256": "34b97da7ed113219d161aee1840e56639087035509735558fd6314191563e53a"
+    },
+    {
+      "file": "initial-fpsigns.log",
+      "bytes": 2151,
+      "sha256": "30ffea9275ac7ae4b31386e6c87bd8178002024bff9f6e6c911a45d9ea6c3cbc"
+    },
+    {
+      "file": "initial-fptraffic.log",
+      "bytes": 1275,
+      "sha256": "9ed616775d4f36cfbacd527fceeda11f2aa6f5d401182efa064b357ebe568e50"
+    },
+    {
+      "file": "initial-fpworld.log",
+      "bytes": 2467,
+      "sha256": "8fcf19907dabb9ce2a0c7d693530fe7a7a1f5ee5f47dad13f9317942f9ac4797"
+    },
+    {
+      "file": "initial-i18n.log",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "initial-node.json",
+      "bytes": 550,
+      "sha256": "f78675bdab0e214c0b1206747561d570da3273e2994bf9ee08f91940b3411123"
+    },
+    {
+      "file": "initial-savesize.log",
+      "bytes": 1393,
+      "sha256": "7d743adb9150a04506976b28dc3c1eab82d02abea0592124fff8642e3e49529e"
+    },
+    {
+      "file": "initial-workday.log",
+      "bytes": 2164,
+      "sha256": "4b60875658ce018e6c7814e2e6fea591a2e961c6ea292adecff33f32702b47b7"
+    }
+  ]
+}

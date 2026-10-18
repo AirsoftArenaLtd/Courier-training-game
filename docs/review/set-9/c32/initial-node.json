@@ -1,0 +1,46 @@
+[
+  {
+    "suite": "fptraffic",
+    "exit": 0
+  },
+  {
+    "suite": "fpmission",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0
+  },
+  {
+    "suite": "fpdriving",
+    "exit": 0
+  },
+  {
+    "suite": "fpsigns",
+    "exit": 0
+  },
+  {
+    "suite": "fproute",
+    "exit": 0
+  },
+  {
+    "suite": "workday",
+    "exit": 0
+  },
+  {
+    "suite": "savesize",
+    "exit": 0
+  },
+  {
+    "suite": "i18n",
+    "exit": 0
+  },
+  {
+    "syntax": "src/core/fptraffic.js",
+    "exit": 0
+  },
+  {
+    "syntax": "test/fptraffic.js",
+    "exit": 0
+  }
+]
