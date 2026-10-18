@@ -287,3 +287,16 @@ test('a moving school bus or emergency vehicle cannot drive through the new peop
   assert.equal(c.OTR.fpDriving.advance(m,actor,4,.1,2.4,7.6),false);assert.equal(actor.z,-15);
  }
 });
+
+test('both perpendicular traffic streams make progress through repeated signal cycles without overlap',()=>{
+ const m=make(),j=T.layout(m).find(j=>j.kind==='signal');m.mode='walk';Object.assign(m.van,{x:100,z:10});Object.assign(m.player,{x:140,z:10});
+ Object.assign(m.traffic[0],{x:j.x+1.7,z:j.z+35,yaw:0,speed:0});
+ Object.assign(m.traffic[1],{x:j.x-35,z:j.z+1.7,yaw:Math.PI/2,speed:0});
+ const distance=[0,0],previous=m.traffic.map(c=>({x:c.x,z:c.z}));
+ for(let n=0;n<14400;n++){
+  m.elapsed+=.0125;T.before(m,.0125);
+  for(let i=0;i<2;i++){const car=m.traffic[i],d=Math.hypot(car.x-previous[i].x,car.z-previous[i].z);if(d<1)distance[i]+=d;Object.assign(previous[i],car);}
+  const a=m.traffic[0],b=m.traffic[1];assert.equal(Math.abs(a.x-b.x)<2.7&&Math.abs(a.z-b.z)<2.7,false,'cross traffic overlap');
+ }
+ assert.ok(distance[0]>50,JSON.stringify(distance));assert.ok(distance[1]>50,JSON.stringify(distance));
+});
