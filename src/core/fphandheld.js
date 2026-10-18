@@ -58,14 +58,19 @@ OTR.fpHandheld = class {
     this.show({ title: 'HANDHELD', lines: [
       { text: stop.address, bold: true },
       p ? `Carrying: ${p.address}` : 'Retrieve the parcel from its cargo shelf.',
-      m.serviceLabel(stop.id)
     ], options: [
       { label: 'Scan package', onPick: () => this.scan() },
       { label: 'Stop details', onPick: () => this.stop(stop.id) },
       { label: 'Route', onPick: () => this.route() },
       ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[]),
-      ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[])
+      ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[]),
+      { label: 'Read the workday details.', onPick: () => this.workday() }
     ], footer: OTR.fpAccess?`Press ${OTR.fpAccess.key('Tab')} to put the handheld away.`:'TAB put away' });
+  }
+  workday(){
+    const s=this.scene,m=s.model;let count=0;for(const p of m.parcels)if(p.location.startsWith('slot'))count++;
+    const size=OTR.fpAccess&&OTR.fpAccess.settings().large?19:17;
+    this.show({title:'Your workday details.',lines:[s.objectiveText(),count===1?'There is one parcel in cargo.':`There are ${count} parcels in cargo.`,m.heldId?`You are carrying the parcel for ${m.parcel(m.heldId).address}.`:'Your hands are empty.'].map(text=>({text,size})),options:[{label:'Back',onPick:()=>this.home()}],back:()=>this.home()});
   }
   day(){
     const m=this.scene.model,d=m.routeDay.dispatch;
