@@ -69,3 +69,17 @@ full town asset pass remains C-27. Original procedural buildings remain availabl
 Tests and screenshots/clip are in `docs/review/set-7/c19.md`. The new loading sentence needs Claude's translation
 pass; English and Tamil normal/larger layouts currently verify its English fallback. `docs/PERF.md` records actual
 Low/High costs. Native Intel 60 fps acceptance remains the owner's O-1 check; SwiftShader cannot establish it.
+
+## Recovered fallback diagnostics (B-44)
+
+`assetBank.stats.loaded` counts usable selected assets, `failed` counts jobs with no usable candidate,
+and `fallbacks` counts selected assets recovered through a later candidate (normally High to Low).
+A missing High van with a usable Low van therefore reports `loaded: 14, failed: 0, fallbacks: 1`; a
+fully missing set reports `loaded: 0, failed: 14, fallbacks: 0`. Existing per-request error paths and
+reasons remain available. No rendering, selection, score, save or player-facing text changes.
+
+Healthy `test/fpquality.js` profiles require an explicit zero fallback count, so recovered failures
+and older reports without that field cannot silently pass as healthy. Actual all-model-missing
+profiles still require zero loaded and at least 14 terminal failures. `test/fpassetsbrowser.js`
+includes `high-fallback` (only the High delivery van gets HTTP 404), alongside the normal loaded
+and all-missing cases. Claude’s owned SCORM launch check can inspect the same field.
