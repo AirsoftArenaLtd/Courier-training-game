@@ -1,0 +1,139 @@
+{
+  "sourceRevision": "9958c65be84897fa0d972996dae12a2c3271ab8a",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "townhouse",
+        "townroad",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c29-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 203527,
+      "peak": {
+        "calls": 96,
+        "triangles": 215348,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6494182
+      }
+    },
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "depot",
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "handheld",
+        "barcodeAim",
+        "firstStop",
+        "doorstep",
+        "doorsignature",
+        "doorid",
+        "laterstressturnleft",
+        "laterrearpeak",
+        "lightingnightreverse",
+        "visibleweatherstorm",
+        "visibleweathersnowwalk",
+        "townhouse",
+        "townroad",
+        "townparked-car",
+        "towncab",
+        "actorsvan",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c29-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 324035,
+      "peak": {
+        "calls": 56,
+        "triangles": 2400,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2992496
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "barcodeAim",
+        "visibleweatherstorm",
+        "actorscargoextra",
+        "laterrearpeak"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c29-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 97137,
+      "peak": {
+        "calls": 56,
+        "triangles": 2400,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2744118
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "laterrearpeak",
+        "actorscargoextra",
+        "actorsresident"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c29-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 92757,
+      "peak": {
+        "calls": 51,
+        "triangles": 1914,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2609430
+      }
+    }
+  ]
+}
