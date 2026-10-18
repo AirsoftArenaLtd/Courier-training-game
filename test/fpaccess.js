@@ -16,6 +16,18 @@ test('keyboard look turns without moving, clamps pitch and gives a separate cab 
 test('3D key hints read the same saved physical map as the shared remapper',()=>{
  settings.keys.KeyP='KeyN';assert.equal(A.key('KeyP'),'KeyN');assert.equal(A.key('KeyE'),'KeyE');
 });
+test('queued control speech is dropped when the target or visible prompt has gone away',()=>{
+ for(const hidden of [false,true]){settings.narrate=true;const said=[],m=c.OTR.fpMission.create('campaign',1);m.mode='cab';
+  c.speechSynthesis={speaking:true,pending:false,speak:u=>said.push(u.text)};c.SpeechSynthesisUtterance=function(text){this.text=text;};
+  const s={model:m,target:'cab-signal-left',time:{now:0},hint:{visible:true,alpha:1},notice:'',noticeUntil:0};A.voiceTick(s,false);assert.ok(s.cabVoice.hint);
+  if(hidden)s.hint.visible=false;else s.target=null;c.speechSynthesis.speaking=false;s.time.now=2000;A.voiceTick(s,false);assert.deepEqual(said,[]);assert.equal(s.cabVoice.hint,null);
+ }
+});
+test('a queued action notice expires and a gear confirmation still uses the current gear',()=>{
+ settings.narrate=true;const said=[],m=c.OTR.fpMission.create('campaign',1);m.mode='cab';c.speechSynthesis={speaking:true,pending:false,speak:u=>said.push(u.text)};c.SpeechSynthesisUtterance=function(text){this.text=text;};
+ const s={model:m,target:null,time:{now:0},hint:{visible:true,alpha:1},notice:'Read this sign.',noticeUntil:100};A.voiceHint(s,s.notice);s.time.now=200;A.voiceTick(s,false);assert.equal(s.cabVoice.hint,null);
+ m.van.gear=1;A.voiceTick(s,false);m.van.gear=-1;A.voiceTick(s,false);c.speechSynthesis.speaking=false;s.time.now=2000;A.voiceTick(s,false);assert.equal(said[0],'The van is in reverse.');assert.ok(!said.includes('The van is in drive.'));
+});
 test('a shared remap onto a 3D-only look key keeps both actions reachable',()=>{
  c.OTR.a11y.ACTIONS=[{code:'KeyW'}];let saves=0;c.OTR.a11y.save=()=>saves++;settings.keys.KeyW='ArrowUp';A.syncKeys();
  assert.equal(settings.keys.KeyW,'ArrowUp');assert.equal(settings.keys.ArrowUp,'KeyW');assert.equal(saves,1);A.syncKeys();assert.equal(saves,1);

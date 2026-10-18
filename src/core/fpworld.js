@@ -295,14 +295,18 @@ OTR.fpWorld = {
       for(const mesh of exterior.concat(cargoDoor)){if(mesh.parent)mesh.layers.set(1);const entry=mesh.userData.fpBatchEntry;if(entry){const pool=batches.get(mesh===cargoDoor?chassis:mesh.parent||mesh.userData.fpParent);if(pool)for(const entries of pool.values()){const at=entries.indexOf(entry);if(at>=0)entries.splice(at,1);}}}
     }
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
+    const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,entry=>{
+      let pool=batches.get(route);if(!pool){pool=new Map();batches.set(route,pool);}if(!pool.has('plane:all'))pool.set('plane:all',[]);pool.get('plane:all').push(entry);
+    }):null;
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
       if(!entries.length)return;
       const flat=entries[0].flat,coloured=parent!==route&&flat;
       const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
+      const signShapes=signs&&OTR.fpSigns.decorate(mesh,entries);if(signShapes)mats.set('sign-shapes',mesh.material);
       mesh.computeBoundingSphere();parent.add(mesh);
-      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded});
+      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes});
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions):null;
@@ -317,7 +321,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,
       dispose() {
         const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -410,6 +414,7 @@ OTR.fpWorld = {
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
+          if(signs)signs.choose(camera,reflectFrustum,true);
           // Use the same per-instance visibility in the main view as in reflections. A single
           // town-wide bounding sphere otherwise submits every nearby box behind the trainee.
           for(const batch of reflectBatches)compact(batch,reflectFrustum,true,model.mode==='cab'?model.van.x:model.player.x,model.mode==='cab'?model.van.z:model.player.z);
@@ -447,29 +452,32 @@ OTR.fpWorld = {
     const compact=(batch,frustum,main=false,cx=0,cz=0)=>{
       const mesh=batch.mesh;let count=0;
       for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;
+        if(entry.sign&&!entry.signChosen)continue;
         if(entry.town&&(mesh.userData.fpAsset?!entry.town.selected:townArt&&!townArt.fallback(entry)))continue;
         if(main&&entry.visible===undefined&&(entry.bounded||Math.max(Math.abs(e[0]),Math.abs(e[10]))<=20)&&(e[12]-cx)**2+(e[14]-cz)**2>=sceneryRadius*sceneryRadius)continue;
         reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;if(entry.sphere)reflectSphere.copy(entry.sphere);
         // High keeps offscreen shadow casters in the main batch. Reflections and Low have no
         // shadow pass that needs those instances, so their individual frusta can discard them.
-        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);count++;
+        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);if(batch.signShapes)batch.signShapes.setX(count,entry.shape||0);if(main&&entry.sign)entry.mainVisible=true;count++;
       }
       mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
+      if(batch.signShapes)batch.signShapes.needsUpdate=true;
     };
-    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;}
+    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;batch.mainShapes=batch.signShapes?new Float32Array(batch.signShapes.array.length):null;}
     let vanWas=false,dashWas=false,screenWas=false,vehicleWas=false;
     view.mirror.before=(index=0)=>{
       if(view.mirror.cameras)view.mirror.camera=index===3?view.mirror.rearCamera:view.mirror.cameras[index];
       vanWas=van.visible;dashWas=dash.visible;van.visible=true;if(innerVan){vehicleWas=actors.vehicle.mesh.visible;if(index===2){actors.vehicle.mesh.visible=false;innerVan.visible=true;}}if(actors&&model)actors.reflect(true,model);dash.visible=index===2;if(mirrors)mirrors.hide(true);
       if(rear){screenWas=rear.screen.visible;rear.screen.visible=false;}
       const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
-      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);compact(batch,reflectFrustum);}
+      if(signs)signs.choose(cam,reflectFrustum,false);
+      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);if(batch.mainShapes)batch.mainShapes.set(batch.signShapes.array);compact(batch,reflectFrustum);}
       world.updateMatrixWorld(true);
     };
     view.mirror.after=()=>{
       van.visible=vanWas;if(innerVan){actors.vehicle.mesh.visible=vehicleWas;innerVan.visible=false;}if(actors&&model)actors.reflect(false,model);dash.visible=dashWas;if(mirrors)mirrors.hide(false);
       if(rear)rear.screen.visible=screenWas;
-      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
+      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);if(batch.mainShapes){batch.signShapes.array.set(batch.mainShapes);batch.signShapes.needsUpdate=true;}mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
       world.updateMatrixWorld(true);
     };
     return api;

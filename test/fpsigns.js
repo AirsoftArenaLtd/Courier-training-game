@@ -1,6 +1,6 @@
 /* Sign data must agree with generated routes and the 3D stop obligations. No WebGL. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const c={};c.window=c;vm.createContext(c);
+const c={THREE:require('../lib/three.min.js')};c.window=c;vm.createContext(c);
 for(const name of ['data/theme.js','data/config.js','data/town.js','data/m3_doorsteps.js','data/m8_stops.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpsigns.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+name,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const O=c.OTR,make=(day=1,variant=7)=>O.fpMission.create('campaign',variant,O.fpRoute.plan(day,variant));
@@ -33,4 +33,20 @@ test('all delivered addresses keep their generated number and actual facade posi
   assert.equal(a.school.from.x,m.town.school.x);assert.equal(a.school.to.x,m.town.school.x);
   assert.equal(a.school.from.z,m.town.school.z1);assert.equal(a.school.to.z,m.town.school.z0);
  }
+});
+test('later restrictions stay off day one and match their peripheral road segment',()=>{
+ assert.ok(O.fpSigns.catalog(make(1)).regulatory.every(s=>!['oneway','noentry'].includes(s.kind)));
+ const m=make(3),a=O.fpSigns.catalog(m),one=a.regulatory.find(s=>s.kind==='oneway'),no=a.regulatory.find(s=>s.kind==='noentry');
+ assert.equal(one.from,no.from);assert.equal(one.to,no.to);assert.equal(one.roadZ,m.town.zs[0]);
+ assert.ok(m.stops.every(s=>s.park.z!==one.roadZ));
+});
+test('Low shares one two-triangle surface and chooses at most five instances in any view',()=>{
+ const T=c.THREE,m=make(3);O.gfx={high:()=>false};const entries=[],route=new T.Group(),art=O.fpSigns.build({},m,route,e=>entries.push(e));
+ assert.ok(entries.length>120);assert.equal(art.limit,5);const cam=new T.PerspectiveCamera(68,16/9,.08,180),frustum=new T.Frustum();
+ for(const stop of m.stops)for(let angle=-Math.PI;angle<Math.PI;angle+=.3){cam.position.set(stop.park.x,2,stop.park.z);cam.rotation.set(0,-angle,0);cam.updateMatrixWorld(true);frustum.setFromProjectionMatrix(new T.Matrix4().multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));art.choose(cam,frustum,true);
+  assert.ok(entries.filter(e=>e.signChosen).length<=5);assert.ok(entries.every(e=>!e.signChosen||(cam.position.x-e.x)*e.normal.x+(cam.position.z-e.z)*e.normal.z>=.1));
+ }
+ const plane=new T.PlaneGeometry(1,1).rotateX(-Math.PI/2),paint=new T.MeshLambertMaterial(),mesh=new T.InstancedMesh(plane,paint,entries.length),shapes=O.fpSigns.decorate(mesh,entries);
+ assert.equal(mesh.geometry.index.count/3,2);assert.equal(shapes.count,entries.length);assert.notEqual(mesh.geometry,plane);assert.notEqual(mesh.material,paint);
+ mesh.geometry.dispose();mesh.material.dispose();mesh.dispose();plane.dispose();paint.dispose();
 });
