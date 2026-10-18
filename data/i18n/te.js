@@ -3798,7 +3798,10 @@ window.OTR_I18N.te = {
 "Give way to traffic before leaving the depot.": "డిపో నుండి బయలుదేరే ముందు ట్రాఫిక్‌కు దారి ఇవ్వండి.",
 "The street is closed. Follow another cross street.": "ఈ వీధి మూసివేయబడింది. వేరే అడ్డ వీధిలో వెళ్లండి.",
 "Do not enter this street from this end.": "ఈ చివర నుండి ఈ వీధిలోకి ప్రవేశించవద్దు.",
-"Look toward a road sign, then read it again.": "ఒక రహదారి గుర్తు వైపు చూడండి, ఆపై దాన్ని మళ్లీ చదవండి."
+"Look toward a road sign, then read it again.": "ఒక రహదారి గుర్తు వైపు చూడండి, ఆపై దాన్ని మళ్లీ చదవండి.",
+"Stopped for a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ వద్ద ఆగారు",
+"Drove through a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ దాటి వెళ్లారు",
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ఎరుపు అంటే గీత వెనుక ఆగి ఆకుపచ్చ కోసం వేచి ఉండటం, జంక్షన్ ఖాళీగా కనిపించినా సరే."
 },
 "templates": [
 [
