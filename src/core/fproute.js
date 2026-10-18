@@ -12,6 +12,7 @@ OTR.fpRoute = {
       !Array.isArray(plan.route) || plan.route.length !== 5) throw Error('Invalid route plan');
     if(plan.timeOfDay!==undefined&&!['morning','midday','dusk','night'].includes(plan.timeOfDay))throw Error('Invalid lighting time');
     if(plan.signs!==undefined&&plan.signs!==1)throw Error('Invalid road-sign version');
+    if(plan.traffic!==undefined&&plan.traffic!==1)throw Error('Invalid traffic version');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {
@@ -45,6 +46,7 @@ OTR.fpRoute = {
     if(OTR.fpLater)OTR.fpLater.layout(m);
     m.junctions = [];
     m.town.xs.forEach(x => m.town.zs.forEach(z => m.junctions.push({ x, z, stopped: false, passed: false })));
+    if(OTR.fpTraffic)OTR.fpTraffic.configure(m);
   },
   onStreet(m, x, z) {
     const half = m.town.road / 2 + 0.3;
@@ -71,6 +73,7 @@ OTR.fpRoute = {
     const fx=v.x+sx,fz=v.z-sz,px=old.x+sx,pz=old.z-sz;
     for (let i = 0; i < m.junctions.length; i++) {
       const j = m.junctions[i], dx = fx - j.x, dz = fz - j.z;
+      if(OTR.fpTraffic&&OTR.fpTraffic.enabled(m)&&OTR.fpTraffic.observeJunction(m,j,i,old))continue;
       const along = Math.abs(Math.cos(v.yaw)) > 0.7 ? dz : dx;
       const across = Math.abs(Math.cos(v.yaw)) > 0.7 ? dx : dz;
       const distance = Math.abs(along);

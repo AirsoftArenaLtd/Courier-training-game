@@ -6,7 +6,7 @@ OTR.fpSigns = {
   runtime(m){
     if(!this.cache)this.cache=new WeakMap();let data=this.cache.get(m);if(data)return data;
     const catalog=this.catalog(m),grades=new Map(),types={stop:'drive.sign-stop',speed:'drive.sign-speed',school:'drive.sign-school',giveway:'drive.sign-giveway',roadworks:'drive.sign-roadworks',oneway:'drive.sign-oneway',noentry:'drive.sign-noentry'};
-    for(const s of [...catalog.stops,...catalog.regulatory])grades.set(s.id,{...s,type:types[s.kind],event:`driver:${types[s.kind]}:${s.id}`,seen:`sign-seen:${s.id}`});
+    for(const s of [...catalog.stops,...catalog.regulatory])if(types[s.kind])grades.set(s.id,{...s,type:types[s.kind],event:`driver:${types[s.kind]}:${s.id}`,seen:`sign-seen:${s.id}`});
     data={catalog,grades,limit:grades.get('speed:depot'),north:grades.get('school:north'),south:grades.get('school:south'),yield:grades.get('yield:depot'),oneway:grades.get('oneway:edge'),noentry:grades.get('noentry:edge'),worksN:grades.get('works:north'),worksS:grades.get('works:south')};this.cache.set(m,data);return data;
   },
   stopId(m,index,approach){return this.runtime(m).catalog.stops[index*4+{n:0,e:1,s:2,w:3}[approach]].id;},
@@ -50,11 +50,11 @@ OTR.fpSigns = {
     const streets = [], stops = [], numbers = [], half = m.town.road / 2;
     for (let row = 0; row < m.town.xs.length; row++) for (let col = 0; col < m.town.zs.length; col++) {
       const x = m.town.xs[row], z = m.town.zs[col], junction = row * m.town.zs.length + col;
-      // The 3D grid already requires a stop on every approach, including source-town lights.
-      // C-32 introduces functioning signals; decorative lights must not change that obligation.
+      const control=OTR.fpTraffic&&OTR.fpTraffic.enabled(m)?OTR.fpTraffic.layout(m)[junction]:null;
       for (const [approach, yaw] of [['n', 0], ['e', Math.PI / 2], ['s', Math.PI], ['w', -Math.PI / 2]]) {
         const fx = Math.sin(yaw), fz = -Math.cos(yaw), rx = Math.cos(yaw), rz = Math.sin(yaw);
-        stops.push({ id: `stop:${row}:${col}:${approach}`, kind: 'stop', junction, approach, yaw,
+        const kind=control&&control.kind==='signal'?'signal':control&&control.kind==='giveway'?(approach==='e'||approach==='w'?'junction-yield':'priority'):'stop';
+        stops.push({ id: `stop:${row}:${col}:${approach}`, kind, control, junction, approach, yaw,
           x: x - fx * (half + 1) + rx * (half + .7), z: z - fz * (half + 1) + rz * (half + .7),
           line: { x: x - fx * (half + .25), z: z - fz * (half + .25) } });
       }
@@ -81,6 +81,8 @@ OTR.fpSigns = {
       school: { from: project(source.vx[school.from], source.hy[school.row]), to: project(source.vx[school.to], source.hy[school.row]) } };
   },
   text(s){
+    if(s.kind==='signal')return OTR.fpTraffic.signalText(s.aspect||'red');
+    if(s.kind==='junction-yield')return 'Give way to traffic before entering the junction.';
     if(s.kind==='street')return `This is ${s.name}.`;
     if(s.kind==='number')return `This is number ${s.number} on ${s.street}.`;
     if(s.kind==='speed')return `The speed limit is ${s.limit} mph.`;
@@ -91,8 +93,9 @@ OTR.fpSigns = {
   build(scene,m,route,add){
     const catalog=this.catalog(m);if(!catalog)return null;
     const T=THREE,entries=[],o=new T.Object3D(),sphere=new T.Sphere(),choices=Array(24).fill(null),distances=new Float64Array(24),high=OTR.gfx.high();
-    const shapes={street:1,stop:2,giveway:3,speed:4,school:5,roadworks:6,oneway:7,noentry:8,number:9};
+    const shapes={street:1,stop:2,giveway:3,'junction-yield':3,speed:4,school:5,roadworks:6,oneway:7,noentry:8,number:9,signal:10};
     for(const sign of [...catalog.stops,...catalog.regulatory,...catalog.streets,...catalog.numbers]){
+      if(sign.kind==='priority')continue;
       const number=sign.kind==='number',street=sign.kind==='street',yaw=number?-sign.side*Math.PI/2:street?(sign.axis==='x'?Math.PI/2:0): -sign.yaw;
       const w=number?.65:street?2.2:1.05,h=number?.3:street?3.4:2.7,y=number?2.7:h/2;
       o.position.set(sign.x,y,sign.z);o.rotation.set(Math.PI/2,yaw,0,'YXZ');o.scale.set(w,1,h);o.updateMatrix();
@@ -104,6 +107,7 @@ OTR.fpSigns = {
     return {catalog,entries,limit:high?24:5,choices,
       choose(cam,frustum,main){let count=0;choices.fill(null);distances.fill(Infinity);
         for(const e of entries){e.signChosen=false;if(main)e.mainVisible=false;
+          if(e.sign.kind==='signal'){const aspect=OTR.fpTraffic.aspect(OTR.fpTraffic.signal(m.elapsed,e.sign.control.offset),e.sign.yaw);e.shape=aspect==='green'?12:aspect==='amber'?11:10;if(aspect!==e.sign.aspect){e.sign.aspect=aspect;e.label.text=OTR.fpTraffic.signalText(aspect);}}
           const dx=cam.position.x-e.x,dz=cam.position.z-e.z,d2=dx*dx+dz*dz;
           if(d2>(high?70:38)**2||dx*e.normal.x+dz*e.normal.z<.1)continue;
           sphere.center.set(e.x,e.y,e.z);sphere.radius=e.radius;if(!frustum.intersectsSphere(sphere))continue;
@@ -121,7 +125,7 @@ OTR.fpSigns = {
     paint.onBeforeCompile=function(shader,renderer){before.call(this,shader,renderer);
       shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nattribute float otrSignShape; varying float signShape; varying vec2 signUV;').replace('#include <begin_vertex>','#include <begin_vertex>\nsignShape=otrSignShape;signUV=uv;');
       shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying float signShape; varying vec2 signUV;').replace('#include <color_fragment>',`#include <color_fragment>
-        if(signShape>.5){float bottom=signShape>8.5?0.:signShape<1.5?.83:.62;
+        if(signShape>.5){float bottom=signShape>12.5?0.:signShape>9.5?.48:signShape>8.5?0.:signShape<1.5?.83:.62;
           if(signUV.y<bottom){if(abs(signUV.x-.5)>.035)discard;diffuseColor.rgb=vec3(.32,.36,.38);}
           else{vec2 p=vec2(signUV.x,(signUV.y-bottom)/(1.-bottom));vec2 a=abs(p-.5);
             if(signShape>1.5&&signShape<2.5&&a.x+a.y>.72)discard;
@@ -130,9 +134,24 @@ OTR.fpSigns = {
             if(signShape>4.5&&signShape<6.5&&a.x+a.y>.5)discard;
             if(signShape>7.5&&signShape<8.5){if(length(p-.5)>.5)discard;if(a.y<.09&&a.x<.38)diffuseColor.rgb=vec3(.95);}
             if(signShape>6.5&&signShape<7.5){if((a.y<.065&&p.x>.15&&p.x<.72)||(p.x>.58&&abs(p.y-.5)<(.9-p.x)*.75))diffuseColor.rgb=vec3(.1,.15,.17);}
+            if(signShape>9.5&&signShape<12.5){if(a.x>.3)discard;diffuseColor.rgb=vec3(.07,.09,.1);float lamp=signShape<10.5?.8:signShape<11.5?.5:.2;
+              for(int i=0;i<3;i++){float y=.8-float(i)*.3;if(length(vec2((p.x-.5)*1.5,p.y-y))<.115){diffuseColor.rgb=vec3(.2);if(abs(y-lamp)<.01)diffuseColor.rgb=i==0?vec3(1.,.12,.12):i==1?vec3(1.,.65,.05):vec3(.12,1.,.5);}}
+            }
+            if(signShape>12.5){float ink=0.;
+              if(signShape<13.5){vec2 p1=p-vec2(.2,.18),p2=p-vec2(.8,.18);float wheel=min(abs(length(vec2(p1.x,p1.y*.8))-.14),abs(length(vec2(p2.x,p2.y*.8))-.14));
+                if(wheel<.022)ink=1.;if(p.y>.18&&p.y<.46&&(abs(p.x-(.2+(p.y-.18)*.95))<.025||abs(p.x-(.8-(p.y-.18)*.95))<.025||abs(p.y-.18)<.025))ink=1.;
+                if(length((p-vec2(.59,.84))*vec2(1.,.8))<.065)ink=2.;if(p.y>.47&&p.y<.77&&abs(p.x-(.46+(p.y-.47)*.38))<.055)ink=3.;
+                if(p.y>.2&&p.y<.5&&abs(p.x-(.55-(p.y-.2)*.32))<.035)ink=1.;if(p.y>.53&&p.y<.7&&abs(p.x-(.83-(p.y-.53)*1.45))<.03)ink=2.;
+              }else{if(abs(p.x-.5)<.04&&p.y<.45)ink=1.;if(p.y>.2&&p.y<.28&&a.x<.35)ink=1.;if(length((p-vec2(.5,.84))*vec2(1.,.8))<.13)ink=2.;if(p.y>.38&&p.y<.76&&a.x<.2)ink=3.;}
+              if(ink<.5)discard;diffuseColor.rgb=ink>2.5?vec3(.95,.7,.16):ink>1.5?vec3(.68,.44,.3):vec3(.12,.17,.2);
+            }
           }
         }`);
-    };paint.customProgramCacheKey=()=>cache+'|otr-sign-shapes-1';paint.needsUpdate=true;return shapes;
+      shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+        if(signShape>9.5&&signShape<12.5&&signUV.y>.48){vec2 p=vec2(signUV.x,(signUV.y-.48)/.52);float lamp=signShape<10.5?.8:signShape<11.5?.5:.2;
+          if(length(vec2((p.x-.5)*1.5,p.y-lamp))<.115)totalEmissiveRadiance+=diffuseColor.rgb*.65;}
+      `);
+    };paint.customProgramCacheKey=()=>cache+'|otr-sign-shapes-2';paint.needsUpdate=true;return shapes;
   },
   createUI(scene){
     scene.signUI={lastAt:-1000,readIndex:-1,occupied:[],pool:Array.from({length:5},()=>({back:scene.add.rectangle(0,0,1,1,0x10232E,.9).setDepth(9).setVisible(false),text:OTR.txt(scene,0,0,'',OTR.fpAccess.settings().large?22:18,'#ffffff',{wrap:220,align:'center'}).setDepth(10).setVisible(false),entry:null}))};

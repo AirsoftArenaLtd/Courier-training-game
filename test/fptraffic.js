@@ -99,3 +99,150 @@ test('controller calls keep shared descriptors bounded and do not mutate input v
   assert.equal(JSON.stringify([a, b]), before); assert.equal(T.phases.length, 8);
   assert.ok(Object.isFrozen(T.phases)); assert.ok(T.phases.every(Object.isFrozen));
 });
+
+for (const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
+  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js',
+  'src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js',
+  'src/core/fpsigns.js','src/core/fpdriving.js','src/core/fpmirrors.js']) vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'), c);
+const M=c.OTR.fpMission, R=c.OTR.fpRoute, W=c.OTR.workday;
+c.OTR.save={data:{townSeed:1}};
+const plain=o=>JSON.parse(JSON.stringify(o));
+function make(day=4, seed=7) {
+  W.begin(); const m=M.create('campaign',seed,T.prepare(c.OTR.fpSigns.prepare(R.plan(day,seed))));
+  m.paused=false; m.phase='route'; m.mode='cab'; m.departed=m.secured=true;
+  m.van.belt=true; m.traffic.forEach((car,i)=>{car.x=-1.7;car.z=m.bounds.z0+4+i*8;car.speed=0;});
+  return m;
+}
+const reports=type=>W.events.filter(e=>e.type===type);
+function signalApproach(m,time,distance=4,speed=0) {
+  const control=T.layout(m).find(j=>j.kind==='signal'), j=m.junctions[control.index];
+  m.elapsed=time-control.offset; if(m.elapsed<0)m.elapsed+=T.cycle;
+  Object.assign(m.van,{x:j.x+1.7,z:j.z+m.town.road/2+2.7+distance,yaw:0,speed,gear:1});
+  R.tick(m,{x:m.van.x,z:m.van.z+.1});return {control,j};
+}
+function enterSignal(m){const old={x:m.van.x,z:m.van.z};m.van.z-=1;R.tick(m,old);}
+
+test('only new plans opt in; old checkpoints and practice keep their obligations',()=>{
+  const old=M.create('campaign',7,c.OTR.fpSigns.prepare(R.plan(4,7)));
+  assert.equal(T.enabled(old),false); assert.equal(old.trafficControl,undefined); assert.ok(M.restore(old.snapshot()));
+  assert.equal(T.enabled(M.create('practice',7)),false);
+  const day=make(1);assert.equal(T.layout(day).filter(j=>j.kind!=='stop').length,0);
+  const m=make();assert.equal(T.layout(m).filter(j=>j.kind==='signal').length,3);
+  assert.equal(T.layout(m).filter(j=>j.kind==='giveway').length,1);
+  assert.equal(m.solids.length,old.solids.length+2);
+});
+test('a signal replaces both old stop obligations; entering on red reports once with its real approach',()=>{
+  const m=make(),{control}=signalApproach(m,23,.6,3);enterSignal(m);enterSignal(m);
+  const list=reports('drive.red-light');assert.equal(list.length,1);assert.equal(list[0].ok,false);
+  assert.equal(list[0].key,control.id+':n');assert.equal(list[0].stop,1);assert.equal(list[0].where.x,m.van.x);
+  assert.equal(reports('drive.sign-stop').length,0);assert.equal(reports('drive.stop-line').length,0);
+});
+test('stopping at red earns credit only after entering on green; green-only and amber approaches emit nothing',()=>{
+  const m=make();signalApproach(m,23,2,0);assert.equal(reports('drive.red-light').length,0);
+  signalApproach(m,0,.6,1);enterSignal(m);assert.equal(reports('drive.red-light').length,1);assert.equal(reports('drive.red-light')[0].ok,true);
+  for(const phase of [0,17]) {const n=make();signalApproach(n,phase,.6,1);enterSignal(n);assert.equal(reports('drive.red-light').length,0);}
+});
+test('a creeping red approach does not earn a stop credit, and reverse does not create an approach',()=>{
+  const m=make();signalApproach(m,23,4,1);signalApproach(m,0,.6,1);enterSignal(m);assert.equal(reports('drive.red-light').length,0);
+  signalApproach(m,23,.6,-1);m.van.gear=-1;enterSignal(m);assert.equal(reports('drive.red-light').length,0);
+});
+test('a mid-red checkpoint retains its obligation and emits nothing during restoration',()=>{
+  const m=make();signalApproach(m,23,2,0);const saved=plain(m.snapshot()),r=M.restore(saved);
+  assert.ok(r);assert.deepEqual(plain(r.snapshot()),saved);assert.equal(reports('drive.red-light').length,0);
+  r.paused=false;signalApproach(r,0,.6,1);enterSignal(r);assert.equal(reports('drive.red-light')[0].ok,true);
+  const malformed=plain(saved);malformed.trafficControl.cyclist.at=1e6;assert.equal(M.restore(malformed),null);
+  const missing=plain(saved);delete missing.trafficControl;assert.equal(M.restore(missing),null);
+});
+test('minor junction approaches yield to cross traffic; the priority road has no invented stop requirement',()=>{
+  for(const blocked of [false,true]) {
+    const m=make(),j=T.layout(m).find(j=>j.kind==='giveway'),half=m.town.road/2;
+    Object.assign(m.van,{x:j.x-half-2.7-.6,z:j.z+1.7,yaw:Math.PI/2,speed:2});
+    if(blocked)Object.assign(m.traffic[0],{x:j.x+1.7,z:j.z+half+8,yaw:0,speed:4});
+    const old={x:m.van.x,z:m.van.z};m.van.x+=1;R.tick(m,old);
+    assert.equal(reports('drive.sign-giveway').length,1);assert.equal(reports('drive.sign-giveway')[0].ok,!blocked);
+    assert.equal(reports('drive.sign-stop').length,0);
+  }
+  const m=make(),j=T.layout(m).find(j=>j.kind==='giveway');
+  Object.assign(m.van,{x:j.x+1.7,z:j.z+m.town.road/2+3.3,yaw:0,speed:2});enterSignal(m);
+  assert.equal(reports('drive.sign-giveway').length,0);assert.equal(reports('drive.sign-stop').length,0);
+});
+test('a car brakes behind a red line and resumes on green, with no skipped line or abrupt speed jump',()=>{
+  const m=make(),j=T.layout(m).find(j=>j.kind==='signal'),car=m.traffic[0],half=m.town.road/2;
+  Object.assign(m.van,{x:0,z:20});Object.assign(car,{x:j.x+1.7,z:j.z+half+18,yaw:0,speed:4});
+  m.elapsed=23-j.offset;if(m.elapsed<0)m.elapsed+=54;
+  let last=car.speed;for(let i=0;i<700;i++){T.carStep(m,car,.0125);assert.ok(last-car.speed<=2.8*.0125+1e-9);last=car.speed;}
+  assert.ok(car.z-2.25>j.z+half+.25);assert.ok(car.speed<.05);
+  m.elapsed=(54-j.offset)%54;const before=car.z;for(let i=0;i<400;i++)T.carStep(m,car,.0125);
+  assert.ok(car.z<before-2);
+});
+test('cars never step through a walker or the van, including a sudden obstacle',()=>{
+  const m=make(),car=m.traffic[0];m.mode='walk';Object.assign(car,{x:1.7,z:-20,yaw:0,speed:4});
+  Object.assign(m.player,{x:1.7,z:-25});Object.assign(m.van,{x:40,z:-80});
+  for(let i=0;i<600;i++)T.carStep(m,car,.0125);
+  assert.ok(car.z>m.player.z+2.5);assert.equal(car.speed,0);
+  Object.assign(m.player,{x:30,z:-25});Object.assign(m.van,{x:1.7,z:car.z-3,yaw:0});
+  car.speed=4;const before=car.z;T.carStep(m,car,.05);assert.equal(car.z,before);assert.equal(car.speed,0);
+});
+test('children wait on the curb for moving traffic, then cross in front of a stationary van',()=>{
+  const m=make(),h=m.crossing;Object.assign(m.van,{x:m.town.school.x+1.7,z:h.z+16,speed:6});
+  T.crossingStep(m,3);assert.equal(h.state,'developing');const curb=h.x;
+  Object.assign(m.van,{z:h.z+8,speed:0});T.crossingStep(m,.1);assert.equal(h.state,'crossing');assert.ok(h.x>curb);
+  for(let i=0;i<200;i++)T.crossingStep(m,.1);
+  assert.equal(h.state,'resolved');assert.equal(reports('drive.pedestrian').length,1);assert.equal(reports('drive.pedestrian')[0].ok,true);
+  const n=make(1);const original=n.crossing.x;T.crossingStep(n,20);assert.equal(n.crossing.x,original);
+});
+test('a cyclist appears beside the real van, remains solid and a turn across it fails once',()=>{
+  const m=make();Object.assign(m.van,{x:2.84,z:-18,yaw:0,speed:.5,steer:0});
+  T.cyclistStep(m,.0125);T.syncSolids(m);const b=m.trafficControl.cyclist;
+  assert.equal(b.state,'beside');assert.equal(m._trafficSolids.cyclist.x,b.x);assert.ok(b.x>m.van.x);
+  m.van.yaw=.1;T.after(m);T.after(m);assert.equal(reports('drive.cyclist').length,1);assert.equal(reports('drive.cyclist')[0].ok,false);
+});
+test('the cyclist check requires an actual recent mirror look and waiting until the bicycle is clear',()=>{
+  for(const checked of [false,true]) {
+    const m=make();Object.assign(m.van,{x:2.84,z:-18,yaw:0,speed:0});m.elapsed=10;T.cyclistStep(m,.0125);
+    if(checked)m.van.mirrors=[-100,10,-100,-1,0];
+    for(let i=0;i<40;i++){m.elapsed+=.1;T.cyclistStep(m,.1);}assert.equal(m.trafficControl.cyclist.state,'clear');
+    assert.equal(reports('drive.cyclist').length,0,'straight driving does not manufacture a turn grade');
+    m.van.yaw=.1;m.van.speed=.5;T.after(m);assert.equal(reports('drive.cyclist')[0].ok,checked);
+  }
+});
+test('a live cyclist and a waiting car restore exactly without repeating their reports',()=>{
+  const m=make();Object.assign(m.van,{x:2.84,z:-18,yaw:0,speed:0});m.elapsed=10;T.cyclistStep(m,.1);T.syncSolids(m);
+  // The production traffic positions stay inside the world, unlike the isolated tests' moved cars.
+  Object.assign(m.traffic[0],{x:46.7,z:-20});Object.assign(m.traffic[1],{x:20,z:m.town.zs[1]+1.7});
+  const r=M.restore(m.snapshot());assert.ok(r);assert.deepEqual(plain(r.snapshot()),plain(m.snapshot()));
+  assert.equal(r._trafficSolids.cyclist.x,r.trafficControl.cyclist.x);assert.equal(W.events.length,0);
+});
+test('traffic does not recycle into view or drift beyond the world while its return point is occupied',()=>{
+ const m=make(),car=m.traffic[0];m.mode='cab';Object.assign(car,{x:46.7,z:m.bounds.z0+2,yaw:0,speed:4});
+ Object.assign(m.van,{x:46.7,z:m.bounds.z1-7,yaw:0});T.carStep(m,car,.05);
+ assert.ok(car.z<m.bounds.z0+3);assert.equal(car.speed,0);
+ Object.assign(m.van,{x:100,z:(m.bounds.z0+m.bounds.z1)/2});T.carStep(m,car,.05);assert.equal(car.z,m.bounds.z1-3);
+});
+test('the cyclist also brakes for a red light and never rides through a solid obstruction',()=>{
+ const m=make(),j=T.layout(m).find(j=>j.kind==='signal'),bike=m._trafficBodies.cyclist;Object.assign(m.van,{x:0,z:20});
+ Object.assign(bike,{x:j.x+4,z:j.z+m.town.road/2+15,yaw:0,speed:3.2,wait:0,junction:-1});
+ m.elapsed=(23-j.offset+54)%54;for(let i=0;i<600;i++)T.carStep(m,bike,.0125);
+ assert.ok(bike.z-.95>j.z+m.town.road/2+.25);assert.ok(bike.speed<.05);
+ const block={x:bike.x,z:bike.z-3,w:1,d:.5};m.solids.push(block);m.elapsed=(54-j.offset)%54;
+ for(let i=0;i<400;i++)T.carStep(m,bike,.0125);assert.ok(bike.z-.95>block.z+.25);
+});
+test('east-west traffic keeps its full physical length for walking and real motor contacts',()=>{
+ const m=make(),j=T.layout(m).find(j=>j.kind==='signal'),car=m.traffic[0];
+ Object.assign(car,{x:j.x,z:j.z+1.7,yaw:Math.PI/2,speed:0});
+ assert.equal(m.blocked(car.x+1.6,car.z,.1),true);
+ m.tickTraffic=()=>{};Object.assign(m.van,{x:car.x+5.3,z:car.z,yaw:-Math.PI/2,speed:1,hand:false,gear:1});
+ for(let i=0;i<80;i++)m.step({forward:true},.025);
+ assert.ok(reports('drive.contact').length);assert.ok(m.van.x>car.x+2.7+1.8-.1);
+});
+test('the motor stops before children and reports the crossing conflict once without a duplicate contact grade',()=>{
+ const m=make(),h=m.crossing;h.state='crossing';h.x=m.town.school.x+1.7;T.syncSolids(m);m.tickTraffic=()=>{};
+ Object.assign(m.van,{x:h.x,z:h.z+6,yaw:0,speed:2,hand:false,gear:1});
+ for(let i=0;i<80;i++)m.step({forward:true},.025);
+ assert.ok(m.van.z-2.7>=h.z+1.1);assert.equal(reports('drive.pedestrian').length,1);assert.equal(reports('drive.pedestrian')[0].ok,false);
+ assert.equal(reports('drive.contact').length,0);
+});
+test('children also wait when a trainee is standing in their walking path',()=>{
+ const m=make(),h=m.crossing;h.state='crossing';h.x=m.town.school.x-1;Object.assign(m.van,{x:0,z:20});m.mode='walk';
+ Object.assign(m.player,{x:h.x+.1,z:h.z+.4});const before=h.x;T.crossingStep(m,.1);assert.equal(h.x,before);
+});

@@ -4,7 +4,7 @@ const THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
  'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
- 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpsigns.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
+ 'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};
 const M=c.OTR.fpMission,R=c.OTR.fpRoute,W=c.OTR.workday;
 if(process.env.QA_ASSETS==='1'){
@@ -12,7 +12,7 @@ if(process.env.QA_ASSETS==='1'){
  test.before(async()=>{c.assetBank=await c.OTR.fpAssets.preload({fetch:local});assert.equal(c.assetBank.stats.loaded,14,JSON.stringify(c.assetBank.stats));});
  test.after(()=>c.assetBank.dispose());
 }
-const full=(day=1,variant=7)=>M.create('campaign',variant,process.env.QA_LATER==='1'?c.OTR.fpLater.prepare(R.plan(day,variant)):R.plan(day,variant));
+const full=(day=1,variant=7)=>{let plan=process.env.QA_LATER==='1'?c.OTR.fpLater.prepare(R.plan(day,variant)):R.plan(day,variant);if(process.env.QA_TRAFFIC==='1')plan=c.OTR.fpTraffic.prepare(plan);return M.create('campaign',variant,plan);};
 const at=(m,id)=>{Object.assign(m.player,m.point(id));m.player.z+=0.6;};
 test('five seeded stops match the route-day generator, addresses and package identities',()=>{
  for(let day=1;day<=14;day++){
@@ -126,6 +126,7 @@ test('low graphics stays within the complete-frame geometry budget at every stop
     c.OTR.fp.suspension(m,1,pose==='brake'?-6:0,turning?side*4:0);m.motion.pitch=pose==='brake'?-.035:0;m.motion.roll=turning?side*.025:0;art.resetCamera();
    }
    for(const [name,z] of [['bus',-18],['siren',14]]){const p=c.OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}
+   if(m.trafficControl&&day>=3){const p=c.OTR.fp.local(m.van,2,1);Object.assign(m.trafficControl.cyclist,{state:'beside',x:p.x,z:p.z,yaw:m.van.yaw});Object.assign(m.crossing,{state:'crossing',x:m.van.x+3,z:m.van.z-5});c.OTR.fpTraffic.syncSolids(m);}
    art.sync(m,null,'route');
    if(pose.startsWith('cab-')||pose.startsWith('mirror-')){const at=art.interactions.find(o=>o.userData.interaction===pose).getWorldPosition(new THREE.Vector3()),eye=camera.position;m.van.look=Math.atan2(at.x-eye.x,-(at.z-eye.z))-m.van.yaw;m.player.pitch=Math.atan2(eye.y-at.y,Math.hypot(at.x-eye.x,at.z-eye.z));art.sync(m,null,'route');}
    const main=count(camera);

@@ -92,7 +92,7 @@ OTR.fpMission = {
           case 'lane': if(OTR.fpSigns&&OTR.fpSigns.enabled(this)&&OTR.fpSigns.onOneWay(this))return;type = 'drive.wrong-side'; driving = true; break;
           case 'junction': type = OTR.fpSigns&&OTR.fpSigns.enabled(this)?'drive.sign-stop':'drive.stop-line';d.key=type==='drive.sign-stop'?OTR.fpSigns.stopId(this,Number(key),stop):id.slice(9);if(type==='drive.sign-stop'&&this.phase==='route')d.stop=this.activeStop+1;driving = true; break;
           case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
-          case 'contact': if(OTR.fpSigns&&OTR.fpSigns.barrierContact(this))return;type = 'drive.contact'; driving = true; break;
+          case 'contact': if(OTR.fpSigns&&OTR.fpSigns.barrierContact(this)||OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&(OTR.fpTraffic.contact(this,'cyclist')||OTR.fpTraffic.contact(this,'children')))return;type = 'drive.contact'; driving = true; break;
           case 'traffic-contact': type = 'drive.contact'; driving = true; break;
           case 'pedestrian':
             type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
@@ -161,9 +161,11 @@ OTR.fpMission = {
         if (this.mode !== 'cab' || this.kind !== 'campaign') return '';
         if (this.town) {
           if (!v.belt) return 'Fasten the seatbelt before moving.';
+          const trafficHint=OTR.fpTraffic&&OTR.fpTraffic.hint(this);if(trafficHint)return trafficHint;
           const tx=this.phase==='return'?4:s.park.x,tz=this.phase==='return'?8:s.park.z;
           if (this.parked() && Math.hypot(v.x-tx,v.z-tz) < 6) return 'Parked at the stop. Check traffic before exiting.';
           if (v.hand) return 'Check mirrors, signal and wait for a clear gap before pulling out.';
+          if(OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&this.routePlan.day>=3)return 'Follow the traffic lights and road signs. Give way to people at crossings.';
           return OTR.fpRoute.limit(this) === 15 ? 'Speed limit: 15 mph. Stop at every junction line. Check the route map while parked.' : 'Speed limit: 25 mph. Stop at every junction line. Check the route map while parked.';
         }
         if (this.phase === 'return') return '';
@@ -180,7 +182,7 @@ OTR.fpMission = {
         const r = radius || 0.24, b = this.bounds;
         if (x - r < b.x0 || x + r > b.x1 || z - r < b.z0 || z + r > b.z1) return true;
         if (this.solids.some(s => F.circleBox(x, z, r, s))) return true;
-        if (this.kind === 'campaign' && this.traffic.some(c => F.circleBox(x,z,r,{x:c.x,z:c.z,w:1.8,d:3.6}))) return true;
+        if (this.kind === 'campaign' && this.traffic.some(c => F.circleBox(x,z,r,{x:c.x,z:c.z,w:Math.abs(Math.sin(c.yaw))>.7?3.6:1.8,d:Math.abs(Math.sin(c.yaw))>.7?1.8:3.6}))) return true;
         const p = M.local(this.van, { x, z });
         if (!this.cargoOpen) return F.circleBox(p.x, p.z, r, { x: 0, z: 0, w: 2.16, d: 5.4 });
         return [
@@ -377,6 +379,7 @@ OTR.fpMission = {
         if(this.loadout)OTR.fpLoadout.findLater(this);
         const v = this.van, old = { x: v.x, z: v.z, speed: v.speed };
         motor.tick.call(this, input, dt);
+        if(OTR.fpTraffic&&OTR.fpTraffic.enabled(this))OTR.fpTraffic.after(this);
         if(this.doorsteps)OTR.fpDoors.tick(this,input);
         if(this.routeDay)OTR.fpDay.tick(this,dt);
         if(this.driving)OTR.fpDriving.tick(this,dt,old);
@@ -402,13 +405,14 @@ OTR.fpMission = {
           if (front.z < -24) { mark.resolved = true; this.log('stop-sign', 'driving', mark.stopped ? 'good' : 'needs', mark.stopped ? 'Stopped before the junction line.' : 'Passed the junction stop line without stopping.'); }
         }
         if (this.town) OTR.fpRoute.tick(this, old);
-        this.tickCrossing(dt, old);
-        const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w: 1.8, d: 3.6 }));
+        if(!(OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&this.routePlan.day>=3))this.tickCrossing(dt, old);
+        const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w:Math.abs(Math.sin(c.yaw))>.7?3.6:1.8,d:Math.abs(Math.sin(c.yaw))>.7?1.8:3.6 }));
         if (hitCar) { this._rearContact=true;v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
         if(this._rearContact&&OTR.fpRear&&this.driving)OTR.fpRear.tick(this,0,old);
         if (!hitCar && Math.abs(old.speed) > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
       },
       tickTraffic(dt) {
+        if(OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&this.routePlan.day>=3){OTR.fpTraffic.before(this,dt);return;}
         this.traffic.forEach(c => {
           const dir = c.yaw === 0 ? -1 : 1;
           const ahead = (this.van.z - c.z) * dir;
@@ -455,6 +459,7 @@ OTR.fpMission = {
         if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
         if(this.parking)fields.push('parking');
+        if(this.trafficControl)fields.push('trafficControl');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -529,11 +534,14 @@ OTR.fpMission = {
       if (!data.crossing || !['waiting','developing','crossing','resolved'].includes(data.crossing.state)) return null;
       if (![data.crossing.x,data.crossing.z,data.crossing.clock].every(Number.isFinite)) return null;
       if (!Array.isArray(data.traffic) || data.traffic.length !== 2 || data.traffic.some(c => ![c.x,c.z,c.yaw,c.speed].every(Number.isFinite))) return null;
+      if(OTR.fpTraffic&&OTR.fpTraffic.enabled(m)){if(!OTR.fpTraffic.valid(m,data.trafficControl,data))return null;}
+      else if(data.trafficControl)return null;
       if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
       if(m.doorsteps)OTR.fpDoors.attach(m);
       if(m.routeDay)OTR.fpDay.attach(m);
       if(m.driving)OTR.fpDriving.attach(m);
+      if(m.trafficControl)OTR.fpTraffic.attach(m);
       m.paused = true; return m;
     } catch (_) { return null; }
   }

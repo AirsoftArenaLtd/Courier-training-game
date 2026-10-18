@@ -90,6 +90,9 @@ OTR.fpWorld = {
       for(const z of town.zs)for(let x=b.x0+4;x<b.x1;x+=8){
         if(!town.xs.some(cx=>Math.abs(x-cx)<half+3)){const oneWay=OTR.fpSigns&&OTR.fpSigns.enabled(base)&&base.routePlan.day>=3&&z===town.zs[0]&&x>town.xs[1]+half&&x<town.xs[2]-half;box(route,x,0.05,z,3,0.02,0.1,oneWay?0xEFEEE5:0xEDD385);}
       }
+      if(base.trafficControl&&base.routePlan.day>=3){
+        for(let i=0;i<7;i++)box(route,town.school.x-town.road/2+.8+i*(town.road-1.6)/6,.06,base.crossing.z,.6,.02,2,0xEFEEE5);
+      }
       // Town models replace non-delivery visual pieces. Delivery facades/solids remain their own geometry.
       const lots=town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id));
       townArt=OTR.fpTown?OTR.fpTown.build(scene,base,route,box,material):null;
@@ -241,10 +244,23 @@ OTR.fpWorld = {
       box(g,0,1.2,-0.2,1.5,0.55,1.65,0x506673);
       return g;
     });
+    const trafficBike=base.trafficControl&&base.routePlan.day>=4&&OTR.gfx.high()?new T.Group():null;
+    if(trafficBike){
+      route.add(trafficBike);trafficBike.name='traffic:bicycle';trafficBike.visible=false;
+      box(trafficBike,0,.67,0,.08,.16,1.2,0x39667D);box(trafficBike,0,.45,0,.08,.16,1.1,0x39667D);
+      box(trafficBike,0,.6,-.65,.08,.6,.08,0x89939B);box(trafficBike,0,.56,.6,.08,.45,.08,0x39667D);
+      box(trafficBike,0,.94,-.65,.55,.16,.07,0x30373C);box(trafficBike,0,.78,.2,.3,.16,.3,0x30373C);
+      const wheels=new T.InstancedMesh(new T.TorusGeometry(.31,.045,4,12).rotateY(Math.PI/2),material(0x30373C),2);
+      for(let i=0;i<2;i++)wheels.setMatrixAt(i,new T.Matrix4().makeTranslation(0,.34,i?-.65:.65));trafficBike.add(wheels);
+    }
     const person=new T.Group();route.add(person);
-    box(person,0,1.1,0,0.45,0.75,0.25,0xBD9155);
-    box(person,0,1.65,0,0.3,0.32,0.3,0xB68F72);
-    [-0.12,0.12].forEach(x=>box(person,x,0.38,0,0.16,0.75,0.19,0x43515E));
+    const schoolChildren=base.trafficControl&&base.routePlan.day>=3?2:0;
+    for(let i=0;i<(schoolChildren||1);i++){
+      const z=i*1.1;box(person,0,1.1,z,.45,.75,.25,i?0x6B88A7:0xBD9155);box(person,0,1.65,z,.3,.32,.3,0xB68F72);
+      if(schoolChildren)box(person,0,.38,z,.38,.75,.19,0x43515E);
+      else[-.12,.12].forEach(x=>box(person,x,.38,z,.16,.75,.19,0x43515E));
+    }
+    if(schoolChildren)person.scale.setScalar(.72);
     const residentParts=[],residentBatch=new T.InstancedMesh(cube,material(0xFFFFFF),base.stops.length*4);
     residentBatch.frustumCulled=false;residentBatch.count=0;route.add(residentBatch);
     for(const stop of base.stops){
@@ -287,6 +303,7 @@ OTR.fpWorld = {
     }
     if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
     const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
+    if(trafficBike&&!(actors&&actors.cyclist)){box(trafficBike,0,1.15,0,.4,.65,.25,0xE3B649);box(trafficBike,0,1.65,-.15,.28,.3,.28,0xB68F72);for(const x of [-.12,.12])box(trafficBike,x,.55,0,.16,.65,.16,0x43515E);}
     if(actors&&actors.vehicle){
       // The physical interior mirror stays at its C-23 location. Its view uses the retained cab shell,
       // since the source exterior's sloped windshield would sit between that camera and the cab.
@@ -295,9 +312,11 @@ OTR.fpWorld = {
       for(const mesh of exterior.concat(cargoDoor)){if(mesh.parent)mesh.layers.set(1);const entry=mesh.userData.fpBatchEntry;if(entry){const pool=batches.get(mesh===cargoDoor?chassis:mesh.parent||mesh.userData.fpParent);if(pool)for(const entries of pool.values()){const at=entries.indexOf(entry);if(at>=0)entries.splice(at,1);}}}
     }
     const flashRed=material(0xE33E44),flashBlue=material(0x3B89DC);
-    const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,entry=>{
+    const addRoutePlane=entry=>{
       let pool=batches.get(route);if(!pool){pool=new Map();batches.set(route,pool);}if(!pool.has('plane:all'))pool.set('plane:all',[]);pool.get('plane:all').push(entry);
-    }):null;
+    };
+    const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,addRoutePlane):null;
+    const trafficArt=OTR.fpTraffic?OTR.fpTraffic.art(base,addRoutePlane):null;
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
       if(!entries.length)return;
@@ -321,7 +340,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -388,6 +407,8 @@ OTR.fpWorld = {
           }
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);
+          if(trafficArt)trafficArt.sync(m);
+          if(trafficBike){const c=m.trafficControl.cyclist;trafficBike.visible=(c.state==='beside'||c.state==='clear')&&Math.hypot(c.x-cx,c.z-cz)<35;trafficBike.position.set(c.x,0,c.z);trafficBike.rotation.y=-c.yaw;}
           if(actors)actors.sync(m,cx,cz,!!reduced);
           if(actors&&actors.crossing)person.visible=false;
           let mask=0;for(const s of m.stops)if(s.contacted&&!s.resolved&&(m.doorsteps?m._doorSpecs[s.id].present:s.service==='handover')&&(s.x-cx)**2+(s.z-cz)**2<=sceneryRadius*sceneryRadius)mask|=1<<s.id;
