@@ -67,7 +67,7 @@ OTR.fpActors={
     },dispose(){for(const p of parts)p.g.dispose();}};
   },
   build(scene,m,route,van,chassis,brand,doors){
-    if(!scene.assetBank)return null;const T=THREE,models=scene.assetBank.models,high=OTR.gfx.high(),paint=new T.MeshLambertMaterial({color:0xffffff,vertexColors:true,side:T.DoubleSide}),vehicle=this.vehicle(models.get('van-exterior'),paint,brand),people=[],start=new Map(m.stops.filter(s=>s.contacted).map(s=>[s.id,m.elapsed-4])),doorOpen=m.stops.map(s=>s.contacted?1:0),initial=m.stops.map(s=>s.contacted);let cargo=m.cargoOpen?1:0,lastTime=m.elapsed,lastX=m.player.x,lastZ=m.player.z,walkUntil=0;
+    if(!scene.assetBank)return null;const T=THREE,models=scene.assetBank.models,high=OTR.gfx.high(),paint=new T.MeshLambertMaterial({color:0xffffff,vertexColors:true,side:T.DoubleSide}),vehicle=this.vehicle(models.get('van-exterior'),paint,brand),people=[],start=new Map(m.stops.filter(s=>s.contacted).map(s=>[s.id,m.elapsed-4])),doorOpen=m.stops.map(s=>s.contacted&&!s.resolved&&(m.doorsteps?m._doorSpecs[s.id].present:s.service==='handover')?1:0),initial=m.stops.map(s=>s.contacted);let cargo=m.cargoOpen?1:0,lastTime=m.elapsed,lastX=m.player.x,lastZ=m.player.z,walkUntil=0;
     const make=(kind,uniform,skin,role='resident')=>{const a=this.character(models.get(role+'-'+kind),paint,uniform,skin);if(a){route.add(a.mesh);a.mesh.visible=false;people.push(a);}return a;};
     const courier=make(m.seed%2?'men':'women',brand.uniform,undefined,'worker'),crossing=make('women',0x728e9a),residents=m.stops.map((s,i)=>{const a=m._doorSpecs&&m._doorSpecs[i];return make(i%2?'men':'women',a?a.shirt:0x608987,a&&a.skin);});
     if(vehicle)van.add(vehicle.mesh);
