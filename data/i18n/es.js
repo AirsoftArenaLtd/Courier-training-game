@@ -3794,7 +3794,22 @@ window.OTR_I18N.es = {
 "This lesson takes place in the depot.": "Esta lección se realiza en el centro.",
 "Prepare the van before departure.": "Prepara la furgoneta antes de salir.",
 "Return to the depot.": "Vuelve al centro.",
-"Saving is unavailable. Keep this window open.": "No se puede guardar. Mantén esta ventana abierta."
+"Saving is unavailable. Keep this window open.": "No se puede guardar. Mantén esta ventana abierta.",
+"Read a visible road sign.": "Leer una señal de tráfico visible.",
+"Kept to the posted speed limit.": "Mantuviste el límite de velocidad indicado.",
+"Kept to the school-zone speed limit.": "Mantuviste el límite de velocidad de la zona escolar.",
+"Exceeded the school-zone speed limit.": "Superaste el límite de velocidad de la zona escolar.",
+"Gave way to traffic when leaving the depot.": "Cediste el paso al tráfico al salir del depósito.",
+"Left the depot without giving way to nearby traffic.": "Saliste del depósito sin ceder el paso al tráfico cercano.",
+"Used another street around the road closure.": "Usaste otra calle para rodear el corte de la vía.",
+"Contacted the closure instead of following the diversion.": "Llegaste al corte en lugar de seguir el desvío.",
+"Entered a one-way street against its direction.": "Entraste en una calle de sentido único en contra de su sentido.",
+"Entered a street from its prohibited end.": "Entraste en una calle por su extremo prohibido.",
+"Stop before the junction line.": "Detente antes de la línea del cruce.",
+"Give way to traffic before leaving the depot.": "Cede el paso al tráfico antes de salir del depósito.",
+"The street is closed. Follow another cross street.": "La calle está cortada. Sigue por otra calle transversal.",
+"Do not enter this street from this end.": "No entres en esta calle por este extremo.",
+"Look toward a road sign, then read it again.": "Mira hacia una señal de tráfico y vuelve a leerla."
 },
 "templates": [
 [
@@ -5456,6 +5471,30 @@ window.OTR_I18N.es = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "Pulsa {0} para el escáner o {1} para Controles y guía."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"Pulsa {0} para leer una señal visible. Pulsa otra vez para leer la siguiente señal."
+],
+[
+"This is {0}.",
+"Esto es {0}."
+],
+[
+"This is number {0} on {1}.",
+"Este es el número {0} de {1}."
+],
+[
+"The speed limit is {0} mph.",
+"El límite de velocidad es de {0} mph."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"Más adelante empieza una zona escolar. Su límite de velocidad es de {0} mph."
+],
+[
+"Traffic travels east on {0}.",
+"El tráfico circula hacia el este por {0}."
 ]
 ],
 "keep": [

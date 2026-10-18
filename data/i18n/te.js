@@ -3783,7 +3783,22 @@ window.OTR_I18N.te = {
 "This lesson takes place in the depot.": "ఈ పాఠం డిపోలో జరుగుతుంది.",
 "Prepare the van before departure.": "బయలుదేరే ముందు వ్యాన్‌ను సిద్ధం చేయండి.",
 "Return to the depot.": "డిపోకు తిరిగి వెళ్లండి.",
-"Saving is unavailable. Keep this window open.": "సేవ్ చేయడం సాధ్యం కాదు. ఈ విండోను తెరిచే ఉంచండి."
+"Saving is unavailable. Keep this window open.": "సేవ్ చేయడం సాధ్యం కాదు. ఈ విండోను తెరిచే ఉంచండి.",
+"Read a visible road sign.": "కనిపించే రహదారి గుర్తును చదవండి.",
+"Kept to the posted speed limit.": "సూచించిన వేగ పరిమితిని పాటించారు.",
+"Kept to the school-zone speed limit.": "పాఠశాల జోన్ వేగ పరిమితిని పాటించారు.",
+"Exceeded the school-zone speed limit.": "పాఠశాల జోన్ వేగ పరిమితిని మించారు.",
+"Gave way to traffic when leaving the depot.": "డిపో నుండి బయలుదేరేటప్పుడు ట్రాఫిక్‌కు దారి ఇచ్చారు.",
+"Left the depot without giving way to nearby traffic.": "దగ్గరలోని ట్రాఫిక్‌కు దారి ఇవ్వకుండా డిపో నుండి బయలుదేరారు.",
+"Used another street around the road closure.": "రహదారి మూసివేయడంతో వేరే వీధిని ఉపయోగించారు.",
+"Contacted the closure instead of following the diversion.": "మళ్లింపును అనుసరించకుండా మూసిన రహదారి వరకు వెళ్లారు.",
+"Entered a one-way street against its direction.": "ఏకదిశ వీధిలో దాని దిశకు వ్యతిరేకంగా ప్రవేశించారు.",
+"Entered a street from its prohibited end.": "వీధిలో నిషేధించిన చివర నుండి ప్రవేశించారు.",
+"Stop before the junction line.": "జంక్షన్ రేఖకు ముందు ఆగండి.",
+"Give way to traffic before leaving the depot.": "డిపో నుండి బయలుదేరే ముందు ట్రాఫిక్‌కు దారి ఇవ్వండి.",
+"The street is closed. Follow another cross street.": "ఈ వీధి మూసివేయబడింది. వేరే అడ్డ వీధిలో వెళ్లండి.",
+"Do not enter this street from this end.": "ఈ చివర నుండి ఈ వీధిలోకి ప్రవేశించవద్దు.",
+"Look toward a road sign, then read it again.": "ఒక రహదారి గుర్తు వైపు చూడండి, ఆపై దాన్ని మళ్లీ చదవండి."
 },
 "templates": [
 [
@@ -5445,6 +5460,30 @@ window.OTR_I18N.te = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "హ్యాండ్‌హెల్డ్ కోసం {0} లేదా నియంత్రణలు మరియు మార్గదర్శకం కోసం {1} నొక్కండి."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"కనిపించే రహదారి గుర్తును చదవడానికి {0} నొక్కండి. తర్వాతి గుర్తును చదవడానికి మళ్లీ నొక్కండి."
+],
+[
+"This is {0}.",
+"ఇది {0}."
+],
+[
+"This is number {0} on {1}.",
+"ఇది {1}లో నంబర్ {0}."
+],
+[
+"The speed limit is {0} mph.",
+"వేగ పరిమితి {0} mph."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"ముందు పాఠశాల జోన్ మొదలవుతుంది. దాని వేగ పరిమితి {0} mph."
+],
+[
+"Traffic travels east on {0}.",
+"{0}లో ట్రాఫిక్ తూర్పు వైపు వెళ్తుంది."
 ]
 ],
 "keep": [

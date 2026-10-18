@@ -3784,7 +3784,22 @@ window.OTR_I18N.pa = {
 "This lesson takes place in the depot.": "ਇਹ ਪਾਠ ਡਿਪੋ ਵਿੱਚ ਹੁੰਦਾ ਹੈ।",
 "Prepare the van before departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਤਿਆਰ ਕਰੋ।",
 "Return to the depot.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ।",
-"Saving is unavailable. Keep this window open.": "ਸੇਵ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਇਸ ਵਿੰਡੋ ਨੂੰ ਖੁੱਲ੍ਹਾ ਰੱਖੋ।"
+"Saving is unavailable. Keep this window open.": "ਸੇਵ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਇਸ ਵਿੰਡੋ ਨੂੰ ਖੁੱਲ੍ਹਾ ਰੱਖੋ।",
+"Read a visible road sign.": "ਦਿਖਾਈ ਦੇ ਰਹੇ ਸੜਕ ਚਿੰਨ੍ਹ ਨੂੰ ਪੜ੍ਹੋ।",
+"Kept to the posted speed limit.": "ਦੱਸੀ ਗਈ ਰਫ਼ਤਾਰ ਸੀਮਾ ਦੀ ਪਾਲਣਾ ਕੀਤੀ।",
+"Kept to the school-zone speed limit.": "ਸਕੂਲ ਖੇਤਰ ਦੀ ਰਫ਼ਤਾਰ ਸੀਮਾ ਦੀ ਪਾਲਣਾ ਕੀਤੀ।",
+"Exceeded the school-zone speed limit.": "ਸਕੂਲ ਖੇਤਰ ਦੀ ਰਫ਼ਤਾਰ ਸੀਮਾ ਪਾਰ ਕੀਤੀ।",
+"Gave way to traffic when leaving the depot.": "ਡਿਪੂ ਤੋਂ ਨਿਕਲਦੇ ਸਮੇਂ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤਾ।",
+"Left the depot without giving way to nearby traffic.": "ਨੇੜਲੇ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤੇ ਬਿਨਾਂ ਡਿਪੂ ਤੋਂ ਨਿਕਲੇ।",
+"Used another street around the road closure.": "ਸੜਕ ਬੰਦ ਹੋਣ ਕਾਰਨ ਦੂਜੀ ਗਲੀ ਵਰਤੀ।",
+"Contacted the closure instead of following the diversion.": "ਡਾਇਵਰਜ਼ਨ ਦੀ ਪਾਲਣਾ ਕਰਨ ਦੀ ਥਾਂ ਬੰਦ ਸੜਕ ਤੱਕ ਪਹੁੰਚ ਗਏ।",
+"Entered a one-way street against its direction.": "ਇੱਕ-ਪਾਸੜ ਗਲੀ ਵਿੱਚ ਉਸਦੀ ਦਿਸ਼ਾ ਦੇ ਉਲਟ ਦਾਖ਼ਲ ਹੋਏ।",
+"Entered a street from its prohibited end.": "ਗਲੀ ਵਿੱਚ ਮਨ੍ਹਾ ਕੀਤੇ ਸਿਰੇ ਤੋਂ ਦਾਖ਼ਲ ਹੋਏ।",
+"Stop before the junction line.": "ਜੰਕਸ਼ਨ ਦੀ ਲਕੀਰ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",
+"Give way to traffic before leaving the depot.": "ਡਿਪੂ ਤੋਂ ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਰਾਹ ਦਿਓ।",
+"The street is closed. Follow another cross street.": "ਇਹ ਗਲੀ ਬੰਦ ਹੈ। ਕੋਈ ਹੋਰ ਕਰਾਸ ਗਲੀ ਚੁਣੋ।",
+"Do not enter this street from this end.": "ਇਸ ਸਿਰੇ ਤੋਂ ਇਸ ਗਲੀ ਵਿੱਚ ਦਾਖ਼ਲ ਨਾ ਹੋਵੋ।",
+"Look toward a road sign, then read it again.": "ਕਿਸੇ ਸੜਕ ਚਿੰਨ੍ਹ ਵੱਲ ਵੇਖੋ, ਫਿਰ ਉਸਨੂੰ ਦੁਬਾਰਾ ਪੜ੍ਹੋ।"
 },
 "templates": [
 [
@@ -5446,6 +5461,30 @@ window.OTR_I18N.pa = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "ਹੈਂਡਹੈਲਡ ਲਈ {0} ਜਾਂ ਕੰਟਰੋਲ ਅਤੇ ਮਾਰਗਦਰਸ਼ਨ ਲਈ {1} ਦਬਾਓ।"
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"ਦਿਖਾਈ ਦੇ ਰਹੇ ਸੜਕ ਚਿੰਨ੍ਹ ਨੂੰ ਪੜ੍ਹਨ ਲਈ {0} ਦਬਾਓ। ਅਗਲਾ ਚਿੰਨ੍ਹ ਪੜ੍ਹਨ ਲਈ ਇਸਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ।"
+],
+[
+"This is {0}.",
+"ਇਹ {0} ਹੈ।"
+],
+[
+"This is number {0} on {1}.",
+"ਇਹ {1} ਉੱਤੇ ਨੰਬਰ {0} ਹੈ।"
+],
+[
+"The speed limit is {0} mph.",
+"ਰਫ਼ਤਾਰ ਸੀਮਾ {0} mph ਹੈ।"
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"ਅੱਗੇ ਸਕੂਲ ਖੇਤਰ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ। ਇਸਦੀ ਰਫ਼ਤਾਰ ਸੀਮਾ {0} mph ਹੈ।"
+],
+[
+"Traffic travels east on {0}.",
+"{0} ਉੱਤੇ ਟ੍ਰੈਫ਼ਿਕ ਪੂਰਬ ਵੱਲ ਚੱਲਦਾ ਹੈ।"
 ]
 ],
 "keep": [

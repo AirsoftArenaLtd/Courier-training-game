@@ -3783,7 +3783,22 @@ window.OTR_I18N.ta = {
 "This lesson takes place in the depot.": "இந்தப் பாடம் டிப்போவில் நடக்கிறது.",
 "Prepare the van before departure.": "புறப்படும் முன் வேனைத் தயார் செய்யுங்கள்.",
 "Return to the depot.": "டிப்போவுக்குத் திரும்புங்கள்.",
-"Saving is unavailable. Keep this window open.": "சேமிக்க முடியவில்லை. இந்த சாளரத்தைத் திறந்தே வையுங்கள்."
+"Saving is unavailable. Keep this window open.": "சேமிக்க முடியவில்லை. இந்த சாளரத்தைத் திறந்தே வையுங்கள்.",
+"Read a visible road sign.": "தெரியும் சாலை அடையாளத்தைப் படியுங்கள்.",
+"Kept to the posted speed limit.": "குறிப்பிடப்பட்ட வேக வரம்பைப் பின்பற்றினீர்கள்.",
+"Kept to the school-zone speed limit.": "பள்ளி மண்டல வேக வரம்பைப் பின்பற்றினீர்கள்.",
+"Exceeded the school-zone speed limit.": "பள்ளி மண்டல வேக வரம்பை மீறினீர்கள்.",
+"Gave way to traffic when leaving the depot.": "டிப்போவிலிருந்து புறப்படும்போது போக்குவரத்துக்கு வழிவிட்டீர்கள்.",
+"Left the depot without giving way to nearby traffic.": "அருகிலுள்ள போக்குவரத்துக்கு வழிவிடாமல் டிப்போவிலிருந்து புறப்பட்டீர்கள்.",
+"Used another street around the road closure.": "சாலை மூடப்பட்டதால் வேறொரு தெருவைப் பயன்படுத்தினீர்கள்.",
+"Contacted the closure instead of following the diversion.": "மாற்றுப்பாதையைப் பின்பற்றாமல் மூடப்பட்ட சாலை வரை சென்றீர்கள்.",
+"Entered a one-way street against its direction.": "ஒருவழித் தெருவில் அதன் திசைக்கு எதிராக நுழைந்தீர்கள்.",
+"Entered a street from its prohibited end.": "தெருவில் தடை செய்யப்பட்ட முனையிலிருந்து நுழைந்தீர்கள்.",
+"Stop before the junction line.": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+"Give way to traffic before leaving the depot.": "டிப்போவிலிருந்து புறப்படுவதற்கு முன் போக்குவரத்துக்கு வழிவிடுங்கள்.",
+"The street is closed. Follow another cross street.": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
+"Do not enter this street from this end.": "இந்த முனையிலிருந்து இந்தத் தெருவில் நுழையாதீர்கள்.",
+"Look toward a road sign, then read it again.": "ஒரு சாலை அடையாளத்தின் பக்கம் பாருங்கள், பிறகு அதை மீண்டும் படியுங்கள்."
 },
 "templates": [
 [
@@ -5445,6 +5460,30 @@ window.OTR_I18N.ta = {
 [
 "Press {0} for the handheld or {1} for Controls and guidance.",
 "ஹேண்ட்ஹெல்டுக்கு {0} அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு {1} அழுத்துங்கள்."
+],
+[
+"Press {0} to read a visible road sign. Press it again to read the next sign.",
+"தெரியும் சாலை அடையாளத்தைப் படிக்க {0} ஐ அழுத்துங்கள். அடுத்த அடையாளத்தைப் படிக்க மீண்டும் அழுத்துங்கள்."
+],
+[
+"This is {0}.",
+"இது {0}."
+],
+[
+"This is number {0} on {1}.",
+"இது {1} இல் எண் {0}."
+],
+[
+"The speed limit is {0} mph.",
+"வேக வரம்பு {0} mph."
+],
+[
+"A school zone starts ahead. Its speed limit is {0} mph.",
+"முன்னால் பள்ளி மண்டலம் தொடங்குகிறது. அதன் வேக வரம்பு {0} mph."
+],
+[
+"Traffic travels east on {0}.",
+"{0} இல் போக்குவரத்து கிழக்கு நோக்கிச் செல்கிறது."
 ]
 ],
 "keep": [
