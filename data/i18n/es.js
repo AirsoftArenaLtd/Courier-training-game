@@ -3771,7 +3771,9 @@ window.OTR_I18N.es = {
 "Returns": "Devoluciones",
 "Scanned": "Escaneado",
 "Help that day": "Ayuda ese día",
-"Stars": "Estrellas"
+"Stars": "Estrellas",
+"Credits": "Créditos",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "La ciudad 3D y los vehículos usan modelos gratuitos que sus autores ofrecen a todo el mundo (CC0). Gracias a:"
 },
 "templates": [
 [

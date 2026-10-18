@@ -3760,7 +3760,9 @@ window.OTR_I18N.gu = {
 "Returns": "રિટર્ન્સ",
 "Scanned": "સ્કેન થયું",
 "Help that day": "તે દિવસની મદદ",
-"Stars": "તારા"
+"Stars": "તારા",
+"Credits": "શ્રેય",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D શહેર અને વાહનોમાં મફત મૉડલનો ઉપયોગ થયો છે, જે તેમના નિર્માતાઓએ સૌને આપ્યા છે (CC0). આભાર:"
 },
 "templates": [
 [

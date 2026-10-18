@@ -107,11 +107,14 @@ class TitleScene extends Phaser.Scene {
     // --- menu ---
     this.mute = OTR.ui.muteButton(this, W - 40, 40);
     this.langBtn = OTR.ui.iconButton(this, W - 96, 40, 'ic_globe', () => OTR.ui.languages(this), { size: 46 });
+    // the people whose free models the 3D world uses (data/credits.js, from assets/3d: B-28)
+    if ((OTR_DATA.credits || []).length) this.creditsBtn = OTR.ui.button(this, W - 196, 40, 'Credits', () => this.showCredits(), { w: 130, h: 44, skin: 'ghost', fontSize: 15 });
     this.menu = this.add.container(W / 2, 372);
     this.buildMenu();
 
     OTR.ui.saveWarning(this, W / 2, 26);
-    OTR.txt(this, W / 2, H - 14, cfg.disclaimer, 13, 'rgba(255,255,255,0.75)', { bold: false, align: 'center', wrap: 1100 }).setDepth(5);
+    // anchored by its foot, so a longer translation at larger text grows upwards instead of off the screen
+    OTR.txt(this, W / 2, H - 6, cfg.disclaimer, 13, 'rgba(255,255,255,0.75)', { bold: false, align: 'center', wrap: 1100, oy: 1 }).setDepth(5);
   }
 
   /** Walk a rig across the screen, then put it back on the far side and do it again. */
@@ -124,6 +127,16 @@ class TitleScene extends Phaser.Scene {
       this.time.delayedCall(200, () => this.loopWalk(rig, dir, follower));
     }, { speed: 46 + Math.random() * 14 });
     if (follower) follower.play('trot');
+  }
+
+  showCredits() {
+    const list = OTR_DATA.credits || [];
+    OTR.ui.modal(this, {
+      title: 'Credits', w: 720, h: Math.min(620, 250 + list.length * 30),
+      body: ['The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:', '',
+        ...list.map(c => `${c.name} — ${c.author}`)].join('\n'),     // names only: nothing to translate on these lines
+      buttons: [{ label: 'Close', skin: 'orange', key: ['ENTER', 'ESC'], onClick: () => {} }], escClose: true
+    });
   }
 
   buildMenu() {

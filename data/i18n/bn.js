@@ -3761,7 +3761,9 @@ window.OTR_I18N.bn = {
 "Returns": "রিটার্ন",
 "Scanned": "স্ক্যান হয়েছে",
 "Help that day": "সেই দিনের সহায়তা",
-"Stars": "তারা"
+"Stars": "তারা",
+"Credits": "ক্রেডিট",
+"The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "থ্রিডি শহর ও যানবাহনে বিনামূল্যের মডেল ব্যবহার করা হয়েছে, যা নির্মাতারা সবার জন্য উন্মুক্ত করেছেন (CC0)। ধন্যবাদ জানাই:"
 },
 "templates": [
 [
