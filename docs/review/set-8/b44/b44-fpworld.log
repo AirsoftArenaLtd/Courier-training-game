@@ -1,0 +1,31 @@
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (1.09497ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (2.229447ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (26.460897ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (9.415401ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (5.597027ms)
+✔ all customer doors are outside the house occluder and reachable from the path (5.960562ms)
+✔ hub stations are pickable and inactive route interactions are invisible (3.480497ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (8.539343ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (8.474828ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (3.459125ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (7.823169ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (5.454547ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.292911ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.370916ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (3.160987ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (2.618049ms)
+✔ low graphics keeps barcode scanning on cargo shelves (5.031978ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (1.969886ms)
+✔ saving practice preserves a separate suspended workday (0.402712ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.265971ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.196769ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (0.447608ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.194745
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

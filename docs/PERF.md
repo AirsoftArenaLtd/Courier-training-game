@@ -1,5 +1,19 @@
 # 3D workday rendering cost
 
+## B-44: fallback diagnostics (18 October 2026)
+
+An additive asset-bank counter and healthy-fixture guard change no model selection or rendering. Two cab
+samples pass the existing ceilings:
+
+| Quality | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| low | 39 | 1,034 | 2 | 3,557,376 | 1,659,371 |
+| high | 73 | 92,396 | 3 | 11,239,424 | 5,171,099 |
+
+Nine Node suites, 39 asset-browser assertions and the healthy packaged SCORM 1.2 Low/High launch pass.
+Evidence and missing-High-van diagnostics: `docs/review/set-8/b44.md`. SwiftShader is a resource check;
+native Intel FPS remains O-1.
+
 ## C-29: fixed integrated quality gate (18 October 2026)
 
 C-29 adds a repeatable review gate for the integrated cab, mirrors, rear camera, lighting,

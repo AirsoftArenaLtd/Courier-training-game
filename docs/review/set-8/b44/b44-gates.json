@@ -1,0 +1,39 @@
+{
+  "healthy": [
+    {
+      "quality": "low",
+      "peak": {
+        "calls": 39,
+        "triangles": 1034,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1659371
+      }
+    },
+    {
+      "quality": "high",
+      "peak": {
+        "calls": 73,
+        "triangles": 92396,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5171099
+      }
+    }
+  ],
+  "recoveredHighVan": {
+    "quality": "high",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 1,
+    "bytes": 3849152,
+    "decodedBytes": 3330348,
+    "errors": [
+      {
+        "path": "kenney-car-kit/models/delivery-high.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "healthyGateRejectsRecoveredFallback": true
+}
