@@ -1,5 +1,71 @@
 # 3D workday rendering cost
 
+## C-27: local town assets and recovered call headroom (17 October 2026)
+
+Route boxes/planes now share per-instance colour batches while solid raycast proxies remain exact.
+Before adding any Low geometry, the loaded 240,000-view sweep falls from C-26's 64 calls / 1,886
+triangles to **48 / 1,890**. Both the main view and reflections retain their colours and restore all
+matrices, colours, counts and visibility exactly after every reflection pass.
+
+Eight CC0 town templates add houses, a shop, trees, fences, roads/kerbs, streetlights and parked cars.
+High retains source detail. Low uses small silhouette variants (12–44 triangles), with at most
+**290 triangles of nearby detailed scenery** selected at the existing three-metre update cadence.
+Distant/missing buildings retain their old procedural silhouette; missing props have small procedural
+equivalents. No image texture, extra pass, scoring/save field, control or new UI text is introduced.
+All generated solids, customer facades, delivery targets, road markings and public paths are retained.
+
+The integrated **240,000-view loaded** sweep peaks at **58 calls / 2,306 triangles**. The equally large
+fallback sweep peaks at **47 / 2,266**. Both include cargo states, camera dynamics, physical cab controls,
+all lighting presets, weather and all mirror/rear reflections. Eight model types pass real GL pixel
+comparisons on both qualities, with no render-induced mission or scoring changes. The 49 loader/failure/
+loading-layout assertions also pass, including native-font English/Tamil normal/larger layouts.
+
+Rendered samples at the fixed 1280 × 720 viewport, with sound, larger text and colour filtering:
+
+| Sample set | Calls | Triangles | Three.js textures | Attachment bytes | Phaser texture estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Low, 22 town/cab/mirror/rear/scan/turn/weather/night views | 57 | 2,306 | 2 | 3,557,376 | 2,600,662 |
+| High, six town/cab/reverse/night/rain views | 92 | 184,814 | 3 | 11,239,424 | 6,952,006 |
+| Low, three town/reverse/rain views with reduced motion | 57 | 2,306 | 2 | 3,557,376 | 2,575,206 |
+
+Source geometry peaks at **23,272 bytes Low / 431,296 High**. High's complete-frame triangle counter
+includes the source-detail town in the world, reflection and sun-shadow passes; Low retains its original
+64-call / 2,500-triangle ceilings and has no shadow map. No WebGL/page errors or context loss occur.
+The two-texture and 4 MiB attachment/Phaser ceilings remain unchanged. Software FPS is not native Intel acceptance.
+
+The 16 new Low/High files total **457,596 bytes**. All manifest files, including the starter garage,
+total **474,648 bytes**; Low loads **30,052**, High **444,596**. Colours are baked from the source palette,
+with shared cheap Lambert shading at runtime. Licence files retain original author bytes. Repeated
+conversions match byte for byte; six Python conversion tests and all 30 Node suites pass. The
+resume/100-day soak and 240 SCORM round trips preserve identity/scores at **3,869 / 4,000 characters**.
+Both SCORM package formats pass, as do nine offline checks. The complete browser pass totals **1705 assertions**: town Low/High, loader/failures/layouts, cab, mirrors, rear camera, keyboard, driving, camera, route-day, doorsteps, guide, themes, lighting, weather, load-out and the five-stop physical route. The raw incoming zips are never shipped. The Poly Haven texture zips
+omit their licence record, so their files remain unshipped pending Claude's reply; Kenney palette geometry
+and texture-free surface grain provide the current road/kerb detail.
+
+Final review index, screenshots, clip and individual regression reports: `docs/review/set-8/c27.md`.
+Implementation, conversion, source provenance and fallback details: `docs/3D-TOWN-ASSETS.md`.
+The source-detail preparation contact sheet is historical; final in-game Low/High views are in the review index.
+
+Commands (set `QA_BASE` to the checkout server; one Chromium at a time):
+
+```sh
+python3 test/fptownprepare.py
+node test/fptown.js
+node test/assets.js
+QA_ASSETS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_TAG=c27-loaded node test/fproute.js
+QA_LATER=1 QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_TAG=c27-fallback node test/fproute.js
+QA_CAB=1 QA_REAR=1 QA_LATER=1 QA_LIGHTING=1 node test/fpresume.js
+QA_CLIP=1 QA_TAG=c27-assets node test/fpassetsbrowser.js
+node test/fptownbrowser.js
+QA_GFX=high node test/fptownbrowser.js
+QA_GFX=low QA_TAG=c27 QA_TOWN=1 QA_WEATHER=1 QA_LIGHTING=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=assets,townhouse,townroad,townparked-car,towncab,townreverse,laterrearpeak,mirror,mirrorRight,mirrorInterior,barcodeAim,laterstressturn,laterstressreverse,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,visibleweatherfog,visibleweathersnow,visibleweatherice,visibleweathersnowwalk,visibleweathericewalk,lightingnightreverse QA_SHOTS=1 node test/fpbench.js
+QA_GFX=high QA_TAG=c27 QA_TOWN=1 QA_WEATHER=1 QA_LIGHTING=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour QA_VIEWS=assets,townhouse,townparked-car,townreverse,visibleweatherrainreverse,lightingnightreverse QA_SHOTS=1 node test/fpbench.js
+QA_GFX=low QA_TAG=c27-reduced QA_TOWN=1 QA_WEATHER=1 QA_PROTOTYPE_ONLY=1 QA_SOUND=1 QA_A11Y=large,colour,reduced QA_VIEWS=towncab,townreverse,visibleweatherrainreverse node test/fpbench.js
+for suite in fpcabbrowser fpmirrorsbrowser fprearbrowser fpaccessbrowser fpdrivingbrowser fpcamerabrowser fpdaybrowser fpdoorsbrowser fpguidebrowser fpbrandingbrowser fplightingbrowser fpweatherbrowser fploadoutbrowser fproutebrowser; do node test/$suite.js || exit 1; done
+node --test test/package.js
+QA_BROWSER=/usr/bin/chromium node test/offline.js
+```
+
 ## C-26: visible weather (17 October 2026)
 
 Rain beads and physical wipers share one texture-free cab pane, visible only to the main camera.

@@ -1,0 +1,48 @@
+{
+  "quality": "high",
+  "fixture": "Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering.",
+  "views": [
+    {
+      "use": "town-house",
+      "changedPixels": 65153,
+      "selected": true
+    },
+    {
+      "use": "town-house-wide",
+      "changedPixels": 40080,
+      "selected": true
+    },
+    {
+      "use": "town-shop",
+      "changedPixels": 156548,
+      "selected": true
+    },
+    {
+      "use": "town-tree",
+      "changedPixels": 4075,
+      "selected": true
+    },
+    {
+      "use": "town-fence",
+      "changedPixels": 2377,
+      "selected": true
+    },
+    {
+      "use": "town-streetlight",
+      "changedPixels": 1394,
+      "selected": true
+    },
+    {
+      "use": "town-parked-car",
+      "changedPixels": 6320,
+      "selected": true
+    },
+    {
+      "use": "town-road",
+      "changedPixels": 488595,
+      "selected": true
+    }
+  ],
+  "checks": 50,
+  "errors": []
+}

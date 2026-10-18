@@ -1,0 +1,369 @@
+{
+  "scenarios": [
+    {
+      "mode": "low",
+      "stats": {
+        "quality": "low",
+        "loaded": 9,
+        "failed": 0,
+        "bytes": 30052,
+        "decodedBytes": 21456,
+        "errors": []
+      },
+      "groups": 8,
+      "instances": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb"
+      ]
+    },
+    {
+      "mode": "high",
+      "stats": {
+        "quality": "high",
+        "loaded": 9,
+        "failed": 0,
+        "bytes": 444596,
+        "decodedBytes": 435888,
+        "errors": []
+      },
+      "groups": 8,
+      "instances": [
+        [
+          17
+        ],
+        [
+          12
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          7
+        ],
+        [
+          16
+        ],
+        [
+          1
+        ],
+        [
+          16
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-high.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-high.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-high.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-high.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-high.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-high.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-high.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-high.glb"
+      ]
+    },
+    {
+      "mode": "missing",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 9,
+        "bytes": 0,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-a-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-c-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/tree-small-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/fence-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-commercial/models/building-a-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-roads/models/road-straight-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-roads/models/light-curved-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-car-kit/models/sedan-low.glb",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb"
+      ]
+    },
+    {
+      "mode": "corrupt",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 9,
+        "bytes": 30052,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-a-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-c-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-suburban/models/tree-small-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-suburban/models/fence-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-commercial/models/building-a-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-roads/models/road-straight-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-city-roads/models/light-curved-low.glb",
+            "reason": "Invalid GLB"
+          },
+          {
+            "path": "kenney-car-kit/models/sedan-low.glb",
+            "reason": "Invalid GLB"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb"
+      ]
+    },
+    {
+      "mode": "loader",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 9,
+        "bytes": 30052,
+        "decodedBytes": 21456,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-a-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-c-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-suburban/models/tree-small-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-suburban/models/fence-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-commercial/models/building-a-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-roads/models/road-straight-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-city-roads/models/light-curved-low.glb",
+            "reason": "Missing glTF loader"
+          },
+          {
+            "path": "kenney-car-kit/models/sedan-low.glb",
+            "reason": "Missing glTF loader"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb",
+        "/lib/GLTFLoader.min.js"
+      ]
+    },
+    {
+      "mode": "manifest",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 1,
+        "bytes": 0,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "manifest",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 258,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 307,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "text": "\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0baa\u0ba3\u0bbf\u0ba8\u0bbe\u0bb3\u0bcd \u0b8f\u0bb1\u0bcd\u0bb1\u0baa\u0bcd\u0baa\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.",
+      "x": 24,
+      "right": 402,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "text": "\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0baa\u0ba3\u0bbf\u0ba8\u0bbe\u0bb3\u0bcd \u0b8f\u0bb1\u0bcd\u0bb1\u0baa\u0bcd\u0baa\u0b9f\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.",
+      "x": 24,
+      "right": 481,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    }
+  ],
+  "checks": 49,
+  "errors": [],
+  "outside": []
+}

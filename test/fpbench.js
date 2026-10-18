@@ -146,6 +146,12 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);s.model=m;s.rebuildWorld();s.sync();s.refresh();
    },spec);if(!spec.endsWith('walk'))await lookAtTarget(spec==='rainreverse'?'cab-camera':'cab-wipers');await sample('visibleweather'+spec);
   }
+  if(process.env.QA_TOWN==='1'&&await p.evaluate(()=>!!OTR.fpTown))for(const kind of ['house','road','parked-car','cab','reverse']){
+   await p.evaluate(kind=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpRoute.plan(1,7);plan.timeOfDay='midday';const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);m.stops.forEach(a=>a.contacted=true);OTR.fpDoors.sync(m);for(const p of m.parcels)p.location='slot'+p.stop;
+    m.phase='route';m.departed=m.repaired=true;m.paused=false;m.step=()=>{};m.mode=kind==='cab'||kind==='reverse'?'cab':'walk';Object.assign(m.van,m.stops[0].park,{hand:true,belt:true,gear:kind==='reverse'?-1:1});s.model=m;s.rebuildWorld();
+    if(m.mode==='walk'){const c=s.art.townArt.choices.find(c=>c.use==='town-'+kind),x=m.town.xs.reduce((a,b)=>Math.abs(a-c.x)<Math.abs(b-c.x)?a:b),z=c.z+3,d=Math.hypot(c.x-x,c.z-z);Object.assign(m.player,{x,z,yaw:Math.atan2(c.x-x,-(c.z-z)),pitch:Math.atan2(1.65-c.height*.4,d)});}s.sync();s.refresh();
+   },kind);if(kind==='reverse')await lookAtTarget('cab-camera');await sample('town'+kind);
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.errors=errors;fs.writeFileSync(path.join(OUT,`bench-${TAG}-${GFX}.json`),JSON.stringify(report,null,2));

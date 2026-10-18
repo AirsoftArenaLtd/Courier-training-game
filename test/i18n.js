@@ -64,7 +64,8 @@ Object.keys(OTR.i18n.LANGS).filter(l => l !== 'en').forEach(lang => {
   // everything in the catalogue is text to translate unless it is on the reviewed list of names, street signs, codes and
   // fragments (data/i18n/not-text.json), or is plainly an id (drive.speed), a colour or a debug line. Short labels count:
   // "Pick up", "SCORE" and "Sign in" are text too.
-  const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s);
+  // (a "|otr-…" string is a shader cache key the 3D world names, never shown: C-25 to C-27)
+  const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s) || /^\|otr-[a-z0-9-]+$/.test(s);
   const missing = cat.strings.filter(s => !have.has(s) && !have.has(s.trim()) && !kept.has(s) && !notText.has(s) && !idlike(s));
   // a template that is an id once its holes are filled (an event key such as turn:{0}:{1}) is not text either
   const missingT = cat.templates.filter(t => !haveT.has(t.trim()) && !idlike(t.replace(/\{\d+\}/g, '0')));
