@@ -122,6 +122,30 @@ class DriveReviewScene extends Phaser.Scene {
       OTR.txt(this, q.x, q.y, String(st.stop), 11, OTR_DATA.theme.css('primaryDeep'), { weight: '900' });
     });
     this.placePins(p => P(p.where.x, p.where.z));
+    if (streets) this.nameStreets(streets, P, [x0, x1, z0, z1], pts.map(q => P(q.x, q.z)));
+  }
+
+  /**
+   * Each street's name along its band on the map (B-31), the names the trainee sees in the town. A name goes where it
+   * covers no stop, pin or the depot (near either end first, then the middle), and is left out when nowhere fits.
+   */
+  nameStreets(streets, P, [x0, x1, z0, z1], taken) {
+    const labels = [];
+    const clear = (b) => taken.every(q => q.x < b.x - 16 || q.x > b.right + 16 || q.y < b.y - 16 || q.y > b.bottom + 16) &&
+      labels.every(o => b.right < o.x - 4 || b.x > o.right + 4 || b.bottom < o.y - 4 || b.y > o.bottom + 4);
+    const place = (name, along, at, upright) => {
+      const t = OTR.txt(this, 0, 0, name, 12, '#D9D4E6', { weight: '700' }).setOrigin(0.5).setAlpha(0.9);
+      if (upright) t.setAngle(-90);
+      for (const f of [0.12, 0.88, 0.5, 0.3, 0.7]) {
+        const q = at(along[0] + (along[1] - along[0]) * f);
+        t.setPosition(q.x, q.y);
+        const b = t.getBounds(), e = P(x0, z0), g = P(x1, z1);
+        if (b.x >= e.x && b.right <= g.x && b.y >= e.y && b.bottom <= g.y && clear(b)) { labels.push(b); return; }
+      }
+      t.destroy();
+    };
+    streets.xs.forEach((x, i) => { if (x > x0 && x < x1 && streets.xNames[i]) place(streets.xNames[i], [z0, z1], (z) => P(x, z), true); });
+    streets.zs.forEach((z, i) => { if (z > z0 && z < z1 && streets.zNames[i]) place(streets.zNames[i], [x0, x1], (x) => P(x, z), false); });
   }
 
   /**
@@ -131,7 +155,9 @@ class DriveReviewScene extends Phaser.Scene {
   planStreets(plan) {
     if (!plan || !Number.isSafeInteger(plan.townSeed) || !OTR.town || !OTR.town.build) return null;
     const T = OTR.town.build(plan.townSeed), scale = (OTR.fpRoute && OTR.fpRoute.SCALE) || 0.05;
-    return { xs: T.hy.map(y => (y - T.hy[0]) * scale), zs: T.vx.map(x => 8 - (x - T.depot.x) * scale), road: T.road * scale };
+    const S = T.spec || OTR_DATA.town || {};
+    return { xs: T.hy.map(y => (y - T.hy[0]) * scale), zs: T.vx.map(x => 8 - (x - T.depot.x) * scale), road: T.road * scale,
+      xNames: S.streetsH || [], zNames: S.streetsV || [] };
   }
 
   placePins(at) {
