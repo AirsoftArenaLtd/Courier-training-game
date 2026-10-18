@@ -19,6 +19,7 @@ OTR.fpSigns = {
     if(OTR.workday)OTR.workday.report(g.type,{key:g.id,stop:m.phase==='route'?m.activeStop+1:undefined,ok,where:{x:atSign?g.x:m.van.x,z:atSign?g.z:m.van.z,mph:atSign?0:Math.abs(m.van.speed)*2.2369362921}});
   },
   seen(m,g){if(g&&!m.events[g.seen]){m.events[g.seen]=true;m.touch();}},
+  barrierContact(m){return !!(this.enabled(m)&&m.roadworks&&m.motion&&m.motion.contact&&OTR.fp.vanBox(m._motorPose||m.van,m.roadworks));},
   finish(m){if(!this.enabled(m))return;for(const g of this.runtime(m).grades.values())if(['speed','school'].includes(g.kind)&&m.events[g.seen])this.emit(m,g,true,true);},
   tick(m,old){
     if(!this.enabled(m)||m.mode!=='cab'||!m.departed||m.paused)return;
@@ -38,7 +39,7 @@ OTR.fpSigns = {
     }
     if(m.roadworks){const r=m.roadworks,side=old.z>=r.z?'north':'south',grade=side==='north'?d.worksN:d.worksS,seen=side==='north'?'sign-works:north':'sign-works:south';
       if((r.z-old.z)*(v.z-old.z)>0&&Math.abs(v.x-r.x)<m.town.road/2+1&&Math.abs(v.z-r.z)<28&&!m.events[seen]){m.events[seen]=true;m.touch();}
-      if(m.motion&&m.motion.contact&&Math.abs(v.x-r.x)<r.w/2+1.1&&Math.abs(v.z-r.z)<r.d/2+3.2)this.emit(m,grade,false);
+      if(this.barrierContact(m))this.emit(m,grade,false);
       if((old.z-r.z)*(v.z-r.z)<0&&Math.abs(v.x-r.x)>r.w/2+1.1&&m.events[seen])this.emit(m,grade,true);
     }
   },

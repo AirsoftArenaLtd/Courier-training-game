@@ -92,7 +92,8 @@ OTR.fpMission = {
           case 'lane': if(OTR.fpSigns&&OTR.fpSigns.enabled(this)&&OTR.fpSigns.onOneWay(this))return;type = 'drive.wrong-side'; driving = true; break;
           case 'junction': type = OTR.fpSigns&&OTR.fpSigns.enabled(this)?'drive.sign-stop':'drive.stop-line';d.key=type==='drive.sign-stop'?OTR.fpSigns.stopId(this,Number(key),stop):id.slice(9);if(type==='drive.sign-stop'&&this.phase==='route')d.stop=this.activeStop+1;driving = true; break;
           case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
-          case 'traffic-contact': case 'contact': type = 'drive.contact'; driving = true; break;
+          case 'contact': if(OTR.fpSigns&&OTR.fpSigns.barrierContact(this))return;type = 'drive.contact'; driving = true; break;
+          case 'traffic-contact': type = 'drive.contact'; driving = true; break;
           case 'pedestrian':
             type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
           case 'returned': type = 'return.scanned'; break;

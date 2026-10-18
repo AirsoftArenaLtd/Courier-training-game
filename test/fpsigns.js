@@ -102,3 +102,9 @@ test('the signed route marker is validated and restoring a signed day emits noth
  O.workday.begin();const m=signed(),snap=m.snapshot();const restored=O.fpMission.restore(snap);assert.ok(restored);assert.equal(O.workday.events.length,0);assert.equal(restored.routePlan.signs,1);
  snap.routePlan.signs=2;assert.equal(O.fpMission.restore(snap),null);
 });
+
+test('a physical closure collision replaces the generic contact report only on a new signed day',()=>{
+ for(const enabled of [true,false]){O.workday.begin();let plan=O.fpLater.prepare(O.fpRoute.plan(3,7));if(enabled)plan=O.fpSigns.prepare(plan);const m=O.fpMission.create('campaign',7,plan),r=m.roadworks;m.mode='cab';m.phase='route';m.departed=m.secured=true;m.paused=false;m.traffic=[];Object.assign(m.van,{x:r.x+2,z:r.z+3.3,yaw:0,speed:2,hand:false,belt:true,gear:1});m.step({forward:true},.1);
+  const contact=O.workday.events.filter(e=>['drive.contact','drive.sign-roadworks'].includes(e.type));assert.equal(contact.length,1);assert.equal(contact[0].type,enabled?'drive.sign-roadworks':'drive.contact');assert.equal(contact[0].ok,false);
+ }
+});
