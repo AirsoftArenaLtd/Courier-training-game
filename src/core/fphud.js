@@ -30,7 +30,7 @@ OTR.fpHud={
     const large=OTR.fpAccess.settings().large;
     s.hint.setFontSize(large?22:18);s.soundCue.setFontSize(large?21:17);
     s.controls.setFontSize(large?22:18);s.help.setFontSize(large?22:18);
-    s.hint.setOrigin(.5,1);s.controls.setOrigin(.5,1);
+    s.hint.setOrigin(.5,1);s.controls.setOrigin(.5,1);s.help.setOrigin(.5,1);
     s.navRoot=s.add.container(0,0).setDepth(10).setVisible(false);
     s.navBack=s.add.rectangle(0,-8,290,100,0x10232E,.98).setOrigin(.5,0);s.navMap=s.add.graphics();
     s.navText=OTR.txt(s,0,0,'',OTR.fpAccess.settings().large?21:17,'#ffffff',{wrap:270,oy:0,align:'center'});
@@ -72,10 +72,11 @@ OTR.fpHud={
       const controls=mode==='cab'?`Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Press ${k('KeyP')} to choose a cab control.`:`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to move. Press ${k('KeyP')} to choose a target and ${k('KeyE')} to interact.`;
       s.setText('controls',keys?controls:'',1000);s.setText('help',keys?`Press ${k('Tab')} for the handheld or ${k('KeyH')} for Controls and guidance.`:'',1000);
     }
-    s.controls.setPosition(640,672).setVisible(keys);
-    s.help.setPosition(640,696).setVisible(keys);
+    s.help.setPosition(640,708).setVisible(keys);
+    const controlsBottom=708-s.help.height-8;
+    s.controls.setPosition(640,controlsBottom).setVisible(keys);
     const width=device?660:OTR.fpAccess.settings().large?760:620,center=device?390:640;
-    s.setText('hint',blocked?'':hint,width);s.hint.setPosition(center,keys?672-s.controls.height-14:690);
+    s.setText('hint',blocked?'':hint,width);s.hint.setPosition(center,keys?controlsBottom-s.controls.height-14:690);
     const warning=!!(m&&mode==='cab'&&(OTR.fpDriving.hint(m)||OTR.fpDay.hint(m)))||!!(s.notice&&now<s.noticeUntil)||aiming;
     if(blocked)s.hud.prompt.key=null;
     const alpha=blocked?0:this.alpha(s.hud.prompt,(s.target||'')+'|'+hint,s.hint.text,now,warning,reduced);
