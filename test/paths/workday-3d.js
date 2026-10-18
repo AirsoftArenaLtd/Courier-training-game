@@ -151,6 +151,7 @@ const make = (opts) => async (page, ctx) => {
   await ctx.audit('start confirmation');
   await clickText(page, 'HubScene', /^Start ▶$/);
   must(await ctx.until(`!!(OTR.game.scene.isActive('FirstPersonScene') && !${FP}.loading && ${FP}.model)`, 90000), 'the 3D scene never opened from the hub');
+  if (ctx.resample) await ctx.resample();                           // the 3D world runs slower than the hub (B-48)
   await wait(800);
   must((await state()).m.kind === 'campaign', 'the hub did not start a campaign workday');
   // the driving assists the 3D world applied (C-21 reads OTR.academy.workdayRules): full on a first day by default,

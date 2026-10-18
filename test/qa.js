@@ -369,11 +369,21 @@ async function passGolden(page, sc, row) {
   // happens still fails, only later.
   // a flow that starts its own scene has no boot sample (row.fps 0): take one now, so its waits stretch as well (B-18)
   const fps = row.fps || (await liveScene(page, true)).fps;
-  const slow = Math.min(4, Math.max(1, 30 / (fps || 30)));
+  if (!row.fps) row.fps = fps;
+  let slow = Math.min(4, Math.max(1, 30 / (fps || 30)));
   global.__qaSlow = slow;                                              // test/paths/lib/ui.js stretches its waits too
   const ctx = {
     wait,
     slow,
+    /**
+     * Sample the frame rate again where the flow is now and stretch the waits from here on (B-48): a flow that moves
+     * from the hub (about 30 fps here) into the 3D workday (a few fps on a software-rendered QA machine) was timed as fast.
+     */
+    resample: async () => {
+      const now = (await liveScene(page, true)).fps;
+      if (now) { row.fps = Math.min(row.fps || now, now); slow = Math.min(4, Math.max(1, 30 / now)); ctx.slow = slow; global.__qaSlow = slow; }
+      return now;
+    },
     snap: (name) => page.screenshot({ path: path.join(OUT, `${sc.id}-${name}.png`) }),
     scene: (expr) => page.evaluate(`(() => { const s = OTR.game.scene.getScene('${sc.scene}'); return ${expr}; })()`),
     eval: (expr) => page.evaluate(expr),
