@@ -12,7 +12,8 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
   // record every utterance instead of speaking it
   await p.evaluateOnNewDocument(() => {
     window.__said = []; const t0 = Date.now();
-    window.speechSynthesis = { speaking: false, pending: false, cancel() {}, pause() {}, resume() {}, getVoices: () => [], speak(u) { window.__said.push(((Date.now() - t0) / 1000).toFixed(1) + 's ' + u.text); } };
+    // speechSynthesis is read-only: a plain assignment is silently ignored and the real voice speaks unrecorded
+    Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { speaking: false, pending: false, cancel() {}, pause() {}, resume() {}, getVoices: () => [], speak(u) { window.__said.push(((Date.now() - t0) / 1000).toFixed(1) + 's ' + u.text); if (u.onend) setTimeout(() => u.onend(), 0); } } });
     window.SpeechSynthesisUtterance = function (text) { this.text = text; };
   });
   await p.goto((process.env.QA_BASE || 'http://127.0.0.1:8302') + '/first-person.html?gfx=low');

@@ -3763,7 +3763,14 @@ window.OTR_I18N.kn = {
 "Stars": "ನಕ್ಷತ್ರಗಳು",
 "Credits": "ಕ್ರೆಡಿಟ್ಸ್",
 "The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ಪಟ್ಟಣ ಮತ್ತು ವಾಹನಗಳಲ್ಲಿ ಉಚಿತ ಮಾದರಿಗಳನ್ನು ಬಳಸಲಾಗಿದೆ; ಅವುಗಳ ರಚನೆಕಾರರು ಅವನ್ನು ಎಲ್ಲರಿಗೂ ಕೊಟ್ಟಿದ್ದಾರೆ (CC0). ಧನ್ಯವಾದಗಳು:",
-"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ಬೂದು: ರಸ್ತೆಗಳು · ಚೌಕ: ಡಿಪೋ · ವೃತ್ತಗಳು: ನಿಮ್ಮ ಸ್ಟಾಪ್‌ಗಳು (ಹಸಿರು ಎಂದರೆ ಡೆಲಿವರಿಯಾಗಿದೆ) · ಸಂಖ್ಯೆಯ ಪಿನ್‌ಗಳು: ಪ್ರತಿ ತಪ್ಪು ನಡೆದ ಸ್ಥಳ"
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ಬೂದು: ರಸ್ತೆಗಳು · ಚೌಕ: ಡಿಪೋ · ವೃತ್ತಗಳು: ನಿಮ್ಮ ಸ್ಟಾಪ್‌ಗಳು (ಹಸಿರು ಎಂದರೆ ಡೆಲಿವರಿಯಾಗಿದೆ) · ಸಂಖ್ಯೆಯ ಪಿನ್‌ಗಳು: ಪ್ರತಿ ತಪ್ಪು ನಡೆದ ಸ್ಥಳ",
+"The rear camera is live. The rear sensors detect no obstacle within three meters.": "ರಿಯರ್ ಕ್ಯಾಮೆರಾ ಆನ್ ಆಗಿದೆ. ಹಿಂದಿನ ಸೆನ್ಸರ್‌ಗಳಿಗೆ ಮೂರು ಮೀಟರ್ ಒಳಗೆ ಯಾವ ಅಡ್ಡಿಯೂ ಕಂಡಿಲ್ಲ.",
+"The rear camera is live. A rear obstacle is within three meters.": "ರಿಯರ್ ಕ್ಯಾಮೆರಾ ಆನ್ ಆಗಿದೆ. ಹಿಂದೆ ಮೂರು ಮೀಟರ್ ಒಳಗೆ ಅಡ್ಡಿ ಇದೆ.",
+"The rear camera is live. A rear obstacle is within one meter.": "ರಿಯರ್ ಕ್ಯಾಮೆರಾ ಆನ್ ಆಗಿದೆ. ಹಿಂದೆ ಒಂದು ಮೀಟರ್ ಒಳಗೆ ಅಡ್ಡಿ ಇದೆ.",
+"The van is in park.": "ವ್ಯಾನ್ ಪಾರ್ಕ್‌ನಲ್ಲಿದೆ.",
+"The van is in reverse.": "ವ್ಯಾನ್ ರಿವರ್ಸ್‌ನಲ್ಲಿದೆ.",
+"The van is in neutral.": "ವ್ಯಾನ್ ನ್ಯೂಟ್ರಲ್‌ನಲ್ಲಿದೆ.",
+"The van is in drive.": "ವ್ಯಾನ್ ಡ್ರೈವ್‌ನಲ್ಲಿದೆ."
 },
 "templates": [
 [

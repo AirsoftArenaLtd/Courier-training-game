@@ -3763,7 +3763,14 @@ window.OTR_I18N.ml = {
 "Stars": "നക്ഷത്രങ്ങൾ",
 "Credits": "ക്രെഡിറ്റുകൾ",
 "The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D ടൗണിലും വാഹനങ്ങളിലും സൗജന്യ മോഡലുകളാണ് ഉപയോഗിച്ചിരിക്കുന്നത്; അവയുടെ നിർമ്മാതാക്കൾ അവ എല്ലാവർക്കും നൽകിയിരിക്കുന്നു (CC0). നന്ദി:",
-"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ചാരനിറം: റോഡുകൾ · ചതുരം: ഡിപ്പോ · വൃത്തങ്ങൾ: നിങ്ങളുടെ സ്റ്റോപ്പുകൾ (പച്ച ഡെലിവർ ചെയ്തത്) · നമ്പറിട്ട പിന്നുകൾ: ഓരോ തെറ്റും സംഭവിച്ച സ്ഥലം"
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "ചാരനിറം: റോഡുകൾ · ചതുരം: ഡിപ്പോ · വൃത്തങ്ങൾ: നിങ്ങളുടെ സ്റ്റോപ്പുകൾ (പച്ച ഡെലിവർ ചെയ്തത്) · നമ്പറിട്ട പിന്നുകൾ: ഓരോ തെറ്റും സംഭവിച്ച സ്ഥലം",
+"The rear camera is live. The rear sensors detect no obstacle within three meters.": "റിയർ ക്യാമറ ഓണാണ്. പിന്നിലെ സെൻസറുകൾ മൂന്ന് മീറ്ററിനുള്ളിൽ തടസ്സമൊന്നും കണ്ടെത്തിയില്ല.",
+"The rear camera is live. A rear obstacle is within three meters.": "റിയർ ക്യാമറ ഓണാണ്. പിന്നിൽ മൂന്ന് മീറ്ററിനുള്ളിൽ തടസ്സമുണ്ട്.",
+"The rear camera is live. A rear obstacle is within one meter.": "റിയർ ക്യാമറ ഓണാണ്. പിന്നിൽ ഒരു മീറ്ററിനുള്ളിൽ തടസ്സമുണ്ട്.",
+"The van is in park.": "വാൻ പാർക്കിലാണ്.",
+"The van is in reverse.": "വാൻ റിവേഴ്സിലാണ്.",
+"The van is in neutral.": "വാൻ ന്യൂട്രലിലാണ്.",
+"The van is in drive.": "വാൻ ഡ്രൈവിലാണ്."
 },
 "templates": [
 [
