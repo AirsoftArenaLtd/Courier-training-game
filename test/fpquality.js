@@ -14,7 +14,7 @@ function checkReport(report,profile,tag){
  if(report.tag!==tag||report.actualQuality!==profile.quality||report.quality!==profile.quality)fail('The report does not match its requested tag and quality.');
  if(JSON.stringify([...(report.accessibility||[])].sort())!==JSON.stringify((profile.accessibility||'').split(',').filter(Boolean).sort()))fail('The accessibility fixture does not match its profile.');
  if(report.audioContext!=='running')fail('The live sound and caption fixture was not exercised.');
- const assets=report.assets,assetOK=profile.fallback?assets&&report.assetFailure==='missing-model-files'&&assets.loaded===0&&assets.failed>=14:assets&&assets.loaded>=14&&assets.failed===0;
+ const assets=report.assets,assetOK=assets&&assets.fallbacks===0&&(profile.fallback?report.assetFailure==='missing-model-files'&&assets.loaded===0&&assets.failed>=14:assets.loaded>=14&&assets.failed===0);
  if(!assetOK)fail('The asset fixture was not exercised.');
  if((report.errors||[]).length||(report.missingViews||[]).length)fail('A view or browser check failed.');
  const budget=BUDGETS[profile.quality],peak={calls:0,triangles:0,textures:0,attachmentBytes:0,phaserBytes:0};

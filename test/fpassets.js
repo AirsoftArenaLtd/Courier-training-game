@@ -7,7 +7,7 @@ const bytes=quality=>fs.readFileSync(path.join(root,'assets/3d',manifest.files.f
 test('the real vendored loader selects Low and High and parses the bundled CC0 variants',async()=>{
  for(const high of [false,true]){const {F}=context(),requests=[],progress=[];
   const bank=await F.preload({high,fetch:async(url,init)=>{requests.push(url);assert.equal(init.redirect,'error');return local(url);},progress:n=>progress.push(n)});
-  assert.equal(bank.stats.loaded,1,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);
+  assert.equal(bank.stats.loaded,1,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,0);
   const model=bank.models.get('town-garage');assert.equal(model.parts.length,1);assert.equal(model.parts[0].geometry.index.count/3,high?196:16);assert.ok(!model.parts[0].material.map);
   if(!high){const p=model.parts[0].geometry.attributes.position;for(let i=0;i<p.count;i++)assert.ok(Math.abs(p.getY(i))<.001||Math.abs(p.getY(i)-.55)<.001,'Low retains the source flat roof');}
   assert.ok(requests.some(r=>r.endsWith(high?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(high?'garage-low.glb':'garage-high.glb')));
@@ -28,14 +28,14 @@ test('missing, truncated and wrong-size files retain the procedural fallback wit
  for(const failure of ['missing','truncated','size','manifest']){const {F}=context(),bank=await F.preload({fetch:async url=>{
   if(url.endsWith('manifest.json'))return failure==='manifest'?new Response('bad JSON'):local(url);
   if(failure==='missing')return new Response('',{status:404});const b=bytes('low');return new Response(failure==='truncated'?b.subarray(0,20):Buffer.concat([b,Buffer.from([0])]));
- }});assert.equal(bank.stats.loaded,0);assert.ok(bank.stats.failed>0);assert.equal(bank.add(new THREE.Group(),'town-garage',[{}]),null);bank.dispose();}
+ }});assert.equal(bank.stats.loaded,0);assert.ok(bank.stats.failed>0);assert.equal(bank.stats.fallbacks,0);assert.equal(bank.add(new THREE.Group(),'town-garage',[{}]),null);bank.dispose();}
 });
 test('High can fall back to the Low variant, while Low never fetches High',async()=>{
  for(const missing of [true,false]){const {F}=context(),requests=[],progress=[],bank=await F.preload({high:true,progress:n=>progress.push(n),fetch:async url=>{
   requests.push(url);if(url.endsWith('manifest.json'))return local(url);
   if(url.endsWith('garage-high.glb')){if(missing)return new Response('',{status:404});const b=bytes('high');b.writeUInt32LE(0,0);return new Response(b);}
   const b=bytes('low');return new Response(new ReadableStream({start(c){c.enqueue(b.subarray(0,16));c.enqueue(b.subarray(16));c.close();}}));
- }});assert.equal(bank.stats.loaded,1);assert.equal(bank.models.get('town-garage').parts[0].geometry.index.count/3,16);assert.ok(requests.some(r=>r.endsWith('garage-low.glb')));assert.ok(progress.every((n,i)=>!i||n>=progress[i-1]));bank.dispose();}
+ }});assert.equal(bank.stats.loaded,1);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,1);assert.equal(bank.models.get('town-garage').parts[0].geometry.index.count/3,16);assert.ok(requests.some(r=>r.endsWith('garage-low.glb')));assert.ok(progress.every((n,i)=>!i||n>=progress[i-1]));bank.dispose();}
 });
 test('unlisted paths, duplicate variants and byte budgets fail before an asset request',async()=>{
  for(const mutate of [f=>f.path='https://example.test/model.glb',f=>f.path='../model.glb',f=>f.path='pack/%2e%2e/model.glb',f=>f.bytes=3*1024*1024+1,f=>f.pack='other']){
@@ -78,4 +78,8 @@ test('late decoder completion after cancellation releases geometry and material 
  const controller=new AbortController(),pending=F.preload({fetch:local,signal:controller.signal});await decoding;controller.abort();const bank=await pending;assert.equal(bank.models.size,0);
  const mesh=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial()),root=new THREE.Group();root.add(mesh);let geometry=0,material=0;mesh.geometry.addEventListener('dispose',()=>geometry++);mesh.material.addEventListener('dispose',()=>material++);
  complete({scene:root});await new Promise(resolve=>setTimeout(resolve,0));assert.equal(geometry,1);assert.equal(material,1);bank.dispose();
+});
+
+test('a missing real High van is counted as a recovered model fallback',async()=>{
+ const {F}=context(),bank=await F.preload({high:true,fetch:url=>url.endsWith('/delivery-high.glb')?Promise.resolve(new Response('',{status:404})):assetLocal(url)});assert.equal(bank.stats.loaded,14);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,1);assert.ok(bank.models.has('van-exterior'));assert.ok(bank.stats.errors.some(e=>e.path.endsWith('/delivery-high.glb')));bank.dispose();
 });

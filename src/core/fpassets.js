@@ -74,7 +74,7 @@ OTR.fpAssets={
   },
   async preload(options={}){
     const F=this,T=THREE,high=!!options.high,controller=new AbortController(),signal=controller.signal,models=new Map(),textures=new Map(),audio=new Map();let closed=false;
-    const bank={models,textures,audio,stats:{quality:high?'high':'low',loaded:0,failed:0,bytes:0,decodedBytes:0,errors:[]},
+    const bank={models,textures,audio,stats:{quality:high?'high':'low',loaded:0,failed:0,fallbacks:0,bytes:0,decodedBytes:0,errors:[]},
       add(parent,use,placements){
         const model=models.get(use);if(closed||!model||model.animated||!placements.length||placements.length>512)return null;
         const group=new T.Group();group.name='asset:'+use;group.userData.batches=[];
@@ -118,7 +118,7 @@ OTR.fpAssets={
             if(bank.stats.decodedBytes+w*h*4>(high?64:16)*1024*1024)throw Error('Decoded assets are over budget');bank.stats.decodedBytes+=w*h*4;
             const image=await untilAbort(createImageBitmap(new Blob([data],{type:mime}),{imageOrientation:'flipY',premultiplyAlpha:'none',colorSpaceConversion:'none'}).then(i=>{if(signal.aborted||closed)i.close();return i;}));const t=new T.Texture(image);t.colorSpace=T.SRGBColorSpace;t.needsUpdate=true;textures.set(job.use,t);
           }else{if(bank.stats.decodedBytes+data.byteLength>(high?64:16)*1024*1024)throw Error('Decoded assets are over budget');bank.stats.decodedBytes+=data.byteLength;audio.set(job.use,data);}
-          loaded=true;bank.stats.loaded++;break;
+          loaded=true;bank.stats.loaded++;if(f!==job.candidates[0])bank.stats.fallbacks++;break;
         }catch(error){bank.stats.errors.push({path:f.path,reason:String(error.message).slice(0,200)});}}
         if(!loaded)bank.stats.failed++;fractions[at]=1;progress();
       }};
