@@ -49,8 +49,9 @@ const VIEWS = [
     Object.assign(m.van, m.stops[0].park || { x: 4, z: -42, yaw: 0 }, { speed: 0, hand: true }); m.player.yaw = 0; s.sync(); return true;
   }],
   ['doorstep', 'At the first door', (s) => {
-    const m = s.model, st = m.stops[0]; m.mode = 'walk';
-    Object.assign(m.player, { x: st.x - (st.side || 1) * 1.5, z: st.z, yaw: (st.side || 1) * Math.PI / 2, pitch: 0 }); s.sync(); return true;
+    // three metres back from the door, looking at the house (the C-27 houses put the old 1.5 m view against the door)
+    const m = s.model, st = m.stops[0], side = st.side || 1, pt = (m.point && m.point('door0')) || st; m.mode = 'walk';
+    Object.assign(m.player, { x: pt.x - side * 3, z: pt.z, yaw: side * Math.PI / 2, pitch: 0.08 }); s.sync(); return true;
   }],
   ['satnav', 'The sat nav with the route', (s) => { if (!s.satnav) return false; s.model.mode = 'cab'; s.sync(); return true; }],
   ['night', 'Driving at night with headlights', (s) => {
