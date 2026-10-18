@@ -1,0 +1,270 @@
+{
+  "checks": 67,
+  "samples": [
+    {
+      "lang": "en",
+      "large": false,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "visible": [
+        {
+          "id": "street:0:0:z",
+          "text": "This is 1st St.",
+          "x": 808.8681852634211,
+          "y": 266.08353055863495,
+          "right": 924.8681852634211,
+          "bottom": 287.08353055863495,
+          "font": 18
+        }
+      ],
+      "calls": 37,
+      "triangles": 926,
+      "context": false,
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "stop",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "street",
+      "red": [
+        96,
+        16,
+        44,
+        255
+      ],
+      "blue": [
+        0,
+        9,
+        101,
+        255
+      ]
+    },
+    {
+      "kind": "number",
+      "red": [
+        155,
+        25,
+        70,
+        255
+      ],
+      "blue": [
+        0,
+        15,
+        156,
+        255
+      ]
+    },
+    {
+      "kind": "giveway",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "speed",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "school",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "roadworks",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "oneway",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "noentry",
+      "red": [
+        96,
+        16,
+        44,
+        255
+      ],
+      "blue": [
+        0,
+        9,
+        101,
+        255
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "visible": [
+        {
+          "id": "street:0:0:z",
+          "text": "This is 1st St.",
+          "x": 796.3681852634211,
+          "y": 262.08353055863495,
+          "right": 937.3681852634211,
+          "bottom": 287.08353055863495,
+          "font": 22
+        }
+      ],
+      "calls": 37,
+      "triangles": 926,
+      "context": false,
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "visible": [
+        {
+          "id": "street:0:0:z",
+          "text": "This is 1st St.",
+          "x": 796.3681852634211,
+          "y": 262.08353055863495,
+          "right": 937.3681852634211,
+          "bottom": 287.08353055863495,
+          "font": 22
+        }
+      ],
+      "calls": 25,
+      "triangles": 584,
+      "context": false,
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "quality": "high",
+      "geometry": 190,
+      "drawn": 7,
+      "pool": 5,
+      "visible": [
+        {
+          "id": "street:0:0:z",
+          "text": "This is 1st St.",
+          "x": 808.8681852634211,
+          "y": 266.08353055863495,
+          "right": 924.8681852634211,
+          "bottom": 287.08353055863495,
+          "font": 18
+        }
+      ],
+      "calls": 44,
+      "triangles": 24083,
+      "context": false,
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Rendering, remapped reading and single-report signed junction grading. Per-kind colour probes temporarily hide UI and particles; screenshots restore both."
+}

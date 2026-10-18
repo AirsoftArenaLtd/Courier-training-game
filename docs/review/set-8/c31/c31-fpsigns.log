@@ -1,0 +1,28 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ signs are derived without changing the mission or its checkpoint (22.168021ms)
+✔ both actual street names appear at every junction after the rotated projection (44.163206ms)
+✔ all four approach signs sit on the right and before their existing stop line (1.99386ms)
+✔ all delivered addresses keep their generated number and actual facade position (317.417403ms)
+✔ later restrictions stay off day one and match their peripheral road segment (3.397282ms)
+✔ Low shares one two-triangle surface and chooses at most five instances in any view (14.058279ms)
+✔ posts stay off every driving lane, including the cross streets at junctions (77.172286ms)
+✔ new signed stops replace the legacy report and older checkpoints retain their type (11.891803ms)
+✔ signed speed and school checks cannot also emit the old speed type; violations survive resume (7.416151ms)
+✔ speed credit waits until the day ends, so an earlier safe leg cannot mask a later violation (6.764749ms)
+✔ no-entry and mid-segment wrong-way mistakes each produce one distinct penalty (5.95155ms)
+✔ depot departure grades available traffic space once (7.625899ms)
+✔ both lanes may travel east on the signed one-way segment without consuming a later lane check (2.755044ms)
+✔ a seen road closure accepts a real detour and rejects contact with its barrier (41.048099ms)
+✔ the signed route marker is validated and restoring a signed day emits nothing (6.271061ms)
+✔ a physical closure collision replaces the generic contact report only on a new signed day (9.325989ms)
+✔ keyboard reading still reaches a visible physical sign when a long label cannot fit (0.187767ms)
+✔ sign shader composition retains existing road-grain and material hooks (0.629308ms)
+✔ the depot give-way face points toward the loading-bay approach (1.062227ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 609.91832

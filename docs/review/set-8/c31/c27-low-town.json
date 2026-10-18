@@ -1,0 +1,88 @@
+{
+  "quality": "low",
+  "fixture": "Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering. Culling comparisons retain normal sign selection and exclude fading Phaser overlays; screenshots retain UI.",
+  "views": [
+    {
+      "use": "town-house",
+      "changedPixels": 33204,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 752,
+        "unculled": 1038
+      }
+    },
+    {
+      "use": "town-house-wide",
+      "changedPixels": 40722,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 656,
+        "unculled": 944
+      }
+    },
+    {
+      "use": "town-shop",
+      "changedPixels": 168569,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 618,
+        "unculled": 896
+      }
+    },
+    {
+      "use": "town-tree",
+      "changedPixels": 4251,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 756,
+        "unculled": 1060
+      }
+    },
+    {
+      "use": "town-fence",
+      "changedPixels": 7188,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 672,
+        "unculled": 956
+      }
+    },
+    {
+      "use": "town-streetlight",
+      "changedPixels": 1599,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 672,
+        "unculled": 956
+      }
+    },
+    {
+      "use": "town-parked-car",
+      "changedPixels": 7467,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 740,
+        "unculled": 1040
+      }
+    },
+    {
+      "use": "town-road",
+      "changedPixels": 602457,
+      "selected": true,
+      "culling": {
+        "changedBytes": 0,
+        "normal": 696,
+        "unculled": 1104
+      }
+    }
+  ],
+  "checks": 66,
+  "errors": []
+}

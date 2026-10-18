@@ -4,12 +4,12 @@ const THREE=require('../lib/three.min.js'),{install,local}=require('./tools/fpas
 const c={THREE};c.window=c;vm.createContext(c);
 for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
 'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
-'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpsigns.js','src/core/fpnav.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};const F=install(c),banks={};
 test.before(async()=>{for(const high of [false,true])banks[high]=await F.preload({high,fetch:local});});
 test.after(()=>Object.values(banks).forEach(b=>b.dispose()));
-function world(high=false,bank=banks[high],day=1,variant=7){
- c.OTR.gfx={high:()=>high};const m=c.OTR.fpMission.create('campaign',variant,c.OTR.fpLater.prepare(c.OTR.fpRoute.plan(day,variant))),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),root=new THREE.Scene();root.add(camera);
+function world(high=false,bank=banks[high],day=1,variant=7,nav=false){
+ c.OTR.gfx={high:()=>high};const m=c.OTR.fpMission.create('campaign',variant,(nav?c.OTR.fpNav.prepare(c.OTR.fpSigns.prepare(c.OTR.fpLater.prepare(c.OTR.fpRoute.plan(day,variant)))):c.OTR.fpLater.prepare(c.OTR.fpRoute.plan(day,variant)))),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),root=new THREE.Scene();root.add(camera);
  const scene={assetBank:bank,view:{world:root,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);return {m,scene,art,camera};
 }
 test('both qualities load all fourteen local templates and use one texture-free primitive per town model',()=>{
@@ -61,4 +61,12 @@ test('all four reflection passes restore every static/asset matrix, colour, coun
 test('per-instance static colour batching retains several colours in one route draw',()=>{
  const w=world(),meshes=[];w.art.route.traverse(o=>{if(o.isInstancedMesh&&o.instanceColor)meshes.push(o);});
  assert.ok(meshes.some(o=>{const colours=new Set();for(let i=0;i<o.instanceColor.count;i++)colours.add(o.instanceColor.array.slice(i*3,i*3+3).join(','));return colours.size>5;}));w.art.dispose();
+});
+
+test('navigation obstacles reuse bounded car models and always remain visible with matching solids',()=>{
+ for(const high of [false,true])for(const present of [false,true]){const w=world(high,present?banks[high]:null,4,7,true),t=w.art.townArt;
+  assert.equal(t.triangleLimit,high?Infinity:260);const obstacles=c.OTR.fpNav.obstacles(w.m);assert.equal(t.choices.filter(c=>c.obstruction).length,obstacles.length);
+  for(const o of obstacles){t.select(o.x,o.z);const choice=t.choices.find(c=>c.obstruction&&c.x===o.x&&c.z===o.z);assert.ok(choice&&choice.selected);assert.equal(choice.use,'town-parked-car');assert.ok(w.m.solids.includes(o));assert.ok(t.choices.filter(c=>c.selected).reduce((n,c)=>n+c.cost,0)<=t.triangleLimit);if(!present)assert.equal(t.fallback({town:choice}),true);}
+  w.art.dispose();
+ }
 });
