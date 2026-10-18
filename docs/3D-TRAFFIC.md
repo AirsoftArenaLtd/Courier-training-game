@@ -37,7 +37,8 @@ use `OTR.workday.report(type, { key, stop, ok, where })`; the 3D controller neve
 
 ## Children and the cyclist
 
-Children wait by the school crossing, begin only after a clear traffic gap, and remain
+The crossing uses a deterministic clear position inside the school zone, avoiding the
+combined roadworks and navigation obstructions. Children wait by the crossing and begin only after a clear traffic gap, and remain
 solid while waiting, crossing and standing on the far curb. Each proposed walking step
 checks the van, walking trainee, traffic and solid bodies. Cars yield to the crossing;
 the existing school bus and emergency vehicle also stop before the new actors. A motor conflict reports
