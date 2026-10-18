@@ -5,7 +5,10 @@
  *
  *   QA_BROWSER=/path/to/chrome QA_BASE=http://127.0.0.1:8302 node test/tools/review-set.js <set-number>
  *
- * Writes docs/review/set-<n>/views/<view>-<low|high>.jpg and docs/review/set-<n>/views/index.md. The views use the first
+ *   node test/tools/review-set.js <set-number> --compare   only (re)writes compare.md from the views already captured
+ *
+ * Writes docs/review/set-<n>/views/<view>-<low|high>.jpg and docs/review/set-<n>/views/index.md, and compare.md (B-35):
+ * each view from the previous set next to this one, so before and after are on one page. The views use the first
  * campaign day (fixed seed) and place the van and the player with the model, as test/fpbench.js does; nothing is
  * scored. A view whose feature is not built yet is skipped and listed as such, so later milestones add views without
  * changing earlier ones.
@@ -19,6 +22,26 @@ if (!/^\d+$/.test(SET || '')) { console.error('usage: node test/tools/review-set
 const BASE = process.env.QA_BASE || 'http://127.0.0.1:8302';
 const OUT = path.join(__dirname, '..', '..', 'docs', 'review', 'set-' + SET, 'views');
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+/** compare.md: each view of the newest earlier set that has views, beside this set's, at Low and at High. */
+function writeCompare() {
+  const root = path.dirname(path.dirname(OUT));
+  const prev = fs.readdirSync(root).map(d => /^set-(\d+)$/.exec(d)).filter(m => m && +m[1] < +SET && fs.existsSync(path.join(root, m[0], 'views')))
+    .map(m => +m[1]).sort((a, b) => b - a)[0];
+  if (prev === undefined) return;
+  const before = path.join(root, 'set-' + prev, 'views'), have = (dir, f) => fs.existsSync(path.join(dir, f));
+  const cell = (dir, rel, id, gfx, set) => have(dir, `${id}-${gfx}.jpg`) ? `![${id} ${gfx}, set ${set}](${rel}${id}-${gfx}.jpg)` : 'not in this set';
+  const lines = [`# Review set ${SET} beside set ${prev}`, '', `The same fixed views (see \`index.md\`), set ${prev} on the left and set ${SET} on the right. A view`,
+    'a set did not have says so.', ''];
+  for (const gfx of ['low', 'high']) {
+    lines.push(`## ${gfx === 'low' ? 'Low' : 'High'} graphics`, '', `| View | Set ${prev} | Set ${SET} |`, '| --- | --- | --- |');
+    VIEWS.forEach(([id]) => { if (have(before, `${id}-${gfx}.jpg`) || have(OUT, `${id}-${gfx}.jpg`))
+      lines.push(`| ${id} | ${cell(before, `../../set-${prev}/views/`, id, gfx, prev)} | ${cell(OUT, '', id, gfx, SET)} |`); });
+    lines.push('');
+  }
+  fs.writeFileSync(path.join(OUT, 'compare.md'), lines.join('\n'));
+  console.log(`wrote compare.md (set ${prev} beside set ${SET})`);
+}
 
 // [id, what the owner looks at, a setup run in the page (returns false when the feature does not exist yet)]
 const VIEWS = [
@@ -65,6 +88,8 @@ const VIEWS = [
   }],
   ['damage', 'The walk-round damage report', (s) => { if (!s.damageReport) return false; s.damageReport(); return true; }]
 ];
+
+if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
@@ -115,6 +140,7 @@ const VIEWS = [
       return `| ${id} | ${lo.what} | ${cell(lo)} | ${cell(hi)} |`; }),
     '', errors.length ? 'Page errors while capturing: ' + errors.join(' / ') : 'No page errors while capturing.', ''].join('\n');
   fs.writeFileSync(path.join(OUT, 'index.md'), md);
+  writeCompare();
   console.log('wrote ' + path.relative(process.cwd(), OUT));
   process.exit(errors.length ? 1 : 0);
 })();
