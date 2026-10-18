@@ -3763,7 +3763,14 @@ window.OTR_I18N.te = {
 "Stars": "నక్షత్రాలు",
 "Credits": "క్రెడిట్స్",
 "The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D పట్టణం, వాహనాల్లో ఉచిత మోడళ్లను ఉపయోగించాం; వాటి రూపకర్తలు వాటిని అందరికీ ఇచ్చారు (CC0). ధన్యవాదాలు:",
-"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "బూడిద రంగు: రోడ్లు · చతురస్రం: డిపో · వృత్తాలు: మీ స్టాప్‌లు (ఆకుపచ్చ అంటే డెలివరీ అయినవి) · సంఖ్య పిన్‌లు: ప్రతి పొరపాటు జరిగిన చోటు"
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "బూడిద రంగు: రోడ్లు · చతురస్రం: డిపో · వృత్తాలు: మీ స్టాప్‌లు (ఆకుపచ్చ అంటే డెలివరీ అయినవి) · సంఖ్య పిన్‌లు: ప్రతి పొరపాటు జరిగిన చోటు",
+"The rear camera is live. The rear sensors detect no obstacle within three meters.": "రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక సెన్సర్లకు మూడు మీటర్ల లోపల అడ్డంకి కనిపించలేదు.",
+"The rear camera is live. A rear obstacle is within three meters.": "రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక మూడు మీటర్ల లోపల అడ్డంకి ఉంది.",
+"The rear camera is live. A rear obstacle is within one meter.": "రియర్ కెమెరా ఆన్‌లో ఉంది. వెనుక ఒక మీటర్ లోపల అడ్డంకి ఉంది.",
+"The van is in park.": "వ్యాన్ పార్క్‌లో ఉంది.",
+"The van is in reverse.": "వ్యాన్ రివర్స్‌లో ఉంది.",
+"The van is in neutral.": "వ్యాన్ న్యూట్రల్‌లో ఉంది.",
+"The van is in drive.": "వ్యాన్ డ్రైవ్‌లో ఉంది."
 },
 "templates": [
 [

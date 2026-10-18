@@ -1,5 +1,16 @@
 # 3D workday rendering cost
 
+## B-30: bounded cab narration (18 October 2026)
+
+Narration adds no render resource or pass. The fixed 1280×720 Low gate samples the cab,
+three physical mirrors and the loaded day-21 reverse peak, with larger text, colour filtering
+and reduced motion. Combined maxima are **52 calls / 2,172 triangles / two textures /
+3,557,376 attachment bytes / 2,557,622 estimated Phaser texture bytes**. All unchanged
+ceilings pass. High is recorded separately (cab: 88 calls / 67,910 triangles / three textures /
+11,239,424 attachment bytes). The 145-check keyboard workday also passes. Reports,
+commands and narration evidence: `docs/review/set-8/b30.md`. These are SwiftShader resource
+checks; the existing native Intel O-1 measurement remains outstanding.
+
 ## C-27: local town assets and recovered call headroom (17 October 2026)
 
 Route boxes/planes now share per-instance colour batches while solid raycast proxies remain exact.

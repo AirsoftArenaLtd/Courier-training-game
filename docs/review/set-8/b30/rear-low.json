@@ -1,0 +1,101 @@
+{
+  "tag": "b30-rear",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 9,
+    "failed": 0,
+    "bytes": 30052,
+    "decodedBytes": 21456,
+    "errors": []
+  },
+  "prototype": {
+    "laterrearpeak": {
+      "frames": 61,
+      "avgFPS": 6.09,
+      "low1FPS": 1.91,
+      "p99ms": 523,
+      "maxMs": 523,
+      "peak": {
+        "calls": 52,
+        "triangles": 2172,
+        "textures": 2,
+        "geometries": 17,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 98,
+        "baseLevelRGBABytes": 1918216,
+        "withMipmapsUpperBytes": 2557622
+      },
+      "worldProfile": {
+        "meshes": 131,
+        "instances": 300,
+        "geometries": 20,
+        "materials": 42,
+        "geometryBytes": 23248,
+        "instanceBytes": 58408,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          15,
+          15,
+          13,
+          32
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 86.9,
+          "y": 2.05,
+          "z": -87.06666666666669,
+          "yaw": 3.798720738384585,
+          "pitch": -0.06646844036903048,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 86.9,
+          "baseZ": -87.06666666666669,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 1745108,
+    "withMipmapsUpperBytes": 2326811
+  },
+  "phaserTexturesPeak": {
+    "count": 98,
+    "baseLevelRGBABytes": 1918216,
+    "withMipmapsUpperBytes": 2557622
+  },
+  "errors": []
+}

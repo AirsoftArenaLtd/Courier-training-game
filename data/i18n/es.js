@@ -3774,7 +3774,14 @@ window.OTR_I18N.es = {
 "Stars": "Estrellas",
 "Credits": "Créditos",
 "The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "La ciudad 3D y los vehículos usan modelos gratuitos que sus autores ofrecen a todo el mundo (CC0). Gracias a:",
-"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "Gris: las calles · cuadrado: el depósito · círculos: tus paradas (verde, entregada) · marcadores numerados: dónde ocurrió cada error"
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "Gris: las calles · cuadrado: el depósito · círculos: tus paradas (verde, entregada) · marcadores numerados: dónde ocurrió cada error",
+"The rear camera is live. The rear sensors detect no obstacle within three meters.": "La cámara trasera está activa. Los sensores traseros no detectan obstáculos a menos de tres metros.",
+"The rear camera is live. A rear obstacle is within three meters.": "La cámara trasera está activa. Hay un obstáculo atrás a menos de tres metros.",
+"The rear camera is live. A rear obstacle is within one meter.": "La cámara trasera está activa. Hay un obstáculo atrás a menos de un metro.",
+"The van is in park.": "La furgoneta está en modo estacionar.",
+"The van is in reverse.": "La furgoneta está en modo reversa.",
+"The van is in neutral.": "La furgoneta está en punto muerto.",
+"The van is in drive.": "La furgoneta está en modo avanzar."
 },
 "templates": [
 [

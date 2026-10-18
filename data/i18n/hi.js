@@ -3764,7 +3764,14 @@ window.OTR_I18N.hi = {
 "Stars": "सितारे",
 "Credits": "क्रेडिट",
 "The 3D town and vehicles use free models that their makers give to everyone (CC0). Thank you to:": "3D शहर और वाहनों में मुफ़्त मॉडल इस्तेमाल किए गए हैं, जिन्हें उनके निर्माताओं ने सबके लिए उपलब्ध कराया है (CC0)। इनका धन्यवाद:",
-"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "स्लेटी: सड़कें · वर्ग: डिपो · वृत्त: आपके स्टॉप (हरा यानी डिलीवर) · क्रमांकित पिन: जहाँ हर गलती हुई"
+"Grey: the streets · square: the depot · circles: your stops (green delivered) · numbered pins: where each mistake happened": "स्लेटी: सड़कें · वर्ग: डिपो · वृत्त: आपके स्टॉप (हरा यानी डिलीवर) · क्रमांकित पिन: जहाँ हर गलती हुई",
+"The rear camera is live. The rear sensors detect no obstacle within three meters.": "रियर कैमरा चालू है। पीछे के सेंसर को तीन मीटर के भीतर कोई रुकावट नहीं मिली।",
+"The rear camera is live. A rear obstacle is within three meters.": "रियर कैमरा चालू है। पीछे तीन मीटर के भीतर रुकावट है।",
+"The rear camera is live. A rear obstacle is within one meter.": "रियर कैमरा चालू है। पीछे एक मीटर के भीतर रुकावट है।",
+"The van is in park.": "वैन पार्क में है।",
+"The van is in reverse.": "वैन रिवर्स में है।",
+"The van is in neutral.": "वैन न्यूट्रल में है।",
+"The van is in drive.": "वैन ड्राइव में है।"
 },
 "templates": [
 [
