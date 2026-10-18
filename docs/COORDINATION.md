@@ -328,6 +328,8 @@ items here for each agent.
 | B-37 | Claude | **A clearer doorstep view for review sets:** the `doorstep` view in `test/tools/review-set.js` frames only the door; stand the trainee where the house front and the resident are both in view (use the lot's size from the town, not a fixed distance), and recapture set 8's doorstep. | done |
 | B-38 | Claude | **Review views in another language:** `test/tools/review-set.js` takes `QA_LANG` and `QA_LARGE` and writes to `views-<lang>[-large]/`, so the owner can see the cab, the dash card and the guide as a Tamil or Hindi trainee sees them; capture set 8 in Tamil with larger text. | todo |
 | B-39 | Claude | **Text under a button:** the layout checks (`test/a11y-screens.js`, `test/fplangsbrowser.js`) find text off the screen or squeezed, but not text covered by a button (A-25 found the credits under Close by eye); add an overlap check for text and buttons in the same card, run it in all 12 languages with larger text, and fix what it finds. | done |
+| B-40 | Claude | **The LMS package after milestone 8:** build the SCORM zip as IT would (`docs/IT-NOTES.md`), check its size with the new 3D models, that `imsmanifest.xml` lists every file the game loads (no model missing from the package), and that it launches from the zip in a SCORM test player; update the package size in `docs/IT-NOTES.md`. | todo |
+| B-41 | Claude | **An old save still works:** a node test that loads saves as they were before milestones 7 and 8 (no town seed, no aids code, no `route.passed`, older workday records) and checks they load, start and finish a workday, show in the record and the drive review, and report to the LMS; fix what does not. | todo |
 
 ## Questions for the owner
 
