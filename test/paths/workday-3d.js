@@ -151,6 +151,7 @@ const make = (opts) => async (page, ctx) => {
   await ctx.audit('start confirmation');
   await clickText(page, 'HubScene', /^Start ▶$/);
   must(await ctx.until(`!!(OTR.game.scene.isActive('FirstPersonScene') && !${FP}.loading && ${FP}.model)`, 90000), 'the 3D scene never opened from the hub');
+  if (ctx.resample) await ctx.resample();                           // the 3D world runs slower than the hub (B-48)
   await wait(800);
   must((await state()).m.kind === 'campaign', 'the hub did not start a campaign workday');
   // the driving assists the 3D world applied (C-21 reads OTR.academy.workdayRules): full on a first day by default,
@@ -208,10 +209,14 @@ const make = (opts) => async (page, ctx) => {
   await lookAt('mirror-left', 0);
   await press('KeyV');                                             // look forward again
   await press('Space');
+  if (process.env.QA_GFX) must(await ev((g) => OTR.gfx.level() === g, process.env.QA_GFX), 'the 3D workday did not run at QA_GFX=' + process.env.QA_GFX);
+  // a leg fails only when the van stops getting closer for 30 s of wall time (or after 5 minutes): on a software-rendered
+  // High run the game may simulate a tenth of a second in five, so a fixed deadline measured the PC, not the drive
   const driveTo = async (z) => {
-    const end = Date.now() + 60000; let fwd = false, brake = false;
-    while (Date.now() < end) {
+    const end = Date.now() + 300000; let fwd = false, brake = false, best = Infinity, lastGain = Date.now();
+    while (Date.now() < end && Date.now() - lastGain < 30000) {
       const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < 4;
+      if (Math.abs(d) < best - 0.05 || Math.abs(v.speed) > 0.04) { best = Math.min(best, Math.abs(d)); lastGain = Date.now(); }
       if (gas !== fwd) { await page.keyboard[gas ? 'down' : 'up']('KeyW'); fwd = gas; }
       if (stop !== brake) { await page.keyboard[stop ? 'down' : 'up']('KeyS'); brake = stop; }
       if (stop && Math.abs(v.speed) < 0.04) { await page.keyboard.up('KeyW'); await page.keyboard.up('KeyS'); return; }
