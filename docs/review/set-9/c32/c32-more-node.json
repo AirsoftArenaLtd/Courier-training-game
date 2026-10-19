@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "firstperson",
+    "exit": 0,
+    "seconds": 0.3
+  },
+  {
+    "suite": "fpassets",
+    "exit": 0,
+    "seconds": 0.81
+  },
+  {
+    "suite": "fpcab",
+    "exit": 0,
+    "seconds": 0.39
+  },
+  {
+    "suite": "fpmirrors",
+    "exit": 0,
+    "seconds": 0.42
+  },
+  {
+    "suite": "fprear",
+    "exit": 0,
+    "seconds": 0.66
+  },
+  {
+    "suite": "fpcamera",
+    "exit": 0,
+    "seconds": 0.23
+  },
+  {
+    "suite": "fplighting",
+    "exit": 0,
+    "seconds": 0.57
+  },
+  {
+    "suite": "fpweather",
+    "exit": 0,
+    "seconds": 0.68
+  },
+  {
+    "suite": "fpsound",
+    "exit": 0,
+    "seconds": 0.14
+  },
+  {
+    "suite": "fploadout",
+    "exit": 0,
+    "seconds": 0.38
+  },
+  {
+    "suite": "fpdoors",
+    "exit": 0,
+    "seconds": 1.1
+  },
+  {
+    "suite": "fpbranding",
+    "exit": 0,
+    "tests": 4
+  }
+]

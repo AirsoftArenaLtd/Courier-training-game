@@ -1,0 +1,11 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+
+FAIL workday-3d     fps=  0 boot=null golden=script error: workday-3d: the drive leg did not arrive
+FAIL workday-3d-b   fps=  0 boot=null golden=script error: Attempted to use detached Frame 'BE73496A80A16D0D9C949CB80D5EFFDD'.
+        [harness] the page did not survive: Connection closed.
+
+================ summary ================
+  FAIL  workday-3d     fps=  0  golden
+  FAIL  workday-3d-b   fps=  0  1 error(s) · golden
+
+0/2 scenarios clean

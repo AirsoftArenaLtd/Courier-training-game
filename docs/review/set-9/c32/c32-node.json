@@ -1,0 +1,81 @@
+[
+  {
+    "suite": "fpmission",
+    "exit": 0,
+    "seconds": 0.13
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0,
+    "seconds": 0.2
+  },
+  {
+    "suite": "fpdriving",
+    "exit": 0,
+    "seconds": 0.35
+  },
+  {
+    "suite": "fpsigns",
+    "exit": 0
+  },
+  {
+    "suite": "fpnav",
+    "exit": 0,
+    "seconds": 4.35
+  },
+  {
+    "suite": "fproute",
+    "exit": 0,
+    "seconds": 0.77
+  },
+  {
+    "suite": "fptown",
+    "exit": 0,
+    "seconds": 1.82
+  },
+  {
+    "suite": "fpday",
+    "exit": 0,
+    "seconds": 0.24
+  },
+  {
+    "suite": "fplater",
+    "exit": 0,
+    "seconds": 1.04
+  },
+  {
+    "suite": "fpaccess",
+    "exit": 0,
+    "seconds": 0.12
+  },
+  {
+    "suite": "fpguide",
+    "exit": 0,
+    "seconds": 0.06
+  },
+  {
+    "suite": "fphud",
+    "exit": 0,
+    "seconds": 0.05
+  },
+  {
+    "suite": "fpnarration",
+    "exit": 0,
+    "seconds": 0.06
+  },
+  {
+    "suite": "workday",
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "savesize",
+    "exit": 0,
+    "seconds": 20.69
+  },
+  {
+    "suite": "i18n",
+    "exit": 0,
+    "seconds": 0.48
+  }
+]

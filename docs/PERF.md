@@ -674,3 +674,25 @@ At the initial claim, the pure controller was not loaded by the scene.
 The inherited C-30 loaded Low sweep remains 63 calls / 2,492 triangles. This is a baseline,
 not a C-32 measurement. Scene integration now recovers geometry and will rerun `test/fpbench.js`
 and the quality gate before review. Status and controller evidence: `docs/3D-TRAFFIC.md`.
+
+## C-32: traffic and C-31 navigation together (19 October 2026)
+
+Full baseline runtime `d8aff95b7a088ea7c00c163d0f1c7d3e77d26f42`: all 91 fixed views pass. Final raised-head runtime `d59ab5bc0aba469362f2439167276eb550e383d7`: all 18 traffic views pass with the same ceilings.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 39 | 56 | 2,432 | 2 | 3,557,376 | 3,068,096 |
+| loaded-high | 24 | 106 | 235,629 | 3 | 11,239,424 | 7,290,779 |
+| accessible-low | 14 | 56 | 2,432 | 2 | 3,557,376 | 2,955,606 |
+| fallback-low | 14 | 53 | 2,090 | 2 | 3,557,376 | 2,768,107 |
+
+Final raised-head traffic views:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 6 | 56 | 2,412 | 2 | 3,557,376 | 2,779,755 |
+| loaded-high | 6 | 81 | 138,234 | 3 | 11,239,424 | 7,216,411 |
+| accessible-low | 3 | 56 | 2,412 | 2 | 3,557,376 | 2,902,272 |
+| fallback-low | 3 | 53 | 2,090 | 2 | 3,557,376 | 2,722,635 |
+
+Both CPU sweeps cover 264,000 views: loaded **62 calls / 2,410 triangles**, fallback **57 / 2,088**. The lower Low decoration allowance retains both navigation obstructions and bounds the new actors. No asset, image, texture or render pass is added; all ceilings are unchanged. Raw reports, screenshots, hashes and checklist: `docs/review/set-9/c32.md`. Cloud FPS is not Intel acceptance; O-1 remains.
