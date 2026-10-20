@@ -8,6 +8,8 @@
  *   node test/run-all.js --browser       those, then every browser suite (one at a time: they measure frame time)
  *   node test/run-all.js fpnav workday   only the suites whose file name contains one of these words
  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
+ *   node test/run-all.js --list          every suite, how it runs and what it covers (B-64); --readme writes that table
+ *                                        into test/README.md between its <!-- suites --> markers
  *
  * Not run here: the scenario flows (`node test/qa.js`) and the 3D quality gate (`node test/fpquality.js`), which take
  * 10–20 minutes each and are run per milestone and for every Codex review; fpbench.js, which fpquality runs; and the
@@ -32,6 +34,40 @@ const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js', '
 const BROWSER = new Set(['a11y-screens.js', 'fpaccesslayout.js']);
 const isBrowser = (f) => /browser\.js$/.test(f) || BROWSER.has(f);
 const JOBS = Math.max(1, Number(process.env.QA_JOBS) || 4);
+
+/** What a suite covers: the first sentence of its header comment, or its first test's name when it has none. */
+const describe = (f) => {
+  const src = fs.readFileSync(path.join(__dirname, f), 'utf8').replace(/^#!.*\n/, '').replace(/^\s*'use strict';\s*/, '');
+  const head = /^\s*\/\*+([\s\S]*?)\*\//.exec(src);
+  if (head) {
+    const text = head[1].replace(/^\s*\*\s?/gm, ' ').replace(/\s+/g, ' ').trim();
+    const plain = text.replace(/^[A-C]-\d+[a-z]?:\s*/, '');                 // "B-47: the drive map…" → "the drive map…"
+    let one = (/^(.+?\.)(\s|$)/.exec(plain) || [null, plain])[1];
+    one = one.charAt(0).toUpperCase() + one.slice(1);
+    return { text: one.length > 160 ? one.slice(0, 157) + '…' : one, header: true };
+  }
+  const first = /\btest\(\s*(['"`])(.+?)\1/.exec(src);
+  return { text: first ? `(first test) ${first[2]}` : '(no description)', header: false };
+};
+const listSuites = () => {
+  const all = fs.readdirSync(__dirname).filter(f => f.endsWith('.js') && f !== 'run-all.js').sort();
+  const how = (f) => NOT_HERE.has(f) ? 'own command' : isBrowser(f) ? 'browser (--browser)' : /puppeteer/.test(fs.readFileSync(path.join(__dirname, f), 'utf8')) ? 'opens a page' : 'Node';
+  const rows = all.map(f => { const d = describe(f); return { f, how: how(f), d }; });
+  const table = ['| Suite | How `run-all` runs it | What it covers |', '| --- | --- | --- |',
+    ...rows.map(r => `| \`${r.f}\` | ${r.how} | ${r.d.text.replace(/\|/g, '\\|')} |`)].join('\n');
+  return { rows, table };
+};
+if (process.argv.includes('--list') || process.argv.includes('--readme')) {
+  const { rows, table } = listSuites();
+  if (process.argv.includes('--readme')) {
+    const file = path.join(__dirname, 'README.md'), md = fs.readFileSync(file, 'utf8'), a = '<!-- suites -->', b = '<!-- /suites -->';
+    const block = `${a}\n${table}\n${b}`;
+    fs.writeFileSync(file, md.includes(a) ? md.replace(new RegExp(a + '[\\s\\S]*?' + b), block) : md.trimEnd() + '\n\n## Every suite\n\nWritten by `node test/run-all.js --readme`.\n\n' + block + '\n');
+  } else console.log(table);
+  const bare = rows.filter(r => !r.d.header).map(r => r.f);
+  if (bare.length) console.log(`\n${bare.length} suite(s) with no header comment (described by their first test): ${bare.join(', ')}`);
+  process.exit(0);
+}
 const TIMEOUT = (Number(process.env.QA_TIMEOUT) || 900) * 1000;
 
 const findBrowser = () => [process.env.QA_BROWSER, '/opt/pw-browsers/chromium', '/usr/bin/chromium', '/usr/bin/chromium-browser',
