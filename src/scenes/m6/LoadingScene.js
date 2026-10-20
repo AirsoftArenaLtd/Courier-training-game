@@ -526,7 +526,7 @@ class LoadingScene extends BaseScenarioScene {
     this.panelBody.add(OTR.txt(this, px, 206, `${p.number} ${p.street}`, 26, '#ffffff', { weight: '900', align: 'center', wrap: 300 }));
     if (p.unit) this.panelBody.add(OTR.txt(this, px, 242, `Unit ${p.unit}`, 20, '#FFC83D', { weight: '900' }));
     this.panelBody.add(OTR.txt(this, px, 278, p.to, 17, OTR_DATA.theme.css('tint'), { bold: false }));
-    this.panelBody.add(OTR.txt(this, px, 326, 'Click the matching package in the truck', 14, '#8FD3FF', { align: 'center', wrap: 300, bold: false }));
+    this.panelBody.add(OTR.txt(this, px, 326, 'Click the matching package in the truck, or use the arrow keys and Enter', 14, '#8FD3FF', { align: 'center', wrap: 300, bold: false }));
     this.roundTimerText = OTR.txt(this, px, 396, '0.0s', 34, '#FFC83D', { weight: '900' });
     this.panelBody.add(this.roundTimerText);
     this.hintText.setText('');

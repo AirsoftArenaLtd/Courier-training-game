@@ -3867,7 +3867,9 @@ window.OTR_I18N.hi = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "अपना अगला स्टॉप चुनें। Maple Ave डिपो से उत्तर की ओर जाती है। Birch Lane दूर वाले जंक्शन पर है। लौटने के लिए उत्तरी छोर के मुड़ने के स्थान का उपयोग करें।",
 "Review the shift, then return to the hub.": "शिफ़्ट की समीक्षा करें, फिर हब पर लौटें।",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "किसी चिह्नित चीज़ को ठीक से देखने के लिए उस पर क्लिक करें, या Tab और Enter दबाएँ। फ़ैसला करें: ठीक (P), या खराबी दर्ज करें (F)।",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ग्रिप मीटर को ग्रिप पर खींचें, या G दबाएँ (दूसरे आधे हिस्से के लिए फिर से दबाएँ)। न्यूनतम: स्टीयर (आगे) टायर पर 4/32\", बाकी पर 2/32\"।"
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ग्रिप मीटर को ग्रिप पर खींचें, या G दबाएँ (दूसरे आधे हिस्से के लिए फिर से दबाएँ)। न्यूनतम: स्टीयर (आगे) टायर पर 4/32\", बाकी पर 2/32\"।",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "माउस नहीं है? Tab या तीर कुंजियों से किसी स्टॉप पर जाएँ, Enter उसे चुनता है या फिर से हटाता है। Backspace पिछला कदम पूर्ववत करता है; फिर Tab से डिस्पैच पर जाएँ।",
+"Click the matching package in the truck, or use the arrow keys and Enter": "ट्रक में मेल खाने वाले पैकेज पर क्लिक करें, या तीर कुंजियाँ और Enter इस्तेमाल करें"
 },
 "templates": [
 [

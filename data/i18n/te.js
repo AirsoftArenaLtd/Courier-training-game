@@ -3866,7 +3866,9 @@ window.OTR_I18N.te = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "తర్వాతి స్టాప్‌ను ఎంచుకోండి. Maple Ave డిపో నుండి ఉత్తరం వైపు వెళ్తుంది. Birch Lane చివరి జంక్షన్ వద్ద ఉంది. తిరిగి రావడానికి ఉత్తర చివరన ఉన్న తిరిగే స్థలాన్ని ఉపయోగించండి.",
 "Review the shift, then return to the hub.": "షిఫ్ట్‌ను సమీక్షించి, తర్వాత హబ్‌కు తిరిగి వెళ్లండి.",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "సరిగ్గా చూడటానికి గుర్తించిన భాగంపై క్లిక్ చేయండి, లేదా Tab, Enter నొక్కండి. నిర్ణయించండి: పాస్ (P), లేదా లోపం గుర్తించండి (F).",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "గాడి కొలమానాన్ని టైర్ గాడిపైకి లాగండి, లేదా G నొక్కండి (మరో సగానికి మళ్లీ నొక్కండి). కనిష్ఠం: స్టీర్ (ముందు) టైర్‌పై 4/32\", మిగతావాటిపై 2/32\"."
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "గాడి కొలమానాన్ని టైర్ గాడిపైకి లాగండి, లేదా G నొక్కండి (మరో సగానికి మళ్లీ నొక్కండి). కనిష్ఠం: స్టీర్ (ముందు) టైర్‌పై 4/32\", మిగతావాటిపై 2/32\".",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "మౌస్ లేదా? Tab లేదా బాణం కీలతో ఒక స్టాప్‌కి వెళ్లండి, Enter దాన్ని ఎంచుకుంటుంది లేదా మళ్లీ తీసివేస్తుంది. Backspace చివరి అడుగును రద్దు చేస్తుంది; తర్వాత Tab తో పంపండి కి వెళ్లండి.",
+"Click the matching package in the truck, or use the arrow keys and Enter": "ట్రక్‌లో సరిపోయే ప్యాకేజీపై క్లిక్ చేయండి, లేదా బాణం కీలు మరియు Enter ఉపయోగించండి"
 },
 "templates": [
 [

@@ -3867,7 +3867,9 @@ window.OTR_I18N.bn = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "পরের স্টপ বেছে নিন। Maple Ave ডিপো থেকে উত্তর দিকে গেছে। Birch Lane দূরের জংশনে। ফিরতে উত্তর প্রান্তের ঘোরার জায়গাটি ব্যবহার করুন।",
 "Review the shift, then return to the hub.": "কর্মদিবসের ফল দেখুন, তারপর হাবে ফিরুন।",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "চিহ্নিত জিনিস ভালো করে দেখতে তাতে ক্লিক করুন, অথবা Tab ও Enter চাপুন। সিদ্ধান্ত নিন: পাস (P), নাকি ত্রুটি চিহ্নিত (F)।",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "খাঁজ মাপার যন্ত্রটি টায়ারের খাঁজে টেনে আনুন, অথবা G চাপুন (অন্য অর্ধেকের জন্য আবার চাপুন)। সর্বনিম্ন: স্টিয়ার (সামনের) টায়ারে 4/32\", বাকিগুলোতে 2/32\"।"
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "খাঁজ মাপার যন্ত্রটি টায়ারের খাঁজে টেনে আনুন, অথবা G চাপুন (অন্য অর্ধেকের জন্য আবার চাপুন)। সর্বনিম্ন: স্টিয়ার (সামনের) টায়ারে 4/32\", বাকিগুলোতে 2/32\"।",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "মাউস নেই? Tab বা তীর কী দিয়ে একটি স্টপে যান, Enter চাপলে সেটি বেছে নেওয়া হয় বা আবার সরিয়ে দেওয়া হয়। Backspace আগের ধাপ ফিরিয়ে দেয়; তারপর Tab দিয়ে পাঠান-এ যান।",
+"Click the matching package in the truck, or use the arrow keys and Enter": "ট্রাকে মিলে যাওয়া প্যাকেজে ক্লিক করুন, অথবা তীর কী ও Enter ব্যবহার করুন"
 },
 "templates": [
 [

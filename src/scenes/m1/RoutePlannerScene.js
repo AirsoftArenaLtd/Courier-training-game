@@ -7,6 +7,7 @@
  *
  * Plan  -> click stops in order (map pin or manifest card); click a sequenced stop to pull it back out.
  * Dispatch -> the van drives your plan on the map with the clock running, stamping each stop.
+ * Keyboard (B-83) -> Tab or the arrows move a ring over the manifest cards and buttons, Enter presses it; Backspace undoes.
  */
 class RoutePlannerScene extends BaseScenarioScene {
   constructor() { super('RoutePlannerScene'); }
@@ -40,6 +41,18 @@ class RoutePlannerScene extends BaseScenarioScene {
 
     this.buildMap();
     this.buildPanel();
+    // B-83: the manifest without a mouse. Tab (and the arrows) move a ring over the cards, then Undo, Clear and DISPATCH;
+    // Enter presses what it is on, so a card is picked (or pulled back out) as a click does
+    this.keyItems = [];
+    this.keyFocus = OTR.ui.focus(this, this.keyItems, { tab: true, start: 0 });
+    // the ring on a card lights its pin and shows its tip, as the pointer does, so the keyboard sees where each stop is
+    OTR.onKey(this, 'keydown', () => {
+      const c = this.keyFocus.current(), now = c && c.stopId && this.state === 'plan' ? c.stopId : 0;
+      if (now === this.keyStop) return;
+      if (this.keyStop && this.cards[this.keyStop]) this.hoverStop(this.keyStop, false);
+      this.keyStop = now;
+      if (now) this.hoverStop(now, true);
+    });
 
     this.introCard(C.intro.title, C.intro.lines, () => this.nextRound(), { h: 470 });
   }
@@ -585,6 +598,10 @@ class RoutePlannerScene extends BaseScenarioScene {
       this.cardLayer.add(c);
       this.cards[s.i] = { c, g, hl, seq, seqText, eta, w, h };
     });
+    // what Tab steps through (B-83): the cards in manifest order, then the buttons under them
+    this.keyItems.length = 0; this.keyStop = 0;
+    this.stops.forEach(s => { const c = this.cards[s.i].c; c.setSize(this.cards[s.i].w, this.cards[s.i].h); c.stopId = s.i; c.press = () => this.toggleStop(s.i); this.keyItems.push(c); });
+    this.keyItems.push(this.undoBtn, this.clearBtn, this.dispatchBtn);
   }
 
   commitText(s) {

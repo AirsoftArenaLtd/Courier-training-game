@@ -3877,7 +3877,9 @@ window.OTR_I18N.es = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "Elige tu próxima parada. Maple Ave va hacia el norte desde el depósito. Birch Lane está en el cruce del fondo. Usa la zona de giro del extremo norte para volver.",
 "Review the shift, then return to the hub.": "Revisa el turno y luego vuelve al centro.",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "Haz clic en un elemento marcado, o pulsa Tab y Enter, para verlo bien. Decide: correcto (P) o marcar el defecto (F).",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "Arrastra el medidor de dibujo sobre la llanta, o pulsa G (otra vez para la otra mitad). Mínimo: 4/32\" en una llanta direccional (delantera), 2/32\" en las demás."
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "Arrastra el medidor de dibujo sobre la llanta, o pulsa G (otra vez para la otra mitad). Mínimo: 4/32\" en una llanta direccional (delantera), 2/32\" en las demás.",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "¿Sin ratón? Tab o las flechas te llevan a una parada y Enter la elige o la vuelve a quitar. Retroceso deshace; sigue con Tab hasta DESPACHO.",
+"Click the matching package in the truck, or use the arrow keys and Enter": "Haz clic en el paquete que coincide en el camión, o usa las flechas y Enter"
 },
 "templates": [
 [

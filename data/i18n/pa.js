@@ -3867,7 +3867,9 @@ window.OTR_I18N.pa = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "ਆਪਣਾ ਅਗਲਾ ਸਟਾਪ ਚੁਣੋ। Maple Ave ਡਿਪੋ ਤੋਂ ਉੱਤਰ ਵੱਲ ਜਾਂਦੀ ਹੈ। Birch Lane ਦੂਰ ਵਾਲੇ ਜੰਕਸ਼ਨ 'ਤੇ ਹੈ। ਵਾਪਸ ਆਉਣ ਲਈ ਉੱਤਰੀ ਸਿਰੇ ਦੀ ਮੁੜਨ ਵਾਲੀ ਥਾਂ ਵਰਤੋ।",
 "Review the shift, then return to the hub.": "ਸ਼ਿਫ਼ਟ ਦੀ ਸਮੀਖਿਆ ਕਰੋ, ਫਿਰ ਹੱਬ ਵਾਪਸ ਜਾਓ।",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਦੇਖਣ ਲਈ ਨਿਸ਼ਾਨ ਵਾਲੀ ਚੀਜ਼ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਜਾਂ Tab ਅਤੇ Enter ਦਬਾਓ। ਫ਼ੈਸਲਾ ਕਰੋ: ਪਾਸ (P), ਜਾਂ ਨੁਕਸ ਦਰਜ ਕਰੋ (F)।",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ਖਾਂਚਾ ਮਾਪਕ ਨੂੰ ਟਾਇਰ ਦੇ ਖਾਂਚੇ 'ਤੇ ਖਿੱਚੋ, ਜਾਂ G ਦਬਾਓ (ਦੂਜੇ ਅੱਧੇ ਲਈ ਮੁੜ ਦਬਾਓ)। ਘੱਟੋ-ਘੱਟ: ਸਟੀਅਰ (ਅਗਲੇ) ਟਾਇਰ 'ਤੇ 4/32\", ਬਾਕੀਆਂ 'ਤੇ 2/32\"।"
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ਖਾਂਚਾ ਮਾਪਕ ਨੂੰ ਟਾਇਰ ਦੇ ਖਾਂਚੇ 'ਤੇ ਖਿੱਚੋ, ਜਾਂ G ਦਬਾਓ (ਦੂਜੇ ਅੱਧੇ ਲਈ ਮੁੜ ਦਬਾਓ)। ਘੱਟੋ-ਘੱਟ: ਸਟੀਅਰ (ਅਗਲੇ) ਟਾਇਰ 'ਤੇ 4/32\", ਬਾਕੀਆਂ 'ਤੇ 2/32\"।",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "ਮਾਊਸ ਨਹੀਂ? Tab ਜਾਂ ਤੀਰ ਕੁੰਜੀਆਂ ਨਾਲ ਕਿਸੇ ਸਟਾਪ 'ਤੇ ਜਾਓ, Enter ਉਸਨੂੰ ਚੁਣਦਾ ਹੈ ਜਾਂ ਫਿਰ ਹਟਾਉਂਦਾ ਹੈ। Backspace ਪਿਛਲਾ ਕਦਮ ਵਾਪਸ ਕਰਦਾ ਹੈ; ਫਿਰ Tab ਨਾਲ ਰਵਾਨਾ ਕਰੋ 'ਤੇ ਜਾਓ।",
+"Click the matching package in the truck, or use the arrow keys and Enter": "ਟਰੱਕ ਵਿੱਚ ਮੇਲ ਖਾਂਦੇ ਪੈਕੇਜ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਜਾਂ ਤੀਰ ਕੁੰਜੀਆਂ ਅਤੇ Enter ਵਰਤੋ"
 },
 "templates": [
 [
