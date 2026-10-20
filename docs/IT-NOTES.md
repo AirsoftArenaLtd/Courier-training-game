@@ -48,8 +48,8 @@ that ends HTTPS, send `X-Forwarded-Proto: https`.
    `X-Remote-User` (and optionally `X-Remote-Name`); the game uses it. Set `OTR_ALLOW_QUERY_USER=0` so nobody can
    open someone else's progress through the link.
 2. **An LMS** (SCORM 1.2 or 2004): build the package with `node test/tools/package-scorm.js` (SCORM 1.2) or
-   `node test/tools/package-scorm.js --2004`. It holds only what the game loads (about 11.5 MB and 206 files with the
-   milestone 8 town models, October 2026; `imsmanifest.xml` at the top); progress is kept in the LMS. Prefer 2004 when the LMS offers it: it keeps much more saved progress (SCORM 1.2
+   `node test/tools/package-scorm.js --2004`. It holds only what the game loads (about 11.5 MB and 209 files with the
+   milestone 8 town models and traffic, 20 October 2026; `imsmanifest.xml` at the top); progress is kept in the LMS. Prefer 2004 when the LMS offers it: it keeps much more saved progress (SCORM 1.2
    holds 4,096 characters, so the game packs the progress to fit). No training server is needed, and no outside
    address either.
 3. **Employee ID and password** on the game's own sign-in screen (`OTR_ACCOUNTS=1`, trainers create accounts).
