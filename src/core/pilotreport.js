@@ -6,6 +6,7 @@
  *
  *   OTR.pilotReport.html(data)     the document for what the server returned
  *   OTR.pilotReport.print(data)    through the browser's print dialog
+ *   OTR.pilotReport.csv(data)      the same numbers as a spreadsheet (download(data) saves it)
  */
 window.OTR = window.OTR || {};
 
@@ -63,5 +64,32 @@ OTR.pilotReport = {
       <footer>${T('Each trainee\'s first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.')}</footer>
     </body></html>`;
   },
-  print(data) { OTR.record.printHtml(OTR.pilotReport.html(data)); }
+  print(data) { OTR.record.printHtml(OTR.pilotReport.html(data)); },
+
+  /**
+   * The same numbers as a spreadsheet (B-65): one row per trainee, columns named in English so a company's sheets keep
+   * working whatever language the trainer uses (docs/DATA.md lists them). The road columns are empty for a day without
+   * traffic. A cell that a spreadsheet would read as a formula (=, +, -, @) starts with an apostrophe, so it stays text.
+   */
+  CSV_COLUMNS: ['employee_id', 'name', 'workdays',
+    ...['first', 'latest'].flatMap(s => [`${s}_date`, `${s}_score`, `${s}_safety_stars`, `${s}_efficiency_stars`, `${s}_service_stars`, `${s}_critical_errors`,
+      `${s}_met_pass_marks`, `${s}_red_lights`, `${s}_wrong_turns`, `${s}_did_not_give_way`, `${s}_cyclist`]), 'change_in_stars'],
+  csv(data) {
+    const cell = (v) => {
+      let s = v === null || v === undefined ? '' : String(v);
+      if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+      return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    };
+    const day = (d) => (d && d.at ? new Date(d.at).toISOString().slice(0, 10) : '');
+    const side = (d, passed) => [day(d), d.score, d.stars.safety, d.stars.efficiency, d.stars.service, d.criticals, passed ? 'yes' : 'no',
+      ...(Array.isArray(d.road) ? d.road : [null, null, null, null])];
+    const rows = (data.trainees || []).map(t => [t.id, t.name, t.days, ...side(t.first, t.firstPassed), ...side(t.latest, t.latestPassed), t.change === null ? '' : t.change]);
+    return '\uFEFF' + [this.CSV_COLUMNS, ...rows].map(r => r.map(cell).join(',')).join('\r\n') + '\r\n';
+  },
+  /** Hand the spreadsheet to the browser as a file to save. */
+  download(data) {
+    const url = URL.createObjectURL(new Blob([OTR.pilotReport.csv(data)], { type: 'text/csv' }));
+    const a = document.createElement('a'); a.href = url; a.download = `before-and-after-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
 };

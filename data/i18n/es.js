@@ -3849,7 +3849,10 @@ window.OTR_I18N.es = {
 "Wrong turns": "Giros equivocados",
 "Did not give way": "No cedió el paso",
 "Turned across a cyclist": "Cortó el paso a un ciclista",
-"From the {0} trainees whose first and latest workdays both had traffic.": "De los {0} aprendices cuya primera y última jornada tuvieron tráfico."
+"From the {0} trainees whose first and latest workdays both had traffic.": "De los {0} aprendices cuya primera y última jornada tuvieron tráfico.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "Imprime la página para el grupo o descarga las cifras como hoja de cálculo para Excel o Google Sheets.",
+"Spreadsheet (CSV)": "Hoja de cálculo (CSV)",
+"Spreadsheet downloaded": "Hoja de cálculo descargada"
 },
 "templates": [
 [

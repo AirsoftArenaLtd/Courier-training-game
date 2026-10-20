@@ -3839,7 +3839,10 @@ window.OTR_I18N.fr = {
 "Wrong turns": "Erreurs de route",
 "Did not give way": "Priorité non cédée",
 "Turned across a cyclist": "Trajectoire d'un cycliste coupée",
-"From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation."
+"From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "Imprime la page pour le groupe, ou télécharge les chiffres sous forme de tableur pour Excel ou Google Sheets.",
+"Spreadsheet (CSV)": "Tableur (CSV)",
+"Spreadsheet downloaded": "Tableur téléchargé"
 },
 "templates": [
 [

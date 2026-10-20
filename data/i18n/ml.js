@@ -3838,7 +3838,10 @@ window.OTR_I18N.ml = {
 "Wrong turns": "തെറ്റായ തിരിവ്",
 "Did not give way": "വഴി നൽകാതിരുന്നത്",
 "Turned across a cyclist": "സൈക്കിൾ യാത്രികന്റെ മുന്നിലൂടെ തിരിഞ്ഞത്",
-"From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്."
+"From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ഗ്രൂപ്പിനായി പേജ് പ്രിന്റ് ചെയ്യുക, അല്ലെങ്കിൽ സംഖ്യകൾ Excel അല്ലെങ്കിൽ Google Sheets-നായി സ്പ്രെഡ്ഷീറ്റായി ഡൗൺലോഡ് ചെയ്യുക.",
+"Spreadsheet (CSV)": "സ്പ്രെഡ്ഷീറ്റ് (CSV)",
+"Spreadsheet downloaded": "സ്പ്രെഡ്ഷീറ്റ് ഡൗൺലോഡ് ചെയ്തു"
 },
 "templates": [
 [

@@ -3838,7 +3838,10 @@ window.OTR_I18N.kn = {
 "Wrong turns": "ತಪ್ಪು ತಿರುವು",
 "Did not give way": "ದಾರಿ ಬಿಡದಿದ್ದು",
 "Turned across a cyclist": "ಸೈಕಲ್ ಸವಾರರ ಮುಂದೆ ತಿರುಗಿದ್ದು",
-"From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ."
+"From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ಗುಂಪಿಗಾಗಿ ಪುಟವನ್ನು ಮುದ್ರಿಸಿ, ಅಥವಾ ಸಂಖ್ಯೆಗಳನ್ನು Excel ಅಥವಾ Google Sheets ಗಾಗಿ ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.",
+"Spreadsheet (CSV)": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ (CSV)",
+"Spreadsheet downloaded": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ"
 },
 "templates": [
 [

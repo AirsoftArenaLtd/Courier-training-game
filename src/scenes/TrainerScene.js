@@ -152,7 +152,7 @@ class TrainerScene extends Phaser.Scene {
       if (OTR.identity.accounts) this.focusables.push(OTR.ui.button(this, x + w - 112, top + 34, 'New account', () => this.newAccount(), { w: 190, h: 40, skin: 'purple', fontSize: 15 }));
       // the before-and-after report: the first and latest workday of every trainee, to print
       this.focusables.push(OTR.ui.button(this, x + w - (OTR.identity.accounts ? 330 : 112), top + 34, 'Before and after', () => OTR.academy.trainerApi('report/before-after')
-        .then(data => OTR.pilotReport.print(data)).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { w: 210, h: 40, skin: 'ghost', fontSize: 15 }));
+        .then(data => this.reportChoice(data)).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { w: 210, h: 40, skin: 'ghost', fontSize: 15 }));
       this.status = OTR.txt(this, x + w / 2, top + 120, 'Loading…', 16, '#7A8CA0', { bold: false });
       this.loadTrainees();
     } else {
@@ -268,6 +268,19 @@ class TrainerScene extends Phaser.Scene {
   accountError(e) {
     return { exists: 'There is already an account with that employee ID.', id: 'An employee ID has letters, numbers and . _ @ - only, with no spaces.',
       missing: 'That trainee has no account.' }[e && e.reason] || String((e && e.message) || e);
+  }
+
+  /** The before-and-after report: the page to print, or the numbers as a spreadsheet (B-65). */
+  reportChoice(data) {
+    OTR.ui.modal(this, {
+      title: 'Before and after', w: 640, h: 300, escClose: true,
+      body: 'Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.',
+      buttons: [
+        { label: 'Back', skin: 'ghost' },
+        { label: 'Spreadsheet (CSV)', skin: 'purple', onClick: () => { OTR.pilotReport.download(data); OTR.ui.toast(this, 'Spreadsheet downloaded', 0x2BC48A); } },
+        { label: 'Print / PDF', skin: 'orange', key: 'ENTER', hint: '⏎', onClick: () => OTR.pilotReport.print(data) }
+      ]
+    });
   }
 
   /** The temporary password, shown once: the server keeps only its hash. */

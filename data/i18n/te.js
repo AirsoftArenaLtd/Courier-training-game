@@ -3838,7 +3838,10 @@ window.OTR_I18N.te = {
 "Wrong turns": "తప్పు మలుపు",
 "Did not give way": "దారి ఇవ్వకపోవడం",
 "Turned across a cyclist": "సైక్లిస్ట్ ముందు నుంచి తిరగడం",
-"From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో."
+"From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "సమూహం కోసం పేజీని ప్రింట్ చేయండి, లేదా సంఖ్యలను Excel లేదా Google Sheets కోసం స్ప్రెడ్‌షీట్‌గా డౌన్‌లోడ్ చేయండి.",
+"Spreadsheet (CSV)": "స్ప్రెడ్‌షీట్ (CSV)",
+"Spreadsheet downloaded": "స్ప్రెడ్‌షీట్ డౌన్‌లోడ్ అయింది"
 },
 "templates": [
 [

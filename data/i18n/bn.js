@@ -3839,7 +3839,10 @@ window.OTR_I18N.bn = {
 "Wrong turns": "ভুল মোড়",
 "Did not give way": "পথ না ছাড়া",
 "Turned across a cyclist": "সাইকেল আরোহীর সামনে দিয়ে বাঁক নেওয়া",
-"From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।"
+"From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "গ্রুপের জন্য পাতাটি প্রিন্ট করুন, অথবা সংখ্যাগুলো Excel বা Google Sheets-এর জন্য স্প্রেডশিট হিসেবে ডাউনলোড করুন।",
+"Spreadsheet (CSV)": "স্প্রেডশিট (CSV)",
+"Spreadsheet downloaded": "স্প্রেডশিট ডাউনলোড হয়েছে"
 },
 "templates": [
 [

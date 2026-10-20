@@ -3838,7 +3838,10 @@ window.OTR_I18N.mr = {
 "Wrong turns": "चुकीचे वळण",
 "Did not give way": "वाट न देणे",
 "Turned across a cyclist": "सायकलस्वारासमोरून वळणे",
-"From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून."
+"From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "गटासाठी पान प्रिंट करा, किंवा आकडे Excel किंवा Google Sheets साठी स्प्रेडशीट म्हणून डाउनलोड करा.",
+"Spreadsheet (CSV)": "स्प्रेडशीट (CSV)",
+"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड केली"
 },
 "templates": [
 [
