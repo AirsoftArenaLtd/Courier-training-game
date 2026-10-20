@@ -310,3 +310,20 @@ browser validation still keep C-33 blocked, not ready for merge.
 [Raw reports, all 101 screenshots and source/evidence hashes](review/set-9/c33-complete/manifest.json).
 
 Reproduce sequentially: `QA_BASE=http://127.0.0.1:8339 QA_TAG=c33-complete node test/fpquality.js`.
+
+## C-33 current-pilot integration (20 October 2026, in progress)
+
+C-33 is rebased onto pilot `743fe0e`, including merged damage and traffic. The first
+combined loaded sweep exposed **2,510 triangles**, exceeding Low's 2,500 ceiling, at
+day 21 / variant 10 / loaded cargo exterior. The reduced decorative town allowance
+(60 triangles on combined damage/stop days, 120 on other marked days) passes the
+focused 960-view regression at **56 calls / 2,433 triangles**. The full **285,600-view loaded sweep** then passes at **60 calls / 2,443 triangles**.
+The full fallback sweep also passes **285,600 views at 59 calls / 2,181 triangles**.
+The updated **155-view** rendered gate remains; no ceiling is raised.
+
+Before merged damage, policy source `bb20661` passes 264,000 views each: loaded
+61 calls / 2,494 triangles and fallback 57 / 2,184. Those figures and the historical
+101-view gate do not certify the combined pilot. The font fix keeps Low 1x/High 2x
+backing resolution and selects script glyphs before layout. Fresh Low Tamil lockers
+pass 72 normal/larger checks. Current evidence/scopes: [C-33 review](review/set-9/c33.md)
+and [manifest](review/set-9/c33-policy/manifest.json). Native Intel 60 fps remains O-1.

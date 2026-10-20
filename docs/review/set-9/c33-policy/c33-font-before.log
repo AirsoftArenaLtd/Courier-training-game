@@ -1,0 +1,37 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ system reduced motion is read once and an explicit saved choice overrides it (1.604856ms)
+✔ keyboard look turns without moving, clamps pitch and gives a separate cab look (2.038205ms)
+✔ 3D key hints read the same saved physical map as the shared remapper (0.300263ms)
+✔ queued control speech is dropped when the target or visible prompt has gone away (1.728919ms)
+✔ a queued action notice expires and a gear confirmation still uses the current gear (0.727102ms)
+✔ a shared remap onto a 3D-only look key keeps both actions reachable (0.683287ms)
+✔ nearby target selection uses real visibility/raycasting and never changes the player position (28.088182ms)
+✔ keyboard target selection reaches tires and lamps from outside the van (11.316636ms)
+✔ Low text uses native canvases without shrinking fonts or stacking factories on restart (0.588487ms)
+✖ Indic cab, briefing and handheld text select the script font while preserving company fallback and English styling (1.535695ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.504994
+
+✖ failing tests:
+
+test at test/fpaccess.js:54:1
+✖ Indic cab, briefing and handheld text select the script font while preserving company fallback and English styling (1.535695ms)
+  AssertionError [ERR_ASSERTION]: hi selects its script font
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpaccess.js:61:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

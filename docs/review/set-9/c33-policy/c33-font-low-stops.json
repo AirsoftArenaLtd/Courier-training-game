@@ -1,0 +1,140 @@
+{
+  "sourceRevision": "5f13a959b423d38be01e7a553980b1f75b4247bd",
+  "quality": "low",
+  "negative": false,
+  "fixture": "Native later-day plans nominate one originally standard parcel before signature/ID rules, with traffic/signs/navigation and the real briefing. Travel poses are fixtures; controls, scanner, reports and restores are real.",
+  "checks": 72,
+  "runs": [
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 3,
+      "seed": 1,
+      "kind": "locker",
+      "lockerStop": 3,
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "Tomas Vela",
+      "compartment": "13",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.locker",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 304 Harbor St. சுமப்பது: 304 Harbor St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 304 Harbor St. 304 Harbor St · Deliver this standard parcel to the assigned locker at this site.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "This parcel is authorized for the assigned locker at this site.",
+        "Use the parcel locker.. Use compartment 13 for this parcel.. Open compartment 13.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 3,
+      "seed": 1,
+      "kind": "locker",
+      "lockerStop": 3,
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "Tomas Vela",
+      "compartment": "13",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.locker",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 304 Harbor St. சுமப்பது: 304 Harbor St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 304 Harbor St. 304 Harbor St · Deliver this standard parcel to the assigned locker at this site.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "This parcel is authorized for the assigned locker at this site.",
+        "Use the parcel locker.. Use compartment 13 for this parcel.. Open compartment 13.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "expectedRuns": 2,
+  "fixtureNow": {
+    "id": 3,
+    "seed": 1,
+    "kind": "locker",
+    "lockerStop": 3,
+    "nativeLater": true,
+    "originalService": "standard",
+    "adult": false,
+    "signature": false,
+    "name": "Tomas Vela",
+    "compartment": "13",
+    "nextDay": 4
+  },
+  "current": {
+    "fixture": {
+      "id": 3,
+      "seed": 1,
+      "kind": "locker",
+      "lockerStop": 3,
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "Tomas Vela",
+      "compartment": "13",
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": false,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      },
+      {
+        "type": "stop.locker",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}

@@ -1,19 +1,24 @@
 # Richer delivery stops (C-33, in progress)
 
-Branch `codex/c33-richer-stops` starts from pilot `370fd59`, after merged C-28.
-The action controller (`fpstops.js`), campaign adapter (`fpstopflow.js`) and physical
-controls/menus (`fpstopscene.js`) now load through `index.html`. New campaigns enable
-the `deliveries: 1` route marker from day three; the first two days and unmarked saves
-retain their previous flow. The branch is **blocked**, with the live locker-assignment
-policy and final browser validation outstanding. It is not ready for merge.
+`codex/c33-richer-stops` is rebased onto pilot `743fe0e` (20 October), retaining merged
+traffic, damage, scoring/save code, current translations and shared QA. C-33 is **doing**;
+its final combined resource/gameplay review and sign-label/sight-line follow-ups remain.
 
-**Locker policy question, sent to Claude on 19 October:** C-18's `fpLater.prepare`
-makes every later-day parcel signature/adult service and changes the dispatch update
-to signature. None qualifies for a standard unattended locker. C-33 preserves those
-requirements. Lockers currently appear in explicitly labelled standard-service test
-routes, not in the normal all-signature schedule. Claude must choose whether to
-authorise a suitable standard parcel or use a separate practice scenario before this
-task is ready. No new event type or signature downgrade has been introduced.
+## Approved live locker policy
+
+New campaigns prepare the optional `lockerStop` index before `fpLater.prepare`, starting
+on day three. Exactly one eligible parcel is nominated: originally standard service,
+no dog, and outside the existing dispatch target. Apartment, business and leave-at-door
+sites are eligible. The later-day adapter preserves that parcel as standard; every
+other signature, ID and dispatch obligation retains its previous value and position.
+Days without an eligible parcel have no nomination. Old prepared plans, saved days and
+the first two days retain their flow.
+
+The actual morning brief names the locker site and the manifest names its compartment
+workflow. Only the nominated parcel changes to the locker outcome. Signed or adult
+parcels are never authorised. Malformed markers are rejected, and a locker checkpoint
+cannot silently lose its authorisation. The policy is Claude's 20 October decision in
+[the report contract](WORKDAY-EVENTS.md). No new event type is introduced.
 
 ## Requirements and model behaviour
 
@@ -42,7 +47,8 @@ task is ready. No new event type or signature downgrade has been introduced.
 Incorrect deliberate actions stay recorded after recovery. The pure controller never
 reports or scores. At the actual mission outcome, the adapter reports only the existing
 `stop.intercom`, `stop.reception`, `stop.locker` and `stop.reattempt` contract checks with
-`{ key, stop, ok, where }`. It deduplicates against owned mission events. `deliver.outcome`
+`{ key, stop, ok }`, adding `where` only for failures pinned by the drive map.
+It deduplicates against owned mission events. `deliver.outcome`
 continues to grade the original outcome requirements, so a failed recovered intercom
 choice is not also charged as a failed delivery.
 
@@ -62,7 +68,8 @@ instance batches. Exact non-rendering proxies handle raycasts and occlusion. The
 hinge updates its collider and conservative culling sphere together; mirrors restore
 the main-view instance buffers exactly. There is no new asset file, texture, render
 target or pass. Low trades decorative town triangles for these props; its allowance
-is 120 triangles on marked days, versus the previous navigation allowance of 260.
+is 120 triangles on marked days without damage and 60 when damage is also present.
+This reclaims space for physical training objects while retaining High detail.
 All existing graphics ceilings remain.
 
 The action key opens physical controls; remapped keyboard target selection reaches
@@ -77,79 +84,32 @@ Reception and locker furniture replace the original porch box, preventing inters
 props. Gated-site assignment skips C-31's blocked driveway, preserving its walking
 approach; a regression covers 48 generated navigation layouts.
 
-The small shared `index.html` edit adds three script tags. The branch also carries the
-unchanged five-line script-font fallback from the pushed C-32 branch for projected
-Tamil/Indic labels. No shared scoring, save, Settings or i18n implementation is edited.
+The small shared `index.html` edit adds three script tags. The owned scene also selects the existing script-font family before measuring
+briefings, cab captions and handheld text; company fonts remain the fallback. English,
+Spanish and French keep their previous family. Projected labels retain C-32 font selection. No shared scoring, save, Settings or i18n implementation is edited.
 
-## Model evidence, 19 October 2026
+## Current validation and limits
 
-The current model stage passes **155 Node cases** across `fpstops` (18), `fpstopflow` (14),
-`fpmission`, `fpworld`, `fpdoors`, `fproute`, `workday` and `savesize`. The separate existing
-catalogue i18n check, all seven changed JavaScript syntax checks and the diff whitespace
-check pass. Forty generated layouts match their actual building types and restore.
-Thirty additional five-stop model journeys finish **150 stops and 759 checkpoints**;
-retained parcels are placed back in cargo, retrieved, scanned at Returns and checked in
-at Dispatch. Travel positions are fixtures; actions, reports and checkpoint readers are
-real. Their SCORM score round trips peak at **1,876 / 4,000 characters**. The new owned
-five-stop state peaks at **1,061 characters**, separate from the shared LMS save.
+The [current evidence](review/set-9/c33.md) separates pre-damage policy validation from
+the combined pilot. Native Low and High locker matrices each pass 144 checks before the
+pilot rebase. Nineteen targeted suites pass 299 Node cases plus current-catalogue i18n;
+the six live-locker cases now also restore merged damage state. A font regression covers
+all nine Indic language mappings and unchanged English/Spanish/French styles. Fresh Low
+Tamil normal/larger locker runs pass 72 checks and show correct glyphs.
 
-[Current Node output](review/set-9/c33-progress/c33-campaign-node.log),
-[journeys and exact cases](review/set-9/c33-progress/c33-campaign-journeys.json),
-[i18n output](review/set-9/c33-progress/c33-campaign-i18n.log),
-[syntax checks](review/set-9/c33-progress/c33-campaign-syntax.json), and
-[source/evidence hashes](review/set-9/c33-progress/campaign-manifest.json).
-The earlier 129-case pure-protocol evidence is retained in the same folder; its
-`manifest.json` identifies the earlier `df7b11e` source revision.
+The first combined loaded sweep exposed 2,510 triangles at day 21 / variant 10, open
+cargo exterior. The reduced decoration allowance passes the focused 960-view regression
+at 56 calls / 2,433 triangles. The full loaded sweep then passes 285,600 views at 60 calls / 2,443 triangles.
+Fallback also passes 285,600 views at 59 calls / 2,181 triangles.
+The updated 155-view rendered gate remains required; no ceiling is raised. Cloud FPS cannot certify the
+native Intel 60 fps floor (existing O-1).
 
-These retained model-stage reports identify their own earlier source revisions; they
-do not stand in for the scene-stage checks. The scene regression suite has subsequently
-passed **201 cases**. Another **194 cases in 15 inherited suites** pass in separate Node
-processes. These include live-schedule signature/ID preservation, physical raycasts,
-locker custody/occlusion, gate timing, hinge bounds and mirror-buffer restoration.
-The separate existing-catalogue i18n check and all 20 changed-JS syntax checks pass.
-Both SCORM packaging formats pass their three checks at the earlier scene revision.
+Claude has been asked in the board inbox to extend the shared workday helper for the
+physical intercom, locker, reception and reattempt steps. C-33 also implements the
+requested Escape-to-parent behavior in the reversing-space and Settings submenus;
+all 41 English/Tamil keyboard browser checks pass. No shared scoring, save,
+Settings, i18n or QA-path implementation is edited.
 
-All **24 Low browser workflows / 596 checks** pass in English/Tamil at normal/larger
-text, including the native adult-ID/signature path. After furniture/access polish,
-the eight affected reception/locker workflows pass another **200 checks**. Real remapped
-keys, barcode holding, signatures, narration and readable text are checked. These are
-explicit standard-service fixtures; the separate native case retains Later's signature
-schedule. [Reports, screenshots and exact revision scopes](review/set-9/c33.md).
-
-The final loaded and fallback CPU sweeps each pass **264,000 views**, peaking at
-**59 calls / 2,398 triangles** and **56 / 2,120**. They cover native Later plans, Low
-camera/cab/mirrors/rear, weather, signs/navigation, actors, extra cargo and every stop.
-The seven focused rendered views in each of four profiles also pass at the earlier
-pre-polish revision; these 28 views do not replace the complete 101-view gate.
-
-## Next work before review
-
-Resolve the live locker policy through Claude. Remaining validation is running again
-without recording, with call-state diagnostics and a 180-second wall-time allowance
-for the simulated intercom wait. The first five English-normal High workflows pass;
-there is no complete High or 101-view acceptance claim yet.
-
-The first recorded High attempt exceeded its 60-second intercom wait. Two diagnostic
-rerun attempts, the push and fetch were then blocked by automatic review-model capacity.
-After the environment restart at 06:18 UTC, normal approval review recovered: fetch
-confirmed pilot `370fd59` and progress published successfully. The earlier local-only
-notes describe those failed attempts; approval capacity is no longer the blocker.
-
-Complete the running High workflows, deliberate-error/recovery
-paths, complete four-profile resource gate, inherited doorstep/access/guide suites and
-the two unchanged Low golden paths. Add the control clip and merged C-32 validation.
-Exact commands and outstanding scope are in the review sheet. Native Intel acceptance
-remains the existing O-1 owner check; cloud SwiftShader is resource evidence only.
-New English text still needs Claude's extraction, translation and translated-layout pass.
-
-Internal errors `Invalid richer-stop specification` and `Invalid delivery-stop version`
-are not player-facing.
-
-## Complete resource gate, 20 October 2026
-
-The full 101-view gate passes in all four profiles: loaded Low 53 calls / 2,386
-triangles; High 98 / 220,081; accessible Low 53 / 2,386; missing-model fallback Low
-52 / 2,108. All unchanged texture and memory ceilings pass, with live mirror pixels
-and no browser errors/context losses. [Reports, 101 screenshots and hashes](review/set-9/c33-complete/manifest.json).
-Full High gameplay, recovery and inherited browser/golden checks remain in progress;
-the live locker policy is still awaiting Claude. The task stays blocked.
+[Earlier model, gameplay, recovery and 101-view evidence](review/set-9/c33-history.md)
+is historical and identifies its own source revisions; it does not certify this combined
+pilot. The permanent hourly check-in remains enabled without an end date.

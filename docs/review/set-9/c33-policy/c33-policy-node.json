@@ -1,0 +1,86 @@
+[
+  {
+    "suite": "fpstops",
+    "exit": 0,
+    "cases": 18,
+    "log": "c33-policy-fpstops.log"
+  },
+  {
+    "suite": "fpstopflow",
+    "exit": 0,
+    "cases": 16,
+    "log": "c33-policy-fpstopflow.log"
+  },
+  {
+    "suite": "fpstopscene",
+    "exit": 0,
+    "cases": 6,
+    "log": "c33-policy-fpstopscene.log"
+  },
+  {
+    "suite": "fpstoplocker",
+    "exit": 0,
+    "cases": 6,
+    "log": "c33-policy-fpstoplocker.log"
+  },
+  {
+    "suite": "fplater",
+    "exit": 0,
+    "cases": 7,
+    "log": "c33-policy-fplater.log"
+  },
+  {
+    "suite": "fpmission",
+    "exit": 0,
+    "cases": 39,
+    "log": "c33-policy-fpmission.log"
+  },
+  {
+    "suite": "fpday",
+    "exit": 0,
+    "cases": 10,
+    "log": "c33-policy-fpday.log"
+  },
+  {
+    "suite": "fpnav",
+    "exit": 0,
+    "cases": 19,
+    "log": "c33-policy-fpnav.log"
+  },
+  {
+    "suite": "fptraffic",
+    "exit": 0,
+    "cases": 37,
+    "log": "c33-policy-fptraffic.log"
+  },
+  {
+    "suite": "fpqualitygate",
+    "exit": 0,
+    "cases": 10,
+    "log": "c33-policy-fpqualitygate.log"
+  },
+  {
+    "suite": "workday",
+    "exit": 0,
+    "cases": 24,
+    "log": "c33-policy-workday.log"
+  },
+  {
+    "suite": "savesize",
+    "exit": 0,
+    "cases": 16,
+    "log": "c33-policy-savesize.log"
+  },
+  {
+    "suite": "i18n",
+    "exit": 0,
+    "cases": null,
+    "log": "c33-policy-i18n.log"
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0,
+    "cases": 22,
+    "log": "c33-policy-fpworld.log"
+  }
+]
