@@ -3838,7 +3838,10 @@ window.OTR_I18N.ta = {
 "Wrong turns": "தவறான திருப்பம்",
 "Did not give way": "வழி விடாதது",
 "Turned across a cyclist": "சைக்கிள் ஓட்டுநருக்கு குறுக்கே திரும்பியது",
-"From the {0} trainees whose first and latest workdays both had traffic.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் போக்குவரத்து இருந்த {0} பயிற்சி பெறுநர்களில்."
+"From the {0} trainees whose first and latest workdays both had traffic.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் போக்குவரத்து இருந்த {0} பயிற்சி பெறுநர்களில்.",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "குழுவுக்காக பக்கத்தை அச்சிடுங்கள், அல்லது எண்களை Excel அல்லது Google Sheets-க்கான ஸ்ப்ரெட்ஷீட்டாகப் பதிவிறக்குங்கள்.",
+"Spreadsheet (CSV)": "ஸ்ப்ரெட்ஷீட் (CSV)",
+"Spreadsheet downloaded": "ஸ்ப்ரெட்ஷீட் பதிவிறக்கப்பட்டது"
 },
 "templates": [
 [

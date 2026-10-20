@@ -3839,7 +3839,10 @@ window.OTR_I18N.pa = {
 "Wrong turns": "ਗ਼ਲਤ ਮੋੜ",
 "Did not give way": "ਰਾਹ ਨਾ ਦੇਣਾ",
 "Turned across a cyclist": "ਸਾਈਕਲ ਸਵਾਰ ਦੇ ਅੱਗੋਂ ਮੁੜਨਾ",
-"From the {0} trainees whose first and latest workdays both had traffic.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਟ੍ਰੈਫਿਕ ਸੀ।"
+"From the {0} trainees whose first and latest workdays both had traffic.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਟ੍ਰੈਫਿਕ ਸੀ।",
+"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ਗਰੁੱਪ ਲਈ ਪੰਨਾ ਪ੍ਰਿੰਟ ਕਰੋ, ਜਾਂ ਅੰਕੜਿਆਂ ਨੂੰ Excel ਜਾਂ Google Sheets ਲਈ ਸਪ੍ਰੈਡਸ਼ੀਟ ਵਜੋਂ ਡਾਊਨਲੋਡ ਕਰੋ।",
+"Spreadsheet (CSV)": "ਸਪ੍ਰੈਡਸ਼ੀਟ (CSV)",
+"Spreadsheet downloaded": "ਸਪ੍ਰੈਡਸ਼ੀਟ ਡਾਊਨਲੋਡ ਹੋ ਗਈ"
 },
 "templates": [
 [
