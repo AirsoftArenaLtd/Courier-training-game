@@ -564,7 +564,9 @@ OTR.ui = {
     const api = {
       showing: () => shown && onTop() && !!items[cur] && seen(items[cur]),
       hide() { shown = false; draw(); },
-      set(i) { cur = i; }
+      set(i) { cur = i; },
+      /** The control the ring is on, or null when it is not showing (for tests that drive the keyboard: B-62). */
+      current: () => (shown && items[cur]) || null
     };
     const onKey = OTR.dedupe((e) => {
       if (!ring.active || !scene.input.enabled || !onTop()) return;
