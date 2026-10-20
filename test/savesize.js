@@ -185,8 +185,11 @@ test('B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, a
   assert.equal(lms.refused, 0, 'the LMS never refused a save');
   assert.ok(lms.longest <= SAVE.SCORM12_LIMIT, `every save within the limit (longest ${lms.longest} of ${SAVE.SCORM12_LIMIT})`);
   assert.ok(list.length > 165, `a very busy day: ${list.length} reports`);
-  // packed at 3,901 of 4,096 characters when written (B-52): the drive-map pins survive a reload; a summary would lose them
+  // packed, not summarised: the drive-map pins survive a reload (a summary would lose them). The longest write is the
+  // unpacked day just before fit() packs it, so it always comes close to the limit; what grows is the packed day (B-55)
   assert.equal(stage(stored()), 'packed', 'the day is packed, not summarised');
+  const room = SAVE.SCORM12_LIMIT - JSON.stringify(stored()).length;
+  assert.ok(room >= 550, `room left for C-33 and C-34 under the ${SAVE.SCORM12_LIMIT}-character limit: ${room} (3,576 before B-55, 3,396 after)`);
   reload(); W.resume(null);
   assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every mistake keeps its pin');
@@ -208,6 +211,24 @@ test('B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, a
     const E = context.OTR_DATA.workdayEvents[t];
     assert.ok(lines.includes(E.fail || E.label) || lines.includes(E.label), 'the debrief has a line for ' + t);
   });
+});
+
+test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
+  const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
+  const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });
+  assert.ok(packed.packed.t.every(n => !/^(drive|inspect|load|scan|stop)\./.test(n)), 'the common prefixes are written short');
+  assert.ok(packed.packed.s && packed.packed.s.length > 0, 'the checks at a stop are in pairs');
+  const back = SAVE.unpackDay(JSON.parse(JSON.stringify(packed))).events;
+  const sig = (e) => JSON.stringify([e.type, e.key, e.ok, e.stop]);
+  assert.equal(JSON.stringify(back.map(sig).sort()), JSON.stringify(evs.map(e => sig(Object.assign({}, e, { key: e.key === undefined ? null : e.key }))).sort()), 'every report back with its type, key, verdict and stop');
+  const SHORT = SAVE.TYPE_PREFIXES.map(([long]) => long);
+  Object.keys(context.OTR_DATA.workdayEvents).forEach(n => assert.equal(SAVE.longType(SAVE.shortType(n)), n, n));
+  assert.ok(SHORT.length && SAVE.shortType('drive.sign-stop') === '~d.sign-stop');
+  // a day packed before B-55: full type names and no pairs
+  const old = { id: 'w', day: 4, packed: { t: ['drive.sign-stop', 'deliver.outcome'], e: [[0, 's1', 0, null, 1.5, -2.5, 12, 30], [1, 2, 1, 2]], g: [[0, 's2']] } };
+  const un = SAVE.unpackDay(old).events;
+  assert.equal(JSON.stringify(un.map(sig)), JSON.stringify([['drive.sign-stop', 's1', false, null], ['deliver.outcome', 2, true, 2], ['drive.sign-stop', 's2', true, null]].map(JSON.stringify)));
+  assert.deepEqual({ ...un[0].where }, { x: 1.5, z: -2.5, mph: 12, t: 30 });
 });
 
 test('B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins', () => {

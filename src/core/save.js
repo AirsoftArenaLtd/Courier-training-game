@@ -212,10 +212,13 @@ OTR.save = {
    * mph, t]], g: [[t, key, key, ...]] } } (ok 1 or 0; trailing nulls left off; a place only when it has x and z, and only
    * for a wrong check or a penalty, the reports the drive review pins; g: right checks with no stop and no place, only
    * their keys, by type, runs of numbered keys written once: see packRuns). unpackDay reverses it (the grouped reports come back after the others).
+   * B-55: type names are written short ("~d.sign-stop" for "drive.sign-stop", see TYPE_PREFIXES), and a right check at a
+   * stop with no place is one pair in s: [[t, stop, key, stop, key, ...]] (key left out as null when it has none).
+   * Days packed before B-55 (full names, no s) still unpack.
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
-    const out = Object.assign({}, c), types = [], e = [], g = {};
+    const out = Object.assign({}, c), types = [], e = [], g = {}, s = {};
     delete out.events;
     const num = (v, r) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * r) / r : null);
     c.events.forEach(ev => {
@@ -230,14 +233,18 @@ OTR.save = {
       const stop = ev.stop === undefined ? null : ev.stop, key = ev.key === undefined ? null : ev.key;
       // a right check with no stop and no place is only its key: grouped by type, each key written once (A-27)
       if (ev.ok !== false && stop === null && !w && key !== null) { (g[ti] = g[ti] || []).push(key); return; }
+      // a right check at a stop with no place: its stop and key, grouped by type (B-55)
+      if (ev.ok !== false && Number.isInteger(stop) && !w) { (s[ti] = s[ti] || []).push(stop, key); return; }
       const row = [ti, key, ev.ok === false ? 0 : 1, stop,
         w ? num(w.x, 10) : null, w ? num(w.z, 10) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });
-    out.packed = { t: types, e };
+    out.packed = { t: types.map(n => this.shortType(n)), e };
     const groups = Object.keys(g).map(ti => [Number(ti)].concat(this.packRuns(g[ti])));
     if (groups.length) out.packed.g = groups;
+    const atStops = Object.keys(s).map(ti => [Number(ti)].concat(s[ti]));
+    if (atStops.length) out.packed.s = atStops;
     return out;
   },
 
@@ -246,6 +253,19 @@ OTR.save = {
    * end, one more each time (C-23's turn:<leg>:<n>), become [prefix, first, last]. A key is never an array, so
    * unpackRuns tells the two apart; the order is kept exactly. A counter with a leading zero is left as it is.
    */
+  /** Short forms of the type names' common prefixes in a packed day (B-55); a name that starts with "~" is short. */
+  TYPE_PREFIXES: [['drive.', 'd'], ['inspect.', 'i'], ['deliver.', 'v'], ['load.', 'l'], ['scan.', 'c'], ['stop.', 's'],
+    ['van.damage-', 'x'], ['trip.', 't'], ['return.', 'r'], ['brief.', 'b'], ['dispatch.', 'p']],
+  shortType(name) {
+    const hit = typeof name === 'string' && this.TYPE_PREFIXES.find(([long]) => name.startsWith(long));
+    return hit ? '~' + hit[1] + '.' + name.slice(hit[0].length) : name;
+  },
+  longType(name) {
+    if (typeof name !== 'string' || name[0] !== '~') return name;
+    const hit = this.TYPE_PREFIXES.find(([, short]) => name.startsWith('~' + short + '.'));
+    return hit ? hit[0] + name.slice(hit[1].length + 2) : name;
+  },
+
   packRuns(keys) {
     const split = (k) => { const m = typeof k === 'string' && /^(.*?)(0|[1-9]\d{0,8})$/.exec(k); return m ? [m[1], Number(m[2])] : null; };
     const out = [];
@@ -397,7 +417,7 @@ OTR.save = {
     if (!c || typeof c !== 'object' || Array.isArray(c.events)) return c;
     const out = Object.assign({}, c), events = [];
     if (c.packed && Array.isArray(c.packed.e)) {
-      const types = Array.isArray(c.packed.t) ? c.packed.t : [];
+      const types = (Array.isArray(c.packed.t) ? c.packed.t : []).map(n => this.longType(n));
       c.packed.e.forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
         const ev = { type: types[r[0]], key: r[1] === undefined ? null : r[1], ok: r[2] !== 0, stop: r[3] === undefined ? null : r[3] };
@@ -411,6 +431,10 @@ OTR.save = {
       (Array.isArray(c.packed.g) ? c.packed.g : []).forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
         this.unpackRuns(r.slice(1)).forEach(k => events.push({ type: types[r[0]], key: k, ok: true, stop: null }));
+      });
+      (Array.isArray(c.packed.s) ? c.packed.s : []).forEach(r => {
+        if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
+        for (let i = 1; i + 1 < r.length; i += 2) if (Number.isInteger(r[i])) events.push({ type: types[r[0]], key: r[i + 1] === undefined ? null : r[i + 1], ok: true, stop: r[i] });
       });
     } else if (Array.isArray(c.summary)) {
       c.summary.forEach(r => {
