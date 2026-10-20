@@ -48,11 +48,18 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
       const b={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};
       if(b.x>=0&&b.right<=1280&&b.y>=0&&b.bottom<=720&&covers(b,nav))hiddenControls.push(q.userData.interaction);
      }
-     return {entry:!!entry,kind,back,text,head,projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,look:m.van.look};};
+     const seen=new Set();let textureBytes=0;
+     for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){
+      const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const image=source.image;
+      const w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;
+      textureBytes+=w*h*4;
+     }
+     return {entry:!!entry,kind,back,text,head,phaserBytes:Math.ceil(textureBytes*4/3),projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,look:m.van.look};};
     },{kind,back});
     await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.signUI.lastAt>window.otrSignPoseAt&&s.hud.navAt>window.otrSignPoseAt;},{timeout:60000});
     const proof=await p.evaluate(()=>window.otrSignProbe());
     const item={lang,size,...proof};report.runs.push(item);
+    if(!Number.isFinite(proof.phaserBytes)||proof.phaserBytes>4*1024*1024)report.failures.push(`${lang}/${size}/${kind}/${back}: Phaser text textures exceed the Low memory ceiling`);
     if(!proof.entry)report.failures.push(`${lang}/${size}/${kind}/${back}: physical sign is absent`);
     if(proof.entry&&!proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sign line is absent`);
     if(proof.hiddenControls.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers physical selector positions ${proof.hiddenControls.join(',')}`);
@@ -67,6 +74,6 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
   }
   report.completed=true;save();
  }finally{await browser.close();}
- console.log(JSON.stringify({approaches:report.runs.length,failures:report.failures.length,errors:report.errors}));
+ console.log(JSON.stringify({approaches:report.runs.length,phaserBytes:Math.max(...report.runs.map(r=>r.phaserBytes)),failures:report.failures.length,errors:report.errors}));
  if(report.failures.length||report.errors.length)process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1;});
