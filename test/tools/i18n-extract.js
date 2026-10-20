@@ -47,7 +47,8 @@ const devOnly = new Set(['src/core/validate.js']);
 files.splice(0, files.length, ...files.filter(f => !devOnly.has(path.relative(ROOT, f))));
 const notText = (s) =>
   /^(keydown|keyup|pointer|ic_|td_|pp_|lt_|wx_|p_|car_top|van_top|atm_|bg_)/.test(s) || /^[#.]?[a-z0-9_-]+$/.test(s) ||
-  /\b(rgba?|px|Segoe|Arial|sans-serif|function|return|const)\b/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s) ||
+  // (the words return, function and const alone are not code: "Save and return to hub" was lost that way until B-80)
+  /\b(rgba?|px|Segoe|Arial|sans-serif)\b/.test(s) || /\bfunction\s*\(|\bconst\s+[A-Za-z_$]|\breturn\s+[a-z_$][\w.]*\s*[;)]/.test(s) || /^https?:|\.(js|png|webp|json)$/.test(s) || /[{};=<>]/.test(s) ||
   /^[a-z]+\/|[a-z] _/.test(s);                                  // an API path or a key built from parts ("trainees/${id}", "household${d}_${i}")
 // a small scanner: skips comments and regular expressions, reads '...', "..." and `...`; the code inside a template's
 // ${} is scanned too, for the words it chooses between ("Signaled the ${late ? 'left' : 'right'} turn")
