@@ -35,6 +35,22 @@ test('healthy profiles reject a recovered fallback and reports missing the fallb
 test('navigation views must name their versioned campaign fixture',()=>{
  const r=report(),p={...profile,views:'navfull'};r.prototype.navfull=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/navigation fixture/);r.navigationFixture=true;assert.ok(checkReport(r,p,'sample'));
 });
+test('damage views require the located damage, cargo and physical clearance fixture',()=>{
+ const r=report(),p={...profile,views:'damagefront'};r.prototype.damagefront=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/damage and clearance fixture/);
+ r.damageFixture=true;r.damageProof={damagefront:{marker:1,valid:true,zones:7,clearances:2,instances:15,shift:3}};assert.ok(checkReport(r,p,'sample'));
+ r.damageProof.damagefront.zones=0;assert.throws(()=>checkReport(r,p,'sample'),/damage and clearance fixture/);
+});
+test('clearance views require a lasting readable warning and the reverse view also requires its camera',()=>{
+ const {PROFILES,CLEARANCE_VIEWS}=require('./fpquality');assert.equal(CLEARANCE_VIEWS.split(',').length,3);
+ assert.ok(PROFILES.every(p=>CLEARANCE_VIEWS.split(',').every(v=>p.views.split(',').includes(v))));
+ const name='damagereverseclearance',r=report(),p={...profile,views:name};r.prototype[name]=r.prototype.cab;
+ r.damageFixture=true;r.damageProof={[name]:{marker:1,valid:true,zones:7,clearances:2,instances:15,shift:3}};
+ assert.throws(()=>checkReport(r,p,'sample'),/persistent readable/);
+ r.prototype[name].clearanceAlert={text:'The clearance is 8 feet 10 inches.',visible:true,reverse:false,bounds:{x:24,y:18,right:700,bottom:160}};
+ assert.throws(()=>checkReport(r,p,'sample'),/live reverse camera/);r.prototype[name].clearanceAlert.reverse=true;assert.ok(checkReport(r,p,'sample'));
+ r.prototype[name].clearanceAlert.bounds.bottom=721;assert.throws(()=>checkReport(r,p,'sample'),/persistent readable/);
+});
 
 test('traffic views require the combined versioned traffic and navigation fixture',()=>{
  const r=report(),p={...profile,views:'trafficpeak'};r.prototype.trafficpeak=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/traffic and navigation fixture/);r.trafficFixture=true;assert.ok(checkReport(r,p,'sample'));

@@ -37,6 +37,9 @@ OTR.fpNav={
   },
   allowed(m,a,b,oneway){
     const eps=.00001;
+    if(m.routePlan.damage===1&&OTR.fpDamageFlow)for(const r of OTR.fpDamageFlow.clearances(m)){
+      if(Math.abs(a.x-b.x)<eps&&Math.abs(a.x-r.x)<eps&&Math.min(a.z,b.z)<r.z+3&&Math.max(a.z,b.z)>r.z-3)return false;
+    }
     for(const r of [m.roadworks,...this.obstacles(m).filter(o=>!o.driveway)].filter(Boolean)){
     if(r&&Math.abs(a.x-b.x)<eps&&Math.abs(a.x-(r.roadX===undefined?r.x:r.roadX))<eps){
       const clearance=r.d/2+2.7;
@@ -144,6 +147,7 @@ OTR.fpNav={
   instruction(m){
     if(this.aid(m)==='off')return 'The trainer has turned navigation off.';
     if(m.phase==='prepare')return 'Prepare the van before departure.';
+    const warning=m.damage&&OTR.fpDamageFlow.warning(m);if(warning)return warning;
     const r=this.route(m);if(!r||!r.points.length)return 'Rejoin a public street when it is safe.';
     const destination=this.destination(m);if(Math.hypot(m.van.x-destination.x,m.van.z-destination.z)<9)return m.phase==='return'?'You have reached the depot. Park safely.':'You have reached the stop. Park safely at the curb.';
     const p=this.project(r,m.van),a=r.points[p.index],b=r.points[p.index+1];

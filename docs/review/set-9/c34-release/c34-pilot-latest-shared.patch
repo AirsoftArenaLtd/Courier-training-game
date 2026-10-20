@@ -1,0 +1,981 @@
+diff --git a/data/i18n/bn.js b/data/i18n/bn.js
+index c621f95..f8c98a0 100644
+--- a/data/i18n/bn.js
++++ b/data/i18n/bn.js
+@@ -3839,7 +3839,10 @@ window.OTR_I18N.bn = {
+ "Wrong turns": "ভুল মোড়",
+ "Did not give way": "পথ না ছাড়া",
+ "Turned across a cyclist": "সাইকেল আরোহীর সামনে দিয়ে বাঁক নেওয়া",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।"
++"From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "গ্রুপের জন্য পাতাটি প্রিন্ট করুন, অথবা সংখ্যাগুলো Excel বা Google Sheets-এর জন্য স্প্রেডশিট হিসেবে ডাউনলোড করুন।",
++"Spreadsheet (CSV)": "স্প্রেডশিট (CSV)",
++"Spreadsheet downloaded": "স্প্রেডশিট ডাউনলোড হয়েছে"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/catalogue.json b/data/i18n/catalogue.json
+index ac955ad..4f0a7c5 100644
+--- a/data/i18n/catalogue.json
++++ b/data/i18n/catalogue.json
+@@ -3599,6 +3599,9 @@
+   "Create",
+   "There is already an account with that employee ID.",
+   "That trainee has no account.",
++  "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.",
++  "Spreadsheet (CSV)",
++  "Spreadsheet downloaded",
+   "Temporary password",
+   "No trainee yet",
+   "View record",
+@@ -4297,6 +4300,7 @@
+   "Sound effects volume is {0}%.",
+   "signal:{0}:{1}",
+   "yield:{0}:{1}",
++  "before-and-after-{0}.csv",
+   "{0} h {1} min",
+   "{0} min",
+   "Quiz: best {0}%{1}",
+diff --git a/data/i18n/es.js b/data/i18n/es.js
+index 1f174be..25b0287 100644
+--- a/data/i18n/es.js
++++ b/data/i18n/es.js
+@@ -3849,7 +3849,10 @@ window.OTR_I18N.es = {
+ "Wrong turns": "Giros equivocados",
+ "Did not give way": "No cedió el paso",
+ "Turned across a cyclist": "Cortó el paso a un ciclista",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "De los {0} aprendices cuya primera y última jornada tuvieron tráfico."
++"From the {0} trainees whose first and latest workdays both had traffic.": "De los {0} aprendices cuya primera y última jornada tuvieron tráfico.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "Imprime la página para el grupo o descarga las cifras como hoja de cálculo para Excel o Google Sheets.",
++"Spreadsheet (CSV)": "Hoja de cálculo (CSV)",
++"Spreadsheet downloaded": "Hoja de cálculo descargada"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/fr.js b/data/i18n/fr.js
+index 9ae9580..f743541 100644
+--- a/data/i18n/fr.js
++++ b/data/i18n/fr.js
+@@ -3839,7 +3839,10 @@ window.OTR_I18N.fr = {
+ "Wrong turns": "Erreurs de route",
+ "Did not give way": "Priorité non cédée",
+ "Turned across a cyclist": "Trajectoire d'un cycliste coupée",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation."
++"From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "Imprime la page pour le groupe, ou télécharge les chiffres sous forme de tableur pour Excel ou Google Sheets.",
++"Spreadsheet (CSV)": "Tableur (CSV)",
++"Spreadsheet downloaded": "Tableur téléchargé"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/gu.js b/data/i18n/gu.js
+index 23d4df4..e3a1a63 100644
+--- a/data/i18n/gu.js
++++ b/data/i18n/gu.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.gu = {
+ "Wrong turns": "ખોટો વળાંક",
+ "Did not give way": "રસ્તો ન આપવો",
+ "Turned across a cyclist": "સાઇકલસવારની આગળથી વળવું",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "જે {0} તાલીમાર્થીઓના પહેલા અને તાજેતરના કામકાજના દિવસ બંનેમાં ટ્રાફિક હતો તેમાંથી."
++"From the {0} trainees whose first and latest workdays both had traffic.": "જે {0} તાલીમાર્થીઓના પહેલા અને તાજેતરના કામકાજના દિવસ બંનેમાં ટ્રાફિક હતો તેમાંથી.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "જૂથ માટે પાનું પ્રિન્ટ કરો, અથવા આંકડા Excel અથવા Google Sheets માટે સ્પ્રેડશીટ તરીકે ડાઉનલોડ કરો.",
++"Spreadsheet (CSV)": "સ્પ્રેડશીટ (CSV)",
++"Spreadsheet downloaded": "સ્પ્રેડશીટ ડાઉનલોડ થઈ"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/hi.js b/data/i18n/hi.js
+index ba6b8ec..ba2637c 100644
+--- a/data/i18n/hi.js
++++ b/data/i18n/hi.js
+@@ -3839,7 +3839,10 @@ window.OTR_I18N.hi = {
+ "Wrong turns": "गलत मोड़",
+ "Did not give way": "रास्ता न देना",
+ "Turned across a cyclist": "साइकिल सवार के आगे से मुड़ना",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "उन {0} प्रशिक्षुओं में से, जिनके पहले और नवीनतम कार्यदिवस दोनों में ट्रैफ़िक था।"
++"From the {0} trainees whose first and latest workdays both had traffic.": "उन {0} प्रशिक्षुओं में से, जिनके पहले और नवीनतम कार्यदिवस दोनों में ट्रैफ़िक था।",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "समूह के लिए पेज प्रिंट करें, या आँकड़ों को Excel या Google Sheets के लिए स्प्रेडशीट के रूप में डाउनलोड करें।",
++"Spreadsheet (CSV)": "स्प्रेडशीट (CSV)",
++"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड हुई"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/kn.js b/data/i18n/kn.js
+index b6f8e39..0fee229 100644
+--- a/data/i18n/kn.js
++++ b/data/i18n/kn.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.kn = {
+ "Wrong turns": "ತಪ್ಪು ತಿರುವು",
+ "Did not give way": "ದಾರಿ ಬಿಡದಿದ್ದು",
+ "Turned across a cyclist": "ಸೈಕಲ್ ಸವಾರರ ಮುಂದೆ ತಿರುಗಿದ್ದು",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ."
++"From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ಗುಂಪಿಗಾಗಿ ಪುಟವನ್ನು ಮುದ್ರಿಸಿ, ಅಥವಾ ಸಂಖ್ಯೆಗಳನ್ನು Excel ಅಥವಾ Google Sheets ಗಾಗಿ ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.",
++"Spreadsheet (CSV)": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ (CSV)",
++"Spreadsheet downloaded": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/ml.js b/data/i18n/ml.js
+index a64752e..cd12322 100644
+--- a/data/i18n/ml.js
++++ b/data/i18n/ml.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.ml = {
+ "Wrong turns": "തെറ്റായ തിരിവ്",
+ "Did not give way": "വഴി നൽകാതിരുന്നത്",
+ "Turned across a cyclist": "സൈക്കിൾ യാത്രികന്റെ മുന്നിലൂടെ തിരിഞ്ഞത്",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്."
++"From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ഗ്രൂപ്പിനായി പേജ് പ്രിന്റ് ചെയ്യുക, അല്ലെങ്കിൽ സംഖ്യകൾ Excel അല്ലെങ്കിൽ Google Sheets-നായി സ്പ്രെഡ്ഷീറ്റായി ഡൗൺലോഡ് ചെയ്യുക.",
++"Spreadsheet (CSV)": "സ്പ്രെഡ്ഷീറ്റ് (CSV)",
++"Spreadsheet downloaded": "സ്പ്രെഡ്ഷീറ്റ് ഡൗൺലോഡ് ചെയ്തു"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/mr.js b/data/i18n/mr.js
+index 9f35f54..feefff0 100644
+--- a/data/i18n/mr.js
++++ b/data/i18n/mr.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.mr = {
+ "Wrong turns": "चुकीचे वळण",
+ "Did not give way": "वाट न देणे",
+ "Turned across a cyclist": "सायकलस्वारासमोरून वळणे",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून."
++"From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "गटासाठी पान प्रिंट करा, किंवा आकडे Excel किंवा Google Sheets साठी स्प्रेडशीट म्हणून डाउनलोड करा.",
++"Spreadsheet (CSV)": "स्प्रेडशीट (CSV)",
++"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड केली"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/pa.js b/data/i18n/pa.js
+index 4dde516..13f56a8 100644
+--- a/data/i18n/pa.js
++++ b/data/i18n/pa.js
+@@ -3839,7 +3839,10 @@ window.OTR_I18N.pa = {
+ "Wrong turns": "ਗ਼ਲਤ ਮੋੜ",
+ "Did not give way": "ਰਾਹ ਨਾ ਦੇਣਾ",
+ "Turned across a cyclist": "ਸਾਈਕਲ ਸਵਾਰ ਦੇ ਅੱਗੋਂ ਮੁੜਨਾ",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਟ੍ਰੈਫਿਕ ਸੀ।"
++"From the {0} trainees whose first and latest workdays both had traffic.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਟ੍ਰੈਫਿਕ ਸੀ।",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ਗਰੁੱਪ ਲਈ ਪੰਨਾ ਪ੍ਰਿੰਟ ਕਰੋ, ਜਾਂ ਅੰਕੜਿਆਂ ਨੂੰ Excel ਜਾਂ Google Sheets ਲਈ ਸਪ੍ਰੈਡਸ਼ੀਟ ਵਜੋਂ ਡਾਊਨਲੋਡ ਕਰੋ।",
++"Spreadsheet (CSV)": "ਸਪ੍ਰੈਡਸ਼ੀਟ (CSV)",
++"Spreadsheet downloaded": "ਸਪ੍ਰੈਡਸ਼ੀਟ ਡਾਊਨਲੋਡ ਹੋ ਗਈ"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/ta.js b/data/i18n/ta.js
+index f1287d6..cc22b46 100644
+--- a/data/i18n/ta.js
++++ b/data/i18n/ta.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.ta = {
+ "Wrong turns": "தவறான திருப்பம்",
+ "Did not give way": "வழி விடாதது",
+ "Turned across a cyclist": "சைக்கிள் ஓட்டுநருக்கு குறுக்கே திரும்பியது",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் போக்குவரத்து இருந்த {0} பயிற்சி பெறுநர்களில்."
++"From the {0} trainees whose first and latest workdays both had traffic.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் போக்குவரத்து இருந்த {0} பயிற்சி பெறுநர்களில்.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "குழுவுக்காக பக்கத்தை அச்சிடுங்கள், அல்லது எண்களை Excel அல்லது Google Sheets-க்கான ஸ்ப்ரெட்ஷீட்டாகப் பதிவிறக்குங்கள்.",
++"Spreadsheet (CSV)": "ஸ்ப்ரெட்ஷீட் (CSV)",
++"Spreadsheet downloaded": "ஸ்ப்ரெட்ஷீட் பதிவிறக்கப்பட்டது"
+ },
+ "templates": [
+ [
+diff --git a/data/i18n/te.js b/data/i18n/te.js
+index 714aec7..14f497e 100644
+--- a/data/i18n/te.js
++++ b/data/i18n/te.js
+@@ -3838,7 +3838,10 @@ window.OTR_I18N.te = {
+ "Wrong turns": "తప్పు మలుపు",
+ "Did not give way": "దారి ఇవ్వకపోవడం",
+ "Turned across a cyclist": "సైక్లిస్ట్ ముందు నుంచి తిరగడం",
+-"From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో."
++"From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో.",
++"Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "సమూహం కోసం పేజీని ప్రింట్ చేయండి, లేదా సంఖ్యలను Excel లేదా Google Sheets కోసం స్ప్రెడ్‌షీట్‌గా డౌన్‌లోడ్ చేయండి.",
++"Spreadsheet (CSV)": "స్ప్రెడ్‌షీట్ (CSV)",
++"Spreadsheet downloaded": "స్ప్రెడ్‌షీట్ డౌన్‌లోడ్ అయింది"
+ },
+ "templates": [
+ [
+diff --git a/src/core/pilotreport.js b/src/core/pilotreport.js
+index 70e51c0..de8b01b 100644
+--- a/src/core/pilotreport.js
++++ b/src/core/pilotreport.js
+@@ -6,6 +6,7 @@
+  *
+  *   OTR.pilotReport.html(data)     the document for what the server returned
+  *   OTR.pilotReport.print(data)    through the browser's print dialog
++ *   OTR.pilotReport.csv(data)      the same numbers as a spreadsheet (download(data) saves it)
+  */
+ window.OTR = window.OTR || {};
+ 
+@@ -39,7 +40,7 @@ OTR.pilotReport = {
+       </tbody></table>` : `<p>${T('Nobody has finished a workday yet.')}</p>`;
+     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${T('Before and after: the training pilot')}</title><style>
+       @page { size: A4; margin: 14mm; }
+-      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
++      body { font: 11pt/1.4 "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: #121f2e; margin: 0; }
+       header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid ${th.css('accent')}; padding-bottom: 8px; margin-bottom: 14px; }
+       h1 { font-size: 20pt; margin: 0; color: ${th.css('primary')}; } h2 { font-size: 13pt; color: ${th.css('primary')}; margin: 18px 0 6px; }
+       .brand { font-weight: 900; color: ${th.css('primary')}; } .brand b { color: ${th.css('accent')}; } .meta { text-align: right; font-size: 10pt; color: #555; }
+@@ -63,5 +64,32 @@ OTR.pilotReport = {
+       <footer>${T('Each trainee\'s first and latest finished workday. Stars are 0 to 3 in safety, efficiency and service. The group figures use trainees with two or more workdays. A pass mark is met when every category reaches the stars the trainer set.')}</footer>
+     </body></html>`;
+   },
+-  print(data) { OTR.record.printHtml(OTR.pilotReport.html(data)); }
++  print(data) { OTR.record.printHtml(OTR.pilotReport.html(data)); },
++
++  /**
++   * The same numbers as a spreadsheet (B-65): one row per trainee, columns named in English so a company's sheets keep
++   * working whatever language the trainer uses (docs/DATA.md lists them). The road columns are empty for a day without
++   * traffic. A cell that a spreadsheet would read as a formula (=, +, -, @) starts with an apostrophe, so it stays text.
++   */
++  CSV_COLUMNS: ['employee_id', 'name', 'workdays',
++    ...['first', 'latest'].flatMap(s => [`${s}_date`, `${s}_score`, `${s}_safety_stars`, `${s}_efficiency_stars`, `${s}_service_stars`, `${s}_critical_errors`,
++      `${s}_met_pass_marks`, `${s}_red_lights`, `${s}_wrong_turns`, `${s}_did_not_give_way`, `${s}_cyclist`]), 'change_in_stars'],
++  csv(data) {
++    const cell = (v) => {
++      let s = v === null || v === undefined ? '' : String(v);
++      if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
++      return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
++    };
++    const day = (d) => (d && d.at ? new Date(d.at).toISOString().slice(0, 10) : '');
++    const side = (d, passed) => [day(d), d.score, d.stars.safety, d.stars.efficiency, d.stars.service, d.criticals, passed ? 'yes' : 'no',
++      ...(Array.isArray(d.road) ? d.road : [null, null, null, null])];
++    const rows = (data.trainees || []).map(t => [t.id, t.name, t.days, ...side(t.first, t.firstPassed), ...side(t.latest, t.latestPassed), t.change === null ? '' : t.change]);
++    return '\uFEFF' + [this.CSV_COLUMNS, ...rows].map(r => r.map(cell).join(',')).join('\r\n') + '\r\n';
++  },
++  /** Hand the spreadsheet to the browser as a file to save. */
++  download(data) {
++    const url = URL.createObjectURL(new Blob([OTR.pilotReport.csv(data)], { type: 'text/csv' }));
++    const a = document.createElement('a'); a.href = url; a.download = `before-and-after-${new Date().toISOString().slice(0, 10)}.csv`;
++    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
++  }
+ };
+diff --git a/src/core/record.js b/src/core/record.js
+index 9883d97..e632b3d 100644
+--- a/src/core/record.js
++++ b/src/core/record.js
+@@ -111,7 +111,7 @@ OTR.record = {
+     const workdays = days ? `<h2>${T('Workdays')}</h2><table><thead><tr><th>${T('Date')}</th><th>${T('Stars')}</th><th>${T('Help that day')}</th><th>${T('Critical mistakes')}</th></tr></thead><tbody>${days}</tbody></table>` : '';
+     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
+       @page { size: A4; margin: 14mm; }
+-      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
++      body { font: 11pt/1.4 "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: #121f2e; margin: 0; }
+       header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid ${OTR_DATA.theme.css('accent')}; padding-bottom: 8px; margin-bottom: 14px; }
+       h1 { font-size: 20pt; margin: 0; color: ${OTR_DATA.theme.css('primary')}; } h2 { font-size: 13pt; color: ${OTR_DATA.theme.css('primary')}; margin: 18px 0 6px; }
+       .brand { font-weight: 900; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
+@@ -149,10 +149,10 @@ OTR.record = {
+     const last = Math.max(...R.all.map(s => (s.assess && s.assess.at) || 0));
+     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Certificate: {0}', E(name))}</title><style>
+       @page { size: A4 landscape; margin: 0; }
+-      body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #121f2e; }
++      body { margin: 0; font-family: Georgia, "Times New Roman", "Nirmala UI", "Noto Serif", serif; color: #121f2e; }
+       .page { box-sizing: border-box; width: 297mm; height: 210mm; padding: 18mm; }
+       .frame { box-sizing: border-box; height: 100%; border: 6px solid ${OTR_DATA.theme.css('primary')}; outline: 2px solid ${OTR_DATA.theme.css('accent')}; outline-offset: -14px; text-align: center; padding: 22mm 20mm; }
+-      .brand { font: 900 20pt "Segoe UI", Arial, sans-serif; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
++      .brand { font: 900 20pt "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
+       h1 { font-size: 34pt; margin: 14mm 0 4mm; letter-spacing: 1px; } .name { font-size: 30pt; color: ${OTR_DATA.theme.css('primary')}; border-bottom: 1px solid #999; display: inline-block; padding: 0 20mm 2mm; margin: 6mm 0; }
+       p { font-size: 14pt; margin: 3mm 0; } .small { font-size: 10pt; color: #666; }
+       .sign { display: flex; justify-content: space-around; margin-top: 18mm; } .sign div { width: 70mm; border-top: 1px solid #333; padding-top: 2mm; font-size: 10pt; color: #555; }
+diff --git a/src/core/save.js b/src/core/save.js
+index 7ce16e9..d99af5a 100644
+--- a/src/core/save.js
++++ b/src/core/save.js
+@@ -214,7 +214,8 @@ OTR.save = {
+    * their keys, by type, runs of numbered keys written once: see packRuns). unpackDay reverses it (the grouped reports come back after the others).
+    * B-55: type names are written short ("~d.sign-stop" for "drive.sign-stop", see TYPE_PREFIXES), and a right check at a
+    * stop with no place is one pair in s: [[t, stop, key, stop, key, ...]] (key left out as null when it has none).
+-   * Days packed before B-55 (full names, no s) still unpack.
++   * Days packed before B-55 (full names, no s) still unpack. Places are kept to the metre (B-68: under 1.5 px on the
++   * drive map), speeds to 1 mph and times to the second.
+    */
+   packDay(c) {
+     if (!Array.isArray(c.events)) return c;
+@@ -236,7 +237,7 @@ OTR.save = {
+       // a right check at a stop with no place: its stop and key, grouped by type (B-55)
+       if (ev.ok !== false && Number.isInteger(stop) && !w) { (s[ti] = s[ti] || []).push(stop, key); return; }
+       const row = [ti, key, ev.ok === false ? 0 : 1, stop,
+-        w ? num(w.x, 10) : null, w ? num(w.z, 10) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
++        w ? num(w.x, 1) : null, w ? num(w.z, 1) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
+       while (row.length > 3 && row[row.length - 1] === null) row.pop();
+       e.push(row);
+     });
+diff --git a/src/core/ui.js b/src/core/ui.js
+index 1503df8..981adcc 100644
+--- a/src/core/ui.js
++++ b/src/core/ui.js
+@@ -564,7 +564,9 @@ OTR.ui = {
+     const api = {
+       showing: () => shown && onTop() && !!items[cur] && seen(items[cur]),
+       hide() { shown = false; draw(); },
+-      set(i) { cur = i; }
++      set(i) { cur = i; },
++      /** The control the ring is on, or null when it is not showing (for tests that drive the keyboard: B-62). */
++      current: () => (shown && items[cur]) || null
+     };
+     const onKey = OTR.dedupe((e) => {
+       if (!ring.active || !scene.input.enabled || !onTop()) return;
+diff --git a/src/scenes/TrainerScene.js b/src/scenes/TrainerScene.js
+index 9bde70d..ed346e3 100644
+--- a/src/scenes/TrainerScene.js
++++ b/src/scenes/TrainerScene.js
+@@ -152,7 +152,7 @@ class TrainerScene extends Phaser.Scene {
+       if (OTR.identity.accounts) this.focusables.push(OTR.ui.button(this, x + w - 112, top + 34, 'New account', () => this.newAccount(), { w: 190, h: 40, skin: 'purple', fontSize: 15 }));
+       // the before-and-after report: the first and latest workday of every trainee, to print
+       this.focusables.push(OTR.ui.button(this, x + w - (OTR.identity.accounts ? 330 : 112), top + 34, 'Before and after', () => OTR.academy.trainerApi('report/before-after')
+-        .then(data => OTR.pilotReport.print(data)).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { w: 210, h: 40, skin: 'ghost', fontSize: 15 }));
++        .then(data => this.reportChoice(data)).catch(e => OTR.ui.toast(this, String(e.message || e), 0xF0435A)), { w: 210, h: 40, skin: 'ghost', fontSize: 15 }));
+       this.status = OTR.txt(this, x + w / 2, top + 120, 'Loading…', 16, '#7A8CA0', { bold: false });
+       this.loadTrainees();
+     } else {
+@@ -270,6 +270,19 @@ class TrainerScene extends Phaser.Scene {
+       missing: 'That trainee has no account.' }[e && e.reason] || String((e && e.message) || e);
+   }
+ 
++  /** The before-and-after report: the page to print, or the numbers as a spreadsheet (B-65). */
++  reportChoice(data) {
++    OTR.ui.modal(this, {
++      title: 'Before and after', w: 640, h: 300, escClose: true,
++      body: 'Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.',
++      buttons: [
++        { label: 'Back', skin: 'ghost' },
++        { label: 'Spreadsheet (CSV)', skin: 'purple', onClick: () => { OTR.pilotReport.download(data); OTR.ui.toast(this, 'Spreadsheet downloaded', 0x2BC48A); } },
++        { label: 'Print / PDF', skin: 'orange', key: 'ENTER', hint: '⏎', onClick: () => OTR.pilotReport.print(data) }
++      ]
++    });
++  }
++
+   /** The temporary password, shown once: the server keeps only its hash. */
+   showTemp(r) {
+     OTR.ui.modal(this, {
+diff --git a/test/README.md b/test/README.md
+index 21bb266..28c6fd4 100644
+--- a/test/README.md
++++ b/test/README.md
+@@ -19,6 +19,10 @@ anything failed, so it can gate a release.
+ new suite is included without editing anything); `--browser` adds the browser suites. It serves the game itself on a
+ free port (`QA_BASE`), finds the installed Chromium (`QA_BROWSER`), runs suites that open a page one at a time, and
+ prints one pass/fail table; logs go to `test/out/run-all/`. Name words to run some of them: `node test/run-all.js fpnav`.
++`node test/run-all.js --review <branch>` merges a branch into pilot in a scratch worktree and runs the review's first
++steps (every Node suite, the text to translate, the five workday flows at Low).
++`node test/run-all.js --list` prints every suite with how it runs and what it covers; `--readme` rewrites the table
++at the end of this file ("Every suite"), so run it when you add a suite.
+ 
+ The 3D model checks include `node test/fpdoors.js`: generated doorstep requirements, signatures, photo-ID decisions, wrong-address exceptions, physical gates/residents, customer responses, path hazards and optional checkpoints. With the game served on `QA_BASE` (default `http://127.0.0.1:8302`), `node test/fpdoorsbrowser.js` exercises real gate raycasts, signature completion/cancellation, ID panels, handheld outcomes and Shift walking in English/Tamil at both text sizes. `test/fproutebrowser.js` completes the five-stop route with those required checks before each delivery. These position fixtures skip the long walks and drives. The doorstep suite also writes `test/out/fp-review/c9-seeded-ui.json`: 16 seeded runs in English and larger Tamil use real keyboard choices, a physical doorstep barcode scan/contact, all five photo-ID variants, wrong-label retention, a customer handover and E to clear a movable path hazard. Fixture setup supplies the held parcel and skips travel; the UI actions and reports are exercised normally. Layout checks include body/choice overlap and exclude transparent button-art padding.
+ 
+@@ -151,3 +155,105 @@ the second, human-style review; the brief its testers followed is `docs/review/B
+ 
+ Content validation runs separately from the suite: open `index.html?dev=1` and check the console, or call
+ `OTR.debug.validate()`.
++
++## Every suite
++
++Written by `node test/run-all.js --readme`.
++
++<!-- suites -->
++| Suite | How `run-all` runs it | What it covers |
++| --- | --- | --- |
++| `a11y-screens.js` | browser (--browser) | The screens no scenario reaches, with larger text and the color filter on (Settings → Accessibility): results after a drive with mistakes, the drive map, the… |
++| `academy.js` | opens a page | Academy rules, assessments, trainer tools and the trainee record (src/core/academy.js, src/core/record.js, TrainerScene, RecordScene). |
++| `aids.js` | Node | The trainer's 3D workday aids (board task A-21, src/core/academy.js): defaults, what a saved setting may hold, and what the 3D world gets for each workday nu… |
++| `art.js` | opens a page | The image pipeline (src/core/assets.js, test/tools/pack-art.js): images in assets/img/ are packed, and the game draws them in place of the drawn art, at the … |
++| `assets.js` | Node | The 3D asset rules in docs/ASSETS.md (assets/3d/; the 2D art in assets/img has its own pipeline): every shipped file is listed in assets/3d/manifest.json wit… |
++| `auth.js` | Node | Employee ID and password sign-in (server/auth.js, and its API in server/server.js), in Node with no browser. |
++| `credits.js` | Node | The asset credits (board task B-28): data/credits.js and docs/ASSETS.md list every pack in assets/3d/manifest.json with its author, a CC0 licence and where i… |
++| `data.js` | Node | Trainee data on the training server (docs/DATA.md): a trainer can download everything held about one trainee and can erase all of it (progress, every backup,… |
++| `drivemapbrowser.js` | browser (--browser) | The 3D workday's drive map with every kind of milestone 8 mistake on it (road signs, a red light, a wrong turn, a cyclist, damage, a low bridge, a shifted lo… |
++| `driving.js` | opens a page | The driving rules added with the drive aids (src/scenes/shift/driveAids.js) and the stop-sign rules, checked in the town lab (index.html?lab=town) with the v… |
++| `enterprise.js` | opens a page | Enterprise sign-in and progress storage (src/core/identity.js, src/core/save.js, server/server.js). |
++| `firstperson.js` | Node | Renderer-free prototype checks. |
++| `fpaccess.js` | Node | Keyboard aim, physical target selection and persisted comfort preferences. |
++| `fpaccessbrowser.js` | browser (--browser) | Keyboard-only route. |
++| `fpaccesslayout.js` | browser (--browser) | 3D layouts: QA_LANGS accepts language codes; QA_FONT=noto selects installed script-specific review fonts. |
++| `fpactors.js` | Node | Real rigs, ordinary animated geometry, physical targets, fallback and state ownership. |
++| `fpactorsbrowser.js` | browser (--browser) | Rendered actor/door proof and real-key interaction. |
++| `fpassets.js` | Node | (first test) the real vendored loader selects Low and High and parses the bundled CC0 variants |
++| `fpassetsbrowser.js` | browser (--browser) | Actual local loader, rendered variants, failure recovery, restart ownership and loading layouts. |
++| `fpbench.js` | own command | Unmodified ?bench=1 plus raw-frame samples of the first-person prototype. |
++| `fpbranding.js` | Node | Theme values, world materials and moving/facing company labels without a GPU. |
++| `fpbrandingbrowser.js` | browser (--browser) | Two complete company skins, one bounded local logo, and real screen pixels. |
++| `fpbriefbrowser.js` | browser (--browser) | Dispatch-only layout and workflow audit; uses the actual game, at both text sizes. |
++| `fpbrowser.js` | browser (--browser) | Browser integration: real keys/scans/raycasts; position fixtures skip repetitive walking between tasks. |
++| `fpcab.js` | Node | Physical cab, safe drivetrain selection, scoring identity and legacy checkpoint compatibility. |
++| `fpcabbrowser.js` | browser (--browser) | Real keyboard target selection and action keys, including larger/Tamil layouts and a saved-control reload. |
++| `fpcamera.js` | Node | (first test) the first view matches the existing eye and is reused without touching saved mission state |
++| `fpcamerabrowser.js` | browser (--browser) | Real-key camera feel, physical dashboard anchoring, accessibility and approved trainer rules on resume. |
++| `fpday.js` | Node | Day-specific physics, dispatch actions and compatibility without a browser. |
++| `fpdaybrowser.js` | browser (--browser) | Weather rendering and the actual safe handheld/updated-delivery workflow. |
++| `fpdoors.js` | Node | Real doorstep requirements, choices, physical barriers and optional checkpoints. |
++| `fpdoorsbrowser.js` | browser (--browser) | Doorstep UI, real raycasts, signature completion/cancellation and safe outcomes. |
++| `fpdrivebrowser.js` | browser (--browser) | Driving HUD: actual Phaser layout, English/Tamil and both accessibility text sizes. |
++| `fpdriving.js` | Node | Live driving observations, hazard outcomes and checkpoint continuity. |
++| `fpdrivingbrowser.js` | browser (--browser) | Real hazard meshes, walk/cab interactions and readable safety prompts. |
++| `fpdynamicsbrowser.js` | browser (--browser) | Real keyboard driving, a recorded manoeuvre, and rendered suspension. |
++| `fpguide.js` | Node | First-time guidance state, saved migrations and hints that do not change the mission. |
++| `fpguidebrowser.js` | browser (--browser) | Real keys through first-morning help, every guide page, blocked actions and a reload. |
++| `fphandheld.js` | Node | Handheld/controller workflow tests. |
++| `fphooksbrowser.js` | browser (--browser) | Real 3D scene lifecycle through the shared workday API; completion uses a finished mission fixture. |
++| `fphud.js` | Node | Display lifetime and destinations must never become mission or scoring state. |
++| `fphudbrowser.js` | browser (--browser) | Compact live display, real keyboard controls, and translated/larger layouts. |
++| `fphudcomparebrowser.js` | own command | Capture the same live, stationary fixture before/after C-47. |
++| `fplangsbrowser.js` | browser (--browser) | Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the automatic rear camera, the dusk and night head… |
++| `fplater.js` | Node | Later-day difficulty, physical detours, practice windows and save compatibility without WebGL. |
++| `fplighting.js` | Node | Lighting follows the saved clock, respects trainer rules, keeps controls live and never changes scoring. |
++| `fplightingbrowser.js` | browser (--browser) | Real GL pixels, physical headlight shortcut, four saved presets and accessible captions. |
++| `fploadout.js` | Node | (first test) seeded discrepancies are stable, optional on old saves and excluded from cargo practice |
++| `fploadoutbrowser.js` | browser (--browser) | Physical unlisted-package scan and Dispatch load-check UI, both text sizes and languages. |
++| `fpmirrors.js` | Node | Gaze evidence, manoeuvre keys, checkpoint continuity and the bounded reflection scheduler. |
++| `fpmirrorsbrowser.js` | browser (--browser) | Live reflected geometry, gaze-only reporting, keyboard access and saved dwell in the real shared GL context. |
++| `fpmission.js` | Node | Mission/restore checks run without a browser, canvas or generated artwork. |
++| `fpnarration.js` | Node | Cab speech scheduling, ownership and distance bands, with a deterministic speech clock. |
++| `fpnarrationbrowser.js` | browser (--browser) | Real P/actions/gaze and a four-second reverse, based on Claude's cab probe. |
++| `fpnav.js` | Node | Road paths use real generated towns, restrictions and checkpoint versions, without a renderer. |
++| `fpnavbrowser.js` | browser (--browser) | Physical dash navigation, trainer aids and real remapped camera/control keys. |
++| `fpperf.js` | Node | Rendering batches keep physical occlusion and update their static buffers only when needed. |
++| `fpperfbrowser.js` | own command | Compare frozen frames with an untouched pilot served at QA_BEFORE_BASE. |
++| `fpquality.js` | own command | Fixed milestone-eight review gate. |
++| `fpqualitygate.js` | Node | Guard against mislabeled/stale fixtures and false quality passes. |
++| `fprear.js` | Node | Rear-camera contract, real obstacle sensing, practice isolation and bounded rendering. |
++| `fprearbrowser.js` | browser (--browser) | Real keys through reversing practice, live rear pixels, saved manoeuvres and accessible layouts. |
++| `fpresume.js` | Node | Seeded model journeys. |
++| `fproute.js` | Node | Full-route identity, save compatibility and physical access, without WebGL. |
++| `fproutebrowser.js` | browser (--browser) | Generated workday: physical raycasts/scans at all five stops; fixtures skip long walks/drives. |
++| `fpsigns.js` | Node | Sign data must agree with generated routes and the 3D stop obligations. |
++| `fpsignsbrowser.js` | browser (--browser) | Rendered sign geometry, bounded text, real reading keys and modal visibility. |
++| `fpsound.js` | Node | Sound is bounded, quiet before interaction, optional, captioned and independent from scoring. |
++| `fpsoundbrowser.js` | browser (--browser) | Real AudioContext output, narration ducking, Settings keys and repeated scene cleanup. |
++| `fptown.js` | Node | Town asset placement, fallback, physical access and reflection ownership without WebGL. |
++| `fptownbrowser.js` | browser (--browser) | Rendered town templates, fallback comparison, original mission identity and clean WebGL. |
++| `fptraffic.js` | Node | Traffic safety decisions, independent of rendering and scoring. |
++| `fptrafficbrowser.js` | browser (--browser) | Physical signal readings, real keys, narration, and bounded road actors. |
++| `fpweather.js` | Node | (first test) wipers clear the glass through the saved physical control without changing scoring or mission time |
++| `fpweatherbrowser.js` | browser (--browser) | Real wiper input, visible rain clearing, a physical pane and no extra reflection pass. |
++| `fpworld.js` | Node | CPU geometry and scene-state checks. |
++| `i18n.js` | Node | The translations (data/i18n/<lang>.js), checked without a browser: - the file loads, and every template's holes are ones its English has ({n} and {n:plural\|s… |
++| `lmsreport.js` | Node | The 3D workday as the LMS sees it (SCORM 1.2 and 2004): a full day that reports every type in the catalogue fits the 4096 characters of suspend data and scor… |
++| `offline.js` | opens a page | The game with no internet: every request to anything but the training server is blocked (and the browser's name lookups fail), then a new courier signs in, r… |
++| `oldsave.js` | Node | A save from before milestones 7 and 8 still works (B-41): no town seed, no aids code, no criticals by type, no `route.passed`, workday records as they were. |
++| `package.js` | Node | The LMS package (test/tools/package-scorm.js): only run-time files, the manifest at the top, every file a page loads, no tests, docs, server or raw downloads… |
++| `printbrowser.js` | browser (--browser) | The printed pages with milestone 8 mistakes on them, in each language: the trainee's record (Print / PDF), the certificate and the trainer's before-and-after… |
++| `qa.js` | own command | QA suite for On The Route. |
++| `report.js` | Node | The before-and-after report (server/report.js, src/core/pilotreport.js, GET api/report/before-after): each trainee's first and latest workday side by side an… |
++| `routeday.js` | opens a page | Route-day features around the stops (src/core/shift.js, driveAids, TownDriveScene, PostTripScene): - the bad-weather gear question after the briefing, and wh… |
++| `savesize.js` | Node | SCORM 1.2's 4096 characters of suspend data (src/core/save.js, fit): a long workday on top of a heavy save must always be stored within the limit, reload to … |
++| `scorm-launch.js` | opens a page | The LMS package launched as an LMS launches it (board task B-40): the SCORM 1.2 zip from test/tools/package-scorm.js, unpacked and opened inside a player pag… |
++| `signin.js` | opens a page | The sign-in screen (src/core/signin.js) on a training server with employee accounts, in a real browser. |
++| `town3d.js` | opens a page | Phase 2 graphics in the town drive (index.html?lab=town), checked by script: - the fake-3D town (src/core/b3d.js): walls are drawn, roofs lean away from the … |
++| `trainerkeysbrowser.js` | browser (--browser) | The trainer's dialogs from the keyboard alone. |
++| `workday.js` | Node | The 3D workday's report contract (src/core/workday.js, data/workday_events.js). |
++| `workdayflow.js` | opens a page | The 3D workday's flow, without the 3D world: the hub starts a workday, a stand-in scene sends the reports the 3D world would (OTR.workday.report) and finishe… |
++| `xapi.js` | Node | XAPI for a company's learning record store (server/xapi.js): a finished workday becomes statements (the day, then each stop) posted by the training server; t… |
++<!-- /suites -->
+diff --git a/test/a11y-screens.js b/test/a11y-screens.js
+index 5c99903..fa20698 100644
+--- a/test/a11y-screens.js
++++ b/test/a11y-screens.js
+@@ -107,6 +107,9 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
+     await ev(() => OTR.game.scene.getScene('TrainerScene').showTemp({ id: 'e1042', name: 'Alexandria Montgomery-Whitfield', tempPassword: 'river-anchor-58' }));
+     await shot('trainer-temp-password');
+     await go('TrainerScene'); await active('TrainerScene');
++    await ev(() => OTR.game.scene.getScene('TrainerScene').reportChoice({ trainees: [], group: {} }));   // B-65
++    await shot('trainer-report-choice');
++    await go('TrainerScene'); await active('TrainerScene');
+ 
+     await go('RecordScene', {}); await active('RecordScene');
+     await shot('record-modules');
+diff --git a/test/data.js b/test/data.js
+index b2d8579..c444afc 100644
+--- a/test/data.js
++++ b/test/data.js
+@@ -85,6 +85,27 @@ test('erase: progress, backups and the sign-in all go; the audit log keeps the i
+   assert.equal(fs.readFileSync(path.join(DATA, 'audit.log'), 'utf8').includes('Pat Lee'), false, 'no name or data in the log');
+ });
+ 
++test('B-66: a milestone 8 workday is in the download whole (aids, critical types, road habits, the town, places) and erasing removes it', async () => {
++  const day = { id: 'w8', day: 4, at: 1760900000000, seconds: 1500, score: 1900, stars: { safety: 1, efficiency: 2, service: 3 },
++    criticals: ['Drove through a red traffic light'], criticalTypes: ['drive.red-light'], aids: 'flfon', road: [1, 2, 0, 1], townSeed: 7,
++    lessons: ['Red means stop behind the line and wait for green.'], stops: [{ stop: 1, delivered: true, address: '204 Harbor St', x: 12, z: -30 }],
++    events: [{ type: 'drive.red-light', key: 'signal:1:2:n', ok: false, stop: 1, where: { x: 12.5, z: -40.2, mph: 21, t: 300 } }] };
++  let r = await call('progress?user=emp8', 'PUT', { progress: { savedAt: 3, profile: { name: 'Ana Ruiz', id: 'emp8' }, day: 5,
++    workday: { last: day, first: { at: 1760800000000, score: 900, stars: { safety: 1, efficiency: 1, service: 1 }, criticals: 1, road: [2, 1, 1, 1] } },
++    history: [{ id: 'workday', kind: 'workday', at: day.at, score: day.score, stars: day.stars, criticals: day.criticals, aids: day.aids, road: day.road }] } });
++  assert.equal(r.status, 200, JSON.stringify(r.body));
++  r = await call('trainees/emp8/export', 'GET', undefined, PIN);
++  assert.equal(r.status, 200);
++  const last = r.body.progress.workday.last;
++  for (const k of ['aids', 'criticalTypes', 'road', 'townSeed', 'stops', 'events']) assert.equal(JSON.stringify(last[k]), JSON.stringify(day[k]), 'the download has ' + k);
++  assert.equal(JSON.stringify(r.body.progress.workday.first.road), '[2,1,1,1]', 'and the first day\'s road habits');
++  assert.equal(JSON.stringify(r.body.progress.history[0].road), '[1,2,0,1]', 'and the record of runs');
++  r = await call('trainees/emp8/erase', 'POST', undefined, PIN);
++  assert.equal(r.status, 200);
++  assert.equal(files().filter(n => n.startsWith('emp8.json')).length, 0, 'nothing of it left on disk');
++  assert.equal((await call('trainees/emp8/export', 'GET', undefined, PIN)).status, 404);
++});
++
+ test('old backups are purged after OTR_BACKUP_DAYS; recent ones and progress stay', () => {
+   const old = path.join(progressDir(), 'zed.json.1.bak'), recent = path.join(progressDir(), 'zed.json.2.bak'), live = path.join(progressDir(), 'zed.json');
+   fs.writeFileSync(old, '{}'); fs.writeFileSync(recent, '{}'); fs.writeFileSync(live, '{}');
+diff --git a/test/drivemapbrowser.js b/test/drivemapbrowser.js
+index 2a76857..5ed53cc 100644
+--- a/test/drivemapbrowser.js
++++ b/test/drivemapbrowser.js
+@@ -89,7 +89,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
+       check(!found.length, `${tag}: the layout audit finds nothing`);
+       // B-52: the same day's debrief, every page, then the record's lessons and recent runs: each fits, and the debrief
+       // has the line for every milestone 8 mistake, in the trainee's language
+-      const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway'];
++      const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway',
++        'van.damage-dent', 'drive.clearance', 'load.shift'];                         // C-34's damage and load (B-68)
+       await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('WorkdayDebriefScene', {}); });
+       if (!(await until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000))) throw new Error(`${tag}: the debrief never opened`);
+       await wait(900);
+diff --git a/test/printbrowser.js b/test/printbrowser.js
+new file mode 100644
+index 0000000..8a2659d
+--- /dev/null
++++ b/test/printbrowser.js
+@@ -0,0 +1,80 @@
++#!/usr/bin/env node
++/*
++ * B-56: the printed pages with milestone 8 mistakes on them, in each language: the trainee's record (Print / PDF), the
++ * certificate and the trainer's before-and-after report. Each is rendered as the print dialog would (A4, print media)
++ * and saved as a PDF to test/out/print-<lang>-<page>.pdf; nothing may run past its cell or the page, the milestone 8
++ * lines must be there in the trainee's language, and the font stack must name a font for the Indian scripts.
++ *
++ *   QA_BROWSER=/path/to/chrome node test/printbrowser.js          (QA_LANGS=en,ta by default)
++ */
++'use strict';
++const fs = require('fs');
++const path = require('path');
++const pp = require('puppeteer-core');
++const R = require('../server/report.js');
++const BROWSER = process.env.QA_BROWSER || '/opt/pw-browsers/chromium';
++const LANGS = (process.env.QA_LANGS || 'en,ta').split(',').map(s => s.trim()).filter(Boolean);
++const OUT = path.join(__dirname, 'out');
++fs.mkdirSync(OUT, { recursive: true });
++const wait = (ms) => new Promise(r => setTimeout(r, ms));
++let checks = 0;
++const fails = [];
++const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) fails.push(what); };
++
++// a group for the before-and-after report: first days before traffic for some, road habits for others
++const run = (at, s, road, crit) => ({ id: 'workday', kind: 'workday', at, score: 300 * s, stars: { safety: s, efficiency: s, service: s }, criticals: crit || [], road });
++const GROUP = R.beforeAfter(Array.from({ length: 12 }, (_, i) => ({ id: 'e10' + i, name: ['Alexandria Montgomery-Whitfield', 'Pat Okafor', 'Sam Rivera'][i % 3] + ' ' + i,
++  progress: { history: [run(1000, 1, [2, 1, 1, i % 2], ['Drove through a red traffic light']), run(2000, 2 + (i % 2), [0, 1, 0, 0])] } })), { safety: 2, efficiency: 2, service: 2 });
++
++(async () => {
++  const b = await pp.launch({ executablePath: BROWSER, headless: 'new', args: ['--no-sandbox', '--allow-file-access-from-files'] });
++  try {
++    for (const lang of LANGS) {
++      const p = await b.newPage();
++      const errors = [];
++      p.on('pageerror', e => errors.push(e.message));
++      await p.goto('file://' + path.resolve(__dirname, '..', 'index.html') + `?user=print&name=Alexandria%20Montgomery-Whitfield&lang=${lang}&dev=1`);
++      const t0 = Date.now(); while (Date.now() - t0 < 20000 && !(await p.evaluate(() => !!(window.OTR && OTR.game && OTR.save && OTR.save.data && OTR.record)).catch(() => false))) await wait(150);
++      // a trainee who has played two workdays with milestone 8 mistakes, and passed every assessment (for the certificate)
++      const pages = await p.evaluate((group) => {
++        const W = OTR.workday, at = (i) => ({ x: i, z: -i, mph: 18, t: 30 * i });
++        for (const bad of [true, false]) {
++          W.start(null);
++          W.report('drive.red-light', { key: 'signal:1:2:n', ok: !bad, where: at(1) });
++          W.report('drive.route', { key: 'leg1', ok: !bad, where: at(2) });
++          W.report('drive.cyclist', { key: 'cyclist:0', ok: !bad, where: at(3) });
++          if (bad) { W.report('drive.pedestrian', { key: 'school-crossing', where: at(4) }); W.report('drive.sign-noentry', { key: 'noentry:edge', where: at(5) }); }
++          W.keep(W.finish(null, { stops: [{ stop: 1, delivered: true }] }));
++        }
++        const S = OTR.save.data;
++        OTR.registry.all().forEach(m => (m.scenarios || []).forEach(sc => { S.assess[sc.id] = { attempts: 1, passed: true, at: Date.now(), stars: { safety: 3, efficiency: 3, service: 3 }, score: 900, criticals: [], lessons: [], pending: false }; }));
++        const Rec = OTR.record.build(S);
++        return { record: OTR.record.html(Rec, 'Alexandria Montgomery-Whitfield', 'e1042'), certificate: OTR.record.certificateHtml(Rec, 'Alexandria Montgomery-Whitfield', 'e1042'),
++          report: OTR.pilotReport.html(group), want: [OTR_DATA.workdayEvents['drive.red-light'].fail, OTR_DATA.workdayEvents['drive.pedestrian'].label, 'Red lights driven through'].map(s => [s, OTR.i18n.t(s)]) };
++      }, JSON.parse(JSON.stringify(GROUP)));
++      check(!errors.length, `${lang}: the record and the report build with no page errors ${errors.slice(0, 2).join(' | ')}`);
++      for (const name of ['record', 'certificate', 'report']) {
++        const doc = await b.newPage();
++        await doc.setContent(pages[name], { waitUntil: 'load' });
++        await doc.emulateMediaType('print');
++        // A4's printable width in CSS pixels: portrait at 14 mm margins; the certificate is landscape with no margin
++        const land = name === 'certificate';
++        await doc.setViewport(land ? { width: 1123, height: 794 } : { width: 718, height: 1000 });
++        const r = await doc.evaluate(() => ({
++          over: [...document.querySelectorAll('td,th,li,p,h1,h2,div')].filter(e => e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflow !== 'visible' || e.getBoundingClientRect().right > document.documentElement.clientWidth + 1).map(e => e.tagName + ': ' + e.textContent.trim().slice(0, 40)),
++          wide: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
++          font: getComputedStyle(document.body).fontFamily, text: document.body.innerText
++        }));
++        await doc.pdf({ path: path.join(OUT, `print-${lang}-${name}.pdf`), format: 'A4', landscape: land, printBackground: true });
++        check(!r.wide && !r.over.length, `${lang} ${name}: nothing runs past the page or its cell ${r.over.slice(0, 3).join(' | ')}`);
++        check(/Nirmala UI/.test(r.font), `${lang} ${name}: the font stack names a font for the Indian scripts`);
++        if (name === 'record') pages.want.slice(0, 2).forEach(([en, tr]) => check(r.text.includes(tr) && (lang === 'en' || tr !== en), `${lang} record: "${en}" is on it${lang === 'en' ? '' : ', translated'}`));
++        if (name === 'report') { const [en, tr] = pages.want[2]; check(r.text.includes(tr) && (lang === 'en' || tr !== en), `${lang} report: the road habits table, in the trainee's language`); }
++        await doc.close();
++      }
++      await p.close();
++    }
++  } finally { await b.close(); }
++  console.log(fails.length ? `\n${fails.length} of ${checks} print checks failed` : `\n${checks} print checks passed`);
++  process.exit(fails.length ? 1 : 0);
++})().catch(e => { console.error(e); process.exit(1); });
+diff --git a/test/qa.js b/test/qa.js
+index 5852a31..baff5fd 100644
+--- a/test/qa.js
++++ b/test/qa.js
+@@ -27,7 +27,8 @@ const PORT = Number(process.env.QA_PORT || 8123);
+ 
+ const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
+ const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+-const LINUX_BROWSERS = ['/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser'];
++const LINUX_BROWSERS = ['/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser',
++  '/opt/pw-browsers/chromium'];                                  // where a Playwright-provisioned container keeps it
+ 
+ const SCENARIOS = [
+   { id: 'm1-pretrip', scene: 'PreTripScene' },
+diff --git a/test/report.js b/test/report.js
+index 5c87340..9fa4024 100644
+--- a/test/report.js
++++ b/test/report.js
+@@ -107,6 +107,28 @@ test('B-54: road habits per day, for trainees whose first and latest days both h
+   assert.ok(!context.OTR.pilotReport.html(JSON.parse(JSON.stringify(R.beforeAfter(list, MARKS)))).includes('Road habits'));
+ });
+ 
++test('B-65: the same numbers as a spreadsheet, one row per trainee, safe to open in Excel', () => {
++  const road = (r, a) => Object.assign(r, { road: a });
++  const L = [
++    trainee('s1', 'Sam, "the driver"', [road(run(Date.UTC(2026, 9, 1), 1, 2, 2), [2, 1, 1, 0]), road(run(Date.UTC(2026, 9, 9), 2, 2, 3), [0, 1, 0, 0])]),
++    trainee('s2', '=HYPERLINK("http://x")', [run(Date.UTC(2026, 9, 2), 1, 1, 1)])
++  ];
++  const csv = context.OTR.pilotReport.csv(JSON.parse(JSON.stringify(R.beforeAfter(L, MARKS))));
++  assert.ok(csv.startsWith('\uFEFF'), 'marked UTF-8, so Excel shows Tamil and Hindi names');
++  const lines = csv.slice(1).trim().split('\r\n');
++  const cols = lines[0].split(',');
++  assert.equal(cols.length, context.OTR.pilotReport.CSV_COLUMNS.length);
++  assert.deepEqual(cols.slice(0, 4), ['employee_id', 'name', 'workdays', 'first_date']);
++  assert.ok(cols.includes('latest_red_lights') && cols.includes('change_in_stars'));
++  assert.equal(lines.length, 3, 'a header and one row per trainee');
++  const sam = lines.find(l => l.startsWith('s1,'));
++  assert.ok(sam.startsWith('s1,"Sam, ""the driver""",2,2026-10-01,'), 'a comma or quote in a name is quoted: ' + sam);
++  assert.ok(sam.endsWith(',0,1,0,0,2'), 'the latest road habits, then the change in stars: ' + sam);
++  const eve = lines.find(l => l.startsWith('s2,'));
++  assert.ok(eve.startsWith('s2,"\'=HYPERLINK(""http://x"")"'), 'a name that would run as a formula stays text: ' + eve);
++  assert.ok(/,,,,,?/.test(eve) && eve.endsWith(','), 'a one-day trainee: no road columns, no change: ' + eve);
++});
++
+ test('the training server: the report needs the trainer PIN and reads the progress files', async () => {
+   const DATA = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-report-'));
+   process.env.OTR_DATA_DIR = DATA; process.env.OTR_TRAINER_PIN = '4821'; process.env.OTR_ALLOW_QUERY_USER = '1';
+diff --git a/test/run-all.js b/test/run-all.js
+index 19b1d66..86ca783 100644
+--- a/test/run-all.js
++++ b/test/run-all.js
+@@ -8,6 +8,10 @@
+  *   node test/run-all.js --browser       those, then every browser suite (one at a time: they measure frame time)
+  *   node test/run-all.js fpnav workday   only the suites whose file name contains one of these words
+  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
++ *   node test/run-all.js --review <branch>  merge a Codex branch into pilot in a scratch worktree and run the review's
++ *                                        first steps (test/tools/review-branch.js, B-69)
++ *   node test/run-all.js --list          every suite, how it runs and what it covers (B-64); --readme writes that table
++ *                                        into test/README.md between its <!-- suites --> markers
+  *
+  * Not run here: the scenario flows (`node test/qa.js`) and the 3D quality gate (`node test/fpquality.js`), which take
+  * 10–20 minutes each and are run per milestone and for every Codex review; fpbench.js, which fpquality runs; and the
+@@ -32,6 +36,45 @@ const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js', '
+ const BROWSER = new Set(['a11y-screens.js', 'fpaccesslayout.js']);
+ const isBrowser = (f) => /browser\.js$/.test(f) || BROWSER.has(f);
+ const JOBS = Math.max(1, Number(process.env.QA_JOBS) || 4);
++
++/** What a suite covers: the first sentence of its header comment, or its first test's name when it has none. */
++const describe = (f) => {
++  const src = fs.readFileSync(path.join(__dirname, f), 'utf8').replace(/^#!.*\n/, '').replace(/^\s*'use strict';\s*/, '');
++  const head = /^\s*\/\*+([\s\S]*?)\*\//.exec(src);
++  if (head) {
++    const text = head[1].replace(/^\s*\*\s?/gm, ' ').replace(/\s+/g, ' ').trim();
++    const plain = text.replace(/^[A-C]-\d+[a-z]?:\s*/, '');                 // "B-47: the drive map…" → "the drive map…"
++    let one = (/^(.+?\.)(\s|$)/.exec(plain) || [null, plain])[1];
++    one = one.charAt(0).toUpperCase() + one.slice(1);
++    return { text: one.length > 160 ? one.slice(0, 157) + '…' : one, header: true };
++  }
++  const first = /\btest\(\s*(['"`])(.+?)\1/.exec(src);
++  return { text: first ? `(first test) ${first[2]}` : '(no description)', header: false };
++};
++const listSuites = () => {
++  const all = fs.readdirSync(__dirname).filter(f => f.endsWith('.js') && f !== 'run-all.js').sort();
++  const how = (f) => NOT_HERE.has(f) ? 'own command' : isBrowser(f) ? 'browser (--browser)' : /puppeteer/.test(fs.readFileSync(path.join(__dirname, f), 'utf8')) ? 'opens a page' : 'Node';
++  const rows = all.map(f => { const d = describe(f); return { f, how: how(f), d }; });
++  const table = ['| Suite | How `run-all` runs it | What it covers |', '| --- | --- | --- |',
++    ...rows.map(r => `| \`${r.f}\` | ${r.how} | ${r.d.text.replace(/\|/g, '\\|')} |`)].join('\n');
++  return { rows, table };
++};
++// B-69: a Codex branch's review starts the same way every time (test/tools/review-branch.js)
++if (process.argv.includes('--review')) {
++  const r = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'tools', 'review-branch.js'), ...process.argv.slice(2).filter(a => a !== '--review')], { stdio: 'inherit' });
++  process.exit(r.status === null ? 1 : r.status);
++}
++if (process.argv.includes('--list') || process.argv.includes('--readme')) {
++  const { rows, table } = listSuites();
++  if (process.argv.includes('--readme')) {
++    const file = path.join(__dirname, 'README.md'), md = fs.readFileSync(file, 'utf8'), a = '<!-- suites -->', b = '<!-- /suites -->';
++    const block = `${a}\n${table}\n${b}`;
++    fs.writeFileSync(file, md.includes(a) ? md.replace(new RegExp(a + '[\\s\\S]*?' + b), block) : md.trimEnd() + '\n\n## Every suite\n\nWritten by `node test/run-all.js --readme`.\n\n' + block + '\n');
++  } else console.log(table);
++  const bare = rows.filter(r => !r.d.header).map(r => r.f);
++  if (bare.length) console.log(`\n${bare.length} suite(s) with no header comment (described by their first test): ${bare.join(', ')}`);
++  process.exit(0);
++}
+ const TIMEOUT = (Number(process.env.QA_TIMEOUT) || 900) * 1000;
+ 
+ const findBrowser = () => [process.env.QA_BROWSER, '/opt/pw-browsers/chromium', '/usr/bin/chromium', '/usr/bin/chromium-browser',
+diff --git a/test/savesize.js b/test/savesize.js
+index 9deadab..8341ba7 100644
+--- a/test/savesize.js
++++ b/test/savesize.js
+@@ -110,7 +110,7 @@ test('step 3: a long day is packed, and comes back whole, places and all', () =>
+   assert.equal(saved.history.length, 2, 'the trainee record is kept');
+   const pins = OTR.drive.pins(W.log);
+   assert.equal(pins.length, 40 + 10, 'every driving mistake still has its pin');
+-  assert.deepEqual({ ...pins[1].where }, { x: 1.2, z: -3.2, mph: 32, t: 61 });
++  assert.deepEqual({ ...pins[1].where }, { x: 1, z: -3, mph: 32, t: 61 });     // places to the metre (B-68): under 1.5 px on the map
+   // the 3D world replays what it had reported: nothing counts twice
+   play(longDay(40, 6));
+   assert.equal(W.log.score(), live.score); assert.equal(W.log.items.length, live.items);
+@@ -213,6 +213,40 @@ test('B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, a
+   });
+ });
+ 
++// B-68: C-34's damage and load on top of the worst milestone 8 day, with C-34's own keys (fpdamage.js): damage at three
++// zones (scuff, dent, major), both clearances (one struck), two load shifts, existing damage found at the pre-trip, and
++// each new damage reported at the post-trip
++const damageDay = () => milestone8Day().concat([
++  ['inspect.damage', { key: 'rear-right' }], ['inspect.damage', { key: 'front-left' }],
++  ['van.damage-scuff', { key: 'left:post-1', ok: false, where: { x: 41.2, z: -88.4, mph: 6, t: 610 } }],
++  ['van.damage-dent', { key: 'rear:bollard-2', ok: false, where: { x: -12.6, z: -140.9, mph: 4, t: 1220 } }],
++  ['van.damage-major', { key: 'front:car-3', ok: false, where: { x: 88.1, z: -201.3, mph: 17, t: 1610 } }],
++  ['drive.clearance', { key: 'clearance-0', ok: true, where: { x: 60.4, z: -120.2, mph: 3, t: 900 } }],
++  ['drive.clearance', { key: 'clearance-1-strike', ok: false, where: { x: 102.5, z: -160.7, mph: 9, t: 1400 } }],
++  ['load.shift', { key: 'load-2', ok: false, where: { x: 30.3, z: -99.1, mph: 22, t: 700 } }],
++  ['load.shift', { key: 'load-4', ok: false, where: { x: 70.8, z: -180.6, mph: 24, t: 1500 } }],
++  ['trip.damage-report', { key: 'left', ok: true }], ['trip.damage-report', { key: 'rear', ok: true }], ['trip.damage-report', { key: 'front', ok: false }]
++]);
++
++test('B-68: C-34\'s damage and load on the worst milestone 8 day still pack with room to spare', () => {
++  asScorm(false);
++  heavy({ runs: 2, scenarios: 4 });
++  W.start(null);
++  const list = damageDay();
++  play(list);
++  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
++  assert.equal(lms.refused, 0, 'the LMS never refused a save');
++  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
++  const room = SAVE.SCORM12_LIMIT - JSON.stringify(stored()).length;
++  // 324 when written (B-68): richer stops (C-33) add about 60 for five stops of intercoms, receptions, lockers and reattempts
++  assert.ok(room >= 300, `room left under the ${SAVE.SCORM12_LIMIT}-character limit with C-34's damage too: ${room}`);
++  reload(); W.resume(null);
++  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
++  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every damage, strike and shift keeps its pin');
++  const marks = OTR.drive.pins(W.log).map(p => p.mark).filter(Boolean);
++  ['damage', 'clearance', 'load'].forEach(m => assert.ok(marks.includes(m), m + ' has its own pin shape'));
++});
++
+ test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
+   const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
+   const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });
+diff --git a/test/tools/review-branch.js b/test/tools/review-branch.js
+new file mode 100644
+index 0000000..dadc742
+--- /dev/null
++++ b/test/tools/review-branch.js
+@@ -0,0 +1,101 @@
++#!/usr/bin/env node
++/*
++ * B-69: the same first steps for every review of a Codex branch. Merges the branch into the current origin/pilot in a
++ * scratch worktree (never touching yours), then runs every Node suite (test/run-all.js), lists the text that still needs
++ * translating (in any of the 11 languages, after data/i18n/not-text.json), and plays the five workday flows at Low.
++ * Prints one summary; the merge commit stays in the worktree for the reviewer to translate, fix and push.
++ *
++ *   node test/tools/review-branch.js codex/c34-damage-load        (or: node test/run-all.js --review <branch>)
++ *   --no-flows   skip the workday flows (about 25 minutes)
++ *   --continue   after resolving a conflicted merge in the worktree and committing it: run the checks there again
++ * The worktree is ../otr-review-<branch name> next to the repository, and the missing text goes to
++ * test/out/review-<name>/missing.json there (the shape the translation helpers take: { strings, templates }).
++ */
++'use strict';
++const fs = require('fs');
++const path = require('path');
++const cp = require('child_process');
++
++const ROOT = path.resolve(__dirname, '..', '..');
++const args = process.argv.slice(2);
++const branch = args.find(a => !a.startsWith('--'));
++if (!branch) { console.error('usage: node test/tools/review-branch.js <branch> [--no-flows] [--keep]'); process.exit(2); }
++const name = branch.replace(/^origin\//, '').replace(/[^\w.-]+/g, '-');
++const WT = path.resolve(ROOT, '..', `otr-review-${name}`);
++const git = (a, o) => cp.execFileSync('git', a, Object.assign({ cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }, o || {}));
++const steps = [];
++const step = (what, ok, detail) => { steps.push({ what, ok, detail }); console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}${detail ? ': ' + detail : ''}`); };
++
++// what test/i18n.js treats as an id rather than text (kept the same as its own rule)
++const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s) || /^\|otr-[a-z0-9-]+$/.test(s);
++
++/** Text in the catalogue that some language has no translation for (as test/i18n.js counts it). */
++function missingText(dir) {
++  const cat = JSON.parse(fs.readFileSync(path.join(dir, 'data', 'i18n', 'catalogue.json'), 'utf8'));
++  const notText = new Set(JSON.parse(fs.readFileSync(path.join(dir, 'data', 'i18n', 'not-text.json'), 'utf8')));
++  const strings = new Set(), templates = new Set();
++  for (const lang of ['es', 'fr', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa']) {
++    const w = {}; new Function('window', fs.readFileSync(path.join(dir, 'data', 'i18n', lang + '.js'), 'utf8'))(w);
++    const L = w.OTR_I18N[lang], have = new Set(Object.keys(L.strings)), haveT = new Set((L.templates || []).map(t => t[0].trim())), keep = new Set(L.keep || []);
++    cat.strings.forEach(s => { if (!have.has(s) && !have.has(s.trim()) && !keep.has(s) && !notText.has(s) && !idlike(s)) strings.add(s); });
++    cat.templates.forEach(t => { if (!haveT.has(t.trim()) && !idlike(t.replace(/\{\d+\}/g, '0'))) templates.add(t); });
++  }
++  return { strings: [...strings], templates: [...templates] };
++}
++
++const run = (cmd, a, env, log) => {
++  const r = cp.spawnSync(cmd, a, { cwd: WT, env: Object.assign({}, process.env, env || {}), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
++  if (log) fs.writeFileSync(log, (r.stdout || '') + (r.stderr || ''));
++  return r;
++};
++
++(() => {
++  git(['fetch', '-q', 'origin']);
++  const ref = branch.startsWith('origin/') ? branch : 'origin/' + branch;
++  const ahead = git(['rev-list', '--count', `origin/pilot..${ref}`]).trim();
++  console.log(`${ref}: ${ahead} commit(s) not in pilot; worktree ${WT}\n`);
++  const again = args.includes('--continue');
++  if (again) {
++    const open = cp.spawnSync('git', ['diff', '--name-only', '--diff-filter=U'], { cwd: WT, encoding: 'utf8' }).stdout.trim();
++    const merged = cp.spawnSync('git', ['merge-base', '--is-ancestor', ref, 'HEAD'], { cwd: WT }).status === 0;
++    if (!fs.existsSync(WT) || open || !merged) { console.error(`--continue needs ${WT} with the merge resolved and committed`); process.exit(2); }
++  } else {
++    if (fs.existsSync(WT)) { try { git(['worktree', 'remove', '--force', WT]); } catch (e) { fs.rmSync(WT, { recursive: true, force: true }); git(['worktree', 'prune']); } }
++    git(['worktree', 'add', '-q', '--detach', WT, 'origin/pilot']);
++  }
++  const nm = path.join(ROOT, 'test', 'node_modules');
++  if (fs.existsSync(nm) && !fs.existsSync(path.join(WT, 'test', 'node_modules'))) fs.symlinkSync(nm, path.join(WT, 'test', 'node_modules'));
++  const merge = again ? { status: 0 } : cp.spawnSync('git', ['merge', '--no-edit', '-q', ref], { cwd: WT, encoding: 'utf8' });
++  if (merge.status !== 0) {
++    const conflicts = cp.spawnSync('git', ['diff', '--name-only', '--diff-filter=U'], { cwd: WT, encoding: 'utf8' }).stdout.trim().split('\n').filter(Boolean);
++    step('merge into pilot', false, `${conflicts.length} file(s) in conflict: ${conflicts.join(', ')} (resolve them in the worktree and commit, then run this again with --continue)`);
++    process.exit(1);
++  }
++  step('merge into pilot', true, git(['rev-parse', '--short', 'HEAD'], { cwd: WT }).trim());
++  const OUT = path.join(WT, 'test', 'out', `review-${name}`);
++  fs.mkdirSync(OUT, { recursive: true });
++
++  run(process.execPath, ['test/tools/i18n-extract.js']);
++  const miss = missingText(WT);
++  fs.writeFileSync(path.join(OUT, 'missing.json'), JSON.stringify(miss, null, 1));
++  step('text to translate', !miss.strings.length && !miss.templates.length, `${miss.strings.length} line(s), ${miss.templates.length} template(s)` +
++    (miss.strings.length ? ` → test/out/review-${name}/missing.json (e.g. ${JSON.stringify(miss.strings.slice(0, 3))})` : ''));
++
++  const suites = run(process.execPath, ['test/run-all.js'], {}, path.join(OUT, 'run-all.log'));
++  const last = (suites.stdout || '').trim().split('\n').pop();
++  step('every Node suite', suites.status === 0, last + (suites.status ? ` (logs: test/out/run-all/ in the worktree)` : ''));
++
++  if (!args.includes('--no-flows')) {
++    const flows = run(process.execPath, ['test/qa.js', '--only', 'workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review'],
++      { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)),
++        QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'flows.log'));
++    const clean = /(\d+)\/(\d+) scenarios clean/.exec(flows.stdout || '');
++    step('the five workday flows at Low', flows.status === 0, clean ? clean[0] : 'see flows.log');
++  }
++
++  const bad = steps.filter(s => !s.ok);
++  console.log(`\n${steps.length - bad.length} of ${steps.length} review steps passed for ${ref}.` +
++    (bad.length ? ` Next: ${bad.map(s => s.what).join(', ')}. The merge is in ${WT}.` : ` Translate, update the board, then push from ${WT}.`));
++  if (!bad.length) console.log('(the worktree stays for the board and the push: give it a branch with git switch -c, and remove it afterwards with git worktree remove ' + WT + ')');
++  process.exit(bad.length ? 1 : 0);
++})();
+diff --git a/test/trainerkeysbrowser.js b/test/trainerkeysbrowser.js
+new file mode 100644
+index 0000000..76b2423
+--- /dev/null
++++ b/test/trainerkeysbrowser.js
+@@ -0,0 +1,89 @@
++#!/usr/bin/env node
++/*
++ * B-62: the trainer's dialogs from the keyboard alone. On the trainer screen, Tab reaches "3D workday aids…" and Enter
++ * opens it; in the dialog Tab reaches every choice and Done, Enter picks one, and Escape closes it. New account takes
++ * the employee ID and then the name from the keyboard; Escape leaves it. The temporary-password card closes with Enter
++ * and with Escape. No mouse is used. The page is told it is on a training server with accounts (no server is needed:
++ * the trainee list just fails to load).
++ *
++ *   QA_BROWSER=/path/to/chrome node test/trainerkeysbrowser.js         (QA_LANG=ta to run it in another language)
++ */
++'use strict';
++const path = require('path');
++const pp = require('puppeteer-core');
++const BROWSER = process.env.QA_BROWSER || '/opt/pw-browsers/chromium';
++const LANG = process.env.QA_LANG || '';
++const URL = 'file://' + path.resolve(__dirname, '..', 'index.html') + '?user=keys&name=Sam%20Lee' + (LANG ? `&lang=${LANG}&dev=1` : '');
++const wait = (ms) => new Promise(r => setTimeout(r, ms));
++let checks = 0;
++const fails = [];
++const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) fails.push(what); };
++
++(async () => {
++  const b = await pp.launch({ executablePath: BROWSER, headless: 'new', args: ['--no-sandbox', '--allow-file-access-from-files', '--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
++  const errors = [];
++  try {
++    const p = await b.newPage();
++    await p.setViewport({ width: 1280, height: 720 });
++    p.on('pageerror', e => errors.push(e.message));
++    const ev = (f, ...a) => p.evaluate(f, ...a);
++    const until = async (src, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { if (await p.evaluate(src).catch(() => false)) return true; await wait(150); } return false; };
++    const key = async (k, n) => { for (let i = 0; i < (n || 1); i++) { await p.keyboard.press(k); await wait(120); } };
++    // the English of what the focus ring is on (a button's label), or null
++    const ring = () => ev(() => { const s = OTR.game.scene.getScene('TrainerScene'), f = s._focusOn, c = f && f.current && f.current(); return c && c.label ? OTR.i18n.src(c.label) : null; });
++    const modals = () => ev(() => (OTR.game.scene.getScene('TrainerScene')._modalStack || []).filter(m => m.active).length);
++    // Tab until the ring is on a control whose English matches; true if it got there
++    const tabTo = async (re, max) => { for (let i = 0; i < (max || 40); i++) { await key('Tab'); const at = await ring(); if (at && re.test(at)) return true; } return false; };
++    await p.goto(URL);
++    if (!(await until(`OTR.game.scene.isActive('TitleScene')`, 20000))) throw new Error('the title never opened');
++    const trainer = async () => {
++      await ev(() => { OTR.identity.mode = 'server'; OTR.identity.accounts = true; const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('TrainerScene', {}); });
++      if (!(await until(`OTR.game.scene.isActive('TrainerScene')`, 15000))) throw new Error('the trainer screen never opened');
++      await wait(900);
++    };
++    await trainer();
++
++    // 3D workday aids: open, every control reachable, pick "Off" for the sat nav, Done, then Escape on a second opening
++    check(await tabTo(/^3D workday aids/), 'Tab reaches "3D workday aids…" on the trainer screen');
++    await key('Enter'); await wait(500);
++    check(await modals() === 1, 'Enter opens the aids dialog');
++    const seen = new Set();
++    for (let i = 0; i < 20; i++) { await key('Tab'); const at = await ring(); if (at) seen.add(at + '#' + i); }
++    const labels = new Set([...seen].map(x => x.split('#')[0]));
++    ['Fade by day', 'Full', 'Light', 'Off', 'Turn by turn', 'Route line', 'Optional', 'Required', 'On', 'Done'].forEach(l => check(labels.has(l), `Tab reaches "${l}" in the aids dialog`));
++    // the sat nav's "Off" is the 8th control in reading order (four assists, then Fade by day, Turn by turn, Route line, Off)
++    let picked = false;
++    for (let i = 0; i < 20 && !picked; i++) {
++      await key('Tab');
++      const ok = await ev(() => { const s = OTR.game.scene.getScene('TrainerScene'), c = s._focusOn && s._focusOn.current(); return !!(c && c.key === 'satnav' && c.val === 'off'); });
++      if (ok) { await key('Enter'); picked = true; }
++    }
++    check(picked && await ev(() => OTR.game.scene.getScene('TrainerScene').draft.workday.satnav === 'off'), 'Enter on the sat nav\'s "Off" sets it in the rules being edited');
++    check(await tabTo(/^Done$/) && (await key('Enter'), await wait(500), await modals()) === 0, 'Done closes the dialog from the keyboard');
++    await tabTo(/^3D workday aids/); await key('Enter'); await wait(500);
++    await key('Escape'); await wait(500);
++    check(await modals() === 0, 'Escape closes the aids dialog');
++
++    // New account: employee ID, then the name, all typed; Escape leaves the second step
++    check(await tabTo(/^New account$/), 'Tab reaches "New account"');
++    await key('Enter'); await wait(500);
++    check(await modals() === 1, 'Enter opens the employee ID entry');
++    await p.keyboard.type('e2077'); await key('Enter'); await wait(700);
++    const second = await ev(() => { const st = (OTR.game.scene.getScene('TrainerScene')._modalStack || []).filter(m => m.active); return st.length === 1; });
++    check(second, 'Enter on the ID moves on to the name');
++    await p.keyboard.type('Pat Okafor'); await wait(200);
++    await key('Escape'); await wait(500);
++    check(await modals() === 0, 'Escape leaves the name step without creating anything');
++
++    // the temporary password: Enter closes it; Escape closes it too
++    for (const k of ['Enter', 'Escape']) {
++      await ev(() => OTR.game.scene.getScene('TrainerScene').showTemp({ id: 'e2077', name: 'Pat Okafor', tempPassword: 'cedar-lantern-31' }));
++      await wait(500);
++      await key(k); await wait(500);
++      check(await modals() === 0, `${k} closes the temporary-password card`);
++    }
++    check(!errors.length, 'no page errors ' + errors.slice(0, 2).join(' | '));
++  } finally { await b.close(); }
++  console.log(fails.length ? `\n${fails.length} of ${checks} keyboard checks failed` : `\n${checks} trainer keyboard checks passed`);
++  process.exit(fails.length ? 1 : 0);
++})().catch(e => { console.error(e); process.exit(1); });

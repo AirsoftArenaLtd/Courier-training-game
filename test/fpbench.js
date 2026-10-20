@@ -32,6 +32,8 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.goto(BASE+'/first-person.html?gfx='+GFX);
   await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});
   if(process.env.QA_NAV==='1'){report.navigationFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpNav.prepare(OTR.fpSigns.prepare(plan)):plan);};});}
+  if(process.env.QA_TRAFFIC==='1')await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpTraffic.prepare(plan):plan);};});
+  if(process.env.QA_DAMAGE==='1'){report.damageFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpDamageFlow.prepare(plan):plan);};});}
   if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(22);if(s.navText){s.navText.setFontSize(21);s.soundCue.setFontSize(21);s.controls.setFontSize(22);s.help.setFontSize(22);}}},report.accessibility);
@@ -51,7 +53,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     if(now-start<10000)return;
     OTR.game.events.off('step',onFrame);frames.sort((a,b)=>a-b);const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,worst=frames.slice(Math.floor(frames.length*.99));
     resolve({frames:frames.length,avgFPS:+(1000/mean(frames)).toFixed(2),low1FPS:+(1000/mean(worst)).toFixed(2),p99ms:+frames[Math.floor(frames.length*.99)].toFixed(2),maxMs:+frames[frames.length-1].toFixed(2),peak,target:d&&{width:d.targetWidth,height:d.targetHeight},contextLost:OTR.game.renderer.gl.isContextLost()});};OTR.game.events.on('step',onFrame);}));
-   value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene('FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical,rearCamera:!!v.rearCamera,reversing:!!v.rearOn};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
+   value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene('FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical,rearCamera:!!v.rearCamera,reversing:!!v.rearOn};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});
+   if(['damagebridge','damageoverhang','damagereverseclearance'].includes(name))value.clearanceAlert=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),b=s.soundCue.getBounds();return {text:s.soundCue.text,visible:s.soundCue.visible&&s.soundCue.alpha>0,reverse:s.view.mirror.rearOn,bounds:{x:b.x,y:b.y,right:b.right,bottom:b.bottom}};});
+   console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
   };
   const lookAtTarget=async id=>p.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors)return false;s.target=null;for(let n=0;n<32;n++)if(OTR.fpAccess.focus(s)===id){s.notice='';s.refresh();return true;}throw Error('Benchmark target is unreachable: '+id);},id);
   const probeMirror=async(index,name)=>{
@@ -189,6 +193,23 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     else{const j=m.junctions[0];Object.assign(m.van,{x:j.x+2.5,z:j.z+17,yaw:0,look:0});}
     s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
    },kind);await sample('signs'+kind);
+  }
+  if(process.env.QA_DAMAGE==='1')for(const kind of ['front','rear','left','right','cargo','bridge','overhang','mirror','reverseclearance']){
+   const proof=await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4,7))));plan.timeOfDay='midday';
+    const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
+    for(const zone of OTR.fpDamage.zones)OTR.fpDamage.contact(m.damage,zone,'solid',8);
+    OTR.fpDamage.shift(m.damage,0,{secured:false,count:6,lateral:8,braking:8});for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);
+    m.phase='route';m.departed=m.secured=true;OTR.fpLater.depart(m);m.paused=false;m.step=()=>{};m.events[m.briefKey]=true;m.workdayRules={satnav:'full',damage:true};
+    Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,gear:1,belt:true,hand:true,look:0});m.mode='walk';
+    const pose=kind==='front'?[0,-7,Math.PI]:kind==='left'?[-6,0,Math.PI/2]:kind==='right'?[6,0,-Math.PI/2]:[0,7,0],point=OTR.fp.local(m.van,pose[0],pose[1]);Object.assign(m.player,{...point,yaw:pose[2],pitch:-.08});
+    if(kind==='cargo')m.cargoOpen=true;
+    if(kind==='bridge'||kind==='overhang'){const b=m._damageClearances[kind==='bridge'?0:1];Object.assign(m.van,{x:b.x+2.5,z:b.z+12,yaw:0});m.mode='cab';}
+    if(kind==='reverseclearance'){const b=m._damageClearances[0];Object.assign(m.van,{x:b.x,z:b.z+12,yaw:Math.PI,gear:-1});m.mode='cab';}
+    if(kind==='mirror')m.mode='cab';s.model=m;s.area='route';s.notice='';s.target=null;s.rebuildWorld();s.sync();s.refresh();
+    return {marker:m.routePlan.damage,valid:OTR.fpDamage.valid(m.damage),zones:m.damage.added.filter(Boolean).length,clearances:m._damageClearances.length,instances:s.art.damage.entries.length,shift:m.damage.loadX};
+   },kind);report.damageProof=report.damageProof||{};report.damageProof['damage'+kind]=proof;
+   if(kind==='mirror')await lookAtTarget('mirror-left');await sample('damage'+kind);
   }
   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){
    await p.evaluate(kind=>{

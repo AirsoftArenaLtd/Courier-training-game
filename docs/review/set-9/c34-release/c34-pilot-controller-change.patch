@@ -1,0 +1,54 @@
+diff --git a/src/core/fpdamageflow.js b/src/core/fpdamageflow.js
+index c6e43f1..2895208 100644
+--- a/src/core/fpdamageflow.js
++++ b/src/core/fpdamageflow.js
+@@ -64,11 +64,11 @@ OTR.fpDamageFlow={
+     m.log(id,'driving',event.ok?'good':'needs',text);
+     m.dayNotice=text;
+     if(OTR.workday)OTR.workday.report(event.type,{key:event.key,stop:m.phase==='route'?m.activeStop+1:undefined,ok:event.ok,
+-      where:{x:m.van.x,z:m.van.z,mph:Math.abs(speed)*2.2369362921}});
++      where:event.ok?undefined:{x:m.van.x,z:m.van.z,mph:Math.abs(speed)*2.2369362921}});
+     return true;
+   },
+   zone(m,box){
+-    const v=m.van,F=OTR.fp,w=box.w||1.8,d=box.d||3.6,px=F.clamp(v.x,box.x-w/2,box.x+w/2)-v.x,pz=F.clamp(v.z,box.z-d/2,box.z+d/2)-v.z;
++    const v=m.van,F=OTR.fp,sideways=Math.abs(Math.sin(box.yaw||0))>.7,w=box.w||(sideways?3.6:1.8),d=box.d||(sideways?1.8:3.6),px=F.clamp(v.x,box.x-w/2,box.x+w/2)-v.x,pz=F.clamp(v.z,box.z-d/2,box.z+d/2)-v.z;
+     const x=Math.cos(v.yaw)*px+Math.sin(v.yaw)*pz,z=-Math.sin(v.yaw)*px+Math.cos(v.yaw)*pz;
+     if(box.h>0&&box.h<=.65)return 'wheel';
+     if(Math.abs(x)/1.08>Math.abs(z)/2.7)return box.h>=1.55&&box.h<=2.35&&z< -1.1?'mirror':x<0?'left':'right';
+@@ -78,7 +78,8 @@ OTR.fpDamageFlow={
+   nearContact(m){
+     const p=m._damageProximity;
+     for(let set=0;set<2;set++)for(const b of (set?m.traffic:m.solids)){
+-      p.x=b.x;p.z=b.z;p.w=(b.w||1.8)+.4;p.d=(b.d||3.6)+.4;
++      const sideways=set&&Math.abs(Math.sin(b.yaw||0))>.7;
++      p.x=b.x;p.z=b.z;p.w=(b.w||(sideways?3.6:1.8))+.4;p.d=(b.d||(sideways?1.8:3.6))+.4;
+       if(OTR.fp.vanBox(m.van,p))return true;
+     }
+     for(const b of m._damageClearances){p.x=b.x;p.z=b.z;p.w=b.w+.4;p.d=b.d+.4;if(OTR.fp.vanBox(m.van,p))return true;}
+diff --git a/test/fpdamageflow.js b/test/fpdamageflow.js
+index a03d06f..f7be732 100644
+--- a/test/fpdamageflow.js
++++ b/test/fpdamageflow.js
+@@ -136,3 +136,21 @@ test('a reverse approach warns and grades a safe halt before a later roof strike
+  Object.assign(m.van,{z:b.z+2.91,speed:-1.5,hand:false});m.step({forward:true},.0125);
+  const e=W.events.filter(e=>e.type==='drive.clearance');assert.equal(e.length,2);assert.equal(e[1].ok,false);assert.equal(e[1].key,'clearance-0-strike');assert.ok(m.damage.added[4]);
+ });
++
++test('a perpendicular traffic impact uses its actual body for the located zone and one contact episode',()=>{
++ const m=make(),car=m.traffic[0];Object.assign(car,{x:m.van.x+2.6,z:m.van.z-3.6,yaw:Math.PI/2,speed:0});
++ m.step({forward:true},.0125);assert.equal(damage().length,1);assert.equal(damage()[0].key,'front:traffic-1');
++ assert.equal(F.nearContact(m),true,'the van remains near the actual side-on car body after collision rollback');
++ for(let i=0;i<40;i++)m.step({forward:true},.0125);
++ assert.equal(m.damage.source,2);assert.equal(m.damage.serial,1);
++ m.van.speed=3;m.van.hand=false;m.step({forward:true},.0125);assert.equal(damage().length,1,'holding at the same car cannot repeat the penalty');
++ m.van.z+=3;m.van.speed=0;m.van.hand=true;m.step({},.0125);assert.equal(m.damage.source,0);
++ assert.ok(M.restore(plain(m.snapshot())));
++});
++
++test('a successful clearance check keeps its key without an unused map place; a strike retains its place',()=>{
++ const m=make();F.fire(m,D.clearance(m.damage,0,true),0);
++ const passed=W.events.find(e=>e.type==='drive.clearance');assert.equal(passed.ok,true);assert.equal(passed.where,undefined);assert.equal(passed.key,'clearance-0');
++ F.fire(m,D.clearance(m.damage,0,false),3);const failed=W.events.find(e=>e.type==='drive.clearance'&&!e.ok);
++ assert.equal(failed.key,'clearance-0-strike');assert.equal(failed.where.x,2.8);assert.equal(failed.where.z,-15);assert.ok(failed.where.mph>6);
++});

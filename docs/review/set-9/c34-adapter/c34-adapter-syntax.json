@@ -1,0 +1,37 @@
+[
+  {
+    "file": "src/core/firstperson.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpdamage.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpdamageflow.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpmission.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fproute.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpdamageflow.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpresume.js",
+    "exit": 0,
+    "output": ""
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "fee4d72c7f345500c28fc72c5665e54a634d5471",
+  "stages": [
+    {
+      "stage": "damage-low",
+      "exit": 0,
+      "seconds": 72.79,
+      "log": "c34-pilot-final-damage-low.log"
+    },
+    {
+      "stage": "damage-high",
+      "exit": 0,
+      "seconds": 168.88,
+      "log": "c34-pilot-final-damage-high.log"
+    },
+    {
+      "stage": "reverse-en",
+      "exit": 0,
+      "seconds": 13.94,
+      "log": "c34-pilot-final-reverse-en.log"
+    },
+    {
+      "stage": "reverse-ta",
+      "exit": 0,
+      "seconds": 14.11,
+      "log": "c34-pilot-final-reverse-ta.log"
+    },
+    {
+      "stage": "quality",
+      "exit": 0,
+      "seconds": 1965.75,
+      "log": "c34-pilot-final-quality.log"
+    },
+    {
+      "stage": "golden",
+      "exit": 0,
+      "seconds": 487.95,
+      "log": "c34-pilot-final-golden.log"
+    }
+  ],
+  "complete": true
+}

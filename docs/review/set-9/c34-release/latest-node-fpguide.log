@@ -1,0 +1,11 @@
+✔ first morning uses physical controls, marks the card only when begun, and stays reopenable (1.606768ms)
+✔ context hints are once per action type, yield to notices/panels and never change mission state (0.378395ms)
+✔ old checkpoints default safely, and guidance flags survive a local profile round trip (1.801433ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.357593

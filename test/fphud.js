@@ -28,3 +28,21 @@ test('the shared physical screen reads its current navigation or rear-camera con
 test('live safety alerts remain independent of the selected physical control',()=>{
  c.OTR.fpDriving={hint:()=> 'An emergency vehicle is behind you. Signal, pull over to the right and stop.'};c.OTR.fpDay={hint:()=>''};const s={target:'cab-headlights',model:{mode:'cab',kind:'campaign',van:{belt:true}}};assert.match(H.alert(s),/emergency vehicle/);c.OTR.fpDriving.hint=()=>'';s.model.van.belt=false;assert.equal(H.alert(s),'Fasten the seatbelt before moving.');s.model.van.belt=true;c.OTR.fpDay.hint=()=> 'Dispatch has sent a route update.';assert.match(H.alert(s),/Dispatch/);
 });
+test('a low-clearance alert survives routine camera notices without hiding another safety alert',()=>{
+ const warning='The clearance is 8 feet 10 inches. Take another street.';
+ c.OTR.fpDamageFlow={warning:m=>m.damage&&m.damage.enabled?warning:''};
+ c.OTR.fpDriving={hint:()=> 'An emergency vehicle is behind you.'};c.OTR.fpDay={hint:()=>''};
+ const s={notice:'The rear camera is live.',model:{kind:'campaign',mode:'cab',van:{gear:-1,belt:true},damage:{enabled:true}}};
+ assert.match(H.alert(s),/8 feet 10 inches/);assert.match(H.alert(s),/emergency vehicle/);
+ s.notice='';assert.match(H.alert(s),/8 feet 10 inches/,'the warning survives ordinary notice expiry');
+ s.model.damage.enabled=false;assert.equal(H.alert(s),'An emergency vehicle is behind you.');
+ delete s.model.damage;assert.equal(H.alert(s),'An emergency vehicle is behind you.');
+ s.model.damage={enabled:true};s.model.mode='walk';assert.equal(H.alert(s),'');delete c.OTR.fpDamageFlow;
+});
+
+test('cyclist and school warnings reach the live cab caption without opening the handheld',()=>{
+ c.OTR.fpDriving={hint:()=>''};c.OTR.fpDay={hint:()=>''};c.OTR.fpTraffic={hint:()=> 'A cyclist is passing on the right. Check the right mirror and wait before turning.'};
+ const s={model:{mode:'cab',kind:'campaign',van:{belt:true}}};assert.match(H.alert(s),/cyclist/);
+ c.OTR.fpTraffic.hint=()=> 'Children are waiting at the school crossing. Slow down and let them cross.';assert.match(H.alert(s),/Children/);
+ c.OTR.fpDriving.hint=()=> 'Stop for the school bus.';assert.equal(H.alert(s),'Stop for the school bus.');delete c.OTR.fpTraffic;
+});

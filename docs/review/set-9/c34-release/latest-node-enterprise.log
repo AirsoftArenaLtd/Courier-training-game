@@ -1,0 +1,21 @@
+ok   header sign-in: {"mode":"server","id":"jdoe","locked":true,"profile":{"name":"jdoe","id":"jdoe","createdAt":1792502483260}}
+ok   title: signed in, no name entry and no New Profile: ON THE ROUTE | Courier Training Simulator |  |  | Credits | ⏎ | Continue as Jdoe | Day 1 · New Hire · 0 ★ | Signed in as jdoe · progress saved to the training server | Training simulation built on general, publicly available safety and customer-service guidance. It is not a substitute for official p
+ok   progress reached the server
+ok   progress comes back on another PC
+ok   link sign-in: a second trainee starts clean
+ok   two trainees keep separate progress
+ok   trainee list refused without the PIN
+ok   trainee list with the PIN
+ok   server files private; progress needs a sign-in
+ok   SCORM 1.2 learner: {"mode":"scorm","id":"lms042","name":"Sam Rivera"}
+ok   SCORM 1.2 keeps suspend data and reports status (incomplete)
+ok   SCORM 2004 learner: {"mode":"scorm","id":"lms042","name":"Sam Rivera"}
+ok   SCORM 2004 keeps suspend data and reports status (incomplete)
+FAIL script error: Error: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/c34-damage/index.html?user=pat
+    at navigate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:189:27)
+    at async Deferred.race (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:155:25)
+    at async CdpPage.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:580:20)
+    at async /workspace/c34-damage/test/enterprise.js:125:5
+
+1 failed

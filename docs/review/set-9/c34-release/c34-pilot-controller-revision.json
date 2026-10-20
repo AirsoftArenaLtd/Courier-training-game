@@ -1,0 +1,17 @@
+{
+  "renderingRevision": "fee4d72c7f345500c28fc72c5665e54a634d5471",
+  "controllerRevision": "0864c48ccbe15dd3415f2dcb7c2fa76d45f029a6",
+  "changedRuntimeFiles": [
+    "src/core/fpdamageflow.js"
+  ],
+  "changes": [
+    "Use oriented perpendicular-car bounds in zone and nearContact.",
+    "Omit where on a successful clearance check."
+  ],
+  "newAdapterChecks": 22,
+  "affectedControllerTrafficMissionWorkdaySaveCases": 150,
+  "finalAdapterWorkdaySaveCases": 61,
+  "renderGeometryAssetsHudCheckpointFieldsChanged": false,
+  "canonicalReviewRevision": "2faa0749b6d5027eb84ea8b8a568e94fea8ac828",
+  "reviewTreeEqualsOriginalControllerTree": true
+}

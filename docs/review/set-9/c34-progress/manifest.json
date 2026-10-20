@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-19",
+  "status": "Doing; pure controller only, not loaded by index.html. No visual/performance or finished-task claim.",
+  "sourceRevision": "a2d5dac37aaa5c7e3eea3051297eb254848dafae",
+  "basePilot": "370fd59400b1024ea80c49862b2ad0eff6fc3fdc",
+  "nodeTests": 110,
+  "damageTests": 14,
+  "command": "node --test --test-isolation=none test/fpdamage.js test/fpmission.js test/fpworld.js test/workday.js test/savesize.js",
+  "sourceFiles": {
+    "src/core/fpdamage.js": "b5eeac7d85776531d5551c59148adfa5127e2ff5d3c3a2f43f865d315d95c3f8",
+    "test/fpdamage.js": "3dfd91f3f113e05d7aa7232aa47a1804aca80c68156931d8e872962114116950",
+    "index.html": "3c4446ec7ab7fe877b50294b71082444569f42f092accfed4fb97d4238967cc9",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "src/core/save.js": "64156077a6ac1538dae0e3cdcc602a1df56fa0136321ea0be62c173d2f77607e"
+  },
+  "evidenceFiles": {
+    "c34-foundation-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c34-foundation-node.log": "e137c9b14c2416976e690709cb67e4b2451e237c411213b3d7c1ac49bd14df51",
+    "c34-syntax.json": "b052a992d2a82b9cd4db69ef2dfaedef2bd4840f8255a333ae7a700a97248b90"
+  },
+  "remaining": [
+    "Real motor/static/traffic/clearance contact adapters",
+    "Owned mission snapshot/restore integration",
+    "Trainer rules at launch/resume/Settings",
+    "Located scuffs/dents and cargo presentation",
+    "Physical low bridges/overhangs with signed approaches and safe detours",
+    "New-campaign marker and old-save compatibility",
+    "C-35 damage-report integration contract",
+    "Combined Low geometry and four-profile WebGL gates",
+    "Accessibility, narrative, browser/recovery/resume/SCORM journeys",
+    "Screenshots and clip",
+    "Claude translation and native Intel O-1"
+  ]
+}

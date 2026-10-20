@@ -1,0 +1,28 @@
+{
+  "files": [
+    "src/core/firstperson.js",
+    "src/core/fpbranding.js",
+    "src/core/fpdamage.js",
+    "src/core/fpdamageflow.js",
+    "src/core/fpdamageworld.js",
+    "src/core/fpmission.js",
+    "src/core/fpnav.js",
+    "src/core/fproute.js",
+    "src/core/fpsigns.js",
+    "src/core/fpworld.js",
+    "src/scenes/FirstPersonScene.js",
+    "test/fpbench.js",
+    "test/fpdamage.js",
+    "test/fpdamageassets.js",
+    "test/fpdamagebrowser.js",
+    "test/fpdamageflow.js",
+    "test/fpdamagereversebrowser.js",
+    "test/fpdamageworld.js",
+    "test/fpquality.js",
+    "test/fpqualitygate.js",
+    "test/fpresume.js",
+    "test/fproute.js"
+  ],
+  "checks": 22,
+  "passed": true
+}

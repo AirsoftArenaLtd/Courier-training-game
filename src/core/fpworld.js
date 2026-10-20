@@ -331,6 +331,7 @@ OTR.fpWorld = {
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions):null;
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
+    const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -340,9 +341,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
-        const geometries=new Set();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
       },
@@ -383,6 +384,11 @@ OTR.fpWorld = {
           let parcelCount=0;m.parcels.forEach((p,i)=>{
             const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
             if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
+            if(point&&m.damage&&m.damage.enabled&&p.location.startsWith('slot')){
+              const dx=m.damage.loadX*.03,dz=m.damage.loadZ*.035;
+              mesh.position.x+=Math.cos(v.yaw)*dx-Math.sin(v.yaw)*dz;mesh.position.z+=Math.sin(v.yaw)*dx+Math.cos(v.yaw)*dz;
+              mesh.rotation.y+=m.damage.loadX*.04;
+            }
             const entry=parcelEntries[i];entry.visible=mesh.visible;
             if(mesh.visible){mesh.updateMatrix();entry.sphere.copy(parcelGeometry.boundingSphere).applyMatrix4(mesh.matrix);parcelBatch.setMatrixAt(parcelCount++,mesh.matrix);}
           });
@@ -432,6 +438,7 @@ OTR.fpWorld = {
         }
         if(mirrors)mirrors.sync(model,area);
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
+        if(damage&&model&&!inHub)damage.sync(model);
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
@@ -469,10 +476,11 @@ OTR.fpWorld = {
     };
     // Reflection passes cull individual fixed instances, then restore the main-view buffers exactly.
     const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
-    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}]),cullMain=!OTR.gfx.high();
+    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}],damage?[damage]:[]),cullMain=!OTR.gfx.high();
     const compact=(batch,frustum,main=false,cx=0,cz=0)=>{
       const mesh=batch.mesh;let count=0;
       for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;
+        if(main&&entry.damageVan&&model.mode==='cab')continue;
         if(entry.sign&&!entry.signChosen)continue;
         if(entry.town&&(mesh.userData.fpAsset?!entry.town.selected:townArt&&!townArt.fallback(entry)))continue;
         if(main&&entry.visible===undefined&&(entry.bounded||Math.max(Math.abs(e[0]),Math.abs(e[10]))<=20)&&(e[12]-cx)**2+(e[14]-cz)**2>=sceneryRadius*sceneryRadius)continue;
