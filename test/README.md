@@ -19,6 +19,8 @@ anything failed, so it can gate a release.
 new suite is included without editing anything); `--browser` adds the browser suites. It serves the game itself on a
 free port (`QA_BASE`), finds the installed Chromium (`QA_BROWSER`), runs suites that open a page one at a time, and
 prints one pass/fail table; logs go to `test/out/run-all/`. Name words to run some of them: `node test/run-all.js fpnav`.
+`node test/run-all.js --list` prints every suite with how it runs and what it covers; `--readme` rewrites the table
+at the end of this file ("Every suite"), so run it when you add a suite.
 
 The 3D model checks include `node test/fpdoors.js`: generated doorstep requirements, signatures, photo-ID decisions, wrong-address exceptions, physical gates/residents, customer responses, path hazards and optional checkpoints. With the game served on `QA_BASE` (default `http://127.0.0.1:8302`), `node test/fpdoorsbrowser.js` exercises real gate raycasts, signature completion/cancellation, ID panels, handheld outcomes and Shift walking in English/Tamil at both text sizes. `test/fproutebrowser.js` completes the five-stop route with those required checks before each delivery. These position fixtures skip the long walks and drives. The doorstep suite also writes `test/out/fp-review/c9-seeded-ui.json`: 16 seeded runs in English and larger Tamil use real keyboard choices, a physical doorstep barcode scan/contact, all five photo-ID variants, wrong-label retention, a customer handover and E to clear a movable path hazard. Fixture setup supplies the held parcel and skips travel; the UI actions and reports are exercised normally. Layout checks include body/choice overlap and exclude transparent button-art padding.
 
@@ -151,3 +153,105 @@ the second, human-style review; the brief its testers followed is `docs/review/B
 
 Content validation runs separately from the suite: open `index.html?dev=1` and check the console, or call
 `OTR.debug.validate()`.
+
+## Every suite
+
+Written by `node test/run-all.js --readme`.
+
+<!-- suites -->
+| Suite | How `run-all` runs it | What it covers |
+| --- | --- | --- |
+| `a11y-screens.js` | browser (--browser) | The screens no scenario reaches, with larger text and the color filter on (Settings → Accessibility): results after a drive with mistakes, the drive map, the… |
+| `academy.js` | opens a page | Academy rules, assessments, trainer tools and the trainee record (src/core/academy.js, src/core/record.js, TrainerScene, RecordScene). |
+| `aids.js` | Node | The trainer's 3D workday aids (board task A-21, src/core/academy.js): defaults, what a saved setting may hold, and what the 3D world gets for each workday nu… |
+| `art.js` | opens a page | The image pipeline (src/core/assets.js, test/tools/pack-art.js): images in assets/img/ are packed, and the game draws them in place of the drawn art, at the … |
+| `assets.js` | Node | The 3D asset rules in docs/ASSETS.md (assets/3d/; the 2D art in assets/img has its own pipeline): every shipped file is listed in assets/3d/manifest.json wit… |
+| `auth.js` | Node | Employee ID and password sign-in (server/auth.js, and its API in server/server.js), in Node with no browser. |
+| `credits.js` | Node | The asset credits (board task B-28): data/credits.js and docs/ASSETS.md list every pack in assets/3d/manifest.json with its author, a CC0 licence and where i… |
+| `data.js` | Node | Trainee data on the training server (docs/DATA.md): a trainer can download everything held about one trainee and can erase all of it (progress, every backup,… |
+| `drivemapbrowser.js` | browser (--browser) | The 3D workday's drive map with every kind of milestone 8 mistake on it (road signs, a red light, a wrong turn, a cyclist, damage, a low bridge, a shifted lo… |
+| `driving.js` | opens a page | The driving rules added with the drive aids (src/scenes/shift/driveAids.js) and the stop-sign rules, checked in the town lab (index.html?lab=town) with the v… |
+| `enterprise.js` | opens a page | Enterprise sign-in and progress storage (src/core/identity.js, src/core/save.js, server/server.js). |
+| `firstperson.js` | Node | Renderer-free prototype checks. |
+| `fpaccess.js` | Node | Keyboard aim, physical target selection and persisted comfort preferences. |
+| `fpaccessbrowser.js` | browser (--browser) | Keyboard-only route. |
+| `fpaccesslayout.js` | browser (--browser) | 3D layouts: QA_LANGS accepts language codes; QA_FONT=noto selects installed script-specific review fonts. |
+| `fpactors.js` | Node | Real rigs, ordinary animated geometry, physical targets, fallback and state ownership. |
+| `fpactorsbrowser.js` | browser (--browser) | Rendered actor/door proof and real-key interaction. |
+| `fpassets.js` | Node | (first test) the real vendored loader selects Low and High and parses the bundled CC0 variants |
+| `fpassetsbrowser.js` | browser (--browser) | Actual local loader, rendered variants, failure recovery, restart ownership and loading layouts. |
+| `fpbench.js` | own command | Unmodified ?bench=1 plus raw-frame samples of the first-person prototype. |
+| `fpbranding.js` | Node | Theme values, world materials and moving/facing company labels without a GPU. |
+| `fpbrandingbrowser.js` | browser (--browser) | Two complete company skins, one bounded local logo, and real screen pixels. |
+| `fpbriefbrowser.js` | browser (--browser) | Dispatch-only layout and workflow audit; uses the actual game, at both text sizes. |
+| `fpbrowser.js` | browser (--browser) | Browser integration: real keys/scans/raycasts; position fixtures skip repetitive walking between tasks. |
+| `fpcab.js` | Node | Physical cab, safe drivetrain selection, scoring identity and legacy checkpoint compatibility. |
+| `fpcabbrowser.js` | browser (--browser) | Real keyboard target selection and action keys, including larger/Tamil layouts and a saved-control reload. |
+| `fpcamera.js` | Node | (first test) the first view matches the existing eye and is reused without touching saved mission state |
+| `fpcamerabrowser.js` | browser (--browser) | Real-key camera feel, physical dashboard anchoring, accessibility and approved trainer rules on resume. |
+| `fpday.js` | Node | Day-specific physics, dispatch actions and compatibility without a browser. |
+| `fpdaybrowser.js` | browser (--browser) | Weather rendering and the actual safe handheld/updated-delivery workflow. |
+| `fpdoors.js` | Node | Real doorstep requirements, choices, physical barriers and optional checkpoints. |
+| `fpdoorsbrowser.js` | browser (--browser) | Doorstep UI, real raycasts, signature completion/cancellation and safe outcomes. |
+| `fpdrivebrowser.js` | browser (--browser) | Driving HUD: actual Phaser layout, English/Tamil and both accessibility text sizes. |
+| `fpdriving.js` | Node | Live driving observations, hazard outcomes and checkpoint continuity. |
+| `fpdrivingbrowser.js` | browser (--browser) | Real hazard meshes, walk/cab interactions and readable safety prompts. |
+| `fpdynamicsbrowser.js` | browser (--browser) | Real keyboard driving, a recorded manoeuvre, and rendered suspension. |
+| `fpguide.js` | Node | First-time guidance state, saved migrations and hints that do not change the mission. |
+| `fpguidebrowser.js` | browser (--browser) | Real keys through first-morning help, every guide page, blocked actions and a reload. |
+| `fphandheld.js` | Node | Handheld/controller workflow tests. |
+| `fphooksbrowser.js` | browser (--browser) | Real 3D scene lifecycle through the shared workday API; completion uses a finished mission fixture. |
+| `fphud.js` | Node | Display lifetime and destinations must never become mission or scoring state. |
+| `fphudbrowser.js` | browser (--browser) | Compact live display, real keyboard controls, and translated/larger layouts. |
+| `fphudcomparebrowser.js` | own command | Capture the same live, stationary fixture before/after C-47. |
+| `fplangsbrowser.js` | browser (--browser) | Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the automatic rear camera, the dusk and night head… |
+| `fplater.js` | Node | Later-day difficulty, physical detours, practice windows and save compatibility without WebGL. |
+| `fplighting.js` | Node | Lighting follows the saved clock, respects trainer rules, keeps controls live and never changes scoring. |
+| `fplightingbrowser.js` | browser (--browser) | Real GL pixels, physical headlight shortcut, four saved presets and accessible captions. |
+| `fploadout.js` | Node | (first test) seeded discrepancies are stable, optional on old saves and excluded from cargo practice |
+| `fploadoutbrowser.js` | browser (--browser) | Physical unlisted-package scan and Dispatch load-check UI, both text sizes and languages. |
+| `fpmirrors.js` | Node | Gaze evidence, manoeuvre keys, checkpoint continuity and the bounded reflection scheduler. |
+| `fpmirrorsbrowser.js` | browser (--browser) | Live reflected geometry, gaze-only reporting, keyboard access and saved dwell in the real shared GL context. |
+| `fpmission.js` | Node | Mission/restore checks run without a browser, canvas or generated artwork. |
+| `fpnarration.js` | Node | Cab speech scheduling, ownership and distance bands, with a deterministic speech clock. |
+| `fpnarrationbrowser.js` | browser (--browser) | Real P/actions/gaze and a four-second reverse, based on Claude's cab probe. |
+| `fpnav.js` | Node | Road paths use real generated towns, restrictions and checkpoint versions, without a renderer. |
+| `fpnavbrowser.js` | browser (--browser) | Physical dash navigation, trainer aids and real remapped camera/control keys. |
+| `fpperf.js` | Node | Rendering batches keep physical occlusion and update their static buffers only when needed. |
+| `fpperfbrowser.js` | own command | Compare frozen frames with an untouched pilot served at QA_BEFORE_BASE. |
+| `fpquality.js` | own command | Fixed milestone-eight review gate. |
+| `fpqualitygate.js` | Node | Guard against mislabeled/stale fixtures and false quality passes. |
+| `fprear.js` | Node | Rear-camera contract, real obstacle sensing, practice isolation and bounded rendering. |
+| `fprearbrowser.js` | browser (--browser) | Real keys through reversing practice, live rear pixels, saved manoeuvres and accessible layouts. |
+| `fpresume.js` | Node | Seeded model journeys. |
+| `fproute.js` | Node | Full-route identity, save compatibility and physical access, without WebGL. |
+| `fproutebrowser.js` | browser (--browser) | Generated workday: physical raycasts/scans at all five stops; fixtures skip long walks/drives. |
+| `fpsigns.js` | Node | Sign data must agree with generated routes and the 3D stop obligations. |
+| `fpsignsbrowser.js` | browser (--browser) | Rendered sign geometry, bounded text, real reading keys and modal visibility. |
+| `fpsound.js` | Node | Sound is bounded, quiet before interaction, optional, captioned and independent from scoring. |
+| `fpsoundbrowser.js` | browser (--browser) | Real AudioContext output, narration ducking, Settings keys and repeated scene cleanup. |
+| `fptown.js` | Node | Town asset placement, fallback, physical access and reflection ownership without WebGL. |
+| `fptownbrowser.js` | browser (--browser) | Rendered town templates, fallback comparison, original mission identity and clean WebGL. |
+| `fptraffic.js` | Node | Traffic safety decisions, independent of rendering and scoring. |
+| `fptrafficbrowser.js` | browser (--browser) | Physical signal readings, real keys, narration, and bounded road actors. |
+| `fpweather.js` | Node | (first test) wipers clear the glass through the saved physical control without changing scoring or mission time |
+| `fpweatherbrowser.js` | browser (--browser) | Real wiper input, visible rain clearing, a physical pane and no extra reflection pass. |
+| `fpworld.js` | Node | CPU geometry and scene-state checks. |
+| `i18n.js` | Node | The translations (data/i18n/<lang>.js), checked without a browser: - the file loads, and every template's holes are ones its English has ({n} and {n:plural\|s… |
+| `lmsreport.js` | Node | The 3D workday as the LMS sees it (SCORM 1.2 and 2004): a full day that reports every type in the catalogue fits the 4096 characters of suspend data and scor… |
+| `offline.js` | opens a page | The game with no internet: every request to anything but the training server is blocked (and the browser's name lookups fail), then a new courier signs in, r… |
+| `oldsave.js` | Node | A save from before milestones 7 and 8 still works (B-41): no town seed, no aids code, no criticals by type, no `route.passed`, workday records as they were. |
+| `package.js` | Node | The LMS package (test/tools/package-scorm.js): only run-time files, the manifest at the top, every file a page loads, no tests, docs, server or raw downloads… |
+| `printbrowser.js` | browser (--browser) | The printed pages with milestone 8 mistakes on them, in each language: the trainee's record (Print / PDF), the certificate and the trainer's before-and-after… |
+| `qa.js` | own command | QA suite for On The Route. |
+| `report.js` | Node | The before-and-after report (server/report.js, src/core/pilotreport.js, GET api/report/before-after): each trainee's first and latest workday side by side an… |
+| `routeday.js` | opens a page | Route-day features around the stops (src/core/shift.js, driveAids, TownDriveScene, PostTripScene): - the bad-weather gear question after the briefing, and wh… |
+| `savesize.js` | Node | SCORM 1.2's 4096 characters of suspend data (src/core/save.js, fit): a long workday on top of a heavy save must always be stored within the limit, reload to … |
+| `scorm-launch.js` | opens a page | The LMS package launched as an LMS launches it (board task B-40): the SCORM 1.2 zip from test/tools/package-scorm.js, unpacked and opened inside a player pag… |
+| `signin.js` | opens a page | The sign-in screen (src/core/signin.js) on a training server with employee accounts, in a real browser. |
+| `town3d.js` | opens a page | Phase 2 graphics in the town drive (index.html?lab=town), checked by script: - the fake-3D town (src/core/b3d.js): walls are drawn, roofs lean away from the … |
+| `trainerkeysbrowser.js` | browser (--browser) | The trainer's dialogs from the keyboard alone. |
+| `workday.js` | Node | The 3D workday's report contract (src/core/workday.js, data/workday_events.js). |
+| `workdayflow.js` | opens a page | The 3D workday's flow, without the 3D world: the hub starts a workday, a stand-in scene sends the reports the 3D world would (OTR.workday.report) and finishe… |
+| `xapi.js` | Node | XAPI for a company's learning record store (server/xapi.js): a finished workday becomes statements (the day, then each stop) posted by the training server; t… |
+<!-- /suites -->
