@@ -11,13 +11,16 @@
  *   node test/tools/review-sheet.js                 safety sheets for all languages  → docs/review/<lang>-safety.csv
  *   node test/tools/review-sheet.js es ta --all     the full sheets for these languages → docs/review/<lang>-all.csv
  *
- * A translation is applied by editing data/i18n/<lang>.js (or sending the corrected sheet back).
+ * A translation is applied by editing data/i18n/<lang>.js (or sending the corrected sheet back). B-81: the first row under the
+ * headings tells the reviewer what to do, in English and in the sheet's language (docs/review/HOW-TO-REVIEW.md says more);
+ * its Kind is "how to review", and it is never counted as a line of the sheet. REVIEW_OUT=<dir> writes somewhere else
+ * (the test, test/reviewsheet.js).
  */
 'use strict';
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..', '..');
-const OUT = path.join(ROOT, 'docs', 'review');
+const OUT = process.env.REVIEW_OUT ? path.resolve(process.env.REVIEW_OUT) : path.join(ROOT, 'docs', 'review');
 const LANGS = { es: 'Spanish', fr: 'French', hi: 'Hindi', bn: 'Bengali', mr: 'Marathi', te: 'Telugu', ta: 'Tamil', gu: 'Gujarati', kn: 'Kannada', ml: 'Malayalam', pa: 'Punjabi' };
 
 const args = process.argv.slice(2);
@@ -42,6 +45,23 @@ const SAFETY = new RegExp('\\b(' + [
   // traffic and the sat nav (milestone 8)
   'traffic lights?', 'wrong turn', 'sat nav', 'reroute[ds]?', 'children'
 ].join('|') + ')\\b', 'i');
+
+// B-81: the first row of every sheet, so a reviewer who opens only the file knows what to do
+const HOWTO_KIND = 'how to review';
+const HOWTO_EN = 'How to review: read the English and the translation beside it. If the translation is wrong, unclear or could mislead a driver, write a better one in "Corrected translation". Leave it blank if it is right. Lines marked "new" come first. Save the file as it is (CSV UTF-8) and send it back. More help: HOW-TO-REVIEW.md';
+const HOWTO = {
+  es: 'Cómo revisar: lea el inglés y la traducción de al lado. Si la traducción es incorrecta, poco clara o puede confundir a un conductor, escriba una mejor en "Corrected translation". Déjela en blanco si está bien. Las líneas marcadas "new" van primero. Guarde el archivo tal cual (CSV UTF-8) y envíelo de vuelta. Más ayuda: HOW-TO-REVIEW.md',
+  fr: 'Comment relire : lisez l\'anglais et la traduction à côté. Si la traduction est fausse, peu claire ou peut induire un chauffeur en erreur, écrivez-en une meilleure dans « Corrected translation ». Laissez vide si elle est juste. Les lignes marquées « new » viennent en premier. Enregistrez le fichier tel quel (CSV UTF-8) et renvoyez-le. Plus d\'aide : HOW-TO-REVIEW.md',
+  hi: 'समीक्षा कैसे करें: अंग्रेज़ी और उसके बगल का अनुवाद पढ़ें। अगर अनुवाद गलत है, साफ़ नहीं है या ड्राइवर को गुमराह कर सकता है, तो "Corrected translation" में बेहतर अनुवाद लिखें। सही हो तो खाली छोड़ दें। "new" वाली पंक्तियाँ पहले आती हैं। फ़ाइल को वैसे ही (CSV UTF-8) सहेजें और वापस भेजें। और मदद: HOW-TO-REVIEW.md',
+  bn: 'কীভাবে পর্যালোচনা করবেন: ইংরেজি ও তার পাশের অনুবাদ পড়ুন। অনুবাদ ভুল, অস্পষ্ট বা চালককে বিভ্রান্ত করতে পারে এমন হলে "Corrected translation"-এ ভালো অনুবাদ লিখুন। ঠিক থাকলে ফাঁকা রাখুন। "new" চিহ্নিত লাইনগুলো আগে আসে। ফাইলটি যেমন আছে (CSV UTF-8) তেমনই সংরক্ষণ করে ফেরত পাঠান। আরও সাহায্য: HOW-TO-REVIEW.md',
+  mr: 'पुनरावलोकन कसे करावे: इंग्रजी आणि शेजारचे भाषांतर वाचा. भाषांतर चुकीचे, अस्पष्ट किंवा चालकाची दिशाभूल करणारे असेल तर "Corrected translation" मध्ये चांगले भाषांतर लिहा. बरोबर असेल तर रिकामे ठेवा. "new" खूण असलेल्या ओळी आधी येतात. फाइल आहे तशीच (CSV UTF-8) जतन करून परत पाठवा. अधिक मदत: HOW-TO-REVIEW.md',
+  te: 'సమీక్ష ఎలా చేయాలి: ఇంగ్లీష్‌ను, దాని పక్కన ఉన్న అనువాదాన్ని చదవండి. అనువాదం తప్పుగా, అస్పష్టంగా ఉంటే లేదా డ్రైవర్‌ను తప్పుదారి పట్టించగలిగితే, "Corrected translation"లో మెరుగైనది రాయండి. సరిగ్గా ఉంటే ఖాళీగా వదలండి. "new" అని గుర్తించిన పంక్తులు ముందు వస్తాయి. ఫైల్‌ను అలాగే (CSV UTF-8) సేవ్ చేసి తిరిగి పంపండి. మరింత సహాయం: HOW-TO-REVIEW.md',
+  ta: 'சரிபார்ப்பது எப்படி: ஆங்கிலத்தையும் அருகிலுள்ள மொழிபெயர்ப்பையும் படியுங்கள். மொழிபெயர்ப்பு தவறாகவோ, தெளிவில்லாமலோ, ஓட்டுநரைத் தவறாக வழிநடத்தக்கூடியதாகவோ இருந்தால், "Corrected translation" பகுதியில் சிறந்ததை எழுதுங்கள். சரியாக இருந்தால் காலியாக விடுங்கள். "new" எனக் குறிக்கப்பட்ட வரிகள் முதலில் வரும். கோப்பை அப்படியே (CSV UTF-8) சேமித்துத் திருப்பி அனுப்புங்கள். மேலும் உதவி: HOW-TO-REVIEW.md',
+  gu: 'સમીક્ષા કેવી રીતે કરવી: અંગ્રેજી અને તેની બાજુનો અનુવાદ વાંચો. અનુવાદ ખોટો, અસ્પષ્ટ હોય અથવા ડ્રાઇવરને ગેરમાર્ગે દોરી શકે, તો "Corrected translation" માં વધુ સારો લખો. સાચો હોય તો ખાલી રાખો. "new" ચિહ્નિત લીટીઓ પહેલાં આવે છે. ફાઇલ જેમ છે તેમ (CSV UTF-8) સાચવીને પાછી મોકલો. વધુ મદદ: HOW-TO-REVIEW.md',
+  kn: 'ಪರಿಶೀಲಿಸುವುದು ಹೇಗೆ: ಇಂಗ್ಲಿಷ್ ಮತ್ತು ಅದರ ಪಕ್ಕದ ಅನುವಾದವನ್ನು ಓದಿ. ಅನುವಾದ ತಪ್ಪಾಗಿದ್ದರೆ, ಅಸ್ಪಷ್ಟವಾಗಿದ್ದರೆ ಅಥವಾ ಚಾಲಕನನ್ನು ದಾರಿ ತಪ್ಪಿಸಬಹುದಾದರೆ, "Corrected translation" ನಲ್ಲಿ ಉತ್ತಮವಾದುದನ್ನು ಬರೆಯಿರಿ. ಸರಿಯಾಗಿದ್ದರೆ ಖಾಲಿ ಬಿಡಿ. "new" ಎಂದು ಗುರುತಿಸಿದ ಸಾಲುಗಳು ಮೊದಲು ಬರುತ್ತವೆ. ಫೈಲ್ ಅನ್ನು ಹಾಗೆಯೇ (CSV UTF-8) ಉಳಿಸಿ ಮರಳಿ ಕಳುಹಿಸಿ. ಹೆಚ್ಚಿನ ಸಹಾಯ: HOW-TO-REVIEW.md',
+  ml: 'എങ്ങനെ പരിശോധിക്കാം: ഇംഗ്ലീഷും അതിനടുത്തുള്ള വിവർത്തനവും വായിക്കുക. വിവർത്തനം തെറ്റോ അവ്യക്തമോ ഡ്രൈവറെ തെറ്റിദ്ധരിപ്പിക്കുന്നതോ ആണെങ്കിൽ, "Corrected translation" എന്നതിൽ മികച്ചത് എഴുതുക. ശരിയാണെങ്കിൽ ശൂന്യമായി വിടുക. "new" എന്ന് അടയാളപ്പെടുത്തിയ വരികൾ ആദ്യം വരും. ഫയൽ അതുപോലെ (CSV UTF-8) സേവ് ചെയ്ത് തിരികെ അയയ്ക്കുക. കൂടുതൽ സഹായം: HOW-TO-REVIEW.md',
+  pa: 'ਸਮੀਖਿਆ ਕਿਵੇਂ ਕਰੀਏ: ਅੰਗਰੇਜ਼ੀ ਅਤੇ ਉਸਦੇ ਨਾਲ ਦਾ ਅਨੁਵਾਦ ਪੜ੍ਹੋ। ਜੇ ਅਨੁਵਾਦ ਗਲਤ, ਅਸਪਸ਼ਟ ਹੈ ਜਾਂ ਡਰਾਈਵਰ ਨੂੰ ਗੁਮਰਾਹ ਕਰ ਸਕਦਾ ਹੈ, ਤਾਂ "Corrected translation" ਵਿੱਚ ਬਿਹਤਰ ਲਿਖੋ। ਸਹੀ ਹੋਵੇ ਤਾਂ ਖਾਲੀ ਛੱਡੋ। "new" ਵਾਲੀਆਂ ਲਾਈਨਾਂ ਪਹਿਲਾਂ ਆਉਂਦੀਆਂ ਹਨ। ਫਾਈਲ ਨੂੰ ਜਿਵੇਂ ਹੈ (CSV UTF-8) ਸੇਵ ਕਰਕੇ ਵਾਪਸ ਭੇਜੋ। ਹੋਰ ਮਦਦ: HOW-TO-REVIEW.md'
+};
 
 const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
 /** The rows of a sheet this tool wrote (quoted CSV), or [] when there is none. */
@@ -77,12 +97,13 @@ for (const lang of want) {
   // what the sheet being replaced already showed (English → translation): anything else is new to the reviewer
   const file = path.join(OUT, `${lang}-${all ? 'all' : 'safety'}.csv`);
   const old = readSheet(file), at = old.length && /^New/.test(old[0][1]) ? 2 : 1;      // sheets before B-53 had no "New" column
-  const before = new Map(old.slice(1).map(r => [r[at], { tr: r[at + 1], mark: at === 2 && !reviewed ? r[1] : '' }]));
+  const before = new Map(old.slice(1).filter(r => r[r.length - 1] !== HOWTO_KIND).map(r => [r[at], { tr: r[at + 1], mark: at === 2 && !reviewed ? r[1] : '' }]));
   // new: not on the old sheet, or translated differently; a mark stays until a --reviewed run (the sheets came back)
   const fresh = (r) => { const b = before.get(r[1]); return before.size > 0 && (!b || b.tr !== r[2] || b.mark === 'new'); };
   rows.sort((a, b) => a[0] - b[0] || fresh(b) - fresh(a) || (a[1] < b[1] ? -1 : 1));
   const head = ['Priority (1 = safety)', 'New since the last sheet', 'English', `${LANGS[lang]} (machine translation)`, 'Corrected translation (leave blank if correct)', 'Comment', 'Kind'];
   const body = rows.map(r => [r[0], fresh(r) ? 'new' : '', r[1], r[2], '', '', r[3]].map(q).join(','));
-  fs.writeFileSync(file, '﻿' + [head.map(q).join(','), ...body].join('\r\n') + '\r\n');
+  const howto = ['', '', HOWTO_EN, HOWTO[lang], '', '', HOWTO_KIND].map(q).join(',');
+  fs.writeFileSync(file, '﻿' + [head.map(q).join(','), howto, ...body].join('\r\n') + '\r\n');
   console.log(`${lang}: ${rows.filter(r => r[0] === 1).length} safety lines${all ? `, ${rows.length} in all` : ''}, ${rows.filter(fresh).length} new → ${path.relative(ROOT, file)}`);
 }

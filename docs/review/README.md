@@ -1,6 +1,6 @@
 # Review material
 
-- `<lang>-safety.csv`: the safety wording in each language, for native speakers (A-14). Lines new or changed since the
+- `<lang>-safety.csv`: the safety wording in each language, for native speakers (A-14). `HOW-TO-REVIEW.md` is what to send them with it (B-81), and each sheet's first row says the same in short, in its language. Lines new or changed since the
   last sheet the reviewers saw are marked `new` and listed first (B-53: 104 per language on 20 October: the signs, sat nav,
   traffic and drive-map lines of milestone 8). Regenerate with `node test/tools/review-sheet.js`; once the corrected sheets
   come back and are applied, run it with `--reviewed` to clear the marks for the next round.
