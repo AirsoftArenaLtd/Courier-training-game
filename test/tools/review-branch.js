@@ -26,6 +26,9 @@ const git = (a, o) => cp.execFileSync('git', a, Object.assign({ cwd: ROOT, encod
 const steps = [];
 const step = (what, ok, detail) => { steps.push({ what, ok, detail }); console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}${detail ? ': ' + detail : ''}`); };
 
+// what test/i18n.js treats as an id rather than text (kept the same as its own rule)
+const idlike = (s) => /^#[0-9A-Fa-f]{3,8}$/.test(s) || /^[a-z0-9_]+([.:_-][a-z0-9_]*)*[:.?]?$/.test(s) || /^\[|^\(debug/.test(s) || /^\|otr-[a-z0-9-]+$/.test(s);
+
 /** Text in the catalogue that some language has no translation for (as test/i18n.js counts it). */
 function missingText(dir) {
   const cat = JSON.parse(fs.readFileSync(path.join(dir, 'data', 'i18n', 'catalogue.json'), 'utf8'));
@@ -34,8 +37,8 @@ function missingText(dir) {
   for (const lang of ['es', 'fr', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa']) {
     const w = {}; new Function('window', fs.readFileSync(path.join(dir, 'data', 'i18n', lang + '.js'), 'utf8'))(w);
     const L = w.OTR_I18N[lang], have = new Set(Object.keys(L.strings)), haveT = new Set((L.templates || []).map(t => t[0].trim())), keep = new Set(L.keep || []);
-    cat.strings.forEach(s => { if (!have.has(s) && !have.has(s.trim()) && !keep.has(s) && !notText.has(s) && /[A-Za-z]{2,}/.test(s) && !/^\[|^\(debug/.test(s)) strings.add(s); });
-    cat.templates.forEach(t => { const k = Array.isArray(t) ? t[0] : t; if (!haveT.has(String(k).trim()) && /\s/.test(k)) templates.add(k); });
+    cat.strings.forEach(s => { if (!have.has(s) && !have.has(s.trim()) && !keep.has(s) && !notText.has(s) && !idlike(s)) strings.add(s); });
+    cat.templates.forEach(t => { if (!haveT.has(t.trim()) && !idlike(t.replace(/\{\d+\}/g, '0'))) templates.add(t); });
   }
   return { strings: [...strings], templates: [...templates] };
 }
@@ -84,7 +87,8 @@ const run = (cmd, a, env, log) => {
 
   if (!args.includes('--no-flows')) {
     const flows = run(process.execPath, ['test/qa.js', '--only', 'workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review'],
-      { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)) }, path.join(OUT, 'flows.log'));
+      { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)),
+        QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'flows.log'));
     const clean = /(\d+)\/(\d+) scenarios clean/.exec(flows.stdout || '');
     step('the five workday flows at Low', flows.status === 0, clean ? clean[0] : 'see flows.log');
   }
