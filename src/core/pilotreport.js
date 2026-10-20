@@ -39,7 +39,7 @@ OTR.pilotReport = {
       </tbody></table>` : `<p>${T('Nobody has finished a workday yet.')}</p>`;
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${T('Before and after: the training pilot')}</title><style>
       @page { size: A4; margin: 14mm; }
-      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
+      body { font: 11pt/1.4 "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: #121f2e; margin: 0; }
       header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid ${th.css('accent')}; padding-bottom: 8px; margin-bottom: 14px; }
       h1 { font-size: 20pt; margin: 0; color: ${th.css('primary')}; } h2 { font-size: 13pt; color: ${th.css('primary')}; margin: 18px 0 6px; }
       .brand { font-weight: 900; color: ${th.css('primary')}; } .brand b { color: ${th.css('accent')}; } .meta { text-align: right; font-size: 10pt; color: #555; }
