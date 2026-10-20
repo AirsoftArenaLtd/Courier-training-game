@@ -23,7 +23,7 @@ OTR_DATA.pretrip = {
     title: 'Pre-Trip Walkaround',
     lines: [
       'Walk the truck before it rolls: A / D or the arrow keys (or the ◀ ▶ buttons) take you round it, C climbs into the cab.',
-      'Click a marked item to get a proper look at it. Decide: pass it (P), or flag the defect (F).',
+      'Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).',
       'Some checks need a test first (T): switch the lights and hazards on in the cab (L) before judging any lamp, press the horn, hold the brake, pull on the latches, and gauge the tires. Tread minimum: 4/32" on a steer (front) tire, 2/32" on the others.',
       'Flagging good parts costs you too. Look properly, then decide.'
     ]
