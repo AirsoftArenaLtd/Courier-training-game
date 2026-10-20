@@ -1,7 +1,8 @@
 /*
  * Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the
  * automatic rear camera, the dusk and night headlight lines, every page of the 3D guide and (B-51) C-32's traffic lines
- * (each light, give way, the cyclist, the school crossing), at larger text, in all twelve languages. Each language is opened the way a trainee opens it (first-person.html?lang=xx). Every visible
+ * (each light, give way, the cyclist, the school crossing) and (B-74) C-34's van-height panel, damage notices and
+ * clearance warning, at larger text, in all twelve languages. Each language is opened the way a trainee opens it (first-person.html?lang=xx). Every visible
  * line must stay on the canvas (and inside its panel) and must not be squeezed below a readable size.
  *
  *   QA_BROWSER=/path/to/chrome QA_BASE=http://127.0.0.1:8302 node test/fplangsbrowser.js
@@ -138,6 +139,43 @@ function audit(MIN_PX) {
           if (lang === 'ta' && (label === 'signal red' || label === 'give-way')) await p.screenshot({ path: path.join(OUT, `b51-${label.replace(' ', '-')}-${lang}-${LARGE ? 'large' : 'normal'}.png`) });
         }
         await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); if (s.handheld && s.handheld.isOpen) s.handheld.close(); });
+      }
+      // B-74: C-34's lines on a damage day (day 4): the van-height panel from the manifest's own "Begin preparation", then
+      // each notice through the real path (fpDamageFlow.fire sets the day notice the scene shows), and the clearance warning
+      if (await p.evaluate(() => !!OTR.fpDamageFlow)) {
+        await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), T = OTR.fpTraffic; s.closePanel(); s.target = null;
+          const plan = OTR.fpDamageFlow.prepare(T.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4, 7))))));
+          const m = OTR.fpMission.create('campaign', 7, plan); OTR.fpLoadout.configure(m); OTR.fpDriving.configure(m); OTR.fpDay.configure(m); OTR.fpDoors.configure(m);
+          m.step = () => {}; m.mode = 'cab'; m.player.pitch = 0; Object.assign(m.van, { speed: 0, hand: true, belt: true, gear: 1, look: 0 });
+          s.model = m; s.area = 'route'; s.rebuildWorld(); s.sync(); });
+        const shows = (line) => p.evaluate((line) => { const s = OTR.game.scene.getScene('FirstPersonScene'), found = [];
+          const walk = (o) => { if (!o || o.visible === false || (o.alpha !== undefined && o.alpha <= 0.05)) return; if (o.type === 'Text' && OTR.i18n.src(o).includes(line)) found.push(o.text); (o.list || []).forEach(walk); };
+          s.children.list.forEach(walk); return found; }, line);
+        const look = async (label, line) => {
+          await wait(450);
+          const seen = await shows(line);
+          views++;
+          if (!seen.length) { problems.push(`${lang} ${label}: "${line}" is not on screen`); return; }
+          if (lang !== 'en' && seen[0].includes(line)) problems.push(`${lang} ${label}: "${line}" is not translated`);
+          (await p.evaluate(audit, MIN_PX)).forEach(f => problems.push(`${lang} ${label}: ${f}`));
+        };
+        const panel = await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
+          m.mode = 'walk'; const desk = m.point('dispatch'); Object.assign(m.player, { x: desk.x - 1.7, z: desk.z }); s.sync();     // the manifest is read at Dispatch
+          s.showManifest(m.stops.length - 1, true); const i = s.panel.choices.findIndex(c => c.label === 'Begin preparation'); s.choose(i);
+          return s.panel ? s.panel.title || (s.panel.titleText && OTR.i18n.src(s.panel.titleText)) || 'Know the van height.' : null; });
+        await look('van height panel', 'Know the van height.');
+        await look('van height panel', 'Your van is 10 feet 10 inches tall.');
+        for (const [type, key, ok] of [['van.damage-scuff', 'front:post-1', false], ['van.damage-scuff', 'rear:post-2', false], ['van.damage-dent', 'left:post-3', false],
+          ['van.damage-dent', 'right:car-4', false], ['van.damage-major', 'roof:bridge-5', false], ['van.damage-scuff', 'wheel:kerb-6', false], ['van.damage-scuff', 'mirror:post-7', false],
+          ['drive.clearance', 'clearance-0', true], ['drive.clearance', 'clearance-1-strike', false], ['load.shift', 'load-2', false]]) {
+          const line = await p.evaluate((type, key, ok) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; s.closePanel(); m.mode = 'cab';
+            OTR.fpDamageFlow.fire(m, { type, key, ok }, 0); const t = m.dayNotice; return t; }, type, key, ok);
+          await look(`${type} ${key}`, line);
+        }
+        const warn = await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, b = m._damageClearances[0]; if (!b) return null;
+          Object.assign(m.van, { x: b.x + 1.7, z: b.z + 12, yaw: 0, gear: 1 }); s.sync(); const w = OTR.fpDamageFlow.warning(m); m.dayNotice = w; return w; });
+        if (warn) await look('clearance warning', warn); else problems.push(`${lang} clearance warning: no low clearance on day 4`);
+        await p.evaluate(() => OTR.game.scene.getScene('FirstPersonScene').closePanel());
       }
       if (lang === 'en' || lang === 'ta' || lang === 'ml') {
         await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); s.closePanel(); s.model.van.gear = -1; s.sync(); s.refresh(); });
