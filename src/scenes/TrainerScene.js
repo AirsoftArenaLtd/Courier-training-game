@@ -92,7 +92,7 @@ class TrainerScene extends Phaser.Scene {
       ['damage', 'Van damage and damage reports', [[true, 'On'], [false, 'Off']]]
     ];
     OTR.ui.modal(this, {
-      title: '3D workday aids', w: 1000, h: 560, escClose: true,
+      title: '3D workday aids', w: 1000, h: 600, escClose: true,
       build: (box) => {
         const btns = [];
         const paint = () => btns.forEach(b => b.setSkin(w[b.key] === b.val ? 'purple' : 'ghost'));
@@ -105,7 +105,8 @@ class TrainerScene extends Phaser.Scene {
             btns.push(b); box.add(b);
           });
         });
-        box.add(OTR.txt(this, 0, 186, 'Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.', 15, '#5B6B7D', { bold: false, align: 'center', wrap: 900 }));
+        // hung from under the last row, so a longer translation grows down towards Done rather than into the choices (B-58)
+        box.add(OTR.txt(this, 0, -190 + rows.length * 74 - 22, 'Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.', 15, '#5B6B7D', { bold: false, align: 'center', wrap: 900, oy: 0 }));
         paint();
       },
       buttons: [{ label: 'Done', skin: 'orange' }]
