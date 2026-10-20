@@ -3858,7 +3858,13 @@ window.OTR_I18N.ta = {
 "A mirror on the van has new damage.": "வேனின் ஒரு கண்ணாடியில் புதிய சேதம் உள்ளது.",
 "Know the van height.": "வேனின் உயரத்தை அறிந்துகொள்ளுங்கள்.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "உங்கள் வேனின் உயரம் 10 அடி 10 அங்குலம். தாழ்வான பாலங்கள், உயர வரம்புகளைத் தவிர்க்க வழிகாட்டியைப் பின்பற்றுங்கள். புறப்படும் முன் சுமையைக் கட்டுங்கள்.",
-"Begin preparation.": "தயாரிப்பைத் தொடங்கு."
+"Begin preparation.": "தயாரிப்பைத் தொடங்கு.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "டெலிவரி இடத்துக்கு அருகில் நிறுத்துங்கள். பாதையைச் சரிபார்த்து, கட்டப்படாத நாய் உள்ள கேட்டுக்கு வெளியே இருங்கள். சரியான பார்சலை எடுத்து வாசலில் ஸ்கேன் செய்யுங்கள். தொடர்பு கொள்ள முயலுங்கள், புகைப்பட ID, கையெழுத்துச் சரிபார்ப்புகளை முடித்து, பிறகு தேவையான டெலிவரி முடிவைப் பதிவு செய்யுங்கள். விதிவிலக்கு பார்சல்களைத் திருப்பி அனுப்ப வைத்திருங்கள்.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "ஐந்து நிறுத்தங்களுக்குப் பிறகு வேனை டிப்போவுக்குத் திருப்பி, பார்க்கிங் பிரேக்கைப் போடுங்கள். வைத்திருக்கும் பார்சல்களை எடுத்து, ஒவ்வொன்றையும் திருப்பலுக்குக் கொண்டுவந்து மீண்டும் ஸ்கேன் செய்யுங்கள். டிஸ்பாட்சில் பதிவு செய்து, முடிவுகளைக் காண வேலைநாளை முடி என்பதைத் தேர்ந்தெடுங்கள்.",
+"Exception recorded. Keep the parcel and return it to the depot.": "விதிவிலக்கு பதிவானது. பார்சலை வைத்திருந்து டிப்போவுக்குத் திருப்பிக் கொண்டு வாருங்கள்.",
+"Save and return to hub": "சேமித்து மையத்துக்குத் திரும்பு",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "அடுத்த நிறுத்தத்தைத் தேர்ந்தெடுங்கள். Maple Ave டிப்போவிலிருந்து வடக்கே செல்கிறது. Birch Lane தொலைவிலுள்ள சந்திப்பில் உள்ளது. திரும்ப, வடக்கு முனையிலுள்ள திரும்பும் இடத்தைப் பயன்படுத்துங்கள்.",
+"Review the shift, then return to the hub.": "ஷிப்டைச் சரிபார்த்து, பிறகு மையத்துக்குத் திரும்புங்கள்."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.ta = {
 [
 "Continue for {0} feet to the stop.",
 "நிறுத்தம் வரை {0} அடி தொடருங்கள்."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} ஸ்கேனரைத் திறக்கிறது, வைத்திருக்கும் பார்சலைத் திருப்பிக் கொடுக்க."
 ]
 ],
 "keep": [

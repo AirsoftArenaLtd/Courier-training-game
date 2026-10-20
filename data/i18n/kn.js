@@ -3858,7 +3858,13 @@ window.OTR_I18N.kn = {
 "A mirror on the van has new damage.": "ವ್ಯಾನ್‌ನ ಒಂದು ಕನ್ನಡಿಗೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
 "Know the van height.": "ವ್ಯಾನ್‌ನ ಎತ್ತರವನ್ನು ತಿಳಿಯಿರಿ.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "ನಿಮ್ಮ ವ್ಯಾನ್‌ನ ಎತ್ತರ 10 ಅಡಿ 10 ಇಂಚು. ಕೆಳಮಟ್ಟದ ಸೇತುವೆ ಅಥವಾ ಎತ್ತರದ ಮಿತಿಗಳನ್ನು ತಪ್ಪಿಸಲು ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಅನುಸರಿಸಿ. ಹೊರಡುವ ಮುನ್ನ ಲೋಡ್ ಅನ್ನು ಭದ್ರಪಡಿಸಿ.",
-"Begin preparation.": "ಸಿದ್ಧತೆ ಆರಂಭಿಸಿ."
+"Begin preparation.": "ಸಿದ್ಧತೆ ಆರಂಭಿಸಿ.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "ಡೆಲಿವರಿ ಸ್ಥಳದ ಹತ್ತಿರ ಪಾರ್ಕ್ ಮಾಡಿ. ದಾರಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಬಿಚ್ಚಿದ ನಾಯಿ ಇರುವ ಗೇಟ್‌ನ ಹೊರಗೆ ಇರಿ. ಸರಿಯಾದ ಪ್ಯಾಕೇಜ್ ತೆಗೆದುಕೊಂಡು ಬಾಗಿಲಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಿ, ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಮತ್ತು ಸಹಿ ಪರಿಶೀಲನೆ ಪೂರ್ಣಗೊಳಿಸಿ, ನಂತರ ಅಗತ್ಯವಿರುವ ಡೆಲಿವರಿ ಫಲಿತಾಂಶ ದಾಖಲಿಸಿ. ವಿನಾಯಿತಿ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ಹಿಂತಿರುಗಿಸಲು ಉಳಿಸಿಕೊಳ್ಳಿ.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "ಐದೂ ಸ್ಟಾಪ್‌ಗಳ ನಂತರ ವ್ಯಾನ್ ಅನ್ನು ಡಿಪೋಗೆ ಮರಳಿಸಿ ಮತ್ತು ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ. ಉಳಿಸಿಕೊಂಡ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ತೆಗೆದು, ಪ್ರತಿಯೊಂದನ್ನೂ ರಿಟರ್ನ್ಸ್‌ಗೆ ತಂದು ಮತ್ತೆ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಚೆಕ್ ಇನ್ ಮಾಡಿ, ಫಲಿತಾಂಶ ನೋಡಲು ಕೆಲಸದ ದಿನ ಮುಗಿಸಿ ಆಯ್ಕೆಮಾಡಿ.",
+"Exception recorded. Keep the parcel and return it to the depot.": "ವಿನಾಯಿತಿ ದಾಖಲಾಗಿದೆ. ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಉಳಿಸಿಕೊಂಡು ಡಿಪೋಗೆ ಮರಳಿಸಿ.",
+"Save and return to hub": "ಉಳಿಸಿ ಮತ್ತು ಹಬ್‌ಗೆ ಮರಳಿ",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "ನಿಮ್ಮ ಮುಂದಿನ ಸ್ಟಾಪ್ ಆರಿಸಿ. Maple Ave ಡಿಪೋದಿಂದ ಉತ್ತರಕ್ಕೆ ಹೋಗುತ್ತದೆ. Birch Lane ದೂರದ ಜಂಕ್ಷನ್‌ನಲ್ಲಿದೆ. ಮರಳಲು ಉತ್ತರ ತುದಿಯ ತಿರುಗುವ ಜಾಗವನ್ನು ಬಳಸಿ.",
+"Review the shift, then return to the hub.": "ಶಿಫ್ಟ್ ಪರಿಶೀಲಿಸಿ, ನಂತರ ಹಬ್‌ಗೆ ಮರಳಿ."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.kn = {
 [
 "Continue for {0} feet to the stop.",
 "ಸ್ಟಾಪ್‌ವರೆಗೆ {0} ಅಡಿ ಮುಂದುವರಿಯಿರಿ."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} ಸ್ಕ್ಯಾನರ್ ತೆರೆಯುತ್ತದೆ, ಉಳಿಸಿಕೊಂಡ ಪ್ಯಾಕೇಜ್ ಮರಳಿಸಲು."
 ]
 ],
 "keep": [

@@ -3869,7 +3869,13 @@ window.OTR_I18N.es = {
 "A mirror on the van has new damage.": "Un espejo de la camioneta tiene daños nuevos.",
 "Know the van height.": "Conoce la altura de la camioneta.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Tu camioneta mide 10 pies 10 pulgadas de alto. Sigue el GPS para evitar los puentes bajos. Asegura la carga antes de salir.",
-"Begin preparation.": "Comenzar la preparación."
+"Begin preparation.": "Comenzar la preparación.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "Estaciona cerca del punto de entrega. Revisa el camino y quédate fuera de la reja de un perro suelto. Saca el paquete correcto y escanéalo en la puerta. Intenta contactar, completa las comprobaciones de identificación con foto y firma, y luego registra el resultado de entrega requerido. Conserva los paquetes con excepción para devolverlos.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "Tras las cinco paradas, regresa la camioneta al depósito y pon el freno de mano. Saca los paquetes retenidos, llévalos uno por uno a Devoluciones y escanéalos de nuevo. Repórtate en el Despacho y elige Terminar la jornada para ver los resultados.",
+"Exception recorded. Keep the parcel and return it to the depot.": "Excepción registrada. Conserva el paquete y devuélvelo al depósito.",
+"Save and return to hub": "Guardar y volver al centro",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "Elige tu próxima parada. Maple Ave va hacia el norte desde el depósito. Birch Lane está en el cruce del fondo. Usa la zona de giro del extremo norte para volver.",
+"Review the shift, then return to the hub.": "Revisa el turno y luego vuelve al centro."
 },
 "templates": [
 [
@@ -5571,6 +5577,10 @@ window.OTR_I18N.es = {
 [
 "Continue for {0} feet to the stop.",
 "Continúa {0} pies hasta la parada."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} abre el escáner para devolver el paquete retenido."
 ]
 ],
 "keep": [

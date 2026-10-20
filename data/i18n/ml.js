@@ -3858,7 +3858,13 @@ window.OTR_I18N.ml = {
 "A mirror on the van has new damage.": "വാനിന്റെ ഒരു കണ്ണാടിക്ക് പുതിയ കേടുപാട് ഉണ്ട്.",
 "Know the van height.": "വാനിന്റെ ഉയരം അറിയുക.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "നിങ്ങളുടെ വാനിന്റെ ഉയരം 10 അടി 10 ഇഞ്ച് ആണ്. ഉയരപരിധിയുള്ള സ്ഥലങ്ങൾ ഒഴിവാക്കാൻ സാറ്റ് നാവ് പിന്തുടരുക. പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമായി ഉറപ്പിക്കുക.",
-"Begin preparation.": "തയ്യാറെടുപ്പ് തുടങ്ങുക."
+"Begin preparation.": "തയ്യാറെടുപ്പ് തുടങ്ങുക.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "ഡെലിവറി സ്ഥലത്തിന് സമീപം പാർക്ക് ചെയ്യുക. വഴി പരിശോധിക്കുക, അഴിച്ചുവിട്ട നായയുള്ള ഗേറ്റിന് പുറത്ത് നിൽക്കുക. ശരിയായ പാക്കേജ് എടുത്ത് വാതിൽക്കൽ സ്കാൻ ചെയ്യുക. ബന്ധപ്പെടാൻ ശ്രമിക്കുക, ഫോട്ടോ ഐഡി, ഒപ്പ് പരിശോധനകൾ പൂർത്തിയാക്കുക, തുടർന്ന് ആവശ്യമായ ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക. ഒഴിവ് വന്ന പാക്കേജുകൾ തിരിച്ചേൽപ്പിക്കാനായി സൂക്ഷിക്കുക.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "അഞ്ച് സ്റ്റോപ്പുകളും കഴിഞ്ഞാൽ വാൻ ഡിപ്പോയിൽ തിരികെ എത്തിച്ച് പാർക്കിംഗ് ബ്രേക്ക് ഇടുക. കൈവശം വച്ച പാഴ്സലുകൾ എടുത്ത് ഓരോന്നും റിട്ടേൺസിൽ എത്തിച്ച് വീണ്ടും സ്കാൻ ചെയ്യുക. ഡിസ്പാച്ചിൽ ചെക്ക് ഇൻ ചെയ്ത് ഫലങ്ങൾ കാണാൻ ജോലിദിനം അവസാനിപ്പിക്കുക തിരഞ്ഞെടുക്കുക.",
+"Exception recorded. Keep the parcel and return it to the depot.": "ഒഴിവ് രേഖപ്പെടുത്തി. പാഴ്സൽ കൈവശം വച്ച് ഡിപ്പോയിൽ തിരികെ എത്തിക്കുക.",
+"Save and return to hub": "സേവ് ചെയ്ത് ഹബ്ബിലേക്ക് മടങ്ങുക",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "അടുത്ത സ്റ്റോപ്പ് തിരഞ്ഞെടുക്കുക. Maple Ave ഡിപ്പോയിൽ നിന്ന് വടക്കോട്ട് പോകുന്നു. Birch Lane അങ്ങേയറ്റത്തെ ജംഗ്ഷനിലാണ്. തിരികെ പോകാൻ വടക്കേ അറ്റത്തെ തിരിയാനുള്ള സ്ഥലം ഉപയോഗിക്കുക.",
+"Review the shift, then return to the hub.": "ഷിഫ്റ്റ് പരിശോധിക്കുക, പിന്നെ ഹബ്ബിലേക്ക് മടങ്ങുക."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.ml = {
 [
 "Continue for {0} feet to the stop.",
 "സ്റ്റോപ്പ് വരെ {0} അടി തുടരുക."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} സ്കാനർ തുറക്കുന്നു, കൈവശം വച്ച പാഴ്സൽ തിരികെ നൽകാൻ."
 ]
 ],
 "keep": [

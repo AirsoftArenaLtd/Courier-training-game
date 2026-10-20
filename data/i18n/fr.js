@@ -3859,7 +3859,13 @@ window.OTR_I18N.fr = {
 "A mirror on the van has new damage.": "Un rétroviseur de la camionnette a de nouveaux dommages.",
 "Know the van height.": "Connais la hauteur de la camionnette.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Ta camionnette mesure 10 pieds 10 pouces de haut. Suis le GPS pour contourner les hauteurs limitées. Arrime le chargement avant de partir.",
-"Begin preparation.": "Commencer la préparation."
+"Begin preparation.": "Commencer la préparation.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "Gare-toi près du point de livraison. Vérifie le chemin et reste en dehors du portail d’un chien en liberté. Récupère le bon colis et scanne-le à la porte. Tente de contacter le client, termine les contrôles de la pièce d’identité avec photo et de la signature, puis enregistre le résultat de livraison requis. Garde les colis en exception pour le retour.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "Après les cinq arrêts, ramène la camionnette au dépôt et serre le frein de stationnement. Récupère les colis conservés, apporte chacun aux Retours et rescanne-le. Présente-toi à la Répartition et choisis Terminer la journée de travail pour voir les résultats.",
+"Exception recorded. Keep the parcel and return it to the depot.": "Exception enregistrée. Garde le colis et rapporte-le au dépôt.",
+"Save and return to hub": "Enregistrer et retour à l'accueil",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "Choisis ton prochain arrêt. Maple Ave part vers le nord depuis le dépôt. Birch Lane se trouve au carrefour du fond. Utilise la zone de demi-tour à l’extrémité nord pour revenir.",
+"Review the shift, then return to the hub.": "Passe la journée en revue, puis retourne à l'accueil."
 },
 "templates": [
 [
@@ -5561,6 +5567,10 @@ window.OTR_I18N.fr = {
 [
 "Continue for {0} feet to the stop.",
 "Continue sur {0} pieds jusqu'à l'arrêt."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} ouvre le scanner pour rapporter le colis conservé."
 ]
 ],
 "keep": [

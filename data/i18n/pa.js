@@ -3859,7 +3859,13 @@ window.OTR_I18N.pa = {
 "A mirror on the van has new damage.": "ਵੈਨ ਦੇ ਇੱਕ ਸ਼ੀਸ਼ੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
 "Know the van height.": "ਵੈਨ ਦੀ ਉਚਾਈ ਜਾਣੋ।",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "ਤੁਹਾਡੀ ਵੈਨ ਦੀ ਉਚਾਈ 10 ਫੁੱਟ 10 ਇੰਚ ਹੈ। ਨੀਵੇਂ ਪੁਲਾਂ ਜਾਂ ਉਚਾਈ ਦੀ ਹੱਦ ਤੋਂ ਬਚਣ ਲਈ ਸੈਟ ਨੈਵ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋਡ ਨੂੰ ਬੰਨ੍ਹ ਕੇ ਪੱਕਾ ਕਰੋ।",
-"Begin preparation.": "ਤਿਆਰੀ ਸ਼ੁਰੂ ਕਰੋ।"
+"Begin preparation.": "ਤਿਆਰੀ ਸ਼ੁਰੂ ਕਰੋ।",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "ਡਿਲੀਵਰੀ ਵਾਲੀ ਥਾਂ ਦੇ ਨੇੜੇ ਪਾਰਕ ਕਰੋ। ਰਾਹ ਜਾਂਚੋ ਅਤੇ ਖੁੱਲ੍ਹੇ ਕੁੱਤੇ ਵਾਲੇ ਗੇਟ ਤੋਂ ਬਾਹਰ ਰਹੋ। ਸਹੀ ਪੈਕੇਜ ਕੱਢ ਕੇ ਦਰਵਾਜ਼ੇ 'ਤੇ ਸਕੈਨ ਕਰੋ। ਸੰਪਰਕ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਫੋਟੋ ID ਅਤੇ ਦਸਤਖ਼ਤ ਦੀ ਜਾਂਚ ਪੂਰੀ ਕਰੋ, ਫਿਰ ਲੋੜੀਂਦਾ ਡਿਲੀਵਰੀ ਨਤੀਜਾ ਦਰਜ ਕਰੋ। ਅਪਵਾਦ ਵਾਲੇ ਪੈਕੇਜ ਵਾਪਸੀ ਲਈ ਰੱਖੋ।",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "ਪੰਜੇ ਸਟਾਪਾਂ ਤੋਂ ਬਾਅਦ ਵੈਨ ਨੂੰ ਡਿਪੋ ਵਾਪਸ ਲਿਆਓ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਾਓ। ਰੱਖੇ ਹੋਏ ਪੈਕੇਜ ਕੱਢੋ, ਹਰ ਇੱਕ ਨੂੰ ਰਿਟਰਨ 'ਤੇ ਲਿਆਓ ਅਤੇ ਦੁਬਾਰਾ ਸਕੈਨ ਕਰੋ। ਡਿਸਪੈਚ 'ਤੇ ਹਾਜ਼ਰੀ ਲਗਾਓ ਅਤੇ ਨਤੀਜੇ ਦੇਖਣ ਲਈ ਕੰਮ ਦਾ ਦਿਨ ਖ਼ਤਮ ਕਰੋ ਚੁਣੋ।",
+"Exception recorded. Keep the parcel and return it to the depot.": "ਅਪਵਾਦ ਦਰਜ ਹੋਇਆ। ਪੈਕੇਜ ਆਪਣੇ ਕੋਲ ਰੱਖੋ ਅਤੇ ਡਿਪੋ ਵਾਪਸ ਲਿਆਓ।",
+"Save and return to hub": "ਸੇਵ ਕਰੋ ਅਤੇ ਹੱਬ ਵਾਪਸ ਜਾਓ",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "ਆਪਣਾ ਅਗਲਾ ਸਟਾਪ ਚੁਣੋ। Maple Ave ਡਿਪੋ ਤੋਂ ਉੱਤਰ ਵੱਲ ਜਾਂਦੀ ਹੈ। Birch Lane ਦੂਰ ਵਾਲੇ ਜੰਕਸ਼ਨ 'ਤੇ ਹੈ। ਵਾਪਸ ਆਉਣ ਲਈ ਉੱਤਰੀ ਸਿਰੇ ਦੀ ਮੁੜਨ ਵਾਲੀ ਥਾਂ ਵਰਤੋ।",
+"Review the shift, then return to the hub.": "ਸ਼ਿਫ਼ਟ ਦੀ ਸਮੀਖਿਆ ਕਰੋ, ਫਿਰ ਹੱਬ ਵਾਪਸ ਜਾਓ।"
 },
 "templates": [
 [
@@ -5561,6 +5567,10 @@ window.OTR_I18N.pa = {
 [
 "Continue for {0} feet to the stop.",
 "ਸਟਾਪ ਤੱਕ {0} ਫੁੱਟ ਵਧਦੇ ਰਹੋ।"
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} ਸਕੈਨਰ ਖੋਲ੍ਹਦਾ ਹੈ, ਰੱਖਿਆ ਹੋਇਆ ਪੈਕੇਜ ਵਾਪਸ ਕਰਨ ਲਈ।"
 ]
 ],
 "keep": [
