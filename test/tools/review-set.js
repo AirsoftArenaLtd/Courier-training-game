@@ -129,6 +129,24 @@ const VIEWS = [
     const sp = OTR.fpMirrors.specs[1], dx = sp.x + 0.45, dy = sp.y - 2.05, dz = sp.z + 1.85;    // as the left-mirror view
     window.__trafficShow(s); m.van.look = Math.atan2(dx, -dz); m.player.pitch = -Math.asin(dy / Math.hypot(dx, dy, dz)); s.sync(); return true;
   }],
+  // C-34 (B-76): damage and low clearances, on the same day with damage on
+  ['lowbridge', 'A low bridge ahead, from the cab', (s) => {
+    const m = window.__trafficDay && OTR.fpDamageFlow && window.__trafficDay(s, true); if (!m || !m._damageClearances || !m._damageClearances.length) return false;
+    const b = m._damageClearances[0]; Object.assign(m.van, { x: b.x + 1.7, z: b.z + 18, yaw: 0 }); return window.__trafficShow(s);
+  }],
+  ['dent', 'Damage on the van: a dent on the left and a scuff at the front, seen from outside', (s) => {
+    const m = window.__trafficDay && OTR.fpDamageFlow && window.__trafficDay(s, true); if (!m || !m.damage) return false;
+    const z = OTR.fpDamage.zones; m.damage.added[z.indexOf('left')] = 2; m.damage.added[z.indexOf('front')] = 1;
+    Object.assign(m.van, { x: 2.84, z: -18, yaw: 0 }); m.mode = 'walk';
+    Object.assign(m.player, { x: m.van.x - 4.5, z: m.van.z - 2.5, yaw: Math.atan2(4.5, -2.5), pitch: -0.12 });
+    s.rebuildWorld(); return window.__trafficShow(s);
+  }],
+  ['vanheight', 'The van height before departure (at Dispatch)', (s) => {
+    const m = window.__trafficDay && OTR.fpDamageFlow && window.__trafficDay(s, true); if (!m || !m.damage) return false;
+    m.mode = 'walk'; const desk = m.point('dispatch'); Object.assign(m.player, { x: desk.x - 1.7, z: desk.z }); s.sync();
+    s.showManifest(m.stops.length - 1, true); const i = s.panel ? s.panel.choices.findIndex(c => c.label === 'Begin preparation') : -1;
+    if (i < 0) return false; s.choose(i); return true;
+  }],
   ['school', 'Children on the school crossing, from the cab', (s) => {
     const m = window.__trafficDay && window.__trafficDay(s); if (!m) return false;
     const h = m.crossing; h.state = 'crossing'; h.x = m.town.school.x - 2;
@@ -139,9 +157,10 @@ const VIEWS = [
 /* The C-32 views' day, set up in the page (a view's setup is sent as source, so it cannot share a helper). */
 const TRAFFIC_DAY = () => {
   if (!window.OTR.fpTraffic) return;
-  window.__trafficDay = (s) => {
+  window.__trafficDay = (s, damage) => {
     s.closePanel(); if (s.handheld) s.handheld.close();
-    const plan = OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4, 7)))));
+    let plan = OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4, 7)))));
+    if (damage && OTR.fpDamageFlow) plan = OTR.fpDamageFlow.prepare(plan);                 // C-34 (B-76): damage from day 4
     const m = OTR.fpMission.create('campaign', 7, plan);
     OTR.fpDay.configure(m); OTR.fpDriving.configure(m); OTR.fpDoors.configure(m); OTR.fpLoadout.configure(m, 'extra');
     m.phase = 'route'; m.departed = m.secured = m.repaired = true; m.paused = false; m.events[m.briefKey] = true; m.step = () => {};   // held still
