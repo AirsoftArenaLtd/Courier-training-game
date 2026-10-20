@@ -89,7 +89,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
       check(!found.length, `${tag}: the layout audit finds nothing`);
       // B-52: the same day's debrief, every page, then the record's lessons and recent runs: each fits, and the debrief
       // has the line for every milestone 8 mistake, in the trainee's language
-      const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway'];
+      const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway',
+        'van.damage-dent', 'drive.clearance', 'load.shift'];                         // C-34's damage and load (B-68)
       await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('WorkdayDebriefScene', {}); });
       if (!(await until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000))) throw new Error(`${tag}: the debrief never opened`);
       await wait(900);
