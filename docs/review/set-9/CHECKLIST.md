@@ -19,7 +19,6 @@ starts on day 3, so finish two days first (or use a trainee who already has).
 | 5 | Miss a turn the sat nav gives you and look at the drive map at the end | The wrong turn is an arrow pin on the map, with "wrong turn" in the legend |
 | 6 | Switch to Tamil with larger text and drive past a traffic light and the school (`views-ta-large/`) | The warnings in the cab still fit and are readable |
 
-
 **Damage and low clearances (C-34, from the fourth workday).** Views `lowbridge`, `dent` and `vanheight` (also in Tamil with
 larger text in `views-ta-large/`).
 
