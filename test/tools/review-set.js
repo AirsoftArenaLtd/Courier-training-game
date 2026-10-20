@@ -106,8 +106,53 @@ const VIEWS = [
     m.routePlan.timeOfDay = 'midday'; m.routePlan.weather = 'rain'; if (m.routeDay) m.routeDay.weather = 'rain';
     m.mode = 'cab'; m.van.headlights = false; m.van.wipers = true; m.van.look = 0; m.player.pitch = 0; s.sync(); return true;
   }],
-  ['damage', 'The walk-round damage report', (s) => { if (!s.damageReport) return false; s.damageReport(); return true; }]
+  ['damage', 'The walk-round damage report', (s) => { if (!s.damageReport) return false; s.damageReport(); return true; }],
+  // C-32 (B-50): traffic needs a later day, so these build day 4 (seed 7) as C-32's own gate does, and come last
+  ['redlight', 'A red traffic light from the cab, stopped before the line', (s) => {
+    const m = window.__trafficDay && window.__trafficDay(s); if (!m) return false;
+    const j = OTR.fpTraffic.layout(m).find(j => j.kind === 'signal'); if (!j) return false;
+    m.elapsed = (23 - j.offset + 54) % 54;                                       // red for this approach
+    Object.assign(m.van, { x: j.x + 1.7, z: j.z + m.town.road / 2 + 13, yaw: 0 }); return window.__trafficShow(s);
+  }],
+  ['giveway', 'The give-way junction from the cab', (s) => {
+    const m = window.__trafficDay && window.__trafficDay(s); if (!m) return false;
+    const j = OTR.fpTraffic.layout(m).find(j => j.kind === 'giveway'); if (!j) return false;
+    // its give-way signs face the side road (east and west approaches): come from the east, heading west
+    // (looking a little right, so the sat nav screen does not hide the sign)
+    Object.assign(m.van, { x: j.x + m.town.road / 2 + 16, z: j.z - 1.7, yaw: -Math.PI / 2 }); window.__trafficShow(s); m.van.look = 0.3; s.sync(); return true;
+  }],
+  ['cyclist', 'The cyclist on the right, in the right mirror', (s) => {
+    const m = window.__trafficDay && window.__trafficDay(s); if (!m) return false;
+    Object.assign(m.van, { x: 2.84, z: -18, yaw: 0 }); m.elapsed = 10;
+    const c = m.trafficControl.cyclist, at = OTR.fp.local(m.van, 2, 1.2);
+    Object.assign(c, { state: 'beside', x: at.x, z: at.z, yaw: m.van.yaw, leg: m.leg, at: 10 });
+    const sp = OTR.fpMirrors.specs[1], dx = sp.x + 0.45, dy = sp.y - 2.05, dz = sp.z + 1.85;    // as the left-mirror view
+    window.__trafficShow(s); m.van.look = Math.atan2(dx, -dz); m.player.pitch = -Math.asin(dy / Math.hypot(dx, dy, dz)); s.sync(); return true;
+  }],
+  ['school', 'Children on the school crossing, from the cab', (s) => {
+    const m = window.__trafficDay && window.__trafficDay(s); if (!m) return false;
+    const h = m.crossing; h.state = 'crossing'; h.x = m.town.school.x - 2;
+    Object.assign(m.van, { x: m.town.school.x + 1.7, z: h.z + 8, yaw: 0 }); return window.__trafficShow(s);
+  }]
 ];
+
+/* The C-32 views' day, set up in the page (a view's setup is sent as source, so it cannot share a helper). */
+const TRAFFIC_DAY = () => {
+  if (!window.OTR.fpTraffic) return;
+  window.__trafficDay = (s) => {
+    s.closePanel(); if (s.handheld) s.handheld.close();
+    const plan = OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4, 7)))));
+    const m = OTR.fpMission.create('campaign', 7, plan);
+    OTR.fpDay.configure(m); OTR.fpDriving.configure(m); OTR.fpDoors.configure(m); OTR.fpLoadout.configure(m, 'extra');
+    m.phase = 'route'; m.departed = m.secured = m.repaired = true; m.paused = false; m.events[m.briefKey] = true; m.step = () => {};   // held still
+    for (const p of m.parcels) p.location = 'slot' + (p.anomaly ? 5 : p.stop);
+    m.mode = 'cab'; Object.assign(m.van, { speed: 0, hand: true, belt: true, gear: 1, look: 0 }); m.player.pitch = 0;
+    s.model = m; s.area = 'route'; s.rebuildWorld();
+    return m;
+  };
+  // after a view has placed the van and the actors: move the solid actors with them and draw
+  window.__trafficShow = (s) => { const m = s.model; OTR.fpDriving.syncActors(m); OTR.fpTraffic.syncSolids(m); s.sync(); s.refresh(); return true; };
+};
 
 if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
 
@@ -134,6 +179,7 @@ if (process.argv.includes('--compare')) { writeCompare(); process.exit(0); }
       // each view starts from the day as it was launched: a view's weather, time or lights must not leak into the next
       await p.evaluate(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, r = m.routePlan || {};
         window.__dayAsLaunched = { weather: r.weather, timeOfDay: r.timeOfDay, dayWeather: m.routeDay && m.routeDay.weather }; });
+      await p.evaluate(TRAFFIC_DAY);
       for (const [id, what, setup] of VIEWS) {
         await p.evaluate(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = window.__dayAsLaunched;
           if (m.routePlan) { m.routePlan.weather = d.weather; m.routePlan.timeOfDay = d.timeOfDay; }
