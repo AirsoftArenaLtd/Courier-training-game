@@ -139,3 +139,8 @@ test('a tall sentence uses the clear top margin when its natural anchor would cl
  assert.equal(O.fpSigns.placeLabel({x:914,y:223},336,184,bounds,92,out),true);
  assert.ok(out.y-92>=92&&out.y+92<325);
 });
+
+test('cab sign sentences respect the working dashboard boundary',()=>{
+ const out={};assert.equal(O.fpSigns.placeLabel({x:914,y:223},336,184,[{x:914,y:260,w:80,h:110}],92,out,420),true);
+ assert.ok(out.y+92<=420&&out.y-92>=92);
+});

@@ -59,7 +59,7 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
     if(proof.hiddenGears.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers gear labels ${proof.hiddenGears.join(',')}`);
     if(proof.labelCoversHead)report.failures.push(`${lang}/${size}/${kind}/${back}: a label covers the sign head`);
     if(proof.covered)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers the sign head`);
-    for(const t of proof.text){const b=t.bounds;if(b.x<0||b.right>1280||b.y<0||b.bottom>720||t.font<(size==='large'?22:18)-.1)report.failures.push(`${lang}/${size}/${kind}/${back}: label clips or shrinks`);}
+    for(const t of proof.text){const b=t.bounds;if(b.x<0||b.right>1280||b.y<0||b.bottom>420||t.font<(size==='large'?22:18)-.1)report.failures.push(`${lang}/${size}/${kind}/${back}: label clips or shrinks`);}
     if(back===24&&(lang==='en'||lang==='ta'))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-${kind}.png`)});
     save();
    }
