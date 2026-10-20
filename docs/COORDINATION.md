@@ -379,7 +379,9 @@ items here for each agent.
 | B-64 | Claude | **A list of every test suite:** `node test/run-all.js --list` prints each suite with the first sentence of its header comment, and `test/README.md` gets that table (written by the runner, so it cannot go stale); a check in `test/run-all.js` fails when a suite has no header comment. | done |
 | B-65 | Claude | **The before-and-after report as a spreadsheet:** a CSV download next to Print on the trainer screen (one row per trainee: first and latest stars, score, critical errors, road habits), for a company that wants the numbers in Excel; tested, with the columns named in `docs/DATA.md`. | done |
 | B-66 | Claude | **What is held about a trainee, after milestone 8:** `docs/DATA.md` lists the fields a finished workday now keeps (the aids, critical types, the road tally, the town seed, drive-map places) and `test/data.js` checks that a trainee's download contains them and that erasing removes them. | done |
-| B-67 | Claude | **The Low frame budget with traffic on:** measure `test/fpbench.js` on day 4 (traffic, signals, the cyclist, the crossing) against day 1 on the same machine at Low, record calls, triangles and frame time in `docs/PERF.md`, and send Codex anything over the ceilings. | todo |
+| B-67 | Claude | **The Low frame budget with traffic on:** measure `test/fpbench.js` on day 4 (traffic, signals, the cyclist, the crossing) against day 1 on the same machine at Low, record calls, triangles and frame time in `docs/PERF.md`, and send Codex anything over the ceilings. | done (covered by the C-32 review; see the log) |
+| B-68 | Claude | **C-34 review prep:** when C-34 (damage and load) is marked ready, its new event types (`van.damage-*`, `drive.clearance`, `load.shift`, existing-damage days) get a row in `test/savesize.js`'s worst day (the room must stay at least 550), a debrief and drive-map line in all 12 languages, and the native-review sheets regenerated; prepare the fixtures now from the contract so the review is quick. | todo |
+| B-69 | Claude | **A pre-merge checklist for Codex branches as a script:** `node test/run-all.js --review <branch>` makes the merge worktree, runs every Node suite, i18n with the missing-text list, and the five workday flows at Low, then prints what passed and what needs translating, so each review starts the same way. | todo |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
 | B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) |
 
@@ -404,7 +406,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
    English. Which languages do the pilot's trainers need it in? Until you say, it stays English only (the game itself is
    in all twelve).
 
-5. **Codex has not pushed since about 07:00 UTC (20 Oct).** C-33 (richer stops) and C-34 (damage and load) are still "doing" on their branches, and my locker answer, the C-32 merge, and two C-32 findings and a save-room note are waiting in its inbox. Is Codex's hourly check-in still running? Until it picks them up, I carry on with my own tasks and merge its branches when they are marked ready.
+5. ~~**Codex has not pushed since about 07:00 UTC (20 Oct).**~~ Withdrawn 12:35 UTC: Codex is back (C-34 pushed at 12:30, with the locker answer and the sound-test fix taken).
 
 ### Answered
 
@@ -414,6 +416,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **20 October 2026, Claude — B-67:** covered already, so no new run. The C-32 review's quality gate measured the traffic views at Low: 56 calls / 2,412 triangles, against 56 / 2,432 for the views without traffic, all inside the 64 / 2,500 ceilings. Codex's 264,000-view sweeps give 62 / 2,410 (loaded) and 57 / 2,088 (fallback), and `docs/PERF.md` has its C-32 section. Frame time cannot be measured in this cloud, which renders in software; it waits on the laptop measurement (owner question 2). Owner question 5 is withdrawn: Codex is active again.
 
 - **20 October 2026, Claude — B-66:** `docs/DATA.md`'s Workdays row now lists what a finished workday keeps since milestones 7 and 8: the aids that day, critical mistakes by type, the road tally, the town number, and each stop's address and outcome, as well as the places of driving mistakes. `test/data.js` saves a milestone 8 day for a trainee and checks that the trainer's download carries every one of those fields (the day, the first day's road habits and the record of runs). Erasing then leaves nothing on disk. 6 of 6 pass.
 
