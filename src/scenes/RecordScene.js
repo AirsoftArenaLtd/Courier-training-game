@@ -161,7 +161,12 @@ class RecordScene extends Phaser.Scene {
       const fix = (h.criticals && h.criticals[0]) || (h.lessons && h.lessons[0]) || 'Nothing: a clean run';
       const f = OTR.txt(this, 780, y, fix, 13, h.criticals && h.criticals.length ? '#B3122E' : OTR_DATA.theme.css('inkSoft'), { ox: 0, bold: false });
       // shortened in the language it is shown in (the cut text is no longer a sentence the dictionary knows)
-      if (f.width > 450) { const t = f.text; f.noTranslate = true; f.setText(t.slice(0, Math.floor(t.length * 440 / f.width)) + '…'); }
+      if (f.width > 450) {
+        const t = f.text; f.noTranslate = true;
+        let n = Math.floor(t.length * 440 / f.width);
+        f.setText(t.slice(0, n) + '…');
+        while (f.width > 450 && n > 1) f.setText(t.slice(0, --n) + '…');     // letters are not all one width (B-58)
+      }
       this.body.add(f);
     });
   }

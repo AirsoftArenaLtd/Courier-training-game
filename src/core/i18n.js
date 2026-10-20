@@ -110,6 +110,12 @@ OTR.i18n = {
     if (!/[A-Za-z]{2,}/.test(s)) return s;
     const trimmed = s.trim();
     if (trimmed !== s) { const t = this.translate(trimmed, depth); return t === trimmed ? s : s.replace(trimmed, t); }
+    // a line the game decorated: a mark or a number in front ("⚠ ", "✓ ", "1. "), a count behind ("  (× 3)") (B-58)
+    const deco = /^([⚠✓✗✖•★]\uFE0F?\s+|\d+\.\s+)?(.+?)(\s+\(×\s?\d+\))?$/u.exec(s);
+    if (deco && (deco[1] || deco[3]) && depth < 4) {
+      const core = this.translate(deco[2], depth + 1);
+      if (core !== deco[2]) return (deco[1] || '') + core + (deco[3] || '');
+    }
     if (depth < 4) {
       for (let i = 0; i < this.templates.length; i++) {
         const T = this.templates[i], m = T.re.exec(s);

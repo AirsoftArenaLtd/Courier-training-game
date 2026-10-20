@@ -70,7 +70,9 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await ev(() => {
       const s = OTR.game.scene.getScene('DrivingScene'), v = s.van;
       const at = [[0, 0], [400, 0], [900, 300]];
-      ['speeding', 'redlight', 'rolling'].forEach((k, i) => { v.x += at[i][0]; v.y += at[i][1]; s.violation(k, { speeding: 'Over the limit (34 in a 25)', redlight: 'Ran a red light', rolling: 'Rolled through a stop sign' }[k], 'safety', 2, 'Watch the signs and your speed: they are there for the people you can\'t see yet.'); });
+      ['speeding', 'redlight', 'rolling'].forEach((k, i) => { v.x += at[i][0]; v.y += at[i][1]; s.violation(k, { speeding: 'Speeding: 34 in a 25', redlight: 'Ran a red light', rolling: 'Rolled through a stop sign' }[k], 'safety', 2,
+        // the game's own wording (B-58), so the list of untranslated text shows only what a trainee could really see
+        'Speed limits in residential and school zones exist because stopping distance doubles with speed. The route time you save is never worth it.'); });
       s.endDrill();
     });
     await active('ResultsScene');
@@ -95,6 +97,16 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await shot('access');
     await go('TrainerScene'); await active('TrainerScene');
     await shot('trainer');
+    // the trainer's dialogs (B-58): the 3D workday aids, a new account's employee ID, the temporary password shown once
+    await ev(() => OTR.game.scene.getScene('TrainerScene').workdayAids());
+    await shot('trainer-aids');
+    await go('TrainerScene'); await active('TrainerScene');
+    await ev(() => OTR.game.scene.getScene('TrainerScene').newAccount());
+    await shot('trainer-new-account');
+    await go('TrainerScene'); await active('TrainerScene');
+    await ev(() => OTR.game.scene.getScene('TrainerScene').showTemp({ id: 'e1042', name: 'Alexandria Montgomery-Whitfield', tempPassword: 'river-anchor-58' }));
+    await shot('trainer-temp-password');
+    await go('TrainerScene'); await active('TrainerScene');
 
     await go('RecordScene', {}); await active('RecordScene');
     await shot('record-modules');
