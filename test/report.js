@@ -107,6 +107,28 @@ test('B-54: road habits per day, for trainees whose first and latest days both h
   assert.ok(!context.OTR.pilotReport.html(JSON.parse(JSON.stringify(R.beforeAfter(list, MARKS)))).includes('Road habits'));
 });
 
+test('B-65: the same numbers as a spreadsheet, one row per trainee, safe to open in Excel', () => {
+  const road = (r, a) => Object.assign(r, { road: a });
+  const L = [
+    trainee('s1', 'Sam, "the driver"', [road(run(Date.UTC(2026, 9, 1), 1, 2, 2), [2, 1, 1, 0]), road(run(Date.UTC(2026, 9, 9), 2, 2, 3), [0, 1, 0, 0])]),
+    trainee('s2', '=HYPERLINK("http://x")', [run(Date.UTC(2026, 9, 2), 1, 1, 1)])
+  ];
+  const csv = context.OTR.pilotReport.csv(JSON.parse(JSON.stringify(R.beforeAfter(L, MARKS))));
+  assert.ok(csv.startsWith('\uFEFF'), 'marked UTF-8, so Excel shows Tamil and Hindi names');
+  const lines = csv.slice(1).trim().split('\r\n');
+  const cols = lines[0].split(',');
+  assert.equal(cols.length, context.OTR.pilotReport.CSV_COLUMNS.length);
+  assert.deepEqual(cols.slice(0, 4), ['employee_id', 'name', 'workdays', 'first_date']);
+  assert.ok(cols.includes('latest_red_lights') && cols.includes('change_in_stars'));
+  assert.equal(lines.length, 3, 'a header and one row per trainee');
+  const sam = lines.find(l => l.startsWith('s1,'));
+  assert.ok(sam.startsWith('s1,"Sam, ""the driver""",2,2026-10-01,'), 'a comma or quote in a name is quoted: ' + sam);
+  assert.ok(sam.endsWith(',0,1,0,0,2'), 'the latest road habits, then the change in stars: ' + sam);
+  const eve = lines.find(l => l.startsWith('s2,'));
+  assert.ok(eve.startsWith('s2,"\'=HYPERLINK(""http://x"")"'), 'a name that would run as a formula stays text: ' + eve);
+  assert.ok(/,,,,,?/.test(eve) && eve.endsWith(','), 'a one-day trainee: no road columns, no change: ' + eve);
+});
+
 test('the training server: the report needs the trainer PIN and reads the progress files', async () => {
   const DATA = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-report-'));
   process.env.OTR_DATA_DIR = DATA; process.env.OTR_TRAINER_PIN = '4821'; process.env.OTR_ALLOW_QUERY_USER = '1';

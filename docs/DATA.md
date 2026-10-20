@@ -61,6 +61,14 @@ On the training server, in the trainee list, **Their data**:
 The same actions are available to scripts: `GET api/trainees/<id>/export` and `POST api/trainees/<id>/erase`, both
 with the header `X-Trainer-Pin`.
 
+**Before and after** (top of the trainee list) gives the group's first and latest workdays as a page to print, or as a
+spreadsheet (`before-and-after-<date>.csv`, B-65), which then sits wherever the trainer saves it. Its columns, one row
+per trainee who finished a workday: `employee_id`, `name`, `workdays`; then for `first_` and for `latest_`: `date`,
+`score`, `safety_stars`, `efficiency_stars`, `service_stars`, `critical_errors`, `met_pass_marks` (yes/no),
+`red_lights`, `wrong_turns`, `did_not_give_way`, `cyclist` (empty for a day without traffic); and `change_in_stars`
+(empty for one workday). No lesson text, places or passwords. The column names stay in English whatever the trainer's
+language, so a company's sheets keep working.
+
 In browser-only mode the trainee's data is in that one browser: "Reset their progress" there clears it, and clearing
 the browser's site data removes it entirely. In an LMS the learner's data is in the LMS and is erased there.
 

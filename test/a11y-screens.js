@@ -107,6 +107,9 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await ev(() => OTR.game.scene.getScene('TrainerScene').showTemp({ id: 'e1042', name: 'Alexandria Montgomery-Whitfield', tempPassword: 'river-anchor-58' }));
     await shot('trainer-temp-password');
     await go('TrainerScene'); await active('TrainerScene');
+    await ev(() => OTR.game.scene.getScene('TrainerScene').reportChoice({ trainees: [], group: {} }));   // B-65
+    await shot('trainer-report-choice');
+    await go('TrainerScene'); await active('TrainerScene');
 
     await go('RecordScene', {}); await active('RecordScene');
     await shot('record-modules');
