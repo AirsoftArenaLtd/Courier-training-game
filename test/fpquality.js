@@ -23,9 +23,9 @@ function checkReport(report,profile,tag){
   if(report.deliveryFixture!==true)fail('The richer-stop fixture was not exercised.');
   for(const view of profile.views.split(',').filter(v=>v.startsWith('stops'))){
    const p=report.deliveryProof&&report.deliveryProof[view];
-   if(!p||p.marker!==1||p.parts!==5||p.physicalTarget!==true||
+   if(!p||p.marker!==1||p.parts!==5||p.physicalTarget!==true||p.source!=='native-later-authorized'||p.later!==true||
      (view==='stopsgate'&&!p.gated)||(view.startsWith('stopslocker')&&(p.protocol!=='locker'||!p.deposited))||
-     (view==='stopsstresscab'&&p.source!=='native-later-signature'))fail('No physical richer-stop proof for '+view+'.');
+     (view==='stopsstresscab'&&p.damageZones!==7))fail('No physical richer-stop proof for '+view+'.');
   }
  }
  if(profile.views.split(',').some(v=>v.startsWith('traffic'))&&report.trafficFixture!==true)fail('The combined traffic and navigation fixture was not exercised.');

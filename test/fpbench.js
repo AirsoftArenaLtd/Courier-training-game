@@ -223,7 +223,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    report.deliveryProof=report.deliveryProof||{};report.deliveryProof[view]=await p.evaluate(kind=>{
     const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();let m,id;
     for(let seed=kind==='stresscab'?10:1;seed<=100;seed++){
-     let plan=OTR.fpRoute.plan(kind==='stresscab'?21:3,seed);if(kind==='stresscab')plan=OTR.fpLater.prepare(plan);plan.timeOfDay=kind==='stresscab'?'night':'midday';
+     let plan=OTR.fpLater.prepare(OTR.fpStopFlow.prepare(OTR.fpRoute.plan(kind==='stresscab'?21:3,seed),true));plan.timeOfDay=kind==='stresscab'?'night':'midday';
      m=OTR.fpMission.create('campaign',seed,OTR.fpStopFlow.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(plan))));OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);
      id=kind==='stresscab'?3:m._deliverySpecs.findIndex((a,i)=>kind==='gate'?a.gated:kind==='retention'?!m._doorSpecs[i].present&&m._doorSpecs[i].signature:a.protocol&&a.protocol.kind===(kind.startsWith('locker')?'locker':kind));if(id>=0)break;
     }
@@ -236,9 +236,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      Object.assign(parcel,{location:'held',loaded:true,scanned:true,stopScanned:true});m.heldId=parcel.id;const a=m._deliverySpecs[id].protocol;
      OTR.fpStopFlow.act(m,id,'locker.open',a.compartment);OTR.fpStopFlow.act(m,id,'locker.scan',parcel.id);OTR.fpStopFlow.act(m,id,'locker.deposit');if(kind==='lockerclosed'){OTR.fpStopFlow.act(m,id,'locker.close');OTR.fpStopFlow.act(m,id,'locker.photo');}
     }
-    if(kind==='stresscab'){OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);m.cargoOpen=true;for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
+    if(kind==='stresscab'){if(m.damage)for(const zone of OTR.fpDamage.zones)OTR.fpDamage.contact(m.damage,zone,'solid',8);OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);m.cargoOpen=true;for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
     s.model=m;s.area='route';s.notice='';s.target=null;s.rebuildWorld();s.sync();s.refresh();
-    return {marker:m.routePlan.deliveries,source:kind==='stresscab'?'native-later-signature':'standard-service-generated-fixture',physicalTarget:s.art.interactions.some(o=>o.userData.interaction==='visit'+id),parts:s.art.deliveryArt.parts.length,protocol:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.kind,gated:m._deliverySpecs[id].gated,deposited:OTR.fpStopFlow.inLocker(m,parcel)};
+    return {marker:m.routePlan.deliveries,source:'native-later-authorized',later:m.routePlan.later===1,lockerStop:m.routePlan.lockerStop,damageZones:m.damage?m.damage.added.filter(Boolean).length:0,physicalTarget:s.art.interactions.some(o=>o.userData.interaction==='visit'+id),parts:s.art.deliveryArt.parts.length,protocol:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.kind,gated:m._deliverySpecs[id].gated,deposited:OTR.fpStopFlow.inLocker(m,parcel)};
    },kind);await sample(view);
   }
   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){

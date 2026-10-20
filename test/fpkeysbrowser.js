@@ -53,9 +53,9 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
         pn = await panel();
         const spaces = await p.evaluate(() => OTR.fpRear.names.length);
         check(!!pn && pn.labels.length >= spaces, `${tag}: Enter opens the ${spaces} reversing spaces`);
-        // Back (a choice) goes back a level; Escape closes the menus instead, which is noted for Codex (20 Oct inbox)
-        const escBack = await p.evaluate(() => !!(OTR.game.scene.getScene('FirstPersonScene').panel || {}).back);
-        if (!escBack) console.log(`note ${tag}: Escape in the reversing spaces closes the menus rather than going back (its Back choice goes back)`);
+        await key('Escape');
+        check((await panel() || { labels: [] }).labels.includes('Choose a reversing space.'), `${tag}: Escape in the reversing spaces goes back to the hub menu`);
+        check(await go(/^Choose a reversing space/) && (await key('Enter'), true), `${tag}: the keyboard reopens the reversing spaces`);
         check(await go(/^Back$/) && (await key('Enter'), await wait(300), true), `${tag}: the keyboard reaches Back in the reversing spaces`);
         pn = await panel();
         check(!!pn && pn.labels.includes('Choose a reversing space.'), `${tag}: Back goes back to the hub menu`);
@@ -67,6 +67,9 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
           for (let i = 0; i < pn.labels.length; i++) { await key('Tab'); seen2.add((await panel()).index); }
           check(seen2.size === pn.labels.length, `${tag}: Tab reaches every choice in Settings`);
         }
+        await key('Escape');
+        check((await panel() || { labels: [] }).labels.includes('Choose a reversing space.'), `${tag}: Escape in Settings goes back to the hub menu`);
+        check(await go(/^Settings$/) && (await key('Enter'), true), `${tag}: the keyboard reopens Settings`);
         check(await go(/^Back$/) && (await key('Enter'), await wait(300), true) && (await panel() || { labels: [] }).labels.includes('Choose a reversing space.'), `${tag}: Back in Settings goes back to the hub menu`);
         for (let i = 0; i < 3 && await panel(); i++) await key('Escape');
         check(!(await panel()), `${tag}: Escape closes the menus`);

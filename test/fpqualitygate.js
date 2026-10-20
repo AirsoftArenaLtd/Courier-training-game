@@ -55,8 +55,8 @@ test('richer-stop counters need physical control, custody and native-schedule pr
  const r=report(),p={...profile,views:'stopslockeropen,stopsstresscab'};r.prototype.stopslockeropen=r.prototype.stopsstresscab=r.prototype.cab;
  assert.throws(()=>checkReport(r,p,'sample'),/richer-stop fixture/);r.deliveryFixture=true;
  assert.throws(()=>checkReport(r,p,'sample'),/richer-stop proof/);
- r.deliveryProof={stopslockeropen:{marker:1,parts:5,physicalTarget:true,protocol:'locker',deposited:true},stopsstresscab:{marker:1,parts:5,physicalTarget:true,source:'native-later-signature'}};assert.ok(checkReport(r,p,'sample'));
- for(const patch of [{physicalTarget:false},{deposited:false},{parts:0}]){const saved={...r.deliveryProof.stopslockeropen};Object.assign(r.deliveryProof.stopslockeropen,patch);assert.throws(()=>checkReport(r,p,'sample'),/richer-stop proof/);r.deliveryProof.stopslockeropen=saved;}
+ r.deliveryProof={stopslockeropen:{marker:1,parts:5,physicalTarget:true,protocol:'locker',deposited:true,source:'native-later-authorized',later:true},stopsstresscab:{marker:1,parts:5,physicalTarget:true,source:'native-later-authorized',later:true,damageZones:7}};assert.ok(checkReport(r,p,'sample'));
+ for(const patch of [{physicalTarget:false},{deposited:false},{parts:0},{later:false},{source:'standard-service-generated-fixture'}]){const saved={...r.deliveryProof.stopslockeropen};Object.assign(r.deliveryProof.stopslockeropen,patch);assert.throws(()=>checkReport(r,p,'sample'),/richer-stop proof/);r.deliveryProof.stopslockeropen=saved;}
 });
 
 test('traffic views require the combined versioned traffic and navigation fixture',()=>{

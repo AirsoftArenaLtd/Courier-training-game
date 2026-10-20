@@ -151,7 +151,7 @@ class FirstPersonScene extends Phaser.Scene {
     const choices=OTR.fpRear.spots.map((spot,i)=>({label:OTR.fpRear.names[i],action:()=>this.launch('parking',spot)}));
     if(this.progress.parking&&!this.progress.parking.parking.done)choices.push({label:'Resume reversing practice.',action:()=>this.launch('parking')});
     choices.push({label:'Back',action:()=>this.showPause()});
-    this.showPanel('Choose a reversing space.','Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.',choices,{accessibleText:true});
+    this.showPanel('Choose a reversing space.','Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.',choices,{accessibleText:true,back:()=>this.showPause()});
   }
   leavePrototype(){if(this.hubWorkday){this.toHub();return;}this.checkpoint();const q=new URLSearchParams(location.search);q.delete('lab');q.delete('bench');location.assign('index.html'+(q.toString()?'?'+q.toString():''));}
   showSettings(){
@@ -160,7 +160,7 @@ class FirstPersonScene extends Phaser.Scene {
       {label:'Low graphics',action:()=>quality('low')},{label:'High graphics',action:()=>quality('high')},
       {label:'Slower mouse look',action:()=>{this.sensitivity=Math.max(0.0005,this.sensitivity-0.0005);this.showSettings();}},
       {label:'Faster mouse look',action:()=>{this.sensitivity=Math.min(0.006,this.sensitivity+0.0005);this.showSettings();}},
-      {label:'Language',action:()=>this.showLanguages()},{label:'Accessibility',action:()=>OTR.fpAccess.menu(this)},{label:'Sound settings',action:()=>this.workdaySound.menu()},{label:'Back',action:()=>this.showPause()}]);
+      {label:'Language',action:()=>this.showLanguages()},{label:'Accessibility',action:()=>OTR.fpAccess.menu(this)},{label:'Sound settings',action:()=>this.workdaySound.menu()},{label:'Back',action:()=>this.showPause()}],{back:()=>this.showPause()});
   }
   showLanguages(){
     this.closePanel(false);this.external=true;const before=new Set(this.children.list);OTR.ui.languages(this);
