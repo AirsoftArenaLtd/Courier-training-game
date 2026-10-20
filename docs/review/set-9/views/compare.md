@@ -21,6 +21,9 @@ a set did not have says so.
 | redlight | not in this set | ![redlight low, set 9](redlight-low.jpg) |
 | giveway | not in this set | ![giveway low, set 9](giveway-low.jpg) |
 | cyclist | not in this set | ![cyclist low, set 9](cyclist-low.jpg) |
+| lowbridge | not in this set | ![lowbridge low, set 9](lowbridge-low.jpg) |
+| dent | not in this set | ![dent low, set 9](dent-low.jpg) |
+| vanheight | not in this set | ![vanheight low, set 9](vanheight-low.jpg) |
 | school | not in this set | ![school low, set 9](school-low.jpg) |
 
 ## High graphics
@@ -41,4 +44,7 @@ a set did not have says so.
 | redlight | not in this set | ![redlight high, set 9](redlight-high.jpg) |
 | giveway | not in this set | ![giveway high, set 9](giveway-high.jpg) |
 | cyclist | not in this set | ![cyclist high, set 9](cyclist-high.jpg) |
+| lowbridge | not in this set | ![lowbridge high, set 9](lowbridge-high.jpg) |
+| dent | not in this set | ![dent high, set 9](dent-high.jpg) |
+| vanheight | not in this set | ![vanheight high, set 9](vanheight-high.jpg) |
 | school | not in this set | ![school high, set 9](school-high.jpg) |

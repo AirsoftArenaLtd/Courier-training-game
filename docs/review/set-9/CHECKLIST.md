@@ -19,4 +19,15 @@ starts on day 3, so finish two days first (or use a trainee who already has).
 | 5 | Miss a turn the sat nav gives you and look at the drive map at the end | The wrong turn is an arrow pin on the map, with "wrong turn" in the legend |
 | 6 | Switch to Tamil with larger text and drive past a traffic light and the school (`views-ta-large/`) | The warnings in the cab still fit and are readable |
 
+
+**Damage and low clearances (C-34, from the fourth workday).** Views `lowbridge`, `dent` and `vanheight` (also in Tamil with
+larger text in `views-ta-large/`).
+
+| # | Try this | It should feel like |
+| --- | --- | --- |
+| 7 | At Dispatch on day 4, finish the manifest (view `vanheight`) | A short reminder of the van's height before you set off |
+| 8 | Drive towards a low bridge (view `lowbridge`) | Clear warning in time to turn off. Say if it is too much: the same line is on the notice bar, beside the bridge and on the sat nav screen at once |
+| 9 | Clip a post or a parked car, then walk round the van (view `dent`) | The damage is where you hit, and you can see it from outside. Say if a light scuff is too faint at Low |
+| 10 | Corner hard with the load not secured | The load shifts and the debrief says so; a secured load stays put |
+
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

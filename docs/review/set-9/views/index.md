@@ -22,6 +22,9 @@ not the frame rate.
 | redlight | A red traffic light from the cab, stopped before the line | ![redlight low](redlight-low.jpg) | ![redlight high](redlight-high.jpg) |
 | giveway | The give-way junction from the cab | ![giveway low](giveway-low.jpg) | ![giveway high](giveway-high.jpg) |
 | cyclist | The cyclist on the right, in the right mirror | ![cyclist low](cyclist-low.jpg) | ![cyclist high](cyclist-high.jpg) |
+| lowbridge | A low bridge ahead, from the cab | ![lowbridge low](lowbridge-low.jpg) | ![lowbridge high](lowbridge-high.jpg) |
+| dent | Damage on the van: a dent on the left and a scuff at the front, seen from outside | ![dent low](dent-low.jpg) | ![dent high](dent-high.jpg) |
+| vanheight | The van height before departure (at Dispatch) | ![vanheight low](vanheight-low.jpg) | ![vanheight high](vanheight-high.jpg) |
 | school | Children on the school crossing, from the cab | ![school low](school-low.jpg) | ![school high](school-high.jpg) |
 
 No page errors while capturing.
