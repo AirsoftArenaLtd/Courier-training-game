@@ -3835,7 +3835,15 @@ window.OTR_I18N.es = {
 "The traffic light is amber. Stop if you can do so safely.": "El semáforo está en ámbar. Detente si puedes hacerlo con seguridad.",
 "The traffic light is red. Stop before the junction line.": "El semáforo está en rojo. Detente antes de la línea del cruce.",
 "road sign or traffic light": "señal de tráfico o semáforo",
-"wrong turn": "giro equivocado"
+"wrong turn": "giro equivocado",
+"Debrief ▶": "Resumen ▶",
+"Assessment ▶": "Evaluación ▶",
+"Refresh ▶": "Repasar ▶",
+"Again ▶": "Repetir ▶",
+"◀ Prev": "◀ Anterior",
+"Next ▶": "Siguiente ▶",
+"map ›": "mapa ›",
+"Finish ▶": "Terminar ▶"
 },
 "templates": [
 [

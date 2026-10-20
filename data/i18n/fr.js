@@ -3825,7 +3825,15 @@ window.OTR_I18N.fr = {
 "The traffic light is amber. Stop if you can do so safely.": "Le feu est orange. Arrête-toi si tu peux le faire en sécurité.",
 "The traffic light is red. Stop before the junction line.": "Le feu est rouge. Arrête-toi avant la ligne du carrefour.",
 "road sign or traffic light": "panneau ou feu de signalisation",
-"wrong turn": "erreur de route"
+"wrong turn": "erreur de route",
+"Debrief ▶": "Débriefing ▶",
+"Assessment ▶": "Évaluation ▶",
+"Refresh ▶": "Réviser ▶",
+"Again ▶": "Repasser ▶",
+"◀ Prev": "◀ Précédent",
+"Next ▶": "Suivant ▶",
+"map ›": "carte ›",
+"Finish ▶": "Terminer ▶"
 },
 "templates": [
 [

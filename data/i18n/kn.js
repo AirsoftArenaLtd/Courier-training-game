@@ -3824,7 +3824,15 @@ window.OTR_I18N.kn = {
 "The traffic light is amber. Stop if you can do so safely.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಳದಿ ಇದೆ. ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಲು ಸಾಧ್ಯವಾದರೆ ನಿಲ್ಲಿ.",
 "The traffic light is red. Stop before the junction line.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಕೆಂಪು ಇದೆ. ಜಂಕ್ಷನ್ ಗೆರೆಯ ಮೊದಲು ನಿಲ್ಲಿ.",
 "road sign or traffic light": "ರಸ್ತೆ ಚಿಹ್ನೆ ಅಥವಾ ಟ್ರಾಫಿಕ್ ಲೈಟ್",
-"wrong turn": "ತಪ್ಪು ತಿರುವು"
+"wrong turn": "ತಪ್ಪು ತಿರುವು",
+"Debrief ▶": "ಡಿಬ್ರೀಫ್ ▶",
+"Assessment ▶": "ಮೌಲ್ಯಮಾಪನ ▶",
+"Refresh ▶": "ಪುನರಾವರ್ತನೆ ▶",
+"Again ▶": "ಮತ್ತೆ ತೆಗೆದುಕೊಳ್ಳಿ ▶",
+"◀ Prev": "◀ ಹಿಂದಿನದು",
+"Next ▶": "ಮುಂದೆ ▶",
+"map ›": "ನಕ್ಷೆ ›",
+"Finish ▶": "ಮುಗಿಸಿ ▶"
 },
 "templates": [
 [

@@ -3824,7 +3824,15 @@ window.OTR_I18N.mr = {
 "The traffic light is amber. Stop if you can do so safely.": "ट्रॅफिक लाइट पिवळा आहे. सुरक्षितपणे थांबता येत असेल तर थांबा.",
 "The traffic light is red. Stop before the junction line.": "ट्रॅफिक लाइट लाल आहे. चौकातील रेषेच्या आधी थांबा.",
 "road sign or traffic light": "रस्ता चिन्ह किंवा ट्रॅफिक लाइट",
-"wrong turn": "चुकीचे वळण"
+"wrong turn": "चुकीचे वळण",
+"Debrief ▶": "डीब्रीफ ▶",
+"Assessment ▶": "मूल्यमापन ▶",
+"Refresh ▶": "उजळणी ▶",
+"Again ▶": "पुन्हा द्या ▶",
+"◀ Prev": "◀ मागील",
+"Next ▶": "पुढे ▶",
+"map ›": "नकाशा ›",
+"Finish ▶": "संपवा ▶"
 },
 "templates": [
 [

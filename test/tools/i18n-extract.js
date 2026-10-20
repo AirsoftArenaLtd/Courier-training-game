@@ -23,7 +23,9 @@ global.window = globalThis;
 window.OTR = {}; global.OTR = window.OTR;
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 (html.match(/data\/[a-z0-9_]+\.js/g) || []).forEach(f => { eval(fs.readFileSync(path.join(ROOT, f), 'utf8')); });
-const textish = (s) => /[A-Za-z]{2,}/.test(s) && (/[a-z]{2,}[^a-z]+[a-z]{2,}/i.test(s) || /^[A-Z][a-z]+[.!?]?$/.test(s) || /^[A-Z]{3,}[A-Z' !?.]*$/.test(s));
+// (a one-word link with its arrow, "map ›", is text too: B-52 found it untranslated on the debrief)
+const textish = (s) => /[A-Za-z]{2,}/.test(s) && (/[a-z]{2,}[^a-z]+[a-z]{2,}/i.test(s) || /^[A-Z][a-z]+[.!?]?$/.test(s) || /^[A-Z]{3,}[A-Z' !?.]*$/.test(s) ||
+  /^[A-Za-z][a-z]{2,} [›‹▶◀]$|^[›‹▶◀] [A-Za-z][a-z]{2,}$/.test(s));
 const strings = new Map();          // text → where it came from
 const add = (s, from) => { if (!strings.has(s)) strings.set(s, from); };
 const skipKey = new Set(['id', 'key', 'scene', 'icon', 'tex', 'texture', 'type', 'kind', 'sfx', 'sound', 'anim', 'font', 'color', 'colour', 'skin']);

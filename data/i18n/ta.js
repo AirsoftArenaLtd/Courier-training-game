@@ -3824,7 +3824,15 @@ window.OTR_I18N.ta = {
 "The traffic light is amber. Stop if you can do so safely.": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
 "The traffic light is red. Stop before the junction line.": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
 "road sign or traffic light": "சாலை அடையாளம் அல்லது சிக்னல்",
-"wrong turn": "தவறான திருப்பம்"
+"wrong turn": "தவறான திருப்பம்",
+"Debrief ▶": "மறுஆய்வு ▶",
+"Assessment ▶": "மதிப்பீடு ▶",
+"Refresh ▶": "மீள்பார்வை ▶",
+"Again ▶": "மீண்டும் எழுது ▶",
+"◀ Prev": "◀ முந்தையது",
+"Next ▶": "அடுத்து ▶",
+"map ›": "வரைபடம் ›",
+"Finish ▶": "முடி ▶"
 },
 "templates": [
 [
