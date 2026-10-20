@@ -128,9 +128,11 @@ OTR.fpMission = {
         }
         if(this.doorsteps&&id&&id.startsWith('gate'))return OTR.fpDoors.point(this,Number(id.slice(4)),'gate');
         if(this.doorsteps&&id&&id.startsWith('hazard'))return OTR.fpDoors.point(this,Number(id.slice(6)),'hazard');
+        if(this.deliveryStops&&id&&id.startsWith('visit'))return OTR.fpStopFlow.point(this,Number(id.slice(5)));
         if (id && id.startsWith('door')) { const s = this.stop(id.slice(4)); return s && { x: s.x, y: 1.5, z: s.z }; }
         const p = this.parcel(id);
         if (!p) return null;
+        if(this.deliveryStops&&OTR.fpStopFlow.inLocker(this,p))return OTR.fpStopFlow.parcelPoint(this,p);
         if(p.anomaly&&p.location==='depot'){const desk=this.point('dispatch');return {x:desk.x,y:1.2,z:desk.z};}
         if (p.location === 'depot') return this.depotPoint(p);
         if (p.location.startsWith('slot')) return this.point(p.location);
@@ -193,7 +195,7 @@ OTR.fpMission = {
       },
       canParcel(p) {
         if (!p || this.mode !== 'walk' || this.phase === 'debrief') return false;
-        if (p.location === 'held') return p.id === this.heldId;
+        if (p.location === 'held') return p.id === this.heldId&&(!this.deliveryStops||!OTR.fpStopFlow.inLocker(this,p)||this.deliveryStops.stops[p.stop].protocol.open&&OTR.fpStopFlow.near(this,p.stop));
         return (p.location === 'depot' || (p.location.startsWith('slot') && this.cargoOpen && this.parked())) && this.near(p.id);
       },
       atDelivery(p) {
@@ -212,6 +214,8 @@ OTR.fpMission = {
         }
         if (this.kind === 'campaign' && p.loaded && !this.stop(p.stop).resolved && this.atDelivery(p)) {
           p.stopScanned = true;
+          if(this.deliveryStops){const d=this.deliveryStops.stops[p.stop].protocol,a=this._deliverySpecs[p.stop].protocol;
+            if(d&&d.kind==='locker'&&d.open)OTR.fpStops.act(d,a,'scan',p.id,this.elapsed);}
           this.log('stop-scan:' + p.id, 'verification', 'good', `Scanned the parcel at ${p.address} before delivery.`);
         }
         this.log('scan:' + p.id, 'verification', 'good', `Verified ${p.address} on the scanner.`);
@@ -239,6 +243,7 @@ OTR.fpMission = {
       },
       place(slotId) {
         const slot = M.slots.find(s => s.id === slotId), p = this.parcel(this.heldId);
+        if(this.deliveryStops&&OTR.fpStopFlow.inLocker(this,p))return 'Retrieve the parcel from the locker before moving it.';
         if (!slot || !p || !this.parked() || !this.cargoOpen || !this.near(slotId)) return 'Open the cargo doors and move close to a shelf.';
         if (this.parcels.some(q => q.location === slotId)) return 'That shelf position is occupied.';
         p.location = slotId; p.loaded = true; p.zone = slotId;
@@ -248,6 +253,7 @@ OTR.fpMission = {
       },
       putBack() {
         const p = this.parcel(this.heldId);
+        if(this.deliveryStops&&OTR.fpStopFlow.inLocker(this,p))return 'Retrieve the parcel from the locker before moving it.';
         if (!p || Math.hypot(this.player.x - this.depotPoint(p).x, this.player.z - this.depotPoint(p).z) > 2.8) return 'Return to the parcel table or choose an empty cargo shelf.';
         p.location = 'depot'; this.heldId = null; this.touch(); return '';
       },
@@ -299,6 +305,7 @@ OTR.fpMission = {
       contact(id) {
         const s = this.stop(id);
         if (this.kind !== 'campaign' || !s || !(this.doorsteps?OTR.fpDoors.near(this,id):this.near('door' + id)) || this.mode !== 'walk') return 'Approach the correct delivery point.';
+        if(this.deliveryStops){const wait=OTR.fpStopFlow.contact(this,id);if(wait)return wait;}
         s.contacted = true;if(this.doorsteps)OTR.fpDoors.sync(this);this.touch();
         return s.service === 'handover' ? 'The resident answers and confirms the address.' : 'Nobody answers the door.';
       },
@@ -316,6 +323,7 @@ OTR.fpMission = {
         if (!this.atDelivery(p)) return 'Park the van near this address and set the parking brake first.';
         if (!s.contacted) return 'Attempt contact before recording the outcome.';
         if (!p.stopScanned) return 'Scan this parcel at the door before recording the outcome.';
+        if(this.deliveryStops){const wait=OTR.fpStopFlow.guard(this,id,outcome);if(wait)return wait;}
         if (outcome === 'handover' && s.service !== 'handover') {
           this.log('absent-handover:' + id, 'delivery', 'needs', 'Tried to record a handover with no recipient present.');
           return 'Nobody is present to receive the parcel. Choose an outcome that matches the situation.';
@@ -335,11 +343,13 @@ OTR.fpMission = {
         this.activeStop = this.pending().length ? this.pending()[0].id : this.activeStop;
         if (!this.pending().length) this.phase = 'return';
         if(this.doorsteps)OTR.fpDoors.sync(this);
+        if(this.deliveryStops)OTR.fpStopFlow.resolve(this,id,outcome);
         this.touch();
         return correct ? (outcome === 'exception' ? 'Exception recorded. Keep the parcel and return it to the depot.' : 'Delivery recorded.') : 'Outcome recorded. Review this decision in the debrief.';
       },
       returnParcel() {
         const p = this.parcel(this.heldId);
+        if(this.deliveryStops&&OTR.fpStopFlow.inLocker(this,p))return 'Retrieve the parcel from the locker before moving it.';
         if (!p || !p.returnRequired || !this.near('returns') || this.mode !== 'walk') return 'Bring an undelivered parcel to the returns desk.';
         p.location = 'returned'; this.heldId = null;
         this.log('returned:' + p.id, 'returns', 'good', 'Scanned the undelivered parcel back into the depot.'); this.touch(); return 'Return recorded.';
@@ -458,6 +468,7 @@ OTR.fpMission = {
         const fields = ['version','kind','seed','phase','mode','elapsed','player','van','cargoOpen','secured','heldId','lastScan','briefing','checks','repaired','stops','parcels','logs','events','retrievals','departed','activeStop','requested','leg','mirrorAt','signal','crossing','stopSign','traffic'];
         if (this.routePlan) fields.push('routePlan', 'junctions');
         if(this.doorsteps)fields.push('doorsteps');
+        if(this.deliveryStops)fields.push('deliveryStops');
         if(this.routeDay)fields.push('routeDay');
         if(this.driving)fields.push('driving');
         if(this.loadout)fields.push('loadout');
@@ -487,6 +498,10 @@ OTR.fpMission = {
       if(Object.prototype.hasOwnProperty.call(data,'damage')&&(!OTR.fpDamageFlow||!OTR.fpDamageFlow.enabled(m)))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
+      if(m.routePlan&&m.routePlan.deliveries===1){
+        if(!OTR.fpStopFlow||!OTR.fpStopFlow.valid(m,data.deliveryStops,data))return null;
+        OTR.fpStopFlow.configure(m,data.deliveryStops);
+      }else if(data.deliveryStops)return null;
       if(data.driving){if(!['campaign','parking'].includes(data.kind))return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}
       if(data.kind==='parking'&&(!data.parking||typeof data.parking.done!=='boolean'||data.routePlan||data.loadout||data.routeDay||data.doorsteps))return null;
       if(data.loadout){if(data.kind!=='campaign')return null;OTR.fpLoadout.configure(m,data.loadout.kind);if(!OTR.fpLoadout.valid(m,data.loadout))return null;}
@@ -549,6 +564,7 @@ OTR.fpMission = {
       if (m.routePlan && (!Array.isArray(data.junctions) || data.junctions.length !== m.junctions.length || data.junctions.some((j,i) => j.x !== m.junctions[i].x || j.z !== m.junctions[i].z || typeof j.stopped !== 'boolean' || typeof j.passed !== 'boolean'))) return null;
       Object.keys(m.snapshot()).forEach(k => { if (!(k in data)) throw new Error('Missing field'); m[k] = data[k]; });
       if(m.doorsteps)OTR.fpDoors.attach(m);
+      if(m.deliveryStops)OTR.fpStopFlow.attach(m);
       if(m.routeDay)OTR.fpDay.attach(m);
       if(m.driving)OTR.fpDriving.attach(m);
       if(m.trafficControl)OTR.fpTraffic.attach(m);

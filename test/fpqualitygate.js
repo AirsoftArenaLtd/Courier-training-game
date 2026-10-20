@@ -51,6 +51,13 @@ test('clearance views require a lasting readable warning and the reverse view al
  assert.throws(()=>checkReport(r,p,'sample'),/live reverse camera/);r.prototype[name].clearanceAlert.reverse=true;assert.ok(checkReport(r,p,'sample'));
  r.prototype[name].clearanceAlert.bounds.bottom=721;assert.throws(()=>checkReport(r,p,'sample'),/persistent readable/);
 });
+test('richer-stop counters need physical control, custody and native-schedule proofs',()=>{
+ const r=report(),p={...profile,views:'stopslockeropen,stopsstresscab'};r.prototype.stopslockeropen=r.prototype.stopsstresscab=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/richer-stop fixture/);r.deliveryFixture=true;
+ assert.throws(()=>checkReport(r,p,'sample'),/richer-stop proof/);
+ r.deliveryProof={stopslockeropen:{marker:1,parts:5,physicalTarget:true,protocol:'locker',deposited:true},stopsstresscab:{marker:1,parts:5,physicalTarget:true,source:'native-later-signature'}};assert.ok(checkReport(r,p,'sample'));
+ for(const patch of [{physicalTarget:false},{deposited:false},{parts:0}]){const saved={...r.deliveryProof.stopslockeropen};Object.assign(r.deliveryProof.stopslockeropen,patch);assert.throws(()=>checkReport(r,p,'sample'),/richer-stop proof/);r.deliveryProof.stopslockeropen=saved;}
+});
 
 test('traffic views require the combined versioned traffic and navigation fixture',()=>{
  const r=report(),p={...profile,views:'trafficpeak'};r.prototype.trafficpeak=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/traffic and navigation fixture/);r.trafficFixture=true;assert.ok(checkReport(r,p,'sample'));

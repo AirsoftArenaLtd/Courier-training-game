@@ -1,0 +1,29 @@
+✖ gated sites never put their intercom inside the blocked driveway car (20.554644ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.545056
+
+✖ failing tests:
+
+test at test/fpstopflow.js:57:1
+✖ gated sites never put their intercom inside the blocked driveway car (20.554644ms)
+  AssertionError [ERR_ASSERTION]: day 4, seed 2: the existing blocked approach must stay walkable
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpstopflow.js:62:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

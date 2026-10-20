@@ -49,7 +49,7 @@ OTR.fpTown={
     };ground.customProgramCacheKey=()=>cache.call(ground)+'|otr-town-grain-1';ground.needsUpdate=true;
     paint.onBeforeCompile=ground.onBeforeCompile;paint.customProgramCacheKey=()=>cache.call(paint)+'|otr-town-grain-1';
     const compare=(a,b)=>a.distance-b.distance;
-    return {groups,batches,choices,lots,paint,triangleLimit:high?Infinity:m.trafficControl&&m.routePlan.day>=3?180:obstructions.length?260:290,
+    return {groups,batches,choices,lots,paint,triangleLimit:high?Infinity:m.deliveryStops?120:m.trafficControl&&m.routePlan.day>=3?180:obstructions.length?260:290,
       select(x,z){
         const radius=high?95:55;let remaining=this.triangleLimit;
         for(const c of choices){c.selected=false;c.distance=(c.x-x)**2+(c.z-z)**2;}

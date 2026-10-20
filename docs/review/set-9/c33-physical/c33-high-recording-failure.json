@@ -1,0 +1,9 @@
+{
+  "sourceRevision": "b1d01d64146ef565d1acc4e3e6768746d7b04dd1",
+  "quality": "high",
+  "fixture": "Unmodified generated day-three routes with signs/navigation and the C-33 marker. The all-signature later schedule is tested separately; live locker policy is pending.",
+  "checks": 9,
+  "runs": [],
+  "errors": [],
+  "failure": "TimeoutError: Waiting failed: 60000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c33-stops/test/fpstopbrowser.js:55:15"
+}

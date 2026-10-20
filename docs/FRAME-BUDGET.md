@@ -276,3 +276,37 @@ QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=
 QA_ASSETS=1 QA_TAG=c34-pilot-loaded node --test --test-isolation=none test/fproute.js`;
 repeat with `QA_ASSETS=0 QA_TAG=c34-pilot-fallback`. The rendered gate is
 `QA_BASE=http://127.0.0.1:8341 QA_TAG=c34-pilot node test/fpquality.js`.
+
+
+### C-33 progress: physical stops (19 October 2026)
+
+The unchanged Low ceilings hold in each 264,000-view native-plan CPU sweep at runtime
+`b1d01d6`: loaded **59 calls / 2,398 triangles**, fallback **56 / 2,120**. Physical controls
+and furniture share existing palette batches. Marked days use a 120-triangle decorative
+town allowance; no new image, target or pass is added. Seven focused rendered views per
+profile passed at earlier pre-polish `18d8658`; those 28 views are not the complete
+101-view gate. Full rendered acceptance, High workflows and live locker policy remain
+outstanding. Automatic approval review blocked the next browser commands because its
+review model was at capacity. Exact scopes/figures: `docs/review/set-9/c33.md` and
+`docs/PERF.md`. No FPS or finished-task claim; native Intel remains O-1.
+
+## C-33 complete resource gate (20 October 2026)
+
+The full 101-view `test/fpquality.js` gate passes at source `1e1c0db`, runtime
+`b1d01d6`, superseding the earlier focused 28-view resource sample. Physical stops,
+existing route/cab controls, all live mirror pixel probes, accessibility and missing
+model files are checked. All profiles have zero browser errors and no lost contexts.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 40 | 53 | 2,386 | 2 | 3,557,376 | 3,235,467 |
+| loaded-high | 25 | 98 | 220,081 | 3 | 11,239,424 | 7,972,870 |
+| accessible-low | 18 | 53 | 2,386 | 2 | 3,557,376 | 3,268,112 |
+| fallback-low | 18 | 52 | 2,108 | 2 | 3,557,376 | 2,910,528 |
+
+All ceilings are unchanged. Cloud SwiftShader checks resources, not native Intel
+60 fps (the existing O-1 owner check). The live locker policy and remaining gameplay
+browser validation still keep C-33 blocked, not ready for merge.
+[Raw reports, all 101 screenshots and source/evidence hashes](review/set-9/c33-complete/manifest.json).
+
+Reproduce sequentially: `QA_BASE=http://127.0.0.1:8339 QA_TAG=c33-complete node test/fpquality.js`.

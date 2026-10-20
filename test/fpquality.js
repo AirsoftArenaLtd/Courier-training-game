@@ -12,12 +12,22 @@ const PROFILES=[
  {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident,signsjunction,signspeak,navfull,navreroute,navblocked'}
 ];
 for(const profile of PROFILES)profile.views+=','+DAMAGE_VIEWS;
+for(const profile of PROFILES)profile.views+=',stopsintercom,stopsgate,stopsreception,stopslockeropen,stopslockerclosed,stopsretention,stopsstresscab';
 for(const profile of PROFILES)profile.views+=profile.id==='loaded-low'||profile.id==='loaded-high'?',trafficsignal,trafficgreen,trafficcyclist,trafficmirror,trafficschool,trafficpeak':',trafficsignal,trafficschool,trafficpeak';
 function checkReport(report,profile,tag){
  const fail=text=>{throw Error(profile.id+': '+text);};
  if(report.tag!==tag||report.actualQuality!==profile.quality||report.quality!==profile.quality)fail('The report does not match its requested tag and quality.');
  if(JSON.stringify([...(report.accessibility||[])].sort())!==JSON.stringify((profile.accessibility||'').split(',').filter(Boolean).sort()))fail('The accessibility fixture does not match its profile.');
  if(profile.views.split(',').some(v=>v.startsWith('nav'))&&report.navigationFixture!==true)fail('The navigation fixture was not exercised.');
+ if(profile.views.split(',').some(v=>v.startsWith('stops'))){
+  if(report.deliveryFixture!==true)fail('The richer-stop fixture was not exercised.');
+  for(const view of profile.views.split(',').filter(v=>v.startsWith('stops'))){
+   const p=report.deliveryProof&&report.deliveryProof[view];
+   if(!p||p.marker!==1||p.parts!==5||p.physicalTarget!==true||
+     (view==='stopsgate'&&!p.gated)||(view.startsWith('stopslocker')&&(p.protocol!=='locker'||!p.deposited))||
+     (view==='stopsstresscab'&&p.source!=='native-later-signature'))fail('No physical richer-stop proof for '+view+'.');
+  }
+ }
  if(profile.views.split(',').some(v=>v.startsWith('traffic'))&&report.trafficFixture!==true)fail('The combined traffic and navigation fixture was not exercised.');
  if(report.audioContext!=='running')fail('The live sound and caption fixture was not exercised.');
  const assets=report.assets,assetOK=assets&&assets.fallbacks===0&&(profile.fallback?report.assetFailure==='missing-model-files'&&assets.loaded===0&&assets.failed>=14:assets.loaded>=14&&assets.failed===0);
@@ -47,7 +57,7 @@ function run(){
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_DAMAGE:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_DAMAGE:'1',QA_STOPS:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   // Write measurements as they arrive, so a long profile can be inspected while it runs.
   const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
   try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}

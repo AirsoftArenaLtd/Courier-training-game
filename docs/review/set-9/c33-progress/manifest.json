@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-19",
+  "status": "in progress; protocol layer is not loaded by the game",
+  "basePilot": "370fd59400b1024ea80c49862b2ad0eff6fc3fdc",
+  "command": "node --test --test-isolation=none test/fpstops.js test/fpmission.js test/fpworld.js test/fpdoors.js test/workday.js test/savesize.js",
+  "nodeTests": 129,
+  "protocolTests": 17,
+  "i18nCommand": "node test/i18n.js",
+  "sourceFiles": {
+    "src/core/fpstops.js": "e07858d2b82ac89c9e3b7e0edb72db37877832d9d1ec35eb1154d876249759df",
+    "test/fpstops.js": "bcfb3eb07791532087072dca56414912024bd1ba0afeadd9d7ac2b716645e78d"
+  },
+  "evidenceFiles": {
+    "c33-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c33-protocols.log": "708b4799fa451370a6be046a59da4792a132364371abeebd6a3227eb1c84ebd0"
+  },
+  "sourceRevision": "df7b11e53e3f837555caef2d9d6442aad24a580a"
+}

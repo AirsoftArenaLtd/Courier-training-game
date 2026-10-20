@@ -108,10 +108,11 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind,spot){this.transition(()=>{
     let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      const plan=kind==='campaign'?OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)))))):null;
+      const plan=kind==='campaign'?OTR.fpDamageFlow.prepare(OTR.fpStopFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence))))))):null;
       m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
+    if(!resumed)OTR.fpStopFlow.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
     if(kind==='campaign'&&!m.briefing&&!m.departed){
       const day=OTR.shift.generate(m.seed,m.seed);
@@ -199,11 +200,13 @@ class FirstPersonScene extends Phaser.Scene {
     const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};
     this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
-  showDoor(id){
+  showDoor(id,entry=false){
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
+    if(m.deliveryStops&&!entry&&m._deliverySpecs[id].protocol){OTR.fpStopScene.show(this,id);return;}
     const held=m.parcel(m.heldId),body=[s.address,m.serviceLabel(id),'',s.contacted?(s.service==='handover'?'The resident confirms the address.':'Nobody answers.'):'Attempt contact, then follow the shipment requirements.',`Carrying: ${held?held.address:'No parcel'}`].join('\n');
     if(m.doorsteps&&m._doorSpecs[id].dog&&!m.doorsteps.stops[id].dogSecured){this.showGate(id);return;}
     const choices=s.contacted?[{label:'Record on handheld',action:()=>this.handheld.delivery(id)}]:[{label:'Knock / ring',action:()=>{this.workdaySound.effect('door','You knock on the door.');this.message(m.contact(id));this.checkpoint();this.showDoor(id);}}];
+    if(m.deliveryStops)choices.push({label:'Arrange a failed delivery and reattempt.',action:()=>OTR.fpStopScene.reattempt(this,id)});
     choices.push({label:'Back',action:()=>this.closePanel()});this.showPanel('Delivery',body,choices,{back:()=>this.closePanel()});
   }
   showGate(id){
@@ -309,7 +312,7 @@ class FirstPersonScene extends Phaser.Scene {
     const before={mode:m.mode,cargo:m.cargoOpen,held:m.heldId,secured:m.secured};let result='';
     if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
     else if(id==='tyres'||id==='lights'){this.showInspection(id);return;}else if(id==='dispatch'){this.showDispatch();return;}
-    else if(id==='returns'){this.handheld.scan();return;}else if(id&&id.startsWith('gate')){this.showGate(Number(id.slice(4)));return;}else if(id&&id.startsWith('hazard')){result=OTR.fpDoors.clearHazard(m,Number(id.slice(6)));}
+    else if(id==='returns'){this.handheld.scan();return;}else if(id&&id.startsWith('visit')){const stop=Number(id.slice(5));if(m.stops[stop].resolved)this.message('This stop already has a recorded outcome.');else OTR.fpStopScene.show(this,stop);return;}else if(id&&id.startsWith('gate')){this.showGate(Number(id.slice(4)));return;}else if(id&&id.startsWith('hazard')){result=OTR.fpDoors.clearHazard(m,Number(id.slice(6)));}
     else if(id&&id.startsWith('door')){this.showDoor(Number(id.slice(4)));return;}
     else if(id&&id.startsWith('slot'))result=m.place(id);else if(id&&id.startsWith('parcel')){if(m.heldId)result=m.putBack();else result=m.pickup(id);}
     else if(m.heldId)result=m.putBack();if(result)this.message(result);
@@ -412,6 +415,7 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · '+`${k('KeyE')} places the parcel.`;
     else if(id&&id.startsWith('gate'))hint=`${k('KeyE')} checks the gate. Keep outside while the dog is loose.`;else if(id&&id.startsWith('hazard'))hint=`${k('KeyE')} inspects the path. Hold ${k('ShiftLeft')} for short, careful steps.`;
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
+    if(id&&id.startsWith('visit'))hint=`Press ${k('KeyE')} to use the delivery controls.`;
     if(mode==='cab'&&!(id&&(id.startsWith('cab-')||id.startsWith('mirror-')))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
@@ -432,6 +436,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
+    if(OTR.fpStopScene)OTR.fpStopScene.tick(this);
     const sound=this.workdaySound.tick(time),light=this.art.lighting?this.art.lighting.caption():'';
     if(sound!==this.soundSource||light!==this.lightSource){this.soundSource=sound;this.lightSource=light;this.soundCaption=sound&&light?sound+' · '+light:sound||light;}
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);

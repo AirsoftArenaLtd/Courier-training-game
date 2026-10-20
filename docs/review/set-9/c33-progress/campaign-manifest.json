@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-19",
+  "status": "in progress; opt-in campaign adapter, not loaded by index.html",
+  "sourceRevision": "1bb485cda689e74fc3ada16537cca2af52970abe",
+  "basePilot": "370fd59400b1024ea80c49862b2ad0eff6fc3fdc",
+  "nodeTests": 155,
+  "protocolTests": 18,
+  "campaignTests": 14,
+  "command": "node --test --test-isolation=none test/fpstops.js test/fpstopflow.js test/fpmission.js test/fpworld.js test/fpdoors.js test/fproute.js test/workday.js test/savesize.js",
+  "i18nCommand": "node test/i18n.js",
+  "sourceFiles": {
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpmission.js": "07e20015676b0eb66e6da755aed3445d98f3c306ef0fb9da11a6dadef2863173",
+    "src/core/fproute.js": "3d3f289ae0d82c921e6543890946291e2246bb29992b3c48622a368ce45d1f0b",
+    "src/core/fpstops.js": "c5c00e8e9a0bc767b12ef3da5a2c9ebe2c3e01470541f47fa913da7ca9bd9ad7",
+    "src/core/fpstopflow.js": "e089025e53a6290ebc460e1836bb97bbcc1906c56c49900382aec83a504a4680",
+    "test/fpstops.js": "2b39a261d785e81afa4f2b7261c3d452843e2834039b806a0f5914d886c697af",
+    "test/fpstopflow.js": "b7eb6605fe8575edfd736ce83dcf1fd01a8c6894960ddc796f2b60a04ff40e47",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c"
+  },
+  "evidenceFiles": {
+    "c33-campaign-node.log": "11e4c633f3df54ed2a26d46fbbc4bafdd1b3411f81fcea2b36b189dc0726e9ac",
+    "c33-campaign-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c33-campaign-syntax.json": "5421fc3c495a61040e4bd1b7cb368188393d28b1d4c365ed7fbfb0c328a83733",
+    "c33-campaign-journeys.json": "37b5d42210a08fa3a93c773cd8ac6c1fbedd5e7e4f4920a1589e5941db60cebd"
+  }
+}

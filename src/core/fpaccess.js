@@ -101,6 +101,7 @@ OTR.fpAccess={
   targetName(scene,id){
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;
+    if(id.startsWith('visit'))return OTR.fpStopScene.name(m,Number(id.slice(5)));
     if(id.startsWith('slot'))return OTR.fpMission.slots.find(s=>s.id===id).name;
     return {driver:'the cab',cargo:'the cargo doors',secure:'the load restraint',tyres:'the tires',lights:'the lights',dispatch:'Dispatch',returns:'Returns','hub-day':'the workday station','hub-practice':'the cargo practice station','hub-record':'the debrief station'}[id]||(id.startsWith('gate')?'the dog gate':id.startsWith('hazard')?'the path hazard':id);
   },

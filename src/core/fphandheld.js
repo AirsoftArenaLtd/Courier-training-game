@@ -146,6 +146,7 @@ OTR.fpHandheld = class {
   }
   checks(id){
     const m=this.scene.model,a=m._doorSpecs[id],d=m.doorsteps.stops[id];if(!OTR.fpDoors.can(m,id))return;
+    if(m.deliveryStops){this.close();OTR.fpStopScene.checks(this.scene,id);return;}
     this.show({title:'DELIVERY CHECKS',lines:[a.person?`Person at the door: ${a.person}`:'Nobody is present to receive the parcel.',m.serviceLabel(id)],options:[
       ...(a.adult?[{label:d.idViewed?'Review the photo ID':'Check the photo ID',onPick:()=>{this.close(false);this.scene.showIdentity(id);}}]:[]),
       ...(a.signature&&a.present?[{label:d.signatureName?'Review the signature':'Capture the signature',onPick:()=>this.signature(id)}]:[]),
@@ -183,6 +184,7 @@ OTR.fpHandheld = class {
       this.show({ title: stop.resolved ? 'STOP RECORDED' : 'CHECK DELIVERY', lines: [stop.address, text],
         options: [{ label: 'Put away', onPick: () => this.close() }, { label: 'Stop details', onPick: () => this.stop(id) }] });
     };
+    if(m.deliveryStops){this.close();OTR.fpStopScene.outcome(this.scene,id,record);return;}
     this.show({ title: 'DELIVERY', lines: [stop.address, m.serviceLabel(id)], options: [
       { label: 'Hand to resident', skin: 'ghost', onPick: () => record('handover') },
       { label: 'Leave in porch box', skin: 'ghost', onPick: () => record('safeplace') },

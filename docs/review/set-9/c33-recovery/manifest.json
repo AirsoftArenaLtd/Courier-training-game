@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "runtimeRevision": "b1d01d64146ef565d1acc4e3e6768746d7b04dd1",
+  "status": "Ten English/Tamil larger-text recovery paths pass; C-33 is still blocked on live locker policy and remaining High/inherited/golden checks.",
+  "cases": 10,
+  "checks": 288,
+  "reportRevisions": [
+    "1e1c0dbb85cd0af03427a308b160894ef9f17e02",
+    "aaba9bb9687edebe6eb86be52a7dc0b6a6294d25"
+  ],
+  "sourceFiles": {
+    "test/fpstopbrowser.js": "3d13bf223d5466106f2999cfd028d2b6bc7eca77d904bc7f77685f71ff1cce07"
+  },
+  "evidenceFiles": {
+    "c33-negative-en-large-en-large-failed.png": "d01376ca9f434600066995176e681b62fac67692ff7a10b15e07e8ec0e0e7736",
+    "c33-negative-en-large-en-large-reception-physical.png": "ac1f16f19c269b6096c9c0b8115e9e5ea05044cfa587ffe87e22d9a390a4a9ff",
+    "c33-negative-en-large-en-large-intercom-physical.png": "a9a6e06f71fcbd46db82b87a33963417647b541fe17b31790c360f825f43e611",
+    "c33-negative-en-large-en-large-locker-open.png": "cdbff298f988b7936cd49aed80ccf2d49fcba89d062ba84aeecac2749edffecf",
+    "c33-negative-en-large-en-large-reception.png": "65e7db6c251ab8df7bdfde96473fce0795b79d8b9f103175a3d3cc82d884a6f3",
+    "c33-negative-en-large.log": "521594280e9ea8e0c68ec7713ea7977cfe73a1a855561ebac9eb5c6d2362ab28",
+    "c33-negative-en-large-en-large-reception-resident.png": "54528664bb831712deae295e84abfb3f5eaea398cf1b1d32d13d71790b401576",
+    "c33-negative-en-large-en-large-gated.png": "50534c269e34139399ce6ec8fbabdd1b92450ee440f69736e9044dfedb076a34",
+    "c33-negative-en-large-stops.json": "ca6df758effac5a7a3531b060acb7fad22c542d4d9ed95316c7e08267ba818d1",
+    "c33-negative-en-large-en-large-failed-physical.png": "1dda382d0e7333a9758d7423906b8459808b0324cffaeb5d61111da7117044a6",
+    "c33-negative-en-large-en-large-gated-physical.png": "ebb50c2bdc0a6f23ac4477f66b3c06b4f896ccb1dd3a252d61e46c6acd7003c9",
+    "c33-negative-en-large-en-large-intercom.png": "8e5561e54f182c0378306f6baaf5e560772f5043c4ddef4ca3be2d70351d0e0e",
+    "c33-negative-en-large-en-large-locker-physical.png": "5a7aa082ddb7a431585ac42ae2ffaef83add3baf8c7aa7813e3116796f5817fb",
+    "c33-negative-en-large-en-large-locker.png": "e6218f424eb14ba7226ca425d38bd4b58764523a4f3ec31a76805afd870adfa4",
+    "c33-negative-ta-large-ta-large-gated-physical.png": "1105eda83c920febd361349ad90196d38c3dc1b8c87a393d2c5c2910475e2ea8",
+    "c33-negative-ta-large-ta-large-intercom.png": "247fedca720d78846397ad7e407e36458b8d4a8c97d313b455521c5c3d30f10b",
+    "c33-negative-ta-large.log": "fb5af0f2609e12f90aa07ac12637b994b9dcade05ec2e89833ca5c64edd91a15",
+    "c33-negative-ta-large-ta-large-intercom-physical.png": "bbde5e692518f93e89b59b7fc52e99db9d4aea1ae45ac76922010a9ac543d56e",
+    "c33-negative-ta-large-ta-large-failed.png": "4db14fafe361fe00d9ce7f9fa0832c9f7213e4713ab51127adbcb0122dc0a811",
+    "c33-negative-ta-large-ta-large-locker-open.png": "1ab383ad6228a072c31e6043d8252bec602b0ab069b37328a988e77f7b8e505e",
+    "c33-negative-ta-large-ta-large-locker.png": "919093ba9e9b771cd7a0f4f8f6cf73ae2d793261d2926be89ac8a647acf12bcd",
+    "c33-negative-ta-large-ta-large-reception.png": "0a0348fe9f9a0080ee29f2ef1fa814f73b0e3fc0b5aff825f60a33143f20dc4f",
+    "c33-negative-ta-large-ta-large-locker-physical.png": "57cab07f9d8f324df5fbf4554880ddcd0200bbc6d6f3afe965aa2a8ab3168f04",
+    "c33-negative-ta-large-ta-large-reception-physical.png": "3f862c28ebf525f26b33451708869c86c2b3690430ae9d33f5e85eec3c988aac",
+    "c33-negative-ta-large-ta-large-reception-resident.png": "edf3ef438524ced58e4295d88b24b2b531d18380842fca851f58d98d8dd91c9a",
+    "c33-negative-ta-large-ta-large-gated.png": "61751ce64c01ae63d66923f9f66727494d01995be9f9ac785fbfeb277df3bf16",
+    "c33-negative-ta-large-ta-large-failed-physical.png": "82e0c656b1a77d38660613aa0cdad6d3502c840901aa01ae04091a811a530080",
+    "c33-negative-ta-large-stops.json": "2f958323ae0a597833a26d586ee97e36220c2bf23554d0cefd36952602d79c0c"
+  }
+}
