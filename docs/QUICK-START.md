@@ -1,6 +1,7 @@
 # Trainer's quick start (one page)
 
-For the person running a session. Print this page; the full guide is `docs/PILOT-GUIDE.md`.
+For the person running a session. Print this page; the full guide is `docs/PILOT-GUIDE.md`. In Tamil:
+`docs/QUICK-START.ta.md`; in Hindi: `docs/QUICK-START.hi.md` (machine translations, awaiting native review).
 
 **Before trainees arrive**
 1. Open the game on one training PC and start a workday. If it says "WebGL is required", ask IT to turn graphics
