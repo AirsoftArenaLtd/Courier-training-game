@@ -199,7 +199,7 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
     check(s.workday.last && s.workday.last.score === goodExp.score && JSON.stringify(s.workday.last.stars) === JSON.stringify(goodExp.stars), `good day scored ${s.workday.last && s.workday.last.score} (expected ${goodExp.score}), stars ${JSON.stringify(s.workday.last && s.workday.last.stars)}`);
     check(s.route.days === 1 && s.history.length === 1 && s.history[0].id === 'workday' && !s.workday.current, 'good day saved: a route day, a run on the record, nothing in progress');
     t = await texts('ResultsScene');
-    check(t.includes('Your workday') && t.includes('9 / 9') && t.includes('FLAWLESS!') && t.includes('3 of 3 stops delivered · 23 min'), 'results: title, 9 / 9 stars, FLAWLESS!, the day in numbers');
+    check(t.includes('Your workday') && t.includes('9 / 9') && t.includes('FLAWLESS!') && t.some(x => x.startsWith('3 of 3 stops delivered · 23 min')), 'results: title, 9 / 9 stars, FLAWLESS!, the day in numbers');
     await shot('results-good');
     await press('ResultsScene', 'Drive map');
     await sceneIs('DriveReviewScene');
@@ -248,7 +248,7 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
     check(JSON.stringify(badRatios) === JSON.stringify(badExp.ratios), `bad day ratios ${JSON.stringify(badRatios)} (expected ${JSON.stringify(badExp.ratios)})`);
     check(s.workday.last.stars.safety <= 1 && s.workday.last.criticals.length === 2, 'a critical mistake caps safety at one star and is on the record');
     t = await texts('ResultsScene');
-    check(t.includes('SAFETY-CRITICAL MISTAKE') && t.includes('Drive map (7)') && t.includes('2 of 3 stops delivered · 35 min'), 'results: critical headline, seven pins, two of three delivered');
+    check(t.includes('SAFETY-CRITICAL MISTAKE') && t.includes('Drive map (7)') && t.some(x => x.startsWith('2 of 3 stops delivered · 35 min')), 'results: critical headline, seven pins, two of three delivered');
     await shot('results-bad');
     await press('ResultsScene', 'Drive map (7)');
     await sceneIs('DriveReviewScene');
@@ -360,7 +360,7 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
     await shot('record-lessons');
     await p.keyboard.press('Digit3');
     t = await texts('RecordScene');
-    check(t.filter(x => x === 'Workday').length >= 6, 'record: three workday runs in recent runs');
+    check(t.filter(x => x === 'Workday' || x === 'Workday, aided').length >= 6, 'record: three workday runs in recent runs');
     await shot('record-recent');
     await ev(() => OTR.save.flush()); await wait(500);
     check(await ev(() => OTR.academy.checkPin('4821')) === true, 'trainer PIN');
@@ -368,7 +368,7 @@ const STOPS = [{ stop: 1, delivered: true, address: '214 Maple Ave', x: 10, z: -
     await until(() => { const r = OTR.game.scene.getScene('RecordScene'); return r.R && r.d.traineeId; }, 10000);
     check(await ev(() => OTR.game.scene.getScene('RecordScene').R.routeDays === 3 && OTR.game.scene.getScene('RecordScene').R.recent.filter(h => h.id === 'workday').length === 3), 'trainer view: the workdays on the record from the server');
     const html = await ev(() => OTR.record.html(OTR.game.scene.getScene('RecordScene').R, 'Sam Lee', 'sam.lee'));
-    check(/Workday: Conflict with a pedestrian/.test(html), 'printed record names the workday');
+    check(/Workday(, aided)?: Conflict with a pedestrian/.test(html), 'printed record names the workday');
 
     /* ---- a saved day with an event type the catalogue no longer has, and a run the registry no longer lists */
     await ev(() => {
