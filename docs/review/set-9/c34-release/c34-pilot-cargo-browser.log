@@ -1,0 +1,69 @@
+ok 3D renderer starts
+ok hub starts a workday
+ok read dispatch brief and all manifest pages
+ok pick up parcel 0
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok depot barcode verified 0
+ok open physical cargo doors
+ok place parcel in chosen shelf 0
+ok pick up parcel 1
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok depot barcode verified 1
+ok place parcel in chosen shelf 1
+ok pick up parcel 2
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok depot barcode verified 2
+ok place parcel in chosen shelf 2
+ok cargo restraint secures the load
+ok close cargo after stepping outside
+ok enter cab through driver door
+ok handheld refuses use while driving
+ok full stop before the junction line
+ok driven leg reports the safe stop-line response
+ok park and exit after a driven leg
+ok open cargo at delivery 0
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok cargo scan cannot replace doorstep verification 0
+ok retrieve physical parcel 0
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok fresh doorstep scan 0
+ok door opens delivery on handheld
+ok record supported delivery outcome 0
+ok reload resumes identical cargo and scan state
+ok open cargo at delivery 1
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok cargo scan cannot replace doorstep verification 1
+ok retrieve physical parcel 1
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok fresh doorstep scan 1
+ok door opens delivery on handheld
+ok record supported delivery outcome 1
+ok retain signature parcel in cargo
+ok open cargo at delivery 2
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok cargo scan cannot replace doorstep verification 2
+ok retrieve physical parcel 2
+ok scanner enters aiming mode
+ok continuous trigger opens a scan result
+ok fresh doorstep scan 2
+ok door opens delivery on handheld
+ok record supported delivery outcome 2
+ok all stops lead to depot return
+ok Returns opens the barcode scanner
+ok return scan checks in the held parcel
+ok Dispatch completes the workday
+ok debrief returns to hub
+ok hub offers separate cargo practice
+ok hub starts separate cargo practice
+ok cargo practice blocks driving
+ok no browser page errors
+ok captured interfaces pass layout checks
+68 checks passed; lang=en; gfx=low

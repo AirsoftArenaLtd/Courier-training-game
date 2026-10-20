@@ -1,0 +1,32 @@
+{
+  "finalSource": "b23d90351a0b7b76e20c9854121cc7df5911caa9",
+  "pilot": "3fdfc22",
+  "environment": {
+    "NODE_PATH": "/workspace/Courier-training-game/test/node_modules",
+    "QA_BROWSER": "/usr/bin/chromium",
+    "QA_BASE": "http://127.0.0.1:8341",
+    "QA_FPS_FLOOR": "0",
+    "QA_GFX": "low"
+  },
+  "repository": [
+    "node test/run-all.js"
+  ],
+  "environmentRecovery": {
+    "reason": "Chromium policy blocks file URLs. Ignored test/node_modules symlink supplies the absolute dependency used by pack-art. No shared tests or product files are changed. Actual file-protocol launch is untested.",
+    "adapter": "c34-pilot-http-test-adapter.cjs",
+    "NODE_OPTIONS": "--require=/tmp/c34-http-test-adapter.cjs",
+    "commands": [
+      "node test/art.js",
+      "node test/driving.js",
+      "node test/enterprise.js",
+      "node test/routeday.js",
+      "node test/town3d.js"
+    ]
+  },
+  "expandedResume": "QA_LATER=1 QA_SIGNS=1 QA_TRAFFIC=1 QA_NAV=1 QA_DAMAGE=1 QA_LIGHTING=1 QA_CAB=1 QA_REAR=1 node --test test/fpresume.js",
+  "finalReview": "QA_GFX=low QA_FPS_FLOOR=0 node test/qa.js --only workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review",
+  "renderedGate": "QA_TAG=c34-pilot node test/fpquality.js",
+  "renderedScope": "Recorded rendering source fee4d72. The final source has identical geometry/assets/HUD; the pure controller delta and newest shared-pilot patch are archived separately.",
+  "translationAudit": "Use the existing i18n extractor with output redirected to /tmp, then the review-branch missing-text filters. This lists 14 player lines and two internal errors without editing the shared catalogue.",
+  "nativeIntelFps": "Not measurable on this cloud SwiftShader environment; existing owner check O-1."
+}

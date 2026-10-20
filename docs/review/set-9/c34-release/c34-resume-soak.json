@@ -27,8 +27,8 @@
     {
       "seed": 5,
       "checkpoints": 126,
-      "events": 73,
-      "score": 11000
+      "events": 72,
+      "score": 10800
     },
     {
       "seed": 6,
@@ -63,8 +63,8 @@
     {
       "seed": 11,
       "checkpoints": 129,
-      "events": 75,
-      "score": 10700
+      "events": 74,
+      "score": 10500
     },
     {
       "seed": 12,
@@ -209,8 +209,8 @@
     {
       "seed": 5,
       "checkpoints": 126,
-      "events": 73,
-      "score": 11000
+      "events": 72,
+      "score": 10800
     },
     {
       "seed": 6,
@@ -245,8 +245,8 @@
     {
       "seed": 11,
       "checkpoints": 129,
-      "events": 75,
-      "score": 10700
+      "events": 74,
+      "score": 10500
     },
     {
       "seed": 12,
@@ -497,8 +497,8 @@
     {
       "seed": 53,
       "checkpoints": 125,
-      "events": 72,
-      "score": 10300
+      "events": 70,
+      "score": 10100
     },
     {
       "seed": 54,
@@ -665,8 +665,8 @@
     {
       "seed": 81,
       "checkpoints": 131,
-      "events": 75,
-      "score": 10700
+      "events": 74,
+      "score": 10500
     },
     {
       "seed": 82,
@@ -683,8 +683,8 @@
     {
       "seed": 84,
       "checkpoints": 126,
-      "events": 73,
-      "score": 10900
+      "events": 74,
+      "score": 11100
     },
     {
       "seed": 85,

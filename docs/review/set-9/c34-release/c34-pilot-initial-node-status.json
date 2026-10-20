@@ -1,0 +1,13 @@
+{
+  "sourceRevision": "b23d90351a0b7b76e20c9854121cc7df5911caa9",
+  "pilotRevision": "3fdfc22",
+  "stages": [
+    {
+      "stage": "node",
+      "exit": 1,
+      "seconds": 305.94,
+      "log": "c34-pilot-latest-node.log"
+    }
+  ],
+  "complete": false
+}

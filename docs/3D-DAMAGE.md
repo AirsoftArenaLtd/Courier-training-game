@@ -1,10 +1,8 @@
-# Damage and load (C-34, in progress)
+# Damage and load (C-34)
 
-`codex/c34-damage-load` starts independently from pilot `370fd59`, after merged C-28.
-The 20 October fetch still finds that pilot and no new Codex inbox item. The branch
-now loads three new owned modules and enables damage-marked campaigns from day four.
-**C-34 stays doing until its full resource and final browser checks pass.** Claude
-opens/reviews/merges the PR; no protected branch is pushed or merged here.
+Ready on `codex/c34-damage-load`, rebased onto pilot `3fdfc22`, including merged
+C-32, Claude's translations and B-68 packing unchanged. Claude opens, reviews,
+translates and merges the PR. Codex has not pushed a protected branch or merged a PR.
 
 ## What changes
 
@@ -86,71 +84,80 @@ the visible level is their maximum. It must respect `damage.enabled` and report 
 through the already-approved inspection/report contract. C-34 does not implement the
 C-35 report menus or grade a missing report prematurely.
 
-## Evidence, 20 October 2026
+## Acceptance evidence
 
-The final integrated regression run passes **256 cases**, followed by five separate
-real-asset placement regressions. The earlier 95-case pass also covers navigation,
-road signs and the compact display. All 11 route tests pass with each loaded/fallback
-geometry sweep: **285,600 complete-frame views each**, including full cargo, every
-cab control, all mirrors/reverse, weather, lighting, all seven damaged zones and both
-clearance approaches. Loaded peaks: **64 calls / 2,474 triangles**; fallback: **58 /
-2,105**. These are CPU geometry checks, not a WebGL memory or native FPS claim.
+The pilot/C-32 and damage combination passes **285,600 complete-frame views per
+CPU sweep**: loaded **64 calls / 2,449 triangles**, missing-model fallback **59 /
+2,121**. Sweeps include full cargo, seven damaged zones, active traffic, cab
+controls, mirrors/reverse, weather and lighting across 30 days and ten variants.
+The worst loaded geometry is day 21, variant 10, stop 1, loaded cargo exterior,
+right reflection. Damage/clearances share one bounded texture-free batch, at most
+15 instances / 45 triangles per pass. Tire wear uses the actual imported wheel;
+rear wear follows the cargo door. No texture, target, pass or ceiling is added.
 
-Thirty interrupted five-stop model journeys reproduce uninterrupted state/reports at
-all 3,817 checkpoints, and 100 further shuffled seeded days finish. All 240 SCORM
-round trips preserve score/criticals, peaking at 3,974/4,000 characters. Travel and the
-impact wall/speed are explicit fixtures; the motor, reports and checkpoint readers are
-real. A separate 50-event damage stress case uses 2,103 characters, preserves event
-identities, raw awarded total (-98) and 13 criticals. Both SCORM package formats pass
-all three packaging checks. Existing-catalogue i18n, syntax and whitespace pass.
+All **127 rendered resource views** pass the strict four-profile gate:
 
-The Low and High browser matrices each pass 80 keyboard/layout/narration checks
-across English and Tamil at normal/larger sizes. After carrying the already-authored
-C-32/C-33 script-font fix, affected Tamil reruns each pass 40 more checks. A separate
-real keyboard stop-then-strike workflow passes 26 checks: D and parking-brake controls,
-actual acceleration into the beam, roof damage and the later failed clearance report,
-then valid restore. Its 24.12-second capture shows the drive without a model-time jump.
-Eight further browser checks confirm the reverse-facing clearance warning is visible
-and narrated, the reverse camera stays live, a safe halt adds no damage and restore
-remains valid. The approach position is an explicit fixture; scene ticks and UI are real.
-The initial **105-view, four-profile** resource gate passes at `e818dcd`, before the
-attachment correction. Both corrected geometry sweeps pass at `b1acfc5`; the corrected full WebGL gate is
-running. The initial resource run is intermediate evidence only. Low stays at 64 calls, 2,500 triangles, two textures and unchanged 4 MiB memory
-ceilings. Native Intel 60 fps remains the existing O-1 owner check; cloud SwiftShader
-only checks resources. The relevant inherited workday golden paths and review readiness follow the resource gate.
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 48 | 56 | 2,412 | 2 | 3,557,376 | 3,379,819 |
+| loaded-high | 33 | 107 | 235,653 | 3 | 11,239,424 | 8,571,952 |
+| accessible-low | 23 | 56 | 2,412 | 2 | 3,557,376 | 3,442,016 |
+| fallback-low | 23 | 53 | 2,090 | 2 | 3,557,376 | 3,104,582 |
 
-[Physical-stage logs, source/evidence hashes and remaining checks](review/set-9/c34-physical/manifest.json).
-Earlier controller/adapter evidence remains under [c34-progress](review/set-9/c34-progress/manifest.json)
-and [c34-adapter](review/set-9/c34-adapter/manifest.json), with its own source revisions.
-`Invalid damage parameters` and `Invalid damage version` are internal errors, not UI.
+Rendering/assets/HUD are frozen at `fee4d72`. The final pure adapter correction
+at `2faa074` uses perpendicular-traffic bounds and omits unused successful-check
+coordinates. Its actual-motor regression, affected 150-case batch and final
+61-case adapter/workday/save batch pass. No rendering input, checkpoint field or
+score type changes. The source is then rebased onto pilot `3fdfc22` at `b23d903`:
+owned 3D code is byte-identical to `2faa074`; the additional changes are Claude's
+B-68 packer, translations, corporate reports/trainer tools and review tools.
+Source hashes, both delta patches and exact validation scopes are archived.
 
-[Final browser reports, captures and hashes](review/set-9/c34-final/manifest.json).
-[Corrected Tamil larger-text warning/gauge](review/set-9/c34-final/c34-low-font-ta-large-clearance.png),
-[High Tamil warning/gauge](review/set-9/c34-final/c34-high-font-ta-large-clearance.png),
-[keyboard strike capture](review/set-9/c34-final/c34-clearance-strike-review.webm).
-The clip is a lossless stream remux of the test capture, adding duration/seek metadata.
+The final **58-suite repository set passes: 53 directly, five over local HTTP**
+through the archived environment transport adapter. Chromium policy blocks those
+legacy suites' file URLs; actual file-protocol launch is untested here. Assertions
+and shared tests are unchanged. The full five-flow Low workday review set passes
+on `b23d903`: workday-3d, workday-3d-b, workday-3d-c, workday-aids and drive-review.
+Both SCORM package formats and current-catalogue i18n pass on this integration.
 
-## Current-pilot integration (20 October)
+Earlier focused verification passes 35 isolated Node suites / 490 cases, Low/High
+English/Tamil normal/larger damage matrices / 80 checks each, delayed reverse
+warnings / 14 each, cargo practice / 68 and sound / 45. The expanded 130-day
+cab/reverse/lighting resume/soak passes again on `b23d903`: **3,817 checkpoints,
+240 SCORM round trips, 3,974/4,000 characters, no failures**. B-68's separate
+worst-day damage/report fixture retains at least 300 characters of room.
 
-The branch now retains pilot `986e3fa`, including merged C-32 traffic, its translations
-and Claude’s B-55 save compaction. This content was applied on the work branch; no
-protected branch or pull request was merged. All shared scoring/save/i18n content
-is byte-identical to that pilot. The final combined gate contains 127 views: the
-91 traffic/navigation views plus nine damage views in every profile. The interrupted
-pre-integration 109-view attempt is incomplete and is not acceptance evidence.
+Screenshots, raw reports, source/evidence hashes and the five-minute checklist:
+[C-34 review](review/set-9/c34.md). New text is 14 player-facing sentences plus
+two internal validation messages for Claude; the shared catalogue is unchanged.
+Earlier progress archives retain their sources. Cloud SwiftShader FPS cannot
+establish the native Intel 60 fps floor; the existing O-1 owner check remains.
 
-Both combined 285,600-view geometry sweeps pass: loaded **64 calls / 2,449 triangles**,
-missing-model fallback **59 / 2,121**. Thirty-five isolated Node suites pass **488 cases**,
-including actual-model attachment, damage, signals, mission/world, HUD and saves.
-The isolated processes matter for real glTF tests, whose loader globals belong to
-their own VM realm. An exploratory shared-process run is diagnostic, superseded
-by these isolated passes. Both packages and the current translation catalogue pass.
-The first combined 130-day restore/soak passes 3,277 checkpoints and all 240 SCORM
-checks at 3,800/4,000 characters; the expanded cab/reverse/lighting variant is running.
+Reproduce the sweeps with `QA_DAMAGE=1 QA_TRAFFIC=1 QA_NAV=1 QA_SIGNS=1 QA_LATER=1
+QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=1
+QA_ASSETS=1 QA_TAG=c34-pilot-loaded node --test --test-isolation=none test/fproute.js`;
+repeat with `QA_ASSETS=0 QA_TAG=c34-pilot-fallback`. The rendered gate is
+`QA_BASE=http://127.0.0.1:8341 QA_TAG=c34-pilot node test/fpquality.js`.
 
-The live caption now includes C-32’s cyclist/school warning after the higher-priority
-driving warning, without requiring the handheld. The sound regression waits for
-ducking, restarted nodes and caption availability (45 checks pass). The cargo
-workflow waits for actual launch/return transitions and chooses the displayed
-practice choice. The two physical-sign placement findings are acknowledged for
-C-33, which is unblocked by the approved one-parcel locker policy.
+Correct clearance checks retain short keys without an unused map place; strikes
+retain the actual position and incoming speed. The final 50-report actual-adapter stress
+case preserves every identity, raw award (-98) and 13 criticals in 1,980 SCORM
+characters; its fixed-size owned damage state occupies 216 characters.
+
+[Final manifest, reports and source/evidence hashes](review/set-9/c34-release/manifest.json).
+The earlier [controller](review/set-9/c34-progress/manifest.json),
+[adapter](review/set-9/c34-adapter/manifest.json),
+[physical](review/set-9/c34-physical/manifest.json) and
+[keyboard/layout](review/set-9/c34-final/manifest.json) archives retain their own
+revision scopes. The 24.12-second keyboard stop/strike clip is from `e818dcd`;
+it uses actual gear, brake and accelerator keys against the physical beam.
+No final-source video is claimed. The interrupted 109-view pre-integration run
+is incomplete and is not counted as a pass.
+
+C-35 adds pre/post-trip report menus; C-34 does not grade missing reports early.
+C-33 resumes with the approved original-standard-parcel locker rule. The traffic
+warning now reaches the cab; traffic-label wrapping/placement, sign sight lines
+and checking the inherited Tamil rear-caption font are recorded as C-33 follow-ups.
+New whole English sentences await Claude's translation. `Invalid damage parameters`
+and `Invalid damage version` are internal errors. No shared scoring/save/Settings/
+i18n source was authored here; retained shared source is identical to `3fdfc22`.

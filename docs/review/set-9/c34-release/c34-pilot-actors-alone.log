@@ -1,0 +1,26 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ both qualities load semantic van parts and four-clip worker rigs; the static adapter refuses rigs (428.290663ms)
+✔ all workday clips deform one texture-free mesh, keep finite human bounds and cache repeated poses (597.671331ms)
+✔ independent scene rigs never change their templates or each other (9.783762ms)
+✔ source and Low van doors steer and open without replacing any physical target, score, solid or saved field (685.963806ms)
+✔ only the nearest present resident uses the rig; physical door targets remain at the original facade (93.32824ms)
+✔ walkaround courier is visible in reflections and visibility is restored afterwards (31.814696ms)
+✔ missing actor files keep the old procedural vehicle and people while healthy town models still load (47.148142ms)
+✔ semantically incomplete actor files are rejected during preload and keep the procedural fallback (14.993267ms)
+✔ company colours reach the displayed van and courier vertices without changing geometry or source assets (43.034393ms)
+✔ scene rebuild releases every posed mesh exactly once while the bank keeps its source geometry (32.84794ms)
+✔ opening a door exposes a recessed dark doorway without opening a hole in the physical facade (31.450962ms)
+✔ the interior mirror uses the retained cab shell and restores the new exterior after its pass (22.167384ms)
+✔ the lifting cargo door stays inside the original van footprint throughout its movement (303.37519ms)
+✔ residents retain the shirt and skin colours used in the existing ID comparison (37.886076ms)
+✔ resumed contacts keep talking without repeating the walk-up or wave, and distant couriers do no pose work (37.219368ms)
+✔ resuming an away or resolved stop keeps its door closed from the first frame (218.791137ms)
+✔ school children share a bounded High rig draw; Low keeps two solid figures inside the existing batch (170.376328ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3218.993023

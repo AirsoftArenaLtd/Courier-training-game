@@ -1,0 +1,31 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+
+ok   drive-review   fps= 16 boot=null golden=ok
+      stop 1: signature -> handover
+      stop 2: signature -> handover
+      stop 3:  -> safeplace
+      stop 4:  -> handover
+      stop 5: dog -> handover
+ok   workday-3d     fps=  5 boot=null golden=ok
+ok   workday-aids   fps=  8 boot=null golden=ok
+      stop 1: adult signature hazard:ice -> exception
+      stop 2: adult signature difficult hazard:ice -> exception
+      stop 3: wrong signature hazard:ice -> exception
+      stop 4: signature hazard:ice -> exception
+      stop 5: dog signature hazard:ice -> handover
+ok   workday-3d-b   fps=  6 boot=null golden=ok
+      stop 1: wrong signature hazard:ice -> exception
+      stop 2: adult signature hazard:ice -> handover
+      stop 3: dog adult signature hazard:ice -> handover
+      stop 4: signature hazard:ice -> handover
+      stop 5: signature hazard:ice -> handover
+ok   workday-3d-c   fps=  1 boot=null golden=ok
+
+================ summary ================
+  pass  drive-review   fps= 16  
+  pass  workday-3d     fps=  5  
+  pass  workday-aids   fps=  8  
+  pass  workday-3d-b   fps=  6  
+  pass  workday-3d-c   fps=  1  
+
+5/5 scenarios clean

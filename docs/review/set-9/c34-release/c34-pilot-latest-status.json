@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "b23d90351a0b7b76e20c9854121cc7df5911caa9",
+  "pilotRevision": "3fdfc22",
+  "stages": [
+    {
+      "stage": "node",
+      "exit": 0,
+      "seconds": 533.62,
+      "log": "c34-pilot-latest-node.log",
+      "direct": 53,
+      "httpTransport": 5,
+      "firstAttemptExit": 1,
+      "recoveryLog": "c34-pilot-latest-node-recovery.log",
+      "recovered": [
+        {
+          "suite": "art",
+          "exit": 0
+        },
+        {
+          "suite": "driving",
+          "exit": 0
+        },
+        {
+          "suite": "enterprise",
+          "exit": 0
+        },
+        {
+          "suite": "routeday",
+          "exit": 0
+        },
+        {
+          "suite": "town3d",
+          "exit": 0
+        }
+      ],
+      "scope": "Legacy file URLs use the same repository over HTTP; actual file-protocol launch is untested. All test assertions and product code are unchanged."
+    },
+    {
+      "stage": "resume",
+      "exit": 0,
+      "seconds": 180.14,
+      "log": "c34-pilot-latest-resume.log"
+    },
+    {
+      "stage": "golden-five",
+      "exit": 0,
+      "seconds": 1107.32,
+      "log": "c34-pilot-latest-golden-five.log"
+    },
+    {
+      "stage": "i18n",
+      "exit": 0,
+      "seconds": 0.24,
+      "log": "c34-pilot-latest-i18n.log"
+    }
+  ],
+  "complete": true
+}
