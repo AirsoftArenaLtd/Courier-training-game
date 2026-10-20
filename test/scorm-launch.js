@@ -117,7 +117,64 @@ ${API}
       if (!got || got.score !== made.score || got.items !== made.items) problems.push(`a day packed ${kind === 'old' ? 'before B-55' : 'today'} did not come back: ${JSON.stringify(got)} for ${made.score}/${made.items}`);
       console.log(`resume (${kind === 'old' ? 'packed before B-55' : 'packed today'}): ${got ? `${got.items} reports, score ${got.score}` : 'nothing in progress'}`);
     }
-    for (const gfx of ['low', 'high']) {
+    // B-70: a 3D workday left half-way inside the LMS and relaunched, on the same PC (the 3D world's own checkpoint is in
+    // that browser) and on another PC (only the LMS's suspend_data comes with the trainee)
+    const boot = async (url, clearLocal) => {
+      await p.evaluate((u, c) => { if (c) { const f = document.getElementById('sco'); try { f.contentWindow.localStorage.clear(); } catch (e) { /* none yet */ } } document.getElementById('sco').src = u; }, url, clearLocal);
+      await wait(500); f = await frame();
+      await f.waitForFunction(() => window.OTR && OTR.game && OTR.save && OTR.save.data && OTR.game.scene.getScenes(true).length > 0, { timeout: 60000 });
+    };
+    const ready3d = () => f.waitForFunction(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return OTR.game.scene.isActive('FirstPersonScene') && s.model && !s.loading && !s.transitioning; }, { timeout: 120000 });
+    await boot('index.html?workday3d=1&gfx=low', true);
+    await f.evaluate(() => { if (!OTR.game.scene.isActive('HubScene')) OTR.fx.transition(OTR.game.scene.getScenes(true)[0], 'HubScene'); });
+    await f.waitForFunction(() => OTR.game.scene.isActive('HubScene'), { timeout: 30000 });
+    await f.evaluate(() => OTR.workday.start(OTR.game.scene.getScene('HubScene')));
+    await ready3d();
+    const left = await f.evaluate(() => {
+      const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; s.closePanel();
+      m.events[m.briefKey] = true; OTR.workday.report('brief.read', { key: m.seed });
+      const st = m.stops[0]; st.resolved = true; st.outcome = 'handover';
+      OTR.workday.report('deliver.outcome', { key: 1, stop: 1, ok: true });
+      OTR.workday.report('drive.red-light', { key: 'signal:1:2:n', ok: false, where: { x: 12, z: -40, mph: 21, t: 300 } });
+      m.elapsed = 300; m.player.x = -8;
+      const out = { seed: m.seed, items: OTR.workday.log.items.length, score: OTR.workday.log.score() };
+      s.toHub();                                                  // (leaving detaches the day's log)
+      return out;
+    });
+    await f.waitForFunction(() => OTR.game.scene.isActive('HubScene'), { timeout: 30000 });
+    const saved = await p.evaluate(() => { try { const d = JSON.parse(window.store['cmi.suspend_data']); return !!(d.workday && d.workday.current); } catch (e) { return false; } });
+    if (!saved) problems.push('B-70: the LMS did not get the day in progress');
+    for (const [where, clear] of [['same PC', false], ['another PC', true]]) {
+      await boot('index.html?workday3d=1&gfx=low', clear);
+      await f.waitForFunction(() => OTR.game.scene.isActive('HubScene') || OTR.game.scene.isActive('TitleScene'), { timeout: 30000 });
+      await f.evaluate(() => { if (!OTR.game.scene.isActive('HubScene')) OTR.fx.transition(OTR.game.scene.getScenes(true)[0], 'HubScene'); });
+      await f.waitForFunction(() => OTR.game.scene.isActive('HubScene'), { timeout: 30000 });
+      const active = await f.evaluate(() => OTR.workday.active());
+      await f.evaluate(() => OTR.workday.resume(OTR.game.scene.getScene('HubScene')));
+      if (clear) {
+        // another PC: the trainee is asked first; Back keeps the day for the PC it was started on
+        await wait(600);
+        const asked = await f.evaluate(() => (OTR.game.scene.getScene('HubScene')._modalStack || []).filter(m => m.active).length === 1 && OTR.game.scene.isActive('HubScene'));
+        if (!asked) problems.push('B-70: on another PC the trainee was not asked before the day started again');
+        await f.evaluate(() => { const walk = (o, out) => { if (o.press && o.label && OTR.i18n.src(o.label) === 'Back') out.push(o); (o.list || []).forEach(k => walk(k, out)); return out; };
+          const b = OTR.game.scene.getScene('HubScene').children.list.reduce((out, o) => walk(o, out), [])[0]; if (b) b.press(); });
+        await wait(600);
+        const kept = await p.evaluate(() => { try { const d = JSON.parse(window.store['cmi.suspend_data']); return d.workday.current && (d.workday.current.events || d.workday.current.packed) ? true : false; } catch (e) { return false; } });
+        if (!kept) problems.push('B-70: Back did not keep the day for the PC it was started on');
+        console.log(`resume 3D (another PC): asked first ${asked}; after Back the LMS still has the day ${kept}`);
+        await f.evaluate(() => OTR.workday.resume(OTR.game.scene.getScene('HubScene'), { restart: true }));
+      }
+      await ready3d();
+      const back = await f.evaluate(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { seed: m.seed, elapsed: m.elapsed, x: m.player.x, stop1: !!m.stops[0].resolved, items: OTR.workday.log.items.length, score: OTR.workday.log.score() }; });
+      console.log(`resume 3D (${where}): day in progress ${active}, ${JSON.stringify(back)} (left ${JSON.stringify(left)})`);
+      if (!clear && (!active || back.seed !== left.seed || back.elapsed < 300 || back.x !== -8 || !back.stop1 || back.items !== left.items || back.score !== left.score))
+        problems.push(`B-70: on the same PC the day did not come back where it was left: ${JSON.stringify(back)}`);
+      if (clear && (back.items !== 0 || back.stop1 || back.elapsed > 5)) problems.push(`B-70: starting again on another PC did not start from the morning: ${JSON.stringify(back)}`);
+      // back to the hub, leaving the day as it is
+      await f.evaluate(() => OTR.game.scene.getScene('FirstPersonScene').toHub());
+      await f.waitForFunction(() => OTR.game.scene.isActive('HubScene'), { timeout: 30000 });
+    }
+        for (const gfx of ['low', 'high']) {
       await p.goto(base + '__player.html?sco=' + encodeURIComponent('first-person.html?gfx=' + gfx));
       f = await frame();
       await f.waitForFunction(() => window.OTR && OTR.game && OTR.game.scene.isActive('FirstPersonScene') && !OTR.game.scene.getScene('FirstPersonScene').loading, { timeout: 120000 });

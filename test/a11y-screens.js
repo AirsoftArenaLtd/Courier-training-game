@@ -92,6 +92,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await shot('hub');
     await ev(() => OTR.game.scene.getScene('HubScene').openSettings());
     await shot('hub-settings');
+    // B-70: a day started on another computer (no 3D checkpoint here): the hub asks before starting it again
+    await go('HubScene'); await active('HubScene');
+    await ev(() => { const W = OTR.workday; W.start(null); W.report('brief.read'); W.pause(null); localStorage.removeItem(OTR.fpStore.key()); W.resume(OTR.game.scene.getScene('HubScene')); });
+    await shot('hub-other-computer');
+    await ev(() => { OTR.workday.detach(); OTR.save.data.workday.current = null; });
 
     await go('AccessScene'); await active('AccessScene');
     await shot('access');

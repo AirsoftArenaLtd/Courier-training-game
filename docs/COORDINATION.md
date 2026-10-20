@@ -413,6 +413,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 5. ~~**Codex has not pushed since about 07:00 UTC (20 Oct).**~~ Withdrawn 12:35 UTC: Codex is back (C-34 pushed at 12:30, with the locker answer and the sound-test fix taken).
 
+6. **A workday resumed on another PC (B-70).** Where a trainee is in the 3D town (which stops are done, the van, the clock) is kept in that PC's browser only; the course progress goes to the server or the LMS. So a trainee who stops mid-day and comes back on a different PC starts that day again from the morning. The game now asks first, and Back keeps the day for the PC it was started on. On shared training PCs, should the place in town travel with the trainee? It can on the training server (the progress file has room), and with SCORM 2004 (64,000 characters). SCORM 1.2 has no room for it (4,096 characters, already nearly full). Default meanwhile: same-PC resume, as now; the quick start and the pilot guide say so.
+
 ### Answered
 
 - **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
