@@ -3844,7 +3844,21 @@ window.OTR_I18N.gu = {
 "Spreadsheet downloaded": "સ્પ્રેડશીટ ડાઉનલોડ થઈ",
 "This workday was started on another computer": "આ વર્કડે બીજા કમ્પ્યૂટર પર શરૂ થયો હતો",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "શહેરમાં તમે ક્યાં હતા તે ફક્ત એ કમ્પ્યૂટર પર જ સચવાયેલું છે. અત્યાર સુધીના સ્ટૉપ રાખવા હોય તો ત્યાં દિવસ પૂરો કરો, અથવા અહીં સવારથી ફરી શરૂ કરો: પછી બીજા કમ્પ્યૂટર પર કરેલા સ્ટૉપ કાઢી નંખાશે.",
-"Start again here": "અહીં ફરી શરૂ કરો"
+"Start again here": "અહીં ફરી શરૂ કરો",
+"The clearance is 8 feet 10 inches. Take another street.": "ઊંચાઈની મર્યાદા 8 ફૂટ 10 ઇંચ છે. બીજો રસ્તો લો.",
+"The cargo shifted during a hard turn or brake.": "જોરથી વળતાં કે બ્રેક મારતાં માલ ખસી ગયો.",
+"The van stopped or took a safe detour before the low clearance.": "નીચા પુલ કે ઊંચાઈની મર્યાદા પહેલાં વાન થોભી ગઈ અથવા સલામત રીતે બીજે રસ્તે ગઈ.",
+"The van struck a low clearance.": "વાન નીચી ઊંચાઈની મર્યાદા સાથે અથડાઈ.",
+"The front of the van has new damage.": "વાનના આગળના ભાગને નવું નુકસાન થયું છે.",
+"The rear of the van has new damage.": "વાનના પાછળના ભાગને નવું નુકસાન થયું છે.",
+"The left side of the van has new damage.": "વાનની ડાબી બાજુને નવું નુકસાન થયું છે.",
+"The right side of the van has new damage.": "વાનની જમણી બાજુને નવું નુકસાન થયું છે.",
+"The roof of the van has new damage.": "વાનની છતને નવું નુકસાન થયું છે.",
+"A wheel on the van has new damage.": "વાનના એક પૈડાને નવું નુકસાન થયું છે.",
+"A mirror on the van has new damage.": "વાનના એક અરીસાને નવું નુકસાન થયું છે.",
+"Know the van height.": "વાનની ઊંચાઈ જાણો.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "તમારી વાનની ઊંચાઈ 10 ફૂટ 10 ઇંચ છે. નીચા પુલ કે ઊંચાઈની મર્યાદાથી બચવા નેવિગેશનને અનુસરો. નીકળતા પહેલાં માલ બરાબર બાંધો.",
+"Begin preparation.": "તૈયારી શરૂ કરો."
 },
 "templates": [
 [

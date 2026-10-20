@@ -3845,7 +3845,21 @@ window.OTR_I18N.fr = {
 "Spreadsheet downloaded": "Tableur téléchargé",
 "This workday was started on another computer": "Cette journée de travail a commencé sur un autre ordinateur",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "Ta position dans la ville est conservée uniquement sur cet ordinateur-là. Termine la journée là-bas pour garder tes arrêts faits jusqu'ici, ou recommence-la ici dès le matin : les arrêts faits sur l'autre ordinateur sont alors supprimés.",
-"Start again here": "Recommencer ici"
+"Start again here": "Recommencer ici",
+"The clearance is 8 feet 10 inches. Take another street.": "La hauteur libre est de 8 pieds 10 pouces. Prends une autre rue.",
+"The cargo shifted during a hard turn or brake.": "Le chargement a bougé dans un virage serré ou un freinage brusque.",
+"The van stopped or took a safe detour before the low clearance.": "La camionnette s'est arrêtée ou a fait un détour sûr avant la hauteur limitée.",
+"The van struck a low clearance.": "La camionnette a heurté une hauteur limitée.",
+"The front of the van has new damage.": "L'avant de la camionnette a de nouveaux dommages.",
+"The rear of the van has new damage.": "L'arrière de la camionnette a de nouveaux dommages.",
+"The left side of the van has new damage.": "Le côté gauche de la camionnette a de nouveaux dommages.",
+"The right side of the van has new damage.": "Le côté droit de la camionnette a de nouveaux dommages.",
+"The roof of the van has new damage.": "Le toit de la camionnette a de nouveaux dommages.",
+"A wheel on the van has new damage.": "Une roue de la camionnette a de nouveaux dommages.",
+"A mirror on the van has new damage.": "Un rétroviseur de la camionnette a de nouveaux dommages.",
+"Know the van height.": "Connais la hauteur de la camionnette.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Ta camionnette mesure 10 pieds 10 pouces de haut. Suis le GPS pour contourner les hauteurs limitées. Arrime le chargement avant de partir.",
+"Begin preparation.": "Commencer la préparation."
 },
 "templates": [
 [

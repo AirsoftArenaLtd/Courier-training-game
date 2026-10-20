@@ -3844,7 +3844,21 @@ window.OTR_I18N.kn = {
 "Spreadsheet downloaded": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ",
 "This workday was started on another computer": "ಈ ಕೆಲಸದ ದಿನ ಬೇರೆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಆರಂಭವಾಗಿತ್ತು",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "ಪಟ್ಟಣದಲ್ಲಿ ನೀವು ಎಲ್ಲಿದ್ದಿರಿ ಎಂಬುದು ಆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಮಾತ್ರ ಇರುತ್ತದೆ. ಇದುವರೆಗಿನ ಸ್ಟಾಪ್‌ಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ಅಲ್ಲಿಯೇ ದಿನವನ್ನು ಮುಗಿಸಿ, ಅಥವಾ ಇಲ್ಲಿ ಬೆಳಿಗ್ಗೆಯಿಂದ ಮತ್ತೆ ಆರಂಭಿಸಿ: ಆಗ ಬೇರೆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಮಾಡಿದ ಸ್ಟಾಪ್‌ಗಳು ಕೈಬಿಡಲ್ಪಡುತ್ತವೆ.",
-"Start again here": "ಇಲ್ಲಿ ಮತ್ತೆ ಆರಂಭಿಸಿ"
+"Start again here": "ಇಲ್ಲಿ ಮತ್ತೆ ಆರಂಭಿಸಿ",
+"The clearance is 8 feet 10 inches. Take another street.": "ಎತ್ತರದ ಮಿತಿ 8 ಅಡಿ 10 ಇಂಚು. ಬೇರೆ ರಸ್ತೆ ಹಿಡಿಯಿರಿ.",
+"The cargo shifted during a hard turn or brake.": "ಬಿರುಸಾದ ತಿರುವು ಅಥವಾ ಬ್ರೇಕ್ ಹಾಕಿದಾಗ ಸರಕು ಜರುಗಿತು.",
+"The van stopped or took a safe detour before the low clearance.": "ಕೆಳಮಟ್ಟದ ಸೇತುವೆ ಅಥವಾ ಎತ್ತರದ ಮಿತಿಯ ಮುನ್ನ ವ್ಯಾನ್ ನಿಂತಿತು ಅಥವಾ ಸುರಕ್ಷಿತ ಬೇರೆ ದಾರಿ ಹಿಡಿಯಿತು.",
+"The van struck a low clearance.": "ವ್ಯಾನ್ ಕಡಿಮೆ ಎತ್ತರದ ಮಿತಿಗೆ ಡಿಕ್ಕಿ ಹೊಡೆಯಿತು.",
+"The front of the van has new damage.": "ವ್ಯಾನ್‌ನ ಮುಂಭಾಗಕ್ಕೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"The rear of the van has new damage.": "ವ್ಯಾನ್‌ನ ಹಿಂಭಾಗಕ್ಕೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"The left side of the van has new damage.": "ವ್ಯಾನ್‌ನ ಎಡಭಾಗಕ್ಕೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"The right side of the van has new damage.": "ವ್ಯಾನ್‌ನ ಬಲಭಾಗಕ್ಕೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"The roof of the van has new damage.": "ವ್ಯಾನ್‌ನ ಮೇಲ್ಛಾವಣಿಗೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"A wheel on the van has new damage.": "ವ್ಯಾನ್‌ನ ಒಂದು ಚಕ್ರಕ್ಕೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"A mirror on the van has new damage.": "ವ್ಯಾನ್‌ನ ಒಂದು ಕನ್ನಡಿಗೆ ಹೊಸ ಹಾನಿಯಾಗಿದೆ.",
+"Know the van height.": "ವ್ಯಾನ್‌ನ ಎತ್ತರವನ್ನು ತಿಳಿಯಿರಿ.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "ನಿಮ್ಮ ವ್ಯಾನ್‌ನ ಎತ್ತರ 10 ಅಡಿ 10 ಇಂಚು. ಕೆಳಮಟ್ಟದ ಸೇತುವೆ ಅಥವಾ ಎತ್ತರದ ಮಿತಿಗಳನ್ನು ತಪ್ಪಿಸಲು ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಅನುಸರಿಸಿ. ಹೊರಡುವ ಮುನ್ನ ಲೋಡ್ ಅನ್ನು ಭದ್ರಪಡಿಸಿ.",
+"Begin preparation.": "ಸಿದ್ಧತೆ ಆರಂಭಿಸಿ."
 },
 "templates": [
 [

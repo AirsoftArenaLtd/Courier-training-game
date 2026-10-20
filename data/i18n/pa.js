@@ -3845,7 +3845,21 @@ window.OTR_I18N.pa = {
 "Spreadsheet downloaded": "ਸਪ੍ਰੈਡਸ਼ੀਟ ਡਾਊਨਲੋਡ ਹੋ ਗਈ",
 "This workday was started on another computer": "ਇਹ ਕੰਮ ਦਾ ਦਿਨ ਕਿਸੇ ਹੋਰ ਕੰਪਿਊਟਰ 'ਤੇ ਸ਼ੁਰੂ ਹੋਇਆ ਸੀ",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "ਸ਼ਹਿਰ ਵਿੱਚ ਤੁਸੀਂ ਕਿੱਥੇ ਸੀ, ਇਹ ਸਿਰਫ਼ ਉਸੇ ਕੰਪਿਊਟਰ 'ਤੇ ਰੱਖਿਆ ਹੈ। ਹੁਣ ਤੱਕ ਦੇ ਸਟਾਪ ਰੱਖਣ ਲਈ ਉੱਥੇ ਹੀ ਦਿਨ ਪੂਰਾ ਕਰੋ, ਜਾਂ ਇੱਥੇ ਸਵੇਰ ਤੋਂ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ: ਫਿਰ ਦੂਜੇ ਕੰਪਿਊਟਰ 'ਤੇ ਕੀਤੇ ਸਟਾਪ ਹਟਾ ਦਿੱਤੇ ਜਾਣਗੇ।",
-"Start again here": "ਇੱਥੇ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ"
+"Start again here": "ਇੱਥੇ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ",
+"The clearance is 8 feet 10 inches. Take another street.": "ਉਚਾਈ ਦੀ ਹੱਦ 8 ਫੁੱਟ 10 ਇੰਚ ਹੈ। ਕੋਈ ਹੋਰ ਸੜਕ ਲਓ।",
+"The cargo shifted during a hard turn or brake.": "ਤੇਜ਼ ਮੋੜ ਜਾਂ ਬ੍ਰੇਕ ਦੌਰਾਨ ਮਾਲ ਖਿਸਕ ਗਿਆ।",
+"The van stopped or took a safe detour before the low clearance.": "ਨੀਵੇਂ ਪੁਲ ਜਾਂ ਉਚਾਈ ਦੀ ਹੱਦ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਰੁਕ ਗਈ ਜਾਂ ਸੁਰੱਖਿਅਤ ਰਸਤੇ ਤੋਂ ਲੰਘ ਗਈ।",
+"The van struck a low clearance.": "ਵੈਨ ਉਚਾਈ ਦੀ ਹੱਦ ਨਾਲ ਟਕਰਾ ਗਈ।",
+"The front of the van has new damage.": "ਵੈਨ ਦੇ ਅੱਗੇ ਵਾਲੇ ਹਿੱਸੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"The rear of the van has new damage.": "ਵੈਨ ਦੇ ਪਿੱਛੇ ਵਾਲੇ ਹਿੱਸੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"The left side of the van has new damage.": "ਵੈਨ ਦੇ ਖੱਬੇ ਪਾਸੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"The right side of the van has new damage.": "ਵੈਨ ਦੇ ਸੱਜੇ ਪਾਸੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"The roof of the van has new damage.": "ਵੈਨ ਦੀ ਛੱਤ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"A wheel on the van has new damage.": "ਵੈਨ ਦੇ ਇੱਕ ਪਹੀਏ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"A mirror on the van has new damage.": "ਵੈਨ ਦੇ ਇੱਕ ਸ਼ੀਸ਼ੇ ਨੂੰ ਨਵਾਂ ਨੁਕਸਾਨ ਹੋਇਆ ਹੈ।",
+"Know the van height.": "ਵੈਨ ਦੀ ਉਚਾਈ ਜਾਣੋ।",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "ਤੁਹਾਡੀ ਵੈਨ ਦੀ ਉਚਾਈ 10 ਫੁੱਟ 10 ਇੰਚ ਹੈ। ਨੀਵੇਂ ਪੁਲਾਂ ਜਾਂ ਉਚਾਈ ਦੀ ਹੱਦ ਤੋਂ ਬਚਣ ਲਈ ਸੈਟ ਨੈਵ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋਡ ਨੂੰ ਬੰਨ੍ਹ ਕੇ ਪੱਕਾ ਕਰੋ।",
+"Begin preparation.": "ਤਿਆਰੀ ਸ਼ੁਰੂ ਕਰੋ।"
 },
 "templates": [
 [

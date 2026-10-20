@@ -3845,7 +3845,21 @@ window.OTR_I18N.bn = {
 "Spreadsheet downloaded": "স্প্রেডশিট ডাউনলোড হয়েছে",
 "This workday was started on another computer": "এই কর্মদিবস অন্য একটি কম্পিউটারে শুরু হয়েছিল",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "শহরে আপনি কোথায় ছিলেন তা শুধু সেই কম্পিউটারেই রাখা আছে। এখন পর্যন্ত করা স্টপ রাখতে চাইলে সেখানে গিয়ে দিনটি শেষ করুন, অথবা এখানে সকাল থেকে আবার শুরু করুন: তখন অন্য কম্পিউটারে করা স্টপগুলো বাদ যাবে।",
-"Start again here": "এখানে আবার শুরু করুন"
+"Start again here": "এখানে আবার শুরু করুন",
+"The clearance is 8 feet 10 inches. Take another street.": "উচ্চতার সীমা 8 ফুট 10 ইঞ্চি। অন্য রাস্তা ধরুন।",
+"The cargo shifted during a hard turn or brake.": "জোরে বাঁক নেওয়া বা ব্রেক করার সময় মাল সরে গেছে।",
+"The van stopped or took a safe detour before the low clearance.": "নিচু সেতু বা উচ্চতার সীমার আগে ভ্যানটি থেমেছে বা নিরাপদে ঘুরে গেছে।",
+"The van struck a low clearance.": "ভ্যানটি নিচু উচ্চতার সীমায় ধাক্কা খেয়েছে।",
+"The front of the van has new damage.": "ভ্যানের সামনের অংশে নতুন ক্ষতি হয়েছে।",
+"The rear of the van has new damage.": "ভ্যানের পেছনের অংশে নতুন ক্ষতি হয়েছে।",
+"The left side of the van has new damage.": "ভ্যানের বাঁ দিকে নতুন ক্ষতি হয়েছে।",
+"The right side of the van has new damage.": "ভ্যানের ডান দিকে নতুন ক্ষতি হয়েছে।",
+"The roof of the van has new damage.": "ভ্যানের ছাদে নতুন ক্ষতি হয়েছে।",
+"A wheel on the van has new damage.": "ভ্যানের একটি চাকায় নতুন ক্ষতি হয়েছে।",
+"A mirror on the van has new damage.": "ভ্যানের একটি আয়নায় নতুন ক্ষতি হয়েছে।",
+"Know the van height.": "ভ্যানের উচ্চতা জানুন।",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "আপনার ভ্যানের উচ্চতা 10 ফুট 10 ইঞ্চি। নিচু সেতু বা উচ্চতার সীমা এড়াতে জিপিএস অনুসরণ করুন। রওনা দেওয়ার আগে মাল বেঁধে নিরাপদ করুন।",
+"Begin preparation.": "প্রস্তুতি শুরু করুন।"
 },
 "templates": [
 [

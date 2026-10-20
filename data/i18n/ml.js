@@ -3844,7 +3844,21 @@ window.OTR_I18N.ml = {
 "Spreadsheet downloaded": "സ്പ്രെഡ്ഷീറ്റ് ഡൗൺലോഡ് ചെയ്തു",
 "This workday was started on another computer": "ഈ ജോലിദിനം മറ്റൊരു കമ്പ്യൂട്ടറിലാണ് തുടങ്ങിയത്",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "നഗരത്തിൽ നിങ്ങൾ എവിടെയായിരുന്നു എന്നത് ആ കമ്പ്യൂട്ടറിൽ മാത്രമാണ് സൂക്ഷിച്ചിരിക്കുന്നത്. ഇതുവരെയുള്ള സ്റ്റോപ്പുകൾ നിലനിർത്താൻ അവിടെ ദിവസം പൂർത്തിയാക്കുക, അല്ലെങ്കിൽ ഇവിടെ രാവിലെ മുതൽ വീണ്ടും തുടങ്ങുക: അപ്പോൾ മറ്റേ കമ്പ്യൂട്ടറിൽ ചെയ്ത സ്റ്റോപ്പുകൾ ഒഴിവാക്കപ്പെടും.",
-"Start again here": "ഇവിടെ വീണ്ടും തുടങ്ങുക"
+"Start again here": "ഇവിടെ വീണ്ടും തുടങ്ങുക",
+"The clearance is 8 feet 10 inches. Take another street.": "ഉയരപരിധി 8 അടി 10 ഇഞ്ച് ആണ്. മറ്റൊരു വഴി എടുക്കുക.",
+"The cargo shifted during a hard turn or brake.": "കടുത്ത വളവിലോ ബ്രേക്കിലോ ചരക്ക് നീങ്ങി.",
+"The van stopped or took a safe detour before the low clearance.": "താഴ്ന്ന പാലത്തിനോ ഉയരപരിധിക്കോ മുമ്പ് വാൻ നിർത്തി അല്ലെങ്കിൽ സുരക്ഷിതമായി വഴി മാറി.",
+"The van struck a low clearance.": "വാൻ ഉയരപരിധിയുള്ള സ്ഥലത്ത് ഇടിച്ചു.",
+"The front of the van has new damage.": "വാനിന്റെ മുൻവശത്തിന് പുതിയ കേടുപാട് ഉണ്ട്.",
+"The rear of the van has new damage.": "വാനിന്റെ പിൻവശത്തിന് പുതിയ കേടുപാട് ഉണ്ട്.",
+"The left side of the van has new damage.": "വാനിന്റെ ഇടതുവശത്തിന് പുതിയ കേടുപാട് ഉണ്ട്.",
+"The right side of the van has new damage.": "വാനിന്റെ വലതുവശത്തിന് പുതിയ കേടുപാട് ഉണ്ട്.",
+"The roof of the van has new damage.": "വാനിന്റെ മേൽക്കൂരയ്ക്ക് പുതിയ കേടുപാട് ഉണ്ട്.",
+"A wheel on the van has new damage.": "വാനിന്റെ ഒരു ചക്രത്തിന് പുതിയ കേടുപാട് ഉണ്ട്.",
+"A mirror on the van has new damage.": "വാനിന്റെ ഒരു കണ്ണാടിക്ക് പുതിയ കേടുപാട് ഉണ്ട്.",
+"Know the van height.": "വാനിന്റെ ഉയരം അറിയുക.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "നിങ്ങളുടെ വാനിന്റെ ഉയരം 10 അടി 10 ഇഞ്ച് ആണ്. ഉയരപരിധിയുള്ള സ്ഥലങ്ങൾ ഒഴിവാക്കാൻ സാറ്റ് നാവ് പിന്തുടരുക. പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമായി ഉറപ്പിക്കുക.",
+"Begin preparation.": "തയ്യാറെടുപ്പ് തുടങ്ങുക."
 },
 "templates": [
 [
