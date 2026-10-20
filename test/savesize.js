@@ -247,6 +247,28 @@ test('B-68: C-34\'s damage and load on the worst milestone 8 day still pack with
   ['damage', 'clearance', 'load'].forEach(m => assert.ok(marks.includes(m), m + ' has its own pin shape'));
 });
 
+// B-75: C-33's richer stops in C-33's own shape (fpstopflow.js: the stop's index as key, the courier's place, and ok),
+// replacing the A-27 day's stop rows, on the damage day; one reattempt failed (a pin on the map)
+const richerDay = () => damageDay().filter(([t]) => !/^stop\./.test(t)).concat(
+  ['stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt', 'stop.intercom'].map((type, id) =>
+    [type, { key: id, stop: id + 1, ok: id !== 3, where: { x: 14.2 * id - 20, z: -31.7 * id } }]));
+
+test('B-75: C-33\'s richer stops on the C-34 damage day still pack with room to spare', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  const list = richerDay();
+  play(list);
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
+  const room = SAVE.SCORM12_LIMIT - JSON.stringify(stored()).length;
+  assert.ok(room >= 250, `room left with C-33 and C-34 together: ${room}`);
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'the failed reattempt keeps its pin');
+});
+
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
   const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
   const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });
