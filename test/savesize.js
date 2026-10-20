@@ -160,6 +160,56 @@ test('A-27: a full day of the cab, sign, route, night and damage events keeps ev
   assert.equal(W.log.score(), live.score);
 });
 
+// B-52: the worst milestone 8 day: the A-27 day plus everything C-30 to C-32 can report in one day, with C-32's own keys
+// (each signal approach, give-way approach and the school crossing report at most once a day): three signals met on red
+// from two sides (one run through), both give-way approaches, a cyclist on every leg, the crossing, a wrong turn on every
+// leg, and the one-way, road-works and no-entry signs, with the critical ones failed
+const milestone8Day = () => {
+  const list = packageDay(), at = (i) => ({ x: 2.71 * i, z: -9.4 * i, mph: 21.3, t: 30 * i });
+  let i = 200;
+  [[1, 2], [2, 1], [3, 3]].forEach(([row, col]) => ['n', 'e'].forEach(ap => list.push(['drive.red-light', { key: `signal:${row}:${col}:${ap}`, ok: !(row === 2 && ap === 'e'), where: at(++i) }])));
+  ['e', 'w'].forEach(ap => list.push(['drive.sign-giveway', { key: `yield:14:${ap}`, ok: ap === 'e', where: at(++i) }]));
+  for (let leg = 0; leg < 5; leg++) list.push(['drive.cyclist', { key: 'cyclist:' + leg, ok: leg !== 2, where: at(++i) }], ['drive.route', { key: 'leg' + leg, ok: leg !== 4, where: at(++i) }]);
+  list.push(['drive.hazard-early', { key: 'school-crossing', ok: false, where: at(++i) }], ['drive.pedestrian', { key: 'school-crossing', where: at(++i) }]);
+  list.push(['drive.sign-oneway', { key: 'oneway:3', where: at(++i) }], ['drive.sign-roadworks', { key: 'roadworks:2', ok: true, where: at(++i) }], ['drive.sign-noentry', { key: 'noentry:2', where: at(++i) }]);
+  return list;
+};
+
+test('B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  const list = milestone8Day();
+  play(list);
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.ok(lms.longest <= SAVE.SCORM12_LIMIT, `every save within the limit (longest ${lms.longest} of ${SAVE.SCORM12_LIMIT})`);
+  assert.ok(list.length > 165, `a very busy day: ${list.length} reports`);
+  // packed at 3,901 of 4,096 characters when written (B-52): the drive-map pins survive a reload; a summary would lose them
+  assert.equal(stage(stored()), 'packed', 'the day is packed, not summarised');
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every mistake keeps its pin');
+  play(list);                                                     // the 3D world replays: nothing counts twice
+  assert.equal(W.log.score(), live.score);
+  // finished: the record names each critical mistake by type, in the order of its labels (B-22), and so does xAPI
+  const rec = W.finish(null, { stops: [1, 2, 3, 4, 5].map(stop => ({ stop, delivered: stop !== 3 })) });
+  ['drive.red-light', 'drive.pedestrian', 'drive.sign-noentry'].forEach(t => assert.ok(rec.criticalTypes.includes(t), t + ' is on the record as critical'));
+  assert.ok(rec.stars.safety <= 1, 'the critical mistakes cap safety at one star');
+  const xapi = require('../server/xapi.js').statementsFor({ id: 'lms042', name: 'Sam Rivera' }, rec, 'https://training.example', { safety: 2, efficiency: 2, service: 2 });
+  const mistakes = xapi[0].result.extensions[Object.keys(xapi[0].result.extensions).find(k => k.endsWith('criticalMistakes'))];
+  assert.equal(JSON.stringify(mistakes.map(x => x.type).sort()), JSON.stringify([...rec.criticalTypes].sort()), 'xAPI names every critical mistake by type');
+  assert.equal(xapi[0].result.success, false, 'not a pass with safety capped');
+  const state = W.lmsState();
+  assert.ok(state.finished && state.stars.safety >= rec.stars.safety, 'the LMS sees the day finished');
+  // the debrief has a line for every milestone 8 type the day reported
+  const lines = W.sections(rec).sections.flatMap(s => s.lines).map(l => l.label);
+  ['drive.red-light', 'drive.sign-giveway', 'drive.cyclist', 'drive.hazard-early', 'drive.route', 'drive.pedestrian', 'drive.sign-noentry'].forEach(t => {
+    const E = context.OTR_DATA.workdayEvents[t];
+    assert.ok(lines.includes(E.fail || E.label) || lines.includes(E.label), 'the debrief has a line for ' + t);
+  });
+});
+
 test('B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins', () => {
   asScorm(false);
   heavy({ runs: 2, scenarios: 4 });

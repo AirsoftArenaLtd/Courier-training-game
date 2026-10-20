@@ -4,7 +4,8 @@
  * turn, a cyclist, damage, a low bridge, a shifted load), in English and Tamil, at normal and larger text. Checks each
  * pin's shape, that the legend has one line per shape used, in the trainee's language, and that the legend, the
  * caption and the map stay inside the map's column without overlapping. Runs the suite's layout audit too, and saves
- * screenshots to test/out/drivemap-<lang>[-large].png.
+ * screenshots to test/out/drivemap-<lang>[-large].png. B-52: then the same day's debrief (every page, a line for each
+ * milestone 8 mistake, translated) and the record's lessons and recent runs, each through the audit.
  *
  *   QA_BROWSER=/path/to/chrome node test/drivemapbrowser.js        (QA_LANGS=en,ta by default)
  */
@@ -48,6 +49,9 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
         W.report('drive.clearance', { key: 'b1', ok: false, where: at(7) });
         W.report('van.damage-dent', { key: 'left:post', where: at(8) });
         W.report('load.shift', { key: 'c1', where: at(9) });
+        W.report('drive.pedestrian', { key: 'school-crossing', where: at(10) });
+        W.report('drive.sign-noentry', { key: 'noentry:2', where: at(11) });
+        W.report('drive.hazard-early', { key: 'school-crossing', ok: false, where: at(12) });
         const rec = W.finish(null, { stops: [{ stop: 1, delivered: true, x: 20, z: -20 }, { stop: 2, delivered: false, x: -20, z: -30 }], depot: { x: 0, z: 10 } });
         const m = OTR.game.scene;
         m.getScenes(true).forEach(s => m.stop(s.sys.settings.key));
@@ -67,7 +71,7 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
           pins: s.pinObjs.map(c => ({ x: c.x, y: c.y })), lang: OTR.i18n.lang, large: !!OTR.a11y.settings().large };
       });
       check(r.lang === lang && r.large === large, `${tag}: the page runs in ${lang}${large ? ' with larger text' : ''}`);
-      check(r.marks.join(',') === 'sign,sign,sign,sign,sign,route,-,clearance,damage,load', `${tag}: pin shapes ${r.marks.join(',')}`);
+      check(r.marks.join(',') === 'sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-', `${tag}: pin shapes ${r.marks.join(',')}`);
       for (const l of r.legend) {
         check(!!l.b, `${tag}: a legend line for ${l.m} ("${l.shown}")`);
         if (!l.b) continue;
@@ -83,6 +87,36 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
       const found = await p.evaluate(`(${AUDIT})()`).catch(e => [{ kind: 'audit-failed', detail: e.message }]);
       found.slice(0, 8).forEach(f => console.log(`        [${f.kind}] ${f.scene || ''} ${f.what || ''} — ${f.detail || ''}`));
       check(!found.length, `${tag}: the layout audit finds nothing`);
+      // B-52: the same day's debrief, every page, then the record's lessons and recent runs: each fits, and the debrief
+      // has the line for every milestone 8 mistake, in the trainee's language
+      const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway'];
+      await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('WorkdayDebriefScene', {}); });
+      if (!(await until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000))) throw new Error(`${tag}: the debrief never opened`);
+      await wait(900);
+      const pages = await p.evaluate(() => OTR.game.scene.getScene('WorkdayDebriefScene').pages || 1), shown = new Set();
+      for (let n = 0; n < pages; n++) {
+        await p.evaluate((n) => OTR.game.scene.getScene('WorkdayDebriefScene').showPage(n), n);
+        await wait(400);
+        const got = await p.evaluate((types) => { const s = OTR.game.scene.getScene('WorkdayDebriefScene'), E = OTR_DATA.workdayEvents, out = [];
+          const texts = []; const walk = (o) => { if (!o || o.visible === false) return; if (o.type === 'Text') texts.push(o); (o.list || []).forEach(walk); }; s.children.list.forEach(walk);
+          types.forEach(t => { const want = E[t].fail || E[t].label; const hit = texts.find(o => OTR.i18n.src(o).includes(want)); if (hit) out.push([t, hit.text !== OTR.i18n.src(hit)]); });
+          return out; }, types);
+        got.forEach(([t, translated]) => { shown.add(t); if (lang !== 'en') check(translated, `${tag}: debrief page ${n + 1}, the ${t} line is translated`); });
+        const found = await p.evaluate(`(${AUDIT})()`).catch(e => [{ kind: 'audit-failed', detail: e.message }]);
+        found.slice(0, 6).forEach(f => console.log(`        [${f.kind}] ${f.scene || ''} ${f.what || ''} — ${f.detail || ''}`));
+        check(!found.length, `${tag}: debrief page ${n + 1} of ${pages} fits`);
+        if (n === 0) await p.screenshot({ path: path.join(OUT, `debrief-${lang}${large ? '-large' : ''}.png`) });
+      }
+      types.forEach(t => check(shown.has(t), `${tag}: the debrief has the ${t} line`));
+      await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('RecordScene', {}); });
+      if (!(await until(`OTR.game.scene.isActive('RecordScene')`, 15000))) throw new Error(`${tag}: the record never opened`);
+      for (const tab of ['lessons', 'recent']) {
+        await p.evaluate((tab) => OTR.game.scene.getScene('RecordScene').tab(tab), tab);
+        await wait(700);
+        const found = await p.evaluate(`(${AUDIT})()`).catch(e => [{ kind: 'audit-failed', detail: e.message }]);
+        found.slice(0, 6).forEach(f => console.log(`        [${f.kind}] ${f.scene || ''} ${f.what || ''} — ${f.detail || ''}`));
+        check(!found.length, `${tag}: the record's ${tab} tab fits`);
+      }
       check(!errors.length, `${tag}: no page errors ${errors.slice(0, 2).join(' | ')}`);
       await p.close();
     }
