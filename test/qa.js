@@ -15,7 +15,8 @@
  *   golden  runs test/paths/<id>.js (a scripted playthrough) and checks the scenario completes and scores
  *
  * It serves the project itself, so nothing needs to be running first. Exit code is non-zero if anything failed.
- * It runs on the high-performance GPU and prints which one; QA_GPU=default lets the OS choose instead.
+ * It runs on the high-performance GPU and prints which one; QA_GPU=default lets the OS choose instead. On a software
+ * renderer the frame-rate floor drops from 100 to 10 fps and says so (B-85).
  */
 const http = require('http');
 const fs = require('fs');
@@ -75,7 +76,13 @@ const SCENARIOS = [
   { id: 'workday-3d-c', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' }
 ];
 
-const FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
+// B-85: on a software renderer (SwiftShader in the cloud container, llvmpipe, Windows' basic display driver: a training PC
+// without a graphics driver) every scene draws at 13 to 30 fps, so the 100 fps floor failed them all and hid the real
+// failures. There the floor is QA_SOFT_FPS_FLOOR (10 by default), marked "software" in the results; QA_FPS_FLOOR set by
+// hand always wins.
+let FPS_FLOOR = Number(process.env.QA_FPS_FLOOR || 100);
+const SOFT_GPU = /swiftshader|llvmpipe|softpipe|software|basic render/i;
+let FPS_NOTE = '';
 const A11Y = (process.env.QA_A11Y || '').split(',').filter(Boolean);   // e.g. large,colour (Settings → Accessibility)
 const GFX = /^(low|high)$/.test(process.env.QA_GFX || '') ? process.env.QA_GFX : '';   // Settings → Graphics for every run
 // QA_LANG=es plays every pass in that language (the layout audit then checks the translated text fits)
@@ -326,7 +333,7 @@ async function passBoot(page, sc, row) {
   if (st.key !== sc.scene && st.key !== 'ResultsScene') {
     row.boot = `expected ${sc.scene}, got ${st.key}`;
   } else if (st.fps < FPS_FLOOR) {
-    row.boot = `fps ${st.fps} below floor ${FPS_FLOOR}`;
+    row.boot = `fps ${st.fps} below floor ${FPS_FLOOR}${FPS_NOTE}`;
   } else {
     row.boot = 'ok';
   }
@@ -485,7 +492,9 @@ const HOOK = `(() => {
     return ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
   }).catch(e => 'unknown (' + e.message + ')');
   await probe.close();
-  console.log(`GPU: ${gpuName}${GPU === 'default' ? '  (QA_GPU=default: the OS\'s choice)' : ''}\n`);
+  if (SOFT_GPU.test(gpuName) && !process.env.QA_FPS_FLOOR) { FPS_FLOOR = Number(process.env.QA_SOFT_FPS_FLOOR || 10); FPS_NOTE = ' (software renderer)'; }
+  console.log(`GPU: ${gpuName}${GPU === 'default' ? '  (QA_GPU=default: the OS\'s choice)' : ''}`);
+  console.log(`frame-rate floor: ${FPS_FLOOR} fps${FPS_NOTE ? ' on this software renderer (QA_SOFT_FPS_FLOOR; a real GPU is held to 100)' : ''}\n`);
 
   const list = SCENARIOS.filter(s => !only.length || only.includes(s.id));
   const rows = [];
