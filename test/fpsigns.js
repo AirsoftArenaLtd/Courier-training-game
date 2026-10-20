@@ -133,3 +133,9 @@ test('projected sign placement clamps edge labels and rejects a fully blocked sc
  assert.ok(out.x-168>=10&&out.x+168<=1270);
  assert.equal(O.fpSigns.placeLabel({x:640,y:300},336,88,[{x:640,y:360,w:1280,h:720}],92,out),false);
 });
+
+test('a tall sentence uses the clear top margin when its natural anchor would clip',()=>{
+ const out={},bounds=[{x:640,y:400,w:1280,h:150}];
+ assert.equal(O.fpSigns.placeLabel({x:914,y:223},336,184,bounds,92,out),true);
+ assert.ok(out.y-92>=92&&out.y+92<325);
+});

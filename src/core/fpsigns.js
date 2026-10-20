@@ -158,10 +158,11 @@ OTR.fpSigns = {
   },
   placeLabel(point,w,h,bounds,top,out){
     // Prefer the sign's own column, then its sides. Move only as far as each obstacle requires.
+    if(w>1260||h>620-top)return false;
     for(let column=0;column<3;column++){
-      const x=THREE.MathUtils.clamp(point.x+(column===1?-1:column===2?1:0)*(w/2+30),10+w/2,1270-w/2);
+      const x=THREE.MathUtils.clamp(point.x+(column===1?-1:column===2?1:0)*(w/2+64),10+w/2,1270-w/2);
       for(let direction=-1;direction<=1;direction+=2){
-        let y=point.y+direction*(h/2+12);
+        let y=THREE.MathUtils.clamp(point.y+direction*(h/2+12),top+h/2,620-h/2);
         for(let move=0;move<=bounds.length;move++){
           let hit=null;for(const b of bounds)if(Math.abs(x-b.x)<(w+b.w)/2+6&&Math.abs(y-b.y)<(h+b.h)/2+6){hit=b;break;}
           if(!hit){if(y-h/2>=top&&y+h/2<=620){out.x=x;out.y=y;return true;}break;}

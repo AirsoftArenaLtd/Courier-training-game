@@ -49,13 +49,13 @@ OTR.fpCab={
     if(high){part(-.72,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,-.12);part(1,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,.12);}
     else{face(-.72,.08,-.993,.055,.92,0x4D5D66,0,0,-.12);face(1,.08,-.993,.055,.92,0x4D5D66,0,0,.12);}
     face(.12,-.4,-1.02,1.7,.28,0x354650);face(.12,-.29,-1.12,1.7,.28,0x26343F,-Math.PI/2);
-    face(.78,-.285,-1.025,.61,.25,0x17252F);face(.78,-.47,-1.03,.055,.12,0x354650);
+    face(.928,-.285,-1.025,.61,.25,0x17252F);face(.928,-.47,-1.03,.055,.12,0x354650);
     if(high){part(.86,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.12,.52,-1.02,1.7,.055,.06,0x4D5D66);}
     part(.48,-.42,-.95,.27,.52,.1,0x17252F);
     const shifter=part(.48,-.58,-.86,.09,.08,.08,0xE2CFA4);
     for(const [i,id] of ['cab-park','cab-reverse','cab-neutral','cab-drive'].entries()){
       const y=-.25-i*.11;face(.48,y,-.892,.21,.085,0x455863);target(id,.48,y,-.875,.21,.09,.04);
-      labels.push({parent:root,cab:true,gear:true,local:new T.Vector3(.61,y,-.86),point:new T.Vector3(),text:['P','R','N','D'][i],max:2.5});
+      labels.push({parent:root,cab:true,gear:true,local:new T.Vector3(.35,y,-.86),point:new T.Vector3(),text:['P','R','N','D'][i],max:2.5});
     }
     const brake=part(.5,-.62,-.48,.06,.08,.27,0xC8BDA1,'cab-handbrake',-.4);
     const left=part(-.23,-.34,-.75,.18,.035,.04,0xD0D8D9,'cab-signal-left');
@@ -89,7 +89,7 @@ OTR.fpCab={
       scratch.position.set(p.x,y,z);scratch.rotation.set(rx,p.ry,rz);scratch.scale.set(p.w,p.h,p.d);scratch.updateMatrix();
       batch.setMatrixAt(p.index,scratch.matrix);colour.setHex(color);batch.setColorAt(p.index,colour);
     }
-    const navigation={parent:root,cab:true,local:new T.Vector3(.78,-.285,-1.005),point:new T.Vector3(),max:2.5};
+    const navigation={parent:root,cab:true,local:new T.Vector3(.928,-.285,-1.005),point:new T.Vector3(),max:2.5};
     let state=-1;return {root,wheel,gauges,parts,batch,navigation,
       sync(m){
         const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;

@@ -42,13 +42,21 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
      if(entry){const points=[];for(const x of [-.5,.5])for(const z of [-.5,-.12]){const q=new THREE.Vector3(x,0,z).applyMatrix4(entry.matrix).applyMatrix4(entry.label.parent.matrixWorld).project(s.view.camera);points.push({x:(q.x+1)*640,y:(1-q.y)*360});}
       head={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};}
      const covers=(a,b)=>a&&b&&a.x<b.right&&a.right>b.x&&a.y<b.bottom&&a.bottom>b.y;
-     return {entry:!!entry,kind,back,text,head,projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),look:m.van.look};};
+     const hiddenGears=s.labels.filter(q=>q.label.gear&&q.object.visible&&covers(q.object.getBounds(),nav)).map(q=>q.object.text);
+     const hiddenControls=[];for(const q of s.art.interactions){if(!Object.hasOwn(OTR.fpCab.gears,q.userData.interaction))continue;
+      const points=[];for(const x of [-.5,.5])for(const y of [-.5,.5]){const v=new THREE.Vector3(x,y,.5).applyMatrix4(q.matrixWorld).project(s.view.camera);points.push({x:(v.x+1)*640,y:(1-v.y)*360});}
+      const b={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};
+      if(b.x>=0&&b.right<=1280&&b.y>=0&&b.bottom<=720&&covers(b,nav))hiddenControls.push(q.userData.interaction);
+     }
+     return {entry:!!entry,kind,back,text,head,projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,look:m.van.look};};
     },{kind,back});
     await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.signUI.lastAt>window.otrSignPoseAt&&s.hud.navAt>window.otrSignPoseAt;},{timeout:60000});
     const proof=await p.evaluate(()=>window.otrSignProbe());
     const item={lang,size,...proof};report.runs.push(item);
     if(!proof.entry)report.failures.push(`${lang}/${size}/${kind}/${back}: physical sign is absent`);
     if(proof.entry&&!proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sign line is absent`);
+    if(proof.hiddenControls.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers physical selector positions ${proof.hiddenControls.join(',')}`);
+    if(proof.hiddenGears.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers gear labels ${proof.hiddenGears.join(',')}`);
     if(proof.labelCoversHead)report.failures.push(`${lang}/${size}/${kind}/${back}: a label covers the sign head`);
     if(proof.covered)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers the sign head`);
     for(const t of proof.text){const b=t.bounds;if(b.x<0||b.right>1280||b.y<0||b.bottom>720||t.font<(size==='large'?22:18)-.1)report.failures.push(`${lang}/${size}/${kind}/${back}: label clips or shrinks`);}

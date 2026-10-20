@@ -43,7 +43,7 @@ OTR.fpHud={
     const m=s.model,cab=s.art&&s.art.cab;
     const p=this.navigationAllowed(m)&&!s.panel&&!s.external&&!s.transitioning&&!(s.handheld&&s.handheld.isOpen)&&cab?s.art.labelPosition(cab.navigation):null;
     s.navRoot.setVisible(!!p);if(!p)return;
-    const large=OTR.fpAccess.settings().large,w=large?310:290,text=this.screenHint(m);
+    const large=OTR.fpAccess.settings().large,w=large?240:230,text=this.screenHint(m);
     if(s.navText.text!==(OTR.i18n?OTR.i18n.t(text):text))s.navText.setText(text);
     if(s.hud.navWidth!==w){s.hud.navWidth=w;s.navText.setWordWrapWidth(w-24);}s.navText.setPosition(0,0);
     const mapHeight=m.town?88:0,h=s.navText.height+mapHeight+20;
