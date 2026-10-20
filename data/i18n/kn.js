@@ -3864,7 +3864,9 @@ window.OTR_I18N.kn = {
 "Exception recorded. Keep the parcel and return it to the depot.": "ವಿನಾಯಿತಿ ದಾಖಲಾಗಿದೆ. ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಉಳಿಸಿಕೊಂಡು ಡಿಪೋಗೆ ಮರಳಿಸಿ.",
 "Save and return to hub": "ಉಳಿಸಿ ಮತ್ತು ಹಬ್‌ಗೆ ಮರಳಿ",
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "ನಿಮ್ಮ ಮುಂದಿನ ಸ್ಟಾಪ್ ಆರಿಸಿ. Maple Ave ಡಿಪೋದಿಂದ ಉತ್ತರಕ್ಕೆ ಹೋಗುತ್ತದೆ. Birch Lane ದೂರದ ಜಂಕ್ಷನ್‌ನಲ್ಲಿದೆ. ಮರಳಲು ಉತ್ತರ ತುದಿಯ ತಿರುಗುವ ಜಾಗವನ್ನು ಬಳಸಿ.",
-"Review the shift, then return to the hub.": "ಶಿಫ್ಟ್ ಪರಿಶೀಲಿಸಿ, ನಂತರ ಹಬ್‌ಗೆ ಮರಳಿ."
+"Review the shift, then return to the hub.": "ಶಿಫ್ಟ್ ಪರಿಶೀಲಿಸಿ, ನಂತರ ಹಬ್‌ಗೆ ಮರಳಿ.",
+"Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "ಸರಿಯಾಗಿ ನೋಡಲು ಗುರುತಿಸಿದ ಭಾಗದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ, ಅಥವಾ Tab ಮತ್ತು Enter ಒತ್ತಿ. ನಿರ್ಧರಿಸಿ: ಪಾಸ್ (P), ಅಥವಾ ದೋಷ ಗುರುತಿಸಿ (F).",
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ಚಡಿ ಅಳತೆಗೋಲನ್ನು ಟೈರ್ ಚಡಿಯ ಮೇಲೆ ಎಳೆಯಿರಿ, ಅಥವಾ G ಒತ್ತಿ (ಮತ್ತೊಂದು ಅರ್ಧಕ್ಕೆ ಮತ್ತೆ ಒತ್ತಿ). ಕನಿಷ್ಠ: ಸ್ಟೀರ್ (ಮುಂದಿನ) ಟೈರ್‌ನಲ್ಲಿ 4/32\", ಉಳಿದವುಗಳಲ್ಲಿ 2/32\"."
 },
 "templates": [
 [

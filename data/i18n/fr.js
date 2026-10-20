@@ -3865,7 +3865,9 @@ window.OTR_I18N.fr = {
 "Exception recorded. Keep the parcel and return it to the depot.": "Exception enregistrée. Garde le colis et rapporte-le au dépôt.",
 "Save and return to hub": "Enregistrer et retour à l'accueil",
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "Choisis ton prochain arrêt. Maple Ave part vers le nord depuis le dépôt. Birch Lane se trouve au carrefour du fond. Utilise la zone de demi-tour à l’extrémité nord pour revenir.",
-"Review the shift, then return to the hub.": "Passe la journée en revue, puis retourne à l'accueil."
+"Review the shift, then return to the hub.": "Passe la journée en revue, puis retourne à l'accueil.",
+"Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "Clique un élément marqué, ou appuie sur Tab et Enter, pour bien le regarder. Décide : conforme (P), ou signaler le défaut (F).",
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "Glisse la jauge sur les sculptures, ou appuie sur G (encore une fois pour l'autre moitié). Minimum : 4/32\" sur un pneu directeur (avant), 2/32\" sur les autres."
 },
 "templates": [
 [

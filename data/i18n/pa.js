@@ -3865,7 +3865,9 @@ window.OTR_I18N.pa = {
 "Exception recorded. Keep the parcel and return it to the depot.": "ਅਪਵਾਦ ਦਰਜ ਹੋਇਆ। ਪੈਕੇਜ ਆਪਣੇ ਕੋਲ ਰੱਖੋ ਅਤੇ ਡਿਪੋ ਵਾਪਸ ਲਿਆਓ।",
 "Save and return to hub": "ਸੇਵ ਕਰੋ ਅਤੇ ਹੱਬ ਵਾਪਸ ਜਾਓ",
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "ਆਪਣਾ ਅਗਲਾ ਸਟਾਪ ਚੁਣੋ। Maple Ave ਡਿਪੋ ਤੋਂ ਉੱਤਰ ਵੱਲ ਜਾਂਦੀ ਹੈ। Birch Lane ਦੂਰ ਵਾਲੇ ਜੰਕਸ਼ਨ 'ਤੇ ਹੈ। ਵਾਪਸ ਆਉਣ ਲਈ ਉੱਤਰੀ ਸਿਰੇ ਦੀ ਮੁੜਨ ਵਾਲੀ ਥਾਂ ਵਰਤੋ।",
-"Review the shift, then return to the hub.": "ਸ਼ਿਫ਼ਟ ਦੀ ਸਮੀਖਿਆ ਕਰੋ, ਫਿਰ ਹੱਬ ਵਾਪਸ ਜਾਓ।"
+"Review the shift, then return to the hub.": "ਸ਼ਿਫ਼ਟ ਦੀ ਸਮੀਖਿਆ ਕਰੋ, ਫਿਰ ਹੱਬ ਵਾਪਸ ਜਾਓ।",
+"Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਦੇਖਣ ਲਈ ਨਿਸ਼ਾਨ ਵਾਲੀ ਚੀਜ਼ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਜਾਂ Tab ਅਤੇ Enter ਦਬਾਓ। ਫ਼ੈਸਲਾ ਕਰੋ: ਪਾਸ (P), ਜਾਂ ਨੁਕਸ ਦਰਜ ਕਰੋ (F)।",
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ਖਾਂਚਾ ਮਾਪਕ ਨੂੰ ਟਾਇਰ ਦੇ ਖਾਂਚੇ 'ਤੇ ਖਿੱਚੋ, ਜਾਂ G ਦਬਾਓ (ਦੂਜੇ ਅੱਧੇ ਲਈ ਮੁੜ ਦਬਾਓ)। ਘੱਟੋ-ਘੱਟ: ਸਟੀਅਰ (ਅਗਲੇ) ਟਾਇਰ 'ਤੇ 4/32\", ਬਾਕੀਆਂ 'ਤੇ 2/32\"।"
 },
 "templates": [
 [

@@ -73,6 +73,24 @@ class PreTripScene extends BaseScenarioScene {
     ['keydown-LEFT', 'keydown-A'].forEach(k => OTR.onKey(this, k, walk(-1)));
     ['keydown-RIGHT', 'keydown-D'].forEach(k => OTR.onKey(this, k, walk(1)));
     OTR.onKey(this, 'keydown-L', () => { if (this.running && this.view === 'cab' && !(this._openModals > 0)) this.toggleLights(); });
+    // B-79: the marked items without a mouse: Tab (Shift+Tab back) steps through this view's items and then Sign off, as
+    // the pointer shows them; Enter opens the item (or signs off). The arrows and A / D still walk round the truck.
+    const free = () => this.running && !this.scene.isPaused() && !(this._openModals > 0);
+    OTR.onKey(this, 'keydown-TAB', (e) => {
+      if (!free()) return;
+      if (e && e.preventDefault) e.preventDefault();
+      const stops = this.keyStops();
+      if (!stops.length) return;
+      const at = stops.indexOf(this.keyAt), back = !!(e && e.shiftKey);
+      this.keyAt = at < 0 ? stops[back ? stops.length - 1 : 0] : stops[(at + (back ? -1 : 1) + stops.length) % stops.length];
+      this.showKeyFocus();
+    });
+    OTR.onKey(this, 'keydown-ENTER', () => {
+      if (!free() || !this.keyAt) return;
+      if (this.keyAt === 'sign') { if (this.signBtn.enabled) this.signBtn.press(); return; }
+      const it = this.content.items.find(i => i.id === this.keyAt);
+      if (it) this.inspect(it);
+    });
     OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
     OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
   }
@@ -82,6 +100,34 @@ class PreTripScene extends BaseScenarioScene {
     OTR.audio.play('beep');
     OTR.ui.toast(this, this.lights ? 'Lights and hazards on — now walk around and check every lamp' : 'Lights off');
     this.showView('cab');
+  }
+
+  /** What Tab steps through (B-79): this view's marked items, then Sign off once it can be pressed. */
+  keyStops() {
+    const out = (this.content.items || []).filter(it => it.view === this.view && this.viewGeom && this.viewGeom.V.spots[it.id]).map(it => it.id);
+    if (this.signBtn && this.signBtn.enabled) out.push('sign');
+    return out;
+  }
+
+  /** Shows where the keyboard is, as the pointer does: a ring round the item and its name (or round Sign off). */
+  showKeyFocus() {
+    if (this.keyRing) { this.keyRing.destroy(); this.keyRing = null; }
+    this.hideTip();
+    if (!this.keyAt) return;
+    let x, y, r = 32;
+    if (this.keyAt === 'sign') { x = this.signBtn.x; y = this.signBtn.y; r = 0; }
+    else {
+      const G = this.viewGeom, s = G && G.V.spots[this.keyAt];
+      if (!s) return;
+      x = G.left + s[0] * G.V.w * G.scale; y = G.top + s[1] * G.V.h * G.scale;
+      const it = this.content.items.find(i => i.id === this.keyAt);
+      if (it) this.showTip(it.name, x, y - 40);
+    }
+    const g = this.add.graphics().setDepth(830).setScrollFactor(0);
+    g.lineStyle(4, 0xFFFFFF, 1);
+    if (r) g.strokeCircle(x, y, r); else g.strokeRoundedRect(x - 116, y - 30, 232, 60, 14);
+    if (r) this.spotLayer.add(g);
+    this.keyRing = g;
   }
 
   viewButton(x, label, onClick) {
@@ -136,6 +182,8 @@ class PreTripScene extends BaseScenarioScene {
     // hotspots (a ring destroyed under the pointer never gets its pointerout, so drop its tooltip here)
     this.hideTip();
     this.spotLayer.removeAll(true);
+    if (this.keyRing && this.keyRing.active) this.keyRing.destroy();   // the keyboard starts again on a new view (B-79)
+    this.keyRing = null; this.keyAt = null;
     const items = C.items.filter(it => it.view === id);
     const left = this.truckImg.x - V.w * scale / 2, top = this.truckImg.y - V.h * scale / 2;
     this.viewGeom = { V, scale, left, top };
@@ -259,7 +307,7 @@ class PreTripScene extends BaseScenarioScene {
         note.setText(
           needs === 'lights' && !this.lights ? 'Switch the lights on in the cab before you judge a lamp.'
             : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : item.kind === 'door' ? 'Pull on the latch to test it.' : 'Pull the belt out and check the webbing.')
-              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread. Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
+              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
                 : needs === 'gauge' ? `${readNote()}  (Minimum: 4/32" front, 2/32" rear.)`
                   : item.kind === 'pedal' && state.moving ? 'Holding steady pressure: watch the pedal.'
                     : ''
@@ -310,6 +358,9 @@ class PreTripScene extends BaseScenarioScene {
         this.input.setDraggable(g);
         // dragX/dragY already arrive in the parent container's space
         g.on('drag', (p, dx, dy) => { g.x = dx; g.y = dy; });
+        // G puts it on the tread from the keyboard (B-79): the inner half, then the outer half, then the inner again
+        const gKey = OTR.onKey(this, 'keydown-G', () => { if (!g.active) return; g.x = g.x < 0 && state.gauged ? 110 : -110; g.y = -40; g.emit('dragend'); });
+        g.once('destroy', () => this.input.keyboard && this.input.keyboard.off('keydown-G', gKey));
         g.on('dragend', () => {
           const onTread = Math.abs(g.x) < 220 && g.y < 90 && g.y > -210;
           if (!onTread) {
