@@ -3825,7 +3825,15 @@ window.OTR_I18N.pa = {
 "The traffic light is amber. Stop if you can do so safely.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪੀਲੀ ਹੈ। ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੁਕ ਸਕੋ ਤਾਂ ਰੁਕੋ।",
 "The traffic light is red. Stop before the junction line.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਲਾਲ ਹੈ। ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",
 "road sign or traffic light": "ਸੜਕ ਦਾ ਚਿੰਨ੍ਹ ਜਾਂ ਟ੍ਰੈਫਿਕ ਲਾਈਟ",
-"wrong turn": "ਗ਼ਲਤ ਮੋੜ"
+"wrong turn": "ਗ਼ਲਤ ਮੋੜ",
+"Debrief ▶": "ਡੀਬ੍ਰੀਫ਼ ▶",
+"Assessment ▶": "ਮੁਲਾਂਕਣ ▶",
+"Refresh ▶": "ਦੁਹਰਾਈ ▶",
+"Again ▶": "ਮੁੜ ਦਿਓ ▶",
+"◀ Prev": "◀ ਪਿਛਲਾ",
+"Next ▶": "ਅੱਗੇ ▶",
+"map ›": "ਨਕਸ਼ਾ ›",
+"Finish ▶": "ਖ਼ਤਮ ਕਰੋ ▶"
 },
 "templates": [
 [

@@ -3824,7 +3824,15 @@ window.OTR_I18N.ml = {
 "The traffic light is amber. Stop if you can do so safely.": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
 "The traffic light is red. Stop before the junction line.": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
 "road sign or traffic light": "റോഡ് അടയാളം അല്ലെങ്കിൽ ട്രാഫിക് ലൈറ്റ്",
-"wrong turn": "തെറ്റായ തിരിവ്"
+"wrong turn": "തെറ്റായ തിരിവ്",
+"Debrief ▶": "ഡീബ്രീഫ് ▶",
+"Assessment ▶": "വിലയിരുത്തൽ ▶",
+"Refresh ▶": "പുനരവലോകനം ▶",
+"Again ▶": "വീണ്ടും എഴുതുക ▶",
+"◀ Prev": "◀ മുമ്പത്തെ",
+"Next ▶": "അടുത്തത് ▶",
+"map ›": "മാപ്പ് ›",
+"Finish ▶": "അവസാനിപ്പിക്കുക ▶"
 },
 "templates": [
 [

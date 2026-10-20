@@ -3824,7 +3824,15 @@ window.OTR_I18N.te = {
 "The traffic light is amber. Stop if you can do so safely.": "ట్రాఫిక్ లైట్ పసుపు రంగులో ఉంది. సురక్షితంగా ఆగగలిగితే ఆగండి.",
 "The traffic light is red. Stop before the junction line.": "ట్రాఫిక్ లైట్ ఎరుపుగా ఉంది. జంక్షన్ గీత ముందు ఆగండి.",
 "road sign or traffic light": "రహదారి సూచిక లేదా ట్రాఫిక్ లైట్",
-"wrong turn": "తప్పు మలుపు"
+"wrong turn": "తప్పు మలుపు",
+"Debrief ▶": "డీబ్రీఫ్ ▶",
+"Assessment ▶": "మూల్యాంకనం ▶",
+"Refresh ▶": "పునశ్చరణ ▶",
+"Again ▶": "మళ్లీ రాయండి ▶",
+"◀ Prev": "◀ మునుపటి",
+"Next ▶": "తర్వాత ▶",
+"map ›": "మ్యాప్ ›",
+"Finish ▶": "ముగించండి ▶"
 },
 "templates": [
 [
