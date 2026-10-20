@@ -3864,7 +3864,9 @@ window.OTR_I18N.ta = {
 "Exception recorded. Keep the parcel and return it to the depot.": "விதிவிலக்கு பதிவானது. பார்சலை வைத்திருந்து டிப்போவுக்குத் திருப்பிக் கொண்டு வாருங்கள்.",
 "Save and return to hub": "சேமித்து மையத்துக்குத் திரும்பு",
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "அடுத்த நிறுத்தத்தைத் தேர்ந்தெடுங்கள். Maple Ave டிப்போவிலிருந்து வடக்கே செல்கிறது. Birch Lane தொலைவிலுள்ள சந்திப்பில் உள்ளது. திரும்ப, வடக்கு முனையிலுள்ள திரும்பும் இடத்தைப் பயன்படுத்துங்கள்.",
-"Review the shift, then return to the hub.": "ஷிப்டைச் சரிபார்த்து, பிறகு மையத்துக்குத் திரும்புங்கள்."
+"Review the shift, then return to the hub.": "ஷிப்டைச் சரிபார்த்து, பிறகு மையத்துக்குத் திரும்புங்கள்.",
+"Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "சரியாகப் பார்க்கக் குறிக்கப்பட்ட பகுதியைக் கிளிக் செய்யுங்கள், அல்லது Tab, Enter ஆகியவற்றை அழுத்துங்கள். முடிவெடுங்கள்: தேர்ச்சி (P), அல்லது குறைபாடு எனக் குறியுங்கள் (F).",
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "பள்ள அளவியை டயர் பள்ளத்தின் மேல் இழுங்கள், அல்லது G அழுத்துங்கள் (மற்ற பாதிக்கு மீண்டும் அழுத்துங்கள்). குறைந்தபட்சம்: ஸ்டீயர் (முன்) டயரில் 4/32\", மற்றவற்றில் 2/32\"."
 },
 "templates": [
 [

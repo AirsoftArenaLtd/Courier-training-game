@@ -3864,7 +3864,9 @@ window.OTR_I18N.ml = {
 "Exception recorded. Keep the parcel and return it to the depot.": "ഒഴിവ് രേഖപ്പെടുത്തി. പാഴ്സൽ കൈവശം വച്ച് ഡിപ്പോയിൽ തിരികെ എത്തിക്കുക.",
 "Save and return to hub": "സേവ് ചെയ്ത് ഹബ്ബിലേക്ക് മടങ്ങുക",
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "അടുത്ത സ്റ്റോപ്പ് തിരഞ്ഞെടുക്കുക. Maple Ave ഡിപ്പോയിൽ നിന്ന് വടക്കോട്ട് പോകുന്നു. Birch Lane അങ്ങേയറ്റത്തെ ജംഗ്ഷനിലാണ്. തിരികെ പോകാൻ വടക്കേ അറ്റത്തെ തിരിയാനുള്ള സ്ഥലം ഉപയോഗിക്കുക.",
-"Review the shift, then return to the hub.": "ഷിഫ്റ്റ് പരിശോധിക്കുക, പിന്നെ ഹബ്ബിലേക്ക് മടങ്ങുക."
+"Review the shift, then return to the hub.": "ഷിഫ്റ്റ് പരിശോധിക്കുക, പിന്നെ ഹബ്ബിലേക്ക് മടങ്ങുക.",
+"Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "ശരിയായി കാണാൻ അടയാളപ്പെടുത്തിയ ഭാഗത്ത് ക്ലിക്ക് ചെയ്യുക, അല്ലെങ്കിൽ Tab, Enter എന്നിവ അമർത്തുക. തീരുമാനിക്കുക: പാസ് (P), അല്ലെങ്കിൽ തകരാർ അടയാളപ്പെടുത്തുക (F).",
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ചാൽ അളവുകോൽ ടയർ ചാലിലേക്ക് വലിക്കുക, അല്ലെങ്കിൽ G അമർത്തുക (മറ്റേ പകുതിക്ക് വീണ്ടും അമർത്തുക). കുറഞ്ഞത്: സ്റ്റിയർ (മുൻ) ടയറിൽ 4/32\", മറ്റുള്ളവയിൽ 2/32\"."
 },
 "templates": [
 [
