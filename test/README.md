@@ -15,6 +15,11 @@ node test/qa.js        # every pass, every scenario and flow (about 45 minutes)
 The suite serves the project itself on port 8123, so nothing else needs to be running. The exit code is non-zero if
 anything failed, so it can gate a release.
 
+**Every other suite, one command:** `node test/run-all.js` runs every Node suite in `test/` (it lists the folder, so a
+new suite is included without editing anything); `--browser` adds the browser suites. It serves the game itself on a
+free port (`QA_BASE`), finds the installed Chromium (`QA_BROWSER`), runs suites that open a page one at a time, and
+prints one pass/fail table; logs go to `test/out/run-all/`. Name words to run some of them: `node test/run-all.js fpnav`.
+
 The 3D model checks include `node test/fpdoors.js`: generated doorstep requirements, signatures, photo-ID decisions, wrong-address exceptions, physical gates/residents, customer responses, path hazards and optional checkpoints. With the game served on `QA_BASE` (default `http://127.0.0.1:8302`), `node test/fpdoorsbrowser.js` exercises real gate raycasts, signature completion/cancellation, ID panels, handheld outcomes and Shift walking in English/Tamil at both text sizes. `test/fproutebrowser.js` completes the five-stop route with those required checks before each delivery. These position fixtures skip the long walks and drives. The doorstep suite also writes `test/out/fp-review/c9-seeded-ui.json`: 16 seeded runs in English and larger Tamil use real keyboard choices, a physical doorstep barcode scan/contact, all five photo-ID variants, wrong-label retention, a customer handover and E to clear a movable path hazard. Fixture setup supplies the held parcel and skips travel; the UI actions and reports are exercised normally. Layout checks include body/choice overlap and exclude transparent button-art padding.
 
 | Option | Effect |

@@ -10,7 +10,8 @@
  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
  *
  * Not run here: the scenario flows (`node test/qa.js`) and the 3D quality gate (`node test/fpquality.js`), which take
- * 10–20 minutes each and are run per milestone and for every Codex review; and fpbench.js, which fpquality runs.
+ * 10–20 minutes each and are run per milestone and for every Codex review; fpbench.js, which fpquality runs; and the
+ * before/after comparisons fphudcomparebrowser.js and fpperfbrowser.js, which need QA_BEFORE_BASE.
  * Logs: test/out/run-all/<suite>.log.
  */
 'use strict';
@@ -25,7 +26,8 @@ fs.mkdirSync(OUT, { recursive: true });
 const args = process.argv.slice(2);
 const withBrowser = args.includes('--browser');
 const only = args.filter(a => !a.startsWith('--'));
-const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js']);
+// also not here: the before/after comparisons, which need a second server with the older build (QA_BEFORE_BASE)
+const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js', 'fphudcomparebrowser.js', 'fpperfbrowser.js']);
 // browser suites: the *browser.js ones, plus the others that open pages
 const BROWSER = new Set(['a11y-screens.js', 'fpaccesslayout.js']);
 const isBrowser = (f) => /browser\.js$/.test(f) || BROWSER.has(f);
