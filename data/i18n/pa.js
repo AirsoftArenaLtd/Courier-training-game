@@ -3823,7 +3823,9 @@ window.OTR_I18N.pa = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "ਸਕੂਲ ਕਰਾਸਿੰਗ 'ਤੇ ਬੱਚੇ ਉਡੀਕ ਕਰ ਰਹੇ ਹਨ। ਰਫ਼ਤਾਰ ਘਟਾਓ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਲੰਘਣ ਦਿਓ।",
 "The traffic light is green. Continue only when the junction is clear.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਹਰੀ ਹੈ। ਚੌਰਾਹਾ ਖਾਲੀ ਹੋਵੇ ਤਾਂ ਹੀ ਅੱਗੇ ਵਧੋ।",
 "The traffic light is amber. Stop if you can do so safely.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪੀਲੀ ਹੈ। ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੁਕ ਸਕੋ ਤਾਂ ਰੁਕੋ।",
-"The traffic light is red. Stop before the junction line.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਲਾਲ ਹੈ। ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।"
+"The traffic light is red. Stop before the junction line.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਲਾਲ ਹੈ। ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",
+"road sign or traffic light": "ਸੜਕ ਦਾ ਚਿੰਨ੍ਹ ਜਾਂ ਟ੍ਰੈਫਿਕ ਲਾਈਟ",
+"wrong turn": "ਗ਼ਲਤ ਮੋੜ"
 },
 "templates": [
 [

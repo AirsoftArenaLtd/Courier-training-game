@@ -3823,7 +3823,9 @@ window.OTR_I18N.bn = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "স্কুল ক্রসিংয়ে শিশুরা অপেক্ষা করছে। গতি কমান আর ওদের পার হতে দিন।",
 "The traffic light is green. Continue only when the junction is clear.": "ট্রাফিক লাইট সবুজ। মোড় ফাঁকা থাকলে তবেই এগোন।",
 "The traffic light is amber. Stop if you can do so safely.": "ট্রাফিক লাইট হলুদ। নিরাপদে থামতে পারলে থামুন।",
-"The traffic light is red. Stop before the junction line.": "ট্রাফিক লাইট লাল। মোড়ের লাইনের আগে থামুন।"
+"The traffic light is red. Stop before the junction line.": "ট্রাফিক লাইট লাল। মোড়ের লাইনের আগে থামুন।",
+"road sign or traffic light": "রাস্তার চিহ্ন বা ট্রাফিক লাইট",
+"wrong turn": "ভুল মোড়"
 },
 "templates": [
 [

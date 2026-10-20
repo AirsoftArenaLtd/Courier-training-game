@@ -3822,7 +3822,9 @@ window.OTR_I18N.mr = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "शाळेच्या क्रॉसिंगवर मुले वाट पाहत आहेत. वेग कमी करा आणि त्यांना ओलांडू द्या.",
 "The traffic light is green. Continue only when the junction is clear.": "ट्रॅफिक लाइट हिरवा आहे. चौक मोकळा असेल तरच पुढे जा.",
 "The traffic light is amber. Stop if you can do so safely.": "ट्रॅफिक लाइट पिवळा आहे. सुरक्षितपणे थांबता येत असेल तर थांबा.",
-"The traffic light is red. Stop before the junction line.": "ट्रॅफिक लाइट लाल आहे. चौकातील रेषेच्या आधी थांबा."
+"The traffic light is red. Stop before the junction line.": "ट्रॅफिक लाइट लाल आहे. चौकातील रेषेच्या आधी थांबा.",
+"road sign or traffic light": "रस्ता चिन्ह किंवा ट्रॅफिक लाइट",
+"wrong turn": "चुकीचे वळण"
 },
 "templates": [
 [

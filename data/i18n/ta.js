@@ -3822,7 +3822,9 @@ window.OTR_I18N.ta = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "பள்ளிக் கடவில் குழந்தைகள் காத்திருக்கிறார்கள். வேகத்தைக் குறைத்து அவர்களைக் கடக்க விடுங்கள்.",
 "The traffic light is green. Continue only when the junction is clear.": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
 "The traffic light is amber. Stop if you can do so safely.": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
-"The traffic light is red. Stop before the junction line.": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்."
+"The traffic light is red. Stop before the junction line.": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+"road sign or traffic light": "சாலை அடையாளம் அல்லது சிக்னல்",
+"wrong turn": "தவறான திருப்பம்"
 },
 "templates": [
 [

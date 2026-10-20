@@ -237,8 +237,13 @@ class DriveReviewScene extends Phaser.Scene {
       hit.on('pointerup', () => this.select(i));
       this.add.circle(x + 30, y, 10, p.critical ? 0xE8304A : OTR_DATA.theme.accent);
       OTR.txt(this, x + 30, y, String(i + 1), 11, '#ffffff', { weight: '900' });
-      const t = OTR.txt(this, x + 50, y, p.label, 14, p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' });
-      if (t.width > w - 130) t.setScale((w - 130) / t.width);
+      const col = p.critical ? '#B3122E' : OTR_DATA.theme.css('primaryDark'), room = w - 130;
+      let t = OTR.txt(this, x + 50, y, p.label, 14, col, { ox: 0, weight: '900' });
+      if (t.width > room) {                         // a long label (French, larger text) takes two smaller lines, not one tiny one
+        t.destroy();
+        t = OTR.txt(this, x + 50, y, p.label, 12, col, { ox: 0, weight: '900', wrap: room, lineSpacing: -2 });
+        if (t.height > 36 || t.width > room) t.setScale(Math.min(36 / t.height, room / t.width));
+      }
       OTR.txt(this, x + w - 20, y, OTR.drive.when(p.where), 12, OTR_DATA.theme.css('muted'), { ox: 1 });
       this.rows.push(hit);
     });

@@ -3822,7 +3822,9 @@ window.OTR_I18N.kn = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "ಶಾಲಾ ಕ್ರಾಸಿಂಗ್‌ನಲ್ಲಿ ಮಕ್ಕಳು ಕಾಯುತ್ತಿದ್ದಾರೆ. ವೇಗ ಕಡಿಮೆ ಮಾಡಿ, ಅವರು ದಾಟಲು ಬಿಡಿ.",
 "The traffic light is green. Continue only when the junction is clear.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಸಿರು ಇದೆ. ಜಂಕ್ಷನ್ ಖಾಲಿ ಇದ್ದಾಗ ಮಾತ್ರ ಮುಂದುವರಿಯಿರಿ.",
 "The traffic light is amber. Stop if you can do so safely.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಳದಿ ಇದೆ. ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಲು ಸಾಧ್ಯವಾದರೆ ನಿಲ್ಲಿ.",
-"The traffic light is red. Stop before the junction line.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಕೆಂಪು ಇದೆ. ಜಂಕ್ಷನ್ ಗೆರೆಯ ಮೊದಲು ನಿಲ್ಲಿ."
+"The traffic light is red. Stop before the junction line.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಕೆಂಪು ಇದೆ. ಜಂಕ್ಷನ್ ಗೆರೆಯ ಮೊದಲು ನಿಲ್ಲಿ.",
+"road sign or traffic light": "ರಸ್ತೆ ಚಿಹ್ನೆ ಅಥವಾ ಟ್ರಾಫಿಕ್ ಲೈಟ್",
+"wrong turn": "ತಪ್ಪು ತಿರುವು"
 },
 "templates": [
 [
