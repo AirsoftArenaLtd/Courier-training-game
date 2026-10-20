@@ -12,7 +12,8 @@
     "c33-locker-before.log": "Intentional failing unit regression before live locker authorisation.",
     "c33-combined-*-geometry.json": "Full combined damage/traffic/richer-stop Low sweeps at runtime 09e98bb: 285600 views each; loaded 60 calls / 2443 triangles, fallback 59 / 2181.",
     "c33-font-high-*": "Source 09e98bb, Tamil normal/larger native lockers: 72 checks, zero browser errors; briefing and weather captions visually inspected for glyphs.",
-    "c33-keys-browser.log": "41 English/Tamil keyboard checks: Escape and Back both return to the parent submenu, and the pause menu still closes normally."
+    "c33-keys-browser.log": "41 English/Tamil keyboard checks: Escape and Back both return to the parent submenu, and the pause menu still closes normally.",
+    "c33-policy-syntax-current.json": "Source 7122a01 after merged damage: changed-JavaScript syntax and whitespace checks. This exact file overrides the historical c33-policy-* prefix scope."
   },
   "sourceSHA256": {
     "index.html": "a63b81a35e9930ce4cff23e7d2cf1ef00b6fd3ef36465b80a2beea066661015d",

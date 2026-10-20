@@ -4,7 +4,7 @@
   "status": "doing; final browser/resource/gameplay gates pending",
   "scope": {
     "c33-sign-accept*": "Final 220f2ba: 240 native Low approaches in 12 languages, normal/larger, no head turn, with all road labels above y=420 to reserve the gauges and dashboard; no missing/clipped/shrunk/occluded sign, hidden shifter, or browser error.",
-    "c33-node-acceptance.json": "52 non-browser suites: 46 direct, six scoped permission reruns; sign/cab/HUD/rear/navigation delta has 79 passing affected cases. See each recorded source scope.",
+    "c33-node-acceptance.json": "52 non-browser suites: 46 direct, six scoped permission reruns; sign/cab/HUD/rear/navigation delta has 80 passing affected cases including the final dashboard reservation. See each recorded source scope.",
     "c33-sign-stable-before*": "20 canonical English/Tamil larger approaches before placement fix: 24 failures. This is the stable-frame pre-fix reproduction.",
     "c33-sign-final*": "First all-language trial at 6b9de04: 238/240 approaches pass; Tamil larger green and Malayalam larger amber fail. Retained as regressions, not acceptance.",
     "c33-sign-clamped*": "Focused three-language larger-text check after top-margin clamp and shifter clearance: 30/30 pass, no errors.",
