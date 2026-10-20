@@ -19,6 +19,8 @@ anything failed, so it can gate a release.
 new suite is included without editing anything); `--browser` adds the browser suites. It serves the game itself on a
 free port (`QA_BASE`), finds the installed Chromium (`QA_BROWSER`), runs suites that open a page one at a time, and
 prints one pass/fail table; logs go to `test/out/run-all/`. Name words to run some of them: `node test/run-all.js fpnav`.
+`node test/run-all.js --review <branch>` merges a branch into pilot in a scratch worktree and runs the review's first
+steps (every Node suite, the text to translate, the five workday flows at Low).
 `node test/run-all.js --list` prints every suite with how it runs and what it covers; `--readme` rewrites the table
 at the end of this file ("Every suite"), so run it when you add a suite.
 
