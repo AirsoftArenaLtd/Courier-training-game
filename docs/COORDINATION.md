@@ -403,8 +403,9 @@ items here for each agent.
 | B-70 | Claude | **A workday resumed inside the LMS:** in the SCORM 1.2 player frame, play a 3D workday at Low to the second stop, close the course, relaunch it and finish the day: the 3D world's own store and `suspend_data` together must bring back the same stops, score and pins. | done |
 | B-71 | Claude | **What changed, for the trainer:** `docs/CHANGES.md`, one short dated entry per milestone in plain words (what a trainer or trainee will notice, nothing internal), written from the board's log for milestones 7 and 8 so far, and kept with each merge to `main`. | done |
 | B-72 | Claude | **The 3D menu and pause screen from the keyboard alone:** like B-62 for the trainer, a test that reaches every choice in the 3D workday's menu (H), the reversing-space list, Settings and the pause menu with Tab and the arrows, picks with Enter and leaves with Escape, in English and Tamil. | todo |
-| B-73 | Claude | **The Tamil and Hindi quick starts after B-70:** add the same-PC note to the session table in `docs/QUICK-START.ta.md` and `.hi.md` (the English says resume "on the same PC" since B-70), with the game's own words for the new dialog. | todo |
+| B-73 | Claude | **The Tamil and Hindi quick starts after B-70:** add the same-PC note to the session table in `docs/QUICK-START.ta.md` and `.hi.md` (the English says resume "on the same PC" since B-70), with the game's own words for the new dialog. | done |
 | B-74 | Claude | **C-34's cab text in all 12 languages:** extend `test/fplangsbrowser.js` with the "Know the van height" panel, the clearance sign's label and the seven post-trip damage notices, at larger text in every language (Codex checked English and Tamil); fix or send on what overflows. | todo |
+| B-75 | Claude | **C-33 review prep:** from C-33's branch, list its report keys for intercoms, receptions, lockers and reattempts, add five richer stops to `test/savesize.js`'s damage day (room must stay at least 250 with C-34 and C-33 together), and require the four `stop.*` debrief lines in `test/drivemapbrowser.js` in all 12 languages, so the C-33 review is quick. | todo |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
 | B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) |
 
@@ -441,6 +442,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **20 October 2026, Claude — B-73:** the Tamil and Hindi quick starts now carry B-70's same-PC note in the session table (resume on the same computer; on another one the day starts again, and the game asks first), quoting the game's own Tamil and Hindi title for that question.
 
 - **20 October 2026, Claude — C-34 review:** merged. The review script's first run stopped on one board conflict (both log entries kept). Then: every Node suite (58), i18n with 14 new lines translated into 11 languages and two internal error ids marked not text, the five workday flows at Low (5/5), the drive map and debrief in 12 languages (1,165 checks), and the quality gate in four profiles (loaded-low 56 calls / 2,412 triangles). C-34's cab text in every language is B-74.
 
