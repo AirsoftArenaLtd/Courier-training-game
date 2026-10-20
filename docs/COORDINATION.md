@@ -371,8 +371,9 @@ items here for each agent.
 | B-57 | Claude | **Remove the known list from the cab sweep once Codex's label fix lands:** when the traffic-light labels show (Codex's inbox, 20 Oct), drop `KNOWN` from `test/fplangsbrowser.js`, add the cab hint line for the cyclist and the crossing to the sweep, and re-run it in all 12 languages. | todo (after Codex's fix) |
 | B-58 | Claude | **The trainer's PIN screen and accounts in all 12 languages at larger text:** `test/a11y-screens.js` covers the trainer screen in English only; run it with `QA_LANG` for every language and fix what overflows (New account, the temporary password card, Academy rules, 3D workday aids). | done |
 | B-59 | Claude | **The workday debrief and drive map in all 12 languages:** run `test/drivemapbrowser.js` with every language at both text sizes (it covers en, ta and ml today) and fix what overflows or is left in English. | done |
-| B-60 | Claude | **The workday flows in Tamil:** run `test/qa.js --only workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review` with `QA_LANG=ta QA_GFX=low`; the golden paths find buttons by their English, so any step that fails points at text the flow or the game cannot match in another language. Fix or report what fails. | todo |
+| B-60 | Claude | **The workday flows in Tamil:** run `test/qa.js --only workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review` with `QA_LANG=ta QA_GFX=low`; the golden paths find buttons by their English, so any step that fails points at text the flow or the game cannot match in another language. Fix or report what fails. | done |
 | B-61 | Claude | **LMS packages after the B-55 save change:** rebuild both SCORM packages, launch each with `test/scorm-launch.js` (1.2 and `--2004`), resume a packed day from `suspend_data` written before B-55 and one after, and update the package sizes in `docs/IT-NOTES.md` and `docs/READINESS.md`. | done |
+| B-62 | Claude | **The trainer's dialogs from the keyboard alone:** Tab and Enter reach every choice in 3D workday aids, New account (both steps) and the temporary-password card, and Escape closes each; a test drives them without the mouse. | todo |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
 | B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) |
 
@@ -405,6 +406,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **20 October 2026, Claude — B-60:** the five workday flows (`workday-3d`, -b, -c, `workday-aids`, `drive-review`) pass in Tamil at `QA_GFX=low`: every golden path finishes, with the layout audit on and every stop's outcome as in English. Nothing to fix. `workday-3d` now also asserts it ran in `QA_LANG`, as it does for `QA_GFX`.
 
 - **20 October 2026, Claude — B-61:** both SCORM packages are rebuilt after B-55's save change: 209 files, 11.5 MB (12,056,524 and 12,056,627 bytes). `test/scorm-launch.js` now also builds a day in progress inside the launched package and writes it to `suspend_data` twice: packed the B-55 way, and in the older form with full type names and stop rows. It relaunches the course for each and checks that all 12 reports and the score come back. Both pass in the SCORM 1.2 and 2004 frames, with 14 models at Low and High, none failed or fallen back, and nothing missing or from outside. The IT notes and readiness table have the new count.
 
