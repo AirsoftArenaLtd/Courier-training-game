@@ -3858,7 +3858,13 @@ window.OTR_I18N.te = {
 "A mirror on the van has new damage.": "వ్యాన్ ఒక అద్దానికి కొత్త నష్టం జరిగింది.",
 "Know the van height.": "వ్యాన్ ఎత్తును తెలుసుకోండి.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "మీ వ్యాన్ ఎత్తు 10 అడుగుల 10 అంగుళాలు. తక్కువ ఎత్తు పరిమితులను తప్పించడానికి నావిగేషన్‌ను అనుసరించండి. బయలుదేరే ముందు లోడ్‌ను సురక్షితంగా కట్టండి.",
-"Begin preparation.": "సన్నాహాన్ని ప్రారంభించండి."
+"Begin preparation.": "సన్నాహాన్ని ప్రారంభించండి.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "డెలివరీ స్థలం దగ్గర పార్క్ చేయండి. దారిని తనిఖీ చేసి, వదులుగా కుక్క ఉన్న గేట్ బయటే ఉండండి. సరైన ప్యాకేజీని తీసుకుని తలుపు వద్ద స్కాన్ చేయండి. సంప్రదించడానికి ప్రయత్నించండి, ఫోటో ID, సంతకం తనిఖీలు పూర్తి చేసి, తర్వాత అవసరమైన డెలివరీ ఫలితాన్ని నమోదు చేయండి. మినహాయింపు ప్యాకేజీలను తిరిగి ఇవ్వడానికి ఉంచుకోండి.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "ఐదు స్టాప్‌లు పూర్తయ్యాక వ్యాన్‌ను డిపోకు తిరిగి తీసుకెళ్లి పార్కింగ్ బ్రేక్ వేయండి. మిగిలిన ప్యాకేజీలను తీసి, ప్రతిదాన్నీ రిటర్న్స్‌కు తీసుకువచ్చి మళ్లీ స్కాన్ చేయండి. డిస్పాచ్ వద్ద చెక్ ఇన్ చేసి, ఫలితాలు చూడటానికి వర్క్‌డే ముగించండి ఎంచుకోండి.",
+"Exception recorded. Keep the parcel and return it to the depot.": "మినహాయింపు నమోదైంది. ప్యాకేజీని ఉంచుకుని డిపోకు తిరిగి తీసుకురండి.",
+"Save and return to hub": "సేవ్ చేసి హబ్‌కు తిరిగి",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "తర్వాతి స్టాప్‌ను ఎంచుకోండి. Maple Ave డిపో నుండి ఉత్తరం వైపు వెళ్తుంది. Birch Lane చివరి జంక్షన్ వద్ద ఉంది. తిరిగి రావడానికి ఉత్తర చివరన ఉన్న తిరిగే స్థలాన్ని ఉపయోగించండి.",
+"Review the shift, then return to the hub.": "షిఫ్ట్‌ను సమీక్షించి, తర్వాత హబ్‌కు తిరిగి వెళ్లండి."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.te = {
 [
 "Continue for {0} feet to the stop.",
 "స్టాప్ వరకు {0} అడుగులు కొనసాగండి."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} స్కానర్‌ను తెరుస్తుంది, మిగిలిన ప్యాకేజీని తిరిగి ఇవ్వడానికి."
 ]
 ],
 "keep": [

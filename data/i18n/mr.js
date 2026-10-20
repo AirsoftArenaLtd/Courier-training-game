@@ -3858,7 +3858,13 @@ window.OTR_I18N.mr = {
 "A mirror on the van has new damage.": "व्हॅनच्या एका आरशाचे नवीन नुकसान झाले आहे.",
 "Know the van height.": "व्हॅनची उंची जाणून घ्या.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "तुमच्या व्हॅनची उंची 10 फूट 10 इंच आहे. खालचे पूल किंवा उंचीच्या मर्यादा टाळण्यासाठी नेव्हिगेशन पाळा. निघण्याआधी माल नीट बांधून ठेवा.",
-"Begin preparation.": "तयारी सुरू करा."
+"Begin preparation.": "तयारी सुरू करा.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "डिलिव्हरीच्या ठिकाणाजवळ पार्क करा. रस्ता तपासा आणि मोकळा कुत्रा असलेल्या गेटच्या बाहेर थांबा. योग्य पॅकेज काढून दारात स्कॅन करा. संपर्काचा प्रयत्न करा, फोटो ID आणि सहीची तपासणी पूर्ण करा, मग आवश्यक डिलिव्हरीचा निकाल नोंदवा. अपवादाची पॅकेजेस परत करण्यासाठी ठेवून घ्या.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "पाचही स्टॉपनंतर व्हॅन डेपोमध्ये परत आणा आणि पार्किंग ब्रेक लावा. स्वतःकडे ठेवलेली पार्सल काढा, प्रत्येक रिटर्न्सकडे आणा आणि पुन्हा स्कॅन करा. डिस्पॅचमध्ये चेक-इन करा आणि निकाल पाहण्यासाठी वर्कडे संपवा निवडा.",
+"Exception recorded. Keep the parcel and return it to the depot.": "अपवाद नोंदवला. पार्सल स्वतःकडे ठेवा आणि डेपोला परत आणा.",
+"Save and return to hub": "सेव्ह करून हबकडे परत",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "पुढचा स्टॉप निवडा. Maple Ave डेपोपासून उत्तरेकडे जाते. Birch Lane दूरच्या जंक्शनवर आहे. परत येण्यासाठी उत्तर टोकाकडील वळण्याची जागा वापरा.",
+"Review the shift, then return to the hub.": "शिफ्टचा आढावा घ्या, मग हबकडे परत जा."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.mr = {
 [
 "Continue for {0} feet to the stop.",
 "स्टॉपपर्यंत {0} फूट पुढे जा."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} स्कॅनर उघडतो, स्वतःकडे ठेवलेले पार्सल परत करण्यासाठी."
 ]
 ],
 "keep": [

@@ -3859,7 +3859,13 @@ window.OTR_I18N.bn = {
 "A mirror on the van has new damage.": "ভ্যানের একটি আয়নায় নতুন ক্ষতি হয়েছে।",
 "Know the van height.": "ভ্যানের উচ্চতা জানুন।",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "আপনার ভ্যানের উচ্চতা 10 ফুট 10 ইঞ্চি। নিচু সেতু বা উচ্চতার সীমা এড়াতে জিপিএস অনুসরণ করুন। রওনা দেওয়ার আগে মাল বেঁধে নিরাপদ করুন।",
-"Begin preparation.": "প্রস্তুতি শুরু করুন।"
+"Begin preparation.": "প্রস্তুতি শুরু করুন।",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "ডেলিভারির জায়গার কাছে পার্ক করুন। পথ দেখে নিন এবং খোলা কুকুরের গেটের বাইরে থাকুন। সঠিক প্যাকেজ বের করে দরজায় স্ক্যান করুন। যোগাযোগের চেষ্টা করুন, ছবিযুক্ত আইডি ও সই যাচাই সম্পন্ন করুন, তারপর প্রয়োজনীয় ডেলিভারির ফলাফল রেকর্ড করুন। ব্যতিক্রমী প্যাকেজ ফেরত দেওয়ার জন্য রেখে দিন।",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "পাঁচটি স্টপ শেষ হলে ভ্যান ডিপোতে ফিরিয়ে পার্কিং ব্রেক টানুন। রেখে দেওয়া পার্সেল বের করে প্রতিটি রিটার্নসে নিয়ে যান এবং আবার স্ক্যান করুন। ডিসপ্যাচে চেক ইন করুন এবং ফলাফল দেখতে কর্মদিবস শেষ করুন বেছে নিন।",
+"Exception recorded. Keep the parcel and return it to the depot.": "ব্যতিক্রম রেকর্ড হয়েছে। পার্সেলটি রেখে দিয়ে ডিপোতে ফেরত দিন।",
+"Save and return to hub": "সেভ করে হাবে ফিরুন",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "পরের স্টপ বেছে নিন। Maple Ave ডিপো থেকে উত্তর দিকে গেছে। Birch Lane দূরের জংশনে। ফিরতে উত্তর প্রান্তের ঘোরার জায়গাটি ব্যবহার করুন।",
+"Review the shift, then return to the hub.": "কর্মদিবসের ফল দেখুন, তারপর হাবে ফিরুন।"
 },
 "templates": [
 [
@@ -5561,6 +5567,10 @@ window.OTR_I18N.bn = {
 [
 "Continue for {0} feet to the stop.",
 "স্টপ পর্যন্ত {0} ফুট এগিয়ে যান।"
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} স্ক্যানার খোলে, রেখে দেওয়া পার্সেলটি ফেরত দেওয়ার জন্য।"
 ]
 ],
 "keep": [

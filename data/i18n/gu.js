@@ -3858,7 +3858,13 @@ window.OTR_I18N.gu = {
 "A mirror on the van has new damage.": "વાનના એક અરીસાને નવું નુકસાન થયું છે.",
 "Know the van height.": "વાનની ઊંચાઈ જાણો.",
 "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "તમારી વાનની ઊંચાઈ 10 ફૂટ 10 ઇંચ છે. નીચા પુલ કે ઊંચાઈની મર્યાદાથી બચવા નેવિગેશનને અનુસરો. નીકળતા પહેલાં માલ બરાબર બાંધો.",
-"Begin preparation.": "તૈયારી શરૂ કરો."
+"Begin preparation.": "તૈયારી શરૂ કરો.",
+"Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return.": "ડિલિવરીના સ્થળ પાસે પાર્ક કરો. રસ્તો તપાસો અને છૂટું કૂતરું હોય તેવા ગેટની બહાર રહો. સાચું પેકેજ કાઢીને દરવાજે સ્કૅન કરો. સંપર્કનો પ્રયાસ કરો, ફોટો ઓળખપત્ર અને સહીની ચકાસણી પૂરી કરો, પછી જરૂરી ડિલિવરી પરિણામ નોંધો. અપવાદવાળાં પેકેજ પાછાં મોકલવા માટે રાખી મૂકો.",
+"After all five stops, return the van to the depot and set the parking brake. Retrieve retained packages, bring each to Returns and scan it back in. Check in at Dispatch and choose Finish workday to see the results.": "પાંચેય સ્ટૉપ પછી વૅન ડેપો પર પાછી લાવો અને પાર્કિંગ બ્રેક લગાવો. રાખેલા પાર્સલ કાઢો, દરેકને રિટર્ન્સ પર લાવો અને ફરી સ્કૅન કરો. ડિસ્પેચ પર ચેક ઇન કરો અને પરિણામ જોવા વર્કડે પૂરો કરો પસંદ કરો.",
+"Exception recorded. Keep the parcel and return it to the depot.": "અપવાદ નોંધાયો. પાર્સલ રાખો અને ડેપો પર પાછું લાવો.",
+"Save and return to hub": "સેવ કરીને હબ પર પાછા",
+"Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "તમારો આગળનો સ્ટૉપ પસંદ કરો. Maple Ave ડેપોથી ઉત્તર તરફ જાય છે. Birch Lane દૂરના જંક્શન પર છે. પાછા ફરવા ઉત્તર છેડાના વળાંક-વિસ્તારનો ઉપયોગ કરો.",
+"Review the shift, then return to the hub.": "શિફ્ટની સમીક્ષા કરો, પછી હબ પર પાછા જાઓ."
 },
 "templates": [
 [
@@ -5560,6 +5566,10 @@ window.OTR_I18N.gu = {
 [
 "Continue for {0} feet to the stop.",
 "સ્ટોપ સુધી {0} ફૂટ આગળ વધો."
+],
+[
+"{0} opens the scanner to return the retained parcel.",
+"{0} સ્કૅનર ખોલે છે, રાખેલું પાર્સલ પાછું આપવા માટે."
 ]
 ],
 "keep": [
