@@ -8,6 +8,8 @@
  *   node test/run-all.js --browser       those, then every browser suite (one at a time: they measure frame time)
  *   node test/run-all.js fpnav workday   only the suites whose file name contains one of these words
  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
+ *   node test/run-all.js --review <branch>  merge a Codex branch into pilot in a scratch worktree and run the review's
+ *                                        first steps (test/tools/review-branch.js, B-69)
  *   node test/run-all.js --list          every suite, how it runs and what it covers (B-64); --readme writes that table
  *                                        into test/README.md between its <!-- suites --> markers
  *
@@ -57,6 +59,11 @@ const listSuites = () => {
     ...rows.map(r => `| \`${r.f}\` | ${r.how} | ${r.d.text.replace(/\|/g, '\\|')} |`)].join('\n');
   return { rows, table };
 };
+// B-69: a Codex branch's review starts the same way every time (test/tools/review-branch.js)
+if (process.argv.includes('--review')) {
+  const r = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'tools', 'review-branch.js'), ...process.argv.slice(2).filter(a => a !== '--review')], { stdio: 'inherit' });
+  process.exit(r.status === null ? 1 : r.status);
+}
 if (process.argv.includes('--list') || process.argv.includes('--readme')) {
   const { rows, table } = listSuites();
   if (process.argv.includes('--readme')) {
