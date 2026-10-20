@@ -225,6 +225,7 @@ OTR.fpMission = {
       serviceLabel(id) {
         const s = this.stop(id);
         if(!s)return 'This package is not on the route manifest.';
+        if(OTR.fpStopFlow&&OTR.fpStopFlow.authorised(this,id))return 'Deliver this standard parcel to the assigned locker at this site.';
         if(this.doorsteps){const text=OTR.fpDoors.label(this,id);if(text)return text;}
         if(this.routeDay&&OTR.fpDay.planter(this,id))return 'Leave the parcel behind the planter, as dispatch requested.';
         return s.service === 'signature' ? 'Signature required' : s.service === 'safeplace' ? 'Leave in the porch box if nobody answers' : 'Hand to the resident';
@@ -307,6 +308,7 @@ OTR.fpMission = {
         if (this.kind !== 'campaign' || !s || !(this.doorsteps?OTR.fpDoors.near(this,id):this.near('door' + id)) || this.mode !== 'walk') return 'Approach the correct delivery point.';
         if(this.deliveryStops){const wait=OTR.fpStopFlow.contact(this,id);if(wait)return wait;}
         s.contacted = true;if(this.doorsteps)OTR.fpDoors.sync(this);this.touch();
+        if(OTR.fpStopFlow&&OTR.fpStopFlow.authorised(this,id))return 'This parcel is authorized for the assigned locker at this site.';
         return s.service === 'handover' ? 'The resident answers and confirms the address.' : 'Nobody answers the door.';
       },
       deliver(id, outcome) {

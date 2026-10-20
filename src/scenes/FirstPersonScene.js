@@ -108,7 +108,11 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind,spot){this.transition(()=>{
     let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      const plan=kind==='campaign'?OTR.fpDamageFlow.prepare(OTR.fpStopFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence))))))):null;
+      let plan=null;
+      if(kind==='campaign'){
+        plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(day,this.progress.sequence),true);
+        plan=OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan)))));
+      }
       m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
@@ -248,7 +252,8 @@ class FirstPersonScene extends Phaser.Scene {
     if(!node||node.type==='end'){this.showManifest(0,true);return;}
     if(feedback){this.showPanel('Morning briefing',feedback,[{label:'Continue',action:()=>this.showMorningBrief(nodeId)}],{back});return;}
     const choices=node.choices?[{label:'View answers',action:()=>this.showBriefAnswer(nodeId||brief.talk.start,0)}]:[{label:'Continue',action:()=>this.showMorningBrief(node.next)}];
-    this.showPanel(brief.topic,node.text,choices,{back});
+    const locker=!nodeId||nodeId===brief.talk.start?OTR.fpStopFlow.brief(m):'';
+    this.showPanel(brief.topic,[node.text,locker].filter(Boolean).join('\n\n'),choices,{back});
   }
   showBriefAnswer(nodeId,index){
     const m=this.model;if(!m||!m.briefing||!m.near('dispatch'))return;

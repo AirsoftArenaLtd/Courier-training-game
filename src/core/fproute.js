@@ -16,6 +16,7 @@ OTR.fpRoute = {
     if(plan.navigation!==undefined&&plan.navigation!==1)throw Error('Invalid navigation version');
     if(plan.damage!==undefined&&(plan.damage!==1||plan.day<4||!OTR.fpDamageFlow))throw Error('Invalid damage version');
     if(plan.deliveries!==undefined&&(plan.deliveries!==1||plan.day<3))throw Error('Invalid delivery-stop version');
+    if(plan.lockerStop!==undefined&&(!OTR.fpStopFlow||!OTR.fpStopFlow.validLocker(plan)))throw Error('Invalid locker authorization');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {
@@ -31,7 +32,7 @@ OTR.fpRoute = {
       const b = lots.find(b => b.id === lot.id), p = project(lot.park.x, lot.park.y);
       return { id: i, lotId: lot.id, x: b.x - lot.side * (b.w / 2 + 0.08), z: b.z,
         side: lot.side, park: { x: p.x, z: p.z, yaw: lot.side > 0 ? 0 : Math.PI },
-        address: `${pkg.number} ${pkg.street}`, service: pkg.service !== 'standard' && !source.answer ? 'signature' : source.answer ? 'handover' : 'safeplace',
+        address: `${pkg.number} ${pkg.street}`, service: plan.lockerStop===i?'safeplace':pkg.service !== 'standard' && !source.answer ? 'signature' : source.answer ? 'handover' : 'safeplace',
         contacted: false, resolved: false };
     });
     m.town = { lots, xs: T.hy.map(y => project(T.depot.x, y).x), zs: T.vx.map(x => project(x, T.hy[0]).z),

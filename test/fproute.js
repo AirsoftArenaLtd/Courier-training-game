@@ -12,7 +12,13 @@ if(process.env.QA_ASSETS==='1'){
  test.before(async()=>{c.assetBank=await c.OTR.fpAssets.preload({fetch:local});assert.equal(c.assetBank.stats.loaded,14,JSON.stringify(c.assetBank.stats));});
  test.after(()=>c.assetBank.dispose());
 }
-const full=(day=1,variant=7,stops=false)=>{let plan=process.env.QA_LATER==='1'?c.OTR.fpLater.prepare(R.plan(day,variant)):R.plan(day,variant);if(process.env.QA_TRAFFIC==='1')plan=c.OTR.fpTraffic.prepare(plan);if(process.env.QA_NAV==='1')plan=c.OTR.fpNav.prepare(plan);if(process.env.QA_DAMAGE==='1')plan=c.OTR.fpDamageFlow.prepare(plan);if(stops)plan=c.OTR.fpStopFlow.prepare(plan);return M.create('campaign',variant,plan);};
+const full=(day=1,variant=7,stops=false)=>{
+ let plan=R.plan(day,variant);if(stops)plan=c.OTR.fpStopFlow.prepare(plan,true);
+ if(process.env.QA_LATER==='1')plan=c.OTR.fpLater.prepare(plan);
+ if(process.env.QA_TRAFFIC==='1')plan=c.OTR.fpTraffic.prepare(plan);
+ if(process.env.QA_NAV==='1')plan=c.OTR.fpNav.prepare(plan);if(process.env.QA_DAMAGE==='1')plan=c.OTR.fpDamageFlow.prepare(plan);
+ return M.create('campaign',variant,plan);
+};
 const at=(m,id)=>{Object.assign(m.player,m.point(id));m.player.z+=0.6;};
 test('five seeded stops match the route-day generator, addresses and package identities',()=>{
  for(let day=1;day<=14;day++){

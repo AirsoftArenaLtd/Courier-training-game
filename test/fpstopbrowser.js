@@ -3,11 +3,13 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const OUT=path.join(__dirname,'out/fp-review'),GFX=process.env.QA_GFX||'low',BASE=process.env.QA_BASE||'http://127.0.0.1:8339';fs.mkdirSync(OUT,{recursive:true});
 const TAG=process.env.QA_TAG||'c33-'+GFX,KINDS=(process.env.QA_KINDS||'intercom,gated,reception,locker,failed,nativeintercom').split(','),SIZES=(process.env.QA_SIZES||'normal,large').split(',');
 const NEGATIVE=process.env.QA_NEGATIVE==='1',LANGS=(process.env.QA_LANGS||'en,ta').split(',');
+const LIVE_LOCKER=process.env.QA_LIVE_LOCKER==='1';
 assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(KINDS.every(k=>['intercom','gated','reception','locker','failed','nativeintercom'].includes(k)));assert.ok(SIZES.every(s=>['normal','large'].includes(s)));
+assert.ok(!LIVE_LOCKER||KINDS.every(k=>k==='locker'),'The native locker probe selects only locker workflows.');
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required']});
- const result={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:path.join(__dirname,'..'),encoding:'utf8'}).trim(),quality:GFX,negative:NEGATIVE,fixture:'Unmodified generated day-three routes with signs/navigation and the C-33 marker. The all-signature later schedule is tested separately; live locker policy is pending.',checks:0,runs:[],errors:[],completed:false,expectedRuns:LANGS.length*SIZES.length*KINDS.length};let p,recording;
+ const result={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:path.join(__dirname,'..'),encoding:'utf8'}).trim(),quality:GFX,negative:NEGATIVE,fixture:LIVE_LOCKER?'Native later-day plans nominate one originally standard parcel before signature/ID rules, with traffic/signs/navigation and the real briefing. Travel poses are fixtures; controls, scanner, reports and restores are real.':'Legacy generated standard-service fixtures; the native later-day schedule is tested separately.',checks:0,runs:[],errors:[],completed:false,expectedRuns:LANGS.length*SIZES.length*KINDS.length};let p,recording;
  const save=()=>{const name=path.join(OUT,`${TAG}-stops.json`);fs.writeFileSync(name+'.tmp',JSON.stringify(result,null,2)+'\n');fs.renameSync(name+'.tmp',name);};save();
  try{
   p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>result.errors.push(e.message));
@@ -37,14 +39,17 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   };
   for(const lang of LANGS){
    await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
+   assert.equal(await p.evaluate(()=>OTR.i18n.lang),lang,'The requested language is active.');
    await p.evaluate(()=>{window.stopSaid=[];Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speaking:false,pending:false,speak(u){this.speaking=true;window.stopSaid.push(u.text);setTimeout(()=>{this.speaking=false;if(u.onend)u.onend();},80);},cancel(){this.speaking=false;}}});window.SpeechSynthesisUtterance=function(text){this.text=text;};});
    for(const large of SIZES.map(size=>size==='large')){
     await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.large=large;a.colour=true;a.reducedMotion=true;a.narrate=true;a.keys={KeyE:'KeyO',KeyP:'KeyN',Space:'KeyL',Tab:'KeyU'};OTR.fpAccess.syncKeys();OTR.a11y.applyColour(s);s.capture=()=>{};s.releaseMouse=()=>{};s.keyboardMode=true;},large);
     for(const kind of KINDS){
-     const fixture=await p.evaluate(kind=>{
+     const fixture=await p.evaluate(({kind,live})=>{
       const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();let m,id;
       for(let seed=1;seed<=100;seed++){
-       let source=OTR.fpRoute.plan(3,seed);if(kind==='nativeintercom')source=OTR.fpLater.prepare(source);const plan=OTR.fpStopFlow.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(source)));m=OTR.fpMission.create('campaign',seed,plan);
+       let source=OTR.fpRoute.plan(3,seed);
+       if(live)source=OTR.fpLater.prepare(OTR.fpStopFlow.prepare(source,true));else if(kind==='nativeintercom')source=OTR.fpLater.prepare(source);
+       let plan=OTR.fpStopFlow.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(source)));if(live)plan=OTR.fpTraffic.prepare(plan);m=OTR.fpMission.create('campaign',seed,plan);
        OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpStopFlow.configure(m);
        id=m._deliverySpecs.findIndex((a,i)=>kind==='failed'?!m._doorSpecs[i].present&&m._doorSpecs[i].signature:kind==='gated'?a.gated:kind==='nativeintercom'?seed%5===0&&a.protocol&&a.protocol.kind==='intercom'&&m._doorSpecs[i].adult&&!m._doorSpecs[i].difficult:a.protocol&&a.protocol.kind===kind&&!a.gated&&!m._doorSpecs[i].difficult);if(id>=0)break;
       }
@@ -53,9 +58,17 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
       m.heldId=parcel.id;m.activeStop=id;m.phase='route';m.departed=true;m.mode='walk';m.paused=false;m.events[m.briefKey]=true;
       OTR.fpLater.depart(m);
       s.model=m;s.area='route';s.target=null;s.notice='';s.rebuildWorld();s.sync();OTR.workday.begin();window.stopSaid=[];
-      return {id,seed:m.seed,kind,adult:m._doorSpecs[id].adult,signature:m._doorSpecs[id].signature,button:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.button,name:m._doorSpecs[id].person,compartment:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.compartment,nextDay:m._deliverySpecs[id].reattempt.nextDay};
-     },kind);
-     result.fixtureNow=fixture;const {id}=fixture;await scan();await pause(300);await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${large?'large':'normal'}-${kind}-physical.png`)});
+      return {id,seed:m.seed,kind,lockerStop:m.routePlan.lockerStop,nativeLater:m.routePlan.later===1,originalService:OTR.fpRoute.plan(3,m.seed).route[id].stop.packages[0].service,adult:m._doorSpecs[id].adult,signature:m._doorSpecs[id].signature,button:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.button,name:m._doorSpecs[id].person,compartment:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.compartment,nextDay:m._deliverySpecs[id].reattempt.nextDay};
+     },{kind,live:LIVE_LOCKER});
+     result.fixtureNow=fixture;const {id}=fixture;
+     if(LIVE_LOCKER){
+      assert.equal(fixture.lockerStop,id);assert.equal(fixture.nativeLater,true);assert.equal(fixture.originalService,'standard');assert.equal(fixture.signature,false);assert.equal(fixture.adult,false);result.checks+=5;
+      await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;window.lockerBriefPose={...m.player};Object.assign(m.player,m.point('dispatch'));s.showMorningBrief();});await audit();
+      assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.panel.root.list.some(o=>o.type==='Text'&&/locker/i.test(o.srcText??o.text)&&(o.srcText??o.text).includes(s.model.stops[s.model.routePlan.lockerStop].address));}),true);result.checks++;
+      await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${large?'large':'normal'}-brief.png`)});
+      await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.closePanel();Object.assign(s.model.player,window.lockerBriefPose);s.sync();s.refresh();window.stopSaid=[];});
+     }
+     await scan();await pause(300);await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${large?'large':'normal'}-${kind}-physical.png`)});
      if(process.env.QA_CLIP==='1'&&result.runs.length===0)recording=await p.screencast({path:path.join(OUT,`${TAG}-controls.webm`),fps:15,quality:35});await controls(id);
      if(kind==='intercom'||kind==='gated'||kind==='nativeintercom'){
       if(NEGATIVE){await pick('Choose an intercom button.');await pick('Call a different entry.');await pick('I am the courier, and I have a parcel for this address.');await recover();}

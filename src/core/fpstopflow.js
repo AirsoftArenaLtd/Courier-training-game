@@ -1,7 +1,29 @@
 /* Campaign adapter for richer stops. No points, shared saves or renderer state. */
 window.OTR=window.OTR||{};
 OTR.fpStopFlow={
-  prepare(plan){return plan&&plan.day>=3?Object.assign({},plan,{deliveries:1}):plan;},
+  prepare(source,authoriseLocker=false){
+    if(!source||source.day<3)return source;
+    const plan=Object.assign({},source,{deliveries:1});
+    // Only a new scene plan opts in, before later-day signature/ID rules. Older plans stay unchanged.
+    if(!authoriseLocker||source.later===1||source.deliveries!==undefined)return plan;
+    for(const kind of ['business','apartment','leave']){
+      const id=plan.route.findIndex((r,i)=>r.type===kind&&r.stop.packages[0].service==='standard'&&!r.stop.dog&&(!plan.dispatch||plan.dispatch.stop!==i));
+      if(id>=0){plan.lockerStop=id;break;}
+    }
+    return plan;
+  },
+  validLocker(plan){
+    if(plan.lockerStop===undefined)return true;
+    const id=plan.lockerStop,r=Number.isSafeInteger(id)&&plan.route&&plan.route[id];
+    return !!(plan.deliveries===1&&plan.day>=3&&id>=0&&id<5&&r&&(r.type==='business'||r.type==='apartment'||r.type==='leave')&&
+      r.stop&&!r.stop.dog&&Array.isArray(r.stop.packages)&&r.stop.packages.length===1&&r.stop.packages[0]&&
+      r.stop.packages[0].service==='standard'&&(!plan.dispatch||plan.dispatch.stop!==id));
+  },
+  authorised(m,id){return Number.isSafeInteger(id)&&this.enabled(m)&&m.routePlan.lockerStop===id&&this.validLocker(m.routePlan);},
+  brief(m){
+    const id=m.routePlan&&m.routePlan.lockerStop;
+    return this.authorised(m,id)?`Stop ${id+1} at ${m.stops[id].address} is an authorized locker drop. Use its assigned compartment.`:'';
+  },
   enabled(m){return m.kind==='campaign'&&m.routePlan&&m.routePlan.deliveries===1&&m.routePlan.day>=3;},
   specs(m){
     const town=OTR.town.build(m.routePlan.townSeed),dispatch=m.routePlan.dispatch,obstacles=OTR.fpNav?OTR.fpNav.obstacles(m):[];let gated=false,locker=false;
@@ -9,7 +31,8 @@ OTR.fpStopFlow={
       const a=m._doorSpecs[i],lot=town.lotById(s.lotId),parcel=m.parcels[i].id;
       const reason=a.wrong?'address':a.adult&&!OTR.fpDoors.validID(m,i)?'id':a.dog?'access':!a.present?'absent':'access';
       const entry={protocol:null,gated:false,reattempt:{kind:'reattempt',parcel,day:m.routePlan.day,nextDay:m.routePlan.day+1,slot:'afternoon',reason}};
-      if(lot.kind==='apartment'){
+      if(this.authorised(m,i))entry.protocol={kind:'locker',parcel,compartment:String(10+s.id)};
+      else if(lot.kind==='apartment'){
         const pkg=m.routePlan.route[i].stop.packages[0];
         entry.protocol={kind:'intercom',parcel,button:String(pkg.unit||pkg.to),available:a.present};
       }
@@ -112,7 +135,7 @@ OTR.fpStopFlow={
   fire(m,id,state){
     const result=OTR.fpStops.assessment(state),key=`visit:${result.type}:${id}`;if(m.events[key])return;
     m.log(key,'doorstep',result.ok?'good':'needs',result.ok?'Completed the delivery-point requirements.':'Completed the stop without meeting the delivery-point requirements.');
-    if(OTR.workday)OTR.workday.report(result.type,{key:id,stop:id+1,ok:result.ok,where:{x:m.player.x,z:m.player.z}});
+    if(OTR.workday)OTR.workday.report(result.type,{key:id,stop:id+1,ok:result.ok,where:result.ok?undefined:{x:m.player.x,z:m.player.z}});
   },
   resolve(m,id,outcome){
     const a=m._deliverySpecs[id].protocol,d=m.deliveryStops.stops[id];

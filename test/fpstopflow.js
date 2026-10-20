@@ -45,7 +45,7 @@ test('protocols match actual generated building and parcel types, not a randomly
  }
  assert.deepEqual([...seen].sort(),['gated','intercom','locker','reception']);
 });
-test('the live later-day schedule keeps all original signature and ID requirements while locker policy is pending',()=>{
+test('older later-day plans without a locker authorisation keep all original signature and ID requirements',()=>{
  for(let day=3;day<=8;day++)for(let seed=1;seed<=10;seed++){
   const plan=O.fpLater.prepare(O.fpRoute.plan(day,seed)),before=plain(plan),m=M.create('campaign',seed,F.prepare(plan));
   O.fpDay.configure(m);D.configure(m);F.configure(m);assert.deepEqual(plain(plan),before);
