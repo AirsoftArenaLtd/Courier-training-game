@@ -175,8 +175,9 @@ class DriveReviewScene extends Phaser.Scene {
   }
 
   /**
-   * A pin's shape, by its kind of mistake (B-15): a diamond for a road sign, a star for damage to the van, a triangle
-   * for a low bridge or clearance, a hexagon for a shifted load (the square is the depot), a circle for anything else. `k` scales it (the legend).
+   * A pin's shape, by its kind of mistake (B-15, B-47): a diamond for a road sign or traffic light, a star for damage to the
+   * van, a triangle for a low bridge or clearance, a hexagon for a shifted load, an arrow for a wrong turn (the square is
+   * the depot), a circle for anything else. `k` scales it (the legend).
    */
   marker(mark, x, y, k, col) {
     const edge = OTR_DATA.theme.primaryDeep, r = 11 * k;
@@ -184,6 +185,7 @@ class DriveReviewScene extends Phaser.Scene {
     if (mark === 'sign') m = this.add.rectangle(x, y, r * 1.7, r * 1.7, col).setAngle(45);
     else if (mark === 'damage') m = this.add.star(x, y, 6, r * 0.75, r * 1.35, col);
     else if (mark === 'clearance') m = this.add.triangle(x, y, 0, r * 2.3, r * 1.3, 0, r * 2.6, r * 2.3, col).setOrigin(0.5, 0.62);
+    else if (mark === 'route') m = this.add.polygon(x, y, [-1, -0.45, 0.15, -0.45, 0.15, -1, 1, 0, 0.15, 1, 0.15, 0.45, -1, 0.45].map(v => (v + 1) * r * 1.15), col);
     else if (mark === 'load') m = this.add.polygon(x, y, [0, -1, 0.87, -0.5, 0.87, 0.5, 0, 1, -0.87, 0.5, -0.87, -0.5].map(v => (v + 1) * r * 1.3), col);   // points from 0: Phaser centres a polygon on its bounds
     else m = this.add.circle(x, y, r, col);
     return m.setStrokeStyle(2 * Math.max(k, 0.6), edge, 1);
@@ -287,10 +289,12 @@ OTR.drive = {
     if (/^van\.damage-/.test(type)) return 'damage';
     if (type === 'drive.clearance') return 'clearance';
     if (type === 'load.shift') return 'load';
+    if (type === 'drive.route') return 'route';                                     // a wrong turn the sat nav rerouted (C-31)
     return null;
   },
   /** The legend's words for each marker, in the order the legend lists them. */
-  MARKS: [['sign', 'road sign'], ['damage', 'damage to the van'], ['clearance', 'low bridge or clearance'], ['load', 'load shifted']],
+  MARKS: [['sign', 'road sign or traffic light'], ['damage', 'damage to the van'], ['clearance', 'low bridge or clearance'], ['load', 'load shifted'],
+    ['route', 'wrong turn']],
   when(w) {
     if (!w || w.t === undefined) return '';
     const m = Math.floor(w.t / 60), s = w.t % 60;
