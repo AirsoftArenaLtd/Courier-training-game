@@ -1,0 +1,26 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ both qualities load semantic van parts and four-clip worker rigs; the static adapter refuses rigs (911.84661ms)
+✔ all workday clips deform one texture-free mesh, keep finite human bounds and cache repeated poses (522.53412ms)
+✔ independent scene rigs never change their templates or each other (6.919305ms)
+✔ source and Low van doors steer and open without replacing any physical target, score, solid or saved field (518.918502ms)
+✔ only the nearest present resident uses the rig; physical door targets remain at the original facade (157.450841ms)
+✔ walkaround courier is visible in reflections and visibility is restored afterwards (85.140536ms)
+✔ missing actor files keep the old procedural vehicle and people while healthy town models still load (29.130236ms)
+✔ semantically incomplete actor files are rejected during preload and keep the procedural fallback (88.515782ms)
+✔ company colours reach the displayed van and courier vertices without changing geometry or source assets (120.594082ms)
+✔ scene rebuild releases every posed mesh exactly once while the bank keeps its source geometry (118.719229ms)
+✔ opening a door exposes a recessed dark doorway without opening a hole in the physical facade (97.926714ms)
+✔ the interior mirror uses the retained cab shell and restores the new exterior after its pass (66.942494ms)
+✔ the lifting cargo door stays inside the original van footprint throughout its movement (536.718283ms)
+✔ residents retain the shirt and skin colours used in the existing ID comparison (61.51694ms)
+✔ resumed contacts keep talking without repeating the walk-up or wave, and distant couriers do no pose work (119.195246ms)
+✔ resuming an away or resolved stop keeps its door closed from the first frame (886.228046ms)
+✔ school children share a bounded High rig draw; Low keeps two solid figures inside the existing batch (482.611283ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4889.635445

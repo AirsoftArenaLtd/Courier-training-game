@@ -1,0 +1,27 @@
+{
+  "sourceRevision": "fc95b34a0de6ef3844105dd76443b071859239cb",
+  "jobs": [
+    {
+      "name": "sign-accept",
+      "suite": "fpsignlayoutbrowser",
+      "flags": {
+        "QA_TAG": "c33-sign-accept"
+      },
+      "exit": 0,
+      "seconds": 170.3,
+      "log": "c33-final-sign-accept.log"
+    },
+    {
+      "name": "langs-strict",
+      "suite": "fplangsbrowser",
+      "flags": {
+        "QA_STRICT": "1"
+      },
+      "exit": 1,
+      "seconds": 126.6,
+      "log": "c33-final-langs-strict.log"
+    }
+  ],
+  "expected": 11,
+  "completed": false
+}

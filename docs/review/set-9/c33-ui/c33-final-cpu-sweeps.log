@@ -1,0 +1,34 @@
+Running c33-final-cpu-loaded
+{"kind": "loaded", "exit": 0}
+{
+  "views": 285600,
+  "peakCalls": 60,
+  "peakTriangles": 2443,
+  "worst": {
+    "day": 13,
+    "variant": 8,
+    "stop": 3,
+    "loaded": true,
+    "pose": "cargo-outside",
+    "reflection": 2,
+    "calls": 57,
+    "triangles": 2443
+  }
+}
+Running c33-final-cpu-fallback
+{"kind": "fallback", "exit": 0}
+{
+  "views": 285600,
+  "peakCalls": 59,
+  "peakTriangles": 2181,
+  "worst": {
+    "day": 21,
+    "variant": 10,
+    "stop": 1,
+    "loaded": true,
+    "pose": "cargo-outside",
+    "reflection": 2,
+    "calls": 56,
+    "triangles": 2181
+  }
+}

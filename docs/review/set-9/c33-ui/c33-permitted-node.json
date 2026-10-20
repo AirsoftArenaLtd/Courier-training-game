@@ -1,0 +1,26 @@
+[
+  {
+    "suite": "auth",
+    "exit": 0
+  },
+  {
+    "suite": "credits",
+    "exit": 0
+  },
+  {
+    "suite": "data",
+    "exit": 0
+  },
+  {
+    "suite": "package",
+    "exit": 0
+  },
+  {
+    "suite": "report",
+    "exit": 0
+  },
+  {
+    "suite": "xapi",
+    "exit": 0
+  }
+]

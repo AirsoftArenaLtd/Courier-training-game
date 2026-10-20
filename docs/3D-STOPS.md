@@ -1,8 +1,9 @@
 # Richer delivery stops (C-33, in progress)
 
-`codex/c33-richer-stops` is rebased onto pilot `743fe0e` (20 October), retaining merged
+`codex/c33-richer-stops` is rebased onto pilot `a2fe57b` (20 October), retaining merged
 traffic, damage, scoring/save code, current translations and shared QA. C-33 is **doing**;
-its final combined resource/gameplay review and sign-label/sight-line follow-ups remain.
+its final combined resource/gameplay review remains. The sign/sight-line fixes are
+implemented and their final audits are running.
 
 ## Approved live locker policy
 
@@ -87,6 +88,38 @@ approach; a regression covers 48 generated navigation layouts.
 The small shared `index.html` edit adds three script tags. The owned scene also selects the existing script-font family before measuring
 briefings, cab captions and handheld text; company fonts remain the fallback. English,
 Spanish and French keep their previous family. Projected labels retain C-32 font selection. No shared scoring, save, Settings or i18n implementation is edited.
+
+## Shared workday QA integration
+
+The marked-day adapter needs the following extension in Claude's
+`test/paths/workday-3d.js`. Its current loop at the five-stop section goes directly from
+`doorN` to Knock and Record on handheld; C-33 intercepts that action at physical sites.
+Keep the first-day path and all existing ID, wrong-address, dog, signature and customer
+checks. Read `_deliverySpecs[id]` to choose the site's protocol; perform its actions
+through real keys and panel choices as `test/fpstopbrowser.js` does.
+
+- **Intercom/gate:** approach `visitN` outside the barrier, open the controls and choose
+  the matching unit/person, delivery purpose and identity. Close the panel to let scene
+  time run. Wait for `fpStops.ready` (two simulated seconds when answered), reopen the
+  controls and unlock. Then approach the real door and use the existing shipment checks.
+  An unanswered entry needs eight seconds before the retained-exception path.
+- **Reception:** greet/confirm the address, record the named receptionist, capture the
+  matching physical handheld signature, then hand over and record. Preserve the existing
+  difficult-customer/parcel rules. Adult parcels remain on their ID-check path.
+- **Locker:** use `routePlan.lockerStop` and its assigned compartment. Open before the
+  stop scan; scan the physical parcel, deposit, close the door, confirm the closed-door
+  photo, then choose "Record the locker delivery." No signature or ID is removed from
+  another parcel. The old "Leave in porch box" choice is not this protocol.
+- **Retained exception:** after attempting contact, use "Arrange a failed delivery and
+  reattempt.", leave the card, confirm the actual retention reason and book the offered
+  next-day afternoon slot. Record the exception; keep the old physical cargo and Returns
+  sequence. Intercom unavailability must not fabricate an unlock or an intercom pass.
+
+Marked delivery outcomes use the scene's sentence choices ("Hand the parcel to the
+recipient.", "Record the locker delivery.", "Record a delivery exception."). Branch on
+`deliveryStops` instead of replacing the legacy choices for all days. Assert one protocol
+report at the outcome, short numeric stop keys, one-based `stop`, and no `where` on
+successful checks. Existing-catalogue points remain entirely in the shared workday layer.
 
 ## Current validation and limits
 

@@ -818,3 +818,14 @@ Before merged damage, policy source `bb20661` passes 264,000 views each: loaded
 backing resolution and selects script glyphs before layout. Fresh Low Tamil lockers
 pass 72 normal/larger checks. Current evidence/scopes: [C-33 review](review/set-9/c33.md)
 and [manifest](review/set-9/c33-policy/manifest.json). Native Intel 60 fps remains O-1.
+
+### C-33 sign placement and dash mount (20 October, validation continuing)
+
+The latest `a2fe57b` integration keeps the 3D render inputs at `fc95b34`. Repeated
+285,600-view sweeps pass at loaded **60 calls / 2,443 triangles** and fallback **59 /
+2,181**. The subsequent `220f2ba` delta is Phaser-only label placement and tests.
+Labels use the existing five-slot pool, wrap at readable sizes, clear sign heads and
+reserve the working dashboard. Sat nav/rear camera share a lower/right physical mount,
+and the shifter remains visible. All 240 Low sign approaches pass across 12 languages
+and both text sizes. Full rendered resource/text-memory acceptance remains the updated
+155-view gate; no resource ceiling or native-FPS claim changes. See [C-33 UI evidence](review/set-9/c33-ui/manifest.json).
