@@ -1,0 +1,89 @@
+{
+  "sourceRevision": "b23d90351a0b7b76e20c9854121cc7df5911caa9",
+  "note": "Same extractor and review filters; catalogue written to /tmp only. Shared catalogue/translations are unchanged. Claude translates during review.",
+  "languages": {
+    "es": {
+      "strings": 16,
+      "templates": 0
+    },
+    "fr": {
+      "strings": 16,
+      "templates": 0
+    },
+    "hi": {
+      "strings": 16,
+      "templates": 0
+    },
+    "bn": {
+      "strings": 16,
+      "templates": 0
+    },
+    "mr": {
+      "strings": 16,
+      "templates": 0
+    },
+    "te": {
+      "strings": 16,
+      "templates": 0
+    },
+    "ta": {
+      "strings": 16,
+      "templates": 0
+    },
+    "gu": {
+      "strings": 16,
+      "templates": 0
+    },
+    "kn": {
+      "strings": 16,
+      "templates": 0
+    },
+    "ml": {
+      "strings": 16,
+      "templates": 0
+    },
+    "pa": {
+      "strings": 16,
+      "templates": 0
+    }
+  },
+  "strings": [
+    "Invalid damage parameters",
+    "The clearance is 8 feet 10 inches. Take another street.",
+    "The cargo shifted during a hard turn or brake.",
+    "The van stopped or took a safe detour before the low clearance.",
+    "The van struck a low clearance.",
+    "The front of the van has new damage.",
+    "The rear of the van has new damage.",
+    "The left side of the van has new damage.",
+    "The right side of the van has new damage.",
+    "The roof of the van has new damage.",
+    "A wheel on the van has new damage.",
+    "A mirror on the van has new damage.",
+    "Invalid damage version",
+    "Know the van height.",
+    "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.",
+    "Begin preparation."
+  ],
+  "templates": [],
+  "internalErrors": [
+    "Invalid damage parameters",
+    "Invalid damage version"
+  ],
+  "playerLines": [
+    "The clearance is 8 feet 10 inches. Take another street.",
+    "The cargo shifted during a hard turn or brake.",
+    "The van stopped or took a safe detour before the low clearance.",
+    "The van struck a low clearance.",
+    "The front of the van has new damage.",
+    "The rear of the van has new damage.",
+    "The left side of the van has new damage.",
+    "The right side of the van has new damage.",
+    "The roof of the van has new damage.",
+    "A wheel on the van has new damage.",
+    "A mirror on the van has new damage.",
+    "Know the van height.",
+    "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.",
+    "Begin preparation."
+  ]
+}

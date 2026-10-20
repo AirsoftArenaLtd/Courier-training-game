@@ -124,6 +124,8 @@
  "Invalid asset manifest",
  "Invalid asset path",
  "Invalid buffer view",
+ "Invalid damage parameters",
+ "Invalid damage version",
  "Invalid lighting time",
  "Invalid model bounds",
  "Invalid navigation version",

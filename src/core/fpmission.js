@@ -92,8 +92,8 @@ OTR.fpMission = {
           case 'lane': if(OTR.fpSigns&&OTR.fpSigns.enabled(this)&&OTR.fpSigns.onOneWay(this))return;type = 'drive.wrong-side'; driving = true; break;
           case 'junction': type = OTR.fpSigns&&OTR.fpSigns.enabled(this)?'drive.sign-stop':'drive.stop-line';d.key=type==='drive.sign-stop'?OTR.fpSigns.stopId(this,Number(key),stop):id.slice(9);if(type==='drive.sign-stop'&&this.phase==='route')d.stop=this.activeStop+1;driving = true; break;
           case 'stop-sign': type = 'drive.stop-line'; driving = true; break;
-          case 'contact': if(OTR.fpSigns&&OTR.fpSigns.barrierContact(this)||OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&(OTR.fpTraffic.handlesContact(this,'cyclist')||OTR.fpTraffic.handlesContact(this,'children')))return;type = 'drive.contact'; driving = true; break;
-          case 'traffic-contact': type = 'drive.contact'; driving = true; break;
+          case 'contact': if(OTR.fpDamageFlow&&OTR.fpDamageFlow.replacesContact(this)||OTR.fpSigns&&OTR.fpSigns.barrierContact(this)||OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&(OTR.fpTraffic.handlesContact(this,'cyclist')||OTR.fpTraffic.handlesContact(this,'children')))return;type = 'drive.contact'; driving = true; break;
+          case 'traffic-contact': if(OTR.fpDamageFlow&&OTR.fpDamageFlow.replacesContact(this))return;type = 'drive.contact'; driving = true; break;
           case 'pedestrian':
             type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
           case 'returned': type = 'return.scanned'; break;
@@ -384,7 +384,7 @@ OTR.fpMission = {
         if(this.routeDay)OTR.fpDay.tick(this,dt);
         if(this.driving)OTR.fpDriving.tick(this,dt,old);
         if(OTR.fpNav)OTR.fpNav.tick(this,old);
-        if (this.mode !== 'cab') return;
+        if (this.mode !== 'cab') {if(this.damage)OTR.fpDamageFlow.tick(this,input,old,null);return;}
         if (Math.abs(v.speed) > 0.3 && !this.departed) this.preparation();
         if (Math.abs(v.speed) > 0.3) {
           if (!v.belt) this.log('belt:' + this.leg, 'safety', 'needs', 'Moved the van without fastening the seatbelt.');
@@ -407,8 +407,10 @@ OTR.fpMission = {
         }
         if (this.town) OTR.fpRoute.tick(this, old);
         if(!(OTR.fpTraffic&&OTR.fpTraffic.enabled(this)&&this.routePlan.day>=3))this.tickCrossing(dt, old);
-        const hitCar = this.traffic.some(c => F.vanBox(v, { x: c.x, z: c.z, w:Math.abs(Math.sin(c.yaw))>.7?3.6:1.8,d:Math.abs(Math.sin(c.yaw))>.7?1.8:3.6 }));
-        if (hitCar) { this._rearContact=true;v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.'); }
+        const hitCar = this.traffic.find(c => F.vanBox(v, { x: c.x, z: c.z, w:Math.abs(Math.sin(c.yaw))>.7?3.6:1.8,d:Math.abs(Math.sin(c.yaw))>.7?1.8:3.6 }));
+        if (hitCar) { this._rearContact=true;v.x = old.x; v.z = old.z; v.speed = 0; v.hand = true; }
+        if(this.damage)OTR.fpDamageFlow.tick(this,input,old,hitCar);
+        if(hitCar)this.log('traffic-contact:' + this.leg, 'safety', 'needs', 'Contact with traffic: stop and review the manoeuvre.');
         if(this._rearContact&&OTR.fpRear&&this.driving)OTR.fpRear.tick(this,0,old);
         if (!hitCar && Math.abs(old.speed) > 1 && v.speed === 0 && (input.forward || !input.back) && !v.hand) this.log('contact:' + this.leg, 'safety', 'needs', 'The van contacted an obstacle.');
       },
@@ -462,6 +464,7 @@ OTR.fpMission = {
         if(this.parking)fields.push('parking');
         if(this.trafficControl)fields.push('trafficControl');
         if(this.navigation)fields.push('navigation');
+        if(this.damage)fields.push('damage');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -470,6 +473,7 @@ OTR.fpMission = {
       tracking: routePlan ? routePlan.route[s.id].stop.packages[0].tracking : 'OTR-' + (10000 + seed % 80000) + '-' + (s.id + 1), weight: routePlan ? routePlan.route[s.id].stop.packages[0].weight : [4, 7, 3][s.id],
       location: 'depot', zone: null, scanned: false, stopScanned: false, loaded: false, returnRequired: false }));
     if(m.kind==='parking')OTR.fpRear.setupPractice(m);
+    if(OTR.fpDamageFlow)OTR.fpDamageFlow.configure(m);
     return m;
   },
   restore(raw) {
@@ -479,6 +483,8 @@ OTR.fpMission = {
       if(OTR.fpLater&&OTR.fpLater.enabled(m)&&(!data.routeDay||!data.doorsteps))return null;
       if(OTR.fpNav&&OTR.fpNav.enabled(m)&&!OTR.fpNav.validState(m,data.navigation,data))return null;
       if(data.navigation&&(!OTR.fpNav||!OTR.fpNav.enabled(m)))return null;
+      if(m.damage&&(!data.damage||!OTR.fpDamageFlow.valid(m,data.damage)))return null;
+      if(Object.prototype.hasOwnProperty.call(data,'damage')&&(!OTR.fpDamageFlow||!OTR.fpDamageFlow.enabled(m)))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
       if(data.driving){if(!['campaign','parking'].includes(data.kind))return null;OTR.fpDriving.configure(m);if(!OTR.fpDriving.valid(m,data.driving,data.elapsed))return null;}

@@ -1,0 +1,14 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ wheel damage sits on the actual imported rear tire in both quality presets (1100.961654ms)
+✔ wheel damage follows the wheel rather than the sprung body during pitch and roll (43.554221ms)
+✔ a missing van model keeps wheel damage on the procedural tire face (49.527675ms)
+✔ rear damage stays on the imported cargo door while it opens (221.644983ms)
+✔ the procedural rear patch disappears with its removed cargo door and returns when closed (10.415738ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1762.062554

@@ -1,0 +1,62 @@
+58 Node suites (36 browser suites skipped: --browser); game at http://127.0.0.1:34253; browser /usr/bin/chromium; logs in test/out/run-all/
+
+ok   aids.js                       0 s 
+ok   assets.js                     0 s 
+ok   credits.js                    0 s 
+ok   firstperson.js                0 s 
+ok   fpaccess.js                   0 s 
+ok   data.js                       0 s 
+ok   fpbranding.js                 0 s 
+ok   fpcab.js                      0 s 
+ok   fpassets.js                   1 s 
+ok   fpcamera.js                   0 s 
+ok   fpdamage.js                   0 s 
+ok   fpdamageflow.js               2 s 
+ok   fpdamageworld.js              1 s 
+ok   fpdamageassets.js             3 s 
+ok   fpday.js                      1 s 
+ok   fpactors.js                   4 s 
+ok   fpguide.js                    0 s 
+ok   fpdoors.js                    1 s 
+ok   fphandheld.js                 0 s 
+ok   fphud.js                      0 s 
+ok   fpdriving.js                  1 s 
+ok   fploadout.js                  0 s 
+ok   fplighting.js                 1 s 
+ok   fpmission.js                  0 s 
+ok   fpmirrors.js                  0 s 
+ok   fpnarration.js                0 s 
+ok   fpperf.js                     0 s 
+ok   fpqualitygate.js              0 s 
+ok   fprear.js                     1 s 
+ok   fplater.js                    3 s 
+ok   auth.js                       9 s 
+ok   fproute.js                    2 s 
+ok   fpsound.js                    0 s 
+ok   fpsigns.js                    1 s 
+ok   fptown.js                     4 s 
+ok   fpweather.js                  1 s 
+ok   fpworld.js                    1 s 
+ok   fpnav.js                     10 s 
+ok   i18n.js                       1 s 
+ok   oldsave.js                    0 s 
+ok   lmsreport.js                  6 s 
+ok   report.js                     0 s 
+ok   package.js                    8 s 
+ok   workday.js                    0 s 
+ok   xapi.js                       2 s 
+ok   fptraffic.js                 27 s 
+ok   savesize.js                  27 s 
+ok   fpresume.js                  43 s 
+ok   academy.js                   38 s 
+FAIL art.js                        1 s exit 1
+FAIL driving.js                    1 s exit 1
+FAIL enterprise.js                14 s exit 1
+ok   offline.js                   11 s 
+FAIL routeday.js                   1 s exit 1
+ok   scorm-launch.js              14 s 
+ok   signin.js                    75 s 
+FAIL town3d.js                     1 s exit 1
+ok   workdayflow.js              100 s 
+
+53 of 58 suites passed; failed: art.js, driving.js, enterprise.js, routeday.js, town3d.js (see test/out/run-all/)

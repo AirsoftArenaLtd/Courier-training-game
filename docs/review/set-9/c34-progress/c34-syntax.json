@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/core/fpdamage.js",
+    "exit": 0,
+    "error": null
+  },
+  {
+    "file": "test/fpdamage.js",
+    "exit": 0,
+    "error": null
+  }
+]

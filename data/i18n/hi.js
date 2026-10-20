@@ -3845,7 +3845,21 @@ window.OTR_I18N.hi = {
 "Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड हुई",
 "This workday was started on another computer": "यह कार्यदिवस दूसरे कंप्यूटर पर शुरू हुआ था",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "शहर में आप कहाँ तक पहुँचे थे, यह सिर्फ़ उसी कंप्यूटर पर रखा है। अब तक के स्टॉप बनाए रखने के लिए वहीं दिन पूरा करें, या यहाँ सुबह से फिर शुरू करें: तब दूसरे कंप्यूटर पर किए गए स्टॉप हटा दिए जाएँगे।",
-"Start again here": "यहाँ फिर शुरू करें"
+"Start again here": "यहाँ फिर शुरू करें",
+"The clearance is 8 feet 10 inches. Take another street.": "ऊँचाई की सीमा 8 फ़ुट 10 इंच है। दूसरी सड़क लें।",
+"The cargo shifted during a hard turn or brake.": "तेज़ मोड़ या तेज़ ब्रेक पर सामान खिसक गया।",
+"The van stopped or took a safe detour before the low clearance.": "नीचे पुल या ऊँचाई की सीमा से पहले वैन रुक गई या सुरक्षित रास्ते से घूम गई।",
+"The van struck a low clearance.": "वैन ऊँचाई की सीमा से टकरा गई।",
+"The front of the van has new damage.": "वैन के आगे वाले हिस्से में नया नुकसान हुआ है।",
+"The rear of the van has new damage.": "वैन के पीछे वाले हिस्से में नया नुकसान हुआ है।",
+"The left side of the van has new damage.": "वैन के बाएँ हिस्से में नया नुकसान हुआ है।",
+"The right side of the van has new damage.": "वैन के दाएँ हिस्से में नया नुकसान हुआ है।",
+"The roof of the van has new damage.": "वैन की छत में नया नुकसान हुआ है।",
+"A wheel on the van has new damage.": "वैन के एक पहिए में नया नुकसान हुआ है।",
+"A mirror on the van has new damage.": "वैन के एक शीशे में नया नुकसान हुआ है।",
+"Know the van height.": "वैन की ऊँचाई जानें।",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "आपकी वैन की ऊँचाई 10 फ़ुट 10 इंच है। नीचे पुल या ऊँचाई की सीमा से बचने के लिए जीपीएस का रास्ता अपनाएँ। निकलने से पहले माल अच्छे से बाँध लें।",
+"Begin preparation.": "तैयारी शुरू करें।"
 },
 "templates": [
 [

@@ -1,0 +1,35 @@
+✔ starting wear is deterministic, separate from new damage and never reports (13.538719ms)
+✔ the first three days and trainer damage-off cannot cause damage, clearance grades or load shifts (0.681986ms)
+✔ a located impact chooses the approved severity without moving existing wear into player damage (6.989264ms)
+✔ a held contact reports once per affected zone, including after restoring mid-contact (39.170925ms)
+✔ released contacts and different physical causes keep their own event identities (2.186464ms)
+✔ restored state is independent and reproduces the same later impact and load transition (6.407997ms)
+✔ parking-speed touches and malformed impact inputs leave the checkpoint unchanged (0.276808ms)
+✔ clearance checks retain stop/detour success or strike failure once through a checkpoint (0.282056ms)
+✔ secured cargo shifts less and requires a harder turn or brake than unsecured cargo (0.314603ms)
+✔ load shift is once per leg and never creates an event for an empty or gently driven van (4.928997ms)
+✔ changing trainer permission preserves old damage and prevents new reports (4.451552ms)
+✔ malformed, sparse, extra and contradictory checkpoint fields are rejected (0.926156ms)
+✔ long repeated driving keeps a bounded state and fresh collision keys after restore (101.655449ms)
+✔ only approved event types cross the real workday contract, preserving keys, place and retry identity (6.566941ms)
+✔ a real motor impact reports the located severity and place once, replacing the generic contact (70.970343ms)
+✔ holding the accelerator into a wall cannot create repeated impact episodes (655.184095ms)
+✔ a checkpoint held against a physical wall preserves future damage and event identity (367.095926ms)
+✔ separating from a wall ends the contact so a later impact gets a new key (7.700832ms)
+✔ trainer damage-off produces no new damage and enabling it does not query the academy per frame (3.566848ms)
+✔ first days and unmarked old days have no new owned damage state or changed collision grading (59.771924ms)
+✔ starting wear restores without a damage penalty and cannot be rewritten by a checkpoint (9.750364ms)
+✔ marked checkpoints require valid owned damage state; unmarked checkpoints reject injected state (23.094095ms)
+✔ actual hard braking shifts loose cargo once, without changing parcel or shelf identity (4.708852ms)
+✔ ordinary traffic contact uses the front zone and severity, never a second generic grade (8.521973ms)
+✔ a glancing side contact uses the swinging corner speed instead of the full forward speed (1.81741ms)
+✔ an actual reverse impact locates rear damage and preserves its once-only contact identity (4.371464ms)
+✔ a busy day of real adapter reports keeps SCORM 1.2 scores and criticals inside its limit (8.683852ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1605.34156

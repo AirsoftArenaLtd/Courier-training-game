@@ -1,0 +1,10 @@
+✔ 30 seeds finish identically after a real local checkpoint at every action, phase and mid-stop (63595.34669ms)
+✔ 100 seeded days with shuffled legal actions always resolve five stops and keep scores in range (34469.80363ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 98168.434663

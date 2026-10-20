@@ -3844,7 +3844,21 @@ window.OTR_I18N.ta = {
 "Spreadsheet downloaded": "ஸ்ப்ரெட்ஷீட் பதிவிறக்கப்பட்டது",
 "This workday was started on another computer": "இந்த வேலைநாள் வேறொரு கணினியில் தொடங்கியது",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "நகரத்தில் நீங்கள் எங்கே இருந்தீர்கள் என்பது அந்தக் கணினியில் மட்டுமே சேமிக்கப்பட்டுள்ளது. இதுவரை முடித்த நிறுத்தங்களை வைத்துக்கொள்ள அங்கேயே நாளை முடியுங்கள், அல்லது இங்கே காலையிலிருந்து மீண்டும் தொடங்குங்கள்: அப்போது மற்றக் கணினியில் செய்த நிறுத்தங்கள் நீக்கப்படும்.",
-"Start again here": "இங்கே மீண்டும் தொடங்கு"
+"Start again here": "இங்கே மீண்டும் தொடங்கு",
+"The clearance is 8 feet 10 inches. Take another street.": "உயர வரம்பு 8 அடி 10 அங்குலம். வேறு சாலையில் செல்லுங்கள்.",
+"The cargo shifted during a hard turn or brake.": "கடுமையான திருப்பத்திலோ பிரேக்கிலோ சரக்கு நகர்ந்தது.",
+"The van stopped or took a safe detour before the low clearance.": "தாழ்வான பாலம் அல்லது உயர வரம்புக்கு முன் வேன் நின்றது அல்லது பாதுகாப்பான மாற்றுவழியில் சென்றது.",
+"The van struck a low clearance.": "வேன் தாழ்வான உயர வரம்பில் மோதியது.",
+"The front of the van has new damage.": "வேனின் முன்பக்கத்தில் புதிய சேதம் உள்ளது.",
+"The rear of the van has new damage.": "வேனின் பின்பக்கத்தில் புதிய சேதம் உள்ளது.",
+"The left side of the van has new damage.": "வேனின் இடது பக்கத்தில் புதிய சேதம் உள்ளது.",
+"The right side of the van has new damage.": "வேனின் வலது பக்கத்தில் புதிய சேதம் உள்ளது.",
+"The roof of the van has new damage.": "வேனின் கூரையில் புதிய சேதம் உள்ளது.",
+"A wheel on the van has new damage.": "வேனின் ஒரு சக்கரத்தில் புதிய சேதம் உள்ளது.",
+"A mirror on the van has new damage.": "வேனின் ஒரு கண்ணாடியில் புதிய சேதம் உள்ளது.",
+"Know the van height.": "வேனின் உயரத்தை அறிந்துகொள்ளுங்கள்.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "உங்கள் வேனின் உயரம் 10 அடி 10 அங்குலம். தாழ்வான பாலங்கள், உயர வரம்புகளைத் தவிர்க்க வழிகாட்டியைப் பின்பற்றுங்கள். புறப்படும் முன் சுமையைக் கட்டுங்கள்.",
+"Begin preparation.": "தயாரிப்பைத் தொடங்கு."
 },
 "templates": [
 [

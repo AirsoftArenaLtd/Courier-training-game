@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-19",
+  "sourceRevision": "504d910e8d7dec9e2d091a86aec1080c40ab01b9",
+  "status": "Doing; opt-in model/motor adapter only, not game-loaded. No graphics/screenshot or finished-task claim.",
+  "basePilot": "370fd59400b1024ea80c49862b2ad0eff6fc3fdc",
+  "nodeCases": 195,
+  "finalFocusedCases": 27,
+  "journeys": 30,
+  "soakDays": 100,
+  "checkpoints": 3817,
+  "scormChecks": 240,
+  "scormMax": 3974,
+  "sourceFiles": {
+    "src/core/fpdamage.js": "7cfab8560c32dc47f54901e9c6ca3f77e151e08dcc57383106d5be5d872a5a09",
+    "src/core/fpdamageflow.js": "531258861f307e36dd12c970ccfe9dbe1e95b380acd44ff2705acca92290cfde",
+    "src/core/firstperson.js": "4c26e3654240622752d630fcc758babf3e7393e23f9c2ef75d7db5070f81c9e7",
+    "src/core/fpmission.js": "f49e66f6fdcea5fdd8ca7a3e9760e4aecfbde866c022206a3e82049cb67ca5ab",
+    "src/core/fproute.js": "9193fc15a22e0a212d103fb298a16c6831060823d58d68ca282bc29d75dc5646",
+    "test/fpdamage.js": "3dfd91f3f113e05d7aa7232aa47a1804aca80c68156931d8e872962114116950",
+    "test/fpdamageflow.js": "53243d6e01ec7ec2fb5007e2c117b1771be3484a86a384cb83cfaabcedcc182c",
+    "test/fpresume.js": "0d86cd422a5cf405968256f2f283e63dcb429aa9e20e36cdf58cb23cf1c9b1ce",
+    "index.html": "3c4446ec7ab7fe877b50294b71082444569f42f092accfed4fb97d4238967cc9",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "src/core/save.js": "64156077a6ac1538dae0e3cdcc602a1df56fa0136321ea0be62c173d2f77607e"
+  },
+  "evidenceFiles": {
+    "c34-adapter-final-node.log": "18d5c4ca134eed33df92fd9a3656718557451a88ad3b5f700c09b8c5ea9cb8a5",
+    "c34-adapter-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c34-adapter-syntax.json": "5711610e37a23a773594513cc71adbe1da5af9cb775cec09e4714a91d3f18fa6",
+    "c34-flow-final-node.log": "e0d82af8f2d09ea8f42fecd0c21f27fe298f205c7548bc5945d4c1a4a5df76be",
+    "c34-flow-save.json": "d0480c16c8679ee1f512098a9c58a8aa71989af9236286ece807bfd422355592",
+    "c34-resume-soak.json": "e7807b180b3af23319f19ac347c84f0ab7249b0fca581ed6bafb4f89b1bb631f",
+    "c34-resume-soak.log": "b278a591a965183ff6edf303429d606c31227c116751659111a07930cd8255cb"
+  },
+  "remaining": [
+    "Physical low clearance geometry, approaches and navigation detours",
+    "Located visible scuffs/dents and cargo offsets",
+    "Scene marker and loader integration",
+    "Combined CPU and four-profile WebGL gate",
+    "Keyboard/narration/recovery browser checks and screenshots",
+    "Claude translations and existing native Intel O-1"
+  ]
+}

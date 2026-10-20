@@ -221,3 +221,58 @@ rendered resource gates are in `docs/review/set-8/c28.md`. No ceiling is raised.
 The final 30-view rendered Low gate peaks at 56 calls / 2,400 triangles / two textures /
 3,557,376 attachment bytes / 3,045,024 estimated Phaser bytes. Four large/colour/reduced views
 retain the same calls/triangles/attachments and peak at 2,381,510 Phaser bytes. High passes separately.
+
+## C-34 damage and load (20 October 2026)
+
+The pilot/C-32 and damage combination passes **285,600 complete-frame views per
+CPU sweep**: loaded **64 calls / 2,449 triangles**, missing-model fallback **59 /
+2,121**. Sweeps include full cargo, seven damaged zones, active traffic, cab
+controls, mirrors/reverse, weather and lighting across 30 days and ten variants.
+The worst loaded geometry is day 21, variant 10, stop 1, loaded cargo exterior,
+right reflection. Damage/clearances share one bounded texture-free batch, at most
+15 instances / 45 triangles per pass. Tire wear uses the actual imported wheel;
+rear wear follows the cargo door. No texture, target, pass or ceiling is added.
+
+All **127 rendered resource views** pass the strict four-profile gate:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 48 | 56 | 2,412 | 2 | 3,557,376 | 3,379,819 |
+| loaded-high | 33 | 107 | 235,653 | 3 | 11,239,424 | 8,571,952 |
+| accessible-low | 23 | 56 | 2,412 | 2 | 3,557,376 | 3,442,016 |
+| fallback-low | 23 | 53 | 2,090 | 2 | 3,557,376 | 3,104,582 |
+
+Rendering/assets/HUD are frozen at `fee4d72`. The final pure adapter correction
+at `2faa074` uses perpendicular-traffic bounds and omits unused successful-check
+coordinates. Its actual-motor regression, affected 150-case batch and final
+61-case adapter/workday/save batch pass. No rendering input, checkpoint field or
+score type changes. The source is then rebased onto pilot `3fdfc22` at `b23d903`:
+owned 3D code is byte-identical to `2faa074`; the additional changes are Claude's
+B-68 packer, translations, corporate reports/trainer tools and review tools.
+Source hashes, both delta patches and exact validation scopes are archived.
+
+The final **58-suite repository set passes: 53 directly, five over local HTTP**
+through the archived environment transport adapter. Chromium policy blocks those
+legacy suites' file URLs; actual file-protocol launch is untested here. Assertions
+and shared tests are unchanged. The full five-flow Low workday review set passes
+on `b23d903`: workday-3d, workday-3d-b, workday-3d-c, workday-aids and drive-review.
+Both SCORM package formats and current-catalogue i18n pass on this integration.
+
+Earlier focused verification passes 35 isolated Node suites / 490 cases, Low/High
+English/Tamil normal/larger damage matrices / 80 checks each, delayed reverse
+warnings / 14 each, cargo practice / 68 and sound / 45. The expanded 130-day
+cab/reverse/lighting resume/soak passes again on `b23d903`: **3,817 checkpoints,
+240 SCORM round trips, 3,974/4,000 characters, no failures**. B-68's separate
+worst-day damage/report fixture retains at least 300 characters of room.
+
+Screenshots, raw reports, source/evidence hashes and the five-minute checklist:
+[C-34 review](review/set-9/c34.md). New text is 14 player-facing sentences plus
+two internal validation messages for Claude; the shared catalogue is unchanged.
+Earlier progress archives retain their sources. Cloud SwiftShader FPS cannot
+establish the native Intel 60 fps floor; the existing O-1 owner check remains.
+
+Reproduce the sweeps with `QA_DAMAGE=1 QA_TRAFFIC=1 QA_NAV=1 QA_SIGNS=1 QA_LATER=1
+QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=1
+QA_ASSETS=1 QA_TAG=c34-pilot-loaded node --test --test-isolation=none test/fproute.js`;
+repeat with `QA_ASSETS=0 QA_TAG=c34-pilot-fallback`. The rendered gate is
+`QA_BASE=http://127.0.0.1:8341 QA_TAG=c34-pilot node test/fpquality.js`.

@@ -1,0 +1,51 @@
+✔ a real motor impact reports the located severity and place once, replacing the generic contact (61.577893ms)
+✔ holding the accelerator into a wall cannot create repeated impact episodes (410.070739ms)
+✔ a checkpoint held against a physical wall preserves future damage and event identity (226.950311ms)
+✔ separating from a wall ends the contact so a later impact gets a new key (7.921228ms)
+✔ trainer damage-off produces no new damage and enabling it does not query the academy per frame (5.606129ms)
+✔ first days and unmarked old days have no new owned damage state or changed collision grading (66.333081ms)
+✔ starting wear restores without a damage penalty and cannot be rewritten by a checkpoint (10.591282ms)
+✔ marked checkpoints require valid owned damage state; unmarked checkpoints reject injected state (26.944482ms)
+✔ actual hard braking shifts loose cargo once, without changing parcel or shelf identity (44.179485ms)
+✔ ordinary traffic contact uses the front zone and severity, never a second generic grade (2.279356ms)
+✔ a glancing side contact uses the swinging corner speed instead of the full forward speed (1.698148ms)
+✔ an actual reverse impact locates rear damage and preserves its once-only contact identity (1.574615ms)
+✔ a busy day of real adapter reports keeps SCORM 1.2 scores and criticals inside its limit (4.775903ms)
+✔ both signed low clearances leave all generated delivery curbs reachable on a real detour (406.503345ms)
+✔ an overhead collision stops the van and grades roof damage and clearance only once (20.467697ms)
+✔ stopping before a low clearance succeeds without damage, including after resume (4.29311ms)
+✔ damage-off cannot introduce a clearance penalty through the old generic contact grade (1.293991ms)
+✔ moving off after a safe halt cannot hide a later clearance strike, even after restore (9.519618ms)
+✔ an observed approach followed by a safe detour keeps its identity through a checkpoint (4.221885ms)
+✔ a reverse approach warns and grades a safe halt before a later roof strike (2.44453ms)
+✖ a perpendicular traffic impact uses its actual body for the located zone and one contact episode (38.882872ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1443.528233
+
+✖ failing tests:
+
+test at test/fpdamageflow.js:140:1
+✖ a perpendicular traffic impact uses its actual body for the located zone and one contact episode (38.882872ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'right:traffic-1'
+  - 'front:traffic-1'
+  
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageflow.js:142:70)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'right:traffic-1',
+    expected: 'front:traffic-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

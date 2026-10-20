@@ -3855,7 +3855,21 @@ window.OTR_I18N.es = {
 "Spreadsheet downloaded": "Hoja de cálculo descargada",
 "This workday was started on another computer": "Esta jornada se inició en otra computadora",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "Tu lugar en la ciudad se guarda solo en esa computadora. Termina el día allí para conservar las paradas hechas hasta ahora, o vuelve a empezarlo aquí desde la mañana: las paradas hechas en la otra computadora se descartan.",
-"Start again here": "Empezar de nuevo aquí"
+"Start again here": "Empezar de nuevo aquí",
+"The clearance is 8 feet 10 inches. Take another street.": "La altura libre es de 8 pies 10 pulgadas. Toma otra calle.",
+"The cargo shifted during a hard turn or brake.": "La carga se desplazó en un giro o una frenada brusca.",
+"The van stopped or took a safe detour before the low clearance.": "La camioneta se detuvo o tomó un desvío seguro antes del gálibo bajo.",
+"The van struck a low clearance.": "La camioneta chocó con un gálibo bajo.",
+"The front of the van has new damage.": "La parte delantera de la camioneta tiene daños nuevos.",
+"The rear of the van has new damage.": "La parte trasera de la camioneta tiene daños nuevos.",
+"The left side of the van has new damage.": "El lado izquierdo de la camioneta tiene daños nuevos.",
+"The right side of the van has new damage.": "El lado derecho de la camioneta tiene daños nuevos.",
+"The roof of the van has new damage.": "El techo de la camioneta tiene daños nuevos.",
+"A wheel on the van has new damage.": "Una rueda de la camioneta tiene daños nuevos.",
+"A mirror on the van has new damage.": "Un espejo de la camioneta tiene daños nuevos.",
+"Know the van height.": "Conoce la altura de la camioneta.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Tu camioneta mide 10 pies 10 pulgadas de alto. Sigue el GPS para evitar los puentes bajos. Asegura la carga antes de salir.",
+"Begin preparation.": "Comenzar la preparación."
 },
 "templates": [
 [

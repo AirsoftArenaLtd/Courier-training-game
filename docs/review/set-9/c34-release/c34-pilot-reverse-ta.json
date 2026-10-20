@@ -1,0 +1,44 @@
+{
+  "checks": 14,
+  "fixture": "Day four, seed seven, rear facing the beam at ten meters; real scene ticks, captions, narration and camera, checked again after ordinary notice expiry.",
+  "errors": [],
+  "initial": {
+    "hint": "The clearance is 8 feet 10 inches. Take another street.",
+    "visible": true
+  },
+  "language": "ta",
+  "large": true,
+  "notice": "The clearance is 8 feet 10 inches. Take another street.",
+  "caption": "The clearance is 8 feet 10 inches. Take another street. · ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை. · என்ஜின் ஓடுகிறது. · காலை நேரம்.",
+  "captionFits": true,
+  "warningVisible": true,
+  "sceneMillisecondsAfterNotice": 8516.400000000001,
+  "rearCamera": true,
+  "narration": [
+    "ரியர் கேமரா ஆன். பின் சென்சார்கள் மூன்று மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+    "The clearance is 8 feet 10 inches. Take another street."
+  ],
+  "events": [
+    {
+      "type": "drive.clearance",
+      "key": "clearance-0",
+      "ok": true,
+      "stop": 1,
+      "where": {
+        "x": 90,
+        "z": 20.3,
+        "mph": 0
+      }
+    }
+  ],
+  "damage": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "restored": true
+}

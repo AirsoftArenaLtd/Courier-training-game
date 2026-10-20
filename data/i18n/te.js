@@ -3844,7 +3844,21 @@ window.OTR_I18N.te = {
 "Spreadsheet downloaded": "స్ప్రెడ్‌షీట్ డౌన్‌లోడ్ అయింది",
 "This workday was started on another computer": "ఈ వర్క్‌డే మరొక కంప్యూటర్‌లో ప్రారంభమైంది",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "పట్టణంలో మీరు ఎక్కడ ఉన్నారన్నది ఆ కంప్యూటర్‌లో మాత్రమే ఉంటుంది. ఇప్పటివరకు చేసిన స్టాప్‌లు ఉంచుకోవాలంటే అక్కడే రోజును పూర్తి చేయండి, లేదా ఇక్కడ ఉదయం నుంచి మళ్లీ ప్రారంభించండి: అప్పుడు మరొక కంప్యూటర్‌లో చేసిన స్టాప్‌లు తొలగిపోతాయి.",
-"Start again here": "ఇక్కడ మళ్లీ ప్రారంభించండి"
+"Start again here": "ఇక్కడ మళ్లీ ప్రారంభించండి",
+"The clearance is 8 feet 10 inches. Take another street.": "ఎత్తు పరిమితి 8 అడుగుల 10 అంగుళాలు. వేరే రోడ్డు తీసుకోండి.",
+"The cargo shifted during a hard turn or brake.": "గట్టిగా మలుపు తిరిగినప్పుడు లేదా బ్రేక్ వేసినప్పుడు సరుకు జరిగింది.",
+"The van stopped or took a safe detour before the low clearance.": "తక్కువ ఎత్తు వంతెన లేదా ఎత్తు పరిమితికి ముందు వ్యాన్ ఆగింది లేదా సురక్షితంగా చుట్టూ వెళ్లింది.",
+"The van struck a low clearance.": "వ్యాన్ తక్కువ ఎత్తు పరిమితిని ఢీకొట్టింది.",
+"The front of the van has new damage.": "వ్యాన్ ముందు భాగానికి కొత్త నష్టం జరిగింది.",
+"The rear of the van has new damage.": "వ్యాన్ వెనుక భాగానికి కొత్త నష్టం జరిగింది.",
+"The left side of the van has new damage.": "వ్యాన్ ఎడమ వైపుకు కొత్త నష్టం జరిగింది.",
+"The right side of the van has new damage.": "వ్యాన్ కుడి వైపుకు కొత్త నష్టం జరిగింది.",
+"The roof of the van has new damage.": "వ్యాన్ పైకప్పుకు కొత్త నష్టం జరిగింది.",
+"A wheel on the van has new damage.": "వ్యాన్ ఒక చక్రానికి కొత్త నష్టం జరిగింది.",
+"A mirror on the van has new damage.": "వ్యాన్ ఒక అద్దానికి కొత్త నష్టం జరిగింది.",
+"Know the van height.": "వ్యాన్ ఎత్తును తెలుసుకోండి.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "మీ వ్యాన్ ఎత్తు 10 అడుగుల 10 అంగుళాలు. తక్కువ ఎత్తు పరిమితులను తప్పించడానికి నావిగేషన్‌ను అనుసరించండి. బయలుదేరే ముందు లోడ్‌ను సురక్షితంగా కట్టండి.",
+"Begin preparation.": "సన్నాహాన్ని ప్రారంభించండి."
 },
 "templates": [
 [

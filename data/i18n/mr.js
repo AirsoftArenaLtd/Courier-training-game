@@ -3844,7 +3844,21 @@ window.OTR_I18N.mr = {
 "Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड केली",
 "This workday was started on another computer": "हा वर्कडे दुसऱ्या संगणकावर सुरू झाला होता",
 "Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "शहरात तुम्ही कुठे होता ते फक्त त्याच संगणकावर ठेवलेले आहे. आतापर्यंतचे स्टॉप ठेवायचे असतील तर तिथेच दिवस पूर्ण करा, किंवा इथे सकाळपासून पुन्हा सुरू करा: मग दुसऱ्या संगणकावर केलेले स्टॉप वगळले जातील.",
-"Start again here": "इथे पुन्हा सुरू करा"
+"Start again here": "इथे पुन्हा सुरू करा",
+"The clearance is 8 feet 10 inches. Take another street.": "उंचीची मर्यादा 8 फूट 10 इंच आहे. दुसरा रस्ता घ्या.",
+"The cargo shifted during a hard turn or brake.": "जोरात वळताना किंवा ब्रेक लावताना माल सरकला.",
+"The van stopped or took a safe detour before the low clearance.": "खालचा पूल किंवा उंचीच्या मर्यादेआधी व्हॅन थांबली किंवा सुरक्षित वळसा घेतला.",
+"The van struck a low clearance.": "व्हॅन उंचीच्या मर्यादेला धडकली.",
+"The front of the van has new damage.": "व्हॅनच्या पुढच्या भागाचे नवीन नुकसान झाले आहे.",
+"The rear of the van has new damage.": "व्हॅनच्या मागच्या भागाचे नवीन नुकसान झाले आहे.",
+"The left side of the van has new damage.": "व्हॅनच्या डाव्या बाजूचे नवीन नुकसान झाले आहे.",
+"The right side of the van has new damage.": "व्हॅनच्या उजव्या बाजूचे नवीन नुकसान झाले आहे.",
+"The roof of the van has new damage.": "व्हॅनच्या छताचे नवीन नुकसान झाले आहे.",
+"A wheel on the van has new damage.": "व्हॅनच्या एका चाकाचे नवीन नुकसान झाले आहे.",
+"A mirror on the van has new damage.": "व्हॅनच्या एका आरशाचे नवीन नुकसान झाले आहे.",
+"Know the van height.": "व्हॅनची उंची जाणून घ्या.",
+"Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "तुमच्या व्हॅनची उंची 10 फूट 10 इंच आहे. खालचे पूल किंवा उंचीच्या मर्यादा टाळण्यासाठी नेव्हिगेशन पाळा. निघण्याआधी माल नीट बांधून ठेवा.",
+"Begin preparation.": "तयारी सुरू करा."
 },
 "templates": [
 [
