@@ -172,7 +172,8 @@ async function unit() {
     let checks = 0, hashes = 0, at = 0, most = 0;
     const busyNow = async (f) => { at++; most = Math.max(most, at); try { return await f(); } finally { at--; } };
     const verify = (pw, h) => { checks++; return busyNow(() => auth.verifyPassword(pw, h)); };
-    const hash = (pw, prm) => { hashes++; return busyNow(() => auth.hashPassword(pw, prm)); };
+    const held = holdable((pw, prm) => auth.hashPassword(pw, prm));   // lets a test pause one hash (outside the ration count)
+    const hash = (pw, prm) => { hashes++; return busyNow(() => held(pw, prm)); };
     const D = auth.createAuth({ now: clock(), scrypt: FAST, verify, hash });
     const cap = D.config.maxHashing + D.config.maxQueue;
     const tally = (rs) => rs.reduce((m, r) => { m[r.reason || 'ok'] = (m[r.reason || 'ok'] || 0) + 1; return m; }, {});
@@ -250,8 +251,11 @@ async function unit() {
     check(checks + hashes <= 2 * cap && most <= D.config.maxHashing && rs.some(r => r.reason === 'busy') && rs.every(r => r.ok || r.reason === 'busy'),
       `40 accounts changing at once: ${checks} checks + ${hashes} hashes in at most ${cap} turns, at most ${most} at a time (${JSON.stringify(tally(rs))})`);
     const left = crowd.findIndex((sid, i) => rs[i].reason === 'busy');
-    const mid = D.changePassword(crowd[left], 'crowd pass late');
+    const gate = held.holdNext();                                   // the change waits in its hash until the reset is done,
+    const mid = D.changePassword(crowd[left], 'crowd pass late');   // however busy the machine (it raced under load)
+    await gate.in;
     const rr2 = await D.resetPassword('crowd' + left);
+    gate.release();
     const midR = await mid;
     check(rr2.ok && midR.reason === 'expired' && (await D.signIn('crowd' + left, rr2.tempPassword, 'ip-cl')).ok, 'a reset while a change is being checked: the change is refused, the reset stands');
   }
