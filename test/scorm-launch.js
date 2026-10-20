@@ -89,6 +89,34 @@ ${API}
     if (!calls.includes('init') || !calls.includes('get cmi.suspend_data')) problems.push('the game did not start the LMS session or read the saved progress');
     if (who.name !== 'Sam Rivera') problems.push('the game did not read the learner\'s name from the LMS (got "' + who.name + '")');
     console.log(`hub: ${who.mode}, learner "${who.name}", ${calls.length} LMS calls`);
+    // B-61: a workday in progress, packed into suspend_data as a SCORM 1.2 save is, comes back whole when the LMS
+    // relaunches the course: in today's packing (B-55: short type names, stop pairs) and as saves written before it
+    const made = await f.evaluate(() => {
+      const W = OTR.workday, S = OTR.save; W.start(null);
+      const at = (i) => ({ x: 3.1 * i, z: -7.2 * i, mph: 14, t: 20 * i });
+      [['brief.read'], ['inspect.tires'], ['scan.load', { key: 'p1' }], ['load.shelf', { key: 'p1' }], ['drive.mirrors', { key: 'turn:1:1', where: at(1) }],
+        ['drive.red-light', { key: 'signal:1:2:n', ok: false, where: at(2) }], ['drive.route', { key: 'leg0', ok: false, where: at(3) }],
+        ['drive.cyclist', { key: 'cyclist:0', ok: true, where: at(4) }], ['scan.stop', { key: 'p1', stop: 1 }], ['deliver.outcome', { key: 1, stop: 1 }],
+        ['stop.intercom', { key: 1, stop: 1 }], ['drive.sign-stop', { key: 'stop:3', ok: false, where: at(5) }]].forEach(([ty, d]) => W.report(ty, d));
+      const now = S.packDay(JSON.parse(JSON.stringify(W.current)));
+      // the same day as packed before B-55: full type names, and the stop checks as rows
+      const old = JSON.parse(JSON.stringify(now));
+      old.packed.t = old.packed.t.map(n => S.longType(n));
+      (old.packed.s || []).forEach(r => { for (let i = 1; i + 1 < r.length; i += 2) old.packed.e.push([r[0], r[i + 1], 1, r[i]]); });
+      delete old.packed.s;
+      const save = (cur) => { const d = JSON.parse(JSON.stringify(S.data)); d.workday.current = cur; return JSON.stringify(d); };
+      return { score: W.log.score(), items: W.log.items.length, now: save(now), old: save(old) };
+    });
+    for (const kind of ['now', 'old']) {
+      await p.evaluate((data) => { window.store['cmi.suspend_data'] = data; document.getElementById('sco').src = 'index.html?again=' + Date.now(); }, made[kind]);
+      await wait(500);
+      f = await frame();
+      await f.waitForFunction(() => window.OTR && OTR.game && OTR.save && OTR.save.data && OTR.game.scene.getScenes(true).length > 0, { timeout: 60000 });
+      // what resume() replays when the 3D world still has its campaign (without it the day starts again, by design)
+      const got = await f.evaluate(() => { const W = OTR.workday; if (!W.active()) return null; const cur = W.saved().current; W.current = cur; W.restore(cur); return { score: W.log.score(), items: W.log.items.length }; });
+      if (!got || got.score !== made.score || got.items !== made.items) problems.push(`a day packed ${kind === 'old' ? 'before B-55' : 'today'} did not come back: ${JSON.stringify(got)} for ${made.score}/${made.items}`);
+      console.log(`resume (${kind === 'old' ? 'packed before B-55' : 'packed today'}): ${got ? `${got.items} reports, score ${got.score}` : 'nothing in progress'}`);
+    }
     for (const gfx of ['low', 'high']) {
       await p.goto(base + '__player.html?sco=' + encodeURIComponent('first-person.html?gfx=' + gfx));
       f = await frame();
