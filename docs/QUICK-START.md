@@ -28,7 +28,7 @@ For the person running a session. Print this page; the full guide is `docs/PILOT
 - **H** opens the controls and guidance at any time; **P** steps through the cab controls from the keyboard.
 
 **Reading the drive map:** a pin at every driving mistake. A diamond is a road sign or red light, a star is damage to
-the van, a triangle a low bridge, a hexagon a shifted load, a circle anything else. Critical mistakes (a red light,
+the van, a triangle a low bridge, a hexagon a shifted load, an arrow a wrong turn, a circle anything else. Critical mistakes (a red light,
 no entry, a school bus) cap that category at one star.
 
 **When something goes wrong**

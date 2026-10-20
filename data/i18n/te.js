@@ -3822,7 +3822,9 @@ window.OTR_I18N.te = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "స్కూల్ క్రాసింగ్ వద్ద పిల్లలు వేచి ఉన్నారు. వేగం తగ్గించి వారిని దాటనివ్వండి.",
 "The traffic light is green. Continue only when the junction is clear.": "ట్రాఫిక్ లైట్ ఆకుపచ్చగా ఉంది. జంక్షన్ ఖాళీగా ఉన్నప్పుడే ముందుకు సాగండి.",
 "The traffic light is amber. Stop if you can do so safely.": "ట్రాఫిక్ లైట్ పసుపు రంగులో ఉంది. సురక్షితంగా ఆగగలిగితే ఆగండి.",
-"The traffic light is red. Stop before the junction line.": "ట్రాఫిక్ లైట్ ఎరుపుగా ఉంది. జంక్షన్ గీత ముందు ఆగండి."
+"The traffic light is red. Stop before the junction line.": "ట్రాఫిక్ లైట్ ఎరుపుగా ఉంది. జంక్షన్ గీత ముందు ఆగండి.",
+"road sign or traffic light": "రహదారి సూచిక లేదా ట్రాఫిక్ లైట్",
+"wrong turn": "తప్పు మలుపు"
 },
 "templates": [
 [

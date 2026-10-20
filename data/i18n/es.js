@@ -3833,7 +3833,9 @@ window.OTR_I18N.es = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "Hay niños esperando en el paso escolar. Reduce la velocidad y déjalos cruzar.",
 "The traffic light is green. Continue only when the junction is clear.": "El semáforo está en verde. Sigue solo cuando el cruce esté libre.",
 "The traffic light is amber. Stop if you can do so safely.": "El semáforo está en ámbar. Detente si puedes hacerlo con seguridad.",
-"The traffic light is red. Stop before the junction line.": "El semáforo está en rojo. Detente antes de la línea del cruce."
+"The traffic light is red. Stop before the junction line.": "El semáforo está en rojo. Detente antes de la línea del cruce.",
+"road sign or traffic light": "señal de tráfico o semáforo",
+"wrong turn": "giro equivocado"
 },
 "templates": [
 [

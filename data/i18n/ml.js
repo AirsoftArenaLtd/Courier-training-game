@@ -3822,7 +3822,9 @@ window.OTR_I18N.ml = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "സ്കൂൾ ക്രോസിങ്ങിൽ കുട്ടികൾ കാത്തുനിൽക്കുന്നു. വേഗം കുറച്ച് അവരെ കടക്കാൻ അനുവദിക്കുക.",
 "The traffic light is green. Continue only when the junction is clear.": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
 "The traffic light is amber. Stop if you can do so safely.": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
-"The traffic light is red. Stop before the junction line.": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക."
+"The traffic light is red. Stop before the junction line.": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
+"road sign or traffic light": "റോഡ് അടയാളം അല്ലെങ്കിൽ ട്രാഫിക് ലൈറ്റ്",
+"wrong turn": "തെറ്റായ തിരിവ്"
 },
 "templates": [
 [

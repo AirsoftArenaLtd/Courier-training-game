@@ -3822,7 +3822,9 @@ window.OTR_I18N.gu = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "સ્કૂલ ક્રૉસિંગ પર બાળકો રાહ જોઈ રહ્યાં છે. ઝડપ ઘટાડો અને તેમને પસાર થવા દો.",
 "The traffic light is green. Continue only when the junction is clear.": "ટ્રાફિક લાઇટ લીલી છે. ચોકડી ખાલી હોય ત્યારે જ આગળ વધો.",
 "The traffic light is amber. Stop if you can do so safely.": "ટ્રાફિક લાઇટ પીળી છે. સુરક્ષિત રીતે થોભી શકો તો થોભો.",
-"The traffic light is red. Stop before the junction line.": "ટ્રાફિક લાઇટ લાલ છે. ચોકડીની લાઇન પહેલાં થોભો."
+"The traffic light is red. Stop before the junction line.": "ટ્રાફિક લાઇટ લાલ છે. ચોકડીની લાઇન પહેલાં થોભો.",
+"road sign or traffic light": "રસ્તાનું ચિહ્ન કે ટ્રાફિક લાઇટ",
+"wrong turn": "ખોટો વળાંક"
 },
 "templates": [
 [

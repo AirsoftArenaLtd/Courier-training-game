@@ -3823,7 +3823,9 @@ window.OTR_I18N.fr = {
 "Children are waiting at the school crossing. Slow down and let them cross.": "Des enfants attendent au passage scolaire. Ralentis et laisse-les traverser.",
 "The traffic light is green. Continue only when the junction is clear.": "Le feu est vert. Avance seulement quand le carrefour est dégagé.",
 "The traffic light is amber. Stop if you can do so safely.": "Le feu est orange. Arrête-toi si tu peux le faire en sécurité.",
-"The traffic light is red. Stop before the junction line.": "Le feu est rouge. Arrête-toi avant la ligne du carrefour."
+"The traffic light is red. Stop before the junction line.": "Le feu est rouge. Arrête-toi avant la ligne du carrefour.",
+"road sign or traffic light": "panneau ou feu de signalisation",
+"wrong turn": "erreur de route"
 },
 "templates": [
 [

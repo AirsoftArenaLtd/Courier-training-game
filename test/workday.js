@@ -280,6 +280,28 @@ test('A-26: the cab, sign, night and damage events reach the debrief, the drive 
   assert.ok(rec.criticalTypes.includes('trip.damage-report') && rec.criticalTypes.includes('drive.sign-noentry'));
 });
 
+test('B-47: milestone 8 mistakes keep their own pins and every marker has a legend line', () => {
+  fresh(); W.start(null);
+  const at = (i) => ({ x: 6 * i, z: -8 * i, mph: 10 + i, t: 20 * i });
+  const signs = ['drive.sign-stop', 'drive.sign-giveway', 'drive.sign-speed', 'drive.sign-school', 'drive.sign-oneway', 'drive.sign-roadworks'];
+  signs.forEach((t, i) => W.report(t, { key: 'k' + i, ok: false, where: at(i + 1) }));
+  W.report('drive.sign-noentry', { key: 'n1', where: at(7) });
+  W.report('drive.red-light', { key: 'sig1:n', ok: false, where: at(8) });
+  W.report('drive.red-light', { key: 'sig2:e', ok: true, where: at(9) });         // stopped for red: no pin
+  W.report('drive.route', { key: 'leg2', stop: 2, ok: false, where: at(10) });
+  W.report('drive.cyclist', { key: 'c1', ok: false, where: at(11) });
+  W.report('drive.pedestrian', { key: 'p1', ok: false, where: at(12) });
+  const rec = W.finish(null, { stops: [{ stop: 1, delivered: true }] });
+  const { pins } = W.sections(rec);
+  assert.equal(pins.map(p => p.mark || '-').join(','), 'sign,sign,sign,sign,sign,sign,sign,sign,route,-,-',
+    'every road sign and the red light are diamonds, a wrong turn an arrow, a cyclist or pedestrian a plain pin');
+  ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian'].forEach(t => assert.ok(E[t], t + ' is in the contract'));
+  // the legend names every marker a pin can have, and nothing else
+  const marks = new Set(Object.keys(E).map(t => OTR.drive.mark(t)).filter(Boolean));
+  assert.equal(JSON.stringify([...marks].sort()), JSON.stringify(OTR.drive.MARKS.map(([m]) => m).sort()));
+  assert.match(OTR.drive.MARKS.find(([m]) => m === 'sign')[1], /traffic light/);
+});
+
 test('B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without', () => {
   const real = OTR.academy;
   // the trainer's rules as the academy gives them: assists full on day 1, off from day 4 (the default "fade by day")
