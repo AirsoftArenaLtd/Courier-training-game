@@ -374,7 +374,7 @@ items here for each agent.
 | B-60 | Claude | **The workday flows in Tamil:** run `test/qa.js --only workday-3d,workday-3d-b,workday-3d-c,workday-aids,drive-review` with `QA_LANG=ta QA_GFX=low`; the golden paths find buttons by their English, so any step that fails points at text the flow or the game cannot match in another language. Fix or report what fails. | done |
 | B-61 | Claude | **LMS packages after the B-55 save change:** rebuild both SCORM packages, launch each with `test/scorm-launch.js` (1.2 and `--2004`), resume a packed day from `suspend_data` written before B-55 and one after, and update the package sizes in `docs/IT-NOTES.md` and `docs/READINESS.md`. | done |
 | B-62 | Claude | **The trainer's dialogs from the keyboard alone:** Tab and Enter reach every choice in 3D workday aids, New account (both steps) and the temporary-password card, and Escape closes each; a test drives them without the mouse. | done |
-| B-63 | Claude | **The quick start in Tamil and Hindi (default until the owner answers question 4):** `docs/QUICK-START.ta.md` and `docs/QUICK-START.hi.md`, using the game's own words for every button and screen (from `data/i18n/`), so a trainer reads the same labels they see on screen. The owner may ask for other languages or none; this is easy to undo. | todo |
+| B-63 | Claude | **The quick start in Tamil and Hindi (default until the owner answers question 4):** `docs/QUICK-START.ta.md` and `docs/QUICK-START.hi.md`, using the game's own words for every button and screen (from `data/i18n/`), so a trainer reads the same labels they see on screen. The owner may ask for other languages or none; this is easy to undo. | done |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
 | B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) |
 
@@ -409,6 +409,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **20 October 2026, Claude — B-63:** `docs/QUICK-START.ta.md` and `docs/QUICK-START.hi.md`: the trainer's quick start in Tamil and Hindi, as the default while owner question 4 is open. They have the same tables, steps, keys and checks as the English, and every button and screen name is the game's own translation, with the English in brackets the first time. They are machine translations, marked for native review, and the English page links to them. "Results" comes from the game's "See Results ▶"; a native reader should confirm it.
 
 - **20 October 2026, Claude — B-62:** the new `test/trainerkeysbrowser.js` drives the trainer's dialogs with the keyboard alone. Tab reaches "3D workday aids…" and Enter opens it; Tab reaches every choice and Done; Enter on the sat nav's Off sets it in the rules being edited; Done and Escape close it. New account takes the ID and the name typed, and Escape leaves it. The temporary-password card closes with Enter and with Escape. 22 checks pass in English, Tamil and Hindi with no page errors, and nothing needed fixing. `OTR.ui.focus` gained a `current()` getter so the test can see where the ring is.
 
