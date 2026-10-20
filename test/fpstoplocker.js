@@ -12,7 +12,7 @@ const O=c.OTR,F=O.fpStopFlow,L=O.fpLater,M=O.fpMission,W=O.workday,plain=x=>JSON
 O.save.data=O.save.defaults();O.save.data.townSeed=1;
 c.Phaser={Scene:class {}};let Scene;O.registerScene=type=>{Scene=type;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),c);
-const plan=(seed,day=4)=>O.fpTraffic.prepare(O.fpNav.prepare(O.fpSigns.prepare(L.prepare(F.prepare(O.fpRoute.plan(day,seed),true)))));
+const plan=(seed,day=4)=>O.fpDamageFlow.prepare(O.fpTraffic.prepare(O.fpNav.prepare(O.fpSigns.prepare(L.prepare(F.prepare(O.fpRoute.plan(day,seed),true))))));
 function mission(seed=7,day=4){
  const m=M.create('campaign',seed,plan(seed,day));O.fpDay.configure(m);O.fpDoors.configure(m);F.configure(m);return m;
 }
@@ -67,6 +67,7 @@ test('the actual scene launch nominates before later-day rules, and the morning 
 
 test('a live later-day locker completes scan, custody, closed-door photo, delivery and every checkpoint once',()=>{
  let m=locker();const id=m.routePlan.lockerStop;at(m,id);assert.equal(m.stops[id].service,'safeplace');
+ assert.equal(m.routePlan.damage,1);assert.ok(m.damage,'the locker checkpoints retain merged damage state');
  assert.match(m.deliver(id,'safeplace'),/assigned locker/);assert.equal(m.stops[id].resolved,false);
  const compartment=m._deliverySpecs[id].protocol.compartment;
  for(const [action,value] of [['open',compartment],['scan',m.parcels[id].id],['deposit'],['close'],['photo']]){
@@ -79,7 +80,7 @@ test('a live later-day locker completes scan, custody, closed-door photo, delive
 });
 
 test('signed, age-restricted, dog, dispatch, invalid-index and early-day authorisations are rejected',()=>{
- const original=plan(7),id=original.lockerStop;assert.ok(Number.isSafeInteger(id));
+ const original=plan(7,3),id=original.lockerStop;assert.ok(Number.isSafeInteger(id));
  for(const edit of [p=>{p.route[id].stop.packages[0].service='signature';},p=>{p.route[id].stop.packages[0].service='adult';},
   p=>{p.route[id].stop.dog={};},p=>{p.dispatch.stop=id;},p=>{p.lockerStop=5;},p=>{p.lockerStop=-1;},p=>{p.lockerStop=1.5;},p=>{p.day=2;}]){
   const bad=plain(original);edit(bad);assert.throws(()=>M.create('campaign',7,bad),/locker|delivery-stop/i);
