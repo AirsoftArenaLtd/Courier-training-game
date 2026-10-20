@@ -3866,7 +3866,9 @@ window.OTR_I18N.mr = {
 "Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.": "पुढचा स्टॉप निवडा. Maple Ave डेपोपासून उत्तरेकडे जाते. Birch Lane दूरच्या जंक्शनवर आहे. परत येण्यासाठी उत्तर टोकाकडील वळण्याची जागा वापरा.",
 "Review the shift, then return to the hub.": "शिफ्टचा आढावा घ्या, मग हबकडे परत जा.",
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "नीट पाहण्यासाठी खूण केलेल्या भागावर क्लिक करा, किंवा Tab आणि Enter दाबा. ठरवा: पास (P), की दोष नोंदवा (F).",
-"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "खाचेचे मापक टायरच्या खाचेवर ओढा, किंवा G दाबा (दुसऱ्या अर्ध्या भागासाठी पुन्हा दाबा). किमान: स्टिअर (पुढच्या) टायरवर 4/32\", इतरांवर 2/32\"."
+"Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "खाचेचे मापक टायरच्या खाचेवर ओढा, किंवा G दाबा (दुसऱ्या अर्ध्या भागासाठी पुन्हा दाबा). किमान: स्टिअर (पुढच्या) टायरवर 4/32\", इतरांवर 2/32\".",
+"No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "माउस नाही? Tab किंवा बाण कळांनी थांब्यावर जा, Enter तो निवडतो किंवा पुन्हा काढतो. Backspace मागची पायरी रद्द करतो; मग Tab ने रवाना करा वर जा.",
+"Click the matching package in the truck, or use the arrow keys and Enter": "ट्रकमधील जुळणाऱ्या पॅकेजवर क्लिक करा, किंवा बाण कळा आणि Enter वापरा"
 },
 "templates": [
 [

@@ -32,7 +32,8 @@ OTR_DATA.routes = {
       'Dispatch has handed you the manifest. Click the stops — on the map or on the manifest — in the order you mean to drive them.',
       'Watch the ETA column: EARLY AM is an 8:30 commitment, PRIORITY AM is 10:30, and a pickup can only be worked inside its window.',
       'The route line follows real streets. Closed blocks force a detour, and the school zone costs you time while it is active.',
-      'Click a sequenced stop again to pull it back out. DISPATCH when the whole manifest is sequenced.'
+      'Click a sequenced stop again to pull it back out. DISPATCH when the whole manifest is sequenced.',
+      'No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.'
     ]
   },
 
