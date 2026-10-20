@@ -156,14 +156,31 @@ OTR.fpSigns = {
   createUI(scene){
     scene.signUI={lastAt:-1000,readIndex:-1,occupied:[],pool:Array.from({length:5},()=>({back:scene.add.rectangle(0,0,1,1,0x10232E,.9).setDepth(9).setVisible(false),text:OTR.txt(scene,0,0,'',OTR.fpAccess.settings().large?22:18,'#ffffff',{wrap:220,align:'center'}).setDepth(10).setVisible(false),entry:null}))};
   },
+  placeLabel(point,w,h,bounds,top,out){
+    // Prefer the sign's own column, then its sides. Move only as far as each obstacle requires.
+    for(let column=0;column<3;column++){
+      const x=THREE.MathUtils.clamp(point.x+(column===1?-1:column===2?1:0)*(w/2+30),10+w/2,1270-w/2);
+      for(let direction=-1;direction<=1;direction+=2){
+        let y=point.y+direction*(h/2+12);
+        for(let move=0;move<=bounds.length;move++){
+          let hit=null;for(const b of bounds)if(Math.abs(x-b.x)<(w+b.w)/2+6&&Math.abs(y-b.y)<(h+b.h)/2+6){hit=b;break;}
+          if(!hit){if(y-h/2>=top&&y+h/2<=620){out.x=x;out.y=y;return true;}break;}
+          const next=hit.y+direction*((h+hit.h)/2+8);y=direction<0?Math.min(y,next):Math.max(y,next);
+        }
+      }
+    }
+    return false;
+  },
   updateUI(scene,occupied){
     const ui=scene.signUI;if(!ui)return;const blocked=!scene.art.signs||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen;
-    const top=Math.max(92,scene.soundCue.visible?scene.soundCue.y+scene.soundCue.displayHeight+10:92);
-    if(!blocked&&scene.time.now-ui.lastAt<90&&ui.top===top&&ui.navX===scene.navRoot.x&&ui.navY===scene.navRoot.y&&ui.navVisible===scene.navRoot.visible)return;
-    ui.top=top;ui.navX=scene.navRoot.x;ui.navY=scene.navRoot.y;ui.navVisible=scene.navRoot.visible;ui.lastAt=blocked?-1000:scene.time.now;
+    const top=Math.max(92,scene.soundCue.visible?scene.soundCue.y+scene.soundCue.displayHeight+10:92),large=OTR.fpAccess.settings().large;
+    if(!blocked&&scene.time.now-ui.lastAt<90&&ui.top===top&&ui.navX===scene.navRoot.x&&ui.navY===scene.navRoot.y&&ui.navVisible===scene.navRoot.visible&&ui.large===large)return;
+    ui.top=top;ui.large=large;ui.navX=scene.navRoot.x;ui.navY=scene.navRoot.y;ui.navVisible=scene.navRoot.visible;ui.lastAt=blocked?-1000:scene.time.now;
     for(const slot of ui.pool){slot.text.setVisible(false);slot.back.setVisible(false);slot.entry=null;}if(blocked)return;
     const bounds=[],point=ui.point||(ui.point=new THREE.Vector3());let count=0;
-    for(const q of occupied)if(q.clearance)bounds.push(q);
+    for(const q of occupied)bounds.push({x:q.x,y:q.y,w:q.w||230,h:q.h||35});
+    const nav=scene.navRoot.visible?scene.navRoot.getBounds():null;if(nav)bounds.push({x:(nav.x+nav.right)/2,y:(nav.y+nav.bottom)/2,w:nav.width,h:nav.height});
+    const placement=ui.placement||(ui.placement={x:0,y:0});
     // Keep projected text off the actual mirrors and live reversing screen, including when
     // the world sign itself sits beyond them along the same line of sight.
     for(const target of [...(scene.art.mirrors?scene.art.mirrors.targets:[]),...(scene.art.rear&&scene.art.rear.screen.visible?[scene.art.rear.screen]:[])]){
@@ -171,19 +188,19 @@ OTR.fpSigns = {
       for(const x of [-w/2,w/2])for(const y of [-h/2,h/2]){point.set(x,y,0).applyMatrix4(target.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
       if(Number.isFinite(left))bounds.push({x:(left+right)/2,y:(up+down)/2,w:right-left+12,h:down-up+12});
     }
-    // A projected street/name label must never conceal a real signal lamp.
+    // A projected sentence must never conceal a real sign head or signal lamp.
     for(const e of scene.art.signs.entries){
-      if(!e.mainVisible||e.sign.kind!=='signal')continue;
+      if(!e.mainVisible||e.sign.kind==='street'||e.sign.kind==='number')continue;
+      const signal=e.sign.kind==='signal',halfWidth=signal?.33:.5,lower=signal?-.2:-.12;
       let left=Infinity,right=-Infinity,up=Infinity,down=-Infinity;
-      for(const x of [-.33,.33])for(const z of [-.5,-.2]){point.set(x,0,z).applyMatrix4(e.matrix).applyMatrix4(e.label.parent.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
+      for(const x of [-halfWidth,halfWidth])for(const z of [-.5,lower]){point.set(x,0,z).applyMatrix4(e.matrix).applyMatrix4(e.label.parent.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
       if(Number.isFinite(left))bounds.push({x:(left+right)/2,y:(up+down)/2,w:right-left+12,h:down-up+12});
     }
-    for(const e of scene.art.signs.entries){if(!e.mainVisible)continue;const p=scene.art.labelPosition(e.label);if(!p||p.y<top||p.y>490&&scene.model.mode==='cab'||p.y>615||occupied.some(q=>Math.abs(q.x-p.x)<170&&Math.abs(q.y-p.y)<45))continue;
-      const slot=ui.pool[count],text=OTR.i18n?OTR.i18n.t(e.label.text):e.label.text;if(slot.text.text!==text)slot.text.setText(e.label.text);
-      const w=slot.text.width+16,h=slot.text.height+10,x=p.x;let y=p.y-h/2-8;
-      const nav=scene.navRoot.visible?scene.navRoot.getBounds():null,overlap=()=>bounds.some(b=>Math.abs(x-b.x)<(w+b.w)/2+6&&Math.abs(y-b.y)<(h+b.h)/2+6)||nav&&x+w/2>nav.x&&x-w/2<nav.right&&y+h/2>nav.y&&y-h/2<nav.bottom;
-      for(let move=0;move<3&&overlap();move++)y-=h+6;
-      if(overlap()||x-w/2<10||x+w/2>1270||y-h/2<top||y+h/2>620)continue;
+    for(const e of scene.art.signs.entries){if(!e.mainVisible)continue;const p=scene.art.labelPosition(e.label);if(!p||p.y<top||p.y>490&&scene.model.mode==='cab'||p.y>615)continue;
+      const slot=ui.pool[count],wrap=large?320:260;if(slot.wrap!==wrap){slot.wrap=wrap;slot.text.setWordWrapWidth(wrap);}
+      const text=OTR.i18n?OTR.i18n.t(e.label.text):e.label.text;if(slot.text.text!==text)slot.text.setText(e.label.text);
+      const w=slot.text.width+16,h=slot.text.height+10;
+      if(!this.placeLabel(p,w,h,bounds,top,placement))continue;const {x,y}=placement;
       slot.entry=e;slot.text.setPosition(x,y).setVisible(true);slot.back.setPosition(x,y).setDisplaySize(w,h).setVisible(true);bounds.push({x,y,w,h});if(++count===ui.pool.length)break;
     }
   },
