@@ -53,7 +53,7 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
 | --- | --- | --- |
 | 10 min | Welcome. Explain the day: the point is to learn safe habits, not to be fast. | Say that mistakes are the lesson, and the record is for training, as agreed with the company. |
 | 5 min | Sign in; check the language, text size and keys. | Show **Settings → Accessibility**. |
-| 30 min | Each trainee plays a **workday**. | This is an estimate: the first day is slower, a later one faster. Do not rush them; the day saves as they go. They can leave from the pause menu and resume later. |
+| 30 min | Each trainee plays a **workday**. | This is an estimate: the first day is slower, a later one faster. Do not rush them; the day saves as they go. They can leave from the pause menu and resume later. To keep their stops so far they resume on the same PC: where they were in the 3D town is kept on that PC only (their course progress, stars and record are kept by the server or the LMS whatever the PC). On another PC the game asks before starting the day again from the morning. |
 | 15 min | Debrief together. | Use **Results → Debrief** and the **drive map** (a pin at every driving mistake; its shape shows the kind: a diamond for a road sign or a red light, a star for damage to the van, a triangle for a low bridge, a hexagon for a shifted load, an arrow for a wrong turn). Ask: what was the hardest stop, and what would you do differently? |
 
 **The cab, before they drive.** The 3D van's cab works like a real one, and it is worth one minute of showing:

@@ -17,7 +17,7 @@ For the person running a session. Print this page; the full guide is `docs/PILOT
 | --- | --- |
 | 10 min | Welcome. The point is safe habits, not speed; mistakes are the lesson. |
 | 5 min | Sign in. **Settings → Accessibility**: language, larger text, colours, keys, narration. |
-| 30 min | Each trainee plays a **workday**. It saves as they go; the pause menu lets them stop and resume later. |
+| 30 min | Each trainee plays a **workday**. It saves as they go; the pause menu lets them stop and resume later **on the same PC** (on another PC the day starts again; the game asks first). |
 | 15 min | Debrief together: **Results → Debrief**, then the **drive map**. Ask: what was the hardest stop, and what would you do differently? |
 
 **Show them the cab (one minute)**

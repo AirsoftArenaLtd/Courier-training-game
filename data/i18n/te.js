@@ -3841,7 +3841,10 @@ window.OTR_I18N.te = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో.",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "సమూహం కోసం పేజీని ప్రింట్ చేయండి, లేదా సంఖ్యలను Excel లేదా Google Sheets కోసం స్ప్రెడ్‌షీట్‌గా డౌన్‌లోడ్ చేయండి.",
 "Spreadsheet (CSV)": "స్ప్రెడ్‌షీట్ (CSV)",
-"Spreadsheet downloaded": "స్ప్రెడ్‌షీట్ డౌన్‌లోడ్ అయింది"
+"Spreadsheet downloaded": "స్ప్రెడ్‌షీట్ డౌన్‌లోడ్ అయింది",
+"This workday was started on another computer": "ఈ వర్క్‌డే మరొక కంప్యూటర్‌లో ప్రారంభమైంది",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "పట్టణంలో మీరు ఎక్కడ ఉన్నారన్నది ఆ కంప్యూటర్‌లో మాత్రమే ఉంటుంది. ఇప్పటివరకు చేసిన స్టాప్‌లు ఉంచుకోవాలంటే అక్కడే రోజును పూర్తి చేయండి, లేదా ఇక్కడ ఉదయం నుంచి మళ్లీ ప్రారంభించండి: అప్పుడు మరొక కంప్యూటర్‌లో చేసిన స్టాప్‌లు తొలగిపోతాయి.",
+"Start again here": "ఇక్కడ మళ్లీ ప్రారంభించండి"
 },
 "templates": [
 [

@@ -3841,7 +3841,10 @@ window.OTR_I18N.kn = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ.",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ಗುಂಪಿಗಾಗಿ ಪುಟವನ್ನು ಮುದ್ರಿಸಿ, ಅಥವಾ ಸಂಖ್ಯೆಗಳನ್ನು Excel ಅಥವಾ Google Sheets ಗಾಗಿ ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.",
 "Spreadsheet (CSV)": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ (CSV)",
-"Spreadsheet downloaded": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ"
+"Spreadsheet downloaded": "ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ",
+"This workday was started on another computer": "ಈ ಕೆಲಸದ ದಿನ ಬೇರೆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಆರಂಭವಾಗಿತ್ತು",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "ಪಟ್ಟಣದಲ್ಲಿ ನೀವು ಎಲ್ಲಿದ್ದಿರಿ ಎಂಬುದು ಆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಮಾತ್ರ ಇರುತ್ತದೆ. ಇದುವರೆಗಿನ ಸ್ಟಾಪ್‌ಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ಅಲ್ಲಿಯೇ ದಿನವನ್ನು ಮುಗಿಸಿ, ಅಥವಾ ಇಲ್ಲಿ ಬೆಳಿಗ್ಗೆಯಿಂದ ಮತ್ತೆ ಆರಂಭಿಸಿ: ಆಗ ಬೇರೆ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಮಾಡಿದ ಸ್ಟಾಪ್‌ಗಳು ಕೈಬಿಡಲ್ಪಡುತ್ತವೆ.",
+"Start again here": "ಇಲ್ಲಿ ಮತ್ತೆ ಆರಂಭಿಸಿ"
 },
 "templates": [
 [

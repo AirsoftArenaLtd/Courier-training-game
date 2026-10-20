@@ -3842,7 +3842,10 @@ window.OTR_I18N.hi = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "उन {0} प्रशिक्षुओं में से, जिनके पहले और नवीनतम कार्यदिवस दोनों में ट्रैफ़िक था।",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "समूह के लिए पेज प्रिंट करें, या आँकड़ों को Excel या Google Sheets के लिए स्प्रेडशीट के रूप में डाउनलोड करें।",
 "Spreadsheet (CSV)": "स्प्रेडशीट (CSV)",
-"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड हुई"
+"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड हुई",
+"This workday was started on another computer": "यह कार्यदिवस दूसरे कंप्यूटर पर शुरू हुआ था",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "शहर में आप कहाँ तक पहुँचे थे, यह सिर्फ़ उसी कंप्यूटर पर रखा है। अब तक के स्टॉप बनाए रखने के लिए वहीं दिन पूरा करें, या यहाँ सुबह से फिर शुरू करें: तब दूसरे कंप्यूटर पर किए गए स्टॉप हटा दिए जाएँगे।",
+"Start again here": "यहाँ फिर शुरू करें"
 },
 "templates": [
 [

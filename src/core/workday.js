@@ -186,15 +186,27 @@ OTR.workday = {
   /**
    * The saved workday, with its score so far, then the 3D scene with { workday: { resume: true } }. If the 3D world
    * has no saved place to carry on from (its own save was cleared, or this is another computer), the day starts
-   * again from the morning: its reports so far would not match the new run, so they are dropped too.
+   * again from the morning: its reports so far would not match the new run, so they are dropped too. With a scene, the
+   * trainee is asked first (B-70): Back leaves the day saved for the computer it was started on. o.restart: already asked.
    */
-  resume(scene) {
+  resume(scene, o) {
     const cur = this.saved().current;
     if (!cur) return false;
-    this.current = cur;
-    this.since = Date.now();
     let resume = true;
     try { resume = !(OTR.fpStore && !OTR.fpStore.read().campaign); } catch (e) { resume = true; }
+    // B-70: started on another computer (its place in the town is kept there only): ask before dropping the stops so
+    // far, so a trainee who opened the course on the wrong PC can go back and finish the day where they left it
+    if (!resume && scene && !(o && o.restart) && Array.isArray(cur.events) && cur.events.length && OTR.ui && OTR.ui.modal) {
+      OTR.ui.modal(scene, {
+        title: 'This workday was started on another computer', w: 760, h: 330, escClose: true,
+        body: 'Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.',
+        buttons: [{ label: 'Back', skin: 'ghost' },
+          { label: 'Start again here', skin: 'orange', key: 'ENTER', hint: '⏎', onClick: () => this.resume(scene, { restart: true }) }]
+      });
+      return true;
+    }
+    this.current = cur;
+    this.since = Date.now();
     if (resume) this.restore(cur); else this.begin();
     this.enter(scene, resume);
     return true;

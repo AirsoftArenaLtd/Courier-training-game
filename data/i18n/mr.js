@@ -3841,7 +3841,10 @@ window.OTR_I18N.mr = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून.",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "गटासाठी पान प्रिंट करा, किंवा आकडे Excel किंवा Google Sheets साठी स्प्रेडशीट म्हणून डाउनलोड करा.",
 "Spreadsheet (CSV)": "स्प्रेडशीट (CSV)",
-"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड केली"
+"Spreadsheet downloaded": "स्प्रेडशीट डाउनलोड केली",
+"This workday was started on another computer": "हा वर्कडे दुसऱ्या संगणकावर सुरू झाला होता",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "शहरात तुम्ही कुठे होता ते फक्त त्याच संगणकावर ठेवलेले आहे. आतापर्यंतचे स्टॉप ठेवायचे असतील तर तिथेच दिवस पूर्ण करा, किंवा इथे सकाळपासून पुन्हा सुरू करा: मग दुसऱ्या संगणकावर केलेले स्टॉप वगळले जातील.",
+"Start again here": "इथे पुन्हा सुरू करा"
 },
 "templates": [
 [

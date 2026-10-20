@@ -3842,7 +3842,10 @@ window.OTR_I18N.fr = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation.",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "Imprime la page pour le groupe, ou télécharge les chiffres sous forme de tableur pour Excel ou Google Sheets.",
 "Spreadsheet (CSV)": "Tableur (CSV)",
-"Spreadsheet downloaded": "Tableur téléchargé"
+"Spreadsheet downloaded": "Tableur téléchargé",
+"This workday was started on another computer": "Cette journée de travail a commencé sur un autre ordinateur",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "Ta position dans la ville est conservée uniquement sur cet ordinateur-là. Termine la journée là-bas pour garder tes arrêts faits jusqu'ici, ou recommence-la ici dès le matin : les arrêts faits sur l'autre ordinateur sont alors supprimés.",
+"Start again here": "Recommencer ici"
 },
 "templates": [
 [
