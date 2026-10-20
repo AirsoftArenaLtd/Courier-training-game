@@ -1,0 +1,102 @@
+{
+  "a": {
+    "wall": 1792355525250,
+    "frame": 187,
+    "quality": "high",
+    "elapsed": 0.7999400000000249,
+    "phase": "prepare",
+    "mode": "walk",
+    "van": {
+      "x": 2.84,
+      "z": 8,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "logs": [
+      {
+        "id": "brief:6",
+        "skill": "service",
+        "outcome": "good",
+        "text": "Read the morning brief and route manifest at Dispatch.",
+        "at": 0
+      },
+      {
+        "id": "scan:parcel0",
+        "skill": "verification",
+        "outcome": "good",
+        "text": "Verified 308 Maple Ave on the scanner.",
+        "at": 1
+      }
+    ],
+    "town": [
+      32.75,
+      -12.25,
+      -57.25,
+      -102.25,
+      -147.25
+    ]
+  },
+  "b": {
+    "wall": 1792355530255,
+    "frame": 193,
+    "quality": "high",
+    "elapsed": 0.9131866666666834,
+    "phase": "prepare",
+    "mode": "walk",
+    "van": {
+      "x": 2.84,
+      "z": 8,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "logs": [
+      {
+        "id": "brief:6",
+        "skill": "service",
+        "outcome": "good",
+        "text": "Read the morning brief and route manifest at Dispatch.",
+        "at": 0
+      },
+      {
+        "id": "scan:parcel0",
+        "skill": "verification",
+        "outcome": "good",
+        "text": "Verified 308 Maple Ave on the scanner.",
+        "at": 1
+      }
+    ],
+    "town": [
+      32.75,
+      -12.25,
+      -57.25,
+      -102.25,
+      -147.25
+    ]
+  },
+  "simulatedSeconds": 0.1132466666666585,
+  "frames": 6
+}

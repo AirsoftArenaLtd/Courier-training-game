@@ -3819,7 +3819,21 @@ window.OTR_I18N.es = {
 "Turn around when it is safe and follow the route.": "Da la vuelta cuando sea seguro y sigue la ruta.",
 "Stopped for a red traffic light": "Te detuviste en un semáforo en rojo",
 "Drove through a red traffic light": "Pasaste un semáforo en rojo",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rojo significa detenerse detrás de la línea y esperar el verde, aunque el cruce parezca vacío."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rojo significa detenerse detrás de la línea y esperar el verde, aunque el cruce parezca vacío.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "Sigue los semáforos y las señales. Cede el paso a las personas en los cruces.",
+"Give way to traffic before entering the junction.": "Cede el paso al tráfico antes de entrar en el cruce.",
+"Entered a junction while its traffic light was red.": "Entraste en un cruce con el semáforo en rojo.",
+"Stopped behind the line and waited for the traffic light to turn green.": "Te detuviste detrás de la línea y esperaste a que el semáforo se pusiera en verde.",
+"Gave way to traffic before entering the junction.": "Cediste el paso al tráfico antes de entrar en el cruce.",
+"Entered the junction without giving way to approaching traffic.": "Entraste en el cruce sin ceder el paso al tráfico que se acercaba.",
+"Moved into the school crossing before the children were clear.": "Entraste en el paso escolar antes de que los niños hubieran terminado de cruzar.",
+"Checked the right mirror and waited for the cyclist before turning.": "Revisaste el espejo derecho y esperaste al ciclista antes de girar.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "Giraste cruzándote con el ciclista sin revisar ni esperar un hueco libre.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "Un ciclista pasa por la derecha. Revisa el espejo derecho y espera antes de girar.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "Hay niños esperando en el paso escolar. Reduce la velocidad y déjalos cruzar.",
+"The traffic light is green. Continue only when the junction is clear.": "El semáforo está en verde. Sigue solo cuando el cruce esté libre.",
+"The traffic light is amber. Stop if you can do so safely.": "El semáforo está en ámbar. Detente si puedes hacerlo con seguridad.",
+"The traffic light is red. Stop before the junction line.": "El semáforo está en rojo. Detente antes de la línea del cruce."
 },
 "templates": [
 [

@@ -1,0 +1,42 @@
+[
+  {
+    "requested": "Noto Sans Devanagari",
+    "matched": "Noto Sans Devanagari",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Bengali",
+    "matched": "Noto Sans Bengali",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Telugu",
+    "matched": "Noto Sans Telugu",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Tamil",
+    "matched": "Noto Sans Tamil",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Gujarati",
+    "matched": "Noto Sans Gujarati",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Kannada",
+    "matched": "Noto Sans Kannada",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Malayalam",
+    "matched": "Noto Sans Malayalam",
+    "exit": 0
+  },
+  {
+    "requested": "Noto Sans Gurmukhi",
+    "matched": "Noto Sans Gurmukhi",
+    "exit": 0
+  }
+]

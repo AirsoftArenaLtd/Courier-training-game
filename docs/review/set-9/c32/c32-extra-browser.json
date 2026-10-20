@@ -1,0 +1,32 @@
+[
+  {
+    "name": "traffic-final-low",
+    "exit": 0,
+    "seconds": 20.8
+  },
+  {
+    "name": "traffic-final-high",
+    "exit": 0,
+    "seconds": 54.6
+  },
+  {
+    "name": "languages",
+    "exit": 0,
+    "seconds": 128.1
+  },
+  {
+    "name": "signs",
+    "exit": 0,
+    "seconds": 51.4
+  },
+  {
+    "name": "workday-flows",
+    "exit": 0,
+    "seconds": 397.1
+  },
+  {
+    "name": "offline",
+    "exit": 0,
+    "seconds": 7.8
+  }
+]

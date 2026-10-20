@@ -3808,7 +3808,21 @@ window.OTR_I18N.kn = {
 "Turn around when it is safe and follow the route.": "ಸುರಕ್ಷಿತವಾದಾಗ ಯು-ಟರ್ನ್ ಮಾಡಿ ಮತ್ತು ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ.",
 "Stopped for a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಬಳಿ ನಿಂತಿರಿ",
 "Drove through a red traffic light": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ದಾಟಿ ಹೋದಿರಿ",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "ಕೆಂಪು ಎಂದರೆ ಗೆರೆಯ ಹಿಂದೆ ನಿಂತು ಹಸಿರಿಗಾಗಿ ಕಾಯುವುದು, ಜಂಕ್ಷನ್ ಖಾಲಿ ಕಾಣಿಸಿದರೂ ಸರಿ."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ಕೆಂಪು ಎಂದರೆ ಗೆರೆಯ ಹಿಂದೆ ನಿಂತು ಹಸಿರಿಗಾಗಿ ಕಾಯುವುದು, ಜಂಕ್ಷನ್ ಖಾಲಿ ಕಾಣಿಸಿದರೂ ಸರಿ.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಮತ್ತು ರಸ್ತೆ ಸೂಚನೆಗಳನ್ನು ಪಾಲಿಸಿ. ಕ್ರಾಸಿಂಗ್‌ಗಳಲ್ಲಿ ಜನರಿಗೆ ದಾರಿ ಬಿಡಿ.",
+"Give way to traffic before entering the junction.": "ಜಂಕ್ಷನ್‌ಗೆ ಪ್ರವೇಶಿಸುವ ಮೊದಲು ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡಿ.",
+"Entered a junction while its traffic light was red.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಕೆಂಪು ಇದ್ದಾಗ ಜಂಕ್ಷನ್‌ಗೆ ನುಗ್ಗಿದಿರಿ.",
+"Stopped behind the line and waited for the traffic light to turn green.": "ಗೆರೆಯ ಹಿಂದೆ ನಿಂತು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಸಿರಾಗುವವರೆಗೆ ಕಾದಿರಿ.",
+"Gave way to traffic before entering the junction.": "ಜಂಕ್ಷನ್‌ಗೆ ಪ್ರವೇಶಿಸುವ ಮೊದಲು ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಟ್ಟಿರಿ.",
+"Entered the junction without giving way to approaching traffic.": "ಎದುರಿನಿಂದ ಬರುತ್ತಿದ್ದ ಸಂಚಾರಕ್ಕೆ ದಾರಿ ಬಿಡದೆ ಜಂಕ್ಷನ್‌ಗೆ ನುಗ್ಗಿದಿರಿ.",
+"Moved into the school crossing before the children were clear.": "ಮಕ್ಕಳು ದಾಟಿ ಮುಗಿಸುವ ಮೊದಲೇ ಶಾಲಾ ಕ್ರಾಸಿಂಗ್‌ಗೆ ಮುನ್ನುಗ್ಗಿದಿರಿ.",
+"Checked the right mirror and waited for the cyclist before turning.": "ಬಲ ಕನ್ನಡಿ ನೋಡಿ, ತಿರುಗುವ ಮೊದಲು ಸೈಕಲ್ ಸವಾರರಿಗಾಗಿ ಕಾದಿರಿ.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "ನೋಡದೆ, ಖಾಲಿ ಜಾಗಕ್ಕಾಗಿ ಕಾಯದೆ ಸೈಕಲ್ ಸವಾರರ ಮುಂದೆಯೇ ತಿರುಗಿದಿರಿ.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "ಬಲಭಾಗದಲ್ಲಿ ಒಬ್ಬ ಸೈಕಲ್ ಸವಾರ ಹಾದುಹೋಗುತ್ತಿದ್ದಾರೆ. ಬಲ ಕನ್ನಡಿ ನೋಡಿ, ತಿರುಗುವ ಮೊದಲು ಕಾಯಿರಿ.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "ಶಾಲಾ ಕ್ರಾಸಿಂಗ್‌ನಲ್ಲಿ ಮಕ್ಕಳು ಕಾಯುತ್ತಿದ್ದಾರೆ. ವೇಗ ಕಡಿಮೆ ಮಾಡಿ, ಅವರು ದಾಟಲು ಬಿಡಿ.",
+"The traffic light is green. Continue only when the junction is clear.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಸಿರು ಇದೆ. ಜಂಕ್ಷನ್ ಖಾಲಿ ಇದ್ದಾಗ ಮಾತ್ರ ಮುಂದುವರಿಯಿರಿ.",
+"The traffic light is amber. Stop if you can do so safely.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಹಳದಿ ಇದೆ. ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಲು ಸಾಧ್ಯವಾದರೆ ನಿಲ್ಲಿ.",
+"The traffic light is red. Stop before the junction line.": "ಟ್ರಾಫಿಕ್ ಲೈಟ್ ಕೆಂಪು ಇದೆ. ಜಂಕ್ಷನ್ ಗೆರೆಯ ಮೊದಲು ನಿಲ್ಲಿ."
 },
 "templates": [
 [

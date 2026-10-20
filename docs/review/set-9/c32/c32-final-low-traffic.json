@@ -1,0 +1,174 @@
+{
+  "checks": 100,
+  "samples": [
+    {
+      "lang": "en",
+      "large": false,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "lamp": {
+          "x": 887.1421831254736,
+          "y": 235.48240645933595
+        },
+        "nav": {
+          "x": 909.23193359375,
+          "y": 322.1406555175781,
+          "right": 1199.23193359375,
+          "bottom": 472.1406555175781
+        },
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": []
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.198897210081045,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      },
+      "phaserBytes": 1762966
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "lamp": {
+          "x": 887.1421831254736,
+          "y": 235.48240645933595
+        },
+        "nav": {
+          "x": 899.23193359375,
+          "y": 318.1406555175781,
+          "right": 1209.23193359375,
+          "bottom": 476.1406555175781
+        },
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": []
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.198965921818396,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      },
+      "phaserBytes": 1919142
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "lamp": {
+          "x": 887.1421831254736,
+          "y": 235.48240645933595
+        },
+        "nav": {
+          "x": 899.23193359375,
+          "y": 305.6406555175781,
+          "right": 1209.23193359375,
+          "bottom": 488.6406555175781
+        },
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": []
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.198979664510462,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      },
+      "phaserBytes": 2140736
+    }
+  ],
+  "errors": []
+}

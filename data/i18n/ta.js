@@ -3808,7 +3808,21 @@ window.OTR_I18N.ta = {
 "Turn around when it is safe and follow the route.": "பாதுகாப்பாக இருக்கும்போது யு-டர்ன் செய்து வழியைப் பின்பற்றுங்கள்.",
 "Stopped for a red traffic light": "சிவப்பு சிக்னலில் நின்றீர்கள்",
 "Drove through a red traffic light": "சிவப்பு சிக்னலைத் தாண்டிச் சென்றீர்கள்",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "சிவப்பு என்றால் கோட்டுக்குப் பின் நின்று பச்சைக்காகக் காத்திருப்பது, சந்திப்பு காலியாகத் தெரிந்தாலும்."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "சிவப்பு என்றால் கோட்டுக்குப் பின் நின்று பச்சைக்காகக் காத்திருப்பது, சந்திப்பு காலியாகத் தெரிந்தாலும்.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "சிக்னல்களையும் சாலை அடையாளங்களையும் பின்பற்றுங்கள். கடவுகளில் மக்களுக்கு வழி விடுங்கள்.",
+"Give way to traffic before entering the junction.": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+"Entered a junction while its traffic light was red.": "சிக்னல் சிவப்பாக இருந்தபோது சந்திப்பில் நுழைந்தீர்கள்.",
+"Stopped behind the line and waited for the traffic light to turn green.": "கோட்டுக்குப் பின் நின்று சிக்னல் பச்சையாகும் வரை காத்திருந்தீர்கள்.",
+"Gave way to traffic before entering the junction.": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விட்டீர்கள்.",
+"Entered the junction without giving way to approaching traffic.": "எதிரே வரும் வாகனங்களுக்கு வழி விடாமல் சந்திப்பில் நுழைந்தீர்கள்.",
+"Moved into the school crossing before the children were clear.": "குழந்தைகள் கடந்து முடிப்பதற்கு முன்பே பள்ளிக் கடவுக்குள் சென்றீர்கள்.",
+"Checked the right mirror and waited for the cyclist before turning.": "வலது கண்ணாடியைப் பார்த்து, திரும்பும் முன் சைக்கிள் ஓட்டுநருக்காகக் காத்திருந்தீர்கள்.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "பார்க்காமலும் இடைவெளிக்காகக் காத்திருக்காமலும் சைக்கிள் ஓட்டுநருக்கு குறுக்கே திரும்பினீர்கள்.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "வலதுபுறம் ஒரு சைக்கிள் ஓட்டுநர் கடந்து செல்கிறார். வலது கண்ணாடியைப் பாருங்கள், திரும்பும் முன் காத்திருங்கள்.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "பள்ளிக் கடவில் குழந்தைகள் காத்திருக்கிறார்கள். வேகத்தைக் குறைத்து அவர்களைக் கடக்க விடுங்கள்.",
+"The traffic light is green. Continue only when the junction is clear.": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+"The traffic light is amber. Stop if you can do so safely.": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+"The traffic light is red. Stop before the junction line.": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்."
 },
 "templates": [
 [

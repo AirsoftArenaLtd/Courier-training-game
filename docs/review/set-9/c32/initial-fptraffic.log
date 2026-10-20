@@ -1,0 +1,20 @@
+✔ signals have separate amber and all-red clearance intervals before changing priority (1.122608ms)
+✔ neither an opposing green nor a simultaneous walk permission occurs across a day (508.480449ms)
+✔ signal offsets and checkpoints reproduce the same phase without accumulated timer drift (0.634201ms)
+✔ both directions on each street read the matching axis (0.233603ms)
+✔ a pedestrian starts only with a walk phase and a physically clear crossing (0.161057ms)
+✔ stopping envelope retains a buffer and reduces speed smoothly toward the line (1.773623ms)
+✔ clearance subtracts the actual vehicle bodies on all four headings (0.297487ms)
+✔ adjacent lanes and vehicles completely behind are ignored, but overlapping bodies stop traffic (0.214775ms)
+✔ cross traffic and a walker use their projected footprint, rather than only their centres (1.622592ms)
+✔ following target respects body clearance and the taught three-second time gap (0.254404ms)
+✔ bounded acceleration and braking converge without overshoot or negative motion (2.460071ms)
+✔ controller calls keep shared descriptors bounded and do not mutate input vehicles (63.093427ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 587.075131

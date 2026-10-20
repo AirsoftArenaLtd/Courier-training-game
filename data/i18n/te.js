@@ -3808,7 +3808,21 @@ window.OTR_I18N.te = {
 "Turn around when it is safe and follow the route.": "సురక్షితంగా ఉన్నప్పుడు యూ-టర్న్ తీసుకుని మార్గాన్ని అనుసరించండి.",
 "Stopped for a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ వద్ద ఆగారు",
 "Drove through a red traffic light": "ఎరుపు ట్రాఫిక్ లైట్ దాటి వెళ్లారు",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "ఎరుపు అంటే గీత వెనుక ఆగి ఆకుపచ్చ కోసం వేచి ఉండటం, జంక్షన్ ఖాళీగా కనిపించినా సరే."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ఎరుపు అంటే గీత వెనుక ఆగి ఆకుపచ్చ కోసం వేచి ఉండటం, జంక్షన్ ఖాళీగా కనిపించినా సరే.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ట్రాఫిక్ లైట్లు, రోడ్డు గుర్తులను పాటించండి. క్రాసింగ్‌ల వద్ద ప్రజలకు దారి ఇవ్వండి.",
+"Give way to traffic before entering the junction.": "జంక్షన్‌లోకి వెళ్లే ముందు వాహనాలకు దారి ఇవ్వండి.",
+"Entered a junction while its traffic light was red.": "ట్రాఫిక్ లైట్ ఎరుపుగా ఉన్నప్పుడు జంక్షన్‌లోకి వెళ్లారు.",
+"Stopped behind the line and waited for the traffic light to turn green.": "గీత వెనుక ఆగి ట్రాఫిక్ లైట్ ఆకుపచ్చ అయ్యే వరకు వేచి ఉన్నారు.",
+"Gave way to traffic before entering the junction.": "జంక్షన్‌లోకి వెళ్లే ముందు వాహనాలకు దారి ఇచ్చారు.",
+"Entered the junction without giving way to approaching traffic.": "ఎదురుగా వస్తున్న వాహనాలకు దారి ఇవ్వకుండా జంక్షన్‌లోకి వెళ్లారు.",
+"Moved into the school crossing before the children were clear.": "పిల్లలు దాటడం పూర్తికాకముందే స్కూల్ క్రాసింగ్‌లోకి వెళ్లారు.",
+"Checked the right mirror and waited for the cyclist before turning.": "కుడి అద్దం చూసి, తిరిగే ముందు సైక్లిస్ట్ కోసం వేచి ఉన్నారు.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "చూడకుండా, ఖాళీ చోటు కోసం వేచి ఉండకుండా సైక్లిస్ట్ ముందు నుంచి తిరిగారు.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "కుడివైపు నుంచి ఒక సైక్లిస్ట్ వెళ్తున్నారు. కుడి అద్దం చూడండి, తిరిగే ముందు వేచి ఉండండి.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "స్కూల్ క్రాసింగ్ వద్ద పిల్లలు వేచి ఉన్నారు. వేగం తగ్గించి వారిని దాటనివ్వండి.",
+"The traffic light is green. Continue only when the junction is clear.": "ట్రాఫిక్ లైట్ ఆకుపచ్చగా ఉంది. జంక్షన్ ఖాళీగా ఉన్నప్పుడే ముందుకు సాగండి.",
+"The traffic light is amber. Stop if you can do so safely.": "ట్రాఫిక్ లైట్ పసుపు రంగులో ఉంది. సురక్షితంగా ఆగగలిగితే ఆగండి.",
+"The traffic light is red. Stop before the junction line.": "ట్రాఫిక్ లైట్ ఎరుపుగా ఉంది. జంక్షన్ గీత ముందు ఆగండి."
 },
 "templates": [
 [

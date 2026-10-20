@@ -3809,7 +3809,21 @@ window.OTR_I18N.fr = {
 "Turn around when it is safe and follow the route.": "Fais demi-tour dès que c'est sûr et suis l'itinéraire.",
 "Stopped for a red traffic light": "Tu t'es arrêté au feu rouge",
 "Drove through a red traffic light": "Tu as grillé un feu rouge",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rouge veut dire s'arrêter derrière la ligne et attendre le vert, même si le carrefour semble vide."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "Rouge veut dire s'arrêter derrière la ligne et attendre le vert, même si le carrefour semble vide.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "Respecte les feux et les panneaux. Cède le passage aux piétons aux passages piétons.",
+"Give way to traffic before entering the junction.": "Cède le passage à la circulation avant d'entrer dans le carrefour.",
+"Entered a junction while its traffic light was red.": "Tu es entré dans un carrefour alors que le feu était rouge.",
+"Stopped behind the line and waited for the traffic light to turn green.": "Tu t'es arrêté derrière la ligne et tu as attendu que le feu passe au vert.",
+"Gave way to traffic before entering the junction.": "Tu as cédé le passage à la circulation avant d'entrer dans le carrefour.",
+"Entered the junction without giving way to approaching traffic.": "Tu es entré dans le carrefour sans céder le passage aux véhicules qui arrivaient.",
+"Moved into the school crossing before the children were clear.": "Tu t'es engagé sur le passage scolaire avant que les enfants soient passés.",
+"Checked the right mirror and waited for the cyclist before turning.": "Tu as regardé le rétroviseur droit et attendu le cycliste avant de tourner.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "Tu as tourné devant le cycliste sans regarder ni attendre qu'il y ait un espace libre.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "Un cycliste passe sur la droite. Regarde le rétroviseur droit et attends avant de tourner.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "Des enfants attendent au passage scolaire. Ralentis et laisse-les traverser.",
+"The traffic light is green. Continue only when the junction is clear.": "Le feu est vert. Avance seulement quand le carrefour est dégagé.",
+"The traffic light is amber. Stop if you can do so safely.": "Le feu est orange. Arrête-toi si tu peux le faire en sécurité.",
+"The traffic light is red. Stop before the junction line.": "Le feu est rouge. Arrête-toi avant la ligne du carrefour."
 },
 "templates": [
 [

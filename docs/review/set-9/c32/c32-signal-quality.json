@@ -1,0 +1,112 @@
+{
+  "sourceRevision": "d59ab5bc0aba469362f2439167276eb550e383d7",
+  "purpose": "Final raised signal heads after the full 91-view baseline: repeat all 18 traffic views with unchanged budgets and healthy/fallback fixtures.",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c32-heads-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 109782,
+      "peak": {
+        "calls": 56,
+        "triangles": 2412,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2779755
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c32-heads-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 161322,
+      "peak": {
+        "calls": 81,
+        "triangles": 138234,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7216411
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c32-heads-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 70990,
+      "peak": {
+        "calls": 56,
+        "triangles": 2412,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2902272
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c32-heads-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 47726,
+      "peak": {
+        "calls": 53,
+        "triangles": 2090,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2722635
+      }
+    }
+  ]
+}

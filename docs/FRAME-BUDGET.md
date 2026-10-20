@@ -1,5 +1,7 @@
 # Low-graphics 3D workday budget
 
+**C-32 traffic with C-31 navigation (19 October 2026):** all 91 baseline and 18 final traffic resource views pass. Later Low uses two procedural children, four crossed bicycle profiles in an existing batch, shared signal surfaces and a 180-triangle town-decoration allowance. No new asset, texture, target or pass. Full 264,000-view loaded/fallback sweeps peak at **62 / 2,410** and **57 / 2,088** calls/triangles. Original ceilings are unchanged. Raw figures and screenshots: `docs/review/set-9/c32.md`.
+
 **C-30 signs (18 October 2026):** the existing route-plane batch holds at most five signs per Low view,
 adding at most 20 triangles including a reflection, without another draw call, texture, target or pass.
 All 57 fixed resource views pass unchanged ceilings. Full signed 264,000-view sweeps peak at **63 calls /

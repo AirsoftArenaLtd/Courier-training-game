@@ -79,6 +79,7 @@ OTR.fpDriving = {
     const b=m._driveNext,vertical=Math.abs(Math.cos(a.yaw))>0.7;
     b.x=a.x+Math.sin(a.yaw)*speed*dt;b.z=a.z-Math.cos(a.yaw)*speed*dt;b.w=vertical?width:length;b.d=vertical?length:width;
     if(OTR.fp.vanBox(m.van,b)||(m.mode==='walk'&&OTR.fp.circleBox(m.player.x,m.player.z,.4,b)))return false;
+    if(OTR.fpTraffic&&OTR.fpTraffic.enabled(m)&&OTR.fpTraffic.blocksDrivingActor(m,b))return false;
     for(const car of m.traffic)if(OTR.fp.vanBox(car,b))return false;
     const other=a===m.driving.bus?m._driveSolids.siren:m._driveSolids.bus;
     if(Math.abs(b.x-other.x)<(b.w+other.w)/2&&Math.abs(b.z-other.z)<(b.d+other.d)/2)return false;

@@ -3808,7 +3808,21 @@ window.OTR_I18N.ml = {
 "Turn around when it is safe and follow the route.": "സുരക്ഷിതമാകുമ്പോൾ യു-ടേൺ എടുത്ത് റൂട്ട് പിന്തുടരുക.",
 "Stopped for a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റിൽ നിർത്തി",
 "Drove through a red traffic light": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റ് കടന്നുപോയി",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "ചുവപ്പ് എന്നാൽ വരയ്ക്ക് പിന്നിൽ നിർത്തി പച്ചയ്ക്കായി കാത്തിരിക്കുക, ജങ്ഷൻ ഒഴിഞ്ഞതായി തോന്നിയാലും."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ചുവപ്പ് എന്നാൽ വരയ്ക്ക് പിന്നിൽ നിർത്തി പച്ചയ്ക്കായി കാത്തിരിക്കുക, ജങ്ഷൻ ഒഴിഞ്ഞതായി തോന്നിയാലും.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ട്രാഫിക് ലൈറ്റുകളും റോഡ് അടയാളങ്ങളും പാലിക്കുക. ക്രോസിങ്ങുകളിൽ ആളുകൾക്ക് വഴി നൽകുക.",
+"Give way to traffic before entering the junction.": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകുക.",
+"Entered a junction while its traffic light was red.": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പായിരിക്കെ ജങ്ഷനിൽ കടന്നു.",
+"Stopped behind the line and waited for the traffic light to turn green.": "വരയ്ക്ക് പിന്നിൽ നിർത്തി ട്രാഫിക് ലൈറ്റ് പച്ചയാകാൻ കാത്തിരുന്നു.",
+"Gave way to traffic before entering the junction.": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകി.",
+"Entered the junction without giving way to approaching traffic.": "വരുന്ന വാഹനങ്ങൾക്ക് വഴി നൽകാതെ ജങ്ഷനിൽ കടന്നു.",
+"Moved into the school crossing before the children were clear.": "കുട്ടികൾ മാറുന്നതിന് മുമ്പ് സ്കൂൾ ക്രോസിങ്ങിലേക്ക് കടന്നു.",
+"Checked the right mirror and waited for the cyclist before turning.": "വലത് കണ്ണാടി നോക്കി, തിരിയുന്നതിന് മുമ്പ് സൈക്കിൾ യാത്രികനായി കാത്തിരുന്നു.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "നോക്കാതെയും ഒഴിഞ്ഞ ഇടത്തിനായി കാത്തിരിക്കാതെയും സൈക്കിൾ യാത്രികന്റെ മുന്നിലൂടെ തിരിഞ്ഞു.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "വലതുവശത്തുകൂടി ഒരു സൈക്കിൾ യാത്രികൻ കടന്നുപോകുന്നു. വലത് കണ്ണാടി നോക്കി, തിരിയുന്നതിന് മുമ്പ് കാത്തിരിക്കുക.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "സ്കൂൾ ക്രോസിങ്ങിൽ കുട്ടികൾ കാത്തുനിൽക്കുന്നു. വേഗം കുറച്ച് അവരെ കടക്കാൻ അനുവദിക്കുക.",
+"The traffic light is green. Continue only when the junction is clear.": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
+"The traffic light is amber. Stop if you can do so safely.": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
+"The traffic light is red. Stop before the junction line.": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക."
 },
 "templates": [
 [
