@@ -111,7 +111,7 @@ OTR.record = {
     const workdays = days ? `<h2>${T('Workdays')}</h2><table><thead><tr><th>${T('Date')}</th><th>${T('Stars')}</th><th>${T('Help that day')}</th><th>${T('Critical mistakes')}</th></tr></thead><tbody>${days}</tbody></table>` : '';
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Training record: {0}', E(name))}</title><style>
       @page { size: A4; margin: 14mm; }
-      body { font: 11pt/1.4 "Segoe UI", Arial, sans-serif; color: #121f2e; margin: 0; }
+      body { font: 11pt/1.4 "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: #121f2e; margin: 0; }
       header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid ${OTR_DATA.theme.css('accent')}; padding-bottom: 8px; margin-bottom: 14px; }
       h1 { font-size: 20pt; margin: 0; color: ${OTR_DATA.theme.css('primary')}; } h2 { font-size: 13pt; color: ${OTR_DATA.theme.css('primary')}; margin: 18px 0 6px; }
       .brand { font-weight: 900; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
@@ -149,10 +149,10 @@ OTR.record = {
     const last = Math.max(...R.all.map(s => (s.assess && s.assess.at) || 0));
     return `<!DOCTYPE html><html lang="${E(OTR.i18n ? OTR.i18n.lang : 'en')}"><head><meta charset="utf-8"><title>${F('Certificate: {0}', E(name))}</title><style>
       @page { size: A4 landscape; margin: 0; }
-      body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #121f2e; }
+      body { margin: 0; font-family: Georgia, "Times New Roman", "Nirmala UI", "Noto Serif", serif; color: #121f2e; }
       .page { box-sizing: border-box; width: 297mm; height: 210mm; padding: 18mm; }
       .frame { box-sizing: border-box; height: 100%; border: 6px solid ${OTR_DATA.theme.css('primary')}; outline: 2px solid ${OTR_DATA.theme.css('accent')}; outline-offset: -14px; text-align: center; padding: 22mm 20mm; }
-      .brand { font: 900 20pt "Segoe UI", Arial, sans-serif; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
+      .brand { font: 900 20pt "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif; color: ${OTR_DATA.theme.css('primary')}; } .brand b { color: ${OTR_DATA.theme.css('accent')}; }
       h1 { font-size: 34pt; margin: 14mm 0 4mm; letter-spacing: 1px; } .name { font-size: 30pt; color: ${OTR_DATA.theme.css('primary')}; border-bottom: 1px solid #999; display: inline-block; padding: 0 20mm 2mm; margin: 6mm 0; }
       p { font-size: 14pt; margin: 3mm 0; } .small { font-size: 10pt; color: #666; }
       .sign { display: flex; justify-content: space-around; margin-top: 18mm; } .sign div { width: 70mm; border-top: 1px solid #333; padding-top: 2mm; font-size: 10pt; color: #555; }
