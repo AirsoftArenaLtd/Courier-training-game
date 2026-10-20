@@ -27,7 +27,8 @@ const PORT = Number(process.env.QA_PORT || 8123);
 
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const LINUX_BROWSERS = ['/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser'];
+const LINUX_BROWSERS = ['/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser',
+  '/opt/pw-browsers/chromium'];                                  // where a Playwright-provisioned container keeps it
 
 const SCENARIOS = [
   { id: 'm1-pretrip', scene: 'PreTripScene' },
