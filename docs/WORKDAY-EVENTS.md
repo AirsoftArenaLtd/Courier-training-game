@@ -187,3 +187,12 @@ New types:
 Rules for these: nothing is reported twice for the same key; a critical mistake is flagged in the type's definition, not by
 the world; the save stays small (`docs/READINESS.md`: 3,596 of 4,096 characters today), so new types carry only the
 details above. A-27 owns the save budget.
+
+**Which parcels may go in a locker (decided 20 October, for C-33).** A locker drop is part of the workday, not a
+separate practice. A day that has a locker stop authorises exactly one parcel for it in the plan, and the morning brief
+says so ("locker drop", with the locker site). That parcel must be one that was standard service before the later-day
+rules: no signature, no age check, no dog at the address. The later-day rules (`fpLater.prepare`) leave that one parcel
+standard and do not turn its stop's dispatch update into a signature request; every other parcel keeps every signature
+and ID requirement it has today. A signed or age-restricted parcel never goes in a locker: if the scene offers the locker
+for one as a wrong choice, putting it there reports `stop.locker` with `ok: false`. Days without a locker stop, the first
+two days and older saves are unchanged.
