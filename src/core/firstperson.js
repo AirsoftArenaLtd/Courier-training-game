@@ -30,6 +30,7 @@ OTR.fp = {
     const day=m.routePlan?m.routePlan.day:m.briefing?m.briefing.day:1,rules=OTR.academy.workdayRules(day);
     m.workdayRules={...rules};
     if(rules.assists==='full')m.driveAssist=1;else if(rules.assists==='light')m.driveAssist=.5;else if(rules.assists==='off')m.driveAssist=0;
+    if(OTR.fpDamageFlow)OTR.fpDamageFlow.applyRules(m);
   },
   payload(m) {
     if (!m.parcels) return m.package === 'loaded' ? 5 : 0;
@@ -84,12 +85,23 @@ OTR.fp = {
       const x = next.x + c * i * 1.08 - s * j * 2.7, z = next.z + s * i * 1.08 + c * j * 2.7;
       if (x < b.x0 || x > b.x1 || z < b.z0 || z > b.z1) outside = true;
     }
-    let contact = outside || !!(m.driveAllowed && !m.driveAllowed(next));
-    if (!contact) for (const solid of m.solids) if (this.vanBox(next, solid)) { contact = true; break; }
+    let contact = outside || !!(m.driveAllowed && !m.driveAllowed(next)),contactBox=null;
+    if (!contact) for (const solid of m.solids) if (this.vanBox(next, solid)) { contact = true;contactBox=solid;break; }
+    if(!contact&&m.damage){contactBox=OTR.fpDamageFlow.block(m,next);contact=!!contactBox;}
+    let normalSpeed=0;
+    if(m.damage&&contactBox){
+      const b=contactBox,qx=this.clamp(next.x,b.x-b.w/2,b.x+b.w/2),qz=this.clamp(next.z,b.z-b.d/2,b.z+b.d/2),
+        nx=next.x-qx,nz=next.z-qz,length=Math.hypot(nx,nz),nc=Math.cos(next.yaw),ns=Math.sin(next.yaw),
+        lx=-Math.sign(nc*nx+ns*nz)*1.08,lz=-Math.sign(-ns*nx+nc*nz)*2.7,
+        ox=v.x+Math.cos(v.yaw)*lx-Math.sin(v.yaw)*lz,oz=v.z+Math.sin(v.yaw)*lx+Math.cos(v.yaw)*lz,
+        px=next.x+nc*lx-ns*lz,pz=next.z+ns*lx+nc*lz;
+      normalSpeed=length?Math.abs(((px-ox)*nx+(pz-oz)*nz)/(length*dt)):Math.abs(speed);
+    }
     if (contact) v.speed = 0;
     else { v.x = next.x; v.z = next.z; v.yaw = next.yaw; }
     const d = this.suspension(m, dt, (v.speed - speed) / dt, contact ? 0 : turn / dt * (speed + v.speed) * 0.5);
     d.contact = contact; d.rpm += input.forward && !input.back && !v.hand && (v.gear===1||v.gear===-1) ? 400 : 0;
+    if(m.damage){d.contactBox=contactBox;d.contactNormalSpeed=normalSpeed;}
   },
   create() {
     const F = this;

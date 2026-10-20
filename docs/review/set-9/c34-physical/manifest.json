@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-20",
+  "sourceRevision": "af8dc01c7a6b7f3d379235cdddc762596185afe7",
+  "basePilot": "370fd59400b1024ea80c49862b2ad0eff6fc3fdc",
+  "status": "Doing. Physical integration is enabled on new day-four-and-later plans; full WebGL gate, final font/browser capture and review readiness remain.",
+  "scopes": {
+    "geometry": "a35e68e geometry, unchanged by the later English/label-facing correction",
+    "integratedRegressionCases": 195,
+    "finalFocusedCases": 49,
+    "earlierNavigationSignHudCases": 95,
+    "cpuViewsEach": 285600,
+    "loadedCpuPeak": {
+      "calls": 64,
+      "triangles": 2474
+    },
+    "fallbackCpuPeak": {
+      "calls": 58,
+      "triangles": 2111
+    },
+    "journeys": 30,
+    "checkpoints": 3817,
+    "soakDays": 100,
+    "scormChecks": 240,
+    "scormMax": 3974,
+    "lowBrowser": "80 checks at af8dc01, before the existing C-32/C-33 Tamil gauge font correction; final rerun pending",
+    "packageCases": 3
+  },
+  "sourceFiles": {
+    "index.html": "2977cd0b38861e5d342eba756b6b1687e633be3fe38c90582cceb1fcc040d5da",
+    "src/core/firstperson.js": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+    "src/core/fpdamage.js": "a6288d5a6e79125b9cd5098ab17054157fedb0e12850b855d90989246989069f",
+    "src/core/fpdamageflow.js": "d93f919a6aac4cf58df3579f3a3ac4645239058733721e25773a3b68c25f8cb8",
+    "src/core/fpdamageworld.js": "93f994b9d7ac4f5d30ccf76e681a6d0fae5ee8201a788e70067e084ee7a5aeaa",
+    "src/core/fpmission.js": "f49e66f6fdcea5fdd8ca7a3e9760e4aecfbde866c022206a3e82049cb67ca5ab",
+    "src/core/fproute.js": "9193fc15a22e0a212d103fb298a16c6831060823d58d68ca282bc29d75dc5646",
+    "src/core/fpnav.js": "d14fc53f4b9c076c46723823576eca9b8c0d0414fa56b2171aa1fbdcc90377cc",
+    "src/core/fpsigns.js": "b140b18f8eb2f3e330c54b8470ab3f5b7bb5418537b76a2d3bd7563f13b8d5a5",
+    "src/core/fpworld.js": "fbb615ddbab83ccb77c3d972ae1adfa561502a97baf75ef8ba7d53bea468a2d5",
+    "src/scenes/FirstPersonScene.js": "97d42b58e8a27287b3209dc2cc50f8202b44adbac4f5ecec9daee451ac03cab0",
+    "test/fpdamageflow.js": "5e5c7b683a61d6e2b262e91f5296e3d40afca9fc19b7a3aac681cc782ab4eca2",
+    "test/fpdamageworld.js": "39251be33369c5ef7a06d14d18d26ddbe81ac211a12e38dae20cd937dbbee7f9",
+    "test/fpdamagebrowser.js": "aa6eb57e258c82d7785ab0c5927cd615602999fd17907c8a099be70ce3997a86",
+    "test/fproute.js": "4481e2b851045edbcb04af31dc1f938c7808f3452a74eb388fc29a588e3354d6",
+    "test/fpbench.js": "dd50af3ba85552a21124c7d14a35441d8a10d2213f43b97723c3fabc00f5061e",
+    "test/fpquality.js": "6379acba6c947bef96e433d5bbd77070e649a62a4280ee24d759260590afaf8f",
+    "test/fpqualitygate.js": "ca0b2ef6909718d537c75adf8c18ccd25eb202ae749a6fbc8dc802c4ab07ab9b",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "src/core/save.js": "64156077a6ac1538dae0e3cdcc602a1df56fa0136321ea0be62c173d2f77607e"
+  },
+  "evidenceFiles": {
+    "c34-clearance-node.log": "4b98a4c0699dc3834272b52288600bd4c5fb1259171a0b2aba0caad3b0f62c02",
+    "c34-integrated-node.log": "f27087a9132e89861b862cb74762a202b633a4bbf84303160b4f4d35568a0691",
+    "c34-final-focused.log": "84ecef9c49a33be74f4e40b7c6a2310157692a3e88c2ba320d8e3358bdb27dfb",
+    "c34-final-damage.log": "41860c1c79de509cfbd44efd7309fa2d21abf9754617ad5535969b3455617372",
+    "c34-world-node.log": "3bf41af22eacfe23ff9bac045bdd94a131e04b14b1440a36684dc991ce9e8e96",
+    "c34-damage-loaded-sweep.log": "f03beee6c97a3a6f1eb2d713a74ef675d41e150b98095ef3529ce02f12dca470",
+    "c34-damage-loaded-geometry.json": "00f3d07dd0696589c0182fa21eea13610758de02096e0fa4e73547bebee796b1",
+    "c34-damage-fallback-sweep.log": "31a3e9e85a9d8a333faca1bf610a2a87556723fe50717f41a3d7556b0a1d6952",
+    "c34-damage-fallback-geometry.json": "cfe00582a6516591910da9003a4708b5a5955a6eb9d2d501a1e69f262d7ff88a",
+    "c34-integrated-resume.log": "c54c155440d01b9ca5a1f26b4b3cb34f6c2b33aa337b411a6c1ef99c943a587f",
+    "c34-resume-soak.json": "e7807b180b3af23319f19ac347c84f0ab7249b0fca581ed6bafb4f89b1bb631f",
+    "c34-flow-save.json": "4389c10c409a86606c80c63651d4b3a42b3b430182ed613fa2f52be778561656",
+    "c34-integrated-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c34-package.log": "7d065368a2ea25aa8baceacf5fb978cef8df1d03416d6a87ed50b90beb0059b7",
+    "c34-low-final-damage.json": "80b7da68f88df75334f378389ab9eff99d9160ed483ae9b1a6f2a705659713dd",
+    "c34-low-final.log": "eab56f02aaefe87f673b54a0953040bd5cf24ce2ea1b943943ce60f67568d140"
+  },
+  "remaining": [
+    "Carry the already-authored C-32/C-33 projected-label script-font fallback, then rerun affected Tamil captures",
+    "Complete High English/Tamil keyboard/browser paths",
+    "Full 105-view four-profile WebGL resource gate",
+    "Relevant inherited browser/golden paths and final screenshots/clip",
+    "Claude translation and native Intel O-1"
+  ]
+}

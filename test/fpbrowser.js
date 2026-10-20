@@ -41,7 +41,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   const scan=async()=>{await press('Tab');await press('Digit1');check((await state()).aiming,'scanner enters aiming mode');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming);await p.keyboard.up('Space');await wait(180);check(!(await state()).aiming&&(await state()).device,'continuous trigger opens a scan result');};
   const open=async()=>{await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+LANG);await ready();await until(()=>OTR.i18n.lang===(new URLSearchParams(location.search).get('lang')||'en'));};
   await open();check(await ev(()=>!!OTR.game.scene.getScene('FirstPersonScene').view),'3D renderer starts');await shot('welcome');
-  await press('Enter');await press('KeyH');await shot('hub');await press('Digit2');await wait(750);await press('Enter');
+  await press('Enter');await press('KeyH');await shot('hub');await press('Digit2');await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.transitioning&&s.model&&s.panel;});await press('Enter');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').panel);
   check((await state()).m.kind==='campaign','hub starts a workday');
   await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model=OTR.fpMission.create('campaign',1);s.model.briefing={day:1,weather:'clear',clockMin:500};s.rebuildWorld();s.sync();});
   await pose(-12.1,11,'dispatch');await press('KeyE');await shot('morning-brief');
@@ -97,7 +97,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
    await press(stop.service==='handover'?'Digit1':stop.service==='safeplace'?'Digit2':'Digit3');check((await state()).m.stops[i].resolved,'record supported delivery outcome '+i);await shot('receipt-'+i);await press('Digit1');
    if(stop.service==='signature'){await pose(4,pz+0.65,'slot'+i);await press('KeyE');check((await state()).m.parcels[i].location==='slot'+i,'retain signature parcel in cargo');}
    await aimPoint('secure');await press('KeyE');await pose(5.5,vz+3.6,'cargo');await press('KeyE');
-   if(i===0){await press('KeyH');const before=JSON.stringify((await state()).m.parcels);await p.reload();await ready();await press('Digit2');await wait(750);await press('Enter');check(JSON.stringify((await state()).m.parcels)===before,'reload resumes identical cargo and scan state');}
+   if(i===0){await press('KeyH');const before=JSON.stringify((await state()).m.parcels);await p.reload();await ready();await press('Digit2');await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.transitioning&&s.model&&s.panel;});await press('Enter');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').panel);check(JSON.stringify((await state()).m.parcels)===before,'reload resumes identical cargo and scan state');}
   }
   check((await state()).m.phase==='return','all stops lead to depot return');
   await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');Object.assign(s.model.van,{x:4,z:8,yaw:0,speed:0,hand:true});s.sync();});
@@ -105,8 +105,11 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   await pose(4,8+2.05-(slot%3)*1.05+0.65,ret.id);await press('KeyE');await pose(-12.2,5,'returns');await press('KeyE');
   check((await state()).aiming,'Returns opens the barcode scanner');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming);await p.keyboard.up('Space');await wait(200);
   check((await state()).m.parcels[ret.stop].location==='returned','return scan checks in the held parcel');await shot('return-receipt');await press('Digit1');
-  await pose(-12.1,11,'dispatch');await press('KeyE');await press('Digit1');check((await state()).m.phase==='debrief','Dispatch completes the workday');await shot('debrief');await press('Escape');await wait(750);check((await state()).area==='hub','debrief returns to hub');
-  await press('KeyH');await press('Digit3');await wait(750);await press('Enter');check((await state()).m.kind==='practice','hub starts separate cargo practice');await pose(1.6,6.3,'driver');await press('KeyE');check((await state()).m.mode==='walk','cargo practice blocks driving');
+  await pose(-12.1,11,'dispatch');await press('KeyE');await press('Digit1');check((await state()).m.phase==='debrief','Dispatch completes the workday');await shot('debrief');await press('Escape');await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.area==='hub'&&!s.transitioning;});check((await state()).area==='hub','debrief returns to hub');
+  await press('KeyH');await until(()=>OTR.game.scene.getScene('FirstPersonScene').panel);
+  const practiceKey=await ev(()=>{const c=OTR.game.scene.getScene('FirstPersonScene').panel.choices;return c.findIndex(o=>/^(Cargo practice|Resume cargo practice)$/.test(o.label))+1;});
+  check(practiceKey>0,'hub offers separate cargo practice');await press('Digit'+practiceKey);
+  await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.transitioning&&s.model&&s.model.kind==='practice'&&s.panel;});await press('Enter');check((await state()).m.kind==='practice','hub starts separate cargo practice');await pose(1.6,6.3,'driver');await press('KeyE');check((await state()).m.mode==='walk','cargo practice blocks driving');
   await press('Tab');await shot('practice-handheld');await press('Digit2');await shot('practice-details');await press('Tab');
   await press('KeyH');await press('Digit4');await shot('settings');
   if(LANG==='hi')check(await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');let found=false;const visit=o=>{if(!o.visible)return;if(o.type==='Text'&&/[\u0900-\u097f]/.test(o.text))found=true;(o.list||[]).forEach(visit);};s.children.list.forEach(visit);return OTR.i18n.lang==='hi'&&found;}),'Hindi is active and Devanagari text is displayed');

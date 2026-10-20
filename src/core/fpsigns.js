@@ -163,6 +163,7 @@ OTR.fpSigns = {
     ui.top=top;ui.navX=scene.navRoot.x;ui.navY=scene.navRoot.y;ui.navVisible=scene.navRoot.visible;ui.lastAt=blocked?-1000:scene.time.now;
     for(const slot of ui.pool){slot.text.setVisible(false);slot.back.setVisible(false);slot.entry=null;}if(blocked)return;
     const bounds=[],point=ui.point||(ui.point=new THREE.Vector3());let count=0;
+    for(const q of occupied)if(q.clearance)bounds.push(q);
     // Keep projected text off the actual mirrors and live reversing screen, including when
     // the world sign itself sits beyond them along the same line of sight.
     for(const target of [...(scene.art.mirrors?scene.art.mirrors.targets:[]),...(scene.art.rear&&scene.art.rear.screen.visible?[scene.art.rear.screen]:[])]){

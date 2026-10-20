@@ -3,12 +3,15 @@
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
 const MiB=1024*1024,ROOT=path.join(__dirname,'..'),OUT=path.join(__dirname,'out/fp-review');
 const BUDGETS={low:{calls:64,triangles:2500,textures:2,attachmentBytes:4*MiB,phaserBytes:4*MiB},high:{calls:128,triangles:300000,textures:4,attachmentBytes:16*MiB,phaserBytes:16*MiB}};
+const CLEARANCE_VIEWS='damagebridge,damageoverhang,damagereverseclearance';
+const DAMAGE_VIEWS='damagefront,damagerear,damageleft,damageright,damagecargo,'+CLEARANCE_VIEWS+',damagemirror';
 const PROFILES=[
  {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsnumber,signsoneway,signspeak,navfull,navline,navreroute,navblocked,navdouble'},
  {id:'loaded-high',quality:'high',views:'cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,townhouse,townroad,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsoneway,signspeak,navfull,navline,navreroute,navblocked,navdouble'},
  {id:'accessible-low',quality:'low',accessibility:'large,colour,reduced',views:'cab,mirrorInterior,barcodeAim,visibleweatherstorm,actorscargoextra,laterrearpeak,signsjunction,signspeak,navfull,navreroute,navblocked'},
  {id:'fallback-low',quality:'low',fallback:true,views:'cab,mirrorInterior,lightingnightreverse,laterrearpeak,actorscargoextra,actorsresident,signsjunction,signspeak,navfull,navreroute,navblocked'}
 ];
+for(const profile of PROFILES)profile.views+=','+DAMAGE_VIEWS;
 for(const profile of PROFILES)profile.views+=profile.id==='loaded-low'||profile.id==='loaded-high'?',trafficsignal,trafficgreen,trafficcyclist,trafficmirror,trafficschool,trafficpeak':',trafficsignal,trafficschool,trafficpeak';
 function checkReport(report,profile,tag){
  const fail=text=>{throw Error(profile.id+': '+text);};
@@ -23,7 +26,12 @@ function checkReport(report,profile,tag){
  const budget=BUDGETS[profile.quality],peak={calls:0,triangles:0,textures:0,attachmentBytes:0,phaserBytes:0};
  for(const name of profile.views.split(',')){
   if(['mirror','mirrorRight','mirrorInterior'].includes(name)){const proof=report.mirrorProof&&report.mirrorProof[name],red=proof&&proof.red,blue=proof&&proof.blue;if(!red||!blue||!(red[0]>180&&red[0]>blue[0]+100&&blue[2]>150&&blue[0]<80))fail('No live reflected pixels for '+name+'.');}
+  if(name.startsWith('damage')){const p=report.damageProof&&report.damageProof[name];if(report.damageFixture!==true||!p||p.marker!==1||p.valid!==true||p.zones!==7||p.clearances!==2||p.instances!==15||p.shift!==3)fail('The located damage and clearance fixture was not exercised.');}
   const sample=report.prototype&&report.prototype[name];if(!sample||!(sample.frames>0)||sample.contextLost)fail('No valid frames for '+name+'.');
+  if(CLEARANCE_VIEWS.split(',').includes(name)){const a=sample.clearanceAlert,b=a&&a.bounds;
+   if(!a||!a.visible||!a.text.includes('8 feet 10 inches')||!b||b.x<0||b.y<0||b.right>1280||b.bottom>720)fail('No persistent readable clearance warning for '+name+'.');
+   if(name==='damagereverseclearance'&&!a.reverse)fail('No live reverse camera beside the clearance warning.');
+  }
   if(!sample.peak||!(sample.peak.calls>0)||!(sample.peak.triangles>0)||!(sample.peak.attachmentBytes>0))fail('An empty render was recorded for '+name+'.');
   for(const key of ['calls','triangles','textures','attachmentBytes']){const n=sample.peak&&sample.peak[key];if(!Number.isFinite(n)||n<0||n>budget[key])fail(name+' exceeds '+key+'.');peak[key]=Math.max(peak[key],n);}
   const bytes=sample.phaserTextures&&sample.phaserTextures.withMipmapsUpperBytes;if(!Number.isFinite(bytes)||bytes<0||bytes>budget.phaserBytes)fail(name+' exceeds Phaser texture memory.');peak.phaserBytes=Math.max(peak.phaserBytes,bytes);
@@ -33,12 +41,13 @@ function checkReport(report,profile,tag){
 function run(){
  fs.mkdirSync(OUT,{recursive:true});const selected=(process.env.QA_PROFILES||PROFILES.map(p=>p.id).join(',')).split(',').map(id=>id.trim()).filter(Boolean),tagBase=process.env.QA_TAG||'c29';
  if(!selected.length||selected.some(id=>!PROFILES.some(p=>p.id===id)))throw Error('Unknown or empty quality profile.');
- const summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),budgets:BUDGETS,profiles:[]};let failed=false;
- for(const profile of selected.map(id=>PROFILES.find(p=>p.id===id))){
+ const clearanceOnly=process.env.QA_CLEARANCE_ONLY==='1',summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),scope:clearanceOnly?'clearance-alerts':'complete',budgets:BUDGETS,profiles:[]};let failed=false;
+ for(const original of selected.map(id=>PROFILES.find(p=>p.id===id))){
+  const profile=clearanceOnly?{...original,views:CLEARANCE_VIEWS}:original;
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_DAMAGE:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   // Write measurements as they arrive, so a long profile can be inspected while it runs.
   const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
   try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}
@@ -50,4 +59,4 @@ function run(){
  }
  if(failed)process.exitCode=1;return summary;
 }
-module.exports={BUDGETS,PROFILES,checkReport};if(require.main===module)run();
+module.exports={BUDGETS,PROFILES,CLEARANCE_VIEWS,checkReport};if(require.main===module)run();

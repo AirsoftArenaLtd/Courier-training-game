@@ -21,7 +21,9 @@ OTR.fpHud={
     const m=s.model;if(!m)return '';
     if(m.mode==='cab'){
       if(m.kind==='parking'&&OTR.fpRear.requiresWalk(m)&&!OTR.fpRear.checked(m)&&!m.driving.reverseActive)return s.objectiveText();
-      return OTR.fpDriving.hint(m)||OTR.fpDay.hint(m)||(!m.van.belt?'Fasten the seatbelt before moving.':'');
+      const hint=OTR.fpDriving.hint(m)||(OTR.fpTraffic&&OTR.fpTraffic.hint(m))||OTR.fpDay.hint(m)||(!m.van.belt?'Fasten the seatbelt before moving.':''),
+        clearance=m.damage&&OTR.fpDamageFlow?OTR.fpDamageFlow.warning(m):'';
+      return clearance?(hint?clearance+' · '+hint:clearance):hint;
     }
     return OTR.fpDay.hint(m);
   },
@@ -84,7 +86,7 @@ OTR.fpHud={
     s.controls.setPosition(640,controlsBottom).setVisible(keys);
     const width=device?660:OTR.fpAccess.settings().large?760:620,center=device?390:640;
     s.setText('hint',blocked?'':hint,width);s.hint.setPosition(center,keys?controlsBottom-s.controls.height-14:690);
-    const warning=!!(m&&mode==='cab'&&(OTR.fpDriving.hint(m)||OTR.fpDay.hint(m)))||!!(s.notice&&now<s.noticeUntil)||aiming;
+    const warning=!!(m&&mode==='cab'&&(OTR.fpDriving.hint(m)||(OTR.fpTraffic&&OTR.fpTraffic.hint(m))||OTR.fpDay.hint(m)))||!!(s.notice&&now<s.noticeUntil)||aiming;
     if(blocked)s.hud.prompt.key=null;
     const alpha=blocked?0:this.alpha(s.hud.prompt,(s.target||'')+'|'+hint,s.hint.text,now,warning,reduced);
     s.hint.setAlpha(alpha).setVisible(!blocked&&!!hint&&alpha>0);

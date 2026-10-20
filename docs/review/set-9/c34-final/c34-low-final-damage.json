@@ -1,0 +1,160 @@
+{
+  "quality": "low",
+  "checks": 80,
+  "runs": [
+    {
+      "lang": "en",
+      "large": false,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1,
+            "where": {
+              "x": 47.5,
+              "z": -67.7,
+              "mph": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1,
+            "where": {
+              "x": 47.5,
+              "z": -112.7,
+              "mph": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1,
+            "where": {
+              "x": 47.5,
+              "z": -67.7,
+              "mph": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1,
+            "where": {
+              "x": 47.5,
+              "z": -67.7,
+              "mph": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "completed": true
+}

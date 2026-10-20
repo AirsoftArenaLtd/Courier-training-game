@@ -108,7 +108,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind,spot){this.transition(()=>{
     let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      const plan=kind==='campaign'?OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence))))):null;
+      const plan=kind==='campaign'?OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)))))):null;
       m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
@@ -262,7 +262,13 @@ class FirstPersonScene extends Phaser.Scene {
     const body=[day?`Day ${day.day}`:'Route manifest',day?day.weather:'',day?`Start: ${OTR.shift.clockStr(day.clockMin)}`:'',s.address,p.tracking,m.serviceLabel(s.id),m.routePlan?`Load the parcel for stop ${s.id+1} on ${OTR.fpMission.slots[s.id].name}.`:null].filter(Boolean).join('\n');
     const choices=[];
     if(page+1<m.stops.length)choices.push({label:'Next',action:()=>this.showManifest(page+1,complete)});
-    else choices.push({label:'Begin preparation',action:()=>{if(complete)m.readBrief();this.checkpoint();this.closePanel();}});
+    else choices.push({label:'Begin preparation',action:()=>{
+      const begin=()=>{if(complete)m.readBrief();this.checkpoint();this.closePanel();};
+      if(complete&&m.damage&&m.damage.enabled)this.showPanel('Know the van height.',
+        'Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.',
+        [{label:'Begin preparation.',action:begin}],{accessibleText:true,back:()=>this.showManifest(page,complete)});
+      else begin();
+    }});
     if(page>0)choices.push({label:'Previous',action:()=>this.showManifest(page-1,complete)});
     this.showPanel('Route manifest',body,choices,{back:()=>this.closePanel()});
   }
@@ -398,7 +404,7 @@ class FirstPersonScene extends Phaser.Scene {
     const k=code=>OTR.a11y?OTR.a11y.label(OTR.a11y.physical(code)):code;
     let hint='';const id=this.target;
     if(this.area==='hub')hint=id==='hub-day'?(this.progress.campaign?`${k('KeyE')} resumes the workday.`:`${k('KeyE')} starts the workday.`):id==='hub-practice'?`${k('KeyE')} starts cargo practice.`:id==='hub-record'?`${k('KeyE')} opens the last debrief.`:`${k('KeyH')} opens the hub menu.`;
-    else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpHud.screenHint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'');
+    else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpHud.screenHint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'')||(OTR.fpTraffic?OTR.fpTraffic.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
@@ -431,10 +437,13 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'||this.model.mode==='cab'))?this.art.pick():null;this.lastAim=time;const occupied=[];
       this.labels.forEach(({label,object})=>{
+        if(label.clearance){const size=OTR.fpAccess.settings().large?22:17;if(parseFloat(object.style.fontSize)!==size)object.setFontSize(size);}
         if(label.gauge&&this.model){const text=label.gauge==='speed'?`The speed is ${Math.round(Math.abs(this.model.van.speed)*2.23694)} mph.`:`The engine is at ${Math.round((this.model.motion?this.model.motion.rpm:800)/100)*100} RPM.`;if(label.text!==text){label.text=text;object.setText(text);}}
         const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;
-        if(!p||!label.gear&&occupied.some(q=>Math.abs(q.x-p.x)<230&&Math.abs(q.y-p.y)<35)){object.setVisible(false);return;}
-        if(!label.gear)occupied.push(p);object.setPosition(p.x,p.y).setVisible(true);});if(this.signUI)this.signUI.occupied=occupied;}
+        const w=object.displayWidth,h=object.displayHeight;
+        if(!p||label.clearance&&(p.x-w/2<12||p.x+w/2>1268||p.y-h/2<20||p.y+h/2>700)||!label.gear&&occupied.some(q=>
+          Math.abs(q.x-p.x)<(label.clearance||q.clearance?(w+(q.w||230))/2+12:230)&&Math.abs(q.y-p.y)<(label.clearance||q.clearance?(h+(q.h||35))/2+8:35))){object.setVisible(false);return;}
+        if(!label.gear)occupied.push(label.clearance?{x:p.x,y:p.y,w,h,clearance:true}:p);object.setPosition(p.x,p.y).setVisible(true);});if(this.signUI)this.signUI.occupied=occupied;}
     OTR.fpHud.navigation(this);
     if(this.model&&!this.model.paused&&time-this.lastSave>3000)this.checkpoint();this.refresh();if(OTR.fpSigns)OTR.fpSigns.updateUI(this,this.signUI.occupied);
   }

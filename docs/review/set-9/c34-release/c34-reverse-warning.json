@@ -1,0 +1,36 @@
+{
+  "checks": 8,
+  "fixture": "Day four, seed seven, rear facing the beam at ten meters; real scene ticks, captions, narration and camera.",
+  "errors": [],
+  "notice": "The clearance is 8 feet 10 inches. Take another street.",
+  "hint": "The clearance is 8 feet 10 inches. Take another street.",
+  "hintVisible": true,
+  "rearCamera": true,
+  "narration": [
+    "The rear camera is live. The rear sensors detect no obstacle within three meters.",
+    "The clearance is 8 feet 10 inches. Take another street."
+  ],
+  "events": [
+    {
+      "type": "drive.clearance",
+      "key": "clearance-0",
+      "ok": true,
+      "stop": 1,
+      "where": {
+        "x": 90,
+        "z": 20.3,
+        "mph": 0
+      }
+    }
+  ],
+  "damage": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "restored": true
+}

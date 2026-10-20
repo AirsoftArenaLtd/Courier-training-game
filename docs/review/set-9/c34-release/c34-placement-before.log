@@ -1,0 +1,103 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✖ wheel damage sits on the actual imported rear tire in both quality presets (1063.731892ms)
+✖ wheel damage follows the wheel rather than the sprung body during pitch and roll (45.624407ms)
+✖ a missing van model keeps wheel damage on the procedural tire face (55.74118ms)
+✖ rear damage stays on the imported cargo door while it opens (43.108239ms)
+✖ the procedural rear patch disappears with its removed cargo door and returns when closed (56.064282ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1506.107755
+
+✖ failing tests:
+
+test at test/fpdamageassets.js:19:1
+✖ wheel damage sits on the actual imported rear tire in both quality presets (1063.731892ms)
+  AssertionError [ERR_ASSERTION]: {"high":false,"actual":[1.7,0.45,9.75],"tire":[1.7519999570846556,0.5781818628311157,9.029374986886978]}
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageassets.js:24:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpdamageassets.js:27:1
+✖ wheel damage follows the wheel rather than the sprung body during pitch and roll (45.624407ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(art.damage.entries[5].matrix.equals(before))
+  
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageassets.js:31:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpdamageassets.js:34:1
+✖ a missing van model keeps wheel damage on the procedural tire face (55.74118ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(actual.distanceTo(p)<1e-7)
+  
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageassets.js:37:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpdamageassets.js:39:1
+✖ rear damage stays on the imported cargo door while it opens (43.108239ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(entry.local.elements[14]-door.g.boundingBox.max.z-.008)<1e-7)
+  
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageassets.js:43:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpdamageassets.js:51:1
+✖ the procedural rear patch disappears with its removed cargo door and returns when closed (56.064282ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c34-damage/test/fpdamageassets.js:53:51)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

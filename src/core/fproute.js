@@ -14,6 +14,7 @@ OTR.fpRoute = {
     if(plan.signs!==undefined&&plan.signs!==1)throw Error('Invalid road-sign version');
     if(plan.traffic!==undefined&&plan.traffic!==1)throw Error('Invalid traffic version');
     if(plan.navigation!==undefined&&plan.navigation!==1)throw Error('Invalid navigation version');
+    if(plan.damage!==undefined&&(plan.damage!==1||plan.day<4||!OTR.fpDamageFlow))throw Error('Invalid damage version');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {

@@ -696,3 +696,26 @@ Final raised-head traffic views:
 | fallback-low | 3 | 53 | 2,090 | 2 | 3,557,376 | 2,722,635 |
 
 Both CPU sweeps cover 264,000 views: loaded **62 calls / 2,410 triangles**, fallback **57 / 2,088**. The lower Low decoration allowance retains both navigation obstructions and bounds the new actors. No asset, image, texture or render pass is added; all ceilings are unchanged. Raw reports, screenshots, hashes and checklist: `docs/review/set-9/c32.md`. Cloud FPS is not Intel acceptance; O-1 remains.
+
+## C-34 damage and load (20 October 2026)
+
+Damage patches and both clearance structures share one bounded, texture-free palette
+batch: at most 15 instances / 45 triangles per pass, with per-instance main/reflection
+culling and exact buffer restoration. No new texture or render-target code is added.
+Two final CPU sweeps pass **285,600 complete-frame views each**, including full cargo,
+all seven damaged zones, both clearance approaches, cab controls, mirrors/reverse,
+weather and lighting. Loaded: **64 calls / 2,474 triangles**; missing-model fallback:
+**58 / 2,105**. The strictest loaded view is day 21 / variant 10 / stop 1 / loaded
+cargo exterior / right reflection. Final geometry: `b1acfc5`, with tire wear attached
+to the actual wheel and rear wear following the cargo door. The earlier geometry
+figures remain in the physical-stage manifest with their original source hashes.
+
+The complete 105-view, four-profile WebGL gate and final font/browser captures are
+still pending. These CPU figures do not establish memory usage or native Intel FPS;
+all Low/High ceilings stay unchanged and O-1 remains the native 60 fps check.
+[Evidence and remaining checks](review/set-9/c34-physical/manifest.json).
+
+Reproduce with `QA_DAMAGE=1 QA_NAV=1 QA_SIGNS=1 QA_LATER=1 QA_CAMERA=1 QA_CAB=1
+QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=1 QA_ASSETS=1
+QA_TAG=c34-release-loaded node --test --test-isolation=none test/fproute.js`; repeat
+with `QA_ASSETS=0 QA_TAG=c34-release-fallback`.
