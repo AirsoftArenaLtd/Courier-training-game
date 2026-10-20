@@ -1,0 +1,21 @@
+en: 15 cab targets, 0 problems
+es: 15 cab targets, 0 problems
+fr: 15 cab targets, 0 problems
+hi: 15 cab targets, 0 problems
+bn: 15 cab targets, 0 problems
+mr: 15 cab targets, 0 problems
+te: 15 cab targets, 0 problems
+ta: 15 cab targets, 0 problems
+gu: 15 cab targets, 0 problems
+/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:189
+                        ? new Error(`${response.errorText} at ${url}`)
+                          ^
+
+Error: net::ERR_EMPTY_RESPONSE at http://127.0.0.1:8337/first-person.html?gfx=low&lang=kn
+    at navigate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:189:27)
+    at async Deferred.race (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:155:25)
+    at async CdpPage.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:580:20)
+    at async /workspace/c32-traffic/test/fplangsbrowser.js:49:7
+
+Node.js v24.19.0

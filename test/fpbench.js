@@ -190,6 +190,29 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
    },kind);await sample('signs'+kind);
   }
+  if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){
+   await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
+    const peak=kind==='peak',day=peak?21:4,seed=peak?10:7,plan=OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,seed)))));
+    const m=OTR.fpMission.create('campaign',seed,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
+    m.phase='route';m.departed=m.secured=m.repaired=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.mode=kind==='cyclist'||kind==='school'||peak?'walk':'cab';
+    for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);Object.assign(m.van,{speed:0,hand:true,belt:true,gear:1,look:0,wipers:true});
+    if(kind==='signal'||kind==='green'){
+     const j=OTR.fpTraffic.layout(m).find(j=>j.kind==='signal');m.elapsed=((kind==='green'?0:23)-j.offset+54)%54;
+     Object.assign(m.van,{x:j.x+1.7,z:j.z+m.town.road/2+13,yaw:0});
+    }else if(kind==='school'){
+     const h=m.crossing;h.state='crossing';h.x=m.town.school.x-2;Object.assign(m.van,{x:m.town.school.x+1.7,z:h.z+8,yaw:0});
+     Object.assign(m.player,{x:h.x-5,z:h.z+6,yaw:Math.atan2(5,6),pitch:.05});
+    }else{
+     Object.assign(m.van,peak?m.stops[1].park:{x:2.84,z:-18,yaw:0});m.elapsed=10;
+     const c=m.trafficControl.cyclist,p=OTR.fp.local(m.van,2,1.2);Object.assign(c,{state:'beside',x:p.x,z:p.z,yaw:m.van.yaw,leg:m.leg,at:10});
+     if(peak){m.cargoOpen=true;m.stops.forEach(stop=>stop.contacted=true);OTR.fpDoors.sync(m);const p=OTR.fp.local(m.van,0,4.5);Object.assign(m.player,{...p,yaw:m.van.yaw,pitch:0});Object.assign(m.crossing,{state:'crossing',x:m.van.x+3,z:m.van.z-5});}
+     else Object.assign(m.player,{x:c.x+4,z:c.z+3,yaw:Math.atan2(-4,3),pitch:.08});
+    }
+    for(const [name,z] of [['bus',-18],['siren',14]]){const p=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:p.x,z:p.z,yaw:m.van.yaw});}
+    OTR.fpDriving.syncActors(m);OTR.fpTraffic.syncSolids(m);s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
+   },kind);report.trafficFixture=await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.routePlan.traffic===1&&m.routePlan.navigation===1&&!!m.trafficControl&&!!m.navigation;});if(kind==='mirror')await lookAtTarget('mirror-right');await sample('traffic'+kind);
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

@@ -1,0 +1,168 @@
+{
+  "checks": 76,
+  "samples": [
+    {
+      "lang": "en",
+      "large": false,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": [
+          {
+            "text": "The street is closed. Follow another cross street.",
+            "x": 693.257506374384,
+            "y": 276.2153262736215,
+            "right": 879.257506374384,
+            "bottom": 339.2153262736215,
+            "font": 18
+          }
+        ]
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.198746062541734,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": [
+          {
+            "text": "This is 2nd St.",
+            "x": 806.1228449614923,
+            "y": 269.2677595084389,
+            "right": 955.1228449614923,
+            "bottom": 294.2677595084389,
+            "font": 22
+          }
+        ]
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.229900938149295,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "fixture": {
+        "version": 1,
+        "lights": 3,
+        "limit": 180
+      },
+      "red": {
+        "shape": 10,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "visible": true,
+        "kind": "signal",
+        "labels": [
+          {
+            "text": "இது 2nd St.",
+            "x": 815.6228449614923,
+            "y": 269.2677595084389,
+            "right": 945.6228449614923,
+            "bottom": 294.2677595084389,
+            "font": 22
+          }
+        ]
+      },
+      "actors": {
+        "state": "beside",
+        "solid": true,
+        "quads": 4,
+        "highBike": false,
+        "children": 2
+      },
+      "checkpoint": {
+        "accepted": true,
+        "same": true,
+        "different": [],
+        "reports": 0
+      },
+      "driven": {
+        "z": -4.198606340228341,
+        "events": [
+          {
+            "type": "drive.red-light",
+            "key": "signal:1:1:n",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 46.7,
+              "z": -4.1,
+              "mph": 4
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

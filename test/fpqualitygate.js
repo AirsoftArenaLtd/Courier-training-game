@@ -35,3 +35,7 @@ test('healthy profiles reject a recovered fallback and reports missing the fallb
 test('navigation views must name their versioned campaign fixture',()=>{
  const r=report(),p={...profile,views:'navfull'};r.prototype.navfull=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/navigation fixture/);r.navigationFixture=true;assert.ok(checkReport(r,p,'sample'));
 });
+
+test('traffic views require the combined versioned traffic and navigation fixture',()=>{
+ const r=report(),p={...profile,views:'trafficpeak'};r.prototype.trafficpeak=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/traffic and navigation fixture/);r.trafficFixture=true;assert.ok(checkReport(r,p,'sample'));
+});

@@ -108,7 +108,8 @@ class FirstPersonScene extends Phaser.Scene {
   }
   launch(kind,spot){this.transition(()=>{
     let m=spot?null:OTR.fpMission.restore(this.progress[kind]);const resumed=!!m;if(!m){this.progress.sequence++;const day=((OTR.save.data.route||{}).days||0)+1;
-      m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,kind==='campaign'?OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence)))):null);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
+      const plan=kind==='campaign'?OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(day,this.progress.sequence))))):null;
+      m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
     this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();

@@ -1,6 +1,8 @@
 /* Company appearance in 3D, using the shared theme without adding a Three.js image map. */
 window.OTR=window.OTR||{};
 OTR.fpBrand={
+  // Canvas stroked text needs a primary face for its script on Linux and Windows.
+  scriptFonts:{hi:'Noto Sans Devanagari',mr:'Noto Sans Devanagari',bn:'Noto Sans Bengali',te:'Noto Sans Telugu',ta:'Noto Sans Tamil',gu:'Noto Sans Gujarati',kn:'Noto Sans Kannada',ml:'Noto Sans Malayalam',pa:'Noto Sans Gurmukhi'},
   read(){
     const data=typeof OTR_DATA==='undefined'?{}:OTR_DATA,t=data.theme||{},c=data.config||{};
     const colour=(key,fallback)=>Number.isInteger(t[key])&&t[key]>=0&&t[key]<=0xffffff?t[key]:fallback;
@@ -20,12 +22,13 @@ OTR.fpBrand={
     if(existing)scene.textures.remove(key);const texture=scene.textures.addCanvas(key,canvas);texture.fpSource=source;return key;
   },
   labels(scene){
-    const brand=this.read();return scene.art.labels.map(label=>{
+    const brand=this.read(),script=this.scriptFonts[OTR.i18n&&OTR.i18n.lang];return scene.art.labels.map(label=>{
       let object;if(label.brand){object=scene.add.container(0,0).setDepth(9).setVisible(false);
         if(scene.companyLogo)object.add(scene.add.image(0,-14,scene.companyLogo).setDisplaySize(112,28));
         else object.add(OTR.txt(scene,0,-14,brand.mark,21,'#ffffff',{fit:112,stroke:'#243039',strokeW:4}));
         object.add(OTR.txt(scene,0,17,brand.name,17,'#ffffff',{fit:220,stroke:'#243039',strokeW:4}));
       }else object=OTR.txt(scene,0,0,label.text,17,'#ffffff',{stroke:'#243039',strokeW:5,...(label.wrap?{wrap:label.wrap}:{fit:220})}).setDepth(9).setVisible(false);
+      if(script&&!label.brand){object.setFontFamily('\"Nirmala UI\", \"'+script+'\", '+OTR.theme.font);if(!label.wrap)object.setScale(Math.min(1,220/object.width));}
       return {label,object};
     });
   },

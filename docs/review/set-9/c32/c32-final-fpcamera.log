@@ -1,0 +1,17 @@
+✔ the first view matches the existing eye and is reused without touching saved mission state (7.247621ms)
+✔ turns have bounded heading lag and forward/reverse look-ahead; player look is immediate (6.314401ms)
+✔ zoom eases with speed and remains smaller on Low, while reduced motion restores the original view (3.577913ms)
+✔ acceleration, cornering and braking move the head inside the cab and retain physical body pitch (4.139884ms)
+✔ a wheel crossing a curb gives a small decaying impulse, with no impulse from teleporting (1.967421ms)
+✔ walking head movement stops for precision work, cargo and reduced motion without moving the player (6.073905ms)
+✔ stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score (0.361054ms)
+✔ camera movement remains consistent at 30, 60 and 120 FPS (47.31377ms)
+✔ the approved trainer API is cached at launch/resume and never called by the motor or camera (19.656547ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107.14088

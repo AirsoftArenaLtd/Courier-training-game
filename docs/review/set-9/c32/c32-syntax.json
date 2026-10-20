@@ -1,0 +1,132 @@
+[
+  {
+    "file": "src/core/fpactors.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpbranding.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpdriving.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpmission.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fproute.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpsigns.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fptown.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fptraffic.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/scenes/DriveReviewScene.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "src/scenes/FirstPersonScene.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpactors.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpnavbrowser.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpquality.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpqualitygate.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpresume.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fproute.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fpsigns.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fptraffic.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/fptrafficbrowser.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/paths/workday-3d.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/qa.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/scorm-launch.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/tools/review-set.js",
+    "exit": 0,
+    "error": ""
+  },
+  {
+    "file": "test/workday.js",
+    "exit": 0,
+    "error": ""
+  }
+]
