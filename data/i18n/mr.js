@@ -3808,7 +3808,21 @@ window.OTR_I18N.mr = {
 "Turn around when it is safe and follow the route.": "सुरक्षित असेल तेव्हा यू-टर्न घ्या आणि मार्ग अनुसरा.",
 "Stopped for a red traffic light": "लाल ट्रॅफिक लाइटला थांबलात",
 "Drove through a red traffic light": "लाल ट्रॅफिक लाइट ओलांडलात",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "लाल म्हणजे रेषेच्या मागे थांबा आणि हिरव्याची वाट पाहा, चौक रिकामा दिसला तरी."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "लाल म्हणजे रेषेच्या मागे थांबा आणि हिरव्याची वाट पाहा, चौक रिकामा दिसला तरी.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ट्रॅफिक लाइट आणि रस्त्यावरील चिन्हे पाळा. क्रॉसिंगवर लोकांना वाट द्या.",
+"Give way to traffic before entering the junction.": "चौकात शिरण्यापूर्वी इतर वाहनांना वाट द्या.",
+"Entered a junction while its traffic light was red.": "ट्रॅफिक लाइट लाल असताना चौकात शिरलात.",
+"Stopped behind the line and waited for the traffic light to turn green.": "रेषेच्या मागे थांबलात आणि ट्रॅफिक लाइट हिरवा होण्याची वाट पाहिलीत.",
+"Gave way to traffic before entering the junction.": "चौकात शिरण्यापूर्वी इतर वाहनांना वाट दिलीत.",
+"Entered the junction without giving way to approaching traffic.": "समोरून येणाऱ्या वाहनांना वाट न देता चौकात शिरलात.",
+"Moved into the school crossing before the children were clear.": "मुले दूर होण्यापूर्वीच शाळेच्या क्रॉसिंगमध्ये शिरलात.",
+"Checked the right mirror and waited for the cyclist before turning.": "उजवा आरसा पाहिलात आणि वळण्यापूर्वी सायकलस्वाराची वाट पाहिलीत.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "न पाहता आणि मोकळी जागा मिळण्याची वाट न पाहता सायकलस्वारासमोरून वळलात.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "उजव्या बाजूने एक सायकलस्वार जात आहे. उजवा आरसा पाहा आणि वळण्यापूर्वी थांबा.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "शाळेच्या क्रॉसिंगवर मुले वाट पाहत आहेत. वेग कमी करा आणि त्यांना ओलांडू द्या.",
+"The traffic light is green. Continue only when the junction is clear.": "ट्रॅफिक लाइट हिरवा आहे. चौक मोकळा असेल तरच पुढे जा.",
+"The traffic light is amber. Stop if you can do so safely.": "ट्रॅफिक लाइट पिवळा आहे. सुरक्षितपणे थांबता येत असेल तर थांबा.",
+"The traffic light is red. Stop before the junction line.": "ट्रॅफिक लाइट लाल आहे. चौकातील रेषेच्या आधी थांबा."
 },
 "templates": [
 [

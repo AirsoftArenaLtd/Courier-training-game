@@ -3809,7 +3809,21 @@ window.OTR_I18N.pa = {
 "Turn around when it is safe and follow the route.": "ਸੁਰੱਖਿਅਤ ਹੋਣ 'ਤੇ ਯੂ-ਟਰਨ ਲਓ ਅਤੇ ਰੂਟ ਦੀ ਪਾਲਣਾ ਕਰੋ।",
 "Stopped for a red traffic light": "ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ 'ਤੇ ਰੁਕੇ",
 "Drove through a red traffic light": "ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪਾਰ ਕਰ ਗਏ",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "ਲਾਲ ਦਾ ਮਤਲਬ ਹੈ ਲਾਈਨ ਦੇ ਪਿੱਛੇ ਰੁਕਣਾ ਅਤੇ ਹਰੇ ਦੀ ਉਡੀਕ ਕਰਨੀ, ਭਾਵੇਂ ਚੌਰਾਹਾ ਖਾਲੀ ਦਿਸੇ।"
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "ਲਾਲ ਦਾ ਮਤਲਬ ਹੈ ਲਾਈਨ ਦੇ ਪਿੱਛੇ ਰੁਕਣਾ ਅਤੇ ਹਰੇ ਦੀ ਉਡੀਕ ਕਰਨੀ, ਭਾਵੇਂ ਚੌਰਾਹਾ ਖਾਲੀ ਦਿਸੇ।",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟਾਂ ਅਤੇ ਸੜਕ ਦੇ ਨਿਸ਼ਾਨਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਕਰਾਸਿੰਗ 'ਤੇ ਲੋਕਾਂ ਨੂੰ ਰਾਹ ਦਿਓ।",
+"Give way to traffic before entering the junction.": "ਚੌਰਾਹੇ ਵਿੱਚ ਵੜਨ ਤੋਂ ਪਹਿਲਾਂ ਟ੍ਰੈਫਿਕ ਨੂੰ ਰਾਹ ਦਿਓ।",
+"Entered a junction while its traffic light was red.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਲਾਲ ਹੋਣ 'ਤੇ ਚੌਰਾਹੇ ਵਿੱਚ ਵੜ ਗਏ।",
+"Stopped behind the line and waited for the traffic light to turn green.": "ਲਾਈਨ ਦੇ ਪਿੱਛੇ ਰੁਕੇ ਅਤੇ ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਹਰੀ ਹੋਣ ਦੀ ਉਡੀਕ ਕੀਤੀ।",
+"Gave way to traffic before entering the junction.": "ਚੌਰਾਹੇ ਵਿੱਚ ਵੜਨ ਤੋਂ ਪਹਿਲਾਂ ਟ੍ਰੈਫਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤਾ।",
+"Entered the junction without giving way to approaching traffic.": "ਆ ਰਹੇ ਟ੍ਰੈਫਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤੇ ਬਿਨਾਂ ਚੌਰਾਹੇ ਵਿੱਚ ਵੜ ਗਏ।",
+"Moved into the school crossing before the children were clear.": "ਬੱਚਿਆਂ ਦੇ ਹਟਣ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਸਕੂਲ ਕਰਾਸਿੰਗ ਵਿੱਚ ਵੜ ਗਏ।",
+"Checked the right mirror and waited for the cyclist before turning.": "ਸੱਜਾ ਸ਼ੀਸ਼ਾ ਦੇਖਿਆ ਅਤੇ ਮੁੜਨ ਤੋਂ ਪਹਿਲਾਂ ਸਾਈਕਲ ਸਵਾਰ ਦੀ ਉਡੀਕ ਕੀਤੀ।",
+"Turned across the cyclist without checking and waiting for a clear gap.": "ਬਿਨਾਂ ਦੇਖੇ ਅਤੇ ਖਾਲੀ ਥਾਂ ਦੀ ਉਡੀਕ ਕੀਤੇ ਬਿਨਾਂ ਸਾਈਕਲ ਸਵਾਰ ਦੇ ਅੱਗੋਂ ਮੁੜ ਗਏ।",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "ਸੱਜੇ ਪਾਸਿਓਂ ਇੱਕ ਸਾਈਕਲ ਸਵਾਰ ਲੰਘ ਰਿਹਾ ਹੈ। ਸੱਜਾ ਸ਼ੀਸ਼ਾ ਦੇਖੋ ਅਤੇ ਮੁੜਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",
+"Children are waiting at the school crossing. Slow down and let them cross.": "ਸਕੂਲ ਕਰਾਸਿੰਗ 'ਤੇ ਬੱਚੇ ਉਡੀਕ ਕਰ ਰਹੇ ਹਨ। ਰਫ਼ਤਾਰ ਘਟਾਓ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਲੰਘਣ ਦਿਓ।",
+"The traffic light is green. Continue only when the junction is clear.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਹਰੀ ਹੈ। ਚੌਰਾਹਾ ਖਾਲੀ ਹੋਵੇ ਤਾਂ ਹੀ ਅੱਗੇ ਵਧੋ।",
+"The traffic light is amber. Stop if you can do so safely.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪੀਲੀ ਹੈ। ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੁਕ ਸਕੋ ਤਾਂ ਰੁਕੋ।",
+"The traffic light is red. Stop before the junction line.": "ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਲਾਲ ਹੈ। ਚੌਰਾਹੇ ਦੀ ਲਾਈਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।"
 },
 "templates": [
 [

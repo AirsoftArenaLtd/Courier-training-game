@@ -3809,7 +3809,21 @@ window.OTR_I18N.bn = {
 "Turn around when it is safe and follow the route.": "নিরাপদ হলে ঘুরে যান এবং রুট অনুসরণ করুন।",
 "Stopped for a red traffic light": "লাল ট্রাফিক লাইটে থেমেছেন",
 "Drove through a red traffic light": "লাল ট্রাফিক লাইট পেরিয়ে গেছেন",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "লাল মানে লাইনের পেছনে থামা ও সবুজের জন্য অপেক্ষা করা, মোড় ফাঁকা দেখালেও।"
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "লাল মানে লাইনের পেছনে থামা ও সবুজের জন্য অপেক্ষা করা, মোড় ফাঁকা দেখালেও।",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ট্রাফিক লাইট আর রাস্তার চিহ্ন মেনে চলুন। ক্রসিংয়ে মানুষকে পথ ছেড়ে দিন।",
+"Give way to traffic before entering the junction.": "মোড়ে ঢোকার আগে অন্য গাড়িকে পথ ছেড়ে দিন।",
+"Entered a junction while its traffic light was red.": "ট্রাফিক লাইট লাল থাকা অবস্থায় মোড়ে ঢুকে পড়েছেন।",
+"Stopped behind the line and waited for the traffic light to turn green.": "লাইনের পেছনে থেমে ট্রাফিক লাইট সবুজ হওয়ার জন্য অপেক্ষা করেছেন।",
+"Gave way to traffic before entering the junction.": "মোড়ে ঢোকার আগে অন্য গাড়িকে পথ ছেড়ে দিয়েছেন।",
+"Entered the junction without giving way to approaching traffic.": "আসতে থাকা গাড়িকে পথ না ছেড়েই মোড়ে ঢুকে পড়েছেন।",
+"Moved into the school crossing before the children were clear.": "শিশুরা সরে যাওয়ার আগেই স্কুল ক্রসিংয়ে ঢুকে পড়েছেন।",
+"Checked the right mirror and waited for the cyclist before turning.": "ডান আয়না দেখে বাঁক নেওয়ার আগে সাইকেল আরোহীর জন্য অপেক্ষা করেছেন।",
+"Turned across the cyclist without checking and waiting for a clear gap.": "না দেখে, ফাঁকা জায়গার জন্য অপেক্ষা না করেই সাইকেল আরোহীর সামনে দিয়ে বাঁক নিয়েছেন।",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "ডান দিক দিয়ে একজন সাইকেল আরোহী যাচ্ছেন। ডান আয়না দেখুন আর বাঁক নেওয়ার আগে অপেক্ষা করুন।",
+"Children are waiting at the school crossing. Slow down and let them cross.": "স্কুল ক্রসিংয়ে শিশুরা অপেক্ষা করছে। গতি কমান আর ওদের পার হতে দিন।",
+"The traffic light is green. Continue only when the junction is clear.": "ট্রাফিক লাইট সবুজ। মোড় ফাঁকা থাকলে তবেই এগোন।",
+"The traffic light is amber. Stop if you can do so safely.": "ট্রাফিক লাইট হলুদ। নিরাপদে থামতে পারলে থামুন।",
+"The traffic light is red. Stop before the junction line.": "ট্রাফিক লাইট লাল। মোড়ের লাইনের আগে থামুন।"
 },
 "templates": [
 [

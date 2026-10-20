@@ -3808,7 +3808,21 @@ window.OTR_I18N.gu = {
 "Turn around when it is safe and follow the route.": "સુરક્ષિત હોય ત્યારે પાછા વળો અને માર્ગને અનુસરો.",
 "Stopped for a red traffic light": "લાલ ટ્રાફિક લાઇટ પર થોભ્યા",
 "Drove through a red traffic light": "લાલ ટ્રાફિક લાઇટ પરથી પસાર થઈ ગયા",
-"Red means stop behind the line and wait for green, even when the junction looks empty.": "લાલ એટલે લાઇનની પાછળ થોભવું અને લીલી લાઇટની રાહ જોવી, ભલે ચોકડી ખાલી લાગે."
+"Red means stop behind the line and wait for green, even when the junction looks empty.": "લાલ એટલે લાઇનની પાછળ થોભવું અને લીલી લાઇટની રાહ જોવી, ભલે ચોકડી ખાલી લાગે.",
+"Follow the traffic lights and road signs. Give way to people at crossings.": "ટ્રાફિક લાઇટ અને રસ્તાના સંકેતો પાળો. ક્રૉસિંગ પર લોકોને રસ્તો આપો.",
+"Give way to traffic before entering the junction.": "ચોકડીમાં પ્રવેશતાં પહેલાં ટ્રાફિકને રસ્તો આપો.",
+"Entered a junction while its traffic light was red.": "ટ્રાફિક લાઇટ લાલ હતી ત્યારે ચોકડીમાં પ્રવેશ્યા.",
+"Stopped behind the line and waited for the traffic light to turn green.": "લાઇનની પાછળ થોભ્યા અને ટ્રાફિક લાઇટ લીલી થવાની રાહ જોઈ.",
+"Gave way to traffic before entering the junction.": "ચોકડીમાં પ્રવેશતાં પહેલાં ટ્રાફિકને રસ્તો આપ્યો.",
+"Entered the junction without giving way to approaching traffic.": "સામેથી આવતા ટ્રાફિકને રસ્તો આપ્યા વિના ચોકડીમાં પ્રવેશ્યા.",
+"Moved into the school crossing before the children were clear.": "બાળકો ખસી ગયાં તે પહેલાં સ્કૂલ ક્રૉસિંગમાં આગળ વધ્યા.",
+"Checked the right mirror and waited for the cyclist before turning.": "જમણો અરીસો જોયો અને વળતાં પહેલાં સાઇકલસવારની રાહ જોઈ.",
+"Turned across the cyclist without checking and waiting for a clear gap.": "જોયા વિના અને ખાલી જગ્યાની રાહ જોયા વિના સાઇકલસવારની આગળથી વળ્યા.",
+"A cyclist is passing on the right. Check the right mirror and wait before turning.": "જમણી બાજુથી એક સાઇકલસવાર પસાર થઈ રહ્યો છે. જમણો અરીસો જુઓ અને વળતાં પહેલાં રાહ જુઓ.",
+"Children are waiting at the school crossing. Slow down and let them cross.": "સ્કૂલ ક્રૉસિંગ પર બાળકો રાહ જોઈ રહ્યાં છે. ઝડપ ઘટાડો અને તેમને પસાર થવા દો.",
+"The traffic light is green. Continue only when the junction is clear.": "ટ્રાફિક લાઇટ લીલી છે. ચોકડી ખાલી હોય ત્યારે જ આગળ વધો.",
+"The traffic light is amber. Stop if you can do so safely.": "ટ્રાફિક લાઇટ પીળી છે. સુરક્ષિત રીતે થોભી શકો તો થોભો.",
+"The traffic light is red. Stop before the junction line.": "ટ્રાફિક લાઇટ લાલ છે. ચોકડીની લાઇન પહેલાં થોભો."
 },
 "templates": [
 [
