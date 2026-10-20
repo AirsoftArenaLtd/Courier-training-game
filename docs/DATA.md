@@ -13,7 +13,7 @@ Only what training needs, entered or produced by playing:
 | --- | --- | --- |
 | Who | an employee ID and a display name (from the company's sign-in, the LMS, the employee ID sign-in, or typed on first use) | to keep each trainee's progress apart and to name the record |
 | Progress | stars and scores per module, attempts, assessment results and dates, quiz answers' results, certificate status | the academy, the trainer's view, the LMS |
-| Workdays | each finished 3D workday: date, score, stars, lessons, the list of what was done right or wrong with where in the town a driving mistake happened (game coordinates and speed), time taken | the debrief, the drive review map, the before-and-after report |
+| Workdays | each finished 3D workday: date, score, stars, lessons, the list of what was done right or wrong with where in the town a driving mistake happened (game coordinates and speed), time taken; which help was on that day (driving assists, sat nav, the other aids); its critical mistakes by type (for example `drive.red-light`), for the LMS; how many red lights, wrong turns, give-way and cyclist mistakes it had (from day 3, when there is traffic); the number of the generated town it was played in; each stop's address and whether it was delivered | the debrief, the drive review map, the before-and-after report, the LMS |
 | Settings | language, larger text, colour-blind setting, key remapping, graphics level, narration | to play the way the trainee needs |
 
 Not collected: no real-world location, camera, microphone, contacts, device identifiers, advertising or analytics

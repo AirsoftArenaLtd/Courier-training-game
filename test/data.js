@@ -85,6 +85,27 @@ test('erase: progress, backups and the sign-in all go; the audit log keeps the i
   assert.equal(fs.readFileSync(path.join(DATA, 'audit.log'), 'utf8').includes('Pat Lee'), false, 'no name or data in the log');
 });
 
+test('B-66: a milestone 8 workday is in the download whole (aids, critical types, road habits, the town, places) and erasing removes it', async () => {
+  const day = { id: 'w8', day: 4, at: 1760900000000, seconds: 1500, score: 1900, stars: { safety: 1, efficiency: 2, service: 3 },
+    criticals: ['Drove through a red traffic light'], criticalTypes: ['drive.red-light'], aids: 'flfon', road: [1, 2, 0, 1], townSeed: 7,
+    lessons: ['Red means stop behind the line and wait for green.'], stops: [{ stop: 1, delivered: true, address: '204 Harbor St', x: 12, z: -30 }],
+    events: [{ type: 'drive.red-light', key: 'signal:1:2:n', ok: false, stop: 1, where: { x: 12.5, z: -40.2, mph: 21, t: 300 } }] };
+  let r = await call('progress?user=emp8', 'PUT', { progress: { savedAt: 3, profile: { name: 'Ana Ruiz', id: 'emp8' }, day: 5,
+    workday: { last: day, first: { at: 1760800000000, score: 900, stars: { safety: 1, efficiency: 1, service: 1 }, criticals: 1, road: [2, 1, 1, 1] } },
+    history: [{ id: 'workday', kind: 'workday', at: day.at, score: day.score, stars: day.stars, criticals: day.criticals, aids: day.aids, road: day.road }] } });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  r = await call('trainees/emp8/export', 'GET', undefined, PIN);
+  assert.equal(r.status, 200);
+  const last = r.body.progress.workday.last;
+  for (const k of ['aids', 'criticalTypes', 'road', 'townSeed', 'stops', 'events']) assert.equal(JSON.stringify(last[k]), JSON.stringify(day[k]), 'the download has ' + k);
+  assert.equal(JSON.stringify(r.body.progress.workday.first.road), '[2,1,1,1]', 'and the first day\'s road habits');
+  assert.equal(JSON.stringify(r.body.progress.history[0].road), '[1,2,0,1]', 'and the record of runs');
+  r = await call('trainees/emp8/erase', 'POST', undefined, PIN);
+  assert.equal(r.status, 200);
+  assert.equal(files().filter(n => n.startsWith('emp8.json')).length, 0, 'nothing of it left on disk');
+  assert.equal((await call('trainees/emp8/export', 'GET', undefined, PIN)).status, 404);
+});
+
 test('old backups are purged after OTR_BACKUP_DAYS; recent ones and progress stay', () => {
   const old = path.join(progressDir(), 'zed.json.1.bak'), recent = path.join(progressDir(), 'zed.json.2.bak'), live = path.join(progressDir(), 'zed.json');
   fs.writeFileSync(old, '{}'); fs.writeFileSync(recent, '{}'); fs.writeFileSync(live, '{}');
