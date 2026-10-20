@@ -3832,7 +3832,13 @@ window.OTR_I18N.ta = {
 "◀ Prev": "◀ முந்தையது",
 "Next ▶": "அடுத்து ▶",
 "map ›": "வரைபடம் ›",
-"Finish ▶": "முடி ▶"
+"Finish ▶": "முடி ▶",
+"Road habits: mistakes per day": "சாலைப் பழக்கங்கள்: நாளுக்கு தவறுகள்",
+"Red lights driven through": "சிவப்பு சிக்னலைத் தாண்டியது",
+"Wrong turns": "தவறான திருப்பம்",
+"Did not give way": "வழி விடாதது",
+"Turned across a cyclist": "சைக்கிள் ஓட்டுநருக்கு குறுக்கே திரும்பியது",
+"From the {0} trainees whose first and latest workdays both had traffic.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் போக்குவரத்து இருந்த {0} பயிற்சி பெறுநர்களில்."
 },
 "templates": [
 [

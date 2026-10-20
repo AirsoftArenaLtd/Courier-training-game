@@ -3833,7 +3833,13 @@ window.OTR_I18N.hi = {
 "◀ Prev": "◀ पिछला",
 "Next ▶": "आगे ▶",
 "map ›": "नक्शा ›",
-"Finish ▶": "खत्म करें ▶"
+"Finish ▶": "खत्म करें ▶",
+"Road habits: mistakes per day": "सड़क की आदतें: प्रति दिन गलतियाँ",
+"Red lights driven through": "लाल ट्रैफ़िक लाइट पार करना",
+"Wrong turns": "गलत मोड़",
+"Did not give way": "रास्ता न देना",
+"Turned across a cyclist": "साइकिल सवार के आगे से मुड़ना",
+"From the {0} trainees whose first and latest workdays both had traffic.": "उन {0} प्रशिक्षुओं में से, जिनके पहले और नवीनतम कार्यदिवस दोनों में ट्रैफ़िक था।"
 },
 "templates": [
 [

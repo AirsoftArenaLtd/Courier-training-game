@@ -3833,7 +3833,13 @@ window.OTR_I18N.fr = {
 "◀ Prev": "◀ Précédent",
 "Next ▶": "Suivant ▶",
 "map ›": "carte ›",
-"Finish ▶": "Terminer ▶"
+"Finish ▶": "Terminer ▶",
+"Road habits: mistakes per day": "Habitudes de conduite : erreurs par jour",
+"Red lights driven through": "Feux rouges grillés",
+"Wrong turns": "Erreurs de route",
+"Did not give way": "Priorité non cédée",
+"Turned across a cyclist": "Trajectoire d'un cycliste coupée",
+"From the {0} trainees whose first and latest workdays both had traffic.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient de la circulation."
 },
 "templates": [
 [

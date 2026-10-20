@@ -3832,7 +3832,13 @@ window.OTR_I18N.kn = {
 "◀ Prev": "◀ ಹಿಂದಿನದು",
 "Next ▶": "ಮುಂದೆ ▶",
 "map ›": "ನಕ್ಷೆ ›",
-"Finish ▶": "ಮುಗಿಸಿ ▶"
+"Finish ▶": "ಮುಗಿಸಿ ▶",
+"Road habits: mistakes per day": "ರಸ್ತೆ ಅಭ್ಯಾಸಗಳು: ದಿನಕ್ಕೆ ತಪ್ಪುಗಳು",
+"Red lights driven through": "ಕೆಂಪು ಟ್ರಾಫಿಕ್ ಲೈಟ್ ದಾಟಿದ್ದು",
+"Wrong turns": "ತಪ್ಪು ತಿರುವು",
+"Did not give way": "ದಾರಿ ಬಿಡದಿದ್ದು",
+"Turned across a cyclist": "ಸೈಕಲ್ ಸವಾರರ ಮುಂದೆ ತಿರುಗಿದ್ದು",
+"From the {0} trainees whose first and latest workdays both had traffic.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಸಂಚಾರ ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ."
 },
 "templates": [
 [

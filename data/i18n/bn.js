@@ -3833,7 +3833,13 @@ window.OTR_I18N.bn = {
 "◀ Prev": "◀ আগেরটি",
 "Next ▶": "পরবর্তী ▶",
 "map ›": "মানচিত্র ›",
-"Finish ▶": "শেষ করুন ▶"
+"Finish ▶": "শেষ করুন ▶",
+"Road habits: mistakes per day": "সড়কের অভ্যাস: প্রতিদিন ভুল",
+"Red lights driven through": "লাল ট্রাফিক লাইট পেরিয়ে যাওয়া",
+"Wrong turns": "ভুল মোড়",
+"Did not give way": "পথ না ছাড়া",
+"Turned across a cyclist": "সাইকেল আরোহীর সামনে দিয়ে বাঁক নেওয়া",
+"From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।"
 },
 "templates": [
 [

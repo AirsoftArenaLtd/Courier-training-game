@@ -3832,7 +3832,13 @@ window.OTR_I18N.ml = {
 "◀ Prev": "◀ മുമ്പത്തെ",
 "Next ▶": "അടുത്തത് ▶",
 "map ›": "മാപ്പ് ›",
-"Finish ▶": "അവസാനിപ്പിക്കുക ▶"
+"Finish ▶": "അവസാനിപ്പിക്കുക ▶",
+"Road habits: mistakes per day": "റോഡിലെ ശീലങ്ങൾ: ദിവസേനയുള്ള പിഴവുകൾ",
+"Red lights driven through": "ചുവപ്പ് ട്രാഫിക് ലൈറ്റ് കടന്നുപോയത്",
+"Wrong turns": "തെറ്റായ തിരിവ്",
+"Did not give way": "വഴി നൽകാതിരുന്നത്",
+"Turned across a cyclist": "സൈക്കിൾ യാത്രികന്റെ മുന്നിലൂടെ തിരിഞ്ഞത്",
+"From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്."
 },
 "templates": [
 [
