@@ -100,3 +100,20 @@ test('a wrong locker attempt keeps one failed report and its actual map place af
  assert.ok(Math.abs(reports[0].where.x-m.player.x)<.051);assert.ok(Math.abs(reports[0].where.z-m.player.z)<.051);
  restore(m);assert.equal(W.events.filter(e=>e.type==='stop.locker').length,1);
 });
+
+test('native later-day gates keep a clear walking entry with navigation and damage present',()=>{
+ let gates=0;
+ for(let day=4;day<=7;day++)for(let seed=1;seed<=40;seed++){
+  const m=mission(seed,day);assert.ok(m.damage);assert.equal(m._damageClearances.length,2);
+  for(let id=0;id<5;id++)if(m._deliverySpecs[id].gated){
+   gates++;const s=m.stops[id],p=F.point(m,id),a=m._deliverySpecs[id].protocol;at(m,id);
+   Object.assign(m.player,{x:p.x-s.side*1.2,z:p.z});
+   assert.equal(m.blocked(s.x-s.side*2.6,p.z),true,'the locked gate blocks the entry');
+   F.act(m,id,'intercom.call',{button:a.button,purpose:'delivery'});m.elapsed+=2;F.act(m,id,'intercom.open');assert.equal(m._deliveryActionOK,true);
+   const start=m.player.x,end=s.x-s.side*1.5;
+   for(let n=0;n<=32;n++)assert.equal(m.blocked(start+(end-start)*n/32,p.z),false,'day '+day+', seed '+seed+', entry step '+n);
+   Object.assign(m.player,{x:end,z:p.z});assert.equal(m.near('door'+id),true);
+  }
+ }
+ assert.ok(gates>=10,'real native gates are covered');console.log('Native combined clear walking gates:',gates);
+});
