@@ -3841,7 +3841,10 @@ window.OTR_I18N.ml = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ട്രാഫിക് ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്.",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "ഗ്രൂപ്പിനായി പേജ് പ്രിന്റ് ചെയ്യുക, അല്ലെങ്കിൽ സംഖ്യകൾ Excel അല്ലെങ്കിൽ Google Sheets-നായി സ്പ്രെഡ്ഷീറ്റായി ഡൗൺലോഡ് ചെയ്യുക.",
 "Spreadsheet (CSV)": "സ്പ്രെഡ്ഷീറ്റ് (CSV)",
-"Spreadsheet downloaded": "സ്പ്രെഡ്ഷീറ്റ് ഡൗൺലോഡ് ചെയ്തു"
+"Spreadsheet downloaded": "സ്പ്രെഡ്ഷീറ്റ് ഡൗൺലോഡ് ചെയ്തു",
+"This workday was started on another computer": "ഈ ജോലിദിനം മറ്റൊരു കമ്പ്യൂട്ടറിലാണ് തുടങ്ങിയത്",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "നഗരത്തിൽ നിങ്ങൾ എവിടെയായിരുന്നു എന്നത് ആ കമ്പ്യൂട്ടറിൽ മാത്രമാണ് സൂക്ഷിച്ചിരിക്കുന്നത്. ഇതുവരെയുള്ള സ്റ്റോപ്പുകൾ നിലനിർത്താൻ അവിടെ ദിവസം പൂർത്തിയാക്കുക, അല്ലെങ്കിൽ ഇവിടെ രാവിലെ മുതൽ വീണ്ടും തുടങ്ങുക: അപ്പോൾ മറ്റേ കമ്പ്യൂട്ടറിൽ ചെയ്ത സ്റ്റോപ്പുകൾ ഒഴിവാക്കപ്പെടും.",
+"Start again here": "ഇവിടെ വീണ്ടും തുടങ്ങുക"
 },
 "templates": [
 [

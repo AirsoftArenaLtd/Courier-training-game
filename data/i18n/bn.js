@@ -3842,7 +3842,10 @@ window.OTR_I18N.bn = {
 "From the {0} trainees whose first and latest workdays both had traffic.": "যে {0} জন প্রশিক্ষণার্থীর প্রথম ও সর্বশেষ কর্মদিবস দুটিতেই ট্রাফিক ছিল, তাঁদের হিসাব।",
 "Print the page for the group, or download the numbers as a spreadsheet for Excel or Google Sheets.": "গ্রুপের জন্য পাতাটি প্রিন্ট করুন, অথবা সংখ্যাগুলো Excel বা Google Sheets-এর জন্য স্প্রেডশিট হিসেবে ডাউনলোড করুন।",
 "Spreadsheet (CSV)": "স্প্রেডশিট (CSV)",
-"Spreadsheet downloaded": "স্প্রেডশিট ডাউনলোড হয়েছে"
+"Spreadsheet downloaded": "স্প্রেডশিট ডাউনলোড হয়েছে",
+"This workday was started on another computer": "এই কর্মদিবস অন্য একটি কম্পিউটারে শুরু হয়েছিল",
+"Where you were in the town is kept on that computer only. Finish the day there to keep your stops so far, or start it again here from the morning: the stops done on the other computer are then dropped.": "শহরে আপনি কোথায় ছিলেন তা শুধু সেই কম্পিউটারেই রাখা আছে। এখন পর্যন্ত করা স্টপ রাখতে চাইলে সেখানে গিয়ে দিনটি শেষ করুন, অথবা এখানে সকাল থেকে আবার শুরু করুন: তখন অন্য কম্পিউটারে করা স্টপগুলো বাদ যাবে।",
+"Start again here": "এখানে আবার শুরু করুন"
 },
 "templates": [
 [
