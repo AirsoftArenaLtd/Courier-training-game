@@ -214,7 +214,8 @@ OTR.save = {
    * their keys, by type, runs of numbered keys written once: see packRuns). unpackDay reverses it (the grouped reports come back after the others).
    * B-55: type names are written short ("~d.sign-stop" for "drive.sign-stop", see TYPE_PREFIXES), and a right check at a
    * stop with no place is one pair in s: [[t, stop, key, stop, key, ...]] (key left out as null when it has none).
-   * Days packed before B-55 (full names, no s) still unpack.
+   * Days packed before B-55 (full names, no s) still unpack. Places are kept to the metre (B-68: under 1.5 px on the
+   * drive map), speeds to 1 mph and times to the second.
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
@@ -236,7 +237,7 @@ OTR.save = {
       // a right check at a stop with no place: its stop and key, grouped by type (B-55)
       if (ev.ok !== false && Number.isInteger(stop) && !w) { (s[ti] = s[ti] || []).push(stop, key); return; }
       const row = [ti, key, ev.ok === false ? 0 : 1, stop,
-        w ? num(w.x, 10) : null, w ? num(w.z, 10) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
+        w ? num(w.x, 1) : null, w ? num(w.z, 1) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });

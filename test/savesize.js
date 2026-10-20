@@ -110,7 +110,7 @@ test('step 3: a long day is packed, and comes back whole, places and all', () =>
   assert.equal(saved.history.length, 2, 'the trainee record is kept');
   const pins = OTR.drive.pins(W.log);
   assert.equal(pins.length, 40 + 10, 'every driving mistake still has its pin');
-  assert.deepEqual({ ...pins[1].where }, { x: 1.2, z: -3.2, mph: 32, t: 61 });
+  assert.deepEqual({ ...pins[1].where }, { x: 1, z: -3, mph: 32, t: 61 });     // places to the metre (B-68): under 1.5 px on the map
   // the 3D world replays what it had reported: nothing counts twice
   play(longDay(40, 6));
   assert.equal(W.log.score(), live.score); assert.equal(W.log.items.length, live.items);
@@ -211,6 +211,40 @@ test('B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, a
     const E = context.OTR_DATA.workdayEvents[t];
     assert.ok(lines.includes(E.fail || E.label) || lines.includes(E.label), 'the debrief has a line for ' + t);
   });
+});
+
+// B-68: C-34's damage and load on top of the worst milestone 8 day, with C-34's own keys (fpdamage.js): damage at three
+// zones (scuff, dent, major), both clearances (one struck), two load shifts, existing damage found at the pre-trip, and
+// each new damage reported at the post-trip
+const damageDay = () => milestone8Day().concat([
+  ['inspect.damage', { key: 'rear-right' }], ['inspect.damage', { key: 'front-left' }],
+  ['van.damage-scuff', { key: 'left:post-1', ok: false, where: { x: 41.2, z: -88.4, mph: 6, t: 610 } }],
+  ['van.damage-dent', { key: 'rear:bollard-2', ok: false, where: { x: -12.6, z: -140.9, mph: 4, t: 1220 } }],
+  ['van.damage-major', { key: 'front:car-3', ok: false, where: { x: 88.1, z: -201.3, mph: 17, t: 1610 } }],
+  ['drive.clearance', { key: 'clearance-0', ok: true, where: { x: 60.4, z: -120.2, mph: 3, t: 900 } }],
+  ['drive.clearance', { key: 'clearance-1-strike', ok: false, where: { x: 102.5, z: -160.7, mph: 9, t: 1400 } }],
+  ['load.shift', { key: 'load-2', ok: false, where: { x: 30.3, z: -99.1, mph: 22, t: 700 } }],
+  ['load.shift', { key: 'load-4', ok: false, where: { x: 70.8, z: -180.6, mph: 24, t: 1500 } }],
+  ['trip.damage-report', { key: 'left', ok: true }], ['trip.damage-report', { key: 'rear', ok: true }], ['trip.damage-report', { key: 'front', ok: false }]
+]);
+
+test('B-68: C-34\'s damage and load on the worst milestone 8 day still pack with room to spare', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  const list = damageDay();
+  play(list);
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
+  const room = SAVE.SCORM12_LIMIT - JSON.stringify(stored()).length;
+  // 324 when written (B-68): richer stops (C-33) add about 60 for five stops of intercoms, receptions, lockers and reattempts
+  assert.ok(room >= 300, `room left under the ${SAVE.SCORM12_LIMIT}-character limit with C-34's damage too: ${room}`);
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every damage, strike and shift keeps its pin');
+  const marks = OTR.drive.pins(W.log).map(p => p.mark).filter(Boolean);
+  ['damage', 'clearance', 'load'].forEach(m => assert.ok(marks.includes(m), m + ' has its own pin shape'));
 });
 
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
