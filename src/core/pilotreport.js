@@ -21,12 +21,17 @@ OTR.pilotReport = {
       const d = Math.round((b - a) * 100) / 100;
       return `<tr><td>${name}</td><td>${E(a)}${unit || ''}</td><td>${E(b)}${unit || ''}</td><td class="${cls(d, lowerIsBetter)}">${sign(d)}${unit || ''}</td></tr>`;
     };
+    // road habits (B-54): mistakes per day, for the trainees whose first and latest days both had traffic
+    const roadNames = { 'red-light': T('Red lights driven through'), route: T('Wrong turns'), giveway: T('Did not give way'), cyclist: T('Turned across a cyclist') };
+    const road = g.road ? `<h2>${T('Road habits: mistakes per day')}</h2><table class="grp"><thead><tr><th></th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
+        ${g.road.kinds.map((k, i) => line(roadNames[k] || E(k), g.road.first[i], g.road.latest[i], true)).join('')}
+      </tbody></table><p class="note">${F('From the {0} trainees whose first and latest workdays both had traffic.', g.road.trainees)}</p>` : '';
     const groupTable = g.first && g.latest ? `<table class="grp"><thead><tr><th></th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
         ${line(T('Score'), g.first.score, g.latest.score)}
         ${cats.map(c => line(`${E(lab(c))} ★`, g.first.stars[c], g.latest.stars[c])).join('')}
         ${line(T('Critical errors per day'), g.first.criticals, g.latest.criticals, true)}
         ${line(T('Met every pass mark'), g.first.passedPercent, g.latest.passedPercent, false, '%')}
-      </tbody></table>` : `<p>${T('No trainee has finished two workdays yet, so there is nothing to compare.')}</p>`;
+      </tbody></table>${road}` : `<p>${T('No trainee has finished two workdays yet, so there is nothing to compare.')}</p>`;
     const list = rows.length ? `<table class="who"><thead><tr><th>${T('Trainee')}</th><th>${T('Workdays')}</th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
         ${rows.map(t => `<tr><td>${E(t.name)}<span class="id"> ${E(t.id)}</span></td><td>${t.days}</td>
           <td class="stars">${E(stars(t.first))}</td><td class="stars">${E(stars(t.latest))}</td>
@@ -43,7 +48,7 @@ OTR.pilotReport = {
       table { width: 100%; border-collapse: collapse; font-size: 10pt; } td, th { padding: 4px 6px; border-bottom: 1px solid #eee; text-align: left; }
       thead th { font-size: 9pt; color: #555; border-bottom: 1px solid #aab; } .stars { letter-spacing: 1px; color: #C98A00; white-space: nowrap; }
       .id { color: #888; font-size: 9pt; } .up { color: #1E7E55; font-weight: 700; } .down { color: #B3122E; font-weight: 700; }
-      footer { margin-top: 18px; font-size: 8pt; color: #666; }
+      footer { margin-top: 18px; font-size: 8pt; color: #666; } .note { font-size: 9pt; color: #555; margin: 4px 0 0; }
     </style></head><body>
       <header><div><div class="brand">${cfg.brand ? E(cfg.brand) + ' ' : ''}<b>${E(cfg.title)}</b></div><h1>${T('Before and after: the training pilot')}</h1></div>
         <div class="meta">${F('Printed {0}', E(R.date(Date.now())))}</div></header>

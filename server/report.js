@@ -8,6 +8,7 @@
  *   beforeAfter([{ id, name, progress }], passMarks) -> { generated, passMarks, trainees: [...], group: {...} }
  */
 const CATS = ['safety', 'efficiency', 'service'];
+const ROAD = ['red-light', 'route', 'giveway', 'cyclist'];      // the order of a day's road tally (src/core/workday.js)
 
 const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
 
@@ -15,7 +16,10 @@ const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
 function pick(d) {
   const stars = {}; CATS.forEach(c => { stars[c] = num(d.stars && d.stars[c]); });
   const crit = Array.isArray(d.criticals) ? d.criticals.length : num(d.criticals);
-  return { at: num(d.at), score: num(d.score), stars, total: CATS.reduce((a, c) => a + stars[c], 0), criticals: crit };
+  const out = { at: num(d.at), score: num(d.score), stars, total: CATS.reduce((a, c) => a + stars[c], 0), criticals: crit };
+  // B-54: [red lights, wrong turns, give way, cyclists] got wrong that day, on days that had traffic (null before)
+  if (Array.isArray(d.road) && d.road.length === ROAD.length) out.road = d.road.map(num);
+  return out;
 }
 
 /** A trainee's finished workdays, oldest first: from the record of runs, else the saved first and last day. */
@@ -66,8 +70,12 @@ function beforeAfter(list, passMarks) {
     };
     group.first = side(t => t.first); group.latest = side(t => t.latest);
     multi.forEach(t => { if (t.change > 0) group.improved++; else if (t.change < 0) group.worse++; else group.same++; });
+    // road habits per day, for the trainees whose first and latest days both had traffic (B-54)
+    const both = multi.filter(t => t.first.road && t.latest.road);
+    if (both.length) group.road = { trainees: both.length, kinds: ROAD,
+      first: ROAD.map((_, i) => r2(mean(both.map(t => t.first.road[i])))), latest: ROAD.map((_, i) => r2(mean(both.map(t => t.latest.road[i])))) };
   }
   return { generated: new Date().toISOString(), passMarks: marks, trainees, group };
 }
 
-module.exports = { beforeAfter, daysOf, CATS };
+module.exports = { beforeAfter, daysOf, CATS, ROAD };

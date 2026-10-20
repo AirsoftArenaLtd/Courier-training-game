@@ -3832,7 +3832,13 @@ window.OTR_I18N.mr = {
 "◀ Prev": "◀ मागील",
 "Next ▶": "पुढे ▶",
 "map ›": "नकाशा ›",
-"Finish ▶": "संपवा ▶"
+"Finish ▶": "संपवा ▶",
+"Road habits: mistakes per day": "रस्त्यावरील सवयी: दररोज चुका",
+"Red lights driven through": "लाल ट्रॅफिक लाइट ओलांडणे",
+"Wrong turns": "चुकीचे वळण",
+"Did not give way": "वाट न देणे",
+"Turned across a cyclist": "सायकलस्वारासमोरून वळणे",
+"From the {0} trainees whose first and latest workdays both had traffic.": "पहिल्या आणि अलीकडील कामाच्या दिवशी, दोन्ही दिवशी ट्रॅफिक असलेल्या {0} प्रशिक्षणार्थींमधून."
 },
 "templates": [
 [

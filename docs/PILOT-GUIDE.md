@@ -109,7 +109,8 @@ the modules the company cares about most, then the workday, then the assessments
 - Open a trainee to see their record. **Allow retakes** gives one more attempt at every assessment they have not passed.
   **Reset** starts their progress again (the old file is kept as a backup for 30 days).
 - **Before and after** prints a page for the whole group: each trainee's first workday next to their latest, and how the
-  group's average score, stars, critical errors and share meeting every pass mark moved. Use it at the end of the
+  group's average score, stars, critical errors and share meeting every pass mark moved. From the third workday, with
+  traffic, it also shows road habits per day: red lights driven through, wrong turns, not giving way and turning across a cyclist. Use it at the end of the
   pilot to show whether training worked. It needs at least two workdays from each trainee you want to compare.
 - A trainee's **certificate** is available from their record once every module is passed in assessment.
 - **Their data** lets you download everything held about one trainee or erase it (`docs/DATA.md`). Erase only when

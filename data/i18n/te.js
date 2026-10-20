@@ -3832,7 +3832,13 @@ window.OTR_I18N.te = {
 "◀ Prev": "◀ మునుపటి",
 "Next ▶": "తర్వాత ▶",
 "map ›": "మ్యాప్ ›",
-"Finish ▶": "ముగించండి ▶"
+"Finish ▶": "ముగించండి ▶",
+"Road habits: mistakes per day": "రోడ్డు అలవాట్లు: రోజుకు తప్పులు",
+"Red lights driven through": "ఎరుపు ట్రాఫిక్ లైట్ దాటడం",
+"Wrong turns": "తప్పు మలుపు",
+"Did not give way": "దారి ఇవ్వకపోవడం",
+"Turned across a cyclist": "సైక్లిస్ట్ ముందు నుంచి తిరగడం",
+"From the {0} trainees whose first and latest workdays both had traffic.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ట్రాఫిక్ ఉన్న {0} శిక్షణార్థులలో."
 },
 "templates": [
 [

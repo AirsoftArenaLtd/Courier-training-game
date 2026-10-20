@@ -3843,7 +3843,13 @@ window.OTR_I18N.es = {
 "◀ Prev": "◀ Anterior",
 "Next ▶": "Siguiente ▶",
 "map ›": "mapa ›",
-"Finish ▶": "Terminar ▶"
+"Finish ▶": "Terminar ▶",
+"Road habits: mistakes per day": "Hábitos al volante: errores por día",
+"Red lights driven through": "Semáforos en rojo cruzados",
+"Wrong turns": "Giros equivocados",
+"Did not give way": "No cedió el paso",
+"Turned across a cyclist": "Cortó el paso a un ciclista",
+"From the {0} trainees whose first and latest workdays both had traffic.": "De los {0} aprendices cuya primera y última jornada tuvieron tráfico."
 },
 "templates": [
 [

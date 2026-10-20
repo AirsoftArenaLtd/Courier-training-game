@@ -3832,7 +3832,13 @@ window.OTR_I18N.gu = {
 "◀ Prev": "◀ પાછલું",
 "Next ▶": "આગળ ▶",
 "map ›": "નકશો ›",
-"Finish ▶": "પૂરું કરો ▶"
+"Finish ▶": "પૂરું કરો ▶",
+"Road habits: mistakes per day": "રસ્તા પરની આદતો: રોજની ભૂલો",
+"Red lights driven through": "લાલ ટ્રાફિક લાઇટ પરથી પસાર થવું",
+"Wrong turns": "ખોટો વળાંક",
+"Did not give way": "રસ્તો ન આપવો",
+"Turned across a cyclist": "સાઇકલસવારની આગળથી વળવું",
+"From the {0} trainees whose first and latest workdays both had traffic.": "જે {0} તાલીમાર્થીઓના પહેલા અને તાજેતરના કામકાજના દિવસ બંનેમાં ટ્રાફિક હતો તેમાંથી."
 },
 "templates": [
 [

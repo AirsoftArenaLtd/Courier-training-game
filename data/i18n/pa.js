@@ -3833,7 +3833,13 @@ window.OTR_I18N.pa = {
 "◀ Prev": "◀ ਪਿਛਲਾ",
 "Next ▶": "ਅੱਗੇ ▶",
 "map ›": "ਨਕਸ਼ਾ ›",
-"Finish ▶": "ਖ਼ਤਮ ਕਰੋ ▶"
+"Finish ▶": "ਖ਼ਤਮ ਕਰੋ ▶",
+"Road habits: mistakes per day": "ਸੜਕ ਦੀਆਂ ਆਦਤਾਂ: ਪ੍ਰਤੀ ਦਿਨ ਗਲਤੀਆਂ",
+"Red lights driven through": "ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪਾਰ ਕਰਨਾ",
+"Wrong turns": "ਗ਼ਲਤ ਮੋੜ",
+"Did not give way": "ਰਾਹ ਨਾ ਦੇਣਾ",
+"Turned across a cyclist": "ਸਾਈਕਲ ਸਵਾਰ ਦੇ ਅੱਗੋਂ ਮੁੜਨਾ",
+"From the {0} trainees whose first and latest workdays both had traffic.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਟ੍ਰੈਫਿਕ ਸੀ।"
 },
 "templates": [
 [
