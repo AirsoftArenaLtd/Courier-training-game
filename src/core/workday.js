@@ -284,11 +284,31 @@ OTR.workday = {
       stops, delivered: stops.filter(s => s.delivered).length,
       events: (cur ? cur.events : this.events).slice()
     };
+    const road = this.roadTally(log);
+    if (road) rec.road = road;
     if (summary.depot && Number.isFinite(summary.depot.x) && Number.isFinite(summary.depot.z)) rec.depot = { x: summary.depot.x, z: summary.depot.z };
     // the day's town, so the drive review can draw its streets under the pins (B-29): the 3D world builds its streets
     // from OTR.town.build(townSeed), so the seed is all the record needs to keep
     if (Number.isSafeInteger(summary.townSeed)) rec.townSeed = summary.townSeed;
     return rec;
+  },
+
+  /** The road habits the before-and-after report compares (B-54), in this order. */
+  ROAD: ['drive.red-light', 'drive.route', 'drive.sign-giveway', 'drive.cyclist'],
+  /**
+   * How many times a day got each of ROAD wrong ([red lights, wrong turns, give way, cyclists]), or null on a day that
+   * reported none of them (before milestone 8, or the first days without traffic), so it is not counted as a clean one.
+   */
+  roadTally(log) {
+    const items = (log && log.items) || [], out = this.ROAD.map(() => 0);
+    let seen = false;
+    items.forEach(it => {
+      const i = this.ROAD.indexOf(it.type);
+      if (i < 0) return;
+      seen = true;
+      if (it.kind === 'penalty' || (it.kind === 'check' && it.got < it.max)) out[i]++;
+    });
+    return seen ? out : null;
   },
 
   /**
@@ -311,6 +331,7 @@ OTR.workday = {
     S.route.history = S.route.history.slice(-10);
     const h = S.history = S.history || [];
     h.push({ id: 'workday', kind: 'workday', at: rec.at, assess: false, score: rec.score, stars: rec.stars, dur: rec.seconds, criticals: rec.criticals, lessons: rec.lessons, aids: rec.aids });
+    if (rec.road) h[h.length - 1].road = rec.road;
     if (h.length > 400) h.splice(0, h.length - 400);
     const W = this.saved();
     // the very first finished day is kept in a few numbers, so the before-and-after report still has it once the record
@@ -318,6 +339,7 @@ OTR.workday = {
     if (!W.first) {
       const oldest = rec && h.find(x => x && x.id === 'workday' && x.at < rec.at && x.stars) || rec;
       W.first = { at: oldest.at, score: oldest.score, stars: Object.assign({}, oldest.stars), criticals: Array.isArray(oldest.criticals) ? oldest.criticals.length : (oldest.criticals || 0) };
+      if (Array.isArray(oldest.road)) W.first.road = oldest.road.slice();
     }
     W.last = rec;
     W.current = null;

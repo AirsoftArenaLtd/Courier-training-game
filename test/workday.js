@@ -302,6 +302,25 @@ test('B-47: milestone 8 mistakes keep their own pins and every marker has a lege
   assert.match(OTR.drive.MARKS.find(([m]) => m === 'sign')[1], /traffic light/);
 });
 
+test('B-54: a day with traffic keeps how often it ran a red light, turned wrong, did not give way or cut up a cyclist', () => {
+  fresh(); W.start(null);
+  const at = (i) => ({ x: i, z: -i, mph: 10, t: i });
+  W.report('drive.red-light', { key: 'signal:1:2:n', ok: false, where: at(1) });
+  W.report('drive.red-light', { key: 'signal:2:1:e', ok: true, where: at(2) });
+  W.report('drive.route', { key: 'leg1', ok: false, where: at(3) });
+  W.report('drive.route', { key: 'leg2', ok: false, where: at(4) });
+  W.report('drive.cyclist', { key: 'cyclist:0', ok: true, where: at(5) });
+  const rec = W.finish(null, { stops: [] });
+  assert.equal(JSON.stringify(rec.road), JSON.stringify([1, 2, 0, 0]));
+  W.keep(rec);
+  const S = OTR.save.data, h = S.history[S.history.length - 1];
+  assert.equal(JSON.stringify(h.road), JSON.stringify([1, 2, 0, 0]), 'on the record of runs');
+  assert.equal(JSON.stringify(S.workday.first.road), JSON.stringify([1, 2, 0, 0]), 'and on the stored first day');
+  // a day without traffic keeps no tally (it is not a clean one)
+  fresh(); W.start(null); W.report('drive.signal', { key: 't1', ok: false, where: at(1) });
+  assert.equal(W.finish(null, { stops: [] }).road, undefined);
+});
+
 test('B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without', () => {
   const real = OTR.academy;
   // the trainer's rules as the academy gives them: assists full on day 1, off from day 4 (the default "fade by day")

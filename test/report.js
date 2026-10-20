@@ -88,6 +88,25 @@ test('the page to print: the group, each trainee, and no markup from a name', ()
   assert.ok(empty.includes('Nobody has finished a workday yet.') && empty.includes('nothing to compare'));
 });
 
+test('B-54: road habits per day, for trainees whose first and latest days both had traffic', () => {
+  const road = (r, a) => Object.assign(r, { road: a });
+  const L = [
+    trainee('r1', 'Ria', [road(run(1000, 1, 2, 2), [2, 1, 1, 1]), road(run(2000, 2, 2, 2), [0, 1, 0, 0])]),
+    trainee('r2', 'Raj', [road(run(1000, 1, 2, 2), [1, 3, 0, 1]), road(run(2000, 2, 2, 2), [1, 0, 0, 0])]),
+    trainee('r3', 'Rob', [run(1000, 1, 2, 2), road(run(2000, 2, 2, 2), [5, 5, 5, 5])]),                       // first day before traffic: left out
+    trainee('r4', 'Rae', [run(5000, 3, 3, 3)], { workday: { first: { at: 100, score: 250, stars: { safety: 1, efficiency: 1, service: 1 }, criticals: 1, road: [3, 3, 3, 3] }, last: null } })   // latest has no traffic
+  ];
+  const out = R.beforeAfter(L, MARKS);
+  assert.equal(JSON.stringify(R.ROAD), JSON.stringify(['red-light', 'route', 'giveway', 'cyclist']));
+  assert.equal(out.group.road.trainees, 2, 'only Ria and Raj had traffic on both days');
+  assert.equal(JSON.stringify(out.group.road.first), JSON.stringify([1.5, 2, 0.5, 1]));
+  assert.equal(JSON.stringify(out.group.road.latest), JSON.stringify([0.5, 0.5, 0, 0]));
+  const page = context.OTR.pilotReport.html(JSON.parse(JSON.stringify(out)));
+  ['Road habits: mistakes per day', 'Red lights driven through', 'Wrong turns', 'Did not give way', 'Turned across a cyclist', 'From the 2 trainees'].forEach(s => assert.ok(page.includes(s), s));
+  // a group with no traffic days has no road table
+  assert.ok(!context.OTR.pilotReport.html(JSON.parse(JSON.stringify(R.beforeAfter(list, MARKS)))).includes('Road habits'));
+});
+
 test('the training server: the report needs the trainer PIN and reads the progress files', async () => {
   const DATA = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-report-'));
   process.env.OTR_DATA_DIR = DATA; process.env.OTR_TRAINER_PIN = '4821'; process.env.OTR_ALLOW_QUERY_USER = '1';
