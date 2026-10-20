@@ -4,7 +4,13 @@ OTR.fpAccess={
   textResolution(scene){
     // The shared text helper requests 2x canvases. On Low, keep native-size glyphs at 1x backing resolution.
     if(!scene.fpTextFactory)scene.fpTextFactory=scene.add.text;
-    scene.add.text=(x,y,text,style)=>scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,{resolution:OTR.gfx.high()?2:1}));
+    scene.add.text=(x,y,text,style)=>{
+      // Pick the script before measuring/wrapping a Text object. Company fonts remain the fallback.
+      const script=OTR.fpBrand&&OTR.fpBrand.scriptFonts[OTR.i18n&&OTR.i18n.lang];
+      const fallback=style&&style.fontFamily||OTR.theme&&OTR.theme.font||'sans-serif';
+      const font=script?{fontFamily:'"Nirmala UI", "'+script+'", '+fallback}:{};
+      return scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,font,{resolution:OTR.gfx.high()?2:1}));
+    };
   },
   settings(){return OTR.a11y?OTR.a11y.settings():{};},
   // Cab speech has two bounded slots. Ordinary hints wait for speech already in progress;
