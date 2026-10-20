@@ -210,6 +210,7 @@ const make = (opts) => async (page, ctx) => {
   await press('KeyV');                                             // look forward again
   await press('Space');
   if (process.env.QA_GFX) must(await ev((g) => OTR.gfx.level() === g, process.env.QA_GFX), 'the 3D workday did not run at QA_GFX=' + process.env.QA_GFX);
+  if (process.env.QA_LANG) must(await ev((l) => OTR.i18n.lang === l, process.env.QA_LANG), 'the 3D workday did not run in QA_LANG=' + process.env.QA_LANG);   // B-60
   // a leg fails only when the van stops getting closer for 30 s of wall time (or after 5 minutes): on a software-rendered
   // High run the game may simulate a tenth of a second in five, so a fixed deadline measured the PC, not the drive
   const driveTo = async (z) => {
