@@ -1,0 +1,17 @@
+✔ first and latest day for each trainee who finished a workday (10.190513ms)
+✔ the group: only trainees with two or more days, and how many moved which way (6.535609ms)
+✔ pass marks come from the trainer's settings; with none, two stars (0.391997ms)
+✔ nothing to compare yet (0.268516ms)
+✔ the page to print: the group, each trainee, and no markup from a name (32.222484ms)
+✔ B-54: road habits per day, for trainees whose first and latest days both had traffic (43.031989ms)
+✔ B-92: doorsteps and loading per day, for trainees whose first and latest days both had them (0.656206ms)
+✔ B-65: the same numbers as a spreadsheet, one row per trainee, safe to open in Excel (0.713661ms)
+✔ the training server: the report needs the trainer PIN and reads the progress files (225.40345ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 335.612522

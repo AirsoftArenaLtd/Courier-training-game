@@ -71,3 +71,12 @@ test('richer-stop counters need physical control, custody and native-schedule pr
 test('traffic views require the combined versioned traffic and navigation fixture',()=>{
  const r=report(),p={...profile,views:'trafficpeak'};r.prototype.trafficpeak=r.prototype.cab;assert.throws(()=>checkReport(r,p,'sample'),/traffic and navigation fixture/);r.trafficFixture=true;assert.ok(checkReport(r,p,'sample'));
 });
+
+test('walkaround views require the opted-in model and seven non-rendered physical targets',()=>{
+ const r=report(),p={...profile,views:'walkroof'};r.prototype.walkroof=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/physical walkaround fixture/);
+ r.walkaroundFixture=true;r.walkaroundProof={walkroof:{marker:1,valid:true,targets:7,proxyOnly:true}};assert.ok(checkReport(r,p,'sample'));
+ for(const [key,value] of [['marker',0],['valid',false],['targets',0],['proxyOnly',false]]){
+  const saved=r.walkaroundProof.walkroof[key];r.walkaroundProof.walkroof[key]=value;assert.throws(()=>checkReport(r,p,'sample'),/physical walkaround fixture/);r.walkaroundProof.walkroof[key]=saved;
+ }
+});

@@ -164,6 +164,53 @@ const make = (opts) => async (page, ctx) => {
   };
   const lookAhead = async () => { if ((await state()).device) await press('Digit1'); };   // put away a receipt
 
+  // ---- C-35's walkaround (B-99): on a day that has one, every area of the van inspected and recorded on the handheld,
+  // as docs/3D-WALKAROUND.md's recipe says: stand outside the area, P until its wear-<zone> target is selected, E, then
+  // choose the description the handheld shows (or See more descriptions. first), and put the handheld away
+  const walkPhase = () => ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; return OTR.fpWalkaroundFlow && m.walkaround ? OTR.fpWalkaroundFlow.phase(m) || null : null; });
+  const walkaround = async (phase) => {
+    if ((await walkPhase()) !== phase) return false;
+    const zones = await ev(() => OTR.fpWalkaround.zones.slice());
+    for (const zone of zones) {
+      // stand where fpWalkaroundFlow.canInspect allows: outside the area's face of the van, within 2.1 m of it (in the
+      // van's own coordinates), then look at the area's target, which only shows from there
+      await ev((zone) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, F = OTR.fpWalkaroundFlow, t = F.target(zone);
+        s.handheld.close(); s.closePanel();
+        const lx = zone === 'right' ? Math.max(t.x + 0.8, 1.25) : zone === 'front' || zone === 'rear' ? t.x : Math.min(t.x - 0.8, -1.25);
+        const lz = zone === 'front' ? Math.min(t.z - 0.8, -2.85) : zone === 'rear' ? Math.max(t.z + 0.8, 2.85) : t.z;
+        const c = Math.cos(m.van.yaw), sn = Math.sin(m.van.yaw);
+        Object.assign(m.player, { x: m.van.x + c * lx - sn * lz, z: m.van.z + sn * lx + c * lz }); s.sync(); }, zone);
+      await wait(200);
+      await ev((zone) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
+        const o = (s.art.walkaroundTargets || []).find((o) => o.name === 'walkaround-' + zone);
+        if (!o || !o.visible) throw Error('No visible wear-' + zone + ' ' + JSON.stringify({ can: OTR.fpWalkaroundFlow.canInspect(m, zone), player: m.player, van: m.van }));
+        const v = o.getWorldPosition(new THREE.Vector3()), eye = s.view.camera.position, ex = v.x - eye.x, ez = v.z - eye.z;
+        m.player.yaw = Math.atan2(ex, -ez); m.player.pitch = Math.atan2(eye.y - v.y, Math.hypot(ex, ez)); s.sync(); }, zone);
+      await wait(160);
+      for (let n = 0; n < 14 && !(await ev((z) => OTR.game.scene.getScene('FirstPersonScene').target === 'wear-' + z, zone)); n++) await press('KeyP');
+      must(await ev((z) => OTR.game.scene.getScene('FirstPersonScene').target === 'wear-' + z, zone), `the target key never reached the ${zone} of the van (${phase})`);
+      await press('KeyE');
+      must(await ctx.until(`${FP}.handheld.isOpen && ${FP}.handheld.device.current && ${FP}.handheld.device.current.title === 'Inspect the van.'`, 5000), `inspecting the ${zone} did not open "Inspect the van." (${phase})`);
+      if (zone === zones[0]) await shot('walkaround-' + phase);
+      const seen = await ev(() => { const c = OTR.game.scene.getScene('FirstPersonScene').handheld.device.current; const l = c.lines[1]; return typeof l === 'string' ? l : l.text; });
+      const esc = seen.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!(await ev((t) => OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.options.some((o) => o.label === t), seen))) await pick(/^See more descriptions\.$/);
+      await pick(new RegExp('^' + esc + '$'));
+      must(await ctx.until(`${FP}.handheld.device.current && ${FP}.handheld.device.current.title === 'It is recorded.'`, 5000), `the ${zone}'s condition was not recorded (${phase})`);
+      await pick(/^Put away the handheld\.$/);
+    }
+    console.log(`      walkaround (${phase}): all ${zones.length} areas recorded`);
+    return true;
+  };
+  // the reports it leads to: one per area with damage, right, by zone, with no stop and no place (the recipe's step 4)
+  const walkReports = async (type, field) => {
+    const want = await ev((field) => { const m = OTR.game.scene.getScene('FirstPersonScene').model, Z = OTR.fpWalkaround.zones; return Z.filter((z, i) => m.damage[field][i] > 0).sort(); }, field);
+    const got = await ev((type) => OTR.workday.events.filter((e) => e.type === type).map((e) => ({ key: e.key, ok: e.ok, stop: e.stop, where: e.where })), type);
+    must(JSON.stringify(got.map((e) => e.key).sort()) === JSON.stringify(want) && got.every((e) => e.ok === true && e.stop == null && !e.where),
+      `${type} should be one right report per damaged area (${want.join(', ') || 'none'}), with no stop or place: ${JSON.stringify(got)}`);
+    return want.length;
+  };
+
   // ---- the hub: a new courier starts the 3D workday
   await ev(() => localStorage.clear());
   await ctx.reload();
@@ -262,6 +309,7 @@ const make = (opts) => async (page, ctx) => {
     await press(part === fault ? 'Digit2' : 'Digit1');
   }
 
+  const preWalk = await walkaround('pretrip');                    // B-99: C-35's walkaround before the first drive
   // ---- the cab: belt, parking brake, then the start of the first leg on throttle and brake, through the first junction
   await use('driver');
   must((await state()).m.mode === 'cab', 'could not enter the cab');
@@ -295,6 +343,7 @@ const make = (opts) => async (page, ctx) => {
   await driveTo(junctionZ - 9);
   must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.mirrors' && /^\d+:1$/.test(String(e.key)) && e.ok)), 'moving off after the mirror look was not reported as a mirror check');
+  if (preWalk) console.log(`      walkaround: ${await walkReports('inspect.damage', 'baseline')} damaged area(s) found before departure`);
   // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
   const parkAt = async (i) => {
     await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
@@ -470,11 +519,17 @@ const make = (opts) => async (page, ctx) => {
     await press('Digit1');
   }
   if (retained.length) await shot('return-receipt');
+  if ((await state()).m.cargoOpen) await use('cargo');           // the rear is checked with the cargo shut
+  const postWalk = await walkaround('posttrip');                  // B-99: and again after the trip, before finishing
   await use('dispatch'); await shot('dispatch-finish');
   await press('Digit1');                                       // Finish workday
 
   // ---- the shared workday flow takes over: results, debrief, record
   must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 30000), 'Finish workday did not open the results screen');
+  if (postWalk) {
+    console.log(`      walkaround: ${await walkReports('trip.damage-report', 'added')} new damaged area(s) reported after the trip`);
+    must(await ev(() => !OTR.workday.events.some((e) => e.type === 'trip.damage-false')), 'a right post-trip record reported damage that was not there');
+  }
   await wait(2800);
   await ctx.audit('results');
   const saved = await ev(() => { const w = OTR.workday.saved(); return { last: !!w.last, stars: w.last && w.last.stars, current: !!w.current, hist: OTR.save.data.history.map((h) => h.id) }; });

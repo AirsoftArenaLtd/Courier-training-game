@@ -115,6 +115,7 @@ OTR.fpMission = {
       stop(id) { return this.stops.find(s => s.id === Number(id)); },
       pending() { return this.stops.filter(s => !s.resolved); },
       point(id) {
+        if(this.walkaround&&id&&id.startsWith('wear-'))return OTR.fpWalkaroundFlow.point(this,id.slice(5));
         if (id === 'driver') return Object.assign({ y: 1.65 }, F.local(this.van, -1.15, -1.7));
         if (id === 'cargo') return Object.assign({ y: 1.4 }, F.local(this.van, 0, 2.75));
         if (id === 'tyres') return Object.assign({ y: 0.4 }, F.local(this.van, -1.15, -1.6));
@@ -370,9 +371,11 @@ OTR.fpMission = {
         }
         if(this.radio)OTR.fpRadio.finish(this);
         if(this.nightDrive)OTR.fpNight.endLeg(this);
+        if(this.walkaround)OTR.fpWalkaroundFlow.finish(this);
         if(OTR.fpSigns)OTR.fpSigns.finish(this);this.phase = 'debrief'; this.paused = true; this.touch(); return '';
       },
       preparation() {
+        if(this.walkaround)OTR.fpWalkaroundFlow.depart(this);
         this.departed = true; this.phase = 'route';
         if(OTR.fpLater)OTR.fpLater.depart(this);
         ['tyres','lights'].forEach(part => {
@@ -486,6 +489,7 @@ OTR.fpMission = {
         if(this.damage)fields.push('damage');
         if(this.radio)fields.push('radio');
         if(this.nightDrive)fields.push('nightDrive');
+        if(this.walkaround)fields.push('walkaround');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
     };
@@ -497,6 +501,7 @@ OTR.fpMission = {
     if(OTR.fpDamageFlow)OTR.fpDamageFlow.configure(m);
     if(OTR.fpRadio)OTR.fpRadio.configure(m);
     if(OTR.fpNight)OTR.fpNight.configure(m);
+    if(OTR.fpWalkaroundFlow)OTR.fpWalkaroundFlow.configure(m);
     return m;
   },
   restore(raw) {
@@ -510,6 +515,8 @@ OTR.fpMission = {
       if(data.navigation&&(!OTR.fpNav||!OTR.fpNav.enabled(m)))return null;
       if(m.damage&&(!data.damage||!OTR.fpDamageFlow.valid(m,data.damage)))return null;
       if(Object.prototype.hasOwnProperty.call(data,'damage')&&(!OTR.fpDamageFlow||!OTR.fpDamageFlow.enabled(m)))return null;
+      if(m.walkaround&&(!data.walkaround||!OTR.fpWalkaroundFlow.valid(m,data.walkaround,data)))return null;
+      if(Object.prototype.hasOwnProperty.call(data,'walkaround')&&(!OTR.fpWalkaroundFlow||!OTR.fpWalkaroundFlow.enabled(m)))return null;
       if(data.doorsteps){if(!m.routePlan||!OTR.fpDoors.valid(m,data.doorsteps))return null;OTR.fpDoors.configure(m,data.doorsteps);}
       if(data.routeDay){if(!m.routePlan||!OTR.fpDay.valid(m,data.routeDay,data))return null;OTR.fpDay.configure(m,data.routeDay);}
       if(m.routePlan&&m.routePlan.deliveries===1){

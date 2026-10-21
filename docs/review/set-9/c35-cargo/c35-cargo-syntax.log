@@ -1,0 +1,25 @@
+PASS src/core/fpaccess.js
+PASS src/core/fpdamageworld.js
+PASS src/core/fpguide.js
+PASS src/core/fphandheld.js
+PASS src/core/fpmission.js
+PASS src/core/fproute.js
+PASS src/core/fpwalkaround.js
+PASS src/core/fpwalkaroundflow.js
+PASS src/core/fpwalkaroundui.js
+PASS src/core/fpworld.js
+PASS src/scenes/FirstPersonScene.js
+PASS test/fpbench.js
+PASS test/fpbrandingbrowser.js
+PASS test/fpdamagebrowser.js
+PASS test/fpguidebrowser.js
+PASS test/fpquality.js
+PASS test/fpqualitygate.js
+PASS test/fpresume.js
+PASS test/fproute.js
+PASS test/fpstoplocker.js
+PASS test/fpwalkaround.js
+PASS test/fpwalkaroundbrowser.js
+PASS test/fpwalkaroundflow.js
+PASS test/fpwalkaroundworld.js
+24 changed JavaScript syntax checks passed.

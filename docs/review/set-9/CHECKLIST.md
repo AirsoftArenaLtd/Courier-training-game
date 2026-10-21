@@ -10,6 +10,18 @@ side by side, and `views-ta-large/` has the same views in Tamil with larger text
 **Before you start:** `git pull` the `pilot` branch, serve the folder, open `index.html` and start a workday. Traffic
 starts on day 3, so finish two days first (or use a trainee who already has).
 
+**Or jump straight to the day an item needs (B-105).** Add these to the address you open, so it reads `index.html?…`. Each
+uses its own review profile (a name that starts with `review`), so your own progress is not touched; press Start workday
+at the hub:
+
+| Items | Add to the address | What that day has |
+| --- | --- | --- |
+| 1 to 6 (traffic) | `?dev=1&workday3d=1&user=review-traffic&route=1&day=3` | traffic lights, give-way, the cyclist, the school |
+| 7 to 10, 16 to 19 (damage, walkaround) | `?dev=1&workday3d=1&user=review-van&route=10&day=4` | the van's height, the walkaround before and after |
+| 11, 12, 14 (intercom, gate, locker) | `?dev=1&workday3d=1&user=review-stops&route=10&day=4` | a locker and an intercom behind a gate |
+| 13 (reception) | `?dev=1&workday3d=1&user=review-reception&route=5&day=4` | a locker and a business reception |
+| 15 (failed delivery) | either day-4 link above | a signature parcel with nobody home |
+
 | # | Try this | It should feel like |
 | --- | --- | --- |
 | 1 | Drive up to a traffic light on red (view `redlight`) and wait for green | The light is easy to see from the driver's seat; stopping behind the line and waiting is enough. Driving through on red is a critical mistake, shown as a diamond on the drive map |
@@ -46,5 +58,21 @@ it is ("Use the intercom here." and so on); walk up, press P until it is selecte
 | 15 | When nobody is in for a parcel that needs a signature, record a failed delivery: card, reason, tomorrow afternoon | The card and the booking feel like what a courier does; the parcel stays in the van for Returns |
 
 Switch to Tamil with larger text for one of these: the panels' sentences should still fit and read well.
+
+**Walk round the van (C-35, from the fourth workday).** Before the first drive the guide asks you to walk round the
+parked van with empty hands; after the day, back at the depot, you walk round it again before Finish workday. Each of
+seven areas (front, rear, both sides, roof edge, rear left wheel, left mirror) has a mark you select with P and inspect
+with E; the handheld shows what you see and you choose the matching description. Codex's pictures: the
+[wheel before the trip](c35-cargo/c35-cargo-native-high-en-en-normal-pre-wheel.png), the
+[roof after it](c35-cargo/c35-cargo-native-high-en-en-normal-post-roof.png), and the
+[Tamil record and guide](c35-cargo/c35-cargo-native-low-ta-ta-large-post-record.png)
+([guide page](c35-cargo/c35-cargo-native-low-ta-ta-large-guide-report.png)).
+
+| # | Try this | It should feel like |
+| --- | --- | --- |
+| 16 | On day 4 or later, walk round the van before driving and inspect all seven areas | Each mark is easy to find and select; the description that matches what you see is clear. Say if an area is hard to reach or the wheel and roof marks are confusing |
+| 17 | Lightly clip a post on the route, then at the depot walk round and record the new damage where it is | The post-trip check finds the scrape where you hit; recording it feels honest and quick |
+| 18 | Do the same but leave the scrape out of the post-trip record | The results show it as a critical mistake and say why: hidden damage is not passed on to the next driver |
+| 19 | Switch to Tamil with larger text and open the walkaround record on the handheld | The area names and descriptions fit and read well |
 
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

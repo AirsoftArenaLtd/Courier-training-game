@@ -14,6 +14,7 @@ const PROFILES=[
 ];
 for(const profile of PROFILES)profile.views+=','+DAMAGE_VIEWS;
 for(const profile of PROFILES)profile.views+=',stopsintercom,stopsgate,stopsreception,stopslockeropen,stopslockerclosed,stopsretention,stopsstresscab';
+for(const profile of PROFILES)profile.views+=',walkfront,walkroof,walkrecord,walksummary,walkguidepre,walkguidepost';
 for(const profile of PROFILES)profile.views+=profile.id==='loaded-low'||profile.id==='loaded-high'?',trafficsignal,trafficgreen,trafficcyclist,trafficmirror,trafficschool,trafficpeak':',trafficsignal,trafficschool,trafficpeak';
 for(const profile of PROFILES)profile.views+=','+RADIO_VIEWS;
 function checkReport(report,profile,tag){
@@ -38,6 +39,7 @@ function checkReport(report,profile,tag){
  const budget=BUDGETS[profile.quality],peak={calls:0,triangles:0,textures:0,attachmentBytes:0,phaserBytes:0};
  for(const name of profile.views.split(',')){
   if(['mirror','mirrorRight','mirrorInterior'].includes(name)){const proof=report.mirrorProof&&report.mirrorProof[name],red=proof&&proof.red,blue=proof&&proof.blue;if(!red||!blue||!(red[0]>180&&red[0]>blue[0]+100&&blue[2]>150&&blue[0]<80))fail('No live reflected pixels for '+name+'.');}
+  if(name.startsWith('walk')){const p=report.walkaroundProof&&report.walkaroundProof[name];if(report.walkaroundFixture!==true||!p||p.marker!==1||p.valid!==true||p.targets!==7||p.proxyOnly!==true)fail('The physical walkaround fixture was not exercised.');}
   if(name.startsWith('damage')){const p=report.damageProof&&report.damageProof[name];if(report.damageFixture!==true||!p||p.marker!==1||p.valid!==true||p.zones!==7||p.clearances!==2||p.instances!==15||p.shift!==3)fail('The located damage and clearance fixture was not exercised.');}
   const sample=report.prototype&&report.prototype[name];if(!sample||!(sample.frames>0)||sample.contextLost)fail('No valid frames for '+name+'.');
   if(RADIO_VIEWS.split(',').includes(name)){
@@ -67,7 +69,7 @@ function run(){
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_RADIO:'1',QA_DAMAGE:'1',QA_STOPS:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_RADIO:'1',QA_WALKAROUND:'1',QA_DAMAGE:'1',QA_STOPS:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   // Write measurements as they arrive, so a long profile can be inspected while it runs.
   const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
   try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}

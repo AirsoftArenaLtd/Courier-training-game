@@ -1,0 +1,11 @@
+✔ the aids start helpful and fade by day (2.179702ms)
+✔ a trainer's choice wins over the fade, and only known values are kept (0.342204ms)
+✔ old settings files without aids still load, and the other rules are untouched (0.289006ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.86781

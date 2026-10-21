@@ -18,6 +18,7 @@ OTR.fpRoute = {
     if(plan.damage!==undefined&&(plan.damage!==1||plan.day<4||!OTR.fpDamageFlow))throw Error('Invalid damage version');
     if(plan.deliveries!==undefined&&(plan.deliveries!==1||plan.day<3))throw Error('Invalid delivery-stop version');
     if(plan.lockerStop!==undefined&&(!OTR.fpStopFlow||!OTR.fpStopFlow.validLocker(plan)))throw Error('Invalid locker authorization');
+    if(plan.walkaround!==undefined&&(plan.walkaround!==1||plan.damage!==1||plan.day<4||!OTR.fpWalkaroundFlow))throw Error('Invalid walkaround version');
     const T = OTR.town.build(plan.townSeed), scale = this.SCALE;
     const project = (x, y) => ({ x: (y - T.hy[0]) * scale, z: 8 - (x - T.depot.x) * scale });
     const lots = T.lots.map(l => {

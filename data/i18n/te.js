@@ -3993,7 +3993,52 @@ window.OTR_I18N.te = {
 "Missing package not reported": "కనిపించని ప్యాకేజీ గురించి తెలియజేయకపోవడం",
 "Left with another route's package": "వేరే రూట్ ప్యాకేజీతో బయలుదేరడం",
 "Doorsteps and loading: mistakes per day": "గుమ్మాలు, లోడింగ్: రోజుకు తప్పులు",
-"From the {0} trainees whose first and latest workdays both had these checks.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ఈ తనిఖీలు ఉన్న {0} శిక్షణార్థులలో."
+"From the {0} trainees whose first and latest workdays both had these checks.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ఈ తనిఖీలు ఉన్న {0} శిక్షణార్థులలో.",
+"Follow the sat nav.": "నావిగేషన్‌ను అనుసరించండి.",
+"Read the road signs.": "రోడ్డు గుర్తులను చదవండి.",
+"Watch the lights and people.": "లైట్లను, మనుషులను గమనించండి.",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "ఎరుపు లైట్ వద్ద గీత వెనుక ఆగండి, పసుపు లైట్ వద్ద సురక్షితంగా ఆగగలిగినప్పుడు ఆగండి. కుడివైపు తిరిగే ముందు కుడి అద్దం చూసి, పక్కనుంచి వెళ్తున్న సైక్లిస్ట్‌కు దారి ఇవ్వండి. స్కూల్ క్రాసింగ్ వద్ద పిల్లల కోసం ముందుగానే వేగం తగ్గించండి, వారి దారి ఖాళీ అయ్యే వరకు వేచి ఉండండి.",
+"Look after the van.": "వ్యాన్‌ను జాగ్రత్తగా చూసుకోండి.",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "వ్యాన్ ఎత్తు 10 అడుగుల 10 అంగుళాలు. తక్కువ ఎత్తు ఉన్న చోట్లను తప్పించడానికి నావిగేషన్‌ను అనుసరించండి, హెచ్చరిక వచ్చినప్పుడు వేరే రోడ్డు తీసుకోండి. గట్టి మలుపులు, బ్రేకులు కట్టని కార్గోను కదిలిస్తాయి. బెల్టులు బిగించి, నెమ్మదిగా, సాఫీగా నడపండి. ఢీకొన్న చోట వ్యాన్‌కు నష్టం జరగవచ్చు.",
+"Record the pre-trip condition.": "ప్రయాణానికి ముందు స్థితిని నమోదు చేయండి.",
+"Report damage after the trip.": "ప్రయాణం తర్వాత నష్టాన్ని తెలియజేయండి.",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "డిపోకు తిరిగి వచ్చిన తర్వాత, మళ్లీ వ్యాన్ చుట్టూ నడిచి ప్రతి భాగం కనిపించే స్థితిని నమోదు చేయండి. పైకప్పు అంచును నేల మీద నుంచే తనిఖీ చేయండి. ముందే ఉన్న అరుగుదల మీ తప్పు కాదు. డిస్పాచ్ వద్ద ముగించే ముందు కొత్త నష్టం ఉన్న ప్రతి భాగాన్ని తెలియజేయండి. రికార్డులు చూడటానికి హ్యాండ్‌హెల్డ్‌లో పనిదినం వివరాలు తెరవండి.",
+"Use the delivery site controls.": "డెలివరీ స్థలంలోని కంట్రోల్స్ ఉపయోగించండి.",
+"Review the walkaround.": "చుట్టూ తనిఖీని మళ్లీ చూడండి.",
+"Invalid walkaround version": "చెల్లని చుట్టూ తనిఖీ వెర్షన్",
+"No damage is visible.": "నష్టం ఏమీ కనిపించడం లేదు.",
+"The paint is scuffed here.": "ఇక్కడ పెయింట్‌పై గీత ఉంది.",
+"A dent is visible here.": "ఇక్కడ సొట్ట కనిపిస్తోంది.",
+"Major damage is visible here.": "ఇక్కడ భారీ నష్టం కనిపిస్తోంది.",
+"Invalid walkaround damage": "చెల్లని చుట్టూ తనిఖీ నష్టం",
+"This is the front of the van.": "ఇది వ్యాన్ ముందు భాగం.",
+"This is the rear of the van.": "ఇది వ్యాన్ వెనుక భాగం.",
+"This is the left side of the van.": "ఇది వ్యాన్ ఎడమ వైపు.",
+"This is the right side of the van.": "ఇది వ్యాన్ కుడి వైపు.",
+"This is the roof edge of the van.": "ఇది వ్యాన్ పైకప్పు అంచు.",
+"This is the rear left wheel.": "ఇది వెనుక ఎడమ చక్రం.",
+"This is the left mirror.": "ఇది ఎడమ అద్దం.",
+"Recorded damage in an undamaged area.": "నష్టం లేని భాగంలో నష్టాన్ని నమోదు చేశారు.",
+"Recorded existing damage before departure.": "బయలుదేరే ముందు ఇప్పటికే ఉన్న నష్టాన్ని నమోదు చేశారు.",
+"Missed existing damage before departure.": "బయలుదేరే ముందు ఇప్పటికే ఉన్న నష్టాన్ని గమనించలేదు.",
+"Recorded new damage after the trip.": "ప్రయాణం తర్వాత కొత్త నష్టాన్ని నమోదు చేశారు.",
+"Finished without a correct report of new damage.": "కొత్త నష్టాన్ని సరిగ్గా తెలియజేయకుండానే ముగించారు.",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "సురక్షితంగా పార్క్ చేసి, ప్యాకేజీని కింద పెట్టి, వ్యాన్ యొక్క ఈ భాగం పక్కకు వెళ్లండి. వెనుక భాగాన్ని తనిఖీ చేసే ముందు కార్గో మూసివేయండి.",
+"Inspect this area beside the parked van before recording its condition.": "స్థితిని నమోదు చేసే ముందు పార్క్ చేసిన వ్యాన్ పక్కకు వెళ్లి ఈ భాగాన్ని తనిఖీ చేయండి.",
+"It is recorded.": "నమోదైంది.",
+"Put away the handheld.": "హ్యాండ్‌హెల్డ్‌ను పక్కన పెట్టండి.",
+"See the first descriptions.": "మొదటి వివరణలు చూడండి.",
+"See more descriptions.": "మరిన్ని వివరణలు చూడండి.",
+"Inspect the van.": "వ్యాన్‌ను తనిఖీ చేయండి.",
+"Check the van.": "వ్యాన్‌ను చెక్ చేయండి.",
+"Inspect before departure or after returning the van to the depot.": "బయలుదేరే ముందు లేదా వ్యాన్‌ను డిపోకు తిరిగి తెచ్చిన తర్వాత తనిఖీ చేయండి.",
+"See the previous area.": "జాబితాలో మునుపటి భాగం చూడండి.",
+"See the next area.": "జాబితాలో తర్వాతి భాగం చూడండి.",
+"Review the van.": "వ్యాన్ రికార్డులు చూడండి.",
+"This area has no recorded condition.": "ఈ భాగానికి నమోదైన స్థితి ఏదీ లేదు.",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "బయలుదేరే ముందు ఖాళీ చేతులతో పార్క్ చేసిన వ్యాన్ చుట్టూ నడిచి, ప్రతి భాగం స్థితిని నమోదు చేయండి.",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "వ్యాన్ స్థితిని నమోదు చేసి, టైర్లు, లైట్లు తనిఖీ చేయండి, తర్వాత పార్సిళ్లను స్కాన్ చేసి లోడ్ చేయండి. బయలుదేరే ముందు లోడ్‌ను భద్రపరచి కార్గో మూసివేయండి.",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "డిపోకు తిరిగి వెళ్లి, ఉంచుకున్న పార్సిళ్లను రిటర్న్స్ వద్ద స్కాన్ చేసి, డిస్పాచ్ వద్ద ముగించే ముందు వ్యాన్ స్థితిని నమోదు చేయండి."
 },
 "templates": [
 [
@@ -5755,6 +5800,22 @@ window.OTR_I18N.te = {
 [
 "Press {0} to use the delivery controls.",
 "డెలివరీ కంట్రోల్స్ ఉపయోగించడానికి {0} నొక్కండి."
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} ఈ భాగాన్ని తనిఖీ చేయడానికి {1} నొక్కండి."
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"స్టాప్ గుర్తుల వద్ద పూర్తిగా ఆగండి, గుర్తు చెప్పిన చోట దారి ఇవ్వండి. వేగ పరిమితిలోనే నడపండి, స్కూల్ జోన్‌లలో వేగం తగ్గించండి. ఏకదిశ వీధిలో దాని దిశకు వ్యతిరేకంగా ఎప్పుడూ ప్రవేశించవద్దు, ప్రవేశం లేదు గుర్తును ఎప్పుడూ దాటవద్దు. ఎదురుగా కనిపించే గుర్తును వినడానికి {0} నొక్కండి."
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"బయలుదేరే ముందు, ఖాళీ చేతులతో పార్క్ చేసిన వ్యాన్ చుట్టూ నడవండి. ప్రతి భాగాన్ని ఎంచుకోవడానికి {0}, దాన్ని తనిఖీ చేయడానికి {1} నొక్కండి. హ్యాండ్‌హెల్డ్‌లో సరిపోయే వివరణను ఎంచుకోండి. ముందు భాగం, వెనుక భాగం, రెండు వైపులు, పైకప్పు అంచు, వెనుక ఎడమ చక్రం, ఎడమ అద్దం తనిఖీ చేయండి. వెనుక భాగాన్ని తనిఖీ చేసే ముందు కార్గో మూసివేయండి."
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"ఈ భాగాన్ని తనిఖీ చేసి, దాని స్థితిని హ్యాండ్‌హెల్డ్‌లో నమోదు చేయడానికి {0} నొక్కండి."
 ]
 ],
 "keep": [
