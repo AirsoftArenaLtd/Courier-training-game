@@ -29,7 +29,7 @@ const OUT=path.join(__dirname,'out/fp-review'),GFX=process.env.QA_GFX||'low',TAG
    await press('Digit1');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.root.list.find(o=>o.type==='Text'&&o.y===127).text),'Know the van height.');result.checks++;await audit();await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-height.png`)});
    await press('Digit1');assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !!s.model.events[s.model.briefKey]&&!s.panel;}),true);result.checks++;
    const impact=await p.evaluate(()=>{
-    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.workday.begin();m.mode='cab';m.paused=false;m.phase='route';m.departed=m.secured=true;OTR.fpLater.depart(m);
+    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.workday.begin();m.mode='cab';m.paused=false;m.secured=true;m.preparation();
     Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:3,gear:1,hand:false,belt:true});const wall={x:2.84,z:5.23,w:6,d:.1,h:3};m.solids.push(wall);m.step({forward:true},.0125);m.solids.pop();m.paused=true;m.van.hand=true;
     const raw=m.snapshot(),read=OTR.fpMission.restore(raw),events=JSON.stringify(OTR.workday.events),before=OTR.workday.log.score();OTR.workday.restore({events:OTR.workday.events});
     const equal=!!read&&JSON.stringify(read.snapshot())===JSON.stringify(raw)&&events===JSON.stringify(OTR.workday.events)&&before===OTR.workday.log.score();

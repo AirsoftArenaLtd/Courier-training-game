@@ -76,7 +76,7 @@ OTR.fpHandheld = class {
   workday(){
     const s=this.scene,m=s.model;let count=0;for(const p of m.parcels)if(p.location.startsWith('slot'))count++;
     const size=OTR.fpAccess&&OTR.fpAccess.settings().large?19:17;
-    this.show({title:'Your workday details.',lines:[s.objectiveText(),count===1?'There is one parcel in cargo.':`There are ${count} parcels in cargo.`,m.heldId?`You are carrying the parcel for ${m.parcel(m.heldId).address}.`:'Your hands are empty.'].map(text=>({text,size})),options:[{label:'Back',onPick:()=>this.home()}],back:()=>this.home()});
+    this.show({title:'Your workday details.',lines:[s.objectiveText(),count===1?'There is one parcel in cargo.':`There are ${count} parcels in cargo.`,m.heldId?`You are carrying the parcel for ${m.parcel(m.heldId).address}.`:'Your hands are empty.'].map(text=>({text,size})),options:[...(OTR.fpWalkaroundFlow&&OTR.fpWalkaroundFlow.phase(m)?[{label:'Review the walkaround.',onPick:()=>OTR.fpWalkaroundUI.records(s)}]:[]),{label:'Back',onPick:()=>this.home()}],back:()=>this.home()});
   }
   day(){
     const m=this.scene.model,d=m.routeDay.dispatch;

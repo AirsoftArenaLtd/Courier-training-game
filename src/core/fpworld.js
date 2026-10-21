@@ -334,6 +334,9 @@ OTR.fpWorld = {
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
+    const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
+      const mesh=box(chassis,t.x,t.y,t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
+    }):[];
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -343,7 +346,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -442,6 +445,7 @@ OTR.fpWorld = {
         if(mirrors)mirrors.sync(model,area);
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         if(damage&&model&&!inHub)damage.sync(model);
+        for(let i=0;i<walkaroundTargets.length;i++)walkaroundTargets[i].visible=!!model&&!inHub&&OTR.fpWalkaroundFlow.canInspect(model,OTR.fpWalkaroundFlow.targets[i].zone);
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));

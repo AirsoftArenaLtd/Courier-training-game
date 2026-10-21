@@ -112,6 +112,7 @@ class FirstPersonScene extends Phaser.Scene {
       if(kind==='campaign'){
         plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(day,this.progress.sequence),true);
         plan=OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan)))));
+        plan=OTR.fpWalkaroundFlow.prepare(plan);
       }
       m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
     if(!resumed)OTR.fpDay.configure(m);
@@ -316,6 +317,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.mode==='cab'){if(id&&id.startsWith('cab-')&&id!=='cab-exit'){this.cabAction(id);return;}if(!m.exit())this.message('Stop and set the parking brake before exiting.');else this.workdaySound.effect('door','The cab door opens.');this.checkpoint();return;}
     const before={mode:m.mode,cargo:m.cargoOpen,held:m.heldId,secured:m.secured};let result='';
     if(id==='driver')result=m.enter();else if(id==='cargo')result=m.toggleCargo();else if(id==='secure')result=m.secure();
+    else if(id&&id.startsWith('wear-')){OTR.fpWalkaroundUI.inspect(this,id.slice(5));return;}
     else if(id==='tyres'||id==='lights'){this.showInspection(id);return;}else if(id==='dispatch'){this.showDispatch();return;}
     else if(id==='returns'){this.handheld.scan();return;}else if(id&&id.startsWith('visit')){const stop=Number(id.slice(5));if(m.stops[stop].resolved)this.message('This stop already has a recorded outcome.');else OTR.fpStopScene.show(this,stop);return;}else if(id&&id.startsWith('gate')){this.showGate(Number(id.slice(4)));return;}else if(id&&id.startsWith('hazard')){result=OTR.fpDoors.clearHazard(m,Number(id.slice(6)));}
     else if(id&&id.startsWith('door')){this.showDoor(Number(id.slice(4)));return;}
@@ -415,6 +417,7 @@ class FirstPersonScene extends Phaser.Scene {
     else if(mode==='cab'){hint=(id==='cab-camera'?OTR.fpHud.screenHint(m):'')||OTR.fpMirrors.hint(id,m)||OTR.fpCab.hint(id,m,k('KeyE'))||(m.driving?OTR.fpDriving.hint(m):'')||(OTR.fpTraffic?OTR.fpTraffic.hint(m):'');
       if(!hint)hint=m.van.hand?'Check mirrors and signals before moving.':m.town&&OTR.fpRoute.limit(m)===25?'Keep right. The speed limit is 25 mph.':'Keep right. The speed limit is 15 mph.';}
     else if(id==='driver')hint=`${k('KeyE')} enters the cab.`;else if(id==='cargo')hint=m.driving?(m.cargoOpen?`${k('KeyE')} closes cargo. ${k('KeyG')} checks the reversing path.`:`${k('KeyE')} opens cargo. ${k('KeyG')} checks the reversing path.`):m.cargoOpen?`${k('KeyE')} closes the cargo doors.`:`${k('KeyE')} opens the cargo doors.`;else if(id==='secure')hint=`${k('KeyE')} secures the load.`;
+    else if(id&&id.startsWith('wear-'))hint=`Press ${k('KeyE')} to inspect this area and record its condition on the handheld.`;
     else if(id==='tyres'||id==='lights')hint=id==='tyres'?`${k('KeyE')} inspects the tires.`:`${k('KeyE')} inspects the lights.`;else if(id==='dispatch')hint=`${k('KeyE')} checks in at Dispatch.`;else if(id==='returns')hint=`${k('KeyE')} opens the scanner to return the retained parcel.`;
     else if(id&&id.startsWith('parcel')){const p=m.parcel(id);hint=p.address+' · '+`${k('KeyE')} picks up the parcel. ${k('KeyF')} inspects it. ${k('Tab')} opens the handheld.`;}
     else if(id&&id.startsWith('slot'))hint=OTR.fpMission.slots.find(s=>s.id===id).name+' · '+`${k('KeyE')} places the parcel.`;
