@@ -247,7 +247,7 @@ OTR.save = {
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });
-    out.packed = { v: 2, t: types.map(n => this.shortType(n)), e };
+    out.packed = { v: 2, t: types.map(n => this.typeCode(n)), e };
     const groups = Object.keys(g).map(ti => [Number(ti)].concat(this.packRuns(g[ti])));
     if (groups.length) out.packed.g = groups;
     const atStops = Object.keys(s).map(ti => [Number(ti)].concat(s[ti]));
@@ -262,6 +262,28 @@ OTR.save = {
    * end, one more each time (C-23's turn:<leg>:<n>), become [prefix, first, last]. A key is never an array, so
    * unpackRuns tells the two apart; the order is kept exactly. A counter with a leading zero is left as it is.
    */
+  /**
+   * B-114: each report type as a number in a packed day's type list (t), its place in this list. The list only grows:
+   * a new type goes at the end and none is ever moved or removed, or older saves would read as other types. A type not
+   * in it is written by name, short (shortType), as before; a day packed before B-114 has only names and still unpacks.
+   */
+  TYPE_CODES: [
+    'brief.read', 'inspect.tires', 'inspect.lights', 'depart.uninspected', 'scan.load', 'load.shelf', 'load.secured',
+    'load.count', 'load.missort-caught', 'load.missort-missed', 'load.extra-caught', 'load.missing-found',
+    'load.found-later', 'drive.belt', 'drive.speed', 'drive.sidewalk', 'drive.wrong-side', 'drive.stop-line',
+    'drive.hazard-early', 'drive.pedestrian', 'drive.contact', 'drive.handheld', 'drive.following', 'drive.mirrors',
+    'drive.backing', 'drive.school-bus', 'drive.school-bus-pass', 'drive.siren', 'drive.weather', 'drive.gear',
+    'drive.backing-walkaround', 'drive.signal', 'drive.sign-stop', 'drive.red-light', 'drive.sign-giveway',
+    'drive.sign-speed', 'drive.sign-oneway', 'drive.sign-noentry', 'drive.sign-school', 'drive.sign-roadworks',
+    'drive.route', 'drive.lights', 'drive.cyclist', 'drive.clearance', 'load.shift', 'van.damage-scuff',
+    'van.damage-dent', 'van.damage-major', 'inspect.damage', 'trip.damage-report', 'trip.damage-false',
+    'stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt', 'scan.stop', 'scan.mismatch-caught',
+    'deliver.wrong-package', 'deliver.no-recipient', 'deliver.outcome', 'retrieve.checked', 'stop.dog',
+    'stop.wrong-address', 'stop.age-check', 'stop.difficult', 'stop.hazard', 'dispatch.update', 'return.scanned'
+  ],
+  typeCode(name) { const i = this.TYPE_CODES.indexOf(name); return i < 0 ? this.shortType(name) : i; },
+  typeName(t) { return typeof t === 'number' ? this.TYPE_CODES[t] : this.longType(t); },
+
   /** Short forms of the type names' common prefixes in a packed day (B-55); a name that starts with "~" is short. */
   TYPE_PREFIXES: [['drive.', 'd'], ['inspect.', 'i'], ['deliver.', 'v'], ['load.', 'l'], ['scan.', 'c'], ['stop.', 's'],
     ['van.damage-', 'x'], ['trip.', 't'], ['return.', 'r'], ['brief.', 'b'], ['dispatch.', 'p']],
@@ -426,7 +448,7 @@ OTR.save = {
     if (!c || typeof c !== 'object' || Array.isArray(c.events)) return c;
     const out = Object.assign({}, c), events = [];
     if (c.packed && Array.isArray(c.packed.e)) {
-      const types = (Array.isArray(c.packed.t) ? c.packed.t : []).map(n => this.longType(n)), v2 = c.packed.v >= 2;
+      const types = (Array.isArray(c.packed.t) ? c.packed.t : []).map(n => this.typeName(n)), v2 = c.packed.v >= 2;
       c.packed.e.forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
         const ev = { type: types[r[0]], key: r[1] === undefined ? null : r[1], ok: r[2] !== 0, stop: r[3] === undefined || (v2 && r[3] === 0) ? null : r[3] };

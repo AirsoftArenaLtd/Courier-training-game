@@ -82,6 +82,9 @@ stops and the pins; north is up (smaller `z`).
   day lost detail. SCORM 2004, local and server saves are not limited. `node test/savesize.js` checks every step.
 - The saved lines are event types. The debrief and drive review look up each type's line and lesson in
   `data/workday_events.js` when they are shown, and skip a type the catalogue no longer has.
+- **A new event type goes at the end of `TYPE_CODES` in `src/core/save.js` (B-114).** A packed day writes each type
+  as its place in that list. Never move or remove an entry, or older saves would read as another type. A type missing
+  from the list is saved by name, and `node test/savesize.js` fails until it is added.
 
 **The screens.** Results (stars by category, the takeaways, "Drive map") → Debrief (every line, phase by phase and
 stop by stop, the lesson under each mistake, a map link on each driving mistake) → Back to the station. By
