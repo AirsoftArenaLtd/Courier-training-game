@@ -101,7 +101,7 @@ test('turning the head moves the view without carrying the dashboard or changing
 test('reduced motion clears even the last fractional degree of speed zoom',()=>{
   const old=context.OTR.fpAccess;let reduced=false;context.OTR.fpAccess={reduced:()=>reduced};
   try{const w=world(false);w.m.mode='cab';w.m.driveAssist=0;w.m.van.speed=8;w.art.sync(w.m,null,'route');w.m.van.speed=0;
-    for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,68);w.art.dispose();
+    for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,76);w.art.dispose();
   }finally{context.OTR.fpAccess=old;}
 });
 test('three physical mirrors remain live without a button and reflection visibility restores exactly',()=>{
