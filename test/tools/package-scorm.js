@@ -43,21 +43,32 @@ function referenced() {
   return [...out];
 }
 
+const ZIP_TIMEOUT = Number(process.env.ZIP_TIMEOUT || 180000);   // ms
+
 function build(out, v2004) {
   const list = files().filter(p => !(v2004 && p === 'imsmanifest.xml')), have = new Set(list.concat('imsmanifest.xml'));
   const missing = referenced().filter(p => !have.has(p));
   if (missing.length) throw new Error('a page loads files that are not packaged: ' + missing.join(', '));
   fs.mkdirSync(path.dirname(out), { recursive: true });
   if (fs.existsSync(out)) fs.unlinkSync(out);
-  // zip reads the names from stdin, so the list can be as long as it needs to be
-  execFileSync('zip', ['-q', '-X', '-9', out, '-@'], { cwd: ROOT, input: list.join('\n') });
-  if (v2004) {
-    // the 2004 manifest goes in at the top under the name every LMS looks for
-    const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'otr-2004-'));
-    fs.copyFileSync(path.join(ROOT, 'data', 'lms', 'imsmanifest-2004.xml'), path.join(tmp, 'imsmanifest.xml'));
-    execFileSync('zip', ['-q', '-X', '-9', '-j', out, path.join(tmp, 'imsmanifest.xml')]);
-    fs.rmSync(tmp, { recursive: true, force: true });
-  }
+  // zip reads the names from stdin, so the list can be as long as it needs to be. B-109: stdin is a file, not a pipe
+  // fed by Node (that stalled on one PC), and zip has ZIP_TIMEOUT to finish, so a stuck zip fails with a reason
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'otr-zip-'));
+  const zip = (args, stdin) => {
+    const fd = stdin ? fs.openSync(stdin, 'r') : 'ignore';
+    try { execFileSync('zip', args, { cwd: ROOT, stdio: [fd, 'ignore', 'pipe'], timeout: ZIP_TIMEOUT, killSignal: 'SIGKILL' }); }
+    catch (e) { throw new Error(e.code === 'ETIMEDOUT' || e.signal ? `zip did not finish in ${ZIP_TIMEOUT / 1000} s (${args.join(' ')})` : `zip failed: ${String(e.stderr || e.message).trim()}`); }
+    finally { if (stdin) fs.closeSync(fd); }
+  };
+  try {
+    fs.writeFileSync(path.join(tmp, 'files.txt'), list.join('\n') + '\n');
+    zip(['-q', '-X', '-9', out, '-@'], path.join(tmp, 'files.txt'));
+    if (v2004) {
+      // the 2004 manifest goes in at the top under the name every LMS looks for
+      fs.copyFileSync(path.join(ROOT, 'data', 'lms', 'imsmanifest-2004.xml'), path.join(tmp, 'imsmanifest.xml'));
+      zip(['-q', '-X', '-9', '-j', out, path.join(tmp, 'imsmanifest.xml')]);
+    }
+  } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
   const bytes = fs.statSync(out).size;
   if (bytes > BUDGET) throw new Error(`the package is ${(bytes / 1048576).toFixed(1)} MB, over the 100 MB budget`);
   return { out, files: list.length + (v2004 ? 1 : 0), bytes };
