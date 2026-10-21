@@ -881,3 +881,10 @@ critical missing reports and exact checkpoints pass. Low Phaser peaks are
 **2,533,062 / 3,144,939 / 3,354,528 / 3,880,838 bytes** respectively. High Tamil
 larger peaks at **14,054,235 bytes**, below its unchanged 16 MiB ceiling. Browser
 page/layout regressions and the 179-view rendered resource gate are still running.
+
+The first final rendered profile passes **all 61 loaded-Low views**: **54 calls /
+2,396 triangles**, two Three textures, **3,557,376 attachment bytes** and
+**2,778,774 Phaser bytes**. Its source has the same product runtime `501fb82`;
+`5e0f9a4` changes only the damage browser's translated expectations. This is one
+profile, not the completed 179-view gate; High, accessibility and fallback continue.
+[Raw completed Low report and partial gate metadata](review/set-9/c35-surfaces/manifest.json).
