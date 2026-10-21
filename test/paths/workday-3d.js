@@ -19,9 +19,14 @@ const make = (opts) => async (page, ctx) => {
   const state = () => ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; return { area: s.area, panel: !!s.panel, device: s.handheld.isOpen, aiming: s.handheld.aiming, m: m && m.snapshot() }; });
   const press = async (key) => { await page.keyboard.press(key); await wait(180); };
   const must = (ok, what) => { if (!ok) throw new Error('workday-3d: ' + what); };
+  // B-112: QA_TIMING=1 prints the time since the start and since the last mark at each screenshot and each line logged
+  const T0 = Date.now(); let Tl = T0;
+  const mark = (label) => { if (!process.env.QA_TIMING) return; const t = Date.now(); process.stdout.write(`      [${((t - T0) / 1000).toFixed(0)} s, +${((t - Tl) / 1000).toFixed(1)} s] ${label}\n`); Tl = t; };
+  const log = (line) => { console.log(line); mark(line.trim().slice(0, 50)); };
 
   // the prototype's visible text must stay on the canvas and inside the device screen
   const shot = async (label) => {
+    mark('shot ' + label);
     await wait(400);
     // the handheld slides up over about a quarter of a second of game time, which is longer on a slow PC: audit it
     // where it stops, not on the way
@@ -199,7 +204,7 @@ const make = (opts) => async (page, ctx) => {
       must(await ctx.until(`${FP}.handheld.device.current && ${FP}.handheld.device.current.title === 'It is recorded.'`, 5000), `the ${zone}'s condition was not recorded (${phase})`);
       await pick(/^Put away the handheld\.$/);
     }
-    console.log(`      walkaround (${phase}): all ${zones.length} areas recorded`);
+    log(`      walkaround (${phase}): all ${zones.length} areas recorded`);
     return true;
   };
   // the reports it leads to: one per area with damage, right, by zone, with no stop and no place (the recipe's step 4)
@@ -298,7 +303,7 @@ const make = (opts) => async (page, ctx) => {
     await loadCheck(/^Confirm the load count$/);
     await pick(new RegExp('^I counted ' + (n === 1 ? 'one package' : n + ' packages') + '\\.$'));
     must(await ev(() => OTR.workday.events.some((e) => e.type === 'load.count' && e.ok)), 'the load count was not confirmed as right (' + L.kind + ')');
-    console.log(`      load-out: ${L.kind}${extra ? ' (set ' + extra.id + ' aside)' : ''}${L.missingId ? ' (' + L.missingId + ' reported missing)' : ''}, ${n} counted`);
+    log(`      load-out: ${L.kind}${extra ? ' (set ' + extra.id + ' aside)' : ''}${L.missingId ? ' (' + L.missingId + ' reported missing)' : ''}, ${n} counted`);
   }
   await use('secure'); must((await state()).m.secured, 'the cargo restraint did not secure the load');
   await shot('cargo');
@@ -353,7 +358,7 @@ const make = (opts) => async (page, ctx) => {
   await driveTo(junctionZ - 9);
   must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.mirrors' && /^\d+:1$/.test(String(e.key)) && e.ok)), 'moving off after the mirror look was not reported as a mirror check');
-  if (preWalk) console.log(`      walkaround: ${await walkReports('inspect.damage', 'baseline')} damaged area(s) found before departure`);
+  if (preWalk) log(`      walkaround: ${await walkReports('inspect.damage', 'baseline')} damaged area(s) found before departure`);
   // B-108: on some days a school bus starts flashing ahead on this leg. A careful courier stops 6.5 to 20 m behind it
   // and waits for its lights to go off (fpdriving.js), before the fixture below moves the van on
   const bus = () => ev(() => { const d = OTR.game.scene.getScene('FirstPersonScene').model.driving; return d && d.bus ? { state: d.bus.state, z: d.bus.z } : null; });
@@ -362,7 +367,7 @@ const make = (opts) => async (page, ctx) => {
     await driveTo(b0.z + 11);
     must(await ctx.until(`(OTR.game.scene.getScene('FirstPersonScene').model.driving.bus.state !== 'flashing')`, 60000), 'the school bus never switched off its lights while the van waited behind it');
     must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.school-bus' && e.ok)), 'waiting behind the school bus was not reported as right');
-    console.log('      school bus: stopped behind it and waited');
+    log('      school bus: stopped behind it and waited');
   }
   // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
   const parkAt = async (i) => {
@@ -457,7 +462,7 @@ const make = (opts) => async (page, ctx) => {
       const reported = await ev((n) => OTR.workday.events.slice(n).filter((e) => /^stop\.(intercom|reception|locker|reattempt)$/.test(e.type)).map((e) => ({ type: e.type, key: e.key, stop: e.stop, ok: e.ok, where: !!e.where })), before);
       must(reported.length === 1, `stop ${i + 1} (${a.kind}) should report its protocol once, not ${JSON.stringify(reported)}`);
       must(reported[0].ok === (outcome !== 'exception' || a.kind === 'reattempt' || !a.available) && reported[0].stop === i + 1 && /^\d+$/.test(String(reported[0].key)) && !(reported[0].ok && reported[0].where), `stop ${i + 1}: the protocol report is not as the contract says: ${JSON.stringify(reported[0])}`);
-      console.log(`      stop ${i + 1}: ${a.kind}${marked.gated ? ' (gated)' : ''}${a.kind === 'intercom' && !a.available ? ' (no answer)' : ''} -> ${outcome}`);
+      log(`      stop ${i + 1}: ${a.kind}${marked.gated ? ' (gated)' : ''}${a.kind === 'intercom' && !a.available ? ' (no answer)' : ''} -> ${outcome}`);
       must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
       await shot('receipt-' + i); await lookAhead();
       if ((await state()).m.heldId) await use('slot' + i);
@@ -475,7 +480,7 @@ const make = (opts) => async (page, ctx) => {
     if (marked && expected === 'exception' && !spec.wrong && !spec.adult) {
       // a marked day (C-33): nobody to sign, so the failed delivery and its reattempt (B-89)
       await shot('contact-' + i); await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i);
-      console.log(`      stop ${i + 1}: ` + ['dog', 'signature'].filter((k) => spec[k]).join(' ') + ' -> exception (reattempt booked)');
+      log(`      stop ${i + 1}: ` + ['dog', 'signature'].filter((k) => spec[k]).join(' ') + ' -> exception (reattempt booked)');
       must((await state()).m.stops[i].resolved, 'the failed delivery was not recorded (stop ' + i + ')');
       await shot('receipt-' + i); await lookAhead();
       if ((await state()).m.heldId) await use('slot' + i);
@@ -522,7 +527,7 @@ const make = (opts) => async (page, ctx) => {
       if (spec.difficult) { await pick(/Speak with the customer/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
       await pick(/Record the delivery outcome/);
     }
-    console.log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
+    log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
     await shot('delivery-options-' + i);
     if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
     else await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
@@ -556,13 +561,13 @@ const make = (opts) => async (page, ctx) => {
   // ---- the shared workday flow takes over: results, debrief, record
   must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 30000), 'Finish workday did not open the results screen');
   if (postWalk) {
-    console.log(`      walkaround: ${await walkReports('trip.damage-report', 'added')} new damaged area(s) reported after the trip`);
+    log(`      walkaround: ${await walkReports('trip.damage-report', 'added')} new damaged area(s) reported after the trip`);
     must(await ev(`!${dayEvents}.some((e) => e.type === 'trip.damage-false')`), 'a right post-trip record reported damage that was not there');
   }
   if (opts.night) {
     const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok }))`);
     must(lights.length >= 1 && lights.every((e) => e.ok === true), 'every leg after dark should report the headlights as on: ' + JSON.stringify(lights));
-    console.log(`      night: headlights on for ${lights.length} leg(s)`);
+    log(`      night: headlights on for ${lights.length} leg(s)`);
   }
   if (opts.scuff) {
     const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
@@ -571,7 +576,7 @@ const make = (opts) => async (page, ctx) => {
     const crit = await ev(() => { const r = OTR.workday.saved().last; return { types: r.criticalTypes, safety: r.stars.safety, service: r.stars.service }; });
     if (opts.unreported) must(crit.types.includes('trip.damage-report') && crit.service <= 1, 'unreported damage should be a critical that caps service at one star: ' + JSON.stringify(crit));
     else must(!crit.types.includes('trip.damage-report'), 'a right post-trip report should not be a critical: ' + JSON.stringify(crit));
-    console.log(`      scuff: ${opts.unreported ? 'left unreported, a critical' : 'reported after the trip'} (${JSON.stringify(crit)})`);
+    log(`      scuff: ${opts.unreported ? 'left unreported, a critical' : 'reported after the trip'} (${JSON.stringify(crit)})`);
   }
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
