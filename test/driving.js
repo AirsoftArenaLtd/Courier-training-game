@@ -37,12 +37,13 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   /** Drive by setting the van's speed each frame (m/s) along a fixed heading, for ms of real time. */
   // o.gameMs (B-88): hold the speed for that much of the game's own time instead of wall time (a busy PC slows the game,
   // and a check timed on the wall clock failed under load); ms is then only the wall-clock cap
+  // o.untilAmbulance: stop as soon as the ambulance appears (it reaches the van in about 2 s of game time)
   const cruise = (mps, ms, o) => ev((mps, ms, o) => new Promise(res => {
     const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van;
     let sim = 0;                                                     // the scene's own clock: each frame counts at most 50 ms
     const done = () => { s.events.off('postupdate', f); res(); };
     const f = (time, delta) => { v.u = mps; v.lat = 0; v.r = 0; if (o && o.heading !== undefined) v.heading = o.heading; if (o && o.y !== undefined) v.y = o.y;
-      sim += Math.min(delta || 0, 50); if (o && o.gameMs && sim >= o.gameMs) done(); };
+      sim += Math.min(delta || 0, 50); if (o && o.gameMs && sim >= o.gameMs || o && o.untilAmbulance && s.ambulance) done(); };
     s.events.on('postupdate', f);
     setTimeout(done, ms);
   }), mps, ms, o || null);
@@ -105,17 +106,17 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
         s.van.heading = 0; s.van.x = 1485;          // just past a junction: a straight block ahead
       });
       const y0 = await ev(() => OTR.game.scene.getScene('TownDriveScene').van.y);
-      await cruise(7, 2500, { heading: 0, y: y0 });
+      await cruise(7, 60000, { heading: 0, y: y0, gameMs: 2500, untilAmbulance: true });   // in game time (B-88), until it appears
       const spawned = await ev(() => !!OTR.game.scene.getScene('TownDriveScene').ambulance);
       if (pull) {
         // pull in to the right-hand curb and stop
         await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van, R = OTR.townArt.ROAD / 2; const line = s.T.hy.reduce((b, l) => (Math.abs(l - v.y) < Math.abs(b - v.y) ? l : b), s.T.hy[0]); v.y = line + (R - v.g.hw * s.P - 12); v.u = 0; });
-        await cruise(0, 12000, { heading: 0 });
+        await cruise(0, 120000, { heading: 0, gameMs: 12000 });
       } else {
-        await cruise(7, 9000, { heading: 0, y: y0 });
+        await cruise(7, 120000, { heading: 0, y: y0, gameMs: 9000 });
       }
       st = await state();
-      if (pull) check(spawned && !st.v.emergency && st.items.includes('Pulled over and stopped for an emergency vehicle'), 'pulled in and stopped for the ambulance: right');
+      if (pull) check(spawned && !st.v.emergency && st.items.includes('Pulled over and stopped for an emergency vehicle'), 'pulled in and stopped for the ambulance: right ' + JSON.stringify({ spawned, v: st.v }));
       else check(spawned && st.v.emergency === 1, 'still driving as the ambulance passes: a violation');
     }
 
@@ -134,7 +135,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await fresh();
     // stopped with the bumper 40 px behind the line
     await ev((sign) => { const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van; s.pullOut.pending = false; v.heading = 0; v.x = sign.x - 105 - v.g.nose * s.P - 58 - 40; v.y = sign.y + 52; v.u = 0; }, sign);
-    await cruise(0, 3500, { heading: 0, y: sign.y + 52 });
+    await cruise(0, 60000, { heading: 0, y: sign.y + 52, gameMs: 3500 });
     const green = await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { stopped: s.approach && s.approach.stopped, hint: s._hint }; });
     check(green.stopped && /look both ways/.test(green.hint || ''), `a stop behind the line turns the sign green: ${JSON.stringify(green)}`);
 
