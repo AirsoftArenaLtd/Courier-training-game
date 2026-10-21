@@ -90,6 +90,34 @@ expect:
   The weather changes what the trainee sees and how far ahead they can look, not the rules: drive to the conditions.
 - **People:** residents come to the door and the courier is animated; nothing about them is scored.
 
+**From the third workday** the stops get richer. Many have a **parcel locker** (open the right compartment, scan, put
+the parcel in, close it, photograph the closed door), some an **apartment intercom** (the right flat's button, say who
+you are, wait for the buzz; a gate stays shut until it is unlocked), and a few a **business reception** (confirm the
+address, take the person's name and signature). When nobody is in for a parcel that needs a signature, the trainee
+records a **failed delivery**: a card, the reason, a slot the next afternoon, and the parcel goes back to Returns.
+
+**From the fourth workday** the day asks more of the trainee:
+
+- **Walk round the van.** Before the first drive, the trainee walks round the parked van and records the condition of
+  seven areas (front, rear, both sides, the roof edge, the rear left wheel and the left mirror): P selects an area's
+  mark, E inspects it, and the handheld lists what can be seen. Wear that was already there is never blamed on them.
+  Back at the depot, they walk round again before **Finish workday** and record any new damage where it is.
+- **Damage and low clearances.** Clipping a post, a parked car or a bollard marks the van where it was hit: a scuff, a
+  dent or major damage (major is critical). Low bridges and overhangs are signed with the van's height; the right
+  answer is to stop or take another street. **Damage the trainee caused and did not record after the trip is a
+  critical mistake**, because the next driver inherits it. Recording damage that is not there costs points too.
+- **The dispatch radio.** About twenty metres into the first drive, Dispatch calls once. The caption says so; the
+  trainee stops, sets the parking brake and reads it on the handheld (it waits until they are parked). On even days it
+  brings one delivery forward, on odd days it asks for a check-in at a parked spot on the way. Following it counts in
+  service; declining or ignoring it is a missed update, but never stops them finishing the day.
+- **Night.** Every third day from the sixth runs after dark. The cab warns before the van moves without headlights,
+  and each leg driven without them in the dark counts against safety. Oncoming headlights give a little glare, which
+  reduced motion removes (**Esc → Settings → Accessibility → Turn reduced motion on** in the 3D world, or the PC's own
+  reduced-motion setting).
+
+Night runs and van damage (with its walk-round reports) can each be turned off in **3D workday aids…**, for example
+for a first session with a group that has never driven a van.
+
 If a PC is slow with all of this, **Settings → Graphics → Low** draws less and keeps the same day.
 
 Practice modules and assessments can come before or after the workday. A good order is: one practice session on

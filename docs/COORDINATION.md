@@ -478,6 +478,7 @@ items here for each agent.
 | B-116 | Claude | **Glossary terms for the 3D words:** add intercom, locker, walkaround (the van inspection) and headlights to `data/i18n/glossary.json` with each language's chosen word. Fix the plain inconsistencies `node test/glossary.js --list` then shows, send real choices to the reviewers as questions, and set the baseline. | done (10 terms, baseline 100) |
 | B-117 | Claude | **Every review link in the owner's checklist is tested:** `test/devdaybrowser.js` checks the day-4 link (route 10). Add the day-5 check-in link (route 11) and the day-6 night link (route 9) from B-107, and check each opens what the checklist says: a check-in radio call on day 5, night with the headlights required on day 6. | done (13 checks) |
 | B-118 | Claude | **The drive map shows the scrape:** in `workday-3d-i` (B-108's scuff day), open the drive map from the results as `workday-3d-k` does and check the scuff has its damage marker and the legend says "damage to the van". | done |
+| B-119 | Claude | **The pilot guide for milestone 9 (the part of A-29 that does not wait for A-28):** add to `docs/PILOT-GUIDE.md` what trainees meet from the third and fourth days: richer stops, the walk round the van, damage and low clearances, the dispatch radio, night driving, and the trainer's switches. | done |
 | B-120 | Claude | **Raise the save guards now that there is room:** `test/savesize.js` warned at 25 characters to spare on the heaviest days (B-98, B-114); B-114 left about 440. Raise both guards to 300, so a change that eats most of the new room fails the tests before it reaches a trainee. | done |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
@@ -522,6 +523,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **21 October 2026, Claude — B-119 done:** `docs/PILOT-GUIDE.md` now tells the trainer what the third and later workdays bring. From day 3: lockers, intercoms, business reception and failed deliveries. From day 4: the walk round the van before and after (seven areas, existing wear never blamed), damage and low clearances (unreported damage the trainee caused is critical), the dispatch radio call (read parked; even days bring a delivery forward, odd days a check-in), and night every third day from day 6 (glare goes with reduced motion). It also names the Trainer switches for night and damage. The rest of A-29 (translations, READINESS) still waits on A-28.
 
 - **21 October 2026, Claude — B-120 done:** `test/savesize.js` now fails when C-36's heaviest day (with lights failed or right) has under 300 characters to spare in a SCORM 1.2 save. It was 25; B-114 left about 440.
 
