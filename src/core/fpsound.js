@@ -56,7 +56,7 @@ OTR.fpSound=class {
     if(active&&m.dogNearby&&time-this.dogAt>=1800){this.dogAt=time;this.effect('dog');}
     const sirenState=active&&m.driving&&m.driving.siren.state,siren=sirenState==='approaching'||sirenState==='passing';if(siren&&time-this.sirenAt>=1000){this.sirenAt=time;this.effect('siren');}
     const radio=active&&OTR.fpRadio&&OTR.fpRadio.caption(m);
-    if(radio&&m.radio&&!m.radio.read&&this.radioModel!==m){this.radioModel=m;this.effect('radio');}
+    if(radio&&m.radio&&!m.radio.read&&this.radioModel!==m){this.radioModel=m;s.message(radio);this.effect('radio');}
     const cues=[];if(driving)cues.push('The engine is running.');if(wet)cues.push('Rain is falling.');if(signal)cues.push(signal<0?'The left turn signal is on.':'The right turn signal is on.');if(active&&m.dogNearby)cues.push('A dog is barking nearby.');if(siren)cues.push('An emergency vehicle is approaching.');if(active&&time<this.captionUntil&&this.caption)cues.push(this.caption);
     if(rear&&distance<3)cues.push('The parking sensors are sounding.');
     if(radio)cues.push(radio);

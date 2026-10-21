@@ -13,7 +13,8 @@ night preset, subject to the trainer's night rule. First three days and old save
 are unchanged.
 
 One call arrives after twenty metres of actual driving. Its caption persists while
-muted and until it is resolved; the optional quiet procedural tone pattern uses the
+muted and until it is resolved. Incoming calls use the existing cab narration queue
+once per mission, even when sound effects are muted; the optional quiet procedural tone pattern uses the
 existing master volume and narration ducking. Park with the brake set, open the
 handheld, then choose "Read the dispatch radio message." Read and accept or decline
 with the existing remapped number/arrow/Enter controls. Reading or accepting is not
@@ -39,7 +40,8 @@ the original fog. This is cloud resource evidence, not Intel FPS acceptance.
 A moving van in night, dusk, fog or a storm needs headlights. `drive.lights` reports
 once per driven leg (key `model.leg`): a failure immediately, with its place; a
 success at leg end, with no unused place. Turning lights back on cannot erase a
-failed leg. Existing physical and keyboard controls remain unchanged.
+failed leg. A persistent headlight warning appears before movement in daytime fog
+or storms as well as night and dusk. Existing physical and keyboard controls remain unchanged.
 
 The radio state has six fixed fields, under 130 JSON characters. Night tracking has
 four fixed fields. Strict mission checkpoints keep both without replaying reports.

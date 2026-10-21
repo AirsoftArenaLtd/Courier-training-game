@@ -7,9 +7,10 @@ OTR.fpLighting={
     let value=plan&&plan.timeOfDay|| (clock<360||clock>=1140?'night':clock<660?'morning':clock<1020?'midday':'dusk');
     if(value==='night'&&m&&m.workdayRules&&m.workdayRules.night===false)value='morning';return value;
   },
-  caption(time,on){
+  caption(time,on,reducedVisibility=false){
     if(time==='night')return on?'It is night. The headlights are on.':'It is night. Switch on the headlights before moving.';
     if(time==='dusk')return on?'It is dusk. The headlights are on.':'It is dusk. Switch on the headlights before moving.';
+    if(reducedVisibility)return on?'Visibility is reduced. The headlights are on.':'Visibility is reduced. Switch on the headlights before moving.';
     return time==='midday'?'It is midday.':'It is morning.';
   },
   build(scene,parts){
@@ -89,7 +90,7 @@ OTR.fpLighting={
           const grid=90/512,x=Math.round(centre.x/grid)*grid,z=Math.round(centre.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=centre.x;shadowZ=centre.z;shadowYaw=v.yaw;shadowWanted=high;
         }
       },
-      caption(){if(!visible)return '';const text=OTR.fpLighting.caption(time,!!current.van.headlights);return current.nightDrive&&time==='night'&&current.van.headlights?'It is night. The headlights are on. Drive within the distance they light.':text;},
+      caption(){if(!visible)return '';const text=OTR.fpLighting.caption(time,!!current.van.headlights,!!current.nightDrive&&OTR.fpNight.required(current));return current.nightDrive&&time==='night'&&current.van.headlights?'It is night. The headlights are on. Drive within the distance they light.':text;},
       dispose(){disposed=true;world.onAfterRender=oldAfter;sky.removeFromParent();rig.removeFromParent();skyGeometry.dispose();skyMaterial.dispose();for(const [m,h] of hooks){m.onBeforeCompile=h.before;m.customProgramCacheKey=h.key;m.needsUpdate=true;}if(paint)paint.color.copy(paintColour);
         sun.castShadow=false;sun.shadow.dispose();sun.shadow.map=sun.shadow.mapPass=null;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog){world.fog.color.copy(original.fog);world.fog.near=original.fogNear;world.fog.far=original.fogFar;}ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;if(owned){world.remove(sun,sun.target,ambient);view.lights=null;}}
     };return api;

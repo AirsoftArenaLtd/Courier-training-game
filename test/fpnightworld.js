@@ -21,3 +21,7 @@ test('oncoming glare reuses the existing windscreen geometry/material and reduce
 test('leaving the night world restores fog limits and removes owned objects',()=>{
  const s=scene(),f=s.view.world.fog;s.art.lighting.sync(s.model,'hub');assert.equal(f.far,55);assert.equal(f.near,35);s.art.dispose();assert.equal(s.view.world.children.length,1);
 });
+
+test('later daytime fog and storm warn before moving and acknowledge the real headlight control',()=>{
+ for(const weather of ['fog','storm']){const s=scene(),m=s.model;m.routePlan.timeOfDay='midday';m.routeDay={weather};s.sync();assert.equal(O.fpNight.required(m),true);assert.equal(s.art.lighting.caption(),'Visibility is reduced. Switch on the headlights before moving.');m.van.headlights=true;s.sync();assert.equal(s.art.lighting.caption(),'Visibility is reduced. The headlights are on.');delete m.nightDrive;s.sync();assert.equal(s.art.lighting.caption(),'It is midday.');s.art.dispose();}
+});

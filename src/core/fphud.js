@@ -99,7 +99,7 @@ OTR.fpHud={
     const alert=this.alert(s),saving=s.saved===false?'Saving is unavailable. Keep this window open.':'';
     let caption=s.soundCaption||'';if(saving)caption=saving+(caption?' · '+caption:'');if(alert)caption=alert+(caption?' · '+caption:'');
     s.setText('soundCue',reading?'':caption,device?650:700);s.soundCue.setPosition(24,18);
-    const lightWarning=!!(m&&m.mode==='cab'&&!m.van.headlights&&s.art&&s.art.lighting&&['dusk','night'].includes(OTR.fpLighting.time(m)));
+    const lightWarning=!!(m&&m.mode==='cab'&&!m.van.headlights&&s.art&&s.art.lighting&&(m.nightDrive?OTR.fpNight.required(m):['dusk','night'].includes(OTR.fpLighting.time(m))));
     const captionAlpha=this.alpha(s.hud.caption,caption,s.soundCue.text,now,!!alert||!!s.soundSource||lightWarning||s.saved===false,reduced);
     s.soundCue.setVisible(!reading&&!!caption&&captionAlpha>0).setAlpha(captionAlpha);
     s.headerBack.setPosition(12,10).setDisplaySize(Math.min(device?674:724,s.soundCue.width+24),s.soundCue.height+16).setAlpha(captionAlpha*.9).setVisible(s.soundCue.visible);
