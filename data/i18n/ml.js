@@ -4038,7 +4038,38 @@ window.OTR_I18N.ml = {
 "This area has no recorded condition.": "ഈ ഭാഗത്തിന് രേഖപ്പെടുത്തിയ അവസ്ഥയൊന്നുമില്ല.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "പുറപ്പെടും മുമ്പ് ഒഴിഞ്ഞ കൈകളോടെ പാർക്ക് ചെയ്ത വാനിന് ചുറ്റും നടന്ന് ഓരോ ഭാഗത്തിന്റെയും അവസ്ഥ രേഖപ്പെടുത്തുക.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "വാനിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക, ടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, പിന്നെ പാഴ്സലുകൾ സ്കാൻ ചെയ്ത് ലോഡ് ചെയ്യുക. പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമാക്കി കാർഗോ അടയ്ക്കുക.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക, കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ സ്കാൻ ചെയ്യുക, ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുന്നതിന് മുമ്പ് വാനിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക, കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ സ്കാൻ ചെയ്യുക, ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുന്നതിന് മുമ്പ് വാനിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"Read the dispatch radio message.": "ഡിസ്പാച്ചിന്റെ റേഡിയോ സന്ദേശം വായിക്കുക.",
+"Visibility is reduced. The headlights are on.": "കാഴ്ച കുറവാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്.",
+"Visibility is reduced. Switch on the headlights before moving.": "കാഴ്ച കുറവാണ്. നീങ്ങുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ ഓൺ ചെയ്യുക.",
+"It is night. The headlights are on. Drive within the distance they light.": "രാത്രിയാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാണ്. ഹെഡ്‌ലൈറ്റ് വെളിച്ചം എത്തുന്ന ദൂരത്തിനുള്ളിൽ നിർത്താൻ കഴിയുന്ന വേഗത്തിൽ ഓടിക്കുക.",
+"You have reached the dispatch check-in. Park safely at the curb.": "നിങ്ങൾ ഡിസ്പാച്ച് ചെക്ക്-ഇന്നിൽ എത്തി. കർബിനരികിൽ സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക.",
+"Used the headlights when visibility required them.": "കാഴ്ച കുറഞ്ഞപ്പോൾ ഹെഡ്‌ലൈറ്റുകൾ ഉപയോഗിച്ചു.",
+"Moved without headlights when visibility required them.": "കാഴ്ച കുറഞ്ഞിട്ടും ഹെഡ്‌ലൈറ്റുകൾ ഇല്ലാതെ ഓടിച്ചു.",
+"No accessible dispatch check-in": "എത്തിച്ചേരാവുന്ന ഡിസ്പാച്ച് ചെക്ക്-ഇൻ ഇല്ല",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "ഡിസ്പാച്ച് വിളിക്കുന്നു. സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക, എന്നിട്ട് ഹാൻഡ്‌ഹെൽഡിൽ റേഡിയോ സന്ദേശം വായിക്കുക.",
+"The dispatch radio message is waiting for your response.": "ഡിസ്പാച്ചിന്റെ റേഡിയോ സന്ദേശം നിങ്ങളുടെ മറുപടിക്കായി കാത്തിരിക്കുന്നു.",
+"There is no dispatch radio message waiting.": "കാത്തിരിക്കുന്ന ഡിസ്പാച്ച് റേഡിയോ സന്ദേശമൊന്നുമില്ല.",
+"Stop and set the parking brake before reading the radio message.": "റേഡിയോ സന്ദേശം വായിക്കുന്നതിനു മുമ്പ് നിർത്തി പാർക്കിങ് ബ്രേക്ക് ഇടുക.",
+"Read the dispatch radio message before responding.": "മറുപടി നൽകുന്നതിനു മുമ്പ് ഡിസ്പാച്ചിന്റെ റേഡിയോ സന്ദേശം വായിക്കുക.",
+"Stop and set the parking brake before responding to Dispatch.": "ഡിസ്പാച്ചിന് മറുപടി നൽകുന്നതിനു മുമ്പ് നിർത്തി പാർക്കിങ് ബ്രേക്ക് ഇടുക.",
+"The dispatch route update is already accepted.": "ഡിസ്പാച്ചിന്റെ റൂട്ട് അപ്ഡേറ്റ് ഇതിനകം സ്വീകരിച്ചിട്ടുണ്ട്.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "റൂട്ട് അപ്ഡേറ്റ് സ്വീകരിച്ചു. സാറ്റ് നാവിലെ പുതിയ ലക്ഷ്യസ്ഥാനം പിന്തുടരുക.",
+"Followed the dispatch radio route update.": "ഡിസ്പാച്ചിന്റെ റേഡിയോ റൂട്ട് അപ്ഡേറ്റ് പാലിച്ചു.",
+"Did not follow the dispatch radio route update.": "ഡിസ്പാച്ചിന്റെ റേഡിയോ റൂട്ട് അപ്ഡേറ്റ് പാലിച്ചില്ല.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "റൂട്ട് അപ്ഡേറ്റ് നിരസിച്ചതായി ഡിസ്പാച്ച് രേഖപ്പെടുത്തി. ആദ്യത്തെ ഡെലിവറികൾ സുരക്ഷിതമായി തുടരുക.",
+"Accept the dispatch route update before confirming arrival.": "എത്തിയെന്ന് സ്ഥിരീകരിക്കുന്നതിനു മുമ്പ് ഡിസ്പാച്ചിന്റെ റൂട്ട് അപ്ഡേറ്റ് സ്വീകരിക്കുക.",
+"Complete the requested delivery before the other stops.": "മറ്റ് സ്റ്റോപ്പുകൾക്കു മുമ്പ് ആവശ്യപ്പെട്ട ഡെലിവറി പൂർത്തിയാക്കുക.",
+"Park at the dispatch check-in stop and set the parking brake first.": "ഡിസ്പാച്ച് ചെക്ക്-ഇൻ സ്റ്റോപ്പിൽ പാർക്ക് ചെയ്ത് ആദ്യം പാർക്കിങ് ബ്രേക്ക് ഇടുക.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "ഡിസ്പാച്ച് നിങ്ങളുടെ ചെക്ക്-ഇൻ രേഖപ്പെടുത്തി. ബാക്കിയുള്ള ഡെലിവറികൾ തുടരുക.",
+"Dispatch has recorded your check-in. Return to the depot.": "ഡിസ്പാച്ച് നിങ്ങളുടെ ചെക്ക്-ഇൻ രേഖപ്പെടുത്തി. ഡിപ്പോയിലേക്ക് മടങ്ങുക.",
+"The dispatch radio.": "ഡിസ്പാച്ച് റേഡിയോ.",
+"Review the radio message.": "റേഡിയോ സന്ദേശം വീണ്ടും നോക്കുക.",
+"Accept the route update.": "റൂട്ട് അപ്ഡേറ്റ് സ്വീകരിക്കുക.",
+"Decline the route update.": "റൂട്ട് അപ്ഡേറ്റ് നിരസിക്കുക.",
+"Confirm arrival at the check-in stop.": "ചെക്ക്-ഇൻ സ്റ്റോപ്പിൽ എത്തിയെന്ന് സ്ഥിരീകരിക്കുക.",
+"Invalid dispatch version": "അസാധുവായ ഡിസ്പാച്ച് പതിപ്പ്",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ഡിസ്പാച്ച് ചെക്ക്-ഇൻ പൂർത്തിയാക്കുക, എന്നിട്ട് റൂട്ട് തുടരുക അല്ലെങ്കിൽ ഡിപ്പോയിലേക്ക് മടങ്ങുക."
 },
 "templates": [
 [
@@ -5816,6 +5847,30 @@ window.OTR_I18N.ml = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "ഈ ഭാഗം പരിശോധിച്ച് അതിന്റെ അവസ്ഥ ഹാൻഡ്‌ഹെൽഡിൽ രേഖപ്പെടുത്താൻ {0} അമർത്തുക."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0}-ലെ ഡിസ്പാച്ച് ചെക്ക്-ഇന്നിലേക്ക് ഡ്രൈവ് ചെയ്യുക."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"ഡിസ്പാച്ച് ചെക്ക്-ഇൻ വരെ {0} അടി തുടരുക."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"അടുത്തതായി {0}-ലേക്ക് പോകാൻ ഡിസ്പാച്ച് ആവശ്യപ്പെടുന്നു. റൂട്ടിലെ മറ്റ് എല്ലാ ഡെലിവറികളും അതുപോലെ നിലനിർത്തുക."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"ഡിസ്പാച്ച് {0}-ൽ ഒരു ചെക്ക്-ഇൻ സ്റ്റോപ്പ് ചേർത്തു. പൊതു കർബിനരികിൽ പാർക്ക് ചെയ്ത് എത്തിയെന്ന് സ്ഥിരീകരിക്കുക. അവിടെ പാക്കേജ് ഒന്നും നൽകാനില്ല."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"നിങ്ങളുടെ അടുത്ത സ്റ്റോപ്പ് {0} ആകണമെന്ന് ഡിസ്പാച്ച് ആവശ്യപ്പെടുന്നു."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0}-ൽ ഒരു ഡിസ്പാച്ച് ചെക്ക്-ഇൻ ബാക്കിയുണ്ട്."
 ]
 ],
 "keep": [

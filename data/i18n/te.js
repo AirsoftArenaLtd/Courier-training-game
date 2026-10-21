@@ -4038,7 +4038,38 @@ window.OTR_I18N.te = {
 "This area has no recorded condition.": "ఈ భాగానికి నమోదైన స్థితి ఏదీ లేదు.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "బయలుదేరే ముందు ఖాళీ చేతులతో పార్క్ చేసిన వ్యాన్ చుట్టూ నడిచి, ప్రతి భాగం స్థితిని నమోదు చేయండి.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "వ్యాన్ స్థితిని నమోదు చేసి, టైర్లు, లైట్లు తనిఖీ చేయండి, తర్వాత పార్సిళ్లను స్కాన్ చేసి లోడ్ చేయండి. బయలుదేరే ముందు లోడ్‌ను భద్రపరచి కార్గో మూసివేయండి.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "డిపోకు తిరిగి వెళ్లి, ఉంచుకున్న పార్సిళ్లను రిటర్న్స్ వద్ద స్కాన్ చేసి, డిస్పాచ్ వద్ద ముగించే ముందు వ్యాన్ స్థితిని నమోదు చేయండి."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "డిపోకు తిరిగి వెళ్లి, ఉంచుకున్న పార్సిళ్లను రిటర్న్స్ వద్ద స్కాన్ చేసి, డిస్పాచ్ వద్ద ముగించే ముందు వ్యాన్ స్థితిని నమోదు చేయండి.",
+"Read the dispatch radio message.": "డిస్పాచ్ రేడియో సందేశాన్ని చదవండి.",
+"Visibility is reduced. The headlights are on.": "కనిపించే దూరం తగ్గింది. హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి.",
+"Visibility is reduced. Switch on the headlights before moving.": "కనిపించే దూరం తగ్గింది. కదలడానికి ముందు హెడ్‌లైట్లు ఆన్ చేయండి.",
+"It is night. The headlights are on. Drive within the distance they light.": "రాత్రి అయింది. హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి. హెడ్‌లైట్ల వెలుగు చేరే దూరంలోపే ఆపగలిగే వేగంతో నడపండి.",
+"You have reached the dispatch check-in. Park safely at the curb.": "మీరు డిస్పాచ్ చెక్-ఇన్‌కు చేరుకున్నారు. కర్బ్ దగ్గర సురక్షితంగా పార్క్ చేయండి.",
+"Used the headlights when visibility required them.": "కనిపించే దూరం తక్కువగా ఉన్నప్పుడు హెడ్‌లైట్లు వాడారు.",
+"Moved without headlights when visibility required them.": "కనిపించే దూరం తక్కువగా ఉన్నా హెడ్‌లైట్లు లేకుండా నడిపారు.",
+"No accessible dispatch check-in": "చేరుకోగలిగే డిస్పాచ్ చెక్-ఇన్ లేదు",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "డిస్పాచ్ పిలుస్తోంది. సురక్షితంగా పార్క్ చేసి, హ్యాండ్‌హెల్డ్‌లో రేడియో సందేశాన్ని చదవండి.",
+"The dispatch radio message is waiting for your response.": "డిస్పాచ్ రేడియో సందేశం మీ సమాధానం కోసం వేచి ఉంది.",
+"There is no dispatch radio message waiting.": "వేచి ఉన్న డిస్పాచ్ రేడియో సందేశం ఏదీ లేదు.",
+"Stop and set the parking brake before reading the radio message.": "రేడియో సందేశాన్ని చదవడానికి ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"Read the dispatch radio message before responding.": "సమాధానం ఇవ్వడానికి ముందు డిస్పాచ్ రేడియో సందేశాన్ని చదవండి.",
+"Stop and set the parking brake before responding to Dispatch.": "డిస్పాచ్‌కు సమాధానం ఇవ్వడానికి ముందు ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"The dispatch route update is already accepted.": "డిస్పాచ్ రూట్ అప్‌డేట్ ఇప్పటికే అంగీకరించబడింది.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "రూట్ అప్‌డేట్ అంగీకరించబడింది. నావిగేషన్‌లో కొత్త గమ్యాన్ని అనుసరించండి.",
+"Followed the dispatch radio route update.": "డిస్పాచ్ రేడియో రూట్ అప్‌డేట్‌ను అనుసరించారు.",
+"Did not follow the dispatch radio route update.": "డిస్పాచ్ రేడియో రూట్ అప్‌డేట్‌ను అనుసరించలేదు.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "రూట్ అప్‌డేట్ తిరస్కరించబడినట్లు డిస్పాచ్ నమోదు చేసింది. అసలు డెలివరీలను సురక్షితంగా కొనసాగించండి.",
+"Accept the dispatch route update before confirming arrival.": "చేరుకున్నట్లు నిర్ధారించే ముందు డిస్పాచ్ రూట్ అప్‌డేట్‌ను అంగీకరించండి.",
+"Complete the requested delivery before the other stops.": "ఇతర స్టాప్‌ల కంటే ముందు కోరిన డెలివరీని పూర్తి చేయండి.",
+"Park at the dispatch check-in stop and set the parking brake first.": "డిస్పాచ్ చెక్-ఇన్ స్టాప్ వద్ద పార్క్ చేసి, ముందుగా పార్కింగ్ బ్రేక్ వేయండి.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "డిస్పాచ్ మీ చెక్-ఇన్‌ను నమోదు చేసింది. మిగిలిన డెలివరీలను కొనసాగించండి.",
+"Dispatch has recorded your check-in. Return to the depot.": "డిస్పాచ్ మీ చెక్-ఇన్‌ను నమోదు చేసింది. డిపోకు తిరిగి వెళ్లండి.",
+"The dispatch radio.": "డిస్పాచ్ రేడియో.",
+"Review the radio message.": "రేడియో సందేశాన్ని మళ్లీ చూడండి.",
+"Accept the route update.": "రూట్ అప్‌డేట్‌ను అంగీకరించండి.",
+"Decline the route update.": "రూట్ అప్‌డేట్‌ను తిరస్కరించండి.",
+"Confirm arrival at the check-in stop.": "చెక్-ఇన్ స్టాప్‌కు చేరుకున్నట్లు నిర్ధారించండి.",
+"Invalid dispatch version": "చెల్లని డిస్పాచ్ వెర్షన్",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "డిస్పాచ్ చెక్-ఇన్ పూర్తి చేసి, ఆపై రూట్ కొనసాగించండి లేదా డిపోకు తిరిగి వెళ్లండి."
 },
 "templates": [
 [
@@ -5816,6 +5847,30 @@ window.OTR_I18N.te = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "ఈ భాగాన్ని తనిఖీ చేసి, దాని స్థితిని హ్యాండ్‌హెల్డ్‌లో నమోదు చేయడానికి {0} నొక్కండి."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0} వద్ద ఉన్న డిస్పాచ్ చెక్-ఇన్ వరకు డ్రైవ్ చేయండి."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"డిస్పాచ్ చెక్-ఇన్ వరకు {0} అడుగులు కొనసాగండి."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"తర్వాత {0} వద్దకు వెళ్లమని డిస్పాచ్ కోరుతోంది. రూట్‌లోని మిగతా అన్ని డెలివరీలను అలాగే ఉంచండి."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"డిస్పాచ్ {0} వద్ద ఒక చెక్-ఇన్ స్టాప్ జోడించింది. పబ్లిక్ కర్బ్ దగ్గర పార్క్ చేసి, మీరు చేరుకున్నట్లు నిర్ధారించండి. అక్కడ ఏ ప్యాకేజీ ఇవ్వాల్సిన అవసరం లేదు."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"మీ తదుపరి స్టాప్‌గా {0} ఉండాలని డిస్పాచ్ కోరుతోంది."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0} వద్ద డిస్పాచ్ చెక్-ఇన్ పెండింగ్‌లో ఉంది."
 ]
 ],
 "keep": [

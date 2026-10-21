@@ -4038,7 +4038,38 @@ window.OTR_I18N.kn = {
 "This area has no recorded condition.": "ಈ ಭಾಗಕ್ಕೆ ಯಾವುದೇ ಸ್ಥಿತಿ ದಾಖಲಾಗಿಲ್ಲ.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "ಹೊರಡುವ ಮೊದಲು ಖಾಲಿ ಕೈಗಳಿಂದ ನಿಲ್ಲಿಸಿದ ವ್ಯಾನ್ ಸುತ್ತ ನಡೆದು ಪ್ರತಿ ಭಾಗದ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "ವ್ಯಾನ್‌ನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ, ಟೈರ್ ಮತ್ತು ದೀಪಗಳನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಲೋಡ್ ಮಾಡಿ. ಹೊರಡುವ ಮೊದಲು ಲೋಡ್ ಭದ್ರಪಡಿಸಿ ಸರಕು ಬಾಗಿಲು ಮುಚ್ಚಿ.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ, ಉಳಿಸಿಕೊಂಡ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ರಿಟರ್ನ್ಸ್‌ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮೊದಲು ವ್ಯಾನ್‌ನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ, ಉಳಿಸಿಕೊಂಡ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ರಿಟರ್ನ್ಸ್‌ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮೊದಲು ವ್ಯಾನ್‌ನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Read the dispatch radio message.": "ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಸಂದೇಶವನ್ನು ಓದಿ.",
+"Visibility is reduced. The headlights are on.": "ಗೋಚರತೆ ಕಡಿಮೆಯಾಗಿದೆ. ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಆಗಿದೆ.",
+"Visibility is reduced. Switch on the headlights before moving.": "ಗೋಚರತೆ ಕಡಿಮೆಯಾಗಿದೆ. ಹೊರಡುವ ಮೊದಲು ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಮಾಡಿ.",
+"It is night. The headlights are on. Drive within the distance they light.": "ರಾತ್ರಿಯಾಗಿದೆ. ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಆಗಿದೆ. ಹೆಡ್‌ಲೈಟ್ ಬೆಳಕು ತಲುಪುವ ದೂರದೊಳಗೆ ನಿಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗುವ ವೇಗದಲ್ಲಿ ಚಲಾಯಿಸಿ.",
+"You have reached the dispatch check-in. Park safely at the curb.": "ನೀವು ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ತಲುಪಿದ್ದೀರಿ. ರಸ್ತೆಯ ಅಂಚಿನಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ.",
+"Used the headlights when visibility required them.": "ಗೋಚರತೆ ಕಡಿಮೆ ಇದ್ದಾಗ ಹೆಡ್‌ಲೈಟ್ ಬಳಸಿದಿರಿ.",
+"Moved without headlights when visibility required them.": "ಗೋಚರತೆ ಕಡಿಮೆ ಇದ್ದರೂ ಹೆಡ್‌ಲೈಟ್ ಇಲ್ಲದೆ ಚಲಾಯಿಸಿದಿರಿ.",
+"No accessible dispatch check-in": "ತಲುಪಬಹುದಾದ ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಇಲ್ಲ",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "ಡಿಸ್ಪ್ಯಾಚ್ ಕರೆ ಮಾಡುತ್ತಿದೆ. ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ, ನಂತರ ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ರೇಡಿಯೋ ಸಂದೇಶ ಓದಿ.",
+"The dispatch radio message is waiting for your response.": "ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಸಂದೇಶ ನಿಮ್ಮ ಉತ್ತರಕ್ಕಾಗಿ ಕಾಯುತ್ತಿದೆ.",
+"There is no dispatch radio message waiting.": "ಬಾಕಿ ಇರುವ ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಸಂದೇಶ ಇಲ್ಲ.",
+"Stop and set the parking brake before reading the radio message.": "ರೇಡಿಯೋ ಸಂದೇಶ ಓದುವ ಮೊದಲು ನಿಲ್ಲಿಸಿ ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ.",
+"Read the dispatch radio message before responding.": "ಉತ್ತರಿಸುವ ಮೊದಲು ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಸಂದೇಶ ಓದಿ.",
+"Stop and set the parking brake before responding to Dispatch.": "ಡಿಸ್ಪ್ಯಾಚ್‌ಗೆ ಉತ್ತರಿಸುವ ಮೊದಲು ನಿಲ್ಲಿಸಿ ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ.",
+"The dispatch route update is already accepted.": "ಡಿಸ್ಪ್ಯಾಚ್ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಅನ್ನು ಈಗಾಗಲೇ ಸ್ವೀಕರಿಸಲಾಗಿದೆ.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ಸ್ಯಾಟ್ ನ್ಯಾವ್‌ನಲ್ಲಿ ಹೊಸ ಗಮ್ಯಸ್ಥಾನವನ್ನು ಅನುಸರಿಸಿ.",
+"Followed the dispatch radio route update.": "ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಅನುಸರಿಸಿದಿರಿ.",
+"Did not follow the dispatch radio route update.": "ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಅನುಸರಿಸಲಿಲ್ಲ.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ನಿರಾಕರಿಸಲಾಗಿದೆ ಎಂದು ಡಿಸ್ಪ್ಯಾಚ್ ದಾಖಲಿಸಿದೆ. ಮೂಲ ಡೆಲಿವರಿಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮುಂದುವರಿಸಿ.",
+"Accept the dispatch route update before confirming arrival.": "ತಲುಪಿದ್ದನ್ನು ದೃಢೀಕರಿಸುವ ಮೊದಲು ಡಿಸ್ಪ್ಯಾಚ್ ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಸ್ವೀಕರಿಸಿ.",
+"Complete the requested delivery before the other stops.": "ಇತರ ಸ್ಟಾಪ್‌ಗಳಿಗಿಂತ ಮೊದಲು ಕೇಳಲಾದ ಡೆಲಿವರಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.",
+"Park at the dispatch check-in stop and set the parking brake first.": "ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಸ್ಟಾಪ್‌ನಲ್ಲಿ ಪಾರ್ಕ್ ಮಾಡಿ, ಮೊದಲು ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "ಡಿಸ್ಪ್ಯಾಚ್ ನಿಮ್ಮ ಚೆಕ್-ಇನ್ ದಾಖಲಿಸಿದೆ. ಉಳಿದ ಡೆಲಿವರಿಗಳನ್ನು ಮುಂದುವರಿಸಿ.",
+"Dispatch has recorded your check-in. Return to the depot.": "ಡಿಸ್ಪ್ಯಾಚ್ ನಿಮ್ಮ ಚೆಕ್-ಇನ್ ದಾಖಲಿಸಿದೆ. ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ.",
+"The dispatch radio.": "ಡಿಸ್ಪ್ಯಾಚ್ ರೇಡಿಯೋ.",
+"Review the radio message.": "ರೇಡಿಯೋ ಸಂದೇಶವನ್ನು ಮತ್ತೆ ನೋಡಿ.",
+"Accept the route update.": "ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ಸ್ವೀಕರಿಸಿ.",
+"Decline the route update.": "ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ನಿರಾಕರಿಸಿ.",
+"Confirm arrival at the check-in stop.": "ಚೆಕ್-ಇನ್ ಸ್ಟಾಪ್ ತಲುಪಿದ್ದನ್ನು ದೃಢೀಕರಿಸಿ.",
+"Invalid dispatch version": "ಅಮಾನ್ಯ ಡಿಸ್ಪ್ಯಾಚ್ ಆವೃತ್ತಿ",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಪೂರ್ಣಗೊಳಿಸಿ, ನಂತರ ಮಾರ್ಗವನ್ನು ಮುಂದುವರಿಸಿ ಅಥವಾ ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ."
 },
 "templates": [
 [
@@ -5816,6 +5847,30 @@ window.OTR_I18N.kn = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "ಈ ಭಾಗವನ್ನು ಪರಿಶೀಲಿಸಿ ಅದರ ಸ್ಥಿತಿಯನ್ನು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ದಾಖಲಿಸಲು {0} ಒತ್ತಿ."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0} ನಲ್ಲಿರುವ ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್‌ಗೆ ಡ್ರೈವ್ ಮಾಡಿ."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್‌ವರೆಗೆ {0} ಅಡಿ ಮುಂದುವರಿಯಿರಿ."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"ಮುಂದೆ {0} ಕಡೆಗೆ ಹೋಗಲು ಡಿಸ್ಪ್ಯಾಚ್ ಕೇಳುತ್ತಿದೆ. ಮಾರ್ಗದಲ್ಲಿನ ಇತರ ಎಲ್ಲ ಡೆಲಿವರಿಗಳನ್ನು ಹಾಗೆಯೇ ಇರಿಸಿ."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"ಡಿಸ್ಪ್ಯಾಚ್ {0} ನಲ್ಲಿ ಒಂದು ಚೆಕ್-ಇನ್ ಸ್ಟಾಪ್ ಸೇರಿಸಿದೆ. ಸಾರ್ವಜನಿಕ ರಸ್ತೆಯ ಅಂಚಿನಲ್ಲಿ ಪಾರ್ಕ್ ಮಾಡಿ, ನೀವು ತಲುಪಿದ್ದನ್ನು ದೃಢೀಕರಿಸಿ. ಅಲ್ಲಿ ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ತಲುಪಿಸಬೇಕಿಲ್ಲ."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"ನಿಮ್ಮ ಮುಂದಿನ ಸ್ಟಾಪ್ {0} ಆಗಬೇಕೆಂದು ಡಿಸ್ಪ್ಯಾಚ್ ಕೇಳುತ್ತಿದೆ."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0} ನಲ್ಲಿ ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಬಾಕಿ ಇದೆ."
 ]
 ],
 "keep": [

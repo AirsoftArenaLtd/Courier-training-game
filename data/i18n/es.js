@@ -4049,7 +4049,38 @@ window.OTR_I18N.es = {
 "This area has no recorded condition.": "Esta zona no tiene un estado registrado.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "Rodea la camioneta estacionada con las manos vacías y registra el estado de cada zona antes de salir.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "Registra el estado de la camioneta, revisa las llantas y las luces, y luego escanea y carga los paquetes. Asegura la carga y cierra la caja de carga antes de salir.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "Vuelve al depósito, escanea los paquetes retenidos en Devoluciones y registra el estado de la camioneta antes de terminar en el Despacho."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "Vuelve al depósito, escanea los paquetes retenidos en Devoluciones y registra el estado de la camioneta antes de terminar en el Despacho.",
+"Read the dispatch radio message.": "Lee el mensaje de radio del despacho.",
+"Visibility is reduced. The headlights are on.": "Hay poca visibilidad. Los faros están encendidos.",
+"Visibility is reduced. Switch on the headlights before moving.": "Hay poca visibilidad. Enciende los faros antes de avanzar.",
+"It is night. The headlights are on. Drive within the distance they light.": "Es de noche. Los faros están encendidos. Conduce de modo que puedas parar dentro de la distancia que iluminan.",
+"You have reached the dispatch check-in. Park safely at the curb.": "Has llegado al punto de registro del despacho. Aparca con seguridad junto al bordillo.",
+"Used the headlights when visibility required them.": "Usaste los faros cuando la visibilidad lo exigía.",
+"Moved without headlights when visibility required them.": "Avanzaste sin faros cuando la visibilidad los exigía.",
+"No accessible dispatch check-in": "No hay ningún punto de registro del despacho accesible",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "El despacho te está llamando. Estaciona en un lugar seguro y luego lee el mensaje de radio en el escáner.",
+"The dispatch radio message is waiting for your response.": "El mensaje de radio del despacho espera tu respuesta.",
+"There is no dispatch radio message waiting.": "No hay ningún mensaje de radio del despacho pendiente.",
+"Stop and set the parking brake before reading the radio message.": "Detente y pon el freno de mano antes de leer el mensaje de radio.",
+"Read the dispatch radio message before responding.": "Lee el mensaje de radio del despacho antes de responder.",
+"Stop and set the parking brake before responding to Dispatch.": "Detente y pon el freno de mano antes de responder al despacho.",
+"The dispatch route update is already accepted.": "La actualización de ruta del despacho ya está aceptada.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "La actualización de ruta está aceptada. Sigue el nuevo destino en el GPS.",
+"Followed the dispatch radio route update.": "Seguiste la actualización de ruta que el despacho envió por radio.",
+"Did not follow the dispatch radio route update.": "No seguiste la actualización de ruta que el despacho envió por radio.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "El despacho registra que rechazaste la actualización de ruta. Continúa con las entregas originales con seguridad.",
+"Accept the dispatch route update before confirming arrival.": "Acepta la actualización de ruta del despacho antes de confirmar la llegada.",
+"Complete the requested delivery before the other stops.": "Completa la entrega solicitada antes de las otras paradas.",
+"Park at the dispatch check-in stop and set the parking brake first.": "Aparca en la parada de registro del despacho y pon primero el freno de mano.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "El despacho ha registrado tu llegada. Continúa con las entregas restantes.",
+"Dispatch has recorded your check-in. Return to the depot.": "El despacho ha registrado tu llegada. Vuelve al centro.",
+"The dispatch radio.": "La radio del despacho.",
+"Review the radio message.": "Revisar el mensaje de radio.",
+"Accept the route update.": "Aceptar la actualización de ruta.",
+"Decline the route update.": "Rechazar la actualización de ruta.",
+"Confirm arrival at the check-in stop.": "Confirmar la llegada a la parada de registro.",
+"Invalid dispatch version": "Versión de despacho no válida",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "Completa el registro en el despacho y luego sigue la ruta o vuelve al centro."
 },
 "templates": [
 [
@@ -5827,6 +5858,30 @@ window.OTR_I18N.es = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "Pulsa {0} para revisar esta zona y registrar su estado en el escáner."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"Conduce hasta el punto de registro del despacho en {0}."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"Continúa {0} pies hasta el punto de registro del despacho."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"El despacho te pide que vayas a {0} a continuación. Mantén todas las demás entregas de la ruta."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"El despacho ha añadido una parada de registro en {0}. Aparca junto al bordillo público y confirma tu llegada. Allí no hay que entregar ningún paquete."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"El despacho solicita {0} como tu próxima parada."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"Hay un registro del despacho pendiente en {0}."
 ]
 ],
 "keep": [
