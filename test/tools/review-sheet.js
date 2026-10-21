@@ -15,6 +15,13 @@
  * headings tells the reviewer what to do, in English and in the sheet's language (docs/review/HOW-TO-REVIEW.md says more);
  * its Kind is "how to review", and it is never counted as a line of the sheet. REVIEW_OUT=<dir> writes somewhere else
  * (the test, test/reviewsheet.js).
+ *
+ *   node test/tools/review-sheet.js --apply ta-safety.csv [--dry-run]     a sheet a reviewer sent back (B-86)
+ *
+ * --apply puts each "Corrected translation" into data/i18n/<lang>.js, matched by the English (the language comes from the
+ * sheet's headings). It refuses a correction that drops a {0} the game fills in, and refuses the whole sheet when it was
+ * saved without UTF-8 (the letters turned into ? or �). It lists every comment for the team, and the English it no
+ * longer finds in the game. --dry-run says what it would do and changes nothing. I18N_DIR=<dir> writes somewhere else.
  */
 'use strict';
 const fs = require('fs');
@@ -68,18 +75,68 @@ const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
 const readSheet = (file) => {
   if (!fs.existsSync(file)) return [];
   const src = fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''), rows = [];
+  // Excel in some countries saves CSV with semicolons; the headings line says which
+  const first = src.slice(0, src.indexOf('\n') >>> 0), sep = (first.match(/;/g) || []).length > (first.match(/,/g) || []).length ? ';' : ',';
   let row = [], cell = '', quoted = false;
   for (let i = 0; i < src.length; i++) {
     const c = src[i];
     if (quoted) { if (c === '"' && src[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') quoted = false; else cell += c; }
     else if (c === '"') quoted = true;
-    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === sep) { row.push(cell); cell = ''; }
     else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
     else if (c !== '\r') cell += c;
   }
+  if (cell || row.length) { row.push(cell); rows.push(row); }          // a sheet saved without a last line break
   return rows;
 };
 const clean = (s) => String(s).replace(/^\s+|\s+$/g, '');
+
+if (args.includes('--apply')) { apply(args[args.indexOf('--apply') + 1], args.includes('--dry-run')); process.exit(process.exitCode || 0); }
+
+/** B-86: a returned sheet's corrections into data/i18n/<lang>.js. */
+function apply(file, dry) {
+  if (!file || !fs.existsSync(file)) { console.error('usage: node test/tools/review-sheet.js --apply <sheet.csv> [--dry-run]'); process.exitCode = 2; return; }
+  const rows = readSheet(file), head = rows[0] || [];
+  const col = (re) => head.findIndex(h => re.test(h));
+  const cEn = col(/^English$/), cMt = col(/\(machine translation\)$/), cFix = col(/^Corrected translation/), cNote = col(/^Comment$/), cKind = col(/^Kind$/);
+  const name = cMt >= 0 ? head[cMt].replace(/ \(machine translation\)$/, '') : '';
+  const lang = Object.keys(LANGS).find(k => LANGS[k] === name);
+  if (!lang || [cEn, cFix, cNote, cKind].some(c => c < 0)) { console.error(`${file}: not a review sheet (its headings are ${JSON.stringify(head)})`); process.exitCode = 2; return; }
+  const dir = process.env.I18N_DIR ? path.resolve(process.env.I18N_DIR) : path.join(ROOT, 'data', 'i18n'), target = path.join(dir, lang + '.js');
+  const src = fs.readFileSync(target, 'utf8');
+  global.window = {}; eval(src);
+  const L = window.OTR_I18N[lang], tmpl = new Map(L.templates.map((t, i) => [t[0], i]));
+  const body = rows.slice(1).filter(r => r[cKind] !== 'how to review' && clean(r[cEn] || ''));
+  // saved without UTF-8: the translations come back with ? or the replacement character where the letters were
+  const broken = (t) => /\uFFFD/.test(t) || (lang !== 'es' && lang !== 'fr' && /\?{2,}/.test(t));
+  const lost = body.filter(r => broken(r[cMt] || '') || broken(r[cFix] || '')).length;
+  if (lost) { console.error(`${file}: ${lost} line(s) lost their letters (? or \uFFFD): the sheet was not saved as CSV UTF-8. Nothing applied; ask the reviewer to save it again as "CSV UTF-8" (HOW-TO-REVIEW.md).`); process.exitCode = 1; return; }
+  const done = [], refused = [], missing = [], notes = [];
+  body.forEach(r => {
+    const en = clean(r[cEn]), fix = clean(r[cFix] || ''), note = clean(r[cNote] || '');
+    if (note) notes.push([en, note]);
+    if (!fix) return;
+    const isT = tmpl.has(en), isS = Object.prototype.hasOwnProperty.call(L.strings, en);
+    if (!isT && !isS) { missing.push(en); return; }
+    const holes = (t) => (t.match(/\{\d+\}/g) || []).sort().join();
+    if (holes(en) !== holes(fix)) { refused.push([en, `keeps ${holes(fix) || 'no {0}'} where the English has ${holes(en) || 'none'}`]); return; }
+    const was = isT ? L.templates[tmpl.get(en)][1] : L.strings[en];
+    if (was === fix) return;
+    if (isT) L.templates[tmpl.get(en)][1] = fix; else L.strings[en] = fix;
+    done.push([en, was, fix]);
+  });
+  if (!dry && done.length) {
+    const at = src.indexOf('window.OTR_I18N.' + lang + ' = ');
+    fs.writeFileSync(target, src.slice(0, at) + 'window.OTR_I18N.' + lang + ' = ' + JSON.stringify(L, null, 1).replace(/^ +/gm, '') + ';\n');
+  }
+  console.log(`${path.basename(file)} (${LANGS[lang]}): ${done.length} correction(s) ${dry ? 'would be applied' : 'applied'} to ${path.relative(ROOT, target)}`);
+  done.forEach(([en, was, fix]) => console.log(`  ✓ ${en}\n      was: ${was}\n      now: ${fix}`));
+  refused.forEach(([en, why]) => console.log(`  ✗ refused: ${en} — the correction ${why}`));
+  missing.forEach(en => console.log(`  ? no longer in the game (skipped): ${en}`));
+  if (notes.length) { console.log(`Comments for the team (${notes.length}):`); notes.forEach(([en, n]) => console.log(`  • ${en}\n      ${n}`)); }
+  if (refused.length) process.exitCode = 1;
+}
+
 fs.mkdirSync(OUT, { recursive: true });
 
 for (const lang of want) {

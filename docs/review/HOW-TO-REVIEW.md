@@ -46,7 +46,10 @@ We put your corrections into the game. The next sheet you get marks only what ch
 
 ## For the team
 
-- Make the sheets with `node test/tools/review-sheet.js`. Once the corrected sheets are applied to `data/i18n/<lang>.js`,
-  run it with `--reviewed` to clear the `new` marks.
+- Make the sheets with `node test/tools/review-sheet.js`.
+- Apply a sheet that comes back with `node test/tools/review-sheet.js --apply <file.csv>`. Add `--dry-run` first to see
+  what it would change. It matches each correction by the English. It refuses a correction that loses a `{0}`, and it
+  refuses a whole file saved without UTF-8. It prints the reviewer's comments and any English the game no longer has.
+- Once every sheet is applied, run the tool with `--reviewed` to clear the `new` marks.
 - The first row (Kind "how to review") is these steps in short. The tool never counts it as a line. `test/reviewsheet.js`
   checks that each sheet reads cleanly as a spreadsheet and starts with this row in its language.

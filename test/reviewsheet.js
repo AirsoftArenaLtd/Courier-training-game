@@ -6,7 +6,9 @@
  * and in the sheet's language (docs/review/HOW-TO-REVIEW.md, whose column names must match the sheet's). Within each
  * priority the "new" rows come first. Then the tool is run again into a scratch folder from the sheets as they are: the
  * output must be the same, the how-to row must not count as a line, and a corrected cell the reviewer typed must not
- * break the next run.
+ * break the next run. B-86: then a returned Tamil sheet is applied to a copy of ta.js with --apply: a correction lands, a
+ * template correction that drops its {0} is refused, a comment and an English the game no longer has are listed, a
+ * sheet saved without UTF-8 is refused whole, and a semicolon sheet without a last line break still reads.
  *
  *   node test/reviewsheet.js
  */
@@ -86,6 +88,42 @@ try {
     check(again === raw, `${lang}: running the tool again gives the same sheet (the how-to row is not counted as a line)`);
   }
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+
+// B-86: --apply on a copy of ta.js
+const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-apply-'));
+try {
+  fs.copyFileSync(path.join(ROOT, 'data', 'i18n', 'ta.js'), path.join(tmp2, 'ta.js'));
+  const load = () => { global.window = {}; eval(fs.readFileSync(path.join(tmp2, 'ta.js'), 'utf8')); return window.OTR_I18N.ta; };
+  const raw = sheets.ta.replace(/^\uFEFF/, ''), rows = parse(raw);
+  const text = rows.findIndex((r, i) => i > 1 && r[6] === 'text'), tpl = rows.findIndex((r, i) => i > 1 && /\{0\}/.test(r[2]) && r[6] !== 'text');
+  const en = rows[text][2], ten = rows[tpl][2];
+  rows[text][4] = 'திருத்தப்பட்ட மொழிபெயர்ப்பு'; rows[text][5] = 'Shorter, please';
+  rows[tpl][4] = 'எண் இல்லாத திருத்தம்';                               // drops the {0}
+  rows.push(['1', '', 'A line the game no longer has.', 'பழையது', 'புதியது', '', 'text']);
+  const csv = (rows, sep) => '\uFEFF' + rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(sep)).join('\r\n');
+  const run = (file, extra) => { try { return { code: 0, out: execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'review-sheet.js'), '--apply', file].concat(extra || []), { env: Object.assign({}, process.env, { I18N_DIR: tmp2 }), encoding: 'utf8', stdio: 'pipe' }) }; }
+    catch (e) { return { code: e.status, out: String(e.stdout || '') + String(e.stderr || '') }; } };
+  const f1 = path.join(tmp2, 'ta-safety.csv');
+  fs.writeFileSync(f1, csv(rows, ',') + '\r\n');
+  const dry = run(f1, ['--dry-run']);
+  check(/1 correction\(s\) would be applied/.test(dry.out) && load().strings[en] !== 'திருத்தப்பட்ட மொழிபெயர்ப்பு', '--apply --dry-run says what it would do and changes nothing');
+  const r1 = run(f1);
+  const L = load();
+  check(L.strings[en] === 'திருத்தப்பட்ட மொழிபெயர்ப்பு', '--apply puts a correction into ta.js, matched by the English');
+  check(r1.code === 1 && /refused: /.test(r1.out) && L.templates.find(t => t[0] === ten)[1] !== 'எண் இல்லாத திருத்தம்', '--apply refuses a template correction that drops its {0}');
+  check(/Shorter, please/.test(r1.out) && /no longer in the game \(skipped\): A line the game no longer has\./.test(r1.out), '--apply lists the comments and the English it no longer finds');
+  check(/^window\.OTR_I18N/m.test(fs.readFileSync(path.join(tmp2, 'ta.js'), 'utf8')) && Object.keys(L.strings).length > 3000, 'ta.js still loads, with every line, after --apply');
+  // saved as plain CSV by Excel: the Tamil letters are gone
+  const lostRows = rows.map((r, i) => i < 2 ? r : r.map((c, j) => j === 3 || j === 4 ? c.replace(/[^\x00-\x7F]/g, '?') : c));
+  const f2 = path.join(tmp2, 'ta-ansi.csv'); fs.writeFileSync(f2, csv(lostRows, ','));
+  const before = fs.readFileSync(path.join(tmp2, 'ta.js'), 'utf8'), r2 = run(f2);
+  check(r2.code === 1 && /CSV UTF-8/.test(r2.out) && fs.readFileSync(path.join(tmp2, 'ta.js'), 'utf8') === before, '--apply refuses a sheet saved without UTF-8 and changes nothing');
+  // semicolons, no last line break
+  const rows3 = rows.slice(0, rows.length - 1); rows3[text][4] = 'மீண்டும் திருத்தம்'; rows3[tpl][4] = '';
+  const f3 = path.join(tmp2, 'ta-semicolon.csv'); fs.writeFileSync(f3, csv(rows3, ';'));
+  const r3 = run(f3);
+  check(r3.code === 0 && load().strings[en] === 'மீண்டும் திருத்தம்', '--apply reads a semicolon sheet without a last line break');
+} finally { fs.rmSync(tmp2, { recursive: true, force: true }); }
 
 console.log(fails.length ? `\n${fails.length} of ${checks} review sheet checks failed` : `${checks} review sheet checks passed`);
 process.exit(fails.length ? 1 : 0);
