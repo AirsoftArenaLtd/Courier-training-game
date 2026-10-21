@@ -866,3 +866,10 @@ scopes and hashes](review/set-9/c35-current/manifest.json). Full Low/High and th
 expanded **179-view fpbench gate are still running**, so these are progress figures,
 not a completed rendered acceptance. The original ceilings stay unchanged; cloud
 SwiftShader does not certify native Intel 60 fps. O-1 remains the owner check.
+
+The subsequent High surface correction is measured at runtime `501fb82`, retaining
+pilot `0b43851`. Both repeated combined CPU sweeps pass **285,600 views each**:
+loaded **60 calls / 2,443 triangles**, fallback **59 / 2,181**. The corrected High
+English native workflow passes **321 checks**, seven pre/post surfaces and all 12
+guide pages. [Failure and corrected captures, raw sweeps and exact source](review/set-9/c35-surfaces/manifest.json).
+The rest of the native matrix and 179-view rendered gate remain in progress.
