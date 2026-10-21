@@ -994,3 +994,23 @@ All four new heavy-save variants retain every pin and exact score on reload:
 failed lights pack at 3,929/4,000 or 3,931/4,000; successful lights at 3,993/4,000
 or 3,995/4,000. The latter still have little headroom and are reported to Claude.
 No resource ceiling changed. Cloud SwiftShader cannot certify Intel 60 fps (O-1).
+
+## C-36 completed combined gate (21 October 2026)
+
+All **207 resource views** and **nine shared Low journeys** pass at `27558ea`.
+This includes the corrected real-departure radio fixtures, C-35 walkaround,
+live mirrors, richer stops, radio/night, sound, assets and missing-model fallback.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 68 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 53 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 43 | 54 | 2,396 | 2 | 3,557,376 | 3,084,640 |
+| fallback-low | 43 | 53 | 2,150 | 2 | 3,557,376 | 2,592,336 |
+
+[All reports, captures, controller/source hashes and shared logs](review/set-9/c36-accepted/manifest.json).
+Claude has merged C-36, the test-fixture correction, translations and the legacy
+2D driving game-time fix. The B-114 four-case probe on pilot `c9e02e87` retains
+all pins and exact scores with **437–449 characters spare**, above the new 300-character
+guard. Existing native Low/High checks pass 55 each. Original ceilings remain
+unchanged; cloud SwiftShader does not certify Intel 60 fps (O-1).

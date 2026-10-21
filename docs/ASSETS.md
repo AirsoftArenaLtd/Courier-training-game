@@ -59,6 +59,16 @@ From the cloud sessions, `kenney.nl`, `quaternius.com` and `polyhaven.com` are b
 registry work, so Kenney's starter-kit repositories on GitHub can be used for some buildings, roads and a car. The full
 packs (board item O-3) are downloaded by the owner and dropped in `assets/_incoming/`; Codex converts and places them.
 
+## Project-made artwork
+
+Art made for the game by the team (Codex or Claude), procedurally in code or with a tool, is the project's own and
+ships under the game's licence. It needs no outside licence file, but each file is recorded here so its origin is
+clear. Never trace, copy or use a third-party image as its source.
+
+| File | What it is | Made by, and how | Date |
+| --- | --- | --- | --- |
+| (none yet) | | | |
+
 ## Credits
 
 The packs the game ships, with thanks (the game lists them on the title screen under Credits).
