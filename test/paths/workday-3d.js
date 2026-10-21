@@ -645,7 +645,8 @@ const make = (opts) => async (page, ctx) => {
   const routeMisses = await ev(`${dayEvents}.filter((e) => e.type === 'drive.route' && e.ok === false).length`);
   must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
   if (opts.radio) {
-    const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update').map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
+    // the radio's own report (key r0); C-11's route-day updates use the same type with the stop as their key
+    const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update' && /^r/.test(String(e.key))).map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
     const want = opts.radio !== 'decline';
     must(upd.length === 1 && upd[0].ok === want, `${opts.radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
   }
