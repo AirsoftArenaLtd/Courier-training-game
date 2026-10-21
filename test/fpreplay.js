@@ -84,3 +84,7 @@ test('replay ends paused, can be replayed again, and seek never escapes its actu
 test('a single recorded frame offers a still image without starting artificial motion',()=>{
  const x=fixture();x.m.paused=true;x.mistake();x.frame(0);const p=new R.Player(x.finish());assert.equal(p.play(),false);p.step(.5);p.advance(10);assert.equal(p.time,0);assert.equal(p.paused,true);
 });
+
+test('the finished record day stays distinct from the route difficulty day',()=>{
+ const x=fixture();x.m.routePlan.day=17;x.r.bind(x.m,W.events,x.identity,2);x.frame(0);x.mistake();x.frame(.1);const clip=x.r.finish({id:x.identity,day:2});assert.ok(clip);assert.equal(clip.day,2);assert.equal(clip.routeDay,17);assert.equal(R.matches(clip,{id:x.identity,day:2}),true);
+});

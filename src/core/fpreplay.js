@@ -8,7 +8,7 @@ OTR.fpReplay=(()=>{
   for(const key of ['x','z','speed','steer'])add(['van',key]);
   add(['van','yaw'],'angle');add(['van','look'],'angle');add(['van','gear'],'discrete');
   for(const key of ['headlights','wipers','belt','hand'])add(['van',key],'boolean');
-  for(const key of ['pitch','roll','heave'])add(['motion',key]);
+  for(const key of ['acceleration','lateral','pitch','roll','rpm'])add(['motion',key]);
   for(const key of ['x','z'])add(['player',key]);
   for(const key of ['yaw','pitch'])add(['player',key],'angle');
   add(['mode'],'enum',['walk','cab']);add(['phase'],'enum',['prepare','route','return','debrief']);
@@ -36,13 +36,13 @@ OTR.fpReplay=(()=>{
       this.frames=new Float64Array(CAPACITY*STRIDE);this.tail=new Float64Array(STRIDE);this.saved=new Float64Array((CAPACITY+1)*STRIDE);
       this.reset();
     }
-    reset(){this.model=null;this.identity=null;this.stream=null;this.observed=0;this.head=0;this.count=0;this.lastTime=-Infinity;this.sampleAt=-Infinity;this.latest=null;this.completed=false;}
-    bind(m,events,identity){
-      this.reset();this.model=m;this.stream=events;this.observed=events.length;this.identity=identity;
+    reset(){this.model=null;this.identity=null;this.day=null;this.stream=null;this.observed=0;this.head=0;this.count=0;this.lastTime=-Infinity;this.sampleAt=-Infinity;this.latest=null;this.completed=false;}
+    bind(m,events,identity,day){
+      this.reset();this.model=m;this.stream=events;this.observed=events.length;this.identity=identity;this.day=Number.isSafeInteger(day)&&day>0?day:m&&m.routePlan&&m.routePlan.day||1;
     }
     row(index){return (this.head+index)%CAPACITY*STRIDE;}
-    frame(m,camera,events,identity,hidden=false){
-      if(this.model!==m||this.identity!==identity)this.bind(m,events,identity);
+    frame(m,camera,events,identity,hidden=false,day){
+      if(this.model!==m||this.identity!==identity||day!==undefined&&this.day!==day)this.bind(m,events,identity,day);
       if(this.completed)return;
       if(this.stream!==events||events.length<this.observed){this.stream=events;this.observed=events.length;this.head=this.count=0;this.sampleAt=-Infinity;this.latest=null;}
       let mistake=null;
@@ -69,7 +69,8 @@ OTR.fpReplay=(()=>{
       let context;try{context=JSON.stringify(m.snapshot());}catch{this.latest=null;return;}
       if(typeof context!=='string'||context.length>MAX_CONTEXT){this.latest=null;return;}
       const def=OTR_DATA.workdayEvents[mistake.type];
-      this.latest={identity,seed:m.seed,day:m.routePlan&&m.routePlan.day||1,start:Math.max(now-SECONDS,this.saved[0]),end:now,count,context,
+      this.latest={identity,seed:m.seed,day:this.day,routeDay:m.routePlan&&m.routePlan.day||1,start:Math.max(now-SECONDS,this.saved[0]),end:now,count,context,
+        nightAllowed:!m.workdayRules||m.workdayRules.night!==false,driveAssist:Number.isFinite(m.driveAssist)?m.driveAssist:null,
         mistake:{type:mistake.type,key:mistake.key,stop:mistake.stop,label:def.kind==='penalty'?def.label:def.fail||def.label,lesson:def.lesson||'',critical:!!def.critical}};
     }
     finish(record){
@@ -112,5 +113,14 @@ OTR.fpReplay=(()=>{
       return this.time;
     }
   }
-  return {SECONDS,INTERVAL,CAPACITY,STRIDE,MAX_CONTEXT,Recorder,Player,sample,matches:(clip,record)=>!!(clip&&record&&clip.recordId===record.id&&clip.day===record.day)};
+  function restore(clip){
+    try{
+      const model=OTR.fpMission.restore(JSON.parse(clip.context));if(!model)return null;
+      model.paused=true;model.workdayRules={night:clip.nightAllowed!==false};
+      if(Number.isFinite(clip.driveAssist))model.driveAssist=clip.driveAssist;
+      model.motion={acceleration:0,lateral:0,pitch:0,roll:0,rpm:800};
+      return model;
+    }catch{return null;}
+  }
+  return {SECONDS,INTERVAL,CAPACITY,STRIDE,MAX_CONTEXT,Recorder,Player,sample,restore,matches:(clip,record)=>!!(clip&&record&&clip.recordId===record.id&&clip.day===record.day)};
 })();
