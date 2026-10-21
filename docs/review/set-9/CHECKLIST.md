@@ -10,6 +10,18 @@ side by side, and `views-ta-large/` has the same views in Tamil with larger text
 **Before you start:** `git pull` the `pilot` branch, serve the folder, open `index.html` and start a workday. Traffic
 starts on day 3, so finish two days first (or use a trainee who already has).
 
+**Or jump straight to the day an item needs (B-105).** Add these to the address you open, so it reads `index.html?…`. Each
+uses its own review profile (a name that starts with `review`), so your own progress is not touched; press Start workday
+at the hub:
+
+| Items | Add to the address | What that day has |
+| --- | --- | --- |
+| 1 to 6 (traffic) | `?dev=1&workday3d=1&user=review-traffic&route=1&day=3` | traffic lights, give-way, the cyclist, the school |
+| 7 to 10, 16 to 19 (damage, walkaround) | `?dev=1&workday3d=1&user=review-van&route=10&day=4` | the van's height, the walkaround before and after |
+| 11, 12, 14 (intercom, gate, locker) | `?dev=1&workday3d=1&user=review-stops&route=10&day=4` | a locker and an intercom behind a gate |
+| 13 (reception) | `?dev=1&workday3d=1&user=review-reception&route=5&day=4` | a locker and a business reception |
+| 15 (failed delivery) | either day-4 link above | a signature parcel with nobody home |
+
 | # | Try this | It should feel like |
 | --- | --- | --- |
 | 1 | Drive up to a traffic light on red (view `redlight`) and wait for green | The light is easy to see from the driver's seat; stopping behind the line and waiting is enough. Driving through on red is a critical mistake, shown as a diamond on the drive map |
