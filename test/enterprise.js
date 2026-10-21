@@ -14,6 +14,8 @@
  */
 'use strict';
 const path = require('path');
+// B-110: QA_BASE (an http:// root, as the newer suites take) serves the page; file:// from disk otherwise
+const PAGE = process.env.QA_BASE ? process.env.QA_BASE.replace(/\/+$/, '') + '/index.html' : 'file://' + path.resolve(__dirname, '..', 'index.html');
 const fs = require('fs');
 const os = require('os');
 const http = require('http');
@@ -119,7 +121,7 @@ const play = (p) => p.evaluate(() => { OTR.save.recordResult('m2-sort', { score:
     }
 
     /* ---- local mode: from disk, ?user= keeps trainees apart */
-    const fileUrl = 'file://' + path.join(ROOT, 'index.html');
+    const fileUrl = PAGE;
     const ctx3 = await browser.createBrowserContext();
     const p3 = await ctx3.newPage();
     await p3.goto(fileUrl + '?user=pat');
