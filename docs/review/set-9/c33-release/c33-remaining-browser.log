@@ -1,0 +1,4 @@
+START pages
+pages exit 0
+START shared-flows
+shared-flows exit 1

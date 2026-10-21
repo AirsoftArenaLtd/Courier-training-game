@@ -1,0 +1,19 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ two company themes reach the actual van, livery and uniform materials (21.635391ms)
+✔ van labels follow a moved/rotated van and do not show through its opposite side (9.827452ms)
+✔ neutral defaults and the existing config brand remain usable without optional theme fields (0.299703ms)
+✔ weather cannot repaint company colours that happen to match the road, grass or roofs (7.870761ms)
+✔ delivery controls share the existing palette batches and retain exact invisible raycast proxies (29.445228ms)
+✔ the physical gate disappears from pixels and rays only after the valid buzz and unlock (14.471065ms)
+✔ an open locker displays the deposited parcel and its true barcode instead of a second carried parcel (99.003003ms)
+✔ closing the locker occludes the barcode and opening it invalidates the photo and moves the hinge and solid together (37.974191ms)
+✔ a deposited parcel must be retrieved before it can return to cargo or become a retained exception (46.992494ms)
+✔ mirror compaction restores the exact main-view palette matrices after a locker hinge changes (40.49345ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 365.890077

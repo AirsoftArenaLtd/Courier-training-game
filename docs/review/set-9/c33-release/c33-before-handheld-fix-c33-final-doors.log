@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   'body overlaps handheld choices'
++ ]
+- []
+
+    at audit (/workspace/c33-stops/test/fpdoorsbrowser.js:21:389)
+    at async /workspace/c33-stops/test/fpdoorsbrowser.js:35:96

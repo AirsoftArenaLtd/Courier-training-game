@@ -90,7 +90,7 @@ OTR.fpRear={
         if(p.y<.12){float sector=floor(p.x*3.);float d=sector<1.?distances.x:sector<2.?distances.y:distances.z;float level=d<.5?3.:d<1.5?2.:d<3.?1.:0.;
           float edge=step(.07,fract(p.x*3.))*step(fract(p.x*3.),.93);float bars=step(fract(p.y*32.),.65)*step(p.y,.025+level*.027);vec3 ink=level>2.?vec3(1.,.25,.2):level>1.?vec3(1.,.8,.2):vec3(.3,1.,.6);colour=mix(colour,ink,bars*edge*.85);}
       }gl_FragColor=vec4(colour,1.);\n#include <colorspace_fragment>\n}`});
-    const screen=new T.Mesh(plane,material);screen.name='rear-camera-screen';screen.position.set(.78,-.085,-1.015);screen.scale.set(.56,.21,1);root.add(screen);
+    const screen=new T.Mesh(plane,material);screen.name='rear-camera-screen';screen.position.set(.928,-.285,-1.015);screen.scale.set(.56,.21,1);root.add(screen);
     const target=new T.Mesh(plane,material);target.position.copy(screen.position);target.scale.copy(screen.scale);target.position.z+=.004;target.layers.set(1);target.userData.interaction='cab-camera';root.add(target);interactions.push(target);
     const rotation=new T.Quaternion().setFromEuler(new T.Euler(-.35,Math.PI,0,'YXZ'));
     const api={screen,camera,inView:false,

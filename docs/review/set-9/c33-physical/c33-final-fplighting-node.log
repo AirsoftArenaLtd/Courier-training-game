@@ -1,0 +1,21 @@
+✔ the existing saved clock selects morning, midday, dusk and night deterministically (6.700492ms)
+✔ explicit scene presets restore, while invalid optional time values reject only the bad checkpoint (45.15588ms)
+✔ disabled night rules use a morning fallback without altering the saved planned preset (1.326824ms)
+✔ lighting does not allocate saved state, report scores or query trainer settings per frame (64.811715ms)
+✔ physical and keyboard headlight state illuminates the road, reflects faults and survives resume (43.159953ms)
+✔ the reverse lamp is automatic, lights remain on the van and gaze cannot move the beams (7.634275ms)
+✔ night instruments stay lit, and the hub regains neutral light after leaving a dark route (11.053308ms)
+✔ High installs contact occlusion and soft-shadow casters; Low uses no shadow maps or shader hooks (20.345118ms)
+✔ shadow rendering happens with the van visible after the main view, then restores its original visibility (12.331341ms)
+✔ the bounded shadow area follows the walking viewpoint while van light beams stay on the chassis (39.745052ms)
+✔ reflection sky uses the actual camera rotation and FOV, and disposal removes private geometry and hooks (6.366808ms)
+✔ world rebuilds restore the hub sun position, colours and fog before the next lighting adapter is created (25.158976ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 390.638813
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

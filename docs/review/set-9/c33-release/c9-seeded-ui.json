@@ -1,0 +1,500 @@
+{
+  "checks": 394,
+  "uiRuns": [
+    {
+      "kind": "adult",
+      "variant": 0,
+      "lang": "en",
+      "large": false,
+      "seed": 5,
+      "stop": 1,
+      "outcome": "handover",
+      "retained": false,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 1
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 1,
+      "lang": "en",
+      "large": false,
+      "seed": 6,
+      "stop": 4,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 4
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 2,
+      "lang": "en",
+      "large": false,
+      "seed": 12,
+      "stop": 3,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 3
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 3,
+      "lang": "en",
+      "large": false,
+      "seed": 3,
+      "stop": 1,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 1
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 4,
+      "lang": "en",
+      "large": false,
+      "seed": 4,
+      "stop": 5,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 5
+        }
+      ]
+    },
+    {
+      "kind": "wrong",
+      "lang": "en",
+      "large": false,
+      "seed": 3,
+      "stop": 5,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.wrong-address",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 5
+        }
+      ]
+    },
+    {
+      "kind": "customer",
+      "lang": "en",
+      "large": false,
+      "seed": 3,
+      "stop": 3,
+      "outcome": "handover",
+      "retained": false,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.difficult",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 3
+        }
+      ]
+    },
+    {
+      "kind": "clearable",
+      "lang": "en",
+      "large": false,
+      "seed": 1,
+      "stop": 1,
+      "retained": false,
+      "hazardCleared": true,
+      "saved": true,
+      "events": []
+    },
+    {
+      "kind": "adult",
+      "variant": 0,
+      "lang": "ta",
+      "large": true,
+      "seed": 5,
+      "stop": 1,
+      "outcome": "handover",
+      "retained": false,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 1
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 1,
+      "lang": "ta",
+      "large": true,
+      "seed": 6,
+      "stop": 4,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 4
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 2,
+      "lang": "ta",
+      "large": true,
+      "seed": 12,
+      "stop": 3,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 3
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 3,
+      "lang": "ta",
+      "large": true,
+      "seed": 3,
+      "stop": 1,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 1
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 1
+        }
+      ]
+    },
+    {
+      "kind": "adult",
+      "variant": 4,
+      "lang": "ta",
+      "large": true,
+      "seed": 4,
+      "stop": 5,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.age-check",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 5
+        }
+      ]
+    },
+    {
+      "kind": "wrong",
+      "lang": "ta",
+      "large": true,
+      "seed": 3,
+      "stop": 5,
+      "outcome": "exception",
+      "retained": true,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.wrong-address",
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 5
+        }
+      ]
+    },
+    {
+      "kind": "customer",
+      "lang": "ta",
+      "large": true,
+      "seed": 3,
+      "stop": 3,
+      "outcome": "handover",
+      "retained": false,
+      "hazardCleared": false,
+      "saved": true,
+      "events": [
+        {
+          "type": "scan.stop",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "scan.load",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "stop.difficult",
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "deliver.outcome",
+          "ok": true,
+          "stop": 3
+        }
+      ]
+    },
+    {
+      "kind": "clearable",
+      "lang": "ta",
+      "large": true,
+      "seed": 1,
+      "stop": 1,
+      "retained": false,
+      "hazardCleared": true,
+      "saved": true,
+      "events": []
+    }
+  ],
+  "phaserTexturePeakWithMipmaps": 3192507
+}

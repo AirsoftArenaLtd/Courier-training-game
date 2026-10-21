@@ -1,0 +1,39 @@
+✔ every shipped pack is credited with its author, a CC0 licence and its source (5.968291ms)
+✖ data/credits.js and docs/ASSETS.md are up to date (node test/tools/credits.js) (157.478672ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 181.436523
+
+✖ failing tests:
+
+test at test/credits.js:20:1
+✖ data/credits.js and docs/ASSETS.md are up to date (node test/tools/credits.js) (157.478672ms)
+  <ref *1> Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at TestContext.<anonymous> (/workspace/c33-stops/test/credits.js:21:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -1,
+    code: 'EPERM',
+    syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+    path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+    spawnargs: [ '/workspace/c33-stops/test/tools/credits.js', '--check' ],
+    error: [Circular *1],
+    status: 0,
+    signal: null,
+    output: [ null, <Buffer >, <Buffer > ],
+    pid: 91082,
+    stdout: <Buffer >,
+    stderr: <Buffer >
+  }

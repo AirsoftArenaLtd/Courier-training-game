@@ -1,22 +1,30 @@
 # The integrated 3D review gate
 
-C-29, extended for C-30 signs and C-31 navigation on 18 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
+C-29, extended through C-33 richer stops and merged C-34 damage on 20 October 2026. Run `node test/fpquality.js` against a locally served checkout (`QA_BASE`),
 with Chromium (`QA_BROWSER`) and Puppeteer installed. One browser runs at a time. `QA_PROFILES`
 can select profile names, separated by commas, in run order; it defaults to all four.
 
 | Profile | Quality | Fixed views | Purpose |
 | --- | --- | ---: | --- |
-| `loaded-low` | Low | 33 | Junction/number/one-way/loaded-peak signs, all mirrors, cab, scanning, five-stop workflow views, later traffic/reverse, night/weather, town and actors. |
-| `loaded-high` | High | 18 | Signs and source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
-| `accessible-low` | Low | 11 | Signs, larger text, colour filtering and reduced motion in cab, scanning, weather, cargo and reverse. |
-| `fallback-low` | Low | 11 | Signs and actual HTTP 404 responses for every GLB, with the procedural cab/town/actors still rendered. |
+| `loaded-low` | Low | 55 | Signs, mirrors, cab, scanning, five-stop workflow, traffic/reverse, night/weather, town, actors, damage and physical delivery points. |
+| `loaded-high` | High | 40 | The same additions with source-detail town/actors, every mirror, cab, loaded cargo and night reverse. |
+| `accessible-low` | Low | 30 | Larger text, colour filtering and reduced motion with signs, navigation, traffic, damage, cargo, reverse and delivery points. |
+| `fallback-low` | Low | 30 | Actual HTTP 404 responses for every GLB, with procedural cab/town/actors, traffic, damage and delivery points. |
 
 All four profiles include the full/rerouted dash screen and blocked approach; loaded profiles
 also show line-only aids and the double-parked car. `QA_NAV=1` versions every benchmark campaign
-and reads C-30’s one-way rule. The full gate has 73 fixed views.
+and reads C-30’s one-way rule. The full gate has **155 fixed views**.
+
+Every profile adds nine damage/clearance views and seven richer-stop views: intercom,
+gate, reception, open/deposited locker, closed/photographed locker, retention, and the
+combined cab stress view. Delivery proofs require native later-day plans with an
+authorized standard-service locker, five physical delivery targets and seven damage
+zones in the combined cab fixture. Loaded profiles add six traffic views; accessible
+and fallback profiles add three. These are fixed resource fixtures; the real-key
+protocol/scanner/signature workflows run separately in `test/fpstopbrowser.js`.
 
 The exact named fixtures/seeds live in `test/fpbench.js`; the versioned profile lists live in
-`test/fpquality.js`. They cover C-22 through C-31 and C-47 without changing gameplay. The same
+`test/fpquality.js`. They cover C-22 through C-34 and C-47 without changing gameplay. The same
 default company theme and running audio/captions are used in every profile. The gate checks
 the accessibility flags and audio state as well as the model fixture and rendered resources. The
 generated town, physical targets, scores, saved state and trainer rules are retained. Run
@@ -52,11 +60,13 @@ surface. Low geometry, targets, gaze/scoring, reflection scheduling and render r
 their behavior. A geometry regression test reproduces the former 4.5 mm front-face obstruction;
 the rendered marker probes prevent a flat housing from passing on resource counters alone.
 
-Reports and PNGs are saved under `test/out/fp-review/`, with a `c29-<profile>` prefix; the summary
+Reports and PNGs are saved under `test/out/fp-review/`, with a default `c29-<profile>` prefix; the summary
 is `c29-quality.json`. `QA_TAG` changes that prefix. The summary records the checked Git revision,
 the profile's view list and accessibility/fallback settings, each peak and the child exit status.
 The raw benchmark report retains renderer identity, frame times and individual views. At handoff,
-the fixed review set and final figures are copied into `docs/review/set-8/c29.md` and `docs/PERF.md`.
+the fixed review set and final figures are copied into the task's review document and `docs/PERF.md`.
+The original gate is archived in `docs/review/set-8/c29.md`; C-33's combined acceptance status
+and exact source scopes are in `docs/review/set-9/c33.md`.
 
 Cloud SwiftShader cannot establish the owner's Intel 60 fps floor (O-1). On the real laptop, use
 `QA_NATIVE_GPU=1 QA_FPS_FLOOR=60 QA_PROFILES=loaded-low,accessible-low,fallback-low` and retain

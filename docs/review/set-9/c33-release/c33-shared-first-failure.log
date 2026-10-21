@@ -1,0 +1,4 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+FAIL drive-review   fps= 15 boot=null golden=script error: DriveReviewScene never opened; on screen: [ResultsScene] | GREAT WORK! | Road Hazards | Drive map (1) | STARS | 6 / 6 | Safety | Efficiency | KEY TAKEAWAYS | Hazards: ✓ Your handheld buzzes  ·  ✓ Ball in the street  ·  ✓ Car door  ·  ✓ Standing water  ·  ✓ Distracted pedestrian  ·  ✓ School bus | Buckle up before you move, every single time. Couriers make hundreds of stops a day and the belt is what keeps you in the seat. | Belt on before the wheels move, every stop, every time. | CAREER  6 ★  ·  6 / 14 ★ to Rookie | +6 new career stars | R | Retry | ⏎ | To the station ▶

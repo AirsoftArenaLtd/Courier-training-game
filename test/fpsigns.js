@@ -120,3 +120,27 @@ test('sign shader composition retains existing road-grain and material hooks',()
 test('the depot give-way face points toward the loading-bay approach',()=>{
  const m=make(),s=O.fpSigns.catalog(m).regulatory.find(s=>s.kind==='giveway');const dot=(2.84-s.x)*-Math.sin(s.yaw)+(8-s.z)*Math.cos(s.yaw);assert.ok(dot>0,'The departing driver sees the front of the sign.');
 });
+
+test('long sign sentences stay readable beside real signal, mirror and navigation bounds',()=>{
+ const point={x:758.7,y:301.1},bounds=[{x:758.6,y:315.6,w:38.5,h:57.1},{x:1054.2,y:397.1,w:310,h:158},{x:1030,y:170,w:360,h:180}],out={};
+ assert.equal(O.fpSigns.placeLabel(point,336,116,bounds,92,out),true);
+ assert.ok(out.x-168>=10&&out.x+168<=1270&&out.y-58>=92&&out.y+58<=620);
+ assert.ok(bounds.every(b=>Math.abs(out.x-b.x)>=(336+b.w)/2+6||Math.abs(out.y-b.y)>=(116+b.h)/2+6));
+ assert.ok(Math.hypot(out.x-point.x,out.y-point.y)<400,'the sentence remains near its actual sign');
+});
+test('projected sign placement clamps edge labels and rejects a fully blocked screen',()=>{
+ const out={};assert.equal(O.fpSigns.placeLabel({x:32,y:260},336,88,[],92,out),true);
+ assert.ok(out.x-168>=10&&out.x+168<=1270);
+ assert.equal(O.fpSigns.placeLabel({x:640,y:300},336,88,[{x:640,y:360,w:1280,h:720}],92,out),false);
+});
+
+test('a tall sentence uses the clear top margin when its natural anchor would clip',()=>{
+ const out={},bounds=[{x:640,y:400,w:1280,h:150}];
+ assert.equal(O.fpSigns.placeLabel({x:914,y:223},336,184,bounds,92,out),true);
+ assert.ok(out.y-92>=92&&out.y+92<325);
+});
+
+test('cab sign sentences respect the working dashboard boundary',()=>{
+ const out={};assert.equal(O.fpSigns.placeLabel({x:914,y:223},336,184,[{x:914,y:260,w:80,h:110}],92,out,420),true);
+ assert.ok(out.y+92<=420&&out.y-92>=92);
+});

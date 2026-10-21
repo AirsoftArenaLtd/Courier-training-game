@@ -1,0 +1,77 @@
+{
+  "sourceRevision": "d63644d3729af3a68fe145d7b81e220a8d2a2d88",
+  "jobs": [
+    {
+      "suite": "academy",
+      "exit": 0,
+      "seconds": 36.5,
+      "log": "c33-release-page-academy.log",
+      "transport": "original"
+    },
+    {
+      "suite": "art",
+      "exit": 0,
+      "seconds": 6.3,
+      "log": "c33-release-page-art.log",
+      "transport": "HTTP adapter"
+    },
+    {
+      "suite": "driving",
+      "exit": 0,
+      "seconds": 127.7,
+      "log": "c33-release-page-driving.log",
+      "transport": "HTTP adapter"
+    },
+    {
+      "suite": "enterprise",
+      "exit": 0,
+      "seconds": 16.3,
+      "log": "c33-release-page-enterprise.log",
+      "transport": "HTTP adapter"
+    },
+    {
+      "suite": "offline",
+      "exit": 0,
+      "seconds": 8.6,
+      "log": "c33-release-page-offline.log",
+      "transport": "original"
+    },
+    {
+      "suite": "routeday",
+      "exit": 0,
+      "seconds": 36.0,
+      "log": "c33-release-page-routeday.log",
+      "transport": "HTTP adapter"
+    },
+    {
+      "suite": "scorm-launch",
+      "exit": 0,
+      "seconds": 24.8,
+      "log": "c33-release-page-scorm-launch.log",
+      "transport": "original"
+    },
+    {
+      "suite": "signin",
+      "exit": 0,
+      "seconds": 65.2,
+      "log": "c33-release-page-signin.log",
+      "transport": "original"
+    },
+    {
+      "suite": "town3d",
+      "exit": 0,
+      "seconds": 29.5,
+      "log": "c33-release-page-town3d.log",
+      "transport": "HTTP adapter"
+    },
+    {
+      "suite": "workdayflow",
+      "exit": 0,
+      "seconds": 99.4,
+      "log": "c33-release-page-workdayflow.log",
+      "transport": "original"
+    }
+  ],
+  "completed": true,
+  "scope": "Five legacy suites use unchanged assertions over the scoped local HTTP adapter; actual file-protocol launch is not tested here."
+}

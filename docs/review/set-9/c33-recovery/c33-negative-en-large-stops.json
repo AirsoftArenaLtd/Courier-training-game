@@ -1,0 +1,268 @@
+{
+  "sourceRevision": "1e1c0dbb85cd0af03427a308b160894ef9f17e02",
+  "quality": "low",
+  "negative": true,
+  "fixture": "Unmodified generated day-three routes with signs/navigation and the C-33 marker. The all-signature later schedule is tested separately; live locker policy is pending.",
+  "checks": 144,
+  "runs": [
+    {
+      "lang": "en",
+      "large": true,
+      "id": 3,
+      "seed": 1,
+      "kind": "intercom",
+      "adult": false,
+      "signature": false,
+      "button": "Tomas Vela",
+      "name": "Tomas Vela",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.intercom",
+          "key": 3,
+          "ok": false,
+          "stop": 4,
+          "where": {
+            "x": 8.5,
+            "z": -74.3
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 304 Harbor St. Carrying: 304 Harbor St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 304 Harbor St. 304 Harbor St · Hand to the resident. Put away. Stop details",
+        "Selected 304 Harbor St. Press O to interact.",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Tomas Vela.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 4,
+      "seed": 2,
+      "kind": "gated",
+      "adult": false,
+      "signature": true,
+      "button": "Maria Ortiz",
+      "name": "Maria Ortiz",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.intercom",
+          "key": 4,
+          "ok": false,
+          "stop": 5,
+          "where": {
+            "x": 99.2,
+            "z": -42.8
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 212 Birch Ln. Carrying: 212 Birch Ln. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 212 Birch Ln. 212 Birch Ln · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Maria Ortiz.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street.",
+        "Choose the intercom button.. The parcel is for Maria Ortiz.. Call Maria Ortiz.. Call a different entry.. Return to the intercom."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": false,
+          "stop": 2,
+          "where": {
+            "x": 127.3,
+            "z": -83.4
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 309 Oak St. Carrying: 309 Oak St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831037 2091. 309 Oak St. 309 Oak St · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected 309 Oak St. Press O to interact.",
+        "Selected the reception desk. Press O to interact.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": false,
+          "stop": 5,
+          "where": {
+            "x": 35.9,
+            "z": 21.1
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 105 Maple Ave. Carrying: 105 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 105 Maple Ave. 105 Maple Ave · Leave in the porch box if nobody answers. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "Nobody answers the door.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": false,
+          "stop": 4,
+          "where": {
+            "x": 35.1,
+            "z": -43
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 213 Maple Ave. Carrying: 213 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 213 Maple Ave. 213 Maple Ave · Signature required. Put away. Stop details",
+        "Selected 213 Maple Ave. Press O to interact.",
+        "Selected the path hazard. Press O to interact.",
+        "Selected the delivery record. Press O to interact."
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "expectedRuns": 5,
+  "fixtureNow": {
+    "id": 3,
+    "seed": 2,
+    "kind": "failed",
+    "adult": false,
+    "signature": true,
+    "button": null,
+    "name": "",
+    "compartment": null,
+    "nextDay": 4
+  },
+  "current": {
+    "fixture": {
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": true,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      },
+      {
+        "type": "stop.reattempt",
+        "key": 3,
+        "ok": false,
+        "stop": 4,
+        "where": {
+          "x": 35.1,
+          "z": -43
+        }
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}

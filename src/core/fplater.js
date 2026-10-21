@@ -6,8 +6,13 @@ OTR.fpLater={
     if(source.day<2)return source;
     const plan=OTR.fpMission.clone(source);plan.later=1;plan.weather=this.weather(plan.day);
     const present=plan.route.filter(r=>r.stop.answer);
-    plan.route.forEach(r=>{const p=r.stop.packages[0];p.service='signature';delete p.note;});
-    present.slice(0,plan.day>=3?2:1).forEach(r=>{r.stop.packages[0].service='adult';});
+    const locker=OTR.fpStopFlow&&OTR.fpStopFlow.validLocker(plan)?plan.lockerStop:undefined;
+    plan.route.forEach((r,i)=>{const p=r.stop.packages[0];
+      if(i===locker){p.note='Deliver this standard parcel to the assigned locker at this site.';return;}
+      p.service='signature';delete p.note;
+    });
+    // Keep the original present-recipient positions; do not move another stop into the ID requirement.
+    present.slice(0,plan.day>=3?2:1).forEach(r=>{if(plan.route.indexOf(r)!==locker)r.stop.packages[0].service='adult';});
     // Generation always has an absent leave-at-door stop; keep that recipient absent and require retention.
     if(plan.dispatch)plan.dispatch.kind='signature';
     return plan;
@@ -46,7 +51,7 @@ OTR.fpLater={
   },
   open(scene,page=-1){
     const m=scene.model;if(!this.enabled(m))return;
-    const body=page<0?[`The forecast is ${m.routeDay.weather}.`,'Every package needs a signature. Check the label for photo ID requirements.','Road works close the red-marked street on the route map. Use another cross street.','Practice windows guide planning and do not affect the score. Safety comes first.'].join('\n\n'):
+    const body=page<0?[`The forecast is ${m.routeDay.weather}.`,m.routePlan.lockerStop!==undefined?'One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.':'Every package needs a signature. Check the label for photo ID requirements.','Road works close the red-marked street on the route map. Use another cross street.','Practice windows guide planning and do not affect the score. Safety comes first.'].join('\n\n'):
       [m.stops[page].address,m.serviceLabel(page),this.windowText(m,page),this.status(m,page)].join('\n\n');
     const choices=[];if(page<4)choices.push({label:page<0?'View the stop windows':'Next stop',action:()=>this.open(scene,page+1)});
     if(page>=0)choices.push({label:'Previous',action:()=>this.open(scene,page-1)});

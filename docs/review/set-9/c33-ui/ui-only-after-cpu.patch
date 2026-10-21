@@ -1,0 +1,35 @@
+diff --git a/src/core/fpsigns.js b/src/core/fpsigns.js
+index e597097..b662da8 100644
+--- a/src/core/fpsigns.js
++++ b/src/core/fpsigns.js
+@@ -156,16 +156,16 @@ OTR.fpSigns = {
+   createUI(scene){
+     scene.signUI={lastAt:-1000,readIndex:-1,occupied:[],pool:Array.from({length:5},()=>({back:scene.add.rectangle(0,0,1,1,0x10232E,.9).setDepth(9).setVisible(false),text:OTR.txt(scene,0,0,'',OTR.fpAccess.settings().large?22:18,'#ffffff',{wrap:220,align:'center'}).setDepth(10).setVisible(false),entry:null}))};
+   },
+-  placeLabel(point,w,h,bounds,top,out){
++  placeLabel(point,w,h,bounds,top,out,bottom=620){
+     // Prefer the sign's own column, then its sides. Move only as far as each obstacle requires.
+-    if(w>1260||h>620-top)return false;
++    if(w>1260||h>bottom-top)return false;
+     for(let column=0;column<3;column++){
+-      const x=THREE.MathUtils.clamp(point.x+(column===1?-1:column===2?1:0)*(w/2+64),10+w/2,1270-w/2);
++      const x=THREE.MathUtils.clamp(point.x+(column===1?-1:column===2?1:0)*(w/2+80),10+w/2,1270-w/2);
+       for(let direction=-1;direction<=1;direction+=2){
+-        let y=THREE.MathUtils.clamp(point.y+direction*(h/2+12),top+h/2,620-h/2);
++        let y=THREE.MathUtils.clamp(point.y+direction*(h/2+12),top+h/2,bottom-h/2);
+         for(let move=0;move<=bounds.length;move++){
+           let hit=null;for(const b of bounds)if(Math.abs(x-b.x)<(w+b.w)/2+6&&Math.abs(y-b.y)<(h+b.h)/2+6){hit=b;break;}
+-          if(!hit){if(y-h/2>=top&&y+h/2<=620){out.x=x;out.y=y;return true;}break;}
++          if(!hit){if(y-h/2>=top&&y+h/2<=bottom){out.x=x;out.y=y;return true;}break;}
+           const next=hit.y+direction*((h+hit.h)/2+8);y=direction<0?Math.min(y,next):Math.max(y,next);
+         }
+       }
+@@ -201,7 +201,7 @@ OTR.fpSigns = {
+       const slot=ui.pool[count],wrap=large?320:260;if(slot.wrap!==wrap){slot.wrap=wrap;slot.text.setWordWrapWidth(wrap);}
+       const text=OTR.i18n?OTR.i18n.t(e.label.text):e.label.text;if(slot.text.text!==text)slot.text.setText(e.label.text);
+       const w=slot.text.width+16,h=slot.text.height+10;
+-      if(!this.placeLabel(p,w,h,bounds,top,placement))continue;const {x,y}=placement;
++      if(!this.placeLabel(p,w,h,bounds,top,placement,scene.model.mode==='cab'?420:620))continue;const {x,y}=placement;
+       slot.entry=e;slot.text.setPosition(x,y).setVisible(true);slot.back.setPosition(x,y).setDisplaySize(w,h).setVisible(true);bounds.push({x,y,w,h});if(++count===ui.pool.length)break;
+     }
+   },

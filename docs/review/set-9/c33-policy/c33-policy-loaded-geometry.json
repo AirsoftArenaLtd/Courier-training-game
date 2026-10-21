@@ -1,0 +1,15 @@
+{
+  "views": 264000,
+  "peakCalls": 61,
+  "peakTriangles": 2494,
+  "worst": {
+    "day": 21,
+    "variant": 10,
+    "stop": 1,
+    "loaded": true,
+    "pose": "cargo-outside",
+    "reflection": 2,
+    "calls": 56,
+    "triangles": 2494
+  }
+}

@@ -751,3 +751,98 @@ QA_CAMERA=1 QA_CAB=1 QA_MIRRORS=1 QA_REAR=1 QA_LIGHTING=1 QA_WEATHER=1 QA_CARGO=
 QA_ASSETS=1 QA_TAG=c34-pilot-loaded node --test --test-isolation=none test/fproute.js`;
 repeat with `QA_ASSETS=0 QA_TAG=c34-pilot-fallback`. The rendered gate is
 `QA_BASE=http://127.0.0.1:8341 QA_TAG=c34-pilot node test/fpquality.js`.
+
+
+## C-33: richer-stop progress (19 October 2026)
+
+Not ready for merge: live locker assignment needs Claude's policy, and the remaining
+browser commands need working automatic approval review. No ceiling is raised. Physical
+controls/furniture share existing palette batches; no new model, image, target or pass.
+Low marked days trade the former 260-triangle town-decoration allowance for 120; High
+keeps its detail. Existing requirements and older checkpoints retain their flow.
+
+Final runtime `b1d01d6` passes 264,000 native-plan CPU views each with loaded assets and
+procedural fallback: **59 calls / 2,398 triangles** and **56 / 2,120**. Both include all
+stops, extra cargo, open cargo, camera/cab, four reflections, rear, weather, actors and
+signs/navigation. The explicitly standard-service locker fixtures are measured separately.
+
+The following **28 focused WebGL views** passed at earlier scene revision `18d8658`,
+before the furniture-overlap polish. They are not the complete 101-view gate.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 7 | 48 | 1,830 | 2 | 3,557,376 | 2,916,688 |
+| loaded-high | 7 | 70 | 218,543 | 3 | 11,239,424 | 7,885,104 |
+| accessible-low | 7 | 48 | 1,830 | 2 | 3,557,376 | 3,254,560 |
+| fallback-low | 7 | 41 | 1,654 | 2 | 3,557,376 | 2,859,344 |
+
+All profiles used running sound, physical controls and live mirror/rear passes; fallback
+really failed model loads. Final fixed-view and High workflow acceptance is outstanding.
+Evidence, source scopes and commands: `docs/review/set-9/c33.md`. Cloud SwiftShader is
+resource evidence; native Intel 60 fps remains O-1.
+
+## C-33 historical 101-view resource gate (20 October 2026)
+
+The full 101-view `test/fpquality.js` gate passes at source `1e1c0db`, runtime
+`b1d01d6`, superseding the earlier focused 28-view resource sample. Physical stops,
+existing route/cab controls, all live mirror pixel probes, accessibility and missing
+model files are checked. All profiles have zero browser errors and no lost contexts.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 40 | 53 | 2,386 | 2 | 3,557,376 | 3,235,467 |
+| loaded-high | 25 | 98 | 220,081 | 3 | 11,239,424 | 7,972,870 |
+| accessible-low | 18 | 53 | 2,386 | 2 | 3,557,376 | 3,268,112 |
+| fallback-low | 18 | 52 | 2,108 | 2 | 3,557,376 | 2,910,528 |
+
+All ceilings are unchanged. Cloud SwiftShader checks resources, not native Intel
+60 fps (the existing O-1 owner check). At that revision, locker policy and gameplay
+validation were unresolved. Current policy and acceptance follow below.
+[Raw reports, all 101 screenshots and source/evidence hashes](review/set-9/c33-complete/manifest.json).
+
+Reproduce sequentially: `QA_BASE=http://127.0.0.1:8339 QA_TAG=c33-complete node test/fpquality.js`.
+
+## C-33 combined resource gate (21 October 2026)
+
+All **155 rendered views** pass in four profiles: native authorized later-day delivery
+fixtures, located damage, traffic/navigation, live mirror pixels, running sound,
+larger text/colour/reduced motion and actual missing-model fallback. No missing view,
+page error or lost context occurs. The measured runtime is `220f2ba`; the current branch
+retains pilot `da7bd3f`. Later changes correct one US spelling and remove an unused
+six-pixel gap after the handheld choices. The owned handheld now releases unused
+page shapes after clearing them; the new doorstep memory guard exposed four retained
+signature-pad canvases. 3D rendering inputs, glyph sizes and canvas resolutions are
+unchanged. Repeated doorstep tests check body/Back clearance and the same 4 MiB Low ceiling.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 55 | 54 | 2,396 | 2 | 3,557,376 | 3,627,158 |
+| loaded-high | 40 | 107 | 235,893 | 3 | 11,239,424 | 9,552,176 |
+| accessible-low | 30 | 54 | 2,396 | 2 | 3,557,376 | 3,783,483 |
+| fallback-low | 30 | 53 | 2,150 | 2 | 3,557,376 | 3,332,672 |
+
+The repeated full CPU sweeps each cover **285,600 complete-frame views**: loaded
+**60 calls / 2,443 triangles**, fallback **59 / 2,181**. A combined pre-fix view failed
+at 2,510 triangles. Decorative town geometry is reduced to 60 triangles on combined
+damage/stop days (120 on other marked days); High retains its detail. No resource
+ceiling is raised. All cargo, damage zones, clearance posts, cab, camera, mirrors,
+weather, lighting, actors and traffic remain present.
+
+The 24 High English/Tamil normal/larger physical stop workflows pass **608 checks**.
+The current-pilot audit passes 240 native sign approaches (3,113,414 estimated Phaser
+bytes) and 540 larger-text language views. After correcting a trailing handheld gap
+and releasing unused signature-pad canvases, the 394-check doorstep suite peaks at
+3,192,507 Phaser bytes. HUD 186, scanner/signature layouts 8, themes 43, keyboard
+accessibility 145, all ten page suites, the final required Node subset 125, all 33
+changed-JS syntax checks and the current catalogue pass.
+
+All five shared Low scenarios were run: workday-3d and workday-aids pass; the two
+later-day variants fail their old handheld-only expectation, and drive-review fails
+the Results-to-map click in unchanged shared source. Claude has the exact failures
+and physical-stop helper recipe. The branch is ready for review with that shared-QA
+gate and translation pass explicit; no all-green or merge-ready claim is made.
+
+The older 101-view gate and pre-damage sweeps above belong to their original sources.
+[Current review and remaining checks](review/set-9/c33.md),
+[raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
+Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.

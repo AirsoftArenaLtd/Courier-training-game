@@ -1,0 +1,28 @@
+✔ straight street paths have the exact distance and preserve their endpoints (16.423327ms)
+✔ a real road closure produces a detour with van clearance, in either direction (41.290315ms)
+✔ the signed one-way segment has a direct eastbound route and a legal westbound detour (2.811546ms)
+✔ older checkpoints keep a direct two-way path on the same peripheral street (13.198571ms)
+✔ every delivery curb is reachable without changing generated missions or checkpoints (589.93913ms)
+✔ paths are deterministic, remain inside the town and reject invalid off-road destinations (1.746261ms)
+✔ a zero-length route has one point and no movement requirement (1.080197ms)
+✔ new days have solid reused obstacles, reachable stops and stable restored layout (330.976935ms)
+✔ a double-parked car diverts the planned street edge in both directions (2.283326ms)
+✔ route projection and physical street names give whole left/right turn instructions (2.32073ms)
+✔ a wrong turn waits thirty seconds, reports once and keeps its original place and stop (3.364763ms)
+✔ following eight meters of the reroute within thirty seconds clears the mistake (2.354079ms)
+✔ pending reroutes survive a checkpoint without extending grace or emitting while restoring (8.880397ms)
+✔ off aids never grade an invisible route, and reverse or menus do not create mistakes (2.002511ms)
+✔ route cache is bounded per mission and unchanged frames never repeat graph searches (32.967013ms)
+✔ backtracking while in reverse replans before drive resumes without a wrong-turn penalty (2.642065ms)
+✔ turning aids on after an off-aid checkpoint starts from the current position (6.88701ms)
+✔ a checkpoint taken in reverse preserves the next navigation transition exactly (6.532386ms)
+✔ the blocked approach leaves a continuous walking route from a real cab exit to the doorway (6124.738127ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7322.583915
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

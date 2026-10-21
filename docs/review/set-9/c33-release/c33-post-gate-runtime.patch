@@ -1,0 +1,46 @@
+diff --git a/src/core/fpaccess.js b/src/core/fpaccess.js
+index 3fccb7d..74be359 100644
+--- a/src/core/fpaccess.js
++++ b/src/core/fpaccess.js
+@@ -145,9 +145,10 @@ OTR.fpAccess={
+     const d=hh.device;if(!d.optionBtns||!d.screen)return;const t=s=>OTR.i18n?OTR.i18n.t(s):s,opts=d.current.options||[];
+     let footerSpace=30;const footer=d.current.footer&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+14&&o.y===d.sy+d.sh-16);
+     if(footer){footer.setWordWrapWidth(d.sw-28,true).setOrigin(0,1).setY(d.sy+d.sh-8);footerSpace=Math.max(30,footer.height+16);}
++    // Reserve gaps between choices; an extra trailing gap crowds larger translated body text.
+     let total=0;for(let i=0;i<d.optionBtns.length;i++){
+       const b=d.optionBtns[i];b.label.setText(`${i+1}  ${t(opts[i].label)}`).setScale(1);
+-      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+6;
++      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+(i?6:0);
+     }
+     let y=d.sy+d.sh-footerSpace-total;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+6;}
+     if(this.reduced()){hh.scene.tweens.killTweensOf(d.root);d.root.setY(d.Yopen);}
+diff --git a/src/core/fphandheld.js b/src/core/fphandheld.js
+index eb0737e..bdd7797 100644
+--- a/src/core/fphandheld.js
++++ b/src/core/fphandheld.js
+@@ -5,6 +5,12 @@ OTR.fpHandheld = class {
+     this.scene = scene;
+     this.mode = 'closed'; this.trigger = false; this.focusId = null; this.progress = 0;
+     const Device=OTR.fpBrand?class extends OTR.Handheld{
++      clear(){
++        const shapes=new Set(),visit=o=>{if(o.texture&&o.texture.key.startsWith('gfx_'))shapes.add(o.texture.key);for(const child of o.list||[])visit(child);};
++        if(this.screen)visit(this.screen);super.clear();
++        // Signature pads depend on the translated body's height. Keep only live page shapes.
++        for(const key of shapes)OTR.fpBrand.releaseUnused(this.scene,key);
++      }
+       deviceTex(){return OTR.gfx.high()?OTR.fpBrand.deviceTexture(this.scene,this):'__WHITE';}
+       build(){super.build();if(!OTR.gfx.high()){this.body.destroy();this.body=OTR.fpBrand.deviceSkin(this);this.root.addAt(this.body,0);this.root.add(OTR.txt(this.scene,0,this.H/2-12,OTR.fpBrand.read().name,14,'#ffffff',{fit:this.W-44,weight:'900'}));}}
+       show(def){super.show(def);OTR.fpBrand.deviceBackground(this,def);return this;}
+diff --git a/src/core/fpstopscene.js b/src/core/fpstopscene.js
+index bb7bdac..906665e 100644
+--- a/src/core/fpstopscene.js
++++ b/src/core/fpstopscene.js
+@@ -146,7 +146,7 @@ OTR.fpStopScene={
+   reattempt(scene,id){
+     const m=scene.model;if(!OTR.fpStopFlow.can(m,id))return;const a=m._deliverySpecs[id].reattempt,d=m.deliveryStops.stops[id].reattempt;
+     const blocked=OTR.fpStopFlow.beginException(m,id);scene.checkpoint();if(blocked){scene.showPanel('Attempt contact first.',blocked,[{label:'Return to the delivery controls.',action:()=>this.show(scene,id)},{label:'Wait on the street.',action:()=>scene.closePanel()}],{accessibleText:true});return;}
+-    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorised handover is unavailable.':'The required recipient is absent.';
++    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorized handover is unavailable.':'The required recipient is absent.';
+     const choices=!d.card?[{label:'Leave a delivery attempt card.',action:()=>this.do(scene,id,'reattempt.card',null,false,'reattempt')}]:!d.retained?[
+       {label:'Record this retention reason.',action:()=>this.do(scene,id,'reattempt.retain',a.reason,false,'reattempt')},
+       {label:'Record an unrelated reason.',action:()=>this.do(scene,id,'reattempt.retain','other',false,'reattempt')}

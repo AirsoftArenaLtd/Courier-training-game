@@ -50,3 +50,17 @@ test('Low text uses native canvases without shrinking fonts or stacking factorie
  A.textResolution(scene);let value=scene.add.text(1,2,'Text',{fontSize:'21px',resolution:2});assert.equal(value.resolution,1);assert.equal(value.fontSize,'21px');assert.equal(calls[0].owner,scene.add);
  A.textResolution(scene);assert.equal(scene.fpTextFactory,factory);high=true;value=scene.add.text(1,2,'Text',{fontSize:'21px',resolution:2});assert.equal(value.resolution,2);assert.equal(calls.length,2);
 });
+
+test('Indic cab, briefing and handheld text select the script font while preserving company fallback and English styling',()=>{
+ const originalTheme=c.OTR.theme,originalLanguage=c.OTR.i18n;
+ try{
+  c.OTR.theme={font:'Company Sans, sans-serif'};c.OTR.i18n={lang:'ta'};c.OTR.gfx={high:()=>false};
+  const scene={add:{text:(x,y,text,style)=>style}};A.textResolution(scene);
+  for(const [lang,font] of Object.entries(c.OTR.fpBrand.scriptFonts)){
+   c.OTR.i18n.lang=lang;const style=scene.add.text(0,0,'Text',{fontFamily:'Company Sans',fontSize:'21px'});
+   assert.ok(style.fontFamily.includes(font),lang+' selects its script font');assert.ok(style.fontFamily.endsWith('Company Sans'));
+   assert.equal(style.fontSize,'21px');assert.equal(style.resolution,1);
+  }
+  for(const lang of ['en','es','fr']){c.OTR.i18n.lang=lang;assert.equal(scene.add.text(0,0,'Text',{fontFamily:'Company Sans'}).fontFamily,'Company Sans');}
+ }finally{c.OTR.theme=originalTheme;c.OTR.i18n=originalLanguage;}
+});

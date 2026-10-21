@@ -1,0 +1,97 @@
+[
+  {
+    "suite": "fpaccess",
+    "exit": 0,
+    "cases": 10
+  },
+  {
+    "suite": "fpstops",
+    "exit": 0,
+    "cases": 18
+  },
+  {
+    "suite": "fpstopflow",
+    "exit": 0,
+    "cases": 16
+  },
+  {
+    "suite": "fpstopscene",
+    "exit": 0,
+    "cases": 6
+  },
+  {
+    "suite": "fpstoplocker",
+    "exit": 0,
+    "cases": 6
+  },
+  {
+    "suite": "fplater",
+    "exit": 0,
+    "cases": 7
+  },
+  {
+    "suite": "fpmission",
+    "exit": 0,
+    "cases": 39
+  },
+  {
+    "suite": "fpday",
+    "exit": 0,
+    "cases": 10
+  },
+  {
+    "suite": "fpnav",
+    "exit": 0,
+    "cases": 19
+  },
+  {
+    "suite": "fptraffic",
+    "exit": 0,
+    "cases": 37
+  },
+  {
+    "suite": "fpqualitygate",
+    "exit": 0,
+    "cases": 12
+  },
+  {
+    "suite": "fpdamage",
+    "exit": 0,
+    "cases": 14
+  },
+  {
+    "suite": "fpdamageflow",
+    "exit": 0,
+    "cases": 22
+  },
+  {
+    "suite": "fpdamageworld",
+    "exit": 0,
+    "cases": 9
+  },
+  {
+    "suite": "fphud",
+    "exit": 0,
+    "cases": 11
+  },
+  {
+    "suite": "workday",
+    "exit": 0,
+    "cases": 24
+  },
+  {
+    "suite": "savesize",
+    "exit": 0,
+    "cases": 17
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0,
+    "cases": 22
+  },
+  {
+    "suite": "i18n",
+    "exit": 0,
+    "cases": null
+  }
+]
