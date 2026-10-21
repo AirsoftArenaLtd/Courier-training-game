@@ -26,7 +26,7 @@ const OUT=path.join(__dirname,'out/fp-review'),GFX=process.env.QA_GFX||'low',TAG
     const point=m.point('dispatch');Object.assign(m.player,point);s.showManifest(m.stops.length-1,true);
    },large);
    assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.routePlan.damage),1);result.checks++;
-   await press('Digit1');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.root.list.find(o=>o.type==='Text'&&o.y===127).text),'Know the van height.');result.checks++;await audit();await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-height.png`)});
+   await press('Digit1');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.root.list.find(o=>o.type==='Text'&&o.y===127).text),await p.evaluate(()=>OTR.i18n.t('Know the van height.')));result.checks++;await audit();await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-height.png`)});
    await press('Digit1');assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !!s.model.events[s.model.briefKey]&&!s.panel;}),true);result.checks++;
    const impact=await p.evaluate(()=>{
     const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.workday.begin();m.mode='cab';m.paused=false;m.secured=true;m.preparation();
@@ -44,7 +44,7 @@ const OUT=path.join(__dirname,'out/fp-review'),GFX=process.env.QA_GFX||'low',TAG
    await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').notice.includes('clearance'),{timeout:60000});await audit();await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-clearance.png`)});
    for(let i=0;i<32;i++){await press('n');if(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').target==='cab-camera'))break;}
    assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').target),'cab-camera');result.checks++;
-   await p.waitForFunction(()=>window.damageSaid.some(t=>/clearance|8 feet 10/.test(t)),{timeout:60000});result.checks++;
+   await p.waitForFunction(()=>window.damageSaid.some(t=>t.includes(OTR.i18n.t('The clearance is 8 feet 10 inches. Take another street.'))),{timeout:60000});result.checks++;
    await press('r');await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').view.mirror.rearOn,{timeout:60000});result.checks++;await audit();await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-reverse.png`)});
    const restored=await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return !!OTR.fpMission.restore(m.snapshot());});assert.equal(restored,true);result.checks++;
    if(process.env.QA_STRIKE==='1'){
