@@ -355,6 +355,15 @@ const make = (opts) => async (page, ctx) => {
   const junctionZ = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.town.zs[1]);
   await driveTo(junctionZ + 9.5); await wait(500);
   await shot('junction');
+  // B-113: J reads a road sign in view (C-30): the notice is that sign's own sentence
+  {
+    const seen = await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); return (s.art && s.art.signs ? s.art.signs.entries : []).filter((e) => e.mainVisible && s.art.labelPosition(e.label)).map((e) => e.label.text); });
+    await press('KeyJ');
+    const notice = await ev(() => OTR.game.scene.getScene('FirstPersonScene').notice);
+    if (seen.length) must(seen.includes(notice), `J at the junction did not read a sign in view: "${notice}" (in view: ${JSON.stringify(seen)})`);
+    else must(/^Look toward a road sign/.test(notice), 'with no sign in view, J should say to look toward one: ' + notice);
+    log(`      sign: J read ${seen.length ? '"' + notice + '"' : 'nothing in view'}`);
+  }
   await driveTo(junctionZ - 9);
   must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.mirrors' && /^\d+:1$/.test(String(e.key)) && e.ok)), 'moving off after the mirror look was not reported as a mirror check');
@@ -374,6 +383,23 @@ const make = (opts) => async (page, ctx) => {
     await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
     await wait(150);
   };
+  // opts.wrongTurn (B-113): leave the sat nav's route on a street it does not take, moving, so fpnav marks the miss; the
+  // 30 s it allows to rejoin is skipped (a fixture, like the parking below) and the wrong turn is reported with its place
+  if (opts.wrongTurn) {
+    const off = await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, N = OTR.fpNav, r = N.route(m), half = m.town.road / 2;
+      for (const x of m.town.xs) for (const z of m.town.zs) { const p = { x: x + 2.84 - (m.town.xs[0] || 0) * 0, z: z - 20 };
+        if (!N.valid(m, p) || N.project(r, p).distance < half + 12 || Math.hypot(p.x - 4, p.z - 8) < 30) continue;
+        Object.assign(m.van, { x: p.x, z: p.z, yaw: 0, speed: 3, hand: false }); s.sync(); return p; }
+      return null; });
+    must(off, 'no street off the sat nav route to take a wrong turn on');
+    await page.keyboard.down('KeyW');
+    const pending = await ctx.until(`!!OTR.game.scene.getScene('FirstPersonScene').model.navigation.pending`, 20000);
+    await page.keyboard.up('KeyW');
+    must(pending, 'leaving the route while moving was not noticed by the sat nav');
+    await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.navigation.pending.at -= 30; });
+    must(await ctx.until(`OTR.workday.events.some((e) => e.type === 'drive.route' && e.ok === false && !!e.where)`, 20000), 'the wrong turn was not reported with its place');
+    log('      wrong turn: reported with its place');
+  }
   await parkAt(0); await shot('arrival');
   // opts.scuff (A-24b): a slow scrape along the left side on the way in (the van's own contact path, as a fixture, like
   // the parking above): a van.damage-scuff at the first stop that the post-trip walkaround must then report
@@ -578,6 +604,9 @@ const make = (opts) => async (page, ctx) => {
     else must(!crit.types.includes('trip.damage-report'), 'a right post-trip report should not be a critical: ' + JSON.stringify(crit));
     log(`      scuff: ${opts.unreported ? 'left unreported, a critical' : 'reported after the trip'} (${JSON.stringify(crit)})`);
   }
+  // B-113: a careful day follows the sat nav; the wrong-turn variant has exactly its one wrong turn
+  const routeMisses = await ev(`${dayEvents}.filter((e) => e.type === 'drive.route' && e.ok === false).length`);
+  must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
   must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));
@@ -590,6 +619,21 @@ const make = (opts) => async (page, ctx) => {
   const texts = await ev(() => { const out = []; const walk = (o) => { if (o.visible === false) return; if (o.type === 'Text') out.push(OTR.i18n.src(o)); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('ResultsScene').children.list.forEach(walk); return out.join(' | '); });
   must(/workday|Workday/.test(texts), 'the results screen does not say it is the workday: ' + texts.slice(0, 160));
   await ctx.snap('results');
+  if (opts.wrongTurn) {
+    // B-113: the drive map pins the wrong turn with its arrow (C-31), opened from the results as a trainee does
+    await clickText(page, 'ResultsScene', /^Drive map/);
+    must(await ctx.until(`OTR.game.scene.isActive('DriveReviewScene')`, 15000), 'the drive map did not open');
+    await wait(1200);
+    const marks = await ev(() => { const s = OTR.game.scene.getScene('DriveReviewScene'); return s.pins.map((p) => p.mark || null); });
+    must(marks.includes('route'), 'the drive map has no wrong-turn arrow: ' + JSON.stringify(marks));
+    const legend = await ev(() => OTR.game.scene.getScene('DriveReviewScene').children.list.filter((o) => o.type === 'Text').map((t) => OTR.i18n.src(t)).join(' | '));
+    must(/wrong turn/.test(legend), 'the legend does not say "wrong turn"');
+    await ctx.snap('drive-map-wrong-turn');
+    log('      drive map: the wrong turn has its arrow');
+    await clickText(page, 'DriveReviewScene', /^Back/);
+    must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 15000), 'Back on the drive map did not return to the results');
+    await wait(3500);                                            // its buttons unlock once the stars have landed again
+  }
   await clickText(page, 'ResultsScene', /Debrief/);
   must(await ctx.until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000), 'the debrief did not open');
   await wait(1200);
@@ -597,6 +641,7 @@ const make = (opts) => async (page, ctx) => {
   const rows = await ev(() => OTR.game.scene.getScene('WorkdayDebriefScene').rows.filter((r) => !r.head).length);
   must(rows >= 3, 'the debrief lists too few lines: ' + rows);
   await ctx.snap('debrief');
+
 };
 
 module.exports = make();

@@ -80,7 +80,8 @@ const SCENARIOS = [
   { id: 'workday-3d-g', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
   { id: 'workday-3d-h', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
   { id: 'workday-3d-i', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
-  { id: 'workday-3d-j', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' }
+  { id: 'workday-3d-j', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' },
+  { id: 'workday-3d-k', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=1' }
 ];
 
 // B-85: on a software renderer (SwiftShader in the cloud container, llvmpipe, Windows' basic display driver: a training PC
