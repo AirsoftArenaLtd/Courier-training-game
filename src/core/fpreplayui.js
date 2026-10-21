@@ -40,7 +40,8 @@ OTR.fpReplayUI={
     scene.replayLeaving=false;
     const map=scene.sys.settings.key==='DriveReviewScene',o=options||{},button=this.button(scene,o.x||(map?850:1165),o.y||(map?32:180),o.w||(map?460:200),'Replay the last mistake.',()=>{
       if(scene.replayLeaving)return;scene.replayLeaving=true;
-      scene.scene.start('FPReplayScene',{recordId:this.clip.recordId,back:scene.sys.settings.key,backData:scene.d});
+      const backData=Object.assign({},scene.d,map?{select:scene.pinObjs?scene.pinObjs.findIndex(p=>p.ring.visible):scene.d.select}:{again:true});
+      scene.scene.start('FPReplayScene',{recordId:this.clip.recordId,back:scene.sys.settings.key,backData});
     });
     return button;
   }

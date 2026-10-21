@@ -25,9 +25,9 @@ test('the standalone prototype and cargo practice do not allocate a workday reco
  O.workday.detach();O.workday.begin();O.workday.current={id:'prototype',day:1};const s={hubWorkday:false,model:O.fpMission.create('campaign',1)};O.fpReplayUI.bind(s);assert.equal(s.replayRecorder,null);s.hubWorkday=true;s.model.kind='practice';O.fpReplayUI.bind(s);assert.equal(s.replayRecorder,null);O.workday.detach();
 });
 test('an older review cannot expose another record even when it has the same plan',()=>{
- const old=O.fpReplayUI.button;let made=0,starts=0;O.fpReplayUI.button=(_s,_x,_y,_w,_t,action)=>{made++;return {press:action};};O.fpReplayUI.clip={recordId:'finished'};const scene={replayLeaving:true,sys:{settings:{key:'ResultsScene'}},d:{},scene:{start(){starts++;}}};
+ const old=O.fpReplayUI.button;let made=0,starts=0,backData;O.fpReplayUI.button=(_s,_x,_y,_w,_t,action)=>{made++;return {press:action};};O.fpReplayUI.clip={recordId:'finished'};const scene={replayLeaving:true,sys:{settings:{key:'ResultsScene'}},d:{},scene:{start(_key,data){starts++;backData=data.backData;}}};
  const stops=[{stop:1,delivered:true}];O.fpReplayUI.recordStops=stops;
- try{assert.equal(O.fpReplayUI.entry(scene,{plan:{stops:JSON.parse(JSON.stringify(stops))}}),null);assert.equal(O.fpReplayUI.entry(scene,{}),null);assert.equal(made,0);const first=O.fpReplayUI.entry(scene,{plan:{stops}});first.press();first.press();assert.equal(starts,1);const again=O.fpReplayUI.entry(scene,{plan:{stops}});again.press();assert.equal(starts,2);}finally{O.fpReplayUI.button=old;O.fpReplayUI.clip=O.fpReplayUI.recordStops=null;}
+ try{assert.equal(O.fpReplayUI.entry(scene,{plan:{stops:JSON.parse(JSON.stringify(stops))}}),null);assert.equal(O.fpReplayUI.entry(scene,{}),null);assert.equal(made,0);const first=O.fpReplayUI.entry(scene,{plan:{stops}});first.press();first.press();assert.equal(starts,1);assert.equal(backData.again,true);const again=O.fpReplayUI.entry(scene,{plan:{stops}});again.press();assert.equal(starts,2);scene.sys.settings.key='DriveReviewScene';scene.pinObjs=[{ring:{visible:false}},{ring:{visible:true}}];O.fpReplayUI.entry(scene,{plan:{stops}}).press();assert.equal(backData.select,1);}finally{O.fpReplayUI.button=old;O.fpReplayUI.clip=O.fpReplayUI.recordStops=null;}
 });
 
 test('replay releases completed UI canvases while preserving borrowed references and loaded assets',()=>{

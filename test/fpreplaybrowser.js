@@ -4,7 +4,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
- const quality=process.env.QA_GFX||'low',tag=process.env.QA_TAG||'c37-'+quality,base=process.env.QA_BASE||'http://127.0.0.1:8347';
+ const routeDay=Number(process.env.QA_ROUTE_DAY)||1,quality=process.env.QA_GFX||'low',tag=process.env.QA_TAG||'c37-'+quality,base=process.env.QA_BASE||'http://127.0.0.1:8347';
  const report={quality,checks:0,runs:[],errors:[],fixture:'Travel/time/completed deliveries are fixtures. Actual recorder, Dispatch finish, results/map entries, global keyboard focus and detached renderer run normally.'};let page;
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required']});
  const check=(ok,detail)=>{assert.ok(ok,typeof detail==='string'?detail:JSON.stringify(detail));report.checks++;};
@@ -16,18 +16,18 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    const ready=async()=>{await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FPReplayScene');return s&&s.sys.isActive()&&!s.loading;},{timeout:90000});check(await page.evaluate(()=>!!OTR.game.scene.getScene('FPReplayScene').view),'The detached renderer opened.');};
    await page.goto(base+'/first-person.html?gfx='+quality);await page.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:90000});
    await page.addScriptTag({url:base+'/data/i18n/ta.js'});
-   await page.evaluate(({lang,size})=>{
+   await page.evaluate(({lang,size,routeDay})=>{
     const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();s.capture=()=>{};s.progress.campaign=null;s.progress.welcomed=true;OTR.audio.setMuted(true);
-    OTR.save.data.day=9;OTR.save.data.route.days=0;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';
+    OTR.save.data.day=9;OTR.save.data.route.days=routeDay-1;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';
     Object.assign(OTR.a11y.settings(),{large:size==='large',narrate:true,colour:true,reducedMotion:true,keys:{Tab:'KeyU'}});OTR.workday.start(null);s.hubWorkday=true;s.launch('campaign');
-   },{lang,size});
+   },{lang,size,routeDay});
    await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;},{timeout:90000});
    run.recording=await page.evaluate(()=>{
-    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.workdayRules.night=false;OTR.fpLater.depart(m);
+    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.workdayRules.night=false;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);
     Object.assign(m.van,{x:2.84,z:8,speed:2,hand:false,belt:true,look:0});m.player.pitch=0;OTR.fpReplayUI.bind(s);
     for(let i=0;i<=120;i++){m.elapsed=i/20;m.van.z=8-m.elapsed*2;s.sync();if(i===120)OTR.workday.report('drive.contact',{key:0,where:{x:m.van.x,z:m.van.z,mph:5}});OTR.fpReplayUI.capture(s);}
     window.replaySource=m;return {day:OTR.workday.current.day,routeDay:m.routePlan.day,bytes:s.replayRecorder.bytes,latest:!!s.replayRecorder.latest};
-   });check(run.recording.latest,run.recording);check(run.recording.day===9&&run.recording.routeDay===1,run.recording);
+   });check(run.recording.latest,run.recording);check(run.recording.day===9&&run.recording.routeDay===routeDay,run.recording);
    await page.evaluate(()=>{
     const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;for(const stop of m.stops){stop.outcome='safeplace';stop.resolved=true;}for(const p of m.parcels)p.returnRequired=false;
     m.mode='walk';m.phase='return';Object.assign(m.van,{x:4,z:8,speed:0,hand:true});Object.assign(m.player,m.point('dispatch'));s.showDispatch();
@@ -58,7 +58,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    await page.evaluate(()=>window.dispatchEvent(new Event('blur')));check((await state()).paused,'Losing window focus pauses replay');
    run.unchanged=await page.evaluate(()=>({source:JSON.stringify(window.replaySource.snapshot()),storage:JSON.stringify({...localStorage}),events:OTR.workday.events.length,log:OTR.workday.log}));
    check(run.unchanged.source===run.entry.source,'Playback leaves the source mission unchanged');check(run.unchanged.storage===run.entry.storage,'Playback never writes local storage');check(run.unchanged.events===0&&run.unchanged.log===null,'Playback emits no score reports');
-   await press('Escape');await page.waitForFunction(()=>OTR.game.scene.isActive('ResultsScene'),{timeout:30000});await frames(12);
+   await press('Escape');await page.waitForFunction(()=>OTR.game.scene.isActive('ResultsScene'),{timeout:30000});await frames(12);check(await page.evaluate(()=>OTR.game.scene.getScene('ResultsScene').d.again===true),'Returning to results does not repeat celebrations.');
    // Exercise the real Results map button, then its conditional replay entry.
    const map=await page.evaluate(()=>{const s=OTR.game.scene.getScene('ResultsScene');const visit=o=>{if(o.label&&/^Drive map/.test(OTR.i18n.src(o.label))&&o.press)return o;for(const c of o.list||[]){const hit=visit(c);if(hit)return hit;}};let b;for(const o of s.children.list){b=visit(o);if(b)break;}if(!b)return false;b.press();return true;});check(map,'Results drive-map control exists');
    await page.waitForFunction(()=>OTR.game.scene.isActive('DriveReviewScene'),{timeout:30000});await frames(8);
