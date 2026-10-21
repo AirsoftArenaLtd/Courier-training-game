@@ -1,0 +1,10 @@
+FAIL script error: Error: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/c36-radio-night/index.html?lab=town&dev=1
+    at navigate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:189:27)
+    at async Deferred.race (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:155:25)
+    at async CdpPage.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:580:20)
+    at async open (/workspace/c36-radio-night/test/town3d.js:34:5)
+    at async /workspace/c36-radio-night/test/town3d.js:40:5
+ok   no page errors
+
+1 failed
