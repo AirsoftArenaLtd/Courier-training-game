@@ -619,17 +619,19 @@ const make = (opts) => async (page, ctx) => {
   const texts = await ev(() => { const out = []; const walk = (o) => { if (o.visible === false) return; if (o.type === 'Text') out.push(OTR.i18n.src(o)); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('ResultsScene').children.list.forEach(walk); return out.join(' | '); });
   must(/workday|Workday/.test(texts), 'the results screen does not say it is the workday: ' + texts.slice(0, 160));
   await ctx.snap('results');
-  if (opts.wrongTurn) {
-    // B-113: the drive map pins the wrong turn with its arrow (C-31), opened from the results as a trainee does
+  // B-113/B-118: the drive map, opened from the results as a trainee does, marks the wrong turn with its arrow (C-31)
+  // and the scrape with its damage marker (C-34)
+  const mapMark = opts.wrongTurn ? ['route', 'wrong turn'] : opts.scuff ? ['damage', 'damage to the van'] : null;
+  if (mapMark) {
     await clickText(page, 'ResultsScene', /^Drive map/);
     must(await ctx.until(`OTR.game.scene.isActive('DriveReviewScene')`, 15000), 'the drive map did not open');
     await wait(1200);
     const marks = await ev(() => { const s = OTR.game.scene.getScene('DriveReviewScene'); return s.pins.map((p) => p.mark || null); });
-    must(marks.includes('route'), 'the drive map has no wrong-turn arrow: ' + JSON.stringify(marks));
+    must(marks.includes(mapMark[0]), `the drive map has no ${mapMark[0]} marker: ` + JSON.stringify(marks));
     const legend = await ev(() => OTR.game.scene.getScene('DriveReviewScene').children.list.filter((o) => o.type === 'Text').map((t) => OTR.i18n.src(t)).join(' | '));
-    must(/wrong turn/.test(legend), 'the legend does not say "wrong turn"');
-    await ctx.snap('drive-map-wrong-turn');
-    log('      drive map: the wrong turn has its arrow');
+    must(legend.includes(mapMark[1]), `the legend does not say "${mapMark[1]}"`);
+    await ctx.snap('drive-map-' + mapMark[0]);
+    log(`      drive map: ${mapMark[1]} is marked`);
     await clickText(page, 'DriveReviewScene', /^Back/);
     must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 15000), 'Back on the drive map did not return to the results');
     await wait(3500);                                            // its buttons unlock once the stars have landed again
