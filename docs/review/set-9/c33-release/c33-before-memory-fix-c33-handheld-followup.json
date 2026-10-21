@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "1f92a45f831262caa53cec59b8b2a2b294b036c8",
+  "complete": false,
+  "jobs": [
+    {
+      "name": "doors",
+      "suite": "fpdoorsbrowser",
+      "exit": 1,
+      "seconds": 104.8,
+      "log": "c33-handheld-gap-doors.log"
+    }
+  ],
+  "scope": "Handheld gap-only follow-up: original doorstep assertions plus explicit body/Back clearance and Low text memory; compact HUD and scanner/signature layouts. Three geometry and canvas dimensions are unchanged."
+}

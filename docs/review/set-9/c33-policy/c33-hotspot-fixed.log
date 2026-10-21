@@ -1,0 +1,20 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ five seeded stops match the route-day generator, addresses and package identities (133.714637ms)
+✔ all town streets connect; doors and curb parking are accessible across generated days (3.180505ms)
+✔ five physical load positions, stop-order reports and fifth parcel survive checkpoint restore (6.602436ms)
+✔ misordered shelving is reported once and uses parcel keys (1.279529ms)
+✔ full-route stop-line reports have distinct junction and approach keys (2.572858ms)
+✔ five deliveries and multiple scanned returns finish at the original depot (1.74807ms)
+✔ legacy three-stop saves and cargo practice remain restorable (0.681946ms)
+✔ all five generated facade doors are raycastable at low graphics (34.784449ms)
+✔ the van can steer around a right-hand grid corner without crossing buildings or leaving the street (46.884001ms)
+✔ low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror (484.062971ms)
+✔ the generated route resumes every load-out variant, including the sixth physical package (14.491252ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 741.242028

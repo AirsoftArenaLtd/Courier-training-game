@@ -1,0 +1,2715 @@
+{
+  "sourceRevision": "6b9de044c49eec40f32a75040a40bff55b532e3c",
+  "fixture": "Native day-four plan, live fonts and Phaser labels; approach poses are fixtures. No head turn. Reports, saves and scores are not altered.",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is red. Stop before the junction line.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 607.2452382827721,
+            "y": 384.96372816338436,
+            "right": 910.2452382827721,
+            "bottom": 434.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 303,
+          "height": 50,
+          "wrap": 320,
+          "text": "The traffic light is red. Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is red. Stop before the junction line.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 539.9033598601159,
+            "y": 156.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 303,
+          "height": 50,
+          "wrap": 320,
+          "text": "The traffic light is red. Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 299,
+          "height": 50,
+          "wrap": 320,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 608.2452382827721,
+            "y": 384.96372816338436,
+            "right": 909.2452382827721,
+            "bottom": 434.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 301,
+          "height": 50,
+          "wrap": 320,
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 541.9033598601159,
+            "y": 156.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 301,
+          "height": 50,
+          "wrap": 320,
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 299,
+          "height": 50,
+          "wrap": 320,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 620.7452382827721,
+            "y": 384.96372816338436,
+            "right": 896.7452382827721,
+            "bottom": 459.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 276,
+          "height": 75,
+          "wrap": 320,
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 566.9033598601159,
+            "y": 131.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 276,
+          "height": 75,
+          "wrap": 320,
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 299,
+          "height": 50,
+          "wrap": 320,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [
+        {
+          "text": "Give way to traffic before entering the junction.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 616.7452382827718,
+            "y": 274.5971977951782,
+            "right": 900.7452382827718,
+            "bottom": 324.5971977951782
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155861,
+        "right": 771.853294646452,
+        "y": 343.5971977951782,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827718,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 284,
+          "height": 50,
+          "wrap": 320,
+          "text": "Give way to traffic before entering the junction.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 153,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is Oak St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 149,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 2nd St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 318,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [
+        {
+          "text": "Give way to traffic before entering the junction.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 772.9033598601156,
+            "y": 253.0853260511496,
+            "right": 1056.9033598601156,
+            "bottom": 303.0853260511496
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868465,
+        "right": 944.775648281143,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601156,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865341,
+          "y": 543.298447016119
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 284,
+          "height": 50,
+          "wrap": 320,
+          "text": "Give way to traffic before entering the junction.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 153,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is Oak St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 209 on Oak St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 305 on Oak St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "Stop before the junction line.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 598.7452382827719,
+            "y": 299.5971977951781,
+            "right": 918.7452382827719,
+            "bottom": 324.5971977951781
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 343.59719779517815,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827719,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 320,
+          "height": 25,
+          "wrap": 320,
+          "text": "Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 141,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 209 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 305 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [
+        {
+          "text": "Stop before the junction line.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 754.9033598601159,
+            "y": 278.0853260511496,
+            "right": 1074.9033598601159,
+            "bottom": 303.0853260511496
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868468,
+        "right": 944.7756482811437,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 320,
+          "height": 25,
+          "wrap": 320,
+          "text": "Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 141,
+          "height": 25,
+          "wrap": 320,
+          "text": "This is 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 209 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 295,
+          "height": 50,
+          "wrap": 320,
+          "text": "This is number 305 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 424.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 582.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [
+        {
+          "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 638.7452382827721,
+            "y": 384.96372816338436,
+            "right": 878.7452382827721,
+            "bottom": 488.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 240,
+          "height": 104,
+          "wrap": 320,
+          "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 113.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 112.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [
+        {
+          "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 602.9033598601159,
+            "y": 102.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 240,
+          "height": 104,
+          "wrap": 320,
+          "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 304,
+          "height": 78,
+          "wrap": 320,
+          "text": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 204.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [
+        {
+          "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 616.7452382827721,
+            "y": 384.96372816338436,
+            "right": 900.7452382827721,
+            "bottom": 488.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 284,
+          "height": 104,
+          "wrap": 320,
+          "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 113.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 112.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [
+        {
+          "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 558.9033598601159,
+            "y": 102.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 284,
+          "height": 104,
+          "wrap": 320,
+          "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 304,
+          "height": 78,
+          "wrap": 320,
+          "text": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 204.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [
+        {
+          "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 395.7452382827721,
+            "y": 154.13267974492373,
+            "right": 686.7452382827721,
+            "bottom": 284.13267974492373
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 291,
+          "height": 130,
+          "wrap": 320,
+          "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 113.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 112.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [
+        {
+          "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 551.9033598601159,
+            "y": 97,
+            "right": 842.9033598601159,
+            "bottom": 227
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 291,
+          "height": 130,
+          "wrap": 320,
+          "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 304,
+          "height": 78,
+          "wrap": 320,
+          "text": "தெரு மூடப்பட்டுள்ளது. வேறொரு குறுக்குத் தெருவில் செல்லுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 204.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [
+        {
+          "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 615.2452382827718,
+            "y": 388.4883901984815,
+            "right": 902.2452382827718,
+            "bottom": 466.4883901984815
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155861,
+        "right": 771.853294646452,
+        "y": 343.5971977951782,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827718,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865341,
+          "y": 543.298447016119
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 287,
+          "height": 78,
+          "wrap": 320,
+          "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 138,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 134,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 2nd St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 302,
+          "height": 52,
+          "wrap": 320,
+          "text": "இது Maple Ave இல் எண் 204.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 410.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 596.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [
+        {
+          "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 555.9033598601156,
+            "y": 245.6982747332259,
+            "right": 842.9033598601156,
+            "bottom": 323.6982747332259
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868465,
+        "right": 944.775648281143,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601156,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865341,
+          "y": 543.298447016119
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 287,
+          "height": 78,
+          "wrap": 320,
+          "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 138,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 209.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 305.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 410.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 596.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 622.2452382827719,
+            "y": 272.5971977951781,
+            "right": 895.2452382827719,
+            "bottom": 324.5971977951781
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 343.59719779517815,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827719,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 273,
+          "height": 52,
+          "wrap": 320,
+          "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 126,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 209.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 305.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [
+        {
+          "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 778.4033598601159,
+            "y": 251.0853260511496,
+            "right": 1051.4033598601159,
+            "bottom": 303.0853260511496
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868468,
+        "right": 944.7756482811437,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 273,
+          "height": 52,
+          "wrap": 320,
+          "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 126,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 209.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 303,
+          "height": 26,
+          "wrap": 320,
+          "text": "இது Oak St இல் எண் 305.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 397.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 609.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 603.2452382827721,
+            "y": 384.96372816338436,
+            "right": 914.2452382827721,
+            "bottom": 465.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 311,
+          "height": 81,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 113 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 112 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 531.9033598601159,
+            "y": 125.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 311,
+          "height": 81,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് ചുവപ്പാണ്. ജങ്ഷൻ വരയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 295,
+          "height": 81,
+          "wrap": 320,
+          "text": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 204 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 367.7452382827721,
+            "y": 149.13267974492373,
+            "right": 686.7452382827721,
+            "bottom": 284.13267974492373
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 319,
+          "height": 135,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 113 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 112 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 523.9033598601159,
+            "y": 97,
+            "right": 842.9033598601159,
+            "bottom": 232
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 319,
+          "height": 135,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് മഞ്ഞയാണ്. സുരക്ഷിതമായി നിർത്താൻ കഴിയുമെങ്കിൽ നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 295,
+          "height": 81,
+          "wrap": 320,
+          "text": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 204 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 606.2452382827721,
+            "y": 384.96372816338436,
+            "right": 911.2452382827721,
+            "bottom": 492.96372816338436
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "projected": {
+        "x": 758.7452382827721,
+        "y": 301.13267974492373
+      },
+      "occupied": [
+        {
+          "x": 995.0452465375972,
+          "y": 316.3663335807388
+        },
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 305,
+          "height": 108,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 113 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 112 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [
+        {
+          "text": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 537.9033598601159,
+            "y": 98.71812160126177,
+            "right": 842.9033598601159,
+            "bottom": 206.71812160126177
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 223.71812160126177
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865333,
+          "y": 543.2984470161206
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 305,
+          "height": 108,
+          "wrap": 320,
+          "text": "ട്രാഫിക് ലൈറ്റ് പച്ചയാണ്. ജങ്ഷൻ ഒഴിഞ്ഞിരിക്കുമ്പോൾ മാത്രം മുന്നോട്ട് പോകുക.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 295,
+          "height": 81,
+          "wrap": 320,
+          "text": "തെരുവ് അടച്ചിരിക്കുന്നു. മറ്റൊരു ക്രോസ് തെരുവ് പിന്തുടരുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 204 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [
+        {
+          "text": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകുക.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 602.2452382827718,
+            "y": 388.4883901984815,
+            "right": 915.2452382827718,
+            "bottom": 469.4883901984815
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155861,
+        "right": 771.853294646452,
+        "y": 343.5971977951782,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827718,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865341,
+          "y": 543.298447016119
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 313,
+          "height": 81,
+          "wrap": 320,
+          "text": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 214,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് Oak St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 211,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 2nd St ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 298,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Maple Ave-ലെ നമ്പർ 204 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 422.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 584.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [
+        {
+          "text": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകുക.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 529.9033598601156,
+            "y": 242.6982747332259,
+            "right": 842.9033598601156,
+            "bottom": 323.6982747332259
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868465,
+        "right": 944.775648281143,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601156,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865341,
+          "y": 543.298447016119
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 313,
+          "height": 81,
+          "wrap": 320,
+          "text": "ജങ്ഷനിൽ കടക്കുന്നതിന് മുമ്പ് വാഹനങ്ങൾക്ക് വഴി നൽകുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 214,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് Oak St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 209 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 305 ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 422.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 584.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "ജംഗ്ഷൻ രേഖയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 607.2452382827719,
+            "y": 270.5971977951781,
+            "right": 910.2452382827719,
+            "bottom": 324.5971977951781
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 343.59719779517815,
+        "bottom": 369.4883901984815
+      },
+      "projected": {
+        "x": 758.7452382827719,
+        "y": 351.6625683758905
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 303,
+          "height": 54,
+          "wrap": 320,
+          "text": "ജംഗ്ഷൻ രേഖയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 203,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 1st St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 209 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 305 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    },
+    {
+      "lang": "ml",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [
+        {
+          "text": "ജംഗ്ഷൻ രേഖയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 763.4033598601159,
+            "y": 249.0853260511496,
+            "right": 1066.4033598601159,
+            "bottom": 303.0853260511496
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 883.5288672868468,
+        "right": 944.7756482811437,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "projected": {
+        "x": 914.9033598601159,
+        "y": 340.6982747332259
+      },
+      "occupied": [
+        {
+          "x": 553.7419072865317,
+          "y": 543.2984470161203
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 303,
+          "height": 54,
+          "wrap": 320,
+          "text": "ജംഗ്ഷൻ രേഖയ്ക്ക് മുമ്പ് നിർത്തുക.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 203,
+          "height": 27,
+          "wrap": 320,
+          "text": "ഇത് 1st St ആണ്.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 209 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 300,
+          "height": 54,
+          "wrap": 320,
+          "text": "ഇത് Oak St-ലെ നമ്പർ 305 ആണ്.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 27,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 1012.829833984375,
+        "y": 395.3539733886719,
+        "right": 1252.829833984375,
+        "bottom": 611.3539733886719
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "look": 0
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "completed": true
+}

@@ -148,12 +148,14 @@ function audit(MIN_PX) {
           const m = OTR.fpMission.create('campaign', 7, plan); OTR.fpLoadout.configure(m); OTR.fpDriving.configure(m); OTR.fpDay.configure(m); OTR.fpDoors.configure(m);
           m.step = () => {}; m.mode = 'cab'; m.player.pitch = 0; Object.assign(m.van, { speed: 0, hand: true, belt: true, gear: 1, look: 0 });
           s.model = m; s.area = 'route'; s.rebuildWorld(); s.sync(); });
-        const shows = (line) => p.evaluate((line) => { const s = OTR.game.scene.getScene('FirstPersonScene'), found = [];
+        const shown = (line) => { const s = OTR.game.scene.getScene('FirstPersonScene'), found = [];
           const walk = (o) => { if (!o || o.visible === false || (o.alpha !== undefined && o.alpha <= 0.05)) return; if (o.type === 'Text' && OTR.i18n.src(o).includes(line)) found.push(o.text); (o.list || []).forEach(walk); };
-          s.children.list.forEach(walk); return found; }, line);
+          s.children.list.forEach(walk); return found.length ? found : false; };
         const look = async (label, line) => {
-          await wait(450);
-          const seen = await shows(line);
+          // A slow render can take longer than 450 ms; wait for the actual notice before auditing it.
+          const handle = await p.waitForFunction(shown, { timeout: 10000 }, line).catch(() => null);
+          const seen = handle ? await handle.jsonValue() : [];
+          if (handle) await handle.dispose();
           views++;
           if (!seen.length) { problems.push(`${lang} ${label}: "${line}" is not on screen`); return; }
           if (lang !== 'en' && seen[0].includes(line)) problems.push(`${lang} ${label}: "${line}" is not translated`);

@@ -1,0 +1,140 @@
+{
+  "sourceRevision": "d63644d3729af3a68fe145d7b81e220a8d2a2d88",
+  "quality": "high",
+  "negative": false,
+  "fixture": "Legacy generated standard-service fixtures; the native later-day schedule is tested separately.",
+  "checks": 34,
+  "runs": [
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 213 Maple Ave. சுமப்பது: 213 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 213 Maple Ave. 213 Maple Ave · கையொப்பம் தேவை. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 213 Maple Ave. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: பாதையிலுள்ள ஆபத்து. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the delivery record. உரையாட O அழுத்துங்கள்."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 213 Maple Ave. சுமப்பது: 213 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 213 Maple Ave. 213 Maple Ave · கையொப்பம் தேவை. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 213 Maple Ave. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: பாதையிலுள்ள ஆபத்து. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the delivery record. உரையாட O அழுத்துங்கள்."
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "expectedRuns": 2,
+  "fixtureNow": {
+    "id": 3,
+    "seed": 2,
+    "kind": "failed",
+    "nativeLater": false,
+    "originalService": "signature",
+    "adult": false,
+    "signature": true,
+    "button": null,
+    "name": "",
+    "compartment": null,
+    "nextDay": 4
+  },
+  "current": {
+    "fixture": {
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": true,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      },
+      {
+        "type": "stop.reattempt",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}

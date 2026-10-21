@@ -3877,7 +3877,115 @@ window.OTR_I18N.hi = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "जाँचने के लिए हर टुकड़े पर क्लिक करें (या Tab और Enter) · A स्वीकार · R मना, कारण के लिए 1-5",
 "Clear all": "सब मिटाएँ",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "किसी स्टॉप पर क्लिक करें — नक्शे पर या सूची में — या Tab से उस तक जाकर Enter दबाएँ, उसे रूट में जोड़ने के लिए; दोबारा करें हटाने के लिए। सुधारने के लिए पूर्ववत करें (Backspace) / सब मिटाएँ। सूची क्रम में हो जाए तो डिस्पैच करें।",
-"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "फ़ोटो प्रमाण: पैकेज और दरवाज़ा फ़्रेम में लें। घर का नंबर नहीं, लोग नहीं। फिर क्लिक करें (या तीर कुंजियाँ, फिर SPACE)"
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "फ़ोटो प्रमाण: पैकेज और दरवाज़ा फ़्रेम में लें। घर का नंबर नहीं, लोग नहीं। फिर क्लिक करें (या तीर कुंजियाँ, फिर SPACE)",
+"Deliver this standard parcel to the assigned locker at this site.": "यह सामान्य पार्सल इस साइट के तय लॉकर में डिलीवर करें।",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "एक पार्सल लॉकर के लिए अधिकृत है। बाकी हर पैकेज पर हस्ताक्षर ज़रूरी है। फ़ोटो पहचान पत्र की ज़रूरत के लिए लेबल देखें।",
+"Retrieve the parcel from the locker before moving it.": "आगे ले जाने से पहले पार्सल लॉकर से निकालें।",
+"This parcel is authorized for the assigned locker at this site.": "यह पार्सल इस साइट के तय लॉकर के लिए अधिकृत है।",
+"Invalid delivery-stop version": "Invalid delivery-stop version",
+"Invalid locker authorization": "Invalid locker authorization",
+"Use the intercom and wait for a reply before attempting this delivery.": "यह डिलीवरी करने से पहले इंटरकॉम इस्तेमाल करें और जवाब का इंतज़ार करें।",
+"Park safely and approach this delivery point on foot.": "सुरक्षित जगह पार्क करें और इस डिलीवरी पॉइंट तक पैदल जाएँ।",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "असफल कोशिश दर्ज करने से पहले इंटरकॉम पर सही बटन से कॉल करें और जवाब का इंतज़ार करें।",
+"This action is not available at this delivery point.": "यह कार्रवाई इस डिलीवरी पॉइंट पर उपलब्ध नहीं है।",
+"Attempt contact before recording a failed delivery.": "असफल डिलीवरी दर्ज करने से पहले संपर्क की कोशिश करें।",
+"Retrieve and scan the matching parcel at this stop first.": "पहले इस स्टॉप पर सही पार्सल निकालें और स्कैन करें।",
+"Open the locker and retrieve the parcel before recording retention.": "पार्सल रोकना दर्ज करने से पहले लॉकर खोलें और पार्सल निकालें।",
+"Speak to the person at reception before recording a handover.": "सौंपना दर्ज करने से पहले रिसेप्शन पर मौजूद व्यक्ति से बात करें।",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "यह कार्रवाई डिलीवरी की शर्तें पूरी नहीं करती। निर्देश देखें और फिर कोशिश करें।",
+"Your call is connected. Wait for the entry buzz or a reply.": "आपकी कॉल जुड़ गई है। प्रवेश के बज़र या जवाब का इंतज़ार करें।",
+"The entry is unlocked. You may approach the recipient.": "प्रवेश द्वार खुल गया है। आप प्राप्तकर्ता के पास जा सकते हैं।",
+"The named recipient is ready. Record the delivery outcome.": "नामित प्राप्तकर्ता तैयार है। डिलीवरी का नतीजा दर्ज करें।",
+"The reception details are recorded.": "रिसेप्शन का ब्योरा दर्ज हो गया है।",
+"The closed locker door is photographed. Record the delivery outcome.": "बंद लॉकर दरवाज़े की फ़ोटो ले ली गई है। डिलीवरी का नतीजा दर्ज करें।",
+"The locker action is recorded. Follow the remaining steps.": "लॉकर की कार्रवाई दर्ज हो गई है। बाकी कदम पूरे करें।",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "अगली कोशिश बुक हो गई है। अपवाद दर्ज करें और पार्सल वापसी के लिए अपने पास रखें।",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "असफल डिलीवरी का कदम दर्ज हो गया है। कार्ड, पार्सल रोकना और बुकिंग पूरी करें।",
+"Open the locker and retrieve the parcel before recording an exception.": "अपवाद दर्ज करने से पहले लॉकर खोलें और पार्सल निकालें।",
+"Wait for the intercom buzz and unlock the entry before delivering.": "डिलीवरी से पहले इंटरकॉम के बज़र का इंतज़ार करें और प्रवेश द्वार खोलें।",
+"Complete the named reception handover before recording delivery.": "डिलीवरी दर्ज करने से पहले नामित व्यक्ति को रिसेप्शन पर सौंपना पूरा करें।",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "डिलीवरी दर्ज करने से पहले तय लॉकर इस्तेमाल करें, पार्सल स्कैन करें, दरवाज़ा बंद करें और फ़ोटो लें।",
+"Completed the delivery-point requirements.": "डिलीवरी पॉइंट की शर्तें पूरी कीं।",
+"Completed the stop without meeting the delivery-point requirements.": "डिलीवरी पॉइंट की शर्तें पूरी किए बिना स्टॉप पूरा किया।",
+"Invalid richer-stop specification": "Invalid richer-stop specification",
+"Use the intercom here.": "यहाँ इंटरकॉम इस्तेमाल करें।",
+"Speak at reception here.": "यहाँ रिसेप्शन पर बात करें।",
+"Use the assigned locker here.": "यहाँ तय लॉकर इस्तेमाल करें।",
+"Record a failed delivery here.": "यहाँ असफल डिलीवरी दर्ज करें।",
+"the intercom": "इंटरकॉम",
+"the reception desk": "रिसेप्शन डेस्क",
+"the parcel locker": "पार्सल लॉकर",
+"the delivery record": "डिलीवरी रिकॉर्ड",
+"Record the delivery outcome.": "डिलीवरी का नतीजा दर्ज करें।",
+"Hand the parcel to the recipient.": "पार्सल प्राप्तकर्ता को सौंपें।",
+"Record the locker delivery.": "लॉकर डिलीवरी दर्ज करें।",
+"Place the parcel behind the planter.": "पार्सल गमले के पीछे रखें।",
+"Leave the parcel in the approved safe place.": "पार्सल मंज़ूर सुरक्षित जगह पर छोड़ें।",
+"Record a delivery exception.": "डिलीवरी का अपवाद दर्ज करें।",
+"Review the delivery checks.": "डिलीवरी की जाँचें देखें।",
+"Check the required photo ID.": "ज़रूरी फ़ोटो पहचान पत्र जाँचें।",
+"Capture the recipient signature.": "प्राप्तकर्ता के हस्ताक्षर लें।",
+"Speak with the customer calmly.": "ग्राहक से शांति से बात करें।",
+"Return to the delivery controls.": "डिलीवरी कंट्रोल पर लौटें।",
+"Complete the delivery checks.": "डिलीवरी की जाँचें पूरी करें।",
+"Review the delivery requirements.": "डिलीवरी की शर्तें देखें।",
+"Return to the street.": "सड़क पर लौटें।",
+"The entry is unlocked.": "प्रवेश द्वार खुल गया है।",
+"Walk through the entry to the recipient.": "प्रवेश द्वार से होकर प्राप्तकर्ता के पास जाएँ।",
+"Use the intercom.": "इंटरकॉम इस्तेमाल करें।",
+"The entry buzz is sounding. Unlock the entry.": "प्रवेश का बज़र बज रहा है। प्रवेश द्वार खोलें।",
+"Wait on the street for the entry buzz or a reply.": "प्रवेश के बज़र या जवाब के लिए सड़क पर इंतज़ार करें।",
+"Choose the matching button, identify yourself and explain the delivery.": "सही बटन चुनें, अपना परिचय दें और डिलीवरी के बारे में बताएँ।",
+"Choose an intercom button.": "इंटरकॉम का बटन चुनें।",
+"Unlock the entry.": "प्रवेश द्वार खोलें।",
+"Record a failed delivery.": "असफल डिलीवरी दर्ज करें।",
+"Speak at reception.": "रिसेप्शन पर बात करें।",
+"Greet the person and confirm the address.": "व्यक्ति का अभिवादन करें और पता पक्का करें।",
+"Record the recipient at reception.": "रिसेप्शन पर प्राप्तकर्ता दर्ज करें।",
+"Record an unnamed occupant.": "बिना नाम वाला निवासी दर्ज करें।",
+"Capture the reception signature.": "रिसेप्शन के हस्ताक्षर लें।",
+"Capture the matching signature.": "मेल खाते हस्ताक्षर लें।",
+"Use an unrelated printed name.": "कोई असंबंधित छपा हुआ नाम इस्तेमाल करें।",
+"Complete the reception handover.": "रिसेप्शन पर सौंपना पूरा करें।",
+"Hand over and record the parcel.": "पार्सल सौंपें और दर्ज करें।",
+"Open a different compartment.": "कोई दूसरा खाना खोलें।",
+"Scan the matching parcel with the handheld before placing it in the locker.": "लॉकर में रखने से पहले सही पार्सल हैंडहेल्ड से स्कैन करें।",
+"Scan the physical parcel.": "असली पार्सल स्कैन करें।",
+"Close the empty locker.": "खाली लॉकर बंद करें।",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "सही पार्सल स्कैन हो गया है। उसे तय खाने के अंदर रखें।",
+"Place the parcel inside.": "पार्सल अंदर रखें।",
+"The parcel is inside. Close the door before taking its delivery photo.": "पार्सल अंदर है। डिलीवरी की फ़ोटो लेने से पहले दरवाज़ा बंद करें।",
+"Close the locker door.": "लॉकर का दरवाज़ा बंद करें।",
+"Retrieve the parcel.": "पार्सल निकालें।",
+"Photograph the open door.": "खुले दरवाज़े की फ़ोटो लें।",
+"The locker door is closed. Photograph this door before recording delivery.": "लॉकर का दरवाज़ा बंद है। डिलीवरी दर्ज करने से पहले इस दरवाज़े की फ़ोटो लें।",
+"Photograph the closed locker door.": "बंद लॉकर दरवाज़े की फ़ोटो लें।",
+"The closed locker door is photographed.": "बंद लॉकर दरवाज़े की फ़ोटो ले ली गई है।",
+"Reopen the locker.": "लॉकर फिर से खोलें।",
+"The closed-door photo is recorded. Finish this locker delivery.": "बंद दरवाज़े की फ़ोटो दर्ज हो गई है। यह लॉकर डिलीवरी पूरी करें।",
+"Use the parcel locker.": "पार्सल लॉकर इस्तेमाल करें।",
+"Identify your delivery.": "अपनी डिलीवरी बताएँ।",
+"Say who you are and what you bring.": "बताएँ कि आप कौन हैं और क्या लाए हैं।",
+"I am the courier, and I have a parcel for this address.": "मैं कूरियर हूँ, और मेरे पास इस पते का एक पार्सल है।",
+"Open the door without asking questions.": "बिना सवाल किए दरवाज़ा खोल दीजिए।",
+"Return to the intercom.": "इंटरकॉम पर लौटें।",
+"Choose the intercom button.": "इंटरकॉम का बटन चुनें।",
+"Call a different entry.": "किसी दूसरे बटन पर कॉल करें।",
+"Return to reception.": "रिसेप्शन पर लौटें।",
+"Attempt contact first.": "पहले संपर्क की कोशिश करें।",
+"Wait on the street.": "सड़क पर इंतज़ार करें।",
+"The label does not match the address.": "लेबल पते से मेल नहीं खाता।",
+"The required photo ID is not valid.": "ज़रूरी फ़ोटो पहचान पत्र वैध नहीं है।",
+"The updated dispatch instruction requires retention.": "डिस्पैच के नए निर्देश के मुताबिक पार्सल रोकना है।",
+"Safe access or an authorized handover is unavailable.": "सुरक्षित पहुँच या अधिकृत सौंपना संभव नहीं है।",
+"The required recipient is absent.": "ज़रूरी प्राप्तकर्ता मौजूद नहीं है।",
+"Leave a delivery attempt card.": "डिलीवरी की कोशिश का कार्ड छोड़ें।",
+"Record this retention reason.": "पार्सल रोकने का यह कारण दर्ज करें।",
+"Record an unrelated reason.": "कोई असंबंधित कारण दर्ज करें।",
+"Record the exception and keep the parcel.": "अपवाद दर्ज करें और पार्सल अपने पास रखें।",
+"Arrange the next delivery attempt.": "अगली डिलीवरी की कोशिश तय करें।",
+"The intercom buzzes. You may unlock the entry.": "इंटरकॉम का बज़र बजता है। आप प्रवेश द्वार खोल सकते हैं।",
+"Arrange a failed delivery and reattempt.": "असफल डिलीवरी और दोबारा कोशिश संभालें।"
 },
 "templates": [
 [
@@ -5583,6 +5691,62 @@ window.OTR_I18N.hi = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} स्कैनर खोलता है, ताकि अपने पास रखा पार्सल लौटाया जा सके।"
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"स्टॉप {0} ({1}) अधिकृत लॉकर डिलीवरी है। इसका तय खाना इस्तेमाल करें।"
+],
+[
+"Contact {0}.\n{1}",
+"{0} से संपर्क करें।\n{1}"
+],
+[
+"The person at reception is {0}.",
+"रिसेप्शन पर {0} हैं।"
+],
+[
+"The person receiving the parcel is {0}.",
+"पार्सल लेने वाले व्यक्ति {0} हैं।"
+],
+[
+"Record {0} at reception.",
+"रिसेप्शन पर {0} दर्ज करें।"
+],
+[
+"Ask {0} to sign for this parcel.",
+"{0} से इस पार्सल के लिए हस्ताक्षर करने को कहें।"
+],
+[
+"The name and signature are recorded for {0}.",
+"{0} का नाम और हस्ताक्षर दर्ज हो गए हैं।"
+],
+[
+"Use compartment {0} for this parcel.",
+"इस पार्सल के लिए खाना {0} इस्तेमाल करें।"
+],
+[
+"Open compartment {0}.",
+"खाना {0} खोलें।"
+],
+[
+"The parcel is for {0}.",
+"पार्सल {0} के लिए है।"
+],
+[
+"Call {0}.",
+"{0} को कॉल करें।"
+],
+[
+"The printed name is {0}.",
+"छपा हुआ नाम {0} है।"
+],
+[
+"Book the afternoon of day {0}.",
+"दिन {0} की दोपहर बुक करें।"
+],
+[
+"Press {0} to use the delivery controls.",
+"डिलीवरी कंट्रोल इस्तेमाल करने के लिए {0} दबाएँ।"
 ]
 ],
 "keep": [

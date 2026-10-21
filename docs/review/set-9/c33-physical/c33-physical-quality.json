@@ -1,0 +1,98 @@
+{
+  "sourceRevision": "18d865885735d0e657db1cd1ae1ebe8ca808110e",
+  "scope": "Seven physical C-33 views in each profile; full gate remains required before review.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab"
+      ],
+      "report": "bench-c33-physical-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 113982,
+      "peak": {
+        "calls": 48,
+        "triangles": 1830,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2916688
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab"
+      ],
+      "report": "bench-c33-physical-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 184910,
+      "peak": {
+        "calls": 70,
+        "triangles": 218543,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7885104
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab"
+      ],
+      "report": "bench-c33-physical-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 115660,
+      "peak": {
+        "calls": 48,
+        "triangles": 1830,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3254560
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab"
+      ],
+      "report": "bench-c33-physical-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 97745,
+      "peak": {
+        "calls": 41,
+        "triangles": 1654,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2859344
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+Waiting for current-pilot integration before the remaining browser checks.
+Affected browser check failed; see c33-extra-browsers.json
+START academy
+academy 0
+START art
+art 0
+START driving
+driving 0
+START enterprise
+enterprise 0
+START offline
+offline 0
+START routeday
+routeday 0
+START scorm-launch
+scorm-launch 0
+START signin
+signin 0
+START town3d
+town3d 0
+START workdayflow
+workdayflow 0

@@ -3876,7 +3876,115 @@ window.OTR_I18N.kn = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "ಪರಿಶೀಲನೆಗೆ ಪ್ರತಿ ತುಂಡಿನ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ (ಅಥವಾ Tab ಮತ್ತು Enter) · ಸ್ವೀಕಾರ A · ನಿರಾಕರಣೆ R, ಕಾರಣಕ್ಕೆ 1-5",
 "Clear all": "ಎಲ್ಲಾ ಅಳಿಸಿ",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ಸ್ಟಾಪ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ — ನಕ್ಷೆಯಲ್ಲಿ ಅಥವಾ ಪಟ್ಟಿಯಲ್ಲಿ — ಅಥವಾ Tab ಮೂಲಕ ಅಲ್ಲಿಗೆ ಹೋಗಿ Enter ಒತ್ತಿ, ರೂಟ್‌ಗೆ ಸೇರಿಸಲು; ಮತ್ತೆ ಮಾಡಿದರೆ ತೆಗೆಯಲು. ಸರಿಪಡಿಸಲು ರದ್ದುಮಾಡಿ (Backspace) / ಎಲ್ಲಾ ಅಳಿಸಿ. ಪಟ್ಟಿ ಕ್ರಮವಾದ ಮೇಲೆ ಡಿಸ್ಪ್ಯಾಚ್ ಮಾಡಿ.",
-"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ಫೋಟೋ ಪುರಾವೆ: ಪ್ಯಾಕೇಜ್ ಮತ್ತು ಬಾಗಿಲನ್ನು ಚೌಕಟ್ಟಿನಲ್ಲಿ ತನ್ನಿ. ಮನೆ ಸಂಖ್ಯೆ ಬೇಡ, ಜನರು ಬೇಡ. ನಂತರ ಕ್ಲಿಕ್ ಮಾಡಿ (ಅಥವಾ ಬಾಣದ ಕೀಲಿಗಳು, ನಂತರ SPACE)"
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ಫೋಟೋ ಪುರಾವೆ: ಪ್ಯಾಕೇಜ್ ಮತ್ತು ಬಾಗಿಲನ್ನು ಚೌಕಟ್ಟಿನಲ್ಲಿ ತನ್ನಿ. ಮನೆ ಸಂಖ್ಯೆ ಬೇಡ, ಜನರು ಬೇಡ. ನಂತರ ಕ್ಲಿಕ್ ಮಾಡಿ (ಅಥವಾ ಬಾಣದ ಕೀಲಿಗಳು, ನಂತರ SPACE)",
+"Deliver this standard parcel to the assigned locker at this site.": "ಈ ಸಾಮಾನ್ಯ ಪಾರ್ಸೆಲ್ ಅನ್ನು ಈ ಸ್ಥಳದ ನಿಗದಿತ ಲಾಕರ್‌ಗೆ ಡೆಲಿವರಿ ಮಾಡಿ.",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ಒಂದು ಪಾರ್ಸೆಲ್‌ಗೆ ಲಾಕರ್ ಅನುಮತಿ ಇದೆ. ಉಳಿದ ಪ್ರತಿ ಪ್ಯಾಕೇಜ್‌ಗೆ ಸಹಿ ಬೇಕು. ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಬೇಕೇ ಎಂದು ಲೇಬಲ್ ನೋಡಿ.",
+"Retrieve the parcel from the locker before moving it.": "ಮುಂದೆ ಒಯ್ಯುವ ಮೊದಲು ಲಾಕರ್‌ನಿಂದ ಪಾರ್ಸೆಲ್ ತೆಗೆಯಿರಿ.",
+"This parcel is authorized for the assigned locker at this site.": "ಈ ಪಾರ್ಸೆಲ್‌ಗೆ ಈ ಸ್ಥಳದ ನಿಗದಿತ ಲಾಕರ್ ಅನುಮತಿ ಇದೆ.",
+"Invalid delivery-stop version": "Invalid delivery-stop version",
+"Invalid locker authorization": "Invalid locker authorization",
+"Use the intercom and wait for a reply before attempting this delivery.": "ಈ ಡೆಲಿವರಿ ಪ್ರಯತ್ನಿಸುವ ಮೊದಲು ಇಂಟರ್‌ಕಾಮ್ ಬಳಸಿ ಉತ್ತರಕ್ಕಾಗಿ ಕಾಯಿರಿ.",
+"Park safely and approach this delivery point on foot.": "ಸುರಕ್ಷಿತವಾಗಿ ಪಾರ್ಕ್ ಮಾಡಿ, ಈ ಡೆಲಿವರಿ ಸ್ಥಳಕ್ಕೆ ನಡೆದು ಹೋಗಿ.",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "ವಿಫಲ ಪ್ರಯತ್ನ ದಾಖಲಿಸುವ ಮೊದಲು ಇಂಟರ್‌ಕಾಮ್‌ನಲ್ಲಿ ಸರಿಯಾದ ಬಟನ್‌ಗೆ ಕರೆ ಮಾಡಿ ಉತ್ತರಕ್ಕಾಗಿ ಕಾಯಿರಿ.",
+"This action is not available at this delivery point.": "ಈ ಕ್ರಿಯೆ ಈ ಡೆಲಿವರಿ ಸ್ಥಳದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.",
+"Attempt contact before recording a failed delivery.": "ವಿಫಲ ಡೆಲಿವರಿ ದಾಖಲಿಸುವ ಮೊದಲು ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಿ.",
+"Retrieve and scan the matching parcel at this stop first.": "ಮೊದಲು ಈ ಸ್ಟಾಪ್‌ನಲ್ಲಿ ಸರಿಯಾದ ಪಾರ್ಸೆಲ್ ತೆಗೆದು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
+"Open the locker and retrieve the parcel before recording retention.": "ಪಾರ್ಸೆಲ್ ಇಟ್ಟುಕೊಳ್ಳುವುದನ್ನು ದಾಖಲಿಸುವ ಮೊದಲು ಲಾಕರ್ ತೆರೆದು ಪಾರ್ಸೆಲ್ ತೆಗೆಯಿರಿ.",
+"Speak to the person at reception before recording a handover.": "ಹಸ್ತಾಂತರ ದಾಖಲಿಸುವ ಮೊದಲು ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿರುವ ವ್ಯಕ್ತಿಯೊಂದಿಗೆ ಮಾತನಾಡಿ.",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "ಆ ಕ್ರಿಯೆ ಡೆಲಿವರಿ ಅಗತ್ಯಗಳನ್ನು ಪೂರೈಸುವುದಿಲ್ಲ. ಸೂಚನೆಗಳನ್ನು ನೋಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+"Your call is connected. Wait for the entry buzz or a reply.": "ನಿಮ್ಮ ಕರೆ ಸಂಪರ್ಕಗೊಂಡಿದೆ. ಪ್ರವೇಶದ ಬಜರ್ ಅಥವಾ ಉತ್ತರಕ್ಕಾಗಿ ಕಾಯಿರಿ.",
+"The entry is unlocked. You may approach the recipient.": "ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆದಿದೆ. ನೀವು ಸ್ವೀಕರಿಸುವವರ ಬಳಿ ಹೋಗಬಹುದು.",
+"The named recipient is ready. Record the delivery outcome.": "ಹೆಸರಿಸಿದ ಸ್ವೀಕರಿಸುವವರು ಸಿದ್ಧರಿದ್ದಾರೆ. ಡೆಲಿವರಿ ಫಲಿತಾಂಶ ದಾಖಲಿಸಿ.",
+"The reception details are recorded.": "ರಿಸೆಪ್ಷನ್ ವಿವರಗಳು ದಾಖಲಾಗಿವೆ.",
+"The closed locker door is photographed. Record the delivery outcome.": "ಮುಚ್ಚಿದ ಲಾಕರ್ ಬಾಗಿಲಿನ ಫೋಟೋ ತೆಗೆಯಲಾಗಿದೆ. ಡೆಲಿವರಿ ಫಲಿತಾಂಶ ದಾಖಲಿಸಿ.",
+"The locker action is recorded. Follow the remaining steps.": "ಲಾಕರ್ ಕ್ರಿಯೆ ದಾಖಲಾಗಿದೆ. ಉಳಿದ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ.",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "ಮುಂದಿನ ಪ್ರಯತ್ನ ಬುಕ್ ಆಗಿದೆ. ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ, ಪಾರ್ಸೆಲ್ ಅನ್ನು ವಾಪಸಿಗಾಗಿ ನಿಮ್ಮ ಬಳಿ ಇಟ್ಟುಕೊಳ್ಳಿ.",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "ವಿಫಲ ಡೆಲಿವರಿ ಹಂತ ದಾಖಲಾಗಿದೆ. ಕಾರ್ಡ್, ಪಾರ್ಸೆಲ್ ಇಟ್ಟುಕೊಳ್ಳುವಿಕೆ ಮತ್ತು ಬುಕಿಂಗ್ ಪೂರ್ಣಗೊಳಿಸಿ.",
+"Open the locker and retrieve the parcel before recording an exception.": "ವಿನಾಯಿತಿ ದಾಖಲಿಸುವ ಮೊದಲು ಲಾಕರ್ ತೆರೆದು ಪಾರ್ಸೆಲ್ ತೆಗೆಯಿರಿ.",
+"Wait for the intercom buzz and unlock the entry before delivering.": "ಡೆಲಿವರಿ ಮಾಡುವ ಮೊದಲು ಇಂಟರ್‌ಕಾಮ್ ಬಜರ್‌ಗಾಗಿ ಕಾಯಿರಿ, ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆಯಿರಿ.",
+"Complete the named reception handover before recording delivery.": "ಡೆಲಿವರಿ ದಾಖಲಿಸುವ ಮೊದಲು ಹೆಸರಿಸಿದ ವ್ಯಕ್ತಿಗೆ ರಿಸೆಪ್ಷನ್ ಹಸ್ತಾಂತರ ಪೂರ್ಣಗೊಳಿಸಿ.",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "ಡೆಲಿವರಿ ದಾಖಲಿಸುವ ಮೊದಲು ನಿಗದಿತ ಲಾಕರ್ ಬಳಸಿ, ಪಾರ್ಸೆಲ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಬಾಗಿಲು ಮುಚ್ಚಿ ಫೋಟೋ ತೆಗೆಯಿರಿ.",
+"Completed the delivery-point requirements.": "ಡೆಲಿವರಿ ಸ್ಥಳದ ಅಗತ್ಯಗಳನ್ನು ಪೂರೈಸಿದಿರಿ.",
+"Completed the stop without meeting the delivery-point requirements.": "ಡೆಲಿವರಿ ಸ್ಥಳದ ಅಗತ್ಯಗಳನ್ನು ಪೂರೈಸದೆ ಸ್ಟಾಪ್ ಪೂರ್ಣಗೊಳಿಸಿದಿರಿ.",
+"Invalid richer-stop specification": "Invalid richer-stop specification",
+"Use the intercom here.": "ಇಲ್ಲಿ ಇಂಟರ್‌ಕಾಮ್ ಬಳಸಿ.",
+"Speak at reception here.": "ಇಲ್ಲಿ ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ ಮಾತನಾಡಿ.",
+"Use the assigned locker here.": "ಇಲ್ಲಿ ನಿಗದಿತ ಲಾಕರ್ ಬಳಸಿ.",
+"Record a failed delivery here.": "ಇಲ್ಲಿ ವಿಫಲ ಡೆಲಿವರಿ ದಾಖಲಿಸಿ.",
+"the intercom": "ಇಂಟರ್‌ಕಾಮ್",
+"the reception desk": "ರಿಸೆಪ್ಷನ್ ಡೆಸ್ಕ್",
+"the parcel locker": "ಪಾರ್ಸೆಲ್ ಲಾಕರ್",
+"the delivery record": "ಡೆಲಿವರಿ ದಾಖಲೆ",
+"Record the delivery outcome.": "ಡೆಲಿವರಿ ಫಲಿತಾಂಶ ದಾಖಲಿಸಿ.",
+"Hand the parcel to the recipient.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ಸ್ವೀಕರಿಸುವವರಿಗೆ ಕೊಡಿ.",
+"Record the locker delivery.": "ಲಾಕರ್ ಡೆಲಿವರಿ ದಾಖಲಿಸಿ.",
+"Place the parcel behind the planter.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ಹೂಕುಂಡದ ಹಿಂದೆ ಇಡಿ.",
+"Leave the parcel in the approved safe place.": "ಪಾರ್ಸೆಲ್ ಅನ್ನು ಅನುಮೋದಿತ ಸುರಕ್ಷಿತ ಸ್ಥಳದಲ್ಲಿ ಇಡಿ.",
+"Record a delivery exception.": "ಡೆಲಿವರಿ ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ.",
+"Review the delivery checks.": "ಡೆಲಿವರಿ ಪರಿಶೀಲನೆಗಳನ್ನು ನೋಡಿ.",
+"Check the required photo ID.": "ಅಗತ್ಯವಿರುವ ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಪರಿಶೀಲಿಸಿ.",
+"Capture the recipient signature.": "ಸ್ವೀಕರಿಸುವವರ ಸಹಿ ಪಡೆಯಿರಿ.",
+"Speak with the customer calmly.": "ಗ್ರಾಹಕರೊಂದಿಗೆ ಶಾಂತವಾಗಿ ಮಾತನಾಡಿ.",
+"Return to the delivery controls.": "ಡೆಲಿವರಿ ನಿಯಂತ್ರಣಗಳಿಗೆ ಮರಳಿ.",
+"Complete the delivery checks.": "ಡೆಲಿವರಿ ಪರಿಶೀಲನೆಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.",
+"Review the delivery requirements.": "ಡೆಲಿವರಿ ಅಗತ್ಯಗಳನ್ನು ನೋಡಿ.",
+"Return to the street.": "ರಸ್ತೆಗೆ ಮರಳಿ.",
+"The entry is unlocked.": "ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆದಿದೆ.",
+"Walk through the entry to the recipient.": "ಪ್ರವೇಶ ಬಾಗಿಲ ಮೂಲಕ ಸ್ವೀಕರಿಸುವವರ ಬಳಿ ನಡೆಯಿರಿ.",
+"Use the intercom.": "ಇಂಟರ್‌ಕಾಮ್ ಬಳಸಿ.",
+"The entry buzz is sounding. Unlock the entry.": "ಪ್ರವೇಶದ ಬಜರ್ ಸದ್ದು ಮಾಡುತ್ತಿದೆ. ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆಯಿರಿ.",
+"Wait on the street for the entry buzz or a reply.": "ಪ್ರವೇಶದ ಬಜರ್ ಅಥವಾ ಉತ್ತರಕ್ಕಾಗಿ ರಸ್ತೆಯಲ್ಲಿ ಕಾಯಿರಿ.",
+"Choose the matching button, identify yourself and explain the delivery.": "ಸರಿಯಾದ ಬಟನ್ ಆರಿಸಿ, ನೀವು ಯಾರೆಂದು ತಿಳಿಸಿ ಡೆಲಿವರಿ ಬಗ್ಗೆ ವಿವರಿಸಿ.",
+"Choose an intercom button.": "ಇಂಟರ್‌ಕಾಮ್ ಬಟನ್ ಆರಿಸಿ.",
+"Unlock the entry.": "ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆಯಿರಿ.",
+"Record a failed delivery.": "ವಿಫಲ ಡೆಲಿವರಿ ದಾಖಲಿಸಿ.",
+"Speak at reception.": "ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ ಮಾತನಾಡಿ.",
+"Greet the person and confirm the address.": "ವ್ಯಕ್ತಿಯನ್ನು ವಂದಿಸಿ ವಿಳಾಸ ಖಚಿತಪಡಿಸಿ.",
+"Record the recipient at reception.": "ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ ಸ್ವೀಕರಿಸುವವರನ್ನು ದಾಖಲಿಸಿ.",
+"Record an unnamed occupant.": "ಹೆಸರಿಲ್ಲದ ನಿವಾಸಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Capture the reception signature.": "ರಿಸೆಪ್ಷನ್ ಸಹಿ ಪಡೆಯಿರಿ.",
+"Capture the matching signature.": "ಹೊಂದುವ ಸಹಿ ಪಡೆಯಿರಿ.",
+"Use an unrelated printed name.": "ಸಂಬಂಧವಿಲ್ಲದ ಮುದ್ರಿತ ಹೆಸರು ಬಳಸಿ.",
+"Complete the reception handover.": "ರಿಸೆಪ್ಷನ್ ಹಸ್ತಾಂತರ ಪೂರ್ಣಗೊಳಿಸಿ.",
+"Hand over and record the parcel.": "ಪಾರ್ಸೆಲ್ ಹಸ್ತಾಂತರಿಸಿ ದಾಖಲಿಸಿ.",
+"Open a different compartment.": "ಬೇರೆ ಕೋಣೆ ತೆರೆಯಿರಿ.",
+"Scan the matching parcel with the handheld before placing it in the locker.": "ಲಾಕರ್‌ನಲ್ಲಿ ಇಡುವ ಮೊದಲು ಸರಿಯಾದ ಪಾರ್ಸೆಲ್ ಅನ್ನು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಿಂದ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
+"Scan the physical parcel.": "ನಿಜವಾದ ಪಾರ್ಸೆಲ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.",
+"Close the empty locker.": "ಖಾಲಿ ಲಾಕರ್ ಮುಚ್ಚಿ.",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "ಸರಿಯಾದ ಪಾರ್ಸೆಲ್ ಸ್ಕ್ಯಾನ್ ಆಗಿದೆ. ಅದನ್ನು ನಿಗದಿತ ಕೋಣೆಯೊಳಗೆ ಇಡಿ.",
+"Place the parcel inside.": "ಪಾರ್ಸೆಲ್ ಒಳಗೆ ಇಡಿ.",
+"The parcel is inside. Close the door before taking its delivery photo.": "ಪಾರ್ಸೆಲ್ ಒಳಗಿದೆ. ಡೆಲಿವರಿ ಫೋಟೋ ತೆಗೆಯುವ ಮೊದಲು ಬಾಗಿಲು ಮುಚ್ಚಿ.",
+"Close the locker door.": "ಲಾಕರ್ ಬಾಗಿಲು ಮುಚ್ಚಿ.",
+"Retrieve the parcel.": "ಪಾರ್ಸೆಲ್ ತೆಗೆಯಿರಿ.",
+"Photograph the open door.": "ತೆರೆದ ಬಾಗಿಲಿನ ಫೋಟೋ ತೆಗೆಯಿರಿ.",
+"The locker door is closed. Photograph this door before recording delivery.": "ಲಾಕರ್ ಬಾಗಿಲು ಮುಚ್ಚಿದೆ. ಡೆಲಿವರಿ ದಾಖಲಿಸುವ ಮೊದಲು ಈ ಬಾಗಿಲಿನ ಫೋಟೋ ತೆಗೆಯಿರಿ.",
+"Photograph the closed locker door.": "ಮುಚ್ಚಿದ ಲಾಕರ್ ಬಾಗಿಲಿನ ಫೋಟೋ ತೆಗೆಯಿರಿ.",
+"The closed locker door is photographed.": "ಮುಚ್ಚಿದ ಲಾಕರ್ ಬಾಗಿಲಿನ ಫೋಟೋ ತೆಗೆಯಲಾಗಿದೆ.",
+"Reopen the locker.": "ಲಾಕರ್ ಮತ್ತೆ ತೆರೆಯಿರಿ.",
+"The closed-door photo is recorded. Finish this locker delivery.": "ಮುಚ್ಚಿದ ಬಾಗಿಲಿನ ಫೋಟೋ ದಾಖಲಾಗಿದೆ. ಈ ಲಾಕರ್ ಡೆಲಿವರಿ ಮುಗಿಸಿ.",
+"Use the parcel locker.": "ಪಾರ್ಸೆಲ್ ಲಾಕರ್ ಬಳಸಿ.",
+"Identify your delivery.": "ನಿಮ್ಮ ಡೆಲಿವರಿ ತಿಳಿಸಿ.",
+"Say who you are and what you bring.": "ನೀವು ಯಾರು, ಏನು ತಂದಿದ್ದೀರಿ ಎಂದು ಹೇಳಿ.",
+"I am the courier, and I have a parcel for this address.": "ನಾನು ಕೊರಿಯರ್, ಈ ವಿಳಾಸಕ್ಕೆ ಒಂದು ಪಾರ್ಸೆಲ್ ಇದೆ.",
+"Open the door without asking questions.": "ಪ್ರಶ್ನೆ ಕೇಳದೆ ಬಾಗಿಲು ತೆರೆಯಿರಿ.",
+"Return to the intercom.": "ಇಂಟರ್‌ಕಾಮ್‌ಗೆ ಮರಳಿ.",
+"Choose the intercom button.": "ಇಂಟರ್‌ಕಾಮ್ ಬಟನ್ ಆರಿಸಿ.",
+"Call a different entry.": "ಬೇರೆ ಬಟನ್‌ಗೆ ಕರೆ ಮಾಡಿ.",
+"Return to reception.": "ರಿಸೆಪ್ಷನ್‌ಗೆ ಮರಳಿ.",
+"Attempt contact first.": "ಮೊದಲು ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಿ.",
+"Wait on the street.": "ರಸ್ತೆಯಲ್ಲಿ ಕಾಯಿರಿ.",
+"The label does not match the address.": "ಲೇಬಲ್ ವಿಳಾಸಕ್ಕೆ ಹೊಂದುತ್ತಿಲ್ಲ.",
+"The required photo ID is not valid.": "ಅಗತ್ಯವಿರುವ ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಮಾನ್ಯವಾಗಿಲ್ಲ.",
+"The updated dispatch instruction requires retention.": "ಹೊಸ ಡಿಸ್ಪ್ಯಾಚ್ ಸೂಚನೆಯಂತೆ ಪಾರ್ಸೆಲ್ ಇಟ್ಟುಕೊಳ್ಳಬೇಕು.",
+"Safe access or an authorized handover is unavailable.": "ಸುರಕ್ಷಿತ ಪ್ರವೇಶ ಅಥವಾ ಅಧಿಕೃತ ಹಸ್ತಾಂತರ ಸಾಧ್ಯವಿಲ್ಲ.",
+"The required recipient is absent.": "ಅಗತ್ಯವಿರುವ ಸ್ವೀಕರಿಸುವವರು ಇಲ್ಲ.",
+"Leave a delivery attempt card.": "ಡೆಲಿವರಿ ಪ್ರಯತ್ನದ ಕಾರ್ಡ್ ಬಿಡಿ.",
+"Record this retention reason.": "ಪಾರ್ಸೆಲ್ ಇಟ್ಟುಕೊಳ್ಳಲು ಈ ಕಾರಣ ದಾಖಲಿಸಿ.",
+"Record an unrelated reason.": "ಸಂಬಂಧವಿಲ್ಲದ ಕಾರಣ ದಾಖಲಿಸಿ.",
+"Record the exception and keep the parcel.": "ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ ಪಾರ್ಸೆಲ್ ನಿಮ್ಮ ಬಳಿ ಇಟ್ಟುಕೊಳ್ಳಿ.",
+"Arrange the next delivery attempt.": "ಮುಂದಿನ ಡೆಲಿವರಿ ಪ್ರಯತ್ನ ನಿಗದಿಪಡಿಸಿ.",
+"The intercom buzzes. You may unlock the entry.": "ಇಂಟರ್‌ಕಾಮ್ ಬಜರ್ ಸದ್ದು ಮಾಡುತ್ತದೆ. ನೀವು ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆಯಬಹುದು.",
+"Arrange a failed delivery and reattempt.": "ವಿಫಲ ಡೆಲಿವರಿ ಮತ್ತು ಮರುಪ್ರಯತ್ನ ನಿರ್ವಹಿಸಿ."
 },
 "templates": [
 [
@@ -5582,6 +5690,62 @@ window.OTR_I18N.kn = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} ಸ್ಕ್ಯಾನರ್ ತೆರೆಯುತ್ತದೆ, ಉಳಿಸಿಕೊಂಡ ಪ್ಯಾಕೇಜ್ ಮರಳಿಸಲು."
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"ಸ್ಟಾಪ್ {0} ({1}) ಅನುಮತಿಸಿದ ಲಾಕರ್ ಡೆಲಿವರಿ. ಅದರ ನಿಗದಿತ ಕೋಣೆ ಬಳಸಿ."
+],
+[
+"Contact {0}.\n{1}",
+"{0} ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.\n{1}"
+],
+[
+"The person at reception is {0}.",
+"ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ ಇರುವವರು {0}."
+],
+[
+"The person receiving the parcel is {0}.",
+"ಪಾರ್ಸೆಲ್ ಸ್ವೀಕರಿಸುವವರು {0}."
+],
+[
+"Record {0} at reception.",
+"ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ {0} ಅವರನ್ನು ದಾಖಲಿಸಿ."
+],
+[
+"Ask {0} to sign for this parcel.",
+"ಈ ಪಾರ್ಸೆಲ್‌ಗೆ ಸಹಿ ಮಾಡಲು {0} ಅವರಿಗೆ ಹೇಳಿ."
+],
+[
+"The name and signature are recorded for {0}.",
+"{0} ಅವರ ಹೆಸರು ಮತ್ತು ಸಹಿ ದಾಖಲಾಗಿದೆ."
+],
+[
+"Use compartment {0} for this parcel.",
+"ಈ ಪಾರ್ಸೆಲ್‌ಗೆ ಕೋಣೆ {0} ಬಳಸಿ."
+],
+[
+"Open compartment {0}.",
+"ಕೋಣೆ {0} ತೆರೆಯಿರಿ."
+],
+[
+"The parcel is for {0}.",
+"ಪಾರ್ಸೆಲ್ {0} ಅವರಿಗೆ."
+],
+[
+"Call {0}.",
+"{0} ಗೆ ಕರೆ ಮಾಡಿ."
+],
+[
+"The printed name is {0}.",
+"ಮುದ್ರಿತ ಹೆಸರು {0}."
+],
+[
+"Book the afternoon of day {0}.",
+"ದಿನ {0} ರ ಮಧ್ಯಾಹ್ನವನ್ನು ಬುಕ್ ಮಾಡಿ."
+],
+[
+"Press {0} to use the delivery controls.",
+"ಡೆಲಿವರಿ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಲು {0} ಒತ್ತಿರಿ."
 ]
 ],
 "keep": [

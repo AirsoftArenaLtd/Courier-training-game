@@ -1,0 +1,37 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ five seeded stops match the route-day generator, addresses and package identities (147.576914ms)
+✔ all town streets connect; doors and curb parking are accessible across generated days (64.200709ms)
+✔ five physical load positions, stop-order reports and fifth parcel survive checkpoint restore (7.985487ms)
+✔ misordered shelving is reported once and uses parcel keys (1.271066ms)
+✔ full-route stop-line reports have distinct junction and approach keys (2.014444ms)
+✔ five deliveries and multiple scanned returns finish at the original depot (2.062615ms)
+✔ legacy three-stop saves and cargo practice remain restorable (1.077781ms)
+✔ all five generated facade doors are raycastable at low graphics (44.472169ms)
+✔ the van can steer around a right-hand grid corner without crossing buildings or leaving the street (52.875402ms)
+✖ low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror (130335.973196ms)
+✔ the generated route resumes every load-out variant, including the sixth physical package (26.150741ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130860.010947
+
+✖ failing tests:
+
+test at test/fproute.js:107:1
+✖ low graphics stays within the complete-frame geometry budget at every stop, with loaded cargo and mirror (130335.973196ms)
+  AssertionError [ERR_ASSERTION]: 21/10, 313 Birch Ln, loaded=true, cargo-outside, reflection=0: {"calls":53,"triangles":2510}
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fproute.js:144:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

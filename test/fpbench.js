@@ -34,6 +34,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   if(process.env.QA_NAV==='1'){report.navigationFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpNav.prepare(OTR.fpSigns.prepare(plan)):plan);};});}
   if(process.env.QA_TRAFFIC==='1')await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpTraffic.prepare(plan):plan);};});
   if(process.env.QA_DAMAGE==='1'){report.damageFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpDamageFlow.prepare(plan):plan);};});}
+  if(process.env.QA_STOPS==='1'){
+   report.deliveryFixture=true;await p.evaluate(()=>{
+    const create=OTR.fpMission.create,doors=OTR.fpDoors.configure;
+    OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpStopFlow.prepare(plan):plan);};
+    OTR.fpDoors.configure=function(m,saved){doors.call(this,m,saved);OTR.fpStopFlow.configure(m,m.deliveryStops);};
+   });
+  }
   if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(22);if(s.navText){s.navText.setFontSize(21);s.soundCue.setFontSize(21);s.controls.setFontSize(22);s.help.setFontSize(22);}}},report.accessibility);
@@ -210,6 +217,29 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     return {marker:m.routePlan.damage,valid:OTR.fpDamage.valid(m.damage),zones:m.damage.added.filter(Boolean).length,clearances:m._damageClearances.length,instances:s.art.damage.entries.length,shift:m.damage.loadX};
    },kind);report.damageProof=report.damageProof||{};report.damageProof['damage'+kind]=proof;
    if(kind==='mirror')await lookAtTarget('mirror-left');await sample('damage'+kind);
+  }
+  if(process.env.QA_STOPS==='1')for(const kind of ['intercom','gate','reception','lockeropen','lockerclosed','retention','stresscab']){
+   const view='stops'+kind;if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(view))continue;
+   report.deliveryProof=report.deliveryProof||{};report.deliveryProof[view]=await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();let m,id;
+    for(let seed=kind==='stresscab'?10:1;seed<=100;seed++){
+     let plan=OTR.fpLater.prepare(OTR.fpStopFlow.prepare(OTR.fpRoute.plan(kind==='stresscab'?21:3,seed),true));plan.timeOfDay=kind==='stresscab'?'night':'midday';
+     m=OTR.fpMission.create('campaign',seed,OTR.fpStopFlow.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(plan))));OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);
+     id=kind==='stresscab'?3:m._deliverySpecs.findIndex((a,i)=>kind==='gate'?a.gated:kind==='retention'?!m._doorSpecs[i].present&&m._doorSpecs[i].signature:a.protocol&&a.protocol.kind===(kind.startsWith('locker')?'locker':kind));if(id>=0)break;
+    }
+    if(id<0)throw Error('No richer-stop benchmark fixture: '+kind);
+    const stop=m.stops[id],point=OTR.fpStopFlow.point(m,id),parcel=m.parcels[id];Object.assign(m.van,stop.park,{speed:0,hand:true,belt:true,wipers:true,gear:kind==='stresscab'?-1:1,look:kind==='stresscab'?.55:0});
+    m.phase='route';m.departed=m.secured=m.repaired=true;OTR.fpLater.depart(m);m.mode=kind==='stresscab'?'cab':'walk';m.paused=false;m.activeStop=id;m.elapsed=4;m.step=()=>{};m.stops.forEach(st=>st.contacted=true);OTR.fpDoors.sync(m);
+    for(const p of m.parcels)p.location='slot'+p.stop;
+    Object.assign(m.player,{x:point.x-stop.side*2.1,z:point.z,yaw:stop.side*Math.PI/2,pitch:.1});
+    if(kind.startsWith('locker')){
+     Object.assign(parcel,{location:'held',loaded:true,scanned:true,stopScanned:true});m.heldId=parcel.id;const a=m._deliverySpecs[id].protocol;
+     OTR.fpStopFlow.act(m,id,'locker.open',a.compartment);OTR.fpStopFlow.act(m,id,'locker.scan',parcel.id);OTR.fpStopFlow.act(m,id,'locker.deposit');if(kind==='lockerclosed'){OTR.fpStopFlow.act(m,id,'locker.close');OTR.fpStopFlow.act(m,id,'locker.photo');}
+    }
+    if(kind==='stresscab'){if(m.damage)for(const zone of OTR.fpDamage.zones)OTR.fpDamage.contact(m.damage,zone,'solid',8);OTR.fpLoadout.configure(m,'extra');for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);m.cargoOpen=true;for(const [name,z] of [['bus',-18],['siren',14]]){const at=OTR.fp.local(m.van,0,z);Object.assign(m.driving[name],{state:name==='bus'?'flashing':'passing',x:at.x,z:at.z,yaw:m.van.yaw});}OTR.fpDriving.syncActors(m);}
+    s.model=m;s.area='route';s.notice='';s.target=null;s.rebuildWorld();s.sync();s.refresh();
+    return {marker:m.routePlan.deliveries,source:'native-later-authorized',later:m.routePlan.later===1,lockerStop:m.routePlan.lockerStop,damageZones:m.damage?m.damage.added.filter(Boolean).length:0,physicalTarget:s.art.interactions.some(o=>o.userData.interaction==='visit'+id),parts:s.art.deliveryArt.parts.length,protocol:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.kind,gated:m._deliverySpecs[id].gated,deposited:OTR.fpStopFlow.inLocker(m,parcel)};
+   },kind);await sample(view);
   }
   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){
    await p.evaluate(kind=>{

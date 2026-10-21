@@ -1,0 +1,8 @@
+{
+  "sourceRevision": "6c26c2f08b881e6adc6a54532f3af7f94e827113",
+  "scope": "Original native authorized locker workflow and assertions. Travel/held-parcel positions are fixtures; remapped controls, physical scanner, deposit, close/photo, report and restore are real. Capture-only adapter requests 3 fps, 640x360 to limit software overhead. This is review media, not FPS evidence.",
+  "complete": true,
+  "exit": 0,
+  "seconds": 47.0,
+  "mediaNote": "The capture requested 3 fps at 640x360. Puppeteer placed the 65 source frames in a 25 fps container. The review copy presents those same decoded frames at 3 fps for readable steps; it is paced review media, not real-time driving or FPS evidence. The raw file is retained."
+}

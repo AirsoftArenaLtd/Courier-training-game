@@ -1,0 +1,510 @@
+{
+  "sourceRevision": "aa35bd14b909d498ebf3ac343fdd47c9d85b8eb2",
+  "fixture": "Native day-four plan, live fonts and Phaser labels; approach poses are fixtures. No head turn. Reports, saves and scores are not altered.",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [
+        {
+          "text": "Give way to traffic before entering the junction.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 658.2452382827718,
+            "y": 263.6625683758905,
+            "right": 859.2452382827718,
+            "bottom": 338.6625683758905
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155861,
+        "right": 771.853294646452,
+        "y": 343.5971977951782,
+        "bottom": 369.4883901984815
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868465,
+        "right": 944.775648281143,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "Stop before the junction line.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 673.7452382827719,
+            "y": 288.6625683758905,
+            "right": 843.7452382827719,
+            "bottom": 338.6625683758905
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 343.59719779517815,
+        "bottom": 369.4883901984815
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868468,
+        "right": 944.7756482811437,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 318.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 476.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 293.12703716495724,
+        "bottom": 338.19689060774454
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868471,
+        "right": 944.7756482811437,
+        "y": 205.4247908239176,
+        "bottom": 309.60264878183574
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 745.3564603155861,
+        "right": 771.853294646452,
+        "y": 343.5971977951782,
+        "bottom": 369.4883901984815
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 317.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 477.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868465,
+        "right": 944.775648281143,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 317.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 477.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 657.2452382827719,
+            "y": 260.6625683758905,
+            "right": 860.2452382827719,
+            "bottom": 338.6625683758905
+          },
+          "font": 22
+        }
+      ],
+      "head": {
+        "x": 745.3564603155862,
+        "right": 771.8532946464522,
+        "y": 343.59719779517815,
+        "bottom": 369.4883901984815
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": false,
+      "look": 0
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 883.5288672868468,
+        "right": 944.7756482811437,
+        "y": 322.0853260511496,
+        "bottom": 381.9321806227196
+      },
+      "nav": {
+        "x": 899.23193359375,
+        "y": 304.1406555175781,
+        "right": 1209.23193359375,
+        "bottom": 490.1406555175781
+      },
+      "covered": true,
+      "look": 0
+    }
+  ],
+  "errors": [],
+  "failures": [
+    "en/large/red/24: sign line is absent",
+    "en/large/red/12: sign line is absent",
+    "en/large/amber/24: sign line is absent",
+    "en/large/amber/12: sign line is absent",
+    "en/large/green/24: sign line is absent",
+    "en/large/green/12: sign line is absent",
+    "en/large/giveway/12: sign line is absent",
+    "en/large/giveway/12: sat nav covers the sign head",
+    "en/large/stop/12: sign line is absent",
+    "en/large/stop/12: sat nav covers the sign head",
+    "ta/large/red/24: sign line is absent",
+    "ta/large/red/12: sign line is absent",
+    "ta/large/red/12: sat nav covers the sign head",
+    "ta/large/amber/24: sign line is absent",
+    "ta/large/amber/12: sign line is absent",
+    "ta/large/amber/12: sat nav covers the sign head",
+    "ta/large/green/24: sign line is absent",
+    "ta/large/green/12: sign line is absent",
+    "ta/large/green/12: sat nav covers the sign head",
+    "ta/large/giveway/24: sign line is absent",
+    "ta/large/giveway/12: sign line is absent",
+    "ta/large/giveway/12: sat nav covers the sign head",
+    "ta/large/stop/12: sign line is absent",
+    "ta/large/stop/12: sat nav covers the sign head"
+  ],
+  "completed": true
+}

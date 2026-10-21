@@ -30,7 +30,7 @@ OTR.fpDoors={
     });}this.sync(m);
   },
   point(m,id,type){const s=m.stops[id];return {x:s.x-s.side*(type==='gate'?2.6:1.5),y:type==='gate'?1:.05,z:s.z};},
-  near(m,id){return m.near('door'+id)||(m._doorSpecs[id].dog&&m.near('gate'+id));},
+  near(m,id){return m.near('door'+id)||(m._doorSpecs[id].dog&&m.near('gate'+id))||(m.deliveryStops&&OTR.fpStopFlow.near(m,id));},
   can(m,id){const s=m.stops[id];return !!s&&!s.resolved&&m.mode==='walk'&&m.parked()&&this.near(m,id);},
   fire(m,type,id,ok,text){
     const key=`door:${type}:${id}`;if(m.events[key])return;m.log(key,'doorstep',ok?'good':'needs',text);
@@ -98,6 +98,7 @@ OTR.fpDoors={
   },
   expected(m,id){
     const a=m._doorSpecs[id],d=m.doorsteps.stops[id],s=m.stops[id];
+    if(m.deliveryStops&&OTR.fpStopFlow.retention(m,id))return 'exception';
     if(a.wrong||(a.dog&&!d.dogSecured)||(a.adult&&(!this.validID(m,id)||d.idDecision===false)))return 'exception';
     return s.service==='handover'?'handover':s.service==='safeplace'?'safeplace':'exception';
   },

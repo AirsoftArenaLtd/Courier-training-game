@@ -144,7 +144,8 @@ OTR.fpWorld = {
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
       stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
-      box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
+      const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
+      if(!delivery||!['locker','reception'].includes(delivery.kind))box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
     });
     if (!base.town) {
@@ -284,6 +285,7 @@ OTR.fpWorld = {
       }
       if(a.hazard){const p=OTR.fpDoors.point(base,i,'hazard'),slippery=a.hazard==='ice'||a.hazard==='wet';hazards[i]=box(route,p.x,.11,p.z,slippery?1.15:.95,slippery?.04:.1,slippery?1.2:.8,slippery?0x506673:0x927557,'hazard'+i);}
     }
+    const deliveryArt=OTR.fpStopScene?OTR.fpStopScene.build(base,route,box,labels):null;
     let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
     if(base.driving){
       bus=new T.Group();route.add(bus);
@@ -341,7 +343,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,parcels,carried,brand,dogs,gates,hazards,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -382,8 +384,8 @@ OTR.fpWorld = {
           faultLamp.material=!m.repaired&&m.fault==='lights'?lampBad:lampGood;
           tyreBulge.visible=!m.repaired&&m.fault==='tyres';
           let parcelCount=0;m.parcels.forEach((p,i)=>{
-            const mesh=parcels[i],point=m.point(p.id);mesh.visible=!!point&&p.location!=='held'&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
-            if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=p.location.startsWith('slot')?-v.yaw:0;}
+            const mesh=parcels[i],point=m.point(p.id),locker=m.deliveryStops&&OTR.fpStopFlow.inLocker(m,p);mesh.visible=!!point&&(p.location!=='held'||locker)&&(!p.location.startsWith('slot')||m.cargoOpen)&&(!base.town||(point.x-cx)**2+(point.z-cz)**2<(m.mode==='cab'?cabParcelRange2:400));
+            if(point){mesh.position.set(point.x,point.y,point.z);mesh.rotation.y=locker?-m.stops[p.stop].side*Math.PI/2:p.location.startsWith('slot')?-v.yaw:0;}
             if(point&&m.damage&&m.damage.enabled&&p.location.startsWith('slot')){
               const dx=m.damage.loadX*.03,dz=m.damage.loadZ*.035;
               mesh.position.x+=Math.cos(v.yaw)*dx-Math.sin(v.yaw)*dz;mesh.position.z+=Math.sin(v.yaw)*dx+Math.cos(v.yaw)*dz;
@@ -393,7 +395,7 @@ OTR.fpWorld = {
             if(mesh.visible){mesh.updateMatrix();entry.sphere.copy(parcelGeometry.boundingSphere).applyMatrix4(mesh.matrix);parcelBatch.setMatrixAt(parcelCount++,mesh.matrix);}
           });
           parcelBatch.count=parcelCount;parcelBatch.visible=parcelCount>0;parcelBatch.instanceMatrix.needsUpdate=true;
-          carried.visible=!!m.heldId&&m.mode==='walk';dash.visible=m.mode==='cab';if(cab)cab.sync(m);else wheel.rotation.z=-v.steer*3;
+          carried.visible=!!m.heldId&&m.mode==='walk'&&(!m.deliveryStops||!OTR.fpStopFlow.inLocker(m,m.parcel(m.heldId)));dash.visible=m.mode==='cab';if(cab)cab.sync(m);else wheel.rotation.z=-v.steer*3;
           const scanning=scene.handheld&&scene.handheld.aiming;
           carried.position.set(scanning?0:0.4,scanning?0:-0.48,-0.85);
           carried.userData.barcode.userData.scanId=scanning?m.heldId:null;
@@ -427,6 +429,7 @@ OTR.fpWorld = {
             if(dogs[i]){const p=m._doorSolids[i].dog;dogs[i].visible=!d.dogSecured&&Math.hypot(p.x-cx,p.z-cz)<35;dogs[i].position.set(p.x,0,p.z);gates[i].visible=!d.gateOpen&&!d.dogSecured&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;}
             if(hazards[i])hazards[i].visible=!d.hazardCleared&&Math.hypot(s.x-cx,s.z-cz)<sceneryRadius;
           }
+          if(deliveryArt)deliveryArt.sync(m,cx,cz);
           if(bus&&m.driving){
             const b=m.driving.bus,e=m.driving.siren,flash=reduced||Math.floor(m.elapsed*2)%2===0;
             bus.visible=b.state==='flashing'||b.state==='leaving';bus.position.set(b.x,0,b.z);bus.rotation.y=-b.yaw;

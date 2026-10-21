@@ -1,0 +1,375 @@
+{
+  "sourceRevision": "b1d01d64146ef565d1acc4e3e6768746d7b04dd1",
+  "quality": "low",
+  "fixture": "Unmodified generated day-three routes with signs/navigation and the C-33 marker. The all-signature later schedule is tested separately; live locker policy is pending.",
+  "checks": 200,
+  "runs": [
+    {
+      "lang": "en",
+      "large": false,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2,
+          "where": {
+            "x": 127.3,
+            "z": -83.4
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 309 Oak St. Carrying: 309 Oak St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831037 2091. 309 Oak St. 309 Oak St · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected 309 Oak St. Press O to interact.",
+        "Selected the reception desk. Press O to interact.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5,
+          "where": {
+            "x": 35.9,
+            "z": 21.1
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 105 Maple Ave. Carrying: 105 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 105 Maple Ave. 105 Maple Ave · Leave in the porch box if nobody answers. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "Nobody answers the door.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2,
+          "where": {
+            "x": 127.3,
+            "z": -83.4
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 309 Oak St. Carrying: 309 Oak St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831037 2091. 309 Oak St. 309 Oak St · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected 309 Oak St. Press O to interact.",
+        "Selected the reception desk. Press O to interact.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5,
+          "where": {
+            "x": 35.9,
+            "z": 21.1
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 105 Maple Ave. Carrying: 105 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 105 Maple Ave. 105 Maple Ave · Leave in the porch box if nobody answers. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "Nobody answers the door.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2,
+          "where": {
+            "x": 127.3,
+            "z": -83.4
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 309 Oak St. சுமப்பது: 309 Oak St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831037 2091. 309 Oak St. 309 Oak St · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 309 Oak St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the reception desk. உரையாட O அழுத்துங்கள்.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5,
+          "where": {
+            "x": 35.9,
+            "z": 21.1
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 105 Maple Ave. சுமப்பது: 105 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 105 Maple Ave. 105 Maple Ave · யாரும் பதிலளிக்கவில்லை என்றால் போர்ச் பெட்டியில் வையுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "கதவுக்கு யாரும் பதிலளிக்கவில்லை.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2,
+          "where": {
+            "x": 127.3,
+            "z": -83.4
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 309 Oak St. சுமப்பது: 309 Oak St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831037 2091. 309 Oak St. 309 Oak St · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 309 Oak St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the reception desk. உரையாட O அழுத்துங்கள்.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5,
+          "where": {
+            "x": 35.9,
+            "z": 21.1
+          }
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 105 Maple Ave. சுமப்பது: 105 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 105 Maple Ave. 105 Maple Ave · யாரும் பதிலளிக்கவில்லை என்றால் போர்ச் பெட்டியில் வையுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "கதவுக்கு யாரும் பதிலளிக்கவில்லை.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    }
+  ],
+  "errors": [],
+  "current": {
+    "fixture": {
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": false,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 4,
+        "ok": true,
+        "stop": 5
+      },
+      {
+        "type": "stop.locker",
+        "key": 4,
+        "ok": true,
+        "stop": 5,
+        "where": {
+          "x": 35.9,
+          "z": 21.1
+        }
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}

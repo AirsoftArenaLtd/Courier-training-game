@@ -1,0 +1,20 @@
+{
+  "sourceRevision": "6c26c2f08b881e6adc6a54532f3af7f94e827113",
+  "scope": "Visual layout fixture only: staged day-two adult parcel and approach pose; the separate 394-check suite exercises real ID/signature/outcome controls.",
+  "completed": true,
+  "lang": "ta",
+  "large": true,
+  "bodyGap": 6,
+  "backGap": 4.5,
+  "bodyFonts": [
+    "17px",
+    "17px"
+  ],
+  "choices": [
+    "1  குடியிருப்பாளரிடம் கொடு",
+    "2  போர்ச் பெட்டியில் வையுங்கள்",
+    "3  டெலிவரி விதிவிலக்கைப் பதிவு செய்யுங்கள்",
+    "4  டெலிவரி சரிபார்ப்புகள்"
+  ],
+  "errors": []
+}

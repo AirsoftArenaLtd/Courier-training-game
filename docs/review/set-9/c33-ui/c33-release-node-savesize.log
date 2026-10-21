@@ -1,0 +1,25 @@
+✔ a small save goes to the LMS as it is (9.887907ms)
+✔ step 1 and 2: old route history and the last workday's lines go first (50.267479ms)
+✔ step 3: a long day is packed, and comes back whole, places and all (128.606056ms)
+✔ A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save (312.564869ms)
+✔ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (306.685619ms)
+✔ B-68: C-34's damage and load on the worst milestone 8 day still pack with room to spare (309.402409ms)
+✔ B-75: C-33's richer stops on the C-34 damage day still pack with room to spare (299.568132ms)
+✔ B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads (1.454397ms)
+✔ B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins (362.235786ms)
+✔ B-16: runs of numbered keys pack once and come back exactly, in order (0.536822ms)
+✔ A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost (293.065444ms)
+✔ step 4 and 5: a very long day on a heavy save keeps its score only, and says so (141.420528ms)
+✔ step 7: a day too long even for the summary keeps its total, flagged truncated (68.482135ms)
+✔ step 8: a save too big for anything else still reaches the LMS within the limit (69.617647ms)
+✔ every write of a long day stays within the limit, from the first report to the last (28415.60645ms)
+✔ SCORM 2004 and local saves are not cut (36.537974ms)
+✔ B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course (5756.690805ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36583.333923

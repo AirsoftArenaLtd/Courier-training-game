@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "0675ce7acb681166126cb6db080b137e2d7f690e",
+  "complete": true,
+  "jobs": [
+    {
+      "name": "doors",
+      "suite": "fpdoorsbrowser",
+      "exit": 0,
+      "seconds": 143.0,
+      "log": "c33-handheld-gap-doors.log"
+    },
+    {
+      "name": "hud",
+      "suite": "fphudbrowser",
+      "exit": 0,
+      "seconds": 135.4,
+      "log": "c33-handheld-gap-hud.log"
+    },
+    {
+      "name": "layouts",
+      "suite": "fpaccesslayout",
+      "exit": 0,
+      "seconds": 12.5,
+      "log": "c33-handheld-gap-layouts.log"
+    },
+    {
+      "name": "themes",
+      "suite": "fpbrandingbrowser",
+      "exit": 0,
+      "seconds": 24.3,
+      "log": "c33-handheld-gap-themes.log"
+    },
+    {
+      "name": "access",
+      "suite": "fpaccessbrowser",
+      "exit": 0,
+      "seconds": 95.3,
+      "log": "c33-handheld-gap-access.log"
+    }
+  ],
+  "scope": "Handheld gap and bounded-shape follow-up: original doorstep assertions plus explicit body/Back clearance and Low text memory; compact HUD and scanner/signature layouts. Three geometry, glyph sizes and backing resolutions are unchanged; unused page shapes are released."
+}

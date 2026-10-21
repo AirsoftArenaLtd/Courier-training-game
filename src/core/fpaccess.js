@@ -4,7 +4,13 @@ OTR.fpAccess={
   textResolution(scene){
     // The shared text helper requests 2x canvases. On Low, keep native-size glyphs at 1x backing resolution.
     if(!scene.fpTextFactory)scene.fpTextFactory=scene.add.text;
-    scene.add.text=(x,y,text,style)=>scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,{resolution:OTR.gfx.high()?2:1}));
+    scene.add.text=(x,y,text,style)=>{
+      // Pick the script before measuring/wrapping a Text object. Company fonts remain the fallback.
+      const script=OTR.fpBrand&&OTR.fpBrand.scriptFonts[OTR.i18n&&OTR.i18n.lang];
+      const fallback=style&&style.fontFamily||OTR.theme&&OTR.theme.font||'sans-serif';
+      const font=script?{fontFamily:'"Nirmala UI", "'+script+'", '+fallback}:{};
+      return scene.fpTextFactory.call(scene.add,x,y,text,Object.assign({},style,font,{resolution:OTR.gfx.high()?2:1}));
+    };
   },
   settings(){return OTR.a11y?OTR.a11y.settings():{};},
   // Cab speech has two bounded slots. Ordinary hints wait for speech already in progress;
@@ -101,6 +107,7 @@ OTR.fpAccess={
   targetName(scene,id){
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;
+    if(id.startsWith('visit'))return OTR.fpStopScene.name(m,Number(id.slice(5)));
     if(id.startsWith('slot'))return OTR.fpMission.slots.find(s=>s.id===id).name;
     return {driver:'the cab',cargo:'the cargo doors',secure:'the load restraint',tyres:'the tires',lights:'the lights',dispatch:'Dispatch',returns:'Returns','hub-day':'the workday station','hub-practice':'the cargo practice station','hub-record':'the debrief station'}[id]||(id.startsWith('gate')?'the dog gate':id.startsWith('hazard')?'the path hazard':id);
   },
@@ -138,9 +145,10 @@ OTR.fpAccess={
     const d=hh.device;if(!d.optionBtns||!d.screen)return;const t=s=>OTR.i18n?OTR.i18n.t(s):s,opts=d.current.options||[];
     let footerSpace=30;const footer=d.current.footer&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+14&&o.y===d.sy+d.sh-16);
     if(footer){footer.setWordWrapWidth(d.sw-28,true).setOrigin(0,1).setY(d.sy+d.sh-8);footerSpace=Math.max(30,footer.height+16);}
+    // Reserve gaps between choices; an extra trailing gap crowds larger translated body text.
     let total=0;for(let i=0;i<d.optionBtns.length;i++){
       const b=d.optionBtns[i];b.label.setText(`${i+1}  ${t(opts[i].label)}`).setScale(1);
-      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+6;
+      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+(i?6:0);
     }
     let y=d.sy+d.sh-footerSpace-total;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+6;}
     if(this.reduced()){hh.scene.tweens.killTweensOf(d.root);d.root.setY(d.Yopen);}

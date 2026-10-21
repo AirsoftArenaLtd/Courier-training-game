@@ -1,0 +1,27 @@
+START sign-accept
+sign-accept exit 0
+START langs-strict
+langs-strict exit 1
+en: 15 cab targets, 1 problems
+es: 15 cab targets, 1 problems
+fr: 15 cab targets, 1 problems
+hi: 15 cab targets, 1 problems
+bn: 15 cab targets, 0 problems
+/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68
+        this.taskManager.terminateAll(new Error('waitForFunction failed: frame got detached.'));
+                                      ^
+
+Error: waitForFunction failed: frame got detached.
+    at IsolatedWorld.dispose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68:39)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:72:14)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:162:45)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:335:87)
+    at #removeFramesRecursively (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:495:45)
+    at #onClientDisconnect (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:85:42)
+    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:69:37
+    at onceHandler (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/EventEmitter.js:95:13)
+    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/third_party/mitt/mitt.js:62:7
+    at Array.map (<anonymous>)
+
+Node.js v24.19.0
+

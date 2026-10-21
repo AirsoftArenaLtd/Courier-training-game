@@ -1,0 +1,72 @@
+✖ one originally standard parcel may stay standard; every other signature, ID and dispatch obligation is unchanged (7.114258ms)
+✔ the first two days and old plans have no new authorisation or requirement changes (32.437272ms)
+✖ the actual scene launch nominates before later-day rules, and the morning brief and manifest name the locker site (6.943097ms)
+✖ a live later-day locker completes scan, custody, closed-door photo, delivery and every checkpoint once (63.649267ms)
+✖ signed, age-restricted, dog, dispatch, invalid-index and early-day authorisations are rejected (6.801754ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 1
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.987222
+
+✖ failing tests:
+
+test at test/fpstoplocker.js:28:1
+✖ one originally standard parcel may stay standard; every other signature, ID and dispatch obligation is unchanged (7.114258ms)
+  AssertionError [ERR_ASSERTION]: authorisation names an original standard, non-dog, non-dispatch parcel
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpstoplocker.js:35:30)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpstoplocker.js:53:1
+✖ the actual scene launch nominates before later-day rules, and the morning brief and manifest name the locker site (6.943097ms)
+  AssertionError [ERR_ASSERTION]: the real launch path includes authorisation
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpstoplocker.js:57:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/fpstoplocker.js:65:1
+✖ a live later-day locker completes scan, custody, closed-door photo, delivery and every checkpoint once (63.649267ms)
+  Error: No authorised locker in live plans
+      at locker (/workspace/c33-stops/test/fpstoplocker.js:19:137)
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpstoplocker.js:66:8)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/fpstoplocker.js:78:1
+✖ signed, age-restricted, dog, dispatch, invalid-index and early-day authorisations are rejected (6.801754ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Number.isSafeInteger(id))
+  
+      at TestContext.<anonymous> (/workspace/c33-stops/test/fpstoplocker.js:79:55)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

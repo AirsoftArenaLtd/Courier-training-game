@@ -1,0 +1,1016 @@
+{
+  "sourceRevision": "a29b1e7536d79107a8d2238b14e0bef9d5552d8e",
+  "quality": "high",
+  "negative": false,
+  "fixture": "Legacy generated standard-service fixtures; the native later-day schedule is tested separately.",
+  "checks": 608,
+  "runs": [
+    {
+      "lang": "en",
+      "large": false,
+      "id": 3,
+      "seed": 1,
+      "kind": "intercom",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "button": "Tomas Vela",
+      "name": "Tomas Vela",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.intercom",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 304 Harbor St. Carrying: 304 Harbor St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 304 Harbor St. 304 Harbor St · Hand to the resident. Put away. Stop details",
+        "Selected 304 Harbor St. Press O to interact.",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Tomas Vela.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 4,
+      "seed": 2,
+      "kind": "gated",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": "Maria Ortiz",
+      "name": "Maria Ortiz",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.intercom",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 212 Birch Ln. Carrying: 212 Birch Ln. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 212 Birch Ln. 212 Birch Ln · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Maria Ortiz.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street.",
+        "Choose the intercom button.. The parcel is for Maria Ortiz.. Call Maria Ortiz.. Call a different entry.. Return to the intercom."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 309 Oak St. Carrying: 309 Oak St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831037 2091. 309 Oak St. 309 Oak St · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected 309 Oak St. Press O to interact.",
+        "Selected the reception desk. Press O to interact.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 105 Maple Ave. Carrying: 105 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 105 Maple Ave. 105 Maple Ave · Leave in the porch box if nobody answers. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "Nobody answers the door.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 213 Maple Ave. Carrying: 213 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 213 Maple Ave. 213 Maple Ave · Signature required. Put away. Stop details",
+        "Selected 213 Maple Ave. Press O to interact.",
+        "Selected the path hazard. Press O to interact.",
+        "Selected the delivery record. Press O to interact."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "id": 2,
+      "seed": 15,
+      "kind": "nativeintercom",
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": true,
+      "signature": true,
+      "button": "Alma Kowalski",
+      "name": "Alma Kowalski",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "stop.intercom",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 205 Birch Ln. Carrying: 205 Birch Ln. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831074 2182. 205 Birch Ln. 205 Birch Ln · Photo ID and an adult signature are required. The recipient must be 21 or older.. Put away. Stop details",
+        "Selected 205 Birch Ln. Press O to interact.",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Alma Kowalski.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 3,
+      "seed": 1,
+      "kind": "intercom",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "button": "Tomas Vela",
+      "name": "Tomas Vela",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.intercom",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 304 Harbor St. Carrying: 304 Harbor St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 304 Harbor St. 304 Harbor St · Hand to the resident. Put away. Stop details",
+        "Selected 304 Harbor St. Press O to interact.",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Tomas Vela.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 4,
+      "seed": 2,
+      "kind": "gated",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": "Maria Ortiz",
+      "name": "Maria Ortiz",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.intercom",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 212 Birch Ln. Carrying: 212 Birch Ln. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 212 Birch Ln. 212 Birch Ln · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Maria Ortiz.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street.",
+        "Choose the intercom button.. The parcel is for Maria Ortiz.. Call Maria Ortiz.. Call a different entry.. Return to the intercom."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 309 Oak St. Carrying: 309 Oak St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831037 2091. 309 Oak St. 309 Oak St · Record the recipient’s signature and printed name before handing over the parcel.. Put away. Stop details",
+        "Selected 309 Oak St. Press O to interact.",
+        "Selected the reception desk. Press O to interact.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 105 Maple Ave. Carrying: 105 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831148 2364. 105 Maple Ave. 105 Maple Ave · Leave in the porch box if nobody answers. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "Nobody answers the door.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 213 Maple Ave. Carrying: 213 Maple Ave. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 213 Maple Ave. 213 Maple Ave · Signature required. Put away. Stop details",
+        "Selected 213 Maple Ave. Press O to interact.",
+        "Selected the path hazard. Press O to interact.",
+        "Selected the delivery record. Press O to interact."
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "id": 2,
+      "seed": 15,
+      "kind": "nativeintercom",
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": true,
+      "signature": true,
+      "button": "Alma Kowalski",
+      "name": "Alma Kowalski",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "stop.intercom",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 205 Birch Ln. Carrying: 205 Birch Ln. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831074 2182. 205 Birch Ln. 205 Birch Ln · Photo ID and an adult signature are required. The recipient must be 21 or older.. Put away. Stop details",
+        "Selected 205 Birch Ln. Press O to interact.",
+        "Selected the intercom. Press O to interact.",
+        "Use the intercom.. Contact Alma Kowalski.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. Record a failed delivery.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 3,
+      "seed": 1,
+      "kind": "intercom",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "button": "Tomas Vela",
+      "name": "Tomas Vela",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.intercom",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 304 Harbor St. சுமப்பது: 304 Harbor St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 304 Harbor St. 304 Harbor St · குடியிருப்பாளரிடம் கொடுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 304 Harbor St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Tomas Vela.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 4,
+      "seed": 2,
+      "kind": "gated",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": "Maria Ortiz",
+      "name": "Maria Ortiz",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.intercom",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 212 Birch Ln. சுமப்பது: 212 Birch Ln. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 212 Birch Ln. 212 Birch Ln · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Maria Ortiz.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street.",
+        "Choose the intercom button.. The parcel is for Maria Ortiz.. Call Maria Ortiz.. Call a different entry.. Return to the intercom."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 309 Oak St. சுமப்பது: 309 Oak St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831037 2091. 309 Oak St. 309 Oak St · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 309 Oak St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the reception desk. உரையாட O அழுத்துங்கள்.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 105 Maple Ave. சுமப்பது: 105 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 105 Maple Ave. 105 Maple Ave · யாரும் பதிலளிக்கவில்லை என்றால் போர்ச் பெட்டியில் வையுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "கதவுக்கு யாரும் பதிலளிக்கவில்லை.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 213 Maple Ave. சுமப்பது: 213 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 213 Maple Ave. 213 Maple Ave · கையொப்பம் தேவை. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 213 Maple Ave. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: பாதையிலுள்ள ஆபத்து. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the delivery record. உரையாட O அழுத்துங்கள்."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "id": 2,
+      "seed": 15,
+      "kind": "nativeintercom",
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": true,
+      "signature": true,
+      "button": "Alma Kowalski",
+      "name": "Alma Kowalski",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "stop.intercom",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 205 Birch Ln. சுமப்பது: 205 Birch Ln. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831074 2182. 205 Birch Ln. 205 Birch Ln · புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 205 Birch Ln. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Alma Kowalski.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 3,
+      "seed": 1,
+      "kind": "intercom",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "button": "Tomas Vela",
+      "name": "Tomas Vela",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.intercom",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 304 Harbor St. சுமப்பது: 304 Harbor St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 304 Harbor St. 304 Harbor St · குடியிருப்பாளரிடம் கொடுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 304 Harbor St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Tomas Vela.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 4,
+      "seed": 2,
+      "kind": "gated",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": "Maria Ortiz",
+      "name": "Maria Ortiz",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.intercom",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 212 Birch Ln. சுமப்பது: 212 Birch Ln. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 212 Birch Ln. 212 Birch Ln · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Maria Ortiz.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street.",
+        "Choose the intercom button.. The parcel is for Maria Ortiz.. Call Maria Ortiz.. Call a different entry.. Return to the intercom."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 1,
+      "seed": 4,
+      "kind": "reception",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "name": "Dana Whitfield",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        },
+        {
+          "type": "stop.reception",
+          "key": 1,
+          "ok": true,
+          "stop": 2
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 309 Oak St. சுமப்பது: 309 Oak St. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831037 2091. 309 Oak St. 309 Oak St · பார்சலை ஒப்படைக்கும் முன் பெறுபவரின் கையெழுத்தையும் அச்சிட்ட பெயரையும் பதிவு செய்யுங்கள்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 309 Oak St. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the reception desk. உரையாட O அழுத்துங்கள்.",
+        "Speak at reception.. The person at reception is Dana Whitfield.. Greet the person and confirm the address.. Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 4,
+      "seed": 31,
+      "kind": "locker",
+      "nativeLater": false,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "",
+      "compartment": "14",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        },
+        {
+          "type": "stop.locker",
+          "key": 4,
+          "ok": true,
+          "stop": 5
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 105 Maple Ave. சுமப்பது: 105 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831148 2364. 105 Maple Ave. 105 Maple Ave · யாரும் பதிலளிக்கவில்லை என்றால் போர்ச் பெட்டியில் வையுங்கள். வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: the parcel locker. உரையாட O அழுத்துங்கள்.",
+        "கதவுக்கு யாரும் பதிலளிக்கவில்லை.",
+        "Use the parcel locker.. Use compartment 14 for this parcel.. Open compartment 14.. Open a different compartment.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 3,
+      "seed": 2,
+      "kind": "failed",
+      "nativeLater": false,
+      "originalService": "signature",
+      "adult": false,
+      "signature": true,
+      "button": null,
+      "name": "",
+      "compartment": null,
+      "nextDay": 4,
+      "resolved": true,
+      "retained": true,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.reattempt",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 213 Maple Ave. சுமப்பது: 213 Maple Ave. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831111 2273. 213 Maple Ave. 213 Maple Ave · கையொப்பம் தேவை. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 213 Maple Ave. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: பாதையிலுள்ள ஆபத்து. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the delivery record. உரையாட O அழுத்துங்கள்."
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "id": 2,
+      "seed": 15,
+      "kind": "nativeintercom",
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": true,
+      "signature": true,
+      "button": "Alma Kowalski",
+      "name": "Alma Kowalski",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        },
+        {
+          "type": "stop.intercom",
+          "key": 2,
+          "ok": true,
+          "stop": 3
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "ஹேண்ட்ஹெல்ட். 205 Birch Ln. சுமப்பது: 205 Birch Ln. பார்சலை ஸ்கேன் செய். நிறுத்த விவரங்கள். வழித்தடம். ரூட் நாள் அப்டேட்கள். வேலைநாள் விவரங்களைப் படியுங்கள்.",
+        "ஸ்கேன். பார்சலில் உள்ள பார்கோடை நோக்கிக் குறிவையுங்கள்.. ஸ்கேன் முடியும் வரை L அல்லது மவுஸின் இடது பொத்தானைப் பிடித்திருங்கள்.. ரத்து",
+        "ஸ்கேன் சரி. 7831074 2182. 205 Birch Ln. 205 Birch Ln · புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.. வை. நிறுத்த விவரங்கள்",
+        "தேர்ந்தெடுத்தது: 205 Birch Ln. உரையாட O அழுத்துங்கள்.",
+        "தேர்ந்தெடுத்தது: the intercom. உரையாட O அழுத்துங்கள்.",
+        "Use the intercom.. Contact Alma Kowalski.\nChoose the matching button, identify yourself and explain the delivery.. Choose an intercom button.. Unlock the entry.. a failed delivery.-ஐப் பதிவு செய்யுங்கள். Return to the street."
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "expectedRuns": 24,
+  "fixtureNow": {
+    "id": 2,
+    "seed": 15,
+    "kind": "nativeintercom",
+    "nativeLater": true,
+    "originalService": "standard",
+    "adult": true,
+    "signature": true,
+    "button": "Alma Kowalski",
+    "name": "Alma Kowalski",
+    "nextDay": 4
+  },
+  "current": {
+    "fixture": {
+      "id": 2,
+      "seed": 15,
+      "kind": "nativeintercom",
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": true,
+      "signature": true,
+      "button": "Alma Kowalski",
+      "name": "Alma Kowalski",
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": false,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 2,
+        "ok": true,
+        "stop": 3
+      },
+      {
+        "type": "stop.intercom",
+        "key": 2,
+        "ok": true,
+        "stop": 3
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}
