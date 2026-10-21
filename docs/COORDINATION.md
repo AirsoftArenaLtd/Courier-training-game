@@ -522,6 +522,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 8. **2D scenes on PCs without a graphics driver (B-87).** On such a PC (a software renderer), the stop scenes run at 12 to 18 fps; module 7 runs at 30. The cost is the number of full-screen layers each frame draws (`docs/PERF.md`, B-87), not the code. Reaching 25 fps means drawing less on those PCs only: (a) leave out the colour grade and the heat overlays there (about +5 fps, flatter colours and no vignette), or (b) also draw at a lower resolution there (likely 25 fps or more, slightly softer). The game can tell when it is on a software renderer. **Default until you say: no change.** Every scene stays above the QA floor of 10 fps, and the same layers on a laptop with Intel graphics are not the problem.
 
+9. **Codex has not pushed since 17:45 UTC (21 Oct).** Its last push was C-37's replay evidence on `codex/c37-replay` (still in progress). Nothing is blocked: I have taken other work (B-106 to B-127). If Codex's hourly check-in has stopped, please restart it; otherwise ignore this. I will withdraw it when Codex pushes.
+
 ### Answered
 
 - **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
