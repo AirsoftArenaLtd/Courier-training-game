@@ -5,7 +5,7 @@ class FPReplayScene extends Phaser.Scene{
     this.d=data||{};this.loading=true;this.leaving=false;this.view=this.art=this.assetBank=this.model=null;this.focusIndex=-1;this.lastSpoken=null;this.lastReadout='';this.refreshAt=-Infinity;
     this.clip=OTR.fpReplayUI.clip;const abort=this.abort=new AbortController();
     this.releasedUI=OTR.fpReplayUI.releasePreviousUI(this);OTR.fpAccess.textResolution(this);if(OTR.a11y)OTR.a11y.applyColour(this);
-    this.events.once('shutdown',()=>{this.abort.abort();document.removeEventListener('visibilitychange',this.onHidden);window.removeEventListener('blur',this.onHidden);if(this.art)this.art.dispose();if(this.view)this.view.dispose();if(this.assetBank)this.assetBank.dispose();if(OTR.a11y)OTR.a11y.hush();if(this.onKey)this.input.keyboard.off('keydown',this.onKey);});
+    this.events.once('shutdown',()=>{abort.abort();document.removeEventListener('visibilitychange',this.onHidden);window.removeEventListener('blur',this.onHidden);if(this.art)this.art.dispose();if(this.view)this.view.dispose();if(this.assetBank)this.assetBank.dispose();this.art=this.view=this.assetBank=this.model=this.clip=this.player=null;if(this.abort===abort)this.abort=null;if(OTR.a11y)OTR.a11y.hush();if(this.onKey)this.input.keyboard.off('keydown',this.onKey);});
     this.onHidden=()=>{if(this.player){this.player.pause();this.readout(true);}};document.addEventListener('visibilitychange',this.onHidden);window.addEventListener('blur',this.onHidden);
     this.header=this.add.rectangle(0,0,OTR.W,100,0x10263c,.95).setOrigin(0).setDepth(20);
     this.texts=[];const text=(words,size)=>{const t=OTR.txt(this,24,0,words,size,'#ffffff',{ox:0,oy:0,wrap:OTR.W-48}).setDepth(21);this.texts.push(t);return t;};
