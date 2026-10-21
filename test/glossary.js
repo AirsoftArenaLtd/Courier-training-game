@@ -28,7 +28,11 @@ for (const lang of LANGS) {
   out[lang] = {};
   for (const [term, def] of Object.entries(G.terms)) {
     const T = typeof def === 'string' ? { en: def } : def, single = T.en, except = new Set(T.except || []);
-    const word = stem(L[single] || '');
+    // B-116: a term shown only in a phrase ("the intercom", "Pre-trip walkaround"): its word is the phrase's word found
+    // in the most lines that use the term in English
+    const phrase = (L[single] || '').split(/[\s'’\-\u200c]+/u).map(stem).filter(w => [...w].length > 1);
+    const users = cat.filter(s => s !== single && new RegExp('\\b' + term.replace(/ /g, '\\s+'), 'i').test(s) && L[s]).map(s => L[s].toLowerCase());
+    const word = phrase.length ? phrase.map(w => [w, users.filter(t => t.includes(w)).length]).sort((x, y) => y[1] - x[1])[0][0] : stem(L[single] || '');
     if (!word) continue;
     // B-106: { case: true } matches the term only as the game writes it, as a name (the depot's Returns, not "returns")
     const name = T.case ? single.replace(/ /g, '\\s+') : term.replace(/ /g, '\\s+');
