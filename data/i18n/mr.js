@@ -3868,7 +3868,14 @@ window.OTR_I18N.mr = {
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "नीट पाहण्यासाठी खूण केलेल्या भागावर क्लिक करा, किंवा Tab आणि Enter दाबा. ठरवा: पास (P), की दोष नोंदवा (F).",
 "Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "खाचेचे मापक टायरच्या खाचेवर ओढा, किंवा G दाबा (दुसऱ्या अर्ध्या भागासाठी पुन्हा दाबा). किमान: स्टिअर (पुढच्या) टायरवर 4/32\", इतरांवर 2/32\".",
 "No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "माउस नाही? Tab किंवा बाण कळांनी थांब्यावर जा, Enter तो निवडतो किंवा पुन्हा काढतो. Backspace मागची पायरी रद्द करतो; मग Tab ने रवाना करा वर जा.",
-"Click the matching package in the truck, or use the arrow keys and Enter": "ट्रकमधील जुळणाऱ्या पॅकेजवर क्लिक करा, किंवा बाण कळा आणि Enter वापरा"
+"Click the matching package in the truck, or use the arrow keys and Enter": "ट्रकमधील जुळणाऱ्या पॅकेजवर क्लिक करा, किंवा बाण कळा आणि Enter वापरा",
+"A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint, or Tab and Enter · T test it · G tread gauge · P pass · F flag a defect": "A / D (किंवा ← →) ट्रकभोवती चाला · C चढा आणि उतरा · L दिवे · तपासणी बिंदूवर क्लिक करा, किंवा Tab आणि Enter · T तपासा · G खाचेचे मापक · P ठीक · F दोष नोंदवा",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear to fix. Dispatch when the manifest is sequenced.": "स्टॉपवर क्लिक करा — नकाशावर किंवा यादीत — किंवा Tab ने तिथे जाऊन Enter दाबा, तो रूटमध्ये घालण्यासाठी; पुन्हा करा काढण्यासाठी. सुधारण्यासाठी पूर्ववत करा (Backspace) / निरभ्र. यादी क्रमाने लागली की डिस्पॅच करा.",
+"Click each piece (or Tab and Enter) to count it, then again to inspect it · A accept · R refuse, 1-5 for the reason": "मोजण्यासाठी प्रत्येक नगावर क्लिक करा (किंवा Tab आणि Enter), मग तपासण्यासाठी पुन्हा · स्वीकार A · नकार R, कारणासाठी 1-5",
+"Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "पार्सल अडवतील अशा इनव्हॉइस ओळींवर क्लिक करा (किंवा बाण कळा आणि Enter) · मग प्रत्येक नग तपासा (Tab आणि Enter): स्वीकार A · नकार R, कारणासाठी 1-5",
+"Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "तपासण्यासाठी प्रत्येक नगावर क्लिक करा (किंवा Tab आणि Enter) · स्वीकार A · नकार R, कारणासाठी 1-5",
+"Clear all": "सर्व पुसा",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "स्टॉपवर क्लिक करा — नकाशावर किंवा यादीत — किंवा Tab ने तिथे जाऊन Enter दाबा, तो रूटमध्ये घालण्यासाठी; पुन्हा करा काढण्यासाठी. सुधारण्यासाठी पूर्ववत करा (Backspace) / सर्व पुसा. यादी क्रमाने लागली की डिस्पॅच करा."
 },
 "templates": [
 [

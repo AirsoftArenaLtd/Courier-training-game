@@ -184,7 +184,7 @@ class RoutePlannerScene extends BaseScenarioScene {
     this.warnText = OTR.txt(this, P.x + 22, P.y + 438, '', 12, '#FFB020', { ox: 0, oy: 0, weight: '900', wrap: P.w - 44, lineSpacing: 2 }).setDepth(3);
 
     this.undoBtn = OTR.ui.button(this, P.x + 74, P.y + P.h - 34, 'Undo', () => this.undo(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_undo', fontSize: 15, key: 'BACKSPACE' }).setDepth(2);
-    this.clearBtn = OTR.ui.button(this, P.x + 186, P.y + P.h - 34, 'Clear', () => this.clearRoute(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_trash', fontSize: 15 }).setDepth(2);
+    this.clearBtn = OTR.ui.button(this, P.x + 186, P.y + P.h - 34, 'Clear all', () => this.clearRoute(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_trash', fontSize: 15 }).setDepth(2);
     this.dispatchBtn = OTR.ui.button(this, P.x + 336, P.y + P.h - 34, 'DISPATCH', () => this.confirmDispatch(), { w: 176, h: 50, skin: 'orange', fontSize: 18, key: 'ENTER' }).setDepth(2);
     this.dispatchBtn.setEnabled(false);
   }

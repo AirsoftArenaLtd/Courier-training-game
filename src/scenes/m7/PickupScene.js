@@ -5,6 +5,8 @@
  *
  * The pieces are staged on the floor in front of the counter, the shipper stands behind it, and the courier
  * comes in from the left. Each piece is decided once: what you accept or refuse at the counter is final.
+ * Keyboard (B-84): Tab or the arrows move a ring over the pieces and the panel's buttons, Enter counts or inspects the
+ * piece it is on (showing its label, as hovering does); on the invoice the arrows reach each line and Enter marks it.
  */
 class PickupScene extends BaseScenarioScene {
   constructor() { super('PickupScene'); }
@@ -26,6 +28,15 @@ class PickupScene extends BaseScenarioScene {
 
     this.buildWorld();
     this.buildPanel();
+    // B-84: the pieces and the panel without a mouse (they could only be clicked)
+    this.keyFocus = OTR.ui.focus(this, this.keyItems, { tab: true, start: 0 });
+    OTR.onKey(this, 'keydown', () => {
+      const c = this.keyFocus.current(), p = c && c.piece && this.running && !this.talkCtl ? c.piece : null;
+      if (p === this.keyPiece) return;
+      if (this.keyPiece) { this.pieceImgs[this.keyPiece.id].clearTint(); this.unhover(this.keyPiece); }
+      this.keyPiece = p;
+      if (p) { c.setTint(0xFFE3C8); this.hover(p, c); }
+    });
     this.showPanel(false);          // the manifest comes up after the shipper has spoken (it showed its steps behind the card)
     this.hud({ score: false, timer: true });
 
@@ -81,6 +92,7 @@ class PickupScene extends BaseScenarioScene {
       img.on('pointerover', () => { img.setTint(0xFFE3C8); this.hover(p, img); });
       img.on('pointerout', () => { img.clearTint(); this.unhover(p); });
       img.on('pointerup', () => this.clickPiece(p));
+      img.piece = p; img.press = () => this.clickPiece(p);
       this.pieceImgs[p.id] = img;
       const badge = this.add.container(x + w / 2 + w * 0.28, floorY - img.displayHeight + 4).setDepth(29).setVisible(false);
       const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14); });
@@ -149,6 +161,7 @@ class PickupScene extends BaseScenarioScene {
   refreshPanel() {
     const px = this.px, C = this.content;
     this.panel.removeAll(true);
+    this.keyPiece = null;
     const add = (o) => { this.panel.add(o); return o; };
     add(OTR.txt(this, px, 116, 'PICKUP MANIFEST', 15, OTR_DATA.theme.css('accentLight'), { weight: '900' }));
     add(OTR.txt(this, px - 132, 152, `Account: ${(C.place && C.place.sign) || ''}`, 14, OTR_DATA.theme.css('tint'), { ox: 0, bold: false }));
@@ -185,6 +198,11 @@ class PickupScene extends BaseScenarioScene {
       fin.setEnabled(decidedN === this.pieces.length && (!C.docs || this.docDone) && !this.finishing);
       add(fin);
     }
+    // what the keyboard ring steps through: the pieces left to right, then the panel's buttons
+    this.keyItems = this.keyItems || [];
+    this.keyItems.length = 0;
+    this.pieces.forEach(p => this.keyItems.push(this.pieceImgs[p.id]));
+    this.panel.list.forEach(o => { if (o.press && o.bg) this.keyItems.push(o); });
   }
 
   /** Hovering a piece lifts its label up above it, where it can be read. */
@@ -419,8 +437,11 @@ class PickupScene extends BaseScenarioScene {
           row.add(OTR.txt(this, -w / 2 + 300, 0, f.value, 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' }));
           if (!readOnly) {
             const hit = this.add.zone(0, 0, w - 100, 34).setInteractive({ useHandCursor: true });
-            hit.on('pointerup', () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); });
+            const flip = () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); };
+            hit.on('pointerup', flip);
             row.add(hit);
+            // B-84: the modal's keyboard ring takes anything with press() and bg, so the arrows reach every line
+            row.setSize(w - 100, 34); row.press = flip; row.bg = rg; row.line = i;
           }
           box.add(row);
           y += 40;

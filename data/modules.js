@@ -23,7 +23,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'efficiency'],
         blurb: 'Before the wheels roll, walk around your truck. Inspect each checkpoint, flag real defects, and don\'t cry wolf over parts that are fine.',
         learn: ['Common pre-trip inspection points', 'Spotting tire, light, brake and leak defects', 'Why you never sign off on a defect'],
-        controls: 'A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint · T test it · P pass · F flag a defect'
+        controls: 'A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint, or Tab and Enter · T test it · G tread gauge · P pass · F flag a defect'
       },
       {
         id: 'm1-route',
@@ -34,7 +34,7 @@ OTR_DATA.modules = [
         categories: ['efficiency', 'service'],
         blurb: 'Sequence the day\'s manifest on the real Maple Grove map. Hit the service commitments, work the pickup windows, and keep the miles down.',
         learn: ['Service commitments and their cut-off times', 'Building the loop around pickup windows', 'Routing around closures and the school zone'],
-        controls: 'Click a stop — on the map or the manifest — to add it to the route, click it again to pull it back out. Undo / Clear to fix. Dispatch when the manifest is sequenced.'
+        controls: 'Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.'
       },
       {
         id: 'm1-driving',
@@ -297,7 +297,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A scheduled pickup with a manifest that does not quite match the counter. Count, inspect, and refuse what cannot ship.',
         learn: ['Counting pieces against the manifest', 'Inspecting packaging and labels', 'Refusing politely with a clear reason'],
-        controls: 'Click each piece to count, then click to inspect · A accept · R refuse, 1-5 for the reason'
+        controls: 'Click each piece (or Tab and Enter) to count it, then again to inspect it · A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-intl',
@@ -308,7 +308,7 @@ OTR_DATA.modules = [
         categories: ['service', 'efficiency'],
         blurb: 'A shipment heading across the border with a commercial invoice full of the classic mistakes. Find them before customs does.',
         learn: ['What a customs description must say', 'Value, quantity and country of origin', 'Why an unsigned declaration is not a declaration'],
-        controls: 'Click the invoice lines that would hold up the shipment · then inspect: A accept · R refuse, 1-5 for the reason'
+        controls: 'Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason'
       },
       {
         id: 'm7-dg',
@@ -319,7 +319,7 @@ OTR_DATA.modules = [
         categories: ['safety', 'service'],
         blurb: 'A shipper wants "just a liter of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',
         learn: ['Matching contents to marks and declarations', 'Common undeclared dangerous goods', 'Refusing firmly and helpfully'],
-        controls: 'Click each piece to inspect · A accept · R refuse, 1-5 for the reason'
+        controls: 'Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason'
       }
     ]
   },
