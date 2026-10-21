@@ -1,0 +1,39 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+      load-out: missort (set parcel5 aside), 5 counted
+      stop 1: adult signature hazard:ice -> exception
+      stop 2: adult signature difficult hazard:ice -> exception
+      stop 3: wrong signature hazard:ice -> exception
+      stop 4: signature -> exception (reattempt booked)
+      stop 5: dog signature hazard:ice -> handover
+ok   workday-3d-b   fps=  1 boot=null golden=ok
+      load-out: clear, 5 counted
+      stop 1: adult signature hazard:ice -> handover
+      stop 2: locker -> locker
+      stop 3: intercom (gated) -> handover
+      stop 4: signature -> exception (reattempt booked)
+      stop 5: dog signature hazard:ice -> handover
+ok   workday-3d-d   fps=  4 boot=null golden=ok
+      load-out: missing (parcel3 reported missing), 5 counted
+      stop 1: wrong signature -> exception
+      stop 2: locker -> locker
+      stop 3: adult signature -> exception
+      stop 4: intercom (gated) -> handover
+      stop 5: reception -> handover
+ok   workday-3d-f   fps=  4 boot=null golden=ok
+      load-out: late (parcel4 reported missing), 4 counted
+      stop 1: locker -> locker
+      stop 2: adult signature difficult hazard:ice -> exception
+      stop 3: signature -> exception (reattempt booked)
+      stop 4: dog signature hazard:ice -> handover
+      stop 5: intercom (gated) -> handover
+FAIL workday-3d-g   fps=  4 boot=null golden=script error: workday-3d: the debrief did not open
+
+================ summary ================
+  pass  workday-3d-b   fps=  1  
+  pass  workday-3d-d   fps=  4  
+  pass  workday-3d-f   fps=  4  
+  FAIL  workday-3d-g   fps=  4  golden
+
+3/4 scenarios clean

@@ -295,6 +295,7 @@ OTR.fpMission = {
           if (!this.blocked(p.x, p.z)) {
             if(this.routeDay)OTR.fpDay.endLeg(this);
             if(this.driving)OTR.fpDriving.endLeg(this);
+            if(this.nightDrive)OTR.fpNight.endLeg(this);
             Object.assign(this.player, p, { yaw: this.van.yaw, pitch: 0 });
             this.mode = 'walk'; this.leg++; this.van.belt = false; this.touch(); return true;
           }
@@ -340,6 +341,7 @@ OTR.fpMission = {
           (outcome === 'exception' ? 'Retained the parcel and recorded the delivery exception.' : `Followed the delivery requirements at ${s.address}.`) :
           `The outcome did not match the requirements at ${s.address}.`);
         s.resolved = true; s.outcome = outcome;
+        if(this.radio)OTR.fpRadio.delivered(this,id);
         if(OTR.fpLater)OTR.fpLater.arrive(this,id);
         if (outcome !== 'exception') { p.location = 'delivered'; this.heldId = null; }
         else p.returnRequired = true;
@@ -367,6 +369,8 @@ OTR.fpMission = {
           if (this.parcels.some(p => p.returnRequired && p.location !== 'returned')) return 'Bring retained parcels to the returns desk first.';
           if (Math.hypot(this.van.x - 4, this.van.z - 8) > 14 || !this.parked()) return 'Return the van to the depot and set the parking brake.';
         }
+        if(this.radio)OTR.fpRadio.finish(this);
+        if(this.nightDrive)OTR.fpNight.endLeg(this);
         if(this.walkaround)OTR.fpWalkaroundFlow.finish(this);
         if(OTR.fpSigns)OTR.fpSigns.finish(this);this.phase = 'debrief'; this.paused = true; this.touch(); return '';
       },
@@ -397,6 +401,8 @@ OTR.fpMission = {
         if(OTR.fpTraffic&&OTR.fpTraffic.enabled(this))OTR.fpTraffic.after(this);
         if(this.doorsteps)OTR.fpDoors.tick(this,input);
         if(this.routeDay)OTR.fpDay.tick(this,dt);
+        if(this.radio)OTR.fpRadio.tick(this,dt);
+        if(this.nightDrive)OTR.fpNight.tick(this);
         if(this.driving)OTR.fpDriving.tick(this,dt,old);
         if(OTR.fpNav)OTR.fpNav.tick(this,old);
         if (this.mode !== 'cab') {if(this.damage)OTR.fpDamageFlow.tick(this,input,old,null);return;}
@@ -481,6 +487,8 @@ OTR.fpMission = {
         if(this.trafficControl)fields.push('trafficControl');
         if(this.navigation)fields.push('navigation');
         if(this.damage)fields.push('damage');
+        if(this.radio)fields.push('radio');
+        if(this.nightDrive)fields.push('nightDrive');
         if(this.walkaround)fields.push('walkaround');
         const out = {}; fields.forEach(k => { out[k] = M.clone(this[k]); }); return out;
       }
@@ -491,6 +499,8 @@ OTR.fpMission = {
       location: 'depot', zone: null, scanned: false, stopScanned: false, loaded: false, returnRequired: false }));
     if(m.kind==='parking')OTR.fpRear.setupPractice(m);
     if(OTR.fpDamageFlow)OTR.fpDamageFlow.configure(m);
+    if(OTR.fpRadio)OTR.fpRadio.configure(m);
+    if(OTR.fpNight)OTR.fpNight.configure(m);
     if(OTR.fpWalkaroundFlow)OTR.fpWalkaroundFlow.configure(m);
     return m;
   },
@@ -498,6 +508,8 @@ OTR.fpMission = {
     try {
       if (!raw || raw.version !== this.VERSION || !['campaign','practice','parking'].includes(raw.kind)) return null;
       const m = this.create(raw.kind, raw.seed, raw.routePlan), data = this.clone(raw);
+      if(OTR.fpRadio&&!OTR.fpRadio.valid(m,data.radio,data))return null;
+      if(OTR.fpNight&&!OTR.fpNight.valid(m,data.nightDrive,data))return null;
       if(OTR.fpLater&&OTR.fpLater.enabled(m)&&(!data.routeDay||!data.doorsteps))return null;
       if(OTR.fpNav&&OTR.fpNav.enabled(m)&&!OTR.fpNav.validState(m,data.navigation,data))return null;
       if(data.navigation&&(!OTR.fpNav||!OTR.fpNav.enabled(m)))return null;

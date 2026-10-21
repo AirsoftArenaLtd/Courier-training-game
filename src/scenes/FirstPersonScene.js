@@ -112,6 +112,7 @@ class FirstPersonScene extends Phaser.Scene {
       if(kind==='campaign'){
         plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(day,this.progress.sequence),true);
         plan=OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan)))));
+        plan=OTR.fpRadio.prepare(plan);
         plan=OTR.fpWalkaroundFlow.prepare(plan);
       }
       m=OTR.fpMission.create(kind,kind==='parking'?Math.max(1,OTR.fpRear.spots.indexOf(spot)+1):this.progress.sequence,plan);if(kind==='campaign'){OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);}}
@@ -182,6 +183,7 @@ class FirstPersonScene extends Phaser.Scene {
     m.town.xs.forEach(v=>g.lineBetween(x(v),y(b.z0),x(v),y(b.z1)));m.town.zs.forEach(v=>g.lineBetween(x(b.x0),y(v),x(b.x1),y(v)));
     if(m.roadworks){const r=m.roadworks;g.lineStyle(7,0x111820);g.lineBetween(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));g.lineStyle(4,0xF06D58);g.lineBetween(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));}
     for(const s of m.stops)root.add(OTR.txt(this,x(s.x),y(s.z),String(s.id+1),18,s.resolved?'#c9d5d0':'#ffffff',{stroke:'#243039',strokeW:4}));
+    const checkin=OTR.fpRadio&&OTR.fpRadio.destination(m);if(checkin){const tx=x(checkin.x),ty=y(checkin.z);g.lineStyle(2,0xffffff);g.lineBetween(tx,ty-6,tx+6,ty);g.lineBetween(tx+6,ty,tx,ty+6);g.lineBetween(tx,ty+6,tx-6,ty);g.lineBetween(tx-6,ty,tx,ty-6);}
     root.add(OTR.txt(this,x(4),y(8),'D',18,'#ffffff',{stroke:'#243039',strokeW:4}));
     g.fillStyle(0xFFE35A);g.fillCircle(x(m.van.x),y(m.van.z),4);
   }
@@ -399,6 +401,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.phase==='prepare'&&m.walkaround&&m.damage.enabled)return 'Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.';
     if(m.phase==='prepare'&&m.routePlan)return 'Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.';
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
+    if(OTR.fpRadio&&OTR.fpRadio.destination(m))return 'Complete the dispatch check-in, then continue the route or return to the depot.';
     if(m.phase==='return'&&m.walkaround&&m.damage.enabled&&m.mode==='walk')return 'Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.';
     if(m.phase==='return'&&m.routePlan)return m.mode==='cab'?`Return to the depot. ${m.driveHint()}`:'Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';

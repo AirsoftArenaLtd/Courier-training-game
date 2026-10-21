@@ -1,0 +1,63 @@
+✖ 30 seeds finish identically after a real local checkpoint at every action, phase and mid-stop (10329.267407ms)
+✖ 100 seeded days with shuffled legal actions always resolve five stops and keep scores in range (187344.679976ms)
+✔ C-32 signal and cyclist keys preserve scores and critical flags through SCORM compaction (4.285814ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197723.885739
+
+✖ failing tests:
+
+test at test/fpresume.js:90:1
+✖ 30 seeds finish identically after a real local checkpoint at every action, phase and mid-stop (10329.267407ms)
+  Error: seed 4, resume=true, stage radio:arrival: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at play (/workspace/c36-radio-night/test/fpresume.js:88:164)
+      at TestContext.<anonymous> (/workspace/c36-radio-night/test/fpresume.js:91:73)
+      ... 3 lines matching cause stack trace ...
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    [cause]: AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+    
+    false !== true
+    
+        at play (/workspace/c36-radio-night/test/fpresume.js:56:102)
+        at TestContext.<anonymous> (/workspace/c36-radio-night/test/fpresume.js:91:73)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.start (node:internal/test_runner/test:1242:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+      generatedMessage: true,
+      code: 'ERR_ASSERTION',
+      actual: false,
+      expected: true,
+      operator: 'strictEqual',
+      diff: 'simple'
+    }
+  }
+
+test at test/fpresume.js:94:1
+✖ 100 seeded days with shuffled legal actions always resolve five stops and keep scores in range (187344.679976ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/workspace/c36-radio-night/test/fpresume.js:96:164)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

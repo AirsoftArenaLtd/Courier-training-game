@@ -1,0 +1,107 @@
+{
+  "stage": "Corrected visible/narrated cues pass; wider resource and inherited journeys still running.",
+  "sourceRevision": "eb13629",
+  "native": {
+    "c36-cues-low-ta": {
+      "checks": 55,
+      "phaserBytes": 3789531,
+      "glare": {
+        "changed": 23102,
+        "strength": 0.09975
+      }
+    },
+    "c36-cues-high-en": {
+      "checks": 55,
+      "phaserBytes": 7860070,
+      "glare": {
+        "changed": 22912,
+        "strength": 0.09975
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "c36-cues-high-en-radio.json",
+      "sha256": "70ac3f4d593779f3ee5c129924d18b3db45612ca9bc0dea2a54503aa35dadf73",
+      "bytes": 4115
+    },
+    {
+      "path": "c36-cues-low-ta-radio.json",
+      "sha256": "e8bacb9de8bc2e8d919b87fe435a66c991e705fda36d8bf9247dcea3c92776d3",
+      "bytes": 4073
+    },
+    {
+      "path": "c36-cues-low-ta-ta-large-day5-message.png",
+      "sha256": "057f25ef68183b77ab0dbb9ddd120adb7e72365b6250f52d0bb31a146a31ccd3",
+      "bytes": 161276
+    },
+    {
+      "path": "c36-cues-high-en-en-normal-fog-warning.png",
+      "sha256": "9c78581a335d332ef630857ed8fe07174e6d9cb6d0f63fc9b0741a69b060bb11",
+      "bytes": 160823
+    },
+    {
+      "path": "c36-cues-high-en-oncoming-glare.png",
+      "sha256": "9184abb8f9662246bb840e2d5ad95b62a2e8512746b0279a3df4bc2608f35aa4",
+      "bytes": 178110
+    },
+    {
+      "path": "c36-cues-low-ta-ta-large-day6-message.png",
+      "sha256": "2d0274d78a5d53a18b54360495e685a1a1108ce8e1646cb0381537121199059d",
+      "bytes": 163649
+    },
+    {
+      "path": "c36-cues-low-ta-ta-large-fog-warning.png",
+      "sha256": "e628d4c0605d4c95bb49f9885160e8c71e543ba99f6519ccc10260febf2cbcca",
+      "bytes": 175102
+    },
+    {
+      "path": "c36-cues-low-ta-ta-large-night.png",
+      "sha256": "97caa2aed536272d6d7750d39e4408a0e05666dfac934a61edc12ec0f29e2bba",
+      "bytes": 210416
+    },
+    {
+      "path": "c36-cues-high-en-en-normal-day5-message.png",
+      "sha256": "d2c8b4145a38890f91cafce1a334f725cb1851f515df00cdfc795f1b8a81b18d",
+      "bytes": 160332
+    },
+    {
+      "path": "c36-cues-low-ta-oncoming-glare.png",
+      "sha256": "abf67d68a383c60cae785495467a0d1347b2a794a326509aa0c08e82ccf591b1",
+      "bytes": 221675
+    },
+    {
+      "path": "c36-cues-high-en-en-normal-day6-message.png",
+      "sha256": "bf66631ca4ceb6c22927f77e9d93c05c5a1379741bc60f612cca0f488b249017",
+      "bytes": 144890
+    },
+    {
+      "path": "c36-cues-high-en-en-normal-night.png",
+      "sha256": "0736500d771fa8b420d7195ec53531e63a938409c947d9843455f39bfb7e8394",
+      "bytes": 169062
+    },
+    {
+      "path": "c36-cues-node.log",
+      "sha256": "be6bd32b0cfabe4e2469b74118bacffde190a3bed73a34413caa40f1a634b63c",
+      "bytes": 5333
+    },
+    {
+      "path": "c36-final-i18n.log",
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+      "bytes": 3485
+    },
+    {
+      "path": "c36-final-syntax.log",
+      "sha256": "bc7ab7226f0d957fae5fd25bdcaf7ed4905c8b090e5fc1d1dd4df1f95990ca5d",
+      "bytes": 443
+    }
+  ],
+  "sourceSHA256": {
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fphud.js": "f541559d2d76818017d4332a58fe058967affdfba74f5e30cb51c88eade6ec35",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "test/fpradiobrowser.js": "3613dd2c0b7ed9de80f89dac7d68ccd09338884a6199b715a05dd66804109844",
+    "test/fpnightworld.js": "7b9ba8462aed1baac10a3c2883c72369ca2b1af38cee4a83c5640e0378815fe0",
+    "test/fpsound.js": "f3c200032258e45077e47a3bb70742c8f3175a88ef5e49033f0a0e1fb2f1a413"
+  }
+}

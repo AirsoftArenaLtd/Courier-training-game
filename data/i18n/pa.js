@@ -4039,7 +4039,38 @@ window.OTR_I18N.pa = {
 "This area has no recorded condition.": "ਇਸ ਹਿੱਸੇ ਦੀ ਕੋਈ ਹਾਲਤ ਦਰਜ ਨਹੀਂ ਹੈ।",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਖਾਲੀ ਹੱਥ ਖੜ੍ਹੀ ਵੈਨ ਦੇ ਦੁਆਲੇ ਚੱਕਰ ਲਾਓ ਅਤੇ ਹਰ ਹਿੱਸੇ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "ਵੈਨ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ, ਟਾਇਰ ਅਤੇ ਲਾਈਟਾਂ ਜਾਂਚੋ, ਫਿਰ ਪਾਰਸਲ ਸਕੈਨ ਕਰਕੇ ਲੋਡ ਕਰੋ। ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋਡ ਸੁਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ, ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ ਰਿਟਰਨ 'ਤੇ ਸਕੈਨ ਕਰੋ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਕੰਮ ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।"
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ, ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ ਰਿਟਰਨ 'ਤੇ ਸਕੈਨ ਕਰੋ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਕੰਮ ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।",
+"Read the dispatch radio message.": "ਡਿਸਪੈਚ ਦਾ ਰੇਡੀਓ ਸੁਨੇਹਾ ਪੜ੍ਹੋ।",
+"Visibility is reduced. The headlights are on.": "ਦਿੱਖ ਘੱਟ ਹੈ। ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਹਨ।",
+"Visibility is reduced. Switch on the headlights before moving.": "ਦਿੱਖ ਘੱਟ ਹੈ। ਤੁਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਕਰੋ।",
+"It is night. The headlights are on. Drive within the distance they light.": "ਰਾਤ ਹੈ। ਹੈੱਡਲਾਈਟਾਂ ਚਾਲੂ ਹਨ। ਇੰਨੀ ਰਫ਼ਤਾਰ ਨਾਲ ਚਲਾਓ ਕਿ ਹੈੱਡਲਾਈਟਾਂ ਦੀ ਰੋਸ਼ਨੀ ਜਿੱਥੋਂ ਤੱਕ ਪੈਂਦੀ ਹੈ, ਉਸ ਦੇ ਅੰਦਰ ਰੁਕ ਸਕੋ।",
+"You have reached the dispatch check-in. Park safely at the curb.": "ਤੁਸੀਂ ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ 'ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ। ਕਰਬ ਕੋਲ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਪਾਰਕ ਕਰੋ।",
+"Used the headlights when visibility required them.": "ਦਿੱਖ ਘੱਟ ਹੋਣ 'ਤੇ ਹੈੱਡਲਾਈਟਾਂ ਵਰਤੀਆਂ।",
+"Moved without headlights when visibility required them.": "ਦਿੱਖ ਘੱਟ ਹੋਣ 'ਤੇ ਵੀ ਹੈੱਡਲਾਈਟਾਂ ਤੋਂ ਬਿਨਾਂ ਚਲਾਇਆ।",
+"No accessible dispatch check-in": "ਪਹੁੰਚਣਯੋਗ ਕੋਈ ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਨਹੀਂ",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "ਡਿਸਪੈਚ ਕਾਲ ਕਰ ਰਿਹਾ ਹੈ। ਸੁਰੱਖਿਅਤ ਥਾਂ 'ਤੇ ਗੱਡੀ ਖੜ੍ਹੀ ਕਰੋ, ਫਿਰ ਹੈਂਡਹੈਲਡ 'ਤੇ ਰੇਡੀਓ ਸੁਨੇਹਾ ਪੜ੍ਹੋ।",
+"The dispatch radio message is waiting for your response.": "ਡਿਸਪੈਚ ਦਾ ਰੇਡੀਓ ਸੁਨੇਹਾ ਤੁਹਾਡੇ ਜਵਾਬ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ।",
+"There is no dispatch radio message waiting.": "ਡਿਸਪੈਚ ਦਾ ਕੋਈ ਰੇਡੀਓ ਸੁਨੇਹਾ ਬਾਕੀ ਨਹੀਂ ਹੈ।",
+"Stop and set the parking brake before reading the radio message.": "ਰੇਡੀਓ ਸੁਨੇਹਾ ਪੜ੍ਹਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"Read the dispatch radio message before responding.": "ਜਵਾਬ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਡਿਸਪੈਚ ਦਾ ਰੇਡੀਓ ਸੁਨੇਹਾ ਪੜ੍ਹੋ।",
+"Stop and set the parking brake before responding to Dispatch.": "ਡਿਸਪੈਚ ਨੂੰ ਜਵਾਬ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"The dispatch route update is already accepted.": "ਡਿਸਪੈਚ ਦਾ ਰੂਟ ਅੱਪਡੇਟ ਪਹਿਲਾਂ ਹੀ ਸਵੀਕਾਰ ਹੋ ਚੁੱਕਾ ਹੈ।",
+"The route update is accepted. Follow the updated destination on the sat nav.": "ਰੂਟ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਹੋ ਗਿਆ ਹੈ। ਸੈਟ ਨੈਵ 'ਤੇ ਨਵੀਂ ਮੰਜ਼ਿਲ ਦੇ ਹਿਸਾਬ ਨਾਲ ਚੱਲੋ।",
+"Followed the dispatch radio route update.": "ਡਿਸਪੈਚ ਦੇ ਰੇਡੀਓ ਰੂਟ ਅੱਪਡੇਟ ਦੀ ਪਾਲਣਾ ਕੀਤੀ।",
+"Did not follow the dispatch radio route update.": "ਡਿਸਪੈਚ ਦੇ ਰੇਡੀਓ ਰੂਟ ਅੱਪਡੇਟ ਦੀ ਪਾਲਣਾ ਨਹੀਂ ਕੀਤੀ।",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "ਡਿਸਪੈਚ ਨੇ ਦਰਜ ਕੀਤਾ ਹੈ ਕਿ ਰੂਟ ਅੱਪਡੇਟ ਰੱਦ ਕੀਤਾ ਗਿਆ। ਪਹਿਲਾਂ ਵਾਲੀਆਂ ਡਿਲਿਵਰੀਆਂ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਜਾਰੀ ਰੱਖੋ।",
+"Accept the dispatch route update before confirming arrival.": "ਪਹੁੰਚਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਡਿਸਪੈਚ ਦਾ ਰੂਟ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰੋ।",
+"Complete the requested delivery before the other stops.": "ਬਾਕੀ ਸਟਾਪਾਂ ਤੋਂ ਪਹਿਲਾਂ ਮੰਗੀ ਗਈ ਡਿਲਿਵਰੀ ਪੂਰੀ ਕਰੋ।",
+"Park at the dispatch check-in stop and set the parking brake first.": "ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਸਟਾਪ 'ਤੇ ਪਾਰਕ ਕਰੋ ਅਤੇ ਪਹਿਲਾਂ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਗਾਓ।",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "ਡਿਸਪੈਚ ਨੇ ਤੁਹਾਡਾ ਚੈੱਕ-ਇਨ ਦਰਜ ਕਰ ਲਿਆ ਹੈ। ਬਾਕੀ ਡਿਲਿਵਰੀਆਂ ਜਾਰੀ ਰੱਖੋ।",
+"Dispatch has recorded your check-in. Return to the depot.": "ਡਿਸਪੈਚ ਨੇ ਤੁਹਾਡਾ ਚੈੱਕ-ਇਨ ਦਰਜ ਕਰ ਲਿਆ ਹੈ। ਡਿਪੋ ਵਾਪਸ ਜਾਓ।",
+"The dispatch radio.": "ਡਿਸਪੈਚ ਰੇਡੀਓ।",
+"Review the radio message.": "ਰੇਡੀਓ ਸੁਨੇਹਾ ਦੁਬਾਰਾ ਦੇਖੋ।",
+"Accept the route update.": "ਰੂਟ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰੋ।",
+"Decline the route update.": "ਰੂਟ ਅੱਪਡੇਟ ਰੱਦ ਕਰੋ।",
+"Confirm arrival at the check-in stop.": "ਚੈੱਕ-ਇਨ ਸਟਾਪ 'ਤੇ ਪਹੁੰਚਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।",
+"Invalid dispatch version": "ਅਵੈਧ ਡਿਸਪੈਚ ਵਰਜ਼ਨ",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਪੂਰਾ ਕਰੋ, ਫਿਰ ਰੂਟ ਜਾਰੀ ਰੱਖੋ ਜਾਂ ਡਿਪੋ ਵਾਪਸ ਜਾਓ।"
 },
 "templates": [
 [
@@ -5817,6 +5848,30 @@ window.OTR_I18N.pa = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "ਇਸ ਹਿੱਸੇ ਦੀ ਜਾਂਚ ਕਰਨ ਅਤੇ ਹੈਂਡਹੈਲਡ 'ਤੇ ਉਸਦੀ ਹਾਲਤ ਦਰਜ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0} 'ਤੇ ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਤੱਕ ਡਰਾਈਵ ਕਰੋ।"
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਤੱਕ {0} ਫੁੱਟ ਵਧਦੇ ਰਹੋ।"
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"ਡਿਸਪੈਚ ਤੁਹਾਨੂੰ ਹੁਣ {0} 'ਤੇ ਜਾਣ ਲਈ ਕਹਿ ਰਿਹਾ ਹੈ। ਰੂਟ ਦੀਆਂ ਬਾਕੀ ਸਾਰੀਆਂ ਡਿਲਿਵਰੀਆਂ ਉਵੇਂ ਹੀ ਰੱਖੋ।"
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"ਡਿਸਪੈਚ ਨੇ {0} 'ਤੇ ਇੱਕ ਚੈੱਕ-ਇਨ ਸਟਾਪ ਜੋੜਿਆ ਹੈ। ਜਨਤਕ ਕਰਬ ਕੋਲ ਪਾਰਕ ਕਰੋ ਅਤੇ ਆਪਣੇ ਪਹੁੰਚਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ। ਉੱਥੇ ਕੋਈ ਪੈਕੇਜ ਨਹੀਂ ਦੇਣਾ।"
+],
+[
+"Dispatch requests {0} as your next stop.",
+"ਡਿਸਪੈਚ ਚਾਹੁੰਦਾ ਹੈ ਕਿ ਤੁਹਾਡਾ ਅਗਲਾ ਸਟਾਪ {0} ਹੋਵੇ।"
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0} 'ਤੇ ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਬਾਕੀ ਹੈ।"
 ]
 ],
 "keep": [

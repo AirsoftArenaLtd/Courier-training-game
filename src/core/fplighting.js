@@ -7,16 +7,17 @@ OTR.fpLighting={
     let value=plan&&plan.timeOfDay|| (clock<360||clock>=1140?'night':clock<660?'morning':clock<1020?'midday':'dusk');
     if(value==='night'&&m&&m.workdayRules&&m.workdayRules.night===false)value='morning';return value;
   },
-  caption(time,on){
+  caption(time,on,reducedVisibility=false){
     if(time==='night')return on?'It is night. The headlights are on.':'It is night. Switch on the headlights before moving.';
     if(time==='dusk')return on?'It is dusk. The headlights are on.':'It is dusk. Switch on the headlights before moving.';
+    if(reducedVisibility)return on?'Visibility is reduced. The headlights are on.':'Visibility is reduced. Switch on the headlights before moving.';
     return time==='midday'?'It is midday.':'It is morning.';
   },
   build(scene,parts){
     const T=THREE,view=scene.view,world=view.world,high=OTR.gfx.high(),point=new T.Vector3(),sunDir=new T.Vector3(),rig=new T.Group();world.add(rig);
     const owned=!view.lights,lights=view.lights||{sky:new T.HemisphereLight(0xE9F1FF,0x63594C,1.5),sun:new T.DirectionalLight(0xFFF0DC,1.4)};
     if(owned){world.add(lights.sky,lights.sun,lights.sun.target);view.lights=lights;}
-    const sun=lights.sun,ambient=lights.sky,original={sunColour:sun.color.clone(),sunIntensity:sun.intensity,sunPosition:sun.position.clone(),targetPosition:sun.target.position.clone(),skyColour:ambient.color.clone(),skyIntensity:ambient.intensity,background:world.background&&world.background.clone(),fog:world.fog&&world.fog.color.clone()};
+    const sun=lights.sun,ambient=lights.sky,original={sunColour:sun.color.clone(),sunIntensity:sun.intensity,sunPosition:sun.position.clone(),targetPosition:sun.target.position.clone(),skyColour:ambient.color.clone(),skyIntensity:ambient.intensity,background:world.background&&world.background.clone(),fog:world.fog&&world.fog.color.clone(),fogNear:world.fog&&world.fog.near,fogFar:world.fog&&world.fog.far};
     const presets=[{top:0x739ECB,horizon:0xE2CCB8,sun:0xFFF0D6,dir:[-.7,.48,.5],ambient:1.2,direct:1.75},
       {top:0x4F8ECA,horizon:0xC9DCE9,sun:0xFFF7E8,dir:[-.25,.95,-.18],ambient:1.3,direct:1.8},
       {top:0x3F537D,horizon:0xC19487,sun:0xFFCA91,dir:[.8,.13,.3],ambient:.7,direct:.8},
@@ -65,7 +66,7 @@ OTR.fpLighting={
     function place(light,x,y,z,tx,ty,tz){point.set(x,y,z).applyMatrix4(parts.chassis.matrixWorld);light.position.copy(point);point.set(tx,ty,tz).applyMatrix4(parts.chassis.matrixWorld);light.target.position.copy(point);}
     const api={sky,front,rear,interior,sun,ambient,ao,time:'morning',
       sync(m,area){
-        current=m;visible=area!=='hub'&&!!m;sky.visible=rig.visible=visible;if(!visible){sun.castShadow=false;ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);sun.updateMatrixWorld(true);sun.target.updateMatrixWorld(true);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog)world.fog.color.copy(original.fog);ao.strength.value=0;return;}
+        current=m;visible=area!=='hub'&&!!m;sky.visible=rig.visible=visible;if(!visible){sun.castShadow=false;ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);sun.updateMatrixWorld(true);sun.target.updateMatrixWorld(true);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog){world.fog.color.copy(original.fog);world.fog.near=original.fogNear;world.fog.far=original.fogFar;}ao.strength.value=0;return;}
         const next=OTR.fpLighting.time(m),index=OTR.fpLighting.times.indexOf(next),p=presets[index],condition=m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';
         const wet=condition==='storm'||condition==='rain'||condition==='fog'||condition==='snow',overcast=condition==='storm'?.9:condition==='fog'?.8:wet?.6:condition==='cloudy'?.35:.08;
         const phaseChanged=next!==time||condition!==weather;time=next;weather=condition;api.time=time;
@@ -74,6 +75,7 @@ OTR.fpLighting={
         sunDir.set(p.dir[0],p.dir[1],p.dir[2]).normalize();fogColour.copy(skyUniforms.horizon.value);if(world.background)world.background.copy(fogColour);if(world.fog)world.fog.color.copy(fogColour);
         ambient.color.copy(skyUniforms.horizon.value);if(time==='night')ambient.color.setHex(0x9AACCC);ambient.intensity=p.ambient*(1-overcast*.25);sun.color.copy(p.sun);sun.intensity=p.direct*(1-overcast*.8);sun.castShadow=high&&time!=='night';ao.strength.value=high?(time==='night'?.6:1):0;
         const v=m.van,c=Math.cos(v.yaw),s=Math.sin(v.yaw),on=!!v.headlights;
+        if(world.fog){const dark=!!m.nightDrive&&time==='night';world.fog.near=dark?Math.min(original.fogNear,on?18:8):original.fogNear;world.fog.far=dark?Math.min(original.fogFar,on?(high?65:48):30):original.fogFar;}
         for(const light of front){const fault=!m.repaired&&m.fault==='lights',failed=high&&light.userData.side<0&&fault;light.intensity=on&&!failed?(high?650:fault?650:1200):0;place(light,light.userData.side,1,-2.8,light.userData.side,0,-28);}
         rear.intensity=v.gear===-1?55:0;place(rear,0,1.1,2.75,0,0,13);point.set(0,2.3,-1.6).applyMatrix4(parts.chassis.matrixWorld);interior.position.copy(point);interior.intensity=time==='night'||time==='dusk'?.45:0;rig.updateMatrixWorld(true);
         if(paint)paint.color.copy(paintColour).multiplyScalar(dim);if(parts.lampGood)parts.lampGood.emissive.copy(glowColour.setHex(on?0xD6B887:0x000000));
@@ -88,9 +90,9 @@ OTR.fpLighting={
           const grid=90/512,x=Math.round(centre.x/grid)*grid,z=Math.round(centre.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=centre.x;shadowZ=centre.z;shadowYaw=v.yaw;shadowWanted=high;
         }
       },
-      caption(){return visible?OTR.fpLighting.caption(time,!!current.van.headlights):'';},
+      caption(){if(!visible)return '';const text=OTR.fpLighting.caption(time,!!current.van.headlights,!!current.nightDrive&&OTR.fpNight.required(current));return current.nightDrive&&time==='night'&&current.van.headlights?'It is night. The headlights are on. Drive within the distance they light.':text;},
       dispose(){disposed=true;world.onAfterRender=oldAfter;sky.removeFromParent();rig.removeFromParent();skyGeometry.dispose();skyMaterial.dispose();for(const [m,h] of hooks){m.onBeforeCompile=h.before;m.customProgramCacheKey=h.key;m.needsUpdate=true;}if(paint)paint.color.copy(paintColour);
-        sun.castShadow=false;sun.shadow.dispose();sun.shadow.map=sun.shadow.mapPass=null;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog)world.fog.color.copy(original.fog);ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;if(owned){world.remove(sun,sun.target,ambient);view.lights=null;}}
+        sun.castShadow=false;sun.shadow.dispose();sun.shadow.map=sun.shadow.mapPass=null;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog){world.fog.color.copy(original.fog);world.fog.near=original.fogNear;world.fog.far=original.fogFar;}ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;if(owned){world.remove(sun,sun.target,ambient);view.lights=null;}}
     };return api;
   }
 };

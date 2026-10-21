@@ -1,0 +1,5 @@
+AssertionError [ERR_ASSERTION]: {"valid":false,"radio":{"version":1,"sent":true,"read":true,"accepted":true,"result":true,"travel":20},"night":{"version":1,"leg":0,"required":false,"failed":false}}
+
+false !== true
+
+    at /workspace/c36-radio-night/test/fpradiobrowser.js:43:209

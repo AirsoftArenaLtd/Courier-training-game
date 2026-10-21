@@ -1,0 +1,104 @@
+{
+  "resume": [
+    {
+      "seed": 1,
+      "checkpoints": 107,
+      "events": 63,
+      "score": 9400
+    },
+    {
+      "seed": 2,
+      "checkpoints": 121,
+      "events": 65,
+      "score": 10300
+    },
+    {
+      "seed": 3,
+      "checkpoints": 121,
+      "events": 67,
+      "score": 11000
+    }
+  ],
+  "soak": [],
+  "failures": [
+    {
+      "seed": 4,
+      "resume": true,
+      "stage": "radio:arrival",
+      "error": "seed 4, resume=true, stage radio:arrival: Expected values to be strictly equal:\n\nfalse !== true\n"
+    }
+  ],
+  "phases": [
+    "prepare",
+    "route",
+    "return",
+    "debrief"
+  ],
+  "weathers": [
+    "cloudy",
+    "fog",
+    "rain",
+    "ice"
+  ],
+  "loadouts": [
+    "missort",
+    "extra",
+    "missing",
+    "late"
+  ],
+  "scormMax": 3868,
+  "scormChecks": 25,
+  "coverage": [
+    "brief",
+    "cargo:n",
+    "close:cargo",
+    "close:n",
+    "complete",
+    "contact:n",
+    "count",
+    "damage:impact",
+    "departure",
+    "depot",
+    "depot:cargo",
+    "dispatch:arrival",
+    "dispatch:read",
+    "dog:n",
+    "enter:n",
+    "hazard:n",
+    "id:decision:n",
+    "id:view:n",
+    "inspection:lights",
+    "inspection:tyres",
+    "late:search:n",
+    "load:pickup:n",
+    "load:place:n",
+    "load:scan:n",
+    "missing",
+    "morning",
+    "move:n",
+    "open:cargo",
+    "outcome:n",
+    "park:n",
+    "prepared",
+    "radio:accept",
+    "radio:arrival",
+    "radio:read",
+    "retained:n",
+    "return",
+    "return:enter",
+    "return:move",
+    "return:pickup:n",
+    "return:record:n",
+    "return:scan:n",
+    "reverse:finish",
+    "reverse:start",
+    "secure",
+    "secure:n",
+    "signature:n",
+    "stop:pickup:n",
+    "stop:scan:n",
+    "unlisted:aside",
+    "unlisted:pickup",
+    "unlisted:scan"
+  ]
+}

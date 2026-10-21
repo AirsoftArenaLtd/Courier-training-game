@@ -1,0 +1,20 @@
+node --check passed on 19 changed JavaScript files.
+src/core/fphandheld.js
+src/core/fphud.js
+src/core/fplighting.js
+src/core/fpmission.js
+src/core/fpnav.js
+src/core/fpnight.js
+src/core/fpradio.js
+src/core/fpradioui.js
+src/core/fproute.js
+src/core/fpsound.js
+src/core/fpweather.js
+src/scenes/FirstPersonScene.js
+test/fpbench.js
+test/fpnightworld.js
+test/fpquality.js
+test/fpqualitygate.js
+test/fpradio.js
+test/fpradiobrowser.js
+test/fpsound.js

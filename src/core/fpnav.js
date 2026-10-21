@@ -4,12 +4,12 @@ OTR.fpNav={
   prepare(plan){const out=OTR.fpMission.clone(plan);out.navigation=1;return out;},
   enabled(m){return !!(m&&m.kind==='campaign'&&m.town&&m.routePlan.navigation===1);},
   aid(m){return m.workdayRules&&m.workdayRules.satnav||'full';},
-  destination(m){return m.phase==='return'?{x:2.84,z:8}:m.stop(m.activeStop).park;},
-  context(m){return m.phase==='return'?'return':String(m.activeStop);},
+  destination(m){return OTR.fpRadio&&OTR.fpRadio.destination(m)||(m.phase==='return'?{x:2.84,z:8}:m.stop(m.activeStop).park);},
+  context(m){return OTR.fpRadio&&OTR.fpRadio.destination(m)?'radio':m.phase==='return'?'return':String(m.activeStop);},
   configure(m){if(this.enabled(m))m.navigation={context:this.context(m),aid:this.aid(m),tickAt:-1,reversing:false,origin:{x:m.van.x,z:m.van.z},progress:0,pending:null};},
   validState(m,n,raw){
     const point=p=>p&&Number.isFinite(p.x)&&Number.isFinite(p.z)&&p.x>=m.bounds.x0&&p.x<=m.bounds.x1&&p.z>=m.bounds.z0&&p.z<=m.bounds.z1;
-    if(!n||typeof n.reversing!=='boolean'||!Number.isFinite(n.tickAt)||n.tickAt< -1||n.tickAt>raw.elapsed||!['full','line','off'].includes(n.aid)||!['return',...m.stops.map(s=>String(s.id))].includes(n.context)||!point(n.origin)||!Number.isFinite(n.progress)||n.progress<0||n.progress>2000)return false;
+    if(!n||typeof n.reversing!=='boolean'||!Number.isFinite(n.tickAt)||n.tickAt< -1||n.tickAt>raw.elapsed||!['full','line','off'].includes(n.aid)||!['return',...(m.routePlan.radio===1&&m.routePlan.day%2===1?['radio']:[]),...m.stops.map(s=>String(s.id))].includes(n.context)||!point(n.origin)||!Number.isFinite(n.progress)||n.progress<0||n.progress>2000)return false;
     const p=n.pending;if(p===null)return true;
     return !!p&&Number.isSafeInteger(p.leg)&&p.leg>=0&&p.leg<=raw.leg&&Number.isFinite(p.at)&&p.at>=0&&p.at<=raw.elapsed&&
       (p.stop===null||Number.isSafeInteger(p.stop)&&p.stop>=1&&p.stop<=m.stops.length)&&point(p.where)&&Number.isFinite(p.where.mph)&&p.where.mph>=0&&p.where.mph<200;
@@ -149,7 +149,8 @@ OTR.fpNav={
     if(m.phase==='prepare')return 'Prepare the van before departure.';
     const warning=m.damage&&OTR.fpDamageFlow.warning(m);if(warning)return warning;
     const r=this.route(m);if(!r||!r.points.length)return 'Rejoin a public street when it is safe.';
-    const destination=this.destination(m);if(Math.hypot(m.van.x-destination.x,m.van.z-destination.z)<9)return m.phase==='return'?'You have reached the depot. Park safely.':'You have reached the stop. Park safely at the curb.';
+    const checkin=OTR.fpRadio&&OTR.fpRadio.destination(m),destination=this.destination(m);
+    if(Math.hypot(m.van.x-destination.x,m.van.z-destination.z)<9)return checkin?'You have reached the dispatch check-in. Park safely at the curb.':m.phase==='return'?'You have reached the depot. Park safely.':'You have reached the stop. Park safely at the curb.';
     const p=this.project(r,m.van),a=r.points[p.index],b=r.points[p.index+1];
     if(!b)return 'Continue safely to the destination.';
     const dx=b.x-a.x,dz=b.z-a.z,length=Math.hypot(dx,dz),direction=dx*Math.sin(m.van.yaw)-dz*Math.cos(m.van.yaw);
@@ -162,7 +163,7 @@ OTR.fpNav={
       distance+=Math.hypot(v.x-u.x,v.z-u.z);i++;
     }
     const feet=Math.max(10,Math.round(Math.max(0,r.distance-p.along)*3.28084/10)*10);
-    return m.phase==='return'?`Continue for ${feet} feet to the depot.`:`Continue for ${feet} feet to the stop.`;
+    return checkin?`Continue for ${feet} feet to the dispatch check-in.`:m.phase==='return'?`Continue for ${feet} feet to the depot.`:`Continue for ${feet} feet to the stop.`;
   }
 
 };
