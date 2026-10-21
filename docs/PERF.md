@@ -1,5 +1,36 @@
 # 3D workday rendering cost
 
+## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
+
+On a software renderer (Chromium's SwiftShader, as on a PC with no graphics driver), at 1280 x 720:
+
+| Scene | fps | Screens drawn |
+| --- | --- | --- |
+| m8-heat | 12 | 5.9 |
+| m5-exceptions | 13 | |
+| m5-pod | 14 to 18 | 4.3 |
+| m8-dog | 14 | |
+| m5-adult, m8-steps | 16 | 4.5 (m8-steps) |
+| m1-driving | 17 | 3.7 |
+| m7-business (for comparison) | 30 to 35 | 2.5 (plus two zones that draw nothing) |
+
+The game's own code is not the cost: a 5-second CPU profile of m5-pod and m8-heat is over 90% idle. Skipping the
+frame's clear changes nothing. Hiding each layer in turn, five times on and off, shows **about 9 ms a frame for each
+full-screen layer**:
+
+- the sky: +3 fps;
+- the colour grade (tint, darkness and vignette, already one multiply pass): +3;
+- an open card's dimmer and panel: +3.5;
+- the heat's additive warmth, glare and shimmer: +2.3;
+- all fixed-to-screen layers together: about +10.
+
+A scene that draws 4 to 6 screens therefore runs at 12 to 18 fps there. Merging layers does not save pixels, and 25 fps
+needs about two screens fewer, which means drawing less: no grade, no heat overlays, or rendering at a lower
+resolution on such PCs. Each of those changes how the scene looks, so it is owner question 8. Until it is answered,
+nothing changes: every scene stays above the QA floor of 10 fps for software renderers.
+
+`node test/tools/overdraw.js <scenario,...>` lists what a scene draws, largest first, in screens.
+
 ## C-30: generated signs (18 October 2026)
 
 Signs share the existing route-plane batch: at most five two-triangle instances per view on Low, 24 on High,
