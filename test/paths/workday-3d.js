@@ -127,6 +127,31 @@ const make = (opts) => async (page, ctx) => {
     must(!(await state()).aiming && (await state()).device, 'the trigger did not open a scan result');
   };
 
+  // ---- C-33's richer stops (B-89): the delivery controls at an intercom, a reception desk or a parcel locker, used
+  // where the trainee stands to use them: the stop's delivery point, the target key (P) until it is selected, then E
+  const controls = async (i, stay) => {
+    if (!stay) await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, st = m.stops[i], pt = OTR.fpStopFlow.point(m, i);
+      s.handheld.close(); s.closePanel(); Object.assign(m.player, { x: pt.x - st.side * 1.2, z: pt.z, yaw: st.side * Math.PI / 2, pitch: 0 }); s.sync(); }, i);
+    await wait(160);
+    for (let n = 0; n < 12 && !(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').target === 'visit' + i, i)); n++) await press('KeyP');
+    must(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').target === 'visit' + i, i), 'the target key never reached the delivery controls (stop ' + i + ')');
+    await press('KeyE');
+    must((await state()).panel, 'the delivery controls did not open (stop ' + i + ')');
+  };
+  const holdScan = async () => {
+    must(await ctx.until(`${FP}.handheld.aiming`, 5000), 'the scanner did not start aiming');
+    await page.keyboard.down('Space'); await ctx.until(`!${FP}.handheld.aiming`, 20000); await page.keyboard.up('Space'); await wait(200);
+  };
+  // the failed-delivery sequence: the card, the reason the parcel is kept, the next-day slot, then the exception
+  const reattempt = async (i) => {
+    await pick(/^Leave a delivery attempt card\.$/);
+    await pick(/^Record this retention reason\.$/);
+    await pick(/^Book the afternoon of day \d+\.$/);
+    await pick(/^Record the exception and keep the parcel\.$/);
+    await pick(/^Record a delivery exception\.$/);
+  };
+  const lookAhead = async () => { if ((await state()).device) await press('Digit1'); };   // put away a receipt
+
   // ---- the hub: a new courier starts the 3D workday
   await ev(() => localStorage.clear());
   await ctx.reload();
@@ -261,6 +286,67 @@ const make = (opts) => async (page, ctx) => {
     const spec = await ev((i) => JSON.parse(JSON.stringify(OTR.game.scene.getScene('FirstPersonScene').model._doorSpecs[i])), i);
     // a loose dog: stay outside the gate and have the owner secure it before going up the path
     if (spec.dog) { await at('gate' + i); await press('KeyE'); await shot('dog-gate-' + i); await pick(/Call the owner to secure the dog/); must(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').model.doorsteps.stops[i].dogSecured, i), 'the owner did not secure the dog (stop ' + i + ')'); }
+    const expected = await ev((i) => OTR.fpDoors.expected(OTR.game.scene.getScene('FirstPersonScene').model, i), i);
+    const marked = await ev((i) => { const m = OTR.game.scene.getScene('FirstPersonScene').model; if (!m.deliveryStops) return null;
+      const d = m._deliverySpecs[i]; return { protocol: d.protocol ? JSON.parse(JSON.stringify(d.protocol)) : null, gated: !!d.gated }; }, i);
+    if (marked && marked.protocol) {
+      // C-33 (B-89): the marked site's own protocol, with real keys and the scene's sentence choices
+      const a = marked.protocol, before = await ev(() => OTR.workday.events.length);
+      await controls(i); await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); s.closePanel(); });
+      await scan(); must((await state()).m.parcels[i].stopScanned, 'the scan at the delivery point did not register (stop ' + i + ')'); await press('Digit1');
+      await controls(i);
+      if (i === 0 || a.kind !== 'intercom') await shot('controls-' + a.kind + '-' + i);
+      let outcome;
+      if (a.kind === 'intercom') {
+        await pick(/^Choose an intercom button\.$/); await pick(new RegExp('^Call ' + a.button.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\.$')); await pick(/^I am the courier, and I have a parcel for this address\.$/);
+        if (a.available && expected === 'handover') {
+          must(await ctx.until(`(() => { const m = ${FP}.model; return OTR.fpStops.ready(m.deliveryStops.stops[${i}].protocol, m._deliverySpecs[${i}].protocol, m.elapsed); })()`, 120000), 'the entry never buzzed (stop ' + i + ')');
+          await controls(i); await pick(/^Unlock the entry\.$/);
+          if (marked.gated) {
+            await ev((i) => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.player.yaw = m.stops[i].side * Math.PI / 2; }, i);
+            await page.keyboard.down('KeyW');
+            try { must(await ctx.until(`${FP}.model.near('door${i}', 2.4)`, 60000), 'could not walk through the opened gate (stop ' + i + ')'); } finally { await page.keyboard.up('KeyW'); }
+          }
+          await controls(i, marked.gated); await pick(/^Record on handheld$/);
+          const sp = await ev((i) => { const d = OTR.game.scene.getScene('FirstPersonScene').model._doorSpecs[i]; return { adult: d.adult, signature: d.signature && d.present, person: d.person }; }, i);
+          if (sp.adult || sp.signature) {
+            await pick(/^Review the delivery checks\.$/);
+            if (sp.adult) { const valid = await ev((i) => OTR.fpDoors.validID(OTR.game.scene.getScene('FirstPersonScene').model, i), i); await pick(/^Check the required photo ID\.$/); await pick(valid ? /Accept the photo ID/ : /Decline the photo ID/); }
+            if (sp.signature) {
+              await pick(/^Capture the recipient signature\.$/); await pick(new RegExp('^Record ' + sp.person.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+              must(await ctx.until(`!!${FP}.model.doorsteps.stops[${i}].signatureName`, 20000), 'the signature was not recorded (stop ' + i + ')');
+              await pick(/^Back/); await pick(/^Return to the delivery controls\.$/); await pick(/^Record on handheld$/);
+            }
+          }
+          await pick(/^Hand the parcel to the recipient\.$/); outcome = 'handover';
+        } else {
+          // nobody answers (or the parcel cannot be handed over): eight seconds on the street, then the retained exception
+          if (!a.available) must(await ctx.until(`(() => { const m = ${FP}.model, d = m.deliveryStops.stops[${i}].protocol; return d.calledAt !== null && m.elapsed >= d.calledAt + 8; })()`, 120000), 'the unanswered entry never timed out (stop ' + i + ')');
+          await controls(i); await pick(/^Record a failed delivery\.$/); await reattempt(i); outcome = 'exception';
+        }
+      } else if (a.kind === 'reception') {
+        await pick(/^Greet the person and confirm the address\.$/);
+        await pick(new RegExp('^Record ' + a.receptionist.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ' at reception\\.$'));
+        await pick(/^Return to the street\.$/);
+        await controls(i); await pick(/^Capture the matching signature\.$/);
+        must(await ctx.until(`${FP}.model.deliveryStops.stops[${i}].protocol.signed`, 20000), 'the reception signature was not captured (stop ' + i + ')');
+        await pick(/^Hand over and record the parcel\.$/); await pick(/^Hand the parcel to the recipient\.$/); outcome = 'handover';
+      } else if (a.kind === 'locker') {
+        await pick(new RegExp('^Open compartment ' + a.compartment + '\\.$')); await pick(/^Scan the physical parcel\.$/); await holdScan(); await pick(/^Put away$/);
+        await controls(i); await pick(/^Place the parcel inside\.$/); await pick(/^Return to the street\.$/);
+        await controls(i); await pick(/^Close the locker door\.$/); await pick(/^Photograph the closed locker door\.$/);
+        await controls(i); await pick(/^Record the locker delivery\.$/); await pick(/^Record the locker delivery\.$/); outcome = 'locker';
+      } else { await reattempt(i); outcome = 'exception'; }
+      const reported = await ev((n) => OTR.workday.events.slice(n).filter((e) => /^stop\.(intercom|reception|locker|reattempt)$/.test(e.type)).map((e) => ({ type: e.type, key: e.key, stop: e.stop, ok: e.ok, where: !!e.where })), before);
+      must(reported.length === 1, `stop ${i + 1} (${a.kind}) should report its protocol once, not ${JSON.stringify(reported)}`);
+      must(reported[0].ok === (outcome !== 'exception' || a.kind === 'reattempt' || !a.available) && reported[0].stop === i + 1 && /^\d+$/.test(String(reported[0].key)) && !(reported[0].ok && reported[0].where), `stop ${i + 1}: the protocol report is not as the contract says: ${JSON.stringify(reported[0])}`);
+      console.log(`      stop ${i + 1}: ${a.kind}${marked.gated ? ' (gated)' : ''}${a.kind === 'intercom' && !a.available ? ' (no answer)' : ''} -> ${outcome}`);
+      must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
+      await shot('receipt-' + i); await lookAhead();
+      if ((await state()).m.heldId) await use('slot' + i);
+      await use('secure'); await use('cargo');
+      continue;
+    }
     await at('door' + i);
     await scan();
     if (!spec.wrong) must((await state()).m.parcels[i].stopScanned, 'the doorstep scan did not register (stop ' + i + ')');
@@ -269,11 +355,32 @@ const make = (opts) => async (page, ctx) => {
     await press('KeyE');
     // the owner who secured the dog has already come to the door; otherwise knock
     if (!(await state()).m.stops[i].contacted) await pick(/Knock/);
+    if (marked && expected === 'exception' && !spec.wrong && !spec.adult) {
+      // a marked day (C-33): nobody to sign, so the failed delivery and its reattempt (B-89)
+      await shot('contact-' + i); await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i);
+      console.log(`      stop ${i + 1}: ` + ['dog', 'signature'].filter((k) => spec[k]).join(' ') + ' -> exception (reattempt booked)');
+      must((await state()).m.stops[i].resolved, 'the failed delivery was not recorded (stop ' + i + ')');
+      await shot('receipt-' + i); await lookAhead();
+      if ((await state()).m.heldId) await use('slot' + i);
+      await use('secure'); await use('cargo');
+      continue;
+    }
     await shot('contact-' + i); await pick(/Record on handheld/);
-    must((await state()).device, 'the door did not open the delivery on the handheld');
-    // what the situation at this door needs: the model says which outcome is right; the checks are done through the UI
-    const expected = await ev((i) => OTR.fpDoors.expected(OTR.game.scene.getScene('FirstPersonScene').model, i), i);
-    if (spec.adult || (spec.signature && spec.present) || spec.difficult) {
+    // on a marked day the outcome is a panel of whole sentences (C-33); before, it was the handheld's list
+    if (!marked) must((await state()).device, 'the door did not open the delivery on the handheld');
+    else must((await state()).panel, 'the door did not open the delivery outcome');
+    if (marked && (spec.adult || (spec.signature && spec.present) || spec.difficult)) {
+      await pick(/^Review the delivery checks\.$/);
+      if (spec.adult) { const valid = await ev((i) => OTR.fpDoors.validID(OTR.game.scene.getScene('FirstPersonScene').model, i), i); await pick(/^Check the required photo ID\.$/); await shot('id-check-' + i); await pick(valid ? /Accept the photo ID/ : /Decline the photo ID/); }
+      if (spec.signature && spec.present && expected === 'handover') {
+        await pick(/^Capture the recipient signature\.$/); await pick(new RegExp('^Record ' + spec.person.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+        must(await ctx.until(`${FP}.model.doorsteps.stops[${i}].signatureName !== null`, 20000), 'the signature was not recorded (stop ' + i + ')');
+        await pick(/^Back/);
+      }
+      if (spec.difficult) { await pick(/^Speak with the customer calmly\.$/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
+      if ((await state()).panel && await ev(() => OTR.game.scene.getScene('FirstPersonScene').panel.choices.some((o) => /^Return to the delivery controls\.$/.test(o.label)))) await pick(/^Return to the delivery controls\.$/);
+      if (!(await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Hand the parcel to the recipient\.$/.test(o.label)); }))) await pick(/Record on handheld/);
+    } else if (spec.adult || (spec.signature && spec.present) || spec.difficult) {
       await pick(/Delivery checks/);
       if (spec.adult) {
         const valid = await ev((i) => OTR.fpDoors.validID(OTR.game.scene.getScene('FirstPersonScene').model, i), i);
@@ -300,7 +407,8 @@ const make = (opts) => async (page, ctx) => {
     }
     console.log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
     await shot('delivery-options-' + i);
-    await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
+    if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
+    else await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
     must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
     await shot('receipt-' + i); await press('Digit1');
     if ((await state()).m.heldId) await use('slot' + i);
