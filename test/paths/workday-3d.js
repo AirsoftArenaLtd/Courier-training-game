@@ -215,15 +215,41 @@ const make = (opts) => async (page, ctx) => {
   must(N === 5, 'the generated day should have five stops, not ' + N);
 
   // ---- load the van with the real interactions: every parcel scanned at the table, on its own shelf, in stop order
-  for (let i = 0; i < N; i++) {
+  // the load-out exercise (B-90): a day can hold one parcel back (missing, or found later at a stop) or add one that is
+  // not on the manifest (another route's, or an extra); a parcel still pending is loaded once Dispatch has found it
+  const load = async (i) => {
     await use('parcel' + i);
     must((await state()).m.heldId === 'parcel' + i, 'could not pick up parcel ' + i);
     await scan(); must((await state()).m.parcels[i].scanned, 'the depot scan did not register for parcel ' + i);
     if (i === 0) await shot('scan-result');
     await press('Digit1');
-    if (i === 0) { await use('cargo'); must((await state()).m.cargoOpen, 'the cargo doors did not open'); }
+    if (!(await state()).m.cargoOpen) { await use('cargo'); must((await state()).m.cargoOpen, 'the cargo doors did not open'); }
     await use('slot' + i);
     must((await state()).m.parcels[i].location === 'slot' + i, 'could not place parcel ' + i + ' on its shelf');
+  };
+  const loadCheck = async (choice) => { await at('dispatch'); await press('Tab'); await pick(/^Check the load$/); await pick(choice); };
+  for (let i = 0; i < N; i++) if ((await state()).m.parcels[i].location === 'depot') await load(i);
+  const L = (await state()).m.loadout;
+  if (L) {
+    const extra = (await state()).m.parcels.find((p) => p.anomaly && p.location === 'depot');
+    if (extra) {
+      // scanned at the table, it says it is not on the manifest: take it to Dispatch and set it aside
+      await use(extra.id); await scan(); await press('Digit1');
+      await loadCheck(/^Set the unlisted package aside$/);
+      must((await state()).m.parcels.find((p) => p.id === extra.id).location === 'aside', 'the unlisted package was not set aside');
+      await press('Digit2');                                         // Put away
+    }
+    if (L.missingId && (await state()).m.parcels.find((p) => p.id === L.missingId).location === 'pending') {
+      await loadCheck(/^Report a missing package$/); await press('Digit2');
+      const found = (await state()).m.parcels.find((p) => p.id === L.missingId);
+      if (found.location === 'depot') await load(found.stop);       // Dispatch found it at the depot
+    }
+    // count what is on the shelves and confirm it against the manifest
+    const n = (await state()).m.parcels.filter((p) => p.location.startsWith('slot')).length;
+    await loadCheck(/^Confirm the load count$/);
+    await pick(new RegExp('^I counted ' + (n === 1 ? 'one package' : n + ' packages') + '\\.$'));
+    must(await ev(() => OTR.workday.events.some((e) => e.type === 'load.count' && e.ok)), 'the load count was not confirmed as right (' + L.kind + ')');
+    console.log(`      load-out: ${L.kind}${extra ? ' (set ' + extra.id + ' aside)' : ''}${L.missingId ? ' (' + L.missingId + ' reported missing)' : ''}, ${n} counted`);
   }
   await use('secure'); must((await state()).m.secured, 'the cargo restraint did not secure the load');
   await shot('cargo');
@@ -291,6 +317,8 @@ const make = (opts) => async (page, ctx) => {
   for (let i = 0; i < N; i++) {
     if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
     await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
+    // a parcel missed at load-out turns up when the cargo is opened at the first stop (B-90)
+    if ((await state()).m.parcels[i].location === 'pending') must(await ctx.until(`${FP}.model.parcels[${i}].location !== 'pending'`, 8000), 'the parcel missed at load-out was never found (stop ' + i + ')');
     await at('parcel' + i, true);
     await scan(); must(!(await state()).m.parcels[i].stopScanned, 'a cargo scan must not count as the doorstep scan (stop ' + i + ')');
     await press('Digit1');
