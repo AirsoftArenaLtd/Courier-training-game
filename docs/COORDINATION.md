@@ -308,7 +308,7 @@ Rules that apply to every task here:
 | C-29 | Codex | **Performance and quality gate:** budgets for the new look on Low and High, a fixed set of screenshots for the review set, `docs/PERF.md` updated. | done |
 | A-23 | Claude | **The review set:** a script that plays fixed seeds and saves screenshots and short clips per milestone to `docs/review/set-<n>/`, plus the five-minute owner checklist. | doing: the capture tool `test/tools/review-set.js`, the baseline `docs/review/set-6/views/`, the milestone 7 checklist. Each milestone adds its views when it closes. |
 | A-24 | Claude | **QA flows for the new cab:** update `workday-3d` and its variants for the physical shifter, mirror looks, automatic rear camera and damage reports; new flows for night and for damage. | done |
-| A-24b | Claude | **QA flows for night and for damage:** a `workday-3d` variant at night (headlights on before moving, `drive.lights`) and one with a scuff that must be reported at the post-trip (`van.damage-*`, `trip.damage-report`), including the unreported-damage critical. | doing (claude/a24b-night-damage) |
+| A-24b | Claude | **QA flows for night and for damage:** a `workday-3d` variant at night (headlights on before moving, `drive.lights`) and one with a scuff that must be reported at the post-trip (`van.damage-*`, `trip.damage-report`), including the unreported-damage critical. | done (`workday-3d-h`, `-i`, `-j`) |
 | A-25 | Claude | **Translations for milestone 8** and layout checks. | done |
 
 #### Milestone 9: a town that behaves
