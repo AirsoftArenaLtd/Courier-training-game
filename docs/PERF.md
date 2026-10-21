@@ -846,3 +846,19 @@ The older 101-view gate and pre-damage sweeps above belong to their original sou
 [Current review and remaining checks](review/set-9/c33.md),
 [raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
 Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.
+
+
+## C-36 focused Low progress (21 October 2026)
+
+Seven radio/night views pass at product `73fc5f5` (unchanged production inputs at
+`7dbc438`): **36 calls / 822 triangles / two Three textures / 3,557,376 attachment
+bytes / 3,169,878 Phaser bytes**. They exercise live radio captions, both actual
+navigation changes, lights off/on, oncoming glare and reduced-motion suppression.
+The native Low matrix on `7dbc438` passes **157 checks** in English/Tamil,
+normal/larger text, with a **3,794,022-byte** Phaser peak; an oncoming-glare
+comparison changes **23,102 pixels** and reduced motion suppresses it. High English
+passes 43 checks. [Captures, raw measurements, scopes and source hashes](review/set-9/c36-native/manifest.json).
+
+This is progress evidence. The complete four-profile scene gate and inherited
+journeys are running. No ceiling changes and no Intel FPS acceptance claim. C-36
+also has an open shared save-budget merge gate, recorded in `docs/3D-RADIO-NIGHT.md`.
