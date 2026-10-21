@@ -478,6 +478,7 @@ items here for each agent.
 | B-116 | Claude | **Glossary terms for the 3D words:** add intercom, locker, walkaround (the van inspection) and headlights to `data/i18n/glossary.json` with each language's chosen word. Fix the plain inconsistencies `node test/glossary.js --list` then shows, send real choices to the reviewers as questions, and set the baseline. | done (10 terms, baseline 100) |
 | B-117 | Claude | **Every review link in the owner's checklist is tested:** `test/devdaybrowser.js` checks the day-4 link (route 10). Add the day-5 check-in link (route 11) and the day-6 night link (route 9) from B-107, and check each opens what the checklist says: a check-in radio call on day 5, night with the headlights required on day 6. | done (13 checks) |
 | B-118 | Claude | **The drive map shows the scrape:** in `workday-3d-i` (B-108's scuff day), open the drive map from the results as `workday-3d-k` does and check the scuff has its damage marker and the legend says "damage to the van". | done |
+| B-120 | Claude | **Raise the save guards now that there is room:** `test/savesize.js` warned at 25 characters to spare on the heaviest days (B-98, B-114); B-114 left about 440. Raise both guards to 300, so a change that eats most of the new room fails the tests before it reaches a trainee. | done |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -521,6 +522,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **21 October 2026, Claude — B-120 done:** `test/savesize.js` now fails when C-36's heaviest day (with lights failed or right) has under 300 characters to spare in a SCORM 1.2 save. It was 25; B-114 left about 440.
 
 - **21 October 2026, Claude — B-113 and B-118 done:** every 3D flow now presses J at the first junction and checks the notice is the sentence of a sign in view ("This is number 204 on Harbor St."). Every careful day must have no `drive.route` failure. New `workday-3d-k` (route 7, day 4) leaves the sat nav's route on another street while moving: fpnav notices the miss, the 30 s grace is skipped by fixture, and the wrong turn is reported with its place. The drive map, opened from the results, shows its arrow and "wrong turn" in the legend. B-118: `workday-3d-i` and `-j` check the scrape's damage marker the same way. All twelve 3D flows pass at Low.
 
