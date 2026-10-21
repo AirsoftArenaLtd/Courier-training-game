@@ -5,7 +5,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
  const routeDay=Number(process.env.QA_ROUTE_DAY)||1,quality=process.env.QA_GFX||'low',tag=process.env.QA_TAG||'c37-'+quality,base=process.env.QA_BASE||'http://127.0.0.1:8347';
- const report={quality,checks:0,runs:[],errors:[],fixture:'Travel/time/completed deliveries are fixtures. Actual recorder, Dispatch finish, results/map entries, global keyboard focus and detached renderer run normally.'};let page;
+ const report={quality,checks:0,runs:[],errors:[],fixture:'Travel/time/completed deliveries are fixtures. Any existing radio call is declined through its model before recording. Actual recorder, Dispatch finish, results/map entries, global keyboard focus and detached renderer run normally.'};let page;
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required']});
  const check=(ok,detail)=>{assert.ok(ok,typeof detail==='string'?detail:JSON.stringify(detail));report.checks++;};
  try{
@@ -23,7 +23,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    },{lang,size,routeDay});
    await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.transitioning;},{timeout:90000});
    run.recording=await page.evaluate(()=>{
-    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.workdayRules.night=false;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);
+    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};m.workdayRules.night=false;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);if(m.radio){m.radio.travel=20;m.radio.sent=true;OTR.fpRadio.read(m);OTR.fpRadio.decline(m);}
     Object.assign(m.van,{x:2.84,z:8,speed:2,hand:false,belt:true,look:0});m.player.pitch=0;OTR.fpReplayUI.bind(s);
     for(let i=0;i<=120;i++){m.elapsed=i/20;m.van.z=8-m.elapsed*2;s.sync();if(i===120)OTR.workday.report('drive.contact',{key:0,where:{x:m.van.x,z:m.van.z,mph:5}});OTR.fpReplayUI.capture(s);}
     window.replaySource=m;return {day:OTR.workday.current.day,routeDay:m.routePlan.day,bytes:s.replayRecorder.bytes,latest:!!s.replayRecorder.latest};
