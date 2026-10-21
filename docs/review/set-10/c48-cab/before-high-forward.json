@@ -1,0 +1,49 @@
+{
+  "assets": {
+    "quality": "high",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 4025744,
+    "decodedBytes": 3506550,
+    "errors": []
+  },
+  "camera": {
+    "position": [
+      2.3899999999999997,
+      2.05,
+      6.15
+    ],
+    "fov": 68
+  },
+  "mirrors": [
+    {
+      "id": "mirror-left",
+      "ndc": [
+        -1.4269649321935116,
+        0.26356639440226504,
+        0.6451756336149401
+      ],
+      "visible": false
+    },
+    {
+      "id": "mirror-right",
+      "ndc": [
+        3.094846021770344,
+        0.26356639440226504,
+        0.6451756336149401
+      ],
+      "visible": false
+    },
+    {
+      "id": "mirror-interior",
+      "ndc": [
+        0.49055326164024465,
+        0.5232568124162614,
+        0.8125702926790995
+      ],
+      "visible": true
+    }
+  ],
+  "errors": []
+}
