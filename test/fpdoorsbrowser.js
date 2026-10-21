@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
- const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const errors=[];let checks=0,p;
+ const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const errors=[];let checks=0,phaserTexturePeakWithMipmaps=0,p;
  try{
   p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>{errors.push(e.message);console.error(e.stack);});const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx=low');await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);await p.addScriptTag({url:base+'/data/i18n/ta.js'});
   await p.evaluate(()=>{
@@ -18,7 +18,11 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
    await p.waitForFunction(()=>{const h=OTR.game.scene.getScene('FirstPersonScene').handheld.device;return !h.isOpen||Math.abs(h.root.y-h.Yopen)<1;});
    const bad=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.handheld.device,out=[];const visit=o=>{if(!o.visible||o.alpha<=.05)return;if(o.type==='Text'){const r=o.getBounds(),font=parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY);if(r.x<0||r.right>1281||r.y<0||r.bottom>721||font<(s.panel?17:11))out.push(o.text);if(h.isOpen&&s.panel===null&&(r.x<h.root.x+h.sx-1||r.right>h.root.x+h.sx+h.sw+1||r.bottom>h.root.y+h.sy+h.sh+1))out.push('device '+o.text);}for(const child of o.list||[])visit(child);};
     if(s.panel){visit(s.panel.root);const body=s.panel.root.list.find(o=>o.type==='Text'&&o.y===170),top=Math.min(...s.panel.buttons.map(b=>b.getBounds().top));if(body&&body.getBounds().bottom>top-8)out.push('body overlaps panel choices');}
-    else if(h.isOpen){visit(h.screen);const top=Math.min(...h.optionBtns.map(b=>{const bg=b.bg,a=bg.input.hitArea;return bg.getWorldTransformMatrix().transformPoint(a.x-bg.displayOriginX,a.y-bg.displayOriginY).y;}));for(const o of h.screen.list)if(o.type==='Text'&&o.y>h.sy+44&&o.y<h.sy+h.sh-35&&o.getBounds().bottom>top-4)out.push('body overlaps handheld choices');}return out;});assert.deepEqual(bad,[]);checks++;
+   else if(h.isOpen){visit(h.screen);const top=Math.min(...h.optionBtns.map(b=>{const bg=b.bg,a=bg.input.hitArea;return bg.getWorldTransformMatrix().transformPoint(a.x-bg.displayOriginX,a.y-bg.displayOriginY).y;}));for(const o of h.screen.list)if(o.type==='Text'&&o.y>h.sy+44&&o.y<h.sy+h.sh-35&&o.getBounds().bottom>top-4)out.push('body overlaps handheld choices');
+    const footer=h.current.back&&h.screen.list.find(o=>o.type==='Text'&&o.x===h.sx+h.sw-14&&o.y===h.sy+h.sh-16);
+    const bottom=Math.max(...h.optionBtns.map(b=>{const bg=b.bg,a=bg.input.hitArea;return bg.getWorldTransformMatrix().transformPoint(a.x-bg.displayOriginX,a.y+a.height-bg.displayOriginY).y;}));if(footer&&bottom>footer.getBounds().top-4)out.push('handheld choices overlap Back');
+   }return out;});assert.deepEqual(bad,[]);checks++;
+   const memory=await p.evaluate(()=>{const seen=new Set();let bytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const image=source.image,w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;bytes+=w*h*4;}return Math.ceil(bytes*4/3);});phaserTexturePeakWithMipmaps=Math.max(phaserTexturePeakWithMipmaps,memory);assert.ok(memory<=4*1024*1024,'Doorstep textures exceed the Low memory ceiling: '+memory);
   };
   const signature=async id=>{
    await p.evaluate(id=>OTR.game.scene.getScene('FirstPersonScene').handheld.signature(id),id);await audit();await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.choose(0));await audit();
@@ -97,7 +101,7 @@ const OUT=path.join(__dirname,'out','fp-review');fs.mkdirSync(OUT,{recursive:tru
   }
   assert.deepEqual([...new Set(uiRuns.filter(r=>r.kind==='adult').map(r=>r.variant))],[0,1,2,3,4]);checks++;
   assert.deepEqual(errors,[]);checks++;
-  fs.writeFileSync(path.join(OUT,'c9-seeded-ui.json'),JSON.stringify({checks,uiRuns},null,2));
+  fs.writeFileSync(path.join(OUT,'c9-seeded-ui.json'),JSON.stringify({checks,uiRuns,phaserTexturePeakWithMipmaps},null,2));
   console.log(`${checks} doorstep browser checks passed`);
  }catch(e){if(p)await p.screenshot({path:path.join(OUT,'c9-failure.png')}).catch(()=>{});throw e;}finally{await browser.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

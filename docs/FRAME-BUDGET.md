@@ -317,7 +317,9 @@ All **155 rendered views** pass in four profiles: native authorized later-day de
 fixtures, located damage, traffic/navigation, live mirror pixels, running sound,
 larger text/colour/reduced motion and actual missing-model fallback. No missing view,
 page error or lost context occurs. The measured runtime is `220f2ba`; the current branch
-retains pilot `da7bd3f` and its only later 3D-source change is one US-spelling correction.
+retains pilot `da7bd3f`. Later changes correct one US spelling and remove an unused
+six-pixel gap after the handheld choices; 3D rendering inputs and text canvas sizes
+are unchanged. The repeated doorstep audit checks both body and Back-link clearance.
 
 | Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
