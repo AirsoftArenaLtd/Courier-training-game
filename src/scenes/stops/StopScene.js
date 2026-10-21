@@ -1107,6 +1107,7 @@ class StopScene extends BaseScenarioScene {
     // Hovering only previews a label; a click picks the package, and the button acts on the picked one. (Hover used
     // to pick, so the box the pointer crossed on its way to the button was the one taken.)
     let selected = null;
+    this.shelfPick = null;
     const takeBtn = OTR.ui.button(this, 0, 180, 'Take this package', () => {
       if (!selected) return;
       if (selected.onShelf) {
@@ -1139,6 +1140,7 @@ class StopScene extends BaseScenarioScene {
     };
     const select = (p) => {
       selected = p;
+      this.shelfPick = p;                                   // where the keyboard is, for tests (B-84)
       showLabel(p);
       takeBtn.setLabel(p.onShelf ? 'Take this package' : 'Put it back');
       takeBtn.setEnabled(true);
@@ -1206,6 +1208,7 @@ class StopScene extends BaseScenarioScene {
     OTR.audio.play('door_open');
     const close = () => {
       keys.forEach(([n, h]) => this.input.keyboard && this.input.keyboard.off(n, h));
+      this.shelfPick = null;
       this._openModals = Math.max(0, this._openModals - 1);
       this.tweens.add({ targets: root, alpha: 0, duration: 160, onComplete: () => root.destroy() });
       this.me.play('idle');
@@ -1698,7 +1701,7 @@ class StopScene extends BaseScenarioScene {
       g.lineStyle(1, 0xFFFFFF, 0.5);
       g.strokeCircle(0, 0, 10);
     }).setScrollFactor(0);
-    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click', 20, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 6 }).setScrollFactor(0);
+    const info = OTR.txt(this, OTR.W / 2, 90, 'PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)', 20, '#ffffff', { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 6 }).setScrollFactor(0);
     root.add([shade, frame, info]);
     const catcher = this.add.zone(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H).setInteractive({ useHandCursor: true }).setScrollFactor(0);
     root.add(catcher);
@@ -1715,14 +1718,21 @@ class StopScene extends BaseScenarioScene {
       frame.setPosition(fx, fy);
     };
     draw();
+    this.photoFrame = () => ({ x: fx, y: fy });            // where the frame is, for tests (B-84)
     catcher.on('pointermove', (p) => { fx = OTR.util.clamp(p.x, fw / 2, OTR.W - fw / 2); fy = OTR.util.clamp(p.y, fh / 2 + 60, OTR.H - fh / 2); draw(); });
     catcher.on('pointerup', () => snap());
     const keyH = OTR.onKey(this, 'keydown-SPACE', () => snap());
+    // B-84: the frame moved only with the mouse; the arrow keys move it too (24 px a press, 6 with SHIFT)
+    const nudge = [['LEFT', -1, 0], ['RIGHT', 1, 0], ['UP', 0, -1], ['DOWN', 0, 1]].map(([k, dx, dy]) => ['keydown-' + k, OTR.onKey(this, 'keydown-' + k, (e) => {
+      const d = e && e.shiftKey ? 6 : 24;
+      fx = OTR.util.clamp(fx + dx * d, fw / 2, OTR.W - fw / 2); fy = OTR.util.clamp(fy + dy * d, fh / 2 + 60, OTR.H - fh / 2); draw();
+    })]);
     let snapped = false;
     const snap = () => {
       if (snapped) return;
       snapped = true;
       this.input.keyboard.off('keydown-SPACE', keyH);
+      nudge.forEach(([n, h]) => this.input.keyboard.off(n, h));
       const L = this.lot;
       const rect = { x0: fx - fw / 2 + cam.scrollX, x1: fx + fw / 2 + cam.scrollX, y0: fy - fh / 2, y1: fy + fh / 2 };
       const pb = this.pkgProp.getBounds();

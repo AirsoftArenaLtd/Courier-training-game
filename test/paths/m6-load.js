@@ -1,7 +1,21 @@
 /*
  * Load for the Route: drag every package, with the real mouse, into a slot that breaks no rule (heaviest
  * first), check the hover card appears, strap the floor, roll out. A correct load has to earn full marks.
+ * QA_KEYS_ONLY=1 (B-84): the same load with the keyboard alone. The arrows walk the highlight to each package and Enter
+ * picks it up, the arrows walk it to its slot and Enter puts it down, then T straps and R rolls out. The arrow presses
+ * come from a search over the scene's own moves, so a package or slot the arrows cannot reach fails.
  */
+// the arrow presses from where the highlight is to the target the test names (null: the arrows cannot get there)
+const arrowsTo = (S, want) => `(() => { const s = ${S}, id = (t) => t ? (t.pkg ? 'p:' + t.pkg.id : 's:' + t.slot.id) : null, save = s.kb.at;
+  const dirs = [['ArrowLeft', -1, 0], ['ArrowRight', 1, 0], ['ArrowUp', 0, -1], ['ArrowDown', 0, 1]];
+  const step = (from, d) => { s.kb.at = from; s.kbMove(d[1], d[2]); return s.kb.at; };
+  const list = s.kbTargets(), cur = save && list.find(t => id(t) === id(save));
+  const start = cur || list[0], lead = cur ? [] : ['ArrowRight'], seen = new Map([[id(start), []]]), q = [start];
+  let out = null;
+  while (q.length && !out) { const t = q.shift(), path = seen.get(id(t)); if (id(t) === '${want}') { out = lead.concat(path); break; }
+    dirs.forEach(d => { const n = step(t, d); if (n && !seen.has(id(n))) { seen.set(id(n), path.concat(d[0])); q.push(n); } }); }
+  s.kb.at = save; s.kbDraw(); return out; })()`;
+
 module.exports = async (page, ctx) => {
   await ctx.wait(1200);
   await page.keyboard.press('Enter');
@@ -28,6 +42,27 @@ module.exports = async (page, ctx) => {
   })()`);
   const count = await ctx.eval(`${S}.pkgs.length`);
   if (plan.length !== count) throw new Error(`could not find a legal slot for every package: ${plan.length} of ${count}`);
+  if (process.env.QA_KEYS_ONLY) {
+    for (const step of plan) {
+      for (const [want, what] of [['p:' + step.id, 'package'], ['s:' + step.slot, 'slot']]) {
+        const keys = await ctx.eval(arrowsTo(S, want));
+        if (!keys) throw new Error(`the arrows cannot reach ${what} ${want}`);
+        for (const k of keys) { await page.keyboard.press(k); await ctx.wait(60); }
+        await page.keyboard.press('Enter'); await ctx.wait(140);
+      }
+      const where = await ctx.eval(`(() => { const p = ${S}.pkgs.find(x => x.id === '${step.id}'); return p.slotRef ? p.slotRef.id : null; })()`);
+      if (where !== step.slot) throw new Error(`${step.id} landed in ${where}, not ${step.slot}, from the keyboard`);
+    }
+    if (!(await ctx.eval(`${S}.cart.length === 0`))) throw new Error('cart not empty after loading from the keyboard');
+    await page.keyboard.press('KeyT'); await ctx.wait(300);
+    await page.keyboard.press('KeyR'); await ctx.wait(700);
+    await page.keyboard.press('Enter');
+    await ctx.until('!!window.__qaResult', 8000);
+    const r = await ctx.eval('window.__qaResult && window.__qaResult.result.ratios');
+    const short = Object.keys(r || {}).filter(k => r[k] < 1);
+    if (short.length) throw new Error('a correct load from the keyboard did not score full marks: ' + JSON.stringify(r));
+    return;
+  }
   for (const step of plan) {
     const from = await ctx.eval(`(() => { const i = ${S}.sprites['${step.id}']; return { x: i.x, y: i.y }; })()`);
     await page.mouse.move(from.x, from.y);

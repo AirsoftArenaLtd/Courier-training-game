@@ -3875,7 +3875,8 @@ window.OTR_I18N.mr = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "पार्सल अडवतील अशा इनव्हॉइस ओळींवर क्लिक करा (किंवा बाण कळा आणि Enter) · मग प्रत्येक नग तपासा (Tab आणि Enter): स्वीकार A · नकार R, कारणासाठी 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "तपासण्यासाठी प्रत्येक नगावर क्लिक करा (किंवा Tab आणि Enter) · स्वीकार A · नकार R, कारणासाठी 1-5",
 "Clear all": "सर्व पुसा",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "स्टॉपवर क्लिक करा — नकाशावर किंवा यादीत — किंवा Tab ने तिथे जाऊन Enter दाबा, तो रूटमध्ये घालण्यासाठी; पुन्हा करा काढण्यासाठी. सुधारण्यासाठी पूर्ववत करा (Backspace) / सर्व पुसा. यादी क्रमाने लागली की डिस्पॅच करा."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "स्टॉपवर क्लिक करा — नकाशावर किंवा यादीत — किंवा Tab ने तिथे जाऊन Enter दाबा, तो रूटमध्ये घालण्यासाठी; पुन्हा करा काढण्यासाठी. सुधारण्यासाठी पूर्ववत करा (Backspace) / सर्व पुसा. यादी क्रमाने लागली की डिस्पॅच करा.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "फोटो पुरावा: पॅकेज आणि दार फ्रेममध्ये घ्या. घर क्रमांक नको, माणसे नको. मग क्लिक करा (किंवा बाण कळा, मग SPACE)"
 },
 "templates": [
 [

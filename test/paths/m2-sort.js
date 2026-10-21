@@ -3,7 +3,7 @@
  * the number keys (each bin's own number, the same all shift), every fourth one dragged there with the mouse —
  * every jam is cleared and every rule card read.
  * At each wave it checks that the bins on the floor are exactly that wave's bins. A clean shift has to earn full
- * marks.
+ * marks. QA_KEYS_ONLY=1 (B-84) sends every package with its number key, so the run proves the shift needs no mouse.
  */
 const { wait } = require('./lib/ui');
 
@@ -35,7 +35,7 @@ module.exports = async (page, ctx) => {
     if (!st.front.scanned) { await page.keyboard.press('Space'); await wait(90); continue; }
     const idx = st.active.indexOf(st.front.bin);
     if (idx < 0) throw new Error(`package bound for ${st.front.bin}, which is not on the floor`);
-    if (sent % 4 === 3) {
+    if (sent % 4 === 3 && !process.env.QA_KEYS_ONLY) {
       await page.mouse.move(st.front.x, st.front.y);
       await page.mouse.down();
       await page.mouse.move(st.bx[idx], 540, { steps: 6 });
@@ -50,7 +50,7 @@ module.exports = async (page, ctx) => {
   if (!(await ctx.until('!!window.__qaResult', 10000))) throw new Error('the shift never finished');
   const stats = await ctx.eval(`${S}.stats`);
   console.log('        sort:', JSON.stringify({ sent, dragged, correct: stats.correct, wrong: stats.wrong, missed: stats.missed, blind: stats.blind, specials: `${stats.excCorrect}/${stats.excTotal}`, jams: `${stats.jamsCleared}/${stats.jams}` }));
-  if (dragged < 3) throw new Error('the mouse drag path was hardly exercised');
+  if (dragged < 3 && !process.env.QA_KEYS_ONLY) throw new Error('the mouse drag path was hardly exercised');
   const r = await ctx.eval('window.__qaResult && window.__qaResult.result.ratios');
   const short = Object.keys(r || {}).filter(k => r[k] < 1);
   if (short.length) throw new Error('a clean shift did not score full marks: ' + JSON.stringify(r));

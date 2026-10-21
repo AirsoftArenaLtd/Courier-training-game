@@ -3875,7 +3875,8 @@ window.OTR_I18N.ml = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "ഷിപ്പ്‌മെന്റ് തടയുന്ന ഇൻവോയ്സ് വരികളിൽ ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ ആരോ കീകളും Enter-ഉം) · പിന്നെ ഓരോ ഇനവും പരിശോധിക്കുക (Tab, Enter): സ്വീകരിക്കാൻ A · നിരസിക്കാൻ R, കാരണത്തിന് 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "പരിശോധിക്കാൻ ഓരോ ഇനത്തിലും ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ Tab, Enter) · സ്വീകരിക്കാൻ A · നിരസിക്കാൻ R, കാരണത്തിന് 1-5",
 "Clear all": "എല്ലാം മായ്ക്കുക",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ഒരു സ്റ്റോപ്പിൽ ക്ലിക്ക് ചെയ്യുക — മാപ്പിലോ പട്ടികയിലോ — അല്ലെങ്കിൽ Tab കൊണ്ട് അവിടെയെത്തി Enter അമർത്തുക, റൂട്ടിൽ ചേർക്കാൻ; വീണ്ടും ചെയ്താൽ മാറ്റാൻ. തിരുത്താൻ പഴയപടിയാക്കുക (Backspace) / എല്ലാം മായ്ക്കുക. പട്ടിക ക്രമമായാൽ ഡിസ്പാച്ച് ചെയ്യുക."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ഒരു സ്റ്റോപ്പിൽ ക്ലിക്ക് ചെയ്യുക — മാപ്പിലോ പട്ടികയിലോ — അല്ലെങ്കിൽ Tab കൊണ്ട് അവിടെയെത്തി Enter അമർത്തുക, റൂട്ടിൽ ചേർക്കാൻ; വീണ്ടും ചെയ്താൽ മാറ്റാൻ. തിരുത്താൻ പഴയപടിയാക്കുക (Backspace) / എല്ലാം മായ്ക്കുക. പട്ടിക ക്രമമായാൽ ഡിസ്പാച്ച് ചെയ്യുക.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ഫോട്ടോ തെളിവ്: പാക്കേജും വാതിലും ഫ്രെയിമിലാക്കുക. വീട്ടുനമ്പർ വേണ്ട, ആളുകൾ വേണ്ട. പിന്നെ ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ അമ്പ് കീകൾ, പിന്നെ SPACE)"
 },
 "templates": [
 [
