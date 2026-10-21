@@ -321,6 +321,26 @@ test('B-54: a day with traffic keeps how often it ran a red light, turned wrong,
   assert.equal(W.finish(null, { stops: [] }).road, undefined);
 });
 
+test('B-92: a day keeps how often it got the richer stops and the load-out wrong', () => {
+  fresh(); W.start(null);
+  W.report('stop.intercom', { key: 1, stop: 1, ok: false });
+  W.report('stop.locker', { key: 2, stop: 2, ok: true });
+  W.report('stop.reattempt', { key: 3, stop: 3, ok: false });
+  W.report('load.count', { key: 'manifest', ok: true });
+  W.report('load.missort-missed', { key: 'parcel5', ok: false });
+  const rec = W.finish(null, { stops: [] });
+  assert.equal(JSON.stringify(rec.handling), JSON.stringify([1, 0, 0, 1, 0, 0, 1]));
+  W.keep(rec);
+  const S = OTR.save.data, h = S.history[S.history.length - 1];
+  assert.equal(JSON.stringify(h.handling), JSON.stringify([1, 0, 0, 1, 0, 0, 1]), 'on the record of runs');
+  assert.equal(JSON.stringify(S.workday.first.handling), JSON.stringify([1, 0, 0, 1, 0, 0, 1]), 'and on the stored first day');
+  assert.equal(W.HANDLING.length, 7);
+  W.HANDLING.forEach(t => assert.ok(OTR_DATA.workdayEvents[t], t + ' is a contract event'));
+  // a day without any keeps no tally
+  fresh(); W.start(null); W.report('drive.signal', { key: 't1', ok: false, where: { x: 1, z: 1, mph: 10, t: 1 } });
+  assert.equal(W.finish(null, { stops: [] }).handling, undefined);
+});
+
 test('B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without', () => {
   const real = OTR.academy;
   // the trainer's rules as the academy gives them: assists full on day 1, off from day 4 (the default "fade by day")

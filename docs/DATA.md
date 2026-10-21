@@ -13,7 +13,7 @@ Only what training needs, entered or produced by playing:
 | --- | --- | --- |
 | Who | an employee ID and a display name (from the company's sign-in, the LMS, the employee ID sign-in, or typed on first use) | to keep each trainee's progress apart and to name the record |
 | Progress | stars and scores per module, attempts, assessment results and dates, quiz answers' results, certificate status | the academy, the trainer's view, the LMS |
-| Workdays | each finished 3D workday: date, score, stars, lessons, the list of what was done right or wrong with where in the town a driving mistake happened (game coordinates and speed), time taken; which help was on that day (driving assists, sat nav, the other aids); its critical mistakes by type (for example `drive.red-light`), for the LMS; how many red lights, wrong turns, give-way and cyclist mistakes it had (from day 3, when there is traffic); the number of the generated town it was played in; each stop's address and whether it was delivered | the debrief, the drive review map, the before-and-after report, the LMS |
+| Workdays | each finished 3D workday: date, score, stars, lessons, the list of what was done right or wrong with where in the town a driving mistake happened (game coordinates and speed), time taken; which help was on that day (driving assists, sat nav, the other aids); its critical mistakes by type (for example `drive.red-light`), for the LMS; how many red lights, wrong turns, give-way and cyclist mistakes it had (from day 3, when there is traffic); how many intercom, reception, locker and failed-delivery mistakes, and load-out mistakes (count not confirmed right, a missing package not reported, another route's package taken on the route) it had; the number of the generated town it was played in; each stop's address and whether it was delivered | the debrief, the drive review map, the before-and-after report, the LMS |
 | Settings | language, larger text, colour-blind setting, key remapping, graphics level, narration | to play the way the trainee needs |
 
 Not collected: no real-world location, camera, microphone, contacts, device identifiers, advertising or analytics
@@ -65,9 +65,10 @@ with the header `X-Trainer-Pin`.
 spreadsheet (`before-and-after-<date>.csv`, B-65), which then sits wherever the trainer saves it. Its columns, one row
 per trainee who finished a workday: `employee_id`, `name`, `workdays`; then for `first_` and for `latest_`: `date`,
 `score`, `safety_stars`, `efficiency_stars`, `service_stars`, `critical_errors`, `met_pass_marks` (yes/no),
-`red_lights`, `wrong_turns`, `did_not_give_way`, `cyclist` (empty for a day without traffic); and `change_in_stars`
-(empty for one workday). No lesson text, places or passwords. The column names stay in English whatever the trainer's
-language, so a company's sheets keep working.
+`red_lights`, `wrong_turns`, `did_not_give_way`, `cyclist` (empty for a day without traffic); `intercom`, `reception`,
+`locker`, `reattempt`, `load_count`, `missing_not_reported`, `other_route_package` (mistakes that day; empty for a day
+without richer stops or a load-out); and `change_in_stars` (empty for one workday). No lesson text, places or
+passwords. The column names stay in English whatever the trainer's language, so a company's sheets keep working.
 
 In browser-only mode the trainee's data is in that one browser: "Reset their progress" there clears it, and clearing
 the browser's site data removes it entirely. In an LMS the learner's data is in the LMS and is erased there.

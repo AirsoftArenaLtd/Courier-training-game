@@ -3984,7 +3984,16 @@ window.OTR_I18N.ta = {
 "Record the exception and keep the parcel.": "விதிவிலக்கைப் பதிவு செய்து பார்சலை வைத்துக்கொள்ளுங்கள்.",
 "Arrange the next delivery attempt.": "அடுத்த டெலிவரி முயற்சியை ஏற்பாடு செய்யுங்கள்.",
 "The intercom buzzes. You may unlock the entry.": "இன்டர்காம் பஸ்ஸர் ஒலிக்கிறது. நீங்கள் நுழைவாயில் பூட்டைத் திறக்கலாம்.",
-"Arrange a failed delivery and reattempt.": "தோல்வியுற்ற டெலிவரி மற்றும் மறுமுயற்சியை ஏற்பாடு செய்யுங்கள்."
+"Arrange a failed delivery and reattempt.": "தோல்வியுற்ற டெலிவரி மற்றும் மறுமுயற்சியை ஏற்பாடு செய்யுங்கள்.",
+"Intercom not used right": "இண்டர்காமைச் சரியாகப் பயன்படுத்தாதது",
+"Reception handover not right": "வரவேற்பில் சரியாக ஒப்படைக்காதது",
+"Locker drop not right": "லாக்கரில் சரியாக வைக்காதது",
+"Failed delivery not recorded right": "தோல்வியுற்ற டெலிவரியைச் சரியாகப் பதிவு செய்யாதது",
+"Load count not confirmed right": "லோடு எண்ணிக்கையைச் சரியாக உறுதிசெய்யாதது",
+"Missing package not reported": "காணாமல் போன பார்சலைப் புகாரளிக்காதது",
+"Left with another route's package": "வேறொரு வழித்தடத்தின் பார்சலுடன் புறப்பட்டது",
+"Doorsteps and loading: mistakes per day": "வாசல்களும் லோடிங்கும்: நாளுக்கு தவறுகள்",
+"From the {0} trainees whose first and latest workdays both had these checks.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் இந்தச் சோதனைகள் இருந்த {0} பயிற்சி பெறுநர்களில்."
 },
 "templates": [
 [

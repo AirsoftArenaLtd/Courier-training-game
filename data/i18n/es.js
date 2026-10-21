@@ -3995,7 +3995,16 @@ window.OTR_I18N.es = {
 "Record the exception and keep the parcel.": "Registra la excepción y quédate con el paquete.",
 "Arrange the next delivery attempt.": "Programa el próximo intento de entrega.",
 "The intercom buzzes. You may unlock the entry.": "El intercomunicador zumba. Puedes desbloquear la entrada.",
-"Arrange a failed delivery and reattempt.": "Gestiona una entrega fallida y un nuevo intento."
+"Arrange a failed delivery and reattempt.": "Gestiona una entrega fallida y un nuevo intento.",
+"Intercom not used right": "Intercomunicador mal usado",
+"Reception handover not right": "Entrega en recepción mal hecha",
+"Locker drop not right": "Depósito en casillero mal hecho",
+"Failed delivery not recorded right": "Entrega fallida mal registrada",
+"Load count not confirmed right": "Recuento de la carga mal confirmado",
+"Missing package not reported": "Paquete que falta sin avisar",
+"Left with another route's package": "Salió con un paquete de otra ruta",
+"Doorsteps and loading: mistakes per day": "Puertas y carga: errores por día",
+"From the {0} trainees whose first and latest workdays both had these checks.": "De los {0} aprendices cuya primera y última jornada tuvieron estas comprobaciones."
 },
 "templates": [
 [
