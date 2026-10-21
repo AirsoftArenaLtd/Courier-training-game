@@ -4,14 +4,34 @@
   "failure": "All three qualities select wear-rear when aiming at the cargo-door centre. In the return phase, that leaves cargo closed and its retained parcel hidden, matching Claude's later-day failure.",
   "files": {
     "c35-cargo-fix.patch": "998cae75d0bc0ec5ead85abe5bd97376f29d3a255f743c8c882e1c4ee05111db",
+    "c35-cargo-native-low-ta-ta-large-pre-wheel.png": "f5fa58f2ba78df9532b42613dcf05d1b52c9c35580ec9592df3926dacc91feaa",
+    "c35-cargo-native-low-ta-ta-large-pre-record.png": "1d8f694c431e8f32532ca645c0a03198c699f5a9f46658e885c884208a2bea66",
+    "c35-cargo-native-low-ta-ta-large-post-record.png": "f71c28e2ad850a59329115a64673866cb436767ac5ab0d3a8ea26790bdcd9492",
+    "c35-cargo-native-low-ta-walkaround.json": "69d446c82e8e0f026b7760e59aa32b95181bb3273c100e346f923276e3254003",
+    "c35-cargo-native-low-ta-ta-large-guide-report.png": "52251625976db669d9fd3037b7fe30ab2843b35f4be8a9f4718a3dd38d6c080d",
     "c35-cargo-centre-before.log": "a746d257c1fc14de22efc37f71f7d4356eb63a44fe81faefea98eb95ba657e62",
+    "c35-cargo-native-high-en-en-normal-pre-roof.png": "d7f726bc6983b5f8b9681269439c4fb54e85539d38bc0a3799a3b423d0843cd3",
+    "c35-cargo-native-high-en-en-normal-pre-wheel.png": "e767cf694290996f2b23e4db4f6c9404bdb27aaa0d41fdde68596a54fef5adca",
+    "c35-cargo-batch-native-low-ta.log": "7fe55360f4bb5eb7a304cf2cc217a4bbf27e5ffc1ef118de2d9573f534d32849",
+    "c35-cargo-native-low-ta-ta-large-post-mirror.png": "5687acd8320448a9c78a2f361ffbc79898eb161ad62509338f53c98d2166f4fd",
+    "c35-cargo-native-low-ta-ta-large-post-roof.png": "1230b87af767b5d00fbf4f3708c3c27dad7cdd6347d82b1c38130f3db205c0e1",
+    "c35-cargo-batch-native-high-en.log": "595e13690554a6cb5eb19ff136284b059c1cdeeaf1643335eef8a908b4380df4",
+    "c35-cargo-native-low-ta-ta-large-post-rear.png": "b831d0158bb4def811c71a0addec1154822c374154a513b3d55540e80eeb3a27",
+    "c35-cargo-native-low-ta-ta-large-pre-roof.png": "bfe829f40f5c42ae2ea964bda2e3b8ebb1a0379b4690ab979b6d24014cb6daeb",
     "c35-frozen-resource-completion.json": "97c2bbd37b784ce0516656abfacc78edea7d4873aa0842a8c919695a4de350bd",
+    "c35-cargo-native-high-en-en-normal-post-roof.png": "d77f90c7258a8a9f0bb7c01484c80270bce852f5f0472bca0868561a5bf93866",
     "c35-cargo-syntax.log": "83bb7694a6afa7a2a9ed16168bb2adb7b773a6d0a28f5de72950193fbc941aa0",
+    "c35-cargo-native-high-en-en-normal-post-mirror.png": "214b9bc5de5dd24e04990a418ea98fa1cff2e9d251ea498f440bce8ae4c86f5c",
+    "c35-cargo-native-high-en-walkaround.json": "0ac9b62b54ad952fdb3e31220cf61486d4dc0aa8b6f95fd920a13a610d4580dd",
     "fpwalkaroundcargo.tmp.cjs": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
+    "c35-cargo-native-high-en-en-normal-post-rear.png": "420c35854862c7543494895a7d2220f2a3c503f8e4b51e9cc497d233a8e06b1a",
     "fpwalkaroundcargo-fixed.tmp.cjs": "c1a651cdba7f0f49401749a9670be5f5df043d47a009e57b216a2e27a9024383",
     "c35-cargo-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c35-cargo-native-high-en-en-normal-pre-record.png": "6b908f05abb4a4d5a13b5ac2edef6914d24eaeaa829e2eb61718ac77f8401ddf",
     "c35-cargo-node.log": "b92d572bf1b7679e1978dcf6026f2e3e7700b1396c6db12cbe1d01101191bf68",
-    "c35-cargo-centre-proposed.log": "dd244b706131563ed55f2e7da61910fb31e8e55d85e30c72485ebe4bc8b46193"
+    "c35-cargo-centre-proposed.log": "dd244b706131563ed55f2e7da61910fb31e8e55d85e30c72485ebe4bc8b46193",
+    "c35-cargo-native-high-en-en-normal-guide-report.png": "b0d1ccbe8c8cbdf56db25c000fbefa0fc883f5a9b196a12f8c1846f42b9271bc",
+    "c35-cargo-native-high-en-en-normal-post-record.png": "8c518a4a4c9b1c9ea05aa71e86b1af6a4d90f427b08103af886f0047e02c82b8"
   },
   "proposalEvidence": "A temporary VM override moves the rear inspection proxy left to x=-.18 and narrows it to .3. The cargo centre, handle and every inspection surface pass on loaded Low, High and fallback. This is not a claim that the production correction has shipped.",
   "correctionApplied": "Only the non-rendered rear proxy moves to x=-.18 and narrows to .3, keeping the cargo-door centre and both keyboard targets distinct.",
@@ -19,12 +39,40 @@
     "requiredCases": 161,
     "syntaxFiles": 24,
     "catalogue": "pass",
-    "browserAndShared": "pending"
+    "browserAndShared": "Native cargo/inspection pass; focused resource and shared journeys pending.",
+    "nativeCargoAndInspectionChecks": 658,
+    "nativeRuns": {
+      "low-ta": {
+        "checks": 329,
+        "runs": [
+          {
+            "lang": "ta",
+            "size": "large",
+            "phaserBytes": 3880838,
+            "cargoPre": true,
+            "cargoPost": true
+          }
+        ]
+      },
+      "high-en": {
+        "checks": 329,
+        "runs": [
+          {
+            "lang": "en",
+            "size": "normal",
+            "phaserBytes": 8665190,
+            "cargoPre": true,
+            "cargoPost": true
+          }
+        ]
+      }
+    }
   },
   "sourceSHA256": {
     "src/core/fpwalkaroundflow.js": "05f5f8c5da0ca3f057944604c41157c55f11719f9445c995a125b1b2a44e6581",
     "test/fpwalkaroundworld.js": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
     "test/fpwalkaroundbrowser.js": "8708ff50ef2fc13ddf1be2a926513283b9a8b46bae94b6a1d084374d4594b384",
     "test/fpbench.js": "00c97abab847ccdc8b9df56aecb2a320e57505e573d3fa7f5595f49ea5078f5f"
-  }
+  },
+  "postCorrectionRuntime": "d58a876aa872345c44f18d43b16e6e9da6f747de"
 }
