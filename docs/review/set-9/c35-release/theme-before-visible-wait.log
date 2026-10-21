@@ -1,0 +1,5 @@
+AssertionError [ERR_ASSERTION]: {"visible":false,"position":{"x":639.9999999999998,"y":221.2766776901571},"project":[-3.6620815421119833e-16,0.3853425619717858,0.9613183999604621],"eye":[13.8,1.65,17]}
+
+false !== true
+
+    at /workspace/c35-walkaround/test/fpbrandingbrowser.js:16:321

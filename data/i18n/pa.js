@@ -3994,7 +3994,52 @@ window.OTR_I18N.pa = {
 "Missing package not reported": "ਗੁੰਮ ਪੈਕੇਜ ਦੀ ਰਿਪੋਰਟ ਨਾ ਕਰਨਾ",
 "Left with another route's package": "ਕਿਸੇ ਹੋਰ ਰੂਟ ਦਾ ਪੈਕੇਜ ਲੈ ਕੇ ਨਿਕਲਣਾ",
 "Doorsteps and loading: mistakes per day": "ਦਰਵਾਜ਼ੇ ਅਤੇ ਲੋਡਿੰਗ: ਪ੍ਰਤੀ ਦਿਨ ਗਲਤੀਆਂ",
-"From the {0} trainees whose first and latest workdays both had these checks.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਇਹ ਜਾਂਚਾਂ ਸਨ।"
+"From the {0} trainees whose first and latest workdays both had these checks.": "ਉਨ੍ਹਾਂ {0} ਸਿਖਿਆਰਥੀਆਂ ਵਿੱਚੋਂ, ਜਿਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ ਅਤੇ ਤਾਜ਼ਾ ਕੰਮ ਦੇ ਦਿਨ ਦੋਵਾਂ ਵਿੱਚ ਇਹ ਜਾਂਚਾਂ ਸਨ।",
+"Follow the sat nav.": "ਸੈਟ ਨੈਵ ਦੀ ਪਾਲਣਾ ਕਰੋ।",
+"Read the road signs.": "ਸੜਕ ਦੇ ਨਿਸ਼ਾਨ ਪੜ੍ਹੋ।",
+"Watch the lights and people.": "ਲਾਈਟਾਂ ਅਤੇ ਲੋਕਾਂ 'ਤੇ ਨਜ਼ਰ ਰੱਖੋ।",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "ਲਾਲ ਬੱਤੀ 'ਤੇ ਲਕੀਰ ਦੇ ਪਿੱਛੇ ਰੁਕੋ, ਅਤੇ ਪੀਲੀ ਬੱਤੀ 'ਤੇ ਉਦੋਂ ਰੁਕੋ ਜਦੋਂ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੁਕ ਸਕੋ। ਸੱਜੇ ਮੁੜਨ ਤੋਂ ਪਹਿਲਾਂ ਸੱਜਾ ਸ਼ੀਸ਼ਾ ਦੇਖੋ ਅਤੇ ਕੋਲੋਂ ਲੰਘਦੇ ਸਾਈਕਲ ਸਵਾਰ ਨੂੰ ਰਾਹ ਦਿਓ। ਸਕੂਲ ਕਰਾਸਿੰਗ 'ਤੇ ਬੱਚਿਆਂ ਲਈ ਪਹਿਲਾਂ ਹੀ ਹੌਲੀ ਹੋ ਜਾਓ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਰਾਹ ਸਾਫ਼ ਹੋਣ ਤੱਕ ਉਡੀਕ ਕਰੋ।",
+"Look after the van.": "ਵੈਨ ਦਾ ਧਿਆਨ ਰੱਖੋ।",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "ਵੈਨ ਦੀ ਉਚਾਈ 10 ਫੁੱਟ 10 ਇੰਚ ਹੈ। ਘੱਟ ਉਚਾਈ ਵਾਲੀਆਂ ਥਾਵਾਂ ਤੋਂ ਬਚਣ ਲਈ ਸੈਟ ਨੈਵ ਦੀ ਪਾਲਣਾ ਕਰੋ ਅਤੇ ਚੇਤਾਵਨੀ ਮਿਲਣ 'ਤੇ ਕੋਈ ਹੋਰ ਸੜਕ ਲਓ। ਤੇਜ਼ ਮੋੜ ਅਤੇ ਬ੍ਰੇਕ ਬਿਨਾਂ ਬੰਨ੍ਹੇ ਕਾਰਗੋ ਨੂੰ ਖਿਸਕਾ ਦਿੰਦੇ ਹਨ। ਪੱਟੀਆਂ ਕੱਸੋ ਅਤੇ ਆਰਾਮ ਨਾਲ ਚਲਾਓ। ਟੱਕਰ ਜਿੱਥੇ ਲੱਗਦੀ ਹੈ, ਉੱਥੇ ਵੈਨ ਨੂੰ ਨੁਕਸਾਨ ਹੋ ਸਕਦਾ ਹੈ।",
+"Record the pre-trip condition.": "ਸਫ਼ਰ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।",
+"Report damage after the trip.": "ਸਫ਼ਰ ਤੋਂ ਬਾਅਦ ਨੁਕਸਾਨ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "ਡਿਪੋ ਵਾਪਸ ਆਉਣ ਤੋਂ ਬਾਅਦ, ਵੈਨ ਦੇ ਦੁਆਲੇ ਫਿਰ ਚੱਕਰ ਲਾਓ ਅਤੇ ਹਰ ਹਿੱਸੇ ਦੀ ਦਿਸਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ। ਛੱਤ ਦਾ ਕਿਨਾਰਾ ਜ਼ਮੀਨ ਤੋਂ ਹੀ ਜਾਂਚੋ। ਪਹਿਲਾਂ ਤੋਂ ਮੌਜੂਦ ਘਸਾਈ ਤੁਹਾਡੀ ਗ਼ਲਤੀ ਨਹੀਂ ਹੈ। ਡਿਸਪੈਚ 'ਤੇ ਕੰਮ ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਨਵੇਂ ਨੁਕਸਾਨ ਵਾਲੇ ਹਰ ਹਿੱਸੇ ਦੀ ਰਿਪੋਰਟ ਕਰੋ। ਰਿਕਾਰਡ ਦੇਖਣ ਲਈ ਹੈਂਡਹੈਲਡ 'ਤੇ ਕੰਮ ਦੇ ਦਿਨ ਦਾ ਵੇਰਵਾ ਖੋਲ੍ਹੋ।",
+"Use the delivery site controls.": "ਡਿਲੀਵਰੀ ਵਾਲੀ ਥਾਂ ਦੇ ਕੰਟਰੋਲ ਵਰਤੋ।",
+"Review the walkaround.": "ਚੱਕਰ-ਜਾਂਚ ਦੁਬਾਰਾ ਦੇਖੋ।",
+"Invalid walkaround version": "ਚੱਕਰ-ਜਾਂਚ ਦਾ ਅਵੈਧ ਸੰਸਕਰਣ",
+"No damage is visible.": "ਕੋਈ ਨੁਕਸਾਨ ਨਹੀਂ ਦਿਸਦਾ।",
+"The paint is scuffed here.": "ਇੱਥੇ ਪੇਂਟ 'ਤੇ ਝਰੀਟ ਹੈ।",
+"A dent is visible here.": "ਇੱਥੇ ਟੋਆ ਦਿਸਦਾ ਹੈ।",
+"Major damage is visible here.": "ਇੱਥੇ ਭਾਰੀ ਨੁਕਸਾਨ ਦਿਸਦਾ ਹੈ।",
+"Invalid walkaround damage": "ਚੱਕਰ-ਜਾਂਚ ਦਾ ਅਵੈਧ ਨੁਕਸਾਨ",
+"This is the front of the van.": "ਇਹ ਵੈਨ ਦਾ ਅੱਗੇ ਵਾਲਾ ਹਿੱਸਾ ਹੈ।",
+"This is the rear of the van.": "ਇਹ ਵੈਨ ਦਾ ਪਿੱਛੇ ਵਾਲਾ ਹਿੱਸਾ ਹੈ।",
+"This is the left side of the van.": "ਇਹ ਵੈਨ ਦਾ ਖੱਬਾ ਪਾਸਾ ਹੈ।",
+"This is the right side of the van.": "ਇਹ ਵੈਨ ਦਾ ਸੱਜਾ ਪਾਸਾ ਹੈ।",
+"This is the roof edge of the van.": "ਇਹ ਵੈਨ ਦੀ ਛੱਤ ਦਾ ਕਿਨਾਰਾ ਹੈ।",
+"This is the rear left wheel.": "ਇਹ ਪਿਛਲਾ ਖੱਬਾ ਪਹੀਆ ਹੈ।",
+"This is the left mirror.": "ਇਹ ਖੱਬਾ ਸ਼ੀਸ਼ਾ ਹੈ।",
+"Recorded damage in an undamaged area.": "ਬਿਨਾਂ ਨੁਕਸਾਨ ਵਾਲੇ ਹਿੱਸੇ ਵਿੱਚ ਨੁਕਸਾਨ ਦਰਜ ਕੀਤਾ।",
+"Recorded existing damage before departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਮੌਜੂਦਾ ਨੁਕਸਾਨ ਦਰਜ ਕੀਤਾ।",
+"Missed existing damage before departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਮੌਜੂਦਾ ਨੁਕਸਾਨ ਖੁੰਝ ਗਿਆ।",
+"Recorded new damage after the trip.": "ਸਫ਼ਰ ਤੋਂ ਬਾਅਦ ਨਵਾਂ ਨੁਕਸਾਨ ਦਰਜ ਕੀਤਾ।",
+"Finished without a correct report of new damage.": "ਨਵੇਂ ਨੁਕਸਾਨ ਦੀ ਸਹੀ ਰਿਪੋਰਟ ਕੀਤੇ ਬਿਨਾਂ ਕੰਮ ਖ਼ਤਮ ਕੀਤਾ।",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "ਸੁਰੱਖਿਅਤ ਥਾਂ 'ਤੇ ਗੱਡੀ ਖੜ੍ਹੀ ਕਰੋ, ਪੈਕੇਜ ਹੇਠਾਂ ਰੱਖੋ ਅਤੇ ਵੈਨ ਦੇ ਇਸ ਹਿੱਸੇ ਦੇ ਕੋਲ ਜਾਓ। ਪਿੱਛੇ ਵਾਲਾ ਹਿੱਸਾ ਜਾਂਚਣ ਤੋਂ ਪਹਿਲਾਂ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।",
+"Inspect this area beside the parked van before recording its condition.": "ਹਾਲਤ ਦਰਜ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਖੜ੍ਹੀ ਵੈਨ ਦੇ ਕੋਲ ਜਾ ਕੇ ਇਸ ਹਿੱਸੇ ਦੀ ਜਾਂਚ ਕਰੋ।",
+"It is recorded.": "ਦਰਜ ਹੋ ਗਿਆ।",
+"Put away the handheld.": "ਹੈਂਡਹੈਲਡ ਰੱਖ ਦਿਓ।",
+"See the first descriptions.": "ਪਹਿਲੇ ਵੇਰਵੇ ਦੇਖੋ।",
+"See more descriptions.": "ਹੋਰ ਵੇਰਵੇ ਦੇਖੋ।",
+"Inspect the van.": "ਵੈਨ ਦੀ ਜਾਂਚ ਕਰੋ।",
+"Check the van.": "ਵੈਨ ਜਾਂਚੋ।",
+"Inspect before departure or after returning the van to the depot.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਜਾਂ ਵੈਨ ਡਿਪੋ 'ਤੇ ਵਾਪਸ ਲਿਆਉਣ ਤੋਂ ਬਾਅਦ ਜਾਂਚ ਕਰੋ।",
+"See the previous area.": "ਇਸ ਤੋਂ ਪਹਿਲਾਂ ਵਾਲਾ ਹਿੱਸਾ ਦੇਖੋ।",
+"See the next area.": "ਇਸ ਤੋਂ ਬਾਅਦ ਵਾਲਾ ਹਿੱਸਾ ਦੇਖੋ।",
+"Review the van.": "ਵੈਨ ਦਾ ਰਿਕਾਰਡ ਦੇਖੋ।",
+"This area has no recorded condition.": "ਇਸ ਹਿੱਸੇ ਦੀ ਕੋਈ ਹਾਲਤ ਦਰਜ ਨਹੀਂ ਹੈ।",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਖਾਲੀ ਹੱਥ ਖੜ੍ਹੀ ਵੈਨ ਦੇ ਦੁਆਲੇ ਚੱਕਰ ਲਾਓ ਅਤੇ ਹਰ ਹਿੱਸੇ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "ਵੈਨ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ, ਟਾਇਰ ਅਤੇ ਲਾਈਟਾਂ ਜਾਂਚੋ, ਫਿਰ ਪਾਰਸਲ ਸਕੈਨ ਕਰਕੇ ਲੋਡ ਕਰੋ। ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋਡ ਸੁਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ਡਿਪੋ ਵਾਪਸ ਜਾਓ, ਰੱਖੇ ਹੋਏ ਪਾਰਸਲ ਰਿਟਰਨ 'ਤੇ ਸਕੈਨ ਕਰੋ ਅਤੇ ਡਿਸਪੈਚ 'ਤੇ ਕੰਮ ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਦੀ ਹਾਲਤ ਦਰਜ ਕਰੋ।"
 },
 "templates": [
 [
@@ -5756,6 +5801,22 @@ window.OTR_I18N.pa = {
 [
 "Press {0} to use the delivery controls.",
 "ਡਿਲੀਵਰੀ ਕੰਟਰੋਲ ਵਰਤਣ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} ਇਸ ਹਿੱਸੇ ਦੀ ਜਾਂਚ ਲਈ {1} ਦਬਾਓ।"
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"ਸਟਾਪ ਸਾਈਨ 'ਤੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਰੁਕੋ ਅਤੇ ਜਿੱਥੇ ਸਾਈਨ ਕਹੇ ਉੱਥੇ ਰਾਹ ਦਿਓ। ਰਫ਼ਤਾਰ ਦੀ ਹੱਦ ਵਿੱਚ ਰਹੋ ਅਤੇ ਸਕੂਲ ਜ਼ੋਨ ਵਿੱਚ ਹੌਲੀ ਚਲਾਓ। ਇੱਕ-ਪਾਸੜ ਗਲੀ ਵਿੱਚ ਉਸਦੀ ਦਿਸ਼ਾ ਦੇ ਉਲਟ ਕਦੇ ਨਾ ਵੜੋ ਅਤੇ ਦਾਖ਼ਲਾ ਬੰਦ ਦੇ ਨਿਸ਼ਾਨ ਨੂੰ ਕਦੇ ਪਾਰ ਨਾ ਕਰੋ। ਸਾਹਮਣੇ ਦਿਸਦਾ ਸਾਈਨ ਸੁਣਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"ਰਵਾਨਾ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ, ਖਾਲੀ ਹੱਥ ਖੜ੍ਹੀ ਵੈਨ ਦੇ ਦੁਆਲੇ ਚੱਕਰ ਲਾਓ। ਹਰ ਹਿੱਸਾ ਚੁਣਨ ਲਈ {0} ਅਤੇ ਉਸਦੀ ਜਾਂਚ ਲਈ {1} ਦਬਾਓ। ਹੈਂਡਹੈਲਡ 'ਤੇ ਮੇਲ ਖਾਂਦਾ ਵੇਰਵਾ ਚੁਣੋ। ਅੱਗੇ ਵਾਲਾ ਹਿੱਸਾ, ਪਿੱਛੇ ਵਾਲਾ ਹਿੱਸਾ, ਦੋਵੇਂ ਪਾਸੇ, ਛੱਤ ਦਾ ਕਿਨਾਰਾ, ਪਿਛਲਾ ਖੱਬਾ ਪਹੀਆ ਅਤੇ ਖੱਬਾ ਸ਼ੀਸ਼ਾ ਜਾਂਚੋ। ਪਿੱਛੇ ਵਾਲਾ ਹਿੱਸਾ ਜਾਂਚਣ ਤੋਂ ਪਹਿਲਾਂ ਕਾਰਗੋ ਬੰਦ ਕਰੋ।"
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"ਇਸ ਹਿੱਸੇ ਦੀ ਜਾਂਚ ਕਰਨ ਅਤੇ ਹੈਂਡਹੈਲਡ 'ਤੇ ਉਸਦੀ ਹਾਲਤ ਦਰਜ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
 ]
 ],
 "keep": [

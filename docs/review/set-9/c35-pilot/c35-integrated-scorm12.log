@@ -1,0 +1,76 @@
+node:child_process:981
+    throw err;
+    ^
+
+<ref *1> Error: spawnSync zip EPERM
+    at Object.spawnSync (node:internal/child_process:1160:20)
+    at spawnSync (node:child_process:928:24)
+    at execFileSync (node:child_process:971:15)
+    at build (/workspace/c35-walkaround/test/tools/package-scorm.js:53:3)
+    at Object.<anonymous> (/workspace/c35-walkaround/test/tools/package-scorm.js:71:13)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'spawnSync zip',
+  path: 'zip',
+  spawnargs: [
+    '-q',
+    '-X',
+    '-9',
+    '/workspace/c35-walkaround/dist/on-the-route-scorm12.zip',
+    '-@'
+  ],
+  error: [Circular *1],
+  status: 9,
+  signal: null,
+  output: [
+    null,
+    Buffer(36) [Uint8Array] [
+       10,  10, 122, 105, 112,  32, 101, 114,
+      114, 111, 114,  58,  32,  73, 110, 116,
+      101, 114, 114, 117, 112, 116, 101, 100,
+       32,  40,  97,  98, 111, 114, 116, 105,
+      110, 103,  41,  10
+    ],
+    Buffer(0) [Uint8Array] []
+  ],
+  pid: 137098,
+  stdout: Buffer(36) [Uint8Array] [
+     10,  10, 122, 105, 112,  32, 101, 114,
+    114, 111, 114,  58,  32,  73, 110, 116,
+    101, 114, 114, 117, 112, 116, 101, 100,
+     32,  40,  97,  98, 111, 114, 116, 105,
+    110, 103,  41,  10
+  ],
+  stderr: Buffer(0) [Uint8Array] []
+}
+
+Node.js v24.19.0
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node /workspace/c35-walkaround/test/tools/package-scorm.js --1.2 /workspace/c35-walkaround/dist/on-the-route-scorm12.zip
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at Object.execFileSync (node:child_process:978:15)
+    at /workspace/c35-walkaround/test/scorm-launch.js:60:8
+    at Object.<anonymous> (/workspace/c35-walkaround/test/scorm-launch.js:192:3)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 137084,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.19.0

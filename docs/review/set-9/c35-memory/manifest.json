@@ -1,0 +1,49 @@
+{
+  "sourceRevision": "023719fd535bacea66e39a76ca9a59c97ecc8a3c",
+  "pilot": "5adcd5bdd96ca0be48baa1a6f8522f090ed4b47c",
+  "status": "doing; final inherited/browser/resource acceptance remains",
+  "beforeRuntimeReference": "8ffd105",
+  "results": {
+    "before": {
+      "quality": "low",
+      "language": "ta",
+      "size": "large",
+      "phaserBytes": 4365312,
+      "failureAt": "Reverse safely guide after seven pre/post records",
+      "memoryInventory": "Closed handheld page retained 10 children; two referenced button panel canvases alone were 344,918 estimated bytes."
+    },
+    "after": {
+      "checks": 321,
+      "phaserBytes": 3880838,
+      "allGuidePages": 12,
+      "allAreasBeforeAndAfter": 7,
+      "errors": []
+    },
+    "affectedNodeCases": 65
+  },
+  "scope": "The controller rebuilds a page on reopening. Closing now destroys its hidden Text/page objects, and clear releases gfx_/panel_ canvases only after their last scene reference is gone. Font sizes, backing dimensions, button sizes, rendering inputs and all ceilings are unchanged. Borrowed pad/button browser guards and full native matrix/resource/shared flows remain queued. Existing 55 plain suites and 171 required cases were on the preceding runtime; this UI-only follow-up passes 65 affected cases.",
+  "sourceSHA256": {
+    "src/core/fphandheld.js": "c3c8e4b0d7fc43562c30a17587004e99057dc28bc6736a35cad3a653b0912fcc",
+    "test/fpwalkaroundbrowser.js": "75e046c3069acc57a5ecb85ee0cef62ac664337d4dee0679db7fde72f39c1b5c",
+    "test/fpbrandingbrowser.js": "46a3f54a1689f338f8c0974f1d34ecc0d6cd563506d793466c514c08a598dde7"
+  },
+  "evidenceSHA256": {
+    "c35-memory-after.log": "ed3a34a4325f89af7f25419ae286ba7dc11a8bfd35579c090ba9fa373549ea68",
+    "c35-memory-after-ta-large-pre-record.png": "1d8f694c431e8f32532ca645c0a03198c699f5a9f46658e885c884208a2bea66",
+    "c35-batch-walk-low.log": "7f55285a63f710c59f3e335823bec1c175500b05c4d520261c5e93e7ad55cc1b",
+    "c35-memory-after-ta-large-pre-roof.png": "7a8dcde1204395c32cb4e454ddc689d09486b71c3249dc69d299fe1d104f554b",
+    "c35-memory-after-ta-large-post-mirror.png": "5687acd8320448a9c78a2f361ffbc79898eb161ad62509338f53c98d2166f4fd",
+    "c35-memory-before.log": "db5443d4905c290f243fe6b0b1c7cfe8dc554a3e509b640b5b6789ca1e133c95",
+    "c35-memory-after-ta-large-guide-report.png": "52251625976db669d9fd3037b7fe30ab2843b35f4be8a9f4718a3dd38d6c080d",
+    "c35-memory-after-ta-large-post-roof.png": "a446a80e5156de469e497c91a7e6f4f93538f2b9479a6f6d8a533085b20f00d7",
+    "c35-memory-after-ta-large-post-record.png": "e93779afef3dee5f7f58d0b77d823a39c44f9bb11e64053427f07a9ded780b0b",
+    "c35-closed-page-node.log": "13cfe0c7170730bb25bf502fc91ac9e2bb97926dc8bc882db06bea93402b5ed8",
+    "c35-final-low-failure.png": "dcb9b1656cbb0cfddb9757864279ee4b1d5d7f38b8cdcfaf2bdcf02ea8920488",
+    "c35-memory-before-walkaround.json": "8395abe9f0a3943ddae742557bc8cc72a802705a9cbd28864fcf738d15d39fa3",
+    "c35-memory-after-ta-large-post-rear.png": "85fbb1f5c9e580adab16444f81af05a59dadfcb7fce5b163eb1de24836eaa449",
+    "c35-memory-after-walkaround.json": "8c2ab6521d4cbeea43e7c18e16a55fccd9ab6d14974102d3e1cb3eee6eb281d0",
+    "c35-memory-before-failure.png": "dcb9b1656cbb0cfddb9757864279ee4b1d5d7f38b8cdcfaf2bdcf02ea8920488",
+    "c35-memory-after-ta-large-pre-wheel.png": "f5fa58f2ba78df9532b42613dcf05d1b52c9c35580ec9592df3926dacc91feaa",
+    "c35-final-low-walkaround.json": "651fcbfce664a6b4767e2f9a518d08e5799076f64f798d7fd937dfdba48cb9fe"
+  }
+}

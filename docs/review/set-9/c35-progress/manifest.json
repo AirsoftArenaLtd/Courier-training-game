@@ -1,0 +1,23 @@
+{
+  "sourceRevision": "5a8ce691c6bf99e65da7235103d8a5b97a263782",
+  "pilot": "da7bd3fcfa291cea0f6af07b3039363dddf13e33",
+  "status": "doing; pure model only; not loaded in game",
+  "results": {
+    "modelCases": 18,
+    "requiredAndAffectedCases": 134,
+    "seededCheckpointSequences": 200,
+    "repeatedActions": 5000,
+    "currentCatalogue": "pass; no extraction",
+    "syntax": "both new JS files pass",
+    "rendering": "unloaded; no new graphics or FPS claim"
+  },
+  "sourceSHA256": {
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "test/fpwalkaround.js": "76a01c1456a50e770072d4f8a1b264542eee4837a824124a6c6f6188c4c7df1d"
+  },
+  "evidenceSHA256": {
+    "c35-model-regression.log": "9a16f799b42d4952038eb62b02527bedbc55efb55f17fadd8e025d0203568f20",
+    "c35-model-node.log": "1aa59f1c170def3ccad5b4c8748b78834482efa79d3c3e99da1cef16bd9cf87a",
+    "c35-current-catalogue.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+  }
+}

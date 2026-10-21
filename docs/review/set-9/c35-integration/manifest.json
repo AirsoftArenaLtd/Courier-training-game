@@ -1,0 +1,74 @@
+{
+  "sourceRevision": "09ce477ad7892b0db85a5f2acb247dcbdf626081",
+  "pilot": "da7bd3fcfa291cea0f6af07b3039363dddf13e33",
+  "status": "doing; final browser/resource acceptance running",
+  "results": {
+    "integratedNodeCases": 168,
+    "finalAllocationFreeAdapterCases": 14,
+    "syntaxFiles": 17,
+    "catalogue": "pass; no extraction",
+    "resumeDays": 30,
+    "resumeCheckpoints": 4588,
+    "soakDays": 100,
+    "scormChecks": 240,
+    "scormMax": 3990,
+    "worstDayProbe": {
+      "items": 193,
+      "newDescriptors": 21,
+      "bytes": 3879,
+      "room": 121,
+      "lmsRefusals": 0,
+      "scoreRatiosCriticals": "exact after reload"
+    },
+    "firstBrowserProbe": {
+      "language": "en",
+      "size": "large",
+      "quality": "low",
+      "checks": 302,
+      "peakPhaserBytes": 3279686,
+      "errors": []
+    }
+  },
+  "scope": {
+    "browser": "First larger-text probe precedes the equivalent scalar-coordinate hot-path cleanup. Full frozen Low/High flows, resource and shared gates are running on sourceRevision. New English uses fallback pending Claude translation. Travel, completed deliveries and contact poses are fixtures; actual keys/records/checkpoints/report boundaries/guide layouts are real.",
+    "saveProbe": "Read-only reuse of Claude's existing savesize fixtures, with actual model-generated pre-trip/false/contact/post-trip descriptors. No shared file edits. Temporary helper is archived; Claude is asked to add the permanent heavy-day guard.",
+    "rendering": "Seven layer-1 target proxies share the cube and are not drawn. No new render pass, target or persistent label. Final fpbench gate pending; no Intel FPS claim."
+  },
+  "sourceSHA256": {
+    "index.html": "83836eeb656a4a141cd612d097e8fec324c342a6b9b89ebfe421ff5b175026df",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "b4b70d79ab7944ff704a9325d432ed3c2e847a50725e4a8fefdf726bb2dfe5de",
+    "src/core/fpwalkaroundui.js": "63c0e03eb00b5ff57a53a5840cff55152b55e1b7c6ed011f799ea45a650afdaf",
+    "src/core/fpmission.js": "98c96ac8bd694ee7dfc0de87ace146e0622804c4e8bb95f6343c5369d32701f2",
+    "src/core/fproute.js": "b9876d5be5be6f7e335a12fb86f3000c1fa2eeb8fa0b3f2051cfdc7ca12483cf",
+    "src/core/fpworld.js": "9afc37b667313a3a4b874263039db2232fbc22975f98e69fc6c7336d6dfd8516",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "94b3d4f53436683647a1574f32f3d631889c7776af9bb4f97debaee8c324bcf9",
+    "src/core/fpaccess.js": "77833e33f7223896f84991129c5a37593e5e84666b93bbd413ec3af8d72ae59b",
+    "src/scenes/FirstPersonScene.js": "29034ddd182bbf5fcc0d6db7260e8f46624ca768e54e243f6b3a01fdd726a291",
+    "test/fpwalkaroundbrowser.js": "83abe443b6dc675f19103f3c22a578c93faea92f033b791511db3048947072da",
+    "test/fpwalkaroundflow.js": "ccd01f17436ab9bb9c5c5204d857bb292f41ecc9363f5770a0c4bcb22bbb4003",
+    "test/fpresume.js": "8ff564039019ec8ae900f42b657c135d6b5524ac6105e9edfc91a5efedee3bcf",
+    "test/fpquality.js": "f0c83eec0f45de184ced8178fd87eb83011daebd492914aeed34b9409729da27",
+    "test/fpbench.js": "54404fc96d465e413079844889feffe0050ae8ff95070c5ec4d7afc0be0b47ad"
+  },
+  "evidenceSHA256": {
+    "c35-layout-v2-en-large-post-rear.png": "84831179b46f0d43534bf9aa11248d87681e7d219c2be30d46d897f129a87486",
+    "c35-integrated-node.log": "210ea10f085d6ebb1fe88242c4da4fe3d94c20dfff932fe716ad29268fbbc1e9",
+    "c35-final-adapter-node.log": "00ca0113e1c20184b0174c3d98a9d0b38410fab86db9d7751bdd1cff84bf6759",
+    "c35-layout-v2-walkaround.json": "a6433948cfbcf693c18eabc6047918d37991e193e5b1e3cc278edf1daef105d0",
+    "c35-layout-v2.log": "3ca205d9f168dfb462ebda9fbf1211ee3317b0c13f76cc85a806271237175256",
+    "c35-layout-v2-en-large-post-roof.png": "7669c4e23693ba3c133fcd4b2cedb9bae15135851f8c47026c6c44ee9844556e",
+    "c35-layout-v2-en-large-pre-wheel.png": "ffa06eaca56a5b4c307703a7bd42347ceffe7e23fac5309ff175b3634e23dd7d",
+    "c35-layout-v2-en-large-post-mirror.png": "75f14e3e520787107496ee11fd2a5e214a4bc4a2a17d6abaf913db0bb3ae9a18",
+    "c35-layout-v2-en-large-guide-report.png": "3f47fdfe6e67522ee354cb001168bafd0aadfc17ec71e5b3a672d600f1c3d408",
+    "c35-adapter-regression.log": "3d6bfc4c3a0cccad00fa080cc8e3b5a3256c0846126ad5b8d7b5392a06472a18",
+    "c35-integrated-catalogue.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c35-integrated-syntax.json": "96f8fae9dd2df15abc0820fced82a181b29f9019c630a0947b3b9dccadeeed48",
+    "c35-save-stress.json": "89e3d1646f22d6b8f48d51618de6541ca4397ec7f79ac5df984fb4412f0da810",
+    "c35-layout-v2-en-large-pre-roof.png": "7669c4e23693ba3c133fcd4b2cedb9bae15135851f8c47026c6c44ee9844556e",
+    "c35-resume-soak.log": "3f5378f24a42bcc5c0c619f80415c38e79a47bb8fbfaa8ec323aa2a30a12bab1",
+    "c35-resume-soak.json": "ce40608582a32f9141f45f0cc3c89aa7ee1da66bf1cd1f400fa80743e3a7103b",
+    "c35-saveprobe.cjs": "82d60e916b2a6745fad730e4f3944ab43ccd55d421ea5c1790ae723765571fc2"
+  }
+}

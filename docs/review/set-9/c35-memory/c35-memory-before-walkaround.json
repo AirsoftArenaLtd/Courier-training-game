@@ -1,0 +1,1842 @@
+{
+  "quality": "low",
+  "checks": 281,
+  "runs": [
+    {
+      "lang": "ta",
+      "size": "large",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1
+      ]
+    }
+  ],
+  "errors": [],
+  "complete": false,
+  "scope": "Fixture travel/return/contact poses; real P/E selection, handheld keys, records, scoring, checkpoints and guide pages. New English falls back until Claude translates.",
+  "memoryFailureInventory": {
+    "textures": [
+      {
+        "key": "78d5f9f6-1ea1-4ef1-8695-95325329e40e",
+        "sources": [
+          {
+            "w": 958,
+            "h": 194,
+            "bytes": 991211
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "நில்லுங்கள், ஷிஃப்டரில் R நிலையைப் பாருங்கள், O அழுத்துங்கள். ரியர் கேமரா தானாக ஆன் ஆகும். விசைப்பலக",
+            "visible": true
+          }
+        ]
+      },
+      {
+        "key": "panel_296x46_3107491_2051705_16_8629467_2_0.3_null_1",
+        "sources": [
+          {
+            "w": 344,
+            "h": 94,
+            "bytes": 172459
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "panel_296x46_16777215_15265525_16_12112618_2_0.3_null_1",
+        "sources": [
+          {
+            "w": 344,
+            "h": 94,
+            "bytes": 172459
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          },
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "48b8bae7-b500-4c3f-90fe-ee1a93ed6043",
+        "sources": [
+          {
+            "w": 253,
+            "h": 124,
+            "bytes": 167318
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "உயர வரம்பு 8 அடி 10 அங்குலம். வேறு சாலையில் செல்லுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "75ea0694-f04d-4e1b-925c-885083e2a9f8",
+        "sources": [
+          {
+            "w": 253,
+            "h": 124,
+            "bytes": 167318
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "உயர வரம்பு 8 அடி 10 அங்குலம். வேறு சாலையில் செல்லுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "b3d4dd8d-41cd-4bc8-9718-68a37b7085ca",
+        "sources": [
+          {
+            "w": 253,
+            "h": 124,
+            "bytes": 167318
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "உயர வரம்பு 8 அடி 10 அங்குலம். வேறு சாலையில் செல்லுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "1a743ba5-07d4-42ce-a592-69517a1533a0",
+        "sources": [
+          {
+            "w": 253,
+            "h": 124,
+            "bytes": 167318
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "உயர வரம்பு 8 அடி 10 அங்குலம். வேறு சாலையில் செல்லுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "791a81a4-35e5-43e7-a471-42543905fb7b",
+        "sources": [
+          {
+            "w": 215,
+            "h": 88,
+            "bytes": 100907
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "டிப்போவிலிருந்து புறப்படுவதற்கு முன் போக்குவரத்துக்கு வழிவிடுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "d612ad9d-b810-487c-a66c-e285c3f7ff2e",
+        "sources": [
+          {
+            "w": 226,
+            "h": 81,
+            "bytes": 97632
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இங்கே தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "1a162d82-d6ff-4b76-9c1d-43821a3ff01f",
+        "sources": [
+          {
+            "w": 226,
+            "h": 81,
+            "bytes": 97632
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இங்கே தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "6def50c9-1f53-4dda-b52f-989ba7e88922",
+        "sources": [
+          {
+            "w": 226,
+            "h": 81,
+            "bytes": 97632
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இங்கே தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "8ce180cc-93cf-4f62-8f76-c491645b5766",
+        "sources": [
+          {
+            "w": 226,
+            "h": 81,
+            "bytes": 97632
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இங்கே தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "929aae69-0b67-4e6f-bab6-a69dcede049e",
+        "sources": [
+          {
+            "w": 216,
+            "h": 81,
+            "bytes": 93312
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இங்கே ஒதுக்கப்பட்ட லாக்கரைப் பயன்படுத்துங்கள்.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "c5951dd2-fa12-489d-8b75-9a8bb5783a52",
+        "sources": [
+          {
+            "w": 532,
+            "h": 32,
+            "bytes": 90795
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "பாதுகாப்பாக ரிவர்ஸ் செய்யுங்கள்.",
+            "visible": true
+          }
+        ]
+      },
+      {
+        "key": "1e5dc200-e401-43db-946c-d6f8da2aeead",
+        "sources": [
+          {
+            "w": 224,
+            "h": 54,
+            "bytes": 64512
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "என்ஜின் 800 RPM-இல் உள்ளது.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "gfx_1j4am6x_204_168x60",
+        "sources": [
+          {
+            "w": 168,
+            "h": 60,
+            "bytes": 53760
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "fe8beed6-da32-49a5-9542-328c47e7f910",
+        "sources": [
+          {
+            "w": 176,
+            "h": 54,
+            "bytes": 50688
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இந்தத் தெரு மூடப்பட்டுள்ளது.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "e05892c1-70e0-426e-b10b-839f4419701d",
+        "sources": [
+          {
+            "w": 239,
+            "h": 23,
+            "bytes": 29318
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இது the இடது கண்ணாடி.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "star_gold",
+        "sources": [
+          {
+            "w": 72,
+            "h": 72,
+            "bytes": 27648
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "star_empty",
+        "sources": [
+          {
+            "w": 72,
+            "h": 72,
+            "bytes": 27648
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "star_empty_dark",
+        "sources": [
+          {
+            "w": 72,
+            "h": 72,
+            "bytes": 27648
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "5eaef91d-bfb0-4fa1-9733-34f43f1e57bd",
+        "sources": [
+          {
+            "w": 188,
+            "h": 27,
+            "bytes": 27072
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "கடைசி மறுஆய்வு",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "260d1ab9-9eb5-4594-9e76-16cee42bc016",
+        "sources": [
+          {
+            "w": 213,
+            "h": 23,
+            "bytes": 26128
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "The paint is scuffed here.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "rig_item_scanner",
+        "sources": [
+          {
+            "w": 60,
+            "h": 80,
+            "bytes": 25600
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "48c43897-4720-4b34-8b6f-b492d8d526ce",
+        "sources": [
+          {
+            "w": 216,
+            "h": 22,
+            "bytes": 25344
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "2  Put away the handheld.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "b71ed1e8-956a-42bf-b2b0-159680ab95ab",
+        "sources": [
+          {
+            "w": 166,
+            "h": 27,
+            "bytes": 23904
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "சரக்குப் பயிற்சி",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "2bc102d6-0120-4134-87dc-8b5a4a7c08d2",
+        "sources": [
+          {
+            "w": 202,
+            "h": 22,
+            "bytes": 23702
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "1  See the previous area.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "p_glow",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_shield",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_bolt",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_heart",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_star",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_van",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_box",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_chat",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_bulb",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_clipboard",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_map",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_wheel",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_belt",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_lift",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_diamond",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_pen",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_paw",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_pin",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_broken",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_cloud",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_sound",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_mute",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_gear",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_globe",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_check",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_cross",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_flag",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_clock",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_pause",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_home",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_book",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_arrow",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_undo",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_trash",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_badge",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "ic_user",
+        "sources": [
+          {
+            "w": 64,
+            "h": 64,
+            "bytes": 21846
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "60cd9944-73f0-4fc7-ab4f-70c584335495",
+        "sources": [
+          {
+            "w": 139,
+            "h": 27,
+            "bytes": 20016
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "வேகம் 0 mph.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "27b76852-ae83-43b3-9421-11d53e4370a4",
+        "sources": [
+          {
+            "w": 144,
+            "h": 26,
+            "bytes": 19968
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "2. பின்செல்",
+            "visible": true
+          }
+        ]
+      },
+      {
+        "key": "1834e58d-cf86-4c98-98fe-edee648e9d92",
+        "sources": [
+          {
+            "w": 137,
+            "h": 27,
+            "bytes": 19728
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "வேலை நாள்",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "bc17f67c-2279-4aed-afd2-1dab338ce102",
+        "sources": [
+          {
+            "w": 134,
+            "h": 27,
+            "bytes": 19296
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "213 Maple Ave",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "cce6cc44-ca96-4461-84f3-9bba22e82997",
+        "sources": [
+          {
+            "w": 134,
+            "h": 27,
+            "bytes": 19296
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "304 Maple Ave",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "f56ff050-bbe1-46bd-ba61-56843b35e511",
+        "sources": [
+          {
+            "w": 157,
+            "h": 23,
+            "bytes": 19259
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இடது கண்ணாடி",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "d9686aa4-9bca-41ae-aacf-995816c11634",
+        "sources": [
+          {
+            "w": 127,
+            "h": 27,
+            "bytes": 18288
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "304 Harbor St",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "2d44a184-7788-492d-84b7-75535f66aa24",
+        "sources": [
+          {
+            "w": 127,
+            "h": 27,
+            "bytes": 18288
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "412 Harbor St",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "ae36e02e-af1c-4a0d-8096-f5546ff641bb",
+        "sources": [
+          {
+            "w": 126,
+            "h": 26,
+            "bytes": 17472
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "On The Route",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "86cf733a-a964-4ebd-8338-d240cccb1d80",
+        "sources": [
+          {
+            "w": 126,
+            "h": 26,
+            "bytes": 17472
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "On The Route",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "4ae8aefd-a7c7-4e9b-9502-ac884ce77294",
+        "sources": [
+          {
+            "w": 126,
+            "h": 26,
+            "bytes": 17472
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "On The Route",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "c8768736-47cc-4602-a42c-15b4ccd23c50",
+        "sources": [
+          {
+            "w": 124,
+            "h": 26,
+            "bytes": 17195
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "1. அடுத்து",
+            "visible": true
+          }
+        ]
+      },
+      {
+        "key": "7f3b1387-bbb9-44d3-b688-abe886d444c8",
+        "sources": [
+          {
+            "w": 140,
+            "h": 22,
+            "bytes": 16427
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இது Harbor St.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "83ba5202-5ead-4efd-ad86-54e13821a27d",
+        "sources": [
+          {
+            "w": 114,
+            "h": 27,
+            "bytes": 16416
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "112 Birch Ln",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "908e9bbf-40a9-46cc-8c30-62eac3cfdf6b",
+        "sources": [
+          {
+            "w": 112,
+            "h": 27,
+            "bytes": 16128
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "ரிட்டர்ன்ஸ்",
+            "visible": true
+          }
+        ]
+      },
+      {
+        "key": "54ea66ed-62f8-494f-87e4-8157d5555054",
+        "sources": [
+          {
+            "w": 134,
+            "h": 22,
+            "bytes": 15723
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "Review the van.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "48e867db-b4a2-47cf-877b-4140f07b0814",
+        "sources": [
+          {
+            "w": 133,
+            "h": 22,
+            "bytes": 15606
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "ON THE ROUTE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "004357b7-dff7-4040-9bba-7af188c372b5",
+        "sources": [
+          {
+            "w": 102,
+            "h": 27,
+            "bytes": 14688
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "டிஸ்பாட்ச்",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "e83db474-2ef4-4927-b06b-9de9e04ab4eb",
+        "sources": [
+          {
+            "w": 136,
+            "h": 18,
+            "bytes": 13056
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "ஹேண்ட்ஹெல்ட்",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "84d7ed7b-cc80-463d-886e-94de28dfffa9",
+        "sources": [
+          {
+            "w": 110,
+            "h": 22,
+            "bytes": 12907
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இது 2nd St.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "a037568a-738b-4027-bcb9-3ec11b1b6a91",
+        "sources": [
+          {
+            "w": 110,
+            "h": 22,
+            "bytes": 12907
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இது 2nd St.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "3b4528a5-a038-4994-9723-bf8f461d71c9",
+        "sources": [
+          {
+            "w": 110,
+            "h": 22,
+            "bytes": 12907
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "இது 2nd St.",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "a0cbc4d6-7957-42c9-987b-4b8ff0a81108",
+        "sources": [
+          {
+            "w": 107,
+            "h": 22,
+            "bytes": 12555
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "3  பின்செல்",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "d0a3cef3-6b5e-436a-a884-ee8699196f77",
+        "sources": [
+          {
+            "w": 95,
+            "h": 18,
+            "bytes": 9120
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "On The Route",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "p_smoke",
+        "sources": [
+          {
+            "w": 40,
+            "h": 40,
+            "bytes": 8534
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "gfx_1me2zoc_167_40x33",
+        "sources": [
+          {
+            "w": 40,
+            "h": 33,
+            "bytes": 7040
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "b541a083-0673-40d8-a8ad-ce57b8d30a27",
+        "sources": [
+          {
+            "w": 66,
+            "h": 19,
+            "bytes": 6688
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "⌫ Back",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "__DEFAULT",
+        "sources": [
+          {
+            "w": 32,
+            "h": 32,
+            "bytes": 5462
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "__MISSING",
+        "sources": [
+          {
+            "w": 32,
+            "h": 32,
+            "bytes": 5462
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "61b1c405-45da-4ca5-8435-267c9f936a3b",
+        "sources": [
+          {
+            "w": 33,
+            "h": 30,
+            "bytes": 5280
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "OT",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "2d0d19b8-41e8-4461-b599-edb1de8e7cb3",
+        "sources": [
+          {
+            "w": 33,
+            "h": 30,
+            "bytes": 5280
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "OT",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "107d6802-d5c0-4860-b329-bc30162987d0",
+        "sources": [
+          {
+            "w": 33,
+            "h": 30,
+            "bytes": 5280
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "OT",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "gfx_r3ie85_66_28x28",
+        "sources": [
+          {
+            "w": 28,
+            "h": 28,
+            "bytes": 4182
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Image",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "p_star",
+        "sources": [
+          {
+            "w": 24,
+            "h": 24,
+            "bytes": 3072
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "209dfccd-0885-4274-9f2a-88b45e0526c5",
+        "sources": [
+          {
+            "w": 20,
+            "h": 27,
+            "bytes": 2880
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "N",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "06a4f375-07a8-469f-be58-9c2be5973335",
+        "sources": [
+          {
+            "w": 19,
+            "h": 27,
+            "bytes": 2736
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "D",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "98723938-679b-4626-88dc-a32071b9c76d",
+        "sources": [
+          {
+            "w": 17,
+            "h": 27,
+            "bytes": 2448
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "P",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "5a836279-1014-40ab-bb30-ebed8606e21c",
+        "sources": [
+          {
+            "w": 17,
+            "h": 27,
+            "bytes": 2448
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "R",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "65525c46-2619-42fc-a234-5e5bcb2bfd7f",
+        "sources": [
+          {
+            "w": 21,
+            "h": 13,
+            "bytes": 1456
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "TAB",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "p_dot",
+        "sources": [
+          {
+            "w": 16,
+            "h": 16,
+            "bytes": 1366
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "1e52869c-50a2-401e-9391-5294938ee6d6",
+        "sources": [
+          {
+            "w": 4,
+            "h": 26,
+            "bytes": 555
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "1e35953c-9fc0-4d2e-bef5-882a8532250f",
+        "sources": [
+          {
+            "w": 4,
+            "h": 26,
+            "bytes": 555
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "p_rect",
+        "sources": [
+          {
+            "w": 12,
+            "h": 7,
+            "bytes": 448
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "p_drop",
+        "sources": [
+          {
+            "w": 3,
+            "h": 26,
+            "bytes": 416
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "d168b870-44f6-40b2-8d2e-e10a8760e095",
+        "sources": [
+          {
+            "w": 4,
+            "h": 16,
+            "bytes": 342
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "!",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "12ac4003-ccf5-445c-879c-5bfdcd1d6326",
+        "sources": [
+          {
+            "w": 1,
+            "h": 24,
+            "bytes": 128
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "8a233f8d-8056-49a9-a781-f3b33521e8b9",
+        "sources": [
+          {
+            "w": 1,
+            "h": 22,
+            "bytes": 118
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "7ac7c7de-ed36-461d-ac6c-656ca7ecdc74",
+        "sources": [
+          {
+            "w": 1,
+            "h": 22,
+            "bytes": 118
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "119f0832-f161-49d1-94cf-9d1896a56a14",
+        "sources": [
+          {
+            "w": 1,
+            "h": 22,
+            "bytes": 118
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "422c8082-1fd2-4e9d-be75-f3bdaf005f7d",
+        "sources": [
+          {
+            "w": 1,
+            "h": 19,
+            "bytes": 102
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "90de0f40-a388-468d-81ba-3b04380c6731",
+        "sources": [
+          {
+            "w": 1,
+            "h": 19,
+            "bytes": 102
+          }
+        ],
+        "owners": [
+          {
+            "scene": "FirstPersonScene",
+            "type": "Text",
+            "text": "",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "key": "__WHITE",
+        "sources": [
+          {
+            "w": 4,
+            "h": 4,
+            "bytes": 86
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "px",
+        "sources": [
+          {
+            "w": 4,
+            "h": 4,
+            "bytes": 86
+          }
+        ],
+        "owners": []
+      },
+      {
+        "key": "__NORMAL",
+        "sources": [
+          {
+            "w": 1,
+            "h": 1,
+            "bytes": 6
+          }
+        ],
+        "owners": []
+      }
+    ],
+    "handheldOpen": false,
+    "handheldTitle": "Review the van.",
+    "handheldChildren": 10,
+    "panel": [
+      {
+        "text": "பாதுகாப்பாக ரிவர்ஸ் செய்யுங்கள்.",
+        "w": 532,
+        "h": 32,
+        "font": "27px",
+        "scale": 1
+      },
+      {
+        "text": "நில்லுங்கள், ஷிஃப்டரில் R நிலையைப் பாருங்கள், O அழுத்துங்கள். ரியர் கேமரா தானாக ஆன் ஆகும். விசைப்பலகையில் அதன் திரையைப் பார்க்க N அழுத்துங்கள். வழிகாட்டிக் கோடுகள் ஸ்டீயரிங்குடன் வளையும், தூரப் பட்டைகள், சென்சார் பட்டைகள், எழுத்து அருகிலுள்ள தடைகளைக் காட்டும். நடக்கும் வேகத்தில் ரிவர்ஸ் செய்யுங்கள். குறுகிய இடத்தில் பயிற்றுநர் கட்டாயமாக்காவிட்டால் வாக்-அரவுண்ட் விருப்பத்திற்குரியது.",
+        "w": 958,
+        "h": 194,
+        "font": "23px",
+        "scale": 1
+      },
+      {
+        "text": "1. அடுத்து",
+        "w": 124,
+        "h": 26,
+        "font": "22px",
+        "scale": 1
+      },
+      {
+        "text": "2. பின்செல்",
+        "w": 144,
+        "h": 26,
+        "font": "22px",
+        "scale": 1
+      }
+    ]
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: {\"bad\":[],\"phaserBytes\":4365312,\"contextLost\":false}\n    at audit (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:27:11)\n    at async /workspace/c35-walkaround/test/fpwalkaroundbrowser.js:64:318"
+}

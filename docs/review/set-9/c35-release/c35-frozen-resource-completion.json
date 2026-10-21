@@ -1,0 +1,7 @@
+{
+  "resourceViews": 179,
+  "sourceRevision": "5e0f9a49405f145023d381faede7b07599dc514f",
+  "qualityExit": 0,
+  "sharedNotStarted": true,
+  "reason": "After the completed frozen quality run, the controller was resumed following the planned target correction. Its source fingerprint guard stops before launching shared flows. They will run against the corrected source."
+}

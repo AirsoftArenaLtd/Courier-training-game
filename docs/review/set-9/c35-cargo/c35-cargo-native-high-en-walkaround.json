@@ -1,0 +1,105 @@
+{
+  "quality": "high",
+  "checks": 329,
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cargoPre": true,
+      "cargoPost": true,
+      "peakPhaserBytes": 8665190,
+      "reports": [
+        {
+          "type": "trip.damage-report",
+          "key": "front",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "rear",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "left",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "right",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "roof",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "wheel",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "mirror",
+          "ok": true,
+          "stop": null
+        }
+      ],
+      "narrationCalls": 117,
+      "missed": {
+        "text": "",
+        "reports": [
+          {
+            "type": "trip.damage-report",
+            "key": "front",
+            "ok": false,
+            "stop": null
+          }
+        ],
+        "critical": true
+      }
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "scope": "Fixture travel/return/contact poses; real P/E selection, handheld keys, records, scoring, checkpoints and guide pages. New English falls back until Claude translates."
+}

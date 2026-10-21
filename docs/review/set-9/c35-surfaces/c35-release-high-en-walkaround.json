@@ -1,0 +1,19 @@
+{
+  "quality": "high",
+  "checks": 15,
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "pre": [
+        "front"
+      ],
+      "post": [],
+      "guide": []
+    }
+  ],
+  "errors": [],
+  "complete": false,
+  "scope": "Fixture travel/return/contact poses; real P/E selection, handheld keys, records, scoring, checkpoints and guide pages. New English falls back until Claude translates.",
+  "failure": "AssertionError [ERR_ASSERTION]: rear target is not on its visible surface: {\"pick\":\"wear-rear\",\"physical\":true,\"delta\":0.2975535943454831,\"mesh\":\"actor:van\"}\n    at aim (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:36:51)\n    at async record (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:38:36)\n    at async /workspace/c35-walkaround/test/fpwalkaroundbrowser.js:50:170"
+}

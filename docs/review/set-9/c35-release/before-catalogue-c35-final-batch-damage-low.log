@@ -1,0 +1,9 @@
+PASS low en normal damage and clearance
+PASS low en large damage and clearance
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'வேனின் உயரத்தை அறிந்துகொள்ளுங்கள்.'
+- 'Know the van height.'
+
+    at /workspace/c35-walkaround/test/fpdamagebrowser.js:29:33

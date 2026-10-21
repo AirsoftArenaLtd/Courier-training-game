@@ -3993,7 +3993,52 @@ window.OTR_I18N.kn = {
 "Missing package not reported": "ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ತಿಳಿಸದಿದ್ದು",
 "Left with another route's package": "ಬೇರೆ ಮಾರ್ಗದ ಪ್ಯಾಕೇಜ್‌ನೊಂದಿಗೆ ಹೊರಟಿದ್ದು",
 "Doorsteps and loading: mistakes per day": "ಬಾಗಿಲುಗಳು ಮತ್ತು ಲೋಡಿಂಗ್: ದಿನಕ್ಕೆ ತಪ್ಪುಗಳು",
-"From the {0} trainees whose first and latest workdays both had these checks.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಈ ಪರಿಶೀಲನೆಗಳು ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ."
+"From the {0} trainees whose first and latest workdays both had these checks.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಈ ಪರಿಶೀಲನೆಗಳು ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ.",
+"Follow the sat nav.": "ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಅನುಸರಿಸಿ.",
+"Read the road signs.": "ರಸ್ತೆ ಸೂಚನೆಗಳನ್ನು ಓದಿ.",
+"Watch the lights and people.": "ದೀಪಗಳು ಮತ್ತು ಜನರನ್ನು ಗಮನಿಸಿ.",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "ಕೆಂಪು ದೀಪದಲ್ಲಿ ಗೆರೆಯ ಹಿಂದೆ ನಿಲ್ಲಿ, ಹಳದಿ ದೀಪದಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಲು ಸಾಧ್ಯವಾದಾಗ ನಿಲ್ಲಿ. ಬಲಕ್ಕೆ ತಿರುಗುವ ಮೊದಲು ಬಲ ಕನ್ನಡಿ ನೋಡಿ, ಪಕ್ಕದಿಂದ ಹಾದುಹೋಗುವ ಸೈಕಲ್ ಸವಾರರಿಗೆ ದಾರಿ ಬಿಡಿ. ಶಾಲಾ ಕ್ರಾಸಿಂಗ್‌ನಲ್ಲಿ ಮಕ್ಕಳಿಗಾಗಿ ಮೊದಲೇ ವೇಗ ಕಡಿಮೆ ಮಾಡಿ, ಅವರ ದಾರಿ ತೆರವಾಗುವವರೆಗೆ ಕಾಯಿರಿ.",
+"Look after the van.": "ವ್ಯಾನ್‌ನ ಕಾಳಜಿ ವಹಿಸಿ.",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "ವ್ಯಾನ್‌ನ ಎತ್ತರ 10 ಅಡಿ 10 ಇಂಚು. ಕಡಿಮೆ ಎತ್ತರದ ಸ್ಥಳಗಳನ್ನು ತಪ್ಪಿಸಲು ಸ್ಯಾಟ್ ನ್ಯಾವ್ ಅನುಸರಿಸಿ, ಎಚ್ಚರಿಕೆ ಬಂದಾಗ ಬೇರೆ ರಸ್ತೆ ಹಿಡಿಯಿರಿ. ಜೋರಾದ ತಿರುವುಗಳು ಮತ್ತು ಬ್ರೇಕ್ ಭದ್ರಪಡಿಸದ ಸರಕನ್ನು ಸರಿಸುತ್ತವೆ. ಪಟ್ಟಿಗಳನ್ನು ಭದ್ರಪಡಿಸಿ, ಸರಾಗವಾಗಿ ಚಲಾಯಿಸಿ. ಡಿಕ್ಕಿ ತಾಗಿದ ಜಾಗದಲ್ಲಿ ವ್ಯಾನ್‌ಗೆ ಹಾನಿಯಾಗಬಹುದು.",
+"Record the pre-trip condition.": "ಪ್ರಯಾಣಕ್ಕೆ ಮುಂಚಿನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Report damage after the trip.": "ಪ್ರಯಾಣದ ನಂತರ ಹಾನಿಯನ್ನು ವರದಿ ಮಾಡಿ.",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿದ ನಂತರ, ಮತ್ತೆ ವ್ಯಾನ್ ಸುತ್ತ ನಡೆದು ಪ್ರತಿ ಭಾಗದ ಕಾಣುವ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ. ಮೇಲ್ಛಾವಣಿಯ ಅಂಚನ್ನು ನೆಲದಿಂದಲೇ ಪರಿಶೀಲಿಸಿ. ಮೊದಲೇ ಇದ್ದ ಸವೆತ ನಿಮ್ಮ ತಪ್ಪಲ್ಲ. ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮೊದಲು ಹೊಸ ಹಾನಿಯಾದ ಪ್ರತಿ ಭಾಗವನ್ನು ವರದಿ ಮಾಡಿ. ದಾಖಲೆಗಳನ್ನು ನೋಡಲು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ಕೆಲಸದ ದಿನದ ವಿವರಗಳನ್ನು ತೆರೆಯಿರಿ.",
+"Use the delivery site controls.": "ಡೆಲಿವರಿ ಸ್ಥಳದ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಿ.",
+"Review the walkaround.": "ಸುತ್ತು-ಪರಿಶೀಲನೆಯನ್ನು ಮತ್ತೆ ನೋಡಿ.",
+"Invalid walkaround version": "ಅಮಾನ್ಯ ಸುತ್ತು-ಪರಿಶೀಲನೆ ಆವೃತ್ತಿ",
+"No damage is visible.": "ಯಾವುದೇ ಹಾನಿ ಕಾಣುತ್ತಿಲ್ಲ.",
+"The paint is scuffed here.": "ಇಲ್ಲಿ ಬಣ್ಣದ ಮೇಲೆ ಗೀರು ಇದೆ.",
+"A dent is visible here.": "ಇಲ್ಲಿ ಜಖಂ ಕಾಣುತ್ತಿದೆ.",
+"Major damage is visible here.": "ಇಲ್ಲಿ ದೊಡ್ಡ ಹಾನಿ ಕಾಣುತ್ತಿದೆ.",
+"Invalid walkaround damage": "ಅಮಾನ್ಯ ಸುತ್ತು-ಪರಿಶೀಲನೆ ಹಾನಿ",
+"This is the front of the van.": "ಇದು ವ್ಯಾನ್‌ನ ಮುಂಭಾಗ.",
+"This is the rear of the van.": "ಇದು ವ್ಯಾನ್‌ನ ಹಿಂಭಾಗ.",
+"This is the left side of the van.": "ಇದು ವ್ಯಾನ್‌ನ ಎಡಭಾಗ.",
+"This is the right side of the van.": "ಇದು ವ್ಯಾನ್‌ನ ಬಲಭಾಗ.",
+"This is the roof edge of the van.": "ಇದು ವ್ಯಾನ್‌ನ ಮೇಲ್ಛಾವಣಿಯ ಅಂಚು.",
+"This is the rear left wheel.": "ಇದು ಹಿಂದಿನ ಎಡ ಚಕ್ರ.",
+"This is the left mirror.": "ಇದು ಎಡ ಕನ್ನಡಿ.",
+"Recorded damage in an undamaged area.": "ಹಾನಿಯಿಲ್ಲದ ಭಾಗದಲ್ಲಿ ಹಾನಿಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Recorded existing damage before departure.": "ಹೊರಡುವ ಮೊದಲು ಈಗಾಗಲೇ ಇದ್ದ ಹಾನಿಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Missed existing damage before departure.": "ಹೊರಡುವ ಮೊದಲು ಈಗಾಗಲೇ ಇದ್ದ ಹಾನಿಯನ್ನು ಗಮನಿಸಲಿಲ್ಲ.",
+"Recorded new damage after the trip.": "ಪ್ರಯಾಣದ ನಂತರ ಹೊಸ ಹಾನಿಯನ್ನು ದಾಖಲಿಸಿದಿರಿ.",
+"Finished without a correct report of new damage.": "ಹೊಸ ಹಾನಿಯನ್ನು ಸರಿಯಾಗಿ ವರದಿ ಮಾಡದೆ ಮುಗಿಸಿದಿರಿ.",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "ಸುರಕ್ಷಿತವಾಗಿ ನಿಲ್ಲಿಸಿ, ಪ್ಯಾಕೇಜ್ ಕೆಳಗೆ ಇಟ್ಟು, ವ್ಯಾನ್‌ನ ಈ ಭಾಗದ ಪಕ್ಕಕ್ಕೆ ಹೋಗಿ. ಹಿಂಭಾಗವನ್ನು ಪರಿಶೀಲಿಸುವ ಮೊದಲು ಸರಕು ಬಾಗಿಲು ಮುಚ್ಚಿ.",
+"Inspect this area beside the parked van before recording its condition.": "ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸುವ ಮೊದಲು ನಿಲ್ಲಿಸಿದ ವ್ಯಾನ್‌ನ ಪಕ್ಕದಲ್ಲಿ ನಿಂತು ಈ ಭಾಗವನ್ನು ಪರಿಶೀಲಿಸಿ.",
+"It is recorded.": "ದಾಖಲಾಗಿದೆ.",
+"Put away the handheld.": "ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಇಡಿ.",
+"See the first descriptions.": "ಮೊದಲ ವಿವರಣೆಗಳನ್ನು ನೋಡಿ.",
+"See more descriptions.": "ಇನ್ನಷ್ಟು ವಿವರಣೆಗಳನ್ನು ನೋಡಿ.",
+"Inspect the van.": "ವ್ಯಾನ್ ಪರಿಶೀಲಿಸಿ.",
+"Check the van.": "ವ್ಯಾನ್ ತಪಾಸಣೆ ಮಾಡಿ.",
+"Inspect before departure or after returning the van to the depot.": "ಹೊರಡುವ ಮೊದಲು ಅಥವಾ ವ್ಯಾನ್ ಅನ್ನು ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿಸಿದ ನಂತರ ಪರಿಶೀಲಿಸಿ.",
+"See the previous area.": "ಪಟ್ಟಿಯಲ್ಲಿನ ಹಿಂದಿನ ಭಾಗ ನೋಡಿ.",
+"See the next area.": "ಪಟ್ಟಿಯಲ್ಲಿನ ಮುಂದಿನ ಭಾಗ ನೋಡಿ.",
+"Review the van.": "ವ್ಯಾನ್‌ನ ದಾಖಲೆಗಳನ್ನು ನೋಡಿ.",
+"This area has no recorded condition.": "ಈ ಭಾಗಕ್ಕೆ ಯಾವುದೇ ಸ್ಥಿತಿ ದಾಖಲಾಗಿಲ್ಲ.",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "ಹೊರಡುವ ಮೊದಲು ಖಾಲಿ ಕೈಗಳಿಂದ ನಿಲ್ಲಿಸಿದ ವ್ಯಾನ್ ಸುತ್ತ ನಡೆದು ಪ್ರತಿ ಭಾಗದ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ.",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "ವ್ಯಾನ್‌ನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ, ಟೈರ್ ಮತ್ತು ದೀಪಗಳನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಲೋಡ್ ಮಾಡಿ. ಹೊರಡುವ ಮೊದಲು ಲೋಡ್ ಭದ್ರಪಡಿಸಿ ಸರಕು ಬಾಗಿಲು ಮುಚ್ಚಿ.",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ, ಉಳಿಸಿಕೊಂಡ ಪಾರ್ಸೆಲ್‌ಗಳನ್ನು ರಿಟರ್ನ್ಸ್‌ನಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಡಿಸ್ಪ್ಯಾಚ್‌ನಲ್ಲಿ ಮುಗಿಸುವ ಮೊದಲು ವ್ಯಾನ್‌ನ ಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ."
 },
 "templates": [
 [
@@ -5755,6 +5800,22 @@ window.OTR_I18N.kn = {
 [
 "Press {0} to use the delivery controls.",
 "ಡೆಲಿವರಿ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಲು {0} ಒತ್ತಿರಿ."
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} ಈ ಭಾಗವನ್ನು ಪರಿಶೀಲಿಸಲು {1} ಒತ್ತಿ."
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"ಸ್ಟಾಪ್ ಚಿಹ್ನೆಗಳಲ್ಲಿ ಪೂರ್ಣವಾಗಿ ನಿಲ್ಲಿ, ಚಿಹ್ನೆ ಹೇಳುವಲ್ಲಿ ದಾರಿ ಬಿಡಿ. ವೇಗ ಮಿತಿಯೊಳಗೆ ಇರಿ, ಶಾಲಾ ವಲಯಗಳಲ್ಲಿ ವೇಗ ಕಡಿಮೆ ಮಾಡಿ. ಏಕಮುಖ ರಸ್ತೆಯನ್ನು ಅದರ ದಿಕ್ಕಿಗೆ ವಿರುದ್ಧವಾಗಿ ಎಂದಿಗೂ ಪ್ರವೇಶಿಸಬೇಡಿ, ಪ್ರವೇಶ ನಿಷೇಧ ಚಿಹ್ನೆಯನ್ನು ಎಂದಿಗೂ ದಾಟಬೇಡಿ. ಎದುರು ಕಾಣುವ ಚಿಹ್ನೆಯನ್ನು ಕೇಳಲು {0} ಒತ್ತಿ."
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"ಹೊರಡುವ ಮೊದಲು, ಖಾಲಿ ಕೈಗಳಿಂದ ನಿಲ್ಲಿಸಿದ ವ್ಯಾನ್ ಸುತ್ತ ನಡೆಯಿರಿ. ಪ್ರತಿ ಭಾಗವನ್ನು ಆರಿಸಲು {0}, ಅದನ್ನು ಪರಿಶೀಲಿಸಲು {1} ಒತ್ತಿ. ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ಹೊಂದುವ ವಿವರಣೆಯನ್ನು ಆರಿಸಿ. ಮುಂಭಾಗ, ಹಿಂಭಾಗ, ಎರಡೂ ಬದಿಗಳು, ಮೇಲ್ಛಾವಣಿಯ ಅಂಚು, ಹಿಂದಿನ ಎಡ ಚಕ್ರ ಮತ್ತು ಎಡ ಕನ್ನಡಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಹಿಂಭಾಗವನ್ನು ಪರಿಶೀಲಿಸುವ ಮೊದಲು ಸರಕು ಬಾಗಿಲು ಮುಚ್ಚಿ."
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"ಈ ಭಾಗವನ್ನು ಪರಿಶೀಲಿಸಿ ಅದರ ಸ್ಥಿತಿಯನ್ನು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ನಲ್ಲಿ ದಾಖಲಿಸಲು {0} ಒತ್ತಿ."
 ]
 ],
 "keep": [

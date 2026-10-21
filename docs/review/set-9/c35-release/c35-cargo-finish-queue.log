@@ -1,0 +1,10 @@
+START native-low-ta
+DONE native-low-ta 0
+START native-high-en
+DONE native-high-en 0
+START resource
+DONE resource 0
+START shared-a
+START shared-b
+DONE shared-b 0
+DONE shared-a 0

@@ -355,3 +355,47 @@ The older 101-view gate and pre-damage sweeps above belong to their original sou
 [Current review and remaining checks](review/set-9/c33.md),
 [raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
 Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.
+
+## C-35 complete frozen resource gate (21 October 2026)
+
+All **179 rendered views** pass with product runtime `501fb82`. Each profile
+checks live reflections, native richer stops, damage, traffic, sound and walkaround.
+All ceilings remain unchanged.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 61 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 46 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 36 | 54 | 2,396 | 2 | 3,557,376 | 3,067,056 |
+| fallback-low | 36 | 53 | 2,150 | 2 | 3,557,376 | 2,549,552 |
+
+[All 179 captures, raw reports, measured harnesses and hashes](review/set-9/c35-render/manifest.json).
+After capture, the cargo regression was corrected by moving/narrowing only its
+non-rendered rear inspection proxy. All 161 required cases and 24 changed-JS
+syntax checks pass. Final real-key cargo/inspection checks, eight focused rendered cargo/rear views
+and nine shared journeys pass; the following section records their source.
+The 179-view figures retain their measured source. No Intel FPS claim; O-1 remains.
+
+
+## C-35 final cargo target verification (21 October 2026)
+
+The non-rendered rear proxy correction keeps cargo and inspection independently
+selectable. All **eight focused rendered views** pass on product `d58a876`:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,141,755 |
+| loaded-high | 2 | 72 | 79,027 | 3 | 11,239,424 | 7,100,635 |
+| accessible-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,506,192 |
+| fallback-low | 2 | 44 | 796 | 2 | 3,557,376 | 2,141,755 |
+
+These check the actual cargo/rear ray IDs in the same unchanged ceilings; they
+supplement the full 179-view gate at `501fb82`. The only later product delta is the
+non-rendered rear target position/width. Final native cargo/inspection workflows
+pass **658 checks**, including Tamil larger Low at **3,880,838 Phaser bytes**.
+All **nine shared journeys pass** after the correction. They preserve existing
+routes; positive new records are tested by the owned native workflows pending
+Claude's B-99 helper. [Final captures/raw reports/scopes/hashes](review/set-9/c35-release/manifest.json).
+Latest pilot `74cd60a` retains the owned rendering code unchanged and adds Claude's
+save v2 and safety translation corrections. No resource ceiling changed. Cloud
+SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).

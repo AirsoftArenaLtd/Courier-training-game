@@ -41,6 +41,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     OTR.fpDoors.configure=function(m,saved){doors.call(this,m,saved);OTR.fpStopFlow.configure(m,m.deliveryStops);};
    });
   }
+  if(process.env.QA_WALKAROUND==='1'){report.walkaroundFixture=true;await p.evaluate(()=>{const create=OTR.fpMission.create;OTR.fpMission.create=function(kind,seed,plan){return create.call(this,kind,seed,kind==='campaign'&&plan?OTR.fpWalkaroundFlow.prepare(OTR.fpDamageFlow.prepare(plan)):plan);};});}
   if(process.env.QA_SOUND==='1'){await p.keyboard.press('Shift');await p.waitForFunction(()=>OTR.audio.ctx&&OTR.audio.ctx.state==='running');report.audioContext='running';}
   report.accessibility=(process.env.QA_A11Y||'').split(',').filter(Boolean);
   await p.evaluate(options=>{const s=OTR.game.scene.getScene('FirstPersonScene'),a=OTR.a11y.settings();a.colour=options.includes('colour');a.large=options.includes('large');a.reducedMotion=options.includes('reduced');OTR.a11y.applyColour(s);if(a.large){s.objective.setFontSize(23);s.hint.setFontSize(22);if(s.navText){s.navText.setFontSize(21);s.soundCue.setFontSize(21);s.controls.setFontSize(22);s.help.setFontSize(22);}}},report.accessibility);
@@ -240,6 +241,31 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     s.model=m;s.area='route';s.notice='';s.target=null;s.rebuildWorld();s.sync();s.refresh();
     return {marker:m.routePlan.deliveries,source:'native-later-authorized',later:m.routePlan.later===1,lockerStop:m.routePlan.lockerStop,damageZones:m.damage?m.damage.added.filter(Boolean).length:0,physicalTarget:s.art.interactions.some(o=>o.userData.interaction==='visit'+id),parts:s.art.deliveryArt.parts.length,protocol:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.kind,gated:m._deliverySpecs[id].gated,deposited:OTR.fpStopFlow.inLocker(m,parcel)};
    },kind);await sample(view);
+  }
+  if(process.env.QA_WALKAROUND==='1')for(const kind of (process.env.QA_CARGO_PROBE==='1'?['cargo','rear']:['front','roof','record','summary','guidepre','guidepost'])){
+   const proof=await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpStopFlow.prepare(OTR.fpRoute.plan(4,8),true))));plan.timeOfDay='midday';
+    const m=OTR.fpMission.create('campaign',8,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
+    m.mode='walk';m.paused=true;m.step=()=>{};m.events[m.briefKey]=true;m.workdayRules={satnav:'full',damage:true};
+    for(const p of m.parcels)p.location=p.anomaly?'aside':'slot'+p.stop;
+    if(['record','summary','guidepost'].includes(kind)){
+     m.preparation();m.phase='return';m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});
+     for(const zone of OTR.fpDamage.zones){OTR.fpDamage.release(m.damage);OTR.fpDamage.contact(m.damage,zone,'solid',8);}
+    }
+    const zone=kind==='front'?'front':kind==='cargo'||kind==='rear'?'rear':kind==='record'?'mirror':'roof',t=OTR.fpWalkaroundFlow.target(zone),point=OTR.fp.local(m.van,t.x+(['front','rear'].includes(zone)?0:-.85),t.z+(zone==='front'?-.85:zone==='rear'?.85:0));Object.assign(m.player,point);
+    const target=OTR.fpWalkaroundFlow.point(m,zone);m.player.yaw=Math.atan2(target.x-m.player.x,-(target.z-m.player.z));m.player.pitch=Math.atan2(1.65-target.y,Math.hypot(target.x-m.player.x,target.z-m.player.z));
+    s.model=m;s.area='route';s.notice='';s.target='wear-'+zone;s.rebuildWorld();s.sync();s.refresh();
+    if(kind==='cargo'||kind==='rear'){
+     if(kind==='cargo')Object.assign(m.player,OTR.fp.local(m.van,0,4));
+     const object=kind==='cargo'?s.art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0):s.art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear'),at=object.getWorldPosition(new THREE.Vector3());
+     m.player.yaw=Math.atan2(at.x-m.player.x,-(at.z-m.player.z));m.player.pitch=Math.atan2(1.65-at.y,Math.hypot(at.x-m.player.x,at.z-m.player.z));s.sync();s.target=s.aimTarget();s.refresh();
+     if(s.target!==(kind==='cargo'?'cargo':'wear-rear'))throw Error('The cargo and rear inspection targets overlap.');
+    }
+    if(kind==='record'){OTR.fpWalkaroundFlow.inspect(m,zone);OTR.fpWalkaroundUI.describe(s,zone,1);}
+    if(kind==='summary')OTR.fpWalkaroundUI.records(s,4);
+    if(kind==='guidepre'||kind==='guidepost')OTR.fpGuide.steps(s,kind==='guidepre'?7:8,()=>s.closePanel());
+    return {marker:m.routePlan.walkaround,valid:OTR.fpWalkaround.valid(m.walkaround,m.damage),targets:s.art.walkaroundTargets.length,proxyOnly:s.art.walkaroundTargets.every(o=>o.layers.mask===2),physicalPick:kind==='cargo'||kind==='rear'?s.aimTarget():null,kind};
+   },kind);report.walkaroundProof=report.walkaroundProof||{};report.walkaroundProof['walk'+kind]=proof;await sample('walk'+kind);
   }
   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){
    await p.evaluate(kind=>{
