@@ -3876,6 +3876,7 @@ window.OTR_I18N.ta = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "ஆய்வுக்கு ஒவ்வொரு பொருளையும் கிளிக் செய்யுங்கள் (அல்லது Tab, Enter) · ஏற்க A · மறுக்க R, காரணத்துக்கு 1-5",
 "Clear all": "எல்லாம் அழி",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ஒரு நிறுத்தத்தில் கிளிக் செய்க — வரைபடத்திலோ பட்டியலிலோ — அல்லது Tab மூலம் அங்கு சென்று Enter அழுத்துக, ரூட்டில் சேர்க்க; மீண்டும் செய்தால் நீக்க. சரிசெய்ய செயல்தவிர் (Backspace) / எல்லாம் அழி. பட்டியல் வரிசைப்பட்டதும் டிஸ்பாச் செய்யுங்கள்.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "புகைப்படச் சான்று: பார்சலையும் கதவையும் சட்டகத்தில் கொண்டு வாருங்கள். வீட்டு எண்கள் வேண்டாம், மனிதர்கள் வேண்டாம். பிறகு கிளிக் செய்யுங்கள் (அல்லது அம்புக்குறி விசைகள், பிறகு SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "இந்தச் சாதாரண பார்சலை இந்த இடத்தில் ஒதுக்கப்பட்ட லாக்கரில் டெலிவர் செய்யுங்கள்.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ஒரு பார்சல் லாக்கருக்கு அனுமதிக்கப்பட்டது. மற்ற ஒவ்வொரு பார்சலுக்கும் கையொப்பம் தேவை. புகைப்பட அடையாள அட்டை தேவையா என லேபிளில் பாருங்கள்.",
 "Retrieve the parcel from the locker before moving it.": "பார்சலை நகர்த்தும் முன் லாக்கரிலிருந்து எடுங்கள்.",

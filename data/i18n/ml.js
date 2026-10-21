@@ -3876,6 +3876,7 @@ window.OTR_I18N.ml = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "പരിശോധിക്കാൻ ഓരോ ഇനത്തിലും ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ Tab, Enter) · സ്വീകരിക്കാൻ A · നിരസിക്കാൻ R, കാരണത്തിന് 1-5",
 "Clear all": "എല്ലാം മായ്ക്കുക",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ഒരു സ്റ്റോപ്പിൽ ക്ലിക്ക് ചെയ്യുക — മാപ്പിലോ പട്ടികയിലോ — അല്ലെങ്കിൽ Tab കൊണ്ട് അവിടെയെത്തി Enter അമർത്തുക, റൂട്ടിൽ ചേർക്കാൻ; വീണ്ടും ചെയ്താൽ മാറ്റാൻ. തിരുത്താൻ പഴയപടിയാക്കുക (Backspace) / എല്ലാം മായ്ക്കുക. പട്ടിക ക്രമമായാൽ ഡിസ്പാച്ച് ചെയ്യുക.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ഫോട്ടോ തെളിവ്: പാക്കേജും വാതിലും ഫ്രെയിമിലാക്കുക. വീട്ടുനമ്പർ വേണ്ട, ആളുകൾ വേണ്ട. പിന്നെ ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ അമ്പ് കീകൾ, പിന്നെ SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "ഈ സാധാരണ പാഴ്സൽ ഈ സ്ഥലത്തെ നിശ്ചിത ലോക്കറിൽ ഡെലിവർ ചെയ്യുക.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ഒരു പാഴ്സലിന് ലോക്കർ അനുമതിയുണ്ട്. മറ്റെല്ലാ പാക്കേജിനും ഒപ്പ് വേണം. ഫോട്ടോ ഐഡി വേണോ എന്ന് ലേബലിൽ നോക്കുക.",
 "Retrieve the parcel from the locker before moving it.": "മാറ്റുന്നതിന് മുമ്പ് പാഴ്സൽ ലോക്കറിൽ നിന്ന് എടുക്കുക.",

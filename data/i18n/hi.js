@@ -3877,6 +3877,7 @@ window.OTR_I18N.hi = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "जाँचने के लिए हर टुकड़े पर क्लिक करें (या Tab और Enter) · A स्वीकार · R मना, कारण के लिए 1-5",
 "Clear all": "सब मिटाएँ",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "किसी स्टॉप पर क्लिक करें — नक्शे पर या सूची में — या Tab से उस तक जाकर Enter दबाएँ, उसे रूट में जोड़ने के लिए; दोबारा करें हटाने के लिए। सुधारने के लिए पूर्ववत करें (Backspace) / सब मिटाएँ। सूची क्रम में हो जाए तो डिस्पैच करें।",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "फ़ोटो प्रमाण: पैकेज और दरवाज़ा फ़्रेम में लें। घर का नंबर नहीं, लोग नहीं। फिर क्लिक करें (या तीर कुंजियाँ, फिर SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "यह सामान्य पार्सल इस साइट के तय लॉकर में डिलीवर करें।",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "एक पार्सल लॉकर के लिए अधिकृत है। बाकी हर पैकेज पर हस्ताक्षर ज़रूरी है। फ़ोटो पहचान पत्र की ज़रूरत के लिए लेबल देखें।",
 "Retrieve the parcel from the locker before moving it.": "आगे ले जाने से पहले पार्सल लॉकर से निकालें।",

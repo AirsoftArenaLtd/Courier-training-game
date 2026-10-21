@@ -3877,6 +3877,7 @@ window.OTR_I18N.fr = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "Clique chaque pièce (ou Tab et Enter) pour l'inspecter · A accepter · R refuser, 1-5 pour la raison",
 "Clear all": "Tout effacer",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Clique un arrêt — sur la carte ou le manifeste — ou atteins-le avec Tab et appuie sur Enter, pour l'ajouter à la tournée ; à nouveau pour le retirer. Annuler (Backspace) / Tout effacer pour corriger. Lance la tournée quand le manifeste est ordonné.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "PREUVE PHOTO : cadre le colis et la porte. Pas de numéro de maison, pas de personnes. Puis clique (ou les flèches, puis SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "Livre ce colis standard dans le casier attribué sur ce site.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "Un colis est autorisé en casier. Tous les autres colis exigent une signature. Vérifie sur l'étiquette si une pièce d'identité avec photo est exigée.",
 "Retrieve the parcel from the locker before moving it.": "Récupère le colis dans le casier avant de le déplacer.",

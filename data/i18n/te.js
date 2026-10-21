@@ -3876,6 +3876,7 @@ window.OTR_I18N.te = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "తనిఖీకి ప్రతి ముక్కపై క్లిక్ చేయండి (లేదా Tab, Enter) · అంగీకారం A · తిరస్కారం R, కారణానికి 1-5",
 "Clear all": "అన్నీ తుడిచేయి",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "స్టాప్‌పై క్లిక్ చేయండి — మ్యాప్‌పై లేదా జాబితాలో — లేదా Tab తో అక్కడికి వెళ్లి Enter నొక్కండి, రూట్‌లో చేర్చడానికి; మళ్లీ చేస్తే తీసేయడానికి. సరిచేయడానికి రద్దు చేయండి (Backspace) / అన్నీ తుడిచేయి. జాబితా క్రమంలో పెట్టాక డిస్పాచ్ చేయండి.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ఫోటో రుజువు: ప్యాకేజీ, తలుపు ఫ్రేమ్‌లోకి తీసుకోండి. ఇంటి నంబర్లు వద్దు, మనుషులు వద్దు. తర్వాత క్లిక్ చేయండి (లేదా బాణం కీలు, తర్వాత SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "ఈ సాధారణ ప్యాకేజీని ఈ సైట్‌లో కేటాయించిన లాకర్‌కు డెలివర్ చేయండి.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ఒక ప్యాకేజీకి లాకర్ అనుమతి ఉంది. మిగతా ప్రతి ప్యాకేజీకి సంతకం అవసరం. ఫోటో ID అవసరమా అని లేబుల్ చూడండి.",
 "Retrieve the parcel from the locker before moving it.": "ప్యాకేజీని కదిలించే ముందు లాకర్ నుండి తీయండి.",

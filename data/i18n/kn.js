@@ -3876,6 +3876,7 @@ window.OTR_I18N.kn = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "ಪರಿಶೀಲನೆಗೆ ಪ್ರತಿ ತುಂಡಿನ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ (ಅಥವಾ Tab ಮತ್ತು Enter) · ಸ್ವೀಕಾರ A · ನಿರಾಕರಣೆ R, ಕಾರಣಕ್ಕೆ 1-5",
 "Clear all": "ಎಲ್ಲಾ ಅಳಿಸಿ",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ಸ್ಟಾಪ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ — ನಕ್ಷೆಯಲ್ಲಿ ಅಥವಾ ಪಟ್ಟಿಯಲ್ಲಿ — ಅಥವಾ Tab ಮೂಲಕ ಅಲ್ಲಿಗೆ ಹೋಗಿ Enter ಒತ್ತಿ, ರೂಟ್‌ಗೆ ಸೇರಿಸಲು; ಮತ್ತೆ ಮಾಡಿದರೆ ತೆಗೆಯಲು. ಸರಿಪಡಿಸಲು ರದ್ದುಮಾಡಿ (Backspace) / ಎಲ್ಲಾ ಅಳಿಸಿ. ಪಟ್ಟಿ ಕ್ರಮವಾದ ಮೇಲೆ ಡಿಸ್ಪ್ಯಾಚ್ ಮಾಡಿ.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ಫೋಟೋ ಪುರಾವೆ: ಪ್ಯಾಕೇಜ್ ಮತ್ತು ಬಾಗಿಲನ್ನು ಚೌಕಟ್ಟಿನಲ್ಲಿ ತನ್ನಿ. ಮನೆ ಸಂಖ್ಯೆ ಬೇಡ, ಜನರು ಬೇಡ. ನಂತರ ಕ್ಲಿಕ್ ಮಾಡಿ (ಅಥವಾ ಬಾಣದ ಕೀಲಿಗಳು, ನಂತರ SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "ಈ ಸಾಮಾನ್ಯ ಪಾರ್ಸೆಲ್ ಅನ್ನು ಈ ಸ್ಥಳದ ನಿಗದಿತ ಲಾಕರ್‌ಗೆ ಡೆಲಿವರಿ ಮಾಡಿ.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ಒಂದು ಪಾರ್ಸೆಲ್‌ಗೆ ಲಾಕರ್ ಅನುಮತಿ ಇದೆ. ಉಳಿದ ಪ್ರತಿ ಪ್ಯಾಕೇಜ್‌ಗೆ ಸಹಿ ಬೇಕು. ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಬೇಕೇ ಎಂದು ಲೇಬಲ್ ನೋಡಿ.",
 "Retrieve the parcel from the locker before moving it.": "ಮುಂದೆ ಒಯ್ಯುವ ಮೊದಲು ಲಾಕರ್‌ನಿಂದ ಪಾರ್ಸೆಲ್ ತೆಗೆಯಿರಿ.",

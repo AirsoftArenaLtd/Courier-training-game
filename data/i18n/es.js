@@ -3887,6 +3887,7 @@ window.OTR_I18N.es = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "Clic en cada pieza (o Tab y Enter) para inspeccionarla · A aceptar · R rechazar, 1-5 para el motivo",
 "Clear all": "Borrar todo",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Haz clic en una parada, en el mapa o en el manifiesto, o ve a ella con Tab y pulsa Enter, para añadirla a la ruta; otra vez la quita. Deshacer (Backspace) / Borrar todo para corregir. Despacha cuando el manifiesto esté ordenado.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "FOTO DE COMPROBANTE: encuadra el paquete y la puerta. Sin números de casa ni personas. Luego haz clic (o las flechas, luego SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "Entrega este paquete estándar en el casillero asignado de este sitio.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "Un paquete está autorizado para casillero. Todos los demás paquetes necesitan firma. Revisa en la etiqueta si se exige identificación con foto.",
 "Retrieve the parcel from the locker before moving it.": "Saca el paquete del casillero antes de moverlo.",

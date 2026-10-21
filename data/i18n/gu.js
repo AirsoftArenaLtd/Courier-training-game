@@ -3876,6 +3876,7 @@ window.OTR_I18N.gu = {
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "તપાસવા દરેક નંગ પર ક્લિક કરો (અથવા Tab અને Enter) · સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
 "Clear all": "બધું ભૂંસો",
 "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "સ્ટૉપ પર ક્લિક કરો — નકશા પર કે યાદીમાં — અથવા Tab થી ત્યાં જઈ Enter દબાવો, રૂટમાં ઉમેરવા; ફરી કરો કાઢવા. સુધારવા પૂર્વવત્ કરો (Backspace) / બધું ભૂંસો. યાદી ક્રમમાં ગોઠવાય પછી ડિસ્પેચ કરો.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ફોટો પુરાવો: પૅકેજ અને દરવાજો ફ્રેમમાં લો. ઘરનો નંબર નહીં, લોકો નહીં. પછી ક્લિક કરો (અથવા તીર કી, પછી SPACE)",
 "Deliver this standard parcel to the assigned locker at this site.": "આ સામાન્ય પાર્સલ આ સ્થળના નિર્ધારિત લૉકરમાં ડિલિવર કરો.",
 "One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "એક પાર્સલ લૉકર માટે અધિકૃત છે. બાકીના દરેક પૅકેજ માટે સહી જોઈએ. ફોટો ઓળખપત્ર જરૂરી છે કે નહીં તે લેબલ પર તપાસો.",
 "Retrieve the parcel from the locker before moving it.": "ખસેડતા પહેલાં લૉકરમાંથી પાર્સલ કાઢો.",
