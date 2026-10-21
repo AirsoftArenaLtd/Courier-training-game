@@ -113,7 +113,7 @@ window.OTR_I18N.gu = {
 "Getting a signature across a language barrier": "ભાષાની દીવાલ પાર સહી લેવી",
 "Refusing a package handover politely": "વિનમ્રતાથી પેકેજ આપવાની ના પાડવી",
 "Heavy packages on the hand truck": "હેન્ડ ટ્રક પર ભારે પેકેજ",
-"A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose": "ચાલવા A/D કે ક્લિક · SHIFT સાવધાનીથી ચાલો · E વાતચીત · TAB હેન્ડહેલ્ડ · પસંદ કરવા 1-4",
+"A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose": "ચાલવા A/D કે ક્લિક · SHIFT સાવધાનીથી ચાલો · E વાતચીત · TAB હૅન્ડહેલ્ડ · પસંદ કરવા 1-4",
 "Problem Solving": "સમસ્યા ઉકેલ",
 "When the route goes sideways": "જ્યારે રૂટ ખોરવાય",
 "Wrong Address": "ખોટું સરનામું",
@@ -3543,7 +3543,7 @@ window.OTR_I18N.gu = {
 "Read the morning brief and every manifest page here. Return here after completing the route.": "સવારનું બ્રીફ અને યાદીનાં બધાં પાનાં અહીં વાંચો. રૂટ પૂરો થયા પછી અહીં પાછા આવો.",
 "Inspect the tires before departure. Request a repair if you find a defect.": "નીકળતાં પહેલાં ટાયર તપાસો. ખામી મળે તો રિપેર માગો.",
 "Test the lights before departure. Request a repair if a lamp does not work.": "નીકળતાં પહેલાં લાઇટ તપાસો. લૅમ્પ ન ચાલે તો રિપેર માગો.",
-"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "લેબલ યાદી સાથે મેળવો. પેકેજ ઉપાડો, પછી હેન્ડહેલ્ડ પર સ્કૅન કરો.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "લેબલ યાદી સાથે મેળવો. પેકેજ ઉપાડો, પછી હૅન્ડહેલ્ડ પર સ્કૅન કરો.",
 "Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "દરેક પેકેજ તેના ક્રમાંકિત શેલ્ફ પર લોડ કરો. નોંધેલો શેલ્ફ સ્ટૉપ પર શોધવામાં મદદ કરે છે.",
 "Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "પેકેજ લોડ કરવા કે કાઢવા કાર્ગો ખોલો. કાર્ગો દરવાજા બંધ કરતાં પહેલાં બહાર આવો.",
 "Secure the restraints after loading or retrieving a package, before driving again.": "પેકેજ લોડ કર્યા કે કાઢ્યા પછી, ફરી ચલાવતાં પહેલાં પટ્ટા બાંધો.",
@@ -3553,7 +3553,7 @@ window.OTR_I18N.gu = {
 "Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "પેકેજ લઈ જતાં પહેલાં રસ્તો જુઓ. હટાવી શકાય તેવા અવરોધો ખાલી હાથે દૂર કરો, અથવા લપસણી જગ્યા ટાળો.",
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "રાખેલું દરેક પેકેજ અહીં લાવો અને ડિસ્પેચ પર પૂરું કરતાં પહેલાં ફરી સ્કૅન કરો.",
 "Start a workday first": "પહેલાં કામનો દિવસ શરૂ કરો",
-"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "કામના દિવસ કે કાર્ગો પ્રૅક્ટિસ દરમિયાન હેન્ડહેલ્ડ મળે છે. હબમાંથી એક શરૂ કરો, પછી હેન્ડહેલ્ડ ખોલો.",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "કામના દિવસ કે કાર્ગો પ્રૅક્ટિસ દરમિયાન હૅન્ડહેલ્ડ મળે છે. હબમાંથી એક શરૂ કરો, પછી હૅન્ડહેલ્ડ ખોલો.",
 "Return to Dispatch": "ડિસ્પેચ પર પાછા ફરો",
 "The engine is running.": "એન્જિન ચાલુ છે.",
 "Rain is falling.": "વરસાદ પડી રહ્યો છે.",
@@ -5578,7 +5578,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
-"હેન્ડહેલ્ડ માટે {0} દબાવો. પસંદ કરવા તીર અને Enter વાપરો, સ્કૅન માટે {1} દબાવી રાખો."
+"હૅન્ડહેલ્ડ માટે {0} દબાવો. પસંદ કરવા તીર અને Enter વાપરો, સ્કૅન માટે {1} દબાવી રાખો."
 ],
 [
 "Press {0} to reopen Controls and guidance at any time.",
@@ -5586,7 +5586,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
-"કૅબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0}, અરીસા માટે {1}, પાર્કિંગ બ્રેક માટે {2} દબાવો. ઝડપ/બ્રેક માટે {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હેન્ડહેલ્ડ વાપરતાં કે ઉતરતાં પહેલાં ઊભા રહી પાર્કિંગ બ્રેક લગાવો."
+"કૅબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0}, અરીસા માટે {1}, પાર્કિંગ બ્રેક માટે {2} દબાવો. ઝડપ/બ્રેક માટે {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હૅન્ડહેલ્ડ વાપરતાં કે ઉતરતાં પહેલાં ઊભા રહી પાર્કિંગ બ્રેક લગાવો."
 ],
 [
 "Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
@@ -5694,7 +5694,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
-"કેબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0} અને પાર્કિંગ બ્રેક માટે {1} દબાવો. ચાલતાં કે વળતાં પહેલાં સાચા અરીસાને એક ક્ષણ જુઓ. કીબોર્ડથી પસંદ કરવા {2} દબાવો. ઝડપ વધારવા/બ્રેક મારવા {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હેન્ડહેલ્ડ વાપરતાં કે ઊતરતાં પહેલાં થોભો અને પાર્કિંગ બ્રેક લગાવો."
+"કેબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0} અને પાર્કિંગ બ્રેક માટે {1} દબાવો. ચાલતાં કે વળતાં પહેલાં સાચા અરીસાને એક ક્ષણ જુઓ. કીબોર્ડથી પસંદ કરવા {2} દબાવો. ઝડપ વધારવા/બ્રેક મારવા {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હૅન્ડહેલ્ડ વાપરતાં કે ઊતરતાં પહેલાં થોભો અને પાર્કિંગ બ્રેક લગાવો."
 ],
 [
 "Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
