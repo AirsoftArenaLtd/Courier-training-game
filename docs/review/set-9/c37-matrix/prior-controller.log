@@ -1,0 +1,11 @@
+START native-low
+END native-low 0
+START native-later-low
+END native-later-low 0
+START native-high
+END native-high 0
+Traceback (most recent call last):
+  File "/tmp/c37-acceptance.py", line 12, in <module>
+    if any(hashlib.sha256((root/p).read_bytes()).hexdigest()!=h for p,h in frozen.items()):raise RuntimeError('Frozen source changed before '+name)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Frozen source changed before drivemap
