@@ -80,7 +80,10 @@ OTR.atmos = {
         // grading: tint, darkness and vignette in one multiply pass (gradeTex)
         const dark = lit ? 0 : Math.min(0.95, T.dark + ({ rain: 0.12, storm: 0.28, cloudy: 0.05, snow: 0.02 }[this.weather] || 0));
         const vig = o.vignette === false ? 0 : this.tod === 'night' ? 1 : 0.7;
-        if (T.tint !== 0xFFFFFF || dark > 0 || vig > 0) {
+        // B-126: ?gfx=lite leaves out the full-screen grade (tint and vignette) where the scene is not dark, and the heat
+        // layers; night and storms keep their darkness, which the trainee needs to see
+        const lite = !!(OTR.gfx && OTR.gfx.lite && OTR.gfx.lite()) && dark < 0.11;
+        if (!lite && (T.tint !== 0xFFFFFF || dark > 0 || vig > 0)) {
           fix(s.add.image(OTR.W / 2, OTR.H / 2, OTR.atmos.gradeTex(s, T.tint, Math.max(0, dark), vig)).setDisplaySize(OTR.W, OTR.H)
             .setBlendMode(Phaser.BlendModes.MULTIPLY).setDepth(d));
         }
@@ -88,7 +91,7 @@ OTR.atmos = {
           fix(s.add.image(OTR.W / 2, OTR.H / 2, OTR.atmos.liftTex(s, dark, vig)).setDisplaySize(OTR.W, OTR.H)
             .setBlendMode(Phaser.BlendModes.ADD).setDepth(d));
         }
-        if (this.weather === 'heat') {
+        if (this.weather === 'heat' && !lite) {
           fix(s.add.rectangle(OTR.W / 2, OTR.H / 2, OTR.W, OTR.H, 0xFFB050, 0.12).setBlendMode(Phaser.BlendModes.ADD).setDepth(d + 1));
           const glare = fix(s.add.image(OTR.W * 0.8, 60, 'p_glow').setScale(14).setTint(0xFFF0B0).setAlpha(0.35).setBlendMode(Phaser.BlendModes.ADD).setDepth(d + 2));
           s.tweens.add({ targets: glare, alpha: 0.2, scale: 13, duration: 1800, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
