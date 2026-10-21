@@ -846,3 +846,23 @@ The older 101-view gate and pre-damage sweeps above belong to their original sou
 [Current review and remaining checks](review/set-9/c33.md),
 [raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
 Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.
+
+## C-35 current-pilot progress (21 October 2026)
+
+C-35 retains pilot `5adcd5b`, including merged C-33. Product runtime `e4245b2`
+(the later `b52e708` changes only the locker-launch test bootstrap) passes both
+complete combined CPU sweeps with walkaround, authorized richer stops, damage,
+traffic, navigation, lighting/weather, extra cargo, camera motion and reflections.
+Each covers **285,600 views**: loaded **60 calls / 2,443 triangles**, procedural
+fallback **59 / 2,181**. The target proxies are on non-rendered layer 1; the wheel
+follows its actual imported bounds without body suspension. Only walkaround days
+reuse the roof patch on its visible upper edge. No instance/pass/target is added.
+
+The first native English larger-text Low workflow passes **321 checks** and peaks
+at **3,610,619 estimated Phaser bytes**, with all seven physical areas before and
+after the trip, strict native checkpoints and 12 readable guide pages. All 55 plain
+Node suites and 171 required/affected cases pass. [Raw results, captures, exact
+scopes and hashes](review/set-9/c35-current/manifest.json). Full Low/High and the
+expanded **179-view fpbench gate are still running**, so these are progress figures,
+not a completed rendered acceptance. The original ceilings stay unchanged; cloud
+SwiftShader does not certify native Intel 60 fps. O-1 remains the owner check.

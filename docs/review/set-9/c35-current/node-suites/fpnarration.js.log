@@ -1,0 +1,21 @@
+✔ ordinary hints coalesce at 1.5 seconds and a stable sentence is never repeated (7.78959ms)
+✔ a panel or any external speech keeps ownership until it finishes (2.577465ms)
+✔ a rear stop is immediate and can interrupt only this adapter, then normal spacing resumes (5.634536ms)
+✔ camera narration changes only at clear, under three, under one and stop bands (1.589781ms)
+✔ camera selection never queues a fractional distance and leaving reverse drops a waiting band (39.881892ms)
+✔ actual mirror evidence and switch changes are announced once without a new message (3.113114ms)
+✔ settings off, no speech API and walking need no speech and store nothing on the model (3.712646ms)
+✔ utterances use the active translation, language and volume (5.378979ms)
+✔ a camera selection outside reverse explains activation, and the first stable notice stays deduplicated (1.301967ms)
+✔ a queued target is dropped after looking forward, including while another reader speaks (6.449827ms)
+✔ a notice can be replaced or expire before its turn without being spoken (5.899106ms)
+✔ changing out of reverse drops both its queued gear confirmation and its distance band (1.463565ms)
+✔ a target hidden by the visible hint overlay is not narrated until it returns (1.036556ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.343795
