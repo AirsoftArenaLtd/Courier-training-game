@@ -9,6 +9,7 @@
  */
 const CATS = ['safety', 'efficiency', 'service'];
 const ROAD = ['red-light', 'route', 'giveway', 'cyclist'];      // the order of a day's road tally (src/core/workday.js)
+const HANDLING = ['intercom', 'reception', 'locker', 'reattempt', 'count', 'missing', 'missort'];   // a day's handling tally (B-92)
 
 const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
 
@@ -19,6 +20,8 @@ function pick(d) {
   const out = { at: num(d.at), score: num(d.score), stars, total: CATS.reduce((a, c) => a + stars[c], 0), criticals: crit };
   // B-54: [red lights, wrong turns, give way, cyclists] got wrong that day, on days that had traffic (null before)
   if (Array.isArray(d.road) && d.road.length === ROAD.length) out.road = d.road.map(num);
+  // B-92: richer stops and the load-out got wrong that day, on days that had them
+  if (Array.isArray(d.handling) && d.handling.length === HANDLING.length) out.handling = d.handling.map(num);
   return out;
 }
 
@@ -74,8 +77,11 @@ function beforeAfter(list, passMarks) {
     const both = multi.filter(t => t.first.road && t.latest.road);
     if (both.length) group.road = { trainees: both.length, kinds: ROAD,
       first: ROAD.map((_, i) => r2(mean(both.map(t => t.first.road[i])))), latest: ROAD.map((_, i) => r2(mean(both.map(t => t.latest.road[i])))) };
+    const hand = multi.filter(t => t.first.handling && t.latest.handling);
+    if (hand.length) group.handling = { trainees: hand.length, kinds: HANDLING,
+      first: HANDLING.map((_, i) => r2(mean(hand.map(t => t.first.handling[i])))), latest: HANDLING.map((_, i) => r2(mean(hand.map(t => t.latest.handling[i])))) };
   }
   return { generated: new Date().toISOString(), passMarks: marks, trainees, group };
 }
 
-module.exports = { beforeAfter, daysOf, CATS, ROAD };
+module.exports = { beforeAfter, daysOf, CATS, ROAD, HANDLING };

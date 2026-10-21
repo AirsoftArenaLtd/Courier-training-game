@@ -298,6 +298,8 @@ OTR.workday = {
     };
     const road = this.roadTally(log);
     if (road) rec.road = road;
+    const handling = this.handlingTally(log);                    // B-92: the doorsteps and the load-out
+    if (handling) rec.handling = handling;
     if (summary.depot && Number.isFinite(summary.depot.x) && Number.isFinite(summary.depot.z)) rec.depot = { x: summary.depot.x, z: summary.depot.z };
     // the day's town, so the drive review can draw its streets under the pins (B-29): the 3D world builds its streets
     // from OTR.town.build(townSeed), so the seed is all the record needs to keep
@@ -311,11 +313,18 @@ OTR.workday = {
    * How many times a day got each of ROAD wrong ([red lights, wrong turns, give way, cyclists]), or null on a day that
    * reported none of them (before milestone 8, or the first days without traffic), so it is not counted as a clean one.
    */
-  roadTally(log) {
-    const items = (log && log.items) || [], out = this.ROAD.map(() => 0);
+  roadTally(log) { return this.tally(log, this.ROAD); },
+  /**
+   * B-92: the same for the richer stops and the load-out, in this order: [intercom, reception, locker, reattempt (C-33),
+   * load count, missing package not reported, another route's package left on board]; null on a day without any.
+   */
+  HANDLING: ['stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt', 'load.count', 'load.missing-found', 'load.missort-missed'],
+  handlingTally(log) { return this.tally(log, this.HANDLING); },
+  tally(log, types) {
+    const items = (log && log.items) || [], out = types.map(() => 0);
     let seen = false;
     items.forEach(it => {
-      const i = this.ROAD.indexOf(it.type);
+      const i = types.indexOf(it.type);
       if (i < 0) return;
       seen = true;
       if (it.kind === 'penalty' || (it.kind === 'check' && it.got < it.max)) out[i]++;
@@ -344,6 +353,7 @@ OTR.workday = {
     const h = S.history = S.history || [];
     h.push({ id: 'workday', kind: 'workday', at: rec.at, assess: false, score: rec.score, stars: rec.stars, dur: rec.seconds, criticals: rec.criticals, lessons: rec.lessons, aids: rec.aids });
     if (rec.road) h[h.length - 1].road = rec.road;
+    if (rec.handling) h[h.length - 1].handling = rec.handling;
     if (h.length > 400) h.splice(0, h.length - 400);
     const W = this.saved();
     // the very first finished day is kept in a few numbers, so the before-and-after report still has it once the record
@@ -352,6 +362,7 @@ OTR.workday = {
       const oldest = rec && h.find(x => x && x.id === 'workday' && x.at < rec.at && x.stars) || rec;
       W.first = { at: oldest.at, score: oldest.score, stars: Object.assign({}, oldest.stars), criticals: Array.isArray(oldest.criticals) ? oldest.criticals.length : (oldest.criticals || 0) };
       if (Array.isArray(oldest.road)) W.first.road = oldest.road.slice();
+      if (Array.isArray(oldest.handling)) W.first.handling = oldest.handling.slice();
     }
     W.last = rec;
     W.current = null;

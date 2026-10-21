@@ -27,12 +27,18 @@ OTR.pilotReport = {
     const road = g.road ? `<h2>${T('Road habits: mistakes per day')}</h2><table class="grp"><thead><tr><th></th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
         ${g.road.kinds.map((k, i) => line(roadNames[k] || E(k), g.road.first[i], g.road.latest[i], true)).join('')}
       </tbody></table><p class="note">${F('From the {0} trainees whose first and latest workdays both had traffic.', g.road.trainees)}</p>` : '';
+    // B-92: the richer stops and the load-out, the same way
+    const handNames = { intercom: T('Intercom not used right'), reception: T('Reception handover not right'), locker: T('Locker drop not right'),
+      reattempt: T('Failed delivery not recorded right'), count: T('Load count not confirmed right'), missing: T('Missing package not reported'), missort: T('Left with another route\'s package') };
+    const hand = g.handling ? `<h2>${T('Doorsteps and loading: mistakes per day')}</h2><table class="grp"><thead><tr><th></th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
+        ${g.handling.kinds.map((k, i) => line(handNames[k] || E(k), g.handling.first[i], g.handling.latest[i], true)).join('')}
+      </tbody></table><p class="note">${F('From the {0} trainees whose first and latest workdays both had these checks.', g.handling.trainees)}</p>` : '';
     const groupTable = g.first && g.latest ? `<table class="grp"><thead><tr><th></th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
         ${line(T('Score'), g.first.score, g.latest.score)}
         ${cats.map(c => line(`${E(lab(c))} ★`, g.first.stars[c], g.latest.stars[c])).join('')}
         ${line(T('Critical errors per day'), g.first.criticals, g.latest.criticals, true)}
         ${line(T('Met every pass mark'), g.first.passedPercent, g.latest.passedPercent, false, '%')}
-      </tbody></table>${road}` : `<p>${T('No trainee has finished two workdays yet, so there is nothing to compare.')}</p>`;
+      </tbody></table>${road}${hand}` : `<p>${T('No trainee has finished two workdays yet, so there is nothing to compare.')}</p>`;
     const list = rows.length ? `<table class="who"><thead><tr><th>${T('Trainee')}</th><th>${T('Workdays')}</th><th>${T('First workday')}</th><th>${T('Latest workday')}</th><th>${T('Change')}</th></tr></thead><tbody>
         ${rows.map(t => `<tr><td>${E(t.name)}<span class="id"> ${E(t.id)}</span></td><td>${t.days}</td>
           <td class="stars">${E(stars(t.first))}</td><td class="stars">${E(stars(t.latest))}</td>
@@ -69,11 +75,13 @@ OTR.pilotReport = {
   /**
    * The same numbers as a spreadsheet (B-65): one row per trainee, columns named in English so a company's sheets keep
    * working whatever language the trainer uses (docs/DATA.md lists them). The road columns are empty for a day without
-   * traffic. A cell that a spreadsheet would read as a formula (=, +, -, @) starts with an apostrophe, so it stays text.
+   * traffic, and the handling columns (B-92) for a day without richer stops or a load-out. A cell that a spreadsheet
+   * would read as a formula (=, +, -, @) starts with an apostrophe, so it stays text.
    */
   CSV_COLUMNS: ['employee_id', 'name', 'workdays',
     ...['first', 'latest'].flatMap(s => [`${s}_date`, `${s}_score`, `${s}_safety_stars`, `${s}_efficiency_stars`, `${s}_service_stars`, `${s}_critical_errors`,
-      `${s}_met_pass_marks`, `${s}_red_lights`, `${s}_wrong_turns`, `${s}_did_not_give_way`, `${s}_cyclist`]), 'change_in_stars'],
+      `${s}_met_pass_marks`, `${s}_red_lights`, `${s}_wrong_turns`, `${s}_did_not_give_way`, `${s}_cyclist`,
+      `${s}_intercom`, `${s}_reception`, `${s}_locker`, `${s}_reattempt`, `${s}_load_count`, `${s}_missing_not_reported`, `${s}_other_route_package`]), 'change_in_stars'],
   csv(data) {
     const cell = (v) => {
       let s = v === null || v === undefined ? '' : String(v);
@@ -82,7 +90,8 @@ OTR.pilotReport = {
     };
     const day = (d) => (d && d.at ? new Date(d.at).toISOString().slice(0, 10) : '');
     const side = (d, passed) => [day(d), d.score, d.stars.safety, d.stars.efficiency, d.stars.service, d.criticals, passed ? 'yes' : 'no',
-      ...(Array.isArray(d.road) ? d.road : [null, null, null, null])];
+      ...(Array.isArray(d.road) ? d.road : [null, null, null, null]),
+      ...(Array.isArray(d.handling) ? d.handling : [null, null, null, null, null, null, null])];
     const rows = (data.trainees || []).map(t => [t.id, t.name, t.days, ...side(t.first, t.firstPassed), ...side(t.latest, t.latestPassed), t.change === null ? '' : t.change]);
     return '\uFEFF' + [this.CSV_COLUMNS, ...rows].map(r => r.map(cell).join(',')).join('\r\n') + '\r\n';
   },
