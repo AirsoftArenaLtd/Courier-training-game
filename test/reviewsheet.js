@@ -79,8 +79,9 @@ const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-sheets-'));
 try {
   for (const [lang, raw] of Object.entries(sheets)) fs.writeFileSync(path.join(tmp, `${lang}-safety.csv`), raw);
   const ta = fs.readFileSync(path.join(tmp, 'ta-safety.csv'), 'utf8').split('\r\n');
-  ta[3] = ta[3].replace(/,"","","text"$/, ',"ஒரு திருத்தம், ""மேற்கோளுடன்""","comment, with a comma","text"');
-  check(ta[3].includes('திருத்தம்'), 'ta: a correction typed into the scratch copy');
+  const r = ta.findIndex((l, i) => i >= 3 && /,"","","text"$/.test(l));   // the first line with no team question on it
+  ta[r] = ta[r].replace(/,"","","text"$/, ',"ஒரு திருத்தம், ""மேற்கோளுடன்""","comment, with a comma","text"');
+  check(ta[r].includes('திருத்தம்'), 'ta: a correction typed into the scratch copy');
   fs.writeFileSync(path.join(tmp, 'ta-safety.csv'), ta.join('\r\n'));
   execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'review-sheet.js')], { env: Object.assign({}, process.env, { REVIEW_OUT: tmp }), stdio: 'pipe' });
   for (const [lang, raw] of Object.entries(sheets)) {

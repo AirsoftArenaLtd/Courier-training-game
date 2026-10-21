@@ -2679,7 +2679,7 @@ window.OTR_I18N.ml = {
 "A neighbor saw you go down and called 911. In real life heat stroke can be fatal. Watch your hydration and body heat, take breaks in shade or AC, and act on the warning signs straight away.": "ഒരു അയൽക്കാരൻ നിങ്ങൾ വീഴുന്നത് കണ്ട് 911-ൽ വിളിച്ചു. യഥാർത്ഥ ജീവിതത്തിൽ സൂര്യാഘാതം മാരകമാകാം. ശരീരത്തിലെ ജലവും ചൂടും ശ്രദ്ധിക്കുക, തണലിലോ AC-യിലോ ഇടവേള എടുക്കുക, ലക്ഷണങ്ങൾ കണ്ടാലുടൻ നടപടിയെടുക്കുക.",
 "See stop report": "സ്റ്റോപ്പ് റിപ്പോർട്ട് കാണുക",
 "Pull this stop's package from the shelves": "ഷെൽഫിൽ നിന്ന് പാക്കേജെടുക്കുക",
-"Scan it with your handheld (TAB)": "സ്കാൻ ചെയ്യുക (TAB)",
+"Scan it with your handheld (TAB)": "നിങ്ങളുടെ ഹാൻഡ്‌ഹെൽഡ് (TAB) ഉപയോഗിച്ച് സ്കാൻ ചെയ്യുക",
 "Find the recipient or reception": "ആളെ / റിസപ്ഷൻ കണ്ടെത്തുക",
 "Get the door: knock, ring or buzz": "വാതിൽ: മുട്ടുക, ബെൽ, ബസർ",
 "Deliver it or record an exception": "ഡെലിവറി / ഒഴിവ് രേഖപ്പെടുത്തുക",
