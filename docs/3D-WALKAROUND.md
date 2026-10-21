@@ -1,6 +1,6 @@
 # Walkaround and damage report (C-35)
 
-Doing on `codex/c35-walkaround`, retaining pilot `0b43851` after merged C-33, C-34 and A-19.
+Doing on `codex/c35-walkaround`, retaining pilot `de6f989` after merged C-33, C-34 and A-19.
 The physical targets, mission/checkpoint adapter, handheld records and B-78 guidance
 are integrated. Final Low/High, inherited browser, resource and shared QA acceptance
 are running; the task remains doing. Three owned modules are loaded by shared index.
@@ -59,7 +59,7 @@ allocation-free hot-path cleanup. Final frozen Low/High runs and the expanded
 
 ## Current-pilot integration and shared QA
 
-C-33 is merged (PR #182). C-35 now retains pilot `0b43851`, including its locker
+C-33 is merged (PR #182). C-35 now retains pilot `de6f989`, including its locker
 policy, translations, handheld cleanup and shared workflow changes. The walkaround
 and authorized locker plan coexist in the real launch regression. New native
 walkaround fixtures use returned exception parcels for the completed-route setup;
