@@ -1,0 +1,10 @@
+6 Node suites (1 browser suites skipped: --browser); game at http://127.0.0.1:38155; browser /usr/bin/chromium; logs in test/out/run-all/
+
+ok   fpdriving.js                  1 s 
+ok   art.js                       12 s 
+FAIL driving.js                  192 s exit 1
+ok   enterprise.js                30 s 
+ok   routeday.js                  49 s 
+ok   town3d.js                    52 s 
+
+5 of 6 suites passed; failed: driving.js (see test/out/run-all/)
