@@ -337,6 +337,12 @@ const make = (opts) => async (page, ctx) => {
     else { await press('KeyL'); must((await state()).m.van.headlights === true, 'L did not switch the headlights on'); }
     await shot('night-cab');
   }
+  // B-129: fog and storms need the headlights in daylight too (fpNight.required), so a careful courier switches them on
+  else if (await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return !!m.nightDrive && OTR.fpNight.required(m) && !m.van.headlights; })) {
+    await press('KeyL');
+    must((await state()).m.van.headlights === true, 'L did not switch the headlights on in poor visibility');
+    log('      headlights on for the weather');
+  }
   // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
   // checked by looking at it (there is no mirror button since C-23); the left mirror just before moving off
   await cabUse('cab-drive'); must((await state()).m.van.gear === 1, 'the selector did not put the van in Drive');
@@ -349,8 +355,11 @@ const make = (opts) => async (page, ctx) => {
   // High run the game may simulate a tenth of a second in five, so a fixed deadline measured the PC, not the drive
   const driveTo = async (z) => {
     const end = Date.now() + 300000; let fwd = false, brake = false, best = Infinity, lastGain = Date.now();
+    // B-129: drive to the conditions: at most 85% of the day's weather limit (fog 12, ice 8, snow 10 mph: fpDay.conditions)
+    const top = await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, D = OTR.fpDay;
+      const mph = D && D.active(m) ? Math.min(D.conditions[m.routeDay.weather].mph, OTR.fpRoute.limit(m)) : Infinity; return Math.min(4, mph * 0.85 / 2.2369362921); });
     while (Date.now() < end && Date.now() - lastGain < 30000) {
-      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < 4;
+      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < top;
       if (Math.abs(d) < best - 0.05 || Math.abs(v.speed) > 0.04) { best = Math.min(best, Math.abs(d)); lastGain = Date.now(); }
       if (gas !== fwd) { await page.keyboard[gas ? 'down' : 'up']('KeyW'); fwd = gas; }
       if (stop !== brake) { await page.keyboard[stop ? 'down' : 'up']('KeyS'); brake = stop; }
