@@ -7,6 +7,7 @@
  *
  *   node test/tools/review-branch.js codex/c34-damage-load        (or: node test/run-all.js --review <branch>)
  *   --no-flows   skip the workday flows (about 25 minutes)
+ *   --no-keys    skip the keyboard-only replay of the 2D scenes the branch touches (B-94)
  *   --continue   after resolving a conflicted merge in the worktree and committing it: run the checks there again
  * The worktree is ../otr-review-<branch name> next to the repository, and the missing text goes to
  * test/out/review-<name>/missing.json there (the shape the translation helpers take: { strings, templates }).
@@ -90,7 +91,34 @@ const run = (cmd, a, env, log) => {
       { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)),
         QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'flows.log'));
     const clean = /(\d+)\/(\d+) scenarios clean/.exec(flows.stdout || '');
-    step('the five workday flows at Low', flows.status === 0, clean ? clean[0] : 'see flows.log');
+    step('the workday flows at Low', flows.status === 0, clean ? clean[0] : 'see flows.log');
+  }
+
+  // B-94: a branch that touches a 2D scene plays that scene's golden path again with the keyboard alone (QA_KEYS_ONLY,
+  // B-84), so a change that makes a scenario need the mouse fails here; a change to what every scene shares plays them all
+  // (--no-keys skips it)
+  if (!args.includes('--no-keys')) {
+    const changed = (run('git', ['diff', '--name-only', 'origin/pilot...' + ref]).stdout || '').split('\n').filter(Boolean);
+    const qaSrc = fs.readFileSync(path.join(WT, 'test', 'qa.js'), 'utf8');
+    const all = [...qaSrc.matchAll(/\{ id: '([a-z0-9-]+)', scene: '([A-Za-z]+)' \}/g)].map(m => ({ id: m[1], scene: m[2] }));
+    const shared = changed.some(f => /^src\/(core\/(ui|scanner|theme|talk|stage)\.js|scenes\/BaseScenarioScene\.js)$/.test(f) || /^test\/paths\/lib\//.test(f));
+    const scenes = new Set(changed.map(f => (/^src\/scenes\/(?:m\d|stops|shared|shift)\/([A-Za-z]+)\.js$/.exec(f) || [])[1]).filter(Boolean));
+    const ids = all.filter(sc => shared || scenes.has(sc.scene)).map(sc => sc.id);
+    if (ids.length) {
+      const keys = run(process.execPath, ['test/qa.js', '--only', ids.join(','), '--pass', 'golden'],
+        { QA_KEYS_ONLY: '1', QA_FPS_FLOOR: '8', QA_PORT: String(8500 + Math.floor(Math.random() * 90)),
+          QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'keys.log'));
+      const clean = /(\d+)\/(\d+) scenarios clean/.exec(keys.stdout || '');
+      step(`the 2D golden paths it touches, keyboard only (${ids.length})`, keys.status === 0, clean ? clean[0] : 'see keys.log');
+    }
+    // the scenes whose keyboard play has its own suite (their golden paths still use the mouse on purpose)
+    const SUITES = { PreTripScene: 'pretripkeysbrowser.js', RoutePlannerScene: 'routekeysbrowser.js', LoadingScene: 'routekeysbrowser.js',
+      PickupScene: 'pickupkeysbrowser.js', HubScene: 'hubkeysbrowser.js', RecordScene: 'hubkeysbrowser.js', TrainerScene: 'trainerkeysbrowser.js' };
+    const suites = [...new Set(Object.keys(SUITES).filter(k => shared || scenes.has(k) || changed.includes(`src/scenes/${k}.js`)).map(k => SUITES[k]))];
+    suites.forEach(f => {
+      const r = run(process.execPath, ['test/' + f], { QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, f.replace(/\.js$/, '.log')));
+      step(`${f} (keyboard only)`, r.status === 0, ((r.stdout || '').trim().split('\n').pop()) || 'see its log');
+    });
   }
 
   const bad = steps.filter(s => !s.ok);
