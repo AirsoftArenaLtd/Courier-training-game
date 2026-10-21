@@ -1,0 +1,35 @@
+{
+  "stage": "Doing; pure recorder/player core is not loaded by the game.",
+  "sourceRevision": "831ecf38476a7f39aebbe8159bacf078701f8d2d",
+  "results": {
+    "focusedCoreCases": 21,
+    "CPUWorldCases": 1,
+    "requiredAffectedCases": 108,
+    "fixedTypedBufferBytes": 194880,
+    "maximumPublishedFrameBytes": 97440,
+    "contextUTF16UnitLimit": 131072
+  },
+  "scope": "Current catalogue, three syntax checks and Node cases pass. No shared integration, new rendered frames or Intel FPS result is claimed. World positions are fixtures; the checkpoint and CPU world are actual implementations. The detached world replays 200 times without changing source state or reporting/scoring. Final renderer, accessibility, screenshots and full resource acceptance remain.",
+  "sourceSHA256": {
+    "src/core/fpreplay.js": "72744561c78ebc39d0e7cb502c68c2304893d5cccad5a6a2d4a44f686e110407",
+    "test/fpreplay.js": "fd19a2663e7f571d8a7173675bfcbfbd9531c5990327dd7cc17c7b038f6a3bf5",
+    "test/fpreplayworld.js": "06e5003b073505eaa9eb1949aa2c58327cba6a0db2312ff467533ab2321c7375"
+  },
+  "files": [
+    {
+      "path": "c37-core-i18n.log",
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+      "bytes": 3485
+    },
+    {
+      "path": "c37-core-required.log",
+      "sha256": "3222c363878d9f5c763b0e1d0f592d46554317590bf3a41588190c70f576dd42",
+      "bytes": 10789
+    },
+    {
+      "path": "c37-core.log",
+      "sha256": "26a111eda62756374dd1bae8232c98363330407d86a4e0e77c497fcc8cbfe01e",
+      "bytes": 2278
+    }
+  ]
+}
