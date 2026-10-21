@@ -1,0 +1,24 @@
+{
+  "stage": "Pilot combined; 146 affected cases pass, both corrected native checks pass (55 each); expanded resource/shared gate running.",
+  "pilot": "54d7a63",
+  "mergeRevision": "d44c7e6",
+  "fixtureCorrectionRevision": "83bef50",
+  "scope": "Original shared batch passed 7/9; two debrief timeouts retained. Initial merged native fixture skipped walkaround departure and initial locker bootstrap omitted radio modules; corrected without relaxing product checks. Broad runner 64/70: locker corrected by the 146-case pass; art needed the ignored worktree dependency symlink; four legacy file URLs are blocked by Chromium environment policy and require permitted HTTP transport. No all-suite pass claim.",
+  "files": {
+    "prior-shared-a.log": "169080bfb52a82afc63fee1e1258c85fa3f16feb1968a34835b350d431d72958",
+    "initial-driving.log": "cb31830913fb8f97e4d0812b6e2c8c21facf68eb0240c491e86d1174b0981b91",
+    "initial-art.log": "9a60aacef5f19e3eea31c66c6a80cfe0c259884fdcee71ea701c0744a4b9b6e4",
+    "initial-routeday.log": "a641cc54da9b3cf05ce0def852322e7107ae7e0915715358cb7d0b6e8aab9021",
+    "prior-shared-b.log": "8696820cfe84be3bae9ef99d7e72dbfd8fc71bccdf37214351dff3d5f2819c47",
+    "initial-merged-acceptance.json": "83891a693192076e1e5055c67276ba4a803241fa733dcfc5aa9038d72813b260",
+    "merged-save-probe.json": "04c76a064608d6d64f2c5017a2c64025361053621cac494c265ecbf19274964a",
+    "merged-targeted.log": "0bc139d20098125eba764268554f1fd69bde66e7b244628a0662fe98ced51760",
+    "initial-town3d.log": "c6f9debfe4c3d6054076ab6b87e7097e519c88fd8ca628b7d515baffbfc38804",
+    "initial-merged-native-low-ta.log": "6740dc62f7b1c75e174bdd2fa089b02116178d3a1b2d21766b716cbefee11a27",
+    "merged-save-probe.cjs": "450c1fd26688c336607b5e5e7af04d91e44890ee37d138b7fcf983640c81abfc",
+    "initial-fpstoplocker.log": "889b8530c3ad2a5a0a1d1329fa4ab3c7addcbf2213c42c6f8792a61467c689da",
+    "initial-enterprise.log": "d21ba55d23514679f8fb530fae117068661e0434a0df2a531c8d67f2db2b0244",
+    "initial-merged-native-low-ta-radio.json": "b6b660fcf777556d9f09abdf3727bd01993f2d908eb2ff3560a78c146470ce27",
+    "initial-all-suites.log": "8757bee207736c13ce9faa052e9df3e68c368443f13945ce9c457f1cd90cbab8"
+  }
+}
