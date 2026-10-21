@@ -318,8 +318,10 @@ fixtures, located damage, traffic/navigation, live mirror pixels, running sound,
 larger text/colour/reduced motion and actual missing-model fallback. No missing view,
 page error or lost context occurs. The measured runtime is `220f2ba`; the current branch
 retains pilot `da7bd3f`. Later changes correct one US spelling and remove an unused
-six-pixel gap after the handheld choices; 3D rendering inputs and text canvas sizes
-are unchanged. The repeated doorstep audit checks both body and Back-link clearance.
+six-pixel gap after the handheld choices. The owned handheld now releases unused
+page shapes after clearing them; the new doorstep memory guard exposed four retained
+signature-pad canvases. 3D rendering inputs, glyph sizes and canvas resolutions are
+unchanged. Repeated doorstep tests check body/Back clearance and the same 4 MiB Low ceiling.
 
 | Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

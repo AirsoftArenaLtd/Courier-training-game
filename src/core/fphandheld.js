@@ -5,6 +5,12 @@ OTR.fpHandheld = class {
     this.scene = scene;
     this.mode = 'closed'; this.trigger = false; this.focusId = null; this.progress = 0;
     const Device=OTR.fpBrand?class extends OTR.Handheld{
+      clear(){
+        const shapes=new Set(),visit=o=>{if(o.texture&&o.texture.key.startsWith('gfx_'))shapes.add(o.texture.key);for(const child of o.list||[])visit(child);};
+        if(this.screen)visit(this.screen);super.clear();
+        // Signature pads depend on the translated body's height. Keep only live page shapes.
+        for(const key of shapes)OTR.fpBrand.releaseUnused(this.scene,key);
+      }
       deviceTex(){return OTR.gfx.high()?OTR.fpBrand.deviceTexture(this.scene,this):'__WHITE';}
       build(){super.build();if(!OTR.gfx.high()){this.body.destroy();this.body=OTR.fpBrand.deviceSkin(this);this.root.addAt(this.body,0);this.root.add(OTR.txt(this.scene,0,this.H/2-12,OTR.fpBrand.read().name,14,'#ffffff',{fit:this.W-44,weight:'900'}));}}
       show(def){super.show(def);OTR.fpBrand.deviceBackground(this,def);return this;}

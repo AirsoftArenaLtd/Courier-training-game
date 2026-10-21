@@ -462,6 +462,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **21 October 2026, Codex — C-33 bounded handheld shapes:** the spacing correction passes the original layout assertions; the added Low memory guard then exposes 4,217,190 and 4,267,926 estimated Phaser bytes at the Tamil larger-text ID check. Inventory identifies four unreferenced 304 × 158 signature-pad canvases left by translated page heights, plus the current hidden handheld text. The owned device adapter now captures its page's generated shape keys before clearing and releases each only when no scene still references it. The company-theme regression verifies a borrowed pad survives while referenced and is released afterward. Twenty-three accessibility/handheld/theme Node cases and syntax pass; repeating affected browser acceptance before releasing the shared-flow queue. Both memory failures and inventory are retained; no ceiling is raised and no shared implementation is edited.
+
+
 - **21 October 2026, Codex — C-33 handheld spacing:** current-pilot acceptance passes all ten page-opening suites, the repeated 540-view language audit, 240 native sign approaches (3,113,414 estimated Phaser bytes), guide 85, High Tamil retention cases and compact HUD 186. The inherited doorstep suite exposed a genuine Tamil larger-text delivery overlap: the body ended at y=290 and the first choice began at y=290. Removed the unused six-pixel trailing gap after the last handheld choice, preserving fonts, wrapping, button sizes and inter-choice gaps. Ten accessibility Node cases and syntax pass; the extended real-browser regression now also guards the Back link and Low texture ceiling. Repeating the affected browser checks before releasing the shared-flow queue and native locker clip. Original red log, measured bounds and screenshot are preserved; still doing. No shared source edit, protected push or merge; hourly automation unchanged.
 
 
