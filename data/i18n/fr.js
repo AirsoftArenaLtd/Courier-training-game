@@ -3985,7 +3985,16 @@ window.OTR_I18N.fr = {
 "Record the exception and keep the parcel.": "Enregistre l'exception et garde le colis.",
 "Arrange the next delivery attempt.": "Organise la prochaine tentative de livraison.",
 "The intercom buzzes. You may unlock the entry.": "L'interphone bourdonne. Tu peux déverrouiller l'entrée.",
-"Arrange a failed delivery and reattempt.": "Gère une livraison échouée et une nouvelle tentative."
+"Arrange a failed delivery and reattempt.": "Gère une livraison échouée et une nouvelle tentative.",
+"Intercom not used right": "Interphone mal utilisé",
+"Reception handover not right": "Remise à l'accueil mal faite",
+"Locker drop not right": "Dépôt en casier mal fait",
+"Failed delivery not recorded right": "Échec de livraison mal enregistré",
+"Load count not confirmed right": "Nombre de colis mal confirmé",
+"Missing package not reported": "Colis manquant non signalé",
+"Left with another route's package": "Parti avec un colis d'une autre tournée",
+"Doorsteps and loading: mistakes per day": "Portes et chargement : erreurs par jour",
+"From the {0} trainees whose first and latest workdays both had these checks.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient ces vérifications."
 },
 "templates": [
 [

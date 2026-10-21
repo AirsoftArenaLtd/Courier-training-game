@@ -3984,7 +3984,16 @@ window.OTR_I18N.te = {
 "Record the exception and keep the parcel.": "మినహాయింపు నమోదు చేసి ప్యాకేజీని మీ వద్దే ఉంచండి.",
 "Arrange the next delivery attempt.": "తదుపరి డెలివరీ ప్రయత్నాన్ని ఏర్పాటు చేయండి.",
 "The intercom buzzes. You may unlock the entry.": "ఇంటర్‌కామ్ బజర్ మోగుతోంది. మీరు ప్రవేశ ద్వారం తాళం తీయవచ్చు.",
-"Arrange a failed delivery and reattempt.": "విఫల డెలివరీ, మళ్లీ ప్రయత్నాన్ని ఏర్పాటు చేయండి."
+"Arrange a failed delivery and reattempt.": "విఫల డెలివరీ, మళ్లీ ప్రయత్నాన్ని ఏర్పాటు చేయండి.",
+"Intercom not used right": "ఇంటర్‌కామ్‌ను సరిగ్గా వాడకపోవడం",
+"Reception handover not right": "రిసెప్షన్‌లో సరిగ్గా అప్పగించకపోవడం",
+"Locker drop not right": "లాకర్‌లో సరిగ్గా ఉంచకపోవడం",
+"Failed delivery not recorded right": "విఫల డెలివరీని సరిగ్గా నమోదు చేయకపోవడం",
+"Load count not confirmed right": "లోడ్ లెక్కను సరిగ్గా నిర్ధారించకపోవడం",
+"Missing package not reported": "కనిపించని ప్యాకేజీ గురించి తెలియజేయకపోవడం",
+"Left with another route's package": "వేరే రూట్ ప్యాకేజీతో బయలుదేరడం",
+"Doorsteps and loading: mistakes per day": "గుమ్మాలు, లోడింగ్: రోజుకు తప్పులు",
+"From the {0} trainees whose first and latest workdays both had these checks.": "మొదటి, తాజా పని దినాలు రెండింటిలోనూ ఈ తనిఖీలు ఉన్న {0} శిక్షణార్థులలో."
 },
 "templates": [
 [

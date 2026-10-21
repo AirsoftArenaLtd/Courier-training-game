@@ -3984,7 +3984,16 @@ window.OTR_I18N.kn = {
 "Record the exception and keep the parcel.": "ವಿನಾಯಿತಿ ದಾಖಲಿಸಿ ಪಾರ್ಸೆಲ್ ನಿಮ್ಮ ಬಳಿ ಇಟ್ಟುಕೊಳ್ಳಿ.",
 "Arrange the next delivery attempt.": "ಮುಂದಿನ ಡೆಲಿವರಿ ಪ್ರಯತ್ನ ನಿಗದಿಪಡಿಸಿ.",
 "The intercom buzzes. You may unlock the entry.": "ಇಂಟರ್‌ಕಾಮ್ ಬಜರ್ ಸದ್ದು ಮಾಡುತ್ತದೆ. ನೀವು ಪ್ರವೇಶ ಬಾಗಿಲು ತೆರೆಯಬಹುದು.",
-"Arrange a failed delivery and reattempt.": "ವಿಫಲ ಡೆಲಿವರಿ ಮತ್ತು ಮರುಪ್ರಯತ್ನ ನಿರ್ವಹಿಸಿ."
+"Arrange a failed delivery and reattempt.": "ವಿಫಲ ಡೆಲಿವರಿ ಮತ್ತು ಮರುಪ್ರಯತ್ನ ನಿರ್ವಹಿಸಿ.",
+"Intercom not used right": "ಇಂಟರ್‌ಕಾಮ್ ಅನ್ನು ಸರಿಯಾಗಿ ಬಳಸದಿದ್ದು",
+"Reception handover not right": "ರಿಸೆಪ್ಷನ್‌ನಲ್ಲಿ ಸರಿಯಾಗಿ ಹಸ್ತಾಂತರಿಸದಿದ್ದು",
+"Locker drop not right": "ಲಾಕರ್‌ನಲ್ಲಿ ಸರಿಯಾಗಿ ಇಡದಿದ್ದು",
+"Failed delivery not recorded right": "ವಿಫಲ ಡೆಲಿವರಿಯನ್ನು ಸರಿಯಾಗಿ ದಾಖಲಿಸದಿದ್ದು",
+"Load count not confirmed right": "ಲೋಡ್ ಎಣಿಕೆಯನ್ನು ಸರಿಯಾಗಿ ದೃಢೀಕರಿಸದಿದ್ದು",
+"Missing package not reported": "ಕಾಣೆಯಾದ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ತಿಳಿಸದಿದ್ದು",
+"Left with another route's package": "ಬೇರೆ ಮಾರ್ಗದ ಪ್ಯಾಕೇಜ್‌ನೊಂದಿಗೆ ಹೊರಟಿದ್ದು",
+"Doorsteps and loading: mistakes per day": "ಬಾಗಿಲುಗಳು ಮತ್ತು ಲೋಡಿಂಗ್: ದಿನಕ್ಕೆ ತಪ್ಪುಗಳು",
+"From the {0} trainees whose first and latest workdays both had these checks.": "ಮೊದಲ ಮತ್ತು ಇತ್ತೀಚಿನ ಕೆಲಸದ ದಿನ ಎರಡರಲ್ಲೂ ಈ ಪರಿಶೀಲನೆಗಳು ಇದ್ದ {0} ತರಬೇತಿದಾರರಲ್ಲಿ."
 },
 "templates": [
 [

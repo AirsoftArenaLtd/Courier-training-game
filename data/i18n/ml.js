@@ -3984,7 +3984,16 @@ window.OTR_I18N.ml = {
 "Record the exception and keep the parcel.": "ഒഴിവ് രേഖപ്പെടുത്തി പാഴ്സൽ കൈവശം വയ്ക്കുക.",
 "Arrange the next delivery attempt.": "അടുത്ത ഡെലിവറി ശ്രമം ക്രമീകരിക്കുക.",
 "The intercom buzzes. You may unlock the entry.": "ഇന്റർകോം ബസർ മുഴങ്ങുന്നു. നിങ്ങൾക്ക് പ്രവേശന വാതിൽ തുറക്കാം.",
-"Arrange a failed delivery and reattempt.": "പരാജയപ്പെട്ട ഡെലിവറിയും വീണ്ടുമുള്ള ശ്രമവും കൈകാര്യം ചെയ്യുക."
+"Arrange a failed delivery and reattempt.": "പരാജയപ്പെട്ട ഡെലിവറിയും വീണ്ടുമുള്ള ശ്രമവും കൈകാര്യം ചെയ്യുക.",
+"Intercom not used right": "ഇന്റർകോം ശരിയായി ഉപയോഗിക്കാതിരുന്നത്",
+"Reception handover not right": "റിസപ്ഷനിൽ ശരിയായി ഏൽപ്പിക്കാതിരുന്നത്",
+"Locker drop not right": "ലോക്കറിൽ ശരിയായി വയ്ക്കാതിരുന്നത്",
+"Failed delivery not recorded right": "പരാജയപ്പെട്ട ഡെലിവറി ശരിയായി രേഖപ്പെടുത്താതിരുന്നത്",
+"Load count not confirmed right": "ലോഡ് എണ്ണം ശരിയായി സ്ഥിരീകരിക്കാതിരുന്നത്",
+"Missing package not reported": "കാണാതായ പാക്കേജ് റിപ്പോർട്ട് ചെയ്യാതിരുന്നത്",
+"Left with another route's package": "മറ്റൊരു റൂട്ടിലെ പാക്കേജുമായി പുറപ്പെട്ടത്",
+"Doorsteps and loading: mistakes per day": "വാതിലുകളും ലോഡിംഗും: ദിവസേനയുള്ള പിഴവുകൾ",
+"From the {0} trainees whose first and latest workdays both had these checks.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ഈ പരിശോധനകൾ ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്."
 },
 "templates": [
 [
