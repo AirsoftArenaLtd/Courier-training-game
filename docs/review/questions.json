@@ -2,14 +2,16 @@
  "bn": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?",
-  "Never leave a signature-required package unattended.": "Question from the team: most lines say সই, but this one and about 20 others say স্বাক্ষর. Should drivers see one word everywhere? If so, which?"
+  "Never leave a signature-required package unattended.": "Question from the team: most lines say সই, but this one and about 20 others say স্বাক্ষর. Should drivers see one word everywhere? If so, which?",
+  "Pre-trip walkaround": "Question from the team: the walk round the van to check it is called চারপাশ পরীক্ষা in some lines and পরিদর্শন or \"চারপাশ দেখা\" in others. Which one word should drivers see everywhere?"
  },
  "gu": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
   "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
  },
  "kn": {
-  "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct."
+  "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
+  "Pre-trip walkaround": "Question from the team: the walk round the van to check it is called ಸುತ್ತು-ಪರಿಶೀಲನೆ in some lines and ತಪಾಸಣೆ or ಪರಿಶೀಲನೆ in others. Which one word should drivers see everywhere?"
  },
  "ml": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
@@ -17,14 +19,16 @@
  },
  "es": {
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?",
-  "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Question from the team: \"low clearances\" covers low bridges and other overhangs, not only bridges. Is \"puentes bajos\" too narrow here?"
+  "Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.": "Question from the team: \"low clearances\" covers low bridges and other overhangs, not only bridges. Is \"puentes bajos\" too narrow here?",
+  "Pre-trip walkaround": "Question from the team: the walk round the van is \"revisión\" in some lines and \"inspección de la camioneta\" in others. Which should drivers see everywhere?"
  },
  "fr": {
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?",
   "Replace the parcel, secure the load, then finish at Dispatch.": "Question from the team: Dispatch is the depot desk and also the person on the radio. The game says Répartiteur for the person and la Répartition for the desk, as here. Is that natural, or should one word be used for both?"
  },
  "mr": {
-  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
+  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground.",
+  "Pre-trip walkaround": "Question from the team: the walk round the van is तपासणी here but पाहणी or फेरी in other lines. Which one word should drivers see everywhere?"
  },
  "pa": {
   "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
