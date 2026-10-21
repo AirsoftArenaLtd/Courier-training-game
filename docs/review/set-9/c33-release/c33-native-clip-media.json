@@ -1,0 +1,35 @@
+{
+  "scope": "The capture requested 3 fps at 640x360. Puppeteer placed the 65 source frames in a 25 fps container. The review copy presents those same decoded frames at 3 fps for readable steps; it is paced review media, not real-time driving or FPS evidence. The raw file is retained.",
+  "raw": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1",
+        "nb_read_frames": "65"
+      }
+    ],
+    "format": {
+      "size": "266264"
+    }
+  },
+  "review": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "3/1",
+        "nb_read_frames": "65"
+      }
+    ],
+    "format": {
+      "duration": "21.666000",
+      "size": "349161"
+    }
+  },
+  "command": "ffmpeg -i c33-native-clip-controls.webm -vf setpts=N/(3*TB) -r 3 -c:v libvpx-vp9 -threads 1 -cpu-used 6 -crf 24 -b:v 0 -an c33-native-clip-review.webm"
+}

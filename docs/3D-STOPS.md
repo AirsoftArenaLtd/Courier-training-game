@@ -146,3 +146,18 @@ Settings, i18n or QA-path implementation is edited.
 [Earlier model, gameplay, recovery and 101-view evidence](review/set-9/c33-history.md)
 is historical and identifies its own source revisions; it does not certify this combined
 pilot. The permanent hourly check-in remains enabled without an end date.
+
+## Final review gate (21 October 2026)
+
+Current-pilot owned acceptance is complete. [The review package](review/set-9/c33.md)
+links the 21.7-second paced native locker clip, corrected Tamil larger-text screen,
+all final source hashes and the raw failure/correction evidence. The fresh native
+locker workflow passes 36 checks; the repeated doorstep suite passes 394 with a
+3,192,507-byte Phaser peak. Five handheld follow-up suites pass, including borrowed
+texture ownership, and the final required Node subset passes 125 cases.
+
+The shared Low set is 2/5: the first workday and aids flow pass, both later-day
+variants fail the old handheld-only expectation, and drive-review fails to open the
+map from ResultsScene. Those shared paths and their UI source are unmodified here.
+Claude has the exact results and the integration recipe above. The row is review on
+the work branch; shared QA and translation still gate merge. Native Intel O-1 remains.

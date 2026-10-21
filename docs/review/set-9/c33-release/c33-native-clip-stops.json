@@ -1,0 +1,99 @@
+{
+  "sourceRevision": "6c26c2f08b881e6adc6a54532f3af7f94e827113",
+  "quality": "low",
+  "negative": false,
+  "fixture": "Native later-day plans nominate one originally standard parcel before signature/ID rules, with traffic/signs/navigation and the real briefing. Travel poses are fixtures; controls, scanner, reports and restores are real.",
+  "checks": 36,
+  "runs": [
+    {
+      "lang": "en",
+      "large": false,
+      "id": 3,
+      "seed": 1,
+      "kind": "locker",
+      "lockerStop": 3,
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "Tomas Vela",
+      "compartment": "13",
+      "nextDay": 4,
+      "resolved": true,
+      "retained": false,
+      "events": [
+        {
+          "type": "deliver.outcome",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        },
+        {
+          "type": "stop.locker",
+          "key": 3,
+          "ok": true,
+          "stop": 4
+        }
+      ],
+      "saved": true,
+      "lost": false,
+      "narration": [
+        "HANDHELD. 304 Harbor St. Carrying: 304 Harbor St. Scan package. Stop details. Route. Route-day updates. Read the workday details.",
+        "SCAN. Aim at the barcode on the parcel.. Hold L or the left mouse button until the scan completes.. Cancel",
+        "SCAN OK. 7831111 2273. 304 Harbor St. 304 Harbor St · Deliver this standard parcel to the assigned locker at this site.. Put away. Stop details",
+        "Selected the parcel locker. Press O to interact.",
+        "This parcel is authorized for the assigned locker at this site.",
+        "Use the parcel locker.. Use compartment 13 for this parcel.. Open compartment 13.. Open a different compartment.. Record a failed delivery.. Return to the street."
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true,
+  "expectedRuns": 1,
+  "fixtureNow": {
+    "id": 3,
+    "seed": 1,
+    "kind": "locker",
+    "lockerStop": 3,
+    "nativeLater": true,
+    "originalService": "standard",
+    "adult": false,
+    "signature": false,
+    "name": "Tomas Vela",
+    "compartment": "13",
+    "nextDay": 4
+  },
+  "current": {
+    "fixture": {
+      "id": 3,
+      "seed": 1,
+      "kind": "locker",
+      "lockerStop": 3,
+      "nativeLater": true,
+      "originalService": "standard",
+      "adult": false,
+      "signature": false,
+      "name": "Tomas Vela",
+      "compartment": "13",
+      "nextDay": 4
+    },
+    "resolved": true,
+    "retained": false,
+    "events": [
+      {
+        "type": "deliver.outcome",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      },
+      {
+        "type": "stop.locker",
+        "key": 3,
+        "ok": true,
+        "stop": 4
+      }
+    ],
+    "saved": true,
+    "lost": false
+  }
+}

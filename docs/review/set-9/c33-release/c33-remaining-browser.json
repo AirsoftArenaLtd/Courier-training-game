@@ -1,0 +1,21 @@
+{
+  "sourceRevision": "3af37813fe7bd2ec4f212b192b78bf9979112bbc",
+  "jobs": [
+    {
+      "name": "pages",
+      "exit": 0,
+      "seconds": 2161.4,
+      "log": "c33-release-pages.log",
+      "sourceRevision": "d63644d3729af3a68fe145d7b81e220a8d2a2d88"
+    },
+    {
+      "name": "shared-flows",
+      "exit": 1,
+      "seconds": 804.1,
+      "log": "c33-release-shared-flows.log",
+      "sourceRevision": "0675ce7acb681166126cb6db080b137e2d7f690e"
+    }
+  ],
+  "complete": true,
+  "queueNote": "Held after the ten page suites to diagnose and correct the handheld spacing and unused signature-pad canvases. Shared flows use the corrected runtime; job source revisions above supersede the initial parent launch revision."
+}

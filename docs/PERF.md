@@ -829,9 +829,18 @@ ceiling is raised. All cargo, damage zones, clearance posts, cab, camera, mirror
 weather, lighting, actors and traffic remain present.
 
 The 24 High English/Tamil normal/larger physical stop workflows pass **608 checks**.
-The existing 240 sign-layout and 540 larger-text language checks retain their recorded
-sources. Current-pilot language/text-memory, HUD, doorstep, page-opening and shared
-workday acceptance are still running; this resource pass alone does not mark C-33 ready.
+The current-pilot audit passes 240 native sign approaches (3,113,414 estimated Phaser
+bytes) and 540 larger-text language views. After correcting a trailing handheld gap
+and releasing unused signature-pad canvases, the 394-check doorstep suite peaks at
+3,192,507 Phaser bytes. HUD 186, scanner/signature layouts 8, themes 43, keyboard
+accessibility 145, all ten page suites, the final required Node subset 125, all 33
+changed-JS syntax checks and the current catalogue pass.
+
+All five shared Low scenarios were run: workday-3d and workday-aids pass; the two
+later-day variants fail their old handheld-only expectation, and drive-review fails
+the Results-to-map click in unchanged shared source. Claude has the exact failures
+and physical-stop helper recipe. The branch is ready for review with that shared-QA
+gate and translation pass explicit; no all-green or merge-ready claim is made.
 
 The older 101-view gate and pre-damage sweeps above belong to their original sources.
 [Current review and remaining checks](review/set-9/c33.md),

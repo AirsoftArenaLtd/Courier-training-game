@@ -1,0 +1,12 @@
+START sign-memory
+sign-memory exit 0
+START langs-current
+langs-current exit 0
+START guide-current
+guide-current exit 0
+START retention-high-current
+retention-high-current exit 0
+START hud
+hud exit 0
+START doors
+doors exit 1
