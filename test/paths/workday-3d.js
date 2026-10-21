@@ -452,6 +452,14 @@ const make = (opts) => async (page, ctx) => {
       }
     }
     if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
+    // B-127: C-11's route-day update for this stop, sent on the way: read it parked on the handheld before delivering
+    if (await ev((i) => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = m.routeDay && m.routeDay.dispatch; return !!(d && d.sent && !d.read && d.stop === i); }, i)) {
+      await press('Tab'); await pick(/^Route-day updates$/); await pick(/^Read the dispatch update$/);
+      must(await ctx.until(`${FP}.handheld.device.current && ${FP}.handheld.device.current.title === 'DISPATCH UPDATE'`, 5000), 'the route-day update did not open');
+      must(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.routeDay.dispatch.read), 'the route-day update was not marked read');
+      await press('Tab');
+      log(`      route-day update for stop ${i + 1} read`);
+    }
     await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
     // a parcel missed at load-out turns up when the cargo is opened at the first stop (B-90)
     if ((await state()).m.parcels[i].location === 'pending') must(await ctx.until(`${FP}.model.parcels[${i}].location !== 'pending'`, 8000), 'the parcel missed at load-out was never found (stop ' + i + ')');
@@ -650,6 +658,12 @@ const make = (opts) => async (page, ctx) => {
     const want = opts.radio !== 'decline';
     must(upd.length === 1 && upd[0].ok === want, `${opts.radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
   }
+  // B-127: a careful day has no wrong report at all, apart from what a variant sets out to do
+  const meant = new Set([].concat(opts.scuff ? ['van.damage-scuff'] : [], opts.unreported ? ['trip.damage-report'] : [], opts.wrongTurn ? ['drive.route'] : [],
+    opts.lightsOff ? ['drive.lights'] : [], opts.radio === 'decline' ? ['dispatch.update'] : [], opts.expectWrong || []));
+  const wrong = await ev(`${dayEvents}.filter((e) => e.ok === false).map((e) => e.type + ':' + e.key)`);
+  const unmeant = wrong.filter((w) => !meant.has(w.split(':')[0]));
+  must(!unmeant.length, 'the careful day has wrong reports: ' + unmeant.join(', '));
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
   must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));
