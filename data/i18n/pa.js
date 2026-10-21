@@ -3792,7 +3792,7 @@ window.OTR_I18N.pa = {
 "Gave way to traffic when leaving the depot.": "ਡਿਪੂ ਤੋਂ ਨਿਕਲਦੇ ਸਮੇਂ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤਾ।",
 "Left the depot without giving way to nearby traffic.": "ਨੇੜਲੇ ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਰਾਹ ਦਿੱਤੇ ਬਿਨਾਂ ਡਿਪੂ ਤੋਂ ਨਿਕਲੇ।",
 "Used another street around the road closure.": "ਸੜਕ ਬੰਦ ਹੋਣ ਕਾਰਨ ਦੂਜੀ ਗਲੀ ਵਰਤੀ।",
-"Contacted the closure instead of following the diversion.": "ਡਾਇਵਰਜ਼ਨ ਦੀ ਪਾਲਣਾ ਕਰਨ ਦੀ ਥਾਂ ਬੰਦ ਸੜਕ ਤੱਕ ਪਹੁੰਚ ਗਏ।",
+"Contacted the closure instead of following the diversion.": "ਡਾਇਵਰਜ਼ਨ ਦੀ ਪਾਲਣਾ ਕਰਨ ਦੀ ਥਾਂ ਬੰਦ ਸੜਕ ਦੀ ਰੁਕਾਵਟ ਨਾਲ ਲੱਗੇ।",
 "Entered a one-way street against its direction.": "ਇੱਕ-ਪਾਸੜ ਗਲੀ ਵਿੱਚ ਉਸਦੀ ਦਿਸ਼ਾ ਦੇ ਉਲਟ ਦਾਖ਼ਲ ਹੋਏ।",
 "Entered a street from its prohibited end.": "ਗਲੀ ਵਿੱਚ ਮਨ੍ਹਾ ਕੀਤੇ ਸਿਰੇ ਤੋਂ ਦਾਖ਼ਲ ਹੋਏ।",
 "Stop before the junction line.": "ਜੰਕਸ਼ਨ ਦੀ ਲਕੀਰ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ।",

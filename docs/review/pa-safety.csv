@@ -16,7 +16,7 @@
 "1","new","Choose your next stop. Maple Ave runs north from the depot. Birch Lane is at the far junction. Use the turning area at the north end to return.","ਆਪਣਾ ਅਗਲਾ ਸਟਾਪ ਚੁਣੋ। Maple Ave ਡਿਪੋ ਤੋਂ ਉੱਤਰ ਵੱਲ ਜਾਂਦੀ ਹੈ। Birch Lane ਦੂਰ ਵਾਲੇ ਜੰਕਸ਼ਨ 'ਤੇ ਹੈ। ਵਾਪਸ ਆਉਣ ਲਈ ਉੱਤਰੀ ਸਿਰੇ ਦੀ ਮੁੜਨ ਵਾਲੀ ਥਾਂ ਵਰਤੋ।","","","text"
 "1","new","Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.","ਕੈਬ ਵਿੱਚ ਬੈਠਣ ਤੋਂ ਪਹਿਲਾਂ ਕਾਰਗੋ ਬੰਦ ਕਰੋ। ਸੀਟਬੈਲਟ ਲਈ {0} ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਈ {1} ਦਬਾਓ। ਤੁਰਨ ਜਾਂ ਮੁੜਨ ਤੋਂ ਪਹਿਲਾਂ ਅਸਲੀ ਸ਼ੀਸ਼ੇ ਨੂੰ ਇੱਕ ਪਲ ਦੇਖੋ। ਕੀਬੋਰਡ ਨਾਲ ਚੁਣਨ ਲਈ {2} ਦਬਾਓ। ਤੇਜ਼ ਕਰਨ/ਬ੍ਰੇਕ ਲਾਉਣ ਲਈ {3}/{4} ਅਤੇ ਸਟੀਅਰਿੰਗ ਲਈ {5}/{6} ਵਰਤੋ। ਹੈਂਡਹੈਲਡ ਵਰਤਣ ਜਾਂ ਉਤਰਨ ਤੋਂ ਪਹਿਲਾਂ ਰੁਕੋ ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਾਓ।","","","sentence with {0} {1} filled in by the game"
 "1","new","Contacted an obstacle or exceeded 5 mph while reversing.","ਰਿਵਰਸ ਕਰਦੇ ਸਮੇਂ ਰੁਕਾਵਟ ਨਾਲ ਲੱਗੇ ਜਾਂ 5 mph ਤੋਂ ਵੱਧ ਚੱਲੇ।","","","text"
-"1","new","Contacted the closure instead of following the diversion.","ਡਾਇਵਰਜ਼ਨ ਦੀ ਪਾਲਣਾ ਕਰਨ ਦੀ ਥਾਂ ਬੰਦ ਸੜਕ ਤੱਕ ਪਹੁੰਚ ਗਏ।","","","text"
+"1","new","Contacted the closure instead of following the diversion.","ਡਾਇਵਰਜ਼ਨ ਦੀ ਪਾਲਣਾ ਕਰਨ ਦੀ ਥਾਂ ਬੰਦ ਸੜਕ ਦੀ ਰੁਕਾਵਟ ਨਾਲ ਲੱਗੇ।","","","text"
 "1","new","Covering the brake where children play","ਜਿੱਥੇ ਬੱਚੇ ਖੇਡਦੇ ਹਨ, ਉੱਥੇ ਪੈਰ ਬ੍ਰੇਕ 'ਤੇ ਤਿਆਰ","","","text"
 "1","new","Did not give way","ਰਾਹ ਨਾ ਦੇਣਾ","","","text"
 "1","new","Drove through a red traffic light","ਲਾਲ ਟ੍ਰੈਫਿਕ ਲਾਈਟ ਪਾਰ ਕਰ ਗਏ","","","text"
