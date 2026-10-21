@@ -489,7 +489,7 @@ items here for each agent.
 | B-126 | Claude | **Owner question 8, ready to try:** add a `?lite=1` start (and a Settings switch, off by default) that leaves out the colour grade and the heat overlays, so the owner can see the difference on a PC without a graphics driver before deciding. Nothing changes unless it is turned on; measure it with `test/tools/overdraw.js` and qa's fps. | todo |
 | B-127 | Claude | **The golden path reads C-11's route-day updates:** on some later days (`workday-3d-f`, route 18 day 5) Dispatch sends a stop update ("Stop 1 now needs a signature…") that the flows never read, so the careful day records a wrong `dispatch.update` at that stop. Read it parked on the handheld (Route-day updates), follow it at the stop, and assert that a careful day has no wrong check at all apart from what a variant sets out to do. | done (updates read; the careful-day check lists, QA_STRICT=1 fails) |
 | B-128 | Claude | **The golden path answers the radio call:** every later-day flow without `opts.radio` leaves C-36's call unanswered (`dispatch.update:r0` wrong). Make following the call the default (priority or check-in, by the day's call); `opts.radio: 'decline'` stays the variant. | done |
-| B-129 | Claude | **The golden path drives to the conditions:** `drive.weather:0` (too fast for fog, ice or snow on the first leg: keep below the day's limit, `OTR.fpDay.conditions`) and `drive.lights:0` on fog or storm days (lights on whenever `OTR.fpNight.required(m)`, not only at night). | todo |
+| B-129 | Claude | **The golden path drives to the conditions:** `drive.weather:0` (too fast for fog, ice or snow on the first leg: keep below the day's limit, `OTR.fpDay.conditions`) and `drive.lights:0` on fog or storm days (lights on whenever `OTR.fpNight.required(m)`, not only at night). | done |
 | B-130 | Claude | **The golden path's checks before and while driving:** `depart.uninspected:lights` (the lights inspection on later days), and `drive.mirrors:0:2` on every flow (a second mirror check on the first leg, probably the school-bus stop or the move off after it). Find what each one expects and do it. | done (the lights point needs P on walkaround days: Codex inbox) |
 | B-131 | Claude | **The golden path's failed deliveries and load-out:** `stop.reattempt` wrong on several later days, and `load.shelf`/`load.found-later` on the late-parcel day (`workday-3d-h`). Find the right reattempt booking and the right handling of a parcel found later, then turn on `QA_STRICT` in the review script once all four are fixed. | todo |
 
@@ -537,6 +537,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **21 October 2026, Claude — B-129 done:** the golden path now drives at no more than 85% of the day's weather limit (fog 12, ice 8, snow 10 mph), and switches the headlights on in fog and storms, not only at night. `-b` and `-i` no longer list `drive.weather` or `drive.lights`; only reattempt bookings remain (B-131).
 
 - **21 October 2026, Claude — B-128 and B-130 done:** the golden path now follows the day's radio call unless a variant declines it. The lights check before departure is reached with P on walkaround days, because the front-of-van mark covers the headlights (sent to Codex). The flow also checks a mirror before reversing at the first stop, which counts as a pull-out. The day-1 flow now has no wrong report at all. B-129 (speed and lights in the weather) and B-131 (reattempts, the late parcel) remain.
 
