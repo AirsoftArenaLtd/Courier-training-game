@@ -325,8 +325,9 @@ const make = (opts) => async (page, ctx) => {
   // reports drive.lights as right; the check is read at the results
   if (opts.night) {
     must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return !!m.nightDrive && OTR.fpLighting.time(m) === 'night' && OTR.fpNight.required(m); }), 'the night day does not run at night with the headlights required');
-    await press('KeyL');
-    must((await state()).m.van.headlights === true, 'L did not switch the headlights on');
+    // opts.lightsOff (B-123): the trainee moves off in the dark without them; the cab warns first
+    if (opts.lightsOff) must(await ctx.until(`${FP}.soundCue.visible && /headlights/.test(OTR.i18n.src(${FP}.soundCue) || '')`, 8000), 'the cab did not warn about the headlights before moving off');
+    else { await press('KeyL'); must((await state()).m.van.headlights === true, 'L did not switch the headlights on'); }
     await shot('night-cab');
   }
   // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
@@ -422,7 +423,21 @@ const make = (opts) => async (page, ctx) => {
   await press('KeyE'); must((await state()).m.mode === 'walk', 'could not park and get out');
 
   // ---- five stops
+  // opts.radio (B-122): C-36's priority call, answered as the guide says: parked with the brake on, read on the handheld,
+  // accepted, and the stop it names delivered next (credit goes to the first stop delivered after accepting)
+  const call = opts.radio ? await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; }) : null;
+  if (opts.radio) must(call && call.kind === 'priority' && call.stop > 0, 'the day has no priority radio call after the first stop: ' + JSON.stringify(call));
   for (let i = 0; i < N; i++) {
+    if (call && i === call.stop) {
+      must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return OTR.fpRadio.pending(m) && m.parked(); }), 'the radio call is not waiting, or the van is not parked, before stop ' + (i + 1));
+      await press('Tab'); await pick(/^Read the dispatch radio message\.$/);
+      must(await ctx.until(`${FP}.handheld.isOpen && ${FP}.handheld.device.current.title === 'The dispatch radio.'`, 5000), 'the radio message did not open on the handheld');
+      await shot('radio-message');
+      await pick(/^Accept the route update\.$/);
+      await pick(/^Put away the handheld\.$/);
+      must(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.radio.accepted), 'the route update was not accepted');
+      log(`      radio: priority call read parked and accepted; stop ${i + 1} next`);
+    }
     if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
     await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
     // a parcel missed at load-out turns up when the cargo is opened at the first stop (B-90)
@@ -590,10 +605,19 @@ const make = (opts) => async (page, ctx) => {
     log(`      walkaround: ${await walkReports('trip.damage-report', 'added')} new damaged area(s) reported after the trip`);
     must(await ev(`!${dayEvents}.some((e) => e.type === 'trip.damage-false')`), 'a right post-trip record reported damage that was not there');
   }
-  if (opts.night) {
+  if (opts.night && !opts.lightsOff) {
     const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok }))`);
     must(lights.length >= 1 && lights.every((e) => e.ok === true), 'every leg after dark should report the headlights as on: ' + JSON.stringify(lights));
     log(`      night: headlights on for ${lights.length} leg(s)`);
+  }
+  if (opts.lightsOff) {
+    // B-123: the first leg was driven in the dark without headlights: wrong, with its place, a pin, and safety marked down
+    const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok, where: !!e.where }))`);
+    must(lights.some((e) => e.ok === false && e.where), 'moving off at night without headlights was not reported wrong with its place: ' + JSON.stringify(lights));
+    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
+    must(rec.pins.includes('Drove without headlights in poor light'), 'the drive map has no pin for driving without headlights: ' + JSON.stringify(rec.pins));
+    must(rec.safety < 3, 'safety should not be three stars after driving in the dark without headlights: ' + rec.safety);
+    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars)`);
   }
   if (opts.scuff) {
     const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
@@ -607,6 +631,10 @@ const make = (opts) => async (page, ctx) => {
   // B-113: a careful day follows the sat nav; the wrong-turn variant has exactly its one wrong turn
   const routeMisses = await ev(`${dayEvents}.filter((e) => e.type === 'drive.route' && e.ok === false).length`);
   must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
+  if (opts.radio) {
+    const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update').map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
+    must(upd.length === 1 && upd[0].ok === true, 'following the priority call should be one right dispatch.update: ' + JSON.stringify(upd));
+  }
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
   must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));
