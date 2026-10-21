@@ -24,3 +24,12 @@ C-33 is not a dependency of the board row. Its own acceptance and shared-QA requ
 remain on `codex/c33-richer-stops`; this branch starts from pilot. B-78 guidance will
 cover the road, navigation, signals/cyclist/crossing, van height/load and actual
 walkaround/report controls. Richer-stop wording will follow the available feature.
+
+## Pure-model evidence (21 October)
+
+Source `5a8ce69`: all 18 model tests and the 134-case required/affected batch pass,
+including 200 seeded checkpoint sequences and 5,000 repeated actions with bounded
+state. Current-catalogue i18n, both new JavaScript syntax checks and whitespace pass.
+[Raw logs, exact scope and hashes](review/set-9/c35-progress/manifest.json).
+This is model evidence only; scene, physical controls, full saves and rendering
+acceptance remain in progress.
