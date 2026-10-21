@@ -1,0 +1,163 @@
+{
+  "quality": "high",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "pages": [
+        {
+          "day": 5,
+          "bad": [],
+          "texts": [
+            {
+              "text": "The dispatch radio.",
+              "size": 16,
+              "x": 916,
+              "y": 104.5,
+              "right": 1069,
+              "bottom": 123.5
+            },
+            {
+              "text": "⌫ Back",
+              "size": 13,
+              "x": 1150,
+              "y": 520.5,
+              "right": 1204,
+              "bottom": 535.5
+            },
+            {
+              "text": "Dispatch has added a check-in stop at 204 Harbor St. Park at the public curb and confirm your arrival. No package is due there.",
+              "size": 17,
+              "x": 916,
+              "y": 150,
+              "right": 1197,
+              "bottom": 232
+            },
+            {
+              "text": "1  Accept the route update.",
+              "size": 15,
+              "x": 960.5,
+              "y": 379.5,
+              "right": 1159.5,
+              "bottom": 396.5
+            },
+            {
+              "text": "2  Decline the route update.",
+              "size": 15,
+              "x": 958,
+              "y": 431.5,
+              "right": 1162,
+              "bottom": 448.5
+            },
+            {
+              "text": "3  Put away the handheld.",
+              "size": 15,
+              "x": 964.5,
+              "y": 483.5,
+              "right": 1155.5,
+              "bottom": 500.5
+            }
+          ],
+          "phaserBytes": 7860070
+        },
+        {
+          "day": 6,
+          "bad": [],
+          "texts": [
+            {
+              "text": "The dispatch radio.",
+              "size": 16,
+              "x": 916,
+              "y": 104.5,
+              "right": 1069,
+              "bottom": 123.5
+            },
+            {
+              "text": "⌫ Back",
+              "size": 13,
+              "x": 1150,
+              "y": 520.5,
+              "right": 1204,
+              "bottom": 535.5
+            },
+            {
+              "text": "Dispatch asks you to visit 212 Maple Ave next. Keep every other delivery on the route.",
+              "size": 17,
+              "x": 916,
+              "y": 150,
+              "right": 1183,
+              "bottom": 211
+            },
+            {
+              "text": "1  Accept the route update.",
+              "size": 15,
+              "x": 960.5,
+              "y": 379.5,
+              "right": 1159.5,
+              "bottom": 396.5
+            },
+            {
+              "text": "2  Decline the route update.",
+              "size": 15,
+              "x": 958,
+              "y": 431.5,
+              "right": 1162,
+              "bottom": 448.5
+            },
+            {
+              "text": "3  Put away the handheld.",
+              "size": 15,
+              "x": 964.5,
+              "y": 483.5,
+              "right": 1155.5,
+              "bottom": 500.5
+            }
+          ],
+          "phaserBytes": 7666960
+        }
+      ],
+      "day5": {
+        "valid": true,
+        "radio": {
+          "version": 1,
+          "sent": true,
+          "read": true,
+          "accepted": true,
+          "result": true,
+          "travel": 20
+        },
+        "night": {
+          "version": 1,
+          "leg": 0,
+          "required": false,
+          "failed": false
+        }
+      },
+      "day6": {
+        "valid": true,
+        "radio": {
+          "version": 1,
+          "sent": true,
+          "read": true,
+          "accepted": true,
+          "result": null,
+          "travel": 20
+        },
+        "night": {
+          "version": 1,
+          "leg": 0,
+          "required": false,
+          "failed": false
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "checks": 55,
+  "fixture": "Native new-day launch, fixture travel/call arrival, real remapped handheld keys and headlight shortcut. Priority delivery/report boundaries use the real mission in the Node suite.",
+  "glare": {
+    "changed": 22912,
+    "strength": 0.09975
+  },
+  "complete": true
+}
