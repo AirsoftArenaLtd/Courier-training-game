@@ -6,7 +6,7 @@ for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8
  'src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js',
  'src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpmission.js','src/core/fproute.js',
  'src/core/fplater.js','src/core/fpday.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpdoors.js',
- 'src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpnav.js','src/core/fpdamage.js','src/core/fpdamageflow.js','src/core/fpstops.js','src/core/fpstopflow.js'])
+ 'src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpnav.js','src/core/fpdamage.js','src/core/fpdamageflow.js','src/core/fpwalkaround.js','src/core/fpwalkaroundflow.js','src/core/fpstops.js','src/core/fpstopflow.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR,F=O.fpStopFlow,L=O.fpLater,M=O.fpMission,W=O.workday,plain=x=>JSON.parse(JSON.stringify(x));
 O.save.data=O.save.defaults();O.save.data.townSeed=1;
@@ -58,6 +58,7 @@ test('the actual scene launch nominates before later-day rules, and the morning 
  const scene={progress:O.fpStore.empty(),transition:fn=>fn(),rebuildWorld(){},checkpoint(){},closePanel(){},toHub(){},showPanel(title,body){this.lastPanel={title,body};}};
  scene.progress.sequence=6;Scene.prototype.launch.call(scene,'campaign');const m=scene.model,id=m.routePlan.lockerStop;
  assert.ok(Number.isSafeInteger(id),'the real launch path includes authorisation');
+ assert.equal(m.routePlan.walkaround,1);assert.equal(O.fpWalkaround.valid(m.walkaround,m.damage),true);
  assert.equal(m._deliverySpecs[id].protocol.kind,'locker');assert.equal(m._doorSpecs[id].signature,false);assert.equal(m._doorSpecs[id].adult,false);
  Object.assign(m.player,m.point('dispatch'));Scene.prototype.showMorningBrief.call(scene);
  assert.match(scene.lastPanel.body,/locker/i);assert.ok(scene.lastPanel.body.includes(m.stops[id].address));
