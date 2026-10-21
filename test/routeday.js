@@ -13,11 +13,13 @@
  */
 'use strict';
 const path = require('path');
+// B-110: QA_BASE (an http:// root, as the newer suites take) serves the page; file:// from disk otherwise
+const PAGE = process.env.QA_BASE ? process.env.QA_BASE.replace(/\/+$/, '') + '/index.html' : 'file://' + path.resolve(__dirname, '..', 'index.html');
 const { runTalk } = require('./paths/lib/ui');
 let puppeteer;
 try { puppeteer = require('puppeteer-core'); } catch (e) { console.error('puppeteer-core is missing. Run:  cd test && npm install'); process.exit(2); }
 const BROWSER = process.env.QA_BROWSER || '/opt/pw-browsers/chromium';
-const URL = 'file://' + path.resolve(__dirname, '..', 'index.html') + '?user=routeday&name=Route%20Tester';
+const URL = PAGE + '?user=routeday&name=Route%20Tester';
 
 const fails = [];
 const check = (ok, what) => { console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) fails.push(what); };

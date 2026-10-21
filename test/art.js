@@ -10,6 +10,8 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+// B-110: QA_BASE (an http:// root, as the newer suites take) serves the page; file:// from disk otherwise
+const PAGE = process.env.QA_BASE ? process.env.QA_BASE.replace(/\/+$/, '') + '/index.html' : 'file://' + path.resolve(__dirname, '..', 'index.html');
 const { execFileSync } = require('child_process');
 const puppeteer = require('puppeteer-core');
 const ROOT = path.resolve(__dirname, '..');
@@ -45,7 +47,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     const out = execFileSync('node', [path.join(ROOT, 'test', 'tools', 'pack-art.js')], { encoding: 'utf8', env: Object.assign({}, process.env, { QA_BROWSER: BROWSER }) });
     check(/van_top: .*\(background removed\)/.test(out) && /car_top_red: /.test(out), 'the pack tool packs both and removes the white background');
 
-    const sample = (q) => p.goto('file://' + path.join(ROOT, 'index.html') + '?lab=town&dev=1' + q)
+    const sample = (q) => p.goto(PAGE + '?lab=town&dev=1' + q)
       .then(() => p.waitForFunction(() => window.OTR && OTR.game && OTR.game.scene.isActive('TownDriveScene'), { timeout: 30000 }))
       .then(() => wait(800))
       .then(() => p.evaluate(() => {
