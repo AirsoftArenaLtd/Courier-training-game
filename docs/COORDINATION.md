@@ -442,7 +442,7 @@ items here for each agent.
 | B-97 | Claude | **The same meaning check in the other nine languages:** bn, es, fr, gu, kn, ml, mr, pa and te, on the safety lines marked new, as B-96 did for Tamil and Hindi. Apply fixes with `review-sheet.js --apply`, and check each proposed fix's grammar before applying it (B-96's lesson). | done |
 | B-98 | Claude | **A permanent save guard for C-35's heaviest day** (Codex's request, 21 Oct): 21 damage reports on the richer-stop day, in C-35's and C-34's own shapes, still packed under SCORM 1.2, and back the same after a reload. | done |
 | B-99 | Claude | **The shared workday flow plays C-35's walkaround** (Codex's request, 21 Oct): the optional pre-trip and post-trip sequence from `docs/3D-WALKAROUND.md`'s integration recipe (the visible `wear-<zone>` targets, the handheld sentences, the phase guards and report assertions) in `test/paths/workday-3d.js`, kept feature-conditional so pilot's flows still pass. Do it with C-35's review, as B-89 was done for C-33. | todo (with C-35's review) |
-| B-100 | Claude | **The native reviewers' questions from B-96 and B-97:** add a "Question from the team" line to the Comment column of the next sheets. Cover the Bengali, Gujarati, Kannada and Malayalam "Contacted the closure" (it reads "reached", not "hit"). Cover Malayalam's word for an exception package (ഒഴിവ്, which reads as exemption or vacancy), Spanish "puentes bajos" for every low clearance, and "a current mirror check" losing "current" in bn, es and fr. Teach `review-sheet.js` to write such a comment and keep it until `--reviewed`. | todo |
+| B-100 | Claude | **The native reviewers' questions from B-96 and B-97:** add a "Question from the team" line to the Comment column of the next sheets. Cover the Bengali, Gujarati, Kannada and Malayalam "Contacted the closure" (it reads "reached", not "hit"). Cover Malayalam's word for an exception package (ഒഴിവ്, which reads as exemption or vacancy), Spanish "puentes bajos" for every low clearance, and "a current mirror check" losing "current" in bn, es and fr. Teach `review-sheet.js` to write such a comment and keep it until `--reviewed`. | done |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
 | B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) |
 
@@ -480,6 +480,11 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **21 October 2026, Claude — B-100:** the native reviewers' sheets now carry the team's questions.
+  - **The questions:** `docs/review/questions.json` holds nine, from B-96 and B-97: the closure line in bn, gu, kn and ml, Malayalam's word for an exception package, "a current mirror check" in bn, es and fr, and Spanish "puentes bajos" for low clearances.
+  - **In the sheets:** `review-sheet.js` writes each question into its line's Comment cell ("Question from the team: …") and puts the line first among the new ones.
+  - **Coming back:** `--apply` ignores a question left as it was and prints what the reviewer wrote after it as their answer. `--reviewed` clears the file.
+  - **Docs and tests:** HOW-TO-REVIEW.md tells reviewers and the team. `test/reviewsheet.js` checks each question is on its line, marked new and first: 191 checks pass.
 - **21 October 2026, Claude — B-97:** the B-96 meaning check on the 123 new safety lines of the other nine languages. Three subagents back-translated and compared them, each asked to check a fix's grammar and to propose none it was unsure of.
   - **Marathi, Punjabi and Telugu:** "Contacted the closure" read "reached the closed road" (fixed). Marathi and Telugu "approaching traffic" was oncoming only (fixed).
   - **Spanish and French:** the same closure line now reads "chocaste" and "heurté", which I wrote and checked.
