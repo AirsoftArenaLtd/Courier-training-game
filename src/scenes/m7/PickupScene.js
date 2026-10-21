@@ -1,4 +1,4 @@
-/*
+/* (B-94 probe)
  * Module 7 · Pickups & Paperwork. Count the pieces against the manifest, inspect each one,
  * check customs paperwork, refuse what can't ship, then capture the pickup signature.
  * Content: data/m7_pickups.js
