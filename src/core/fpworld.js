@@ -303,7 +303,7 @@ OTR.fpWorld = {
       emergencyLamps=new T.Group();emergency.add(emergencyLamps);
       for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
     }
-    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
+    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.18,1.76,-2.7,.25,.04,.58,0x303944);
     const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
     if(trafficBike&&!(actors&&actors.cyclist)){box(trafficBike,0,1.15,0,.4,.65,.25,0xE3B649);box(trafficBike,0,1.65,-.15,.28,.3,.28,0xB68F72);for(const x of [-.12,.12])box(trafficBike,x,.55,0,.16,.65,.16,0x43515E);}
     if(actors&&actors.vehicle){
@@ -420,7 +420,7 @@ OTR.fpWorld = {
             const cc=Math.cos(v.yaw),ss=Math.sin(v.yaw);
             cabAnchor.position.set(v.x-.45*cc+1.85*ss,2.05+pose.bodyY,v.z-.45*ss-1.85*cc);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
           }else if(m.mode==='cab'){
-            const eye=OTR.fp.local(v,-0.45,-1.85);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
+            const eye=OTR.fp.local(v,-0.45,-1.45);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
           }else{
             const local=OTR.fpMission.local(v,p),inside=m.cargoOpen&&Math.abs(local.x)<0.75&&local.z>-0.8&&local.z<2.6;
             camera.position.set(p.x,inside?2.15:1.65,p.z);camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');
