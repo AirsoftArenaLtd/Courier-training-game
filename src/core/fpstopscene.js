@@ -146,7 +146,7 @@ OTR.fpStopScene={
   reattempt(scene,id){
     const m=scene.model;if(!OTR.fpStopFlow.can(m,id))return;const a=m._deliverySpecs[id].reattempt,d=m.deliveryStops.stops[id].reattempt;
     const blocked=OTR.fpStopFlow.beginException(m,id);scene.checkpoint();if(blocked){scene.showPanel('Attempt contact first.',blocked,[{label:'Return to the delivery controls.',action:()=>this.show(scene,id)},{label:'Wait on the street.',action:()=>scene.closePanel()}],{accessibleText:true});return;}
-    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorised handover is unavailable.':'The required recipient is absent.';
+    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorized handover is unavailable.':'The required recipient is absent.';
     const choices=!d.card?[{label:'Leave a delivery attempt card.',action:()=>this.do(scene,id,'reattempt.card',null,false,'reattempt')}]:!d.retained?[
       {label:'Record this retention reason.',action:()=>this.do(scene,id,'reattempt.retain',a.reason,false,'reattempt')},
       {label:'Record an unrelated reason.',action:()=>this.do(scene,id,'reattempt.retain','other',false,'reattempt')}
