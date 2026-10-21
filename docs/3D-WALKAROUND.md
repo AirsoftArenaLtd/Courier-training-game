@@ -109,3 +109,12 @@ permanent shared guard for its 21 native descriptors is requested in the inbox.
 The current source has 171 required/affected Node cases passing. Final combined
 Low/High, 179-view resource, loaded/fallback sweeps and all nine shared flows remain
 the acceptance gate. New C-35/B-78 sentences await Claude's translation pass.
+
+## Closed-page memory correction
+
+Source `023719f` releases closed handheld page objects and unreferenced generated
+button panels, retaining any other scene's reference. The original Tamil larger-text
+Low sequence exceeded 4 MiB at 4,365,312 estimated bytes. The corrected sequence
+passes 321 checks and all 12 guide pages at a peak of 3,880,838 bytes, with unchanged
+fonts, backing dimensions, button sizes and resource ceilings. Sixty-five affected
+Node cases pass. [Failure, inventory, corrected captures and exact scope](review/set-9/c35-memory/manifest.json). Final full acceptance is still running.

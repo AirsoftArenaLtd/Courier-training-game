@@ -1,0 +1,6 @@
+en normal passed 321 checks; 2970539 Phaser bytes
+en large passed 642 checks; 3610619 Phaser bytes
+ta normal passed 963 checks; 3809179 Phaser bytes
+AssertionError [ERR_ASSERTION]: {"bad":[],"phaserBytes":4365312,"contextLost":false}
+    at audit (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:19:171)
+    at async /workspace/c35-walkaround/test/fpwalkaroundbrowser.js:56:318
