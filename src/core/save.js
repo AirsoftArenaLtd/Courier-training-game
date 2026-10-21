@@ -140,7 +140,7 @@ OTR.save = {
    *   1. the oldest route-history entries go, one by one
    *   2. the last finished workday's lines (its stars and score stay; its debrief then lists nothing)
    *   3. the workday in progress is packed: its reports as short tuples (nothing is lost but extra place detail)
-   *   4. the trainee record keeps its 10 most recent runs
+   *   4. the trainee record keeps its 10 most recent runs, then each run only its first lesson (B-103)
    *   5. the workday in progress keeps only what its score needs: per report type, the keys counted right and wrong
    *      (its stops and drive-review places are lost; flagged `summarised`)
    *   6. the trainee record is emptied, then the last workday's stop list and the 2D route day's last day
@@ -172,6 +172,9 @@ OTR.save = {
       () => { const w = W(); if (w && w.last && Array.isArray(w.last.events)) w.last.events = []; },
       () => { if (cur()) d.workday.current = this.packDay(cur()); },
       () => shed(Array.isArray(d.history) ? d.history : null, 10),
+      // B-103: each run on the record keeps only its first lesson (the one its recent-runs line shows), so the day in
+      // progress keeps its drive-map pins a while longer
+      () => (Array.isArray(d.history) ? d.history : []).forEach(h => { if (h && Array.isArray(h.lessons) && h.lessons.length > 1) h.lessons = h.lessons.slice(0, 1); }),
       () => { if (cur()) d.workday.current = this.summariseDay(cur()); },
       () => {
         shed(Array.isArray(d.history) ? d.history : null);

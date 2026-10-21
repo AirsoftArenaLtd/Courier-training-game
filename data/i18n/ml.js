@@ -3993,7 +3993,52 @@ window.OTR_I18N.ml = {
 "Missing package not reported": "കാണാതായ പാക്കേജ് റിപ്പോർട്ട് ചെയ്യാതിരുന്നത്",
 "Left with another route's package": "മറ്റൊരു റൂട്ടിലെ പാക്കേജുമായി പുറപ്പെട്ടത്",
 "Doorsteps and loading: mistakes per day": "വാതിലുകളും ലോഡിംഗും: ദിവസേനയുള്ള പിഴവുകൾ",
-"From the {0} trainees whose first and latest workdays both had these checks.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ഈ പരിശോധനകൾ ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്."
+"From the {0} trainees whose first and latest workdays both had these checks.": "ആദ്യത്തെയും ഏറ്റവും പുതിയതുമായ ജോലിദിനങ്ങളിൽ ഈ പരിശോധനകൾ ഉണ്ടായിരുന്ന {0} പരിശീലനാർഥികളിൽ നിന്ന്.",
+"Follow the sat nav.": "സാറ്റ് നാവ് പിന്തുടരുക.",
+"Read the road signs.": "റോഡ് അടയാളങ്ങൾ വായിക്കുക.",
+"Watch the lights and people.": "ലൈറ്റുകളും ആളുകളെയും ശ്രദ്ധിക്കുക.",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "ചുവപ്പ് ലൈറ്റിൽ വരയ്ക്ക് പിന്നിൽ നിർത്തുക, മഞ്ഞ ലൈറ്റിൽ സുരക്ഷിതമായി നിർത്താൻ കഴിയുമ്പോൾ നിർത്തുക. വലത്തോട്ട് തിരിയുന്നതിന് മുമ്പ് വലത് കണ്ണാടി നോക്കി, അരികിലൂടെ കടന്നുപോകുന്ന സൈക്കിൾ യാത്രക്കാരന് വഴി കൊടുക്കുക. സ്കൂൾ ക്രോസിങ്ങിൽ കുട്ടികൾക്കായി നേരത്തേ വേഗം കുറയ്ക്കുക, അവരുടെ വഴി ഒഴിയുന്നതുവരെ കാത്തിരിക്കുക.",
+"Look after the van.": "വാൻ ശ്രദ്ധിച്ചു സൂക്ഷിക്കുക.",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "വാനിന്റെ ഉയരം 10 അടി 10 ഇഞ്ച് ആണ്. ഉയരപരിധിയുള്ള സ്ഥലങ്ങൾ ഒഴിവാക്കാൻ സാറ്റ് നാവ് പിന്തുടരുക, മുന്നറിയിപ്പ് ലഭിക്കുമ്പോൾ മറ്റൊരു വഴി എടുക്കുക. പെട്ടെന്നുള്ള തിരിവുകളും ബ്രേക്കിങ്ങും ഉറപ്പിക്കാത്ത കാർഗോയെ നീക്കും. സ്ട്രാപ്പുകൾ ഉറപ്പിച്ച് സുഗമമായി ഓടിക്കുക. ഇടി തട്ടുന്നിടത്ത് വാനിന് കേടുപാട് സംഭവിക്കാം.",
+"Record the pre-trip condition.": "യാത്രയ്ക്ക് മുമ്പുള്ള അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"Report damage after the trip.": "യാത്രയ്ക്ക് ശേഷം കേടുപാട് റിപ്പോർട്ട് ചെയ്യുക.",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "ഡിപ്പോയിൽ തിരിച്ചെത്തിയ ശേഷം, വീണ്ടും വാനിന് ചുറ്റും നടന്ന് ഓരോ ഭാഗത്തിന്റെയും കാണാവുന്ന അവസ്ഥ രേഖപ്പെടുത്തുക. മേൽക്കൂരയുടെ അറ്റം നിലത്തുനിന്നുതന്നെ പരിശോധിക്കുക. മുമ്പേയുള്ള തേയ്മാനം നിങ്ങളുടെ തെറ്റല്ല. ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുന്നതിന് മുമ്പ് പുതിയ കേടുപാടുള്ള ഓരോ ഭാഗവും റിപ്പോർട്ട് ചെയ്യുക. രേഖകൾ കാണാൻ ഹാൻഡ്‌ഹെൽഡിൽ ജോലിദിവസത്തിന്റെ വിശദാംശങ്ങൾ തുറക്കുക.",
+"Use the delivery site controls.": "ഡെലിവറി സ്ഥലത്തെ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Review the walkaround.": "ചുറ്റുപരിശോധന വീണ്ടും കാണുക.",
+"Invalid walkaround version": "അസാധുവായ ചുറ്റുപരിശോധനാ പതിപ്പ്",
+"No damage is visible.": "കേടുപാടുകളൊന്നും കാണുന്നില്ല.",
+"The paint is scuffed here.": "ഇവിടെ പെയിന്റിൽ പോറലുണ്ട്.",
+"A dent is visible here.": "ഇവിടെ ഒരു ചളുങ്ങൽ കാണുന്നു.",
+"Major damage is visible here.": "ഇവിടെ വലിയ കേടുപാട് കാണുന്നു.",
+"Invalid walkaround damage": "അസാധുവായ ചുറ്റുപരിശോധനാ കേടുപാട്",
+"This is the front of the van.": "ഇത് വാനിന്റെ മുൻവശമാണ്.",
+"This is the rear of the van.": "ഇത് വാനിന്റെ പിൻവശമാണ്.",
+"This is the left side of the van.": "ഇത് വാനിന്റെ ഇടതുവശമാണ്.",
+"This is the right side of the van.": "ഇത് വാനിന്റെ വലതുവശമാണ്.",
+"This is the roof edge of the van.": "ഇത് വാനിന്റെ മേൽക്കൂരയുടെ അറ്റമാണ്.",
+"This is the rear left wheel.": "ഇത് പിന്നിലെ ഇടത് ചക്രമാണ്.",
+"This is the left mirror.": "ഇത് ഇടത് കണ്ണാടിയാണ്.",
+"Recorded damage in an undamaged area.": "കേടുപാടില്ലാത്ത ഭാഗത്ത് കേടുപാട് രേഖപ്പെടുത്തി.",
+"Recorded existing damage before departure.": "പുറപ്പെടും മുമ്പ് നിലവിലുള്ള കേടുപാട് രേഖപ്പെടുത്തി.",
+"Missed existing damage before departure.": "പുറപ്പെടും മുമ്പ് നിലവിലുള്ള കേടുപാട് വിട്ടുപോയി.",
+"Recorded new damage after the trip.": "യാത്രയ്ക്ക് ശേഷം പുതിയ കേടുപാട് രേഖപ്പെടുത്തി.",
+"Finished without a correct report of new damage.": "പുതിയ കേടുപാട് ശരിയായി റിപ്പോർട്ട് ചെയ്യാതെ പൂർത്തിയാക്കി.",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "സുരക്ഷിതമായി പാർക്ക് ചെയ്യുക, പാക്കേജ് താഴെ വച്ച് വാനിന്റെ ഈ ഭാഗത്തിനരികിലേക്ക് നീങ്ങുക. പിൻവശം പരിശോധിക്കുന്നതിന് മുമ്പ് കാർഗോ അടയ്ക്കുക.",
+"Inspect this area beside the parked van before recording its condition.": "അവസ്ഥ രേഖപ്പെടുത്തുന്നതിന് മുമ്പ് പാർക്ക് ചെയ്ത വാനിനരികിൽ നിന്ന് ഈ ഭാഗം പരിശോധിക്കുക.",
+"It is recorded.": "രേഖപ്പെടുത്തി.",
+"Put away the handheld.": "ഹാൻഡ്‌ഹെൽഡ് മാറ്റിവയ്ക്കുക.",
+"See the first descriptions.": "ആദ്യത്തെ വിവരണങ്ങൾ കാണുക.",
+"See more descriptions.": "കൂടുതൽ വിവരണങ്ങൾ കാണുക.",
+"Inspect the van.": "വാൻ പരിശോധിക്കുക.",
+"Check the van.": "വാൻ ഒന്നു നോക്കുക.",
+"Inspect before departure or after returning the van to the depot.": "പുറപ്പെടും മുമ്പോ വാൻ ഡിപ്പോയിൽ തിരികെ എത്തിച്ച ശേഷമോ പരിശോധിക്കുക.",
+"See the previous area.": "മുമ്പത്തെ ഭാഗം കാണുക.",
+"See the next area.": "അടുത്ത ഭാഗം കാണുക.",
+"Review the van.": "വാനിന്റെ രേഖകൾ കാണുക.",
+"This area has no recorded condition.": "ഈ ഭാഗത്തിന് രേഖപ്പെടുത്തിയ അവസ്ഥയൊന്നുമില്ല.",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "പുറപ്പെടും മുമ്പ് ഒഴിഞ്ഞ കൈകളോടെ പാർക്ക് ചെയ്ത വാനിന് ചുറ്റും നടന്ന് ഓരോ ഭാഗത്തിന്റെയും അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "വാനിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക, ടയറുകളും ലൈറ്റുകളും പരിശോധിക്കുക, പിന്നെ പാഴ്സലുകൾ സ്കാൻ ചെയ്ത് ലോഡ് ചെയ്യുക. പുറപ്പെടും മുമ്പ് ലോഡ് സുരക്ഷിതമാക്കി കാർഗോ അടയ്ക്കുക.",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ഡിപ്പോയിലേക്ക് മടങ്ങുക, കൈവശം വച്ച പാഴ്സലുകൾ റിട്ടേൺസിൽ സ്കാൻ ചെയ്യുക, ഡിസ്പാച്ചിൽ പൂർത്തിയാക്കുന്നതിന് മുമ്പ് വാനിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക."
 },
 "templates": [
 [
@@ -5755,6 +5800,22 @@ window.OTR_I18N.ml = {
 [
 "Press {0} to use the delivery controls.",
 "ഡെലിവറി നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കാൻ {0} അമർത്തുക."
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} ഈ ഭാഗം പരിശോധിക്കാൻ {1} അമർത്തുക."
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"സ്റ്റോപ്പ് ചിഹ്നങ്ങളിൽ പൂർണ്ണമായി നിർത്തുക, ചിഹ്നം പറയുന്നിടത്ത് വഴി കൊടുക്കുക. വേഗപരിധിക്കുള്ളിൽ ഓടിക്കുക, സ്കൂൾ മേഖലകളിൽ വേഗം കുറയ്ക്കുക. ഏകദിശാ തെരുവിൽ അതിന്റെ ദിശയ്ക്ക് എതിരായി ഒരിക്കലും പ്രവേശിക്കരുത്, പ്രവേശനമില്ല ചിഹ്നം ഒരിക്കലും കടക്കരുത്. മുന്നിൽ കാണുന്ന ചിഹ്നം കേൾക്കാൻ {0} അമർത്തുക."
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"പുറപ്പെടും മുമ്പ്, ഒഴിഞ്ഞ കൈകളോടെ പാർക്ക് ചെയ്ത വാനിന് ചുറ്റും നടക്കുക. ഓരോ ഭാഗവും തിരഞ്ഞെടുക്കാൻ {0}, അത് പരിശോധിക്കാൻ {1} അമർത്തുക. ഹാൻഡ്‌ഹെൽഡിൽ ചേരുന്ന വിവരണം തിരഞ്ഞെടുക്കുക. മുൻവശം, പിൻവശം, രണ്ട് വശങ്ങൾ, മേൽക്കൂരയുടെ അറ്റം, പിന്നിലെ ഇടത് ചക്രം, ഇടത് കണ്ണാടി എന്നിവ പരിശോധിക്കുക. പിൻവശം പരിശോധിക്കുന്നതിന് മുമ്പ് കാർഗോ അടയ്ക്കുക."
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"ഈ ഭാഗം പരിശോധിച്ച് അതിന്റെ അവസ്ഥ ഹാൻഡ്‌ഹെൽഡിൽ രേഖപ്പെടുത്താൻ {0} അമർത്തുക."
 ]
 ],
 "keep": [

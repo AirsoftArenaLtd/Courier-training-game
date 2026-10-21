@@ -301,9 +301,12 @@ const c35HeavyDay = () => richerDay().concat(
   ZONES.slice(0, 6).map(z => ['trip.damage-false', { key: z, ok: false }]),
   // as fpdamageflow.js reports a contact: zone:cause-serial, the stop it happened on, and a place with no time
   ZONES.map((z, i) => ['van.damage-scuff', { key: z + ':' + ['post', 'car', 'bollard'][i % 3] + '-' + (i + 1), stop: i % 5 + 1, ok: false, where: { x: 11.3 * i - 30, z: -27.9 * i - 12, mph: 5.4 + i } }]),
-  ZONES.map((z, i) => ['trip.damage-report', { key: z, ok: i % 2 === 0 }]));
+  ZONES.map((z, i) => ['trip.damage-report', { key: z, ok: i % 2 === 0 }]),
+  // C-36's radio call and night lights (B-103), in fpradio/fplights' own shape: a priority call at stop 3, and the sixth
+  // lights check failed with its place (Codex's worst case, 21 Oct)
+  [['dispatch.update', { key: 'r0', stop: 3, ok: true }], ['drive.lights', { key: 0, stop: 1, ok: false, where: { x: 2.84, z: -18, mph: 6.7 } }]]);
 
-test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day) still packs, and reloads the same', () => {
+test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day; C-36\'s radio call and night lights, B-103) still packs, and reloads the same', () => {
   asScorm(false);
   heavy({ runs: 2, scenarios: 4 });
   W.start(null);

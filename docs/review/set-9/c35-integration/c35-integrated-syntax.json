@@ -1,0 +1,23 @@
+{
+  "files": [
+    "src/core/fpaccess.js",
+    "src/core/fpguide.js",
+    "src/core/fphandheld.js",
+    "src/core/fpmission.js",
+    "src/core/fproute.js",
+    "src/core/fpwalkaroundflow.js",
+    "src/core/fpwalkaroundui.js",
+    "src/core/fpworld.js",
+    "src/scenes/FirstPersonScene.js",
+    "test/fpbench.js",
+    "test/fpdamagebrowser.js",
+    "test/fpguidebrowser.js",
+    "test/fpquality.js",
+    "test/fpqualitygate.js",
+    "test/fpresume.js",
+    "test/fpwalkaroundbrowser.js",
+    "test/fpwalkaroundflow.js"
+  ],
+  "count": 17,
+  "passed": true
+}

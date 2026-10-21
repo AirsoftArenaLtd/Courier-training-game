@@ -1,0 +1,88 @@
+--- a/src/core/fpwalkaroundflow.js
++++ b/src/core/fpwalkaroundflow.js
+@@ -9,7 +9,7 @@
+   // The roof is inspected from its reachable edge. No climbing or camera teleport is needed.
+   targets:[
+     {zone:'front',name:'This is the front of the van.',x:0,y:1,z:-2.84,w:.7,h:.4,d:.04},
+-    {zone:'rear',name:'This is the rear of the van.',x:0,y:1.75,z:2.8,w:.7,h:.5,d:.04},
++    {zone:'rear',name:'This is the rear of the van.',x:-.18,y:1.75,z:2.8,w:.3,h:.5,d:.04},
+     {zone:'left',name:'This is the left side of the van.',x:-1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+     {zone:'right',name:'This is the right side of the van.',x:1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+     {zone:'roof',name:'This is the roof edge of the van.',x:-1.11,y:2.94,z:.6,w:.08,h:.18,d:.8},
+--- a/test/fpwalkaroundworld.js
++++ b/test/fpwalkaroundworld.js
+@@ -15,6 +15,8 @@
+  const m=O.fpMission.create('campaign',8,plan),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);O.fpDoors.configure(m);
+  const scene={assetBank:profile==='fallback'?null:banks[high],view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);
+  try{
++  const door=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0);
++  Object.assign(m.player,O.fp.local(m.van,0,4));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(door.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the cargo-door centre stays selectable before loading');
+   const handle=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x>1);
+   Object.assign(m.player,O.fp.local(m.van,1.15,3.6));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(handle.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the existing cargo handle stays selectable');
+   m.cargoOpen=true;art.sync(m,null,'route');assert.equal(art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear').visible,false);m.cargoOpen=false;
+--- a/test/fpwalkaroundbrowser.js
++++ b/test/fpwalkaroundbrowser.js
+@@ -39,19 +39,28 @@
+   const checkpoint=async()=>{assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,raw=m.snapshot(),events=JSON.stringify(OTR.workday.events),store=OTR.fpStore.empty();store.sequence=m.seed;store.campaign=raw;
+    if(!OTR.fpStore.write(store))return false;const read=OTR.fpMission.restore(OTR.fpStore.read().campaign);if(!read||JSON.stringify(read.snapshot())!==JSON.stringify(raw)||JSON.stringify(OTR.workday.events)!==events)return false;
+    s.handheld.close(false);s.model=read;s.model.paused=true;s.sync();return true;}),true);r.checks++;};
++  const cargoRoundTrip=async()=>{
++   for(const open of [true,false]){
++    const target=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.handheld.close(false);m.paused=true;m.heldId=null;const pt=m.point('cargo');Object.assign(m.player,{x:pt.x,z:pt.z+1.25});s.target=null;s.sync();
++     const visible=o=>{for(let a=o;a;a=a.parent)if(!a.visible)return false;return true;},o=s.art.interactions.find(o=>o.userData.interaction==='cargo'&&visible(o)),v=o.getWorldPosition(new THREE.Vector3()),eye=s.view.camera.position;
++     m.player.yaw=Math.atan2(v.x-eye.x,-(v.z-eye.z));m.player.pitch=Math.atan2(eye.y-v.y,Math.hypot(v.x-eye.x,v.z-eye.z));s.sync();s.refresh();return s.aimTarget();});
++    assert.equal(target,'cargo','The real cargo control must remain selectable beside the rear inspection.');r.checks++;await press('o');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.cargoOpen),open);r.checks++;
++   }
++   return true;
++  };
+   for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
+    await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
+    await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.keyboardMode=true;s.closePanel();Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true,narrate:true,keys:{KeyP:'KeyN',KeyE:'KeyO'}});OTR.fpAccess.syncKeys();
+     window.walkSaid=[];Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speaking:false,pending:false,speak(u){walkSaid.push(u.text);},cancel(){}}});window.SpeechSynthesisUtterance=function(text){this.text=text;};
+     s.progress.guidance={intro:true,seen:[]};OTR.save.data.route.days=3;s.progress.sequence=7;s.progress.campaign=null;s.launch('campaign');s.closePanel();s.model.paused=true;OTR.workday.begin();s.notice='';s.sync();s.refresh();},size==='large');
+    assert.deepEqual(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {marker:s.model.routePlan.walkaround,targets:s.art.walkaroundTargets.length,phaser:s.art.walkaroundTargets.every(o=>o.layers.mask===2)};}),{marker:1,targets:7,phaser:true});r.checks++;
+-   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();
++   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.cargoPre=await cargoRoundTrip();
+    for(const zone of ['front','rear','left','right','roof','wheel','mirror']){
+     const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='wheel')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-record.png`)});await checkpoint();run.pre.push(zone);save();
+     if(['roof','wheel'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-${zone}.png`)});
+    }
+    const depart=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.mode='cab';m.paused=false;m.secured=true;Object.assign(m.van,{speed:2,hand:false,belt:true});m.step({},.0125);m.van.speed=0;m.van.hand=true;m.mode='walk';m.paused=true;
+-    m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});m.phase='return';return {departed:m.walkaround.departed,pre:OTR.workday.events.filter(e=>e.type==='inspect.damage')};});assert.equal(depart.departed,true);assert.equal(depart.pre.length,1);assert.equal(depart.pre[0].ok,true);r.checks+=3;
++    m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});m.phase='return';return {departed:m.walkaround.departed,pre:OTR.workday.events.filter(e=>e.type==='inspect.damage')};});assert.equal(depart.departed,true);assert.equal(depart.pre.length,1);assert.equal(depart.pre[0].ok,true);r.checks+=3;run.cargoPost=await cargoRoundTrip();
+    // A wrong clear-zone description is a real selectable decision and cannot repeat after a checkpoint.
+    await record('front',2);await checkpoint();await record('front',3);assert.equal(await p.evaluate(()=>OTR.workday.events.filter(e=>e.type==='trip.damage-false').length),1);r.checks++;
+    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;OTR.fpDamage.zones.forEach((zone,i)=>{OTR.fpDamage.release(m.damage);OTR.fpDamageFlow.fire(m,OTR.fpDamage.contact(m.damage,zone,'solid',[.5,3,8][i%3]),3);});});
+--- a/test/fpbench.js
++++ b/test/fpbench.js
+@@ -242,7 +242,7 @@
+     return {marker:m.routePlan.deliveries,source:'native-later-authorized',later:m.routePlan.later===1,lockerStop:m.routePlan.lockerStop,damageZones:m.damage?m.damage.added.filter(Boolean).length:0,physicalTarget:s.art.interactions.some(o=>o.userData.interaction==='visit'+id),parts:s.art.deliveryArt.parts.length,protocol:m._deliverySpecs[id].protocol&&m._deliverySpecs[id].protocol.kind,gated:m._deliverySpecs[id].gated,deposited:OTR.fpStopFlow.inLocker(m,parcel)};
+    },kind);await sample(view);
+   }
+-  if(process.env.QA_WALKAROUND==='1')for(const kind of ['front','roof','record','summary','guidepre','guidepost']){
++  if(process.env.QA_WALKAROUND==='1')for(const kind of (process.env.QA_CARGO_PROBE==='1'?['cargo','rear']:['front','roof','record','summary','guidepre','guidepost'])){
+    const proof=await p.evaluate(kind=>{
+     const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpStopFlow.prepare(OTR.fpRoute.plan(4,8),true))));plan.timeOfDay='midday';
+     const m=OTR.fpMission.create('campaign',8,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
+@@ -252,13 +252,19 @@
+      m.preparation();m.phase='return';m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});
+      for(const zone of OTR.fpDamage.zones){OTR.fpDamage.release(m.damage);OTR.fpDamage.contact(m.damage,zone,'solid',8);}
+     }
+-    const zone=kind==='front'?'front':kind==='record'?'mirror':'roof',t=OTR.fpWalkaroundFlow.target(zone),point=OTR.fp.local(m.van,t.x+(zone==='front'?0:-.85),t.z+(zone==='front'?-.85:0));Object.assign(m.player,point);
++    const zone=kind==='front'?'front':kind==='cargo'||kind==='rear'?'rear':kind==='record'?'mirror':'roof',t=OTR.fpWalkaroundFlow.target(zone),point=OTR.fp.local(m.van,t.x+(['front','rear'].includes(zone)?0:-.85),t.z+(zone==='front'?-.85:zone==='rear'?.85:0));Object.assign(m.player,point);
+     const target=OTR.fpWalkaroundFlow.point(m,zone);m.player.yaw=Math.atan2(target.x-m.player.x,-(target.z-m.player.z));m.player.pitch=Math.atan2(1.65-target.y,Math.hypot(target.x-m.player.x,target.z-m.player.z));
+     s.model=m;s.area='route';s.notice='';s.target='wear-'+zone;s.rebuildWorld();s.sync();s.refresh();
++    if(kind==='cargo'||kind==='rear'){
++     if(kind==='cargo')Object.assign(m.player,OTR.fp.local(m.van,0,4));
++     const object=kind==='cargo'?s.art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0):s.art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear'),at=object.getWorldPosition(new THREE.Vector3());
++     m.player.yaw=Math.atan2(at.x-m.player.x,-(at.z-m.player.z));m.player.pitch=Math.atan2(1.65-at.y,Math.hypot(at.x-m.player.x,at.z-m.player.z));s.sync();s.target=s.aimTarget();s.refresh();
++     if(s.target!==(kind==='cargo'?'cargo':'wear-rear'))throw Error('The cargo and rear inspection targets overlap.');
++    }
+     if(kind==='record'){OTR.fpWalkaroundFlow.inspect(m,zone);OTR.fpWalkaroundUI.describe(s,zone,1);}
+     if(kind==='summary')OTR.fpWalkaroundUI.records(s,4);
+     if(kind==='guidepre'||kind==='guidepost')OTR.fpGuide.steps(s,kind==='guidepre'?7:8,()=>s.closePanel());
+-    return {marker:m.routePlan.walkaround,valid:OTR.fpWalkaround.valid(m.walkaround,m.damage),targets:s.art.walkaroundTargets.length,proxyOnly:s.art.walkaroundTargets.every(o=>o.layers.mask===2),kind};
++    return {marker:m.routePlan.walkaround,valid:OTR.fpWalkaround.valid(m.walkaround,m.damage),targets:s.art.walkaroundTargets.length,proxyOnly:s.art.walkaroundTargets.every(o=>o.layers.mask===2),physicalPick:kind==='cargo'||kind==='rear'?s.aimTarget():null,kind};
+    },kind);report.walkaroundProof=report.walkaroundProof||{};report.walkaroundProof['walk'+kind]=proof;await sample('walk'+kind);
+   }
+   if(process.env.QA_TRAFFIC==='1'&&await p.evaluate(()=>!!OTR.fpTraffic))for(const kind of ['signal','green','cyclist','mirror','school','peak']){

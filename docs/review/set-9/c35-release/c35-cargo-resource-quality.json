@@ -1,0 +1,70 @@
+{
+  "sourceRevision": "d58a876aa872345c44f18d43b16e6e9da6f747de",
+  "scope": "cargo-centre-and-rear-after-interaction-fix",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": [
+        "walkcargo",
+        "walkrear"
+      ],
+      "exit": 0,
+      "report": "bench-c35-cargo-resource-loaded-low-low.json",
+      "peak": {
+        "calls": 46,
+        "triangles": 1054,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2141755
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": [
+        "walkcargo",
+        "walkrear"
+      ],
+      "exit": 0,
+      "report": "bench-c35-cargo-resource-loaded-high-high.json",
+      "peak": {
+        "calls": 72,
+        "triangles": 79027,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7100635
+      }
+    },
+    {
+      "id": "accessible-low",
+      "views": [
+        "walkcargo",
+        "walkrear"
+      ],
+      "exit": 0,
+      "report": "bench-c35-cargo-resource-accessible-low-low.json",
+      "peak": {
+        "calls": 46,
+        "triangles": 1054,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2506192
+      }
+    },
+    {
+      "id": "fallback-low",
+      "views": [
+        "walkcargo",
+        "walkrear"
+      ],
+      "exit": 0,
+      "report": "bench-c35-cargo-resource-fallback-low-low.json",
+      "peak": {
+        "calls": 44,
+        "triangles": 796,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2141755
+      }
+    }
+  ]
+}

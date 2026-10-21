@@ -3993,7 +3993,52 @@ window.OTR_I18N.ta = {
 "Missing package not reported": "காணாமல் போன பார்சலைப் புகாரளிக்காதது",
 "Left with another route's package": "வேறொரு வழித்தடத்தின் பார்சலுடன் புறப்பட்டது",
 "Doorsteps and loading: mistakes per day": "வாசல்களும் லோடிங்கும்: நாளுக்கு தவறுகள்",
-"From the {0} trainees whose first and latest workdays both had these checks.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் இந்தச் சோதனைகள் இருந்த {0} பயிற்சி பெறுநர்களில்."
+"From the {0} trainees whose first and latest workdays both had these checks.": "முதல் மற்றும் சமீபத்திய வேலை நாள் இரண்டிலும் இந்தச் சோதனைகள் இருந்த {0} பயிற்சி பெறுநர்களில்.",
+"Follow the sat nav.": "வழிகாட்டியைப் பின்பற்றுங்கள்.",
+"Read the road signs.": "சாலை அடையாளங்களைப் படியுங்கள்.",
+"Watch the lights and people.": "சிக்னல்களையும் மக்களையும் கவனியுங்கள்.",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "சிவப்பு சிக்னலில் கோட்டுக்குப் பின்னால் நில்லுங்கள், மஞ்சள் சிக்னலில் பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள். வலது பக்கம் திரும்பும் முன் வலது கண்ணாடியைப் பார்த்து, அருகில் கடந்து செல்லும் சைக்கிள் ஓட்டுநருக்கு வழி விடுங்கள். பள்ளிக் கடவில் குழந்தைகளுக்காக முன்கூட்டியே வேகத்தைக் குறையுங்கள், அவர்களின் பாதை தெளிவாகும் வரை காத்திருங்கள்.",
+"Look after the van.": "வேனைக் கவனித்துக்கொள்ளுங்கள்.",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "வேனின் உயரம் 10 அடி 10 அங்குலம். குறைந்த உயர வரம்புள்ள இடங்களைத் தவிர்க்க வழிகாட்டியைப் பின்பற்றுங்கள், எச்சரிக்கை வந்தால் வேறு சாலையில் செல்லுங்கள். கூர்மையான திருப்பங்களும் திடீர் பிரேக்கும் கட்டப்படாத சரக்கை நகர்த்தும். கட்டுகளை இறுக்கி, மென்மையாக ஓட்டுங்கள். மோதல் படும் இடத்தில் வேனுக்குச் சேதம் ஏற்படலாம்.",
+"Record the pre-trip condition.": "பயணத்துக்கு முந்தைய நிலையைப் பதிவு செய்யுங்கள்.",
+"Report damage after the trip.": "பயணத்துக்குப் பிறகு சேதத்தைத் தெரிவியுங்கள்.",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "டிப்போவுக்குத் திரும்பிய பின், மீண்டும் வேனைச் சுற்றி நடந்து, ஒவ்வொரு பகுதியின் தெரியும் நிலையைப் பதிவு செய்யுங்கள். கூரையின் விளிம்பைத் தரையில் இருந்தே சோதியுங்கள். ஏற்கெனவே உள்ள தேய்மானம் உங்கள் தவறு அல்ல. டிஸ்பாட்சில் முடிக்கும் முன் புதிய சேதம் உள்ள ஒவ்வொரு பகுதியையும் தெரிவியுங்கள். பதிவுகளைப் பார்க்க ஹேண்ட்ஹெல்டில் வேலைநாள் விவரங்களைத் திறங்கள்.",
+"Use the delivery site controls.": "டெலிவரி இடத்தின் கட்டுப்பாடுகளைப் பயன்படுத்துங்கள்.",
+"Review the walkaround.": "சுற்றுச் சோதனையை மீண்டும் பாருங்கள்.",
+"Invalid walkaround version": "செல்லாத சுற்றுச் சோதனைப் பதிப்பு",
+"No damage is visible.": "சேதம் எதுவும் தெரியவில்லை.",
+"The paint is scuffed here.": "இங்கே பெயிண்டில் கீறல் உள்ளது.",
+"A dent is visible here.": "இங்கே ஒரு குழி தெரிகிறது.",
+"Major damage is visible here.": "இங்கே பெரிய சேதம் தெரிகிறது.",
+"Invalid walkaround damage": "செல்லாத சுற்றுச் சோதனைச் சேதம்",
+"This is the front of the van.": "இது வேனின் முன்பக்கம்.",
+"This is the rear of the van.": "இது வேனின் பின்பக்கம்.",
+"This is the left side of the van.": "இது வேனின் இடது பக்கம்.",
+"This is the right side of the van.": "இது வேனின் வலது பக்கம்.",
+"This is the roof edge of the van.": "இது வேனின் கூரை விளிம்பு.",
+"This is the rear left wheel.": "இது பின் இடது சக்கரம்.",
+"This is the left mirror.": "இது இடது கண்ணாடி.",
+"Recorded damage in an undamaged area.": "சேதமில்லாத பகுதியில் சேதத்தைப் பதிவு செய்தீர்கள்.",
+"Recorded existing damage before departure.": "புறப்படும் முன் ஏற்கெனவே உள்ள சேதத்தைப் பதிவு செய்தீர்கள்.",
+"Missed existing damage before departure.": "புறப்படும் முன் ஏற்கெனவே உள்ள சேதத்தைத் தவறவிட்டீர்கள்.",
+"Recorded new damage after the trip.": "பயணத்துக்குப் பிறகு புதிய சேதத்தைப் பதிவு செய்தீர்கள்.",
+"Finished without a correct report of new damage.": "புதிய சேதத்தைச் சரியாகத் தெரிவிக்காமல் முடித்தீர்கள்.",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "பாதுகாப்பாக நிறுத்தி, பொதியைக் கீழே வைத்துவிட்டு, வேனின் இந்தப் பகுதிக்கு அருகில் செல்லுங்கள். பின்பக்கத்தைச் சோதிக்கும் முன் சரக்கை மூடுங்கள்.",
+"Inspect this area beside the parked van before recording its condition.": "நிலையைப் பதிவு செய்யும் முன், நிறுத்தியுள்ள வேனின் அருகில் சென்று இந்தப் பகுதியைச் சோதியுங்கள்.",
+"It is recorded.": "பதிவாகிவிட்டது.",
+"Put away the handheld.": "ஹேண்ட்ஹெல்டை வையுங்கள்.",
+"See the first descriptions.": "முதல் விளக்கங்களைப் பாருங்கள்.",
+"See more descriptions.": "மேலும் விளக்கங்களைப் பாருங்கள்.",
+"Inspect the van.": "வேனைச் சோதியுங்கள்.",
+"Check the van.": "வேனைச் சரிபாருங்கள்.",
+"Inspect before departure or after returning the van to the depot.": "புறப்படும் முன் அல்லது வேனை டிப்போவுக்குத் திருப்பிக் கொண்டுவந்த பின் சோதியுங்கள்.",
+"See the previous area.": "இதற்கு முந்தைய பகுதியைப் பாருங்கள்.",
+"See the next area.": "இதற்கு அடுத்த பகுதியைப் பாருங்கள்.",
+"Review the van.": "வேனின் பதிவுகளைப் பாருங்கள்.",
+"This area has no recorded condition.": "இந்தப் பகுதிக்குப் பதிவான நிலை எதுவும் இல்லை.",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "புறப்படும் முன், வெறும் கைகளுடன் நிறுத்தியுள்ள வேனைச் சுற்றி நடந்து, ஒவ்வொரு பகுதியின் நிலையையும் பதிவு செய்யுங்கள்.",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "வேனின் நிலையைப் பதிவு செய்து, டயர்களையும் விளக்குகளையும் சரிபாருங்கள், பிறகு பார்சல்களை ஸ்கேன் செய்து ஏற்றுங்கள். புறப்படும் முன் சுமையைக் கட்டி சரக்கை மூடுங்கள்.",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "டிப்போவுக்குத் திரும்பி, வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்து, டிஸ்பாட்சில் முடிக்கும் முன் வேனின் நிலையைப் பதிவு செய்யுங்கள்."
 },
 "templates": [
 [
@@ -5755,6 +5800,22 @@ window.OTR_I18N.ta = {
 [
 "Press {0} to use the delivery controls.",
 "டெலிவரி கட்டுப்பாடுகளைப் பயன்படுத்த {0} ஐ அழுத்துங்கள்."
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} இந்தப் பகுதியைச் சோதிக்க {1} அழுத்துங்கள்."
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"நிறுத்தக் குறியில் முழுமையாக நில்லுங்கள், குறி சொல்லும் இடத்தில் வழி விடுங்கள். வேக வரம்புக்குள் ஓட்டுங்கள், பள்ளி மண்டலங்களில் வேகத்தைக் குறையுங்கள். ஒருவழித் தெருவில் அதன் திசைக்கு எதிராக ஒருபோதும் நுழையாதீர்கள், நுழையத் தடை குறியை ஒருபோதும் கடக்காதீர்கள். கண்முன் உள்ள குறியைக் கேட்க {0} அழுத்துங்கள்."
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"புறப்படும் முன், வெறும் கைகளுடன் நிறுத்தியுள்ள வேனைச் சுற்றி நடங்கள். ஒவ்வொரு பகுதியையும் தேர்ந்தெடுக்க {0}, அதைச் சோதிக்க {1} அழுத்துங்கள். ஹேண்ட்ஹெல்டில் பொருந்தும் விளக்கத்தைத் தேர்ந்தெடுங்கள். முன்பக்கம், பின்பக்கம், இரு பக்கங்கள், கூரை விளிம்பு, பின் இடது சக்கரம், இடது கண்ணாடி ஆகியவற்றைச் சோதியுங்கள். பின்பக்கத்தைச் சோதிக்கும் முன் சரக்கை மூடுங்கள்."
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"இந்தப் பகுதியைச் சோதித்து அதன் நிலையை ஹேண்ட்ஹெல்டில் பதிவு செய்ய {0} அழுத்துங்கள்."
 ]
 ],
 "keep": [

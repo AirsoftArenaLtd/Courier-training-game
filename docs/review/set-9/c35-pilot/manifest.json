@@ -1,0 +1,81 @@
+{
+  "sourceRevision": "72fbe943288657372a440b6b9e5962badbf74219",
+  "pilotRevision": "74cd60a",
+  "results": {
+    "requiredNodeCases": 143,
+    "combinedJourneyTests": 3,
+    "resumedDays": 30,
+    "soakDays": 100,
+    "scormRoundTrips": 240,
+    "scormMax": 3776,
+    "heavyDayBytes": 3960,
+    "syntaxFiles": 31,
+    "catalogue": "pass",
+    "scormLaunch12": "pass",
+    "scormLaunch2004": "pass",
+    "evidenceHashesCheckedBeforeThisArchive": 677
+  },
+  "scope": {
+    "inheritedGameplay": "Owned product code matches d58a876. The pilot rebase changes shared save v2 and safety wording, not rendering inputs. Completed 658 native checks, nine shared journeys, and focused eight-view gate retain d58a876 as measured source. The 179-view gate retains501fb82.",
+    "packaging": "The unchanged Node packager stalled in execFileSync(zip) in this environment, reproduced by one-file calls with and without newline (12s timeout). Direct zip with the package module file list succeeds. Both launch suites passed the supplied ZIPs; 2004 uses the same list excluding root manifest, then adds data/lms/imsmanifest-2004.xml as imsmanifest.xml. No shared implementation changed. Initial launch without sandbox network permission failed EPERM before browser; permitted local-server rerun passed.",
+    "translation": "Current catalogue passes; new C35 strings await Claude extraction/translation."
+  },
+  "packages": {
+    "12": {
+      "bytes": 12154922,
+      "sha256": "be2e286cb9d016da69be9995531465f0262346fc8f11daccde1f2811d80dca2d"
+    },
+    "2004": {
+      "bytes": 12155035,
+      "sha256": "0003975c3e81c62e3386c3adac7736464329abdd9d9e2e57f95b71b49298c65e"
+    }
+  },
+  "sourceSHA256": {
+    "index.html": "450224793bdaed848399624ff21808c40b68430cec054dac91012615c015dcba",
+    "docs/review/set-9/c35-cargo/fpwalkaroundcargo-fixed.tmp.cjs": "c1a651cdba7f0f49401749a9670be5f5df043d47a009e57b216a2e27a9024383",
+    "docs/review/set-9/c35-cargo/fpwalkaroundcargo.tmp.cjs": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
+    "docs/review/set-9/c35-integration/c35-saveprobe.cjs": "82d60e916b2a6745fad730e4f3944ab43ccd55d421ea5c1790ae723765571fc2",
+    "docs/review/set-9/c35-release/c35-cargo-resource.cjs": "04560a0080d2792a0f66bdd933cf4ab3213dbdb2af072f232ca3bcd83277fb50",
+    "docs/review/set-9/c35-release/c35-http-test-adapter.cjs": "01c188eed7c59fca724277eaf8859cd6a4079134b95f7261a7add3a4407ae8cc",
+    "docs/review/set-9/c35-render/fpbench.js": "bb1683c1973e53f98463e71d2bb64095b35c8cb8771750e4f9be1e0dd02206e3",
+    "docs/review/set-9/c35-render/fpquality.js": "c034e02354a6414135418d9c480839e8a93cd1d901d0c0f3ccd146ba4501c8cf",
+    "src/core/fpaccess.js": "3c2991f903b514da8e93bc678c7b21589ac7546c464f8e8cd6c90c2cc042afe3",
+    "src/core/fpdamageworld.js": "85d20025c9445608650aa57fb2a5a6a443a9212be9c757578674b47e65db706d",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "c3c8e4b0d7fc43562c30a17587004e99057dc28bc6736a35cad3a653b0912fcc",
+    "src/core/fpmission.js": "14995b6e979b5a0bebad1cbd54f6c0931fb7fc220558b630412e0983fb936392",
+    "src/core/fproute.js": "c317fd1811abe067be20e3c0a0695021ab37788294b3346a2ed158b29f6f6b9f",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "05f5f8c5da0ca3f057944604c41157c55f11719f9445c995a125b1b2a44e6581",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpworld.js": "fc60d16343f9b0c2f62215a8ad669bac18028558cf0f6d629896a309ce687257",
+    "src/scenes/FirstPersonScene.js": "ae81e842a312dbf250d6eccce2f1035a5b85e66b2e2e5388d764d6cac0127c8c",
+    "test/fpbench.js": "00c97abab847ccdc8b9df56aecb2a320e57505e573d3fa7f5595f49ea5078f5f",
+    "test/fpbrandingbrowser.js": "d219c2696037b0738d5949d2b8a6330bac5a8580137d0ad78e8453ea9a7b8231",
+    "test/fpdamagebrowser.js": "459914a5b9baf97be3f08f55af29b56aaebab48c33ffb613aa193050fb35dac5",
+    "test/fpguidebrowser.js": "6c0dd7222adecb36fb638aece88820cc9def71aef1622c9cc869040ea0342c58",
+    "test/fpquality.js": "c034e02354a6414135418d9c480839e8a93cd1d901d0c0f3ccd146ba4501c8cf",
+    "test/fpqualitygate.js": "d1375526f15cf6cceee0b950012ced190bac192d523134c20ac1f64ccc7067c2",
+    "test/fpresume.js": "8ff564039019ec8ae900f42b657c135d6b5524ac6105e9edfc91a5efedee3bcf",
+    "test/fproute.js": "09c20791711a9bf35ed4aadb2cf537347da105b376334c2b3ae3e583f3805e18",
+    "test/fpstoplocker.js": "06c6532152261d2fdf8831629249c1ce9fea5aecea99598422ccd66869ec38b1",
+    "test/fpwalkaround.js": "76a01c1456a50e770072d4f8a1b264542eee4837a824124a6c6f6188c4c7df1d",
+    "test/fpwalkaroundbrowser.js": "8708ff50ef2fc13ddf1be2a926513283b9a8b46bae94b6a1d084374d4594b384",
+    "test/fpwalkaroundflow.js": "ccd01f17436ab9bb9c5c5204d857bb292f41ecc9363f5770a0c4bcb22bbb4003",
+    "test/fpwalkaroundworld.js": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
+    "src/core/save.js": "e15b4573a949cbade1cb451e01c1d627a840850021016da00dbaa0af61dfe8bd",
+    "test/savesize.js": "929d022eb8e430387170f5cab130da3e28ddfa3c88bd90b53b1d0e046dde660d"
+  },
+  "files": {
+    "c35-integrated-resume.log": "81cd8c4e505b31e5897bea9b02c5ff47a9b532b614df9589d4986f13aacb9013",
+    "c35-package-list.txt": "327ba03f55a2154c63958837775a12365aa2518deefd69c9804a6ece00b253f4",
+    "c35-integrated-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c35-integrated-scorm2004.log": "7182cd534c3a57abfea3a5db4ecfab062deb55e5b1aa0f36578dfa4e4b36941d",
+    "c35-integrated-scorm12-direct.log": "3aa4e5eac17a8faa47c20d7fa8645f7353ed28bd2e1dfe875a1654e54980c870",
+    "c35-integrated-scorm12.log": "767b88d2f58556c8d403acf48012ebe31d2f9de6caf36d6bf4cb5fc718687eca",
+    "c35-integrated-final-node.log": "4e7850474c91a2cd4e9bb1030cc9b78148d3cc902316ee26dd50c0937cbd291d",
+    "c35-integrated-scorm2004-direct.log": "35f10f11c954bf79bdf8fde89772042265af5c6d5c4ede4e2aa0261079500211",
+    "c35-integrated-syntax.json": "dede523720dc68ef0ec35c84955cc8c537b71170b81794e4e0ab416bca03e4f5",
+    "c35-resume-soak.json": "e555cf7eee28423a1f997e6c95c1fc68270c4fe1879dc605f0131a67bb5f7a63"
+  }
+}

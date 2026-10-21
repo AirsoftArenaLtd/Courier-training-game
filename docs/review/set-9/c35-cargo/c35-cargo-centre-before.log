@@ -1,0 +1,74 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✖ low: every ground-level inspection selects a nearby rendered van surface (723.406199ms)
+✖ high: every ground-level inspection selects a nearby rendered van surface (276.30604ms)
+✖ fallback: every ground-level inspection selects a nearby rendered van surface (31.297777ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1306.040586
+
+✖ failing tests:
+
+test at test/fpwalkaroundcargo.tmp.cjs:12:48
+✖ low: every ground-level inspection selects a nearby rendered van surface (723.406199ms)
+  AssertionError [ERR_ASSERTION]: the cargo-door centre stays selectable before loading
+  + actual - expected
+  
+  + 'wear-rear'
+  - 'cargo'
+  
+      at TestContext.<anonymous> (/workspace/c35-walkaround/test/fpwalkaroundcargo.tmp.cjs:19:218)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'wear-rear',
+    expected: 'cargo',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fpwalkaroundcargo.tmp.cjs:12:48
+✖ high: every ground-level inspection selects a nearby rendered van surface (276.30604ms)
+  AssertionError [ERR_ASSERTION]: the cargo-door centre stays selectable before loading
+  + actual - expected
+  
+  + 'wear-rear'
+  - 'cargo'
+  
+      at TestContext.<anonymous> (/workspace/c35-walkaround/test/fpwalkaroundcargo.tmp.cjs:19:218)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'wear-rear',
+    expected: 'cargo',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fpwalkaroundcargo.tmp.cjs:12:48
+✖ fallback: every ground-level inspection selects a nearby rendered van surface (31.297777ms)
+  AssertionError [ERR_ASSERTION]: the cargo-door centre stays selectable before loading
+  + actual - expected
+  
+  + 'wear-rear'
+  - 'cargo'
+  
+      at TestContext.<anonymous> (/workspace/c35-walkaround/test/fpwalkaroundcargo.tmp.cjs:19:218)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'wear-rear',
+    expected: 'cargo',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

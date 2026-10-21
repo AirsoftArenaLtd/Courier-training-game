@@ -5,6 +5,7 @@ class HubScene extends Phaser.Scene {
     const W = OTR.W, H = OTR.H;
     const save = OTR.save;
     if (!save.hasProfile()) { this.scene.start('TitleScene'); return; }
+    if (OTR.workday && OTR.workday.devDay) OTR.workday.devDay();       // B-105: a review link's route and day
     OTR.fx.enter(this);
 
     this.add.image(W / 2, H / 2, OTR.tex.bg(this, 'hub_bg', [[0, '#102d4e'], [1, OTR_DATA.theme.css('nightDeep')]], (ctx, w, h) => {

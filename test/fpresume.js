@@ -1,17 +1,17 @@
 /* Seeded model journeys. Travel positions are fixtures; actions, reports and checkpoint readers are real. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const storage=new Map(),c={console,URLSearchParams};c.window=c;c.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};c.addEventListener=()=>{};c.location={search:''};vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpnav.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/fpdamage.js','src/core/fpdamageflow.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/save.js','src/core/workday.js','src/core/firstperson.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpmission.js','src/core/fproute.js','src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpnav.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/fpdamage.js','src/core/fpdamageflow.js','src/core/fpwalkaround.js','src/core/fpwalkaroundflow.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',f),'utf8'),c);
 c.OTR.identity={mode:'local',id:'seeded-model'};const O=c.OTR,M=O.fpMission,W=O.workday,S=O.save;
-const later=process.env.QA_LATER==='1',signs=process.env.QA_SIGNS==='1',nav=process.env.QA_NAV==='1',traffic=process.env.QA_TRAFFIC==='1',damage=process.env.QA_DAMAGE==='1';
+const later=process.env.QA_LATER==='1',signs=process.env.QA_SIGNS==='1',nav=process.env.QA_NAV==='1',traffic=process.env.QA_TRAFFIC==='1',walkaround=process.env.QA_WALKAROUND==='1',damage=walkaround||process.env.QA_DAMAGE==='1';
 const plain=o=>JSON.parse(JSON.stringify(o)),score=log=>({score:log.score(),ratios:plain(log.ratios(O.scoring.CATS)),criticals:log.criticals().map(i=>[i.cat,i.label])});
 const report={resume:[],soak:[],failures:[],phases:[],weathers:[],loadouts:[],scormMax:0,scormChecks:0},coverage=new Set();
-const saveReport=()=>{const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,damage?'c34-resume-soak.json':nav?'c31-resume-soak.json':signs?'c30-resume-soak.json':later?'c18-resume-soak.json':'c14-resume-soak.json'),JSON.stringify({...report,coverage:[...coverage].sort()},null,2));};
+const saveReport=()=>{const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,walkaround?'c35-resume-soak.json':damage?'c34-resume-soak.json':nav?'c31-resume-soak.json':signs?'c30-resume-soak.json':later?'c18-resume-soak.json':'c14-resume-soak.json'),JSON.stringify({...report,coverage:[...coverage].sort()},null,2));};
 const shuffle=(items,rng)=>{const out=[...items];for(let i=out.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;};
 function play(seed,resume=false,scorm=false){
  let stage='start',checkpoints=0,randomState=seed*2654435761>>>0,m;const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
  try{
-  storage.clear();W.detach();S.data=S.defaults();S.data.townSeed=1;W.begin();let plan=later?O.fpLater.prepare(O.fpRoute.plan(seed,seed)):O.fpRoute.plan(seed,seed);if(signs)plan=O.fpSigns.prepare(plan);if(traffic)plan=O.fpTraffic.prepare(plan);if(nav)plan=O.fpNav.prepare(plan);if(damage)plan=O.fpDamageFlow.prepare(plan);m=M.create('campaign',seed,plan);O.fpLoadout.configure(m);O.fpDriving.configure(m);O.fpDay.configure(m);O.fpDoors.configure(m);m.doorsteps.date='2026-10-16';O.fpDoors.configure(m,m.doorsteps);
+  storage.clear();W.detach();S.data=S.defaults();S.data.townSeed=1;W.begin();let plan=later?O.fpLater.prepare(O.fpRoute.plan(seed,seed)):O.fpRoute.plan(seed,seed);if(signs)plan=O.fpSigns.prepare(plan);if(traffic)plan=O.fpTraffic.prepare(plan);if(nav)plan=O.fpNav.prepare(plan);if(damage)plan=O.fpDamageFlow.prepare(plan);if(walkaround)plan=O.fpWalkaroundFlow.prepare(plan);m=M.create('campaign',seed,plan);O.fpLoadout.configure(m);O.fpDriving.configure(m);O.fpDay.configure(m);O.fpDoors.configure(m);m.doorsteps.date='2026-10-16';O.fpDoors.configure(m,m.doorsteps);
   const day=m.routePlan;if(process.env.QA_LIGHTING==='1'){day.timeOfDay=['morning','midday','dusk','night'][seed%4];coverage.add('lighting:'+day.timeOfDay);}m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};
   if(!report.weathers.includes(m.routeDay.weather))report.weathers.push(m.routeDay.weather);if(!report.loadouts.includes(m.loadout.kind))report.loadouts.push(m.loadout.kind);
   const checkpoint=label=>{
@@ -26,6 +26,11 @@ function play(seed,resume=false,scorm=false){
   };
   const act=(label,fn)=>{stage=label;const result=fn();checkpoint(label);return result;};
   const at=id=>{const p=m.point(id);Object.assign(m.player,{x:p.x,z:p.z+.6});};
+  const walk=phase=>{if(!m.walkaround)return;for(const zone of shuffle(O.fpWalkaround.zones,random)){
+   const t=O.fpWalkaroundFlow.target(zone),x=t.x+(zone==='right'?.85:['front','rear'].includes(zone)?0:-.85),z=t.z+(zone==='front'?-.85:zone==='rear'?.85:0);
+   Object.assign(m.player,O.fp.local(m.van,x,z));let seen;act('walk:'+phase+':inspect:'+zone,()=>{seen=O.fpWalkaroundFlow.inspect(m,zone);assert.ok(seen);});
+   act('walk:'+phase+':record:'+zone,()=>assert.equal(O.fpWalkaroundFlow.record(m,zone,seen.level).correct,true));
+  }};
   const cargo=()=>{const p=m.point('cargo');Object.assign(m.player,{x:p.x-Math.sin(m.van.yaw)*.7,z:p.z+Math.cos(m.van.yaw)*.7});assert.equal(m.toggleCargo(),'','cargo toggle');};
   const secure=()=>{at('secure');assert.equal(m.secure(),'Load secured.');};
   const enter=()=>{at('driver');assert.equal(m.enter(),'');m.van.belt=true;m.van.hand=true;m.paused=false;const s=O.fpMirrors.specs[0];m.van.look=Math.atan2(s.x+.45,-(s.z+1.85));m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(s.x+.45,s.z+1.85));for(let i=0;i<34;i++)m.step({},.0125);m.van.look=0;m.player.pitch=0;m.van.hand=false;};
@@ -40,7 +45,7 @@ function play(seed,resume=false,scorm=false){
   const earlyInspection=random()<.5;if(earlyInspection)inspect();
   if(m.loadout.missingId){at('dispatch');act('missing',()=>O.fpLoadout.missing(m));}
   for(const id of shuffle(m.parcels.filter(p=>p.anomaly).map(p=>p.id),random)){at(id);act('unlisted:pickup',()=>assert.equal(m.pickup(id),''));act('unlisted:scan',()=>m.scan());at('dispatch');act('unlisted:aside',()=>O.fpLoadout.aside(m));assert.equal(m.parcel(id).location,'aside');}
-  act('open:cargo',cargo);
+  walk('pretrip');act('open:cargo',cargo);
   for(const id of shuffle(m.parcels.filter(p=>!p.anomaly&&p.location!=='pending').map(p=>p.id),random)){
    at(id);act('load:pickup:'+m.parcel(id).stop,()=>assert.equal(m.pickup(id),''));act('load:scan:'+m.parcel(id).stop,()=>m.scan());const slot='slot'+m.parcel(id).stop;at(slot);act('load:place:'+m.parcel(id).stop,()=>m.place(slot));assert.equal(m.parcel(id).location,slot);
   }
@@ -75,7 +80,9 @@ function play(seed,resume=false,scorm=false){
   }
   assert.equal(m.phase,'return');checkpoint('return');act('return:enter',enter);if(process.env.QA_REAR==='1')reverse();act('return:move',move);act('depot',()=>leaveAt({park:{x:2.84,z:8,yaw:0}}));act('depot:cargo',cargo);
   for(const id of m.parcels.filter(p=>p.returnRequired).map(p=>p.id)){at(id);act('return:pickup:'+m.parcel(id).stop,()=>m.pickup(id));at('returns');act('return:scan:'+m.parcel(id).stop,()=>m.scan());act('return:record:'+m.parcel(id).stop,()=>m.returnParcel());assert.equal(m.parcel(id).location,'returned');}
+  if(m.walkaround){if(m.cargoOpen)act('walk:close-cargo',cargo);walk('posttrip');}
   at('dispatch');act('complete',()=>assert.equal(m.finish(),''));assert.equal(m.phase,'debrief');assert.equal(m.stops.filter(s=>s.resolved).length,5);assert.equal(W.events.filter(e=>e.type==='deliver.outcome').length,5);
+  if(m.walkaround)assert.ok(W.events.filter(e=>['inspect.damage','trip.damage-report'].includes(e.type)).every(e=>e.ok),'all actual walkaround reports are correct');
   const rec=W.score(W.log,{seconds:m.elapsed,stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome!=='exception'}))}),max=W.log.items.reduce((n,i)=>n+(i.kind==='bonus'?i.got:Math.max(0,i.max||0)),0)*100;
   assert.ok(rec.score>=0&&rec.score<=max);for(const ratio of Object.values(rec.ratios))assert.ok(Number.isFinite(ratio)&&ratio>=0&&ratio<=1);for(const stars of Object.values(rec.stars))assert.ok(Number.isInteger(stars)&&stars>=0&&stars<=3);
   return {model:plain(m.snapshot()),events:plain(W.events),scoring:score(W.log),stars:plain(rec.stars),checkpoints};

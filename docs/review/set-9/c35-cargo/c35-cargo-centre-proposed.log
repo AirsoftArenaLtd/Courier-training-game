@@ -1,0 +1,12 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ low: every ground-level inspection selects a nearby rendered van surface (857.386522ms)
+✔ high: every ground-level inspection selects a nearby rendered van surface (378.231618ms)
+✔ fallback: every ground-level inspection selects a nearby rendered van surface (46.860915ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1597.89663

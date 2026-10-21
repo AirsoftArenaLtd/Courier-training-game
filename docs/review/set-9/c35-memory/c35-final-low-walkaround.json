@@ -1,0 +1,318 @@
+{
+  "quality": "low",
+  "checks": 1244,
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "peakPhaserBytes": 2970539,
+      "reports": [
+        {
+          "type": "trip.damage-report",
+          "key": "front",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "rear",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "left",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "right",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "roof",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "wheel",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "mirror",
+          "ok": true,
+          "stop": null
+        }
+      ],
+      "narrationCalls": 116,
+      "missed": {
+        "text": "",
+        "reports": [
+          {
+            "type": "trip.damage-report",
+            "key": "front",
+            "ok": false,
+            "stop": null
+          }
+        ],
+        "critical": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "peakPhaserBytes": 3610619,
+      "reports": [
+        {
+          "type": "trip.damage-report",
+          "key": "front",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "rear",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "left",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "right",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "roof",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "wheel",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "mirror",
+          "ok": true,
+          "stop": null
+        }
+      ],
+      "narrationCalls": 116,
+      "missed": {
+        "text": "",
+        "reports": [
+          {
+            "type": "trip.damage-report",
+            "key": "front",
+            "ok": false,
+            "stop": null
+          }
+        ],
+        "critical": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "peakPhaserBytes": 3809179,
+      "reports": [
+        {
+          "type": "trip.damage-report",
+          "key": "front",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "rear",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "left",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "right",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "roof",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "wheel",
+          "ok": true,
+          "stop": null
+        },
+        {
+          "type": "trip.damage-report",
+          "key": "mirror",
+          "ok": true,
+          "stop": null
+        }
+      ],
+      "narrationCalls": 116,
+      "missed": {
+        "text": "",
+        "reports": [
+          {
+            "type": "trip.damage-report",
+            "key": "front",
+            "ok": false,
+            "stop": null
+          }
+        ],
+        "critical": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "pre": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "post": [
+        "front",
+        "rear",
+        "left",
+        "right",
+        "roof",
+        "wheel",
+        "mirror"
+      ],
+      "guide": [
+        0,
+        1
+      ]
+    }
+  ],
+  "errors": [],
+  "complete": false,
+  "scope": "Fixture travel/return/contact poses; real P/E selection, handheld keys, records, scoring, checkpoints and guide pages. New English falls back until Claude translates.",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"bad\":[],\"phaserBytes\":4365312,\"contextLost\":false}\n    at audit (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:19:171)\n    at async /workspace/c35-walkaround/test/fpwalkaroundbrowser.js:56:318"
+}

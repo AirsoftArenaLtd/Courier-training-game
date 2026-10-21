@@ -846,3 +846,89 @@ The older 101-view gate and pre-damage sweeps above belong to their original sou
 [Current review and remaining checks](review/set-9/c33.md),
 [raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
 Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.
+
+## C-35 current-pilot progress (21 October 2026)
+
+C-35 retains pilot `5adcd5b`, including merged C-33. Product runtime `e4245b2`
+(the later `b52e708` changes only the locker-launch test bootstrap) passes both
+complete combined CPU sweeps with walkaround, authorized richer stops, damage,
+traffic, navigation, lighting/weather, extra cargo, camera motion and reflections.
+Each covers **285,600 views**: loaded **60 calls / 2,443 triangles**, procedural
+fallback **59 / 2,181**. The target proxies are on non-rendered layer 1; the wheel
+follows its actual imported bounds without body suspension. Only walkaround days
+reuse the roof patch on its visible upper edge. No instance/pass/target is added.
+
+The first native English larger-text Low workflow passes **321 checks** and peaks
+at **3,610,619 estimated Phaser bytes**, with all seven physical areas before and
+after the trip, strict native checkpoints and 12 readable guide pages. All 55 plain
+Node suites and 171 required/affected cases pass. [Raw results, captures, exact
+scopes and hashes](review/set-9/c35-current/manifest.json). Full Low/High and the
+expanded **179-view fpbench gate are still running**, so these are progress figures,
+not a completed rendered acceptance. The original ceilings stay unchanged; cloud
+SwiftShader does not certify native Intel 60 fps. O-1 remains the owner check.
+
+The subsequent High surface correction is measured at runtime `501fb82`, retaining
+pilot `0b43851`. Both repeated combined CPU sweeps pass **285,600 views each**:
+loaded **60 calls / 2,443 triangles**, fallback **59 / 2,181**. The corrected High
+English native workflow passes **321 checks**, seven pre/post surfaces and all 12
+guide pages. [Failure and corrected captures, raw sweeps and exact source](review/set-9/c35-surfaces/manifest.json).
+The rest of the native matrix and 179-view rendered gate remain in progress.
+
+The corrected complete native matrix now passes **1,926 checks in six workflows**:
+four Low English/Tamil normal/larger and two High English normal/Tamil larger.
+All seven physical areas before and after, all 12 guide pages, remapped controls,
+critical missing reports and exact checkpoints pass. Low Phaser peaks are
+**2,533,062 / 3,144,939 / 3,354,528 / 3,880,838 bytes** respectively. High Tamil
+larger peaks at **14,054,235 bytes**, below its unchanged 16 MiB ceiling. Browser
+page/layout regressions and the 179-view rendered resource gate are still running.
+
+The first final rendered profile passes **all 61 loaded-Low views**: **54 calls /
+2,396 triangles**, two Three textures, **3,557,376 attachment bytes** and
+**2,778,774 Phaser bytes**. Its source has the same product runtime `501fb82`;
+`5e0f9a4` changes only the damage browser's translated expectations. This is one
+profile, not the completed 179-view gate; High, accessibility and fallback continue.
+[Raw completed Low report and partial gate metadata](review/set-9/c35-surfaces/manifest.json).
+
+## C-35 complete frozen resource gate (21 October 2026)
+
+All **179 rendered views** pass with product runtime `501fb82`. Each profile
+checks live reflections, native richer stops, damage, traffic, sound and walkaround.
+All ceilings remain unchanged.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 61 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 46 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 36 | 54 | 2,396 | 2 | 3,557,376 | 3,067,056 |
+| fallback-low | 36 | 53 | 2,150 | 2 | 3,557,376 | 2,549,552 |
+
+[All 179 captures, raw reports, measured harnesses and hashes](review/set-9/c35-render/manifest.json).
+After capture, the cargo regression was corrected by moving/narrowing only its
+non-rendered rear inspection proxy. All 161 required cases and 24 changed-JS
+syntax checks pass. Final real-key cargo/inspection checks, eight focused rendered cargo/rear views
+and nine shared journeys pass; the following section records their source.
+The 179-view figures retain their measured source. No Intel FPS claim; O-1 remains.
+
+
+## C-35 final cargo target verification (21 October 2026)
+
+The non-rendered rear proxy correction keeps cargo and inspection independently
+selectable. All **eight focused rendered views** pass on product `d58a876`:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,141,755 |
+| loaded-high | 2 | 72 | 79,027 | 3 | 11,239,424 | 7,100,635 |
+| accessible-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,506,192 |
+| fallback-low | 2 | 44 | 796 | 2 | 3,557,376 | 2,141,755 |
+
+These check the actual cargo/rear ray IDs in the same unchanged ceilings; they
+supplement the full 179-view gate at `501fb82`. The only later product delta is the
+non-rendered rear target position/width. Final native cargo/inspection workflows
+pass **658 checks**, including Tamil larger Low at **3,880,838 Phaser bytes**.
+All **nine shared journeys pass** after the correction. They preserve existing
+routes; positive new records are tested by the owned native workflows pending
+Claude's B-99 helper. [Final captures/raw reports/scopes/hashes](review/set-9/c35-release/manifest.json).
+Latest pilot `74cd60a` retains the owned rendering code unchanged and adds Claude's
+save v2 and safety translation corrections. No resource ceiling changed. Cloud
+SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).
