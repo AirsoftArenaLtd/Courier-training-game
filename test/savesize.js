@@ -269,6 +269,30 @@ test('B-75: C-33\'s richer stops on the C-34 damage day still pack with room to 
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'the failed reattempt keeps its pin');
 });
 
+// B-93: C-35's walkaround and post-trip report in C-35's own shape (fpwalkaroundflow.js: the damage zone as key, no place):
+// existing damage found at two zones and missed at one, the damage the courier caused reported at one zone and not at
+// another (a critical mistake), and one report of damage that was not there, on top of the B-75 day
+const walkaroundDay = () => richerDay().concat(
+  [['inspect.damage', 'left', true], ['inspect.damage', 'mirror', true], ['inspect.damage', 'rear', false],
+   ['trip.damage-report', 'front', true], ['trip.damage-report', 'wheel', false], ['trip.damage-false', 'roof', false]]
+    .map(([type, key, ok]) => [type, { key, ok }]));
+
+test('B-93: C-35\'s walkaround and post-trip report on the richer-stop damage day still pack with room to spare', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  play(walkaroundDay());
+  const live = summary(W.log);
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
+  const room = SAVE.SCORM12_LIMIT - JSON.stringify(stored()).length;
+  console.log(`      B-93: ${room} characters to spare with C-33, C-34 and C-35 together`);
+  assert.ok(room >= 200, `room left with C-33, C-34 and C-35 together: ${room}`);
+  reload(); W.resume(null);
+  assert.equal(W.log.score(), live.score, 'the reloaded score is the same');
+  assert.ok(W.log.mistakes().some(it => it.type === 'trip.damage-report' && it.critical), 'hiding damage the courier caused stays a critical mistake after a reload');
+});
+
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
   const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
   const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });
