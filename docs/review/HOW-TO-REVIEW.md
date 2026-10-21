@@ -32,6 +32,9 @@ of text from the game. The first row under the headings repeats these steps in y
 
 You do not need to check every row. Safety rows (priority 1) and `new` rows matter most.
 
+Some rows already have a Comment that starts with "Question from the team:". These are the rows we are least sure of,
+and they come first. Answer in the same cell, after the question, and correct the translation if it needs it.
+
 ## How to send it back
 
 1. Do not add, delete or move rows or columns, and do not change the English column. We match your corrections to the
@@ -50,6 +53,8 @@ We put your corrections into the game. The next sheet you get marks only what ch
 - Apply a sheet that comes back with `node test/tools/review-sheet.js --apply <file.csv>`. Add `--dry-run` first to see
   what it would change. It matches each correction by the English. It refuses a correction that loses a `{0}`, and it
   refuses a whole file saved without UTF-8. It prints the reviewer's comments and any English the game no longer has.
-- Once every sheet is applied, run the tool with `--reviewed` to clear the `new` marks.
+- Questions for the reviewers go in `docs/review/questions.json` (language, then the English line). The tool writes
+  them into the Comment cells and puts those rows first, and `--apply` prints the reviewer's answer after each one.
+- Once every sheet is applied, run the tool with `--reviewed` to clear the `new` marks and the questions.
 - The first row (Kind "how to review") is these steps in short. The tool never counts it as a line. `test/reviewsheet.js`
   checks that each sheet reads cleanly as a spreadsheet and starts with this row in its language.

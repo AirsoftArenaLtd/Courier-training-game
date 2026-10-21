@@ -22,6 +22,10 @@
  * sheet's headings). It refuses a correction that drops a {0} the game fills in, and refuses the whole sheet when it was
  * saved without UTF-8 (the letters turned into ? or �). It lists every comment for the team, and the English it no
  * longer finds in the game. --dry-run says what it would do and changes nothing. I18N_DIR=<dir> writes somewhere else.
+ *
+ * B-100: docs/review/questions.json ({ lang: { English: question } }) holds the team's questions for the reviewers; each
+ * goes in its line's Comment cell, and the line comes first among the new ones. --apply does not count a question left
+ * as it was as a comment, and prints what a reviewer wrote after it as their answer. --reviewed empties the file.
  */
 'use strict';
 const fs = require('fs');
@@ -90,6 +94,8 @@ const readSheet = (file) => {
   return rows;
 };
 const clean = (s) => String(s).replace(/^\s+|\s+$/g, '');
+const QFILE = path.join(ROOT, 'docs', 'review', 'questions.json');
+const questions = (() => { try { return JSON.parse(fs.readFileSync(QFILE, 'utf8')); } catch (e) { return {}; } })();
 
 if (args.includes('--apply')) { apply(args[args.indexOf('--apply') + 1], args.includes('--dry-run')); process.exit(process.exitCode || 0); }
 
@@ -113,7 +119,9 @@ function apply(file, dry) {
   if (lost) { console.error(`${file}: ${lost} line(s) lost their letters (? or \uFFFD): the sheet was not saved as CSV UTF-8. Nothing applied; ask the reviewer to save it again as "CSV UTF-8" (HOW-TO-REVIEW.md).`); process.exitCode = 1; return; }
   const done = [], refused = [], missing = [], notes = [];
   body.forEach(r => {
-    const en = clean(r[cEn]), fix = clean(r[cFix] || ''), note = clean(r[cNote] || '');
+    const en = clean(r[cEn]), fix = clean(r[cFix] || ''), asked = clean((questions[lang] || {})[en] || '');
+    let note = clean(r[cNote] || '');
+    if (asked && note.startsWith(asked)) note = note.slice(asked.length).replace(/^[\s:;,.-]+/, '') ? 'answer to the team\'s question: ' + note.slice(asked.length).replace(/^[\s:;,.-]+/, '') : '';
     if (note) notes.push([en, note]);
     if (!fix) return;
     const isT = tmpl.has(en), isS = Object.prototype.hasOwnProperty.call(L.strings, en);
@@ -156,11 +164,13 @@ for (const lang of want) {
   const old = readSheet(file), at = old.length && /^New/.test(old[0][1]) ? 2 : 1;      // sheets before B-53 had no "New" column
   const before = new Map(old.slice(1).filter(r => r[r.length - 1] !== HOWTO_KIND).map(r => [r[at], { tr: r[at + 1], mark: at === 2 && !reviewed ? r[1] : '' }]));
   // new: not on the old sheet, or translated differently; a mark stays until a --reviewed run (the sheets came back)
-  const fresh = (r) => { const b = before.get(r[1]); return before.size > 0 && (!b || b.tr !== r[2] || b.mark === 'new'); };
-  rows.sort((a, b) => a[0] - b[0] || fresh(b) - fresh(a) || (a[1] < b[1] ? -1 : 1));
+  const Q = reviewed ? {} : (questions[lang] || {});
+  const fresh = (r) => { const b = before.get(r[1]); return !!Q[r[1]] || (before.size > 0 && (!b || b.tr !== r[2] || b.mark === 'new')); };
+  rows.sort((a, b) => a[0] - b[0] || fresh(b) - fresh(a) || !!Q[b[1]] - !!Q[a[1]] || (a[1] < b[1] ? -1 : 1));
   const head = ['Priority (1 = safety)', 'New since the last sheet', 'English', `${LANGS[lang]} (machine translation)`, 'Corrected translation (leave blank if correct)', 'Comment', 'Kind'];
-  const body = rows.map(r => [r[0], fresh(r) ? 'new' : '', r[1], r[2], '', '', r[3]].map(q).join(','));
+  const body = rows.map(r => [r[0], fresh(r) ? 'new' : '', r[1], r[2], '', Q[r[1]] || '', r[3]].map(q).join(','));
   const howto = ['', '', HOWTO_EN, HOWTO[lang], '', '', HOWTO_KIND].map(q).join(',');
   fs.writeFileSync(file, '﻿' + [head.map(q).join(','), howto, ...body].join('\r\n') + '\r\n');
   console.log(`${lang}: ${rows.filter(r => r[0] === 1).length} safety lines${all ? `, ${rows.length} in all` : ''}, ${rows.filter(fresh).length} new → ${path.relative(ROOT, file)}`);
 }
+if (reviewed && !all && fs.existsSync(QFILE) && !process.env.REVIEW_OUT) fs.writeFileSync(QFILE, '{}\n');      // B-100: answered with the sheets

@@ -64,7 +64,7 @@ for (const lang of LANGS) {
   check(how && how[3] && how[3] !== how[2] && !/^How to review/.test(how[3]) && /HOW-TO-REVIEW\.md$/.test(how[3]), `${lang}: the how-to is in the sheet's language`);
   check(how && /CSV UTF-8/.test(how[2]) && /CSV UTF-8/.test(how[3]), `${lang}: the how-to says to save as CSV UTF-8`);
   const body = rows.slice(2);
-  check(body.length > 100 && body.every(r => /^[12]$/.test(r[0]) && r[2] && r[3] && !r[4] && !r[5]), `${lang}: ${body.length} lines, each with a priority, the English and a translation, and empty answer cells`);
+  check(body.length > 100 && body.every(r => /^[12]$/.test(r[0]) && r[2] && r[3] && !r[4] && (!r[5] || /^Question from the team: /.test(r[5]))), `${lang}: ${body.length} lines, each with a priority, the English and a translation, and empty answer cells (a Comment holds only the team's question, B-100)`);
   let order = true;
   for (let k = 1; k < body.length; k++) {
     const a = body[k - 1], b = body[k];
@@ -88,6 +88,18 @@ try {
     check(again === raw, `${lang}: running the tool again gives the same sheet (the how-to row is not counted as a line)`);
   }
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+
+// B-100: the team's questions in their lines' Comment cells, those lines first among the new ones
+const QS = JSON.parse(fs.readFileSync(path.join(DIR, 'questions.json'), 'utf8'));
+for (const [lang, qs] of Object.entries(QS)) {
+  if (!sheets[lang]) continue;
+  const rows = parse(sheets[lang].replace(/^\uFEFF/, '')).slice(2);
+  Object.entries(qs).forEach(([en, qtext]) => {
+    const i = rows.findIndex(r => r[2] === en);
+    check(i >= 0 && rows[i][5] === qtext && rows[i][1] === 'new', `${lang}: the team's question is on its line, marked new: ${en.slice(0, 40)}`);
+    check(i >= 0 && rows.slice(0, i).every(r => r[0] !== rows[i][0] || r[5]), `${lang}: a line with a question comes first in its priority`);
+  });
+}
 
 // B-86: --apply on a copy of ta.js
 const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-apply-'));
