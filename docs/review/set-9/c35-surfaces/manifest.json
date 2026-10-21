@@ -99,7 +99,13 @@
         ]
       }
     },
-    "nativeChecks": 1926
+    "nativeChecks": 1926,
+    "inheritedBrowser": {
+      "guide": 89,
+      "keyboard": 145,
+      "damage": 80,
+      "academy": "pass"
+    }
   },
   "sourceSHA256": {
     "src/core/fpworld.js": "fc60d16343f9b0c2f62215a8ad669bac18028558cf0f6d629896a309ce687257",
@@ -110,26 +116,35 @@
     "c35-final-high-en-en-normal-post-mirror.png": "214b9bc5de5dd24e04990a418ea98fa1cff2e9d251ea498f440bce8ae4c86f5c",
     "c35-batch-walk-high-en.log": "a27b12cdfa5c4cb764fa83424d77111a9ab93984978254a20ed2440bce03c14d",
     "c35-release-high-en-walkaround.json": "f6c63b2443e586e149fc8e4ab4882431be7fe3d7adc9000e404c6d775378a582",
+    "before-catalogue-c35-final-batch-damage-low.log": "5ccf786d2371addeea98218295ca89235140680a18edd3eedb7b2a1bcff32309",
     "c35-final-fallback-geometry.log": "c87df9e0b27f5a88f20c4d98060bb9938abc28610f0ea95c64dea521c124dbe7",
     "c35-final-high-en-en-normal-pre-record.png": "6b908f05abb4a4d5a13b5ac2edef6914d24eaeaa829e2eb61718ac77f8401ddf",
+    "c35-final-batch-guide.log": "4048e88cde6bc7e5df3a48ab1c3fb64b7b835df214dc5bfdd7bf0e81a7cb6e20",
     "c35-final-high-en-en-normal-post-rear.png": "7066aa6cc451b1a49ebacbfe858dca631bb1cb319ca22ed2efc9d32d0357a185",
     "c35-final-low-ta-walkaround.json": "9d01710be4311fbb54339ae2644a4b4be13b5d88f43a79f8978dd30c951f7f17",
     "c35-final-node.log": "cf273fe6aff6170986d7dff87aca4d42b834be221524680bcea592c810dddbb3",
+    "before-catalogue-c35-current-damage-low-failure.png": "7969c0457c1e489e85a2368d81d3d9f5a46990888549152b215879f8dfafb8bf",
     "c35-final-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c35-final-batch-page-academy.log": "81d6490e07c81f5a1c501731b6ef41c3bba31e1ed53706654d9f5ae019f9f364",
     "c35-final-high-en-en-normal-post-roof.png": "d77f90c7258a8a9f0bb7c01484c80270bce852f5f0472bca0868561a5bf93866",
     "c35-final-fallback-geometry.json": "d026ca18d0567b7d0599e4af6f7cb933b33bca3c019e4c34f1479809e4ed5042",
     "c35-final-high-en-en-normal-guide-report.png": "b0d1ccbe8c8cbdf56db25c000fbefa0fc883f5a9b196a12f8c1846f42b9271bc",
     "c35-final-high-en-en-normal-pre-wheel.png": "e767cf694290996f2b23e4db4f6c9404bdb27aaa0d41fdde68596a54fef5adca",
     "c35-final-batch-walk-high-en.log": "a2d3be4c7803dde9234622743fafe9a32a1c82e8e847a12424990cc95e35c50a",
+    "c35-current-damage-low-damage.json": "0818dd457bb4739b3126f0ad60c7ef16e4658d65a276d4f38e8588087ed711a5",
     "c35-final-high-en-en-normal-pre-roof.png": "d7f726bc6983b5f8b9681269439c4fb54e85539d38bc0a3799a3b423d0843cd3",
     "c35-final-high-ta-walkaround.json": "18e58d0f7ce4312d908fc72fe01555f6542408ec5b8a8c035c4da4da618a57d7",
     "c35-final-high-en-en-normal-post-record.png": "8c518a4a4c9b1c9ea05aa71e86b1af6a4d90f427b08103af886f0047e02c82b8",
     "c35-final-loaded-geometry.json": "7a5018e0e662ab8f943dfb2a2d3e746421fb2ff28069155817e926fb0ab4f0fc",
     "c35-rear-surface-after.log": "79c773c0b387541e91db1b15582e835ad21605171fcdff1f1bd661eccca5c7f6",
+    "before-catalogue-c35-current-damage-low-damage.json": "4de18e91738577cd2c4e1c97421d53391063753869edd9fce92091abc9370944",
     "c35-release-high-en-failure.png": "ccca843af930ea70425e1da7d83cd1b4392e7d3826aa98ad45bbede5553a4fb5",
     "c35-final-high-en-walkaround.json": "523deb4ba006c4d48b6e2789f8acb0e213b0a2b03fe015e80e44a4f80ce8339b",
     "c35-final-loaded-geometry.log": "202625dd45287f9aee2953f3dd1509aa11112ae1cbc28a5bb566146735359f9d",
     "c35-final-low-en-walkaround.json": "c40d9652d502ff11e1a5a8810bcba18be9af4cd13561d45a0fdf48b4a0f96d0a",
-    "c35-rear-surface-before.log": "f17794fb51d8b70161e4936e50985c77f6e95b59f5fb28ba93cdde0bd050bcfe"
-  }
+    "c35-final-batch-access.log": "06f8c4aa1d8e3a69560353d32b0bd6bdfd0016b175a8bafd044c8aa21bd38378",
+    "c35-rear-surface-before.log": "f17794fb51d8b70161e4936e50985c77f6e95b59f5fb28ba93cdde0bd050bcfe",
+    "c35-final-batch-damage-low.log": "eab56f02aaefe87f673b54a0953040bd5cf24ce2ea1b943943ce60f67568d140"
+  },
+  "scopeAfterNative": "Product code remains 501fb82. Commit 5e0f9a4 only fixes the owned damage browser expectations to use the translated title and exact warning narration. The original 41-check failure is archived."
 }
