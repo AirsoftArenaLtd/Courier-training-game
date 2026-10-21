@@ -104,7 +104,13 @@
       "guide": 89,
       "keyboard": 145,
       "damage": 80,
-      "academy": "pass"
+      "academy": "pass",
+      "requiredPages": [
+        "academy",
+        "enterprise",
+        "routeday",
+        "driving"
+      ]
     }
   },
   "sourceSHA256": {
@@ -118,8 +124,10 @@
     "c35-release-high-en-walkaround.json": "f6c63b2443e586e149fc8e4ab4882431be7fe3d7adc9000e404c6d775378a582",
     "before-catalogue-c35-final-batch-damage-low.log": "5ccf786d2371addeea98218295ca89235140680a18edd3eedb7b2a1bcff32309",
     "c35-final-fallback-geometry.log": "c87df9e0b27f5a88f20c4d98060bb9938abc28610f0ea95c64dea521c124dbe7",
+    "c35-final-batch-page-enterprise.log": "7cc6ee2e385d09178eda22db5c5186ab516899c924b6f2f4392ad0dc53005b87",
     "c35-final-high-en-en-normal-pre-record.png": "6b908f05abb4a4d5a13b5ac2edef6914d24eaeaa829e2eb61718ac77f8401ddf",
     "c35-final-batch-guide.log": "4048e88cde6bc7e5df3a48ab1c3fb64b7b835df214dc5bfdd7bf0e81a7cb6e20",
+    "c35-final-batch-page-driving.log": "cc4377ee858a7693e33f1349a2037d04c541c3b6b426c28e6fe67684b3144bc4",
     "c35-final-high-en-en-normal-post-rear.png": "7066aa6cc451b1a49ebacbfe858dca631bb1cb319ca22ed2efc9d32d0357a185",
     "c35-final-low-ta-walkaround.json": "9d01710be4311fbb54339ae2644a4b4be13b5d88f43a79f8978dd30c951f7f17",
     "c35-final-node.log": "cf273fe6aff6170986d7dff87aca4d42b834be221524680bcea592c810dddbb3",
@@ -135,6 +143,7 @@
     "c35-final-high-en-en-normal-pre-roof.png": "d7f726bc6983b5f8b9681269439c4fb54e85539d38bc0a3799a3b423d0843cd3",
     "c35-final-high-ta-walkaround.json": "18e58d0f7ce4312d908fc72fe01555f6542408ec5b8a8c035c4da4da618a57d7",
     "c35-final-high-en-en-normal-post-record.png": "8c518a4a4c9b1c9ea05aa71e86b1af6a4d90f427b08103af886f0047e02c82b8",
+    "c35-final-batch-page-routeday.log": "4c87f0c41832212bb622df3d890e32aec3cf331635b2d648db0b4e1ed795e66a",
     "c35-final-loaded-geometry.json": "7a5018e0e662ab8f943dfb2a2d3e746421fb2ff28069155817e926fb0ab4f0fc",
     "c35-rear-surface-after.log": "79c773c0b387541e91db1b15582e835ad21605171fcdff1f1bd661eccca5c7f6",
     "before-catalogue-c35-current-damage-low-damage.json": "4de18e91738577cd2c4e1c97421d53391063753869edd9fce92091abc9370944",
@@ -146,5 +155,6 @@
     "c35-rear-surface-before.log": "f17794fb51d8b70161e4936e50985c77f6e95b59f5fb28ba93cdde0bd050bcfe",
     "c35-final-batch-damage-low.log": "eab56f02aaefe87f673b54a0953040bd5cf24ce2ea1b943943ce60f67568d140"
   },
-  "scopeAfterNative": "Product code remains 501fb82. Commit 5e0f9a4 only fixes the owned damage browser expectations to use the translated title and exact warning narration. The original 41-check failure is archived."
+  "scopeAfterNative": "Product code remains 501fb82. Commit 5e0f9a4 only fixes the owned damage browser expectations to use the translated title and exact warning narration. The original 41-check failure is archived.",
+  "pageTransport": "Enterprise, route day and driving use the local HTTP adapter; file-protocol launch is untested."
 }
