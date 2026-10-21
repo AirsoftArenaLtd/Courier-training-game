@@ -41,6 +41,28 @@ OTR.workday = {
   seen: new Set(),
   current: null,                    // the saved workday reports are kept in (null: reports are not saved)
 
+  /**
+   * B-105: a review link starts the 3D workday on a chosen route and day (the owner's checklist, docs/review/set-9):
+   * index.html?dev=1&workday3d=1&user=review-day4&route=10&day=4. Only for a profile whose name starts with "review", so
+   * real progress is never changed; once per page load, so finishing that day moves on as usual. Returns what it set.
+   */
+  devDay() {
+    const q = new URLSearchParams(window.location.search);
+    if (q.get('dev') !== '1' || this._devDay !== undefined) return this._devDay || null;
+    const route = Number(q.get('route')), day = Number(q.get('day'));
+    this._devDay = null;
+    if (!q.has('route') && !q.has('day')) return null;
+    if (!/^review/i.test(q.get('user') || '')) { console.warn('[OTR] route= and day= need a review profile: add &user=review-<name>'); return null; }
+    if (!Number.isSafeInteger(route) || route < 1 || route > 999 || !Number.isSafeInteger(day) || day < 1 || day > 30) return null;
+    if (OTR.fpStore) { const e = OTR.fpStore.empty(); e.sequence = route - 1; OTR.fpStore.write(e); }     // the next route's seed
+    const S = OTR.save.data;
+    S.route = S.route || { days: 0, best: {}, history: [] };
+    S.route.days = day - 1;                                         // the day the next workday counts as
+    this.saved().current = null;                                    // a fresh morning, not a day left half-way
+    OTR.save.write();
+    return (this._devDay = { route, day });
+  },
+
   /** Is the 3D workday offered at the hub? ?workday3d=1 or 0 for one visit, else OTR_DATA.config.workday3d. */
   offered() {
     const q = new URLSearchParams(window.location.search).get('workday3d');
