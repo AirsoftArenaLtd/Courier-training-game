@@ -133,10 +133,22 @@ const make = (opts) => async (page, ctx) => {
     if (!stay) await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, st = m.stops[i], pt = OTR.fpStopFlow.point(m, i);
       s.handheld.close(); s.closePanel(); Object.assign(m.player, { x: pt.x - st.side * 1.2, z: pt.z, yaw: st.side * Math.PI / 2, pitch: 0 }); s.sync(); }, i);
     await wait(160);
+    // look at the controls themselves (a resident or the desk can stand between a fixed heading and them)
+    await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
+      const vis = (o) => { for (let a = o; a; a = a.parent) if (!a.visible) return false; return true; };
+      const o = s.art.interactions.find((o) => o.userData.interaction === 'visit' + i && vis(o)); if (!o) return;
+      const v = o.getWorldPosition(new THREE.Vector3()), eye = s.view.camera.position, dx = v.x - eye.x, dz = v.z - eye.z;
+      m.player.yaw = Math.atan2(dx, -dz); m.player.pitch = Math.atan2(eye.y - v.y, Math.hypot(dx, dz)); s.sync(); }, i);
+    await wait(120);
     for (let n = 0; n < 12 && !(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').target === 'visit' + i, i)); n++) await press('KeyP');
     must(await ev((i) => OTR.game.scene.getScene('FirstPersonScene').target === 'visit' + i, i), 'the target key never reached the delivery controls (stop ' + i + ')');
     await press('KeyE');
-    must((await state()).panel, 'the delivery controls did not open (stop ' + i + ')');
+    if (!(await state()).panel) {
+      const why = await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, st = m.stops[i];
+        return { target: s.target, mode: m.mode, parked: m.parked(), vanDist: Math.hypot(m.van.x - st.x, m.van.z - st.z), near: OTR.fpDoors.near(m, i), can: OTR.fpStopFlow.can(m, i), resolved: st.resolved,
+          device: s.handheld.isOpen, notice: s.notice, msg: s.lastMessage || null, activeStop: m.activeStop, player: m.player, point: OTR.fpStopFlow.point(m, i) }; }, i);
+      must(false, 'the delivery controls did not open (stop ' + i + '): ' + JSON.stringify(why));
+    }
   };
   const holdScan = async () => {
     must(await ctx.until(`${FP}.handheld.aiming`, 5000), 'the scanner did not start aiming');
