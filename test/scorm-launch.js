@@ -57,7 +57,7 @@ ${API}
   let zip = process.argv.slice(2).find(a => !a.startsWith('--'));
   if (!zip) {
     zip = path.join(ROOT, 'dist', V2004 ? 'on-the-route-scorm2004.zip' : 'on-the-route-scorm12.zip');
-    cp.execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'package-scorm.js'), ...(V2004 ? ['--2004'] : []), zip], { stdio: 'inherit' });
+    cp.execFileSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'package-scorm.js'), V2004 ? '--2004' : '--1.2', zip], { stdio: 'inherit' });
   }
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'otr-scorm-'));
   const files = unzip(zip, dir);

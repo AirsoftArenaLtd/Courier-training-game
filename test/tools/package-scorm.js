@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /*
- * The LMS package: a SCORM 1.2 zip with only what the game needs at run time (imsmanifest.xml at the top).
+ * The LMS package: a SCORM zip with only what the game needs at run time (the manifest at the top).
  *
- *   node test/tools/package-scorm.js [out.zip]          (default dist/on-the-route-scorm12.zip)
- *   node test/tools/package-scorm.js --2004 [out.zip]   SCORM 2004 (default dist/on-the-route-scorm2004.zip): the same
- *                                                       files with data/lms/imsmanifest-2004.xml as the manifest
+ *   node test/tools/package-scorm.js [out.zip]          SCORM 2004 (B-101: the default; dist/on-the-route-scorm2004.zip):
+ *                                                       data/lms/imsmanifest-2004.xml as the manifest (--2004 still works)
+ *   node test/tools/package-scorm.js --1.2 [out.zip]    SCORM 1.2 (dist/on-the-route-scorm12.zip), for an LMS that only
+ *                                                       takes 1.2: 4,096 characters of saved progress against 2004's 64,000
  *
  * In: imsmanifest.xml, index.html, first-person.html, css/, lib/, src/, data/ (without the translators' sources and the
  * catalogue), assets/ (without assets/_incoming/). Out: docs, tests, the training server, agent notes. Fails when a file
@@ -65,7 +66,7 @@ function build(out, v2004) {
 module.exports = { files, referenced, build, BUDGET };
 
 if (require.main === module) {
-  const args = process.argv.slice(2), v2004 = args.includes('--2004'), named = args.find(a => a !== '--2004');
+  const args = process.argv.slice(2), v2004 = !args.includes('--1.2'), named = args.find(a => !a.startsWith('--'));
   const out = path.resolve(named || path.join(ROOT, 'dist', v2004 ? 'on-the-route-scorm2004.zip' : 'on-the-route-scorm12.zip'));
   const r = build(out, v2004);
   console.log(`${path.relative(process.cwd(), r.out)}: ${r.files} files, ${(r.bytes / 1048576).toFixed(1)} MB`);

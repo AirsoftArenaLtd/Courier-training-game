@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SCORM 2004 (4th edition) package description, used by `node test/tools/package-scorm.js --2004`, which puts it at
+<!-- SCORM 2004 (4th edition) package description, used by `node test/tools/package-scorm.js` (the default since B-101), which puts it at
      the top of the zip as imsmanifest.xml. The game finds the 2004 API (API_1484_11) itself (src/core/identity.js) and
      reports completion, success and a scaled score (src/core/save.js); 2004 keeps 64,000 characters of suspend data. -->
 <manifest identifier="OTR_COURIER_TRAINING_2004" version="1"
