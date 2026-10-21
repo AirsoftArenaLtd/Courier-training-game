@@ -3876,7 +3876,115 @@ window.OTR_I18N.fr = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "Clique les lignes de la facture qui bloqueraient l'envoi (ou les flèches et Enter) · puis inspecte chaque pièce (Tab et Enter) : A accepter · R refuser, 1-5 pour la raison",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "Clique chaque pièce (ou Tab et Enter) pour l'inspecter · A accepter · R refuser, 1-5 pour la raison",
 "Clear all": "Tout effacer",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Clique un arrêt — sur la carte ou le manifeste — ou atteins-le avec Tab et appuie sur Enter, pour l'ajouter à la tournée ; à nouveau pour le retirer. Annuler (Backspace) / Tout effacer pour corriger. Lance la tournée quand le manifeste est ordonné."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Clique un arrêt — sur la carte ou le manifeste — ou atteins-le avec Tab et appuie sur Enter, pour l'ajouter à la tournée ; à nouveau pour le retirer. Annuler (Backspace) / Tout effacer pour corriger. Lance la tournée quand le manifeste est ordonné.",
+"Deliver this standard parcel to the assigned locker at this site.": "Livre ce colis standard dans le casier attribué sur ce site.",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "Un colis est autorisé en casier. Tous les autres colis exigent une signature. Vérifie sur l'étiquette si une pièce d'identité avec photo est exigée.",
+"Retrieve the parcel from the locker before moving it.": "Récupère le colis dans le casier avant de le déplacer.",
+"This parcel is authorized for the assigned locker at this site.": "Ce colis est autorisé pour le casier attribué sur ce site.",
+"Invalid delivery-stop version": "Version d'arrêt de livraison non valide",
+"Invalid locker authorization": "Autorisation de casier non valide",
+"Use the intercom and wait for a reply before attempting this delivery.": "Utilise l'interphone et attends une réponse avant de tenter cette livraison.",
+"Park safely and approach this delivery point on foot.": "Gare-toi en sécurité et approche-toi à pied de ce point de livraison.",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "Appelle la bonne sonnette et attends une réponse avant d'enregistrer une tentative échouée.",
+"This action is not available at this delivery point.": "Cette action n'est pas disponible à ce point de livraison.",
+"Attempt contact before recording a failed delivery.": "Tente un contact avant d'enregistrer une livraison échouée.",
+"Retrieve and scan the matching parcel at this stop first.": "Récupère et scanne d'abord le colis correspondant à cet arrêt.",
+"Open the locker and retrieve the parcel before recording retention.": "Ouvre le casier et récupère le colis avant d'enregistrer la mise en instance.",
+"Speak to the person at reception before recording a handover.": "Parle à la personne de l'accueil avant d'enregistrer une remise.",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "Cette action ne respecte pas les exigences de livraison. Vérifie les consignes et réessaie.",
+"Your call is connected. Wait for the entry buzz or a reply.": "Ton appel est connecté. Attends le bourdonnement de la porte ou une réponse.",
+"The entry is unlocked. You may approach the recipient.": "L'entrée est déverrouillée. Tu peux aller vers le destinataire.",
+"The named recipient is ready. Record the delivery outcome.": "Le destinataire nommé est prêt. Enregistre le résultat de la livraison.",
+"The reception details are recorded.": "Les informations de l'accueil sont enregistrées.",
+"The closed locker door is photographed. Record the delivery outcome.": "La porte fermée du casier est photographiée. Enregistre le résultat de la livraison.",
+"The locker action is recorded. Follow the remaining steps.": "L'action sur le casier est enregistrée. Suis les étapes restantes.",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "La prochaine tentative est réservée. Enregistre l'exception et garde le colis pour le retour.",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "L'étape de livraison échouée est enregistrée. Termine l'avis de passage, la mise en instance et la réservation.",
+"Open the locker and retrieve the parcel before recording an exception.": "Ouvre le casier et récupère le colis avant d'enregistrer une exception.",
+"Wait for the intercom buzz and unlock the entry before delivering.": "Attends le bourdonnement de l'interphone et déverrouille l'entrée avant de livrer.",
+"Complete the named reception handover before recording delivery.": "Termine la remise nominative à l'accueil avant d'enregistrer la livraison.",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "Utilise le casier attribué, scanne le colis, ferme la porte et prends la photo avant d'enregistrer la livraison.",
+"Completed the delivery-point requirements.": "Tu as rempli les exigences du point de livraison.",
+"Completed the stop without meeting the delivery-point requirements.": "Tu as terminé l'arrêt sans remplir les exigences du point de livraison.",
+"Invalid richer-stop specification": "Spécification d'arrêt enrichi non valide",
+"Use the intercom here.": "Utilise l'interphone ici.",
+"Speak at reception here.": "Parle à l'accueil ici.",
+"Use the assigned locker here.": "Utilise le casier attribué ici.",
+"Record a failed delivery here.": "Enregistre une livraison échouée ici.",
+"the intercom": "l'interphone",
+"the reception desk": "le comptoir d'accueil",
+"the parcel locker": "le casier à colis",
+"the delivery record": "le registre de livraison",
+"Record the delivery outcome.": "Enregistre le résultat de la livraison.",
+"Hand the parcel to the recipient.": "Remets le colis au destinataire.",
+"Record the locker delivery.": "Enregistre la livraison en casier.",
+"Place the parcel behind the planter.": "Pose le colis derrière la jardinière.",
+"Leave the parcel in the approved safe place.": "Laisse le colis à l'endroit sûr autorisé.",
+"Record a delivery exception.": "Enregistre une exception de livraison.",
+"Review the delivery checks.": "Examine les contrôles de livraison.",
+"Check the required photo ID.": "Vérifie la pièce d'identité avec photo requise.",
+"Capture the recipient signature.": "Recueille la signature du destinataire.",
+"Speak with the customer calmly.": "Parle calmement avec le client.",
+"Return to the delivery controls.": "Retourne aux commandes de livraison.",
+"Complete the delivery checks.": "Termine les contrôles de livraison.",
+"Review the delivery requirements.": "Examine les exigences de livraison.",
+"Return to the street.": "Retourne dans la rue.",
+"The entry is unlocked.": "L'entrée est déverrouillée.",
+"Walk through the entry to the recipient.": "Passe l'entrée et va jusqu'au destinataire.",
+"Use the intercom.": "Utilise l'interphone.",
+"The entry buzz is sounding. Unlock the entry.": "La porte bourdonne. Déverrouille l'entrée.",
+"Wait on the street for the entry buzz or a reply.": "Attends dans la rue le bourdonnement de la porte ou une réponse.",
+"Choose the matching button, identify yourself and explain the delivery.": "Choisis le bon bouton, présente-toi et explique la livraison.",
+"Choose an intercom button.": "Choisis un bouton de l'interphone.",
+"Unlock the entry.": "Déverrouille l'entrée.",
+"Record a failed delivery.": "Enregistre une livraison échouée.",
+"Speak at reception.": "Parle à l'accueil.",
+"Greet the person and confirm the address.": "Salue la personne et confirme l'adresse.",
+"Record the recipient at reception.": "Enregistre le destinataire à l'accueil.",
+"Record an unnamed occupant.": "Enregistre un occupant sans nom.",
+"Capture the reception signature.": "Recueille la signature de l'accueil.",
+"Capture the matching signature.": "Recueille la signature correspondante.",
+"Use an unrelated printed name.": "Utilise un nom en capitales sans rapport.",
+"Complete the reception handover.": "Termine la remise à l'accueil.",
+"Hand over and record the parcel.": "Remets et enregistre le colis.",
+"Open a different compartment.": "Ouvre un autre compartiment.",
+"Scan the matching parcel with the handheld before placing it in the locker.": "Scanne le bon colis avec le terminal avant de le mettre dans le casier.",
+"Scan the physical parcel.": "Scanne le colis lui-même.",
+"Close the empty locker.": "Ferme le casier vide.",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "Le bon colis est scanné. Mets-le dans le compartiment attribué.",
+"Place the parcel inside.": "Mets le colis à l'intérieur.",
+"The parcel is inside. Close the door before taking its delivery photo.": "Le colis est à l'intérieur. Ferme la porte avant de prendre la photo de livraison.",
+"Close the locker door.": "Ferme la porte du casier.",
+"Retrieve the parcel.": "Récupère le colis.",
+"Photograph the open door.": "Photographie la porte ouverte.",
+"The locker door is closed. Photograph this door before recording delivery.": "La porte du casier est fermée. Photographie cette porte avant d'enregistrer la livraison.",
+"Photograph the closed locker door.": "Photographie la porte fermée du casier.",
+"The closed locker door is photographed.": "La porte fermée du casier est photographiée.",
+"Reopen the locker.": "Rouvre le casier.",
+"The closed-door photo is recorded. Finish this locker delivery.": "La photo de la porte fermée est enregistrée. Termine cette livraison en casier.",
+"Use the parcel locker.": "Utilise le casier à colis.",
+"Identify your delivery.": "Présente ta livraison.",
+"Say who you are and what you bring.": "Dis qui tu es et ce que tu apportes.",
+"I am the courier, and I have a parcel for this address.": "Je suis le livreur, j'ai un colis pour cette adresse.",
+"Open the door without asking questions.": "Ouvrez la porte sans poser de questions.",
+"Return to the intercom.": "Retourne à l'interphone.",
+"Choose the intercom button.": "Choisis le bouton de l'interphone.",
+"Call a different entry.": "Appelle une autre sonnette.",
+"Return to reception.": "Retourne à l'accueil.",
+"Attempt contact first.": "Tente d'abord un contact.",
+"Wait on the street.": "Attends dans la rue.",
+"The label does not match the address.": "L'étiquette ne correspond pas à l'adresse.",
+"The required photo ID is not valid.": "La pièce d'identité avec photo requise n'est pas valide.",
+"The updated dispatch instruction requires retention.": "La nouvelle consigne du répartiteur impose la mise en instance.",
+"Safe access or an authorized handover is unavailable.": "Il n'y a ni accès sûr ni remise autorisée possible.",
+"The required recipient is absent.": "Le destinataire requis est absent.",
+"Leave a delivery attempt card.": "Laisse un avis de passage.",
+"Record this retention reason.": "Enregistre ce motif de mise en instance.",
+"Record an unrelated reason.": "Enregistre un motif sans rapport.",
+"Record the exception and keep the parcel.": "Enregistre l'exception et garde le colis.",
+"Arrange the next delivery attempt.": "Organise la prochaine tentative de livraison.",
+"The intercom buzzes. You may unlock the entry.": "L'interphone bourdonne. Tu peux déverrouiller l'entrée.",
+"Arrange a failed delivery and reattempt.": "Gère une livraison échouée et une nouvelle tentative."
 },
 "templates": [
 [
@@ -5582,6 +5690,62 @@ window.OTR_I18N.fr = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} ouvre le scanner pour rapporter le colis conservé."
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"L'arrêt {0} à {1} est un dépôt autorisé en casier. Utilise son compartiment attribué."
+],
+[
+"Contact {0}.\n{1}",
+"Contacte {0}.\n{1}"
+],
+[
+"The person at reception is {0}.",
+"La personne à l'accueil est {0}."
+],
+[
+"The person receiving the parcel is {0}.",
+"La personne qui reçoit le colis est {0}."
+],
+[
+"Record {0} at reception.",
+"Enregistre {0} à l'accueil."
+],
+[
+"Ask {0} to sign for this parcel.",
+"Demande à {0} de signer pour ce colis."
+],
+[
+"The name and signature are recorded for {0}.",
+"Le nom et la signature de {0} sont enregistrés."
+],
+[
+"Use compartment {0} for this parcel.",
+"Utilise le compartiment {0} pour ce colis."
+],
+[
+"Open compartment {0}.",
+"Ouvre le compartiment {0}."
+],
+[
+"The parcel is for {0}.",
+"Le colis est pour {0}."
+],
+[
+"Call {0}.",
+"Appelle {0}."
+],
+[
+"The printed name is {0}.",
+"Le nom en capitales est {0}."
+],
+[
+"Book the afternoon of day {0}.",
+"Réserve l'après-midi du jour {0}."
+],
+[
+"Press {0} to use the delivery controls.",
+"Appuie sur {0} pour utiliser les commandes de livraison."
 ]
 ],
 "keep": [

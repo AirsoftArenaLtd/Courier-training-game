@@ -3875,7 +3875,115 @@ window.OTR_I18N.ta = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "சரக்கைத் தடுக்கும் விலைப்பட்டியல் வரிகளைக் கிளிக் செய்யுங்கள் (அல்லது அம்புக்குறி விசைகள், Enter) · பிறகு ஒவ்வொரு பொருளையும் ஆய்வு செய்யுங்கள் (Tab, Enter): ஏற்க A · மறுக்க R, காரணத்துக்கு 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "ஆய்வுக்கு ஒவ்வொரு பொருளையும் கிளிக் செய்யுங்கள் (அல்லது Tab, Enter) · ஏற்க A · மறுக்க R, காரணத்துக்கு 1-5",
 "Clear all": "எல்லாம் அழி",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ஒரு நிறுத்தத்தில் கிளிக் செய்க — வரைபடத்திலோ பட்டியலிலோ — அல்லது Tab மூலம் அங்கு சென்று Enter அழுத்துக, ரூட்டில் சேர்க்க; மீண்டும் செய்தால் நீக்க. சரிசெய்ய செயல்தவிர் (Backspace) / எல்லாம் அழி. பட்டியல் வரிசைப்பட்டதும் டிஸ்பாச் செய்யுங்கள்."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ஒரு நிறுத்தத்தில் கிளிக் செய்க — வரைபடத்திலோ பட்டியலிலோ — அல்லது Tab மூலம் அங்கு சென்று Enter அழுத்துக, ரூட்டில் சேர்க்க; மீண்டும் செய்தால் நீக்க. சரிசெய்ய செயல்தவிர் (Backspace) / எல்லாம் அழி. பட்டியல் வரிசைப்பட்டதும் டிஸ்பாச் செய்யுங்கள்.",
+"Deliver this standard parcel to the assigned locker at this site.": "இந்தச் சாதாரண பார்சலை இந்த இடத்தில் ஒதுக்கப்பட்ட லாக்கரில் டெலிவர் செய்யுங்கள்.",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ஒரு பார்சல் லாக்கருக்கு அனுமதிக்கப்பட்டது. மற்ற ஒவ்வொரு பார்சலுக்கும் கையொப்பம் தேவை. புகைப்பட அடையாள அட்டை தேவையா என லேபிளில் பாருங்கள்.",
+"Retrieve the parcel from the locker before moving it.": "பார்சலை நகர்த்தும் முன் லாக்கரிலிருந்து எடுங்கள்.",
+"This parcel is authorized for the assigned locker at this site.": "இந்தப் பார்சல் இந்த இடத்தில் ஒதுக்கப்பட்ட லாக்கருக்கு அனுமதிக்கப்பட்டது.",
+"Invalid delivery-stop version": "தவறான டெலிவரி நிறுத்தப் பதிப்பு",
+"Invalid locker authorization": "தவறான லாக்கர் அனுமதி",
+"Use the intercom and wait for a reply before attempting this delivery.": "இந்த டெலிவரிக்கு முயலும் முன் இன்டர்காமைப் பயன்படுத்தி பதிலுக்குக் காத்திருங்கள்.",
+"Park safely and approach this delivery point on foot.": "பாதுகாப்பாக வாகனத்தை நிறுத்தி, இந்த டெலிவரி இடத்துக்கு நடந்து செல்லுங்கள்.",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "தோல்வியுற்ற முயற்சியைப் பதிவு செய்யும் முன் பொருந்தும் அலகை அழைத்து பதிலுக்குக் காத்திருங்கள்.",
+"This action is not available at this delivery point.": "இந்த டெலிவரி இடத்தில் இந்தச் செயல் கிடைக்காது.",
+"Attempt contact before recording a failed delivery.": "தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யும் முன் தொடர்பு கொள்ள முயலுங்கள்.",
+"Retrieve and scan the matching parcel at this stop first.": "முதலில் இந்த நிறுத்தத்தில் பொருந்தும் பார்சலை எடுத்து ஸ்கேன் செய்யுங்கள்.",
+"Open the locker and retrieve the parcel before recording retention.": "பார்சலை வைத்திருப்பதைப் பதிவு செய்யும் முன் லாக்கரைத் திறந்து பார்சலை எடுங்கள்.",
+"Speak to the person at reception before recording a handover.": "ஒப்படைப்பைப் பதிவு செய்யும் முன் வரவேற்பில் உள்ளவரிடம் பேசுங்கள்.",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "அந்தச் செயல் டெலிவரி நிபந்தனைகளைப் பூர்த்தி செய்யவில்லை. வழிமுறைகளைப் பார்த்து மீண்டும் முயலுங்கள்.",
+"Your call is connected. Wait for the entry buzz or a reply.": "உங்கள் அழைப்பு இணைந்தது. நுழைவாயில் பஸ்ஸர் அல்லது பதிலுக்குக் காத்திருங்கள்.",
+"The entry is unlocked. You may approach the recipient.": "நுழைவாயில் பூட்டு திறந்துள்ளது. நீங்கள் பெறுநரை அணுகலாம்.",
+"The named recipient is ready. Record the delivery outcome.": "குறிப்பிட்ட பெறுநர் தயாராக உள்ளார். டெலிவரி முடிவைப் பதிவு செய்யுங்கள்.",
+"The reception details are recorded.": "வரவேற்பு விவரங்கள் பதிவாகிவிட்டன.",
+"The closed locker door is photographed. Record the delivery outcome.": "மூடிய லாக்கர் கதவு படம் எடுக்கப்பட்டது. டெலிவரி முடிவைப் பதிவு செய்யுங்கள்.",
+"The locker action is recorded. Follow the remaining steps.": "லாக்கர் செயல் பதிவாகிவிட்டது. மீதமுள்ள படிகளைப் பின்பற்றுங்கள்.",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "அடுத்த முயற்சி முன்பதிவு செய்யப்பட்டது. விதிவிலக்கைப் பதிவு செய்து, திருப்பி அனுப்ப பார்சலை வைத்துக்கொள்ளுங்கள்.",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "தோல்வியுற்ற டெலிவரி படி பதிவாகிவிட்டது. அட்டை, பார்சலை வைத்திருத்தல், முன்பதிவு ஆகியவற்றை முடியுங்கள்.",
+"Open the locker and retrieve the parcel before recording an exception.": "விதிவிலக்கைப் பதிவு செய்யும் முன் லாக்கரைத் திறந்து பார்சலை எடுங்கள்.",
+"Wait for the intercom buzz and unlock the entry before delivering.": "டெலிவர் செய்யும் முன் இன்டர்காம் பஸ்ஸருக்குக் காத்திருந்து நுழைவாயில் பூட்டைத் திறங்கள்.",
+"Complete the named reception handover before recording delivery.": "டெலிவரியைப் பதிவு செய்யும் முன் வரவேற்பில் பெயருடன் ஒப்படைப்பை முடியுங்கள்.",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "டெலிவரியைப் பதிவு செய்யும் முன் ஒதுக்கப்பட்ட லாக்கரைப் பயன்படுத்தி, பார்சலை ஸ்கேன் செய்து, கதவை மூடி, படம் எடுங்கள்.",
+"Completed the delivery-point requirements.": "டெலிவரி இட நிபந்தனைகளைப் பூர்த்தி செய்தீர்கள்.",
+"Completed the stop without meeting the delivery-point requirements.": "டெலிவரி இட நிபந்தனைகளைப் பூர்த்தி செய்யாமல் நிறுத்தத்தை முடித்தீர்கள்.",
+"Invalid richer-stop specification": "தவறான விரிவான நிறுத்த விவரக்குறிப்பு",
+"Use the intercom here.": "இங்கே இன்டர்காமைப் பயன்படுத்துங்கள்.",
+"Speak at reception here.": "இங்கே வரவேற்பில் பேசுங்கள்.",
+"Use the assigned locker here.": "இங்கே ஒதுக்கப்பட்ட லாக்கரைப் பயன்படுத்துங்கள்.",
+"Record a failed delivery here.": "இங்கே தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+"the intercom": "இன்டர்காம்",
+"the reception desk": "வரவேற்பு மேசை",
+"the parcel locker": "பார்சல் லாக்கர்",
+"the delivery record": "டெலிவரி பதிவு",
+"Record the delivery outcome.": "டெலிவரி முடிவைப் பதிவு செய்யுங்கள்.",
+"Hand the parcel to the recipient.": "பார்சலைப் பெறுநரிடம் கொடுங்கள்.",
+"Record the locker delivery.": "லாக்கர் டெலிவரியைப் பதிவு செய்யுங்கள்.",
+"Place the parcel behind the planter.": "பார்சலைப் பூந்தொட்டியின் பின்னால் வையுங்கள்.",
+"Leave the parcel in the approved safe place.": "பார்சலை அனுமதிக்கப்பட்ட பாதுகாப்பான இடத்தில் வையுங்கள்.",
+"Record a delivery exception.": "டெலிவரி விதிவிலக்கைப் பதிவு செய்யுங்கள்.",
+"Review the delivery checks.": "டெலிவரி சரிபார்ப்புகளைப் பாருங்கள்.",
+"Check the required photo ID.": "தேவையான புகைப்பட அடையாள அட்டையைப் பாருங்கள்.",
+"Capture the recipient signature.": "பெறுநரின் கையொப்பத்தைப் பெறுங்கள்.",
+"Speak with the customer calmly.": "வாடிக்கையாளரிடம் அமைதியாகப் பேசுங்கள்.",
+"Return to the delivery controls.": "டெலிவரி கட்டுப்பாடுகளுக்குத் திரும்புங்கள்.",
+"Complete the delivery checks.": "டெலிவரி சரிபார்ப்புகளை முடியுங்கள்.",
+"Review the delivery requirements.": "டெலிவரி நிபந்தனைகளைப் பாருங்கள்.",
+"Return to the street.": "தெருவுக்குத் திரும்புங்கள்.",
+"The entry is unlocked.": "நுழைவாயில் பூட்டு திறந்துள்ளது.",
+"Walk through the entry to the recipient.": "நுழைவாயில் வழியாகப் பெறுநரிடம் நடந்து செல்லுங்கள்.",
+"Use the intercom.": "இன்டர்காமைப் பயன்படுத்துங்கள்.",
+"The entry buzz is sounding. Unlock the entry.": "நுழைவாயில் பஸ்ஸர் ஒலிக்கிறது. பூட்டைத் திறங்கள்.",
+"Wait on the street for the entry buzz or a reply.": "நுழைவாயில் பஸ்ஸர் அல்லது பதிலுக்குத் தெருவில் காத்திருங்கள்.",
+"Choose the matching button, identify yourself and explain the delivery.": "பொருந்தும் பொத்தானைத் தேர்ந்தெடுத்து, உங்களை அறிமுகப்படுத்தி, டெலிவரியை விளக்குங்கள்.",
+"Choose an intercom button.": "ஒரு இன்டர்காம் பொத்தானைத் தேர்ந்தெடுங்கள்.",
+"Unlock the entry.": "நுழைவாயில் பூட்டைத் திறங்கள்.",
+"Record a failed delivery.": "தோல்வியுற்ற டெலிவரியைப் பதிவு செய்யுங்கள்.",
+"Speak at reception.": "வரவேற்பில் பேசுங்கள்.",
+"Greet the person and confirm the address.": "அவருக்கு வணக்கம் சொல்லி முகவரியை உறுதிப்படுத்துங்கள்.",
+"Record the recipient at reception.": "வரவேற்பில் பெறுநரைப் பதிவு செய்யுங்கள்.",
+"Record an unnamed occupant.": "பெயர் இல்லாத குடியிருப்பவரைப் பதிவு செய்யுங்கள்.",
+"Capture the reception signature.": "வரவேற்பின் கையொப்பத்தைப் பெறுங்கள்.",
+"Capture the matching signature.": "பொருந்தும் கையொப்பத்தைப் பெறுங்கள்.",
+"Use an unrelated printed name.": "தொடர்பில்லாத அச்சிட்ட பெயரைப் பயன்படுத்துங்கள்.",
+"Complete the reception handover.": "வரவேற்பு ஒப்படைப்பை முடியுங்கள்.",
+"Hand over and record the parcel.": "பார்சலை ஒப்படைத்துப் பதிவு செய்யுங்கள்.",
+"Open a different compartment.": "வேறு அறையைத் திறங்கள்.",
+"Scan the matching parcel with the handheld before placing it in the locker.": "லாக்கரில் வைக்கும் முன் பொருந்தும் பார்சலை ஹேண்ட்ஹெல்டால் ஸ்கேன் செய்யுங்கள்.",
+"Scan the physical parcel.": "உண்மையான பார்சலை ஸ்கேன் செய்யுங்கள்.",
+"Close the empty locker.": "காலியான லாக்கரை மூடுங்கள்.",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "பொருந்தும் பார்சல் ஸ்கேன் செய்யப்பட்டது. அதை ஒதுக்கப்பட்ட அறைக்குள் வையுங்கள்.",
+"Place the parcel inside.": "பார்சலை உள்ளே வையுங்கள்.",
+"The parcel is inside. Close the door before taking its delivery photo.": "பார்சல் உள்ளே உள்ளது. டெலிவரி படம் எடுக்கும் முன் கதவை மூடுங்கள்.",
+"Close the locker door.": "லாக்கர் கதவை மூடுங்கள்.",
+"Retrieve the parcel.": "பார்சலை எடுங்கள்.",
+"Photograph the open door.": "திறந்த கதவைப் படம் எடுங்கள்.",
+"The locker door is closed. Photograph this door before recording delivery.": "லாக்கர் கதவு மூடப்பட்டது. டெலிவரியைப் பதிவு செய்யும் முன் இந்தக் கதவைப் படம் எடுங்கள்.",
+"Photograph the closed locker door.": "மூடிய லாக்கர் கதவைப் படம் எடுங்கள்.",
+"The closed locker door is photographed.": "மூடிய லாக்கர் கதவு படம் எடுக்கப்பட்டது.",
+"Reopen the locker.": "லாக்கரை மீண்டும் திறங்கள்.",
+"The closed-door photo is recorded. Finish this locker delivery.": "மூடிய கதவின் படம் பதிவாகிவிட்டது. இந்த லாக்கர் டெலிவரியை முடியுங்கள்.",
+"Use the parcel locker.": "பார்சல் லாக்கரைப் பயன்படுத்துங்கள்.",
+"Identify your delivery.": "உங்கள் டெலிவரியைத் தெரிவியுங்கள்.",
+"Say who you are and what you bring.": "நீங்கள் யார், என்ன கொண்டு வந்துள்ளீர்கள் என்று சொல்லுங்கள்.",
+"I am the courier, and I have a parcel for this address.": "நான் கூரியர், இந்த முகவரிக்கு ஒரு பார்சல் உள்ளது.",
+"Open the door without asking questions.": "கேள்வி கேட்காமல் கதவைத் திறங்கள்.",
+"Return to the intercom.": "இன்டர்காமுக்குத் திரும்புங்கள்.",
+"Choose the intercom button.": "இன்டர்காம் பொத்தானைத் தேர்ந்தெடுங்கள்.",
+"Call a different entry.": "வேறு அலகை அழையுங்கள்.",
+"Return to reception.": "வரவேற்புக்குத் திரும்புங்கள்.",
+"Attempt contact first.": "முதலில் தொடர்பு கொள்ள முயலுங்கள்.",
+"Wait on the street.": "தெருவில் காத்திருங்கள்.",
+"The label does not match the address.": "லேபிள் முகவரியுடன் பொருந்தவில்லை.",
+"The required photo ID is not valid.": "தேவையான புகைப்பட அடையாள அட்டை செல்லுபடியாகாது.",
+"The updated dispatch instruction requires retention.": "புதுப்பிக்கப்பட்ட டிஸ்பாட்ச் வழிமுறைப்படி பார்சலை வைத்திருக்க வேண்டும்.",
+"Safe access or an authorized handover is unavailable.": "பாதுகாப்பான நுழைவு அல்லது அனுமதிக்கப்பட்ட ஒப்படைப்பு இல்லை.",
+"The required recipient is absent.": "தேவையான பெறுநர் இல்லை.",
+"Leave a delivery attempt card.": "டெலிவரி முயற்சி அட்டையை விட்டுச் செல்லுங்கள்.",
+"Record this retention reason.": "பார்சலை வைத்திருக்கும் இந்தக் காரணத்தைப் பதிவு செய்யுங்கள்.",
+"Record an unrelated reason.": "தொடர்பில்லாத காரணத்தைப் பதிவு செய்யுங்கள்.",
+"Record the exception and keep the parcel.": "விதிவிலக்கைப் பதிவு செய்து பார்சலை வைத்துக்கொள்ளுங்கள்.",
+"Arrange the next delivery attempt.": "அடுத்த டெலிவரி முயற்சியை ஏற்பாடு செய்யுங்கள்.",
+"The intercom buzzes. You may unlock the entry.": "இன்டர்காம் பஸ்ஸர் ஒலிக்கிறது. நீங்கள் நுழைவாயில் பூட்டைத் திறக்கலாம்.",
+"Arrange a failed delivery and reattempt.": "தோல்வியுற்ற டெலிவரி மற்றும் மறுமுயற்சியை ஏற்பாடு செய்யுங்கள்."
 },
 "templates": [
 [
@@ -5581,6 +5689,62 @@ window.OTR_I18N.ta = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} ஸ்கேனரைத் திறக்கிறது, வைத்திருக்கும் பார்சலைத் திருப்பிக் கொடுக்க."
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"{1} இல் உள்ள நிறுத்தம் {0} அனுமதிக்கப்பட்ட லாக்கர் டெலிவரி. அதற்கு ஒதுக்கப்பட்ட அறையைப் பயன்படுத்துங்கள்."
+],
+[
+"Contact {0}.\n{1}",
+"{0} ஐத் தொடர்பு கொள்ளுங்கள்.\n{1}"
+],
+[
+"The person at reception is {0}.",
+"வரவேற்பில் இருப்பவர் {0}."
+],
+[
+"The person receiving the parcel is {0}.",
+"பார்சலைப் பெறுபவர் {0}."
+],
+[
+"Record {0} at reception.",
+"வரவேற்பில் {0} ஐப் பதிவு செய்யுங்கள்."
+],
+[
+"Ask {0} to sign for this parcel.",
+"இந்தப் பார்சலுக்குக் கையொப்பமிட {0} இடம் கேளுங்கள்."
+],
+[
+"The name and signature are recorded for {0}.",
+"{0} இன் பெயரும் கையொப்பமும் பதிவாகிவிட்டன."
+],
+[
+"Use compartment {0} for this parcel.",
+"இந்தப் பார்சலுக்கு அறை {0} ஐப் பயன்படுத்துங்கள்."
+],
+[
+"Open compartment {0}.",
+"அறை {0} ஐத் திறங்கள்."
+],
+[
+"The parcel is for {0}.",
+"பார்சல் {0} க்கானது."
+],
+[
+"Call {0}.",
+"{0} ஐ அழையுங்கள்."
+],
+[
+"The printed name is {0}.",
+"அச்சிட்ட பெயர் {0}."
+],
+[
+"Book the afternoon of day {0}.",
+"நாள் {0} மதியத்தை முன்பதிவு செய்யுங்கள்."
+],
+[
+"Press {0} to use the delivery controls.",
+"டெலிவரி கட்டுப்பாடுகளைப் பயன்படுத்த {0} ஐ அழுத்துங்கள்."
 ]
 ],
 "keep": [

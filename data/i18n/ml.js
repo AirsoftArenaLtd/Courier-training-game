@@ -3875,7 +3875,115 @@ window.OTR_I18N.ml = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "ഷിപ്പ്‌മെന്റ് തടയുന്ന ഇൻവോയ്സ് വരികളിൽ ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ ആരോ കീകളും Enter-ഉം) · പിന്നെ ഓരോ ഇനവും പരിശോധിക്കുക (Tab, Enter): സ്വീകരിക്കാൻ A · നിരസിക്കാൻ R, കാരണത്തിന് 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "പരിശോധിക്കാൻ ഓരോ ഇനത്തിലും ക്ലിക്ക് ചെയ്യുക (അല്ലെങ്കിൽ Tab, Enter) · സ്വീകരിക്കാൻ A · നിരസിക്കാൻ R, കാരണത്തിന് 1-5",
 "Clear all": "എല്ലാം മായ്ക്കുക",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ഒരു സ്റ്റോപ്പിൽ ക്ലിക്ക് ചെയ്യുക — മാപ്പിലോ പട്ടികയിലോ — അല്ലെങ്കിൽ Tab കൊണ്ട് അവിടെയെത്തി Enter അമർത്തുക, റൂട്ടിൽ ചേർക്കാൻ; വീണ്ടും ചെയ്താൽ മാറ്റാൻ. തിരുത്താൻ പഴയപടിയാക്കുക (Backspace) / എല്ലാം മായ്ക്കുക. പട്ടിക ക്രമമായാൽ ഡിസ്പാച്ച് ചെയ്യുക."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "ഒരു സ്റ്റോപ്പിൽ ക്ലിക്ക് ചെയ്യുക — മാപ്പിലോ പട്ടികയിലോ — അല്ലെങ്കിൽ Tab കൊണ്ട് അവിടെയെത്തി Enter അമർത്തുക, റൂട്ടിൽ ചേർക്കാൻ; വീണ്ടും ചെയ്താൽ മാറ്റാൻ. തിരുത്താൻ പഴയപടിയാക്കുക (Backspace) / എല്ലാം മായ്ക്കുക. പട്ടിക ക്രമമായാൽ ഡിസ്പാച്ച് ചെയ്യുക.",
+"Deliver this standard parcel to the assigned locker at this site.": "ഈ സാധാരണ പാഴ്സൽ ഈ സ്ഥലത്തെ നിശ്ചിത ലോക്കറിൽ ഡെലിവർ ചെയ്യുക.",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ഒരു പാഴ്സലിന് ലോക്കർ അനുമതിയുണ്ട്. മറ്റെല്ലാ പാക്കേജിനും ഒപ്പ് വേണം. ഫോട്ടോ ഐഡി വേണോ എന്ന് ലേബലിൽ നോക്കുക.",
+"Retrieve the parcel from the locker before moving it.": "മാറ്റുന്നതിന് മുമ്പ് പാഴ്സൽ ലോക്കറിൽ നിന്ന് എടുക്കുക.",
+"This parcel is authorized for the assigned locker at this site.": "ഈ പാഴ്സലിന് ഈ സ്ഥലത്തെ നിശ്ചിത ലോക്കറിന് അനുമതിയുണ്ട്.",
+"Invalid delivery-stop version": "Invalid delivery-stop version",
+"Invalid locker authorization": "Invalid locker authorization",
+"Use the intercom and wait for a reply before attempting this delivery.": "ഈ ഡെലിവറിക്ക് ശ്രമിക്കും മുമ്പ് ഇന്റർകോം ഉപയോഗിച്ച് മറുപടിക്കായി കാത്തിരിക്കുക.",
+"Park safely and approach this delivery point on foot.": "സുരക്ഷിതമായി പാർക്ക് ചെയ്ത് ഈ ഡെലിവറി പോയിന്റിലേക്ക് നടന്നു ചെല്ലുക.",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "പരാജയപ്പെട്ട ശ്രമം രേഖപ്പെടുത്തും മുമ്പ് ഇന്റർകോമിൽ ശരിയായ ബട്ടണിൽ വിളിച്ച് മറുപടിക്കായി കാത്തിരിക്കുക.",
+"This action is not available at this delivery point.": "ഈ ഡെലിവറി പോയിന്റിൽ ഈ പ്രവർത്തനം ലഭ്യമല്ല.",
+"Attempt contact before recording a failed delivery.": "പരാജയപ്പെട്ട ഡെലിവറി രേഖപ്പെടുത്തും മുമ്പ് ബന്ധപ്പെടാൻ ശ്രമിക്കുക.",
+"Retrieve and scan the matching parcel at this stop first.": "ആദ്യം ഈ സ്റ്റോപ്പിൽ ശരിയായ പാഴ്സൽ എടുത്ത് സ്കാൻ ചെയ്യുക.",
+"Open the locker and retrieve the parcel before recording retention.": "പാഴ്സൽ കൈവശം വയ്ക്കുന്നത് രേഖപ്പെടുത്തും മുമ്പ് ലോക്കർ തുറന്ന് പാഴ്സൽ എടുക്കുക.",
+"Speak to the person at reception before recording a handover.": "കൈമാറ്റം രേഖപ്പെടുത്തും മുമ്പ് റിസപ്ഷനിലുള്ള ആളോട് സംസാരിക്കുക.",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "ആ പ്രവർത്തനം ഡെലിവറി നിബന്ധനകൾ പാലിക്കുന്നില്ല. നിർദ്ദേശങ്ങൾ നോക്കി വീണ്ടും ശ്രമിക്കുക.",
+"Your call is connected. Wait for the entry buzz or a reply.": "നിങ്ങളുടെ കോൾ കണക്റ്റായി. പ്രവേശന ബസറിനോ മറുപടിക്കോ കാത്തിരിക്കുക.",
+"The entry is unlocked. You may approach the recipient.": "പ്രവേശന വാതിൽ തുറന്നു. നിങ്ങൾക്ക് സ്വീകർത്താവിന്റെ അടുത്തേക്ക് പോകാം.",
+"The named recipient is ready. Record the delivery outcome.": "പേരുള്ള സ്വീകർത്താവ് തയ്യാറാണ്. ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക.",
+"The reception details are recorded.": "റിസപ്ഷൻ വിവരങ്ങൾ രേഖപ്പെടുത്തി.",
+"The closed locker door is photographed. Record the delivery outcome.": "അടച്ച ലോക്കർ വാതിലിന്റെ ഫോട്ടോ എടുത്തു. ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക.",
+"The locker action is recorded. Follow the remaining steps.": "ലോക്കർ പ്രവർത്തനം രേഖപ്പെടുത്തി. ബാക്കി ഘട്ടങ്ങൾ പാലിക്കുക.",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "അടുത്ത ശ്രമം ബുക്ക് ചെയ്തു. ഒഴിവ് രേഖപ്പെടുത്തി, തിരികെ നൽകാനായി പാഴ്സൽ കൈവശം വയ്ക്കുക.",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "പരാജയപ്പെട്ട ഡെലിവറി ഘട്ടം രേഖപ്പെടുത്തി. കാർഡ്, പാഴ്സൽ കൈവശം വയ്ക്കൽ, ബുക്കിംഗ് എന്നിവ പൂർത്തിയാക്കുക.",
+"Open the locker and retrieve the parcel before recording an exception.": "ഒഴിവ് രേഖപ്പെടുത്തും മുമ്പ് ലോക്കർ തുറന്ന് പാഴ്സൽ എടുക്കുക.",
+"Wait for the intercom buzz and unlock the entry before delivering.": "ഡെലിവർ ചെയ്യും മുമ്പ് ഇന്റർകോം ബസറിനായി കാത്തിരുന്ന് പ്രവേശന വാതിൽ തുറക്കുക.",
+"Complete the named reception handover before recording delivery.": "ഡെലിവറി രേഖപ്പെടുത്തും മുമ്പ് പേരുള്ള ആൾക്കുള്ള റിസപ്ഷൻ കൈമാറ്റം പൂർത്തിയാക്കുക.",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "ഡെലിവറി രേഖപ്പെടുത്തും മുമ്പ് നിശ്ചിത ലോക്കർ ഉപയോഗിക്കുക, പാഴ്സൽ സ്കാൻ ചെയ്യുക, വാതിൽ അടയ്ക്കുക, ഫോട്ടോ എടുക്കുക.",
+"Completed the delivery-point requirements.": "ഡെലിവറി പോയിന്റിലെ നിബന്ധനകൾ പാലിച്ചു.",
+"Completed the stop without meeting the delivery-point requirements.": "ഡെലിവറി പോയിന്റിലെ നിബന്ധനകൾ പാലിക്കാതെ സ്റ്റോപ്പ് പൂർത്തിയാക്കി.",
+"Invalid richer-stop specification": "Invalid richer-stop specification",
+"Use the intercom here.": "ഇവിടെ ഇന്റർകോം ഉപയോഗിക്കുക.",
+"Speak at reception here.": "ഇവിടെ റിസപ്ഷനിൽ സംസാരിക്കുക.",
+"Use the assigned locker here.": "ഇവിടെ നിശ്ചിത ലോക്കർ ഉപയോഗിക്കുക.",
+"Record a failed delivery here.": "ഇവിടെ പരാജയപ്പെട്ട ഡെലിവറി രേഖപ്പെടുത്തുക.",
+"the intercom": "ഇന്റർകോം",
+"the reception desk": "റിസപ്ഷൻ ഡെസ്ക്",
+"the parcel locker": "പാഴ്സൽ ലോക്കർ",
+"the delivery record": "ഡെലിവറി രേഖ",
+"Record the delivery outcome.": "ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക.",
+"Hand the parcel to the recipient.": "പാഴ്സൽ സ്വീകർത്താവിന് കൈമാറുക.",
+"Record the locker delivery.": "ലോക്കർ ഡെലിവറി രേഖപ്പെടുത്തുക.",
+"Place the parcel behind the planter.": "പാഴ്സൽ ചെടിച്ചട്ടിയുടെ പിന്നിൽ വയ്ക്കുക.",
+"Leave the parcel in the approved safe place.": "പാഴ്സൽ അംഗീകൃത സുരക്ഷിത സ്ഥലത്ത് വയ്ക്കുക.",
+"Record a delivery exception.": "ഡെലിവറി ഒഴിവ് രേഖപ്പെടുത്തുക.",
+"Review the delivery checks.": "ഡെലിവറി പരിശോധനകൾ നോക്കുക.",
+"Check the required photo ID.": "ആവശ്യമായ ഫോട്ടോ ഐഡി പരിശോധിക്കുക.",
+"Capture the recipient signature.": "സ്വീകർത്താവിന്റെ ഒപ്പ് വാങ്ങുക.",
+"Speak with the customer calmly.": "ഉപഭോക്താവിനോട് ശാന്തമായി സംസാരിക്കുക.",
+"Return to the delivery controls.": "ഡെലിവറി നിയന്ത്രണങ്ങളിലേക്ക് മടങ്ങുക.",
+"Complete the delivery checks.": "ഡെലിവറി പരിശോധനകൾ പൂർത്തിയാക്കുക.",
+"Review the delivery requirements.": "ഡെലിവറി നിബന്ധനകൾ നോക്കുക.",
+"Return to the street.": "തെരുവിലേക്ക് മടങ്ങുക.",
+"The entry is unlocked.": "പ്രവേശന വാതിൽ തുറന്നു.",
+"Walk through the entry to the recipient.": "പ്രവേശന വാതിലിലൂടെ സ്വീകർത്താവിന്റെ അടുത്തേക്ക് നടക്കുക.",
+"Use the intercom.": "ഇന്റർകോം ഉപയോഗിക്കുക.",
+"The entry buzz is sounding. Unlock the entry.": "പ്രവേശന ബസർ മുഴങ്ങുന്നു. പ്രവേശന വാതിൽ തുറക്കുക.",
+"Wait on the street for the entry buzz or a reply.": "പ്രവേശന ബസറിനോ മറുപടിക്കോ തെരുവിൽ കാത്തിരിക്കുക.",
+"Choose the matching button, identify yourself and explain the delivery.": "ശരിയായ ബട്ടൺ തിരഞ്ഞെടുക്കുക, നിങ്ങൾ ആരെന്ന് പറഞ്ഞ് ഡെലിവറി വിശദീകരിക്കുക.",
+"Choose an intercom button.": "ഒരു ഇന്റർകോം ബട്ടൺ തിരഞ്ഞെടുക്കുക.",
+"Unlock the entry.": "പ്രവേശന വാതിൽ തുറക്കുക.",
+"Record a failed delivery.": "പരാജയപ്പെട്ട ഡെലിവറി രേഖപ്പെടുത്തുക.",
+"Speak at reception.": "റിസപ്ഷനിൽ സംസാരിക്കുക.",
+"Greet the person and confirm the address.": "ആളെ അഭിവാദ്യം ചെയ്ത് വിലാസം ഉറപ്പാക്കുക.",
+"Record the recipient at reception.": "റിസപ്ഷനിൽ സ്വീകർത്താവിനെ രേഖപ്പെടുത്തുക.",
+"Record an unnamed occupant.": "പേരില്ലാത്ത താമസക്കാരനെ രേഖപ്പെടുത്തുക.",
+"Capture the reception signature.": "റിസപ്ഷനിലെ ഒപ്പ് വാങ്ങുക.",
+"Capture the matching signature.": "പൊരുത്തപ്പെടുന്ന ഒപ്പ് വാങ്ങുക.",
+"Use an unrelated printed name.": "ബന്ധമില്ലാത്ത ഒരു അച്ചടിച്ച പേര് ഉപയോഗിക്കുക.",
+"Complete the reception handover.": "റിസപ്ഷൻ കൈമാറ്റം പൂർത്തിയാക്കുക.",
+"Hand over and record the parcel.": "പാഴ്സൽ കൈമാറി രേഖപ്പെടുത്തുക.",
+"Open a different compartment.": "മറ്റൊരു അറ തുറക്കുക.",
+"Scan the matching parcel with the handheld before placing it in the locker.": "ലോക്കറിൽ വയ്ക്കും മുമ്പ് ശരിയായ പാഴ്സൽ ഹാൻഡ്‌ഹെൽഡ് ഉപയോഗിച്ച് സ്കാൻ ചെയ്യുക.",
+"Scan the physical parcel.": "യഥാർത്ഥ പാഴ്സൽ സ്കാൻ ചെയ്യുക.",
+"Close the empty locker.": "ഒഴിഞ്ഞ ലോക്കർ അടയ്ക്കുക.",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "ശരിയായ പാഴ്സൽ സ്കാൻ ചെയ്തു. അത് നിശ്ചിത അറയ്ക്കുള്ളിൽ വയ്ക്കുക.",
+"Place the parcel inside.": "പാഴ്സൽ അകത്ത് വയ്ക്കുക.",
+"The parcel is inside. Close the door before taking its delivery photo.": "പാഴ്സൽ അകത്തുണ്ട്. ഡെലിവറി ഫോട്ടോ എടുക്കും മുമ്പ് വാതിൽ അടയ്ക്കുക.",
+"Close the locker door.": "ലോക്കർ വാതിൽ അടയ്ക്കുക.",
+"Retrieve the parcel.": "പാഴ്സൽ എടുക്കുക.",
+"Photograph the open door.": "തുറന്ന വാതിലിന്റെ ഫോട്ടോ എടുക്കുക.",
+"The locker door is closed. Photograph this door before recording delivery.": "ലോക്കർ വാതിൽ അടച്ചു. ഡെലിവറി രേഖപ്പെടുത്തും മുമ്പ് ഈ വാതിലിന്റെ ഫോട്ടോ എടുക്കുക.",
+"Photograph the closed locker door.": "അടച്ച ലോക്കർ വാതിലിന്റെ ഫോട്ടോ എടുക്കുക.",
+"The closed locker door is photographed.": "അടച്ച ലോക്കർ വാതിലിന്റെ ഫോട്ടോ എടുത്തു.",
+"Reopen the locker.": "ലോക്കർ വീണ്ടും തുറക്കുക.",
+"The closed-door photo is recorded. Finish this locker delivery.": "അടച്ച വാതിലിന്റെ ഫോട്ടോ രേഖപ്പെടുത്തി. ഈ ലോക്കർ ഡെലിവറി പൂർത്തിയാക്കുക.",
+"Use the parcel locker.": "പാഴ്സൽ ലോക്കർ ഉപയോഗിക്കുക.",
+"Identify your delivery.": "നിങ്ങളുടെ ഡെലിവറി അറിയിക്കുക.",
+"Say who you are and what you bring.": "നിങ്ങൾ ആരാണെന്നും എന്താണ് കൊണ്ടുവന്നതെന്നും പറയുക.",
+"I am the courier, and I have a parcel for this address.": "ഞാൻ കൊറിയറാണ്, ഈ വിലാസത്തിലേക്ക് ഒരു പാഴ്സലുണ്ട്.",
+"Open the door without asking questions.": "ചോദ്യങ്ങളൊന്നും ചോദിക്കാതെ വാതിൽ തുറക്കൂ.",
+"Return to the intercom.": "ഇന്റർകോമിലേക്ക് മടങ്ങുക.",
+"Choose the intercom button.": "ഇന്റർകോം ബട്ടൺ തിരഞ്ഞെടുക്കുക.",
+"Call a different entry.": "മറ്റൊരു ബട്ടണിൽ വിളിക്കുക.",
+"Return to reception.": "റിസപ്ഷനിലേക്ക് മടങ്ങുക.",
+"Attempt contact first.": "ആദ്യം ബന്ധപ്പെടാൻ ശ്രമിക്കുക.",
+"Wait on the street.": "തെരുവിൽ കാത്തിരിക്കുക.",
+"The label does not match the address.": "ലേബൽ വിലാസവുമായി പൊരുത്തപ്പെടുന്നില്ല.",
+"The required photo ID is not valid.": "ആവശ്യമായ ഫോട്ടോ ഐഡി സാധുവല്ല.",
+"The updated dispatch instruction requires retention.": "പുതുക്കിയ ഡിസ്പാച്ച് നിർദ്ദേശപ്രകാരം പാഴ്സൽ കൈവശം വയ്ക്കണം.",
+"Safe access or an authorized handover is unavailable.": "സുരക്ഷിതമായ പ്രവേശനമോ അംഗീകൃത കൈമാറ്റമോ സാധ്യമല്ല.",
+"The required recipient is absent.": "ആവശ്യമായ സ്വീകർത്താവ് സ്ഥലത്തില്ല.",
+"Leave a delivery attempt card.": "ഡെലിവറി ശ്രമ കാർഡ് വയ്ക്കുക.",
+"Record this retention reason.": "പാഴ്സൽ കൈവശം വയ്ക്കുന്നതിന്റെ ഈ കാരണം രേഖപ്പെടുത്തുക.",
+"Record an unrelated reason.": "ബന്ധമില്ലാത്ത ഒരു കാരണം രേഖപ്പെടുത്തുക.",
+"Record the exception and keep the parcel.": "ഒഴിവ് രേഖപ്പെടുത്തി പാഴ്സൽ കൈവശം വയ്ക്കുക.",
+"Arrange the next delivery attempt.": "അടുത്ത ഡെലിവറി ശ്രമം ക്രമീകരിക്കുക.",
+"The intercom buzzes. You may unlock the entry.": "ഇന്റർകോം ബസർ മുഴങ്ങുന്നു. നിങ്ങൾക്ക് പ്രവേശന വാതിൽ തുറക്കാം.",
+"Arrange a failed delivery and reattempt.": "പരാജയപ്പെട്ട ഡെലിവറിയും വീണ്ടുമുള്ള ശ്രമവും കൈകാര്യം ചെയ്യുക."
 },
 "templates": [
 [
@@ -5581,6 +5689,62 @@ window.OTR_I18N.ml = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} സ്കാനർ തുറക്കുന്നു, കൈവശം വച്ച പാഴ്സൽ തിരികെ നൽകാൻ."
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"സ്റ്റോപ്പ് {0} ({1}) അംഗീകൃത ലോക്കർ ഡെലിവറിയാണ്. അതിന്റെ നിശ്ചിത അറ ഉപയോഗിക്കുക."
+],
+[
+"Contact {0}.\n{1}",
+"{0}-മായി ബന്ധപ്പെടുക.\n{1}"
+],
+[
+"The person at reception is {0}.",
+"റിസപ്ഷനിലുള്ളത് {0} ആണ്."
+],
+[
+"The person receiving the parcel is {0}.",
+"പാഴ്സൽ സ്വീകരിക്കുന്നത് {0} ആണ്."
+],
+[
+"Record {0} at reception.",
+"റിസപ്ഷനിൽ {0} എന്ന് രേഖപ്പെടുത്തുക."
+],
+[
+"Ask {0} to sign for this parcel.",
+"ഈ പാഴ്സലിന് ഒപ്പിടാൻ {0} എന്നയാളോട് പറയുക."
+],
+[
+"The name and signature are recorded for {0}.",
+"{0} എന്നയാളുടെ പേരും ഒപ്പും രേഖപ്പെടുത്തി."
+],
+[
+"Use compartment {0} for this parcel.",
+"ഈ പാഴ്സലിന് അറ {0} ഉപയോഗിക്കുക."
+],
+[
+"Open compartment {0}.",
+"അറ {0} തുറക്കുക."
+],
+[
+"The parcel is for {0}.",
+"പാഴ്സൽ {0} എന്നയാൾക്കാണ്."
+],
+[
+"Call {0}.",
+"{0}-ലേക്ക് വിളിക്കുക."
+],
+[
+"The printed name is {0}.",
+"അച്ചടിച്ച പേര് {0} ആണ്."
+],
+[
+"Book the afternoon of day {0}.",
+"ദിവസം {0} ഉച്ചകഴിഞ്ഞ് ബുക്ക് ചെയ്യുക."
+],
+[
+"Press {0} to use the delivery controls.",
+"ഡെലിവറി നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കാൻ {0} അമർത്തുക."
 ]
 ],
 "keep": [

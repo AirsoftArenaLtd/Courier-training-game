@@ -3875,7 +3875,115 @@ window.OTR_I18N.te = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "షిప్‌మెంట్‌ను ఆపేసే ఇన్‌వాయిస్ పంక్తులపై క్లిక్ చేయండి (లేదా బాణం కీలు, Enter) · తర్వాత ప్రతి ముక్కను తనిఖీ చేయండి (Tab, Enter): అంగీకారం A · తిరస్కారం R, కారణానికి 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "తనిఖీకి ప్రతి ముక్కపై క్లిక్ చేయండి (లేదా Tab, Enter) · అంగీకారం A · తిరస్కారం R, కారణానికి 1-5",
 "Clear all": "అన్నీ తుడిచేయి",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "స్టాప్‌పై క్లిక్ చేయండి — మ్యాప్‌పై లేదా జాబితాలో — లేదా Tab తో అక్కడికి వెళ్లి Enter నొక్కండి, రూట్‌లో చేర్చడానికి; మళ్లీ చేస్తే తీసేయడానికి. సరిచేయడానికి రద్దు చేయండి (Backspace) / అన్నీ తుడిచేయి. జాబితా క్రమంలో పెట్టాక డిస్పాచ్ చేయండి."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "స్టాప్‌పై క్లిక్ చేయండి — మ్యాప్‌పై లేదా జాబితాలో — లేదా Tab తో అక్కడికి వెళ్లి Enter నొక్కండి, రూట్‌లో చేర్చడానికి; మళ్లీ చేస్తే తీసేయడానికి. సరిచేయడానికి రద్దు చేయండి (Backspace) / అన్నీ తుడిచేయి. జాబితా క్రమంలో పెట్టాక డిస్పాచ్ చేయండి.",
+"Deliver this standard parcel to the assigned locker at this site.": "ఈ సాధారణ ప్యాకేజీని ఈ సైట్‌లో కేటాయించిన లాకర్‌కు డెలివర్ చేయండి.",
+"One parcel is authorized for a locker. Every other package needs a signature. Check the label for photo ID requirements.": "ఒక ప్యాకేజీకి లాకర్ అనుమతి ఉంది. మిగతా ప్రతి ప్యాకేజీకి సంతకం అవసరం. ఫోటో ID అవసరమా అని లేబుల్ చూడండి.",
+"Retrieve the parcel from the locker before moving it.": "ప్యాకేజీని కదిలించే ముందు లాకర్ నుండి తీయండి.",
+"This parcel is authorized for the assigned locker at this site.": "ఈ ప్యాకేజీకి ఈ సైట్‌లో కేటాయించిన లాకర్ అనుమతి ఉంది.",
+"Invalid delivery-stop version": "చెల్లని డెలివరీ స్టాప్ వెర్షన్",
+"Invalid locker authorization": "చెల్లని లాకర్ అనుమతి",
+"Use the intercom and wait for a reply before attempting this delivery.": "ఈ డెలివరీకి ప్రయత్నించే ముందు ఇంటర్‌కామ్ ఉపయోగించి జవాబు కోసం వేచి ఉండండి.",
+"Park safely and approach this delivery point on foot.": "సురక్షితంగా పార్క్ చేసి, ఈ డెలివరీ పాయింట్‌కు నడిచి వెళ్లండి.",
+"Call the matching entry and wait for a reply before recording a failed attempt.": "విఫల ప్రయత్నాన్ని నమోదు చేసే ముందు సరిపోలే యూనిట్‌కు కాల్ చేసి జవాబు కోసం వేచి ఉండండి.",
+"This action is not available at this delivery point.": "ఈ డెలివరీ పాయింట్ వద్ద ఈ చర్య అందుబాటులో లేదు.",
+"Attempt contact before recording a failed delivery.": "విఫల డెలివరీని నమోదు చేసే ముందు సంప్రదించడానికి ప్రయత్నించండి.",
+"Retrieve and scan the matching parcel at this stop first.": "ముందు ఈ స్టాప్ వద్ద సరిపోలే ప్యాకేజీని తీసి స్కాన్ చేయండి.",
+"Open the locker and retrieve the parcel before recording retention.": "ప్యాకేజీని మీ వద్ద ఉంచినట్లు నమోదు చేసే ముందు లాకర్ తెరిచి ప్యాకేజీని తీయండి.",
+"Speak to the person at reception before recording a handover.": "అందజేతను నమోదు చేసే ముందు రిసెప్షన్‌లోని వ్యక్తితో మాట్లాడండి.",
+"That action does not meet the delivery requirements. Check the instructions and try again.": "ఆ చర్య డెలివరీ నిబంధనలకు సరిపోదు. సూచనలు చూసి మళ్లీ ప్రయత్నించండి.",
+"Your call is connected. Wait for the entry buzz or a reply.": "మీ కాల్ కనెక్ట్ అయింది. ప్రవేశ ద్వారం బజర్ లేదా జవాబు కోసం వేచి ఉండండి.",
+"The entry is unlocked. You may approach the recipient.": "ప్రవేశ ద్వారం తాళం తీసి ఉంది. మీరు గ్రహీత వద్దకు వెళ్లవచ్చు.",
+"The named recipient is ready. Record the delivery outcome.": "పేరున్న గ్రహీత సిద్ధంగా ఉన్నారు. డెలివరీ ఫలితాన్ని నమోదు చేయండి.",
+"The reception details are recorded.": "రిసెప్షన్ వివరాలు నమోదయ్యాయి.",
+"The closed locker door is photographed. Record the delivery outcome.": "మూసిన లాకర్ తలుపు ఫోటో తీశారు. డెలివరీ ఫలితాన్ని నమోదు చేయండి.",
+"The locker action is recorded. Follow the remaining steps.": "లాకర్ చర్య నమోదైంది. మిగిలిన దశలను అనుసరించండి.",
+"The next attempt is booked. Record the exception and keep the parcel for return.": "తదుపరి ప్రయత్నం బుక్ అయింది. మినహాయింపు నమోదు చేసి, తిరిగి పంపడానికి ప్యాకేజీని మీ వద్దే ఉంచండి.",
+"The failed-delivery step is recorded. Complete the card, retention and booking.": "విఫల డెలివరీ దశ నమోదైంది. కార్డ్, ప్యాకేజీ ఉంచుకోవడం, బుకింగ్ పూర్తి చేయండి.",
+"Open the locker and retrieve the parcel before recording an exception.": "మినహాయింపు నమోదు చేసే ముందు లాకర్ తెరిచి ప్యాకేజీని తీయండి.",
+"Wait for the intercom buzz and unlock the entry before delivering.": "డెలివర్ చేసే ముందు ఇంటర్‌కామ్ బజర్ కోసం వేచి ఉండి ప్రవేశ ద్వారం తాళం తీయండి.",
+"Complete the named reception handover before recording delivery.": "డెలివరీ నమోదు చేసే ముందు రిసెప్షన్‌లో పేరుతో అందజేత పూర్తి చేయండి.",
+"Use the assigned locker, scan the parcel, close the door and take the photo before recording delivery.": "డెలివరీ నమోదు చేసే ముందు కేటాయించిన లాకర్ ఉపయోగించి, ప్యాకేజీ స్కాన్ చేసి, తలుపు మూసి, ఫోటో తీయండి.",
+"Completed the delivery-point requirements.": "డెలివరీ పాయింట్ నిబంధనలు పూర్తి చేశారు.",
+"Completed the stop without meeting the delivery-point requirements.": "డెలివరీ పాయింట్ నిబంధనలు పాటించకుండానే స్టాప్ పూర్తి చేశారు.",
+"Invalid richer-stop specification": "చెల్లని విస్తృత స్టాప్ వివరణ",
+"Use the intercom here.": "ఇక్కడ ఇంటర్‌కామ్ ఉపయోగించండి.",
+"Speak at reception here.": "ఇక్కడ రిసెప్షన్‌లో మాట్లాడండి.",
+"Use the assigned locker here.": "ఇక్కడ కేటాయించిన లాకర్ ఉపయోగించండి.",
+"Record a failed delivery here.": "ఇక్కడ విఫల డెలివరీ నమోదు చేయండి.",
+"the intercom": "ఇంటర్‌కామ్",
+"the reception desk": "రిసెప్షన్ డెస్క్",
+"the parcel locker": "పార్సెల్ లాకర్",
+"the delivery record": "డెలివరీ రికార్డ్",
+"Record the delivery outcome.": "డెలివరీ ఫలితాన్ని నమోదు చేయండి.",
+"Hand the parcel to the recipient.": "ప్యాకేజీని గ్రహీతకు అందించండి.",
+"Record the locker delivery.": "లాకర్ డెలివరీని నమోదు చేయండి.",
+"Place the parcel behind the planter.": "ప్యాకేజీని పూలకుండీ వెనుక ఉంచండి.",
+"Leave the parcel in the approved safe place.": "ప్యాకేజీని ఆమోదించిన సురక్షిత చోటులో ఉంచండి.",
+"Record a delivery exception.": "డెలివరీ మినహాయింపును నమోదు చేయండి.",
+"Review the delivery checks.": "డెలివరీ తనిఖీలను చూడండి.",
+"Check the required photo ID.": "అవసరమైన ఫోటో ID చూడండి.",
+"Capture the recipient signature.": "గ్రహీత సంతకం తీసుకోండి.",
+"Speak with the customer calmly.": "కస్టమర్‌తో ప్రశాంతంగా మాట్లాడండి.",
+"Return to the delivery controls.": "డెలివరీ కంట్రోల్స్‌కు తిరిగి వెళ్లండి.",
+"Complete the delivery checks.": "డెలివరీ తనిఖీలను పూర్తి చేయండి.",
+"Review the delivery requirements.": "డెలివరీ నిబంధనలను చూడండి.",
+"Return to the street.": "వీధికి తిరిగి వెళ్లండి.",
+"The entry is unlocked.": "ప్రవేశ ద్వారం తాళం తీసి ఉంది.",
+"Walk through the entry to the recipient.": "ప్రవేశ ద్వారం గుండా గ్రహీత వద్దకు నడవండి.",
+"Use the intercom.": "ఇంటర్‌కామ్ ఉపయోగించండి.",
+"The entry buzz is sounding. Unlock the entry.": "ప్రవేశ ద్వారం బజర్ మోగుతోంది. తాళం తీయండి.",
+"Wait on the street for the entry buzz or a reply.": "ప్రవేశ ద్వారం బజర్ లేదా జవాబు కోసం వీధిలో వేచి ఉండండి.",
+"Choose the matching button, identify yourself and explain the delivery.": "సరిపోలే బటన్ ఎంచుకుని, మీరెవరో చెప్పి, డెలివరీ గురించి వివరించండి.",
+"Choose an intercom button.": "ఒక ఇంటర్‌కామ్ బటన్ ఎంచుకోండి.",
+"Unlock the entry.": "ప్రవేశ ద్వారం తాళం తీయండి.",
+"Record a failed delivery.": "విఫల డెలివరీని నమోదు చేయండి.",
+"Speak at reception.": "రిసెప్షన్‌లో మాట్లాడండి.",
+"Greet the person and confirm the address.": "ఆ వ్యక్తిని పలకరించి చిరునామా నిర్ధారించుకోండి.",
+"Record the recipient at reception.": "రిసెప్షన్‌లో గ్రహీతను నమోదు చేయండి.",
+"Record an unnamed occupant.": "పేరు లేని నివాసిని నమోదు చేయండి.",
+"Capture the reception signature.": "రిసెప్షన్ సంతకం తీసుకోండి.",
+"Capture the matching signature.": "సరిపోలే సంతకం తీసుకోండి.",
+"Use an unrelated printed name.": "సంబంధం లేని ముద్రిత పేరు ఉపయోగించండి.",
+"Complete the reception handover.": "రిసెప్షన్ అందజేతను పూర్తి చేయండి.",
+"Hand over and record the parcel.": "ప్యాకేజీని అందించి నమోదు చేయండి.",
+"Open a different compartment.": "వేరే అరను తెరవండి.",
+"Scan the matching parcel with the handheld before placing it in the locker.": "లాకర్‌లో ఉంచే ముందు సరిపోలే ప్యాకేజీని హ్యాండ్‌హెల్డ్‌తో స్కాన్ చేయండి.",
+"Scan the physical parcel.": "నిజమైన ప్యాకేజీని స్కాన్ చేయండి.",
+"Close the empty locker.": "ఖాళీ లాకర్‌ను మూసివేయండి.",
+"The matching parcel is scanned. Place it inside the assigned compartment.": "సరిపోలే ప్యాకేజీ స్కాన్ అయింది. దాన్ని కేటాయించిన అరలో ఉంచండి.",
+"Place the parcel inside.": "ప్యాకేజీని లోపల ఉంచండి.",
+"The parcel is inside. Close the door before taking its delivery photo.": "ప్యాకేజీ లోపల ఉంది. డెలివరీ ఫోటో తీసే ముందు తలుపు మూసివేయండి.",
+"Close the locker door.": "లాకర్ తలుపు మూసివేయండి.",
+"Retrieve the parcel.": "ప్యాకేజీని తీయండి.",
+"Photograph the open door.": "తెరిచిన తలుపు ఫోటో తీయండి.",
+"The locker door is closed. Photograph this door before recording delivery.": "లాకర్ తలుపు మూసి ఉంది. డెలివరీ నమోదు చేసే ముందు ఈ తలుపు ఫోటో తీయండి.",
+"Photograph the closed locker door.": "మూసిన లాకర్ తలుపు ఫోటో తీయండి.",
+"The closed locker door is photographed.": "మూసిన లాకర్ తలుపు ఫోటో తీశారు.",
+"Reopen the locker.": "లాకర్‌ను మళ్లీ తెరవండి.",
+"The closed-door photo is recorded. Finish this locker delivery.": "మూసిన తలుపు ఫోటో నమోదైంది. ఈ లాకర్ డెలివరీని పూర్తి చేయండి.",
+"Use the parcel locker.": "పార్సెల్ లాకర్ ఉపయోగించండి.",
+"Identify your delivery.": "మీ డెలివరీ గురించి చెప్పండి.",
+"Say who you are and what you bring.": "మీరెవరో, ఏం తెచ్చారో చెప్పండి.",
+"I am the courier, and I have a parcel for this address.": "నేను కొరియర్‌ని, ఈ చిరునామాకు ఒక ప్యాకేజీ ఉంది.",
+"Open the door without asking questions.": "ప్రశ్నలు అడగకుండా తలుపు తెరవండి.",
+"Return to the intercom.": "ఇంటర్‌కామ్‌కు తిరిగి వెళ్లండి.",
+"Choose the intercom button.": "ఇంటర్‌కామ్ బటన్ ఎంచుకోండి.",
+"Call a different entry.": "వేరే యూనిట్‌కు కాల్ చేయండి.",
+"Return to reception.": "రిసెప్షన్‌కు తిరిగి వెళ్లండి.",
+"Attempt contact first.": "ముందు సంప్రదించడానికి ప్రయత్నించండి.",
+"Wait on the street.": "వీధిలో వేచి ఉండండి.",
+"The label does not match the address.": "లేబుల్ చిరునామాతో సరిపోలడం లేదు.",
+"The required photo ID is not valid.": "అవసరమైన ఫోటో ID చెల్లదు.",
+"The updated dispatch instruction requires retention.": "కొత్త డిస్పాచ్ సూచన ప్రకారం ప్యాకేజీని మీ వద్దే ఉంచాలి.",
+"Safe access or an authorized handover is unavailable.": "సురక్షిత ప్రవేశం లేదా అనుమతి ఉన్న అందజేత అందుబాటులో లేదు.",
+"The required recipient is absent.": "అవసరమైన గ్రహీత లేరు.",
+"Leave a delivery attempt card.": "డెలివరీ ప్రయత్న కార్డ్ వదిలి వెళ్లండి.",
+"Record this retention reason.": "ప్యాకేజీని ఉంచుకోవడానికి ఈ కారణాన్ని నమోదు చేయండి.",
+"Record an unrelated reason.": "సంబంధం లేని కారణాన్ని నమోదు చేయండి.",
+"Record the exception and keep the parcel.": "మినహాయింపు నమోదు చేసి ప్యాకేజీని మీ వద్దే ఉంచండి.",
+"Arrange the next delivery attempt.": "తదుపరి డెలివరీ ప్రయత్నాన్ని ఏర్పాటు చేయండి.",
+"The intercom buzzes. You may unlock the entry.": "ఇంటర్‌కామ్ బజర్ మోగుతోంది. మీరు ప్రవేశ ద్వారం తాళం తీయవచ్చు.",
+"Arrange a failed delivery and reattempt.": "విఫల డెలివరీ, మళ్లీ ప్రయత్నాన్ని ఏర్పాటు చేయండి."
 },
 "templates": [
 [
@@ -5581,6 +5689,62 @@ window.OTR_I18N.te = {
 [
 "{0} opens the scanner to return the retained parcel.",
 "{0} స్కానర్‌ను తెరుస్తుంది, మిగిలిన ప్యాకేజీని తిరిగి ఇవ్వడానికి."
+],
+[
+"Stop {0} at {1} is an authorized locker drop. Use its assigned compartment.",
+"{1} వద్ద స్టాప్ {0} అనుమతి ఉన్న లాకర్ డెలివరీ. దానికి కేటాయించిన అరను ఉపయోగించండి."
+],
+[
+"Contact {0}.\n{1}",
+"{0}ను సంప్రదించండి.\n{1}"
+],
+[
+"The person at reception is {0}.",
+"రిసెప్షన్‌లో ఉన్న వ్యక్తి {0}."
+],
+[
+"The person receiving the parcel is {0}.",
+"ప్యాకేజీని అందుకునే వ్యక్తి {0}."
+],
+[
+"Record {0} at reception.",
+"రిసెప్షన్‌లో {0}ను నమోదు చేయండి."
+],
+[
+"Ask {0} to sign for this parcel.",
+"ఈ ప్యాకేజీకి సంతకం చేయమని {0}ను అడగండి."
+],
+[
+"The name and signature are recorded for {0}.",
+"{0} పేరు, సంతకం నమోదయ్యాయి."
+],
+[
+"Use compartment {0} for this parcel.",
+"ఈ ప్యాకేజీకి అర {0} ఉపయోగించండి."
+],
+[
+"Open compartment {0}.",
+"అర {0} తెరవండి."
+],
+[
+"The parcel is for {0}.",
+"ప్యాకేజీ {0} కోసం."
+],
+[
+"Call {0}.",
+"{0}కు కాల్ చేయండి."
+],
+[
+"The printed name is {0}.",
+"ముద్రిత పేరు {0}."
+],
+[
+"Book the afternoon of day {0}.",
+"రోజు {0} మధ్యాహ్నం బుక్ చేయండి."
+],
+[
+"Press {0} to use the delivery controls.",
+"డెలివరీ కంట్రోల్స్ ఉపయోగించడానికి {0} నొక్కండి."
 ]
 ],
 "keep": [
