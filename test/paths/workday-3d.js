@@ -423,20 +423,33 @@ const make = (opts) => async (page, ctx) => {
   await press('KeyE'); must((await state()).m.mode === 'walk', 'could not park and get out');
 
   // ---- five stops
-  // opts.radio (B-122): C-36's priority call, answered as the guide says: parked with the brake on, read on the handheld,
-  // accepted, and the stop it names delivered next (credit goes to the first stop delivered after accepting)
+  // opts.radio (B-122, B-124, B-125): C-36's call, answered as the guide says: parked with the brake on, read on the
+  // handheld, then 'priority' (accept; the stop it names is delivered next, the credit goes to the first stop delivered
+  // after accepting), 'checkin' (accept, park at the check-in spot, confirm arrival) or 'decline'
   const call = opts.radio ? await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; }) : null;
-  if (opts.radio) must(call && call.kind === 'priority' && call.stop > 0, 'the day has no priority radio call after the first stop: ' + JSON.stringify(call));
+  if (opts.radio) must(call && (opts.radio === 'decline' || call.kind === opts.radio), `the day has no ${opts.radio} radio call: ` + JSON.stringify(call));
+  const radioAt = !call ? -1 : call.kind === 'priority' && opts.radio === 'priority' ? call.stop : 1;
   for (let i = 0; i < N; i++) {
-    if (call && i === call.stop) {
+    if (i === radioAt) {
       must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return OTR.fpRadio.pending(m) && m.parked(); }), 'the radio call is not waiting, or the van is not parked, before stop ' + (i + 1));
       await press('Tab'); await pick(/^Read the dispatch radio message\.$/);
       must(await ctx.until(`${FP}.handheld.isOpen && ${FP}.handheld.device.current.title === 'The dispatch radio.'`, 5000), 'the radio message did not open on the handheld');
       await shot('radio-message');
-      await pick(/^Accept the route update\.$/);
-      await pick(/^Put away the handheld\.$/);
-      must(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.radio.accepted), 'the route update was not accepted');
-      log(`      radio: priority call read parked and accepted; stop ${i + 1} next`);
+      if (opts.radio === 'decline') {
+        await pick(/^Decline the route update\.$/); await pick(/^Put away the handheld\.$/);
+        log('      radio: call read parked and declined');
+      } else {
+        await pick(/^Accept the route update\.$/); await pick(/^Put away the handheld\.$/);
+        must(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.radio.accepted), 'the route update was not accepted');
+        if (call.kind === 'checkin') {
+          // to the check-in spot (a fixture, like the other legs), brake on, and confirm arrival on the handheld
+          await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model, c = OTR.fpRadio.descriptor(m); m.mode = 'cab'; Object.assign(m.van, c.park, { speed: 0, hand: true }); s.sync(); });
+          await wait(300);
+          await press('Tab'); await pick(/^Read the dispatch radio message\.$/);
+          await pick(/^Confirm arrival at the check-in stop\.$/); await pick(/^Put away the handheld\.$/);
+          log('      radio: check-in accepted, parked at the spot and confirmed');
+        } else log(`      radio: priority call read parked and accepted; stop ${i + 1} next`);
+      }
     }
     if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
     await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
@@ -633,7 +646,8 @@ const make = (opts) => async (page, ctx) => {
   must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
   if (opts.radio) {
     const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update').map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
-    must(upd.length === 1 && upd[0].ok === true, 'following the priority call should be one right dispatch.update: ' + JSON.stringify(upd));
+    const want = opts.radio !== 'decline';
+    must(upd.length === 1 && upd[0].ok === want, `${opts.radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
   }
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));

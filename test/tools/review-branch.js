@@ -55,7 +55,7 @@ const runAsync = (cmd, a, env, log) => new Promise(res => {
   ch.stdout.on('data', d => { out += d; }); ch.stderr.on('data', d => { err += d; });
   ch.on('close', status => { if (log) fs.writeFileSync(log, out + err); res({ status, stdout: out, stderr: err }); });
 });
-const FLOWS3D = ['workday-3d', 'workday-3d-b', 'workday-3d-c', 'workday-3d-d', 'workday-3d-e', 'workday-3d-f', 'workday-3d-g', 'workday-3d-h', 'workday-3d-i', 'workday-3d-j', 'workday-3d-k', 'workday-3d-l', 'workday-aids'];
+const FLOWS3D = ['workday-3d', 'workday-3d-b', 'workday-3d-c', 'workday-3d-d', 'workday-3d-e', 'workday-3d-f', 'workday-3d-g', 'workday-3d-h', 'workday-3d-i', 'workday-3d-j', 'workday-3d-k', 'workday-3d-l', 'workday-3d-m', 'workday-aids'];
 /** Which workday flows a branch's changed files can affect (B-95). */
 const flowsFor = (changed) => {
   const threeD = changed.some(f => /^src\/core\/(fp[a-z0-9]*|workday|save|scoring|scorm|academy|i18n|town)\.js$/.test(f) || /^src\/scenes\/FirstPersonScene\.js$/.test(f) ||
