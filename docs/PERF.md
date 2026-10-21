@@ -932,3 +932,20 @@ Claude's B-99 helper. [Final captures/raw reports/scopes/hashes](review/set-9/c3
 Latest pilot `74cd60a` retains the owned rendering code unchanged and adds Claude's
 save v2 and safety translation corrections. No resource ceiling changed. Cloud
 SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).
+
+## C-37 initial native replay view (21 October 2026)
+
+The actual Dispatch finish -> Results/map -> detached replay path passes **33 checks**
+in English larger-text Low at `79fdbd9`. Remapped focus/Enter, manual reduced-motion
+steps, playback/pause, hidden-window pause, narration while muted, old-record
+rejection and exact source/localStorage immutability pass. No score report is emitted.
+The initial paused view uses **33 calls / 1,046 triangles / two Three textures /
+3,557,376 attachment bytes / 1,402,939 estimated Phaser bytes**; fourteen unreferenced
+UI canvases are released while borrowed assets remain protected.
+
+[Raw report, captures, source and scope](review/set-9/c37-native/manifest.json).
+This is an initial view, not the complete resource gate. Final source `52d8365`
+adds proper Results/map return data; all 113 required cases pass. The expanded
+native matrix, drive-map acceptance, drive-review flow and full fpbench quality
+gate are running. All original ceilings remain unchanged. Cloud SwiftShader
+cannot certify Intel 60 fps (O-1).

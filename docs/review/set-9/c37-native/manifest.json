@@ -1,0 +1,24 @@
+{
+  "stage": "Initial larger-English Low native path passes 33 checks; final expanded native/shared/resource matrix running.",
+  "sourceRevision": "79fdbd9",
+  "finalProductRevision": "52d8365",
+  "delta": "Only return data changed after these captures: Results returns with again=true and DriveReview restores its selected pin. Final 113 required cases pass; expanded browser matrix repeats against that change.",
+  "scope": "Fixture travel/time and completed stops, actual recorder and Dispatch finish, real remapped Results/map controls and playback. Source snapshot and localStorage remain identical; no score log/events are emitted. Counters below are an initial native paused view, not the full resource gate.",
+  "initialLowView": {
+    "calls": 33,
+    "triangles": 1046,
+    "textures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 1402939,
+    "releasedUnusedCanvases": 14
+  },
+  "files": {
+    "source.json": "0be531d5802e278528e158ac40afd4d6f7cd387fec621728cdcc82d49fd01540",
+    "c37-actual-finish-en-large-playing.png": "33374dcbdb7433a65ef81b85f1f4d8b325f71347db779aa5a9d1a6c0227b9ae2",
+    "c37-actual-finish-en-large-unavailable.png": "43cbaa7bfaf9ba3273d7a00d265abe8b0c285e88e1541ee4a32fdd63d44b661f",
+    "c37-actual-finish-replay.json": "9898032671578811f219423b0d716b928ba89682719381c44e9a1432c7f51c74",
+    "c37-actual-finish-en-large-paused.png": "7a2563dedba11340a69f87e0b1853a51dc43459b2791b5e64c2e32912119a309",
+    "native.log": "de1fc453b72d765ac81f3fa1b8a4d3cae8995a6149338e019c85443976fdaefa",
+    "final-required-node.log": "8b4a7e4796c2c1bc080e217932b81c478b3def73a3983821c0a743028f6faa38"
+  }
+}
