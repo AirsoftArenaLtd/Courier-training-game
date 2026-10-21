@@ -86,7 +86,7 @@ const run = (cmd, a, env, log) => {
   step('every Node suite', suites.status === 0, last + (suites.status ? ` (logs: test/out/run-all/ in the worktree)` : ''));
 
   if (!args.includes('--no-flows')) {
-    const flows = run(process.execPath, ['test/qa.js', '--only', 'workday-3d,workday-3d-b,workday-3d-c,workday-3d-d,workday-3d-e,workday-aids,drive-review'],
+    const flows = run(process.execPath, ['test/qa.js', '--only', 'workday-3d,workday-3d-b,workday-3d-c,workday-3d-d,workday-3d-e,workday-3d-f,workday-3d-g,workday-aids,drive-review'],
       { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)),
         QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'flows.log'));
     const clean = /(\d+)\/(\d+) scenarios clean/.exec(flows.stdout || '');
