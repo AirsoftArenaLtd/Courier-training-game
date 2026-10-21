@@ -29,4 +29,22 @@ larger text in `views-ta-large/`).
 | 9 | Clip a post or a parked car, then walk round the van (view `dent`) | The damage is where you hit, and you can see it from outside. Say if a light scuff is too faint at Low |
 | 10 | Corner hard with the load not secured | The load shifts and the debrief says so; a secured load stays put |
 
+**Richer stops (C-33, from the third workday).** Most days from day 3 on have a parcel locker, and many an apartment
+intercom; a business reception is rarer, so if your day has none, the next day may. A label at the site says what
+it is ("Use the intercom here." and so on); walk up, press P until it is selected, then E. Codex's pictures are in
+[`c33.md`](c33.md): the [Tamil intercom](c33-release/c33-stops-high-final-ta-large-intercom.png), the
+[reception](c33-release/c33-stops-high-final-ta-large-reception-resident.png), the
+[open locker](c33-release/c33-native-clip-en-normal-locker-open.png) and a
+[21-second locker clip](c33-release/c33-native-clip-review.webm).
+
+| # | Try this | It should feel like |
+| --- | --- | --- |
+| 11 | At an apartment block, use the intercom: choose the button for the parcel's flat, say who you are, wait, then unlock | Clear which button is the right one; the short wait for the buzz feels real, not stuck. Say if you could not tell what to do next |
+| 12 | At a gated entry, try to walk in before the gate is unlocked, then after | The gate stays shut until unlocked; walking through afterwards is easy |
+| 13 | At a business, speak at reception: confirm the address, record the person by name, take their signature, hand over | Polite and quick, like a real front desk. Say if the person behind the desk is hard to see |
+| 14 | At a parcel locker (the morning brief names the stop): open the right compartment, scan, put the parcel in, close, photograph | Each step is obvious and in a natural order; the photo of the closed door makes sense as proof |
+| 15 | When nobody is in for a parcel that needs a signature, record a failed delivery: card, reason, tomorrow afternoon | The card and the booking feel like what a courier does; the parcel stays in the van for Returns |
+
+Switch to Tamil with larger text for one of these: the panels' sentences should still fit and read well.
+
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.
