@@ -293,6 +293,34 @@ test('B-93: C-35\'s walkaround and post-trip report on the richer-stop damage da
   assert.ok(W.log.mistakes().some(it => it.type === 'trip.damage-report' && it.critical), 'hiding damage the courier caused stays a critical mistake after a reload');
 });
 
+// B-98: C-35's heaviest native day, as Codex's probe sends it (21 Oct): on the B-75 day, one baseline inspection, six
+// early reports of damage that was not there, seven located contacts (one per zone) and seven final reports
+const ZONES = ['front', 'rear', 'left', 'right', 'roof', 'wheel', 'mirror'];
+const c35HeavyDay = () => richerDay().concat(
+  [['inspect.damage', { key: 'rear', ok: true }]],
+  ZONES.slice(0, 6).map(z => ['trip.damage-false', { key: z, ok: false }]),
+  // as fpdamageflow.js reports a contact: zone:cause-serial, the stop it happened on, and a place with no time
+  ZONES.map((z, i) => ['van.damage-scuff', { key: z + ':' + ['post', 'car', 'bollard'][i % 3] + '-' + (i + 1), stop: i % 5 + 1, ok: false, where: { x: 11.3 * i - 30, z: -27.9 * i - 12, mph: 5.4 + i } }]),
+  ZONES.map((z, i) => ['trip.damage-report', { key: z, ok: i % 2 === 0 }]));
+
+test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day) still packs, and reloads the same', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  play(c35HeavyDay());
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
+  const pk = stored().workday.current.packed;
+  assert.ok(pk.v === 2 && Array.isArray(pk.f) && pk.f.length > 0, 'packed as v2: wrong checks with no stop or place grouped (f), a placed row with no stop written as 0');
+  const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
+  console.log(`      B-98: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
+  assert.ok(room >= 25, `room left on C-35's heaviest day: ${room} (under 25, the next addition summarises the day: score kept, pins lost)`);
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every contact keeps its pin');
+});
+
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
   const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
   const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });

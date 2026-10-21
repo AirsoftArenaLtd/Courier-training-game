@@ -219,7 +219,7 @@ OTR.save = {
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
-    const out = Object.assign({}, c), types = [], e = [], g = {}, s = {};
+    const out = Object.assign({}, c), types = [], e = [], g = {}, s = {}, f = {};
     delete out.events;
     const num = (v, r) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * r) / r : null);
     c.events.forEach(ev => {
@@ -236,16 +236,21 @@ OTR.save = {
       if (ev.ok !== false && stop === null && !w && key !== null) { (g[ti] = g[ti] || []).push(key); return; }
       // a right check at a stop with no place: its stop and key, grouped by type (B-55)
       if (ev.ok !== false && Number.isInteger(stop) && !w) { (s[ti] = s[ti] || []).push(stop, key); return; }
-      const row = [ti, key, ev.ok === false ? 0 : 1, stop,
+      // B-98: a wrong check or penalty with no stop and no place is only its key too, grouped by type in f
+      if (ev.ok === false && stop === null && !w && key !== null && !Array.isArray(key)) { (f[ti] = f[ti] || []).push(key); return; }
+      // B-98: stops count from 1, so a placed row with no stop writes 0 (3 characters less than null; v: 2)
+      const row = [ti, key, ev.ok === false ? 0 : 1, stop === null && w ? 0 : stop,
         w ? num(w.x, 1) : null, w ? num(w.z, 1) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });
-    out.packed = { t: types.map(n => this.shortType(n)), e };
+    out.packed = { v: 2, t: types.map(n => this.shortType(n)), e };
     const groups = Object.keys(g).map(ti => [Number(ti)].concat(this.packRuns(g[ti])));
     if (groups.length) out.packed.g = groups;
     const atStops = Object.keys(s).map(ti => [Number(ti)].concat(s[ti]));
     if (atStops.length) out.packed.s = atStops;
+    const failed = Object.keys(f).map(ti => [Number(ti)].concat(f[ti]));
+    if (failed.length) out.packed.f = failed;
     return out;
   },
 
@@ -418,10 +423,10 @@ OTR.save = {
     if (!c || typeof c !== 'object' || Array.isArray(c.events)) return c;
     const out = Object.assign({}, c), events = [];
     if (c.packed && Array.isArray(c.packed.e)) {
-      const types = (Array.isArray(c.packed.t) ? c.packed.t : []).map(n => this.longType(n));
+      const types = (Array.isArray(c.packed.t) ? c.packed.t : []).map(n => this.longType(n)), v2 = c.packed.v >= 2;
       c.packed.e.forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
-        const ev = { type: types[r[0]], key: r[1] === undefined ? null : r[1], ok: r[2] !== 0, stop: r[3] === undefined ? null : r[3] };
+        const ev = { type: types[r[0]], key: r[1] === undefined ? null : r[1], ok: r[2] !== 0, stop: r[3] === undefined || (v2 && r[3] === 0) ? null : r[3] };
         if (Number.isFinite(r[4]) && Number.isFinite(r[5])) {
           ev.where = { x: r[4], z: r[5] };
           if (Number.isFinite(r[6])) ev.where.mph = r[6];
@@ -436,6 +441,10 @@ OTR.save = {
       (Array.isArray(c.packed.s) ? c.packed.s : []).forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
         for (let i = 1; i + 1 < r.length; i += 2) if (Number.isInteger(r[i])) events.push({ type: types[r[0]], key: r[i + 1] === undefined ? null : r[i + 1], ok: true, stop: r[i] });
+      });
+      (Array.isArray(c.packed.f) ? c.packed.f : []).forEach(r => {
+        if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
+        r.slice(1).forEach(k => events.push({ type: types[r[0]], key: k, ok: false, stop: null }));
       });
     } else if (Array.isArray(c.summary)) {
       c.summary.forEach(r => {
