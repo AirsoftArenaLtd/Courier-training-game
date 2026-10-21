@@ -1,10 +1,12 @@
 # Memory replay of the last mistake (C-37)
 
-Doing on `codex/c37-replay`, combined with pilot `54d7a63`, independently after merged C-32.
+Doing on `codex/c37-replay`, combined with pilot `c9e02e87`, independently after merged C-32.
 The recorder, playback clock, detached renderer and accessible controls are loaded
 by the game. Conditional results and map hooks are implemented under Claude’s
-21 October approval. Browser/resource acceptance remains in progress; no completed
-replay or new frame-rate result is claimed.
+21 October approval. Frozen acceptance at `73a01da` passes 245 native checks, 214 shared map checks,
+the drive-review journey and all 179 resource views. Current-pilot acceptance is
+being repeated after C-36, its translations and B-114 merged. The row stays doing
+until that combined gate completes; no Intel frame-rate result is claimed.
 
 The recorder samples actual simulation time at most twenty times per second into
 fixed typed buffers. It retains ten seconds plus a boundary sample. An off-cadence
@@ -57,3 +59,24 @@ It checks reduced motion, remapped controls, narration while muted, source/save
 immutability and the same Low/High rendering ceilings. This acceptance is still
 running. Claude’s requested `test/drivemapbrowser.js` and drive-review journey are
 also required before review. New sentences await Claude’s translation pass.
+
+## Completed frozen acceptance and current pilot
+
+The complete frozen `73a01da` run passes **245 native assertions**: 140 across
+English/Tamil normal/larger Low, 35 on a later-day Tamil larger Low route, and 70
+High English/Tamil larger. Both actual entry routes, remapped controls, paused
+manual steps, reduced motion, muted narration, source/save immutability, selected
+map pin / Results return state and release of detached references on exit pass.
+Low native page memory peaks at **1,584,187 bytes**, High at **5,100,219 bytes**.
+The 214-check shared map suite and drive-review journey pass; all 179 complete
+resource views pass the original ceilings. [Exact reports, captures and source](review/set-9/c37-accepted/manifest.json).
+
+Pilot `c9e02e87` is now retained at merge `6040d70d`. It includes C-36, its
+translated radio/night interface, all test follow-ups and B-114 numeric save codes.
+All 113 required Node cases and the current catalogue pass on that merge. The
+native later-day fixture declines an existing radio call through its actual
+model before binding the recorder, so a later contact is the newest mistake and
+workday finish cannot create an unrelated unread-call failure. No production
+obligation is bypassed. Native/shared checks and the expanded **207-view** gate
+are repeating at `5627336f`; scoring, save, Settings and i18n sources are unchanged
+relative to pilot. New replay sentences await Claude’s extraction/translation.

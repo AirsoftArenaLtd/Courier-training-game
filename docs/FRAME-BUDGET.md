@@ -447,3 +447,23 @@ adds proper Results/map return data; all 113 required cases pass. The expanded
 native matrix, drive-map acceptance, drive-review flow and full fpbench quality
 gate are running. All original ceilings remain unchanged. Cloud SwiftShader
 cannot certify Intel 60 fps (O-1).
+
+## C-37 completed frozen gate, current-pilot repeat (21 October 2026)
+
+All **179 resource views** pass at product `73a01da`. Complete native replay
+coverage passes **245 checks**, including source/localStorage immutability and
+world/reference release. Low native page memory peaks at **1,584,187 bytes**,
+High at **5,100,219**. The shared map passes 214 checks and drive-review passes.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 61 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 46 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 36 | 54 | 2,396 | 2 | 3,557,376 | 3,067,056 |
+| fallback-low | 36 | 53 | 2,150 | 2 | 3,557,376 | 2,592,336 |
+
+[Exact captures, reports, source hashes and scopes](review/set-9/c37-accepted/manifest.json).
+Pilot `c9e02e87` is now combined at `6040d70d`, retaining C-36 and B-114. All 113
+required cases and the current catalogue pass. The native/shared repeat and
+expanded 207-view gate are running on `5627336f`; no result is claimed for that
+combined gate yet. No ceiling changed. Native Intel 60 fps remains O-1.
