@@ -1,0 +1,75 @@
+{
+  "quality": "low",
+  "checks": 41,
+  "runs": [
+    {
+      "lang": "en",
+      "large": false,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "impact": {
+        "equal": true,
+        "events": [
+          {
+            "type": "van.damage-dent",
+            "key": "front:solid-1",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": 8,
+              "mph": 7
+            }
+          }
+        ],
+        "generic": false,
+        "damage": 2
+      },
+      "approach": {
+        "detour": 156,
+        "events": [
+          {
+            "type": "drive.clearance",
+            "key": "clearance-0",
+            "ok": true,
+            "stop": 1
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "completed": false,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'வேனின் உயரத்தை அறிந்துகொள்ளுங்கள்.'\n- 'Know the van height.'\n\n    at /workspace/c35-walkaround/test/fpdamagebrowser.js:29:33"
+}

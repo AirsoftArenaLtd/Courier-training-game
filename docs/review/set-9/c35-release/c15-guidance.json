@@ -1,0 +1,16 @@
+{
+  "checks": 89,
+  "before": {
+    "spoken": 31,
+    "events": 0,
+    "pointerLock": false
+  },
+  "flags": {
+    "intro": true,
+    "seen": [
+      "dispatch",
+      "parcel"
+    ]
+  },
+  "errors": []
+}
