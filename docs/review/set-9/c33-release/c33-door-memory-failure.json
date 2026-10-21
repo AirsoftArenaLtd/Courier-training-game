@@ -1,0 +1,962 @@
+{
+  "memory": 4267926,
+  "lang": "ta",
+  "large": true,
+  "panel": [
+    "புகைப்பட ID-யைச் சரிபாருங்கள்",
+    "வாசலில் இருப்பவர்: Grace Kim\nID-யில் உள்ள பெயர்: Grace Kim\nபிறந்த தேதி: 05/14/1986\nகாலாவதி: 05/14/2030\nபயிற்சி தேதி: 2026-10-15\nஇரு புகைப்படங்களையும் ஒப்பிடுங்கள். இந்தப் பயிற்சியில் பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+    "1. புகைப்பட ID-யை ஏற்றுக்கொள்ளுங்கள்",
+    "2. புகைப்பட ID-யை நிராகரித்து பார்சலை உங்களிடமே வைத்திருங்கள்",
+    "3. பின்செல்",
+    "வாசலில்",
+    "ID-யில் புகைப்படம்"
+  ],
+  "handheld": "DELIVERY CHECKS",
+  "textures": [
+    {
+      "key": "2509dbe2-6def-4311-8fa4-508cb353c3c3",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "வாசலில் இருப்பவர்: Grace Kim\nID-யில் உள்ள பெயர்: Grace Kim\nபிறந்த தேதி: 05/14/1986\nகாலாவதி: 05/14/2030\nபயிற்சி தேதி: 2026-10-15\nஇரு புகைப்படங்களையும் ஒப்பிடுங்கள். இந்தப் பயிற்சியில் பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "visible": true
+        }
+      ],
+      "bytes": 532400
+    },
+    {
+      "key": "gfx_41lwtj_192_304x158",
+      "uses": [],
+      "bytes": 192128
+    },
+    {
+      "key": "gfx_gb2bpx_192_304x158",
+      "uses": [],
+      "bytes": 192128
+    },
+    {
+      "key": "gfx_q8wuev_192_304x158",
+      "uses": [],
+      "bytes": 192128
+    },
+    {
+      "key": "gfx_5c4gro_192_304x158",
+      "uses": [],
+      "bytes": 192128
+    },
+    {
+      "key": "panel_296x46_3107491_2051705_16_8629467_2_0.3_null_1",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 129344
+    },
+    {
+      "key": "panel_296x46_16777215_15265525_16_12112618_2_0.3_null_1",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        },
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 129344
+    },
+    {
+      "key": "84d96cdb-a085-4bcf-b438-4eb3c938f27b",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "visible": false
+        }
+      ],
+      "bytes": 122944
+    },
+    {
+      "key": "0d658437-54c1-4810-b7ad-9e5259b920e8",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "2. புகைப்பட ID-யை நிராகரித்து பார்சலை உங்களிடமே வைத்திருங்கள்",
+          "visible": true
+        }
+      ],
+      "bytes": 72384
+    },
+    {
+      "key": "00b7b841-6585-4c8b-a84c-99a560804360",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "கேட்டை மூடியே வையுங்கள். ஒரு நாய் கட்டப்படாமல் உள்ளது.",
+          "visible": false
+        }
+      ],
+      "bytes": 67500
+    },
+    {
+      "key": "0e365fa4-11ca-4b72-bbbd-0e5cbd15dbc0",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "புகைப்பட ID-யைச் சரிபாருங்கள்",
+          "visible": true
+        }
+      ],
+      "bytes": 63232
+    },
+    {
+      "key": "ec21f81a-80e4-4176-8c18-f8abc0bdbaa0",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "என்ஜின் 800 RPM-இல் உள்ளது.",
+          "visible": false
+        }
+      ],
+      "bytes": 48384
+    },
+    {
+      "key": "1167e281-288b-482a-a0ea-297730880128",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "3  டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+          "visible": false
+        }
+      ],
+      "bytes": 45584
+    },
+    {
+      "key": "e4414238-4e23-45c0-8593-68bb1e1dbdc6",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "1. புகைப்பட ID-யை ஏற்றுக்கொள்ளுங்கள்",
+          "visible": true
+        }
+      ],
+      "bytes": 42912
+    },
+    {
+      "key": "gfx_1j4am6x_204_168x60",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 40320
+    },
+    {
+      "key": "bf04157b-5d09-4b65-8374-687c34ead3e6",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "இது Harbor St இல் எண் 404.",
+          "visible": false
+        }
+      ],
+      "bytes": 38136
+    },
+    {
+      "key": "89a779b1-9a95-4357-9703-0f43fd17b1f9",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "1  புகைப்பட ID-யைச் சரிபாருங்கள்",
+          "visible": false
+        }
+      ],
+      "bytes": 33264
+    },
+    {
+      "key": "6c87a76a-ff13-4305-8ee7-0d890a60a90f",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "2  கையெழுத்தைப் பெறுங்கள்",
+          "visible": false
+        }
+      ],
+      "bytes": 30624
+    },
+    {
+      "key": "df5e78dd-b390-44f7-8a17-aa662af81cdd",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "வாசலில் இருப்பவர்: Grace Kim",
+          "visible": false
+        }
+      ],
+      "bytes": 22428
+    },
+    {
+      "key": "star_gold",
+      "uses": [],
+      "bytes": 20736
+    },
+    {
+      "key": "star_empty",
+      "uses": [],
+      "bytes": 20736
+    },
+    {
+      "key": "star_empty_dark",
+      "uses": [],
+      "bytes": 20736
+    },
+    {
+      "key": "55d465d4-9514-4285-95bc-1a9ad2b8ef0f",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "கடைசி மறுஆய்வு",
+          "visible": false
+        }
+      ],
+      "bytes": 20304
+    },
+    {
+      "key": "8edc770d-44da-496a-9328-ff5d8e7560fd",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "ID-யில் புகைப்படம்",
+          "visible": true
+        }
+      ],
+      "bytes": 20240
+    },
+    {
+      "key": "9612877f-07d4-40ad-b4c9-a72dca33c4ae",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "டெலிவரி சோதனைகள்",
+          "visible": false
+        }
+      ],
+      "bytes": 20152
+    },
+    {
+      "key": "rig_item_scanner",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 19200
+    },
+    {
+      "key": "cba8122b-f2f6-47e4-bcbf-1e355d6e10b2",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "சரக்குப் பயிற்சி",
+          "visible": false
+        }
+      ],
+      "bytes": 17928
+    },
+    {
+      "key": "p_glow",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_shield",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_bolt",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_heart",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_star",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_van",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_box",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_chat",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_bulb",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_clipboard",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_map",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_wheel",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_belt",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_lift",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_diamond",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_pen",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_paw",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_pin",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_broken",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_cloud",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_sound",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_mute",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_gear",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_globe",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_check",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_cross",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_flag",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_clock",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_pause",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_home",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_book",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_arrow",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_undo",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_trash",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_badge",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "ic_user",
+      "uses": [],
+      "bytes": 16384
+    },
+    {
+      "key": "24bbf05a-3ed4-4fe3-823c-f36581f0a742",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "வேகம் 0 mph.",
+          "visible": false
+        }
+      ],
+      "bytes": 15012
+    },
+    {
+      "key": "0d5e8e74-175e-4831-aef1-bc6e0b85d25f",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "வேலை நாள்",
+          "visible": false
+        }
+      ],
+      "bytes": 14796
+    },
+    {
+      "key": "f643a5fa-8b0b-465f-a490-40d1d90b649d",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "312 Maple Ave",
+          "visible": false
+        }
+      ],
+      "bytes": 14472
+    },
+    {
+      "key": "3c4f790c-e3b8-4ce2-933f-83fb0871b7ab",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "204 Harbor St",
+          "visible": false
+        }
+      ],
+      "bytes": 13716
+    },
+    {
+      "key": "c13b1f58-e065-498d-9cb1-a37e3a731df3",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "On The Route",
+          "visible": false
+        }
+      ],
+      "bytes": 13104
+    },
+    {
+      "key": "079dc5a5-24f1-464b-8e4a-299a5983cb5e",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "On The Route",
+          "visible": false
+        }
+      ],
+      "bytes": 13104
+    },
+    {
+      "key": "3bb88904-415e-4be3-a1ba-6ebbfa28890c",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "On The Route",
+          "visible": false
+        }
+      ],
+      "bytes": 13104
+    },
+    {
+      "key": "8849fcbd-cc05-4302-90b5-d7cb631b3506",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "113 Birch Ln",
+          "visible": false
+        }
+      ],
+      "bytes": 12312
+    },
+    {
+      "key": "960d39fa-a846-42e1-872e-6a29a5e58339",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "205 Birch Ln",
+          "visible": false
+        }
+      ],
+      "bytes": 12312
+    },
+    {
+      "key": "f72f8f6e-9d6c-4cc7-a6c1-8e8f622dfcd7",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "104 Birch Ln",
+          "visible": false
+        }
+      ],
+      "bytes": 12312
+    },
+    {
+      "key": "96636b2f-f58a-490d-8cb7-6fe017ef9012",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "ரிட்டர்ன்ஸ்",
+          "visible": false
+        }
+      ],
+      "bytes": 12096
+    },
+    {
+      "key": "ec59b746-0fd2-460d-bbbc-36eb4942ab00",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "3. பின்செல்",
+          "visible": true
+        }
+      ],
+      "bytes": 11904
+    },
+    {
+      "key": "3364bae6-8432-4823-8820-aa765410ad96",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "ON THE ROUTE",
+          "visible": false
+        }
+      ],
+      "bytes": 11172
+    },
+    {
+      "key": "ea6699d5-c98c-46ac-a916-8da16b395dca",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "டிஸ்பாட்ச்",
+          "visible": false
+        }
+      ],
+      "bytes": 11016
+    },
+    {
+      "key": "dd1564b8-986e-433e-a5f6-10e5ad26da9c",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "Left mirror",
+          "visible": false
+        }
+      ],
+      "bytes": 8464
+    },
+    {
+      "key": "be942c15-a32e-4dac-875b-f960d894328e",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "வாசலில்",
+          "visible": true
+        }
+      ],
+      "bytes": 8184
+    },
+    {
+      "key": "f99ca958-1428-4a27-bf01-7fccc02abb75",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "On The Route",
+          "visible": false
+        }
+      ],
+      "bytes": 6460
+    },
+    {
+      "key": "p_smoke",
+      "uses": [],
+      "bytes": 6400
+    },
+    {
+      "key": "7664b780-44e1-4625-bc63-6a44fd5f93d4",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "HANDHELD",
+          "visible": false
+        }
+      ],
+      "bytes": 5372
+    },
+    {
+      "key": "gfx_1me2zoc_167_40x33",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 5280
+    },
+    {
+      "key": "bcde63fe-3cb5-4e72-9a86-310236d5b615",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "⌫ Back",
+          "visible": false
+        }
+      ],
+      "bytes": 5016
+    },
+    {
+      "key": "__DEFAULT",
+      "uses": [],
+      "bytes": 4096
+    },
+    {
+      "key": "__MISSING",
+      "uses": [],
+      "bytes": 4096
+    },
+    {
+      "key": "311eb506-7921-490e-b2e6-227d0111f6e0",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "OT",
+          "visible": false
+        }
+      ],
+      "bytes": 3960
+    },
+    {
+      "key": "81dc3fdd-40d2-4c04-8ddd-20dcaff7a5ce",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "OT",
+          "visible": false
+        }
+      ],
+      "bytes": 3960
+    },
+    {
+      "key": "8922300b-e912-4052-b491-f891537afd96",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "OT",
+          "visible": false
+        }
+      ],
+      "bytes": 3960
+    },
+    {
+      "key": "gfx_r3ie85_66_28x28",
+      "uses": [
+        {
+          "type": "Image",
+          "visible": false
+        }
+      ],
+      "bytes": 3136
+    },
+    {
+      "key": "p_star",
+      "uses": [],
+      "bytes": 2304
+    },
+    {
+      "key": "5c39ef33-b042-4a69-adeb-ee34423fdb11",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "N",
+          "visible": false
+        }
+      ],
+      "bytes": 2160
+    },
+    {
+      "key": "57648744-c8e6-464a-9b44-e1a2fc03b652",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "D",
+          "visible": false
+        }
+      ],
+      "bytes": 2052
+    },
+    {
+      "key": "ed1a0231-75c7-4fc3-a163-742570cbe107",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "P",
+          "visible": false
+        }
+      ],
+      "bytes": 1836
+    },
+    {
+      "key": "5e53985c-7096-447c-b63b-609902293194",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "R",
+          "visible": false
+        }
+      ],
+      "bytes": 1836
+    },
+    {
+      "key": "b5c4bca6-0c88-4e6a-95d9-16d8d23ce72f",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "TAB",
+          "visible": false
+        }
+      ],
+      "bytes": 1092
+    },
+    {
+      "key": "p_dot",
+      "uses": [],
+      "bytes": 1024
+    },
+    {
+      "key": "a16843be-9205-4130-ada6-ae91db8bf8e7",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 400
+    },
+    {
+      "key": "698870c0-384a-4c01-8d3d-16e460729dd8",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 400
+    },
+    {
+      "key": "p_rect",
+      "uses": [],
+      "bytes": 336
+    },
+    {
+      "key": "p_drop",
+      "uses": [],
+      "bytes": 312
+    },
+    {
+      "key": "2c5295d3-6526-424a-b052-64ab5b577ecd",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "!",
+          "visible": false
+        }
+      ],
+      "bytes": 240
+    },
+    {
+      "key": "5e9c46cd-1a98-4d56-a586-7ebf45438e21",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 96
+    },
+    {
+      "key": "e38ac9dc-f2ba-419d-ad58-16f705c84885",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "caea1d69-dc6c-460c-bd36-9c7634bc3f7c",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "ef3caa79-626c-49bb-8fae-b01cdac24f98",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "eb93dd9f-42a3-454c-94f6-f0efde0762bb",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "e5dd273a-951b-45b9-adad-66ac3c3d74fe",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "8b84dd77-f793-4ddb-8c8e-4e65eed146d4",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "8bfb0a2a-f7ca-4955-8158-268b815c2cfb",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 84
+    },
+    {
+      "key": "f6f73fd2-3c56-4990-844e-5c4ec2d2cce3",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 76
+    },
+    {
+      "key": "491d2e34-1dd3-477a-a2a0-d66e53f1f9d9",
+      "uses": [
+        {
+          "type": "Text",
+          "text": "",
+          "visible": false
+        }
+      ],
+      "bytes": 76
+    },
+    {
+      "key": "__WHITE",
+      "uses": [],
+      "bytes": 64
+    },
+    {
+      "key": "px",
+      "uses": [],
+      "bytes": 64
+    },
+    {
+      "key": "__NORMAL",
+      "uses": [],
+      "bytes": 4
+    }
+  ]
+}

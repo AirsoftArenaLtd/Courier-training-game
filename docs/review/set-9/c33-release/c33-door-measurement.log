@@ -1,0 +1,11 @@
+MEASURED_LAYOUT {"lang":"ta","large":true,"definition":{"title":"DELIVERY","lines":["113 Birch Ln","Photo ID and an adult signature are required. The recipient must be 21 or older."],"options":[{"label":"Hand to resident","skin":"ghost","onPick":{}},{"label":"Leave in porch box","skin":"ghost","onPick":{}},{"label":"Record a delivery exception","skin":"ghost","onPick":{}},{"label":"Delivery checks","skin":"ghost","onPick":{}}],"back":{}},"body":[{"text":"டெலிவரி","x":-144,"y":-246,"height":22,"font":"\"Nirmala UI\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif","rect":{"type":5,"x":916,"y":103,"width":91,"height":22}},{"text":"","x":144,"y":-246,"height":19,"font":"\"Nirmala UI\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif","rect":{"type":5,"x":1204,"y":104.5,"width":0,"height":19}},{"text":"⌫ Back","x":144,"y":168,"height":19,"font":"\"Nirmala UI\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif","rect":{"type":5,"x":1138,"y":518.5,"width":66,"height":19}},{"text":"113 Birch Ln","x":-144,"y":-210,"height":21,"font":"\"Nirmala UI\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif","rect":{"type":5,"x":916,"y":150,"width":99,"height":21}},{"text":"புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.","x":-144,"y":-183,"height":113,"font":"\"Nirmala UI\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif","rect":{"type":5,"x":916,"y":177,"width":272,"height":113}}],"buttons":[{"text":"1  குடியிருப்பாளரிடம் கொடு","y":-47,"height":46,"actualTop":290},{"text":"2  போர்ச் பெட்டியில் வையுங்கள்","y":9,"height":54,"actualTop":342.0000009536743},{"text":"3  டெலிவரி விதிவிலக்கைப் பதிவு செய்யுங்கள்","y":69,"height":54,"actualTop":402.0000009536743},{"text":"4  டெலிவரி சரிபார்ப்புகள்","y":125,"height":46,"actualTop":462}]}
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   'body overlaps handheld choices'
++ ]
+- []
+
+    at audit (/tmp/c33-door-diagnostic.cjs:21:988)
+    at async /tmp/c33-door-diagnostic.cjs:35:96

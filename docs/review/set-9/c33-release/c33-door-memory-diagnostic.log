@@ -1,0 +1,4 @@
+AssertionError [ERR_ASSERTION]: Doorstep textures exceed the Low memory ceiling: 4267926
+    at audit (/workspace/c33-stops/test/fpdoorsbrowser.js:25:1598)
+    at async pick (/workspace/c33-stops/test/fpdoorsbrowser.js:61:90)
+    at async /workspace/c33-stops/test/fpdoorsbrowser.js:89:81
