@@ -86,3 +86,11 @@ test('forty complete later-day plans keep the added curb clear of solids and rea
   assert.ok(O.fpNav.path(m,{x:2.84,z:8},a.park));assert.ok(O.fpNav.path(m,a.park,{x:2.84,z:8}));assert.ok(M.restore(m.snapshot()));
  }
 });
+test('a check-in stays the navigation destination after deliveries and then yields to the depot',()=>{
+ const m=make(5);accept(m);m.phase='return';const a=R.descriptor(m);Object.assign(m.van,a.park);assert.equal(O.fpNav.destination(m),a.park);assert.match(O.fpNav.instruction(m),/dispatch check-in/);R.arrive(m);assert.equal(O.fpNav.context(m),'return');assert.deepEqual(plain(O.fpNav.destination(m)),{x:2.84,z:8});
+});
+test('real exit and finish guards control the light and missed-call report boundaries',()=>{
+ const m=make(6);sent(m);m.van.headlights=true;m.van.speed=3;N.tick(m);assert.equal(m.exit(),false);assert.equal(reports('drive.lights').length,0);parked(m);assert.equal(m.exit(),true);assert.equal(reports('drive.lights').length,1);
+ Object.assign(m.player,m.point('dispatch'));assert.match(m.finish(),/remaining delivery/);assert.equal(reports('dispatch.update').length,0);
+ for(const s of m.stops){s.resolved=true;s.outcome='exception';}Object.assign(m.van,{x:2.84,z:8,speed:0,hand:true});assert.equal(m.finish(),'');assert.equal(reports('dispatch.update').length,1);assert.equal(reports('dispatch.update')[0].ok,false);R.finish(m);assert.equal(reports('dispatch.update').length,1);
+});

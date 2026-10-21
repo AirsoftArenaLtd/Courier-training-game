@@ -17,13 +17,29 @@
     "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
     "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
     "test/fpnightworld.js": "6fe07a3d8229a61e1c770c103480d73a260c25a02be92b51f6233b884208bbe8",
-    "test/fpradio.js": "28467adf92f0ea2371cb2e1e46414d553a1107eb4c17629b2c6fbf5646ec45de",
+    "test/fpradio.js": "4f3d20a95ce9b723a77c987d77bcca9d78eb36717d1cd4bbf5e16c2b1643302b",
     "test/fpradiobrowser.js": "6463978564b7d8491141f86bffbaf0127de7c4a0a02bcaed48dbf6c606290c9a"
   },
   "syntaxFiles": 18,
   "files": {
+    "c36-required-node.log": "8a50640eed60b5e31637344cfa1040cc82c2867666293a0a51d54a907e96f86b",
+    "c36-current-catalogue.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c36-radio-boundaries.log": "6117538fb2f6a4f30306e0e6b1da7797dd8914b0d01dc90eafdc446b40d91694",
     "c36-save-probe.log": "aed63d5f9ea8b0e691f132d45d27ccd56bc1488aa77c9e8fb51c3004604bfe0f",
     "c36-save-probe.cjs": "d133c01ca6fdf4417926518ef94939b7be6de1e4707634fc5bcd042ff52d3fe4",
     "c36-save-probe.json": "aed63d5f9ea8b0e691f132d45d27ccd56bc1488aa77c9e8fb51c3004604bfe0f"
-  }
+  },
+  "results": {
+    "requiredAffectedNodeCases": 212,
+    "finalRadioBoundaryCases": 20,
+    "focusedLowViews": 7,
+    "peakCalls": 36,
+    "peakTriangles": 822,
+    "threeTextures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 3169878,
+    "catalogue": "pass",
+    "sharedSaveGate": "open: packed room5\u20137; failed new light check loses pins in summary"
+  },
+  "focusedSource": "73fc5f5"
 }
