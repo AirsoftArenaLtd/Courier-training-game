@@ -1,0 +1,101 @@
+{
+ "about": "B-102: the key terms the game uses, each with the English string the game shows on its own; test/glossary.js checks each language uses that string's word in every line with the term.",
+ "terms": {
+  "handheld": "Handheld",
+  "reception": "Reception",
+  "signature": "SIGNATURE",
+  "dispatch": "Dispatch",
+  "returns": "Returns",
+  "sat nav": "Sat nav"
+ },
+ "baseline": {
+  "bn": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 28,
+   "dispatch": 6,
+   "returns": 3,
+   "sat nav": 0
+  },
+  "es": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 0,
+   "dispatch": 1,
+   "returns": 2,
+   "sat nav": 0
+  },
+  "fr": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 0,
+   "dispatch": 27,
+   "returns": 1,
+   "sat nav": 0
+  },
+  "gu": {
+   "handheld": 3,
+   "reception": 0,
+   "signature": 5,
+   "dispatch": 6,
+   "returns": 3,
+   "sat nav": 0
+  },
+  "hi": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 4,
+   "dispatch": 2,
+   "returns": 4,
+   "sat nav": 0
+  },
+  "kn": {
+   "handheld": 0,
+   "reception": 22,
+   "signature": 5,
+   "dispatch": 6,
+   "returns": 3,
+   "sat nav": 0
+  },
+  "ml": {
+   "handheld": 1,
+   "reception": 0,
+   "signature": 35,
+   "dispatch": 5,
+   "returns": 4,
+   "sat nav": 0
+  },
+  "mr": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 6,
+   "dispatch": 6,
+   "returns": 3,
+   "sat nav": 0
+  },
+  "pa": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 6,
+   "dispatch": 6,
+   "returns": 4,
+   "sat nav": 0
+  },
+  "ta": {
+   "handheld": 8,
+   "reception": 0,
+   "signature": 17,
+   "dispatch": 15,
+   "returns": 9,
+   "sat nav": 0
+  },
+  "te": {
+   "handheld": 0,
+   "reception": 0,
+   "signature": 16,
+   "dispatch": 6,
+   "returns": 3,
+   "sat nav": 0
+  }
+ }
+}
