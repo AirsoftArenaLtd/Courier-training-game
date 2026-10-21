@@ -334,12 +334,18 @@ OTR.fpWorld = {
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
-    const walkWheel=actors&&actors.vehicle&&actors.vehicle.parts.find(p=>p.name==='wheel-back-left');
+    const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');
+    // Keep the retained cargo proxy behind the imported closed door's inspection surface.
+    if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
+
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
-      const wheel=t.zone==='wheel'&&walkWheel,parent=t.zone==='wheel'?van:chassis;
-      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:t.x,wheel?wheel.center.y:t.y,wheel?wheel.center.z:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
+      const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
+      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
       mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
     }):[];
+    // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
+    // Only a visible, proximity-guarded wear target may pass that shell; other controls retain it.
+    const walkShell=base.walkaround&&walkVehicle?new Set(exterior.filter(o=>occluders.includes(o))):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -462,7 +468,14 @@ OTR.fpWorld = {
         if(weatherEffects)weatherEffects.sync(model||base,area);
       },
       resetCamera(){if(cameraRig)cameraRig.model=null;},
-      pick(){ray.setFromCamera({x:0,y:0},camera);const hit=cast(ray,scanObjects)[0];return hit?hit.object.userData.interaction||null:null;},
+      pick(){
+        ray.setFromCamera({x:0,y:0},camera);let hit=cast(ray,scanObjects)[0];
+        if(walkShell&&hit&&walkShell.has(hit.object))for(const candidate of hits){
+          if(walkShell.has(candidate.object))continue;
+          if((candidate.object.userData.interaction||'').startsWith('wear-'))hit=candidate;break;
+        }
+        return hit?hit.object.userData.interaction||null:null;
+      },
       scanTarget(){
         ray.setFromCamera({x:0,y:0},camera);
         const hit=cast(ray,scanObjects)[0];

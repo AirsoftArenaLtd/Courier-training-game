@@ -1,6 +1,6 @@
 # Walkaround and damage report (C-35)
 
-Doing on `codex/c35-walkaround`, from pilot `da7bd3f` after merged C-34 and A-19.
+Doing on `codex/c35-walkaround`, retaining pilot `5adcd5b` after merged C-33, C-34 and A-19.
 The physical targets, mission/checkpoint adapter, handheld records and B-78 guidance
 are integrated. Final Low/High, inherited browser, resource and shared QA acceptance
 are running; the task remains doing. Three owned modules are loaded by shared index.
@@ -20,10 +20,9 @@ and gentle first days. Physical controls need real visible targets, remapped key
 narration, larger text, colour and reduced-motion support. Reuse the current rendering
 and one active prompt rather than adding seven persistent text canvases.
 
-C-33 is not a dependency of the board row. Its own acceptance and shared-QA request
-remain on `codex/c33-richer-stops`; this branch starts from pilot. B-78 guidance will
-cover the road, navigation, signals/cyclist/crossing, van height/load and actual
-walkaround/report controls. Richer-stop wording will follow the available feature.
+C-33 is merged and retained. B-78 guidance covers the road, navigation, signals,
+cyclist, crossing, van height, load and the actual walkaround/report controls.
+The richer-stop page follows the available feature.
 
 ## Pure-model evidence (21 October)
 
