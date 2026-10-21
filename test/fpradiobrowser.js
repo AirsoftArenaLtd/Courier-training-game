@@ -1,0 +1,54 @@
+/* Native remapped handheld responses, sat-nav changes, captions and night controls. Travel/call arrival are fixtures. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
+const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});
+(async()=>{
+ const quality=process.env.QA_GFX||'low',tag=process.env.QA_TAG||'c36-'+quality,base=process.env.QA_BASE||'http://127.0.0.1:8346',report={quality,runs:[],errors:[],checks:0,fixture:'Native new-day launch, fixture travel/call arrival, real remapped handheld keys and headlight shortcut. Priority delivery/report boundaries use the real mission in the Node suite.'};let p;
+ const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required']});
+ try{
+  p=await b.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>report.errors.push(e.message));
+  p.on('console',m=>{if(m.type()==='error'&&/THREE|shader|WebGL/.test(m.text()))report.errors.push(m.text());});
+  await p.goto(base+'/first-person.html?gfx='+quality);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:90000});
+  await p.addScriptTag({url:base+'/data/i18n/ta.js'});
+  const frames=async(n=2)=>{const at=await p.evaluate(()=>OTR.game.loop.frame);await p.waitForFunction(({at,n})=>OTR.game.loop.frame>=at+n,{timeout:60000},{at,n});};
+  const press=async key=>{await p.keyboard.press(key);await frames();};
+  const pick=async label=>{const i=await p.evaluate(label=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.options.findIndex(o=>o.label===label),label);assert.ok(i>=0,label);await press('Digit'+(i+1));report.checks++;};
+  const state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,h=s.handheld;return {read:m.radio.read,accepted:m.radio.accepted,result:m.radio.result,activeStop:m.activeStop,destination:OTR.fpNav.destination(m),context:OTR.fpNav.context(m),caption:s.soundCue.text,page:h.device.current&&h.device.current.title,body:h.device.current&&h.device.current.lines,open:h.isOpen,events:OTR.workday.events.filter(e=>e.type==='dispatch.update'&&e.key==='r0'),headlights:m.van.headlights,fog:s.view.world.fog.far,glare:s.art.weatherEffects.uniforms.headlightGlow.value.z};});
+  const layout=async()=>p.evaluate(()=>{
+   const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.handheld,box=h.device.screen.getBounds(),bad=[],texts=[];
+   const walk=o=>{if(o.type==='Text'&&o.visible&&o.alpha>0&&o.text){const r=o.getBounds(),size=parseFloat(o.style.fontSize)*o.scaleY;let visible=true;for(let a=o.parentContainer;a;a=a.parentContainer)if(!a.visible)visible=false;if(visible){texts.push({text:o.text,size,x:r.x,y:r.y,right:r.right,bottom:r.bottom});if(r.x<box.x-3||r.right>box.right+3||r.y<box.y-3||r.bottom>box.bottom+3||size<13)bad.push(texts[texts.length-1]);}}for(const child of o.list||[])walk(child);};walk(h.device.screen);
+   const seen=new Set();let bytes=0;for(const t of Object.values(OTR.game.textures.list))for(const source of t.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const im=source.image,w=im&&(im.naturalWidth||im.width)||source.width,h=im&&(im.naturalHeight||im.height)||source.height;bytes+=w*h*4;}
+   return {bad,texts,phaserBytes:Math.ceil(bytes*4/3)};
+  });
+  for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
+   const run={lang,size,pages:[]};report.runs.push(run);
+   for(const day of [5,6]){
+    await p.evaluate(({lang,size,day})=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();s.capture=()=>{};OTR.save.data.route.days=day-1;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';const font=o=>{if(o.type==='Text')o.setFontFamily(OTR.theme.font);for(const child of o.list||[])font(child);};for(const o of s.children.list)font(o);Object.assign(OTR.a11y.settings(),{large:size==='large',colour:true,reducedMotion:true,keys:{Tab:'KeyU',KeyL:'KeyT'}});OTR.a11y.applyColour(s);s.model=null;s.progress.campaign=null;s.progress.welcomed=true;s.launch('campaign');},{lang,size,day});
+    await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.model&&!s.loading&&!s.transitioning;},{timeout:90000});
+    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=m.repaired=m.secured=true;OTR.fpLater.depart(m);m.paused=false;m.events[m.briefKey]=true;m.step=()=>{};Object.assign(m.van,{speed:0,hand:true,belt:true,look:0,headlights:true});m.player.pitch=0;m.radio.travel=20;m.radio.sent=true;OTR.workday.begin();OTR.audio.setMuted(true);s.soundSource=s.lightSource=null;s.sync();s.refresh();});await frames();
+    assert.equal((await state()).read,false);assert.match((await state()).caption,/Dispatch|டிஸ்பேட்ச்|அனுப்பு/);report.checks+=2;
+    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;m.van.speed=3;m.van.hand=false;});await press('u');assert.equal((await state()).open,false);assert.equal((await state()).read,false);report.checks+=2;
+    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;m.van.speed=0;m.van.hand=true;});await press('u');await pick('Read the dispatch radio message.');
+    assert.equal((await state()).read,true);report.checks++;const a=await layout();assert.deepEqual(a.bad,[],JSON.stringify(a));if(quality==='low')assert.ok(a.phaserBytes<=4*1024*1024,JSON.stringify(a));run.pages.push({day,...a});report.checks++;
+    await p.screenshot({path:path.join(OUT,`${tag}-${lang}-${size}-day${day}-message.png`)});
+    await pick('Accept the route update.');assert.equal((await state()).accepted,true);assert.equal((await state()).events.length,0);report.checks+=2;
+    if(day===5){
+     assert.equal((await state()).context,'radio');report.checks++;await pick('Review the radio message.');await pick('Confirm arrival at the check-in stop.');assert.equal((await state()).result,null);report.checks++;
+     await pick('Review the radio message.');await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,OTR.fpRadio.descriptor(m).park,{speed:0,hand:true});});await pick('Confirm arrival at the check-in stop.');assert.equal((await state()).result,true);assert.equal((await state()).events.length,1);report.checks+=2;
+    }else{
+     assert.equal((await state()).activeStop,2);assert.equal((await state()).context,'2');report.checks+=2;
+     await pick('Put away the handheld.');await press('t');assert.equal((await state()).headlights,false);assert.ok((await state()).fog<=30);await press('t');assert.equal((await state()).headlights,true);assert.ok((await state()).fog>30);assert.equal((await state()).glare,0);report.checks+=5;
+     await p.screenshot({path:path.join(OUT,`${tag}-${lang}-${size}-night.png`)});
+    }
+    const saved=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,raw=m.snapshot();return {valid:!!OTR.fpMission.restore(raw),radio:raw.radio,night:raw.nightDrive};});assert.equal(saved.valid,true,JSON.stringify(saved));report.checks++;run['day'+day]=saved;
+    if((await state()).open)await press('u');
+   }
+  }
+  await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.a11y.settings().reducedMotion=false;m.van.look=0;m.player.pitch=0;Object.assign(m.traffic[0],{...OTR.fp.local(m.van,-3,-20),yaw:m.van.yaw+Math.PI});Object.assign(m.traffic[1],{x:m.van.x+40,z:m.van.z+20});window.nativeGlare=OTR.fpNight.glare;OTR.fpNight.glare=(_m,out)=>{out.strength=0;return out;};s.sync();});await frames();
+  await p.evaluate(()=>new Promise(resolve=>{OTR.game.events.once('postrender',()=>{const gl=OTR.game.renderer.gl;window.noGlarePixels=new Uint8Array(1280*720*4);gl.readPixels(0,0,1280,720,gl.RGBA,gl.UNSIGNED_BYTE,noGlarePixels);resolve();});}));
+  await p.evaluate(()=>{OTR.fpNight.glare=window.nativeGlare;OTR.game.scene.getScene('FirstPersonScene').sync();});await frames();
+  report.glare=await p.evaluate(()=>new Promise(resolve=>{OTR.game.events.once('postrender',()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),gl=OTR.game.renderer.gl,after=new Uint8Array(1280*720*4);gl.readPixels(0,0,1280,720,gl.RGBA,gl.UNSIGNED_BYTE,after);let changed=0;for(let y=200;y<500;y++)for(let x=220;x<1000;x++){const i=((719-y)*1280+x)*4;let delta=0;for(let c=0;c<3;c++)delta+=Math.abs(after[i+c]-noGlarePixels[i+c]);if(delta>8)changed++;}resolve({changed,strength:s.art.weatherEffects.uniforms.headlightGlow.value.z});});}));
+  assert.ok(report.glare.strength>0);assert.ok(report.glare.changed>12,JSON.stringify(report.glare));report.checks+=2;await p.screenshot({path:path.join(OUT,tag+'-oncoming-glare.png')});
+  await p.evaluate(()=>{OTR.a11y.settings().reducedMotion=true;OTR.game.scene.getScene('FirstPersonScene').sync();});await frames();assert.equal((await state()).glare,0);report.checks++;
+  assert.deepEqual(report.errors,[]);assert.equal(await p.evaluate(()=>OTR.game.renderer.gl.isContextLost()),false);report.checks+=2;report.complete=true;console.log(report.checks+' '+quality+' radio/night browser checks passed');
+ }catch(e){report.failure=e.stack;if(p)await p.screenshot({path:path.join(OUT,tag+'-failure.png')}).catch(()=>{});throw e;}finally{fs.writeFileSync(path.join(OUT,tag+'-radio.json'),JSON.stringify(report,null,2));await b.close();}
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});

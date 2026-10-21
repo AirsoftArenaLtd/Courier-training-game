@@ -80,10 +80,10 @@ OTR.fpWeather={
   },
   build(scene,cab,lighting,condition='clear'){
     const T=THREE,camera=scene.view.camera,hadLayer=camera.layers.isEnabled(2),state=this.create();camera.layers.enable(2);
-    const surfaces=this.surfaces(scene,lighting,condition),uniforms={time:{value:0},water:{value:0},frost:{value:0},clear:{value:0},angle:{value:-1.35},glint:{value:new T.Color(0xD1E1E9)}};
+    const surfaces=this.surfaces(scene,lighting,condition),glare={x:.5,y:.35,strength:0},uniforms={time:{value:0},water:{value:0},frost:{value:0},clear:{value:0},angle:{value:-1.35},glint:{value:new T.Color(0xD1E1E9)},headlightGlow:{value:new T.Vector3(.5,.35,0)}};
     const geometry=new T.PlaneGeometry(1.7,.8),material=new T.ShaderMaterial({uniforms,transparent:true,depthWrite:false,side:T.DoubleSide,
       vertexShader:'varying vec2 p;void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-      fragmentShader:`varying vec2 p;uniform float time;uniform float water;uniform float frost;uniform float clear;uniform float angle;uniform vec3 glint;
+      fragmentShader:`varying vec2 p;uniform float time;uniform float water;uniform float frost;uniform float clear;uniform float angle;uniform vec3 glint;uniform vec3 headlightGlow;
         float hash(vec2 c){return fract(sin(dot(c,vec2(127.1,311.7)))*43758.5453);}
         float fan(vec2 q){float r=length(q);float a=atan(q.x,q.y);return (1.-smoothstep(.72,.9,r))*(1.-smoothstep(1.05,1.25,abs(a)));}
         float blade(vec2 q){vec2 end=vec2(sin(angle),cos(angle))*.74;float t=clamp(dot(q,end)/dot(end,end),.08,1.);return 1.-smoothstep(.006,.012,length(q-end*t));}
@@ -92,13 +92,16 @@ OTR.fpWeather={
           vec2 local=fract((p+vec2(0.,time*.025))*vec2(13.,8.))-.5;
           local-=vec2(hash(cell)-.5,hash(cell+7.)-.5)*.5;float drop=(1.-smoothstep(.07,.18,length(local*vec2(1.25,.75))))*step(.22,hash(cell+19.));
           float edge=1.-smoothstep(0.,.13,min(min(p.x,1.-p.x),min(p.y,1.-p.y)));float wet=water*drop*(1.-wiped*.96),ink=max(blade(left),blade(right));float alpha=max(max(wet*.4,edge*frost*.22),ink*.95);
-          if(alpha<.005)discard;gl_FragColor=vec4(mix(glint,vec3(.025,.035,.04),ink),alpha);\n#include <colorspace_fragment>\n}`});
+          vec2 beam=(p-headlightGlow.xy)*vec2(1.,1.8);float glow=headlightGlow.z*exp(-dot(beam,beam)*70.);alpha=max(alpha,glow);
+          if(alpha<.005)discard;gl_FragColor=vec4(mix(mix(glint,vec3(1.,.97,.84),step(.005,glow)),vec3(.025,.035,.04),ink),alpha);\n#include <colorspace_fragment>\n}`});
     const windscreen=new T.Mesh(geometry,material);windscreen.position.set(.12,.11,-1.045);windscreen.layers.set(2);windscreen.name='weather-windscreen';cab.root.add(windscreen);
     return {windscreen,uniforms,state,surfaces,
       sync(m,area){
         const condition=OTR.fpWeather.condition(m),rain=condition==='storm'?1:condition==='rain'?.65:condition==='snow'?.25:0,cold=condition==='snow'||condition==='ice',on=!!m.van.wipers;
         const reduced=!!(OTR.fpAccess&&OTR.fpAccess.reduced());if(surfaces)surfaces.sync(m,area,reduced);
-        windscreen.visible=area!=='hub'&&m.mode==='cab'&&(rain>0||cold||on);if(!windscreen.visible)return;
+        if(OTR.fpNight&&m.nightDrive)OTR.fpNight.glare(m,glare,reduced);else glare.strength=0;
+        uniforms.headlightGlow.value.set(glare.x,glare.y,glare.strength);
+        windscreen.visible=area!=='hub'&&m.mode==='cab'&&(rain>0||cold||on||glare.strength>.005);if(!windscreen.visible)return;
         OTR.fpWeather.advance(state,m,reduced);uniforms.frost.value=cold?1:0;
         uniforms.time.value=state.time;uniforms.water.value=rain;uniforms.clear.value=state.clear;uniforms.angle.value=state.angle;
         uniforms.glint.value.setHex(scene.art&&scene.art.lighting&&scene.art.lighting.time==='night'?0x7F9FB5:0xD1E1E9);

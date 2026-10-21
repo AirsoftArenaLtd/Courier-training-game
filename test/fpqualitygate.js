@@ -27,6 +27,15 @@ test('a blank physical mirror cannot pass on resource counters alone',()=>{
  r.mirrorProof={mirror:{red:[255,0,0,255],blue:[0,0,255,255]}};assert.ok(checkReport(r,p,'sample'));
  r.mirrorProof.mirror.red=[35,49,60,255];r.mirrorProof.mirror.blue=[35,49,60,255];assert.throws(()=>checkReport(r,p,'sample'),/live reflected pixels/);
 });
+test('radio and night counters need actual route, caption, visibility and reduced-motion proofs',()=>{
+ const {RADIO_VIEWS,PROFILES}=require('./fpquality');assert.ok(PROFILES.every(p=>RADIO_VIEWS.split(',').every(v=>p.views.split(',').includes(v))));
+ const r=report(),p={...profile,views:'radiocheckin,nightglare,nightreduced,nightoff,nighton'};
+ for(const v of p.views.split(','))r.prototype[v]=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/native radio\/night proof/);
+ r.radioFixture=true;r.radioProof={};for(const v of p.views.split(','))r.radioProof[v]={marker:1,valid:true,kind:'checkin',context:'radio',radio:{accepted:true},reduced:false,glare:.1,headlights:true,far:48};
+ r.radioProof.nightreduced.reduced=true;r.radioProof.nightreduced.glare=0;r.radioProof.nightoff.headlights=false;r.radioProof.nightoff.far=30;assert.ok(checkReport(r,p,'sample'));
+ r.radioProof.radiocheckin.context='0';assert.throws(()=>checkReport(r,p,'sample'),/did not change navigation/);r.radioProof.radiocheckin.context='radio';r.radioProof.nightglare.glare=0;assert.throws(()=>checkReport(r,p,'sample'),/Oncoming glare/);
+});
 
 test('healthy profiles reject a recovered fallback and reports missing the fallback counter',()=>{
  const r=report();r.assets.fallbacks=1;assert.throws(()=>checkReport(r,profile,'sample'),/asset fixture/);delete r.assets.fallbacks;assert.throws(()=>checkReport(r,profile,'sample'),/asset fixture/);r.assets.fallbacks=0;assert.ok(checkReport(r,profile,'sample'));

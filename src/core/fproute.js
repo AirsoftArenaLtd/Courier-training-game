@@ -14,6 +14,7 @@ OTR.fpRoute = {
     if(plan.signs!==undefined&&plan.signs!==1)throw Error('Invalid road-sign version');
     if(plan.traffic!==undefined&&plan.traffic!==1)throw Error('Invalid traffic version');
     if(plan.navigation!==undefined&&plan.navigation!==1)throw Error('Invalid navigation version');
+    if(plan.radio!==undefined&&(plan.radio!==1||plan.day<4||!OTR.fpRadio||!OTR.fpNight))throw Error('Invalid dispatch version');
     if(plan.damage!==undefined&&(plan.damage!==1||plan.day<4||!OTR.fpDamageFlow))throw Error('Invalid damage version');
     if(plan.deliveries!==undefined&&(plan.deliveries!==1||plan.day<3))throw Error('Invalid delivery-stop version');
     if(plan.lockerStop!==undefined&&(!OTR.fpStopFlow||!OTR.fpStopFlow.validLocker(plan)))throw Error('Invalid locker authorization');

@@ -13,6 +13,7 @@ OTR.fpHud={
     if(m.kind==='parking')return 'Reverse into the marked bay.';
     if(m.kind==='practice')return 'This lesson takes place in the depot.';
     if(m.phase==='prepare')return 'Prepare the van before departure.';
+    if(OTR.fpRadio&&OTR.fpRadio.destination(m))return `Drive to the dispatch check-in at ${OTR.fpRadio.descriptor(m).address}.`;
     return m.phase==='return'?'Return to the depot.':`Drive to ${m.stop(m.activeStop).address}.`;
   },
   navigationAllowed(m){return !!m&&m.mode==='cab'&&m.van.gear!==-1&&(!m.workdayRules||m.workdayRules.satnav!=='off');},
@@ -64,7 +65,9 @@ OTR.fpHud={
     if(OTR.fpNav)for(const o of OTR.fpNav.obstacles(m)){if(!inside(x(o.x),y(o.z),4))continue;g.lineStyle(2,0xffffff).strokeRect(x(o.x)-3,y(o.z)-2,6,4);}
     if(m.roadworks){const r=m.roadworks;g.lineStyle(4,0xF5BD63);line(x(r.x-r.w/2),y(r.z),x(r.x+r.w/2),y(r.z));}
     if(inside(x(4),y(8),4))g.lineStyle(2,0xffffff).strokeRect(x(4)-3,y(8)-3,6,6);
-    for(const stop of m.stops){const tx=x(stop.park.x),ty=y(stop.park.z);if(!inside(tx,ty,6))continue;g.fillStyle(stop.resolved?0x8799A3:0xF5BD63).fillCircle(tx,ty,2);if(stop.id===m.activeStop&&m.phase!=='return')g.lineStyle(2,0xF5BD63).strokeCircle(tx,ty,5);}
+    const checkin=OTR.fpRadio&&OTR.fpRadio.destination(m);
+    for(const stop of m.stops){const tx=x(stop.park.x),ty=y(stop.park.z);if(!inside(tx,ty,6))continue;g.fillStyle(stop.resolved?0x8799A3:0xF5BD63).fillCircle(tx,ty,2);if(!checkin&&stop.id===m.activeStop&&m.phase!=='return')g.lineStyle(2,0xF5BD63).strokeCircle(tx,ty,5);}
+    if(checkin){const tx=x(checkin.x),ty=y(checkin.z);if(inside(tx,ty,6)){g.lineStyle(2,0xffffff);g.lineBetween(tx,ty-5,tx+5,ty);g.lineBetween(tx+5,ty,tx,ty+5);g.lineBetween(tx,ty+5,tx-5,ty);g.lineBetween(tx-5,ty,tx,ty-5);}}
     const vx=x(m.van.x),vy=y(m.van.z),a=m.van.yaw,sn=Math.sin(a),cs=Math.cos(a);
     g.fillStyle(0xffffff).fillTriangle(vx+sn*6,vy-cs*6,vx-cs*4-sn*3,vy-sn*4+cs*3,vx+cs*4-sn*3,vy+sn*4+cs*3);
   },

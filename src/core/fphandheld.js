@@ -70,7 +70,8 @@ OTR.fpHandheld = class {
       { label: 'Route', onPick: () => this.route() },
       ...(m.loadout&&(m.phase==='prepare'||m.near('dispatch'))?[{label:'Check the load',onPick:()=>this.loadCheck()}]:[]),
       ...(m.routeDay&&m.phase!=='prepare'&&!(m.loadout&&m.near('dispatch'))?[{label:'Route-day updates',onPick:()=>this.day()}]:[]),
-      { label: 'Read the workday details.', onPick: () => this.workday() }
+      { label: 'Read the workday details.', onPick: () => this.workday() },
+      ...(OTR.fpRadio&&OTR.fpRadio.pending(m)?[{label:'Read the dispatch radio message.',onPick:()=>OTR.fpRadioUI.open(this.scene)}]:[])
     ], footer: OTR.fpAccess?`Press ${OTR.fpAccess.key('Tab')} to put the handheld away.`:'TAB put away' });
   }
   workday(){

@@ -264,6 +264,27 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     OTR.fpDriving.syncActors(m);OTR.fpTraffic.syncSolids(m);s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();
    },kind);report.trafficFixture=await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.routePlan.traffic===1&&m.routePlan.navigation===1&&!!m.trafficControl&&!!m.navigation;});if(kind==='mirror')await lookAtTarget('mirror-right');await sample('traffic'+kind);
   }
+  if(process.env.QA_RADIO==='1')for(const kind of ['radiocaption','radiopriority','radiocheckin','nightoff','nighton','nightglare','nightreduced']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(kind))continue;
+   await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
+    let plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(kind==='radiocheckin'?5:6,9),true);
+    plan=OTR.fpRadio.prepare(OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan))))));
+    const m=OTR.fpMission.create('campaign',9,plan);OTR.fpDay.configure(m);OTR.fpDoors.configure(m);OTR.fpStopFlow.configure(m);OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);
+    OTR.fp.applyDriveRules(m);m.workdayRules.night=true;m.mode='cab';m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);
+    Object.assign(m.van,{x:2.84,z:-18,yaw:0,look:0,speed:0,hand:true,belt:true,headlights:kind!=='nightoff'});m.player.pitch=0;
+    if(kind.startsWith('radio')){m.radio.travel=20;m.radio.sent=true;if(kind!=='radiocaption'){OTR.fpRadio.read(m);OTR.fpRadio.accept(m);}}
+    if(kind==='nightglare'||kind==='nightreduced'){Object.assign(m.traffic[0],{...OTR.fp.local(m.van,-3,-20),yaw:Math.PI});Object.assign(m.traffic[1],{x:m.van.x+40,z:m.van.z+20});}
+    s.__radioReduced=OTR.a11y.settings().reducedMotion;if(kind==='nightreduced')OTR.a11y.settings().reducedMotion=true;
+    s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();if(kind==='radiopriority'||kind==='radiocheckin')OTR.fpRadioUI.open(s);
+   },kind);
+   await sample(kind);
+   report.radioFixture=true;report.radioProof=report.radioProof||{};report.radioProof[kind]=await p.evaluate(()=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,call=OTR.fpRadio.descriptor(m);
+    return {marker:m.routePlan.radio,kind:call.kind,valid:!!OTR.fpMission.restore(m.snapshot()),context:OTR.fpNav.context(m),caption:s.soundCaption,headlights:m.van.headlights,far:s.view.world.fog.far,glare:s.art.weatherEffects.uniforms.headlightGlow.value.z,reduced:OTR.fpAccess.reduced(),radio:m.radio};
+   });
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();OTR.a11y.settings().reducedMotion=s.__radioReduced;});
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

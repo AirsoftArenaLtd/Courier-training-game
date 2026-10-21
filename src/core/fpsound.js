@@ -33,6 +33,10 @@ OTR.fpSound=class {
     else if(kind==='parking')a.tone(1050,.055,{type:'sine',vol:.025});
     else if(kind==='dog'){a.noise(.12,{freq:450,vol:.06});a.noise(.12,{freq:350,vol:.05,delay:.18});}
     else if(kind==='siren'){a.tone(650,.45,{type:'triangle',vol:.07,slideTo:1000});a.tone(1000,.45,{type:'triangle',vol:.07,slideTo:650,delay:.45});}
+    else if(kind==='radio'){
+      // A quiet, speech-like cadence rather than recorded speech; captions carry the complete instruction.
+      for(const [freq,duration,delay] of [[420,.09,0],[610,.13,.16],[480,.08,.37],[550,.11,.51]])a.tone(freq,duration,{type:'triangle',vol:.022,delay});
+    }
   }
   tick(time){
     this.mix();const s=this.scene,m=s.model,active=!!(m&&!m.paused&&!s.panel&&!s.external&&!s.transitioning&&!document.hidden&&m.phase!=='debrief');
@@ -51,8 +55,11 @@ OTR.fpSound=class {
     if(rear&&distance<3&&time-this.parkingAt>=(distance<.5?200:distance<1.5?450:900)){this.parkingAt=time;this.effect('parking');}
     if(active&&m.dogNearby&&time-this.dogAt>=1800){this.dogAt=time;this.effect('dog');}
     const sirenState=active&&m.driving&&m.driving.siren.state,siren=sirenState==='approaching'||sirenState==='passing';if(siren&&time-this.sirenAt>=1000){this.sirenAt=time;this.effect('siren');}
+    const radio=active&&OTR.fpRadio&&OTR.fpRadio.caption(m);
+    if(radio&&m.radio&&!m.radio.read&&this.radioModel!==m){this.radioModel=m;this.effect('radio');}
     const cues=[];if(driving)cues.push('The engine is running.');if(wet)cues.push('Rain is falling.');if(signal)cues.push(signal<0?'The left turn signal is on.':'The right turn signal is on.');if(active&&m.dogNearby)cues.push('A dog is barking nearby.');if(siren)cues.push('An emergency vehicle is approaching.');if(active&&time<this.captionUntil&&this.caption)cues.push(this.caption);
     if(rear&&distance<3)cues.push('The parking sensors are sounding.');
+    if(radio)cues.push(radio);
     return this.lastCaption=cues.join(' · ');
   }
   menu(){
