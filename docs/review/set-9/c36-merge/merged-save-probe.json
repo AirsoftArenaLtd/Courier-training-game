@@ -1,0 +1,42 @@
+[
+  {
+    "radioOK": true,
+    "lightsOK": true,
+    "length": 3993,
+    "room": 7,
+    "stage": "packed",
+    "pins": 28,
+    "afterPins": 28,
+    "score": 22500
+  },
+  {
+    "radioOK": true,
+    "lightsOK": false,
+    "length": 3929,
+    "room": 71,
+    "stage": "packed",
+    "pins": 29,
+    "afterPins": 29,
+    "score": 22300
+  },
+  {
+    "radioOK": false,
+    "lightsOK": true,
+    "length": 3995,
+    "room": 5,
+    "stage": "packed",
+    "pins": 28,
+    "afterPins": 28,
+    "score": 22300
+  },
+  {
+    "radioOK": false,
+    "lightsOK": false,
+    "length": 3931,
+    "room": 69,
+    "stage": "packed",
+    "pins": 29,
+    "afterPins": 29,
+    "score": 22100
+  }
+]

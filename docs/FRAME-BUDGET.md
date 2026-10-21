@@ -401,17 +401,32 @@ save v2 and safety translation corrections. No resource ceiling changed. Cloud
 SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).
 
 
-## C-36 focused Low progress (21 October 2026)
+## C-36 frozen resource gate and current-pilot integration (21 October 2026)
 
-Seven radio/night views pass at product `73fc5f5` (unchanged production inputs at
-`7dbc438`): **36 calls / 822 triangles / two Three textures / 3,557,376 attachment
-bytes / 3,169,878 Phaser bytes**. They exercise live radio captions, both actual
-navigation changes, lights off/on, oncoming glare and reduced-motion suppression.
-The native Low matrix on `7dbc438` passes **157 checks** in English/Tamil,
-normal/larger text, with a **3,794,022-byte** Phaser peak; an oncoming-glare
-comparison changes **23,102 pixels** and reduced motion suppresses it. High English
-passes 43 checks. [Captures, raw measurements, scopes and source hashes](review/set-9/c36-native/manifest.json).
+All **183 views** passed at product `eb13629` before the C-35 merge:
 
-This is progress evidence. The complete four-profile scene gate and inherited
-journeys are running. No ceiling changes and no Intel FPS acceptance claim. C-36
-also has an open shared save-budget merge gate, recorded in `docs/3D-RADIO-NIGHT.md`.
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 62 | 54 | 2,396 | 2 | 3,557,376 | 3,619,878 |
+| loaded-high | 47 | 107 | 235,893 | 3 | 11,239,424 | 9,552,176 |
+| accessible-low | 37 | 54 | 2,396 | 2 | 3,557,376 | 3,783,483 |
+| fallback-low | 37 | 53 | 2,150 | 2 | 3,557,376 | 3,327,531 |
+
+[Exact reports, 183 captures and source hashes](review/set-9/c36-render/manifest.json).
+Final cue checks pass 110 real-key assertions (Low Tamil larger / High English),
+with Low Phaser memory at **3,789,531 bytes**. Actual glare changes 23,102 Low and
+22,912 High pixels; reduced motion suppresses it. Combined model journeys pass
+30 resumed days / 3,723 checkpoints, 100-day soak and 240 SCORM round trips.
+
+Pilot `54d7a63` is now combined at `d44c7e6`, retaining C-35 walkaround, its cargo
+proxy fix, translations and Claude's B-103 save correction. The expanded **207-view**
+gate and current-pilot native/shared journeys are being repeated; the previous
+183 views are not claimed for the combined build. The earlier shared batch passed
+seven of nine flows, with two Results-to-debrief timeouts. Initial combined native
+restore found a fixture that skipped walkaround departure; the fixture now invokes
+the actual departure adapter. No production guard was weakened.
+
+All four new heavy-save variants retain every pin and exact score on reload:
+failed lights pack at 3,929/4,000 or 3,931/4,000; successful lights at 3,993/4,000
+or 3,995/4,000. The latter still have little headroom and are reported to Claude.
+No resource ceiling changed. Cloud SwiftShader cannot certify Intel 60 fps (O-1).

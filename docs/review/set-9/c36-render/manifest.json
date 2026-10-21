@@ -1,0 +1,1519 @@
+{
+  "stage": "All four resource profiles pass. Shared journeys continue separately.",
+  "sourceRevision": "eb13629d9b09bff9cdcca376a6f389b7f791e814",
+  "sourceSHA256": {
+    "index.html": "4b17fa67bef9949ff35c6527448d15c59fc15d0e1791399052c053cbcab652a8",
+    "src/core/a11y.js": "b543496ba808fa7918aa2a82a8959f9562b5f7fcda1ee4fd331f40112a01d6b6",
+    "src/core/academy.js": "2249e4b9e8970ee847187a45c05dbca1c6c212aee87f651f5931cecf2f6d2ae3",
+    "src/core/assets.js": "2c103bceab5cf1c5f25859f0970865ccaeb06bdea0b7573cea95cb047f10f507",
+    "src/core/atmos.js": "509f4cfefc639b5f1f9267e42fb6bbacfc9b7e4862dfadd28df415bce6468932",
+    "src/core/audio.js": "fe1248f9584a31f4beac1e084f2b0bbcb619486a1f9d79c4280ec17376cf091a",
+    "src/core/b3d.js": "29e32be74a1aa2fa72b5144f0833e24aeeb685b8c99070b693889633b8a36261",
+    "src/core/cab.js": "6546c3d0df28480f0d575fa7cc649a71623615dc7ce35dd9de8d054ad7828551",
+    "src/core/draw.js": "a023086c574ed2d7504c072404aebba5622f61c3610ac35cf97bbb8c75fe5767",
+    "src/core/firstperson.js": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+    "src/core/flow.js": "85fa4082ef0d9175ae743d7dd4510dae89442b57de762258e3eb62d2be22d7b0",
+    "src/core/fpaccess.js": "7ab58980eae3e48f860cf5c670b5f4e2e92485e4508e5d5720ad68a5ff2dc1d7",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "698ad9f1f5554d1e452d41ba20aef7218d60d5a3a723e889c2e5460d2d5cd773",
+    "src/core/fpcamera.js": "e8b0bd3124a1031c14471fd66c5e661eee8e4470b95da256b9f82216ef0feaf7",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "e8701190e95ddb008c112f485ab34100619eac04b5a46d720b84fc9c45ec3422",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "922a15cae5211cc3e4f4da364e09ca860a9f95613693259d938c5d51ddeeac90",
+    "src/core/fpguide.js": "5f45e6ec6b043f620b4eb55f5b3517d4dc533c0affcf2571885c639014dee213",
+    "src/core/fphandheld.js": "4fafa94cd8acf1c137e41ed9955b2571ea7ea9087cc59b83b0b2f26a8eb76418",
+    "src/core/fphud.js": "f541559d2d76818017d4332a58fe058967affdfba74f5e30cb51c88eade6ec35",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmirrors.js": "6955e7552b8bcb1fe447c66b775cc367b5d1542c335f530166aa245e469d3aa6",
+    "src/core/fpmission.js": "dd2845edcff2409f007940c661ef2172b7a8250d236048a55a454ce7635040f7",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "5e2258eb5f627b69918575cf8ef4a6b43ef4df1f2ecb30962ff5c92816f48ef7",
+    "src/core/fproute.js": "4b6e171bae43268e867c2208b42f3fef663ee33b757500c70d8ef8a60fde737d",
+    "src/core/fpsigns.js": "ac6108d13efb30e0e8ab09b3ab168378b27b15a6460d2fe64fd5523940069e97",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "c428627063c99e25ac0f1d4d59e2684c97a8eb274d10e98600860dd356b72f34",
+    "src/core/fx.js": "6a5cc3d6bbbe8f73bfccb7f5c383775a8a6e0817439160c7522db5046daebd83",
+    "src/core/gfx.js": "ffe28acd91ac9fce48c843c9014f48a5dec5228df3e2b9053a861e1a07ee31ab",
+    "src/core/i18n.js": "638592ad3244e5857727b66c03d313be6705a05d436dd505358b41adecc7c09f",
+    "src/core/identity.js": "15a667fabd0b90ba994146d4beaf236eec6f39795c5e604e9194e80668e07746",
+    "src/core/lighting.js": "60541d450eb964745e10a9d96b0aed50acad9d943389370a0389ffaf98ec60e8",
+    "src/core/people.js": "3b51f4cc6d11c6870cfa31ff18490c055f0900b5b5ec754cb3f944e5b8c14e66",
+    "src/core/pilotreport.js": "de40642f32da94252aafdb52f0ae4f1aaab2a6b53c377975b988b36a993011ed",
+    "src/core/record.js": "66b49dccab56a9e3768b06e82d5fdf3fbbc80a2cd69d418056c162f544245a63",
+    "src/core/rig.js": "0b4c0b716261deba9852bb096647c36df782ea3fcbac335cd7bc9af5fb3de7b8",
+    "src/core/save.js": "e15b4573a949cbade1cb451e01c1d627a840850021016da00dbaa0af61dfe8bd",
+    "src/core/scanner.js": "5abfb05ab2433b4a2c5baef7235f8cb5cb8854d38c7316c8dfa246a38aab202e",
+    "src/core/scenery.js": "227f1dec38b88b146b374795252f44ace31622a173e5b8b7f52171aeb20774cb",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/shift.js": "c13958b232eea45851a32bd8f056ae1d472cb76c23522b79f49301be59e98192",
+    "src/core/signin.js": "a0de1fb455ed134b121b3165dcae80986a40e83188b8bcb946d36702162dbb09",
+    "src/core/stage.js": "29aca62ccc3d4f81a818669053bcf5426830c6c99dde8c1a97db5dceac6f3218",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/textures.js": "6114a2cc5e77a9982043bedc863b7a00bb4e19284db161d6179f87ceb63b707e",
+    "src/core/theme.js": "bd13a1b4de6cac1c54eb84f9a04bd815f5c1f7b06fc4688ab3a3f8d7b61eed7a",
+    "src/core/town.js": "6668097cb345e071834b281d2cae74572bb5661958bf461c001d675ee397518a",
+    "src/core/townart.js": "1acf39885472fb9d82d1e5d5f12d9698e2f0cf69cde3e6eb1a861cb3a0476907",
+    "src/core/truckart.js": "b4bbc6918a07005b9bed21379dc27987a948d51edfeb50368cafc98703e77b19",
+    "src/core/ui.js": "93b6a92409d9150369e34c90578061480c899f78682c562bd710e07a60716571",
+    "src/core/validate.js": "14c9079c90764e087d40280cfab07f9f41aa0fa55bceabced3efa6093b8794e8",
+    "src/core/vehicle.js": "3486264f63e2c4d13189352cf02bc1f0bc9314ef247e34c48ac40eb29f7d9d16",
+    "src/core/workday.js": "4cb5188006d5f3c09b5920b4793357b9a28b0254639b631d3f37683171f7461f",
+    "src/core/world3d.js": "105f36fe35e12fde4817a09afea45ce1d9ffbaf74b80962610f9c7bb6bdb5900",
+    "src/core/wx.js": "0d2e9166dc2dc2ec10062ca7434df75853ded88beec34a126757e58b5683756d",
+    "src/main.js": "a690ec0e238f16ffa253db564fe96933d11c665e8fd1defdefe29732190237ee",
+    "src/scenes/AccessScene.js": "11eb7d4efc469efdb793dacf9b15fdeed07b5335bd63f6148ad7df42153cdebc",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/BenchScene.js": "0b456d66c73920003f90d063e2aec9472bf3f9e4f368aa3a7d44ca8f1da94a4d",
+    "src/scenes/BootScene.js": "792a2312ec1dc580c08fed7af6cd0cc15aa0b02fe41eb9bbbc744755428c55b0",
+    "src/scenes/DriveReviewScene.js": "e74b77ecaac62aa317e5fc86b87da980e96bdcd5189fa80f8f88d0d5f32c2d6a",
+    "src/scenes/FirstPersonScene.js": "7ae7342737753887fd55a84abefeb56688459a4a5afc0228e67554c39193a435",
+    "src/scenes/HubScene.js": "350eed24da0a8043c994878f3deaedc603146e878f1a324ddf28c62fb223abce",
+    "src/scenes/LabScene.js": "ee7f42f67397adb8006b6175e97053cb7c7f93094ca568972429a93de9ec50c5",
+    "src/scenes/PauseScene.js": "0a39a13c7c145ef5728fbc0de25a604156728d59105bbca1238dd1b2b25995db",
+    "src/scenes/QuizScene.js": "5db024bbf71676533d3229ab61e90e4e60e65e75b2e842e13a49f7b0e2b5e260",
+    "src/scenes/RecordScene.js": "e8534c2c8b1e87f64030304a45e3e59c38f224990898cece76abbd62f68eed91",
+    "src/scenes/ResultsScene.js": "bb2f2f42189905de32d470f1de263310f543c9f7fdfd81569395838de055ea55",
+    "src/scenes/TitleScene.js": "7def0a55ec5a1fb614cefb463879a0a23648c4d5a050083639f2bf2cc0f079ee",
+    "src/scenes/TrainerScene.js": "571d15fd68bf9a3abae25b339c16925983aa011e3044a39bd8b68d3f43b3962a",
+    "src/scenes/WorkdayDebriefScene.js": "83f24d612361dc67e907d650f46c51429e32ef1eb17e802f959ae7f95a95539d",
+    "src/scenes/m1/DrivingScene.js": "d74bbd6c9329f9e96a8645802e359db9dabe442c890c8085b0e5e7e434bdada3",
+    "src/scenes/m1/HazardScene.js": "5297ba6f3827581bada664b5a3bed9e57da84cf15fd9319601488960b2abd876",
+    "src/scenes/m1/PreTripScene.js": "3d6ec0090803f6fffed95c2f7932a05f042f08a059b1e20d195f02b3223f8c5b",
+    "src/scenes/m1/RoutePlannerScene.js": "cccd619ebc58c9b2ef0b38bff468e3bef0d4f4e8df1a5ca3d7f593f3b77f5e0b",
+    "src/scenes/m2/LabelScene.js": "9635adefbc4087a50ff54df39dd2d5d90079021eb6423b2ddcb689fb2a203cdb",
+    "src/scenes/m2/LiftingScene.js": "62a0073a2745d1eaf4bd12faeaa8e5b9548a5c632a65be7218d1447a1d7d5c44",
+    "src/scenes/m2/SortingScene.js": "7616b3436c24666fabd984ffdad81d082e6ba16ce7542847e7d83e75bc9e7f52",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "src/scenes/m7/PickupScene.js": "ef84a99f9d095989746d5ae1d53804610a9e83e9dd4596684413b12de1be8309",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "src/scenes/shift/PostTripScene.js": "b014fadea2d5263690915f19c9b4bfa391f1ad334613a1cb682757473710b0e1",
+    "src/scenes/shift/ShiftBriefScene.js": "59303bbb83189b5bc721dec2478b2c7ed3b6909a9c5ecf7a6bd7af741a308867",
+    "src/scenes/shift/ShiftDebriefScene.js": "d3cd7d41e76676efd25aaceb1d91f83985b68af940a8d2e9c72a3dfeae757eca",
+    "src/scenes/shift/TownDriveScene.js": "bc70c54b4ac440036c423385aaf2ce655e50dc3843788a73cf38cfb725ba2c13",
+    "src/scenes/shift/driveAids.js": "f016ecd982c1852dce0852e550579cd28aed8a0263c6d1f891d5dfd2fabf912a",
+    "src/scenes/stops/StopScene.js": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "test/a11y-screens.js": "c37f9b40786937d7fee988743446b748b807357902334b4122e784b5e0e3f4cb",
+    "test/academy.js": "d13f809d393287307a3b4e04cafa7c72bc49f882cd23d644210f978de747d447",
+    "test/aids.js": "d96825886c6a57d24100de37f0f0f3b3166f17ff4cf2540fcb37704098f39027",
+    "test/art.js": "a032237a94f5db6fde64dd5d23a7a6ce4028b128f69ac6299f4de2a5b575fb9c",
+    "test/assets.js": "9bc28544fa79d58e8917b38eab22b692aacb7da8ef8441e20bc0789b77cff2f6",
+    "test/auth.js": "763a92c238d22ff7578bf5434097c90de8569daa66a88f093423d56267ce28ac",
+    "test/credits.js": "0d771da8393d5b54aa7025b48461765b6592dd92494d43b60b60b59f9aa9155c",
+    "test/data.js": "e71772516e5a4a5da4e5145b7e6ee0ad16e70792d9cff012906e8e6f4f4fa155",
+    "test/drivemapbrowser.js": "b494e22582aa57ff797ef894e6611319bf78088ca1285bd33f4c080efcf030f1",
+    "test/driving.js": "c64240adeee19b0e580105b7ca5b33163e4a853234e347e0eeffc560ec064346",
+    "test/enterprise.js": "fe197ce72431be6ce42d463a29d431c9dc25d022df1783dbd457b59a4dbeb4ac",
+    "test/firstperson.js": "efc29a7050fa16f0f4fd94e45a6b72e624bf421662c910a7897a86b686f8b797",
+    "test/fpaccess.js": "bae8a66cadf8884f6590e393a3def9e9d70d6d6e03e51508095539af6a25924c",
+    "test/fpaccessbrowser.js": "46247b961d7bfec0eab781597c1744a8d2298e8a67b7405a70a40310c6c0f9b9",
+    "test/fpaccesslayout.js": "fc325e21443442457b5e620950558367be7ca0ead27f99b838593ccc3a30ba23",
+    "test/fpactors.js": "f1195416404997c217397ef066ea2293da6a1982e9bd6aefc9c5cecce8ca8fd3",
+    "test/fpactorsbrowser.js": "f13ec7445311f577954b662f89b4756b148df73bdaa98860dfb0181bfd5df878",
+    "test/fpassets.js": "d1df37b96561d14a6d0e58f1a149ab0000f0f01ec215102b2dd9d6e38b306ce6",
+    "test/fpassetsbrowser.js": "2ffb79bf641ab1e78a6c5d43fb8b7a02a5981bfa4c47d5f8466579d104fd0c97",
+    "test/fpbench.js": "9fd96204f24d36e3bb9869d53f7a8d2d022b040f5e2c4874ceb54246d4368eac",
+    "test/fpbranding.js": "f570d29fd43e06a414685b1370d72cff16c4767c4f782b5471d92dcc25433916",
+    "test/fpbrandingbrowser.js": "a09b2e418629893ef0bb03735514239f8341b6f09463dd9d0cebfb029051b0ad",
+    "test/fpbriefbrowser.js": "8b8f860a8f5ef794677ca8c47e46e4cbd5bba2e51b7c7d49f287cf416ea78f0f",
+    "test/fpbrowser.js": "74e2d2a4980aadbb8a5dee6de51937ad14b7605b19f747bf98602b99c69d5985",
+    "test/fpcab.js": "dcf54f9d3014042cc6218a84fea011852d223e20247b405ee747436702800afb",
+    "test/fpcabbrowser.js": "e593e3148f13612cd446df35eeb6c4478ef0b3d43b863b7f31f831ba6d6574e6",
+    "test/fpcamera.js": "fd9c6ea48bc792e5bd0463bd43fe326e3c09164f1bf7571ba71cda75555ec0c8",
+    "test/fpcamerabrowser.js": "847dcafbe13bc883fc16b689b497d825799be40c50bb9d763882a681e1362f87",
+    "test/fpdamage.js": "097467b45e2129c81d69e3868b55d95da13a58bada7e3fac6595c1869f43468f",
+    "test/fpdamageassets.js": "ecb1f16bd64cdda3109ae97a36570ffd29b0075f1a46d03263a9accdecef13b8",
+    "test/fpdamagebrowser.js": "1af408ebf97dad058ec922adba8655cf4a4d8e39d9633a9f0caaf3274a6d7f84",
+    "test/fpdamageflow.js": "371136efd0dc176e2f7374a8b2f904fae7c52943e121db0095b63ee4ddef4082",
+    "test/fpdamagereversebrowser.js": "d8a5db3cf0b03647ccb040bfa256c5296fc41007196f8468544141bbc408fa3e",
+    "test/fpdamageworld.js": "42fc1dbd4245eac9904fe7adbb54ec1c3b7f38cd50abc78a612d5e24d4842762",
+    "test/fpday.js": "ca6e288f386cad88753a0c57d5af9c8dda9c6c4bc0b717f1b544f6ffb44bb3e0",
+    "test/fpdaybrowser.js": "d8cddf57c60b9f4eab08f028f5bc8e5efac5df9260614cc8d70a12c437734c77",
+    "test/fpdoors.js": "090626355e25dacd21e062ca6beb8f7d37ea582611aa5d62a7742fd987b03ede",
+    "test/fpdoorsbrowser.js": "b58d2ab9ea6c42fa7c255756311ba3fea109ade1bfc719a6b84bb9414fb44207",
+    "test/fpdrivebrowser.js": "6e4f84190b1c11ab8d6367d544001e186edc3377662ec0f4ad14c0866fd0a458",
+    "test/fpdriving.js": "95ca0e4e8b12f5f7321565b846b85d0558ae66542a299b8c4c2c55cc6e64483e",
+    "test/fpdrivingbrowser.js": "47f02916585b849a0de074793130e4066ec1a4a82a653cce1ac600adeaf81c47",
+    "test/fpdynamicsbrowser.js": "cbf97ff1e24c2fc1f00d17f6300bea59349a9f428451dc51869acc7cb0e630d6",
+    "test/fpguide.js": "2694377546d3b10479569ab081bd553f101d90333a70c67fe1387df9142db2ad",
+    "test/fpguidebrowser.js": "75e10a7addb0cf3bdc8e3216ea246ce785a44cf1ce89c9381ebdfb023f590f5b",
+    "test/fphandheld.js": "3a8ee4ab6a70f8e7f035e4f98b95b4e72a83c0cea7a79ca54911106878d3873a",
+    "test/fphooksbrowser.js": "84301d06818fdbf401d165dbed96cd044ae43bbe11c18b39117f1560e0a40886",
+    "test/fphud.js": "a9226d016241b4bd78022b99a2c851e6fbeaf348709cbf4d542513d1f8eb9944",
+    "test/fphudbrowser.js": "bb9119715312e9af00155332d0d8cc700f533c94aada0b95f5f41858b6798eac",
+    "test/fphudcomparebrowser.js": "a74f9868538a763c3f2d4c7cb25f4f8de6612c9932d9df3eabc14cfa7749acbc",
+    "test/fpkeysbrowser.js": "2cd3998dbd6a84b27efc88e0de1d99d66a8bf09ad58d264ad9b4cbb69b343ff4",
+    "test/fplangsbrowser.js": "356a88e5faa06d917af4f65cdf9dcd3271d026198b0950ba6c4a8e7ddc23f5c5",
+    "test/fplater.js": "9ec9c173e3793ff6b7de719a4d63b1b9c143bfc0453f407fe4198d7ea85d6dde",
+    "test/fplighting.js": "37beb643517132ef502891d6f2ae11b9288153a43e4d5a405462039bedb8e158",
+    "test/fplightingbrowser.js": "11a82253364aafbded9b25c98ee9dd3edc2d720435fda81821d6ef9caa48a382",
+    "test/fploadout.js": "6dda896c147185111caa45d9a9ffd838d77f2ff259a1b9b3af0d0373f91d3e5d",
+    "test/fploadoutbrowser.js": "6d141350a1ba131ab97272adbd9766b6ba185298dde47825392b4f9d8d1fcaed",
+    "test/fpmirrors.js": "f7cda470dc1029b7e6ce17e9c91e438874bfb4fcb2ad9e38eac395b569034234",
+    "test/fpmirrorsbrowser.js": "e4c290e3dede187b6d9f63ac5849bc7b1a4bdcde6843586a172cb7997bdec8be",
+    "test/fpmission.js": "fa09011c165e9b8275511dcd825e2627d08c718040415eb071007498c1053ce0",
+    "test/fpnarration.js": "d30c042ab301e7f02247bb6f7450f4c558e712c5990a1c16f63d19989b281d35",
+    "test/fpnarrationbrowser.js": "8d61ac8a03acf19a671f19a4dabdd92627d05203cd07fdf1e71c6d8fc463affe",
+    "test/fpnav.js": "bef6b6c4dc41151375c112cd4b7db0a9f05b64619aee53080ff87f4ed305e6ca",
+    "test/fpnavbrowser.js": "cca936489ec1974585b1cad11946b6d0c86461573a16445ceaab58ff4d4a2918",
+    "test/fpnightworld.js": "7b9ba8462aed1baac10a3c2883c72369ca2b1af38cee4a83c5640e0378815fe0",
+    "test/fpperf.js": "dcc3238b060dfcfe3dfc1dc41ae1d86677084cd872d5bc45b96f2b74f8cadf12",
+    "test/fpperfbrowser.js": "a15edda49906d81a416adee3c1abd2aa044c0aa3e871de8bf9b0a500600d0cce",
+    "test/fpquality.js": "f85abdd9f51a3a07be793f623cd2b2cf0fc5aaf10a50e17ddefa7cb08a51f0c9",
+    "test/fpqualitygate.js": "6210e0938da17d16bf829f729edf17ea56d3e044746bef27e26ad1a1dcf22e1c",
+    "test/fpradio.js": "4f3d20a95ce9b723a77c987d77bcca9d78eb36717d1cd4bbf5e16c2b1643302b",
+    "test/fpradiobrowser.js": "3613dd2c0b7ed9de80f89dac7d68ccd09338884a6199b715a05dd66804109844",
+    "test/fprear.js": "b5e32b3907fcdbb9e0ec381cda082b0ea06ef17a7d6ab174b495e030fd5820db",
+    "test/fprearbrowser.js": "329e57cbaf1dcb19e5768949e5723450dded8a5d42b3228bcc0c337c4b651de4",
+    "test/fpresume.js": "f307d68c5ff653bc70c3224671d1658478606dfcb345199b1feb146bd13a034b",
+    "test/fproute.js": "c381c4afaa8b8fdef914fb3cb516ce41b4c934d4f21097ee39e51218df054386",
+    "test/fproutebrowser.js": "8bfa035170990cbb5d1d41df591183c0129de8f65879493ffed780ce2eaf09f6",
+    "test/fpsignlayoutbrowser.js": "6c968e18dd53ce81088171a60cc38f1808616d55395a4b6976353bfea6e9f18b",
+    "test/fpsigns.js": "7b09d6180fe69940950a0cb98e81ba9f5a4a890335bb3acab7eb4879e280565d",
+    "test/fpsignsbrowser.js": "a09e583d9c9065daff9b9ab0c61b3b950985bdd88bbe17f52f39d7963c2c6cd6",
+    "test/fpsound.js": "f3c200032258e45077e47a3bb70742c8f3175a88ef5e49033f0a0e1fb2f1a413",
+    "test/fpsoundbrowser.js": "1cda0124330a1ccb9f3771dbd1e4e03a9043090a7809fa08237408c74b262d0d",
+    "test/fpstopbrowser.js": "787eab58876dfb00c10f47a21d400b4038c3d7cff294f62e2031bc422192e335",
+    "test/fpstopflow.js": "208765a1d82f347f75e6ee8d087c547e4c539aff6544f611f2887a09077a50c1",
+    "test/fpstoplocker.js": "4bdb1378f9cb98f2ddb45f5ce1092939eb73e33d3f9cee8a02e51612c4733804",
+    "test/fpstops.js": "2b39a261d785e81afa4f2b7261c3d452843e2834039b806a0f5914d886c697af",
+    "test/fpstopscene.js": "ba4aa696ecd77f0f7dab645cb02f873302887ee5b8f7e4d735441cad59be4dad",
+    "test/fptown.js": "0a4da131f9f0d53e0e77678ae55188e59c93cfca3aa617928178ff110760451e",
+    "test/fptownbrowser.js": "e7ab1aca8dea852db46e3ba451cb2fd27105c71650442d67fa8b3e40ad4a9d0c",
+    "test/fptraffic.js": "2e58e7f84aba6c3beda857a0e2a481d8a97c4c710228ef607809db839b4112aa",
+    "test/fptrafficbrowser.js": "0614f1b260a3d067a690df17d8d5fe95aa20ed78837ed323ac462e195c40c2fd",
+    "test/fpweather.js": "3816a80606222b740d9873737d07343489b61745d4c6c8b00d59d04192851339",
+    "test/fpweatherbrowser.js": "aaa7c0b8c0374378226682a1a46e6f3bc40256d5f87ee593797952dbf2b1a70e",
+    "test/fpworld.js": "c8c1f7617008577575f14c51360a9b21d9063d3bd7fee923ee12cf0f90069ed7",
+    "test/hubkeysbrowser.js": "15285cc1ef1e110a54b41eae7c502df766b951f6bce677d3252a17cc1691fad9",
+    "test/i18n.js": "fc82a567da448f45f706a2abea371cef88470fe3d3dff25bd664777c3d9eb10d",
+    "test/lmsreport.js": "50241f21c9bf5308f669bbfcba984a73a296515a69cc04ff6bfce5b94311b648",
+    "test/offline.js": "cffc2a941503ac0daf8c797c1aa4defd0bc0ecc0d36a423a202524340f3a40e3",
+    "test/oldsave.js": "8f0a47e4ea2b346f0389e193f57b8427063b65c94f4fb23d1dbf2ea0b7555c2b",
+    "test/package.js": "ab3e2f8fe067badeb8b5c6311b0a141dcf89b4a23bb4599b1664052e0ecb4f52",
+    "test/paths/academy-screens.js": "b548c42dc84aa82065abd917f509c73cc8d8d2a8357f4b35e72b769cdbd98dc5",
+    "test/paths/certificate.js": "0c83cf37df00351bdc60fdd506da478c69cf1db9edc600b2b96f52860dda0556",
+    "test/paths/drive-fuzz.js": "1e996f3479d31743c94297465fc6840975c201750ad97156e362aec120c5d5ce",
+    "test/paths/drive-review.js": "32fe43c934ac3cba85b53aac5c3fdd54bf6a4c427711f441acc30395c327fdad",
+    "test/paths/hub-briefs.js": "b0357f895fb8259d1da9bf56adfff3262de140fbbe32f7350f169486af46984a",
+    "test/paths/lib/autodrive.browser.js": "a80f6c33db0b4af9d677becd26320e6bfbd02b898f5c1572898eac770320da71",
+    "test/paths/lib/dialogue.js": "3f5e628b07d4fd4617271c2d2aacce9fc509565f4f5ad0c05790ddd207ed565e",
+    "test/paths/lib/pickup.js": "0028a3119b0c7831ee563e8b7ee10af1142dec7f5cab03a60184273a65aeb4ff",
+    "test/paths/lib/stop.js": "aed414b2d9ade19f0f35ef087025ea1ec299be5ac0ae21817d96be65cdf7c472",
+    "test/paths/lib/ui.js": "b37f322a41eafeb97eb458dcf2248af9f152e9cd161949c893dd1c6e2788f713",
+    "test/paths/m1-driving.js": "56bde689789fa28caabc66e66ed2f87d5a57e890c3f16e1405a5ff73258da5e8",
+    "test/paths/m1-pretrip.js": "247efecfb9f446a97ed56896a8a089b769a2fffa2f46436fb3150f130215c751",
+    "test/paths/m1-route.js": "8814f212e1e6ce725d65dc28a6c7ee2516c6762554336869d4a1bcaf56e70bca",
+    "test/paths/m1-spot.js": "0732d96a8da9a89793cb19de9bfd33a1aa4f2d7cf2982aaa61a99dfb86bf3d06",
+    "test/paths/m2-labels.js": "d6e841a428f04372ad74d5234ed553bc1262ad6fb4fa3dc8dcb7ca61b2c8cd22",
+    "test/paths/m2-lift.js": "6018532fdf89ef702b2bc4a5b59d8b59f4e29c8f8e3bb698407e040933ddd1be",
+    "test/paths/m2-sort.js": "32cc280b560d1f30b8940770eeb38950eed82f2efa437d2c6886dad14b0d3966",
+    "test/paths/m3-doorsteps.js": "f909edd574c0f15963fca4c61e270e2bda2a04615fff23b481798e2b680be9af",
+    "test/paths/m3-missing.js": "8f47c3df9598e76f9321fcf358bbe122c0812cc1e237d9629cb6d46a3cad207c",
+    "test/paths/m3-signature.js": "08ad26955c8b6f0eff33c63fe964d393b75b1f9a57c737097b1f29dc42838208",
+    "test/paths/m3-twostops.js": "e8dc1b44bcf360d0c3ba772c08dace260e965c011e1ab657ecde64e3d86e6e68",
+    "test/paths/m4-address.js": "c2fa17065f16e7b1a1eda0216f314fd784455fc53054db26b3039eae9f0fe0d1",
+    "test/paths/m4-damaged.js": "8c91b9798dd18254c0031392405d68ae5b288d72452df5dec659d264cf0ae507",
+    "test/paths/m4-recover.js": "8c07c516143ae9428f11478871b5ee70c4031d9138da912c32f00d47415dbd1b",
+    "test/paths/m4-storm.js": "fa38446d01ccdf20db0a5bc20040229daf25d95e54cab78c25949cabb50416f8",
+    "test/paths/m5-adult.js": "60faf9e36d8bde6aeecb91c29025fb12dc602a4a2a9779d24cee09d415028230",
+    "test/paths/m5-exceptions.js": "d2c5429b9582ba17a01995519989016901983a03c6cc9831c911710852377044",
+    "test/paths/m5-pod.js": "543b279590e3d9ee6034716a8d2981080e1ee6f2e998447ae2517dc8bd2667e4",
+    "test/paths/m6-find.js": "123f5a7c1810af3bab71658e6c511b278d9fa94b505d0efbbca1ca470b20a6fc",
+    "test/paths/m6-load.js": "2afe7baede30211d8524926ee9611c934e7bb884e81ae8b64c4d010fb03976e3",
+    "test/paths/m7-business.js": "7e5f10822924ac3f9a02a36ac9e389656474da8fff6142d4caf1daaa534e83d3",
+    "test/paths/m7-dg.js": "27a6b7d37f28e63eada00c3c6104b36be4cc78f15d0b8669413c0d41c52f9a8b",
+    "test/paths/m7-intl.js": "691d7de677231e45fb6177e94060b842efffda75db55974b2b4d922d67efa549",
+    "test/paths/m8-dog.js": "0237d0fcfb18357b6ff893a38f7288fe838d5c100d37a7aff433d54e0002f485",
+    "test/paths/m8-heat.js": "00919a951d3868183e7ba9567da543616414101134d69d4dec0c5b0fb066c48d",
+    "test/paths/m8-incident.js": "024441ca5440a29d21d62144217c9d9b863808530c4ee314e827330f645e7d7f",
+    "test/paths/m8-steps.js": "eb8d816b8a5d308859945f7871870c1da185dc0c2643b5156a3ab270b7953ba0",
+    "test/paths/route-day.js": "06bbb1f3065fc0f2e177f3fb79a1ba0dc5408ea398c2ac93d40d05f17ba4af8e",
+    "test/paths/route-legs.js": "2bbf5c64eca53eac33c1a663ac8e89260b00d70cb40919053c2b2bc5a6fe3dd3",
+    "test/paths/town-traffic.js": "56ed7791ca5c15f4eb940f2e270245161eb190574ca7b92324a64a48c3a2630f",
+    "test/paths/van-traffic.js": "3efe470b80bcb7401c52cb64a1065c9115c9a27cc32e153445bacf588bd303aa",
+    "test/paths/workday-3d-b.js": "a1c2709de3d832427c7686dad194912ce6476899e27458b61796fdf672fc27d5",
+    "test/paths/workday-3d-c.js": "501e3dd110fb8d97a204f7f37e53316acc5bc4510b31e974d8d7e32614270da2",
+    "test/paths/workday-3d-d.js": "6e396227ea83ad3c256df93673bcd070e89e2efbe69e7b58d41380ffc4002015",
+    "test/paths/workday-3d-e.js": "90aa2245bba8e167abd6e61c23162892256e75ee1975c33d87d7c9b491971e55",
+    "test/paths/workday-3d-f.js": "f14990d7bc3368702c63ec24ff03de48531bd2d9a740b0c7c1d39104cbcc019d",
+    "test/paths/workday-3d-g.js": "b3a0f311194a6f813ece46128c87964da7159be48547c51b8d3f9d49a610679e",
+    "test/paths/workday-3d.js": "4725e57195126c29d1dfa76cc5f4c363cda77115c215d33c9a573153f7d903a5",
+    "test/paths/workday-aids.js": "c5d1225c4ead4bf8dd0c16d290601409346fea3243a88e57529481a8af3171aa",
+    "test/pickupkeysbrowser.js": "d840ed72010337eb9fa895b0c62ce88afeac9eb3385c2e51a5296274c5fb38cf",
+    "test/pretripkeysbrowser.js": "f9470a76b8f53438380b4de5b9ed7f13546b4854878134a650f088fa028e64b4",
+    "test/printbrowser.js": "cd6c52355414722b739f150f9ff6c1e15d79d8d517f97d7e510aebff078ee92c",
+    "test/qa.js": "e62d2e1cdf5473a31c197f893a932a9ac45038d827d8eaa0b567d19f70016969",
+    "test/report.js": "965d5437578be8dbbef2bec20885b1c24a24c4e518788907d22878a14bb5a3ea",
+    "test/reviewsheet.js": "921213f46ded8c1065964fb50879f175f02105450b6a50e4f6cfc916820ffb77",
+    "test/routeday.js": "747d5adfaaf406a755729f56af5feefa96febf0d8673748500f8fa90ab33fa27",
+    "test/routekeysbrowser.js": "5ca41687634b0982c40674d863d66f1481b2fcb3199a72ddd30aadb888dcfb24",
+    "test/run-all.js": "02a915aa55c52208df7efc1deca2700593e3f8a711e64cbdba375fa729e80a0f",
+    "test/savesize.js": "929d022eb8e430387170f5cab130da3e28ddfa3c88bd90b53b1d0e046dde660d",
+    "test/scorm-launch-2004.js": "09cfd543555c453f0fc3196845c0565ef6902d57f7e016507d93d216096942e0",
+    "test/scorm-launch.js": "9131337d185ffd637683144827124f3d5ec281a3050eed61867b51a6006766ec",
+    "test/signin.js": "bdb36c72ade41675a5df84ed6283e10c34f1e3e802f1b91bd39c0abf7bad6295",
+    "test/tools/credits.js": "8855d4197a4cf65cc9adc60e6cf77f47f3795adbbf5ed6636b0139c711ff6a5f",
+    "test/tools/drive-session.js": "07af2b94236abbfdf93be989bdb50f32ddb25077fde6f72f068ba6807009ec6a",
+    "test/tools/fpassets-context.js": "3b3884dfb74b19ad7bf9a53d46e2e19fd3370865f4c315088d1b5874730fc263",
+    "test/tools/i18n-extract.js": "fbc1c8d3fb95e58aaaca20f9beebcd1f0a3065cbdc6cbae212a877099694c37c",
+    "test/tools/narration-probe.js": "df827984459e8a297799b46595a4fb01d3bbaa91439c94ee12300664c9089918",
+    "test/tools/pack-art.js": "566aa147afe7625f9e66b72c962df48a1edb5f9dc7ae0025c4063d95d33d440b",
+    "test/tools/package-scorm.js": "33b54ec15b84502d2916d47e958f294f1e9d6afb4da3546bb0371462f3433b0f",
+    "test/tools/playd.js": "2336314b8980f0de872f2f532aefc0b72719f68fa490178ff47215de6e607303",
+    "test/tools/prepare-actor-lods.js": "6afa5a10407514a32573c57e58729208f81bdd50b46fb784d6bf826874b59390",
+    "test/tools/preview-town.js": "a25df481a3fab549f3fd48a1d3fb69641e12d8e7b1132fdb3154507ba49d7b0e",
+    "test/tools/review-branch.js": "b366c70b2c0d0769e0c9b863920f4bfaa1deb20545037cd76bcfa99a26461e7c",
+    "test/tools/review-set.js": "b141694a95261ae72304e02a6d5806b66ed40919cc43abd85b0f2f9dcb5a368a",
+    "test/tools/review-sheet.js": "7b847d7c0c92d2bde78c087ffa26e5ed8e957c931057b24d183fa23b087ee13b",
+    "test/tools/validate-actors.js": "cf8dec589c1564bba69467adb037651d570ea535ecb25a66deac168175eb4596",
+    "test/tools/validate-town.js": "02d4da3b0b311ae0eeeb44affd49eabf2fca058a1aa0a205cfc429b203b02c39",
+    "test/tools/vendor-gltf.js": "a36f5266bc6f02c888d2271441944b5d35419295ba4f6cdac25316c8ec1e15f8",
+    "test/town3d.js": "6b9a336e32ee2b392ea80212c07e64b6434e8a19b63e2153926d509b00ef8bda",
+    "test/trainerkeysbrowser.js": "92e40e5c39bba8d3b11638f565838874f4c4dd3a353caedb74812fa67375a732",
+    "test/workday.js": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
+    "test/workdayflow.js": "2e9c432205f95c6f901e58e018d00e50864665c48b15c1ab128b4ef769637891",
+    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25"
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "depot",
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "handheld",
+        "barcodeAim",
+        "firstStop",
+        "doorstep",
+        "doorsignature",
+        "doorid",
+        "laterstressturnleft",
+        "laterrearpeak",
+        "lightingnightreverse",
+        "visibleweatherstorm",
+        "visibleweathersnowwalk",
+        "townhouse",
+        "townroad",
+        "townparked-car",
+        "towncab",
+        "actorsvan",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsnumber",
+        "signsoneway",
+        "signspeak",
+        "navfull",
+        "navline",
+        "navreroute",
+        "navblocked",
+        "navdouble",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c36-accepted-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 857594,
+      "peak": {
+        "calls": 54,
+        "triangles": 2396,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3619878
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "townhouse",
+        "townroad",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsoneway",
+        "signspeak",
+        "navfull",
+        "navline",
+        "navreroute",
+        "navblocked",
+        "navdouble",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c36-accepted-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 863135,
+      "peak": {
+        "calls": 107,
+        "triangles": 235893,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 9552176
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "barcodeAim",
+        "visibleweatherstorm",
+        "actorscargoextra",
+        "laterrearpeak",
+        "signsjunction",
+        "signspeak",
+        "navfull",
+        "navreroute",
+        "navblocked",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c36-accepted-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 524704,
+      "peak": {
+        "calls": 54,
+        "triangles": 2396,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3783483
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "laterrearpeak",
+        "actorscargoextra",
+        "actorsresident",
+        "signsjunction",
+        "signspeak",
+        "navfull",
+        "navreroute",
+        "navblocked",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c36-accepted-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 499669,
+      "peak": {
+        "calls": 53,
+        "triangles": 2150,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3327531
+      }
+    }
+  ],
+  "scope": "183 exact requested views; all original draw/triangle/texture/attachment/Phaser ceilings retained. No context loss or renderer errors. Cloud SwiftShader timing is not native Intel frame-rate acceptance. Final larger Tamil UI has a separate native report; this scene gate uses the declared profile accessibility inputs.",
+  "files": [
+    {
+      "path": "bench-c36-accepted-accessible-low-low.json",
+      "sha256": "7efc1ff138e3480df1d0d170639f43aa83d7334393a021897483a550c1eed440",
+      "bytes": 60673
+    },
+    {
+      "path": "bench-c36-accepted-fallback-low-low.json",
+      "sha256": "dd57e8a271b9938f40938968c7bd717fed8b55be8128b86d6f2c645f6f9fd329",
+      "bytes": 62327
+    },
+    {
+      "path": "bench-c36-accepted-loaded-high-high.json",
+      "sha256": "8cd14b5c18e414b19407ff0bab983aeef74e43c8e4f496043fbad55f96c5cdcd",
+      "bytes": 75358
+    },
+    {
+      "path": "bench-c36-accepted-loaded-low-low.json",
+      "sha256": "1bc8e0cc7cfd28756405a65ffbc412f022931daa12a204a47dc6addab2a33551",
+      "bytes": 96102
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-actorscargoextra.png",
+      "sha256": "8cca7222aa3076567d052016728dd58c1553e3d10dd8682633225eca9f4b6d97",
+      "bytes": 124130
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-barcodeAim.png",
+      "sha256": "d70f45595d77068c447aab917823009019838f0b43eb62ccb10e9b4f40036518",
+      "bytes": 120528
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-cab.png",
+      "sha256": "8bdb303764cf5d9b77672102da4f1eae4c30c62587dbb87a08d96cd805603c8d",
+      "bytes": 211284
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagebridge.png",
+      "sha256": "64109b54977d59b5e78ea3eebda74ae2a0d5dcf68d990bb4e4a3c9088bfa1edf",
+      "bytes": 226781
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagecargo.png",
+      "sha256": "55dc55913d88b7f86d06b5531829c451628d3318d92b763919ccdd9cd1bdf353",
+      "bytes": 220293
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagefront.png",
+      "sha256": "74f1a58fa82c098b7f5601cb9c89440821de2137fea85952290ae83cf74c8c07",
+      "bytes": 213935
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damageleft.png",
+      "sha256": "148bfa446285bea34ebf554e7101737228f8d04a263c7ff1e55d9406e7f929b3",
+      "bytes": 210191
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagemirror.png",
+      "sha256": "e685b56947bc5fa23112b03cf0af2d1b22b7fa0c791ce259fd8a1d9d82b604ff",
+      "bytes": 177264
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damageoverhang.png",
+      "sha256": "87abb73b822e1b8b8c858404b88c6b96c738479aa19ee8439dc8bf7d84c4222d",
+      "bytes": 227050
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagerear.png",
+      "sha256": "5d003c1320cd3e0cb9bfc48fc1a68e7753452f2fbf9f673b70217ddba4562e27",
+      "bytes": 213878
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damagereverseclearance.png",
+      "sha256": "d2c272e4966db854822b004d7bf81f299878f335848943722648382fdf4d778b",
+      "bytes": 247752
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-damageright.png",
+      "sha256": "16c66933e3fc89483acce40c64115cd0b262301ea0dccd10c39bfdedadecd8a9",
+      "bytes": 208308
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-laterrearpeak.png",
+      "sha256": "f43df06f17a39671e61bc8057e1eed558270b6b9a5f66a0e088a9346f5ec3752",
+      "bytes": 275597
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-mirrorInterior.png",
+      "sha256": "aa629d2a86df31d1f3e0d8409c08ec66564d0df49548818ade94b81eff9be28a",
+      "bytes": 222321
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-navblocked.png",
+      "sha256": "e913d49bf09e49858a59a150b0172202d5c30b88847bf7519bb972395450e826",
+      "bytes": 246984
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-navfull.png",
+      "sha256": "cae432e3407daed92848e8c52f8837ff50c20d333be26e8ee7de19b59c0f3b44",
+      "bytes": 206738
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-navreroute.png",
+      "sha256": "508c17ad554f5071db08f5f73043ce2e56c3c1b7d7c268cef3a02cfc87d862dd",
+      "bytes": 209865
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-nightglare.png",
+      "sha256": "10e2b42b2ce32468d39743ddf03a421670f0c9eb3be020842c0308d1841c723f",
+      "bytes": 189501
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-nightoff.png",
+      "sha256": "a2c71a19d982dd81199a6e0079a294dff155891eea846912bb8d754dc300bd40",
+      "bytes": 158955
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-nighton.png",
+      "sha256": "445681b17708dc78d19a1acb74d4353592f7189d507a1be767a96a18bb02f659",
+      "bytes": 189076
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-nightreduced.png",
+      "sha256": "10e2b42b2ce32468d39743ddf03a421670f0c9eb3be020842c0308d1841c723f",
+      "bytes": 189501
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-radiocaption.png",
+      "sha256": "6dadcaffb0d2ab665e1e823da6b45dfccd356b88ec99dfabcc1f95bf408bd5e8",
+      "bytes": 203542
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-radiocheckin.png",
+      "sha256": "a9e26a62137503691b3870aeea0a08af88b1739739731e970338390619262d32",
+      "bytes": 148964
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-radiopriority.png",
+      "sha256": "12cd062d1a89f2e5c48dc4f8d18be052833719871bbc1cafd6f884cd16c9facd",
+      "bytes": 153201
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-signsjunction.png",
+      "sha256": "e17953f24dd033b83011f17a6b0699915f0ccf2e7ca5cc07ab4d4bd6e4ccebe8",
+      "bytes": 227461
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-signspeak.png",
+      "sha256": "7d6c23bd861824ad9aa3d158f5f158b89d02287b8a648d2f729dac5d1b8bd698",
+      "bytes": 112599
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopsgate.png",
+      "sha256": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187",
+      "bytes": 57792
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopsintercom.png",
+      "sha256": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187",
+      "bytes": 57792
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopslockerclosed.png",
+      "sha256": "5e766e1d0383f8e5fea655b22fc50057fd6cc350fbe4853c5d626e7b9d0d3eeb",
+      "bytes": 52425
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopslockeropen.png",
+      "sha256": "ad2d9b604a1f6de4cef1c57dd5386c51591c2908cf5a01bfa8f5dbee31597400",
+      "bytes": 53723
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopsreception.png",
+      "sha256": "048118cadef63dcfda96c60ea37c2eafcc85d5a43db48b9b713f53a012435db2",
+      "bytes": 51817
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopsretention.png",
+      "sha256": "df4d0b676c1c15a17bbfa302f43feb83f871d710bf62ab22e6a7f25c05be8131",
+      "bytes": 31681
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-stopsstresscab.png",
+      "sha256": "4b4176f3af645cdbaaeca5a920b0ae6ff4111d3e0b5fe59d19da294af7cd6131",
+      "bytes": 208581
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-trafficpeak.png",
+      "sha256": "8c0e4158020eede1f67594d1809ffe9f4aa0f7f513eb2a1233238d0bede3505f",
+      "bytes": 128438
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-trafficschool.png",
+      "sha256": "1da31949ea7cbd9aabaec47477d61040cb65eb8f06876a0b39cde20ead36d3dd",
+      "bytes": 236854
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-trafficsignal.png",
+      "sha256": "7709c8a7c9a45cfbb086b42a1231f608000b7539e64e4466eab98c86e9b3a904",
+      "bytes": 244900
+    },
+    {
+      "path": "c36-accepted-accessible-low-low-visibleweatherstorm.png",
+      "sha256": "4898e11f799c82edbfd96ba748be9146258de90b662a99e88bf3606b1eec9f86",
+      "bytes": 256926
+    },
+    {
+      "path": "c36-accepted-accessible-low.log",
+      "sha256": "724fe5d3fe230a1e9eabcd9314ab97fb45476b2fd91939a7a7d043b206641c64",
+      "bytes": 30552
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-actorscargoextra.png",
+      "sha256": "f030d8971ed4d768c77a1c5f0f7ef6e43b52ada9c1d92da83512c6a7950770df",
+      "bytes": 110649
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-actorsresident.png",
+      "sha256": "374205808b24fb3d60ddd0af96dc904e27ba2586e1924e01b04fa14fd785ecdb",
+      "bytes": 43269
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-cab.png",
+      "sha256": "eded2f3b11beaff7fd6580c90080868bb8dca96a19857d2ee811b1c93e874f0e",
+      "bytes": 193008
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagebridge.png",
+      "sha256": "b3f6f5f78751b8ef402456794601c28e8954d3b52c54cc29ed6796535a0f6fd5",
+      "bytes": 206169
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagecargo.png",
+      "sha256": "53591c665a13d255e7e413e6b83064080425c22e47be014811b6b75fecf6915e",
+      "bytes": 201650
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagefront.png",
+      "sha256": "ad451a926b48777c8f50af741ee978f0195d8d3f81ca6fce0d8e7978c069cde4",
+      "bytes": 192503
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damageleft.png",
+      "sha256": "38a86d12827ec6366d98de3c759a948d181b15700c9f8c9954cf3e1d15486615",
+      "bytes": 181766
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagemirror.png",
+      "sha256": "7a261ca76ce82d6164beb2916ab4e4499622ff244704a9832f61b51f0dd1362f",
+      "bytes": 158768
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damageoverhang.png",
+      "sha256": "3189885c5d87ec7d28ec2bd016f62815a5a9e6084f91a614862e268838c68193",
+      "bytes": 205941
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagerear.png",
+      "sha256": "417a9a2c8d50c8ccb00afcb80673433ff2166ab02062cd7e3c48c0ce89a5d58f",
+      "bytes": 202871
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damagereverseclearance.png",
+      "sha256": "6af572f2a129ca830a5612ba4204fb5916b2d328c9dc46ce52b76e2e70987e0e",
+      "bytes": 225715
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-damageright.png",
+      "sha256": "7f8e4330e772fdae7ae81c7464bb2eaf54df82e752780cb4fa426b56cf091140",
+      "bytes": 182134
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-laterrearpeak.png",
+      "sha256": "006f0fe8d80c6e901b4b7c4684368c335189533aaa1c31d8976ce6231ac0a6f2",
+      "bytes": 251242
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-lightingnightreverse.png",
+      "sha256": "370b558f96a4922d32298641454ab17b1d0f77d54bddc946cef9a004d8ef4cd0",
+      "bytes": 229238
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-mirrorInterior.png",
+      "sha256": "fbc4848bf3a748af6af99081885639d62cc3cce5207552fa81a3a648fe19800b",
+      "bytes": 193261
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-navblocked.png",
+      "sha256": "720ed40e2a9dcce37226258d1ccddc177c893e833a49f236336fe513b14fb35d",
+      "bytes": 232607
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-navfull.png",
+      "sha256": "407e389ce808a833e842244e5398df493a4053698877164462c32b4a40a51f56",
+      "bytes": 190764
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-navreroute.png",
+      "sha256": "ee01216fccb61cae7557da2124fdddb42228edc7abe4500a832f057ee8a9fcd8",
+      "bytes": 192599
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-nightglare.png",
+      "sha256": "5e58e40799c42b9db9dd8243e013f6c86ca0fe365dba88fda4934f51f60c14b6",
+      "bytes": 191552
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-nightoff.png",
+      "sha256": "6107183ab98037bb7de0148ec530fbc4db10a5be3ce964fce868750f9505a3c3",
+      "bytes": 151863
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-nighton.png",
+      "sha256": "fe554637158422f3dd25cafc46bbbd955e1a4c6863f45acd46e0d2a02af2da65",
+      "bytes": 181202
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-nightreduced.png",
+      "sha256": "d72e8926f3e189b4468b758c276af91a4d1a7b73f1ae66ad5e7285526e9803e7",
+      "bytes": 180492
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-radiocaption.png",
+      "sha256": "6fef2a83d1c4cafbc11b472b478bb02a15d581d2bb19a72ed6b3effe2db47476",
+      "bytes": 192625
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-radiocheckin.png",
+      "sha256": "b147a05e6d3a970305dc211f361560c96efdd5faf1b9aa37539945b5c0311b7d",
+      "bytes": 134163
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-radiopriority.png",
+      "sha256": "82b4f2e525c0d74d3926821ca7f07e1aba2e886bf795c903eed0d4bd45d9cb44",
+      "bytes": 142769
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-signsjunction.png",
+      "sha256": "efdd499ffe2a923b7421f14224e767d213b57f21ed2205e0b6b83fb602c899e6",
+      "bytes": 212797
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-signspeak.png",
+      "sha256": "3a9172a2352754091b71e79f81808ead108433bfbbc4e187898667c265fa6b56",
+      "bytes": 93539
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopsgate.png",
+      "sha256": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5",
+      "bytes": 45212
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopsintercom.png",
+      "sha256": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5",
+      "bytes": 45212
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopslockerclosed.png",
+      "sha256": "cd88f4502bfd8e5f22a4a71d6b7559b859fa26ec1c473fdbb60e9a1c6b08c37b",
+      "bytes": 43113
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopslockeropen.png",
+      "sha256": "cce0baa8e30af9b0e624441012a3259e84dda6eeecb2b18c4cdf8ba76144654a",
+      "bytes": 44761
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopsreception.png",
+      "sha256": "203c3e68d3f05574f31018cdb17869015e133eec022b80c6afa8c7a92ff395ff",
+      "bytes": 42954
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopsretention.png",
+      "sha256": "2663100a09ddd6c87ca8d4466a1fbe2b552cb938c7b472821dfc960302411d9e",
+      "bytes": 28963
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-stopsstresscab.png",
+      "sha256": "cd5e860737ec56d54cc85c1fb67277be6251221c1ce02fc67b8e24be341855cc",
+      "bytes": 196565
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-trafficpeak.png",
+      "sha256": "f4bd291f3003a646800612f8056428a6ba78d92de9fc79e0e573c08f19dd1070",
+      "bytes": 111304
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-trafficschool.png",
+      "sha256": "fe8980d406a94229a4848eaef022caca4e6f8f0ecaddff03984a5c9db56f2e22",
+      "bytes": 218765
+    },
+    {
+      "path": "c36-accepted-fallback-low-low-trafficsignal.png",
+      "sha256": "4f9b75381f2db5e9686bbe1558470b7f5851048abd6b9b467cdb1f940a01e702",
+      "bytes": 235534
+    },
+    {
+      "path": "c36-accepted-fallback-low.log",
+      "sha256": "86862ea6eab6904bb6d57bed8e3f31d77bb3e73b2753b5593b7427cc88a11245",
+      "bytes": 30417
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-actorscargoextra.png",
+      "sha256": "6880bf7f8b9011396ec5cd308552388629b29a2c2eeb579e0ed2ecd92a2f6e03",
+      "bytes": 157955
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-actorsmirror.png",
+      "sha256": "9e206887612aa4c081f31344a72e3fd246fda53a0d8a7718dd45b2145a95a48a",
+      "bytes": 220259
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-actorsresident.png",
+      "sha256": "a6e9299836b7c6cbe37de16a587f6f4a74c2ec2fe84aae4c4197acf238c74c88",
+      "bytes": 71630
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-cab.png",
+      "sha256": "b1eab1d156a24b02946297512884bf7f8a662e2faed46bcf1aeff24b64f427ec",
+      "bytes": 206735
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagebridge.png",
+      "sha256": "78eda3bd6afd22d181baac4afb0e0080b8d19e2e7ea88fe1143ed008031ef3fa",
+      "bytes": 260488
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagecargo.png",
+      "sha256": "0bbd551cc1cdf397a43ae1bd59fa2d42315985484c34ac6e50e8e21a525198e5",
+      "bytes": 255999
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagefront.png",
+      "sha256": "e6a59171e635b8eaaa7a3106ed71b5f39fd831bf51e76389df094509dfaa1c28",
+      "bytes": 270562
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damageleft.png",
+      "sha256": "74afbb63b3272e9847412dc62e323fdd1feac57110a84e4e07dd07e6eb0a8df5",
+      "bytes": 278279
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagemirror.png",
+      "sha256": "7fffcfcb685bbef8cc0b7ecfed8d3776a504384ef51380e29c549dafaabdecff",
+      "bytes": 158915
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damageoverhang.png",
+      "sha256": "7deaa3528b150890a2a8d3e2d4e78f4102b25d1f4857da0dc77376cc5c534d19",
+      "bytes": 245648
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagerear.png",
+      "sha256": "ba8333b67b189d0e82f8100a07a71d70d68c4e025527cad140f6038fa985aeb3",
+      "bytes": 260287
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damagereverseclearance.png",
+      "sha256": "5e2cc1b9dc2f337742e64d19c6215a8b62a330f5e27f89d23e5d1dd8098332e3",
+      "bytes": 240894
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-damageright.png",
+      "sha256": "d0d433546b113539bab8917f56b527617e71c61ee9960bb1fe38bd72c7fad47f",
+      "bytes": 250041
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-lightingnightreverse.png",
+      "sha256": "34c2e285c3008548e03ae198c709ebdd9bfdc89d1c39e3030b06d68713d91a26",
+      "bytes": 183979
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-mirror.png",
+      "sha256": "196af088b3351a38ea90373732ae0ba4274d5f7cb16a72146d70c22dc397adeb",
+      "bytes": 163076
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-mirrorInterior.png",
+      "sha256": "b6aaecd56916444b006386d9f6877369fe9ec4a08d1e1e5a610d03e874aa30a8",
+      "bytes": 202092
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-mirrorRight.png",
+      "sha256": "bc56da72d929ae36884943e7eb9ea1703dba9471f1403cdb23cd84b3dc29d86f",
+      "bytes": 245310
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-navblocked.png",
+      "sha256": "ae72399a9dddd2976ab2dc4a4cad8e56cfd6b631dc1e0b103fca492437702959",
+      "bytes": 334065
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-navdouble.png",
+      "sha256": "b343be8ba5098b1fd691620afff8b98db8eb17b04df479afb9ca82c8946fc6a1",
+      "bytes": 339678
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-navfull.png",
+      "sha256": "1017db2eb8c0c7f4eafbacbec9d6b6479ea5f0f7f3c8b93abb8b65f4e62f1fc9",
+      "bytes": 208206
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-navline.png",
+      "sha256": "0a7d43e0e6d31fca6678eb43291b15ec8f60ca92fdb019e46db0b3a83dcd1814",
+      "bytes": 207826
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-navreroute.png",
+      "sha256": "3d918c9227914ffa371acbeb4355006d2dc9a1f266c92be70eee97335c65023b",
+      "bytes": 234579
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-nightglare.png",
+      "sha256": "f3037c51ca1b225dce0cf82003433ae0d061bb75afcc1cf17927a8fe771cceb1",
+      "bytes": 164259
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-nightoff.png",
+      "sha256": "bf85e740849130dcbf9a774864ccc0071df97ee37f75604a1e9aee99662aa536",
+      "bytes": 125362
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-nighton.png",
+      "sha256": "2bb1a26381ccec852b43fba712a0e8769336841f86628ae1958606606003740a",
+      "bytes": 157899
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-nightreduced.png",
+      "sha256": "a8fe3ea4c5cc22fdc1c6d19c408f013a205a4996cee6c21407e55130d2fdd051",
+      "bytes": 157351
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-radiocaption.png",
+      "sha256": "5da20cf7f2416249f4b2c6753528e98bb9ccc225136371030733c60c120d75c4",
+      "bytes": 166264
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-radiocheckin.png",
+      "sha256": "c155766dc5f37d029ff2df1dd896e2cb8ce91bda67b9473830d2e93ddf4f73af",
+      "bytes": 149868
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-radiopriority.png",
+      "sha256": "6037c31c00e270823f36a6d9666bb14b7be1c277295ff35344a81e082c88454c",
+      "bytes": 128297
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-signsjunction.png",
+      "sha256": "e853567d4998e7a96b4071f62572cd9a4208deb253bb49913a7143d3d99885a8",
+      "bytes": 211550
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-signsoneway.png",
+      "sha256": "7647693d33ab65de284ff15b4c81d0af3c965c1ea9ee1e57ee393011c8475838",
+      "bytes": 206677
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-signspeak.png",
+      "sha256": "41b03b3193ef608d3fff72c544c96ea1b26b5f50dd4d09a912942b68632d3b60",
+      "bytes": 95966
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopsgate.png",
+      "sha256": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8",
+      "bytes": 105247
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopsintercom.png",
+      "sha256": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8",
+      "bytes": 105247
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopslockerclosed.png",
+      "sha256": "4975b1df43f10929bfc2c5e9640296b26e988d793337145e351e7071cf39b2bb",
+      "bytes": 85266
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopslockeropen.png",
+      "sha256": "d1d6e3a295410bcc500e0784b13672b2af5183d0779496e4173fdab57f2a3b99",
+      "bytes": 84897
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopsreception.png",
+      "sha256": "792c1e6307f48eb1942e4d42402cad13a08fc3bb3619b2576afb7b8c940d1eae",
+      "bytes": 60742
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopsretention.png",
+      "sha256": "f384fc2315e589ffff2afa178ee844987904da16cf3678f84c4a293dee7cebc6",
+      "bytes": 55211
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-stopsstresscab.png",
+      "sha256": "fe6aeeeadacf04473f1dc452378587f00557e2529b027097b8e2796d16d743a6",
+      "bytes": 170060
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-townhouse.png",
+      "sha256": "b35ec769ad483219b80e443295d5f598f1cfd5d30025e7bbb934e12a912c265c",
+      "bytes": 280693
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-townroad.png",
+      "sha256": "d0449ef918ceb1b3fd6582de80bffa8c6eccb94ac00f55aca7170f7bd1fd9934",
+      "bytes": 261296
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficcyclist.png",
+      "sha256": "3d490845c0f160afd7fa5be8e4a10cfa862e6f7d1647cfb88ca974a6493670b8",
+      "bytes": 350657
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficgreen.png",
+      "sha256": "3f6a97c5816b35bbd61c4fbb75f081c383a12d4712072af8c8cc62dbe8fc633d",
+      "bytes": 291846
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficmirror.png",
+      "sha256": "034d84308836489dde3bf68b4d3930985f5c5e0584e663cce191969bc1b04ea8",
+      "bytes": 316850
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficpeak.png",
+      "sha256": "1e7ebbbcf3eb95a31e8072a02f291bc9ab6e75144784975e2f6af20dec32530f",
+      "bytes": 148309
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficschool.png",
+      "sha256": "a4ea85b08c7aa14de4871d547d7d3aaf3cda8a25a3fa9b88eed8e6d2cae257d2",
+      "bytes": 316431
+    },
+    {
+      "path": "c36-accepted-loaded-high-high-trafficsignal.png",
+      "sha256": "b5b78fcf4b36e3bad18db31d4292927e4040e56fb7a4038637ac21f371c9e300",
+      "bytes": 289550
+    },
+    {
+      "path": "c36-accepted-loaded-high.log",
+      "sha256": "6c27fa17078c246fcf30f4c0ca2f4841f4ddd7c3ee92c5993cb55d5e077b9196",
+      "bytes": 38916
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-actorscargoextra.png",
+      "sha256": "0eb9c02b41f2053dbc161c065fc0d90bb37e848faa3e1770cc3d7f440948c328",
+      "bytes": 114603
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-actorsmirror.png",
+      "sha256": "a3bf985c4c61d62a38aee9b9b3250009ff6f8b25a18d0155964eb5b64f5288cb",
+      "bytes": 166606
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-actorsresident.png",
+      "sha256": "70e7bb75950ac578b642fb164c4f16e0d0b512d7b8e7ad90092da5fc4e3a2b0d",
+      "bytes": 51269
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-actorsvan.png",
+      "sha256": "4c396583b8e9d838262797a93cc7da2dc63c266b0e1327e0ae92335089ff3330",
+      "bytes": 208625
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-barcodeAim.png",
+      "sha256": "76696e6e1d98b2ae3e8da468e69276d69150da2d28a287c17bf46ca12b801627",
+      "bytes": 106488
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-cab.png",
+      "sha256": "6dfe0a992e4a8f634b71e2d39eb9230dd5e85b0d0a4a6c4899cf8d0506038924",
+      "bytes": 191068
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagebridge.png",
+      "sha256": "9b2229d3d5a282f00a489d371b52af3536bc4e657b740395438c5a3383e67275",
+      "bytes": 206864
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagecargo.png",
+      "sha256": "2922f704effb2583caab4de68a3c641de44fb582005fef92e65d2fe9fed118e7",
+      "bytes": 202745
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagefront.png",
+      "sha256": "7308945810cb38c955f78b5b39fc0089f317735768e2287059f6533f6d75b0a9",
+      "bytes": 196882
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damageleft.png",
+      "sha256": "2b2b78c3cc4f5442693d09410e0419334023d3d9ed4f47696e179a5a5e34df86",
+      "bytes": 191881
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagemirror.png",
+      "sha256": "b92c9f04fbedca5f9c995f0b1e65db9f94bff0ef8ac624cf4e561b2a8a7b173c",
+      "bytes": 160793
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damageoverhang.png",
+      "sha256": "a4f62ac76a4505b64fdc0350724bc44996b73d7e4b1fbc9662c73109ab4aedcc",
+      "bytes": 206646
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagerear.png",
+      "sha256": "68caa1d3f3faf831056d35f72b780077bf70a0d24ed2b34cc0cfa70f98c32483",
+      "bytes": 195864
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damagereverseclearance.png",
+      "sha256": "17399c533be06e3d9aeaa220a6be3639dcd12dc25992fe65da9f5d2aee4811a4",
+      "bytes": 226574
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-damageright.png",
+      "sha256": "ff5e764861f6dba6edfa40250cb78d1fb60c962b37fb54529468c3104931c832",
+      "bytes": 189851
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-depot.png",
+      "sha256": "cb62797504170a54f897b75d7009689018d7d65b2a00f4ff1cae241a4df8b29f",
+      "bytes": 165006
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-doorid.png",
+      "sha256": "168e292874aabe6cec0c0b1d0be7d88e1593dadfd7e13fb9bf85be7a70342666",
+      "bytes": 55434
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-doorsignature.png",
+      "sha256": "dfa03ed1a37d31914d2677028e0d8345b1e367841ab1922488708380d9ec3984",
+      "bytes": 38030
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-doorstep.png",
+      "sha256": "9e1cd8740deeecc23ea67d16ff2f77c16dd5f8f80f3111a20dde3232527186a7",
+      "bytes": 37417
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-firstStop.png",
+      "sha256": "56b9784fc5ede58b88e0779093c528c5b4da1100f81e45c5b0482c39aab83e4d",
+      "bytes": 195195
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-handheld.png",
+      "sha256": "5d072a0676e749157a46b620f2cc732cab6f7e0c82259b8e52e0ce4701857fa6",
+      "bytes": 151311
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-laterrearpeak.png",
+      "sha256": "db33a03226d0626d22f9da0df43ce35f067c478fe75c200f317facfd04ceb8f2",
+      "bytes": 252922
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-laterstressturnleft.png",
+      "sha256": "4b5bebf91006817506ac5fa24fb8db66c78f4a1fa69bf71055c0a7915c4f7957",
+      "bytes": 228420
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-lightingnightreverse.png",
+      "sha256": "f15224909e657097a7d5e95720fa76c19a67cbbe45152f3508b264e02293ad3f",
+      "bytes": 230088
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-mirror.png",
+      "sha256": "6aba1d350cb03ed13566229bf6579941e417679da388e0b84ffaade7a0cd6d6f",
+      "bytes": 157983
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-mirrorInterior.png",
+      "sha256": "ce1e82164956b9be25724faa613fc4a955ce199964bc0c923403c9cfbcbbfb1b",
+      "bytes": 197092
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-mirrorRight.png",
+      "sha256": "11b580a4ab679539e2570153fd75b7223b169dc5892d39d585ebd396e9f58cb9",
+      "bytes": 193897
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-navblocked.png",
+      "sha256": "c0634249e2336388f38df3faba2a68f46df3ddd65de778f1cc94054e5c078c68",
+      "bytes": 233971
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-navdouble.png",
+      "sha256": "7f906b2a0de7306fd722d5766e456fc0f10e90d3f39d2a8c2e93f0802be3cf94",
+      "bytes": 225560
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-navfull.png",
+      "sha256": "f2783eb7d2246ddc9bed19405d5a8b5a5196d35c7fac271e4919123134b7acff",
+      "bytes": 191465
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-navline.png",
+      "sha256": "544978d18ce09fed88149619f2e6fc21e2c4ab185a65354219a07132826366d5",
+      "bytes": 191126
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-navreroute.png",
+      "sha256": "5a38fad1cea178bbbeb651008a94d812bc71a9fbbc2412f1f15c520287bdcc2e",
+      "bytes": 195605
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-nightglare.png",
+      "sha256": "1a1dfe1230e32c85c5c09ef5de63b30f36d54c888eda4cb0d436de33c179eb96",
+      "bytes": 189945
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-nightoff.png",
+      "sha256": "a87705e2b4201dd8be36e7569844c7f0d932bafb83e93875e2b59d4ba46dd741",
+      "bytes": 151362
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-nighton.png",
+      "sha256": "1c9f51fa52ff950d3a07e7b56c015801550b9bf71840ec924657efb46520a7e4",
+      "bytes": 180718
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-nightreduced.png",
+      "sha256": "1b82606f21006422008c8c1d222a0d1a72b63a24cbe7e7a3a559399d4355ab28",
+      "bytes": 180944
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-radiocaption.png",
+      "sha256": "1888fca996f831f2d13f1279556bbe490fac1ddb436677699af22e4a62a4bb2d",
+      "bytes": 191982
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-radiocheckin.png",
+      "sha256": "af9b1de4a7dd0fa8d297cb291254db305ea51aca6dc90825d6aaac0076d8fcbb",
+      "bytes": 134288
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-radiopriority.png",
+      "sha256": "54d1897fd175dd339edf3fdd7e4263c818761480b251f0c17d578575e69b122f",
+      "bytes": 142683
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-signsjunction.png",
+      "sha256": "35f4459934e275dd0080b809ab7e27f886afcca1f9d18d5366fbf206ad6b24dd",
+      "bytes": 217766
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-signsnumber.png",
+      "sha256": "5d087dbca583d3291f48dd11461e108ca82fac84d0e9a36a7693838c788f83b5",
+      "bytes": 66260
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-signsoneway.png",
+      "sha256": "cf235e9bde47c3836e927078cf6c46b8c05ef64d0af03f2cbbe7b5bcbe2958ed",
+      "bytes": 181826
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-signspeak.png",
+      "sha256": "2f65f3b0435367a8ac4459d04f81d4aa4d2420787ae85f4a8adabfd6c5bbcdec",
+      "bytes": 95582
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopsgate.png",
+      "sha256": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448",
+      "bytes": 53957
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopsintercom.png",
+      "sha256": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448",
+      "bytes": 53957
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopslockerclosed.png",
+      "sha256": "f8585327a617b250f854e7ca8e5d15cb8132ff3ede73e5d71977e5c63653de90",
+      "bytes": 49287
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopslockeropen.png",
+      "sha256": "e34228e7403c1480464f3899286fa5ef51fe75cfd20382558ac783aefdc3ae50",
+      "bytes": 50905
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopsreception.png",
+      "sha256": "321b3836dcfa025f90a1c0d30c393fd6606c17e6664ef6b02a4a805792eef7b4",
+      "bytes": 49550
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopsretention.png",
+      "sha256": "fb83320de39b6b67133098e650a2788e987c69f4dc2a4f45c97682997f42cd37",
+      "bytes": 28978
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-stopsstresscab.png",
+      "sha256": "a1cf578b5c47c2c211b71678ac6b50b62e5717aa526869cd9f819e758c75d8a1",
+      "bytes": 196773
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-towncab.png",
+      "sha256": "a8cf51621a3647ea72edbf4dc272a5326aae6e58fd6ad47b4ea41c0a6fa45572",
+      "bytes": 204396
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-townhouse.png",
+      "sha256": "24a637d81de6c8ebab5ce897a3d08465f484ddc74fd37e2a0af277df6c91c047",
+      "bytes": 199189
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-townparked-car.png",
+      "sha256": "d16fabaa10c11e9d0d080e49156ac2a7fa0da2d02dcdf06ee91d6c80c95af7ce",
+      "bytes": 205217
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-townroad.png",
+      "sha256": "2728d9f7353bba2df584e45dd280f23d3e83c7eeb260c59ded337677197bbcc3",
+      "bytes": 171031
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficcyclist.png",
+      "sha256": "c19987c864cf14f51784ee386409b3345469125fe39921e66672873a5547e701",
+      "bytes": 240578
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficgreen.png",
+      "sha256": "9e3fda9af9a4e013d8235d7eb0000b7af4b15692eca19d3488831d857f4fc148",
+      "bytes": 239021
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficmirror.png",
+      "sha256": "eb860759e572b8ffccaf1715dc17a537a7d7734ee96daba4d5af763204b08bf4",
+      "bytes": 221540
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficpeak.png",
+      "sha256": "9a8f78014203d49a6c656ec8a57619813447b5d064018785cea1d539a21bafa6",
+      "bytes": 113040
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficschool.png",
+      "sha256": "608af3e3b993707632e3aa5c8536f507e5151bc9e7cb72194e712cc23d7b4221",
+      "bytes": 219937
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-trafficsignal.png",
+      "sha256": "1104754482631277b22ac9d43e4dc0e719170184a2f73158105c0a75b757ddad",
+      "bytes": 237013
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-visibleweathersnowwalk.png",
+      "sha256": "6050d59da4a8f60430a132f72afbf3a2dce813d8d13dd8efb0919a388e4a7dc8",
+      "bytes": 219484
+    },
+    {
+      "path": "c36-accepted-loaded-low-low-visibleweatherstorm.png",
+      "sha256": "6c677a402ef4f1be5791f0710438c63759d3c8d486e0aff920868aabcceceb8d",
+      "bytes": 247725
+    },
+    {
+      "path": "c36-accepted-loaded-low.log",
+      "sha256": "1b810de53aab1d4209a0dbedaca1c3dcb6da4f21ca01961ded8bf967685c9a48",
+      "bytes": 50677
+    },
+    {
+      "path": "c36-accepted-quality.json",
+      "sha256": "c6daced2ac9d2f0495caae570f1f3cc2fa248f2b066deae37b43d0eb311d2086",
+      "bytes": 6444
+    },
+    {
+      "path": "c36-batch-quality.log",
+      "sha256": "5d16252b9672553315a0f4b0a7540b70def0b401b94f43a8c1e8f3e63017c51d",
+      "bytes": 443
+    }
+  ]
+}

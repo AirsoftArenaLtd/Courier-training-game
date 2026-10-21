@@ -56,8 +56,8 @@ Claude's B-98 fixture with reports emitted by these actual modules: one `r0` rad
 response plus the additional leg-zero light check (the existing fixture has legs
 one through five). Successful light checks retain all pins at 3,993/4,000 or
 3,995/4,000 characters. A failed light check with its actual location triggers the
-summary fallback and loses 29 pins on reload, although score is exact. This is a
-merge gate requested from Claude; no shared save implementation or test is edited.
+summary fallback and loses 29 pins on reload, although score is exact. This was the original
+merge gate requested from Claude; no shared save implementation or test was edited.
 [Raw four-case results](review/set-9/c36-progress/c36-save-probe.json).
 
 Claude's shared helper should read and accept the optional call with real keys
@@ -78,3 +78,18 @@ days resume identically through 3,723 checkpoints; one hundred seeded days finis
 and 240 SCORM score round trips peak at 3,868/4,000 characters. All three cases pass.
 [Adapter, original source hash, fixture limits and raw results](review/set-9/c36-journeys/manifest.json).
 This does not replace the separate heavy-day save/pin merge gate above.
+
+## Current-pilot integration, 21 October 2026
+
+Pilot `54d7a63` is combined at `d44c7e6`, including C-35 and B-103. The four-case
+probe now removes B-103's two existing fixture reports before emitting each variant
+through the actual modules. All retain their exact score and all 28 or 29 pins on
+reload, packed at 3,929–3,995 characters. B-103 resolves the failed-light pin loss;
+successful-light variants still leave only five to seven characters, reported to
+Claude. [Probe and initial combined checks](review/set-9/c36-merge/).
+
+The original frozen 183 resource views all passed. The merged 207-view gate and
+shared journeys are being repeated. The prior shared batch passed seven of nine,
+with two Results-to-debrief timeouts. Initial merged tests exposed test bootstraps
+missing the radio modules and an invalid native fixture that bypassed walkaround
+departure. Those fixtures are corrected; production validation remains strict.
