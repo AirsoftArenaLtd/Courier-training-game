@@ -1,0 +1,29 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ low: every ground-level inspection selects a nearby rendered van surface (259.988108ms)
+✖ high: every ground-level inspection selects a nearby rendered van surface (100.265733ms)
+✔ fallback: every ground-level inspection selects a nearby rendered van surface (13.339573ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 480.810738
+
+✖ failing tests:
+
+test at test/fpwalkaroundworld.js:12:48
+✖ high: every ground-level inspection selects a nearby rendered van surface (100.265733ms)
+  AssertionError [ERR_ASSERTION]: rear target floats 0.2975535943454831 m from actor:van
+      at TestContext.<anonymous> (/workspace/c35-walkaround/test/fpwalkaroundworld.js:25:60)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

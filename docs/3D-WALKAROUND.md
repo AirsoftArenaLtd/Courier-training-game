@@ -1,6 +1,6 @@
 # Walkaround and damage report (C-35)
 
-Doing on `codex/c35-walkaround`, retaining pilot `5adcd5b` after merged C-33, C-34 and A-19.
+Doing on `codex/c35-walkaround`, retaining pilot `0b43851` after merged C-33, C-34 and A-19.
 The physical targets, mission/checkpoint adapter, handheld records and B-78 guidance
 are integrated. Final Low/High, inherited browser, resource and shared QA acceptance
 are running; the task remains doing. Three owned modules are loaded by shared index.
@@ -59,7 +59,7 @@ allocation-free hot-path cleanup. Final frozen Low/High runs and the expanded
 
 ## Current-pilot integration and shared QA
 
-C-33 is merged (PR #182). C-35 now retains pilot `5adcd5b`, including its locker
+C-33 is merged (PR #182). C-35 now retains pilot `0b43851`, including its locker
 policy, translations, handheld cleanup and shared workflow changes. The walkaround
 and authorized locker plan coexist in the real launch regression. New native
 walkaround fixtures use returned exception parcels for the completed-route setup;
@@ -117,3 +117,16 @@ Low sequence exceeded 4 MiB at 4,365,312 estimated bytes. The corrected sequence
 passes 321 checks and all 12 guide pages at a peak of 3,880,838 bytes, with unchanged
 fonts, backing dimensions, button sizes and resource ceilings. Sixty-five affected
 Node cases pass. [Failure, inventory, corrected captures and exact scope](review/set-9/c35-memory/manifest.json). Final full acceptance is still running.
+
+## Imported High surfaces and current pilot
+
+Pilot `0b43851` is retained, including Claude's B-93 save/debrief coverage and B-94
+review runner. The High workflow found a rear proxy 0.298 m ahead of the source
+door. A CPU regression then caught its narrower upper wall and wheel arches behind
+the procedural pick shell. The rear and roof now follow actual source geometry;
+the existing cargo handle remains selectable. Only a guarded visible wear target
+can pass the legacy pick shell, with no additional raycast or change to collision
+bounds. All 79 affected cases and 161 final required cases (including B-93), 24
+changed-JS syntax checks and the current catalogue pass. The corrected native
+matrix, geometry sweeps, browser/resource and shared-flow gates are running.
+[Failure, captures and exact evidence scope](review/set-9/c35-surfaces/manifest.json).

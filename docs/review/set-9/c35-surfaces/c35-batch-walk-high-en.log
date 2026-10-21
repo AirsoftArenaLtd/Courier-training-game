@@ -1,0 +1,4 @@
+AssertionError [ERR_ASSERTION]: rear target is not on its visible surface: {"pick":"wear-rear","physical":true,"delta":0.2975535943454831,"mesh":"actor:van"}
+    at aim (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:36:51)
+    at async record (/workspace/c35-walkaround/test/fpwalkaroundbrowser.js:38:36)
+    at async /workspace/c35-walkaround/test/fpwalkaroundbrowser.js:50:170

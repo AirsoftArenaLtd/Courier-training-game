@@ -1,0 +1,27 @@
+{
+  "sourceRevision": "501fb822e0ef82664715f3d67d22afca51e48916",
+  "pilot": "0b43851b0334ae1aa1e1123b5b1dc6830962dd14",
+  "status": "doing; full corrected native/browser/resource/shared checks running",
+  "failureScope": "High English pre-trip rear proxy was 0.297553594 m ahead of actor:van. New CPU fixture reproduces that failure and detects narrower High roof and wheel arches.",
+  "correction": "Actual imported door and reachable roof surfaces; only guarded wear targets may pass the retained procedural pick shell. Cargo handle and closed-door inspection guard retain real paths. No extra draw/pass/target or per-frame raycast.",
+  "results": {
+    "affectedCases": 79,
+    "finalRequiredCasesIncludingB93": 161,
+    "syntaxFiles": 24,
+    "currentCatalogue": "pass; new text awaits Claude extraction/translation"
+  },
+  "sourceSHA256": {
+    "src/core/fpworld.js": "fc60d16343f9b0c2f62215a8ad669bac18028558cf0f6d629896a309ce687257",
+    "src/core/fpdamageworld.js": "85d20025c9445608650aa57fb2a5a6a443a9212be9c757578674b47e65db706d",
+    "test/fpwalkaroundworld.js": "098517811e9213a4958927785ff129c404d094ef0fff1adaf45efc896231fc82"
+  },
+  "files": {
+    "c35-batch-walk-high-en.log": "a27b12cdfa5c4cb764fa83424d77111a9ab93984978254a20ed2440bce03c14d",
+    "c35-release-high-en-walkaround.json": "f6c63b2443e586e149fc8e4ab4882431be7fe3d7adc9000e404c6d775378a582",
+    "c35-final-node.log": "cf273fe6aff6170986d7dff87aca4d42b834be221524680bcea592c810dddbb3",
+    "c35-final-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c35-rear-surface-after.log": "79c773c0b387541e91db1b15582e835ad21605171fcdff1f1bd661eccca5c7f6",
+    "c35-release-high-en-failure.png": "ccca843af930ea70425e1da7d83cd1b4392e7d3826aa98ad45bbede5553a4fb5",
+    "c35-rear-surface-before.log": "f17794fb51d8b70161e4936e50985c77f6e95b59f5fb28ba93cdde0bd050bcfe"
+  }
+}
