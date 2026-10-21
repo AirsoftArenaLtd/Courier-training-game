@@ -4,7 +4,8 @@
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?"
  },
  "gu": {
-  "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct."
+  "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
+  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
  },
  "kn": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct."
@@ -19,5 +20,14 @@
  },
  "fr": {
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?"
+ },
+ "mr": {
+  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
+ },
+ "pa": {
+  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
+ },
+ "ta": {
+  "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground."
  }
 }
