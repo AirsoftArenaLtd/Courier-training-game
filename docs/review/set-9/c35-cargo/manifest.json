@@ -1,0 +1,13 @@
+{
+  "sourceRuntime": "501fb82",
+  "status": "diagnosis confirmed; production correction prepared but not yet applied during frozen resource captures",
+  "failure": "All three qualities select wear-rear when aiming at the cargo-door centre. In the return phase, that leaves cargo closed and its retained parcel hidden, matching Claude's later-day failure.",
+  "proposedOnly": "A temporary VM override moves the rear inspection proxy left to x=-.18 and narrows it to .3. The cargo centre, handle and every inspection surface pass on loaded Low, High and fallback. This is not a claim that the production correction has shipped.",
+  "files": {
+    "c35-cargo-fix.patch": "998cae75d0bc0ec5ead85abe5bd97376f29d3a255f743c8c882e1c4ee05111db",
+    "c35-cargo-centre-before.log": "a746d257c1fc14de22efc37f71f7d4356eb63a44fe81faefea98eb95ba657e62",
+    "fpwalkaroundcargo.tmp.cjs": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
+    "fpwalkaroundcargo-fixed.tmp.cjs": "c1a651cdba7f0f49401749a9670be5f5df043d47a009e57b216a2e27a9024383",
+    "c35-cargo-centre-proposed.log": "dd244b706131563ed55f2e7da61910fb31e8e55d85e30c72485ebe4bc8b46193"
+  }
+}
