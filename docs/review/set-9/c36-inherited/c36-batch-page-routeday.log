@@ -1,0 +1,21 @@
+[QA HTTP transport] http://127.0.0.1:8346/index.html?user=routeday&name=Route%20Tester
+[QA HTTP transport] http://127.0.0.1:8346/index.html?user=routeday&name=Route%20Tester
+ok   the briefing started
+ok   day 4 is a snow day
+ok   a snow day asks what you are wearing
+ok   the right gear is saved with the day
+ok   a dispatch message is planned for stop 1 (signature)
+ok   the drive opened
+ok   the message arrives on the drive to its stop
+ok   the stop itself changed (service or the planter)
+ok   TAB at the wheel with a message waiting is a violation
+ok   P at the curb reads the message
+ok   a break is due after 2.5 hours
+ok   K at the curb: a ten-minute break, on the record ({"breaks":1,"clock":670,"logged":true})
+[QA HTTP transport] http://127.0.0.1:8346/index.html?user=routeday&name=Route%20Tester
+ok   a quit mid-leg resumes where the van was ({"saved":{"x":1438.5742441102539,"mid":true},"back":{"x":1438.8117402754885,"pending":false}})
+ok   the post-trip opened
+ok   the post-trip starts with the incident report (INCIDENT REPORT, FUEL, THE VAN, PACKAGES AND SCANNER)
+ok   no page errors
+
+all route-day checks passed
