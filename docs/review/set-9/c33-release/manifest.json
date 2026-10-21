@@ -1,0 +1,116 @@
+{
+  "status": "doing; complete resource and High workflow evidence; remaining current-pilot acceptance running",
+  "currentSource": "3af37813fe7bd2ec4f212b192b78bf9979112bbc",
+  "retainedPilot": "da7bd3f",
+  "renderRuntime": "220f2bac32f91d76810f9eccecbd48b2ea2c3bd8",
+  "rawGateSource": "2e14cb72973b87fac900c038965cb4df4482007f",
+  "scopes": {
+    "resource": "155 fixed views, four profiles; full native later-day stop/damage/traffic proof, actual missing-model fallback, live mirrors, sound and accessibility. Low limits unchanged.",
+    "high": "608 checks, 24 English/Tamil normal/larger physical stop workflows. Default legacy fixture scope is preserved in the raw report; native authorized lockers are separately archived in c33-policy.",
+    "postGate": "Latest pilot changes 2D modules, shared QA and translations; the 3D source delta is solely the archived US-spelling correction. Repeated current-pilot language/HUD/door/page/workday checks remain running.",
+    "nativeGates": "Seven live-policy Node tests include 160 combined native plans and 53 walking entries, with 33 collision samples after each valid unlock. Model geometry evidence; not a browser travel claim.",
+    "fps": "SwiftShader resource evidence; the native Intel 60 fps check remains O-1."
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 55,
+      "peak": {
+        "calls": 54,
+        "triangles": 2396,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3627158
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": 40,
+      "peak": {
+        "calls": 107,
+        "triangles": 235893,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 9552176
+      }
+    },
+    {
+      "id": "accessible-low",
+      "views": 30,
+      "peak": {
+        "calls": 54,
+        "triangles": 2396,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3783483
+      }
+    },
+    {
+      "id": "fallback-low",
+      "views": 30,
+      "peak": {
+        "calls": 53,
+        "triangles": 2150,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3332672
+      }
+    }
+  ],
+  "evidenceSHA256": {
+    "bench-c33-final-accessible-low-low.json": "3fcc7cae2979870e2b44dc7a4b6979da0f5da95f976034211af3782156521e8d",
+    "bench-c33-final-fallback-low-low.json": "8180a156ae0ca9142a030f2817931a19aa63993fd5938bff7536811dfb908303",
+    "bench-c33-final-loaded-high-high.json": "2f8060b539ed29fd8bf259eabed85e558a36294040be00cef98781ed7b6fdea8",
+    "bench-c33-final-loaded-low-low.json": "9a784e96f8c98f6f11b78601ae908c53f99f887f1759315e7ca4804b908e8ed8",
+    "c33-current-i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c33-final-accessible-low-low-stopsgate.png": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187",
+    "c33-final-accessible-low-low-stopsintercom.png": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187",
+    "c33-final-accessible-low-low-stopslockerclosed.png": "5e766e1d0383f8e5fea655b22fc50057fd6cc350fbe4853c5d626e7b9d0d3eeb",
+    "c33-final-accessible-low-low-stopslockeropen.png": "ad2d9b604a1f6de4cef1c57dd5386c51591c2908cf5a01bfa8f5dbee31597400",
+    "c33-final-accessible-low-low-stopsreception.png": "048118cadef63dcfda96c60ea37c2eafcc85d5a43db48b9b713f53a012435db2",
+    "c33-final-accessible-low-low-stopsretention.png": "df4d0b676c1c15a17bbfa302f43feb83f871d710bf62ab22e6a7f25c05be8131",
+    "c33-final-accessible-low-low-stopsstresscab.png": "4b4176f3af645cdbaaeca5a920b0ae6ff4111d3e0b5fe59d19da294af7cd6131",
+    "c33-final-accessible-low.log": "5d0e768c6f38e39a1e9bdd3621f5f61402eb5954ea0cbfdd169c620246c94c47",
+    "c33-final-browsers.json": "27787760def5c87b0565b430295b54a100327cbf0fe5a1b784f381d2d423e2b2",
+    "c33-final-fallback-low-low-stopsgate.png": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5",
+    "c33-final-fallback-low-low-stopsintercom.png": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5",
+    "c33-final-fallback-low-low-stopslockerclosed.png": "cd88f4502bfd8e5f22a4a71d6b7559b859fa26ec1c473fdbb60e9a1c6b08c37b",
+    "c33-final-fallback-low-low-stopslockeropen.png": "cce0baa8e30af9b0e624441012a3259e84dda6eeecb2b18c4cdf8ba76144654a",
+    "c33-final-fallback-low-low-stopsreception.png": "203c3e68d3f05574f31018cdb17869015e133eec022b80c6afa8c7a92ff395ff",
+    "c33-final-fallback-low-low-stopsretention.png": "2663100a09ddd6c87ca8d4466a1fbe2b552cb938c7b472821dfc960302411d9e",
+    "c33-final-fallback-low-low-stopsstresscab.png": "cd5e860737ec56d54cc85c1fb67277be6251221c1ce02fc67b8e24be341855cc",
+    "c33-final-fallback-low.log": "f831bf7c52ca5ec6d0de840ad95d33f63b72fd9a2e723fd228edaf9816150712",
+    "c33-final-loaded-high-high-stopsgate.png": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8",
+    "c33-final-loaded-high-high-stopsintercom.png": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8",
+    "c33-final-loaded-high-high-stopslockerclosed.png": "4975b1df43f10929bfc2c5e9640296b26e988d793337145e351e7071cf39b2bb",
+    "c33-final-loaded-high-high-stopslockeropen.png": "d1d6e3a295410bcc500e0784b13672b2af5183d0779496e4173fdab57f2a3b99",
+    "c33-final-loaded-high-high-stopsreception.png": "792c1e6307f48eb1942e4d42402cad13a08fc3bb3619b2576afb7b8c940d1eae",
+    "c33-final-loaded-high-high-stopsretention.png": "f384fc2315e589ffff2afa178ee844987904da16cf3678f84c4a293dee7cebc6",
+    "c33-final-loaded-high-high-stopsstresscab.png": "fe6aeeeadacf04473f1dc452378587f00557e2529b027097b8e2796d16d743a6",
+    "c33-final-loaded-high.log": "9028df0b8b983080a7f57ddc4f2c89035a0bd7b97318cf1bae4a0ed31bb788ab",
+    "c33-final-loaded-low-low-stopsgate.png": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448",
+    "c33-final-loaded-low-low-stopsintercom.png": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448",
+    "c33-final-loaded-low-low-stopslockerclosed.png": "f8585327a617b250f854e7ca8e5d15cb8132ff3ede73e5d71977e5c63653de90",
+    "c33-final-loaded-low-low-stopslockeropen.png": "e34228e7403c1480464f3899286fa5ef51fe75cfd20382558ac783aefdc3ae50",
+    "c33-final-loaded-low-low-stopsreception.png": "321b3836dcfa025f90a1c0d30c393fd6606c17e6664ef6b02a4a805792eef7b4",
+    "c33-final-loaded-low-low-stopsretention.png": "fb83320de39b6b67133098e650a2788e987c69f4dc2a4f45c97682997f42cd37",
+    "c33-final-loaded-low-low-stopsstresscab.png": "a1cf578b5c47c2c211b71678ac6b50b62e5717aa526869cd9f819e758c75d8a1",
+    "c33-final-loaded-low.log": "4e0653521a947b545e6cbc5d10a1277dbf37a45213eeb48c7d09e2b9ad1756e1",
+    "c33-final-native-gates-node.log": "cecd733c1f7a29446119f9304d7cba9bff1fcdac691b39bfa745259dabe052dd",
+    "c33-final-quality.json": "c12f5891f32a55e1d61e7e7136023e2320bda6411bb7ce0084b6adcfbd28171e",
+    "c33-final-quality.log": "be20d9bde11478f2303cd190b132825a7cf8ec52b2cfc86273ad58eb87753fc3",
+    "c33-final-stops-high.log": "92d70a9659f1de303e4de134adcc1c917e006667731aa7297d7e01fd188633d5",
+    "c33-final-syntax.json": "876655fab4178d0d33e34f9fb466ae933317cba5ad1db527c7604b25bf0776bc",
+    "c33-post-gate-text-only.patch": "85b4db2d58c8d8d7d7925f0ad42f0cfed8e168f7e0535bafd8ceeef0b1ec899a",
+    "c33-post-text-node.log": "4c4b38b1acae99be9094f0205e2e6837a0a3edfe9b3ffa8a98836fa67050f450",
+    "c33-stops-high-final-en-large-gated.png": "acf7bb73d7851f1d4033bc94ba005f70b7a44d24c74f7555846efa000a095202",
+    "c33-stops-high-final-en-large-intercom.png": "4cae9cebed1a83358bb9886bce116c2ba27fafdb741fada8998cbc458a1d6808",
+    "c33-stops-high-final-en-large-locker-open.png": "475664152e50dca54c6eaeb5d3ed6b529de7eccfa73cb519533c6b32e0545384",
+    "c33-stops-high-final-en-large-reception-resident.png": "90f115fcde6ebe964938243c523bb86a125ec3187f9f89ab7a2b1db46335369a",
+    "c33-stops-high-final-stops.json": "ee6a91d30696323b4d4c2d98de3b5745ac92e857daef559849cfd643b1cdaacc",
+    "c33-stops-high-final-ta-large-gated.png": "be6a8e542cfe9179d50ac52d8372c88612c247ad5dbec713d1bd85d687834d35",
+    "c33-stops-high-final-ta-large-intercom.png": "843d067b3c2c79972f305e69be9807ce4c10e8a6f900140664a4b6f61be21d7e",
+    "c33-stops-high-final-ta-large-locker-open.png": "94f50418eb555d7f54ac67b30645e122dae1c55179915e56f6ad8d7bcf4b5d02",
+    "c33-stops-high-final-ta-large-reception-resident.png": "b25f2f3e47b83a5ba18d160697bc3171aa15e5e06c7e099214d4797159dc4751"
+  }
+}

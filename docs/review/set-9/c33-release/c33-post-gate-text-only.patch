@@ -1,0 +1,239 @@
+diff --git a/src/core/fpstopscene.js b/src/core/fpstopscene.js
+index bb7bdac..906665e 100644
+--- a/src/core/fpstopscene.js
++++ b/src/core/fpstopscene.js
+@@ -146,7 +146,7 @@ OTR.fpStopScene={
+   reattempt(scene,id){
+     const m=scene.model;if(!OTR.fpStopFlow.can(m,id))return;const a=m._deliverySpecs[id].reattempt,d=m.deliveryStops.stops[id].reattempt;
+     const blocked=OTR.fpStopFlow.beginException(m,id);scene.checkpoint();if(blocked){scene.showPanel('Attempt contact first.',blocked,[{label:'Return to the delivery controls.',action:()=>this.show(scene,id)},{label:'Wait on the street.',action:()=>scene.closePanel()}],{accessibleText:true});return;}
+-    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorised handover is unavailable.':'The required recipient is absent.';
++    const reason=a.reason==='address'?'The label does not match the address.':a.reason==='id'?'The required photo ID is not valid.':a.reason==='dispatch'?'The updated dispatch instruction requires retention.':a.reason==='access'?'Safe access or an authorized handover is unavailable.':'The required recipient is absent.';
+     const choices=!d.card?[{label:'Leave a delivery attempt card.',action:()=>this.do(scene,id,'reattempt.card',null,false,'reattempt')}]:!d.retained?[
+       {label:'Record this retention reason.',action:()=>this.do(scene,id,'reattempt.retain',a.reason,false,'reattempt')},
+       {label:'Record an unrelated reason.',action:()=>this.do(scene,id,'reattempt.retain','other',false,'reattempt')}
+diff --git a/src/scenes/m1/PreTripScene.js b/src/scenes/m1/PreTripScene.js
+index 055f427..ece1335 100644
+--- a/src/scenes/m1/PreTripScene.js
++++ b/src/scenes/m1/PreTripScene.js
+@@ -73,6 +73,24 @@ class PreTripScene extends BaseScenarioScene {
+     ['keydown-LEFT', 'keydown-A'].forEach(k => OTR.onKey(this, k, walk(-1)));
+     ['keydown-RIGHT', 'keydown-D'].forEach(k => OTR.onKey(this, k, walk(1)));
+     OTR.onKey(this, 'keydown-L', () => { if (this.running && this.view === 'cab' && !(this._openModals > 0)) this.toggleLights(); });
++    // B-79: the marked items without a mouse: Tab (Shift+Tab back) steps through this view's items and then Sign off, as
++    // the pointer shows them; Enter opens the item (or signs off). The arrows and A / D still walk round the truck.
++    const free = () => this.running && !this.scene.isPaused() && !(this._openModals > 0);
++    OTR.onKey(this, 'keydown-TAB', (e) => {
++      if (!free()) return;
++      if (e && e.preventDefault) e.preventDefault();
++      const stops = this.keyStops();
++      if (!stops.length) return;
++      const at = stops.indexOf(this.keyAt), back = !!(e && e.shiftKey);
++      this.keyAt = at < 0 ? stops[back ? stops.length - 1 : 0] : stops[(at + (back ? -1 : 1) + stops.length) % stops.length];
++      this.showKeyFocus();
++    });
++    OTR.onKey(this, 'keydown-ENTER', () => {
++      if (!free() || !this.keyAt) return;
++      if (this.keyAt === 'sign') { if (this.signBtn.enabled) this.signBtn.press(); return; }
++      const it = this.content.items.find(i => i.id === this.keyAt);
++      if (it) this.inspect(it);
++    });
+     OTR.txt(this, 52, OTR.H / 2 + 52, 'A / ←', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintL');
+     OTR.txt(this, OTR.W - 52, OTR.H / 2 + 52, 'D / →', 12, OTR_DATA.theme.css('tint'), { weight: '900', stroke: OTR_DATA.theme.css('primaryDeep'), strokeW: 4 }).setDepth(820).setScrollFactor(0).setName('hintR');
+   }
+@@ -84,6 +102,34 @@ class PreTripScene extends BaseScenarioScene {
+     this.showView('cab');
+   }
+ 
++  /** What Tab steps through (B-79): this view's marked items, then Sign off once it can be pressed. */
++  keyStops() {
++    const out = (this.content.items || []).filter(it => it.view === this.view && this.viewGeom && this.viewGeom.V.spots[it.id]).map(it => it.id);
++    if (this.signBtn && this.signBtn.enabled) out.push('sign');
++    return out;
++  }
++
++  /** Shows where the keyboard is, as the pointer does: a ring round the item and its name (or round Sign off). */
++  showKeyFocus() {
++    if (this.keyRing) { this.keyRing.destroy(); this.keyRing = null; }
++    this.hideTip();
++    if (!this.keyAt) return;
++    let x, y, r = 32;
++    if (this.keyAt === 'sign') { x = this.signBtn.x; y = this.signBtn.y; r = 0; }
++    else {
++      const G = this.viewGeom, s = G && G.V.spots[this.keyAt];
++      if (!s) return;
++      x = G.left + s[0] * G.V.w * G.scale; y = G.top + s[1] * G.V.h * G.scale;
++      const it = this.content.items.find(i => i.id === this.keyAt);
++      if (it) this.showTip(it.name, x, y - 40);
++    }
++    const g = this.add.graphics().setDepth(830).setScrollFactor(0);
++    g.lineStyle(4, 0xFFFFFF, 1);
++    if (r) g.strokeCircle(x, y, r); else g.strokeRoundedRect(x - 116, y - 30, 232, 60, 14);
++    if (r) this.spotLayer.add(g);
++    this.keyRing = g;
++  }
++
+   viewButton(x, label, onClick) {
+     const c = this.add.container(x, OTR.H / 2).setDepth(820).setScrollFactor(0);
+     const g = OTR.tex.shape(this, (g) => {
+@@ -136,6 +182,8 @@ class PreTripScene extends BaseScenarioScene {
+     // hotspots (a ring destroyed under the pointer never gets its pointerout, so drop its tooltip here)
+     this.hideTip();
+     this.spotLayer.removeAll(true);
++    if (this.keyRing && this.keyRing.active) this.keyRing.destroy();   // the keyboard starts again on a new view (B-79)
++    this.keyRing = null; this.keyAt = null;
+     const items = C.items.filter(it => it.view === id);
+     const left = this.truckImg.x - V.w * scale / 2, top = this.truckImg.y - V.h * scale / 2;
+     this.viewGeom = { V, scale, left, top };
+@@ -259,7 +307,7 @@ class PreTripScene extends BaseScenarioScene {
+         note.setText(
+           needs === 'lights' && !this.lights ? 'Switch the lights on in the cab before you judge a lamp.'
+             : needs === 'press' && !state.pressed ? (item.kind === 'horn' ? 'Press the horn to test it.' : item.kind === 'pedal' ? 'Press and hold the brake.' : item.kind === 'door' ? 'Pull on the latch to test it.' : 'Pull the belt out and check the webbing.')
+-              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread. Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
++              : needs === 'gauge' && !state.gauged ? 'Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32" on a steer (front) tire, 2/32" on the others.'
+                 : needs === 'gauge' ? `${readNote()}  (Minimum: 4/32" front, 2/32" rear.)`
+                   : item.kind === 'pedal' && state.moving ? 'Holding steady pressure: watch the pedal.'
+                     : ''
+@@ -310,6 +358,9 @@ class PreTripScene extends BaseScenarioScene {
+         this.input.setDraggable(g);
+         // dragX/dragY already arrive in the parent container's space
+         g.on('drag', (p, dx, dy) => { g.x = dx; g.y = dy; });
++        // G puts it on the tread from the keyboard (B-79): the inner half, then the outer half, then the inner again
++        const gKey = OTR.onKey(this, 'keydown-G', () => { if (!g.active) return; g.x = g.x < 0 && state.gauged ? 110 : -110; g.y = -40; g.emit('dragend'); });
++        g.once('destroy', () => this.input.keyboard && this.input.keyboard.off('keydown-G', gKey));
+         g.on('dragend', () => {
+           const onTread = Math.abs(g.x) < 220 && g.y < 90 && g.y > -210;
+           if (!onTread) {
+diff --git a/src/scenes/m1/RoutePlannerScene.js b/src/scenes/m1/RoutePlannerScene.js
+index 23ef162..f895aab 100644
+--- a/src/scenes/m1/RoutePlannerScene.js
++++ b/src/scenes/m1/RoutePlannerScene.js
+@@ -7,6 +7,7 @@
+  *
+  * Plan  -> click stops in order (map pin or manifest card); click a sequenced stop to pull it back out.
+  * Dispatch -> the van drives your plan on the map with the clock running, stamping each stop.
++ * Keyboard (B-83) -> Tab or the arrows move a ring over the manifest cards and buttons, Enter presses it; Backspace undoes.
+  */
+ class RoutePlannerScene extends BaseScenarioScene {
+   constructor() { super('RoutePlannerScene'); }
+@@ -40,6 +41,18 @@ class RoutePlannerScene extends BaseScenarioScene {
+ 
+     this.buildMap();
+     this.buildPanel();
++    // B-83: the manifest without a mouse. Tab (and the arrows) move a ring over the cards, then Undo, Clear and DISPATCH;
++    // Enter presses what it is on, so a card is picked (or pulled back out) as a click does
++    this.keyItems = [];
++    this.keyFocus = OTR.ui.focus(this, this.keyItems, { tab: true, start: 0 });
++    // the ring on a card lights its pin and shows its tip, as the pointer does, so the keyboard sees where each stop is
++    OTR.onKey(this, 'keydown', () => {
++      const c = this.keyFocus.current(), now = c && c.stopId && this.state === 'plan' ? c.stopId : 0;
++      if (now === this.keyStop) return;
++      if (this.keyStop && this.cards[this.keyStop]) this.hoverStop(this.keyStop, false);
++      this.keyStop = now;
++      if (now) this.hoverStop(now, true);
++    });
+ 
+     this.introCard(C.intro.title, C.intro.lines, () => this.nextRound(), { h: 470 });
+   }
+@@ -171,7 +184,7 @@ class RoutePlannerScene extends BaseScenarioScene {
+     this.warnText = OTR.txt(this, P.x + 22, P.y + 438, '', 12, '#FFB020', { ox: 0, oy: 0, weight: '900', wrap: P.w - 44, lineSpacing: 2 }).setDepth(3);
+ 
+     this.undoBtn = OTR.ui.button(this, P.x + 74, P.y + P.h - 34, 'Undo', () => this.undo(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_undo', fontSize: 15, key: 'BACKSPACE' }).setDepth(2);
+-    this.clearBtn = OTR.ui.button(this, P.x + 186, P.y + P.h - 34, 'Clear', () => this.clearRoute(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_trash', fontSize: 15 }).setDepth(2);
++    this.clearBtn = OTR.ui.button(this, P.x + 186, P.y + P.h - 34, 'Clear all', () => this.clearRoute(), { w: 104, h: 44, skin: 'ghost', icon: 'ic_trash', fontSize: 15 }).setDepth(2);
+     this.dispatchBtn = OTR.ui.button(this, P.x + 336, P.y + P.h - 34, 'DISPATCH', () => this.confirmDispatch(), { w: 176, h: 50, skin: 'orange', fontSize: 18, key: 'ENTER' }).setDepth(2);
+     this.dispatchBtn.setEnabled(false);
+   }
+@@ -585,6 +598,10 @@ class RoutePlannerScene extends BaseScenarioScene {
+       this.cardLayer.add(c);
+       this.cards[s.i] = { c, g, hl, seq, seqText, eta, w, h };
+     });
++    // what Tab steps through (B-83): the cards in manifest order, then the buttons under them
++    this.keyItems.length = 0; this.keyStop = 0;
++    this.stops.forEach(s => { const c = this.cards[s.i].c; c.setSize(this.cards[s.i].w, this.cards[s.i].h); c.stopId = s.i; c.press = () => this.toggleStop(s.i); this.keyItems.push(c); });
++    this.keyItems.push(this.undoBtn, this.clearBtn, this.dispatchBtn);
+   }
+ 
+   commitText(s) {
+diff --git a/src/scenes/m6/LoadingScene.js b/src/scenes/m6/LoadingScene.js
+index 28ba94f..6ed8d38 100644
+--- a/src/scenes/m6/LoadingScene.js
++++ b/src/scenes/m6/LoadingScene.js
+@@ -526,7 +526,7 @@ class LoadingScene extends BaseScenarioScene {
+     this.panelBody.add(OTR.txt(this, px, 206, `${p.number} ${p.street}`, 26, '#ffffff', { weight: '900', align: 'center', wrap: 300 }));
+     if (p.unit) this.panelBody.add(OTR.txt(this, px, 242, `Unit ${p.unit}`, 20, '#FFC83D', { weight: '900' }));
+     this.panelBody.add(OTR.txt(this, px, 278, p.to, 17, OTR_DATA.theme.css('tint'), { bold: false }));
+-    this.panelBody.add(OTR.txt(this, px, 326, 'Click the matching package in the truck', 14, '#8FD3FF', { align: 'center', wrap: 300, bold: false }));
++    this.panelBody.add(OTR.txt(this, px, 326, 'Click the matching package in the truck, or use the arrow keys and Enter', 14, '#8FD3FF', { align: 'center', wrap: 300, bold: false }));
+     this.roundTimerText = OTR.txt(this, px, 396, '0.0s', 34, '#FFC83D', { weight: '900' });
+     this.panelBody.add(this.roundTimerText);
+     this.hintText.setText('');
+diff --git a/src/scenes/m7/PickupScene.js b/src/scenes/m7/PickupScene.js
+index 08116c3..80ad252 100644
+--- a/src/scenes/m7/PickupScene.js
++++ b/src/scenes/m7/PickupScene.js
+@@ -5,6 +5,8 @@
+  *
+  * The pieces are staged on the floor in front of the counter, the shipper stands behind it, and the courier
+  * comes in from the left. Each piece is decided once: what you accept or refuse at the counter is final.
++ * Keyboard (B-84): Tab or the arrows move a ring over the pieces and the panel's buttons, Enter counts or inspects the
++ * piece it is on (showing its label, as hovering does); on the invoice the arrows reach each line and Enter marks it.
+  */
+ class PickupScene extends BaseScenarioScene {
+   constructor() { super('PickupScene'); }
+@@ -26,6 +28,15 @@ class PickupScene extends BaseScenarioScene {
+ 
+     this.buildWorld();
+     this.buildPanel();
++    // B-84: the pieces and the panel without a mouse (they could only be clicked)
++    this.keyFocus = OTR.ui.focus(this, this.keyItems, { tab: true, start: 0 });
++    OTR.onKey(this, 'keydown', () => {
++      const c = this.keyFocus.current(), p = c && c.piece && this.running && !this.talkCtl ? c.piece : null;
++      if (p === this.keyPiece) return;
++      if (this.keyPiece) { this.pieceImgs[this.keyPiece.id].clearTint(); this.unhover(this.keyPiece); }
++      this.keyPiece = p;
++      if (p) { c.setTint(0xFFE3C8); this.hover(p, c); }
++    });
+     this.showPanel(false);          // the manifest comes up after the shipper has spoken (it showed its steps behind the card)
+     this.hud({ score: false, timer: true });
+ 
+@@ -81,6 +92,7 @@ class PickupScene extends BaseScenarioScene {
+       img.on('pointerover', () => { img.setTint(0xFFE3C8); this.hover(p, img); });
+       img.on('pointerout', () => { img.clearTint(); this.unhover(p); });
+       img.on('pointerup', () => this.clickPiece(p));
++      img.piece = p; img.press = () => this.clickPiece(p);
+       this.pieceImgs[p.id] = img;
+       const badge = this.add.container(x + w / 2 + w * 0.28, floorY - img.displayHeight + 4).setDepth(29).setVisible(false);
+       const g = OTR.tex.shape(this, (g) => { g.fillStyle(0x2BC48A, 1); g.fillCircle(0, 0, 14); });
+@@ -149,6 +161,7 @@ class PickupScene extends BaseScenarioScene {
+   refreshPanel() {
+     const px = this.px, C = this.content;
+     this.panel.removeAll(true);
++    this.keyPiece = null;
+     const add = (o) => { this.panel.add(o); return o; };
+     add(OTR.txt(this, px, 116, 'PICKUP MANIFEST', 15, OTR_DATA.theme.css('accentLight'), { weight: '900' }));
+     add(OTR.txt(this, px - 132, 152, `Account: ${(C.place && C.place.sign) || ''}`, 14, OTR_DATA.theme.css('tint'), { ox: 0, bold: false }));
+@@ -185,6 +198,11 @@ class PickupScene extends BaseScenarioScene {
+       fin.setEnabled(decidedN === this.pieces.length && (!C.docs || this.docDone) && !this.finishing);
+       add(fin);
+     }
++    // what the keyboard ring steps through: the pieces left to right, then the panel's buttons
++    this.keyItems = this.keyItems || [];
++    this.keyItems.length = 0;
++    this.pieces.forEach(p => this.keyItems.push(this.pieceImgs[p.id]));
++    this.panel.list.forEach(o => { if (o.press && o.bg) this.keyItems.push(o); });
+   }
+ 
+   /** Hovering a piece lifts its label up above it, where it can be read. */
+@@ -419,8 +437,11 @@ class PickupScene extends BaseScenarioScene {
+           row.add(OTR.txt(this, -w / 2 + 300, 0, f.value, 15, OTR_DATA.theme.css('primaryDark'), { ox: 0, weight: '900' }));
+           if (!readOnly) {
+             const hit = this.add.zone(0, 0, w - 100, 34).setInteractive({ useHandCursor: true });
+-            hit.on('pointerup', () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); });
++            const flip = () => { flags[i] = !flags[i]; draw(); OTR.audio.play(flags[i] ? 'beep' : 'click'); };
++            hit.on('pointerup', flip);
+             row.add(hit);
++            // B-84: the modal's keyboard ring takes anything with press() and bg, so the arrows reach every line
++            row.setSize(w - 100, 34); row.press = flip; row.bg = rg; row.line = i;
+           }
+           box.add(row);
+           y += 40;

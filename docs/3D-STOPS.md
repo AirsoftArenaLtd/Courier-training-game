@@ -126,7 +126,7 @@ successful checks. Existing-catalogue points remain entirely in the shared workd
 The [current evidence](review/set-9/c33.md) separates pre-damage policy validation from
 the combined pilot. Native Low and High locker matrices each pass 144 checks before the
 pilot rebase. Nineteen targeted suites pass 299 Node cases plus current-catalogue i18n;
-the six live-locker cases now also restore merged damage state. A font regression covers
+the original six live-locker cases also restore merged damage state. A seventh current case checks 53 native gated entries across 160 navigation/damage plans, including the locked barrier and 33 clear footprint samples after every valid unlock. A font regression covers
 all nine Indic language mappings and unchanged English/Spanish/French styles. Fresh Low
 Tamil normal/larger locker runs pass 72 checks and show correct glyphs.
 
@@ -134,7 +134,7 @@ The first combined loaded sweep exposed 2,510 triangles at day 21 / variant 10, 
 cargo exterior. The reduced decoration allowance passes the focused 960-view regression
 at 56 calls / 2,433 triangles. The full loaded sweep then passes 285,600 views at 60 calls / 2,443 triangles.
 Fallback also passes 285,600 views at 59 calls / 2,181 triangles.
-The updated 155-view rendered gate remains required; no ceiling is raised. Cloud FPS cannot certify the
+The full 155-view rendered gate passes all four profiles; no ceiling is raised. Cloud FPS cannot certify the
 native Intel 60 fps floor (existing O-1).
 
 Claude has been asked in the board inbox to extend the shared workday helper for the

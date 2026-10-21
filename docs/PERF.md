@@ -781,7 +781,7 @@ really failed model loads. Final fixed-view and High workflow acceptance is outs
 Evidence, source scopes and commands: `docs/review/set-9/c33.md`. Cloud SwiftShader is
 resource evidence; native Intel 60 fps remains O-1.
 
-## C-33 complete resource gate (20 October 2026)
+## C-33 historical 101-view resource gate (20 October 2026)
 
 The full 101-view `test/fpquality.js` gate passes at source `1e1c0db`, runtime
 `b1d01d6`, superseding the earlier focused 28-view resource sample. Physical stops,
@@ -796,36 +796,40 @@ model files are checked. All profiles have zero browser errors and no lost conte
 | fallback-low | 18 | 52 | 2,108 | 2 | 3,557,376 | 2,910,528 |
 
 All ceilings are unchanged. Cloud SwiftShader checks resources, not native Intel
-60 fps (the existing O-1 owner check). The live locker policy and remaining gameplay
-browser validation still keep C-33 blocked, not ready for merge.
+60 fps (the existing O-1 owner check). At that revision, locker policy and gameplay
+validation were unresolved. Current policy and acceptance follow below.
 [Raw reports, all 101 screenshots and source/evidence hashes](review/set-9/c33-complete/manifest.json).
 
 Reproduce sequentially: `QA_BASE=http://127.0.0.1:8339 QA_TAG=c33-complete node test/fpquality.js`.
 
-## C-33 current-pilot integration (20 October 2026, in progress)
+## C-33 combined resource gate (21 October 2026)
 
-C-33 is rebased onto pilot `743fe0e`, including merged damage and traffic. The first
-combined loaded sweep exposed **2,510 triangles**, exceeding Low's 2,500 ceiling, at
-day 21 / variant 10 / loaded cargo exterior. The reduced decorative town allowance
-(60 triangles on combined damage/stop days, 120 on other marked days) passes the
-focused 960-view regression at **56 calls / 2,433 triangles**. The full **285,600-view loaded sweep** then passes at **60 calls / 2,443 triangles**.
-The full fallback sweep also passes **285,600 views at 59 calls / 2,181 triangles**.
-The updated **155-view** rendered gate remains; no ceiling is raised.
+All **155 rendered views** pass in four profiles: native authorized later-day delivery
+fixtures, located damage, traffic/navigation, live mirror pixels, running sound,
+larger text/colour/reduced motion and actual missing-model fallback. No missing view,
+page error or lost context occurs. The measured runtime is `220f2ba`; the current branch
+retains pilot `da7bd3f` and its only later 3D-source change is one US-spelling correction.
 
-Before merged damage, policy source `bb20661` passes 264,000 views each: loaded
-61 calls / 2,494 triangles and fallback 57 / 2,184. Those figures and the historical
-101-view gate do not certify the combined pilot. The font fix keeps Low 1x/High 2x
-backing resolution and selects script glyphs before layout. Fresh Low Tamil lockers
-pass 72 normal/larger checks. Current evidence/scopes: [C-33 review](review/set-9/c33.md)
-and [manifest](review/set-9/c33-policy/manifest.json). Native Intel 60 fps remains O-1.
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes, mipmap estimate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 55 | 54 | 2,396 | 2 | 3,557,376 | 3,627,158 |
+| loaded-high | 40 | 107 | 235,893 | 3 | 11,239,424 | 9,552,176 |
+| accessible-low | 30 | 54 | 2,396 | 2 | 3,557,376 | 3,783,483 |
+| fallback-low | 30 | 53 | 2,150 | 2 | 3,557,376 | 3,332,672 |
 
-### C-33 sign placement and dash mount (20 October, validation continuing)
+The repeated full CPU sweeps each cover **285,600 complete-frame views**: loaded
+**60 calls / 2,443 triangles**, fallback **59 / 2,181**. A combined pre-fix view failed
+at 2,510 triangles. Decorative town geometry is reduced to 60 triangles on combined
+damage/stop days (120 on other marked days); High retains its detail. No resource
+ceiling is raised. All cargo, damage zones, clearance posts, cab, camera, mirrors,
+weather, lighting, actors and traffic remain present.
 
-The latest `a2fe57b` integration keeps the 3D render inputs at `fc95b34`. Repeated
-285,600-view sweeps pass at loaded **60 calls / 2,443 triangles** and fallback **59 /
-2,181**. The subsequent `220f2ba` delta is Phaser-only label placement and tests.
-Labels use the existing five-slot pool, wrap at readable sizes, clear sign heads and
-reserve the working dashboard. Sat nav/rear camera share a lower/right physical mount,
-and the shifter remains visible. All 240 Low sign approaches pass across 12 languages
-and both text sizes. Full rendered resource/text-memory acceptance remains the updated
-155-view gate; no resource ceiling or native-FPS claim changes. See [C-33 UI evidence](review/set-9/c33-ui/manifest.json).
+The 24 High English/Tamil normal/larger physical stop workflows pass **608 checks**.
+The existing 240 sign-layout and 540 larger-text language checks retain their recorded
+sources. Current-pilot language/text-memory, HUD, doorstep, page-opening and shared
+workday acceptance are still running; this resource pass alone does not mark C-33 ready.
+
+The older 101-view gate and pre-damage sweeps above belong to their original sources.
+[Current review and remaining checks](review/set-9/c33.md),
+[raw reports, captures and hashes](review/set-9/c33-release/manifest.json).
+Cloud SwiftShader verifies resources; native Intel 60 fps remains O-1.
