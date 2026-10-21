@@ -3868,7 +3868,14 @@ window.OTR_I18N.gu = {
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "બરાબર જોવા માટે નિશાનીવાળા ભાગ પર ક્લિક કરો, અથવા Tab અને Enter દબાવો. નક્કી કરો: પાસ (P), કે ખામી નોંધો (F).",
 "Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "ખાંચા માપકને ટાયરના ખાંચા પર ખેંચો, અથવા G દબાવો (બીજા અડધા ભાગ માટે ફરી દબાવો). લઘુતમ: સ્ટિયર (આગળના) ટાયર પર 4/32\", બાકીના પર 2/32\".",
 "No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "માઉસ નથી? Tab અથવા તીર કી વડે સ્ટોપ પર જાઓ, Enter તેને પસંદ કરે છે અથવા પાછું કાઢે છે. Backspace છેલ્લું પગલું રદ કરે છે; પછી Tab વડે રવાના કરો પર જાઓ.",
-"Click the matching package in the truck, or use the arrow keys and Enter": "ટ્રકમાં મેળ ખાતા પેકેજ પર ક્લિક કરો, અથવા તીર કી અને Enter વાપરો"
+"Click the matching package in the truck, or use the arrow keys and Enter": "ટ્રકમાં મેળ ખાતા પેકેજ પર ક્લિક કરો, અથવા તીર કી અને Enter વાપરો",
+"A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint, or Tab and Enter · T test it · G tread gauge · P pass · F flag a defect": "A / D (અથવા ← →) ટ્રકની આસપાસ ચાલો · C ચડો અને ઊતરો · L લાઇટ · તપાસ બિંદુ પર ક્લિક કરો, અથવા Tab અને Enter · T ચકાસો · G ખાંચા માપક · P બરાબર · F ખામી નોંધો",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear to fix. Dispatch when the manifest is sequenced.": "સ્ટૉપ પર ક્લિક કરો — નકશા પર કે યાદીમાં — અથવા Tab થી ત્યાં જઈ Enter દબાવો, રૂટમાં ઉમેરવા; ફરી કરો કાઢવા. સુધારવા પૂર્વવત્ કરો (Backspace) / ચોખ્ખું. યાદી ક્રમમાં ગોઠવાય પછી ડિસ્પેચ કરો.",
+"Click each piece (or Tab and Enter) to count it, then again to inspect it · A accept · R refuse, 1-5 for the reason": "ગણવા દરેક નંગ પર ક્લિક કરો (અથવા Tab અને Enter), પછી તપાસવા ફરી · સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
+"Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "શિપમેન્ટ અટકાવે એવી ઇન્વૉઇસ લાઇનો પર ક્લિક કરો (અથવા એરો કી અને Enter) · પછી દરેક નંગ તપાસો (Tab અને Enter): સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
+"Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "તપાસવા દરેક નંગ પર ક્લિક કરો (અથવા Tab અને Enter) · સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
+"Clear all": "બધું ભૂંસો",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "સ્ટૉપ પર ક્લિક કરો — નકશા પર કે યાદીમાં — અથવા Tab થી ત્યાં જઈ Enter દબાવો, રૂટમાં ઉમેરવા; ફરી કરો કાઢવા. સુધારવા પૂર્વવત્ કરો (Backspace) / બધું ભૂંસો. યાદી ક્રમમાં ગોઠવાય પછી ડિસ્પેચ કરો."
 },
 "templates": [
 [

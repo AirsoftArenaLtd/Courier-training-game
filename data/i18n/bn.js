@@ -3869,7 +3869,14 @@ window.OTR_I18N.bn = {
 "Click a marked item, or press Tab and Enter, to get a proper look at it. Decide: pass it (P), or flag the defect (F).": "চিহ্নিত জিনিস ভালো করে দেখতে তাতে ক্লিক করুন, অথবা Tab ও Enter চাপুন। সিদ্ধান্ত নিন: পাস (P), নাকি ত্রুটি চিহ্নিত (F)।",
 "Drag the tread gauge onto the tread, or press G (again for the other half). Minimum: 4/32\" on a steer (front) tire, 2/32\" on the others.": "খাঁজ মাপার যন্ত্রটি টায়ারের খাঁজে টেনে আনুন, অথবা G চাপুন (অন্য অর্ধেকের জন্য আবার চাপুন)। সর্বনিম্ন: স্টিয়ার (সামনের) টায়ারে 4/32\", বাকিগুলোতে 2/32\"।",
 "No mouse? Tab or the arrow keys move to a stop and Enter picks it or pulls it back out. Backspace undoes; Tab on to DISPATCH.": "মাউস নেই? Tab বা তীর কী দিয়ে একটি স্টপে যান, Enter চাপলে সেটি বেছে নেওয়া হয় বা আবার সরিয়ে দেওয়া হয়। Backspace আগের ধাপ ফিরিয়ে দেয়; তারপর Tab দিয়ে পাঠান-এ যান।",
-"Click the matching package in the truck, or use the arrow keys and Enter": "ট্রাকে মিলে যাওয়া প্যাকেজে ক্লিক করুন, অথবা তীর কী ও Enter ব্যবহার করুন"
+"Click the matching package in the truck, or use the arrow keys and Enter": "ট্রাকে মিলে যাওয়া প্যাকেজে ক্লিক করুন, অথবা তীর কী ও Enter ব্যবহার করুন",
+"A / D (or ← →) walk round the truck · C climb in and out · L lights · click a checkpoint, or Tab and Enter · T test it · G tread gauge · P pass · F flag a defect": "A / D (বা ← →) ট্রাকের চারপাশে হাঁটুন · C ওঠা-নামা · L আলো · পরীক্ষার জায়গায় ক্লিক করুন, বা Tab ও Enter · T পরখ করুন · G খাঁজ মাপার যন্ত্র · P ঠিক আছে · F ত্রুটি চিহ্নিত করুন",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear to fix. Dispatch when the manifest is sequenced.": "একটা স্টপে ক্লিক করুন — মানচিত্রে বা তালিকায় — বা Tab দিয়ে সেখানে গিয়ে Enter চাপুন, রুটে যোগ করতে; আবার করুন সরাতে। ঠিক করতে পূর্বাবস্থায় ফেরান (Backspace) / পরিষ্কার। তালিকা সাজানো হলে ডিসপ্যাচ করুন।",
+"Click each piece (or Tab and Enter) to count it, then again to inspect it · A accept · R refuse, 1-5 for the reason": "গুনতে প্রতিটি প্যাকেজে ক্লিক করুন (বা Tab ও Enter), তারপর পরীক্ষা করতে আবার · গ্রহণ A · ফেরত R, কারণের জন্য 1-5",
+"Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "যে ইনভয়েস লাইনগুলো চালান আটকে দেবে সেগুলোতে ক্লিক করুন (বা তীর কী ও Enter) · তারপর প্রতিটি প্যাকেজ পরীক্ষা করুন (Tab ও Enter): গ্রহণ A · ফেরত R, কারণের জন্য 1-5",
+"Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "পরীক্ষা করতে প্রতিটি প্যাকেজে ক্লিক করুন (বা Tab ও Enter) · গ্রহণ A · ফেরত R, কারণের জন্য 1-5",
+"Clear all": "সব মুছুন",
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "একটা স্টপে ক্লিক করুন — মানচিত্রে বা তালিকায় — বা Tab দিয়ে সেখানে গিয়ে Enter চাপুন, রুটে যোগ করতে; আবার করুন সরাতে। ঠিক করতে পূর্বাবস্থায় ফেরান (Backspace) / সব মুছুন। তালিকা সাজানো হলে ডিসপ্যাচ করুন।"
 },
 "templates": [
 [
