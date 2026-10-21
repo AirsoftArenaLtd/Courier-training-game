@@ -1,7 +1,7 @@
 /* Dispatch route changes, additional check-in stops and honest checkpoint/report boundaries. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={console};c.window=c;vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fproute.js','src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpstops.js','src/core/fpstopflow.js','src/core/fpdamage.js','src/core/fpdamageflow.js','src/core/fpnav.js','src/core/fplater.js','src/core/fpday.js','src/core/fpdoors.js','src/core/fplighting.js','src/core/fpradio.js','src/core/fpnight.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/scoring.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fproute.js','src/core/fpsigns.js','src/core/fptraffic.js','src/core/fpstops.js','src/core/fpstopflow.js','src/core/fpdamage.js','src/core/fpdamageflow.js','src/core/fpwalkaround.js','src/core/fpwalkaroundflow.js','src/core/fpnav.js','src/core/fplater.js','src/core/fpday.js','src/core/fpdoors.js','src/core/fplighting.js','src/core/fpradio.js','src/core/fpnight.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR,R=O.fpRadio,N=O.fpNight,M=O.fpMission,W=O.workday,plain=o=>JSON.parse(JSON.stringify(o));
 O.save={data:{townSeed:1}};
 const make=(day=4,seed=7)=>{W.begin();const plan=R.prepare(O.fpNav.prepare(O.fpLater.prepare(O.fpRoute.plan(day,seed))));const m=M.create('campaign',seed,plan);O.fpDay.configure(m);O.fpDoors.configure(m);R.configure(m);N.configure(m);m.mode='cab';m.phase='route';m.departed=true;m.paused=false;O.fpLater.depart(m);return m;};
@@ -93,4 +93,13 @@ test('real exit and finish guards control the light and missed-call report bound
  const m=make(6);sent(m);m.van.headlights=true;m.van.speed=3;N.tick(m);assert.equal(m.exit(),false);assert.equal(reports('drive.lights').length,0);parked(m);assert.equal(m.exit(),true);assert.equal(reports('drive.lights').length,1);
  Object.assign(m.player,m.point('dispatch'));assert.match(m.finish(),/remaining delivery/);assert.equal(reports('dispatch.update').length,0);
  for(const s of m.stops){s.resolved=true;s.outcome='exception';}Object.assign(m.van,{x:2.84,z:8,speed:0,hand:true});assert.equal(m.finish(),'');assert.equal(reports('dispatch.update').length,1);assert.equal(reports('dispatch.update')[0].ok,false);R.finish(m);assert.equal(reports('dispatch.update').length,1);
+});
+
+test('combined radio/night fixtures must run the actual walkaround departure before restoring',()=>{
+ for(const day of [5,6]){
+  W.begin();let plan=O.fpStopFlow.prepare(O.fpRoute.plan(day,9),true);plan=O.fpWalkaroundFlow.prepare(R.prepare(O.fpDamageFlow.prepare(O.fpTraffic.prepare(O.fpNav.prepare(O.fpSigns.prepare(O.fpLater.prepare(plan)))))));
+  const m=M.create('campaign',9,plan);O.fpDay.configure(m);O.fpDoors.configure(m);O.fpStopFlow.configure(m);m.mode='cab';m.phase='route';m.departed=true;O.fpLater.depart(m);
+  assert.equal(M.restore(m.snapshot()),null,'a skipped physical departure remains invalid');
+  O.fpWalkaroundFlow.depart(m);const r=M.restore(m.snapshot());assert.ok(r,'the combined native fixture restores after the real departure');assert.ok(r.radio&&r.nightDrive&&r.walkaround);assert.deepEqual(plain(r.snapshot()),plain(m.snapshot()));
+ }
 });

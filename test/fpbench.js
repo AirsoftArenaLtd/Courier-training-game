@@ -297,7 +297,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     let plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(kind==='radiocheckin'?5:6,9),true);
     plan=OTR.fpRadio.prepare(OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan))))));
     const m=OTR.fpMission.create('campaign',9,plan);OTR.fpDay.configure(m);OTR.fpDoors.configure(m);OTR.fpStopFlow.configure(m);OTR.fpLoadout.configure(m);OTR.fpDriving.configure(m);
-    OTR.fp.applyDriveRules(m);m.workdayRules.night=true;m.mode='cab';m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);
+    OTR.fp.applyDriveRules(m);m.workdayRules.night=true;m.mode='cab';m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);
     Object.assign(m.van,{x:2.84,z:-18,yaw:0,look:0,speed:0,hand:true,belt:true,headlights:kind!=='nightoff'});m.player.pitch=0;
     if(kind.startsWith('radio')){m.radio.travel=20;m.radio.sent=true;if(kind!=='radiocaption'){OTR.fpRadio.read(m);OTR.fpRadio.accept(m);}}
     if(kind==='nightglare'||kind==='nightreduced'){Object.assign(m.traffic[0],{...OTR.fp.local(m.van,-3,-20),yaw:Math.PI});Object.assign(m.traffic[1],{x:m.van.x+40,z:m.van.z+20});}
