@@ -35,11 +35,16 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); s.buckled = true; s.lights = true; s.cars.forEach(c => c.img.destroy()); s.cars.length = 0; s.peds.forEach(q => { q.t = 1e9; q.crossing = false; }); });
   };
   /** Drive by setting the van's speed each frame (m/s) along a fixed heading, for ms of real time. */
+  // o.gameMs (B-88): hold the speed for that much of the game's own time instead of wall time (a busy PC slows the game,
+  // and a check timed on the wall clock failed under load); ms is then only the wall-clock cap
   const cruise = (mps, ms, o) => ev((mps, ms, o) => new Promise(res => {
     const s = OTR.game.scene.getScene('TownDriveScene'), v = s.van;
-    const f = () => { v.u = mps; v.lat = 0; v.r = 0; if (o && o.heading !== undefined) v.heading = o.heading; if (o && o.y !== undefined) v.y = o.y; };
+    let sim = 0;                                                     // the scene's own clock: each frame counts at most 50 ms
+    const done = () => { s.events.off('postupdate', f); res(); };
+    const f = (time, delta) => { v.u = mps; v.lat = 0; v.r = 0; if (o && o.heading !== undefined) v.heading = o.heading; if (o && o.y !== undefined) v.y = o.y;
+      sim += Math.min(delta || 0, 50); if (o && o.gameMs && sim >= o.gameMs) done(); };
     s.events.on('postupdate', f);
-    setTimeout(() => { s.events.off('postupdate', f); res(); }, ms);
+    setTimeout(done, ms);
   }), mps, ms, o || null);
   const state = () => ev(() => { const s = OTR.game.scene.getScene('TownDriveScene'); return { v: s.violations, items: s.log.items.map(i => i.label) }; });
 
@@ -86,7 +91,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
       s.cars.push(car);
       s.events.on('postupdate', () => { car.x = OTR.vehicle.bodyCentre(v).x + v.g.hl * s.P + 47.5 + 180; car.y = OTR.vehicle.bodyCentre(v).y; img.setPosition(car.x, car.y); });
     });
-    await cruise(9, 14000, { heading: 0 });          // headless game time runs at about a third of real time
+    await cruise(9, 120000, { heading: 0, gameMs: 4500 });   // over the 3 s the game allows under a 2 s gap, in game time
     st = await state();
     check(st.v.tailgate >= 1, 'following 9 m behind at 20 mph is tailgating');
 
