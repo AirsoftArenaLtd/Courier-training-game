@@ -14,11 +14,14 @@
   },
   "files": {
     "source.json": "0be531d5802e278528e158ac40afd4d6f7cd387fec621728cdcc82d49fd01540",
+    "savesize.log": "385d5b9251c24d4660f01f9d13492dfdebef940c4d54a563e8fa354c3c0c61c7",
     "c37-actual-finish-en-large-playing.png": "33374dcbdb7433a65ef81b85f1f4d8b325f71347db779aa5a9d1a6c0227b9ae2",
+    "acceptance-controller.py": "30a387623b7d2404633b2096fbe0dd9bbafe53a62242cd9581a1f8544e12909d",
     "c37-actual-finish-en-large-unavailable.png": "43cbaa7bfaf9ba3273d7a00d265abe8b0c285e88e1541ee4a32fdd63d44b661f",
     "c37-actual-finish-replay.json": "9898032671578811f219423b0d716b928ba89682719381c44e9a1432c7f51c74",
     "c37-actual-finish-en-large-paused.png": "7a2563dedba11340a69f87e0b1853a51dc43459b2791b5e64c2e32912119a309",
     "native.log": "de1fc453b72d765ac81f3fa1b8a4d3cae8995a6149338e019c85443976fdaefa",
     "final-required-node.log": "8b4a7e4796c2c1bc080e217932b81c478b3def73a3983821c0a743028f6faa38"
-  }
+  },
+  "savesize": "Required save-size suite passes on 52d8365. Full native/shared/resource acceptance continues; controller preserved."
 }
