@@ -3886,7 +3886,8 @@ window.OTR_I18N.es = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "Haz clic en las líneas de la factura que retendrían el envío (o las flechas y Enter) · luego inspecciona cada pieza (Tab y Enter): A aceptar · R rechazar, 1-5 para el motivo",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "Clic en cada pieza (o Tab y Enter) para inspeccionarla · A aceptar · R rechazar, 1-5 para el motivo",
 "Clear all": "Borrar todo",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Haz clic en una parada, en el mapa o en el manifiesto, o ve a ella con Tab y pulsa Enter, para añadirla a la ruta; otra vez la quita. Deshacer (Backspace) / Borrar todo para corregir. Despacha cuando el manifiesto esté ordenado."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "Haz clic en una parada, en el mapa o en el manifiesto, o ve a ella con Tab y pulsa Enter, para añadirla a la ruta; otra vez la quita. Deshacer (Backspace) / Borrar todo para corregir. Despacha cuando el manifiesto esté ordenado.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "FOTO DE COMPROBANTE: encuadra el paquete y la puerta. Sin números de casa ni personas. Luego haz clic (o las flechas, luego SPACE)"
 },
 "templates": [
 [

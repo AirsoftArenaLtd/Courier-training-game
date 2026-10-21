@@ -3876,7 +3876,8 @@ window.OTR_I18N.bn = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "যে ইনভয়েস লাইনগুলো চালান আটকে দেবে সেগুলোতে ক্লিক করুন (বা তীর কী ও Enter) · তারপর প্রতিটি প্যাকেজ পরীক্ষা করুন (Tab ও Enter): গ্রহণ A · ফেরত R, কারণের জন্য 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "পরীক্ষা করতে প্রতিটি প্যাকেজে ক্লিক করুন (বা Tab ও Enter) · গ্রহণ A · ফেরত R, কারণের জন্য 1-5",
 "Clear all": "সব মুছুন",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "একটা স্টপে ক্লিক করুন — মানচিত্রে বা তালিকায় — বা Tab দিয়ে সেখানে গিয়ে Enter চাপুন, রুটে যোগ করতে; আবার করুন সরাতে। ঠিক করতে পূর্বাবস্থায় ফেরান (Backspace) / সব মুছুন। তালিকা সাজানো হলে ডিসপ্যাচ করুন।"
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "একটা স্টপে ক্লিক করুন — মানচিত্রে বা তালিকায় — বা Tab দিয়ে সেখানে গিয়ে Enter চাপুন, রুটে যোগ করতে; আবার করুন সরাতে। ঠিক করতে পূর্বাবস্থায় ফেরান (Backspace) / সব মুছুন। তালিকা সাজানো হলে ডিসপ্যাচ করুন।",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ছবির প্রমাণ: প্যাকেজ আর দরজা ফ্রেমে আনুন। বাড়ির নম্বর নয়, মানুষ নয়। তারপর ক্লিক করুন (অথবা তীর কী, তারপর SPACE)"
 },
 "templates": [
 [

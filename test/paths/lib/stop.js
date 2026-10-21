@@ -1,6 +1,6 @@
 /*
  * Golden path shared by the doorstep stop sets (Modules 5 and 8). Every stop is played the way a careful courier
- * would, on the real controls: pull only this stop's packages from the shelves (mouse), scan them in the van (TAB and
+ * would, on the real controls: pull only this stop's packages from the shelves (mouse, or the arrows with QA_KEYS_ONLY=1), scan them in the van (TAB and
  * number keys), climb down with three points of contact, walk carefully (SHIFT) over anything slippery or cluttered,
  * check the address when asked, knock or go in to reception, answer every conversation with the recommended line,
  * then record exactly what the stop expects — the right delivery type, the right spot and a framed photo, the
@@ -173,6 +173,20 @@ function driver(page, ctx) {
       return s.shelfPackages().filter(p => p.mine).map(p => { const [bw, bh] = dims[p.size || 'm'];
         return { id: p.id, x: 30 + 40 + p.slot.c * 195 + 80, y: 70 + 60 + p.slot.r * 175 + 130 - bh / 2 - 2 }; }); })()`);
     for (const b of boxes) {
+      if (process.env.QA_KEYS_ONLY) {
+        // B-84: the arrow keys walk the pick to the package (row, then column), and Enter takes it
+        for (let i = 0; i < 30; i++) {
+          const at = await ev(`(() => { const s = ${S}, p = s.shelfPick, want = s.shelfPackages().find(x => x.id === '${b.id}'); return { on: !!p && p.id === want.id, dr: want.slot.r - (p ? p.slot.r : -9), dc: want.slot.c - (p ? p.slot.c : -9), none: !p }; })()`);
+          if (at.on) break;
+          await page.keyboard.press(at.none ? 'ArrowRight' : at.dr ? (at.dr > 0 ? 'ArrowDown' : 'ArrowUp') : (at.dc > 0 ? 'ArrowRight' : 'ArrowLeft'));
+          await wait(90);
+        }
+        if (!(await ev(`!!${S}.shelfPick && ${S}.shelfPick.id === '${b.id}'`))) throw new Error(`the arrow keys never reached package ${b.id} on the shelves`);
+        await page.keyboard.press('Enter');
+        await wait(200);
+        if (!(await ev(`${S}.S.carrying.includes('${b.id}')`))) throw new Error(`Enter did not take package ${b.id} off the shelves`);
+        continue;
+      }
       await page.mouse.click(b.x, b.y);
       await wait(200);
       await clickText(page, 'StopScene', /^Take this package$/);
@@ -212,9 +226,25 @@ function driver(page, ctx) {
     // ...and the courier, who stepped back towards the street, out of it
     if (f.mx < f.px) cx = Math.max(cx, f.mx + f.mw + 8 + 190); else cx = Math.min(cx, f.mx - f.mw - 8 - 190);
     cy = Math.max(f.py + f.ph / 2 + 10 - 130, Math.min(f.py - f.ph / 2 - 10 + 130, cy));
-    await page.mouse.move(cx, cy, { steps: 8 });
-    await wait(150);
-    await page.mouse.click(cx, cy);
+    if (process.env.QA_KEYS_ONLY) {
+      // B-84: the arrow keys move the frame (24 px a press, 6 with SHIFT), then SPACE takes the photo
+      for (const [axis, want, minus, plus] of [['x', cx, 'ArrowLeft', 'ArrowRight'], ['y', cy, 'ArrowUp', 'ArrowDown']]) {
+        for (let i = 0; i < 80; i++) {
+          const d = want - (await ev(`${S}.photoFrame()`))[axis];
+          if (Math.abs(d) < 4) break;
+          const fine = Math.abs(d) < 24;
+          if (fine) await page.keyboard.down('Shift');
+          await page.keyboard.press(d > 0 ? plus : minus);
+          if (fine) await page.keyboard.up('Shift');
+          await wait(30);
+        }
+      }
+      await page.keyboard.press('Space');
+    } else {
+      await page.mouse.move(cx, cy, { steps: 8 });
+      await wait(150);
+      await page.mouse.click(cx, cy);
+    }
     await wait(900);
     const grade = await ev(`${S}.S.photo && ${S}.S.photo.grade`);
     if (grade !== 'good') throw new Error('the framed photo was graded ' + grade);

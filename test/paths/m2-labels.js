@@ -1,7 +1,8 @@
 /*
  * Label Check: every package turned through all six sides on the real keys (D D D, W, S), then put on the right
  * handling station — by number key, or every third one dragged onto its station with the mouse — and each
- * verdict card read. A careful, correct inspection of every package has to earn full marks.
+ * verdict card read. A careful, correct inspection of every package has to earn full marks. QA_KEYS_ONLY=1 (B-84) uses
+ * the number keys for every package, so the run proves the scenario needs no mouse.
  */
 const { wait } = require('./lib/ui');
 
@@ -18,7 +19,7 @@ module.exports = async (page, ctx) => {
     const seen = await ctx.eval(`Object.keys(${S}.seen).length`);
     if (seen !== 6) throw new Error(`package ${i + 1}: only ${seen} of 6 sides registered as seen`);
     const it = await ctx.eval(`({ answer: ${S}.item.answer, li: JSON.stringify(${S}.item.marks || {}).indexOf('class9_li') >= 0 })`);
-    if (i % 3 === 2) {
+    if (i % 3 === 2 && !process.env.QA_KEYS_ONLY) {
       const from = await ctx.eval(`({ x: ${S}.boxImg.x, y: ${S}.boxImg.y })`);
       const to = await ctx.eval(`(() => { const r = ${S}.bays['${it.answer}'].rect; return { x: r.centerX, y: r.centerY }; })()`);
       await page.mouse.move(from.x, from.y);

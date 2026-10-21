@@ -3875,7 +3875,8 @@ window.OTR_I18N.gu = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "શિપમેન્ટ અટકાવે એવી ઇન્વૉઇસ લાઇનો પર ક્લિક કરો (અથવા એરો કી અને Enter) · પછી દરેક નંગ તપાસો (Tab અને Enter): સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "તપાસવા દરેક નંગ પર ક્લિક કરો (અથવા Tab અને Enter) · સ્વીકાર A · ઇનકાર R, કારણ માટે 1-5",
 "Clear all": "બધું ભૂંસો",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "સ્ટૉપ પર ક્લિક કરો — નકશા પર કે યાદીમાં — અથવા Tab થી ત્યાં જઈ Enter દબાવો, રૂટમાં ઉમેરવા; ફરી કરો કાઢવા. સુધારવા પૂર્વવત્ કરો (Backspace) / બધું ભૂંસો. યાદી ક્રમમાં ગોઠવાય પછી ડિસ્પેચ કરો."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "સ્ટૉપ પર ક્લિક કરો — નકશા પર કે યાદીમાં — અથવા Tab થી ત્યાં જઈ Enter દબાવો, રૂટમાં ઉમેરવા; ફરી કરો કાઢવા. સુધારવા પૂર્વવત્ કરો (Backspace) / બધું ભૂંસો. યાદી ક્રમમાં ગોઠવાય પછી ડિસ્પેચ કરો.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ફોટો પુરાવો: પૅકેજ અને દરવાજો ફ્રેમમાં લો. ઘરનો નંબર નહીં, લોકો નહીં. પછી ક્લિક કરો (અથવા તીર કી, પછી SPACE)"
 },
 "templates": [
 [

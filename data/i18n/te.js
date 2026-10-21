@@ -3875,7 +3875,8 @@ window.OTR_I18N.te = {
 "Click the invoice lines that would hold up the shipment (or the arrow keys and Enter) · then inspect each piece (Tab and Enter): A accept · R refuse, 1-5 for the reason": "షిప్‌మెంట్‌ను ఆపేసే ఇన్‌వాయిస్ పంక్తులపై క్లిక్ చేయండి (లేదా బాణం కీలు, Enter) · తర్వాత ప్రతి ముక్కను తనిఖీ చేయండి (Tab, Enter): అంగీకారం A · తిరస్కారం R, కారణానికి 1-5",
 "Click each piece (or Tab and Enter) to inspect it · A accept · R refuse, 1-5 for the reason": "తనిఖీకి ప్రతి ముక్కపై క్లిక్ చేయండి (లేదా Tab, Enter) · అంగీకారం A · తిరస్కారం R, కారణానికి 1-5",
 "Clear all": "అన్నీ తుడిచేయి",
-"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "స్టాప్‌పై క్లిక్ చేయండి — మ్యాప్‌పై లేదా జాబితాలో — లేదా Tab తో అక్కడికి వెళ్లి Enter నొక్కండి, రూట్‌లో చేర్చడానికి; మళ్లీ చేస్తే తీసేయడానికి. సరిచేయడానికి రద్దు చేయండి (Backspace) / అన్నీ తుడిచేయి. జాబితా క్రమంలో పెట్టాక డిస్పాచ్ చేయండి."
+"Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced.": "స్టాప్‌పై క్లిక్ చేయండి — మ్యాప్‌పై లేదా జాబితాలో — లేదా Tab తో అక్కడికి వెళ్లి Enter నొక్కండి, రూట్‌లో చేర్చడానికి; మళ్లీ చేస్తే తీసేయడానికి. సరిచేయడానికి రద్దు చేయండి (Backspace) / అన్నీ తుడిచేయి. జాబితా క్రమంలో పెట్టాక డిస్పాచ్ చేయండి.",
+"PHOTO PROOF: frame the package and the door. No house numbers, no people. Then click (or arrow keys, then SPACE)": "ఫోటో రుజువు: ప్యాకేజీ, తలుపు ఫ్రేమ్‌లోకి తీసుకోండి. ఇంటి నంబర్లు వద్దు, మనుషులు వద్దు. తర్వాత క్లిక్ చేయండి (లేదా బాణం కీలు, తర్వాత SPACE)"
 },
 "templates": [
 [
