@@ -1,0 +1,163 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "ta",
+      "size": "large",
+      "pages": [
+        {
+          "day": 5,
+          "bad": [],
+          "texts": [
+            {
+              "text": "The dispatch radio.",
+              "size": 17,
+              "x": 916,
+              "y": 103,
+              "right": 1078,
+              "bottom": 125
+            },
+            {
+              "text": "⌫ Back",
+              "size": 16,
+              "x": 1138,
+              "y": 518.5,
+              "right": 1204,
+              "bottom": 537.5
+            },
+            {
+              "text": "Dispatch has added a check-in stop at 204 Harbor St. Park at the public curb and confirm your arrival. No package is due there.",
+              "size": 19,
+              "x": 916,
+              "y": 150,
+              "right": 1192,
+              "bottom": 278
+            },
+            {
+              "text": "1  Accept the route update.",
+              "size": 17,
+              "x": 947,
+              "y": 369,
+              "right": 1173,
+              "bottom": 391
+            },
+            {
+              "text": "2  Decline the route update.",
+              "size": 17,
+              "x": 944.5,
+              "y": 421,
+              "right": 1175.5,
+              "bottom": 443
+            },
+            {
+              "text": "3  ஹேண்ட்ஹெல்டை வையுங்கள்.",
+              "size": 17,
+              "x": 959.5,
+              "y": 466,
+              "right": 1160.5,
+              "bottom": 510
+            }
+          ],
+          "phaserBytes": 3488454
+        },
+        {
+          "day": 6,
+          "bad": [],
+          "texts": [
+            {
+              "text": "The dispatch radio.",
+              "size": 17,
+              "x": 916,
+              "y": 103,
+              "right": 1078,
+              "bottom": 125
+            },
+            {
+              "text": "⌫ Back",
+              "size": 16,
+              "x": 1138,
+              "y": 518.5,
+              "right": 1204,
+              "bottom": 537.5
+            },
+            {
+              "text": "Dispatch asks you to visit 212 Maple Ave next. Keep every other delivery on the route.",
+              "size": 19,
+              "x": 916,
+              "y": 150,
+              "right": 1177,
+              "bottom": 226
+            },
+            {
+              "text": "1  Accept the route update.",
+              "size": 17,
+              "x": 947,
+              "y": 369,
+              "right": 1173,
+              "bottom": 391
+            },
+            {
+              "text": "2  Decline the route update.",
+              "size": 17,
+              "x": 944.5,
+              "y": 421,
+              "right": 1175.5,
+              "bottom": 443
+            },
+            {
+              "text": "3  ஹேண்ட்ஹெல்டை வையுங்கள்.",
+              "size": 17,
+              "x": 959.5,
+              "y": 466,
+              "right": 1160.5,
+              "bottom": 510
+            }
+          ],
+          "phaserBytes": 3344342
+        }
+      ],
+      "day5": {
+        "valid": true,
+        "radio": {
+          "version": 1,
+          "sent": true,
+          "read": true,
+          "accepted": true,
+          "result": true,
+          "travel": 20
+        },
+        "night": {
+          "version": 1,
+          "leg": 0,
+          "required": false,
+          "failed": false
+        }
+      },
+      "day6": {
+        "valid": true,
+        "radio": {
+          "version": 1,
+          "sent": true,
+          "read": true,
+          "accepted": true,
+          "result": null,
+          "travel": 20
+        },
+        "night": {
+          "version": 1,
+          "leg": 0,
+          "required": false,
+          "failed": false
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "checks": 55,
+  "fixture": "Native new-day launch, fixture travel/call arrival, real remapped handheld keys and headlight shortcut. Priority delivery/report boundaries use the real mission in the Node suite.",
+  "glare": {
+    "changed": 23102,
+    "strength": 0.09975
+  },
+  "complete": true
+}

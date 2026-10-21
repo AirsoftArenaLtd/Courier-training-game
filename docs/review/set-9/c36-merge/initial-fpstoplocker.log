@@ -1,0 +1,29 @@
+Native combined clear walking gates: 53
+✔ one originally standard parcel may stay standard; every other signature, ID and dispatch obligation is unchanged (1004.423132ms)
+✔ the first two days and old plans have no new authorisation or requirement changes (109.503931ms)
+✖ the actual scene launch nominates before later-day rules, and the morning brief and manifest name the locker site (9.985725ms)
+✔ a live later-day locker completes scan, custody, closed-door photo, delivery and every checkpoint once (104.186202ms)
+✔ signed, age-restricted, dog, dispatch, invalid-index and early-day authorisations are rejected (21.76845ms)
+✔ a wrong locker attempt keeps one failed report and its actual map place after recovery (74.109884ms)
+✔ native later-day gates keep a clear walking entry with navigation and damage present (1405.711431ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2841.136447
+
+✖ failing tests:
+
+test at test/fpstoplocker.js:56:1
+✖ the actual scene launch nominates before later-day rules, and the morning brief and manifest name the locker site (9.985725ms)
+  TypeError: Cannot read properties of undefined (reading 'prepare')
+      at evalmachine.<anonymous>:115:26
+      at Object.transition (/workspace/c36-radio-night/test/fpstoplocker.js:58:57)
+      at Object.launch (evalmachine.<anonymous>:109:26)
+      at TestContext.<anonymous> (/workspace/c36-radio-night/test/fpstoplocker.js:59:51)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

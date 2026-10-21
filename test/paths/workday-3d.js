@@ -354,6 +354,16 @@ const make = (opts) => async (page, ctx) => {
   must((await state()).m.logs.some((l) => /^junction:/.test(l.id) && l.outcome === 'good'), 'the full stop before the junction line was not logged as good ' + JSON.stringify(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return { van: m.van, zs: m.town.zs, j: m.junctions.slice(0, 6).map(j => ({ x: j.x, z: j.z, s: j.stopped, p: j.passed })), logs: m.logs.filter(l => /junction|drive/.test(l.id)).map(l => l.id + ':' + l.outcome), half: m.town.road / 2 }; })));
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.mirrors' && /^\d+:1$/.test(String(e.key)) && e.ok)), 'moving off after the mirror look was not reported as a mirror check');
   if (preWalk) console.log(`      walkaround: ${await walkReports('inspect.damage', 'baseline')} damaged area(s) found before departure`);
+  // B-108: on some days a school bus starts flashing ahead on this leg. A careful courier stops 6.5 to 20 m behind it
+  // and waits for its lights to go off (fpdriving.js), before the fixture below moves the van on
+  const bus = () => ev(() => { const d = OTR.game.scene.getScene('FirstPersonScene').model.driving; return d && d.bus ? { state: d.bus.state, z: d.bus.z } : null; });
+  const b0 = await bus();
+  if (b0 && b0.state === 'flashing') {
+    await driveTo(b0.z + 11);
+    must(await ctx.until(`(OTR.game.scene.getScene('FirstPersonScene').model.driving.bus.state !== 'flashing')`, 60000), 'the school bus never switched off its lights while the van waited behind it');
+    must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.school-bus' && e.ok)), 'waiting behind the school bus was not reported as right');
+    console.log('      school bus: stopped behind it and waited');
+  }
   // the rest of the long leg is skipped with a position fixture, as test/fproutebrowser.js does
   const parkAt = async (i) => {
     await ev((i) => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model; Object.assign(m.van, m.stops[i].park, { speed: 0, hand: true }); m.activeStop = i; s.sync(); }, i);
@@ -563,6 +573,9 @@ const make = (opts) => async (page, ctx) => {
     else must(!crit.types.includes('trip.damage-report'), 'a right post-trip report should not be a critical: ' + JSON.stringify(crit));
     console.log(`      scuff: ${opts.unreported ? 'left unreported, a critical' : 'reported after the trip'} (${JSON.stringify(crit)})`);
   }
+  // B-108: the golden path earns no critical apart from what a variant sets out to do
+  const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
+  must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));
   await wait(2800);
   await ctx.audit('results');
   const saved = await ev(() => { const w = OTR.workday.saved(); return { last: !!w.last, stars: w.last && w.last.stars, current: !!w.current, hist: OTR.save.data.history.map((h) => h.id) }; });

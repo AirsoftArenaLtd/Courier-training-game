@@ -21,6 +21,9 @@ at the hub:
 | 11, 12, 14 (intercom, gate, locker) | `?dev=1&workday3d=1&user=review-stops&route=10&day=4` | a locker and an intercom behind a gate |
 | 13 (reception) | `?dev=1&workday3d=1&user=review-reception&route=5&day=4` | a locker and a business reception |
 | 15 (failed delivery) | either day-4 link above | a signature parcel with nobody home |
+| 20, 21 (radio: priority call) | `?dev=1&workday3d=1&user=review-radio&route=10&day=4` | dispatch brings a delivery forward (even days) |
+| 22 (radio: check-in) | `?dev=1&workday3d=1&user=review-checkin&route=11&day=5` | dispatch asks for a parked check-in (odd days) |
+| 23, 24 (night) | `?dev=1&workday3d=1&user=review-night&route=9&day=6` | a night run (every third day from day 6) |
 
 | # | Try this | It should feel like |
 | --- | --- | --- |
@@ -74,5 +77,21 @@ with E; the handheld shows what you see and you choose the matching description.
 | 17 | Lightly clip a post on the route, then at the depot walk round and record the new damage where it is | The post-trip check finds the scrape where you hit; recording it feels honest and quick |
 | 18 | Do the same but leave the scrape out of the post-trip record | The results show it as a critical mistake and say why: hidden damage is not passed on to the next driver |
 | 19 | Switch to Tamil with larger text and open the walkaround record on the handheld | The area names and descriptions fit and read well |
+
+**Dispatch radio and night driving (C-36, from the fourth workday).** About twenty metres into the first drive,
+dispatch calls on the radio. The caption says so; stop, set the parking brake and read it on the handheld. On even days
+it brings one delivery forward; on odd days it asks you to check in at a parked spot on the way. Every third day from
+day 6 runs after dark. Codex's pictures: the [Tamil radio message](c36-cues/c36-cues-low-ta-ta-large-day5-message.png),
+the [night view](c36-cues/c36-cues-low-ta-ta-large-night.png) and the [oncoming glare](c36-cues/c36-cues-high-en-oncoming-glare.png).
+
+| # | Try this | It should feel like |
+| --- | --- | --- |
+| 20 | When the radio call comes in, try to read it while driving, then stop and read it | It asks you to stop first; reading it parked is easy, and the call does not interrupt anything dangerous |
+| 21 | Accept the priority update and deliver that parcel next | The handheld makes the new order clear; the results credit you for it. Declining or ignoring it should not stop you finishing the day |
+| 22 | On the check-in day, accept, drive to the spot, park and confirm arrival | The spot is easy to find with the sat nav, and confirming feels like a real check-in |
+| 23 | On the night day, try to drive off with the headlights off, then switch them on (L, or the switch in the cab) | A clear warning before you move; with the lights on you can see the road ahead. Moving off without them shows in the results |
+| 24 | Drive towards an oncoming car at night, then switch on reduced motion in Settings | A little glare on the windscreen, not blinding; it goes with reduced motion |
+
+Switch to Tamil with larger text for the radio message and the night warning: they should still fit and read well.
 
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.
