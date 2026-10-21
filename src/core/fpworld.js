@@ -334,8 +334,11 @@ OTR.fpWorld = {
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
+    const walkWheel=actors&&actors.vehicle&&actors.vehicle.parts.find(p=>p.name==='wheel-back-left');
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
-      const mesh=box(chassis,t.x,t.y,t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
+      const wheel=t.zone==='wheel'&&walkWheel,parent=t.zone==='wheel'?van:chassis;
+      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:t.x,wheel?wheel.center.y:t.y,wheel?wheel.center.z:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
+      mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
     }):[];
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();

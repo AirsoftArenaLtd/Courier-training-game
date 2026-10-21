@@ -27,7 +27,9 @@ OTR.fpDamageWorld={
     patches.push(add(0,1.75,door?door.g.boundingBox.max.z+.008:2.668,.55,.28,0,0,0x4A4A46,true));
     patches.push(add(-1.14,1.78,.6,.65,.28,0,-Math.PI/2,0x4A4A46,true));
     patches.push(add(1.14,1.78,.6,.65,.28,0,Math.PI/2,0x4A4A46,true));
-    patches.push(add(0,3.24,.6,.65,.4,-Math.PI/2,0,0x4A4A46,true));
+    // Walkaround days expose the roof condition on its upper edge, visible from the ground.
+    // Reuse the same patch instance; older damage days keep their original top surface.
+    patches.push(m.walkaround?add(-1.115,2.98,.6,.65,.18,0,-Math.PI/2,0x4A4A46,true):add(0,3.24,.6,.65,.4,-Math.PI/2,0,0x4A4A46,true));
     patches.push(add(wheel?wheel.g.boundingBox.min.x-.008:-1.208,wheel?wheel.center.y:.42,wheel?wheel.center.z:1.7,.3,.2,0,-Math.PI/2,0x4A4A46,true));
     patches.push(add(-1.27,1.79,-2.32,.2,.13,0,-Math.PI/2,0x4A4A46,true));
     for(const b of m._damageClearances){

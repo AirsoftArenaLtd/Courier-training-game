@@ -16,7 +16,7 @@ OTR.fpWalkaroundUI={
     const options=A.descriptions.slice(page*2,page*2+2).map((label,n)=>({label,onPick:()=>{
       const result=F.record(m,zone,page*2+n);scene.checkpoint();
       if(!result){scene.message('Inspect this area beside the parked van before recording its condition.');scene.handheld.close();return;}
-      this.show(scene,{title:'Condition recorded.',lines:[t.name,A.descriptions[page*2+n]],options:[
+      this.show(scene,{title:'It is recorded.',lines:[t.name,A.descriptions[page*2+n]],options:[
         {label:'Review the walkaround.',onPick:()=>this.records(scene,i)},
         {label:'Put away the handheld.',onPick:()=>scene.handheld.close()}
       ],back:()=>this.records(scene,i)});
@@ -26,11 +26,11 @@ OTR.fpWalkaroundUI={
   },
   records(scene,index=0){
     const m=scene.model,F=OTR.fpWalkaroundFlow,A=OTR.fpWalkaround,phase=F.phase(m);
-    if(!phase){this.show(scene,{title:'The walkaround is unavailable.',lines:['Inspect before departure or after returning the van to the depot.'],options:[{label:'Back',onPick:()=>scene.handheld.home()}],back:()=>scene.handheld.home()});return;}
+    if(!phase){this.show(scene,{title:'Check the van.',lines:['Inspect before departure or after returning the van to the depot.'],options:[{label:'Back',onPick:()=>scene.handheld.home()}],back:()=>scene.handheld.home()});return;}
     index=Math.max(0,Math.min(6,index));const t=F.targets[index],level=(phase==='pretrip'?m.walkaround.pre:m.walkaround.post)[index],options=[];
     if(index>0)options.push({label:'See the previous area.',onPick:()=>this.records(scene,index-1)});
     if(index<6)options.push({label:'See the next area.',onPick:()=>this.records(scene,index+1)});
     options.push({label:'Put away the handheld.',onPick:()=>scene.handheld.close()},{label:'Back',onPick:()=>scene.handheld.home()});
-    this.show(scene,{title:'Walkaround records.',lines:[t.name,level<0?'This area has no recorded condition.':A.descriptions[level]],options,back:()=>scene.handheld.home()});
+    this.show(scene,{title:'Review the van.',lines:[t.name,level<0?'This area has no recorded condition.':A.descriptions[level]],options,back:()=>scene.handheld.home()});
   }
 };

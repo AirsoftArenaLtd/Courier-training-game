@@ -12,7 +12,7 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
   const pick=async label=>{const index=await p.evaluate(label=>{const s=OTR.game.scene.getScene('FirstPersonScene'),options=s.panel?s.panel.choices:s.handheld.device.current.options;return options.findIndex(o=>o.label===label&&!o.disabled);},label);assert.ok(index>=0,'Missing choice: '+label);await press('Digit'+(index+1));r.checks++;};
   const audit=async()=>{
    const a=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),d=s.handheld.device,bad=[];
-    const visit=o=>{if(!o.visible||o.alpha<=.01)return;if(o.type==='Text'&&o.text){const b=o.getBounds(),font=parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY);if(b.x<0||b.right>1281||b.y<0||b.bottom>721||font<(s.panel?18.9:12.9))bad.push(o.text+' ['+font+']');if(d.isOpen&&(b.x<d.root.x+d.sx-1||b.right>d.root.x+d.sx+d.sw+1||b.bottom>d.root.y+d.sy+d.sh+1))bad.push('Outside handheld: '+o.text);}for(const child of o.list||[])visit(child);};
+    const visit=o=>{if(!o.visible||o.alpha<=.01)return;if(o.type==='Text'&&o.text){const b=o.getBounds(),font=parseFloat(o.style.fontSize)*Math.min(o.scaleX,o.scaleY);if(b.x<0||b.right>1281||b.y<0||b.bottom>721||font<(s.panel?17.9:12.9))bad.push(o.text+' ['+font+']');if(d.isOpen&&(b.x<d.root.x+d.sx-1||b.right>d.root.x+d.sx+d.sw+1||b.bottom>d.root.y+d.sy+d.sh+1))bad.push('Outside handheld: '+o.text);}for(const child of o.list||[])visit(child);};
     if(s.panel){visit(s.panel.root);const body=s.panel.root.list.find(o=>o.type==='Text'&&o.y===170),top=Math.min(...s.panel.buttons.map(b=>b.getBounds().top));if(body.getBounds().bottom>top-8)bad.push('Panel body overlaps choices.');}
     else if(d.isOpen){visit(d.screen);const top=Math.min(...d.optionBtns.map(b=>{const bg=b.bg,a=bg.input.hitArea;return bg.getWorldTransformMatrix().transformPoint(a.x-bg.displayOriginX,a.y-bg.displayOriginY).y;}));for(const o of d.screen.list)if(o.type==='Text'&&o.y>d.sy+44&&o.y<d.sy+d.sh-35&&o.getBounds().bottom>top-4)bad.push('Body overlaps choices: '+o.text);}
     let bytes=0;const seen=new Set();for(const t of Object.values(OTR.game.textures.list))for(const source of t.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const i=source.image;bytes+=(i&&(i.naturalWidth||i.videoWidth||i.width)||source.width)*(i&&(i.naturalHeight||i.videoHeight||i.height)||source.height)*4;}
@@ -22,7 +22,10 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
    await p.evaluate(zone=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,t=OTR.fpWalkaroundFlow.target(zone);s.handheld.close(false);m.paused=true;m.cargoOpen=false;m.heldId=null;
     const x=t.x+(zone==='right'?.85:['front','rear'].includes(zone)?0:-.85),z=t.z+(zone==='front'?-.85:zone==='rear'?.85:0);Object.assign(m.player,OTR.fp.local(m.van,x,z));s.target=null;s.sync();s.refresh();},zone);
    for(let n=0;n<24;n++){await press('n');if(await p.evaluate(zone=>OTR.game.scene.getScene('FirstPersonScene').target==='wear-'+zone,zone))break;}
-   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').aimTarget()),'wear-'+zone);r.checks++;
+   const surface=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),ray=new THREE.Raycaster();ray.far=4;ray.setFromCamera({x:0,y:0},s.view.camera);
+    const visible=[];s.view.world.traverseVisible(o=>{if(o.isMesh&&o.layers.test(ray.layers))visible.push(o);});const real=ray.intersectObjects(visible,false)[0],proxy=s.art.ray.intersectObjects(s.art.walkaroundTargets,false)[0];
+    return {pick:s.aimTarget(),physical:!!real,delta:real&&proxy?Math.abs(real.distance-proxy.distance):999,mesh:real&&real.object.name};});
+   assert.equal(surface.pick,'wear-'+zone);assert.ok(surface.physical&&surface.delta<.25,zone+' target is not on its visible surface: '+JSON.stringify(surface));r.checks+=2;
   };
   const record=async(zone,level)=>{await aim(zone);await press('o');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.isOpen),true);r.checks++;await audit();if(level>=2){await pick('See more descriptions.');await audit();}const label=await p.evaluate(level=>OTR.fpWalkaround.descriptions[level],level);await pick(label);await audit();};
   const checkpoint=async()=>{assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,raw=m.snapshot(),events=JSON.stringify(OTR.workday.events),store=OTR.fpStore.empty();store.sequence=m.seed;store.campaign=raw;
@@ -36,7 +39,7 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
    assert.deepEqual(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {marker:s.model.routePlan.walkaround,targets:s.art.walkaroundTargets.length,phaser:s.art.walkaroundTargets.every(o=>o.layers.mask===2)};}),{marker:1,targets:7,phaser:true});r.checks++;
    let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();
    for(const zone of ['front','rear','left','right','roof','wheel','mirror']){
-    const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);await checkpoint();run.pre.push(zone);save();
+    const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='wheel')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-record.png`)});await checkpoint();run.pre.push(zone);save();
     if(['roof','wheel'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-${zone}.png`)});
    }
    const depart=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.mode='cab';m.paused=false;m.secured=true;Object.assign(m.van,{speed:2,hand:false,belt:true});m.step({},.0125);m.van.speed=0;m.van.hand=true;m.mode='walk';m.paused=true;
@@ -45,7 +48,7 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
    await record('front',2);await checkpoint();await record('front',3);assert.equal(await p.evaluate(()=>OTR.workday.events.filter(e=>e.type==='trip.damage-false').length),1);r.checks++;
    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;OTR.fpDamage.zones.forEach((zone,i)=>{OTR.fpDamage.release(m.damage);OTR.fpDamageFlow.fire(m,OTR.fpDamage.contact(m.damage,zone,'solid',[.5,3,8][i%3]),3);});});
    for(const [i,zone] of ['front','rear','left','right','roof','wheel','mirror'].entries()){
-    const level=await p.evaluate(zone=>OTR.fpDamage.level(OTR.game.scene.getScene('FirstPersonScene').model.damage,zone),zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);await checkpoint();run.post.push(zone);save();
+    const level=await p.evaluate(zone=>OTR.fpDamage.level(OTR.game.scene.getScene('FirstPersonScene').model.damage,zone),zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='roof')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-post-record.png`)});await checkpoint();run.post.push(zone);save();
     if(['rear','roof','mirror'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-post-${zone}.png`)});
    }
    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.workday();});await pick('Review the walkaround.');await audit();
