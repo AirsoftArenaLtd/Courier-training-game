@@ -2,11 +2,15 @@
 /*
  * B-69: the same first steps for every review of a Codex branch. Merges the branch into the current origin/pilot in a
  * scratch worktree (never touching yours), then runs every Node suite (test/run-all.js), lists the text that still needs
- * translating (in any of the 11 languages, after data/i18n/not-text.json), and plays the five workday flows at Low.
+ * translating (in any of the 11 languages, after data/i18n/not-text.json), and plays the workday flows at Low.
  * Prints one summary; the merge commit stays in the worktree for the reviewer to translate, fix and push.
+ * B-95: only the flows the branch can affect, two at a time in separate browsers: every workday flow when it touches the
+ * 3D world, the workday, scoring, saving or the flows themselves; drive-review when it touches the results, the drive map
+ * or the record; none for a branch of 2D scenes, text or documents (their checks are the Node suites and B-94's step).
  *
  *   node test/tools/review-branch.js codex/c34-damage-load        (or: node test/run-all.js --review <branch>)
- *   --no-flows   skip the workday flows (about 25 minutes)
+ *   --no-flows   skip the workday flows
+ *   --all-flows  play every workday flow whatever the branch touches
  *   --no-keys    skip the keyboard-only replay of the 2D scenes the branch touches (B-94)
  *   --continue   after resolving a conflicted merge in the worktree and committing it: run the checks there again
  * The worktree is ../otr-review-<branch name> next to the repository, and the missing text goes to
@@ -44,13 +48,28 @@ function missingText(dir) {
   return { strings: [...strings], templates: [...templates] };
 }
 
+/** The same as run, without blocking, so two browsers can play at once (B-95). */
+const runAsync = (cmd, a, env, log) => new Promise(res => {
+  const ch = cp.spawn(cmd, a, { cwd: WT, env: Object.assign({}, process.env, env || {}) });
+  let out = '', err = '';
+  ch.stdout.on('data', d => { out += d; }); ch.stderr.on('data', d => { err += d; });
+  ch.on('close', status => { if (log) fs.writeFileSync(log, out + err); res({ status, stdout: out, stderr: err }); });
+});
+const FLOWS3D = ['workday-3d', 'workday-3d-b', 'workday-3d-c', 'workday-3d-d', 'workday-3d-e', 'workday-3d-f', 'workday-3d-g', 'workday-aids'];
+/** Which workday flows a branch's changed files can affect (B-95). */
+const flowsFor = (changed) => {
+  const threeD = changed.some(f => /^src\/core\/(fp[a-z0-9]*|workday|save|scoring|scorm|academy|i18n|town)\.js$/.test(f) || /^src\/scenes\/FirstPersonScene\.js$/.test(f) ||
+    /^(first-person|index)\.html$/.test(f) || /^data\/(workday_events|town)\.js$/.test(f) || /^(assets|vendor)\//.test(f) || /^test\/(qa\.js|paths\/(workday-3d|lib\/))/.test(f));
+  const review = threeD || changed.some(f => /^src\/scenes\/(Results|DriveReview|WorkdayDebrief|Record)Scene\.js$/.test(f) || /^src\/core\/(drive|record)\.js$/.test(f) || /^test\/paths\/drive-review\.js$/.test(f));
+  return (threeD ? FLOWS3D : []).concat(review ? ['drive-review'] : []);
+};
 const run = (cmd, a, env, log) => {
   const r = cp.spawnSync(cmd, a, { cwd: WT, env: Object.assign({}, process.env, env || {}), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   if (log) fs.writeFileSync(log, (r.stdout || '') + (r.stderr || ''));
   return r;
 };
 
-(() => {
+(async () => {
   git(['fetch', '-q', 'origin']);
   const ref = branch.startsWith('origin/') ? branch : 'origin/' + branch;
   const ahead = git(['rev-list', '--count', `origin/pilot..${ref}`]).trim();
@@ -87,11 +106,21 @@ const run = (cmd, a, env, log) => {
   step('every Node suite', suites.status === 0, last + (suites.status ? ` (logs: test/out/run-all/ in the worktree)` : ''));
 
   if (!args.includes('--no-flows')) {
-    const flows = run(process.execPath, ['test/qa.js', '--only', 'workday-3d,workday-3d-b,workday-3d-c,workday-3d-d,workday-3d-e,workday-3d-f,workday-3d-g,workday-aids,drive-review'],
-      { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(8400 + Math.floor(Math.random() * 90)),
-        QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, 'flows.log'));
-    const clean = /(\d+)\/(\d+) scenarios clean/.exec(flows.stdout || '');
-    step('the workday flows at Low', flows.status === 0, clean ? clean[0] : 'see flows.log');
+    const touched = (run('git', ['diff', '--name-only', 'origin/pilot...' + ref]).stdout || '').split('\n').filter(Boolean);
+    const want = args.includes('--all-flows') ? FLOWS3D.concat('drive-review') : flowsFor(touched);
+    if (!want.length) step('the workday flows', true, 'none needed: the branch touches no 3D, workday, scoring or results code (--all-flows plays them anyway)');
+    else {
+      // two browsers, each with half the flows, on their own ports
+      const halves = [want.filter((_, i) => i % 2 === 0), want.filter((_, i) => i % 2 === 1)].filter(h => h.length);
+      const base = 8400 + Math.floor(Math.random() * 40);
+      const results = await Promise.all(halves.map((h, i) => runAsync(process.execPath, ['test/qa.js', '--only', h.join(',')],
+        { QA_GFX: 'low', QA_FPS_FLOOR: '8', QA_PORT: String(base + i * 50),
+          QA_BROWSER: process.env.QA_BROWSER || ['/opt/pw-browsers/chromium', '/usr/bin/chromium'].find(p => fs.existsSync(p)) || '' }, path.join(OUT, `flows-${i + 1}.log`))));
+      const passed = results.reduce((n, r) => n + Number((/(\d+)\/\d+ scenarios clean/.exec(r.stdout || '') || [0, 0])[1]), 0);
+      const failed = results.flatMap(r => (r.stdout || '').split('\n').filter(l => /^FAIL /.test(l)).map(l => l.split(/\s+/)[1]));
+      step(`the workday flows at Low (${want.length}, two at a time)`, results.every(r => r.status === 0),
+        `${passed}/${want.length} clean${failed.length ? '; failed: ' + failed.join(', ') + ' (flows-1.log, flows-2.log)' : ''}`);
+    }
   }
 
   // B-94: a branch that touches a 2D scene plays that scene's golden path again with the keyboard alone (QA_KEYS_ONLY,
