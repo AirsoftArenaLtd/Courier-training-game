@@ -5,7 +5,8 @@
  * pin's shape, that the legend has one line per shape used, in the trainee's language, and that the legend, the
  * caption and the map stay inside the map's column without overlapping. Runs the suite's layout audit too, and saves
  * screenshots to test/out/drivemap-<lang>[-large].png. B-52: then the same day's debrief (every page, a line for each
- * milestone 8 mistake, translated) and the record's lessons and recent runs, each through the audit.
+ * milestone 8 mistake, translated) and the record's lessons and recent runs, each through the audit. B-93: C-35's walkaround
+ * and post-trip report types too (no place, so no pin; a line in the debrief).
  *
  *   QA_BROWSER=/path/to/chrome node test/drivemapbrowser.js        (QA_LANGS=en,ta by default)
  */
@@ -54,6 +55,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
         W.report('drive.hazard-early', { key: 'school-crossing', ok: false, where: at(12) });
         // C-33's richer stops (B-75), each got wrong once
         ['stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt'].forEach((type, id) => W.report(type, { key: id, stop: id + 1, ok: false, where: at(13 + id) }));
+        // C-35's walkaround and post-trip report (B-93): by zone, with no place, so no pins
+        W.report('inspect.damage', { key: 'rear', ok: false }); W.report('trip.damage-report', { key: 'wheel', ok: false }); W.report('trip.damage-false', { key: 'roof', ok: false });
         const rec = W.finish(null, { stops: [{ stop: 1, delivered: true, x: 20, z: -20 }, { stop: 2, delivered: false, x: -20, z: -30 }], depot: { x: 0, z: 10 } });
         const m = OTR.game.scene;
         m.getScenes(true).forEach(s => m.stop(s.sys.settings.key));
@@ -93,7 +96,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
       // has the line for every milestone 8 mistake, in the trainee's language
       const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway',
         'van.damage-dent', 'drive.clearance', 'load.shift',                          // C-34's damage and load (B-68)
-        'stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt'];          // C-33's richer stops (B-75)
+        'stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt',           // C-33's richer stops (B-75)
+        'inspect.damage', 'trip.damage-report', 'trip.damage-false'];                  // C-35's walkaround and post trip (B-93)
       await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('WorkdayDebriefScene', {}); });
       if (!(await until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000))) throw new Error(`${tag}: the debrief never opened`);
       await wait(900);
