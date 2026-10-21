@@ -311,11 +311,18 @@ const make = (opts) => async (page, ctx) => {
 
   // ---- pre-trip walkaround
   for (const part of ['tyres', 'lights']) {
-    await use(part); await shot('inspection-' + part);
+    // B-130: a panel left open (the repair's confirmation) would take the E meant for the inspection: close it first
+    for (let n = 0; n < 3 && await ev(() => !!OTR.game.scene.getScene('FirstPersonScene').panel); n++) await press('Escape');
+    // on a walkaround day the front-of-van mark covers the headlights (Codex inbox, B-130): P picks the inspection point
+    await at(part);
+    for (let n = 0; n < 14 && await ev((p) => OTR.game.scene.getScene('FirstPersonScene').target !== p, part); n++) await press('KeyP');
+    must(await ev((p) => OTR.game.scene.getScene('FirstPersonScene').target === p, part), `the target key never reached the ${part} inspection point`);
+    await press('KeyE'); await shot('inspection-' + part);
     const fault = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.fault);
     await press(part === fault ? 'Digit2' : 'Digit1');
+    must(await ctx.until(`${FP}.model.checks.${part} === true`, 5000), `the ${part} inspection was not recorded as right: ` + JSON.stringify(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.checks)));
   }
-
+  for (let n = 0; n < 3 && await ev(() => !!OTR.game.scene.getScene('FirstPersonScene').panel); n++) await press('Escape');
   const preWalk = await walkaround('pretrip');                    // B-99: C-35's walkaround before the first drive
   // ---- the cab: belt, parking brake, then the start of the first leg on throttle and brake, through the first junction
   await use('driver');
@@ -416,6 +423,8 @@ const make = (opts) => async (page, ctx) => {
   must((await state()).m.van.gear === -1, 'the selector did not put the van in Reverse');
   must(await ctx.until(`${FP}.view.mirror.rearOn === true`, 3000), 'the rear camera did not switch on in reverse');
   await shot('rear-camera');
+  // B-130: moving off again, even backwards, wants a fresh mirror check (fpdriving.js: each pull-out after a stop with the brake on)
+  await lookAt('mirror-left', 0); await press('KeyV');
   await reverseBy(1);
   await cabUse('cab-park');
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.backing' && e.ok)), 'a slow reverse with the camera was not reported as safe backing');
