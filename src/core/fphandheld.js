@@ -6,9 +6,9 @@ OTR.fpHandheld = class {
     this.mode = 'closed'; this.trigger = false; this.focusId = null; this.progress = 0;
     const Device=OTR.fpBrand?class extends OTR.Handheld{
       clear(){
-        const shapes=new Set(),visit=o=>{if(o.texture&&o.texture.key.startsWith('gfx_'))shapes.add(o.texture.key);for(const child of o.list||[])visit(child);};
+        const shapes=new Set(),visit=o=>{if(o.texture&&/^(gfx_|panel_)/.test(o.texture.key))shapes.add(o.texture.key);for(const child of o.list||[])visit(child);};
         if(this.screen)visit(this.screen);super.clear();
-        // Signature pads depend on the translated body's height. Keep only live page shapes.
+        // Pads and button canvases belong to live pages; preserve any other scene's reference.
         for(const key of shapes)OTR.fpBrand.releaseUnused(this.scene,key);
       }
       deviceTex(){return OTR.gfx.high()?OTR.fpBrand.deviceTexture(this.scene,this):'__WHITE';}
@@ -48,6 +48,8 @@ OTR.fpHandheld = class {
     const s = this.scene;
     this.signatureToken=null;this.mode = 'closed'; this.trigger = false; this.progress = 0; this.focusId = null;
     this.device.close(); this.device.root.setVisible(false);
+    // Reopening rebuilds the page. Hidden text and button canvases need not survive a close.
+    if(this.device.clear)this.device.clear();
     if (OTR.a11y) OTR.a11y.hush();
     s.held = Object.create(null); s.pointerStart = null; s.inputBlockedUntil = s.time.now + 180;
     if (s.model) s.model.paused = !resume || s.model.phase === 'debrief';

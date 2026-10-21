@@ -16,7 +16,15 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
     if(s.panel){visit(s.panel.root);const body=s.panel.root.list.find(o=>o.type==='Text'&&o.y===170),top=Math.min(...s.panel.buttons.map(b=>b.getBounds().top));if(body.getBounds().bottom>top-8)bad.push('Panel body overlaps choices.');}
     else if(d.isOpen){visit(d.screen);const top=Math.min(...d.optionBtns.map(b=>{const bg=b.bg,a=bg.input.hitArea;return bg.getWorldTransformMatrix().transformPoint(a.x-bg.displayOriginX,a.y-bg.displayOriginY).y;}));for(const o of d.screen.list)if(o.type==='Text'&&o.y>d.sy+44&&o.y<d.sy+d.sh-35&&o.getBounds().bottom>top-4)bad.push('Body overlaps choices: '+o.text);}
     let bytes=0;const seen=new Set();for(const t of Object.values(OTR.game.textures.list))for(const source of t.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const i=source.image;bytes+=(i&&(i.naturalWidth||i.videoWidth||i.width)||source.width)*(i&&(i.naturalHeight||i.videoHeight||i.height)||source.height)*4;}
-    return {bad,phaserBytes:Math.ceil(bytes*4/3),contextLost:OTR.game.renderer.gl.isContextLost()};});assert.deepEqual(a.bad,[]);assert.equal(a.contextLost,false);assert.ok(a.phaserBytes<=(GFX==='low'?4194304:16777216),JSON.stringify(a));r.checks+=3;return a;
+    return {bad,phaserBytes:Math.ceil(bytes*4/3),contextLost:OTR.game.renderer.gl.isContextLost()};});assert.deepEqual(a.bad,[]);assert.equal(a.contextLost,false);
+   if(a.phaserBytes>(GFX==='low'?4194304:16777216)){
+    r.memoryFailureInventory=await p.evaluate(()=>{const owners=new Map(),visit=(o,scene,visible)=>{visible=visible&&o.visible!==false;if(o.texture){const k=o.texture.key;if(!owners.has(k))owners.set(k,[]);owners.get(k).push({scene,type:o.type,text:String(o.text||o.name||'').slice(0,100),visible});}for(const c of o.list||[])visit(c,scene,visible);};
+     for(const s of OTR.game.scene.scenes)if(s.children)for(const o of s.children.list)visit(o,s.sys.settings.key,true);
+     const textures=Object.entries(OTR.game.textures.list).map(([key,t])=>({key,sources:t.source.map(s=>{const i=s.image,w=i&&(i.naturalWidth||i.videoWidth||i.width)||s.width,h=i&&(i.naturalHeight||i.videoHeight||i.height)||s.height;return {w,h,bytes:Math.ceil(w*h*16/3)};}),owners:owners.get(key)||[]}));
+     textures.sort((a,b)=>b.sources.reduce((n,s)=>n+s.bytes,0)-a.sources.reduce((n,s)=>n+s.bytes,0));const s=OTR.game.scene.getScene('FirstPersonScene'),d=s.handheld.device;
+     return {textures,handheldOpen:d.isOpen,handheldTitle:d.current.title,handheldChildren:d.screen.list.length,panel:s.panel&&s.panel.root.list.filter(o=>o.type==='Text').map(o=>({text:o.text,w:o.width,h:o.height,font:o.style.fontSize,scale:o.scaleY}))};});save();
+   }
+   assert.ok(a.phaserBytes<=(GFX==='low'?4194304:16777216),JSON.stringify(a));r.checks+=3;return a;
   };
   const aim=async zone=>{
    await p.evaluate(zone=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,t=OTR.fpWalkaroundFlow.target(zone);s.handheld.close(false);m.paused=true;m.cargoOpen=false;m.heldId=null;
