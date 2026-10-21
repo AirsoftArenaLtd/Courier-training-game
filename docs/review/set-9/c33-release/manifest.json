@@ -11,7 +11,8 @@
     "nativeGates": "Seven live-policy Node tests include 160 combined native plans and 53 walking entries, with 33 collision samples after each valid unlock. Model geometry evidence; not a browser travel claim.",
     "fps": "SwiftShader resource evidence; the native Intel 60 fps check remains O-1.",
     "doorstepMemory": "All 394 real doorstep assertions pass with body/Back clearance and the unchanged 4 MiB ceiling. Peak after cleanup: 3192507 estimated Phaser bytes. Both earlier overruns and the texture inventory are preserved.",
-    "currentChecks": "Repeated 125-case required Node batch, 33 changed-JS syntax checks and current catalogue pass. New C-33 text still awaits Claude extraction/translation."
+    "currentChecks": "Repeated 125-case required Node batch, 33 changed-JS syntax checks and current catalogue pass. New C-33 text still awaits Claude extraction/translation.",
+    "c33-shared-first-failure.log": "First completed shared scenario only: drive-review failed to open DriveReviewScene from ResultsScene. The other four scenarios were still running when this snapshot was recorded; this is not the final five-flow result."
   },
   "profiles": [
     {
@@ -146,7 +147,8 @@
     "c33-stops-high-final-ta-large-intercom.png": "843d067b3c2c79972f305e69be9807ce4c10e8a6f900140664a4b6f61be21d7e",
     "c33-stops-high-final-ta-large-locker-open.png": "94f50418eb555d7f54ac67b30645e122dae1c55179915e56f6ad8d7bcf4b5d02",
     "c33-stops-high-final-ta-large-reception-resident.png": "b25f2f3e47b83a5ba18d160697bc3171aa15e5e06c7e099214d4797159dc4751",
-    "c9-seeded-ui.json": "72d4409123925e708d0ea3775287565bf9235a346e401d4f7de1fbfcc446a93b"
+    "c9-seeded-ui.json": "72d4409123925e708d0ea3775287565bf9235a346e401d4f7de1fbfcc446a93b",
+    "c33-shared-first-failure.log": "02db7bc3ca39b140e93404b4358dfc67a786dee8b3fdf04794c0a61c87c27168"
   },
   "handheldFollowup": {
     "sourceRevision": "0675ce7acb681166126cb6db080b137e2d7f690e",
