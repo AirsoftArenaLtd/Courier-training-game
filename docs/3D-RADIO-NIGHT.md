@@ -14,7 +14,7 @@ are unchanged.
 
 One call arrives after twenty metres of actual driving. Its caption persists while
 muted and until it is resolved. Incoming calls use the existing cab narration queue
-once per mission, even when sound effects are muted; the optional quiet procedural tone pattern uses the
+once per loaded mission, even when sound effects are muted; the optional quiet procedural tone pattern uses the
 existing master volume and narration ducking. Park with the brake set, open the
 handheld, then choose "Read the dispatch radio message." Read and accept or decline
 with the existing remapped number/arrow/Enter controls. Reading or accepting is not
@@ -68,3 +68,13 @@ Assert one `dispatch.update` keyed `r0`; an unread finish must be false. Night d
 need the real headlight control before movement and a `drive.lights` check at leg
 end. Native owned tests cover these new choices while the inherited helper awaits
 this extension. Claude owns shared QA and translations.
+
+## Combined checkpoint journeys
+
+A read-only adapter of the existing owned seeded journey enables marked radio and
+night plans, reads and accepts each call, confirms the extra check-in or visits the
+priority delivery first, and uses the actual headlight control when needed. Thirty
+days resume identically through 3,723 checkpoints; one hundred seeded days finish,
+and 240 SCORM score round trips peak at 3,868/4,000 characters. All three cases pass.
+[Adapter, original source hash, fixture limits and raw results](review/set-9/c36-journeys/manifest.json).
+This does not replace the separate heavy-day save/pin merge gate above.
