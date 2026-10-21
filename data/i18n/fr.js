@@ -3994,7 +3994,52 @@ window.OTR_I18N.fr = {
 "Missing package not reported": "Colis manquant non signalé",
 "Left with another route's package": "Parti avec un colis d'une autre tournée",
 "Doorsteps and loading: mistakes per day": "Portes et chargement : erreurs par jour",
-"From the {0} trainees whose first and latest workdays both had these checks.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient ces vérifications."
+"From the {0} trainees whose first and latest workdays both had these checks.": "Parmi les {0} stagiaires dont la première et la dernière journée comportaient ces vérifications.",
+"Follow the sat nav.": "Suis le GPS.",
+"Read the road signs.": "Lis les panneaux.",
+"Watch the lights and people.": "Surveille les feux et les gens.",
+"Stop behind the line at red, and at amber when you safely can. Before turning right, look at the right mirror and give way to a passing cyclist. Slow early for children at the school crossing and wait until their path is clear.": "Arrête-toi derrière la ligne au feu rouge, et au feu orange quand tu peux le faire en sécurité. Avant de tourner à droite, regarde le rétroviseur droit et cède le passage au cycliste qui passe. Ralentis tôt pour les enfants au passage scolaire et attends que leur chemin soit dégagé.",
+"Look after the van.": "Prends soin de la camionnette.",
+"The van is 10 feet 10 inches tall. Follow the sat nav around low clearances and take another street when warned. Hard turns and braking shift unsecured cargo. Secure the restraints and drive smoothly. Contacts can damage the van where they hit.": "La camionnette mesure 10 pieds 10 pouces de haut. Suis le GPS pour contourner les hauteurs limitées et prends une autre rue quand tu es averti. Les virages et freinages brusques font bouger un chargement non arrimé. Verrouille les sangles et conduis en douceur. Les chocs peuvent abîmer la camionnette là où ils touchent.",
+"Record the pre-trip condition.": "Note l'état avant le départ.",
+"Report damage after the trip.": "Signale les dommages après la tournée.",
+"After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "De retour au dépôt, refais le tour de la camionnette et note l'état visible de chaque zone. Inspecte le bord du toit depuis le sol. L'usure déjà présente n'est pas ta faute. Signale chaque zone avec de nouveaux dommages avant de terminer à la Répartition. Ouvre les détails de la journée sur le terminal pour revoir les relevés.",
+"Use the delivery site controls.": "Utilise les commandes du lieu de livraison.",
+"Review the walkaround.": "Revois le tour de vérification.",
+"Invalid walkaround version": "Version du tour de vérification non valide",
+"No damage is visible.": "Aucun dommage visible.",
+"The paint is scuffed here.": "La peinture est éraflée ici.",
+"A dent is visible here.": "Une bosse est visible ici.",
+"Major damage is visible here.": "Des dommages importants sont visibles ici.",
+"Invalid walkaround damage": "Dommages du tour de vérification non valides",
+"This is the front of the van.": "Voici l'avant de la camionnette.",
+"This is the rear of the van.": "Voici l'arrière de la camionnette.",
+"This is the left side of the van.": "Voici le côté gauche de la camionnette.",
+"This is the right side of the van.": "Voici le côté droit de la camionnette.",
+"This is the roof edge of the van.": "Voici le bord du toit de la camionnette.",
+"This is the rear left wheel.": "Voici la roue arrière gauche.",
+"This is the left mirror.": "Voici le rétroviseur gauche.",
+"Recorded damage in an undamaged area.": "Tu as noté des dommages sur une zone intacte.",
+"Recorded existing damage before departure.": "Tu as noté les dommages existants avant le départ.",
+"Missed existing damage before departure.": "Tu as manqué des dommages existants avant le départ.",
+"Recorded new damage after the trip.": "Tu as noté de nouveaux dommages après la tournée.",
+"Finished without a correct report of new damage.": "Tu as terminé sans signaler correctement les nouveaux dommages.",
+"Park safely, put down the package and move beside this area of the van. Close cargo before checking the rear.": "Gare-toi en sécurité, pose le colis et place-toi à côté de cette zone de la camionnette. Ferme le compartiment de chargement avant de vérifier l'arrière.",
+"Inspect this area beside the parked van before recording its condition.": "Inspecte cette zone à côté de la camionnette garée avant de noter son état.",
+"It is recorded.": "C'est noté.",
+"Put away the handheld.": "Range le terminal.",
+"See the first descriptions.": "Voir les premières descriptions.",
+"See more descriptions.": "Voir plus de descriptions.",
+"Inspect the van.": "Inspecte la camionnette.",
+"Check the van.": "Vérifie la camionnette.",
+"Inspect before departure or after returning the van to the depot.": "Inspecte avant le départ ou après avoir ramené la camionnette au dépôt.",
+"See the previous area.": "Voir la zone précédente.",
+"See the next area.": "Voir la zone suivante.",
+"Review the van.": "Revois la camionnette.",
+"This area has no recorded condition.": "Aucun état n'est noté pour cette zone.",
+"Walk around the parked van with empty hands and record each area’s condition before departure.": "Fais le tour de la camionnette garée les mains vides et note l'état de chaque zone avant le départ.",
+"Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "Note l'état de la camionnette, vérifie les pneus et les feux, puis scanne et charge les colis. Arrime le chargement et ferme le compartiment de chargement avant le départ.",
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "Retourne au dépôt, scanne les colis conservés aux Retours et note l'état de la camionnette avant de terminer à la Répartition."
 },
 "templates": [
 [
@@ -5756,6 +5801,22 @@ window.OTR_I18N.fr = {
 [
 "Press {0} to use the delivery controls.",
 "Appuie sur {0} pour utiliser les commandes de livraison."
+],
+[
+"{0} Press {1} to inspect it.",
+"{0} Appuie sur {1} pour inspecter cette zone."
+],
+[
+"Stop fully at stop signs and give way where the sign says. Keep to the speed limit and slow down in school zones. Never enter a one-way street against its direction or pass a no-entry sign. Press {0} to hear the sign in view.",
+"Marque l'arrêt complet aux panneaux stop et cède le passage là où le panneau l'indique. Respecte la limite de vitesse et ralentis dans les zones scolaires. N'entre jamais dans une rue à sens unique à contresens et ne passe jamais un panneau de sens interdit. Appuie sur {0} pour entendre le panneau en vue."
+],
+[
+"Before departure, walk around the parked van with empty hands. Press {0} to select each area and {1} to inspect it. Choose the matching description on the handheld. Check the front, rear, both sides, roof edge, rear left wheel and left mirror. Close cargo before checking the rear.",
+"Avant le départ, fais le tour de la camionnette garée les mains vides. Appuie sur {0} pour choisir chaque zone et sur {1} pour l'inspecter. Choisis la description qui correspond sur le terminal. Vérifie l'avant, l'arrière, les deux côtés, le bord du toit, la roue arrière gauche et le rétroviseur gauche. Ferme le compartiment de chargement avant de vérifier l'arrière."
+],
+[
+"Press {0} to inspect this area and record its condition on the handheld.",
+"Appuie sur {0} pour inspecter cette zone et noter son état sur le terminal."
 ]
 ],
 "keep": [
