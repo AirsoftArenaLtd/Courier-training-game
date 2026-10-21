@@ -1,0 +1,19 @@
+{
+  "quality": "low",
+  "checks": 2,
+  "runs": [
+    {
+      "lang": "en",
+      "size": "large",
+      "recording": {
+        "day": 9,
+        "routeDay": 1,
+        "bytes": 201376,
+        "latest": true
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Travel/time/completed deliveries are fixtures. Actual recorder, Dispatch finish, results/map entries, global keyboard focus and detached renderer run normally.",
+  "failure": "TimeoutError: Waiting failed: 60000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c37-replay/test/fpreplaybrowser.js:35:15"
+}

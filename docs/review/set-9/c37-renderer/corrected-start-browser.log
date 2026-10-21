@@ -1,0 +1,7 @@
+TimeoutError: Waiting failed: 60000ms exceeded
+    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)
+    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)
+    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)
+    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)
+    at /workspace/c37-replay/test/fpreplaybrowser.js:35:15
