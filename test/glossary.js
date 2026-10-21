@@ -17,6 +17,7 @@ const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'i18n', 'catalogu
 const LANGS = ['bn', 'es', 'fr', 'gu', 'hi', 'kn', 'ml', 'mr', 'pa', 'ta', 'te'];
 const stem = (w) => {
   w = w.toLowerCase().replace(/[.。!:]+$/, '').trim();
+  if (!/[a-z]/.test(w)) w = w.replace(/\p{M}+$/u, '');   // B-106: an Indic word's last vowel sign or virama changes with its case ending
   const cps = [...w];
   return cps.length > 5 ? cps.slice(0, cps.length - (/[a-z]/.test(w) ? 1 : 2)).join('') : w;
 };
@@ -25,11 +26,20 @@ for (const lang of LANGS) {
   global.window = {}; eval(fs.readFileSync(path.join(ROOT, 'data', 'i18n', lang + '.js'), 'utf8'));
   const L = window.OTR_I18N[lang].strings;
   out[lang] = {};
-  for (const [term, single] of Object.entries(G.terms)) {
-    const word = stem(L[single] || '');
+  for (const [term, def] of Object.entries(G.terms)) {
+    const T = typeof def === 'string' ? { en: def } : def, single = T.en, except = new Set(T.except || []);
+    // B-116: a term shown only in a phrase ("the intercom", "Pre-trip walkaround"): its word is the phrase's word found
+    // in the most lines that use the term in English
+    const phrase = (L[single] || '').split(/[\s'’\-\u200c]+/u).map(stem).filter(w => [...w].length > 1);
+    const users = cat.filter(s => s !== single && new RegExp('\\b' + term.replace(/ /g, '\\s+'), 'i').test(s) && L[s]).map(s => L[s].toLowerCase());
+    const word = phrase.length ? phrase.map(w => [w, users.filter(t => t.includes(w)).length]).sort((x, y) => y[1] - x[1])[0][0] : stem(L[single] || '');
     if (!word) continue;
-    const re = new RegExp('\\b' + term.replace(/ /g, '\\s+') + 's?\\b', 'i');
-    const miss = cat.filter(s => s !== single && re.test(s) && L[s] && !L[s].toLowerCase().includes(word));
+    // B-106: { case: true } matches the term only as the game writes it, as a name (the depot's Returns, not "returns")
+    const name = T.case ? single.replace(/ /g, '\\s+') : term.replace(/ /g, '\\s+');
+    const re = new RegExp('\\b' + name + (T.case ? '' : 's?') + '\\b', T.case ? '' : 'i');
+    // the term kept in English as the game prints it (the depot's Returns, a SIGNATURE REQUIRED sticker) also counts
+    const kept = (s) => { const m = s.match(re); return !!m && /[A-Z]/.test(m[0]) && L[s].includes(m[0]); };
+    const miss = cat.filter(s => s !== single && !except.has(s) && re.test(s) && L[s] && !L[s].toLowerCase().includes(word) && !kept(s));
     out[lang][term] = miss.length;
     const base = ((G.baseline || {})[lang] || {})[term];
     if (process.argv.includes('--list')) miss.forEach(s => console.log(`  ${lang} ${term} (${word}): ${s.slice(0, 70)} → ${L[s].slice(0, 70)}`));

@@ -1,0 +1,11 @@
+✔ 30 seeds finish identically after a real local checkpoint at every action, phase and mid-stop (140572.507011ms)
+✔ 100 seeded days with shuffled legal actions always resolve five stops and keep scores in range (185389.740519ms)
+✔ C-32 signal and cyclist keys preserve scores and critical flags through SCORM compaction (4.60856ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 326067.882997

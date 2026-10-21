@@ -8,7 +8,7 @@ function setup(ready=true){
  const ctx={state:'running',currentTime:1,createGain:()=>node('gain'),createOscillator:()=>node('oscillator'),createBufferSource:()=>node('noise'),createBiquadFilter:()=>node('filter')},master={gain:param()};
  c.OTR={audio:{ctx:ready?ctx:null,master,volume:.55,muted:false,_noiseBuf:{},tone(...args){calls.push(['tone',...args]);},noise(...args){calls.push(['noise',...args]);},play(name){calls.push(['play',name]);},setVolume(v){this.volume=Math.max(0,Math.min(1,v));},setMuted(v){this.muted=!!v;}},a11y:{settings:()=>settings},save:{setVolume:v=>saves.push(['volume',v]),setMuted:v=>saves.push(['muted',v])}};
  vm.runInContext(fs.readFileSync(__dirname+'/../src/core/fpsound.js','utf8'),c);
- const m={phase:'route',paused:false,mode:'cab',van:{speed:4},signal:-1,dogNearby:false,routeDay:{weather:'rain'},driving:{siren:{state:'idle'}}},scene={model:m,held:{},events:new EventEmitter(),time:{now:0},showPanel(title,body,choices){this.page={title,body,choices};},showSettings(){}},sound=new c.OTR.fpSound(scene),tick=time=>{scene.time.now=time;return sound.tick(time);};
+ const m={phase:'route',paused:false,mode:'cab',van:{speed:4},signal:-1,dogNearby:false,routeDay:{weather:'rain'},driving:{siren:{state:'idle'}}},scene={model:m,held:{},events:new EventEmitter(),time:{now:0},message(text){calls.push(['message',text]);},showPanel(title,body,choices){this.page={title,body,choices};},showSettings(){}},sound=new c.OTR.fpSound(scene),tick=time=>{scene.time.now=time;return sound.tick(time);};
  return {c,m,scene,sound,tick,settings,calls,saves,nodes,master,ctx,win,doc};
 }
 test('unavailable audio still supplies every active caption and never changes the mission',()=>{
@@ -43,4 +43,8 @@ test('parking beeps accelerate with proximity, stay quiet when muted and retain 
  const x=setup();x.m.signal=0;x.m.van.gear=-1;x.m.rearSense={distance:2};x.tick(0);assert.equal(x.calls.filter(c=>c[0]==='tone').length,1);x.tick(300);assert.equal(x.calls.filter(c=>c[0]==='tone').length,1);
  x.m.rearSense.distance=.4;x.tick(500);assert.equal(x.calls.filter(c=>c[0]==='tone').length,2);x.tick(700);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);assert.ok(x.calls.filter(c=>c[0]==='tone').every(c=>c[1]===1050&&c[3].vol<=.025));
  x.c.OTR.audio.muted=true;assert.match(x.tick(1200),/parking sensors/);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);x.c.OTR.audio.muted=false;x.settings.narrate=true;x.c.speechSynthesis.speaking=true;x.tick(1600);assert.equal(x.calls.filter(c=>c[0]==='tone').length,3);x.m.rearSense.distance=6;assert.doesNotMatch(x.tick(2000),/parking sensors/);x.sound.dispose();
+});
+
+test('an unread radio call announces once per mission even when effects are muted',()=>{
+ const x=setup();x.m.signal=0;x.m.radio={read:false};x.c.OTR.fpRadio={caption:()=> 'Dispatch has sent a route update. Park safely to read it.'};x.c.OTR.audio.muted=true;const before=JSON.stringify(x.m);assert.match(x.tick(0),/Dispatch/);for(let t=100;t<1000;t+=100)x.tick(t);assert.equal(x.calls.filter(c=>c[0]==='message').length,1);assert.equal(x.calls.filter(c=>c[0]==='tone').length,0);assert.equal(JSON.stringify(x.m),before);x.scene.model={...x.m};x.tick(1100);assert.equal(x.calls.filter(c=>c[0]==='message').length,2);x.sound.dispose();
 });

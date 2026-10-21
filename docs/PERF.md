@@ -1,5 +1,36 @@
 # 3D workday rendering cost
 
+## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
+
+On a software renderer (Chromium's SwiftShader, as on a PC with no graphics driver), at 1280 x 720:
+
+| Scene | fps | Screens drawn |
+| --- | --- | --- |
+| m8-heat | 12 | 5.9 |
+| m5-exceptions | 13 | |
+| m5-pod | 14 to 18 | 4.3 |
+| m8-dog | 14 | |
+| m5-adult, m8-steps | 16 | 4.5 (m8-steps) |
+| m1-driving | 17 | 3.7 |
+| m7-business (for comparison) | 30 to 35 | 2.5 (plus two zones that draw nothing) |
+
+The game's own code is not the cost: a 5-second CPU profile of m5-pod and m8-heat is over 90% idle. Skipping the
+frame's clear changes nothing. Hiding each layer in turn, five times on and off, shows **about 9 ms a frame for each
+full-screen layer**:
+
+- the sky: +3 fps;
+- the colour grade (tint, darkness and vignette, already one multiply pass): +3;
+- an open card's dimmer and panel: +3.5;
+- the heat's additive warmth, glare and shimmer: +2.3;
+- all fixed-to-screen layers together: about +10.
+
+A scene that draws 4 to 6 screens therefore runs at 12 to 18 fps there. Merging layers does not save pixels, and 25 fps
+needs about two screens fewer, which means drawing less: no grade, no heat overlays, or rendering at a lower
+resolution on such PCs. Each of those changes how the scene looks, so it is owner question 8. Until it is answered,
+nothing changes: every scene stays above the QA floor of 10 fps for software renderers.
+
+`node test/tools/overdraw.js <scenario,...>` lists what a scene draws, largest first, in screens.
+
 ## C-30: generated signs (18 October 2026)
 
 Signs share the existing route-plane batch: at most five two-triangle instances per view on Low, 24 on High,
@@ -932,6 +963,37 @@ Claude's B-99 helper. [Final captures/raw reports/scopes/hashes](review/set-9/c3
 Latest pilot `74cd60a` retains the owned rendering code unchanged and adds Claude's
 save v2 and safety translation corrections. No resource ceiling changed. Cloud
 SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).
+
+
+## C-36 frozen resource gate and current-pilot integration (21 October 2026)
+
+All **183 views** passed at product `eb13629` before the C-35 merge:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 62 | 54 | 2,396 | 2 | 3,557,376 | 3,619,878 |
+| loaded-high | 47 | 107 | 235,893 | 3 | 11,239,424 | 9,552,176 |
+| accessible-low | 37 | 54 | 2,396 | 2 | 3,557,376 | 3,783,483 |
+| fallback-low | 37 | 53 | 2,150 | 2 | 3,557,376 | 3,327,531 |
+
+[Exact reports, 183 captures and source hashes](review/set-9/c36-render/manifest.json).
+Final cue checks pass 110 real-key assertions (Low Tamil larger / High English),
+with Low Phaser memory at **3,789,531 bytes**. Actual glare changes 23,102 Low and
+22,912 High pixels; reduced motion suppresses it. Combined model journeys pass
+30 resumed days / 3,723 checkpoints, 100-day soak and 240 SCORM round trips.
+
+Pilot `54d7a63` is now combined at `d44c7e6`, retaining C-35 walkaround, its cargo
+proxy fix, translations and Claude's B-103 save correction. The expanded **207-view**
+gate and current-pilot native/shared journeys are being repeated; the previous
+183 views are not claimed for the combined build. The earlier shared batch passed
+seven of nine flows, with two Results-to-debrief timeouts. Initial combined native
+restore found a fixture that skipped walkaround departure; the fixture now invokes
+the actual departure adapter. No production guard was weakened.
+
+All four new heavy-save variants retain every pin and exact score on reload:
+failed lights pack at 3,929/4,000 or 3,931/4,000; successful lights at 3,993/4,000
+or 3,995/4,000. The latter still have little headroom and are reported to Claude.
+No resource ceiling changed. Cloud SwiftShader cannot certify Intel 60 fps (O-1).
 
 ## C-37 initial native replay view (21 October 2026)
 

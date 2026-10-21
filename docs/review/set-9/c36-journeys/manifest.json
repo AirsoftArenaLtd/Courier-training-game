@@ -1,0 +1,46 @@
+{
+  "sourceRevision": "eb13629",
+  "sourceJourneySHA256": "f307d68c5ff653bc70c3224671d1658478606dfcb345199b1feb146bd13a034b",
+  "stage": "All three adapted seeded-journey cases pass.",
+  "results": {
+    "resumedDays": 30,
+    "soakDays": 100,
+    "resumeCheckpoints": 3723,
+    "SCORMRoundTrips": 240,
+    "SCORMMaxBytes": 3868
+  },
+  "scope": "Read-only adapter of the owned fpresume.js, enabling new radio/night plans and acting on them. Arrival travel and long-distance positions are fixtures; module call, parked read/accept/arrival, actual mission deliveries, saved checkpoints and score readers are real. The original richer-stop scripted actions are not extended here; native/module suites cover those. A prior failed probe forgot to unpause restored missions before its driving step; both the failed adapter and report are archived. No production correction was needed. The separate B-98 heavy-save pin gate remains open.",
+  "command": "QA_LATER=1 QA_SIGNS=1 QA_NAV=1 QA_TRAFFIC=1 QA_DAMAGE=1 QA_REAR=1 node --test --test-isolation=none /tmp/c36-resume-adapter.cjs",
+  "files": [
+    {
+      "path": "c36-radio-resume-soak.json",
+      "sha256": "e5a513104457da262dca4605bfa0815584b8c670d6e45ced5ef1f66f10938e14",
+      "bytes": 14043
+    },
+    {
+      "path": "c36-radio-resume.log",
+      "sha256": "51e8ceb3092984bcec983aff22d77b04ffaddbefbdd3a2992ea10c5521dd90ae",
+      "bytes": 456
+    },
+    {
+      "path": "c36-resume-adapter.cjs",
+      "sha256": "79ede4cdc42dff4f6aa142d42ec07cba98a6249dc026a21e0c46e5150aac9ddf",
+      "bytes": 2088
+    },
+    {
+      "path": "c36-resume-before.cjs",
+      "sha256": "817d898591f2fcd5e509295e76f50317f60f2ec0965c03f93fdfb05e1c0b8d1d",
+      "bytes": 2073
+    },
+    {
+      "path": "c36-resume-before.json",
+      "sha256": "0a9a0b8aecdddf288890e1b4df4eafb5cfb8ca880b9b818e07b8ebac81e0f9a2",
+      "bytes": 1763
+    },
+    {
+      "path": "c36-resume-before.log",
+      "sha256": "584820552ae129c2bc13fc1d21baa0476b0b84872d02f27e9a8d8f3ad6abcbbb",
+      "bytes": 2574
+    }
+  ]
+}

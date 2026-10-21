@@ -1,0 +1,249 @@
+{
+  "stage": "Inherited suites and full native matrix before the visible/narrated cue correction. The correction is rechecked separately.",
+  "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+  "interruption": "The resource gate was intentionally interrupted before completion; it is not a final pass.",
+  "results": [
+    {
+      "name": "native-low",
+      "command": [
+        "node",
+        "test/fpradiobrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "low",
+        "QA_TAG": "c36-final-low"
+      },
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "native-high-en",
+      "command": [
+        "node",
+        "test/fpradiobrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_TAG": "c36-final-high-en"
+      },
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "native-high-ta",
+      "command": [
+        "node",
+        "test/fpradiobrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_TAG": "c36-final-high-ta"
+      },
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "sound",
+      "command": [
+        "node",
+        "test/fpsoundbrowser.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "guide",
+      "command": [
+        "node",
+        "test/fpguidebrowser.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "access",
+      "command": [
+        "node",
+        "test/fpaccessbrowser.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "page-academy",
+      "command": [
+        "node",
+        "-r",
+        "/tmp/c36-http-test-adapter.cjs",
+        "test/academy.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "page-enterprise",
+      "command": [
+        "node",
+        "-r",
+        "/tmp/c36-http-test-adapter.cjs",
+        "test/enterprise.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "page-routeday",
+      "command": [
+        "node",
+        "-r",
+        "/tmp/c36-http-test-adapter.cjs",
+        "test/routeday.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    },
+    {
+      "name": "page-driving",
+      "command": [
+        "node",
+        "-r",
+        "/tmp/c36-http-test-adapter.cjs",
+        "test/driving.js"
+      ],
+      "environment": {},
+      "runtimeRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214",
+      "exit": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "c36-batch-native-low.log",
+      "sha256": "efc08bf50b50ee0800f3deacdd9e583b7cba0ccc4a6286ff065e728abc7e4688",
+      "bytes": 42,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-native-high-en.log",
+      "sha256": "a67dd37e2bb354ec53e00332ac36397a1287d6124493a440ea646f2e50fb24d6",
+      "bytes": 42,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-native-high-ta.log",
+      "sha256": "a67dd37e2bb354ec53e00332ac36397a1287d6124493a440ea646f2e50fb24d6",
+      "bytes": 42,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-sound.log",
+      "sha256": "badfb4841ef81ef69358db32f327481cff2c22a006fa440800772e8719485e2b",
+      "bytes": 42,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-guide.log",
+      "sha256": "0d71359cf300b03d244d4233535954250f14f77f133b52e2a39ee87944ad00bc",
+      "bytes": 45,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-access.log",
+      "sha256": "06f8c4aa1d8e3a69560353d32b0bd6bdfd0016b175a8bafd044c8aa21bd38378",
+      "bytes": 121,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-page-academy.log",
+      "sha256": "fb8fdce77d23d5fcdb91e23a2a7d560cb227e793dc870f5507b5927897fc2f3e",
+      "bytes": 1777,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-page-enterprise.log",
+      "sha256": "636154ccbdf245a61edc6436036ac19e7bcae7071c4cc2fa75ae00bb42144e84",
+      "bytes": 1465,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-page-routeday.log",
+      "sha256": "42baa78ed559d76322b83fddb3bd4e03c1b0a6d0936cb7b83b760df5c473cc3d",
+      "bytes": 1131,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-batch-page-driving.log",
+      "sha256": "6e145c19de3aa14378288fc2301fd710095abacc6f4249262292d9726d6eb953",
+      "bytes": 2365,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c17-sound.json",
+      "sha256": "e62917ab168cfc2080e28e321051e337b46b315371306194ed8ae9c725e435e2",
+      "bytes": 1114,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c24-guide-layouts.json",
+      "sha256": "5b3871fc837b42c2e58201c41967faf04f24d5811d9207795c730ab95de4e2b6",
+      "bytes": 8154,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c12-accessibility.json",
+      "sha256": "8bccd4d29c34cce606e717a7224513ef159e10e18a1fdba6c848ccbd0b7d815f",
+      "bytes": 1229,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-final-high-ta-ta-large-night.png",
+      "sha256": "08c1ba135e72f4e0613f48715a4b5bbcfc28fcaf677d4ac02385a89e0eb493ef",
+      "bytes": 186090,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-final-high-ta-oncoming-glare.png",
+      "sha256": "d352dc3751704dbf46629dd4fed8cdc7dc2b441e450fee76f5ecbc04014fcc13",
+      "bytes": 195926,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-final-high-ta-ta-large-day5-message.png",
+      "sha256": "3e0e3f292de28d4284dc73bedfa2297c9e2a87840c06bc56d639444bb952a6c7",
+      "bytes": 165838,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-final-high-ta-ta-large-day6-message.png",
+      "sha256": "01aa2018cf3cc815ce57f4421c86d8df0c5e01edf12bf16327aa09017beebff1",
+      "bytes": 148558,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-final-high-ta-radio.json",
+      "sha256": "52763be4c4ac475cf310f9068eb6295f7bb902641e2586a73681eec9fbc8f02d",
+      "bytes": 4076,
+      "sourceRevision": "7dbc438f60ac86aa0655f55fe114fb99c8803214"
+    },
+    {
+      "path": "c36-cues-node.log",
+      "sha256": "be6bd32b0cfabe4e2469b74118bacffde190a3bed73a34413caa40f1a634b63c",
+      "bytes": 5333,
+      "sourceRevision": "eb13629"
+    },
+    {
+      "path": "interruption.json",
+      "sha256": "78d62d2e2fe16959128c745e956faebdd0522e0324a64b0b4c56f811fe278b79",
+      "bytes": 32083
+    }
+  ]
+}

@@ -113,7 +113,7 @@ window.OTR_I18N.gu = {
 "Getting a signature across a language barrier": "ભાષાની દીવાલ પાર સહી લેવી",
 "Refusing a package handover politely": "વિનમ્રતાથી પેકેજ આપવાની ના પાડવી",
 "Heavy packages on the hand truck": "હેન્ડ ટ્રક પર ભારે પેકેજ",
-"A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose": "ચાલવા A/D કે ક્લિક · SHIFT સાવધાનીથી ચાલો · E વાતચીત · TAB હેન્ડહેલ્ડ · પસંદ કરવા 1-4",
+"A/D or click to walk · SHIFT walk carefully · E interact · TAB handheld · 1-4 to choose": "ચાલવા A/D કે ક્લિક · SHIFT સાવધાનીથી ચાલો · E વાતચીત · TAB હૅન્ડહેલ્ડ · પસંદ કરવા 1-4",
 "Problem Solving": "સમસ્યા ઉકેલ",
 "When the route goes sideways": "જ્યારે રૂટ ખોરવાય",
 "Wrong Address": "ખોટું સરનામું",
@@ -3543,7 +3543,7 @@ window.OTR_I18N.gu = {
 "Read the morning brief and every manifest page here. Return here after completing the route.": "સવારનું બ્રીફ અને યાદીનાં બધાં પાનાં અહીં વાંચો. રૂટ પૂરો થયા પછી અહીં પાછા આવો.",
 "Inspect the tires before departure. Request a repair if you find a defect.": "નીકળતાં પહેલાં ટાયર તપાસો. ખામી મળે તો રિપેર માગો.",
 "Test the lights before departure. Request a repair if a lamp does not work.": "નીકળતાં પહેલાં લાઇટ તપાસો. લૅમ્પ ન ચાલે તો રિપેર માગો.",
-"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "લેબલ યાદી સાથે મેળવો. પેકેજ ઉપાડો, પછી હેન્ડહેલ્ડ પર સ્કૅન કરો.",
+"Match the label to the manifest. Pick up the package, then scan it on the handheld.": "લેબલ યાદી સાથે મેળવો. પેકેજ ઉપાડો, પછી હૅન્ડહેલ્ડ પર સ્કૅન કરો.",
 "Load each package on its numbered shelf. Its recorded shelf helps you find it at the stop.": "દરેક પેકેજ તેના ક્રમાંકિત શેલ્ફ પર લોડ કરો. નોંધેલો શેલ્ફ સ્ટૉપ પર શોધવામાં મદદ કરે છે.",
 "Open cargo to load or retrieve packages. Step outside before closing the cargo doors.": "પેકેજ લોડ કરવા કે કાઢવા કાર્ગો ખોલો. કાર્ગો દરવાજા બંધ કરતાં પહેલાં બહાર આવો.",
 "Secure the restraints after loading or retrieving a package, before driving again.": "પેકેજ લોડ કર્યા કે કાઢ્યા પછી, ફરી ચલાવતાં પહેલાં પટ્ટા બાંધો.",
@@ -3553,7 +3553,7 @@ window.OTR_I18N.gu = {
 "Look at the path before carrying the package through. Clear movable hazards with empty hands, or avoid the slippery patch.": "પેકેજ લઈ જતાં પહેલાં રસ્તો જુઓ. હટાવી શકાય તેવા અવરોધો ખાલી હાથે દૂર કરો, અથવા લપસણી જગ્યા ટાળો.",
 "Bring each retained package here and scan it back in before finishing at Dispatch.": "રાખેલું દરેક પેકેજ અહીં લાવો અને ડિસ્પેચ પર પૂરું કરતાં પહેલાં ફરી સ્કૅન કરો.",
 "Start a workday first": "પહેલાં કામનો દિવસ શરૂ કરો",
-"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "કામના દિવસ કે કાર્ગો પ્રૅક્ટિસ દરમિયાન હેન્ડહેલ્ડ મળે છે. હબમાંથી એક શરૂ કરો, પછી હેન્ડહેલ્ડ ખોલો.",
+"The handheld is available during a workday or cargo practice. Start one from the hub, then open the handheld.": "કામના દિવસ કે કાર્ગો પ્રૅક્ટિસ દરમિયાન હૅન્ડહેલ્ડ મળે છે. હબમાંથી એક શરૂ કરો, પછી હૅન્ડહેલ્ડ ખોલો.",
 "Return to Dispatch": "ડિસ્પેચ પર પાછા ફરો",
 "The engine is running.": "એન્જિન ચાલુ છે.",
 "Rain is falling.": "વરસાદ પડી રહ્યો છે.",
@@ -4038,7 +4038,38 @@ window.OTR_I18N.gu = {
 "This area has no recorded condition.": "આ ભાગની કોઈ સ્થિતિ નોંધાયેલી નથી.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "નીકળતાં પહેલાં ખાલી હાથે પાર્ક કરેલી વાનની આસપાસ ફરો અને દરેક ભાગની સ્થિતિ નોંધો.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "વાનની સ્થિતિ નોંધો, ટાયર અને લાઇટ તપાસો, પછી પાર્સલ સ્કૅન કરીને ભરો. નીકળતાં પહેલાં માલ સુરક્ષિત કરો અને કાર્ગો બંધ કરો.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ડેપો પર પાછા ફરો, રાખેલાં પાર્સલ રિટર્ન્સ પર સ્કૅન કરો અને ડિસ્પેચ પર કામ પૂરું કરતાં પહેલાં વાનની સ્થિતિ નોંધો."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "ડેપો પર પાછા ફરો, રાખેલાં પાર્સલ રિટર્ન્સ પર સ્કૅન કરો અને ડિસ્પેચ પર કામ પૂરું કરતાં પહેલાં વાનની સ્થિતિ નોંધો.",
+"Read the dispatch radio message.": "ડિસ્પેચનો રેડિયો સંદેશ વાંચો.",
+"Visibility is reduced. The headlights are on.": "દૃશ્યતા ઓછી છે. હેડલાઇટ ચાલુ છે.",
+"Visibility is reduced. Switch on the headlights before moving.": "દૃશ્યતા ઓછી છે. ચલાવતા પહેલાં હેડલાઇટ ચાલુ કરો.",
+"It is night. The headlights are on. Drive within the distance they light.": "રાત છે. હેડલાઇટ ચાલુ છે. એટલી ઝડપે ચલાવો કે હેડલાઇટનો પ્રકાશ જ્યાં સુધી પહોંચે તેની અંદર રોકાઈ શકો.",
+"You have reached the dispatch check-in. Park safely at the curb.": "તમે ડિસ્પેચ ચેક-ઇન પર પહોંચી ગયા છો. કર્બ પાસે સુરક્ષિત રીતે પાર્ક કરો.",
+"Used the headlights when visibility required them.": "દૃશ્યતા ઓછી હતી ત્યારે હેડલાઇટ વાપરી.",
+"Moved without headlights when visibility required them.": "દૃશ્યતા ઓછી હતી છતાં હેડલાઇટ વગર ચલાવ્યું.",
+"No accessible dispatch check-in": "પહોંચી શકાય એવું કોઈ ડિસ્પેચ ચેક-ઇન નથી",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "ડિસ્પેચ બોલાવી રહ્યું છે. સલામત રીતે પાર્ક કરો, પછી હૅન્ડહેલ્ડ પર રેડિયો સંદેશ વાંચો.",
+"The dispatch radio message is waiting for your response.": "ડિસ્પેચનો રેડિયો સંદેશ તમારા જવાબની રાહ જુએ છે.",
+"There is no dispatch radio message waiting.": "ડિસ્પેચનો કોઈ રેડિયો સંદેશ બાકી નથી.",
+"Stop and set the parking brake before reading the radio message.": "રેડિયો સંદેશ વાંચતા પહેલાં રોકાઓ અને પાર્કિંગ બ્રેક લગાવો.",
+"Read the dispatch radio message before responding.": "જવાબ આપતા પહેલાં ડિસ્પેચનો રેડિયો સંદેશ વાંચો.",
+"Stop and set the parking brake before responding to Dispatch.": "ડિસ્પેચને જવાબ આપતા પહેલાં રોકાઓ અને પાર્કિંગ બ્રેક લગાવો.",
+"The dispatch route update is already accepted.": "ડિસ્પેચનું રૂટ અપડેટ પહેલેથી સ્વીકારાયેલું છે.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "રૂટ અપડેટ સ્વીકારાયું છે. નેવિગેશન પર નવા સ્થળને અનુસરો.",
+"Followed the dispatch radio route update.": "ડિસ્પેચના રેડિયો રૂટ અપડેટને અનુસર્યા.",
+"Did not follow the dispatch radio route update.": "ડિસ્પેચના રેડિયો રૂટ અપડેટને અનુસર્યા નહીં.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "ડિસ્પેચે નોંધ્યું છે કે રૂટ અપડેટ નકારાયું છે. મૂળ ડિલિવરી સલામત રીતે ચાલુ રાખો.",
+"Accept the dispatch route update before confirming arrival.": "પહોંચ્યાની પુષ્ટિ કરતાં પહેલાં ડિસ્પેચનું રૂટ અપડેટ સ્વીકારો.",
+"Complete the requested delivery before the other stops.": "બીજા સ્ટોપ પહેલાં માંગેલી ડિલિવરી પૂરી કરો.",
+"Park at the dispatch check-in stop and set the parking brake first.": "ડિસ્પેચ ચેક-ઇન સ્ટોપ પર પાર્ક કરો અને પહેલાં પાર્કિંગ બ્રેક લગાવો.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "ડિસ્પેચે તમારું ચેક-ઇન નોંધ્યું છે. બાકીની ડિલિવરી ચાલુ રાખો.",
+"Dispatch has recorded your check-in. Return to the depot.": "ડિસ્પેચે તમારું ચેક-ઇન નોંધ્યું છે. ડેપો પર પાછા ફરો.",
+"The dispatch radio.": "ડિસ્પેચ રેડિયો.",
+"Review the radio message.": "રેડિયો સંદેશ ફરી જુઓ.",
+"Accept the route update.": "રૂટ અપડેટ સ્વીકારો.",
+"Decline the route update.": "રૂટ અપડેટ નકારો.",
+"Confirm arrival at the check-in stop.": "ચેક-ઇન સ્ટોપ પર પહોંચ્યાની પુષ્ટિ કરો.",
+"Invalid dispatch version": "અમાન્ય ડિસ્પેચ સંસ્કરણ",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ડિસ્પેચ ચેક-ઇન પૂરું કરો, પછી રૂટ ચાલુ રાખો અથવા ડેપો પર પાછા ફરો."
 },
 "templates": [
 [
@@ -5547,7 +5578,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Press {0} for the handheld. Use arrows and Enter to choose, then hold {1} to scan.",
-"હેન્ડહેલ્ડ માટે {0} દબાવો. પસંદ કરવા તીર અને Enter વાપરો, સ્કૅન માટે {1} દબાવી રાખો."
+"હૅન્ડહેલ્ડ માટે {0} દબાવો. પસંદ કરવા તીર અને Enter વાપરો, સ્કૅન માટે {1} દબાવી રાખો."
 ],
 [
 "Press {0} to reopen Controls and guidance at any time.",
@@ -5555,7 +5586,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt, {1} for the mirror and {2} for the parking brake. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
-"કૅબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0}, અરીસા માટે {1}, પાર્કિંગ બ્રેક માટે {2} દબાવો. ઝડપ/બ્રેક માટે {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હેન્ડહેલ્ડ વાપરતાં કે ઉતરતાં પહેલાં ઊભા રહી પાર્કિંગ બ્રેક લગાવો."
+"કૅબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0}, અરીસા માટે {1}, પાર્કિંગ બ્રેક માટે {2} દબાવો. ઝડપ/બ્રેક માટે {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હૅન્ડહેલ્ડ વાપરતાં કે ઉતરતાં પહેલાં ઊભા રહી પાર્કિંગ બ્રેક લગાવો."
 ],
 [
 "Move with {0}/{1}/{2}/{3} and look with {4} or the mouse. Press {5} to select a visible nearby target, then {6} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press {7} for Controls and guidance. Your progress is saved on this device.",
@@ -5663,7 +5694,7 @@ window.OTR_I18N.gu = {
 ],
 [
 "Close cargo before entering the cab. Press {0} for the seatbelt and {1} for the parking brake. Look at a physical mirror for a moment before moving or turning. Press {2} to select it with the keyboard. Use {3}/{4} to accelerate or brake and {5}/{6} to steer. Stop and set the parking brake before using the handheld or getting out.",
-"કેબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0} અને પાર્કિંગ બ્રેક માટે {1} દબાવો. ચાલતાં કે વળતાં પહેલાં સાચા અરીસાને એક ક્ષણ જુઓ. કીબોર્ડથી પસંદ કરવા {2} દબાવો. ઝડપ વધારવા/બ્રેક મારવા {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હેન્ડહેલ્ડ વાપરતાં કે ઊતરતાં પહેલાં થોભો અને પાર્કિંગ બ્રેક લગાવો."
+"કેબિનમાં બેસતાં પહેલાં કાર્ગો બંધ કરો. સીટબેલ્ટ માટે {0} અને પાર્કિંગ બ્રેક માટે {1} દબાવો. ચાલતાં કે વળતાં પહેલાં સાચા અરીસાને એક ક્ષણ જુઓ. કીબોર્ડથી પસંદ કરવા {2} દબાવો. ઝડપ વધારવા/બ્રેક મારવા {3}/{4} અને સ્ટિયરિંગ માટે {5}/{6} વાપરો. હૅન્ડહેલ્ડ વાપરતાં કે ઊતરતાં પહેલાં થોભો અને પાર્કિંગ બ્રેક લગાવો."
 ],
 [
 "Stop, look at the R position on the shifter and press {0}. The rear camera turns on automatically. Press {1} to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
@@ -5816,6 +5847,30 @@ window.OTR_I18N.gu = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "આ ભાગ તપાસવા અને હૅન્ડહેલ્ડ પર તેની સ્થિતિ નોંધવા {0} દબાવો."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0} પર આવેલા ડિસ્પેચ ચેક-ઇન સુધી ડ્રાઇવ કરો."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"ડિસ્પેચ ચેક-ઇન સુધી {0} ફૂટ આગળ વધો."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"ડિસ્પેચ તમને હવે {0} જવા કહે છે. રૂટ પરની બાકીની બધી ડિલિવરી યથાવત્ રાખો."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"ડિસ્પેચે {0} પર ચેક-ઇન સ્ટોપ ઉમેર્યો છે. જાહેર કર્બ પાસે પાર્ક કરો અને પહોંચ્યાની પુષ્ટિ કરો. ત્યાં કોઈ પાર્સલ આપવાનું નથી."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"ડિસ્પેચ ઇચ્છે છે કે તમારો આગલો સ્ટોપ {0} હોય."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0} પર ડિસ્પેચ ચેક-ઇન બાકી છે."
 ]
 ],
 "keep": [

@@ -14,10 +14,12 @@
  */
 'use strict';
 const path = require('path');
+// B-110: QA_BASE (an http:// root, as the newer suites take) serves the page; file:// from disk otherwise
+const PAGE = process.env.QA_BASE ? process.env.QA_BASE.replace(/\/+$/, '') + '/index.html' : 'file://' + path.resolve(__dirname, '..', 'index.html');
 let puppeteer;
 try { puppeteer = require('puppeteer-core'); } catch (e) { console.error('puppeteer-core is missing. Run:  cd test && npm install'); process.exit(2); }
 const BROWSER = process.env.QA_BROWSER || '/opt/pw-browsers/chromium';
-const BASE = 'file://' + path.resolve(__dirname, '..', 'index.html') + '?lab=town&dev=1';
+const BASE = PAGE + '?lab=town&dev=1';
 
 const fails = [];
 const check = (ok, what) => { console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) fails.push(what); };
@@ -106,7 +108,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
       v.x = w.img.x; v.y = w.img.y; v.heading = w.img.rotation + Math.PI;
       const bc = V.bodyCentre(v); v.x += w.img.x - bc.x; v.y += w.img.y - bc.y;
       v.u = 1.5;
-      setTimeout(() => res({ hit: !!(s.violations && s.violations.hitped), modal: !!s.incidentOpen }), 600);
+      // B-111: 600 ms of the game's own time (or until the hit), not of the wall clock
+      let sim = 0; const out = () => ({ hit: !!(s.violations && s.violations.hitped), modal: !!s.incidentOpen });
+      const f = (time, delta) => { sim += Math.min(delta || 0, 50); if (sim >= 600 || out().hit && out().modal) { s.events.off('postupdate', f); res(out()); } };
+      s.events.on('postupdate', f);
+      setTimeout(() => { s.events.off('postupdate', f); res(out()); }, 15000);   // the scene may pause when the incident opens
     }));
     check(hit.hit && hit.modal, `driving into someone on the sidewalk is hitting a pedestrian (${JSON.stringify(hit)})`);
 

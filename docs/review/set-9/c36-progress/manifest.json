@@ -1,0 +1,45 @@
+{
+  "stage": "doing; owned browser/resource/shared acceptance in progress; shared save gate requested",
+  "sourceSHA256": {
+    "src/core/fphandheld.js": "4fafa94cd8acf1c137e41ed9955b2571ea7ea9087cc59b83b0b2f26a8eb76418",
+    "src/core/fphud.js": "c7ce6946b735a69f0dc7b51384ece4dd0b3a1332501359e33b30b5abf7019542",
+    "src/core/fplighting.js": "af4383ffa8a68c5811cc2923b4e9dc5d0408bd672eccb3ca2a7fe3ff37d347c6",
+    "src/core/fpmission.js": "dd2845edcff2409f007940c661ef2172b7a8250d236048a55a454ce7635040f7",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fproute.js": "4b6e171bae43268e867c2208b42f3fef663ee33b757500c70d8ef8a60fde737d",
+    "src/core/fpsound.js": "317716a91c643e411b27d5d8585bc7ddabd49b50427a1b06a6de870f90160e72",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/scenes/FirstPersonScene.js": "7ae7342737753887fd55a84abefeb56688459a4a5afc0228e67554c39193a435",
+    "test/fpbench.js": "9fd96204f24d36e3bb9869d53f7a8d2d022b040f5e2c4874ceb54246d4368eac",
+    "test/fpquality.js": "f85abdd9f51a3a07be793f623cd2b2cf0fc5aaf10a50e17ddefa7cb08a51f0c9",
+    "test/fpqualitygate.js": "6210e0938da17d16bf829f729edf17ea56d3e044746bef27e26ad1a1dcf22e1c",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "test/fpnightworld.js": "6fe07a3d8229a61e1c770c103480d73a260c25a02be92b51f6233b884208bbe8",
+    "test/fpradio.js": "4f3d20a95ce9b723a77c987d77bcca9d78eb36717d1cd4bbf5e16c2b1643302b",
+    "test/fpradiobrowser.js": "6463978564b7d8491141f86bffbaf0127de7c4a0a02bcaed48dbf6c606290c9a"
+  },
+  "syntaxFiles": 18,
+  "files": {
+    "c36-required-node.log": "8a50640eed60b5e31637344cfa1040cc82c2867666293a0a51d54a907e96f86b",
+    "c36-current-catalogue.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "c36-radio-boundaries.log": "6117538fb2f6a4f30306e0e6b1da7797dd8914b0d01dc90eafdc446b40d91694",
+    "c36-save-probe.log": "aed63d5f9ea8b0e691f132d45d27ccd56bc1488aa77c9e8fb51c3004604bfe0f",
+    "c36-save-probe.cjs": "d133c01ca6fdf4417926518ef94939b7be6de1e4707634fc5bcd042ff52d3fe4",
+    "c36-save-probe.json": "aed63d5f9ea8b0e691f132d45d27ccd56bc1488aa77c9e8fb51c3004604bfe0f"
+  },
+  "results": {
+    "requiredAffectedNodeCases": 212,
+    "finalRadioBoundaryCases": 20,
+    "focusedLowViews": 7,
+    "peakCalls": 36,
+    "peakTriangles": 822,
+    "threeTextures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 3169878,
+    "catalogue": "pass",
+    "sharedSaveGate": "open: packed room5\u20137; failed new light check loses pins in summary"
+  },
+  "focusedSource": "73fc5f5"
+}

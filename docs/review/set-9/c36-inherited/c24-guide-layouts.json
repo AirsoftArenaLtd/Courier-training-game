@@ -1,0 +1,142 @@
+{
+  "checks": 85,
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "guide": {
+        "phaserBytes": 1906102,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 19,
+        "left": 152,
+        "right": 1122,
+        "top": 170,
+        "bottom": 278,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 1744192,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 19,
+        "left": 152,
+        "right": 1086,
+        "top": 170,
+        "bottom": 222,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 1680832,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 19,
+        "left": 152,
+        "right": 861,
+        "top": 170,
+        "bottom": 194,
+        "buttonsTop": 438
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "guide": {
+        "phaserBytes": 2160102,
+        "text": "Stop, look at the R position on the shifter and press O. The rear camera turns on automatically. Press N to look at its screen with the keyboard. The guidelines bend with the steering, and the distance bands, sensor bars and text show nearby obstacles. Reverse at walking speed. A walk-around is optional unless your trainer requires it in a tight space.",
+        "font": 23,
+        "left": 152,
+        "right": 1091,
+        "top": 170,
+        "bottom": 326,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 1996310,
+        "text": "The trainer requires a walk-around in this tight space. Park and get out. Stand behind the van, face the reversing path and press G to record the check. Then use the camera and mirrors to reverse into the bay.",
+        "font": 23,
+        "left": 152,
+        "right": 1112,
+        "top": 170,
+        "bottom": 262,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 1837200,
+        "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+        "font": 23,
+        "left": 152,
+        "right": 1011,
+        "top": 170,
+        "bottom": 198,
+        "buttonsTop": 424
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "guide": {
+        "phaserBytes": 2196400,
+        "text": "நில்லுங்கள், ஷிஃப்டரில் R நிலையைப் பாருங்கள், O அழுத்துங்கள். ரியர் கேமரா தானாக ஆன் ஆகும். விசைப்பலகையில் அதன் திரையைப் பார்க்க N அழுத்துங்கள். வழிகாட்டிக் கோடுகள் ஸ்டீயரிங்குடன் வளையும், தூரப் பட்டைகள், சென்சார் பட்டைகள், எழுத்து அருகிலுள்ள தடைகளைக் காட்டும். நடக்கும் வேகத்தில் ரிவர்ஸ் செய்யுங்கள். குறுகிய இடத்தில் பயிற்றுநர் கட்டாயமாக்காவிட்டால் வாக்-அரவுண்ட் விருப்பத்திற்குரியது.",
+        "font": 19,
+        "left": 152,
+        "right": 1121,
+        "top": 170,
+        "bottom": 306,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2091131,
+        "text": "இந்தக் குறுகிய இடத்தில் பயிற்றுநர் வாக்-அரவுண்ட் கட்டாயம் என்கிறார். நிறுத்தி இறங்குங்கள். வேனுக்குப் பின்னால் ரிவர்ஸ் பாதையை நோக்கி நின்று, சோதனையைப் பதிவு செய்ய G அழுத்துங்கள். பிறகு கேமராவையும் கண்ணாடிகளையும் பயன்படுத்தி பேயில் ரிவர்ஸ் செய்யுங்கள்.",
+        "font": 19,
+        "left": 152,
+        "right": 1126,
+        "top": 170,
+        "bottom": 250,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 2150640,
+        "text": "பயிற்சி தனி செக்பாயின்ட்டைப் பயன்படுத்தும். உங்கள் வேலை நாளும் சரக்குப் பாடமும் சேமிக்கப்பட்டிருக்கும்.",
+        "font": 19,
+        "left": 152,
+        "right": 1016,
+        "top": 170,
+        "bottom": 222,
+        "buttonsTop": 422
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "guide": {
+        "phaserBytes": 2526096,
+        "text": "நில்லுங்கள், ஷிஃப்டரில் R நிலையைப் பாருங்கள், O அழுத்துங்கள். ரியர் கேமரா தானாக ஆன் ஆகும். விசைப்பலகையில் அதன் திரையைப் பார்க்க N அழுத்துங்கள். வழிகாட்டிக் கோடுகள் ஸ்டீயரிங்குடன் வளையும், தூரப் பட்டைகள், சென்சார் பட்டைகள், எழுத்து அருகிலுள்ள தடைகளைக் காட்டும். நடக்கும் வேகத்தில் ரிவர்ஸ் செய்யுங்கள். குறுகிய இடத்தில் பயிற்றுநர் கட்டாயமாக்காவிட்டால் வாக்-அரவுண்ட் விருப்பத்திற்குரியது.",
+        "font": 23,
+        "left": 152,
+        "right": 1110,
+        "top": 170,
+        "bottom": 364,
+        "buttonsTop": 496
+      },
+      "required": {
+        "phaserBytes": 2403686,
+        "text": "இந்தக் குறுகிய இடத்தில் பயிற்றுநர் வாக்-அரவுண்ட் கட்டாயம் என்கிறார். நிறுத்தி இறங்குங்கள். வேனுக்குப் பின்னால் ரிவர்ஸ் பாதையை நோக்கி நின்று, சோதனையைப் பதிவு செய்ய G அழுத்துங்கள். பிறகு கேமராவையும் கண்ணாடிகளையும் பயன்படுத்தி பேயில் ரிவர்ஸ் செய்யுங்கள்.",
+        "font": 23,
+        "left": 152,
+        "right": 1117,
+        "top": 170,
+        "bottom": 298,
+        "buttonsTop": 496
+      },
+      "resumeMenu": {
+        "phaserBytes": 2361691,
+        "text": "பயிற்சி தனி செக்பாயின்ட்டைப் பயன்படுத்தும். உங்கள் வேலை நாளும் சரக்குப் பாடமும் சேமிக்கப்பட்டிருக்கும்.",
+        "font": 23,
+        "left": 152,
+        "right": 1098,
+        "top": 170,
+        "bottom": 232,
+        "buttonsTop": 406
+      }
+    }
+  ],
+  "errors": []
+}

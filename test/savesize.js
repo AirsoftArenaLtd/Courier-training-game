@@ -318,10 +318,40 @@ test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day; C-36
   assert.ok(pk.v === 2 && Array.isArray(pk.f) && pk.f.length > 0, 'packed as v2: wrong checks with no stop or place grouped (f), a placed row with no stop written as 0');
   const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
   console.log(`      B-98: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
-  assert.ok(room >= 25, `room left on C-35's heaviest day: ${room} (under 25, the next addition summarises the day: score kept, pins lost)`);
+  // B-120: 300 since B-114 left about 440; a change that eats most of that room fails here before it reaches a trainee
+  assert.ok(room >= 300, `room left on C-35's heaviest day: ${room} (under 300: B-114's room is mostly used; past 0 the day is summarised and loses its pins)`);
   reload(); W.resume(null);
   assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every contact keeps its pin');
+});
+
+test('B-114: a packed day writes known types as numbers from a list that only grows; names still unpack', () => {
+  const C = SAVE.TYPE_CODES;
+  assert.equal(new Set(C).size, C.length, 'no type twice in the list');
+  Object.keys(context.OTR_DATA.workdayEvents).forEach(n => assert.ok(C.includes(n), `${n} has a number (add a new type at the end of TYPE_CODES)`));
+  // the first and the last of the list as B-114 wrote it: a type moved or removed would read older saves as another
+  assert.equal(JSON.stringify([C[0], C[23], C[41], C[67]]), JSON.stringify(['brief.read', 'drive.mirrors', 'drive.lights', 'return.scanned']));
+  const evs = [{ type: 'drive.lights', key: 0, ok: true, stop: 1 }, { type: 'drive.custom-new', key: 'k', ok: false, stop: null, where: { x: 1, z: 2 } }];
+  const p = SAVE.packDay({ id: 'w', day: 4, events: evs }).packed;
+  assert.equal(JSON.stringify(p.t), JSON.stringify([41, '~d.custom-new']), 'a known type is its number; an unknown one keeps its short name');
+  const back = SAVE.unpackDay(JSON.parse(JSON.stringify({ id: 'w', day: 4, packed: p }))).events;
+  assert.equal(JSON.stringify(back.map(e => e.type).sort()), JSON.stringify(['drive.custom-new', 'drive.lights']));
+});
+
+// B-114: the same heaviest day with the lights right on all six legs (Codex measured 3,993 to 3,995 of 4,000 before B-114)
+test('B-114: C-36\'s heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120)', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  play(c35HeavyDay().filter(([t]) => t !== 'drive.lights').concat([0, 1, 2, 3, 4, 5].map(leg => ['drive.lights', { key: leg, stop: leg ? leg : undefined, ok: true }])));
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised');
+  const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
+  console.log(`      B-114: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
+  assert.ok(room >= 300, `room left: ${room} (B-120: at least 300)`);
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score after a reload');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
 });
 
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {

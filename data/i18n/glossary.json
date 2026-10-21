@@ -1,101 +1,170 @@
 {
- "about": "B-102: the key terms the game uses, each with the English string the game shows on its own; test/glossary.js checks each language uses that string's word in every line with the term.",
+ "about": "B-102: the key terms the game uses, each with the English string the game shows on its own; test/glossary.js checks each language uses that string's word in every line with the term. B-106: a term can be an object { en, case, except }: case matches it only as the game writes it (Returns and Dispatch are places at the depot, not the verbs), and except lists English lines where the word means something else. A line that keeps the English name as printed also counts. B-116: a term shown only in a phrase takes that phrase's word found in the most lines that use the term.",
  "terms": {
   "handheld": "Handheld",
   "reception": "Reception",
   "signature": "SIGNATURE",
-  "dispatch": "Dispatch",
-  "returns": "Returns",
-  "sat nav": "Sat nav"
+  "dispatch": {
+   "en": "Dispatch",
+   "case": true,
+   "except": [
+    "Dispatch anyway?",
+    "Dispatch anyway"
+   ]
+  },
+  "returns": {
+   "en": "Returns",
+   "case": true
+  },
+  "sat nav": "Sat nav",
+  "intercom": "the intercom",
+  "locker": {
+   "en": "the parcel locker",
+   "except": [
+    "Invalid locker authorization"
+   ]
+  },
+  "walkaround": {
+   "en": "Pre-trip walkaround",
+   "except": [
+    "Invalid walkaround version",
+    "Invalid walkaround damage"
+   ]
+  },
+  "headlight": "Headlights"
  },
  "baseline": {
   "bn": {
    "handheld": 0,
    "reception": 0,
-   "signature": 28,
-   "dispatch": 6,
-   "returns": 3,
-   "sat nav": 0
+   "signature": 22,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 7,
+   "headlight": 0
   },
   "es": {
    "handheld": 0,
    "reception": 0,
    "signature": 0,
-   "dispatch": 1,
-   "returns": 2,
-   "sat nav": 0
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 1,
+   "headlight": 7
   },
   "fr": {
    "handheld": 0,
    "reception": 0,
    "signature": 0,
-   "dispatch": 27,
-   "returns": 1,
-   "sat nav": 0
+   "dispatch": 18,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   },
   "gu": {
-   "handheld": 3,
+   "handheld": 0,
    "reception": 0,
-   "signature": 5,
-   "dispatch": 6,
-   "returns": 3,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   },
   "hi": {
    "handheld": 0,
    "reception": 0,
-   "signature": 4,
-   "dispatch": 2,
-   "returns": 4,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   },
   "kn": {
    "handheld": 0,
-   "reception": 22,
-   "signature": 5,
-   "dispatch": 6,
-   "returns": 3,
-   "sat nav": 0
+   "reception": 2,
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 9,
+   "headlight": 0
   },
   "ml": {
-   "handheld": 1,
+   "handheld": 0,
    "reception": 0,
-   "signature": 35,
-   "dispatch": 5,
-   "returns": 4,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   },
   "mr": {
    "handheld": 0,
    "reception": 0,
-   "signature": 6,
-   "dispatch": 6,
-   "returns": 3,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 3,
+   "headlight": 0
   },
   "pa": {
    "handheld": 0,
    "reception": 0,
-   "signature": 6,
-   "dispatch": 6,
-   "returns": 4,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   },
   "ta": {
    "handheld": 8,
    "reception": 0,
-   "signature": 17,
-   "dispatch": 15,
-   "returns": 9,
-   "sat nav": 0
+   "signature": 12,
+   "dispatch": 4,
+   "returns": 4,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 3,
+   "headlight": 0
   },
   "te": {
    "handheld": 0,
    "reception": 0,
-   "signature": 16,
-   "dispatch": 6,
-   "returns": 3,
-   "sat nav": 0
+   "signature": 0,
+   "dispatch": 0,
+   "returns": 0,
+   "sat nav": 0,
+   "intercom": 0,
+   "locker": 0,
+   "walkaround": 0,
+   "headlight": 0
   }
  }
 }

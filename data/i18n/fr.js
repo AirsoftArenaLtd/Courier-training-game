@@ -4039,7 +4039,38 @@ window.OTR_I18N.fr = {
 "This area has no recorded condition.": "Aucun état n'est noté pour cette zone.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "Fais le tour de la camionnette garée les mains vides et note l'état de chaque zone avant le départ.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "Note l'état de la camionnette, vérifie les pneus et les feux, puis scanne et charge les colis. Arrime le chargement et ferme le compartiment de chargement avant le départ.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "Retourne au dépôt, scanne les colis conservés aux Retours et note l'état de la camionnette avant de terminer à la Répartition."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "Retourne au dépôt, scanne les colis conservés aux Retours et note l'état de la camionnette avant de terminer à la Répartition.",
+"Read the dispatch radio message.": "Lis le message radio du répartiteur.",
+"Visibility is reduced. The headlights are on.": "La visibilité est réduite. Les phares sont allumés.",
+"Visibility is reduced. Switch on the headlights before moving.": "La visibilité est réduite. Allume les phares avant de rouler.",
+"It is night. The headlights are on. Drive within the distance they light.": "C'est la nuit. Les phares sont allumés. Roule de façon à pouvoir t'arrêter dans la distance qu'ils éclairent.",
+"You have reached the dispatch check-in. Park safely at the curb.": "Tu es arrivé à l'arrêt de pointage du répartiteur. Gare-toi en toute sécurité le long du trottoir.",
+"Used the headlights when visibility required them.": "Tu as utilisé les phares quand la visibilité l'exigeait.",
+"Moved without headlights when visibility required them.": "Tu as roulé sans phares alors que la visibilité les exigeait.",
+"No accessible dispatch check-in": "Aucun arrêt de pointage du répartiteur accessible",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "Le répartiteur t'appelle. Gare-toi en sécurité, puis lis le message radio sur le terminal.",
+"The dispatch radio message is waiting for your response.": "Le message radio du répartiteur attend ta réponse.",
+"There is no dispatch radio message waiting.": "Aucun message radio du répartiteur en attente.",
+"Stop and set the parking brake before reading the radio message.": "Arrête-toi et serre le frein à main avant de lire le message radio.",
+"Read the dispatch radio message before responding.": "Lis le message radio du répartiteur avant de répondre.",
+"Stop and set the parking brake before responding to Dispatch.": "Arrête-toi et serre le frein à main avant de répondre au répartiteur.",
+"The dispatch route update is already accepted.": "La mise à jour de tournée du répartiteur est déjà acceptée.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "La mise à jour de tournée est acceptée. Suis la nouvelle destination sur le GPS.",
+"Followed the dispatch radio route update.": "Tu as suivi la mise à jour de tournée envoyée par radio par le répartiteur.",
+"Did not follow the dispatch radio route update.": "Tu n'as pas suivi la mise à jour de tournée envoyée par radio par le répartiteur.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "Le répartiteur note que la mise à jour de tournée a été refusée. Poursuis les livraisons prévues en sécurité.",
+"Accept the dispatch route update before confirming arrival.": "Accepte la mise à jour de tournée du répartiteur avant de confirmer ton arrivée.",
+"Complete the requested delivery before the other stops.": "Termine la livraison demandée avant les autres arrêts.",
+"Park at the dispatch check-in stop and set the parking brake first.": "Gare-toi à l'arrêt de pointage du répartiteur et serre d'abord le frein à main.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "Le répartiteur a enregistré ton pointage. Poursuis les livraisons restantes.",
+"Dispatch has recorded your check-in. Return to the depot.": "Le répartiteur a enregistré ton pointage. Retourne au dépôt.",
+"The dispatch radio.": "La radio du répartiteur.",
+"Review the radio message.": "Revoir le message radio.",
+"Accept the route update.": "Accepter la mise à jour de tournée.",
+"Decline the route update.": "Refuser la mise à jour de tournée.",
+"Confirm arrival at the check-in stop.": "Confirmer l'arrivée à l'arrêt de pointage.",
+"Invalid dispatch version": "Version du répartiteur non valide",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "Fais ton pointage auprès du répartiteur, puis poursuis la tournée ou retourne au dépôt."
 },
 "templates": [
 [
@@ -5817,6 +5848,30 @@ window.OTR_I18N.fr = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "Appuie sur {0} pour inspecter cette zone et noter son état sur le terminal."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"Conduis jusqu'à l'arrêt de pointage du répartiteur, à {0}."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"Continue sur {0} pieds jusqu'à l'arrêt de pointage du répartiteur."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"Le répartiteur te demande d'aller ensuite à {0}. Garde toutes les autres livraisons de la tournée."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"Le répartiteur a ajouté un arrêt de pointage à {0}. Gare-toi le long du trottoir public et confirme ton arrivée. Aucun colis n'est à livrer là-bas."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"Le répartiteur demande {0} comme prochain arrêt."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"Un pointage auprès du répartiteur est en attente à {0}."
 ]
 ],
 "keep": [

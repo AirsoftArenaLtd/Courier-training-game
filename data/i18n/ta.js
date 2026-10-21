@@ -265,10 +265,10 @@ window.OTR_I18N.ta = {
 "The latch does not seat — the door can swing open.": "தாழ்ப்பாள் சரியாக அமரவில்லை — கதவு திறந்துகொள்ளலாம்.",
 "A door that opens on a turn can strike a cyclist or dump freight into the street.": "திருப்பத்தில் திறக்கும் கதவு சைக்கிள் ஓட்டுநரைத் தாக்கலாம் அல்லது சரக்கைச் சாலையில் கொட்டலாம்.",
 "Test every latch by pulling on it, not by looking at it.": "ஒவ்வொரு தாழ்ப்பாளையும் இழுத்துச் சோதியுங்கள், பார்த்து அல்ல.",
-"Headlight, driver side": "ஹெட்லைட், ஓட்டுநர் பக்கம்",
+"Headlight, driver side": "முகப்பு விளக்கு, ஓட்டுநர் பக்கம்",
 "Bright and clear, lens intact.": "பிரகாசமாக, தெளிவாக, லென்ஸ் சேதமின்றி.",
 "Dead — cracked lens with moisture inside.": "எரியவில்லை — லென்ஸ் விரிசல், உள்ளே ஈரம்.",
-"One headlight at dusk means you are half as visible and it is a citation.": "அந்தி நேரத்தில் ஒரே ஹெட்லைட் என்றால் நீங்கள் பாதியளவே தெரிவீர்கள், இது அபராதத்துக்குரியது.",
+"One headlight at dusk means you are half as visible and it is a citation.": "அந்தி நேரத்தில் ஒரே முகப்பு விளக்கு என்றால் நீங்கள் பாதியளவே தெரிவீர்கள், இது அபராதத்துக்குரியது.",
 "Switch the lights and hazards on in the cab, then walk around and check every lamp yourself.": "கேபினில் விளக்குகளையும் ஹசார்டுகளையும் இயக்கி, சுற்றி நடந்து ஒவ்வொரு விளக்கையும் நீங்களே பாருங்கள்.",
 "Turn signal, curb side": "டர்ன் சிக்னல், நடைபாதைப் பக்கம்",
 "Amber, bright, flashing evenly.": "மஞ்சள், பிரகாசம், சீராக மின்னுகிறது.",
@@ -851,7 +851,7 @@ window.OTR_I18N.ta = {
 "Incident Report": "சம்பவ அறிக்கை",
 "A leaking package reached a customer's hands. Isolate, report and never deliver — no matter how much the customer wants it.": "கசியும் பார்சல் வாடிக்கையாளரின் கைகளை அடைந்தது. தனிமைப்படுத்துங்கள், தெரிவியுங்கள், ஒருபோதும் டெலிவரி செய்யாதீர்கள் — வாடிக்கையாளர் எவ்வளவு விரும்பினாலும்.",
 "Ms. Okoye (on the phone)": "திருமதி ஒகோயே (தொலைபேசியில்)",
-"Severe weather: slow down, headlights on, increase following distance, and pull off somewhere safe (not in a travel lane) if visibility is poor.": "கடும் வானிலை: வேகம் குறையுங்கள், ஹெட்லைட் இயக்குங்கள், முன் வாகனத்திலிருந்து இடைவெளியை அதிகரியுங்கள், பார்வை குறைவானால் பாதுகாப்பான இடத்தில் (பயணப் பாதையில் அல்ல) ஒதுங்குங்கள்.",
+"Severe weather: slow down, headlights on, increase following distance, and pull off somewhere safe (not in a travel lane) if visibility is poor.": "கடும் வானிலை: வேகம் குறையுங்கள், முகப்பு விளக்குகளை இயக்குங்கள், முன் வாகனத்திலிருந்து இடைவெளியை அதிகரியுங்கள், பார்வை குறைவானால் பாதுகாப்பான இடத்தில் (பயணப் பாதையில் அல்ல) ஒதுங்குங்கள்.",
 "Never drive through flooded roads — turn around, don't drown.": "வெள்ளம் சூழ்ந்த சாலைகளில் ஒருபோதும் ஓட்டாதீர்கள் — திரும்புங்கள், மூழ்காதீர்கள்.",
 "Delivery instructions never override your safety. When a note is unclear, don't guess — clarify through your normal process.": "டெலிவரி அறிவுறுத்தல்கள் உங்கள் பாதுகாப்பை ஒருபோதும் மிஞ்சாது. குறிப்பு தெளிவற்றதாக இருந்தால் ஊகிக்காதீர்கள் — வழக்கமான நடைமுறையில் தெளிவுபடுத்துங்கள்.",
 "3:15 PM. The sky goes black in minutes. Rain hammers the windshield and your phone lights up with a severe thunderstorm and flash-flood warning.": "மதியம் 3:15. நிமிடங்களில் வானம் கருக்கிறது. மழை விண்ட்ஷீல்டில் அறைகிறது, உங்கள் தொலைபேசியில் கடும் இடியுடன் கூடிய புயல், திடீர் வெள்ள எச்சரிக்கை ஒளிர்கிறது.",
@@ -3656,8 +3656,8 @@ window.OTR_I18N.ta = {
 "Report every mark you made, however small. Hiding damage is dishonest and unsafe: the next driver trusts the van.": "நீங்கள் செய்த ஒவ்வொரு தடத்தையும் எவ்வளவு சிறியதாயினும் தெரிவியுங்கள். சேதத்தை மறைப்பது நேர்மையற்றது, பாதுகாப்பற்றது: அடுத்த ஓட்டுநர் வேனை நம்புகிறார்.",
 "Reported damage that was not there": "இல்லாத சேதத்தைத் தெரிவித்தீர்கள்",
 "Record what you actually see: the right place and the right description.": "நீங்கள் உண்மையில் பார்ப்பதையே பதிவு செய்யுங்கள்: சரியான இடம், சரியான விவரம்.",
-"Used the intercom correctly": "இண்டர்காமைச் சரியாகப் பயன்படுத்தினீர்கள்",
-"Used the intercom wrongly or did not wait for the buzz": "இண்டர்காமைத் தவறாகப் பயன்படுத்தினீர்கள் அல்லது ஒலிக்காகக் காத்திருக்கவில்லை",
+"Used the intercom correctly": "இன்டர்காமைச் சரியாகப் பயன்படுத்தினீர்கள்",
+"Used the intercom wrongly or did not wait for the buzz": "இன்டர்காமைத் தவறாகப் பயன்படுத்தினீர்கள் அல்லது ஒலிக்காகக் காத்திருக்கவில்லை",
 "Press the right button, say who you are and what you bring, then wait for the buzz.": "சரியான பொத்தானை அழுத்தி, நீங்கள் யார், என்ன கொண்டு வந்தீர்கள் என்று சொல்லி, ஒலிக்காகக் காத்திருங்கள்.",
 "Left the parcel at reception correctly": "பார்சலை வரவேற்பில் சரியாக விட்டீர்கள்",
 "Left the parcel at reception without a name or signature": "பெயர் அல்லது கையொப்பம் இல்லாமல் பார்சலை வரவேற்பில் விட்டீர்கள்",
@@ -3985,7 +3985,7 @@ window.OTR_I18N.ta = {
 "Arrange the next delivery attempt.": "அடுத்த டெலிவரி முயற்சியை ஏற்பாடு செய்யுங்கள்.",
 "The intercom buzzes. You may unlock the entry.": "இன்டர்காம் பஸ்ஸர் ஒலிக்கிறது. நீங்கள் நுழைவாயில் பூட்டைத் திறக்கலாம்.",
 "Arrange a failed delivery and reattempt.": "தோல்வியுற்ற டெலிவரி மற்றும் மறுமுயற்சியை ஏற்பாடு செய்யுங்கள்.",
-"Intercom not used right": "இண்டர்காமைச் சரியாகப் பயன்படுத்தாதது",
+"Intercom not used right": "இன்டர்காமைச் சரியாகப் பயன்படுத்தாதது",
 "Reception handover not right": "வரவேற்பில் சரியாக ஒப்படைக்காதது",
 "Locker drop not right": "லாக்கரில் சரியாக வைக்காதது",
 "Failed delivery not recorded right": "தோல்வியுற்ற டெலிவரியைச் சரியாகப் பதிவு செய்யாதது",
@@ -4038,7 +4038,38 @@ window.OTR_I18N.ta = {
 "This area has no recorded condition.": "இந்தப் பகுதிக்குப் பதிவான நிலை எதுவும் இல்லை.",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "புறப்படும் முன், வெறும் கைகளுடன் நிறுத்தியுள்ள வேனைச் சுற்றி நடந்து, ஒவ்வொரு பகுதியின் நிலையையும் பதிவு செய்யுங்கள்.",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "வேனின் நிலையைப் பதிவு செய்து, டயர்களையும் விளக்குகளையும் சரிபாருங்கள், பிறகு பார்சல்களை ஸ்கேன் செய்து ஏற்றுங்கள். புறப்படும் முன் சுமையைக் கட்டி சரக்கை மூடுங்கள்.",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "டிப்போவுக்குத் திரும்பி, வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்து, டிஸ்பாட்சில் முடிக்கும் முன் வேனின் நிலையைப் பதிவு செய்யுங்கள்."
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "டிப்போவுக்குத் திரும்பி, வைத்திருக்கும் பார்சல்களை ரிட்டர்ன்ஸில் ஸ்கேன் செய்து, டிஸ்பாட்சில் முடிக்கும் முன் வேனின் நிலையைப் பதிவு செய்யுங்கள்.",
+"Read the dispatch radio message.": "டிஸ்பாட்ச் ரேடியோ செய்தியைப் படியுங்கள்.",
+"Visibility is reduced. The headlights are on.": "பார்வை குறைவாக உள்ளது. முகப்பு விளக்குகள் எரிகின்றன.",
+"Visibility is reduced. Switch on the headlights before moving.": "பார்வை குறைவாக உள்ளது. புறப்படும் முன் முகப்பு விளக்குகளை இயக்குங்கள்.",
+"It is night. The headlights are on. Drive within the distance they light.": "இரவு நேரம். முகப்பு விளக்குகள் எரிகின்றன. விளக்கு வெளிச்சம் எட்டும் தூரத்துக்குள் நிறுத்தக்கூடிய வேகத்தில் ஓட்டுங்கள்.",
+"You have reached the dispatch check-in. Park safely at the curb.": "நீங்கள் டிஸ்பாட்ச் செக்-இன் இடத்தை அடைந்துவிட்டீர்கள். சாலையோரத்தில் பாதுகாப்பாக நிறுத்துங்கள்.",
+"Used the headlights when visibility required them.": "பார்வை குறைவாக இருந்தபோது முகப்பு விளக்குகளைப் பயன்படுத்தினீர்கள்.",
+"Moved without headlights when visibility required them.": "பார்வை குறைவாக இருந்தும் முகப்பு விளக்கு இல்லாமல் ஓட்டினீர்கள்.",
+"No accessible dispatch check-in": "அணுகக்கூடிய டிஸ்பாட்ச் செக்-இன் இல்லை",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "டிஸ்பாட்ச் அழைக்கிறது. பாதுகாப்பாக நிறுத்திவிட்டு, ஹேண்ட்ஹெல்டில் ரேடியோ செய்தியைப் படியுங்கள்.",
+"The dispatch radio message is waiting for your response.": "டிஸ்பாட்ச் ரேடியோ செய்தி உங்கள் பதிலுக்காகக் காத்திருக்கிறது.",
+"There is no dispatch radio message waiting.": "காத்திருக்கும் டிஸ்பாட்ச் ரேடியோ செய்தி எதுவும் இல்லை.",
+"Stop and set the parking brake before reading the radio message.": "ரேடியோ செய்தியைப் படிக்கும் முன் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"Read the dispatch radio message before responding.": "பதிலளிக்கும் முன் டிஸ்பாட்ச் ரேடியோ செய்தியைப் படியுங்கள்.",
+"Stop and set the parking brake before responding to Dispatch.": "டிஸ்பாட்சுக்குப் பதிலளிக்கும் முன் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"The dispatch route update is already accepted.": "டிஸ்பாட்ச் ரூட் அப்டேட் ஏற்கெனவே ஏற்கப்பட்டது.",
+"The route update is accepted. Follow the updated destination on the sat nav.": "ரூட் அப்டேட் ஏற்கப்பட்டது. வழிகாட்டியில் புதிய சேருமிடத்தைப் பின்பற்றுங்கள்.",
+"Followed the dispatch radio route update.": "டிஸ்பாட்ச் ரேடியோ ரூட் அப்டேட்டைப் பின்பற்றினீர்கள்.",
+"Did not follow the dispatch radio route update.": "டிஸ்பாட்ச் ரேடியோ ரூட் அப்டேட்டைப் பின்பற்றவில்லை.",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "ரூட் அப்டேட் நிராகரிக்கப்பட்டதாக டிஸ்பாட்ச் பதிவு செய்துள்ளது. முதலில் திட்டமிட்ட டெலிவரிகளைப் பாதுகாப்பாகத் தொடருங்கள்.",
+"Accept the dispatch route update before confirming arrival.": "வந்ததை உறுதிசெய்யும் முன் டிஸ்பாட்ச் ரூட் அப்டேட்டை ஏற்றுக்கொள்ளுங்கள்.",
+"Complete the requested delivery before the other stops.": "மற்ற நிறுத்தங்களுக்கு முன் கேட்கப்பட்ட டெலிவரியை முடியுங்கள்.",
+"Park at the dispatch check-in stop and set the parking brake first.": "டிஸ்பாட்ச் செக்-இன் நிறுத்தத்தில் நிறுத்தி, முதலில் பார்க்கிங் பிரேக் போடுங்கள்.",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "டிஸ்பாட்ச் உங்கள் செக்-இன்னைப் பதிவு செய்துள்ளது. மீதமுள்ள டெலிவரிகளைத் தொடருங்கள்.",
+"Dispatch has recorded your check-in. Return to the depot.": "டிஸ்பாட்ச் உங்கள் செக்-இன்னைப் பதிவு செய்துள்ளது. டிப்போவுக்குத் திரும்புங்கள்.",
+"The dispatch radio.": "டிஸ்பாட்ச் ரேடியோ.",
+"Review the radio message.": "ரேடியோ செய்தியை மீண்டும் பாருங்கள்.",
+"Accept the route update.": "ரூட் அப்டேட்டை ஏற்றுக்கொள்ளுங்கள்.",
+"Decline the route update.": "ரூட் அப்டேட்டை நிராகரியுங்கள்.",
+"Confirm arrival at the check-in stop.": "செக்-இன் நிறுத்தத்தை அடைந்ததை உறுதிசெய்யுங்கள்.",
+"Invalid dispatch version": "தவறான டிஸ்பாட்ச் பதிப்பு",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "டிஸ்பாட்ச் செக்-இன்னை முடித்துவிட்டு, ரூட்டைத் தொடருங்கள் அல்லது டிப்போவுக்குத் திரும்புங்கள்."
 },
 "templates": [
 [
@@ -5816,6 +5847,30 @@ window.OTR_I18N.ta = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "இந்தப் பகுதியைச் சோதித்து அதன் நிலையை ஹேண்ட்ஹெல்டில் பதிவு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0}-இல் உள்ள டிஸ்பாட்ச் செக்-இன் இடத்துக்கு ஓட்டிச் செல்லுங்கள்."
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"டிஸ்பாட்ச் செக்-இன் வரை {0} அடி தொடருங்கள்."
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"அடுத்து {0} க்குச் செல்லுமாறு டிஸ்பாட்ச் கேட்கிறது. ரூட்டில் உள்ள மற்ற எல்லா டெலிவரிகளையும் அப்படியே வைத்திருங்கள்."
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"டிஸ்பாட்ச் {0}-இல் ஒரு செக்-இன் நிறுத்தத்தைச் சேர்த்துள்ளது. பொது சாலையோரத்தில் நிறுத்தி, வந்ததை உறுதிசெய்யுங்கள். அங்கே எந்தப் பார்சலும் கொடுக்க வேண்டியதில்லை."
+],
+[
+"Dispatch requests {0} as your next stop.",
+"உங்கள் அடுத்த நிறுத்தம் {0} ஆக இருக்க வேண்டும் என்று டிஸ்பாட்ச் கேட்கிறது."
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0}-இல் ஒரு டிஸ்பாட்ச் செக்-இன் நிலுவையில் உள்ளது."
 ]
 ],
 "keep": [

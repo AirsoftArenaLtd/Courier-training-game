@@ -3660,8 +3660,8 @@ window.OTR_I18N.hi = {
 "Used the intercom wrongly or did not wait for the buzz": "इंटरकॉम का गलत इस्तेमाल किया या बज़र की आवाज़ का इंतज़ार नहीं किया",
 "Press the right button, say who you are and what you bring, then wait for the buzz.": "सही बटन दबाएँ, बताएँ कि आप कौन हैं और क्या लाए हैं, फिर बज़र की आवाज़ का इंतज़ार करें।",
 "Left the parcel at reception correctly": "पार्सल रिसेप्शन पर सही तरीके से छोड़ा",
-"Left the parcel at reception without a name or signature": "पार्सल रिसेप्शन पर बिना नाम या दस्तख़त के छोड़ा",
-"Get the name and a signature from the person at reception, and record who took it.": "रिसेप्शन पर मौजूद व्यक्ति का नाम और दस्तख़त लें, और दर्ज करें कि किसने लिया।",
+"Left the parcel at reception without a name or signature": "पार्सल रिसेप्शन पर बिना नाम या हस्ताक्षर के छोड़ा",
+"Get the name and a signature from the person at reception, and record who took it.": "रिसेप्शन पर मौजूद व्यक्ति का नाम और हस्ताक्षर लें, और दर्ज करें कि किसने लिया।",
 "Used the locker correctly": "लॉकर का सही इस्तेमाल किया",
 "Used the wrong locker or did not photograph the closed door": "गलत लॉकर इस्तेमाल किया या बंद दरवाज़े की फ़ोटो नहीं ली",
 "Right compartment, scan it, close the door and take the photo.": "सही खाना, उसे स्कैन करें, दरवाज़ा बंद करें और फ़ोटो लें।",
@@ -4039,7 +4039,38 @@ window.OTR_I18N.hi = {
 "This area has no recorded condition.": "इस हिस्से की कोई हालत दर्ज नहीं है।",
 "Walk around the parked van with empty hands and record each area’s condition before departure.": "प्रस्थान से पहले खाली हाथ खड़ी वैन के चारों ओर घूमें और हर हिस्से की हालत दर्ज करें।",
 "Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.": "वैन की हालत दर्ज करें, टायर और लाइटें जाँचें, फिर पार्सल स्कैन करके लोड करें। प्रस्थान से पहले लोड सुरक्षित करें और कार्गो बंद करें।",
-"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "डिपो लौटें, अपने पास रखे पार्सल रिटर्न पर स्कैन करें और डिस्पैच पर काम खत्म करने से पहले वैन की हालत दर्ज करें।"
+"Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.": "डिपो लौटें, अपने पास रखे पार्सल रिटर्न पर स्कैन करें और डिस्पैच पर काम खत्म करने से पहले वैन की हालत दर्ज करें।",
+"Read the dispatch radio message.": "डिस्पैच का रेडियो संदेश पढ़ें।",
+"Visibility is reduced. The headlights are on.": "दिखाई कम दे रहा है। हेडलाइट चालू है।",
+"Visibility is reduced. Switch on the headlights before moving.": "दिखाई कम दे रहा है। चलने से पहले हेडलाइट चालू करें।",
+"It is night. The headlights are on. Drive within the distance they light.": "रात है। हेडलाइट चालू है। इतनी रफ़्तार रखें कि हेडलाइट की रोशनी जितनी दूर तक जाती है, उसके अंदर रुक सकें।",
+"You have reached the dispatch check-in. Park safely at the curb.": "आप डिस्पैच चेक-इन पर पहुँच गए हैं। कर्ब के पास सुरक्षित रूप से पार्क करें।",
+"Used the headlights when visibility required them.": "कम दिखाई देने पर हेडलाइट का इस्तेमाल किया।",
+"Moved without headlights when visibility required them.": "कम दिखाई देने पर भी हेडलाइट के बिना चलाया।",
+"No accessible dispatch check-in": "पहुँचने लायक कोई डिस्पैच चेक-इन नहीं",
+"Dispatch is calling. Park safely, then read the radio message on the handheld.": "डिस्पैच कॉल कर रहा है। गाड़ी सुरक्षित जगह खड़ी करें, फिर हैंडहेल्ड पर रेडियो संदेश पढ़ें।",
+"The dispatch radio message is waiting for your response.": "डिस्पैच का रेडियो संदेश आपके जवाब का इंतज़ार कर रहा है।",
+"There is no dispatch radio message waiting.": "डिस्पैच का कोई रेडियो संदेश बाकी नहीं है।",
+"Stop and set the parking brake before reading the radio message.": "रेडियो संदेश पढ़ने से पहले रुकें और पार्किंग ब्रेक लगाएँ।",
+"Read the dispatch radio message before responding.": "जवाब देने से पहले डिस्पैच का रेडियो संदेश पढ़ें।",
+"Stop and set the parking brake before responding to Dispatch.": "डिस्पैच को जवाब देने से पहले रुकें और पार्किंग ब्रेक लगाएँ।",
+"The dispatch route update is already accepted.": "डिस्पैच का रूट अपडेट पहले ही स्वीकार हो चुका है।",
+"The route update is accepted. Follow the updated destination on the sat nav.": "रूट अपडेट स्वीकार हो गया है। जीपीएस पर नई मंज़िल के हिसाब से चलें।",
+"Followed the dispatch radio route update.": "डिस्पैच के रेडियो रूट अपडेट का पालन किया।",
+"Did not follow the dispatch radio route update.": "डिस्पैच के रेडियो रूट अपडेट का पालन नहीं किया।",
+"Dispatch records that the route update was declined. Continue the original deliveries safely.": "डिस्पैच ने दर्ज किया है कि रूट अपडेट अस्वीकार किया गया। पहले वाली डिलीवरी सुरक्षित रूप से जारी रखें।",
+"Accept the dispatch route update before confirming arrival.": "पहुँचने की पुष्टि करने से पहले डिस्पैच का रूट अपडेट स्वीकार करें।",
+"Complete the requested delivery before the other stops.": "बाकी स्टॉप से पहले माँगी गई डिलीवरी पूरी करें।",
+"Park at the dispatch check-in stop and set the parking brake first.": "डिस्पैच चेक-इन स्टॉप पर पार्क करें और पहले पार्किंग ब्रेक लगाएँ।",
+"Dispatch has recorded your check-in. Continue the remaining deliveries.": "डिस्पैच ने आपका चेक-इन दर्ज कर लिया है। बाकी डिलीवरी जारी रखें।",
+"Dispatch has recorded your check-in. Return to the depot.": "डिस्पैच ने आपका चेक-इन दर्ज कर लिया है। डिपो लौटें।",
+"The dispatch radio.": "डिस्पैच रेडियो।",
+"Review the radio message.": "रेडियो संदेश दोबारा देखें।",
+"Accept the route update.": "रूट अपडेट स्वीकार करें।",
+"Decline the route update.": "रूट अपडेट अस्वीकार करें।",
+"Confirm arrival at the check-in stop.": "चेक-इन स्टॉप पर पहुँचने की पुष्टि करें।",
+"Invalid dispatch version": "अमान्य डिस्पैच संस्करण",
+"Complete the dispatch check-in, then continue the route or return to the depot.": "डिस्पैच चेक-इन पूरा करें, फिर रूट जारी रखें या डिपो लौटें।"
 },
 "templates": [
 [
@@ -5817,6 +5848,30 @@ window.OTR_I18N.hi = {
 [
 "Press {0} to inspect this area and record its condition on the handheld.",
 "इस हिस्से की जाँच करने और हैंडहेल्ड पर उसकी हालत दर्ज करने के लिए {0} दबाएँ।"
+],
+[
+"Drive to the dispatch check-in at {0}.",
+"{0} पर डिस्पैच चेक-इन तक ड्राइव करें।"
+],
+[
+"Continue for {0} feet to the dispatch check-in.",
+"डिस्पैच चेक-इन तक {0} फ़ुट आगे बढ़ते रहें।"
+],
+[
+"Dispatch asks you to visit {0} next. Keep every other delivery on the route.",
+"डिस्पैच आपसे अब {0} जाने को कह रहा है। रूट की बाकी सभी डिलीवरी वैसे ही रखें।"
+],
+[
+"Dispatch has added a check-in stop at {0}. Park at the public curb and confirm your arrival. No package is due there.",
+"डिस्पैच ने {0} पर एक चेक-इन स्टॉप जोड़ा है। सार्वजनिक कर्ब के पास पार्क करें और पहुँचने की पुष्टि करें। वहाँ कोई पार्सल नहीं देना है।"
+],
+[
+"Dispatch requests {0} as your next stop.",
+"डिस्पैच चाहता है कि आपका अगला स्टॉप {0} हो।"
+],
+[
+"A dispatch check-in is pending at {0}.",
+"{0} पर डिस्पैच चेक-इन बाकी है।"
 ]
 ],
 "keep": [
