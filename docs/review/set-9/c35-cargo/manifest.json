@@ -39,7 +39,7 @@
     "requiredCases": 161,
     "syntaxFiles": 24,
     "catalogue": "pass",
-    "browserAndShared": "Native cargo/inspection pass; focused resource and shared journeys pending.",
+    "browserAndShared": "658 native checks, eight focused resource views and all nine shared journeys pass.",
     "nativeCargoAndInspectionChecks": 658,
     "nativeRuns": {
       "low-ta": {
@@ -66,7 +66,9 @@
           }
         ]
       }
-    }
+    },
+    "focusedRenderedViews": 8,
+    "finalArchive": "../c35-release/manifest.json"
   },
   "sourceSHA256": {
     "src/core/fpwalkaroundflow.js": "05f5f8c5da0ca3f057944604c41157c55f11719f9445c995a125b1b2a44e6581",

@@ -372,6 +372,30 @@ All ceilings remain unchanged.
 [All 179 captures, raw reports, measured harnesses and hashes](review/set-9/c35-render/manifest.json).
 After capture, the cargo regression was corrected by moving/narrowing only its
 non-rendered rear inspection proxy. All 161 required cases and 24 changed-JS
-syntax checks pass. Real-key cargo/inspection checks and eight focused rendered
-cargo/rear views will validate that final correction before shared journeys.
+syntax checks pass. Final real-key cargo/inspection checks, eight focused rendered cargo/rear views
+and nine shared journeys pass; the following section records their source.
 The 179-view figures retain their measured source. No Intel FPS claim; O-1 remains.
+
+
+## C-35 final cargo target verification (21 October 2026)
+
+The non-rendered rear proxy correction keeps cargo and inspection independently
+selectable. All **eight focused rendered views** pass on product `d58a876`:
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,141,755 |
+| loaded-high | 2 | 72 | 79,027 | 3 | 11,239,424 | 7,100,635 |
+| accessible-low | 2 | 46 | 1,054 | 2 | 3,557,376 | 2,506,192 |
+| fallback-low | 2 | 44 | 796 | 2 | 3,557,376 | 2,141,755 |
+
+These check the actual cargo/rear ray IDs in the same unchanged ceilings; they
+supplement the full 179-view gate at `501fb82`. The only later product delta is the
+non-rendered rear target position/width. Final native cargo/inspection workflows
+pass **658 checks**, including Tamil larger Low at **3,880,838 Phaser bytes**.
+All **nine shared journeys pass** after the correction. They preserve existing
+routes; positive new records are tested by the owned native workflows pending
+Claude's B-99 helper. [Final captures/raw reports/scopes/hashes](review/set-9/c35-release/manifest.json).
+Latest pilot `74cd60a` retains the owned rendering code unchanged and adds Claude's
+save v2 and safety translation corrections. No resource ceiling changed. Cloud
+SwiftShader does not measure the owner's Intel 60 fps requirement (O-1).

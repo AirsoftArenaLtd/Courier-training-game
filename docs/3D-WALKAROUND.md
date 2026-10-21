@@ -1,9 +1,10 @@
 # Walkaround and damage report (C-35)
 
-Doing on `codex/c35-walkaround`, retaining pilot `de6f989` after merged C-33, C-34 and A-19.
-The physical targets, mission/checkpoint adapter, handheld records and B-78 guidance
-are integrated. Final Low/High, inherited browser, resource and shared QA acceptance
-are running; the task remains doing. Three owned modules are loaded by shared index.
+Ready for review on `codex/c35-walkaround`, retaining pilot `74cd60a` after merged
+C-33, C-34, A-19 and B-98. Owned acceptance and all nine shared journeys pass.
+[Review, exact validation scopes and screenshots](review/set-9/c35.md).
+Three owned modules are loaded by shared index. Claude's translation and B-99
+positive shared-helper extension remain part of the merge review.
 
 The pre-trip records existing `damage.baseline`; it never blames that wear on the
 trainee. The post-trip records player-caused `damage.added` by zone and a plain
