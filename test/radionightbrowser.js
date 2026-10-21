@@ -49,14 +49,20 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
         const { p, ok } = await day(lang, 10, 4);
         check(ok, `${lang}: the day-4 link starts the 3D day`);
         if (ok) {
-          const r = await p.evaluate(() => {
-            const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
-            s.closePanel && s.closePanel();
-            Object.assign(m, { mode: 'cab', phase: 'route', departed: true }); Object.assign(m.van, { speed: 0, hand: true });
-            m.radio.sent = true; m.radio.travel = 20;
-            OTR.fpRadioUI.open(s);
-            return { open: s.handheld.isOpen, title: s.handheld.device.current && s.handheld.device.current.title, large: OTR.fpAccess.settings().large, lang: OTR.i18n.lang };
-          });
+          // the day may still be opening (the first panel, the van settling): try again until the handheld shows it
+          let r;
+          for (let n = 0; n < 10; n++) {
+            r = await p.evaluate(() => {
+              const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
+              s.closePanel && s.closePanel();
+              Object.assign(m, { mode: 'cab', phase: 'route', departed: true }); Object.assign(m.van, { speed: 0, hand: true });
+              m.radio.sent = true; m.radio.travel = 20;
+              OTR.fpRadioUI.open(s);
+              return { open: s.handheld.isOpen, title: s.handheld.device.current && s.handheld.device.current.title, large: OTR.fpAccess.settings().large, lang: OTR.i18n.lang, parked: m.parked(), notice: s.notice };
+            });
+            if (r.open && r.title === 'The dispatch radio.') break;
+            await wait(700);
+          }
           check(r.open && r.title === 'The dispatch radio.' && r.large && r.lang === lang, `${lang}: the radio message opens on the handheld with larger text (${JSON.stringify(r)})`);
           await wait(1200);                                       // the device slides up
           const bad = await p.evaluate(() => {

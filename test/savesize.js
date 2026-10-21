@@ -318,7 +318,8 @@ test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day; C-36
   assert.ok(pk.v === 2 && Array.isArray(pk.f) && pk.f.length > 0, 'packed as v2: wrong checks with no stop or place grouped (f), a placed row with no stop written as 0');
   const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
   console.log(`      B-98: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
-  assert.ok(room >= 25, `room left on C-35's heaviest day: ${room} (under 25, the next addition summarises the day: score kept, pins lost)`);
+  // B-120: 300 since B-114 left about 440; a change that eats most of that room fails here before it reaches a trainee
+  assert.ok(room >= 300, `room left on C-35's heaviest day: ${room} (under 300: B-114's room is mostly used; past 0 the day is summarised and loses its pins)`);
   reload(); W.resume(null);
   assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every contact keeps its pin');
@@ -338,7 +339,7 @@ test('B-114: a packed day writes known types as numbers from a list that only gr
 });
 
 // B-114: the same heaviest day with the lights right on all six legs (Codex measured 3,993 to 3,995 of 4,000 before B-114)
-test('B-114: C-36\'s heaviest day with successful lights on every leg packs with at least 50 characters to spare', () => {
+test('B-114: C-36\'s heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120)', () => {
   asScorm(false);
   heavy({ runs: 2, scenarios: 4 });
   W.start(null);
@@ -347,7 +348,7 @@ test('B-114: C-36\'s heaviest day with successful lights on every leg packs with
   assert.equal(stage(stored()), 'packed', 'packed, not summarised');
   const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
   console.log(`      B-114: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
-  assert.ok(room >= 50, `room left: ${room}`);
+  assert.ok(room >= 300, `room left: ${room} (B-120: at least 300)`);
   reload(); W.resume(null);
   assert.deepEqual(summary(W.log), live, 'the same score after a reload');
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
