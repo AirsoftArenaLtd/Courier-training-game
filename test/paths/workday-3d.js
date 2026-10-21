@@ -203,9 +203,11 @@ const make = (opts) => async (page, ctx) => {
     return true;
   };
   // the reports it leads to: one per area with damage, right, by zone, with no stop and no place (the recipe's step 4)
+  // once the day is finished its live log is cleared, and the reports are read from the saved record (dayEvents)
+  const dayEvents = `(OTR.workday.log ? OTR.workday.events : (OTR.workday.saved().last || {}).events || [])`;
   const walkReports = async (type, field) => {
     const want = await ev((field) => { const m = OTR.game.scene.getScene('FirstPersonScene').model, Z = OTR.fpWalkaround.zones; return Z.filter((z, i) => m.damage[field][i] > 0).sort(); }, field);
-    const got = await ev((type) => OTR.workday.events.filter((e) => e.type === type).map((e) => ({ key: e.key, ok: e.ok, stop: e.stop, where: e.where })), type);
+    const got = await ev(`${dayEvents}.filter((e) => e.type === '${type}').map((e) => ({ key: e.key, ok: e.ok, stop: e.stop, where: e.where }))`);
     must(JSON.stringify(got.map((e) => e.key).sort()) === JSON.stringify(want) && got.every((e) => e.ok === true && e.stop == null && !e.where),
       `${type} should be one right report per damaged area (${want.join(', ') || 'none'}), with no stop or place: ${JSON.stringify(got)}`);
     return want.length;
@@ -314,6 +316,14 @@ const make = (opts) => async (page, ctx) => {
   await use('driver');
   must((await state()).m.mode === 'cab', 'could not enter the cab');
   await press('KeyB'); await shot('cab-guidance');
+  // opts.night (A-24b): a later day that runs after dark (C-36): the headlights go on before the van moves, so every leg
+  // reports drive.lights as right; the check is read at the results
+  if (opts.night) {
+    must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return !!m.nightDrive && OTR.fpLighting.time(m) === 'night' && OTR.fpNight.required(m); }), 'the night day does not run at night with the headlights required');
+    await press('KeyL');
+    must((await state()).m.van.headlights === true, 'L did not switch the headlights on');
+    await shot('night-cab');
+  }
   // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
   // checked by looking at it (there is no mirror button since C-23); the left mirror just before moving off
   await cabUse('cab-drive'); must((await state()).m.van.gear === 1, 'the selector did not put the van in Drive');
@@ -350,6 +360,14 @@ const make = (opts) => async (page, ctx) => {
     await wait(150);
   };
   await parkAt(0); await shot('arrival');
+  // opts.scuff (A-24b): a slow scrape along the left side on the way in (the van's own contact path, as a fixture, like
+  // the parking above): a van.damage-scuff at the first stop that the post-trip walkaround must then report
+  if (opts.scuff) {
+    const hit = await ev(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), m = s.model;
+      const e = OTR.fpDamage.contact(m.damage, 'left', 'solid', 1.2); const ok = OTR.fpDamageFlow.fire(m, e, 1.2); OTR.fpDamage.release(m.damage); s.sync(); return ok && e.type; });
+    must(hit === 'van.damage-scuff', 'the scrape did not register as a scuff: ' + hit);
+    must(await ev(() => OTR.workday.events.some((e) => e.type === 'van.damage-scuff' && /^left:solid-/.test(e.key) && e.stop === 1 && !!e.where)), 'the scuff was not reported with its stop and place');
+  }
   // reverse a metre with the automatic rear camera (C-24): R at the selector, the screen comes on by itself, back slowly,
   // stop and set the parking brake, which ends the manoeuvre and reports it
   await cabUse('cab-reverse');
@@ -520,7 +538,8 @@ const make = (opts) => async (page, ctx) => {
   }
   if (retained.length) await shot('return-receipt');
   if ((await state()).m.cargoOpen) await use('cargo');           // the rear is checked with the cargo shut
-  const postWalk = await walkaround('posttrip');                  // B-99: and again after the trip, before finishing
+  // opts.unreported (A-24b): the courier skips the post-trip record, so the scrape they caused goes unreported
+  const postWalk = opts.unreported ? false : await walkaround('posttrip');                  // B-99: and again after the trip, before finishing
   await use('dispatch'); await shot('dispatch-finish');
   await press('Digit1');                                       // Finish workday
 
@@ -528,7 +547,21 @@ const make = (opts) => async (page, ctx) => {
   must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 30000), 'Finish workday did not open the results screen');
   if (postWalk) {
     console.log(`      walkaround: ${await walkReports('trip.damage-report', 'added')} new damaged area(s) reported after the trip`);
-    must(await ev(() => !OTR.workday.events.some((e) => e.type === 'trip.damage-false')), 'a right post-trip record reported damage that was not there');
+    must(await ev(`!${dayEvents}.some((e) => e.type === 'trip.damage-false')`), 'a right post-trip record reported damage that was not there');
+  }
+  if (opts.night) {
+    const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok }))`);
+    must(lights.length >= 1 && lights.every((e) => e.ok === true), 'every leg after dark should report the headlights as on: ' + JSON.stringify(lights));
+    console.log(`      night: headlights on for ${lights.length} leg(s)`);
+  }
+  if (opts.scuff) {
+    const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
+    const left = rep.find((e) => e.key === 'left');
+    must(left && left.ok === !opts.unreported, `the post-trip report of the left scuff should be ${opts.unreported ? 'missed' : 'right'}: ` + JSON.stringify(rep));
+    const crit = await ev(() => { const r = OTR.workday.saved().last; return { types: r.criticalTypes, safety: r.stars.safety, service: r.stars.service }; });
+    if (opts.unreported) must(crit.types.includes('trip.damage-report') && crit.service <= 1, 'unreported damage should be a critical that caps service at one star: ' + JSON.stringify(crit));
+    else must(!crit.types.includes('trip.damage-report'), 'a right post-trip report should not be a critical: ' + JSON.stringify(crit));
+    console.log(`      scuff: ${opts.unreported ? 'left unreported, a critical' : 'reported after the trip'} (${JSON.stringify(crit)})`);
   }
   await wait(2800);
   await ctx.audit('results');
