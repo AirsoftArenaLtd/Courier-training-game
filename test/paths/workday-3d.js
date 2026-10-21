@@ -426,16 +426,18 @@ const make = (opts) => async (page, ctx) => {
   // opts.radio (B-122, B-124, B-125): C-36's call, answered as the guide says: parked with the brake on, read on the
   // handheld, then 'priority' (accept; the stop it names is delivered next, the credit goes to the first stop delivered
   // after accepting), 'checkin' (accept, park at the check-in spot, confirm arrival) or 'decline'
-  const call = opts.radio ? await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; }) : null;
+  // B-128: a careful courier answers the day's call, so a later day follows it (by its kind) unless opts.radio says otherwise
+  const call = await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio && OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; });
   if (opts.radio) must(call && (opts.radio === 'decline' || call.kind === opts.radio), `the day has no ${opts.radio} radio call: ` + JSON.stringify(call));
-  const radioAt = !call ? -1 : call.kind === 'priority' && opts.radio === 'priority' ? call.stop : 1;
+  const radio = opts.radio || (call ? call.kind : null);
+  const radioAt = !call ? -1 : call.kind === 'priority' && radio === 'priority' ? call.stop : 1;
   for (let i = 0; i < N; i++) {
     if (i === radioAt) {
       must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return OTR.fpRadio.pending(m) && m.parked(); }), 'the radio call is not waiting, or the van is not parked, before stop ' + (i + 1));
       await press('Tab'); await pick(/^Read the dispatch radio message\.$/);
       must(await ctx.until(`${FP}.handheld.isOpen && ${FP}.handheld.device.current.title === 'The dispatch radio.'`, 5000), 'the radio message did not open on the handheld');
       await shot('radio-message');
-      if (opts.radio === 'decline') {
+      if (radio === 'decline') {
         await pick(/^Decline the route update\.$/); await pick(/^Put away the handheld\.$/);
         log('      radio: call read parked and declined');
       } else {
@@ -652,11 +654,11 @@ const make = (opts) => async (page, ctx) => {
   // B-113: a careful day follows the sat nav; the wrong-turn variant has exactly its one wrong turn
   const routeMisses = await ev(`${dayEvents}.filter((e) => e.type === 'drive.route' && e.ok === false).length`);
   must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
-  if (opts.radio) {
+  if (radio) {
     // the radio's own report (key r0); C-11's route-day updates use the same type with the stop as their key
     const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update' && /^r/.test(String(e.key))).map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
-    const want = opts.radio !== 'decline';
-    must(upd.length === 1 && upd[0].ok === want, `${opts.radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
+    const want = radio !== 'decline';
+    must(upd.length === 1 && upd[0].ok === want, `${radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
   }
   // B-127: a careful day has no wrong report at all, apart from what a variant sets out to do
   const meant = new Set([].concat(opts.scuff ? ['van.damage-scuff'] : [], opts.unreported ? ['trip.damage-report'] : [], opts.wrongTurn ? ['drive.route'] : [],
