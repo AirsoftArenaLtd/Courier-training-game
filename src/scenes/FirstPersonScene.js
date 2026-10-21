@@ -274,7 +274,8 @@ class FirstPersonScene extends Phaser.Scene {
     else choices.push({label:'Begin preparation',action:()=>{
       const begin=()=>{if(complete)m.readBrief();this.checkpoint();this.closePanel();};
       if(complete&&m.damage&&m.damage.enabled)this.showPanel('Know the van height.',
-        'Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.',
+        ['Your van is 10 feet 10 inches tall. Follow the sat nav around low clearances. Secure the load before departure.',
+          m.walkaround?'Walk around the parked van with empty hands and record each area’s condition before departure.':''].filter(Boolean).join('\n\n'),
         [{label:'Begin preparation.',action:begin}],{accessibleText:true,back:()=>this.showManifest(page,complete)});
       else begin();
     }});
@@ -395,8 +396,10 @@ class FirstPersonScene extends Phaser.Scene {
     if(m.driving&&m.mode==='cab'){const warning=OTR.fpDriving.hint(m);if(warning)return warning;}
     if(m.routeDay){const update=OTR.fpDay.hint(m);if(update)return update;}
     if(m.mode==='cab'&&m.phase==='prepare')return `${m.stop(m.activeStop).address} · ${m.driveHint()}`;
+    if(m.phase==='prepare'&&m.walkaround&&m.damage.enabled)return 'Record the van’s condition, check the tires and lights, then scan and load the parcels. Secure the load and close cargo before departure.';
     if(m.phase==='prepare'&&m.routePlan)return 'Check tires and lights, scan and load five parcels in stop order, then secure the load and close cargo.';
     if(m.phase==='prepare')return 'Check tires and lights, scan and load three parcels, then secure the load and close cargo.';
+    if(m.phase==='return'&&m.walkaround&&m.damage.enabled&&m.mode==='walk')return 'Return to the depot, scan retained parcels at Returns and record the van’s condition before finishing at Dispatch.';
     if(m.phase==='return'&&m.routePlan)return m.mode==='cab'?`Return to the depot. ${m.driveHint()}`:'Return to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='return')return 'Return south to the depot. Scan retained parcels at Returns, then finish at Dispatch.';
     if(m.phase==='debrief')return 'Review the shift, then return to the hub.';

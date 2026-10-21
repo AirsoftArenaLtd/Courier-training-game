@@ -244,12 +244,12 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   }
   if(process.env.QA_WALKAROUND==='1')for(const kind of ['front','roof','record','summary','guidepre','guidepost']){
    const proof=await p.evaluate(kind=>{
-    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4,8))));plan.timeOfDay='midday';
+    const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();const plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpStopFlow.prepare(OTR.fpRoute.plan(4,8),true))));plan.timeOfDay='midday';
     const m=OTR.fpMission.create('campaign',8,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpLoadout.configure(m,'extra');
     m.mode='walk';m.paused=true;m.step=()=>{};m.events[m.briefKey]=true;m.workdayRules={satnav:'full',damage:true};
     for(const p of m.parcels)p.location=p.anomaly?'aside':'slot'+p.stop;
     if(['record','summary','guidepost'].includes(kind)){
-     m.preparation();m.phase='return';m.stops.forEach(t=>{t.resolved=true;t.outcome='handover';OTR.fpLater.arrive(m,t.id);});
+     m.preparation();m.phase='return';m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});
      for(const zone of OTR.fpDamage.zones){OTR.fpDamage.release(m.damage);OTR.fpDamage.contact(m.damage,zone,'solid',8);}
     }
     const zone=kind==='front'?'front':kind==='record'?'mirror':'roof',t=OTR.fpWalkaroundFlow.target(zone),point=OTR.fp.local(m.van,t.x+(zone==='front'?0:-.85),t.z+(zone==='front'?-.85:0));Object.assign(m.player,point);
