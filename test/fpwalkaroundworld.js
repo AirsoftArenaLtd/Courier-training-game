@@ -15,6 +15,8 @@ for(const profile of ['low','high','fallback'])test(profile+': every ground-leve
  const m=O.fpMission.create('campaign',8,plan),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);O.fpDoors.configure(m);
  const scene={assetBank:profile==='fallback'?null:banks[high],view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);
  try{
+  const door=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0);
+  Object.assign(m.player,O.fp.local(m.van,0,4));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(door.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the cargo-door centre stays selectable before loading');
   const handle=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x>1);
   Object.assign(m.player,O.fp.local(m.van,1.15,3.6));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(handle.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the existing cargo handle stays selectable');
   m.cargoOpen=true;art.sync(m,null,'route');assert.equal(art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear').visible,false);m.cargoOpen=false;

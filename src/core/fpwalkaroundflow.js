@@ -9,7 +9,7 @@ OTR.fpWalkaroundFlow={
   // The roof is inspected from its reachable edge. No climbing or camera teleport is needed.
   targets:[
     {zone:'front',name:'This is the front of the van.',x:0,y:1,z:-2.84,w:.7,h:.4,d:.04},
-    {zone:'rear',name:'This is the rear of the van.',x:0,y:1.75,z:2.8,w:.7,h:.5,d:.04},
+    {zone:'rear',name:'This is the rear of the van.',x:-.18,y:1.75,z:2.8,w:.3,h:.5,d:.04},
     {zone:'left',name:'This is the left side of the van.',x:-1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
     {zone:'right',name:'This is the right side of the van.',x:1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
     {zone:'roof',name:'This is the roof edge of the van.',x:-1.11,y:2.94,z:.6,w:.08,h:.18,d:.8},

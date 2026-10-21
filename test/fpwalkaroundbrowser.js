@@ -39,19 +39,28 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
   const checkpoint=async()=>{assert.equal(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,raw=m.snapshot(),events=JSON.stringify(OTR.workday.events),store=OTR.fpStore.empty();store.sequence=m.seed;store.campaign=raw;
    if(!OTR.fpStore.write(store))return false;const read=OTR.fpMission.restore(OTR.fpStore.read().campaign);if(!read||JSON.stringify(read.snapshot())!==JSON.stringify(raw)||JSON.stringify(OTR.workday.events)!==events)return false;
    s.handheld.close(false);s.model=read;s.model.paused=true;s.sync();return true;}),true);r.checks++;};
+  const cargoRoundTrip=async()=>{
+   for(const open of [true,false]){
+    const target=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.handheld.close(false);m.paused=true;m.heldId=null;const pt=m.point('cargo');Object.assign(m.player,{x:pt.x,z:pt.z+1.25});s.target=null;s.sync();
+     const visible=o=>{for(let a=o;a;a=a.parent)if(!a.visible)return false;return true;},o=s.art.interactions.find(o=>o.userData.interaction==='cargo'&&visible(o)),v=o.getWorldPosition(new THREE.Vector3()),eye=s.view.camera.position;
+     m.player.yaw=Math.atan2(v.x-eye.x,-(v.z-eye.z));m.player.pitch=Math.atan2(eye.y-v.y,Math.hypot(v.x-eye.x,v.z-eye.z));s.sync();s.refresh();return s.aimTarget();});
+    assert.equal(target,'cargo','The real cargo control must remain selectable beside the rear inspection.');r.checks++;await press('o');assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.cargoOpen),open);r.checks++;
+   }
+   return true;
+  };
   for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
    await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
    await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.keyboardMode=true;s.closePanel();Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true,narrate:true,keys:{KeyP:'KeyN',KeyE:'KeyO'}});OTR.fpAccess.syncKeys();
     window.walkSaid=[];Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speaking:false,pending:false,speak(u){walkSaid.push(u.text);},cancel(){}}});window.SpeechSynthesisUtterance=function(text){this.text=text;};
     s.progress.guidance={intro:true,seen:[]};OTR.save.data.route.days=3;s.progress.sequence=7;s.progress.campaign=null;s.launch('campaign');s.closePanel();s.model.paused=true;OTR.workday.begin();s.notice='';s.sync();s.refresh();},size==='large');
    assert.deepEqual(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {marker:s.model.routePlan.walkaround,targets:s.art.walkaroundTargets.length,phaser:s.art.walkaroundTargets.every(o=>o.layers.mask===2)};}),{marker:1,targets:7,phaser:true});r.checks++;
-   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();
+   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.cargoPre=await cargoRoundTrip();
    for(const zone of ['front','rear','left','right','roof','wheel','mirror']){
     const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='wheel')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-record.png`)});await checkpoint();run.pre.push(zone);save();
     if(['roof','wheel'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-${zone}.png`)});
    }
    const depart=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.mode='cab';m.paused=false;m.secured=true;Object.assign(m.van,{speed:2,hand:false,belt:true});m.step({},.0125);m.van.speed=0;m.van.hand=true;m.mode='walk';m.paused=true;
-    m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});m.phase='return';return {departed:m.walkaround.departed,pre:OTR.workday.events.filter(e=>e.type==='inspect.damage')};});assert.equal(depart.departed,true);assert.equal(depart.pre.length,1);assert.equal(depart.pre[0].ok,true);r.checks+=3;
+    m.stops.forEach(t=>{t.resolved=true;t.outcome='exception';OTR.fpLater.arrive(m,t.id);});m.parcels.forEach(p=>{p.location=p.anomaly?'aside':'returned';p.returnRequired=!p.anomaly;});m.phase='return';return {departed:m.walkaround.departed,pre:OTR.workday.events.filter(e=>e.type==='inspect.damage')};});assert.equal(depart.departed,true);assert.equal(depart.pre.length,1);assert.equal(depart.pre[0].ok,true);r.checks+=3;run.cargoPost=await cargoRoundTrip();
    // A wrong clear-zone description is a real selectable decision and cannot repeat after a checkpoint.
    await record('front',2);await checkpoint();await record('front',3);assert.equal(await p.evaluate(()=>OTR.workday.events.filter(e=>e.type==='trip.damage-false').length),1);r.checks++;
    await p.evaluate(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;OTR.fpDamage.zones.forEach((zone,i)=>{OTR.fpDamage.release(m.damage);OTR.fpDamageFlow.fire(m,OTR.fpDamage.contact(m.damage,zone,'solid',[.5,3,8][i%3]),3);});});

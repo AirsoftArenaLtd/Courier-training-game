@@ -888,3 +888,23 @@ The first final rendered profile passes **all 61 loaded-Low views**: **54 calls 
 `5e0f9a4` changes only the damage browser's translated expectations. This is one
 profile, not the completed 179-view gate; High, accessibility and fallback continue.
 [Raw completed Low report and partial gate metadata](review/set-9/c35-surfaces/manifest.json).
+
+## C-35 complete frozen resource gate (21 October 2026)
+
+All **179 rendered views** pass with product runtime `501fb82`. Each profile
+checks live reflections, native richer stops, damage, traffic, sound and walkaround.
+All ceilings remain unchanged.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 61 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 46 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 36 | 54 | 2,396 | 2 | 3,557,376 | 3,067,056 |
+| fallback-low | 36 | 53 | 2,150 | 2 | 3,557,376 | 2,549,552 |
+
+[All 179 captures, raw reports, measured harnesses and hashes](review/set-9/c35-render/manifest.json).
+After capture, the cargo regression was corrected by moving/narrowing only its
+non-rendered rear inspection proxy. All 161 required cases and 24 changed-JS
+syntax checks pass. Real-key cargo/inspection checks and eight focused rendered
+cargo/rear views will validate that final correction before shared journeys.
+The 179-view figures retain their measured source. No Intel FPS claim; O-1 remains.
