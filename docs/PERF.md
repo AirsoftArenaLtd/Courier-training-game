@@ -873,3 +873,11 @@ loaded **60 calls / 2,443 triangles**, fallback **59 / 2,181**. The corrected Hi
 English native workflow passes **321 checks**, seven pre/post surfaces and all 12
 guide pages. [Failure and corrected captures, raw sweeps and exact source](review/set-9/c35-surfaces/manifest.json).
 The rest of the native matrix and 179-view rendered gate remain in progress.
+
+The corrected complete native matrix now passes **1,926 checks in six workflows**:
+four Low English/Tamil normal/larger and two High English normal/Tamil larger.
+All seven physical areas before and after, all 12 guide pages, remapped controls,
+critical missing reports and exact checkpoints pass. Low Phaser peaks are
+**2,533,062 / 3,144,939 / 3,354,528 / 3,880,838 bytes** respectively. High Tamil
+larger peaks at **14,054,235 bytes**, below its unchanged 16 MiB ceiling. Browser
+page/layout regressions and the 179-view rendered resource gate are still running.
