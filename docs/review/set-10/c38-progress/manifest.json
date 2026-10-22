@@ -44,13 +44,43 @@
   "files": [
     {
       "file": "README.md",
-      "bytes": 2485,
-      "sha256": "6a183564b7a74842c2aa102f224261af1ff3919c431185df6ab4f593a1f75ec5"
+      "bytes": 2482,
+      "sha256": "162bf8928806d666a4f63df2436abd3b5d3007c0520e7a6b3b239a90337c0ac0"
     },
     {
       "file": "bench-c38-first-modules-loaded-low-low.json",
       "bytes": 13463,
       "sha256": "828c6660405b5e0e620a677b662e2e2cfdc9f2a1f7e7e8e49c465b936197bdca"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-modulecab.png",
+      "bytes": 133501,
+      "sha256": "1637b786bef14b1ce3b48db7597e93415607a419c45a327134175cf133481cc6"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-modulecabhandheld.png",
+      "bytes": 77018,
+      "sha256": "3e066ccb39493efda2cd542d589a16d3e89f9d012fc18389c967bb6eddc5ed54"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-modulecabreverse.png",
+      "bytes": 139372,
+      "sha256": "7d60a6224fc6c374008392b76f1942d276b060d8e1a2578fede1efa12d30b9ce"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-moduledepot.png",
+      "bytes": 84663,
+      "sha256": "6deca3917a1443af7dd11134b1e7945f16bdd5d2c25d721495103be64bbcbff3"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-moduledoorstep.png",
+      "bytes": 41214,
+      "sha256": "c86c8a9e5809ee502e9ca5c3e8597f354b94f8bec71fa749cee39aa80fde5a03"
+    },
+    {
+      "file": "c38-first-modules-loaded-low-low-modulestreet.png",
+      "bytes": 94281,
+      "sha256": "8d3fb1d387443fda0a95e7c88a144497ff30743f691efb4cff396fb0ac273365"
     },
     {
       "file": "c38-first-modules-loaded-low.log",

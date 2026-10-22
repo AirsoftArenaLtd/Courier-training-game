@@ -1,6 +1,6 @@
 # C-38 implementation progress and diagnostics
 
-The runner is implemented on `codex/c38-scenario-runner`, stacked on pushed C-52. Final acceptance remains pending. The API and shared host proposal are in `../../../../3D-SCENARIO-RUNNER.md` and `../c38-runner-api/`.
+The runner is implemented on `codex/c38-scenario-runner`, stacked on pushed C-52. Final acceptance remains pending. The API and shared host proposal are in `../../../3D-SCENARIO-RUNNER.md` and `../c38-runner-api/`.
 
 Current runtime `dcbe8520` passes 13 model/world checks. Earlier native exploration passed 180 input/layout/results/fallback checks across both presets, English/Tamil and normal/larger text. Its fixture was not committed at launch, and visual review found a seatbelt coaching reminder in its assessment captures. Those captures and counts are exploratory diagnostics, excluded from final acceptance. The current code suppresses assessment reminders and signal timing coaching while retaining physical state and sensory cues.
 
