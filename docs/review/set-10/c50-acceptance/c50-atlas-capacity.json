@@ -1,0 +1,268 @@
+{
+  "worlds": 400,
+  "uniqueSignDefinitions": 40,
+  "borrowed": true,
+  "intact": true,
+  "bounded": true,
+  "canvas": [
+    2048,
+    1024
+  ],
+  "words": [
+    {
+      "text": "STOP",
+      "x": 516,
+      "y": 560,
+      "width": 112
+    },
+    {
+      "text": "HARBOR ST",
+      "x": 636,
+      "y": 560,
+      "width": 248
+    },
+    {
+      "text": "1ST ST",
+      "x": 892,
+      "y": 560,
+      "width": 137
+    },
+    {
+      "text": "2ND ST",
+      "x": 1037,
+      "y": 560,
+      "width": 155
+    },
+    {
+      "text": "3RD ST",
+      "x": 1200,
+      "y": 560,
+      "width": 148
+    },
+    {
+      "text": "4TH ST",
+      "x": 1356,
+      "y": 560,
+      "width": 146
+    },
+    {
+      "text": "5TH ST",
+      "x": 1510,
+      "y": 560,
+      "width": 146
+    },
+    {
+      "text": "MAPLE AVE",
+      "x": 1664,
+      "y": 560,
+      "width": 243
+    },
+    {
+      "text": "BIRCH LN",
+      "x": 516,
+      "y": 624,
+      "width": 210
+    },
+    {
+      "text": "OAK ST",
+      "x": 734,
+      "y": 624,
+      "width": 155
+    },
+    {
+      "text": "204",
+      "x": 897,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "208",
+      "x": 981,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "212",
+      "x": 1065,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "304",
+      "x": 1149,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "312",
+      "x": 1233,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "404",
+      "x": 1317,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "408",
+      "x": 1401,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "412",
+      "x": 1485,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "105",
+      "x": 1569,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "104",
+      "x": 1653,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "109",
+      "x": 1737,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "108",
+      "x": 1821,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "113",
+      "x": 1905,
+      "y": 624,
+      "width": 76
+    },
+    {
+      "text": "112",
+      "x": 516,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "205",
+      "x": 600,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "213",
+      "x": 684,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "305",
+      "x": 768,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "309",
+      "x": 852,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "308",
+      "x": 936,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "313",
+      "x": 1020,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "405",
+      "x": 1104,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "409",
+      "x": 1188,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "413",
+      "x": 1272,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "209",
+      "x": 1356,
+      "y": 688,
+      "width": 76
+    },
+    {
+      "text": "YIELD",
+      "x": 1440,
+      "y": 688,
+      "width": 127
+    },
+    {
+      "text": "25",
+      "x": 1575,
+      "y": 688,
+      "width": 51
+    },
+    {
+      "text": "MPH",
+      "x": 1634,
+      "y": 688,
+      "width": 103
+    },
+    {
+      "text": "SCHOOL",
+      "x": 1745,
+      "y": 688,
+      "width": 181
+    },
+    {
+      "text": "15 MPH",
+      "x": 516,
+      "y": 752,
+      "width": 165
+    },
+    {
+      "text": "ROAD",
+      "x": 689,
+      "y": 752,
+      "width": 127
+    },
+    {
+      "text": "CLOSED",
+      "x": 824,
+      "y": 752,
+      "width": 169
+    },
+    {
+      "text": "ONE WAY",
+      "x": 1001,
+      "y": 752,
+      "width": 203
+    }
+  ],
+  "rows": 4,
+  "scope": "Actual generated sign vocabulary from100seeds xdays1,3,4,6, rasterised together with the runtime High font code and native Canvas2D. Full five512square material cells stay byte-identical. This is a capacity diagnostic, not WebGL/FPS evidence.",
+  "rendererSHA256": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8"
+}

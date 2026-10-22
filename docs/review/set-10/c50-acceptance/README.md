@@ -1,0 +1,7 @@
+# C-50 current-pilot acceptance
+
+Base `573b0f4d` plus owned runtime `6ff88c94` and fixture `4cd7a344`, with B-164 `f264fa2e` and C-49 `eb3794a1`. The candidate source SHA values describe the tested combined tree; the Git base alone is not the renderer revision. Current pilot 90844ac5 adds no unknown runtime change. No Git merge or authored shared scorer/save/Settings/i18n.
+
+All 207 fixed resource views pass, in 68 loaded Low, 53 loaded High, 43 accessible Low and 43 actual missing-model Low views. The repository batch was 77 of 78; only the failed 2D route-day clothing suite was rerun alone, unchanged, and passes. Both logs are retained, and the acceptance metadata explicitly records the initial failure and resolution. All 78 suites are accounted for; this is not a claim that the first batch was 78 of 78. The 157 ink, 83 translated/remapped reading and 50 High town checks pass, plus 240 sign approaches and 192 first-day views at Low across twelve languages, and 40 approaches plus 32 first-day views at High in English/Tamil.
+
+The additional Canvas2D capacity diagnostic rasterises the actual vocabulary from 400 generated towns together:42 unique words use four of eight rows, with all five surface cells byte-identical. It changes no runtime and makes no WebGL/FPS claim. Commands, environments, profiles, source hashes, raw logs and screenshots are retained here and hashed below. Cloud FPS does not certify the owner’s Intel 60 fps floor; O-1 remains. No preview deployment is claimed.

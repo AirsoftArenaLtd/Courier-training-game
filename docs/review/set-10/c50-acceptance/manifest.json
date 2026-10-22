@@ -1,0 +1,2447 @@
+{
+  "task": "C-50 physical sign lettering",
+  "status": "Current-pilot acceptance passed, with isolated unchanged rerun of the sole initial repository failure",
+  "date": "2026-10-22T13:52:40.173458+00:00",
+  "base": "573b0f4d",
+  "ownedRuntime": "6ff88c94",
+  "fixtureSource": "4cd7a344",
+  "sourceSHA256": {
+    "index.html": "ae44b5a6d7af13a9d7297b17174289fa1159ef7effb7f994eb2caa0899923660",
+    "assets/3d/manifest.json": "c2a0180ed04b2d3ca645eac9f6fd765a5feabae4d110dface21d5f2737bc3c31",
+    "data/credits.js": "dc698c21537928e772e75f6382cf04176e94b1f06e4fceb452e44af1d3038f18",
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "b9e9f3190cd8f39f3b501de7aa30f26a6530a8002d52db967be61732789d8854",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmaterials.js": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+    "src/core/fpmirrors.js": "f04d9747ea5cc8c81f14a4d2e20a29e50998b0445a2b565fa93d2d988febfc83",
+    "src/core/fpmission.js": "25bcd0edab780818de60fc0b497655c5f882812cbd15ec0bb0e64c177ae04fa4",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4",
+    "src/core/fpreplay.js": "7618676d231d868f0db0a32063e26ad8219bbc15a8f19689476e256686066bef",
+    "src/core/fpreplayui.js": "5bf47a61f2885eb9b56ffdbed886c667954d96986faf149315765d5c7c732e67",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpsignlettering.js": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8",
+    "src/core/fpsigns.js": "5262cc982af5dffd02cc1dceed8f35eb816d300c42e039de6e94e565697cd767",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3",
+    "src/scenes/FirstPersonScene.js": "04c6c250d1b170c87c11ff01eca8cd3c552bf51e0eda13ebb92069d95fb5b6d4",
+    "test/fpactors.js": "8c2ded2b65b6fae1a63983996572acb39f5fe49a927902e9aa9c44ae66fbf888",
+    "test/fpassets.js": "4e518a64293b9d7b8acd772b32171e86c1fd42554fbab8f76377c11c6199c56b",
+    "test/fpassetsbrowser.js": "ac1147a4f1418f07198ea942166ad625a4a3542187b7f17e50858a15241eb397",
+    "test/fpmaterials.js": "35b9a2b5bffc8155022e08d337a25d3dbb1318ab369399e0182e41f1befd8ba3",
+    "test/fpmaterialsbrowser.js": "b9211237a388e011d158e28dc12e4bdd18826ca11008a9b32dcf366be024cf92",
+    "test/fprear.js": "9f05aed732f47c64a7529d31507bb5bda86e84dbee3ffa8e094c57295085b4cf",
+    "test/fpsignlayoutbrowser.js": "c115cec5b409d80ac8eba8f7e70028d86f22eedb43903d55a60ffbb43af413a0",
+    "test/fpsignlettering.js": "dedb6fb52cf07be34817ca6314b2dca2e545c44a8d35cf808597d19c6625b755",
+    "test/fpsignletteringbrowser.js": "8c8d9d152f7a6eefe1f34aa2651508f4d57b01511fc4b521f942ba85f694fb8e",
+    "test/fpsignsbrowser.js": "978d6ab46fff344afbfea7f763d6f2c80c3e60a33a71868615b9a5701fe08708",
+    "test/fptown.js": "d5f46b70319de05ead5105e3d87b808c8441874dd4a16ff11e62bb69d56a5edf",
+    "test/fptownbrowser.js": "ed27abd30f2ce61f45f8a1707997985dd06e9b27b07e0f3cf479dd194fea9fe9",
+    "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
+    "test/tools/fpassets-context.js": "ad5ebb4b35986539b799eee9a8db38ea16aebfc421db12bdb3a69319910c7476"
+  },
+  "jobs": [
+    {
+      "name": "repository",
+      "command": [
+        "node",
+        "test/run-all.js"
+      ],
+      "environment": {},
+      "started": 1792667753.5661356,
+      "exit": 0,
+      "ended": 1792669052.6647258,
+      "initialExit": 1,
+      "originalSummary": "77 of 78 suites passed; the route-day weather-clothing checks failed during the batch.",
+      "resolution": "Only failed suite rerun alone, unchanged source and fixture, on fresh quiet HTTP server. All route-day checks pass. Original failure remains in c50-current-repository.log.",
+      "isolatedRerunLog": "c50-current-routeday-alone.log"
+    },
+    {
+      "name": "ink",
+      "command": [
+        "node",
+        "test/fpsignletteringbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-ink",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792671723.2655168,
+      "exit": 0,
+      "ended": 1792672097.5663798
+    },
+    {
+      "name": "reading",
+      "command": [
+        "node",
+        "test/fpsignsbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-reading",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792672097.5680923,
+      "exit": 0,
+      "ended": 1792672230.273209
+    },
+    {
+      "name": "layout-low",
+      "command": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-layout",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792672230.275314,
+      "exit": 0,
+      "ended": 1792673205.0748432
+    },
+    {
+      "name": "layout-high",
+      "command": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_LANGS": "en,ta",
+        "QA_TAG": "c50-current-layout-high",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673205.0771062,
+      "exit": 0,
+      "ended": 1792673706.2129748
+    },
+    {
+      "name": "town",
+      "command": [
+        "node",
+        "test/fptownbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_TAG": "c50-current-town",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673706.2151642,
+      "exit": 0,
+      "ended": 1792673780.5129879
+    },
+    {
+      "name": "quality",
+      "command": [
+        "node",
+        "test/fpquality.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673780.515739,
+      "exit": 0,
+      "ended": 1792677158.4173667
+    }
+  ],
+  "quality": {
+    "sourceRevision": "573b0f4dc7bc6ce68c133bf01a6f04cd4c8adb40",
+    "scope": "complete",
+    "budgets": {
+      "low": {
+        "calls": 64,
+        "triangles": 2500,
+        "textures": 2,
+        "attachmentBytes": 4194304,
+        "phaserBytes": 4194304
+      },
+      "high": {
+        "calls": 128,
+        "triangles": 300000,
+        "textures": 4,
+        "attachmentBytes": 16777216,
+        "phaserBytes": 16777216
+      }
+    },
+    "profiles": [
+      {
+        "id": "loaded-low",
+        "quality": "low",
+        "views": [
+          "depot",
+          "cab",
+          "mirror",
+          "mirrorRight",
+          "mirrorInterior",
+          "handheld",
+          "barcodeAim",
+          "firstStop",
+          "doorstep",
+          "doorsignature",
+          "doorid",
+          "laterstressturnleft",
+          "laterrearpeak",
+          "lightingnightreverse",
+          "visibleweatherstorm",
+          "visibleweathersnowwalk",
+          "townhouse",
+          "townroad",
+          "townparked-car",
+          "towncab",
+          "actorsvan",
+          "actorscargoextra",
+          "actorsresident",
+          "actorsmirror",
+          "signsjunction",
+          "signsnumber",
+          "signsoneway",
+          "signspeak",
+          "navfull",
+          "navline",
+          "navreroute",
+          "navblocked",
+          "navdouble",
+          "damagefront",
+          "damagerear",
+          "damageleft",
+          "damageright",
+          "damagecargo",
+          "damagebridge",
+          "damageoverhang",
+          "damagereverseclearance",
+          "damagemirror",
+          "stopsintercom",
+          "stopsgate",
+          "stopsreception",
+          "stopslockeropen",
+          "stopslockerclosed",
+          "stopsretention",
+          "stopsstresscab",
+          "walkfront",
+          "walkroof",
+          "walkrecord",
+          "walksummary",
+          "walkguidepre",
+          "walkguidepost",
+          "trafficsignal",
+          "trafficgreen",
+          "trafficcyclist",
+          "trafficmirror",
+          "trafficschool",
+          "trafficpeak",
+          "radiocaption",
+          "radiopriority",
+          "radiocheckin",
+          "nightoff",
+          "nighton",
+          "nightglare",
+          "nightreduced"
+        ],
+        "accessibility": "",
+        "fallback": false,
+        "report": "bench-c50-current-loaded-low-low.json",
+        "exit": 0,
+        "elapsedMs": 955542,
+        "peak": {
+          "calls": 53,
+          "triangles": 2402,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 2623766
+        }
+      },
+      {
+        "id": "loaded-high",
+        "quality": "high",
+        "views": [
+          "cab",
+          "mirror",
+          "mirrorRight",
+          "mirrorInterior",
+          "lightingnightreverse",
+          "townhouse",
+          "townroad",
+          "actorscargoextra",
+          "actorsresident",
+          "actorsmirror",
+          "signsjunction",
+          "signsoneway",
+          "signspeak",
+          "navfull",
+          "navline",
+          "navreroute",
+          "navblocked",
+          "navdouble",
+          "damagefront",
+          "damagerear",
+          "damageleft",
+          "damageright",
+          "damagecargo",
+          "damagebridge",
+          "damageoverhang",
+          "damagereverseclearance",
+          "damagemirror",
+          "stopsintercom",
+          "stopsgate",
+          "stopsreception",
+          "stopslockeropen",
+          "stopslockerclosed",
+          "stopsretention",
+          "stopsstresscab",
+          "walkfront",
+          "walkroof",
+          "walkrecord",
+          "walksummary",
+          "walkguidepre",
+          "walkguidepost",
+          "trafficsignal",
+          "trafficgreen",
+          "trafficcyclist",
+          "trafficmirror",
+          "trafficschool",
+          "trafficpeak",
+          "radiocaption",
+          "radiopriority",
+          "radiocheckin",
+          "nightoff",
+          "nighton",
+          "nightglare",
+          "nightreduced"
+        ],
+        "accessibility": "",
+        "fallback": false,
+        "report": "bench-c50-current-loaded-high-high.json",
+        "exit": 0,
+        "elapsedMs": 1188023,
+        "peak": {
+          "calls": 107,
+          "triangles": 235915,
+          "textures": 4,
+          "attachmentBytes": 11239424,
+          "phaserBytes": 7947600
+        }
+      },
+      {
+        "id": "accessible-low",
+        "quality": "low",
+        "views": [
+          "cab",
+          "mirrorInterior",
+          "barcodeAim",
+          "visibleweatherstorm",
+          "actorscargoextra",
+          "laterrearpeak",
+          "signsjunction",
+          "signspeak",
+          "navfull",
+          "navreroute",
+          "navblocked",
+          "damagefront",
+          "damagerear",
+          "damageleft",
+          "damageright",
+          "damagecargo",
+          "damagebridge",
+          "damageoverhang",
+          "damagereverseclearance",
+          "damagemirror",
+          "stopsintercom",
+          "stopsgate",
+          "stopsreception",
+          "stopslockeropen",
+          "stopslockerclosed",
+          "stopsretention",
+          "stopsstresscab",
+          "walkfront",
+          "walkroof",
+          "walkrecord",
+          "walksummary",
+          "walkguidepre",
+          "walkguidepost",
+          "trafficsignal",
+          "trafficschool",
+          "trafficpeak",
+          "radiocaption",
+          "radiopriority",
+          "radiocheckin",
+          "nightoff",
+          "nighton",
+          "nightglare",
+          "nightreduced"
+        ],
+        "accessibility": "large,colour,reduced",
+        "fallback": false,
+        "report": "bench-c50-current-accessible-low-low.json",
+        "exit": 0,
+        "elapsedMs": 635990,
+        "peak": {
+          "calls": 53,
+          "triangles": 2402,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 2946992
+        }
+      },
+      {
+        "id": "fallback-low",
+        "quality": "low",
+        "views": [
+          "cab",
+          "mirrorInterior",
+          "lightingnightreverse",
+          "laterrearpeak",
+          "actorscargoextra",
+          "actorsresident",
+          "signsjunction",
+          "signspeak",
+          "navfull",
+          "navreroute",
+          "navblocked",
+          "damagefront",
+          "damagerear",
+          "damageleft",
+          "damageright",
+          "damagecargo",
+          "damagebridge",
+          "damageoverhang",
+          "damagereverseclearance",
+          "damagemirror",
+          "stopsintercom",
+          "stopsgate",
+          "stopsreception",
+          "stopslockeropen",
+          "stopslockerclosed",
+          "stopsretention",
+          "stopsstresscab",
+          "walkfront",
+          "walkroof",
+          "walkrecord",
+          "walksummary",
+          "walkguidepre",
+          "walkguidepost",
+          "trafficsignal",
+          "trafficschool",
+          "trafficpeak",
+          "radiocaption",
+          "radiopriority",
+          "radiocheckin",
+          "nightoff",
+          "nighton",
+          "nightglare",
+          "nightreduced"
+        ],
+        "accessibility": "",
+        "fallback": true,
+        "report": "bench-c50-current-fallback-low-low.json",
+        "exit": 0,
+        "elapsedMs": 598248,
+        "peak": {
+          "calls": 53,
+          "triangles": 2156,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 2371462
+        }
+      }
+    ]
+  },
+  "capacityAudit": {
+    "worlds": 400,
+    "uniqueSignDefinitions": 40,
+    "borrowed": true,
+    "intact": true,
+    "bounded": true,
+    "canvas": [
+      2048,
+      1024
+    ],
+    "words": [
+      {
+        "text": "STOP",
+        "x": 516,
+        "y": 560,
+        "width": 112
+      },
+      {
+        "text": "HARBOR ST",
+        "x": 636,
+        "y": 560,
+        "width": 248
+      },
+      {
+        "text": "1ST ST",
+        "x": 892,
+        "y": 560,
+        "width": 137
+      },
+      {
+        "text": "2ND ST",
+        "x": 1037,
+        "y": 560,
+        "width": 155
+      },
+      {
+        "text": "3RD ST",
+        "x": 1200,
+        "y": 560,
+        "width": 148
+      },
+      {
+        "text": "4TH ST",
+        "x": 1356,
+        "y": 560,
+        "width": 146
+      },
+      {
+        "text": "5TH ST",
+        "x": 1510,
+        "y": 560,
+        "width": 146
+      },
+      {
+        "text": "MAPLE AVE",
+        "x": 1664,
+        "y": 560,
+        "width": 243
+      },
+      {
+        "text": "BIRCH LN",
+        "x": 516,
+        "y": 624,
+        "width": 210
+      },
+      {
+        "text": "OAK ST",
+        "x": 734,
+        "y": 624,
+        "width": 155
+      },
+      {
+        "text": "204",
+        "x": 897,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "208",
+        "x": 981,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "212",
+        "x": 1065,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "304",
+        "x": 1149,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "312",
+        "x": 1233,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "404",
+        "x": 1317,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "408",
+        "x": 1401,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "412",
+        "x": 1485,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "105",
+        "x": 1569,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "104",
+        "x": 1653,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "109",
+        "x": 1737,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "108",
+        "x": 1821,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "113",
+        "x": 1905,
+        "y": 624,
+        "width": 76
+      },
+      {
+        "text": "112",
+        "x": 516,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "205",
+        "x": 600,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "213",
+        "x": 684,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "305",
+        "x": 768,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "309",
+        "x": 852,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "308",
+        "x": 936,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "313",
+        "x": 1020,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "405",
+        "x": 1104,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "409",
+        "x": 1188,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "413",
+        "x": 1272,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "209",
+        "x": 1356,
+        "y": 688,
+        "width": 76
+      },
+      {
+        "text": "YIELD",
+        "x": 1440,
+        "y": 688,
+        "width": 127
+      },
+      {
+        "text": "25",
+        "x": 1575,
+        "y": 688,
+        "width": 51
+      },
+      {
+        "text": "MPH",
+        "x": 1634,
+        "y": 688,
+        "width": 103
+      },
+      {
+        "text": "SCHOOL",
+        "x": 1745,
+        "y": 688,
+        "width": 181
+      },
+      {
+        "text": "15 MPH",
+        "x": 516,
+        "y": 752,
+        "width": 165
+      },
+      {
+        "text": "ROAD",
+        "x": 689,
+        "y": 752,
+        "width": 127
+      },
+      {
+        "text": "CLOSED",
+        "x": 824,
+        "y": 752,
+        "width": 169
+      },
+      {
+        "text": "ONE WAY",
+        "x": 1001,
+        "y": 752,
+        "width": 203
+      }
+    ],
+    "rows": 4,
+    "scope": "Actual generated sign vocabulary from100seeds xdays1,3,4,6, rasterised together with the runtime High font code and native Canvas2D. Full five512square material cells stay byte-identical. This is a capacity diagnostic, not WebGL/FPS evidence.",
+    "rendererSHA256": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8"
+  },
+  "latestPilot": "90844ac5",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1506,
+      "sha256": "4160db7562157d063aae33dee14f715626937fe04baae52e0f4cf88d6a466a70"
+    },
+    {
+      "file": "c50-atlas-capacity.js",
+      "bytes": 3595,
+      "sha256": "8d537d30c030589ffe26e2ef4d2d4c930c73d1ac84595977810eb844a48b28bf"
+    },
+    {
+      "file": "c50-atlas-capacity.json",
+      "bytes": 4143,
+      "sha256": "61d673bb368d132cb75260ac412b9963c5f4c2896723fdff64d79f0dfd084427"
+    },
+    {
+      "file": "c50-atlas-capacity.log",
+      "bytes": 85,
+      "sha256": "65333b1f974b08ecada73812c7439415eb213a39bc2c490d1b28f216a93b6108"
+    },
+    {
+      "file": "c50-current-acceptance.log",
+      "bytes": 34,
+      "sha256": "9603887e08a8ff43e3f4b639678f1b1a0233248579c40dbabab4ee00512a811b"
+    },
+    {
+      "file": "c50-current-acceptance.py",
+      "bytes": 1946,
+      "sha256": "27ac6bc1dc7e67aaaac1286a145da9ec4692502675322ee1d036a7ed20ef2111"
+    },
+    {
+      "file": "c50-current-resume.log",
+      "bytes": 168,
+      "sha256": "6d7e719c792a166b0d248b1e8e0cab539e8784e9d4232c1530721fb4e78e7c40"
+    },
+    {
+      "file": "c50-current-resume.py",
+      "bytes": 2324,
+      "sha256": "bafe2cb6323ff43e6bede488831b9008d457d29040aa702597a5d1d086e14bfe"
+    },
+    {
+      "file": "c50-current-source.json",
+      "bytes": 6327,
+      "sha256": "0c4302ae2455be40b16e53733300654f4681ada4320aadf92ddf921ee363f1da"
+    },
+    {
+      "file": "native/bench-c50-current-accessible-low-low.json",
+      "bytes": 70130,
+      "sha256": "e58805535dc265e76aa5a17ac20515dab59878e0cced4e4b4bc3f2b3f00ba581"
+    },
+    {
+      "file": "native/bench-c50-current-fallback-low-low.json",
+      "bytes": 71831,
+      "sha256": "16617e314888d091596beff0629d801f9a028732c8859f1c0a955da398aa3b3f"
+    },
+    {
+      "file": "native/bench-c50-current-loaded-high-high.json",
+      "bytes": 84882,
+      "sha256": "51a13cde48dab7b420440cd3e14ab408daad9f22c717307b12023e4bb3c505cb"
+    },
+    {
+      "file": "native/bench-c50-current-loaded-low-low.json",
+      "bytes": 105554,
+      "sha256": "569bd8fc24a41cc7ba73b42e7442c03930d43d7d479dd8a4db6ed1b946656138"
+    },
+    {
+      "file": "native/c27-high-town-fence.png",
+      "bytes": 355439,
+      "sha256": "cb06e2b1c72a2faa5964dd2fb5449292231b75a83464ba68b81d41ef769930df"
+    },
+    {
+      "file": "native/c27-high-town-house-wide.png",
+      "bytes": 330833,
+      "sha256": "a0e9fb48d9c3b6e34c5998bc6a84f37686790c22481cbdd845e35c4c410d0781"
+    },
+    {
+      "file": "native/c27-high-town-house.png",
+      "bytes": 346455,
+      "sha256": "2ae59d49f475cd29233b13c9ca590c5b16dd34547c4d4bb8b135fe10b7a148d9"
+    },
+    {
+      "file": "native/c27-high-town-parked-car.png",
+      "bytes": 368412,
+      "sha256": "c8dfbbcbccacba5c4220dd1b8f66700de4c970443df0b0affba9c425a074190c"
+    },
+    {
+      "file": "native/c27-high-town-road.png",
+      "bytes": 468043,
+      "sha256": "393bf7d433f8114a4f0626e86186d8795c8833fafd15303c8cfe4f557d87395c"
+    },
+    {
+      "file": "native/c27-high-town-shop.png",
+      "bytes": 323697,
+      "sha256": "a22ec445f9cb9aafa990fdb2003c5f063cecaf961193f49d9f37990dadccbd3f"
+    },
+    {
+      "file": "native/c27-high-town-streetlight.png",
+      "bytes": 331594,
+      "sha256": "b77af8ea0d4940ea83bf15976dd3d1b5a34609c23b28fbf719ed46fccfb78835"
+    },
+    {
+      "file": "native/c27-high-town-tree.png",
+      "bytes": 396193,
+      "sha256": "2a35cecba94b56ff35d01b1bc2b3dfff131924b4fc75965d5c7f7cfcfac0ccf4"
+    },
+    {
+      "file": "native/c27-high-town.json",
+      "bytes": 1284,
+      "sha256": "21ea558367c51507d960aad2e2f084d67d8b30b09c0a6ec7a3b4afef3a3305e4"
+    },
+    {
+      "file": "native/c30-kind-giveway.png",
+      "bytes": 148803,
+      "sha256": "40a000fefd01735985e5cd9dbffd6feb99813426a215ac3d4e378256f5bf003a"
+    },
+    {
+      "file": "native/c30-kind-noentry.png",
+      "bytes": 183517,
+      "sha256": "86e628ac89a56b591d02a994e3818cc82476ce3f512ca6871d539314c61cd672"
+    },
+    {
+      "file": "native/c30-kind-number.png",
+      "bytes": 147999,
+      "sha256": "1178bdeb8d8dd3e79a6c809c258bdb2e5f9a6115d35507c288d3e63acdc2e248"
+    },
+    {
+      "file": "native/c30-kind-oneway.png",
+      "bytes": 173827,
+      "sha256": "0c2c65804bb86c7f25a9e4705e22ad75938b3d2841205e8235a0213117945b67"
+    },
+    {
+      "file": "native/c30-kind-roadworks.png",
+      "bytes": 177556,
+      "sha256": "c1480e85a9217ac09b6466b1297eae18057419c78db7e5e3bbab5aab2e682050"
+    },
+    {
+      "file": "native/c30-kind-school.png",
+      "bytes": 175453,
+      "sha256": "59f21ad31247af55e67269ec7d8002a64775de943a95951283ae0c6765ae4f5e"
+    },
+    {
+      "file": "native/c30-kind-speed.png",
+      "bytes": 155553,
+      "sha256": "5d529ec7183f2b1c704e24a353510aec58a4e9fcfc1fe352c3e622a306bf15ac"
+    },
+    {
+      "file": "native/c30-kind-stop.png",
+      "bytes": 153770,
+      "sha256": "1a9b1e5155949dfee04cb376a0e407cdf784bd435e6a66e0c0bddb3af1910d41"
+    },
+    {
+      "file": "native/c30-kind-street.png",
+      "bytes": 170636,
+      "sha256": "8ad6ed632ef23da915fc7cc29ec686b80d6d4fbb8f989a41c2ea36673b96883f"
+    },
+    {
+      "file": "native/c30-signs-high-en-normal.png",
+      "bytes": 183028,
+      "sha256": "9a93ae68658adfdecb994a4553d397d0eebeead6e05bc56b0cb5f2bde8a5289a"
+    },
+    {
+      "file": "native/c30-signs-low-en-large.png",
+      "bytes": 184666,
+      "sha256": "c6f085bd6c6cb394dd09bf21b9547106a9a10bfac3dae8ba8decb19d8f3b7e91"
+    },
+    {
+      "file": "native/c30-signs-low-en-normal.png",
+      "bytes": 181200,
+      "sha256": "721372166c72ad63d202ca99ae8911d72266ce7ff36a978c772b12a17812d290"
+    },
+    {
+      "file": "native/c30-signs-low-ta-large.png",
+      "bytes": 196792,
+      "sha256": "cd2b195f6d7393c8b0324541e20efff3d3f5838ff32ec01b6359bc06b3601189"
+    },
+    {
+      "file": "native/c50-current-acceptance.json",
+      "bytes": 9066,
+      "sha256": "d8c8f78b33e2688806e62669c2af7aca49d811b0aa589d3d71ebb5e11c7ad9de"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-actorscargoextra.png",
+      "bytes": 120511,
+      "sha256": "1ba49ac3c56ef748c2db86996233abf657d746105f089bf365b966dfcb6af97c"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-barcodeAim.png",
+      "bytes": 121087,
+      "sha256": "2225b03d806af0f877b1c92e0d4650095517bba305cb0a2a9d6a4cab365a7cc3"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-cab.png",
+      "bytes": 195234,
+      "sha256": "641ca7323eb69d670ce3c92db47ed140e7167e3bc08ce8d8e761c93a6eead4c0"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagebridge.png",
+      "bytes": 198144,
+      "sha256": "5057e440a8de555f1e32b53eda3dd55ca1cafbb8680dab11fae114e6a675a48c"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagecargo.png",
+      "bytes": 213373,
+      "sha256": "4827012ceec4f08fa65c4a68a7e5ebfb34bb84dbf1450a007d0095cee76d2f0c"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagefront.png",
+      "bytes": 210600,
+      "sha256": "0bf4770a8fbadf9f8032e383e89c5a9249ecaf2c681368852c31821f5edd2d85"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damageleft.png",
+      "bytes": 204230,
+      "sha256": "87f40f4d0883a12e3dead13fa3475f4a99d5d48acc67b1f8981959d0c2055faa"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagemirror.png",
+      "bytes": 175539,
+      "sha256": "3eeb157bfec5ce8a08e2b0967ec62237e2c050094d8a6b4d1217103a2e962418"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damageoverhang.png",
+      "bytes": 201102,
+      "sha256": "c349de8bab1999aeed99d21e0b9a11f1447a1f06fbcc35c06ab9f7b8ba329940"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagerear.png",
+      "bytes": 206550,
+      "sha256": "fbf288bf8774f39aa0b1295c6939a9558541e4f8ede8d9377d4184a92e6c0667"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damagereverseclearance.png",
+      "bytes": 222591,
+      "sha256": "08b342ea69356fee17435dd7c60225fa9ee677e8ee92b7eb85887ccd0baa47a9"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-damageright.png",
+      "bytes": 208901,
+      "sha256": "fce5037d9b7da69e167dd0e53b097ffc519c4f88884a8e1a8034a2cde6b3deb1"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-laterrearpeak.png",
+      "bytes": 205989,
+      "sha256": "8954ceeaa71fc7018808367ca6b038a64706a828f8162ece94e6de7962ad17e0"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-mirrorInterior.png",
+      "bytes": 185925,
+      "sha256": "a89c2d7d2aff23667af8f27f0580024d8fd444c94020f5261ddcaad0e0677cbc"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-navblocked.png",
+      "bytes": 227397,
+      "sha256": "60ef9d17e6e652ae24be6d82fdb5567ed79e3e3b98608bab0513a1384dfc3709"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-navfull.png",
+      "bytes": 176354,
+      "sha256": "f36d05b7b91b9b5509eafb27220c01797171db5b59c38479dc3af2df73c459e9"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-navreroute.png",
+      "bytes": 185679,
+      "sha256": "0868fd9bd07eb3f57ab66984434e10f460d3e500866f08d86398086e834b3e99"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-nightglare.png",
+      "bytes": 161576,
+      "sha256": "34bbc907ead9450d0dc3d9ed9960848acc278cc99d5ef2672494c8c9b2e759b3"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-nightoff.png",
+      "bytes": 127934,
+      "sha256": "026841fe6b86ab5f07c2f24ec368f5ae5cb75724b17d7f5265687d4b49aa4cc3"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-nighton.png",
+      "bytes": 161267,
+      "sha256": "07dcf76fa05618eafa4664801a5c94cd5cf710595aa550acc51dc853a6b3845d"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-nightreduced.png",
+      "bytes": 161576,
+      "sha256": "34bbc907ead9450d0dc3d9ed9960848acc278cc99d5ef2672494c8c9b2e759b3"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-radiocaption.png",
+      "bytes": 178021,
+      "sha256": "8dea03770dfdbd6bd1f2399a83da95979f357e3472ec4aea4c9844f1900d656c"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-radiocheckin.png",
+      "bytes": 139674,
+      "sha256": "ea3008ca58b2ee48a6707ec257f9707d5b9a11ec3fafb59dd069aa674d32810b"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-radiopriority.png",
+      "bytes": 137200,
+      "sha256": "110ea64fa5c260125e0130af8a4d3430f658f8a0c5e37c383b78830e960f1b45"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-signsjunction.png",
+      "bytes": 211719,
+      "sha256": "c1f8f6ec4de28473764e3b5eef0d883b6b490290c669dd858b7831584df9ec29"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-signspeak.png",
+      "bytes": 105323,
+      "sha256": "e8c7b74c209f184b244f12a558e2a70b7cf9b93f5aa0ceda1d88336a8ff5de92"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopsgate.png",
+      "bytes": 52386,
+      "sha256": "84a9633457baf07ecf6d8829d5885b4d99131a8e08523d288d34774e3dad3716"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopsintercom.png",
+      "bytes": 52386,
+      "sha256": "84a9633457baf07ecf6d8829d5885b4d99131a8e08523d288d34774e3dad3716"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopslockerclosed.png",
+      "bytes": 54102,
+      "sha256": "6c3ea2d7c5cde30fa5b436ec6c78cce93772ff9cebed15cdba6afb8c04df9e68"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopslockeropen.png",
+      "bytes": 55366,
+      "sha256": "49ee1d49c6b7ed28e993c4ba212de74e91f98fc9637da659f7f3e96a839072d7"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopsreception.png",
+      "bytes": 53031,
+      "sha256": "d4fba986a153b14aec89040c71b205dabe51a8097202963bdf52db244e55c72e"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopsretention.png",
+      "bytes": 33408,
+      "sha256": "f3e275b7fef9270ab9f30cbbb54833067c0bcb59f7d555e8aa4b8031c9cde701"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-stopsstresscab.png",
+      "bytes": 167289,
+      "sha256": "38fccc2bf9f5cacf9b223ae7a75aaf62ec51b13e64e84c762ae96360824805ca"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-trafficpeak.png",
+      "bytes": 121661,
+      "sha256": "9b5634a91233e4da717efad80270104e712c3239a55e402ad01563791c26a88b"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-trafficschool.png",
+      "bytes": 228430,
+      "sha256": "72b29a0ec03ceb4e6ee40235a77981fadba3acd487ceb2ba7f2e45567a2d3128"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-trafficsignal.png",
+      "bytes": 221089,
+      "sha256": "b8d025e0270909c0cc5e66cb76f96efde02bbd1b3995636fa603fe477aac2ced"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-visibleweatherstorm.png",
+      "bytes": 224655,
+      "sha256": "0d7fce010def53f6b1ee0f4a8bbf895c17c5dfb4f89a7bb506652295a595bcbf"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walkfront.png",
+      "bytes": 93322,
+      "sha256": "0c7f514b75660cc364e57295a4d836f086e0fce1f89bc64534e4438365a2385e"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walkguidepost.png",
+      "bytes": 68912,
+      "sha256": "e975f8cbc06cac13948041faf2431a29482ecad9f4377635d35b802313a2fd20"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walkguidepre.png",
+      "bytes": 63223,
+      "sha256": "0b2a68dcab251e47da48355aa839e2ac921d1715473f4118adc3a7ff7170a2b3"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walkrecord.png",
+      "bytes": 154617,
+      "sha256": "51fee5bfe3092b25d3d0857a41f571c4b2b2f12351bcde05d961ec1bb838da87"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walkroof.png",
+      "bytes": 90662,
+      "sha256": "398fc6ba247ad5b55d9f78feda8cfcb29b97acf2e19f081131d44b113c6ec911"
+    },
+    {
+      "file": "native/c50-current-accessible-low-low-walksummary.png",
+      "bytes": 114060,
+      "sha256": "3978e98bbfa5e54248f34ad11cf29ff3c6d59c40adf8edde2d1df392069343cc"
+    },
+    {
+      "file": "native/c50-current-accessible-low.log",
+      "bytes": 35393,
+      "sha256": "81a681a82c238f8b5bb9b34153b207064a23d8558a2e6e307c2ef7b8a44841a2"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-actorscargoextra.png",
+      "bytes": 107312,
+      "sha256": "9ddab60f164ecb39a3fb2fb1613892e3e1c4cf42366f0c7393d731d37594a3d0"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-actorsresident.png",
+      "bytes": 44295,
+      "sha256": "8ce9b027717db9e335cae082faee052966f42373f97dd2195428d23ac5289adb"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-cab.png",
+      "bytes": 176059,
+      "sha256": "2e222d133edab29e6ff84e621796f178b70370de9da1c22442f98612510d5766"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagebridge.png",
+      "bytes": 179423,
+      "sha256": "91658a4c0a268238efe52ac52fabb676e33494b6eb2ff36054d2087382c61a9d"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagecargo.png",
+      "bytes": 193250,
+      "sha256": "fe7940f05589ccc116a9a62c6a872833f3f577c845a7a735adfabd9fa43acdbd"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagefront.png",
+      "bytes": 188801,
+      "sha256": "2f77ec2c63f7a58eb44deb889209d2909a36b81191ef761a1744e210add6c448"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damageleft.png",
+      "bytes": 175114,
+      "sha256": "a1c8c017ada2369931ecbbf94737573e85bf5add989ceae198a157809003dd87"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagemirror.png",
+      "bytes": 165838,
+      "sha256": "8d2bd87a70cfbca8d178c9241650f5ffd87f777ed873b113fa43263a951924f5"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damageoverhang.png",
+      "bytes": 184152,
+      "sha256": "6b4bb52341a0861cdd94895c3403d4a446b299a6d9d06fb8b2b4c270ae55858d"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagerear.png",
+      "bytes": 195583,
+      "sha256": "11da9d44259134d948e235a8c84eef275a568df94b2cbc3c06315d758411d4ba"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damagereverseclearance.png",
+      "bytes": 208274,
+      "sha256": "ee5f4a7719a055d307db19f89eba92f9dc748f82afa437f2acd7402adff988db"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-damageright.png",
+      "bytes": 183763,
+      "sha256": "03a99a36a0cfdd452e397283c0af179fbc64efb5c91eb39f194af66bc60ec03c"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-laterrearpeak.png",
+      "bytes": 189906,
+      "sha256": "cdd0d4aab40114c64390fc3e198fe678aa61f7d2d143f7f8edda7ce3b8fff1d8"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-lightingnightreverse.png",
+      "bytes": 202231,
+      "sha256": "e68563bf7426d31055e9a40f6c3cd42c828872c111fea881d437193d9536602a"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-mirrorInterior.png",
+      "bytes": 166326,
+      "sha256": "ed2dac2aebf567030e924f09d6d26bb11b80713b8780b6e684d7e9fe691eb6ee"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-navblocked.png",
+      "bytes": 214114,
+      "sha256": "6ebb2b7bc36386f7c3deeebac78be746b6f9d382b41f4c75edb817fbc85f2369"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-navfull.png",
+      "bytes": 164977,
+      "sha256": "996162f42ad200e498b464af01eed64b2045a2507b61ca7614febbf91df06b55"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-navreroute.png",
+      "bytes": 171046,
+      "sha256": "2ec7d165162a42c54680a17d5d1bfa6bb54b3b7ad1bc335ff4f651542f0888d7"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-nightglare.png",
+      "bytes": 157250,
+      "sha256": "8d3e05d9fdec1d10b696a3a3001d371de09e54f4f21fb3792e581108c8763359"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-nightoff.png",
+      "bytes": 117824,
+      "sha256": "64342f5f06f13286f2167fa8311febe6163640c68c13f0a4f2556d59bde9e0b4"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-nighton.png",
+      "bytes": 151519,
+      "sha256": "c13e01ac4002723d8e40d713a19cedafae8ff1083f1fb13d497281dc00482f8a"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-nightreduced.png",
+      "bytes": 152058,
+      "sha256": "a6cab9811f02c197b78ff4148eda93128729b31869c55c41c447cdf9e399a81e"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-radiocaption.png",
+      "bytes": 165104,
+      "sha256": "7798f0fc8b814d4cfaea234825f0a3150edfe25b4c5c4737e8209c93d6ee85f9"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-radiocheckin.png",
+      "bytes": 127079,
+      "sha256": "1dd43235435c7753580980c7f6da8b9244ad321b0ad5bd31f3ef69ca29c9f9e0"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-radiopriority.png",
+      "bytes": 128784,
+      "sha256": "96e3586dbe99ec2c43e2503ce0cf8fad52059811c5f9c9538a500a282e2a8131"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-signsjunction.png",
+      "bytes": 190435,
+      "sha256": "c9262a3f1ef5cb8f52ed9606a6154cb8ffc7fd7b5034579f9bcba31a23dffd9a"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-signspeak.png",
+      "bytes": 87132,
+      "sha256": "690d796ceba4213d9c7990710e8a311bf8e81223cde581046a5aaba853715e55"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopsgate.png",
+      "bytes": 40115,
+      "sha256": "8a4de76d6bedf35d57a2d44076e370a3f9173f6caf74c25930d73cc754badf53"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopsintercom.png",
+      "bytes": 40115,
+      "sha256": "8a4de76d6bedf35d57a2d44076e370a3f9173f6caf74c25930d73cc754badf53"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopslockerclosed.png",
+      "bytes": 44782,
+      "sha256": "8d3a0406f3eeb1312579aee1f34d89fb3fa8ca51cafabdf4c1ec7da58d926dcf"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopslockeropen.png",
+      "bytes": 46423,
+      "sha256": "5391a09ebb9d1d911171ef2be4693b09f4ac6e48fd25fbd43baa095f32a3b606"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopsreception.png",
+      "bytes": 44181,
+      "sha256": "b6d34f712d651541a8304de3bd888de9de13888972553dfe2fca4988723bafe2"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopsretention.png",
+      "bytes": 30589,
+      "sha256": "dc8a6ee3a02f301fe6ffc57e8a77bcfd179e488c8a56426a1de173b7dde27ba5"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-stopsstresscab.png",
+      "bytes": 164024,
+      "sha256": "893c5881fe77c1243192f2d8b86ef74253983afcbcd4d17737c117c441238c0b"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-trafficpeak.png",
+      "bytes": 104974,
+      "sha256": "bc073de1703383442d93e31dff7ff73dac388f4511ebb62059ac84f4f2a5d011"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-trafficschool.png",
+      "bytes": 211826,
+      "sha256": "1219809f1538e6cc048e4d5e331c9915f2a17c40517b7c3ddef67c03a5299fb8"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-trafficsignal.png",
+      "bytes": 207952,
+      "sha256": "e9abbd9f375a994ab156386958ef8b3b416e434c33b14a2dd219e3459310b955"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walkfront.png",
+      "bytes": 89752,
+      "sha256": "f017a119a8cd3f2aea96cc0b5231d649d2b153a199b86e0e2c144183707afe24"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walkguidepost.png",
+      "bytes": 56060,
+      "sha256": "10cf1da26d1824f54075de8cebcc849f8c0701ef03d979fb710f1d9fac0a3bbd"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walkguidepre.png",
+      "bytes": 53444,
+      "sha256": "88b089b089856b798c3f4c9f77ce8cef88383c3fa6d5a6fbb9f26b4d7893a430"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walkrecord.png",
+      "bytes": 127266,
+      "sha256": "37d05bf1f61c23c7b2fe163e5bde17470d129719bab21f7693ddb9474e913033"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walkroof.png",
+      "bytes": 69313,
+      "sha256": "3733bae5c8860acce1f363423ff034c01425c18c6035523926601ccf7fcc6731"
+    },
+    {
+      "file": "native/c50-current-fallback-low-low-walksummary.png",
+      "bytes": 96944,
+      "sha256": "b3a2c2ba03b86bd94ebce2edc555e1de9d1ddf18416064d5a37887ae64bcaffe"
+    },
+    {
+      "file": "native/c50-current-fallback-low.log",
+      "bytes": 35293,
+      "sha256": "23538d8237fd62085a1457e9f7072ec871f592353b7ca50eb76f14082fac5c19"
+    },
+    {
+      "file": "native/c50-current-ink-high-giveway.png",
+      "bytes": 222982,
+      "sha256": "6eff83467eed7420490e2c0355c650afee7b8f4f4d0c085862b4172c47453766"
+    },
+    {
+      "file": "native/c50-current-ink-high-number.png",
+      "bytes": 263026,
+      "sha256": "2c852e6ebf90c3c654e2380964124fef7715c92f5ccb25ebaceaf856d484a737"
+    },
+    {
+      "file": "native/c50-current-ink-high-oneway.png",
+      "bytes": 293613,
+      "sha256": "48e44511f0b1a0b88aed867a85a03295089f49ece21941b86557166bb67de70a"
+    },
+    {
+      "file": "native/c50-current-ink-high-roadworks.png",
+      "bytes": 286672,
+      "sha256": "a37aed609dd75b75c77d7d8de5dba033df3f3332152798c62e33fbfb8dc2a706"
+    },
+    {
+      "file": "native/c50-current-ink-high-school.png",
+      "bytes": 215698,
+      "sha256": "fc14d8cc8ae67a87674ad2580d8c4c9f566a1dda6bca79f331fd4bc14b0da53a"
+    },
+    {
+      "file": "native/c50-current-ink-high-speed.png",
+      "bytes": 224983,
+      "sha256": "3f4dbb33a1b0be4d7041c8b62429cfad5ec40f0b639e43dca37b836507851f29"
+    },
+    {
+      "file": "native/c50-current-ink-high-stop.png",
+      "bytes": 185933,
+      "sha256": "4d9f08b41bd5e1148f2512c59ad200371e0eee96c5fcc4483935f3346e81b561"
+    },
+    {
+      "file": "native/c50-current-ink-high-street.png",
+      "bytes": 103901,
+      "sha256": "46bea7536e9b8d099f7224dc7877d6754d642be7528db616b1134dadccc1730f"
+    },
+    {
+      "file": "native/c50-current-ink-low-giveway.png",
+      "bytes": 134946,
+      "sha256": "0d4402428d0d2c65c6bec9ea29ce79c6f553556b620e08af364de6c3d7e2bbe4"
+    },
+    {
+      "file": "native/c50-current-ink-low-number.png",
+      "bytes": 110315,
+      "sha256": "534e4ed592a74c2271e52cba85f5c06a09a2121659bcbf5812ebd310401eb4e6"
+    },
+    {
+      "file": "native/c50-current-ink-low-oneway.png",
+      "bytes": 151941,
+      "sha256": "18e3fd1da61b78116f05078923ac45924d0f71e0967d2ad392ffcab1033e46f2"
+    },
+    {
+      "file": "native/c50-current-ink-low-roadworks.png",
+      "bytes": 153252,
+      "sha256": "1ac954a64536741ed9832b7e7c90acbf617a822aafeaae9f4c701038e5baa85b"
+    },
+    {
+      "file": "native/c50-current-ink-low-school.png",
+      "bytes": 167371,
+      "sha256": "644f11f3065b4bf485ccd70eba136b960dcbec88e1bdc3f16e636881538918e2"
+    },
+    {
+      "file": "native/c50-current-ink-low-speed.png",
+      "bytes": 129612,
+      "sha256": "fbb16eb919727f811d9ebb120eeee01860aadf1673a70ae4464bb51839d1ac76"
+    },
+    {
+      "file": "native/c50-current-ink-low-stop.png",
+      "bytes": 153392,
+      "sha256": "d0068663c3a36749a5804b62b11c3c862c69f5d30fc63de4445c73edf18dfd3c"
+    },
+    {
+      "file": "native/c50-current-ink-low-street.png",
+      "bytes": 123120,
+      "sha256": "0103fba5374d29cc4a1c95d09dc8cffc335acc26beac539e38acc684fa1d753a"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-giveway.png",
+      "bytes": 182343,
+      "sha256": "e9c9aaae1657b2b42095063a61c31cacfb4a09332b006afe96f4051c073cd656"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-number.png",
+      "bytes": 168788,
+      "sha256": "405c437bf010b5c0950d5938ea85d47543ea39aa90acd53cf4f1d4508ff4c39e"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-oneway.png",
+      "bytes": 226082,
+      "sha256": "b0865e41a09e12f2b4ae8d8e0a6012e8edd95f9db7bafb40af311b81dfa5e9de"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-roadworks.png",
+      "bytes": 218414,
+      "sha256": "cb65029b47ae643ad56642785f20f3377fc3ffb678a12bd8e6a11e66293a8a49"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-school.png",
+      "bytes": 202300,
+      "sha256": "e072105fb2fdd53ac3184c6f3ce6c10f2b4f0b86c265ecf5640bf17fabeb39c4"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-speed.png",
+      "bytes": 177656,
+      "sha256": "07569858a29dc35ac589968477813653a184994faf403a4fc124e3b8138ed992"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-stop.png",
+      "bytes": 198631,
+      "sha256": "e8ba9f162b544bfa9d6d3d08244309332873050268ff155cd051de1917bdc614"
+    },
+    {
+      "file": "native/c50-current-ink-missing-images-street.png",
+      "bytes": 124192,
+      "sha256": "c93c48dace37c6048f391f1df425c5a0d1e595f51c97aa3cec5f10ce93dcc163"
+    },
+    {
+      "file": "native/c50-current-ink.json",
+      "bytes": 9057,
+      "sha256": "45cb6fb1bd70a54da19baba4314170d9aae9a0cf39856b26052adc0fcfcb50ac"
+    },
+    {
+      "file": "native/c50-current-ink.log",
+      "bytes": 974,
+      "sha256": "1173dde0f79254fb31a753efce7d8a052e23d1548681f1fab89284df17734b2a"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-amber.png",
+      "bytes": 186263,
+      "sha256": "3320e5683d5fcdc8ce0862eeb6539db5306cf7fbcf226b7ea3ef3aeca82bca11"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-first-day-drive.png",
+      "bytes": 196284,
+      "sha256": "6df9ad024956a37ff540b8309b887caf98ed68e3eeaccbdff96da664e70c9cc2"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-first-day-reverse.png",
+      "bytes": 213433,
+      "sha256": "e3414f8fc01988ad842857ce3c15d30f686241c9b0c56f4490e291573cacf2c5"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-giveway.png",
+      "bytes": 160008,
+      "sha256": "86daf45bf4faa9fd89c39089cb1dc5f6345d6888c598b87b3c890ff7a919aae5"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-green.png",
+      "bytes": 185505,
+      "sha256": "c42b620300d8d3c8ba661be3778ddd9f31b10dac3213f3ec0dd440cf39fe1123"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-red.png",
+      "bytes": 185105,
+      "sha256": "e9c7f7efd03b3d0223aba7ab973c998223e46091cd91e541c9e04253d59750a8"
+    },
+    {
+      "file": "native/c50-current-layout-en-large-stop.png",
+      "bytes": 147578,
+      "sha256": "9a713b68bc93234d5c3a0de6f45963cfd5d7fb8823944d3cf4eba217236835ad"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-amber.png",
+      "bytes": 182631,
+      "sha256": "4a7176a2d3d6d26379714ca38a6db177d08a7722e79faa6e53f7482263ef3ca5"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-first-day-drive.png",
+      "bytes": 183092,
+      "sha256": "38cb714d9af875c81ec62dd1ea6ff210976e5f55496baebd573bb2c0b894f72e"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-first-day-reverse.png",
+      "bytes": 200711,
+      "sha256": "5c3e01edd18c8fed5e60c6e255fbbfe1f4ebe18f8b1e7d2e595343c4ae6dcc5d"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-giveway.png",
+      "bytes": 156412,
+      "sha256": "a18d248a551cf6a72c6098b93f39ba88de1da3318030cb9d0e7b6f768ae2e2e0"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-green.png",
+      "bytes": 184043,
+      "sha256": "2e8b82b174edd81ade3984c65478b8ea35841222c07b0205b59bfd615330e004"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-red.png",
+      "bytes": 182509,
+      "sha256": "d9f8fc4b32a7c191167ab504f935713bbfdd8c2b9f026cad01e2ee19cebbec64"
+    },
+    {
+      "file": "native/c50-current-layout-en-normal-stop.png",
+      "bytes": 144960,
+      "sha256": "cc2112bc32522535c1581ef63c21e5518c99e68094b3df671acca57c13b3e972"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-amber.png",
+      "bytes": 234801,
+      "sha256": "76e01e11872b359091e9e04a5c6db6029ab96a2319b1cbcb1e6feaae81c688b3"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-first-day-drive.png",
+      "bytes": 220505,
+      "sha256": "60d3ecf6fc801d4a63afdf5b8bbd8703908ee8c13caf5e21c720a7372bfd7b73"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-first-day-reverse.png",
+      "bytes": 243954,
+      "sha256": "a4b5693c7e8d4e6a5658e55c4c8b5153ee81da638092a87b917c5572259d6a70"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-giveway.png",
+      "bytes": 171750,
+      "sha256": "c1e562905ed4b5f22507bc524045ae698bf5ed2e6144fcf7367da634ea1fecb2"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-green.png",
+      "bytes": 234792,
+      "sha256": "259e6bd5ebcca3e31db734124a88abde80ce6bfe03bd915a74940ca28eee2e61"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-red.png",
+      "bytes": 234796,
+      "sha256": "9deff46872ba1f8a39d85166c229b2d2ccf4240db977b122486ea28d7272982c"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-large-stop.png",
+      "bytes": 146911,
+      "sha256": "3e09fb0cb4b876b8b6dcfa94154ba0135988907a0f39cda0ece1f16d60be8279"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-amber.png",
+      "bytes": 232383,
+      "sha256": "f7918376d7dc255829e88607ffbb7565acde09c65123ec2cc6ab2def13f0023b"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-first-day-drive.png",
+      "bytes": 207809,
+      "sha256": "c5d91a0d90649e371ab66b6f1e596564d6c20a0b96c41ac078d3788c7e10a724"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-first-day-reverse.png",
+      "bytes": 230717,
+      "sha256": "63b37b071b0aba07beb58d9fdb0d4013e2edc30e5a0f934a590be4961bc1c22f"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-giveway.png",
+      "bytes": 167571,
+      "sha256": "a642dee7a87b8f3020a6be2b2e1817237163515085ddd35076679c0a6de3d6f7"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-green.png",
+      "bytes": 232376,
+      "sha256": "44004d7cd6b720e42ce1a4124fccffc387f717a5675dda99a10695b7a28ff34a"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-red.png",
+      "bytes": 232378,
+      "sha256": "98c8c4e369cebe9dbc2e0a4050890d82cd1a3d29116102182553a33a42484e4c"
+    },
+    {
+      "file": "native/c50-current-layout-high-en-normal-stop.png",
+      "bytes": 143188,
+      "sha256": "40f478593fb903c5e402fcbe43d1961e85658df4cd9523608531f1866cf51072"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-amber.png",
+      "bytes": 248518,
+      "sha256": "62f95d1d5ae8ff0b4601077a7a748b9444b28584d17bb0ad9fc94836d2244974"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-first-day-drive.png",
+      "bytes": 264441,
+      "sha256": "abd2dd0e9d32539b3c7ccf687588158e702a3765e7c16ff03dff20f0123011d5"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-first-day-reverse.png",
+      "bytes": 291116,
+      "sha256": "1f10ae8e7d60690ae2fa1ff0b52dcc321ce170dd441ae4feb5b50ba48606382b"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-giveway.png",
+      "bytes": 185875,
+      "sha256": "1a06bfbf0e8d5c33842d382b832b09f172a99438ea09406f20153a1e50d2bd36"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-green.png",
+      "bytes": 252176,
+      "sha256": "986fd049a8784b14d23c8b95f8a5a5e18283e86f5b30b16571383f214a298bdd"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-red.png",
+      "bytes": 248868,
+      "sha256": "0d74772c10d94187ffba20afb76b00f034a552fcc6d41ffe5fa4634658fd79ec"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-large-stop.png",
+      "bytes": 162047,
+      "sha256": "f1a2dcc30f0f9998405552612c96b3c8650c470448e57fe203753e2e0367fa70"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-amber.png",
+      "bytes": 245509,
+      "sha256": "0e18ad4279b1f3e50b8158a5be7550c3e92a5eeebb08a714a24ab0d20d9c06b8"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-first-day-drive.png",
+      "bytes": 251298,
+      "sha256": "5872dd1e31f8fbd207c85703d88e957ea2e34433a152c4a31139abadb4d1d79a"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-first-day-reverse.png",
+      "bytes": 277168,
+      "sha256": "1dcefc2414c025e721f0800abf01a8db1f7dff5b0920526546c4c99312c273c0"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-giveway.png",
+      "bytes": 180260,
+      "sha256": "33093908d923688715193f47e25c8cb2009cd0db6790e6c14248ccf6836d6ab3"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-green.png",
+      "bytes": 249337,
+      "sha256": "d10b539a222f8ea490089a67b92daaeb546e1b1f28972b7e77bc8c772ca7d200"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-red.png",
+      "bytes": 244981,
+      "sha256": "9dd53b3799204727fdae032d8de99cf7c33dfc483feb09a9d64d668a7b97de59"
+    },
+    {
+      "file": "native/c50-current-layout-high-ta-normal-stop.png",
+      "bytes": 158924,
+      "sha256": "2060a41adb44b21ff72c80429f979e4e06208d3a836c0fe749309fce0fae1a0e"
+    },
+    {
+      "file": "native/c50-current-layout-high.json",
+      "bytes": 130915,
+      "sha256": "54f3fa574f6847675ad7ff8f23a765a3ac2ae1ccd28607862cebdf1a8a2ab51d"
+    },
+    {
+      "file": "native/c50-current-layout-high.log",
+      "bytes": 287,
+      "sha256": "612692f2353cff768538c260d63cd9abd8c77b084d7cd674dce342ee0288e456"
+    },
+    {
+      "file": "native/c50-current-layout-low.log",
+      "bytes": 1424,
+      "sha256": "ebc359e68a6796f555bd23867956f1bce18f515633740cd6848b428591f7eda3"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-amber.png",
+      "bytes": 198233,
+      "sha256": "da80fe80bae968cdca67c6b92cee434cd817b447497777e25a52dca6787200d5"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-first-day-drive.png",
+      "bytes": 244347,
+      "sha256": "08c16df2ffb8e1e2dd95d817c89735828628935cc6b3999aac0dbe93439fe8bf"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-first-day-reverse.png",
+      "bytes": 264488,
+      "sha256": "781d6f060dc9f80a2b641c427fb1c29c3257a2286c5b1508117019ce8636258a"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-giveway.png",
+      "bytes": 173338,
+      "sha256": "dce83d1f9dfa360d491ce2ed27d456a2de5336206634c5eabfa66e72f68a3525"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-green.png",
+      "bytes": 201827,
+      "sha256": "4723d30f97186cd64ee49dc3a3a97295086dc712213aec170e4efed9e61ff140"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-red.png",
+      "bytes": 198750,
+      "sha256": "4c6e4bc5d52b58611ef8668cb197ba26b2b725f946cbef89600a178f27b19c5d"
+    },
+    {
+      "file": "native/c50-current-layout-ta-large-stop.png",
+      "bytes": 161919,
+      "sha256": "fd3bb8605f0898a88699e098082831d012c54d07613873ef7741bf309967efa0"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-amber.png",
+      "bytes": 195692,
+      "sha256": "37b945bc27cedf450ce321a1095d43df8e66ff4a10e820486d715eca30dc117a"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-first-day-drive.png",
+      "bytes": 225818,
+      "sha256": "7a306c55fca121afa3c6bc3486ad2ab3b60536216d225a9af88a0829875a2202"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-first-day-reverse.png",
+      "bytes": 246105,
+      "sha256": "2e9fa3901e4d0ce8ce3fb86d26752b9911cacfe071c01813c6e7e1c2be286566"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-giveway.png",
+      "bytes": 169376,
+      "sha256": "fd5e5e50b1987bf54d5944373d33265876809d0cd5dc67c49cbace180f5c1e1b"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-green.png",
+      "bytes": 198015,
+      "sha256": "0b2a7ad1f1d6eb29407a1274792548868731bb89100b3cb3cadb12b685a2a9a9"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-red.png",
+      "bytes": 195984,
+      "sha256": "5bb1d00202e94707f6c6d9558cba3b056132f7138c96b6bb2298ff89bacfd034"
+    },
+    {
+      "file": "native/c50-current-layout-ta-normal-stop.png",
+      "bytes": 159066,
+      "sha256": "9e8042dd59e9bc975c7798538b2ec7328bb31cad891b33d1e90dd93dc7cc6796"
+    },
+    {
+      "file": "native/c50-current-layout.json",
+      "bytes": 807160,
+      "sha256": "fa8633021999f5cd21ed2bcef857da5c41bfb600090059658da0c4adb77eddb5"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-actorscargoextra.png",
+      "bytes": 188645,
+      "sha256": "5ddac7af44a2a81e5fd0400b42ae90d01b06d51a3205f9e189741b6a0a121512"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-actorsmirror.png",
+      "bytes": 195206,
+      "sha256": "c99052f4ae16f58a35d9f5cc26b8e947a61183dee4df21f5d88ddb340e3932ac"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-actorsresident.png",
+      "bytes": 563824,
+      "sha256": "3f152e45e3fd0fa1a01f79feb8cb3bb1770b26efd2339a54ab802c3808475bf4"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-cab.png",
+      "bytes": 192930,
+      "sha256": "df38de69e379c2e2aaa2fd5f62a229f58090bbd508ac09be7d5843e9b939b326"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagebridge.png",
+      "bytes": 233987,
+      "sha256": "a00a74e3e5fb84bf1e4a79755cc7dd605744704d6dafe4b301f110db74e79371"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagecargo.png",
+      "bytes": 262638,
+      "sha256": "a843d83b2f04f71bb35797f811bd42430754a5f3858f89bfe40378412cbbf847"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagefront.png",
+      "bytes": 280394,
+      "sha256": "a5ab94d164811832739663d98b91f547cb2081ad398c5174efba469a387dc97d"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damageleft.png",
+      "bytes": 274299,
+      "sha256": "5e9286ec18877312074a32ea4fc91c36fbcc4b531b69850c4c1857424769e5f7"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagemirror.png",
+      "bytes": 148361,
+      "sha256": "038aff285db0fe5bc49ac0d9a647bfea0b80404d702d9265f95d347f907a7d3e"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damageoverhang.png",
+      "bytes": 228042,
+      "sha256": "36454aff499273456106f8f68b84d0625354a10da467c61143387423e04e8553"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagerear.png",
+      "bytes": 267017,
+      "sha256": "be657ed2126a9039db744d57b24cc505c4c3fa6270aadfbaa57386ca679982bf"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damagereverseclearance.png",
+      "bytes": 221264,
+      "sha256": "187d4c845fddc760ffcafb4c692133d1bbc099a0413718337c9567615785f9ca"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-damageright.png",
+      "bytes": 269406,
+      "sha256": "c2cb28be80c95180aa5c8b62876b3af2938f470ee54c2a8904e803ed21a70b15"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-lightingnightreverse.png",
+      "bytes": 232380,
+      "sha256": "ecdeb5dce884cd37ab9b738af324df7490bf8879b0d1c5856161c0abf4aaf35d"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-mirror.png",
+      "bytes": 154325,
+      "sha256": "27cad4df6b72454533846cc3cc7b73b36da63ab889bcba5c43df54bafeb08ec5"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-mirrorInterior.png",
+      "bytes": 153165,
+      "sha256": "2df61afe47f342f4009abe2e778d63fb7a8412e9f09ed6ccb1336d35d4e6f095"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-mirrorRight.png",
+      "bytes": 199566,
+      "sha256": "0813c62383f1bf06907ec7e0de7638852c843abc685cfed688054a6507d940fb"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-navblocked.png",
+      "bytes": 381129,
+      "sha256": "cfc1db0a93eb047e946f7693eaf8d469714a9e48290f9b94a8b84f5b3cbdf5e5"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-navdouble.png",
+      "bytes": 356031,
+      "sha256": "1bd66cb7af0061b8b312c1c6b1d1936b8158b4699e93f4250051f151ff4682b2"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-navfull.png",
+      "bytes": 180687,
+      "sha256": "7d51283b5d44501164d8cfe8d4ffe8dca7c08b5d0f9e7e3b95a9568d778801b2"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-navline.png",
+      "bytes": 180752,
+      "sha256": "e54ed63765cc04c7cbc6498f457af60a8b76c36a2a30852ad85d20bbcc1421be"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-navreroute.png",
+      "bytes": 216197,
+      "sha256": "b69c299800a38150bf0db99595b415be771b1ad98902e2ef59de2e95dd694de7"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-nightglare.png",
+      "bytes": 155296,
+      "sha256": "a358ead51e984fe21cd75a1600e19b084e63a9075a60a54668229e40c690ccdf"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-nightoff.png",
+      "bytes": 103610,
+      "sha256": "03fce4ac5f246345bf63221db4aba0e67ae8dd69b4d89c966679b9e69d74dfdb"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-nighton.png",
+      "bytes": 150628,
+      "sha256": "30efa935c6aa00cf63baf8847b67e04500223dafec1a7282a9fd94098c7c3d50"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-nightreduced.png",
+      "bytes": 150493,
+      "sha256": "f284808072b32ee9b23c792dcbbc2a33d2e04ad4e14da58e6a90404171bc8a6b"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-radiocaption.png",
+      "bytes": 161398,
+      "sha256": "07ae2a7ecfdb7209be81a3938ea651500629402fb56a1a93e271622cf0bda1bb"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-radiocheckin.png",
+      "bytes": 147491,
+      "sha256": "7b48d093ea8497ea9a25134939a50f5e94e7d3f2d16a338046c978d3f14c2476"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-radiopriority.png",
+      "bytes": 133514,
+      "sha256": "0ef7c413809bc4a26b0a3daebb1661d961d77dc74c7e83491e532716af439aed"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-signsjunction.png",
+      "bytes": 205069,
+      "sha256": "2f70aa03198e11fe5d0b1747bb542f6ec3d10968a1ec470923cf9b084861d35a"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-signsoneway.png",
+      "bytes": 191423,
+      "sha256": "eb285493bbb8d3a49ef9b4e3bf85c07e523ec333cc6ba03cca8fbfd0c54e27c7"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-signspeak.png",
+      "bytes": 109996,
+      "sha256": "ff9411c29f0688f2d6c5783ed12c161fee96f666cd2c3b86be0c36c53bc5680c"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopsgate.png",
+      "bytes": 369011,
+      "sha256": "4e18517f13692b611628d1fe570e6cdbe219331b4bb48abc737ab89efbfb99cd"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopsintercom.png",
+      "bytes": 369011,
+      "sha256": "4e18517f13692b611628d1fe570e6cdbe219331b4bb48abc737ab89efbfb99cd"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopslockerclosed.png",
+      "bytes": 442863,
+      "sha256": "d88e9100dcc49ea1b924c3ee1cc5318f36d2c0aae1102e49814f89f324296528"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopslockeropen.png",
+      "bytes": 423914,
+      "sha256": "96daacf7798761c0cde09b4f1a2f1e561fad503ccafdd4bedd11d232bf030a0c"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopsreception.png",
+      "bytes": 370440,
+      "sha256": "a1ade401ab4b1bde46a490180959a3a75d647f415bfe8ad5814cce1c59d41bf7"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopsretention.png",
+      "bytes": 528097,
+      "sha256": "f5b3998ac7077329cf07291621ba3b38d6ae84e3ad0941b450a7c3c41cdc25fa"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-stopsstresscab.png",
+      "bytes": 155616,
+      "sha256": "57c987c2169489269c63c54530ce1628fa4032127e15d356c7e2202ff5dcb9ce"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-townhouse.png",
+      "bytes": 344390,
+      "sha256": "a4041d8de74764919daa7709092803e3d171f3bb7adaa4286b481cca0117af53"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-townroad.png",
+      "bytes": 492384,
+      "sha256": "0169cb02347cad3b2d2fccfaefea3be50531bed55756fab80e12b9a0aed0e708"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficcyclist.png",
+      "bytes": 358083,
+      "sha256": "0daa3357050a1f8cc7942879227d8628f7068eba53564380a25cc72ed48fdbe6"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficgreen.png",
+      "bytes": 255406,
+      "sha256": "3af99a227043c86c84f69a12bee3237d7464c46ed7bbf1ca3aa7f562c472d9d1"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficmirror.png",
+      "bytes": 235729,
+      "sha256": "6c3a8659e6fc0095fbeaae6b0f1a5c65cdab503a8a4ca7e9b950a8d7afba02c1"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficpeak.png",
+      "bytes": 163504,
+      "sha256": "c2b6c7a7e4b4db8a776557d9edffcef22ff571bd80408108e7c7a3c07494ce70"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficschool.png",
+      "bytes": 326358,
+      "sha256": "4dd89242c272cadaa849e3bea0742a4ae8e6fa694c38d40cd7a35e67e8c59dd7"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-trafficsignal.png",
+      "bytes": 255401,
+      "sha256": "cb373efef2a4b3f2eb09bd5b9e05bf4deb25d14249f94e3c294f49d4291a8fb9"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walkfront.png",
+      "bytes": 283274,
+      "sha256": "05bc8ec44867f8cc54d0b48ae60324856e856a005a6850e059f89239c59cd05f"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walkguidepost.png",
+      "bytes": 62036,
+      "sha256": "0610463823693229153493792f6e7f67ebff35d9a0caf21e02c3073f927b863f"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walkguidepre.png",
+      "bytes": 61297,
+      "sha256": "4347c2ccc80bd4a3a33946e22b6e62d1262594473276d1604592d2328b3cb40b"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walkrecord.png",
+      "bytes": 154780,
+      "sha256": "b54f4840956b505e9efcf985e64486b1cff695982e6deec80b105eecf3826964"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walkroof.png",
+      "bytes": 82357,
+      "sha256": "0562339b8d9623e2b0d4104b9ca388a84553081ffa5d696ca44b9ba133e46d17"
+    },
+    {
+      "file": "native/c50-current-loaded-high-high-walksummary.png",
+      "bytes": 121846,
+      "sha256": "557430100711ccf89085084822304794989fef0640495bf2c73c1bd3af30581e"
+    },
+    {
+      "file": "native/c50-current-loaded-high.log",
+      "bytes": 43801,
+      "sha256": "0605ab15389f137dfe121cb32618a70a38baae43fa8c1f64f2f0855dcbf2bc2e"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-actorscargoextra.png",
+      "bytes": 111090,
+      "sha256": "8ce7644387962170946996bd8c99d5787d7ae5ea24a1c5bf9811b5c20325cb11"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-actorsmirror.png",
+      "bytes": 156297,
+      "sha256": "d57d67869122f60d0cd692ee37b80c2dfe8b0a6f1aaadae20466c1c1d4e3cb02"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-actorsresident.png",
+      "bytes": 52656,
+      "sha256": "d6f830f18313332d611598d0eebbfa705a2a9f6bdd26b5818362bb61ea75b3f7"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-actorsvan.png",
+      "bytes": 209337,
+      "sha256": "2eb07f6cf75dec0f18c8c71ec124e1b11171ef2d6693602cd298332efcdf5d6b"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-barcodeAim.png",
+      "bytes": 107056,
+      "sha256": "fa917884778cb7ad1ae7d198dad9fef53a688a771db0f53c7347dba1ac09f9f3"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-cab.png",
+      "bytes": 173604,
+      "sha256": "fea7afd60ad4ac4b4d2a5447d2b63517d52b08fb5b7c7b1761c9d3dfdd73edbd"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagebridge.png",
+      "bytes": 181621,
+      "sha256": "e7b9103a6b725612219048c1fb8748cd827b18a591966c9387625239ea4ee74a"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagecargo.png",
+      "bytes": 194944,
+      "sha256": "50912cc20328b4150bc2e72f44032c2a4c1a195f8c0ced294986e1dd4d8269db"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagefront.png",
+      "bytes": 193396,
+      "sha256": "7d5aa8678393dcfb3926285fd1a27eac70bd066d377b96dcfaf4c5d9e9fa6c85"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damageleft.png",
+      "bytes": 185168,
+      "sha256": "ffc89ec8b7ab97b26e69d267ec62ce5c9db0442526d523ae3ddbe1a10691c77e"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagemirror.png",
+      "bytes": 162969,
+      "sha256": "d302dc2a66f62264c014d495b4378246bb99087b7489bff20197b66719270eb4"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damageoverhang.png",
+      "bytes": 185973,
+      "sha256": "727236b01f1b68f38e5fb8e2282d1cfcf2ba8f6dc278cdec93810f5f5cc8380b"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagerear.png",
+      "bytes": 188461,
+      "sha256": "ad8690f4e81d901aba5e6baa6d28fe9f5cd9ca5a0176abe5d5f0c50bf42cd005"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damagereverseclearance.png",
+      "bytes": 208445,
+      "sha256": "f07f05ebcbf33cb20269018ebb22950528f2c2b145813a5ea4646d17686743ce"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-damageright.png",
+      "bytes": 190570,
+      "sha256": "c942ccae7507bef3f332163c21c812e77bc95926f8d0059bd6a7b0ccf51cb7bb"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-depot.png",
+      "bytes": 154001,
+      "sha256": "7e57e824f18e120078edcddc856dc2d899b7dfbbdc215f69de723c67a587ac26"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-doorid.png",
+      "bytes": 55392,
+      "sha256": "932f30bbe1422214555b6139ef96b04ed23bd0a88c960e33dbd6d6f8a957638a"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-doorsignature.png",
+      "bytes": 38030,
+      "sha256": "dfa03ed1a37d31914d2677028e0d8345b1e367841ab1922488708380d9ec3984"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-doorstep.png",
+      "bytes": 37871,
+      "sha256": "7dc58e5ebc148a497055f45d953c6813e2d48d02c85f9d56dedb03682c1b48c7"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-firstStop.png",
+      "bytes": 177769,
+      "sha256": "9af4295a3c23887334eea3813fc22317b94435f3a0c5dc2b37290c58c4c6d551"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-handheld.png",
+      "bytes": 154579,
+      "sha256": "df3135d1959ee02151addc920dc4958d89c3f59cf34491e95fd2f08812f474cc"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-laterrearpeak.png",
+      "bytes": 190945,
+      "sha256": "e41688334af35d60a9ffa5902950e2c1be07298d617a9753f48d94eef5c44bb4"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-laterstressturnleft.png",
+      "bytes": 191942,
+      "sha256": "70471f813ccd81a4fc95f677ea39eea4c48cf06793844770e432004b6a0b24f6"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-lightingnightreverse.png",
+      "bytes": 203916,
+      "sha256": "32e0030f0e09fdeac5d74211ad80c6c1ec70cbfdd309eb445d8a9c56904b855d"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-mirror.png",
+      "bytes": 167847,
+      "sha256": "36d9dc94fd4ec8af11ada444b04f83b369b04a6ae5988f229059e9728a258a69"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-mirrorInterior.png",
+      "bytes": 169209,
+      "sha256": "bdd050faa5a1b619297ece2ecf1f2af270bfb37e0914c20998f4454b05487ee9"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-mirrorRight.png",
+      "bytes": 178445,
+      "sha256": "fb3a28ba2ba90badb75d94d288f30913fdd1c44fac3f1d708ed3c12b2abd0a73"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-navblocked.png",
+      "bytes": 215513,
+      "sha256": "34477d6425dbcbce0694c3d471317567b47c56966181630f6c372a5cb91855c0"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-navdouble.png",
+      "bytes": 217484,
+      "sha256": "69fd0d60097d033c0a9933daa607712f892405d2c543a067408a0579fbd2c184"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-navfull.png",
+      "bytes": 165586,
+      "sha256": "b77f8926a48f65c74002dd4cadc98ded1244cdef50e552c0fd30b1a59eb3a1cd"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-navline.png",
+      "bytes": 165316,
+      "sha256": "5b7a2489b8729b2567fa8f4b022c0b9c9e01842834fbb264bcf6179d0620ddff"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-navreroute.png",
+      "bytes": 174373,
+      "sha256": "5097ede0b9b3a2f1076a2c6a5b8da4a2613a3c7a650b6816193e97538db645cb"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-nightglare.png",
+      "bytes": 157512,
+      "sha256": "26a08377a574720d1c53c11fe8f799c85d887633acf818c78650b9d98f3019ae"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-nightoff.png",
+      "bytes": 118212,
+      "sha256": "f03ef2b1d5681054edb658a8da4f00a8f41b9520edf5bf38fd5cd91efdd13c5f"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-nighton.png",
+      "bytes": 151791,
+      "sha256": "e214cf9af76386d3506790f18686f46c20856ce7b586782c2286b86842bde5c4"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-nightreduced.png",
+      "bytes": 152429,
+      "sha256": "118fa065741521aa1e7d4bad1d31960d50f874211c372ff871c3f0e30b4929b6"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-radiocaption.png",
+      "bytes": 164287,
+      "sha256": "319aa83116344cbe33a45c2d2855dec29e9201e87066c668b35ae946091f5e72"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-radiocheckin.png",
+      "bytes": 128051,
+      "sha256": "8bfc185c548702b7edc22731d9fd5a3853c9ffbaa7becbed687c9db28b781939"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-radiopriority.png",
+      "bytes": 129338,
+      "sha256": "e6b6dd8bbc521b7f012d92f7e59f2bede0fab488c23d3f9762d2c55ea5eac8d0"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-signsjunction.png",
+      "bytes": 195726,
+      "sha256": "8da63447b8b595354e3f4e060899bc389cba9e37b12455ea5f6d88b138240568"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-signsnumber.png",
+      "bytes": 59082,
+      "sha256": "9dba7ee50cad3645dd531b5154e55d207bb886952a4f78433a23de3108f7c886"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-signsoneway.png",
+      "bytes": 174159,
+      "sha256": "829fb7da661def9829342a86abc66b72cee2619e7c34c73e36e49d47a56f2451"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-signspeak.png",
+      "bytes": 89139,
+      "sha256": "4045452806ec3ce39b978082e768117ce20df4b4cb70891b81dd002dad09091d"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopsgate.png",
+      "bytes": 48438,
+      "sha256": "42bbca4e8717539ad97b008ed0d2948d356c02f23d8272aaf706fba9b0b72834"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopsintercom.png",
+      "bytes": 48438,
+      "sha256": "42bbca4e8717539ad97b008ed0d2948d356c02f23d8272aaf706fba9b0b72834"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopslockerclosed.png",
+      "bytes": 50976,
+      "sha256": "7e53f30988f1ff3c6373f9b7158f873144a966a17359585f3b8b2062735a4b90"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopslockeropen.png",
+      "bytes": 52560,
+      "sha256": "cc66c8765b7f56dc857a6c7ad2ab26bfd937145c2c1006f1f35558ba844c846c"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopsreception.png",
+      "bytes": 50783,
+      "sha256": "5fdd5ee602932b1399b3896bb97eb8e3a9238c9c27c41846aabac2f31649032f"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopsretention.png",
+      "bytes": 30638,
+      "sha256": "05cb4bf932fdf087eb8c0cd4071fa41cc41010ae2353c0c812d8fc79f53fbfcc"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-stopsstresscab.png",
+      "bytes": 163968,
+      "sha256": "4ff0b1a1cdbcdb638c01addeaac9f729aa9895ad24b8794b7b10fd5fbe76e342"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-towncab.png",
+      "bytes": 184941,
+      "sha256": "95d2dc606a922f7f672f9ed121e08fe3238620efb9cb108b7efca5eaec179731"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-townhouse.png",
+      "bytes": 194602,
+      "sha256": "39ee89ac9604585d7e5d2383d44b204e213e12ddbdb0f7f80377321981e1a948"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-townparked-car.png",
+      "bytes": 201115,
+      "sha256": "3160e4c71d1227202dd1225525fca0f74ce9cbe7002ccf9d361dd28421252ea8"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-townroad.png",
+      "bytes": 174022,
+      "sha256": "353d15b20849ea181f0d5cea17a59926f989db1f2bc47cc25f84be2d4ecd79aa"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficcyclist.png",
+      "bytes": 240782,
+      "sha256": "89947732a9e94622d8539ac36923d594f918753e0b910aedceec15ea32d5d484"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficgreen.png",
+      "bytes": 207783,
+      "sha256": "19c3876c501ff59fa1f6412977706fad44abbb3f1c7a7c6aa6af40426a4f32c1"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficmirror.png",
+      "bytes": 198018,
+      "sha256": "06871171a7adc4da4aa02f4ae7cfebbac82a44eecdc40e5db072fcda249690ab"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficpeak.png",
+      "bytes": 106603,
+      "sha256": "d7f2402733e85537d8ca4ac5b6f14fd1ff2d3d9b6ff3e1e92e4171bfc1c5a96a"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficschool.png",
+      "bytes": 213332,
+      "sha256": "7d00c0b204379a6e1812196eec16f821adf0e6a71664c39aaec33199a095165c"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-trafficsignal.png",
+      "bytes": 207706,
+      "sha256": "ac8d5adc5f59a5b0d14b593c99f8598e1a0f1253d9237798f371ae3eabe7e5ae"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-visibleweathersnowwalk.png",
+      "bytes": 215093,
+      "sha256": "e6e845931ad24006acea15376672582d18350a859201313d545dc4e9a887b0c7"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-visibleweatherstorm.png",
+      "bytes": 216882,
+      "sha256": "389fcc4ad77d5d3a14095b7ab349fff2ed5939556b252946a6fe0aae39c1d8ac"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walkfront.png",
+      "bytes": 84639,
+      "sha256": "586bc3a4633fc36f56fcde58d0179d45e0792327ecbd16e6a1299c6fc5e5f7dd"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walkguidepost.png",
+      "bytes": 56356,
+      "sha256": "a25ab49001062ed411869c944d9edac1200e8b246287e696a47258dcb28b8a23"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walkguidepre.png",
+      "bytes": 53802,
+      "sha256": "99371d93cda3de0fd31a66201615c4dd93fe4db9674d8f8c5e26aed18c247dbf"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walkrecord.png",
+      "bytes": 133840,
+      "sha256": "2c72f0936a0482fd09a626ea0122c9d9b1f98d073aca0c7ee9aa1a1b19d9a240"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walkroof.png",
+      "bytes": 75717,
+      "sha256": "f4beda3d88c9d907677835d5e830318a99900069d1a3d08109fd31f2e8a9a83e"
+    },
+    {
+      "file": "native/c50-current-loaded-low-low-walksummary.png",
+      "bytes": 99835,
+      "sha256": "511b509e32255dfb3e626090e385ed6cc16e748ae9404cef0a377e950ba91c66"
+    },
+    {
+      "file": "native/c50-current-loaded-low.log",
+      "bytes": 55464,
+      "sha256": "a0dbfb41d55771f9eee11e61ada715ebbf538623f8a33e95b1d4b3470c055aa5"
+    },
+    {
+      "file": "native/c50-current-quality.json",
+      "bytes": 6981,
+      "sha256": "e6dff6fbb44087ef11c3c2075671ab604233af9376a8d9f6d196611acd524a0a"
+    },
+    {
+      "file": "native/c50-current-quality.log",
+      "bytes": 443,
+      "sha256": "4698de5b62a03b3807bbe035410a160bfaee86aa8cd1ca74ab1e65638b73f773"
+    },
+    {
+      "file": "native/c50-current-reading-signs-browser.json",
+      "bytes": 4961,
+      "sha256": "77198d93ed25da934c1d587d8928ca1132803991a76b77d5c217d47fa7dfb2c8"
+    },
+    {
+      "file": "native/c50-current-reading.log",
+      "bytes": 45,
+      "sha256": "4757f043f9ffda18ea466d8c90035143702e96f453154f14f1b900992183dadf"
+    },
+    {
+      "file": "native/c50-current-repository.log",
+      "bytes": 3336,
+      "sha256": "f7a644e490023dd3896795efdd7f258de13aae20a00d6a4c0dca28c76a157ec7"
+    },
+    {
+      "file": "native/c50-current-routeday-alone.log",
+      "bytes": 868,
+      "sha256": "15f2953a6431fa0d78a2c985bfc503f93bfc6072b8b69ec564a33ead379793d4"
+    },
+    {
+      "file": "native/c50-current-town.log",
+      "bytes": 35,
+      "sha256": "76342e9041cc25b8f429a036d02adc9dd36b25d03c99c0139a54d17d71af4cd7"
+    }
+  ]
+}
