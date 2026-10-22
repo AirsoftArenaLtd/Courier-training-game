@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-22T23:59:36.854777+00:00",
+  "status": "Initial source audit only",
+  "base": "b860fa180e3a4631d351eba765314e2b87ff52dd",
+  "taskRow": "| C-39 | Codex | **Route & Driving in 3D:** pre-trip inspection walking round the real van, route planning on the sat nav, defensive driving drills, parking and reversing with the rear camera; new: junctions, school zone, night. | todo (after C-38) |",
+  "files": {
+    "docs/3D-MODULES.md": {
+      "sha256": "5a2ab15b6dc22c158669743183249998edd40e305af091fbfe977eb91d5c87c6",
+      "bytes": 3629
+    },
+    "src/core/fpscenario.js": {
+      "sha256": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+      "bytes": 4725
+    },
+    "src/scenes/FirstPersonScenarioScene.js": {
+      "sha256": "fd92732df0f51a1804e26822544139bf7b5f5c8c1494b36a97f955c667bac6b4",
+      "bytes": 8618
+    },
+    "data/m1_pretrip.js": {
+      "sha256": "fdc6192481de6e787d8f6588cf918a1fb96f0eedc3b5c8c032a44bc6bce9bb30",
+      "bytes": 10883
+    },
+    "data/modules.js": {
+      "sha256": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+      "bytes": 19126
+    }
+  }
+}
