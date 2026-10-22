@@ -1,0 +1,15 @@
+# Uploaded world materials
+
+C-49 is in progress on `codex/c49-materials`, stacked on the cab branch. The source-pack foundation is `98dae933`; the cab's front-inspection correction is carried as `c402e9a9`. Native colour review, missing-image checks and the combined resource gate are still required before review.
+
+The five owner-supplied Poly Haven colour images are bundled unchanged under `assets/3d/polyhaven-*`. Each source record includes the original archive and image checksum, source page and CC0 dedication. The full CC0 legal text is recorded honestly as a later copy from SPDX; the uploaded archives contained no licence file. Raw archives are not shipped.
+
+High preloads five 1024-square images (4,129,730 download bytes, 20 MiB decoded RGBA) and builds one 2048 × 1024 canvas atlas. Five 504-square tiles have four-pixel edge padding within 512-square cells; three cells remain unused. The atlas adds 8 MiB of base RGBA, at most 10.67 MiB with a full mip chain, and one GPU texture. Source images are not bound to any render material. Atlas bytes are separate from reflection attachment bytes and Phaser texture estimates.
+
+World position supplies metre-based repeat coordinates on the road, pavement, grass and plaster/brick walls. This also works on imported house meshes that have no UV coordinates. Wall sampling excludes roofs and dark window surfaces. Texture contrast fades at distance to keep the far scene stable, while snow and ice retain their existing palette. Colour is applied before the existing Lambert lighting, shadows, headlight and contact-shade hooks.
+
+Surface identity travels with each static/model instance through main-view culling and every reflection, just like its matrix, colour and sign shape. No draw, triangle, render pass or attachment is added. Sign geometry keeps its existing live attribute. Shared source geometry is never mutated; owned clones, materials and atlas are released with the scene, while the asset bank retains and eventually closes its source bitmaps. The CPU bitmap test reads real image headers; it does not establish decoded pixels or native rendering.
+
+Low retains its existing palette, shader and texture count, and never requests these five JPEGs. A missing image leaves that surface on the existing palette while healthy images and models continue loading. New runtime text, scoring, saves, controls and collision behavior are unchanged. The separately recorded original cab-grain image is still a review draft outside the manifest; it is not included in these material claims.
+
+`test/fpmaterials.js` covers selection, source bounds, partial failure, ownership and live sign attributes. `test/fptown.js` exercises real High reflection compaction and exact restoration, plus unchanged mission/reports/solids. Native image decoding, screenshots, per-surface pixel comparisons and `test/fpquality.js` remain the final gates. Software-rendered FPS cannot establish the owner's Intel 60 fps requirement.

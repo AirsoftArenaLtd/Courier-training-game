@@ -6,7 +6,7 @@ function install(c){
   for(const f of ['lib/GLTFLoader.min.js','src/core/fpassets.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),c);
   if(!c.createImageBitmap)c.createImageBitmap=async blob=>{
     const [width,height]=c.OTR.fpAssets.imageSize(new Uint8Array(await blob.arrayBuffer()),blob.type);
-    return {width,height,close(){this.closed=true;}};
+    return {width,height,close(){this.closed=true;this.closeCount=(this.closeCount||0)+1;}};
   };
   return c.OTR.fpAssets;
 }
