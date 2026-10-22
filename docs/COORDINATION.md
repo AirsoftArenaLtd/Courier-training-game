@@ -530,7 +530,7 @@ items here for each agent.
 | B-153 | Claude | **One word for "Workday" in gu, mr and te:** the Workday button (for example gu કામકાજનો દિવસ) and the word in "3D workday aids…" and other lines (વર્કડે, वर्कडे, వర్క్‌డే) differ (found in B-151). Count each form's lines, use the more common in all, add "workday" to `data/i18n/glossary.json`, and update the three quick starts that quote both. | todo |
 | B-154 | Claude | **The replay waits with the other results buttons:** on the results screen "Replay the last mistake." could be pressed while the stars were still counting and the other buttons were disabled (noted at the C-37 merge). `ResultsScene` now disables and enables it with them. | done |
 | B-155 | Claude | **The quick starts quote the game's own words:** `test/quickstart.js` also checks that every button a translated quick start quotes ("**Réglages → Formateur** (Settings → Trainer)") is the game's current translation of that English, so a later change to a button's word (as in B-150 or B-153) fails until the page follows. | done |
-| B-156 | Claude | **The reviewers check their quick start too:** `docs/review/HOW-TO-REVIEW.md` and each sheet's first row ask the native reviewer to read `docs/QUICK-START.<lang>.md` (B-151) as well, noting anything unnatural in the Comment of a new "quick start" row; `--apply` reports those comments for the team to apply by hand. | todo |
+| B-156 | Claude | **The reviewers check their quick start too:** `docs/review/HOW-TO-REVIEW.md` asks each native reviewer to read `docs/QUICK-START.<lang>.md` (B-151) as a trainer would and reply with better wording for anything unclear, and tells the team to send it with the sheet and apply the notes by hand (`test/quickstart.js` then rechecks keys and button names). The sheet format is unchanged. | done |
 | B-157 | Claude | **One command for the release-candidate pass:** `node test/run-all.js --rc` runs the Node suites, every browser suite and the 15 shared 3D flows at Low (two browsers at a time, distinct ports), and writes one summary to `test/out/rc.md` with each failure's log, so A-28's pass after C-48 is a single run. | todo |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
@@ -583,6 +583,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-156 done:** the reviewers' how-to now has a short section on the trainer's one-page quick start in their language: read it as a trainer, reply with better wording. The team sends it with the sheet and `OPEN-QUESTIONS.md`. The sheets themselves are unchanged, so `--apply` works as before.
 
 - **22 October 2026, Claude — B-155 done:** `test/quickstart.js` now also checks the 232 button names quoted across the 11 quick starts against the game's translations, tolerating case endings and longer strings ("See Results ▶"). It caught a changed French button in a trial. New Claude todos: B-156 and B-157.
 
