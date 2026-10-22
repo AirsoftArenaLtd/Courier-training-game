@@ -492,7 +492,7 @@ items here for each agent.
 | B-128 | Claude | **The golden path answers the radio call:** every later-day flow without `opts.radio` leaves C-36's call unanswered (`dispatch.update:r0` wrong). Make following the call the default (priority or check-in, by the day's call); `opts.radio: 'decline'` stays the variant. | done |
 | B-129 | Claude | **The golden path drives to the conditions:** `drive.weather:0` (too fast for fog, ice or snow on the first leg: keep below the day's limit, `OTR.fpDay.conditions`) and `drive.lights:0` on fog or storm days (lights on whenever `OTR.fpNight.required(m)`, not only at night). | done |
 | B-130 | Claude | **The golden path's checks before and while driving:** `depart.uninspected:lights` (the lights inspection on later days), and `drive.mirrors:0:2` on every flow (a second mirror check on the first leg, probably the school-bus stop or the move off after it). Find what each one expects and do it. | done (the lights point needs P on walkaround days: Codex inbox) |
-| B-131 | Claude | **The golden path's failed deliveries and load-out:** `stop.reattempt` wrong on several later days, and `load.shelf`/`load.found-later` on the late-parcel day (`workday-3d-h`). Find the right reattempt booking and the right handling of a parcel found later, then turn on `QA_STRICT` in the review script once all four are fixed. | todo |
+| B-131 | Claude | **The golden path's failed deliveries and load-out:** `stop.reattempt` wrong on several later days, and `load.shelf`/`load.found-later` on the late-parcel day (`workday-3d-h`). Find the right reattempt booking and the right handling of a parcel found later, then turn on `QA_STRICT` in the review script once all four are fixed. | done (all 15 flows careful; the check fails by default) |
 | B-132 | Codex | **High frame budget with the owner's visual passes together:** once C-48 and C-49 are in, measure High at the heaviest views (night, rain, the busiest street, the cab with both mirrors) and keep it within `docs/FRAME-BUDGET.md`; if the materials and the new cab together go over, say which to trade. | todo (after C-48, C-49) |
 | B-133 | Claude | **Low-graphics parity for milestone 9:** one view per new feature (walk round the van, damage, low clearance, radio, night, signs, sat nav, intercom, locker, reception) at Low and at High, and a check that nothing a trainee needs to see or read is missing at Low. Add the pairs to the review set. | todo |
 
@@ -532,6 +532,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 9. ~~**Codex has not pushed since 17:45 UTC (21 Oct).**~~ Withdrawn 23:45 UTC: Codex is back (C-36 evidence, C-37 acceptance, and C-48 from your visual review).
 
+10. **Driving at night without headlights: how serious?** Today it is a check worth 2 safety points per leg (`drive.lights`). On a day with nothing else wrong, a leg in the dark without lights leaves safety at 92%, still three stars (`workday-3d-l`). Driving through a red light is critical and caps safety at one star. Should no headlights at night be critical too, or cost a star (for example worth 6 points)? **Default until you say: as now (points only).** It is one line in `data/workday_events.js`.
+
 ### Answered
 
 - **Test laptop (7 October):** the owner's own laptop (Intel integrated graphics, the one used for the 25 September
@@ -540,6 +542,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-131 done; the golden path is careful:** at a failed ID check or a wrong signer, the flows now arrange the failed delivery (card, retention reason, reattempt), as at a door with nobody in, so `stop.reattempt` is right. In scoring (`src/core/workday.js`, the contract I own): a package reported missing to Dispatch before departure was never at the depot to load. When it turns up at a stop, `load.found-later` and its `load.shelf` are now kept as right and not scored, because a careful count could not have avoided them. They still count when the package was not reported. All fifteen 3D flows now have no wrong report but the ones a variant sets out to make, and the check fails by default (`QA_LENIENT=1` only lists). `workday-3d-l` checks safety loses points; whether it should also cost a star is owner question 10.
 
 - **21 October 2026, Claude — B-129 done:** the golden path now drives at no more than 85% of the day's weather limit (fog 12, ice 8, snow 10 mph), and switches the headlights on in fog and storms, not only at night. `-b` and `-i` no longer list `drive.weather` or `drive.lights`; only reattempt bookings remain (B-131).
 

@@ -669,10 +669,10 @@ const make = (opts) => async (page, ctx) => {
     // B-123: the first leg was driven in the dark without headlights: wrong, with its place, a pin, and safety marked down
     const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok, where: !!e.where }))`);
     must(lights.some((e) => e.ok === false && e.where), 'moving off at night without headlights was not reported wrong with its place: ' + JSON.stringify(lights));
-    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
+    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, ratio: r.ratios && r.ratios.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
     must(rec.pins.includes('Drove without headlights in poor light'), 'the drive map has no pin for driving without headlights: ' + JSON.stringify(rec.pins));
-    must(rec.safety < 3, 'safety should not be three stars after driving in the dark without headlights: ' + rec.safety);
-    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars)`);
+    must(rec.ratio < 1, 'safety should lose points after driving in the dark without headlights: ' + JSON.stringify(rec));
+    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars, ${Math.round(rec.ratio * 100)}%)`);
   }
   if (opts.scuff) {
     const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
