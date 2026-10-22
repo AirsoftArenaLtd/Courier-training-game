@@ -128,10 +128,13 @@ OTR.fpSigns = {
         if(signShape>.5){float bottom=signShape>12.5?0.:signShape>9.5?.7:signShape>8.5?0.:signShape<1.5?.83:.62;
           if(signUV.y<bottom){if(abs(signUV.x-.5)>.035)discard;diffuseColor.rgb=vec3(.32,.36,.38);}
           else{vec2 p=vec2(signUV.x,(signUV.y-bottom)/(1.-bottom));vec2 a=abs(p-.5);
-            if(signShape>1.5&&signShape<2.5&&a.x+a.y>.72)discard;
+            if(signShape<1.5&&(a.x>.48||a.y>.43))diffuseColor.rgb=vec3(.94);
+            if(signShape>1.5&&signShape<2.5){if(a.x+a.y>.72)discard;if(a.x>.455||a.y>.455||a.x+a.y>.66)diffuseColor.rgb=vec3(.94);}
             if(signShape>2.5&&signShape<3.5){if(a.x>p.y*.5)discard;if(a.x>p.y*.5-.055||p.y>.91)diffuseColor.rgb=vec3(.7,.12,.16);}
             if(signShape>3.5&&signShape<4.5){if(length(p-.5)>.5)discard;if(length(p-.5)>.43)diffuseColor.rgb=vec3(.7,.12,.16);}
-            if(signShape>4.5&&signShape<6.5&&a.x+a.y>.5)discard;
+            if(signShape>4.5&&signShape<6.5){if(a.x+a.y>.5)discard;if(a.x+a.y>.455)diffuseColor.rgb=vec3(.025);}
+            if(signShape>6.5&&signShape<7.5&&(a.x>.475||a.y>.475))diffuseColor.rgb=vec3(.025);
+            if(signShape>8.5&&signShape<9.5&&(a.x>.47||a.y>.45))diffuseColor.rgb=vec3(.08);
             if(signShape>7.5&&signShape<8.5){if(length(p-.5)>.5)discard;if(a.y<.09&&a.x<.38)diffuseColor.rgb=vec3(.95);}
             if(signShape>6.5&&signShape<7.5){if((a.y<.065&&p.x>.15&&p.x<.72)||(p.x>.58&&abs(p.y-.5)<(.9-p.x)*.75))diffuseColor.rgb=vec3(.1,.15,.17);}
             if(signShape>9.5&&signShape<12.5){if(a.x>.3)discard;diffuseColor.rgb=vec3(.07,.09,.1);float lamp=signShape<10.5?.8:signShape<11.5?.5:.2;
@@ -173,7 +176,9 @@ OTR.fpSigns = {
     return false;
   },
   updateUI(scene,occupied){
-    const ui=scene.signUI;if(!ui)return;const blocked=!scene.art.signs||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen;
+    const ui=scene.signUI;if(!ui)return;
+    if(scene.art.signLettering){for(const slot of ui.pool){slot.text.setVisible(false);slot.back.setVisible(false);slot.entry=null;}return;}
+    const blocked=!scene.art.signs||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen;
     const top=Math.max(92,scene.soundCue.visible?scene.soundCue.y+scene.soundCue.displayHeight+10:92),large=OTR.fpAccess.settings().large;
     if(!blocked&&scene.time.now-ui.lastAt<90&&ui.top===top&&ui.navX===scene.navRoot.x&&ui.navY===scene.navRoot.y&&ui.navVisible===scene.navRoot.visible&&ui.large===large)return;
     ui.top=top;ui.large=large;ui.navX=scene.navRoot.x;ui.navY=scene.navRoot.y;ui.navVisible=scene.navRoot.visible;ui.lastAt=blocked?-1000:scene.time.now;

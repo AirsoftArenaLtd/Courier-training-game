@@ -146,7 +146,7 @@ OTR.fpWorld = {
       stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
       const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
       if(!delivery||!['locker','reception'].includes(delivery.kind))box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
-      labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,max:30});
+      labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,address:true,max:30});
     });
     if (!base.town) {
       box(route,6,1.2,-24,0.12,2.4,0.12,0x6E737B);
@@ -320,6 +320,7 @@ OTR.fpWorld = {
     const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,addRoutePlane):null;
     const trafficArt=OTR.fpTraffic?OTR.fpTraffic.art(base,addRoutePlane):null;
     const surfaces=OTR.fpMaterials?OTR.fpMaterials.build(scene,weather):null;
+    const signLettering=OTR.fpSignLettering?OTR.fpSignLettering.build(signs,surfaces):null;
     if(surfaces&&townArt)for(const batch of townArt.batches)batch.surfaceKinds=surfaces.attach(batch.mesh,batch.entries);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
@@ -329,8 +330,9 @@ OTR.fpWorld = {
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
       const signShapes=signs&&OTR.fpSigns.decorate(mesh,entries);if(signShapes)mats.set('sign-shapes',mesh.material);
       const surfaceKinds=surfaces&&parent===route?surfaces.attach(mesh,entries):null;
+      const signWords=signLettering?signLettering.decorate(mesh,entries):null;
       mesh.computeBoundingSphere();parent.add(mesh);
-      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes,surfaceKinds});
+      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes,surfaceKinds,signWords});
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions):null;
@@ -365,11 +367,11 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
-        geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(surfaces)surfaces.dispose();
+        geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(signLettering)signLettering.dispose();if(surfaces)surfaces.dispose();
       },
       sync(model,hubPlayer,area) {
         const inHub=area==='hub',reduced=OTR.fpAccess&&OTR.fpAccess.reduced();hub.visible=inHub;route.visible=!inHub;
@@ -520,12 +522,12 @@ OTR.fpWorld = {
         reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;if(entry.sphere)reflectSphere.copy(entry.sphere);
         // High keeps offscreen shadow casters in the main batch. Reflections and Low have no
         // shadow pass that needs those instances, so their individual frusta can discard them.
-        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);if(batch.signShapes)batch.signShapes.setX(count,entry.shape||0);if(batch.surfaceKinds)batch.surfaceKinds.setX(count,entry.materialSurface||0);if(main&&entry.sign)entry.mainVisible=true;count++;
+        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);if(batch.signShapes)batch.signShapes.setX(count,entry.shape||0);if(batch.surfaceKinds)batch.surfaceKinds.setX(count,entry.materialSurface||0);if(batch.signWords)OTR.fpSignLettering.write(batch.signWords,count,entry);if(main&&entry.sign)entry.mainVisible=true;count++;
       }
       mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
-      if(batch.signShapes)batch.signShapes.needsUpdate=true;if(batch.surfaceKinds)batch.surfaceKinds.needsUpdate=true;
+      if(batch.signShapes)batch.signShapes.needsUpdate=true;if(batch.surfaceKinds)batch.surfaceKinds.needsUpdate=true;if(batch.signWords)OTR.fpSignLettering.dirty(batch.signWords);
     };
-    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;batch.mainShapes=batch.signShapes?new Float32Array(batch.signShapes.array.length):null;batch.mainSurfaces=batch.surfaceKinds?new Float32Array(batch.surfaceKinds.array.length):null;}
+    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;batch.mainShapes=batch.signShapes?new Float32Array(batch.signShapes.array.length):null;batch.mainSurfaces=batch.surfaceKinds?new Float32Array(batch.surfaceKinds.array.length):null;batch.mainWords=batch.signWords?{a:new Float32Array(batch.signWords.a.array.length),b:new Float32Array(batch.signWords.b.array.length)}:null;}
     let vanWas=false,dashWas=false,screenWas=false,vehicleWas=false;
     view.mirror.before=(index=0)=>{
       if(view.mirror.cameras)view.mirror.camera=index===3?view.mirror.rearCamera:view.mirror.cameras[index];
@@ -533,13 +535,13 @@ OTR.fpWorld = {
       if(rear){screenWas=rear.screen.visible;rear.screen.visible=false;}
       const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
       if(signs)signs.choose(cam,reflectFrustum,false);
-      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);if(batch.mainShapes)batch.mainShapes.set(batch.signShapes.array);if(batch.mainSurfaces)batch.mainSurfaces.set(batch.surfaceKinds.array);compact(batch,reflectFrustum);}
+      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);if(batch.mainShapes)batch.mainShapes.set(batch.signShapes.array);if(batch.mainSurfaces)batch.mainSurfaces.set(batch.surfaceKinds.array);if(batch.mainWords){batch.mainWords.a.set(batch.signWords.a.array);batch.mainWords.b.set(batch.signWords.b.array);}compact(batch,reflectFrustum);}
       world.updateMatrixWorld(true);
     };
     view.mirror.after=()=>{
       van.visible=vanWas;if(innerVan){actors.vehicle.mesh.visible=vehicleWas;innerVan.visible=false;}if(actors&&model)actors.reflect(false,model);dash.visible=dashWas;if(mirrors)mirrors.hide(false);
       if(rear)rear.screen.visible=screenWas;
-      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);if(batch.mainShapes){batch.signShapes.array.set(batch.mainShapes);batch.signShapes.needsUpdate=true;}if(batch.mainSurfaces){batch.surfaceKinds.array.set(batch.mainSurfaces);batch.surfaceKinds.needsUpdate=true;}mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
+      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);if(batch.mainShapes){batch.signShapes.array.set(batch.mainShapes);batch.signShapes.needsUpdate=true;}if(batch.mainSurfaces){batch.surfaceKinds.array.set(batch.mainSurfaces);batch.surfaceKinds.needsUpdate=true;}if(batch.mainWords){batch.signWords.a.array.set(batch.mainWords.a);batch.signWords.b.array.set(batch.mainWords.b);OTR.fpSignLettering.dirty(batch.signWords);}mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
       world.updateMatrixWorld(true);
     };
     return api;

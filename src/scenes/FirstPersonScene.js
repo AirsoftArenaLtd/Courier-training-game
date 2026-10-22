@@ -456,6 +456,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'||this.model.mode==='cab'))?this.art.pick():null;this.lastAim=time;const occupied=[];
       this.labels.forEach(({label,object})=>{
+        if(label.address&&this.art.signLettering){object.setVisible(false);return;}
         if(label.clearance){const size=OTR.fpAccess.settings().large?22:17;if(parseFloat(object.style.fontSize)!==size)object.setFontSize(size);}
         if(label.gauge&&this.model){const text=label.gauge==='speed'?`The speed is ${Math.round(Math.abs(this.model.van.speed)*2.23694)} mph.`:`The engine is at ${Math.round((this.model.motion?this.model.motion.rpm:800)/100)*100} RPM.`;if(label.text!==text){label.text=text;object.setText(text);}}
         const p=!this.panel&&!this.external&&!(this.handheld&&this.handheld.isOpen)?this.art.labelPosition(label):null;

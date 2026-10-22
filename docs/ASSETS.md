@@ -67,6 +67,7 @@ clear. Never trace, copy or use a third-party image as its source.
 
 | File | What it is | Made by, and how | Date |
 | --- | --- | --- | --- |
+| `src/core/fpsignlettering.js` | Original Low 5×7 sign glyphs and procedural face layout; project-owned, shipped under the game's licence. High draws whole legends at runtime with the browser's existing text renderer. | Codex; hand-authored binary glyph rows and shader layout, no reference image or added font file. | 22 October 2026 |
 | `docs/review/set-10/materials/cab-plastic-original.png` | Cab material source draft; project-owned, shipped under the game's licence. Not loaded at runtime. | Codex; `image_gen.imagegen`, written brief only, no reference images, opaque background, requested 1024 square / returned 1254 square. Prompt and SHA-256 in the adjacent JSON. | 21 October 2026 |
 
 ## Credits
