@@ -49,5 +49,40 @@ OTR_DATA.credits = [
 "author": "Quaternius",
 "licence": "CC0",
 "url": "https://quaternius.com/"
+},
+{
+"pack": "polyhaven-asphalt-pit-lane",
+"name": "Asphalt Pit Lane",
+"author": "Poly Haven contributors",
+"licence": "CC0",
+"url": "https://polyhaven.com/a/asphalt_pit_lane"
+},
+{
+"pack": "polyhaven-concrete-pavement",
+"name": "Concrete Pavement",
+"author": "Poly Haven contributors",
+"licence": "CC0",
+"url": "https://polyhaven.com/a/concrete_pavement"
+},
+{
+"pack": "polyhaven-grass-ground",
+"name": "Grass Ground",
+"author": "Poly Haven contributors",
+"licence": "CC0",
+"url": "https://polyhaven.com/a/grass_ground"
+},
+{
+"pack": "polyhaven-plastered-wall",
+"name": "Plastered Wall",
+"author": "Poly Haven contributors",
+"licence": "CC0",
+"url": "https://polyhaven.com/a/plastered_wall"
+},
+{
+"pack": "polyhaven-red-brick-03",
+"name": "Red Brick 03",
+"author": "Poly Haven contributors",
+"licence": "CC0",
+"url": "https://polyhaven.com/a/red_brick_03"
 }
 ];
