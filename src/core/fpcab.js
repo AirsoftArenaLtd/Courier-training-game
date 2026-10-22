@@ -55,9 +55,10 @@ OTR.fpCab={
     // Keep the mounted display below the windscreen and clear of the physical PRND selector.
     const navX=1.12,navY=-.54;
     face(navX,navY,-1.025,.61,.38,0x17252F);face(navX,navY-.25,-1.03,.055,.12,0x354650);
+    let hood=null;
     if(high){part(1.13,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.415,.52,-1.02,2.27,.055,.06,0x4D5D66);
       // Recessed vents, a gauge hood and glovebox give the dash depth without another batch or texture.
-      part(0,-.14,-1.025,.72,.06,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
+      hood=part(0,-.1,-1.025,.72,.03,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
       part(-.05,.435,-1.005,.48,.11,.035,0x3A444C);part(1.05,.435,-1.005,.48,.11,.035,0x3A444C);
       for(const x of [-.48,.48,1.35]){face(x,-.345,-.953,.16,.075,0x101B23);for(let i=0;i<3;i++)face(x,-.37+i*.025,-.949,.15,.006,0x687780);}
     }
@@ -136,7 +137,7 @@ OTR.fpCab={
       batch.setMatrixAt(p.index,scratch.matrix);colour.setHex(color);batch.setColorAt(p.index,colour);
     }
     const navigation={parent:root,cab:true,local:new T.Vector3(navX,navY,-1.005),point:new T.Vector3(),max:2.5};
-    let state=-1;return {root,wheel,gauges,parts,batch,navigation,
+    let state=-1;return {root,wheel,gauges,hood,parts,batch,navigation,
       sync(m){
         const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;gaugePaint.uniforms.lit.value=v.headlights?1:0;
         const next=v.gear+1+4*Number(v.hand)+8*Number(v.belt)+16*Number(!!v.headlights)+32*Number(!!v.wipers)+64*(m.signal+1);if(next===state)return;state=next;

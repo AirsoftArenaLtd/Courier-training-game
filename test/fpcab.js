@@ -79,3 +79,13 @@ test('instrument backlighting follows the real headlights without a texture, tim
   let disposed=0;face.material.addEventListener('dispose',()=>disposed++);s.art.dispose();assert.equal(disposed,1);
  }
 });
+test('the High instrument hood stays above the dial face from the seated eye',()=>{
+ const s=scene(true),a=s.art.cab,h=a.hood;assert.ok(h);
+ for(const pitch of [0,.18,.35]){
+  s.model.player.pitch=pitch;s.sync();
+  const lip=new THREE.Vector3(0,h.y-h.h/2,h.z+h.d/2).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
+  const top=new THREE.Vector3(0,a.gauges.position.y+a.gauges.scale.y/2,a.gauges.position.z).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
+  assert.ok(lip.y>top.y,'The hood clips the top of the instrument face at pitch '+pitch);
+ }
+ s.art.dispose();
+});
