@@ -31,6 +31,9 @@ nothing changes: every scene stays above the QA floor of 10 fps for software ren
 
 `node test/tools/overdraw.js <scenario,...>` lists what a scene draws, largest first, in screens.
 
+B-126: `?gfx=lite` leaves out the daytime grade and the heat layers: m8-heat 14 → 22 fps, m5-pod 19 → 23, m5-exceptions
+19 → 22, m8-dog 19 → 23 on SwiftShader (median of three 2-second samples). Pictures: `docs/review/set-9/b126/`.
+
 ## C-30: generated signs (18 October 2026)
 
 Signs share the existing route-plane batch: at most five two-triangle instances per view on Low, 24 on High,
