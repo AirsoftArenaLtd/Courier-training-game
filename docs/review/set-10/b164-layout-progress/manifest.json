@@ -1,0 +1,195 @@
+{
+  "task": "B-164 layout progress; not final acceptance",
+  "source": "f264fa2e",
+  "date": "2026-10-22T11:28:30.653561+00:00",
+  "pilotRuntimeBase": "fdcc3311; pilot fb39c89a adds documentation only",
+  "passed": {
+    "repositorySuites": 76,
+    "nativeNavigationChecks": 81,
+    "allLanguageApproaches": 240,
+    "firstDayDriveReverseViews": 192,
+    "lowWeatherChecks": 48
+  },
+  "sourceSHA256": {
+    "index.html": "ea72735e26ae3cd10f9be736d53349fb6d0ab69aa8c7eea1bc47d2696def6f8e",
+    "assets/3d/manifest.json": "541de10940dc195661d50bcb49530c9b21d37aeee19d8d4dc8f78d1a6f681d63",
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "b9e9f3190cd8f39f3b501de7aa30f26a6530a8002d52db967be61732789d8854",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmirrors.js": "f04d9747ea5cc8c81f14a4d2e20a29e50998b0445a2b565fa93d2d988febfc83",
+    "src/core/fpmission.js": "25bcd0edab780818de60fc0b497655c5f882812cbd15ec0bb0e64c177ae04fa4",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4",
+    "src/core/fpreplay.js": "7618676d231d868f0db0a32063e26ad8219bbc15a8f19689476e256686066bef",
+    "src/core/fpreplayui.js": "5bf47a61f2885eb9b56ffdbed886c667954d96986faf149315765d5c7c732e67",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpsigns.js": "ac6108d13efb30e0e8ab09b3ab168378b27b15a6460d2fe64fd5523940069e97",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "0063df8c74990645e1b1ae9c1125df114167c6e6c116e13a8b52e6f071292400",
+    "src/scenes/FirstPersonScene.js": "2a3bf24fbf8bb69529ddfec8c03c7c7e023301cd1f8fa7ff51345d61a9e261b0",
+    "test/fpsignlayoutbrowser.js": "4fee1cb5d8d6d065b4e3b1f6b43141b0d5e3691a567c4e4281994ca0db1372f0",
+    "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
+    "test/fpnavbrowser.js": "cca936489ec1974585b1cad11946b6d0c86461573a16445ceaab58ff4d4a2918",
+    "test/fpcabbrowser.js": "d1b6e272bc27b59454218f0e43224b792367dc70369254c62b5bf0a75b5a1449",
+    "test/fphudbrowser.js": "bb9119715312e9af00155332d0d8cc700f533c94aada0b95f5f41858b6798eac",
+    "test/fpmirrorsbrowser.js": "1a2674b3133a3f9173b9876211874bcfee775f3f37aa459cd277ab56bd88b79f",
+    "test/fprearbrowser.js": "329e57cbaf1dcb19e5768949e5723450dded8a5d42b3228bcc0c337c4b651de4",
+    "test/fprear.js": "9f05aed732f47c64a7529d31507bb5bda86e84dbee3ffa8e094c57295085b4cf",
+    "test/fpbench.js": "9db900346481903dc9f646c0ed90ca2f66c7252b4862999ca6dfe6ec619154bc"
+  },
+  "pending": [
+    "hud",
+    "remaining cab, HUD, mirrors, rear, High layout and twenty resource views in included controller"
+  ],
+  "scope": "All twelve languages, normal/larger text. Real native UI/font bounds; camera/model positions are fixtures. Display and guide clearance proof, not a full owner visual or Intel FPS claim. Historical failed diagnostics are separate. The busy first-day overlays remain a C-52 visual-polish follow-up. No preview deployment.",
+  "files": [
+    {
+      "file": "acceptance-controller.py",
+      "bytes": 3538,
+      "sha256": "d68f310954380c2290c3241242ad3985a3e2aa4a8f1def82329633b5a61c4769"
+    },
+    {
+      "file": "b164-accepted-layout-en-large-first-day-drive.png",
+      "bytes": 198880,
+      "sha256": "814b3a779afe973265e1a734e85f535689b8159c71f5be62126877f984fcaab2"
+    },
+    {
+      "file": "b164-accepted-layout-en-large-first-day-reverse.png",
+      "bytes": 221679,
+      "sha256": "87fd499e4776d1d11af1eb44859b2d45b7f5ce4ae330d00c22486125b84e8bd9"
+    },
+    {
+      "file": "b164-accepted-layout-en-large-giveway.png",
+      "bytes": 161957,
+      "sha256": "280649099c25b3f4c2e5ceed20c692a04f9a4d08c17bcdc9207b4cded9322c1f"
+    },
+    {
+      "file": "b164-accepted-layout-en-large-stop.png",
+      "bytes": 149226,
+      "sha256": "985572206b993064dabe407f4102c82c4d745e34e166b2bba278b5de14011881"
+    },
+    {
+      "file": "b164-accepted-layout-en-normal-first-day-drive.png",
+      "bytes": 184216,
+      "sha256": "ebb62bdce1b6788787d9b1fc902ce7040c34819dafb861640de974b6a05f61c7"
+    },
+    {
+      "file": "b164-accepted-layout-en-normal-first-day-reverse.png",
+      "bytes": 206386,
+      "sha256": "32a93634f2a20b9869d26f757662fb767dbb42cb977cf2a56923f261c8b2c437"
+    },
+    {
+      "file": "b164-accepted-layout-en-normal-giveway.png",
+      "bytes": 157839,
+      "sha256": "5b8c726d7812af429afcd5d824ac606a97942f1ed67e33583b6c8cba037b17bb"
+    },
+    {
+      "file": "b164-accepted-layout-en-normal-stop.png",
+      "bytes": 145950,
+      "sha256": "d24f3ab90e1051277fbbbac62f50885506037a9f9310786594bfdc7a495f443f"
+    },
+    {
+      "file": "b164-accepted-layout-ta-large-first-day-drive.png",
+      "bytes": 250507,
+      "sha256": "324284f9d9ab921acb3f1b8ac8f1a6dc10dea31ebee28f6564745e3c2aa58d25"
+    },
+    {
+      "file": "b164-accepted-layout-ta-large-first-day-reverse.png",
+      "bytes": 277800,
+      "sha256": "b8e347f017e9bcf5de3a990913017a9f16c2f7ed4f75479f368c366ac2ad5449"
+    },
+    {
+      "file": "b164-accepted-layout-ta-large-giveway.png",
+      "bytes": 177175,
+      "sha256": "a509b3d047ea01b1ab74ac8487395893d05832e9ff185af71f0ec2b46367caac"
+    },
+    {
+      "file": "b164-accepted-layout-ta-large-stop.png",
+      "bytes": 164230,
+      "sha256": "26edec1cb73f285b56ce7bfa7efe820f61b69a3b8edd1e1f19107a42fcc7e43b"
+    },
+    {
+      "file": "b164-accepted-layout-ta-normal-first-day-drive.png",
+      "bytes": 229306,
+      "sha256": "1ac7834768e7831e4c56ef9befe388f35477b5717410b1c6ad96165ced048b91"
+    },
+    {
+      "file": "b164-accepted-layout-ta-normal-first-day-reverse.png",
+      "bytes": 257737,
+      "sha256": "75f71483032e4105d562e7273424683ffcd73edb71f16acaf38f6a4754b2f115"
+    },
+    {
+      "file": "b164-accepted-layout-ta-normal-giveway.png",
+      "bytes": 171133,
+      "sha256": "37d947b66c22d6bcfd0d8f3915940f6c0f205b60ceda0fd057ab406589958b84"
+    },
+    {
+      "file": "b164-accepted-layout-ta-normal-stop.png",
+      "bytes": 161253,
+      "sha256": "ada83e1cf6ac5bf63f93f8a905d85bcf5830faa072fc881fc76fc7e93fbbd321"
+    },
+    {
+      "file": "b164-accepted-layout.json",
+      "bytes": 880776,
+      "sha256": "c9da57083e904e024da5967bf2595a8956a0282e3fd9380d59c56b5d62145ea0"
+    },
+    {
+      "file": "b164-layout-low.log",
+      "bytes": 1424,
+      "sha256": "07371e3f2a74ebb9632442d60bbd93ecd041d84fe280d079d385b67cb25dc433"
+    },
+    {
+      "file": "b164-navigation.log",
+      "bytes": 154,
+      "sha256": "1fb5d81646f07d0b4f0dc3add96ab914526d1c5b8d72dad57ef5fad2a6385668"
+    },
+    {
+      "file": "b164-repository.log",
+      "bytes": 3205,
+      "sha256": "97eb88ee735a9c387bb5c8535640d69647324b2cba465f38443d54e68096ad41"
+    },
+    {
+      "file": "b164-weather-low.log",
+      "bytes": 29,
+      "sha256": "904b24605caa169eafbe5f6d5a2b173a2aee9f3c3b636adb641f7985ae1e95ab"
+    },
+    {
+      "file": "c26-low-weather.json",
+      "bytes": 2423,
+      "sha256": "a2ad371cd942b0d57110fdf4ed62f3f15ccee4de3d4ada17bb14f2f092942836"
+    },
+    {
+      "file": "c31-low-navigation.json",
+      "bytes": 10068,
+      "sha256": "67fd7e53e92afdf8ada4c198b30e43ae196708728a90da71d16eb4e6b19db33b"
+    }
+  ]
+}
