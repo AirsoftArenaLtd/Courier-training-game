@@ -145,6 +145,9 @@ OTR.fpAccess={
     const d=hh.device;if(!d.optionBtns||!d.screen)return;const t=s=>OTR.i18n?OTR.i18n.t(s):s,opts=d.current.options||[];
     let footerSpace=30;const footer=d.current.footer&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+14&&o.y===d.sy+d.sh-16);
     if(footer){footer.setWordWrapWidth(d.sw-28,true).setOrigin(0,1).setY(d.sy+d.sh-8);footerSpace=Math.max(30,footer.height+16);}
+    // Back is a separate control; its font metrics can exceed the default footer strip.
+    const back=d.current.back&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+d.sw-14&&o.y===d.sy+d.sh-16);
+    if(back)footerSpace=Math.max(footerSpace,d.sy+d.sh-back.y+back.displayHeight*back.originY+8);
     // Reserve gaps between choices; an extra trailing gap crowds larger translated body text.
     let total=0;for(let i=0;i<d.optionBtns.length;i++){
       const b=d.optionBtns[i];b.label.setText(`${i+1}  ${t(opts[i].label)}`).setScale(1);
