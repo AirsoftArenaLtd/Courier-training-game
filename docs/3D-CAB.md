@@ -1,5 +1,7 @@
 # Physical cab controls (C-22)
 
+**B-164 navigation clearance (22 October 2026):** the mounted sat nav is lower on the passenger side of the dash, clear of the PRND positions at C-48’s intended 76-degree cab FOV. Both the physical screen and its reading anchor move together. This adds no geometry, draw, image texture or reflection pass and changes no control target, dynamics, report or saved field. The strengthened browser matrix requires the screen to stay visible while clearing signs, selector labels/targets and live mirrors, rather than passing by hiding it. All 240 Low approaches (12 languages, normal/larger text, colour filtering and reduced motion) and 81 navigation-control checks pass; remaining cab/weather/resource verification is in progress. The weather test now expects the intended 76-degree stationary cab framing.
+
 Look at a cab control and press the action key. The same raycast, distance and visibility rules apply as for parcels
 and doors. The existing target-selection key turns the view to each control in order and announces its whole-sentence
 instruction. Arrow-key and mouse look remain available. The cab door handle exits only after stopping and setting
