@@ -13,6 +13,9 @@ company's own rules for data and the learning system. Merging `pilot` into `main
 
 ## What is checked, and the result
 
+To refresh: `node test/run-all.js --rc` (every suite and the 15 flows, B-157), then `node test/tools/readiness.js`
+prints this table's figures from that run (B-163).
+
 | Check | How | Result |
 | --- | --- | --- |
 | The 3D workday, played as a trainee | 15 shared flows (`node test/qa.js --only workday-3d,...`): a first day, later days with lockers, intercoms, reception, failed deliveries, the walk round the van, damage reported and unreported, night with and without headlights, a wrong turn, the radio call followed, checked in and declined, the replay of the last mistake. Each careful day must have **no** wrong report except the one a variant sets out to make (B-127 to B-131) | **15 of 15 clean** at Low |
