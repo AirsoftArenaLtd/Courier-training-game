@@ -171,6 +171,7 @@ Written by `node test/run-all.js --readme`.
 | `auth.js` | Node | Employee ID and password sign-in (server/auth.js, and its API in server/server.js), in Node with no browser. |
 | `credits.js` | Node | The asset credits (board task B-28): data/credits.js and docs/ASSETS.md list every pack in assets/3d/manifest.json with its author, a CC0 licence and where i… |
 | `data.js` | Node | Trainee data on the training server (docs/DATA.md): a trainer can download everything held about one trainee and can erase all of it (progress, every backup,… |
+| `devdaybrowser.js` | browser (--browser) | The owner's review links. |
 | `drivemapbrowser.js` | browser (--browser) | The 3D workday's drive map with every kind of milestone 8 mistake on it (road signs, a red light, a wrong turn, a cyclist, damage, a low bridge, a shifted lo… |
 | `driving.js` | opens a page | The driving rules added with the drive aids (src/scenes/shift/driveAids.js) and the stop-sign rules, checked in the town lab (index.html?lab=town) with the v… |
 | `enterprise.js` | opens a page | Enterprise sign-in and progress storage (src/core/identity.js, src/core/save.js, server/server.js). |
@@ -191,6 +192,12 @@ Written by `node test/run-all.js --readme`.
 | `fpcabbrowser.js` | browser (--browser) | Real keyboard target selection and action keys, including larger/Tamil layouts and a saved-control reload. |
 | `fpcamera.js` | Node | (first test) the first view matches the existing eye and is reused without touching saved mission state |
 | `fpcamerabrowser.js` | browser (--browser) | Real-key camera feel, physical dashboard anchoring, accessibility and approved trainer rules on resume. |
+| `fpdamage.js` | Node | Damage state, approved report vocabulary and future checkpoint contract. |
+| `fpdamageassets.js` | Node | Damage placement against the shipped van meshes, including their unsprung wheels. |
+| `fpdamagebrowser.js` | browser (--browser) | Real scene launch, keyboard height reminder, motor contact, reports and recovery. |
+| `fpdamageflow.js` | Node | Actual motor contacts, original days, owned mission restore and trainer rules. |
+| `fpdamagereversebrowser.js` | browser (--browser) | Reverse-facing clearance caption/narration and live camera; the approach pose is a fixture. |
+| `fpdamageworld.js` | Node | Located geometry, real mission state and mirror-buffer restoration without WebGL. |
 | `fpday.js` | Node | Day-specific physics, dispatch actions and compatibility without a browser. |
 | `fpdaybrowser.js` | browser (--browser) | Weather rendering and the actual safe handheld/updated-delivery workflow. |
 | `fpdoors.js` | Node | Real doorstep requirements, choices, physical barriers and optional checkpoints. |
@@ -199,13 +206,16 @@ Written by `node test/run-all.js --readme`.
 | `fpdriving.js` | Node | Live driving observations, hazard outcomes and checkpoint continuity. |
 | `fpdrivingbrowser.js` | browser (--browser) | Real hazard meshes, walk/cab interactions and readable safety prompts. |
 | `fpdynamicsbrowser.js` | browser (--browser) | Real keyboard driving, a recorded manoeuvre, and rendered suspension. |
+| `fpfuzzbrowser.js` | browser (--browser) | A 3D fuzz run. |
 | `fpguide.js` | Node | First-time guidance state, saved migrations and hints that do not change the mission. |
 | `fpguidebrowser.js` | browser (--browser) | Real keys through first-morning help, every guide page, blocked actions and a reload. |
 | `fphandheld.js` | Node | Handheld/controller workflow tests. |
+| `fphandheldbrowser.js` | browser (--browser) | Translated delivery choices and the independent Back control must remain usable. |
 | `fphooksbrowser.js` | browser (--browser) | Real 3D scene lifecycle through the shared workday API; completion uses a finished mission fixture. |
 | `fphud.js` | Node | Display lifetime and destinations must never become mission or scoring state. |
 | `fphudbrowser.js` | browser (--browser) | Compact live display, real keyboard controls, and translated/larger layouts. |
 | `fphudcomparebrowser.js` | own command | Capture the same live, stationary fixture before/after C-47. |
+| `fpkeysbrowser.js` | browser (--browser) | The 3D workday's menus from the keyboard alone, as B-62 does for the trainer's dialogs. |
 | `fplangsbrowser.js` | browser (--browser) | Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the automatic rear camera, the dusk and night head… |
 | `fplater.js` | Node | Later-day difficulty, physical detours, practice windows and save compatibility without WebGL. |
 | `fplighting.js` | Node | Lighting follows the saved clock, respects trainer rules, keeps controls live and never changes scoring. |
@@ -219,36 +229,63 @@ Written by `node test/run-all.js --readme`.
 | `fpnarrationbrowser.js` | browser (--browser) | Real P/actions/gaze and a four-second reverse, based on Claude's cab probe. |
 | `fpnav.js` | Node | Road paths use real generated towns, restrictions and checkpoint versions, without a renderer. |
 | `fpnavbrowser.js` | browser (--browser) | Physical dash navigation, trainer aids and real remapped camera/control keys. |
+| `fpnightworld.js` | Node | Night visibility and glare use the existing fog and windscreen; reset and reduced-motion paths stay bounded. |
 | `fpperf.js` | Node | Rendering batches keep physical occlusion and update their static buffers only when needed. |
 | `fpperfbrowser.js` | own command | Compare frozen frames with an untouched pilot served at QA_BEFORE_BASE. |
 | `fpquality.js` | own command | Fixed milestone-eight review gate. |
 | `fpqualitygate.js` | Node | Guard against mislabeled/stale fixtures and false quality passes. |
+| `fpradio.js` | Node | Dispatch route changes, additional check-in stops and honest checkpoint/report boundaries. |
+| `fpradiobrowser.js` | browser (--browser) | Native remapped handheld responses, sat-nav changes, captions and night controls. |
 | `fprear.js` | Node | Rear-camera contract, real obstacle sensing, practice isolation and bounded rendering. |
 | `fprearbrowser.js` | browser (--browser) | Real keys through reversing practice, live rear pixels, saved manoeuvres and accessible layouts. |
+| `fpreplay.js` | Node | Ten-second memory clips: real report definitions, timing, interpolation, isolation and bounded storage. |
+| `fpreplaybrowser.js` | browser (--browser) | Actual workday finish -> results/map -> detached replay, remapped keyboard, accessibility and resource guards. |
+| `fpreplayworld.js` | Node | Detached replay with the real mission checkpoint and CPU world; no WebGL pixels or frame-rate claim. |
 | `fpresume.js` | Node | Seeded model journeys. |
 | `fproute.js` | Node | Full-route identity, save compatibility and physical access, without WebGL. |
 | `fproutebrowser.js` | browser (--browser) | Generated workday: physical raycasts/scans at all five stops; fixtures skip long walks/drives. |
+| `fpsignlayoutbrowser.js` | browser (--browser) | Real sign-label placement and straight-ahead cab sight lines, in native languages and text sizes. |
 | `fpsigns.js` | Node | Sign data must agree with generated routes and the 3D stop obligations. |
 | `fpsignsbrowser.js` | browser (--browser) | Rendered sign geometry, bounded text, real reading keys and modal visibility. |
 | `fpsound.js` | Node | Sound is bounded, quiet before interaction, optional, captioned and independent from scoring. |
 | `fpsoundbrowser.js` | browser (--browser) | Real AudioContext output, narration ducking, Settings keys and repeated scene cleanup. |
+| `fpstopbrowser.js` | browser (--browser) | Physical richer-stop targets, real remapped keys, scanner/signature and readable layouts. |
+| `fpstopflow.js` | Node | Generated-stop integration: real mission guards, retained parcels, reports and restores. |
+| `fpstoplocker.js` | Node | Live locker authorisation: real scene plans, unchanged non-locker obligations, delivery and restore. |
+| `fpstops.js` | Node | Richer delivery choices, including unsafe order, recovery and mid-stop resumes. |
+| `fpstopscene.js` | Node | CPU world checks for physical richer-stop props, occlusion, custody and reflection buffers. |
 | `fptown.js` | Node | Town asset placement, fallback, physical access and reflection ownership without WebGL. |
 | `fptownbrowser.js` | browser (--browser) | Rendered town templates, fallback comparison, original mission identity and clean WebGL. |
 | `fptraffic.js` | Node | Traffic safety decisions, independent of rendering and scoring. |
 | `fptrafficbrowser.js` | browser (--browser) | Physical signal readings, real keys, narration, and bounded road actors. |
+| `fpwalkaround.js` | Node | Existing/new damage records, honest reporting, phase boundaries and exact bounded restores. |
+| `fpwalkaroundbrowser.js` | browser (--browser) | Real remapped keyboard targets, handheld descriptions, checkpoints and report boundaries. |
+| `fpwalkaroundflow.js` | Node | Real mission phases, physical proximity, contract reports and strict walkaround checkpoints. |
+| `fpwalkaroundworld.js` | Node | Physical walkaround proxies follow Low, High and missing-model van surfaces. |
 | `fpweather.js` | Node | (first test) wipers clear the glass through the saved physical control without changing scoring or mission time |
 | `fpweatherbrowser.js` | browser (--browser) | Real wiper input, visible rain clearing, a physical pane and no extra reflection pass. |
 | `fpworld.js` | Node | CPU geometry and scene-state checks. |
+| `glossary.js` | Node | One word for one thing. |
+| `hubkeysbrowser.js` | browser (--browser) | The hub and the record from the keyboard alone, as B-62 and B-72 do for the trainer's dialogs and the 3D menus. |
 | `i18n.js` | Node | The translations (data/i18n/<lang>.js), checked without a browser: - the file loads, and every template's holes are ones its English has ({n} and {n:plural\|s… |
+| `i18nnumbers.js` | Node | Every number in an English line is in its translation, in every language: a speed, a distance, an age or a time that changes in translation teaches the wrong… |
 | `lmsreport.js` | Node | The 3D workday as the LMS sees it (SCORM 1.2 and 2004): a full day that reports every type in the catalogue fits the 4096 characters of suspend data and scor… |
+| `lowparitybrowser.js` | browser (--browser) | Low-graphics parity for milestone 9. |
 | `offline.js` | opens a page | The game with no internet: every request to anything but the training server is blocked (and the browser's name lookups fail), then a new courier signs in, r… |
 | `oldsave.js` | Node | A save from before milestones 7 and 8 still works (B-41): no town seed, no aids code, no criticals by type, no `route.passed`, workday records as they were. |
 | `package.js` | Node | The LMS package (test/tools/package-scorm.js): only run-time files, the manifest at the top, every file a page loads, no tests, docs, server or raw downloads… |
+| `pickupkeysbrowser.js` | browser (--browser) | The three pickups of module 7 with the keyboard alone. |
+| `pretripkeysbrowser.js` | browser (--browser) | The pre-trip walkaround (module 1) with the keyboard alone. |
 | `printbrowser.js` | browser (--browser) | The printed pages with milestone 8 mistakes on them, in each language: the trainee's record (Print / PDF), the certificate and the trainer's before-and-after… |
 | `qa.js` | own command | QA suite for On The Route. |
+| `quickstart.js` | Node | The trainer's quick start names the game's own keys. |
+| `radionightbrowser.js` | browser (--browser) | C-36's radio message and night warning in every language with larger text (Codex checked English and Tamil). |
 | `report.js` | Node | The before-and-after report (server/report.js, src/core/pilotreport.js, GET api/report/before-after): each trainee's first and latest workday side by side an… |
+| `reviewsheet.js` | Node | The native reviewers' sheets (docs/review/<lang>-safety.csv) read the way a spreadsheet reads them. |
 | `routeday.js` | opens a page | Route-day features around the stops (src/core/shift.js, driveAids, TownDriveScene, PostTripScene): - the bad-weather gear question after the briefing, and wh… |
+| `routekeysbrowser.js` | browser (--browser) | The route planner (module 1) and Find It Fast (module 6) with the keyboard alone, as B-79 does for the pre-trip. |
 | `savesize.js` | Node | SCORM 1.2's 4096 characters of suspend data (src/core/save.js, fit): a long workday on top of a heavy save must always be stored within the limit, reload to … |
+| `scorm-launch-2004.js` | Node | The SCORM 2004 package, the pilot's default, launched in its own LMS frame on every run: test/scorm-launch.js with --2004 (the 1.2 package is test/scorm-laun… |
 | `scorm-launch.js` | opens a page | The LMS package launched as an LMS launches it (board task B-40): the SCORM 1.2 zip from test/tools/package-scorm.js, unpacked and opened inside a player pag… |
 | `signin.js` | opens a page | The sign-in screen (src/core/signin.js) on a training server with employee accounts, in a real browser. |
 | `town3d.js` | opens a page | Phase 2 graphics in the town drive (index.html?lab=town), checked by script: - the fake-3D town (src/core/b3d.js): walls are drawn, roofs lean away from the … |
