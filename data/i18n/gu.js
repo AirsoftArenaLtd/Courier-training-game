@@ -4085,7 +4085,7 @@ window.OTR_I18N.gu = {
 "Pause the replay.": "રિપ્લે થોભાવો.",
 "You signaled for at least three seconds before moving.": "આગળ વધતા પહેલાં તમે ઓછામાં ઓછું ત્રણ સેકન્ડ સિગ્નલ આપ્યું.",
 "You moved without signaling in the correct direction for three seconds.": "સાચી દિશામાં ત્રણ સેકન્ડ સિગ્નલ આપ્યા વગર તમે આગળ વધ્યા.",
-"cab habit: signal, mirror, belt or lights": "કેબની ટેવ: સિગ્નલ, મિરર, સીટબેલ્ટ કે હેડલાઇટ"
+"cab habit: signal, mirror, belt or lights": "કેબની ટેવ: સિગ્નલ, અરીસો, સીટબેલ્ટ કે હેડલાઇટ"
 },
 "templates": [
 [
