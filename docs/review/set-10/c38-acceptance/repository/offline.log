@@ -1,0 +1,11 @@
+ok   the title screen opens with no internet
+ok   the hub opens
+ok   the 3D workday opens
+ok   the 3D view is running
+ok   the day has its Dispatch brief
+ok   the 3D models load from the game folder with no internet ({"quality":"high","loaded":22,"failed":0,"fallbacks":0,"bytes":8377598,"decodedBytes":24680796,"errors":[]})
+ok   no request left the training server
+ok   no request to the training server failed
+ok   no page errors
+
+all offline checks passed

@@ -1,0 +1,17 @@
+signal high en normal
+lead en normal
+correct pull-out en normal
+missing signal en normal
+signal high en large
+lead en large
+correct pull-out en large
+missing signal en large
+signal high ta normal
+lead ta normal
+correct pull-out ta normal
+missing signal ta normal
+signal high ta large
+lead ta large
+correct pull-out ta large
+missing signal ta large
+78 high native signal checks passed
