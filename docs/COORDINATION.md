@@ -529,6 +529,9 @@ items here for each agent.
 | B-152 | Claude | **The glossary's last 56 lines as reviewer questions:** for each line `node test/glossary.js --list` still shows (mostly ta signature and handheld, kn and bn walkaround, ta returns and dispatch), either change it to the glossary word if it reads as well, or add a question for the native reviewer to `docs/review/questions.json` ("we use X for this term elsewhere; is Y better here?"), then regenerate `docs/review/OPEN-QUESTIONS.md` and lower the baseline. | done (56 to 47) |
 | B-153 | Claude | **One word for "Workday" in gu, mr and te:** the Workday button (for example gu કામકાજનો દિવસ) and the word in "3D workday aids…" and other lines (વર્કડે, वर्कडे, వర్క్‌డే) differ (found in B-151). Count each form's lines, use the more common in all, add "workday" to `data/i18n/glossary.json`, and update the three quick starts that quote both. | todo |
 | B-154 | Claude | **The replay waits with the other results buttons:** on the results screen "Replay the last mistake." could be pressed while the stars were still counting and the other buttons were disabled (noted at the C-37 merge). `ResultsScene` now disables and enables it with them. | done |
+| B-155 | Claude | **The quick starts quote the game's own words:** `test/quickstart.js` also checks that every button a translated quick start quotes ("**Réglages → Formateur** (Settings → Trainer)") is the game's current translation of that English, so a later change to a button's word (as in B-150 or B-153) fails until the page follows. | done |
+| B-156 | Claude | **The reviewers check their quick start too:** `docs/review/HOW-TO-REVIEW.md` and each sheet's first row ask the native reviewer to read `docs/QUICK-START.<lang>.md` (B-151) as well, noting anything unnatural in the Comment of a new "quick start" row; `--apply` reports those comments for the team to apply by hand. | todo |
+| B-157 | Claude | **One command for the release-candidate pass:** `node test/run-all.js --rc` runs the Node suites, every browser suite and the 15 shared 3D flows at Low (two browsers at a time, distinct ports), and writes one summary to `test/out/rc.md` with each failure's log, so A-28's pass after C-48 is a single run. | todo |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -580,6 +583,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-155 done:** `test/quickstart.js` now also checks the 126 button names quoted across the 11 quick starts against the game's translations, tolerating case endings and longer strings ("See Results ▶"). It caught a changed French button in a trial. New Claude todos: B-156 and B-157.
 
 - **22 October 2026, Claude — B-152 done:** the glossary's other words fall from 56 to 47, and every group left has a question for its reviewer.
   - **Changed:** Tamil now names the Returns desk as its label does (ரிட்டர்ன்ஸில், ரிட்டர்ன்ஸுக்கு) in 4 lines, and Spanish "Review the walkaround." says "Repasa la revisión previa."
