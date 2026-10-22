@@ -317,7 +317,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.close();s.closePanel();
     let plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(6,7),true);plan=OTR.fpRadio.prepare(OTR.fpWalkaroundFlow.prepare(OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan)))))));
     const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpStopFlow.configure(m);OTR.fpLoadout.configure(m,'extra');
-    m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);m.routeDay.weather='clear';m.routePlan.timeOfDay=kind==='ambientnight'?'night':'midday';
+    m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);m.routePlan.timeOfDay=kind==='ambientnight'?'night':'midday';
     for(const parcel of m.parcels)parcel.location='slot'+(parcel.anomaly?5:parcel.stop);for(const zone of OTR.fpDamage.zones)OTR.fpDamage.contact(m.damage,zone,'solid',8);
     Object.assign(m.van,{speed:0,hand:true,belt:true,gear:1,look:0,headlights:true});s.model=m;s.area='route';s.rebuildWorld();const a=s.art.ambient;if(!a)throw Error('No ambient route placement');
     const sites=a.selection.sites,candidates=sites.filter(p=>{const lot=m.town.lots.find(l=>l.id===p.lotId),road=m.town.xs.reduce((x,y)=>Math.abs(x-p.x)<Math.abs(y-p.x)?x:y);s.art.townArt.select(kind==='ambientwalk'?lot.x-lot.side*(lot.w/2+1):road+2,p.z+(kind==='ambientwalk'?3:12));return s.art.townArt.ambientAllowed;});

@@ -67,3 +67,14 @@ test('combined Low days keep collision-bearing parked cars ahead of optional peo
  }
  assert.ok(suppressed>0,'The tight combined budget must exercise the safe suppression path');
 });
+test('every real benchmark people fixture preserves a restorable generated day',()=>{
+ for(const file of ['fpwalkaround','fpwalkaroundflow','fpradio','fpnight'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+file+'.js','utf8'),c);
+ // Exercise the exact page-evaluation function used by fpbench, with real mission and world adapters.
+ const source=fs.readFileSync(__dirname+'/fpbench.js','utf8'),section=source.indexOf("if(process.env.QA_AMBIENT==='1')"),start=source.indexOf('const proof=await p.evaluate(',section)+'const proof=await p.evaluate('.length,end=source.indexOf('},kind);',start)+1;
+ assert.ok(section>=0&&end>start);const fixture=vm.runInContext('('+source.slice(start,end)+')',c);
+ for(const high of [false,true])for(const kind of ['ambientwalk','ambientcab','ambientmirror','ambientnight',...(high?['ambientbench']:[])]){
+  c.OTR.gfx={high:()=>high};const root=new THREE.Scene(),camera=new THREE.PerspectiveCamera(76,16/9,.08,180);root.add(camera);
+  const scene={assetBank:banks[high],view:{world:root,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},handheld:{close(){}},closePanel(){},refresh(){},rebuildWorld(){if(this.art)this.art.dispose();this.art=c.OTR.fpWorld.build(this,this.model);},sync(){this.art.sync(this.model,null,'route');}};
+  c.OTR.game={scene:{getScene:()=>scene}};try{const proof=fixture(kind);assert.ok(proof.restoreValid,kind+' has invalid mission state');assert.ok(proof.selected>0,kind+' has no visible person');assert.equal(proof.limit,high?2:1);assert.equal(scene.model.routeDay.weather,scene.model.routePlan.weather);assert.equal(scene.model.walkaround.departed,true);assert.notEqual(scene.model.routeDay.later.departAt,null);if(kind==='ambientbench')assert.equal(proof.bench,true);}finally{if(scene.art)scene.art.dispose();delete c.OTR.game;}
+ }
+});
