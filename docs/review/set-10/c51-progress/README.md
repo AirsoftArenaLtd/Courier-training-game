@@ -1,0 +1,5 @@
+# C-51 progress, not final acceptance
+
+The corrected renderer is implemented on `32623203`, stacked on pushed C-50. Nine current-pilot world checks pass, including collision-bearing-car priority, all reflection restorations, source-body clearance, derived placement/resume/reduced motion and ownership/disposal. Six rig/asset checks, six pure controller checks, 15 resource-contract guards and source-equivalence/reproduction pass. The range audit covers 60 routes: Low 180/180 and High 178/180 driving legs within selection range. Range is potential visibility, not pixels for every route.
+
+Final current-pilot repository/native/geometry/resource acceptance runs separately on candidate `b3dcb090`. The retained runner records exact hashes and commands in `/tmp/c51-acceptance.json`; it stops on any failed check, source mutation, new Codex request or untested pilot runtime. It can hand over only after all 224 resource views and every other job pass. No final resource peak, Intel FPS result or new preview deployment is claimed here. Earlier wide-fit screenshots are diagnostics and are excluded. Original CC0 licences keep their exact CRLF/whitespace.
