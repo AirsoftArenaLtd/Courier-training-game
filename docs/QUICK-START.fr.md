@@ -33,7 +33,7 @@ Pour la personne qui anime la séance. Imprimez cette page ; le guide complet es
 - **La radio du répartiteur** (the dispatch radio) appelle une fois pendant la première conduite : arrêtez-vous, serrez le frein à main, puis lisez le message sur le **Terminal** (handheld).
 - **Nuit :** un jour sur trois à partir du jour 6 : allumez les **Phares** (**L**) avant de démarrer.
 
-**Lire la carte de conduite :** un repère à chaque erreur de conduite. Un losange est un panneau ou un feu rouge, une étoile un dégât sur le fourgon, un triangle un pont bas, un hexagone un chargement déplacé, une flèche un mauvais virage, un cercle tout le reste. Les erreurs critiques (un feu rouge, un sens interdit, un bus scolaire) limitent cette catégorie à une étoile.
+**Lire la carte de conduite :** un repère à chaque erreur de conduite. Un losange est un panneau ou un feu rouge, une étoile un dégât sur le fourgon, un triangle un pont bas, un hexagone un chargement déplacé, une flèche un mauvais virage, une croix un réflexe en cabine (clignotant, rétroviseur, ceinture ou phares), un cercle tout le reste. Les erreurs critiques (un feu rouge, un sens interdit, un bus scolaire) limitent cette catégorie à une étoile.
 
 **En cas de problème**
 

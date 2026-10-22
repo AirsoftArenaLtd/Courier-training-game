@@ -33,7 +33,7 @@ Para la persona que dirige la sesión. Imprima esta página; la guía completa e
 - **La radio del despacho** (the dispatch radio) llama una vez en el primer trayecto: deténgase, ponga el freno de mano y luego lea el mensaje en el **Escáner** (handheld).
 - **Noche:** cada tres días a partir del día 6: encienda los **Faros** (**L**) antes de arrancar.
 
-**Cómo leer el mapa del manejo:** un marcador en cada error de conducción. Un rombo es una señal de tráfico o un semáforo en rojo, una estrella es un daño a la camioneta, un triángulo un puente bajo, un hexágono una carga desplazada, una flecha un giro equivocado y un círculo cualquier otra cosa. Los errores críticos (un semáforo en rojo, prohibido el paso, un autobús escolar) limitan esa categoría a una estrella.
+**Cómo leer el mapa del manejo:** un marcador en cada error de conducción. Un rombo es una señal de tráfico o un semáforo en rojo, una estrella es un daño a la camioneta, un triángulo un puente bajo, un hexágono una carga desplazada, una flecha un giro equivocado, una cruz un hábito en cabina (señal, espejo, cinturón o faros) y un círculo cualquier otra cosa. Los errores críticos (un semáforo en rojo, prohibido el paso, un autobús escolar) limitan esa categoría a una estrella.
 
 **Cuando algo sale mal**
 

@@ -4084,7 +4084,8 @@ window.OTR_I18N.mr = {
 "This replay shows the van and camera before the mistake.": "हा रिप्ले चुकीपूर्वीची व्हॅन आणि कॅमेरा दाखवतो.",
 "Pause the replay.": "रिप्ले थांबवा.",
 "You signaled for at least three seconds before moving.": "निघण्यापूर्वी तुम्ही किमान तीन सेकंद सिग्नल दिला.",
-"You moved without signaling in the correct direction for three seconds.": "योग्य दिशेला तीन सेकंद सिग्नल न देता तुम्ही निघालात."
+"You moved without signaling in the correct direction for three seconds.": "योग्य दिशेला तीन सेकंद सिग्नल न देता तुम्ही निघालात.",
+"cab habit: signal, mirror, belt or lights": "केबिनमधील सवय: सिग्नल, आरसा, सीटबेल्ट किंवा हेडलाइट"
 },
 "templates": [
 [

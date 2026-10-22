@@ -55,6 +55,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
         W.report('drive.hazard-early', { key: 'school-crossing', ok: false, where: at(12) });
         // C-33's richer stops (B-75), each got wrong once
         ['stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt'].forEach((type, id) => W.report(type, { key: id, stop: id + 1, ok: false, where: at(13 + id) }));
+        // B-166: a missed signal, a cab habit: its own plus-shaped pin
+        W.report('drive.signal', { key: '1:1', ok: false, stop: 1, where: at(17) });
         // C-35's walkaround and post-trip report (B-93): by zone, with no place, so no pins
         W.report('inspect.damage', { key: 'rear', ok: false }); W.report('trip.damage-report', { key: 'wheel', ok: false }); W.report('trip.damage-false', { key: 'roof', ok: false });
         const rec = W.finish(null, { stops: [{ stop: 1, delivered: true, x: 20, z: -20 }, { stop: 2, delivered: false, x: -20, z: -30 }], depot: { x: 0, z: 10 } });
@@ -76,7 +78,7 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
           pins: s.pinObjs.map(c => ({ x: c.x, y: c.y })), lang: OTR.i18n.lang, large: !!OTR.a11y.settings().large };
       });
       check(r.lang === lang && r.large === large, `${tag}: the page runs in ${lang}${large ? ' with larger text' : ''}`);
-      check(r.marks.join(',') === 'sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-', `${tag}: pin shapes ${r.marks.join(',')}`);
+      check(r.marks.join(',') === 'sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-,habit', `${tag}: pin shapes ${r.marks.join(',')}`);
       for (const l of r.legend) {
         check(!!l.b, `${tag}: a legend line for ${l.m} ("${l.shown}")`);
         if (!l.b) continue;
@@ -97,7 +99,8 @@ const check = (ok, what) => { checks++; console.log(`${ok ? 'ok  ' : 'FAIL'} ${w
       const types = ['drive.red-light', 'drive.route', 'drive.cyclist', 'drive.pedestrian', 'drive.sign-noentry', 'drive.hazard-early', 'drive.sign-giveway',
         'van.damage-dent', 'drive.clearance', 'load.shift',                          // C-34's damage and load (B-68)
         'stop.intercom', 'stop.reception', 'stop.locker', 'stop.reattempt',           // C-33's richer stops (B-75)
-        'inspect.damage', 'trip.damage-report', 'trip.damage-false'];                  // C-35's walkaround and post trip (B-93)
+        'inspect.damage', 'trip.damage-report', 'trip.damage-false',                   // C-35's walkaround and post trip (B-93)
+        'drive.signal'];                                                                // B-138's signal (B-166)
       await p.evaluate(() => { const m = OTR.game.scene; m.getScenes(true).forEach(s => m.stop(s.sys.settings.key)); m.start('WorkdayDebriefScene', {}); });
       if (!(await until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000))) throw new Error(`${tag}: the debrief never opened`);
       await wait(900);

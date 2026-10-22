@@ -4095,7 +4095,8 @@ window.OTR_I18N.es = {
 "This replay shows the van and camera before the mistake.": "Esta repetición muestra la camioneta y la cámara antes del error.",
 "Pause the replay.": "Pausa la repetición.",
 "You signaled for at least three seconds before moving.": "Señalizaste al menos tres segundos antes de moverte.",
-"You moved without signaling in the correct direction for three seconds.": "Te moviste sin señalizar hacia el lado correcto durante tres segundos."
+"You moved without signaling in the correct direction for three seconds.": "Te moviste sin señalizar hacia el lado correcto durante tres segundos.",
+"cab habit: signal, mirror, belt or lights": "hábito en cabina: señal, espejo, cinturón o faros"
 },
 "templates": [
 [
