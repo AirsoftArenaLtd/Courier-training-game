@@ -3,17 +3,17 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const THREE=require('../lib/three.min.js');
 const context={THREE,Phaser:{Scene:class{}},URLSearchParams,location:{search:''}};context.window=context;
 vm.createContext(context);
-for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fplighting','fpweather','fpsigns','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
+for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fplighting','fpweather','fpsigns','fpwalkaroundflow','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
 context.OTR.registerScene=C=>{context.SceneClass=C;};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
 test('parking practice at Dispatch opens its own menu instead of a workday completion',()=>{
  let opened=0;context.SceneClass.prototype.showDispatch.call({model:{kind:'parking'},showParkingMenu(){opened++;},showPanel(){assert.fail('Practice must not open the workday finish panel');}});assert.equal(opened,1);
 });
-function world(high=true){
+function world(high=true,model){
   context.OTR.gfx={high:()=>high};
   const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
   const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},panel:null};
-  const art=context.OTR.fpWorld.build(scene),m=context.OTR.fpMission.create('campaign',1);
+  const m=model||context.OTR.fpMission.create('campaign',1),art=context.OTR.fpWorld.build(scene,m);
   return {scene,art,m,camera};
 }
 test('render diagnostics count world, mirror and composite once per frame without accumulating',()=>{
@@ -103,6 +103,18 @@ test('reduced motion clears even the last fractional degree of speed zoom',()=>{
   try{const w=world(false);w.m.mode='cab';w.m.driveAssist=0;w.m.van.speed=8;w.art.sync(w.m,null,'route');w.m.van.speed=0;
     for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,76);w.art.dispose();
   }finally{context.OTR.fpAccess=old;}
+});
+test('walkaround front and mirror marks leave the headlights directly reachable',()=>{
+ for(const high of [false,true])for(const yaw of [0,.8]){
+  const m=context.OTR.fpMission.create('campaign',6);m.walkaround={};m.damage={enabled:true};m.phase='prepare';m.mode='walk';Object.assign(m.van,{yaw,speed:0,hand:true});
+  Object.assign(m.player,context.OTR.fp.local(m.van,0,-4.2));const w=world(high,m);w.art.sync(m,null,'route');
+  assert.equal(w.art.walkaroundTargets[0].visible,true);
+  const before=JSON.stringify(m.snapshot());
+  for(const x of [-.68,0,.68]){const p=context.OTR.fp.local(m.van,x,-2.78);w.camera.lookAt(new THREE.Vector3(p.x,1,p.z));w.camera.updateMatrixWorld(true);assert.equal(w.art.pick(),'lights',`${high} lamp ${x} must not open the front damage record`);}
+  const front=w.art.walkaroundTargets[0],point=new THREE.Vector3();front.getWorldPosition(point);w.camera.lookAt(point);w.camera.updateMatrixWorld(true);assert.equal(w.art.pick(),'wear-front');
+  const mirror=context.OTR.fpWalkaroundFlow.target('mirror'),spec=context.OTR.fpMirrors.specs[0];assert.ok(Math.abs(mirror.x-spec.x)<.02);assert.equal(mirror.y,spec.y);assert.equal(mirror.z,spec.z);
+  assert.equal(JSON.stringify(m.snapshot()),before);w.art.dispose();
+ }
 });
 test('three physical mirrors remain live without a button and reflection visibility restores exactly',()=>{
  const w=world();w.m.mode='cab';w.m.paused=false;w.art.sync(w.m,null,'route');
