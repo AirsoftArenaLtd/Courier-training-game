@@ -1,6 +1,6 @@
 # The 3D scenario runner
 
-**Latest native evidence, 22 October:** runtime `dcbe8520` / candidate `1b672d67` passes 191 native checks, including real saved-workday isolation, assessment abandonment, repeated completion, remapped inputs and actual 2D fallback. Thirteen current model/world cases pass. Corrected screenshots and exact repository source scopes: `review/set-10/c38-native-progress/manifest.json`. Remaining cab/signal/narration/resource acceptance is running; C-38 is still doing.
+**Latest native evidence, 22 October:** runtime `1532980c` / candidate `a195d5a3` passes 231 native checks, 13 model/world cases and four guidance cases. It preserves actual saved-workday state and assessment attempts, completes repeated plays, retains merged signal/replay registration, and suppresses saved-workday narration in modules. Corrected screenshots and exact source scopes: `review/set-10/c38-guidance-progress/manifest.json`. All 82 repository suites pass at entry-corrected candidate `7aed62d2`; the only later runtime change is the focused guidance guard. Cab/signal/replay/narration/resource acceptance continues; C-38 is still doing.
 
 C-38 implements the runner in `src/core/fpscenario.js` and `src/scenes/FirstPersonScenarioScene.js`, stacked on C-52. The governing contract remains `3D-MODULES.md` on the current pilot, including B-135's per-module rules. C-39 to C-46 supply the actual exercises. This change registers no production exercise, changes no course data and enables no 3D default.
 
