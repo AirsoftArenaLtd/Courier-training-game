@@ -60,3 +60,30 @@ The pass rule does not change: every tested category at the trainer's pass mark 
   a 2D result of the same id land in the same record.
 - A-31: a QA flow per 3D scenario (`test/paths/`), played with real keys, in English and Tamil at larger text, before
   `default3d` is set.
+
+## Per module (B-135, for C-39 to C-46)
+
+The existing scenarios keep their ids and categories and only gain `scene3d`. The new 3D-only scenarios below are the
+ids Codex should add (with `scene3d` and no `scene`). Each scores through an `OTR.ScoreLog`. Where it tests what the
+3D workday already reports, it uses the **same label, lesson and critical** as that report type in
+`data/workday_events.js`, so a mistake reads the same in a module and in a workday. The workday's report types are not
+sent from a module run: the module's ScoreLog is its record.
+
+| Module (task) | Existing ids, now in 3D | New 3D-only ids (title, categories) | What the new ones score (the workday's wording where it exists) |
+| --- | --- | --- | --- |
+| m1 Route & Driving (C-39) | m1-pretrip, m1-route, m1-driving, m1-spot | `m1-junctions` Junctions and Lights [safety, efficiency]; `m1-school` School Zone [safety]; `m1-night` Night Run [safety, efficiency] | junctions: `drive.sign-stop`, `drive.sign-giveway`, `drive.red-light` (critical), `drive.signal`, `drive.mirrors`. School: `drive.sign-school`, `drive.school-bus` and `drive.school-bus-pass` (critical), `drive.pedestrian` (critical). Night: `inspect.lights`, `drive.lights`, `drive.following` |
+| m2 Package Handling (C-40) | m2-sort, m2-lift, m2-labels | `m2-heavy` Heavy and Awkward [safety, efficiency] | the lift checks of m2-lift (bend the knees, load close, no twisting), plus asking for a team lift or a trolley over the weight limit; lifting over the limit alone is critical |
+| m3 Customer Interaction (C-41) | m3-missing, m3-signature, m3-twostops, m3-doorsteps | `m3-intercom` Apartment Intercom, `m3-reception` Business Reception, `m3-locker` Parcel Locker [service, safety, efficiency] | `stop.intercom`, `stop.reception`, `stop.locker` (complete and right), `scan.stop`, `deliver.outcome`; a signature parcel left without one is critical, as in m3-signature |
+| m4 Problem Solving (C-42) | m4-address, m4-recover, m4-damaged, m4-storm | `m4-closure` Road Closed [safety, efficiency]; `m4-blocked` Blocked Drive [safety, service] | closure: `drive.route` (follow the reroute), `drive.contact` with the closure; blocked: park legally (`drive.sidewalk`), `stop.hazard`, a safe exception if the door cannot be reached |
+| m5 Scanner & Exceptions (C-43) | m5-pod, m5-exceptions, m5-adult | none | as the 2D scenes: the photo, the exception codes and the ID check (`stop.age-check`; a parcel handed over without a valid ID is critical) on the real handheld |
+| m6 Loading the Truck (C-44) | m6-load, m6-find | none | as the 2D scenes, with `load.shelf`, `load.secured` and `load.count` wording for loading by stop order and weight |
+| m7 Pickups & Paperwork (C-45) | m7-business, m7-intl, m7-dg | none | as the 2D scenes, at a real counter; accepting undeclared dangerous goods stays critical |
+| m8 Safety & Wellness (C-46) | m8-steps, m8-dog, m8-heat, m8-incident | `m8-ice` Slips on Ice [safety]; `m8-reverse` Reversing Near-Miss [safety]; `m8-fatigue` Tired at the Wheel [safety, efficiency] | ice: walking speed and footing on ice (`drive.weather` wording for the drive to it); reverse: `drive.backing`, `drive.backing-walkaround`, `drive.mirrors`; a contact while reversing is critical (`drive.contact`). Fatigue: taking the break when it is due, as the route day's break check |
+
+**New scenarios and completion.** The 13 new ids are recorded like any scenario (stars, attempts, the record, xAPI).
+Whether they also count towards "every module passed" (the certificate and the LMS completion) is owner question 11.
+Until it is answered they are **optional**: A-30 adds them with `optional: true`, which the academy's completion rule
+skips. It is one flag per scenario to change.
+
+**New text.** Every scenario title, brief, label and lesson is a whole English sentence (Claude translates them at
+review), and a label that matches a workday report uses that report's text exactly, so it is translated once.
