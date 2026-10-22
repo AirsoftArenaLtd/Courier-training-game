@@ -539,7 +539,7 @@ items here for each agent.
 | B-160 | Claude | **B-138's signal reports fit the SCORM 1.2 save:** pack placed reports grouped by type and outcome (v3: no row brackets, type or outcome per report, a time column only where the group has times) and right checks with no key as type numbers, so the heaviest day with 30 missed signals stays packed with all 59 pins; a permanent guard in `test/savesize.js`. Then the careful-day helper signals before each pull-out with B-138. | doing (packing done; helper with B-138's review) |
 | B-161 | Claude | **Save v3 on a real 3D day:** a browser check that plays `workday-3d-j` (a scrape left unreported: the most pins of the flows) with a strict SCORM 1.2 stand-in LMS and asserts the stored save is packed v3, under 4,000 characters, and reloads to the same score and pins (B-160 was measured in Node). | todo |
 | B-162 | Claude | **More key terms in the glossary:** "parking brake" and "mirror" are glossary terms ("headlight" already was). Parking brake: one word in every language. Mirror: Malayalam's 12 lines with the transliteration മിറർ now say കണ്ണാടി like the Left mirror button (49 lines). Baseline 69. | done |
-| B-163 | Claude | **Readiness from the release-candidate run:** `test/tools/readiness.js` reads `test/out/rc.md` (B-157) and prints the figures for `docs/READINESS.md`'s "What is checked" table (suites passed, flows clean, reruns), so the page is refreshed from one run, not by hand. | todo |
+| B-163 | Claude | **Readiness from the release-candidate run:** `test/tools/readiness.js` reads `test/out/rc.md` (B-157) and prints the figures for `docs/READINESS.md`'s "What is checked" table (suites passed, flows clean, reruns), so the page is refreshed from one run, not by hand. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -591,6 +591,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-163 done:** `node test/tools/readiness.js` reads the last `--rc` summary (`test/out/rc.md`) and prints, for Node suites, browser suites and 3D flows, how many passed, which passed only when rerun alone, and which fail, with the run's date and commit. `docs/READINESS.md` says how to refresh it. A-28's pass after C-48 will use both.
 
 - **22 October 2026, Claude — B-162 done:** "parking brake" and "mirror" are glossary terms now.
   - **Parking brake:** every language uses one word.
