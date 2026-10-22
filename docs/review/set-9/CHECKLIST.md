@@ -112,4 +112,6 @@ Switch to Tamil with larger text for the radio message and the night warning: th
 | 29 | (C-52) Open the handheld and look at the dashboard | They look like a real device and real instruments; Tamil with larger text still fits |
 | 30 | (C-37, merged) Finish a workday with a mistake (for example drive off at night without headlights: `route=9&day=6`), then press "Replay the last mistake." on the results | The few seconds before the mistake play from the driver's seat; pause and the half-second steps work from the keyboard; it is clear what went wrong |
 
+| 31 | (B-138, merged) On any later day (`route=10&day=4`), pull away from the depot once without the indicator and once after switching it on with Q and waiting three seconds | The first is marked on the results and pinned on the drive map as a missing signal; the second is not. The indicator stays on until you press Q again |
+
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

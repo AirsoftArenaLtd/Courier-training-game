@@ -62,6 +62,9 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
   for a moment. The left mirror must be checked just before moving off, and the mirror on the side they are turning
   or changing lanes to just before they steer (a check counts for about four seconds). Each one is marked on the
   results, and a missed check is a pin on the drive map.
+- **Signals** (B-138): Q for left, C for right, or the stalk by the wheel. The indicator must be on the right way for
+  at least three seconds before the van moves off after a stop (backwards too) and before a turn; then the mirror check.
+  A missing or late signal is a pin on the drive map. The indicator does not cancel itself: press the key again.
 - **Gears** are the P-R-N-D selector by the wheel: look at it and press the action key (E), or press R to switch
   between Drive and Reverse. The van must be stopped to change gear.
 - **Reversing:** selecting R switches on the rear camera screen on the dashboard by itself. Its guidelines bend with

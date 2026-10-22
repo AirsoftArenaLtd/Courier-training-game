@@ -22,6 +22,7 @@ languages each have this page as `docs/QUICK-START.<lang>.md` (machine translati
 
 **Show them the cab (one minute)**
 - **Look** at a mirror to check it; the left mirror before moving off, the turning side before steering.
+- **Signal:** **Q** left, **C** right, for at least three seconds before moving off (backwards too) or turning, then the mirror.
 - **Gears:** look at the selector and press **E**, or **R** for reverse; the rear camera comes on by itself.
 - **Sat nav** on the dash: the route, the next turn and how far. A missed turn reroutes; rejoin within 30 seconds.
 - **Road signs:** stop signs, give way, speed limits, school zones, one-way, no entry, road works, traffic lights.

@@ -7,7 +7,8 @@ const keysOf=f=>[...fs.readFileSync(path.join(docs,f),'utf8').matchAll(/\*\*([A-
 const versions=fs.readdirSync(docs).filter(f=>/^QUICK-START\.[a-z]{2}\.md$/.test(f)).sort();
 // What the page says each key does, and the handler in FirstPersonScene that does it.
 const does={E:/e\.code==='KeyE'\|\|e\.code==='Enter'\)\{this\.interact\(\)/,R:/e\.code==='KeyR'\)this\.cabAction\(m\.van\.gear===1\?'cab-reverse'/,J:/e\.code==='KeyJ'&&OTR\.fpSigns\)\{OTR\.fpSigns\.read\(this\)/,
-  H:/e\.code==='KeyH'\)\{this\.showPause\(\)/,P:/e\.code==='KeyP'\)\{OTR\.fpAccess\.focus\(this\)/,L:/e\.code==='KeyL'\)this\.cabAction\('cab-headlights'\)/};
+  H:/e\.code==='KeyH'\)\{this\.showPause\(\)/,P:/e\.code==='KeyP'\)\{OTR\.fpAccess\.focus\(this\)/,L:/e\.code==='KeyL'\)this\.cabAction\('cab-headlights'\)/,
+  Q:/e\.code==='KeyQ'\)this\.cabAction\('cab-signal-left'\)/,C:/e\.code==='KeyC'\)this\.cabAction\('cab-signal-right'\)/};
 test('every key in the English quick start is handled by the 3D scene and does what the page says',()=>{
   const keys=keysOf('QUICK-START.md'),set=scene.match(/const codes=new Set\(\[([^\]]*)\]/);
   assert.ok(set,'the scene key set was not found');assert.ok(keys.length>=6,'the quick start names too few keys: '+keys.join(' '));

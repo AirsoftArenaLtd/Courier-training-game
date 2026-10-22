@@ -20,6 +20,7 @@ Para la persona que dirige la sesión. Imprima esta página; la guía completa e
 
 **Muéstreles la cabina (un minuto)**
 - **Mirar:** mire un espejo para revisarlo; el espejo izquierdo antes de arrancar, el del lado hacia el que se gira antes de girar.
+- **Señalizar:** **Q** a la izquierda, **C** a la derecha, al menos tres segundos antes de arrancar (también marcha atrás) o girar; después, el espejo.
 - **Marchas:** mire el selector y pulse **E**, o **R** para reversa; la cámara trasera se enciende sola.
 - **GPS** (sat nav) en el tablero: la ruta, el próximo giro y la distancia. Si se pasa un giro, la ruta se recalcula; vuelva a la ruta en menos de 30 segundos.
 - **Señales de tráfico:** señales de alto, ceda el paso, límites de velocidad, zonas escolares, sentido único, prohibido el paso, obras en la vía, semáforos.
