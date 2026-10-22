@@ -131,7 +131,7 @@ stop number, the drive leg or the hazard's id).
 | `load.missort-caught` / `load.missort-missed` | a package for another route is on the shelf: caught while scanning, or loaded anyway |
 | `load.extra-caught` | a package not on the manifest is found and set aside |
 | `load.missing-found` | a package is missing: reported to dispatch before leaving (`ok: false` if the trainee rolled out without saying) |
-| `load.found-later` | a package missed at load-out turns up at a stop (pass `stop`) |
+| `load.found-later` | a package missed at load-out turns up at a stop (pass `stop`). B-131: when the same package was reported missing to Dispatch before departure (a right `load.missing-found`), it was never at the depot to load, so this report and that package's `load.shelf` are kept as right and not scored |
 | `drive.following` | a gap check while following traffic (`ok: false` under three seconds); key by the leg |
 | `drive.mirrors` | each time the van pulls out from the curb |
 | `drive.backing` | each reversing manoeuvre; `ok: false` if the trainee did not get out and look (G.O.A.L.) |

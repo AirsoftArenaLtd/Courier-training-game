@@ -94,4 +94,21 @@ the [night view](c36-cues/c36-cues-low-ta-ta-large-night.png) and the [oncoming 
 
 Switch to Tamil with larger text for the radio message and the night warning: they should still fit and read well.
 
+**Owner's visual review, 21 October (High preview, relayed by Codex).** What you said, and where each is being done:
+
+- Driving feels substantially better, and the houses work.
+- The cab looks incomplete, and the side mirrors are not apparent from the driving view: **C-48** (doing).
+- Some surfaces look missing or flat; the uploaded Poly Haven materials are not used yet: **C-49**.
+- Signs need real lettering on their faces, not floating text: **C-50**.
+- People and street detail were not apparent: **C-51**.
+- The GUI (cab instruments and handheld) needs a visual pass: **C-52**.
+
+| # | When it lands, try this | It should feel like |
+| --- | --- | --- |
+| 25 | (C-48) Sit in the cab at the start of a workday and look ahead | Both side mirrors are in view and show the road behind; the cab looks finished around you |
+| 26 | (C-49) Drive down a street and stop at a house | Road, pavement, grass, plaster and brick look like real materials, at High; Low still runs smoothly |
+| 27 | (C-50) Drive up to a stop sign and a street-name sign | You can read the sign itself, as on a real street; J still reads it aloud |
+| 28 | (C-51) Do a delivery on a busy street | People are visible on the pavements and at the doors |
+| 29 | (C-52) Open the handheld and look at the dashboard | They look like a real device and real instruments; Tamil with larger text still fits |
+
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

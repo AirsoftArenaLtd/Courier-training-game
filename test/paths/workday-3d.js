@@ -311,11 +311,18 @@ const make = (opts) => async (page, ctx) => {
 
   // ---- pre-trip walkaround
   for (const part of ['tyres', 'lights']) {
-    await use(part); await shot('inspection-' + part);
+    // B-130: a panel left open (the repair's confirmation) would take the E meant for the inspection: close it first
+    for (let n = 0; n < 3 && await ev(() => !!OTR.game.scene.getScene('FirstPersonScene').panel); n++) await press('Escape');
+    // on a walkaround day the front-of-van mark covers the headlights (Codex inbox, B-130): P picks the inspection point
+    await at(part);
+    for (let n = 0; n < 14 && await ev((p) => OTR.game.scene.getScene('FirstPersonScene').target !== p, part); n++) await press('KeyP');
+    must(await ev((p) => OTR.game.scene.getScene('FirstPersonScene').target === p, part), `the target key never reached the ${part} inspection point`);
+    await press('KeyE'); await shot('inspection-' + part);
     const fault = await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.fault);
     await press(part === fault ? 'Digit2' : 'Digit1');
+    must(await ctx.until(`${FP}.model.checks.${part} === true`, 5000), `the ${part} inspection was not recorded as right: ` + JSON.stringify(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.checks)));
   }
-
+  for (let n = 0; n < 3 && await ev(() => !!OTR.game.scene.getScene('FirstPersonScene').panel); n++) await press('Escape');
   const preWalk = await walkaround('pretrip');                    // B-99: C-35's walkaround before the first drive
   // ---- the cab: belt, parking brake, then the start of the first leg on throttle and brake, through the first junction
   await use('driver');
@@ -330,6 +337,12 @@ const make = (opts) => async (page, ctx) => {
     else { await press('KeyL'); must((await state()).m.van.headlights === true, 'L did not switch the headlights on'); }
     await shot('night-cab');
   }
+  // B-129: fog and storms need the headlights in daylight too (fpNight.required), so a careful courier switches them on
+  else if (await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return !!m.nightDrive && OTR.fpNight.required(m) && !m.van.headlights; })) {
+    await press('KeyL');
+    must((await state()).m.van.headlights === true, 'L did not switch the headlights on in poor visibility');
+    log('      headlights on for the weather');
+  }
   // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
   // checked by looking at it (there is no mirror button since C-23); the left mirror just before moving off
   await cabUse('cab-drive'); must((await state()).m.van.gear === 1, 'the selector did not put the van in Drive');
@@ -342,8 +355,11 @@ const make = (opts) => async (page, ctx) => {
   // High run the game may simulate a tenth of a second in five, so a fixed deadline measured the PC, not the drive
   const driveTo = async (z) => {
     const end = Date.now() + 300000; let fwd = false, brake = false, best = Infinity, lastGain = Date.now();
+    // B-129: drive to the conditions: at most 85% of the day's weather limit (fog 12, ice 8, snow 10 mph: fpDay.conditions)
+    const top = await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, D = OTR.fpDay;
+      const mph = D && D.active(m) ? Math.min(D.conditions[m.routeDay.weather].mph, OTR.fpRoute.limit(m)) : Infinity; return Math.min(4, mph * 0.85 / 2.2369362921); });
     while (Date.now() < end && Date.now() - lastGain < 30000) {
-      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < 4;
+      const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < top;
       if (Math.abs(d) < best - 0.05 || Math.abs(v.speed) > 0.04) { best = Math.min(best, Math.abs(d)); lastGain = Date.now(); }
       if (gas !== fwd) { await page.keyboard[gas ? 'down' : 'up']('KeyW'); fwd = gas; }
       if (stop !== brake) { await page.keyboard[stop ? 'down' : 'up']('KeyS'); brake = stop; }
@@ -416,6 +432,8 @@ const make = (opts) => async (page, ctx) => {
   must((await state()).m.van.gear === -1, 'the selector did not put the van in Reverse');
   must(await ctx.until(`${FP}.view.mirror.rearOn === true`, 3000), 'the rear camera did not switch on in reverse');
   await shot('rear-camera');
+  // B-130: moving off again, even backwards, wants a fresh mirror check (fpdriving.js: each pull-out after a stop with the brake on)
+  await lookAt('mirror-left', 0); await press('KeyV');
   await reverseBy(1);
   await cabUse('cab-park');
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.backing' && e.ok)), 'a slow reverse with the camera was not reported as safe backing');
@@ -426,16 +444,18 @@ const make = (opts) => async (page, ctx) => {
   // opts.radio (B-122, B-124, B-125): C-36's call, answered as the guide says: parked with the brake on, read on the
   // handheld, then 'priority' (accept; the stop it names is delivered next, the credit goes to the first stop delivered
   // after accepting), 'checkin' (accept, park at the check-in spot, confirm arrival) or 'decline'
-  const call = opts.radio ? await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; }) : null;
+  // B-128: a careful courier answers the day's call, so a later day follows it (by its kind) unless opts.radio says otherwise
+  const call = await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = OTR.fpRadio && OTR.fpRadio.descriptor(m); return d ? { kind: d.kind, stop: d.stop } : null; });
   if (opts.radio) must(call && (opts.radio === 'decline' || call.kind === opts.radio), `the day has no ${opts.radio} radio call: ` + JSON.stringify(call));
-  const radioAt = !call ? -1 : call.kind === 'priority' && opts.radio === 'priority' ? call.stop : 1;
+  const radio = opts.radio || (call ? call.kind : null);
+  const radioAt = !call ? -1 : call.kind === 'priority' && radio === 'priority' ? call.stop : 1;
   for (let i = 0; i < N; i++) {
     if (i === radioAt) {
       must(await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; return OTR.fpRadio.pending(m) && m.parked(); }), 'the radio call is not waiting, or the van is not parked, before stop ' + (i + 1));
       await press('Tab'); await pick(/^Read the dispatch radio message\.$/);
       must(await ctx.until(`${FP}.handheld.isOpen && ${FP}.handheld.device.current.title === 'The dispatch radio.'`, 5000), 'the radio message did not open on the handheld');
       await shot('radio-message');
-      if (opts.radio === 'decline') {
+      if (radio === 'decline') {
         await pick(/^Decline the route update\.$/); await pick(/^Put away the handheld\.$/);
         log('      radio: call read parked and declined');
       } else {
@@ -452,6 +472,14 @@ const make = (opts) => async (page, ctx) => {
       }
     }
     if (i > 0) { await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model; m.mode = 'walk'; }); await parkAt(i); }
+    // B-127: C-11's route-day update for this stop, sent on the way: read it parked on the handheld before delivering
+    if (await ev((i) => { const m = OTR.game.scene.getScene('FirstPersonScene').model, d = m.routeDay && m.routeDay.dispatch; return !!(d && d.sent && !d.read && d.stop === i); }, i)) {
+      await press('Tab'); await pick(/^Route-day updates$/); await pick(/^Read the dispatch update$/);
+      must(await ctx.until(`${FP}.handheld.device.current && ${FP}.handheld.device.current.title === 'DISPATCH UPDATE'`, 5000), 'the route-day update did not open');
+      must(await ev(() => OTR.game.scene.getScene('FirstPersonScene').model.routeDay.dispatch.read), 'the route-day update was not marked read');
+      await press('Tab');
+      log(`      route-day update for stop ${i + 1} read`);
+    }
     await use('cargo'); must((await state()).m.cargoOpen, 'could not open the cargo at stop ' + i);
     // a parcel missed at load-out turns up when the cargo is opened at the first stop (B-90)
     if ((await state()).m.parcels[i].location === 'pending') must(await ctx.until(`${FP}.model.parcels[${i}].location !== 'pending'`, 8000), 'the parcel missed at load-out was never found (stop ' + i + ')');
@@ -541,6 +569,7 @@ const make = (opts) => async (page, ctx) => {
       await use('secure'); await use('cargo');
       continue;
     }
+    let failedBooked = false;
     await shot('contact-' + i); await pick(/Record on handheld/);
     // on a marked day the outcome is a panel of whole sentences (C-33); before, it was the handheld's list
     if (!marked) must((await state()).device, 'the door did not open the delivery on the handheld');
@@ -555,7 +584,11 @@ const make = (opts) => async (page, ctx) => {
       }
       if (spec.difficult) { await pick(/^Speak with the customer calmly\.$/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
       if ((await state()).panel && await ev(() => OTR.game.scene.getScene('FirstPersonScene').panel.choices.some((o) => /^Return to the delivery controls\.$/.test(o.label)))) await pick(/^Return to the delivery controls\.$/);
-      if (!(await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Hand the parcel to the recipient\.$/.test(o.label)); }))) await pick(/Record on handheld/);
+      // B-131: a parcel that cannot be handed over (a failed ID check, the wrong signer) is a failed delivery: the card,
+      // the reason it is kept and the reattempt, as at a door with nobody in (stop.reattempt)
+      if (expected === 'exception' && await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Arrange a failed delivery and reattempt\.$/.test(o.label)); })) {
+        await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i); failedBooked = true;
+      } else if (!(await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Hand the parcel to the recipient\.$/.test(o.label)); }))) await pick(/Record on handheld/);
     } else if (spec.adult || (spec.signature && spec.present) || spec.difficult) {
       await pick(/Delivery checks/);
       if (spec.adult) {
@@ -583,7 +616,16 @@ const make = (opts) => async (page, ctx) => {
     }
     log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
     await shot('delivery-options-' + i);
-    if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
+    // B-131: on a marked day any exception is a failed delivery; from the outcome screen, back to the controls to arrange it
+    if (marked && expected === 'exception' && !failedBooked) {
+      const has = (re) => ev((src) => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => new RegExp(src).test(o.label)); }, re.source);
+      if (await has(/^Review the delivery checks\.$/)) await pick(/^Review the delivery checks\.$/);
+      if (await has(/^Return to the delivery controls\.$/)) await pick(/^Return to the delivery controls\.$/);
+      if (await has(/^Arrange a failed delivery and reattempt\.$/)) { await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i); failedBooked = true; }
+      else await pick(/Record on handheld/);
+    }
+    if (failedBooked) {}                                        // B-131: recorded by the failed-delivery sequence
+    else if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
     else await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
     must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
     await shot('receipt-' + i); await press('Digit1');
@@ -627,10 +669,10 @@ const make = (opts) => async (page, ctx) => {
     // B-123: the first leg was driven in the dark without headlights: wrong, with its place, a pin, and safety marked down
     const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok, where: !!e.where }))`);
     must(lights.some((e) => e.ok === false && e.where), 'moving off at night without headlights was not reported wrong with its place: ' + JSON.stringify(lights));
-    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
+    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, ratio: r.ratios && r.ratios.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
     must(rec.pins.includes('Drove without headlights in poor light'), 'the drive map has no pin for driving without headlights: ' + JSON.stringify(rec.pins));
-    must(rec.safety < 3, 'safety should not be three stars after driving in the dark without headlights: ' + rec.safety);
-    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars)`);
+    must(rec.ratio < 1, 'safety should lose points after driving in the dark without headlights: ' + JSON.stringify(rec));
+    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars, ${Math.round(rec.ratio * 100)}%)`);
   }
   if (opts.scuff) {
     const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
@@ -644,12 +686,19 @@ const make = (opts) => async (page, ctx) => {
   // B-113: a careful day follows the sat nav; the wrong-turn variant has exactly its one wrong turn
   const routeMisses = await ev(`${dayEvents}.filter((e) => e.type === 'drive.route' && e.ok === false).length`);
   must(routeMisses === (opts.wrongTurn ? 1 : 0), `drive.route failures: ${routeMisses}, expected ${opts.wrongTurn ? 1 : 0}`);
-  if (opts.radio) {
+  if (radio) {
     // the radio's own report (key r0); C-11's route-day updates use the same type with the stop as their key
     const upd = await ev(`${dayEvents}.filter((e) => e.type === 'dispatch.update' && /^r/.test(String(e.key))).map((e) => ({ key: e.key, ok: e.ok, stop: e.stop }))`);
-    const want = opts.radio !== 'decline';
-    must(upd.length === 1 && upd[0].ok === want, `${opts.radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
+    const want = radio !== 'decline';
+    must(upd.length === 1 && upd[0].ok === want, `${radio === 'decline' ? 'declining' : 'following'} the radio call should be one ${want ? 'right' : 'wrong'} dispatch.update: ` + JSON.stringify(upd));
   }
+  // B-127: a careful day has no wrong report at all, apart from what a variant sets out to do
+  const meant = new Set([].concat(opts.scuff ? ['van.damage-scuff'] : [], opts.unreported ? ['trip.damage-report'] : [], opts.wrongTurn ? ['drive.route'] : [],
+    opts.lightsOff ? ['drive.lights'] : [], opts.radio === 'decline' ? ['dispatch.update'] : [], opts.expectWrong || []));
+  const wrong = await ev(`${dayEvents}.filter((e) => e.ok === false).map((e) => e.type + ':' + e.key)`);
+  const unmeant = wrong.filter((w) => !meant.has(w.split(':')[0]));
+  // the rule since B-131 (QA_LENIENT=1 only lists them, to see them all at once)
+  if (unmeant.length) { if (process.env.QA_LENIENT) log('      not careful: ' + unmeant.join(', ')); else must(false, 'the careful day has wrong reports: ' + unmeant.join(', ')); }
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
   must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));

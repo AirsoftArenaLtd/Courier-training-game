@@ -397,3 +397,25 @@ test('B-31: the drive map names each street with the town\'s own names', () => {
   assert.equal(JSON.stringify(st.xs), '[0,20]', 'each name sits on its own street');
   assert.equal(st.zs.length, 3);
 });
+
+test('B-131: a package reported missing before departure does not count against the courier when it turns up later', () => {
+  W.begin();
+  W.report('load.missing-found', { key: 'parcel4', ok: true });
+  W.report('load.shelf', { key: 'parcel4', ok: false });
+  W.report('load.found-later', { key: 'parcel4', ok: false, stop: 2 });
+  W.report('load.shelf', { key: 'parcel3', ok: false });                    // another parcel off its shelf still counts
+  const got = (t, k) => W.events.find(e => e.type === t && e.key === k);
+  assert.ok(got('load.found-later', 'parcel4').ok && got('load.shelf', 'parcel4').ok, 'both kept as right, so the record says what happened');
+  assert.equal(got('load.found-later', 'parcel4').stop, 2);
+  assert.equal(got('load.shelf', 'parcel3').ok, false);
+  assert.ok(!W.log.mistakes().some(it => /turned up later/.test(it.label)), 'no penalty for the late package');
+  // not reported before departure: it counts, as before
+  W.begin();
+  W.report('load.missing-found', { key: 'parcel4', ok: false });
+  W.report('load.found-later', { key: 'parcel4', ok: false, stop: 2 });
+  assert.ok(W.events.some(e => e.type === 'load.found-later' && !e.ok) && W.log.mistakes().some(it => /turned up later/.test(it.label)), 'unreported, the late package is a penalty');
+  // and a reload replays the same
+  const evs = [{ type: 'load.missing-found', key: 'parcel4', ok: true }, { type: 'load.found-later', key: 'parcel4', ok: false, stop: 2 }];
+  const r = W.replay(evs);
+  assert.equal(r.events.length, 2); assert.ok(!r.log.mistakes().some(it => /turned up later/.test(it.label)), 'a reload scores it the same');
+});
