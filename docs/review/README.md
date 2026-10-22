@@ -9,8 +9,8 @@
 - `docs/QUICK-START.<lang>.md`: the trainer's quick start in all eleven languages: `ta`, `hi` (B-63) and `bn`, `es`, `fr`,
   `gu`, `kn`, `ml`, `mr`, `pa`, `te` (B-151), with the game's own words for every button, for a native reader to check
   alongside the sheets.
-- `docs/PILOT-GUIDE.ta.md`, `docs/PILOT-GUIDE.hi.md`: the trainer sections of the pilot guide in Tamil and Hindi (B-170),
-  for native readers to check alongside the sheets.
+- `docs/PILOT-GUIDE.<lang>.md`: the trainer sections of the pilot guide in all eleven languages: `ta`, `hi` (B-170) and
+  `bn`, `es`, `fr`, `gu`, `kn`, `ml`, `mr`, `pa`, `te` (B-173), for native readers to check alongside the sheets.
 - `set-<n>/`: one folder per milestone. `views/` holds the same fixed views every time (`node test/tools/review-set.js <n>`,
   board task A-23), so a milestone can be compared with the one before by opening the same file in both. Each task adds its
   own evidence next to it (screenshots, a short clip, the test results). `CHECKLIST.md` is the owner's five-minute review.
