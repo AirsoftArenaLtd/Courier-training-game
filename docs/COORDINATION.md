@@ -556,7 +556,7 @@ items here for each agent.
 | B-167 | Claude | **The owner's set 10 checklist:** `docs/review/set-10/CHECKLIST.md`, five minutes for each of B-164 (the selector and signs clear of the sat nav), C-49 (materials), C-50 (signs), C-51 (people) and C-52 (cab and handheld look), with review links and what to look for, ready before they land; then filled in with each merge. | done (ticked as each task lands) |
 | B-168 | Claude | **The save's room over a long career:** a `test/savesize.js` case for a trainee 20 days in, with the heaviest day each day and B-138's signals, under SCORM 1.2: what is kept and what goes first (`fit`'s steps), with the figures recorded in `docs/READINESS.md`. | done |
 | B-169 | Claude | **One way to name the indicator:** the cab's two controls were a noun ("left indicator") and an instruction ("signal right") in every language; "Signal right" now matches "Signal left" ("right indicator", es "Señal derecha", fr "Clignotant droit"). Whether "indicator" for the control and "signal" for the action is natural is a question for each Indian-language reviewer (on "Signal left"); not a glossary term, as "signal" also means a traffic light in some. | done |
-| B-170 | Claude | **The pilot guide's trainer sections in Tamil and Hindi:** `docs/PILOT-GUIDE.ta.md` and `.hi.md` with the sections a trainer uses in the room (the cab, the later days, signals, the drive map, the replay, when something goes wrong), the game's own words for every button, the machine-translation note, listed in `docs/review/README.md`. | todo |
+| B-170 | Claude | **The pilot guide's trainer sections in Tamil and Hindi:** `docs/PILOT-GUIDE.ta.md` and `.hi.md` with the sections a trainer uses in the room (the cab, the later days, signals, the drive map, the replay, when something goes wrong), the game's own words for every button, the machine-translation note, listed in `docs/review/README.md`. | done |
 | B-171 | Claude | **Reviews of 3D branches run the 3D browser suites:** `test/tools/review-branch.js` now also runs every `fp*browser` suite plus `radionightbrowser`, `lowparitybrowser` and `drivemapbrowser` when a branch touches the 3D world (`--no-browser` skips them), so a regression like B-164 (seen only by `fpsignlayoutbrowser`) stops the review instead of reaching `pilot`. | done (first real run on the next 3D review) |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
@@ -609,6 +609,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-170 done:** `docs/PILOT-GUIDE.ta.md` and `.hi.md` hold the trainer's sections of the pilot guide in Tamil and Hindi. They cover a first session, the cab and signals, the later days, the results and replay, when something goes wrong, and contacts. The IT, LMS and trainer-tool sections stay in English, and each page says so. Every quoted button is the game's own word: 46 in Tamil and 45 in Hindi, checked with B-155's rule. Tamil uses the game's பயிற்சி பெறுநர் for trainee, so it is not confused with பயிற்சியாளர் (trainer).
 
 - **22 October 2026, Claude — B-171 done:** the review tool now runs the 3D browser suites for any branch that touches the 3D world. C-48's regression (B-164) would have stopped its review instead of reaching `pilot`. Codex has had no new commits for three hours; B-164 is still first in its queue.
 
