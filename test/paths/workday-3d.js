@@ -664,6 +664,24 @@ const make = (opts) => async (page, ctx) => {
   if ((await state()).m.cargoOpen) await use('cargo');           // the rear is checked with the cargo shut
   // opts.unreported (A-24b): the courier skips the post-trip record, so the scrape they caused goes unreported
   const postWalk = opts.unreported ? false : await walkaround('posttrip');                  // B-99: and again after the trip, before finishing
+  // opts.saveCheck (B-161): the day's real reports, packed as an LMS with SCORM 1.2 stores them (save.js, v3 since B-160),
+  // come back the same, with every drive-map pin, and the whole save fits SCORM 1.2's limit
+  if (opts.saveCheck) {
+    const r = await ev(() => {
+      const S = OTR.save, W = OTR.workday, sig = (es) => es.map((e) => [e.type, e.key, e.ok !== false, e.stop == null ? null : e.stop].join('|')).sort().join('\n');
+      const d = JSON.parse(JSON.stringify(S.data)), cur = d.workday && d.workday.current;
+      if (!cur || !Array.isArray(cur.events)) return { err: 'no workday in progress in the save' };
+      const packed = S.packDay(cur), back = S.unpackDay(JSON.parse(JSON.stringify(packed))).events;
+      const fitted = S.fit(JSON.stringify(d), S.SCORM12_LIMIT), fc = JSON.parse(fitted).workday.current;
+      return { live: cur.events.length, back: back.length, same: sig(cur.events) === sig(back), v: packed.packed.v,
+        pins: OTR.drive.pins(W.replay(cur.events).log).length, backPins: OTR.drive.pins(W.replay(back).log).length,
+        size: fitted.length, limit: S.SCORM12_LIMIT, stage: fc && (fc.summary ? 'summary' : fc.packed ? 'packed' : 'full') };
+    });
+    must(!r.err && r.v === 3 && r.same && r.back === r.live, 'the day did not pack and unpack to the same reports: ' + JSON.stringify(r));
+    must(r.pins > 0 && r.backPins === r.pins, 'the packed day lost drive-map pins: ' + JSON.stringify(r));
+    must(r.size <= r.limit && r.stage !== 'summary', 'the save does not fit SCORM 1.2 with the day kept: ' + JSON.stringify(r));
+    log(`      save: ${r.live} reports packed as v3 and back the same, ${r.pins} pins kept; ${r.size} of ${r.limit} characters (${r.stage})`);
+  }
   await use('dispatch'); await shot('dispatch-finish');
   await press('Digit1');                                       // Finish workday
 
