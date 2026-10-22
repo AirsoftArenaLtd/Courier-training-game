@@ -1,0 +1,1 @@
+Incomplete gate deliberately stopped before correcting the new fixture. The old fixture forced a departure without the walkaround/later departure adapters, and overwrote generated weather; it could not restore. These partial captures are diagnostics only and excluded from final resource acceptance. Runtime did not change.

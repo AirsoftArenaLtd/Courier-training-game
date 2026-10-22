@@ -1,0 +1,5 @@
+loaded-low: PASS {"calls":40,"triangles":921,"textures":2,"attachmentBytes":3557376,"phaserBytes":2039611}
+loaded-high: PASS {"calls":77,"triangles":122777,"textures":4,"attachmentBytes":11239424,"phaserBytes":6690939}
+accessible-low: PASS {"calls":40,"triangles":921,"textures":2,"attachmentBytes":3557376,"phaserBytes":2477595}
+fallback-low: PASS {"calls":36,"triangles":867,"textures":2,"attachmentBytes":3557376,"phaserBytes":2039611}
+All 17 focused ambient resource views pass.

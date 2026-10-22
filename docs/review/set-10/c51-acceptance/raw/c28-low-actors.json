@@ -1,0 +1,119 @@
+{
+  "quality": "low",
+  "fixture": "Day one, seed seven; stationary travel/time fixtures. E opens the actual cargo door and contacts a real facade target. Render-only probes never score.",
+  "views": [
+    {
+      "name": "van",
+      "diagnostics": {
+        "calls": 34,
+        "triangles": 1180,
+        "textures": 2,
+        "geometries": 16,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "cargo-open",
+      "diagnostics": {
+        "calls": 42,
+        "triangles": 1510,
+        "textures": 2,
+        "geometries": 16,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "resident-walk",
+      "diagnostics": {
+        "calls": 35,
+        "triangles": 1384,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "resident-wave",
+      "diagnostics": {
+        "calls": 38,
+        "triangles": 1300,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "resident-talk",
+      "diagnostics": {
+        "calls": 38,
+        "triangles": 1300,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "reduced-large",
+      "diagnostics": {
+        "calls": 36,
+        "triangles": 1386,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "name": "courier-mirror",
+      "diagnostics": {
+        "calls": 32,
+        "triangles": 1180,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    }
+  ],
+  "vanPixels": {
+    "changed": 67332,
+    "unchanged": true,
+    "error": 0
+  },
+  "residentPixels": {
+    "changed": 38347,
+    "unchanged": true,
+    "error": 0
+  },
+  "identity": {
+    "renderedSkins": 0,
+    "sourceBones": [
+      {
+        "use": "worker-men",
+        "texture": false
+      },
+      {
+        "use": "worker-women",
+        "texture": false
+      }
+    ],
+    "meshes": 7,
+    "vanTriangles": 190,
+    "activeResidents": 1,
+    "phaser": false
+  },
+  "checks": 16,
+  "errors": []
+}

@@ -1,0 +1,101 @@
+{
+  "scope": "ambient-only",
+  "sourceRevision": "055415cf2753c8c7ba1243c8f8c1ee37868f2291",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-loaded-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 40,
+        "triangles": 921,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2039611
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight",
+        "ambientbench"
+      ],
+      "report": "bench-c51-focused-loaded-high-high.json",
+      "exit": 0,
+      "peak": {
+        "calls": 77,
+        "triangles": 122777,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6690939
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "accessibility": "large,colour,reduced",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-accessible-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 40,
+        "triangles": 921,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2477595
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "fallback": true,
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-fallback-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 36,
+        "triangles": 867,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2039611
+      }
+    }
+  ]
+}

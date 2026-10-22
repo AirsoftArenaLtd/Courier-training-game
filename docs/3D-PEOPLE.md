@@ -1,6 +1,6 @@
 # Visible people and street detail
 
-C-51 is started on `codex/c51-visible-people`, stacked on the pushed C-50 renderer. The uploaded source adapter and bounded renderer are implemented; current-pilot acceptance is in progress.
+C-51 is started on `codex/c51-visible-people`, stacked on the pushed C-50 renderer. The uploaded source adapter and bounded renderer are implemented; current-pilot acceptance has passed; C-51 is ready for review.
 
 Current residents in fpactors.js appear only after contact, and only the nearest unresolved resident is visible. The courier is a reflection actor, and the school crossing is a separate safety encounter. Preserve those behaviors while adding bounded ambient people that are visible during ordinary routes.
 
@@ -17,3 +17,5 @@ The source adapter and renderer remain in progress until the current-pilot Node 
 Nine world integration tests now include the combined delivery/damage/navigation case: with loaded and missing models, enabling ambient detail selects exactly the same collision-bearing cars as the original town selector. All 60 route-coverage cases have people near at least one planned driving leg (Low 180/180 legs, High 178/180 within selection range). Coverage is potential range, not pixel proof for every route. Native pixel views and the full resource gate are separate.
 
 The actual benchmark setup now uses the existing later/walkaround departure adapters and keeps the generated weather. A regression exercises all nine page-evaluation variants against real mission restore and world adapters. Ten world tests pass; the full rendered gate is separate and pending.
+
+Final acceptance: all 224 resource views and every job in `review/set-10/c51-acceptance/manifest.json` pass. The earlier measurements above are historical progress; use the final manifest and PERF for the corrected renderer.
