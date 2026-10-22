@@ -374,6 +374,35 @@ test('B-160: the heaviest day with 30 missed signals still packs, keeps every pi
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept, the 30 signals among them');
 });
 
+// B-168: a trainee well into the course (20 runs on the record, 14 scenarios) on the heaviest day: the record's oldest
+// runs go before the day's places, so the day stays packed with every pin and the newest runs stay
+test('B-168: an established trainee keeps the heaviest day\'s pins; the record loses its oldest runs, not the day', () => {
+  asScorm(false);
+  heavy({ runs: 20, scenarios: 14 });
+  W.start(null);
+  play(c35HeavyDay());
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length, s = stored();
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(s), 'packed', 'packed, not summarised: the day keeps its drive-map pins');
+  assert.ok(s.history.length >= 1 && s.history.every((h, i, a) => !i || h.at > a[i - 1].at) && s.history[s.history.length - 1].at === 1760000000000 + 19, 'the newest runs stay on the record, in order');
+  console.log(`      B-168: ${JSON.stringify(s).length} of ${SAVE.SCORM12_LIMIT}, ${s.history.length} of 20 runs kept, ${pinsLive} pins`);
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score after a reload');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
+});
+
+// B-168: the far end: that career with 30 missed signals too no longer keeps the places, but the score stays whole
+test('B-168: an established trainee\'s heaviest day with 30 missed signals keeps its score whole', () => {
+  asScorm(false);
+  heavy({ runs: 20, scenarios: 14 });
+  W.start(null);
+  play(c35HeavyDay().concat(signals(30, false)));
+  const live = summary(W.log);
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
+});
+
 test('B-160: a v2 day (placed rows in e, no n or p) still unpacks as before', () => {
   const v2 = { id: 'w', day: 4, packed: { v: 2, t: [41, 23], e: [[0, 0, 0, 0, 3, -18, 7], [1, null, 1]], g: [[1, 'm1']] } };
   const back = SAVE.unpackDay(JSON.parse(JSON.stringify(v2))).events;

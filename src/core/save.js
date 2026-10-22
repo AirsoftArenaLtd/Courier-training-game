@@ -141,6 +141,8 @@ OTR.save = {
    *   2. the last finished workday's lines (its stars and score stay; its debrief then lists nothing)
    *   3. the workday in progress is packed: its reports as short tuples (nothing is lost but extra place detail)
    *   4. the trainee record keeps its 10 most recent runs, then each run only its first lesson (B-103)
+   *   4b. B-168: when summarising the day (5) would not fit on its own, so the record would go (6) as well, the record's
+   *      oldest runs go first instead, as few as fit the packed day: then only runs are lost, not the day's places too
    *   5. the workday in progress keeps only what its score needs: per report type, the keys counted right and wrong
    *      (its stops and drive-review places are lost; flagged `summarised`)
    *   6. the trainee record is emptied, then the last workday's stop list and the 2D route day's last day
@@ -175,6 +177,15 @@ OTR.save = {
       // B-103: each run on the record keeps only its first lesson (the one its recent-runs line shows), so the day in
       // progress keeps its drive-map pins a while longer
       () => (Array.isArray(d.history) ? d.history : []).forEach(h => { if (h && Array.isArray(h.lessons) && h.lessons.length > 1) h.lessons = h.lessons.slice(0, 1); }),
+      () => {
+        if (!cur() || !Array.isArray(d.history) || !d.history.length) return;
+        const summarised = JSON.parse(JSON.stringify(d));
+        summarised.workday.current = this.summariseDay(summarised.workday.current);
+        if (JSON.stringify(summarised).length <= limit) return;              // summarising alone fits: the record stays
+        const trial = JSON.parse(JSON.stringify(d));                         // the record's oldest runs go, the day's places stay
+        while (trial.history.length && JSON.stringify(trial).length > limit) trial.history.shift();
+        if (JSON.stringify(trial).length <= limit) d = trial;
+      },
       () => { if (cur()) d.workday.current = this.summariseDay(cur()); },
       () => {
         shed(Array.isArray(d.history) ? d.history : null);
