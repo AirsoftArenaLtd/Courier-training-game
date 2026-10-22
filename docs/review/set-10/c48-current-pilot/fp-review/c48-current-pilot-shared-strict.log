@@ -1,0 +1,32 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+      load-out: missort (set parcel5 aside), 5 counted
+      sign: J read "This is number 204 on Harbor St."
+      school bus: stopped behind it and waited
+      stop 1: signature -> handover
+      stop 2: signature -> handover
+      stop 3:  -> safeplace
+      stop 4:  -> handover
+      stop 5: dog -> handover
+ok   workday-3d     fps=  3 boot=null golden=ok
+      load-out: missort (set parcel5 aside), 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      sign: J read "This is number 204 on Harbor St."
+      walkaround: 0 damaged area(s) found before departure
+      school bus: stopped behind it and waited
+      stop 1: adult signature hazard:ice -> exception
+      stop 2: adult signature difficult hazard:ice -> exception
+      radio: priority call read parked and accepted; stop 3 next
+      stop 3: wrong signature hazard:ice -> exception
+      stop 4: signature -> exception (reattempt booked)
+      stop 5: dog signature hazard:ice -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-b   fps=  6 boot=null golden=ok
+
+================ summary ================
+  pass  workday-3d     fps=  3  
+  pass  workday-3d-b   fps=  6  
+
+2/2 scenarios clean

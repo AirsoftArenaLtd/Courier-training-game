@@ -1,0 +1,446 @@
+diff --git a/src/core/fpcab.js b/src/core/fpcab.js
+index 88f0dcc3..7538a8f2 100644
+--- a/src/core/fpcab.js
++++ b/src/core/fpcab.js
+@@ -35,7 +35,7 @@ OTR.fpCab={
+   },
+   build(root,cube,interactions,labels,high){
+     const T=THREE,parts=[],sheets=[],scratch=new T.Object3D(),colour=new T.Color();
+-    const sheet=new T.PlaneGeometry(1,1),paint=new T.MeshBasicMaterial({color:0xffffff,side:T.DoubleSide}),rimPaint=new T.MeshBasicMaterial({color:0x151D24,side:T.DoubleSide});
++    const sheet=new T.PlaneGeometry(1,1),paint=high?new T.MeshStandardMaterial({color:0xffffff,side:T.DoubleSide,roughness:.8,metalness:.08}):new T.MeshBasicMaterial({color:0xffffff,side:T.DoubleSide}),rimPaint=high?new T.MeshStandardMaterial({color:0x151D24,side:T.DoubleSide,roughness:.65,metalness:.12}):new T.MeshBasicMaterial({color:0x151D24,side:T.DoubleSide});
+     function part(x,y,z,w,h,d,color,id,rx=0,ry=0,rz=0){
+       scratch.position.set(x,y,z);scratch.rotation.set(rx,ry,rz);scratch.scale.set(w,h,d);scratch.updateMatrix();
+       const p={matrix:scratch.matrix.clone(),color:new T.Color(color),x,y,z,w,h,d,rx,ry,rz};parts.push(p);
+@@ -45,12 +45,20 @@ OTR.fpCab={
+     function face(x,y,z,w,h,color,rx=0,ry=0,rz=0){scratch.position.set(x,y,z);scratch.rotation.set(rx,ry,rz);scratch.scale.set(w,h,1);scratch.updateMatrix();sheets.push({matrix:scratch.matrix.clone(),color:new T.Color(color)});}
+     function target(id,x,y,z,w,h,d){const o=new T.Mesh(cube,paint);o.position.set(x,y,z);o.scale.set(w,h,d);o.userData.interaction=id;o.layers.set(1);root.add(o);interactions.push(o);return o;}
+     // Open windscreen, door trim and passenger backrest. High adds the seat base and console.
+-    if(high)part(-.72,-.4,-.15,.09,.65,.85,0x303E48);else face(-.675,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);if(high)part(.86,-.55,.08,.48,.75,.15,0x43545E);else face(.86,-.55,.08,.48,.75,0x43545E);
+-    if(high){part(-.72,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,-.12);part(1,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,.12);}
+-    else{face(-.72,.08,-.993,.055,.92,0x4D5D66,0,0,-.12);face(1,.08,-.993,.055,.92,0x4D5D66,0,0,.12);}
+-    face(.12,-.4,-1.02,1.7,.28,0x354650);face(.12,-.29,-1.12,1.7,.28,0x26343F,-Math.PI/2);
++    if(high)part(-.72,-.4,-.15,.09,.65,.85,0x303E48);else face(-.675,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);if(high)part(1.13,-.55,.08,.48,.75,.15,0x43545E);else face(1.13,-.55,.08,.48,.75,0x43545E);
++    if(high){part(-.72,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,-.12);part(1.55,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,.12);}
++    else{face(-.72,.08,-.993,.055,.92,0x4D5D66,0,0,-.12);face(1.55,.08,-.993,.055,.92,0x4D5D66,0,0,.12);}
++    face(.415,-.4,-1.02,2.27,.28,0x354650);face(.415,-.29,-1.12,2.27,.28,0x26343F,-Math.PI/2);
++    // Continuous lining and a floor close the cab around the seated eye, including side glances.
++    face(.415,.55,-.12,2.27,1.8,0x56616A,Math.PI/2);face(.415,-.95,-.12,2.27,1.8,0x263139,-Math.PI/2);
++    if(high)part(1.55,-.4,-.15,.09,.65,.85,0x303E48);else face(1.505,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);
+     face(.928,-.285,-1.025,.61,.25,0x17252F);face(.928,-.47,-1.03,.055,.12,0x354650);
+-    if(high){part(.86,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.12,.52,-1.02,1.7,.055,.06,0x4D5D66);}
++    if(high){part(1.13,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.415,.52,-1.02,2.27,.055,.06,0x4D5D66);
++      // Recessed vents, a gauge hood and glovebox give the dash depth without another batch or texture.
++      part(0,-.14,-1.025,.72,.06,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
++      part(-.05,.435,-1.005,.48,.11,.035,0x3A444C);part(1.05,.435,-1.005,.48,.11,.035,0x3A444C);
++      for(const x of [-.48,.48,1.35]){face(x,-.345,-.953,.16,.075,0x101B23);for(let i=0;i<3;i++)face(x,-.37+i*.025,-.949,.15,.006,0x687780);}
++    }
+     part(.48,-.42,-.95,.27,.52,.1,0x17252F);
+     const shifter=part(.48,-.58,-.86,.09,.08,.08,0xE2CFA4);
+     for(const [i,id] of ['cab-park','cab-reverse','cab-neutral','cab-drive'].entries()){
+diff --git a/src/core/fpcamera.js b/src/core/fpcamera.js
+index f46fc0cf..ee38cee0 100644
+--- a/src/core/fpcamera.js
++++ b/src/core/fpcamera.js
+@@ -1,6 +1,8 @@
+ /* Cosmetic camera/body feel. Reused numeric state; no input smoothing, scoring or saved fields. */
+ window.OTR=window.OTR||{};
+ OTR.fpCamera={
++  // Sit behind the controls rather than against the windscreen. Walking keeps its existing lens.
++  seat:{x:-.45,y:2.05,z:-1.45},cabFov:76,
+   create(){return {model:null,mode:null,lastTime:0,lastX:0,lastZ:0,heading:0,look:0,pitch:0,roll:0,x:0,z:0,bob:0,travel:0,kerb:false,hitAt:-100,hit:0,fov:68,reduced:false,precise:false,
+     pose:{x:0,y:0,z:0,yaw:0,pitch:0,roll:0,fov:68,baseX:0,baseZ:0,bodyY:0,bodyPitch:0,bodyRoll:0,heave:0,roadImpact:0}};},
+   angle(a){return Math.atan2(Math.sin(a),Math.cos(a));},
+@@ -25,7 +27,7 @@ OTR.fpCamera={
+     const amount=reduced||precise?0:.55+.45*(1-OTR.fp.driveAssist(m)),motion=m.motion;
+     const acceleration=motion?motion.acceleration:0,lateral=motion?motion.lateral:0;
+     const turn=cab?v.speed*Math.tan(v.steer)/3.3:0,targetLook=OTR.fp.clamp(turn*.28,-.085,.085)*amount;
+-    const targetFov=68+(cab?Math.min(1,speed/12)*(high?4:2)*amount:0),onKerb=cab&&this.kerb(m);
++    const baseFov=cab?this.cabFov:68,targetFov=baseFov+(cab?Math.min(1,speed/12)*(high?4:2)*amount:0),onKerb=cab&&this.kerb(m);
+     if(reset){r.travel=0;r.hitAt=-100;r.hit=0;r.heading=v.yaw;r.look=targetLook;r.x=r.z=r.bob=0;r.pitch=r.roll=0;r.fov=targetFov;}
+     else if(dt>0){
+       r.travel+=distance;
+@@ -41,9 +43,9 @@ OTR.fpCamera={
+     const bump=Math.sin(age*32)*impact*.025*amount,bodyPitch=reduced?0:motion?motion.pitch:0,bodyRoll=reduced?0:motion?motion.roll:0;
+     const targetPitch=bodyPitch*.45*amount,targetRoll=bodyRoll*.5*amount;
+     if(reset){r.pitch=targetPitch;r.roll=targetRoll;}else if(dt>0){r.pitch=this.ease(r.pitch,targetPitch,dt,8);r.roll=this.ease(r.roll,targetRoll,dt,8);}
+-    if(reduced||precise){r.heading=v.yaw;r.look=r.pitch=r.roll=r.x=r.z=r.bob=0;r.fov=68;}
++    if(reduced||precise){r.heading=v.yaw;r.look=r.pitch=r.roll=r.x=r.z=r.bob=0;r.fov=baseFov;}
+     const out=r.pose,c=Math.cos(v.yaw),s=Math.sin(v.yaw);out.bodyPitch=bodyPitch;out.bodyRoll=bodyRoll;out.heave=road+joint+bump;out.bodyY=bodyPitch*1.85-bodyRoll*.45+out.heave;
+-    if(cab){out.baseX=v.x-c*.45+s*1.85;out.baseZ=v.z-s*.45-c*1.85;out.x=out.baseX+c*r.x-s*r.z;out.z=out.baseZ+s*r.x+c*r.z;out.y=2.05+out.bodyY;
++    if(cab){out.baseX=v.x+c*this.seat.x-s*this.seat.z;out.baseZ=v.z+s*this.seat.x+c*this.seat.z;out.x=out.baseX+c*r.x-s*r.z;out.z=out.baseZ+s*r.x+c*r.z;out.y=this.seat.y+out.bodyY;
+       out.yaw=v.yaw+this.angle(r.heading-v.yaw)*amount+v.look+r.look;out.pitch=-p.pitch+r.pitch;out.roll=r.roll;
+     }else{
+       const lx=c*(p.x-v.x)+s*(p.z-v.z),lz=-s*(p.x-v.x)+c*(p.z-v.z),inside=m.cargoOpen&&Math.abs(lx)<.75&&lz>-.8&&lz<2.6;
+diff --git a/src/core/fpdamageworld.js b/src/core/fpdamageworld.js
+index ad7716be..bd723bb5 100644
+--- a/src/core/fpdamageworld.js
++++ b/src/core/fpdamageworld.js
+@@ -39,7 +39,9 @@ OTR.fpDamageWorld={
+     // Reuse the same patch instance; older damage days keep their original top surface.
+     patches.push(m.walkaround?add(roofSurface?roofSurface.x:-1.115,roofSurface?roofSurface.y:2.98,.6,.65,.18,0,-Math.PI/2,0x4A4A46,true):add(0,3.24,.6,.65,.4,-Math.PI/2,0,0x4A4A46,true));
+     patches.push(add(wheel?wheel.g.boundingBox.min.x-.008:-1.208,wheel?wheel.center.y:.42,wheel?wheel.center.z:1.7,.3,.2,0,-Math.PI/2,0x4A4A46,true));
+-    patches.push(add(-1.27,1.79,-2.32,.2,.13,0,-Math.PI/2,0x4A4A46,true));
++    const mirror=OTR.fpMirrors&&OTR.fpMirrors.specs[0];
++    // Wear belongs to the housing's back, leaving the reflective glass clear from the seated eye.
++    patches.push(mirror?add(mirror.x-.05*Math.sin(mirror.angle),mirror.y,mirror.z-.05*Math.cos(mirror.angle),.2,.13,0,mirror.angle+Math.PI,0x4A4A46,true):add(-1.27,1.79,-2.32,.2,.13,0,-Math.PI/2,0x4A4A46,true));
+     for(const b of m._damageClearances){
+       for(const p of b.posts)add(p.x,p.h/2,p.z,p.w,p.h,0,0,0x6D7375);
+       add(b.x,b.h+.3,b.z,b.w+.7,.6,0,0,b.kind==='bridge'?0xB4AB99:0xDBAE55);
+diff --git a/src/core/fpmirrors.js b/src/core/fpmirrors.js
+index 29f9d8d9..aaf26f88 100644
+--- a/src/core/fpmirrors.js
++++ b/src/core/fpmirrors.js
+@@ -1,8 +1,8 @@
+ /* Three physical mirrors, one shared reflection atlas, and gaze evidence. No scoring is calculated here. */
+ window.OTR=window.OTR||{};
+ OTR.fpMirrors={
+-  specs:[{id:'mirror-left',x:-1.22,y:2.13,z:-2.3,w:.27,h:.4,angle:1.05,view:-.18},
+-    {id:'mirror-right',x:1.22,y:2.13,z:-2.3,w:.27,h:.4,angle:-1.3,view:.18},
++  specs:[{id:'mirror-left',x:-1.28,y:2.13,z:-2.95,w:.27,h:.4,angle:1.05,view:-.18},
++    {id:'mirror-right',x:1.28,y:2.13,z:-2.95,w:.27,h:.4,angle:-1.3,view:.18},
+     {id:'mirror-interior',x:.05,y:2.35,z:-2.7,w:.4,h:.14,angle:.48,view:0}],
+   state(m){return m.van.mirrors||(m.van.mirrors=[-100,-100,-100,-1,0]);},
+   valid(v,elapsed){return v===undefined||Array.isArray(v)&&v.length===5&&v.slice(0,3).every(t=>Number.isFinite(t)&&t>=-100&&t<=elapsed)&&Number.isInteger(v[3])&&v[3]>=-1&&v[3]<=2&&Number.isFinite(v[4])&&v[4]>=0&&v[4]<=.4;},
+@@ -12,8 +12,10 @@ OTR.fpMirrors={
+     if(m.mode!=='cab'||m.paused||m.mirrorVisible===false)return -1;
+     const pose=m.cameraMotion,yaw=pose?pose.yaw-m.van.yaw:m.van.look,pitch=pose?-pose.pitch:m.player.pitch;
+     const cp=Math.cos(pitch),x=Math.sin(yaw)*cp,y=-Math.sin(pitch),z=-Math.cos(yaw)*cp;
++    const seat=OTR.fpCamera?OTR.fpCamera.seat:{x:-.45,y:2.05,z:-1.45},c=Math.cos(m.van.yaw),s=Math.sin(m.van.yaw);
++    const ex=pose?c*(pose.x-m.van.x)+s*(pose.z-m.van.z):seat.x,ez=pose?-s*(pose.x-m.van.x)+c*(pose.z-m.van.z):seat.z,ey=pose?pose.y:seat.y;
+     let index=-1,closest=Math.cos(.21);
+-    for(let i=0;i<3;i++){const s=this.specs[i],dx=s.x+.45,dy=s.y-2.05,dz=s.z+1.85,dot=(dx*x+dy*y+dz*z)/Math.hypot(dx,dy,dz);if(dot>closest){closest=dot;index=i;}}
++    for(let i=0;i<3;i++){const target=this.specs[i],dx=target.x-ex,dy=target.y-ey,dz=target.z-ez,dot=(dx*x+dy*y+dz*z)/Math.hypot(dx,dy,dz);if(dot>closest){closest=dot;index=i;}}
+     return index;
+   },
+   tick(m,dt){
+@@ -46,7 +48,7 @@ OTR.fpMirrors={
+       fragmentShader:'uniform sampler2D atlas; uniform vec2 texel; varying vec2 p; varying vec4 tile; void main(){vec2 uv=tile.xy+texel*.5+vec2(1.-p.x,p.y)*(tile.zw-texel);gl_FragColor=texture2D(atlas,uv);\n#include <colorspace_fragment>\n}'});
+     plane.setAttribute('mirrorTile',new T.InstancedBufferAttribute(new Float32Array([0,0,.25,1,.25,0,.25,1,.5,0,.5,.5]),4));
+     const faces=new T.InstancedMesh(plane,surface,3),frames=new T.InstancedMesh(high?cube:plane,paint,high?3:5);faces.frustumCulled=frames.frustumCulled=false;root.add(frames,faces);
+-    const mounts=high?new T.InstancedMesh(plane,paint,2):frames,scratch=new T.Object3D();mounts.frustumCulled=false;if(high)root.add(mounts);
++    const mounts=high?new T.InstancedMesh(cube,paint,2):frames,scratch=new T.Object3D();mounts.frustumCulled=false;if(high)root.add(mounts);
+     if(!mirror.cameras)mirror.cameras=this.specs.map((s,i)=>new T.PerspectiveCamera(i===2?45:65,i===2?8/3:2/3,.08,i===2?(high?24:12):(high?75:40)));
+     mirror.camera=mirror.cameras[0];mirror.physical=true;
+     const targets=[];
+@@ -55,7 +57,7 @@ OTR.fpMirrors={
+       // Keep the entire High housing behind the reflective plane, including its front half.
+       scratch.position.add(new T.Vector3(0,0,high?-.025:-.008).applyAxisAngle(new T.Vector3(0,1,0),s.angle));scratch.scale.set(s.w*1.14,s.h*1.12,high?.025:1);scratch.updateMatrix();frames.setMatrixAt(i,scratch.matrix);
+       const target=new T.Mesh(new T.PlaneGeometry(s.w,s.h),paint);target.position.set(s.x,s.y,s.z);target.rotation.y=s.angle;target.layers.set(1);target.userData.interaction=s.id;root.add(target);interactions.push(target);targets.push(target);
+-      if(i<2){scratch.position.set(s.x,s.y-.3,s.z-.02);scratch.rotation.set(0,s.angle,0);scratch.scale.set(.035,.2,1);scratch.updateMatrix();mounts.setMatrixAt(high?i:i+3,scratch.matrix);}
++      if(i<2){scratch.position.set(s.x,s.y-.3,s.z-.02);scratch.rotation.set(0,s.angle,0);scratch.scale.set(.035,.2,high?.035:1);scratch.updateMatrix();mounts.setMatrixAt(high?i:i+3,scratch.matrix);}
+     }
+     const rotations=specs.map((s,i)=>new T.Quaternion().setFromEuler(new T.Euler(i===2?-.18:0,Math.PI+s.view,0,'YXZ')));
+     mirror.filled=0;mirror.next=0;mirror.nextAt=0;
+diff --git a/src/core/fpwalkaroundflow.js b/src/core/fpwalkaroundflow.js
+index 904a3fa6..19bcc954 100644
+--- a/src/core/fpwalkaroundflow.js
++++ b/src/core/fpwalkaroundflow.js
+@@ -8,13 +8,13 @@ OTR.fpWalkaroundFlow={
+     data.departed===(data.phase!=='prepare')&&s.finished===(data.phase==='debrief');},
+   // The roof is inspected from its reachable edge. No climbing or camera teleport is needed.
+   targets:[
+-    {zone:'front',name:'This is the front of the van.',x:0,y:1,z:-2.84,w:.7,h:.4,d:.04},
++    {zone:'front',name:'This is the front of the van.',x:0,y:1.55,z:-2.84,w:.7,h:.4,d:.04},
+     {zone:'rear',name:'This is the rear of the van.',x:-.18,y:1.75,z:2.8,w:.3,h:.5,d:.04},
+     {zone:'left',name:'This is the left side of the van.',x:-1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+     {zone:'right',name:'This is the right side of the van.',x:1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+     {zone:'roof',name:'This is the roof edge of the van.',x:-1.11,y:2.94,z:.6,w:.08,h:.18,d:.8},
+     {zone:'wheel',name:'This is the rear left wheel.',x:-1.24,y:.42,z:1.7,w:.04,h:.6,d:.6},
+-    {zone:'mirror',name:'This is the left mirror.',x:-1.29,y:1.79,z:-2.32,w:.08,h:.35,d:.35}
++    {zone:'mirror',name:'This is the left mirror.',x:-1.29,y:2.13,z:-2.95,w:.08,h:.35,d:.35}
+   ],
+   target(zone){for(let i=0;i<this.targets.length;i++)if(this.targets[i].zone===zone)return this.targets[i];return null;},
+   point(m,zone){const t=this.target(zone);return t?Object.assign({y:t.y},OTR.fp.local(m.van,t.x,t.z)):null;},
+diff --git a/src/core/fpworld.js b/src/core/fpworld.js
+index 21ca0529..0ae77868 100644
+--- a/src/core/fpworld.js
++++ b/src/core/fpworld.js
+@@ -303,7 +303,7 @@ OTR.fpWorld = {
+       emergencyLamps=new T.Group();emergency.add(emergencyLamps);
+       for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
+     }
+-    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
++    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.18,1.76,-2.7,.25,.04,.58,0x303944);
+     const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
+     if(trafficBike&&!(actors&&actors.cyclist)){box(trafficBike,0,1.15,0,.4,.65,.25,0xE3B649);box(trafficBike,0,1.65,-.15,.28,.3,.28,0xB68F72);for(const x of [-.12,.12])box(trafficBike,x,.55,0,.16,.65,.16,0x43515E);}
+     if(actors&&actors.vehicle){
+@@ -420,7 +420,7 @@ OTR.fpWorld = {
+             const cc=Math.cos(v.yaw),ss=Math.sin(v.yaw);
+             cabAnchor.position.set(v.x-.45*cc+1.85*ss,2.05+pose.bodyY,v.z-.45*ss-1.85*cc);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
+           }else if(m.mode==='cab'){
+-            const eye=OTR.fp.local(v,-0.45,-1.85);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
++            const eye=OTR.fp.local(v,-0.45,-1.45);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
+           }else{
+             const local=OTR.fpMission.local(v,p),inside=m.cargoOpen&&Math.abs(local.x)<0.75&&local.z>-0.8&&local.z<2.6;
+             camera.position.set(p.x,inside?2.15:1.65,p.z);camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');
+diff --git a/test/fpcab.js b/test/fpcab.js
+index 97d081d4..bab69516 100644
+--- a/test/fpcab.js
++++ b/test/fpcab.js
+@@ -65,5 +65,5 @@ test('keyboard target selection reaches every cab control without moving the van
+ test('speed, RPM, wheel and physical switch indicators follow the mission while cosmetic reduced motion stays stable',()=>{
+  const s=scene(false),a=s.art.cab,before=a.batch.instanceMatrix.array.slice();Object.assign(s.model.van,{speed:8,steer:.2,belt:true,headlights:true,wipers:true,hand:false});s.model.motion={rpm:2400,pitch:0,roll:0};s.model.signal=1;s.sync();
+  assert.ok(Math.abs(a.wheel.rotation.z+.6)<1e-9);assert.ok(Math.abs(a.gauges.material.uniforms.speed.value-8/17.8816)<1e-9);assert.equal(a.gauges.material.uniforms.rpm.value,.6);assert.notDeepEqual(a.batch.instanceMatrix.array,before);
+- assert.equal(s.view.camera.fov,68);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
++ assert.equal(s.view.camera.fov,76);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
+ });
+diff --git a/test/fpcabbrowser.js b/test/fpcabbrowser.js
+index 0161623f..d21b47c2 100644
+--- a/test/fpcabbrowser.js
++++ b/test/fpcabbrowser.js
+@@ -28,7 +28,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+    await p.keyboard.press('r');assert.equal((await state()).van.gear,-1);await p.keyboard.press('r');assert.equal((await state()).van.gear,1);checks+=2;
+    await p.keyboard.press('l');await p.keyboard.press('k');s=await state();assert.equal(s.van.headlights,false);assert.equal(s.van.wipers,false);checks+=2;
+    const audit=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds();return {font:parseFloat(h.style.fontSize),scale:h.scaleY,bounds:{x:r.x,y:r.y,right:r.right,bottom:r.bottom},fov:s.view.camera.fov,pointerLock:!!document.pointerLockElement,reticle:s.reticle.visible,gearLabels:s.labels.filter(a=>a.label.gear).map(a=>({text:a.object.text,font:parseFloat(a.object.style.fontSize)*a.object.scaleY}))};});
+-   assert.ok(audit.font*audit.scale>=18);assert.ok(audit.bounds.x>=0&&audit.bounds.right<=1280&&audit.bounds.y>=0&&audit.bounds.bottom<=720);assert.equal(audit.pointerLock,false);assert.equal(audit.reticle,true);if(large)assert.equal(audit.fov,68);checks+=large?5:4;report.layouts.push({lang,large,audit});
++   assert.ok(audit.font*audit.scale>=18);assert.ok(audit.bounds.x>=0&&audit.bounds.right<=1280&&audit.bounds.y>=0&&audit.bounds.bottom<=720);assert.equal(audit.pointerLock,false);assert.equal(audit.reticle,true);if(large)assert.equal(audit.fov,76);checks+=large?5:4;report.layouts.push({lang,large,audit});
+    if(recording){await recording.stop();recording=null;}
+    if(lang==='en'&&!large){
+     await use('cab-headlights');await use('cab-wipers');await use('cab-park');const before=await state();await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').checkpoint());
+diff --git a/test/fpcamera.js b/test/fpcamera.js
+index 53162bfa..d7ecb6dc 100644
+--- a/test/fpcamera.js
++++ b/test/fpcamera.js
+@@ -4,9 +4,9 @@ for(const f of ['firstperson','fpmission','fpcamera','academy'])vm.runInContext(
+ const F=c.OTR.fp,C=c.OTR.fpCamera,M=c.OTR.fpMission;
+ const model=()=>{const m=M.create('campaign',7);m.mode='cab';m.paused=false;m.briefing={day:1,weather:'clear',clockMin:500};m.solids=[];m.bounds={x0:-2000,x1:2000,z0:-2000,z1:2000};Object.assign(m.van,{x:0,z:-40,yaw:0,speed:0,hand:false});return m;};
+ const update=(r,m,dt=1/60,reduced=false,high=false,precise=false)=>{m.elapsed+=dt;return C.update(r,m,reduced,high,precise);};
+-test('the first view matches the existing eye and is reused without touching saved mission state',()=>{
++test('the driver sits behind the controls with a wider cab lens without touching saved mission state',()=>{
+  const m=model(),r=C.create(),before=JSON.stringify(m.snapshot()),p=C.update(r,m,false,false,false);
+- assert.equal(p.x,-.45);assert.equal(p.y,2.05);assert.equal(p.z,-41.85);assert.equal(p.fov,68);assert.equal(JSON.stringify(m.snapshot()),before);
++ assert.equal(p.x,-.45);assert.equal(p.y,2.05);assert.equal(p.z,-41.45);assert.equal(p.fov,76);assert.equal(JSON.stringify(m.snapshot()),before);
+  assert.equal(update(r,m),p);assert.equal(m.cameraMotion,p);assert.equal(m.snapshot().cameraMotion,undefined);
+ });
+ test('turns have bounded heading lag and forward/reverse look-ahead; player look is immediate',()=>{
+@@ -20,8 +20,8 @@ test('turns have bounded heading lag and forward/reverse look-ahead; player look
+ });
+ test('zoom eases with speed and remains smaller on Low, while reduced motion restores the original view',()=>{
+  const results=[];for(const high of [false,true]){const m=model(),r=C.create();m.driveAssist=0;m.player.pitch=.2;C.update(r,m,false,high,false);m.van.speed=12;
+-  for(let i=0;i<120;i++)update(r,m,1/60,false,high);results.push(r.pose.fov);assert.ok(r.pose.fov>68&&r.pose.fov<=(high?72:70));
+-  const p=update(r,m,1/60,true,high);assert.equal(p.fov,68);assert.equal(p.roll,0);assert.equal(p.pitch,-m.player.pitch);assert.equal(p.y,2.05);
++  for(let i=0;i<120;i++)update(r,m,1/60,false,high);results.push(r.pose.fov);assert.ok(r.pose.fov>76&&r.pose.fov<=(high?80:78));
++  const p=update(r,m,1/60,true,high);assert.equal(p.fov,76);assert.equal(p.roll,0);assert.equal(p.pitch,-m.player.pitch);assert.equal(p.y,2.05);
+  }assert.ok(results[1]>results[0]+1.9);
+ });
+ test('acceleration, cornering and braking move the head inside the cab and retain physical body pitch',()=>{
+@@ -40,7 +40,7 @@ test('a wheel crossing a curb gives a small decaying impulse, with no impulse fr
+ test('walking head movement stops for precision work, cargo and reduced motion without moving the player',()=>{
+  const m=model(),r=C.create();m.mode='walk';Object.assign(m.player,{x:0,z:-40,yaw:0,pitch:.1});C.update(r,m,false,false,false);let peak=0;
+  for(let i=0;i<80;i++){m.player.z-=2.5/60;const z=m.player.z,p=update(r,m);assert.equal(m.player.z,z);peak=Math.max(peak,Math.abs(p.y-1.65));assert.ok(Math.abs(p.x-m.player.x)<.004);}
+- assert.ok(peak>.001);let p=update(r,m,1/60,false,false,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);assert.equal(p.pitch,-.1);
++ assert.ok(peak>.001);let p=update(r,m,1/60,false,false,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);assert.equal(p.pitch,-.1);assert.equal(p.fov,68);
+  p=update(r,m,1/60,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);m.cargoOpen=true;Object.assign(m.player,{x:m.van.x,z:m.van.z+1});p=update(r,m);assert.equal(p.y,2.15);
+ });
+ test('stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score',()=>{
+diff --git a/test/fpcamerabrowser.js b/test/fpcamerabrowser.js
+index 49eb319b..54200475 100644
+--- a/test/fpcamerabrowser.js
++++ b/test/fpcamerabrowser.js
+@@ -13,10 +13,10 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.secured=true;m.events[m.briefKey]=true;for(const p of m.parcels)Object.assign(p,{location:'slot'+p.stop,zone:'slot'+p.stop,loaded:true,scanned:true});Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,hand:true,belt:true});s.sync();});
+   const state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {van:{...m.van},pose:{...m.cameraMotion},motion:{...m.motion},fov:s.view.camera.fov,assist:m.driveAssist,dash:s.view.camera.getObjectByName('cab-dashboard').matrixWorld.toArray()};});
+   const advance=async seconds=>{await p.evaluate(()=>window.cameraStart=OTR.game.scene.getScene('FirstPersonScene').model.elapsed);await p.waitForFunction(seconds=>OTR.game.scene.getScene('FirstPersonScene').model.elapsed-window.cameraStart>=seconds,{timeout:30000},seconds);};
+-  const initial=await state();assert.equal(initial.assist,1);assert.equal(initial.fov,68);checks+=2;
++  const initial=await state();assert.equal(initial.assist,1);assert.equal(initial.fov,76);checks+=2;
+   if(process.env.QA_CLIP==='1')recording=await p.screencast({path:path.join(OUT,'c21-camera.webm'),fps:15,quality:35});
+   await p.keyboard.press('Space');await p.keyboard.down('w');await advance(1.3);await p.keyboard.down('d');await advance(.55);await p.keyboard.up('w');await p.keyboard.up('d');
+-  const turn=await state();assert.ok(turn.van.speed>2);assert.ok(turn.van.yaw>.05);assert.ok(turn.fov>68.05&&turn.fov<=70);assert.ok(turn.pose.bodyRoll>0);assert.ok(Math.abs(turn.pose.yaw-turn.van.yaw)<.15);checks+=5;report.turn=turn;
++  const turn=await state();assert.ok(turn.van.speed>2);assert.ok(turn.van.yaw>.05);assert.ok(turn.fov>76.05&&turn.fov<=78);assert.ok(turn.pose.bodyRoll>0);assert.ok(Math.abs(turn.pose.yaw-turn.van.yaw)<.15);checks+=5;report.turn=turn;
+   await p.screenshot({path:path.join(OUT,'c21-turn.png')});
+   await p.keyboard.down('s');await advance(.25);const brake=await state();assert.ok(brake.pose.bodyPitch<-.01);assert.ok(brake.pose.y<2.04);checks+=2;report.brake=brake;
+   await p.screenshot({path:path.join(OUT,'c21-brake.png')});await advance(1);await p.keyboard.up('s');await p.keyboard.press('Space');await advance(2);
+@@ -29,7 +29,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+    const snapshot=JSON.stringify(m.snapshot());s.sync();const sample=()=>({position:s.view.camera.position.toArray(),rotation:s.view.camera.rotation.toArray(),fov:s.view.camera.fov,chassis:s.art.chassis.rotation.toArray(),font:parseFloat(s.objective.style.fontSize)});const first=sample();s.sync();const second=sample();
+    return {first,second,sameSavedState:snapshot===JSON.stringify(m.snapshot()),pointerLock:!!document.pointerLockElement};
+   });
+-  assert.deepEqual(report.reduced.first,report.reduced.second);assert.equal(report.reduced.first.fov,68);assert.equal(report.reduced.first.chassis[0],0);assert.equal(report.reduced.first.chassis[2],0);assert.ok(report.reduced.first.font>=23);assert.equal(report.reduced.sameSavedState,true);assert.equal(report.reduced.pointerLock,false);checks+=7;
++  assert.deepEqual(report.reduced.first,report.reduced.second);assert.equal(report.reduced.first.fov,76);assert.equal(report.reduced.first.chassis[0],0);assert.equal(report.reduced.first.chassis[2],0);assert.ok(report.reduced.first.font>=23);assert.equal(report.reduced.sameSavedState,true);assert.equal(report.reduced.pointerLock,false);checks+=7;
+   await p.screenshot({path:path.join(OUT,'c21-reduced-large.png')});
+   report.resume=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,{speed:0,steer:0,hand:true});OTR.save.ephemeral=false;OTR.a11y.save();const rules=OTR.academy.merge({workday:{assists:'off'}});localStorage.setItem('otr_academy',JSON.stringify(rules));s.checkpoint();return {seed:m.seed,day:m.routePlan.day,savedAssist:m.snapshot().driveAssist,savedCamera:m.snapshot().cameraMotion};});
+   assert.equal(report.resume.seed,10);assert.equal(report.resume.savedAssist,undefined);assert.equal(report.resume.savedCamera,undefined);checks+=3;
+diff --git a/test/fpdamageworld.js b/test/fpdamageworld.js
+index 2a5838b7..833e4605 100644
+--- a/test/fpdamageworld.js
++++ b/test/fpdamageworld.js
+@@ -30,6 +30,18 @@ test('located wear follows the real van rotation and chassis pose, while startin
+  const e=art.damage.entries[0],p=new THREE.Vector3().setFromMatrixPosition(e.matrix),expected=new THREE.Vector3(0,1,-2.81).applyMatrix4(art.chassis.matrixWorld);
+  assert.ok(p.distanceTo(expected)<1e-8);assert.equal(e.shape,2);assert.equal(m.damage.baseline[0],0);assert.equal(m.damage.added[0],2);art.dispose();
+ });
++test('mirror wear follows the physical housing behind its reflective glass',()=>{
++ for(const high of [false,true]){
++  const {m,art}=make(high),spec=O.fpMirrors.specs[0],entry=art.damage.entries[6];
++  const position=new THREE.Vector3().setFromMatrixPosition(entry.local),normal=new THREE.Vector3(Math.sin(spec.angle),0,Math.cos(spec.angle));
++  const offset=position.clone().sub(new THREE.Vector3(spec.x,spec.y,spec.z));
++  assert.ok(Math.abs(offset.dot(normal)+.05)<1e-8);assert.ok(offset.clone().addScaledVector(normal,.05).length()<1e-8);
++  assert.ok(new THREE.Vector3(0,0,1).transformDirection(entry.local).dot(normal)<-.999);
++  D.contact(m.damage,'mirror','solid',3);m.van.yaw=.8;art.sync(m,null,'route');
++  const world=position.clone().applyMatrix4(art.chassis.matrixWorld),actual=new THREE.Vector3().setFromMatrixPosition(entry.matrix);assert.ok(actual.distanceTo(world)<1e-8);assert.equal(entry.visible,true);assert.equal(art.damage.entries.length,15);
++  art.dispose();
++ }
++});
+ test('a naturally worn starting van shows its existing dent before any player impact',()=>{
+  const {m,art}=make(false,5,true,3);assert.equal(m.damage.baseline[1],2);assert.equal(m.damage.added.some(Boolean),false);
+  Object.assign(m.player,O.fp.local(m.van,0,7),{yaw:0,pitch:0});
+diff --git a/test/fplightingbrowser.js b/test/fplightingbrowser.js
+index efeff039..1d35be05 100644
+--- a/test/fplightingbrowser.js
++++ b/test/fplightingbrowser.js
+@@ -30,7 +30,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+   await p.addScriptTag({url:base+'/data/i18n/ta.js'});
+   report.layouts=[];for(const lang of ['en','ta'])for(const large of [false,true]){
+    await p.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;OTR.i18n.use(lang);Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true});OTR.a11y.applyColour(s);m.mode='cab';m.routePlan.timeOfDay='night';m.van.headlights=true;m.van.look=0;m.player.pitch=0;s.soundSource=s.lightSource=null;s.ui={};OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';const font=o=>{if(o.type==='Text')o.setFontFamily(OTR.theme.font);if(Array.isArray(o.list))for(const child of o.list)font(child);};for(const child of s.children.list)font(child);s.soundCue.setFontSize(OTR.a11y.size(17));s.labels.forEach(({label})=>label.text=null);s.sync();s.refresh();},{lang,large});await frames();
+-   const a=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),t=s.soundCue,r=t.getBounds();const seen=new Set();let bytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const im=source.image,w=im&&(im.naturalWidth||im.videoWidth||im.width)||source.width,h=im&&(im.naturalHeight||im.videoHeight||im.height)||source.height;bytes+=w*h*4;}return {phaserBytes:Math.ceil(bytes*4/3),text:t.text,font:parseFloat(t.style.fontSize)*t.scaleY,left:r.left,right:r.right,top:r.top,bottom:r.bottom,glare:s.art.lighting.sky.material.uniforms.glare.value,fov:s.view.camera.fov};});assert.equal(a.font,large?18:17);assert.ok(a.left>=0&&a.right<=1280&&a.top>=0&&a.bottom<=720);assert.equal(a.glare,0);assert.equal(a.fov,68);if(lang==='ta')assert.match(a.text,/[\u0B80-\u0BFF]/);if(!high)assert.ok(a.phaserBytes<=4*1024*1024,JSON.stringify(a));checks+=(lang==='ta'?5:4)+(!high?1:0);report.layouts.push({lang,large,...a});if(lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c25-${quality}-ta-large-reduced.png`)});
++   const a=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),t=s.soundCue,r=t.getBounds();const seen=new Set();let bytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);const im=source.image,w=im&&(im.naturalWidth||im.videoWidth||im.width)||source.width,h=im&&(im.naturalHeight||im.videoHeight||im.height)||source.height;bytes+=w*h*4;}return {phaserBytes:Math.ceil(bytes*4/3),text:t.text,font:parseFloat(t.style.fontSize)*t.scaleY,left:r.left,right:r.right,top:r.top,bottom:r.bottom,glare:s.art.lighting.sky.material.uniforms.glare.value,fov:s.view.camera.fov};});assert.equal(a.font,large?18:17);assert.ok(a.left>=0&&a.right<=1280&&a.top>=0&&a.bottom<=720);assert.equal(a.glare,0);assert.equal(a.fov,76);if(lang==='ta')assert.match(a.text,/[\u0B80-\u0BFF]/);if(!high)assert.ok(a.phaserBytes<=4*1024*1024,JSON.stringify(a));checks+=(lang==='ta'?5:4)+(!high?1:0);report.layouts.push({lang,large,...a});if(lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c25-${quality}-ta-large-reduced.png`)});
+   }
+   report.trainer=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.workdayRules.night=false;s.sync();return {time:s.art.lighting.time,planned:s.model.routePlan.timeOfDay};});assert.equal(report.trainer.time,'morning');assert.equal(report.trainer.planned,'night');checks+=2;
+   report.resume=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.workdayRules.night=true;OTR.save.ephemeral=false;s.checkpoint();return {seed:s.model.seed,clock:s.model.briefing.clockMin};});await p.reload();await ready();await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.closePanel();s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);await frames();const restored=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {seed:s.model.seed,clock:s.model.briefing.clockMin,preset:s.model.routePlan.timeOfDay,headlights:s.model.van.headlights};});assert.equal(restored.seed,report.resume.seed);assert.equal(restored.clock,report.resume.clock);assert.equal(restored.preset,'night');assert.equal(restored.headlights,true);checks+=4;report.resume.restored=restored;
+diff --git a/test/fpmirrors.js b/test/fpmirrors.js
+index c5ac6ece..bf45742d 100644
+--- a/test/fpmirrors.js
++++ b/test/fpmirrors.js
+@@ -4,7 +4,7 @@ let clock=0;const c={THREE,performance:{now:()=>clock}};c.window=c;vm.createCont
+ for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fpdriving.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js','src/core/fpaccess.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+ const O=c.OTR,M=O.fpMission,G=O.fpMirrors,D=O.fpDriving,W=O.workday;
+ const make=()=>{const m=M.create('campaign',7);m.mode='cab';m.paused=false;return m;};
+-function look(m,index,seconds=.4){const s=G.specs[index],dx=s.x+.45,dz=s.z+1.85;m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(dx,dz));for(let n=0;n<Math.round(seconds*100);n++){m.elapsed+=.01;G.tick(m,.01);}}
++function look(m,index,seconds=.4){const s=G.specs[index],eye=O.fpCamera.seat,dx=s.x-eye.x,dz=s.z-eye.z;m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(eye.y-s.y,Math.hypot(dx,dz));for(let n=0;n<Math.round(seconds*100);n++){m.elapsed+=.01;G.tick(m,.01);}}
+ const events=()=>W.events.filter(e=>e.type==='drive.mirrors');test.beforeEach(()=>W.begin());
+ test('a button or a legacy timestamp cannot establish a physical mirror check',()=>{
+  const m=make();assert.equal(m.mirror(),false);m.mirrorAt=m.elapsed;assert.equal(G.recent(m,0),false);for(let i=0;i<100;i++){m.elapsed+=.01;G.tick(m,.01);}assert.equal(G.recent(m,0),false);assert.equal(G.recent(m,1),false);assert.equal(G.recent(m,2),false);
+@@ -48,6 +48,24 @@ test('mirror housings stay behind the reflective faces on both presets',()=>{
+   s.art.dispose();
+  }
+ });
++test('all complete mirror faces fit the normal forward cab view without granting a gaze check',()=>{
++ for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,camera=s.view.camera,matrix=new THREE.Matrix4();
++  camera.updateMatrixWorld(true);r.root.updateMatrixWorld(true);
++  for(let i=0;i<3;i++){r.faces.getMatrixAt(i,matrix);
++   for(const x of [-.5,.5])for(const y of [-.5,.5]){const p=new THREE.Vector3(x,y,0).applyMatrix4(matrix).applyMatrix4(r.root.matrixWorld).project(camera);assert.ok(Math.abs(p.x)<.97&&Math.abs(p.y)<.9&&p.z>-1&&p.z<1,`${high?'High':'Low'} ${G.specs[i].id} corner leaves the forward view: ${p.toArray()}`);}
++  }
++  for(let i=0;i<60;i++){s.model.elapsed+=1/60;G.tick(s.model,1/60);}assert.equal(G.looking(s.model),-1);assert.ok(G.state(s.model).slice(0,3).every(t=>t===-100));
++  s.art.dispose();
++ }
++});
++test('gaze follows the actual seated camera at a rotated van and still needs a continuous dwell',()=>{
++ const m=make(),rig=O.fpCamera.create();Object.assign(m.van,{x:18,z:-35,yaw:1.2});
++ for(let index=0;index<3;index++){const spec=G.specs[index],eye=O.fpCamera.seat,dx=spec.x-eye.x,dz=spec.z-eye.z;
++  m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(eye.y-spec.y,Math.hypot(dx,dz));
++  for(let i=0;i<40;i++){m.elapsed+=.01;O.fpCamera.update(rig,m,true,false,false);G.tick(m,.01);}
++  assert.equal(G.looking(m),index);assert.equal(G.recent(m,index),true);
++ }
++});
+ test('all three physical mirrors stay on the van and retain the same reflection camera when the head turns',()=>{
+  for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,before=r.root.matrixWorld.clone(),cameras=s.view.mirror.cameras.map(c=>c.matrixWorld.clone());s.model.van.look=.7;s.model.elapsed+=.02;const saved=JSON.stringify(s.model.snapshot());s.sync();
+  assert.equal(s.view.mirror.on,true);assert.equal(s.model.snapshot().cameraMotion,undefined);assert.equal(JSON.stringify(s.model.snapshot()),saved);assert.deepEqual(r.root.matrixWorld,before);s.view.mirror.cameras.forEach((c,i)=>assert.deepEqual(c.matrixWorld,cameras[i]));
+diff --git a/test/fpmirrorsbrowser.js b/test/fpmirrorsbrowser.js
+index ff6f4c66..4fbbb357 100644
+--- a/test/fpmirrorsbrowser.js
++++ b/test/fpmirrorsbrowser.js
+@@ -4,7 +4,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+ (async()=>{
+  const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let p,recording,checks=0,state;const errors=[],report={layouts:[],live:[],fixture:'First workday, loaded van at the depot. Target selection, looking and driving use real keys. Coloured 3D markers prove live reflections.'};
+  try{
+-  p=await b.newPage();if(Number(process.env.QA_CPU_RATE)>1)await p.emulateCPUThrottling(Number(process.env.QA_CPU_RATE));await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx=low');
++  p=await b.newPage();if(Number(process.env.QA_CPU_RATE)>1)await p.emulateCPUThrottling(Number(process.env.QA_CPU_RATE));await p.setViewport({width:1280,height:720});p.on('pageerror',e=>errors.push(e.message));const base=process.env.QA_BASE||'http://127.0.0.1:8302';await p.goto(base+'/first-person.html?gfx='+(process.env.QA_GFX||'low'));
+   const ready=()=>p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:30000});await ready();await p.addScriptTag({url:base+'/data/i18n/ta.js'});
+   state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {mode:m.mode,elapsed:m.elapsed,look:m.van.look,pitch:m.player.pitch,speed:m.van.speed,mirrors:m.van.mirrors&&[...m.van.mirrors],updates:[...s.view.mirror.updates],events:OTR.workday.events.filter(e=>e.type==='drive.mirrors'),on:s.view.mirror.on};});
+   const focus=async id=>{for(let n=0;n<32;n++){const frame=await p.evaluate(()=>OTR.game.loop.frame);await p.keyboard.press('p');await p.waitForFunction(n=>OTR.game.loop.frame>n,{timeout:30000},frame);if(await p.evaluate(id=>OTR.game.scene.getScene('FirstPersonScene').target===id,id)){checks++;return;}}throw Error('Cannot focus '+id);};
+@@ -17,6 +17,10 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+    await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !!s.loadingToken&&!s.loading&&s.loadingToken!==window.mirrorToken&&!!s.art;});await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.keyboardMode=true;s.closePanel();s.progress.sequence=9;s.progress.campaign=null;s.progress.welcomed=true;s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning);
+    await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.secured=true;m.events[m.briefKey]=true;Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,hand:true,belt:true,look:0});m.player.pitch=0;for(const p of m.parcels)Object.assign(p,{location:'slot'+p.stop,loaded:true,scanned:true});OTR.workday.begin();OTR.fpMirrors.state(m);window.mirrorFixture=m;s.sync();});
+    assert.equal(await p.evaluate(()=>OTR.i18n.lang),lang);checks++;
++   const forward=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),c=s.view.camera,r=s.art.mirrors,matrix=new THREE.Matrix4();c.updateMatrixWorld(true);r.root.updateMatrixWorld(true);return OTR.fpMirrors.specs.map((spec,i)=>{r.faces.getMatrixAt(i,matrix);return {id:spec.id,corners:[[-.5,-.5],[-.5,.5],[.5,-.5],[.5,.5]].map(([x,y])=>new THREE.Vector3(x,y,0).applyMatrix4(matrix).applyMatrix4(r.root.matrixWorld).project(c).toArray())};});});
++   for(const mirror of forward)for(const [x,y,z] of mirror.corners){assert.ok(Math.abs(x)<.97&&Math.abs(y)<.9&&z>-1&&z<1,mirror.id+' must fit the default view');checks++;}
++   report.layouts.push({lang,large,gfx:process.env.QA_GFX||'low',forward});
++   await p.screenshot({path:path.join(OUT,`c48-forward-${process.env.QA_GFX||'low'}-${lang}-${large?'large':'normal'}.png`)});
+    const before=await state();await p.keyboard.press('m');await p.waitForFunction(()=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;if(m!==window.mirrorFixture)throw Error('Mirror fixture was replaced after launch');return m.elapsed>=.1;},{timeout:30000});const after=await state();assert.equal(after.look,before.look);assert.equal(after.pitch,before.pitch);assert.ok(after.mirrors.slice(0,3).every(t=>t===-100));assert.equal(after.on,true);checks+=4;
+    if(lang==='en'&&!large&&process.env.QA_CLIP==='1')recording=await p.screencast({path:path.join(OUT,'c23-mirrors.webm'),fps:12,quality:35});
+    for(const [index,id] of [[2,'mirror-interior'],[1,'mirror-right'],[0,'mirror-left']]){
+@@ -28,7 +32,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
+      await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),o=s.qaMirrorMarker;o.removeFromParent();o.geometry.dispose();o.material.dispose();delete s.qaMirrorMarker;});await pixel(index);
+     }
+     if(lang==='en'&&!large||lang==='ta'&&large)await p.screenshot({path:path.join(OUT,`c23-${id}-${lang}-${large?'large':'normal'}.png`)});
+-    const audit=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds();return {font:parseFloat(h.style.fontSize)*h.scaleY,x:r.x,right:r.right,y:r.y,bottom:r.bottom,pointerLock:!!document.pointerLockElement,fov:s.view.camera.fov};});assert.ok(audit.font>=18);assert.ok(audit.x>=0&&audit.right<=1280&&audit.y>=0&&audit.bottom<=720);assert.equal(audit.pointerLock,false);if(large)assert.equal(audit.fov,68);checks+=large?4:3;report.layouts.push({lang,large,id,audit});
++    const audit=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds();return {font:parseFloat(h.style.fontSize)*h.scaleY,x:r.x,right:r.right,y:r.y,bottom:r.bottom,pointerLock:!!document.pointerLockElement,fov:s.view.camera.fov};});assert.ok(audit.font>=18);assert.ok(audit.x>=0&&audit.right<=1280&&audit.y>=0&&audit.bottom<=720);assert.equal(audit.pointerLock,false);if(large)assert.equal(audit.fov,76);checks+=large?4:3;report.layouts.push({lang,large,id,audit});
+    }
+    if(recording){await recording.stop();recording=null;}
+    await p.keyboard.press('v');await p.keyboard.press('Space');await p.keyboard.down('w');await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').model.van.speed>.5,{timeout:30000});await p.keyboard.up('w');const moved=await state();assert.equal(moved.events.filter(e=>e.key==='0:1').length,1);assert.equal(moved.events.find(e=>e.key==='0:1').ok,true);checks+=2;
+diff --git a/test/fpwalkaroundbrowser.js b/test/fpwalkaroundbrowser.js
+index a298c210..9b433d1f 100644
+--- a/test/fpwalkaroundbrowser.js
++++ b/test/fpwalkaroundbrowser.js
+@@ -48,13 +48,24 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
+    }
+    return true;
+   };
++  const headlightsRoundTrip=async()=>{
++   for(const x of [-.68,0,.68]){
++    const target=await p.evaluate(x=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.handheld.close(false);m.paused=true;m.mode='walk';m.cargoOpen=false;m.heldId=null;Object.assign(m.player,OTR.fp.local(m.van,0,-4.2));s.target=null;s.sync();const point=OTR.fp.local(m.van,x,-2.78),eye=s.view.camera.position;m.player.yaw=Math.atan2(point.x-eye.x,-(point.z-eye.z));m.player.pitch=Math.atan2(eye.y-1,Math.hypot(point.x-eye.x,point.z-eye.z));s.sync();s.refresh();return s.aimTarget();},x);
++    assert.equal(target,'lights','Aiming at a headlight must not select the front walkaround mark.');r.checks++;
++   }
++   const events=await p.evaluate(()=>OTR.workday.events.length);await press('o');
++   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.choices.some(o=>o.label==='Mark serviceable')),true);r.checks++;
++   await p.screenshot({path:path.join(OUT,`${TAG}-headlight-panel.png`)});await press('Escape');
++   assert.equal(await p.evaluate(()=>OTR.workday.events.length),events);r.checks++;
++   return true;
++  };
+   for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
+    await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
+    await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.keyboardMode=true;s.closePanel();Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true,narrate:true,keys:{KeyP:'KeyN',KeyE:'KeyO'}});OTR.fpAccess.syncKeys();
+     window.walkSaid=[];Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speaking:false,pending:false,speak(u){walkSaid.push(u.text);},cancel(){}}});window.SpeechSynthesisUtterance=function(text){this.text=text;};
+     s.progress.guidance={intro:true,seen:[]};OTR.save.data.route.days=3;s.progress.sequence=7;s.progress.campaign=null;s.launch('campaign');s.closePanel();s.model.paused=true;OTR.workday.begin();s.notice='';s.sync();s.refresh();},size==='large');
+    assert.deepEqual(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {marker:s.model.routePlan.walkaround,targets:s.art.walkaroundTargets.length,phaser:s.art.walkaroundTargets.every(o=>o.layers.mask===2)};}),{marker:1,targets:7,phaser:true});r.checks++;
+-   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.cargoPre=await cargoRoundTrip();
++   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.headlights=await headlightsRoundTrip();run.cargoPre=await cargoRoundTrip();
+    for(const zone of ['front','rear','left','right','roof','wheel','mirror']){
+     const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='wheel')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-record.png`)});await checkpoint();run.pre.push(zone);save();
+     if(['roof','wheel'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-${zone}.png`)});
+diff --git a/test/fpworld.js b/test/fpworld.js
+index e72583dd..29a6eab3 100644
+--- a/test/fpworld.js
++++ b/test/fpworld.js
+@@ -3,17 +3,17 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
+ const THREE=require('../lib/three.min.js');
+ const context={THREE,Phaser:{Scene:class{}},URLSearchParams,location:{search:''}};context.window=context;
+ vm.createContext(context);
+-for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fplighting','fpweather','fpsigns','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
++for(const name of ['firstperson','fpmission','fpcamera','world3d','fpbranding','fpcab','fpmirrors','fprear','fplighting','fpweather','fpsigns','fpwalkaroundflow','fpworld'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+name+'.js','utf8'),context);
+ context.OTR.registerScene=C=>{context.SceneClass=C;};
+ vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),context);
+ test('parking practice at Dispatch opens its own menu instead of a workday completion',()=>{
+  let opened=0;context.SceneClass.prototype.showDispatch.call({model:{kind:'parking'},showParkingMenu(){opened++;},showPanel(){assert.fail('Practice must not open the workday finish panel');}});assert.equal(opened,1);
+ });
+-function world(high=true){
++function world(high=true,model){
+   context.OTR.gfx={high:()=>high};
+   const camera=new THREE.PerspectiveCamera(68,16/9,0.08,180),world=new THREE.Scene();world.add(camera);
+   const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},panel:null};
+-  const art=context.OTR.fpWorld.build(scene),m=context.OTR.fpMission.create('campaign',1);
++  const m=model||context.OTR.fpMission.create('campaign',1),art=context.OTR.fpWorld.build(scene,m);
+   return {scene,art,m,camera};
+ }
+ test('render diagnostics count world, mirror and composite once per frame without accumulating',()=>{
+@@ -101,9 +101,21 @@ test('turning the head moves the view without carrying the dashboard or changing
+ test('reduced motion clears even the last fractional degree of speed zoom',()=>{
+   const old=context.OTR.fpAccess;let reduced=false;context.OTR.fpAccess={reduced:()=>reduced};
+   try{const w=world(false);w.m.mode='cab';w.m.driveAssist=0;w.m.van.speed=8;w.art.sync(w.m,null,'route');w.m.van.speed=0;
+-    for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,68);w.art.dispose();
++    for(let i=0;i<80;i++){w.m.elapsed+=.05;w.art.sync(w.m,null,'route');}reduced=true;w.art.sync(w.m,null,'route');assert.equal(w.camera.fov,76);w.art.dispose();
+   }finally{context.OTR.fpAccess=old;}
+ });
++test('walkaround front and mirror marks leave the headlights directly reachable',()=>{
++ for(const high of [false,true])for(const yaw of [0,.8]){
++  const m=context.OTR.fpMission.create('campaign',6);m.walkaround={};m.damage={enabled:true};m.phase='prepare';m.mode='walk';Object.assign(m.van,{yaw,speed:0,hand:true});
++  Object.assign(m.player,context.OTR.fp.local(m.van,0,-4.2));const w=world(high,m);w.art.sync(m,null,'route');
++  assert.equal(w.art.walkaroundTargets[0].visible,true);
++  const before=JSON.stringify(m.snapshot());
++  for(const x of [-.68,0,.68]){const p=context.OTR.fp.local(m.van,x,-2.78);w.camera.lookAt(new THREE.Vector3(p.x,1,p.z));w.camera.updateMatrixWorld(true);assert.equal(w.art.pick(),'lights',`${high} lamp ${x} must not open the front damage record`);}
++  const front=w.art.walkaroundTargets[0],point=new THREE.Vector3();front.getWorldPosition(point);w.camera.lookAt(point);w.camera.updateMatrixWorld(true);assert.equal(w.art.pick(),'wear-front');
++  const mirror=context.OTR.fpWalkaroundFlow.target('mirror'),spec=context.OTR.fpMirrors.specs[0];assert.ok(Math.abs(mirror.x-spec.x)<.02);assert.equal(mirror.y,spec.y);assert.equal(mirror.z,spec.z);
++  assert.equal(JSON.stringify(m.snapshot()),before);w.art.dispose();
++ }
++});
+ test('three physical mirrors remain live without a button and reflection visibility restores exactly',()=>{
+  const w=world();w.m.mode='cab';w.m.paused=false;w.art.sync(w.m,null,'route');
+  assert.equal(w.scene.view.mirror.on,true);assert.equal(w.art.van.visible,false);
