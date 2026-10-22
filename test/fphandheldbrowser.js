@@ -39,8 +39,10 @@ const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:tru
    assert.ok(layout.phaserBytes<=(quality==='high'?16:4)*1024*1024,lang+': handheld exceeds the texture budget');
    // Use the actual Back hit target, then return by the keyboard route.
    await page.mouse.click(layout.back.x,layout.back.y);
+   await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title==='DELIVERY');
    assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'DELIVERY');
    await page.evaluate(id=>OTR.game.scene.getScene('FirstPersonScene').handheld.checks(id),id);await page.keyboard.press('Backspace');
+   await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title==='DELIVERY');
    assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'DELIVERY');
    views.push({lang,large,...layout});console.log(lang+' larger='+large+' passes');
   }
