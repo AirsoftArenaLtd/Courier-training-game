@@ -1,0 +1,220 @@
+[QA HTTP transport] http://127.0.0.1:8347/index.html?user=drivemap&name=Sam%20Lee&lang=en&dev=1
+ok   en: the page runs in en
+ok   en: pin shapes sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-
+ok   en: a legend line for sign ("road sign or traffic light")
+ok   en: the sign line stays in the map's column (44–177, bottom 705)
+ok   en: the caption ends above the sign line
+ok   en: a legend line for damage ("damage to the van")
+ok   en: the damage line stays in the map's column (219–325, bottom 705)
+ok   en: the caption ends above the damage line
+ok   en: a legend line for clearance ("low bridge or clearance")
+ok   en: the clearance line stays in the map's column (367–499, bottom 705)
+ok   en: the caption ends above the clearance line
+ok   en: a legend line for load ("load shifted")
+ok   en: the load line stays in the map's column (541–608, bottom 705)
+ok   en: the caption ends above the load line
+ok   en: a legend line for route ("wrong turn")
+ok   en: the route line stays in the map's column (650–714, bottom 705)
+ok   en: the caption ends above the route line
+ok   en: no two legend lines overlap
+ok   en: every pin is on the map, above the caption
+ok   en: the layout audit finds nothing
+ok   en: debrief page 1 of 2 fits
+ok   en: debrief page 2 of 2 fits
+ok   en: the debrief has the drive.red-light line
+ok   en: the debrief has the drive.route line
+ok   en: the debrief has the drive.cyclist line
+ok   en: the debrief has the drive.pedestrian line
+ok   en: the debrief has the drive.sign-noentry line
+ok   en: the debrief has the drive.hazard-early line
+ok   en: the debrief has the drive.sign-giveway line
+ok   en: the debrief has the van.damage-dent line
+ok   en: the debrief has the drive.clearance line
+ok   en: the debrief has the load.shift line
+ok   en: the debrief has the stop.intercom line
+ok   en: the debrief has the stop.reception line
+ok   en: the debrief has the stop.locker line
+ok   en: the debrief has the stop.reattempt line
+ok   en: the debrief has the inspect.damage line
+ok   en: the debrief has the trip.damage-report line
+ok   en: the debrief has the trip.damage-false line
+ok   en: the record's lessons tab fits
+ok   en: the record's recent tab fits
+ok   en: no page errors 
+[QA HTTP transport] http://127.0.0.1:8347/index.html?user=drivemap&name=Sam%20Lee&lang=en&dev=1
+ok   en large: the page runs in en with larger text
+ok   en large: pin shapes sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-
+ok   en large: a legend line for sign ("road sign or traffic light")
+ok   en large: the sign line stays in the map's column (44–210, bottom 706)
+ok   en large: the caption ends above the sign line
+ok   en large: a legend line for damage ("damage to the van")
+ok   en large: the damage line stays in the map's column (252–385, bottom 706)
+ok   en large: the caption ends above the damage line
+ok   en large: a legend line for clearance ("low bridge or clearance")
+ok   en large: the clearance line stays in the map's column (427–592, bottom 706)
+ok   en large: the caption ends above the clearance line
+ok   en large: a legend line for load ("load shifted")
+ok   en large: the load line stays in the map's column (634–718, bottom 706)
+ok   en large: the caption ends above the load line
+ok   en large: a legend line for route ("wrong turn")
+ok   en large: the route line stays in the map's column (760–840, bottom 706)
+ok   en large: the caption ends above the route line
+ok   en large: no two legend lines overlap
+ok   en large: every pin is on the map, above the caption
+ok   en large: the layout audit finds nothing
+ok   en large: debrief page 1 of 3 fits
+ok   en large: debrief page 2 of 3 fits
+ok   en large: debrief page 3 of 3 fits
+ok   en large: the debrief has the drive.red-light line
+ok   en large: the debrief has the drive.route line
+ok   en large: the debrief has the drive.cyclist line
+ok   en large: the debrief has the drive.pedestrian line
+ok   en large: the debrief has the drive.sign-noentry line
+ok   en large: the debrief has the drive.hazard-early line
+ok   en large: the debrief has the drive.sign-giveway line
+ok   en large: the debrief has the van.damage-dent line
+ok   en large: the debrief has the drive.clearance line
+ok   en large: the debrief has the load.shift line
+ok   en large: the debrief has the stop.intercom line
+ok   en large: the debrief has the stop.reception line
+ok   en large: the debrief has the stop.locker line
+ok   en large: the debrief has the stop.reattempt line
+ok   en large: the debrief has the inspect.damage line
+ok   en large: the debrief has the trip.damage-report line
+ok   en large: the debrief has the trip.damage-false line
+ok   en large: the record's lessons tab fits
+ok   en large: the record's recent tab fits
+ok   en large: no page errors 
+[QA HTTP transport] http://127.0.0.1:8347/index.html?user=drivemap&name=Sam%20Lee&lang=ta&dev=1
+ok   ta: the page runs in ta
+ok   ta: pin shapes sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-
+ok   ta: a legend line for sign ("சாலை அடையாளம் அல்லது சிக்னல்")
+ok   ta: the sign line is translated
+ok   ta: the sign line stays in the map's column (44–273, bottom 683)
+ok   ta: the caption ends above the sign line
+ok   ta: a legend line for damage ("வேனுக்கு சேதம்")
+ok   ta: the damage line is translated
+ok   ta: the damage line stays in the map's column (315–414, bottom 683)
+ok   ta: the caption ends above the damage line
+ok   ta: a legend line for clearance ("தாழ்வான பாலம் அல்லது உயர வரம்பு")
+ok   ta: the clearance line is translated
+ok   ta: the clearance line stays in the map's column (456–690, bottom 683)
+ok   ta: the caption ends above the clearance line
+ok   ta: a legend line for load ("சரக்கு நகர்ந்தது")
+ok   ta: the load line is translated
+ok   ta: the load line stays in the map's column (732–834, bottom 683)
+ok   ta: the caption ends above the load line
+ok   ta: a legend line for route ("தவறான திருப்பம்")
+ok   ta: the route line is translated
+ok   ta: the route line stays in the map's column (44–157, bottom 705)
+ok   ta: the caption ends above the route line
+ok   ta: no two legend lines overlap
+ok   ta: every pin is on the map, above the caption
+ok   ta: the layout audit finds nothing
+ok   ta: debrief page 1, the drive.red-light line is translated
+ok   ta: debrief page 1, the drive.cyclist line is translated
+ok   ta: debrief page 1, the drive.pedestrian line is translated
+ok   ta: debrief page 1, the drive.sign-noentry line is translated
+ok   ta: debrief page 1, the drive.sign-giveway line is translated
+ok   ta: debrief page 1, the van.damage-dent line is translated
+ok   ta: debrief page 1, the drive.clearance line is translated
+ok   ta: debrief page 1, the load.shift line is translated
+ok   ta: debrief page 1, the inspect.damage line is translated
+ok   ta: debrief page 1 of 2 fits
+ok   ta: debrief page 2, the drive.route line is translated
+ok   ta: debrief page 2, the drive.hazard-early line is translated
+ok   ta: debrief page 2, the stop.intercom line is translated
+ok   ta: debrief page 2, the stop.reception line is translated
+ok   ta: debrief page 2, the stop.locker line is translated
+ok   ta: debrief page 2, the stop.reattempt line is translated
+ok   ta: debrief page 2, the trip.damage-report line is translated
+ok   ta: debrief page 2, the trip.damage-false line is translated
+ok   ta: debrief page 2 of 2 fits
+ok   ta: the debrief has the drive.red-light line
+ok   ta: the debrief has the drive.route line
+ok   ta: the debrief has the drive.cyclist line
+ok   ta: the debrief has the drive.pedestrian line
+ok   ta: the debrief has the drive.sign-noentry line
+ok   ta: the debrief has the drive.hazard-early line
+ok   ta: the debrief has the drive.sign-giveway line
+ok   ta: the debrief has the van.damage-dent line
+ok   ta: the debrief has the drive.clearance line
+ok   ta: the debrief has the load.shift line
+ok   ta: the debrief has the stop.intercom line
+ok   ta: the debrief has the stop.reception line
+ok   ta: the debrief has the stop.locker line
+ok   ta: the debrief has the stop.reattempt line
+ok   ta: the debrief has the inspect.damage line
+ok   ta: the debrief has the trip.damage-report line
+ok   ta: the debrief has the trip.damage-false line
+ok   ta: the record's lessons tab fits
+ok   ta: the record's recent tab fits
+ok   ta: no page errors 
+[QA HTTP transport] http://127.0.0.1:8347/index.html?user=drivemap&name=Sam%20Lee&lang=ta&dev=1
+ok   ta large: the page runs in ta with larger text
+ok   ta large: pin shapes sign,sign,sign,sign,sign,route,-,clearance,damage,load,-,sign,-,-,-,-,-
+ok   ta large: a legend line for sign ("சாலை அடையாளம் அல்லது சிக்னல்")
+ok   ta large: the sign line is translated
+ok   ta large: the sign line stays in the map's column (44–330, bottom 684)
+ok   ta large: the caption ends above the sign line
+ok   ta large: a legend line for damage ("வேனுக்கு சேதம்")
+ok   ta large: the damage line is translated
+ok   ta large: the damage line stays in the map's column (372–495, bottom 684)
+ok   ta large: the caption ends above the damage line
+ok   ta large: a legend line for clearance ("தாழ்வான பாலம் அல்லது உயர வரம்பு")
+ok   ta large: the clearance line is translated
+ok   ta large: the clearance line stays in the map's column (537–830, bottom 684)
+ok   ta large: the caption ends above the clearance line
+ok   ta large: a legend line for load ("சரக்கு நகர்ந்தது")
+ok   ta large: the load line is translated
+ok   ta large: the load line stays in the map's column (44–171, bottom 706)
+ok   ta large: the caption ends above the load line
+ok   ta large: a legend line for route ("தவறான திருப்பம்")
+ok   ta large: the route line is translated
+ok   ta large: the route line stays in the map's column (213–354, bottom 706)
+ok   ta large: the caption ends above the route line
+ok   ta large: no two legend lines overlap
+ok   ta large: every pin is on the map, above the caption
+ok   ta large: the layout audit finds nothing
+ok   ta large: debrief page 1, the drive.red-light line is translated
+ok   ta large: debrief page 1, the drive.cyclist line is translated
+ok   ta large: debrief page 1, the drive.pedestrian line is translated
+ok   ta large: debrief page 1, the drive.sign-noentry line is translated
+ok   ta large: debrief page 1, the drive.sign-giveway line is translated
+ok   ta large: debrief page 1, the inspect.damage line is translated
+ok   ta large: debrief page 1 of 3 fits
+ok   ta large: debrief page 2, the drive.route line is translated
+ok   ta large: debrief page 2, the drive.hazard-early line is translated
+ok   ta large: debrief page 2, the van.damage-dent line is translated
+ok   ta large: debrief page 2, the drive.clearance line is translated
+ok   ta large: debrief page 2, the load.shift line is translated
+ok   ta large: debrief page 2, the stop.intercom line is translated
+ok   ta large: debrief page 2, the stop.reception line is translated
+ok   ta large: debrief page 2 of 3 fits
+ok   ta large: debrief page 3, the stop.locker line is translated
+ok   ta large: debrief page 3, the stop.reattempt line is translated
+ok   ta large: debrief page 3, the trip.damage-report line is translated
+ok   ta large: debrief page 3, the trip.damage-false line is translated
+ok   ta large: debrief page 3 of 3 fits
+ok   ta large: the debrief has the drive.red-light line
+ok   ta large: the debrief has the drive.route line
+ok   ta large: the debrief has the drive.cyclist line
+ok   ta large: the debrief has the drive.pedestrian line
+ok   ta large: the debrief has the drive.sign-noentry line
+ok   ta large: the debrief has the drive.hazard-early line
+ok   ta large: the debrief has the drive.sign-giveway line
+ok   ta large: the debrief has the van.damage-dent line
+ok   ta large: the debrief has the drive.clearance line
+ok   ta large: the debrief has the load.shift line
+ok   ta large: the debrief has the stop.intercom line
+ok   ta large: the debrief has the stop.reception line
+ok   ta large: the debrief has the stop.locker line
+ok   ta large: the debrief has the stop.reattempt line
+ok   ta large: the debrief has the inspect.damage line
+ok   ta large: the debrief has the trip.damage-report line
+ok   ta large: the debrief has the trip.damage-false line
+ok   ta large: the record's lessons tab fits
+ok   ta large: the record's recent tab fits
+ok   ta large: no page errors 
+
+214 drive map checks passed

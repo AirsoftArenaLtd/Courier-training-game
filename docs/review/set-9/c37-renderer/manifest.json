@@ -1,0 +1,22 @@
+{
+  "stage": "Renderer and approved entry hooks implemented; native acceptance under way, not ready for review.",
+  "productRevision": "8334f25",
+  "pilot": "54d7a63",
+  "requiredCases": 113,
+  "focusedCases": 27,
+  "fixedBufferBytes": 201376,
+  "maximumPublishedFrameBytes": 100688,
+  "scope": "Initial browser wait lacked a game-exists guard. Corrected-start fixture marked outcome but not resolved, so real Dispatch rejected finish. Both failures are retained; harness now resolves its fixture stops and asserts actual finish immediately. No production guard was weakened. Native/resource/layout/drive-map acceptance still pending.",
+  "files": {
+    "corrected-start-browser.png": "92a57b292c8f0b314d73dcdeb32b817ac95ae5fe750e94f61ccf43f97fe2fd14",
+    "corrected-start-browser.json": "cabc12ae839c2a68d25f7ccefb5e0aa3e1662c5a2181ca0253d3c4de9f3942fc",
+    "initial-browser-harness.js": "507eaa1158d84fdaefd3051848a8e5cb5ece50358fff59d0893c7cedb39d6bb8",
+    "initial-browser.log": "39d63b855cc830874dd2fbdebcf9b528592a5ba333047883491eda334a0d4951",
+    "focused-node.log": "e8f67cc28bbfa3c68dcc3585d394f1e7b0423f51c7343046178d8795d611bf79",
+    "initial-browser.png": "c8cef207afd4a31d5c4abbfe1ab5d0c5324564fd41a5e03711e8120d074a92a1",
+    "initial-browser.json": "39dd7e92c55f24ac49a4d80663ddbf3edd97af80923e85233e82895bff012a42",
+    "required-node.log": "dcc6da7830c91e2fc92f287da9073ce09df87820c3e7630bd131184c5751a654",
+    "current-catalogue.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "corrected-start-browser.log": "9599b7be91419b6d77d04ca1e767068e2eabb1e585c2609909699c8f230a92ca"
+  }
+}

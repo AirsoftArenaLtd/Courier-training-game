@@ -157,7 +157,8 @@ class ResultsScene extends Phaser.Scene {
       () => (nx ? OTR.fx.transition(this, nx.scene, nx.data || {}) : dn ? OTR.drill.advance(this) : OTR.flow.toHub(this)), { w: 280, h: 56, skin: 'orange', key: 'ENTER', hint: '⏎' });
     const btns = retry ? [retry, next] : [next];
     panel.add(btns);
-    OTR.ui.focus(this, btns, { start: btns.length - 1 });
+    const replay = OTR.fpReplayUI && OTR.fpReplayUI.entry(this, this.d.review);
+    OTR.ui.focus(this, replay ? btns.concat(replay) : btns, { start: btns.length - 1 });
     btns.forEach(b => b.setEnabled(false));
     this.time.delayedCall(Math.min(delay, 2200), () => btns.forEach(b => b.setEnabled(true)));
 

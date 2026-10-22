@@ -1,5 +1,7 @@
 # Low-graphics 3D workday budget
 
+**C-37 current-pilot replay acceptance (21 October 2026):** all 207 resource views pass. Loaded Low peaks at **54 calls / 2,396 triangles / two textures / 3,557,376 attachment bytes / 2,778,774 estimated Phaser bytes**; loaded High **107 / 235,893 / three / 11,239,424 / 8,902,512**. Accessible Low and true missing-model fallback pass unchanged ceilings. Replay also passes 245 native checks and all 72 repository suites. Exact source hashes, all raw reports and captures: `docs/review/set-9/c37-current-accepted/manifest.json`. Native Intel FPS remains O-1.
+
 **C-32 traffic with C-31 navigation (19 October 2026):** all 91 baseline and 18 final traffic resource views pass. Later Low uses two procedural children, four crossed bicycle profiles in an existing batch, shared signal surfaces and a 180-triangle town-decoration allowance. No new asset, texture, target or pass. Full 264,000-view loaded/fallback sweeps peak at **62 / 2,410** and **57 / 2,088** calls/triangles. Original ceilings are unchanged. Raw figures and screenshots: `docs/review/set-9/c32.md`.
 
 **C-30 signs (18 October 2026):** the existing route-plane batch holds at most five signs per Low view,
@@ -450,3 +452,40 @@ Claude has merged C-36, the test-fixture correction, translations and the legacy
 all pins and exact scores with **437–449 characters spare**, above the new 300-character
 guard. Existing native Low/High checks pass 55 each. Original ceilings remain
 unchanged; cloud SwiftShader does not certify Intel 60 fps (O-1).
+
+## C-37 initial native replay view (21 October 2026)
+
+The actual Dispatch finish -> Results/map -> detached replay path passes **33 checks**
+in English larger-text Low at `79fdbd9`. Remapped focus/Enter, manual reduced-motion
+steps, playback/pause, hidden-window pause, narration while muted, old-record
+rejection and exact source/localStorage immutability pass. No score report is emitted.
+The initial paused view uses **33 calls / 1,046 triangles / two Three textures /
+3,557,376 attachment bytes / 1,402,939 estimated Phaser bytes**; fourteen unreferenced
+UI canvases are released while borrowed assets remain protected.
+
+[Raw report, captures, source and scope](review/set-9/c37-native/manifest.json).
+This is an initial view, not the complete resource gate. Final source `52d8365`
+adds proper Results/map return data; all 113 required cases pass. The expanded
+native matrix, drive-map acceptance, drive-review flow and full fpbench quality
+gate are running. All original ceilings remain unchanged. Cloud SwiftShader
+cannot certify Intel 60 fps (O-1).
+
+## C-37 completed frozen gate, current-pilot repeat (21 October 2026)
+
+All **179 resource views** pass at product `73a01da`. Complete native replay
+coverage passes **245 checks**, including source/localStorage immutability and
+world/reference release. Low native page memory peaks at **1,584,187 bytes**,
+High at **5,100,219**. The shared map passes 214 checks and drive-review passes.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 61 | 54 | 2,396 | 2 | 3,557,376 | 2,778,774 |
+| loaded-high | 46 | 107 | 235,893 | 3 | 11,239,424 | 8,902,512 |
+| accessible-low | 36 | 54 | 2,396 | 2 | 3,557,376 | 3,067,056 |
+| fallback-low | 36 | 53 | 2,150 | 2 | 3,557,376 | 2,592,336 |
+
+[Exact captures, reports, source hashes and scopes](review/set-9/c37-accepted/manifest.json).
+Pilot `c9e02e87` is now combined at `6040d70d`, retaining C-36 and B-114. All 113
+required cases and the current catalogue pass. The native/shared repeat and
+expanded 207-view gate are running on `5627336f`; no result is claimed for that
+combined gate yet. No ceiling changed. Native Intel 60 fps remains O-1.
