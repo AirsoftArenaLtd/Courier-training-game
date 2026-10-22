@@ -1,0 +1,408 @@
+{
+  "fixture": "Day four, seed seven; fixed travel, clear weather and elapsed time. People remain in generated private yards. Pixel probes hide presentation only.",
+  "views": [
+    {
+      "mode": "high",
+      "name": "yard",
+      "file": "c51-final-people-high-yard.png",
+      "peak": {
+        "calls": 36,
+        "triangles": 65361,
+        "textures": 4,
+        "geometries": 23,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        },
+        {
+          "lotId": "lot25",
+          "x": 33.0705,
+          "z": -89.14505066666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "midday",
+      "peoplePixels": {
+        "changed": 29403,
+        "unchanged": true,
+        "glError": 0
+      }
+    },
+    {
+      "mode": "high",
+      "name": "ordinary-cab",
+      "file": "c51-final-people-high-ordinary-cab.png",
+      "peak": {
+        "calls": 51,
+        "triangles": 72362,
+        "textures": 4,
+        "geometries": 25,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "midday"
+    },
+    {
+      "mode": "high",
+      "name": "night-cab",
+      "file": "c51-final-people-high-night-cab.png",
+      "peak": {
+        "calls": 48,
+        "triangles": 62699,
+        "textures": 4,
+        "geometries": 25,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "night",
+      "setup": {
+        "sites": 12,
+        "slots": 2,
+        "source": 2,
+        "assets": {
+          "quality": "high",
+          "loaded": 22,
+          "failed": 0,
+          "fallbacks": 0,
+          "bytes": 8377598,
+          "decodedBytes": 24680796,
+          "errors": []
+        },
+        "bench": 4
+      },
+      "requests": [
+        "/assets/3d/kenney-mini-characters/models/character-male-a-high.glb",
+        "/assets/3d/kenney-mini-characters/models/character-female-a-high.glb",
+        "/assets/3d/kenney-furniture/models/bench-high.glb"
+      ]
+    },
+    {
+      "mode": "low",
+      "name": "yard",
+      "file": "c51-final-people-low-yard.png",
+      "peak": {
+        "calls": 25,
+        "triangles": 878,
+        "textures": 2,
+        "geometries": 15,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -35.491,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "midday",
+      "peoplePixels": {
+        "changed": 13592,
+        "unchanged": true,
+        "glError": 0
+      }
+    },
+    {
+      "mode": "low",
+      "name": "ordinary-cab",
+      "file": "c51-final-people-low-ordinary-cab.png",
+      "peak": {
+        "calls": 39,
+        "triangles": 1190,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -35.491,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "midday"
+    },
+    {
+      "mode": "low",
+      "name": "night-cab",
+      "file": "c51-final-people-low-night-cab.png",
+      "peak": {
+        "calls": 42,
+        "triangles": 1248,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -35.491,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "night",
+      "setup": {
+        "sites": 45,
+        "slots": 1,
+        "source": 0,
+        "assets": {
+          "quality": "low",
+          "loaded": 14,
+          "failed": 0,
+          "fallbacks": 0,
+          "bytes": 824208,
+          "decodedBytes": 354468,
+          "errors": []
+        },
+        "bench": 0
+      },
+      "requests": []
+    },
+    {
+      "mode": "missing-high",
+      "name": "yard",
+      "file": "c51-final-people-missing-high-yard.png",
+      "peak": {
+        "calls": 36,
+        "triangles": 63820,
+        "textures": 4,
+        "geometries": 21,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        },
+        {
+          "lotId": "lot25",
+          "x": 33.0705,
+          "z": -89.14505066666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "midday",
+      "peoplePixels": {
+        "changed": 39639,
+        "unchanged": true,
+        "glError": 0
+      }
+    },
+    {
+      "mode": "missing-high",
+      "name": "ordinary-cab",
+      "file": "c51-final-people-missing-high-ordinary-cab.png",
+      "peak": {
+        "calls": 45,
+        "triangles": 63035,
+        "textures": 4,
+        "geometries": 23,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "midday"
+    },
+    {
+      "mode": "missing-high",
+      "name": "night-cab",
+      "file": "c51-final-people-missing-high-night-cab.png",
+      "peak": {
+        "calls": 50,
+        "triangles": 71675,
+        "textures": 4,
+        "geometries": 23,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424
+      },
+      "selected": [
+        {
+          "lotId": "lot5",
+          "x": 10.818,
+          "z": -74.10426666666669,
+          "walking": true
+        }
+      ],
+      "weather": "clear",
+      "time": "night",
+      "setup": {
+        "sites": 12,
+        "slots": 2,
+        "source": 0,
+        "assets": {
+          "quality": "high",
+          "loaded": 20,
+          "failed": 2,
+          "fallbacks": 0,
+          "bytes": 8166230,
+          "decodedBytes": 24487470,
+          "errors": [
+            {
+              "path": "kenney-mini-characters/models/character-male-a-high.glb",
+              "reason": "Asset could not load"
+            },
+            {
+              "path": "kenney-mini-characters/models/character-female-a-high.glb",
+              "reason": "Asset could not load"
+            }
+          ]
+        },
+        "bench": 4
+      },
+      "requests": [
+        "/assets/3d/kenney-mini-characters/models/character-male-a-high.glb",
+        "/assets/3d/kenney-mini-characters/models/character-female-a-high.glb",
+        "/assets/3d/kenney-furniture/models/bench-high.glb"
+      ]
+    },
+    {
+      "mode": "accessible-low",
+      "name": "yard",
+      "file": "c51-final-people-accessible-low-yard.png",
+      "peak": {
+        "calls": 30,
+        "triangles": 892,
+        "textures": 2,
+        "geometries": 15,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -34.75,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "midday",
+      "peoplePixels": {
+        "changed": 17194,
+        "unchanged": true,
+        "glError": 0
+      }
+    },
+    {
+      "mode": "accessible-low",
+      "name": "ordinary-cab",
+      "file": "c51-final-people-accessible-low-ordinary-cab.png",
+      "peak": {
+        "calls": 39,
+        "triangles": 1190,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -34.75,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "midday"
+    },
+    {
+      "mode": "accessible-low",
+      "name": "night-cab",
+      "file": "c51-final-people-accessible-low-night-cab.png",
+      "peak": {
+        "calls": 42,
+        "triangles": 1248,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      },
+      "selected": [
+        {
+          "lotId": "lot3",
+          "x": 12.261,
+          "z": -34.75,
+          "walking": false
+        }
+      ],
+      "weather": "clear",
+      "time": "night",
+      "setup": {
+        "sites": 45,
+        "slots": 1,
+        "source": 0,
+        "assets": {
+          "quality": "low",
+          "loaded": 14,
+          "failed": 0,
+          "fallbacks": 0,
+          "bytes": 824208,
+          "decodedBytes": 354468,
+          "errors": []
+        },
+        "bench": 0
+      },
+      "requests": []
+    }
+  ],
+  "errors": [],
+  "checks": 30
+}
