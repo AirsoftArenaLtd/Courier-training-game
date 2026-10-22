@@ -53,7 +53,7 @@
    "locker": 0,
    "walkaround": 7,
    "headlight": 0,
-   "workday": 1
+   "workday": 0
   },
   "es": {
    "handheld": 0,
@@ -105,7 +105,7 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 2
+   "workday": 0
   },
   "kn": {
    "handheld": 0,
@@ -118,7 +118,7 @@
    "locker": 0,
    "walkaround": 9,
    "headlight": 0,
-   "workday": 1
+   "workday": 0
   },
   "ml": {
    "handheld": 0,
@@ -131,7 +131,7 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 5
+   "workday": 0
   },
   "mr": {
    "handheld": 0,
@@ -157,7 +157,7 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 2
+   "workday": 0
   },
   "ta": {
    "handheld": 8,

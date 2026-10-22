@@ -3469,7 +3469,7 @@ window.OTR_I18N.bn = {
 "the load restraint": "মাল বাঁধার ফিতা",
 "the tires": "টায়ার",
 "the lights": "লাইট",
-"the workday station": "ওয়ার্কডে স্টেশন",
+"the workday station": "কর্মদিবস স্টেশন",
 "the cargo practice station": "কার্গো অনুশীলন স্টেশন",
 "the debrief station": "ডিব্রিফ স্টেশন",
 "the dog gate": "কুকুরের গেট",
