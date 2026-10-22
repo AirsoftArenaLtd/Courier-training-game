@@ -1,6 +1,6 @@
 # Open questions for the translation reviewers
 
-Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 25 questions in 9 languages.
+Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 26 questions in 9 languages.
 
 Each question is also in the Comment column of that language's sheet (`docs/review/<language>-safety.csv`), on its line,
 and those lines come first. Send this page with the sheet, so the reviewer knows what we most want to hear about.
@@ -13,10 +13,7 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 2. **The line:** "Turned or changed lanes without a current check of the matching mirror."
    The English asks for a current (recent) mirror check. Does the translation keep "current"?
 
-3. **The line:** "Never leave a signature-required package unattended."
-   Most lines say সই, but this one and about 20 others say স্বাক্ষর. Should drivers see one word everywhere? If so, which?
-
-4. **The line:** "Pre-trip walkaround"
+3. **The line:** "Pre-trip walkaround"
    The walk round the van to check it is called চারপাশ পরীক্ষা in some lines and পরিদর্শন or "চারপাশ দেখা" in others. Which one word should drivers see everywhere?
 
 ## French (fr-safety.csv)
@@ -25,7 +22,7 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
    The English asks for a current (recent) mirror check. Does the translation keep "current"?
 
 2. **The line:** "Replace the parcel, secure the load, then finish at Dispatch."
-   Dispatch is the depot desk and also the person on the radio. The game says Répartiteur for the person and la Répartition for the desk, as here. Is that natural, or should one word be used for both?
+   Dispatch is the depot desk and also the person on the radio. The game now says le répartiteur for both, as here ("termine auprès du répartiteur"). Is that natural for the desk, or would "la répartition" read better for the place?
 
 ## Gujarati (gu-safety.csv)
 
@@ -48,6 +45,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 2. **The line:** "Pre-trip walkaround"
    The walk round the van to check it is called ಸುತ್ತು-ಪರಿಶೀಲನೆ in some lines and ತಪಾಸಣೆ or ಪರಿಶೀಲನೆ in others. Which one word should drivers see everywhere?
+
+3. **The line:** "Talk to reception"
+   The Reception button says ರಿಸೆಪ್ಷನ್, but this line and one other say ಸ್ವಾಗತಕಾರರು (the receptionist). Is that natural here, or should they say ರಿಸೆಪ್ಷನ್ too?
 
 ## Malayalam (ml-safety.csv)
 
@@ -97,3 +97,6 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 4. **The line:** "Photo ID and an adult signature are required. The recipient must be 21 or older."
    Most lines say கையொப்பம், but this one and about 11 others say கையெழுத்து. Should drivers see one word everywhere? If so, which?
+
+5. **The line:** "Good. Go do your walkaround."
+   The walk round the van is called சோதனை in most lines, but this and 2 other lines say "சுற்றிப் பார்" (look around). Which would a Tamil-speaking driver understand at once as the daily check of the van?

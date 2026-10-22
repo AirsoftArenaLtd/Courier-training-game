@@ -9,7 +9,8 @@
    "case": true,
    "except": [
     "Dispatch anyway?",
-    "Dispatch anyway"
+    "Dispatch anyway",
+    "Click a stop — on the map or the manifest — or Tab to it and press Enter, to add it to the route; again to pull it back out. Undo (Backspace) / Clear all to fix. Dispatch when the manifest is sequenced."
    ]
   },
   "returns": {
@@ -31,7 +32,13 @@
     "Invalid walkaround damage"
    ]
   },
-  "headlight": "Headlights"
+  "headlight": {
+   "en": "Headlights",
+   "except": [
+    "Headlight, driver side",
+    "One headlight at dusk means you are half as visible and it is a citation."
+   ]
+  }
  },
  "baseline": {
   "bn": {
@@ -55,14 +62,14 @@
    "sat nav": 0,
    "intercom": 0,
    "locker": 0,
-   "walkaround": 1,
-   "headlight": 2
+   "walkaround": 0,
+   "headlight": 0
   },
   "fr": {
    "handheld": 0,
    "reception": 0,
    "signature": 0,
-   "dispatch": 1,
+   "dispatch": 0,
    "returns": 0,
    "sat nav": 0,
    "intercom": 0,
@@ -146,8 +153,8 @@
    "handheld": 8,
    "reception": 0,
    "signature": 12,
-   "dispatch": 4,
-   "returns": 4,
+   "dispatch": 3,
+   "returns": 0,
    "sat nav": 0,
    "intercom": 0,
    "locker": 0,
