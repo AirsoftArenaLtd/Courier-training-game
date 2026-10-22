@@ -9,10 +9,11 @@ for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data
 c.OTR.save={data:{townSeed:1}};const F=install(c),banks={};
 test.before(async()=>{for(const high of [false,true])banks[high]=await F.preload({high,fetch:local});});
 test.after(()=>Object.values(banks).forEach(b=>b.dispose()));
-for(const profile of ['low','high','fallback'])test(profile+': every ground-level inspection selects a nearby rendered van surface',()=>{
+for(const profile of ['low','high','fallback'])for(const yaw of [0,Math.PI/2,Math.PI,-1])test(profile+' yaw '+yaw+': every ground-level inspection selects a nearby rendered van surface',()=>{
  const high=profile==='high',O=c.OTR;O.gfx={high:()=>high};
  let plan=O.fpStopFlow.prepare(O.fpRoute.plan(4,8),true);plan=O.fpWalkaroundFlow.prepare(O.fpDamageFlow.prepare(O.fpLater.prepare(plan)));
  const m=O.fpMission.create('campaign',8,plan),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);O.fpDoors.configure(m);
+ m.van.yaw=yaw;
  const scene={assetBank:profile==='fallback'?null:banks[high],view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);
  try{
   const door=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0);
@@ -20,6 +21,8 @@ for(const profile of ['low','high','fallback'])test(profile+': every ground-leve
   const handle=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x>1);
   Object.assign(m.player,O.fp.local(m.van,1.15,3.6));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(handle.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the existing cargo handle stays selectable');
   m.cargoOpen=true;art.sync(m,null,'route');assert.equal(art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear').visible,false);m.cargoOpen=false;
+  Object.assign(m.player,O.fp.local(m.van,0,-4.2));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);
+  for(const x of [-.68,0,.68]){const p=O.fp.local(m.van,x,-2.78);camera.lookAt(new THREE.Vector3(p.x,1,p.z));camera.updateMatrixWorld(true);assert.equal(art.pick(),'lights','the front damage record must leave each lamp selectable');}
   for(const t of O.fpWalkaroundFlow.targets){
    const point=O.fp.local(m.van,t.x+(t.zone==='right'?.85:['front','rear'].includes(t.zone)?0:-.85),t.z+(t.zone==='front'?-.85:t.zone==='rear'?.85:0));Object.assign(m.player,point);
    art.sync(m,null,'route');const proxy=art.walkaroundTargets.find(o=>o.userData.interaction==='wear-'+t.zone),target=proxy.getWorldPosition(new THREE.Vector3());
@@ -27,7 +30,7 @@ for(const profile of ['low','high','fallback'])test(profile+': every ground-leve
    assert.equal(O.fpWalkaroundFlow.canInspect(m,t.zone),true);assert.equal(art.pick(),'wear-'+t.zone);
    const ray=new THREE.Raycaster();ray.far=4;ray.setFromCamera({x:0,y:0},camera);const visible=[];world.traverseVisible(o=>{if(o.isMesh&&o.layers.test(ray.layers))visible.push(o);});
    const real=ray.intersectObjects(visible,false)[0];ray.layers.enable(1);const hit=ray.intersectObjects([proxy],false)[0];assert.ok(real&&hit,t.zone+' has no physical surface');
-   const delta=Math.abs(real.distance-hit.distance);assert.ok(delta<.25,t.zone+' target floats '+delta+' m from '+real.object.name);
+   const delta=Math.abs(real.distance-hit.distance);assert.ok(delta<(t.zone==='front'?.1:.25),t.zone+' target floats '+delta+' m from '+real.object.name);
   }
  }finally{art.dispose();}
 });

@@ -335,12 +335,19 @@ OTR.fpWorld = {
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');
+    // The loaded van's front profile differs from the fallback. Fit its lower inspection point once at build time.
+    const walkBody=walkVehicle&&walkVehicle.parts.find(p=>p.name==='body');let walkFront=null;
+    if(base.walkaround&&walkBody){
+      const t=OTR.fpWalkaroundFlow.target('front'),surface=new T.Mesh(walkBody.g,walkVehicle.mesh.material);surface.updateMatrixWorld(true);
+      const hit=new T.Raycaster(new T.Vector3(t.x,t.y,-4),new T.Vector3(0,0,1),0,2).intersectObject(surface,false)[0];
+      if(hit)walkFront=hit.point.z-.008;
+    }
     // Keep the retained cargo proxy behind the imported closed door's inspection surface.
     if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
 
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
-      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
+      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
       mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
     }):[];
     // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
