@@ -1,0 +1,17 @@
+# Physical sign lettering
+
+C-50 is in progress on `codex/c50-physical-signs`, stacked on C-49 to share its High material atlas. B-164’s cab clearance correction takes priority before final integration checks. Native evidence: `docs/review/set-10/c50-progress/manifest.json`; this is not final acceptance.
+
+Street names, house numbers, STOP/YIELD, speed limits, school and closure legends, and the one-way legend are drawn inside the existing physical sign faces. Stop/street boards and regulatory signs have face borders. Their existing positions, shape cutouts, collision behavior and grading remain the same.
+
+High rasterizes complete words at scene build, measures their actual font width and fits each line to its board without stretching the letters. It uses only C-49’s three spare 512-square cells. The five surface image tiles stay intact, and no fifth GPU texture is added. If every material image is missing, one scene-owned 2048×512 font atlas supplies the lettering instead. The browser uses its existing text renderer; no new font file is shipped.
+
+Low uses original 5×7 bit glyphs for Latin capital letters and digits. Up to nine characters per row are packed three at a time in 18-bit values; two rows remain bounded per face. Constant vector components and constant glyph leaves work in the shared WebGL 1 context. No font image, canvas or additional GPU texture is allocated at Low. The project-made artwork table records this code’s provenance.
+
+Two per-instance word attributes travel with the existing sign batches through main-view culling and all reflection passes. Exact main-view buffers are restored afterward. The lettering adds no triangle, draw, attachment or render pass. Build-time font drawing is bounded; compaction reuses its buffers. Owned materials and a fallback font atlas are disposed with the scene, while a borrowed material atlas stays with C-49’s owner.
+
+Ordinary driving no longer shows the automatic floating sign paragraphs or address labels where physical numbered boards exist. The existing J reading key, including its remapped route, still selects a complete translated sentence in the fixed readable hint and narration. This retains larger text, colour filtering and reduced motion. Street names and local road legends stay on their physical boards; their meaning is available through the existing translated reading. Legacy practice-area labels are outside this change.
+
+`test/fpsignlettering.js` covers all current town names and number/legend packing, Low glyph data, atlas ownership and existing shader hooks. `test/fptown.js` checks exact restoration of both word buffers with all four reflection passes. Native ink checks require a real centre-ray hit on each sign shape, compare on/off lettering pixels and require the off control image to stay exactly still, with identical mission snapshots and reports. They cover all eight lettered kinds at Low, High and with all five images returning 404. The remapped reading key and narration checks use translated assertions.
+
+Final current-pilot core and resource checks are still required. No new scoring type, save field or shared setting is introduced. Cloud resource measurements cannot establish the owner’s Intel 60 fps floor.
