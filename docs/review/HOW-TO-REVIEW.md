@@ -55,6 +55,8 @@ We put your corrections into the game. The next sheet you get marks only what ch
   refuses a whole file saved without UTF-8. It prints the reviewer's comments and any English the game no longer has.
 - Questions for the reviewers go in `docs/review/questions.json` (language, then the English line). The tool writes
   them into the Comment cells and puts those rows first, and `--apply` prints the reviewer's answer after each one.
+- `docs/review/OPEN-QUESTIONS.md` lists every question by language, to send with the sheets. After changing
+  `questions.json`, run `node test/tools/open-questions.js` to rewrite it (`test/reviewsheet.js` fails until you do).
 - Once every sheet is applied, run the tool with `--reviewed` to clear the `new` marks and the questions.
 - The first row (Kind "how to review") is these steps in short. The tool never counts it as a line. `test/reviewsheet.js`
   checks that each sheet reads cleanly as a spreadsheet and starts with this row in its language.
