@@ -61,7 +61,7 @@ OTR.fpRadio={
     m.radio.result=ok;
     m.log('radio:r0','route-day',ok?'good':'needs',ok?'Followed the dispatch radio route update.':'Did not follow the dispatch radio route update.');
     const c=this.descriptor(m),detail={key:'r0',ok,radio:true};if(c.kind==='priority')detail.stop=c.stop+1;
-    if(OTR.workday)OTR.workday.report('dispatch.update',detail);m.touch();
+    if(OTR.workday)OTR.fpMission.emit(m,'dispatch.update',detail);m.touch();
   },
   decline(m){
     if(!this.pending(m)||!m.radio.read)return 'Read the dispatch radio message before responding.';

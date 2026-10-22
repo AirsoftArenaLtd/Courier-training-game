@@ -1,6 +1,6 @@
 /* Connected prototype: shared interactions and local checkpoints, separate from course records. */
 class FirstPersonScene extends Phaser.Scene {
-  constructor() { super('FirstPersonScene'); }
+  constructor(key='FirstPersonScene') { super(key); }
   create(data) {
     Object.assign(this,{view:null,model:null,assetBank:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',soundSource:null,lightSource:null,saved:true,loading:true});
     this.cabVoice=null;this.hubWorkday=!!(data&&data.workday);
@@ -28,6 +28,7 @@ class FirstPersonScene extends Phaser.Scene {
       this.handheld=new OTR.fpHandheld(this);
       this.labels=OTR.fpBrand.labels(this);
       this.installInput();this.loading=false;this.sync();
+      if(this.scenarioSession){this.beginScenario();return;}
       if(this.hubWorkday){this.launch('campaign');return;}
       if(!this.progress.welcomed)this.showPanel('Welcome to On The Route',
         `Move with ${OTR.fpAccess.key('KeyW')}/${OTR.fpAccess.key('KeyA')}/${OTR.fpAccess.key('KeyS')}/${OTR.fpAccess.key('KeyD')} and look with ${OTR.fpAccess.lookKeys()} or the mouse. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target, then ${OTR.fpAccess.key('KeyE')} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press ${OTR.fpAccess.key('KeyH')} for Controls and guidance. Your progress is saved on this device.`,
@@ -35,6 +36,7 @@ class FirstPersonScene extends Phaser.Scene {
       else this.showPause();
     }).catch(error=>{
       if(!this.sys.isActive()||this.loadingToken!==token)return;
+      if(this.scenarioSession){this.scenarioUnavailable(error);return;}
       if(this.view)this.view.dispose();this.view=null;this.loading=false;
       this.showPanel('The prototype could not start','WebGL is required. Reload to try again.',[{label:'Reload',action:()=>location.reload()}]);
       console.warn('first-person prototype',error);

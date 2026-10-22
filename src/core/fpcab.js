@@ -5,7 +5,7 @@ OTR.fpCab={
   gearName(gear){return gear===2?'P':gear===0?'N':gear===-1?'R':'D';},
   gearReport(m,ok){
     if(m.kind!=='campaign')return;const v=m.van;v.shifts=(v.shifts||0)+1;
-    if(OTR.workday)OTR.workday.report('drive.gear',{key:'gear'+v.shifts,stop:m.activeStop+1,ok,where:{x:v.x,z:v.z,mph:Math.abs(v.speed)*2.23694}});
+    if(OTR.workday)OTR.fpMission.emit(m,'drive.gear',{key:'gear'+v.shifts,stop:m.activeStop+1,ok,where:{x:v.x,z:v.z,mph:Math.abs(v.speed)*2.23694}});
   },
   act(m,id){
     if(!m||m.mode!=='cab')return null;const v=m.van;

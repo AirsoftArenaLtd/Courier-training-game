@@ -47,7 +47,7 @@ OTR.fpWalkaroundFlow={
       (event.ok?'Recorded existing damage before departure.':'Missed existing damage before departure.'):
       (event.ok?'Recorded new damage after the trip.':'Finished without a correct report of new damage.');
     m.log(id,pre?'inspection':'returns',event.ok?'good':'needs',text);
-    if(OTR.workday)OTR.workday.report(event.type,{key:event.key,ok:event.ok});
+    if(OTR.workday)OTR.fpMission.emit(m,event.type,{key:event.key,ok:event.ok});
   },
   depart(m){if(m.walkaround)for(const event of OTR.fpWalkaround.depart(m.walkaround,m.damage))this.fire(m,event);},
   finish(m){if(m.walkaround)for(const event of OTR.fpWalkaround.finish(m.walkaround,m.damage))this.fire(m,event);}

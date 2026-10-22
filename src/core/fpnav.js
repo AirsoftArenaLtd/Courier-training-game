@@ -114,7 +114,7 @@ OTR.fpNav={
   report(m){
     const p=m.navigation.pending;if(!p)return;const key='nav:'+p.leg;
     if(!m.events[key]){m.log(key,'driving','needs','Left the planned route without following the reroute in time.');
-      if(OTR.workday)OTR.workday.report('drive.route',{key:p.leg,stop:p.stop===null?undefined:p.stop,ok:false,where:p.where});}
+      if(OTR.workday)OTR.fpMission.emit(m,'drive.route',{key:p.leg,stop:p.stop===null?undefined:p.stop,ok:false,where:p.where});}
     m.navigation.pending=null;m.touch();
   },
   tick(m,old){

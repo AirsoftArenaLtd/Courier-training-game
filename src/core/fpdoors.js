@@ -34,7 +34,7 @@ OTR.fpDoors={
   can(m,id){const s=m.stops[id];return !!s&&!s.resolved&&m.mode==='walk'&&m.parked()&&this.near(m,id);},
   fire(m,type,id,ok,text){
     const key=`door:${type}:${id}`;if(m.events[key])return;m.log(key,'doorstep',ok?'good':'needs',text);
-    if(OTR.workday)OTR.workday.report(type,{key:id,stop:id+1,ok,where:{x:m.player.x,z:m.player.z}});
+    if(OTR.workday)OTR.fpMission.emit(m,type,{key:id,stop:id+1,ok,where:{x:m.player.x,z:m.player.z}});
   },
   sync(m){
     for(let i=0;i<m.stops.length;i++){
