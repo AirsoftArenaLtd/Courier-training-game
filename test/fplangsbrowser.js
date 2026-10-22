@@ -1,13 +1,12 @@
 /*
  * Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the
  * automatic rear camera, the dusk and night headlight lines, every page of the 3D guide and (B-51) C-32's traffic lines
- * (each light, give way, the cyclist, the school crossing) and (B-74) C-34's van-height panel, damage notices and
+ * (each light, give way, the cyclist, the school crossing: B-57, all on the cab's own lines now) and (B-74) C-34's van-height panel, damage notices and
  * clearance warning, at larger text, in all twelve languages. Each language is opened the way a trainee opens it (first-person.html?lang=xx). Every visible
  * line must stay on the canvas (and inside its panel) and must not be squeezed below a readable size.
  *
  *   QA_BROWSER=/path/to/chrome QA_BASE=http://127.0.0.1:8302 node test/fplangsbrowser.js
  *   QA_LANGS=hi,ta (a few only)   QA_LARGE=0 (normal text size)
- *   QA_STRICT=1: also fail on the known problem below (a traffic light's line dropped when it cannot be placed)
  */
 'use strict';
 const fs = require('fs'), path = require('path'), pp = require('puppeteer-core');
@@ -16,9 +15,6 @@ fs.mkdirSync(OUT, { recursive: true });
 const BASE = process.env.QA_BASE || 'http://127.0.0.1:8302';
 const LANGS = (process.env.QA_LANGS || 'en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa').split(',');
 const LARGE = process.env.QA_LARGE !== '0';
-// Known, in Codex's inbox (20 Oct): fpsigns drops a traffic light's label when it cannot be placed clear of the light
-// and the sat nav, so long lines (most languages, English green) never show. Listed, not failed, until that is fixed.
-const KNOWN = /^\w+ signal (red|amber|green): .* is not on screen$/;
 const MIN_PX = 12;                                     // the smallest text the game draws on purpose is 12 px
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -94,9 +90,8 @@ function audit(MIN_PX) {
       }
       // C-32 (B-51): the traffic lines on a later day (day 4, seed 7), each of which must be on screen in this language.
       // A light or the give-way sign shows its line as a label beside it, which the cab hides from some places, so the
-      // van tries places along the approach until the label shows, and that view is audited. The cyclist and school
-      // warnings are read in the handheld's workday details (drawn into the 3D view, so not audited here); the cab's
-      // hint line does not show them yet (Codex's inbox).
+      // van tries places along the approach until the label shows, and that view is audited. B-57: the cyclist and the
+      // school crossing are on the cab's hint line now, so they are read and audited in the cab too.
       if (await p.evaluate(() => !!OTR.fpTraffic)) {
         await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'), T = OTR.fpTraffic; s.closePanel(); s.target = null;
           const plan = T.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(OTR.fpRoute.plan(4, 7)))));
@@ -117,8 +112,7 @@ function audit(MIN_PX) {
           else if (label === 'cyclist') { Object.assign(m.van, { x: 2.84, z: -18, yaw: 0, look: 0 }); m.elapsed = 10; const c = m.trafficControl.cyclist, at = OTR.fp.local(m.van, 2, 1.2);
             Object.assign(c, { state: 'beside', x: at.x, z: at.z, yaw: 0, leg: m.leg, at: 10 }); }
           else { const h = m.crossing; h.state = 'crossing'; h.x = m.town.school.x - 2; Object.assign(m.van, { x: m.town.school.x + 1.7, z: h.z + 8, yaw: 0, look: 0 }); }
-          OTR.fpDriving.syncActors(m); T.syncSolids(m); s.sync(); s.refresh();
-          if (label === 'cyclist' || label === 'school crossing') { s.showScanner(); s.handheld.workday(); } }, label, back, look);
+          OTR.fpDriving.syncActors(m); T.syncSolids(m); s.sync(); s.refresh(); }, label, back, look);
         for (const [label, line] of [['signal red', 'The traffic light is red. Stop before the junction line.'],
           ['signal amber', 'The traffic light is amber. Stop if you can do so safely.'],
           ['signal green', 'The traffic light is green. Continue only when the junction is clear.'],
@@ -135,7 +129,7 @@ function audit(MIN_PX) {
           views++;
           if (!seen.length) { problems.push(`${lang} ${label}: "${line}" is not on screen`); continue; }
           if (lang !== 'en' && seen[0].includes(line)) problems.push(`${lang} ${label}: "${line}" is not translated`);
-          if (sign) (await p.evaluate(audit, MIN_PX)).forEach(f => problems.push(`${lang} ${label}: ${f}`));
+          (await p.evaluate(audit, MIN_PX)).forEach(f => problems.push(`${lang} ${label}: ${f}`));
           if (lang === 'ta' && (label === 'signal red' || label === 'give-way')) await p.screenshot({ path: path.join(OUT, `b51-${label.replace(' ', '-')}-${lang}-${LARGE ? 'large' : 'normal'}.png`) });
         }
         await p.evaluate(() => { const s = OTR.game.scene.getScene('FirstPersonScene'); if (s.handheld && s.handheld.isOpen) s.handheld.close(); });
@@ -188,9 +182,8 @@ function audit(MIN_PX) {
       console.log(`${lang}: ${ids.length} cab targets, ${problems.filter(x => x.startsWith(lang + ' ')).length} problems`);
     }
   } finally { await b.close(); }
-  const known = process.env.QA_STRICT === '1' ? [] : problems.filter(x => KNOWN.test(x)), real = problems.filter(x => !known.includes(x));
+  const real = problems;
   real.forEach(x => console.log('  ' + x));
-  if (known.length) console.log(`  known (Codex's inbox, 20 Oct): ${known.length} traffic-light lines not placed: ${known.map(x => x.split(':')[0]).join(', ')}`);
   errors.forEach(x => console.log('  page error: ' + x));
   const ok = !real.length && !errors.length;
   console.log(ok ? `${views} cab views in ${LANGS.length} languages fit` : `${real.length} layout problems, ${errors.length} page errors`);
