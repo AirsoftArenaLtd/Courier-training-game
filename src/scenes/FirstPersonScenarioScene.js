@@ -55,14 +55,22 @@ class FirstPersonScenarioScene extends FirstPersonScene {
   message(text){
     const r=this.scenarioSession;
     // Target selection is an accessible input acknowledgement, not answer feedback.
-    if(r&&!OTR.fpScenario.coaching(r)&&!String(text).startsWith('Selected ')&&!String(text).startsWith('No nearby target'))return;
+    const control=this.model?.mode==='cab'?this.controlHint(this.target,this.model,OTR.fpAccess.key('KeyE')):'';
+    if(r&&!OTR.fpScenario.coaching(r)&&text!==control&&!String(text).startsWith('Selected ')&&!String(text).startsWith('No nearby target'))return;
     super.message(text);
+  }
+  controlHint(id,m,key){
+    if(this.scenarioSession&&!OTR.fpScenario.coaching(this.scenarioSession)){
+      if(id==='cab-signal-left')return m.signal===-1?'The left signal is on.':'The left signal is off.';
+      if(id==='cab-signal-right')return m.signal===1?'The right signal is on.':'The right signal is off.';
+    }
+    return OTR.fpCab.hint(id,m,key);
   }
   cabAction(id){
     const r=this.scenarioSession;if(!r||OTR.fpScenario.coaching(r)){super.cabAction(id);return;}
     // Selected gear and physical switch state remain available to narrated controls in assessments.
     const result=id==='cab-camera'?OTR.fpHud.screenHint(this.model):OTR.fpCab.act(this.model,id);
-    super.message(result||OTR.fpCab.hint(id,this.model,OTR.fpAccess.key('KeyE')));this.sync();this.refresh();
+    super.message(result||this.controlHint(id,this.model,OTR.fpAccess.key('KeyE')));this.sync();this.refresh();
   }
   interact(){
     const r=this.scenarioSession;if(r&&r.phase==='active'&&!this.panel&&!this.external&&!this.transitioning){
@@ -89,7 +97,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
   finishScenario(reason='complete'){
     const r=this.scenarioSession;if(!r||r.phase!=='active')return false;
     if(this.handheld)this.handheld.close(false);this.closePanel(false);this.model.paused=true;this.releaseMouse();
-    return OTR.fpScenario.finish(r,this,reason);
+    try{return OTR.fpScenario.finish(r,this,reason);}catch(error){this.scenarioUnavailable(error);return false;}
   }
   refresh(){
     super.refresh();const r=this.scenarioSession;if(!r||!this.moduleGoal)return;

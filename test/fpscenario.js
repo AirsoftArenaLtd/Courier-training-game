@@ -32,6 +32,13 @@ test('practice and assessment hide coaching independently and quitting never ref
  const practice=start();assert.equal(F.coaching(practice),true);F.abandon(practice);assert.equal(abandoned,0);
  O.academy.assessing=scenario.id;const r=start();assert.equal(r.assessment,true);assert.equal(F.coaching(r),false);F.abandon(r);F.abandon(r);assert.equal(abandoned,1);assert.equal(r.phase,'abandoned');
 });
+test('assessed physical signal state is readable without giving the three-second rule',()=>{
+ c.Phaser={Scene:class{}};O.registerScene=()=>{};
+ for(const file of ['FirstPersonScene','FirstPersonScenarioScene'])vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/'+file+'.js','utf8'),c);
+ const hint=vm.runInContext('FirstPersonScenarioScene.prototype.controlHint',c),m=M.create('campaign',7);m.signal=-1;
+ const r={assessment:true},scene={scenarioSession:r};assert.equal(hint.call(scene,'cab-signal-left',m,'O'),'The left signal is on.');assert.equal(hint.call(scene,'cab-signal-right',m,'O'),'The right signal is off.');
+ r.assessment=false;assert.match(hint.call(scene,'cab-signal-left',m,'O'),/three seconds/);
+});
 test('completion delivers the adapter scale, log and same scenario id exactly once',()=>{
  const r=start(),scene={};r.log.check('safety',2,2,'The parking brake is set.');F.advance(r,.05);
  assert.equal(F.finish(r,scene),true);assert.equal(F.finish(r,scene),false);assert.equal(F.abandon(r),false);assert.equal(completed.length,1);assert.equal(completed[0].id,scenario.id);assert.equal(completed[0].result.score,100);assert.equal(completed[0].result.log,r.log);assert.equal(r.phase,'finished');

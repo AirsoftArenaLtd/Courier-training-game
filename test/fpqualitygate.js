@@ -27,6 +27,14 @@ test('a blank physical mirror cannot pass on resource counters alone',()=>{
  r.mirrorProof={mirror:{red:[255,0,0,255],blue:[0,0,255,255]}};assert.ok(checkReport(r,p,'sample'));
  r.mirrorProof.mirror.red=[35,49,60,255];r.mirrorProof.mirror.blue=[35,49,60,255];assert.throws(()=>checkReport(r,p,'sample'),/live reflected pixels/);
 });
+test('module counters require the requested real set-piece, boundaries and unchanged workday state',()=>{
+ const r=report(),p={...profile,views:'moduledepot,modulecabreverse,modulecabhandheld'};
+ for(const name of p.views.split(','))r.prototype[name]=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/isolated physical module proof/);
+ r.moduleFixture=true;r.moduleProof={};for(const name of p.views.split(','))r.moduleProof[name]={source:'module-controller-fixture',id:'m1-pretrip',piece:name==='moduledepot'?'depot':'cab',phase:'active',bounded:true,checkpointUnchanged:true,eventsUnchanged:true,workdayUnchanged:true,reverse:true,handheld:true};assert.ok(checkReport(r,p,'sample'));
+ for(const field of ['bounded','checkpointUnchanged','eventsUnchanged','workdayUnchanged','reverse']){r.moduleProof.modulecabreverse[field]=false;assert.throws(()=>checkReport(r,p,'sample'),/isolated physical module proof/);r.moduleProof.modulecabreverse[field]=true;}
+ r.moduleProof.moduledepot.piece='cab';assert.throws(()=>checkReport(r,p,'sample'),/isolated physical module proof/);
+});
 test('radio and night counters need actual route, caption, visibility and reduced-motion proofs',()=>{
  const {RADIO_VIEWS,PROFILES}=require('./fpquality');assert.ok(PROFILES.every(p=>RADIO_VIEWS.split(',').every(v=>p.views.split(',').includes(v))));
  const r=report(),p={...profile,views:'radiocheckin,nightglare,nightreduced,nightoff,nighton'};
