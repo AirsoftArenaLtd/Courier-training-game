@@ -4,7 +4,7 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
 const LANGS=(process.env.QA_LANGS||'en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa').split(','),SIZES=(process.env.QA_SIZES||'normal,large').split(','),GFX=process.env.QA_GFX||'low';
 assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='large'));fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
- const report={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),fixture:'Native day-four plan, live fonts and Phaser labels; approach poses are fixtures. No head turn. Reports, saves and scores are not altered.',runs:[],errors:[],failures:[],completed:false};
+ const report={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),fixture:'Native day-four approaches and first-day guidance, live fonts and Phaser labels. Camera poses are fixtures. Reports, saves and scores are not altered.',runs:[],firstDay:[],errors:[],failures:[],completed:false};
  const save=()=>fs.writeFileSync(path.join(OUT,TAG+'.json'),JSON.stringify(report,null,2)+'\n');save();
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  try{
@@ -79,7 +79,24 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
     if(back===24&&(lang==='en'||lang==='ta'))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-${kind}.png`)});
     save();
    }
-   console.log(lang+' '+size+': '+report.runs.length+' approaches checked');
+   await p.evaluate(large=>{
+    const s=OTR.game.scene.getScene('FirstPersonScene'),plan=OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpRoute.plan(1,7))),m=OTR.fpMission.create('campaign',7,plan);
+    OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);m.mode='cab';m.phase='route';m.departed=m.secured=true;m.step=()=>{};m.paused=false;m.events[m.briefKey]=true;
+    Object.assign(m.van,{gear:1,belt:true,hand:true,look:0});s.model=m;s.area='route';s.notice='';s.rebuildWorld();s.hints=null;
+    for(const o of [s.hint,s.controls,s.help])o.setFontSize(OTR.a11y.size(large?22:18));
+   },size==='large');
+   for(const gear of [1,-1])for(const look of [0,-.35,.35,.7]){
+    const proof=await p.evaluate(({look,gear})=>{
+     const s=OTR.game.scene.getScene('FirstPersonScene');s.model.van.look=look;s.model.van.gear=gear;s.art.resetCamera();s.sync();s.hud.navAt=-1000;OTR.fpHud.navigation(s);s.refresh();
+     let nav=s.navRoot.visible?s.navRoot.getBounds():null;const overlap=(a,b)=>a&&b&&a.x<b.right&&a.right>b.x&&a.y<b.bottom&&a.bottom>b.y;
+     if(gear===-1&&s.art.rear.inView){const o=s.art.rear.screen,points=[];for(const x of [-.5,.5])for(const y of [-.5,.5]){const p=new THREE.Vector3(x,y,0).applyMatrix4(o.matrixWorld).project(s.view.camera);points.push({x:(p.x+1)*640,y:(1-p.y)*360});}nav={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};}
+     return {look,gear,nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},lines:[s.hint,s.controls,s.help].filter(o=>o.visible&&o.alpha>0).map(o=>{const r=o.getBounds();return {text:o.text,font:parseFloat(o.style.fontSize)*o.scaleY,bounds:{x:r.x,y:r.y,right:r.right,bottom:r.bottom},covered:!!overlap(r,nav)};})};
+    },{look,gear});report.firstDay.push({lang,size,...proof});
+    if(look===0&&!proof.nav)report.failures.push(`${lang}/${size}/${gear}: first-day display is hidden`);
+    for(const t of proof.lines){const b=t.bounds;if(t.covered||b.x<0||b.right>1280||b.y<0||b.bottom>720||t.font<(size==='large'?22:18)-.1)report.failures.push(`${lang}/${size}/${look}: first-day guidance overlaps, clips or shrinks`);}
+    if(look===0&&(lang==='en'||lang==='ta'))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-first-day-${gear===1?'drive':'reverse'}.png`)});save();
+   }
+   console.log(lang+' '+size+': '+report.runs.length+' approaches and '+report.firstDay.length+' first-day views checked');
   }
   report.completed=true;save();
  }finally{await browser.close();}
