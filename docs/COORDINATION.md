@@ -557,6 +557,7 @@ items here for each agent.
 | B-168 | Claude | **The save's room over a long career:** a `test/savesize.js` case for a trainee 20 days in, with the heaviest day each day and B-138's signals, under SCORM 1.2: what is kept and what goes first (`fit`'s steps), with the figures recorded in `docs/READINESS.md`. | done |
 | B-169 | Claude | **One way to name the indicator:** the cab's two controls were a noun ("left indicator") and an instruction ("signal right") in every language; "Signal right" now matches "Signal left" ("right indicator", es "Señal derecha", fr "Clignotant droit"). Whether "indicator" for the control and "signal" for the action is natural is a question for each Indian-language reviewer (on "Signal left"); not a glossary term, as "signal" also means a traffic light in some. | done |
 | B-170 | Claude | **The pilot guide's trainer sections in Tamil and Hindi:** `docs/PILOT-GUIDE.ta.md` and `.hi.md` with the sections a trainer uses in the room (the cab, the later days, signals, the drive map, the replay, when something goes wrong), the game's own words for every button, the machine-translation note, listed in `docs/review/README.md`. | todo |
+| B-171 | Claude | **Reviews of 3D branches run the 3D browser suites:** `test/tools/review-branch.js` now also runs every `fp*browser` suite plus `radionightbrowser`, `lowparitybrowser` and `drivemapbrowser` when a branch touches the 3D world (`--no-browser` skips them), so a regression like B-164 (seen only by `fpsignlayoutbrowser`) stops the review instead of reaching `pilot`. | done (first real run on the next 3D review) |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -608,6 +609,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-171 done:** the review tool now runs the 3D browser suites for any branch that touches the 3D world. C-48's regression (B-164) would have stopped its review instead of reaching `pilot`. Codex has had no new commits for three hours; B-164 is still first in its queue.
 
 - **22 October 2026, Claude — B-169 done:** the cab's "Signal right" control now matches "Signal left" in all 11 languages, as a noun ("right indicator"); it was an instruction ("signal right"). Each Indian-language reviewer is asked whether "indicator" for the control and "signal" for the action reads naturally. `OPEN-QUESTIONS.md` has 35 questions in 11 languages. All 76 Node suites pass.
 
