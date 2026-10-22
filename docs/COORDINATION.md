@@ -523,6 +523,7 @@ items here for each agent.
 | B-145 | Claude | **Retake set 9's fixed views on today's pilot:** `node test/tools/review-set.js 9` after the day's merges (C-36, C-37, B-106 to B-143), so the owner compares like with like; again after C-48. | done (retake after C-48) |
 | B-146 | Claude | **The careful-day check for the 2D route day:** the 2D flows (`route-day`, `route-legs`, `town-traffic`) do not assert that a careful run records no violation. Add the same rule as B-127 for `TownDriveScene`'s violations and the route day's log, fixing the flows where they are not careful. | done (already covered: no change) |
 | B-147 | Claude | **SCORM 2004 on the heaviest day:** `test/savesize.js` checks SCORM 1.2's limit; add the same heavy day (radio, night, damage, walkaround) under SCORM 2004: saved in full, no packing, and the same score and pins after a reload. | done (26,701 of 64,000) |
+| B-148 | Claude | **The quick start for the later days:** `docs/QUICK-START.md` and its Tamil and Hindi versions say what trainees meet from day 4 (walk round the van, the dispatch radio, night from day 6) and point to the replay in the debrief, still on one page. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
@@ -575,6 +576,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-148 done:** the trainer's one-page quick start (English, Tamil, Hindi) now has "From the fourth workday": the walk round the van before and after, the dispatch radio read parked, and night from day 6 with the headlights. The debrief row points to "Replay the last mistake." The Tamil and Hindi use the game's own words for each button and term.
 
 - **22 October 2026, Claude — A-29 started:** `docs/READINESS.md` is rewritten for 22 October; the old one dated from milestone 6. It gives the checks that now exist and their results: 15 careful 3D flows, the fuzz run, 72 Node and 117 browser suites, numbers in 43,895 translated lines, Low parity, both SCORM packages and the heaviest save under 1.2 and 2004. It also lists what is still a draft, what needs real laptops and people, and the owner's decisions. The full release-candidate pass and the rest of A-29 follow C-48.
 

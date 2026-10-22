@@ -18,7 +18,7 @@ For the person running a session. Print this page; the full guide is `docs/PILOT
 | 10 min | Welcome. The point is safe habits, not speed; mistakes are the lesson. |
 | 5 min | Sign in. **Settings → Accessibility**: language, larger text, colours, keys, narration. |
 | 30 min | Each trainee plays a **workday**. It saves as they go; the pause menu lets them stop and resume later **on the same PC** (on another PC the day starts again; the game asks first). |
-| 15 min | Debrief together: **Results → Debrief**, then the **drive map**. Ask: what was the hardest stop, and what would you do differently? |
+| 15 min | Debrief together: **Results → Debrief**, then the **drive map** and **Replay the last mistake.** (the seconds before it, from the driver's seat). Ask: what was the hardest stop, and what would you do differently? |
 
 **Show them the cab (one minute)**
 - **Look** at a mirror to check it; the left mirror before moving off, the turning side before steering.
@@ -27,6 +27,12 @@ For the person running a session. Print this page; the full guide is `docs/PILOT
 - **Road signs:** stop signs, give way, speed limits, school zones, one-way, no entry, road works, traffic lights.
   **J** reads the sign in view aloud.
 - **H** opens the controls and guidance at any time; **P** steps through the cab controls from the keyboard.
+
+**From the fourth workday** (tell them before they start)
+- **Walk round the van** before the first drive and again at the depot after the last stop: **P** to an area, **E**,
+  then the description that matches. A scrape they caused and do not record is a critical mistake.
+- **The dispatch radio** calls once on the first drive: stop, set the parking brake, then read it on the handheld.
+- **Night** every third day from day 6: headlights (**L**) on before moving.
 
 **Reading the drive map:** a pin at every driving mistake. A diamond is a road sign or red light, a star is damage to
 the van, a triangle a low bridge, a hexagon a shifted load, an arrow a wrong turn, a circle anything else. Critical mistakes (a red light,
