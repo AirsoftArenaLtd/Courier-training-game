@@ -37,6 +37,8 @@ class DriveReviewScene extends Phaser.Scene {
       return it;
     });
     this.focusables = this.focusables.concat(pinFocus);
+    const replay = OTR.fpReplayUI && OTR.fpReplayUI.entry(this, d);
+    if (replay) this.focusables.push(replay);
     OTR.ui.focus(this, this.focusables, { start: picked ? 1 + d.select : 0 });
   }
 

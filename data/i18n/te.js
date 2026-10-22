@@ -4069,7 +4069,20 @@ window.OTR_I18N.te = {
 "Decline the route update.": "రూట్ అప్‌డేట్‌ను తిరస్కరించండి.",
 "Confirm arrival at the check-in stop.": "చెక్-ఇన్ స్టాప్‌కు చేరుకున్నట్లు నిర్ధారించండి.",
 "Invalid dispatch version": "చెల్లని డిస్పాచ్ వెర్షన్",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "డిస్పాచ్ చెక్-ఇన్ పూర్తి చేసి, ఆపై రూట్ కొనసాగించండి లేదా డిపోకు తిరిగి వెళ్లండి."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "డిస్పాచ్ చెక్-ఇన్ పూర్తి చేసి, ఆపై రూట్ కొనసాగించండి లేదా డిపోకు తిరిగి వెళ్లండి.",
+"Replay the last mistake.": "చివరి తప్పును మళ్లీ ప్లే చేయండి.",
+"Review the last mistake.": "చివరి తప్పును సమీక్షించండి.",
+"The replay is loading.": "రీప్లే లోడ్ అవుతోంది.",
+"Play the replay.": "రీప్లే ప్లే చేయండి.",
+"Step back half a second.": "అర సెకను వెనక్కి వెళ్లండి.",
+"Step forward half a second.": "అర సెకను ముందుకు వెళ్లండి.",
+"Return to the previous screen.": "మునుపటి స్క్రీన్‌కు తిరిగి వెళ్లండి.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "ఈ పనిదినానికి రీప్లే లేదు. ఈ ట్యాబ్ మూసే వరకు లేదా మరో పనిదినం మొదలయ్యే వరకు రీప్లేలు మెమరీలో ఉంటాయి.",
+"The replay could not open. You can return to your results.": "రీప్లే తెరవలేకపోయింది. మీరు మీ ఫలితాలకు తిరిగి వెళ్లవచ్చు.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "తగ్గిన కదలిక ఆన్‌లో ఉంది. వ్యాన్ మరియు కెమెరాను చూడటానికి స్టెప్ బటన్‌లను ఉపయోగించండి.",
+"Only a still frame was recorded before this mistake.": "ఈ తప్పుకు ముందు ఒక స్థిర ఫ్రేమ్ మాత్రమే రికార్డ్ అయింది.",
+"This replay shows the van and camera before the mistake.": "ఈ రీప్లే తప్పుకు ముందు వ్యాన్ మరియు కెమెరాను చూపిస్తుంది.",
+"Pause the replay.": "రీప్లేను ఆపండి."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.te = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} వద్ద డిస్పాచ్ చెక్-ఇన్ పెండింగ్‌లో ఉంది."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"రీప్లే {1} సెకన్లలో {0} వద్ద ఆగి ఉంది."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"రీప్లే {1} సెకన్లలో {0} వద్ద ప్లే అవుతోంది."
 ]
 ],
 "keep": [

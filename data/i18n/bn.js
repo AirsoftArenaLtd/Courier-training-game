@@ -4070,7 +4070,20 @@ window.OTR_I18N.bn = {
 "Decline the route update.": "রুটের আপডেট প্রত্যাখ্যান করুন।",
 "Confirm arrival at the check-in stop.": "চেক-ইন স্টপে পৌঁছানো নিশ্চিত করুন।",
 "Invalid dispatch version": "ডিসপ্যাচের সংস্করণ অবৈধ",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "ডিসপ্যাচ চেক-ইন শেষ করুন, তারপর রুটে এগিয়ে যান বা ডিপোতে ফিরে যান।"
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ডিসপ্যাচ চেক-ইন শেষ করুন, তারপর রুটে এগিয়ে যান বা ডিপোতে ফিরে যান।",
+"Replay the last mistake.": "শেষ ভুলটি আবার চালান।",
+"Review the last mistake.": "শেষ ভুলটি পর্যালোচনা করুন।",
+"The replay is loading.": "রিপ্লে লোড হচ্ছে।",
+"Play the replay.": "রিপ্লে চালান।",
+"Step back half a second.": "আধা সেকেন্ড পিছিয়ে যান।",
+"Step forward half a second.": "আধা সেকেন্ড এগিয়ে যান।",
+"Return to the previous screen.": "আগের স্ক্রিনে ফিরে যান।",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "এই কর্মদিবসের কোনো রিপ্লে নেই। এই ট্যাব বন্ধ না হওয়া বা অন্য কর্মদিবস শুরু না হওয়া পর্যন্ত রিপ্লে মেমরিতে থাকে।",
+"The replay could not open. You can return to your results.": "রিপ্লে খোলা গেল না। আপনি আপনার ফলাফলে ফিরে যেতে পারেন।",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "কম গতি চালু আছে। ভ্যান ও ক্যামেরা দেখতে ধাপের বোতামগুলো ব্যবহার করুন।",
+"Only a still frame was recorded before this mistake.": "এই ভুলের আগে শুধু একটি স্থির ফ্রেম রেকর্ড হয়েছে।",
+"This replay shows the van and camera before the mistake.": "এই রিপ্লে ভুলের আগে ভ্যান ও ক্যামেরা দেখায়।",
+"Pause the replay.": "রিপ্লে থামান।"
 },
 "templates": [
 [
@@ -5872,6 +5885,14 @@ window.OTR_I18N.bn = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0}-এ একটি ডিসপ্যাচ চেক-ইন বাকি আছে।"
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"রিপ্লে {1} সেকেন্ডের মধ্যে {0} সেকেন্ডে থেমে আছে।"
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"রিপ্লে {1} সেকেন্ডের মধ্যে {0} সেকেন্ডে চলছে।"
 ]
 ],
 "keep": [

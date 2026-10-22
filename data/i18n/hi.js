@@ -4070,7 +4070,20 @@ window.OTR_I18N.hi = {
 "Decline the route update.": "रूट अपडेट अस्वीकार करें।",
 "Confirm arrival at the check-in stop.": "चेक-इन स्टॉप पर पहुँचने की पुष्टि करें।",
 "Invalid dispatch version": "अमान्य डिस्पैच संस्करण",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "डिस्पैच चेक-इन पूरा करें, फिर रूट जारी रखें या डिपो लौटें।"
+"Complete the dispatch check-in, then continue the route or return to the depot.": "डिस्पैच चेक-इन पूरा करें, फिर रूट जारी रखें या डिपो लौटें।",
+"Replay the last mistake.": "आख़िरी गलती दोबारा चलाएँ।",
+"Review the last mistake.": "आख़िरी गलती की समीक्षा करें।",
+"The replay is loading.": "रीप्ले लोड हो रहा है।",
+"Play the replay.": "रीप्ले चलाएँ।",
+"Step back half a second.": "आधा सेकंड पीछे जाएँ।",
+"Step forward half a second.": "आधा सेकंड आगे जाएँ।",
+"Return to the previous screen.": "पिछली स्क्रीन पर लौटें।",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "इस कार्यदिवस का कोई रीप्ले नहीं है। रीप्ले तब तक मेमोरी में रहते हैं जब तक यह टैब बंद न हो या दूसरा कार्यदिवस शुरू न हो।",
+"The replay could not open. You can return to your results.": "रीप्ले नहीं खुल सका। आप अपने परिणामों पर लौट सकते हैं।",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "कम गति चालू है। वैन और कैमरा देखने के लिए स्टेप बटन का उपयोग करें।",
+"Only a still frame was recorded before this mistake.": "इस गलती से पहले केवल एक स्थिर फ़्रेम रिकॉर्ड हुआ।",
+"This replay shows the van and camera before the mistake.": "यह रीप्ले गलती से पहले वैन और कैमरा दिखाता है।",
+"Pause the replay.": "रीप्ले रोकें।"
 },
 "templates": [
 [
@@ -5872,6 +5885,14 @@ window.OTR_I18N.hi = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} पर डिस्पैच चेक-इन बाकी है।"
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"रीप्ले {1} में से {0} सेकंड पर रुका है।"
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"रीप्ले {1} में से {0} सेकंड पर चल रहा है।"
 ]
 ],
 "keep": [

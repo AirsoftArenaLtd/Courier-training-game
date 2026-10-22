@@ -1,0 +1,9 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+ok   drive-review   fps=  8 boot=null golden=ok
+
+================ summary ================
+  pass  drive-review   fps=  8  
+
+1/1 scenarios clean

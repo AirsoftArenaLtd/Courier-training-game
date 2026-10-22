@@ -4070,7 +4070,20 @@ window.OTR_I18N.pa = {
 "Decline the route update.": "ਰੂਟ ਅੱਪਡੇਟ ਰੱਦ ਕਰੋ।",
 "Confirm arrival at the check-in stop.": "ਚੈੱਕ-ਇਨ ਸਟਾਪ 'ਤੇ ਪਹੁੰਚਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।",
 "Invalid dispatch version": "ਅਵੈਧ ਡਿਸਪੈਚ ਵਰਜ਼ਨ",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਪੂਰਾ ਕਰੋ, ਫਿਰ ਰੂਟ ਜਾਰੀ ਰੱਖੋ ਜਾਂ ਡਿਪੋ ਵਾਪਸ ਜਾਓ।"
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਪੂਰਾ ਕਰੋ, ਫਿਰ ਰੂਟ ਜਾਰੀ ਰੱਖੋ ਜਾਂ ਡਿਪੋ ਵਾਪਸ ਜਾਓ।",
+"Replay the last mistake.": "ਆਖਰੀ ਗਲਤੀ ਦੁਬਾਰਾ ਚਲਾਓ।",
+"Review the last mistake.": "ਆਖਰੀ ਗਲਤੀ ਦੀ ਸਮੀਖਿਆ ਕਰੋ।",
+"The replay is loading.": "ਰੀਪਲੇ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ।",
+"Play the replay.": "ਰੀਪਲੇ ਚਲਾਓ।",
+"Step back half a second.": "ਅੱਧਾ ਸਕਿੰਟ ਪਿੱਛੇ ਜਾਓ।",
+"Step forward half a second.": "ਅੱਧਾ ਸਕਿੰਟ ਅੱਗੇ ਜਾਓ।",
+"Return to the previous screen.": "ਪਿਛਲੀ ਸਕ੍ਰੀਨ 'ਤੇ ਵਾਪਸ ਜਾਓ।",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "ਇਸ ਕੰਮ ਵਾਲੇ ਦਿਨ ਦਾ ਕੋਈ ਰੀਪਲੇ ਨਹੀਂ ਹੈ। ਰੀਪਲੇ ਉਦੋਂ ਤੱਕ ਮੈਮਰੀ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ ਜਦੋਂ ਤੱਕ ਇਹ ਟੈਬ ਬੰਦ ਨਾ ਹੋਵੇ ਜਾਂ ਹੋਰ ਕੰਮ ਵਾਲਾ ਦਿਨ ਸ਼ੁਰੂ ਨਾ ਹੋਵੇ।",
+"The replay could not open. You can return to your results.": "ਰੀਪਲੇ ਨਹੀਂ ਖੁੱਲ੍ਹ ਸਕਿਆ। ਤੁਸੀਂ ਆਪਣੇ ਨਤੀਜਿਆਂ 'ਤੇ ਵਾਪਸ ਜਾ ਸਕਦੇ ਹੋ।",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "ਘੱਟ ਹਿਲਜੁਲ ਚਾਲੂ ਹੈ। ਵੈਨ ਅਤੇ ਕੈਮਰਾ ਦੇਖਣ ਲਈ ਸਟੈਪ ਬਟਨ ਵਰਤੋ।",
+"Only a still frame was recorded before this mistake.": "ਇਸ ਗਲਤੀ ਤੋਂ ਪਹਿਲਾਂ ਸਿਰਫ਼ ਇੱਕ ਸਥਿਰ ਫ੍ਰੇਮ ਰਿਕਾਰਡ ਹੋਇਆ।",
+"This replay shows the van and camera before the mistake.": "ਇਹ ਰੀਪਲੇ ਗਲਤੀ ਤੋਂ ਪਹਿਲਾਂ ਵੈਨ ਅਤੇ ਕੈਮਰਾ ਦਿਖਾਉਂਦਾ ਹੈ।",
+"Pause the replay.": "ਰੀਪਲੇ ਰੋਕੋ।"
 },
 "templates": [
 [
@@ -5872,6 +5885,14 @@ window.OTR_I18N.pa = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} 'ਤੇ ਡਿਸਪੈਚ ਚੈੱਕ-ਇਨ ਬਾਕੀ ਹੈ।"
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"ਰੀਪਲੇ {1} ਵਿੱਚੋਂ {0} ਸਕਿੰਟ 'ਤੇ ਰੁਕਿਆ ਹੋਇਆ ਹੈ।"
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"ਰੀਪਲੇ {1} ਵਿੱਚੋਂ {0} ਸਕਿੰਟ 'ਤੇ ਚੱਲ ਰਿਹਾ ਹੈ।"
 ]
 ],
 "keep": [

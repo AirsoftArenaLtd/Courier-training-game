@@ -4069,7 +4069,20 @@ window.OTR_I18N.mr = {
 "Decline the route update.": "रूट अपडेट नाकारा.",
 "Confirm arrival at the check-in stop.": "चेक-इन स्टॉपवर पोहोचल्याची पुष्टी करा.",
 "Invalid dispatch version": "अवैध डिस्पॅच आवृत्ती",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "डिस्पॅच चेक-इन पूर्ण करा, मग रूट सुरू ठेवा किंवा डेपोत परत जा."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "डिस्पॅच चेक-इन पूर्ण करा, मग रूट सुरू ठेवा किंवा डेपोत परत जा.",
+"Replay the last mistake.": "शेवटची चूक पुन्हा पाहा.",
+"Review the last mistake.": "शेवटच्या चुकीचा आढावा घ्या.",
+"The replay is loading.": "रिप्ले लोड होत आहे.",
+"Play the replay.": "रिप्ले सुरू करा.",
+"Step back half a second.": "अर्धा सेकंद मागे जा.",
+"Step forward half a second.": "अर्धा सेकंद पुढे जा.",
+"Return to the previous screen.": "मागील स्क्रीनवर परत जा.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "या कामाच्या दिवसाचा रिप्ले नाही. हा टॅब बंद होईपर्यंत किंवा दुसरा कामाचा दिवस सुरू होईपर्यंत रिप्ले मेमरीत राहतात.",
+"The replay could not open. You can return to your results.": "रिप्ले उघडता आला नाही. तुम्ही तुमच्या निकालांकडे परत जाऊ शकता.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "कमी हालचाल चालू आहे. व्हॅन आणि कॅमेरा पाहण्यासाठी पायरी बटणे वापरा.",
+"Only a still frame was recorded before this mistake.": "या चुकीपूर्वी फक्त एक स्थिर फ्रेम रेकॉर्ड झाली.",
+"This replay shows the van and camera before the mistake.": "हा रिप्ले चुकीपूर्वीची व्हॅन आणि कॅमेरा दाखवतो.",
+"Pause the replay.": "रिप्ले थांबवा."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.mr = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} येथे डिस्पॅच चेक-इन प्रलंबित आहे."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"रिप्ले {1} पैकी {0} सेकंदावर थांबला आहे."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"रिप्ले {1} पैकी {0} सेकंदावर चालू आहे."
 ]
 ],
 "keep": [

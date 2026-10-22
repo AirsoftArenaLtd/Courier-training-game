@@ -50,6 +50,7 @@
  "Bounce.out",
  "Brightline",
  "Brook Rd",
+ "CANVAS",
  "CANYON RD",
  "CEDAR AVE",
  "CEDAR ST",
@@ -129,6 +130,7 @@
  "Invalid lighting time",
  "Invalid model bounds",
  "Invalid navigation version",
+ "Invalid replay context",
  "Invalid road-sign version",
  "Invalid traffic version",
  "Invalid van parts",
@@ -225,6 +227,7 @@
  "Ray Delgado",
  "Ray Ruiz",
  "Record Occupant",
+ "Replay unavailable",
  "Rex",
  "Riverton Labs",
  "Rue Laval",
@@ -282,10 +285,10 @@
  "Workday rig is over budget",
  "X-Trainer-Pin",
  "YXZ",
+ "accepted,read,result,sent,travel,version",
  "data:image/",
+ "failed,leg,required,version",
  "one of your ",
  "|otr-contact-ao-1",
- "|otr-weather-surfaces-1",
- "failed,leg,required,version",
- "accepted,read,result,sent,travel,version"
+ "|otr-weather-surfaces-1"
 ]

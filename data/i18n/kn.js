@@ -4069,7 +4069,20 @@ window.OTR_I18N.kn = {
 "Decline the route update.": "ಮಾರ್ಗ ಅಪ್‌ಡೇಟ್ ನಿರಾಕರಿಸಿ.",
 "Confirm arrival at the check-in stop.": "ಚೆಕ್-ಇನ್ ಸ್ಟಾಪ್ ತಲುಪಿದ್ದನ್ನು ದೃಢೀಕರಿಸಿ.",
 "Invalid dispatch version": "ಅಮಾನ್ಯ ಡಿಸ್ಪ್ಯಾಚ್ ಆವೃತ್ತಿ",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಪೂರ್ಣಗೊಳಿಸಿ, ನಂತರ ಮಾರ್ಗವನ್ನು ಮುಂದುವರಿಸಿ ಅಥವಾ ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಪೂರ್ಣಗೊಳಿಸಿ, ನಂತರ ಮಾರ್ಗವನ್ನು ಮುಂದುವರಿಸಿ ಅಥವಾ ಡಿಪೋಗೆ ಹಿಂತಿರುಗಿ.",
+"Replay the last mistake.": "ಕೊನೆಯ ತಪ್ಪನ್ನು ಮತ್ತೆ ಪ್ಲೇ ಮಾಡಿ.",
+"Review the last mistake.": "ಕೊನೆಯ ತಪ್ಪನ್ನು ಪರಿಶೀಲಿಸಿ.",
+"The replay is loading.": "ರಿಪ್ಲೇ ಲೋಡ್ ಆಗುತ್ತಿದೆ.",
+"Play the replay.": "ರಿಪ್ಲೇ ಪ್ಲೇ ಮಾಡಿ.",
+"Step back half a second.": "ಅರ್ಧ ಸೆಕೆಂಡ್ ಹಿಂದಕ್ಕೆ ಹೋಗಿ.",
+"Step forward half a second.": "ಅರ್ಧ ಸೆಕೆಂಡ್ ಮುಂದಕ್ಕೆ ಹೋಗಿ.",
+"Return to the previous screen.": "ಹಿಂದಿನ ಪರದೆಗೆ ಹಿಂತಿರುಗಿ.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "ಈ ಕೆಲಸದ ದಿನಕ್ಕೆ ರಿಪ್ಲೇ ಇಲ್ಲ. ಈ ಟ್ಯಾಬ್ ಮುಚ್ಚುವವರೆಗೆ ಅಥವಾ ಇನ್ನೊಂದು ಕೆಲಸದ ದಿನ ಆರಂಭವಾಗುವವರೆಗೆ ರಿಪ್ಲೇಗಳು ಮೆಮೊರಿಯಲ್ಲಿ ಇರುತ್ತವೆ.",
+"The replay could not open. You can return to your results.": "ರಿಪ್ಲೇ ತೆರೆಯಲಾಗಲಿಲ್ಲ. ನೀವು ನಿಮ್ಮ ಫಲಿತಾಂಶಗಳಿಗೆ ಹಿಂತಿರುಗಬಹುದು.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "ಕಡಿಮೆ ಚಲನೆ ಆನ್ ಆಗಿದೆ. ವ್ಯಾನ್ ಮತ್ತು ಕ್ಯಾಮೆರಾ ನೋಡಲು ಹಂತದ ಬಟನ್‌ಗಳನ್ನು ಬಳಸಿ.",
+"Only a still frame was recorded before this mistake.": "ಈ ತಪ್ಪಿನ ಮೊದಲು ಒಂದು ಸ್ಥಿರ ಚೌಕಟ್ಟು ಮಾತ್ರ ದಾಖಲಾಗಿದೆ.",
+"This replay shows the van and camera before the mistake.": "ಈ ರಿಪ್ಲೇ ತಪ್ಪಿನ ಮೊದಲು ವ್ಯಾನ್ ಮತ್ತು ಕ್ಯಾಮೆರಾವನ್ನು ತೋರಿಸುತ್ತದೆ.",
+"Pause the replay.": "ರಿಪ್ಲೇ ನಿಲ್ಲಿಸಿ."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.kn = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} ನಲ್ಲಿ ಡಿಸ್ಪ್ಯಾಚ್ ಚೆಕ್-ಇನ್ ಬಾಕಿ ಇದೆ."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"ರಿಪ್ಲೇ {1} ಸೆಕೆಂಡ್‌ಗಳಲ್ಲಿ {0} ರಲ್ಲಿ ನಿಂತಿದೆ."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"ರಿಪ್ಲೇ {1} ಸೆಕೆಂಡ್‌ಗಳಲ್ಲಿ {0} ರಲ್ಲಿ ಪ್ಲೇ ಆಗುತ್ತಿದೆ."
 ]
 ],
 "keep": [
