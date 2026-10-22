@@ -69,9 +69,10 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
     if(proof.faceLettering&&proof.entry){
      const before=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {snapshot:JSON.stringify(s.model.snapshot()),events:JSON.stringify(OTR.workday.events)};});let found=false;
      for(let n=0;n<24;n++){const frame=await p.evaluate(()=>OTR.game.loop.frame);await p.keyboard.press('KeyJ');await p.waitForFunction(f=>OTR.game.loop.frame>f,{},frame);found=await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').notice===window.otrSignEntry.label.text);if(found)break;}
+     if(found)await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.hint.text===OTR.i18n.t(window.otrSignEntry.label.text);},{timeout:60000});
      const reading=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),r=s.hint.getBounds();return {translated:s.hint.text===OTR.i18n.t(window.otrSignEntry.label.text),text:s.hint.text,font:parseFloat(s.hint.style.fontSize)*s.hint.scaleY,bounds:{x:r.x,y:r.y,right:r.right,bottom:r.bottom},snapshot:JSON.stringify(s.model.snapshot()),events:JSON.stringify(OTR.workday.events)};});
      const b=reading.bounds;if(!found||!reading.translated||b.x<0||b.right>1280||b.y<0||b.bottom>720||reading.font<(size==='large'?22:18)-.1||reading.snapshot!==before.snapshot||reading.events!==before.events)report.failures.push(`${lang}/${size}/${kind}/${back}: the explicit translated reading is missing, clips, shrinks or changes the mission`);
-     delete reading.snapshot;delete reading.events;proof.reading=reading;
+     reading.found=found;reading.unchanged=reading.snapshot===before.snapshot&&reading.events===before.events;delete reading.snapshot;delete reading.events;proof.reading=reading;
     }
     const item={lang,size,...proof};report.runs.push(item);
     if(!Number.isFinite(proof.phaserBytes)||proof.phaserBytes>(GFX==='high'?16:4)*1024*1024)report.failures.push(`${lang}/${size}/${kind}/${back}: Phaser text textures exceed the memory ceiling`);
