@@ -36,7 +36,7 @@ languages each have this page as `docs/QUICK-START.<lang>.md` (machine translati
 - **Night** every third day from day 6: headlights (**L**) on before moving.
 
 **Reading the drive map:** a pin at every driving mistake. A diamond is a road sign or red light, a star is damage to
-the van, a triangle a low bridge, a hexagon a shifted load, an arrow a wrong turn, a circle anything else. Critical mistakes (a red light,
+the van, a triangle a low bridge, a hexagon a shifted load, an arrow a wrong turn, a plus a cab habit (signal, mirror, belt or lights), a circle anything else. Critical mistakes (a red light,
 no entry, a school bus) cap that category at one star.
 
 **When something goes wrong**

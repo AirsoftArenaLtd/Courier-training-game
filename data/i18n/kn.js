@@ -4084,7 +4084,8 @@ window.OTR_I18N.kn = {
 "This replay shows the van and camera before the mistake.": "ಈ ರಿಪ್ಲೇ ತಪ್ಪಿನ ಮೊದಲು ವ್ಯಾನ್ ಮತ್ತು ಕ್ಯಾಮೆರಾವನ್ನು ತೋರಿಸುತ್ತದೆ.",
 "Pause the replay.": "ರಿಪ್ಲೇ ನಿಲ್ಲಿಸಿ.",
 "You signaled for at least three seconds before moving.": "ಚಲಿಸುವ ಮೊದಲು ನೀವು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿದಿರಿ.",
-"You moved without signaling in the correct direction for three seconds.": "ಸರಿಯಾದ ದಿಕ್ಕಿಗೆ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕದೆ ನೀವು ಚಲಿಸಿದಿರಿ."
+"You moved without signaling in the correct direction for three seconds.": "ಸರಿಯಾದ ದಿಕ್ಕಿಗೆ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕದೆ ನೀವು ಚಲಿಸಿದಿರಿ.",
+"cab habit: signal, mirror, belt or lights": "ಕ್ಯಾಬ್ ಅಭ್ಯಾಸ: ಸಿಗ್ನಲ್, ಕನ್ನಡಿ, ಸೀಟ್‌ಬೆಲ್ಟ್ ಅಥವಾ ಹೆಡ್‌ಲೈಟ್"
 },
 "templates": [
 [

@@ -4085,7 +4085,8 @@ window.OTR_I18N.fr = {
 "This replay shows the van and camera before the mistake.": "Ce replay montre la camionnette et la caméra avant l'erreur.",
 "Pause the replay.": "Mettre le replay en pause.",
 "You signaled for at least three seconds before moving.": "Tu as mis le clignotant au moins trois secondes avant de partir.",
-"You moved without signaling in the correct direction for three seconds.": "Tu es parti sans mettre le clignotant du bon côté pendant trois secondes."
+"You moved without signaling in the correct direction for three seconds.": "Tu es parti sans mettre le clignotant du bon côté pendant trois secondes.",
+"cab habit: signal, mirror, belt or lights": "réflexe en cabine : clignotant, rétroviseur, ceinture ou phares"
 },
 "templates": [
 [

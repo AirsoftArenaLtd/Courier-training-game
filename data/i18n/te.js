@@ -4084,7 +4084,8 @@ window.OTR_I18N.te = {
 "This replay shows the van and camera before the mistake.": "ఈ రీప్లే తప్పుకు ముందు వ్యాన్ మరియు కెమెరాను చూపిస్తుంది.",
 "Pause the replay.": "రీప్లేను ఆపండి.",
 "You signaled for at least three seconds before moving.": "కదిలే ముందు మీరు కనీసం మూడు సెకన్లు సిగ్నల్ ఇచ్చారు.",
-"You moved without signaling in the correct direction for three seconds.": "సరైన దిశలో మూడు సెకన్లు సిగ్నల్ ఇవ్వకుండానే మీరు కదిలారు."
+"You moved without signaling in the correct direction for three seconds.": "సరైన దిశలో మూడు సెకన్లు సిగ్నల్ ఇవ్వకుండానే మీరు కదిలారు.",
+"cab habit: signal, mirror, belt or lights": "క్యాబ్ అలవాటు: సిగ్నల్, అద్దం, సీట్‌బెల్ట్ లేదా హెడ్‌లైట్లు"
 },
 "templates": [
 [

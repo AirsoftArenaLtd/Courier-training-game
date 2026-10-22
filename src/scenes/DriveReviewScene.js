@@ -179,7 +179,8 @@ class DriveReviewScene extends Phaser.Scene {
   /**
    * A pin's shape, by its kind of mistake (B-15, B-47): a diamond for a road sign or traffic light, a star for damage to the
    * van, a triangle for a low bridge or clearance, a hexagon for a shifted load, an arrow for a wrong turn (the square is
-   * the depot), a circle for anything else. `k` scales it (the legend).
+   * the depot), a plus for a cab habit such as a signal or a mirror check (B-166), a circle for anything else. `k` scales
+   * it (the legend).
    */
   marker(mark, x, y, k, col) {
     const edge = OTR_DATA.theme.primaryDeep, r = 11 * k;
@@ -188,6 +189,7 @@ class DriveReviewScene extends Phaser.Scene {
     else if (mark === 'damage') m = this.add.star(x, y, 6, r * 0.75, r * 1.35, col);
     else if (mark === 'clearance') m = this.add.triangle(x, y, 0, r * 2.3, r * 1.3, 0, r * 2.6, r * 2.3, col).setOrigin(0.5, 0.62);
     else if (mark === 'route') m = this.add.polygon(x, y, [-1, -0.45, 0.15, -0.45, 0.15, -1, 1, 0, 0.15, 1, 0.15, 0.45, -1, 0.45].map(v => (v + 1) * r * 1.15), col);
+    else if (mark === 'habit') m = this.add.polygon(x, y, [-0.35, -1, 0.35, -1, 0.35, -0.35, 1, -0.35, 1, 0.35, 0.35, 0.35, 0.35, 1, -0.35, 1, -0.35, 0.35, -1, 0.35, -1, -0.35, -0.35, -0.35].map(v => (v + 1) * r * 1.2), col);
     else if (mark === 'load') m = this.add.polygon(x, y, [0, -1, 0.87, -0.5, 0.87, 0.5, 0, 1, -0.87, 0.5, -0.87, -0.5].map(v => (v + 1) * r * 1.3), col);   // points from 0: Phaser centres a polygon on its bounds
     else m = this.add.circle(x, y, r, col);
     return m.setStrokeStyle(2 * Math.max(k, 0.6), edge, 1);
@@ -297,11 +299,15 @@ OTR.drive = {
     if (type === 'drive.clearance') return 'clearance';
     if (type === 'load.shift') return 'load';
     if (type === 'drive.route') return 'route';                                     // a wrong turn the sat nav rerouted (C-31)
+    if (this.HABITS.includes(type)) return 'habit';                                 // B-166: the cab habits
     return null;
   },
   /** The legend's words for each marker, in the order the legend lists them. */
   MARKS: [['sign', 'road sign or traffic light'], ['damage', 'damage to the van'], ['clearance', 'low bridge or clearance'], ['load', 'load shifted'],
-    ['route', 'wrong turn']],
+    ['route', 'wrong turn'], ['habit', 'cab habit: signal, mirror, belt or lights']],
+  /** B-166: the cab habits, one plus-shaped pin: the signal, the mirror checks, the seatbelt, the headlights, the handheld
+   *  at the wheel and the gear. */
+  HABITS: ['drive.signal', 'drive.mirrors', 'drive.belt', 'drive.lights', 'drive.handheld', 'drive.gear'],
   when(w) {
     if (!w || w.t === undefined) return '';
     const m = Math.floor(w.t / 60), s = w.t % 60;

@@ -4084,7 +4084,8 @@ window.OTR_I18N.ta = {
 "This replay shows the van and camera before the mistake.": "இந்த மறுஒளிபரப்பு தவறுக்கு முன் வேனையும் கேமராவையும் காட்டுகிறது.",
 "Pause the replay.": "மறுஒளிபரப்பை இடைநிறுத்துங்கள்.",
 "You signaled for at least three seconds before moving.": "நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போட்டீர்கள்.",
-"You moved without signaling in the correct direction for three seconds.": "சரியான திசையில் மூன்று விநாடிகள் சிக்னல் போடாமல் நகர்ந்தீர்கள்."
+"You moved without signaling in the correct direction for three seconds.": "சரியான திசையில் மூன்று விநாடிகள் சிக்னல் போடாமல் நகர்ந்தீர்கள்.",
+"cab habit: signal, mirror, belt or lights": "கேபின் பழக்கம்: சிக்னல், கண்ணாடி, சீட்பெல்ட் அல்லது முகப்பு விளக்குகள்"
 },
 "templates": [
 [
