@@ -35,7 +35,7 @@ OTR.fpCab={
   },
   build(root,cube,interactions,labels,high){
     const T=THREE,parts=[],sheets=[],scratch=new T.Object3D(),colour=new T.Color();
-    const sheet=new T.PlaneGeometry(1,1),paint=new T.MeshBasicMaterial({color:0xffffff,side:T.DoubleSide}),rimPaint=new T.MeshBasicMaterial({color:0x151D24,side:T.DoubleSide});
+    const sheet=new T.PlaneGeometry(1,1),paint=high?new T.MeshStandardMaterial({color:0xffffff,side:T.DoubleSide,roughness:.8,metalness:.08}):new T.MeshBasicMaterial({color:0xffffff,side:T.DoubleSide}),rimPaint=high?new T.MeshStandardMaterial({color:0x151D24,side:T.DoubleSide,roughness:.65,metalness:.12}):new T.MeshBasicMaterial({color:0x151D24,side:T.DoubleSide});
     function part(x,y,z,w,h,d,color,id,rx=0,ry=0,rz=0){
       scratch.position.set(x,y,z);scratch.rotation.set(rx,ry,rz);scratch.scale.set(w,h,d);scratch.updateMatrix();
       const p={matrix:scratch.matrix.clone(),color:new T.Color(color),x,y,z,w,h,d,rx,ry,rz};parts.push(p);
@@ -45,12 +45,20 @@ OTR.fpCab={
     function face(x,y,z,w,h,color,rx=0,ry=0,rz=0){scratch.position.set(x,y,z);scratch.rotation.set(rx,ry,rz);scratch.scale.set(w,h,1);scratch.updateMatrix();sheets.push({matrix:scratch.matrix.clone(),color:new T.Color(color)});}
     function target(id,x,y,z,w,h,d){const o=new T.Mesh(cube,paint);o.position.set(x,y,z);o.scale.set(w,h,d);o.userData.interaction=id;o.layers.set(1);root.add(o);interactions.push(o);return o;}
     // Open windscreen, door trim and passenger backrest. High adds the seat base and console.
-    if(high)part(-.72,-.4,-.15,.09,.65,.85,0x303E48);else face(-.675,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);if(high)part(.86,-.55,.08,.48,.75,.15,0x43545E);else face(.86,-.55,.08,.48,.75,0x43545E);
-    if(high){part(-.72,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,-.12);part(1,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,.12);}
-    else{face(-.72,.08,-.993,.055,.92,0x4D5D66,0,0,-.12);face(1,.08,-.993,.055,.92,0x4D5D66,0,0,.12);}
-    face(.12,-.4,-1.02,1.7,.28,0x354650);face(.12,-.29,-1.12,1.7,.28,0x26343F,-Math.PI/2);
+    if(high)part(-.72,-.4,-.15,.09,.65,.85,0x303E48);else face(-.675,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);if(high)part(1.13,-.55,.08,.48,.75,.15,0x43545E);else face(1.13,-.55,.08,.48,.75,0x43545E);
+    if(high){part(-.72,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,-.12);part(1.55,.08,-1.02,.055,.92,.055,0x4D5D66,null,0,0,.12);}
+    else{face(-.72,.08,-.993,.055,.92,0x4D5D66,0,0,-.12);face(1.55,.08,-.993,.055,.92,0x4D5D66,0,0,.12);}
+    face(.415,-.4,-1.02,2.27,.28,0x354650);face(.415,-.29,-1.12,2.27,.28,0x26343F,-Math.PI/2);
+    // Continuous lining and a floor close the cab around the seated eye, including side glances.
+    face(.415,.55,-.12,2.27,1.8,0x56616A,Math.PI/2);face(.415,-.95,-.12,2.27,1.8,0x263139,-Math.PI/2);
+    if(high)part(1.55,-.4,-.15,.09,.65,.85,0x303E48);else face(1.505,-.4,-.15,.85,.65,0x303E48,0,Math.PI/2);
     face(.928,-.285,-1.025,.61,.25,0x17252F);face(.928,-.47,-1.03,.055,.12,0x354650);
-    if(high){part(.86,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.12,.52,-1.02,1.7,.055,.06,0x4D5D66);}
+    if(high){part(1.13,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.415,.52,-1.02,2.27,.055,.06,0x4D5D66);
+      // Recessed vents, a gauge hood and glovebox give the dash depth without another batch or texture.
+      part(0,-.14,-1.025,.72,.06,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
+      part(-.05,.435,-1.005,.48,.11,.035,0x3A444C);part(1.05,.435,-1.005,.48,.11,.035,0x3A444C);
+      for(const x of [-.48,.48,1.35]){face(x,-.345,-.953,.16,.075,0x101B23);for(let i=0;i<3;i++)face(x,-.37+i*.025,-.949,.15,.006,0x687780);}
+    }
     part(.48,-.42,-.95,.27,.52,.1,0x17252F);
     const shifter=part(.48,-.58,-.86,.09,.08,.08,0xE2CFA4);
     for(const [i,id] of ['cab-park','cab-reverse','cab-neutral','cab-drive'].entries()){

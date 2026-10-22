@@ -1,0 +1,21 @@
+{
+  "file": "cab-plastic-original.png",
+  "author": "Codex",
+  "tool": "image_gen.imagegen",
+  "date": "2026-10-21",
+  "timezone": "America/Toronto",
+  "reference_images": [],
+  "transparent_background": false,
+  "requested_dimensions": [
+    1024,
+    1024
+  ],
+  "actual_dimensions": [
+    1254,
+    1254
+  ],
+  "status": "Original source draft. Not loaded by the game or added to the runtime manifest. High atlas integration and budget verification are C-49.",
+  "licence": "project-owned, shipped under the game's licence",
+  "sha256": "83bb1f9b9e682ecc0785dc05cd898d884de83e3bdad8bcf2e9836dc35529dc19",
+  "prompt": "A seamless, evenly lit, orthographic albedo sample for a delivery van dashboard: neutral medium-light gray, fine irregular matte molded-plastic pebble grain, subtle manufacturing pores, no directional lighting, baked shadows, highlights, gradients, text, logos, or objects. Original artwork from a written brief only, with no reference images. Requested square 1024 pixels; the tool returned 1254 pixels."
+}

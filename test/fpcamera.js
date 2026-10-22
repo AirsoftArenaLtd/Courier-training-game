@@ -4,9 +4,9 @@ for(const f of ['firstperson','fpmission','fpcamera','academy'])vm.runInContext(
 const F=c.OTR.fp,C=c.OTR.fpCamera,M=c.OTR.fpMission;
 const model=()=>{const m=M.create('campaign',7);m.mode='cab';m.paused=false;m.briefing={day:1,weather:'clear',clockMin:500};m.solids=[];m.bounds={x0:-2000,x1:2000,z0:-2000,z1:2000};Object.assign(m.van,{x:0,z:-40,yaw:0,speed:0,hand:false});return m;};
 const update=(r,m,dt=1/60,reduced=false,high=false,precise=false)=>{m.elapsed+=dt;return C.update(r,m,reduced,high,precise);};
-test('the first view matches the existing eye and is reused without touching saved mission state',()=>{
+test('the driver sits behind the controls with a wider cab lens without touching saved mission state',()=>{
  const m=model(),r=C.create(),before=JSON.stringify(m.snapshot()),p=C.update(r,m,false,false,false);
- assert.equal(p.x,-.45);assert.equal(p.y,2.05);assert.equal(p.z,-41.85);assert.equal(p.fov,68);assert.equal(JSON.stringify(m.snapshot()),before);
+ assert.equal(p.x,-.45);assert.equal(p.y,2.05);assert.equal(p.z,-41.45);assert.equal(p.fov,76);assert.equal(JSON.stringify(m.snapshot()),before);
  assert.equal(update(r,m),p);assert.equal(m.cameraMotion,p);assert.equal(m.snapshot().cameraMotion,undefined);
 });
 test('turns have bounded heading lag and forward/reverse look-ahead; player look is immediate',()=>{
@@ -20,8 +20,8 @@ test('turns have bounded heading lag and forward/reverse look-ahead; player look
 });
 test('zoom eases with speed and remains smaller on Low, while reduced motion restores the original view',()=>{
  const results=[];for(const high of [false,true]){const m=model(),r=C.create();m.driveAssist=0;m.player.pitch=.2;C.update(r,m,false,high,false);m.van.speed=12;
-  for(let i=0;i<120;i++)update(r,m,1/60,false,high);results.push(r.pose.fov);assert.ok(r.pose.fov>68&&r.pose.fov<=(high?72:70));
-  const p=update(r,m,1/60,true,high);assert.equal(p.fov,68);assert.equal(p.roll,0);assert.equal(p.pitch,-m.player.pitch);assert.equal(p.y,2.05);
+  for(let i=0;i<120;i++)update(r,m,1/60,false,high);results.push(r.pose.fov);assert.ok(r.pose.fov>76&&r.pose.fov<=(high?80:78));
+  const p=update(r,m,1/60,true,high);assert.equal(p.fov,76);assert.equal(p.roll,0);assert.equal(p.pitch,-m.player.pitch);assert.equal(p.y,2.05);
  }assert.ok(results[1]>results[0]+1.9);
 });
 test('acceleration, cornering and braking move the head inside the cab and retain physical body pitch',()=>{
@@ -40,7 +40,7 @@ test('a wheel crossing a curb gives a small decaying impulse, with no impulse fr
 test('walking head movement stops for precision work, cargo and reduced motion without moving the player',()=>{
  const m=model(),r=C.create();m.mode='walk';Object.assign(m.player,{x:0,z:-40,yaw:0,pitch:.1});C.update(r,m,false,false,false);let peak=0;
  for(let i=0;i<80;i++){m.player.z-=2.5/60;const z=m.player.z,p=update(r,m);assert.equal(m.player.z,z);peak=Math.max(peak,Math.abs(p.y-1.65));assert.ok(Math.abs(p.x-m.player.x)<.004);}
- assert.ok(peak>.001);let p=update(r,m,1/60,false,false,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);assert.equal(p.pitch,-.1);
+ assert.ok(peak>.001);let p=update(r,m,1/60,false,false,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);assert.equal(p.pitch,-.1);assert.equal(p.fov,68);
  p=update(r,m,1/60,true);assert.equal(p.y,1.65);assert.equal(p.x,m.player.x);m.cargoOpen=true;Object.assign(m.player,{x:m.van.x,z:m.van.z+1});p=update(r,m);assert.equal(p.y,2.15);
 });
 test('stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score',()=>{

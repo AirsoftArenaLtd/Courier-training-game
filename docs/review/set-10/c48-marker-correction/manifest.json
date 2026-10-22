@@ -1,0 +1,583 @@
+{
+  "task": "C-48 review correction",
+  "source": "4158b3a703fe2b93590cb352a00967d2beac1bfc",
+  "sourceSHA256": {
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpworld.js": "ca96a71056c4233bf76d92d9cffc03f270b0ca1e1f8292832194c47d8defd2dc",
+    "test/fpwalkaroundworld.js": "806b3c6798d1252f2dbd4f2c890a8cedb47bac84be801753fe7e53cffe56a494"
+  },
+  "date": "2026-10-22T00:41:17.390423-04:00",
+  "repositorySuites": 70,
+  "nativeChecks": {
+    "high": 334,
+    "lowTamilLarger": 334
+  },
+  "geometryCases": 12,
+  "focusedResourceViews": 6,
+  "peaksOrder": [
+    "calls",
+    "triangles",
+    "textures",
+    "attachmentBytes",
+    "PhaserEstimateBytes"
+  ],
+  "peaks": {
+    "low": [
+      44,
+      1570,
+      2,
+      3557376,
+      2600726
+    ],
+    "high": [
+      70,
+      103283,
+      3,
+      11239424,
+      6925520
+    ]
+  },
+  "scope": "Front target surface fit at build time; no rendered geometry or material changes. Earlier 207-view cab gate remains at bf60fc1f; these six focused views and all 70 repository suites are at correction 4158b3a7. Latest pilot integration belongs to Claude.",
+  "files": [
+    {
+      "file": "native/bench-c48-marker-high.json",
+      "bytes": 7437,
+      "sha256": "ca2c26f6e65d1e9df33e80d17d00be50ed640d541d2218b54d0999f4ba2c678b"
+    },
+    {
+      "file": "native/bench-c48-marker-low.json",
+      "bytes": 7459,
+      "sha256": "9ca0ea0d1d896dac529c7f561c5d5c378c7843d7bd9fdad11060c09dfca39c30"
+    },
+    {
+      "file": "native/c48-marker-acceptance.json",
+      "bytes": 1805,
+      "sha256": "bdf9425562e86f5732f5772ae3442e2de6822a0f44654f6aa731f00986b9b7bc"
+    },
+    {
+      "file": "native/c48-marker-bench-high.log",
+      "bytes": 2406,
+      "sha256": "e3c76f2dd341135a92e880221a125c81d78ea57184942fb15f0a1ae217490c02"
+    },
+    {
+      "file": "native/c48-marker-bench-low.log",
+      "bytes": 2386,
+      "sha256": "663bccd423b912da6d019c53a656b5b718b233ec31994731ed8dfa7309ea4686"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-guide-report.png",
+      "bytes": 89716,
+      "sha256": "69ab655f17b26994ff42c4d844501509f01066471ae2977a9a070f70ca43d063"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-post-mirror.png",
+      "bytes": 137773,
+      "sha256": "8b471c91671c09c7e7e7e83365f36fafb7740d95a975f22c025787ae52b1a7ea"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-post-rear.png",
+      "bytes": 233891,
+      "sha256": "33075565bebdbd4dcd362d152814b31bc4caffe4aa5cde498be38df0ba370cc3"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-post-record.png",
+      "bytes": 133964,
+      "sha256": "8c518a4a4c9b1c9ea05aa71e86b1af6a4d90f427b08103af886f0047e02c82b8"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-post-roof.png",
+      "bytes": 122712,
+      "sha256": "d77f90c7258a8a9f0bb7c01484c80270bce852f5f0472bca0868561a5bf93866"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-pre-record.png",
+      "bytes": 305951,
+      "sha256": "c4e1ec853d6d8dee78eaf478234d5f591daec3846a2197e2a974d7118d218fcb"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-pre-roof.png",
+      "bytes": 123081,
+      "sha256": "d7f726bc6983b5f8b9681269439c4fb54e85539d38bc0a3799a3b423d0843cd3"
+    },
+    {
+      "file": "native/c48-marker-high-en-normal-pre-wheel.png",
+      "bytes": 316180,
+      "sha256": "6a1f4d224311ce9f17e2dfdebd084c9757208836afd1a44da6c7b78aedb39f0a"
+    },
+    {
+      "file": "native/c48-marker-high-headlight-panel.png",
+      "bytes": 65631,
+      "sha256": "aaafb3e7e2a888da02ebe99a76675845e33afbb577795554c72a620f52ca1842"
+    },
+    {
+      "file": "native/c48-marker-high-walkaround.json",
+      "bytes": 2105,
+      "sha256": "5b70061d385c480f3f5da5cabd24f4b9c1c2da42d9a18e53c1872659ee4a6c76"
+    },
+    {
+      "file": "native/c48-marker-high-walkfront.png",
+      "bytes": 179880,
+      "sha256": "bdb4c89c95ecf2b49435609b64bcaeea56c815b707b3e9cb884cf12afdfa357e"
+    },
+    {
+      "file": "native/c48-marker-high-walkrecord.png",
+      "bytes": 151417,
+      "sha256": "74c981c4c590049972df99ef4761ad48a4702a92175983ef5e4196cd11865733"
+    },
+    {
+      "file": "native/c48-marker-high-walksummary.png",
+      "bytes": 118586,
+      "sha256": "0820e61c1e495ef71dcf693e8efb07ba453d48f59260b3812b4b33bbc4b3fdf4"
+    },
+    {
+      "file": "native/c48-marker-low-headlight-panel.png",
+      "bytes": 68242,
+      "sha256": "1ea0fd78eba1508069b641fcdd6e67b1681956a13161ec9a490c7d5ad651618f"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-guide-report.png",
+      "bytes": 139116,
+      "sha256": "8d12f3baf8a6dfe468ea2b83acc1fe24fc95ac82624ec3badb3357cf2af1a6c2"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-post-mirror.png",
+      "bytes": 157559,
+      "sha256": "a266b873979ae5261a4d6e57762a6bf0052c7c6a372a502e0293a7244cb1e7a2"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-post-rear.png",
+      "bytes": 87392,
+      "sha256": "0a6506bba2babf8d267e146ce2dd6efa6ddfdd4a024ee237e66dc3f7f892a05a"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-post-record.png",
+      "bytes": 108984,
+      "sha256": "c165bcf84c94c088d5d77eee1b4d89d12531b27ec4d8c578b819b01382345371"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-post-roof.png",
+      "bytes": 94006,
+      "sha256": "9acc01c47ac08752039609599cf961a7e0df4daa60345ceb19ae8747abf09955"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-pre-record.png",
+      "bytes": 165092,
+      "sha256": "034fb6258aeef66bfa16f441b2d4767a1b2e98e7f3322eb37a021229979b0d83"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-pre-roof.png",
+      "bytes": 88652,
+      "sha256": "61ba06dd38d1ff19a439be99fd1c40a60f3f97c9213c6d1831ff4d52a3c6820d"
+    },
+    {
+      "file": "native/c48-marker-low-ta-large-pre-wheel.png",
+      "bytes": 146315,
+      "sha256": "d76c3f1aa07aeb99f58e5a5e3815bf300c612a45d7b7285ce24626ae7eda1f71"
+    },
+    {
+      "file": "native/c48-marker-low-walkaround.json",
+      "bytes": 2103,
+      "sha256": "e7215e550b29b9a39c95b134a8b43311d606328f585990d27e762a6372d2b196"
+    },
+    {
+      "file": "native/c48-marker-low-walkfront.png",
+      "bytes": 93359,
+      "sha256": "74daac2c1ff8a84d1de0278455a1e9c34f91dc5b0deac7118c823f54018c6a82"
+    },
+    {
+      "file": "native/c48-marker-low-walkrecord.png",
+      "bytes": 156015,
+      "sha256": "9839733eb614c51379bab56379845ef13a501424a3d0e7ff4a73dbad007a656f"
+    },
+    {
+      "file": "native/c48-marker-low-walksummary.png",
+      "bytes": 116217,
+      "sha256": "f094d4fcecfad65e48111d56b384a4dc3d6644eb4a6f68676e7516451ca186b8"
+    },
+    {
+      "file": "native/c48-marker-walk-high.log",
+      "bytes": 87,
+      "sha256": "53f701001e965f534607862048174a00768f7cd0fe87fc26f634191e1099d6d0"
+    },
+    {
+      "file": "native/c48-marker-walk-low.log",
+      "bytes": 86,
+      "sha256": "592bef030ac0541eb157a7f9f5acebca50cd9fa0ec04977f52ff6142642592d4"
+    },
+    {
+      "file": "repository/academy.log",
+      "bytes": 1777,
+      "sha256": "127d0e87ea8420c59dd4c622642de0a8175f04825b34262c93a99e74a1396897"
+    },
+    {
+      "file": "repository/aids.log",
+      "bytes": 351,
+      "sha256": "4103c8bcaa1b62c94a62877db0b7544c8f74e6dca1ee368096401821485dc2bb"
+    },
+    {
+      "file": "repository/art.log",
+      "bytes": 389,
+      "sha256": "90660c8001fd888ac3ccbb554edd8928ea09d699198a7e5f0d4a4ef38971fe0d"
+    },
+    {
+      "file": "repository/assets.log",
+      "bytes": 344,
+      "sha256": "66dae5dd2382385459c3ba835ee54c2b547bbabe0d100ee5aadcc37f7d7d025d"
+    },
+    {
+      "file": "repository/auth.log",
+      "bytes": 9675,
+      "sha256": "8cfee30eb9d09869c57b05822d029373f828196a9bf3a9b31d3356711516a53d"
+    },
+    {
+      "file": "repository/credits.log",
+      "bytes": 305,
+      "sha256": "ad38a6502398000270bb3b90bfc75f540d864f179d12e285ea65d6ccb12d3c98"
+    },
+    {
+      "file": "repository/data.log",
+      "bytes": 670,
+      "sha256": "248cf6e62f009c7b7422039fd9f64ce9461ea4bdd22ef0b1e6725b64c3e038a3"
+    },
+    {
+      "file": "repository/driving.log",
+      "bytes": 1301,
+      "sha256": "ab36c7b6b4650edebd89478a6812da759071e844ef39871b3c2d537cf3a15635"
+    },
+    {
+      "file": "repository/enterprise.log",
+      "bytes": 1288,
+      "sha256": "3cc4df32039c33824e9a0a2d43adc8b08c47de3a9dd242b9df86906ac46c74e6"
+    },
+    {
+      "file": "repository/firstperson.log",
+      "bytes": 1702,
+      "sha256": "81ae3d2c7f0aa36ddb1103a3c21af9e2e57e17eb0ad03b1bc20826731de10208"
+    },
+    {
+      "file": "repository/fpaccess.log",
+      "bytes": 1331,
+      "sha256": "f63ca21a7356ba7b3ed0a3b435b0460040b27b0194345c4700e72d13a6fdd1f4"
+    },
+    {
+      "file": "repository/fpactors.log",
+      "bytes": 2234,
+      "sha256": "7123929bd338bb29be07d4fbdc16c4208b1d7c9175f93768d634ebeb4196b689"
+    },
+    {
+      "file": "repository/fpassets.log",
+      "bytes": 1394,
+      "sha256": "c78af9bae170d44bf3c73dce31ec7ce49cdcb88f7157ac20983087c4e4378a24"
+    },
+    {
+      "file": "repository/fpbranding.log",
+      "bytes": 731,
+      "sha256": "830dbcd4a59d417c8c855547ab66ce2f3424d3b7c6bdccba67d4095c30f78a3b"
+    },
+    {
+      "file": "repository/fpcab.log",
+      "bytes": 1553,
+      "sha256": "376c9abdb7cdaa8e8ba7d25fffcc331c6c0c4ff665072eeb189cb7e53eb3cc7b"
+    },
+    {
+      "file": "repository/fpcamera.log",
+      "bytes": 1085,
+      "sha256": "e6d7a6daae4cb8d4d0a1f52ba99cc2b452b50b19a0c47807f8028f8790a90708"
+    },
+    {
+      "file": "repository/fpdamage.log",
+      "bytes": 1544,
+      "sha256": "949c3c93445edcced194405f1f43d79ce4f0aec952339051996531a96ed92457"
+    },
+    {
+      "file": "repository/fpdamageassets.log",
+      "bytes": 799,
+      "sha256": "a76b586181774fa5fb224f48aa94d98f75c616722c886792879115be94f98f62"
+    },
+    {
+      "file": "repository/fpdamageflow.log",
+      "bytes": 2430,
+      "sha256": "5f89b085d0bbe240a5e0cc10303205123c2b48230e9bdcf629a748b7140b9d69"
+    },
+    {
+      "file": "repository/fpdamageworld.log",
+      "bytes": 1351,
+      "sha256": "f82231f5aaffdb68224a546a90bfa99613fb02f901a1b4aa8bde30c8749485bc"
+    },
+    {
+      "file": "repository/fpday.log",
+      "bytes": 1263,
+      "sha256": "9c873cb8e34318e50e7134b43a2f772e27373ae8f17788dfab7380f256eda2dc"
+    },
+    {
+      "file": "repository/fpdoors.log",
+      "bytes": 1880,
+      "sha256": "b60df9f1147ee95fa1e7cc0ed2e158153fafda34ecd6ffc8a36ce9af75a4cec8"
+    },
+    {
+      "file": "repository/fpdriving.log",
+      "bytes": 2484,
+      "sha256": "a585669739aaace05f166ac370c58234c07ae40e461a928286c1738039143095"
+    },
+    {
+      "file": "repository/fpguide.log",
+      "bytes": 437,
+      "sha256": "6fb6a81ccb3bf39760a6bfb27487841cb36562825d5eef096505c051433c9aa1"
+    },
+    {
+      "file": "repository/fphandheld.log",
+      "bytes": 987,
+      "sha256": "0bf0ca1507be1ee1abd6392b41ecde8331e68accb3369ca9be2362d57776f574"
+    },
+    {
+      "file": "repository/fphud.log",
+      "bytes": 1096,
+      "sha256": "21be1bd445379de96d525659678c17e5371412a50ec13020c06f172e8181d720"
+    },
+    {
+      "file": "repository/fplater.log",
+      "bytes": 1135,
+      "sha256": "8b8ac8ee82f5990dab20a8ac9f16dd84cd64f36ea565f4ce3d1f835d8d32e878"
+    },
+    {
+      "file": "repository/fplighting.log",
+      "bytes": 1688,
+      "sha256": "0985b27275a830ccdc58e34dd2715c929cf10a1ef30baef1e820236ff1a83201"
+    },
+    {
+      "file": "repository/fploadout.log",
+      "bytes": 1476,
+      "sha256": "ea9913ef9d0faa8178f28bedcd8b5c116badb3b6035befebf29bb83bd170256f"
+    },
+    {
+      "file": "repository/fpmirrors.log",
+      "bytes": 1785,
+      "sha256": "32df33ce531038b9fc871bbc4b14d561dd93580e335e2bd2f4eeb97f4813592b"
+    },
+    {
+      "file": "repository/fpmission.log",
+      "bytes": 3787,
+      "sha256": "07db9fab45f86c4fe77905926ed68cf9b0a5fa56e1b6269165379ffd1f6fcb79"
+    },
+    {
+      "file": "repository/fpnarration.log",
+      "bytes": 1392,
+      "sha256": "e169fd5b347acb490060fd8c6cc74e3affab69399a08ef579e34e081bd07873d"
+    },
+    {
+      "file": "repository/fpnav.log",
+      "bytes": 2216,
+      "sha256": "2ad07050ffb9e469c3110435ddd3a00316e90b1f937199346b2dedd0c7dff2d2"
+    },
+    {
+      "file": "repository/fpnightworld.log",
+      "bytes": 838,
+      "sha256": "b2e06a4bdd3de29c946f441a78b22163e94ab65e38bb02d692d9d55dbf22f236"
+    },
+    {
+      "file": "repository/fpperf.log",
+      "bytes": 521,
+      "sha256": "5a543a5d3a12ddef888efaceddeec70b9fd0975a6263627ccaa6262ce0add799"
+    },
+    {
+      "file": "repository/fpqualitygate.log",
+      "bytes": 1449,
+      "sha256": "931c40186e65088091733e21d9d042a5c1cfaf6c4d99356ee8c1fb0d778bbc76"
+    },
+    {
+      "file": "repository/fpradio.log",
+      "bytes": 2410,
+      "sha256": "efeec8ac23bf0733f7d56d31274551313f9c04e89c214623e9246ce4b9cf3871"
+    },
+    {
+      "file": "repository/fprear.log",
+      "bytes": 1949,
+      "sha256": "e439d09f567c7a3ff2066253d9e3600034b224ecbbb00fef82fe91a90f47b942"
+    },
+    {
+      "file": "repository/fpresume.log",
+      "bytes": 452,
+      "sha256": "6078957fe2248b718d75dbdcd3fec592de79f29a09b4632a91f9730c17642bab"
+    },
+    {
+      "file": "repository/fproute.log",
+      "bytes": 1417,
+      "sha256": "e370771204f4ff6eceedc31189fd4fd5cae492aefd14a1de828985bee6c7cb87"
+    },
+    {
+      "file": "repository/fpsigns.log",
+      "bytes": 2523,
+      "sha256": "cb59e9015d05536aeb16f6cc4090e392d4478bebad7db370f0822842c520b1c9"
+    },
+    {
+      "file": "repository/fpsound.log",
+      "bytes": 1098,
+      "sha256": "fb447dcefb45dc18e14375add73c53c5e63199ff320266233be2295e97da0c98"
+    },
+    {
+      "file": "repository/fpstopflow.log",
+      "bytes": 1862,
+      "sha256": "5401e62633f28fe0a003a288145d098a0699aa6cf5c6bee55ed2bab916c8c2bb"
+    },
+    {
+      "file": "repository/fpstoplocker.log",
+      "bytes": 965,
+      "sha256": "384f643f81a547d0a3d539e9e38693e3fd80761138aaefadb1314f8a761fa165"
+    },
+    {
+      "file": "repository/fpstops.log",
+      "bytes": 1937,
+      "sha256": "90d657da3f232d47d57ced50d8532543d60adfdadc5c88d1cf4c631df21716e4"
+    },
+    {
+      "file": "repository/fpstopscene.log",
+      "bytes": 1036,
+      "sha256": "4c36e3d8a957f401059cc2e41759ce3d723462e705e48942df8d2e10aac7cd51"
+    },
+    {
+      "file": "repository/fptown.log",
+      "bytes": 1372,
+      "sha256": "3f4e8a96bec36bd411e172c171d3a837f99c7a304cb655279924b6422a42c179"
+    },
+    {
+      "file": "repository/fptraffic.log",
+      "bytes": 3885,
+      "sha256": "b3136d77a89a32262f504848d8a1ebbfd727f3da343671d56cd96224961615e9"
+    },
+    {
+      "file": "repository/fpwalkaround.log",
+      "bytes": 1798,
+      "sha256": "8e9e1af84b2f8503313db7b5ab4e47739c707d78b0057dfb8c6363e29493d369"
+    },
+    {
+      "file": "repository/fpwalkaroundflow.log",
+      "bytes": 1528,
+      "sha256": "8f9bad3874a68966b9eb03eb140d8ac9c98f43db057f4d4461daf4a7669b7086"
+    },
+    {
+      "file": "repository/fpwalkaroundworld.log",
+      "bytes": 1633,
+      "sha256": "49a8e959deb6f3f06a78c56ff557b9ce0a3f7909d3121909aa28f2ac1ac76fad"
+    },
+    {
+      "file": "repository/fpweather.log",
+      "bytes": 1582,
+      "sha256": "3e50e7548e9e1da3539f5cd1bdebc1c430d536e34f597d9df302cb05f3434642"
+    },
+    {
+      "file": "repository/fpworld.log",
+      "bytes": 2573,
+      "sha256": "b19ab2ad03bffc806d94fea492288782c784394be7a40369cf8d2e2079c63358"
+    },
+    {
+      "file": "repository/glossary.log",
+      "bytes": 93,
+      "sha256": "463a79bdf43784ef38b01edf111e96c2d862281bc86e77cb4cc6c29a0ce97aa8"
+    },
+    {
+      "file": "repository/i18n.log",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "repository/lmsreport.log",
+      "bytes": 839,
+      "sha256": "70d3d20ced8c97caa59f1e6712281990cb02732308d362d69a4b2ee87fcbc458"
+    },
+    {
+      "file": "repository/offline.log",
+      "bytes": 459,
+      "sha256": "fff9c1cff9d265e8742f0a7f0cb21bae7f5842cdb2cc9e1931410a44edb8a708"
+    },
+    {
+      "file": "repository/oldsave.log",
+      "bytes": 513,
+      "sha256": "8232b70b056088cc23ac9217b85d7027a13b2b7e0c2d2b9d00e589325b36096d"
+    },
+    {
+      "file": "repository/package.log",
+      "bytes": 379,
+      "sha256": "a6f0f2b0a3fe3ace52372dbfb76bb83d6f38673b58bd32a77eb287f974ee048a"
+    },
+    {
+      "file": "repository/report.log",
+      "bytes": 908,
+      "sha256": "507b3a971206a81466f8eb17f2f610176b698227519d4a0a6cb7207ed1d45849"
+    },
+    {
+      "file": "repository/reviewsheet.log",
+      "bytes": 31,
+      "sha256": "8d020850394d3cab61442298c953a8471019c829faa3d3b1a7045cb510886679"
+    },
+    {
+      "file": "repository/routeday.log",
+      "bytes": 868,
+      "sha256": "9b365395f6a9ab704b9c9194e4680df3720041763cd5f00b65a521c93bd48011"
+    },
+    {
+      "file": "repository/savesize.log",
+      "bytes": 2588,
+      "sha256": "f0b2d2b9d6447ea8d0e9fcdab28064783bc98d0130258e9c308dd0323a703b2b"
+    },
+    {
+      "file": "repository/scorm-launch-2004.log",
+      "bytes": 764,
+      "sha256": "60f05982f3d66e5450959c59fdb49eb8b6b260b28c9c6ee7835d15fc9b3c915a"
+    },
+    {
+      "file": "repository/scorm-launch.log",
+      "bytes": 762,
+      "sha256": "7e64c01413b93daf9144b46e83174d3aa07ee85c784d8bdec2b4c3f5a9da19e3"
+    },
+    {
+      "file": "repository/signin.log",
+      "bytes": 2322,
+      "sha256": "c3f69d6f54b975f36e367feea859436c4351083b96f6dd1b68751b149e136042"
+    },
+    {
+      "file": "repository/town3d.log",
+      "bytes": 1221,
+      "sha256": "c839bf9e9cd7102a5b3faacf669d8ccbb2f2394dc62baf66d4a76d732d7c0b76"
+    },
+    {
+      "file": "repository/workday.log",
+      "bytes": 2483,
+      "sha256": "0adb129f224075371c9603fb9e6d733215de09d0c5a9a8f7f41cc27c6cb01cfb"
+    },
+    {
+      "file": "repository/workdayflow.log",
+      "bytes": 2943,
+      "sha256": "00bbbb2af3717b408574a427bc8d2002f2fbab27f66d3458d2b3cdd570fbee90"
+    },
+    {
+      "file": "repository/xapi.log",
+      "bytes": 965,
+      "sha256": "b3f0735abe4866db16f239cf043f8850ce561e8182a1e02311c2d2b2b5aa2bd8"
+    },
+    {
+      "file": "controllers/c48-marker-acceptance.py",
+      "bytes": 1596,
+      "sha256": "c53ad33d88ecf1c0d6f51ccfb2374bdef4afd375dd798290a10909683d2713fb"
+    },
+    {
+      "file": "controllers/c48-marker-native.log",
+      "bytes": 128,
+      "sha256": "7262601e36e74d3a1a33768cd40ffda3003156dd07ef846c40b950c3068b9e3d"
+    },
+    {
+      "file": "controllers/c48-marker-repo-checks.log",
+      "bytes": 2965,
+      "sha256": "c70b3b2a9125ee3d89baeb52077234172083472aa5fef63d85c5731b32726cfa"
+    },
+    {
+      "file": "controllers/c48-marker-native-source.json",
+      "bytes": 417,
+      "sha256": "25aedee0ecf9aeaaac378a928e53ddf18ea4047ac555b0a7c00c99c2edc5c98e"
+    },
+    {
+      "file": "source.patch",
+      "bytes": 7232,
+      "sha256": "bcac0c4731a0b1b26660d8082667b6bb7032b1d3f2a9bc945dadbd1fdb822704"
+    }
+  ]
+}

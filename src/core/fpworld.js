@@ -303,7 +303,7 @@ OTR.fpWorld = {
       emergencyLamps=new T.Group();emergency.add(emergencyLamps);
       for(const x of [-0.4,0.4])box(emergencyLamps,x,1.75,-0.1,0.4,0.2,0.3,0xE33E44);
     }
-    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.11,1.76,-2.32,.25,.04,.06,0x303944);
+    if(OTR.fpActors&&scene.assetBank&&scene.assetBank.models.has('van-exterior'))for(const side of [-1,1])box(chassis,side*1.18,1.76,-2.7,.25,.04,.58,0x303944);
     const actors=OTR.fpActors?OTR.fpActors.build(scene,base,route,van,chassis,brand,stopDoors):null;let innerVan=null;
     if(trafficBike&&!(actors&&actors.cyclist)){box(trafficBike,0,1.15,0,.4,.65,.25,0xE3B649);box(trafficBike,0,1.65,-.15,.28,.3,.28,0xB68F72);for(const x of [-.12,.12])box(trafficBike,x,.55,0,.16,.65,.16,0x43515E);}
     if(actors&&actors.vehicle){
@@ -335,12 +335,19 @@ OTR.fpWorld = {
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');
+    // The loaded van's front profile differs from the fallback. Fit its lower inspection point once at build time.
+    const walkBody=walkVehicle&&walkVehicle.parts.find(p=>p.name==='body');let walkFront=null;
+    if(base.walkaround&&walkBody){
+      const t=OTR.fpWalkaroundFlow.target('front'),surface=new T.Mesh(walkBody.g,walkVehicle.mesh.material);surface.updateMatrixWorld(true);
+      const hit=new T.Raycaster(new T.Vector3(t.x,t.y,-4),new T.Vector3(0,0,1),0,2).intersectObject(surface,false)[0];
+      if(hit)walkFront=hit.point.z-.008;
+    }
     // Keep the retained cargo proxy behind the imported closed door's inspection surface.
     if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
 
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
-      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
+      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
       mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
     }):[];
     // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
@@ -420,7 +427,7 @@ OTR.fpWorld = {
             const cc=Math.cos(v.yaw),ss=Math.sin(v.yaw);
             cabAnchor.position.set(v.x-.45*cc+1.85*ss,2.05+pose.bodyY,v.z-.45*ss-1.85*cc);cabAnchor.rotation.set(pose.bodyPitch,-v.yaw,pose.bodyRoll,'YXZ');cabAnchor.updateMatrix();camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);
           }else if(m.mode==='cab'){
-            const eye=OTR.fp.local(v,-0.45,-1.85);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
+            const eye=OTR.fp.local(v,-0.45,-1.45);camera.position.set(eye.x,2.05,eye.z);camera.rotation.set(-p.pitch,-v.yaw-v.look,0,'YXZ');
           }else{
             const local=OTR.fpMission.local(v,p),inside=m.cargoOpen&&Math.abs(local.x)<0.75&&local.z>-0.8&&local.z<2.6;
             camera.position.set(p.x,inside?2.15:1.65,p.z);camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');

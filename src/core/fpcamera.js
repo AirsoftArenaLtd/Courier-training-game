@@ -1,6 +1,8 @@
 /* Cosmetic camera/body feel. Reused numeric state; no input smoothing, scoring or saved fields. */
 window.OTR=window.OTR||{};
 OTR.fpCamera={
+  // Sit behind the controls rather than against the windscreen. Walking keeps its existing lens.
+  seat:{x:-.45,y:2.05,z:-1.45},cabFov:76,
   create(){return {model:null,mode:null,lastTime:0,lastX:0,lastZ:0,heading:0,look:0,pitch:0,roll:0,x:0,z:0,bob:0,travel:0,kerb:false,hitAt:-100,hit:0,fov:68,reduced:false,precise:false,
     pose:{x:0,y:0,z:0,yaw:0,pitch:0,roll:0,fov:68,baseX:0,baseZ:0,bodyY:0,bodyPitch:0,bodyRoll:0,heave:0,roadImpact:0}};},
   angle(a){return Math.atan2(Math.sin(a),Math.cos(a));},
@@ -25,7 +27,7 @@ OTR.fpCamera={
     const amount=reduced||precise?0:.55+.45*(1-OTR.fp.driveAssist(m)),motion=m.motion;
     const acceleration=motion?motion.acceleration:0,lateral=motion?motion.lateral:0;
     const turn=cab?v.speed*Math.tan(v.steer)/3.3:0,targetLook=OTR.fp.clamp(turn*.28,-.085,.085)*amount;
-    const targetFov=68+(cab?Math.min(1,speed/12)*(high?4:2)*amount:0),onKerb=cab&&this.kerb(m);
+    const baseFov=cab?this.cabFov:68,targetFov=baseFov+(cab?Math.min(1,speed/12)*(high?4:2)*amount:0),onKerb=cab&&this.kerb(m);
     if(reset){r.travel=0;r.hitAt=-100;r.hit=0;r.heading=v.yaw;r.look=targetLook;r.x=r.z=r.bob=0;r.pitch=r.roll=0;r.fov=targetFov;}
     else if(dt>0){
       r.travel+=distance;
@@ -41,9 +43,9 @@ OTR.fpCamera={
     const bump=Math.sin(age*32)*impact*.025*amount,bodyPitch=reduced?0:motion?motion.pitch:0,bodyRoll=reduced?0:motion?motion.roll:0;
     const targetPitch=bodyPitch*.45*amount,targetRoll=bodyRoll*.5*amount;
     if(reset){r.pitch=targetPitch;r.roll=targetRoll;}else if(dt>0){r.pitch=this.ease(r.pitch,targetPitch,dt,8);r.roll=this.ease(r.roll,targetRoll,dt,8);}
-    if(reduced||precise){r.heading=v.yaw;r.look=r.pitch=r.roll=r.x=r.z=r.bob=0;r.fov=68;}
+    if(reduced||precise){r.heading=v.yaw;r.look=r.pitch=r.roll=r.x=r.z=r.bob=0;r.fov=baseFov;}
     const out=r.pose,c=Math.cos(v.yaw),s=Math.sin(v.yaw);out.bodyPitch=bodyPitch;out.bodyRoll=bodyRoll;out.heave=road+joint+bump;out.bodyY=bodyPitch*1.85-bodyRoll*.45+out.heave;
-    if(cab){out.baseX=v.x-c*.45+s*1.85;out.baseZ=v.z-s*.45-c*1.85;out.x=out.baseX+c*r.x-s*r.z;out.z=out.baseZ+s*r.x+c*r.z;out.y=2.05+out.bodyY;
+    if(cab){out.baseX=v.x+c*this.seat.x-s*this.seat.z;out.baseZ=v.z+s*this.seat.x+c*this.seat.z;out.x=out.baseX+c*r.x-s*r.z;out.z=out.baseZ+s*r.x+c*r.z;out.y=this.seat.y+out.bodyY;
       out.yaw=v.yaw+this.angle(r.heading-v.yaw)*amount+v.look+r.look;out.pitch=-p.pitch+r.pitch;out.roll=r.roll;
     }else{
       const lx=c*(p.x-v.x)+s*(p.z-v.z),lz=-s*(p.x-v.x)+c*(p.z-v.z),inside=m.cargoOpen&&Math.abs(lx)<.75&&lz>-.8&&lz<2.6;

@@ -4,7 +4,7 @@ let clock=0;const c={THREE,performance:{now:()=>clock}};c.window=c;vm.createCont
 for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fpdriving.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js','src/core/fpaccess.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR,M=O.fpMission,G=O.fpMirrors,D=O.fpDriving,W=O.workday;
 const make=()=>{const m=M.create('campaign',7);m.mode='cab';m.paused=false;return m;};
-function look(m,index,seconds=.4){const s=G.specs[index],dx=s.x+.45,dz=s.z+1.85;m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(2.05-s.y,Math.hypot(dx,dz));for(let n=0;n<Math.round(seconds*100);n++){m.elapsed+=.01;G.tick(m,.01);}}
+function look(m,index,seconds=.4){const s=G.specs[index],eye=O.fpCamera.seat,dx=s.x-eye.x,dz=s.z-eye.z;m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(eye.y-s.y,Math.hypot(dx,dz));for(let n=0;n<Math.round(seconds*100);n++){m.elapsed+=.01;G.tick(m,.01);}}
 const events=()=>W.events.filter(e=>e.type==='drive.mirrors');test.beforeEach(()=>W.begin());
 test('a button or a legacy timestamp cannot establish a physical mirror check',()=>{
  const m=make();assert.equal(m.mirror(),false);m.mirrorAt=m.elapsed;assert.equal(G.recent(m,0),false);for(let i=0;i<100;i++){m.elapsed+=.01;G.tick(m,.01);}assert.equal(G.recent(m,0),false);assert.equal(G.recent(m,1),false);assert.equal(G.recent(m,2),false);
@@ -46,6 +46,24 @@ test('mirror housings stay behind the reflective faces on both presets',()=>{
  for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,face=new THREE.Matrix4(),frame=new THREE.Matrix4();
   for(let i=0;i<3;i++){r.faces.getMatrixAt(i,face);r.frames.getMatrixAt(i,frame);const front=new THREE.Vector3(0,0,high?.5:0).applyMatrix4(frame).applyMatrix4(face.clone().invert());assert.ok(front.z<-.002,`${high?'High':'Low'} mirror ${i} housing obscures its face at ${front.z}`);}
   s.art.dispose();
+ }
+});
+test('all complete mirror faces fit the normal forward cab view without granting a gaze check',()=>{
+ for(const high of [false,true]){const s=scene(high),r=s.art.mirrors,camera=s.view.camera,matrix=new THREE.Matrix4();
+  camera.updateMatrixWorld(true);r.root.updateMatrixWorld(true);
+  for(let i=0;i<3;i++){r.faces.getMatrixAt(i,matrix);
+   for(const x of [-.5,.5])for(const y of [-.5,.5]){const p=new THREE.Vector3(x,y,0).applyMatrix4(matrix).applyMatrix4(r.root.matrixWorld).project(camera);assert.ok(Math.abs(p.x)<.97&&Math.abs(p.y)<.9&&p.z>-1&&p.z<1,`${high?'High':'Low'} ${G.specs[i].id} corner leaves the forward view: ${p.toArray()}`);}
+  }
+  for(let i=0;i<60;i++){s.model.elapsed+=1/60;G.tick(s.model,1/60);}assert.equal(G.looking(s.model),-1);assert.ok(G.state(s.model).slice(0,3).every(t=>t===-100));
+  s.art.dispose();
+ }
+});
+test('gaze follows the actual seated camera at a rotated van and still needs a continuous dwell',()=>{
+ const m=make(),rig=O.fpCamera.create();Object.assign(m.van,{x:18,z:-35,yaw:1.2});
+ for(let index=0;index<3;index++){const spec=G.specs[index],eye=O.fpCamera.seat,dx=spec.x-eye.x,dz=spec.z-eye.z;
+  m.van.look=Math.atan2(dx,-dz);m.player.pitch=Math.atan2(eye.y-spec.y,Math.hypot(dx,dz));
+  for(let i=0;i<40;i++){m.elapsed+=.01;O.fpCamera.update(rig,m,true,false,false);G.tick(m,.01);}
+  assert.equal(G.looking(m),index);assert.equal(G.recent(m,index),true);
  }
 });
 test('all three physical mirrors stay on the van and retain the same reflection camera when the head turns',()=>{
