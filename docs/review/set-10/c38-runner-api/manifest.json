@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-22T22:52:32.835147+00:00",
+  "status": "Proposed shared host integration; not applied",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1157,
+      "sha256": "52eb5a39d9d64d1fc80c4097b45e30c0b6217f7686debc0c9efdaa3d1ee90317"
+    },
+    {
+      "file": "flow-selection.patch",
+      "bytes": 1098,
+      "sha256": "171aefb473ee83b4ec9a738cac875aebb32324659961ebf8598cc3b5e7022c18"
+    },
+    {
+      "file": "new-text.json",
+      "bytes": 986,
+      "sha256": "f81b8cffe6d643eb0ee9ae1d7d34dd094b9d17902291c22b5033d17a4802111d"
+    }
+  ]
+}

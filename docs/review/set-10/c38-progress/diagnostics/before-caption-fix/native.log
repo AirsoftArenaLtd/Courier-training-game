@@ -1,0 +1,16 @@
+low en normal
+low en large
+low ta normal
+low ta large
+high en normal
+high en large
+high ta normal
+high ta large
+TimeoutError: Waiting failed: 120000ms exceeded
+    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)
+    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)
+    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)
+    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)
+    at ready (/workspace/c38-pilot-acceptance/test/fpscenariobrowser.js:6:24)
+    at /workspace/c38-pilot-acceptance/test/fpscenariobrowser.js:31:86

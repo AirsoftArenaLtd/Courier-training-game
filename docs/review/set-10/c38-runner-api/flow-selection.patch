@@ -1,0 +1,25 @@
+--- a/src/core/flow.js
++++ b/src/core/flow.js
+@@ -34,8 +34,11 @@
+   startScenario(scene, id, o) {
+     const sc = OTR.registry.get(id);
+     if (!sc) return;
+-    if (!scene.scene.manager.keys[sc.scene]) {
+-      OTR.ui.toast(scene, 'This scenario isn\'t available yet.');
++    const route = OTR.fpScenario ? OTR.fpScenario.resolve(sc, {
++      choice: o && o.presentation || 'auto', webgl: !!scene.sys.game.renderer.gl
++    }) : { scene: sc.scene, data: { scenarioId: id } };
++    if (!route.scene || !scene.scene.manager.keys[route.scene]) {
++      OTR.ui.toast(scene, route.reason || 'This scenario isn\'t available yet.');
+       return;
+     }
+     if (OTR.drill.active && OTR.drill.active.ids[OTR.drill.active.i] !== id) OTR.drill.active = null;
+@@ -43,7 +46,7 @@
+     OTR.flow.startedAt = Date.now();                // for the record's "time training"
+     if (o && o.assess && !OTR.flow.testId) OTR.academy.begin(id);
+     else OTR.academy.assessing = null;
+-    OTR.fx.transition(scene, sc.scene, { scenarioId: id });
++    OTR.fx.transition(scene, route.scene, route.data);
+   },
+ 
+   /**
