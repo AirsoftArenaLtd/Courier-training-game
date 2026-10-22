@@ -333,7 +333,7 @@ Rules that apply to every task here:
 | C-37 | Codex | **Replay of the last mistake:** record the last ten seconds of the van and camera in memory (not in the save) and replay them from the results screen and the drive map. | done (merged 22 Oct) |
 | A-26 | Claude | **Debrief, drive map, trainer report and xAPI** for the new events: lessons text, pins for signs, damage and clearance, the before-and-after report, the LMS report and xAPI statements. | done: the new events reach the debrief (lines and lessons per phase), the drive map (pins only for placed mistakes and penalties) and the verdict (no-entry, major damage and unreported damage are critical); xAPI and the before-and-after report work from stars and stops, so they need no change (`test/workday.js`) |
 | A-27 | Claude | **Save budget:** the saved workday must stay inside the SCORM 1.2 limit (4,096 characters) with all the new events; compaction, a size test over 240 full days, and a fallback that keeps score and stars if details do not fit. | done: found and fixed a real loss on SCORM 1.2 (below); a busy new-package day stays whole on a normal save and keeps its score on a heavy one (`test/savesize.js`) |
-| A-28 | Claude | **QA flows for signs, sat nav, damage report, night, richer stops** and a 3D fuzz run; the full release-candidate pass again. | todo (after C-37) |
+| A-28 | Claude | **QA flows for signs, sat nav, damage report, night, richer stops** and a 3D fuzz run; the full release-candidate pass again. | doing (claude/a28-fuzz: flows done in B-113 to B-131; fuzz run; release-candidate pass after C-48) |
 | A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | todo (after A-28) |
 
 #### Milestone 10: every module in 3D (owner brief, 17 October 2026)
@@ -547,6 +547,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — A-28's fuzz run:** new `test/fpfuzzbrowser.js` plays a later-day workday (route 10, day 4) with seeded random keys from the game's key set, at Low. Every 25 keys it checks for page errors, that the frame clock is moving, that an expected scene is active, and that the day's snapshot restores. Five seeds of two minutes each (about 1,240 keys) pass. Escape is left out: with nothing open it opens the pause menu, from which a random number leaves the day within a few dozen keys. A-28's flows were done in B-113 to B-131; its release-candidate pass follows C-48.
 
 - **22 October 2026, Claude — C-37 merged:** replay of the last mistake is in `pilot`. Node suites pass, and so do the translation check (13 lines and 2 templates in 11 languages), `drivemapbrowser` (214) and all fifteen 3D flows plus drive-review at Low. Conflicts in the board, `PERF.md` and `FRAME-BUDGET.md` were resolved by keeping both sides.
 
