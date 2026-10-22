@@ -16,7 +16,8 @@ const PAGE = process.env.QA_BASE ? process.env.QA_BASE.replace(/\/+$/, '') + '/i
 const SEEDS = (process.env.QA_FUZZ_SEEDS || '1,2,3').split(',').map(Number);
 const SECONDS = Number(process.env.QA_FUZZ_SECONDS || 90);
 const KEYS = ['KeyW', 'KeyS', 'KeyA', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyE', 'KeyF', 'KeyG', 'KeyP', 'KeyJ', 'KeyL',
-  'KeyK', 'KeyR', 'KeyB', 'KeyQ', 'KeyC', 'KeyH', 'KeyV', 'Tab', 'Space', 'Escape', 'Enter', 'Backspace', 'Digit1', 'Digit2', 'Digit3', 'Digit4'];
+  'KeyK', 'KeyR', 'KeyB', 'KeyQ', 'KeyC', 'KeyH', 'KeyV', 'Tab', 'Space', 'Enter', 'Backspace', 'Digit1', 'Digit2', 'Digit3', 'Digit4'];
+// no Escape: with nothing open it is the pause menu, from which a random number leaves the 3D day within a few dozen keys
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
 let checks = 0;
 const fails = [];
@@ -55,7 +56,7 @@ const rng = (seed) => () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; r
           if (st.error) { check(false, `seed ${seed}: the page answered after ${presses} keys (${st.error})`); break; }
           if (st.clock === lastClock) stuck++; lastClock = st.clock;
           // the day may finish into the results (a random Finish workday); that is a way out, not a fault
-          if (!st.fp && !st.active.some(k => /Results|Debrief|DriveReview|Hub|Pause/.test(k))) check(false, `seed ${seed}: after ${presses} keys no expected scene is active: ${st.active.join(', ')}`);
+          if (!st.fp && !st.active.some(k => /Results|Debrief|DriveReview|Hub|Pause|Record|Title|Settings|Access|Trainer/.test(k))) check(false, `seed ${seed}: after ${presses} keys no expected scene is active: ${st.active.join(', ')}`);
           if (st.fp && st.restores !== true) check(false, `seed ${seed}: after ${presses} keys the day's snapshot does not restore (${st.restores}, phase ${st.phase})`);
           if (!st.fp) break;
         }

@@ -548,6 +548,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **22 October 2026, Claude — A-28's fuzz run:** new `test/fpfuzzbrowser.js` plays a later-day workday (route 10, day 4) with seeded random keys from the game's key set, at Low. Every 25 keys it checks for page errors, that the frame clock is moving, that an expected scene is active, and that the day's snapshot restores. Five seeds of two minutes each (about 1,240 keys) pass. Escape is left out: with nothing open it opens the pause menu, from which a random number leaves the day within a few dozen keys. A-28's flows were done in B-113 to B-131; its release-candidate pass follows C-48.
+
 - **22 October 2026, Claude — C-37 merged:** replay of the last mistake is in `pilot`. Node suites pass, and so do the translation check (13 lines and 2 templates in 11 languages), `drivemapbrowser` (214) and all fifteen 3D flows plus drive-review at Low. Conflicts in the board, `PERF.md` and `FRAME-BUDGET.md` were resolved by keeping both sides.
 
 - **22 October 2026, Claude — B-57 done:** Codex's traffic-light labels now always show, so `test/fplangsbrowser.js` has no known list: a traffic line that is not on screen fails. The cyclist and school-crossing warnings are on the cab's own hint line now, so they are read and audited in the cab instead of the handheld. All 588 cab views fit in all 12 languages at larger text.
