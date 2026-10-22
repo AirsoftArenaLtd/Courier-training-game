@@ -1,0 +1,61 @@
+{
+  "status": "geometry passed; focused and complete resource gates in progress",
+  "date": "2026-10-22T16:42:06.141717+00:00",
+  "runtime": "32623203",
+  "sweepCandidate": "281bb8b5",
+  "currentCandidate": "055415cf",
+  "fixture": "bf37a0cb",
+  "sourceSHA256": {
+    "test/fpbench.js": "66ac64bf0fe54a7eb78e45fa0977b0212c6b3033c3ee2c4e7042ff5e8c87bbba",
+    "test/fpambientworld.js": "91359964fee1861d5951f5fe5dc83655316ea859022dd44fa48ae4e05a7c56af",
+    "src/core/fpambient.js": "8b5f2a09e812db0308d48eb5912e078df8e1dbc2538ae08c03529f86720a5eb6",
+    "src/core/fptown.js": "0e17ac99e63f9fc6c6285674753fb14a5a93ea9912fdfd46cff0643850cffdb0"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1290,
+      "sha256": "62bfd64a42f58466fd7d4462a2c1482b4eafdd4424c01ffc77e85d3709ac2b10"
+    },
+    {
+      "file": "acceptance-final-resume.py",
+      "bytes": 15995,
+      "sha256": "c6b9e248586dee8f2b16d6f073f4ba09368a4f42e54be0173a0407049259b577"
+    },
+    {
+      "file": "actual-benchmark-fixtures.log",
+      "bytes": 3224,
+      "sha256": "c46f2cfcb8475e50fb52cdb7e21ed1206bd1122f9b1734f30a67e391712e999e"
+    },
+    {
+      "file": "c51-final-fallback-geometry.json",
+      "bytes": 241,
+      "sha256": "ff99481f6ab94aed2f21dd5925847e64f8e4e2d5846096265a77e6b893127a53"
+    },
+    {
+      "file": "c51-final-loaded-geometry.json",
+      "bytes": 241,
+      "sha256": "aa4376881d07dbec8b61b6583b0c1504e9fd595d449559a9b674dc6c01476632"
+    },
+    {
+      "file": "c51-final-sweep-fallback.log",
+      "bytes": 1416,
+      "sha256": "77dcafb5062ed43a812346bbb884713455fc479f12130124f1be7d96d2265402"
+    },
+    {
+      "file": "c51-final-sweep-loaded.log",
+      "bytes": 2258,
+      "sha256": "8567b03cc9f8e60eafacde8c18b98c933a36775d4891514e9fdd40aa6371efb4"
+    },
+    {
+      "file": "focused-quality.js",
+      "bytes": 1751,
+      "sha256": "a2a90b1b9dfb7169d7f21d30fe1234bcbad1b9c15c496a102f31f4dea1904fed"
+    },
+    {
+      "file": "translated-assertion-guard.log",
+      "bytes": 198,
+      "sha256": "09926d7d54483eec04495fcd9ea8fd7f7c1c0a8e54937231cec2f68758bedd16"
+    }
+  ]
+}
