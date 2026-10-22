@@ -341,7 +341,7 @@ Rules that apply to every task here:
 | A-26 | Claude | **Debrief, drive map, trainer report and xAPI** for the new events: lessons text, pins for signs, damage and clearance, the before-and-after report, the LMS report and xAPI statements. | done: the new events reach the debrief (lines and lessons per phase), the drive map (pins only for placed mistakes and penalties) and the verdict (no-entry, major damage and unreported damage are critical); xAPI and the before-and-after report work from stars and stops, so they need no change (`test/workday.js`) |
 | A-27 | Claude | **Save budget:** the saved workday must stay inside the SCORM 1.2 limit (4,096 characters) with all the new events; compaction, a size test over 240 full days, and a fallback that keeps score and stars if details do not fit. | done: found and fixed a real loss on SCORM 1.2 (below); a busy new-package day stays whole on a normal save and keeps its score on a heavy one (`test/savesize.js`) |
 | A-28 | Claude | **QA flows for signs, sat nav, damage report, night, richer stops** and a 3D fuzz run; the full release-candidate pass again. | doing (claude/a28-fuzz: flows done in B-113 to B-131; fuzz run; release-candidate pass after C-48) |
-| A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | todo (after A-28) |
+| A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | doing (READINESS refreshed 22 Oct; pilot guide B-119/B-139; the rest after A-28) |
 
 #### Milestone 10: every module in 3D (owner brief, 17 October 2026)
 
@@ -575,6 +575,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — A-29 started:** `docs/READINESS.md` is rewritten for 22 October; the old one dated from milestone 6. It gives the checks that now exist and their results: 15 careful 3D flows, the fuzz run, 72 Node and 117 browser suites, numbers in 43,895 translated lines, Low parity, both SCORM packages and the heaviest save under 1.2 and 2004. It also lists what is still a draft, what needs real laptops and people, and the owner's decisions. The full release-candidate pass and the rest of A-29 follow C-48.
 
 - **22 October 2026, Claude — B-146: already covered.** The 2D route-day flows already hold a careful run to no mistakes. `route-day` fails when a clean drive logs any violation ("a clean drive logged ...") and when the careful day scores low in any category. `route-legs` collects every violation on every leg. `town-traffic` fails on any problem. Nothing to add.
 
