@@ -3468,7 +3468,7 @@ window.OTR_I18N.kn = {
 "the load restraint": "ಸರಕು ಕಟ್ಟುವ ಪಟ್ಟಿ",
 "the tires": "ಟೈರ್‌ಗಳು",
 "the lights": "ದೀಪಗಳು",
-"the workday station": "ವರ್ಕ್‌ಡೇ ಸ್ಟೇಷನ್",
+"the workday station": "ಕೆಲಸದ ದಿನದ ಸ್ಟೇಷನ್",
 "the cargo practice station": "ಸರಕು ಅಭ್ಯಾಸ ಸ್ಟೇಷನ್",
 "the debrief station": "ಡಿಬ್ರೀಫ್ ಸ್ಟೇಷನ್",
 "the dog gate": "ನಾಯಿ ಗೇಟ್",
