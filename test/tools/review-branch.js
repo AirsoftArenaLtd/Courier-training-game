@@ -12,6 +12,7 @@
  *   --no-flows   skip the workday flows
  *   --all-flows  play every workday flow whatever the branch touches
  *   --no-keys    skip the keyboard-only replay of the 2D scenes the branch touches (B-94)
+ *   --no-browser skip B-171's browser suites for a branch that touches the 3D world
  *   --continue   after resolving a conflicted merge in the worktree and committing it: run the checks there again
  * The worktree is ../otr-review-<branch name> next to the repository, and the missing text goes to
  * test/out/review-<name>/missing.json there (the shape the translation helpers take: { strings, templates }).
@@ -105,8 +106,8 @@ const run = (cmd, a, env, log) => {
   const last = (suites.stdout || '').trim().split('\n').pop();
   step('every Node suite', suites.status === 0, last + (suites.status ? ` (logs: test/out/run-all/ in the worktree)` : ''));
 
+  const touched = (run('git', ['diff', '--name-only', 'origin/pilot...' + ref]).stdout || '').split('\n').filter(Boolean);
   if (!args.includes('--no-flows')) {
-    const touched = (run('git', ['diff', '--name-only', 'origin/pilot...' + ref]).stdout || '').split('\n').filter(Boolean);
     const want = args.includes('--all-flows') ? FLOWS3D.concat('drive-review') : flowsFor(touched);
     if (!want.length) step('the workday flows', true, 'none needed: the branch touches no 3D, workday, scoring or results code (--all-flows plays them anyway)');
     else {
@@ -123,6 +124,15 @@ const run = (cmd, a, env, log) => {
     }
   }
 
+  // B-171: a branch that touches the 3D world also runs every 3D browser suite (the cab, signs, weather, layouts in 12
+  // languages): C-48's wider seat view passed the Node suites and the flows, and only fpsignlayoutbrowser saw the sat nav
+  // covering the gear selector
+  if (!args.includes('--no-browser') && flowsFor(touched).length > 1) {
+    const names = fs.readdirSync(path.join(WT, 'test')).filter(f => /^fp.*browser\.js$|^(radionight|lowparity|drivemap)browser\.js$/.test(f)).map(f => f.replace(/\.js$/, ''));
+    const r = run(process.execPath, ['test/run-all.js', '--browser', ...names], {}, path.join(OUT, 'browser.log'));
+    const last = ((r.stdout || '').trim().split('\n').pop()) || 'see browser.log';
+    step(`the 3D browser suites (${names.length})`, r.status === 0, last);
+  }
   // B-94: a branch that touches a 2D scene plays that scene's golden path again with the keyboard alone (QA_KEYS_ONLY,
   // B-84), so a change that makes a scenario need the mouse fails here; a change to what every scene shares plays them all
   // (--no-keys skips it)
