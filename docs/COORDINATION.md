@@ -520,6 +520,9 @@ items here for each agent.
 | B-142 | Claude | **Hindi and Telugu self-review:** the two languages with no reviewer question. The same checks as B-141 (numbers, negations, "must" and "always") and a reading of what they flag. | done (no slip found) |
 | B-143 | Claude | **Every number kept, in every language, as a test:** a speed, distance, age or time that changes in translation teaches the wrong thing. `test/i18nnumbers.js` checks every translated line keeps the English line's numbers (native digits, the 24-hour clock, the decimal comma and "3D" written out all count). | done (43,895 lines pass) |
 | B-144 | Claude | **One page for the owner, what is new:** `docs/review/WHATS-NEW.md`: since the visual review of 21 October, what to try (with the review links), what is being done, what was fixed without anything to see, and which questions wait for an answer. Keep it current at each milestone. | done |
+| B-145 | Claude | **Retake set 9's fixed views on today's pilot:** `node test/tools/review-set.js 9` after the day's merges (C-36, C-37, B-106 to B-143), so the owner compares like with like; again after C-48. | done (retake after C-48) |
+| B-146 | Claude | **The careful-day check for the 2D route day:** the 2D flows (`route-day`, `route-legs`, `town-traffic`) do not assert that a careful run records no violation. Add the same rule as B-127 for `TownDriveScene`'s violations and the route day's log, fixing the flows where they are not careful. | todo |
+| B-147 | Claude | **SCORM 2004 on the heaviest day:** `test/savesize.js` checks SCORM 1.2's limit; add the same heavy day (radio, night, damage, walkaround) under SCORM 2004: saved in full, no packing, and the same score and pins after a reload. | todo |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
@@ -572,6 +575,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-145 done:** set 9's fixed views (Low and High, in English and in Tamil with larger text), plus `compare.md` beside set 8, are retaken on today's pilot. They include C-36's night, C-37 and the day's fixes. They will be taken once more when C-48 is merged.
 
 - **22 October 2026, Claude — B-144 done:** `docs/review/WHATS-NEW.md` gives the owner one page on what is new since the 21 October visual review. It covers the radio, night, replay, walk-round and lite links to try, C-48 to C-52 in progress, what was fixed under the surface (the careful test days, scoring, SCORM room, translations, `drive.signal`), and the questions that wait for an answer.
 
