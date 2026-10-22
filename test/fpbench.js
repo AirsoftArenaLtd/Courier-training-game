@@ -323,9 +323,9 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     const sites=a.selection.sites,site=sites.find(p=>sites.some(q=>q!==p&&(p.x-q.x)**2+(p.z-q.z)**2<30*30))||sites[0],lot=m.town.lots.find(l=>l.id===site.lotId),road=m.town.xs.reduce((x,y)=>Math.abs(x-site.x)<Math.abs(y-site.x)?x:y);
     const bench=s.art.townArt.choices.find(c=>c.use==='town-bench');
     if(kind==='ambientwalk'||kind==='ambientbench'){
-     const target=kind==='ambientbench'&&bench?bench:site,x=lot.x-lot.side*(lot.w/2+1),z=target.z+3;m.mode='walk';Object.assign(m.player,{x,z,yaw:Math.atan2(target.x-x,z-target.z),pitch:.04});
+     const target=kind==='ambientbench'&&bench?bench:site,targetLot=kind==='ambientbench'&&bench?m.town.lots.find(l=>l.id===bench.lotId):lot,x=targetLot.x-targetLot.side*(targetLot.w/2+1),z=target.z+3;m.mode='walk';Object.assign(m.player,{x,z,yaw:Math.atan2(target.x-x,z-target.z),pitch:.04});
     }else{m.mode='cab';Object.assign(m.van,{x:road+2,z:site.z+12,yaw:0,look:Math.atan2(site.x-road-2,12)});m.player.pitch=.02;}
-    s.sync();s.refresh();return {sites:sites.length,selected:a.selection.slots.filter(x=>x.visible).length,limit:a.selection.slots.length,sourcePeople:a.people.filter(Boolean).length,reserved:a.reserved,bench:!!bench,solid:sites.every(p=>m.blocked(p.x,p.z)),controlsUnchanged:!!OTR.fpMission.restore(m.snapshot())};
+    s.sync();s.refresh();return {sites:sites.length,selected:a.selection.slots.filter(x=>x.visible).length,limit:a.selection.slots.length,sourcePeople:a.people.filter(Boolean).length,reserved:a.reserved,bench:!!bench,solid:sites.every(p=>m.blocked(p.x,p.z)),restoreValid:!!OTR.fpMission.restore(m.snapshot())};
    },kind);
    if(kind==='ambientmirror')await lookAtTarget(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.art.ambient.selection.slots[0].site.x<s.model.van.x?'mirror-left':'mirror-right';}));
    (report.ambientProof||(report.ambientProof={}))[kind]=proof;report.ambientFixture=true;await sample(kind);
