@@ -37,7 +37,7 @@
   "bn": {
    "handheld": 0,
    "reception": 0,
-   "signature": 22,
+   "signature": 0,
    "dispatch": 0,
    "returns": 0,
    "sat nav": 0,
@@ -56,13 +56,13 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 1,
-   "headlight": 7
+   "headlight": 2
   },
   "fr": {
    "handheld": 0,
    "reception": 0,
    "signature": 0,
-   "dispatch": 18,
+   "dispatch": 1,
    "returns": 0,
    "sat nav": 0,
    "intercom": 0,
