@@ -267,8 +267,8 @@ test('A-26: the cab, sign, night and damage events reach the debrief, the drive 
   assert.ok(lines.filter(l => l.lesson).length >= 6, 'mistakes carry their lessons');
   // pins: wrong checks and penalties with a place (signal, stop sign, no entry, clearance, dent, load shift); not the right checks
   assert.equal(pins.length, 6, 'a pin for every placed mistake, none for the mirrors and lights done right');
-  // B-15: each kind keeps its own marker on the map (the signal is a plain pin)
-  assert.equal(pins.map(p => p.mark || '-').join(','), '-,sign,sign,clearance,damage,load');
+  // B-15: each kind keeps its own marker on the map (the signal is a cab habit since B-166: a plus)
+  assert.equal(pins.map(p => p.mark || '-').join(','), 'habit,sign,sign,clearance,damage,load');
   assert.equal(OTR.drive.mark('drive.red-light'), 'sign', 'a red light is a road-sign pin');
   const d = W.resultsData(rec, { prevBest: {}, firstPlay: false });
   const crit = d.verdict.criticals.map(c => c.label || c);
