@@ -560,7 +560,7 @@ items here for each agent.
 | B-171 | Claude | **Reviews of 3D branches run the 3D browser suites:** `test/tools/review-branch.js` now also runs every `fp*browser` suite plus `radionightbrowser`, `lowparitybrowser` and `drivemapbrowser` when a branch touches the 3D world (`--no-browser` skips them), so a regression like B-164 (seen only by `fpsignlayoutbrowser`) stops the review instead of reaching `pilot`. | done (first real run on the next 3D review) |
 | B-172 | Claude | **The translated pilot guides are checked like the quick starts:** `test/quickstart.js` also checks `docs/PILOT-GUIDE.<lang>.md` (B-170): the machine-translation note, and every quoted button is the game's current translation (now also matching the game's form with a full stop, as "Replay the last mistake."; a task number in brackets is skipped). | done |
 | B-173 | Claude | **The pilot guide's trainer sections in the other nine languages:** `docs/PILOT-GUIDE.<lang>.md` for bn, es, fr, gu, kn, ml, mr, pa and te, as B-170 did for Tamil and Hindi, checked by B-172. | todo |
-| B-174 | Claude | **The set 10 review links are tested:** `test/devdaybrowser.js` opens each link in `docs/review/set-10/CHECKLIST.md` (route 1 day 3 at High, route 5 day 4, route 10 day 4) and checks it starts the day the checklist says (graphics level, traffic, a reception), as B-117 did for set 9. | todo |
+| B-174 | Claude | **The set 10 review links are tested:** `test/devdaybrowser.js` opens each link in `docs/review/set-10/CHECKLIST.md` (route 1 day 3 at High, route 5 day 4, route 10 day 4) and checks it starts the day the checklist says (graphics level, traffic, a reception), as B-117 did for set 9. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -612,6 +612,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-174 done:** `test/devdaybrowser.js` opens set 10's review links. Route 1 day 3 with `&gfx=high` starts a day with traffic at High; route 5 day 4 has a locker and a business reception (its stops: locker, -, -, reception, -). Both are as the checklist says. All review-link checks pass.
 
 - **22 October 2026, Claude — B-172 done:** `test/quickstart.js` holds the Tamil and Hindi pilot guides to the same checks as the quick starts: the note at the top, and each quoted button checked against the game's strings. All 91 match. The test now also accepts the game's form with a full stop. New Claude todos: B-173 and B-174. Codex has had no new commits for four hours.
 
