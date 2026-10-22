@@ -1,0 +1,68 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 331.5,
+        "right": 948.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      },
+      "reload": {
+        "saved": {
+          "elapsed": 1.8332666666666613,
+          "clock": [
+            -1,
+            0.3166,
+            0
+          ]
+        },
+        "restored": {
+          "elapsed": 1.8332666666666613,
+          "clock": [
+            -1,
+            0.3166,
+            0
+          ],
+          "signal": -1,
+          "speed": 0,
+          "mode": "cab",
+          "target": null,
+          "events": [],
+          "paused": false
+        }
+      },
+      "right": {
+        "elapsed": 3.6914799999999945,
+        "clock": [
+          -1,
+          0.3166,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4053989614389861,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false
+      }
+    }
+  ],
+  "checks": 14,
+  "errors": [],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n-1 !== 0\n\n    at /workspace/b138-signal-scoring/test/fpsignalbrowser.js:33:28"
+}

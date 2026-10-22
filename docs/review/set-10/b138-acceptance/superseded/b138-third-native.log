@@ -1,0 +1,6 @@
+signal low en normal
+AssertionError [ERR_ASSERTION]: {"elapsed":3.807343333333333,"clock":[-1,0.2499266666666661,1],"signal":-1,"speed":0,"mode":"cab","target":null,"events":[{"key":"0:1","ok":true,"stop":1}],"paused":false,"keys":{}}
+
+-1 !== 0
+
+    at /workspace/b138-signal-scoring/test/fpsignalbrowser.js:33:44

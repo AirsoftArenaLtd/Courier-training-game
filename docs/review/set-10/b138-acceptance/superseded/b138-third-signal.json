@@ -1,0 +1,70 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 331.5,
+        "right": 948.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      },
+      "reload": {
+        "saved": {
+          "elapsed": 1.766133333333334,
+          "clock": [
+            -1,
+            0.2499266666666661,
+            0
+          ]
+        },
+        "restored": {
+          "elapsed": 1.766133333333334,
+          "clock": [
+            -1,
+            0.2499266666666661,
+            0
+          ],
+          "signal": -1,
+          "speed": 0,
+          "mode": "cab",
+          "target": null,
+          "events": [],
+          "paused": false,
+          "keys": {}
+        }
+      },
+      "right": {
+        "elapsed": 3.60734333333333,
+        "clock": [
+          -1,
+          0.2499266666666661,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.42082629885407635,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {}
+      }
+    }
+  ],
+  "checks": 14,
+  "errors": [],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"elapsed\":3.807343333333333,\"clock\":[-1,0.2499266666666661,1],\"signal\":-1,\"speed\":0,\"mode\":\"cab\",\"target\":null,\"events\":[{\"key\":\"0:1\",\"ok\":true,\"stop\":1}],\"paused\":false,\"keys\":{}}\n\n-1 !== 0\n\n    at /workspace/b138-signal-scoring/test/fpsignalbrowser.js:33:44"
+}

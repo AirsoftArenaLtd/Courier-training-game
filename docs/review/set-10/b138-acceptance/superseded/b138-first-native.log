@@ -1,0 +1,9 @@
+signal low en normal
+TypeError: OTR.i18n.src.get is not a function
+    at evaluate (evaluate at /workspace/b138-signal-scoring/test/fpsignalbrowser.js:24:25, <anonymous>:0:103)
+    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:16)
+    at async CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:20)
+    at async CdpPage.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:830:20)
+    at async /workspace/b138-signal-scoring/test/fpsignalbrowser.js:24:17

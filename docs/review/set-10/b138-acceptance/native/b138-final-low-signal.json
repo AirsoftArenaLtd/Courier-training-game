@@ -1,0 +1,329 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 331.5,
+        "right": 948.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      },
+      "reload": {
+        "saved": {
+          "elapsed": 1.7845433333333296,
+          "clock": [
+            -1,
+            0.2832066666666665,
+            0
+          ]
+        },
+        "restored": {
+          "elapsed": 1.7845433333333296,
+          "clock": [
+            -1,
+            0.2832066666666665,
+            0
+          ],
+          "signal": -1,
+          "speed": 0,
+          "mode": "cab",
+          "target": null,
+          "events": [],
+          "paused": false,
+          "keys": {
+            "KeyE": "KeyO",
+            "KeyQ": "KeyT"
+          }
+        }
+      },
+      "right": {
+        "elapsed": 3.58097666666666,
+        "clock": [
+          -1,
+          0.2832066666666665,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4296520856509656,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.01592666666666,
+        "clock": [
+          0,
+          3.614309999999993,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.40297381915453306,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 263,
+        "right": 1017,
+        "y": 578,
+        "bottom": 628,
+        "font": 22,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.7732666666666677,
+        "clock": [
+          -1,
+          0.2665200000000003,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.433433333333327,
+        "clock": [
+          0,
+          3.8666166666666686,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4009434366741686,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 331.5,
+        "right": 948.5,
+        "y": 564,
+        "bottom": 608,
+        "font": 18,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.7849566666667203,
+        "clock": [
+          -1,
+          0.2665466666666657,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4408293885533026,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.473103333333398,
+        "clock": [
+          0,
+          3.8816033333333886,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.45592774307332035,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 263,
+        "right": 1017,
+        "y": 514,
+        "bottom": 566,
+        "font": 22,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.6644600000000063,
+        "clock": [
+          -1,
+          0.2833200000000004,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.3863980737180371,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.277726666666657,
+        "clock": [
+          0,
+          3.7327800000000053,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.425696313198516,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    }
+  ],
+  "checks": 78,
+  "errors": [],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "complete": true
+}
