@@ -79,3 +79,15 @@ test('handheld choices leave room for the full Back control at taller font metri
   }
  }finally{A.deviceFocus=focus;}
 });
+
+test('a dense larger-text page keeps both its body and Back clear without shrinking targets',()=>{
+ settings.reducedMotion=false;const focus=A.deviceFocus;A.deviceFocus=()=>{};
+ try{
+  const back={type:'Text',x:144,y:168,displayHeight:19,originY:.5},body={type:'Text',x:-144,y:-181,displayHeight:114,originY:0};
+  const buttons=[36,44,44,36].map(height=>({label:{height,setText(){return this;},setScale(){return this;}},bg:{input:{hitArea:{height:46}},setScale(){}},setSize(){},setY(y){this.y=y;}}));
+  A.layoutDevice({device:{sx:-158,sy:-268,sw:316,sh:452,current:{back(){},options:buttons.map(()=>({label:'Choice'}))},screen:{list:[body,back]},optionBtns:buttons}});
+  assert.ok(buttons[0].y-buttons[0]._fpHeight/2>=body.y+body.displayHeight+8-1e-9);
+  for(let i=0;i<buttons.length;i++){assert.ok(buttons[i]._fpHeight>=46);if(i)assert.ok(buttons[i].y-buttons[i]._fpHeight/2>=buttons[i-1].y+buttons[i-1]._fpHeight/2+2);}
+  const last=buttons.at(-1);assert.ok(last.y+last._fpHeight/2<=back.y-back.displayHeight*.5-8+1e-9);
+ }finally{A.deviceFocus=focus;}
+});
