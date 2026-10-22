@@ -1,0 +1,3 @@
+# C-38 retained script entry diagnostic
+
+The signal browser test failed at candidate `1b672d67`: the physical stalk changed its state, but the signal clock was undefined. The stacked entry page had omitted the already-merged `fpsignal`, `fpreplay`, `fpreplayui` and `FPReplayScene` script tags. Their source files had been retained. The entry tags were restored to pilot order, and native module startup now checks the real signal reporter, replay recorder and replay scene registration. The final broad, module, signal, replay and performance tests are rerun after this correction. This failed run is diagnostic evidence only.
