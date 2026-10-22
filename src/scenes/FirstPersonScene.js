@@ -119,7 +119,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(!resumed)OTR.fpDay.configure(m);
     if(!resumed)OTR.fpDoors.configure(m);
     if(!resumed)OTR.fpStopFlow.configure(m);
-    this.model=m;this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
+    this.model=m;if(OTR.fpReplayUI)OTR.fpReplayUI.bind(this);this.rebuildWorld();this.area='route';this.target=null;this.checkpoint();
     if(kind==='campaign'&&!m.briefing&&!m.departed){
       const day=OTR.shift.generate(m.seed,m.seed);
       m.briefing={day:day.day,weather:day.weather,clockMin:day.clockMin};m.touch();this.checkpoint();
@@ -298,7 +298,8 @@ class FirstPersonScene extends Phaser.Scene {
         this.progress.last={kind:m.kind,seed:m.seed,logs:OTR.fpMission.clone(m.logs),elapsed:Math.round(m.elapsed)};this.progress[m.kind]=null;this.write();
         if(this.hubWorkday&&m.kind==='campaign'){
           this.closePanel(false);this.releaseMouse();
-          OTR.workday.finish(this,{seconds:Math.round(m.elapsed),stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome==='handover'||s.outcome==='safeplace',address:s.address,x:s.x,z:s.z})),depot:{x:4,z:8}});
+          if(OTR.fpReplayUI)OTR.fpReplayUI.capture(this);
+          const record=OTR.workday.finish(this,{seconds:Math.round(m.elapsed),stops:m.stops.map(s=>({stop:s.id+1,delivered:s.outcome==='handover'||s.outcome==='safeplace',address:s.address,x:s.x,z:s.z})),depot:{x:4,z:8}});if(OTR.fpReplayUI)OTR.fpReplayUI.complete(this,record);
         }else this.showDebrief(this.progress.last);}},
       ...(OTR.fpLater&&OTR.fpLater.enabled(m)?[{label:'View the workday plan',action:()=>OTR.fpLater.open(this)}]:[]),{label:'View manifest',action:()=>this.showManifest()},...(m.loadout?[{label:'Check the load',action:()=>this.handheld.loadCheck()}]:[]),{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
   }
@@ -447,7 +448,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
     if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;this.model.rearVisible=visible&&!!(this.art.rear&&this.art.rear.inView);}
-    if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();
+    if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();if(OTR.fpReplayUI)OTR.fpReplayUI.capture(this);
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
     if(OTR.fpStopScene)OTR.fpStopScene.tick(this);
