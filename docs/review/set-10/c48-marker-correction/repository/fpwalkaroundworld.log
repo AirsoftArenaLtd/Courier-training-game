@@ -1,0 +1,21 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ low yaw 0: every ground-level inspection selects a nearby rendered van surface (1314.560497ms)
+✔ low yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (258.05819ms)
+✔ low yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (192.501751ms)
+✔ low yaw -1: every ground-level inspection selects a nearby rendered van surface (288.034765ms)
+✔ high yaw 0: every ground-level inspection selects a nearby rendered van surface (512.937154ms)
+✔ high yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (330.145243ms)
+✔ high yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (377.048722ms)
+✔ high yaw -1: every ground-level inspection selects a nearby rendered van surface (300.290755ms)
+✔ fallback yaw 0: every ground-level inspection selects a nearby rendered van surface (33.033736ms)
+✔ fallback yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (77.06926ms)
+✔ fallback yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (21.450477ms)
+✔ fallback yaw -1: every ground-level inspection selects a nearby rendered van surface (66.34025ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3826.266025

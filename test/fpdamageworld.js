@@ -30,6 +30,18 @@ test('located wear follows the real van rotation and chassis pose, while startin
  const e=art.damage.entries[0],p=new THREE.Vector3().setFromMatrixPosition(e.matrix),expected=new THREE.Vector3(0,1,-2.81).applyMatrix4(art.chassis.matrixWorld);
  assert.ok(p.distanceTo(expected)<1e-8);assert.equal(e.shape,2);assert.equal(m.damage.baseline[0],0);assert.equal(m.damage.added[0],2);art.dispose();
 });
+test('mirror wear follows the physical housing behind its reflective glass',()=>{
+ for(const high of [false,true]){
+  const {m,art}=make(high),spec=O.fpMirrors.specs[0],entry=art.damage.entries[6];
+  const position=new THREE.Vector3().setFromMatrixPosition(entry.local),normal=new THREE.Vector3(Math.sin(spec.angle),0,Math.cos(spec.angle));
+  const offset=position.clone().sub(new THREE.Vector3(spec.x,spec.y,spec.z));
+  assert.ok(Math.abs(offset.dot(normal)+.05)<1e-8);assert.ok(offset.clone().addScaledVector(normal,.05).length()<1e-8);
+  assert.ok(new THREE.Vector3(0,0,1).transformDirection(entry.local).dot(normal)<-.999);
+  D.contact(m.damage,'mirror','solid',3);m.van.yaw=.8;art.sync(m,null,'route');
+  const world=position.clone().applyMatrix4(art.chassis.matrixWorld),actual=new THREE.Vector3().setFromMatrixPosition(entry.matrix);assert.ok(actual.distanceTo(world)<1e-8);assert.equal(entry.visible,true);assert.equal(art.damage.entries.length,15);
+  art.dispose();
+ }
+});
 test('a naturally worn starting van shows its existing dent before any player impact',()=>{
  const {m,art}=make(false,5,true,3);assert.equal(m.damage.baseline[1],2);assert.equal(m.damage.added.some(Boolean),false);
  Object.assign(m.player,O.fp.local(m.van,0,7),{yaw:0,pitch:0});

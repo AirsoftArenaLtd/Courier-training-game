@@ -48,13 +48,24 @@ const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http:/
    }
    return true;
   };
+  const headlightsRoundTrip=async()=>{
+   for(const x of [-.68,0,.68]){
+    const target=await p.evaluate(x=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.handheld.close(false);m.paused=true;m.mode='walk';m.cargoOpen=false;m.heldId=null;Object.assign(m.player,OTR.fp.local(m.van,0,-4.2));s.target=null;s.sync();const point=OTR.fp.local(m.van,x,-2.78),eye=s.view.camera.position;m.player.yaw=Math.atan2(point.x-eye.x,-(point.z-eye.z));m.player.pitch=Math.atan2(eye.y-1,Math.hypot(point.x-eye.x,point.z-eye.z));s.sync();s.refresh();return s.aimTarget();},x);
+    assert.equal(target,'lights','Aiming at a headlight must not select the front walkaround mark.');r.checks++;
+   }
+   const events=await p.evaluate(()=>OTR.workday.events.length);await press('o');
+   assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').panel.choices.some(o=>o.label==='Mark serviceable')),true);r.checks++;
+   await p.screenshot({path:path.join(OUT,`${TAG}-headlight-panel.png`)});await press('Escape');
+   assert.equal(await p.evaluate(()=>OTR.workday.events.length),events);r.checks++;
+   return true;
+  };
   for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
    await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});
    await p.evaluate(large=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.releaseMouse=()=>{};s.keyboardMode=true;s.closePanel();Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true,narrate:true,keys:{KeyP:'KeyN',KeyE:'KeyO'}});OTR.fpAccess.syncKeys();
     window.walkSaid=[];Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speaking:false,pending:false,speak(u){walkSaid.push(u.text);},cancel(){}}});window.SpeechSynthesisUtterance=function(text){this.text=text;};
     s.progress.guidance={intro:true,seen:[]};OTR.save.data.route.days=3;s.progress.sequence=7;s.progress.campaign=null;s.launch('campaign');s.closePanel();s.model.paused=true;OTR.workday.begin();s.notice='';s.sync();s.refresh();},size==='large');
    assert.deepEqual(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {marker:s.model.routePlan.walkaround,targets:s.art.walkaroundTargets.length,phaser:s.art.walkaroundTargets.every(o=>o.layers.mask===2)};}),{marker:1,targets:7,phaser:true});r.checks++;
-   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.cargoPre=await cargoRoundTrip();
+   let peak=0;const run={lang,size,pre:[],post:[],guide:[]};r.runs.push(run);save();run.headlights=await headlightsRoundTrip();run.cargoPre=await cargoRoundTrip();
    for(const zone of ['front','rear','left','right','roof','wheel','mirror']){
     const level=await p.evaluate(zone=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.damage.baseline[OTR.fpWalkaround.zones.indexOf(zone)];},zone);await record(zone,level);peak=Math.max(peak,(await audit()).phaserBytes);if(zone==='wheel')await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-record.png`)});await checkpoint();run.pre.push(zone);save();
     if(['roof','wheel'].includes(zone))await p.screenshot({path:path.join(OUT,`${TAG}-${lang}-${size}-pre-${zone}.png`)});

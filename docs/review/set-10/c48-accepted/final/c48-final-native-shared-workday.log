@@ -1,0 +1,18 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+      load-out: missort (set parcel5 aside), 5 counted
+      sign: J read "This is number 204 on Harbor St."
+      school bus: stopped behind it and waited
+      stop 1: signature -> handover
+      stop 2: signature -> handover
+      stop 3:  -> safeplace
+      stop 4:  -> handover
+      stop 5: dog -> handover
+      not yet careful (B-128 to B-131): drive.mirrors:0:2
+ok   workday-3d     fps=  1 boot=null golden=ok
+
+================ summary ================
+  pass  workday-3d     fps=  1  
+
+1/1 scenarios clean

@@ -1,8 +1,8 @@
 /* Three physical mirrors, one shared reflection atlas, and gaze evidence. No scoring is calculated here. */
 window.OTR=window.OTR||{};
 OTR.fpMirrors={
-  specs:[{id:'mirror-left',x:-1.22,y:2.13,z:-2.3,w:.27,h:.4,angle:1.05,view:-.18},
-    {id:'mirror-right',x:1.22,y:2.13,z:-2.3,w:.27,h:.4,angle:-1.3,view:.18},
+  specs:[{id:'mirror-left',x:-1.28,y:2.13,z:-2.95,w:.27,h:.4,angle:1.05,view:-.18},
+    {id:'mirror-right',x:1.28,y:2.13,z:-2.95,w:.27,h:.4,angle:-1.3,view:.18},
     {id:'mirror-interior',x:.05,y:2.35,z:-2.7,w:.4,h:.14,angle:.48,view:0}],
   state(m){return m.van.mirrors||(m.van.mirrors=[-100,-100,-100,-1,0]);},
   valid(v,elapsed){return v===undefined||Array.isArray(v)&&v.length===5&&v.slice(0,3).every(t=>Number.isFinite(t)&&t>=-100&&t<=elapsed)&&Number.isInteger(v[3])&&v[3]>=-1&&v[3]<=2&&Number.isFinite(v[4])&&v[4]>=0&&v[4]<=.4;},
@@ -12,8 +12,10 @@ OTR.fpMirrors={
     if(m.mode!=='cab'||m.paused||m.mirrorVisible===false)return -1;
     const pose=m.cameraMotion,yaw=pose?pose.yaw-m.van.yaw:m.van.look,pitch=pose?-pose.pitch:m.player.pitch;
     const cp=Math.cos(pitch),x=Math.sin(yaw)*cp,y=-Math.sin(pitch),z=-Math.cos(yaw)*cp;
+    const seat=OTR.fpCamera?OTR.fpCamera.seat:{x:-.45,y:2.05,z:-1.45},c=Math.cos(m.van.yaw),s=Math.sin(m.van.yaw);
+    const ex=pose?c*(pose.x-m.van.x)+s*(pose.z-m.van.z):seat.x,ez=pose?-s*(pose.x-m.van.x)+c*(pose.z-m.van.z):seat.z,ey=pose?pose.y:seat.y;
     let index=-1,closest=Math.cos(.21);
-    for(let i=0;i<3;i++){const s=this.specs[i],dx=s.x+.45,dy=s.y-2.05,dz=s.z+1.85,dot=(dx*x+dy*y+dz*z)/Math.hypot(dx,dy,dz);if(dot>closest){closest=dot;index=i;}}
+    for(let i=0;i<3;i++){const target=this.specs[i],dx=target.x-ex,dy=target.y-ey,dz=target.z-ez,dot=(dx*x+dy*y+dz*z)/Math.hypot(dx,dy,dz);if(dot>closest){closest=dot;index=i;}}
     return index;
   },
   tick(m,dt){
@@ -46,7 +48,7 @@ OTR.fpMirrors={
       fragmentShader:'uniform sampler2D atlas; uniform vec2 texel; varying vec2 p; varying vec4 tile; void main(){vec2 uv=tile.xy+texel*.5+vec2(1.-p.x,p.y)*(tile.zw-texel);gl_FragColor=texture2D(atlas,uv);\n#include <colorspace_fragment>\n}'});
     plane.setAttribute('mirrorTile',new T.InstancedBufferAttribute(new Float32Array([0,0,.25,1,.25,0,.25,1,.5,0,.5,.5]),4));
     const faces=new T.InstancedMesh(plane,surface,3),frames=new T.InstancedMesh(high?cube:plane,paint,high?3:5);faces.frustumCulled=frames.frustumCulled=false;root.add(frames,faces);
-    const mounts=high?new T.InstancedMesh(plane,paint,2):frames,scratch=new T.Object3D();mounts.frustumCulled=false;if(high)root.add(mounts);
+    const mounts=high?new T.InstancedMesh(cube,paint,2):frames,scratch=new T.Object3D();mounts.frustumCulled=false;if(high)root.add(mounts);
     if(!mirror.cameras)mirror.cameras=this.specs.map((s,i)=>new T.PerspectiveCamera(i===2?45:65,i===2?8/3:2/3,.08,i===2?(high?24:12):(high?75:40)));
     mirror.camera=mirror.cameras[0];mirror.physical=true;
     const targets=[];
@@ -55,7 +57,7 @@ OTR.fpMirrors={
       // Keep the entire High housing behind the reflective plane, including its front half.
       scratch.position.add(new T.Vector3(0,0,high?-.025:-.008).applyAxisAngle(new T.Vector3(0,1,0),s.angle));scratch.scale.set(s.w*1.14,s.h*1.12,high?.025:1);scratch.updateMatrix();frames.setMatrixAt(i,scratch.matrix);
       const target=new T.Mesh(new T.PlaneGeometry(s.w,s.h),paint);target.position.set(s.x,s.y,s.z);target.rotation.y=s.angle;target.layers.set(1);target.userData.interaction=s.id;root.add(target);interactions.push(target);targets.push(target);
-      if(i<2){scratch.position.set(s.x,s.y-.3,s.z-.02);scratch.rotation.set(0,s.angle,0);scratch.scale.set(.035,.2,1);scratch.updateMatrix();mounts.setMatrixAt(high?i:i+3,scratch.matrix);}
+      if(i<2){scratch.position.set(s.x,s.y-.3,s.z-.02);scratch.rotation.set(0,s.angle,0);scratch.scale.set(.035,.2,high?.035:1);scratch.updateMatrix();mounts.setMatrixAt(high?i:i+3,scratch.matrix);}
     }
     const rotations=specs.map((s,i)=>new T.Quaternion().setFromEuler(new T.Euler(i===2?-.18:0,Math.PI+s.view,0,'YXZ')));
     mirror.filled=0;mirror.next=0;mirror.nextAt=0;

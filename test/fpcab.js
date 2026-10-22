@@ -65,5 +65,5 @@ test('keyboard target selection reaches every cab control without moving the van
 test('speed, RPM, wheel and physical switch indicators follow the mission while cosmetic reduced motion stays stable',()=>{
  const s=scene(false),a=s.art.cab,before=a.batch.instanceMatrix.array.slice();Object.assign(s.model.van,{speed:8,steer:.2,belt:true,headlights:true,wipers:true,hand:false});s.model.motion={rpm:2400,pitch:0,roll:0};s.model.signal=1;s.sync();
  assert.ok(Math.abs(a.wheel.rotation.z+.6)<1e-9);assert.ok(Math.abs(a.gauges.material.uniforms.speed.value-8/17.8816)<1e-9);assert.equal(a.gauges.material.uniforms.rpm.value,.6);assert.notDeepEqual(a.batch.instanceMatrix.array,before);
- assert.equal(s.view.camera.fov,68);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
+ assert.equal(s.view.camera.fov,76);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
 });

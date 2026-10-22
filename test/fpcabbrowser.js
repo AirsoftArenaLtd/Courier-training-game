@@ -28,7 +28,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    await p.keyboard.press('r');assert.equal((await state()).van.gear,-1);await p.keyboard.press('r');assert.equal((await state()).van.gear,1);checks+=2;
    await p.keyboard.press('l');await p.keyboard.press('k');s=await state();assert.equal(s.van.headlights,false);assert.equal(s.van.wipers,false);checks+=2;
    const audit=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds();return {font:parseFloat(h.style.fontSize),scale:h.scaleY,bounds:{x:r.x,y:r.y,right:r.right,bottom:r.bottom},fov:s.view.camera.fov,pointerLock:!!document.pointerLockElement,reticle:s.reticle.visible,gearLabels:s.labels.filter(a=>a.label.gear).map(a=>({text:a.object.text,font:parseFloat(a.object.style.fontSize)*a.object.scaleY}))};});
-   assert.ok(audit.font*audit.scale>=18);assert.ok(audit.bounds.x>=0&&audit.bounds.right<=1280&&audit.bounds.y>=0&&audit.bounds.bottom<=720);assert.equal(audit.pointerLock,false);assert.equal(audit.reticle,true);if(large)assert.equal(audit.fov,68);checks+=large?5:4;report.layouts.push({lang,large,audit});
+   assert.ok(audit.font*audit.scale>=18);assert.ok(audit.bounds.x>=0&&audit.bounds.right<=1280&&audit.bounds.y>=0&&audit.bounds.bottom<=720);assert.equal(audit.pointerLock,false);assert.equal(audit.reticle,true);if(large)assert.equal(audit.fov,76);checks+=large?5:4;report.layouts.push({lang,large,audit});
    if(recording){await recording.stop();recording=null;}
    if(lang==='en'&&!large){
     await use('cab-headlights');await use('cab-wipers');await use('cab-park');const before=await state();await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').checkpoint());

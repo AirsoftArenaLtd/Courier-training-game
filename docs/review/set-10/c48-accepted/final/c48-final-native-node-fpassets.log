@@ -1,0 +1,19 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the real vendored loader selects Low and High and parses the bundled CC0 variants (52.537832ms)
+✔ two repeated models share geometry and material, fit their existing footprint and remain visible after compaction (4.795242ms)
+✔ missing, truncated and wrong-size files retain the procedural fallback without blocking completion (7.236958ms)
+✔ High can fall back to the Low variant, while Low never fetches High (7.452725ms)
+✔ unlisted paths, duplicate variants and byte budgets fail before an asset request (7.955717ms)
+✔ external GLB buffers/images, unsupported compression and oversized decoded arrays never reach the parser (10.183958ms)
+✔ embedded images keep the 1k/2k dimension limits and the two-megabyte encoded texture budget (7.053437ms)
+✔ an unavailable loader, a network timeout and external cancellation all return safely (24.223674ms)
+✔ late decoder completion after cancellation releases geometry and material exactly once (4.662848ms)
+✔ a missing real High van is counted as a recovered model fallback (162.400306ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 296.016583

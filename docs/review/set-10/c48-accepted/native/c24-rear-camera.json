@@ -1,0 +1,941 @@
+{
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "menu": [
+        {
+          "text": "Choose a reversing space.",
+          "font": 27,
+          "left": 466.5,
+          "right": 813.5,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+          "font": 19,
+          "left": 152,
+          "right": 861,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "text": "1. Practice reversing in the alley.",
+          "font": 18,
+          "left": 494.5,
+          "right": 785.5,
+          "top": 392.5,
+          "bottom": 413.5
+        },
+        {
+          "text": "2. Practice reversing to the dock.",
+          "font": 18,
+          "left": 493,
+          "right": 787,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "text": "3. Practice reversing in the tight driveway.",
+          "font": 18,
+          "left": 450,
+          "right": 830,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "text": "4. Back",
+          "font": 18,
+          "left": 608,
+          "right": 672,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "spot": "alley",
+      "hint": {
+        "font": 18,
+        "left": 341,
+        "right": 939,
+        "top": 594,
+        "bottom": 636,
+        "pointerLock": false
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "spot": "dock",
+      "hint": {
+        "font": 18,
+        "left": 341,
+        "right": 939,
+        "top": 594,
+        "bottom": 636,
+        "pointerLock": false
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "spot": "tight-drive",
+      "hint": {
+        "font": 18,
+        "left": 341,
+        "right": 939,
+        "top": 594,
+        "bottom": 636,
+        "pointerLock": false
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "menu": [
+        {
+          "text": "Choose a reversing space.",
+          "font": 27,
+          "left": 466.5,
+          "right": 813.5,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "text": "Practice uses a separate checkpoint. Your workday and cargo lesson stay saved.",
+          "font": 23,
+          "left": 152,
+          "right": 1011,
+          "top": 170,
+          "bottom": 198
+        },
+        {
+          "text": "1. Practice reversing in the alley.",
+          "font": 22,
+          "left": 462.5,
+          "right": 817.5,
+          "top": 390.5,
+          "bottom": 415.5
+        },
+        {
+          "text": "2. Practice reversing to the dock.",
+          "font": 22,
+          "left": 460.5,
+          "right": 819.5,
+          "top": 448.5,
+          "bottom": 473.5
+        },
+        {
+          "text": "3. Practice reversing in the tight driveway.",
+          "font": 22,
+          "left": 408,
+          "right": 872,
+          "top": 506.5,
+          "bottom": 531.5
+        },
+        {
+          "text": "4. Back",
+          "font": 22,
+          "left": 601,
+          "right": 679,
+          "top": 564.5,
+          "bottom": 589.5
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "spot": "alley",
+      "hint": {
+        "font": 22,
+        "left": 274.5,
+        "right": 1005.5,
+        "top": 578,
+        "bottom": 628,
+        "pointerLock": false
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "menu": [
+        {
+          "text": "ரிவர்ஸ் செய்யும் இடத்தைத் தேர்ந்தெடுங்கள்.",
+          "font": 27,
+          "left": 293.5,
+          "right": 986.5,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "text": "பயிற்சி தனி செக்பாயின்ட்டைப் பயன்படுத்தும். உங்கள் வேலை நாளும் சரக்குப் பாடமும் சேமிக்கப்பட்டிருக்கும்.",
+          "font": 19,
+          "left": 152,
+          "right": 1016,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "text": "1. சந்தில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 18,
+          "left": 398.5,
+          "right": 881.5,
+          "top": 392,
+          "bottom": 414
+        },
+        {
+          "text": "2. டாக் வரை ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 18,
+          "left": 383.5,
+          "right": 896.5,
+          "top": 450,
+          "bottom": 472
+        },
+        {
+          "text": "3. குறுகிய டிரைவ்வேயில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 18,
+          "left": 315,
+          "right": 965,
+          "top": 508,
+          "bottom": 530
+        },
+        {
+          "text": "4. பின்செல்",
+          "font": 18,
+          "left": 581,
+          "right": 699,
+          "top": 566,
+          "bottom": 588
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "spot": "alley",
+      "hint": {
+        "font": 18,
+        "left": 360.5,
+        "right": 919.5,
+        "top": 564,
+        "bottom": 608,
+        "pointerLock": false
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "menu": [
+        {
+          "text": "ரிவர்ஸ் செய்யும் இடத்தைத் தேர்ந்தெடுங்கள்.",
+          "font": 27,
+          "left": 293.5,
+          "right": 986.5,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "text": "பயிற்சி தனி செக்பாயின்ட்டைப் பயன்படுத்தும். உங்கள் வேலை நாளும் சரக்குப் பாடமும் சேமிக்கப்பட்டிருக்கும்.",
+          "font": 23,
+          "left": 152,
+          "right": 1098,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "text": "1. சந்தில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 22,
+          "left": 345,
+          "right": 935,
+          "top": 390,
+          "bottom": 416
+        },
+        {
+          "text": "2. டாக் வரை ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 22,
+          "left": 326.5,
+          "right": 953.5,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "text": "3. குறுகிய டிரைவ்வேயில் ரிவர்ஸ் செய்யப் பயிற்சி செய்யுங்கள்.",
+          "font": 22,
+          "left": 242.5,
+          "right": 1037.5,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "text": "4. பின்செல்",
+          "font": 22,
+          "left": 568,
+          "right": 712,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "spot": "alley",
+      "hint": {
+        "font": 22,
+        "left": 298,
+        "right": 982,
+        "top": 514,
+        "bottom": 566,
+        "pointerLock": false
+      }
+    }
+  ],
+  "spaces": [
+    {
+      "lang": "en",
+      "large": false,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.1053255941222,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5824369901884553,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 6.23453000000003,
+      "backing": [
+        0.008333333333333331,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        13,
+        13,
+        12,
+        39
+      ],
+      "camera": true,
+      "distance": 1.2853255941221988,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "dock",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.09951068059968,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 3.7200000000000193,
+      "backing": [
+        0.037500000000000006,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        30,
+        29,
+        28,
+        36
+      ],
+      "camera": true,
+      "distance": 1.279510680599678,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "tight-drive",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.08938568059965,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 3.9500000000000224,
+      "backing": [
+        0.037500000000000006,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        45,
+        45,
+        42,
+        34
+      ],
+      "camera": true,
+      "distance": 1.2693856805996475,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.070142585579895,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 4.150000000000025,
+      "backing": [
+        0.037500000000000006,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        12,
+        12,
+        11,
+        32
+      ],
+      "camera": true,
+      "distance": 1.2501425855798942,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.090323180599654,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 3.9500000000000224,
+      "backing": [
+        0.037500000000000006,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        15,
+        14,
+        14,
+        36
+      ],
+      "camera": true,
+      "distance": 1.2703231805996538,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": true,
+      "van": {
+        "x": 0,
+        "z": -53.090323180599654,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": true,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 4.000000000000023,
+      "backing": [
+        0.037500000000000006,
+        false,
+        false
+      ],
+      "reverseActive": false,
+      "updates": [
+        13,
+        13,
+        12,
+        36
+      ],
+      "camera": true,
+      "distance": 1.2703231805996538,
+      "band": 2,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        },
+        {
+          "id": "driver:drive.backing:1",
+          "outcome": "good"
+        },
+        {
+          "id": "parking-complete",
+          "outcome": "good"
+        }
+      ],
+      "events": 0
+    }
+  ],
+  "fixture": "Cargo/workday checkpoints and starting positions are fixtures. Practice menus, physical shifter, camera selection, steering, braking and parking use real keys.",
+  "guides": {
+    "left": [
+      [
+        0.06317602567132546,
+        -1.4355187858864484
+      ],
+      [
+        0.10226874492347005,
+        -0.7084955818662875
+      ],
+      [
+        0.09797098609892024,
+        -0.3759898816899625
+      ],
+      [
+        0.07386055289354798,
+        -0.19456240596730978
+      ],
+      [
+        0.03615767284789245,
+        -0.08906690550067276
+      ],
+      [
+        -0.014022841619791948,
+        -0.02949854974368671
+      ],
+      [
+        -0.07811867711107434,
+        -0.0026152600439789397
+      ],
+      [
+        -0.1597952143562541,
+        -0.003226655947068613
+      ],
+      [
+        -0.2657146338564258,
+        -0.031445611733957435
+      ],
+      [
+        0.7631918235174933,
+        -1.14385329140757
+      ],
+      [
+        0.5716179015133903,
+        -0.356351421302327
+      ],
+      [
+        0.4760746369633485,
+        -0.043759972533182756
+      ],
+      [
+        0.4088652765508175,
+        0.11896112050792562
+      ],
+      [
+        0.3522070106508839,
+        0.21443005850849367
+      ],
+      [
+        0.2988810143459424,
+        0.27303754377046763
+      ],
+      [
+        0.24483765847349903,
+        0.30824820759791005
+      ],
+      [
+        0.18698144868111477,
+        0.3265247096954688
+      ],
+      [
+        0.12218200966638426,
+        0.33078462414923915
+      ]
+    ],
+    "right": [
+      [
+        0.23411148394493791,
+        -1.147663684577406
+      ],
+      [
+        0.4237450994263668,
+        -0.3584154882654118
+      ],
+      [
+        0.5178058818877369,
+        -0.043504060844542836
+      ],
+      [
+        0.5833591462404573,
+        0.12135313488553628
+      ],
+      [
+        0.6380083695071181,
+        0.21894625047277433
+      ],
+      [
+        0.688811299272376,
+        0.27985650592644434
+      ],
+      [
+        0.7396019076473739,
+        0.317746363148119
+      ],
+      [
+        0.7931538166733259,
+        0.3393234751238223
+      ],
+      [
+        0.8520908565420799,
+        0.3478545439855505
+      ],
+      [
+        0.933071519955176,
+        -1.4283934960696834
+      ],
+      [
+        0.889344396659734,
+        -0.6956645008593174
+      ],
+      [
+        0.889783329377257,
+        -0.35961847433993743
+      ],
+      [
+        0.9097492767910073,
+        -0.17464304740031478
+      ],
+      [
+        0.9424746800445316,
+        -0.06493144888737845
+      ],
+      [
+        0.9862868843527215,
+        0.000014452550166021982
+      ],
+      [
+        1.0418441469574728,
+        0.03406232940176279
+      ],
+      [
+        1.1115641229391646,
+        0.04337696548697878
+      ],
+      [
+        1.1999350360808945,
+        0.02952062271647732
+      ]
+    ]
+  },
+  "live": {
+    "red": [
+      255,
+      42,
+      116,
+      255
+    ],
+    "blue": [
+      0,
+      29,
+      255,
+      255
+    ]
+  },
+  "reload": {
+    "saved": {
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": false,
+      "van": {
+        "x": 0,
+        "z": -54.182911704789625,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": false,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 4.868123333333328,
+      "backing": [
+        4.784789999999995,
+        false,
+        false
+      ],
+      "reverseActive": true,
+      "updates": [
+        28,
+        27,
+        27,
+        78
+      ],
+      "camera": true,
+      "distance": 2.3629117047896244,
+      "band": 1,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        }
+      ],
+      "events": 0
+    },
+    "resumed": {
+      "kind": "parking",
+      "mode": "cab",
+      "spot": "alley",
+      "done": false,
+      "van": {
+        "x": 0,
+        "z": -54.182911704789625,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": -1,
+        "hand": false,
+        "belt": true,
+        "look": 0.5817619225356719,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "elapsed": 4.868123333333328,
+      "backing": [
+        4.784789999999995,
+        false,
+        false
+      ],
+      "reverseActive": true,
+      "updates": [
+        1,
+        1,
+        0,
+        3
+      ],
+      "camera": true,
+      "distance": 2.3629117047896244,
+      "band": 1,
+      "logs": [
+        {
+          "id": "driver:drive.mirrors:0:1",
+          "outcome": "needs"
+        }
+      ],
+      "events": 0
+    }
+  },
+  "scoring": [
+    {
+      "contact": false,
+      "events": [
+        {
+          "type": "drive.backing",
+          "key": 1,
+          "ok": true,
+          "stop": 1,
+          "cameraSeconds": 1.69,
+          "where": {
+            "x": 0,
+            "z": -64.09581053175702,
+            "mph": 0
+          }
+        }
+      ]
+    },
+    {
+      "contact": true,
+      "events": [
+        {
+          "type": "drive.backing",
+          "key": 1,
+          "ok": false,
+          "stop": 1,
+          "cameraSeconds": 0.98,
+          "where": {
+            "x": 7.299497028617342,
+            "z": -42,
+            "mph": 0
+          }
+        }
+      ]
+    }
+  ],
+  "checks": 146,
+  "errors": []
+}

@@ -1,0 +1,14 @@
+{
+  "beforeGameCommit": "6a0d5c5d4d217f17a8e61964d1243a9715633b5b",
+  "afterRuntimeCommit": "2f613c7b",
+  "viewport": [
+    1280,
+    720
+  ],
+  "notes": "Matched fixed loaded, stationary van at depot. The after image includes the existing accessibility colour filter used by the mirror regression. This is framing evidence; runtime/resource acceptance is in progress.",
+  "files": {
+    "before-high-forward.json": "32ca4da42c381e7ff622ed0edd5143f758f22e5bdf20f370067308757aa474e4",
+    "before-high-forward.png": "edd3a12043ce02514e900ccbd39267013c21ccc81deaa7e47029dd702d400dd9",
+    "after-high-forward.png": "0026a65dda924f4d19389f4047e25c687aca83c546770319560163091b78f3b9"
+  }
+}

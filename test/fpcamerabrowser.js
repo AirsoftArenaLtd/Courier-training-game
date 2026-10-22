@@ -13,10 +13,10 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;s.closePanel();m.mode='cab';m.phase='route';m.departed=true;m.secured=true;m.events[m.briefKey]=true;for(const p of m.parcels)Object.assign(p,{location:'slot'+p.stop,zone:'slot'+p.stop,loaded:true,scanned:true});Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,hand:true,belt:true});s.sync();});
   const state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {van:{...m.van},pose:{...m.cameraMotion},motion:{...m.motion},fov:s.view.camera.fov,assist:m.driveAssist,dash:s.view.camera.getObjectByName('cab-dashboard').matrixWorld.toArray()};});
   const advance=async seconds=>{await p.evaluate(()=>window.cameraStart=OTR.game.scene.getScene('FirstPersonScene').model.elapsed);await p.waitForFunction(seconds=>OTR.game.scene.getScene('FirstPersonScene').model.elapsed-window.cameraStart>=seconds,{timeout:30000},seconds);};
-  const initial=await state();assert.equal(initial.assist,1);assert.equal(initial.fov,68);checks+=2;
+  const initial=await state();assert.equal(initial.assist,1);assert.equal(initial.fov,76);checks+=2;
   if(process.env.QA_CLIP==='1')recording=await p.screencast({path:path.join(OUT,'c21-camera.webm'),fps:15,quality:35});
   await p.keyboard.press('Space');await p.keyboard.down('w');await advance(1.3);await p.keyboard.down('d');await advance(.55);await p.keyboard.up('w');await p.keyboard.up('d');
-  const turn=await state();assert.ok(turn.van.speed>2);assert.ok(turn.van.yaw>.05);assert.ok(turn.fov>68.05&&turn.fov<=70);assert.ok(turn.pose.bodyRoll>0);assert.ok(Math.abs(turn.pose.yaw-turn.van.yaw)<.15);checks+=5;report.turn=turn;
+  const turn=await state();assert.ok(turn.van.speed>2);assert.ok(turn.van.yaw>.05);assert.ok(turn.fov>76.05&&turn.fov<=78);assert.ok(turn.pose.bodyRoll>0);assert.ok(Math.abs(turn.pose.yaw-turn.van.yaw)<.15);checks+=5;report.turn=turn;
   await p.screenshot({path:path.join(OUT,'c21-turn.png')});
   await p.keyboard.down('s');await advance(.25);const brake=await state();assert.ok(brake.pose.bodyPitch<-.01);assert.ok(brake.pose.y<2.04);checks+=2;report.brake=brake;
   await p.screenshot({path:path.join(OUT,'c21-brake.png')});await advance(1);await p.keyboard.up('s');await p.keyboard.press('Space');await advance(2);
@@ -29,7 +29,7 @@ const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true}
    const snapshot=JSON.stringify(m.snapshot());s.sync();const sample=()=>({position:s.view.camera.position.toArray(),rotation:s.view.camera.rotation.toArray(),fov:s.view.camera.fov,chassis:s.art.chassis.rotation.toArray(),font:parseFloat(s.objective.style.fontSize)});const first=sample();s.sync();const second=sample();
    return {first,second,sameSavedState:snapshot===JSON.stringify(m.snapshot()),pointerLock:!!document.pointerLockElement};
   });
-  assert.deepEqual(report.reduced.first,report.reduced.second);assert.equal(report.reduced.first.fov,68);assert.equal(report.reduced.first.chassis[0],0);assert.equal(report.reduced.first.chassis[2],0);assert.ok(report.reduced.first.font>=23);assert.equal(report.reduced.sameSavedState,true);assert.equal(report.reduced.pointerLock,false);checks+=7;
+  assert.deepEqual(report.reduced.first,report.reduced.second);assert.equal(report.reduced.first.fov,76);assert.equal(report.reduced.first.chassis[0],0);assert.equal(report.reduced.first.chassis[2],0);assert.ok(report.reduced.first.font>=23);assert.equal(report.reduced.sameSavedState,true);assert.equal(report.reduced.pointerLock,false);checks+=7;
   await p.screenshot({path:path.join(OUT,'c21-reduced-large.png')});
   report.resume=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,{speed:0,steer:0,hand:true});OTR.save.ephemeral=false;OTR.a11y.save();const rules=OTR.academy.merge({workday:{assists:'off'}});localStorage.setItem('otr_academy',JSON.stringify(rules));s.checkpoint();return {seed:m.seed,day:m.routePlan.day,savedAssist:m.snapshot().driveAssist,savedCamera:m.snapshot().cameraMotion};});
   assert.equal(report.resume.seed,10);assert.equal(report.resume.savedAssist,undefined);assert.equal(report.resume.savedCamera,undefined);checks+=3;
