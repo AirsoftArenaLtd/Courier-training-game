@@ -1,0 +1,329 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 203.5,
+        "right": 820.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      },
+      "reload": {
+        "saved": {
+          "elapsed": 1.7830533333333314,
+          "clock": [
+            -1,
+            0.24992666666666655,
+            0
+          ]
+        },
+        "restored": {
+          "elapsed": 1.7830533333333314,
+          "clock": [
+            -1,
+            0.24992666666666655,
+            0
+          ],
+          "signal": -1,
+          "speed": 0,
+          "mode": "cab",
+          "target": null,
+          "events": [],
+          "paused": false,
+          "keys": {
+            "KeyE": "KeyO",
+            "KeyQ": "KeyT"
+          }
+        }
+      },
+      "right": {
+        "elapsed": 3.5475666666666554,
+        "clock": [
+          -1,
+          0.24992666666666655,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4294942944856081,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.050913333333326,
+        "clock": [
+          0,
+          3.5808999999999886,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 131,
+        "right": 885,
+        "y": 578,
+        "bottom": 628,
+        "font": 22,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.814660000000022,
+        "clock": [
+          -1,
+          0.2665266666666666,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.564660000000033,
+        "clock": [
+          0,
+          3.9646600000000243,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "layout": {
+        "text": "இடது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க O அழுத்துங்கள்.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "இடது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க O அழுத்துங்கள்.",
+        "x": 208,
+        "right": 816,
+        "y": 542,
+        "bottom": 608,
+        "font": 18,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.8426400000000247,
+        "clock": [
+          -1,
+          0.2831933333333333,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4456285673281116,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.542640000000034,
+        "clock": [
+          0,
+          3.942640000000026,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "layout": {
+        "text": "இடது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க O அழுத்துங்கள்.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "இடது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க O அழுத்துங்கள்.",
+        "x": 136.5,
+        "right": 879.5,
+        "y": 488,
+        "bottom": 566,
+        "font": 22,
+        "pointerLock": false
+      },
+      "right": {
+        "elapsed": 3.7765366666666873,
+        "clock": [
+          -1,
+          0.24991333333333332,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 4.476536666666697,
+        "clock": [
+          0,
+          3.8765366666666887,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4560793102184419,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    }
+  ],
+  "checks": 78,
+  "errors": [],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "complete": true
+}
