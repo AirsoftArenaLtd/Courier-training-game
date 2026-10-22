@@ -1,0 +1,68 @@
+{
+  "source": "664406526da051fbeac6892cf5a151e6915e5d01",
+  "sourceSHA256": {
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "test/fpaccess.js": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+    "test/fphandheldbrowser.js": "048b8f4772d9852e2a28bcd0f03d65869e8643c53eaf6dd40165aff3245c48b2"
+  },
+  "complete": true,
+  "jobs": [
+    {
+      "name": "access",
+      "command": [
+        "node",
+        "test/fpaccess.js"
+      ],
+      "environment": {},
+      "exit": 0
+    },
+    {
+      "name": "handheld-low",
+      "command": [
+        "node",
+        "test/fphandheldbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "b134-final"
+      },
+      "exit": 0
+    },
+    {
+      "name": "handheld-high",
+      "command": [
+        "node",
+        "test/fphandheldbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "b134-final",
+        "QA_GFX": "high",
+        "QA_LANGS": "en,ta"
+      },
+      "exit": 0
+    },
+    {
+      "name": "doors",
+      "command": [
+        "node",
+        "test/fpdoorsbrowser.js"
+      ],
+      "environment": {},
+      "exit": 0
+    },
+    {
+      "name": "bench",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_GFX": "low",
+        "QA_TAG": "b134-final",
+        "QA_VIEWS": "cab,handheld,doorsignature,doorid",
+        "QA_A11Y": "large,colour,reduced"
+      },
+      "exit": 0
+    }
+  ]
+}

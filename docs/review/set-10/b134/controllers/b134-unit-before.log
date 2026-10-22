@@ -1,0 +1,41 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ system reduced motion is read once and an explicit saved choice overrides it (1.243935ms)
+✔ keyboard look turns without moving, clamps pitch and gives a separate cab look (6.089751ms)
+✔ 3D key hints read the same saved physical map as the shared remapper (0.25045ms)
+✔ queued control speech is dropped when the target or visible prompt has gone away (5.308819ms)
+✔ a queued action notice expires and a gear confirmation still uses the current gear (0.968348ms)
+✔ a shared remap onto a 3D-only look key keeps both actions reachable (6.474618ms)
+✔ nearby target selection uses real visibility/raycasting and never changes the player position (75.0553ms)
+✔ keyboard target selection reaches tires and lamps from outside the van (12.452535ms)
+✔ Low text uses native canvases without shrinking fonts or stacking factories on restart (0.701274ms)
+✔ Indic cab, briefing and handheld text select the script font while preserving company fallback and English styling (0.507389ms)
+✖ handheld choices leave room for the full Back control at taller font metrics (7.115895ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.369212
+
+✖ failing tests:
+
+test at test/fpaccess.js:68:1
+✖ handheld choices leave room for the full Back control at taller font metrics (7.115895ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(last.y+last._fpHeight/2<=back.y-back.displayHeight*back.originY-8)
+  
+      at TestContext.<anonymous> (/workspace/b134-handheld-layout/test/fpaccess.js:77:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

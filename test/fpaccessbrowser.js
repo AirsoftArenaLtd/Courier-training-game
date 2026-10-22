@@ -27,10 +27,10 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   await p.evaluate(()=>{const a=OTR.a11y.settings();Object.assign(a.keys,{KeyW:'KeyI',KeyP:'KeyN',Tab:'KeyU',Space:'KeyL'});OTR.a11y.save();});
   // Arrow look changes orientation, and a remapped movement key moves without requiring a pointer lock.
   const before=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');Object.assign(s.model.player,{x:2.84,z:14.5,yaw:0,pitch:0});s.sync();return {...s.model.player};});
-  await p.keyboard.down('ArrowRight');await wait(350);await p.keyboard.up('ArrowRight');
+  await p.keyboard.down('ArrowRight');try{await p.waitForFunction(yaw=>OTR.game.scene.getScene('FirstPersonScene').model.player.yaw>yaw,{timeout:15000},before.yaw);}finally{await p.keyboard.up('ArrowRight');}
   const looked=await p.evaluate(()=>({...OTR.game.scene.getScene('FirstPersonScene').model.player}));assert.equal(looked.x,before.x);assert.equal(looked.z,before.z);assert.ok(looked.yaw>before.yaw);checks+=3;
-  await p.keyboard.down('w');await wait(200);await p.keyboard.up('w');assert.deepEqual(await p.evaluate(()=>{const a=OTR.game.scene.getScene('FirstPersonScene').model.player;return [a.x,a.z];}),[looked.x,looked.z]);checks++;
-  await p.keyboard.down('i');await wait(300);await p.keyboard.up('i');assert.notEqual(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.player.z),looked.z);checks++;
+  const frame=await p.evaluate(()=>OTR.game.loop.frame);await p.keyboard.down('w');try{await p.waitForFunction(f=>OTR.game.loop.frame>f+2,{},frame);}finally{await p.keyboard.up('w');}assert.deepEqual(await p.evaluate(()=>{const a=OTR.game.scene.getScene('FirstPersonScene').model.player;return [a.x,a.z];}),[looked.x,looked.z]);checks++;
+  await p.keyboard.down('i');try{await p.waitForFunction(z=>OTR.game.scene.getScene('FirstPersonScene').model.player.z!==z,{timeout:15000},looked.z);}finally{await p.keyboard.up('i');}assert.notEqual(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').model.player.z),looked.z);checks++;
   const at=async id=>{
    await p.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model,point=m.point(id);Object.assign(m.player,{x:point.x,z:point.z,yaw:0,pitch:0});
     if(id.startsWith('parcel')&&m.parcel(id).location==='depot')m.player.x-=1.6;

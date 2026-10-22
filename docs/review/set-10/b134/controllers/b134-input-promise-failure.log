@@ -1,0 +1,18 @@
+en larger=false passes
+{
+  canvas: { x: 0, y: 0, width: 1280, height: 720 },
+  pointer: { x: 1177, y: 528 },
+  hits: [ { type: 'Text', text: '⌫ Back' } ],
+  title: 'DELIVERY CHECKS'
+}
+ProtocolError: Protocol error (Runtime.callFunctionOn): Promise was collected
+    at <instance_members_initializer> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:103:14)
+    at new Callback (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:107:16)
+    at CallbackRegistry.create (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:25:26)
+    at Connection._rawSend (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:108:26)
+    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:74:33)
+    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:363:50)
+    at ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:36)
+    at IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:30)
+    at CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:43)
+    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)

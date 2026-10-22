@@ -145,12 +145,20 @@ OTR.fpAccess={
     const d=hh.device;if(!d.optionBtns||!d.screen)return;const t=s=>OTR.i18n?OTR.i18n.t(s):s,opts=d.current.options||[];
     let footerSpace=30;const footer=d.current.footer&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+14&&o.y===d.sy+d.sh-16);
     if(footer){footer.setWordWrapWidth(d.sw-28,true).setOrigin(0,1).setY(d.sy+d.sh-8);footerSpace=Math.max(30,footer.height+16);}
+    // Back is a separate control; its font metrics can exceed the default footer strip.
+    const back=d.current.back&&d.screen.list.find(o=>o.type==='Text'&&o.x===d.sx+d.sw-14&&o.y===d.sy+d.sh-16);
+    if(back)footerSpace=Math.max(footerSpace,d.sy+d.sh-back.y+back.displayHeight*back.originY+8);
     // Reserve gaps between choices; an extra trailing gap crowds larger translated body text.
-    let total=0;for(let i=0;i<d.optionBtns.length;i++){
+    let heights=0;for(let i=0;i<d.optionBtns.length;i++){
       const b=d.optionBtns[i];b.label.setText(`${i+1}  ${t(opts[i].label)}`).setScale(1);
-      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;total+=h+(i?6:0);
+      const h=Math.max(46,b.label.height+10);b.bg.setScale(1,h/b.bg.input.hitArea.height);b.setSize(d.sw-20,h);b._fpHeight=h;heights+=h;
     }
-    let y=d.sy+d.sh-footerSpace-total;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+6;}
+    const body=d.screen.list.filter(o=>o.type==='Text'&&o!==back&&o!==footer&&o.y>d.sy+44&&o.y<d.sy+d.sh-35);
+    const bodyBottom=Math.max(d.sy+44,...body.map(o=>o.y+o.displayHeight*(1-o.originY)));
+    const bottom=d.sy+d.sh-footerSpace,gaps=Math.max(0,d.optionBtns.length-1);
+    // Dense translated pages can use closer gaps while keeping full-sized text and hit targets.
+    const gap=gaps?Math.min(6,Math.max(2,(bottom-bodyBottom-8-heights)/gaps)):6;
+    let y=bottom-heights-gap*gaps;for(const b of d.optionBtns){b.setY(y+b._fpHeight/2);y+=b._fpHeight+gap;}
     if(this.reduced()){hh.scene.tweens.killTweensOf(d.root);d.root.setY(d.Yopen);}
     hh.index=0;this.deviceFocus(hh,false);
   },
