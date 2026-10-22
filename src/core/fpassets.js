@@ -107,11 +107,21 @@ OTR.fpAssets={
             const decoded=F.validateGLB(data,high);if(bank.stats.decodedBytes+decoded>(high?64:16)*1024*1024)throw Error('Decoded assets are over budget');bank.stats.decodedBytes+=decoded;await untilAbort(F.loader());
             const gltf=await untilAbort(new T.GLTFLoader().parseAsync(data,'').then(g=>{if(signal.aborted||closed)F.release(g);return g;}));
             try{gltf.scene.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),parts=[];
-              gltf.scene.traverse(o=>{if(o.isMesh){if(o.isInstancedMesh||Array.isArray(o.material)||o.isSkinnedMesh&&!['worker-men','worker-women','resident-men','resident-women'].includes(job.use))throw Error('Model needs an animated adapter');parts.push({geometry:o.geometry,material:o.material,matrix:o.matrixWorld.clone(),name:o.name});}});
+              const ambient=['ambient-adult-a','ambient-adult-b'].includes(job.use);
+              gltf.scene.traverse(o=>{if(o.isMesh){if(o.isInstancedMesh||Array.isArray(o.material)||o.isSkinnedMesh&&!ambient&&!['worker-men','worker-women','resident-men','resident-women'].includes(job.use))throw Error('Model needs an animated adapter');parts.push({geometry:o.geometry,material:o.material,matrix:o.matrixWorld.clone(),name:o.name});}});
               if(!parts.length||parts.length>32||![size.x,size.y,size.z].every(n=>Number.isFinite(n)&&n>.0001))throw Error('Invalid model bounds');
               if(['worker-men','worker-women','resident-men','resident-women'].includes(job.use)){const clips=new Set(gltf.animations.map(a=>a.name));if(!['Idle_Neutral','Walk','Wave','Interact'].every(n=>clips.has(n))||parts.some(p=>!p.geometry.attributes.skinIndex||!p.geometry.attributes.skinWeight||!p.geometry.attributes.normal||p.material.map))throw Error('Invalid workday rig');let invalid=false;gltf.scene.traverse(o=>{if(o.isSkinnedMesh&&(!o.skeleton||o.skeleton.bones.length>64))invalid=true;});if(invalid)throw Error('Workday rig is over budget');}
+              if(ambient){
+                const clips=new Set(gltf.animations.map(a=>a.name));let invalid=!high||parts.length!==2||gltf.animations.length!==2||!clips.has('Idle_Neutral')||!clips.has('Walk');
+                gltf.scene.traverse(o=>{if(!o.isMesh)return;const g=o.geometry,a=g.attributes,j=a.skinIndex,w=a.skinWeight,n=a.normal,c=a.color,p=a.position,bones=o.skeleton&&o.skeleton.bones.length;
+                  if(!o.isSkinnedMesh||!bones||bones>7||!j||j.itemSize!==4||!w||w.itemSize!==4||!n||!c||c.itemSize!==3||o.material.map||p.count>10000||[j,w,n,c].some(v=>v.count!==p.count)){invalid=true;return;}
+                  for(let i=0;i<p.count;i++){let sum=0;for(let k=0;k<4;k++){const bone=j.array[i*4+k],weight=w.array[i*4+k];if(!Number.isInteger(bone)||bone<0||bone>=bones||!Number.isFinite(weight)||weight<0||weight>1)invalid=true;sum+=weight;}if(Math.abs(sum-1)>.001)invalid=true;
+                    for(let k=0;k<3;k++)if(!Number.isFinite(p.array[i*3+k])||!Number.isFinite(n.array[i*3+k])||!Number.isFinite(c.array[i*3+k])||c.array[i*3+k]<0||c.array[i*3+k]>1)invalid=true;
+                  }
+                });if(invalid)throw Error('Invalid ambient rig');
+              }
               if(job.use==='van-exterior'&&(!['body','door','wheel-front-left','wheel-front-right','wheel-back-left','wheel-back-right'].every(n=>parts.some(p=>p.name===n))||parts.some(p=>p.material.map)))throw Error('Invalid van parts');
-              if(signal.aborted||closed)throw Error('Asset loading cancelled');models.set(job.use,{gltf,parts,size,animated:parts.some(p=>p.geometry.attributes.skinIndex),origin:new T.Matrix4().makeTranslation(-(bounds.min.x+bounds.max.x)/2,-bounds.min.y,-(bounds.min.z+bounds.max.z)/2)});
+              if(signal.aborted||closed)throw Error('Asset loading cancelled');models.set(job.use,{gltf,parts,size,ambient,animated:parts.some(p=>p.geometry.attributes.skinIndex),origin:new T.Matrix4().makeTranslation(-(bounds.min.x+bounds.max.x)/2,-bounds.min.y,-(bounds.min.z+bounds.max.z)/2)});
             }catch(error){F.release(gltf);throw error;}
           }else if(['png','jpg','jpeg'].includes(f.ext)){
             const mime=f.ext==='png'?'image/png':'image/jpeg',[w,h]=F.imageSize(new Uint8Array(data),mime),limit=high?2048:1024;if(!w||!h||w>limit||h>limit)throw Error('Image is over budget');

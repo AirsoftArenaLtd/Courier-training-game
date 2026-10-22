@@ -44,6 +44,36 @@ OTR.fpAmbient={
     out.yaw=phase<3?0:phase<4?(phase-3)*Math.PI:phase<7?Math.PI:Math.PI+(phase-7)*Math.PI;
     return out;
   },
+  build(scene,m,parent,town,box,paint){
+    if(!town)return null;
+    const T=THREE,high=OTR.gfx.high(),selection=this.create(m,town.footprints,high,high?.6:.45),people=[],fallbacks=[],ownedPaint=!paint;
+    if(!selection.sites.length)return null;
+    paint=paint||new T.MeshLambertMaterial({color:0xffffff,vertexColors:true,side:T.DoubleSide});
+    const bank=scene.assetBank,models=bank&&bank.models,root=new T.Object3D(),up=new T.Vector3(0,1,0);
+    for(let i=0;i<selection.slots.length;i++){
+      const model=high&&models&&models.get(i?'ambient-adult-b':'ambient-adult-a'),a=model&&OTR.fpActors.character(model,paint,0xffffff);
+      if(a){a.mesh.name='actor:ambient-'+i;a.mesh.scale.copy(OTR.fpActors.ambientScale(model));a.mesh.frustumCulled=true;a.geometry.boundingSphere=new T.Sphere(new T.Vector3(0,1/a.mesh.scale.y,0),1.4/Math.min(a.mesh.scale.x,a.mesh.scale.y,a.mesh.scale.z));parent.add(a.mesh);a.mesh.visible=false;}
+      people.push(a||null);const parts=[];
+      if(!a)for(const [y,w,h,d,color] of [[1.1,.45,.75,.27,i?0x846997:0x608987],[1.65,.3,.32,.3,0xB68F72],[.38,.38,.75,.19,0x43515E]]){
+        const mesh=box(parent,0,y,0,w,h,d,color),entry=mesh.userData.fpBatchEntry;entry.visible=false;entry.sphere=new T.Sphere(new T.Vector3(),Math.hypot(w,h,d)/2);parts.push({entry,local:entry.matrix.clone(),y});
+      }
+      fallbacks.push(parts);
+    }
+    // The Low silhouette uses three cubes in the existing route draw (36 triangles).
+    // Whole-frame loaded/fallback sweeps, rather than this reservation alone, are the gate.
+    const reserved=high?0:36;town.triangleLimit=Math.max(0,town.triangleLimit-reserved);
+    return {selection,people,fallbacks,reserved,
+      sync(model,x,z,reduced){
+        const slots=selection.select(model,x,z,reduced);
+        for(let i=0;i<slots.length;i++){
+          const slot=slots[i],a=people[i];if(a){a.mesh.visible=slot.visible;if(slot.visible){a.mesh.position.set(slot.x,0,slot.z);a.mesh.rotation.y=slot.yaw;a.pose(slot.walking?'Walk':'Idle_Neutral',model.elapsed,reduced,true);}}
+          if(!fallbacks[i].length)continue;root.position.set(slot.x,0,slot.z);root.quaternion.setFromAxisAngle(up,slot.yaw);root.updateMatrix();
+          for(const part of fallbacks[i]){part.entry.visible=slot.visible;if(slot.visible){part.entry.matrix.multiplyMatrices(root.matrix,part.local);part.entry.sphere.center.set(slot.x,part.y,slot.z);}}
+        }
+      },
+      dispose(){selection.dispose();for(const a of people)if(a)a.dispose();if(ownedPaint)paint.dispose();}
+    };
+  },
   create(model,footprints,high=false,radius=.45){
     const F=this,sites=F.plan(model,footprints,radius),limit=F.limit(high),range2=(high?35:22)**2;
     const slots=Array.from({length:limit},()=>({site:null,distance:range2,visible:false,x:0,y:0,z:0,yaw:0,walking:false}));let closed=false;

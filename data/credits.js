@@ -84,5 +84,19 @@ OTR_DATA.credits = [
 "author": "Poly Haven contributors",
 "licence": "CC0",
 "url": "https://polyhaven.com/a/red_brick_03"
+},
+{
+"pack": "kenney-mini-characters",
+"name": "Mini Characters 1.0",
+"author": "Kenney",
+"licence": "CC0",
+"url": "https://kenney.nl/assets/mini-characters"
+},
+{
+"pack": "kenney-furniture",
+"name": "Furniture Kit 2.0",
+"author": "Kenney",
+"licence": "CC0",
+"url": "https://kenney.nl/assets/furniture-kit"
 }
 ];
