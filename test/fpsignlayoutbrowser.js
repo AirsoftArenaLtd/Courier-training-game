@@ -1,7 +1,7 @@
 /* Real sign-label placement and straight-ahead cab sight lines, in native languages and text sizes. */
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http://127.0.0.1:8339',TAG=process.env.QA_TAG||'c33-sign-layout';
-const LANGS=(process.env.QA_LANGS||'en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa').split(','),SIZES=(process.env.QA_SIZES||'normal,large').split(',');
+const LANGS=(process.env.QA_LANGS||'en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa').split(','),SIZES=(process.env.QA_SIZES||'normal,large').split(','),GFX=process.env.QA_GFX||'low';
 assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='large'));fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
  const report={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),fixture:'Native day-four plan, live fonts and Phaser labels; approach poses are fixtures. No head turn. Reports, saves and scores are not altered.',runs:[],errors:[],failures:[],completed:false};
@@ -10,7 +10,7 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
  try{
   const p=await browser.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>report.errors.push(e.message));
   for(const lang of LANGS)for(const size of SIZES){
-   await p.goto(BASE+'/first-person.html?gfx=low&lang='+lang);
+   await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+lang);
    await p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:120000});
    assert.equal(await p.evaluate(()=>OTR.i18n.lang),lang);
    await p.evaluate(large=>{
@@ -42,6 +42,12 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
      if(entry){const points=[];for(const x of [-.5,.5])for(const z of [-.5,-.12]){const q=new THREE.Vector3(x,0,z).applyMatrix4(entry.matrix).applyMatrix4(entry.label.parent.matrixWorld).project(s.view.camera);points.push({x:(q.x+1)*640,y:(1-q.y)*360});}
       head={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};}
      const covers=(a,b)=>a&&b&&a.x<b.right&&a.right>b.x&&a.y<b.bottom&&a.bottom>b.y;
+     const hiddenMirrors=[];for(const target of s.art.mirrors?.targets||[]){
+      const {width:w=1,height:h=1}=target.geometry.parameters,points=[];
+      for(const x of [-w/2,w/2])for(const y of [-h/2,h/2]){const v=new THREE.Vector3(x,y,0).applyMatrix4(target.matrixWorld).project(s.view.camera);points.push({x:(v.x+1)*640,y:(1-v.y)*360,z:v.z});}
+      if(points.some(p=>p.z<-1||p.z>1))continue;
+      const b={x:Math.min(...points.map(p=>p.x)),right:Math.max(...points.map(p=>p.x)),y:Math.min(...points.map(p=>p.y)),bottom:Math.max(...points.map(p=>p.y))};if(covers(b,nav))hiddenMirrors.push(target.name);
+     }
      const hiddenGears=s.labels.filter(q=>q.label.gear&&q.object.visible&&covers(q.object.getBounds(),nav)).map(q=>q.object.text);
      const hiddenControls=[];for(const q of s.art.interactions){if(!Object.hasOwn(OTR.fpCab.gears,q.userData.interaction))continue;
       const points=[];for(const x of [-.5,.5])for(const y of [-.5,.5]){const v=new THREE.Vector3(x,y,.5).applyMatrix4(q.matrixWorld).project(s.view.camera);points.push({x:(v.x+1)*640,y:(1-v.y)*360});}
@@ -54,16 +60,19 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
       const w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;
       textureBytes+=w*h*4;
      }
-     return {entry:!!entry,kind,back,text,head,phaserBytes:Math.ceil(textureBytes*4/3),projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,look:m.van.look};};
+     return {entry:!!entry,kind,back,text,head,quality:OTR.gfx.level(),phaserBytes:Math.ceil(textureBytes*4/3),projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,hiddenMirrors,look:m.van.look};};
     },{kind,back});
     await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.signUI.lastAt>window.otrSignPoseAt&&s.hud.navAt>window.otrSignPoseAt;},{timeout:60000});
     const proof=await p.evaluate(()=>window.otrSignProbe());
     const item={lang,size,...proof};report.runs.push(item);
-    if(!Number.isFinite(proof.phaserBytes)||proof.phaserBytes>4*1024*1024)report.failures.push(`${lang}/${size}/${kind}/${back}: Phaser text textures exceed the Low memory ceiling`);
+    if(!Number.isFinite(proof.phaserBytes)||proof.phaserBytes>(GFX==='high'?16:4)*1024*1024)report.failures.push(`${lang}/${size}/${kind}/${back}: Phaser text textures exceed the memory ceiling`);
+    if(proof.quality!==GFX)report.failures.push(`${lang}/${size}/${kind}/${back}: incorrect graphics quality`);
+    if(!proof.nav)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav is hidden in the forward driving view`);
     if(!proof.entry)report.failures.push(`${lang}/${size}/${kind}/${back}: physical sign is absent`);
     if(proof.entry&&!proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sign line is absent`);
     if(proof.hiddenControls.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers physical selector positions ${proof.hiddenControls.join(',')}`);
     if(proof.hiddenGears.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers gear labels ${proof.hiddenGears.join(',')}`);
+    if(proof.hiddenMirrors.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers a physical mirror`);
     if(proof.labelCoversHead)report.failures.push(`${lang}/${size}/${kind}/${back}: a label covers the sign head`);
     if(proof.covered)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers the sign head`);
     for(const t of proof.text){const b=t.bounds;if(b.x<0||b.right>1280||b.y<0||b.bottom>420||t.font<(size==='large'?22:18)-.1)report.failures.push(`${lang}/${size}/${kind}/${back}: label clips or shrinks`);}
