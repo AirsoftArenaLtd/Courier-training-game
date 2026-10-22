@@ -10,6 +10,10 @@
  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
  *   node test/run-all.js --review <branch>  merge a Codex branch into pilot in a scratch worktree and run the review's
  *                                        first steps (test/tools/review-branch.js, B-69)
+ *   node test/run-all.js --rc            the release-candidate pass (B-157): the Node and browser suites, then the 15
+ *                                        shared 3D flows at Low (test/qa.js, two at a time on their own ports); a failed
+ *                                        browser suite is rerun once alone and reported as such; summary in test/out/rc.md
+ *                                        (QA_RC_FLOWS=drive-review,workday-aids runs only those flows)
  *   node test/run-all.js --list          every suite, how it runs and what it covers (B-64); --readme writes that table
  *                                        into test/README.md between its <!-- suites --> markers
  *
@@ -28,7 +32,8 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(__dirname, 'out', 'run-all');
 fs.mkdirSync(OUT, { recursive: true });
 const args = process.argv.slice(2);
-const withBrowser = args.includes('--browser');
+const rc = args.includes('--rc');
+const withBrowser = rc || args.includes('--browser');
 const only = args.filter(a => !a.startsWith('--'));
 // also not here: the before/after comparisons, which need a second server with the older build (QA_BEFORE_BASE)
 const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js', 'fphudcomparebrowser.js', 'fpperfbrowser.js']);
@@ -124,6 +129,47 @@ const pool = async (files, jobs, env, results) => {
   await Promise.all(Array.from({ length: Math.min(jobs, files.length) }, worker));
 };
 
+// B-157: the 15 shared 3D flows (docs/READINESS.md), each group in its own test/qa.js with its own server port
+const FLOWS = process.env.QA_RC_FLOWS ? process.env.QA_RC_FLOWS.split(',') : ['workday-3d', ...'bcdefghijklm'.split('').map(c => 'workday-3d-' + c), 'workday-aids', 'drive-review'];
+const flowGroup = (flows, port) => new Promise((resolve) => {
+  const t0 = Date.now(), file = path.join(OUT, `flows-${port}.log`), log = fs.createWriteStream(file);
+  const child = spawn(process.execPath, [path.join(__dirname, 'qa.js'), '--only', flows.join(',')], { cwd: ROOT, env: Object.assign({}, process.env, { QA_GFX: 'low', QA_PORT: String(port) }) });
+  child.stdout.pipe(log, { end: false }); child.stderr.pipe(log, { end: false });
+  const timer = setTimeout(() => child.kill('SIGKILL'), 90 * 60 * 1000);
+  child.on('close', () => {
+    clearTimeout(timer); log.end(() => {
+      // qa.js's summary prints "  pass  <flow> ..." or "  FAIL  <flow> ..." for each one it ran
+      const text = fs.readFileSync(file, 'utf8'), s = (Date.now() - t0) / 1000;
+      resolve(flows.map(f => { const m = new RegExp(`^\\s+(\\w+)\\s+${f}\\s`, 'm').exec(text.split('==== summary ====').pop() || '');
+        return { file: 'flow ' + f, ok: !!m && m[1] === 'pass', why: m ? (m[1] === 'pass' ? '' : m[1]) : 'no result', s, log: path.relative(ROOT, file) }; }));
+    });
+  });
+});
+const releaseCandidate = async (results) => {
+  // under load a page can time out while it starts (docs/READINESS.md, known limits): one rerun alone, said plainly
+  for (const r of results.filter(r => !r.ok && isBrowser(r.file))) {
+    const again = await run(r.file, Object.assign({}, process.env, { QA_BROWSER: findBrowser() || '', QA_BASE: process.env.QA_BASE || '' }));
+    if (again.ok) Object.assign(r, { ok: true, why: `passed when rerun alone (first run: ${r.why})` });
+    console.log(`${again.ok ? 'ok  ' : 'FAIL'} ${r.file.padEnd(26)} rerun alone`);
+  }
+  console.log(`\nthe 15 shared 3D flows at Low, two at a time (logs: test/out/run-all/flows-*.log)`);
+  const half = [FLOWS.filter((_, i) => i % 2 === 0), FLOWS.filter((_, i) => i % 2 === 1)];
+  const flows = (await Promise.all([flowGroup(half[0], 8361), flowGroup(half[1], 8362)])).flat();
+  flows.forEach(r => console.log(`${r.ok ? 'ok  ' : 'FAIL'} ${r.file.padEnd(26)} ${r.why}`));
+  results.push(...flows);
+  const head = require('child_process').execSync('git rev-parse --short HEAD', { cwd: ROOT }).toString().trim();
+  const bad = results.filter(r => !r.ok), tail = (r) => {
+    const f = r.log ? path.join(ROOT, r.log) : path.join(OUT, r.file.replace(/\.js$/, '.log'));
+    return fs.existsSync(f) ? fs.readFileSync(f, 'utf8').trim().split('\n').slice(-15).join('\n') : '(no log)';
+  };
+  const md = [`# Release-candidate pass`, '', `${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC, commit \`${head}\` (\`node test/run-all.js --rc\`, B-157).`, '',
+    `**${results.length - bad.length} of ${results.length} passed**: ${results.length - flows.length} suites and ${flows.length} flows.`, '',
+    '| Check | Result | Time |', '| --- | --- | --- |', ...results.map(r => `| \`${r.file}\` | ${r.ok ? (r.why ? 'pass, ' + r.why : 'pass') : '**FAIL** ' + r.why} | ${r.s.toFixed(0)} s |`),
+    ...bad.flatMap(r => ['', `## ${r.file}`, '', '```', tail(r), '```'])].join('\n') + '\n';
+  fs.writeFileSync(path.join(__dirname, 'out', 'rc.md'), md);
+  console.log('summary: test/out/rc.md');
+};
+
 (async () => {
   const all = fs.readdirSync(__dirname).filter(f => f.endsWith('.js') && !NOT_HERE.has(f)).sort()
     .filter(f => !only.length || only.some(w => f.includes(w)));
@@ -134,7 +180,7 @@ const pool = async (files, jobs, env, results) => {
   const exe = findBrowser();
   if (exe) env.QA_BROWSER = exe;
   const server = await serve();
-  env.QA_BASE = `http://127.0.0.1:${server.address().port}`;
+  env.QA_BASE = process.env.QA_BASE = `http://127.0.0.1:${server.address().port}`;
   console.log(`${nodeFiles.length} Node suites${withBrowser ? `, then ${browserFiles.length} browser suites` : ` (${browserFiles.length} browser suites skipped: --browser)`}; ` +
     `game at ${env.QA_BASE}; browser ${exe || 'not found'}; logs in test/out/run-all/\n`);
   await pool(nodeFiles.filter(f => !opensPage(f)), JOBS, env, results);
@@ -143,6 +189,7 @@ const pool = async (files, jobs, env, results) => {
     if (!exe) console.log('No Chromium found: set QA_BROWSER. Browser suites not run.');
     else await pool(browserFiles, 1, env, results);
   }
+  if (rc) await releaseCandidate(results);
   server.close();
   const bad = results.filter(r => !r.ok);
   console.log(`\n${results.length - bad.length} of ${results.length} suites passed` + (bad.length ? `; failed: ${bad.map(r => r.file).join(', ')} (see test/out/run-all/)` : ''));
