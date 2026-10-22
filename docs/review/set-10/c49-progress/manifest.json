@@ -1,0 +1,333 @@
+{
+  "task": "C-49 progress, not final acceptance",
+  "source": "17a6215f18ffd54fee8f421a4e23000e283a01cb",
+  "runtimeSource": "aeb96076",
+  "sourceSHA256": {
+    "assets/3d/manifest.json": "c2a0180ed04b2d3ca645eac9f6fd765a5feabae4d110dface21d5f2737bc3c31",
+    "index.html": "d674b08f8874a75cf14a987ecccfd46d1de38338bb479f8ec2331bfb7957b188",
+    "src/core/fpaccess.js": "3c2991f903b514da8e93bc678c7b21589ac7546c464f8e8cd6c90c2cc042afe3",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "128d54316dc5d81db7e0582d77dfb0263a2f089900a9b37447fa42623c5b5f4d",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "922a15cae5211cc3e4f4da364e09ca860a9f95613693259d938c5d51ddeeac90",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "f541559d2d76818017d4332a58fe058967affdfba74f5e30cb51c88eade6ec35",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmaterials.js": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+    "src/core/fpmirrors.js": "4afba880de4a30d714cbd5bb16b739e4e1d60718baa66b5ee1894d9a860c736a",
+    "src/core/fpmission.js": "46028bee4738ccf1014acabcb03fd34fc96234b0389a13cb71827b1c48112cf9",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "5e2258eb5f627b69918575cf8ef4a6b43ef4df1f2ecb30962ff5c92816f48ef7",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsigns.js": "ac6108d13efb30e0e8ab09b3ab168378b27b15a6460d2fe64fd5523940069e97",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "f48c13e277a3a59f0c565da51d087f66dd25f3734b8f06124a20df40be3c0224",
+    "src/scenes/FirstPersonScene.js": "84b9075ae7d9c75045bd496cbdbebdabaa44789d46905ed139ed5cd7d3f2a4b4",
+    "test/fpactors.js": "8c2ded2b65b6fae1a63983996572acb39f5fe49a927902e9aa9c44ae66fbf888",
+    "test/fpassetsbrowser.js": "ac1147a4f1418f07198ea942166ad625a4a3542187b7f17e50858a15241eb397",
+    "test/fpmaterials.js": "35b9a2b5bffc8155022e08d337a25d3dbb1318ab369399e0182e41f1befd8ba3",
+    "test/fpmaterialsbrowser.js": "b9211237a388e011d158e28dc12e4bdd18826ca11008a9b32dcf366be024cf92",
+    "test/fptown.js": "562ff1e436ed53683f3edd42e14b63d5dcd46ddc0df94ab5deb69c52416a3175",
+    "test/fptownbrowser.js": "ed27abd30f2ce61f45f8a1707997985dd06e9b27b07e0f3cf479dd194fea9fe9",
+    "test/tools/fpassets-context.js": "ad5ebb4b35986539b799eee9a8db38ea16aebfc421db12bdb3a69319910c7476"
+  },
+  "date": "2026-10-22T01:12:20.757476-04:00",
+  "nativeChecks": {
+    "actualMaterialPixelsAndMissingImageLow": 52,
+    "assetsHighAndModelFallback": 18,
+    "townHighExactCulling": 50
+  },
+  "nativeComplete": true,
+  "repositoryComplete": false,
+  "resourceGateComplete": false,
+  "knownBlocker": "Generated data/credits.js and docs/ASSETS.md still list seven packs. Prepared exact 12-pack patch for Claude; do not edit their shared data without authorization.",
+  "atlas": {
+    "width": 2048,
+    "height": 1024,
+    "baseRGBABytes": 8388608,
+    "mipmapUpperBytes": 11184811,
+    "additionalGPUTextures": 1
+  },
+  "files": [
+    {
+      "file": "native/c27-high-town-fence.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 365450,
+      "sha256": "7c9e95eb7f0c2998956d609d7e5bb9a125f1a43de76294089c2ab2ccf738e640"
+    },
+    {
+      "file": "native/c27-high-town-house-wide.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 341656,
+      "sha256": "6b91e4a228d9a953364e3b6fe65d882027adf40d6f215b1fb2d1be333fadbd38"
+    },
+    {
+      "file": "native/c27-high-town-house.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 352877,
+      "sha256": "046d265dd02ba1ca6b01a3e712a22c8251bc9db833c6edff0118587930d17d77"
+    },
+    {
+      "file": "native/c27-high-town-parked-car.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 374706,
+      "sha256": "7d7668733249ea8c76531589492a3eeda3c8aba9bcabda09c1649a01761ed0a1"
+    },
+    {
+      "file": "native/c27-high-town-road.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 466777,
+      "sha256": "60df119176a444940635dd9642aff2626d36fd1a32a9693d6714d28983729ff9"
+    },
+    {
+      "file": "native/c27-high-town-shop.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 322795,
+      "sha256": "95e5d1d76ba334cec004354c00b2c60bb5260bfb4a4bc1acd577f360d95e87d6"
+    },
+    {
+      "file": "native/c27-high-town-streetlight.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 339964,
+      "sha256": "98842b9894f50954df616bf2140880f82cf878eb78ba77d1f63c8e49cfdfc04f"
+    },
+    {
+      "file": "native/c27-high-town-tree.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 402441,
+      "sha256": "618973960cbf3a98ab7761eb2d1611d27ff4a8d8d5ff9850680949c7febf7c0d"
+    },
+    {
+      "file": "native/c27-high-town.json",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 1284,
+      "sha256": "92b902f78d6ba420d137036826ae9e83891e4e5c9eeb38284dbd23d671200a83"
+    },
+    {
+      "file": "native/c49-final-assets-high-fallback.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 270636,
+      "sha256": "d0807a1a42802306b0234fb76272858254eea333ddf0546f950119b7d53f60b2"
+    },
+    {
+      "file": "native/c49-final-assets-high.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 270636,
+      "sha256": "d0807a1a42802306b0234fb76272858254eea333ddf0546f950119b7d53f60b2"
+    },
+    {
+      "file": "native/c49-final-assets.json",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 4418,
+      "sha256": "7c2d00b854d1ef3c778d48ce24554d6e12f7fdd6d1c8722d640c59140267aec4"
+    },
+    {
+      "file": "native/c49-final-assets.log",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 94,
+      "sha256": "d1adcb0f1314bca19abd341902d02e3ff684f7fda266be15075aa62beae1cca8"
+    },
+    {
+      "file": "native/c49-final-materials-high-1-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 238792,
+      "sha256": "b7289a39bd0ac4a96c6b62c77aeeb4db01e5f91124be38c2e8ca60ba4ac08b5d"
+    },
+    {
+      "file": "native/c49-final-materials-high-1-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 501967,
+      "sha256": "4803e74488e1088da2ce9ecd65e048a8cb6cb41a7c2fb151d42000985859a79e"
+    },
+    {
+      "file": "native/c49-final-materials-high-2-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 205850,
+      "sha256": "28bfcc6bfcca8c8f09eccc5ea8b9e4b31f7b4fe573733c47872b5094c3c980a4"
+    },
+    {
+      "file": "native/c49-final-materials-high-2-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 793052,
+      "sha256": "705f42655d4939ef7169e2f8cd95ad19a99ef234e351d334a3b0a8fb3a6ddaf6"
+    },
+    {
+      "file": "native/c49-final-materials-high-3-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 197237,
+      "sha256": "8b0d0bd70f043d5ac1a8980b9c5497c9bbacf2f29015d577c1ad00de30dc5ab9"
+    },
+    {
+      "file": "native/c49-final-materials-high-3-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 705202,
+      "sha256": "a839a06cf11b297e29d1a4749c1e8f77751caf539cdb981f98970efaac7b294e"
+    },
+    {
+      "file": "native/c49-final-materials-high-4-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 64766,
+      "sha256": "3414e4ab61e0da9c8f24cfd982e4b4552929ff4f70cdd096367e307930c4e814"
+    },
+    {
+      "file": "native/c49-final-materials-high-4-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 609872,
+      "sha256": "1bf84d56326ac443df661c8f4a66f0576e9f3463570ae00acf29356382987e17"
+    },
+    {
+      "file": "native/c49-final-materials-high-5-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 38364,
+      "sha256": "3b47f0ca23047e0641a55a47ac9745431abbb48fcc8914c5d2124a2654f82b39"
+    },
+    {
+      "file": "native/c49-final-materials-high-5-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 635134,
+      "sha256": "49b0965a583349b76621dd2dca2e711ac1da1909a2fe8e842bff9ecd4eee20f1"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-1-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 238792,
+      "sha256": "b7289a39bd0ac4a96c6b62c77aeeb4db01e5f91124be38c2e8ca60ba4ac08b5d"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-1-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 278078,
+      "sha256": "3d2cca02a722ad3bb17ad46a8b8e265d9c8171a53b3416b1023a9cd42d090cce"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-2-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 205850,
+      "sha256": "28bfcc6bfcca8c8f09eccc5ea8b9e4b31f7b4fe573733c47872b5094c3c980a4"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-2-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 803719,
+      "sha256": "505494149a9824266d4121a8011277cfcf498499f968e3747be588b3db9404ae"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-3-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 197237,
+      "sha256": "8b0d0bd70f043d5ac1a8980b9c5497c9bbacf2f29015d577c1ad00de30dc5ab9"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-3-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 712553,
+      "sha256": "cfd4d11af9eecc30b80a16e3531671c17022a936b6efce4b471fb6e3eb43e38e"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-4-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 64766,
+      "sha256": "3414e4ab61e0da9c8f24cfd982e4b4552929ff4f70cdd096367e307930c4e814"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-4-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 609872,
+      "sha256": "1bf84d56326ac443df661c8f4a66f0576e9f3463570ae00acf29356382987e17"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-5-off.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 38364,
+      "sha256": "3b47f0ca23047e0641a55a47ac9745431abbb48fcc8914c5d2124a2654f82b39"
+    },
+    {
+      "file": "native/c49-final-materials-missing-asphalt-5-on.png",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 634988,
+      "sha256": "1a4e4d4f93c7aa5dabbd0a5b06cc2f246f32644a9c4de17d198d225f55786ea7"
+    },
+    {
+      "file": "native/c49-final-materials.json",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 44501,
+      "sha256": "d55a77d3b2d5b464e77090b5b1cf6d71c3ca0a4eae7c480f6dc851626dd7a03b"
+    },
+    {
+      "file": "native/c49-final-pixels.log",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 491,
+      "sha256": "44852237971405cf49711aee99cf0c68b84adc5c5666870ee90caa83999d27fd"
+    },
+    {
+      "file": "native/c49-final-assets.log",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 94,
+      "sha256": "d1adcb0f1314bca19abd341902d02e3ff684f7fda266be15075aa62beae1cca8"
+    },
+    {
+      "file": "native/c49-final-town-high.log",
+      "scope": "Final frozen native source 17a6215f",
+      "bytes": 35,
+      "sha256": "76342e9041cc25b8f429a036d02adc9dd36b25d03c99c0139a54d17d71af4cd7"
+    },
+    {
+      "file": "controllers/c49-final-source.json",
+      "scope": "Frozen source and in-progress controllers; not full acceptance",
+      "bytes": 4887,
+      "sha256": "a9d5219f3b4ca946ccf2e29bb035813c974fbd8f221c70047ab13c30b6099504"
+    },
+    {
+      "file": "controllers/c49-acceptance.py",
+      "scope": "Frozen source and in-progress controllers; not full acceptance",
+      "bytes": 1429,
+      "sha256": "abfc9d020f30a3b6be17102f00d177bf8ed9da75999b22a5af554a3260bb3990"
+    },
+    {
+      "file": "controllers/c49-quality-followup.py",
+      "scope": "Frozen source and in-progress controllers; not full acceptance",
+      "bytes": 1722,
+      "sha256": "d23c9957c995f843d75fbef2c195045091d76e28c0ff05078190e66c742af00b"
+    },
+    {
+      "file": "model.log",
+      "scope": "Final five material CPU cases; image fixtures only read headers",
+      "bytes": 5056,
+      "sha256": "572ca3a702ecf6df98a20b84c3ee5c94aa50b62a657f0f24483734dd61429c13"
+    },
+    {
+      "file": "credits-current.log",
+      "scope": "Known failing shared generated-credits check; not acceptance",
+      "bytes": 1769,
+      "sha256": "fce748d95fe98d90b09f9795376f8687f2676365789fffbf859b952f74b76e89"
+    },
+    {
+      "file": "generated-credits.patch",
+      "scope": "Prepared for Claude; shared files untouched",
+      "bytes": 2017,
+      "sha256": "c5fff5f0012725f67bf1502eafe92062130bfb71df7f5e4df12d7d877a193b6a"
+    }
+  ]
+}
