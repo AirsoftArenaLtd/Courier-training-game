@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-22T19:21:13.748108+00:00",
+  "status": "doing; remaining final acceptance running",
+  "ownedRuntime": "9b16fbd0",
+  "repositoryCandidate": "221b12d9",
+  "currentCandidate": "8a06a4b2",
+  "fixture": "afec37a9",
+  "focusedChecks": 23,
+  "largerGaps": [
+    3.75,
+    3.75,
+    3.75,
+    3.75
+  ],
+  "renderedGaps": [
+    3.75,
+    3.75,
+    3.75,
+    3.75
+  ],
+  "targetHeights": [
+    46,
+    46,
+    46,
+    46,
+    56
+  ],
+  "candidateSource": {
+    "src/core/fpcab.js": "302bb755b8a92f24a4bab08f64dba21f9454fafb3fa701c429eecc0b804129c5",
+    "src/core/fpbranding.js": "23ee67332b8a710c26299b5c7723c3e1096a8113fa1b5daa5ec8d401332081aa",
+    "src/core/fphandheld.js": "63c07b8209c1f967c0646d00d529acdda46dcea1d1a744533f27c47c2477dded",
+    "src/core/fphud.js": "cf8eb6ef9d0fca21e30b0eb3599629e2c71235513975a4c439c3ecbaab97183a",
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "test/fpdevicedesignbrowser.js": "83d610977d0835b7cc067a8aade598e1a252200142d3cb4a178a6c90a2d8de73"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1519,
+      "sha256": "0cd46e32f9f5695e2737d5c5030729e3dc536b36842e034aca8acd2b9f131009"
+    },
+    {
+      "file": "acceptance-resume.py",
+      "bytes": 15048,
+      "sha256": "e69d055c41f86c6ac0c722947d1cd52c8d09499affe298096768aab5cc971675"
+    },
+    {
+      "file": "c52-compact-gap-low-ml-large-cab.png",
+      "bytes": 214901,
+      "sha256": "15697f03f69856d0b72f9f9f682c8851a43a60e7a143b51e3d70daed47c67dad"
+    },
+    {
+      "file": "c52-compact-gap-low-ml-large-handheld.png",
+      "bytes": 179698,
+      "sha256": "e3d0c49ea5078d6232b70270df5113340a01e32707e684936d619c75c3a95461"
+    },
+    {
+      "file": "c52-compact-gap-low-ml-normal-cab.png",
+      "bytes": 207936,
+      "sha256": "113158f4c9ed54c6506e21027093928969c73f3eb83b4cca52be42b9c6fdbcce"
+    },
+    {
+      "file": "c52-compact-gap-low-ml-normal-handheld.png",
+      "bytes": 169994,
+      "sha256": "343821173a400018f8e49d347302556c12cde27be632e8ee747d9f44037cc7b5"
+    },
+    {
+      "file": "c52-compact-gap.json",
+      "bytes": 6629,
+      "sha256": "59879e749482314e55e8f4a5573e0489a0929e937769abc4fbd1225af4244c2f"
+    },
+    {
+      "file": "c52-final-compact-gap-regression.log",
+      "bytes": 76,
+      "sha256": "70b8999b8e6fe686692db1dc159d7c305813e769d9c938884a50bd908951c8f0"
+    },
+    {
+      "file": "c52-final-repository.log",
+      "bytes": 3405,
+      "sha256": "97ed0a79bc16206f19b988eca9b4b1dce26dcb5b4a0794de1370f986eeca957a"
+    },
+    {
+      "file": "fpdevicedesignbrowser.js",
+      "bytes": 9841,
+      "sha256": "83d610977d0835b7cc067a8aade598e1a252200142d3cb4a178a6c90a2d8de73"
+    },
+    {
+      "file": "initial-c52-acceptance.json",
+      "bytes": 153124,
+      "sha256": "d1fa1ca93be4687d5b2ca5add471ae3d7020a58556918e046585f292736af84d"
+    },
+    {
+      "file": "initial-c52-acceptance.log",
+      "bytes": 950,
+      "sha256": "b1e4591a403fd0bc08807c8663c4ce96f6b43a85dadf5d31082a5d6e718803e9"
+    },
+    {
+      "file": "initial-c52-final-design-low-failure.png",
+      "bytes": 179698,
+      "sha256": "e3d0c49ea5078d6232b70270df5113340a01e32707e684936d619c75c3a95461"
+    },
+    {
+      "file": "initial-c52-final-device-low-all-languages.log",
+      "bytes": 699,
+      "sha256": "21c67cc0e045951d8e169a27f49d2631d06cbce5836850ba543df2d72569b0bb"
+    }
+  ]
+}
