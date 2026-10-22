@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-22T22:52:29.010219+00:00",
+  "status": "doing; final acceptance pending",
+  "currentOwnedRuntime": "dcbe8520",
+  "currentUnitChecks": 13,
+  "scopes": [
+    {
+      "scope": "exploratory native layout/input/results/fallback",
+      "runtime": "5bb16ae5",
+      "candidate": "a8586408",
+      "checks": 180,
+      "limit": "Initial native fixture was not committed at launch. Its captures precede the assessment-caption correction and are excluded from final acceptance."
+    },
+    {
+      "scope": "first six-view loaded Low resource profile",
+      "candidate": "7ad9f3bf",
+      "result": {
+        "calls": 32,
+        "triangles": 870,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1602768
+      },
+      "limit": "Before the caption and lifecycle corrections; final 24-view run is pending."
+    },
+    {
+      "scope": "real saved workday / assessment abandonment / runtime fallback",
+      "candidate": "56e3f56c",
+      "checks": 11,
+      "result": "pass",
+      "limit": "Before the two-field repeated-scene entry reset; final native repeat regression is pending."
+    }
+  ],
+  "sourceSHA256": {
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/core/fpmission.js": "3f0f66553bacc3736c0207e857b98be9bb2074d1b22ef3d23002ed65f70953bd",
+    "src/core/fpaccess.js": "a7c72758f06afe3ffcd83faabfc6c460ac4a812401b14424f9a859b14a27827a",
+    "src/core/fphud.js": "25295e0a2ffbbddf1a3fd4c42cae7724cf5b2218483d4f449948e6a9624ee392",
+    "src/scenes/FirstPersonScenarioScene.js": "fd92732df0f51a1804e26822544139bf7b5f5c8c1494b36a97f955c667bac6b4",
+    "src/scenes/FirstPersonScene.js": "b38a71d3e95defe3533a856dae0bb8537055a7e988ef29a6ce60a1358a76fb09",
+    "test/fpscenario.js": "63a22e359eb73d3b1aa744f2ea444408a487a4009d1d0ba96a032def5d879e72",
+    "test/fpscenariobrowser.js": "8b9e85688a2025c450345e97c43512f9fe19975f2412749434f9515bed08b1df"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2485,
+      "sha256": "6a183564b7a74842c2aa102f224261af1ff3919c431185df6ab4f593a1f75ec5"
+    },
+    {
+      "file": "bench-c38-first-modules-loaded-low-low.json",
+      "bytes": 13463,
+      "sha256": "828c6660405b5e0e620a677b662e2e2cfdc9f2a1f7e7e8e49c465b936197bdca"
+    },
+    {
+      "file": "c38-first-modules-loaded-low.log",
+      "bytes": 4638,
+      "sha256": "06b10572c24ef994f9636ae76bd3acbf4fabc980474ab73a6f7c2de36406d085"
+    },
+    {
+      "file": "c38-first-modules-quality.json",
+      "bytes": 999,
+      "sha256": "d1c380184ac754a664e11ef6a6fca91fa0986f1eae2ea1fdfe6a64618244ec37"
+    },
+    {
+      "file": "c38-isolation.json",
+      "bytes": 19345,
+      "sha256": "e4792c6d933f22dc861cce38454d7b922cfa200d258a4cbafc0a8f326d43a33b"
+    },
+    {
+      "file": "c38-native-high-en-large.png",
+      "bytes": 140925,
+      "sha256": "0de2f04ff6612c7274f48d139c97fd10bd6c5bfeccde7b50ae621518c95f5320"
+    },
+    {
+      "file": "c38-native-high-en-normal.png",
+      "bytes": 169519,
+      "sha256": "2c711fe136f5ab947b284b8e8a8fa7356cf0363bb1f4f09afb8189f51409bff9"
+    },
+    {
+      "file": "c38-native-high-ta-large.png",
+      "bytes": 154374,
+      "sha256": "9f4c1c0b02dca5cd25cccb2b667cb778a0896f9d056593d891dcda97cf73fbc1"
+    },
+    {
+      "file": "c38-native-high-ta-normal.png",
+      "bytes": 217583,
+      "sha256": "a7d80d9dfcb4002e0df3f4065bc851406f7e35a7c84bd8a1cc52b9f12d28996b"
+    },
+    {
+      "file": "c38-native-low-en-large.png",
+      "bytes": 116441,
+      "sha256": "278064db7a24a9770be850f620c511f81052ff953b582ad20df473511407eaa3"
+    },
+    {
+      "file": "c38-native-low-en-normal.png",
+      "bytes": 145053,
+      "sha256": "682701edb606ea8eb5f7cf3410a0545f938626d93265bea8f7f3a757b51af297"
+    },
+    {
+      "file": "c38-native-low-ta-large.png",
+      "bytes": 130549,
+      "sha256": "3439b77bfccbfa996a8c1a12c1066c61a4d41549b47a38bdf60fc2dfd31c04b8"
+    },
+    {
+      "file": "c38-native-low-ta-normal.png",
+      "bytes": 189266,
+      "sha256": "d9bc3c55bb7cd26de96245f1bf835f304e20312293b38a5a9db00a7fec7ae98a"
+    },
+    {
+      "file": "c38-native.json",
+      "bytes": 15753,
+      "sha256": "990392ae1ca36cbc6a6b1ebc2cac8007d55a61aee356205d9164bd71685b5923"
+    },
+    {
+      "file": "current-unit.log",
+      "bytes": 1679,
+      "sha256": "ba30d8f02503bd5c52ff07056c1f1e2731aaf228cae2548d25851a511b137e73"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-failure.png",
+      "bytes": 375761,
+      "sha256": "a7d9ef9287f17d1d0449bba7d12c7ac7e5a8facf43b44bf98979f2e24247b02f"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-high-en-large.png",
+      "bytes": 140925,
+      "sha256": "0de2f04ff6612c7274f48d139c97fd10bd6c5bfeccde7b50ae621518c95f5320"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-high-en-normal.png",
+      "bytes": 169519,
+      "sha256": "2c711fe136f5ab947b284b8e8a8fa7356cf0363bb1f4f09afb8189f51409bff9"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-high-ta-large.png",
+      "bytes": 154374,
+      "sha256": "9f4c1c0b02dca5cd25cccb2b667cb778a0896f9d056593d891dcda97cf73fbc1"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-high-ta-normal.png",
+      "bytes": 217583,
+      "sha256": "a7d80d9dfcb4002e0df3f4065bc851406f7e35a7c84bd8a1cc52b9f12d28996b"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-low-en-large.png",
+      "bytes": 116441,
+      "sha256": "278064db7a24a9770be850f620c511f81052ff953b582ad20df473511407eaa3"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-low-en-normal.png",
+      "bytes": 145053,
+      "sha256": "682701edb606ea8eb5f7cf3410a0545f938626d93265bea8f7f3a757b51af297"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-low-ta-large.png",
+      "bytes": 130549,
+      "sha256": "3439b77bfccbfa996a8c1a12c1066c61a4d41549b47a38bdf60fc2dfd31c04b8"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native-low-ta-normal.png",
+      "bytes": 189266,
+      "sha256": "d9bc3c55bb7cd26de96245f1bf835f304e20312293b38a5a9db00a7fec7ae98a"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/c38-final-native.json",
+      "bytes": 16570,
+      "sha256": "db7bd7fa0c3b041367700635c7d654d2684a562690664385f2a33a5ef88ff92a"
+    },
+    {
+      "file": "diagnostics/before-caption-fix/native.log",
+      "bytes": 997,
+      "sha256": "5f626a0c605c70ca3b37b1c045ff42d36526c504c770e483aa719752cc7e1f09"
+    },
+    {
+      "file": "first-native.log",
+      "bytes": 147,
+      "sha256": "0e03f9a8d547c57b47169f55c6787b929671370b18965afe05bee5af6b891647"
+    },
+    {
+      "file": "isolation.log",
+      "bytes": 34,
+      "sha256": "9251314589b6ab2703195c2a72b3cf5b8bfe6002ce0bb0f18c35b06ceaec6256"
+    },
+    {
+      "file": "resource-verification.json",
+      "bytes": 303,
+      "sha256": "bfdf779dbee630d57314d08319cb5e51138299f46d8a8f6e47890843a12d0ac5"
+    }
+  ]
+}

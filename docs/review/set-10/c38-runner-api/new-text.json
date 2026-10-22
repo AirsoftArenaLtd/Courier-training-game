@@ -1,0 +1,25 @@
+{
+  "sentences": [
+    "This scenario needs 3D graphics.",
+    "Begin the scenario.",
+    "Return to the station.",
+    "The scenario is paused.",
+    "Continue the scenario.",
+    "Read the controls.",
+    "Use the scenario controls.",
+    "Return to the scenario.",
+    "The left signal is on.",
+    "The left signal is off.",
+    "The right signal is on.",
+    "The right signal is off.",
+    "The headlights are on.",
+    "The headlights are off."
+  ],
+  "templates": [
+    "Time remaining: ${Math.ceil(this.scenarioSession.remaining)} seconds.",
+    "You have ${r.definition.seconds} seconds to complete this scenario.",
+    "Use ${OTR.fpAccess.lookKeys()} to look. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target and ${OTR.fpAccess.key('KeyE')} to interact. Press ${OTR.fpAccess.key('Tab')} to read the scenario goal.",
+    "It is ${time}."
+  ],
+  "note": "Some sentences already exist. This is a translation handoff list; no shared catalogue was authored."
+}
