@@ -2,7 +2,7 @@
 
 # Guía rápida del capacitador (una página)
 
-Para la persona que dirige la sesión. Imprima esta página; la guía completa es `docs/PILOT-GUIDE.md`.
+Para la persona que dirige la sesión. Imprima esta página; la guía completa es `docs/PILOT-GUIDE.md`. (A4: `docs/print/QUICK-START.es.html`)
 
 **Antes de que lleguen los participantes**
 1. Abra el juego en una PC de capacitación e inicie una jornada. Si aparece "WebGL is required", pida a TI que active la aceleración gráfica (`chrome://gpu` debe indicar "WebGL: Hardware accelerated").

@@ -191,7 +191,7 @@ Written by `node test/run-all.js --readme`.
 | `fpbrowser.js` | browser (--browser) | Browser integration: real keys/scans/raycasts; position fixtures skip repetitive walking between tasks. |
 | `fpcab.js` | Node | Physical cab, safe drivetrain selection, scoring identity and legacy checkpoint compatibility. |
 | `fpcabbrowser.js` | browser (--browser) | Real keyboard target selection and action keys, including larger/Tamil layouts and a saved-control reload. |
-| `fpcamera.js` | Node | (first test) the first view matches the existing eye and is reused without touching saved mission state |
+| `fpcamera.js` | Node | (first test) the driver sits behind the controls with a wider cab lens without touching saved mission state |
 | `fpcamerabrowser.js` | browser (--browser) | Real-key camera feel, physical dashboard anchoring, accessibility and approved trainer rules on resume. |
 | `fpdamage.js` | Node | Damage state, approved report vocabulary and future checkpoint contract. |
 | `fpdamageassets.js` | Node | Damage placement against the shipped van meshes, including their unsprung wheels. |
@@ -245,6 +245,8 @@ Written by `node test/run-all.js --readme`.
 | `fpresume.js` | Node | Seeded model journeys. |
 | `fproute.js` | Node | Full-route identity, save compatibility and physical access, without WebGL. |
 | `fproutebrowser.js` | browser (--browser) | Generated workday: physical raycasts/scans at all five stops; fixtures skip long walks/drives. |
+| `fpsignal.js` | Node | Real physical indicator, maneuver, report and checkpoint integration; no score calculation here. |
+| `fpsignalbrowser.js` | browser (--browser) | Real remapped cab stalk, game-time lead, driving keys and checkpoint reload; travel poses are fixtures. |
 | `fpsignlayoutbrowser.js` | browser (--browser) | Real sign-label placement and straight-ahead cab sight lines, in native languages and text sizes. |
 | `fpsigns.js` | Node | Sign data must agree with generated routes and the 3D stop obligations. |
 | `fpsignsbrowser.js` | browser (--browser) | Rendered sign geometry, bounded text, real reading keys and modal visibility. |
@@ -274,6 +276,7 @@ Written by `node test/run-all.js --readme`.
 | `lowparitybrowser.js` | browser (--browser) | Low-graphics parity for milestone 9. |
 | `offline.js` | opens a page | The game with no internet: every request to anything but the training server is blocked (and the browser's name lookups fail), then a new courier signs in, r… |
 | `oldsave.js` | Node | A save from before milestones 7 and 8 still works (B-41): no town seed, no aids code, no criticals by type, no `route.passed`, workday records as they were. |
+| `onepagebrowser.js` | browser (--browser) | The trainer's quick start fits one A4 page in every language, and docs/print/ has the current sheets (test/tools/onepage.js --check). |
 | `package.js` | Node | The LMS package (test/tools/package-scorm.js): only run-time files, the manifest at the top, every file a page loads, no tests, docs, server or raw downloads… |
 | `pickupkeysbrowser.js` | browser (--browser) | The three pickups of module 7 with the keyboard alone. |
 | `pretripkeysbrowser.js` | browser (--browser) | The pre-trip walkaround (module 1) with the keyboard alone. |
