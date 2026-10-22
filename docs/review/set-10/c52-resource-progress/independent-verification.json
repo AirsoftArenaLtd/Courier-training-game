@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-22T21:22:30.871Z",
+  "status": "pass",
+  "scope": "130 standard resource views, High sign clearance and two geometry sweeps; final gate remains pending",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 72,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2623766
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": 58,
+      "peak": {
+        "calls": 113,
+        "triangles": 240133,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7947600
+      }
+    }
+  ]
+}
