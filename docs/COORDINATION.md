@@ -538,7 +538,7 @@ items here for each agent.
 | B-159 | Claude | **No browser check compares with English text:** a scan of every `*browser.js` found only model-data comparisons (a choice's label, a page title: English by design) besides two text checks that run in English at that point (`fpguidebrowser`'s first hint, `fpdamagereversebrowser`'s clearance). `test/englishtext.js` now fails on any new `.text` comparison with an English game string, so the `fpreplaybrowser`/`fpradiobrowser` mistake cannot come back. | done |
 | B-160 | Claude | **B-138's signal reports fit the SCORM 1.2 save:** pack placed reports grouped by type and outcome (v3: no row brackets, type or outcome per report, a time column only where the group has times) and right checks with no key as type numbers, so the heaviest day with 30 missed signals stays packed with all 59 pins; a permanent guard in `test/savesize.js`. Then the careful-day helper signals before each pull-out with B-138. | doing (packing done; helper with B-138's review) |
 | B-161 | Claude | **Save v3 on a real 3D day:** a browser check that plays `workday-3d-j` (a scrape left unreported: the most pins of the flows) with a strict SCORM 1.2 stand-in LMS and asserts the stored save is packed v3, under 4,000 characters, and reloads to the same score and pins (B-160 was measured in Node). | todo |
-| B-162 | Claude | **More key terms in the glossary:** add "parking brake", "mirror" and "headlights" (as the game shows them) to `data/i18n/glossary.json`, fix the plain inconsistencies `--list` then shows, ask the reviewers about the rest, and set the baseline. | todo |
+| B-162 | Claude | **More key terms in the glossary:** "parking brake" and "mirror" are glossary terms ("headlight" already was). Parking brake: one word in every language. Mirror: Malayalam's 12 lines with the transliteration മിറർ now say കണ്ണാടി like the Left mirror button (49 lines). Baseline 69. | done |
 | B-163 | Claude | **Readiness from the release-candidate run:** `test/tools/readiness.js` reads `test/out/rc.md` (B-157) and prints the figures for `docs/READINESS.md`'s "What is checked" table (suites passed, flows clean, reruns), so the page is refreshed from one run, not by hand. | todo |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
@@ -591,6 +591,11 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-162 done:** "parking brake" and "mirror" are glossary terms now.
+  - **Parking brake:** every language uses one word.
+  - **Mirror, Malayalam:** 12 lines used the transliteration മിറർ while the Left mirror button and 49 other lines say കണ്ണാടി. They now say കണ്ണാടി with its endings (കണ്ണാടികൾ, കണ്ണാടിയും, കണ്ണാടിക്ക്).
+  - **Lines left in the baseline (22):** Marathi 11, all correct: the oblique form आरशा changes the letter, so the stem check misses it. French 4 use "rétro", the usual short form on short labels. Bengali 3, Gujarati 3 and Telugu 1 are for the reviewers. The glossary's total is 69 with the new terms.
 
 - **22 October 2026, Claude — B-159 done:** the browser suites' English-text comparisons are checked. Comparisons with model data (labels, titles) are English by design. Two on-screen text checks run in English at that point and are listed as known. `test/englishtext.js` now fails on any new one (it caught a planted example). Codex has a note.
 

@@ -39,7 +39,14 @@
     "One headlight at dusk means you are half as visible and it is a citation."
    ]
   },
-  "workday": "Workday"
+  "workday": "Workday",
+  "parking brake": "Parking brake / scan / grip",
+  "mirror": {
+   "en": "Left mirror",
+   "except": [
+    "drive.mirrors"
+   ]
+  }
  },
  "baseline": {
   "bn": {
@@ -53,7 +60,9 @@
    "locker": 0,
    "walkaround": 7,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 3
   },
   "es": {
    "handheld": 0,
@@ -66,7 +75,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "fr": {
    "handheld": 0,
@@ -79,7 +90,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 4
   },
   "gu": {
    "handheld": 0,
@@ -92,7 +105,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 3
   },
   "hi": {
    "handheld": 0,
@@ -105,7 +120,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "kn": {
    "handheld": 0,
@@ -118,7 +135,9 @@
    "locker": 0,
    "walkaround": 9,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "ml": {
    "handheld": 0,
@@ -131,7 +150,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "mr": {
    "handheld": 0,
@@ -144,7 +165,9 @@
    "locker": 0,
    "walkaround": 3,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 11
   },
   "pa": {
    "handheld": 0,
@@ -157,7 +180,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "ta": {
    "handheld": 8,
@@ -170,7 +195,9 @@
    "locker": 0,
    "walkaround": 3,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 0
   },
   "te": {
    "handheld": 0,
@@ -183,7 +210,9 @@
    "locker": 0,
    "walkaround": 0,
    "headlight": 0,
-   "workday": 0
+   "workday": 0,
+   "parking brake": 0,
+   "mirror": 1
   }
  }
 }
