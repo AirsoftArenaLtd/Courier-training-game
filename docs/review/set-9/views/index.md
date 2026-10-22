@@ -1,6 +1,6 @@
 # Review set 9: fixed views
 
-Captured 2026-10-20 from `first-person.html` on the first campaign day,
+Captured 2026-10-22 from `first-person.html` on the first campaign day,
 Low and High graphics, by `node test/tools/review-set.js 9`. The same views are taken at every milestone: open
 the same file in the previous set to compare. These are software-rendered (no graphics card), so they show the look,
 not the frame rate.
