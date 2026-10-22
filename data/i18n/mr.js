@@ -3458,7 +3458,7 @@ window.OTR_I18N.mr = {
 "Check the mirror": "आरसा पाहा",
 "Fasten the seatbelt": "सीटबेल्ट लावा",
 "Change gear": "गिअर बदला",
-"Signal right": "उजवा सिग्नल द्या",
+"Signal right": "उजवा इंडिकेटर",
 "Look forward": "पुढे पाहा",
 "Open the menu": "मेनू उघडा",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "जवळ कोणतेही लक्ष्य दिसत नाही. जवळ जा किंवा पाहण्यासाठी बाण की वापरा.",

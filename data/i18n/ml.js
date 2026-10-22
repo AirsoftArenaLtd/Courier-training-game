@@ -3458,7 +3458,7 @@ window.OTR_I18N.ml = {
 "Check the mirror": "കണ്ണാടി നോക്കുക",
 "Fasten the seatbelt": "സീറ്റ്ബെൽറ്റ് ഇടുക",
 "Change gear": "ഗിയർ മാറ്റുക",
-"Signal right": "വലത് സിഗ്നൽ ഇടുക",
+"Signal right": "വലത് ഇൻഡിക്കേറ്റർ",
 "Look forward": "മുന്നോട്ട് നോക്കുക",
 "Open the menu": "മെനു തുറക്കുക",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "അടുത്ത് ലക്ഷ്യമൊന്നും കാണുന്നില്ല. അടുത്തേക്ക് നീങ്ങുക അല്ലെങ്കിൽ ആരോ കീകൾ കൊണ്ട് നോക്കുക.",

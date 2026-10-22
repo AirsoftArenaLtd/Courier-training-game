@@ -3470,7 +3470,7 @@ window.OTR_I18N.es = {
 "Check the mirror": "Mirar el espejo",
 "Fasten the seatbelt": "Abrocharte el cinturón",
 "Change gear": "Cambiar de marcha",
-"Signal right": "Señalizar a la derecha",
+"Signal right": "Señal derecha",
 "Look forward": "Mirar al frente",
 "Open the menu": "Abrir el menú",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "No hay ningún objetivo cercano visible. Acércate o usa las flechas para mirar.",

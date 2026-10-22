@@ -3459,7 +3459,7 @@ window.OTR_I18N.pa = {
 "Check the mirror": "ਸ਼ੀਸ਼ਾ ਦੇਖੋ",
 "Fasten the seatbelt": "ਸੀਟ ਬੈਲਟ ਲਗਾਓ",
 "Change gear": "ਗੇਅਰ ਬਦਲੋ",
-"Signal right": "ਸੱਜਾ ਸਿਗਨਲ ਦਿਓ",
+"Signal right": "ਸੱਜਾ ਇੰਡੀਕੇਟਰ",
 "Look forward": "ਸਾਹਮਣੇ ਦੇਖੋ",
 "Open the menu": "ਮੀਨੂ ਖੋਲ੍ਹੋ",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "ਨੇੜੇ ਕੋਈ ਨਿਸ਼ਾਨਾ ਨਹੀਂ ਦਿਸਦਾ। ਨੇੜੇ ਜਾਓ ਜਾਂ ਤੀਰ ਕੁੰਜੀਆਂ ਨਾਲ ਦੇਖੋ।",

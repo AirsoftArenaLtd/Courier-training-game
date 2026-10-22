@@ -3459,7 +3459,7 @@ window.OTR_I18N.bn = {
 "Check the mirror": "মিরর দেখুন",
 "Fasten the seatbelt": "সিটবেল্ট বাঁধুন",
 "Change gear": "গিয়ার বদলান",
-"Signal right": "ডানে সিগন্যাল দিন",
+"Signal right": "ডান ইন্ডিকেটর",
 "Look forward": "সামনে তাকান",
 "Open the menu": "মেনু খুলুন",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "কাছে কোনো লক্ষ্য দেখা যাচ্ছে না। কাছে যান বা দেখতে তীর চিহ্নের কী চাপুন।",

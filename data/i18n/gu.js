@@ -3458,7 +3458,7 @@ window.OTR_I18N.gu = {
 "Check the mirror": "અરીસો જુઓ",
 "Fasten the seatbelt": "સીટબેલ્ટ બાંધો",
 "Change gear": "ગિયર બદલો",
-"Signal right": "જમણું સિગ્નલ આપો",
+"Signal right": "જમણો ઇન્ડિકેટર",
 "Look forward": "આગળ જુઓ",
 "Open the menu": "મેનુ ખોલો",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "નજીકમાં કોઈ લક્ષ્ય દેખાતું નથી. નજીક જાઓ અથવા જોવા માટે ઍરો કી વાપરો.",

@@ -3443,7 +3443,7 @@ window.OTR_I18N.fr = {
 "Check the mirror": "Vérifier le rétroviseur",
 "Fasten the seatbelt": "Attacher la ceinture",
 "Change gear": "Changer de vitesse",
-"Signal right": "Mettre le clignotant à droite",
+"Signal right": "Clignotant droit",
 "Look forward": "Regarder devant",
 "Open the menu": "Ouvrir le menu",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "Aucune cible proche n'est visible. Rapproche-toi ou utilise les flèches pour regarder.",
