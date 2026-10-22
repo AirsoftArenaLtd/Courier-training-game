@@ -38,7 +38,8 @@ const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:tru
    assert.ok(layout.back.bottom<=layout.screenBottom);assert.equal(layout.events,0);
    assert.ok(layout.phaserBytes<=(quality==='high'?16:4)*1024*1024,lang+': handheld exceeds the texture budget');
    // Use the actual Back hit target, then return by the keyboard route.
-   await page.evaluate(()=>new Promise(resolve=>OTR.game.events.once('step',()=>resolve())));
+   const frame=await page.evaluate(()=>OTR.game.loop.frame);
+   await page.waitForFunction(f=>OTR.game.loop.frame>f+2,{},frame);
    await page.mouse.click(layout.back.x,layout.back.y);
    await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title==='DELIVERY');
    assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'DELIVERY');
