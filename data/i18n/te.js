@@ -3458,7 +3458,7 @@ window.OTR_I18N.te = {
 "Check the mirror": "అద్దం చూడండి",
 "Fasten the seatbelt": "సీట్‌బెల్ట్ పెట్టుకోండి",
 "Change gear": "గేర్ మార్చండి",
-"Signal right": "కుడి సిగ్నల్ ఇవ్వండి",
+"Signal right": "కుడి ఇండికేటర్",
 "Look forward": "ముందుకు చూడండి",
 "Open the menu": "మెనూ తెరవండి",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "దగ్గరలో లక్ష్యం ఏదీ కనిపించడం లేదు. దగ్గరకు వెళ్లండి లేదా చూడటానికి బాణం కీలు వాడండి.",

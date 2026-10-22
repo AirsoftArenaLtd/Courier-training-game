@@ -1,6 +1,6 @@
 # Open questions for the translation reviewers
 
-Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 26 questions in 9 languages.
+Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 35 questions in 11 languages.
 
 Each question is also in the Comment column of that language's sheet (`docs/review/<language>-safety.csv`), on its line,
 and those lines come first. Send this page with the sheet, so the reviewer knows what we most want to hear about.
@@ -15,6 +15,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 3. **The line:** "Pre-trip walkaround"
    The walk round the van to check it is called চারপাশ পরীক্ষা in some lines and পরিদর্শন or "চারপাশ দেখা" in others. Which one word should drivers see everywhere?
+
+4. **The line:** "Signal left"
+   The cab's two controls are called ইন্ডিকেটর (indicator), and the instructions say to give a সিগন্যাল (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places সিগন্যাল can also mean a traffic light.)
 
 ## French (fr-safety.csv)
 
@@ -38,6 +41,14 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 4. **The line:** "Eyes up and early every time: the earlier you see a hazard developing, the more time you have to deal with it."
    "નજર ઊંચી અને વહેલી" follows the English closely ("eyes up and early"). Does it read naturally to a driver, or is there a more usual way to say "look up and ahead, early"?
 
+5. **The line:** "Signal left"
+   The cab's two controls are called ઇન્ડિકેટર (indicator), and the instructions say to give a સિગ્નલ (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places સિગ્નલ can also mean a traffic light.)
+
+## Hindi (hi-safety.csv)
+
+1. **The line:** "Signal left"
+   The cab's two controls are called इंडिकेटर (indicator), and the instructions say to give a सिग्नल (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places सिग्नल can also mean a traffic light.)
+
 ## Kannada (kn-safety.csv)
 
 1. **The line:** "Contacted the closure instead of following the diversion."
@@ -49,6 +60,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 3. **The line:** "Talk to reception"
    The Reception button says ರಿಸೆಪ್ಷನ್, but this line and one other say ಸ್ವಾಗತಕಾರರು (the receptionist). Is that natural here, or should they say ರಿಸೆಪ್ಷನ್ too?
 
+4. **The line:** "Signal left"
+   The cab's two controls are called ಇಂಡಿಕೇಟರ್ (indicator), and the instructions say to give a ಸಿಗ್ನಲ್ (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places ಸಿಗ್ನಲ್ can also mean a traffic light.)
+
 ## Malayalam (ml-safety.csv)
 
 1. **The line:** "Contacted the closure instead of following the diversion."
@@ -56,6 +70,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 2. **The line:** "Park near the delivery point. Check the path and stay outside a loose dog’s gate. Retrieve the correct package and scan it at the door. Attempt contact, complete any photo ID and signature checks, then record the required delivery outcome. Keep exception packages for return."
    Is ഒഴിവ് the right word for an "exception" package (one that could not be delivered)? It may read as exemption or vacancy.
+
+3. **The line:** "Signal left"
+   The cab's two controls are called ഇൻഡിക്കേറ്റർ (indicator), and the instructions say to give a സിഗ്നൽ (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places സിഗ്നൽ can also mean a traffic light.)
 
 ## Marathi (mr-safety.csv)
 
@@ -65,6 +82,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 2. **The line:** "Pre-trip walkaround"
    The walk round the van is तपासणी here but पाहणी or फेरी in other lines. Which one word should drivers see everywhere?
 
+3. **The line:** "Signal left"
+   The cab's two controls are called इंडिकेटर (indicator), and the instructions say to give a सिग्नल (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places सिग्नल can also mean a traffic light.)
+
 ## Punjabi (pa-safety.csv)
 
 1. **The line:** "A dent is visible here."
@@ -72,6 +92,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 2. **The line:** "You get as far as setting it down before the bright SIGNATURE REQUIRED sticker catches your eye. Left unattended, it is a failed delivery with your name on it. You pick it back up and ring the bell properly."
    The sticker text SIGNATURE REQUIRED is left in English here and in a few other lines, as it is printed on the parcel. Would a Punjabi-speaking driver expect it in Punjabi instead? If so, please give the wording.
+
+3. **The line:** "Signal left"
+   The cab's two controls are called ਇੰਡੀਕੇਟਰ (indicator), and the instructions say to give a ਸਿਗਨਲ (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places ਸਿਗਨਲ can also mean a traffic light.)
 
 ## Spanish (es-safety.csv)
 
@@ -100,3 +123,11 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 5. **The line:** "Good. Go do your walkaround."
    The walk round the van is called சோதனை in most lines, but this and 2 other lines say "சுற்றிப் பார்" (look around). Which would a Tamil-speaking driver understand at once as the daily check of the van?
+
+6. **The line:** "Signal left"
+   The cab's two controls are called இண்டிகேட்டர் (indicator), and the instructions say to give a சிக்னல் (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places சிக்னல் can also mean a traffic light.)
+
+## Telugu (te-safety.csv)
+
+1. **The line:** "Signal left"
+   The cab's two controls are called ఇండికేటర్ (indicator), and the instructions say to give a సిగ్నల్ (signal) before moving or turning. Do drivers say it this way, or should one word be used for both? (In some places సిగ్నల్ can also mean a traffic light.)

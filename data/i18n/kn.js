@@ -3458,7 +3458,7 @@ window.OTR_I18N.kn = {
 "Check the mirror": "ಕನ್ನಡಿ ನೋಡಿ",
 "Fasten the seatbelt": "ಸೀಟ್‌ಬೆಲ್ಟ್ ಹಾಕಿ",
 "Change gear": "ಗೇರ್ ಬದಲಿಸಿ",
-"Signal right": "ಬಲ ಸಿಗ್ನಲ್ ಹಾಕಿ",
+"Signal right": "ಬಲ ಇಂಡಿಕೇಟರ್",
 "Look forward": "ಮುಂದೆ ನೋಡಿ",
 "Open the menu": "ಮೆನು ತೆರೆಯಿರಿ",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "ಹತ್ತಿರ ಯಾವುದೇ ಗುರಿ ಕಾಣುತ್ತಿಲ್ಲ. ಹತ್ತಿರ ಹೋಗಿ ಅಥವಾ ಬಾಣದ ಕೀಗಳಿಂದ ನೋಡಿ.",

@@ -3458,7 +3458,7 @@ window.OTR_I18N.ta = {
 "Check the mirror": "கண்ணாடியைப் பாருங்கள்",
 "Fasten the seatbelt": "சீட்பெல்ட் அணியுங்கள்",
 "Change gear": "கியரை மாற்றுங்கள்",
-"Signal right": "வலது சிக்னல் போடுங்கள்",
+"Signal right": "வலது இண்டிகேட்டர்",
 "Look forward": "முன்னே பாருங்கள்",
 "Open the menu": "மெனுவைத் திறங்கள்",
 "No nearby target is visible. Move closer or use the arrow keys to look.": "அருகில் இலக்கு எதுவும் தெரியவில்லை. அருகில் செல்லுங்கள் அல்லது பார்க்க அம்புக்குறி விசைகளைப் பயன்படுத்துங்கள்.",
