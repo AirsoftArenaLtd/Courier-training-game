@@ -40,6 +40,7 @@ OTR.fpHandheld = class {
     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
     if(OTR.fpAccess)OTR.fpAccess.layoutDevice(this);
+    if(OTR.fpBrand)OTR.fpBrand.deviceOptions(this.device);
     if (OTR.a11y) OTR.a11y.say([def.title,...(def.lines||[]).map(line=>typeof line==='string'?line:line.text),...(def.options||[]).map(o=>o.label)].map(t=>OTR.i18n.t(t)).join('. '));
     return true;
   }

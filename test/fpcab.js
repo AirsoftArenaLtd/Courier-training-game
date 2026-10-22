@@ -67,3 +67,15 @@ test('speed, RPM, wheel and physical switch indicators follow the mission while 
  assert.ok(Math.abs(a.wheel.rotation.z+.6)<1e-9);assert.ok(Math.abs(a.gauges.material.uniforms.speed.value-8/17.8816)<1e-9);assert.equal(a.gauges.material.uniforms.rpm.value,.6);assert.notDeepEqual(a.batch.instanceMatrix.array,before);
  assert.equal(s.view.camera.fov,76);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
 });
+test('instrument backlighting follows the real headlights without a texture, timer or mission write',()=>{
+ for(const high of [false,true]){
+  const s=scene(high),face=s.art.cab.gauges,uniforms=face.material.uniforms;
+  assert.equal(face.geometry.index.count,6);assert.equal(face.material.map,undefined);
+  for(const on of [false,true,false]){
+   s.model.van.headlights=on;const before=JSON.stringify(s.model.snapshot());s.sync();
+   assert.equal(uniforms.lit.value,on?1:0);assert.equal(JSON.stringify(s.model.snapshot()),before);
+   s.model.elapsed+=20;s.sync();assert.equal(uniforms.lit.value,on?1:0);
+  }
+  let disposed=0;face.material.addEventListener('dispose',()=>disposed++);s.art.dispose();assert.equal(disposed,1);
+ }
+});

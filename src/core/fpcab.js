@@ -62,18 +62,18 @@ OTR.fpCab={
       for(const x of [-.48,.48,1.35]){face(x,-.345,-.953,.16,.075,0x101B23);for(let i=0;i<3;i++)face(x,-.37+i*.025,-.949,.15,.006,0x687780);}
     }
     part(.48,-.42,-.95,.27,.52,.1,0x17252F);
-    const shifter=part(.48,-.58,-.86,.09,.08,.08,0xE2CFA4);
+    const shifter=part(.48,-.58,-.86,.09,.08,.08,0x96A5AD);
     for(const [i,id] of ['cab-park','cab-reverse','cab-neutral','cab-drive'].entries()){
       const y=-.25-i*.11;face(.48,y,-.892,.21,.085,0x455863);target(id,.48,y,-.875,.21,.09,.04);
       labels.push({parent:root,cab:true,gear:true,local:new T.Vector3(.35,y,-.86),point:new T.Vector3(),text:['P','R','N','D'][i],max:2.5});
     }
-    const brake=part(.5,-.62,-.48,.06,.08,.27,0xC8BDA1,'cab-handbrake',-.4);
-    const left=part(-.23,-.34,-.75,.18,.035,.04,0xD0D8D9,'cab-signal-left');
+    const brake=part(.5,-.62,-.48,.06,.08,.27,0x657780,'cab-handbrake',-.4);
+    const left=part(-.23,-.34,-.75,.18,.035,.04,0x899BA5,'cab-signal-left');
     face(-.23,-.25,-.75,.18,.045,0xA2B1B9);target('cab-signal-right',-.23,-.25,-.75,.18,.045,.05);
-    const wipers=part(.23,-.34,-.75,.18,.035,.04,0xD0D8D9,'cab-wipers');
-    const lights=part(-.48,-.29,-1,.08,.09,.07,0xD0D8D9,'cab-headlights');
-    const belt=part(.27,-.66,-.37,.1,.12,.09,0xF5BD63,'cab-belt');
-    part(-.65,-.45,-.36,.055,.055,.2,0xD0D8D9,'cab-exit');
+    const wipers=part(.23,-.34,-.75,.18,.035,.04,0x899BA5,'cab-wipers');
+    const lights=part(-.48,-.29,-1,.08,.09,.07,0x899BA5,'cab-headlights');
+    const belt=part(.27,-.66,-.37,.1,.12,.09,0xC6644B,'cab-belt');
+    part(-.65,-.45,-.36,.055,.055,.2,0x899BA5,'cab-exit');
     const batch=new T.InstancedMesh(cube,paint,parts.length);batch.frustumCulled=false;root.add(batch);
     for(let i=0;i<parts.length;i++){batch.setMatrixAt(i,parts[i].matrix);batch.setColorAt(i,parts[i].color);parts[i].index=i;}
     const panels=new T.InstancedMesh(sheet,paint,sheets.length);panels.frustumCulled=false;root.add(panels);
@@ -84,15 +84,51 @@ OTR.fpCab={
     const spokes=new T.InstancedMesh(sheet,rimPaint,high?3:4);spokes.frustumCulled=false;wheel.add(spokes);
     for(let i=0;i<3;i++){const a=i*2*Math.PI/3;scratch.position.set(Math.sin(a)*.08,Math.cos(a)*.08,0);scratch.rotation.set(0,0,-a);scratch.scale.set(.018,.16,1);scratch.updateMatrix();spokes.setMatrixAt(i,scratch.matrix);}
     if(!high){scratch.position.set(0,0,0);scratch.rotation.set(0,0,0);scratch.scale.set(.075,.065,1);scratch.updateMatrix();spokes.setMatrixAt(3,scratch.matrix);}
-    const gaugePaint=new T.ShaderMaterial({uniforms:{speed:{value:0},rpm:{value:.2}},vertexShader:'varying vec2 p; void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
-      precision mediump float; varying vec2 p; uniform float speed; uniform float rpm;
-      float dial(vec2 v,float value){float r=length(v);float ring=smoothstep(.96,.9,r)*smoothstep(.8,.85,r);
-        float a=mix(-2.35,2.35,clamp(value,0.,1.));vec2 n=vec2(sin(a),-cos(a));
-        float t=clamp(dot(v,n),0.,.72);float needle=1.-smoothstep(.025,.045,length(v-n*t));
-        float ticks=step(.91,fract(atan(v.x,v.y)*1.91))*step(.7,r)*step(r,.86);return max(needle,max(ring,ticks));}
-      void main(){vec2 a=(p-vec2(.25,.5))*vec2(4.,2.);vec2 b=(p-vec2(.75,.5))*vec2(4.,2.);
-        float ink=max(dial(a,speed),dial(b,rpm));gl_FragColor=vec4(mix(vec3(.045,.075,.09),vec3(.95,.87,.65),ink),1.);}`});
-    const gauges=new T.Mesh(sheet,gaugePaint);gauges.position.set(0,-.235,-1.005);gauges.scale.set(.61,.18,1);root.add(gauges);
+    // Both presets share the existing two-triangle instrument face. Scales, digits and backlighting
+    // are analytic artwork, with no image, text canvas, animation timer or additional render pass.
+    const gaugePaint=new T.ShaderMaterial({uniforms:{speed:{value:0},rpm:{value:.2},lit:{value:0}},vertexShader:'varying vec2 p; void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
+      precision mediump float; varying vec2 p; uniform float speed; uniform float rpm; uniform float lit;
+      float band(float x,float a,float b){return smoothstep(a-.012,a+.012,x)*(1.-smoothstep(b-.012,b+.012,x));}
+      float stroke(vec2 q,vec2 a,vec2 b,float w){vec2 d=b-a;float t=clamp(dot(q-a,d)/dot(d,d),0.,1.);return 1.-smoothstep(w,w+.018,length(q-a-d*t));}
+      float digit(vec2 q,float n){
+        if(abs(q.x)>.34||abs(q.y)>.56)return 0.;
+        float a=step(.5,abs(n-1.))*step(.5,abs(n-4.));
+        float b=step(.5,abs(n-5.))*step(.5,abs(n-6.));
+        float c=step(.5,abs(n-2.));
+        float d=step(.5,abs(n-1.))*step(.5,abs(n-4.))*step(.5,abs(n-7.));
+        float e=1.-step(.5,min(min(abs(n),abs(n-2.)),min(abs(n-6.),abs(n-8.))));
+        float f=step(.5,abs(n-1.))*step(.5,abs(n-2.))*step(.5,abs(n-3.))*step(.5,abs(n-7.));
+        float g=step(.5,abs(n))*step(.5,abs(n-1.))*step(.5,abs(n-7.));
+        return max(max(max(a*stroke(q,vec2(-.23,.45),vec2(.23,.45),.025),d*stroke(q,vec2(-.23,-.45),vec2(.23,-.45),.025)),g*stroke(q,vec2(-.23,0.),vec2(.23,0.),.025)),
+          max(max(b*stroke(q,vec2(.26,.05),vec2(.26,.4),.025),c*stroke(q,vec2(.26,-.05),vec2(.26,-.4),.025)),max(e*stroke(q,vec2(-.26,-.05),vec2(-.26,-.4),.025),f*stroke(q,vec2(-.26,.05),vec2(-.26,.4),.025))));
+      }
+      vec3 dial(vec2 q,float value,float number,float redline){
+        float r=length(q),angle=atan(q.x,q.y),u=(angle+2.35)/4.7,arc=step(0.,u)*step(u,1.);
+        vec3 face=mix(vec3(.018,.029,.037),vec3(.065,.083,.092),clamp(1.-r,0.,1.));
+        vec3 ink=mix(vec3(.68,.75,.76),vec3(.79,.94,.86),lit);
+        float minor=1.-smoothstep(.035,.075,abs(fract(u*40.+.5)-.5));
+        float major=1.-smoothstep(.025,.065,abs(fract(u*8.+.5)-.5));
+        float ticks=max(minor*band(r,.79,.86),major*band(r,.7,.86))*arc;
+        face=mix(face,ink,ticks);
+        face=mix(face,vec3(.75,.23,.16),band(r,.87,.9)*arc*step(.8,u)*redline);
+        float rim=band(r,.94,.985);face=mix(face,vec3(.33,.39,.42)*(1.+q.y*.2),rim);
+        float a=mix(-2.35,2.35,clamp(value,0.,1.));vec2 n=vec2(sin(a),cos(a));
+        float needle=stroke(q,n*(-.13),n*.72,.018);face=mix(face,vec3(1.,.42,.2),needle);
+        face=mix(face,vec3(.57,.65,.66),1.-smoothstep(.065,.09,r));
+        float num=clamp(floor(number+.5),0.,9999.),digits;
+        if(redline>.5){vec2 read=(q-vec2(0.,-.4))*vec2(8.,8.5);
+          digits=max(max(digit(read+vec2(1.05,0.),floor(num/1000.))*step(1000.,num),digit(read+vec2(.35,0.),mod(floor(num/100.),10.))*step(100.,num)),
+            max(digit(read-vec2(.35,0.),mod(floor(num/10.),10.))*step(10.,num),digit(read-vec2(1.05,0.),mod(num,10.))));
+        }else{vec2 read=(q-vec2(0.,-.4))*vec2(5.,7.);digits=max(digit(read+vec2(.4,0.),floor(num/10.))*step(10.,num),digit(read-vec2(.4,0.),mod(num,10.)));}
+        face=mix(face,ink,digits);return mix(vec3(.025,.038,.047),face,1.-smoothstep(1.,1.025,r));
+      }
+      void main(){
+        vec2 left=(p-vec2(.25,.5))*vec2(7.2,2.54),right=(p-vec2(.75,.5))*vec2(7.2,2.54);
+        vec3 colour=p.x<.5?dial(left,speed,speed*40.,0.):dial(right,rpm,rpm*4000.,1.);
+        float edge=band(p.x,.008,.992)*band(p.y,.025,.975);colour=mix(vec3(.14,.18,.2),colour,edge);
+        gl_FragColor=vec4(colour,1.);
+      }`});
+    const gauges=new T.Mesh(sheet,gaugePaint);gauges.name='cab-instrument-face';gauges.position.set(0,-.235,-1.005);gauges.scale.set(.61,.215,1);root.add(gauges);
     labels.push({parent:root,cab:true,gauge:'speed',wrap:260,local:new T.Vector3(-.16,-.34,-.99),point:new T.Vector3(),text:'The speed is 0 mph.',max:2.5});
     labels.push({parent:root,cab:true,gauge:'rpm',wrap:260,local:new T.Vector3(.16,-.47,-.99),point:new T.Vector3(),text:'The engine is at 800 RPM.',max:2.5});
     function change(p,rx,rz,color,y=p.y,z=p.z){
@@ -102,12 +138,12 @@ OTR.fpCab={
     const navigation={parent:root,cab:true,local:new T.Vector3(navX,navY,-1.005),point:new T.Vector3(),max:2.5};
     let state=-1;return {root,wheel,gauges,parts,batch,navigation,
       sync(m){
-        const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;
+        const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;gaugePaint.uniforms.lit.value=v.headlights?1:0;
         const next=v.gear+1+4*Number(v.hand)+8*Number(v.belt)+16*Number(!!v.headlights)+32*Number(!!v.wipers)+64*(m.signal+1);if(next===state)return;state=next;
-        change(shifter,0,0,0xE2CFA4,-.25-(v.gear===2?0:v.gear+2)*.11,shifter.z);
-        change(brake,v.hand?-.4:0,0,v.hand?0xE2CFA4:0xA2B1B9);change(left,0,m.signal*.32,m.signal?0xF5BD63:0xD0D8D9,left.y+m.signal*.045);
-        change(wipers,0,v.wipers?.28:0,v.wipers?0xF5BD63:0xD0D8D9);change(lights,0,v.headlights?.6:0,v.headlights?0xE2E9CC:0xD0D8D9);
-        change(belt,0,0,v.belt?0xD0D8D9:0xF5BD63,belt.y,v.belt?-.42:-.37);
+        change(shifter,0,0,0x96A5AD,-.25-(v.gear===2?0:v.gear+2)*.11,shifter.z);
+        change(brake,v.hand?-.4:0,0,v.hand?0x96A5AD:0x657780);change(left,0,m.signal*.32,m.signal?0xF5BD63:0x899BA5,left.y+m.signal*.045);
+        change(wipers,0,v.wipers?.28:0,v.wipers?0xF5BD63:0x899BA5);change(lights,0,v.headlights?.6:0,v.headlights?0xBFE1D6:0x899BA5);
+        change(belt,0,0,v.belt?0x899BA5:0xC6644B,belt.y,v.belt?-.42:-.37);
         batch.instanceMatrix.needsUpdate=true;batch.instanceColor.needsUpdate=true;
       },
       dispose(){paint.dispose();rimPaint.dispose();gaugePaint.dispose();}
