@@ -12,8 +12,8 @@ OTR.fpCab={
     if(Object.hasOwn(this.gears,id))return m.selectGear(this.gears[id])?'':'Stop before selecting a different gear.';
     if(id==='cab-handbrake')v.hand=!v.hand;
     else if(id==='cab-belt')v.belt=!v.belt;
-    else if(id==='cab-signal-left')m.signal=m.signal===-1?0:-1;
-    else if(id==='cab-signal-right')m.signal=m.signal===1?0:1;
+    else if(id==='cab-signal-left'){const next=m.signal===-1?0:-1;if(OTR.fpSignal)OTR.fpSignal.change(m,next);else m.signal=next;}
+    else if(id==='cab-signal-right'){const next=m.signal===1?0:1;if(OTR.fpSignal)OTR.fpSignal.change(m,next);else m.signal=next;}
     else if(id==='cab-headlights')v.headlights=!v.headlights;
     else if(id==='cab-wipers')v.wipers=!v.wipers;
     else return null;
@@ -28,8 +28,8 @@ OTR.fpCab={
     if(id==='cab-belt')return m.van.belt?`The seatbelt is fastened. Press ${key} to release it.`:`The seatbelt is unfastened. Press ${key} to fasten it.`;
     if(id==='cab-headlights')return m.van.headlights?`The headlights are on. Press ${key} to switch them off.`:`The headlights are off. Press ${key} to switch them on.`;
     if(id==='cab-wipers')return m.van.wipers?`The wipers are on. Press ${key} to switch them off.`:`The wipers are off. Press ${key} to switch them on.`;
-    if(id==='cab-signal-left')return m.signal===-1?`The left signal is on. Press ${key} to cancel it.`:`Press ${key} to signal left.`;
-    if(id==='cab-signal-right')return m.signal===1?`The right signal is on. Press ${key} to cancel it.`:`Press ${key} to signal right.`;
+    if(id==='cab-signal-left')return m.signal===-1?`The left signal is on. Signal for at least three seconds before moving. Press ${key} to cancel it.`:`Press ${key} to signal left.`;
+    if(id==='cab-signal-right')return m.signal===1?`The right signal is on. Signal for at least three seconds before moving. Press ${key} to cancel it.`:`Press ${key} to signal right.`;
     if(id==='cab-exit')return `Press ${key} to open the cab door and get out.`;
     return '';
   },

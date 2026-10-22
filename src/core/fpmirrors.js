@@ -26,11 +26,12 @@ OTR.fpMirrors={
     const v=m.van,d=m.driving,t=d.mirrorTurn||(d.mirrorTurn=[0,v.yaw,v.x,v.z,m.elapsed,false,false,0]);
     const side=Math.abs(v.speed)>.5&&Math.abs(v.steer)>.06?Math.sign(v.speed*v.steer):0;
     if(Math.abs(v.speed)<.3||Math.abs(v.steer)<.035){t[0]=0;return;}
-    if(side&&side!==t[0]){t[0]=side;t[1]=v.yaw;t[2]=v.x;t[3]=v.z;t[4]=m.elapsed;t[5]=this.recent(m,side<0?0:1);t[6]=false;}
+    if(side&&side!==t[0]){t[0]=side;t[1]=v.yaw;t[2]=v.x;t[3]=v.z;t[4]=m.elapsed;t[5]=this.recent(m,side<0?0:1);t[6]=false;if(OTR.fpSignal)OTR.fpSignal.beginTurn(m,side);}
     if(!t[0]||t[6])return;
     const angle=Math.abs(Math.atan2(Math.sin(v.yaw-t[1]),Math.cos(v.yaw-t[1]))),lateral=Math.abs((v.x-t[2])*Math.cos(t[1])+(v.z-t[3])*Math.sin(t[1]));
     if(angle<.06&&lateral<.6)return;
     t[6]=true;t[7]++;OTR.fpDriving.fire(m,'drive.mirrors',`turn:${m.leg}:${t[7]}`,t[5],t[5]?'Checked the matching mirror before turning or changing lanes.':'Turned or changed lanes without a current check of the matching mirror.');
+    if(OTR.fpSignal)OTR.fpSignal.endTurn(m,t[0],t[4]);
   },
   hint(id,m){
     const i=id==='mirror-left'?0:id==='mirror-right'?1:id==='mirror-interior'?2:-1;if(i<0)return '';
