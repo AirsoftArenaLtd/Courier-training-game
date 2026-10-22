@@ -561,6 +561,8 @@ items here for each agent.
 | B-172 | Claude | **The translated pilot guides are checked like the quick starts:** `test/quickstart.js` also checks `docs/PILOT-GUIDE.<lang>.md` (B-170): the machine-translation note, and every quoted button is the game's current translation (now also matching the game's form with a full stop, as "Replay the last mistake."; a task number in brackets is skipped). | done |
 | B-173 | Claude | **The pilot guide's trainer sections in the other nine languages:** `docs/PILOT-GUIDE.<lang>.md` for bn, es, fr, gu, kn, ml, mr, pa and te, as B-170 did for Tamil and Hindi, checked by B-172. | done |
 | B-174 | Claude | **The set 10 review links are tested:** `test/devdaybrowser.js` opens each link in `docs/review/set-10/CHECKLIST.md` (route 1 day 3 at High, route 5 day 4, route 10 day 4) and checks it starts the day the checklist says (graphics level, traffic, a reception), as B-117 did for set 9. | done |
+| B-175 | Claude | **The owner's "What's new" for 22 October:** `docs/review/WHATS-NEW.md` with C-48, B-138 and B-166 to try (links and checklist items), B-164 and C-49/C-50 in progress, the release-candidate result, the save, the trainer material in 11 languages, the glossary and the safer reviews. | done |
+| B-176 | Claude | **The quick start still fits one page:** render each `docs/QUICK-START*.md` to A4 at a normal print size (headless Chromium, `test/tools/`) and check it stays one page in all 11 languages after today's additions; trim the wording where it does not. | todo |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -612,6 +614,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-175 done:** the owner's `WHATS-NEW.md` is up to date. It covers three things to try (the cab, signals, the cab-habit pin), what is in progress (B-164, C-49, C-50), and what was made sure today. Codex took B-164 and is on C-49 and C-50; none is handed over for review yet.
 
 - **22 October 2026, Claude — B-173 done:** the pilot guide's trainer sections are in all 11 languages (`docs/PILOT-GUIDE.<lang>.md`). The nine new pages follow B-170's choice of sections, each language's glossary words and its quick start's wording. Every quoted button (30 to 34 a page) is the game's own string, checked by `test/quickstart.js`. Each Indic page is in its own script only. Spanish and French speak to the trainer as usted and vous; the game's own buttons, quoted exactly, keep tú.
 
