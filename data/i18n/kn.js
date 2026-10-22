@@ -4082,7 +4082,9 @@ window.OTR_I18N.kn = {
 "Reduced motion is on. Use the step buttons to review the van and camera.": "ಕಡಿಮೆ ಚಲನೆ ಆನ್ ಆಗಿದೆ. ವ್ಯಾನ್ ಮತ್ತು ಕ್ಯಾಮೆರಾ ನೋಡಲು ಹಂತದ ಬಟನ್‌ಗಳನ್ನು ಬಳಸಿ.",
 "Only a still frame was recorded before this mistake.": "ಈ ತಪ್ಪಿನ ಮೊದಲು ಒಂದು ಸ್ಥಿರ ಚೌಕಟ್ಟು ಮಾತ್ರ ದಾಖಲಾಗಿದೆ.",
 "This replay shows the van and camera before the mistake.": "ಈ ರಿಪ್ಲೇ ತಪ್ಪಿನ ಮೊದಲು ವ್ಯಾನ್ ಮತ್ತು ಕ್ಯಾಮೆರಾವನ್ನು ತೋರಿಸುತ್ತದೆ.",
-"Pause the replay.": "ರಿಪ್ಲೇ ನಿಲ್ಲಿಸಿ."
+"Pause the replay.": "ರಿಪ್ಲೇ ನಿಲ್ಲಿಸಿ.",
+"You signaled for at least three seconds before moving.": "ಚಲಿಸುವ ಮೊದಲು ನೀವು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿದಿರಿ.",
+"You moved without signaling in the correct direction for three seconds.": "ಸರಿಯಾದ ದಿಕ್ಕಿಗೆ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕದೆ ನೀವು ಚಲಿಸಿದಿರಿ."
 },
 "templates": [
 [
@@ -5892,6 +5894,14 @@ window.OTR_I18N.kn = {
 [
 "The replay is playing at {0} of {1} seconds.",
 "ರಿಪ್ಲೇ {1} ಸೆಕೆಂಡ್‌ಗಳಲ್ಲಿ {0} ರಲ್ಲಿ ಪ್ಲೇ ಆಗುತ್ತಿದೆ."
+],
+[
+"The left signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"ಎಡ ಇಂಡಿಕೇಟರ್ ಆನ್ ಆಗಿದೆ. ಚಲಿಸುವ ಮೊದಲು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿ. ಆಫ್ ಮಾಡಲು {0} ಒತ್ತಿ."
+],
+[
+"The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"ಬಲ ಇಂಡಿಕೇಟರ್ ಆನ್ ಆಗಿದೆ. ಚಲಿಸುವ ಮೊದಲು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿ. ಆಫ್ ಮಾಡಲು {0} ಒತ್ತಿ."
 ]
 ],
 "keep": [

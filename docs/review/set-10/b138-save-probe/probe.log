@@ -1,0 +1,122 @@
+[
+  {
+    "wrong": false,
+    "count": 6,
+    "stage": "packed",
+    "size": 3613,
+    "room": 387,
+    "scorePreserved": true,
+    "pins": 29,
+    "pinsAfter": 29,
+    "items": 207,
+    "itemsAfter": 207
+  },
+  {
+    "wrong": false,
+    "count": 12,
+    "stage": "packed",
+    "size": 3664,
+    "room": 336,
+    "scorePreserved": true,
+    "pins": 29,
+    "pinsAfter": 29,
+    "items": 213,
+    "itemsAfter": 213
+  },
+  {
+    "wrong": false,
+    "count": 18,
+    "stage": "packed",
+    "size": 3718,
+    "room": 282,
+    "scorePreserved": true,
+    "pins": 29,
+    "pinsAfter": 29,
+    "items": 219,
+    "itemsAfter": 219
+  },
+  {
+    "wrong": false,
+    "count": 24,
+    "stage": "packed",
+    "size": 3772,
+    "room": 228,
+    "scorePreserved": true,
+    "pins": 29,
+    "pinsAfter": 29,
+    "items": 225,
+    "itemsAfter": 225
+  },
+  {
+    "wrong": false,
+    "count": 30,
+    "stage": "packed",
+    "size": 3826,
+    "room": 174,
+    "scorePreserved": true,
+    "pins": 29,
+    "pinsAfter": 29,
+    "items": 231,
+    "itemsAfter": 231
+  },
+  {
+    "wrong": true,
+    "count": 6,
+    "stage": "packed",
+    "size": 3698,
+    "room": 302,
+    "scorePreserved": true,
+    "pins": 35,
+    "pinsAfter": 35,
+    "items": 207,
+    "itemsAfter": 207
+  },
+  {
+    "wrong": true,
+    "count": 12,
+    "stage": "packed",
+    "size": 3838,
+    "room": 162,
+    "scorePreserved": true,
+    "pins": 41,
+    "pinsAfter": 41,
+    "items": 213,
+    "itemsAfter": 213
+  },
+  {
+    "wrong": true,
+    "count": 18,
+    "stage": "packed",
+    "size": 3981,
+    "room": 19,
+    "scorePreserved": true,
+    "pins": 47,
+    "pinsAfter": 47,
+    "items": 219,
+    "itemsAfter": 219
+  },
+  {
+    "wrong": true,
+    "count": 24,
+    "stage": "summary",
+    "size": 3900,
+    "room": 100,
+    "scorePreserved": true,
+    "pins": 53,
+    "pinsAfter": 0,
+    "items": 225,
+    "itemsAfter": 225
+  },
+  {
+    "wrong": true,
+    "count": 30,
+    "stage": "summary",
+    "size": 3942,
+    "room": 58,
+    "scorePreserved": true,
+    "pins": 59,
+    "pinsAfter": 0,
+    "items": 231,
+    "itemsAfter": 231
+  }
+]

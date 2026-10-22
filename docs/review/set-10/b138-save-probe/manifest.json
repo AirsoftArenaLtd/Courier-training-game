@@ -1,0 +1,34 @@
+{
+  "task": "B-138 stress finding; not acceptance",
+  "pilotBase": "9c108ce9",
+  "fixture": "Real signal-controller report shapes; synthetic positions within mission bounds, six legs; unchanged heavy SCORM fixture with two runs/four scenarios. Not a natively driven full route.",
+  "sourceSHA256": {
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpmirrors.js": "e4eb1d269ba9145232288355cf56a448c61cb39f9cea612ddb8c927858d8869a",
+    "src/core/fpcab.js": "92a7b74fc01e804e2ffc8591d5ed115dc16da51d241a3cf31d171eedb5151ab9",
+    "test/fpsignal.js": "ba4f783154ab0605b1ed84def15574f5de93d9d904e3bc1757edc6d248abf4c7",
+    "test/savesize.js": "99b6848891c8f82ce1c4b6ee25d8d3353a999739c1adae31fe4664afc25e7da6",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "fd3baa786a51a2966107a049298f09e05e5a31cecb88bf58d88ba8faf25abed7"
+  },
+  "result": "18 wrong signals: packed, 19 characters free, all 47 pins. 24 wrong: summary, all 53 pins lost. 30 wrong: all 59 pins lost. All scores preserved. Requires shared packing/QA work before merge.",
+  "files": [
+    {
+      "file": "probe.cjs",
+      "sha256": "63eccafcef8f39f8b1efc2a45049ac82f0ef92e88ed97aac94fc4196fe1dfa88"
+    },
+    {
+      "file": "results.json",
+      "sha256": "fb1947476ca87ceb43c07f79dd0fbcb20d973cc2b017e94ae5982db5b7d30bf3"
+    },
+    {
+      "file": "probe.log",
+      "sha256": "9fe1a60f235727c809f73fcc0a745eccb77879a093a204c72f161dd6f0ea4a1c"
+    },
+    {
+      "file": "model.log",
+      "sha256": "a7a61fc4b82a1de4ae5fea3de9f6691e7b4d827002f14430ff75f9e87f2f29ae"
+    }
+  ]
+}

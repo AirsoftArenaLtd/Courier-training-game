@@ -1,0 +1,6 @@
+signal low en normal
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+-1 !== 0
+
+    at /workspace/b138-signal-scoring/test/fpsignalbrowser.js:33:28

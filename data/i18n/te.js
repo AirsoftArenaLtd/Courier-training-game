@@ -4082,7 +4082,9 @@ window.OTR_I18N.te = {
 "Reduced motion is on. Use the step buttons to review the van and camera.": "తగ్గిన కదలిక ఆన్‌లో ఉంది. వ్యాన్ మరియు కెమెరాను చూడటానికి స్టెప్ బటన్‌లను ఉపయోగించండి.",
 "Only a still frame was recorded before this mistake.": "ఈ తప్పుకు ముందు ఒక స్థిర ఫ్రేమ్ మాత్రమే రికార్డ్ అయింది.",
 "This replay shows the van and camera before the mistake.": "ఈ రీప్లే తప్పుకు ముందు వ్యాన్ మరియు కెమెరాను చూపిస్తుంది.",
-"Pause the replay.": "రీప్లేను ఆపండి."
+"Pause the replay.": "రీప్లేను ఆపండి.",
+"You signaled for at least three seconds before moving.": "కదిలే ముందు మీరు కనీసం మూడు సెకన్లు సిగ్నల్ ఇచ్చారు.",
+"You moved without signaling in the correct direction for three seconds.": "సరైన దిశలో మూడు సెకన్లు సిగ్నల్ ఇవ్వకుండానే మీరు కదిలారు."
 },
 "templates": [
 [
@@ -5892,6 +5894,14 @@ window.OTR_I18N.te = {
 [
 "The replay is playing at {0} of {1} seconds.",
 "రీప్లే {1} సెకన్లలో {0} వద్ద ప్లే అవుతోంది."
+],
+[
+"The left signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"ఎడమ ఇండికేటర్ ఆన్‌లో ఉంది. కదిలే ముందు కనీసం మూడు సెకన్లు సిగ్నల్ ఇవ్వండి. ఆపడానికి {0} నొక్కండి."
+],
+[
+"The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"కుడి ఇండికేటర్ ఆన్‌లో ఉంది. కదిలే ముందు కనీసం మూడు సెకన్లు సిగ్నల్ ఇవ్వండి. ఆపడానికి {0} నొక్కండి."
 ]
 ],
 "keep": [

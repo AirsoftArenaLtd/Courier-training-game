@@ -4082,7 +4082,9 @@ window.OTR_I18N.mr = {
 "Reduced motion is on. Use the step buttons to review the van and camera.": "कमी हालचाल चालू आहे. व्हॅन आणि कॅमेरा पाहण्यासाठी पायरी बटणे वापरा.",
 "Only a still frame was recorded before this mistake.": "या चुकीपूर्वी फक्त एक स्थिर फ्रेम रेकॉर्ड झाली.",
 "This replay shows the van and camera before the mistake.": "हा रिप्ले चुकीपूर्वीची व्हॅन आणि कॅमेरा दाखवतो.",
-"Pause the replay.": "रिप्ले थांबवा."
+"Pause the replay.": "रिप्ले थांबवा.",
+"You signaled for at least three seconds before moving.": "निघण्यापूर्वी तुम्ही किमान तीन सेकंद सिग्नल दिला.",
+"You moved without signaling in the correct direction for three seconds.": "योग्य दिशेला तीन सेकंद सिग्नल न देता तुम्ही निघालात."
 },
 "templates": [
 [
@@ -5892,6 +5894,14 @@ window.OTR_I18N.mr = {
 [
 "The replay is playing at {0} of {1} seconds.",
 "रिप्ले {1} पैकी {0} सेकंदावर चालू आहे."
+],
+[
+"The left signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"डावा इंडिकेटर चालू आहे. निघण्यापूर्वी किमान तीन सेकंद सिग्नल द्या. बंद करण्यासाठी {0} दाबा."
+],
+[
+"The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"उजवा इंडिकेटर चालू आहे. निघण्यापूर्वी किमान तीन सेकंद सिग्नल द्या. बंद करण्यासाठी {0} दाबा."
 ]
 ],
 "keep": [

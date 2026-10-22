@@ -4083,7 +4083,9 @@ window.OTR_I18N.fr = {
 "Reduced motion is on. Use the step buttons to review the van and camera.": "Le mouvement réduit est activé. Utilise les boutons pas à pas pour revoir la camionnette et la caméra.",
 "Only a still frame was recorded before this mistake.": "Seule une image fixe a été enregistrée avant cette erreur.",
 "This replay shows the van and camera before the mistake.": "Ce replay montre la camionnette et la caméra avant l'erreur.",
-"Pause the replay.": "Mettre le replay en pause."
+"Pause the replay.": "Mettre le replay en pause.",
+"You signaled for at least three seconds before moving.": "Tu as mis le clignotant au moins trois secondes avant de partir.",
+"You moved without signaling in the correct direction for three seconds.": "Tu es parti sans mettre le clignotant du bon côté pendant trois secondes."
 },
 "templates": [
 [
@@ -5893,6 +5895,14 @@ window.OTR_I18N.fr = {
 [
 "The replay is playing at {0} of {1} seconds.",
 "Le replay est en lecture à {0} sur {1} secondes."
+],
+[
+"The left signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"Le clignotant gauche est allumé. Mets le clignotant au moins trois secondes avant de partir. Appuie sur {0} pour l'arrêter."
+],
+[
+"The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"Le clignotant droit est allumé. Mets le clignotant au moins trois secondes avant de partir. Appuie sur {0} pour l'arrêter."
 ]
 ],
 "keep": [

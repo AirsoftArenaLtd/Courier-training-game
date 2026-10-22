@@ -1,0 +1,110 @@
+{
+  "quality": "high",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 331.5,
+        "right": 948.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      },
+      "reload": {
+        "saved": {
+          "elapsed": 1.754929999999998,
+          "clock": [
+            -1,
+            0.2498699999999987,
+            0
+          ]
+        },
+        "restored": {
+          "elapsed": 1.7699299999999982,
+          "clock": [
+            -1,
+            0.2498699999999987,
+            0
+          ],
+          "signal": -1,
+          "speed": 0,
+          "mode": "cab",
+          "target": null,
+          "events": [],
+          "paused": false,
+          "keys": {
+            "KeyE": "KeyO",
+            "KeyQ": "KeyT"
+          }
+        }
+      },
+      "right": {
+        "elapsed": 3.549863333333325,
+        "clock": [
+          -1,
+          0.2498699999999987,
+          1
+        ],
+        "signal": -1,
+        "speed": 0.4297001118063856,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      },
+      "wrong": {
+        "elapsed": 3.8997600000000037,
+        "clock": [
+          0,
+          3.5831966666666584,
+          2
+        ],
+        "signal": 0,
+        "speed": 0.4295351340029584,
+        "mode": "cab",
+        "target": null,
+        "events": [
+          {
+            "key": "0:1",
+            "ok": true,
+            "stop": 1
+          },
+          {
+            "key": "0:2",
+            "ok": false,
+            "stop": 1,
+            "where": {
+              "x": 2.8,
+              "z": -18,
+              "mph": 1
+            }
+          }
+        ],
+        "paused": false,
+        "keys": {
+          "KeyE": "KeyO",
+          "KeyQ": "KeyT"
+        }
+      }
+    }
+  ],
+  "checks": 24,
+  "errors": [],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "complete": true
+}

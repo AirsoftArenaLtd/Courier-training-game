@@ -4082,7 +4082,9 @@ window.OTR_I18N.ta = {
 "Reduced motion is on. Use the step buttons to review the van and camera.": "குறைந்த அசைவு இயக்கத்தில் உள்ளது. வேனையும் கேமராவையும் பார்க்கப் படிநிலை பொத்தான்களைப் பயன்படுத்துங்கள்.",
 "Only a still frame was recorded before this mistake.": "இந்தத் தவறுக்கு முன் ஒரு நிலையான சட்டகம் மட்டுமே பதிவானது.",
 "This replay shows the van and camera before the mistake.": "இந்த மறுஒளிபரப்பு தவறுக்கு முன் வேனையும் கேமராவையும் காட்டுகிறது.",
-"Pause the replay.": "மறுஒளிபரப்பை இடைநிறுத்துங்கள்."
+"Pause the replay.": "மறுஒளிபரப்பை இடைநிறுத்துங்கள்.",
+"You signaled for at least three seconds before moving.": "நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போட்டீர்கள்.",
+"You moved without signaling in the correct direction for three seconds.": "சரியான திசையில் மூன்று விநாடிகள் சிக்னல் போடாமல் நகர்ந்தீர்கள்."
 },
 "templates": [
 [
@@ -5892,6 +5894,14 @@ window.OTR_I18N.ta = {
 [
 "The replay is playing at {0} of {1} seconds.",
 "மறுஒளிபரப்பு {1} வினாடிகளில் {0} இல் இயங்குகிறது."
+],
+[
+"The left signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"இடது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க {0} அழுத்துங்கள்."
+],
+[
+"The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
+"வலது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க {0} அழுத்துங்கள்."
 ]
 ],
 "keep": [

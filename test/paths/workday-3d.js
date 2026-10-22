@@ -62,6 +62,17 @@ const make = (opts) => async (page, ctx) => {
     await focus(id);
     must(await ctx.until(`OTR.fpMirrors.recent(${FP}.model, ${index})`, 6000), 'looking at ' + id + ' did not count as a mirror check');
   };
+  // B-138, B-160: moving off, even backwards, wants the left indicator on for at least three game seconds before the
+  // van moves (fpsignal.js) and then the fresh mirror look; a driver cancels it once moving, so a later turn is not
+  // signalled the wrong way. A build without the signal check skips both.
+  const signal = () => ev(() => OTR.game.scene.getScene('FirstPersonScene').model.signal);
+  const indicate = async () => {
+    if (!(await ev(() => !!OTR.fpSignal))) return;
+    if ((await signal()) !== -1) await press('KeyQ');
+    must((await signal()) === -1, 'Q did not switch the left indicator on');
+    must(await ctx.until(`OTR.fpSignal.ready(${FP}.model, -1)`, 30000), 'the left indicator was not on for three game seconds');
+  };
+  const cancelIndicator = async () => { if ((await signal()) === -1) await press('KeyQ'); };
   // reverse the given distance at walking pace: release the parking brake, throttle in R, then stop and set the brake
   const reverseBy = async (metres) => {
     const from = (await state()).m.van;
@@ -346,6 +357,7 @@ const make = (opts) => async (page, ctx) => {
   // the physical cab (A-24): the gear selector is used by looking at it and pressing the action key, and a mirror is
   // checked by looking at it (there is no mirror button since C-23); the left mirror just before moving off
   await cabUse('cab-drive'); must((await state()).m.van.gear === 1, 'the selector did not put the van in Drive');
+  await indicate();
   await lookAt('mirror-left', 0);
   await press('KeyV');                                             // look forward again
   await press('Space');
@@ -354,13 +366,14 @@ const make = (opts) => async (page, ctx) => {
   // a leg fails only when the van stops getting closer for 30 s of wall time (or after 5 minutes): on a software-rendered
   // High run the game may simulate a tenth of a second in five, so a fixed deadline measured the PC, not the drive
   const driveTo = async (z) => {
-    const end = Date.now() + 300000; let fwd = false, brake = false, best = Infinity, lastGain = Date.now();
+    const end = Date.now() + 300000; let fwd = false, brake = false, best = Infinity, lastGain = Date.now(), moving = false;
     // B-129: drive to the conditions: at most 85% of the day's weather limit (fog 12, ice 8, snow 10 mph: fpDay.conditions)
     const top = await ev(() => { const m = OTR.game.scene.getScene('FirstPersonScene').model, D = OTR.fpDay;
       const mph = D && D.active(m) ? Math.min(D.conditions[m.routeDay.weather].mph, OTR.fpRoute.limit(m)) : Infinity; return Math.min(4, mph * 0.85 / 2.2369362921); });
     while (Date.now() < end && Date.now() - lastGain < 30000) {
       const v = (await state()).m.van, d = v.z - z, stop = d <= v.speed * v.speed / 4 + 0.6, gas = !stop && v.speed < top;
       if (Math.abs(d) < best - 0.05 || Math.abs(v.speed) > 0.04) { best = Math.min(best, Math.abs(d)); lastGain = Date.now(); }
+      if (!moving && Math.abs(v.speed) > 0.5) { moving = true; await cancelIndicator(); }
       if (gas !== fwd) { await page.keyboard[gas ? 'down' : 'up']('KeyW'); fwd = gas; }
       if (stop !== brake) { await page.keyboard[stop ? 'down' : 'up']('KeyS'); brake = stop; }
       if (stop && Math.abs(v.speed) < 0.04) { await page.keyboard.up('KeyW'); await page.keyboard.up('KeyS'); return; }
@@ -433,8 +446,8 @@ const make = (opts) => async (page, ctx) => {
   must(await ctx.until(`${FP}.view.mirror.rearOn === true`, 3000), 'the rear camera did not switch on in reverse');
   await shot('rear-camera');
   // B-130: moving off again, even backwards, wants a fresh mirror check (fpdriving.js: each pull-out after a stop with the brake on)
-  await lookAt('mirror-left', 0); await press('KeyV');
-  await reverseBy(1);
+  await indicate(); await lookAt('mirror-left', 0); await press('KeyV');
+  await reverseBy(1); await cancelIndicator();
   await cabUse('cab-park');
   must(await ev(() => OTR.workday.events.some((e) => e.type === 'drive.backing' && e.ok)), 'a slow reverse with the camera was not reported as safe backing');
   await press('KeyV');                                             // look forward: the action key now opens the door

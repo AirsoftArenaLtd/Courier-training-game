@@ -97,7 +97,7 @@ OTR.fpMission = {
           case 'pedestrian':
             type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
           case 'returned': type = 'return.scanned'; break;
-          // Pull-out observation has no report type in the current contract; retain its HUD log.
+          // The combined pull-out HUD observation stays here; fpDriving reports signal timing separately.
           default: return;
         }
         if (driving) {
