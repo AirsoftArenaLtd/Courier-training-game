@@ -10,7 +10,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8371',OUT=path.join(__dirname,
   for(const quality of (process.env.QA_LAYOUTS==='0'?[]:(process.env.QA_QUALITIES||'low,high').split(',')))for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const large of (process.env.QA_SIZES||'normal,large').split(',').map(s=>s==='large')){
    console.log(quality,lang,large?'large':'normal');page=await browser.newPage();await page.setViewport({width:1280,height:720});await page.evaluateOnNewDocument(()=>localStorage.clear());page.on('pageerror',e=>report.errors.push(e.message));
    await page.goto(BASE+'/first-person.html?gfx='+quality+'&lang='+lang);await ready('FirstPersonScene');
-   const retained=await page.evaluate(()=>({signal:typeof OTR.fpSignal?.report,replay:typeof OTR.fpReplay?.attach,replayScene:!!OTR.game.scene.keys.FPReplayScene}));
+   const retained=await page.evaluate(()=>({signal:typeof OTR.fpSignal?.report,replay:typeof OTR.fpReplay?.Recorder,replayScene:!!OTR.game.scene.keys.FPReplayScene}));
    assert.equal(retained.signal,'function');assert.equal(retained.replay,'function');assert.equal(retained.replayScene,true);report.checks+=3;
    await page.evaluate(large=>{Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true});OTR.workday.begin();OTR.workday.report('brief.read',{key:'suspended'});},large);
    const before=await page.evaluate(fixture,{piece:'cab',assess:large,remap:large});await ready('FirstPersonScenarioScene');await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').keyboardMode=true);
