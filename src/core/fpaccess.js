@@ -13,6 +13,7 @@ OTR.fpAccess={
     };
   },
   settings(){return OTR.a11y?OTR.a11y.settings():{};},
+  controlHint(scene,id,m,key){return scene.controlHint?scene.controlHint(id,m,key):OTR.fpCab.hint(id,m,key);},
   // Cab speech has two bounded slots. Ordinary hints wait for speech already in progress;
   // an urgent rear stop can replace our own hint, but never another reader's utterance.
   voiceState(scene){return scene.cabVoice||(scene.cabVoice={hint:null,rear:null,lastHint:'',target:'',band:null,gear:scene.model.van.gear,next:0,active:null});},
@@ -29,7 +30,7 @@ OTR.fpAccess={
     if(!m||m.mode!=='cab'||!this.settings().narrate||!window.speechSynthesis){scene.cabVoice=null;return;}
     const state=this.voiceState(scene),speech=window.speechSynthesis;
     if(blocked){state.hint=state.rear=null;state.lastHint=state.target='';state.band=null;state.gear=m.van.gear;state.active=null;return;}
-    const id=scene.target,text=OTR.fpMirrors&&OTR.fpMirrors.hint(id,m)||(id==='cab-camera'&&m.van.gear!==-1&&OTR.fpHud?OTR.fpHud.screenHint(m):id&&id!=='cab-camera'?OTR.fpCab.hint(id,m,this.key('KeyE')):'');
+    const id=scene.target,text=OTR.fpMirrors&&OTR.fpMirrors.hint(id,m)||(id==='cab-camera'&&m.van.gear!==-1&&OTR.fpHud?OTR.fpHud.screenHint(m):id&&id!=='cab-camera'?this.controlHint(scene,id,m,this.key('KeyE')):'');
     const target=(id||'')+'|'+text;
     if(target!==state.target){const previous=state.target;state.target=target;if(text)this.voiceHint(scene,text,'target');else if(previous)state.lastHint='';}
     if(m.van.gear!==state.gear){
@@ -100,7 +101,7 @@ OTR.fpAccess={
     for(let n=1;n<=ids.length;n++){
       const i=(start+n)%ids.length;for(const object of objects){if(object.userData.interaction!==ids[i])continue;object.getWorldPosition(point);
       const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(cab)m.van.look=OTR.fp.clamp(Math.atan2(Math.sin(heading-m.van.yaw),Math.cos(heading-m.van.yaw)),-1.5,1.5);else p.yaw=heading;p.pitch=OTR.fp.clamp(Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z)),-1.05,1.05);
-      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(ids[i].startsWith('wear-')?`${OTR.fpWalkaroundFlow.target(ids[i].slice(5)).name} Press ${this.key('KeyE')} to inspect it.`:ids[i]==='cab-camera'?(OTR.fpHud?OTR.fpHud.screenHint(m):OTR.fpRear.hint(m)):OTR.fpMirrors&&OTR.fpMirrors.hint(ids[i],m)||(cab?OTR.fpCab.hint(ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`));return ids[i];}}
+      scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;scene.message(ids[i].startsWith('wear-')?`${OTR.fpWalkaroundFlow.target(ids[i].slice(5)).name} Press ${this.key('KeyE')} to inspect it.`:ids[i]==='cab-camera'?(OTR.fpHud?OTR.fpHud.screenHint(m):OTR.fpRear.hint(m)):OTR.fpMirrors&&OTR.fpMirrors.hint(ids[i],m)||(cab?this.controlHint(scene,ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`));return ids[i];}}
     }
     if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },

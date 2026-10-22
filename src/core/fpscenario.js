@@ -10,7 +10,7 @@ OTR.fpScenario={
   },
   register(key,definition){
     if(typeof key!=='string'||!key||this.definitions.has(key))throw Error('Invalid or duplicate 3D scenario key');
-    if(!definition||!this.pieces[definition.piece]||typeof definition.goal!=='string'||!definition.goal.trim()||definition.goal.length>160||
+    if(!definition||!Object.hasOwn(this.pieces,definition.piece)||typeof definition.goal!=='string'||!definition.goal.trim()||definition.goal.length>160||
       !Number.isFinite(definition.seconds)||definition.seconds<=0||typeof definition.result!=='function')throw Error('Invalid 3D scenario definition');
     this.definitions.set(key,Object.freeze({...definition}));
   },
