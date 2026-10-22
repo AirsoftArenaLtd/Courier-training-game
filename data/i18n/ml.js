@@ -4069,7 +4069,20 @@ window.OTR_I18N.ml = {
 "Decline the route update.": "റൂട്ട് അപ്ഡേറ്റ് നിരസിക്കുക.",
 "Confirm arrival at the check-in stop.": "ചെക്ക്-ഇൻ സ്റ്റോപ്പിൽ എത്തിയെന്ന് സ്ഥിരീകരിക്കുക.",
 "Invalid dispatch version": "അസാധുവായ ഡിസ്പാച്ച് പതിപ്പ്",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "ഡിസ്പാച്ച് ചെക്ക്-ഇൻ പൂർത്തിയാക്കുക, എന്നിട്ട് റൂട്ട് തുടരുക അല്ലെങ്കിൽ ഡിപ്പോയിലേക്ക് മടങ്ങുക."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ഡിസ്പാച്ച് ചെക്ക്-ഇൻ പൂർത്തിയാക്കുക, എന്നിട്ട് റൂട്ട് തുടരുക അല്ലെങ്കിൽ ഡിപ്പോയിലേക്ക് മടങ്ങുക.",
+"Replay the last mistake.": "അവസാനത്തെ തെറ്റ് വീണ്ടും പ്ലേ ചെയ്യുക.",
+"Review the last mistake.": "അവസാനത്തെ തെറ്റ് അവലോകനം ചെയ്യുക.",
+"The replay is loading.": "റീപ്ലേ ലോഡ് ചെയ്യുന്നു.",
+"Play the replay.": "റീപ്ലേ പ്ലേ ചെയ്യുക.",
+"Step back half a second.": "അര സെക്കൻഡ് പിന്നോട്ട് പോകുക.",
+"Step forward half a second.": "അര സെക്കൻഡ് മുന്നോട്ട് പോകുക.",
+"Return to the previous screen.": "മുമ്പത്തെ സ്ക്രീനിലേക്ക് മടങ്ങുക.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "ഈ ജോലിദിവസത്തിന് റീപ്ലേ ഇല്ല. ഈ ടാബ് അടയ്ക്കുന്നതുവരെയോ മറ്റൊരു ജോലിദിവസം തുടങ്ങുന്നതുവരെയോ റീപ്ലേകൾ മെമ്മറിയിൽ ഉണ്ടാകും.",
+"The replay could not open. You can return to your results.": "റീപ്ലേ തുറക്കാനായില്ല. നിങ്ങൾക്ക് ഫലങ്ങളിലേക്ക് മടങ്ങാം.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "കുറഞ്ഞ ചലനം ഓണാണ്. വാനും ക്യാമറയും കാണാൻ സ്റ്റെപ്പ് ബട്ടണുകൾ ഉപയോഗിക്കുക.",
+"Only a still frame was recorded before this mistake.": "ഈ തെറ്റിന് മുമ്പ് ഒരു നിശ്ചല ഫ്രെയിം മാത്രമേ റെക്കോർഡ് ചെയ്തുള്ളൂ.",
+"This replay shows the van and camera before the mistake.": "ഈ റീപ്ലേ തെറ്റിന് മുമ്പുള്ള വാനും ക്യാമറയും കാണിക്കുന്നു.",
+"Pause the replay.": "റീപ്ലേ താൽക്കാലികമായി നിർത്തുക."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.ml = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0}-ൽ ഒരു ഡിസ്പാച്ച് ചെക്ക്-ഇൻ ബാക്കിയുണ്ട്."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"റീപ്ലേ {1} സെക്കൻഡിൽ {0} ൽ നിർത്തിയിരിക്കുന്നു."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"റീപ്ലേ {1} സെക്കൻഡിൽ {0} ൽ പ്ലേ ചെയ്യുന്നു."
 ]
 ],
 "keep": [

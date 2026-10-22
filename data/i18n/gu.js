@@ -4069,7 +4069,20 @@ window.OTR_I18N.gu = {
 "Decline the route update.": "રૂટ અપડેટ નકારો.",
 "Confirm arrival at the check-in stop.": "ચેક-ઇન સ્ટોપ પર પહોંચ્યાની પુષ્ટિ કરો.",
 "Invalid dispatch version": "અમાન્ય ડિસ્પેચ સંસ્કરણ",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "ડિસ્પેચ ચેક-ઇન પૂરું કરો, પછી રૂટ ચાલુ રાખો અથવા ડેપો પર પાછા ફરો."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "ડિસ્પેચ ચેક-ઇન પૂરું કરો, પછી રૂટ ચાલુ રાખો અથવા ડેપો પર પાછા ફરો.",
+"Replay the last mistake.": "છેલ્લી ભૂલ ફરી ચલાવો.",
+"Review the last mistake.": "છેલ્લી ભૂલની સમીક્ષા કરો.",
+"The replay is loading.": "રિપ્લે લોડ થઈ રહ્યો છે.",
+"Play the replay.": "રિપ્લે ચલાવો.",
+"Step back half a second.": "અડધી સેકંડ પાછળ જાઓ.",
+"Step forward half a second.": "અડધી સેકંડ આગળ જાઓ.",
+"Return to the previous screen.": "પાછલી સ્ક્રીન પર પાછા જાઓ.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "આ કામના દિવસનો કોઈ રિપ્લે નથી. આ ટૅબ બંધ થાય અથવા બીજો કામનો દિવસ શરૂ થાય ત્યાં સુધી રિપ્લે મેમરીમાં રહે છે.",
+"The replay could not open. You can return to your results.": "રિપ્લે ખૂલી શક્યો નહીં. તમે તમારાં પરિણામો પર પાછા જઈ શકો છો.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "ઓછી ગતિ ચાલુ છે. વાન અને કૅમેરા જોવા માટે સ્ટેપ બટનનો ઉપયોગ કરો.",
+"Only a still frame was recorded before this mistake.": "આ ભૂલ પહેલાં ફક્ત એક સ્થિર ફ્રેમ રેકોર્ડ થઈ.",
+"This replay shows the van and camera before the mistake.": "આ રિપ્લે ભૂલ પહેલાંની વાન અને કૅમેરા બતાવે છે.",
+"Pause the replay.": "રિપ્લે થોભાવો."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.gu = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0} પર ડિસ્પેચ ચેક-ઇન બાકી છે."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"રિપ્લે {1} માંથી {0} સેકંડ પર થોભેલો છે."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"રિપ્લે {1} માંથી {0} સેકંડ પર ચાલી રહ્યો છે."
 ]
 ],
 "keep": [

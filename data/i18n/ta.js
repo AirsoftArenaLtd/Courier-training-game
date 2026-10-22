@@ -4069,7 +4069,20 @@ window.OTR_I18N.ta = {
 "Decline the route update.": "ரூட் அப்டேட்டை நிராகரியுங்கள்.",
 "Confirm arrival at the check-in stop.": "செக்-இன் நிறுத்தத்தை அடைந்ததை உறுதிசெய்யுங்கள்.",
 "Invalid dispatch version": "தவறான டிஸ்பாட்ச் பதிப்பு",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "டிஸ்பாட்ச் செக்-இன்னை முடித்துவிட்டு, ரூட்டைத் தொடருங்கள் அல்லது டிப்போவுக்குத் திரும்புங்கள்."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "டிஸ்பாட்ச் செக்-இன்னை முடித்துவிட்டு, ரூட்டைத் தொடருங்கள் அல்லது டிப்போவுக்குத் திரும்புங்கள்.",
+"Replay the last mistake.": "கடைசித் தவறை மீண்டும் இயக்குங்கள்.",
+"Review the last mistake.": "கடைசித் தவறை மறுபார்வை செய்யுங்கள்.",
+"The replay is loading.": "மறுஒளிபரப்பு ஏற்றப்படுகிறது.",
+"Play the replay.": "மறுஒளிபரப்பை இயக்குங்கள்.",
+"Step back half a second.": "அரை வினாடி பின்னால் செல்லுங்கள்.",
+"Step forward half a second.": "அரை வினாடி முன்னால் செல்லுங்கள்.",
+"Return to the previous screen.": "முந்தைய திரைக்குத் திரும்புங்கள்.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "இந்த வேலைநாளுக்கு மறுஒளிபரப்பு இல்லை. இந்தத் தாவல் மூடப்படும் வரை அல்லது வேறு வேலைநாள் தொடங்கும் வரை மறுஒளிபரப்புகள் நினைவகத்தில் இருக்கும்.",
+"The replay could not open. You can return to your results.": "மறுஒளிபரப்பைத் திறக்க முடியவில்லை. உங்கள் முடிவுகளுக்குத் திரும்பலாம்.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "குறைந்த அசைவு இயக்கத்தில் உள்ளது. வேனையும் கேமராவையும் பார்க்கப் படிநிலை பொத்தான்களைப் பயன்படுத்துங்கள்.",
+"Only a still frame was recorded before this mistake.": "இந்தத் தவறுக்கு முன் ஒரு நிலையான சட்டகம் மட்டுமே பதிவானது.",
+"This replay shows the van and camera before the mistake.": "இந்த மறுஒளிபரப்பு தவறுக்கு முன் வேனையும் கேமராவையும் காட்டுகிறது.",
+"Pause the replay.": "மறுஒளிபரப்பை இடைநிறுத்துங்கள்."
 },
 "templates": [
 [
@@ -5871,6 +5884,14 @@ window.OTR_I18N.ta = {
 [
 "A dispatch check-in is pending at {0}.",
 "{0}-இல் ஒரு டிஸ்பாட்ச் செக்-இன் நிலுவையில் உள்ளது."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"மறுஒளிபரப்பு {1} வினாடிகளில் {0} இல் இடைநிறுத்தப்பட்டுள்ளது."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"மறுஒளிபரப்பு {1} வினாடிகளில் {0} இல் இயங்குகிறது."
 ]
 ],
 "keep": [

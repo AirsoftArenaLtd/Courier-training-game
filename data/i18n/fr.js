@@ -4070,7 +4070,20 @@ window.OTR_I18N.fr = {
 "Decline the route update.": "Refuser la mise à jour de tournée.",
 "Confirm arrival at the check-in stop.": "Confirmer l'arrivée à l'arrêt de pointage.",
 "Invalid dispatch version": "Version du répartiteur non valide",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "Fais ton pointage auprès du répartiteur, puis poursuis la tournée ou retourne au dépôt."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "Fais ton pointage auprès du répartiteur, puis poursuis la tournée ou retourne au dépôt.",
+"Replay the last mistake.": "Revoir la dernière erreur.",
+"Review the last mistake.": "Examiner la dernière erreur.",
+"The replay is loading.": "Le replay se charge.",
+"Play the replay.": "Lancer le replay.",
+"Step back half a second.": "Reculer d'une demi-seconde.",
+"Step forward half a second.": "Avancer d'une demi-seconde.",
+"Return to the previous screen.": "Revenir à l'écran précédent.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "Il n'y a pas de replay pour cette journée. Les replays restent en mémoire jusqu'à la fermeture de cet onglet ou le début d'une autre journée.",
+"The replay could not open. You can return to your results.": "Le replay n'a pas pu s'ouvrir. Tu peux revenir à tes résultats.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "Le mouvement réduit est activé. Utilise les boutons pas à pas pour revoir la camionnette et la caméra.",
+"Only a still frame was recorded before this mistake.": "Seule une image fixe a été enregistrée avant cette erreur.",
+"This replay shows the van and camera before the mistake.": "Ce replay montre la camionnette et la caméra avant l'erreur.",
+"Pause the replay.": "Mettre le replay en pause."
 },
 "templates": [
 [
@@ -5872,6 +5885,14 @@ window.OTR_I18N.fr = {
 [
 "A dispatch check-in is pending at {0}.",
 "Un pointage auprès du répartiteur est en attente à {0}."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"Le replay est en pause à {0} sur {1} secondes."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"Le replay est en lecture à {0} sur {1} secondes."
 ]
 ],
 "keep": [

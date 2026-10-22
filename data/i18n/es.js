@@ -4080,7 +4080,20 @@ window.OTR_I18N.es = {
 "Decline the route update.": "Rechazar la actualización de ruta.",
 "Confirm arrival at the check-in stop.": "Confirmar la llegada a la parada de registro.",
 "Invalid dispatch version": "Versión de despacho no válida",
-"Complete the dispatch check-in, then continue the route or return to the depot.": "Completa el registro en el despacho y luego sigue la ruta o vuelve al centro."
+"Complete the dispatch check-in, then continue the route or return to the depot.": "Completa el registro en el despacho y luego sigue la ruta o vuelve al centro.",
+"Replay the last mistake.": "Repite el último error.",
+"Review the last mistake.": "Revisa el último error.",
+"The replay is loading.": "La repetición se está cargando.",
+"Play the replay.": "Reproduce la repetición.",
+"Step back half a second.": "Retrocede medio segundo.",
+"Step forward half a second.": "Avanza medio segundo.",
+"Return to the previous screen.": "Vuelve a la pantalla anterior.",
+"There is no replay for this workday. Replays stay in memory until this tab closes or another workday starts.": "No hay repetición de esta jornada. Las repeticiones se guardan en memoria hasta que se cierra esta pestaña o empieza otra jornada.",
+"The replay could not open. You can return to your results.": "No se pudo abrir la repetición. Puedes volver a tus resultados.",
+"Reduced motion is on. Use the step buttons to review the van and camera.": "El movimiento reducido está activado. Usa los botones de paso para revisar la camioneta y la cámara.",
+"Only a still frame was recorded before this mistake.": "Antes de este error solo se grabó una imagen fija.",
+"This replay shows the van and camera before the mistake.": "Esta repetición muestra la camioneta y la cámara antes del error.",
+"Pause the replay.": "Pausa la repetición."
 },
 "templates": [
 [
@@ -5882,6 +5895,14 @@ window.OTR_I18N.es = {
 [
 "A dispatch check-in is pending at {0}.",
 "Hay un registro del despacho pendiente en {0}."
+],
+[
+"The replay is paused at {0} of {1} seconds.",
+"La repetición está en pausa en {0} de {1} segundos."
+],
+[
+"The replay is playing at {0} of {1} seconds.",
+"La repetición se reproduce en {0} de {1} segundos."
 ]
 ],
 "keep": [
