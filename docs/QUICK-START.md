@@ -1,7 +1,8 @@
 # Trainer's quick start (one page)
 
-For the person running a session. Print this page; the full guide is `docs/PILOT-GUIDE.md`. The game's other 11
-languages each have this page as `docs/QUICK-START.<lang>.md` (machine translations, awaiting native review).
+For the person running a session. Print this page (on one A4 sheet: `docs/print/QUICK-START.html`); the full guide is
+`docs/PILOT-GUIDE.md`. The game's other 11 languages each have this page as `docs/QUICK-START.<lang>.md` (machine
+translations, awaiting native review), and its A4 sheet in `docs/print/`.
 
 **Before trainees arrive**
 1. Open the game on one training PC and start a workday. If it says "WebGL is required", ask IT to turn graphics

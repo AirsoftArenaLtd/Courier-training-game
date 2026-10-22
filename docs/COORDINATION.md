@@ -562,7 +562,7 @@ items here for each agent.
 | B-173 | Claude | **The pilot guide's trainer sections in the other nine languages:** `docs/PILOT-GUIDE.<lang>.md` for bn, es, fr, gu, kn, ml, mr, pa and te, as B-170 did for Tamil and Hindi, checked by B-172. | done |
 | B-174 | Claude | **The set 10 review links are tested:** `test/devdaybrowser.js` opens each link in `docs/review/set-10/CHECKLIST.md` (route 1 day 3 at High, route 5 day 4, route 10 day 4) and checks it starts the day the checklist says (graphics level, traffic, a reception), as B-117 did for set 9. | done |
 | B-175 | Claude | **The owner's "What's new" for 22 October:** `docs/review/WHATS-NEW.md` with C-48, B-138 and B-166 to try (links and checklist items), B-164 and C-49/C-50 in progress, the release-candidate result, the save, the trainer material in 11 languages, the glossary and the safer reviews. | done |
-| B-176 | Claude | **The quick start still fits one page:** render each `docs/QUICK-START*.md` to A4 at a normal print size (headless Chromium, `test/tools/`) and check it stays one page in all 11 languages after today's additions; trim the wording where it does not. | todo |
+| B-176 | Claude | **The quick start still fits one page:** render each `docs/QUICK-START*.md` to A4 at a normal print size (headless Chromium, `test/tools/`) and check it stays one page in all 11 languages after today's additions; trim the wording where it does not. | done (Indic fit measured without Indic fonts here: approximate) |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -614,6 +614,12 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-176 done:** the quick start did not fit one page. Printed from Markdown at 10 pt, every language took two A4 pages. Two changes:
+  - **A printable sheet per language:** `test/tools/onepage.js` writes `docs/print/QUICK-START[.<lang>].html`, an A4 sheet at 8.5 pt with 12 mm margins, and each quick start points to its sheet. All 12 fit one page.
+  - **A shorter row in four languages:** the French, Malayalam, Tamil and Telugu 30-minute rows no longer quote the game's whole "started on another computer" prompt.
+  - **Checks:** `test/onepagebrowser.js` fails if a sheet goes over one page or is stale.
+  - **A caveat:** this machine has no Indic fonts, so the Indic pages are measured with fallback fonts and the fit is approximate. Malayalam is the tightest (1,016 of 1,032 px). A trainer printing it should check it on their PC, which uses Nirmala UI on Windows.
 
 - **22 October 2026, Claude — B-175 done:** the owner's `WHATS-NEW.md` is up to date. It covers three things to try (the cab, signals, the cab-habit pin), what is in progress (B-164, C-49, C-50), and what was made sure today. Codex took B-164 and is on C-49 and C-50; none is handed over for review yet.
 

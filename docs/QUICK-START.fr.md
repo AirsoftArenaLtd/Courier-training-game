@@ -2,7 +2,7 @@
 
 # Guide de démarrage rapide du formateur (une page)
 
-Pour la personne qui anime la séance. Imprimez cette page ; le guide complet est `docs/PILOT-GUIDE.md`.
+Pour la personne qui anime la séance. Imprimez cette page ; le guide complet est `docs/PILOT-GUIDE.md`. (A4: `docs/print/QUICK-START.fr.html`)
 
 **Avant l'arrivée des stagiaires**
 1. Ouvrez le jeu sur un PC de formation et lancez une journée de travail. Si le message "WebGL is required" s'affiche, demandez à l'informatique d'activer l'accélération graphique (`chrome://gpu` doit indiquer "WebGL: Hardware accelerated").
@@ -15,7 +15,7 @@ Pour la personne qui anime la séance. Imprimez cette page ; le guide complet es
 | --- | --- |
 | 10 min | Accueil. L'objectif, ce sont les bons réflexes de sécurité, pas la vitesse ; les erreurs font partie de l'apprentissage. |
 | 5 min | Connexion. **Réglages → Accessibilité** (Settings → Accessibility) : langue, texte plus grand, couleurs, touches, narration. |
-| 30 min | Chaque stagiaire joue une **journée** (workday). La progression est enregistrée au fur et à mesure ; le menu de pause permet de s'arrêter et de reprendre plus tard. Pour reprendre, utilisez **le même ordinateur** ; sur un autre ordinateur, la journée recommence depuis le matin (le jeu demande d'abord : « Cette journée de travail a commencé sur un autre ordinateur »). |
+| 30 min | Chaque stagiaire joue une **journée** (workday). La progression est enregistrée au fur et à mesure ; le menu de pause permet de s'arrêter et de reprendre plus tard. Pour reprendre, utilisez **le même ordinateur** ; sur un autre ordinateur, la journée recommence depuis le matin (le jeu demande d'abord). |
 | 15 min | Débriefing collectif : **Résultats → Débriefing** (Results → Debrief), puis la **Carte de conduite** (drive map) et **Revoir la dernière erreur.** (Replay the last mistake.) (les secondes qui la précèdent, depuis le siège du conducteur). Demandez : quel arrêt était le plus difficile, et que feriez-vous autrement ? |
 
 **Montrez-leur la cabine (une minute)**
