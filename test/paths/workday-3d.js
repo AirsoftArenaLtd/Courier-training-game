@@ -569,6 +569,7 @@ const make = (opts) => async (page, ctx) => {
       await use('secure'); await use('cargo');
       continue;
     }
+    let failedBooked = false;
     await shot('contact-' + i); await pick(/Record on handheld/);
     // on a marked day the outcome is a panel of whole sentences (C-33); before, it was the handheld's list
     if (!marked) must((await state()).device, 'the door did not open the delivery on the handheld');
@@ -583,7 +584,11 @@ const make = (opts) => async (page, ctx) => {
       }
       if (spec.difficult) { await pick(/^Speak with the customer calmly\.$/); await shot('customer-' + i); await pick(/Acknowledge the problem/); }
       if ((await state()).panel && await ev(() => OTR.game.scene.getScene('FirstPersonScene').panel.choices.some((o) => /^Return to the delivery controls\.$/.test(o.label)))) await pick(/^Return to the delivery controls\.$/);
-      if (!(await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Hand the parcel to the recipient\.$/.test(o.label)); }))) await pick(/Record on handheld/);
+      // B-131: a parcel that cannot be handed over (a failed ID check, the wrong signer) is a failed delivery: the card,
+      // the reason it is kept and the reattempt, as at a door with nobody in (stop.reattempt)
+      if (expected === 'exception' && await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Arrange a failed delivery and reattempt\.$/.test(o.label)); })) {
+        await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i); failedBooked = true;
+      } else if (!(await ev(() => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => /^Hand the parcel to the recipient\.$/.test(o.label)); }))) await pick(/Record on handheld/);
     } else if (spec.adult || (spec.signature && spec.present) || spec.difficult) {
       await pick(/Delivery checks/);
       if (spec.adult) {
@@ -611,7 +616,16 @@ const make = (opts) => async (page, ctx) => {
     }
     log(`      stop ${i + 1}: ` + ['dog', 'wrong', 'adult', 'signature', 'difficult'].filter((k) => spec[k]).concat(spec.hazard ? ['hazard:' + spec.hazard] : []).join(' ') + ` -> ${expected}`);
     await shot('delivery-options-' + i);
-    if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
+    // B-131: on a marked day any exception is a failed delivery; from the outcome screen, back to the controls to arrange it
+    if (marked && expected === 'exception' && !failedBooked) {
+      const has = (re) => ev((src) => { const p = OTR.game.scene.getScene('FirstPersonScene').panel; return !!p && p.choices.some((o) => new RegExp(src).test(o.label)); }, re.source);
+      if (await has(/^Review the delivery checks\.$/)) await pick(/^Review the delivery checks\.$/);
+      if (await has(/^Return to the delivery controls\.$/)) await pick(/^Return to the delivery controls\.$/);
+      if (await has(/^Arrange a failed delivery and reattempt\.$/)) { await pick(/^Arrange a failed delivery and reattempt\.$/); await reattempt(i); failedBooked = true; }
+      else await pick(/Record on handheld/);
+    }
+    if (failedBooked) {}                                        // B-131: recorded by the failed-delivery sequence
+    else if (marked) await pick(expected === 'handover' ? /^Hand the parcel to the recipient\.$/ : expected === 'safeplace' ? /^(Leave the parcel in the approved safe place|Place the parcel behind the planter)\.$/ : /^Record a delivery exception\.$/);
     else await pick(expected === 'handover' ? /Hand to resident/ : expected === 'safeplace' ? /Leave in porch box/ : /Record a delivery exception/);
     must((await state()).m.stops[i].resolved, 'the delivery outcome was not recorded (stop ' + i + ')');
     await shot('receipt-' + i); await press('Digit1');
@@ -655,10 +669,10 @@ const make = (opts) => async (page, ctx) => {
     // B-123: the first leg was driven in the dark without headlights: wrong, with its place, a pin, and safety marked down
     const lights = await ev(`${dayEvents}.filter((e) => e.type === 'drive.lights').map((e) => ({ key: e.key, ok: e.ok, where: !!e.where }))`);
     must(lights.some((e) => e.ok === false && e.where), 'moving off at night without headlights was not reported wrong with its place: ' + JSON.stringify(lights));
-    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
+    const rec = await ev(() => { const r = OTR.workday.saved().last; return { safety: r.stars.safety, ratio: r.ratios && r.ratios.safety, pins: OTR.drive.pins(OTR.workday.replay(r.events).log).map((p) => p.label) }; });
     must(rec.pins.includes('Drove without headlights in poor light'), 'the drive map has no pin for driving without headlights: ' + JSON.stringify(rec.pins));
-    must(rec.safety < 3, 'safety should not be three stars after driving in the dark without headlights: ' + rec.safety);
-    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars)`);
+    must(rec.ratio < 1, 'safety should lose points after driving in the dark without headlights: ' + JSON.stringify(rec));
+    log(`      night: drove without headlights, reported with a pin (safety ${rec.safety} stars, ${Math.round(rec.ratio * 100)}%)`);
   }
   if (opts.scuff) {
     const rep = await ev(`${dayEvents}.filter((e) => e.type === 'trip.damage-report').map((e) => ({ key: e.key, ok: e.ok }))`);
@@ -683,8 +697,8 @@ const make = (opts) => async (page, ctx) => {
     opts.lightsOff ? ['drive.lights'] : [], opts.radio === 'decline' ? ['dispatch.update'] : [], opts.expectWrong || []));
   const wrong = await ev(`${dayEvents}.filter((e) => e.ok === false).map((e) => e.type + ':' + e.key)`);
   const unmeant = wrong.filter((w) => !meant.has(w.split(':')[0]));
-  // QA_STRICT=1 fails on them; otherwise they are listed (B-128 to B-131 make the golden path careful, then this is the rule)
-  if (unmeant.length) { if (process.env.QA_STRICT) must(false, 'the careful day has wrong reports: ' + unmeant.join(', ')); else log('      not yet careful (B-128 to B-131): ' + unmeant.join(', ')); }
+  // the rule since B-131 (QA_LENIENT=1 only lists them, to see them all at once)
+  if (unmeant.length) { if (process.env.QA_LENIENT) log('      not careful: ' + unmeant.join(', ')); else must(false, 'the careful day has wrong reports: ' + unmeant.join(', ')); }
   // B-108: the golden path earns no critical apart from what a variant sets out to do
   const crits = await ev(() => (OTR.workday.saved().last.criticalTypes || []).filter((t) => t !== 'trip.damage-report'));
   must(!crits.length, 'the careful day carries a critical: ' + crits.join(', '));

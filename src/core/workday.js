@@ -128,12 +128,18 @@ OTR.workday = {
     const key = type + '|' + (d.key === undefined || d.key === null ? '' : d.key);
     if (into.seen.has(key)) return null;
     into.seen.add(key);
-    const ok = d.ok !== false;
+    // B-131: a package that was never at the depot (the load-out's "late" day) and was reported missing to Dispatch
+    // before departure cannot also count against the courier when it turns up at a stop, or for not being on its shelf:
+    // a careful count cannot avoid either. The report is kept (right: it was handled as it should be) and not scored
+    const excused = (type === 'load.found-later' || type === 'load.shelf') && d.key != null &&
+      into.events.some(e => e.type === 'load.missing-found' && e.ok && e.key === d.key);
+    const ok = excused || d.ok !== false;
     const stop = d.stop === undefined || d.stop === null ? null : d.stop;
     const ev = { type, key: d.key === undefined ? null : d.key, ok, stop };
-    const saved = this.place(d.where);                          // the save keeps a smaller copy of the place
+    const saved = excused ? null : this.place(d.where);         // the save keeps a smaller copy of the place
     if (saved) ev.where = saved;
     into.events.push(ev);
+    if (excused) return null;
     const o = {
       lesson: E.lesson || null,
       critical: !!E.critical,

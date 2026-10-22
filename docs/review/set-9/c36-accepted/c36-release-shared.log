@@ -1,0 +1,91 @@
+GPU: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+frame-rate floor: 0 fps
+
+ok   drive-review   fps=  8 boot=null golden=ok
+      load-out: missort (set parcel5 aside), 5 counted
+      stop 1: signature -> handover
+      stop 2: signature -> handover
+      stop 3:  -> safeplace
+      stop 4:  -> handover
+      stop 5: dog -> handover
+ok   workday-3d     fps=  9 boot=null golden=ok
+ok   workday-aids   fps=  9 boot=null golden=ok
+      load-out: missort (set parcel5 aside), 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: adult signature hazard:ice -> exception
+      stop 2: adult signature difficult hazard:ice -> exception
+      stop 3: wrong signature hazard:ice -> exception
+      stop 4: signature -> exception (reattempt booked)
+      stop 5: dog signature hazard:ice -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-b   fps=  3 boot=null golden=ok
+      load-out: clear, 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: wrong signature hazard:ice -> exception
+      stop 2: adult signature hazard:ice -> handover
+      stop 3: dog adult signature hazard:ice -> handover
+      stop 4: locker -> locker
+      stop 5: signature hazard:ice -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-c   fps=  5 boot=null golden=ok
+      load-out: clear, 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: adult signature hazard:ice -> handover
+      stop 2: locker -> locker
+      stop 3: intercom (gated) -> handover
+      stop 4: signature -> exception (reattempt booked)
+      stop 5: dog signature hazard:ice -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-d   fps=  5 boot=null golden=ok
+      load-out: clear, 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: locker -> locker
+      stop 2: signature -> exception (reattempt booked)
+      stop 3: adult signature hazard:ice -> handover
+      stop 4: reception -> handover
+      stop 5: signature -> exception (reattempt booked)
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-e   fps=  6 boot=null golden=ok
+      load-out: missing (parcel3 reported missing), 5 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: wrong signature -> exception
+      stop 2: locker -> locker
+      stop 3: adult signature -> exception
+      stop 4: intercom (gated) -> handover
+      stop 5: reception -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-f   fps=  7 boot=null golden=ok
+      load-out: late (parcel4 reported missing), 4 counted
+      walkaround (pretrip): all 7 areas recorded
+      walkaround: 0 damaged area(s) found before departure
+      stop 1: locker -> locker
+      stop 2: adult signature difficult hazard:ice -> exception
+      stop 3: signature -> exception (reattempt booked)
+      stop 4: dog signature hazard:ice -> handover
+      stop 5: intercom (gated) -> handover
+      walkaround (posttrip): all 7 areas recorded
+      walkaround: 0 new damaged area(s) reported after the trip
+ok   workday-3d-g   fps=  5 boot=null golden=ok
+
+================ summary ================
+  pass  drive-review   fps=  8  
+  pass  workday-3d     fps=  9  
+  pass  workday-aids   fps=  9  
+  pass  workday-3d-b   fps=  3  
+  pass  workday-3d-c   fps=  5  
+  pass  workday-3d-d   fps=  5  
+  pass  workday-3d-e   fps=  6  
+  pass  workday-3d-f   fps=  7  
+  pass  workday-3d-g   fps=  5  
+
+9/9 scenarios clean
