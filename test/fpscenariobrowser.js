@@ -22,7 +22,13 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8371',OUT=path.join(__dirname,
    const shot=TAG+'-'+quality+'-'+lang+'-'+(large?'large':'normal')+'.png';await page.screenshot({path:path.join(OUT,shot)});
    let target=null;for(let n=0;n<16&&target!=='cab-neutral';n++){await page.keyboard.press(large?'KeyO':'KeyP');await frames(1);target=await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').target);}assert.equal(target,'cab-neutral');await page.keyboard.press('KeyE');await ready('ResultsScene');
    const result=await page.evaluate(()=>({id:OTR.flow.last.id,stars:OTR.flow.last.stars,record:OTR.save.data.scenarios['m1-pretrip'],assessment:OTR.save.data.assess?.['m1-pretrip'],checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)}));assert.equal(result.id,'m1-pretrip');assert.equal(result.record.bestScore,100);assert.equal(result.checkpoint,before.checkpoint);assert.equal(result.events,before.events);assert.equal(result.workday,before.workday);if(large){assert.equal(result.assessment.attempts,1);assert.equal(result.assessment.pending,false);assert.equal(result.assessment.passed,true);}report.checks+=6;
-   report.views.push({quality,lang,large,proof,result,shot});save();await page.close();page=null;
+   report.views.push({quality,lang,large,proof,result,shot});save();
+   if(quality==='low'&&lang==='en'&&!large){
+    const repeatBefore=await page.evaluate(fixture,{piece:'cab'});await ready('FirstPersonScenarioScene');await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').keyboardMode=true);
+    await page.keyboard.press('Digit1');await frames();let repeatedTarget=null;for(let n=0;n<16&&repeatedTarget!=='cab-neutral';n++){await page.keyboard.press('KeyP');await frames(1);repeatedTarget=await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').target);}assert.equal(repeatedTarget,'cab-neutral');await page.keyboard.press('KeyE');await ready('ResultsScene');
+    report.repeat=await page.evaluate(()=>({plays:OTR.save.data.scenarios['m1-pretrip'].plays,checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events)}));assert.equal(report.repeat.plays,2);assert.equal(report.repeat.checkpoint,repeatBefore.checkpoint);assert.equal(report.repeat.events,repeatBefore.events);report.checks+=4;
+   }
+   await page.close();page=null;
   }
   // A real workday is started, checkpointed and paused before a module assessment is abandoned.
   page=await browser.newPage();await page.setViewport({width:1280,height:720});await page.evaluateOnNewDocument(()=>localStorage.clear());page.on('pageerror',e=>report.errors.push(e.message));await page.goto(BASE+'/first-person.html?gfx=low');await ready('FirstPersonScene');

@@ -2,6 +2,8 @@
 class FirstPersonScenarioScene extends FirstPersonScene {
   constructor(){super('FirstPersonScenarioScene');}
   create(data){
+    // Phaser reuses the scene object. A previous result or quit must not block the next transition.
+    this._leaving=false;this.inputBlockedUntil=0;
     const scenario=OTR.registry.get(data&&data.scenarioId),route=OTR.fpScenario.resolve(scenario,{choice:'3d',webgl:!!this.sys.game.renderer.gl});
     this.moduleTransferred=false;this.scenarioSession=null;
     if(route.presentation!=='3d'){this.transferScenario(scenario,route);return;}
