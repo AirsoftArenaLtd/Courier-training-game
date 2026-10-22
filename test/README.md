@@ -174,6 +174,7 @@ Written by `node test/run-all.js --readme`.
 | `devdaybrowser.js` | browser (--browser) | The owner's review links. |
 | `drivemapbrowser.js` | browser (--browser) | The 3D workday's drive map with every kind of milestone 8 mistake on it (road signs, a red light, a wrong turn, a cyclist, damage, a low bridge, a shifted lo… |
 | `driving.js` | opens a page | The driving rules added with the drive aids (src/scenes/shift/driveAids.js) and the stop-sign rules, checked in the town lab (index.html?lab=town) with the v… |
+| `englishtext.js` | Node | No browser check compares on-screen text with English. |
 | `enterprise.js` | opens a page | Enterprise sign-in and progress storage (src/core/identity.js, src/core/save.js, server/server.js). |
 | `firstperson.js` | Node | Renderer-free prototype checks. |
 | `fpaccess.js` | Node | Keyboard aim, physical target selection and persisted comfort preferences. |
