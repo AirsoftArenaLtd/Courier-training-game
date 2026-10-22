@@ -39,7 +39,9 @@ OTR.fpDamageWorld={
     // Reuse the same patch instance; older damage days keep their original top surface.
     patches.push(m.walkaround?add(roofSurface?roofSurface.x:-1.115,roofSurface?roofSurface.y:2.98,.6,.65,.18,0,-Math.PI/2,0x4A4A46,true):add(0,3.24,.6,.65,.4,-Math.PI/2,0,0x4A4A46,true));
     patches.push(add(wheel?wheel.g.boundingBox.min.x-.008:-1.208,wheel?wheel.center.y:.42,wheel?wheel.center.z:1.7,.3,.2,0,-Math.PI/2,0x4A4A46,true));
-    patches.push(add(-1.27,1.79,-2.32,.2,.13,0,-Math.PI/2,0x4A4A46,true));
+    const mirror=OTR.fpMirrors&&OTR.fpMirrors.specs[0];
+    // Wear belongs to the housing's back, leaving the reflective glass clear from the seated eye.
+    patches.push(mirror?add(mirror.x-.05*Math.sin(mirror.angle),mirror.y,mirror.z-.05*Math.cos(mirror.angle),.2,.13,0,mirror.angle+Math.PI,0x4A4A46,true):add(-1.27,1.79,-2.32,.2,.13,0,-Math.PI/2,0x4A4A46,true));
     for(const b of m._damageClearances){
       for(const p of b.posts)add(p.x,p.h/2,p.z,p.w,p.h,0,0,0x6D7375);
       add(b.x,b.h+.3,b.z,b.w+.7,.6,0,0,b.kind==='bridge'?0xB4AB99:0xDBAE55);
