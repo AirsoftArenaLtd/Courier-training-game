@@ -52,7 +52,7 @@ The QA machine renders in software (no graphics card), so its frame rates say no
 ## Decisions for the owner
 
 1. **Merge `pilot` into `main`?** Only you approve this. Suggested order: B-164 fixed and the release-candidate run green, then O-1 on one real laptop.
-2. **The open questions** on the board (`docs/COORDINATION.md`, "Questions for the owner"): 2 to 4, 6, 7, 8 (`?gfx=lite`
+2. **The open questions** (one page with our recommendations: `docs/review/DECISIONS.md`) on the board (`docs/COORDINATION.md`, "Questions for the owner"): 2 to 4, 6, 7, 8 (`?gfx=lite`
    for PCs without a graphics driver), 10 (no headlights at night: points or a star) and 11 (do the new 3D-only
    scenarios count for the certificate). Each has a default in use until you answer.
 

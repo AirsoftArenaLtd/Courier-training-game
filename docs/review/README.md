@@ -1,5 +1,6 @@
 # Review material
 
+- `DECISIONS.md`: the owner's open questions on one page, each with the default in use and the team's recommendation.
 - `WHATS-NEW.md`: for the owner, what changed since the last visual review and the quickest way to see each part.
 
 - `<lang>-safety.csv`: the safety wording in each language, for native speakers (A-14). `HOW-TO-REVIEW.md` is what to send them with it (B-81), and each sheet's first row says the same in short, in its language. Lines new or changed since the
