@@ -1,5 +1,7 @@
 # Low-graphics 3D workday budget
 
+**C-48 cab acceptance (21 October 2026):** 207 complete fixed resource views pass unchanged ceilings. Loaded Low and accessible Low peak at **53 calls / 2,402 triangles / two textures / 3,557,376 attachment bytes**, with estimated Phaser maxima **2,740,246 / 3,123,238 bytes**. Missing-model fallback: **53 / 2,156 / two / 3,557,376 / 2,638,592**. High: **107 / 235,915 / three / 11,239,424 / 9,087,536**. Wider cab/mirror framing, lamp target separation and aligned mirror wear add no image map or reflection pass. Raw evidence and source scopes: `docs/review/set-10/c48-accepted/manifest.json`. Native Intel FPS remains O-1.
+
 **C-32 traffic with C-31 navigation (19 October 2026):** all 91 baseline and 18 final traffic resource views pass. Later Low uses two procedural children, four crossed bicycle profiles in an existing batch, shared signal surfaces and a 180-triangle town-decoration allowance. No new asset, texture, target or pass. Full 264,000-view loaded/fallback sweeps peak at **62 / 2,410** and **57 / 2,088** calls/triangles. Original ceilings are unchanged. Raw figures and screenshots: `docs/review/set-9/c32.md`.
 
 **C-30 signs (18 October 2026):** the existing route-plane batch holds at most five signs per Low view,

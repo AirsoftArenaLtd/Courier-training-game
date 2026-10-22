@@ -1,0 +1,2795 @@
+{
+  "task": "C-48",
+  "runtimeSource": "bf60fc1f",
+  "acceptedAt": "2026-10-21T21:35:01.968547-04:00",
+  "nativeComplete": true,
+  "qualityViews": 207,
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "depot",
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "handheld",
+        "barcodeAim",
+        "firstStop",
+        "doorstep",
+        "doorsignature",
+        "doorid",
+        "laterstressturnleft",
+        "laterrearpeak",
+        "lightingnightreverse",
+        "visibleweatherstorm",
+        "visibleweathersnowwalk",
+        "townhouse",
+        "townroad",
+        "townparked-car",
+        "towncab",
+        "actorsvan",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsnumber",
+        "signsoneway",
+        "signspeak",
+        "navfull",
+        "navline",
+        "navreroute",
+        "navblocked",
+        "navdouble",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "walkfront",
+        "walkroof",
+        "walkrecord",
+        "walksummary",
+        "walkguidepre",
+        "walkguidepost",
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c48-final-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 1052226,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2740246
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "cab",
+        "mirror",
+        "mirrorRight",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "townhouse",
+        "townroad",
+        "actorscargoextra",
+        "actorsresident",
+        "actorsmirror",
+        "signsjunction",
+        "signsoneway",
+        "signspeak",
+        "navfull",
+        "navline",
+        "navreroute",
+        "navblocked",
+        "navdouble",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "walkfront",
+        "walkroof",
+        "walkrecord",
+        "walksummary",
+        "walkguidepre",
+        "walkguidepost",
+        "trafficsignal",
+        "trafficgreen",
+        "trafficcyclist",
+        "trafficmirror",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c48-final-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 1181363,
+      "peak": {
+        "calls": 107,
+        "triangles": 235915,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 9087536
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "barcodeAim",
+        "visibleweatherstorm",
+        "actorscargoextra",
+        "laterrearpeak",
+        "signsjunction",
+        "signspeak",
+        "navfull",
+        "navreroute",
+        "navblocked",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "walkfront",
+        "walkroof",
+        "walkrecord",
+        "walksummary",
+        "walkguidepre",
+        "walkguidepost",
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c48-final-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 633275,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3123238
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "cab",
+        "mirrorInterior",
+        "lightingnightreverse",
+        "laterrearpeak",
+        "actorscargoextra",
+        "actorsresident",
+        "signsjunction",
+        "signspeak",
+        "navfull",
+        "navreroute",
+        "navblocked",
+        "damagefront",
+        "damagerear",
+        "damageleft",
+        "damageright",
+        "damagecargo",
+        "damagebridge",
+        "damageoverhang",
+        "damagereverseclearance",
+        "damagemirror",
+        "stopsintercom",
+        "stopsgate",
+        "stopsreception",
+        "stopslockeropen",
+        "stopslockerclosed",
+        "stopsretention",
+        "stopsstresscab",
+        "walkfront",
+        "walkroof",
+        "walkrecord",
+        "walksummary",
+        "walkguidepre",
+        "walkguidepost",
+        "trafficsignal",
+        "trafficschool",
+        "trafficpeak",
+        "radiocaption",
+        "radiopriority",
+        "radiocheckin",
+        "nightoff",
+        "nighton",
+        "nightglare",
+        "nightreduced"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c48-final-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 593988,
+      "peak": {
+        "calls": 53,
+        "triangles": 2156,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2638592
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "index.html": "8ec14aa2c6fceeadcf074ddeb901252d0f990b028b2201eb72eea043d6119090",
+    "src/core/a11y.js": "b543496ba808fa7918aa2a82a8959f9562b5f7fcda1ee4fd331f40112a01d6b6",
+    "src/core/academy.js": "2249e4b9e8970ee847187a45c05dbca1c6c212aee87f651f5931cecf2f6d2ae3",
+    "src/core/assets.js": "2c103bceab5cf1c5f25859f0970865ccaeb06bdea0b7573cea95cb047f10f507",
+    "src/core/atmos.js": "509f4cfefc639b5f1f9267e42fb6bbacfc9b7e4862dfadd28df415bce6468932",
+    "src/core/audio.js": "fe1248f9584a31f4beac1e084f2b0bbcb619486a1f9d79c4280ec17376cf091a",
+    "src/core/b3d.js": "29e32be74a1aa2fa72b5144f0833e24aeeb685b8c99070b693889633b8a36261",
+    "src/core/cab.js": "6546c3d0df28480f0d575fa7cc649a71623615dc7ce35dd9de8d054ad7828551",
+    "src/core/draw.js": "a023086c574ed2d7504c072404aebba5622f61c3610ac35cf97bbb8c75fe5767",
+    "src/core/firstperson.js": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+    "src/core/flow.js": "85fa4082ef0d9175ae743d7dd4510dae89442b57de762258e3eb62d2be22d7b0",
+    "src/core/fpaccess.js": "3c2991f903b514da8e93bc678c7b21589ac7546c464f8e8cd6c90c2cc042afe3",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "128d54316dc5d81db7e0582d77dfb0263a2f089900a9b37447fa42623c5b5f4d",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "922a15cae5211cc3e4f4da364e09ca860a9f95613693259d938c5d51ddeeac90",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "f541559d2d76818017d4332a58fe058967affdfba74f5e30cb51c88eade6ec35",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmirrors.js": "4afba880de4a30d714cbd5bb16b739e4e1d60718baa66b5ee1894d9a860c736a",
+    "src/core/fpmission.js": "46028bee4738ccf1014acabcb03fd34fc96234b0389a13cb71827b1c48112cf9",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "5e2258eb5f627b69918575cf8ef4a6b43ef4df1f2ecb30962ff5c92816f48ef7",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsigns.js": "ac6108d13efb30e0e8ab09b3ab168378b27b15a6460d2fe64fd5523940069e97",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "042fb705f92c4564429b85b4457bacbad812df040e7293fc1e6a80f9e5aa7d57",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "95e6877ec0d99899d36f0b926e991a2248f25f77f2847ddc093a4b0838d687d0",
+    "src/core/fx.js": "6a5cc3d6bbbe8f73bfccb7f5c383775a8a6e0817439160c7522db5046daebd83",
+    "src/core/gfx.js": "ffe28acd91ac9fce48c843c9014f48a5dec5228df3e2b9053a861e1a07ee31ab",
+    "src/core/i18n.js": "638592ad3244e5857727b66c03d313be6705a05d436dd505358b41adecc7c09f",
+    "src/core/identity.js": "15a667fabd0b90ba994146d4beaf236eec6f39795c5e604e9194e80668e07746",
+    "src/core/lighting.js": "60541d450eb964745e10a9d96b0aed50acad9d943389370a0389ffaf98ec60e8",
+    "src/core/people.js": "3b51f4cc6d11c6870cfa31ff18490c055f0900b5b5ec754cb3f944e5b8c14e66",
+    "src/core/pilotreport.js": "de40642f32da94252aafdb52f0ae4f1aaab2a6b53c377975b988b36a993011ed",
+    "src/core/record.js": "66b49dccab56a9e3768b06e82d5fdf3fbbc80a2cd69d418056c162f544245a63",
+    "src/core/rig.js": "0b4c0b716261deba9852bb096647c36df782ea3fcbac335cd7bc9af5fb3de7b8",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/scanner.js": "5abfb05ab2433b4a2c5baef7235f8cb5cb8854d38c7316c8dfa246a38aab202e",
+    "src/core/scenery.js": "227f1dec38b88b146b374795252f44ace31622a173e5b8b7f52171aeb20774cb",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/shift.js": "c13958b232eea45851a32bd8f056ae1d472cb76c23522b79f49301be59e98192",
+    "src/core/signin.js": "a0de1fb455ed134b121b3165dcae80986a40e83188b8bcb946d36702162dbb09",
+    "src/core/stage.js": "29aca62ccc3d4f81a818669053bcf5426830c6c99dde8c1a97db5dceac6f3218",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/textures.js": "6114a2cc5e77a9982043bedc863b7a00bb4e19284db161d6179f87ceb63b707e",
+    "src/core/theme.js": "bd13a1b4de6cac1c54eb84f9a04bd815f5c1f7b06fc4688ab3a3f8d7b61eed7a",
+    "src/core/town.js": "6668097cb345e071834b281d2cae74572bb5661958bf461c001d675ee397518a",
+    "src/core/townart.js": "1acf39885472fb9d82d1e5d5f12d9698e2f0cf69cde3e6eb1a861cb3a0476907",
+    "src/core/truckart.js": "b4bbc6918a07005b9bed21379dc27987a948d51edfeb50368cafc98703e77b19",
+    "src/core/ui.js": "93b6a92409d9150369e34c90578061480c899f78682c562bd710e07a60716571",
+    "src/core/validate.js": "14c9079c90764e087d40280cfab07f9f41aa0fa55bceabced3efa6093b8794e8",
+    "src/core/vehicle.js": "3486264f63e2c4d13189352cf02bc1f0bc9314ef247e34c48ac40eb29f7d9d16",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b",
+    "src/core/world3d.js": "105f36fe35e12fde4817a09afea45ce1d9ffbaf74b80962610f9c7bb6bdb5900",
+    "src/core/wx.js": "0d2e9166dc2dc2ec10062ca7434df75853ded88beec34a126757e58b5683756d",
+    "src/main.js": "a690ec0e238f16ffa253db564fe96933d11c665e8fd1defdefe29732190237ee",
+    "src/scenes/AccessScene.js": "11eb7d4efc469efdb793dacf9b15fdeed07b5335bd63f6148ad7df42153cdebc",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/BenchScene.js": "0b456d66c73920003f90d063e2aec9472bf3f9e4f368aa3a7d44ca8f1da94a4d",
+    "src/scenes/BootScene.js": "792a2312ec1dc580c08fed7af6cd0cc15aa0b02fe41eb9bbbc744755428c55b0",
+    "src/scenes/DriveReviewScene.js": "e74b77ecaac62aa317e5fc86b87da980e96bdcd5189fa80f8f88d0d5f32c2d6a",
+    "src/scenes/FirstPersonScene.js": "84b9075ae7d9c75045bd496cbdbebdabaa44789d46905ed139ed5cd7d3f2a4b4",
+    "src/scenes/HubScene.js": "3b3945e66cc94b3349e15a9f0653c3670d9093a3d720992ec1e14a97343f56bc",
+    "src/scenes/LabScene.js": "ee7f42f67397adb8006b6175e97053cb7c7f93094ca568972429a93de9ec50c5",
+    "src/scenes/PauseScene.js": "0a39a13c7c145ef5728fbc0de25a604156728d59105bbca1238dd1b2b25995db",
+    "src/scenes/QuizScene.js": "5db024bbf71676533d3229ab61e90e4e60e65e75b2e842e13a49f7b0e2b5e260",
+    "src/scenes/RecordScene.js": "e8534c2c8b1e87f64030304a45e3e59c38f224990898cece76abbd62f68eed91",
+    "src/scenes/ResultsScene.js": "bb2f2f42189905de32d470f1de263310f543c9f7fdfd81569395838de055ea55",
+    "src/scenes/TitleScene.js": "7def0a55ec5a1fb614cefb463879a0a23648c4d5a050083639f2bf2cc0f079ee",
+    "src/scenes/TrainerScene.js": "571d15fd68bf9a3abae25b339c16925983aa011e3044a39bd8b68d3f43b3962a",
+    "src/scenes/WorkdayDebriefScene.js": "83f24d612361dc67e907d650f46c51429e32ef1eb17e802f959ae7f95a95539d",
+    "src/scenes/m1/DrivingScene.js": "d74bbd6c9329f9e96a8645802e359db9dabe442c890c8085b0e5e7e434bdada3",
+    "src/scenes/m1/HazardScene.js": "5297ba6f3827581bada664b5a3bed9e57da84cf15fd9319601488960b2abd876",
+    "src/scenes/m1/PreTripScene.js": "3d6ec0090803f6fffed95c2f7932a05f042f08a059b1e20d195f02b3223f8c5b",
+    "src/scenes/m1/RoutePlannerScene.js": "cccd619ebc58c9b2ef0b38bff468e3bef0d4f4e8df1a5ca3d7f593f3b77f5e0b",
+    "src/scenes/m2/LabelScene.js": "9635adefbc4087a50ff54df39dd2d5d90079021eb6423b2ddcb689fb2a203cdb",
+    "src/scenes/m2/LiftingScene.js": "62a0073a2745d1eaf4bd12faeaa8e5b9548a5c632a65be7218d1447a1d7d5c44",
+    "src/scenes/m2/SortingScene.js": "7616b3436c24666fabd984ffdad81d082e6ba16ce7542847e7d83e75bc9e7f52",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "src/scenes/m7/PickupScene.js": "ef84a99f9d095989746d5ae1d53804610a9e83e9dd4596684413b12de1be8309",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "src/scenes/shift/PostTripScene.js": "b014fadea2d5263690915f19c9b4bfa391f1ad334613a1cb682757473710b0e1",
+    "src/scenes/shift/ShiftBriefScene.js": "59303bbb83189b5bc721dec2478b2c7ed3b6909a9c5ecf7a6bd7af741a308867",
+    "src/scenes/shift/ShiftDebriefScene.js": "d3cd7d41e76676efd25aaceb1d91f83985b68af940a8d2e9c72a3dfeae757eca",
+    "src/scenes/shift/TownDriveScene.js": "bc70c54b4ac440036c423385aaf2ce655e50dc3843788a73cf38cfb725ba2c13",
+    "src/scenes/shift/driveAids.js": "f016ecd982c1852dce0852e550579cd28aed8a0263c6d1f891d5dfd2fabf912a",
+    "src/scenes/stops/StopScene.js": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "test/a11y-screens.js": "c37f9b40786937d7fee988743446b748b807357902334b4122e784b5e0e3f4cb",
+    "test/academy.js": "d13f809d393287307a3b4e04cafa7c72bc49f882cd23d644210f978de747d447",
+    "test/aids.js": "d96825886c6a57d24100de37f0f0f3b3166f17ff4cf2540fcb37704098f39027",
+    "test/art.js": "cf1224927d752b1d06e6a83d8dc5194abf2fe0e0af0e5c7dac1cb753d25d9f55",
+    "test/assets.js": "9bc28544fa79d58e8917b38eab22b692aacb7da8ef8441e20bc0789b77cff2f6",
+    "test/auth.js": "763a92c238d22ff7578bf5434097c90de8569daa66a88f093423d56267ce28ac",
+    "test/credits.js": "0d771da8393d5b54aa7025b48461765b6592dd92494d43b60b60b59f9aa9155c",
+    "test/data.js": "e71772516e5a4a5da4e5145b7e6ee0ad16e70792d9cff012906e8e6f4f4fa155",
+    "test/devdaybrowser.js": "ea5f77f749734d8f980356f5bcb256e50def04cc52bb15fe1700f48b98e7321f",
+    "test/drivemapbrowser.js": "b494e22582aa57ff797ef894e6611319bf78088ca1285bd33f4c080efcf030f1",
+    "test/driving.js": "1bf09a6f7746458811dc1f67268cccdc10001e1cc76e287d2f2c16be11e00973",
+    "test/enterprise.js": "ac5ccf090b4c4b97c0c10086c4f7c9469cfeabdb22c60201a85a6ead9ae09190",
+    "test/firstperson.js": "efc29a7050fa16f0f4fd94e45a6b72e624bf421662c910a7897a86b686f8b797",
+    "test/fpaccess.js": "bae8a66cadf8884f6590e393a3def9e9d70d6d6e03e51508095539af6a25924c",
+    "test/fpaccessbrowser.js": "46247b961d7bfec0eab781597c1744a8d2298e8a67b7405a70a40310c6c0f9b9",
+    "test/fpaccesslayout.js": "fc325e21443442457b5e620950558367be7ca0ead27f99b838593ccc3a30ba23",
+    "test/fpactors.js": "f1195416404997c217397ef066ea2293da6a1982e9bd6aefc9c5cecce8ca8fd3",
+    "test/fpactorsbrowser.js": "f13ec7445311f577954b662f89b4756b148df73bdaa98860dfb0181bfd5df878",
+    "test/fpassets.js": "d1df37b96561d14a6d0e58f1a149ab0000f0f01ec215102b2dd9d6e38b306ce6",
+    "test/fpassetsbrowser.js": "2ffb79bf641ab1e78a6c5d43fb8b7a02a5981bfa4c47d5f8466579d104fd0c97",
+    "test/fpbench.js": "9db900346481903dc9f646c0ed90ca2f66c7252b4862999ca6dfe6ec619154bc",
+    "test/fpbranding.js": "f570d29fd43e06a414685b1370d72cff16c4767c4f782b5471d92dcc25433916",
+    "test/fpbrandingbrowser.js": "d219c2696037b0738d5949d2b8a6330bac5a8580137d0ad78e8453ea9a7b8231",
+    "test/fpbriefbrowser.js": "8b8f860a8f5ef794677ca8c47e46e4cbd5bba2e51b7c7d49f287cf416ea78f0f",
+    "test/fpbrowser.js": "74e2d2a4980aadbb8a5dee6de51937ad14b7605b19f747bf98602b99c69d5985",
+    "test/fpcab.js": "e9b8256dec75c79ab876b9a807531361919771224100bb4f4927cff4d1ebfb50",
+    "test/fpcabbrowser.js": "d1b6e272bc27b59454218f0e43224b792367dc70369254c62b5bf0a75b5a1449",
+    "test/fpcamera.js": "6d45872374b82b13f1d121dd8942d4879c79845fec3eb4191891ced956a1ad5c",
+    "test/fpcamerabrowser.js": "3223035d202434afe43f1ed20b0761c1602a716c71e92762bfc76081fd878bb1",
+    "test/fpdamage.js": "097467b45e2129c81d69e3868b55d95da13a58bada7e3fac6595c1869f43468f",
+    "test/fpdamageassets.js": "ecb1f16bd64cdda3109ae97a36570ffd29b0075f1a46d03263a9accdecef13b8",
+    "test/fpdamagebrowser.js": "459914a5b9baf97be3f08f55af29b56aaebab48c33ffb613aa193050fb35dac5",
+    "test/fpdamageflow.js": "371136efd0dc176e2f7374a8b2f904fae7c52943e121db0095b63ee4ddef4082",
+    "test/fpdamagereversebrowser.js": "d8a5db3cf0b03647ccb040bfa256c5296fc41007196f8468544141bbc408fa3e",
+    "test/fpdamageworld.js": "d4e8accb814ceba56919f9ec724a5c9742d2288123dbd526aabdd455d8b2d931",
+    "test/fpday.js": "ca6e288f386cad88753a0c57d5af9c8dda9c6c4bc0b717f1b544f6ffb44bb3e0",
+    "test/fpdaybrowser.js": "d8cddf57c60b9f4eab08f028f5bc8e5efac5df9260614cc8d70a12c437734c77",
+    "test/fpdoors.js": "090626355e25dacd21e062ca6beb8f7d37ea582611aa5d62a7742fd987b03ede",
+    "test/fpdoorsbrowser.js": "b58d2ab9ea6c42fa7c255756311ba3fea109ade1bfc719a6b84bb9414fb44207",
+    "test/fpdrivebrowser.js": "6e4f84190b1c11ab8d6367d544001e186edc3377662ec0f4ad14c0866fd0a458",
+    "test/fpdriving.js": "95ca0e4e8b12f5f7321565b846b85d0558ae66542a299b8c4c2c55cc6e64483e",
+    "test/fpdrivingbrowser.js": "47f02916585b849a0de074793130e4066ec1a4a82a653cce1ac600adeaf81c47",
+    "test/fpdynamicsbrowser.js": "cbf97ff1e24c2fc1f00d17f6300bea59349a9f428451dc51869acc7cb0e630d6",
+    "test/fpguide.js": "2694377546d3b10479569ab081bd553f101d90333a70c67fe1387df9142db2ad",
+    "test/fpguidebrowser.js": "6c0dd7222adecb36fb638aece88820cc9def71aef1622c9cc869040ea0342c58",
+    "test/fphandheld.js": "3a8ee4ab6a70f8e7f035e4f98b95b4e72a83c0cea7a79ca54911106878d3873a",
+    "test/fphooksbrowser.js": "84301d06818fdbf401d165dbed96cd044ae43bbe11c18b39117f1560e0a40886",
+    "test/fphud.js": "a9226d016241b4bd78022b99a2c851e6fbeaf348709cbf4d542513d1f8eb9944",
+    "test/fphudbrowser.js": "bb9119715312e9af00155332d0d8cc700f533c94aada0b95f5f41858b6798eac",
+    "test/fphudcomparebrowser.js": "a74f9868538a763c3f2d4c7cb25f4f8de6612c9932d9df3eabc14cfa7749acbc",
+    "test/fpkeysbrowser.js": "2cd3998dbd6a84b27efc88e0de1d99d66a8bf09ad58d264ad9b4cbb69b343ff4",
+    "test/fplangsbrowser.js": "356a88e5faa06d917af4f65cdf9dcd3271d026198b0950ba6c4a8e7ddc23f5c5",
+    "test/fplater.js": "9ec9c173e3793ff6b7de719a4d63b1b9c143bfc0453f407fe4198d7ea85d6dde",
+    "test/fplighting.js": "37beb643517132ef502891d6f2ae11b9288153a43e4d5a405462039bedb8e158",
+    "test/fplightingbrowser.js": "bd5c5ac316942ca7038c8a1c048eeee780430b0c01bbaf85fa16fd78650a274c",
+    "test/fploadout.js": "6dda896c147185111caa45d9a9ffd838d77f2ff259a1b9b3af0d0373f91d3e5d",
+    "test/fploadoutbrowser.js": "6d141350a1ba131ab97272adbd9766b6ba185298dde47825392b4f9d8d1fcaed",
+    "test/fpmirrors.js": "bf26647ace280b36a5b3af00856409a16107d69180af7c8f088afc7008c09923",
+    "test/fpmirrorsbrowser.js": "1a2674b3133a3f9173b9876211874bcfee775f3f37aa459cd277ab56bd88b79f",
+    "test/fpmission.js": "fa09011c165e9b8275511dcd825e2627d08c718040415eb071007498c1053ce0",
+    "test/fpnarration.js": "d30c042ab301e7f02247bb6f7450f4c558e712c5990a1c16f63d19989b281d35",
+    "test/fpnarrationbrowser.js": "8d61ac8a03acf19a671f19a4dabdd92627d05203cd07fdf1e71c6d8fc463affe",
+    "test/fpnav.js": "bef6b6c4dc41151375c112cd4b7db0a9f05b64619aee53080ff87f4ed305e6ca",
+    "test/fpnavbrowser.js": "cca936489ec1974585b1cad11946b6d0c86461573a16445ceaab58ff4d4a2918",
+    "test/fpnightworld.js": "7b9ba8462aed1baac10a3c2883c72369ca2b1af38cee4a83c5640e0378815fe0",
+    "test/fpperf.js": "dcc3238b060dfcfe3dfc1dc41ae1d86677084cd872d5bc45b96f2b74f8cadf12",
+    "test/fpperfbrowser.js": "a15edda49906d81a416adee3c1abd2aa044c0aa3e871de8bf9b0a500600d0cce",
+    "test/fpquality.js": "d50f2df6294f3520eb8d9ca03e99c3a0f184a2b4bd50fa7989fdfa207e290a91",
+    "test/fpqualitygate.js": "925f447f2d39d3377c10d7ba7a927a3773bbe4bd6d4f37817a66d069fb10cceb",
+    "test/fpradio.js": "fa0d36925189578dc2b38cfa22e10f7a81f14f05273060f9c269cf0f768afba3",
+    "test/fpradiobrowser.js": "b5d28eaef87a91aa57decedfdddb837300422723855f53767bede33c967d0b7a",
+    "test/fprear.js": "b5e32b3907fcdbb9e0ec381cda082b0ea06ef17a7d6ab174b495e030fd5820db",
+    "test/fprearbrowser.js": "329e57cbaf1dcb19e5768949e5723450dded8a5d42b3228bcc0c337c4b651de4",
+    "test/fpresume.js": "8ff564039019ec8ae900f42b657c135d6b5524ac6105e9edfc91a5efedee3bcf",
+    "test/fproute.js": "09c20791711a9bf35ed4aadb2cf537347da105b376334c2b3ae3e583f3805e18",
+    "test/fproutebrowser.js": "8bfa035170990cbb5d1d41df591183c0129de8f65879493ffed780ce2eaf09f6",
+    "test/fpsignlayoutbrowser.js": "6c968e18dd53ce81088171a60cc38f1808616d55395a4b6976353bfea6e9f18b",
+    "test/fpsigns.js": "7b09d6180fe69940950a0cb98e81ba9f5a4a890335bb3acab7eb4879e280565d",
+    "test/fpsignsbrowser.js": "a09e583d9c9065daff9b9ab0c61b3b950985bdd88bbe17f52f39d7963c2c6cd6",
+    "test/fpsound.js": "f3c200032258e45077e47a3bb70742c8f3175a88ef5e49033f0a0e1fb2f1a413",
+    "test/fpsoundbrowser.js": "1cda0124330a1ccb9f3771dbd1e4e03a9043090a7809fa08237408c74b262d0d",
+    "test/fpstopbrowser.js": "787eab58876dfb00c10f47a21d400b4038c3d7cff294f62e2031bc422192e335",
+    "test/fpstopflow.js": "208765a1d82f347f75e6ee8d087c547e4c539aff6544f611f2887a09077a50c1",
+    "test/fpstoplocker.js": "659deced50e5a40538714251e35eb0d3f79957817d7a4f233e8e8aefe444c2a6",
+    "test/fpstops.js": "2b39a261d785e81afa4f2b7261c3d452843e2834039b806a0f5914d886c697af",
+    "test/fpstopscene.js": "ba4aa696ecd77f0f7dab645cb02f873302887ee5b8f7e4d735441cad59be4dad",
+    "test/fptown.js": "0a4da131f9f0d53e0e77678ae55188e59c93cfca3aa617928178ff110760451e",
+    "test/fptownbrowser.js": "e7ab1aca8dea852db46e3ba451cb2fd27105c71650442d67fa8b3e40ad4a9d0c",
+    "test/fptraffic.js": "2e58e7f84aba6c3beda857a0e2a481d8a97c4c710228ef607809db839b4112aa",
+    "test/fptrafficbrowser.js": "0614f1b260a3d067a690df17d8d5fe95aa20ed78837ed323ac462e195c40c2fd",
+    "test/fpwalkaround.js": "76a01c1456a50e770072d4f8a1b264542eee4837a824124a6c6f6188c4c7df1d",
+    "test/fpwalkaroundbrowser.js": "899422fc25f71ddeadaac029cf9b9e5ff66f9b0805ccca37db2805bba41bf8a6",
+    "test/fpwalkaroundflow.js": "ccd01f17436ab9bb9c5c5204d857bb292f41ecc9363f5770a0c4bcb22bbb4003",
+    "test/fpwalkaroundworld.js": "f2da558f462a44a91eac72008771dc5194edfd7156d118c9658414be3ef61ff7",
+    "test/fpweather.js": "3816a80606222b740d9873737d07343489b61745d4c6c8b00d59d04192851339",
+    "test/fpweatherbrowser.js": "aaa7c0b8c0374378226682a1a46e6f3bc40256d5f87ee593797952dbf2b1a70e",
+    "test/fpworld.js": "f028392bbd6a11d85eacd0b3f9ea0c154b1c602c813fe00cf569345b41158159",
+    "test/glossary.js": "4e11840a4df7b2ec668ffc492c8dfcf3b51d5ba203111c11b25211c541ace204",
+    "test/hubkeysbrowser.js": "15285cc1ef1e110a54b41eae7c502df766b951f6bce677d3252a17cc1691fad9",
+    "test/i18n.js": "fc82a567da448f45f706a2abea371cef88470fe3d3dff25bd664777c3d9eb10d",
+    "test/lmsreport.js": "50241f21c9bf5308f669bbfcba984a73a296515a69cc04ff6bfce5b94311b648",
+    "test/offline.js": "cffc2a941503ac0daf8c797c1aa4defd0bc0ecc0d36a423a202524340f3a40e3",
+    "test/oldsave.js": "8f0a47e4ea2b346f0389e193f57b8427063b65c94f4fb23d1dbf2ea0b7555c2b",
+    "test/package.js": "ab3e2f8fe067badeb8b5c6311b0a141dcf89b4a23bb4599b1664052e0ecb4f52",
+    "test/paths/academy-screens.js": "b548c42dc84aa82065abd917f509c73cc8d8d2a8357f4b35e72b769cdbd98dc5",
+    "test/paths/certificate.js": "0c83cf37df00351bdc60fdd506da478c69cf1db9edc600b2b96f52860dda0556",
+    "test/paths/drive-fuzz.js": "1e996f3479d31743c94297465fc6840975c201750ad97156e362aec120c5d5ce",
+    "test/paths/drive-review.js": "32fe43c934ac3cba85b53aac5c3fdd54bf6a4c427711f441acc30395c327fdad",
+    "test/paths/hub-briefs.js": "b0357f895fb8259d1da9bf56adfff3262de140fbbe32f7350f169486af46984a",
+    "test/paths/lib/autodrive.browser.js": "a80f6c33db0b4af9d677becd26320e6bfbd02b898f5c1572898eac770320da71",
+    "test/paths/lib/dialogue.js": "3f5e628b07d4fd4617271c2d2aacce9fc509565f4f5ad0c05790ddd207ed565e",
+    "test/paths/lib/pickup.js": "0028a3119b0c7831ee563e8b7ee10af1142dec7f5cab03a60184273a65aeb4ff",
+    "test/paths/lib/stop.js": "aed414b2d9ade19f0f35ef087025ea1ec299be5ac0ae21817d96be65cdf7c472",
+    "test/paths/lib/ui.js": "b37f322a41eafeb97eb458dcf2248af9f152e9cd161949c893dd1c6e2788f713",
+    "test/paths/m1-driving.js": "56bde689789fa28caabc66e66ed2f87d5a57e890c3f16e1405a5ff73258da5e8",
+    "test/paths/m1-pretrip.js": "247efecfb9f446a97ed56896a8a089b769a2fffa2f46436fb3150f130215c751",
+    "test/paths/m1-route.js": "8814f212e1e6ce725d65dc28a6c7ee2516c6762554336869d4a1bcaf56e70bca",
+    "test/paths/m1-spot.js": "0732d96a8da9a89793cb19de9bfd33a1aa4f2d7cf2982aaa61a99dfb86bf3d06",
+    "test/paths/m2-labels.js": "d6e841a428f04372ad74d5234ed553bc1262ad6fb4fa3dc8dcb7ca61b2c8cd22",
+    "test/paths/m2-lift.js": "6018532fdf89ef702b2bc4a5b59d8b59f4e29c8f8e3bb698407e040933ddd1be",
+    "test/paths/m2-sort.js": "32cc280b560d1f30b8940770eeb38950eed82f2efa437d2c6886dad14b0d3966",
+    "test/paths/m3-doorsteps.js": "f909edd574c0f15963fca4c61e270e2bda2a04615fff23b481798e2b680be9af",
+    "test/paths/m3-missing.js": "8f47c3df9598e76f9321fcf358bbe122c0812cc1e237d9629cb6d46a3cad207c",
+    "test/paths/m3-signature.js": "08ad26955c8b6f0eff33c63fe964d393b75b1f9a57c737097b1f29dc42838208",
+    "test/paths/m3-twostops.js": "e8dc1b44bcf360d0c3ba772c08dace260e965c011e1ab657ecde64e3d86e6e68",
+    "test/paths/m4-address.js": "c2fa17065f16e7b1a1eda0216f314fd784455fc53054db26b3039eae9f0fe0d1",
+    "test/paths/m4-damaged.js": "8c91b9798dd18254c0031392405d68ae5b288d72452df5dec659d264cf0ae507",
+    "test/paths/m4-recover.js": "8c07c516143ae9428f11478871b5ee70c4031d9138da912c32f00d47415dbd1b",
+    "test/paths/m4-storm.js": "fa38446d01ccdf20db0a5bc20040229daf25d95e54cab78c25949cabb50416f8",
+    "test/paths/m5-adult.js": "60faf9e36d8bde6aeecb91c29025fb12dc602a4a2a9779d24cee09d415028230",
+    "test/paths/m5-exceptions.js": "d2c5429b9582ba17a01995519989016901983a03c6cc9831c911710852377044",
+    "test/paths/m5-pod.js": "543b279590e3d9ee6034716a8d2981080e1ee6f2e998447ae2517dc8bd2667e4",
+    "test/paths/m6-find.js": "123f5a7c1810af3bab71658e6c511b278d9fa94b505d0efbbca1ca470b20a6fc",
+    "test/paths/m6-load.js": "2afe7baede30211d8524926ee9611c934e7bb884e81ae8b64c4d010fb03976e3",
+    "test/paths/m7-business.js": "7e5f10822924ac3f9a02a36ac9e389656474da8fff6142d4caf1daaa534e83d3",
+    "test/paths/m7-dg.js": "27a6b7d37f28e63eada00c3c6104b36be4cc78f15d0b8669413c0d41c52f9a8b",
+    "test/paths/m7-intl.js": "691d7de677231e45fb6177e94060b842efffda75db55974b2b4d922d67efa549",
+    "test/paths/m8-dog.js": "0237d0fcfb18357b6ff893a38f7288fe838d5c100d37a7aff433d54e0002f485",
+    "test/paths/m8-heat.js": "00919a951d3868183e7ba9567da543616414101134d69d4dec0c5b0fb066c48d",
+    "test/paths/m8-incident.js": "024441ca5440a29d21d62144217c9d9b863808530c4ee314e827330f645e7d7f",
+    "test/paths/m8-steps.js": "eb8d816b8a5d308859945f7871870c1da185dc0c2643b5156a3ab270b7953ba0",
+    "test/paths/route-day.js": "06bbb1f3065fc0f2e177f3fb79a1ba0dc5408ea398c2ac93d40d05f17ba4af8e",
+    "test/paths/route-legs.js": "2bbf5c64eca53eac33c1a663ac8e89260b00d70cb40919053c2b2bc5a6fe3dd3",
+    "test/paths/town-traffic.js": "56ed7791ca5c15f4eb940f2e270245161eb190574ca7b92324a64a48c3a2630f",
+    "test/paths/van-traffic.js": "3efe470b80bcb7401c52cb64a1065c9115c9a27cc32e153445bacf588bd303aa",
+    "test/paths/workday-3d-b.js": "a1c2709de3d832427c7686dad194912ce6476899e27458b61796fdf672fc27d5",
+    "test/paths/workday-3d-c.js": "501e3dd110fb8d97a204f7f37e53316acc5bc4510b31e974d8d7e32614270da2",
+    "test/paths/workday-3d-d.js": "7b0fdde479d11c16eba3a3227d8555f1ff27e229f6e66d2c45cc2f4e35a278a4",
+    "test/paths/workday-3d-e.js": "90aa2245bba8e167abd6e61c23162892256e75ee1975c33d87d7c9b491971e55",
+    "test/paths/workday-3d-f.js": "df205f9a6c2f53bf99d6545633b9b89e84cda5fdf9957d1ac9ad7b8b1491f535",
+    "test/paths/workday-3d-g.js": "b3a0f311194a6f813ece46128c87964da7159be48547c51b8d3f9d49a610679e",
+    "test/paths/workday-3d-h.js": "b59f06daf5480e1b654ea1aa549c6c83225014e4c3da6d69c52a6cc197f5ce36",
+    "test/paths/workday-3d-i.js": "ba0657299fb77fd54890a20f78c8c9149e3e6241781a5a5593ff03039f0971bb",
+    "test/paths/workday-3d-j.js": "2f04158406379874fac210a84d55688369481f8f36d21cb9bfd25321aa320b83",
+    "test/paths/workday-3d-k.js": "fa8adda66e592f8448bd6dfc5631f9d4b19cf33264c80624fc5bf340013017d4",
+    "test/paths/workday-3d-l.js": "9bad23a3c582d13fb3efb7df665a05d3788b7fd9c2da03fa00bc72c9ece63729",
+    "test/paths/workday-3d-m.js": "8e088fc573cbb0c3033f0b3e106fc943d21dafc108f857bf7e68a78756e5cec9",
+    "test/paths/workday-3d.js": "b2c71e87cce36609beabae0dc9ed0cc5be6bb283c6d8ac96c3c2e88c039153e5",
+    "test/paths/workday-aids.js": "c5d1225c4ead4bf8dd0c16d290601409346fea3243a88e57529481a8af3171aa",
+    "test/pickupkeysbrowser.js": "d840ed72010337eb9fa895b0c62ce88afeac9eb3385c2e51a5296274c5fb38cf",
+    "test/pretripkeysbrowser.js": "f9470a76b8f53438380b4de5b9ed7f13546b4854878134a650f088fa028e64b4",
+    "test/printbrowser.js": "cd6c52355414722b739f150f9ff6c1e15d79d8d517f97d7e510aebff078ee92c",
+    "test/qa.js": "0c552ce92f0660443fc9266568898c7bf03b44e11f3b7b6e70ac630184b8f4c5",
+    "test/radionightbrowser.js": "349146d227d20cf9a21d44e8404ee8beb28ecb32cee4a6c2b1eecd96dd4364d1",
+    "test/report.js": "965d5437578be8dbbef2bec20885b1c24a24c4e518788907d22878a14bb5a3ea",
+    "test/reviewsheet.js": "f4661a6302113c3fb0cf74c7ed7df1f916c22813c0e23a01e7be0255a8ca49df",
+    "test/routeday.js": "40508c0f6d8dde67fa57189027d1238f20a2c55d0971eae05ad0a1c75e36f76c",
+    "test/routekeysbrowser.js": "5ca41687634b0982c40674d863d66f1481b2fcb3199a72ddd30aadb888dcfb24",
+    "test/run-all.js": "02a915aa55c52208df7efc1deca2700593e3f8a711e64cbdba375fa729e80a0f",
+    "test/savesize.js": "a3fc5a8e208979c7b3b8cc4a0fa84a9c75bc07e54037a6f994a0c17c5e1bc58a",
+    "test/scorm-launch-2004.js": "09cfd543555c453f0fc3196845c0565ef6902d57f7e016507d93d216096942e0",
+    "test/scorm-launch.js": "9131337d185ffd637683144827124f3d5ec281a3050eed61867b51a6006766ec",
+    "test/signin.js": "bdb36c72ade41675a5df84ed6283e10c34f1e3e802f1b91bd39c0abf7bad6295",
+    "test/tools/credits.js": "8855d4197a4cf65cc9adc60e6cf77f47f3795adbbf5ed6636b0139c711ff6a5f",
+    "test/tools/drive-session.js": "07af2b94236abbfdf93be989bdb50f32ddb25077fde6f72f068ba6807009ec6a",
+    "test/tools/fpassets-context.js": "3b3884dfb74b19ad7bf9a53d46e2e19fd3370865f4c315088d1b5874730fc263",
+    "test/tools/i18n-extract.js": "fbc1c8d3fb95e58aaaca20f9beebcd1f0a3065cbdc6cbae212a877099694c37c",
+    "test/tools/narration-probe.js": "df827984459e8a297799b46595a4fb01d3bbaa91439c94ee12300664c9089918",
+    "test/tools/overdraw.js": "3ead94cee383034d6b2efafe4a7b131eb0a9a0850b472e7a4e3f736ebb9abd9d",
+    "test/tools/pack-art.js": "566aa147afe7625f9e66b72c962df48a1edb5f9dc7ae0025c4063d95d33d440b",
+    "test/tools/package-scorm.js": "0b05471d058b76f16167be531dc86e0d2fa020978b357470dae22a85e7299553",
+    "test/tools/playd.js": "2336314b8980f0de872f2f532aefc0b72719f68fa490178ff47215de6e607303",
+    "test/tools/prepare-actor-lods.js": "6afa5a10407514a32573c57e58729208f81bdd50b46fb784d6bf826874b59390",
+    "test/tools/preview-town.js": "a25df481a3fab549f3fd48a1d3fb69641e12d8e7b1132fdb3154507ba49d7b0e",
+    "test/tools/review-branch.js": "a196b1e1ca789ef4fd8bada92850ba9d842979d0a45199c6646f09bfc779af01",
+    "test/tools/review-set.js": "b141694a95261ae72304e02a6d5806b66ed40919cc43abd85b0f2f9dcb5a368a",
+    "test/tools/review-sheet.js": "7b847d7c0c92d2bde78c087ffa26e5ed8e957c931057b24d183fa23b087ee13b",
+    "test/tools/validate-actors.js": "cf8dec589c1564bba69467adb037651d570ea535ecb25a66deac168175eb4596",
+    "test/tools/validate-town.js": "02d4da3b0b311ae0eeeb44affd49eabf2fca058a1aa0a205cfc429b203b02c39",
+    "test/tools/vendor-gltf.js": "a36f5266bc6f02c888d2271441944b5d35419295ba4f6cdac25316c8ec1e15f8",
+    "test/town3d.js": "222e3677539d149c76a907be184bbb410dbc6e4e80a0b2e6a69161a4f5045c28",
+    "test/trainerkeysbrowser.js": "92e40e5c39bba8d3b11638f565838874f4c4dd3a353caedb74812fa67375a732",
+    "test/workday.js": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
+    "test/workdayflow.js": "2e9c432205f95c6f901e58e018d00e50864665c48b15c1ab128b4ef769637891",
+    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25"
+  },
+  "componentScope": "Cab, camera and EN/TA mirror matrix completed at c9f8226b; only fpdamageworld.js and its tests changed after that. Final geometry, mirrors, walkaround, rear camera, HUD, signs, lighting and all resource profiles are rerun on bf60fc1f.",
+  "sharedScope": "The frozen task branch includes the earlier shared workday helper: its golden flow exits zero but lists one missed reverse pull-out mirror check. Latest pilot B-130/B-131 adds the missing mirror look and strict scoring. A separate candidate applies only the C-48 owned diff to d1caa22e for current-pilot acceptance; see its separate report.",
+  "files": [
+    {
+      "file": "final/bench-c48-final-accessible-low-low.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 70185,
+      "sha256": "7e6ad196c39e053232a51497ad007f845ab5ec1c6ef5185f5a7b3f90cf07a75a"
+    },
+    {
+      "file": "final/bench-c48-final-fallback-low-low.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 71780,
+      "sha256": "e3ee61dcc04ae7b0ab14bda62c5309d05201042580e873b9b6f7afaebf4281b6"
+    },
+    {
+      "file": "final/bench-c48-final-loaded-high-high.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 84860,
+      "sha256": "8c44d021b5f31dd409370f88406cb0113501cb3ecd18c3258040b8d92e1b575b"
+    },
+    {
+      "file": "final/bench-c48-final-loaded-low-low.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 105583,
+      "sha256": "54fe0225bdaa6b6f9303dc36e7abe708e7667ad04d62a888cbe0e7a64139a650"
+    },
+    {
+      "file": "components/c21-brake.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 190709,
+      "sha256": "5c8a94400ae9df7e9336c3ded847fca7a08c7671a4064d308384b91650597979"
+    },
+    {
+      "file": "components/c21-camera.json",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 5925,
+      "sha256": "94faee80e338e3f476dfb9ed98bfe759aef715abfa69caf28a2a2a84c9be6f5e"
+    },
+    {
+      "file": "components/c21-look.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 175612,
+      "sha256": "9294ed21654049408976dbf60384f6431a1c89459d2741427f1a499ee3844e44"
+    },
+    {
+      "file": "components/c21-reduced-large.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 196897,
+      "sha256": "160514376eb0f873414688610bc0609c1a730e51ae1d91f216636644bfc3e081"
+    },
+    {
+      "file": "components/c21-turn.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 188875,
+      "sha256": "84fdf65a7d6d67cbaa478b03a5037db42af6f931686ac56b5f085eee37f7dd57"
+    },
+    {
+      "file": "components/c22-cab-en-large.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 211043,
+      "sha256": "892155471bbaea8bea9f849d07ad0d339de0663b903c2184339089574850faa5"
+    },
+    {
+      "file": "components/c22-cab-en-normal.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 198858,
+      "sha256": "3ed4f0d1547a6d7fd3538369a409250aa81f954874cfca97bc1237e3b51cd683"
+    },
+    {
+      "file": "components/c22-cab-ta-large.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 211507,
+      "sha256": "b5fd373031881ff3c527ab7381b7330293ffcc1c691f9a3ce98cffbd25b6c1b4"
+    },
+    {
+      "file": "components/c22-cab-ta-normal.png",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 199491,
+      "sha256": "4514314f3d96524be1541fb85d11971d1aaf6f0856f9987aa359b586eb86239b"
+    },
+    {
+      "file": "components/c22-cab.json",
+      "scope": "Completed at c9f8226b before isolated mirror wear placement correction",
+      "bytes": 5518,
+      "sha256": "b90a486d806af8b0d9640d8993ce9411a264c4e42e27ed18ef8f1cf5480e3e74"
+    },
+    {
+      "file": "native/c24-alley-en-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 178147,
+      "sha256": "228c4ea27041217bc648a706996fba8299bbe29ffb41b6ee3c53d844c01c2444"
+    },
+    {
+      "file": "native/c24-alley-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 164585,
+      "sha256": "6c892012c58744126715ee6d9d3b2462842496fbc9372af715dc6041461ab708"
+    },
+    {
+      "file": "native/c24-alley-parked-en-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 177105,
+      "sha256": "c33caa2d4b97fe9641be8c4f2470b424ece378ec59487ecfac2c266ce115f231"
+    },
+    {
+      "file": "native/c24-alley-parked-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 158198,
+      "sha256": "6896497ba674768daa8d4fa20f01f94625bd3e0c22a2f76c420cf1a6e64a72c2"
+    },
+    {
+      "file": "native/c24-alley-parked-ta-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 233594,
+      "sha256": "73cf7ae9bf571b1c1fbf8acc2ada8e090c2923b2081ff11fa81eb8977dc29073"
+    },
+    {
+      "file": "native/c24-alley-parked-ta-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 214609,
+      "sha256": "8c486602e87e99e2634a3c175acb9a4ad309ec2c419393cb1bd936ff4de23105"
+    },
+    {
+      "file": "native/c24-alley-ta-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 233591,
+      "sha256": "f8c2cdebff840be718fe60c99995f2436d0577cf59ca2ae90983b98144ac426e"
+    },
+    {
+      "file": "native/c24-alley-ta-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 213777,
+      "sha256": "cf78d7ce553eebdf1bdafd3f105218e698c6188d929ee66a9e285d5ce6802719"
+    },
+    {
+      "file": "native/c24-dock-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 159552,
+      "sha256": "a668db274301edcfa19401b160f9869ef36e3464dee739d4f30ae76045730859"
+    },
+    {
+      "file": "native/c24-dock-parked-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 161143,
+      "sha256": "05ba6f7174ab735e179878910cbd1684fb85057bf2c842c8566b61bb3d08a0be"
+    },
+    {
+      "file": "native/c24-menu-en-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 47366,
+      "sha256": "bc5216bb7b8c644dc11b77edb268c204a853bfa97ad0d1348e0afb60806e97e7"
+    },
+    {
+      "file": "native/c24-menu-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 41481,
+      "sha256": "cca966e59c6f8781fefb934a4f87599b3d74ecadcf32ec99f9b19230acfe59c0"
+    },
+    {
+      "file": "native/c24-menu-ta-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 72094,
+      "sha256": "35f900534e541a95bba5b29b3071aaf927eed859a6d1cef2d8420b2d55401136"
+    },
+    {
+      "file": "native/c24-menu-ta-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 63228,
+      "sha256": "fe8f9ea5603ca6782fe3d76dee532aa85fc2414a7796b4c74f22c35452e28a0d"
+    },
+    {
+      "file": "native/c24-practice-geometry.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 216,
+      "sha256": "c0cdec151c877757921bc2f9dfec207322152facf14ab563a2681d6d037ef91b"
+    },
+    {
+      "file": "native/c24-rear-camera.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 19906,
+      "sha256": "8384795cd54d58bca999b11e17b3576bd37646ae10708eb6d7389f49f9546438"
+    },
+    {
+      "file": "native/c24-tight-drive-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160977,
+      "sha256": "0f6932ce558e87809a057627f8a374ea511a5c0ca50ccd33fd229b92348d20bb"
+    },
+    {
+      "file": "native/c24-tight-drive-parked-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 163740,
+      "sha256": "e1a14a892fbc99c930fbdfd3aaa4d4058fb67041a5c9e4209ca59d3f3b1ea286"
+    },
+    {
+      "file": "native/c25-low-dusk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 151603,
+      "sha256": "7e42065b8cd7a28d492336468166f351f29120f84984b92ffacfaccb2dadfc77"
+    },
+    {
+      "file": "native/c25-low-lighting.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 3818,
+      "sha256": "c29c4fe4496151939f5ae9a6b9d1fa7f4600054a443c7c5d60b8713adbdc021e"
+    },
+    {
+      "file": "native/c25-low-midday.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 189414,
+      "sha256": "7f042c88b7f7c85c2a68d41265f34a1b13730723467a5ca14feb3e9526a1094c"
+    },
+    {
+      "file": "native/c25-low-morning.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 181259,
+      "sha256": "23d61f2065281583dd9f5ad123758b61601d98149a59f1fbdb94eb5b2c639f51"
+    },
+    {
+      "file": "native/c25-low-night-headlights.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 173084,
+      "sha256": "6a12867aa39684e8d0cd4b8be7fe7e8aecc0153e3928dec5b26b83a1499e3caf"
+    },
+    {
+      "file": "native/c25-low-night.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 145977,
+      "sha256": "9a6bf32c8263f3b5118085349f3c6b7218239c5f12c731e33c09c058e2bc130f"
+    },
+    {
+      "file": "native/c25-low-ta-large-reduced.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 203321,
+      "sha256": "ad175d004461b13153a8ab2c3a7fc4c54bec4df6726d7b223790397838804923"
+    },
+    {
+      "file": "native/c30-kind-giveway.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 164010,
+      "sha256": "aa50a3e840719f0ffcde72ae99bd09a7ff5a274ece7312cf7e6026dae014616f"
+    },
+    {
+      "file": "native/c30-kind-noentry.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 190814,
+      "sha256": "bf8b8c2fd308192cb53d7a863b848a0c226bdecfbc79dc6a974dd3fa17f6930a"
+    },
+    {
+      "file": "native/c30-kind-number.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 150499,
+      "sha256": "96a1c55000c0506376c5f341d9d291baa1ee023eee8c5963c777b9af80f325db"
+    },
+    {
+      "file": "native/c30-kind-oneway.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 189862,
+      "sha256": "5ba297d82596c93c64c677db70f75764be3351d4ad0457cdeccb3b506e32b7c2"
+    },
+    {
+      "file": "native/c30-kind-roadworks.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 194001,
+      "sha256": "a215c7b51e16b6304b6c880babfb3292a1dfb7bbbdc1a623b8b27739fb773e4e"
+    },
+    {
+      "file": "native/c30-kind-school.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 190874,
+      "sha256": "0cb271db3f6071ad9829201f109b42af8d0a58b7bec11299b155cc3dc1ccf33b"
+    },
+    {
+      "file": "native/c30-kind-speed.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 169335,
+      "sha256": "2c9d16dbac366cbdc3b5bfdc0232e40ad93fd54c570b251debbb32419d5ed1ab"
+    },
+    {
+      "file": "native/c30-kind-stop.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 157040,
+      "sha256": "928a607b44ac14d9ccbac4d3164a76f9807269f209a1dd4979ba56cd505d68fb"
+    },
+    {
+      "file": "native/c30-kind-street.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 170988,
+      "sha256": "4d3cbbd94e9ec2341ef19e871bb7dd0a0523c19f3864785d34b158173f38330a"
+    },
+    {
+      "file": "native/c30-signs-browser.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 5788,
+      "sha256": "50dd6c5c218ff872777a9346128730cc8c83dd0528707a19fd6bbbde3d6bc607"
+    },
+    {
+      "file": "native/c30-signs-high-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 179279,
+      "sha256": "9ac0e4105e4dd451fb5174b9add901e9a603ab6fe7eea4c67d21c09743cc2e22"
+    },
+    {
+      "file": "native/c30-signs-low-en-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 185958,
+      "sha256": "aff638c8044934e5f58d9da0e50f6efdbea36f5e7d00f6bcc5783acea45edd7f"
+    },
+    {
+      "file": "native/c30-signs-low-en-normal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 180766,
+      "sha256": "eaeafcd53ddb8a1cb4d11898c5b082c591580b3ab7c8a1b36a90f251f8efa586"
+    },
+    {
+      "file": "native/c30-signs-low-ta-large.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 205116,
+      "sha256": "e15c1847f648262ea5703aa1ebf602202489835ec8ff9d8f6b4f4a9fc22c4512"
+    },
+    {
+      "file": "native/c47-low-en-large-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 185481,
+      "sha256": "c64286ee73840536420f2101c07888bff8f4500eaacc51aa450c98cd7e1904cd"
+    },
+    {
+      "file": "native/c47-low-en-large-first-day.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 214320,
+      "sha256": "4d975061efa51738ce05d38d4c6c50b816f13839dcdb5977f024002beb8abe7f"
+    },
+    {
+      "file": "native/c47-low-en-large-handheld.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 139562,
+      "sha256": "883f27a61828e0e3db6fb9fa411b6d83ed515e8f9a649adf1bf0ef6332c6f5c5"
+    },
+    {
+      "file": "native/c47-low-en-large-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 176039,
+      "sha256": "061e30fe5b6bd97844cb357bcadb8baeac33f55092ec83c3e824e70f480eb659"
+    },
+    {
+      "file": "native/c47-low-en-large-reverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 203301,
+      "sha256": "cb913bc6c473c09b769d698d482de6218133556958390d0da06dcda82269821c"
+    },
+    {
+      "file": "native/c47-low-en-large-walk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 151637,
+      "sha256": "aebb72577a6f4b749877c5958f3e41db854a269696e776dd1c9e7ca0e3063e94"
+    },
+    {
+      "file": "native/c47-low-en-large-warning.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 195328,
+      "sha256": "5917b0943b6a16ba49cec1a670461bda0c7a9383630cd9608172087986d99218"
+    },
+    {
+      "file": "native/c47-low-en-normal-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 179916,
+      "sha256": "6081ef60e8013e6ff7bfa03e22b0e678fd110b88d2ce32a23e382ff9df3e2e92"
+    },
+    {
+      "file": "native/c47-low-en-normal-first-day.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 201866,
+      "sha256": "63a6cf690946dc185c62762f7572c4e0c93d39090f590c290d53a2fdcc8b57ae"
+    },
+    {
+      "file": "native/c47-low-en-normal-handheld.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 134740,
+      "sha256": "b98c59cc0b9173f80b16ec8f7b67cd872a495aecdf6d75c8446a4b8d1a95ca50"
+    },
+    {
+      "file": "native/c47-low-en-normal-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 172579,
+      "sha256": "481cfb48ef806e73ba547fe90be2869852e077931adc3f513670c24ba4195cbf"
+    },
+    {
+      "file": "native/c47-low-en-normal-reverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 196351,
+      "sha256": "92a650acf9dfc8eec0cc36b174e7c29e2a2e3c3aa3a5bc4620c85507c4192ba0"
+    },
+    {
+      "file": "native/c47-low-en-normal-walk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 147008,
+      "sha256": "390d8325a00eface9db24569cb40a5d7bd4ae86570fff40d87111ac64b45cea8"
+    },
+    {
+      "file": "native/c47-low-en-normal-warning.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 184060,
+      "sha256": "9f426aedfff7232f721e93df70759050ffded8bf67618f8bdc4b8f60618989da"
+    },
+    {
+      "file": "native/c47-low-hud.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 19783,
+      "sha256": "a784beb5452527887086dda63ebca84c2b82365b8fe7a065b4b5fffb5327d73a"
+    },
+    {
+      "file": "native/c47-low-ta-large-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 208660,
+      "sha256": "6ce24d4a2dedc371970d0529c8cc0beb6d1b2c2c4152a316bd1ee993de883b8c"
+    },
+    {
+      "file": "native/c47-low-ta-large-first-day.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 271997,
+      "sha256": "db1a6194fe446efaa70d688098ba764a7b869a9d1366110cf4c10ae232fd4bf8"
+    },
+    {
+      "file": "native/c47-low-ta-large-handheld.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160635,
+      "sha256": "c3ea5f6d27769d050c3d4d766adee74a1b29c25a1561f78dc0c25660c404fc57"
+    },
+    {
+      "file": "native/c47-low-ta-large-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 190034,
+      "sha256": "f396ef898e98ae68fc0bbc8e2bd4ae856277fbe91fb51c654f244d2775c300e7"
+    },
+    {
+      "file": "native/c47-low-ta-large-reverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 231294,
+      "sha256": "42700e6dda121630352d148033c882d7ffa610c69622fd709ab5cf4e60fcf85a"
+    },
+    {
+      "file": "native/c47-low-ta-large-walk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 166697,
+      "sha256": "4c27e65902a26d117a15a51004b92c27c496ce9d3672fe05af2ff9b649c1b3ce"
+    },
+    {
+      "file": "native/c47-low-ta-large-warning.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 212278,
+      "sha256": "2e79221a42760e492b440e8c4ed760403f508af6666241901e21004ff1be742c"
+    },
+    {
+      "file": "native/c47-low-ta-normal-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 200872,
+      "sha256": "7c77fdcdeb71c0b63868c92cd39da3a3567fa57e2692de81cf06c96b72b8c665"
+    },
+    {
+      "file": "native/c47-low-ta-normal-first-day.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 257559,
+      "sha256": "362aa00051829ec03de3d18d924633f359d67c81aa2c1926b3bacea7a14950d1"
+    },
+    {
+      "file": "native/c47-low-ta-normal-handheld.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 152413,
+      "sha256": "aad23df3940354bfa8799f721e1a09e631693707422859660bb069fe273cd234"
+    },
+    {
+      "file": "native/c47-low-ta-normal-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 183509,
+      "sha256": "fab266d676e8c2db81f7beaf2cbee120261e2e1f96d25f545c891da2ed655637"
+    },
+    {
+      "file": "native/c47-low-ta-normal-reverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 217551,
+      "sha256": "e2daa3213c2ac31dd2a333bb5b410bea4370048f80828101d0adad5d09c81bcb"
+    },
+    {
+      "file": "native/c47-low-ta-normal-walk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160323,
+      "sha256": "14ba40be6f531b30f0a861eef5b82396fd22d3892942b02bbdf8c3dc5e409e27"
+    },
+    {
+      "file": "native/c47-low-ta-normal-warning.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 206561,
+      "sha256": "5c759c41c7a6fbb8863e18ea17782e44b05edd143e8c83a1e6127ffd81477023"
+    },
+    {
+      "file": "final/c48-final-accessible-headlight-panel.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 68242,
+      "sha256": "1ea0fd78eba1508069b641fcdd6e67b1681956a13161ec9a490c7d5ad651618f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-actorscargoextra.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 124130,
+      "sha256": "8cca7222aa3076567d052016728dd58c1553e3d10dd8682633225eca9f4b6d97"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-barcodeAim.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 121087,
+      "sha256": "2225b03d806af0f877b1c92e0d4650095517bba305cb0a2a9d6a4cab365a7cc3"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 197491,
+      "sha256": "1b5dc1df01e253fdfce65e6dcd656d5bf4c66a83960a6b257456bb4fb849cdb9"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagebridge.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 218293,
+      "sha256": "5638336e3a965adeb2896373e55e04184795c9ea82e482e3d0278616dad0b83e"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagecargo.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 220293,
+      "sha256": "55dc55913d88b7f86d06b5531829c451628d3318d92b763919ccdd9cd1bdf353"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagefront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 214789,
+      "sha256": "02bd9421432b05ff49ce2c67ab39cae53ae46e68f060af3d9cf1c1cf508d88fd"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damageleft.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 210901,
+      "sha256": "c99e11160cd3ee04153fdf3352c5ac9858abcfc7ea18775d4b113c79ffcfb093"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagemirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 176302,
+      "sha256": "8363f6c2f9d7cd45123afc4c320932bcc855312d3fda35e0e1a3279de1d38693"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damageoverhang.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 224205,
+      "sha256": "ca73f6e9fba4f158c1713e733ce4222ca856b73eb85ce45da1fba283efbcb19f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagerear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 213878,
+      "sha256": "5d003c1320cd3e0cb9bfc48fc1a68e7753452f2fbf9f673b70217ddba4562e27"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damagereverseclearance.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 221379,
+      "sha256": "727d9dd3ffb8170d18e4aceb3ab12303c8f16fe66832e44e50d95dc94aa1a149"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-damageright.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 208901,
+      "sha256": "fce5037d9b7da69e167dd0e53b097ffc519c4f88884a8e1a8034a2cde6b3deb1"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-laterrearpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 227665,
+      "sha256": "eb2a1fe8f76dd6ac3424326f0d8cc340dedc1fc18e7b9720bd3a5298c47042cf"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-mirrorInterior.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 202444,
+      "sha256": "234d93301dafe46b9227d14129e8bba03e9a5aee9c5bc4318b7e75495c86ed2e"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-navblocked.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 246984,
+      "sha256": "e913d49bf09e49858a59a150b0172202d5c30b88847bf7519bb972395450e826"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-navfull.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 188932,
+      "sha256": "510b800dd3492e1f1f8fa4805e3d7629ae85d685169ba4df629cb96c4457e901"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-navreroute.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 190729,
+      "sha256": "af31a1dd30aea7a6098867100a78a27356598212de714032c5d564c4f2e0f3cd"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-nightglare.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 171105,
+      "sha256": "89d909a4e62c7f25ca66f288c2b6a0d6c4e0d5a6f8b97849601731c3d7f0de0f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-nightoff.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 139585,
+      "sha256": "74e7797e1777477ec537027205e726ca07fbac935370ce94a5ba262643695bb3"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-nighton.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 170756,
+      "sha256": "3c3805dcad782ead6e5f5c710691b709c078ee0214e9c0c44b49b9542e9c086c"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-nightreduced.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 171105,
+      "sha256": "89d909a4e62c7f25ca66f288c2b6a0d6c4e0d5a6f8b97849601731c3d7f0de0f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-radiocaption.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 187514,
+      "sha256": "7cc9bcaa5bec5ace49ad3c52126e689e07ed586ed113337d0e852956aab27550"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-radiocheckin.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 138906,
+      "sha256": "c1323a84d22e64e7c643394bc8fef730ad881b12e3a8b3b03b3e18dbc06c6491"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-radiopriority.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 136740,
+      "sha256": "9ee4718e9c9b919ceb79258f979c0a38e65b4a94be91a211090c5803d04ec1f3"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-signsjunction.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 204004,
+      "sha256": "20dba75efa113b1e8d9cae658d5c7a76feeb1562bb108ebe08f7837e39040adf"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-signspeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 112599,
+      "sha256": "7d6c23bd861824ad9aa3d158f5f158b89d02287b8a648d2f729dac5d1b8bd698"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopsgate.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 57792,
+      "sha256": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopsintercom.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 57792,
+      "sha256": "ab477563b3b4c52c7d80f1e863dac2fc1de6cdf724934edadcdf7e18ac686187"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopslockerclosed.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 52425,
+      "sha256": "5e766e1d0383f8e5fea655b22fc50057fd6cc350fbe4853c5d626e7b9d0d3eeb"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopslockeropen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 53723,
+      "sha256": "ad2d9b604a1f6de4cef1c57dd5386c51591c2908cf5a01bfa8f5dbee31597400"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopsreception.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 51817,
+      "sha256": "048118cadef63dcfda96c60ea37c2eafcc85d5a43db48b9b713f53a012435db2"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopsretention.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 31681,
+      "sha256": "df4d0b676c1c15a17bbfa302f43feb83f871d710bf62ab22e6a7f25c05be8131"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-stopsstresscab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 177528,
+      "sha256": "b32b4fc24adb9d58820bbac21e34414571ba72cd3f1e29db0c9fe30f3804e84a"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-trafficpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 128438,
+      "sha256": "8c0e4158020eede1f67594d1809ffe9f4aa0f7f513eb2a1233238d0bede3505f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-trafficschool.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 238246,
+      "sha256": "3aff1ad3bd3aeb40c50c7966523c9b78624db1e60ef89648e665ad48b4e10362"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-trafficsignal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 229868,
+      "sha256": "1e804738256e4fe2a002d2b590a135cdd1821f6d0e9c4ca421fcac66a27ba6b8"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-visibleweatherstorm.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 226638,
+      "sha256": "510561bc29d09e33f06deaef972ec3730bda2188f8d88a905d701c88b08fb18e"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walkfront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 89844,
+      "sha256": "624cf343a3cab24caf70433a0966a7bf167ae97f9e20d81e8f58be67767ddfbf"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walkguidepost.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 68912,
+      "sha256": "e975f8cbc06cac13948041faf2431a29482ecad9f4377635d35b802313a2fd20"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walkguidepre.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 63223,
+      "sha256": "0b2a68dcab251e47da48355aa839e2ac921d1715473f4118adc3a7ff7170a2b3"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walkrecord.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 156015,
+      "sha256": "9839733eb614c51379bab56379845ef13a501424a3d0e7ff4a73dbad007a656f"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walkroof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 90662,
+      "sha256": "398fc6ba247ad5b55d9f78feda8cfcb29b97acf2e19f081131d44b113c6ec911"
+    },
+    {
+      "file": "final/c48-final-accessible-low-low-walksummary.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 116217,
+      "sha256": "f094d4fcecfad65e48111d56b384a4dc3d6644eb4a6f68676e7516451ca186b8"
+    },
+    {
+      "file": "final/c48-final-accessible-low.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 35364,
+      "sha256": "78d49cf1e3f2701c511337b24467f09c998d721c1e69089a8ad1203df2c3b4a5"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-guide-report.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 139116,
+      "sha256": "8d12f3baf8a6dfe468ea2b83acc1fe24fc95ac82624ec3badb3357cf2af1a6c2"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-post-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 157559,
+      "sha256": "a266b873979ae5261a4d6e57762a6bf0052c7c6a372a502e0293a7244cb1e7a2"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-post-rear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 87392,
+      "sha256": "0a6506bba2babf8d267e146ce2dd6efa6ddfdd4a024ee237e66dc3f7f892a05a"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-post-record.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 108984,
+      "sha256": "c165bcf84c94c088d5d77eee1b4d89d12531b27ec4d8c578b819b01382345371"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-post-roof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 94006,
+      "sha256": "9acc01c47ac08752039609599cf961a7e0df4daa60345ceb19ae8747abf09955"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-pre-record.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 165092,
+      "sha256": "034fb6258aeef66bfa16f441b2d4767a1b2e98e7f3322eb37a021229979b0d83"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-pre-roof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 92990,
+      "sha256": "677f00fa0cd4f3a81d6e22221ed14386b088fe718e97bcb39e139fb33205d5db"
+    },
+    {
+      "file": "final/c48-final-accessible-ta-large-pre-wheel.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 146315,
+      "sha256": "d76c3f1aa07aeb99f58e5a5e3815bf300c612a45d7b7285ce24626ae7eda1f71"
+    },
+    {
+      "file": "final/c48-final-accessible-walkaround.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2103,
+      "sha256": "e7215e550b29b9a39c95b134a8b43311d606328f585990d27e762a6372d2b196"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-actorscargoextra.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 110634,
+      "sha256": "d16b6a899e481213540a043e463a33562ae1f4c8c31c11f985ec7a7204221a91"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-actorsresident.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 43269,
+      "sha256": "374205808b24fb3d60ddd0af96dc904e27ba2586e1924e01b04fa14fd785ecdb"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 180975,
+      "sha256": "d114139be024dae8940c87a250cf4a72db2c9765790e923629744d46516a52d9"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagebridge.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 195726,
+      "sha256": "903b7bbec4275e833a52f554c99cbd7526757ae11ca6908878e20df0bb38badc"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagecargo.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 201012,
+      "sha256": "c170d5713a4b9798e1c8ab364c0ac5239a0d6b8000184928f5163ffbac4be04c"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagefront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 193105,
+      "sha256": "9a2d8179c5b99e068a17c2465312df66afb8a1a40b9cd8fe0acc094a343d6547"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damageleft.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 182332,
+      "sha256": "161a787bd755bdb0b5ac7c303aca4e5c597e507f6c778d3c9b5bbdcb872bb959"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagemirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 167184,
+      "sha256": "b985f19ce39b33b6a782cb3bdcd6698dd9849bbb10acb10257d67ef01bb45d9a"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damageoverhang.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 204265,
+      "sha256": "fcd6cff12fd8fa08efbc7ad7512cb226c70e0ae532dbad05914dc0ceb70236fc"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagerear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 202871,
+      "sha256": "417a9a2c8d50c8ccb00afcb80673433ff2166ab02062cd7e3c48c0ce89a5d58f"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damagereverseclearance.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 207279,
+      "sha256": "8b2b0db3f47df97a25187732ee5f4fe17e412c83ccfdd574fe3975fa7e9b6957"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-damageright.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 183763,
+      "sha256": "03a99a36a0cfdd452e397283c0af179fbc64efb5c91eb39f194af66bc60ec03c"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-laterrearpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 206216,
+      "sha256": "64718e4f17484d8633d24511e1ffc2a37f2f7a87307a108c5116b0446ba77999"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-lightingnightreverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 212025,
+      "sha256": "d94bb77526162bd0c5ad024eaf83c79f570b1ad5eb0c7d7ccf544b8d742dac71"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-mirrorInterior.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 182863,
+      "sha256": "c8312b52870016ee0ab2fbadef00ddd68fcf717affaf452bb721eee2dae7af4c"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-navblocked.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 232607,
+      "sha256": "720ed40e2a9dcce37226258d1ccddc177c893e833a49f236336fe513b14fb35d"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-navfull.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 175321,
+      "sha256": "1d0c9f848c12e5869d9cadbf6d8b5c77472c64b0c8a3ef82e7ef133fd82d24cd"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-navreroute.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 175166,
+      "sha256": "0f00672183dac780668bccbbf5c5269fc02731a004833f7fe87436c27e3f983c"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-nightglare.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 165460,
+      "sha256": "cb5dea4b028254bd6ff9ad2a1c3b2a50e897f0d301a1e4ac4a198420326fdd72"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-nightoff.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 128149,
+      "sha256": "85a789518a06b6eed43d40caf0efb38de8e538f221b00d6d9304e150eb095c39"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-nighton.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160005,
+      "sha256": "3646d2f95b7a3643a20a62779611674977493480e8a29f0111be709dc0a9a1da"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-nightreduced.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 161778,
+      "sha256": "cac34c7ac1830046593c7dfa5130081eb76580da908700c0741ff655b4ea3c7a"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-radiocaption.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 170734,
+      "sha256": "dafe5e53240daeff236f9dee6ebf1fcca8cd822084334c4d8ebd99198910f848"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-radiocheckin.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 125686,
+      "sha256": "ea01143e0250f15b6015745f7f31441b8f3e34e43ea2f0f397e69d4be69c140f"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-radiopriority.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 127881,
+      "sha256": "7320beb1d8fdf18416c3685d6a8f54ad8839acdf89f4d85a020c80d44c288710"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-signsjunction.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 187242,
+      "sha256": "322dc9d7a63c50a8666f9deb8a19e76578b9a09c1ea7f35186075b565079512e"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-signspeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 93539,
+      "sha256": "3a9172a2352754091b71e79f81808ead108433bfbbc4e187898667c265fa6b56"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopsgate.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 45212,
+      "sha256": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopsintercom.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 45212,
+      "sha256": "84655f3eb5b2a83335ed7f710cab04be311c13824f2d6cc2ce16b245bdede9b5"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopslockerclosed.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 43113,
+      "sha256": "cd88f4502bfd8e5f22a4a71d6b7559b859fa26ec1c473fdbb60e9a1c6b08c37b"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopslockeropen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 44761,
+      "sha256": "cce0baa8e30af9b0e624441012a3259e84dda6eeecb2b18c4cdf8ba76144654a"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopsreception.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 42954,
+      "sha256": "203c3e68d3f05574f31018cdb17869015e133eec022b80c6afa8c7a92ff395ff"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopsretention.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 28963,
+      "sha256": "2663100a09ddd6c87ca8d4466a1fbe2b552cb938c7b472821dfc960302411d9e"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-stopsstresscab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 174362,
+      "sha256": "5ddb1f692e2f27090f699c32acb29357f51807e7c74f554cc74901f4b4548fa1"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-trafficpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 111304,
+      "sha256": "f4bd291f3003a646800612f8056428a6ba78d92de9fc79e0e573c08f19dd1070"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-trafficschool.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 220312,
+      "sha256": "315db8c24d4651b119c793724a0531f97f2657306582f97e99105ecd517aaeae"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-trafficsignal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 222002,
+      "sha256": "544749ad93bc7dac2465f58cae78f50f9d037d59e55c38a3048d6a8f1db4511e"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walkfront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 103843,
+      "sha256": "6b2cab776d4f1bae348ded640fc781bb564770e33f3b9821e972f8660bdb77de"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walkguidepost.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 56060,
+      "sha256": "10cf1da26d1824f54075de8cebcc849f8c0701ef03d979fb710f1d9fac0a3bbd"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walkguidepre.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 53444,
+      "sha256": "88b089b089856b798c3f4c9f77ce8cef88383c3fa6d5a6fbb9f26b4d7893a430"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walkrecord.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 126563,
+      "sha256": "1b41334a06b674a007da6d06038891bce181cc777cc7c14aeb6736c7f78f9e56"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walkroof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 69313,
+      "sha256": "3733bae5c8860acce1f363423ff034c01425c18c6035523926601ccf7fcc6731"
+    },
+    {
+      "file": "final/c48-final-fallback-low-low-walksummary.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 96776,
+      "sha256": "84e0c6bae6a3d6b0d8969642010d71679d3e52079b75ec518380f1fee0cb8631"
+    },
+    {
+      "file": "final/c48-final-fallback-low.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 35158,
+      "sha256": "ee858387e1801b038dca13a53983aeb9178c08d65d4a064563b00caa6a58af14"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-guide-report.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 89716,
+      "sha256": "69ab655f17b26994ff42c4d844501509f01066471ae2977a9a070f70ca43d063"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-post-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 137773,
+      "sha256": "8b471c91671c09c7e7e7e83365f36fafb7740d95a975f22c025787ae52b1a7ea"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-post-rear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 233891,
+      "sha256": "33075565bebdbd4dcd362d152814b31bc4caffe4aa5cde498be38df0ba370cc3"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-post-record.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 133964,
+      "sha256": "8c518a4a4c9b1c9ea05aa71e86b1af6a4d90f427b08103af886f0047e02c82b8"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-post-roof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 122712,
+      "sha256": "d77f90c7258a8a9f0bb7c01484c80270bce852f5f0472bca0868561a5bf93866"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-pre-record.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 305951,
+      "sha256": "c4e1ec853d6d8dee78eaf478234d5f591daec3846a2197e2a974d7118d218fcb"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-pre-roof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 123081,
+      "sha256": "d7f726bc6983b5f8b9681269439c4fb54e85539d38bc0a3799a3b423d0843cd3"
+    },
+    {
+      "file": "final/c48-final-high-en-normal-pre-wheel.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 324083,
+      "sha256": "cd02c071a4ffac63a7bfcefff627df75f8a0d0e6d6c92522f9102c99dc1f0a18"
+    },
+    {
+      "file": "final/c48-final-high-headlight-panel.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 65631,
+      "sha256": "aaafb3e7e2a888da02ebe99a76675845e33afbb577795554c72a620f52ca1842"
+    },
+    {
+      "file": "final/c48-final-high-walkaround.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2105,
+      "sha256": "5b70061d385c480f3f5da5cabd24f4b9c1c2da42d9a18e53c1872659ee4a6c76"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-actorscargoextra.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 163021,
+      "sha256": "9f6602a66a9a21577bf025d5b70577407f1e9303d86bad1a70bf2a822eac0507"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-actorsmirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 215864,
+      "sha256": "56a938753d1029b664cd2f0c2aff32c7ee47e91799e959221c1c4b3b8c7eb411"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-actorsresident.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 68487,
+      "sha256": "bb018615c0fae3d38c71ab3011e683a0456931cb77d53c980b0cd380781ecebe"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 196870,
+      "sha256": "2bae6dd668ce1881eaa9f7d91f66ad48419c31c6001f90454b486c2e48a80fea"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagebridge.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 239431,
+      "sha256": "6ca1a65bb7afb6baeb6abe53a4ce72a0c6a3228b104028cf33d4b020baa9a49f"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagecargo.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 256009,
+      "sha256": "700fda1a8518c44309794e95959bdcef2f6b255b714055d8f49f91cfb6a9e647"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagefront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 271875,
+      "sha256": "a963d883c02eb65875222dbc1da6c3bedcc865f03906735016cbe2f4769dc27a"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damageleft.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 278962,
+      "sha256": "b6b9163b30a35a58a9e16f46266a259f1dec4d124e66336ade64d194ae47132b"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagemirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 151894,
+      "sha256": "619124715c06b911e2ab04fd16cfff3b4d85fda77d96d4c640210873d885e853"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damageoverhang.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 237583,
+      "sha256": "e7bfb3a16da767bc8dda0ad417376b0f6ac933a9eaceb168c3e16d7ba6f8aa5a"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagerear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 260298,
+      "sha256": "0edf3cbee48d1c0014b990dfc0b6b44d84efdfd887e8965b07b6bd9ed3cb0265"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damagereverseclearance.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 216219,
+      "sha256": "47f902c1cfb7e269114cdb99dd65ee13274e86279209eae949da830711a12234"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-damageright.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 251779,
+      "sha256": "df9310d5611bb3892b19b0a91b5c3f10050f1089b6a023bb1e9f5934541d95f3"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-lightingnightreverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 201788,
+      "sha256": "228234d08ef57e4a8fc1d4cc74984c079b70eb954a803ce16d262818c901f5a4"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 166375,
+      "sha256": "7e776da7f8f2d054f002545753459502f654f216508f102ac03d70be417357e6"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-mirrorInterior.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 177422,
+      "sha256": "a5226b5c1f0721b142b4b96f70c3453950c91bdf3857ba654bbaabf887dcbbcb"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-mirrorRight.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 200560,
+      "sha256": "13b9a9961925c4e02cd54c9d7de14e06c7f83b1d0125c7640e9cc4a43d4a45f2"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-navblocked.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 334065,
+      "sha256": "ae72399a9dddd2976ab2dc4a4cad8e56cfd6b631dc1e0b103fca492437702959"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-navdouble.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 339678,
+      "sha256": "b343be8ba5098b1fd691620afff8b98db8eb17b04df479afb9ca82c8946fc6a1"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-navfull.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 185897,
+      "sha256": "69d872d1988591766182ede1bad0a8bc2746cc5399bcc7df9931a1ea0bc42c45"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-navline.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 184857,
+      "sha256": "1c8ca27ee0b39faaa49f58dd46dcd6ed3b4381ff589c1b62aedc564c9e4f2cac"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-navreroute.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 209933,
+      "sha256": "ca79be9dc5621c8c44598340ae964f157ff524c177b4ac4f5084ecf4a0b0e06a"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-nightglare.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 157219,
+      "sha256": "13f45a6231e819a6530d7ad16e5f0cd67a2c9bfba026db27ce1a0354f4807c74"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-nightoff.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 110191,
+      "sha256": "e03889b449fd175fd77ff760b2a711f100e50233809462d8fee54f630066b15b"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-nighton.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 152371,
+      "sha256": "e138b39fd2003dc8a88ffa62ec57d5a73cbb23916d0e2f2734aff646e42a73f3"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-nightreduced.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 152634,
+      "sha256": "1981610688e4b8af112024a48c38f667fbab966b6924d2a98b30cabe5a91074d"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-radiocaption.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 163211,
+      "sha256": "a75fcea7c795c91bb40ba281d4eb5d4fd6dff1ebdb3911184193f01a804ca8f7"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-radiocheckin.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 140183,
+      "sha256": "3dbec9ae18432179ef07a5f9acc7f156188a54211b1e4fbd6864b2e419a4eee6"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-radiopriority.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 126295,
+      "sha256": "f99f895fef27cf2ee206a94752ccf048c4720a723f6f9a02981ff07b8d56a691"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-signsjunction.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 181864,
+      "sha256": "5bf1938f8c494a64f7f76e58b8eaa08a9b8a7b4945150fc30cba791aff3b9dbd"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-signsoneway.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 211164,
+      "sha256": "24aeb348d9b274ea9872dcef70832665582f794d85a05a91ee49bf11f46deed5"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-signspeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 96033,
+      "sha256": "13797d9a4c0c4ae7e956470b29e53cd0f49a85eb9b05d3b78dc26e01b7d62e8f"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopsgate.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 105247,
+      "sha256": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopsintercom.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 105247,
+      "sha256": "e62956f585b9116fd4047edd658b3ff4b9a62033ecab2850899baa73cf2837c8"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopslockerclosed.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 85266,
+      "sha256": "4975b1df43f10929bfc2c5e9640296b26e988d793337145e351e7071cf39b2bb"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopslockeropen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 84897,
+      "sha256": "d1d6e3a295410bcc500e0784b13672b2af5183d0779496e4173fdab57f2a3b99"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopsreception.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 60742,
+      "sha256": "792c1e6307f48eb1942e4d42402cad13a08fc3bb3619b2576afb7b8c940d1eae"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopsretention.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 55211,
+      "sha256": "f384fc2315e589ffff2afa178ee844987904da16cf3678f84c4a293dee7cebc6"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-stopsstresscab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160778,
+      "sha256": "6f558279d9a8b9e0207527a911c56bd060e07094ec5e6c8042bc4ae349bef286"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-townhouse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 280693,
+      "sha256": "b35ec769ad483219b80e443295d5f598f1cfd5d30025e7bbb934e12a912c265c"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-townroad.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 261296,
+      "sha256": "d0449ef918ceb1b3fd6582de80bffa8c6eccb94ac00f55aca7170f7bd1fd9934"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficcyclist.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 350556,
+      "sha256": "ed9693485007792c8dcd2d639340ec2441b31d89185fb4e5319484aed6223c91"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficgreen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 268605,
+      "sha256": "db1722bdc983b6a83e62735cd3520d43ee5563614301fd00c4e2a8bce71604ed"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficmirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 245755,
+      "sha256": "84d990683eb318f8f9cf2f5383b8f477365eed5ab2b1eec1c1e827884d2715bf"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 148279,
+      "sha256": "dbffcbde4258bb0daf8f287e270d2b0d0b12d6a6ced5b827a3be8d21bbdda83b"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficschool.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 315390,
+      "sha256": "b159d54fb11b12ec97aabf1dc7f72a62c5bfc378d0208b5cc86b26aedacdf316"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-trafficsignal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 266411,
+      "sha256": "ce2ec1ff186453071f8a4c3003a750f76ddab2fa84d8d588dcefae64c048552b"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walkfront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 211351,
+      "sha256": "f14a023ed9b794654db5d0be2451e5968805af8ce7b8810fff4b7fb36420eab0"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walkguidepost.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 62036,
+      "sha256": "0610463823693229153493792f6e7f67ebff35d9a0caf21e02c3073f927b863f"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walkguidepre.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 61297,
+      "sha256": "4347c2ccc80bd4a3a33946e22b6e62d1262594473276d1604592d2328b3cb40b"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walkrecord.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 151417,
+      "sha256": "74c981c4c590049972df99ef4761ad48a4702a92175983ef5e4196cd11865733"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walkroof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 82357,
+      "sha256": "0562339b8d9623e2b0d4104b9ca388a84553081ffa5d696ca44b9ba133e46d17"
+    },
+    {
+      "file": "final/c48-final-loaded-high-high-walksummary.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 118586,
+      "sha256": "0820e61c1e495ef71dcf693e8efb07ba453d48f59260b3812b4b33bbc4b3fdf4"
+    },
+    {
+      "file": "final/c48-final-loaded-high.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 43676,
+      "sha256": "355852557b40c0b99e8bd859cf5bd35e29be696ed2f6bd45b917a88104ac4c2d"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-actorscargoextra.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 114711,
+      "sha256": "e70cbfbee9608eef1c694071257d455aa43da777403967e4a982883dd7d3da0b"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-actorsmirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 165852,
+      "sha256": "637e913950eec3b0e97711bf89c981579a7bf27b69466b8a4561a2e55151aa1e"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-actorsresident.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 50778,
+      "sha256": "fe674c5a86e74bbae0a14d0dc3224874046a9cedb84d2b66dd6f63ac411a18c0"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-actorsvan.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 209322,
+      "sha256": "1e53f55e9d62b754dd84c88315d36ef04f0b4059299020b691e8c2357696845a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-barcodeAim.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 107056,
+      "sha256": "fa917884778cb7ad1ae7d198dad9fef53a688a771db0f53c7347dba1ac09f9f3"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-cab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 179479,
+      "sha256": "b8e7668fc7ee4a049162a64334171ac6de69fe309eed34c6fcc0422834af43ad"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagebridge.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 197944,
+      "sha256": "458f90a4a8b526abc65acbeb56333b26b1dd0606ee2a176e1021e80683ef2fc0"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagecargo.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 202745,
+      "sha256": "2922f704effb2583caab4de68a3c641de44fb582005fef92e65d2fe9fed118e7"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagefront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 197726,
+      "sha256": "2a8852ff5758fe38ac959385b28fde93865632ded30ad35bfdf574d97f84d9ab"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damageleft.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 192558,
+      "sha256": "9a5e92c4a92e936a2c59c7a504d2b7ab370b696663e5401a984c8681d0880ccf"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagemirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 164319,
+      "sha256": "42e42422d406352dbc4dc167855ae94db2179cd7a92a8ac6a5ed180d693985a2"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damageoverhang.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 206087,
+      "sha256": "c252283c47c9d96cf900b1d73f3f6026c2ffa79b1d61f6149d1fe4c43a4aafd0"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagerear.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 195864,
+      "sha256": "68caa1d3f3faf831056d35f72b780077bf70a0d24ed2b34cc0cfa70f98c32483"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damagereverseclearance.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 207331,
+      "sha256": "1b4d6c13ae3d23bfe5f455db0797eb268b0dba73986af78e5f37278c5bf40be5"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-damageright.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 190570,
+      "sha256": "c942ccae7507bef3f332163c21c812e77bc95926f8d0059bd6a7b0ccf51cb7bb"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-depot.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 165584,
+      "sha256": "55072bc637614505933b6dd3b670b821136be0f0281eeaba5e565f961cbf8e42"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-doorid.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 55392,
+      "sha256": "932f30bbe1422214555b6139ef96b04ed23bd0a88c960e33dbd6d6f8a957638a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-doorsignature.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 38030,
+      "sha256": "dfa03ed1a37d31914d2677028e0d8345b1e367841ab1922488708380d9ec3984"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-doorstep.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 37417,
+      "sha256": "9e1cd8740deeecc23ea67d16ff2f77c16dd5f8f80f3111a20dde3232527186a7"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-firstStop.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 182620,
+      "sha256": "69784cc67c591bdf530b27fe078582d8d82d8c00b544567e9825dd1165fbc3e9"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-handheld.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 151813,
+      "sha256": "6f1cec6918ba0123240102cc5ba874d692858b39e0beeefbdfdac295d3202704"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-laterrearpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 207167,
+      "sha256": "71b70957da5cdf14f753ba70db4fea77c07f30fe6b83edfba20873b21883d78a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-laterstressturnleft.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 196624,
+      "sha256": "98628ea64205f4b0e5feb29f62536fb0c98298c6f8fd74e9a517edc2579781a6"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-lightingnightreverse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 212574,
+      "sha256": "6204b8b28e7823a965c477a414d891ce36e93fbc53ca6c59d206afa609cc10ab"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-mirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 169246,
+      "sha256": "28d8ec031caadc9b88f1ff257a7c30404e3ba91985f684b7cacc05266e261d57"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-mirrorInterior.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 185833,
+      "sha256": "727caad8d76868c751f38cc4c0b330fc6dc4f694c5dc2b21aed07df9bc10d51a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-mirrorRight.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 191635,
+      "sha256": "29eca8e60cc6e625aa004c1e03bf5d0eb6d5fdf22824e0b318e045197ba5beec"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-navblocked.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 233971,
+      "sha256": "c0634249e2336388f38df3faba2a68f46df3ddd65de778f1cc94054e5c078c68"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-navdouble.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 225560,
+      "sha256": "7f906b2a0de7306fd722d5766e456fc0f10e90d3f39d2a8c2e93f0802be3cf94"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-navfull.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 177195,
+      "sha256": "1485ec0ad0be73f98285264ad02b26618ef5de947ff4d0b398a84218d0806f02"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-navline.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 176549,
+      "sha256": "7b74cf20e03d3d93eb0d8f2c00cf6c76a73126fc12bba797f10b50d4afe83886"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-navreroute.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 178698,
+      "sha256": "76b892c89cb2a1c29019856a4b513e7bb76e51de9b3047c1f820dc7091731bc6"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-nightglare.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 166165,
+      "sha256": "57dd6d25dc5d9dd753273af2d2e10c5efddf495b1f6f0adab04538853350944a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-nightoff.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 128564,
+      "sha256": "30c37bbf90dbe69caa80b22881c3220f0dd8948ae661ee2ee79d5c90089925ee"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-nighton.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 160672,
+      "sha256": "deb372f919740d050c254cdb7358f131bf526a9a74c3ed037d354099256d7e7b"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-nightreduced.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 162102,
+      "sha256": "6d42b333d5466cc2e92c18deef9acda70c658dda6591930884ed4f80a7839c90"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-radiocaption.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 168047,
+      "sha256": "5f6c2cf7f2b423612d9e34de9993fb102b28666d4a5b7784f7157e60cfcd11dd"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-radiocheckin.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 126647,
+      "sha256": "e09671fa37cfdcb6c3de467ff35f3edae26e7234de00eacb8452debbb4f832b1"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-radiopriority.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 128201,
+      "sha256": "ca7f884347c6892dc8434c64c544cd865fc833ef272edf38b12d3104c8d42b88"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-signsjunction.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 191835,
+      "sha256": "10212fb3a4d7bdfbcc1ebba79d956f005f841da480f8d4c9f67c9d774fee39a9"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-signsnumber.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 66260,
+      "sha256": "5d087dbca583d3291f48dd11461e108ca82fac84d0e9a36a7693838c788f83b5"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-signsoneway.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 187284,
+      "sha256": "b89e6780bfb8f793d1eb296da8cb6b755b590e97eabab944cdb4ec5b804bfbc9"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-signspeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 95582,
+      "sha256": "2f65f3b0435367a8ac4459d04f81d4aa4d2420787ae85f4a8adabfd6c5bbcdec"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopsgate.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 53957,
+      "sha256": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopsintercom.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 53957,
+      "sha256": "e45e49d7019dbe0d0a4e8aed51b4160f2409d994309d21ecb2a7736ec317f448"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopslockerclosed.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 49287,
+      "sha256": "f8585327a617b250f854e7ca8e5d15cb8132ff3ede73e5d71977e5c63653de90"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopslockeropen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 50905,
+      "sha256": "e34228e7403c1480464f3899286fa5ef51fe75cfd20382558ac783aefdc3ae50"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopsreception.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 49550,
+      "sha256": "321b3836dcfa025f90a1c0d30c393fd6606c17e6664ef6b02a4a805792eef7b4"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopsretention.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 28978,
+      "sha256": "fb83320de39b6b67133098e650a2788e987c69f4dc2a4f45c97682997f42cd37"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-stopsstresscab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 174368,
+      "sha256": "463c98cd9d28be52e2fd73c661672f086eaef4e8689919908f031fe9270d81e9"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-towncab.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 183479,
+      "sha256": "0546e13dbf6eb57d9236f246866e98a5dd40a182f62500c9c766a78c93903725"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-townhouse.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 199189,
+      "sha256": "24a637d81de6c8ebab5ce897a3d08465f484ddc74fd37e2a0af277df6c91c047"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-townparked-car.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 205217,
+      "sha256": "d16fabaa10c11e9d0d080e49156ac2a7fa0da2d02dcdf06ee91d6c80c95af7ce"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-townroad.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 171031,
+      "sha256": "2728d9f7353bba2df584e45dd280f23d3e83c7eeb260c59ded337677197bbcc3"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficcyclist.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 240620,
+      "sha256": "f77e2daba2564a21ad6a9de48470210a97315acd60dcd0228d102cd8eca9c096"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficgreen.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 222866,
+      "sha256": "b77f1d1ffc04f1eeae42500b6a7c077a474ac4cb341f09a258f6fea8e63c17c1"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficmirror.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 213764,
+      "sha256": "e1a8effc81d24bf7d275f70d202cdc0c8d42d85570479b2d0d18cd301eef3e06"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficpeak.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 113040,
+      "sha256": "9a8f78014203d49a6c656ec8a57619813447b5d064018785cea1d539a21bafa6"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficschool.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 221988,
+      "sha256": "35c2623ea6bd76687371455afe6867779c5ffa8d717b97c0841e14fff982f104"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-trafficsignal.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 221432,
+      "sha256": "6394293da4ab2c005804b0c957cd0228028d0bd4ba987d071d6a3cbfe1f4de4e"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-visibleweathersnowwalk.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 219051,
+      "sha256": "ff995a2c7555a548b6989cf55ca93482ba984c604e44cdaf8117b8de551d67bf"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-visibleweatherstorm.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 217165,
+      "sha256": "177b873832691f3a3374613fbbdd9a77b39f43c4a1ad6e386de7d2637358278a"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walkfront.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 84887,
+      "sha256": "b9654df21eb86cd5773e2b6961e62191aaf01180b5cb0dc7f856944a36d9ffad"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walkguidepost.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 56356,
+      "sha256": "a25ab49001062ed411869c944d9edac1200e8b246287e696a47258dcb28b8a23"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walkguidepre.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 53802,
+      "sha256": "99371d93cda3de0fd31a66201615c4dd93fe4db9674d8f8c5e26aed18c247dbf"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walkrecord.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 133112,
+      "sha256": "fec994babbceedf37beacb8a8f9ab396d7e228010555ab49306e80aabd1fe410"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walkroof.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 75717,
+      "sha256": "f4beda3d88c9d907677835d5e830318a99900069d1a3d08109fd31f2e8a9a83e"
+    },
+    {
+      "file": "final/c48-final-loaded-low-low-walksummary.png",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 99685,
+      "sha256": "22c12f6a4d78235530440467ec2bd06dfaafbab8283dc44e49cba55fffcea614"
+    },
+    {
+      "file": "final/c48-final-loaded-low.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 55359,
+      "sha256": "5392c203756c9bb5b669cebefb5ba25ca46b3a87b637128af01dbda53061cc7a"
+    },
+    {
+      "file": "final/c48-final-low-mirrors.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 5199,
+      "sha256": "8479e9d72abbbc560059511a7d6221e15cac653be0562576fee7a052f6c72e78"
+    },
+    {
+      "file": "final/c48-final-native-acceptance.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 35747,
+      "sha256": "d8668b5ff3de14b457bc2c01daca20fcb0ba0c40390de6876a29930d993132c9"
+    },
+    {
+      "file": "final/c48-final-native-hud.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 112,
+      "sha256": "69b409c5461f1830e02344ced5d2a3c036feead646e5fbf8e940bf42dfc5dd9e"
+    },
+    {
+      "file": "final/c48-final-native-lighting.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 30,
+      "sha256": "56347fcd165bb8a1b475e2899c18e9bccc43bb5b956afa9e672d18c120b953db"
+    },
+    {
+      "file": "final/c48-final-native-mirrors-low.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 64,
+      "sha256": "4a05f9b8ea93d383a556f27b197626ad3848d461239518b1486b93e13de55b72"
+    },
+    {
+      "file": "final/c48-final-native-node-firstperson.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1696,
+      "sha256": "2686478376e76ec4cf0f944047845c64846414052334558f7235e25b590ef1e4"
+    },
+    {
+      "file": "final/c48-final-native-node-fpaccess.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1330,
+      "sha256": "cbafb33216a9e478afbb25838b683cf22076e5db00f2aee9f99079058ce35e58"
+    },
+    {
+      "file": "final/c48-final-native-node-fpassets.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1389,
+      "sha256": "a9a2db67364f9b838c1087166cbb99d24aa9efdca146af2d0c8d71dc72535ff6"
+    },
+    {
+      "file": "final/c48-final-native-node-fpcab.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1550,
+      "sha256": "c61fcbbafba8fd59f48b5e386366ba933a655f3f083a77e8c57ed94c93d0dcd5"
+    },
+    {
+      "file": "final/c48-final-native-node-fpcamera.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1086,
+      "sha256": "4aa99df204dc437bf52056afa259618bd4cf7718d02bb68fc2f7a075ebb6c2dc"
+    },
+    {
+      "file": "final/c48-final-native-node-fpdamageworld.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1342,
+      "sha256": "1997cc3ded5bb926b31f290837782ccdeb0e0b76794eea0a893f4be6f992256c"
+    },
+    {
+      "file": "final/c48-final-native-node-fphud.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1096,
+      "sha256": "1097767c960643fd02c70bac2ff31bda54f6b73a6d359a20900b67d3ae5c6690"
+    },
+    {
+      "file": "final/c48-final-native-node-fpmirrors.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1783,
+      "sha256": "da31e8923a3d38e33317d5055acf14c7f0ec9d2a396992506bebac9d059efad6"
+    },
+    {
+      "file": "final/c48-final-native-node-fpmission.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 3780,
+      "sha256": "1f8af99cd4a1736e80fcfe71be980485c936a87534d0c05daa5db2bdc973bbd1"
+    },
+    {
+      "file": "final/c48-final-native-node-fprear.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1944,
+      "sha256": "9112a89007132e0d7cef11d097ce05453fbda3468314df09820eb6c0fd577c09"
+    },
+    {
+      "file": "final/c48-final-native-node-fpsigns.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2521,
+      "sha256": "0ed23992f715ebe69a513d3f6fefc9eccfda6a2e1fc632882af1435a1c9d41bf"
+    },
+    {
+      "file": "final/c48-final-native-node-fpwalkaroundflow.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1520,
+      "sha256": "3e39c63b0430bca1c1554f5425e23f6354f32a855374816cdf814a72b8a979cc"
+    },
+    {
+      "file": "final/c48-final-native-node-fpworld.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2558,
+      "sha256": "af8914cc460aa3bebc43ad76f6c5ff9c2824df499b4e63422015730bc74d8e83"
+    },
+    {
+      "file": "final/c48-final-native-node-i18n.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "final/c48-final-native-node-savesize.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2578,
+      "sha256": "072ecd02ff1d43669b75ee54510c0d66719a2458313ab717967c457b32566436"
+    },
+    {
+      "file": "final/c48-final-native-node-workday.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2482,
+      "sha256": "b11ea40bd7b7b79ba82d54b8fd373ff982d9cef2a53323add387987625327bae"
+    },
+    {
+      "file": "final/c48-final-native-rear.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 116,
+      "sha256": "caade35b54644ccb09114809a6bdb3f81a12679d4ceb5f8df17d6175374fe356"
+    },
+    {
+      "file": "final/c48-final-native-shared-workday.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 639,
+      "sha256": "b2c7126088dfedc41f49a6c68995b2ce9b4a8313eb5db7d3e9d33282de6616d4"
+    },
+    {
+      "file": "final/c48-final-native-signs.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 45,
+      "sha256": "95fef7fffb8f4aaf9778e40db48e62bc00eba797fefadd3418f67efaf91725a0"
+    },
+    {
+      "file": "final/c48-final-native-walk-high.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 87,
+      "sha256": "53f701001e965f534607862048174a00768f7cd0fe87fc26f634191e1099d6d0"
+    },
+    {
+      "file": "final/c48-final-native-walk-low.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 86,
+      "sha256": "592bef030ac0541eb157a7f9f5acebca50cd9fa0ec04977f52ff6142642592d4"
+    },
+    {
+      "file": "final/c48-final-quality-acceptance.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 33681,
+      "sha256": "5b4ea0e8929eaac6415acab65c809d87d866f19792b61da4ee45ea46cfcb3841"
+    },
+    {
+      "file": "final/c48-final-quality-node-firstperson.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1695,
+      "sha256": "59a9416913ad41ec5091829842d21a13a2ecbd8aa29930c17e205e2df9d24337"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpaccess.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1329,
+      "sha256": "4fb07b7d4e3371d7cb393c48a265594f7ef395eff2355baad7d336e26d4c4288"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpassets.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1387,
+      "sha256": "15fc6702e884d8dd7d1fcdc2086a2ad87ece80a711df73ff7534ed2d79403e4c"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpcab.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1548,
+      "sha256": "38051a50b1f3dbdf540c269d2cb15eb4f80f4c030df5c982b66e13cbd9086ba2"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpcamera.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1085,
+      "sha256": "b2fdc589565001451d821a667aa246949defc5a96c8ca8475b14a2ec14e9ba40"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpdamageworld.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1338,
+      "sha256": "f14d7d9a1f5d0746eb5d979b8bd9dc44fc329c1ab858b707b1c76f9f985599ea"
+    },
+    {
+      "file": "final/c48-final-quality-node-fphud.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1097,
+      "sha256": "94298a1985713a3a18166fbb4f352976930bf33aa3940d9ea2fed5324fb8a27d"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpmirrors.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1782,
+      "sha256": "14e3e126c59600f19a39f7d631d261f242c2404b2c034305caa198d276d3481b"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpmission.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 3781,
+      "sha256": "79d2ef03c56ba27eeb8037f701831797f46d732ce119a05697b7b7f1eaaddefc"
+    },
+    {
+      "file": "final/c48-final-quality-node-fprear.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1943,
+      "sha256": "39d7731f044fd5deda17d21598895ed18a2e9a6105013a650a904e953ec8a884"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpsigns.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2518,
+      "sha256": "244e2885e69b1d1e9bf06d0c51a2ad3d108343d7ae7db1e919196c45f58e776e"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpwalkaroundflow.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 1517,
+      "sha256": "ae8a26d514b73538069aa3717be0245382cdfc9004660d4e478b46472d684a09"
+    },
+    {
+      "file": "final/c48-final-quality-node-fpworld.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2561,
+      "sha256": "30806399762cb55e9fcf07f07ef238d4a9bc551e47acf78d35bb7827a9e452d9"
+    },
+    {
+      "file": "final/c48-final-quality-node-i18n.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "final/c48-final-quality-node-savesize.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2574,
+      "sha256": "23d22432c6a51eafb3a4fb04df3ddb69c21e76af3e4a950794eee7e7f1d9a288"
+    },
+    {
+      "file": "final/c48-final-quality-node-workday.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 2486,
+      "sha256": "f35d50ff5888a8def33700c3af395c00e3bb3e22cab28c4869d6421d45a6b2d1"
+    },
+    {
+      "file": "final/c48-final-quality-quality.log",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 443,
+      "sha256": "42a1f9db5f3999cde9ffcd03a597d1641df53fa985db1379bd36f0da1a426afc"
+    },
+    {
+      "file": "final/c48-final-quality.json",
+      "scope": "Final runtime bf60fc1f",
+      "bytes": 6974,
+      "sha256": "b552e8eaa8be71ddfa795d9f9cb8ed48677d3d10b194d7c244c1cb813ca5a085"
+    },
+    {
+      "file": "components/c48-release-native-mirrors-low.log",
+      "scope": "Completed component checks; partial controller is not a final gate",
+      "bytes": 132,
+      "sha256": "a07a51fc0622576cd6871cadccc851c4d84eada8a4daf217fe459237cd9454f6"
+    },
+    {
+      "file": "components/c48-release-native-cab.log",
+      "scope": "Completed component checks; partial controller is not a final gate",
+      "bytes": 141,
+      "sha256": "6f216e301a1e2fdc25674705620256c29900e3cdaf96ed04c318d5c41e98b981"
+    },
+    {
+      "file": "components/c48-release-native-camera.log",
+      "scope": "Completed component checks; partial controller is not a final gate",
+      "bytes": 32,
+      "sha256": "51fa1258b7ee95817e8f8a4e47e09f04a16f489c43cf6103a0d7a480962ea4fb"
+    },
+    {
+      "file": "components/c48-release-native-acceptance.json",
+      "scope": "Completed component checks; partial controller is not a final gate",
+      "bytes": 34107,
+      "sha256": "3898188bc4ce659b921a91f8d4f4bd62d4273b59246ed5280e307b8ee3924937"
+    },
+    {
+      "file": "controllers/c48-final-acceptance.py",
+      "scope": "Controller or completed component check",
+      "bytes": 2815,
+      "sha256": "7cc02f010186691f7aad4cac62cd5a97256be01224f2440d3b82b48044b9cc19"
+    },
+    {
+      "file": "controllers/c48-high-mirrors.log",
+      "scope": "Controller or completed component check",
+      "bytes": 64,
+      "sha256": "4a05f9b8ea93d383a556f27b197626ad3848d461239518b1486b93e13de55b72"
+    },
+    {
+      "file": "controllers/c48-assets.log",
+      "scope": "Controller or completed component check",
+      "bytes": 345,
+      "sha256": "18b4713252e191b8743b05ff1f51495a1dda3d529533c95a3f76e1e82f446bb7"
+    },
+    {
+      "file": "controllers/c48-credits.log",
+      "scope": "Controller or completed component check",
+      "bytes": 307,
+      "sha256": "061ada717f5a94e665ddfdb2fd3977f3879fa430ee16b92b6dd3494621a56e1f"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 3D workday rendering cost
 
-**C-48 preliminary cab pass (21 October 2026; still doing):** six Low cab/mirror/stress views peak at **48 calls / 1,918 triangles / two Three textures / 3,557,376 attachment bytes**. These are partial smoke figures; the complete final 207-view matrix is running on `bf60fc1f`. The mirror-housing wear follows its new location without an extra instance, call, texture or target. Evidence/status: `docs/review/set-10/c48.md`. No frame ceiling is raised; native Intel FPS remains O-1.
+**C-48 cab acceptance (21 October 2026):** all 207 fixed resource views pass on `bf60fc1f`. Loaded Low peaks at **53 calls / 2,402 triangles / two Three textures / 3,557,376 attachment bytes / 2,740,246 estimated Phaser bytes**; High **107 / 235,915 / three / 11,239,424 / 9,087,536**. Accessible Low: **53 / 2,402 / two / 3,557,376 / 3,123,238**; actual missing-model fallback Low: **53 / 2,156 / two / 3,557,376 / 2,638,592**. Native mirror, rear-camera, HUD, signs, lighting and High/accessible walkaround checks pass. Matched views, raw reports, exact source scopes and carried camera/cab component checks: `docs/review/set-10/c48.md` and `c48-accepted/manifest.json`. No ceiling changes; current-pilot strict integration is recorded separately. Native Intel FPS remains O-1.
 
 ## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
 
