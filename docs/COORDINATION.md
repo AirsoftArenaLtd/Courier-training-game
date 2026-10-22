@@ -519,6 +519,7 @@ items here for each agent.
 | B-141 | Claude | **Gujarati and Punjabi self-review:** the two languages with no reviewer question yet. Check their safety lines against the glossary and the English, fix plain slips, and add a question for each real doubt (`questions.json`, then `open-questions.js`). | done (one Punjabi fix; three questions) |
 | B-142 | Claude | **Hindi and Telugu self-review:** the two languages with no reviewer question. The same checks as B-141 (numbers, negations, "must" and "always") and a reading of what they flag. | done (no slip found) |
 | B-143 | Claude | **Every number kept, in every language, as a test:** a speed, distance, age or time that changes in translation teaches the wrong thing. `test/i18nnumbers.js` checks every translated line keeps the English line's numbers (native digits, the 24-hour clock, the decimal comma and "3D" written out all count). | done (43,895 lines pass) |
+| B-144 | Claude | **One page for the owner, what is new:** `docs/review/WHATS-NEW.md`: since the visual review of 21 October, what to try (with the review links), what is being done, what was fixed without anything to see, and which questions wait for an answer. Keep it current at each milestone. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
@@ -571,6 +572,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-144 done:** `docs/review/WHATS-NEW.md` gives the owner one page on what is new since the 21 October visual review. It covers the radio, night, replay, walk-round and lite links to try, C-48 to C-52 in progress, what was fixed under the surface (the careful test days, scoring, SCORM room, translations, `drive.signal`), and the questions that wait for an answer.
 
 - **22 October 2026, Claude — B-142 and B-143 done:** new Node suite `test/i18nnumbers.js` checks that every one of the 43,895 translated lines in 11 languages keeps the English line's numbers. Native digits, the 24-hour clock ("2:40 PM" as 14 h 40), the decimal comma (0,5) and "3D" written out all count, and all pass. Hindi and Telugu were checked like Gujarati and Punjabi (B-141). The lines flagged for negation and "must" all read correctly: Telugu negates with verb endings such as -కండి, and Hindi says "must" with "करना है". No slip, so no new question.
 
