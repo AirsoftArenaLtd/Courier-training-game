@@ -914,7 +914,7 @@ window.OTR_I18N.pa = {
 "Injured on the Job": "ਕੰਮ 'ਤੇ ਸੱਟ",
 "A twisted ankle, a soaked package, and a day off the route. No delivery note is worth risking your safety.": "ਮੁੜਿਆ ਗਿੱਟਾ, ਭਿੱਜਿਆ ਪੈਕੇਜ, ਅਤੇ ਰੂਟ ਤੋਂ ਇੱਕ ਦਿਨ ਦੀ ਛੁੱਟੀ। ਕੋਈ ਡਿਲਿਵਰੀ ਨੋਟ ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਦਾਅ 'ਤੇ ਲਾਉਣ ਲਾਇਕ ਨਹੀਂ।",
 "A misdelivery is fixed by the courier who made it: get it back the same day, apologize, deliver it properly.": "ਗ਼ਲਤ ਡਿਲੀਵਰੀ ਨੂੰ ਉਹੀ ਕੋਰੀਅਰ ਠੀਕ ਕਰਦਾ ਹੈ ਜਿਸਨੇ ਇਹ ਕੀਤੀ: ਉਸੇ ਦਿਨ ਵਾਪਸ ਲਓ, ਮੁਆਫ਼ੀ ਮੰਗੋ, ਸਹੀ ਢੰਗ ਨਾਲ ਡਿਲੀਵਰ ਕਰੋ।",
-"Update the record: the scan and the proof of delivery must show where the package really went.": "ਰਿਕਾਰਡ ਅੱਪਡੇਟ ਕਰੋ: ਸਕੈਨ ਅਤੇ ਡਿਲੀਵਰੀ ਦਾ ਸਬੂਤ ਦਿਖਾਉਣ ਕਿ ਪੈਕੇਜ ਅਸਲ ਵਿੱਚ ਕਿੱਥੇ ਗਿਆ।",
+"Update the record: the scan and the proof of delivery must show where the package really went.": "ਰਿਕਾਰਡ ਅੱਪਡੇਟ ਕਰੋ: ਸਕੈਨ ਅਤੇ ਡਿਲੀਵਰੀ ਦੇ ਸਬੂਤ ਨੂੰ ਇਹ ਦਿਖਾਉਣਾ ਚਾਹੀਦਾ ਹੈ ਕਿ ਪੈਕੇਜ ਅਸਲ ਵਿੱਚ ਕਿੱਥੇ ਗਿਆ।",
 "Tell dispatch what happened. An honest report is what stops the same mistake twice.": "ਡਿਸਪੈਚ ਨੂੰ ਦੱਸੋ ਕਿ ਕੀ ਹੋਇਆ। ਇਮਾਨਦਾਰ ਰਿਪੋਰਟ ਹੀ ਉਹੀ ਗ਼ਲਤੀ ਦੁਬਾਰਾ ਹੋਣ ਤੋਂ ਰੋਕਦੀ ਹੈ।",
 "Customer at 214 Birch COURT called: they got a package for Lena Brooks at 214 Birch LANE. Yesterday's scan says you delivered it. Can you sort it out today?": "214 Birch COURT ਦੇ ਇੱਕ ਗਾਹਕ ਨੇ ਫ਼ੋਨ ਕੀਤਾ: ਉਨ੍ਹਾਂ ਨੂੰ 214 Birch LANE ਦੀ ਲੀਨਾ ਬਰੂਕਸ ਦਾ ਪੈਕੇਜ ਮਿਲਿਆ ਹੈ। ਕੱਲ੍ਹ ਦਾ ਸਕੈਨ ਕਹਿੰਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇਹ ਡਿਲੀਵਰ ਕੀਤਾ। ਕੀ ਤੁਸੀਂ ਅੱਜ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਦੇ ਹੋ?",
 "\"That was me. I'll go and get it back now and take it to the right address, then call you.\"": "\"ਉਹ ਮੈਂ ਹੀ ਸੀ। ਮੈਂ ਹੁਣੇ ਜਾ ਕੇ ਇਸਨੂੰ ਵਾਪਸ ਲਿਆਉਂਦਾ ਹਾਂ ਅਤੇ ਸਹੀ ਪਤੇ 'ਤੇ ਪਹੁੰਚਾਉਂਦਾ ਹਾਂ, ਫਿਰ ਤੁਹਾਨੂੰ ਫ਼ੋਨ ਕਰਦਾ ਹਾਂ।\"",

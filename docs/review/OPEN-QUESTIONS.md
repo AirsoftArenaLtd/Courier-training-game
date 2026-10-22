@@ -1,6 +1,6 @@
 # Open questions for the translation reviewers
 
-Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 22 questions in 9 languages.
+Made by `node test/tools/open-questions.js` from `docs/review/questions.json`; do not edit by hand. 25 questions in 9 languages.
 
 Each question is also in the Comment column of that language's sheet (`docs/review/<language>-safety.csv`), on its line,
 and those lines come first. Send this page with the sheet, so the reviewer knows what we most want to hear about.
@@ -35,6 +35,12 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 2. **The line:** "A dent is visible here."
    Is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground.
 
+3. **The line:** "You get as far as setting it down before the bright SIGNATURE REQUIRED sticker catches your eye. Left unattended, it is a failed delivery with your name on it. You pick it back up and ring the bell properly."
+   The sticker text SIGNATURE REQUIRED is left in English here and in a few other lines, as it is printed on the parcel. Would a Gujarati-speaking driver expect it in Gujarati instead? If so, please give the wording.
+
+4. **The line:** "Eyes up and early every time: the earlier you see a hazard developing, the more time you have to deal with it."
+   "નજર ઊંચી અને વહેલી" follows the English closely ("eyes up and early"). Does it read naturally to a driver, or is there a more usual way to say "look up and ahead, early"?
+
 ## Kannada (kn-safety.csv)
 
 1. **The line:** "Contacted the closure instead of following the diversion."
@@ -63,6 +69,9 @@ and those lines come first. Send this page with the sheet, so the reviewer knows
 
 1. **The line:** "A dent is visible here."
    Is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground.
+
+2. **The line:** "You get as far as setting it down before the bright SIGNATURE REQUIRED sticker catches your eye. Left unattended, it is a failed delivery with your name on it. You pick it back up and ring the bell properly."
+   The sticker text SIGNATURE REQUIRED is left in English here and in a few other lines, as it is printed on the parcel. Would a Punjabi-speaking driver expect it in Punjabi instead? If so, please give the wording.
 
 ## Spanish (es-safety.csv)
 
