@@ -30,6 +30,10 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     ],{accessibleText:true,back:()=>this.toHub()});
   }
   objectiveText(){return this.scenarioSession?this.scenarioSession.definition.goal:super.objectiveText();}
+  lightCaption(){
+    if(OTR.fpScenario.coaching(this.scenarioSession))return this.art.lighting?this.art.lighting.caption():'';
+    const time=OTR.fpLighting.time(this.model);return `It is ${time}.`+(['night','dusk'].includes(time)?' '+(this.model.van.headlights?'The headlights are on.':'The headlights are off.'):'');
+  }
   showPause(){
     const r=this.scenarioSession;if(this.loading||!r||r.phase==='finished'||r.phase==='abandoned')return;
     if(r.phase==='brief'){this.showScenarioBrief();return;}

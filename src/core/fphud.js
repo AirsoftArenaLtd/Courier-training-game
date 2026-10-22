@@ -17,8 +17,9 @@ OTR.fpHud={
     return m.phase==='return'?'Return to the depot.':`Drive to ${m.stop(m.activeStop).address}.`;
   },
   navigationAllowed(m){return !!m&&m.mode==='cab'&&m.van.gear!==-1&&(!m.workdayRules||m.workdayRules.satnav!=='off');},
-  screenHint(m){if(m.van.gear===-1)return OTR.fpRear.hint(m);if(OTR.fpNav&&m.kind==='campaign'&&m.town)return OTR.fpNav.aid(m)==='full'?OTR.fpNav.instruction(m):OTR.fpNav.aid(m)==='off'?'The trainer has turned navigation off.':this.destination(m);return this.destination(m);},
+  screenHint(m){if(m.van.gear===-1)return OTR.fpRear.hint(m);if(m.trainingArea&&!m.town&&m.moduleGoal)return m.moduleGoal;if(OTR.fpNav&&m.kind==='campaign'&&m.town)return OTR.fpNav.aid(m)==='full'?OTR.fpNav.instruction(m):OTR.fpNav.aid(m)==='off'?'The trainer has turned navigation off.':this.destination(m);return this.destination(m);},
   alert(s){
+    if(s.scenarioSession&&OTR.fpScenario&&!OTR.fpScenario.coaching(s.scenarioSession))return '';
     const m=s.model;if(!m)return '';
     if(m.mode==='cab'){
       if(m.kind==='parking'&&OTR.fpRear.requiresWalk(m)&&!OTR.fpRear.checked(m)&&!m.driving.reverseActive)return s.objectiveText();

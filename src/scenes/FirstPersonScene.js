@@ -462,7 +462,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
     if(this.model&&this.model.doorNotice){this.message(this.model.doorNotice);this.model.doorNotice='';}
     if(OTR.fpStopScene)OTR.fpStopScene.tick(this);
-    const sound=this.workdaySound.tick(time),light=this.art.lighting?this.art.lighting.caption():'';
+    const sound=this.workdaySound.tick(time),light=this.lightCaption?this.lightCaption():this.art.lighting?this.art.lighting.caption():'';
     if(sound!==this.soundSource||light!==this.lightSource){this.soundSource=sound;this.lightSource=light;this.soundCaption=sound&&light?sound+' · '+light:sound||light;}
     if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger||!!(this.gamepad&&this.gamepad.scanHeld));
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'||this.model.mode==='cab'))?this.art.pick():null;this.lastAim=time;const occupied=[];

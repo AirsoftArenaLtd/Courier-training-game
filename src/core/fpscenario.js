@@ -33,7 +33,7 @@ OTR.fpScenario={
     const d=run.definition,piece=this.pieces[d.piece],m=d.model?d.model(run):OTR.fpMission.create('campaign',1);
     if(!m||typeof m.step!=='function')throw Error('Invalid scenario model');
     // Bind before adapter setup, so setup actions cannot report into a saved workday.
-    m.moduleReport=(type,detail)=>this.report(run,type,detail);m.trainingArea={key:d.piece,depot:piece.depot};
+    m.moduleReport=(type,detail)=>this.report(run,type,detail);m.trainingArea={key:d.piece,depot:piece.depot};m.moduleGoal=d.goal;
     m.bounds={...piece.bounds};Object.assign(m.player,piece.player);Object.assign(m.van,piece.van||{});m.mode=piece.mode||'walk';m.paused=true;
     if(!d.model){m.stops=m.stops.slice(0,1);for(const s of m.stops)s.side=s.side||1;m.parcels=m.parcels.slice(0,1);m.traffic=[];m.crossing.state='resolved';m.tickTraffic=()=>{};}
     run.model=m;if(d.setup)d.setup(run,m);return m;

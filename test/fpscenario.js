@@ -1,7 +1,7 @@
 /* Isolated module sessions, physical report routing, bounded set-pieces and unchanged academy result identities. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),THREE=require('../lib/three.min.js');
 const c={THREE};c.window=c;vm.createContext(c);
-for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpdriving.js','src/core/fpsignal.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js','src/core/fpscenario.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpdriving.js','src/core/fpsignal.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpworld.js','src/core/fpscenario.js','src/core/fphud.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR,F=O.fpScenario,M=O.fpMission;let completed=[],abandoned=0;
 const scenario={id:'m1-pretrip',scene:'PreTripScene',scene3d:'test-cab',default3d:false,categories:['safety','efficiency'],blurb:'Inspect the van before driving.'};
 const base={piece:'cab',goal:'Check the parking brake.',seconds:2,result:r=>({score:100,ratios:{safety:1,efficiency:1},log:r.log})};
@@ -39,6 +39,11 @@ test('assessed physical signal state is readable without giving the three-second
  const r={assessment:true},scene={scenarioSession:r};assert.equal(hint.call(scene,'cab-signal-left',m,'O'),'The left signal is on.');assert.equal(hint.call(scene,'cab-signal-right',m,'O'),'The right signal is off.');
  r.assessment=false;assert.match(hint.call(scene,'cab-signal-left',m,'O'),/three seconds/);
 });
+test('assessment captions omit live driving coaching while practice retains it',()=>{
+ const m=M.create('campaign',7);m.mode='cab';m.van.belt=false;const r={assessment:true},scene={model:m,scenarioSession:r};
+ assert.equal(O.fpHud.alert(scene),'');r.assessment=false;assert.equal(O.fpHud.alert(scene),'Fasten the seatbelt before moving.');
+ r.model=m;m.trainingArea={key:'cab'};m.moduleGoal='Select neutral at the shifter.';assert.equal(O.fpHud.screenHint(m),m.moduleGoal);
+});
 test('completion delivers the adapter scale, log and same scenario id exactly once',()=>{
  const r=start(),scene={};r.log.check('safety',2,2,'The parking brake is set.');F.advance(r,.05);
  assert.equal(F.finish(r,scene),true);assert.equal(F.finish(r,scene),false);assert.equal(F.abandon(r),false);assert.equal(completed.length,1);assert.equal(completed[0].id,scenario.id);assert.equal(completed[0].result.score,100);assert.equal(completed[0].result.log,r.log);assert.equal(r.phase,'finished');
@@ -63,7 +68,7 @@ test('all four set-pieces have physical boundaries and no module field enters a 
  for(const piece of Object.keys(F.pieces)){
   F.definitions.set('test-cab',{...base,piece});const m=F.model(start()),b=m.bounds;
   assert.ok(m.blocked(b.x0-1,b.z0));assert.ok(m.blocked(b.x1+1,b.z1));assert.ok(m.player.x>=b.x0&&m.player.x<=b.x1);assert.ok(m.player.z>=b.z0&&m.player.z<=b.z1);
-  const snapshot=m.snapshot();assert.equal(snapshot.moduleReport,undefined);assert.equal(snapshot.trainingArea,undefined);assert.ok(typeof m.moduleReport==='function');assert.equal(m.traffic.length,0);
+    const snapshot=m.snapshot();assert.equal(snapshot.moduleReport,undefined);assert.equal(snapshot.trainingArea,undefined);assert.equal(snapshot.moduleGoal,undefined);assert.ok(typeof m.moduleReport==='function');assert.equal(m.traffic.length,0);
  }
 });
 test('normal workday reports still use the existing scoring contract and resume without a module sink',()=>{
