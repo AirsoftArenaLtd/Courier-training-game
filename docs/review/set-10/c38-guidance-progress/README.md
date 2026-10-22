@@ -1,0 +1,3 @@
+# C-38 module guidance isolation
+
+Owned runtime `1532980c` adds a guard preventing the normal workday contextual guidance from running in module sessions. A prior workday can have its introductory guidance enabled, so hiding the module HUD alone was insufficient to prevent narration. The four guidance cases pass, including both practice and assessment, no narration or guidance writes in modules, and unchanged narrated hints and saves in a normal workday. The native module entry check now seeds enabled workday guidance and verifies the same suppression. This is focused progress evidence; the native and resource acceptance remains running.

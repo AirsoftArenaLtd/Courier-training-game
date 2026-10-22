@@ -1,0 +1,16 @@
+{
+  "runtime": "1532980c",
+  "status": "Four focused guidance cases pass; final acceptance running",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 646,
+      "sha256": "af7cb525db1a41e5fef004b69eaa647fb73d85e820654c580eeb4fd0af6e6b0b"
+    },
+    {
+      "file": "fpguide.log",
+      "bytes": 538,
+      "sha256": "7f37c537431726eb23fd5741aec8e674ab72453ecc58ad52a2e262ba2dcb7d0a"
+    }
+  ]
+}
