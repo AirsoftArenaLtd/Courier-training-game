@@ -1,0 +1,20 @@
+{
+  "source": "66440652",
+  "sourceSHA256": {
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "test/fpaccess.js": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+    "test/fphandheldbrowser.js": "048b8f4772d9852e2a28bcd0f03d65869e8643c53eaf6dd40165aff3245c48b2",
+    "test/fpaccessbrowser.js": "2788937d16a890c6f1fe7a8e4e2a231dacf5424768553f253bd7cecbde27e6ad"
+  },
+  "complete": true,
+  "jobs": [
+    {
+      "name": "fpaccessbrowser",
+      "exit": 0
+    },
+    {
+      "name": "fphudbrowser",
+      "exit": 0
+    }
+  ]
+}

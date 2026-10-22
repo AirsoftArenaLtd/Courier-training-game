@@ -1,0 +1,1133 @@
+{
+  "views": [
+    {
+      "lang": "en",
+      "large": false,
+      "choices": [
+        {
+          "top": 362.5,
+          "bottom": 408.5,
+          "text": "1  Review the photo ID",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414.5,
+          "bottom": 460.5,
+          "text": "2  Capture the signature",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466.5,
+          "bottom": 512.5,
+          "text": "3  Record the delivery outcome",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "Person at the door: Grace Kim",
+          "bottom": 167
+        },
+        {
+          "text": "Photo ID and an adult signature are required. The recipient must be 21 or older.",
+          "bottom": 228
+        }
+      ],
+      "back": {
+        "top": 520.5,
+        "bottom": 535.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1854374
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "choices": [
+        {
+          "top": 360.5,
+          "bottom": 406.5,
+          "text": "1  Review the photo ID",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 412.5,
+          "bottom": 458.5,
+          "text": "2  Capture the signature",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 464.5,
+          "bottom": 510.5,
+          "text": "3  Record the delivery outcome",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "Person at the door: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "Photo ID and an adult signature are required. The recipient must be 21 or older.",
+          "bottom": 236
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1916566
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "choices": [
+        {
+          "top": 362,
+          "bottom": 408,
+          "text": "1  புகைப்பட ID-யைப் பாருங்கள்",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414,
+          "bottom": 460,
+          "text": "2  கையெழுத்தைப் பெறுங்கள்",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466,
+          "bottom": 512,
+          "text": "3  டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "வாசலில் இருப்பவர்: Grace Kim",
+          "bottom": 168
+        },
+        {
+          "text": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "bottom": 252
+        }
+      ],
+      "back": {
+        "top": 520,
+        "bottom": 536,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2055094
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "choices": [
+        {
+          "top": 336.5000009536743,
+          "bottom": 390.4999990463257,
+          "text": "1  புகைப்பட ID-யைப் பாருங்கள்",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 396.5000009536743,
+          "bottom": 450.4999990463257,
+          "text": "2  கையெழுத்தைப் பெறுங்கள்",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 456.5000009536743,
+          "bottom": 510.4999990463257,
+          "text": "3  டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "வாசலில் இருப்பவர்: Grace Kim",
+          "bottom": 171
+        },
+        {
+          "text": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "bottom": 290
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2191067
+    },
+    {
+      "lang": "hi",
+      "large": false,
+      "choices": [
+        {
+          "top": 361,
+          "bottom": 407,
+          "text": "1  फ़ोटो आईडी देखें",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413,
+          "bottom": 459,
+          "text": "2  हस्ताक्षर लें",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465,
+          "bottom": 511,
+          "text": "3  डिलीवरी का नतीजा दर्ज करें",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "दरवाज़े पर मौजूद व्यक्ति: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "फ़ोटो आईडी और वयस्क के हस्ताक्षर ज़रूरी हैं। पाने वाले की उम्र 21 साल या उससे ज़्यादा होनी चाहिए।",
+          "bottom": 215
+        }
+      ],
+      "back": {
+        "top": 519,
+        "bottom": 537,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1815254
+    },
+    {
+      "lang": "hi",
+      "large": true,
+      "choices": [
+        {
+          "top": 359,
+          "bottom": 405,
+          "text": "1  फ़ोटो आईडी देखें",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 411,
+          "bottom": 457,
+          "text": "2  हस्ताक्षर लें",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 463,
+          "bottom": 509,
+          "text": "3  डिलीवरी का नतीजा दर्ज करें",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "दरवाज़े पर मौजूद व्यक्ति: Grace Kim",
+          "bottom": 174
+        },
+        {
+          "text": "फ़ोटो आईडी और वयस्क के हस्ताक्षर ज़रूरी हैं। पाने वाले की उम्र 21 साल या उससे ज़्यादा होनी चाहिए।",
+          "bottom": 256
+        }
+      ],
+      "back": {
+        "top": 517,
+        "bottom": 539,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1915931
+    },
+    {
+      "lang": "mr",
+      "large": false,
+      "choices": [
+        {
+          "top": 361,
+          "bottom": 407,
+          "text": "1  फोटो ID पाहा",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413,
+          "bottom": 459,
+          "text": "2  सही घ्या",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465,
+          "bottom": 511,
+          "text": "3  डिलिव्हरीचा निकाल नोंदवा",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "दारावरील व्यक्ती: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "फोटो ID आणि प्रौढ व्यक्तीची सही आवश्यक आहे. प्राप्तकर्ता 21 किंवा त्यापेक्षा जास्त वयाचा असला पाहिजे.",
+          "bottom": 236
+        }
+      ],
+      "back": {
+        "top": 519,
+        "bottom": 537,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1850672
+    },
+    {
+      "lang": "mr",
+      "large": true,
+      "choices": [
+        {
+          "top": 359,
+          "bottom": 405,
+          "text": "1  फोटो ID पाहा",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 411,
+          "bottom": 457,
+          "text": "2  सही घ्या",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 463,
+          "bottom": 509,
+          "text": "3  डिलिव्हरीचा निकाल नोंदवा",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "दारावरील व्यक्ती: Grace Kim",
+          "bottom": 174
+        },
+        {
+          "text": "फोटो ID आणि प्रौढ व्यक्तीची सही आवश्यक आहे. प्राप्तकर्ता 21 किंवा त्यापेक्षा जास्त वयाचा असला पाहिजे.",
+          "bottom": 256
+        }
+      ],
+      "back": {
+        "top": 517,
+        "bottom": 539,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1919830
+    },
+    {
+      "lang": "bn",
+      "large": false,
+      "choices": [
+        {
+          "top": 362,
+          "bottom": 408,
+          "text": "1  ছবিযুক্ত আইডি দেখুন",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414,
+          "bottom": 460,
+          "text": "2  সই নিন",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466,
+          "bottom": 512,
+          "text": "3  ডেলিভারির ফলাফল রেকর্ড করুন",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "দরজায় থাকা ব্যক্তি: Grace Kim",
+          "bottom": 168
+        },
+        {
+          "text": "ছবিযুক্ত আইডি আর প্রাপ্তবয়স্কের সই লাগবে। প্রাপকের বয়স ২১ বা তার বেশি হতে হবে।",
+          "bottom": 212
+        }
+      ],
+      "back": {
+        "top": 520,
+        "bottom": 536,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1809419
+    },
+    {
+      "lang": "bn",
+      "large": true,
+      "choices": [
+        {
+          "top": 360,
+          "bottom": 406,
+          "text": "1  ছবিযুক্ত আইডি দেখুন",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 412,
+          "bottom": 458,
+          "text": "2  সই নিন",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 464,
+          "bottom": 510,
+          "text": "3  ডেলিভারির ফলাফল রেকর্ড করুন",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "দরজায় থাকা ব্যক্তি: Grace Kim",
+          "bottom": 171
+        },
+        {
+          "text": "ছবিযুক্ত আইডি আর প্রাপ্তবয়স্কের সই লাগবে। প্রাপকের বয়স ২১ বা তার বেশি হতে হবে।",
+          "bottom": 244
+        }
+      ],
+      "back": {
+        "top": 518,
+        "bottom": 538,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1892006
+    },
+    {
+      "lang": "te",
+      "large": false,
+      "choices": [
+        {
+          "top": 361,
+          "bottom": 407,
+          "text": "1  ఫోటో IDని పరిశీలించండి",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413,
+          "bottom": 459,
+          "text": "2  సంతకాన్ని తీసుకోండి",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465,
+          "bottom": 511,
+          "text": "3  డెలివరీ ఫలితాన్ని నమోదు చేయండి",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "తలుపు వద్ద ఉన్న వ్యక్తి: Grace Kim",
+          "bottom": 171
+        },
+        {
+          "text": "ఫోటో ID, పెద్దవారి సంతకం అవసరం. గ్రహీత వయసు 21 లేదా అంతకంటే ఎక్కువ ఉండాలి.",
+          "bottom": 221
+        }
+      ],
+      "back": {
+        "top": 519,
+        "bottom": 537,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1854438
+    },
+    {
+      "lang": "te",
+      "large": true,
+      "choices": [
+        {
+          "top": 359.5,
+          "bottom": 405.5,
+          "text": "1  ఫోటో IDని పరిశీలించండి",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 411.5,
+          "bottom": 457.5,
+          "text": "2  సంతకాన్ని తీసుకోండి",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 463.5,
+          "bottom": 509.5,
+          "text": "3  డెలివరీ ఫలితాన్ని నమోదు చేయండి",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "తలుపు వద్ద ఉన్న వ్యక్తి: Grace Kim",
+          "bottom": 173
+        },
+        {
+          "text": "ఫోటో ID, పెద్దవారి సంతకం అవసరం. గ్రహీత వయసు 21 లేదా అంతకంటే ఎక్కువ ఉండాలి.",
+          "bottom": 252
+        }
+      ],
+      "back": {
+        "top": 517.5,
+        "bottom": 538.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1950651
+    },
+    {
+      "lang": "kn",
+      "large": false,
+      "choices": [
+        {
+          "top": 348.42251670360565,
+          "bottom": 405.47250282764435,
+          "text": "1  ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 411.4725036621094,
+          "bottom": 457.4725036621094,
+          "text": "2  ಸಹಿಯನ್ನು ಪಡೆಯಿರಿ",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 463.4725036621094,
+          "bottom": 509.4725036621094,
+          "text": "3  ಡೆಲಿವರಿ ಫಲಿತಾಂಶವನ್ನು ದಾಖಲಿಸಿ",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "ಬಾಗಿಲಲ್ಲಿರುವ ವ್ಯಕ್ತಿ: Grace Kim",
+          "bottom": 173.52499389648438
+        },
+        {
+          "text": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಮತ್ತು ವಯಸ್ಕರ ಸಹಿ ಅಗತ್ಯ. ಸ್ವೀಕರಿಸುವವರಿಗೆ 21 ವರ್ಷ ಅಥವಾ ಹೆಚ್ಚು ವಯಸ್ಸಾಗಿರಬೇಕು.",
+          "bottom": 254.0999755859375
+        }
+      ],
+      "back": {
+        "top": 517.4725036621094,
+        "bottom": 538.5274963378906,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1975675
+    },
+    {
+      "lang": "kn",
+      "large": true,
+      "choices": [
+        {
+          "top": 343.63000547885895,
+          "bottom": 403.61999452114105,
+          "text": "1  ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 409.6199951171875,
+          "bottom": 455.6199951171875,
+          "text": "2  ಸಹಿಯನ್ನು ಪಡೆಯಿರಿ",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 461.6199951171875,
+          "bottom": 507.6199951171875,
+          "text": "3  ಡೆಲಿವರಿ ಫಲಿತಾಂಶವನ್ನು ದಾಖಲಿಸಿ",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "ಬಾಗಿಲಲ್ಲಿರುವ ವ್ಯಕ್ತಿ: Grace Kim",
+          "bottom": 175.9949951171875
+        },
+        {
+          "text": "ಫೋಟೋ ಗುರುತಿನ ಚೀಟಿ ಮತ್ತು ವಯಸ್ಕರ ಸಹಿ ಅಗತ್ಯ. ಸ್ವೀಕರಿಸುವವರಿಗೆ 21 ವರ್ಷ ಅಥವಾ ಹೆಚ್ಚು ವಯಸ್ಸಾಗಿರಬೇಕು.",
+          "bottom": 263.97998046875
+        }
+      ],
+      "back": {
+        "top": 515.620002746582,
+        "bottom": 540.379997253418,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2076464
+    },
+    {
+      "lang": "ml",
+      "large": false,
+      "choices": [
+        {
+          "top": 359.5000002384186,
+          "bottom": 407.4999997615814,
+          "text": "1  ഫോട്ടോ ഐഡി പരിശോധിക്കുക",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413.5,
+          "bottom": 459.5,
+          "text": "2  ഒപ്പ് പകർത്തുക",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465.5,
+          "bottom": 511.5,
+          "text": "3  ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "വാതിൽക്കൽ ഉള്ളയാൾ: Grace Kim",
+          "bottom": 170
+        },
+        {
+          "text": "ഫോട്ടോ ഐഡിയും മുതിർന്നയാളുടെ ഒപ്പും ആവശ്യമാണ്. സ്വീകർത്താവിന് 21 വയസ്സോ അതിൽ കൂടുതലോ ആയിരിക്കണം.",
+          "bottom": 262
+        }
+      ],
+      "back": {
+        "top": 519.5,
+        "bottom": 536.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2021008
+    },
+    {
+      "lang": "ml",
+      "large": true,
+      "choices": [
+        {
+          "top": 340.0000011920929,
+          "bottom": 395.9999988079071,
+          "text": "1  ഫോട്ടോ ഐഡി പരിശോധിക്കുക",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 402,
+          "bottom": 448,
+          "text": "2  ഒപ്പ് പകർത്തുക",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 454.0000011920929,
+          "bottom": 509.9999988079071,
+          "text": "3  ഡെലിവറി ഫലം രേഖപ്പെടുത്തുക",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "വാതിൽക്കൽ ഉള്ളയാൾ: Grace Kim",
+          "bottom": 196
+        },
+        {
+          "text": "ഫോട്ടോ ഐഡിയും മുതിർന്നയാളുടെ ഒപ്പും ആവശ്യമാണ്. സ്വീകർത്താവിന് 21 വയസ്സോ അതിൽ കൂടുതലോ ആയിരിക്കണം.",
+          "bottom": 320
+        }
+      ],
+      "back": {
+        "top": 518,
+        "bottom": 538,
+        "text": "⌫ Back",
+        "x": 1170.5,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2183264
+    },
+    {
+      "lang": "pa",
+      "large": false,
+      "choices": [
+        {
+          "top": 361.5,
+          "bottom": 407.5,
+          "text": "1  ਫੋਟੋ ID ਦੇਖੋ",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413.5,
+          "bottom": 459.5,
+          "text": "2  ਦਸਤਖ਼ਤ ਲਓ",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465.5,
+          "bottom": 511.5,
+          "text": "3  ਡਿਲੀਵਰੀ ਦਾ ਨਤੀਜਾ ਦਰਜ ਕਰੋ",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "ਦਰਵਾਜ਼ੇ 'ਤੇ ਮੌਜੂਦ ਵਿਅਕਤੀ: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "ਫੋਟੋ ID ਅਤੇ ਬਾਲਗ ਦੇ ਦਸਤਖ਼ਤ ਜ਼ਰੂਰੀ ਹਨ। ਪ੍ਰਾਪਤਕਰਤਾ ਦੀ ਉਮਰ 21 ਜਾਂ ਵੱਧ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।",
+          "bottom": 215
+        }
+      ],
+      "back": {
+        "top": 519.5,
+        "bottom": 536.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1791440
+    },
+    {
+      "lang": "pa",
+      "large": true,
+      "choices": [
+        {
+          "top": 360,
+          "bottom": 406,
+          "text": "1  ਫੋਟੋ ID ਦੇਖੋ",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 412,
+          "bottom": 458,
+          "text": "2  ਦਸਤਖ਼ਤ ਲਓ",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 464,
+          "bottom": 510,
+          "text": "3  ਡਿਲੀਵਰੀ ਦਾ ਨਤੀਜਾ ਦਰਜ ਕਰੋ",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "ਦਰਵਾਜ਼ੇ 'ਤੇ ਮੌਜੂਦ ਵਿਅਕਤੀ: Grace Kim",
+          "bottom": 173
+        },
+        {
+          "text": "ਫੋਟੋ ID ਅਤੇ ਬਾਲਗ ਦੇ ਦਸਤਖ਼ਤ ਜ਼ਰੂਰੀ ਹਨ। ਪ੍ਰਾਪਤਕਰਤਾ ਦੀ ਉਮਰ 21 ਜਾਂ ਵੱਧ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।",
+          "bottom": 227
+        }
+      ],
+      "back": {
+        "top": 518,
+        "bottom": 538,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1851488
+    },
+    {
+      "lang": "gu",
+      "large": false,
+      "choices": [
+        {
+          "top": 361,
+          "bottom": 407,
+          "text": "1  ફોટો ઓળખપત્ર જુઓ",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 413,
+          "bottom": 459,
+          "text": "2  સહી લો",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 465,
+          "bottom": 511,
+          "text": "3  ડિલિવરીનું પરિણામ નોંધો",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "દરવાજે રહેલી વ્યક્તિ: Grace Kim",
+          "bottom": 171
+        },
+        {
+          "text": "ફોટો ઓળખપત્ર અને પુખ્ત વ્યક્તિની સહી જરૂરી છે. પાર્સલ લેનારની ઉંમર 21 કે તેથી વધુ હોવી જોઈએ.",
+          "bottom": 221
+        }
+      ],
+      "back": {
+        "top": 519,
+        "bottom": 537,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1827899
+    },
+    {
+      "lang": "gu",
+      "large": true,
+      "choices": [
+        {
+          "top": 359,
+          "bottom": 405,
+          "text": "1  ફોટો ઓળખપત્ર જુઓ",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 411,
+          "bottom": 457,
+          "text": "2  સહી લો",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 463,
+          "bottom": 509,
+          "text": "3  ડિલિવરીનું પરિણામ નોંધો",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "દરવાજે રહેલી વ્યક્તિ: Grace Kim",
+          "bottom": 173
+        },
+        {
+          "text": "ફોટો ઓળખપત્ર અને પુખ્ત વ્યક્તિની સહી જરૂરી છે. પાર્સલ લેનારની ઉંમર 21 કે તેથી વધુ હોવી જોઈએ.",
+          "bottom": 252
+        }
+      ],
+      "back": {
+        "top": 517,
+        "bottom": 539,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1909088
+    },
+    {
+      "lang": "es",
+      "large": false,
+      "choices": [
+        {
+          "top": 362.5,
+          "bottom": 408.5,
+          "text": "1  Revisar la identificación con foto",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414.5,
+          "bottom": 460.5,
+          "text": "2  Capturar la firma",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466.5,
+          "bottom": 512.5,
+          "text": "3  Registrar el resultado de la entrega",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "Persona en la puerta: Grace Kim",
+          "bottom": 167
+        },
+        {
+          "text": "Se exigen identificación con foto y firma de un adulto. El destinatario debe tener 21 años o más.",
+          "bottom": 228
+        }
+      ],
+      "back": {
+        "top": 520.5,
+        "bottom": 535.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1918891
+    },
+    {
+      "lang": "es",
+      "large": true,
+      "choices": [
+        {
+          "top": 348.50000071525574,
+          "bottom": 400.49999928474426,
+          "text": "1  Revisar la identificación con foto",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 406.5,
+          "bottom": 452.5,
+          "text": "2  Capturar la firma",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 458.50000071525574,
+          "bottom": 510.49999928474426,
+          "text": "3  Registrar el resultado de la entrega",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "Persona en la puerta: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "Se exigen identificación con foto y firma de un adulto. El destinatario debe tener 21 años o más.",
+          "bottom": 236
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2008619
+    },
+    {
+      "lang": "fr",
+      "large": false,
+      "choices": [
+        {
+          "top": 362.5,
+          "bottom": 408.5,
+          "text": "1  Examiner la pièce d'identité avec photo",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414.5,
+          "bottom": 460.5,
+          "text": "2  Recueillir la signature",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466.5,
+          "bottom": 512.5,
+          "text": "3  Enregistrer le résultat de la livraison",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "Personne à la porte : Grace Kim",
+          "bottom": 167
+        },
+        {
+          "text": "Une pièce d'identité avec photo et la signature d'un adulte sont obligatoires. Le destinataire doit avoir 21 ans ou plus.",
+          "bottom": 228
+        }
+      ],
+      "back": {
+        "top": 520.5,
+        "bottom": 535.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 1961787
+    },
+    {
+      "lang": "fr",
+      "large": true,
+      "choices": [
+        {
+          "top": 348.50000071525574,
+          "bottom": 400.49999928474426,
+          "text": "1  Examiner la pièce d'identité avec photo",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 406.5,
+          "bottom": 452.5,
+          "text": "2  Recueillir la signature",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 458.50000071525574,
+          "bottom": 510.49999928474426,
+          "text": "3  Enregistrer le résultat de la livraison",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "Personne à la porte : Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "Une pièce d'identité avec photo et la signature d'un adulte sont obligatoires. Le destinataire doit avoir 21 ans ou plus.",
+          "bottom": 257
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 2058523
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,193 @@
+{
+  "views": [
+    {
+      "lang": "en",
+      "large": false,
+      "choices": [
+        {
+          "top": 362.5,
+          "bottom": 408.5,
+          "text": "1  Review the photo ID",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414.5,
+          "bottom": 460.5,
+          "text": "2  Capture the signature",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466.5,
+          "bottom": 512.5,
+          "text": "3  Record the delivery outcome",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "Person at the door: Grace Kim",
+          "bottom": 167
+        },
+        {
+          "text": "Photo ID and an adult signature are required. The recipient must be 21 or older.",
+          "bottom": 228
+        }
+      ],
+      "back": {
+        "top": 520.5,
+        "bottom": 535.5,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 4914406
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "choices": [
+        {
+          "top": 360.5,
+          "bottom": 406.5,
+          "text": "1  Review the photo ID",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 412.5,
+          "bottom": 458.5,
+          "text": "2  Capture the signature",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 464.5,
+          "bottom": 510.5,
+          "text": "3  Record the delivery outcome",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "Person at the door: Grace Kim",
+          "bottom": 169
+        },
+        {
+          "text": "Photo ID and an adult signature are required. The recipient must be 21 or older.",
+          "bottom": 236
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 5163131
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "choices": [
+        {
+          "top": 362,
+          "bottom": 408,
+          "text": "1  புகைப்பட ID-யைப் பாருங்கள்",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 414,
+          "bottom": 460,
+          "text": "2  கையெழுத்தைப் பெறுங்கள்",
+          "scale": 1,
+          "font": 15
+        },
+        {
+          "top": 466,
+          "bottom": 512,
+          "text": "3  டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+          "scale": 1,
+          "font": 15
+        }
+      ],
+      "body": [
+        {
+          "text": "வாசலில் இருப்பவர்: Grace Kim",
+          "bottom": 168
+        },
+        {
+          "text": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "bottom": 252
+        }
+      ],
+      "back": {
+        "top": 520,
+        "bottom": 536,
+        "text": "⌫ Back",
+        "x": 1177,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 5717275
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "choices": [
+        {
+          "top": 336.5000009536743,
+          "bottom": 390.4999990463257,
+          "text": "1  புகைப்பட ID-யைப் பாருங்கள்",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 396.5000009536743,
+          "bottom": 450.4999990463257,
+          "text": "2  கையெழுத்தைப் பெறுங்கள்",
+          "scale": 1,
+          "font": 17
+        },
+        {
+          "top": 456.5000009536743,
+          "bottom": 510.4999990463257,
+          "text": "3  டெலிவரி முடிவைப் பதிவு செய்யுங்கள்",
+          "scale": 1,
+          "font": 17
+        }
+      ],
+      "body": [
+        {
+          "text": "வாசலில் இருப்பவர்: Grace Kim",
+          "bottom": 171
+        },
+        {
+          "text": "புகைப்பட ID-யும் பெரியவர் கையெழுத்தும் தேவை. பெறுபவர் 21 அல்லது அதற்கு மேல் வயதுடையவராக இருக்க வேண்டும்.",
+          "bottom": 290
+        }
+      ],
+      "back": {
+        "top": 518.5,
+        "bottom": 537.5,
+        "text": "⌫ Back",
+        "x": 1171,
+        "y": 528
+      },
+      "screenBottom": 544,
+      "events": 0,
+      "phaserBytes": 6261136
+    }
+  ],
+  "errors": []
+}
