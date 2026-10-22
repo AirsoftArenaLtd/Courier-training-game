@@ -38,6 +38,7 @@ const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:tru
    assert.ok(layout.back.bottom<=layout.screenBottom);assert.equal(layout.events,0);
    assert.ok(layout.phaserBytes<=(quality==='high'?16:4)*1024*1024,lang+': handheld exceeds the texture budget');
    // Use the actual Back hit target, then return by the keyboard route.
+   await page.evaluate(()=>new Promise(resolve=>OTR.game.events.once('step',()=>resolve())));
    await page.mouse.click(layout.back.x,layout.back.y);
    await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title==='DELIVERY');
    assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'DELIVERY');
@@ -47,5 +48,8 @@ const out=path.join(__dirname,'out','fp-review');fs.mkdirSync(out,{recursive:tru
    views.push({lang,large,...layout});console.log(lang+' larger='+large+' passes');
   }
   assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,(process.env.QA_TAG||'b134')+'-'+quality+'-handheld.json'),JSON.stringify({views,errors},null,2));console.log(views.length+' translated delivery layouts pass');
+ }catch(e){
+  if(page){await page.screenshot({path:path.join(out,'b134-handheld-failure.png')}).catch(()=>{});console.error(await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),p=s.input.activePointer,c=OTR.game.canvas.getBoundingClientRect();return {canvas:{x:c.x,y:c.y,width:c.width,height:c.height},pointer:{x:p.x,y:p.y},hits:s.input.hitTestPointer(p).map(o=>({type:o.type,text:o.text})),title:s.handheld.device.current.title};}).catch(()=>null));}
+  throw e;
  }finally{await browser.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});
