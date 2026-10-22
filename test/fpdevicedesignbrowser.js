@@ -1,16 +1,17 @@
 /* Native instrument pixels, retained device hit targets and bounded translated layouts. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8368',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c52-design';fs.mkdirSync(OUT,{recursive:true});
+const LANGS=(process.env.QA_LANGS||'en,ta').split(',');
 (async()=>{
  const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let page,checks=0;const report={views:[],errors:[]};
  try{for(const quality of (process.env.QA_QUALITIES||'low,high').split(',')){
   page=await browser.newPage();await page.setViewport({width:1280,height:720});await page.evaluateOnNewDocument(()=>localStorage.clear());page.on('pageerror',e=>report.errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/THREE|shader|WebGL/.test(m.text()))report.errors.push(m.text());});
-  await page.goto(BASE+'/first-person.html?gfx='+quality);const ready=()=>page.waitForFunction(()=>window.OTR?.game?.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});await ready();await page.addScriptTag({url:BASE+'/data/i18n/ta.js'});
+  await page.goto(BASE+'/first-person.html?gfx='+quality);const ready=()=>page.waitForFunction(()=>window.OTR?.game?.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});await ready();for(const lang of LANGS)if(lang!=='en')await page.addScriptTag({url:BASE+'/data/i18n/'+lang+'.js'});
   const frames=async()=>{const at=await page.evaluate(()=>OTR.game.loop.frame);await page.waitForFunction(f=>OTR.game.loop.frame>f+2,{timeout:60000},at);};
   const shot=async name=>{await frames();const file=TAG+'-'+quality+'-'+name+'.png';await page.screenshot({path:path.join(OUT,file)});return file;};
-  for(const [lang,large] of [['en',false],['en',true],['ta',false],['ta',true]]){
+  for(const lang of LANGS)for(const large of [false,true]){
    console.log(quality+' '+lang+' large='+large);
-   await page.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.designToken=s.loadingToken;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true});s.scene.restart();},{lang,large});
+   await page.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.designToken=s.loadingToken;OTR.i18n.use(lang);const font=OTR.fpBrand.scriptFonts[lang];OTR.theme.font=font?'"'+font+'", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true});s.scene.restart();},{lang,large});
    await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.loading&&s.loadingToken!==window.designToken;},{timeout:60000});
    const initial=await page.evaluate(()=>{
     const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.closePanel();s.keyboardMode=true;
