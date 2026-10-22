@@ -563,6 +563,7 @@ items here for each agent.
 | B-174 | Claude | **The set 10 review links are tested:** `test/devdaybrowser.js` opens each link in `docs/review/set-10/CHECKLIST.md` (route 1 day 3 at High, route 5 day 4, route 10 day 4) and checks it starts the day the checklist says (graphics level, traffic, a reception), as B-117 did for set 9. | done |
 | B-175 | Claude | **The owner's "What's new" for 22 October:** `docs/review/WHATS-NEW.md` with C-48, B-138 and B-166 to try (links and checklist items), B-164 and C-49/C-50 in progress, the release-candidate result, the save, the trainer material in 11 languages, the glossary and the safer reviews. | done |
 | B-176 | Claude | **The quick start still fits one page:** render each `docs/QUICK-START*.md` to A4 at a normal print size (headless Chromium, `test/tools/`) and check it stays one page in all 11 languages after today's additions; trim the wording where it does not. | done (Indic fit measured without Indic fonts here: approximate) |
+| B-177 | Claude | **The owner's decisions on one page:** `docs/review/DECISIONS.md` with each open question, the default in use and the team's recommendation and reason; question 4 marked overtaken (the quick start is in 11 languages), question 7's figures brought up to date (B-160, B-168), the duplicate item 9 removed. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -587,22 +588,20 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
    as passed once the best day met the pass marks (and every module is passed). Is that right for the pilot? To go back
    to modules only, set `lmsWorkday: false` in `data/config.js`.
 
-4. **The trainer's quick start (B-43):** `docs/QUICK-START.md` is one printable page for whoever runs a session, in
-   English. Which languages do the pilot's trainers need it in? Until you say, it stays English only (the game itself is
-   in all twelve).
+4. ~~**The trainer's quick start (B-43):** which languages do the pilot's trainers need it in?~~ Overtaken 22 Oct: it
+   is in all 11 languages (B-151), with a one-page A4 sheet each (B-176), and so are the pilot guide's trainer sections
+   (B-170, B-173). Nothing to decide.
 
 5. ~~**Codex has not pushed since about 07:00 UTC (20 Oct).**~~ Withdrawn 12:35 UTC: Codex is back (C-34 pushed at 12:30, with the locker answer and the sound-test fix taken).
 
 6. **A workday resumed on another PC (B-70).** Where a trainee is in the 3D town (which stops are done, the van, the clock) is kept in that PC's browser only; the course progress goes to the server or the LMS. So a trainee who stops mid-day and comes back on a different PC starts that day again from the morning. The game now asks first, and Back keeps the day for the PC it was started on. On shared training PCs, should the place in town travel with the trainee? It can on the training server (the progress file has room), and with SCORM 2004 (64,000 characters). SCORM 1.2 has no room for it (4,096 characters, already nearly full). Measured for B-82 on days 1, 4 and 9: the 3D checkpoint is 13,500 to 15,600 characters at the start of a day and 18,100 to 20,400 mid-day (three stops done, 120 mirror checks). That is four to five times the whole of SCORM 1.2's room, fits SCORM 2004's 64,000 beside the course save with about 40,000 to spare, and is small for the training server's file. Default meanwhile: same-PC resume, as now; the quick start and the pilot guide say so.
-7. **SCORM 2004 by default (B-101).** On the heaviest later days, SCORM 1.2 has 40 characters left of its 4,000 (B-98); past that, a day in progress loses its drive-map pins when resumed (the score is kept). SCORM 2004 has 64,000. Most LMSs take both. Shall the pilot package be SCORM 2004, with SCORM 1.2 still available for an LMS that needs it? Default meanwhile: 2004 is built by default, and 1.2 with a flag.
+7. **SCORM 2004 by default (B-101).** Update 22 Oct: since B-160 and B-168, SCORM 1.2 keeps the heaviest day's pins too (484 characters to spare, and a trainee far into the course loses only their oldest runs); only an extreme day (30 missed signals on top) loses its pins, never its score. SCORM 2004 has 64,000. Most LMSs take both. Shall the pilot package be SCORM 2004, with SCORM 1.2 still available for an LMS that needs it? Default meanwhile: 2004 is built by default, and 1.2 with a flag.
 
 8. **2D scenes on PCs without a graphics driver (B-87).** On such a PC (a software renderer), the stop scenes run at 12 to 18 fps; module 7 runs at 30. The cost is the number of full-screen layers each frame draws (`docs/PERF.md`, B-87), not the code. Reaching 25 fps means drawing less on those PCs only: (a) leave out the colour grade and the heat overlays there (about +5 fps, flatter colours and no vignette), or (b) also draw at a lower resolution there (likely 25 fps or more, slightly softer). The game can tell when it is on a software renderer. **Default until you say: no change.** Every scene stays above the QA floor of 10 fps, and the same layers on a laptop with Intel graphics are not the problem. **You can try (a) now (B-126):** add `&gfx=lite` to the address. On a software renderer the heat scene goes from 14 to 22 fps and the others from about 19 to 22–23; pictures side by side are in [`review/set-9/b126/`](review/set-9/b126/README.md). If you want it, the next step is to switch it on automatically on such PCs.
 
 9. ~~**Codex has not pushed since 17:45 UTC (21 Oct).**~~ Withdrawn 23:45 UTC: Codex is back (C-36 evidence, C-37 acceptance, and C-48 from your visual review).
 
 10. **Driving at night without headlights: how serious?** Today it is a check worth 2 safety points per leg (`drive.lights`). On a day with nothing else wrong, a leg in the dark without lights leaves safety at 92%, still three stars (`workday-3d-l`). Driving through a red light is critical and caps safety at one star. Should no headlights at night be critical too, or cost a star (for example worth 6 points)? **Default until you say: as now (points only).** It is one line in `data/workday_events.js`.
-
-9. ~~**Codex has not pushed since 17:45 UTC (21 Oct).**~~ Withdrawn 23:45 UTC: Codex is back (C-36 evidence, C-37 acceptance, and C-48 from your visual review).
 
 11. **Do the new 3D-only scenarios count towards the certificate?** Milestone 10 adds 13 scenarios that exist only in 3D (for example junctions, school zone, night run, intercom, reception, locker, slips on ice; the list is in `docs/3D-MODULES.md`). Counting them for "every module passed" makes the certificate and the LMS completion need 13 more passes, and a PC without 3D could never finish. **Default until you say: they are recorded but optional** (one flag per scenario to change).
 
@@ -614,6 +613,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-177 done:** `docs/review/DECISIONS.md` puts the owner's eight open questions on one page, each with its default and a recommendation, so a one-word answer is enough. Question 4 is overtaken (the trainer material is in 11 languages), question 7 has today's save figures, and the duplicate withdrawn item 9 is gone. `READINESS.md` points to the page.
 
 - **22 October 2026, Claude — B-176 done:** the quick start did not fit one page. Printed from Markdown at 10 pt, every language took two A4 pages. Two changes:
   - **A printable sheet per language:** `test/tools/onepage.js` writes `docs/print/QUICK-START[.<lang>].html`, an A4 sheet at 8.5 pt with 12 mm margins, and each quick start points to its sheet. All 12 fit one page.
