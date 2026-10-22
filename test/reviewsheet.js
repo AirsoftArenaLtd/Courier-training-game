@@ -138,5 +138,8 @@ try {
   check(r3.code === 0 && load().strings[en] === 'மீண்டும் திருத்தம்', '--apply reads a semicolon sheet without a last line break');
 } finally { fs.rmSync(tmp2, { recursive: true, force: true }); }
 
+// B-136: the reviewers' open questions page is current with questions.json
+{ const r = require('child_process').spawnSync(process.execPath, [path.join(ROOT, 'test', 'tools', 'open-questions.js'), '--check'], { encoding: 'utf8' });
+  check(r.status === 0, 'docs/review/OPEN-QUESTIONS.md is current: ' + (r.stdout || '').trim()); }
 console.log(fails.length ? `\n${fails.length} of ${checks} review sheet checks failed` : `${checks} review sheet checks passed`);
 process.exit(fails.length ? 1 : 0);
