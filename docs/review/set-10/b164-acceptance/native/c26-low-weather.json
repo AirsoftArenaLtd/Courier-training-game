@@ -1,0 +1,130 @@
+{
+  "fixture": "Stationary rain-day fixture. K uses the existing keyboard control. Mission time is frozen for the pixel comparison.",
+  "clearedPixels": 1155,
+  "state": {
+    "clear": 1,
+    "restored": true,
+    "reflects": false,
+    "events": 0,
+    "diagnostics": {
+      "calls": 41,
+      "triangles": 1168,
+      "textures": 2,
+      "geometries": 18,
+      "targetWidth": 832,
+      "targetHeight": 468,
+      "attachmentBytes": 3557376
+    }
+  },
+  "weathers": [
+    {
+      "weather": "clear",
+      "active": false,
+      "fog": [
+        35,
+        55
+      ],
+      "particles": null
+    },
+    {
+      "weather": "rain",
+      "active": true,
+      "fog": [
+        35,
+        55
+      ],
+      "particles": 18,
+      "changed": 14677
+    },
+    {
+      "weather": "storm",
+      "active": true,
+      "fog": [
+        12,
+        40
+      ],
+      "particles": 18,
+      "changed": 17295
+    },
+    {
+      "weather": "fog",
+      "active": true,
+      "fog": [
+        6,
+        28
+      ],
+      "particles": null,
+      "changed": 3660
+    },
+    {
+      "weather": "snow",
+      "active": true,
+      "fog": [
+        35,
+        55
+      ],
+      "particles": 18,
+      "changed": 12202
+    },
+    {
+      "weather": "ice",
+      "active": true,
+      "fog": [
+        35,
+        55
+      ],
+      "particles": 18,
+      "changed": 19364
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "caption": "The engine is running. · It is morning.",
+      "font": 17,
+      "left": 24,
+      "right": 342,
+      "bottom": 39,
+      "fov": 76
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "caption": "The engine is running. · It is morning.",
+      "font": 18,
+      "left": 24,
+      "right": 361,
+      "bottom": 39,
+      "fov": 76
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "caption": "என்ஜின் ஓடுகிறது. · காலை நேரம்.",
+      "font": 17,
+      "left": 24,
+      "right": 362,
+      "bottom": 40,
+      "fov": 76
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "caption": "என்ஜின் ஓடுகிறது. · காலை நேரம்.",
+      "font": 18,
+      "left": 24,
+      "right": 382,
+      "bottom": 40,
+      "fov": 76
+    }
+  ],
+  "reduced": {
+    "before": 0,
+    "after": 0,
+    "angle": -1.35,
+    "clear": 1
+  },
+  "checks": 48,
+  "errors": []
+}

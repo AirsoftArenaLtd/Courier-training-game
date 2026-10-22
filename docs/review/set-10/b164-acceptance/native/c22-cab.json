@@ -1,0 +1,293 @@
+{
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "audit": {
+        "font": 18,
+        "scale": 1,
+        "bounds": {
+          "x": 437,
+          "y": 615,
+          "right": 843,
+          "bottom": 636
+        },
+        "fov": 76,
+        "pointerLock": false,
+        "reticle": true,
+        "gearLabels": [
+          {
+            "text": "P",
+            "font": 17
+          },
+          {
+            "text": "R",
+            "font": 17
+          },
+          {
+            "text": "N",
+            "font": 17
+          },
+          {
+            "text": "D",
+            "font": 17
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "audit": {
+        "font": 22,
+        "scale": 1,
+        "bounds": {
+          "x": 44,
+          "y": 545,
+          "right": 540,
+          "bottom": 570
+        },
+        "fov": 76,
+        "pointerLock": false,
+        "reticle": true,
+        "gearLabels": [
+          {
+            "text": "P",
+            "font": 18
+          },
+          {
+            "text": "R",
+            "font": 18
+          },
+          {
+            "text": "N",
+            "font": 18
+          },
+          {
+            "text": "D",
+            "font": 18
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "audit": {
+        "font": 18,
+        "scale": 1,
+        "bounds": {
+          "x": 436.5,
+          "y": 612,
+          "right": 843.5,
+          "bottom": 634
+        },
+        "fov": 76,
+        "pointerLock": false,
+        "reticle": true,
+        "gearLabels": [
+          {
+            "text": "P",
+            "font": 17
+          },
+          {
+            "text": "R",
+            "font": 17
+          },
+          {
+            "text": "N",
+            "font": 17
+          },
+          {
+            "text": "D",
+            "font": 17
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "audit": {
+        "font": 22,
+        "scale": 1,
+        "bounds": {
+          "x": 43.5,
+          "y": 540,
+          "right": 540.5,
+          "bottom": 566
+        },
+        "fov": 76,
+        "pointerLock": false,
+        "reticle": true,
+        "gearLabels": [
+          {
+            "text": "P",
+            "font": 18
+          },
+          {
+            "text": "R",
+            "font": 18
+          },
+          {
+            "text": "N",
+            "font": 18
+          },
+          {
+            "text": "D",
+            "font": 18
+          }
+        ]
+      }
+    }
+  ],
+  "fixture": "First workday, seed ten, a loaded stationary van at the depot. Targets and control actions use real keys.",
+  "reload": {
+    "before": {
+      "van": {
+        "x": 2.84,
+        "z": 8,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": 2,
+        "hand": true,
+        "belt": true,
+        "look": 0.36005932935105106,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 7,
+        "headlights": true,
+        "wipers": true
+      },
+      "mode": "cab",
+      "signal": 1,
+      "events": [
+        {
+          "type": "drive.gear",
+          "key": "gear1",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear2",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear3",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear4",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear5",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear6",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        },
+        {
+          "type": "drive.gear",
+          "key": "gear7",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        }
+      ],
+      "target": "cab-park"
+    },
+    "after": {
+      "van": {
+        "x": 2.84,
+        "z": 8,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": 0,
+        "hand": true,
+        "belt": true,
+        "look": 0.36005932935105234,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 8,
+        "headlights": true,
+        "wipers": true
+      },
+      "mode": "cab",
+      "signal": 1,
+      "events": [
+        {
+          "type": "drive.gear",
+          "key": "gear8",
+          "ok": true,
+          "stop": 1,
+          "where": {
+            "x": 2.8,
+            "z": 8,
+            "mph": 0
+          }
+        }
+      ],
+      "target": "cab-neutral"
+    }
+  },
+  "checks": 200,
+  "errors": []
+}
