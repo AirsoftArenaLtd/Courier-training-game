@@ -584,7 +584,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
-- **22 October 2026, Claude — B-155 done:** `test/quickstart.js` now also checks the 126 button names quoted across the 11 quick starts against the game's translations, tolerating case endings and longer strings ("See Results ▶"). It caught a changed French button in a trial. New Claude todos: B-156 and B-157.
+- **22 October 2026, Claude — B-155 done:** `test/quickstart.js` now also checks the 232 button names quoted across the 11 quick starts against the game's translations, tolerating case endings and longer strings ("See Results ▶"). It caught a changed French button in a trial. New Claude todos: B-156 and B-157.
 
 - **22 October 2026, Claude — B-152 done:** the glossary's other words fall from 56 to 47, and every group left has a question for its reviewer.
   - **Changed:** Tamil now names the Returns desk as its label does (ரிட்டர்ன்ஸில், ரிட்டர்ன்ஸுக்கு) in 4 lines, and Spanish "Review the walkaround." says "Repasa la revisión previa."
