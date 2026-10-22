@@ -77,17 +77,27 @@ OTR.fpHud={
     if(busy||device||!this.navigationAllowed(m))s.navRoot.setVisible(false);
     s.title.setVisible(false);s.objective.setVisible(false);s.status.setVisible(false);
     const keys=first&&!busy&&!device;
+    // First-day instructions keep their text size and use the space beside the mounted screen.
+    let keyWidth=1000,keyCenter=640;
+    const rear=keys&&mode==='cab'&&s.art&&s.art.rear,backing=rear&&rear.inView;
+    if(keys&&mode==='cab'&&(s.navRoot.visible||backing)){
+      const display=backing?s.art.cab.navigation:null;
+      const screenX=backing?(display.point.copy(display.local).applyMatrix4(display.parent.matrixWorld).project(s.view.camera).x+1)*640:s.navRoot.x;
+      const half=s.navBack.displayWidth/2,left=screenX-half-24,right=1280-screenX-half-24;
+      keyWidth=Math.min(1000,Math.floor(Math.max(left,right)/8)*8);
+      keyCenter=left>=right?12+keyWidth/2:1268-keyWidth/2;
+    }
     const c=s.hints||(s.hints={});
-    if(c.mode!==mode||c.keys!==keys){
-      c.mode=mode;c.keys=keys;
+    if(c.mode!==mode||c.keys!==keys||c.width!==keyWidth){
+      c.mode=mode;c.keys=keys;c.width=keyWidth;
       const k=code=>OTR.fpAccess.key(code);
       const controls=mode==='cab'?`Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Press ${k('KeyP')} to choose a cab control.`:`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to move. Press ${k('KeyP')} to choose a target and ${k('KeyE')} to interact.`;
-      s.setText('controls',keys?controls:'',1000);s.setText('help',keys?`Press ${k('Tab')} for the handheld or ${k('KeyH')} for Controls and guidance.`:'',1000);
+      s.setText('controls',keys?controls:'',keyWidth);s.setText('help',keys?`Press ${k('Tab')} for the handheld or ${k('KeyH')} for Controls and guidance.`:'',keyWidth);
     }
-    s.help.setPosition(640,708).setVisible(keys);
+    s.help.setPosition(keyCenter,708).setVisible(keys);
     const controlsBottom=708-s.help.height-8;
-    s.controls.setPosition(640,controlsBottom).setVisible(keys);
-    const width=device?660:OTR.fpAccess.settings().large?760:620,center=device?390:640;
+    s.controls.setPosition(keyCenter,controlsBottom).setVisible(keys);
+    const width=device?660:Math.min(OTR.fpAccess.settings().large?760:620,keys?keyWidth-24:Infinity),center=device?390:keys?keyCenter:640;
     s.setText('hint',blocked?'':hint,width);s.hint.setPosition(center,keys?controlsBottom-s.controls.height-14:690);
     const warning=!!(m&&mode==='cab'&&(OTR.fpDriving.hint(m)||(OTR.fpTraffic&&OTR.fpTraffic.hint(m))||OTR.fpDay.hint(m)))||!!(s.notice&&now<s.noticeUntil)||aiming;
     if(blocked)s.hud.prompt.key=null;

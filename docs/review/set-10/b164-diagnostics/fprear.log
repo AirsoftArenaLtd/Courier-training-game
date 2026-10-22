@@ -1,0 +1,46 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ safe backing needs no walk-around and reports once when the manoeuvre ends (4.301187ms)
+✔ contact and more than 5 mph fail immediately and cannot become a later pass (5.039405ms)
+✔ a collision from rest while attempting reverse is still a backing failure (0.561117ms)
+✔ setting the parking brake while still rolling finishes one manoeuvre after stopping (11.026837ms)
+✔ camera time counts only when visible, in reverse and unpaused, and survives an unfinished reload (3.458827ms)
+✔ only trainer-required tight scenarios report the optional walk-around type (1.434203ms)
+✔ trainer rules are cached outside the frame loop and never enter the mission checkpoint (0.645591ms)
+✔ invalid camera counters and malformed practice checkpoints are rejected without breaking old saves (39.039045ms)
+✔ three sensor rays find rotated world obstacles, cars and a crossing pedestrian (2.698556ms)
+✔ sensor bands and text distinguish distance without relying on colour or sound (0.933967ms)
+✔ sensor sectors cover the van width without gaps between three thin rays (0.585342ms)
+✔ guidelines follow reverse rear-axle arcs and bend in opposite directions (1.063727ms)
+✔ alley, dock and tight-drive practice have real collision walls, isolated saves and no workday reports (3.080429ms)
+✖ the screen powers automatically, is keyboard reachable, and does not feed its own reflection (48.6764ms)
+✔ all practice spaces and reflection cameras fit the unchanged complete-frame Low budget (160.897467ms)
+✔ reverse scheduling keeps all mirrors live and updates only one atlas cell per frame (7.22785ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 302.18109
+
+✖ failing tests:
+
+test at test/fprear.js:61:1
+✖ the screen powers automatically, is keyboard reachable, and does not feed its own reflection (48.6764ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0.928 !== 1.12
+  
+      at TestContext.<anonymous> (/workspace/b164-nav-clearance/test/fprear.js:62:74)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0.928,
+    expected: 1.12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

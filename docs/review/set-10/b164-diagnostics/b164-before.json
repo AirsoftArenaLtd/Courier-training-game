@@ -1,0 +1,1014 @@
+{
+  "sourceRevision": "0d673d4d6f04d74de70d6c7b8693e3b833e93416",
+  "fixture": "Native day-four plan, live fonts and Phaser labels; approach poses are fixtures. No head turn. Reports, saves and scores are not altered.",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "red",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is red. Stop before the junction line.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 616.6114397988706,
+            "y": 151.72829892070746,
+            "right": 864.6114397988706,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "phaserBytes": 2118491,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 938.046500670656,
+          "y": 323.37125559484326
+        },
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 248,
+          "height": 42,
+          "wrap": 260,
+          "text": "The traffic light is red. Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "red",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is red. Stop before the junction line.",
+          "source": "The traffic light is red. Stop before the junction line.",
+          "bounds": {
+            "x": 743.3660096242196,
+            "y": 151.72829892070746,
+            "right": 991.3660096242196,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "phaserBytes": 2115131,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 248,
+          "height": 42,
+          "wrap": 260,
+          "text": "The traffic light is red. Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 245,
+          "height": 42,
+          "wrap": 260,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 617.1114397988706,
+            "y": 151.72829892070746,
+            "right": 864.1114397988706,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "phaserBytes": 2118267,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 938.046500670656,
+          "y": 323.37125559484326
+        },
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 247,
+          "height": 42,
+          "wrap": 260,
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "source": "The traffic light is amber. Stop if you can do so safely.",
+          "bounds": {
+            "x": 743.8660096242196,
+            "y": 151.72829892070746,
+            "right": 990.8660096242196,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "phaserBytes": 2114907,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 247,
+          "height": 42,
+          "wrap": 260,
+          "text": "The traffic light is amber. Stop if you can do so safely.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 245,
+          "height": 42,
+          "wrap": 260,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "green",
+      "back": 24,
+      "text": [
+        {
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 627.6114397988706,
+            "y": 130.72829892070746,
+            "right": 853.6114397988706,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "phaserBytes": 2138875,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 938.046500670656,
+          "y": 323.37125559484326
+        },
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 226,
+          "height": 63,
+          "wrap": 260,
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 113 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 112 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "green",
+      "back": 12,
+      "text": [
+        {
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "source": "The traffic light is green. Continue only when the junction is clear.",
+          "bounds": {
+            "x": 754.3660096242196,
+            "y": 130.72829892070746,
+            "right": 980.3660096242196,
+            "bottom": 193.72829892070746
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "phaserBytes": 2135515,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "signal",
+          "width": 226,
+          "height": 63,
+          "wrap": 260,
+          "text": "The traffic light is green. Continue only when the junction is clear.",
+          "visible": true
+        },
+        {
+          "kind": "roadworks",
+          "width": 245,
+          "height": 42,
+          "wrap": 260,
+          "text": "The street is closed. Follow another cross street.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [
+        {
+          "text": "Give way to traffic before entering the junction.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 624.1114397988705,
+            "y": 151.72829892070797,
+            "right": 857.1114397988705,
+            "bottom": 193.72829892070797
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 729.2692470156007,
+        "right": 751.7201953668296,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "phaserBytes": 2072683,
+      "projected": {
+        "x": 740.6114397988705,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 233,
+          "height": 42,
+          "wrap": 260,
+          "text": "Give way to traffic before entering the junction.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 125,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is Oak St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 122,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 2nd St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 260,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 204 on Maple Ave.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [
+        {
+          "text": "Give way to traffic before entering the junction.",
+          "source": "Give way to traffic before entering the junction.",
+          "bounds": {
+            "x": 750.866009624219,
+            "y": 151.72829892070797,
+            "right": 983.866009624219,
+            "bottom": 193.72829892070797
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 841.4400286058842,
+        "right": 892.1015926864059,
+        "y": 328.63807937872457,
+        "bottom": 378.1416648516916
+      },
+      "phaserBytes": 2108747,
+      "projected": {
+        "x": 867.366009624219,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": "junction-yield",
+          "width": 233,
+          "height": 42,
+          "wrap": 260,
+          "text": "Give way to traffic before entering the junction.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 125,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is Oak St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 209 on Oak St.",
+          "visible": true
+        },
+        {
+          "kind": "number",
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 305 on Oak St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": true,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [
+        {
+          "text": "Stop before the junction line.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 629.1114397988706,
+            "y": 151.72829892070797,
+            "right": 852.1114397988706,
+            "bottom": 193.72829892070797
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 729.2692470156009,
+        "right": 751.7201953668298,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "phaserBytes": 2103707,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 223,
+          "height": 42,
+          "wrap": 260,
+          "text": "Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 116,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 209 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 305 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [
+        {
+          "text": "Stop before the junction line.",
+          "source": "Stop before the junction line.",
+          "bounds": {
+            "x": 755.8660096242193,
+            "y": 151.72829892070797,
+            "right": 978.8660096242193,
+            "bottom": 193.72829892070797
+          },
+          "font": 18
+        }
+      ],
+      "head": {
+        "x": 841.4400286058845,
+        "right": 892.1015926864065,
+        "y": 328.6380793787245,
+        "bottom": 378.1416648516916
+      },
+      "phaserBytes": 2103707,
+      "projected": {
+        "x": 867.3660096242193,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": "stop",
+          "width": 223,
+          "height": 42,
+          "wrap": 260,
+          "text": "Stop before the junction line.",
+          "visible": true
+        },
+        {
+          "kind": "street",
+          "width": 116,
+          "height": 21,
+          "wrap": 260,
+          "text": "This is 1st St.",
+          "visible": true
+        },
+        {
+          "kind": null,
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 209 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 241,
+          "height": 42,
+          "wrap": 260,
+          "text": "This is number 305 on Oak St.",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 829.3436889648438,
+        "y": 370.4676208496094,
+        "right": 1059.3436889648438,
+        "bottom": 520.4676208496094
+      },
+      "covered": true,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral"
+      ],
+      "look": 0
+    }
+  ],
+  "errors": [],
+  "failures": [
+    "en/normal/red/24: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/red/12: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/amber/24: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/amber/12: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/green/24: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/green/12: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/giveway/24: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/giveway/12: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/giveway/12: sat nav covers the sign head",
+    "en/normal/stop/24: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/stop/12: sat nav covers physical selector positions cab-park,cab-reverse,cab-neutral",
+    "en/normal/stop/12: sat nav covers the sign head"
+  ],
+  "completed": true
+}

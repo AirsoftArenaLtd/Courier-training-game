@@ -1,0 +1,190 @@
+[
+  {
+    "lang": "en",
+    "large": false,
+    "navVisible": true,
+    "nav": {
+      "type": 5,
+      "x": 892.3113403320312,
+      "y": 454.0965576171875,
+      "width": 230,
+      "height": 150
+    },
+    "lines": [
+      {
+        "text": "Check mirrors and signals before moving.",
+        "bounds": {
+          "type": 5,
+          "x": 453,
+          "y": 615,
+          "width": 374,
+          "height": 21
+        },
+        "covered": false
+      },
+      {
+        "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+        "bounds": {
+          "type": 5,
+          "x": 280.5,
+          "y": 650,
+          "width": 719,
+          "height": 25
+        },
+        "covered": false
+      },
+      {
+        "text": "Press TAB for the handheld or H for Controls and guidance.",
+        "bounds": {
+          "type": 5,
+          "x": 374.5,
+          "y": 683,
+          "width": 531,
+          "height": 25
+        },
+        "covered": false
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "large": true,
+    "navVisible": true,
+    "nav": {
+      "type": 5,
+      "x": 887.3113403320312,
+      "y": 450.0965576171875,
+      "width": 240,
+      "height": 158
+    },
+    "lines": [
+      {
+        "text": "Check mirrors and signals before moving.",
+        "bounds": {
+          "type": 5,
+          "x": 411.5,
+          "y": 603,
+          "width": 457,
+          "height": 25
+        },
+        "covered": false
+      },
+      {
+        "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+        "bounds": {
+          "type": 5,
+          "x": 201,
+          "y": 642,
+          "width": 878,
+          "height": 29
+        },
+        "covered": false
+      },
+      {
+        "text": "Press TAB for the handheld or H for Controls and guidance.",
+        "bounds": {
+          "type": 5,
+          "x": 316,
+          "y": 679,
+          "width": 648,
+          "height": 29
+        },
+        "covered": false
+      }
+    ]
+  },
+  {
+    "lang": "ta",
+    "large": false,
+    "navVisible": true,
+    "nav": {
+      "type": 5,
+      "x": 892.3113403320312,
+      "y": 431.0965576171875,
+      "width": 230,
+      "height": 196
+    },
+    "lines": [
+      {
+        "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 380,
+          "y": 564,
+          "width": 520,
+          "height": 44
+        },
+        "covered": true
+      },
+      {
+        "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 143.5,
+          "y": 622,
+          "width": 993,
+          "height": 52
+        },
+        "covered": true
+      },
+      {
+        "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 166.5,
+          "y": 682,
+          "width": 947,
+          "height": 26
+        },
+        "covered": false
+      }
+    ]
+  },
+  {
+    "lang": "ta",
+    "large": true,
+    "navVisible": true,
+    "nav": {
+      "type": 5,
+      "x": 887.3113403320312,
+      "y": 423.0965576171875,
+      "width": 240,
+      "height": 212
+    },
+    "lines": [
+      {
+        "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 322.5,
+          "y": 514,
+          "width": 635,
+          "height": 52
+        },
+        "covered": true
+      },
+      {
+        "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 182.5,
+          "y": 580,
+          "width": 915,
+          "height": 60
+        },
+        "covered": true
+      },
+      {
+        "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+        "bounds": {
+          "type": 5,
+          "x": 151,
+          "y": 648,
+          "width": 978,
+          "height": 60
+        },
+        "covered": false
+      }
+    ]
+  }
+]
