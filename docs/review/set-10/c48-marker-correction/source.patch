@@ -1,0 +1,81 @@
+commit 4158b3a703fe2b93590cb352a00967d2beac1bfc
+Author:     Luke Nelson <airsoftarena@protonmail.com>
+AuthorDate: Thu Oct 22 04:20:01 2026 +0000
+Commit:     Luke Nelson <airsoftarena@protonmail.com>
+CommitDate: Thu Oct 22 04:20:01 2026 +0000
+
+    Fit the front inspection target to the van below the lamps
+
+diff --git a/src/core/fpwalkaroundflow.js b/src/core/fpwalkaroundflow.js
+index 19bcc954..74301fa0 100644
+--- a/src/core/fpwalkaroundflow.js
++++ b/src/core/fpwalkaroundflow.js
+@@ -8,7 +8,7 @@ OTR.fpWalkaroundFlow={
+     data.departed===(data.phase!=='prepare')&&s.finished===(data.phase==='debrief');},
+   // The roof is inspected from its reachable edge. No climbing or camera teleport is needed.
+   targets:[
+-    {zone:'front',name:'This is the front of the van.',x:0,y:1.55,z:-2.84,w:.7,h:.4,d:.04},
++    {zone:'front',name:'This is the front of the van.',x:0,y:.55,z:-2.708,w:.7,h:.2,d:.04},
+     {zone:'rear',name:'This is the rear of the van.',x:-.18,y:1.75,z:2.8,w:.3,h:.5,d:.04},
+     {zone:'left',name:'This is the left side of the van.',x:-1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+     {zone:'right',name:'This is the right side of the van.',x:1.16,y:1.78,z:.6,w:.04,h:.5,d:.8},
+diff --git a/src/core/fpworld.js b/src/core/fpworld.js
+index 0ae77868..b68efe2b 100644
+--- a/src/core/fpworld.js
++++ b/src/core/fpworld.js
+@@ -335,12 +335,19 @@ OTR.fpWorld = {
+     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
+     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
+     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');
++    // The loaded van's front profile differs from the fallback. Fit its lower inspection point once at build time.
++    const walkBody=walkVehicle&&walkVehicle.parts.find(p=>p.name==='body');let walkFront=null;
++    if(base.walkaround&&walkBody){
++      const t=OTR.fpWalkaroundFlow.target('front'),surface=new T.Mesh(walkBody.g,walkVehicle.mesh.material);surface.updateMatrixWorld(true);
++      const hit=new T.Raycaster(new T.Vector3(t.x,t.y,-4),new T.Vector3(0,0,1),0,2).intersectObject(surface,false)[0];
++      if(hit)walkFront=hit.point.z-.008;
++    }
+     // Keep the retained cargo proxy behind the imported closed door's inspection surface.
+     if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
+ 
+     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
+       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
+-      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
++      const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
+       mesh.layers.set(1);mesh.name='walkaround-'+t.zone;return mesh;
+     }):[];
+     // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
+diff --git a/test/fpwalkaroundworld.js b/test/fpwalkaroundworld.js
+index e79d4ae7..e6f6abb4 100644
+--- a/test/fpwalkaroundworld.js
++++ b/test/fpwalkaroundworld.js
+@@ -9,10 +9,11 @@ for(const file of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data
+ c.OTR.save={data:{townSeed:1}};const F=install(c),banks={};
+ test.before(async()=>{for(const high of [false,true])banks[high]=await F.preload({high,fetch:local});});
+ test.after(()=>Object.values(banks).forEach(b=>b.dispose()));
+-for(const profile of ['low','high','fallback'])test(profile+': every ground-level inspection selects a nearby rendered van surface',()=>{
++for(const profile of ['low','high','fallback'])for(const yaw of [0,Math.PI/2,Math.PI,-1])test(profile+' yaw '+yaw+': every ground-level inspection selects a nearby rendered van surface',()=>{
+  const high=profile==='high',O=c.OTR;O.gfx={high:()=>high};
+  let plan=O.fpStopFlow.prepare(O.fpRoute.plan(4,8),true);plan=O.fpWalkaroundFlow.prepare(O.fpDamageFlow.prepare(O.fpLater.prepare(plan)));
+  const m=O.fpMission.create('campaign',8,plan),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);O.fpDoors.configure(m);
++ m.van.yaw=yaw;
+  const scene={assetBank:profile==='fallback'?null:banks[high],view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);
+  try{
+   const door=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x===0);
+@@ -20,6 +21,8 @@ for(const profile of ['low','high','fallback'])test(profile+': every ground-leve
+   const handle=art.interactions.find(o=>o.userData.interaction==='cargo'&&o.position.x>1);
+   Object.assign(m.player,O.fp.local(m.van,1.15,3.6));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);camera.lookAt(handle.getWorldPosition(new THREE.Vector3()));camera.updateMatrixWorld(true);assert.equal(art.pick(),'cargo','the existing cargo handle stays selectable');
+   m.cargoOpen=true;art.sync(m,null,'route');assert.equal(art.walkaroundTargets.find(o=>o.userData.interaction==='wear-rear').visible,false);m.cargoOpen=false;
++  Object.assign(m.player,O.fp.local(m.van,0,-4.2));art.sync(m,null,'route');camera.position.set(m.player.x,1.65,m.player.z);
++  for(const x of [-.68,0,.68]){const p=O.fp.local(m.van,x,-2.78);camera.lookAt(new THREE.Vector3(p.x,1,p.z));camera.updateMatrixWorld(true);assert.equal(art.pick(),'lights','the front damage record must leave each lamp selectable');}
+   for(const t of O.fpWalkaroundFlow.targets){
+    const point=O.fp.local(m.van,t.x+(t.zone==='right'?.85:['front','rear'].includes(t.zone)?0:-.85),t.z+(t.zone==='front'?-.85:t.zone==='rear'?.85:0));Object.assign(m.player,point);
+    art.sync(m,null,'route');const proxy=art.walkaroundTargets.find(o=>o.userData.interaction==='wear-'+t.zone),target=proxy.getWorldPosition(new THREE.Vector3());
+@@ -27,7 +30,7 @@ for(const profile of ['low','high','fallback'])test(profile+': every ground-leve
+    assert.equal(O.fpWalkaroundFlow.canInspect(m,t.zone),true);assert.equal(art.pick(),'wear-'+t.zone);
+    const ray=new THREE.Raycaster();ray.far=4;ray.setFromCamera({x:0,y:0},camera);const visible=[];world.traverseVisible(o=>{if(o.isMesh&&o.layers.test(ray.layers))visible.push(o);});
+    const real=ray.intersectObjects(visible,false)[0];ray.layers.enable(1);const hit=ray.intersectObjects([proxy],false)[0];assert.ok(real&&hit,t.zone+' has no physical surface');
+-   const delta=Math.abs(real.distance-hit.distance);assert.ok(delta<.25,t.zone+' target floats '+delta+' m from '+real.object.name);
++   const delta=Math.abs(real.distance-hit.distance);assert.ok(delta<(t.zone==='front'?.1:.25),t.zone+' target floats '+delta+' m from '+real.object.name);
+   }
+  }finally{art.dispose();}
+ });

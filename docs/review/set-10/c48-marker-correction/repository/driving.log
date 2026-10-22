@@ -1,0 +1,21 @@
+ok   pulling away without the mirrors is a violation
+ok   M shows the mirrors, and pulling away after it is a tick
+ok   parking without the parking brake scores 0
+ok   parking with the parking brake scores 1
+ok   following 9 m behind at 20 mph is tailgating
+ok   still driving as the ambulance passes: a violation
+ok   pulled in and stopped for the ambulance: right {"spawned":true,"v":{}}
+ok   rolling through a stop sign at 2 mph is caught
+ok   a stop behind the line turns the sign green: {"stopped":true,"hint":"Stopped — look both ways, then go"}
+ok   E signals right, E again cancels, Q signals left (right, null, left)
+ok   pulling out with the left indicator on is a tick
+ok   pulling out without signaling is a violation
+ok   turns: unsignalled, wrong side or late are violations; signalled or straight on are not (1,0,1,1,0)
+ok   the right-hand curb counts as pulled over, the left-hand one doesn't ({"right":0.5,"left":99})
+ok   traffic keeps to the school zone's limit (15.0 in a 15)
+ok   four-way stop: first to stop goes first, the van included ({"vanFirst":true,"carFirst":false})
+ok   the following distance shows beside the speedometer ("1.7 s behind")
+ok   driving into a tree stops at its trunk (front 2559, trunk 2605.582696855068)
+ok   no page errors
+
+all driving checks passed

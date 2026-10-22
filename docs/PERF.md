@@ -1,5 +1,7 @@
 # 3D workday rendering cost
 
+**C-48 front inspection correction (22 October 2026):** source `4158b3a7` passes all 70 task-branch repository suites, 12 geometry cases and 668 native High/accessible Low inspection checks. Six focused resource views peak at Low **44 / 1570 / 2 / 3557376 / 2600726** and High **70 / 103283 / 3 / 11239424 / 6925520** (calls / triangles / Three textures / attachment bytes / Phaser estimate bytes). The one-time body-surface fit adds no rendered resource or per-frame work. The earlier 207-view gate retains its original source scope. Raw evidence: `docs/review/set-10/c48-marker-correction/manifest.json`. Native Intel FPS remains O-1.
+
 **C-48 cab acceptance (21 October 2026):** all 207 fixed resource views pass on `bf60fc1f`. Loaded Low peaks at **53 calls / 2,402 triangles / two Three textures / 3,557,376 attachment bytes / 2,740,246 estimated Phaser bytes**; High **107 / 235,915 / three / 11,239,424 / 9,087,536**. Accessible Low: **53 / 2,402 / two / 3,557,376 / 3,123,238**; actual missing-model fallback Low: **53 / 2,156 / two / 3,557,376 / 2,638,592**. Native mirror, rear-camera, HUD, signs, lighting and High/accessible walkaround checks pass. Matched views, raw reports, exact source scopes and carried camera/cab component checks: `docs/review/set-10/c48.md` and `c48-accepted/manifest.json`. No ceiling changes; current-pilot strict integration is recorded separately. Native Intel FPS remains O-1.
 
 ## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
