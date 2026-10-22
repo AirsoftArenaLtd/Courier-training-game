@@ -50,6 +50,8 @@ OTR.fpGuide={
     const [title,body]=pages[page],choices=[];if(page+1<pages.length)choices.push({label:'Next',action:()=>this.steps(scene,page+1,back)});choices.push({label:'Back',action:back});scene.showPanel(title,body,choices,{accessibleText:page>=2});
   },
   hint(scene,id){
+    // Module adapters own their guidance; a saved workday must not speak into an assessment.
+    if(scene.scenarioSession)return null;
     const m=scene.model;if(!m||!id||m.phase==='debrief'||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen)return null;
     const s=this.state(scene),now=scene.time.now;if(!s.intro)return null;
     if(scene.guideTarget===id&&now<scene.guideUntil)return scene.guideText;
