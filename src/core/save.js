@@ -219,10 +219,12 @@ OTR.save = {
    * stop with no place is one pair in s: [[t, stop, key, stop, key, ...]] (key left out as null when it has none).
    * Days packed before B-55 (full names, no s) still unpack. Places are kept to the metre (B-68: under 1.5 px on the
    * drive map), speeds to 1 mph and times to the second.
+   * B-160 (v: 3): placed reports are grouped by type and outcome in p: [[t, ok, 5 or 6, key, stop, x, z, mph(, t), ...]]
+   * (6 when the group's reports have a time), and right checks with no key, stop or place are their type numbers in n.
    */
   packDay(c) {
     if (!Array.isArray(c.events)) return c;
-    const out = Object.assign({}, c), types = [], e = [], g = {}, s = {}, f = {};
+    const out = Object.assign({}, c), types = [], e = [], g = {}, s = {}, f = {}, n = [], pl = {};
     delete out.events;
     const num = (v, r) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * r) / r : null);
     c.events.forEach(ev => {
@@ -241,13 +243,24 @@ OTR.save = {
       if (ev.ok !== false && Number.isInteger(stop) && !w) { (s[ti] = s[ti] || []).push(stop, key); return; }
       // B-98: a wrong check or penalty with no stop and no place is only its key too, grouped by type in f
       if (ev.ok === false && stop === null && !w && key !== null && !Array.isArray(key)) { (f[ti] = f[ti] || []).push(key); return; }
+      // B-160: a right check with no key, no stop and no place is only its type number, once per report (in n)
+      if (ev.ok !== false && stop === null && !w && key === null) { n.push(ti); return; }
+      // B-160: a placed report is grouped with the others of its type and outcome (in p), without the row's brackets,
+      // type and outcome: key, stop (0 for none), x, z, mph and, in a group of reports that have one, t (v: 3)
+      if (w) { const t = num(w.t, 1), k = ti + ':' + (ev.ok === false ? 0 : 1) + ':' + (t === null ? 5 : 6); (pl[k] = pl[k] || []).push([key, stop === null ? 0 : stop, num(w.x, 1), num(w.z, 1), num(w.mph, 1), t]); return; }
       // B-98: stops count from 1, so a placed row with no stop writes 0 (3 characters less than null; v: 2)
       const row = [ti, key, ev.ok === false ? 0 : 1, stop === null && w ? 0 : stop,
         w ? num(w.x, 1) : null, w ? num(w.z, 1) : null, w ? num(w.mph, 1) : null, w ? num(w.t, 1) : null];
       while (row.length > 3 && row[row.length - 1] === null) row.pop();
       e.push(row);
     });
-    out.packed = { v: 2, t: types.map(n => this.typeCode(n)), e };
+    out.packed = { v: 3, t: types.map(t => this.typeCode(t)), e };
+    if (n.length) out.packed.n = n;
+    const placed = Object.keys(pl).map(k => {
+      const [ti, ok, stride] = k.split(':').map(Number);
+      return [ti, ok, stride].concat(...pl[k].map(r => r.slice(0, stride)));
+    });
+    if (placed.length) out.packed.p = placed;
     const groups = Object.keys(g).map(ti => [Number(ti)].concat(this.packRuns(g[ti])));
     if (groups.length) out.packed.g = groups;
     const atStops = Object.keys(s).map(ti => [Number(ti)].concat(s[ti]));
@@ -470,6 +483,20 @@ OTR.save = {
       (Array.isArray(c.packed.f) ? c.packed.f : []).forEach(r => {
         if (!Array.isArray(r) || typeof types[r[0]] !== 'string') return;
         r.slice(1).forEach(k => events.push({ type: types[r[0]], key: k, ok: false, stop: null }));
+      });
+      // B-160 (v: 3): right checks with no key, and the placed reports grouped by type and outcome
+      (Array.isArray(c.packed.n) ? c.packed.n : []).forEach(t => { if (typeof types[t] === 'string') events.push({ type: types[t], key: null, ok: true, stop: null }); });
+      (Array.isArray(c.packed.p) ? c.packed.p : []).forEach(r => {
+        if (!Array.isArray(r) || typeof types[r[0]] !== 'string' || (r[2] !== 5 && r[2] !== 6)) return;
+        for (let i = 3; i + r[2] <= r.length; i += r[2]) {
+          const ev = { type: types[r[0]], key: r[i], ok: r[1] !== 0, stop: r[i + 1] === 0 || r[i + 1] === null ? null : r[i + 1] };
+          if (Number.isFinite(r[i + 2]) && Number.isFinite(r[i + 3])) {
+            ev.where = { x: r[i + 2], z: r[i + 3] };
+            if (Number.isFinite(r[i + 4])) ev.where.mph = r[i + 4];
+            if (r[2] === 6 && Number.isFinite(r[i + 5])) ev.where.t = r[i + 5];
+          }
+          events.push(ev);
+        }
       });
     } else if (Array.isArray(c.summary)) {
       c.summary.forEach(r => {
