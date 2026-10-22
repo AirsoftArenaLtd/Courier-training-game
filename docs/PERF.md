@@ -1,5 +1,7 @@
 # 3D workday rendering cost
 
+**C-48 preliminary cab pass (21 October 2026; still doing):** six Low cab/mirror/stress views peak at **48 calls / 1,918 triangles / two Three textures / 3,557,376 attachment bytes**. These are partial smoke figures; the complete final 207-view matrix is running on `bf60fc1f`. The mirror-housing wear follows its new location without an extra instance, call, texture or target. Evidence/status: `docs/review/set-10/c48.md`. No frame ceiling is raised; native Intel FPS remains O-1.
+
 ## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
 
 On a software renderer (Chromium's SwiftShader, as on a PC with no graphics driver), at 1280 x 720:
