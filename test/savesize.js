@@ -315,7 +315,7 @@ test('B-98: C-35\'s heaviest day (21 damage reports on the richer-stop day; C-36
   assert.equal(lms.refused, 0, 'the LMS never refused a save');
   assert.equal(stage(stored()), 'packed', 'packed, not summarised');
   const pk = stored().workday.current.packed;
-  assert.ok(pk.v === 2 && Array.isArray(pk.f) && pk.f.length > 0, 'packed as v2: wrong checks with no stop or place grouped (f), a placed row with no stop written as 0');
+  assert.ok(pk.v >= 2 && Array.isArray(pk.f) && pk.f.length > 0, 'packed as v2 or later (B-160): wrong checks with no stop or place grouped (f), a placed row with no stop written as 0');
   const size = JSON.stringify(stored()).length, room = SAVE.SCORM12_LIMIT - size;
   console.log(`      B-98: ${size} of ${SAVE.SCORM12_LIMIT} characters, ${room} to spare`);
   // B-120: 300 since B-114 left about 440; a change that eats most of that room fails here before it reaches a trainee
@@ -352,6 +352,33 @@ test('B-114: C-36\'s heaviest day with successful lights on every leg packs with
   reload(); W.resume(null);
   assert.deepEqual(summary(W.log), live, 'the same score after a reload');
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
+});
+
+// B-160: B-138's signal check on top: a trainee who never signals, on every turn of the day (Codex's worst case, 22 Oct:
+// 30 turns), in fpsignal.js's own shape (key leg:count, the stop, and a place with no time for a wrong one)
+const signals = (count, ok) => Array.from({ length: count }, (_, n) => ['drive.signal', { key: Math.floor(n / 5) + ':' + (n + 1), ok,
+  stop: Math.min(Math.floor(n / 5), 4) + 1, where: ok ? undefined : { x: 2.84 + (n % 3) * 8, z: -18 - (n % 6) * 18, mph: 4.47 } }]);
+test('B-160: the heaviest day with 30 missed signals still packs, keeps every pin and reloads the same', () => {
+  asScorm(false);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  play(c35HeavyDay().concat(signals(30, false)));
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  assert.equal(stage(stored()), 'packed', 'packed, not summarised: the day keeps its drive-map pins');
+  const pk = stored().workday.current.packed, size = JSON.stringify(stored()).length;
+  console.log(`      B-160: ${size} of ${SAVE.SCORM12_LIMIT} characters with 30 missed signals (${pinsLive} pins)`);
+  assert.ok(pk.v === 3 && Array.isArray(pk.p) && pk.p.some(r => r[2] === 5 && (r.length - 3) / 5 === 30), 'v3: the 30 signals in one group with no time column');
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept, the 30 signals among them');
+});
+
+test('B-160: a v2 day (placed rows in e, no n or p) still unpacks as before', () => {
+  const v2 = { id: 'w', day: 4, packed: { v: 2, t: [41, 23], e: [[0, 0, 0, 0, 3, -18, 7], [1, null, 1]], g: [[1, 'm1']] } };
+  const back = SAVE.unpackDay(JSON.parse(JSON.stringify(v2))).events;
+  assert.equal(JSON.stringify(back), JSON.stringify([{ type: 'drive.lights', key: 0, ok: false, stop: null, where: { x: 3, z: -18, mph: 7 } },
+    { type: 'drive.mirrors', key: null, ok: true, stop: null }, { type: 'drive.mirrors', key: 'm1', ok: true, stop: null }]));
 });
 
 // B-147: the same heaviest day under SCORM 2004 (64,000 characters): sent as it is, never packed or summarised, and
