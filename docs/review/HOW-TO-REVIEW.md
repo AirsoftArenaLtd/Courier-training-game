@@ -35,6 +35,13 @@ You do not need to check every row. Safety rows (priority 1) and `new` rows matt
 Some rows already have a Comment that starts with "Question from the team:". These are the rows we are least sure of,
 and they come first. Answer in the same cell, after the question, and correct the translation if it needs it.
 
+## The trainer's one-page guide
+
+With the sheet you also get `QUICK-START.<language>.md` (for example `QUICK-START.ta.md`): one page for the person who
+runs a training session. Please read it once as a trainer would. The names in **bold** are the game's own buttons, with
+the English in brackets, so they should match what you saw on the sheet. If a sentence is unclear or unnatural, copy it
+into your reply with a better wording; you do not need to edit the page itself.
+
 ## How to send it back
 
 1. Do not add, delete or move rows or columns, and do not change the English column. We match your corrections to the
@@ -50,6 +57,9 @@ We put your corrections into the game. The next sheet you get marks only what ch
 ## For the team
 
 - Make the sheets with `node test/tools/review-sheet.js`.
+- Send each reviewer their language's sheet, `docs/review/OPEN-QUESTIONS.md` and `docs/QUICK-START.<lang>.md`
+  (B-156). Put their notes on the quick start into the page by hand; `node test/quickstart.js` then checks the keys and
+  the quoted button names still match the game.
 - Apply a sheet that comes back with `node test/tools/review-sheet.js --apply <file.csv>`. Add `--dry-run` first to see
   what it would change. It matches each correction by the English. It refuses a correction that loses a `{0}`, and it
   refuses a whole file saved without UTF-8. It prints the reviewer's comments and any English the game no longer has.

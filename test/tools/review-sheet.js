@@ -152,19 +152,20 @@ for (const lang of want) {
   global.window = {}; eval(fs.readFileSync(path.join(ROOT, 'data', 'i18n', lang + '.js'), 'utf8'));
   const L = window.OTR_I18N[lang];
   const rows = [];
+  // a line the team has a question on goes on the sheet even when it is not safety wording (B-152)
+  const Q = reviewed ? {} : (questions[lang] || {});
   cat.strings.forEach(s => {
     const tr = L.strings[s] || L.strings[s.trim()];
     if (!tr || notText.has(s) || tr === s) return;
     const safety = SAFETY.test(s);
-    if (safety || all) rows.push([safety ? 1 : 2, clean(s), clean(tr), 'text']);
+    if (safety || all || Q[clean(s)]) rows.push([safety ? 1 : 2, clean(s), clean(tr), 'text']);
   });
-  L.templates.forEach(([s, tr]) => { const safety = SAFETY.test(s); if (tr !== s && (safety || all)) rows.push([safety ? 1 : 2, clean(s), clean(tr), 'sentence with {0} {1} filled in by the game']); });
+  L.templates.forEach(([s, tr]) => { const safety = SAFETY.test(s); if (tr !== s && (safety || all || Q[clean(s)])) rows.push([safety ? 1 : 2, clean(s), clean(tr), 'sentence with {0} {1} filled in by the game']); });
   // what the sheet being replaced already showed (English → translation): anything else is new to the reviewer
   const file = path.join(OUT, `${lang}-${all ? 'all' : 'safety'}.csv`);
   const old = readSheet(file), at = old.length && /^New/.test(old[0][1]) ? 2 : 1;      // sheets before B-53 had no "New" column
   const before = new Map(old.slice(1).filter(r => r[r.length - 1] !== HOWTO_KIND).map(r => [r[at], { tr: r[at + 1], mark: at === 2 && !reviewed ? r[1] : '' }]));
   // new: not on the old sheet, or translated differently; a mark stays until a --reviewed run (the sheets came back)
-  const Q = reviewed ? {} : (questions[lang] || {});
   const fresh = (r) => { const b = before.get(r[1]); return !!Q[r[1]] || (before.size > 0 && (!b || b.tr !== r[2] || b.mark === 'new')); };
   rows.sort((a, b) => a[0] - b[0] || fresh(b) - fresh(a) || !!Q[b[1]] - !!Q[a[1]] || (a[1] < b[1] ? -1 : 1));
   const head = ['Priority (1 = safety)', 'New since the last sheet', 'English', `${LANGS[lang]} (machine translation)`, 'Corrected translation (leave blank if correct)', 'Comment', 'Kind'];
