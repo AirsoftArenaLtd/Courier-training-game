@@ -1,0 +1,406 @@
+{
+  "task": "B-134",
+  "productSource": "66440652",
+  "keyboardFixtureSource": "a701a65e",
+  "requiredAcceptance": {
+    "source": "664406526da051fbeac6892cf5a151e6915e5d01",
+    "sourceSHA256": {
+      "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+      "test/fpaccess.js": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+      "test/fphandheldbrowser.js": "048b8f4772d9852e2a28bcd0f03d65869e8643c53eaf6dd40165aff3245c48b2"
+    },
+    "complete": true,
+    "jobs": [
+      {
+        "name": "access",
+        "command": [
+          "node",
+          "test/fpaccess.js"
+        ],
+        "environment": {},
+        "exit": 0
+      },
+      {
+        "name": "handheld-low",
+        "command": [
+          "node",
+          "test/fphandheldbrowser.js"
+        ],
+        "environment": {
+          "QA_TAG": "b134-final"
+        },
+        "exit": 0
+      },
+      {
+        "name": "handheld-high",
+        "command": [
+          "node",
+          "test/fphandheldbrowser.js"
+        ],
+        "environment": {
+          "QA_TAG": "b134-final",
+          "QA_GFX": "high",
+          "QA_LANGS": "en,ta"
+        },
+        "exit": 0
+      },
+      {
+        "name": "doors",
+        "command": [
+          "node",
+          "test/fpdoorsbrowser.js"
+        ],
+        "environment": {},
+        "exit": 0
+      },
+      {
+        "name": "bench",
+        "command": [
+          "node",
+          "test/fpbench.js"
+        ],
+        "environment": {
+          "QA_PROTOTYPE_ONLY": "1",
+          "QA_GFX": "low",
+          "QA_TAG": "b134-final",
+          "QA_VIEWS": "cab,handheld,doorsignature,doorid",
+          "QA_A11Y": "large,colour,reduced"
+        },
+        "exit": 0
+      }
+    ]
+  },
+  "relatedAcceptance": {
+    "source": "66440652",
+    "sourceSHA256": {
+      "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+      "test/fpaccess.js": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+      "test/fphandheldbrowser.js": "048b8f4772d9852e2a28bcd0f03d65869e8643c53eaf6dd40165aff3245c48b2",
+      "test/fpaccessbrowser.js": "2788937d16a890c6f1fe7a8e4e2a231dacf5424768553f253bd7cecbde27e6ad"
+    },
+    "complete": true,
+    "jobs": [
+      {
+        "name": "fpaccessbrowser",
+        "exit": 0
+      },
+      {
+        "name": "fphudbrowser",
+        "exit": 0
+      }
+    ]
+  },
+  "scope": "Required Node/catalogue/syntax checks, 28 translated rendered layouts, 394 doorstep, 145 keyboard-only day and 186 HUD checks, four selected fpbench views pass. Original Claude-reported font-metric failure is not reproduced here; taller-metric regression fails before the correction. Superseded footer-only body overlap and fixture timing failures are retained separately.",
+  "files": [
+    {
+      "file": "controllers/b134-acceptance.py",
+      "bytes": 1621,
+      "sha256": "90a0eebe218852e53649a1b5f4ffc3e6e6ce3be8466f992fc438199c2b09b8b2"
+    },
+    {
+      "file": "controllers/b134-access-final.log",
+      "bytes": 1305,
+      "sha256": "ef18c29e2402d22e590cb94a2d687c7eb94fad43e3d5461e02970c65366fe541"
+    },
+    {
+      "file": "controllers/b134-access-wallclock-failure.log",
+      "bytes": 182,
+      "sha256": "66d2b9bc915ca8b15e96cc2b98741380be8686771bcba48b26ea2fdd3bf0b310"
+    },
+    {
+      "file": "controllers/b134-doors-before.log",
+      "bytes": 35,
+      "sha256": "92f3d5e8b08d91da4ead9bbc8bbd242c5590c19509db7cd8a41aa9fd7f29d6ea"
+    },
+    {
+      "file": "controllers/b134-fpmission.log",
+      "bytes": 3784,
+      "sha256": "104794bba56a2578e53e1251ce889082636d51a1209087aa3be44b5f717ca12b"
+    },
+    {
+      "file": "controllers/b134-fpworld.log",
+      "bytes": 2258,
+      "sha256": "7e3e9756f9c16163c505a20cbf9428fba281c0bd105fbd8936bd41c7ce0ab9e5"
+    },
+    {
+      "file": "controllers/b134-i18n.log",
+      "bytes": 3485,
+      "sha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+    },
+    {
+      "file": "controllers/b134-input-promise-failure.log",
+      "bytes": 1685,
+      "sha256": "8b566a17e2167c03c7eb7c8569f49a358b247e33e4ec3e5d8d9629dd0a0cdc95"
+    },
+    {
+      "file": "controllers/b134-related-acceptance.py",
+      "bytes": 1097,
+      "sha256": "2f811a3b9bcc86ebfca45ba6778b870884d70dddfb924b97b4e1cf7f8288a04a"
+    },
+    {
+      "file": "controllers/b134-savesize.log",
+      "bytes": 2589,
+      "sha256": "77bbc84b63464b71b2b160eddd57df0b987b138e894da53b71d252205cb39c32"
+    },
+    {
+      "file": "controllers/b134-unit-before.log",
+      "bytes": 2243,
+      "sha256": "712469866a9d4b34e6ccb783e35aa10d9947594328bc18af4a71ace66b6fe0e6"
+    },
+    {
+      "file": "controllers/b134-workday.log",
+      "bytes": 2612,
+      "sha256": "0f55f43d598a7619a1219f06e84dd688b18d794b9094c776e0137f8d9c4cca60"
+    },
+    {
+      "file": "final/b134-acceptance.json",
+      "bytes": 1514,
+      "sha256": "ce06f709e9d98f9e35cc7d719e21a14ebc414bdf5d26dbaf8c2afaca9e6c295a"
+    },
+    {
+      "file": "final/b134-final-access.log",
+      "bytes": 1527,
+      "sha256": "da31ad91fa57ffd3fde2c6b04684cad5410fd1dce7ea57b050d021456fd8a425"
+    },
+    {
+      "file": "final/b134-final-bench.log",
+      "bytes": 3097,
+      "sha256": "f3b2941e9a7014860fcfcd48d8a9bd38b9965eb41e9c88e9a53ce046f7152789"
+    },
+    {
+      "file": "final/b134-final-doors.log",
+      "bytes": 35,
+      "sha256": "92f3d5e8b08d91da4ead9bbc8bbd242c5590c19509db7cd8a41aa9fd7f29d6ea"
+    },
+    {
+      "file": "final/b134-final-fpaccessbrowser.log",
+      "bytes": 121,
+      "sha256": "06f8c4aa1d8e3a69560353d32b0bd6bdfd0016b175a8bafd044c8aa21bd38378"
+    },
+    {
+      "file": "final/b134-final-fphudbrowser.log",
+      "bytes": 112,
+      "sha256": "69b409c5461f1830e02344ced5d2a3c036feead646e5fbf8e940bf42dfc5dd9e"
+    },
+    {
+      "file": "final/b134-final-handheld-high.log",
+      "bytes": 125,
+      "sha256": "b3b753e1eae58de440e4c66b61b4cc51a34e9598c878d0b7bb7d22f96469d2e8"
+    },
+    {
+      "file": "final/b134-final-handheld-low.log",
+      "bytes": 576,
+      "sha256": "97839dadf67c6245d2bafef1c932dfce3429ce406659504780dc5259bc0cae47"
+    },
+    {
+      "file": "final/b134-final-high-handheld.json",
+      "bytes": 5049,
+      "sha256": "841db421c68dc36af6326ef10fe79d0fac75a557b146a6adcfefc8e8625f056d"
+    },
+    {
+      "file": "final/b134-final-high-ta-large.png",
+      "bytes": 101720,
+      "sha256": "1a8498ffa8f44443eceafac5896664fb444b0602e486112c9b62a8fd85674310"
+    },
+    {
+      "file": "final/b134-final-low-handheld.json",
+      "bytes": 30970,
+      "sha256": "20a06c5fcbd05c4e5f77f4d1f8e1da312d9316e9d6fa30805bd15d1062208265"
+    },
+    {
+      "file": "final/b134-final-low-ta-large.png",
+      "bytes": 90913,
+      "sha256": "a152a65bef92f4d29cde276578a5b6e07789d27693c3fdf2847f9a0f5cf647aa"
+    },
+    {
+      "file": "final/b134-related-acceptance.json",
+      "bytes": 595,
+      "sha256": "433a505e83b93038a82728729c915e95cb22532cb5513d8006215c2b3babef51"
+    },
+    {
+      "file": "final/bench-b134-final-low.json",
+      "bytes": 6332,
+      "sha256": "9d01bda3328cad09e7c08e143210dcf03991d4b75e2fda6a89fc358310e721ec"
+    },
+    {
+      "file": "final/c12-accessibility.json",
+      "bytes": 1229,
+      "sha256": "8bccd4d29c34cce606e717a7224513ef159e10e18a1fdba6c848ccbd0b7d815f"
+    },
+    {
+      "file": "final/c12-colour-mirror.png",
+      "bytes": 227857,
+      "sha256": "de0958c28dab413dc5397fd3b7a543c004f6fcbb9e5e1ba06bf75e2c825f5b9a"
+    },
+    {
+      "file": "final/c12-controls-ta-large.png",
+      "bytes": 87073,
+      "sha256": "8cffb0bfdd9cbcc807ea28c61873f49273fe2cd9db903e5331ace2f42dc4da2c"
+    },
+    {
+      "file": "final/c12-keyboard-day.png",
+      "bytes": 65877,
+      "sha256": "9a269672750aba6de4fbd5ddc4cd4745da89ecdeadeccff0f21d97e453435e12"
+    },
+    {
+      "file": "final/c47-low-en-large-cab.png",
+      "bytes": 209590,
+      "sha256": "355500dfbfed2c7539d2fec7e1e64c7539cee09112b4e7137170fa54a4281d31"
+    },
+    {
+      "file": "final/c47-low-en-large-first-day.png",
+      "bytes": 240301,
+      "sha256": "f67531c9c071b70371cf430aa169983d203b8683fefcbd050952b53ff8ffa59f"
+    },
+    {
+      "file": "final/c47-low-en-large-handheld.png",
+      "bytes": 176586,
+      "sha256": "a228de4d31748cc37f20ff76d07b6a6d40aa57f0bead1ba05f8e4054f454c2fd"
+    },
+    {
+      "file": "final/c47-low-en-large-mirror.png",
+      "bytes": 162987,
+      "sha256": "5a2d254ab4a41e974e7152ee4d8ec61e5d8a00aeaefbd0974ca6c30f3e6a0251"
+    },
+    {
+      "file": "final/c47-low-en-large-reverse.png",
+      "bytes": 234942,
+      "sha256": "2359ebbc4345de31713cd83113fdd0a4f5580cf211d077a3c35a872fa5eef3de"
+    },
+    {
+      "file": "final/c47-low-en-large-walk.png",
+      "bytes": 149882,
+      "sha256": "e6f8e1b74b218466d168f5a8fc3e8d058e856196bb98c523e4239a39763be469"
+    },
+    {
+      "file": "final/c47-low-en-large-warning.png",
+      "bytes": 237322,
+      "sha256": "89607f872344eeb787d063f309a2baa6a12ef18cbb0abffc83b508ecfa4dafb9"
+    },
+    {
+      "file": "final/c47-low-en-normal-cab.png",
+      "bytes": 204244,
+      "sha256": "a56c3efcc73fd7b6c1f1c038669895a71433d8b66a7ed8546108b39c240eea32"
+    },
+    {
+      "file": "final/c47-low-en-normal-first-day.png",
+      "bytes": 227769,
+      "sha256": "d7006298d2acf10247c76301da855e04970df9b0f27b17b5e03354263b756694"
+    },
+    {
+      "file": "final/c47-low-en-normal-handheld.png",
+      "bytes": 172053,
+      "sha256": "c8063b07ed1e66f48c7b6f3719b4ad2bfeb50338aa8787fa3588707e07f44f5b"
+    },
+    {
+      "file": "final/c47-low-en-normal-mirror.png",
+      "bytes": 160900,
+      "sha256": "bc0be314d7e67b355228e4671e8d331ecbef4a25bf503db3caf0f11a97f12576"
+    },
+    {
+      "file": "final/c47-low-en-normal-reverse.png",
+      "bytes": 227723,
+      "sha256": "1b294bc3c3b9f1804f8257ac47dd606074f54f979eea568a1db4c50c22fbb426"
+    },
+    {
+      "file": "final/c47-low-en-normal-walk.png",
+      "bytes": 146887,
+      "sha256": "3a8543538b111fa09cdf99875184ac87ad9d5405dc3b4ed715482c2e227915f7"
+    },
+    {
+      "file": "final/c47-low-en-normal-warning.png",
+      "bytes": 230298,
+      "sha256": "a429d0f7f01a134910d218e061f4ad199b85e190111ea913d292adf2665f9e74"
+    },
+    {
+      "file": "final/c47-low-hud.json",
+      "bytes": 19775,
+      "sha256": "9cc28c05de531e22325abd83b7537708fe42ed85996ac3545de088e45a0f7208"
+    },
+    {
+      "file": "final/c47-low-ta-large-cab.png",
+      "bytes": 231362,
+      "sha256": "a43405f45db99ed2079922831f0f0ea6f1ebdcc8863e5b8073f01ae492e53db7"
+    },
+    {
+      "file": "final/c47-low-ta-large-first-day.png",
+      "bytes": 300374,
+      "sha256": "9813e673d5b9d3a1305e9942fb5d58e1167c1a5c6ee1041ec031695f2b0a7b26"
+    },
+    {
+      "file": "final/c47-low-ta-large-handheld.png",
+      "bytes": 197156,
+      "sha256": "5f983aa1cbc339028a6299b52e3fbe6f1580111b69f84d363003f67c09e43d18"
+    },
+    {
+      "file": "final/c47-low-ta-large-mirror.png",
+      "bytes": 172253,
+      "sha256": "a2c7bc2c4c2e4518f0d58da1dd75aed5ee0d0b31f80778e51d3b2de3b8137c24"
+    },
+    {
+      "file": "final/c47-low-ta-large-reverse.png",
+      "bytes": 258769,
+      "sha256": "a0cbb4b44f8d75dbaeb81d7785b8b4abd7e65834b3335102d0e6e9343a855deb"
+    },
+    {
+      "file": "final/c47-low-ta-large-walk.png",
+      "bytes": 167444,
+      "sha256": "f985e4ca33603b60bfe92d1c593ea377dee7d8625ae0cc6b3a03a987371bf96d"
+    },
+    {
+      "file": "final/c47-low-ta-large-warning.png",
+      "bytes": 260354,
+      "sha256": "ed27a55550c7defea3be215bb9b33966b53d0b72b8f31e73a361e5396949d541"
+    },
+    {
+      "file": "final/c47-low-ta-normal-cab.png",
+      "bytes": 222032,
+      "sha256": "2674380d128cef05fb967382c3db855aea3da61f609441a3767be34085725751"
+    },
+    {
+      "file": "final/c47-low-ta-normal-first-day.png",
+      "bytes": 281428,
+      "sha256": "c26f89cc6f3b6cf5260e10e465e92f1ec18ec90b4c957f17446cafa5c78f7f7a"
+    },
+    {
+      "file": "final/c47-low-ta-normal-handheld.png",
+      "bytes": 189164,
+      "sha256": "620c1cc20e651192eedf1734755a249602ed4ac18080993aa35782b1881e87d1"
+    },
+    {
+      "file": "final/c47-low-ta-normal-mirror.png",
+      "bytes": 168554,
+      "sha256": "4728f8be4cd25636e81a37beed9f8e852c03496736c760e4146062115137b4d5"
+    },
+    {
+      "file": "final/c47-low-ta-normal-reverse.png",
+      "bytes": 245663,
+      "sha256": "dc97aa566f40ee1ff3abca004514f751c76955f87786e94fdbe9f303cf387a68"
+    },
+    {
+      "file": "final/c47-low-ta-normal-walk.png",
+      "bytes": 161428,
+      "sha256": "65d3bdbf13dace0fef4c1cfc2f738cf75fbb4e506c98c3949f6210abab583b80"
+    },
+    {
+      "file": "final/c47-low-ta-normal-warning.png",
+      "bytes": 254187,
+      "sha256": "80936db8d0c6979dcaa36c482a2cf14b47e2677d365d7dfdb1173225fa07c225"
+    },
+    {
+      "file": "superseded-footer-only/b134-acceptance.json",
+      "bytes": 1171,
+      "sha256": "fd6a69691e4c4aa8312f959e0c234817c2a979763a92cb308ffd399f4aafa904"
+    },
+    {
+      "file": "superseded-footer-only/b134-final-doors.log",
+      "bytes": 297,
+      "sha256": "4dfdb673c2e67e615311519382826b9df7d0011da9d7c6013f53a9b430018ea2"
+    },
+    {
+      "file": "superseded-footer-only/c9-failure.png",
+      "bytes": 82327,
+      "sha256": "fb0cf545f3c80daa412f175e7f3df360673bf5da9100e1e6fc506cfd7a6bb7b9"
+    }
+  ]
+}

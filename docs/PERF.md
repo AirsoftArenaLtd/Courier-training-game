@@ -1,5 +1,7 @@
 # 3D workday rendering cost
 
+**B-134 handheld clearance (21 October 2026):** the four selected larger/colour/reduced Low views (`cab`, `handheld`, `doorsignature`, `doorid`) pass at **45 calls / 1,720 triangles / two textures / 3,557,376 attachment bytes / 2,282,843 estimated Phaser bytes**. Actual delivery checks pass 24 Low language/text layouts and four High English/Tamil layouts, at **2,191,067 / 6,261,136** estimated Phaser bytes respectively; full doorstep, keyboard and HUD checks pass. No texture, pass or geometry is added. This is a focused UI gate, with the unchanged full-world budget; evidence/source scopes: `docs/review/set-10/b134/manifest.json`. Native Intel FPS remains O-1.
+
 ## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
 
 On a software renderer (Chromium's SwiftShader, as on a PC with no graphics driver), at 1280 x 720:
