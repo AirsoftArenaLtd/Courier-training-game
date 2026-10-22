@@ -158,9 +158,11 @@ class ResultsScene extends Phaser.Scene {
     const btns = retry ? [retry, next] : [next];
     panel.add(btns);
     const replay = OTR.fpReplayUI && OTR.fpReplayUI.entry(this, this.d.review);
-    OTR.ui.focus(this, replay ? btns.concat(replay) : btns, { start: btns.length - 1 });
-    btns.forEach(b => b.setEnabled(false));
-    this.time.delayedCall(Math.min(delay, 2200), () => btns.forEach(b => b.setEnabled(true)));
+    // B-154: the replay button waits with the others while the stars count up
+    const all = replay ? btns.concat(replay) : btns;
+    OTR.ui.focus(this, all, { start: btns.length - 1 });
+    all.forEach(b => b.setEnabled(false));
+    this.time.delayedCall(Math.min(delay, 2200), () => all.forEach(b => b.setEnabled(true)));
 
     // celebrations, only for a run that earned them
     if (!this.d.again) this.time.delayedCall(delay + 150, () => {
