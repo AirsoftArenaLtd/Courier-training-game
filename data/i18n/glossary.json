@@ -31,7 +31,8 @@
     "Invalid walkaround damage"
    ]
   },
-  "headlight": "Headlights"
+  "headlight": "Headlights",
+  "workday": "Workday"
  },
  "baseline": {
   "bn": {
@@ -44,7 +45,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 7,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 1
   },
   "es": {
    "handheld": 0,
@@ -56,7 +58,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 1,
-   "headlight": 2
+   "headlight": 2,
+   "workday": 0
   },
   "fr": {
    "handheld": 0,
@@ -68,7 +71,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 0
   },
   "gu": {
    "handheld": 0,
@@ -80,7 +84,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 0
   },
   "hi": {
    "handheld": 0,
@@ -92,7 +97,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 2
   },
   "kn": {
    "handheld": 0,
@@ -104,7 +110,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 9,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 1
   },
   "ml": {
    "handheld": 0,
@@ -116,7 +123,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 5
   },
   "mr": {
    "handheld": 0,
@@ -128,7 +136,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 3,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 0
   },
   "pa": {
    "handheld": 0,
@@ -140,7 +149,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 2
   },
   "ta": {
    "handheld": 8,
@@ -152,7 +162,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 3,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 0
   },
   "te": {
    "handheld": 0,
@@ -164,7 +175,8 @@
    "intercom": 0,
    "locker": 0,
    "walkaround": 0,
-   "headlight": 0
+   "headlight": 0,
+   "workday": 0
   }
  }
 }
