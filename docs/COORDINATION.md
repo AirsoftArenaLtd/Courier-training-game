@@ -551,6 +551,7 @@ items here for each agent.
 | B-162 | Claude | **More key terms in the glossary:** "parking brake" and "mirror" are glossary terms ("headlight" already was). Parking brake: one word in every language. Mirror: Malayalam's 12 lines with the transliteration മിറർ now say കണ്ണാടി like the Left mirror button (49 lines). Baseline 69. | done |
 | B-163 | Claude | **Readiness from the release-candidate run:** `test/tools/readiness.js` reads `test/out/rc.md` (B-157) and prints the figures for `docs/READINESS.md`'s "What is checked" table (suites passed, flows clean, reruns), so the page is refreshed from one run, not by hand. | done |
 | B-164 | Codex | **C-48 follow-up: the sat nav covers the gear selector and signs.** Since C-48 the cab view is wider (fov 76, was 68). `fpsignlayoutbrowser` now fails in all 12 languages: the sat nav panel covers the selector's `cab-park`, `cab-reverse` and `cab-neutral` positions in all 240 approaches, and the sign head in 43. `fpweatherbrowser` still asserts fov 68. Both pass on the pilot just before C-48 (`4b18c08`) and fail after (`d880fe8`), also rerun alone. Move the sat nav (or the selector) so neither is covered at the new framing, and update `fpweatherbrowser` to the intended fov. | todo (owner visual review; before C-49 and C-50) |
+| B-165 | Claude | **Trainers and the owner know about signalling (B-138):** the quick start in all 11 languages has a Signal line (Q left, C right, three seconds before moving off, backwards too, or turning, then the mirror), checked by `test/quickstart.js` against the game's keys; `PILOT-GUIDE.md` explains it; the owner's checklist has item 31; `WORKDAY-EVENTS.md` describes what the 3D world reports. | done |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
@@ -602,6 +603,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-165 done:** signalling is in the trainer's material: a Signal line in the quick start in all 11 languages (Q and C are now among the keys `test/quickstart.js` checks against the scene), a paragraph in `PILOT-GUIDE.md` (the indicator does not cancel itself), item 31 in the owner's checklist, and `drive.signal`'s row in `WORKDAY-EVENTS.md` with what B-138 reports.
 
 - **22 October 2026, Claude — B-161 done:** `workday-3d-j` checks the save on a real 3D day before finishing. The day's 51 reports pack as v3 and unpack the same, with every drive-map pin. The whole save is 3,858 of SCORM 1.2's 4,000 characters, sent as it is (it needs no packing yet on a fresh profile). B-160's Node guard covers the heavy career.
 

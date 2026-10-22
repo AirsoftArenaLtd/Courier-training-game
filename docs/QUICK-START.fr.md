@@ -20,6 +20,7 @@ Pour la personne qui anime la séance. Imprimez cette page ; le guide complet es
 
 **Montrez-leur la cabine (une minute)**
 - **Regarder :** regardez un rétroviseur pour le vérifier ; le rétroviseur gauche avant de démarrer, celui du côté où l'on tourne avant de braquer.
+- **Clignotant :** **Q** à gauche, **C** à droite, au moins trois secondes avant de partir (en marche arrière aussi) ou de tourner, puis le rétroviseur.
 - **Vitesses :** regardez le sélecteur et appuyez sur **E**, ou sur **R** pour la marche arrière ; la caméra arrière s'allume toute seule.
 - **GPS** (sat nav) sur le tableau de bord : l'itinéraire, le prochain virage et la distance. Un virage manqué recalcule l'itinéraire ; reprenez-le dans les 30 secondes.
 - **Panneaux de signalisation :** stop, cédez le passage, limitations de vitesse, zones scolaires, sens unique, sens interdit, travaux, feux tricolores.
