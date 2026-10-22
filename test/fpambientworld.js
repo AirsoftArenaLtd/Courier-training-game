@@ -38,7 +38,7 @@ test('people placements are near ordinary planned driving legs across generated 
  fs.mkdirSync(__dirname+'/out/fp-review',{recursive:true});fs.writeFileSync(__dirname+'/out/fp-review/c51-route-coverage.json',JSON.stringify({scope:'Potential selection range along planned streets; native views separately prove pixels, not every route.',routes:rows},null,2)+'\n');
 });
 test('Low and missing packs use bounded entries in the existing draw, not another person mesh',()=>{
- for(const high of [false,true]){const w=world(high,null,4),a=w.art.ambient;assert.ok(a);assert.ok(a.people.every(p=>p===null));assert.equal(a.reserved,high?0:36);assert.equal(w.art.townArt.triangleLimit,high?Infinity:144);const site=a.selection.sites[0];Object.assign(w.m.player,{x:site.x-2,z:site.z});w.art.sync(w.m,null,'route');assert.ok(a.fallbacks[0].every(p=>p.entry.visible));assert.equal(a.fallbacks[0].length*12,36);assert.ok(w.art.route.children.every(o=>!o.name.startsWith('actor:ambient')));w.art.dispose();}
+ for(const high of [false,true]){const w=world(high,null,4),a=w.art.ambient;assert.ok(a);assert.ok(a.people.every(p=>p===null));assert.equal(a.reserved,high?0:36);assert.equal(w.art.townArt.triangleLimit,high?Infinity:180);const site=a.selection.sites[0];Object.assign(w.m.player,{x:site.x-2,z:site.z});w.art.sync(w.m,null,'route');assert.ok(a.fallbacks[0].every(p=>p.entry.visible));assert.equal(a.fallbacks[0].length*12,36);assert.ok(w.art.route.children.every(o=>!o.name.startsWith('actor:ambient')));w.art.dispose();}
 });
 test('source people stop posing at distance and reduced motion holds both placement and vertices',()=>{
  const w=world(true,banks[true],4),a=w.art.ambient,site=a.selection.sites[0];Object.assign(w.m.player,{x:site.x-2,z:site.z});a.sync(w.m,site.x-2,site.z,true);const slots=JSON.stringify(a.selection.slots),vertices=a.people.map(p=>Array.from(p.geometry.attributes.position.array));w.m.elapsed=99;a.sync(w.m,site.x-2,site.z,true);assert.equal(JSON.stringify(a.selection.slots),slots);assert.deepEqual(a.people.map(p=>Array.from(p.geometry.attributes.position.array)),vertices);
@@ -52,4 +52,18 @@ test('scene disposal releases posed geometry once while keeping the source bank 
 });
 test('the unchanged bench retains its source wood factor without a missing vertex-colour attribute',()=>{
  const w=world(true,banks[true],4),group=w.art.townArt.groups.find(g=>g.name==='asset:town-bench');assert.ok(group);const source=banks[true].models.get('town-bench').parts[0];for(const mesh of group.children){assert.ok(!mesh.geometry.hasAttribute('color'));assert.equal(mesh.material.vertexColors,false);assert.ok(mesh.material.color.equals(source.material.color));assert.ok(!mesh.material.map);}w.art.dispose();
+});
+test('combined Low days keep collision-bearing parked cars ahead of optional people',()=>{
+ for(const file of ['fpstops','fpstopflow','fpstopscene','fpdamage','fpdamageflow'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+file+'.js','utf8'),c);
+ let suppressed=0;
+ for(const present of [false,true])for(const seed of [1,7,10]){
+  c.OTR.gfx={high:()=>false};let plan=c.OTR.fpRoute.plan(6,seed);plan=c.OTR.fpStopFlow.prepare(c.OTR.fpDamageFlow.prepare(c.OTR.fpNav.prepare(c.OTR.fpSigns.prepare(c.OTR.fpLater.prepare(plan)))),true);
+  const m=c.OTR.fpMission.create('campaign',seed,plan);c.OTR.fpDay.configure(m);c.OTR.fpDriving.configure(m);c.OTR.fpDoors.configure(m);c.OTR.fpStopFlow.configure(m);const root=new THREE.Scene(),camera=new THREE.PerspectiveCamera(76,16/9,.08,180);root.add(camera);const scene={assetBank:present?banks[false]:null,view:{world:root,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=c.OTR.fpWorld.build(scene,m),town=art.townArt;assert.equal(town.triangleLimit,60);assert.ok(art.ambient);
+  const selected=()=>Array.from(town.choices.filter(c=>c.obstruction&&c.selected),c=>c.x+':'+c.z).sort();
+  for(const obstacle of c.OTR.fpNav.obstacles(m)){
+   town.ambientReserve=0;town.select(obstacle.x,obstacle.z);const before=selected();assert.ok(before.length>0);town.ambientReserve=36;town.select(obstacle.x,obstacle.z);assert.deepEqual(selected(),before,'A collision surface became invisible to fund a person');
+   Object.assign(m.player,{x:obstacle.x,z:obstacle.z});art.sync(m,null,'route');assert.deepEqual(selected(),before);if(!town.ambientAllowed){suppressed++;assert.ok(art.ambient.selection.slots.every(s=>!s.visible));assert.ok(art.ambient.fallbacks.every(parts=>parts.every(p=>!p.entry.visible)));}
+  }art.dispose();
+ }
+ assert.ok(suppressed>0,'The tight combined budget must exercise the safe suppression path');
 });

@@ -64,12 +64,15 @@ OTR.fpTown={
     for(const p of detailPaint){p.onBeforeCompile=paint.onBeforeCompile;p.customProgramCacheKey=paint.customProgramCacheKey;}
     const compare=(a,b)=>a.distance-b.distance;
     // Reserve decorative geometry for the physical stop furniture and the located damage batch.
-    return {groups,batches,choices,lots,paint,footprints:choices.map(c=>c.footprint).filter(Boolean),triangleLimit:high?Infinity:m.deliveryStops?(m.damage?60:120):m.trafficControl&&m.routePlan.day>=3?180:obstructions.length?260:290,
+    return {groups,batches,choices,lots,paint,footprints:choices.map(c=>c.footprint).filter(Boolean),ambientReserve:0,ambientAllowed:true,triangleLimit:high?Infinity:m.deliveryStops?(m.damage?60:120):m.trafficControl&&m.routePlan.day>=3?180:obstructions.length?260:290,
       select(x,z){
         const radius=high?95:55;let remaining=this.triangleLimit;
         for(const c of choices){c.selected=false;c.distance=(c.x-x)**2+(c.z-z)**2;}
         order.sort((a,b)=>a.distance<radius*radius&&b.distance<radius*radius&&!!a.obstruction!==!!b.obstruction?(a.obstruction?-1:1):compare(a,b));
-        for(const c of order){if(c.distance>=radius*radius)break;if(!c.available&&c.house)continue;if(c.cost>remaining)continue;c.selected=true;remaining-=c.cost;}
+        // Collision-bearing cars keep their original priority. Ambient detail may use only what remains.
+        for(const c of order)if(c.obstruction&&c.distance<radius*radius&&c.cost<=remaining){c.selected=true;remaining-=c.cost;}
+        this.ambientAllowed=remaining>=this.ambientReserve;if(this.ambientAllowed)remaining-=this.ambientReserve;
+        for(const c of order){if(c.distance>=radius*radius)break;if(c.obstruction||!c.available&&c.house)continue;if(c.cost>remaining)continue;c.selected=true;remaining-=c.cost;}
         for(const batch of batches){let count=0;for(const e of batch.entries)if(e.town.selected)batch.mesh.setMatrixAt(count++,e.matrix);batch.mesh.count=count;batch.mesh.visible=count>0;batch.mesh.instanceMatrix.needsUpdate=true;}
       },
       fallback(entry){const c=entry.town;return !c||c.house?(!c||!c.available||!c.selected):!c.available&&c.selected;},

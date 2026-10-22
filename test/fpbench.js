@@ -320,7 +320,8 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;m.paused=false;m.step=(_c,dt)=>m.elapsed+=Math.min(.05,dt);m.routeDay.weather='clear';m.routePlan.timeOfDay=kind==='ambientnight'?'night':'midday';
     for(const parcel of m.parcels)parcel.location='slot'+(parcel.anomaly?5:parcel.stop);for(const zone of OTR.fpDamage.zones)OTR.fpDamage.contact(m.damage,zone,'solid',8);
     Object.assign(m.van,{speed:0,hand:true,belt:true,gear:1,look:0,headlights:true});s.model=m;s.area='route';s.rebuildWorld();const a=s.art.ambient;if(!a)throw Error('No ambient route placement');
-    const sites=a.selection.sites,site=sites.find(p=>sites.some(q=>q!==p&&(p.x-q.x)**2+(p.z-q.z)**2<30*30))||sites[0],lot=m.town.lots.find(l=>l.id===site.lotId),road=m.town.xs.reduce((x,y)=>Math.abs(x-site.x)<Math.abs(y-site.x)?x:y);
+    const sites=a.selection.sites,candidates=sites.filter(p=>{const lot=m.town.lots.find(l=>l.id===p.lotId),road=m.town.xs.reduce((x,y)=>Math.abs(x-p.x)<Math.abs(y-p.x)?x:y);s.art.townArt.select(kind==='ambientwalk'?lot.x-lot.side*(lot.w/2+1):road+2,p.z+(kind==='ambientwalk'?3:12));return s.art.townArt.ambientAllowed;});
+    if(!candidates.length)throw Error('No ambient site with room after safety geometry');const site=candidates.find(p=>candidates.some(q=>q!==p&&(p.x-q.x)**2+(p.z-q.z)**2<30*30))||candidates[0],lot=m.town.lots.find(l=>l.id===site.lotId),road=m.town.xs.reduce((x,y)=>Math.abs(x-site.x)<Math.abs(y-site.x)?x:y);
     const bench=s.art.townArt.choices.find(c=>c.use==='town-bench');
     if(kind==='ambientwalk'||kind==='ambientbench'){
      const target=kind==='ambientbench'&&bench?bench:site,targetLot=kind==='ambientbench'&&bench?m.town.lots.find(l=>l.id===bench.lotId):lot,x=targetLot.x-targetLot.side*(targetLot.w/2+1),z=target.z+3;m.mode='walk';Object.assign(m.player,{x,z,yaw:Math.atan2(target.x-x,z-target.z),pitch:.04});

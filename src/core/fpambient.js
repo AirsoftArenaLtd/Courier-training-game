@@ -61,10 +61,11 @@ OTR.fpAmbient={
     }
     // The Low silhouette uses three cubes in the existing route draw (36 triangles).
     // Whole-frame loaded/fallback sweeps, rather than this reservation alone, are the gate.
-    const reserved=high?0:36;town.triangleLimit=Math.max(0,town.triangleLimit-reserved);
+    const reserved=high?0:36;town.ambientReserve=reserved;
     return {selection,people,fallbacks,reserved,
       sync(model,x,z,reduced){
         const slots=selection.select(model,x,z,reduced);
+        if(!town.ambientAllowed)for(const slot of slots)slot.visible=false;
         for(let i=0;i<slots.length;i++){
           const slot=slots[i],a=people[i];if(a){a.mesh.visible=slot.visible;if(slot.visible){a.mesh.position.set(slot.x,0,slot.z);a.mesh.rotation.y=slot.yaw;a.pose(slot.walking?'Walk':'Idle_Neutral',model.elapsed,reduced,true);}}
           if(!fallbacks[i].length)continue;root.position.set(slot.x,0,slot.z);root.quaternion.setFromAxisAngle(up,slot.yaw);root.updateMatrix();
