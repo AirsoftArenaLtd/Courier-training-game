@@ -48,7 +48,7 @@ OTR.fpReplay=(()=>{
       let mistake=null;
       for(let i=this.observed;i<events.length;i++){
         const e=events[i],def=window.OTR_DATA&&OTR_DATA.workdayEvents&&OTR_DATA.workdayEvents[e.type];
-        if(def&&(def.kind==='penalty'||def.kind==='check'&&e.ok===false))mistake=e;
+        if(def&&!e.excused&&(def.kind==='penalty'||def.kind==='check'&&e.ok===false))mistake=e;   // B-131: an excused report is not a mistake
       }
       this.observed=events.length;
       if(hidden||!valid(m,camera)){this.head=this.count=0;this.sampleAt=-Infinity;if(mistake)this.latest=null;return;}

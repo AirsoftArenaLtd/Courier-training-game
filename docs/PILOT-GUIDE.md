@@ -131,6 +131,9 @@ the modules the company cares about most, then the workday, then the assessments
   with its lights flashing, or handing an age-restricted parcel to someone without checking ID) cap a category at one
   star however well the rest went.
 - **Drive map:** a pin where each driving mistake happened, with the lesson.
+- **Replay the last mistake** (on the results and the drive map, after a 3D workday): the last few seconds before the
+  latest mistake, from the driver's seat, with play, pause and half-second steps. It is kept only in the browser's memory,
+  so it is gone once the tab is closed or another workday starts, and nothing of it is saved or scored.
 - **My record ›:** every module, the dates and the lessons that keep coming back. **Print / PDF** gives the page to file.
 
 **For you** (**Settings → Trainer**, trainee list on the right)

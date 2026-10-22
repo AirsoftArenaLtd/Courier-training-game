@@ -407,6 +407,7 @@ test('B-131: a package reported missing before departure does not count against 
   const got = (t, k) => W.events.find(e => e.type === t && e.key === k);
   assert.ok(got('load.found-later', 'parcel4').ok && got('load.shelf', 'parcel4').ok, 'both kept as right, so the record says what happened');
   assert.equal(got('load.found-later', 'parcel4').stop, 2);
+  assert.ok(got('load.found-later', 'parcel4').excused && !got('load.shelf', 'parcel3').excused, 'excused in memory, so the replay does not show it as the last mistake');
   assert.equal(got('load.shelf', 'parcel3').ok, false);
   assert.ok(!W.log.mistakes().some(it => /turned up later/.test(it.label)), 'no penalty for the late package');
   // not reported before departure: it counts, as before
