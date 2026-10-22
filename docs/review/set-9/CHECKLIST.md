@@ -110,5 +110,6 @@ Switch to Tamil with larger text for the radio message and the night warning: th
 | 27 | (C-50) Drive up to a stop sign and a street-name sign | You can read the sign itself, as on a real street; J still reads it aloud |
 | 28 | (C-51) Do a delivery on a busy street | People are visible on the pavements and at the doors |
 | 29 | (C-52) Open the handheld and look at the dashboard | They look like a real device and real instruments; Tamil with larger text still fits |
+| 30 | (C-37, merged) Finish a workday with a mistake (for example drive off at night without headlights: `route=9&day=6`), then press "Replay the last mistake." on the results | The few seconds before the mistake play from the driver's seat; pause and the half-second steps work from the keyboard; it is clear what went wrong |
 
 Anything else you notice (looks, sound, confusion, frame rate on your laptop) goes at the bottom.

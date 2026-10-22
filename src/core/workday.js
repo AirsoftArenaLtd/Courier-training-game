@@ -138,6 +138,7 @@ OTR.workday = {
     const ev = { type, key: d.key === undefined ? null : d.key, ok, stop };
     const saved = excused ? null : this.place(d.where);         // the save keeps a smaller copy of the place
     if (saved) ev.where = saved;
+    if (excused) ev.excused = true;                              // in memory only (the replay skips it); a reload works it out again
     into.events.push(ev);
     if (excused) return null;
     const o = {

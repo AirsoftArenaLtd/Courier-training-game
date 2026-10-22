@@ -711,6 +711,36 @@ const make = (opts) => async (page, ctx) => {
   const texts = await ev(() => { const out = []; const walk = (o) => { if (o.visible === false) return; if (o.type === 'Text') out.push(OTR.i18n.src(o)); (o.list || []).forEach(walk); }; OTR.game.scene.getScene('ResultsScene').children.list.forEach(walk); return out.join(' | '); });
   must(/workday|Workday/.test(texts), 'the results screen does not say it is the workday: ' + texts.slice(0, 160));
   await ctx.snap('results');
+  if (opts.replay) {
+    // B-140: C-37's replay of the last mistake, with the keyboard only: Tab round the results' ring to "Replay the last
+    // mistake." and Enter; in the replay, Tab to Play and Enter to play and again to pause (or, when only a still frame
+    // was kept, its notice and the step buttons), then Tab round to "Return to the previous screen." and Enter
+    const RS = `OTR.game.scene.getScene('FPReplayScene')`;
+    const onReplay = () => ev(() => { const f = OTR.game.scene.getScene('ResultsScene')._screenFocus, c = f && f.current(); return !!c && c.lastLabel === 'Replay the last mistake.'; });
+    for (let n = 0; n < 6 && !(await onReplay()); n++) await press('Tab');
+    must(await onReplay(), 'Tab never reached "Replay the last mistake." on the results');
+    await press('Enter');
+    must(await ctx.until(`OTR.game.scene.isActive('FPReplayScene') && !!${RS}.player && !${RS}.loading`, 30000), 'Enter did not open the replay of the last mistake');
+    const r = await ev(() => { const s = OTR.game.scene.getScene('FPReplayScene'); return { mistake: s.clip.mistake.label, still: s.clip.end === s.clip.start, reduced: s.player.reduced }; });
+    const focusOn = (label) => ev((l) => { const c = OTR.game.scene.getScene('FPReplayScene').focus.current(); return !!c && c.lastLabel === l; }, label);
+    const tabTo = async (label) => { for (let n = 0; n < 6 && !(await focusOn(label)); n++) await press('Tab'); must(await focusOn(label), `Tab never reached "${label}" in the replay`); };
+    if (!r.still && !r.reduced) {
+      await tabTo('Play the replay.'); await press('Enter');
+      must(await ctx.until(`!${RS}.player.paused`, 5000), 'Enter on Play did not play the replay');
+      await wait(1200); await ctx.snap('replay-playing');
+      await press('Enter');
+      must(await ctx.until(`${RS}.player.paused`, 5000), 'Enter again did not pause the replay');
+    } else {
+      must(await ev(() => /Only a still frame|Reduced motion is on/.test(OTR.i18n.src(OTR.game.scene.getScene('FPReplayScene').scope) || '')), 'a still or reduced replay does not say so');
+      await tabTo('Step back half a second.'); await press('Enter');
+      await ctx.snap('replay-still');
+    }
+    await tabTo('Return to the previous screen.'); await press('Enter');
+    must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 15000), '"Return to the previous screen." did not go back to the results');
+    await wait(3500);                                            // its buttons unlock once the stars have landed again
+    log(`      replay: "${r.mistake}" ${r.still ? '(a still frame) stepped' : 'played and paused'} from the keyboard, back to the results`);
+  }
+
   // B-113/B-118: the drive map, opened from the results as a trainee does, marks the wrong turn with its arrow (C-31)
   // and the scrape with its damage marker (C-34)
   const mapMark = opts.wrongTurn ? ['route', 'wrong turn'] : opts.scuff ? ['damage', 'damage to the van'] : null;
