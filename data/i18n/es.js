@@ -4015,7 +4015,7 @@ window.OTR_I18N.es = {
 "Report damage after the trip.": "Informa de los daños después del viaje.",
 "After returning to the depot, walk around the van again and record each area's visible condition. Inspect the roof edge from the ground. Existing wear is not your fault. Report every new damaged zone before finishing at Dispatch. Open the workday details on the handheld to review the records.": "Al volver al depósito, rodea de nuevo la camioneta y registra el estado visible de cada zona. Revisa el borde del techo desde el suelo. El desgaste que ya existía no es culpa tuya. Informa de cada zona con daños nuevos antes de terminar en el Despacho. Abre los detalles de la jornada en el escáner para revisar los registros.",
 "Use the delivery site controls.": "Usa los controles del lugar de entrega.",
-"Review the walkaround.": "Revisa la inspección de la camioneta.",
+"Review the walkaround.": "Repasa la revisión previa.",
 "Invalid walkaround version": "Versión de inspección de la camioneta no válida",
 "No damage is visible.": "No se ven daños.",
 "The paint is scuffed here.": "La pintura está rayada aquí.",

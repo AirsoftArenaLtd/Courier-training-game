@@ -2,7 +2,6 @@
  "bn": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?",
-  "Never leave a signature-required package unattended.": "Question from the team: most lines say সই, but this one and about 20 others say স্বাক্ষর. Should drivers see one word everywhere? If so, which?",
   "Pre-trip walkaround": "Question from the team: the walk round the van to check it is called চারপাশ পরীক্ষা in some lines and পরিদর্শন or \"চারপাশ দেখা\" in others. Which one word should drivers see everywhere?"
  },
  "gu": {
@@ -13,7 +12,8 @@
  },
  "kn": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
-  "Pre-trip walkaround": "Question from the team: the walk round the van to check it is called ಸುತ್ತು-ಪರಿಶೀಲನೆ in some lines and ತಪಾಸಣೆ or ಪರಿಶೀಲನೆ in others. Which one word should drivers see everywhere?"
+  "Pre-trip walkaround": "Question from the team: the walk round the van to check it is called ಸುತ್ತು-ಪರಿಶೀಲನೆ in some lines and ತಪಾಸಣೆ or ಪರಿಶೀಲನೆ in others. Which one word should drivers see everywhere?",
+  "Talk to reception": "Question from the team: the Reception button says ರಿಸೆಪ್ಷನ್, but this line and one other say ಸ್ವಾಗತಕಾರರು (the receptionist). Is that natural here, or should they say ರಿಸೆಪ್ಷನ್ too?"
  },
  "ml": {
   "Contacted the closure instead of following the diversion.": "Question from the team: the English says the van hit the closure (a contact). Does this say it hit it, or only that it reached it? If only reached, please correct.",
@@ -26,7 +26,7 @@
  },
  "fr": {
   "Turned or changed lanes without a current check of the matching mirror.": "Question from the team: the English asks for a current (recent) mirror check. Does the translation keep \"current\"?",
-  "Replace the parcel, secure the load, then finish at Dispatch.": "Question from the team: Dispatch is the depot desk and also the person on the radio. The game says Répartiteur for the person and la Répartition for the desk, as here. Is that natural, or should one word be used for both?"
+  "Replace the parcel, secure the load, then finish at Dispatch.": "Question from the team: Dispatch is the depot desk and also the person on the radio. The game now says le répartiteur for both, as here (\"termine auprès du répartiteur\"). Is that natural for the desk, or would \"la répartition\" read better for the place?"
  },
  "mr": {
   "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground.",
@@ -40,6 +40,7 @@
   "A dent is visible here.": "Question from the team: is this the natural word for a dent in a van's panel (a pushed-in metal surface)? The current word may read as a hole or pit in the ground.",
   "Using the handheld while moving": "Question from the team: most lines say ஹேண்ட்ஹெல்ட், but this and 6 other lines say கைக்கருவி. Which would a Tamil-speaking driver understand at once?",
   "Read the brief and every manifest page at Dispatch. Inspect the tires and lights, and request a repair when needed. Match each package to the manifest, scan it and load its numbered shelf. Report missing or unlisted packages, confirm the load count and secure the restraints.": "Question from the team: on its own the game spells it டிஸ்பாட்ச், but with an ending, as here, it writes டிஸ்பாச்சில், டிஸ்பாச்சர். Which spelling is right, and should they all match?",
-  "Photo ID and an adult signature are required. The recipient must be 21 or older.": "Question from the team: most lines say கையொப்பம், but this one and about 11 others say கையெழுத்து. Should drivers see one word everywhere? If so, which?"
+  "Photo ID and an adult signature are required. The recipient must be 21 or older.": "Question from the team: most lines say கையொப்பம், but this one and about 11 others say கையெழுத்து. Should drivers see one word everywhere? If so, which?",
+  "Good. Go do your walkaround.": "Question from the team: the walk round the van is called சோதனை in most lines, but this and 2 other lines say \"சுற்றிப் பார்\" (look around). Which would a Tamil-speaking driver understand at once as the daily check of the van?"
  }
 }
