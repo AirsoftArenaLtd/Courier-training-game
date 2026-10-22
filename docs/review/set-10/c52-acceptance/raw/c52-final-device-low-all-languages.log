@@ -1,0 +1,25 @@
+low en large=false
+low en large=true
+low es large=false
+low es large=true
+low fr large=false
+low fr large=true
+low hi large=false
+low hi large=true
+low bn large=false
+low bn large=true
+low mr large=false
+low mr large=true
+low te large=false
+low te large=true
+low ta large=false
+low ta large=true
+low gu large=false
+low gu large=true
+low kn large=false
+low kn large=true
+low ml large=false
+low ml large=true
+low pa large=false
+low pa large=true
+272 device visual browser checks passed

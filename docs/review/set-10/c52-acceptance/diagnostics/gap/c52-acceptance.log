@@ -1,0 +1,12 @@
+START repository
+END repository 0
+START device-low-all-languages
+END device-low-all-languages 1
+STOP AssertionError('device-low-all-languages failed; see /workspace/c52-pilot-acceptance/test/out/fp-review/c52-final-device-low-all-languages.log')
+Traceback (most recent call last):
+  File "/tmp/c52-acceptance.py", line 29, in <module>
+    run('device-low-all-languages',['node','test/fpdevicedesignbrowser.js'],{'QA_QUALITIES':'low','QA_LANGS':'en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa','QA_TAG':'c52-final-design-low'},timeout=7200)
+  File "/tmp/c52-acceptance.py", line 18, in run
+    j.update(exit=code,end=now());save();print('END',name,code,flush=True);assert code==0,name+' failed; see '+str(OUT/j['log']);sources()
+                                                                                  ^^^^^^^
+AssertionError: device-low-all-languages failed; see /workspace/c52-pilot-acceptance/test/out/fp-review/c52-final-device-low-all-languages.log
