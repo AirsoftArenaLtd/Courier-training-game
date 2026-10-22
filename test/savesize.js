@@ -354,6 +354,26 @@ test('B-114: C-36\'s heaviest day with successful lights on every leg packs with
   assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
 });
 
+// B-147: the same heaviest day under SCORM 2004 (64,000 characters): sent as it is, never packed or summarised, and
+// the same score, criticals and pins after a reload
+test('B-147: C-36\'s heaviest day under SCORM 2004 is saved in full and reloads the same', () => {
+  asScorm(true);
+  heavy({ runs: 2, scenarios: 4 });
+  W.start(null);
+  play(c35HeavyDay());
+  const live = summary(W.log), pinsLive = OTR.drive.pins(W.log).length, events = W.events.length;
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  const cur = stored().workday.current;
+  assert.ok(Array.isArray(cur.events) && !cur.packed && !cur.summarised, 'kept as it is: not packed, not summarised');
+  assert.equal(cur.events.length, events, 'every report saved');
+  const size = JSON.stringify(stored()).length;
+  assert.ok(size < 64000, `under SCORM 2004's 64,000 characters: ${size}`);
+  console.log(`      B-147: ${size} characters under SCORM 2004 (limit 64,000)`);
+  reload(); W.resume(null);
+  assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
+  assert.equal(OTR.drive.pins(W.log).length, pinsLive, 'every pin kept');
+});
+
 test('B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads', () => {
   const evs = milestone8Day().map(([type, d]) => Object.assign({ type, key: null, ok: true, stop: null }, d || {}, { ok: !(d && d.ok === false) }));
   const packed = SAVE.packDay({ id: 'w', day: 4, events: evs });

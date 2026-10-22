@@ -522,7 +522,7 @@ items here for each agent.
 | B-144 | Claude | **One page for the owner, what is new:** `docs/review/WHATS-NEW.md`: since the visual review of 21 October, what to try (with the review links), what is being done, what was fixed without anything to see, and which questions wait for an answer. Keep it current at each milestone. | done |
 | B-145 | Claude | **Retake set 9's fixed views on today's pilot:** `node test/tools/review-set.js 9` after the day's merges (C-36, C-37, B-106 to B-143), so the owner compares like with like; again after C-48. | done (retake after C-48) |
 | B-146 | Claude | **The careful-day check for the 2D route day:** the 2D flows (`route-day`, `route-legs`, `town-traffic`) do not assert that a careful run records no violation. Add the same rule as B-127 for `TownDriveScene`'s violations and the route day's log, fixing the flows where they are not careful. | todo |
-| B-147 | Claude | **SCORM 2004 on the heaviest day:** `test/savesize.js` checks SCORM 1.2's limit; add the same heavy day (radio, night, damage, walkaround) under SCORM 2004: saved in full, no packing, and the same score and pins after a reload. | todo |
+| B-147 | Claude | **SCORM 2004 on the heaviest day:** `test/savesize.js` checks SCORM 1.2's limit; add the same heavy day (radio, night, damage, walkaround) under SCORM 2004: saved in full, no packing, and the same score and pins after a reload. | done (26,701 of 64,000) |
 | B-134 | Codex | **Delivery handheld Back overlap (B-121):** reserve the translated Back control at larger text without shortening Tamil, shrinking text or losing delivery choices. | done (merged 22 Oct) |
 
 | B-106 | Claude | **Fewer other words for the key terms:** `node test/glossary.js --list` shows the 281 lines that use another word for handheld, reception, signature, dispatch, returns or sat nav. The most are in ta (49), ml (45), bn (37) and kn (36). Fix the plain inconsistencies through `review-sheet.js --apply`, ask the reviewers about the rest as B-100 questions, and lower the baseline with `--write`. | todo |
@@ -575,6 +575,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **22 October 2026, Claude — B-147 done:** `test/savesize.js` plays C-36's heaviest day under SCORM 2004 too. It is saved as it is, never packed or summarised (26,701 of 64,000 characters), and reloads with the same score, criticals and pins.
 
 - **22 October 2026, Claude — B-145 done:** set 9's fixed views (Low and High, in English and in Tamil with larger text), plus `compare.md` beside set 8, are retaken on today's pilot. They include C-36's night, C-37 and the day's fixes. They will be taken once more when C-48 is merged.
 
