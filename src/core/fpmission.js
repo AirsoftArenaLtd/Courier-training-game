@@ -2,6 +2,11 @@
 window.OTR = window.OTR || {};
 OTR.fpMission = {
   VERSION: 2,
+  // Module runs have an in-memory sink. A suspended workday keeps its own log and checkpoint.
+  emit(m,type,detail) {
+    if(m.moduleReport)return m.moduleReport(type,detail);
+    if(OTR.workday)return OTR.workday.report(type,detail);
+  },
   addresses: ['214 Maple Ave', '216 Maple Ave', '214 Birch Lane'],
   slots: Array.from({ length: 6 }, (_, i) => ({
     id: 'slot' + i, name: i < 3 ? `Left shelf ${i % 3 + 1}` : `Right shelf ${i % 3 + 1}`,
@@ -104,7 +109,7 @@ OTR.fpMission = {
           if (key !== undefined && event !== 'junction') d.key = Number(key);
           d.where = { x: this.van.x, z: this.van.z, mph: Math.abs(this.van.speed) * 2.2369362921 };
         }
-        OTR.workday.report(type, d);
+        OTR.fpMission.emit(this,type,d);
       },
       readBrief() {
         if (this.kind !== 'campaign' || !this.briefing || this.mode !== 'walk' || !this.near('dispatch')) return false;

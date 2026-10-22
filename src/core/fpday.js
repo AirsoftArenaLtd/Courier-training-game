@@ -18,7 +18,7 @@ OTR.fpDay={
   fire(m,type,key,ok,text,stop){
     const id=`day:${type}:${key}`;if(m.events[id])return;
     m.log(id,'route-day',ok?'good':'needs',text);
-    if(OTR.workday)OTR.workday.report(type,{key,stop:stop===undefined?(m.phase==='route'?m.activeStop+1:undefined):stop,ok,
+    if(OTR.workday)OTR.fpMission.emit(m,type,{key,stop:stop===undefined?(m.phase==='route'?m.activeStop+1:undefined):stop,ok,
       where:{x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921}});
   },
   endLeg(m){

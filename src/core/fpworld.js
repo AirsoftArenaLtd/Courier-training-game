@@ -56,7 +56,14 @@ OTR.fpWorld = {
     const cabParcelRange2=OTR.gfx.high()?400:64;
     const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity,solidX=Infinity,solidZ=Infinity;
     if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='fog'){world.fog.near=6;world.fog.far=28;}else if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
-    if (!base.town) {
+    if(base.trainingArea){
+      const b=base.bounds,cx=(b.x0+b.x1)/2,cz=(b.z0+b.z1)/2;
+      box(route,cx,-.12,cz,b.x1-b.x0,.2,b.z1-b.z0,grassColour,null,false,3);
+      const left=Math.max(b.x0,-5.5),right=Math.min(b.x1,5.5);
+      if(right>left)box(route,(left+right)/2,-.015,cz,right-left,.06,b.z1-b.z0,roadColour,null,false,1);
+      for(const x of [-6.3,6.3])if(x>b.x0&&x<b.x1)box(route,x,.05,cz,1.6,.13,b.z1-b.z0,0xC2C0B6,null,false,2);
+      for(let z=Math.ceil(b.z0/6)*6;z<b.z1-2;z+=6)if(b.x0<0&&b.x1>0)box(route,0,.04,z,.09,.018,2.7,0xEDD385);
+    }else if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,grassColour,null,false,3);
     box(route,0,-0.015,-57,11,0.06,155,roadColour,null,false,1);
     [-6.3,6.3].forEach(x=>box(route,x,0.05,-63,1.6,0.13,128,0xC2C0B6,null,false,2));
@@ -104,7 +111,7 @@ OTR.fpWorld = {
       lots.forEach(l=>{if(!group||!sample.includes(l))box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,0xBBC7BE);});
       }
     }
-    base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
+    if(!base.trainingArea||base.trainingArea.depot)base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     if(base.parking){
       const b=base.parkingBay;for(const wall of base.parkingWalls)box(route,wall.x,wall.h/2,wall.z,wall.w,wall.h,wall.d,0xBBC7BE,null,true);
       box(route,0,.05,-57,b.width,.02,18,0x59666A);
@@ -113,12 +120,14 @@ OTR.fpWorld = {
       labels.push({parent:route,point:new T.Vector3(b.x,2.4,b.z+4),text:'Reverse into the marked bay and set the parking brake.',wrap:320,max:18});
     }
     const depotSide=base.town?-1:1;
+    if(!base.trainingArea||base.trainingArea.depot){
     box(route,-13.8*depotSide,0.5,11,2,1,1.2,brand.primary,'dispatch',true);
     box(route,-13.8*depotSide,0.48,5,1.8,0.96,1.6,brand.accent,'returns',true);
     box(route,-13.8*depotSide,3.1,13,3.2,1.15,.1,brand.primary);
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,3.1,13.08),text:brand.name,brand:true,max:24});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,2,11),text:'Dispatch',max:18});
     labels.push({parent:route,point:new T.Vector3(-13.8*depotSide,1.9,5),text:'Returns',max:18});
+    }
     if(base.roadworks){
       const r=base.roadworks;
       if(OTR.gfx.high()){
@@ -138,23 +147,24 @@ OTR.fpWorld = {
     if(weatherDrops){weatherDrops.frustumCulled=false;route.add(weatherDrops);}
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];
     base.stops.forEach((s,i)=>{
+      if(base.trainingArea&&(s.x<base.bounds.x0||s.x>base.bounds.x1||s.z<base.bounds.z0||s.z>base.bounds.z1))return;
       const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
       const side=s.side||1;
       box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true,i%2?4:5);
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8,null,false,2);
-      stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
+      stopDoors[i]=box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
       const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
       if(!delivery||!['locker','reception'].includes(delivery.kind))box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
       labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,address:true,max:30});
     });
-    if (!base.town) {
+    if (!base.town&&!base.trainingArea) {
       box(route,6,1.2,-24,0.12,2.4,0.12,0x6E737B);
       sign(route,6,2.6,-24,'STOP',0xB94649,1.15);
       box(route,6,1.2,-10,0.12,2.4,0.12,0x6E737B);
       sign(route,6,2.6,-10,'15 mph',0xE5E1D6,1.4);
     }
-    if (OTR.gfx.high()&&!base.town) {
+    if (OTR.gfx.high()&&!base.town&&!base.trainingArea) {
       (base.town?base.town.xs:[-15,16]).forEach(x=>[-18,-49,-81,-115].forEach(z=>{
         box(route,x+9,1.3,z,0.4,2.6,0.4,0x826B53);
         box(route,x+9,3.5,z,3.8,3.5,3.6,0x607D54);
