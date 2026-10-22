@@ -1,5 +1,7 @@
 # Cab and handheld visual design
 
+**Latest status, 22 October:** the current candidate passes all 81 repository suites, 272 Low device checks across all 12 languages, 45 High English/Tamil device checks, both 186-check HUD runs, 200 cab, 394 doorstep, 51 theme and 19 narration checks. Low sign clearance passes all 240 approaches and 192 first-day poses. Selected captures were inspected and archived with exact source scopes in `review/set-10/c52-native-progress/README.md`. High sign clearance and the complete rendered resource gate continue; C-52 is not ready for review. The earlier notes below record implementation and validation history.
+
 C-52 is doing, stacked on pushed C-51. The source audit in `review/set-10/c52-source-audit/manifest.json` records the actual inherited instrument/HUD/handheld files. C-51’s complete acceptance is the baseline.
 
 Next implementation: one coherent physical instrument and device appearance, with readable instrument hierarchy, consistent spacing and contrast. Retain all physical control targets, mirrors, navigation/rear-camera mounts, keyboard/remapping routes, translated whole-sentence readings, narration and the gentle first-day guidance. Larger text must wrap without shrinking, and colour-blind and reduced-motion settings must keep working. No shared settings, scoring, save or translation changes without Claude.
