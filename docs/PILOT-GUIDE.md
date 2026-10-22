@@ -2,6 +2,8 @@
 
 For the person running the training: how to get ready, how to run a first session, how to read the results, and
 what to do when something goes wrong (one printable page: `docs/QUICK-START.md`). Plain words; the technical detail is in the other documents it points to. What changed in each milestone: `docs/CHANGES.md`.
+The trainer sections of this guide are also in Tamil (`docs/PILOT-GUIDE.ta.md`) and Hindi (`docs/PILOT-GUIDE.hi.md`), as
+machine drafts awaiting native review; this English page is the reference.
 
 **What trainees do.** They sign in, practise and are assessed on the training modules (sorting, lifting, driving,
 loading, stops), and play a **workday**: a full courier day in 3D. They read the morning brief at Dispatch, check the
