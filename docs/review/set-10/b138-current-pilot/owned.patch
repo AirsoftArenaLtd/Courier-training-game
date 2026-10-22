@@ -1,0 +1,234 @@
+diff --git a/index.html b/index.html
+index afbebf73..1cfb1e07 100644
+--- a/index.html
++++ b/index.html
+@@ -73,6 +73,7 @@
+   <script src="src/core/fpradio.js"></script>
+   <script src="src/core/fpnight.js"></script>
+   <script src="src/core/fpradioui.js"></script>
++  <script src="src/core/fpsignal.js"></script>
+   <script src="src/core/fpdriving.js"></script>
+   <script src="src/core/fploadout.js"></script>
+   <script src="src/core/world3d.js"></script>
+diff --git a/src/core/fpcab.js b/src/core/fpcab.js
+index 88f0dcc3..a9612960 100644
+--- a/src/core/fpcab.js
++++ b/src/core/fpcab.js
+@@ -12,8 +12,8 @@ OTR.fpCab={
+     if(Object.hasOwn(this.gears,id))return m.selectGear(this.gears[id])?'':'Stop before selecting a different gear.';
+     if(id==='cab-handbrake')v.hand=!v.hand;
+     else if(id==='cab-belt')v.belt=!v.belt;
+-    else if(id==='cab-signal-left')m.signal=m.signal===-1?0:-1;
+-    else if(id==='cab-signal-right')m.signal=m.signal===1?0:1;
++    else if(id==='cab-signal-left'){const next=m.signal===-1?0:-1;if(OTR.fpSignal)OTR.fpSignal.change(m,next);else m.signal=next;}
++    else if(id==='cab-signal-right'){const next=m.signal===1?0:1;if(OTR.fpSignal)OTR.fpSignal.change(m,next);else m.signal=next;}
+     else if(id==='cab-headlights')v.headlights=!v.headlights;
+     else if(id==='cab-wipers')v.wipers=!v.wipers;
+     else return null;
+@@ -28,8 +28,8 @@ OTR.fpCab={
+     if(id==='cab-belt')return m.van.belt?`The seatbelt is fastened. Press ${key} to release it.`:`The seatbelt is unfastened. Press ${key} to fasten it.`;
+     if(id==='cab-headlights')return m.van.headlights?`The headlights are on. Press ${key} to switch them off.`:`The headlights are off. Press ${key} to switch them on.`;
+     if(id==='cab-wipers')return m.van.wipers?`The wipers are on. Press ${key} to switch them off.`:`The wipers are off. Press ${key} to switch them on.`;
+-    if(id==='cab-signal-left')return m.signal===-1?`The left signal is on. Press ${key} to cancel it.`:`Press ${key} to signal left.`;
+-    if(id==='cab-signal-right')return m.signal===1?`The right signal is on. Press ${key} to cancel it.`:`Press ${key} to signal right.`;
++    if(id==='cab-signal-left')return m.signal===-1?`The left signal is on. Signal for at least three seconds before moving. Press ${key} to cancel it.`:`Press ${key} to signal left.`;
++    if(id==='cab-signal-right')return m.signal===1?`The right signal is on. Signal for at least three seconds before moving. Press ${key} to cancel it.`:`Press ${key} to signal right.`;
+     if(id==='cab-exit')return `Press ${key} to open the cab door and get out.`;
+     return '';
+   },
+diff --git a/src/core/fpdriving.js b/src/core/fpdriving.js
+index a80da959..b05f5520 100644
+--- a/src/core/fpdriving.js
++++ b/src/core/fpdriving.js
+@@ -87,10 +87,11 @@ OTR.fpDriving = {
+   },
+   tick(m,dt,old) {
+     const d=m.driving,v=m.van,F=OTR.fp;if(!d)return;
++    if(OTR.fpSignal)OTR.fpSignal.sync(m);
+     if(OTR.fpRear)OTR.fpRear.tick(m,dt,old||v);
+     if(m.mode==='cab'){
+       if(Math.abs(v.speed)<.15&&(v.hand||v.gear===2))d.mirrorDone=false;
+-      if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');}
++      if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');if(OTR.fpSignal)OTR.fpSignal.report(m,OTR.fpSignal.ready(m,-1));}
+       if(OTR.fpMirrors)OTR.fpMirrors.maneuvers(m);
+       if(v.speed>1){let gap=Infinity;
+         for(const car of m.traffic){
+@@ -162,6 +163,7 @@ OTR.fpDriving = {
+   valid(m,d,elapsed) {
+     if(!d||!['mirrorDone','followingSeen','followingFailed','goalClear','reverseActive','reverseSafe'].every(k=>typeof d[k]==='boolean'))return false;
+     if(OTR.fpMirrors&&!OTR.fpMirrors.validTurn(d.mirrorTurn,elapsed))return false;
++    if(OTR.fpSignal&&!OTR.fpSignal.valid(d,elapsed))return false;
+     if(OTR.fpRear&&!OTR.fpRear.valid(d.backing,elapsed))return false;
+     if(!['reverseCount','mirrorCount'].every(k=>Number.isSafeInteger(d[k])&&d[k]>=0))return false;
+     if(!['closeTime','goalAt','goalX','goalZ','goalYaw'].every(k=>Number.isFinite(d[k]))||d.goalAt>elapsed)return false;
+diff --git a/src/core/fpmirrors.js b/src/core/fpmirrors.js
+index 29f9d8d9..49794a5a 100644
+--- a/src/core/fpmirrors.js
++++ b/src/core/fpmirrors.js
+@@ -26,11 +26,12 @@ OTR.fpMirrors={
+     const v=m.van,d=m.driving,t=d.mirrorTurn||(d.mirrorTurn=[0,v.yaw,v.x,v.z,m.elapsed,false,false,0]);
+     const side=Math.abs(v.speed)>.5&&Math.abs(v.steer)>.06?Math.sign(v.speed*v.steer):0;
+     if(Math.abs(v.speed)<.3||Math.abs(v.steer)<.035){t[0]=0;return;}
+-    if(side&&side!==t[0]){t[0]=side;t[1]=v.yaw;t[2]=v.x;t[3]=v.z;t[4]=m.elapsed;t[5]=this.recent(m,side<0?0:1);t[6]=false;}
++    if(side&&side!==t[0]){t[0]=side;t[1]=v.yaw;t[2]=v.x;t[3]=v.z;t[4]=m.elapsed;t[5]=this.recent(m,side<0?0:1);t[6]=false;if(OTR.fpSignal)OTR.fpSignal.beginTurn(m,side);}
+     if(!t[0]||t[6])return;
+     const angle=Math.abs(Math.atan2(Math.sin(v.yaw-t[1]),Math.cos(v.yaw-t[1]))),lateral=Math.abs((v.x-t[2])*Math.cos(t[1])+(v.z-t[3])*Math.sin(t[1]));
+     if(angle<.06&&lateral<.6)return;
+     t[6]=true;t[7]++;OTR.fpDriving.fire(m,'drive.mirrors',`turn:${m.leg}:${t[7]}`,t[5],t[5]?'Checked the matching mirror before turning or changing lanes.':'Turned or changed lanes without a current check of the matching mirror.');
++    if(OTR.fpSignal)OTR.fpSignal.endTurn(m,t[0],t[4]);
+   },
+   hint(id,m){
+     const i=id==='mirror-left'?0:id==='mirror-right'?1:id==='mirror-interior'?2:-1;if(i<0)return '';
+diff --git a/src/core/fpmission.js b/src/core/fpmission.js
+index 49e8bec6..cee1eb7d 100644
+--- a/src/core/fpmission.js
++++ b/src/core/fpmission.js
+@@ -97,7 +97,7 @@ OTR.fpMission = {
+           case 'pedestrian':
+             type = skill === 'safety' ? 'drive.pedestrian' : 'drive.hazard-early'; driving = true; break;
+           case 'returned': type = 'return.scanned'; break;
+-          // Pull-out observation has no report type in the current contract; retain its HUD log.
++          // The combined pull-out HUD observation stays here; fpDriving reports signal timing separately.
+           default: return;
+         }
+         if (driving) {
+diff --git a/src/core/fpsignal.js b/src/core/fpsignal.js
+new file mode 100644
+index 00000000..c4616162
+--- /dev/null
++++ b/src/core/fpsignal.js
+@@ -0,0 +1,38 @@
++/* Indicator lead time and short report identities belong to the owned mission checkpoint. */
++window.OTR=window.OTR||{};
++OTR.fpSignal={
++  sync(m){
++    if(!m.driving)return null;
++    const d=m.driving,c=d.signalClock||(d.signalClock=[m.signal,m.elapsed,0]);
++    if(c[0]!==m.signal||c[1]>m.elapsed){c[0]=m.signal;c[1]=m.elapsed;}
++    return c;
++  },
++  change(m,value){
++    const c=this.sync(m);if(value===m.signal)return;
++    m.signal=value;if(c){c[0]=value;c[1]=m.elapsed;}
++  },
++  ready(m,side){
++    const c=this.sync(m);return !!c&&side!==0&&c[0]===side&&m.elapsed-c[1]>=3-1e-8;
++  },
++  beginTurn(m,side){const t=m.driving.signalTurn||(m.driving.signalTurn=[0,0,false]);t[0]=side;t[1]=m.elapsed;t[2]=this.ready(m,side);},
++  endTurn(m,side,start){
++    const t=m.driving.signalTurn;
++    // Older checkpoints can already be part way through a turn; do not add a retrospective check.
++    if(!t||t[0]!==side||t[1]!==start)return;
++    t[0]=0;this.report(m,t[2]);
++  },
++  report(m,ok){
++    const c=this.sync(m);if(!c)return;
++    const key=m.leg+':'+(++c[2]),id='driver:drive.signal:'+key;
++    m.log(id,'driving',ok?'good':'needs',ok?'You signaled for at least three seconds before moving.':'You moved without signaling in the correct direction for three seconds.');
++    if(m.kind!=='campaign'||!OTR.workday)return;
++    const detail={key,ok,stop:m.phase==='route'?m.activeStop+1:undefined};
++    if(!ok)detail.where={x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921};
++    OTR.workday.report('drive.signal',detail);
++  },
++  valid(d,elapsed){
++    const c=d.signalClock,t=d.signalTurn;
++    if(c!==undefined&&(!Array.isArray(c)||c.length!==3||![-1,0,1].includes(c[0])||!Number.isFinite(c[1])||c[1]<0||c[1]>elapsed||!Number.isSafeInteger(c[2])||c[2]<0||c[2]>=Number.MAX_SAFE_INTEGER))return false;
++    return t===undefined||!!c&&Array.isArray(t)&&t.length===3&&[-1,0,1].includes(t[0])&&Number.isFinite(t[1])&&t[1]>=0&&t[1]<=elapsed&&typeof t[2]==='boolean';
++  }
++};
+diff --git a/test/fpsignal.js b/test/fpsignal.js
+new file mode 100644
+index 00000000..e8007347
+--- /dev/null
++++ b/test/fpsignal.js
+@@ -0,0 +1,45 @@
++/* Real physical indicator, maneuver, report and checkpoint integration; no score calculation here. */
++const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
++const c={};c.window=c;vm.createContext(c);
++for(const f of ['data/theme.js','data/config.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/workday.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fpcab.js','src/core/fpsignal.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpdriving.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
++const O=c.OTR,S=O.fpSignal,D=O.fpDriving,W=O.workday;
++function make(kind='campaign'){const m=O.fpMission.create(kind,7);D.configure(m);m.phase='route';m.departed=true;m.mode='cab';m.paused=false;m.van.belt=true;return m;}
++function advance(m,t){m.elapsed+=t;D.tick(m,.01);}
++const signals=()=>W.events.filter(e=>e.type==='drive.signal');
++const use=(m,side)=>O.fpCab.act(m,'cab-signal-'+(side===-1?'left':'right'));
++test.beforeEach(()=>W.begin());
++test('a physical left signal needs the whole three-second lead before a pull-out',()=>{
++ for(const lead of [0,2.999,3,3.001]){W.begin();const m=make();use(m,-1);advance(m,lead);m.van.hand=false;m.van.speed=1;D.tick(m,.01);assert.equal(signals().length,1);assert.equal(signals()[0].ok,lead>=3);assert.equal(signals()[0].key,'0:1');assert.equal(signals()[0].stop,1);}
++});
++test('no signal or the wrong direction fails, with a real place only on the wrong report',()=>{
++ for(const side of [0,1,-1]){W.begin();const m=make();if(side)use(m,side);advance(m,3);m.van.hand=false;m.van.speed=1;D.tick(m,.01);const e=signals()[0];assert.equal(e.ok,side===-1);assert.equal(!!e.where,side!==-1);if(e.where){assert.equal(e.where.x,m.van.x);assert.equal(e.where.z,m.van.z);}}
++});
++test('canceling or changing the indicator restarts its lead time, with no allocated clock per tick',()=>{
++ const m=make();use(m,-1);advance(m,3);const clock=m.driving.signalClock;use(m,-1);advance(m,1);use(m,-1);advance(m,2.99);assert.equal(S.ready(m,-1),false);advance(m,.01);assert.equal(S.ready(m,-1),true);use(m,1);assert.equal(S.ready(m,1),false);advance(m,3);assert.equal(S.ready(m,1),true);assert.equal(m.driving.signalClock,clock);
++});
++test('direct legacy state changes are observed on the next game tick without backdating evidence',()=>{
++ const m=make();D.tick(m,.01);m.signal=-1;advance(m,20);assert.equal(S.ready(m,-1),false);advance(m,3);assert.equal(S.ready(m,-1),true);
++});
++test('turns capture the matching three-second signal before steering, never a late correction',()=>{
++ for(const side of [-1,1])for(const late of [false,true]){W.begin();const m=make();m.driving.mirrorDone=true;m.van.hand=false;m.van.speed=2;if(!late){use(m,side);advance(m,3);}m.van.steer=side*.2;D.tick(m,.01);if(late){use(m,side);advance(m,3);}m.van.yaw=side*.08;D.tick(m,.01);assert.equal(signals().length,1);assert.equal(signals()[0].ok,!late);D.tick(m,.01);assert.equal(signals().length,1);}
++});
++test('lane changes trigger at lateral movement, and an abandoned steering twitch is not a maneuver',()=>{
++ const m=make();m.driving.mirrorDone=true;m.van.hand=false;m.van.speed=2;use(m,-1);advance(m,3);m.van.steer=-.1;D.tick(m,.01);m.van.x-=.59;D.tick(m,.01);assert.equal(signals().length,0);m.van.steer=0;D.tick(m,.01);m.van.steer=-.1;D.tick(m,.01);m.van.x-=.61;D.tick(m,.01);assert.equal(signals().length,1);assert.equal(signals()[0].ok,true);
++});
++test('a held pull-out is reported once, and a new stopped maneuver receives another short key',()=>{
++ const m=make();use(m,-1);advance(m,3);m.van.hand=false;m.van.speed=1;for(let n=0;n<20;n++)D.tick(m,.01);assert.deepEqual(Array.from(signals(),e=>e.key),['0:1']);m.van.speed=0;m.van.hand=true;D.tick(m,.01);m.van.hand=false;m.van.speed=1;D.tick(m,.01);assert.deepEqual(Array.from(signals(),e=>e.key),['0:1','0:2']);
++});
++test('a checkpoint preserves partial signal time and captured turn evidence without replaying reports',()=>{
++ let m=make();use(m,-1);advance(m,2);m=O.fpMission.restore(m.snapshot());assert.ok(m);m.paused=false;advance(m,1);assert.equal(S.ready(m,-1),true);m.driving.mirrorDone=true;m.van.hand=false;m.van.speed=2;m.van.steer=-.1;D.tick(m,.01);m=O.fpMission.restore(m.snapshot());assert.ok(m);m.paused=false;m.van.yaw-=.08;D.tick(m,.01);assert.equal(signals().length,1);assert.equal(signals()[0].ok,true);m=O.fpMission.restore(m.snapshot());assert.ok(m);m.paused=false;D.tick(m,.01);assert.equal(signals().length,1);
++});
++test('an old checkpoint resumes a current turn without a retrospective signal check',()=>{
++ let m=make();m.driving.mirrorDone=true;m.van.hand=false;m.van.speed=2;m.van.steer=-.1;D.tick(m,.01);const raw=m.snapshot();delete raw.driving.signalClock;delete raw.driving.signalTurn;m=O.fpMission.restore(raw);assert.ok(m);m.paused=false;m.van.yaw-=.08;D.tick(m,.01);assert.equal(signals().length,0);
++});
++test('invalid clocks and captured turn states are rejected by the real mission restore',()=>{
++ const m=make();use(m,-1);advance(m,3);
++ for(const clock of [[-1,4,0],[-1,-1,0],[-1,NaN,0],[2,0,0],[-1,0,-1],[-1,0,1.5],[-1,0,0,9]]){const raw=m.snapshot();raw.driving.signalClock=clock;assert.equal(O.fpMission.restore(raw),null);}
++ for(const turn of [[2,0,true],[-1,4,true],[-1,0,1],[-1,0,true,0]]){const raw=m.snapshot();raw.driving.signalTurn=turn;assert.equal(O.fpMission.restore(raw),null);}
++});
++test('parking practice keeps its local feedback but never adds a course signal report',()=>{
++ const m=make('parking');use(m,-1);advance(m,3);m.van.hand=false;m.van.speed=1;D.tick(m,.01);assert.equal(signals().length,0);assert.ok(m.logs.some(l=>l.id==='driver:drive.signal:0:1'));
++});
+diff --git a/test/fpsignalbrowser.js b/test/fpsignalbrowser.js
+new file mode 100644
+index 00000000..accb9d75
+--- /dev/null
++++ b/test/fpsignalbrowser.js
+@@ -0,0 +1,39 @@
++/* Real remapped cab stalk, game-time lead, driving keys and checkpoint reload; travel poses are fixtures. */
++const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
++const OUT=path.join(__dirname,'out/fp-review');fs.mkdirSync(OUT,{recursive:true});
++(async()=>{
++ const quality=process.env.QA_GFX||'low',tag=process.env.QA_TAG||'b138-'+quality,base=process.env.QA_BASE||'http://127.0.0.1:8355';
++ const report={quality,runs:[],checks:0,errors:[],fixture:'Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.'};let p;
++ const b=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
++ try{
++  p=await b.newPage();await p.setViewport({width:1280,height:720});p.on('pageerror',e=>report.errors.push(e.message));
++  p.on('console',m=>{if(m.type()==='error'&&/THREE|shader|WebGL/.test(m.text()))report.errors.push(m.text());});
++  const ready=()=>p.waitForFunction(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:90000});
++  const frames=async(n=2)=>{const at=await p.evaluate(()=>OTR.game.loop.frame);await p.waitForFunction(({at,n})=>OTR.game.loop.frame>=at+n,{timeout:60000},{at,n});};
++  const press=async key=>{await p.keyboard.press(key);await frames();};
++  const state=()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {elapsed:m.elapsed,clock:m.driving.signalClock,signal:m.signal,speed:m.van.speed,mode:m.mode,target:s.target,events:OTR.workday.events.filter(e=>e.type==='drive.signal').map(e=>({key:e.key,ok:e.ok,stop:e.stop,where:e.where})),paused:m.paused,keys:OTR.a11y.settings().keys};});
++  const focus=async id=>{for(let n=0;n<40;n++){await press('p');if((await state()).target===id){assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').art.pick()),id);report.checks++;return;}}throw Error('Cannot focus '+id);};
++  const gameLead=async time=>p.waitForFunction(time=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.elapsed-m.driving.signalClock[1]>=time;},{timeout:300000},time);
++  const drive=async()=>{await press('v');await press('Space');await p.keyboard.down('w');await p.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScene').model.van.speed>.4,{timeout:90000});await p.keyboard.up('w');await frames();};
++  const launch=async()=>{await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.keyboardMode=true;s.closePanel();s.progress.welcomed=true;s.launch('campaign');});await p.waitForFunction(()=>!OTR.game.scene.getScene('FirstPersonScene').transitioning,{timeout:90000});await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').closePanel());};
++  for(const lang of (process.env.QA_LANGS||'en,ta').split(','))for(const size of (process.env.QA_SIZES||'normal,large').split(',')){
++   console.log('signal '+quality+' '+lang+' '+size);await p.goto(base+'/first-person.html?gfx='+quality);await ready();await p.addScriptTag({url:base+'/data/i18n/ta.js'});
++   await p.evaluate(({lang,size})=>{const s=OTR.game.scene.getScene('FirstPersonScene');OTR.save.ephemeral=false;OTR.i18n.use(lang);OTR.theme.font=lang==='ta'?'"Noto Sans Tamil", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';Object.assign(OTR.a11y.settings(),{large:size==='large',colour:true,reducedMotion:true,narrate:true,keys:{KeyE:'KeyO',KeyQ:'KeyT'}});OTR.a11y.save();s.progress.campaign=null;s.progress.sequence=9;s.write();window.signalToken=s.loadingToken;s.scene.restart();},{lang,size});
++   await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.loadingToken!==window.signalToken&&!s.loading;},{timeout:90000});
++   await launch();await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;m.mode='cab';m.phase='route';m.departed=m.repaired=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);m.paused=false;Object.assign(m.van,{x:2.84,z:-18,yaw:0,speed:0,gear:1,hand:true,belt:true,look:0});m.player.pitch=0;OTR.workday.begin();s.sync();s.refresh();});await frames();
++   await focus('cab-signal-left');await press('o');let a=await state();assert.equal(a.signal,-1);assert.equal(a.mode,'cab');assert.equal(a.events.length,0);report.checks+=3;
++   const layout=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),h=s.hint,r=h.getBounds(),source=OTR.i18n.src(h);return {text:h.text,source,want:OTR.i18n.t(`The left signal is on. Signal for at least three seconds before moving. Press ${OTR.fpAccess.key('KeyE')} to cancel it.`),x:r.x,right:r.right,y:r.y,bottom:r.bottom,font:parseFloat(h.style.fontSize)*h.scaleY,pointerLock:!!document.pointerLockElement};});
++   assert.equal(layout.text,layout.want);assert.ok(layout.x>=0&&layout.right<=1280&&layout.y>=0&&layout.bottom<=720,JSON.stringify(layout));assert.ok(layout.font>=18);assert.equal(layout.pointerLock,false);report.checks+=4;
++   const run={lang,size,layout};report.runs.push(run);await p.screenshot({path:path.join(OUT,`${tag}-${lang}-${size}-signal.png`)});
++   if(lang==='en'&&size==='normal'){
++    await gameLead(1.5);const saved=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.paused=true;s.checkpoint();return {elapsed:s.progress.campaign.elapsed,clock:s.progress.campaign.driving.signalClock};});
++    await p.reload();await ready();await launch();a=await state();assert.deepEqual(a.clock,saved.clock);assert.equal(a.events.length,0);report.checks+=2;run.reload={saved,restored:a};assert.equal(a.keys.KeyQ,'KeyT');assert.equal(a.keys.KeyE,'KeyO');report.checks+=2;await p.evaluate(()=>{OTR.game.scene.getScene('FirstPersonScene').model.paused=false;});
++   }
++   console.log('lead '+lang+' '+size);await gameLead(3);await drive();a=await state();assert.equal(a.events.length,1);assert.equal(a.events[0].ok,true);assert.equal(a.events[0].key,'0:1');assert.equal(a.events[0].where,undefined);report.checks+=4;run.right=a;console.log('correct pull-out '+lang+' '+size);
++   await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,{x:2.84,z:-18,yaw:0,speed:0,hand:true});m.driving.mirrorDone=false;s.sync();});await frames();
++   await press('t');a=await state();assert.equal(a.signal,0,JSON.stringify(a));report.checks++;await drive();a=await state();assert.equal(a.events.length,2);assert.equal(a.events[1].ok,false);assert.equal(a.events[1].key,'0:2');assert.ok(a.events[1].where&&Number.isFinite(a.events[1].where.x));report.checks+=4;run.wrong=a;console.log('missing signal '+lang+' '+size);
++   await frames(4);assert.equal((await state()).events.length,2);report.checks++;
++  }
++  assert.deepEqual(report.errors,[]);assert.equal(await p.evaluate(()=>OTR.game.renderer.gl.isContextLost()),false);report.checks+=2;report.complete=true;console.log(report.checks+' '+quality+' native signal checks passed');
++ }catch(e){report.failure=e.stack;if(p)await p.screenshot({path:path.join(OUT,tag+'-failure.png')}).catch(()=>{});throw e;}finally{fs.writeFileSync(path.join(OUT,tag+'-signal.json'),JSON.stringify(report,null,2));await b.close();}
++})().catch(e=>{console.error(e.stack);process.exitCode=1;});

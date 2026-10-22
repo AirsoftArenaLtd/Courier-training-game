@@ -1,0 +1,163 @@
+{
+  "tag": "b138-final",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "assets": {
+    "quality": "high",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 4025744,
+    "decodedBytes": 3506550,
+    "errors": []
+  },
+  "prototype": {
+    "cab": {
+      "frames": 25,
+      "avgFPS": 2.49,
+      "low1FPS": 0.92,
+      "p99ms": 1089,
+      "maxMs": 1089,
+      "peak": {
+        "calls": 74,
+        "triangles": 92618,
+        "textures": 3,
+        "geometries": 23,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 94,
+        "baseLevelRGBABytes": 4147796,
+        "withMipmapsUpperBytes": 5530395
+      },
+      "worldProfile": {
+        "meshes": 141,
+        "instances": 277,
+        "geometries": 31,
+        "materials": 45,
+        "geometryBytes": 3977454,
+        "instanceBytes": 67708,
+        "shadowCasters": 108
+      },
+      "mirrorViews": {
+        "updates": [
+          10,
+          10,
+          10,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.15,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.15,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "handheld": {
+      "frames": 24,
+      "avgFPS": 2.31,
+      "low1FPS": 0.99,
+      "p99ms": 1014.9,
+      "maxMs": 1014.9,
+      "peak": {
+        "calls": 49,
+        "triangles": 61726,
+        "textures": 3,
+        "geometries": 23,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 106,
+        "baseLevelRGBABytes": 3894668,
+        "withMipmapsUpperBytes": 5192891
+      },
+      "worldProfile": {
+        "meshes": 141,
+        "instances": 296,
+        "geometries": 31,
+        "materials": 45,
+        "geometryBytes": 3977454,
+        "instanceBytes": 67708,
+        "shadowCasters": 108
+      },
+      "mirrorViews": {
+        "updates": [
+          22,
+          22,
+          21,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 9,
+          "y": 1.65,
+          "z": 10,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.15,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 93,
+    "baseLevelRGBABytes": 4475748,
+    "withMipmapsUpperBytes": 5967664
+  },
+  "phaserTexturesPeak": {
+    "count": 93,
+    "baseLevelRGBABytes": 4475748,
+    "withMipmapsUpperBytes": 5967664
+  },
+  "missingViews": [],
+  "errors": []
+}

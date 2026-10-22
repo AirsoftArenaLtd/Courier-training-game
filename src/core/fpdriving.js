@@ -87,10 +87,11 @@ OTR.fpDriving = {
   },
   tick(m,dt,old) {
     const d=m.driving,v=m.van,F=OTR.fp;if(!d)return;
+    if(OTR.fpSignal)OTR.fpSignal.sync(m);
     if(OTR.fpRear)OTR.fpRear.tick(m,dt,old||v);
     if(m.mode==='cab'){
       if(Math.abs(v.speed)<.15&&(v.hand||v.gear===2))d.mirrorDone=false;
-      if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');}
+      if(!d.mirrorDone&&Math.abs(v.speed)>0.3){d.mirrorDone=true;d.mirrorCount++;const ok=!!OTR.fpMirrors&&OTR.fpMirrors.recent(m,0);this.fire(m,'drive.mirrors',`${m.leg}:${d.mirrorCount}`,ok,ok?'Checked the mirrors before pulling out.':'Pulled out without checking the mirrors.');if(OTR.fpSignal)OTR.fpSignal.report(m,OTR.fpSignal.ready(m,-1));}
       if(OTR.fpMirrors)OTR.fpMirrors.maneuvers(m);
       if(v.speed>1){let gap=Infinity;
         for(const car of m.traffic){
@@ -162,6 +163,7 @@ OTR.fpDriving = {
   valid(m,d,elapsed) {
     if(!d||!['mirrorDone','followingSeen','followingFailed','goalClear','reverseActive','reverseSafe'].every(k=>typeof d[k]==='boolean'))return false;
     if(OTR.fpMirrors&&!OTR.fpMirrors.validTurn(d.mirrorTurn,elapsed))return false;
+    if(OTR.fpSignal&&!OTR.fpSignal.valid(d,elapsed))return false;
     if(OTR.fpRear&&!OTR.fpRear.valid(d.backing,elapsed))return false;
     if(!['reverseCount','mirrorCount'].every(k=>Number.isSafeInteger(d[k])&&d[k]>=0))return false;
     if(!['closeTime','goalAt','goalX','goalZ','goalYaw'].every(k=>Number.isFinite(d[k]))||d.goalAt>elapsed)return false;

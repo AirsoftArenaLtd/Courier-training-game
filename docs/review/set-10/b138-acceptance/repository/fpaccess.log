@@ -1,0 +1,21 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ system reduced motion is read once and an explicit saved choice overrides it (1.645324ms)
+✔ keyboard look turns without moving, clamps pitch and gives a separate cab look (1.733994ms)
+✔ 3D key hints read the same saved physical map as the shared remapper (0.248246ms)
+✔ queued control speech is dropped when the target or visible prompt has gone away (1.757689ms)
+✔ a queued action notice expires and a gear confirmation still uses the current gear (2.353917ms)
+✔ a shared remap onto a 3D-only look key keeps both actions reachable (0.724447ms)
+✔ nearby target selection uses real visibility/raycasting and never changes the player position (71.146484ms)
+✔ keyboard target selection reaches tires and lamps from outside the van (14.864147ms)
+✔ Low text uses native canvases without shrinking fonts or stacking factories on restart (1.396938ms)
+✔ Indic cab, briefing and handheld text select the script font while preserving company fallback and English styling (0.656817ms)
+✔ handheld choices leave room for the full Back control at taller font metrics (0.850422ms)
+✔ a dense larger-text page keeps both its body and Back clear without shrinking targets (0.367651ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.77819

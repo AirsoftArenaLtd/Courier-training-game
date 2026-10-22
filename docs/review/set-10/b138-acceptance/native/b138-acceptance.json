@@ -1,0 +1,72 @@
+{
+  "source": "c597b837",
+  "sourceSHA256": {
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpcab.js": "92a7b74fc01e804e2ffc8591d5ed115dc16da51d241a3cf31d171eedb5151ab9",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpmirrors.js": "e4eb1d269ba9145232288355cf56a448c61cb39f9cea612ddb8c927858d8869a",
+    "src/core/fpmission.js": "25bcd0edab780818de60fc0b497655c5f882812cbd15ec0bb0e64c177ae04fa4",
+    "test/fpsignal.js": "ba4f783154ab0605b1ed84def15574f5de93d9d904e3bc1757edc6d248abf4c7",
+    "test/fpsignalbrowser.js": "c25f82be9ee2ceac6ef15b20516dce9c9e643ce3c48c8ba218d53be1bf65af80"
+  },
+  "complete": true,
+  "jobs": [
+    {
+      "name": "native-low",
+      "command": [
+        "node",
+        "test/fpsignalbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "low",
+        "QA_TAG": "b138-final-low"
+      },
+      "exit": 0
+    },
+    {
+      "name": "native-high",
+      "command": [
+        "node",
+        "test/fpsignalbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_TAG": "b138-final-high"
+      },
+      "exit": 0
+    },
+    {
+      "name": "bench-low",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_GFX": "low",
+        "QA_TAG": "b138-final",
+        "QA_VIEWS": "cab,handheld",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0
+    },
+    {
+      "name": "bench-high",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_GFX": "high",
+        "QA_TAG": "b138-final",
+        "QA_VIEWS": "cab,handheld",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0
+    }
+  ]
+}
