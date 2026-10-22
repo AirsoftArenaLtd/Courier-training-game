@@ -1,5 +1,7 @@
 # 3D workday rendering cost
 
+**C-37 current-pilot replay acceptance (21 October 2026):** all 207 resource views pass. Loaded Low peaks at **54 calls / 2,396 triangles / two textures / 3,557,376 attachment bytes / 2,778,774 estimated Phaser bytes**; loaded High **107 / 235,893 / three / 11,239,424 / 8,902,512**. Accessible Low and true missing-model fallback pass unchanged ceilings. Replay also passes 245 native checks and all 72 repository suites. Exact source hashes, all raw reports and captures: `docs/review/set-9/c37-current-accepted/manifest.json`. Native Intel FPS remains O-1.
+
 ## B-87: 2D scenes on a PC without a graphics driver (21 October 2026)
 
 On a software renderer (Chromium's SwiftShader, as on a PC with no graphics driver), at 1280 x 720:
