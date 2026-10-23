@@ -12,7 +12,7 @@ OTR.fpDrivingLesson={
     // Reuse the town projection and scenery unchanged. The five-stop workday schema remains unchanged;
     // this ephemeral module replaces only its own physical stops with the original six checkpoints.
     const m=OTR.fpMission.create('campaign',C.seed,plan),s=this.create(C,C.seed,{x:T.depot.x,y:T.hy[0],scale});
-    s.worldBounds={...m.bounds};s.sourceRoute=route;m.drivingLesson=s;
+    s.worldBounds={...m.bounds};s.start={...m.van};s.sourceRoute=route;m.drivingLesson=s;
     m.stops=route.map((entry,i)=>{const lot=T.lotById(entry.lotId),body=m.town.lots.find(b=>b.id===lot.id);const bay=TownDriveScene.prototype.parkBay.call({van:{g:{hl:2.7}},P:1/scale,T},lot);return {id:i,index:i+1,lotId:lot.id,side:lot.side,address:`${lot.number} ${lot.street}`,x:body.x-lot.side*(body.w/2+.08),z:body.z,park:{x:(lot.park.y-T.hy[0])*scale,z:8-(lot.park.x-T.depot.x)*scale,yaw:lot.side>0?0:Math.PI},bay:{streetX:(T.hy[lot.row]-T.hy[0])*scale,z0:8-(bay.x1-T.depot.x)*scale,z1:8-(bay.x0-T.depot.x)*scale},contacted:false,resolved:false};});
     m.parcels=[];m.cargoOpen=false;m.secured=true;m.repaired=true;m.phase='route';m.mode='cab';m.departed=true;m.driving=null;
     return m;
@@ -103,3 +103,38 @@ OTR.fpDrivingLesson={
     return 0;
   }
 };
+
+OTR.fpScenario?.register('driving-town-drill',{
+  piece:'street',goal:'Drive to all six checkpoints and respond safely to the road hazards.',seconds:1440,
+  model(run){return OTR.fpDrivingLesson.model(run);},
+  brief(run){return [
+    `Use ${OTR.fpAccess.key('KeyW')} to accelerate, ${OTR.fpAccess.key('KeyS')} to brake, and ${OTR.fpAccess.key('KeyA')}/${OTR.fpAccess.key('KeyD')} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.`,
+    `Look at the shifter or a cab switch and press ${OTR.fpAccess.key('KeyE')} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.`,
+    `Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press ${OTR.fpAccess.key('KeyF')} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.`
+  ];},
+  setup(run,m){
+    const s=m.drivingLesson;m.bounds={...s.worldBounds};m.trainingArea=null;m.mode='cab';Object.assign(m.van,s.start);m.van.gear=1;
+    // A module has six ephemeral stops. Day three enables the existing physical stop/light layout
+    // without the later-day workday obstacles, deliveries or campaign rules.
+    Object.assign(m.routePlan,{day:3,signs:1,traffic:1,navigation:1});OTR.fpTraffic.configure(m);OTR.fpNav.configure(m);
+    OTR.fpDriving.configure(m);m.driving.bus.state=m.driving.siren.state='done';OTR.fpDriving.syncActors(m);
+    OTR.fpDrivingLessonHazards.attach(run);OTR.fpDrivingLessonRules.attach(run);
+    const step=m.step;m.step=(input,seconds)=>{if(m.paused)return;const before=m.elapsed,speed=m.van.speed;step.call(m,input,seconds);OTR.fpDrivingLessonRules.advance(run,m.elapsed-before,speed);};
+    s.notifiedHazard=null;s.notifiedWarning='';s.weatherChanged=false;
+  },
+  controls(run,scene){OTR.fpDrivingLessonUI.controls(scene);},
+  key(run,scene,code){if(code==='KeyF'){OTR.fpDrivingLessonUI.record(scene);return true;}return false;},
+  interact(run,scene,id){
+    if(id==='cab-camera'&&run.model.van.gear!==-1||id==='dispatch'||id&&id.startsWith('visit')){OTR.fpDrivingLessonUI.show(scene);return true;}
+    return !!id&&id!=='driver'&&!id.startsWith('cab-')&&!id.startsWith('mirror-');
+  },
+  hint(run,id,key){if(id==='cab-camera'&&run.model.van.gear!==-1||id==='dispatch'||id&&id.startsWith('visit'))return `Press ${key} to read the sat nav and checkpoint details.`;if(id&&id.startsWith('door'))return `Park at this checkpoint and press ${OTR.fpAccess.key('KeyF')} to record it.`;return null;},
+  handheld(run,scene){OTR.fpDrivingLessonHazards.handheld(run);OTR.fpDrivingLessonUI.show(scene);},
+  update(run,scene){
+    const m=run.model,s=m.drivingLesson,coach=OTR.fpScenario.coaching(run),h=s.hazard;
+    if(h.active&&h.id!==s.notifiedHazard){s.notifiedHazard=h.id;if(h.kind==='phone')scene.workdaySound.effect('radio','The handheld buzzes in its cradle.');if(coach)scene.message(s.byId[h.id].warn);}
+    const warning=s.rules.warning;if(warning!==s.notifiedWarning){s.notifiedWarning=warning;if(warning&&coach)scene.message(warning);}
+    if(s.checkpoint>=s.content.checkpoints)scene.finishScenario();
+  },
+  result(run){return OTR.fpDrivingLesson.result(run);}
+});

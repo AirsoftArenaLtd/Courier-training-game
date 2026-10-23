@@ -68,7 +68,7 @@ test('rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parkin
 const H=O.fpDrivingLessonHazards;
 function physical(kind){
  const m=D.model({content:C}),r={model:m,log:new O.ScoreLog('drive')},s=m.drivingLesson,def=C.hazards.find(h=>h.kind===kind);m.moduleReport=()=>false;m.traffic=[];m.paused=false;s.checkpoint=def.at;m.activeStop=def.at;Object.assign(m.van,{x:m.stops[def.at].bay.streetX+m.stops[def.at].side*m.town.road/4,yaw:m.stops[def.at].park.yaw,speed:3,hand:false,belt:true});H.attach(r);
- let armed=false;for(let back=20;back<100;back+=1){m.van.z=m.stops[def.at].park.z+m.stops[def.at].side*back;if(H.arm(r)){armed=true;break;}}assert.equal(armed,true,kind+' stages on a real straight approach');return r;
+ let armed=false;for(let back=8;back<100;back+=.25){m.van.z=m.stops[def.at].park.z+m.stops[def.at].side*back;if(H.arm(r)){armed=true;break;}}assert.equal(armed,true,kind+' stages on a real straight approach');return r;
 }
 test('one reused hazard pool respects pause, stays on its checkpoint and cannot duplicate its colliders',()=>{
  const r=physical('ball'),m=r.model,h=m.drivingLesson.hazard,n=m.solids.length;assert.equal(H.attach(r),false);assert.equal(m.solids.length,n);m.paused=true;const t=h.t;for(let i=0;i<60;i++)m.step({forward:true},1/60);assert.equal(h.t,t);assert.equal(H.arm(r),false);assert.equal(h.id,'ball');assert.equal(r.log.items.length,0);
@@ -103,4 +103,8 @@ test('parking cannot skip a pending physical hazard, and expiry cannot remove it
  assert.equal(D.tryCheckpoint(r),false);assert.equal(s.checkpoint,0);assert.equal(r.log.items.length,0);assert.ok(s.parking.reason.endsWith('.'));
  const result=D.result(r),checks=result.log.items.filter(it=>it.kind==='check'&&C.hazards.some(h=>it.label===h.title||it.label===h.title+' (never reached)'));
  assert.equal(checks.length,6);assert.equal(checks.reduce((n,it)=>n+it.max,0),C.hazards.reduce((n,h)=>n+h.points,0));assert.equal(checks.find(it=>it.label===C.hazards[0].title).got,0);assert.equal(D.result(r),result);
+});
+
+test('every hazard has a real bounded checkpoint approach and cannot stage from outside the town',()=>{
+ for(const kind of ['phone','ball','door','water','crosswalk','bus']){const r=physical(kind),m=r.model,h=m.drivingLesson.hazard,b=m.bounds;assert.ok(m.van.z>=b.z0+2.7&&m.van.z<=b.z1-2.7,kind);assert.ok(h.z>=b.z0+6&&h.z<=b.z1-6,kind);H.hide(m);m.drivingLesson.armed={};m.van.z=b.z0-1;assert.equal(H.arm(r),false,kind);m.van.z=b.z1+1;assert.equal(H.arm(r),false,kind);}
 });

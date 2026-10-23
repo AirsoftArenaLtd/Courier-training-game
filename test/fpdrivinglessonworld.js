@@ -6,15 +6,15 @@ const O=c.OTR;O.registerScene=()=>{};for(const f of ['src/scenes/shift/TownDrive
 const D=O.fpDrivingLesson,H=O.fpDrivingLessonHazards,C=c.OTR_DATA.driving;
 function setup(high){
  O.gfx={high:()=>high};const m=D.model({content:C}),r={model:m,log:new O.ScoreLog()},world=new THREE.Scene(),camera=new THREE.PerspectiveCamera(76,16/9,.08,180);world.add(camera);H.attach(r);m.paused=false;
- const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);scene.art=art;const cues=O.fpDrivingLessonWorld.build(scene,m,art.route,new THREE.BoxGeometry(1,1,1));return {m,r,world,camera,scene,art,cues};
+ const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);scene.art=art;const cues=art.drivingLessonArt;assert.ok(cues,'the world owns the single driving hazard pool');return {m,r,world,camera,scene,art,cues};
 }
-function pose(ctx,index,age){const {m,r,art,cues}=ctx,s=m.drivingLesson;H.hide(m);s.armed={};s.checkpoint=index;m.activeStop=index;const stop=m.stops[index];Object.assign(m.van,{x:stop.bay.streetX+stop.side*m.town.road/4,yaw:stop.park.yaw,speed:3,hand:false});for(let n=20;n<100;n++){m.van.z=stop.park.z+stop.side*n;if(H.arm(r))break;}assert.equal(s.hazard.active,true);s.hazard.t=age;H.advance(r,{},.01);art.sync(m,null,'route');cues.sync(m,false);ctx.world.updateMatrixWorld(true);return s.hazard;}
+function pose(ctx,index,age){const {m,r,art,cues}=ctx,s=m.drivingLesson;H.hide(m);s.armed={};s.checkpoint=index;m.activeStop=index;const stop=m.stops[index];Object.assign(m.van,{x:stop.bay.streetX+stop.side*m.town.road/4,yaw:stop.park.yaw,speed:3,hand:false});for(let n=8;n<100;n+=.25){m.van.z=stop.park.z+stop.side*n;if(H.arm(r))break;}assert.equal(s.hazard.active,true);s.hazard.t=age;H.advance(r,{},.01);art.sync(m,null,'route');cues.sync(m,false);ctx.world.updateMatrixWorld(true);return s.hazard;}
 test('all six cues use the controller positions, real bus length and a reused fixed geometry pool',()=>{
  for(const high of [false,true]){const ctx=setup(high),{m,art,cues,world}=ctx,count=world.children.length;
   for(let i=0;i<6;i++){const h=pose(ctx,i,2);assert.equal(world.children.length,count);assert.equal(cues.root.visible,true);if(h.kind==='ball'||h.kind==='crosswalk'){assert.equal(cues.pool.person.position.x,h.personX);assert.equal(cues.pool.person.position.z,h.personZ);assert.equal(cues.pool.person.visible,h.personVisible);}if(h.kind==='door')assert.equal(cues.pool.car.position.x,h.carX);if(h.kind==='water'){assert.equal(cues.water.position.z,h.z);assert.equal(cues.water.visible,true);}if(h.kind==='bus'){assert.equal(cues.bus.position.x,h.busBox.x);assert.equal(cues.bus.position.z,h.busBox.z);assert.equal(h.busBox.d,12);assert.ok(cues.ink.count>100);assert.equal(cues.arm.visible,h.armOut);}}
-  H.hide(m);cues.sync(m,true);assert.equal(cues.root.visible,false);assert.equal(art.townArt.triangleLimit,high?Infinity:290);cues.dispose();art.dispose();assert.equal(world.children.length,1);
+  H.hide(m);cues.sync(m,true);assert.equal(cues.root.visible,false);assert.equal(art.townArt.triangleLimit,high?Infinity:290);art.dispose();assert.equal(world.children.length,1);
  }
 });
 test('reduced motion keeps water still while physical bus arm, lights and lettered warning stay apparent',()=>{
- const ctx=setup(false);pose(ctx,3,2);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.water.material.uniforms.time.value,0);pose(ctx,5,1);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.arm.visible,true);assert.equal(ctx.cues.lamps.visible,true);assert.equal(ctx.cues.ink.visible,true);ctx.cues.dispose();ctx.art.dispose();
+ const ctx=setup(false);pose(ctx,3,2);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.water.material.uniforms.time.value,0);pose(ctx,5,1);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.arm.visible,true);assert.equal(ctx.cues.lamps.visible,true);assert.equal(ctx.cues.ink.visible,true);ctx.art.dispose();
 });

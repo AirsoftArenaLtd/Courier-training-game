@@ -1,0 +1,66 @@
+[
+  {
+    "suite": "fpdrivinglesson",
+    "exit": 0
+  },
+  {
+    "suite": "fpdrivinglessonrules",
+    "exit": 0
+  },
+  {
+    "suite": "fpdrivinglessonworld",
+    "exit": 0
+  },
+  {
+    "suite": "fpdrivinglessonui",
+    "exit": 0
+  },
+  {
+    "suite": "fpmission",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld",
+    "exit": 0
+  },
+  {
+    "suite": "fpcamera",
+    "exit": 0
+  },
+  {
+    "suite": "firstperson",
+    "exit": 0
+  },
+  {
+    "suite": "fpscenario",
+    "exit": 0
+  },
+  {
+    "suite": "fpqualitygate",
+    "exit": 0
+  },
+  {
+    "suite": "fphazardlesson",
+    "exit": 0
+  },
+  {
+    "suite": "fppretrip",
+    "exit": 0
+  },
+  {
+    "suite": "fproutelesson",
+    "exit": 0
+  },
+  {
+    "suite": "workday",
+    "exit": 0
+  },
+  {
+    "suite": "savesize",
+    "exit": 0
+  },
+  {
+    "suite": "i18n",
+    "exit": 0
+  }
+]

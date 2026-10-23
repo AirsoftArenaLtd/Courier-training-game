@@ -45,9 +45,9 @@ OTR.fpCamera={
     if(reset){r.pitch=targetPitch;r.roll=targetRoll;}else if(dt>0){r.pitch=this.ease(r.pitch,targetPitch,dt,8);r.roll=this.ease(r.roll,targetRoll,dt,8);}
     if(reduced||precise){r.heading=v.yaw;r.look=r.pitch=r.roll=r.x=r.z=r.bob=0;r.fov=baseFov;}
     const out=r.pose,c=Math.cos(v.yaw),s=Math.sin(v.yaw);out.bodyPitch=bodyPitch;out.bodyRoll=bodyRoll;out.heave=road+joint+bump;out.bodyY=bodyPitch*1.85-bodyRoll*.45+out.heave;
-    // The watch-only road clips use an upright, forward observation position inside the cab.
+    // Road clips and the driving drill use an upright, forward position inside the cab.
     // Keep the dashboard anchored to the van: ground-level clues must clear its upper edge.
-    const observation=cab&&!!m.hazardLesson,seatX=this.seat.x-(observation?.3:0),seatZ=this.seat.z-(observation?.35:0),seatY=this.seat.y+(observation?.35:0);
+    const observation=cab&&!!(m.hazardLesson||m.drivingLesson),seatX=this.seat.x-(observation?.3:0),seatZ=this.seat.z-(observation?.35:0),seatY=this.seat.y+(observation?.35:0);
     if(cab){out.baseX=v.x+c*seatX-s*seatZ;out.baseZ=v.z+s*seatX+c*seatZ;out.x=out.baseX+c*r.x-s*r.z;out.z=out.baseZ+s*r.x+c*r.z;out.y=seatY+out.bodyY;
       out.yaw=v.yaw+this.angle(r.heading-v.yaw)*amount+v.look+r.look;out.pitch=-p.pitch+r.pitch;out.roll=r.roll;
     }else{

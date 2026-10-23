@@ -15,11 +15,12 @@ OTR.fpDrivingLessonHazards={
   arm(run){
     const m=run.model,s=m.drivingLesson,h=s.hazard,def=s.byCheckpoint[s.checkpoint],stop=m.stops[s.checkpoint],v=m.van;
     if(!def||s.armed[def.id]||!stop||s.finished||h.active)return false;
+    const bounds=m.bounds;if(v.x<bounds.x0+2.7||v.x>bounds.x1-2.7||v.z<bounds.z0+2.7||v.z>bounds.z1-2.7)return false;
     const dir=stop.side,street=stop.bay.streetX,speed=Math.abs(v.speed),distance=Math.max(12,Math.min(25,10+speed*1.25));
     if(def.kind!=='phone'){
       if(Math.abs(v.x-street)>m.town.road/2||Math.cos(v.yaw)*dir<.85||speed*2.2369362921<5)return false;
       for(const z of m.town.zs)if(Math.abs(v.z-z)<m.town.road/2+2.5)return false;
-      const z=v.z-dir*distance;if((z-stop.park.z)*dir<3)return false;for(const j of m.town.zs)if(Math.abs(z-j)<m.town.road/2+7.5)return false;
+      const z=v.z-dir*distance;if(z<bounds.z0+6||z>bounds.z1-6||(z-stop.park.z)*dir<3)return false;for(const j of m.town.zs)if(Math.abs(z-j)<m.town.road/2+7.5)return false;
     }
     Object.assign(h,{active:true,kind:def.kind,id:def.id,t:0,ending:0,judged:false,wait:0,hold:0,bad:0,tIn:0,inside:false,minMph:99,reached:false,
       x:street+dir*m.town.road/4,z:v.z-dir*distance,yaw:dir>0?0:Math.PI,dir,street,personX:0,personZ:0,personVisible:false,ballX:0,ballZ:0,ballVisible:false,doorReach:0,opened:false,armOut:false,phone:false,traction:m.traction??1,baseline:s.violations.handheld||0});

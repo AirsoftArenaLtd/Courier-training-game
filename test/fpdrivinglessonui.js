@@ -1,0 +1,34 @@
+/* Registered adapter isolation, physical controls, checkpoint transitions and accessible device actions. */
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const c={Phaser:{Scene:class{}}};c.window=c;vm.createContext(c);
+for(const f of ['data/theme.js','data/config.js','data/m1_driving.js','data/town.js','data/workday_events.js','src/core/theme.js','src/core/scorelog.js','src/core/scoring.js','src/core/scenery.js','src/core/rig.js','src/core/townart.js','src/core/town.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js','src/core/fptraffic.js','src/core/fpdriving.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fpsignal.js','src/core/fpnav.js','src/core/fpcab.js','src/core/fpscenario.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+const O=c.OTR;O.registerScene=()=>{};O.audio={play(){}};O.workday={report(){throw Error('The module reported into the workday.');}};O.fpAccess={key:code=>'Mapped '+code,lookKeys:()=> 'Mapped arrows'};
+for(const f of ['src/scenes/shift/TownDriveScene.js','src/scenes/m1/DrivingScene.js','src/core/fpdrivinglesson.js','src/core/fpdrivinglessonhazards.js','src/core/fpdrivinglessonrules.js','src/core/fpdrivinglessonui.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+const D=O.fpDrivingLesson,U=O.fpDrivingLessonUI,C=c.OTR_DATA.driving,def=O.fpScenario.definitions.get('driving-town-drill');
+function setup(){const run={id:'m1-driving',definition:def,content:C,scenario:{categories:['safety','efficiency']},phase:'active',log:new O.ScoreLog('drive'),seen:new Set()};O.fpScenario.model(run);run.model.paused=false;const scene={scenarioSession:run,model:run.model,messages:[],panels:[],rebuilds:0,finished:0,message(text){this.messages.push(text);},showPanel(title,body,options){this.model.paused=true;this.panels.push({title,body,options});},closePanel(){this.model.paused=false;},rebuildWorld(){this.rebuilds++;},sync(){},refresh(){},finishScenario(){this.finished++;},handheld:{show(page){this.page=page;run.model.paused=true;},close(resume=true){run.model.paused=!resume;}}};return {run,scene,m:run.model};}
+test('the registered driving adapter restores the full town and isolates actual physical input from workday data',()=>{
+ const {run,m}=setup();assert.equal(m.mode,'cab');assert.equal(m.trainingArea,null);assert.equal(m.stops.length,6);assert.equal(m.routePlan.route.length,5);assert.deepEqual(m.bounds,m.drivingLesson.worldBounds);assert.ok(m.bounds.z1-m.bounds.z0>200);assert.equal(m.van.z,m.drivingLesson.start.z);assert.equal(m.driving.bus.state,'done');assert.equal(m.driving.siren.state,'done');assert.equal(m.routePlan.navigation,1);assert.equal(m.routePlan.traffic,1);assert.equal(O.fpTraffic.layout(m).some(j=>j.kind==='signal'),true);
+ O.fpCab.act(m,'cab-belt');O.fpCab.act(m,'cab-handbrake');const z=m.van.z;for(let i=0;i<120;i++)m.step({forward:true},1/60);assert.ok(m.van.z<z);assert.ok(m.elapsed>1.99);assert.equal(m.snapshot().drivingLesson,undefined);assert.equal(run.seen.size,0);assert.equal(m.drivingLesson.hazard.kind,'phone');m.paused=true;const elapsed=m.elapsed;m.step({forward:true},1);assert.equal(m.elapsed,elapsed);
+});
+test('checkpoint recording uses the same physical action from the device and mapped shortcut, and invalid parking resumes',()=>{
+ const {run,scene,m}=setup();U.show(scene);assert.equal(m.paused,true);scene.handheld.page.options[0].onPick();assert.equal(m.paused,false);assert.equal(m.drivingLesson.checkpoint,0);assert.ok(scene.messages.at(-1).endsWith('.'));
+ Object.assign(m.van,m.stops[0].park,{speed:0,hand:true});assert.equal(def.key(run,scene,'KeyF'),true);assert.equal(m.drivingLesson.checkpoint,1);assert.equal(m.paused,true);assert.equal(scene.panels.at(-1).title,'The checkpoint is recorded.');scene.panels.at(-1).options[0].action();assert.equal(m.paused,false);assert.equal(def.key(run,scene,'KeyP'),false);
+});
+test('rain changes exactly halfway without resetting time or the physical hazard pool, then six checkpoints finish',()=>{
+ const {scene,m}=setup(),hazard=m.drivingLesson.hazard,solids=m.solids.length;m.elapsed=60;
+ for(const stop of m.stops){Object.assign(m.van,stop.park,{speed:0,hand:true});assert.equal(U.record(scene),true);if(stop.index<6)scene.panels.at(-1).options[0].action();assert.equal(m.elapsed,60);assert.equal(m.drivingLesson.hazard,hazard);assert.equal(m.solids.length,solids);assert.equal(m.routePlan.weather,stop.index<3?'clear':'rain');}
+ assert.equal(scene.rebuilds,1);assert.equal(scene.finished,1);assert.equal(m.activeStop,5);assert.equal(m.drivingLesson.checkpoint,6);assert.equal(m.routePlan.timeOfDay,'dusk');
+});
+test('the physical mounted screen reads the route outside reverse, and reverse keeps its live camera interaction',()=>{
+ const {run,scene,m}=setup();m.van.hand=true;assert.equal(def.interact(run,scene,'cab-camera'),true);assert.ok(scene.handheld.page.title.endsWith('.'));assert.ok(def.hint(run,'cab-camera','Mapped E').includes('Mapped E'));m.van.gear=-1;assert.equal(def.interact(run,scene,'cab-camera'),false);assert.equal(def.hint(run,'cab-camera','Mapped E'),null);assert.equal(def.interact(run,scene,'driver'),false);assert.equal(def.interact(run,scene,'cab-exit'),false);assert.equal(def.interact(run,scene,'cargo'),true);
+});
+test('instruction pages and controls name remapped keys and use the physical mirror and camera contract',()=>{
+ const {run,scene}=setup(),pages=def.brief(run);assert.equal(pages.length,3);assert.ok(pages.every(p=>p.endsWith('.')));assert.ok(pages.join(' ').includes('Mapped KeyF'));assert.ok(pages.join(' ').includes('three seconds'));U.controls(scene);assert.ok(scene.panels.at(-1).body.includes('Mapped KeyP'));scene.panels.at(-1).options[0].action();assert.ok(scene.panels.at(-1).body.includes('Mapped KeyC'));scene.panels.at(-1).options[0].action();assert.ok(scene.panels.at(-1).body.includes('Mapped KeyF'));
+});
+
+test('each bounded approach still arms naturally after the actual motor advances a frame',()=>{
+ for(let index=1;index<6;index++){const {run,m}=setup(),s=m.drivingLesson,stop=m.stops[index],dir=stop.side;O.fpDrivingLessonHazards.hide(m);s.checkpoint=index;m.activeStop=index;let z;
+  for(let back=8;back<110;back+=.25){const n=stop.park.z+dir*back,cue=n-dir*13.75;if(n<m.bounds.z0+2.7||n>m.bounds.z1-2.7||(cue-stop.park.z)*dir<4.5||m.town.zs.some(j=>Math.abs(n-j)<m.town.road/2+2.5||Math.abs(cue-j)<m.town.road/2+7.5))continue;z=n;break;}
+  assert.notEqual(z,undefined);Object.assign(m.van,{x:stop.bay.streetX+dir*m.town.road/4,z,yaw:stop.park.yaw,speed:3,hand:false,gear:1,belt:true});m.step({},.05);assert.equal(s.hazard.active,true,s.byCheckpoint[index].kind);assert.equal(s.hazard.kind,s.byCheckpoint[index].kind);assert.equal(run.log.items.length,0);
+ }
+});
