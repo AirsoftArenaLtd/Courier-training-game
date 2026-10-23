@@ -1,0 +1,21 @@
+{
+  "candidateRevision": "d1937210fa4043d6fff4711c71a5c4017b21fde5",
+  "status": "Failed diagnostic; excluded from final passing evidence",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "5cf4af7c79b6c97dab87c643e25e6b874a9289c55b6c49e27dcad5a072996926",
+      "bytes": 525
+    },
+    {
+      "file": "c39-pretrip-final-repository.log",
+      "sha256": "0d1565d485411ae33a68911123dba315e0686d70fb247bdf054179ecb1cf197c",
+      "bytes": 3538
+    },
+    {
+      "file": "fpscenario.log",
+      "sha256": "ce558507eb9fa5e22d9b0a73f6279290cc8316b6127d089abedb566e66718f10",
+      "bytes": 2331
+    }
+  ]
+}
