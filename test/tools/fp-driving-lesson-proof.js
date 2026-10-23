@@ -12,7 +12,7 @@ module.exports=function drivingLessonProof({kind,stage,index=0}){
  const ndc=device?new T.Vector3():point.clone().project(camera);let hit,clear=device&&sc.handheld.isOpen;
  if(!device){const ray=new T.Raycaster(camera.position,point.clone().sub(camera.position).normalize(),0,camera.position.distanceTo(point)+.5);hit=ray.intersectObjects(sc.view.world.children,true).find(h=>visible(h.object)&&h.object.layers.test(camera.layers));for(let o=hit?.object;o;o=o.parent)if(o===owner){clear=true;break;}}
  const stop=m.stops[s.checkpoint];
- return {source:'registered-driving-adapter',id:r.id,key:r.scenario.scene3d,kind,stage,index:kind==='parking'?index:s.content.hazards.findIndex(v=>v.kind===kind),stops:m.stops.length,
+ return {source:'registered-driving-adapter',id:r.id,key:r.scenario.scene3d,kind,stage,index:kind==='parking'?index:s.content.hazards.findIndex(v=>v.kind===kind),stops:m.stops.length,navigation:!!m.navigation,traffic:!!m.trafficControl,signs:OTR.fpSigns.enabled(m),day:m.routePlan.day,
   hazardActive:h.active,hazardKind:h.kind,hazardTime:h.t,hazardJudged:h.judged,logItems:r.log.items.length,results:s.results.length,
   loadedCar:!!a.pool.asset,loadedPerson:!!a.pool.actor,reduced:!!OTR.fpAccess.reduced(),weather:m.routePlan.weather,device:!!sc.handheld.isOpen,
   cue:{visible:device?sc.handheld.isOpen:visible(target),clear,x:ndc.x,y:ndc.y,z:ndc.z,hit:hit?.object.name||hit?.object.type||null,blocker:!clear&&hit?{point:hit.point.toArray(),instance:hit.instanceId,parents:(()=>{const names=[];for(let o=hit.object;o;o=o.parent)names.push(o.name||o.type);return names;})()}:null},
