@@ -1,0 +1,34 @@
+✔ every event type is complete (4.64504ms)
+✔ a check scores full marks when right and none when wrong, with the matching line (1.459337ms)
+✔ a type counts once per key (0.218459ms)
+✔ penalties, criticals, places and phases reach the score log (5.251899ms)
+✔ an unknown type is refused, not scored (0.193994ms)
+✔ finish scores the day from its reports, saves it as a route day and on the record (1.615685ms)
+✔ the results screen gets the day as a scenario of its own, its verdict and the debrief as the next step (0.892336ms)
+✔ abandon discards the workday without scoring it (0.267782ms)
+✔ a paused or reloaded workday resumes with its score, and replayed reports are not counted twice (5.571156ms)
+✔ a workday the 3D world cannot resume starts again from the morning (0.387377ms)
+✔ the debrief groups lines by phase, then stop by stop, and links driving mistakes to their pins (1.395543ms)
+✔ an empty day scores nothing and tests nothing (0.289484ms)
+✔ a saved workday with event types the catalogue no longer has still opens (0.32805ms)
+✔ the lab (no workday started at the hub) still reports into an unsaved log (0.141247ms)
+✔ the full-day types score: checks, penalties, bonuses, criticals and the stop they file under (0.523556ms)
+✔ the cab, sign, night and damage events of the milestone 7 to 9 contract exist and score as written (0.201675ms)
+✔ a damage report counts once per zone, and a missing one is recorded as a wrong check (0.156098ms)
+✔ the old mirror and reversing events keep their types (old saves replay) with the new wording (0.242465ms)
+✔ A-26: the cab, sign, night and damage events reach the debrief, the drive map and the results verdict (0.929491ms)
+✔ B-47: milestone 8 mistakes keep their own pins and every marker has a legend line (0.871746ms)
+✔ B-54: a day with traffic keeps how often it ran a red light, turned wrong, did not give way or cut up a cyclist (0.362381ms)
+✔ B-92: a day keeps how often it got the richer stops and the load-out wrong (0.386756ms)
+✔ B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without (34.964018ms)
+✔ B-29: the day keeps its town seed so the drive review can draw its streets; days without one still review (0.517588ms)
+✔ B-31: the drive map names each street with the town's own names (0.458842ms)
+✔ B-131: a package reported missing before departure does not count against the courier when it turns up later (4.530343ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83.265161

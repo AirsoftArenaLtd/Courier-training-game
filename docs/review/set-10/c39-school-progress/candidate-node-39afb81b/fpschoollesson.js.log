@@ -1,0 +1,15 @@
+✔ only the four agreed school types score, with their exact catalogue wording, weights and critical flags (15.392601ms)
+✔ the school drive has a real school-street entry and a real bay beyond the zone, without changing the workday schema (1.686998ms)
+✔ completion requires the actual whole stopped van in the finish bay after both live road encounters (2.030735ms)
+✔ unseen obligations and an unfinished route cannot earn a successful result, and finishing is idempotent (7.790519ms)
+✔ the actual motor and live bus produce their agreed local check while pause freezes observation (442.304961ms)
+✔ a continuous physical school approach clears the live bus and children without injecting verdicts (2168.409444ms)
+✔ driving into the actual live crossing produces the catalogue critical instead of a successful school result (752.829416ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3397.787232

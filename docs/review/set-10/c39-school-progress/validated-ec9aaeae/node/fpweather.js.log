@@ -1,0 +1,20 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ wipers clear the glass through the saved physical control without changing scoring or mission time (2.137583ms)
+✔ pausing and reduced motion freeze cosmetic movement while the functional clearing state remains available (0.261252ms)
+✔ rain returns gradually after switching off, and a different mission resets cosmetic state (0.347498ms)
+✔ one physical windscreen belongs to the cab and only the main camera can draw it (1.60202ms)
+✔ clear weather draws no weather pane until the existing wiper switch is used, and disposal preserves other layer users (0.453703ms)
+✔ all weather variants preserve the mission snapshot and scores while preserving fog limits and the first morning (153.790324ms)
+✔ snow and ice have ground/frost cues; the hub and disposal restore shared material hooks (143.601182ms)
+✔ rain and snow use the existing bounded batch with two triangles per particle and no image texture (27.974345ms)
+✔ cold breath appears ahead of the walking courier, and ice particles hide in a stationary cab (4.824261ms)
+✔ tire spray trails the actual direction of travel from the wheels, including reverse (6.809176ms)
+✔ reduced motion freezes every precipitation and breath matrix, plus surface ripples (7.679853ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 359.016891

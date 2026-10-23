@@ -1,0 +1,20 @@
+✔ the driver sits behind the controls with a wider cab lens without touching saved mission state (3.048988ms)
+✔ turns have bounded heading lag and forward/reverse look-ahead; player look is immediate (3.009079ms)
+✔ zoom eases with speed and remains smaller on Low, while reduced motion restores the original view (3.399747ms)
+✔ acceleration, cornering and braking move the head inside the cab and retain physical body pitch (0.813974ms)
+✔ a wheel crossing a curb gives a small decaying impulse, with no impulse from teleporting (3.021222ms)
+✔ walking head movement stops for precision work, cargo and reduced motion without moving the player (25.36019ms)
+✔ stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score (0.696329ms)
+✔ camera movement remains consistent at 30, 60 and 120 FPS (13.802448ms)
+✔ the approved trainer API is cached at launch/resume and never called by the motor or camera (11.172759ms)
+✔ watch-only hazard clips use a forward upright view without moving the physical cab or normal driver (1.360341ms)
+✔ the controllable drill uses the clear cab view while ordinary workdays retain their seat (0.357448ms)
+✔ school children use the same clear cab view without changing the ordinary workday seat (0.276168ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 76.827561

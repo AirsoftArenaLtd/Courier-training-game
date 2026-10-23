@@ -1,0 +1,29 @@
+{
+  "source": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "path": "/workspace/c39-school-next",
+  "port": 8380,
+  "ownedSources": {
+    "index.html": "348e8118bb3804f391df0624f800c0ddc3f29fa12cb5f92ff60f7f14ee7ecfde",
+    "src/core/fpcamera.js": "35a185dbaf3b271bde541a00f5ee32ae3cce3ea2546f876742d9d971a80a34c4",
+    "src/core/fpworld.js": "703ba2a32e14dac104d9ec9977d2c643bf1fbc349425c1b281076344f5bb454b",
+    "test/fpbench.js": "a58a037964647e714ad81d0b06ed29f319e3caabb6770aa931fd80e1e32f3c7e",
+    "test/fpcamera.js": "3197d6de19a45ba930ac14de72f765e7f49a2ea315a0a7a7f2c47503e39528c7",
+    "test/fpdrivinglessonworld.js": "6a0259fbc7c461fbe36a44223be9e19569ed3f0b110a63233c0266bb1e8e4c6f",
+    "test/fpquality.js": "cc0689291354e903bc45fa9055951e6af2cc63c839e6835a00ffcc598c0d5d20",
+    "test/fpqualitygate.js": "f7e995d6ab4d388faa04918629dcfdd475ac1b74059c2ae3c4c9c29453ad7e5b",
+    "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d",
+    "src/core/fplessonbays.js": "8f68a2179f485bbbbbbb27d509539a5bc2d8baa88ce0505a546a6ab84b2b5cbe",
+    "src/core/fpschoollesson.js": "e5d8ba81970b2c2d1e3eef6eb5e45a4d336f423570413ec304f6abfe6bd27913",
+    "src/core/fpschoollessonui.js": "02c50209d6c41e57f0240b73b0629f8ec7367737445b1b233c7ecf4dbb3aabf8",
+    "test/fplessonbays.js": "e06d9a085e10cab24b7c33953dd656b3bbf2b135f325880e27f01914ec099f2f",
+    "test/fpschoollesson.js": "5edc3ba0194c03c282657ca2c4da6fc3aac5b9cd05a1d8cffa9c93b07a872c19",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da",
+    "test/fpschoollessonworld.js": "877005a5ab4fb563a3a1c45f2ba40144380e9cf1b8a9183cc110d58809fcc9da",
+    "test/tools/fp-school-lesson-fixture.js": "f2b5ad35e22a7ca5338c6ceba8c3f59a2e20384d5edc106769bf48e0d3b4a9e0",
+    "test/tools/fp-school-lesson-proof.js": "9194828324e75a60702892b8f6c6b0a0eae4300874aafbe7913ea2f9c522af69",
+    "test/tools/fp-school-lesson-view.js": "5e91de5824a84a22e268e08b62523fa7c534ff51afbaebd9be14814fe2fcc695",
+    "test/fpschoollessonbrowser.js": "22192d2761169937cc533b7d7d662afa1e9262bd8be82d09604e51affb8296f2"
+  },
+  "pilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "previousSource": "ef7121e0ff2e6311799df6eb33451ec8c6435b0c"
+}

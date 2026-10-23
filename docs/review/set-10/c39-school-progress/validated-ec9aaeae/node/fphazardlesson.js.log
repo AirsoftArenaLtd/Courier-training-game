@@ -1,0 +1,18 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ all five original clips retain their content and fresh per-run state without new checkpoint fields (2.891524ms)
+✔ 100 actual 2D score-clip comparisons preserve inclusive timing, first valid response, early misses and spam (12.362792ms)
+✔ scripted scene time freezes during menus and the ordinary driving controls do not change the clip (1.316165ms)
+✔ all five early responses produce the original 2500-point same-id safety result exactly once (0.56823ms)
+✔ press storage is bounded while too many responses still invalidate the whole clip (0.337189ms)
+✔ reduced motion keeps the camera still with identical cue states and response windows (1.032135ms)
+✔ expiring clips retain all five safety checks without a workday report or free completion marks (0.27045ms)
+✔ all five procedural fallback cue pools stay within the Low budget and dispose with the world (76.162797ms)
+✔ Low and High fallback clues clear the physical cab before, during and after development (91.121375ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 196.67503
