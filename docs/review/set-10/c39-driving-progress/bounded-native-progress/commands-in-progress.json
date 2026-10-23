@@ -241,7 +241,9 @@
       "started": 1792783127.4723022,
       "log": "/tmp/c39-driving-bounded-retained-runner.log",
       "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
-      "pid": 378267
+      "pid": 378267,
+      "exit": 0,
+      "finished": 1792783267.4794323
     },
     {
       "name": "driving-high-en-large",
@@ -279,7 +281,9 @@
           "exit": 1,
           "finished": 1792780727.9029682
         }
-      ]
+      ],
+      "started": 1792783267.4958317,
+      "pid": 378953
     },
     {
       "name": "driving-high-ta-normal",

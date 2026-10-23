@@ -646,6 +646,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **23 October 2026, Codex — C-39 retained runner passes:** the unchanged frozen `b7dc5de8` candidate passes all **231 generic runner checks**, including eight Low/High EN/TA layouts, remapped practice/assessment controls, repeated entry, suspended-workday isolation/abandonment and the actual 2D loading fallback. Raw report, eight images and source/fixture scope: `docs/review/set-10/c39-driving-progress/bounded-native-progress/runner/manifest.json`. This is runner regression, not a second production pre-trip grading pass. All 72 painted-driving resource views remain accepted under unchanged budgets. The corrected three remaining High driving configurations are running sequentially; whole C-39 remains doing.
+
+
 - **23 October 2026, Codex — C-39 all painted-driving resource views pass; native wait correction:** fetched/read unchanged pilot `90844ac5` and continued C-39. All 72 current driving resource views pass under the original budgets (Low **45 calls / 1,670 triangles**; High **86 / 185,244**; full memory/profile figures in PERF). Reports, 72 screenshots and independent verification are in `c39-driving-progress/painted-b7dc5de8/manifest.json`. The High larger-text native run reached 132 checks and three safe reverse bays, then emitted Puppeteer’s generic wait failure during bay four; its underlying cause was not captured, so the report remains diagnostic. The test now records nested causes/target state and bounds each unchanged parking predicate by 30 live game seconds plus 15 wall minutes, with the protocol timeout above those limits. Syntax and the unchanged current-pilot English-source guard pass. Corrected High runs and the retained runner continue sequentially; no game code, scoring or budget changed. Whole C-39 remains doing; existing policy/registry questions stay pending.
 
 
