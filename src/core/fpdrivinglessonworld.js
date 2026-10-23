@@ -31,7 +31,7 @@ OTR.fpDrivingLessonWorld={
     const crossing=new T.InstancedMesh(cube,white,7);crossing.frustumCulled=false;root.add(crossing);for(let i=0;i<7;i++){scratch.position.set(-4.5+i*1.5,.055,0);scratch.rotation.set(0,0,0);scratch.scale.set(.7,.025,2);scratch.updateMatrix();crossing.setMatrixAt(i,scratch.matrix);}
     const api={root,pool,water,bus,arm,lamps,crossing,ink,baseDecor:null,reserve:-1,
       sync(model,reduced){
-        const h=model.drivingLesson.hazard,dir=h.dir||1,town=scene.art?.townArt,reserve=h.active?(OTR.fpDrivingLessonWorld.reserve[h.kind]||0):0;
+        const h=model.drivingLesson.hazard;if(!h){root.visible=false;return;}const dir=h.dir||1,town=scene.art?.townArt,reserve=h.active?(OTR.fpDrivingLessonWorld.reserve[h.kind]||0):0;
         if(!high&&town&&reserve!==this.reserve){if(this.baseDecor===null)this.baseDecor=town.triangleLimit;town.triangleLimit=Math.max(0,this.baseDecor-reserve);town.select(model.van.x,model.van.z);this.reserve=reserve;}
         root.visible=!!h.active;if(!h.active)return;
         const kind=h.kind;visual.clip.kind=kind==='crosswalk'?'phone':kind;visual.time=h.t;visual.reduced=!!reduced;
@@ -43,6 +43,6 @@ OTR.fpDrivingLessonWorld={
         crossing.visible=kind==='crosswalk';crossing.position.set(h.street,0,h.z);
       },
       dispose(){pool.dispose();paint.dispose();red.dispose();white.dispose();waterPaint.dispose();}
-    };api.sync(m,false);return api;
+    };if(m.drivingLesson.hazard)api.sync(m,false);return api;
   }
 };

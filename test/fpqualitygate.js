@@ -120,3 +120,16 @@ test('hazard clips require actual cue sightlines, timing, model sources and isol
  for(const [field,value] of [['visible',false],['clear',false],['x',1.01],['y',NaN],['z',-1]]){const old=proof.cue[field];proof.cue[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/visible hazard-clip proof/);proof.cue[field]=old;}
  r.assets={loaded:0,failed:14,fallbacks:0};r.assetFailure='missing-model-files';const f={...p,fallback:true};assert.throws(()=>checkReport(r,f,'sample'),/visible hazard-clip proof/);for(const x of Object.values(r.hazardLessonProof))x.loadedCar=x.loadedPerson=false;assert.ok(checkReport(r,f,'sample'));
 });
+
+test('controllable-driving resources require all hazards and bays without changing the full workday scope',()=>{
+ const {DRIVINGLESSON_VIEWS,PROFILES}=require('./fpquality'),names=DRIVINGLESSON_VIEWS.split(',');assert.equal(names.length,18);assert.equal(new Set(names).size,18);assert.ok(PROFILES.every(p=>!p.views.split(',').some(v=>v.startsWith('drill'))));
+ const r=report(),p={...profile,views:DRIVINGLESSON_VIEWS};for(const name of names)r.prototype[name]=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/controllable-driving proof/);r.drivingLessonFixture=true;r.drivingLessonProof={};
+ for(const name of names){const parking=name.startsWith('drillparking'),kind=parking?'parking':name.slice(5).replace(/(clue|after)$/, ''),stage=parking?'bay':name.endsWith('clue')?'clue':'after',index=parking?Number(name.slice(-1)):['phone','ball','door','water','crosswalk','bus'].indexOf(kind);
+  r.drivingLessonProof[name]={source:'registered-driving-adapter',id:'m1-driving',key:'driving-town-drill',stops:6,kind,stage,index,logItems:0,results:0,hazardActive:true,hazardJudged:false,hazardKind:kind,loadedCar:true,loadedPerson:true,reduced:false,weather:index>=3?'rain':'clear',bounded:true,checkpointUnchanged:true,eventsUnchanged:true,workdayUnchanged:true,device:kind==='phone'&&stage==='after',parking:parking?{ok:true,reverse:true,steer:.22}:null,cue:{visible:true,clear:true,x:0,y:0,z:0}};
+ }assert.ok(checkReport(r,p,'sample'));
+ for(const [field,value] of [['source','generic-model'],['id','m1-spot'],['kind','door'],['stage','after'],['index',4],['stops',5],['logItems',1],['results',1],['hazardActive',false],['hazardJudged',true],['hazardKind','door'],['loadedCar',false],['loadedPerson',false],['bounded',false],['checkpointUnchanged',false],['eventsUnchanged',false],['workdayUnchanged',false],['weather','rain'],['reduced',true],['device',true]]){const proof=r.drivingLessonProof.drillballclue,old=proof[field];proof[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/controllable-driving proof/,field);proof[field]=old;}
+ for(const field of ['visible','clear']){r.drivingLessonProof.drillballclue.cue[field]=false;assert.throws(()=>checkReport(r,p,'sample'),/controllable-driving proof/);r.drivingLessonProof.drillballclue.cue[field]=true;}
+ r.drivingLessonProof.drillparking3.parking.reverse=false;assert.throws(()=>checkReport(r,p,'sample'),/controllable-driving proof/);r.drivingLessonProof.drillparking3.parking.reverse=true;
+ const f={...p,fallback:true};r.assetFailure='missing-model-files';r.assets={loaded:0,failed:14,fallbacks:0};for(const proof of Object.values(r.drivingLessonProof))proof.loadedCar=proof.loadedPerson=false;assert.ok(checkReport(r,f,'sample'));
+});

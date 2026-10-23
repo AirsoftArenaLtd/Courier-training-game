@@ -1,0 +1,1034 @@
+{
+  "views": [
+    {
+      "view": {
+        "kind": "phone",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "phone",
+        "stage": "clue",
+        "index": 0,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "phone",
+        "hazardTime": 1.0000000000000007,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": false,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.2161651325656511,
+          "y": -0.04735637161018624,
+          "z": 0.916666495622753,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 40,
+        "triangles": 870,
+        "textures": 2,
+        "geometries": 20,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "phone",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "phone",
+        "stage": "after",
+        "index": 0,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "phone",
+        "hazardTime": 9.999999999999831,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "hit": null,
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 40,
+        "triangles": 870,
+        "textures": 2,
+        "geometries": 20,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "ball",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "ball",
+        "stage": "clue",
+        "index": 1,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "ball",
+        "hazardTime": 1.0000000000000007,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.034900929205877194,
+          "y": -0.22974783111526345,
+          "z": 0.9874942094208307,
+          "hit": "Mesh",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 36,
+        "triangles": 926,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "ball",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "ball",
+        "stage": "after",
+        "index": 1,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "ball",
+        "hazardTime": 3.099999999999978,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.09348463180146437,
+          "y": -0.17869275753409378,
+          "z": 0.9874942094208307,
+          "hit": "actor:character",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 36,
+        "triangles": 926,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "door",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "door",
+        "stage": "clue",
+        "index": 2,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "door",
+        "hazardTime": 1.8000000000000014,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.030666090770187598,
+          "y": -0.14250746658430505,
+          "z": 0.9880701983122382,
+          "hit": "Mesh",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 29,
+        "triangles": 728,
+        "textures": 2,
+        "geometries": 20,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "door",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "door",
+        "stage": "after",
+        "index": 2,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "door",
+        "hazardTime": 2.4999999999999907,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.030666090770187598,
+          "y": -0.14250746658430505,
+          "z": 0.9880701983122382,
+          "hit": "Mesh",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 34,
+        "triangles": 748,
+        "textures": 2,
+        "geometries": 20,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "water",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "water",
+        "stage": "clue",
+        "index": 3,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "water",
+        "hazardTime": 0.09999999999999999,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.04487262326469994,
+          "y": -0.24782983634192796,
+          "z": 0.9874942094208307,
+          "hit": "Mesh",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 39,
+        "triangles": 818,
+        "textures": 2,
+        "geometries": 23,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "water",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "water",
+        "stage": "after",
+        "index": 3,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "water",
+        "hazardTime": 2.0000000000000013,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.04487262326469994,
+          "y": -0.24782983634192796,
+          "z": 0.9874942094208307,
+          "hit": "Mesh",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 39,
+        "triangles": 818,
+        "textures": 2,
+        "geometries": 23,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "crosswalk",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "crosswalk",
+        "stage": "clue",
+        "index": 4,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "crosswalk",
+        "hazardTime": 2.0000000000000013,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.4577007572999388,
+          "y": -0.14891063127841148,
+          "z": 0.9874942094208307,
+          "hit": "actor:character",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 39,
+        "triangles": 1252,
+        "textures": 2,
+        "geometries": 23,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "crosswalk",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "crosswalk",
+        "stage": "after",
+        "index": 4,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "crosswalk",
+        "hazardTime": 5.9999999999999165,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.02692357395882903,
+          "y": -0.14891063127841148,
+          "z": 0.9874942094208307,
+          "hit": "actor:character",
+          "blocker": null
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 42,
+        "triangles": 1208,
+        "textures": 2,
+        "geometries": 23,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "bus",
+        "stage": "clue"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "bus",
+        "stage": "clue",
+        "index": 5,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "bus",
+        "hazardTime": 1.0000000000000007,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": false,
+          "x": -0.19881531619739412,
+          "y": -0.12234788689070401,
+          "z": 0.9837693758128985,
+          "hit": "Mesh",
+          "blocker": {
+            "point": [
+              45.72221925139906,
+              1.5009625668234048,
+              -31.19333333310982
+            ],
+            "instance": 33,
+            "parents": [
+              "Mesh",
+              "Group",
+              "Group",
+              "driving-drill-cues",
+              "Group",
+              "Scene"
+            ]
+          }
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 38,
+        "triangles": 1520,
+        "textures": 2,
+        "geometries": 25,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "bus",
+        "stage": "after"
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "bus",
+        "stage": "after",
+        "index": 5,
+        "stops": 6,
+        "hazardActive": true,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": false,
+          "x": -0.19881531619739412,
+          "y": -0.12234788689070401,
+          "z": 0.9837693758128985,
+          "hit": "Mesh",
+          "blocker": {
+            "point": [
+              45.72221925139906,
+              1.5009625668234048,
+              -31.19333333310982
+            ],
+            "instance": 33,
+            "parents": [
+              "Mesh",
+              "Group",
+              "Group",
+              "driving-drill-cues",
+              "Group",
+              "Scene"
+            ]
+          }
+        },
+        "parking": null,
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 41,
+        "triangles": 1496,
+        "textures": 2,
+        "geometries": 24,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 0
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 0,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.21616513256564907,
+          "y": -0.047356371610182656,
+          "z": 0.916666495622753,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 37,
+        "triangles": 984,
+        "textures": 2,
+        "geometries": 20,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 1
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 1,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.2161651325656442,
+          "y": -0.04735637161018487,
+          "z": 0.9166664956227533,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 31,
+        "triangles": 946,
+        "textures": 2,
+        "geometries": 22,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 2
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 2,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "clear",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.216165132565662,
+          "y": -0.04735637161019001,
+          "z": 0.9166664956227528,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 29,
+        "triangles": 814,
+        "textures": 2,
+        "geometries": 21,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 3
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 3,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.21616513256565875,
+          "y": -0.0473563716101893,
+          "z": 0.9166664956227539,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 38,
+        "triangles": 1032,
+        "textures": 2,
+        "geometries": 24,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 4
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 4,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.21616513256565267,
+          "y": -0.047356371610180095,
+          "z": 0.9166664956227535,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 32,
+        "triangles": 1086,
+        "textures": 2,
+        "geometries": 24,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    },
+    {
+      "view": {
+        "kind": "parking",
+        "stage": "bay",
+        "index": 5
+      },
+      "proof": {
+        "source": "registered-driving-adapter",
+        "id": "m1-driving",
+        "key": "driving-town-drill",
+        "kind": "parking",
+        "stage": "bay",
+        "index": 5,
+        "stops": 6,
+        "hazardActive": false,
+        "hazardKind": "bus",
+        "hazardTime": 2.99999999999998,
+        "hazardJudged": false,
+        "logItems": 0,
+        "results": 0,
+        "loadedCar": true,
+        "loadedPerson": true,
+        "reduced": false,
+        "weather": "rain",
+        "device": true,
+        "cue": {
+          "visible": true,
+          "clear": true,
+          "x": 0.21616513256565098,
+          "y": -0.04735637161018337,
+          "z": 0.9166664956227518,
+          "hit": "rear-camera-screen",
+          "blocker": null
+        },
+        "parking": {
+          "ok": true,
+          "reverse": true,
+          "steer": 0.22
+        },
+        "bounded": true,
+        "checkpointUnchanged": true,
+        "eventsUnchanged": true,
+        "workdayUnchanged": true
+      },
+      "diagnostics": {
+        "calls": 35,
+        "triangles": 1052,
+        "textures": 2,
+        "geometries": 23,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376
+      }
+    }
+  ],
+  "errors": [],
+  "debug": {
+    "before": {
+      "x": 2.625,
+      "z": -72.16666666666669,
+      "yaw": 0,
+      "speed": 3,
+      "steer": 0,
+      "gear": 1,
+      "hand": false,
+      "belt": true,
+      "look": 0
+    },
+    "van": {
+      "x": 2.625,
+      "z": -72.21663356619362,
+      "yaw": 0,
+      "speed": 2.996028108686723,
+      "steer": 0,
+      "gear": 1,
+      "hand": false,
+      "belt": true,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "hazard": {
+      "active": false,
+      "kind": null,
+      "t": 0,
+      "ending": 0,
+      "judged": false,
+      "personVisible": false,
+      "ballVisible": false,
+      "phone": false,
+      "doorReach": 0,
+      "armOut": false,
+      "carBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 1.8,
+        "d": 4.3,
+        "h": 1.5
+      },
+      "busBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 2.6,
+        "d": 12,
+        "h": 3.4
+      },
+      "observation": {
+        "fd": 0,
+        "lat": 0,
+        "vanLength": 5.4,
+        "mph": 0,
+        "child": false,
+        "arrived": false,
+        "touching": false,
+        "opened": false,
+        "gap": 0,
+        "distance": 0,
+        "brake": false,
+        "steer": 0,
+        "throttle": false,
+        "handheld": false,
+        "armOut": false
+      }
+    },
+    "motion": {
+      "acceleration": -0.23829362425990652,
+      "lateral": 0,
+      "pitch": -0.00015745556690643244,
+      "roll": 0,
+      "payload": 0,
+      "mass": 2400,
+      "frontLoad": 11910.643563205766,
+      "rearLoad": 11633.356436794236,
+      "rpm": 1369.2453406504774,
+      "assist": 0.5,
+      "contact": false
+    }
+  }
+}
