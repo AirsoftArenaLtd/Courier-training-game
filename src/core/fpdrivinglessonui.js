@@ -3,7 +3,7 @@ window.OTR=window.OTR||{};
 OTR.fpDrivingLessonUI={
   show(scene){
     const m=scene.model,s=m.drivingLesson,stop=m.stops[s.checkpoint];if(!stop)return;
-    scene.handheld.show({title:'Read the driving route.',lines:[`Checkpoint ${stop.index} of ${m.stops.length} is at ${stop.address}.'],options:[
+    scene.handheld.show({title:'Read the driving route.',lines:[`Checkpoint ${stop.index} of ${m.stops.length} is at ${stop.address}.`],options:[
       {label:'Record this checkpoint.',onPick:()=>{scene.handheld.close();this.record(scene);}},
       {label:'Return to the road.',onPick:()=>scene.handheld.close()}
     ],back:()=>scene.handheld.close()});this.fitDevice(scene);
