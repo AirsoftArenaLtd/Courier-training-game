@@ -13,9 +13,10 @@ OTR.fpPretrip={
   create(content,random=Math.random){
     const pool=content.items.slice(),range=content.defects||{min:3,max:5},n=range.min+Math.floor(random()*(range.max-range.min+1));
     for(let i=pool.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
-    return {content,defects:new Set(pool.slice(0,n).map(it=>it.id)),marks:{},tests:{},readings:{},halves:{},visited:new Set(),locations:{},scored:false};
+    const byId=Object.create(null);for(const it of content.items)byId[it.id]=it;
+    return {content,byId,defects:new Set(pool.slice(0,n).map(it=>it.id)),marks:{},tests:{},readings:{},halves:{},visited:new Set(),locations:{},scored:false};
   },
-  item(state,id){return state.content.items.find(it=>it.id===id);},
+  item(state,id){return state.byId[id];},
   lampOn(m,id){return id==='signal_r'?m.signal===1:!!m.van.headlights;},
   canInspect(m,id){
     const s=m.pretripLesson,it=s&&this.item(s,id),at=s&&(s.locations[id]||this.locations[id]);
@@ -76,7 +77,11 @@ OTR.fpScenario.register('pretrip-van',{
     if(id==='secure')return true;
     if(id==='dispatch'){OTR.fpPretripUI.records(scene);return true;}return false;
   },
-  hint(run,id,key){const it=id&&id.startsWith('pretrip-')&&OTR.fpPretrip.item(run.model.pretripLesson,id.slice(8));return it?`Inspect the ${it.name.toLowerCase()}. Press ${key} to interact.`:null;},
+  hint(run,id,key){
+    if(run.hintTarget===id&&run.hintKey===key)return run.hintText;
+    const it=id&&id.startsWith('pretrip-')&&OTR.fpPretrip.item(run.model.pretripLesson,id.slice(8));
+    run.hintTarget=id;run.hintKey=key;run.hintText=it?`Inspect the ${it.name.toLowerCase()}. Press ${key} to interact.`:null;return run.hintText;
+  },
   handheld(run,scene){OTR.fpPretripUI.records(scene);},
   result(run){return OTR.fpPretrip.result(run);}
 });
