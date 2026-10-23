@@ -1,0 +1,3 @@
+# C-39 translated-source assertion diagnostic
+
+Candidate `0a70929a` passes 82 of 83 repository suites, including the corrected retained runner. The sole failure is the English assertion guard: the new browser test already read `OTR.i18n.src(hint)`, but called the returned plain-data field `text`, so the guard treated it as a Phaser text. The test now names that field `source` and still checks the actual English source returned by the translation API. The unchanged shared guard passes against the corrected test. No shared guard or translation source was edited. The final native/resource run uses the corrected fixture plus cached pre-trip lookups. The broad 82 passing suites keep their source scope; the guard is separately rerun at the final candidate.
