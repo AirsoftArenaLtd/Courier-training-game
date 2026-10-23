@@ -2,8 +2,8 @@
 window.OTR=window.OTR||{};
 OTR.fpDrivingLesson={
   create(content,seed,map={x:0,y:0,scale:.05}){
-    const byId={};for(const def of content.hazards)byId[def.id]=def;
-    return {content,seed,map,byId,armed:{},judged:{},results:[],violations:{},lastViolationAt:{},checkpoint:0,finished:false,result:null,parking:{ok:false,reason:'',gap:0,skew:0,withTraffic:false}};
+    const byId={},byCheckpoint=[];for(const def of content.hazards){byId[def.id]=def;byCheckpoint[def.at]=def;}
+    return {content,seed,map,byId,byCheckpoint,armed:{},judged:{},results:[],violations:{},lastViolationAt:{},checkpoint:0,finished:false,result:null,parking:{ok:false,reason:'',gap:0,skew:0,withTraffic:false}};
   },
   model(run){
     const C=run.content,T=OTR.town.build(C.seed),route=DrivingScene.prototype.pickRoute.call({content:C},T),scale=OTR.fpRoute.SCALE;

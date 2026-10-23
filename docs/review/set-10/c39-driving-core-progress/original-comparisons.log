@@ -1,16 +1,19 @@
-✔ all six hazard pass/fail and impact entries match the original scorer, including map positions (17.742917ms)
-✔ violation repeat intervals, default weights and pedestrian critical flags match the original scene (2.133626ms)
-✔ mixed full-drive results and all par-time boundaries match the original endDrill method (20.716203ms)
-✔ parking checks and checkpoint credit match the actual original parking method (2.963721ms)
-✔ physical hazard decisions match original moment-of-truth methods across boundary cases (2.844956ms)
-✔ the controllable module projects the actual six-checkpoint route without changing the five-stop workday schema (148.548029ms)
-✔ checkpoint credit requires the real stopped van wholly inside each original physical bay (6.734081ms)
-✔ rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parking earns no checkpoint credit (15.06656ms)
-ℹ tests 8
+✔ all six hazard pass/fail and impact entries match the original scorer, including map positions (5.263657ms)
+✔ violation repeat intervals, default weights and pedestrian critical flags match the original scene (1.529815ms)
+✔ mixed full-drive results and all par-time boundaries match the original endDrill method (7.081595ms)
+✔ parking checks and checkpoint credit match the actual original parking method (1.568211ms)
+✔ physical hazard decisions match original moment-of-truth methods across boundary cases (3.334473ms)
+✔ the controllable module projects the actual six-checkpoint route without changing the five-stop workday schema (33.16915ms)
+✔ checkpoint credit requires the real stopped van wholly inside each original physical bay (5.610788ms)
+✔ rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parking earns no checkpoint credit (4.632756ms)
+✔ one reused hazard pool respects pause, stays on its checkpoint and cannot duplicate its colliders (1.173709ms)
+✔ the real motor and brake can yield safely to all six physical hazards without workday reports (573.459834ms)
+✔ moving handheld use and physical child, door, pedestrian and bus conflicts keep the original failures (3.413761ms)
+ℹ tests 11
 ℹ suites 0
-ℹ pass 8
+ℹ pass 11
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 229.199073
+ℹ duration_ms 647.393436

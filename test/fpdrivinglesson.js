@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const c={Phaser:{Scene:class{},Math:{Distance:{Between:(x,y,a,b)=>Math.hypot(x-a,y-b)}}}};c.window=c;vm.createContext(c);
 for(const f of ['data/theme.js','data/config.js','data/m1_driving.js','data/town.js','src/core/theme.js','src/core/scoring.js','src/core/scorelog.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const O=c.OTR;O.registerScene=()=>{};O.audio={play(){},stopLoop(){}};O.fx={flash(){},shake(){}};O.vehicle={mph:v=>Math.abs(v.speed)*2.2369362921};O.townArt={busTop(){return 'bus';},ROAD:280};O.driveAids={parkingBrake(){}};
-for(const f of ['src/scenes/shift/TownDriveScene.js','src/scenes/m1/DrivingScene.js','src/core/fpdrivinglesson.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+for(const f of ['src/scenes/shift/TownDriveScene.js','src/scenes/m1/DrivingScene.js','src/core/fpdrivinglesson.js','src/core/fpdrivinglessonhazards.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 for(const f of ['src/core/scenery.js','src/core/rig.js','src/core/townart.js','src/core/town.js','src/core/firstperson.js','src/core/fpmission.js','src/core/fproute.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 const D=O.fpDrivingLesson,C=c.OTR_DATA.driving,old=vm.runInContext('DrivingScene.prototype',c),town=vm.runInContext('TownDriveScene.prototype',c),clean=x=>JSON.parse(JSON.stringify(x));
 const items=l=>clean(l.items.map(({at,...it})=>it));
@@ -62,5 +62,38 @@ test('checkpoint credit requires the real stopped van wholly inside each origina
 test('rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parking earns no checkpoint credit',()=>{
  for(const mutate of [m=>m.van.speed=.2,m=>m.van.hand=false,m=>m.van.yaw=.5,m=>m.van.z+=20,m=>m.van.x+=2,m=>m.van.x-=3,m=>m.van.z=m.stops[0].bay.z0]){
   const m=D.model({content:C}),r={model:m,log:new O.ScoreLog('drive')};Object.assign(m.van,m.stops[0].park,{speed:0,hand:true});mutate(m);assert.equal(D.tryCheckpoint(r),false);assert.equal(m.drivingLesson.checkpoint,0);assert.equal(r.log.items.length,0);assert.ok(m.drivingLesson.parking.reason.endsWith('.'));
+ }
+});
+
+const H=O.fpDrivingLessonHazards;
+function physical(kind){
+ const m=D.model({content:C}),r={model:m,log:new O.ScoreLog('drive')},s=m.drivingLesson,def=C.hazards.find(h=>h.kind===kind);m.moduleReport=()=>false;m.traffic=[];m.paused=false;s.checkpoint=def.at;m.activeStop=def.at;Object.assign(m.van,{x:m.stops[def.at].bay.streetX+m.stops[def.at].side*m.town.road/4,yaw:m.stops[def.at].park.yaw,speed:3,hand:false,belt:true});H.attach(r);
+ let armed=false;for(let back=20;back<100;back+=1){m.van.z=m.stops[def.at].park.z+m.stops[def.at].side*back;if(H.arm(r)){armed=true;break;}}assert.equal(armed,true,kind+' stages on a real straight approach');return r;
+}
+test('one reused hazard pool respects pause, stays on its checkpoint and cannot duplicate its colliders',()=>{
+ const r=physical('ball'),m=r.model,h=m.drivingLesson.hazard,n=m.solids.length;assert.equal(H.attach(r),false);assert.equal(m.solids.length,n);m.paused=true;const t=h.t;for(let i=0;i<60;i++)m.step({forward:true},1/60);assert.equal(h.t,t);assert.equal(H.arm(r),false);assert.equal(h.id,'ball');assert.equal(r.log.items.length,0);
+ m.paused=false;m.drivingLesson.checkpoint=2;H.advance(r,{},.05);assert.equal(h.id,'ball','moving the destination does not replace an unresolved person');
+});
+test('the real motor and brake can yield safely to all six physical hazards without workday reports',()=>{
+ O.workday={report(){throw Error('Module scoring leaked into the workday.');}};
+ for(const kind of ['phone','ball','door','water','crosswalk','bus']){
+  const r=physical(kind),m=r.model,h=m.drivingLesson.hazard;
+  if(kind==='water'){Object.assign(m.van,{x:h.x,z:h.z+h.dir*6.3,speed:4});m.step({},1/60);}
+  else for(let i=0;i<17*60&&!h.judged;i++)m.step({back:true},1/60);
+  assert.equal(h.judged,true,kind);assert.equal(m.drivingLesson.results[0].ok,true,kind);assert.equal(r.log.items[0].got,C.hazards.find(x=>x.kind===kind).points,kind);
+  if(kind==='ball'){const x=h.personX;m.step({back:true},1/60);assert.equal(h.personVisible,true);assert.ok((h.personX-x)*h.dir>0,'the child walks clear instead of vanishing at the verdict');}
+  for(let i=0;i<180;i++)m.step({back:true},1/60);assert.equal(h.active,false);assert.equal(h.carBox.x,1e6);assert.equal(h.busBox.x,1e6);assert.equal(m.snapshot().drivingLesson,undefined);
+ }
+});
+test('moving handheld use and physical child, door, pedestrian and bus conflicts keep the original failures',()=>{
+ for(const kind of ['phone','ball','door','water','crosswalk','bus']){
+  const r=physical(kind),m=r.model,h=m.drivingLesson.hazard;h.t=kind==='ball'?4:kind==='door'?2:kind==='crosswalk'?4:1;
+  if(kind==='phone')H.handheld(r);
+  if(kind==='ball'){m.van.x=h.x-h.dir*1.5;m.van.z=h.z;}
+  if(kind==='door'){h.opened=true;h.doorReach=1;m.van.x=h.street+h.dir*(m.town.road/2-1.5-.95-1-1.08+.1);m.van.z=h.z+h.dir*3.5;}
+  if(kind==='water'){h.inside=true;h.bad=1.09;h.t=3.41;m.van.x=h.x;m.van.z=h.z+h.dir*6.3;m.van.speed=6;}
+  if(kind==='crosswalk'){m.van.x=h.x+h.dir*(10.5-(h.t+.01)*1.8);m.van.z=h.z;}
+  if(kind==='bus'){m.van.z=h.z+h.dir*9;m.van.speed=0;}
+  H.advance(r,kind==='water'?{back:true}:{},.01);assert.equal(h.judged,true,kind);assert.equal(m.drivingLesson.results[0].ok,false,kind);const hazard=r.log.items.find(x=>x.kind==='check');assert.equal(hazard.got,0,kind);if(['ball','door','crosswalk'].includes(kind))assert.equal(r.log.items.at(-1).got,-{ball:4,door:3,crosswalk:5}[kind]);
  }
 });
