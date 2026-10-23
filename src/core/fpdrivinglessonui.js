@@ -1,14 +1,24 @@
 /* The real mounted device and remappable keys share one checkpoint action. No answer coaching in assessments. */
 window.OTR=window.OTR||{};
 OTR.fpDrivingLessonUI={
-  show(scene,notice=''){
+  show(scene){
     const m=scene.model,s=m.drivingLesson,stop=m.stops[s.checkpoint];if(!stop)return;
-    scene.handheld.show({title:'Read the driving route.',lines:[notice,`Checkpoint ${stop.index} of ${m.stops.length} is at ${stop.address}.`,
-      'Park the whole van in the marked bay and set the parking brake before recording the checkpoint.'].filter(Boolean),options:[
+    scene.handheld.show({title:'Read the driving route.',lines:[`Checkpoint ${stop.index} of ${m.stops.length} is at ${stop.address}.'],options:[
       {label:'Record this checkpoint.',onPick:()=>{scene.handheld.close();this.record(scene);}},
-      {label:'Read the driving controls.',onPick:()=>{scene.handheld.close(false);this.controls(scene);}},
       {label:'Return to the road.',onPick:()=>scene.handheld.close()}
-    ],back:()=>scene.handheld.close()});
+    ],back:()=>scene.handheld.close()});this.fitDevice(scene);
+  },
+  fitDevice(scene){
+    const d=scene.handheld.device;if(!d?.screen)return;const size=OTR.fpAccess.settings().large?22:18;
+    const texts=d.screen.list.filter(o=>o.type==='Text'),title=texts.find(o=>o!==d.clockText&&o.x===d.sx+14),back=texts.find(o=>o!==d.clockText&&o.x===d.sx+d.sw-14&&o.y===d.sy+d.sh-16);
+    if(!title)return;title.setFontSize(size).setScale(1).setWordWrapWidth(d.sw-28,true);const header=Math.max(44,title.height+12);title.setY(d.sy+header/2);if(d.clockText)d.clockText.setY(d.sy+header/2);
+    let y=d.sy+header+14;for(const o of texts)if(o!==title&&o!==back&&o!==d.clockText){o.setFontSize(size).setScale(1).setWordWrapWidth(d.sw-28,true).setY(y);y+=o.height+6;}
+    if(back)back.setFontSize(size).setScale(1);
+    for(const b of d.optionBtns)b.label.setFontSize(size).setScale(1).setWordWrapWidth(d.sw-44,true);
+    // Redraw this page's existing vector background after its complete header wraps.
+    const g=d.screen.list[0],brand=OTR.fpBrand.read();g.clear();g.fillStyle(0xF1F5FA).fillRoundedRect(d.sx,d.sy,d.sw,d.sh,10);
+    g.fillStyle(brand.primary).fillRoundedRect(d.sx,d.sy,d.sw,header,{tl:10,tr:10,bl:0,br:0});g.lineStyle(1,0xB8C7CF).strokeRoundedRect(d.sx+.5,d.sy+.5,d.sw-1,d.sh-1,10);g.fillStyle(brand.accent).fillRect(d.sx+14,d.sy+header-3,d.sw-28,2);
+    OTR.fpAccess.layoutDevice(scene.handheld);
   },
   record(scene){
     const r=scene.scenarioSession,m=scene.model,s=m.drivingLesson;if(r.phase!=='active')return false;
