@@ -1,0 +1,33 @@
+[
+  {
+    "command": "node test/fppackagelabels.js",
+    "exit": 0,
+    "tests": 6,
+    "direct2DComparisons": 532,
+    "outputEvidence": "Observed execution output; the six test cases and direct original-prototype calls are in the hashed source. Separate raw logs below cover the six repository smoke suites."
+  },
+  {
+    "command": "node test/fpscenario.js",
+    "exit": 0
+  },
+  {
+    "command": "node test/fpmission.js",
+    "exit": 0
+  },
+  {
+    "command": "node test/fpworld.js",
+    "exit": 0
+  },
+  {
+    "command": "node test/workday.js",
+    "exit": 0
+  },
+  {
+    "command": "node test/i18n.js",
+    "exit": 0
+  },
+  {
+    "command": "node test/savesize.js",
+    "exit": 0
+  }
+]
