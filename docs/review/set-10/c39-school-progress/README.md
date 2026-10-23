@@ -1,6 +1,6 @@
 # C-39 school-zone and painted-bay runtime — validation in progress
 
-**Current evidence:** validated-b7dc5de8 records all 32 resource views, all 85 non-browser suites, and four completed Low native layouts (394 checks, including both larger-text assessments). All budgets and original workday gate profiles are unchanged. High native, painted-driving and retained-runner validation continues. The game tree is ec9aaeae; only three QA files changed for the stronger actual-child-surface proof. The native script has its own locked hash. These results supersede the pending resource statements in the implementation history below; whole C-39 remains doing.
+**Current evidence:** validated-b7dc5de8 records all 32 resource views, all 85 non-browser suites, and all eight completed Low/High EN/TA native layouts (788 checks, including all four larger-text assessments). All budgets and original workday gate profiles are unchanged. Painted-driving and retained-runner validation continues. The game tree is ec9aaeae; only three QA files changed for the stronger actual-child-surface proof. The native script has its own locked hash. These results supersede the pending resource statements in the implementation history below; whole C-39 remains doing.
 
 ## Implementation history
 
