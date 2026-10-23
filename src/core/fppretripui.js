@@ -18,8 +18,8 @@ OTR.fpPretripUI={
     if(it.needs==='gauge')options.push({label:s.tests[id]?'Measure the other half of the tread.':'Measure the tread.',action:()=>{A.measure(m,id,s.tests[id]?!s.halves[id]:false);again();}});
     if(it.needs==='press'&&!s.tests[id])options.push({label:it.kind==='pedal'?'Hold the service brake for three seconds.':'Test this part.',action:()=>{
       if(it.kind!=='pedal'){A.press(m,id);if(it.kind==='horn'&&!s.defects.has(id)){OTR.audio.play('horn');scene.workdaySound.note('The horn sounds.');}again();return;}
-      scene.showPanel('The brake test is running.','Steady pressure is applied to the service brake.',[{label:'Release the brake.',action:close}],{accessibleText:true,diagram:true,back:close});const token=scene.panel.root;
-      scene.time.delayedCall(3000,()=>{if(scene.panel?.root===token&&A.press(m,id,3))again();});
+      scene.showPanel('The brake test is running.','Steady pressure is applied to the service brake.',[{label:'Release the brake.',action:close}],{accessibleText:true,diagram:true,back:close});
+      this.brakeHold(scene,()=>{if(A.press(m,id,3))again();},again);
     }});
     if(A.canJudge(m,id))options.push({label:'Record this part as serviceable.',action:()=>{A.mark(m,id,'pass');close();}},{label:'Flag this part as defective.',action:()=>{A.mark(m,id,'flag');close();}});
     options.push({label:'Return to the van.',action:close});
@@ -27,6 +27,19 @@ OTR.fpPretripUI={
     if(options.length>3){options.splice(1,0,{label:'Record the condition.',action:()=>this.verdict(scene,id)});options.splice(2,options.length-3);}
     scene.showPanel('Inspect this part.',it.name+'\n\n'+this.note(m,it),options,{accessibleText:true,diagram:true,back:close});
     this.picture(scene,it);
+  },
+  brakeHold(scene,done,release){
+    // The accessible press/release control holds real pressure for three focused seconds. Phaser's
+    // smoothed game delta can advance far slower than wall time on a slow renderer.
+    const root=scene.panel.root,started=performance.now();
+    const stop=()=>{scene.events.off('update',tick);scene.game.events.off('blur',cancel);};
+    const cancel=()=>{stop();if(scene.panel?.root===root)release();};
+    const tick=()=>{
+      if(scene.panel?.root!==root){stop();return;}
+      if(document.hidden||!scene.game.hasFocus){cancel();return;}
+      if(performance.now()-started>=3000){stop();done();}
+    };
+    scene.events.on('update',tick);scene.game.events.on('blur',cancel);root.once('destroy',stop);
   },
   verdict(scene,id){
     const m=scene.model,A=OTR.fpPretrip,it=A.item(m.pretripLesson,id);if(!A.canJudge(m,id))return;

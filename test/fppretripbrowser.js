@@ -39,8 +39,17 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8372',OUT=path.join(__dirname,
     if(it.needs==='gauge'){
      await choose('Measure the tread.');await choose('Measure the other half of the tread.');await choose('Record the condition.');
     }else if(it.needs==='press'){
+     if(it.kind==='pedal'&&quality==='low'&&lang==='en'&&!large){
+      await choose('Hold the service brake for three seconds.');await press('Escape');
+      assert.equal(await page.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScenarioScene').model.pretripLesson.tests.brake_pedal),false);report.checks++;
+      await press('KeyE');
+     }
+     const heldAt=it.kind==='pedal'?await page.evaluate(()=>performance.now()):0;
      await choose(it.kind==='pedal'?'Hold the service brake for three seconds.':'Test this part.');
-     if(it.kind==='pedal')await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').model.pretripLesson.tests.brake_pedal===true,{timeout:30000});
+     if(it.kind==='pedal'){
+      await page.waitForFunction(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').model.pretripLesson.tests.brake_pedal===true,{timeout:30000});
+      const duration=await page.evaluate(at=>performance.now()-at,heldAt);assert.ok(duration>=3000);run.brakeHoldMilliseconds=duration;report.checks++;
+     }
     }
     const proof=await page.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),p=s.panel,rect=o=>{const b=o.getBounds();return {x:b.x,y:b.y,right:b.right,bottom:b.bottom,size:parseFloat(o.style.fontSize)*o.scaleY,text:OTR.i18n.src(o)};};return {id,canJudge:OTR.fpPretrip.canJudge(s.model,id),bad:s.model.pretripLesson.defects.has(id),texts:p.root.list.filter(o=>o.type==='Text').map(rect),textures:Object.keys(OTR.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')),localItems:s.scenarioSession.log.items.length};},it.id);
     assert.equal(proof.canJudge,true,it.id);assert.equal(proof.localItems,0);assert.deepEqual(proof.textures,['fp-pretrip-closeup']);for(const t of proof.texts){assert.ok(t.x>=0&&t.y>=0&&t.right<=1280&&t.bottom<=720,JSON.stringify(t));assert.ok(t.size>=(large?22:18),JSON.stringify(t));}report.checks+=4;run.items.push(proof);
