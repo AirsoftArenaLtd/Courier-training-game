@@ -1,0 +1,7 @@
+# C-39 controllable driving core — implementation only
+
+The next adapter now constructs the actual existing six-checkpoint route via DrivingScene.pickRoute and the existing 3D town projection. Its six physical stops have the same addresses and parking positions. It uses the real van motor; the five-stop workday schema and content are unchanged. The isolated module model has no checkpoint fields for this local state.
+
+The local ScoreLog grader retains the original hazard checks, collision extras, five-second violation cooldown, pedestrian critical, six parking/checkpoint entries, seatbelt check, par-time thresholds, categories, lessons and score. A bounded verdict function ports the six original physical moment-of-truth rules in metres. Six Node cases pass: 48 hazard pass/fail/impact comparisons, 20 violation sequences (100 original calls), 40 mixed/time-boundary result comparisons, 18 actual original parking-method comparisons and 105 actual original hazard-step comparisons. The model test independently checks all six real route identities/parking projections and that the real motor responds to input.
+
+This is an unregistered development core: no index or registry hook, controller, hazard render pool, native UI flow, physical parking/reversing acceptance or performance claim is included. Wiring and validating the controllable drill follows the separately frozen hazard-perception adapter. Whole C-39 remains doing.
