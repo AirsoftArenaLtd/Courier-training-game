@@ -95,3 +95,9 @@ test('ambient views require visible bounded people, the correct source variant a
  for(const [key,value] of [['sites',0],['selected',0],['selected',2],['limit',2],['sourcePeople',1],['reserved',0],['solid',false],['restoreValid',false]]){const saved=proof[key];proof[key]=value;assert.throws(()=>checkReport(r,p,'sample'),/ambient presentation proof/);proof[key]=saved;}
  const high={...p,quality:'high',views:'ambientbench'};r.actualQuality=r.quality='high';r.prototype.ambientbench=r.prototype.cab;r.ambientProof.ambientbench={...proof,selected:2,limit:2,sourcePeople:2,reserved:0,bench:true};assert.ok(checkReport(r,high,'sample'));r.ambientProof.ambientbench.bench=false;assert.throws(()=>checkReport(r,high,'sample'),/ambient presentation proof/);
 });
+
+test('pre-trip views require the real registered adapter, all targets, bounded canvas reuse and isolated saves',()=>{
+ const r=report(),p={...profile,views:'pretriptire,pretripcycle'};for(const n of p.views.split(','))r.prototype[n]=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/physical pre-trip proof/);r.pretripFixture=true;r.pretripProof={};for(const n of p.views.split(','))r.pretripProof[n]={source:'registered-pretrip-adapter',id:'m1-pretrip',key:'pretrip-van',targets:21,visited:21,canvases:1,bounded:true,checkpointUnchanged:true,eventsUnchanged:true,workdayUnchanged:true};assert.ok(checkReport(r,p,'sample'));
+ for(const [field,value] of [['targets',20],['canvases',2],['visited',20],['workdayUnchanged',false]]){const old=r.pretripProof.pretripcycle[field];r.pretripProof.pretripcycle[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/physical pre-trip proof/);r.pretripProof.pretripcycle[field]=old;}
+});

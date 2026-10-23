@@ -7,6 +7,7 @@ const CLEARANCE_VIEWS='damagebridge,damageoverhang,damagereverseclearance';
 const DAMAGE_VIEWS='damagefront,damagerear,damageleft,damageright,damagecargo,'+CLEARANCE_VIEWS+',damagemirror';
 const RADIO_VIEWS='radiocaption,radiopriority,radiocheckin,nightoff,nighton,nightglare,nightreduced';
 const AMBIENT_VIEWS='ambientwalk,ambientcab,ambientmirror,ambientnight';
+const PRETRIP_VIEWS='pretripwalk,pretripfront,pretriprear,pretripcab,pretriptire,pretripbrake,pretriprecords,pretripcycle';
 const MODULE_VIEWS='moduledepot,modulestreet,moduledoorstep,modulecab,modulecabreverse,modulecabhandheld';
 const PROFILES=[
  {id:'loaded-low',quality:'low',views:'depot,cab,mirror,mirrorRight,mirrorInterior,handheld,barcodeAim,firstStop,doorstep,doorsignature,doorid,laterstressturnleft,laterrearpeak,lightingnightreverse,visibleweatherstorm,visibleweathersnowwalk,townhouse,townroad,townparked-car,towncab,actorsvan,actorscargoextra,actorsresident,actorsmirror,signsjunction,signsnumber,signsoneway,signspeak,navfull,navline,navreroute,navblocked,navdouble'},
@@ -45,6 +46,7 @@ function checkReport(report,profile,tag){
   if(name.startsWith('walk')){const p=report.walkaroundProof&&report.walkaroundProof[name];if(report.walkaroundFixture!==true||!p||p.marker!==1||p.valid!==true||p.targets!==7||p.proxyOnly!==true)fail('The physical walkaround fixture was not exercised.');}
   if(name.startsWith('damage')){const p=report.damageProof&&report.damageProof[name];if(report.damageFixture!==true||!p||p.marker!==1||p.valid!==true||p.zones!==7||p.clearances!==2||p.instances!==15||p.shift!==3)fail('The located damage and clearance fixture was not exercised.');}
   const sample=report.prototype&&report.prototype[name];if(!sample||!(sample.frames>0)||sample.contextLost)fail('No valid frames for '+name+'.');
+  if(name.startsWith('pretrip')){const p=report.pretripProof&&report.pretripProof[name],image=['pretriptire','pretripbrake','pretripcycle'].includes(name);if(!report.pretripFixture||!p||p.source!=='registered-pretrip-adapter'||p.id!=='m1-pretrip'||p.key!=='pretrip-van'||p.targets!==21||!p.bounded||!p.checkpointUnchanged||!p.eventsUnchanged||!p.workdayUnchanged||p.canvases!==(image?1:0)||name==='pretripcycle'&&p.visited!==21)fail('No isolated physical pre-trip proof for '+name+'.');}
   if(name.startsWith('module')){const p=report.moduleProof&&report.moduleProof[name],piece=name.startsWith('modulecab')?'cab':name.slice(6);if(!report.moduleFixture||!p||p.source!=='module-controller-fixture'||p.id!=='m1-pretrip'||p.piece!==piece||p.phase!=='active'||!p.bounded||!p.checkpointUnchanged||!p.eventsUnchanged||!p.workdayUnchanged||name==='modulecabreverse'&&!p.reverse||name==='modulecabhandheld'&&!p.handheld)fail('No isolated physical module proof for '+name+'.');}
   if(name.startsWith('ambient')){const p=report.ambientProof&&report.ambientProof[name];if(!report.ambientFixture||!p||!p.sites||!p.selected||p.selected>p.limit||p.limit!==(profile.quality==='high'?2:1)||!p.solid||!p.restoreValid||p.reserved!==(profile.quality==='high'?0:36)||p.sourcePeople!==(profile.quality==='high'&&!profile.fallback?2:0)||name==='ambientbench'&&!p.bench)fail('No bounded ambient presentation proof for '+name+'.');}
   if(RADIO_VIEWS.split(',').includes(name)){
@@ -68,13 +70,13 @@ function checkReport(report,profile,tag){
 function run(){
  fs.mkdirSync(OUT,{recursive:true});const selected=(process.env.QA_PROFILES||PROFILES.map(p=>p.id).join(',')).split(',').map(id=>id.trim()).filter(Boolean),tagBase=process.env.QA_TAG||'c29';
  if(!selected.length||selected.some(id=>!PROFILES.some(p=>p.id===id)))throw Error('Unknown or empty quality profile.');
- const clearanceOnly=process.env.QA_CLEARANCE_ONLY==='1',modulesOnly=process.env.QA_MODULES_ONLY==='1';if(clearanceOnly&&modulesOnly)throw Error('Choose one focused quality scope.');const summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),scope:modulesOnly?'module-set-pieces':clearanceOnly?'clearance-alerts':'complete',budgets:BUDGETS,profiles:[]};let failed=false;
+ const clearanceOnly=process.env.QA_CLEARANCE_ONLY==='1',modulesOnly=process.env.QA_MODULES_ONLY==='1',pretripOnly=process.env.QA_PRETRIP_ONLY==='1';if([clearanceOnly,modulesOnly,pretripOnly].filter(Boolean).length>1)throw Error('Choose one focused quality scope.');const summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),scope:pretripOnly?'pretrip-module':modulesOnly?'module-set-pieces':clearanceOnly?'clearance-alerts':'complete',budgets:BUDGETS,profiles:[]};let failed=false;
  for(const original of selected.map(id=>PROFILES.find(p=>p.id===id))){
-  const profile=modulesOnly?{...original,views:MODULE_VIEWS}:clearanceOnly?{...original,views:CLEARANCE_VIEWS}:original;
+  const profile=pretripOnly?{...original,views:PRETRIP_VIEWS}:modulesOnly?{...original,views:MODULE_VIEWS}:clearanceOnly?{...original,views:CLEARANCE_VIEWS}:original;
   const tag=tagBase+'-'+profile.id,reportFile=path.join(OUT,`bench-${tag}-${profile.quality}.json`),start=Date.now();
   // Remove only this run's prior generated report, so a failed child cannot reuse stale evidence.
   if(fs.existsSync(reportFile))fs.unlinkSync(reportFile);
-  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_MODULES:modulesOnly?'1':'',QA_AMBIENT:'1',QA_RADIO:'1',QA_WALKAROUND:'1',QA_DAMAGE:'1',QA_STOPS:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
+  const env={...process.env,QA_GFX:profile.quality,QA_TAG:tag,QA_PROTOTYPE_ONLY:'1',QA_MODULES:modulesOnly?'1':'',QA_PRETRIP:pretripOnly?'1':'',QA_AMBIENT:'1',QA_RADIO:'1',QA_WALKAROUND:'1',QA_DAMAGE:'1',QA_STOPS:'1',QA_TRAFFIC:'1',QA_NAV:'1',QA_SIGNS:'1',QA_ACTORS:'1',QA_TOWN:'1',QA_LIGHTING:'1',QA_WEATHER:'1',QA_SOUND:'1',QA_MIRROR_PROBE:'1',QA_THEME:'',QA_SHOTS:'1',QA_VIEWS:profile.views,QA_A11Y:profile.accessibility||'',QA_FALLBACK:profile.fallback?'1':'0'};
   // Write measurements as they arrive, so a long profile can be inspected while it runs.
   const logFile=path.join(OUT,tag+'.log'),logFD=fs.openSync(logFile,'w');let result;
   try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env,stdio:['ignore',logFD,logFD]});}finally{fs.closeSync(logFD);}
@@ -86,4 +88,4 @@ function run(){
  }
  if(failed)process.exitCode=1;return summary;
 }
-module.exports={BUDGETS,PROFILES,CLEARANCE_VIEWS,RADIO_VIEWS,MODULE_VIEWS,checkReport};if(require.main===module)run();
+module.exports={BUDGETS,PROFILES,CLEARANCE_VIEWS,RADIO_VIEWS,MODULE_VIEWS,PRETRIP_VIEWS,checkReport};if(require.main===module)run();

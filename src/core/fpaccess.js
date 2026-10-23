@@ -106,6 +106,7 @@ OTR.fpAccess={
     if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },
   targetName(scene,id){
+    if(id.startsWith('pretrip-')&&scene.model?.pretripLesson)return OTR.fpPretrip.item(scene.model.pretripLesson,id.slice(8))?.name||id;
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;
     if(id.startsWith('visit'))return OTR.fpStopScene.name(m,Number(id.slice(5)));

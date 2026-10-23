@@ -346,6 +346,23 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
    });(report.moduleProof||(report.moduleProof={}))[name]=proof;report.moduleFixture=true;
   }
+  if(process.env.QA_PRETRIP==='1')for(const name of ['pretripwalk','pretripfront','pretriprear','pretripcab','pretriptire','pretripbrake','pretriprecords','pretripcycle']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-pretrip-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(name=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    const pose=id=>{s.closePanel();const a=m.pretripLesson.locations[id],v=a[3];m.mode=v==='cab'?'cab':'walk';if(v!=='cab')Object.assign(m.player,OTR.fp.local(m.van,v==='driver'?-2.25:v==='passenger'?2.25:a[0],v==='front'?Math.min(-3.85,a[2]-1):v==='rear'?Math.max(3.85,a[2]+1):a[2]));m.paused=false;m.player.pitch=0;s.sync();const o=s.art.pretripArt.targets.find(o=>o.userData.interaction==='pretrip-'+id),point=o.getWorldPosition(new THREE.Vector3()),eye=s.view.camera.position;const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(v==='cab')m.van.look=heading-m.van.yaw;else m.player.yaw=heading;m.player.pitch=Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z));s.sync();};
+    pose(name==='pretripfront'?'windshield':name==='pretriprear'?'rear_door':name==='pretripcab'||name==='pretripbrake'?'brake_pedal':'tire_front_p');
+    if(name==='pretriptire'){OTR.fpPretrip.inspect(m,'tire_front_p');OTR.fpPretrip.measure(m,'tire_front_p');OTR.fpPretripUI.inspect(s,'tire_front_p',true);}
+    if(name==='pretripbrake'){OTR.fpPretrip.inspect(m,'brake_pedal');OTR.fpPretrip.press(m,'brake_pedal',3);OTR.fpPretripUI.inspect(s,'brake_pedal',true);}
+    if(name==='pretriprecords')s.showScanner();
+    if(name==='pretripcycle')for(const it of m.pretripLesson.content.items){pose(it.id);OTR.fpPretripUI.inspect(s,it.id);if(Object.keys(s.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')).length!==1)throw Error('The inspection canvas did not stay bounded.');}
+    s.sync();s.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,b=m.bounds,before=window.pretripBenchmarkBefore;return {source:'registered-pretrip-adapter',id:r.id,key:r.scenario.scene3d,targets:s.art.pretripArt.targets.length,visited:m.pretripLesson.visited.size,canvases:Object.keys(s.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')).length,bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});
+   (report.pretripProof||(report.pretripProof={}))[name]=proof;report.pretripFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

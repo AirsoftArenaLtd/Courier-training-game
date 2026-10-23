@@ -72,9 +72,10 @@ class FirstPersonScene extends Phaser.Scene {
     const root=this.add.container(0,0).setDepth(100);
     this.panel={root,choices,index:0,preserveGaze:!!options.preserveGaze,type:options.inspect?'inspect':'normal',buttons:[],back:options.back||null};this.releaseMouse();
     root.add(this.add.rectangle(640,360,1280,720,0x101A25,options.inspect?0.27:0.7));
-    const cx=options.inspect?958:640,w=options.inspect?570:1040;
+    const sidePanel=options.inspect||options.diagram;
+    const cx=sidePanel?958:640,w=sidePanel?570:1040;
     root.add(this.add.rectangle(cx,360,w,544,0x263545,0.98));root.add(OTR.txt(this,cx,127,title,textSize(27),'#EBC889',{fit:w-60}));
-    const columns=choices.length>4&&!options.inspect?2:1,rows=Math.ceil(choices.length/columns),heights=Array(rows).fill(46),items=[];
+    const columns=choices.length>4&&!sidePanel?2:1,rows=Math.ceil(choices.length/columns),heights=Array(rows).fill(46),items=[];
     const text=OTR.txt(this,cx-w/2+32,170,body,textSize(19),'#ffffff',{ox:0,oy:0,wrap:w-64,bold:false,lineSpacing:4});root.add(text);
     choices.forEach((choice,i)=>{
       const bw=(w-80)/columns-12,x=cx+(columns===1?0:(i%2?1:-1)*(bw+20)/2);

@@ -66,6 +66,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     super.message(text);
   }
   controlHint(id,m,key){
+    const hint=this.scenarioSession?.definition.hint?.(this.scenarioSession,id);if(hint)return hint;
     if(this.scenarioSession&&!OTR.fpScenario.coaching(this.scenarioSession)){
       if(id==='cab-signal-left')return m.signal===-1?'The left signal is on.':'The left signal is off.';
       if(id==='cab-signal-right')return m.signal===1?'The right signal is on.':'The right signal is off.';
