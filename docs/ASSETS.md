@@ -67,6 +67,7 @@ clear. Never trace, copy or use a third-party image as its source.
 
 | File | What it is | Made by, and how | Date |
 | --- | --- | --- | --- |
+| `src/core/fphazardlessonworld.js` | Original bounded hazard cues and physical stop-sign glyph instances; project-owned, shipped under the game’s licence. No image texture. | Codex; shared cube/sphere geometry, original C-50 glyph data, palette materials and procedural fallback figures; locally bundled licensed car/resident models where available. No reference image. | 23 October 2026 |
 | `src/core/fproutelessonui.js` | Original mounted sat-nav vector map and accessible reading frame; project-owned, shipped under the game’s licence. No image texture or raster text. | Codex; Phaser vector commands over the existing project town graph and closure data, no reference image. | 23 October 2026 |
 | `src/core/fppretripui.js` | One reusable 520×330 inspection canvas, geometric component close-ups and a tread-gauge tool; project-owned, shipped under the game’s licence. Text is separate Phaser text. | Codex; existing project `truckart.js` geometric painters with raster text suppressed, plus original Canvas drawing commands for the gauge, no reference image. | 23 October 2026 |
 | `src/core/fppretripworld.js` | Bounded cab safety equipment for the pre-trip exercise; project-owned, shipped under the game’s licence. No image texture. | Codex; five shared cube instances and palette colours, no reference image. | 23 October 2026 |

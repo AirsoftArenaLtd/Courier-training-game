@@ -1,0 +1,41 @@
+{
+  "status": "implementation/model progress only; native/resources pending",
+  "sources": {
+    "src/core/fphazardlesson.js": "1c57a20a787faea8cd6c2a0c92ca4c1f006801875eefd47b2d021fb93cb1cb34",
+    "src/core/fphazardlessonui.js": "77a2ef51c9bd8ed1f7e08e3b9a84d37c04e11a7a25ac4a890d7f8ba9761cc212",
+    "src/core/fphazardlessonworld.js": "2be73b64db09700f057fa94d47f4d310a908cb58a822bda9e1c4611a04606e07",
+    "src/core/fpworld.js": "21bcababf51d8e91a1aac809aedc5d2a03ef9ba2ef6f6f012298effb4a4d6753",
+    "src/scenes/FirstPersonScene.js": "c45703031b6dc1c145b7ba5e7330fa5727e4701634bbcb5a1d933394f5b7331f",
+    "src/scenes/FirstPersonScenarioScene.js": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44",
+    "test/fphazardlesson.js": "9973c49a5ee26392a1b6ac12dd226c0bffeb980244e5c647d6ac66c06d85ee1e",
+    "test/fphazardlessonbrowser.js": "78869f084e36f6718fbcababb2cc19c6657ac896c367419cc461619fe768437f",
+    "index.html": "72e25786ec7725c15f9e5bc434bcfebd65ca4800b7ffdddb2db6934b28924a9f"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2159,
+      "sha256": "7880dd1bc1936d159fe1956a856c6dace121d39686330eb78de589e3a7875f61"
+    },
+    {
+      "file": "model-world.log",
+      "bytes": 1003,
+      "sha256": "3115d05876d3b5cc6139791616d0326108ce4dc9c21a7af6d3cd75536c64cb4d"
+    },
+    {
+      "file": "new-text.json",
+      "bytes": 1189,
+      "sha256": "36d3d5199b80d173f8edd2796530d94886f6e3668ace91970d74bc75f189a464"
+    },
+    {
+      "file": "registry-spot.patch",
+      "bytes": 436,
+      "sha256": "9c0b1d3d1e478b3ecfb76f7af7ec852dd3c9753bcf4f79c1cdd9d633f6caa34b"
+    },
+    {
+      "file": "runner.log",
+      "bytes": 1454,
+      "sha256": "c9de77471839195cbd31cbf3884289b9508dec2f2c66679e4aa4765a1e1acb1f"
+    }
+  ]
+}

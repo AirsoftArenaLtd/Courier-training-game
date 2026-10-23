@@ -362,7 +362,9 @@ class FirstPersonScene extends Phaser.Scene {
       if(/^Arrow/.test(code)||code==='Tab'){this.panel.index=(this.panel.index+(code==='ArrowUp'||code==='ArrowLeft'||code==='Tab'&&shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
       if(code==='Enter')this.choose(this.panel.index);return;
     }
-    if(code==='Escape'||code==='KeyH'){this.showPause();return;}if(code==='KeyE'||code==='Enter'){this.interact();return;}
+    if(code==='Escape'||code==='KeyH'){this.showPause();return;}
+    if(this.scenarioKey&&this.scenarioKey(code))return;
+    if(code==='KeyE'||code==='Enter'){this.interact();return;}
     if(code==='Tab'){this.showScanner();return;}if(code==='KeyF'){this.showParcel();return;}
     if(code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
     if(code==='KeyP'){OTR.fpAccess.focus(this);return;}

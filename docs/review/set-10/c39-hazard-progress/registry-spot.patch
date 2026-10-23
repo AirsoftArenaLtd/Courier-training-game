@@ -1,0 +1,10 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -52,6 +52,7 @@
+         title: 'Spot the Hazard',
+         icon: 'ic_flag',
+         scene: 'HazardScene',
++        scene3d: 'hazard-road-clips',
+         dataKey: 'hazardClips',
+         categories: ['safety'],
+         blurb: 'Five short clips from the driver\'s seat. Something starts to happen in each one: press the moment you see it coming, not when it is already in front of you.',
