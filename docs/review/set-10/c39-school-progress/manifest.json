@@ -1,18 +1,30 @@
 {
-  "status": "unregistered school core development; C-39 doing",
+  "status": "unloaded school adapter and bay components; browser/resource acceptance pending; C-39 doing",
   "base": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
   "sources": {
     "src/core/fpschoollesson.js": "8a9c0e8787ecfa849acab96cc175f5a6da9efea4e0fa93067e6ebb8c7ef2434b",
-    "test/fpschoollesson.js": "16669eef3e3bbcc7db1cb5888aa4f86e14de880d6a035295b351783b62dd34a5"
+    "src/core/fpschoollessonui.js": "98ffba2a084be86a68cb1c662f1982cee4b3ff0d6f3fb293e77819cadef355d2",
+    "src/core/fplessonbays.js": "8f68a2179f485bbbbbbb27d509539a5bc2d8baa88ce0505a546a6ab84b2b5cbe",
+    "test/fpschoollesson.js": "b2d77cffe4880e2ff90c84b48bbaacf12ebb31cb5bea418fe4870b44a9846270",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da",
+    "test/fplessonbays.js": "e06d9a085e10cab24b7c33953dd656b3bbf2b135f325880e27f01914ec099f2f",
+    "test/tools/fp-school-lesson-fixture.js": "f2b5ad35e22a7ca5338c6ceba8c3f59a2e20384d5edc106769bf48e0d3b4a9e0",
+    "test/tools/fp-school-lesson-proof.js": "314498914b5c258728521293412157d363114f12f65f72cc66fbe6eca0008130",
+    "test/tools/fp-school-lesson-view.js": "ef7a3e1dfda04fdc82f0e945004726e8dec61b17a8f38be0e50f27ca7a03f59e"
   },
   "commands": [
-    "node --check src/core/fpschoollesson.js",
-    "node --check test/fpschoollesson.js",
-    "node test/fpschoollesson.js"
+    "node --check <each listed JavaScript source>",
+    "node test/fpschoollesson.js",
+    "node test/fpschoollessonui.js",
+    "node test/fplessonbays.js"
   ],
-  "nodeCases": 6,
+  "nodeCases": 13,
   "files": {
+    "fpschoollesson.log": "99d8980e22df7ea2e22fe0e51e3fffe62e1ab4c7ee3fa9397275519f2dc1cb34",
     "node.log": "469417db0600fb82dd5ec5b3618d863ef5a841446b1c660cdef261b30e90f801",
-    "README.md": "f7e0a8dd5a20d6b4afcb01350dd339c947bac95f67613982fa59b921ac7551ab"
+    "fpschoollessonui.log": "0e0e041c85996230b56af7c79d485ca1d16e6e731f540f00c1e7c38ac27d1c01",
+    "fplessonbays.log": "d21b1c0fe76d83ee9ae3f8944c77f4f02004bf9f10c7731081382226fcc0fca6",
+    "README.md": "cde6501ce3248a630617859d865c06bd9fce87f68188e32a199a3cf6b9f9102a",
+    "registry-school.patch": "d5c28d4d30206225bb056281cdd6697ee3c1abd714c5b431b3c921f233665cb3"
   }
 }
