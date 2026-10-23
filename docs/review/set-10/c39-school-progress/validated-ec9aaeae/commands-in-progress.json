@@ -60,7 +60,9 @@
       "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
       "started": 1792774516.2904727,
       "log": "/tmp/c39-school-acceptance-school-other-resources.log",
-      "pid": 369946
+      "pid": 369946,
+      "exit": 1,
+      "finished": 1792774719.2587888
     },
     {
       "name": "school-low-en-large",
@@ -216,5 +218,6 @@
     }
   ],
   "complete": false,
-  "limits": "School source has all eight native modes and all four resource profiles. Painted driving has 72 current views and the three remaining High native modes; five earlier driving modes remain explicitly scoped to bf3cbb8b."
+  "limits": "School source has all eight native modes and all four resource profiles. Painted driving has 72 current views and the three remaining High native modes; five earlier driving modes remain explicitly scoped to bf3cbb8b.",
+  "failure": "school-other-resources failed; inspect its log and raw report."
 }
