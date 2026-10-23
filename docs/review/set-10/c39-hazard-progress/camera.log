@@ -1,13 +1,13 @@
-✔ the driver sits behind the controls with a wider cab lens without touching saved mission state (3.686892ms)
-✔ turns have bounded heading lag and forward/reverse look-ahead; player look is immediate (1.927218ms)
-✔ zoom eases with speed and remains smaller on Low, while reduced motion restores the original view (3.205963ms)
-✔ acceleration, cornering and braking move the head inside the cab and retain physical body pitch (0.876701ms)
-✔ a wheel crossing a curb gives a small decaying impulse, with no impulse from teleporting (1.711451ms)
-✔ walking head movement stops for precision work, cargo and reduced motion without moving the player (0.968777ms)
-✔ stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score (0.343266ms)
-✔ camera movement remains consistent at 30, 60 and 120 FPS (8.035589ms)
-✔ the approved trainer API is cached at launch/resume and never called by the motor or camera (10.204904ms)
-✔ watch-only hazard clips use a forward upright view without moving the physical cab or normal driver (1.368156ms)
+✔ the driver sits behind the controls with a wider cab lens without touching saved mission state (3.99515ms)
+✔ turns have bounded heading lag and forward/reverse look-ahead; player look is immediate (3.287297ms)
+✔ zoom eases with speed and remains smaller on Low, while reduced motion restores the original view (3.257792ms)
+✔ acceleration, cornering and braking move the head inside the cab and retain physical body pitch (0.940877ms)
+✔ a wheel crossing a curb gives a small decaying impulse, with no impulse from teleporting (2.798807ms)
+✔ walking head movement stops for precision work, cargo and reduced motion without moving the player (1.061455ms)
+✔ stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score (0.446178ms)
+✔ camera movement remains consistent at 30, 60 and 120 FPS (8.65497ms)
+✔ the approved trainer API is cached at launch/resume and never called by the motor or camera (11.16134ms)
+✔ watch-only hazard clips use a forward upright view without moving the physical cab or normal driver (1.981331ms)
 ℹ tests 10
 ℹ suites 0
 ℹ pass 10
@@ -15,4 +15,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 39.203425
+ℹ duration_ms 45.430342

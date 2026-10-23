@@ -1,0 +1,10 @@
+hazard low en normal good
+hazard low en large good
+hazard low ta normal good
+hazard low ta large good
+hazard high en normal good
+AssertionError [ERR_ASSERTION]: {"source":"registered-hazard-adapter","id":"m1-spot","key":"hazard-road-clips","clips":5,"kind":"ball","stage":"after","time":7.8332999999999995,"at":6,"logItems":0,"flags":1,"reduced":false,"loadedCar":true,"loadedPerson":true,"cue":{"visible":true,"x":-0.16837941834798054,"y":-0.4252709294060872,"z":0.9750713578794876,"clear":false,"hit":"Mesh"},"bounded":true,"checkpointUnchanged":true,"eventsUnchanged":true,"workdayUnchanged":true}
+
+false !== true
+
+    at /workspace/c39-hazard-acceptance/test/fphazardlessonbrowser.js:35:152
