@@ -1,16 +1,38 @@
 {
-  "status": "development core, controller and geometry only; not a playable or accepted module",
+  "status": "development model/controller/geometry/rules only; not a playable or accepted module",
+  "nodeCases": {
+    "modelAndController": 12,
+    "rules": 7,
+    "geometry": 2
+  },
   "sources": {
-    "src/core/fpdrivinglesson.js": "dc6fcde9c08fd2c241ba92e0288375dc27896c38123e18dcc87eba454a370eed",
+    "src/core/fpdrivinglesson.js": "b3dc5d4f40821e02ae85a640d7a703c04004c1b4c553707d6153a72728ed36f1",
     "src/core/fpdrivinglessonhazards.js": "88316b736f5d80b5317dad2434d4b3c5cdb4a6d6856872577b4751640b157b13",
     "src/core/fpdrivinglessonworld.js": "63fe75b58791bc7fe8f905883f4b970040f4d78dd718dfeb8d076dc5b03dbb0b",
-    "test/fpdrivinglesson.js": "97c22913a87610e6232f436f2f8ab5132015bd1a93e25130f8371bbbce82472a",
-    "test/fpdrivinglessonworld.js": "1c8816c83c858b69839defd7b77b57b6362b7a5df09091f562f1581bbb8a7d34"
+    "src/core/fpdrivinglessonrules.js": "ecd253f6ca3aff494fd6293cc6002eb5877e431f6b3111d261c2302daf3510b7",
+    "test/fpdrivinglesson.js": "84cc41080b2c837eba1b7e44f9694227f0b5ac11bcab2625ffa6bcb351e1422e",
+    "test/fpdrivinglessonworld.js": "1c8816c83c858b69839defd7b77b57b6362b7a5df09091f562f1581bbb8a7d34",
+    "test/fpdrivinglessonrules.js": "3f8af32bf19fd484c763e8919c8885997544ae3da22ac024c369e3fcbc3f11b6"
   },
   "files": {
-    "README.md": "6337668e1db5d50b4d9fa3de4fb41fc1cc3f85c0ed5dfcc5d63896ea489f7907",
-    "geometry.log": "e47b81733eed6323ae60b09569eed21a6f2973a70e24743e5d5a0b00f2b84e39",
-    "new-text.json": "c62a25319fb08ce7842fdb98487a23e1c02db6260b39d5cf09ad4feee0479e8b",
-    "original-comparisons.log": "b7cb3f42973df8c2aa2a75e58a610b8e0bfea99689d24d7e6b88729294375413"
+    "README.md": "c423f630bfb8706e5b17860250bc809a9e8779fcbda3a3acfc66e6a3b46edca3",
+    "checks/commands.json": "ba7548f10a34b331dd9a431d042085ef76969c707bb7e15a7c9730b228816632",
+    "checks/englishtext-pilot-source.js": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d",
+    "checks/englishtext-pilot.log": "ef00e58bc3bf55811bb91fd4a48cc9ffd546ee9bda370dc01365e08f16d18208",
+    "checks/englishtext.log": "6050ccc28da11c9d2c79c97f5b1b480285552e0ed28bf43dfe0cd008833c87cb",
+    "checks/fpcamera.log": "b2dc31cfaf09820b609c3956dc8a86e3c2e2bff5981241777780f696e7411dd4",
+    "checks/fpdrivinglesson.log": "b59036d064a965623d5f65bb21d18a498f1d9d5424433d5acb284723d539bd03",
+    "checks/fpdrivinglessonrules.log": "f4ae5688c876512accee47264a23b717ac3ad0d243b71c37652de53329584a55",
+    "checks/fpdrivinglessonworld.log": "841075e03a58368fc513e4cc40e0921523a38fc24c18d20ede1aca98d7c8ee36",
+    "checks/fpmission.log": "81c250ac553a2757fca7f0b9ba55046cf3a93193c74a92e6da3df1cb3844ad1c",
+    "checks/fpqualitygate.log": "3159bdec72c5f60150e38f7059dc15ffa66bb23df180f712c4ad0a1b2375e9fc",
+    "checks/fpscenario.log": "259fa689e4fffd71308a17a020771e378bdc1907e9248dfe33ecf20899735faa",
+    "checks/fpworld.log": "8d08ac97bdb3f0e1d933b70506ca4aa5849b8873e61fd96faf26758d1f94f358",
+    "checks/i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "checks/savesize.log": "874745747cb4cd60d0e67b1eb34b99f353e882f575ae1fb8e6a08dd02763341e",
+    "checks/workday.log": "bde6bd788e0eb01a510de7311d806cc8ecd12877fddb39ab1b39892d50940be1",
+    "geometry.log": "841075e03a58368fc513e4cc40e0921523a38fc24c18d20ede1aca98d7c8ee36",
+    "new-text.json": "fc5e2d3493d5eef4ffcb86c54882f342030d65b92127b59777cb801ae533242b",
+    "original-comparisons.log": "b59036d064a965623d5f65bb21d18a498f1d9d5424433d5acb284723d539bd03"
   }
 }
