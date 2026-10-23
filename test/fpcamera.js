@@ -73,3 +73,6 @@ test('watch-only hazard clips use a forward upright view without moving the phys
 test('the controllable drill uses the clear cab view while ordinary workdays retain their seat',()=>{
  for(const yaw of [0,Math.PI/2,-Math.PI/2,Math.PI]){const m=model();m.van.yaw=yaw;const normal={...C.update(C.create(),m,true,false,false)};m.drivingLesson={};const p=C.update(C.create(),m,true,false,false);assert.equal(p.y,2.4);assert.equal(p.fov,normal.fov);assert.ok(Math.abs(p.x-normal.x+.3*Math.cos(yaw)-.35*Math.sin(yaw))<1e-9);delete m.drivingLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);}
 });
+test('school children use the same clear cab view without changing the ordinary workday seat',()=>{
+ const m=model(),r=C.create(),normal={...C.update(r,m,true,false,false)},saved=JSON.stringify(m.snapshot());m.schoolLesson={};const p=C.update(C.create(),m,true,false,false);assert.equal(p.y,2.4);assert.equal(p.fov,normal.fov);assert.equal(JSON.stringify(m.snapshot()),saved);delete m.schoolLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);
+});
