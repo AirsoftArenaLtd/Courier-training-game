@@ -1,0 +1,30 @@
+✔ a real motor impact reports the located severity and place once, replacing the generic contact (13.304642ms)
+✔ holding the accelerator into a wall cannot create repeated impact episodes (147.885478ms)
+✔ a checkpoint held against a physical wall preserves future damage and event identity (95.22154ms)
+✔ separating from a wall ends the contact so a later impact gets a new key (2.465626ms)
+✔ trainer damage-off produces no new damage and enabling it does not query the academy per frame (1.780025ms)
+✔ first days and unmarked old days have no new owned damage state or changed collision grading (11.924445ms)
+✔ starting wear restores without a damage penalty and cannot be rewritten by a checkpoint (3.697994ms)
+✔ marked checkpoints require valid owned damage state; unmarked checkpoints reject injected state (8.985761ms)
+✔ actual hard braking shifts loose cargo once, without changing parcel or shelf identity (4.912925ms)
+✔ ordinary traffic contact uses the front zone and severity, never a second generic grade (1.594411ms)
+✔ a glancing side contact uses the swinging corner speed instead of the full forward speed (1.642392ms)
+✔ an actual reverse impact locates rear damage and preserves its once-only contact identity (1.792303ms)
+✔ a busy day of real adapter reports keeps SCORM 1.2 scores and criticals inside its limit (4.819768ms)
+✔ both signed low clearances leave all generated delivery curbs reachable on a real detour (250.561938ms)
+✔ an overhead collision stops the van and grades roof damage and clearance only once (19.258695ms)
+✔ stopping before a low clearance succeeds without damage, including after resume (5.064762ms)
+✔ damage-off cannot introduce a clearance penalty through the old generic contact grade (1.239745ms)
+✔ moving off after a safe halt cannot hide a later clearance strike, even after restore (11.401216ms)
+✔ an observed approach followed by a safe detour keeps its identity through a checkpoint (6.889023ms)
+✔ a reverse approach warns and grades a safe halt before a later roof strike (1.764662ms)
+✔ a perpendicular traffic impact uses its actual body for the located zone and one contact episode (13.190334ms)
+✔ a successful clearance check keeps its key without an unused map place; a strike retains its place (1.030618ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 654.414088

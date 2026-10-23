@@ -5,7 +5,7 @@ OTR.fpDrivingLessonWorld={
   build(scene,m,parent,cube){
     const T=THREE,high=OTR.gfx.high(),root=new T.Group();root.name='driving-drill-cues';parent.add(root);
     const visual={clip:{kind:'phone'},time:0,reduced:false,carX:0,carZ:0,carYaw:0,personX:0,personZ:0,personVisible:false,ballX:0,ballVisible:false,cueZ:0,doorAngle:0,lamps:false,phone:false},proxy={hazardLesson:visual};
-    const pool=OTR.fpHazardLessonWorld.build(scene,proxy,root,cube),paint=new T.MeshLambertMaterial({color:0xffffff,vertexColors:true}),red=new T.MeshBasicMaterial({color:0xC52E35}),white=new T.MeshBasicMaterial({color:0xF5F5E9,side:T.DoubleSide});
+    const pool=OTR.fpHazardLessonWorld.build(scene,proxy,root,cube),paint=new T.MeshLambertMaterial({color:0xffffff}),red=new T.MeshBasicMaterial({color:0xC52E35}),white=new T.MeshBasicMaterial({color:0xF5F5E9,side:T.DoubleSide});
     const waterPaint=new T.ShaderMaterial({uniforms:{time:{value:0}},vertexShader:'varying vec2 p;void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'varying vec2 p;uniform float time;void main(){float wave=pow(.5+.5*sin((p.x+p.y*.3)*88.+time),18.);gl_FragColor=vec4(mix(vec3(.07,.14,.19),vec3(.46,.59,.61),wave*.6),1.);}'});
     const water=new T.Mesh(new T.CircleGeometry(1,high?32:12),waterPaint);water.rotation.x=-Math.PI/2;water.scale.set(6.5,3.75,1);root.add(water);
     const bus=new T.Group();root.add(bus);const scratch=new T.Object3D(),color=new T.Color(),parts=[],faces=[],plane=new T.PlaneGeometry(1,1);
