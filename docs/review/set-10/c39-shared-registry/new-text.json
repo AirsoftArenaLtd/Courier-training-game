@@ -1,0 +1,42 @@
+{
+  "sentences": [
+    "Inspect every part of the parked van and record its condition before signing off.",
+    "The lamp does not illuminate.",
+    "The lamp illuminates.",
+    "The lamp is switched off.",
+    "The tread has not been measured.",
+    "The mechanical test has not been performed.",
+    "The horn makes no sound.",
+    "The horn sounds immediately.",
+    "The pedal continues to sink under steady pressure.",
+    "The pedal holds its position under steady pressure.",
+    "Measure the other half of the tread.",
+    "Measure the tread.",
+    "Hold the service brake for three seconds.",
+    "Test this part.",
+    "The brake test is running.",
+    "Steady pressure is applied to the service brake.",
+    "Release the brake.",
+    "Record this part as serviceable.",
+    "Flag this part as defective.",
+    "Return to the van.",
+    "Record the condition.",
+    "Inspect this part.",
+    "Record this condition.",
+    "Return to the inspection.",
+    "This part is recorded as serviceable.",
+    "This part is recorded as defective.",
+    "This part has no recorded condition.",
+    "Review the previous part.",
+    "Review the next part.",
+    "Sign off the inspection.",
+    "The inspection is incomplete.",
+    "Every part needs a recorded condition before sign-off.",
+    "Review the inspection."
+  ],
+  "templates": [
+    "The gauge reads ${s.readings[it.id]}/32 inches.",
+    "Inspect the ${it.name.toLowerCase()}. Press ${key} to interact."
+  ],
+  "note": "Existing item names, condition observations and exact pre-trip score/lesson strings are reused from m1-pretrip. No baked text in the inspection canvas. This is a translation handoff, not a catalogue edit."
+}

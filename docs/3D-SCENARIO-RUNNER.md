@@ -1,5 +1,9 @@
 # The 3D scenario runner
 
+**C-38 acceptance is complete:** the final native/control/signal/replay/narration checks and all 24 focused resource views pass, with 171 evidence files independently verified. Current scopes and figures are in `review/set-10/c38-acceptance/manifest.json` and PERF. Earlier progress paragraphs below keep their historical source scope.
+
+C-39 adds optional `hint(run, targetId, actionKey)` for neutral physical interaction prompts. It identifies a nearby component and its action key, never a condition verdict or answer. Assessment runs may show that affordance while keeping checklists, driving coaching and answer feedback hidden; definitions without the callback retain C-38’s behavior. The `pretrip-van` adapter and shared registry proposal are in progress on the C-39 branch.
+
 **Latest native evidence, 22 October:** runtime `1532980c` / candidate `a195d5a3` passes 231 native checks, 13 model/world cases and four guidance cases. It preserves actual saved-workday state and assessment attempts, completes repeated plays, retains merged signal/replay registration, and suppresses saved-workday narration in modules. Corrected screenshots and exact source scopes: `review/set-10/c38-guidance-progress/manifest.json`. All 82 repository suites pass at entry-corrected candidate `7aed62d2`; the only later runtime change is the focused guidance guard. Cab/signal/replay/narration/resource acceptance continues; C-38 is still doing.
 
 C-38 implements the runner in `src/core/fpscenario.js` and `src/scenes/FirstPersonScenarioScene.js`, stacked on C-52. The governing contract remains `3D-MODULES.md` on the current pilot, including B-135's per-module rules. C-39 to C-46 supply the actual exercises. This change registers no production exercise, changes no course data and enables no 3D default.
