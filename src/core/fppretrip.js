@@ -76,7 +76,7 @@ OTR.fpScenario.register('pretrip-van',{
     if(id==='secure')return true;
     if(id==='dispatch'){OTR.fpPretripUI.records(scene);return true;}return false;
   },
-  hint(run,id){const it=id&&id.startsWith('pretrip-')&&OTR.fpPretrip.item(run.model.pretripLesson,id.slice(8));return it?`Inspect the ${it.name.toLowerCase()}.`:null;},
+  hint(run,id,key){const it=id&&id.startsWith('pretrip-')&&OTR.fpPretrip.item(run.model.pretripLesson,id.slice(8));return it?`Inspect the ${it.name.toLowerCase()}. Press ${key} to interact.`:null;},
   handheld(run,scene){OTR.fpPretripUI.records(scene);},
   result(run){return OTR.fpPretrip.result(run);}
 });

@@ -28,7 +28,10 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8372',OUT=path.join(__dirname,
    for(const it of items){
     console.log('part',it.id);
     if(it.view==='cab')await cab();else await pose(it.id);
-    await focus('pretrip-'+it.id);await press('KeyE');assert.ok(await page.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScenarioScene').panel),JSON.stringify(await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene');return {target:s.target,aim:s.aimTarget(),phase:s.scenarioSession.phase,mode:s.model.mode,paused:s.model.paused,parked:s.model.parked(),held:s.model.heldId};})));report.checks++;
+    await focus('pretrip-'+it.id);
+    const affordance=await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene');s.notice='';s.noticeUntil=0;s.refresh();return {visible:s.hint.visible,text:OTR.i18n.src(s.hint)};});
+    assert.equal(affordance.visible,true);assert.ok(affordance.text.includes('Press E to interact.'),affordance.text);report.checks+=2;
+    await press('KeyE');assert.ok(await page.evaluate(()=>!!OTR.game.scene.getScene('FirstPersonScenarioScene').panel),JSON.stringify(await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene');return {target:s.target,aim:s.aimTarget(),phase:s.scenarioSession.phase,mode:s.model.mode,paused:s.model.paused,parked:s.model.parked(),held:s.model.heldId};})));report.checks++;
     if(it.needs==='lights'&&!lamps){
      assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').panel.choices.some(c=>c.label==='Record this part as serviceable.')),false);report.checks++;
      await press('Escape');await cab();await press('KeyL');await press('KeyC');await focus('cab-exit');await press('KeyE');lamps=true;await pose(it.id);await focus('pretrip-'+it.id);await press('KeyE');

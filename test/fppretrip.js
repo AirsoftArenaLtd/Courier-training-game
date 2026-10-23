@@ -48,3 +48,8 @@ test('inspection proxies and cab equipment fit the bounded Low world and clean u
  const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}}},art=O.fpWorld.build(scene,m);art.sync(m,null,'route');assert.equal(art.pretripArt.targets.length,21);
  let calls=0,triangles=0;world.traverse(o=>{if(!o.isMesh||!o.visible||!o.layers.test(camera.layers))return;for(let p=o.parent;p;p=p.parent)if(!p.visible)return;calls++;triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3*(o.isInstancedMesh?o.count:1);});assert.ok(calls<64);assert.ok(triangles<2500);art.dispose();assert.equal(world.children.length,1);
 });
+
+test('neutral remapped interaction prompts identify parts without disclosing their condition',()=>{
+ const r=fresh();r.assessment=true;for(const it of C.items){const text=definition.hint(r,'pretrip-'+it.id,'O');assert.ok(text.includes('Press O to interact.'));assert.ok(!text.includes(it.defect));assert.ok(!text.includes(it.ok));}
+ assert.equal(definition.hint(r,null,'O'),null);assert.equal(definition.hint(r,'driver','O'),null);
+});
