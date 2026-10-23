@@ -1,6 +1,6 @@
 # 3D workday rendering cost
 
-**C-39 school four-profile gate (23 October 2026):** all 32 school resource/visibility views pass the unchanged limits. The game tree is `ec9aaeae`; QA-only revision `b7dc5de8` strengthens the High child target to an actual posed upper-body triangle. All 85 non-browser suites pass at that QA revision. Four Low English/Tamil normal/larger native runs pass 394 checks, including the two larger-text assessments; High native runs, painted-driving checks and the retained runner continue. Evidence: `docs/review/set-10/c39-school-progress/validated-b7dc5de8/manifest.json`. C-39 remains doing. These are resource counts, not Intel-laptop FPS; O-1 remains.
+**C-39 school four-profile gate (23 October 2026):** all 32 school resource/visibility views pass the unchanged limits. The game tree is `ec9aaeae`; QA-only revision `b7dc5de8` strengthens the High child target to an actual posed upper-body triangle. All 85 non-browser suites pass at that QA revision. All eight Low/High English/Tamil normal/larger native runs pass 788 checks, including all four larger-text assessments. Painted-driving checks and the retained runner continue. Evidence: `docs/review/set-10/c39-school-progress/validated-b7dc5de8/manifest.json`. C-39 remains doing. These are resource counts, not Intel-laptop FPS; O-1 remains.
 
 | School profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

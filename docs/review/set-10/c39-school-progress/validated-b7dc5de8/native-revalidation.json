@@ -1,0 +1,88 @@
+{
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "checks": 104,
+      "assessment": false,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "checks": 93,
+      "assessment": true,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "checks": 104,
+      "assessment": false,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "checks": 93,
+      "assessment": true,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "checks": 104,
+      "assessment": false,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "checks": 93,
+      "assessment": true,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "checks": 104,
+      "assessment": false,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "checks": 93,
+      "assessment": true,
+      "score": 400,
+      "safetyStars": 3,
+      "shots": 4
+    }
+  ],
+  "checks": 788,
+  "assessments": 4,
+  "screenshots": 32,
+  "limits": "The source fixture replaces travel/aiming poses; actual actors, physics, raycasts, controls and result flow remain live. New English sentences await Claude translation."
+}

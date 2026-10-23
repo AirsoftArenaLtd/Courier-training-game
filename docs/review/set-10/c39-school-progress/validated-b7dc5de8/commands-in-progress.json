@@ -146,7 +146,9 @@
       "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
       "started": 1792776163.0185463,
       "log": "/tmp/c39-school-acceptance-school-high-en-normal.log",
-      "pid": 374092
+      "pid": 374092,
+      "exit": 0,
+      "finished": 1792776752.9629273
     },
     {
       "name": "school-high-en-large",
@@ -159,7 +161,14 @@
         "QA_QUALITIES": "high",
         "QA_LANGS": "en",
         "QA_SIZES": "large"
-      }
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792776752.979537,
+      "log": "/tmp/c39-school-acceptance-school-high-en-large.log",
+      "pid": 374830,
+      "exit": 0,
+      "finished": 1792777319.749714
     },
     {
       "name": "school-high-ta-normal",
@@ -172,7 +181,14 @@
         "QA_QUALITIES": "high",
         "QA_LANGS": "ta",
         "QA_SIZES": "normal"
-      }
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792777319.7636337,
+      "log": "/tmp/c39-school-acceptance-school-high-ta-normal.log",
+      "pid": 375209,
+      "exit": 0,
+      "finished": 1792777900.8958275
     },
     {
       "name": "school-high-ta-large",
@@ -185,7 +201,14 @@
         "QA_QUALITIES": "high",
         "QA_LANGS": "ta",
         "QA_SIZES": "large"
-      }
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792777900.9143481,
+      "log": "/tmp/c39-school-acceptance-school-high-ta-large.log",
+      "pid": 375591,
+      "exit": 0,
+      "finished": 1792778456.906756
     },
     {
       "name": "painted-driving-resources",
@@ -197,7 +220,12 @@
         "QA_DRIVINGLESSON_ONLY": "1",
         "QA_PROFILES": "loaded-low,loaded-high,accessible-low,fallback-low",
         "QA_TAG": "c39-painted-driving-current"
-      }
+      },
+      "testSource": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+      "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
+      "started": 1792778456.9232786,
+      "log": "/tmp/c39-school-acceptance-painted-driving-resources.log",
+      "pid": 375973
     },
     {
       "name": "driving-high-en-large",
