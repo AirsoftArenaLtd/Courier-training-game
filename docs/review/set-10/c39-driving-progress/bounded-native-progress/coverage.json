@@ -1,0 +1,181 @@
+{
+  "configurations": 8,
+  "singleRevisionMatrix": false,
+  "earlierConfigurations": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+      "raw": "../interrupted-23-oct/native-incomplete.json"
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+      "raw": "../interrupted-23-oct/native-incomplete.json"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+      "raw": "../interrupted-23-oct/native-incomplete.json"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+      "raw": "../interrupted-23-oct/native-incomplete.json"
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+      "raw": "../interrupted-23-oct/native-incomplete.json"
+    }
+  ],
+  "earlierChecks": 936,
+  "currentConfigurations": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "checks": 184,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.532899999999408,
+          "frames": 159,
+          "wallMs": 148460
+        },
+        {
+          "gameSeconds": 5.1001000000000545,
+          "frames": 106,
+          "wallMs": 102031
+        },
+        {
+          "gameSeconds": 5.133400000000904,
+          "frames": 110,
+          "wallMs": 97411
+        },
+        {
+          "gameSeconds": 7.549900000001699,
+          "frames": 161,
+          "wallMs": 188320
+        },
+        {
+          "gameSeconds": 5.1999000000008095,
+          "frames": 110,
+          "wallMs": 124671
+        },
+        {
+          "gameSeconds": 5.149600000001257,
+          "frames": 108,
+          "wallMs": 121757
+        }
+      ]
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "checks": 186,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.499999999999533,
+          "frames": 159,
+          "wallMs": 149005
+        },
+        {
+          "gameSeconds": 5.150099999999934,
+          "frames": 108,
+          "wallMs": 105894
+        },
+        {
+          "gameSeconds": 5.150100000001245,
+          "frames": 111,
+          "wallMs": 92200
+        },
+        {
+          "gameSeconds": 7.517000000001332,
+          "frames": 161,
+          "wallMs": 177871
+        },
+        {
+          "gameSeconds": 5.1667000000011,
+          "frames": 111,
+          "wallMs": 120285
+        },
+        {
+          "gameSeconds": 5.1164000000007945,
+          "frames": 113,
+          "wallMs": 127395
+        }
+      ]
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "checks": 184,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.51649999999959,
+          "frames": 157,
+          "wallMs": 149087
+        },
+        {
+          "gameSeconds": 5.1498999999998425,
+          "frames": 109,
+          "wallMs": 106595
+        },
+        {
+          "gameSeconds": 5.150000000000922,
+          "frames": 111,
+          "wallMs": 100149
+        },
+        {
+          "gameSeconds": 7.5500000000015675,
+          "frames": 160,
+          "wallMs": 176091
+        },
+        {
+          "gameSeconds": 5.133300000001611,
+          "frames": 112,
+          "wallMs": 128235
+        },
+        {
+          "gameSeconds": 5.099700000001306,
+          "frames": 105,
+          "wallMs": 124730
+        }
+      ]
+    }
+  ],
+  "currentChecks": 554,
+  "totalNativeChecks": 1490,
+  "currentResourceViews": 72,
+  "retainedRunnerChecks": 231,
+  "limit": "The earlier report is incomplete overall because the next page failed to load; only its five fully completed result-bearing cases are counted. Runtime bridge records exact unchanged driving/runner files. No single-revision eight-mode claim is made."
+}

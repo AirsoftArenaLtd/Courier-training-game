@@ -94,9 +94,53 @@
           "wallMs": 127395
         }
       ]
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "checks": 184,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.51649999999959,
+          "frames": 157,
+          "wallMs": 149087
+        },
+        {
+          "gameSeconds": 5.1498999999998425,
+          "frames": 109,
+          "wallMs": 106595
+        },
+        {
+          "gameSeconds": 5.150000000000922,
+          "frames": 111,
+          "wallMs": 100149
+        },
+        {
+          "gameSeconds": 7.5500000000015675,
+          "frames": 160,
+          "wallMs": 176091
+        },
+        {
+          "gameSeconds": 5.133300000001611,
+          "frames": 112,
+          "wallMs": 128235
+        },
+        {
+          "gameSeconds": 5.099700000001306,
+          "frames": 105,
+          "wallMs": 124730
+        }
+      ]
     }
   ],
-  "checks": 370,
-  "complete": false,
-  "scope": "These three High modes use the current painted-bay runtime and separately hashed bounded-wait test. The five earlier configurations remain at bf3cbb8b, before the painted bay and school-only hooks."
+  "checks": 554,
+  "complete": true,
+  "scope": "These three High modes use the current painted-bay runtime and separately hashed bounded-wait test. Five earlier modes retain their bf3cbb8b scope, before paint and school-only hooks."
 }
