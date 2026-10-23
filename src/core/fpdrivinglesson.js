@@ -52,6 +52,7 @@ OTR.fpDrivingLesson={
   },
   tryCheckpoint(run){
     const m=run.model,s=m.drivingLesson,stop=m.stops[s.checkpoint],p=this.parking(m,stop);if(!p.ok||s.finished)return false;
+    if(s.hazard?.active&&!s.hazard.judged){p.ok=false;p.reason='Wait until the current road hazard has cleared before recording this checkpoint.';return false;}
     if(!this.checkpoint(run,stop,p.gap,p.skew,p.withTraffic))return false;
     stop.resolved=true;m.activeStop=Math.min(m.stops.length-1,s.checkpoint);m.leg=s.checkpoint;m.touch();return true;
   },
@@ -62,7 +63,10 @@ OTR.fpDrivingLesson={
     run.log.check('efficiency',1,1,`Checkpoint ${stop.index} reached`);s.checkpoint++;return true;
   },
   result(run){
-    const m=run.model,s=m.drivingLesson;if(s.result)return s.result;s.finished=true;const C=s.content,par=C.par;
+    const m=run.model,s=m.drivingLesson;if(s.result)return s.result;const C=s.content,par=C.par;
+    // Expiry must include every staged but unresolved hazard in the original safety maximum.
+    for(const h of C.hazards)if(s.armed[h.id]&&!s.judged[h.id])this.judge(run,h.id,false);
+    s.finished=true;
     run.log.check('efficiency',m.elapsed<=par?3:m.elapsed<=par*1.4?2:m.elapsed<=par*1.9?1:0,3,`Ran the drill in ${Math.round(m.elapsed)}s (par ${par}s)`,{lesson:C.lessons.speed});
     run.log.check('safety',!s.violations.belt?2:0,2,'Drove buckled up the whole way',{lesson:'Belt on before the wheels move, every stop, every time.'});
     for(const h of C.hazards)if(!s.armed[h.id])run.log.check('safety',0,h.points,h.title+' (never reached)',{lesson:h.lesson});

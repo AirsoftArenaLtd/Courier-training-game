@@ -97,3 +97,10 @@ test('moving handheld use and physical child, door, pedestrian and bus conflicts
   H.advance(r,kind==='water'?{back:true}:{},.01);assert.equal(h.judged,true,kind);assert.equal(m.drivingLesson.results[0].ok,false,kind);const hazard=r.log.items.find(x=>x.kind==='check');assert.equal(hazard.got,0,kind);if(['ball','door','crosswalk'].includes(kind))assert.equal(r.log.items.at(-1).got,-{ball:4,door:3,crosswalk:5}[kind]);
  }
 });
+
+test('parking cannot skip a pending physical hazard, and expiry cannot remove it from the safety maximum',()=>{
+ const r=physical('phone'),m=r.model,s=m.drivingLesson,stop=m.stops[0];Object.assign(m.van,stop.park,{speed:0,hand:true});
+ assert.equal(D.tryCheckpoint(r),false);assert.equal(s.checkpoint,0);assert.equal(r.log.items.length,0);assert.ok(s.parking.reason.endsWith('.'));
+ const result=D.result(r),checks=result.log.items.filter(it=>it.kind==='check'&&C.hazards.some(h=>it.label===h.title||it.label===h.title+' (never reached)'));
+ assert.equal(checks.length,6);assert.equal(checks.reduce((n,it)=>n+it.max,0),C.hazards.reduce((n,h)=>n+h.points,0));assert.equal(checks.find(it=>it.label===C.hazards[0].title).got,0);assert.equal(D.result(r),result);
+});

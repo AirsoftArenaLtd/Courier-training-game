@@ -8,6 +8,14 @@
     "Move the whole van off the curb before recording this checkpoint.",
     "Move closer to the curb before recording this checkpoint.",
     "Keep the whole van inside the marked bay and clear of the crossing.",
-    "Keep the whole van clear of buildings and obstacles."
-  ]
+    "Keep the whole van clear of buildings and obstacles.",
+    "Wait until the current road hazard has cleared before recording this checkpoint.",
+    "Visibility is reduced. Turn on the headlights.",
+    "Contacted an obstacle or exceeded 5 mph while reversing.",
+    "Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear."
+  ],
+  "templates": [
+    "The van hit an obstacle at {mph} mph."
+  ],
+  "reusedCatalogueLesson": "drive.signal"
 }
