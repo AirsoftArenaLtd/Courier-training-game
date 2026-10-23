@@ -1,0 +1,102 @@
+{
+  "candidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "testSource": {
+    "path": "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js",
+    "sha256": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "change": "Test-only protocol timeout, live-game-time bounded parking wait, progress timings and nested error cause capture. Gameplay and parking predicates are unchanged."
+  },
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "checks": 184,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.532899999999408,
+          "frames": 159,
+          "wallMs": 148460
+        },
+        {
+          "gameSeconds": 5.1001000000000545,
+          "frames": 106,
+          "wallMs": 102031
+        },
+        {
+          "gameSeconds": 5.133400000000904,
+          "frames": 110,
+          "wallMs": 97411
+        },
+        {
+          "gameSeconds": 7.549900000001699,
+          "frames": 161,
+          "wallMs": 188320
+        },
+        {
+          "gameSeconds": 5.1999000000008095,
+          "frames": 110,
+          "wallMs": 124671
+        },
+        {
+          "gameSeconds": 5.149600000001257,
+          "frames": 108,
+          "wallMs": 121757
+        }
+      ]
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "checks": 186,
+      "stops": 6,
+      "score": 4300,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "timings": [
+        {
+          "gameSeconds": 7.499999999999533,
+          "frames": 159,
+          "wallMs": 149005
+        },
+        {
+          "gameSeconds": 5.150099999999934,
+          "frames": 108,
+          "wallMs": 105894
+        },
+        {
+          "gameSeconds": 5.150100000001245,
+          "frames": 111,
+          "wallMs": 92200
+        },
+        {
+          "gameSeconds": 7.517000000001332,
+          "frames": 161,
+          "wallMs": 177871
+        },
+        {
+          "gameSeconds": 5.1667000000011,
+          "frames": 111,
+          "wallMs": 120285
+        },
+        {
+          "gameSeconds": 5.1164000000007945,
+          "frames": 113,
+          "wallMs": 127395
+        }
+      ]
+    }
+  ],
+  "checks": 370,
+  "complete": false,
+  "scope": "These three High modes use the current painted-bay runtime and separately hashed bounded-wait test. The five earlier configurations remain at bf3cbb8b, before the painted bay and school-only hooks."
+}
