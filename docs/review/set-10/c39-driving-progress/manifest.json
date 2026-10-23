@@ -6,7 +6,7 @@
     "src/core/fpdrivinglesson.js": "3d82d7f629cf8704970d476d4f36bd65eb7219a327f40dd3f94b6ad8a734d0bb",
     "src/core/fpdrivinglessonhazards.js": "77b24e36b86ff7fedb78e854cdca3b731a5e4e6ae2cb1fc95f86ddd9b615b684",
     "src/core/fpdrivinglessonrules.js": "e8ec05c30540148859d4ae15d57aea0c5e077913237997b633ca17981e51c25c",
-    "src/core/fpdrivinglessonui.js": "34269a57f482b877467eb2a292aeb476ee18fb5d138a1e3fcb9bf34f60025cbe",
+    "src/core/fpdrivinglessonui.js": "20fdcccd10834c92c9af566c33f8513f1c62a24ace2758d4fb98b27fbef14258",
     "src/core/fpdrivinglessonworld.js": "ea7216a51438fb4b18451624b53ff12a12bde48e79af8e19260a2d87fb102d0b",
     "src/core/fpworld.js": "5f24e4a6232f31d2163a68a778198c18a2721b496a6c646c4b303a5c011fe071",
     "src/core/fpcamera.js": "3137a8fa414e0db56b09b2a472a2ddc63f7a3c84b98575faa99865f8c8637e5b",
