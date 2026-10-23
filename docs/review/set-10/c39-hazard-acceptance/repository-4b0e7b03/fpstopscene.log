@@ -1,0 +1,15 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ delivery controls share the existing palette batches and retain exact invisible raycast proxies (259.25267ms)
+✔ the physical gate disappears from pixels and rays only after the valid buzz and unlock (37.059743ms)
+✔ an open locker displays the deposited parcel and its true barcode instead of a second carried parcel (383.616596ms)
+✔ closing the locker occludes the barcode and opening it invalidates the photo and moves the hinge and solid together (75.542531ms)
+✔ a deposited parcel must be retrieved before it can return to cargo or become a retained exception (44.896446ms)
+✔ mirror compaction restores the exact main-view palette matrices after a locker hinge changes (77.993678ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 915.979949

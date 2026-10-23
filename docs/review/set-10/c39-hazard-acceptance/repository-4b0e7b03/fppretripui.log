@@ -1,0 +1,12 @@
+✔ three focused seconds are measured independently of smoothed render deltas (44.68938ms)
+✔ a stalled High frame completes only after the full real hold (3.074349ms)
+✔ a focused initial tab works before Phaser receives its first window focus event (0.985762ms)
+✔ releasing, leaving the panel or losing focus never performs the brake test (5.60079ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.898412
