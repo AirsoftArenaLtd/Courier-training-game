@@ -1,0 +1,35 @@
+✖ no browser suite compares a text object with an English game string (36.880623ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41.992236
+
+✖ failing tests:
+
+test at test/englishtext.js:9:1
+✖ no browser suite compares a text object with an English game string (36.880623ms)
+  AssertionError [ERR_ASSERTION]: compare with OTR.i18n.t(...) or OTR.i18n.src(text) instead:
+  fppretripbrowser.js: .text.includes('Press E to interact.')
+  + actual - expected
+  
+  + [
+  +   "fppretripbrowser.js: .text.includes('Press E to interact.')"
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/workspace/c39-pilot-acceptance/test/englishtext.js:18:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
