@@ -37,13 +37,14 @@ OTR.fpPackageLabelScenario={
       }}));
     options.push({label:'Show more sides of the package.',onPick:()=>A.inspect(scene,(page+1)%3)});
     if(OTR.fpScenario.coaching(scene.scenarioSession))options.push({label:'Read the handling guide.',onPick:()=>A.guide(scene)});
-    scene.handheld.show({title:'Inspect every side of the package.',lines:[this.read(scene)],options,back:()=>scene.handheld.close()});
+    scene.handheld.show({title:`Inspect package ${s.index+1} of ${s.queue.length}.`,lines:[this.read(scene)],options,back:()=>scene.handheld.close()});
   },
   guide(scene,page=0){
     const s=scene.model.packageLabels;if(!OTR.fpScenario.coaching(scene.scenarioSession)){scene.handheld.close();return;}
     const entry=s.content.guide[page];s.guideOpen=true;
-    scene.handheld.show({title:'Read the handling guide.',lines:[`${entry.name}: ${entry.meaning}`],options:[
-      {label:'Read the next handling mark.',onPick:()=>this.guide(scene,(page+1)%s.content.guide.length)},
+    const line=entry?`${entry.name}: ${entry.meaning}`:'When several rules apply, use the first matching station in this order: isolate and report, hazmat cage, fragile shelf, upright cart, dry rack, belt.';
+    scene.handheld.show({title:'Read the handling guide.',lines:[line],options:[
+      {label:'Read the next handling mark.',onPick:()=>this.guide(scene,(page+1)%(s.content.guide.length+1))},
       {label:'Return to inspecting the package.',onPick:()=>{s.guideOpen=false;scene.handheld.close();}}
     ],back:()=>{s.guideOpen=false;scene.handheld.close();}});
   },
