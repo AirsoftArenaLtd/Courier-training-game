@@ -1,0 +1,22 @@
+{
+  "status": "For Claude\u2019s extraction/translation after review; existing clip score labels/lessons are reused unchanged.",
+  "strings": [
+    "Watch each road scene and mark the moment a hazard begins to develop.",
+    "Read the next instruction page.",
+    "Read the road sign.",
+    "Stop fully before entering the junction.",
+    "Return to the road scene.",
+    "This clip is complete.",
+    "This road scene has ended. Your response has been recorded.",
+    "See the results.",
+    "Watch the next clip.",
+    "Watch for the developing hazard.",
+    "Continue watching the clip."
+  ],
+  "templates": [
+    "The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+    "Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+    "You scored {0} of 5 points.\n\n{1}",
+    "The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops."
+  ]
+}

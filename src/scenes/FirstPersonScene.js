@@ -375,7 +375,9 @@ class FirstPersonScene extends Phaser.Scene {
         if(/^Arrow/.test(e.code)||e.code==='Tab'){this.panel.index=(this.panel.index+(e.code==='ArrowUp'||e.code==='ArrowLeft'||e.code==='Tab'&&e.shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
         if(e.code==='Enter')this.choose(this.panel.index);return;
       }
-      if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
+      if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}
+      if(this.scenarioKey&&this.scenarioKey(e.code))return;
+      if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
       if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
       if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
       if(e.code==='KeyP'){OTR.fpAccess.focus(this);return;}
