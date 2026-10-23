@@ -1,0 +1,11 @@
+diff --git a/data/modules.js b/data/modules.js
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -94,6 +94,7 @@ OTR_DATA.modules = [
+         title: 'Label Check',
+         icon: 'ic_diamond',
+         scene: 'LabelScene',
++        scene3d: 'package-label-station',
+         dataKey: 'labels',
+         categories: ['safety', 'efficiency'],
+         blurb: 'Turn every package, read every side, then put it on the right handling station. The mark that matters is usually on the side you did not check.',
