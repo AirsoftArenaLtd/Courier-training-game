@@ -1,0 +1,166 @@
+{
+  "sourceRevision": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "scope": "controllable-driving-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "drillphoneclue",
+        "drillphoneafter",
+        "drillballclue",
+        "drillballafter",
+        "drilldoorclue",
+        "drilldoorafter",
+        "drillwaterclue",
+        "drillwaterafter",
+        "drillcrosswalkclue",
+        "drillcrosswalkafter",
+        "drillbusclue",
+        "drillbusafter",
+        "drillparking0",
+        "drillparking1",
+        "drillparking2",
+        "drillparking3",
+        "drillparking4",
+        "drillparking5"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-painted-driving-current-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 270964,
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2105926
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "drillphoneclue",
+        "drillphoneafter",
+        "drillballclue",
+        "drillballafter",
+        "drilldoorclue",
+        "drilldoorafter",
+        "drillwaterclue",
+        "drillwaterafter",
+        "drillcrosswalkclue",
+        "drillcrosswalkafter",
+        "drillbusclue",
+        "drillbusafter",
+        "drillparking0",
+        "drillparking1",
+        "drillparking2",
+        "drillparking3",
+        "drillparking4",
+        "drillparking5"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-painted-driving-current-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 444646,
+      "peak": {
+        "calls": 86,
+        "triangles": 185244,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5921222
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "drillphoneclue",
+        "drillphoneafter",
+        "drillballclue",
+        "drillballafter",
+        "drilldoorclue",
+        "drilldoorafter",
+        "drillwaterclue",
+        "drillwaterafter",
+        "drillcrosswalkclue",
+        "drillcrosswalkafter",
+        "drillbusclue",
+        "drillbusafter",
+        "drillparking0",
+        "drillparking1",
+        "drillparking2",
+        "drillparking3",
+        "drillparking4",
+        "drillparking5"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-painted-driving-current-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 282712,
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2285670
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "drillphoneclue",
+        "drillphoneafter",
+        "drillballclue",
+        "drillballafter",
+        "drilldoorclue",
+        "drilldoorafter",
+        "drillwaterclue",
+        "drillwaterafter",
+        "drillcrosswalkclue",
+        "drillcrosswalkafter",
+        "drillbusclue",
+        "drillbusafter",
+        "drillparking0",
+        "drillparking1",
+        "drillparking2",
+        "drillparking3",
+        "drillparking4",
+        "drillparking5"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-painted-driving-current-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 261337,
+      "peak": {
+        "calls": 46,
+        "triangles": 1620,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2105926
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "Corrected test syntax and unchanged shared English-source guard pass; native rerun in progress",
+  "source": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+  "files": {
+    "README.md": "3dc9f6a24e7151b450fc2092c1565bd86ed08a2f1bef52e8de97bc16682add2a",
+    "commands-in-progress.json": "3ca14242a6c71f578f4f2d1714843f68f40c8004aaa9e54deb4fcc1adf6ad1ed",
+    "commands.py": "3a152155f48b3535e8ff8412a96cdef922e664df376d779749d1165d106faea1",
+    "native-source.js": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "source.json": "4a0d1cda0a4527ee64df8268df76baf28d3e80e8bc18e50a8d132b9161976826"
+  }
+}

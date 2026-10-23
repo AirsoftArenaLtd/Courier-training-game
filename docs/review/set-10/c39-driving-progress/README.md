@@ -1,5 +1,9 @@
 # C-39 controllable driving — wired development slice
 
+**Current validation:** all 72 painted-driving resource views now pass, independently revalidated under the unchanged ceilings. Figures/source/screenshots are in painted-b7dc5de8 and PERF/FRAME-BUDGET. Five older native configurations/936 checks remain scoped to bf3cbb8b. The current High larger-text run stopped during reverse bay four after 132 checks; it is not accepted. Its missing underlying Puppeteer cause is preserved as unknown in the separate diagnostic. The corrected test adds a bounded live-clock wait, per-bay progress timing and cause capture; remaining native and retained-runner checks are active. The current-pilot 85-suite Node baseline is unchanged by this test-only correction. Whole C-39 stays doing; shared registry and junction/night policy questions remain with Claude.
+
+## Implementation history
+
 The registered `driving-town-drill` adapter now uses the existing `m1-driving` content, six original checkpoints, local ScoreLog scale and actual van motor. The proposed shared registry change adds only `scene3d`; no default changes. Physical mirrors and the mounted navigation/rear screen stay live. The shifter and switches retain action-key and keyboard paths. A checkpoint can be recorded through the physical screen/device or the remapped F control. Rain/dusk begins at the original halfway point without resetting time, hazards or scoring. No module run writes a workday checkpoint or sends a workday report.
 
 Sixteen current Node suites pass; raw results/logs are in `checks/`. The driving-specific component cases are 13 grader/controller, eight road rules, two rendered-geometry and six registered-model/UI cases. The camera suite now also checks the drill's clear viewpoint without changing ordinary workday seating. The current quality guard includes all 18 focused driving views while preserving the original full-workday scope and ceilings.

@@ -1,0 +1,21 @@
+{
+  "status": "Rejected incomplete native run; diagnostic only",
+  "checks": 132,
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "candidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "files": {
+    "README.md": "f2990dd783b81d6d2e5415ddf5783f43801061ce4eef909e86dd14e975ebada1",
+    "c39-driving-current-high-en-large-failure.png": "bab53c4bf6ea120c6af0ed073626c981c61ffcae31d5b3fa061b2d6305d61a74",
+    "c39-driving-current-high-en-large-high-en-large-hazard-0.png": "ffce09a30450da2455e70922dbdee33506abeef401737cbdd249b9d20e224e3b",
+    "c39-driving-current-high-en-large-high-en-large-hazard-1.png": "7b249adad912e0b11ff85da0fae6635b3c9eceadae494ed240cb295dd4a1935f",
+    "c39-driving-current-high-en-large-high-en-large-hazard-2.png": "1c96efec97548653372dbe4f1076b999a90cdb8bff172ccc52cc1cd3bdc2a09c",
+    "c39-driving-current-high-en-large-high-en-large-hazard-3.png": "5f9d6381261a40b3877039893e003c2a43290730159c1a8cd93c50b96cfcb888",
+    "c39-driving-current-high-en-large-high-en-large-park-0.png": "34f55fed3d0d19467f2e4c25720bea0b2aec2f992c0bfe7c3117e5b33a4bfeef",
+    "c39-driving-current-high-en-large-high-en-large-park-1.png": "6e21667c0c190798bd5d6c7da5d895ec8e3f9763d63eecb4ec1c94fc966936e5",
+    "c39-driving-current-high-en-large-high-en-large-park-2.png": "da0c06f25c6eadfe94bbd52df573d7145e71bfbc996ff7e3f704ce9e66a5d35b",
+    "c39-driving-current-high-en-large.json": "544037a4ec6f4c9ada4e388d4e669476105ad4b40b88bfdb49d08817caa50ca1",
+    "command.log": "4e2c7b4eb1b95b49208805cc218ac2462d4787e9f419734b47ea24852a14e32e",
+    "commands-before-resume.json": "312d72c4da2b17633005fe948ee3bb21dac7ed7cb12e7a60617e4ded4070aed9",
+    "native-source.js": "a781d98f42f1fee49a1fb2b5e5f9f2ab90628634ee0f89e8ad5838f11947c662"
+  }
+}
