@@ -367,6 +367,7 @@ OTR.fpWorld = {
     // Keep the retained cargo proxy behind the imported closed door's inspection surface.
     if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
 
+    const pretripArt=base.pretripLesson&&OTR.fpPretripWorld?OTR.fpPretripWorld.build(scene,base,{van,chassis,cab,actors,cube,box}):null;
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
       const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
@@ -374,7 +375,11 @@ OTR.fpWorld = {
     }):[];
     // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
     // Only a visible, proximity-guarded wear target may pass that shell; other controls retain it.
-    const walkShell=base.walkaround&&walkVehicle?new Set(exterior.filter(o=>occluders.includes(o))):null;
+    const walkShell=(base.walkaround||base.pretripLesson)&&walkVehicle?new Set(exterior.filter(o=>occluders.includes(o))):null;
+    const pretripShell=pretripArt?new Set([...occluders,...interactions].filter(o=>{
+      if((o.userData.interaction||'').startsWith('pretrip-'))return false;
+      for(let p=o.parent;p;p=p.parent)if(p===van||p===cab.root)return true;return false;
+    })):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -384,9 +389,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
-        const geometries=new Set();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(pretripArt)pretripArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(signLettering)signLettering.dispose();if(surfaces)surfaces.dispose();
       },
@@ -485,6 +490,7 @@ OTR.fpWorld = {
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         if(damage&&model&&!inHub)damage.sync(model);
         for(let i=0;i<walkaroundTargets.length;i++)walkaroundTargets[i].visible=!!model&&!inHub&&OTR.fpWalkaroundFlow.canInspect(model,OTR.fpWalkaroundFlow.targets[i].zone);
+        if(pretripArt&&model)pretripArt.sync(model);
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
@@ -502,7 +508,12 @@ OTR.fpWorld = {
         ray.setFromCamera({x:0,y:0},camera);let hit=cast(ray,scanObjects)[0];
         if(walkShell&&hit&&walkShell.has(hit.object))for(const candidate of hits){
           if(walkShell.has(candidate.object))continue;
-          if((candidate.object.userData.interaction||'').startsWith('wear-'))hit=candidate;break;
+          if((candidate.object.userData.interaction||'').startsWith('wear-')||(candidate.object.userData.interaction||'').startsWith('pretrip-'))hit=candidate;break;
+        }
+        // A valid nearby inspection may pass its own retained van pick shell, never a wall or another face.
+        if(pretripShell&&hit&&pretripShell.has(hit.object))for(const candidate of hits){
+          if(pretripShell.has(candidate.object))continue;
+          if((candidate.object.userData.interaction||'').startsWith('pretrip-'))hit=candidate;break;
         }
         return hit?hit.object.userData.interaction||null:null;
       },
