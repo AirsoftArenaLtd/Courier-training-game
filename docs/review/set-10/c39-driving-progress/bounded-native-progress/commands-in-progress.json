@@ -283,7 +283,9 @@
         }
       ],
       "started": 1792783267.4958317,
-      "pid": 378953
+      "pid": 378953,
+      "exit": 0,
+      "finished": 1792784645.2224572
     },
     {
       "name": "driving-high-ta-normal",
@@ -299,7 +301,11 @@
       },
       "testSource": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
       "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
-      "log": "/tmp/c39-driving-bounded-driving-high-ta-normal.log"
+      "log": "/tmp/c39-driving-bounded-driving-high-ta-normal.log",
+      "started": 1792784645.2390084,
+      "pid": 379495,
+      "exit": 0,
+      "finished": 1792786016.8428936
     },
     {
       "name": "driving-high-ta-large",
@@ -315,7 +321,9 @@
       },
       "testSource": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
       "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
-      "log": "/tmp/c39-driving-bounded-driving-high-ta-large.log"
+      "log": "/tmp/c39-driving-bounded-driving-high-ta-large.log",
+      "started": 1792786016.8595216,
+      "pid": 379899
     }
   ],
   "complete": false,
