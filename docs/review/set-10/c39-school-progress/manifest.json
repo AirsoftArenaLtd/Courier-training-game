@@ -1,0 +1,18 @@
+{
+  "status": "unregistered school core development; C-39 doing",
+  "base": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+  "sources": {
+    "src/core/fpschoollesson.js": "8a9c0e8787ecfa849acab96cc175f5a6da9efea4e0fa93067e6ebb8c7ef2434b",
+    "test/fpschoollesson.js": "16669eef3e3bbcc7db1cb5888aa4f86e14de880d6a035295b351783b62dd34a5"
+  },
+  "commands": [
+    "node --check src/core/fpschoollesson.js",
+    "node --check test/fpschoollesson.js",
+    "node test/fpschoollesson.js"
+  ],
+  "nodeCases": 6,
+  "files": {
+    "node.log": "469417db0600fb82dd5ec5b3618d863ef5a841446b1c660cdef261b30e90f801",
+    "README.md": "f7e0a8dd5a20d6b4afcb01350dd339c947bac95f67613982fa59b921ac7551ab"
+  }
+}
