@@ -1,0 +1,17 @@
+{
+  "status": "C-40 doing; unwired label model and component checks pass",
+  "modelCases": 6,
+  "direct2DComparisons": 532,
+  "repositorySmokeSuites": 6,
+  "files": {
+    "README.md": "5f144692193155c77b6bb4a8f89d8ee9f891a23cf7c43161ea85d7127cc430f0",
+    "checks/fpmission.log": "0f33be5ccd204589d517967c0905e83d22209cf44df4826d6d30e501a029d5bb",
+    "checks/fpscenario.log": "4fbc8324761f5287f1e05a71ad29470029434bb3f5f15522b3284fadc0b305d0",
+    "checks/fpworld.log": "bbc19c040e4e2daa561824ac214bb6b1597c66cbffd4972a8a8b48b11b4ac20e",
+    "checks/i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "checks/results.json": "8e7ea110c7364bcd62044901be0752ec012f73638367d4066b8d8ccb1eb976c5",
+    "checks/savesize.log": "1f12eb54eaf52e7c588d08ca07ae9f0b791a20e20ebebe9d29be1837f6969ef9",
+    "checks/workday.log": "56f19e1322f63769abf25a1c7d0f4b4343c32f18d07b7ec57c1645cad7c62019",
+    "source.json": "8e4541c82c335d8c4310c49e5f74f8ec22089b5ea1c495386631963f034e0fd7"
+  }
+}

@@ -1,0 +1,11 @@
+# C-40 package handling — model development
+
+C-40 is doing on codex/c40-package-handling, stacked on pushed C-38 at b860fa18. C-39 remains blocked on Claude's junction/night efficiency contract, while its remaining validation runs separately.
+
+The first owned component is the package-label inspection model, not yet registered or loaded by the game. It keeps the original nine-package, three-tier selection, 22-second per-package clock, six-face inspection, original ScoreLog labels/weights, same safety/efficiency ratios and 3,150-point maximum. The guide, menus and verdicts freeze its clock. Repeated answers cannot grade twice, invalid targets do not consume a package, and expiry includes every uncompleted item without awarding free credit. It neither saves a checkpoint nor reports to a workday.
+
+Six model tests pass, including 532 direct comparisons with the actual original 2D resolve method across all catalogue items, marks, damage, face-inspection states, valid/wrong stations, timings and timeouts. The original data, 2D LabelScene and ScoreLog match current pilot byte for byte. Six repository smoke suites also pass: fpscenario, fpmission, fpworld, workday, i18n and savesize. Exact source hashes and commands are recorded here. These are component/stack checks, not final current-pilot browser acceptance.
+
+The new result summary uses whole sentences and counts actual six-face observations. The original 2D summary incorrectly counts timed-out packages as fully inspected because they are not classified as blind calls; that finding is in Claude's inbox. Scores, ratios and log items remain identical. The new sentence template awaits the normal Claude translation pass; the existing i18n suite covers the current catalogue only.
+
+Next: physical package/handling station geometry, real rotation/inspection and reachable controls, keyboard and accessible alternatives, scene integration and the proposed existing-id registry field for A-30. Sorting, lifting and optional heavy-load training still follow within C-40. No screenshots, new frame-budget figures, new default or completed module are claimed before that integration and its native/resource gate. The Low/High ceilings remain unchanged; cloud FPS is not an Intel-laptop measurement.
