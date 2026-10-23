@@ -1,0 +1,340 @@
+pretrip high en normal
+part brake_pedal
+timer {
+  now: 40110.6,
+  frame: 96,
+  delta: 16.659999999999854,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 66.49999999999814, delay: 1000, paused: false },
+    { elapsed: 99.99333333333317, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 42210.5,
+  frame: 99,
+  delta: 16.659999999999854,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 116.4799999999977, delay: 1000, paused: false },
+    { elapsed: 149.97333333333273, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 45927.1,
+  frame: 105,
+  delta: 16.659999999999854,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 216.43999999999681, delay: 1000, paused: false },
+    { elapsed: 249.93333333333186, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 49293.6,
+  frame: 110,
+  delta: 16.666666666666664,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 299.7733333333302, delay: 1000, paused: false },
+    { elapsed: 333.2666666666653, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 52010.1,
+  frame: 114,
+  delta: 16.666666666666664,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 366.4399999999969, delay: 1000, paused: false },
+    { elapsed: 399.93333333333203, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 55326.6,
+  frame: 119,
+  delta: 16.666666666666664,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 449.77333333333036, delay: 1000, paused: false },
+    { elapsed: 483.26666666666546, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 58243.2,
+  frame: 124,
+  delta: 16.666666666666664,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 533.1066666666637, delay: 1000, paused: false },
+    { elapsed: 566.5999999999987, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 61209.8,
+  frame: 129,
+  delta: 16.666666666666664,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 616.4399999999969, delay: 1000, paused: false },
+    { elapsed: 649.9333333333318, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 64209.6,
+  frame: 134,
+  delta: 18.33000000000029,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 706.4266666666646, delay: 1000, paused: false },
+    { elapsed: 739.9199999999995, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 67492.9,
+  frame: 139,
+  delta: 19.993333333333915,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 803.0666666666668, delay: 1000, paused: false },
+    { elapsed: 836.5600000000018, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 70309.4,
+  frame: 143,
+  delta: 19.993333333333915,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 883.0400000000025, delay: 1000, paused: false },
+    { elapsed: 916.5333333333374, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 72909.3,
+  frame: 147,
+  delta: 18.333333333333336,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 961.3533333333376, delay: 1000, paused: false },
+    { elapsed: 994.8466666666725, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 76442.5,
+  frame: 153,
+  delta: 18.336666666666375,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 71.35666666667072, delay: 1000, paused: false },
+    { elapsed: 1104.8500000000054, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 79392.3,
+  frame: 158,
+  delta: 18.323333333332748,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 163.0133333333339, delay: 1000, paused: false },
+    { elapsed: 1196.5066666666685, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 82258.9,
+  frame: 163,
+  delta: 18.323333333332748,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 254.62999999999766, delay: 1000, paused: false },
+    { elapsed: 1288.1233333333325, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 85308.8,
+  frame: 168,
+  delta: 24.986666666666373,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 372.899999999996, delay: 1000, paused: false },
+    { elapsed: 1406.3933333333312, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 88425.3,
+  frame: 172,
+  delta: 23.316666666666666,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 469.5066666666621, delay: 1000, paused: false },
+    { elapsed: 1502.9999999999973, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 90841.9,
+  frame: 177,
+  delta: 16.646666666665503,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 566.079999999992, delay: 1000, paused: false },
+    { elapsed: 1599.5733333333267, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 94091.8,
+  frame: 182,
+  delta: 18.31333333333217,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 650.9599999999864, delay: 1000, paused: false },
+    { elapsed: 1684.453333333321, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 97258.3,
+  frame: 187,
+  delta: 18.31333333333217,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 742.5266666666471, delay: 1000, paused: false },
+    { elapsed: 1776.0199999999818, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 99824.9,
+  frame: 191,
+  delta: 18.31333333333217,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 815.7799999999756, delay: 1000, paused: false },
+    { elapsed: 1849.2733333333103, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 103391.4,
+  frame: 196,
+  delta: 31.64666666666696,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 940.666666666639, delay: 1000, paused: false },
+    { elapsed: 1974.159999999974, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 106341.3,
+  frame: 200,
+  delta: 31.65,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 67.25666666663994, delay: 1000, paused: false },
+    { elapsed: 2100.749999999975, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 109307.9,
+  frame: 204,
+  delta: 31.65,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 193.85666666663997, delay: 1000, paused: false },
+    { elapsed: 2227.3499999999754, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 112291,
+  frame: 208,
+  delta: 31.65,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 320.45666666663993, delay: 1000, paused: false },
+    { elapsed: 2353.9499999999757, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 115291,
+  frame: 212,
+  delta: 36.660000000002036,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 457.0766666666439, delay: 1000, paused: false },
+    { elapsed: 2490.56999999998, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 117990.8,
+  frame: 216,
+  delta: 36.660000000002036,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 603.716666666652, delay: 1000, paused: false },
+    { elapsed: 2637.2099999999887, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+timer {
+  now: 121007.4,
+  frame: 221,
+  delta: 36.660000000002036,
+  paused: false,
+  scale: 1,
+  pending: [
+    { elapsed: 787.0166666666621, delay: 1000, paused: false },
+    { elapsed: 2820.5099999999993, delay: 3000, paused: false }
+  ],
+  parked: true
+}
+BRAKE DIAGNOSTIC COMPLETE
+13 native pre-trip checks passed

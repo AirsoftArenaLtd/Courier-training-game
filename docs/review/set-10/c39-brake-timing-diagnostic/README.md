@@ -1,0 +1,3 @@
+# Pre-trip brake timing diagnostic
+
+At current-pilot candidate b4e01e97, the eight-layout native run stopped on the High English brake hold, after four complete Low runs and 1,155 checks with no browser errors. It is not a completed matrix. The focused High reproduction proved the game timer advances only about 17–37 ms per rendered frame even when frames take much longer. It completed after roughly two real minutes; the test did not advance game time or force the verdict. The product now uses three real focused/visible seconds, with release, blur, hidden-tab and panel cleanup cancellation. The unchanged three-second minimum remains. Current acceptance follows separately.
