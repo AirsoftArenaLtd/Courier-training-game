@@ -45,3 +45,9 @@ test('physical signals require the current three-second contract, keeping the or
   const wrong=sig!==side||seconds<3;assert.equal(x.run.log.items.length,Number(wrong));if(wrong){assert.equal(x.run.log.items[0].got,-1);assert.equal(x.run.log.items[0].lesson,c.OTR_DATA.workdayEvents['drive.signal'].lesson);}
  }
 });
+
+test('backing away from a junction line never counts as a forward stop or light entry',()=>{
+ for(const kind of ['stop','signal']){const x=setup(),m=x.m,j=m.junctions[1],a=m.drivingLesson.rules.approach;Object.assign(a,{index:1,dir:0,kind,entered:true,heading0:0,sig:0,sigFor:0});Object.assign(m.van,{x:j.x+2.625,z:j.z+4.6,yaw:0,gear:-1,speed:-1});
+  for(let i=0;i<120;i++){m.elapsed+=1/60;m.van.z+=1/60;R.advance(x.run,1/60,-1);}assert.equal(a.index,-1);assert.equal(a.entered,false);assert.equal(m.drivingLesson.violations.rolling,undefined);assert.equal(m.drivingLesson.violations.redlight,undefined);assert.equal(m.drivingLesson.violations.signal,undefined);
+ }
+});
