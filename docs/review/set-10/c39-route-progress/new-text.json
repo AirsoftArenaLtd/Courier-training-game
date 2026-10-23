@@ -1,0 +1,40 @@
+{
+  "status": "For Claude’s extraction/translation after native/resource review; no catalogue authored. Existing score labels and lessons are reused unchanged.",
+  "strings": [
+    "Use the parked van’s sat nav to sequence every manifest, then accept each route.",
+    "Plan this route.",
+    "Read the dispatch notes.",
+    "Read the next dispatch note.",
+    "Sequence the stops.",
+    "Return to the van.",
+    "The sat nav shows the route.",
+    "The double ring marks the selected stop. The square marks the depot.",
+    "Add this stop to the route.",
+    "Remove this stop from the route.",
+    "Read the next stop.",
+    "Review the route.",
+    "Accept this route.",
+    "Continue sequencing the stops.",
+    "Clear the route.",
+    "Review this route.",
+    "Park the van before using the sat nav.",
+    "Plan the route on the sat nav.",
+    "Enter the cab and park the van before planning the route.",
+    "This parcel has no timed commitment.",
+    "This stop is not in the route."
+  ],
+  "templates": [
+    "Plan route {0} of {1} on the sat nav.",
+    "Press {0} to plan the route on the sat nav.",
+    "Route {0} starts at {1}.\n{2}",
+    "The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+    "The road is closed on {0} between {1} and {2}.",
+    "Stop {0} is at {1}.",
+    "Collect the pickup between {0} and {1}.",
+    "Deliver this parcel by {0}.",
+    "The estimated arrival is {0}.",
+    "Route {0} contains {1} of {2} stops.",
+    "The sequence is {0}.",
+    "The estimated return is {0}."
+  ]
+}

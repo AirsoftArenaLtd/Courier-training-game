@@ -365,6 +365,24 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    const proof=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,b=m.bounds,before=window.pretripBenchmarkBefore;return {source:'registered-pretrip-adapter',id:r.id,key:r.scenario.scene3d,targets:s.art.pretripArt.targets.length,visited:m.pretripLesson.visited.size,canvases:Object.keys(s.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')).length,bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});
    (report.pretripProof||(report.pretripProof={}))[name]=proof;report.pretripFixture=true;
   }
+  if(process.env.QA_ROUTELESSON==='1')for(const name of ['lessonroutecab','lessonroutebrief','lessonrouteedit','lessonroutereview','lessonroutecycle','lessonroutereverse']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-route-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(name=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,A=OTR.fpRouteLesson,state=m.routeLesson;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    if(name==='lessonroutebrief')OTR.fpRouteLessonUI.brief(s);
+    if(name==='lessonrouteedit')OTR.fpRouteLessonUI.show(s);
+    if(name==='lessonroutereview'){A.round(state,2);state.order=state.planner.optimal.order.slice().reverse();state.revision++;OTR.fpRouteLessonUI.review(s);}
+    if(name==='lessonroutecycle'){state.mapVisits=0;for(let i=0;i<3;i++){A.round(state,i);for(let id=1;id<=state.planner.stops.length;id++){A.toggle(m,id);OTR.fpRouteLessonUI.show(s,id-1);state.mapVisits++;}}}
+    if(name==='lessonroutereverse')m.selectGear(-1);s.sync();s.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,state=m.routeLesson,b=m.bounds,before=window.routeLessonBenchmarkBefore;
+    return {source:'registered-route-adapter',id:r.id,key:r.scenario.scene3d,manifests:state.content.rounds.length,stops:state.planner.stops.length,mapVisits:state.mapVisits||0,reverse:!!s.art.rear?.inView,logItems:r.log.items.length,panels:s.children.list.filter(x=>x.type==='Container'&&x.depth===100).length,
+     bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+   });(report.routeLessonProof||(report.routeLessonProof={}))[name]=proof;report.routeLessonFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
