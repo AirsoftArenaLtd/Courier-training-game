@@ -1,0 +1,12 @@
+✔ first morning uses physical controls, marks the card only when begun, and stays reopenable (1.62859ms)
+✔ context hints are once per action type, yield to notices/panels and never change mission state (0.45514ms)
+✔ old checkpoints default safely, and guidance flags survive a local profile round trip (2.643647ms)
+✔ module runs never reuse or narrate saved workday coaching, while workdays retain it (0.311829ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.097739
