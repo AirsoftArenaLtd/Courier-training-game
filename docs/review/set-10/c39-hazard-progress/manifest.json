@@ -1,41 +1,30 @@
 {
-  "status": "implementation/model progress only; native/resources pending",
+  "status": "corrected implementation/model/geometry progress; final native/resources pending",
   "sources": {
-    "src/core/fphazardlesson.js": "1c57a20a787faea8cd6c2a0c92ca4c1f006801875eefd47b2d021fb93cb1cb34",
+    "src/core/fphazardlesson.js": "5fa573405c9800eb1456d48c5eab278f8e4db82ed8639ca961abea605e6abd77",
     "src/core/fphazardlessonui.js": "77a2ef51c9bd8ed1f7e08e3b9a84d37c04e11a7a25ac4a890d7f8ba9761cc212",
-    "src/core/fphazardlessonworld.js": "2be73b64db09700f057fa94d47f4d310a908cb58a822bda9e1c4611a04606e07",
+    "src/core/fphazardlessonworld.js": "08bc3b81f9ab8f5ce6821b31fd4cf62d6ca0b53eaee2eb18e80a09bdaf81682b",
     "src/core/fpworld.js": "21bcababf51d8e91a1aac809aedc5d2a03ef9ba2ef6f6f012298effb4a4d6753",
     "src/scenes/FirstPersonScene.js": "c45703031b6dc1c145b7ba5e7330fa5727e4701634bbcb5a1d933394f5b7331f",
     "src/scenes/FirstPersonScenarioScene.js": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44",
-    "test/fphazardlesson.js": "9973c49a5ee26392a1b6ac12dd226c0bffeb980244e5c647d6ac66c06d85ee1e",
-    "test/fphazardlessonbrowser.js": "78869f084e36f6718fbcababb2cc19c6657ac896c367419cc461619fe768437f",
-    "index.html": "72e25786ec7725c15f9e5bc434bcfebd65ca4800b7ffdddb2db6934b28924a9f"
+    "test/fphazardlesson.js": "2aca3895a7cb7b398ede4887af8a2f2cb08a59c28043ba75c983bf1f9a4abf1d",
+    "test/fphazardlessonbrowser.js": "2c874c17af82a789fbbdd4817c6b55f6d9f3a52a386819184764ae4739b16c30",
+    "index.html": "72e25786ec7725c15f9e5bc434bcfebd65ca4800b7ffdddb2db6934b28924a9f",
+    "src/core/fpcamera.js": "ae5f295c662a7ee6818f1a79a7620f3168c5ab675cfed41b2a84847c19595bb5",
+    "test/fpcamera.js": "3c1d53688bf2515cd774616de82fac81e916c5381111655878adc4b6139ca8f7",
+    "test/fpbench.js": "56db45375374d07bf32a4f2dd889d8578ea25321968d0ae1b6f93954b9697259",
+    "test/fpquality.js": "85462b27e631d1009bca11c918c489bd7730b1b2af8b420d8dcae4976a28fa03",
+    "test/fpqualitygate.js": "9a583137fd69779b33ed898dd240df939e2c3e98713dcff314f9afa614fb6485",
+    "test/tools/fp-hazard-lesson-fixture.js": "f2aecb2b1823b0b3d0032c42b21c7b62a63f90f1c8cc2fa762513a871d7a8dea",
+    "test/tools/fp-hazard-lesson-proof.js": "14bef90ce5d1492031508e185bdae5a66a8f692a9513dad024bfbace95f46d29"
   },
-  "files": [
-    {
-      "file": "README.md",
-      "bytes": 2159,
-      "sha256": "7880dd1bc1936d159fe1956a856c6dace121d39686330eb78de589e3a7875f61"
-    },
-    {
-      "file": "model-world.log",
-      "bytes": 1003,
-      "sha256": "3115d05876d3b5cc6139791616d0326108ce4dc9c21a7af6d3cd75536c64cb4d"
-    },
-    {
-      "file": "new-text.json",
-      "bytes": 1189,
-      "sha256": "36d3d5199b80d173f8edd2796530d94886f6e3668ace91970d74bc75f189a464"
-    },
-    {
-      "file": "registry-spot.patch",
-      "bytes": 436,
-      "sha256": "9c0b1d3d1e478b3ecfb76f7af7ec852dd3c9753bcf4f79c1cdd9d633f6caa34b"
-    },
-    {
-      "file": "runner.log",
-      "bytes": 1454,
-      "sha256": "c9de77471839195cbd31cbf3884289b9508dec2f2c66679e4aa4765a1e1acb1f"
-    }
-  ]
+  "files": {
+    "registry-spot.patch": "9c0b1d3d1e478b3ecfb76f7af7ec852dd3c9753bcf4f79c1cdd9d633f6caa34b",
+    "model-world.log": "57aaed18e0dceb65e9174e9c8a6908d6e574683feb82e37c8529963b8a6f94f6",
+    "runner.log": "c9de77471839195cbd31cbf3884289b9508dec2f2c66679e4aa4765a1e1acb1f",
+    "README.md": "d25292f063383c1123392a207f75485b736059c973c2e5ef11d4031b0ed9a787",
+    "resource-guards.log": "a556791662f349dc80c24eaa5cd439ddc587bdde08955cbc3ad2d1a9eefaa185",
+    "new-text.json": "36d3d5199b80d173f8edd2796530d94886f6e3668ace91970d74bc75f189a464",
+    "camera.log": "1c0ad4bface890f3c1b033797a08fbcaacf65a6eef96af30d2b58c173e71aceb"
+  }
 }

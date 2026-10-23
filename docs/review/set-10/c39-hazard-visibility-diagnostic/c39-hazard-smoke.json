@@ -1,0 +1,336 @@
+{
+  "checks": 288,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "spam": false,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.046293333333319
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "ball",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [
+              6.099999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nReverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "phone",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "door",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nSomeone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [
+              5.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "runner",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-smoke-low-en-normal-0.png",
+        "c39-hazard-smoke-low-en-normal-1.png",
+        "c39-hazard-smoke-low-en-normal-2.png",
+        "c39-hazard-smoke-low-en-normal-3.png",
+        "c39-hazard-smoke-low-en-normal-4.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 3
+        },
+        "score": 2500,
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "spam": true,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.016633333333332,
+              6.049966666666665,
+              6.083299999999999,
+              6.116633333333332,
+              6.149966666666665,
+              6.183299999999998,
+              6.2166333333333315
+            ],
+            "presses": 7,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "ball",
+            "pts": 0,
+            "flags": 7,
+            "tooMany": true
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 0 of 5 points.\n\nA ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [],
+            "presses": 0,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 0,
+            "flags": 0,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 0 of 5 points.\n\nReverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [],
+            "presses": 0,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "phone",
+            "pts": 0,
+            "flags": 0,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 0 of 5 points.\n\nA pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [],
+            "presses": 0,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "door",
+            "pts": 0,
+            "flags": 0,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 0 of 5 points.\n\nSomeone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [],
+            "presses": 0,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true
+          },
+          "result": {
+            "id": "runner",
+            "pts": 0,
+            "flags": 0,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 0 of 5 points.\n\nA car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-smoke-low-en-normal-0-spam.png",
+        "c39-hazard-smoke-low-en-normal-1-spam.png",
+        "c39-hazard-smoke-low-en-normal-2-spam.png",
+        "c39-hazard-smoke-low-en-normal-3-spam.png",
+        "c39-hazard-smoke-low-en-normal-4-spam.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 0
+        },
+        "score": 0,
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Temporary scene3d field. The first ordinary Low English clip plays in full real scene time. Other clips jump to just before the clue and to the ending after real input; no flags, verdicts, scores or results are injected. Cue pictures are sampled after a separate disclosed time jump.",
+  "complete": true
+}

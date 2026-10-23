@@ -110,3 +110,13 @@ test('route views require the registered planner, bounded panels, all twenty sto
  for(const [field,value] of [['id','m1-pretrip'],['manifests',2],['mapVisits',19],['panels',2],['logItems',1],['workdayUnchanged',false]]){const proof=r.routeLessonProof.lessonroutecycle,saved=proof[field];proof[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/route-planning proof/);proof[field]=saved;}
  r.routeLessonProof.lessonroutereverse.reverse=false;assert.throws(()=>checkReport(r,p,'sample'),/route-planning proof/);
 });
+
+test('hazard clips require actual cue sightlines, timing, model sources and isolated same-id scoring',()=>{
+ const {HAZARDLESSON_VIEWS}=require('./fpquality');assert.equal(HAZARDLESSON_VIEWS.split(',').length,15);
+ const r=report(),p={...profile,views:HAZARDLESSON_VIEWS};r.hazardLessonFixture=true;r.hazardLessonProof={};
+ for(const name of p.views.split(',')){const stage=name.endsWith('before')?'before':name.endsWith('clue')?'clue':'after',kind=name.slice(4,-stage.length);r.prototype[name]=r.prototype.cab;r.hazardLessonProof[name]={source:'registered-hazard-adapter',id:'m1-spot',key:'hazard-road-clips',clips:5,kind,stage,at:6,time:6+{before:-.1,clue:.15,after:1.8}[stage],logItems:0,flags:0,reduced:false,loadedCar:true,loadedPerson:true,cue:{visible:true,clear:true,x:0,y:.2,z:.99},bounded:true,checkpointUnchanged:true,eventsUnchanged:true,workdayUnchanged:true};}
+ assert.ok(checkReport(r,p,'sample'));const proof=r.hazardLessonProof.clipballclue;
+ for(const [field,value] of [['id','m1-pretrip'],['time',7],['clips',4],['logItems',1],['flags',1],['loadedCar',false],['loadedPerson',false],['reduced',true],['checkpointUnchanged',false],['eventsUnchanged',false],['workdayUnchanged',false]]){const old=proof[field];proof[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/visible hazard-clip proof/);proof[field]=old;}
+ for(const [field,value] of [['visible',false],['clear',false],['x',1.01],['y',NaN],['z',-1]]){const old=proof.cue[field];proof.cue[field]=value;assert.throws(()=>checkReport(r,p,'sample'),/visible hazard-clip proof/);proof.cue[field]=old;}
+ r.assets={loaded:0,failed:14,fallbacks:0};r.assetFailure='missing-model-files';const f={...p,fallback:true};assert.throws(()=>checkReport(r,f,'sample'),/visible hazard-clip proof/);for(const x of Object.values(r.hazardLessonProof))x.loadedCar=x.loadedPerson=false;assert.ok(checkReport(r,f,'sample'));
+});
