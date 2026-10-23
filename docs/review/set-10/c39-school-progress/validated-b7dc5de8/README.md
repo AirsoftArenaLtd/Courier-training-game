@@ -1,0 +1,7 @@
+# School resource gate and native progress, 23 October 2026
+
+All 32 school views (four original profiles, eight views each) pass the original resource and visibility ceilings. The loaded-Low report was captured at ec9aaeae; the other three profiles and all 85 non-browser suites use b7dc5de8. Their entire game trees are identical. Only the three QA files listed in source.json changed: the High child sightline now targets a triangle on the actual posed upper body, rather than an empty point between moving limbs. No renderer, actor, scoring or budget was changed to make this pass. All four raw reports were independently revalidated with the stricter current guard.
+
+The source file records the separate native script hash. Each native report discloses its travel/aiming fixtures and uses real controller timing, motor/braking, physical action raycasts, reverse-camera parking and result/record/assessment completion. Completed layouts are recorded in native-progress.json. Remaining native, painted-driving and retained-runner stages continue in the sequential command manifest; this folder is not whole-task acceptance.
+
+Screenshots were visually inspected for the High children, larger-text device and fallback painted bay. Earlier rejected sightline and live-bus runs stay under ../diagnostics. Cloud SwiftShader timings do not establish Intel laptop FPS; existing owner question O-1 remains.

@@ -1,0 +1,953 @@
+{
+  "tag": "c39-school-current-other-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "schoolapproach": {
+      "frames": 88,
+      "avgFPS": 8.75,
+      "low1FPS": 4.21,
+      "p99ms": 237.6,
+      "maxMs": 237.6,
+      "peak": {
+        "calls": 30,
+        "triangles": 780,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1088604,
+        "withMipmapsUpperBytes": 1451472
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 147,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          31,
+          30,
+          30,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 91.875,
+          "y": 2.4,
+          "z": 48.45,
+          "yaw": 0.85,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 91.875,
+          "baseZ": 48.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolbus": {
+      "frames": 85,
+      "avgFPS": 8.47,
+      "low1FPS": 2.48,
+      "p99ms": 402.5,
+      "maxMs": 402.5,
+      "peak": {
+        "calls": 33,
+        "triangles": 1124,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1260636,
+        "withMipmapsUpperBytes": 1680848
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 153,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          30,
+          30,
+          29,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 91.875,
+          "y": 2.4015421746208343,
+          "z": 47.95014791079265,
+          "yaw": 0,
+          "pitch": 0.00009584480552870434,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 91.875,
+          "baseZ": 47.95014791079265,
+          "bodyY": 0.0015421746208345174,
+          "bodyPitch": 0.0008336079031537932,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolchildren": {
+      "frames": 89,
+      "avgFPS": 8.87,
+      "low1FPS": 3.25,
+      "p99ms": 307.7,
+      "maxMs": 307.7,
+      "peak": {
+        "calls": 33,
+        "triangles": 996,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1265508,
+        "withMipmapsUpperBytes": 1687344
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 159,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          31,
+          30,
+          30,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 91.875,
+          "y": 2.4,
+          "z": 24.45,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 91.875,
+          "baseZ": 24.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolclear": {
+      "frames": 81,
+      "avgFPS": 8.07,
+      "low1FPS": 2.53,
+      "p99ms": 394.7,
+      "maxMs": 394.7,
+      "peak": {
+        "calls": 33,
+        "triangles": 996,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1088604,
+        "withMipmapsUpperBytes": 1451472
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 159,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          30,
+          30,
+          29,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 91.875,
+          "y": 2.4,
+          "z": 24.45,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 91.875,
+          "baseZ": 24.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolfinish": {
+      "frames": 52,
+      "avgFPS": 5.18,
+      "low1FPS": 2.51,
+      "p99ms": 397.8,
+      "maxMs": 397.8,
+      "peak": {
+        "calls": 41,
+        "triangles": 874,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1057272,
+        "withMipmapsUpperBytes": 1409696
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 144,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          19,
+          19,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 89.55000000000001,
+          "y": 1.65,
+          "z": -16.150000000000002,
+          "yaw": 0.7853981633974483,
+          "pitch": -0.27318586607392886,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 91.875,
+          "baseZ": 48.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolreverse": {
+      "frames": 60,
+      "avgFPS": 5.98,
+      "low1FPS": 2.66,
+      "p99ms": 376.5,
+      "maxMs": 376.5,
+      "peak": {
+        "calls": 34,
+        "triangles": 954,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1264836,
+        "withMipmapsUpperBytes": 1686448
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 148,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          11,
+          11,
+          11,
+          31
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 92.80000000000001,
+          "y": 2.4,
+          "z": -27.383333333333336,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 92.80000000000001,
+          "baseZ": -27.383333333333336,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schooldevice": {
+      "frames": 70,
+      "avgFPS": 6.99,
+      "low1FPS": 3.45,
+      "p99ms": 289.7,
+      "maxMs": 289.7,
+      "peak": {
+        "calls": 32,
+        "triangles": 928,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1392788,
+        "withMipmapsUpperBytes": 1857051
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 149,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          25,
+          25,
+          24,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 92.80000000000001,
+          "y": 2.4,
+          "z": -27.383333333333336,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 92.80000000000001,
+          "baseZ": -27.383333333333336,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "schoolcycle": {
+      "frames": 71,
+      "avgFPS": 7.06,
+      "low1FPS": 2.73,
+      "p99ms": 365.8,
+      "maxMs": 365.8,
+      "peak": {
+        "calls": 32,
+        "triangles": 928,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1392788,
+        "withMipmapsUpperBytes": 1857051
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 149,
+        "geometries": 15,
+        "materials": 41,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          26,
+          25,
+          25,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 92.80000000000001,
+          "y": 2.4,
+          "z": -27.383333333333336,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 92.80000000000001,
+          "baseZ": -27.383333333333336,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "schoolLessonProof": {
+    "schoolapproach": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolapproach",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 6,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "waiting",
+      "lampLit": false,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.24304811601151127,
+        "y": -0.01529772075694144,
+        "z": 0.9626262324192416,
+        "hit": "Mesh"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolbus": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolbus",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "flashing",
+      "lampLit": true,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.0018623014717682154,
+        "y": 0.02626127439566369,
+        "z": 0.9926083308301176,
+        "hit": "Mesh"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolchildren": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolchildren",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "done",
+      "lampLit": false,
+      "crossing": "crossing",
+      "sourceChildren": false,
+      "personTarget": "fallback-torso",
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.2294261574430044,
+        "y": -0.14421877545837508,
+        "z": 0.98961666844106,
+        "hit": "Mesh"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolclear": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolclear",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "done",
+      "lampLit": false,
+      "crossing": "resolved",
+      "sourceChildren": false,
+      "personTarget": "fallback-torso",
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.23237320615073423,
+        "y": -0.14421877545837508,
+        "z": 0.98961666844106,
+        "hit": "Mesh"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolfinish": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolfinish",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "waiting",
+      "lampLit": false,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": true,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -1.009109540291707e-15,
+        "y": 0.00243116307579125,
+        "z": 0.9736292707497914,
+        "hit": "module-finish-bay"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolreverse": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolreverse",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "waiting",
+      "lampLit": false,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": true,
+      "parking": true,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.21616513256567008,
+        "y": -0.04735637161018523,
+        "z": 0.9166664956227528,
+        "hit": "rear-camera-screen"
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schooldevice": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schooldevice",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "waiting",
+      "lampLit": false,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": true,
+      "deviceVisits": 1,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": true,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "hit": null
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "schoolcycle": {
+      "source": "registered-school-adapter",
+      "id": "m1-school",
+      "key": "school-zone-drive",
+      "name": "schoolcycle",
+      "optional": true,
+      "stops": 1,
+      "signs": true,
+      "signClearSamples": 0,
+      "traffic": true,
+      "navigation": true,
+      "day": 3,
+      "logItems": 0,
+      "finished": false,
+      "bus": "waiting",
+      "lampLit": false,
+      "crossing": "waiting",
+      "sourceChildren": false,
+      "personTarget": null,
+      "reduced": false,
+      "device": true,
+      "deviceVisits": 20,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "reverse": false,
+      "parking": true,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "hit": null
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "schoolLessonFixture": true,
+  "phaserTextures": {
+    "count": 99,
+    "baseLevelRGBABytes": 1392788,
+    "withMipmapsUpperBytes": 1857051
+  },
+  "phaserTexturesPeak": {
+    "count": 99,
+    "baseLevelRGBABytes": 1392788,
+    "withMipmapsUpperBytes": 1857051
+  },
+  "missingViews": [],
+  "errors": []
+}

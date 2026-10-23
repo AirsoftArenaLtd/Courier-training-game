@@ -1,5 +1,9 @@
 # C-39 school-zone and painted-bay runtime — validation in progress
 
+**Current evidence:** validated-b7dc5de8 records all 32 resource views, all 85 non-browser suites, and four completed Low native layouts (394 checks, including both larger-text assessments). All budgets and original workday gate profiles are unchanged. High native, painted-driving and retained-runner validation continues. The game tree is ec9aaeae; only three QA files changed for the stronger actual-child-surface proof. The native script has its own locked hash. These results supersede the pending resource statements in the implementation history below; whole C-39 remains doing.
+
+## Implementation history
+
 The `school-zone-drive` adapter and its two owned helpers now load through three index tags. It uses the actual school street, posted limit, live bus, crossing controller and sat nav. The shared optional `m1-school` entry remains a proposal for Claude's A-30 in registry-school.patch; the shared registry and default choice are unchanged. The browser fixture alone installs that optional entry.
 
 Fourteen school/bay component cases pass: seven core, four adapter/controls, two markings and one world correspondence case in Low and High. A continuous motor-driven safe approach waits for the live bus and children; an actual unsafe crossing contact produces the exact catalogue critical. The two positive B-135 checks retain their two-point maxima (400 maximum score), and bus-pass/pedestrian contact keeps the four-point critical penalty. No workday report is written and no type is invented. The proposed encounter/whole-van finish gate still awaits Claude's confirmation before the shared academy entry lands.
