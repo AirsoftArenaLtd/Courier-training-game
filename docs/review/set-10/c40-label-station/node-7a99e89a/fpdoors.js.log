@@ -1,0 +1,25 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ generated recipients, signatures, dogs and hazards match the source lessons (86.384318ms)
+✔ signature delivery records the actual signer; an omitted or wrong name fails the outcome (14.44802ms)
+✔ an absent signature recipient requires a retained exception (2.286081ms)
+✔ photo ID checks cover age, expiry, photo and name before a signed handover (75.951006ms)
+✔ skipped ID is critical, while declining invalid ID keeps the parcel (20.806676ms)
+✔ a wrong label is caught by the physical stop scan and kept as an address exception (6.419694ms)
+✔ ignoring an address alert and leaving the package cannot earn caught credit (4.938671ms)
+✔ an address safety exception overrides planter placement after reading the dispatch update (2.531382ms)
+✔ a resident blocks walking while at the door and leaves after the recorded outcome (70.542783ms)
+✔ closed gates block actual walking; waiting outside removes the loose-dog barrier safely (80.898645ms)
+✔ unsafe gate opening is recorded once and survives recovery and reload (7.816735ms)
+✔ both fixed fence sections block walking even after the dog is secured (222.196244ms)
+✔ a safe-access exception can be scanned and recorded from outside the closed gate (1.198387ms)
+✔ ice and wet patches need careful steps; movable hazards must be cleared or avoided (7.091315ms)
+✔ customer responses are graded once and a later polite choice cannot hide an argument (4.979852ms)
+✔ checkpoint validation retains optional evidence and leaves older games compatible (9.150121ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 632.438037

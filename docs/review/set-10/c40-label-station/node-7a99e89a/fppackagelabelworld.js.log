@@ -1,0 +1,13 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ every face, including base-only damage, turns physically toward the inspection position (32.724186ms)
+✔ inspection requires the whole face on screen, proximity and unobstructed real rays (7.952102ms)
+✔ all original package marks and damage render in one bounded coloured geometry with no image maps (176.11884ms)
+✔ seven numbered physical targets fit the depot, retain their occluders and leave a walkable aisle (2.106216ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 226.267953
