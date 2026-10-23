@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "index.html": "348e8118bb3804f391df0624f800c0ddc3f29fa12cb5f92ff60f7f14ee7ecfde",
+    "src/core/fpcamera.js": "35a185dbaf3b271bde541a00f5ee32ae3cce3ea2546f876742d9d971a80a34c4",
+    "src/core/fpworld.js": "703ba2a32e14dac104d9ec9977d2c643bf1fbc349425c1b281076344f5bb454b",
+    "test/fpbench.js": "a58a037964647e714ad81d0b06ed29f319e3caabb6770aa931fd80e1e32f3c7e",
+    "test/fpcamera.js": "3197d6de19a45ba930ac14de72f765e7f49a2ea315a0a7a7f2c47503e39528c7",
+    "test/fpdrivinglessonworld.js": "6a0259fbc7c461fbe36a44223be9e19569ed3f0b110a63233c0266bb1e8e4c6f",
+    "test/fpquality.js": "83f2fda13bfbe40dba399297cb1c533e672128e78ba211de7adf8d4db238fb4e",
+    "test/fpqualitygate.js": "54b11ac289a16aab1a4c892255964ab225365db5b72611a7c8bdb55fda5b3549",
+    "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d",
+    "src/core/fplessonbays.js": "8f68a2179f485bbbbbbb27d509539a5bc2d8baa88ce0505a546a6ab84b2b5cbe",
+    "src/core/fpschoollesson.js": "8a9c0e8787ecfa849acab96cc175f5a6da9efea4e0fa93067e6ebb8c7ef2434b",
+    "src/core/fpschoollessonui.js": "98ffba2a084be86a68cb1c662f1982cee4b3ff0d6f3fb293e77819cadef355d2",
+    "test/fplessonbays.js": "e06d9a085e10cab24b7c33953dd656b3bbf2b135f325880e27f01914ec099f2f",
+    "test/fpschoollesson.js": "b2d77cffe4880e2ff90c84b48bbaacf12ebb31cb5bea418fe4870b44a9846270",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da",
+    "test/fpschoollessonworld.js": "5d97fb741cef2100f785ca6f70f2efab4a35bbbff74640a2e2175a326f30f4c3",
+    "test/tools/fp-school-lesson-fixture.js": "f2b5ad35e22a7ca5338c6ceba8c3f59a2e20384d5edc106769bf48e0d3b4a9e0",
+    "test/tools/fp-school-lesson-proof.js": "314498914b5c258728521293412157d363114f12f65f72cc66fbe6eca0008130",
+    "test/tools/fp-school-lesson-view.js": "ef7a3e1dfda04fdc82f0e945004726e8dec61b17a8f38be0e50f27ca7a03f59e"
+  },
+  "baseSharedCandidate": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+  "stage": "school and painted-bay runtime hooks; browser/resource validation pending"
+}

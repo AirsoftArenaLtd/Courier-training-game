@@ -1,0 +1,97 @@
+[
+  {
+    "suite": "firstperson.js",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "suite": "fpmission.js",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "suite": "fpworld.js",
+    "exit": 0,
+    "seconds": 0.28
+  },
+  {
+    "suite": "fpscenario.js",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "suite": "fpdriving.js",
+    "exit": 0,
+    "seconds": 0.46
+  },
+  {
+    "suite": "fpdrivinglesson.js",
+    "exit": 0,
+    "seconds": 0.87
+  },
+  {
+    "suite": "fpdrivinglessonrules.js",
+    "exit": 0,
+    "seconds": 0.6
+  },
+  {
+    "suite": "fpdrivinglessonworld.js",
+    "exit": 0,
+    "seconds": 0.19
+  },
+  {
+    "suite": "fpdrivinglessonui.js",
+    "exit": 0,
+    "seconds": 0.38
+  },
+  {
+    "suite": "fpcamera.js",
+    "exit": 0,
+    "seconds": 0.13
+  },
+  {
+    "suite": "fpschoollesson.js",
+    "exit": 0,
+    "seconds": 3.8
+  },
+  {
+    "suite": "fpschoollessonui.js",
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "fpschoollessonworld.js",
+    "exit": 0,
+    "seconds": 1.02
+  },
+  {
+    "suite": "fplessonbays.js",
+    "exit": 0,
+    "seconds": 0.09
+  },
+  {
+    "suite": "fpqualitygate.js",
+    "exit": 0,
+    "seconds": 0.07
+  },
+  {
+    "suite": "workday.js",
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "savesize.js",
+    "exit": 0,
+    "seconds": 15.84
+  },
+  {
+    "suite": "i18n.js",
+    "exit": 0,
+    "seconds": 0.25
+  },
+  {
+    "suite": "englishtext.js",
+    "exit": 1,
+    "seconds": 0.03
+  }
+]

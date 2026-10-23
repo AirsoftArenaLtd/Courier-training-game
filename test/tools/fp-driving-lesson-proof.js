@@ -16,6 +16,7 @@ module.exports=function drivingLessonProof({kind,stage,index=0}){
   hazardActive:h.active,hazardKind:h.kind,hazardTime:h.t,hazardJudged:h.judged,logItems:r.log.items.length,results:s.results.length,
   loadedCar:!!a.pool.asset,loadedPerson:!!a.pool.actor,reduced:!!OTR.fpAccess.reduced(),weather:m.routePlan.weather,device:!!sc.handheld.isOpen,
   cue:{visible:device?sc.handheld.isOpen:visible(target),clear,x:ndc.x,y:ndc.y,z:ndc.z,hit:hit?.object.name||hit?.object.type||null,blocker:!clear&&hit?{point:hit.point.toArray(),instance:hit.instanceId,parents:(()=>{const names=[];for(let o=hit.object;o;o=o.parent)names.push(o.name||o.type);return names;})()}:null},
+  marking:{instances:sc.art.lessonBayArt.mesh.count,stop:sc.art.lessonBayArt.stop===stop,visible:sc.art.lessonBayArt.mesh.visible,texture:!!sc.art.lessonBayArt.mesh.material.map},
   parking:kind==='parking'?{ok:OTR.fpDrivingLesson.parking(m,stop).ok,reverse:!!sc.view.mirror.rearOn,steer:m.van.steer}:null,
   bounded:m.van.z>=b.z0+2.7&&m.van.z<=b.z1-2.7&&m.van.x>=b.x0+1.08&&m.van.x<=b.x1-1.08&&m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),
   checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};

@@ -265,6 +265,7 @@ OTR.fpWorld = {
       for(let i=0;i<2;i++)wheels.setMatrixAt(i,new T.Matrix4().makeTranslation(0,.34,i?-.65:.65));trafficBike.add(wheels);
     }
     const person=new T.Group();route.add(person);
+    person.name='traffic:school-children-fallback';
     const schoolChildren=base.trafficControl&&base.routePlan.day>=3?2:0;
     for(let i=0;i<(schoolChildren||1);i++){
       const z=i*1.1;box(person,0,1.1,z,.45,.75,.25,i?0x6B88A7:0xBD9155);box(person,0,1.65,z,.3,.32,.3,0xB68F72);
@@ -298,7 +299,7 @@ OTR.fpWorld = {
     const deliveryArt=OTR.fpStopScene?OTR.fpStopScene.build(base,route,box,labels):null;
     let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
     if(base.driving){
-      bus=new T.Group();route.add(bus);
+      bus=new T.Group();bus.name='traffic:school-bus';route.add(bus);
       box(bus,0,1.45,0,2.4,2.6,7.6,0xE4B64A,null,true);
       for(const x of [-1.21,1.21]){
         for(const z of [-2.4,-0.8,0.8,2.4])box(bus,x,2,z,0.04,0.7,1.05,0x343B46);
@@ -364,6 +365,7 @@ OTR.fpWorld = {
     const pretripArt=base.pretripLesson&&OTR.fpPretripWorld?OTR.fpPretripWorld.build(scene,base,{van,chassis,cab,actors,cube,box}):null;
     const hazardLessonArt=base.hazardLesson&&OTR.fpHazardLessonWorld?OTR.fpHazardLessonWorld.build(scene,base,route,cube):null;
     const drivingLessonArt=base.drivingLesson&&OTR.fpDrivingLessonWorld?OTR.fpDrivingLessonWorld.build(scene,base,route,cube):null;
+    const lessonBayArt=(base.drivingLesson||base.schoolLesson)&&OTR.fpLessonBays?OTR.fpLessonBays.build(route,cube,base):null;
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
       const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
@@ -385,9 +387,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
-        const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(lessonBayArt)lessonBayArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(signLettering)signLettering.dispose();if(surfaces)surfaces.dispose();
       },
@@ -489,6 +491,7 @@ OTR.fpWorld = {
         if(pretripArt&&model)pretripArt.sync(model);
         if(hazardLessonArt&&model)hazardLessonArt.sync(model,reduced);
         if(drivingLessonArt&&model)drivingLessonArt.sync(model,reduced);
+        if(lessonBayArt&&model)lessonBayArt.sync(model);
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
