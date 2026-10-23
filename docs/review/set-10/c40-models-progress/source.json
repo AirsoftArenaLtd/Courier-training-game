@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-23",
+  "scope": "Unwired local sorting and lifting models only. No new browser acceptance or frame-budget figures.",
+  "loadedByIndex": false,
+  "parent": "028d56378a1a812d2297cd9f4e5b32e84184be46",
+  "pilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "sources": {
+    "src/core/fppackagesort.js": "48decbae861b9b3ec311d7307ce203f689ae253ee8f39702daaea4aa38a5fa20",
+    "test/fppackagesort.js": "8daecc3bbfe95c4fe9bb0ac5a98212b9fe11246f2f406578f9aa6c9e8f5d1e98",
+    "src/core/fppackagelift.js": "c951851be051346154a20ea51435e5003b5380c04df36b1191a63d4be997a1f5",
+    "test/fppackagelift.js": "1fc52484b916808bb7ee7e47ffc6c465d65c1a98a0fbf0d9e5a2f4f4bfb3091b"
+  },
+  "originalSources": [
+    {
+      "path": "data/m2_sorting.js",
+      "sha256": "2100918297fa53ee535f32e2031eef5e5fb47291671f0dfd9e1b3292b07cc1de",
+      "matchesPilot": true
+    },
+    {
+      "path": "src/scenes/m2/SortingScene.js",
+      "sha256": "7616b3436c24666fabd984ffdad81d082e6ba16ce7542847e7d83e75bc9e7f52",
+      "matchesPilot": true
+    },
+    {
+      "path": "data/m2_lifting.js",
+      "sha256": "899b56bcddf0612294c520de5c45bfb17ba742dc583d7e550d4c03528536f9ff",
+      "matchesPilot": true
+    },
+    {
+      "path": "src/scenes/m2/LiftingScene.js",
+      "sha256": "62a0073a2745d1eaf4bd12faeaa8e5b9548a5c632a65be7218d1447a1d7d5c44",
+      "matchesPilot": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "node",
+        "test/fppackagesort.js"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "node",
+        "test/fppackagelift.js"
+      ],
+      "exit": 0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+✔ 7040 original sorting decisions preserve precedence, blind penalties, score clamping, combo boundaries and error counts (227.298585ms)
+✔ missed special parcels, lessons and final ratios use the existing 2D result contract (0.917369ms)
+✔ wave transitions retain the old bins until every physical parcel is resolved and keep stable bin numbers (4.482533ms)
+✔ the live clock caps long frames, pauses, deduplicates scanning and resolves each jam once (0.385487ms)
+✔ all five waves finish in bounded memory without input, and invalid actions cannot manufacture credit (9.637294ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 293.091429
