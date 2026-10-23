@@ -1,0 +1,11 @@
+{
+  "status": "development core only; not a playable or accepted module",
+  "sources": {
+    "src/core/fpdrivinglesson.js": "461072702301e79f7538a435d7d9f8afb2040439882551d23e716392ba348faa",
+    "test/fpdrivinglesson.js": "7042062c92e34afcacf5f638f62429bb4944dc1bdd2c49d64f1536bcc17b3723"
+  },
+  "files": {
+    "original-comparisons.log": "1478c0e3792578b75941169d0f36db8db1ffde80fe9baa3cf140c7d4cfcd2412",
+    "README.md": "81b8cfb5a690d27e99eca3a6a638a73f5817acfb04942144baac352cde704fb1"
+  }
+}

@@ -1,0 +1,14 @@
+✔ all six hazard pass/fail and impact entries match the original scorer, including map positions (41.706787ms)
+✔ violation repeat intervals, default weights and pedestrian critical flags match the original scene (2.321225ms)
+✔ mixed full-drive results and all par-time boundaries match the original endDrill method (14.136023ms)
+✔ parking checks and checkpoint credit match the actual original parking method (3.322858ms)
+✔ physical hazard decisions match original moment-of-truth methods across boundary cases (6.226199ms)
+✔ the controllable module projects the actual six-checkpoint route without changing the five-stop workday schema (81.066512ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.302789
