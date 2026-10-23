@@ -1,0 +1,2 @@
+accessible-low: PASS {"calls":28,"triangles":642,"textures":2,"attachmentBytes":3557376,"phaserBytes":1948064}
+fallback-low: PASS {"calls":32,"triangles":716,"textures":2,"attachmentBytes":3557376,"phaserBytes":1742086}
