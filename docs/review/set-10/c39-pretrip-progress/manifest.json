@@ -80,7 +80,12 @@
       "log": "c39-pretrip-final-native.log",
       "pid": 328386,
       "exit": 1,
-      "end": "2026-10-23T01:06:34.265782+00:00"
+      "end": "2026-10-23T01:06:34.265782+00:00",
+      "historicalDiagnostics": [
+        "../c39-brake-timing-diagnostic/manifest.json",
+        "../c39-focus-diagnostic/manifest.json"
+      ],
+      "logScope": "Historical command basename; original failed logs are retained by the diagnostic manifests."
     },
     {
       "name": "english-source-guard",
@@ -134,7 +139,12 @@
       "log": "c39-pretrip-final-native.log",
       "pid": 330381,
       "exit": 1,
-      "end": "2026-10-23T04:20:23.022329+00:00"
+      "end": "2026-10-23T04:20:23.022329+00:00",
+      "historicalDiagnostics": [
+        "../c39-brake-timing-diagnostic/manifest.json",
+        "../c39-focus-diagnostic/manifest.json"
+      ],
+      "logScope": "Historical command basename; original failed logs are retained by the diagnostic manifests."
     },
     {
       "name": "english-source-guard",
@@ -7992,6 +8002,14 @@
       "candidate": "0a70929a",
       "failure": "English guard misidentified plain-data text field",
       "resolutionJob": "english-source-guard"
+    },
+    {
+      "failure": "Smoothed three-second brake timer and stale initial Phaser focus state",
+      "resolution": "Four current timing/focus/cancellation unit cases and the completed eight-layout native rerun",
+      "diagnostics": [
+        "../c39-brake-timing-diagnostic/manifest.json",
+        "../c39-focus-diagnostic/manifest.json"
+      ]
     }
   ],
   "resourceValidation": "All 32 pre-trip resource views independently revalidated.",
@@ -8126,8 +8144,8 @@
   "files": [
     {
       "file": "README.md",
-      "bytes": 2379,
-      "sha256": "8c48d957ce981afa67ea8f5d0f3ab105a296de2a9063448499bd0c5c7fca84bf"
+      "bytes": 2783,
+      "sha256": "af9b321141a2d9e4ce5f208af2d304b7af22d58521b0234a966aaf1e4d4535b6"
     },
     {
       "file": "acceptance.py",
