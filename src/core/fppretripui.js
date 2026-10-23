@@ -36,7 +36,7 @@ OTR.fpPretripUI={
     const cancel=()=>{stop();if(scene.panel?.root===root)release();};
     const tick=()=>{
       if(scene.panel?.root!==root){stop();return;}
-      if(document.hidden||!scene.game.hasFocus){cancel();return;}
+      if(document.hidden||!document.hasFocus()){cancel();return;}
       if(performance.now()-started>=3000){stop();done();}
     };
     scene.events.on('update',tick);scene.game.events.on('blur',cancel);root.once('destroy',stop);
