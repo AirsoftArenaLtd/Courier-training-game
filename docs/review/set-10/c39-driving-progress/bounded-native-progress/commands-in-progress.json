@@ -323,10 +323,12 @@
       "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
       "log": "/tmp/c39-driving-bounded-driving-high-ta-large.log",
       "started": 1792786016.8595216,
-      "pid": 379899
+      "pid": 379899,
+      "exit": 0,
+      "finished": 1792787410.3589916
     }
   ],
-  "complete": false,
+  "complete": true,
   "limits": "School source has all eight native modes and all four resource profiles. Painted driving has 72 current views and the three remaining High native modes; five earlier driving modes remain explicitly scoped to bf3cbb8b.",
   "failure": null,
   "correctedDrivingNative": {

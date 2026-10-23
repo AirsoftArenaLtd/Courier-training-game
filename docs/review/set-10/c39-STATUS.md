@@ -1,13 +1,13 @@
 # C-39 implementation and evidence, 23 October 2026
 
-C-39 is blocked on the remaining feature contract; its final driving validation continues. Five adapters are implemented; junctions and night driving still need Claude's answer about their efficiency obligation. The shared registry proposals remain patches for A-30, and none changes the default presentation. New English sentences await Claude's translation pass.
+C-39 is blocked on the remaining feature contract; its driving validation is complete as a source-scoped slice. Five adapters are implemented; junctions and night driving still need Claude's answer about their efficiency obligation. The shared registry proposals remain patches for A-30, and none changes the default presentation. New English sentences await Claude's translation pass.
 
 | Adapter | Scenario | Native evidence | Resource views | Evidence |
 | --- | --- | --- | ---: | --- |
 | Physical pre-trip | Existing `m1-pretrip` | 1,930 checks, eight layouts | 32 | [Pre-trip](c39-pretrip-progress/manifest.json) |
 | Mounted sat-nav route planning | Existing `m1-route` | 5,718 checks, eight layouts and missed commitment | 24 | [Route](c39-route-acceptance/manifest.json) |
 | Road hazard perception | Existing `m1-spot` | 1,431 checks, eight layouts and spam case | 60 | [Hazards](c39-hazard-acceptance/manifest.json) |
-| Controllable hazards and reverse bays | Existing `m1-driving` | Five earlier layouts at `bf3cbb8b`; three current High layouts are tracked individually | 72 | [Driving](c39-driving-progress/manifest.json) |
+| Controllable hazards and reverse bays | Existing `m1-driving` | Five earlier layouts/936 checks at `bf3cbb8b`; three current High layouts/554 checks at `b7dc5de8` | 72 | [Driving](c39-driving-progress/manifest.json) |
 | School-zone drive | Proposed optional `m1-school` | 788 checks, eight layouts, four assessments | 32 | [School](c39-school-progress/validated-b7dc5de8/manifest.json) |
 
 Each manifest records its own source revision. This table does not combine those runs into a single-revision acceptance claim. The current `b7dc5de8` candidate also passes all 85 non-browser suites and 231 retained generic runner checks, including assessment abandonment, suspended-workday isolation and the actual 2D loading fallback. The runner uses its disclosed generic fixture; it is separate from production pre-trip grading.

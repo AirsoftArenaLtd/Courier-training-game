@@ -1,5 +1,7 @@
 {
-  "status": "Completed High native runs independently verified; complete flag is explicit in revalidation.json",
+  "status": "All three corrected High native drives pass, independently verified",
+  "checks": 554,
+  "runs": 3,
   "files": {
     "README.md": "96905ed040c5b6a8eb4cc055115898c3cc7e497eb7c77908cd58f6c62620ec8c",
     "c39-driving-bounded-high-en-large-high-en-large-hazard-0.png": "1607fa9695897a3b8ec36796914f197cb50141594c8e15fd6743478a85b7daa3",
@@ -15,6 +17,19 @@
     "c39-driving-bounded-high-en-large-high-en-large-park-4.png": "48119157f5f5533b5f1735bca98aa293fd90fb91a4d2e0357d2620e48d343ec4",
     "c39-driving-bounded-high-en-large-high-en-large-park-5.png": "833985d54261ec374b16447449737adf6c3add4dfdd384b53a14be9714388077",
     "c39-driving-bounded-high-en-large.json": "a9765630963e1f37aab7201369fea419ab9ee22c14221f086df1adb85cd6c5dd",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-0.png": "c5d54e660a67d5217d1e1d3fdf095039e643d4832d46e15e3dd0ffd43d8d183f",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-1.png": "3d08e5691aa605d7fec42ee4a4928c9b854a32d2fa95747feb261871628f4a49",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-2.png": "58df78a3694b581a1d37ecb61b2b04203ef5b315988e9e9c16c794a08fb909ba",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-3.png": "9ba520f2d24bf125439055f7d9aa024e034bc4d997d5945778aa46283b115d73",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-4.png": "2cbf1011e7fc0a35b25e5ff46b3b1a30b237876229a56fb7d4b5ece8b8ea0280",
+    "c39-driving-bounded-high-ta-large-high-ta-large-hazard-5.png": "2fc2319d3b89b886ee1d9a4885371cdcb45109a30930b78f41498ae2959863c7",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-0.png": "53b8d70bcaaf066e3255fddfb64c25cab17b943266b44c34fee66a1cf1a9438a",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-1.png": "31521e1be7e1317ea7a6c1743e2307e17055e9198092bb97549b5a7a49ef5a0b",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-2.png": "b31b92c489d9421cc351c760b2378caa75da151b79bc4c9175475ad4ec8fee16",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-3.png": "3abd16038eee5a2f6e538cb1bb00686ae3044b1e5d214802577efb5e0227f878",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-4.png": "9528db6b80d0f08c82d2e2112a7abeacb2b689214e4ccfac43aa789275d7dbf1",
+    "c39-driving-bounded-high-ta-large-high-ta-large-park-5.png": "6c2829452c9a7bd51a8e1d74b284d8626e78309dbcb18c4a20a72a69b3b9ed64",
+    "c39-driving-bounded-high-ta-large.json": "6c4578da740fa4132ec8eba1c2f9f387db8d366bdec671febd921202deb3806e",
     "c39-driving-bounded-high-ta-normal-high-ta-normal-hazard-0.png": "713c24d010bde7b67e3581872153e31c403ed5d9f8a93f73c556b06ca5f8b71c",
     "c39-driving-bounded-high-ta-normal-high-ta-normal-hazard-1.png": "72b2a8055d9d3f46a6412a409b362ab132d24baed341693b1682a183a0763907",
     "c39-driving-bounded-high-ta-normal-high-ta-normal-hazard-2.png": "8feb12762a35db86668f79c2f197ad895e1851a66d0904d29e0d53322e494715",
@@ -29,7 +44,8 @@
     "c39-driving-bounded-high-ta-normal-high-ta-normal-park-5.png": "3cf0574e16ff1e08f32f505d768162ac84fbbe1f6a6a0ee968c2918f723e2ec0",
     "c39-driving-bounded-high-ta-normal.json": "29069107703112461258c492a3c43b86bec0f99b6d69fd98c0e810a1808596cc",
     "driving-high-en-large.log": "1818ee935b93d4bca9dfd8acb8af26a5420479ed00d0d7d78f2384a831e88592",
+    "driving-high-ta-large.log": "de99c901cae779abf107f37b48bc5672262f5f12024d88d9cb0b4523b45969cd",
     "driving-high-ta-normal.log": "bac464c73a7e72f4a00f1034d71288fa3e6eef8b3e6732ec0295216a4c105d28",
-    "revalidation.json": "b8da6e0b8282e7f26ab276cd8cc520de80164d8ab02bfc41e2a4b3355cb2b0ac"
+    "revalidation.json": "a7c9cfc593c8a240631e34297f200a1e125935e17467ee690c6f894dda0302a2"
   }
 }
