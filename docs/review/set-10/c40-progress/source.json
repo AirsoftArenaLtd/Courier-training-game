@@ -1,0 +1,28 @@
+{
+  "parent": "b860fa180e3a4631d351eba765314e2b87ff52dd",
+  "stackedOn": "codex/c38-scenario-runner",
+  "pilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "ownedSources": {
+    "src/core/fppackagelabels.js": "321495e332a354d5e632a000df1398a4bbf20421ee6d33a681f53259e7c9c52b",
+    "test/fppackagelabels.js": "e1e2dff8537116032f36fb85936511f9d613abe2e76f2713655899aa77265341"
+  },
+  "originalScoreSources": [
+    {
+      "path": "data/m2_labels.js",
+      "sha256": "57af3db7f0092b203792a5bb76cb3c3a699cdc2e1fdd4b4ba39d0d5fe373876a",
+      "matchesCurrentPilot": true
+    },
+    {
+      "path": "src/scenes/m2/LabelScene.js",
+      "sha256": "9635adefbc4087a50ff54df39dd2d5d90079021eb6423b2ddcb689fb2a203cdb",
+      "matchesCurrentPilot": true
+    },
+    {
+      "path": "src/core/scorelog.js",
+      "sha256": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+      "matchesCurrentPilot": true
+    }
+  ],
+  "loadedByIndex": false,
+  "scope": "Unwired package-label inspection model only. No 3D renderer, default, registry, shared scoring/save/Settings/i18n or 2D scene changes."
+}
