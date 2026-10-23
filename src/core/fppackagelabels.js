@@ -9,10 +9,10 @@ OTR.fpPackageLabels={
       index:-1,item:null,phase:'brief',answering:false,guideOpen:false,face:'front',seen:{},itemTime:0,score:0,outcomes:[],result:null,
       stats:{correct:0,total:0,blind:0,speed:[],wrong:[],slow:0}};
   },
-  next(s){
+  next(s,{frontVisible=true}={}){
     if(s.result||s.guideOpen||!['brief','verdict'].includes(s.phase))return false;
     s.index++;if(s.index>=s.queue.length){s.phase='done';s.answering=false;return false;}
-    s.item=s.queue[s.index];s.phase='run';s.answering=true;s.face='front';s.seen={front:true};s.itemTime=0;return true;
+    s.item=s.queue[s.index];s.phase='run';s.answering=true;s.face='front';s.seen=frontVisible?{front:true}:{};s.itemTime=0;return true;
   },
   see(s,face){
     if(s.phase!=='run'||!s.answering||s.guideOpen||!this.faces.includes(face))return false;
