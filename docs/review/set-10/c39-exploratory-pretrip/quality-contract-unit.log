@@ -1,0 +1,25 @@
+✔ a profile requires actual frames for every named view and its requested quality (1.903614ms)
+✔ resource overflow, lost contexts and page errors fail the integrated gate (1.205974ms)
+✔ a fallback profile must really fail every selected model without loading any (0.49917ms)
+✔ High has explicit separate ceilings while the original Low ceilings remain (0.321911ms)
+✔ accessibility and running sound cannot be silently omitted from the fixture (0.31416ms)
+✔ a blank physical mirror cannot pass on resource counters alone (0.267791ms)
+✔ module counters require the requested real set-piece, boundaries and unchanged workday state (0.860609ms)
+✔ radio and night counters need actual route, caption, visibility and reduced-motion proofs (0.528142ms)
+✔ healthy profiles reject a recovered fallback and reports missing the fallback counter (0.286369ms)
+✔ navigation views must name their versioned campaign fixture (0.333067ms)
+✔ damage views require the located damage, cargo and physical clearance fixture (0.233721ms)
+✔ clearance views require a lasting readable warning and the reverse view also requires its camera (0.498419ms)
+✔ richer-stop counters need physical control, custody and native-schedule proofs (0.427555ms)
+✔ traffic views require the combined versioned traffic and navigation fixture (0.153094ms)
+✔ walkaround views require the opted-in model and seven non-rendered physical targets (0.624763ms)
+✔ ambient views require visible bounded people, the correct source variant and a restorable day (0.537346ms)
+✔ pre-trip views require the real registered adapter, all targets, bounded canvas reuse and isolated saves (0.501173ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.473347

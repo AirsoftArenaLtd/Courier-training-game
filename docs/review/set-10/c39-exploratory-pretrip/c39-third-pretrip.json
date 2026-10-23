@@ -1,0 +1,1102 @@
+{
+  "checks": 198,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": [
+        {
+          "id": "tire_front",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 810.5,
+              "y": 111.5,
+              "right": 1105.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Record this condition."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 966,
+              "bottom": 250,
+              "size": 19,
+              "text": "Front tire, driver side\n\nThe gauge reads 9/32 inches."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 835.5,
+              "y": 566.5,
+              "right": 1080.5,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the inspection."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "tire_rear",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 810.5,
+              "y": 111.5,
+              "right": 1105.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Record this condition."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 966,
+              "bottom": 250,
+              "size": 19,
+              "text": "Rear tire, driver side\n\nThe gauge reads 8/32 inches."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 835.5,
+              "y": 566.5,
+              "right": 1080.5,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the inspection."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "leak",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1093,
+              "bottom": 250,
+              "size": 19,
+              "text": "Under the truck\n\nDry ground under the engine and driveline."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "mirror_l",
+          "canJudge": true,
+          "bad": true,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1180,
+              "bottom": 278,
+              "size": 19,
+              "text": "Driver mirror\n\nKnocked out of position — it shows sky and your own door."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "fuel_cap",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 899,
+              "bottom": 250,
+              "size": 19,
+              "text": "Fuel cap\n\nCap fitted and sealed."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "tire_front_p",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 810.5,
+              "y": 111.5,
+              "right": 1105.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Record this condition."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 977,
+              "bottom": 250,
+              "size": 19,
+              "text": "Front tire, curb side\n\nThe gauge reads 10/32 inches."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 835.5,
+              "y": 566.5,
+              "right": 1080.5,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the inspection."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "steps",
+          "canJudge": true,
+          "bad": true,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1022,
+              "bottom": 250,
+              "size": 19,
+              "text": "Entry steps\n\nGreasy film across the bottom step."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "door_latch",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 927,
+              "bottom": 250,
+              "size": 19,
+              "text": "Curb-side door latch\n\nLatches and holds firmly."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "headlight_l",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 897,
+              "bottom": 250,
+              "size": 19,
+              "text": "Headlight, driver side\n\nThe lamp illuminates."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "signal_r",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 897,
+              "bottom": 250,
+              "size": 19,
+              "text": "Turn signal, curb side\n\nThe lamp illuminates."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "windshield",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1013,
+              "bottom": 250,
+              "size": 19,
+              "text": "Windshield\n\nClean, no cracks in the swept area."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "wipers",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1044,
+              "bottom": 250,
+              "size": 19,
+              "text": "Wiper blades\n\nRubber intact, sitting flat on the glass."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "taillight_l",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 897,
+              "bottom": 250,
+              "size": 19,
+              "text": "Tail light, driver side\n\nThe lamp illuminates."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "rear_door",
+          "canJudge": true,
+          "bad": true,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 997,
+              "bottom": 250,
+              "size": 19,
+              "text": "Cargo door\n\nThe latch does not seat properly."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "reflector_rear",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 855,
+              "bottom": 250,
+              "size": 19,
+              "text": "Rear reflector\n\nClean and intact."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "horn",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 976,
+              "bottom": 250,
+              "size": 19,
+              "text": "Horn\n\nThe horn sounds immediately."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "seatbelt",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1058,
+              "bottom": 250,
+              "size": 19,
+              "text": "Seat belt\n\nWebbing sound, latches firmly, retracts."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "brake_pedal",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1160,
+              "bottom": 250,
+              "size": 19,
+              "text": "Service brake\n\nThe pedal holds its position under steady pressure."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "gauges",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1128,
+              "bottom": 250,
+              "size": 19,
+              "text": "Oil pressure gauge\n\nReading in the normal band, warning lamp out."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "extinguisher",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1099,
+              "bottom": 250,
+              "size": 19,
+              "text": "Fire extinguisher\n\nCharged, tagged, and secured in its bracket."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        },
+        {
+          "id": "triangles",
+          "canJudge": true,
+          "bad": false,
+          "texts": [
+            {
+              "x": 842.5,
+              "y": 111.5,
+              "right": 1073.5,
+              "bottom": 142.5,
+              "size": 27,
+              "text": "Inspect this part."
+            },
+            {
+              "x": 705,
+              "y": 170,
+              "right": 1018,
+              "bottom": 250,
+              "size": 19,
+              "text": "Warning triangles\n\nFull set of three, stowed and intact."
+            },
+            {
+              "x": 808,
+              "y": 450.5,
+              "right": 1108,
+              "bottom": 471.5,
+              "size": 18,
+              "text": "1. Record this part as serviceable."
+            },
+            {
+              "x": 829.5,
+              "y": 508.5,
+              "right": 1086.5,
+              "bottom": 529.5,
+              "size": 18,
+              "text": "2. Flag this part as defective."
+            },
+            {
+              "x": 866,
+              "y": 566.5,
+              "right": 1050,
+              "bottom": 587.5,
+              "size": 18,
+              "text": "3. Return to the van."
+            }
+          ],
+          "textures": [
+            "fp-pretrip-closeup"
+          ],
+          "localItems": 0
+        }
+      ],
+      "shots": [
+        "c39-third-pretrip-low-en-normal-tire_front_p.png",
+        "c39-third-pretrip-low-en-normal-brake_pedal.png"
+      ],
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "score": 600,
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null",
+        "textures": []
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Only travel positions, the deterministic defect seed and temporary scene3d registry field are fixtures. Nearby ray selection, remapped keys, cab entry/exit, switches, tests, condition recording and the existing results screen are real.",
+  "complete": true
+}

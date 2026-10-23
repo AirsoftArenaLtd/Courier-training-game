@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-23",
+  "status": "Exploratory screenshots and focused unit proof; excluded from final acceptance",
+  "exploratoryNativeSource": "Unfrozen launch before final gauge artwork and neutral target prompts; no exact runtime is asserted",
+  "currentUnitSource": {
+    "src/core/fppretrip.js": "7d2cd21915af6d7e6251a54267f296b8a35fdd029ad3c7acff763573575039d8",
+    "test/fppretrip.js": "eb6af1241a5623eb78458eb84ed42401bfe3fd224d3bfd1776486849bbb3bce8",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScene.js": "bcf4722e6ec9bceea4fc58be4685ad5ff6368bb26b37731547a9b7cf312e906f",
+    "src/scenes/FirstPersonScenarioScene.js": "0bdbd123edc226aa4ed063e3e32fb52130a4c28363c8c17ac62bb2c1d2233745",
+    "test/fpscenario.js": "63a22e359eb73d3b1aa744f2ea444408a487a4009d1d0ba96a032def5d879e72",
+    "test/fpquality.js": "0e20d0422843cb02fff8752a17889fb77fad87c147bc4bda66574bd2d8ff2edf",
+    "test/fpqualitygate.js": "407cd624a093092c73c66e0e18cb1ab1723d9cf8f3f1dd473ddff2c4110aa95f"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1348,
+      "sha256": "a07d05eb294c2961acd689184b8ab9e16a81bd0b996544f9871aa9fcfe823fde"
+    },
+    {
+      "file": "c39-third-pretrip-low-en-normal-brake_pedal.png",
+      "bytes": 67275,
+      "sha256": "67e26b2cd6ea9c57f4e3c2292c83bf2b465b162c7197477cd67a5a2508b9ed22"
+    },
+    {
+      "file": "c39-third-pretrip-low-en-normal-tire_front_p.png",
+      "bytes": 59228,
+      "sha256": "3392dcb08c45ab6fff523363b7b5370b9aa255f941446a96f24851029424b342"
+    },
+    {
+      "file": "c39-third-pretrip.json",
+      "bytes": 29286,
+      "sha256": "60a639f1837ed0f5ac38aa4774f3fe54a0fe9dbd59ed60edc5a69ebb624d8df9"
+    },
+    {
+      "file": "current-pretrip-unit.log",
+      "bytes": 1292,
+      "sha256": "0f8dde93c569b727d315dbc698a416fcbff2b1f6d4d1570a826f83b58f7706db"
+    },
+    {
+      "file": "exploratory-native.log",
+      "bytes": 367,
+      "sha256": "d04021ae0e22b53c474b5faecc77076548af3a5d7c8f59ebb16d2160c80d7da4"
+    },
+    {
+      "file": "quality-contract-unit.log",
+      "bytes": 1790,
+      "sha256": "8c98522e1c1a9586392cc25ff62735b22cc58472e5849e424b0d250bbc07c844"
+    },
+    {
+      "file": "retained-runner-unit.log",
+      "bytes": 1677,
+      "sha256": "735409db3959f961a5429f0e62bdc4de40dcf7f41e4357e7aaec4f15d0904c1f"
+    }
+  ]
+}
