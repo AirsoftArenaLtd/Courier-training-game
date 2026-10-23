@@ -1,0 +1,18 @@
+✔ unavailable audio still supplies every active caption and never changes the mission (3.729469ms)
+✔ two continuous sources start at zero gain and remain bounded during repeated updates (8.883971ms)
+✔ narration ducks the shared master and suppresses new effects, then restores saved volume (1.368608ms)
+✔ pause, hidden tab and shutdown silence and disconnect only the owned voices and listeners (1.216674ms)
+✔ muted sound keeps event captions and cannot start a sound source (1.014896ms)
+✔ braking and indicators use bounded effect rates and have visible sentences (1.340576ms)
+✔ Settings changes the existing saved volume and mute with clamped values (2.193995ms)
+✔ engine RPM and road feel reuse the existing voices and keep invalid telemetry silent (35.390455ms)
+✔ parking beeps accelerate with proximity, stay quiet when muted and retain their text cue (1.573741ms)
+✔ an unread radio call announces once per mission even when effects are muted (1.803129ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.767242

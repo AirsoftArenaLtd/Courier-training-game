@@ -1,0 +1,22 @@
+✔ starting wear is deterministic, separate from new damage and never reports (8.081109ms)
+✔ the first three days and trainer damage-off cannot cause damage, clearance grades or load shifts (0.490504ms)
+✔ a located impact chooses the approved severity without moving existing wear into player damage (36.86562ms)
+✔ a held contact reports once per affected zone, including after restoring mid-contact (0.997862ms)
+✔ released contacts and different physical causes keep their own event identities (0.18309ms)
+✔ restored state is independent and reproduces the same later impact and load transition (0.287034ms)
+✔ parking-speed touches and malformed impact inputs leave the checkpoint unchanged (0.184152ms)
+✔ clearance checks retain stop/detour success or strike failure once through a checkpoint (0.25744ms)
+✔ secured cargo shifts less and requires a harder turn or brake than unsecured cargo (0.208968ms)
+✔ load shift is once per leg and never creates an event for an empty or gently driven van (6.684818ms)
+✔ changing trainer permission preserves old damage and prevents new reports (0.232012ms)
+✔ malformed, sparse, extra and contradictory checkpoint fields are rejected (0.520538ms)
+✔ long repeated driving keeps a bounded state and fresh collision keys after restore (27.09483ms)
+✔ only approved event types cross the real workday contract, preserving keys, place and retry identity (1.239749ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.652446
