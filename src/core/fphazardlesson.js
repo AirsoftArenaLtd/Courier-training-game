@@ -8,21 +8,21 @@ OTR.fpHazardLesson={
   },
   reset(m,index){
     const s=m.hazardLesson;s.index=index;s.clip=s.content.clips[index];s.time=0;s.flags=[];s.presses=0;s.recorded=false;s.ended=false;s.revision++;
-    s.cueZ=14-s.clip.mph*.44704*s.clip.at-30;m.van.look=0;m.player.pitch=0;this.pose(m);
+    s.cueZ=14-s.clip.mph*.44704*s.clip.at-18;m.van.look=0;m.player.pitch=0;this.pose(m);
   },
   pose(m){
     const s=m.hazardLesson,c=s.clip,t=s.time,age=t-c.at,speed=c.mph*.44704;
     // The ordinary clip van brakes automatically. Reduced motion keeps the cab fixed at the clue's
     // viewing position; actor movement and exactly the same response window remain observable.
     const brake=c.at+1.6,coast=Math.min(t,brake)*speed,braking=Math.min(Math.max(0,t-brake),speed/7),distance=coast+speed*braking-3.5*braking*braking;
-    s.vanZ=s.reduced?s.cueZ+30:Math.max(s.cueZ+12,14-distance);s.vanSpeed=s.reduced?0:s.vanZ<=s.cueZ+12?0:Math.max(0,speed-7*Math.max(0,t-brake));
+    s.vanZ=s.reduced?s.cueZ+18:Math.max(s.cueZ+8,14-distance);s.vanSpeed=s.reduced?0:s.vanZ<=s.cueZ+8?0:Math.max(0,speed-7*Math.max(0,t-brake));
     const v=m.van;v.x=1.7;v.z=s.vanZ;v.yaw=0;v.speed=s.vanSpeed;v.steer=0;v.gear=1;v.hand=false;v.belt=true;
     s.carX=4.4;s.carZ=s.cueZ;s.carYaw=0;s.personX=6.6;s.personZ=s.cueZ;s.personVisible=false;s.ballVisible=false;s.doorAngle=0;s.lamps=age>=0&&(c.kind==='door'||c.kind==='reversing');s.phone=false;
-    if(c.kind==='ball'){s.ballVisible=true;s.ballX=5.2-Math.min(3.6,Math.max(0,age)*2.6);s.personVisible=age>=1.4;s.personX=6.6-Math.min(5,Math.max(0,age-1.4)*1.6);}
-    if(c.kind==='reversing'){s.carYaw=Math.PI/2;s.carX=8-Math.min(6.5,Math.max(0,age-1.5)*3);}
+    if(c.kind==='ball'){s.ballVisible=age>=0;s.ballX=3.4-Math.min(3.6,Math.max(0,age)*2.6);s.personVisible=age>=1.4;s.personX=6.6-Math.min(5,Math.max(0,age-1.4)*1.6);}
+    if(c.kind==='reversing'){s.carYaw=-Math.PI/2;s.carX=8-Math.min(6.5,Math.max(0,age-1.5)*3);}
     if(c.kind==='phone'){s.personVisible=true;s.phone=age>=0;s.personZ=s.cueZ+Math.max(0,1.2-age)*1.2;s.personX=6.6-Math.min(5,Math.max(0,age-1.2)*1.5);}
     if(c.kind==='door')s.doorAngle=-Math.min(1.2,Math.max(0,age-1.3)*2.4);
-    if(c.kind==='runner'){s.carYaw=-Math.PI/2;s.carX=16-Math.min(22,Math.max(0,age+1)*4.7);}
+    if(c.kind==='runner'){s.carYaw=Math.PI/2;s.carX=16-Math.min(22,Math.max(0,age+1)*4.7);}
   },
   advance(m,seconds){
     const s=m.hazardLesson;if(!s||s.ended||m.paused)return;

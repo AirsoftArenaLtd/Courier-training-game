@@ -13,7 +13,7 @@ OTR.fpHazardLessonWorld={
     const parts=[[-.12,.36,.16,.72,.2,0x354956],[.12,.36,.16,.72,.2,0x354956],[0,1.06,.46,.68,.27,0x466D82],[0,1.59,.29,.31,.28,0xBC9476],[-.31,1.05,.13,.62,.15,0x466D82],[.31,1.05,.13,.62,.15,0x466D82]];
     if(!actor)for(let i=0;i<parts.length;i++){const p=parts[i];scratch.position.set(p[0],p[1],0);scratch.rotation.set(0,0,0);scratch.scale.set(p[2],p[3],p[4]);scratch.updateMatrix();figure.setMatrixAt(i,scratch.matrix);figure.setColorAt(i,colour.setHex(p[5]));}
     if(fallback)for(let i=0;i<4;i++){const top=i%2;scratch.position.set(0,top?1.05:.48,i<2?0:6.8);scratch.rotation.set(0,0,0);scratch.scale.set(top?1.5:1.8,top?.55:.75,top?2.1:4.3);scratch.updateMatrix();fallback.setMatrixAt(i,scratch.matrix);fallback.setColorAt(i,colour.setHex(top?0x607B87:0x536F7B));}
-    const ball=new T.Mesh(OTR.gfx.high()?new T.SphereGeometry(.18,12,8):new T.OctahedronGeometry(.18),red);root.add(ball);
+    const ball=new T.Mesh(OTR.gfx.high()?new T.SphereGeometry(.24,12,8):new T.OctahedronGeometry(.24),red);root.add(ball);
     const door=new T.Group();door.position.set(-.92,1,-.7);const leaf=new T.Mesh(cube,amber);leaf.position.z=.45;leaf.scale.set(.06,.8,.9);door.add(leaf);car.add(door);
     const lamps=new T.InstancedMesh(cube,white,2);lamps.frustumCulled=false;car.add(lamps);for(let i=0;i<2;i++){scratch.position.set(i?.6:-.6,.7,2.16);scratch.rotation.set(0,0,0);scratch.scale.set(.24,.13,.035);scratch.updateMatrix();lamps.setMatrixAt(i,scratch.matrix);}
     const phone=new T.Mesh(cube,dark);phone.scale.set(.08,.14,.04);person.add(phone);
@@ -33,8 +33,8 @@ OTR.fpHazardLessonWorld={
         if(asset)for(const {mesh} of asset.userData.batches)mesh.count=c.kind==='ball'?2:1;if(fallback)fallback.count=c.kind==='ball'?4:2;
         person.visible=s.personVisible;person.position.set(s.personX,0,s.personZ);person.rotation.y=-Math.PI/2;person.scale.setScalar(c.kind==='ball'?.72:1);
         if(actor&&person.visible)actor.pose(s.phone?'Interact':'Walk',s.time,reduced,OTR.gfx.high());
-        ball.visible=s.ballVisible;ball.position.set(s.ballX,.2,s.cueZ);door.visible=c.kind==='door';door.rotation.y=s.doorAngle;
-        lamps.visible=s.lamps;lamps.material=c.kind==='reversing'?white:red;phone.visible=s.phone;phone.position.set(-.28,1.2,-.15);
+        ball.visible=s.ballVisible;ball.position.set(s.ballX,.24,s.cueZ);door.visible=c.kind==='door';door.rotation.y=s.doorAngle;
+        lamps.visible=s.lamps;lamps.material=c.kind==='reversing'?white:red;phone.visible=s.phone;phone.position.set(-.3,1.25,.3);
         junction.visible=c.kind==='runner';junction.position.z=s.cueZ;
       },
       dispose(){if(actor)actor.dispose();paint.dispose();dark.dispose();red.dispose();white.dispose();amber.dispose();}

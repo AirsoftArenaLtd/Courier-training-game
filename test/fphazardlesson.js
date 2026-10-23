@@ -56,3 +56,14 @@ test('all five procedural fallback cue pools stay within the Low budget and disp
  }
  assert.ok(art.hazardLessonArt.ink.count>0);art.dispose();assert.equal(world.children.length,1);
 });
+
+test('every fallback clue has an unobstructed windshield sightline before, during and after development',()=>{
+ const proof=require('./tools/fp-hazard-lesson-proof'),r=fresh(),m=r.model,world=new THREE.Scene(),camera=new THREE.PerspectiveCamera(76,16/9,.08,180);world.add(camera);
+ const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},model:m,scenarioSession:r},art=O.fpWorld.build(scene,m);scene.art=art;
+ O.game={scene:{getScene:()=>scene}};O.fpStore={read:()=>null};O.workday={events:[]};O.save={data:{}};c.hazardLessonBenchmarkBefore={checkpoint:'null',events:'[]',workday:'null'};
+ for(const reduced of [false,true])for(let index=0;index<5;index++)for(const stage of ['before','clue','after']){
+  m.hazardLesson.reduced=reduced;A.reset(m,index);m.hazardLesson.time=m.hazardLesson.clip.at+{before:-.1,clue:.15,after:1.8}[stage];A.pose(m);art.sync(m,null,'route');world.updateMatrixWorld(true);camera.updateMatrixWorld(true);
+  const p=vm.runInContext('('+proof.toString()+')('+JSON.stringify(stage)+')',c);assert.equal(p.cue.visible,true,JSON.stringify(p));assert.equal(p.cue.clear,true,JSON.stringify(p));assert.ok(Math.abs(p.cue.x)<1&&Math.abs(p.cue.y)<1&&Math.abs(p.cue.z)<1,JSON.stringify(p));
+ }
+ art.dispose();
+});

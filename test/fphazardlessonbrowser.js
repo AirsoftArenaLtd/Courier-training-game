@@ -20,7 +20,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8376',OUT=path.join(__dirname,
     OTR.save.createProfile('Hazard review');Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:large,narrate:true,keys:large?{Space:'KeyU'}:{}});OTR.a11y.save();OTR.workday.begin();OTR.workday.report('brief.read',{key:'suspended'});
     const old=OTR.game.scene.getScene('FirstPersonScene');old.closePanel(false);old.releaseMouse();await new Promise(resolve=>{old.events.once('shutdown',resolve);OTR.game.scene.stop('FirstPersonScene');});
     const before={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
-    OTR.registry.get('m1-spot').scene3d='hazard-road-clips';if(large)OTR.academy.begin('m1-spot');OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m1-spot'});return before;
+    window.hazardLessonBenchmarkBefore=before;OTR.registry.get('m1-spot').scene3d='hazard-road-clips';if(large)OTR.academy.begin('m1-spot');OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m1-spot'});return before;
    },{large});await ready('FirstPersonScenarioScene');await layout();await choose('Read the next instruction page.');await layout();await choose('Begin the scenario.');
    const run={quality,lang,large,spam,clips:[],shots:[]};report.runs.push(run);
    for(let index=0;index<5;index++){
@@ -32,6 +32,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8376',OUT=path.join(__dirname,
     const response=await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,h=m.hazardLesson;return {id:h.clip.id,flags:h.flags.slice(),presses:h.presses,hand:m.van.hand,gear:m.van.gear,reduced:h.reduced,controls:s.controls.visible,help:s.help.visible,assets:!!s.art.hazardLessonArt.asset,person:!!s.art.hazardLessonArt.actor};});
     assert.equal(response.hand,false);assert.equal(response.gear,1);assert.equal(response.controls,false);assert.equal(response.help,false);assert.equal(response.assets,true);assert.equal(response.person,true);assert.equal(response.reduced,large);assert.equal(response.presses,spam?(index===0?7:0):1);report.checks+=8;await layout();
     if(!full){await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model;m.hazardLesson.time=m.hazardLesson.clip.at+1.8;OTR.fpHazardLesson.pose(m);s.sync();});await frames();}
+    const sightline=await page.evaluate(require('./tools/fp-hazard-lesson-proof'),full?'clue':'after');assert.equal(sightline.cue.visible,true);assert.equal(sightline.cue.clear,true,JSON.stringify(sightline));assert.ok(Math.abs(sightline.cue.x)<1&&Math.abs(sightline.cue.y)<1&&Math.abs(sightline.cue.z)<1);report.checks+=3;response.sightline=sightline.cue;
     const shot=TAG+'-'+quality+'-'+lang+'-'+(large?'large':'normal')+'-'+index+(spam?'-spam':'')+'.png';await page.screenshot({path:path.join(OUT,shot)});run.shots.push(shot);
     if(!full)await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),h=s.model.hazardLesson;h.time=h.clip.at+h.content.window+2-.01;});
     await page.waitForFunction(()=>!!OTR.game.scene.getScene('FirstPersonScenarioScene').panel,{timeout:180000});await layout();

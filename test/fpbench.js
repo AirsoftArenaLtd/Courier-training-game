@@ -381,6 +381,18 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
    });(report.routeLessonProof||(report.routeLessonProof={}))[name]=proof;report.routeLessonFixture=true;
   }
+  if(process.env.QA_HAZARDLESSON==='1')for(const kind of ['ball','reversing','phone','door','runner'])for(const stage of ['before','clue','after']){
+   const name='clip'+kind+stage;if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-hazard-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(({kind,stage})=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,A=OTR.fpHazardLesson;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    A.reset(m,m.hazardLesson.content.clips.findIndex(c=>c.kind===kind));m.hazardLesson.time=m.hazardLesson.clip.at+({before:-.1,clue:.15,after:1.8}[stage]);A.pose(m);
+    // A disclosed frozen-pose resource fixture. No marks, verdicts, score or Results are injected.
+    m.paused=true;s.sync();s.refresh();s.view.world.updateMatrixWorld(true);s.view.camera.updateMatrixWorld(true);
+   },{kind,stage});await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-hazard-lesson-proof'),stage);(report.hazardLessonProof||(report.hazardLessonProof={}))[name]=proof;report.hazardLessonFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
