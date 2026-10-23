@@ -343,7 +343,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    const proof=await p.evaluate(()=>{
     const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,r=s.scenarioSession,b=m.bounds,before=s.moduleBefore;
     return {source:'module-controller-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,reverse:!!s.art.rear?.inView,handheld:!!s.handheld.isOpen,
-     bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+     previousCheckpointSaved:before.previousCheckpointSaved,bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
    });(report.moduleProof||(report.moduleProof={}))[name]=proof;report.moduleFixture=true;
   }
   if(process.env.QA_PRETRIP==='1')for(const name of ['pretripwalk','pretripfront','pretriprear','pretripcab','pretriptire','pretripbrake','pretriprecords','pretripcycle']){

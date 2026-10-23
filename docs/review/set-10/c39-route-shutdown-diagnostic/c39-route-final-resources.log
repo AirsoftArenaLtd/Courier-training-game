@@ -1,0 +1,3 @@
+loaded-low: PASS {"calls":28,"triangles":642,"textures":2,"attachmentBytes":3557376,"phaserBytes":1742086}
+loaded-high: PASS {"calls":42,"triangles":6006,"textures":4,"attachmentBytes":11239424,"phaserBytes":5499718}
+accessible-low: FAIL accessible-low: No isolated physical route-planning proof for lessonroutecab.
