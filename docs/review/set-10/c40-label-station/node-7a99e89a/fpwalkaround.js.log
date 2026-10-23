@@ -1,0 +1,26 @@
+✔ the initial record is small, independent and bounded to seven zones (5.059746ms)
+✔ each visible condition has a whole sentence without saving translated text (0.500408ms)
+✔ all seven existing zones can be inspected and recorded without blaming the trainee (1.36445ms)
+✔ missing existing wear is assessed at departure and not before (0.277589ms)
+✔ clear areas create no extra inspection points or player damage reports (0.821711ms)
+✔ records require an inspection in the matching phase and invalid inputs do not mutate state (0.308214ms)
+✔ all seven caused zones report their visible condition exactly once (9.751389ms)
+✔ every unreported caused zone is assessed at finish with the approved critical type (0.33248ms)
+✔ a real condition can be corrected before closing the trip without an invented penalty (0.302575ms)
+✔ a fabricated damage report is penalized once and survives correction and restore (0.491975ms)
+✔ naming a clear zone does not satisfy a different damaged zone (0.233844ms)
+✔ a new or worsened impact after inspection requires another inspection and record (0.37275ms)
+✔ a pre-existing mark is separate from a later impact in that same zone (0.309225ms)
+✔ the first three days and trainer damage-off have no new actions or reports (33.090814ms)
+✔ corrupt, out-of-order and foreign-day checkpoints are rejected (0.598282ms)
+✔ thousands of repeat actions keep bounded state and one false-report identity per zone (365.744239ms)
+✔ real workday reporting preserves keys, criticals, replay and score deduplication (41.077583ms)
+✔ two hundred seeded checkpoints preserve every action and final grade without aliases (303.325337ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 779.953326

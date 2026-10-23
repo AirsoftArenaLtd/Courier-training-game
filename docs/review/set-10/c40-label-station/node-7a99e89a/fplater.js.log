@@ -1,0 +1,16 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ day one and existing later-day saves keep their exact generated plan and requirements (45.564907ms)
+✔ later plans increase signed or ID stops, guarantee an absent customer and rotate weather deterministically (1958.132953ms)
+✔ road works block both approach lanes while all junctions, parking points and doors retain a detour (495.098472ms)
+✔ physical driving into the barrier stops the van and reports the existing contact type (167.818426ms)
+✔ fog changes actual visibility, ice changes traction, and weather grades retain the existing per-leg type (96.744706ms)
+✔ practice clock starts at departure, survives reload and never adds score events or forces unsafe delivery (15.904162ms)
+✔ the same brake input takes longer to slow the van on scheduled ice than in rain (18.865145ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2901.161861
