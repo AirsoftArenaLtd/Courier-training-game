@@ -1,0 +1,35 @@
+ok   a company header sign-in skips the password screen
+ok   trainer tools: a New account button
+ok   the trainer is shown a temporary password for e3001 (y36pkybjpd)
+ok   the new trainee is listed before any training
+ok   Manage offers New password for an account
+ok   the server hands the game its employee ID rule (64 characters)
+ok   a 64-character ID fits the entry at larger text, and a 65th is refused (64 / 64)
+ok   a 40-character email-style ID with _ and @ is typed in full (Jane_Doe.van-der-berg@depotnorth.example)
+ok   the trainer is shown a temporary password for jane_doe.van-der-berg@depotnorth.example
+ok   the email-style ID signs in with its temporary password and then its own {"mode":"server","id":"jane_doe.van-der-berg@depotnorth.example","session":true}
+ok   the sign-in screen comes before the game boots
+ok   labelled fields: [{"id":"otr-id","label":"Employee ID","auto":"username","type":"text"},{"id":"otr-password","label":"Password","auto":"current-password","type":"password"}]
+ok   focus starts on the employee ID
+ok   Tab goes ID → password → Sign in
+ok   Enter with nothing typed: asks for the employee ID
+ok   a wrong password: "That employee ID and password don't match." (read out)
+ok   the password field is cleared and focused for another try
+ok   the temporary password: choose your own (focus on the new password)
+ok   under 8 characters: Use at least 8 characters.
+ok   two different entries: The two passwords don't match.
+ok   the temporary password again: Choose a new password, not the one your trainer gave you.
+ok   signed in: the game boots in server mode as the trainee {"mode":"server","id":"e3001","name":"Rosa Diaz","session":true,"form":false}
+ok   the title screen continues as them, with no name entry
+ok   no password, temporary password or session id in localStorage, sessionStorage or document.cookie
+ok   progress reaches the server under the employee ID
+ok   Settings offers Sign out
+ok   after signing out, the sign-in screen again
+ok   their own password signs straight in, with their progress
+ok   a trainer's New password signs the trainee out
+ok   sign-in fits with larger text
+ok   sign-in fits with a narrow window
+ok   sign-in fits with a narrow window, larger text
+ok   the new-password form fits with larger text
+
+all sign-in screen checks passed

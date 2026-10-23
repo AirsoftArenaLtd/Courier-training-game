@@ -1,0 +1,22 @@
+✔ only new marked later-day campaign plans carry the walkaround state (95.087666ms)
+✔ all seven checks require a real outside position, empty hands, walking and a parked van (6.236476ms)
+✔ a rotated moved van keeps every physical inspection point attached to its actual zone (12.912708ms)
+✔ rear checks require closed cargo and roof checks use the reachable ground-side edge (1.652819ms)
+✔ departure assesses only starting wear, once, without any van damage penalty (589.2157ms)
+✔ missed existing wear is graded at the real departure boundary and never as caused damage (9.235615ms)
+✔ post-trip inspections require a return to the depot after departure (8.381289ms)
+✔ all caused zones record the actual visible condition and survive every checkpoint (113.143424ms)
+✔ finish guards protect missing deliveries, retained parcels and unparked or distant vans before grading (42.240633ms)
+✔ false reporting uses a short zone key once, with no unused stop or map place (8.885851ms)
+✔ damage after an earlier correct post-trip record still needs inspection again (11.203597ms)
+✔ trainer-off suppresses inspections and grades without dropping saved prior observations (13.939558ms)
+✔ mission restore rejects missing, forged, cross-phase or unmarked walkaround records (72.618346ms)
+✔ a missing shared workday service does not break physical inspection or mission completion (9.362872ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1011.810787
