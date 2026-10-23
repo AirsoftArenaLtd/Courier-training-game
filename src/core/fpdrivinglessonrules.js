@@ -75,7 +75,9 @@ OTR.fpDrivingLessonRules={
     }
     if(wrong){r.wrongT+=dt;if(r.wrongT>1.6){r.wrongT=0;D.violation(run,'wrongside','Driving on the wrong side of the road','safety',3,'Stay in the right-hand lane. Cutting across to save a turn is how head-on collisions happen.');}}else r.wrongT=0;
     if(r.signal!==m.signal){r.signal=m.signal;const clock=m.driving?.signalClock;r.signalAt=clock&&clock[0]===m.signal?clock[1]:m.elapsed;}
-    const a=r.approach,ap=this.find(m),half=m.town.road/2;
+    const a=r.approach,half=m.town.road/2;
+    // Backing away from a line is not a forward junction entry. The live traffic controller uses the same guard.
+    if(v.gear===-1||v.speed<-.01){a.index=-1;a.entered=false;}else{const ap=this.find(m);
     if(ap.index>=0&&!a.entered){
       if(a.index!==ap.index||a.dir!==ap.dir)Object.assign(a,{index:ap.index,dir:ap.dir,kind:ap.kind,dist:ap.dist,stopped:false,stillT:0,crossed:false,entered:false,judged:false});
       a.dist=ap.dist;const behind=a.dist>=.25-.04;
@@ -86,6 +88,7 @@ OTR.fpDrivingLessonRules={
       if(inside&&!a.entered){a.entered=true;a.heading0=v.yaw;a.sig=m.signal;a.sigFor=m.signal?m.elapsed-r.signalAt:0;this.entry(run,a,mph,true);}
       const far=Math.abs(v.x-j.x)>half+11.5||Math.abs(v.z-j.z)>half+11.5;
       if(a.entered&&!inside&&far){this.turn(run,a);a.index=-1;a.entered=false;}
+    }
     }
     const contact=!!m.motion?.contact||m._rearContact;if(contact&&!r.contact){const impact=Math.abs(oldSpeed),levels=OTR_DATA.vehicle?.impact||{incident:1.8,serious:4.5};
       if(impact>=levels.incident)D.violation(run,'crash',`The van hit an obstacle at ${Math.max(1,Math.round(impact*2.2369362921))} mph.`,'safety',impact>=levels.serious?4:2,'Most delivery collisions happen under 15 mph, backing or squeezing through gaps. Slow down and take the wider line.');
