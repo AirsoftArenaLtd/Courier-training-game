@@ -46,6 +46,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     ],{accessibleText:true,back:()=>this.closePanel()});
   }
   showScenarioControls(){
+    const r=this.scenarioSession;if(r.definition.controls){r.definition.controls(r,this);return;}
     this.showPanel('Use the scenario controls.',`Use ${OTR.fpAccess.lookKeys()} to look. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target and ${OTR.fpAccess.key('KeyE')} to interact. Press ${OTR.fpAccess.key('Tab')} to read the scenario goal.`,[
       {label:'Continue the scenario.',action:()=>this.closePanel()}
     ],{accessibleText:true,back:()=>this.showPause()});

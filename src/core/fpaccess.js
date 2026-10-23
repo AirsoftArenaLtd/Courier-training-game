@@ -106,6 +106,8 @@ OTR.fpAccess={
     if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },
   targetName(scene,id){
+    if(id==='label-package')return 'the package inspection table';
+    if(id.startsWith('label-station-')){const station=id.slice(14),s=scene.model?.packageLabels;if(s?.content.stations[station])return `station ${OTR.fpPackageLabelWorld.stations.indexOf(station)+1}, ${s.content.stations[station].label.toLowerCase()}`;}
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;
     if(id.startsWith('visit'))return OTR.fpStopScene.name(m,Number(id.slice(5)));
