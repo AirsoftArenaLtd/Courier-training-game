@@ -15,6 +15,6 @@ module.exports=function hazardLessonProof(stage){
  let clear=false;for(let o=hit?.object;o;o=o.parent)if(o===owner){clear=true;break;}
  return {source:'registered-hazard-adapter',id:r.id,key:r.scenario.scene3d,clips:h.content.clips.length,kind:h.clip.kind,stage,
   time:h.time,at:h.clip.at,logItems:r.log.items.length,flags:h.presses,reduced:h.reduced,loadedCar:!!a.asset,loadedPerson:!!a.actor,
-  cue:{visible:visible(target),x:ndc.x,y:ndc.y,z:ndc.z,clear,hit:hit?.object.name||hit?.object.type||null},
+  cue:{visible:visible(target),x:ndc.x,y:ndc.y,z:ndc.z,clear,hit:hit?.object.name||hit?.object.type||null,blocker:!clear&&hit?{point:hit.point.toArray(),instance:hit.instanceId,parents:(()=>{const a=[];for(let o=hit.object;o;o=o.parent)a.push(o.name||o.type);return a;})()}:null},
   bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
 };

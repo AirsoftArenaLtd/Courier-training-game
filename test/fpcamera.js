@@ -65,7 +65,7 @@ test('the approved trainer API is cached at launch/resume and never called by th
 
 test('watch-only hazard clips use a forward upright view without moving the physical cab or normal driver',()=>{
  for(const yaw of [0,Math.PI/2,-Math.PI/2]){const m=model();m.van.yaw=yaw;const before=JSON.stringify(m.snapshot()),normal={...C.update(C.create(),m,true,false,false)};
-  m.hazardLesson={};const p=C.update(C.create(),m,true,false,false);assert.ok(Math.abs(p.y-normal.y-.25)<1e-9);assert.ok(Math.abs(p.x-normal.x-.35*Math.sin(yaw))<1e-9);assert.ok(Math.abs(p.z-normal.z+.35*Math.cos(yaw))<1e-9);assert.equal(p.fov,normal.fov);assert.equal(JSON.stringify(m.snapshot()),before);
+  m.hazardLesson={};const p=C.update(C.create(),m,true,false,false);assert.ok(Math.abs(p.y-normal.y-.35)<1e-9);assert.ok(Math.abs(p.x-normal.x+.3*Math.cos(yaw)-.35*Math.sin(yaw))<1e-9);assert.ok(Math.abs(p.z-normal.z+.3*Math.sin(yaw)+.35*Math.cos(yaw))<1e-9);assert.equal(p.fov,normal.fov);assert.equal(JSON.stringify(m.snapshot()),before);
   delete m.hazardLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);
  }
 });

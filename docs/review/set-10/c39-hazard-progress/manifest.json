@@ -7,24 +7,31 @@
     "src/core/fpworld.js": "21bcababf51d8e91a1aac809aedc5d2a03ef9ba2ef6f6f012298effb4a4d6753",
     "src/scenes/FirstPersonScene.js": "c45703031b6dc1c145b7ba5e7330fa5727e4701634bbcb5a1d933394f5b7331f",
     "src/scenes/FirstPersonScenarioScene.js": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44",
-    "test/fphazardlesson.js": "2aca3895a7cb7b398ede4887af8a2f2cb08a59c28043ba75c983bf1f9a4abf1d",
+    "test/fphazardlesson.js": "284fa9bf1648022f12a2d9fcabcabba3ec5d861bf04c87ec7a2015638849d914",
     "test/fphazardlessonbrowser.js": "2c874c17af82a789fbbdd4817c6b55f6d9f3a52a386819184764ae4739b16c30",
     "index.html": "72e25786ec7725c15f9e5bc434bcfebd65ca4800b7ffdddb2db6934b28924a9f",
-    "src/core/fpcamera.js": "ae5f295c662a7ee6818f1a79a7620f3168c5ab675cfed41b2a84847c19595bb5",
-    "test/fpcamera.js": "3c1d53688bf2515cd774616de82fac81e916c5381111655878adc4b6139ca8f7",
+    "src/core/fpcamera.js": "ccd4ae05d48d3b73f3674f7a2306339cd3274a1e5fab6771134e266bb2dfeaa1",
+    "test/fpcamera.js": "91223e07fe93aab72de97f78633ed599aa9d3d2983ac9db895ae5437faad2b29",
     "test/fpbench.js": "56db45375374d07bf32a4f2dd889d8578ea25321968d0ae1b6f93954b9697259",
     "test/fpquality.js": "85462b27e631d1009bca11c918c489bd7730b1b2af8b420d8dcae4976a28fa03",
     "test/fpqualitygate.js": "9a583137fd69779b33ed898dd240df939e2c3e98713dcff314f9afa614fb6485",
     "test/tools/fp-hazard-lesson-fixture.js": "f2aecb2b1823b0b3d0032c42b21c7b62a63f90f1c8cc2fa762513a871d7a8dea",
-    "test/tools/fp-hazard-lesson-proof.js": "14bef90ce5d1492031508e185bdae5a66a8f692a9513dad024bfbace95f46d29"
+    "test/tools/fp-hazard-lesson-proof.js": "a67a272a2db937a00f7d028b66bc983c1a11f201496437fc4da9d9399985690f"
   },
   "files": {
+    "high-preflight.log": "131bacde9a1faccd9d65a34273f5de2ede975da56b7d3adb2c2fef666c100052",
+    "c39-hazard-high-corrected-0.png": "21b8ef4eac59b805761bc4737445e6ac9472e81e7922e807fcb738c26c31b76d",
+    "c39-hazard-high-corrected-2.png": "608ad4cf66a7aefd340ed2e7b45a0dda8d5123c2226447d762aa09fa3dcb3b52",
     "registry-spot.patch": "9c0b1d3d1e478b3ecfb76f7af7ec852dd3c9753bcf4f79c1cdd9d633f6caa34b",
-    "model-world.log": "57aaed18e0dceb65e9174e9c8a6908d6e574683feb82e37c8529963b8a6f94f6",
+    "high-preflight.json": "efd5849204dda5793dee93413ad6b65feb3d0988a5e773fcb02d7b63a7cf5a50",
+    "model-world.log": "8542ab5c59b7024e8ffd2991ff562c5a3af8f8767e4d70dea1a3a95643befb6e",
     "runner.log": "c9de77471839195cbd31cbf3884289b9508dec2f2c66679e4aa4765a1e1acb1f",
-    "README.md": "d25292f063383c1123392a207f75485b736059c973c2e5ef11d4031b0ed9a787",
+    "README.md": "db3bbdbf850b125332c90983b96c99b7f7fc570d978ccc8c7fccc9b278c2ddec",
+    "c39-hazard-high-corrected-1.png": "c4b51cfee3ea5d3f37fa28497cbbd0134a9fa85306fdbad4c6aef6f1392d7c9f",
+    "c39-hazard-high-corrected-4.png": "5e6b80d1e65b6957cf9305179c4403018054ecf53985e5dd1e2af8f50cbd17b3",
     "resource-guards.log": "a556791662f349dc80c24eaa5cd439ddc587bdde08955cbc3ad2d1a9eefaa185",
+    "c39-hazard-high-corrected-3.png": "6f8e027fd0367505b50f64dd606ea3ef629861c6edd3339ce5a375542d858058",
     "new-text.json": "36d3d5199b80d173f8edd2796530d94886f6e3668ace91970d74bc75f189a464",
-    "camera.log": "1c0ad4bface890f3c1b033797a08fbcaacf65a6eef96af30d2b58c173e71aceb"
+    "camera.log": "3fcde69cbc5755b24f17fb504cea7dd81ed85dcdce15dbb1bf5b502dd423b87f"
   }
 }
