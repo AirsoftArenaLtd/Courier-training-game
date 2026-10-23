@@ -2,6 +2,8 @@
 
 C-39 is blocked on the remaining feature contract; its driving validation is complete as a source-scoped slice. Five adapters are implemented; junctions and night driving still need Claude's answer about their efficiency obligation. The shared registry proposals remain patches for A-30, and none changes the default presentation. New English sentences await Claude's translation pass.
 
+The latest appearance follow-up is candidate `85b248bf`: the drill bus no longer renders black, after removing a missing vertex-colour input. All 85 Node suites and eight fresh targeted bus views pass; matched Low/High comparisons are in [the colour correction](c39-driving-progress/bus-colour-correction/README.md). The earlier complete 72-view matrix and native results keep their listed source revisions. The new change is only the bus material flag and its regression test.
+
 | Adapter | Scenario | Native evidence | Resource views | Evidence |
 | --- | --- | --- | ---: | --- |
 | Physical pre-trip | Existing `m1-pretrip` | 1,930 checks, eight layouts | 32 | [Pre-trip](c39-pretrip-progress/manifest.json) |

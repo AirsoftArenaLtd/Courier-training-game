@@ -1,0 +1,12 @@
+✔ the registered school adapter restores the actual town and routes only its four types to the local log (9.747948ms)
+✔ the physical screen and mapped finish key share the same encounter and whole-van parking gate (5.914303ms)
+✔ the mounted screen leaves reverse-camera and other physical cab controls available (1.238958ms)
+✔ brief and paged controls name actual remaps and preserve physical mirrors and automatic reversing (2.646303ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.621772

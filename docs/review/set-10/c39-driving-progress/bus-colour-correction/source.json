@@ -1,0 +1,14 @@
+{
+  "candidate": "85b248bf876b1de440ac7a4253b653c3972928b8",
+  "previousFullResourceCandidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "changedFiles": [
+    "src/core/fpdrivinglessonworld.js",
+    "test/fpdrivinglessonworld.js"
+  ],
+  "ownedSources": {
+    "src/core/fpdrivinglessonworld.js": "3d72d8618bab848cc8ec062ec245ad31b0263cdd350f49a0b4ad4830078e961c",
+    "test/fpdrivinglessonworld.js": "b8bbbcabff317955645b14b50789b36f83aa2150292d8283e7e5970cb4366cb3"
+  },
+  "runtimeDifference": "Only MeshLambertMaterial vertexColors:true is removed. Per-instance colours, geometry, model, grades, controls and limits are unchanged. The other changed file adds the shader-input regression.",
+  "nativeScope": "The completed native results remain at their recorded bf3cbb8b/b7dc5de8 sources. This appearance-only follow-up has eight fresh targeted resource views, not another 72-view full matrix."
+}

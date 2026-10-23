@@ -1,0 +1,4 @@
+loaded-low {'calls': 45, 'triangles': 1670, 'textures': 2, 'attachmentBytes': 3557376, 'phaserBytes': 1541152}
+loaded-high {'calls': 85, 'triangles': 167167, 'textures': 4, 'attachmentBytes': 11239424, 'phaserBytes': 4696880}
+accessible-low {'calls': 45, 'triangles': 1670, 'textures': 2, 'attachmentBytes': 3557376, 'phaserBytes': 1659952}
+fallback-low {'calls': 46, 'triangles': 1620, 'textures': 2, 'attachmentBytes': 3557376, 'phaserBytes': 1541152}

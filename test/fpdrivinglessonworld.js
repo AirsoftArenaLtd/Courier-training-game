@@ -18,3 +18,10 @@ test('all six cues use the controller positions, real bus length and a reused fi
 test('reduced motion keeps water still while physical bus arm, lights and lettered warning stay apparent',()=>{
  const ctx=setup(false);pose(ctx,3,2);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.water.material.uniforms.time.value,0);pose(ctx,5,1);ctx.cues.sync(ctx.m,true);assert.equal(ctx.cues.arm.visible,true);assert.equal(ctx.cues.lamps.visible,true);assert.equal(ctx.cues.ink.visible,true);ctx.art.dispose();
 });
+test('the bus has valid shader colour inputs and keeps its yellow per-instance body paint',()=>{
+ for(const high of [false,true]){
+  const ctx=setup(high);pose(ctx,5,1);const meshes=ctx.cues.bus.children.filter(o=>o.isInstancedMesh&&o.instanceColor),colour=new THREE.Color();assert.equal(meshes.length,2);
+  for(const mesh of meshes){assert.ok(!mesh.material.vertexColors||mesh.geometry.getAttribute('color'),'vertex colours require an actual geometry attribute; an absent input makes the bus black');assert.equal(mesh.instanceColor.count,mesh.count);}
+  meshes[0].getColorAt(0,colour);assert.equal(colour.getHex(),0xE6B94F);assert.equal(meshes[0].material.color.getHex(),0xffffff);ctx.art.dispose();
+ }
+});
