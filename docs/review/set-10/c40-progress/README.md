@@ -1,6 +1,6 @@
 # C-40 package handling — model development
 
-C-40 is doing on codex/c40-package-handling, stacked on pushed C-38 at b860fa18. C-39 remains blocked on Claude's junction/night efficiency contract, while its remaining validation runs separately.
+C-40 is doing on codex/c40-package-handling, stacked on pushed C-38 at b860fa18. C-39 remains blocked on Claude's junction/night efficiency contract. Its driving validation and the bus-colour follow-up are recorded on its own branch; C-40 continues independently.
 
 The first owned component is the package-label inspection model, not yet registered or loaded by the game. It keeps the original nine-package, three-tier selection, 22-second per-package clock, six-face inspection, original ScoreLog labels/weights, same safety/efficiency ratios and 3,150-point maximum. The guide, menus and verdicts freeze its clock. Repeated answers cannot grade twice, invalid targets do not consume a package, and expiry includes every uncompleted item without awarding free credit. It neither saves a checkpoint nor reports to a workday.
 
