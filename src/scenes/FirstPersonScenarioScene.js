@@ -65,8 +65,9 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     if(r&&!OTR.fpScenario.coaching(r)&&text!==control&&!String(text).startsWith('Selected ')&&!String(text).startsWith('No nearby target'))return;
     super.message(text);
   }
+  interactionHint(id,m,key){return this.scenarioSession?.definition.hint?.(this.scenarioSession,id,key)||null;}
   controlHint(id,m,key){
-    const hint=this.scenarioSession?.definition.hint?.(this.scenarioSession,id);if(hint)return hint;
+    const hint=this.interactionHint(id,m,key);if(hint)return hint;
     if(this.scenarioSession&&!OTR.fpScenario.coaching(this.scenarioSession)){
       if(id==='cab-signal-left')return m.signal===-1?'The left signal is on.':'The left signal is off.';
       if(id==='cab-signal-right')return m.signal===1?'The right signal is on.':'The right signal is off.';
@@ -117,7 +118,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     const second=Math.ceil(r.remaining);if(second!==this.moduleClockSecond){this.moduleClockSecond=second;this.moduleClock.setText(this.clockSentence());}
     const bottom=this.moduleClock.y+this.moduleClock.height+10;this.moduleBack.setDisplaySize(620,bottom-10);
     this.soundCue.setY(bottom+12);this.headerBack.setY(bottom+4);
-    if(!OTR.fpScenario.coaching(r)){this.hint.setVisible(false);this.hintBack.setVisible(false);this.controls.setVisible(false);this.help.setVisible(false);}
+    if(!OTR.fpScenario.coaching(r)){this.hint.setVisible(visible&&!!this.physicalAffordance);this.hintBack.setVisible(visible&&!!this.physicalAffordance);this.controls.setVisible(false);this.help.setVisible(false);}
   }
   update(time,delta){
     const r=this.scenarioSession,active=!!this.model&&!this.loading&&!this.model.paused&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;
