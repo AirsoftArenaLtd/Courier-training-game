@@ -65,9 +65,9 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     if(r&&!OTR.fpScenario.coaching(r)&&text!==control&&!String(text).startsWith('Selected ')&&!String(text).startsWith('No nearby target'))return;
     super.message(text);
   }
-  interactionHint(id,m,key){return this.scenarioSession?.definition.hint?.(this.scenarioSession,id,key)||null;}
+  interactionHint(id,m,key){return this.scenarioSession?.definition?.hint?.(this.scenarioSession,id,key)||null;}
   controlHint(id,m,key){
-    const hint=this.interactionHint(id,m,key);if(hint)return hint;
+    const hint=this.scenarioSession?.definition?.hint?.(this.scenarioSession,id,key);if(hint)return hint;
     if(this.scenarioSession&&!OTR.fpScenario.coaching(this.scenarioSession)){
       if(id==='cab-signal-left')return m.signal===-1?'The left signal is on.':'The left signal is off.';
       if(id==='cab-signal-right')return m.signal===1?'The right signal is on.':'The right signal is off.';
