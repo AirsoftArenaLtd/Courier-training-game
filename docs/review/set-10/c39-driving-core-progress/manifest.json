@@ -1,11 +1,12 @@
 {
   "status": "development core only; not a playable or accepted module",
   "sources": {
-    "src/core/fpdrivinglesson.js": "461072702301e79f7538a435d7d9f8afb2040439882551d23e716392ba348faa",
-    "test/fpdrivinglesson.js": "7042062c92e34afcacf5f638f62429bb4944dc1bdd2c49d64f1536bcc17b3723"
+    "src/core/fpdrivinglesson.js": "bb542fcc9fd9d66a1a578903d7833aab05dfbae7d0d1c3be40b4e7153ad30225",
+    "test/fpdrivinglesson.js": "c8ad730f505f1f624ed3217ea5bda2219e0a1c398a4210ba806508262a974c61"
   },
   "files": {
-    "original-comparisons.log": "1478c0e3792578b75941169d0f36db8db1ffde80fe9baa3cf140c7d4cfcd2412",
-    "README.md": "81b8cfb5a690d27e99eca3a6a638a73f5817acfb04942144baac352cde704fb1"
+    "original-comparisons.log": "233113aa6e3b9425839f46595565d002e47d699177a90762270d7ee89d5eb2fe",
+    "README.md": "0d88cdb9c43d67774ceef6797e3d51f5432a34341b240b0441450e226cefdc72",
+    "new-text.json": "c62a25319fb08ce7842fdb98487a23e1c02db6260b39d5cf09ad4feee0479e8b"
   }
 }

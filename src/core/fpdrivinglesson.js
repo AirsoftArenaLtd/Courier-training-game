@@ -3,7 +3,7 @@ window.OTR=window.OTR||{};
 OTR.fpDrivingLesson={
   create(content,seed,map={x:0,y:0,scale:.05}){
     const byId={};for(const def of content.hazards)byId[def.id]=def;
-    return {content,seed,map,byId,armed:{},judged:{},results:[],violations:{},lastViolationAt:{},checkpoint:0,finished:false,result:null};
+    return {content,seed,map,byId,armed:{},judged:{},results:[],violations:{},lastViolationAt:{},checkpoint:0,finished:false,result:null,parking:{ok:false,reason:'',gap:0,skew:0,withTraffic:false}};
   },
   model(run){
     const C=run.content,T=OTR.town.build(C.seed),route=DrivingScene.prototype.pickRoute.call({content:C},T),scale=OTR.fpRoute.SCALE;
@@ -13,7 +13,7 @@ OTR.fpDrivingLesson={
     // this ephemeral module replaces only its own physical stops with the original six checkpoints.
     const m=OTR.fpMission.create('campaign',C.seed,plan),s=this.create(C,C.seed,{x:T.depot.x,y:T.hy[0],scale});
     s.worldBounds={...m.bounds};s.sourceRoute=route;m.drivingLesson=s;
-    m.stops=route.map((entry,i)=>{const lot=T.lotById(entry.lotId),body=m.town.lots.find(b=>b.id===lot.id);return {id:i,index:i+1,lotId:lot.id,side:lot.side,address:`${lot.number} ${lot.street}`,x:body.x-lot.side*(body.w/2+.08),z:body.z,park:{x:(lot.park.y-T.hy[0])*scale,z:8-(lot.park.x-T.depot.x)*scale,yaw:lot.side>0?0:Math.PI},contacted:false,resolved:false};});
+    m.stops=route.map((entry,i)=>{const lot=T.lotById(entry.lotId),body=m.town.lots.find(b=>b.id===lot.id);const bay=TownDriveScene.prototype.parkBay.call({van:{g:{hl:2.7}},P:1/scale,T},lot);return {id:i,index:i+1,lotId:lot.id,side:lot.side,address:`${lot.number} ${lot.street}`,x:body.x-lot.side*(body.w/2+.08),z:body.z,park:{x:(lot.park.y-T.hy[0])*scale,z:8-(lot.park.x-T.depot.x)*scale,yaw:lot.side>0?0:Math.PI},bay:{streetX:(T.hy[lot.row]-T.hy[0])*scale,z0:8-(bay.x1-T.depot.x)*scale,z1:8-(bay.x0-T.depot.x)*scale},contacted:false,resolved:false};});
     m.parcels=[];m.cargoOpen=false;m.secured=true;m.repaired=true;m.phase='route';m.mode='cab';m.departed=true;m.driving=null;
     return m;
   },
@@ -34,6 +34,26 @@ OTR.fpDrivingLesson={
     if(s.lastViolationAt[key]!==undefined&&m.elapsed-s.lastViolationAt[key]<5)return false;
     s.lastViolationAt[key]=m.elapsed;s.violations[key]=(s.violations[key]||0)+1;
     run.log.penalty(cat||'safety',points||2,label,{lesson,severity:points>=3?'major':'minor',critical:key==='hitped',where:this.where(m,key)});return true;
+  },
+  parking(m,stop){
+    const p=m.drivingLesson.parking,v=m.van;p.ok=false;p.reason='';
+    if(!stop||!stop.bay){p.reason='Follow the sat nav to the next checkpoint.';return p;}
+    if(!m.parked()){p.reason='Stop fully and set the parking brake before recording this checkpoint.';return p;}
+    const c=Math.cos(v.yaw),s=Math.sin(v.yaw),halfX=Math.abs(c)*1.08+Math.abs(s)*2.7,halfZ=Math.abs(s)*1.08+Math.abs(c)*2.7;
+    const offset=(v.x-stop.bay.streetX)*stop.side;
+    if(Math.abs(v.z-stop.park.z)>11||offset<1||Math.abs(v.x-stop.bay.streetX)>m.town.road/2+3){p.reason='Pull into the marked checkpoint bay on the correct side of the street.';return p;}
+    p.skew=Math.abs(s);p.withTraffic=c*stop.side>0;p.gap=m.town.road/2-offset-halfX;
+    if(p.skew>.34){p.reason='Straighten the van alongside the curb before recording this checkpoint.';return p;}
+    if(p.gap<-.2){p.reason='Move the whole van off the curb before recording this checkpoint.';return p;}
+    if(p.gap>1.5){p.reason='Move closer to the curb before recording this checkpoint.';return p;}
+    if(v.z-halfZ<stop.bay.z0-.2||v.z+halfZ>stop.bay.z1+.2){p.reason='Keep the whole van inside the marked bay and clear of the crossing.';return p;}
+    if(m.solids.some(b=>OTR.fp.vanBox(v,b))){p.reason='Keep the whole van clear of buildings and obstacles.';return p;}
+    p.ok=true;return p;
+  },
+  tryCheckpoint(run){
+    const m=run.model,s=m.drivingLesson,stop=m.stops[s.checkpoint],p=this.parking(m,stop);if(!p.ok||s.finished)return false;
+    if(!this.checkpoint(run,stop,p.gap,p.skew,p.withTraffic))return false;
+    stop.resolved=true;m.activeStop=Math.min(m.stops.length-1,s.checkpoint);m.leg=s.checkpoint;m.touch();return true;
   },
   checkpoint(run,stop,gap,skew,withTraffic){
     const s=run.model.drivingLesson;if(s.finished||stop.index!==s.checkpoint+1)return false;

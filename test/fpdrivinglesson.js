@@ -53,3 +53,14 @@ test('the controllable module projects the actual six-checkpoint route without c
  m.moduleReport=()=>false;m.paused=false;m.van.hand=false;m.van.belt=true;const z=m.van.z;for(let i=0;i<120;i++)m.step({forward:true},1/60);assert.ok(m.van.z<z,'the real motor responds to driver input');assert.equal(JSON.stringify(C),before);assert.equal(m.snapshot().drivingLesson,undefined);
  const second=D.model({content:C});assert.notEqual(m.drivingLesson,second.drivingLesson);assert.equal(second.drivingLesson.checkpoint,0);
 });
+
+test('checkpoint credit requires the real stopped van wholly inside each original physical bay',()=>{
+ const m=D.model({content:C}),r={model:m,log:new O.ScoreLog('drive')};m.van.hand=true;m.van.speed=0;
+ for(const stop of m.stops){Object.assign(m.van,stop.park);const verdict=D.parking(m,stop);assert.equal(verdict.ok,true,stop.address+': '+verdict.reason);assert.equal(D.tryCheckpoint(r),true);assert.equal(stop.resolved,true);assert.equal(m.drivingLesson.checkpoint,stop.index);assert.equal(D.tryCheckpoint(r),false,'a repeated key away from the next bay cannot earn credit');}
+ assert.equal(r.log.items.filter(x=>x.cat==='efficiency').length,6);assert.equal(r.log.items.filter(x=>x.cat==='safety').length,6);
+});
+test('rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parking earns no checkpoint credit',()=>{
+ for(const mutate of [m=>m.van.speed=.2,m=>m.van.hand=false,m=>m.van.yaw=.5,m=>m.van.z+=20,m=>m.van.x+=2,m=>m.van.x-=3,m=>m.van.z=m.stops[0].bay.z0]){
+  const m=D.model({content:C}),r={model:m,log:new O.ScoreLog('drive')};Object.assign(m.van,m.stops[0].park,{speed:0,hand:true});mutate(m);assert.equal(D.tryCheckpoint(r),false);assert.equal(m.drivingLesson.checkpoint,0);assert.equal(r.log.items.length,0);assert.ok(m.drivingLesson.parking.reason.endsWith('.'));
+ }
+});
