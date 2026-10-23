@@ -35,3 +35,10 @@ test('a continuous physical school approach clears the live bus and children wit
  assert.equal(s.busSeen,true);assert.equal(s.crossingSeen,true);assert.equal(m.crossing.state,'resolved');assert.equal(s.counts['drive.school-bus'],1);
  O.fpSigns.finish(m);assert.equal(s.counts['drive.sign-school'],1);assert.ok(r.log.items.every(x=>x.got===2));assert.equal(s.counts['drive.pedestrian'],undefined);assert.equal(s.counts['drive.school-bus-pass'],undefined);
 });
+test('driving into the actual live crossing produces the catalogue critical instead of a successful school result',()=>{
+ const r=setup(),m=r.model;m.paused=false;m.driving.bus.state='done';Object.assign(m.van,{x:m.town.school.x+3.5,z:m.crossing.z+7,yaw:0,speed:0,hand:true,belt:true});
+ for(let n=0;n<400&&m.crossing.x<m.town.school.x+1.5;n++)m.step({},.05);
+ assert.equal(m.crossing.state,'crossing');m.van.hand=false;
+ for(let n=0;n<100&&!m.schoolLesson.counts['drive.pedestrian'];n++)m.step({forward:true},.05);
+ assert.equal(m.schoolLesson.counts['drive.pedestrian'],1);const penalty=r.log.items.find(x=>x.label===c.OTR_DATA.workdayEvents['drive.pedestrian'].label);assert.equal(penalty.critical,true);assert.equal(penalty.got,-4);assert.equal(S.result(r,'timeout').ratios.safety,0);
+});
