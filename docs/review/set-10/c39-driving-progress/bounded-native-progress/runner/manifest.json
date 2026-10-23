@@ -1,0 +1,17 @@
+{
+  "status": "All 231 retained runner checks and eight layouts pass",
+  "source": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "files": {
+    "c39-school-current-retained-runner-high-en-large.png": "705b5c6d7945f90cdea24d6622540e7ed78f27d1d7b449347eb922fa203db1cd",
+    "c39-school-current-retained-runner-high-en-normal.png": "8ddf52bc281fddac268feede7d367527d4d6153b9cc5e0a3bcfb821e725e2613",
+    "c39-school-current-retained-runner-high-ta-large.png": "719b8b9e09384d7a4444fbfc5a3801d2f4acfd861fc919cb5b4c804bfaede0c8",
+    "c39-school-current-retained-runner-high-ta-normal.png": "126e8580fe8f84551796571a7fc85f3315eabcbdb7972e769a52ac5c1123b2ed",
+    "c39-school-current-retained-runner-low-en-large.png": "fdf8bd1b4fa50309614368679ba92dba4bcf94c18b6f394c3844854f8859db67",
+    "c39-school-current-retained-runner-low-en-normal.png": "9d7067deb61d2af5dc142c1d95b5b656caaee79740b540d849cd0930274e3071",
+    "c39-school-current-retained-runner-low-ta-large.png": "857dd439ff8761667ca491b74eb1d8e375bbbeb22e38426623f29d1db30ef471",
+    "c39-school-current-retained-runner-low-ta-normal.png": "1f74c960c2f0f4a915b8a37c98cc0c28efe279348d7b400ac5702b4463184b4d",
+    "c39-school-current-retained-runner.json": "274d4b2baee92b896223aa393a1feb8075170cec22751aedc50a4d2136613184",
+    "command.log": "ff39e796d7c7afd0d3e2742728bdf94d53b01e996bda26438c88a16554e9072e",
+    "source.json": "ab98ced4b59740cb6d516414ceeac51640aae4eaa30d2012956dc1b5d53d3514"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "status": "72 current painted-driving resource views pass; corrected remaining High native checks and retained runner in progress",
+  "status": "72 current painted-driving resource views and 231 retained runner checks pass; three corrected High native cases continue",
   "pilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
   "sources": {
     "index.html": "348e8118bb3804f391df0624f800c0ddc3f29fa12cb5f92ff60f7f14ee7ecfde",
@@ -24,12 +24,24 @@
     "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d"
   },
   "files": {
-    "README.md": "ff3b5e6a2210945e1db72fa2220c23181500ccf06de5ac93fd7aa6d2791db9db",
-    "bounded-native-progress/README.md": "3dc9f6a24e7151b450fc2092c1565bd86ed08a2f1bef52e8de97bc16682add2a",
-    "bounded-native-progress/commands-in-progress.json": "3ca14242a6c71f578f4f2d1714843f68f40c8004aaa9e54deb4fcc1adf6ad1ed",
+    "README.md": "63b7ae3b7cd344c8ec93e37bb7fba7e1b04cce30cbd391b000498b83857e7674",
+    "bounded-native-progress/README.md": "b488fae5884d2435e557f570ceda6cf4e7b18317f77dfdfda05667be5d2d9a6b",
+    "bounded-native-progress/commands-in-progress.json": "fcc8cb644f8b12a3c578a338ce995e0b9d5a302568223c976169326043bd2604",
     "bounded-native-progress/commands.py": "3a152155f48b3535e8ff8412a96cdef922e664df376d779749d1165d106faea1",
-    "bounded-native-progress/manifest.json": "038dced3f36a104dcab959a20f73cd1be20309f1d4a65c0938aa6fcfb7e02663",
+    "bounded-native-progress/manifest.json": "b374652c1192417c877fa6ed71201fe654e4e9a6d257b2566621a6f4b5e42d42",
     "bounded-native-progress/native-source.js": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-high-en-large.png": "705b5c6d7945f90cdea24d6622540e7ed78f27d1d7b449347eb922fa203db1cd",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-high-en-normal.png": "8ddf52bc281fddac268feede7d367527d4d6153b9cc5e0a3bcfb821e725e2613",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-high-ta-large.png": "719b8b9e09384d7a4444fbfc5a3801d2f4acfd861fc919cb5b4c804bfaede0c8",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-high-ta-normal.png": "126e8580fe8f84551796571a7fc85f3315eabcbdb7972e769a52ac5c1123b2ed",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-low-en-large.png": "fdf8bd1b4fa50309614368679ba92dba4bcf94c18b6f394c3844854f8859db67",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-low-en-normal.png": "9d7067deb61d2af5dc142c1d95b5b656caaee79740b540d849cd0930274e3071",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-low-ta-large.png": "857dd439ff8761667ca491b74eb1d8e375bbbeb22e38426623f29d1db30ef471",
+    "bounded-native-progress/runner/c39-school-current-retained-runner-low-ta-normal.png": "1f74c960c2f0f4a915b8a37c98cc0c28efe279348d7b400ac5702b4463184b4d",
+    "bounded-native-progress/runner/c39-school-current-retained-runner.json": "274d4b2baee92b896223aa393a1feb8075170cec22751aedc50a4d2136613184",
+    "bounded-native-progress/runner/command.log": "ff39e796d7c7afd0d3e2742728bdf94d53b01e996bda26438c88a16554e9072e",
+    "bounded-native-progress/runner/manifest.json": "cd6e48feb7bea4f385d705a86d6113283f9f362d8b6c503bb9f08061646ff301",
+    "bounded-native-progress/runner/source.json": "ab98ced4b59740cb6d516414ceeac51640aae4eaa30d2012956dc1b5d53d3514",
     "bounded-native-progress/source.json": "4a0d1cda0a4527ee64df8268df76baf28d3e80e8bc18e50a8d132b9161976826",
     "checks/firstperson.log": "ccf2167b2b197c0ec94a894343f5fb84fa38769d90efeaf30306eba53968ea59",
     "checks/fpcamera.log": "18d695bc30afa05e3f4888ea6ad32e43b82213b05ad9faf38a62e2aa4d81e87e",
@@ -270,5 +282,6 @@
   },
   "resourceViews": 72,
   "olderNativeSource": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
-  "olderNativeChecks": 936
+  "olderNativeChecks": 936,
+  "retainedRunnerChecks": 231
 }

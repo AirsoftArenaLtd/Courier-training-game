@@ -1,0 +1,21 @@
+{
+  "candidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "command": [
+    "node",
+    "test/fpscenariobrowser.js"
+  ],
+  "env": {
+    "QA_TAG": "c39-school-current-retained-runner",
+    "QA_BASE": "http://127.0.0.1:8380",
+    "QA_BROWSER": "/usr/bin/chromium",
+    "QA_FPS_FLOOR": "0"
+  },
+  "sources": {
+    "test/fpscenariobrowser.js": "5ba96f1577c5a9691a9b8002571f84eb48083a4e9116746f6ee8ced7b57036e1",
+    "test/tools/fp-scenario-fixture.js": "4c67eb30e9b981762afb9d853d154a0c85384843a25e8e434e6292e86d4a32c2",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44"
+  },
+  "scope": "Retained generic runner fixture: practice/assessment, controls, repeated entry, suspended-workday isolation, abandoned assessment and actual 2D loading fallback. This is not the production pre-trip exercise or its grading acceptance."
+}
