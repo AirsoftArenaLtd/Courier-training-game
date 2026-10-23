@@ -1,0 +1,31 @@
+{
+  "candidate": "4306513b",
+  "status": "failed native startup-focus diagnostic",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 599,
+      "sha256": "6bacd620000b41a353d6c07739d41f402332474244c74c903fa5fc94885187c6"
+    },
+    {
+      "file": "c39-pretrip-final-native-failure.png",
+      "bytes": 62160,
+      "sha256": "b16da6a7a223e9d1887b17aa09c6dd1a03c7351b651afd1bbeb338b11a841dad"
+    },
+    {
+      "file": "c39-pretrip-final-native.json",
+      "bytes": 24133,
+      "sha256": "60177af5d1c3bfc1aa1b3b06b9f533ceed2c956d0bd7b1109e473897353dd099"
+    },
+    {
+      "file": "c39-pretrip-final-native.log",
+      "bytes": 1093,
+      "sha256": "0565cd9a6725c46b659a64b8476efe614e2907c01521bbc6d095b3be39bde388"
+    },
+    {
+      "file": "focus-probe.log",
+      "bytes": 3147,
+      "sha256": "7d5babc3ceaa90bc6a2ec5acc984b88fe8efd1d17145e39a8a653d611ea27908"
+    }
+  ]
+}

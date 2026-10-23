@@ -1,0 +1,99 @@
+pretrip low en normal
+part brake_pedal
+timer {
+  now: 13997.7,
+  frame: 101,
+  delta: 16.660000000000036,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 366.5666666666657, delay: 1000, paused: false } ],
+  parked: true
+}
+timer {
+  now: 16931,
+  frame: 122,
+  delta: 38.33333333333335,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 748.1899999999989, delay: 1000, paused: false } ],
+  parked: true
+}
+timer {
+  now: 19914.2,
+  frame: 144,
+  delta: 133.32000000000008,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 936.4500000000002, delay: 1000, paused: false } ],
+  parked: true
+}
+timer {
+  now: 23014.1,
+  frame: 166,
+  delta: 113.32999999999956,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 819.629999999997, delay: 1000, paused: false } ],
+  parked: true
+}
+timer {
+  now: 26030.6,
+  frame: 186,
+  delta: 116.67000000000044,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 161.28000000000034, delay: 1000, paused: false } ],
+  parked: true
+}
+timer {
+  now: 29030.5,
+  frame: 206,
+  delta: 146.65999999999985,
+  focus: false,
+  documentFocus: true,
+  hidden: false,
+  panel: [ 'Hold the service brake for three seconds.', 'Return to the van.' ],
+  updates: 4,
+  paused: false,
+  scale: 1,
+  pending: [ { elapsed: 887.9500000000005, delay: 1000, paused: false } ],
+  parked: true
+}
+/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49
+            this.#timeoutError = new Errors_js_1.TimeoutError(`Waiting failed: ${options.timeout}ms exceeded`);
+                                 ^
+
+TimeoutError: Waiting failed: 20000ms exceeded
+    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)
+    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)
+    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)
+    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)
+    at /workspace/c39-pilot-acceptance/test/c39-brake-diagnostic.cjs:43:614
+
+Node.js v24.19.0
