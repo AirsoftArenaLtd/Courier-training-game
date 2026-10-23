@@ -1,5 +1,14 @@
 # 3D workday rendering cost
 
+**C-39 painted-driving resource gate (23 October 2026):** all 72 focused views pass across four original profiles on frozen candidate `b7dc5de8` (game tree `ec9aaeae`), with no ceiling changes. The 85 non-browser suites share that candidate. Raw reports, independent revalidation and screenshots: `docs/review/set-10/c39-driving-progress/painted-b7dc5de8/manifest.json`. The first current High larger-text native attempt stopped after 132 checks and three reverse bays; it is diagnostic only. Test-only bounded live-game waits and error-cause capture are being rerun. Five older native modes/936 checks retain their separate `bf3cbb8b` source scope. Whole C-39 stays doing; this is not Intel-laptop FPS proof (O-1).
+
+| Driving profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 18 | 45 | 1670 | 2 | 3557376 | 2105926 |
+| loaded-high | 18 | 86 | 185244 | 4 | 11239424 | 5921222 |
+| accessible-low | 18 | 45 | 1670 | 2 | 3557376 | 2285670 |
+| fallback-low | 18 | 46 | 1620 | 2 | 3557376 | 2105926 |
+
 **C-39 school four-profile gate (23 October 2026):** all 32 school resource/visibility views pass the unchanged limits. The game tree is `ec9aaeae`; QA-only revision `b7dc5de8` strengthens the High child target to an actual posed upper-body triangle. All 85 non-browser suites pass at that QA revision. All eight Low/High English/Tamil normal/larger native runs pass 788 checks, including all four larger-text assessments. Painted-driving checks and the retained runner continue. Evidence: `docs/review/set-10/c39-school-progress/validated-b7dc5de8/manifest.json`. C-39 remains doing. These are resource counts, not Intel-laptop FPS; O-1 remains.
 
 | School profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |

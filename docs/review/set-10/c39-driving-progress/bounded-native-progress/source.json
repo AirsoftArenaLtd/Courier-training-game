@@ -1,0 +1,21 @@
+{
+  "candidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "nativeTest": {
+    "path": "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js",
+    "sha256": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "change": "Test-only protocol timeout, live-game-time bounded parking wait, progress timings and nested error cause capture. Gameplay and parking predicates are unchanged."
+  },
+  "checks": {
+    "nodeCheck": {
+      "command": "node --check test/fpdrivinglessonbrowser.js",
+      "exit": 0
+    },
+    "englishSourceGuard": {
+      "source": "current-pilot test/englishtext.js evaluated against the owned worktree",
+      "exit": 0,
+      "checks": 1
+    }
+  },
+  "note": "All changes are to the native test. No game source, motor cap, parking predicate, score or resource limit changed."
+}
