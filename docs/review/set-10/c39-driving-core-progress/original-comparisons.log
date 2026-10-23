@@ -1,14 +1,16 @@
-✔ all six hazard pass/fail and impact entries match the original scorer, including map positions (41.706787ms)
-✔ violation repeat intervals, default weights and pedestrian critical flags match the original scene (2.321225ms)
-✔ mixed full-drive results and all par-time boundaries match the original endDrill method (14.136023ms)
-✔ parking checks and checkpoint credit match the actual original parking method (3.322858ms)
-✔ physical hazard decisions match original moment-of-truth methods across boundary cases (6.226199ms)
-✔ the controllable module projects the actual six-checkpoint route without changing the five-stop workday schema (81.066512ms)
-ℹ tests 6
+✔ all six hazard pass/fail and impact entries match the original scorer, including map positions (17.742917ms)
+✔ violation repeat intervals, default weights and pedestrian critical flags match the original scene (2.133626ms)
+✔ mixed full-drive results and all par-time boundaries match the original endDrill method (20.716203ms)
+✔ parking checks and checkpoint credit match the actual original parking method (2.963721ms)
+✔ physical hazard decisions match original moment-of-truth methods across boundary cases (2.844956ms)
+✔ the controllable module projects the actual six-checkpoint route without changing the five-stop workday schema (148.548029ms)
+✔ checkpoint credit requires the real stopped van wholly inside each original physical bay (6.734081ms)
+✔ rolling, unsecured, skewed, distant, curb-straddling and out-of-bay parking earns no checkpoint credit (15.06656ms)
+ℹ tests 8
 ℹ suites 0
-ℹ pass 6
+ℹ pass 8
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 157.302789
+ℹ duration_ms 229.199073
