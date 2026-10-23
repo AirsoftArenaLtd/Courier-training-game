@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "scope": "school-zone-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "schoolapproach",
+        "schoolbus",
+        "schoolchildren",
+        "schoolclear",
+        "schoolfinish",
+        "schoolreverse",
+        "schooldevice",
+        "schoolcycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-school-current-other-loaded-high-high.json",
+      "exit": 1,
+      "elapsedMs": 202929,
+      "error": "loaded-high: No isolated visible school-drive proof for schoolchildren."
+    }
+  ]
+}

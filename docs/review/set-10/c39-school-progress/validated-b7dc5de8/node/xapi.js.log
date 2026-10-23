@@ -1,0 +1,17 @@
+✔ without an endpoint it is off and does nothing (2.801754ms)
+✔ the statements for a finished day: one for the day, one per stop, well formed (3.141746ms)
+✔ success follows the pass marks, and durations are ISO 8601 (0.317108ms)
+✔ B-22: the day statement names its critical mistakes, type and label; older days without types still send (0.827541ms)
+✔ B-21: the day statement says which aids were on (null for a day saved before) (0.314575ms)
+✔ a finished day is posted once, with the right headers, and never twice (260.478015ms)
+✔ the store being down never blocks, nothing is lost, and the statements go when it is back (532.049019ms)
+✔ statements the store already has (409) count as sent, and the others still go (26.157958ms)
+✔ through the training server: saving progress with a finished day reaches the store (453.255914ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1312.004822

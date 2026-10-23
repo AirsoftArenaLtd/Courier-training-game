@@ -1,0 +1,37 @@
+{
+  "qaSource": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "qaOnlyChangedPaths": [
+    "test/fpquality.js",
+    "test/fpqualitygate.js",
+    "test/tools/fp-school-lesson-proof.js"
+  ],
+  "servedOwnedSources": {
+    "index.html": "348e8118bb3804f391df0624f800c0ddc3f29fa12cb5f92ff60f7f14ee7ecfde",
+    "src/core/fpcamera.js": "35a185dbaf3b271bde541a00f5ee32ae3cce3ea2546f876742d9d971a80a34c4",
+    "src/core/fpworld.js": "703ba2a32e14dac104d9ec9977d2c643bf1fbc349425c1b281076344f5bb454b",
+    "test/fpbench.js": "a58a037964647e714ad81d0b06ed29f319e3caabb6770aa931fd80e1e32f3c7e",
+    "test/fpcamera.js": "3197d6de19a45ba930ac14de72f765e7f49a2ea315a0a7a7f2c47503e39528c7",
+    "test/fpdrivinglessonworld.js": "6a0259fbc7c461fbe36a44223be9e19569ed3f0b110a63233c0266bb1e8e4c6f",
+    "test/fpquality.js": "63f1b53baddc126a3b93db3227536a3ab43286166c21826b8d3c55f96350ed24",
+    "test/fpqualitygate.js": "8a379b1822542596d123dc3d517bd6f883ffee374c5a323091ca3bc868e565a0",
+    "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d",
+    "src/core/fplessonbays.js": "8f68a2179f485bbbbbbb27d509539a5bc2d8baa88ce0505a546a6ab84b2b5cbe",
+    "src/core/fpschoollesson.js": "e5d8ba81970b2c2d1e3eef6eb5e45a4d336f423570413ec304f6abfe6bd27913",
+    "src/core/fpschoollessonui.js": "02c50209d6c41e57f0240b73b0629f8ec7367737445b1b233c7ecf4dbb3aabf8",
+    "test/fplessonbays.js": "e06d9a085e10cab24b7c33953dd656b3bbf2b135f325880e27f01914ec099f2f",
+    "test/fpschoollesson.js": "5edc3ba0194c03c282657ca2c4da6fc3aac5b9cd05a1d8cffa9c93b07a872c19",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da",
+    "test/fpschoollessonworld.js": "877005a5ab4fb563a3a1c45f2ba40144380e9cf1b8a9183cc110d58809fcc9da",
+    "test/tools/fp-school-lesson-fixture.js": "f2b5ad35e22a7ca5338c6ceba8c3f59a2e20384d5edc106769bf48e0d3b4a9e0",
+    "test/tools/fp-school-lesson-proof.js": "c6351bf4ce9c08d78e2a729451bc0936680dec4a92f12af7385911766afff08c",
+    "test/tools/fp-school-lesson-view.js": "5e91de5824a84a22e268e08b62523fa7c534ff51afbaebd9be14814fe2fcc695",
+    "test/fpschoollessonbrowser.js": "22192d2761169937cc533b7d7d662afa1e9262bd8be82d09604e51affb8296f2"
+  },
+  "nativeTestSource": {
+    "path": "/workspace/c39-route-driving/test/fpschoollessonbrowser.js",
+    "sha256": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2"
+  },
+  "pilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "runtimeNote": "Only the listed QA files differ between these candidate revisions. The native school script is separately hashed; only its live-bus fixture waits differ from the candidate copy."
+}

@@ -1,0 +1,24 @@
+✔ protocols match actual generated building and parcel types, not a randomly assigned facade (206.562338ms)
+✔ older later-day plans without a locker authorisation keep all original signature and ID requirements (251.540532ms)
+✔ gated sites never put their intercom inside the blocked driveway car (72.698252ms)
+✔ the first two days and unmarked legacy checkpoints retain their original flow (9.992252ms)
+✔ intercom access cannot be bypassed through contact or the existing delivery API (6.037024ms)
+✔ a premature unlock stays a failed intercom check after recovery and resume, without double grading the delivery outcome (5.746678ms)
+✔ a gated site has a real walking barrier until the entry buzz; its fence remains solid (36.116214ms)
+✔ an unanswered apartment can be retained after waiting, without fabricating an intercom success or failure (4.364392ms)
+✔ named business reception retains the original signature requirement and reports through the contract (6.575042ms)
+✔ remote, driving or unscanned actions cannot sign, move or book the parcel (3.458643ms)
+✔ locker completion guards the old porch-box route and keeps parcel verification (34.333422ms)
+✔ reattempt grades the card, retention reason and next booking once; retaining a parcel is always possible (12.638545ms)
+✔ richer-stop actions cannot override adult ID, wrong-address or dispatch checks (43.635951ms)
+✔ campaign restore rejects missing, extra, mismatched and impossible richer-stop data (14.075772ms)
+✔ actual richer-stop reports fit SCORM 1.2 and replay to the same score without counting retries (76.013711ms)
+✔ thirty five-stop model journeys resume every richer-stop step and return retained parcels to Dispatch (2949.563376ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3752.837324

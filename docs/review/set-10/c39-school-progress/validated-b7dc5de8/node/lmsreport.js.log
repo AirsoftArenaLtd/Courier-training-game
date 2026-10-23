@@ -1,0 +1,16 @@
+✔ a full five-stop day that reports every type fits SCORM 1.2 and scores the same after a reload (532.400702ms)
+✔ the course is not complete until a workday is finished (0.301675ms)
+✔ a good day completes and passes the course; the score counts its stars (171.862448ms)
+✔ a bad day completes the course but does not pass it; a later good day does (1389.489388ms)
+✔ modules not passed keep the course unpassed even after a good day (139.754782ms)
+✔ SCORM 2004 gets the same completion and success (52.921769ms)
+✔ lmsWorkday: false, or ?workday3d=0, reports as before the workday (0.4712ms)
+✔ the first finished day is kept in a few numbers for the before-and-after report, and never replaced (1410.169766ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3717.839836

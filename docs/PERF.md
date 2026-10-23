@@ -1,5 +1,14 @@
 # 3D workday rendering cost
 
+**C-39 school four-profile gate (23 October 2026):** all 32 school resource/visibility views pass the unchanged limits. The game tree is `ec9aaeae`; QA-only revision `b7dc5de8` strengthens the High child target to an actual posed upper-body triangle. All 85 non-browser suites pass at that QA revision. Four Low English/Tamil normal/larger native runs pass 394 checks, including the two larger-text assessments; High native runs, painted-driving checks and the retained runner continue. Evidence: `docs/review/set-10/c39-school-progress/validated-b7dc5de8/manifest.json`. C-39 remains doing. These are resource counts, not Intel-laptop FPS; O-1 remains.
+
+| School profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 8 | 40 | 1178 | 2 | 3557376 | 1857051 |
+| loaded-high | 8 | 69 | 161008 | 4 | 11239424 | 5281648 |
+| accessible-low | 8 | 40 | 1178 | 2 | 3557376 | 2012576 |
+| fallback-low | 8 | 41 | 1124 | 2 | 3557376 | 1857051 |
+
 **C-39 school Low slice (23 October 2026):** current-pilot candidate `ec9aaeae` passes all eight loaded-Low resource/visibility views at **40 calls / 1,178 triangles / 2 Three textures / 3,557,376 attachment bytes / 1,857,051 Phaser estimate bytes**, with unchanged ceilings and all 85 non-browser suites passing. Raw reports, source and screenshots: `docs/review/set-10/c39-school-progress/validated-ec9aaeae/manifest.json`. The stronger sign proof requires six clear text-line rays; the bus lamp must actually be lit. Other profiles, native assessment/records, painted-driving checks and C-39 completion remain pending. This is not Intel-laptop FPS (O-1).
 
 **C-39 school and painted-bay hooks (23 October 2026, validation pending):** one reused four-instance road marking adds 48 CPU-counted triangles and no texture or render pass only in the module scenarios. Twenty local suites pass, including geometry correspondence and the unchanged ceilings/proof guard. No new renderer peaks are claimed: school and painted-driving views still need the fpbench/fpquality gate. An older frozen driving baseline completed five native configurations/936 checks before a local-server interruption; it predates these hooks. Evidence and operational approval-review block: `docs/review/set-10/c39-school-progress/manifest.json` and `c39-driving-progress/interrupted-23-oct/manifest.json`. O-1 remains; cloud FPS is not Intel-laptop proof.

@@ -1,0 +1,29 @@
+✔ a profile requires actual frames for every named view and its requested quality (4.858686ms)
+✔ resource overflow, lost contexts and page errors fail the integrated gate (1.141924ms)
+✔ a fallback profile must really fail every selected model without loading any (0.407421ms)
+✔ High has explicit separate ceilings while the original Low ceilings remain (0.295907ms)
+✔ accessibility and running sound cannot be silently omitted from the fixture (0.329435ms)
+✔ a blank physical mirror cannot pass on resource counters alone (1.124558ms)
+✔ module counters require the requested real set-piece, boundaries and unchanged workday state (5.420284ms)
+✔ radio and night counters need actual route, caption, visibility and reduced-motion proofs (0.786951ms)
+✔ healthy profiles reject a recovered fallback and reports missing the fallback counter (0.449523ms)
+✔ navigation views must name their versioned campaign fixture (0.308124ms)
+✔ damage views require the located damage, cargo and physical clearance fixture (1.299156ms)
+✔ clearance views require a lasting readable warning and the reverse view also requires its camera (1.407186ms)
+✔ richer-stop counters need physical control, custody and native-schedule proofs (0.393991ms)
+✔ traffic views require the combined versioned traffic and navigation fixture (1.962003ms)
+✔ walkaround views require the opted-in model and seven non-rendered physical targets (0.543271ms)
+✔ ambient views require visible bounded people, the correct source variant and a restorable day (2.230199ms)
+✔ pre-trip views require the real registered adapter, all targets, bounded canvas reuse and isolated saves (0.587096ms)
+✔ route views require the registered planner, bounded panels, all twenty stop edits and unchanged workday state (0.814541ms)
+✔ hazard clips require actual cue sightlines, timing, model sources and isolated same-id scoring (41.540439ms)
+✔ controllable-driving resources require all hazards and bays without changing the full workday scope (6.758628ms)
+✔ school resources require live actors, the real painted bay, accessibility and isolated optional records (2.942049ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.406401
