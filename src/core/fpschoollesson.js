@@ -10,7 +10,8 @@ OTR.fpSchoolLesson={
       route:lots.map((l,i)=>({lotId:l.id,stop:{answer:true,packages:[{number:l.number,street:l.street,tracking:'school-'+i,weight:4,service:'standard'}]}}))};
     const m=OTR.fpMission.create('campaign',seed,plan),s=this.create(),stop=m.stops[0],bay=TownDriveScene.prototype.parkBay.call({van:{g:{hl:2.7}},P:20,T},lot);
     stop.index=1;stop.bay={streetX:m.town.school.x,z0:8-(bay.x1-T.depot.x)*.05,z1:8-(bay.x0-T.depot.x)*.05};
-    m.schoolLesson=s;s.bounds={...m.bounds};s.start={...m.van,x:m.town.school.x+m.town.road/4,z:m.town.school.z1+18,yaw:0,gear:1,hand:true,belt:false,look:0};
+    // This entry is next to the town boundary. Keep the whole parked van inside it and face the entry sign.
+    m.schoolLesson=s;s.bounds={...m.bounds};s.start={...m.van,x:m.town.school.x+m.town.road/4,z:m.town.school.z1+17.5,yaw:0,gear:1,hand:true,belt:false,look:.85};
     m.stops=[stop];m.parcels=[];m.phase='route';m.mode='cab';m.departed=m.secured=m.repaired=true;m.briefing=null;
     s.parkingModel=Object.create(m);s.parkingModel.drivingLesson={parking:s.parking};return m;
   },

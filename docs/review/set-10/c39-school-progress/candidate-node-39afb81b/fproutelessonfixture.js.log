@@ -1,0 +1,10 @@
+✔ both a workday and a repeated module finish shutdown before a new isolation baseline is captured (4.784306ms)
+✔ an empty prior scene list can start the registered module without manufacturing a checkpoint (0.854569ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10.242586

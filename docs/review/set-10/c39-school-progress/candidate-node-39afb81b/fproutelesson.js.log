@@ -1,0 +1,15 @@
+✔ all original manifests use the original graph, closure paths, pickup windows and school pricing (18.897452ms)
+✔ the route cannot be sequenced remotely, while moving, outside the cab, or with missing/duplicate stops (1.139288ms)
+✔ 36 distinct full plans match the actual 2D round scorer, including critical and avoidable-delay checks (108.398205ms)
+✔ three submitted optimal manifests retain the score scale, categories and bounded same-id result (8.367419ms)
+✔ an expired partial plan earns no stars for unsubmitted manifests and preserves critical commitments (10.118321ms)
+✔ registered real mission sessions isolate workday scoring and never put route plans into checkpoints (2.70945ms)
+✔ the mounted map caches its geometry and keeps reverse on the live rear camera (1.503324ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.935486

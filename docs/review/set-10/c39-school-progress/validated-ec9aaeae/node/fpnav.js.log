@@ -1,0 +1,28 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ straight street paths have the exact distance and preserve their endpoints (25.753523ms)
+✔ a real road closure produces a detour with van clearance, in either direction (25.98109ms)
+✔ the signed one-way segment has a direct eastbound route and a legal westbound detour (6.189089ms)
+✔ older checkpoints keep a direct two-way path on the same peripheral street (16.122255ms)
+✔ every delivery curb is reachable without changing generated missions or checkpoints (613.37301ms)
+✔ paths are deterministic, remain inside the town and reject invalid off-road destinations (4.492111ms)
+✔ a zero-length route has one point and no movement requirement (4.630756ms)
+✔ new days have solid reused obstacles, reachable stops and stable restored layout (507.141835ms)
+✔ a double-parked car diverts the planned street edge in both directions (3.513564ms)
+✔ route projection and physical street names give whole left/right turn instructions (42.914017ms)
+✔ a wrong turn waits thirty seconds, reports once and keeps its original place and stop (10.704545ms)
+✔ following eight meters of the reroute within thirty seconds clears the mistake (8.439346ms)
+✔ pending reroutes survive a checkpoint without extending grace or emitting while restoring (28.343011ms)
+✔ off aids never grade an invisible route, and reverse or menus do not create mistakes (10.103827ms)
+✔ route cache is bounded per mission and unchanged frames never repeat graph searches (40.791283ms)
+✔ backtracking while in reverse replans before drive resumes without a wrong-turn penalty (3.53744ms)
+✔ turning aids on after an off-aid checkpoint starts from the current position (8.888881ms)
+✔ a checkpoint taken in reverse preserves the next navigation transition exactly (21.393647ms)
+✔ the blocked approach leaves a continuous walking route from a real cab exit to the doorway (7262.531185ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8665.049898

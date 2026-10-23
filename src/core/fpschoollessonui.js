@@ -44,7 +44,7 @@ OTR.fpScenario?.register('school-zone-drive',{
   brief(run){
     const k=OTR.fpAccess.key.bind(OTR.fpAccess);return [
       `Use ${k('KeyW')} to accelerate, ${k('KeyS')} to brake, and ${k('KeyA')}/${k('KeyD')} to steer. Fasten the seatbelt with its physical control or ${k('KeyB')}. Look at the mirrors and signal before moving off.`,
-      'Read the school-zone signs and keep to their speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.',
+      'Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.',
       `Follow the sat nav to ${run.model.stops[0].address}. Park the whole van in the marked bay, set the parking brake and press ${k('KeyF')} to finish. The mounted screen and ${k('Tab')} offer the same finish action. You can read the controls from the pause menu.`
     ];
   },

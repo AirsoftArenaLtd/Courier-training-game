@@ -2,10 +2,12 @@
 module.exports=function schoolLessonView(name){
  const sc=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=sc.scenarioSession,m=sc.model,v=m.van,s=m.schoolLesson;
  window.otrBenchmarkScene='FirstPersonScenarioScene';sc.keyboardMode=true;OTR.fpScenario.begin(r);sc.handheld.close(false);sc.closePanel(false);m.paused=false;
- Object.assign(v,{belt:true,look:0});m.player.pitch=0;
+ Object.assign(v,{belt:true,look:name==='schoolapproach'?s.start.look:0});m.player.pitch=0;
  if(name==='schoolbus'){
   v.hand=false;for(let n=0;n<300&&m.driving.bus.state==='waiting';n++)m.step({forward:v.speed<3},.05);
   if(m.driving.bus.state!=='flashing')throw Error('The live school bus did not enter the resource view.');v.speed=0;v.hand=true;
+  // Freeze an actual illuminated phase, rather than the empty space between flashes.
+  for(let n=0;n<12&&Math.floor(m.elapsed*2)%2!==0;n++)m.step({},.05);
  }else if(name==='schoolchildren'||name==='schoolclear'){
   m.driving.bus.state='done';Object.assign(v,{x:m.town.school.x+m.town.road/4,z:m.crossing.z+16,yaw:0,speed:0,hand:true});
   for(let n=0;n<(name==='schoolclear'?500:120)&&m.crossing.state!=='resolved';n++)m.step({},.05);

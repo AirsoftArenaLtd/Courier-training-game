@@ -1,0 +1,11 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ all six cues use the controller positions, real bus length and a reused fixed geometry pool (80.361475ms)
+✔ reduced motion keeps water still while physical bus arm, lights and lettered warning stay apparent (9.42147ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.408554
