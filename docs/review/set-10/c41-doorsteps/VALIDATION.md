@@ -1,3 +1,5 @@
+Eight-layout run complete: 10,715 checks in eight durable journeys. Restricted-photo follow-up complete: 1,331 checks and a settled 7 / 9 result. Old-dialogue and four required repository browser checks continue. The original capture-helper failure and its real-key correction are retained in `capture-helper-debug/`; no runtime change was required.
+
 # Validation continuation
 
 C-41 remains doing. Runtime is frozen at `b17f462b`; the executable and protocol candidate is `f80f76c4`.
