@@ -106,6 +106,8 @@ OTR.fpAccess={
     if(cab)m.van.look=yaw;else p.yaw=yaw;p.pitch=pitch;scene.sync();scene.message('No nearby target is visible. Move closer or use the arrow keys to look.');return null;
   },
   targetName(scene,id){
+    if(id.startsWith('customer-stop-parcel-'))return 'the parcel at this target';
+    if(id.startsWith('customer-stop-'))return {'customer-stop-door':'the front door','customer-stop-person':'the person at the door','customer-stop-number':'the mounted house number','customer-stop-trolley':'the hand truck'}[id]||'the nearby doorstep target';
     if(id==='customer-conversation')return 'the nearby conversation point';
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;

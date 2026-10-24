@@ -7,7 +7,7 @@ OTR.fpCustomerScenario={
   present(scene,page=0){
     const run=scene.scenarioSession,s=scene.model.customerTalk,stage=scene.model.customerStage,K=OTR.fpCustomerTalk,A=this;
     if(run.phase!=='active')return;
-    const changed=OTR.fpCustomerStage.apply(stage,s);scene.sync();
+    const changed=OTR.fpCustomerStage.apply(stage,s);if(run.definition.conversationStage)run.definition.conversationStage(run,scene);scene.sync();
     if(changed&&stage.routeChanged){scene.closePanel();scene.message('Walk along the sidewalk to the house, then face its conversation point to continue.');return;}
     const back=()=>scene.closePanel(),token=s.entries,guard=(phase,action)=>()=>{if(run.phase==='active'&&s.entries===token&&s.phase===phase)action();};
     if(s.phase==='line'){
@@ -22,7 +22,7 @@ OTR.fpCustomerScenario={
       ],'reply',()=>scene.showPause());scene.panel.customerSecond=Math.ceil(s.remaining??0);
     }else if(s.phase==='feedback'){
       this.panel(scene,'Review the conversation.',s.feedback,[{label:'Continue the conversation.',action:guard('feedback',()=>{K.advance(s);A.present(scene);})},{label:'Step back from the conversation.',action:back}],'feedback',()=>scene.showPause());
-    }else if(s.phase==='done')this.ending(scene,0);
+    }else if(s.phase==='done'){if(run.definition.conversationEnded)run.definition.conversationEnded(run,scene);else this.ending(scene,0);}
     else this.unfinished(run,scene,'This conversation could not continue. Return to the station and start again.');
   },
   question(scene){const s=scene.model.customerTalk;this.panel(scene,`Listen to ${this.speaker(s,s.node.speaker)} again.`,s.node.text,[{label:'Read the replies again.',action:()=>this.present(scene,s.replyPage||0)},{label:'Step back from the conversation.',action:()=>scene.closePanel()}],'question',()=>scene.showPause());},
