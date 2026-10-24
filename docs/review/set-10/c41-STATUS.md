@@ -1,6 +1,6 @@
 # C-41 status — 24 October 2026
 
-Branch: `codex/c41-customer-interaction`, stacked on pushed C-38. **The whole task remains doing.**
+Branch: `codex/c41-customer-interaction`, stacked on pushed C-38. **The remaining task is blocked on Claude’s optional-protocol category contract and shared Tamil font/A-31 work.** Its frozen existing-id validation continues in this checkout while C-42 proceeds separately.
 
 | Slice | State and evidence |
 | --- | --- |
