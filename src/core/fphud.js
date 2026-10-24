@@ -82,6 +82,11 @@ OTR.fpHud={
     const vx=x(m.van.x),vy=y(m.van.z),a=m.van.yaw,sn=Math.sin(a),cs=Math.cos(a);
     g.fillStyle(0xffffff).fillTriangle(vx+sn*6,vy-cs*6,vx-cs*4-sn*3,vy-sn*4+cs*3,vx+cs*4-sn*3,vy+sn*4+cs*3);
   },
+  keyHint(s,mode){
+    const run=s.scenarioSession;if(run?.definition.keyHint)return run.definition.keyHint(run);
+    const k=code=>OTR.fpAccess.key(code);
+    return mode==='cab'?`Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Press ${k('KeyP')} to choose a cab control.`:`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to move. Press ${k('KeyP')} to choose a target and ${k('KeyE')} to interact.`;
+  },
   refresh(s,hint,blocked,device,aiming){
     const m=s.model,mode=m?m.mode:'walk',now=s.time.now,first=this.firstDay(m),reduced=OTR.fpAccess.reduced();
     const busy=!!s.panel||s.external||s.transitioning,reading=busy||(device&&!aiming);
@@ -102,7 +107,7 @@ OTR.fpHud={
     if(c.mode!==mode||c.keys!==keys||c.width!==keyWidth){
       c.mode=mode;c.keys=keys;c.width=keyWidth;
       const k=code=>OTR.fpAccess.key(code);
-      const controls=mode==='cab'?`Use ${k('KeyW')}/${k('KeyS')} to accelerate or brake and ${k('KeyA')}/${k('KeyD')} to steer. Press ${k('KeyP')} to choose a cab control.`:`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to move. Press ${k('KeyP')} to choose a target and ${k('KeyE')} to interact.`;
+      const controls=this.keyHint(s,mode);
       s.setText('controls',keys?controls:'',keyWidth);s.setText('help',keys?`Press ${k('Tab')} for the handheld or ${k('KeyH')} for Controls and guidance.`:'',keyWidth);
     }
     s.help.setPosition(keyCenter,708).setVisible(keys);
