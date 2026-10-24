@@ -19,3 +19,5 @@ The optional two ids wait for the posted safety/exception scoring clarification;
 This remains doing, not whole-task acceptance. Registry/default/2D/shared scoring/save/
 Settings/i18n remain untouched. A-30, translation/all-language/default acceptance and Intel O-1 remain
 separate. The known shared Tamil fallback issue must be fixed and its wider metrics rechecked by A-31.
+
+The corrected frozen runtime is now `fa1a5579`: isolation is outside and behind the van, and the check proves the parcel adds its own collider at a previously walkable location. All 80 pure Node suites and the 23,760-view CPU sweep pass freshly at that source. The earlier resource run was cancelled for this correction, and its partial captures are diagnostic. Current evidence and sequential continuation are in [c42-problem-validation](c42-problem-validation/manifest.json). Rendered/native checks remain active next; C-42 remains doing.

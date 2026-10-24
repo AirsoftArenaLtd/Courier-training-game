@@ -1,0 +1,26 @@
+{
+  "runtime": "fa1a5579766376e7b6275f0418cf2df343f14ca7",
+  "stackedOn": "codex/c41-customer-interaction@13f04ccd",
+  "files": {
+    "index.html": "7272628d0c01de4e0822b877ad361432c90a9c70558399b7cbccfde6a482940d",
+    "src/core/fpproblemstage.js": "97dfb9c6518b14ded4b2f8047ef90148556332aff3b6554761fe8e47d4585e4b",
+    "src/core/fpproblemscenario.js": "2aab39434f1b9fe36ab0bb88e6bfd91296fe11110395c3394f867a55a31f98ec",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpcustomerworld.js": "2e39d58c9e0ed1f2748596a820c1a0e53ce1d6ccd4ea28f06e58030398f33546",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d"
+  }
+}
