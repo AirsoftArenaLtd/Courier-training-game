@@ -3,7 +3,7 @@ window.OTR=window.OTR||{};
 OTR.fpProblemStage={
   create(id,content){
     if(!['m4-address','m4-recover','m4-damaged','m4-storm'].includes(id)||!content?.nodes||Object.keys(content.cast||{}).length>4)throw Error('Invalid problem-solving stage');
-    const points={cab:{x:1.35,y:1.85,z:-43.6,kind:'cab-phone'},cargo:{x:1.7,y:1.15,z:-38.2,kind:'parcel'},house:{x:11,y:1.2,z:-44.5,kind:'door'},other:{x:11,y:1.2,z:-30.5,kind:'door'},gate:{x:14,y:1.25,z:-42.98,kind:'gate'},safe:{x:7.5,y:1.2,z:-39.5,kind:'phone'}};
+    const points={cab:{x:1.35,y:1.85,z:-43.6,kind:'cab-phone'},cargo:{x:1.7,y:1.15,z:-38.2,kind:'parcel'},house:{x:12,y:1.2,z:-44.5,kind:'door'},other:{x:12,y:1.2,z:-30.5,kind:'door'},gate:{x:14,y:1.25,z:-42.98,kind:'gate'},safe:{x:8.3,y:1.2,z:-39.5,kind:'phone'}};
     const two=id==='m4-address'||id==='m4-recover',site=id==='m4-address'?'house':id==='m4-damaged'?'cargo':'cab';
     const actors=Object.entries(content.cast||{}).map(([key,person])=>{const home=['jo','lena'].includes(key)?'other':'house',p=points[home];return {key,person,remote:!!person.remote,site:home,x:p.x,z:p.z,visible:false,solid:{x:10000,z:10000,w:.5,d:.4}};});
     const s={id,content,two,points,actors,site,stamp:-1,node:null,time:0,routeChanged:false,speaker:null,phone:false,held:id==='m4-damaged'?'leakbox':id==='m4-address'?'box':null,isolated:false,exposed:false,flooded:false,lightning:id==='m4-storm',rain:id==='m4-storm',target:{x:0,y:0,z:0,kind:null},isolationSolid:{x:10000,z:10000,w:.55,d:.45},addresses:two?[{site:'house',number:id==='m4-address'?'412':'214',street:id==='m4-address'?'Maple Avenue':'Birch Court',mailbox:id==='m4-address'?null:'KOWALSKI'},{site:'other',number:id==='m4-address'?'421':'214',street:id==='m4-address'?'Maple Court':'Birch Lane',mailbox:id==='m4-address'?'RIVERA':'BROOKS'}]:[]};
@@ -40,6 +40,6 @@ OTR.fpProblemStage={
     s.isolationSolid.x=s.isolated?s.isolation.x:10000;s.isolationSolid.z=s.isolated?s.isolation.z:10000;return t;
   },
   step(s,seconds){s.time+=Math.max(0,Math.min(.05,Number(seconds)||0));},
-  solids(s){return [{x:12,z:-47,w:7,d:4},...(s.two?[{x:12,z:-33,w:7,d:4}]:[]),...(s.id==='m4-storm'?[{x:14,z:-43.2,w:2,d:.18},{x:14,z:-46.3,w:4,d:5.8}]:[]),s.isolationSolid,...s.actors.filter(a=>!a.remote).map(a=>a.solid)];},
+  solids(s){return [{x:12,z:-47,w:7,d:4},...(s.two?[{x:12,z:-33,w:7,d:4}]:[]),...(s.id==='m4-storm'?[{x:14,z:-43.2,w:2,d:.18},{x:14,z:-46.3,w:4,d:5.8},{x:s.points.safe.x,z:s.points.safe.z,w:.35,d:.3}]:[]),s.isolationSolid,...s.actors.filter(a=>!a.remote).map(a=>a.solid)];},
   destination(s){return s.site==='safe'?'Stay on high ground and use the phone to report the incident.':s.site==='cab'?'Continue from the parked van’s communication device.':s.site==='cargo'?'Continue at the parked van’s cargo doors.':s.site==='gate'?'Inspect the locked gate from the safe side.':s.site==='other'?'Walk along the sidewalk to the second address.':'Continue at the first address.';}
 };
