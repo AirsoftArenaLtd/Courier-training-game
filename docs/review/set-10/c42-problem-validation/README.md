@@ -1,0 +1,11 @@
+# C-42 validation in progress — 24 October 2026
+
+Frozen runtime **fa1a5579766376e7b6275f0418cf2df343f14ca7** corrects the earlier candidate’s isolation location: the damaged box is outside and behind the van. The test now proves a previously walkable location becomes blocked by the actual isolated parcel, independently of the van collider. The original four-id graphs, local TalkController scoring and all other shared data stay unchanged. The existing-id registry proposal remains unapplied in ../c42-problem-progress.
+
+All **80 pure Node checks** pass on the corrected runtime with permitted networking. The inventory’s misclassified SCORM browser is excluded explicitly and runs sequentially with the browser checks. No test assertion is relaxed. The focused four-suite checks and the full 23,760-view CPU sweep also pass: loaded 37 calls / 2,392 triangles; fallback 38 / 2,044. These CPU figures exclude weather shader/compositor cost, GPU memory and FPS. The original all-139-ending 2D parity check is included in the fresh Node run.
+
+The old candidate’s passing SCORM browser and cancelled resource run remain in cancelled-f3462fc2-resource-run. Partial captures from that cancelled resource job are diagnostics only. The complete resource/native pipeline is restarting on this corrected frozen source, with one browser at a time, after C-41’s completed pipeline. Twelve fixed poses in all four original profiles, thirty-two good native journeys, three critical journeys, one storm-timeout journey, the old dialogue regression and four repository browser suites are scheduled. No final browser pass, screenshot, rendered peak, current-pilot/default, font-corrected Tamil or Intel FPS acceptance is claimed yet.
+
+Reproduce the corrected run by serving this checkout on port 8384, then use the commands in ../c42-problem-progress/README.md with tags ending fa1a5579. Native scenarios use real remapped O/U, W/arrows, actual cab/cargo targets, every reply page and durable course/workday reloads. Static render fixtures are explicitly labelled and never stand in for native evidence.
+
+The shared optional positive-safety/exception question and Tamil fallback fix remain with Claude. C-42 stays doing; four later Codex tasks remain queued. No pilot/main push, merge, shared-source/default change or automation pause is performed.

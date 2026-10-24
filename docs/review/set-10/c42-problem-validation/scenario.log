@@ -1,0 +1,11 @@
+✔ all four authored good paths use physical targets and voluntary walks without changing the workday (262.965771ms)
+✔ only a real nearby target advances; cargo is inspected only while open and cab decisions require the cab (6.167584ms)
+✔ storm timer pauses on the handheld and pause menu, but continues on reply and history pages (7.559715ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 314.567904

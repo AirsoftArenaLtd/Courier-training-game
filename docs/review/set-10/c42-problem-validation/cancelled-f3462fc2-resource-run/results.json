@@ -1,0 +1,11 @@
+[
+  {
+    "job": "scorm-2004",
+    "exit": 0,
+    "command": [
+      "node",
+      "test/scorm-launch-2004.js"
+    ],
+    "environment": {}
+  }
+]
