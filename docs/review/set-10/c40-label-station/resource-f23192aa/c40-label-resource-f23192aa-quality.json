@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "f23192aa0b2ca154f4cd49cff19d611a76a75529",
+  "scope": "Six physical label station views per profile, not the full default workday gate.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c40-label-resource-f23192aa-loaded-low-low.json",
+      "log": "c40-label-resource-f23192aa-loaded-low.log",
+      "peak": {
+        "calls": 33,
+        "triangles": 1925,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1949232
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c40-label-resource-f23192aa-loaded-high-high.json",
+      "log": "c40-label-resource-f23192aa-loaded-high.log",
+      "peak": {
+        "calls": 34,
+        "triangles": 11691,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5293840
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c40-label-resource-f23192aa-accessible-low-low.json",
+      "log": "c40-label-resource-f23192aa-accessible-low.log",
+      "peak": {
+        "calls": 33,
+        "triangles": 1925,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2097867
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c40-label-resource-f23192aa-fallback-low-low.json",
+      "log": "c40-label-resource-f23192aa-fallback-low.log",
+      "peak": {
+        "calls": 38,
+        "triangles": 1817,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1949232
+      }
+    }
+  ]
+}

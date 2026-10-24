@@ -1,0 +1,138 @@
+{
+  "checks": 89,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "decisions": [
+        {
+          "index": 0,
+          "station": "dry",
+          "ok": true,
+          "blind": true,
+          "unseen": [
+            "right",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 0.5666666666666664,
+          "speed": 1,
+          "points": 250
+        },
+        {
+          "index": 1,
+          "station": "belt",
+          "ok": false,
+          "blind": true,
+          "unseen": [
+            "front",
+            "right",
+            "back",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 0.14999999999999997,
+          "speed": 0,
+          "points": 0
+        },
+        {
+          "index": 2,
+          "station": null,
+          "ok": false,
+          "blind": false,
+          "unseen": [
+            "front",
+            "right",
+            "back",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 22.006653333333333,
+          "speed": 0,
+          "points": 0
+        }
+      ],
+      "shot": "c40-label-boundaries-f23192aa-low-ta-input-feedback.png",
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792801307970,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792801327416
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "decisions": [
+        {
+          "index": 0,
+          "station": "upright",
+          "ok": true,
+          "blind": true,
+          "unseen": [
+            "right",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 0.5332933333333338,
+          "speed": 1,
+          "points": 250
+        },
+        {
+          "index": 1,
+          "station": "upright",
+          "ok": false,
+          "blind": true,
+          "unseen": [
+            "front",
+            "right",
+            "back",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 0.21491666666666445,
+          "speed": 0,
+          "points": 0
+        },
+        {
+          "index": 2,
+          "station": null,
+          "ok": false,
+          "blind": false,
+          "unseen": [
+            "front",
+            "right",
+            "back",
+            "left",
+            "top",
+            "base"
+          ],
+          "time": 22.00998333333333,
+          "speed": 0,
+          "points": 0
+        }
+      ],
+      "shot": "c40-label-boundaries-f23192aa-high-en-input-feedback.png",
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792801340173,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792801378049
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Targeted input/assessment boundaries; walking and near-expiry time are fixtures, verdicts use real keys and live updates.",
+  "complete": true
+}

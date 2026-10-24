@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-24",
+  "status": "Unwired component; controller, production integration, native screenshots and combined resource gate remain pending.",
+  "labelRuntimeUnchanged": "f23192aa0b2ca154f4cd49cff19d611a76a75529",
+  "files": {
+    "src/core/fppackagesortworld.js": "7d9faaa4cc45ca824d95ff038ccaaad43eaba7089179653f785059cbe72fe775",
+    "test/fppackagesortworld.js": "50c4361d53918616709cee331304bab33916e13cc36a5b07c82feea6d617b163"
+  },
+  "checks": [
+    "Fixed buffers and proxy identities over 1000 syncs with 16 parcels.",
+    "Active routing keys and real rays through all five waves.",
+    "Furniture/standing clearance against the actual depot model.",
+    "Owned-resource disposal and preservation of shared geometry."
+  ],
+  "limits": "Three visible component batches, no image maps, at most 1700 component triangles in the all-parcel fixture. This is not a combined Low resource or FPS acceptance result."
+}
