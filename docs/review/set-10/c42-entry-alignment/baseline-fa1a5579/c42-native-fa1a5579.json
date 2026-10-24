@@ -1,0 +1,1227 @@
+{
+  "checks": 2742,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "address",
+      "shots": [
+        "c42-native-fa1a5579-low-en-normal-address-controls-0.png",
+        "c42-native-fa1a5579-low-en-normal-address-controls-1.png",
+        "c42-native-fa1a5579-low-en-normal-address-controls-2.png",
+        "c42-native-fa1a5579-low-en-normal-address-controls-3.png",
+        "c42-native-fa1a5579-low-en-normal-address-address-reading.png",
+        "c42-native-fa1a5579-low-en-normal-address-handheld.png",
+        "c42-native-fa1a5579-low-en-normal-address-physical.png",
+        "c42-native-fa1a5579-low-en-normal-address-reply-n1.png",
+        "c42-native-fa1a5579-low-en-normal-address-reply-n2_ct.png",
+        "c42-native-fa1a5579-low-en-normal-address-arrival-1-cab.png",
+        "c42-native-fa1a5579-low-en-normal-address-arrival-2-other.png",
+        "c42-native-fa1a5579-low-en-normal-address-reply-n3_ct.png",
+        "c42-native-fa1a5579-low-en-normal-address-reply-n4.png",
+        "c42-native-fa1a5579-low-en-normal-address-ending.png",
+        "c42-native-fa1a5579-low-en-normal-address-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2_ct",
+        "n3_ct",
+        "n4"
+      ],
+      "trips": [
+        "cab",
+        "other"
+      ],
+      "pages": 9,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue at the first address.",
+          "The conversation point is 2 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "Continue at the first address.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 167
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 173,
+            "bottom": 190
+          }
+        ],
+        "choices": [
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 414.5,
+            "bottom": 460.5
+          },
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 466.5,
+            "bottom": 512.5
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-address",
+        "result": {
+          "score": 1600,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861641938,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861641938,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861645348,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861645348,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861703342,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861703342,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You solved today's problem AND prevented the next one. That's the difference between delivering and serving.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861706724,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Never guess an address. Check the street name, suffix (Ave vs. Ct), unit and ZIP before delivering.",
+            "Use your normal channels (dispatch / route tools) to resolve address exceptions — then plan the fix into your route.",
+            "Confirm the recipient when something doesn't match, and never leave a package with a stranger."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861641938,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861641938,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861645348,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861645348,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861703342,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861703342,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You solved today's problem AND prevented the next one. That's the difference between delivering and serving.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861706724,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 34
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1600,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792861708723
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "recover",
+      "shots": [
+        "c42-native-fa1a5579-low-en-normal-recover-controls-0.png",
+        "c42-native-fa1a5579-low-en-normal-recover-controls-1.png",
+        "c42-native-fa1a5579-low-en-normal-recover-controls-2.png",
+        "c42-native-fa1a5579-low-en-normal-recover-controls-3.png",
+        "c42-native-fa1a5579-low-en-normal-recover-address-reading.png",
+        "c42-native-fa1a5579-low-en-normal-recover-handheld.png",
+        "c42-native-fa1a5579-low-en-normal-recover-physical.png",
+        "c42-native-fa1a5579-low-en-normal-recover-reply-n0.png",
+        "c42-native-fa1a5579-low-en-normal-recover-arrival-1-house.png",
+        "c42-native-fa1a5579-low-en-normal-recover-reply-n2.png",
+        "c42-native-fa1a5579-low-en-normal-recover-arrival-2-cargo.png",
+        "c42-native-fa1a5579-low-en-normal-recover-reply-n3.png",
+        "c42-native-fa1a5579-low-en-normal-recover-arrival-3-other.png",
+        "c42-native-fa1a5579-low-en-normal-recover-reply-n5.png",
+        "c42-native-fa1a5579-low-en-normal-recover-arrival-4-cab.png",
+        "c42-native-fa1a5579-low-en-normal-recover-reply-n7.png",
+        "c42-native-fa1a5579-low-en-normal-recover-ending.png",
+        "c42-native-fa1a5579-low-en-normal-recover-result.png"
+      ],
+      "nodes": [
+        "n0",
+        "n2",
+        "n3",
+        "n5",
+        "n7"
+      ],
+      "trips": [
+        "house",
+        "cargo",
+        "other",
+        "cab"
+      ],
+      "pages": 11,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue from the parked van’s communication device.",
+          "The conversation point is 3 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "Continue from the parked van’s communication device.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ],
+        "choices": [
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 414.5,
+            "bottom": 460.5
+          },
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 466.5,
+            "bottom": 512.5
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-recover",
+        "result": {
+          "score": 1900,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861737461,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861737461,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thank them, apologize, and take it back. They did you a favor.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861758023,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861779661,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861779661,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Honest and short. People forgive a mistake that is owned and fixed; they don't forgive being brushed off.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861819914,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861876719,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861876719,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A misdelivery is fixed by the courier who made it: get it back the same day, apologize, deliver it properly.",
+            "Update the record: the scan and the proof of delivery must show where the package really went.",
+            "Tell dispatch what happened. An honest report is what stops the same mistake twice."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861737461,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861737461,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thank them, apologize, and take it back. They did you a favor.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861758023,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861779661,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861779661,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Honest and short. People forgive a mistake that is owned and fixed; they don't forgive being brushed off.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861819914,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861876719,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861876719,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 78
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1900,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792861877920
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "damaged",
+      "shots": [
+        "c42-native-fa1a5579-low-en-normal-damaged-controls-0.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-controls-1.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-controls-2.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-controls-3.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-address-reading.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-handheld.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-physical.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-reply-n0.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-arrival-1-house.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-reply-n2.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-reply-n3_honest.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-reply-n4.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-ending.png",
+        "c42-native-fa1a5579-low-en-normal-damaged-result.png"
+      ],
+      "nodes": [
+        "n0",
+        "n2",
+        "n3_honest",
+        "n4"
+      ],
+      "trips": [
+        "house"
+      ],
+      "pages": 10,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue at the parked van’s cargo doors.",
+          "The conversation point is 2 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "Continue at the parked van’s cargo doors.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ],
+        "choices": [
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 414.5,
+            "bottom": 460.5
+          },
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 466.5,
+            "bottom": 512.5
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-damaged",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "safety": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Exactly. You don't know what that liquid is. Distance, separation and reporting keep you — and everyone downstream — safe.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861906262,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Honest, specific and calm. He's disappointed — that's normal — but he knows what happened and what's next.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861938842,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Honest, specific and calm. He's disappointed — that's normal — but he knows what happened and what's next.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861938842,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You held the safety line and pointed to a real solution. Empathy plus boundaries.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861942323,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You held the safety line and pointed to a real solution. Empathy plus boundaries.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861942323,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861945948,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792861945948,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Leaking package: don't touch, open or sniff it. Step back, keep it away from other freight, and report it using your company's procedure.",
+            "Never deliver or hand a leaking or unsafe package to a customer.",
+            "Be honest about damage, explain next steps, and document the exception accurately."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Exactly. You don't know what that liquid is. Distance, separation and reporting keep you — and everyone downstream — safe.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861906262,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Honest, specific and calm. He's disappointed — that's normal — but he knows what happened and what's next.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861938842,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Honest, specific and calm. He's disappointed — that's normal — but he knows what happened and what's next.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861938842,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You held the safety line and pointed to a real solution. Empathy plus boundaries.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861942323,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You held the safety line and pointed to a real solution. Empathy plus boundaries.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861942323,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861945948,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Accurate records are how the customer gets a replacement fast — and how the damage gets investigated.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792861945948,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 19
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "service": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 3
+          },
+          "lastPlayed": 1792861947454
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "storm",
+      "shots": [
+        "c42-native-fa1a5579-low-en-normal-storm-controls-0.png",
+        "c42-native-fa1a5579-low-en-normal-storm-controls-1.png",
+        "c42-native-fa1a5579-low-en-normal-storm-controls-2.png",
+        "c42-native-fa1a5579-low-en-normal-storm-controls-3.png",
+        "c42-native-fa1a5579-low-en-normal-storm-address-reading.png",
+        "c42-native-fa1a5579-low-en-normal-storm-handheld.png",
+        "c42-native-fa1a5579-low-en-normal-storm-physical.png",
+        "c42-native-fa1a5579-low-en-normal-storm-reply-n0.png",
+        "c42-native-fa1a5579-low-en-normal-storm-reply-n2.png",
+        "c42-native-fa1a5579-low-en-normal-storm-reply-n3.png",
+        "c42-native-fa1a5579-low-en-normal-storm-reply-n4.png",
+        "c42-native-fa1a5579-low-en-normal-storm-arrival-1-gate.png",
+        "c42-native-fa1a5579-low-en-normal-storm-reply-n5.png"
+      ],
+      "nodes": [
+        "n0",
+        "n2",
+        "n3",
+        "n4",
+        "n5"
+      ],
+      "trips": [
+        "gate",
+        "cab"
+      ],
+      "pages": 12,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue from the parked van’s communication device.",
+          "The conversation point is 3 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "Continue from the parked van’s communication device.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ],
+        "choices": [
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 414.5,
+            "bottom": 460.5
+          },
+          {
+            "font": 15,
+            "scale": 1,
+            "top": 466.5,
+            "bottom": 512.5
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "sourceRevision": "10ec386699056acea51874ef70e3837192a92e49",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "7272628d0c01de4e0822b877ad361432c90a9c70558399b7cbccfde6a482940d",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerworld.js": "2e39d58c9e0ed1f2748596a820c1a0e53ce1d6ccd4ea28f06e58030398f33546",
+    "src/core/fpproblemstage.js": "97dfb9c6518b14ded4b2f8047ef90148556332aff3b6554761fe8e47d4585e4b",
+    "src/core/fpproblemscenario.js": "2aab39434f1b9fe36ab0bb88e6bfd91296fe11110395c3394f867a55a31f98ec",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d"
+  },
+  "protocolSha256": "fa0ca0d6569f296bc2e6838dcf539d54bfcaa65b09ee2d22f159896c47834d80",
+  "variant": "good",
+  "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+  "failure": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at walk (/workspace/c42-problem-solving/test/fpproblembrowser.js:14:678)\n    at async go (/workspace/c42-problem-solving/test/fpproblembrowser.js:18:309)\n    at async /workspace/c42-problem-solving/test/fpproblembrowser.js:29:113"
+  }
+}

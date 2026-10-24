@@ -1,0 +1,10 @@
+{ quality: 'low', lang: 'en', large: false, kind: 'address' }
+{ quality: 'low', lang: 'en', large: false, kind: 'recover' }
+{ quality: 'low', lang: 'en', large: false, kind: 'damaged' }
+{ quality: 'low', lang: 'en', large: false, kind: 'storm' }
+TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.
+    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)
+    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)
+    at walk (/workspace/c42-problem-solving/test/fpproblembrowser.js:14:678)
+    at async go (/workspace/c42-problem-solving/test/fpproblembrowser.js:18:309)
+    at async /workspace/c42-problem-solving/test/fpproblembrowser.js:29:113

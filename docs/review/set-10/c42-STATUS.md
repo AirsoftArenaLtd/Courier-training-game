@@ -1,23 +1,11 @@
 # C-42 status — 24 October 2026
 
-Branch: `codex/c42-problem-solving`, stacked on pushed C-41 at `13f04ccd` and its C-38 runner.
-C-31 is already in the stack. **C-42 is doing.** C-41's frozen browser pipeline continues in its separate
-checkout while its remaining shared category/font questions wait for Claude.
+Branch: codex/c42-problem-solving, stacked on pushed C-41/C-38 with C-31 included. **Remaining task blocked on Claude’s optional-id safety/exception contract and shared Tamil font/A-31 work.** The four existing-id implementation is frozen at **836a101a**, with its complete browser validation continuing in this checkout while C-43 proceeds separately.
 
-The four existing ids (`m4-address`, `m4-recover`, `m4-damaged`, `m4-storm`) keep their authored graphs,
-categories, thresholds, result scales, criticals and attempts. First validate the reusable dialogue kernel
-against the actual 2D TalkController for every reachable ending, then build voluntary physical address,
-recovery, damaged-cargo and storm staging. The two new optional set-pieces use B-135's existing event
-criteria in a local module log. No module action enters the workday report stream.
+The original wrong-address, recovery, damaged-parcel and storm graphs retain every result and assessment rule. The actual 2D oracle matches all 139 reachable endings, 1,372 comparisons and the authored storm timeout. All 80 pure Node suites pass freshly. The seven-position Low CPU sweep covers 27,720 views at loaded 37 calls / 2,394 triangles and fallback 38 / 2,284. These CPU figures are not GPU memory or Intel FPS acceptance.
 
-The four existing-id physical candidate is implemented. Focused tests cover all 139 logical endings, 1,372
-2D comparisons, four good physical panel/walking flows and 23,760 loaded/fallback CPU geometry views.
-Loaded Low peaks at 37 calls / 2,392 triangles; fallback at 38 / 2,044. These are CPU figures, not
-rendered resource or Intel FPS acceptance. Native keys/layouts/screenshots and fpbench remain next.
-The optional two ids wait for the posted safety/exception scoring clarification; four later tasks remain queued.
+The fitted entrances, source-mounted plaques, reachable original spawn points, visible resident at 421, supported phone and damaged-parcel cues are validated by focused geometry checks and explicitly scoped High preflights. Final SCORM/resource/native/critical/timeout/regression checks are active; no whole-task/default/current-pilot/font-corrected acceptance is claimed. Exact source, evidence and continuation: [c42-entry-alignment](c42-entry-alignment/manifest.json).
 
-This remains doing, not whole-task acceptance. Registry/default/2D/shared scoring/save/
-Settings/i18n remain untouched. A-30, translation/all-language/default acceptance and Intel O-1 remain
-separate. The known shared Tamil fallback issue must be fixed and its wider metrics rechecked by A-31.
+Prior f3462fc2/fa1a5579 snapshots remain historical evidence. The fa1a5579 budget gate passed 48 numerical views and three native journeys were durable, but screenshot review found the duplicate entrance and wrong recipient fixture. That candidate was stopped before editing; its raw diagnostics remain indexed with the cancellation reason. No old capture substitutes for the final runtime.
 
-The corrected frozen runtime is now `fa1a5579`: isolation is outside and behind the van, and the check proves the parcel adds its own collider at a previously walkable location. All 80 pure Node suites and the 23,760-view CPU sweep pass freshly at that source. The earlier resource run was cancelled for this correction, and its partial captures are diagnostic. Current evidence and sequential continuation are in [c42-problem-validation](c42-problem-validation/manifest.json). Rendered/native checks remain active next; C-42 remains doing.
+The four-field registry patch remains unapplied. Shared scoring/save/Settings/i18n/default and authored 2D data are unchanged. Existing Intel O-1 and the permanent hourly automation remain. C-43 follows on a separate stacked branch, with C-44/C-45/C-46 still queued.
