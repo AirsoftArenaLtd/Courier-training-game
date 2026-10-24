@@ -54,6 +54,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
       {label:'Continue the scenario.',action:()=>this.closePanel()}
     ],{accessibleText:true,back:()=>this.showPause()});
   }
+  showGoal(){this.showPause();}
   showDispatch(){this.showPause();}
   showScanner(){
     if(!this.handheld||!this.scenarioSession)return;if(this.handheld.isOpen){this.handheld.close();return;}
@@ -128,8 +129,11 @@ class FirstPersonScenarioScene extends FirstPersonScene {
   }
   update(time,delta){
     const r=this.scenarioSession,active=!!this.model&&!this.loading&&!this.model.paused&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;
+    const clockActive=r?.definition.clockActive?r.definition.clockActive(r,this,active):active;
     super.update(time,delta);if(!r||r.phase!=='active')return;
-    const timeout=OTR.fpScenario.advance(r,delta/1000,active);
+    const timeout=OTR.fpScenario.advance(r,delta/1000,clockActive);
+    if(r.definition.tick)r.definition.tick(r,this,Math.max(0,Math.min(.05,delta/1000)),clockActive);
+    if(r.phase!=='active')return;
     if(active&&r.definition.update)r.definition.update(r,this,Math.max(0,Math.min(.05,delta/1000)));
     if(r.overflow){this.scenarioUnavailable(Error('The scenario event budget was exceeded'));return;}
     if(timeout&&r.phase==='active'){if(r.definition.timeout)r.definition.timeout(r,this);else this.finishScenario('timeout');}

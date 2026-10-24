@@ -4,7 +4,7 @@ OTR.fpCustomerTalk={
   create(content,categories,{coaching=true}={}){
     if(!content?.nodes||!content.nodes[content.start]||!Array.isArray(categories)||!categories.length)throw Error('Invalid customer dialogue');
     const flags={},moods={},cast={};for(const [key,person] of Object.entries(content.cast||{})){cast[key]={...person,rig:null};moods[key]=person.moodStart||0;}
-    const log=new OTR.ScoreLog(),s={content,categories:categories.slice(),coaching,log,flags,moods,cast,phase:'brief',node:null,nodeId:null,choices:[],history:[],entries:0,elapsed:0,remaining:null,lastChoice:null,feedback:null,result:null,ending:null,notes:[],presentation:null};
+    const log=new OTR.ScoreLog(),s={content,categories:categories.slice(),coaching,log,flags,moods,cast,phase:'brief',node:null,nodeId:null,choices:[],history:[],transcript:[],entries:0,elapsed:0,remaining:null,lastChoice:null,feedback:null,result:null,ending:null,notes:[],presentation:null};
     // Reuse the shared scoring implementation, including its worse-repeat checks, penalties and critical flags.
     s.scorer={o:{log,cats:OTR.scoring.CATS,feedback:coaching?'immediate':'deferred'},flags,moods,cast,applyMoodExpr(){}};
     return s;
@@ -21,6 +21,7 @@ OTR.fpCustomerTalk={
       if(node.if!==undefined&&node.then){id=OTR.talk.test(node.if,s.flags)?node.then:node.else;continue;}
       if(node.effects)this.apply(s,Object.assign({moodTarget:s.cast[node.speaker]?node.speaker:undefined},node.effects),node.check||null,null);
       if(node.text===undefined&&!node.choices){id=node.next;continue;}
+      if(node.text!==undefined)s.transcript.push({speaker:node.speaker||'narrator',text:node.text});
       s.phase='line';return true;
     }
     s.phase='blocked';return false;
@@ -38,9 +39,9 @@ OTR.fpCustomerTalk={
   },
   resolve(s,choice){
     if(s.phase!=='choices')return false;s.remaining=null;s.lastChoice=choice;
-    s.history.push({node:s.nodeId,text:choice.text,grade:choice.grade});if(choice.set)Object.assign(s.flags,choice.set);
+    s.transcript.push({speaker:'courier',text:choice.text});s.history.push({node:s.nodeId,text:choice.text,grade:choice.grade});if(choice.set)Object.assign(s.flags,choice.set);
     this.apply(s,choice.effects,s.node.check||'Conversation choice',choice,s.node);
-    if(s.coaching&&choice.feedback){s.feedback=choice.feedback;s.phase='feedback';return true;}
+    if(s.coaching&&choice.feedback){s.transcript.push({speaker:'trainer',text:choice.feedback});s.feedback=choice.feedback;s.phase='feedback';return true;}
     return this.follow(s,choice);
   },
   follow(s,choice){

@@ -1,0 +1,31 @@
+/* Physical customer actors, reception, phone and doorstep. Local licensed models with procedural fallbacks. */
+window.OTR=window.OTR||{};
+OTR.fpCustomerWorld={
+  build(parent,m,{cube=null,interactions=[],occluders=[],bank=null}={}){
+    const T=THREE,high=OTR.gfx.high(),ownsCube=!cube;if(!cube)cube=new T.BoxGeometry();const root=new T.Group();root.name='customer-conversation';parent.add(root);
+    const paint=new T.MeshLambertMaterial(),actorPaint=new T.MeshLambertMaterial({vertexColors:true,side:T.DoubleSide}),proxyPaint=new T.MeshBasicMaterial(),fixed=new T.InstancedMesh(cube,paint,64),moving=new T.InstancedMesh(cube,paint,64);root.add(fixed,moving);fixed.frustumCulled=moving.frustumCulled=false;fixed.castShadow=moving.castShadow=high;fixed.receiveShadow=moving.receiveShadow=high;const scratch=new T.Object3D(),colour=new T.Color();fixed.setColorAt(0,colour);moving.setColorAt(0,colour);
+    const pools=[Array.from({length:64},()=>({matrix:new T.Matrix4(),color:new T.Color(),sphere:new T.Sphere()})),Array.from({length:64},()=>({matrix:new T.Matrix4(),color:new T.Color(),sphere:new T.Sphere()}))],batches=[{mesh:fixed,entries:[]},{mesh:moving,entries:[]}],imports=[],people=[];let stat=0,dynamic=0,disposed=false;
+    const box=(slot,index,x,y,z,w,h,d,hex,angle=0)=>{const mesh=slot?moving:fixed,e=pools[slot][index];if(!e)throw Error('Customer geometry capacity exceeded');scratch.position.set(x,y,z);scratch.rotation.set(0,angle,0);scratch.scale.set(w,h,d);scratch.updateMatrix();mesh.setMatrixAt(index,scratch.matrix);colour.setHex(hex);mesh.setColorAt(index,colour);e.matrix.copy(scratch.matrix);e.color.copy(colour);e.sphere.center.copy(scratch.position);e.sphere.radius=Math.hypot(w,h,d)/2;batches[slot].entries[index]=e;};
+    const part=(x,y,z,w,h,d,c,a=0)=>box(1,dynamic++,x,y,z,w,h,d,c,a),solid=(x,y,z,w,h,d,c)=>box(0,stat++,x,y,z,w,h,d,c);
+    const proxy=(x,y,z,w,h,d,id=null)=>{const p=new T.Mesh(cube,proxyPaint);p.layers.set(1);p.position.set(x,y,z);p.scale.set(w,h,d);p.userData.interaction=id;root.add(p);occluders.push(p);if(id)interactions.push(p);return p;};
+    const stage=m.customerStage,sides=[-1,1],dogState=stage.actors.find(a=>a.dog);
+    const building=(z,use,colour)=>{const group=bank?.add(root,use,[{x:12,y:0,z,w:7,h:3.8,d:4}]);if(group){imports.push(group);for(const b of group.userData.batches){b.mesh.frustumCulled=false;b.mesh.castShadow=high;b.mesh.receiveShadow=high;b.mesh.geometry.computeBoundingSphere();for(const e of b.entries)e.sphere=b.mesh.geometry.boundingSphere.clone().applyMatrix4(e.matrix);batches.push(b);}}else{solid(12,1.65,z,7,3.3,4,colour);solid(12,3.4,z,7.3,.2,4.3,0x5B666E);}proxy(12,1.5,z,7,3,4);};
+    building(-47,'town-house',0xC9C4BA);solid(11,1.2,-44.9,1.2,2.4,.16,0x4B6574);solid(11.42,1.1,-44.8,.1,.1,.08,0xDCCB91);solid(10.9,-.02,-42.3,2.7,.04,5,0xC8C3B7);
+    solid(10,.52,-43.5,.12,1.04,.12,0x657D84);solid(10,1.06,-43.5,.6,.08,.5,0x839797);solid(10,1.16,-43.5,.24,.14,.18,0x263C4C);solid(10,1.24,-43.5,.18,.02,.12,0x83BDC3);
+    if(stage.two){building(-33,'town-shop',0xBAC8C9);solid(11,.53,-30,2.5,1.06,.7,0x716A5F);solid(11,1.1,-30,2.7,.09,.85,0xC8BD9F);solid(11,1.18,-29.65,.6,.12,.2,0x254653);solid(11,1.25,-29.65,.46,.02,.12,0xA2C1C3);solid(11,-.02,-28.8,3,.04,4,0xC8C3B7);proxy(11,.53,-30,2.5,1.06,.7);}
+    for(const a of stage.actors){if(a.remote||a.dog)continue;const p=a.person.portrait||{},female=['long','bun'].includes(p.hairStyle)||a.key==='chen',actor=OTR.fpActors?.character(bank?.models.get('resident-'+(female?'women':'men')),actorPaint,p.shirt||0x668A91,p.skin);if(actor){actor.mesh.name='customer:'+a.key;actor.mesh.castShadow=high;actor.mesh.receiveShadow=high;actor.mesh.frustumCulled=true;actor.geometry.boundingSphere=new T.Sphere(new T.Vector3(0,.9,0),1.5);root.add(actor.mesh);}people.push({state:a,actor});}
+    const target=proxy(11,1.2,-44.8,.5,.6,.3,'customer-conversation');fixed.count=stat;fixed.instanceMatrix.needsUpdate=true;fixed.instanceColor.needsUpdate=true;moving.count=0;
+    return {root,fixed,moving,batches,imports,people,target,
+      sync(model,reduced=false){
+        if(disposed)throw Error('Customer world was disposed');dynamic=0;const s=model.customerStage,player=model.player,t=s.target;
+        for(const p of people){const a=p.state;if(p.actor){const mesh=p.actor.mesh;mesh.visible=a.visible;if(a.visible){mesh.position.set(a.x,0,a.z);mesh.rotation.y=Math.atan2(player.x-a.x,player.z-a.z);p.actor.pose(a.moving?'Walk':s.speaker===a.key?'Interact':'Idle_Neutral',s.time,reduced,high);}}else if(a.visible){const paint=a.person.portrait||{};part(a.x,1.08,a.z,.42,.6,.28,paint.shirt||0x668A91);part(a.x,1.56,a.z,.27,.3,.26,paint.skin||0xC9A681);for(const side of sides){part(a.x+side*.12,.4,a.z,.14,.8,.18,0x3B4D5A);part(a.x+side*.28,1.03,a.z,.13,.55,.16,paint.shirt||0x668A91);}}}
+        const dog=dogState;if(dog&&dog.visible){const x=dog.x,z=dog.z,fur=dog.person.portrait.fur||0xAE895F;part(x,.47,z,.45,.4,.8,fur);part(x,.7,z+.4,.34,.36,.36,fur);part(x,.61,z+.6,.23,.18,.25,fur);for(const side of sides)for(const end of sides)part(x+side*.14,.2,z+end*.25,.12,.4,.12,fur);part(x,.66,z-.48,.12,.1,.35,fur);for(const side of sides)part(x+side*.12,.94,z+.4,.12,.2,.12,fur);}
+        const sy=Math.sin(player.yaw),cy=Math.cos(player.yaw);if(s.held){const count=s.held==='stack'?3:1;for(let i=0;i<count;i++)part(player.x+.3*cy-.55*sy,.85+i*.26,player.z-.3*sy-.55*cy,.45,.25,.36,0xBE965E);}
+        if(s.floorBox)part(11,.16,-44.1,.45,.32,.36,0xBE965E);
+        target.position.set(t.x,t.y,t.z);target.scale.set(t.kind==='door'?1.15:t.kind==='counter'?.55:.45,t.kind==='door'?2.2:t.kind==='dog'?.65:t.kind==='person'?1.25:.24,t.kind==='door'?.2:t.kind==='counter'?.2:.35);target.visible=true;
+        moving.count=dynamic;batches[1].entries.length=dynamic;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
+      },
+      dispose(){if(disposed)return;disposed=true;for(const p of people)if(p.actor){p.actor.dispose();p.actor.geometry.dispose();}for(const g of imports)g.traverse(o=>{if(o.isInstancedMesh)o.dispose();});fixed.dispose();moving.dispose();paint.dispose();actorPaint.dispose();proxyPaint.dispose();if(ownsCube)cube.dispose();root.removeFromParent();}
+    };
+  }
+};
