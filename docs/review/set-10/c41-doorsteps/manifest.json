@@ -117,14 +117,21 @@
     ]
   },
   "nativeProgress": {
-    "checksSoFar": 3066,
-    "completedJourneys": 2,
+    "checksSoFar": 6288,
+    "completedJourneys": 4,
     "completedLayouts": [
       {
         "quality": "low",
         "lang": "en",
         "large": false,
         "score": 6400,
+        "ratios": {
+          "service": 1,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": null,
+        "criticals": 0,
         "durable": true
       },
       {
@@ -132,12 +139,47 @@
         "lang": "en",
         "large": true,
         "score": 6400,
+        "ratios": {
+          "service": 1,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": true,
+        "criticals": 0,
+        "durable": true
+      },
+      {
+        "quality": "low",
+        "lang": "ta",
+        "large": false,
+        "score": 6400,
+        "ratios": {
+          "service": 1,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": null,
+        "criticals": 0,
+        "durable": true
+      },
+      {
+        "quality": "low",
+        "lang": "ta",
+        "large": true,
+        "score": 5800,
+        "ratios": {
+          "service": 0.8285714285714286,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": false,
+        "criticals": 1,
         "durable": true
       }
     ],
     "complete": false,
     "failureAtCheckpoint": null,
-    "note": "The global check counter also includes part of the next journey. This snapshot is progress evidence, not a completed eight-layout pass."
+    "note": "The global check counter includes part of the next journey. This is not a complete eight-layout pass. Original result PNGs are transitional diagnostic captures; settled result captures are pending."
   },
   "pending": [
     "Eight complete native layouts.",
@@ -146,17 +188,17 @@
     "A-30 registry/completion, A-31 translations/default and combined current-pilot acceptance.",
     "Owner Intel FPS measurement O-1."
   ],
-  "screenshots": 82,
+  "screenshots": 120,
   "files": [
     {
       "file": "README.md",
-      "bytes": 5920,
-      "sha256": "3700c2a4b54fb51be4bea1948b155e821801f782e94a57aa5b5ef3de003ce78f"
+      "bytes": 7208,
+      "sha256": "65c670234447588e025a2752d6854603ab4264632361caac268d10d3467a1d5e"
     },
     {
       "file": "VALIDATION.md",
-      "bytes": 1985,
-      "sha256": "68c4093d26407abbb76a9d43c50a5586eb418a7943fe1f1296afec2eb7457499"
+      "bytes": 2504,
+      "sha256": "1c97a084e75e3caae37745ec90e2e12f624ea9de2b2b0a25fbb4075d07a3a132"
     },
     {
       "file": "bench-c41-stop-resource-f80f76c4-accessible-low-low.json",
@@ -372,6 +414,196 @@
       "file": "c41-stop-native-f80f76c4-low-en-normal-stop3-tag.png",
       "bytes": 59931,
       "sha256": "cf5fea0f276c17c4bf318cc82c5584d4054edeec687ede43ffe885473c5b405c"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-result.png",
+      "bytes": 143618,
+      "sha256": "2410a9726df2ed43ecc66a7f9fe7065e8290fc2ce326a5402a757608a09ec1f5"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-cargo.png",
+      "bytes": 88935,
+      "sha256": "17f1e158e8eb1673c09416ceda151181129154bd7a97534794759ff78adb1fc2"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-customer.png",
+      "bytes": 50695,
+      "sha256": "fd6d82616b48702082a29f35a55575edd1e468b118692aa6b5677449a3ea2084"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-handheld.png",
+      "bytes": 56113,
+      "sha256": "62243ff464e1a6800d4c5d0503709cfa0a7d0cf7e12b6c6c09fb5dc2330b65a7"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-name.png",
+      "bytes": 51244,
+      "sha256": "42db027bb9cde13efeb5b40474feca8684cd6797a17471ded774d3f96746b0cb"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-reply.png",
+      "bytes": 84454,
+      "sha256": "7b504a023a3b8728b6399ad6bca9783074fee68aaf4a4dfe1a3d90ee425cdedb"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop1-report.png",
+      "bytes": 39751,
+      "sha256": "e56fb79c2485495feae7fdf39a51cb3557c298cf7bffb45037d8a3c4353b0732"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-cargo.png",
+      "bytes": 90574,
+      "sha256": "67798d12a45a40808685fcf42f93c058038f404d67005d55b48e58edf3e3e496"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-customer.png",
+      "bytes": 50069,
+      "sha256": "31782af29f29e4b6203d71e871fb173ed0a7fa380b8f0c60d9dfcd2d21faab8d"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-handheld.png",
+      "bytes": 55075,
+      "sha256": "b7138670d335be0f4e57e8bd36054de795c563211eb06b23199c189f3209bef4"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-name.png",
+      "bytes": 50615,
+      "sha256": "b5afab59e7210ab6905831b8be1a437edbcada3fb61ead7ffdd85b258e5b1fcb"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-reply.png",
+      "bytes": 55006,
+      "sha256": "81423db8cc03f66c0490565595ca452da7de56e21a29f62b8533745c94e38c7b"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop2-report.png",
+      "bytes": 40033,
+      "sha256": "f332185363b2da0cf23ec1a83645c12724f34e149d4b9cd916872af84ac6c040"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-cargo.png",
+      "bytes": 90965,
+      "sha256": "d6db597090ca29b212103f56e2fb828d4f04d51228a6851e3f9734831c10a083"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-customer.png",
+      "bytes": 48151,
+      "sha256": "0fda3444cd800b42fda92cb0e5cfc49b28cc1b2c5f9cd9d22fdc5714fe9a3ff0"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-handheld.png",
+      "bytes": 51340,
+      "sha256": "06ef67df950404b3710611322d9518065fd8019d702b863bca5f680d8f229af1"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-reply.png",
+      "bytes": 50453,
+      "sha256": "39f039bff46655ee2d7c7251634b2f4283a8d8d7b9a38d51678a4dffd616f0ec"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-report.png",
+      "bytes": 39212,
+      "sha256": "8856b4aedbb4a823af2054afc68cb91c87c463137c997d4ff41040ad03bca13b"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-large-stop3-tag.png",
+      "bytes": 37735,
+      "sha256": "bb8c195330043c6028eddd893023b93343f15341ac04b02fccb1c97d51558659"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-result.png",
+      "bytes": 102130,
+      "sha256": "7528479b6c2dee70954ace95bc754ff4f07417456898de6011febff2a5ea82a4"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-cargo.png",
+      "bytes": 136290,
+      "sha256": "6ecf25cb73a7083dbb1525746064f7ecafa769b140f84b8c53733dd3fd057d64"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-customer.png",
+      "bytes": 97685,
+      "sha256": "6b4ba475e282cbfb52734bd15f5cb9a7575139d48d246cdd4d636ad33eda9c5a"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-handheld.png",
+      "bytes": 51441,
+      "sha256": "69b60a4084aa838a4fe0ebe4622294d8b4242b7d05e1b998076523f6194073ce"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-name.png",
+      "bytes": 44608,
+      "sha256": "d101eda017a65022668e426ea518a67f6d76f214144fa15f4a127af4b42dbd39"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-reply.png",
+      "bytes": 49542,
+      "sha256": "d81d7909e16ae366ed2f4c445e53b5d914ce6c000c5dff8c08c87eaf4c6acc96"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop1-report.png",
+      "bytes": 36266,
+      "sha256": "53b11a5849767f558f84ae7325d4a0b44e2cc7cc9881fae3755fc077ba7acecb"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-cargo.png",
+      "bytes": 142116,
+      "sha256": "d5958a1319531804d5dc59cf642bb44c3ba6c542ed2beae3eabb61b5594de2c6"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-customer.png",
+      "bytes": 96151,
+      "sha256": "ada82d2d2c93aeb2cdd6819734374dced20cf21897514fd4ff75389366d0b6c4"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-handheld.png",
+      "bytes": 47468,
+      "sha256": "d1ddcb1dcb02ee5fe915226f32307c500307fc1b50f99ea7685cc8e79507012f"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-name.png",
+      "bytes": 42456,
+      "sha256": "b7c0290c66a6fc185190499ebc2bfb424afde5fecd5e2249ff3deec7786c7a59"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-reply.png",
+      "bytes": 58770,
+      "sha256": "a91bc17b948b95e23789890d79f4d97ed4562e5d02f38488aad7b516c47fab14"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop2-report.png",
+      "bytes": 36544,
+      "sha256": "e2e7141c615ce337442568242164768c6ab1f994cba7569adfd45342299430b8"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-cargo.png",
+      "bytes": 136971,
+      "sha256": "9d011b38d074a7a358c46b36eff2ee79c54f5bdebba57daa2ac818887dd97395"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-customer.png",
+      "bytes": 96055,
+      "sha256": "5c28bda6b2fc9633fcebf3b0853a76c63da6b1d1e7259ab12cad792978c9f174"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-handheld.png",
+      "bytes": 45994,
+      "sha256": "db248f9c8c01223474ac010b13435d8031eaffc9e7a0c3138bc7879cc749a3e0"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-reply.png",
+      "bytes": 61770,
+      "sha256": "33621045de08a7a04374ac8ddd1354453c1dd2be0013957e4d54e58da852bbed"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-report.png",
+      "bytes": 35846,
+      "sha256": "1db3aee29978ce1c698cc8141590332bec5b1a3755b769f60a4a73f7d25d64fd"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-low-ta-normal-stop3-tag.png",
+      "bytes": 91759,
+      "sha256": "96bf081272567ae8d13854b49c087e39e3b19cf8e16a155be396c086c332f1bf"
     },
     {
       "file": "c41-stop-resource-f80f76c4-accessible-low-low-doorstepcab.png",
@@ -619,19 +851,24 @@
       "sha256": "cf8de5c469e4d4ed72060a763fb8613cea2c2b817120b7eea7f4f4af18208159"
     },
     {
+      "file": "low-native-validation.json",
+      "bytes": 172729,
+      "sha256": "db457aaa9d40b607f680b3b2f5da76c983065f992fbe0434399d43f7ddbffcaa"
+    },
+    {
       "file": "native-in-progress.json",
-      "bytes": 87136,
-      "sha256": "19596eaef452a687150c6955798959e67e6ebe2cb011ac17879b57067036668b"
+      "bytes": 176643,
+      "sha256": "e8fbe686bf98de4c71b37c4728bf8b3ae9aca6f629a968722d74f41fd30de34b"
     },
     {
       "file": "native-in-progress.log",
-      "bytes": 134,
-      "sha256": "e71780f5452ade76e5001e1eb852e20f9cb4a45e3baa1817f94df7e8f3aecaca"
+      "bytes": 224,
+      "sha256": "82106cc5a807a569bd149007c5a3097fd19ae56f73294200fd4f38f556de1252"
     },
     {
       "file": "native-progress-summary.json",
-      "bytes": 524,
-      "sha256": "fd83dc4f05680c301d1e134b1bd67f03ee7f5366b262d7455f78250b818cca25"
+      "bytes": 1439,
+      "sha256": "805c98252d57c4500c1b5a0ac8c0bd5e5d0909b14b5f6a28136c7def25aad195"
     },
     {
       "file": "node-results.json",
@@ -663,5 +900,17 @@
       "bytes": 2433,
       "sha256": "dbc0a3ce1619f1a37964ee39e1996d2d4e28aa90361032509aa0b776fbdf63c6"
     }
-  ]
+  ],
+  "lowNativeValidation": "low-native-validation.json",
+  "resultCaptureFollowup": {
+    "status": "test-only correction; integration pending",
+    "helper": "test/tools/fp-result-capture.js",
+    "protocolHashes": {
+      "test/fpcustomerstopbrowser.js": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
+      "test/fpcustomerbrowser.js": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
+      "test/tools/fp-result-capture.js": "b6f1a6c799be5461cfced7deac5a0912a187d650150a3d16f8abfbb1737e27eb"
+    },
+    "originalResultImagesAreTransitionalDiagnostics": true,
+    "sharedTamilFontObservationPosted": true
+  }
 }
