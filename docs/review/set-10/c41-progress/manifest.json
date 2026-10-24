@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-24",
+  "status": "Unloaded conversation model implemented; whole C-41 doing.",
+  "branch": "codex/c41-customer-interaction",
+  "base": "b860fa180e3a4631d351eba765314e2b87ff52dd",
+  "sourceRevision": "9b30ca7ca899ee4705c6ae13d516dc9d8bb82c9a",
+  "nodeSuites": 70,
+  "newCases": 6,
+  "logicalEndings": 730,
+  "stateResultComparisons": 9192,
+  "timedBranches": 12,
+  "sourceFiles": {
+    "src/core/fpcustomertalk.js": "782e10406785db1dd60e7e8e3b5477d8c5b83043d85c2b8ceaa145053ca4306c",
+    "test/fpcustomertalk.js": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+    "data/m3_dialogues.js": "ff43d3dd3358bdf101b8194b6873060c13fbc02fa1c89f38ff7bf817bde76e96",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "index.html": "b59676abea1030f65b3c3fa369de56f9da018c2dc6604cb31b3869b4a71c16a7"
+  },
+  "scope": "Pure logical model only; no adapter registration, renderable geometry, default switch, shared edits, native UI or current-pilot acceptance.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2169,
+      "sha256": "2803547b0451b68210e7f5e79798cb7420ebe8430f408e74f8c0967faa723caf"
+    },
+    {
+      "file": "customer-model.log",
+      "bytes": 775,
+      "sha256": "dc7cc61b074cdf1aaf6b568b7a41a6b4c2d092210e751e5b4b962f34ccfb2176"
+    },
+    {
+      "file": "inventory.txt",
+      "bytes": 19027,
+      "sha256": "86fd00011504956efb4f22b541e38d96a7d5ac7bf18268cade18e2cf80987d9e"
+    },
+    {
+      "file": "raw-node-logs-index.json",
+      "bytes": 9005,
+      "sha256": "8d76e111b554d9ee61be8736b579c7e1d39670f515f6929dc3accdb946f81590"
+    },
+    {
+      "file": "raw-node-logs.tar.gz",
+      "bytes": 37971,
+      "sha256": "4deac9b07c8504714e0a0119322c5e8a80e1b39ab7e3633144696515b6ca9b14"
+    },
+    {
+      "file": "results.json",
+      "bytes": 3640,
+      "sha256": "c1f387339785c0c2a08411023d3baf8af37c05fd839d9452258c4b01aa71b6f9"
+    }
+  ]
+}
