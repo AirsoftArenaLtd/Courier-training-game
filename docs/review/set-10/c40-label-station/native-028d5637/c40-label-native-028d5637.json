@@ -1,0 +1,540 @@
+{
+  "checks": 4680,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": [
+        {
+          "index": 0,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.3965433333333332,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 1,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 2.000000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 2,
+          "station": "belt",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.6500000000000008,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 3,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.950000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 4,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.850000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 5,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 6,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.950000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 7,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 8,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.900000000000001,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-low-en-normal-base.png"
+      ],
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792791758545
+        }
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "items": [
+        {
+          "index": 0,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.5665333333333349,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-low-en-large-base.png"
+      ]
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "items": [
+        {
+          "index": 0,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.5599366666666672,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 1,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.900000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 2,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 2.1500000000000004,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 3,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 4,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 5,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.950000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 6,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.850000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 7,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 8,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.900000000000001,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-low-ta-normal-base.png"
+      ],
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792791884717
+        }
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "items": [
+        {
+          "index": 0,
+          "station": "belt",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.1831800000000008,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-low-ta-large-base.png"
+      ]
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "items": [
+        {
+          "index": 0,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 0.7897866666666713,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 1,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.0411066666666635,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 2,
+          "station": "belt",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.0663799999999493,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 3,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.526459999999975,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 4,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.4508600000001122,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 5,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.4675799999999428,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 6,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.1068899999998836,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 7,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 0.9714599999999162,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 8,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.2801900000001307,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-high-en-normal-base.png"
+      ],
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792792275408
+        }
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "items": [
+        {
+          "index": 0,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.3648800000000014,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-high-en-large-base.png"
+      ]
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "items": [
+        {
+          "index": 0,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.2314333333333416,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 1,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.6212700000000313,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 2,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.086209999999938,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 3,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.0129100000000109,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 4,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.4196500000001777,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 5,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.3081200000002073,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 6,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.5199500000001043,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 7,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.1260299999999754,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 8,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.5564200000000832,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-high-ta-normal-base.png"
+      ],
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792792798471
+        }
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": [
+        {
+          "index": 0,
+          "station": "belt",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 0.8563133333333386,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-label-native-028d5637-high-ta-large-base.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress.",
+  "complete": true
+}

@@ -1,0 +1,35 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the station and every input position lie inside the real depot, with no wall or prop overlap (40.90829ms)
+✔ physical orientation alone never grants evidence; the real active update observes a clear face (6.982044ms)
+✔ module completion preserves the original identity, full score scale, local log and suspended workday (21.705501ms)
+✔ assessment omits the guide and feedback; the original 2D scenario remains the default and fallback (5.576139ms)
+✖ turn controls require the front operator position and acknowledge unavailable inputs without grading (5.645041ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.523706
+
+✖ failing tests:
+
+test at test/fppackagelabelscenario.js:38:1
+✖ turn controls require the front operator position and acknowledge unavailable inputs without grading (5.645041ms)
+  AssertionError [ERR_ASSERTION]: assessment-independent neutral feedback is visible
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackagelabelscenario.js:43:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
