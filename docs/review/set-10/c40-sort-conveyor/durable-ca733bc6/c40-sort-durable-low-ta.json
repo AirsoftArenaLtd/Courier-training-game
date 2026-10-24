@@ -1,0 +1,95 @@
+{
+  "durable": true,
+  "checks": 130,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-durable-low-ta-low-ta-large-label.png"
+      ],
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792806858172,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792806877266
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node.",
+  "complete": true
+}

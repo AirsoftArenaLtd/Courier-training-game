@@ -1,0 +1,45 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the real scan, numbered route and neutral assessment acknowledgement retain the original score (35.695657ms)
+✔ blind and wrong routes, stale inputs and double confirms cannot create extra credit (6.530134ms)
+✔ wave cards wait until the previous belt clears; jam reset requires a stopped belt and nearby ray (5.817153ms)
+✔ a complete five-wave run keeps m2-sort ratios and never changes the suspended workday (8.653433ms)
+✔ conveyor batches cull real instances in each mirror and restore the main buffers exactly (25.445161ms)
+✖ the actual shared result flow preserves legacy stars, attempts and lesson meaning (4.662711ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.142906
+
+✖ failing tests:
+
+test at test/fppackagesortscenario.js:49:1
+✖ the actual shared result flow preserves legacy stars, attempts and lesson meaning (4.662711ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    {
+  +   efficiency: 0,
+  +   safety: 0
+  -   efficiency: 3,
+  -   safety: 3
+    }
+
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackagesortscenario.js:56:42)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Object],
+    expected: [Object],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

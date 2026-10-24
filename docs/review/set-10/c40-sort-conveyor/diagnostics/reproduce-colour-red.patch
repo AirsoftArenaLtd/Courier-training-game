@@ -1,0 +1,11 @@
+--- a/src/core/fppackagesortworld.js
++++ b/src/core/fppackagesortworld.js
+@@ -13,8 +13,6 @@
+     // Every parcel uses one body and at most twelve face parts. Counts, buffers and proxy objects never grow in sync().
+     const plane=new T.PlaneGeometry(1,1),staticMesh=new T.InstancedMesh(cube,paint,192),parcelMesh=new T.InstancedMesh(cube,paint,16),markMesh=new T.InstancedMesh(plane,paint,512+16*12);
+     staticMesh.frustumCulled=parcelMesh.frustumCulled=markMesh.frustumCulled=false;root.add(staticMesh,parcelMesh,markMesh);let staticCount=0,partCount=0,glyphCount=0,disposed=false;
+-    // Allocate instance colours before fpWorld reserves reflection restore buffers.
+-    parcelMesh.setColorAt(0,colour.setHex(0xFFFFFF));
+     const entry=()=>({matrix:new T.Matrix4(),color:new T.Color(),sphere:new T.Sphere(),visible:true});
+     const pools=[Array.from({length:192},entry),Array.from({length:16},entry),Array.from({length:512+16*12},entry)];
+     const batches=[{mesh:staticMesh,entries:[]},{mesh:parcelMesh,entries:[]},{mesh:markMesh,entries:[]}];

@@ -1,0 +1,1108 @@
+{
+  "checks": 1517,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 2,
+          "item": {
+            "id": 3,
+            "bin": "EXC"
+          },
+          "outcome": {
+            "score": 300,
+            "stats": {
+              "correct": 3,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 1,
+              "excCorrect": 1,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 3,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 3,
+          "item": {
+            "id": 4,
+            "bin": "DG"
+          },
+          "outcome": {
+            "score": 400,
+            "stats": {
+              "correct": 4,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 2,
+              "excCorrect": 2,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 4,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 4,
+          "item": {
+            "id": 5,
+            "bin": "HVY"
+          },
+          "outcome": {
+            "score": 600,
+            "stats": {
+              "correct": 5,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 3,
+              "excCorrect": 3,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 5,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-low-en-normal-label.png"
+      ],
+      "result": {
+        "id": "m2-sort",
+        "score": 600,
+        "ratios": {
+          "efficiency": 1,
+          "safety": 1
+        },
+        "stars": {
+          "efficiency": 3,
+          "safety": 3
+        },
+        "untested": [],
+        "record": {
+          "plays": 1,
+          "bestScore": 600,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792806292872
+        }
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-low-en-large-label.png"
+      ],
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792806297626,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792806316965
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 2,
+          "item": {
+            "id": 3,
+            "bin": "EXC"
+          },
+          "outcome": {
+            "score": 300,
+            "stats": {
+              "correct": 3,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 1,
+              "excCorrect": 1,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 3,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 3,
+          "item": {
+            "id": 4,
+            "bin": "DG"
+          },
+          "outcome": {
+            "score": 400,
+            "stats": {
+              "correct": 4,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 2,
+              "excCorrect": 2,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 4,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 4,
+          "item": {
+            "id": 5,
+            "bin": "HVY"
+          },
+          "outcome": {
+            "score": 600,
+            "stats": {
+              "correct": 5,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 3,
+              "excCorrect": 3,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 5,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-low-ta-normal-label.png"
+      ],
+      "result": {
+        "id": "m2-sort",
+        "score": 600,
+        "ratios": {
+          "efficiency": 1,
+          "safety": 1
+        },
+        "stars": {
+          "efficiency": 3,
+          "safety": 3
+        },
+        "untested": [],
+        "record": {
+          "plays": 1,
+          "bestScore": 600,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792806357860
+        }
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-low-ta-large-label.png"
+      ],
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792806362566,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792806382661
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 2,
+          "item": {
+            "id": 3,
+            "bin": "EXC"
+          },
+          "outcome": {
+            "score": 300,
+            "stats": {
+              "correct": 3,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 1,
+              "excCorrect": 1,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 3,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 3,
+          "item": {
+            "id": 4,
+            "bin": "DG"
+          },
+          "outcome": {
+            "score": 400,
+            "stats": {
+              "correct": 4,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 2,
+              "excCorrect": 2,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 4,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 4,
+          "item": {
+            "id": 5,
+            "bin": "HVY"
+          },
+          "outcome": {
+            "score": 600,
+            "stats": {
+              "correct": 5,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 3,
+              "excCorrect": 3,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 5,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-high-en-normal-label.png"
+      ],
+      "result": {
+        "id": "m2-sort",
+        "score": 600,
+        "ratios": {
+          "efficiency": 1,
+          "safety": 1
+        },
+        "stars": {
+          "efficiency": 3,
+          "safety": 3
+        },
+        "untested": [],
+        "record": {
+          "plays": 1,
+          "bestScore": 600,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792806542460
+        }
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-high-en-large-label.png"
+      ],
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792806554666,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792806609043
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 2,
+          "item": {
+            "id": 3,
+            "bin": "EXC"
+          },
+          "outcome": {
+            "score": 300,
+            "stats": {
+              "correct": 3,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 1,
+              "excCorrect": 1,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 3,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 3,
+          "item": {
+            "id": 4,
+            "bin": "DG"
+          },
+          "outcome": {
+            "score": 400,
+            "stats": {
+              "correct": 4,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 2,
+              "excCorrect": 2,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 4,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 4,
+          "item": {
+            "id": 5,
+            "bin": "HVY"
+          },
+          "outcome": {
+            "score": 600,
+            "stats": {
+              "correct": 5,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 3,
+              "excCorrect": 3,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 5,
+              "blind": 0,
+              "jams": 1,
+              "jamsCleared": 1
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "You routed the package correctly.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-high-ta-normal-label.png"
+      ],
+      "result": {
+        "id": "m2-sort",
+        "score": 600,
+        "ratios": {
+          "efficiency": 1,
+          "safety": 1
+        },
+        "stars": {
+          "efficiency": 3,
+          "safety": 3
+        },
+        "untested": [],
+        "record": {
+          "plays": 1,
+          "bestScore": 600,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792806765223
+        }
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "wave": 0,
+          "item": {
+            "id": 1,
+            "bin": "R1"
+          },
+          "outcome": {
+            "score": 100,
+            "stats": {
+              "correct": 1,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 1,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        },
+        {
+          "wave": 1,
+          "item": {
+            "id": 2,
+            "bin": "PRI"
+          },
+          "outcome": {
+            "score": 200,
+            "stats": {
+              "correct": 2,
+              "wrong": 0,
+              "missed": 0,
+              "excTotal": 0,
+              "excCorrect": 0,
+              "damageErr": 0,
+              "priorityErr": 0,
+              "routeErr": 0,
+              "dgErr": 0,
+              "heavyErr": 0,
+              "scanned": 2,
+              "blind": 0,
+              "jams": 0,
+              "jamsCleared": 0
+            },
+            "body": [
+              "Continue sorting the packages.",
+              "Your decision has been recorded.",
+              "1. Return to the conveyor."
+            ],
+            "parcels": 0
+          }
+        }
+      ],
+      "shots": [
+        "c40-sort-native-3402c571-high-ta-large-label.png"
+      ],
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792806778421,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792806832048
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node.",
+  "complete": true
+}

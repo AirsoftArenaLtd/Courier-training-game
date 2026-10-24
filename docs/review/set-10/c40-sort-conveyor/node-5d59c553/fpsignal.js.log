@@ -1,0 +1,19 @@
+✔ a physical left signal needs the whole three-second lead before a pull-out (3.228213ms)
+✔ no signal or the wrong direction fails, with a real place only on the wrong report (1.481961ms)
+✔ canceling or changing the indicator restarts its lead time, with no allocated clock per tick (0.41425ms)
+✔ direct legacy state changes are observed on the next game tick without backdating evidence (0.272842ms)
+✔ turns capture the matching three-second signal before steering, never a late correction (0.96444ms)
+✔ lane changes trigger at lateral movement, and an abandoned steering twitch is not a maneuver (0.342624ms)
+✔ a held pull-out is reported once, and a new stopped maneuver receives another short key (0.870912ms)
+✔ a checkpoint preserves partial signal time and captured turn evidence without replaying reports (2.396097ms)
+✔ an old checkpoint resumes a current turn without a retrospective signal check (1.068273ms)
+✔ invalid clocks and captured turn states are rejected by the real mission restore (1.486598ms)
+✔ parking practice keeps its local feedback but never adds a course signal report (0.478485ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20.316848

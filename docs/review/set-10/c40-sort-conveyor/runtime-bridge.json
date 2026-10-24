@@ -1,0 +1,75 @@
+{
+  "resourceRevision": "5d59c5537f16741c263719d0c2798488d546f45b",
+  "finalNativeRevision": "3402c5716d736a63936a2b4b6b83c0a066bc8bba",
+  "changesSinceResource": [
+    "src/core/fpaccess.js",
+    "src/core/fppackagesortscenario.js",
+    "src/core/fppackagesortworld.js",
+    "src/core/fpscenario.js",
+    "test/fppackagesortbrowser.js",
+    "test/fppackagesortscenario.js",
+    "test/fpscenario.js"
+  ],
+  "scope": "The complete 32-view gate retains its frozen resource source. Later changes preserve legacy ratio/lesson handoff and keep P-selected moving parcels actionable only while nearby, onscreen and unobstructed, without camera tracking. The renderer batch generation, culling, geometry, assets, camera, resource poses and budget checker are unchanged. The new builder ray/vector objects are CPU-only. This is not a new full resource matrix at the native revision.",
+  "sourceHashes": {
+    "index.html": {
+      "nativeSha256": "5cca98cbb9c9a76faff7f939a0d310e8fac0a2a072d84d349e0606090f4f5222",
+      "sameAsResourceRevision": true
+    },
+    "src/core/fpaccess.js": {
+      "nativeSha256": "a73a6e34bb71045eb983fd8b3e735b1e761440015919eef3df6c0a301020f621",
+      "sameAsResourceRevision": false
+    },
+    "src/core/fpworld.js": {
+      "nativeSha256": "10ee55604975828ab2612d17792f0381f8a83b04de4351718857cd3e9d6b9d6a",
+      "sameAsResourceRevision": true
+    },
+    "src/core/fppackagesort.js": {
+      "nativeSha256": "48decbae861b9b3ec311d7307ce203f689ae253ee8f39702daaea4aa38a5fa20",
+      "sameAsResourceRevision": true
+    },
+    "src/core/fppackagesortworld.js": {
+      "nativeSha256": "356625d68faacb94e16c0bc9fce1da8bacb1be662def225b5b665cc9f7e8b348",
+      "sameAsResourceRevision": false
+    },
+    "src/core/fppackagesortscenario.js": {
+      "nativeSha256": "9f12d210d5134ba735edfa3a64690db4985ea1026fb0efd70c4c480cc435100c",
+      "sameAsResourceRevision": false
+    },
+    "src/scenes/FirstPersonScenarioScene.js": {
+      "nativeSha256": "351bcb6103ab9a65f447862b698ca888956c12c3787afda57f3c0e4905ec1115",
+      "sameAsResourceRevision": true
+    },
+    "test/fpbench.js": {
+      "nativeSha256": "805ef977dce7144e2011930264b6b1da294974ecf6f9192b3d99fd1f90e9ce23",
+      "sameAsResourceRevision": true
+    },
+    "test/fppackagesortworld.js": {
+      "nativeSha256": "50c4361d53918616709cee331304bab33916e13cc36a5b07c82feea6d617b163",
+      "sameAsResourceRevision": true
+    },
+    "test/fppackagesortscenario.js": {
+      "nativeSha256": "5eca637e7ec333ec67f22ef854ad38f867d165496b66a0e784a2346d5e453c0a",
+      "sameAsResourceRevision": false
+    },
+    "test/fppackagesortbrowser.js": {
+      "nativeSha256": "3ec930cebc02bd086c7fab91bedbbdd82b2ab2a8f8c73fb7d105c53b2ccfd2d8",
+      "sameAsResourceRevision": false
+    },
+    "test/tools/fp-package-sort-quality.js": {
+      "nativeSha256": "25105f1a5c245a9f29ab6ba5398b32c5d4c5d5241d13218a07e77ca5a4e3a3fe",
+      "sameAsResourceRevision": true
+    },
+    "src/core/fpscenario.js": {
+      "nativeSha256": "f45c916b79d86a4387c05434d76b8864dc0c0a6b60aa0785cafbb10fc141b8b1",
+      "sameAsResourceRevision": false
+    },
+    "test/fpscenario.js": {
+      "nativeSha256": "958245f680c8db69d15c18e90f8e06b62d89db678589c19850894511acc1fb1d",
+      "sameAsResourceRevision": false
+    }
+  },
+  "durableFixtureRevision": "ca733bc6d250b62a79f0a7f454d7e0b0cddb7b59",
+  "durableFixtureSha256": "b1c581fcc475fa678e8b6ee70ba395d8126263c2447dfe03633e0d928a92182f",
+  "durableScope": "Two persisted-journal/reload cases on unchanged runtime 3402c571; the earlier eight-layout fixture uses ephemeral course records."
+}

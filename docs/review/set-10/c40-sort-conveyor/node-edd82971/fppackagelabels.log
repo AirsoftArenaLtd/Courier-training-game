@@ -1,0 +1,14 @@
+✔ nine fresh items keep the original three-tier selection without changing shared content (2.573897ms)
+✔ 532 label decisions match the actual 2D scorer, including all marks, damage, blind calls and timeouts (45.716537ms)
+✔ a complete nine-item inspection keeps the original 3150-point scale, ratios, lessons and idempotent result (0.734631ms)
+✔ menus, the guide and verdicts freeze the clock while a live timeout grades exactly once (0.406908ms)
+✔ even an unmarked package requires all six sides; invalid targets and duplicate calls earn nothing (0.21743ms)
+✔ whole-scenario expiry includes every uncompleted item, preserves earned points and never writes a workday (0.385287ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 58.127264
