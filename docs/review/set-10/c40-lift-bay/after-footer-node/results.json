@@ -1,0 +1,50 @@
+[
+  {
+    "suite": "fphud.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpaccess.js",
+    "exit": 0
+  },
+  {
+    "suite": "fppackagelift.js",
+    "exit": 0
+  },
+  {
+    "suite": "fppackageliftbay.js",
+    "exit": 0
+  },
+  {
+    "suite": "fppackageliftworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fppackageliftscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpqualitygate.js",
+    "exit": 0
+  },
+  {
+    "suite": "workday.js",
+    "exit": 0
+  },
+  {
+    "suite": "savesize.js",
+    "exit": 0
+  },
+  {
+    "suite": "i18n.js",
+    "exit": 0
+  }
+]
