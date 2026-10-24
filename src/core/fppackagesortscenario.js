@@ -49,18 +49,22 @@ OTR.fpPackageSortScenario={
 };
 OTR.fpScenario.register('package-sort-belt',{
   piece:'depot',goal:'Scan the packages, read their labels and use the numbered keys to route them safely.',seconds:360,
-  setup(run,m){m.packageSort=OTR.fpPackageSort.create(run.content);m.packageSort.selectedId=null;m.parcels=[];m.cargoOpen=false;m.solids.push(...OTR.fpPackageSortWorld.solids());Object.assign(m.player,{x:-10,z:16.4,yaw:0,pitch:0});},
+  setup(run,m){m.packageSort=OTR.fpPackageSort.create(run.content);m.packageSort.selectedId=null;m.packageSort.focusId=null;m.parcels=[];m.cargoOpen=false;m.solids.push(...OTR.fpPackageSortWorld.solids());Object.assign(m.player,{x:-10,z:16.4,yaw:0,pitch:0});},
   update(run,scene,dt){
     const s=run.model.packageSort;if(s.state==='brief')OTR.fpPackageSort.begin(s);
-    OTR.fpPackageSort.advance(s,dt);if(s.selectedId&&!OTR.fpPackageSortScenario.selected(s))s.selectedId=null;
+    OTR.fpPackageSort.advance(s,dt);
+    if(s.focusId){const h=scene.held,manual=h&&(h.KeyW||h.KeyS||h.KeyA||h.KeyD||h.ArrowLeft||h.ArrowRight||h.ArrowUp||h.ArrowDown);if(!scene.keyboardMode||manual||!scene.art.packageSort.visibleTarget(s.focusId,scene.view.camera))s.focusId=null;else scene.target=s.focusId;}
+    if(s.selectedId&&!OTR.fpPackageSortScenario.selected(s))s.selectedId=null;
     if(s.state==='rule')OTR.fpPackageSortScenario.rule(scene);else if(s.state==='done')scene.finishScenario();
   },
+  focus(run,scene,id){run.model.packageSort.focusId=id.startsWith('sort-parcel-')?id:null;},
   interact(run,scene,id){
     const s=run.model.packageSort,A=OTR.fpPackageSortScenario;if(s.state!=='play')return true;
-    // The runner supplies the nearest actual ray hit. Direct or stale calls cannot operate a remote proxy.
-    if(!id||scene.art.pick()!==id){A.acknowledge(scene,'Look at a nearby package or routing key before using the action key.');return true;}
+    // A P-selected moving parcel stays selected only while nearby, onscreen and unobstructed. No automatic camera motion.
+    const focused=scene.keyboardMode&&s.focusId&&scene.art.packageSort.visibleTarget(s.focusId,scene.view.camera);if(focused)id=s.focusId;
+    if(!id||!focused&&scene.art.pick()!==id){A.acknowledge(scene,'Look at a nearby package or routing key before using the action key.');return true;}
     if(id.startsWith('sort-parcel-')){
-      const p=s.packages.find(p=>'sort-parcel-'+p.id===id);if(p){OTR.fpPackageSort.scan(s,p);s.selectedId=p.id;A.reading(scene);}
+      const p=s.packages.find(p=>'sort-parcel-'+p.id===id);if(p){OTR.fpPackageSort.scan(s,p);s.selectedId=p.id;s.focusId=null;A.reading(scene);}
     }else if(id.startsWith('sort-bin-'))A.route(scene,id.slice(9));
     else if(id==='sort-jam'){
       if(s.jammed&&s.beltSpeed<=1){OTR.fpPackageSort.clearJam(s,true);scene.sync();A.acknowledge(scene,'The conveyor is ready to restart.');}

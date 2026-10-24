@@ -9,6 +9,7 @@ OTR.fpPackageSortWorld={
   solids(){const b=this.belt;return [{x:b.x,z:b.z,w:b.length+.15,d:b.width+.18},{x:-10,z:15.1,w:4,d:.7},{x:-7.65,z:15.3,w:.4,d:.4},...this.bins.map((id,i)=>({...this.binPoint(i),w:1.25,d:1.1}))];},
   build(parent,{interactions=[],occluders=[],cube=null}={}){
     const T=THREE,A=this,b=A.belt,ownsCube=!cube;if(!cube)cube=new T.BoxGeometry(1,1,1);
+    const focusPoint=new T.Vector3(),focusDirection=new T.Vector3(),focusProjection=new T.Vector3(),focusRay=new T.Raycaster(),focusHits=[];focusRay.layers.enable(1);
     const root=new T.Group(),paint=new T.MeshLambertMaterial(),proxyPaint=new T.MeshBasicMaterial(),scratch=new T.Object3D(),colour=new T.Color(),position={x:0,y:0,z:0};root.name='package-sort-conveyor';parent.add(root);
     // Every parcel uses one body and at most twelve face parts. Counts, buffers and proxy objects never grow in sync().
     const plane=new T.PlaneGeometry(1,1),staticMesh=new T.InstancedMesh(cube,paint,192),parcelMesh=new T.InstancedMesh(cube,paint,16),markMesh=new T.InstancedMesh(plane,paint,512+16*12);
@@ -43,6 +44,15 @@ OTR.fpPackageSortWorld={
     staticMesh.count=staticCount;staticMesh.instanceMatrix.needsUpdate=true;staticMesh.instanceColor.needsUpdate=true;parcelMesh.count=0;markMesh.count=glyphCount;markMesh.instanceMatrix.needsUpdate=true;markMesh.instanceColor.needsUpdate=true;
     const part=(x,y,z,w,h,hex,rx=0,rz=0)=>{if(partCount>=16*12)throw Error('Conveyor parcel capacity exceeded');put(markMesh,glyphCount+partCount++,x,y,z,w,h,1,hex,rx,rz);};
     return {root,staticMesh,parcelMesh,markMesh,batches,slots,buttons,restart,blockers,
+      visibleTarget(id,camera){
+        let target=null;for(let i=0;i<slots.length;i++)if(slots[i].target.userData.interaction===id){target=slots[i].target;break;}if(!target||!target.visible)return false;
+        for(let p=target;p;p=p.parent)if(!p.visible)return false;
+        target.getWorldPosition(focusPoint);focusDirection.copy(focusPoint).sub(camera.position);const distance=focusDirection.length();if(distance>2.65)return false;
+        focusProjection.copy(focusPoint).project(camera);if(focusProjection.z< -1||focusProjection.z>1||Math.abs(focusProjection.x)>.92||Math.abs(focusProjection.y)>.92)return false;
+        focusRay.set(camera.position,focusDirection.normalize());focusRay.far=distance+.02;
+        let nearest=Infinity,first=null;for(const object of occluders){let live=true;for(let p=object;p;p=p.parent)if(!p.visible){live=false;break;}if(!live)continue;focusHits.length=0;focusRay.intersectObject(object,false,focusHits);if(focusHits.length&&focusHits[0].distance<nearest){nearest=focusHits[0].distance;first=object;}}
+        return first===target;
+      },
       sync(state){
         if(disposed)throw Error('The conveyor was disposed');if(state.packages.length>16)throw Error('Conveyor parcel capacity exceeded');partCount=0;
         for(let i=0;i<16;i++){

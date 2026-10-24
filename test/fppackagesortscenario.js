@@ -57,3 +57,15 @@ test('the actual shared result flow preserves legacy stars, attempts and lesson 
   assert.equal(JSON.stringify(received[1].stars),JSON.stringify(received[0].stars));assert.equal(JSON.stringify(received[1].verdict),JSON.stringify(received[0].verdict));assert.equal(JSON.stringify(received[1].rec),JSON.stringify(received[0].rec));s.art.dispose();
  }finally{Object.assign(O,old);}
 });
+test('P selection follows the identity of a visible moving parcel without moving the camera or bypassing occlusion',()=>{
+ vm.runInContext(fs.readFileSync(__dirname+'/../src/core/fpaccess.js','utf8'),c);
+ const s=fixture(),r=s.scenarioSession,state=s.model.packageSort,p=parcel(s);s.keyboardMode=true;s.message=()=>{};s.held={};
+ for(let n=0;n<8&&s.target!=='sort-parcel-'+p.id;n++)O.fpAccess.focus(s);
+ assert.equal(state.focusId,'sort-parcel-'+p.id,'the actual P focus hook stores this parcel');const rotation=s.view.camera.quaternion.toArray();
+ p.position+=100;s.sync();assert.notEqual(s.art.pick(),state.focusId,'the parcel has moved clear of the old reticle');r.definition.update(r,s,0);assert.equal(state.focusId,'sort-parcel-'+p.id);assert.deepEqual(s.view.camera.quaternion.toArray(),rotation,'no automatic camera motion');
+ r.definition.interact(r,s,s.art.pick());assert.equal(state.stats.scanned,1);assert.equal(s.page.title,`Read package ${p.id}.`);s.handheld.close();
+ state.focusId='sort-parcel-'+p.id;p.position=1100;s.sync();r.definition.update(r,s,0);assert.equal(state.focusId,null,'a remote or offscreen parcel loses selection');state.selectedId=null;assert.equal(s.art.packageSort.visibleTarget('sort-parcel-'+p.id,s.view.camera),false);
+ p.position=556;s.sync();aim(s,'sort-parcel-'+p.id);r.definition.focus(r,s,'sort-parcel-'+p.id);s.held.ArrowLeft=true;r.definition.update(r,s,0);assert.equal(state.focusId,null,'manual looking releases the selection');s.held.ArrowLeft=false;
+ r.definition.focus(r,s,'sort-parcel-'+p.id);s.keyboardMode=false;r.definition.update(r,s,0);assert.equal(state.focusId,null,'mouse interaction keeps precision targeting');
+ const wall=new THREE.Mesh(new THREE.BoxGeometry(.8,.8,.1),new THREE.MeshBasicMaterial());wall.position.lerpVectors(s.view.camera.position,s.art.packageSort.slots[0].target.position,.5);s.view.world.add(wall);s.view.world.updateMatrixWorld(true);s.art.occluders.push(wall);assert.equal(s.art.packageSort.visibleTarget('sort-parcel-'+p.id,s.view.camera),false,'a physical obstruction releases the target');s.art.occluders.splice(s.art.occluders.indexOf(wall),1);wall.removeFromParent();wall.geometry.dispose();wall.material.dispose();s.art.dispose();
+});
