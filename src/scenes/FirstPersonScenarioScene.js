@@ -18,7 +18,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     super.makeHud();const size=OTR.fpAccess.settings().large?22:18;
     this.moduleBack=this.add.rectangle(12,10,620,80,0x14232C,.96).setOrigin(0).setStrokeStyle(1,0x83969E,.65).setDepth(22);
     this.moduleGoal=OTR.txt(this,24,18,'',size,'#ffffff',{ox:0,oy:0,wrap:596}).setDepth(23);
-    this.moduleClock=OTR.txt(this,24,50,'',size,'#ffffff',{ox:0,oy:0,wrap:596}).setDepth(23);this.moduleClockSecond=-1;
+    this.moduleClock=OTR.txt(this,24,50,'',size,'#ffffff',{ox:0,oy:0,wrap:596}).setDepth(23);this.moduleClockSecond=-1;this.moduleStatusSource=null;
   }
   beginScenario(){
     this.model=OTR.fpScenario.model(this.scenarioSession);this.area='route';this.target=null;this.rebuildWorld();this.sync();this.showScenarioBrief();
@@ -116,7 +116,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     super.refresh();const r=this.scenarioSession;if(!r||!this.moduleGoal)return;
     const visible=r.phase==='active'&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;
     this.moduleBack.setVisible(visible);this.moduleGoal.setVisible(visible);this.moduleClock.setVisible(visible);if(!visible)return;
-    if(this.moduleGoal.text!==OTR.i18n.t(r.definition.goal))this.moduleGoal.setText(r.definition.goal);
+    const status=r.definition.status?r.definition.status(r):'';if(this.moduleStatusSource!==status){this.moduleStatusSource=status;this.moduleGoal.setText(r.definition.goal+(status?'\n'+status:''));}
     // Very long translations remain complete in the brief, pause menu and handheld; never shrink them over a mirror.
     const compact=this.model?.mode==='cab'&&this.moduleGoal.height>80;this.moduleGoal.setVisible(!compact);
     this.moduleClock.setY(compact?18:26+this.moduleGoal.height);
@@ -132,7 +132,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     const timeout=OTR.fpScenario.advance(r,delta/1000,active);
     if(active&&r.definition.update)r.definition.update(r,this,Math.max(0,Math.min(.05,delta/1000)));
     if(r.overflow){this.scenarioUnavailable(Error('The scenario event budget was exceeded'));return;}
-    if(timeout)this.finishScenario('timeout');
+    if(timeout&&r.phase==='active'){if(r.definition.timeout)r.definition.timeout(r,this);else this.finishScenario('timeout');}
   }
 }
 OTR.registerScene(FirstPersonScenarioScene);

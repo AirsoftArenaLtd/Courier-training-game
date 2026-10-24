@@ -107,6 +107,7 @@ OTR.fpAccess={
   },
   targetName(scene,id){
     if(id.startsWith('pretrip-')&&scene.model?.pretripLesson)return OTR.fpPretrip.item(scene.model.pretripLesson,id.slice(8))?.name||id;
+    if(id.startsWith('lift-'))return {'lift-parcel':'the lifting bay load','lift-help':'the coworker call button','lift-gauge':'the lifting status gauge','lift-truck':'the hand truck handle'}[id]||id;
     if(id.startsWith('sort-parcel-'))return `conveyor package ${id.slice(12)}`;
     if(id.startsWith('sort-bin-')){const s=scene.model?.packageSort,key=id.slice(9);if(s)return `routing key ${s.binKeys[key]}, ${OTR.fpPackageSortScenario.binNames[key]}`;}
     if(id==='sort-jam')return 'the conveyor jam-reset post';
