@@ -1,0 +1,21 @@
+{
+  "scope": "CPU Low geometry: every authored visible node, six cab/cargo/sidewalk/customer poses, twelve yaw angles and three pitches. Main plus the most costly actual mirror. No weather shader, compositor, GPU memory or native Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 11880,
+      "peak": {
+        "calls": 37,
+        "triangles": 2392
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 11880,
+      "peak": {
+        "calls": 38,
+        "triangles": 2044
+      }
+    }
+  ]
+}

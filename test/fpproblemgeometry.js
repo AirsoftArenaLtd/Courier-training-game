@@ -1,0 +1,15 @@
+/* CPU geometry only. Rendered fpbench memory/pass ceilings and native Intel FPS remain separate gates. */
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{c,O,THREE,fixture,specs}=require('./tools/fp-problem-context')(),{install,local}=require('./tools/fpassets-context'),A=install(c),K=O.fpCustomerTalk,S=O.fpProblemStage;
+function cost(root,camera){camera.updateMatrixWorld(true);const frustum=new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));let calls=0,triangles=0;root.traverseVisible(o=>{if(!o.isMesh||!camera.layers.test(o.layers)||o.frustumCulled&&!frustum.intersectsObject(o))return;const n=o.isInstancedMesh?o.count:1;if(!n||o.material.visible===false)return;calls++;triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3*n;});return {calls,triangles};}
+test('Low geometry stays in budget across all four problem sets, cab, cargo, people and fallback',async()=>{
+ O.gfx={high:()=>false};const bank=await A.preload({high:false,fetch:local}),reports=[];try{for(const loaded of [true,false]){const peak={calls:0,triangles:0};let poses=0;
+  for(const spec of specs){const scene=fixture(spec.id,{bank:loaded?bank:null}),m=scene.model;try{for(const node of Object.keys(m.customerTalk.content.nodes).filter(k=>!m.customerTalk.content.nodes[k].if)){
+   if(m.customerTalk.phase==='done')m.customerTalk.phase='line';K.enter(m.customerTalk,node);S.apply(m.problemStage,m.customerTalk);
+   for(const [mode,x,z] of [['cab',-.1,-42.65],['walk',1.7,-36.4],['walk',6.3,-42.6],['walk',11,-42.6],['walk',11,-28.6],['walk',14,-41.4]])for(let yaw=0;yaw<12;yaw++)for(const pitch of [-.7,0,.7]){
+    m.mode=mode;m.cargoOpen=true;Object.assign(m.player,{x,z,yaw:yaw*Math.PI/6,pitch});m.van.look=yaw*Math.PI/6;scene.sync();const main=cost(scene.view.world,scene.view.camera),reflect={calls:0,triangles:0};for(let i=0;i<3;i++){scene.view.mirror.before(i);const v=cost(scene.view.world,scene.view.mirror.camera);scene.view.mirror.after();reflect.calls=Math.max(reflect.calls,v.calls);reflect.triangles=Math.max(reflect.triangles,v.triangles);}const calls=main.calls+reflect.calls,triangles=main.triangles+reflect.triangles;peak.calls=Math.max(peak.calls,calls);peak.triangles=Math.max(peak.triangles,triangles);poses++;assert.ok(calls<=64&&triangles<=2500,JSON.stringify({loaded,id:spec.id,node,mode,x,z,yaw,pitch,calls,triangles}));
+   }
+  }}finally{scene.art.dispose();}}
+  reports.push({loaded,poses,peak});
+ }}finally{bank.dispose();}
+ const dir=path.join(__dirname,'out/fp-review');fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'c42-problem-geometry-current.json'),JSON.stringify({scope:'CPU Low geometry: every authored visible node, six cab/cargo/sidewalk/customer poses, twelve yaw angles and three pitches. Main plus the most costly actual mirror. No weather shader, compositor, GPU memory or native Intel FPS acceptance.',reports},null,2)+'\n');console.log(JSON.stringify(reports));
+});
