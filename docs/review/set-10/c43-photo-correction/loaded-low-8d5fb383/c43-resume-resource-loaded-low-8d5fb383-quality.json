@@ -1,0 +1,19 @@
+{
+  "sourceRevision": "8d5fb383035332084a1ee950dbb19c504cb7f91b",
+  "scope": "Fourteen static scanner-stop poses in the original four profiles. No native gameplay, default/current-pilot, Tamil readability or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c43-resume-resource-loaded-low-8d5fb383-loaded-low-low.json",
+      "log": "c43-resume-resource-loaded-low-8d5fb383-loaded-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 1674,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2974406
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "runtime": "8d5fb383",
+  "views": 14,
+  "peak": {
+    "calls": 37,
+    "triangles": 1674,
+    "textures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 2974406
+  },
+  "scope": "Complete loaded-Low resource profile only; other profiles/native acceptance pending.",
+  "files": {
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerclosed.png": "982931c1ca305b66c8558b2d9c9f32b3c3d78e09d071d4b11c6ed2487bf1d7c2",
+    "c43-resume-resource-loaded-low-8d5fb383-quality.json": "cda36095abf115e983f7617046d9ad6c3adb3d32a3f8befbf987fc5b7dafb05d",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scanneridvalid.png": "f2b6d4916248c60ec2d95918293becbf4a54567e8e63e0f2d7302a3554ce53ff",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scanneridunder.png": "ff4292835999ec3a005d490f1133a5527f6bf71e61bf789bb9a11f941064cdc4",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannercontrols.png": "3060bbb32e9f334d2f6f389c33c9f83389bbb33740176351f1f542cfd6b9a5e4",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerplanter.png": "e9bf6b6564c4fd7c5c7deab8a46611e1d30e74e6d685cd1d245eae6e029749e1",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low.log": "baa9ccee93086d23e0ab576457f5b41b7affa9321db36ccd2154e5ce1fe626cb",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannercargo.png": "e102e8a959c8151ef5bcf51439978afed94e8cc66efb18b24ae637930ba8bfe2",
+    "resource-loaded-low-attempt-1.log": "386726aacd8c3805df9628569a275b2b13e6bcb7166eb255475c432f39ca58a1",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerhandheld.png": "6f03d26074604d9286e7c76979523318b9b8a624c2fc4b77b58ca721531f9821",
+    "scorm-2004-attempt-1.log": "01fe0b0b80405a91439a9f9ad5b173314812196fec481f441de9505bb7289432",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerreception.png": "bcd3bfe5a151268996e26f5cc95336279d1a4def16be487ff53df3c2e0bb8709",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerrefusal.png": "c78fed30d877f641658a6365d96a5f754ae573a9cf26e877710a31d00f6aefd2",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannersignature.png": "9836acbb8e2ba01ae2757102aa1553f0cc474069b71e7938d40285fc0536245e",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannercab.png": "9ce7e427eb1e3953a8977dba745553c40c16eeadb988e4f8dfa4aa41ab008fdc",
+    "job-results.json": "6053c339c42a8d854d144b5098169c96e336ee38e3c2a8c6965212edc617be3f",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerreverse.png": "e1ba285f1f292ba2ee198df08dfa9c24f5c83e71f0c78e0e954064fa84c18b43",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scannerphoto.png": "fe9e9a4bd0cd39b09b48adb1ccc5a43b06b1d14b4eb9762df3addc1646644718",
+    "c43-resume-resource-loaded-low-8d5fb383-loaded-low-low-scanneridexpired.png": "2bac53446ac31f9c2e7960e5af39987cd9fbb982430d3e4c268b69b66b55550b",
+    "bench-c43-resume-resource-loaded-low-8d5fb383-loaded-low-low.json": "c6cb554b86beee4305b424ee88df78a9a0cf4c86b330761a9b4cc159de38be4a"
+  }
+}
