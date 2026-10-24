@@ -1,29 +1,13 @@
-Eight-layout run complete: 10,715 checks in eight durable journeys. Restricted-photo follow-up complete: 1,331 checks and a settled 7 / 9 result. Old-dialogue and four required repository browser checks continue. The original capture-helper failure and its real-key correction are retained in `capture-helper-debug/`; no runtime change was required.
+# C-41 frozen existing-id validation — completed 24 October 2026
 
-# Validation continuation
+Runtime b17f462b / frozen candidate f80f76c4 retains its exact 23 source/reference fingerprints. The separate C-42 checkout does not alter this server or runtime.
 
-C-41 remains doing. Runtime is frozen at `b17f462b`; the executable and protocol candidate is `f80f76c4`.
-Only documentation and retained evidence changed afterward. Compare `source-equivalence.json` before collecting
-later results. The shared scoring references, records and default routing remain unchanged.
+- Standard eight-layout Low/High, English/Tamil, normal/larger native protocol: 10,715 checks, eight durable journeys, original 6,400 / 5,800 results.
+- Restricted-photo assessment: 1,331 checks, one durable journey, original 5,400 result and two criticals. Corrected capture helper confirms the settled 7 / 9 result.
+- High larger-Tamil two-stop dialogue regression: 896 checks, voluntary real walking, durable result/workday reloads and settled 9 / 9 result.
+- Required academy, enterprise, routeday and driving browser suites: all four pass sequentially.
+- Original repository inventory gate: all 77 entries pass (76 pure Node plus its misclassified SCORM-2004 browser wrapper). All 26 changed JS syntax checks, 44 rendered resource views and 17,700 Low CPU views pass in their recorded frozen-source scopes.
 
-All 77 Node suites, 26 changed-JS syntax checks, 44 resource views and 17,700 CPU views have passed.
-The native eight-layout run is still active. `native-in-progress.json` and `native-progress-summary.json`
-are explicitly incomplete snapshots. Do not count a started journey or a global partial check count as a
-completed acceptance pass.
+The first photo follow-up reached the correct durable result but timed out in a screenshot helper that waited for a hidden focus ring. Its original report/log/PNG remain in capture-helper-debug. The corrected helper uses real Tab to show the ring after the result clock/input settles; the full repeated photo journey and old dialogue journey pass. No production source changed. The original eight-layout result PNGs remain transitional diagnostics and must not be used as final result presentation acceptance.
 
-The active sequential pipeline waits for the eight-layout process to exit successfully, verifies all eight
-completed modes, then runs the restricted-photo assessment, High larger-Tamil two-stop dialogue regression,
-and the four required academy/enterprise/routeday/driving browser suites. It stops at the first failure.
-One browser runs at a time. Local progress is recorded at `/tmp/c41-stop-followups/status.json`;
-logs use `/tmp/c41-stop-native-f80f76c4.log`, `/tmp/c41-stop-photo-f80f76c4.log`,
-`/tmp/c41-dialogue-regression-f80f76c4.log` and `/tmp/c41-browser-regression-f80f76c4/`.
-Final browser reports/screenshots are in `test/out/fp-review/`. If this environment is lost, rerun the
-commands in README and the four repository browser suites; the snapshots do not replace those runs.
-
-After the pipeline succeeds, collect its exact source/protocol hashes, final reports, screenshots and raw
-browser logs; update the manifest, status, board and performance notes; push only this task branch. The
-local `/tmp/c41-stop-package-final.py` prepares the final package after checking all required outcomes.
-The optional protocol contract question remains with Claude. If unanswered when the existing four ids
-are complete, record that block and continue C-42 rather than waiting for a merge or policy reply.
-
-The result capture helper is a test-only follow-up; the already-running eight-layout process retains its original protocol hash. Its result PNGs remain diagnostic transition poses. The later photo/dialogue runs use the helper. Record their actual protocol hashes separately. The extra Tamil repeat is superseded by the direct font probe: `font-diagnostic/README.md` confirms the shared fallback issue independently of animation. Its unapplied patch awaits Claude; all corrected-font layouts still need acceptance.
+The read-only font diagnostic independently proves the shared Tamil fallback selects a font without Tamil glyphs. The correct Tamil-first font is 10.23% wider. Its exact unapplied shared-factory patch remains for Claude; numeric bounds from the old font are not corrected-font acceptance. All-language translations/A-31, combined current-pilot/default acceptance, optional-protocol categories and Intel O-1 remain outside this completed existing-id source scope. Whole C-41 stays blocked for those shared tasks while C-42 continues.

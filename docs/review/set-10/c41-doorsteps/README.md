@@ -62,7 +62,7 @@ registration and a real suspended workday are fixtures. It never fixtures positi
 signature completion, score or verdict. Native results also check durable records and suspended-workday
 isolation after reload.
 
-All 77 available Node suites pass at the frozen candidate, including workday, save size, mission, world,
+All 77 checks classified as Node by the repository inventory pass at the frozen candidate, including workday, save size, mission, world,
 asset provenance and the current translation catalogue. All 26 JavaScript files changed since the C-38 base
 pass syntax checking. Exact raw logs and their per-file hashes are retained in `raw-node-logs.tar.gz` and
 `raw-node-index.json`. `source-equivalence.json` verifies the frozen bytes of the runtime and shared references.
@@ -76,7 +76,7 @@ All 44 graphics views pass the original ceilings:
 | Larger/colour/reduced Low | 37 | 1,654 | 2 | 3,557,376 | 2,214,272 |
 | Missing assets Low | 40 | 1,476 | 2 | 3,557,376 | 2,055,110 |
 
-All eight full keyboard journeys now pass on Low/High at normal/larger text in English/Tamil: **10,715 checks**. Clean paths preserve 6,400 points; the two larger-Tamil assessments preserve the authored neighbor critical, 5,800 points, service 29/35 and a failed verdict. All durable records and suspended-workday reloads pass. The separate restricted-photo assessment also passes **1,331 checks**, keeping 5,400 points, service 5/6, two criticals and a failed verdict. Its settled result capture shows the expected 7 / 9 stars. The High larger-Tamil old-dialogue regression and four required repository browser checks continue.
+All eight full keyboard journeys now pass on Low/High at normal/larger text in English/Tamil: **10,715 checks**. Clean paths preserve 6,400 points; the two larger-Tamil assessments preserve the authored neighbor critical, 5,800 points, service 29/35 and a failed verdict. All durable records and suspended-workday reloads pass. The separate restricted-photo assessment also passes **1,331 checks**, keeping 5,400 points, service 5/6, two criticals and a failed verdict. Its settled result capture shows the expected 7 / 9 stars. The High larger-Tamil old-dialogue regression also passes 896 checks, including the real two-site walk, durable reloads and a settled 9 / 9 result. All four required repository browser suites (academy, enterprise, routeday, driving) pass sequentially. The shared inventory’s Node group contains one browser wrapper (scorm-launch-2004); the 77-entry count is 76 pure Node suites plus that passing SCORM browser check.
 
 Visual inspection caught premature result captures: the source protocol takes them during the result
 animations. Those original result PNGs are retained as diagnostic transition poses, not final visual
@@ -95,3 +95,5 @@ FPS cannot certify the owner's Intel 60 FPS requirement. New English sentences s
 English/Tamil layout checks do not claim all new sentences are already translated.
 
 Both High English journeys have also completed with their original clean 6,400-point results and durable records. The remaining High Tamil cases and subsequent browser regressions remain active; no full eight-layout or task acceptance is claimed.
+
+The existing four-id source scope has now finished its scheduled checks: **12,942 native checks across ten journeys**, 44 resource views, 17,700 CPU geometry views, 76 pure Node suites plus the inventory’s SCORM browser, and four required repository browser regressions. Whole C-41 remains blocked on the optional safety/efficiency contract and confirmed shared Tamil font/A-31 work. No registry/default/current-pilot/Intel acceptance is implied.
