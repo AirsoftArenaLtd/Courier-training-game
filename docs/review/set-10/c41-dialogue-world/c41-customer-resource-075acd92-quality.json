@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "075acd92d0cb870fdf71824486914368239851b5",
+  "scope": "Eight static customer poses in the four original quality profiles; no default workday or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c41-customer-resource-075acd92-loaded-low-low.json",
+      "log": "c41-customer-resource-075acd92-loaded-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 1258,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1488272
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c41-customer-resource-075acd92-loaded-high-high.json",
+      "log": "c41-customer-resource-075acd92-loaded-high.log",
+      "peak": {
+        "calls": 40,
+        "triangles": 26010,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4485136
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c41-customer-resource-075acd92-accessible-low-low.json",
+      "log": "c41-customer-resource-075acd92-accessible-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 1258,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1777643
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c41-customer-resource-075acd92-fallback-low-low.json",
+      "log": "c41-customer-resource-075acd92-fallback-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 946,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1488272
+      }
+    }
+  ]
+}

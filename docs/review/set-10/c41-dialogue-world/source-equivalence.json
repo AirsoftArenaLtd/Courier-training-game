@@ -1,0 +1,34 @@
+{
+  "runtimeRevision": "075acd92d0cb870fdf71824486914368239851b5",
+  "protocolRevision": "782ea0cb1879d0f335011c7d0bfb992bd6f2f753",
+  "runtimeDiffFromFrozenSource": "",
+  "runtimeFiles": {
+    "index.html": "9be9457704f35047cf26001ad6e329f0eb08294b6a1886a0e797c8160de5d839",
+    "src/core/fpcustomertalk.js": "ff5162fef2cb1df8254b65c7cde71e0e1b45076a15a911e3b5a93e7ca2c86db1",
+    "src/core/fpcustomerstage.js": "f85c4063974983210ac504a25f197b3902e275055b4c4827c5b16d1aa10ef474",
+    "src/core/fpcustomerworld.js": "b40f0580dc47b45308b99e8bf05356d9ca546e0b76ea1c9567e815dd963f897f",
+    "src/core/fpcustomerscenario.js": "3d08560106304d3bbcb2ff5d348d3372466486fa4ae1d593570e6d8aa273dfe0",
+    "src/core/fpworld.js": "e17cdfb8cf89352f039d8a538b7d798eb3ed75289736d50619b6c51bc9b70528",
+    "src/core/fpaccess.js": "94fb74d9f99c806845daa438160f5dc315ce087f826eb9ae9b50bcd633ebcc3e",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "data/m3_dialogues.js": "ff43d3dd3358bdf101b8194b6873060c13fbc02fa1c89f38ff7bf817bde76e96",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b"
+  },
+  "protocolFiles": {
+    "test/fpcustomerbrowser.js": "1cdff3d75949f33291ce8cca04deb4ab024683a82b3f77971bdcf5f628556c58",
+    "test/fpcustomergeometry.js": "48eb27223524c489f8fce6b3b18378b2f6f047d33c2c97c123941b7e78ee4dbd",
+    "test/fpbench.js": "d80d49a7b46974cdc3cdb960661fab7314be5e00773f97bb56709e8200a013c9",
+    "test/tools/fp-customer-fixture.js": "a695be6c8d83899aba9acad1d307102ea393ddd4d34d31b6bdc9e308f3f19878",
+    "test/tools/fp-customer-quality.js": "e06de32ea65ab4715a1f556017189150a3d232d942e6a2cf3e33243421d65f9d",
+    "test/fpcustomertalk.js": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+    "test/fpcustomerscenario.js": "c9eefc7887debf590b11cf41352551fae029d5527c4f30ba878525703fe341ee",
+    "test/fpcustomerworld.js": "b632e23de5216f7ce313cfb21169323ae46cb009b6ff77e24e98ebd60dc5faa0",
+    "test/fpscenario.js": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49"
+  }
+}

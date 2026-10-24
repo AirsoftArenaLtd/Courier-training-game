@@ -1,0 +1,647 @@
+{
+  "date": "2026-10-24",
+  "status": "Three existing physical dialogue adapters validated on pushed C-38 stack; whole C-41 remains doing.",
+  "branch": "codex/c41-customer-interaction",
+  "base": "b860fa180e3a4631d351eba765314e2b87ff52dd",
+  "sourceRevision": "075acd92d0cb870fdf71824486914368239851b5",
+  "protocolRevision": "782ea0cb1879d0f335011c7d0bfb992bd6f2f753",
+  "sourceFiles": {
+    "index.html": "9be9457704f35047cf26001ad6e329f0eb08294b6a1886a0e797c8160de5d839",
+    "src/core/fpcustomertalk.js": "ff5162fef2cb1df8254b65c7cde71e0e1b45076a15a911e3b5a93e7ca2c86db1",
+    "src/core/fpcustomerstage.js": "f85c4063974983210ac504a25f197b3902e275055b4c4827c5b16d1aa10ef474",
+    "src/core/fpcustomerworld.js": "b40f0580dc47b45308b99e8bf05356d9ca546e0b76ea1c9567e815dd963f897f",
+    "src/core/fpcustomerscenario.js": "3d08560106304d3bbcb2ff5d348d3372466486fa4ae1d593570e6d8aa273dfe0",
+    "src/core/fpworld.js": "e17cdfb8cf89352f039d8a538b7d798eb3ed75289736d50619b6c51bc9b70528",
+    "src/core/fpaccess.js": "94fb74d9f99c806845daa438160f5dc315ce087f826eb9ae9b50bcd633ebcc3e",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "data/m3_dialogues.js": "ff43d3dd3358bdf101b8194b6873060c13fbc02fa1c89f38ff7bf817bde76e96",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b"
+  },
+  "protocolFiles": {
+    "test/fpcustomerbrowser.js": "1cdff3d75949f33291ce8cca04deb4ab024683a82b3f77971bdcf5f628556c58",
+    "test/fpcustomergeometry.js": "48eb27223524c489f8fce6b3b18378b2f6f047d33c2c97c123941b7e78ee4dbd",
+    "test/fpbench.js": "d80d49a7b46974cdc3cdb960661fab7314be5e00773f97bb56709e8200a013c9",
+    "test/tools/fp-customer-fixture.js": "a695be6c8d83899aba9acad1d307102ea393ddd4d34d31b6bdc9e308f3f19878",
+    "test/tools/fp-customer-quality.js": "e06de32ea65ab4715a1f556017189150a3d232d942e6a2cf3e33243421d65f9d",
+    "test/fpcustomertalk.js": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+    "test/fpcustomerscenario.js": "c9eefc7887debf590b11cf41352551fae029d5527c4f30ba878525703fe341ee",
+    "test/fpcustomerworld.js": "b632e23de5216f7ce313cfb21169323ae46cb009b6ff77e24e98ebd60dc5faa0",
+    "test/fpscenario.js": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49"
+  },
+  "nodeSuites": {
+    "batch": 72,
+    "additionalGeometryGuard": 1,
+    "totalAvailablePassed": 73
+  },
+  "repositoryBrowserSuites": [
+    {
+      "suite": "academy.js",
+      "exit": 0
+    },
+    {
+      "suite": "enterprise.js",
+      "exit": 0
+    },
+    {
+      "suite": "routeday.js",
+      "exit": 0
+    },
+    {
+      "suite": "driving.js",
+      "exit": 0
+    }
+  ],
+  "native": {
+    "checks": 7081,
+    "journeys": 10,
+    "durableReloads": 10,
+    "pageErrors": [],
+    "report": "c41-customer-native-075acd92-v3.json",
+    "noPositionNodeTimerScoreOrVerdictFixtures": true
+  },
+  "resources": {
+    "views": 32,
+    "profiles": [
+      {
+        "id": "loaded-low",
+        "exit": 0,
+        "report": "bench-c41-customer-resource-075acd92-loaded-low-low.json",
+        "log": "c41-customer-resource-075acd92-loaded-low.log",
+        "peak": {
+          "calls": 37,
+          "triangles": 1258,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1488272
+        }
+      },
+      {
+        "id": "loaded-high",
+        "exit": 0,
+        "report": "bench-c41-customer-resource-075acd92-loaded-high-high.json",
+        "log": "c41-customer-resource-075acd92-loaded-high.log",
+        "peak": {
+          "calls": 40,
+          "triangles": 26010,
+          "textures": 4,
+          "attachmentBytes": 11239424,
+          "phaserBytes": 4485136
+        }
+      },
+      {
+        "id": "accessible-low",
+        "exit": 0,
+        "report": "bench-c41-customer-resource-075acd92-accessible-low-low.json",
+        "log": "c41-customer-resource-075acd92-accessible-low.log",
+        "peak": {
+          "calls": 37,
+          "triangles": 1258,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1777643
+        }
+      },
+      {
+        "id": "fallback-low",
+        "exit": 0,
+        "report": "bench-c41-customer-resource-075acd92-fallback-low-low.json",
+        "log": "c41-customer-resource-075acd92-fallback-low.log",
+        "peak": {
+          "calls": 39,
+          "triangles": 946,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1488272
+        }
+      }
+    ],
+    "unchangedCeilings": true
+  },
+  "geometry": {
+    "scope": "CPU Low geometry only: four dialogue poses, seven sidewalk/customer positions, twenty-four yaw angles, five pitches, main plus the most costly actual mirror pass. Not GPU memory, High or Intel FPS acceptance.",
+    "reports": [
+      {
+        "loaded": true,
+        "poses": 3360,
+        "peak": {
+          "calls": 34,
+          "triangles": 1252
+        }
+      },
+      {
+        "loaded": false,
+        "poses": 3360,
+        "peak": {
+          "calls": 37,
+          "triangles": 946
+        }
+      }
+    ]
+  },
+  "screenshots": 66,
+  "scope": "Existing m3-missing, m3-signature and m3-twostops only. Registry proposal unapplied; native routing is an explicit browser fixture. No shared registry/default/2D/scoring/save/Settings/i18n edit. Not combined current-pilot/default-switch/all-language translation or native Intel FPS acceptance. Tricky Doorsteps and new optional protocols remain.",
+  "automation": "Enabled hourly without an end date; unchanged.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 6536,
+      "sha256": "789b30e4bbdf18daf54a037297a10c7f3f9da5ed107acd024ea31e892501c570"
+    },
+    {
+      "file": "academy.log",
+      "bytes": 1777,
+      "sha256": "a52aac79c9bf923635c95a73c352ac3c405c1654e3c00d05477f8979a4a5fe8f"
+    },
+    {
+      "file": "bench-c41-customer-resource-075acd92-accessible-low-low.json",
+      "bytes": 16145,
+      "sha256": "3f337929194090b36e4588e926bdeb148ef53d324a1971dda885159ccee66fb1"
+    },
+    {
+      "file": "bench-c41-customer-resource-075acd92-fallback-low-low.json",
+      "bytes": 17841,
+      "sha256": "c5f001e560b71935ed682fbf1b73929f03fe9b261df3b15747038ca6c0f65d21"
+    },
+    {
+      "file": "bench-c41-customer-resource-075acd92-loaded-high-high.json",
+      "bytes": 16151,
+      "sha256": "b7bc15aae3f02f67d05b5b7b8ff37c1652961049a9f18814cd034345f75794f6"
+    },
+    {
+      "file": "bench-c41-customer-resource-075acd92-loaded-low-low.json",
+      "bytes": 16101,
+      "sha256": "17745962fd43f2d63bea64a5747e8d04495ee6fda3d421cdf35ad7d556d5fce9"
+    },
+    {
+      "file": "browser-results.json",
+      "bytes": 207,
+      "sha256": "0296ee127c9538625048661ee950a6d42e9b9dfa89fea38bb6896595c7821f10"
+    },
+    {
+      "file": "c41-customer-geometry-current.json",
+      "bytes": 499,
+      "sha256": "a5a01975a68ddc0dcbf2c6f0cddb956751ff194c9e6d8d7ce7b3614c614bd3a4"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-large-twostops-ending.png",
+      "bytes": 99904,
+      "sha256": "7a625ce1e5eb2c650db105a63d33716bdf095df616b7c13c7ae87e1ef01ed589"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-large-twostops-house.png",
+      "bytes": 249359,
+      "sha256": "917a2bb8787ff836197d2d360115bff40af7d068c937649d1c44f23e301c71dc"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-large-twostops-physical.png",
+      "bytes": 219967,
+      "sha256": "85ae90d51c05c34dcae6bcc8591f58c3173ef64058a4d4d2bd97c43bbf6e3714"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-large-twostops-result.png",
+      "bytes": 122228,
+      "sha256": "b77293005460f0a7000b8fdacd17ab403da0b90f993d6811005f6dfbc3c8a716"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-normal-signature-ending.png",
+      "bytes": 94479,
+      "sha256": "ded28321bfd8da455a41906161304494f2866103a5a95966743c78f469da79e8"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-normal-signature-physical.png",
+      "bytes": 251928,
+      "sha256": "5a83fa057bd847319cfaa54f0e0c4a0de9d94f5707d237ea9f75bb7b8d6031e2"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-en-normal-signature-result.png",
+      "bytes": 96070,
+      "sha256": "3cc8d215dd232fc907ca729a5b738e01f554aca9837197a115a9c5f03c68879c"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-signature-ending.png",
+      "bytes": 94486,
+      "sha256": "bab87dff861613b382b50b3b077ab93b200984e7bd146d6bce07a4002c8e1d5c"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-signature-physical.png",
+      "bytes": 249129,
+      "sha256": "21814436ed2afd20ae8d4591f67d1b4ea68f2d63b5a405bcce75246a1a865ec7"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-signature-result.png",
+      "bytes": 134035,
+      "sha256": "66ba066e6abfe5f16260f25c4dd9f9f6825d1a294b6538842bb73c9db181163c"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-twostops-ending.png",
+      "bytes": 99479,
+      "sha256": "d6732a0ed49ca180fc9a3e2abc3dc888b3e8a8e97d6d417757662c90d6804025"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-twostops-house.png",
+      "bytes": 250131,
+      "sha256": "f6d8f23039366c1b5d8e54538c1bd7d1f902261119a0227c9014afa3a48dad09"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-twostops-physical.png",
+      "bytes": 219472,
+      "sha256": "29c9716679bf2b88186973f7878129311d93f579e1846e1187be35d051c74785"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-large-twostops-result.png",
+      "bytes": 166068,
+      "sha256": "977c8f29548227d071a492c701cfe7e71dc6dde22dea39d92f16af24ab3536ac"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-normal-missing-ending.png",
+      "bytes": 107580,
+      "sha256": "2bed17def701d87a9e5c69aafbb946586d2877fee0086ca19e6bef2f16044084"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-normal-missing-physical.png",
+      "bytes": 298256,
+      "sha256": "c8289eb56e8c7480a1417f288b8672b8d79b50d8ab6e7d7944118bedc17b79e2"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-high-ta-normal-missing-result.png",
+      "bytes": 31237,
+      "sha256": "b3b3c0ae1af7b45138f9654db7ae726f937e806a739ebd9c6654b0f1d8094373"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-large-signature-ending.png",
+      "bytes": 33122,
+      "sha256": "13eca01aaa81b5795f3ed258541f2baed2f26301a56b63e0deab3239ac772550"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-large-signature-physical.png",
+      "bytes": 49682,
+      "sha256": "ec70f61e40f3db068f7ceb22d1e533d78e61a24b418ca7b9377f865759cae4f1"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-large-signature-result.png",
+      "bytes": 112655,
+      "sha256": "5ae8071be0875ee80b7e3849b3e5af716a92d7aa2c2b558bca19c2ced810dbcb"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-normal-missing-ending.png",
+      "bytes": 38823,
+      "sha256": "d506e001cf0a6496b819414aa698a1c06a7c5faa2ce01470fe9c5bc030ff0659"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-normal-missing-physical.png",
+      "bytes": 86586,
+      "sha256": "da33afe665fedb54726495cb954254c230ee1abe90c13b78ef3503de2955d775"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-en-normal-missing-result.png",
+      "bytes": 52882,
+      "sha256": "7cd5ef0bb3c5262dd201f21dcd5aa9f98166da2b8bae972d230bdd6e3b86364b"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-missing-ending.png",
+      "bytes": 32130,
+      "sha256": "f198cc7827663e0ac9aa0ac9e864f95da6bca2dd342983e3a9d00d4d64875312"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-missing-physical.png",
+      "bytes": 59361,
+      "sha256": "5259bf0004cafa414dcc45091e4942851cd9b98389f70fd187726b3085d6d50a"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-missing-result.png",
+      "bytes": 120566,
+      "sha256": "ba4c3e48154e50fbb198d4fcbc679fa82680c5496c26fcf207362a9b6f491d0e"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-twostops-ending.png",
+      "bytes": 33200,
+      "sha256": "e3eed870b3386ecdcbc8cf2dba589ed71bfedb4f3f89b38bdd154eab5587e8f5"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-twostops-house.png",
+      "bytes": 47544,
+      "sha256": "3bf139397bea68e0a22e7acfb53ceb28dbbaeaab853c9daec38566fa6d9192f5"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-twostops-physical.png",
+      "bytes": 49955,
+      "sha256": "03227530801eaf1f7b82fd873f7ba702974a2bffdb70042c4b9c70e6c83af1a4"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-large-twostops-result.png",
+      "bytes": 133451,
+      "sha256": "16b16253ce3f9ffc638fa66a0b12cca2031bc5998bf436817a307789ee4d15f6"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-normal-twostops-ending.png",
+      "bytes": 48330,
+      "sha256": "e9b10f66ca0fbc953541c879be055b23208a7b2a6c234cf1fcbc4d0ed7380292"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-normal-twostops-house.png",
+      "bytes": 102590,
+      "sha256": "71ee67f1593e3056f0157d1116a3d7124327a8dae909bb36f569fe8cacd3be63"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-normal-twostops-physical.png",
+      "bytes": 106844,
+      "sha256": "3975fb71a373f515643449252fec5d8fc15fec15121a76c45cf7c84d3b05519d"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3-low-ta-normal-twostops-result.png",
+      "bytes": 99326,
+      "sha256": "a3aa2e6f8afc9e8cea64951225c2f3c63eb6e7ed9fca7b5f93af9950c755ff3d"
+    },
+    {
+      "file": "c41-customer-native-075acd92-v3.json",
+      "bytes": 153064,
+      "sha256": "9e597fd08a28379331c2e1612a3cefd774e031c402cfaa87e8a8b6c895fec0a1"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerdog.png",
+      "bytes": 111705,
+      "sha256": "09eafc21ba106ed7368094d4d1d42b687c073731b7f8ab5d9c418b8ffc8ff6bd"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerhistory.png",
+      "bytes": 45334,
+      "sha256": "4380d08f3f6919b69aa335964f816c96a5f7e38e471485c7c2059f71305559bf"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerphone.png",
+      "bytes": 103368,
+      "sha256": "cee76e2d6386b518d5b4a59b98517b02b1bccd70a94e327a81f6742d7096ebd4"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerquestion.png",
+      "bytes": 44387,
+      "sha256": "3172d6903dd5fbfbd0632690db972f6204891dcead6215284e1ede77d3bb95e1"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerreception.png",
+      "bytes": 81539,
+      "sha256": "fce37983cc3f1b650e9e4d519a7ca84e46c99526689647564ae4990aa16af8b9"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerreply.png",
+      "bytes": 52290,
+      "sha256": "19e7ec37fa67891ab921f8142cfa1d0d8a29b8865d1f376fbe5ede3a02f18f5f"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customerstreet.png",
+      "bytes": 89738,
+      "sha256": "995457177db10d39386a21ad9f1d61f38d64910bcaa68696954f8f08325df8d1"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low-low-customertimed.png",
+      "bytes": 63101,
+      "sha256": "a2e0cc1735482604ce5002d953ce24324bf283e1f6e813ee0239476f6061d7a7"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-accessible-low.log",
+      "bytes": 6480,
+      "sha256": "b9654994daf739e6f6b5a48d3bcf25f55b4aa7f3fc5ad4c917cde58deddd6429"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerdog.png",
+      "bytes": 93989,
+      "sha256": "5eb533b46cdd8f9ee086c42d83f6e1b6eefc8f5e67c3b562cf18dcf5de11756f"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerhistory.png",
+      "bytes": 38009,
+      "sha256": "882d09acdbb2111750832e6a45e1cddc9f5221df2e4d2b4586cf82dd9de06066"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerphone.png",
+      "bytes": 88960,
+      "sha256": "738c49e4ac82b375bb7bae034ff3858e9b8d2f63b5d7c96a72b3921f8801a205"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerquestion.png",
+      "bytes": 37456,
+      "sha256": "bc5176734f9ad1651d84adc56b71d47d367bde1bc3936d0ba1e0771bf549004f"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerreception.png",
+      "bytes": 63592,
+      "sha256": "ce864fb2e92910ef073c26aee011ecf816144a44471317d76711e2c2f4c4aa4f"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerreply.png",
+      "bytes": 44237,
+      "sha256": "0ffa0f96213110d4f14d11cc2ed5aa78bca08616a4280f38c40450b533c24bc5"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customerstreet.png",
+      "bytes": 66521,
+      "sha256": "08401e9511ff6864db23feadbbbc40a81a8e886c4396dfdcd18fcb147ee1737a"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low-low-customertimed.png",
+      "bytes": 50553,
+      "sha256": "9bf23c0e0bb197ba6e4bb9274caff7f6f072e5e51c1079ab7a0c45c92e48afef"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-fallback-low.log",
+      "bytes": 6453,
+      "sha256": "cead75dfe873d9b28a6eac06b68e9c8e747935de4ef71f6f6f54ae37370b1a36"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerdog.png",
+      "bytes": 310922,
+      "sha256": "918a7d9d13ded19550aa043c714349776878c68e8fd359d8bda3ceaa0ecfe80e"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerhistory.png",
+      "bytes": 98467,
+      "sha256": "6d5cadc720d8c9d9a42a07243cc39736c6b98298939a54ca904536327b2fd6a7"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerphone.png",
+      "bytes": 299990,
+      "sha256": "23bc2e28d6a1ffa40b88fa859289315bd48b617205d47270ceb9d12597bff658"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerquestion.png",
+      "bytes": 98312,
+      "sha256": "5c0fc605d5cb800d91d7369190ed7cec1b495b7bd971b7c706626e4e186e895d"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerreception.png",
+      "bytes": 226507,
+      "sha256": "538a95d3484f9d8e1b77c9b500f048c3970ad608e4524d1fa521d36f2f9fe53e"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerreply.png",
+      "bytes": 104567,
+      "sha256": "e30a1311a3302475bd4b8a05ef0950419671f3e0839c78c3f3602f3518f20cf2"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customerstreet.png",
+      "bytes": 273618,
+      "sha256": "3d854258640866d9724acea58438bd5fe16cfef7297d158fcfa5498db2c89a32"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high-high-customertimed.png",
+      "bytes": 105494,
+      "sha256": "e1e22c8fb1090e0ba01e5270c8954418342c224e47f084e58d9da4f275e510c1"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-high.log",
+      "bytes": 6511,
+      "sha256": "e66e5c4df2127f154c6532cd19f1958f7e8b92da5e9bf1dbe28754fd8ba0366b"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerdog.png",
+      "bytes": 100182,
+      "sha256": "82ebbd9e0362d83391f3e7a542a199d45098d5b7eb48e5c383ace063cf4250ef"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerhistory.png",
+      "bytes": 39747,
+      "sha256": "47ae84ad94785a48f09b5a421563b3fb486633a0a6ce3d8c54117288a05371cc"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerphone.png",
+      "bytes": 96384,
+      "sha256": "d1e4309fbbdaf13df643a602f3505e553bd6df87b0a6a21b0ca6222d01be4220"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerquestion.png",
+      "bytes": 39148,
+      "sha256": "bd26800f0106ed01263bbe8bb7b5e4d8fb0767e94ed23af45a6185b1a989d2de"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerreception.png",
+      "bytes": 69170,
+      "sha256": "7ba632eab99daccbf08b82d4ff40003b51c36e1a2cf28c07e694301f095814ec"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerreply.png",
+      "bytes": 49880,
+      "sha256": "8475313fdcc8d7d6f594a9657f16f4cda12d4a239f6f5eab6b3d413938959997"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customerstreet.png",
+      "bytes": 77806,
+      "sha256": "983c334e2560d1079243e4932c5b39c3d5142555f3e7893f4923e3b169a7e28b"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low-low-customertimed.png",
+      "bytes": 54509,
+      "sha256": "e8ef9098243c9a406198092f2bbe4ee4fa8d7178449bb7fc116dd5a21e9f8925"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-loaded-low.log",
+      "bytes": 6452,
+      "sha256": "c411d03baa48d1d53c20d83687957344ed5b93d8fc5696d7c09cff25696b83b9"
+    },
+    {
+      "file": "c41-customer-resource-075acd92-quality.json",
+      "bytes": 1659,
+      "sha256": "173be7406893af51475f3a5bc3e39b89545bf50adf81e75ae5fcbb82a1364bf4"
+    },
+    {
+      "file": "diagnostic-native-attempts.tar.gz",
+      "bytes": 259468,
+      "sha256": "1426ce876a71fd845f92f12d71a88f79e27b66ba055ff85edc288cd3c50e5a6d"
+    },
+    {
+      "file": "driving.log",
+      "bytes": 1301,
+      "sha256": "a1688b0176dc0162f10479cd61b06a7e520bfb6640772db5a8da76327ca7717f"
+    },
+    {
+      "file": "enterprise.log",
+      "bytes": 1288,
+      "sha256": "63a835aaf3e64b0ac801d9e0e92b3ce5416c40d2a57f8f694820d7b2439e07dc"
+    },
+    {
+      "file": "final-inventory.txt",
+      "bytes": 19534,
+      "sha256": "30ee1e21fdc555bbdb742f15120ce46017f9848c962473c0f9f4ca687e9eb334"
+    },
+    {
+      "file": "fpcustomerscenario.log",
+      "bytes": 777,
+      "sha256": "587cc330656bb3f4fa03ae7beaa917d01ba7649e4bf6fce303e3d58993138916"
+    },
+    {
+      "file": "fpcustomertalk.log",
+      "bytes": 778,
+      "sha256": "40b7e24b9c3d335370c44347d08dda4f306c0599de841d89158a865c0eadcd60"
+    },
+    {
+      "file": "fpcustomerworld.log",
+      "bytes": 2420,
+      "sha256": "e99148864a423ed7afa72500dcfdfb4f2c383f6ec5520ef065821537c2b621fe"
+    },
+    {
+      "file": "fpscenario.log",
+      "bytes": 1794,
+      "sha256": "ea932c63776b0952d8f3f2d4985a2f48f2e365fbc43e1a43203c00aaa51fb7ec"
+    },
+    {
+      "file": "geometry.log",
+      "bytes": 163,
+      "sha256": "e99bd4ba70382ca4227e3644c229668729f10564a0b068ac9a491a74667b7d1a"
+    },
+    {
+      "file": "inventory.txt",
+      "bytes": 19306,
+      "sha256": "05cf3984080208fed6ed0a3ab3f1c8887a1dd554ef20ecf1b3ed033ec54d5f2a"
+    },
+    {
+      "file": "native.log",
+      "bytes": 717,
+      "sha256": "5b7ef76b5ebbda01bc81d11b51e841588bbdcfbf5034260ec0f51a7bf4aba70b"
+    },
+    {
+      "file": "raw-browser-logs-index.json",
+      "bytes": 816,
+      "sha256": "8b9e1603c68f00c781977585f459e2ad1d89a938581f77f65d7a81a1214a9d35"
+    },
+    {
+      "file": "raw-browser-logs.tar.gz",
+      "bytes": 3355,
+      "sha256": "c6fe8e815a6b21836eacd30d9338a088506dd47da0b3ff2514c5da31e6230c9a"
+    },
+    {
+      "file": "raw-node-logs-index.json",
+      "bytes": 10417,
+      "sha256": "8b8d3548236c94cdd9f04b1e74d0ad4af84a71c195e4aaf7c254de960178fe3f"
+    },
+    {
+      "file": "raw-node-logs.tar.gz",
+      "bytes": 48191,
+      "sha256": "a050c47181644c28f7d9a87fde193ab812d40a3081629a1bf9e088d6a9fdbb49"
+    },
+    {
+      "file": "registry-dialogue.patch",
+      "bytes": 1225,
+      "sha256": "a0d90bf521615c6c4eb18828d6da38d966321023b7856f61859c1cdfe024d268"
+    },
+    {
+      "file": "results.json",
+      "bytes": 3759,
+      "sha256": "e2fc3bfedc85e56e2d42782f17d72731b35965c816b98ca001873d7b39aee2e6"
+    },
+    {
+      "file": "routeday.log",
+      "bytes": 869,
+      "sha256": "6db6df625bb5b8bd326990d35c07fc371f88336b388325aed6f4fd5e4560e406"
+    },
+    {
+      "file": "source-equivalence.json",
+      "bytes": 2685,
+      "sha256": "59510cd99430e8545a61977fa21b67afa18344589d14516ecf284c5b3a94f9b0"
+    }
+  ]
+}

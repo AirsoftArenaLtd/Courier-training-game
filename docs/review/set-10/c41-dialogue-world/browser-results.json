@@ -1,0 +1,18 @@
+[
+  {
+    "suite": "academy.js",
+    "exit": 0
+  },
+  {
+    "suite": "enterprise.js",
+    "exit": 0
+  },
+  {
+    "suite": "routeday.js",
+    "exit": 0
+  },
+  {
+    "suite": "driving.js",
+    "exit": 0
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "academy.log",
+    "bytes": 1777,
+    "sha256": "a52aac79c9bf923635c95a73c352ac3c405c1654e3c00d05477f8979a4a5fe8f"
+  },
+  {
+    "file": "driving.log",
+    "bytes": 1301,
+    "sha256": "a1688b0176dc0162f10479cd61b06a7e520bfb6640772db5a8da76327ca7717f"
+  },
+  {
+    "file": "enterprise.log",
+    "bytes": 1288,
+    "sha256": "63a835aaf3e64b0ac801d9e0e92b3ce5416c40d2a57f8f694820d7b2439e07dc"
+  },
+  {
+    "file": "results.json",
+    "bytes": 207,
+    "sha256": "0296ee127c9538625048661ee950a6d42e9b9dfa89fea38bb6896595c7821f10"
+  },
+  {
+    "file": "routeday.log",
+    "bytes": 869,
+    "sha256": "6db6df625bb5b8bd326990d35c07fc371f88336b388325aed6f4fd5e4560e406"
+  },
+  {
+    "file": "run.py",
+    "bytes": 770,
+    "sha256": "031393e0599b88c9982d3e1273243a4de284ab7d25b543fb59664b2bf2978ea5"
+  }
+]
