@@ -1,0 +1,20 @@
+{
+  "sourceRevision": "836a101ae1b13176551962d6e9566bbfad990884",
+  "scope": "Twelve static problem-solving poses in the original four profiles. No native gameplay, current-pilot/default or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 1,
+      "report": "bench-c42-resource-836a101a-loaded-low-low.json",
+      "log": "c42-resource-836a101a-loaded-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 2086,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1939083
+      },
+      "error": "Invalid problem fixture proof: problemrecovery"
+    }
+  ]
+}

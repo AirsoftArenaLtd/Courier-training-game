@@ -1,0 +1,10 @@
+dist/on-the-route-scorm2004.zip: 263 files, 15.7 MB
+hub: scorm, learner "Sam Rivera", 4 LMS calls
+resume (packed today): 12 reports, score 1600
+resume (packed before B-55): 12 reports, score 1600
+resume 3D (same PC): day in progress true, {"seed":1,"elapsed":300.08333333333326,"x":-8,"stop1":true,"items":3,"score":300} (left {"seed":1,"items":3,"score":300})
+resume 3D (another PC): asked first true; after Back the LMS still has the day true
+resume 3D (another PC): day in progress true, {"seed":1,"elapsed":0,"x":9,"stop1":false,"items":0,"score":0} (left {"seed":1,"items":3,"score":300})
+low: 14 models loaded, 0 failed, 0 fell back
+high: 22 models loaded, 0 failed, 0 fell back
+the package (263 files) launches in a SCORM 2004 frame with everything it needs
