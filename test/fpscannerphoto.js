@@ -1,6 +1,6 @@
 /* Actual snapshot callbacks produce one bounded transient preview, with clean framing, custody and stale guards. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const c={};c.window=c;vm.createContext(c);
+const captureTimers=new Map();let timerId=0;const c={setTimeout(fn){const id=++timerId;captureTimers.set(id,fn);return id;},clearTimeout(id){captureTimers.delete(id);}};c.window=c;vm.createContext(c);
 for(const file of ['data/theme.js','data/config.js','data/scanner.js','data/m5_stops.js','src/core/theme.js','src/core/scorelog.js','src/core/fpcustomerstop.js','src/core/fpscannerstop.js','src/core/fpscannerphoto.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+file,'utf8'),c);
 const O=c.OTR,K=O.fpCustomerStop,S=O.fpScannerStop,P=O.fpScannerPhoto,plain=value=>JSON.parse(JSON.stringify(value));
 const object=visible=>({active:true,visible,setVisible(v){this.visible=v;return this;},setDepth(){return this;},setText(text){this.text=text;return this;},setFontSize(size){this.font=size;return this;}});
@@ -22,4 +22,7 @@ test('failed, cancelled and stale snapshots restore the UI and never create a ph
 });
 test('framing hides the old HUD and restores it before a handheld opens, without hiding that newly opened device',()=>{
  const f=fixture();P.overlay(f.scene);assert.equal(f.hud.visible,false);assert.equal(f.frame.visible,true);assert.equal(f.scene.scannerCaption.text,'Press U to take the photo.');assert.equal(f.extern.visible,true);f.device.visible=true;f.scene.handheld.isOpen=true;P.beforeRefresh(f.scene);assert.equal(f.hud.visible,true);assert.equal(f.device.visible,true,'an originally hidden device must not be restored to hidden after it opens');P.overlay(f.scene);assert.equal(f.frame.visible,false);assert.equal(f.scene.scannerCaption.visible,false);
+});
+test('a renderer that never returns a snapshot cannot keep the camera or keyboard locked',async()=>{
+ const f=fixture(),pending=P.capture(f.scene);assert.equal(captureTimers.size,1);const timeout=[...captureTimers.values()][0];timeout();assert.equal(await pending,false);assert.equal(f.scene.transitioning,false);assert.equal(f.scene.model.paused,false);assert.equal(f.d.photoMode,true);assert.equal(f.d.photo,null);assert.equal(f.d.state.outcome,null);assert.equal(captureTimers.size,0);f.callbacks[0][4]({width:922,height:518});assert.equal(f.textures.size,0,'a late readback after timeout is ignored');
 });

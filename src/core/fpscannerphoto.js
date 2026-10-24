@@ -19,7 +19,7 @@ OTR.fpScannerPhoto={
     const d=scene.model.customerStop,K=OTR.fpScannerStop;if(d.captureToken||!d.photoMode||!OTR.fpCustomerStop.active(d))return Promise.resolve(false);
     scene.sync();const photo=scene.art.customerStop.photo(scene.view.camera),index=d.index,paused=scene.model.paused,transitioning=scene.transitioning,bounds=this.bounds();
     return new Promise(resolve=>{
-      const token={hidden:new Map(),done:false,finish:ok=>{if(token.done)return;token.done=true;if(d.captureToken===token)d.captureToken=null;this.restore(token.hidden);if(scene.model.customerStop===d){scene.model.paused=paused;if(scene.scenarioSession.phase==='active')scene.transitioning=transitioning;}resolve(ok);}};d.captureToken=token;scene.model.paused=true;scene.transitioning=true;this.mask(scene,token.hidden);
+      const token={hidden:new Map(),done:false,finish:ok=>{if(token.done)return;token.done=true;clearTimeout(token.timer);if(d.captureToken===token)d.captureToken=null;this.restore(token.hidden);if(scene.model.customerStop===d){scene.model.paused=paused;if(scene.scenarioSession.phase==='active')scene.transitioning=transitioning;}resolve(ok);}};d.captureToken=token;token.timer=setTimeout(()=>token.finish(false),8000);scene.model.paused=true;scene.transitioning=true;this.mask(scene,token.hidden);
       try{scene.game.renderer.snapshotArea(bounds.x,bounds.y,bounds.width,bounds.height,image=>{
         if(token.done)return;
         const current=scene.model.customerStop===d&&d.index===index&&scene.scenarioSession.phase==='active'&&d.captureToken===token;
