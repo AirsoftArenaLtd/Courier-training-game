@@ -348,6 +348,23 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
    });(report.moduleProof||(report.moduleProof={}))[name]=proof;report.moduleFixture=true;
   }
+  if(process.env.QA_CUSTOMERS==='1')for(const name of ['customerstreet','customerreply','customerphone','customerreception','customerdog','customerquestion','customerhistory','customertimed']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-customer-fixture'),{view:name});await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:180000});
+   await p.evaluate(name=>{
+    const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=scene.scenarioSession,m=scene.model,s=m.customerTalk,K=OTR.fpCustomerTalk,S=OTR.fpCustomerStage,A=OTR.fpCustomerScenario;window.otrBenchmarkScene='FirstPersonScenarioScene';scene.keyboardMode=true;OTR.fpScenario.begin(r);scene.closePanel();
+    scene.customerBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+    if(name==='customerdog'||name==='customertimed'){K.enter(s,'n4');S.apply(m.customerStage,s);K.enter(s,'n5');S.apply(m.customerStage,s);Object.assign(m.player,{x:11,z:-42.6});}
+    else K.enter(s,name==='customerphone'?'n3_call':name==='customerquestion'||name==='customerhistory'?'n4_left':name==='customerreception'?'n1':name==='customerreply'?'n1':'n0');
+    S.apply(m.customerStage,s);S.step(m.customerStage,0,true);const t=m.customerStage.target;m.player.yaw=Math.atan2(t.x-m.player.x,-(t.z-m.player.z));m.player.pitch=Math.atan2(1.65-t.y,Math.hypot(t.x-m.player.x,t.z-m.player.z));scene.sync();
+    if(name==='customerreply'||name==='customertimed'){K.advance(s);A.present(scene);}
+    if(name==='customerquestion')A.present(scene);
+    if(name==='customerhistory')A.history(scene);
+    // Static resource fixture: no decisions or deadlines elapse while the renderer is sampled.
+    if(scene.panel)scene.panel.customer=false;m.paused=true;scene.sync();scene.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=scene.model,s=m.customerTalk,r=scene.scenarioSession,before=scene.customerBefore,a=scene.art.customer;return {source:'customer-static-render-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,conversation:s.phase,target:a.target.userData.interaction,importedPeople:a.people.filter(p=>p.actor).length,importedBuildings:a.imports.length,actorCount:m.customerStage.actors.length,batches:a.batches.length,handheld:scene.handheld.isOpen,panel:!!scene.panel,canonical:s.content===OTR.registry.content(r.scenario),bounded:m.blocked(m.bounds.x0-1,m.bounds.z0),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});(report.customerProof||(report.customerProof={}))[name]=proof;report.customerFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
