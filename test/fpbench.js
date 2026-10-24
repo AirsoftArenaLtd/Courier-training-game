@@ -369,6 +369,27 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     },name);(report.packageLabelProof||(report.packageLabelProof={}))[name]=proof;report.packageLabelFixture=true;await sample(name);
    }
   }
+  if(process.env.QA_PACKAGE_SORT==='1'){
+   await p.evaluate(()=>{const old=OTR.game.scene.getScenes(true).find(s=>s.sys.settings.key!=='BootScene');if(old?.closePanel)old.closePanel(false);if(old?.releaseMouse)old.releaseMouse();OTR.registry.get('m2-sort').scene3d='package-sort-belt';OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m2-sort'});if(old&&old.sys.settings.key!=='FirstPersonScenarioScene')OTR.game.scene.stop(old.sys.settings.key);});
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   for(const name of ['sortbelt','sortconsole','sortlabel','sortmarks','sortjam','sortrule','sortcontrols','sortkeys']){
+    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+    const proof=await p.evaluate(name=>{
+     const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,state=s.model.packageSort,A=OTR.fpPackageSort;
+     window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;if(!s.sortBefore)s.sortBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+     if(s.handheld.isOpen)s.handheld.close(false);s.closePanel(false);OTR.fpScenario.begin(r);state.packages.length=0;state.jammed=null;state.state='play';A.wave(state,name==='sortjam'?2:4);A.begin(state);state.spawnTimer=100;state.selectedId=null;
+     for(let i=0;i<16;i++){const p=A.spawn(state);Object.assign(p,{position:-70+i*1252/16,route:1+i%3,priority:i%3===0,damage:i%4===0?'leak':null,dg:false,heavy:i%2===0,scanned:i===8});if(i===8)state.selectedId=p.id;}
+     Object.assign(state.packages[8],{priority:true,damage:'leak',heavy:true});
+     Object.assign(s.model.player,{x:name==='sortjam'?-7.4:-10,z:16.4,yaw:0,pitch:name==='sortconsole'?.6:.16});s.sync();
+     if(name==='sortlabel')OTR.fpPackageSortScenario.reading(s);if(name==='sortmarks')OTR.fpPackageSortScenario.reading(s,1);
+     if(name==='sortjam'){A.jam(state);state.beltSpeed=0;s.sync();}
+     if(name==='sortrule'){state.state='rule';OTR.fpPackageSortScenario.rule(s);}
+     if(name==='sortcontrols'||name==='sortkeys')OTR.fpPackageSortScenario.controls(s,name==='sortkeys'?1:0);
+     s.model.paused=true;s.refresh();const a=s.art.packageSort,b=s.sortBefore;
+     return {source:'physical-conveyor-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,parcels:state.packages.length,bodies:a.parcelMesh.count,batches:3,canonical:state.packages.some(p=>p.id===state.selectedId),bounded:!s.model.blocked(s.model.player.x,s.model.player.z),handheld:s.handheld.isOpen,panel:!!s.panel,checkpointUnchanged:b.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:b.events===JSON.stringify(OTR.workday.events),workdayUnchanged:b.workday===JSON.stringify(OTR.save.data.workday||null)};
+    },name);(report.packageSortProof||(report.packageSortProof={}))[name]=proof;report.packageSortFixture=true;await sample(name);
+   }
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

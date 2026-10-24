@@ -1,4 +1,4 @@
-/* Project-made conveyor, physical routing keys and a fixed parcel pool. Unwired until its adapter is ready. */
+/* Project-made conveyor, physical routing keys and a fixed parcel pool. Shared by the physical sorting adapter. */
 window.OTR=window.OTR||{};
 OTR.fpPackageSortWorld={
   bins:['R1','R2','R3','PRI','EXC','DG','HVY'],
@@ -10,7 +10,7 @@ OTR.fpPackageSortWorld={
   build(parent,{interactions=[],occluders=[],cube=null}={}){
     const T=THREE,A=this,b=A.belt,ownsCube=!cube;if(!cube)cube=new T.BoxGeometry(1,1,1);
     const root=new T.Group(),paint=new T.MeshLambertMaterial(),proxyPaint=new T.MeshBasicMaterial(),scratch=new T.Object3D(),colour=new T.Color(),position={x:0,y:0,z:0};root.name='package-sort-conveyor';parent.add(root);
-    // Every parcel uses at most twelve cube parts. Counts, buffers and proxy objects never grow in sync().
+    // Every parcel uses one body and at most twelve face parts. Counts, buffers and proxy objects never grow in sync().
     const plane=new T.PlaneGeometry(1,1),staticMesh=new T.InstancedMesh(cube,paint,192),parcelMesh=new T.InstancedMesh(cube,paint,16),markMesh=new T.InstancedMesh(plane,paint,512+16*12);
     staticMesh.frustumCulled=parcelMesh.frustumCulled=markMesh.frustumCulled=false;root.add(staticMesh,parcelMesh,markMesh);let staticCount=0,partCount=0,glyphCount=0,disposed=false;
     const put=(mesh,index,x,y,z,w,h,d,hex,rx=0,rz=0)=>{scratch.rotation.set(rx,0,rz);scratch.position.set(x,y,z);scratch.scale.set(w,h,d);scratch.updateMatrix();mesh.setMatrixAt(index,scratch.matrix);colour.setHex(hex);mesh.setColorAt(index,colour);};
