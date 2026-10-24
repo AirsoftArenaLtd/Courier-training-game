@@ -390,6 +390,26 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     },name);(report.packageSortProof||(report.packageSortProof={}))[name]=proof;report.packageSortFixture=true;await sample(name);
    }
   }
+  if(process.env.QA_PACKAGE_LIFT==='1'){
+   await p.evaluate(()=>{const old=OTR.game.scene.getScenes(true).find(s=>s.sys.settings.key!=='BootScene');if(old?.closePanel)old.closePanel(false);if(old?.releaseMouse)old.releaseMouse();OTR.registry.get('m2-lift').scene3d='package-lift-bay';OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m2-lift'});if(old&&old.sys.settings.key!=='FirstPersonScenarioScene')OTR.game.scene.stop(old.sys.settings.key);});
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   for(const name of ['liftfloor','liftgrip','liftteam','lifttruck','liftshelf','liftbad','liftcontrols','liftstatus']){
+    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+    const proof=await p.evaluate(name=>{
+     const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=scene.scenarioSession,s=scene.model.packageLift,B=OTR.fpPackageLiftBay;
+     window.otrBenchmarkScene='FirstPersonScenarioScene';scene.keyboardMode=true;if(!scene.liftBefore)scene.liftBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+     if(scene.handheld.isOpen)scene.handheld.close(false);scene.closePanel(false);OTR.fpScenario.begin(r);s.phase='verdict';s.index=({liftteam:2,lifttruck:3,liftshelf:4,liftbad:1,liftcontrols:2,liftstatus:2}[name]||0)-1;s.health=100;s.score=0;s.qualities=[];s.mistakes=[];s.result=null;B.next(s);
+     if(name!=='liftfloor'&&name!=='liftcontrols')B.choose(s,name==='liftbad'?2:0);
+     if(name==='liftgrip'||name==='liftteam'){if(s.helper)B.requestHelper(s);s.pose.x=640;s.pose.squat=1;B.grip(s);if(name==='liftteam'){s.pose.squat=0;s.pose.dir=-1;s.pose.x=500;}}
+     if(name==='lifttruck'){s.pose.x=s.bay.sourceX+80;B.takeHandle(s);while(s.bay.transport<.5)B.step(s,{left:true},.05);}
+     if(name==='liftbad'){s.pose.x=640;OTR.fpPackageLift.solve(s,0);}
+     B.project(s);Object.assign(scene.model.player,{x:s.bay.body.x,z:s.bay.body.z});OTR.fpPackageLiftScenario.faceLoad(scene);scene.sync();
+     if(name==='liftcontrols')OTR.fpPackageLiftScenario.controls(scene);if(name==='liftstatus')OTR.fpPackageLiftScenario.reading(scene);
+     scene.model.paused=true;scene.refresh();const a=scene.art.packageLift,b=scene.liftBefore;
+     return {source:'physical-lifting-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,canonical:s.content.lifts[s.index]===s.lift,targets:scene.art.interactions.filter(o=>o.parent===a.root).length,batches:a.batches.length,workerImported:!!a.worker,bounded:!scene.model.blocked(scene.model.player.x,scene.model.player.z),eye:scene.view.camera.position.y,handheld:scene.handheld.isOpen,panel:!!scene.panel,checkpointUnchanged:b.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:b.events===JSON.stringify(OTR.workday.events),workdayUnchanged:b.workday===JSON.stringify(OTR.save.data.workday||null)};
+    },name);(report.packageLiftProof||(report.packageLiftProof={}))[name]=proof;report.packageLiftFixture=true;await sample(name);
+   }
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
