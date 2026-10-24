@@ -74,6 +74,6 @@ OTR.fpScenario.register('package-sort-belt',{
     const s=run.model.packageSort;
     // The normal five-wave run finishes well inside the outer cap. A forced expiry only settles real in-flight parcels.
     if(s.state!=='done'){s.state='play';while(s.packages.length)OTR.fpPackageSort.miss(s,s.packages[0]);s.state='done';}
-    return OTR.fpPackageSort.result(s);
+    return {...OTR.fpPackageSort.result(s),log:null};
   }
 });

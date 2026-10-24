@@ -46,3 +46,14 @@ test('conveyor batches cull real instances in each mirror and restore the main b
  }
  assert.ok(discarded>0,'offscreen conveyor geometry is not resubmitted in full');assert.ok(Math.max(...counts)<1700);s.art.dispose();
 });
+test('the actual shared result flow preserves legacy stars, attempts and lesson meaning',()=>{
+ const old={flow:O.flow,registry:O.registry,save:O.save,fx:O.fx},received=[];
+ try{
+  vm.runInContext(fs.readFileSync(__dirname+'/../src/core/scoring.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/../src/core/flow.js','utf8'),c);O.registry=old.registry;
+  O.fx={transition:(scene,key,data)=>received.push(data)};O.save={recordResult:(id,record)=>record,logAttempt(){}};
+  const s=fixture(),state=s.model.packageSort;state.state='done';state.score=600;Object.assign(state.stats,{correct:5,scanned:5,excTotal:2,excCorrect:2});
+  const plain={...S.result(state)};O.flow.complete(s,scenario.id,plain);F.finish(s.scenarioSession,s);
+  assert.equal(received.length,2);assert.deepEqual(JSON.parse(JSON.stringify(received[1].stars)),{safety:3,efficiency:3});
+  assert.equal(JSON.stringify(received[1].stars),JSON.stringify(received[0].stars));assert.equal(JSON.stringify(received[1].verdict),JSON.stringify(received[0].verdict));assert.equal(JSON.stringify(received[1].rec),JSON.stringify(received[0].rec));s.art.dispose();
+ }finally{Object.assign(O,old);}
+});

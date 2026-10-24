@@ -82,3 +82,9 @@ test('bounded depot, street, doorstep and cab builds retain reachable targets un
   let triangles=0,calls=0;world.traverse(o=>{if(!o.isMesh||!o.visible)return;let p=o.parent;while(p){if(!p.visible)return;p=p.parent;}calls++;triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3*(o.isInstancedMesh?o.count:1);});assert.ok(triangles<2500,piece+': '+triangles);assert.ok(calls<64,piece+': '+calls);art.dispose();assert.equal(world.children.length,1);
  }
 });
+test('an explicit null log preserves legacy ratio results; omitted logs still use the session log',()=>{
+ for(const explicit of [true,false]){
+  F.definitions.set('test-cab',{...base,result:()=>({score:100,ratios:{safety:1},...(explicit?{log:null}:{})})});
+  const r=start();assert.equal(F.finish(r,{}),true);assert.equal(completed.at(-1).result.log,explicit?null:r.log);
+ }
+});

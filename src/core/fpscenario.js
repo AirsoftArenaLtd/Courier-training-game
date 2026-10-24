@@ -57,7 +57,8 @@ OTR.fpScenario={
     const result=run.definition.result(run,reason);
     if(!result||!Number.isFinite(result.score)||result.score<0||!result.ratios||
       Object.entries(result.ratios).some(([cat,n])=>!run.scenario.categories.includes(cat)||!Number.isFinite(n)||n<0||n>1))throw Error('Invalid 3D scenario result');
-    result.log=result.log||run.log;result.stats={...result.stats,seconds:Math.round(run.elapsed)};
+    // An explicit null retains a legacy scene's ratio/lesson result without inventing an empty log.
+    if(result.log===undefined)result.log=run.log;result.stats={...result.stats,seconds:Math.round(run.elapsed)};
     run.phase='finished';run.result=result;OTR.flow.complete(scene,run.id,result);return true;
   },
   abandon(run){
