@@ -1,0 +1,22 @@
+{
+  "snapshot": true,
+  "runtime": "fa1a5579",
+  "completedJobs": [
+    {
+      "job": "scorm-2004",
+      "exit": 0,
+      "command": [
+        "node",
+        "test/scorm-launch-2004.js"
+      ],
+      "environment": {}
+    }
+  ],
+  "activeAtSnapshot": {
+    "phase": "resources",
+    "state": "running",
+    "runtime": "fa1a5579",
+    "protocol": "fa1a5579"
+  },
+  "notFinalAcceptance": true
+}

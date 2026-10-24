@@ -35,7 +35,7 @@
     "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
   },
   "pureNodePassed": 80,
-  "scormBrowserDeferredToSequentialRun": true,
+  "scormBrowserDeferredToSequentialRun": false,
   "logicalParity": {
     "endings": 139,
     "comparisons": 1372,
@@ -75,6 +75,16 @@
       "file": "README.md",
       "bytes": 2344,
       "sha256": "44e9dd9fd37fd1a4ca5e8ba011a72b9682bf2088f190f80ce45604c73b5278d6"
+    },
+    {
+      "file": "VALIDATION.md",
+      "bytes": 2219,
+      "sha256": "2ade8e84defc2338fea11d9bb5e27816fbb35a85180d90a823ffd26b7eb13d17"
+    },
+    {
+      "file": "browser-progress.json",
+      "bytes": 397,
+      "sha256": "c44a41a1daa8eb26a214887b1cbd9fb32172f85ea7624f61f8d97d62b6c66c98"
     },
     {
       "file": "cancelled-f3462fc2-resource-run/README.md",
@@ -147,6 +157,16 @@
       "sha256": "9675383aa62addd9af8e3d6e92a7a664e98814501f06a2150ba4763ff5540d53"
     },
     {
+      "file": "scorm-2004.log",
+      "bytes": 764,
+      "sha256": "799141ef6c752be42cbc94e6d6f3a38903a0f545765748660b6e965b56678edd"
+    },
+    {
+      "file": "sequential-pipeline.py",
+      "bytes": 3399,
+      "sha256": "8d463898a0891c0126ab0926d2ee260ff93cde68d545b82cf95af062a6917123"
+    },
+    {
       "file": "source-equivalence.json",
       "bytes": 2107,
       "sha256": "f20f437e9afd631a9f067f882495a57482d61d5f0c9348394767e7165dd42ea6"
@@ -161,5 +181,28 @@
       "bytes": 2404,
       "sha256": "a21ee8f4c6e042a479f144832ad401af930e1c6f1da034fadeed9409027b7e58"
     }
-  ]
+  ],
+  "scorm2004BrowserPassed": true,
+  "browserProgress": {
+    "snapshot": true,
+    "runtime": "fa1a5579",
+    "completedJobs": [
+      {
+        "job": "scorm-2004",
+        "exit": 0,
+        "command": [
+          "node",
+          "test/scorm-launch-2004.js"
+        ],
+        "environment": {}
+      }
+    ],
+    "activeAtSnapshot": {
+      "phase": "resources",
+      "state": "running",
+      "runtime": "fa1a5579",
+      "protocol": "fa1a5579"
+    },
+    "notFinalAcceptance": true
+  }
 }
