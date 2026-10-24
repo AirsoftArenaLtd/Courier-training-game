@@ -31,7 +31,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8382',OUT=path.join(__dirname,
     if(wave<4){await page.waitForFunction(()=>!!OTR.game.scene.getScene('FirstPersonScenarioScene').panel,{timeout:180000});await panelLayout(large);await key('Digit1');}
    }
    if(large){await key('Escape');await key('Digit3');await ready('HubScene');const a=await page.evaluate(()=>OTR.save.data.assess['m2-sort']);check(a.attempts,1);check(a.pending,false);check(a.abandoned,true);mode.assessment=a;}
-   else{await ready('ResultsScene');const r=await page.evaluate(()=>({id:OTR.flow.last.id,score:OTR.flow.last.score,ratios:OTR.flow.last.ratios,record:OTR.save.data.scenarios['m2-sort']}));check(r.id,'m2-sort');check(r.score,600);check(r.ratios.efficiency,1);check(r.ratios.safety,1);check(r.record.plays,1);mode.result=r;}
+   else{await ready('ResultsScene');const r=await page.evaluate(()=>({id:OTR.flow.last.id,score:OTR.game.scene.getScene('ResultsScene').d.result.score,ratios:OTR.game.scene.getScene('ResultsScene').d.result.ratios,stars:OTR.flow.last.stars,untested:OTR.flow.last.verdict.untested,record:OTR.save.data.scenarios['m2-sort']}));check(r.id,'m2-sort');check(r.score,600);check(r.ratios.efficiency,1);check(r.ratios.safety,1);check(r.record.plays,1);check(r.record.bestScore,600);check(r.stars,{safety:3,efficiency:3});check(r.untested,[]);mode.result=r;}
    const after=await page.evaluate(()=>({checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)}));check(after,before,'conveyor module cannot change the actual suspended workday/checkpoint/reports');save();await page.close();page=null;
   }
   check(report.errors,[]);report.complete=true;save();
