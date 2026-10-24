@@ -1,12 +1,19 @@
 {
-  "checksSoFar": 3066,
-  "completedJourneys": 2,
+  "checksSoFar": 6288,
+  "completedJourneys": 4,
   "completedLayouts": [
     {
       "quality": "low",
       "lang": "en",
       "large": false,
       "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": null,
+      "criticals": 0,
       "durable": true
     },
     {
@@ -14,10 +21,45 @@
       "lang": "en",
       "large": true,
       "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": true,
+      "criticals": 0,
+      "durable": true
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": null,
+      "criticals": 0,
+      "durable": true
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "score": 5800,
+      "ratios": {
+        "service": 0.8285714285714286,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": false,
+      "criticals": 1,
       "durable": true
     }
   ],
   "complete": false,
   "failureAtCheckpoint": null,
-  "note": "The global check counter also includes part of the next journey. This snapshot is progress evidence, not a completed eight-layout pass."
+  "note": "The global check counter includes part of the next journey. This is not a complete eight-layout pass. Original result PNGs are transitional diagnostic captures; settled result captures are pending."
 }

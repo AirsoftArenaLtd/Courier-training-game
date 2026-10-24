@@ -76,6 +76,21 @@ All 44 graphics views pass the original ceilings:
 | Larger/colour/reduced Low | 37 | 1,654 | 2 | 3,557,376 | 2,214,272 |
 | Missing assets Low | 40 | 1,476 | 2 | 3,557,376 | 2,055,110 |
 
+All four full Low keyboard journeys are now complete, at normal/larger text in English/Tamil. Three
+keep the original 6,400 points and clean ratios. The larger Tamil assessment chooses the authored neighbor
+critical and keeps 5,800 points, service 29/35, one critical and a failed verdict. Every result survives
+reload without changing the suspended workday or checkpoint. Exact completed cases are in
+`low-native-validation.json`; the full eight-layout native run remains incomplete.
+
+Visual inspection caught premature result captures: the source protocol takes them during the result
+animations. Those original result PNGs are retained as diagnostic transition poses, not final visual
+acceptance. The test-only `fp-result-capture` helper now waits for the real star counter, transition and
+rank-up card, using Space to dismiss a real card when present. Its syntax checks pass; native integration
+is pending in the sequential follow-ups. An extra complete Low larger-Tamil critical journey is queued
+for settled result evidence. Some existing Tamil words also show boxed glyphs in the cloud result capture;
+that observation is posted to Claude for shared font/A-31 diagnosis. No theme, font or translation source
+has been edited, and no all-language readability acceptance is claimed.
+
 Native validation is being collected against the frozen candidate. Final reports, screenshots and exact raw logs
 will be indexed in `manifest.json`; pending jobs must not be treated as passed. Cloud software-renderer
 FPS cannot certify the owner's Intel 60 FPS requirement. New English sentences still await translation;
