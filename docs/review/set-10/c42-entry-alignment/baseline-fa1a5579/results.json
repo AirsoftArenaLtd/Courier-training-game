@@ -1,0 +1,22 @@
+[
+  {
+    "job": "scorm-2004",
+    "exit": 0,
+    "command": [
+      "node",
+      "test/scorm-launch-2004.js"
+    ],
+    "environment": {}
+  },
+  {
+    "job": "resources",
+    "exit": 0,
+    "command": [
+      "node",
+      "test/tools/fp-problem-quality.js"
+    ],
+    "environment": {
+      "QA_TAG": "c42-resource-fa1a5579"
+    }
+  }
+]

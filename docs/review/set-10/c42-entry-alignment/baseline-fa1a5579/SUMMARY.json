@@ -1,0 +1,89 @@
+{
+  "source": "fa1a5579",
+  "nativeChecksAtStop": 2742,
+  "completedNativeJourneys": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "address",
+      "durable": true
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "recover",
+      "durable": true
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "damaged",
+      "durable": true
+    }
+  ],
+  "complete": false,
+  "cancelled": true,
+  "nativeTermination": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at walk (/workspace/c42-problem-solving/test/fpproblembrowser.js:14:678)\n    at async go (/workspace/c42-problem-solving/test/fpproblembrowser.js:18:309)\n    at async /workspace/c42-problem-solving/test/fpproblembrowser.js:29:113"
+  },
+  "resourceProfiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c42-resource-fa1a5579-loaded-low-low.json",
+      "log": "c42-resource-fa1a5579-loaded-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 1934,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1939083
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c42-resource-fa1a5579-loaded-high-high.json",
+      "log": "c42-resource-fa1a5579-loaded-high.log",
+      "peak": {
+        "calls": 46,
+        "triangles": 26024,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5252955
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c42-resource-fa1a5579-accessible-low-low.json",
+      "log": "c42-resource-fa1a5579-accessible-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 1934,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2106224
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c42-resource-fa1a5579-fallback-low-low.json",
+      "log": "c42-resource-fa1a5579-fallback-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 1614,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1939083
+      }
+    }
+  ],
+  "resourceViews": 48,
+  "reasonSuperseded": "Screenshot review found a duplicate procedural door over the imported entrance and a recipient fixture at the wrong address. These are baseline diagnostics, not final current-source or visual acceptance."
+}
