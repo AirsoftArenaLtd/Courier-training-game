@@ -1,5 +1,7 @@
 # C-43 photo capture correction — 24 October 2026
 
+Final-source progress: `loaded-low-8d5fb383/` contains the complete fourteen-view loaded-Low pass (37 / 1674 / 2 / 3557376 / 2974406). `native-low-en-pod-8d5fb383/` contains the first complete durable native journey: 1,226 checks, three POD stops, original 6200 score. The remaining profiles/journeys are still active. These are scoped passes, not a complete C43 acceptance.
+
 Frozen runtime `8d5fb383`, task still doing on `codex/c43-scanner-exceptions`. All 86 pure Node suites and every changed JS syntax check pass freshly. The Low CPU geometry sweep remains 18,684 views at loaded 34 calls / 2,186 triangles and fallback 37 / 2,046. Shared/default/registry/scoring/save/Settings/i18n source is unchanged.
 
 The first rendered Low baseline at 0adf5acc passed numerical limits but showed the module HUD over the viewfinder and no captured-image preview. It is retained as superseded diagnostic evidence in `baseline-0adf5acc/`; High was stopped intentionally before code edits. The new camera captures the actual framebuffer with UI hidden, keeps the selected camera pose until readback finishes, and displays one transient image at 320×180 on Low or 640×360 on High. Retakes replace the same thumbnail. Next-stop/shutdown cleanup releases it; nothing enters saves or scoring. An eight-second watchdog restores input if readback never returns, and late callbacks cannot complete an old stop.
