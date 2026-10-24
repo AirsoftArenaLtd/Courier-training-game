@@ -35,3 +35,12 @@ test('assessment omits the guide and feedback; the original 2D scenario remains 
  O.fpPackageLabelScenario.inspect(s);assert.ok(page);assert.equal(page.options.some(o=>o.label==='Read the handling guide.'),false);O.fpPackageLabelScenario.guide(s);assert.equal(closed,1);
  s.showPanel=(title,body)=>{assert.equal(body,'Your decision has been recorded.');};O.fpPackageLabelScenario.verdict(s,{ok:false,station:'belt'});s.art.dispose();O.academy.assessing=null;
 });
+test('turn controls require the front operator position and acknowledge unavailable inputs without grading',()=>{
+ const s=fixture();O.fpPackageLabelScenario.next(s);let panel=null,page=null;
+ s.message=()=>{};s.showPanel=(title,body,choices)=>{panel={title,body,choices};};s.handheld={show(p){page=p;},close(){}};
+ for(const position of [{x:-6,z:9,yaw:0},{x:-10,z:13.2,yaw:Math.PI}]){
+  Object.assign(s.model.player,position);s.sync();panel=null;O.fpPackageLabelScenario.inspect(s);
+  assert.ok(panel,'assessment-independent neutral feedback is visible');assert.equal(panel.body,'Stand in front of the inspection table and look at the package before turning it.');assert.equal(s.model.packageLabels.stats.total,0);assert.equal(page,null);
+ }
+ Object.assign(s.model.player,{x:-10,z:16.6,yaw:0});s.sync();O.fpPackageLabelScenario.inspect(s);assert.equal(page.title,'Inspect package 1 of 9.');s.art.dispose();
+});
