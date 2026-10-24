@@ -1,0 +1,10 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -72,6 +72,7 @@
+         title: 'Sort Belt',
+         icon: 'ic_belt',
+         scene: 'SortingScene',
++        scene3d: 'package-sort-belt',
+         dataKey: 'sorting',
+         categories: ['efficiency', 'safety'],
+         blurb: 'Packages ride the belt face-down. Scan each one to find out where it goes, then send it — routes, priority, damage, dangerous goods, heavy freight, and the jams in between.',

@@ -1,0 +1,13 @@
+{
+  "sourceRevision": "f803c63c7d42be6b1a0cb1946d7dd25babc9ef68",
+  "scope": "Eight physical conveyor views in four original profiles; not a fresh complete default workday gate.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 1,
+      "report": "bench-c40-sort-probe-loaded-low-low.json",
+      "log": "c40-sort-probe-loaded-low.log",
+      "error": "fpbench failed."
+    }
+  ]
+}

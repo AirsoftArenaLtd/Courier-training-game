@@ -1,0 +1,15 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the real scan, numbered route and neutral assessment acknowledgement retain the original score (44.587114ms)
+✔ blind and wrong routes, stale inputs and double confirms cannot create extra credit (9.265599ms)
+✔ wave cards wait until the previous belt clears; jam reset requires a stopped belt and nearby ray (8.288949ms)
+✔ a complete five-wave run keeps m2-sort ratios and never changes the suspended workday (11.1033ms)
+✔ conveyor batches cull real instances in each mirror and restore the main buffers exactly (32.785439ms)
+✔ the actual shared result flow preserves legacy stars, attempts and lesson meaning (4.814363ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.932446

@@ -1,5 +1,7 @@
 # C-40 physical label station
 
+This report describes the label sources below. Later conveyor integration and current remaining work are tracked in [C-40 status](../c40-STATUS.md).
+
 C-40 remains **doing** on `codex/c40-package-handling`, stacked on pushed C-38. This is the label-inspection slice.
 Physical sorting, lifting, team/equipment workflows and optional `m2-heavy` remain. The sorting/lifting kernels and
 conveyor renderer are separately source-scoped in `../c40-models-progress/` and `../c40-sort-world-progress/`; none is

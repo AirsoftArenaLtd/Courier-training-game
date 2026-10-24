@@ -1,0 +1,34 @@
+[
+  {
+    "suite": "auth.js",
+    "exit": 0
+  },
+  {
+    "suite": "credits.js",
+    "exit": 0
+  },
+  {
+    "suite": "data.js",
+    "exit": 0
+  },
+  {
+    "suite": "package.js",
+    "exit": 0
+  },
+  {
+    "suite": "report.js",
+    "exit": 0
+  },
+  {
+    "suite": "reviewsheet.js",
+    "exit": 0
+  },
+  {
+    "suite": "scorm-launch-2004.js",
+    "exit": 0
+  },
+  {
+    "suite": "xapi.js",
+    "exit": 0
+  }
+]

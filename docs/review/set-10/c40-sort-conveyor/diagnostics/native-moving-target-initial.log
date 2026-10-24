@@ -1,0 +1,16 @@
+low en normal
+low en large
+low ta normal
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+
+false !== true
+
+    at check (/workspace/c40-package-handling/test/fppackagesortbrowser.js:7:122)
+    at /workspace/c40-package-handling/test/fppackagesortbrowser.js:28:5 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
