@@ -1,0 +1,13 @@
+# C-43 physical scanner progress
+
+Runtime `0adf5acc`, stacked on pushed C-42 `4757d8e2` and its C-41/C-38 dependency. Whole C-43 is doing. The registry proposal is unapplied. No shared/default edit, merge, rendered/native pass or Intel FPS claim.
+
+The model retains original M5 stop ids, categories, pars, training date and StopScene/TalkController checks. Six model tests cover 568 actual callback/evaluator cases across nine stops, 14 scripted reply branches, ID refusals and harmful releases, retakes and the original complete-set scores (6,200 / 5,100 / 6,200). Four physical scenario tests finish all nine stops through motor/rays/panels and guard far/stale actions. Four world tests cover loaded/fallback Low/High models, supported parcel/planter placement, real photo occlusion, non-overlapping shelf parcels, fitted surface rays and stable/disposed buffers. The original High-door placement failure is retained in the pre-fix diagnostic log; the final regression now passes in all four model/quality combinations.
+
+CPU geometry: 18,684 views, loaded 34 calls / 2,186 triangles; fallback 37 / 2,046. Original 64 / 2,500 ceilings, main plus the most costly actual mirror. Excludes compositor, GPU memory, High and Intel FPS. Existing portrait/text memory still needs fpbench measurement.
+
+All 81 pure Node suites passed at the model-only f2fad1e5 stage; all 84 passed at the initial physical 7c333fa5 stage. Their raw logs/inventory/results are separately indexed. All 84 pure Node suites pass freshly on 0adf5acc, including fpmission, fpworld, workday, savesize and i18n; every changed JS file passes node --check. The SCORM2004 wrapper is a browser despite the shared inventory label and is excluded from these Node batches, then explicitly run in the sequential browser pipeline.
+
+`source-equivalence.json` freezes the runtime/reference files. `sequential-pipeline.py` waits for the sole C-42 browser sequence, then verifies the final Node gate and source hashes before starting its own server/browser. It runs SCORM2004, 56 rendered views in the unchanged four quality profiles, 24 native three-stop good journeys, a harmful adult-ID assessment, legacy doorstep/recovery and required repository browser suites. Status `/tmp/c43-browser-0adf5acc/status.json`; supervisor `/tmp/c43-sequential-final.py`. No C-43 browser or screenshot evidence exists yet. This directory must be updated from actual reports before claiming acceptance.
+
+Global Tamil font correction, translations and current-pilot/A-30/A-31 acceptance belong to Claude. Bounds do not certify readable Tamil. Owner Intel 60 FPS remains O-1. C-44/C-45/C-46 remain three queued tasks; permanent hourly automation is enabled without an end date.

@@ -1,0 +1,82 @@
+[
+  {
+    "file": "src/core/fpscanneridentity.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpscannerstop.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpscannerstopscenario.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpscannerstopworld.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpproblembrowser.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpscannerstop.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpscannerstopbrowser.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpscannerstopgeometry.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpscannerstopscenario.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/fpscannerstopworld.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/tools/fp-scanner-context.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/tools/fp-scanner-fixture.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/tools/fp-scanner-pose.js",
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "file": "test/tools/fp-scanner-quality.js",
+    "exit": 0,
+    "output": ""
+  }
+]

@@ -1,0 +1,13 @@
+{"physicalGoodResults":[{"id":"m5-pod","score":6200},{"id":"m5-exceptions","score":5100},{"id":"m5-adult","score":6200}]}
+✔ all nine stops use real door/cargo/person rays and the handheld without altering the suspended workday (600.879477ms)
+✔ distant delivery and stale ID actions cannot hand over or move a package (16.498777ms)
+✔ placement requires approaching that actual location; the parcel remains placed across photo menus and retakes (14.818153ms)
+✔ an old handheld page cannot record an exception against the next stop (15.217109ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 689.005004
