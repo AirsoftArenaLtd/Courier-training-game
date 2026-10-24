@@ -1,0 +1,12 @@
+✔ five real bay workflows preserve the original 1000 points and perfect safety/technique (15.764487ms)
+✔ all 13 original choices retain their health, quality, equipment points and helper requirement (4.496148ms)
+✔ the platform prevents floating sideways; only an explicit carrying step requests a foot pivot (0.275495ms)
+✔ projection reuses fixed objects and stays finite through stance, platform, helper and trolley states (192.915919ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225.239631

@@ -1,0 +1,38 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✖ bay props and every projected body position preserve the original depot clearance (38.796793ms)
+✔ real load, call button and hand truck targets enforce the selected physical workflow (64.073785ms)
+✔ five controller workflows produce the original 1000-point legacy result and preserve the real workday stream (32.737555ms)
+✔ assessment acknowledgement and expiry do not invent a result for unhandled loads (40.671619ms)
+✔ the physical bay hint names knee and stance keys through the saved remapping (0.209118ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.596577
+
+✖ failing tests:
+
+test at test/fppackageliftscenario.js:9:1
+✖ bay props and every projected body position preserve the original depot clearance (38.796793ms)
+  AssertionError [ERR_ASSERTION]: camera diagnostics must follow the physical knee/platform height
+  + actual - expected
+
+  + 1.65
+  - 1.0499999999999998
+
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackageliftscenario.js:11:290)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1.65,
+    expected: 1.0499999999999998,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,37 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ one fixed bay serves every load with fixed instance buffers, targets and finite transforms (143.606815ms)
+✔ the active load and gauge targets coincide with physical bay geometry and real rays (7.801933ms)
+✔ bay disposal releases owned buffers once and never disposes the shared cube (0.692089ms)
+✖ the physical spine needle clears stale readings outside a reachable posture (5.329193ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 167.020315
+
+✖ failing tests:
+
+test at test/fppackageliftworld.js:20:1
+✖ the physical spine needle clears stale readings outside a reachable posture (5.329193ms)
+  AssertionError [ERR_ASSERTION]: assessment must not display the preceding load
+
+  -9.73 !== -10.3
+
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackageliftworld.js:23:19)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: -9.73,
+    expected: -10.3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

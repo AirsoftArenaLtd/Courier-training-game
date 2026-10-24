@@ -1,0 +1,15 @@
+low en normal
+low en large
+low ta normal
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(t.top>=100&&t.bottom<=700)
+
+    at /workspace/c40-package-handling/test/fppackageliftbrowser.js:25:573 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

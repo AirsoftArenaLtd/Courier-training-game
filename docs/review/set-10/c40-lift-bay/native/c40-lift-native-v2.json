@@ -1,0 +1,1244 @@
+{
+  "checks": 1793,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 2,
+          "score": 600,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 3,
+          "score": 800,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 4,
+          "score": 1000,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-low-en-normal-load1.png",
+        "c40-lift-native-v2-low-en-normal-load2.png",
+        "c40-lift-native-v2-low-en-normal-load3.png",
+        "c40-lift-native-v2-low-en-normal-load4.png",
+        "c40-lift-native-v2-low-en-normal-load5.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.13322666666666677,
+          0.13322666666666677
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 167
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 173,
+            "bottom": 190
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 196,
+            "bottom": 213
+          }
+        ]
+      },
+      "result": {
+        "id": "m2-lift",
+        "result": {
+          "score": 1000,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "lessons": [
+            "Textbook lifting! Close, knees bent, back straight, smooth, pivot — every single time."
+          ],
+          "mistakes": 0,
+          "summary": "Your back health is 100 out of 100. Your lifting technique is 100 percent.",
+          "stats": {
+            "health": 100,
+            "avg": 1,
+            "seconds": 29
+          },
+          "log": null
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792819393613
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-low-en-large-load1.png",
+        "c40-lift-native-v2-low-en-large-load2.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.09995333333333331,
+          0.09995333333333331
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 412.5,
+            "bottom": 458.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 464.5,
+            "bottom": 510.5,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 103.5,
+            "bottom": 124.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 169
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 175,
+            "bottom": 194
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 219
+          }
+        ]
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792819398613,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792819438510
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 2,
+          "score": 600,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 3,
+          "score": 800,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 4,
+          "score": 1000,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-low-ta-normal-load1.png",
+        "c40-lift-native-v2-low-ta-normal-load2.png",
+        "c40-lift-native-v2-low-ta-normal-load3.png",
+        "c40-lift-native-v2-low-ta-normal-load4.png",
+        "c40-lift-native-v2-low-ta-normal-load5.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.13328000000000015,
+          0.13328000000000015
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414,
+            "bottom": 460,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466,
+            "bottom": 512,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106,
+            "bottom": 122
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520,
+            "bottom": 536
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 168
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 174,
+            "bottom": 192
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 198,
+            "bottom": 216
+          }
+        ]
+      },
+      "result": {
+        "id": "m2-lift",
+        "result": {
+          "score": 1000,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "lessons": [
+            "Textbook lifting! Close, knees bent, back straight, smooth, pivot — every single time."
+          ],
+          "mistakes": 0,
+          "summary": "Your back health is 100 out of 100. Your lifting technique is 100 percent.",
+          "stats": {
+            "health": 100,
+            "avg": 1,
+            "seconds": 29
+          },
+          "log": null
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792819501361
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-low-ta-large-load1.png",
+        "c40-lift-native-v2-low-ta-large-load2.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.1332866666666663,
+          0.1332866666666663
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 412.5,
+            "bottom": 458.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 464.5,
+            "bottom": 510.5,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 171
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 177,
+            "bottom": 198
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 204,
+            "bottom": 225
+          }
+        ]
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792819506478,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792819547428
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 2,
+          "score": 600,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 3,
+          "score": 800,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 4,
+          "score": 1000,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-high-en-normal-load1.png",
+        "c40-lift-native-v2-high-en-normal-load2.png",
+        "c40-lift-native-v2-high-en-normal-load3.png",
+        "c40-lift-native-v2-high-en-normal-load4.png",
+        "c40-lift-native-v2-high-en-normal-load5.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.11659999999999962,
+          0.11659999999999962
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 167
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 173,
+            "bottom": 190
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 196,
+            "bottom": 213
+          }
+        ]
+      },
+      "result": {
+        "id": "m2-lift",
+        "result": {
+          "score": 1000,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "lessons": [
+            "Textbook lifting! Close, knees bent, back straight, smooth, pivot — every single time."
+          ],
+          "mistakes": 0,
+          "summary": "Your back health is 100 out of 100. Your lifting technique is 100 percent.",
+          "stats": {
+            "health": 100,
+            "avg": 1,
+            "seconds": 25
+          },
+          "log": null
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792819914374
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-high-en-large-load1.png",
+        "c40-lift-native-v2-high-en-large-load2.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.13331333333333342,
+          0.13331333333333342
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 412.5,
+            "bottom": 458.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 464.5,
+            "bottom": 510.5,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 103.5,
+            "bottom": 124.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 169
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 175,
+            "bottom": 194
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 219
+          }
+        ]
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792819927228,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792820095149
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 2,
+          "score": 600,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 3,
+          "score": 800,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 4,
+          "score": 1000,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-high-ta-normal-load1.png",
+        "c40-lift-native-v2-high-ta-normal-load2.png",
+        "c40-lift-native-v2-high-ta-normal-load3.png",
+        "c40-lift-native-v2-high-ta-normal-load4.png",
+        "c40-lift-native-v2-high-ta-normal-load5.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.11664000000000013,
+          0.11664000000000013
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414,
+            "bottom": 460,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466,
+            "bottom": 512,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106,
+            "bottom": 122
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520,
+            "bottom": 536
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 168
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 174,
+            "bottom": 192
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 198,
+            "bottom": 216
+          }
+        ]
+      },
+      "result": {
+        "id": "m2-lift",
+        "result": {
+          "score": 1000,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "lessons": [
+            "Textbook lifting! Close, knees bent, back straight, smooth, pivot — every single time."
+          ],
+          "mistakes": 0,
+          "summary": "Your back health is 100 out of 100. Your lifting technique is 100 percent.",
+          "stats": {
+            "health": 100,
+            "avg": 1,
+            "seconds": 26
+          },
+          "log": null
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792820442817
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-lift-native-v2-high-ta-large-load1.png",
+        "c40-lift-native-v2-high-ta-large-load2.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.1166333333333335,
+          0.1166333333333335
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 412.5,
+            "bottom": 458.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 464.5,
+            "bottom": 510.5,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 171
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 177,
+            "bottom": 198
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 204,
+            "bottom": 225
+          }
+        ]
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1792820455137,
+        "pending": false,
+        "abandoned": true,
+        "at": 1792820664048
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Five real-key practice loads; two real-key assessment loads followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures.",
+  "complete": true
+}

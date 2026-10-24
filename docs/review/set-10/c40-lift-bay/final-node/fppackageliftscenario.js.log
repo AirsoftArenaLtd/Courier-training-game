@@ -1,0 +1,14 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ bay props and every projected body position preserve the original depot clearance (76.550778ms)
+✔ real load, call button and hand truck targets enforce the selected physical workflow (10.100937ms)
+✔ five controller workflows produce the original 1000-point legacy result and preserve the real workday stream (34.463007ms)
+✔ assessment acknowledgement and expiry do not invent a result for unhandled loads (7.384271ms)
+✔ the physical bay hint names knee and stance keys through the saved remapping (0.282915ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 134.803401

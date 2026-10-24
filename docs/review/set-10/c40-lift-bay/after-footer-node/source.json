@@ -1,0 +1,56 @@
+{
+  "runtimeRevision": "2633b332",
+  "executedAtRevision": "7a43713fb5b83f04df113a1f67c3b48a3973174b",
+  "scope": "Twelve affected/regression suites after the footer correction. Later native-test-only commits do not change these files.",
+  "suites": [
+    {
+      "suite": "fphud.js",
+      "exit": 0
+    },
+    {
+      "suite": "fpscenario.js",
+      "exit": 0
+    },
+    {
+      "suite": "fpaccess.js",
+      "exit": 0
+    },
+    {
+      "suite": "fppackagelift.js",
+      "exit": 0
+    },
+    {
+      "suite": "fppackageliftbay.js",
+      "exit": 0
+    },
+    {
+      "suite": "fppackageliftworld.js",
+      "exit": 0
+    },
+    {
+      "suite": "fppackageliftscenario.js",
+      "exit": 0
+    },
+    {
+      "suite": "fpworld.js",
+      "exit": 0
+    },
+    {
+      "suite": "fpqualitygate.js",
+      "exit": 0
+    },
+    {
+      "suite": "workday.js",
+      "exit": 0
+    },
+    {
+      "suite": "savesize.js",
+      "exit": 0
+    },
+    {
+      "suite": "i18n.js",
+      "exit": 0
+    }
+  ],
+  "logs": "Readable focused logs trim line-end whitespace; .log.gz files and indexed raw-node-logs.tar.gz archives preserve exact originals."
+}
