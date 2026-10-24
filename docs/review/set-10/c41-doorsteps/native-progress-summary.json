@@ -1,0 +1,23 @@
+{
+  "checksSoFar": 3066,
+  "completedJourneys": 2,
+  "completedLayouts": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 6400,
+      "durable": true
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "score": 6400,
+      "durable": true
+    }
+  ],
+  "complete": false,
+  "failureAtCheckpoint": null,
+  "note": "The global check counter also includes part of the next journey. This snapshot is progress evidence, not a completed eight-layout pass."
+}

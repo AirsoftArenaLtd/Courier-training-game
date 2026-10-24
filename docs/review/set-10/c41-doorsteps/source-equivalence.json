@@ -1,0 +1,30 @@
+{
+  "frozen": "f80f76c4bb3cf8f76f2b4064fe0c2f25f0e6c465",
+  "runtime": "b17f462b23511106be665022f801825422d6bda8",
+  "files": {
+    "index.html": "a50e76b582961ec980dc1ecf360b4a9292da083db85eb4c770668f9afb4542d2",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "8ec51279e1fb6349f5feb190aeb32c6d387637a7f0d6749e02476feb8876d130",
+    "src/core/fpcustomerstop.js": "4f603855542c397a6f92822a463a84fdfe1f3fbe2429a74c8e4be3c8aa8c2abb",
+    "src/core/fpcustomerstopworld.js": "088d4233cb14d651b3015a47141928b4da8b861bf5d90507873a5f5e85282d63",
+    "src/core/fpcustomerstopscenario.js": "d610f02698fff1ba04565a523674ec7c9782043d79ba2c0a5f009f3d3fb2d969",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/fpaccess.js": "08b950cbcbc20c9b21ad9ad71badb655339c7587690e9b31109e8a3fd7707c92",
+    "src/core/fpcustomerstage.js": "f85c4063974983210ac504a25f197b3902e275055b4c4827c5b16d1aa10ef474",
+    "src/core/fpcustomerworld.js": "b40f0580dc47b45308b99e8bf05356d9ca546e0b76ea1c9567e815dd963f897f",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "src/scenes/stops/StopScene.js": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b",
+    "data/m3_doorsteps.js": "db4c9e625c650e8044bc9a9653fc57eb5334244635ac01cc74c903b26b497758",
+    "data/m3_dialogues.js": "ff43d3dd3358bdf101b8194b6873060c13fbc02fa1c89f38ff7bf817bde76e96",
+    "data/scanner.js": "2858a398d6f0e93376d8f637b528c965ae1d6e44c3c782ca19322c09933f4eb3",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c"
+  },
+  "allFrozenBytesMatch": true
+}

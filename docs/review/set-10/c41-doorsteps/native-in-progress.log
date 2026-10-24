@@ -1,0 +1,3 @@
+{ quality: 'low', lang: 'en', large: false }
+{ quality: 'low', lang: 'en', large: true }
+{ quality: 'low', lang: 'ta', large: false }

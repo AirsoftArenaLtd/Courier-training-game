@@ -1,0 +1,21 @@
+{
+  "scope": "CPU Low geometry: three stops with parked forward/reverse cab views and four parcel/door/photo stages, six walking positions, twenty-four headings and five pitches, main plus the most costly real mirror or rear-camera pass. Excludes compositor, GPU memory, High and Intel FPS.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 8850,
+      "peak": {
+        "calls": 34,
+        "triangles": 1852
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 8850,
+      "peak": {
+        "calls": 37,
+        "triangles": 1674
+      }
+    }
+  ]
+}

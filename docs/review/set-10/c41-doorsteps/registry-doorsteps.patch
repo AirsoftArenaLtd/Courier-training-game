@@ -1,0 +1,10 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -147,6 +147,7 @@
+         title: 'Tricky Doorsteps',
+         icon: 'ic_user',
+         scene: 'StopScene',
++        scene3d: 'customer-doorsteps',
+         dataKey: 'stopSets.m3_doorsteps',
+         categories: ['service', 'safety', 'efficiency'],
+         blurb: 'Three doorsteps where the people are the hard part: an angry customer, a language barrier, and a "neighbor" who offers to take a signature package.',
