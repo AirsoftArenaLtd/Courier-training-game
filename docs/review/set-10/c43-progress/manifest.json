@@ -1,0 +1,44 @@
+{
+  "runtime": "0adf5acc",
+  "status": "doing; all 84 Node suites pass, browser pipeline queued",
+  "browserAcceptance": false,
+  "screenshots": 0,
+  "callbackCases": 568,
+  "replyBranches": 14,
+  "physicalStops": 9,
+  "cpuViews": 18684,
+  "loadedPeak": {
+    "calls": 34,
+    "triangles": 2186
+  },
+  "fallbackPeak": {
+    "calls": 37,
+    "triangles": 2046
+  },
+  "files": {
+    "README.md": "c20d7867f5bb0a86a0c39a466d31de278a7024c0c766e549e80985b8521e76c8",
+    "c43-geometry-fixed2.log": "f3c38bebe8b4ac26e1af7fc913631fb4ef97ded18e883fa744fc3d6b011d6f23",
+    "c43-model-current.log": "71ff85e55a2eadeeabadb7ee8f27d326b1a3e5377b2198bd07fe177fac64f5cf",
+    "c43-scenario-fixed2.log": "bbcf6db0476f50c25c72429921b226ce5030d7ba07ca4ebc2d0a751759970e7e",
+    "c43-world-fixed2.log": "17441eebde424d7a6e9db3698e58bddd482c8a800ed1a6962a550d67f717471a",
+    "final-0adf5acc-node84-inventory.txt": "de4e2d3283040138162969f824a67fca4e88f7243fcce9369dbf952a747d09d6",
+    "final-0adf5acc-node84-raw-logs.tar.gz": "d516a089de14ee3bb28e8b2f9e1497d2d5e11643b66285c9823d8ae59634a27c",
+    "final-0adf5acc-node84-results.json": "b04a6d88452112db898bec43e806b18b95119e833724582cbbfde0a26fe67457",
+    "geometry.json": "04dad7301bf8edf2ad47a2149e9d346b86a2d7940ce6e27fafb7260f18e29f92",
+    "initial-7c333fa5-node84-inventory.txt": "de4e2d3283040138162969f824a67fca4e88f7243fcce9369dbf952a747d09d6",
+    "initial-7c333fa5-node84-raw-logs.tar.gz": "d19d1ec611603bf6d838561e37336cd30f5b139948909ea7e140fddd09ffb985",
+    "initial-7c333fa5-node84-results.json": "b04a6d88452112db898bec43e806b18b95119e833724582cbbfde0a26fe67457",
+    "model-f2fad1e5-node81-inventory.txt": "b158e0fddc523d423d045631d0b156e5625e16656967bfc54f2e2c2dde669503",
+    "model-f2fad1e5-node81-raw-logs.tar.gz": "a77cf7b91f5ead0ed59d7117f6492b87bdfac0b55d0e4761717949a21ffd6d9d",
+    "model-f2fad1e5-node81-results.json": "c04c69bbe66a8db7a841be80dae5d80603e8a36b6a71a2719a9e16727dce961b",
+    "node-pipeline.py": "db28dd4562d706b749a6f20618afe9a5ebac1659c765eeb0c17c3f9cd0dab64b",
+    "pre-fix-c43-scenario-fixed.log": "f33239decd6cd786097308a82979d059c67427901022018df4e1b9457ece4bf0",
+    "pre-fix-c43-world-fixed.log": "48a54031561f482883896d1893c346bdd2a8b7dab5658f3b4422539ceea49c2b",
+    "registry-proposal.patch": "0da06379a851103ae2feaa5872ff5de82c87826e1057b47028c0b11c3d8069ee",
+    "sequential-pipeline.py": "c8d089dad778cb186236842b391a82488ce451e3fcc59a6f523dc7705b2e1e05",
+    "source-equivalence.json": "b3e4493febd6eda69973630bd9d10b839286ce84e049622fb04fb41095fb5c89",
+    "syntax.json": "edb5e2f9f053250b2323deec006dee5280fd444ee5276b92916366d0a392de72"
+  },
+  "nodeSuites": 84,
+  "syntaxFiles": 16
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "CPU-only Low geometry, all nine stops, forward/reverse cab, four walking/parcel/person/photo stages, seven positions, twelve headings, three pitches; main plus the most costly actual mirror. Excludes compositor, GPU memory, High and Intel FPS.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 9342,
+      "peak": {
+        "calls": 34,
+        "triangles": 2186
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 9342,
+      "peak": {
+        "calls": 37,
+        "triangles": 2046
+      }
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+[
+  {
+    "suite": "aids.js",
+    "exit": 0
+  },
+  {
+    "suite": "assets.js",
+    "exit": 0
+  },
+  {
+    "suite": "auth.js",
+    "exit": 0
+  },
+  {
+    "suite": "credits.js",
+    "exit": 0
+  },
+  {
+    "suite": "data.js",
+    "exit": 0
+  },
+  {
+    "suite": "firstperson.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpaccess.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpactors.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpambient.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpambientassets.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpambientworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpassets.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpbranding.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcab.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcamera.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomergeometry.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerstop.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerstopgeometry.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerstopscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerstopworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomertalk.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpcustomerworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdamage.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdamageassets.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdamageflow.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdamageworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpday.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdoors.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpdriving.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpguide.js",
+    "exit": 0
+  },
+  {
+    "suite": "fphandheld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fphud.js",
+    "exit": 0
+  },
+  {
+    "suite": "fplater.js",
+    "exit": 0
+  },
+  {
+    "suite": "fplighting.js",
+    "exit": 0
+  },
+  {
+    "suite": "fploadout.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpmaterials.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpmirrors.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpmission.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpnarration.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpnav.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpnightworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpperf.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpproblemgeometry.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpproblemscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpproblemstage.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpproblemworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpqualitygate.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpradio.js",
+    "exit": 0
+  },
+  {
+    "suite": "fprear.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpreplay.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpreplayworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpresume.js",
+    "exit": 0
+  },
+  {
+    "suite": "fproute.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscannerstop.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscannerstopgeometry.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscannerstopscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscannerstopworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpscenario.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpsignal.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpsignlettering.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpsigns.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpsound.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpstopflow.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpstoplocker.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpstops.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpstopscene.js",
+    "exit": 0
+  },
+  {
+    "suite": "fptown.js",
+    "exit": 0
+  },
+  {
+    "suite": "fptraffic.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpwalkaround.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpwalkaroundflow.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpwalkaroundworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpweather.js",
+    "exit": 0
+  },
+  {
+    "suite": "fpworld.js",
+    "exit": 0
+  },
+  {
+    "suite": "glossary.js",
+    "exit": 0
+  },
+  {
+    "suite": "i18n.js",
+    "exit": 0
+  },
+  {
+    "suite": "lmsreport.js",
+    "exit": 0
+  },
+  {
+    "suite": "oldsave.js",
+    "exit": 0
+  },
+  {
+    "suite": "package.js",
+    "exit": 0
+  },
+  {
+    "suite": "report.js",
+    "exit": 0
+  },
+  {
+    "suite": "reviewsheet.js",
+    "exit": 0
+  },
+  {
+    "suite": "savesize.js",
+    "exit": 0
+  },
+  {
+    "suite": "workday.js",
+    "exit": 0
+  },
+  {
+    "suite": "xapi.js",
+    "exit": 0
+  }
+]
