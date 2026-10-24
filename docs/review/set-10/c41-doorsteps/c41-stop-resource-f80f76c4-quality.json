@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "f80f76c4bb3cf8f76f2b4064fe0c2f25f0e6c465",
+  "scope": "Eleven static doorstep poses in the four original quality profiles; no default workday or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c41-stop-resource-f80f76c4-loaded-low-low.json",
+      "log": "c41-stop-resource-f80f76c4-loaded-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 1654,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2055110
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c41-stop-resource-f80f76c4-loaded-high-high.json",
+      "log": "c41-stop-resource-f80f76c4-loaded-high.log",
+      "peak": {
+        "calls": 46,
+        "triangles": 19440,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5514022
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c41-stop-resource-f80f76c4-accessible-low-low.json",
+      "log": "c41-stop-resource-f80f76c4-accessible-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 1654,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2214272
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c41-stop-resource-f80f76c4-fallback-low-low.json",
+      "log": "c41-stop-resource-f80f76c4-fallback-low.log",
+      "peak": {
+        "calls": 40,
+        "triangles": 1476,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2055110
+      }
+    }
+  ]
+}
