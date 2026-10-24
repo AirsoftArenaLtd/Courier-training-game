@@ -1,0 +1,139 @@
+{
+  "tag": "c43-photo-preflight-6f96d641-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "scannerphoto": {
+      "frames": 25,
+      "avgFPS": 2.46,
+      "low1FPS": 1.16,
+      "p99ms": 864.5,
+      "maxMs": 864.5,
+      "peak": {
+        "calls": 27,
+        "triangles": 912,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 97,
+        "baseLevelRGBABytes": 1537608,
+        "withMipmapsUpperBytes": 2050144
+      },
+      "worldProfile": {
+        "meshes": 92,
+        "instances": 100,
+        "geometries": 19,
+        "materials": 36,
+        "geometryBytes": 44276,
+        "instanceBytes": 91492,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          11,
+          9,
+          9,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 14.8,
+          "y": 1.65,
+          "z": -44.6,
+          "yaw": -1.5208379310729538,
+          "pitch": -0.8,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "scannerProof": {
+    "scannerphoto": {
+      "source": "scanner-static-render-fixture",
+      "id": "m5-pod",
+      "index": 0,
+      "piece": "street",
+      "phase": "active",
+      "mode": "walk",
+      "building": 1,
+      "person": false,
+      "assetDoor": false,
+      "lettering": 96,
+      "font": false,
+      "canonical": true,
+      "bounded": true,
+      "spot": "planter",
+      "photo": {
+        "grade": "good",
+        "pkgIn": true,
+        "doorIn": true,
+        "numIn": false,
+        "personIn": false
+      },
+      "photoPreview": {
+        "width": 320,
+        "height": 180,
+        "visible": true
+      },
+      "frameClear": true,
+      "identity": false,
+      "idField": null,
+      "handheld": true,
+      "panel": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "scannerFixture": true,
+  "phaserTextures": {
+    "count": 97,
+    "baseLevelRGBABytes": 1537608,
+    "withMipmapsUpperBytes": 2050144
+  },
+  "phaserTexturesPeak": {
+    "count": 97,
+    "baseLevelRGBABytes": 1537608,
+    "withMipmapsUpperBytes": 2050144
+  },
+  "missingViews": [],
+  "errors": []
+}
