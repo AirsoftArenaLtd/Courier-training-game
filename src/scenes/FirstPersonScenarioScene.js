@@ -115,9 +115,10 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     try{return OTR.fpScenario.finish(r,this,reason);}catch(error){this.scenarioUnavailable(error);return false;}
   }
   refresh(){
-    super.refresh();const r=this.scenarioSession;if(!r||!this.moduleGoal)return;
+    const r=this.scenarioSession;if(r?.definition.beforeRefresh)r.definition.beforeRefresh(r,this);
+    super.refresh();if(!r||!this.moduleGoal)return;
     const visible=r.phase==='active'&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;
-    this.moduleBack.setVisible(visible);this.moduleGoal.setVisible(visible);this.moduleClock.setVisible(visible);if(!visible)return;
+    this.moduleBack.setVisible(visible);this.moduleGoal.setVisible(visible);this.moduleClock.setVisible(visible);if(!visible){if(r.definition.refreshOverlay)r.definition.refreshOverlay(r,this);return;}
     const status=r.definition.status?r.definition.status(r):'';if(this.moduleStatusSource!==status){this.moduleStatusSource=status;this.moduleGoal.setText(r.definition.goal+(status?'\n'+status:''));}
     // Very long translations remain complete in the brief, pause menu and handheld; never shrink them over a mirror.
     const compact=this.model?.mode==='cab'&&this.moduleGoal.height>80;this.moduleGoal.setVisible(!compact);
@@ -127,6 +128,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     this.soundCue.setY(bottom+12);this.headerBack.setY(bottom+4);
     if(!OTR.fpScenario.coaching(r)){this.hint.setVisible(visible&&!!this.physicalAffordance);this.hintBack.setVisible(visible&&!!this.physicalAffordance);this.controls.setVisible(false);this.help.setVisible(false);}
     if(r.definition.observation){this.controls.setVisible(false);this.help.setVisible(false);this.navRoot.setVisible(false);}
+    if(r.definition.refreshOverlay)r.definition.refreshOverlay(r,this);
   }
   update(time,delta){
     const r=this.scenarioSession,active=!!this.model&&!this.loading&&!this.model.paused&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;

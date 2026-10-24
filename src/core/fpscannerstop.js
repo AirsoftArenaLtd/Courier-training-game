@@ -5,7 +5,7 @@ OTR.fpScannerStop={
     if(!['m5-pod','m5-exceptions','m5-adult'].includes(id))throw Error('Invalid scanner scenario');
     const s=OTR.fpCustomerStop.create(content,categories,options);s.scannerId=id;this.prepare(s);return s;
   },
-  prepare(s){s.identity=null;s.photoPending=false;s.photoMode=false;s.photo=null;},
+  prepare(s){s.identity=null;s.photoPending=false;s.photoMode=false;s.photo=null;s.photoPreview=null;s.captureToken=null;},
   spots(s){return s.def.spots||[{id:'mat',label:'On the doormat',x:0,grade:'good'}];},
   place(s,id){
     const K=OTR.fpCustomerStop,spot=this.spots(s).find(p=>p.id===id);
