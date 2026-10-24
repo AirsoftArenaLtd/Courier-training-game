@@ -1,0 +1,12 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ one fixed bay serves every load with fixed instance buffers, targets and finite transforms (99.608672ms)
+✔ the active load and gauge targets coincide with physical bay geometry and real rays (2.39562ms)
+✔ bay disposal releases owned buffers once and never disposes the shared cube (0.622625ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.459779

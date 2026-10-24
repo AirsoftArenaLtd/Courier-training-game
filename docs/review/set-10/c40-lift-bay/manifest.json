@@ -1,0 +1,1123 @@
+{
+  "date": "2026-10-24",
+  "status": "Existing m2-lift bay validated on pushed C-38 stack; whole C-40 waits for optional-heavy policy and combined current-pilot acceptance.",
+  "resourceRevision": "4401c37567f9ab3f74bb3b17ef7ef43c682a1607",
+  "resourceViews": 32,
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "final-resource/bench-c40-lift-resource-current-loaded-low-low.json",
+      "log": "final-resource/c40-lift-resource-current-loaded-low.log",
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1928998
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "final-resource/bench-c40-lift-resource-current-loaded-high-high.json",
+      "log": "final-resource/c40-lift-resource-current-loaded-high.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 16326,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6247814
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "final-resource/bench-c40-lift-resource-current-accessible-low-low.json",
+      "log": "final-resource/c40-lift-resource-current-accessible-low.log",
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2400731
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "final-resource/bench-c40-lift-resource-current-fallback-low-low.json",
+      "log": "final-resource/c40-lift-resource-current-fallback-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 992,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1928998
+      }
+    }
+  ],
+  "native": [
+    {
+      "tag": "c40-lift-native-v2",
+      "sourceRevision": "11872d720bcd32903d9781b8391f5f79fef34ae6",
+      "checks": 1793,
+      "layouts": 8,
+      "loadsPerPractice": 5,
+      "completedAssessmentLoads": 2,
+      "storedAndReloaded": true,
+      "report": "native/c40-lift-native-v2.json",
+      "log": "native/c40-lift-native-v2.log"
+    },
+    {
+      "tag": "c40-lift-large-complete",
+      "sourceRevision": "4401c37567f9ab3f74bb3b17ef7ef43c682a1607",
+      "checks": 581,
+      "layouts": 2,
+      "loadsPerPractice": 5,
+      "completedAssessmentLoads": 4,
+      "storedAndReloaded": true,
+      "report": "native/c40-lift-large-complete.json",
+      "log": "native/c40-lift-large-complete.log"
+    }
+  ],
+  "nativeScope": "Eight layouts at v2 plus two extended Tamil larger/reduced-motion assessment cases after the gauge correction. Extended cases complete four loads, grip/step down the fifth shelf load, then abandon; incomplete work has no course result.",
+  "nodeSuites": 80,
+  "additionalPilotCheck": {
+    "name": "B-159 englishtext",
+    "sourcePilot": "90844ac5",
+    "method": "Read-only Module compilation at the test directory; no shared test file edit. First nested git launcher was blocked EPERM before the test; direct source-read retry passed."
+  },
+  "nodeRevision": "4401c37567f9ab3f74bb3b17ef7ef43c682a1607",
+  "geometry": {
+    "scope": "CPU Low geometry only: twenty load/stage poses, twenty-four yaw angles and five pitches, main plus the most costly actual mirror pass. Not GPU memory, startup, High or Intel FPS acceptance.",
+    "reports": [
+      {
+        "loaded": true,
+        "poses": 2400,
+        "peak": {
+          "calls": 35,
+          "triangles": 1216
+        }
+      },
+      {
+        "loaded": false,
+        "poses": 2400,
+        "peak": {
+          "calls": 41,
+          "triangles": 1080
+        }
+      }
+    ]
+  },
+  "bridge": "After native v2, runtime changes only remove a temporary per-step array and clear stale physical gauge readings outside reachable posture, and align cached camera diagnostics with the actual eye height. Kernel, inputs, decisions, results and saved-day isolation are unchanged. Extended larger cases and all 32 final resource views use the corrected runtime.",
+  "sharedChanges": "Owned runtime plus small index and ASSETS/PERF/FRAME-BUDGET/board documentation. Registry proposal is unapplied. No shared save, scoring, Settings, i18n, 2D or default change.",
+  "logs": "Readable focused logs trim line-end whitespace. .log.gz files and indexed raw-node-logs.tar.gz archives preserve exact originals; the archive index lists every original log hash.",
+  "pending": [
+    "Optional m2-heavy solo limit and critical trigger (Claude inbox).",
+    "A-30 registry and optional completion policy; translations and A-31/default switching.",
+    "Combined current-pilot/full default workday acceptance.",
+    "Existing native Intel 60 fps measurement O-1."
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 3968,
+      "sha256": "7b0f79430730758fc40150483fbc26d4e4d4e32384a0cb236760a7cabc308195"
+    },
+    {
+      "file": "after-footer-node/raw-node-logs-index.json",
+      "bytes": 1533,
+      "sha256": "13ff3a84db54a8f5e31ce2ad102242971740be68aa419ce1895525c0e1126ac5"
+    },
+    {
+      "file": "after-footer-node/raw-node-logs.tar.gz",
+      "bytes": 7440,
+      "sha256": "07115ee4a5ca0b81a477af0c9b7dd65861fdbd988a609dd51cb1b66415dcda6c"
+    },
+    {
+      "file": "after-footer-node/results.json",
+      "bytes": 649,
+      "sha256": "c2365a49acc3ff7c3bf6b852ea00c4203dfbc2e177c68ab98394ea24a21eec56"
+    },
+    {
+      "file": "after-footer-node/source.json",
+      "bytes": 1142,
+      "sha256": "518c27c25f1d8c09b418cdeff853a0af68153be13c4fb4d3e73c973b7e94da64"
+    },
+    {
+      "file": "diagnostics/c40-lift-camera-pose-after.log",
+      "bytes": 854,
+      "sha256": "ade3a27f4803ce30e012a34a070d230bf8a80a4d8e03285fd6a9e35bc40fb9aa"
+    },
+    {
+      "file": "diagnostics/c40-lift-camera-pose-after.log.gz",
+      "bytes": 523,
+      "sha256": "763b2fdb049a853a8a93170c37ebe1d4cc2aa8b482222082d375ef6af64e99ed"
+    },
+    {
+      "file": "diagnostics/c40-lift-camera-pose-before.log",
+      "bytes": 1781,
+      "sha256": "fd0c470f90f476659b6b2553d2376bd111b30786f789de0480f871b3efba2090"
+    },
+    {
+      "file": "diagnostics/c40-lift-camera-pose-before.log.gz",
+      "bytes": 930,
+      "sha256": "11f6fe64a0834949d585ea2d3e2a7f97546517341c769a835e087156be2f6339"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-failure.png",
+      "bytes": 69114,
+      "sha256": "191683dd3b4ca51b2ba993c34bfa5ba7be53f30b4cf2854c878482fee2a4f12e"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-large-load1.png",
+      "bytes": 31530,
+      "sha256": "d755eddeea3819b76da1af6e640cc5ff9d4373305f62ed8e91089b17ca1e20da"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-large-load2.png",
+      "bytes": 29175,
+      "sha256": "70df264675e42f00e475bd2ab702baeba184f609a52525a69982dc1c144221da"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-normal-load1.png",
+      "bytes": 29308,
+      "sha256": "460c67fcb0d3a10978056a189bfbf9a7ac372cce325350d820eb9c936557541d"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-normal-load2.png",
+      "bytes": 27415,
+      "sha256": "bf2b4a181c1525e3dc1426172f6d6712d760d49cfb2ba46dd1e9af8d6c255123"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-normal-load3.png",
+      "bytes": 29059,
+      "sha256": "751201bf54231c1815225271ac4652c49510d4dbfaf46a0ccd97e39114aed7ca"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-normal-load4.png",
+      "bytes": 32830,
+      "sha256": "2b52ea52b9d2c46d4d069f9f69d339f6c631f77e46e8c5e821ac6bb1bbeb0a4a"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final-low-en-normal-load5.png",
+      "bytes": 29580,
+      "sha256": "3e334dd21ebd85164af0d081d6aa41168431aa9a893087171b50383a4f457284"
+    },
+    {
+      "file": "diagnostics/c40-lift-native-final.json",
+      "bytes": 15896,
+      "sha256": "389b4c3afc667d6899eb9f69d6968c74bd84fee978a53a8246adf7e351c36a64"
+    },
+    {
+      "file": "diagnostics/c40-lift-pilot-englishtext.log",
+      "bytes": 4554,
+      "sha256": "800c91f7fdbefe64d6d182d7ceb2e94544642aa562b54b9f30f3435ec76264da"
+    },
+    {
+      "file": "diagnostics/c40-lift-pilot-englishtext.log.gz",
+      "bytes": 1405,
+      "sha256": "1299b98a55683da0c1d7c94632b7a411bddf7da82a5f90898525b09d4fa81007"
+    },
+    {
+      "file": "diagnostics/c40-lift-stale-gauge-after.log",
+      "bytes": 729,
+      "sha256": "34ce283228009e81bc8d91ef0b08e047649902d8e663a7b0ddf0380c26698b34"
+    },
+    {
+      "file": "diagnostics/c40-lift-stale-gauge-after.log.gz",
+      "bytes": 459,
+      "sha256": "0fe5de88318c46dfe54dd44f0ce716e569da3ecae8800d28638037882e4715be"
+    },
+    {
+      "file": "diagnostics/c40-lift-stale-gauge-before.log",
+      "bytes": 1717,
+      "sha256": "abb98f40f3ea67f7f17b3ae0a35135931f190c5be0e39272de9e34ec75833af7"
+    },
+    {
+      "file": "diagnostics/c40-lift-stale-gauge-before.log.gz",
+      "bytes": 858,
+      "sha256": "628def16451330e0f7e08601977c2f95d39b3a101a9bc86707e4fbba72668c13"
+    },
+    {
+      "file": "diagnostics/native-first.log",
+      "bytes": 357,
+      "sha256": "143b963d379f2115993624e511d25906cb407bb13a18e73fbd379954144676e8"
+    },
+    {
+      "file": "final-node/fphud.js.log",
+      "bytes": 1203,
+      "sha256": "1198e119efecdbc42a6a2835bd6b24590ec7437733c7b810fb8666984bf268a4"
+    },
+    {
+      "file": "final-node/fphud.js.log.gz",
+      "bytes": 652,
+      "sha256": "dcca88c6157b0fc0eda50e733c4ebb673d31f152aa4104fe3799aeeb0b7c362c"
+    },
+    {
+      "file": "final-node/fppackagelift.js.log",
+      "bytes": 716,
+      "sha256": "1a6e9705fc2350e1a363137b7255823bb767de9538143d5727a9a5cc4c6de58b"
+    },
+    {
+      "file": "final-node/fppackagelift.js.log.gz",
+      "bytes": 432,
+      "sha256": "e0900722266de2c1a6eb52b2ee99c634391abc0292b80ae4cf041ca284a0d11d"
+    },
+    {
+      "file": "final-node/fppackageliftbay.js.log",
+      "bytes": 560,
+      "sha256": "6612142ccfcc683e32085904781df25237ea794fa25ac76aad4c2666d7e6af48"
+    },
+    {
+      "file": "final-node/fppackageliftbay.js.log.gz",
+      "bytes": 361,
+      "sha256": "497c1f1b34a8ec1cfd7709cb132ca0acb522754cafa3fab8c311442c722f8c4e"
+    },
+    {
+      "file": "final-node/fppackageliftgeometry.js.log",
+      "bytes": 1418,
+      "sha256": "883479916a7647048f136d3fd9bb3cb0396ce640c2149ee22ec4e7a29e98d0e5"
+    },
+    {
+      "file": "final-node/fppackageliftgeometry.js.log.gz",
+      "bytes": 438,
+      "sha256": "9e89dbd1571aa5f16343b9bf890eb23cca1de0b939ec32df1162cee7752508c7"
+    },
+    {
+      "file": "final-node/fppackageliftscenario.js.log",
+      "bytes": 856,
+      "sha256": "20ce129f43eb5abf5112e268fdb3b3905d3c086e8daa9fe42ff179e9ffca290d"
+    },
+    {
+      "file": "final-node/fppackageliftscenario.js.log.gz",
+      "bytes": 524,
+      "sha256": "3b2f0d6152a705ff079df6899ac3d82ecb0d1c8af250712a2ea9b2d02a2369c2"
+    },
+    {
+      "file": "final-node/fppackageliftworld.js.log",
+      "bytes": 731,
+      "sha256": "e4b238b602e0c5f69fda7a770a8a58649203c01a45e61d58a4dd078c1a414fab"
+    },
+    {
+      "file": "final-node/fppackageliftworld.js.log.gz",
+      "bytes": 460,
+      "sha256": "d1325c7c776e17edc3d1d489b0af46a2c14f093b2242bd5095786d7376d507c1"
+    },
+    {
+      "file": "final-node/geometry.json",
+      "bytes": 481,
+      "sha256": "62fa231f040d48e57f2219424febdfe9c025659e82889672e10513b9e044610e"
+    },
+    {
+      "file": "final-node/inventory.txt",
+      "bytes": 20812,
+      "sha256": "3228ddf322965dbc9cafae2c9e12c7e11b65e0b935b75c01779024db7f1b9466"
+    },
+    {
+      "file": "final-node/pilot-b159-source.js",
+      "bytes": 1619,
+      "sha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d"
+    },
+    {
+      "file": "final-node/pilot-b159.log",
+      "bytes": 200,
+      "sha256": "974c59dae9d343d306b211430f8c52918277782a37dc0f259b3c9d1e0d3be6c1"
+    },
+    {
+      "file": "final-node/pilot-b159.log.gz",
+      "bytes": 167,
+      "sha256": "bdde7eb090dea4620ec5da9e8393654f39505009620b2a6009011e9007b8f5f8"
+    },
+    {
+      "file": "final-node/raw-node-logs-index.json",
+      "bytes": 10506,
+      "sha256": "5637db1f3adfe3a72e52938cabf37af66dddbf096e7013a537953633fa3237c5"
+    },
+    {
+      "file": "final-node/raw-node-logs.tar.gz",
+      "bytes": 40818,
+      "sha256": "a60344cd178b01d6a4b5906745d0eecbcb239134f25b3ef64a08bc16e135abcf"
+    },
+    {
+      "file": "final-node/results.json",
+      "bytes": 4253,
+      "sha256": "83c65329c06bfeb29f56ad7a4a34d11eb300e1eb20073f41ecbc84de59ad4178"
+    },
+    {
+      "file": "final-resource/bench-c40-lift-resource-current-accessible-low-low.json",
+      "bytes": 15638,
+      "sha256": "fd35fa27f6d50d2b365c28093f0182f4fcc46ebc260c3f844db8c708ecd6c51a"
+    },
+    {
+      "file": "final-resource/bench-c40-lift-resource-current-fallback-low-low.json",
+      "bytes": 17345,
+      "sha256": "4b790216f7ef8fac31f99f574b42009efc55b997397ef3f1a9578f6fee35991b"
+    },
+    {
+      "file": "final-resource/bench-c40-lift-resource-current-loaded-high-high.json",
+      "bytes": 15644,
+      "sha256": "275a205df135bad7b53ed25b097d4e78b34b92d9c48504d199af291ba9a2cc01"
+    },
+    {
+      "file": "final-resource/bench-c40-lift-resource-current-loaded-low-low.json",
+      "bytes": 15613,
+      "sha256": "5b57dadbf6358fa180dec78dd5ed94ae0e93f029d635b84d5a6835a8000c7e04"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftbad.png",
+      "bytes": 99646,
+      "sha256": "126127767fd4beef5570712750914e212ad2c07c3357ae1bb20f1b53ce6353eb"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftcontrols.png",
+      "bytes": 71801,
+      "sha256": "88ba71b7d0332c403d15945a304240902455e8ee7d0636efdf7e12d543fbac9e"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftfloor.png",
+      "bytes": 102061,
+      "sha256": "b4c4c5106aa378c96479d36ef1641e36632f6ace1f34b75887852b0ab252cb65"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftgrip.png",
+      "bytes": 102495,
+      "sha256": "30b4dba43850dc8c3e94194ca6e7e41a54851856b3178ca5856abc30cbd33b9b"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftshelf.png",
+      "bytes": 130799,
+      "sha256": "a000d4d393fa241558e1066c346e509ce36a7f68d6a5e12efae071b1fe427497"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftstatus.png",
+      "bytes": 62113,
+      "sha256": "5e06f42c4aa488ae0d0ab2400836d02206f225e2a7399f7a51402f85b52f5257"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-liftteam.png",
+      "bytes": 123257,
+      "sha256": "05aa8ca7169a5b0763969c6b5b6c81802a378fc3ef6575057ee3ff00a27c6141"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low-low-lifttruck.png",
+      "bytes": 128923,
+      "sha256": "19f8907937dab94f44b36b2f169a2cb76e12d65baa92ac3f762e03cf7626bee5"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low.log",
+      "bytes": 6635,
+      "sha256": "410d984724389c8b00cb87b34fd3f12070fb71f0c689d492b2adee9d3598dbe3"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-accessible-low.log.gz",
+      "bytes": 1075,
+      "sha256": "6f3da3d6d7605ca0b96a0b03ef7f37f4aeb2430322c53e37b3d5a9b3cd48ee75"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftbad.png",
+      "bytes": 82894,
+      "sha256": "70c151f60dd6e9271426e75df755a5cbd998e2f183f8f8c37ce35e91a61d77e0"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftcontrols.png",
+      "bytes": 60624,
+      "sha256": "3d234e3c7e8159ae2faadc3861b2f502098c2b55e302d0d92a97462d28664ba6"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftfloor.png",
+      "bytes": 87600,
+      "sha256": "ae0ee9f4fac478fc3b9fff007cb20a23b75299c5cf353908b7ea9987dc08f702"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftgrip.png",
+      "bytes": 86398,
+      "sha256": "decc5fc851799231269320be67c597936ce9a9bb2f4d1f37fa68965b329e8620"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftshelf.png",
+      "bytes": 109300,
+      "sha256": "6082b2a9268f59027c08bff26d5a8868aa2c6e49a0b8a63aba3e8c8441632b9d"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftstatus.png",
+      "bytes": 55571,
+      "sha256": "6f8d620dfa4ead2e840932bd9e91d66269e38927f3a3c09d6fe0e2c97df9f696"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-liftteam.png",
+      "bytes": 106057,
+      "sha256": "2bd701bfd2293ecd282615cfc093cd976d583ad60f60dc92354f52988eea705f"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low-low-lifttruck.png",
+      "bytes": 117438,
+      "sha256": "30f6f817b4e666010c52b695edb51568ba25689c8b3f0c167c0fc9b917c5e245"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low.log",
+      "bytes": 6611,
+      "sha256": "b81650d0c41eabe692c73382ab691f92f16bb0752f644b32501e7726612e7e1c"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-fallback-low.log.gz",
+      "bytes": 1067,
+      "sha256": "d952550a1607828ab2c4a482c54adbd3080f83a4956e1a9de18ed490e6d77cd0"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftbad.png",
+      "bytes": 431385,
+      "sha256": "86e1b834b6aa85ec9040b7cf385dc7145c32d62a70d768494a77217177898ba5"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftcontrols.png",
+      "bytes": 197737,
+      "sha256": "611ac2be80e57b84598f5abd4457b08dc2cef3909f7c9ddce4922e4fd979c48e"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftfloor.png",
+      "bytes": 427319,
+      "sha256": "bf29af6e3aea7af8f4efcec6ac753818c497d42602edc84c308e1312f9f1f910"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftgrip.png",
+      "bytes": 360060,
+      "sha256": "6ed70ce4c3993b17c02e3b84642ecfaf77db53393c79d6bfd2d9bc128767e83c"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftshelf.png",
+      "bytes": 151598,
+      "sha256": "75811fd93dced16fe3947426fe997e214a89a8f3cfb814e4190ec0fa23228442"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftstatus.png",
+      "bytes": 366161,
+      "sha256": "a129c13ba677f0af73908bfe4e08a15f0f16cfa76605f4d08113ea5d2c12453d"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-liftteam.png",
+      "bytes": 174273,
+      "sha256": "1b58d2c58630a1b02a2a5efbf6d1705c76784c653a38a6efd3181c3e8a81d4e5"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high-high-lifttruck.png",
+      "bytes": 379170,
+      "sha256": "253405b4140f192ba6e6239930c4448945fb063e255a30ad7b142d7ef1ad57ca"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high.log",
+      "bytes": 6666,
+      "sha256": "bf1e2df7ac57b4c377a841fcea019cb3a1ada6492d6fe78e091dccf78bb93573"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-high.log.gz",
+      "bytes": 1046,
+      "sha256": "58e6c6c8f08b72c2d02f4f85c757ca4585b7cb5f95825ea41ab3ef4b6d3fbdee"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftbad.png",
+      "bytes": 84128,
+      "sha256": "883217ef8af6051ac6a41f2d3c833fb1b96320c3ce9b237aacf814ad920c3a38"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftcontrols.png",
+      "bytes": 62484,
+      "sha256": "9a1177f22e1fe389700f5fc742382993c6596daa4b025ac2b697bc2ce81d9c88"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftfloor.png",
+      "bytes": 87449,
+      "sha256": "d52599cfcadd39b1c5fd3da3ededb5561cf46e4163c9450752d53ae98e29fd06"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftgrip.png",
+      "bytes": 87434,
+      "sha256": "aeab423d140f33ad37ab1f449ad1f0e513cdf8ca24de233c3268ffe4f0b08d63"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftshelf.png",
+      "bytes": 109658,
+      "sha256": "1bdad1f32519bcc9beccfe1e8e2a930536434c3982fa8a7bcb27ecacc0b9a28b"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftstatus.png",
+      "bytes": 57942,
+      "sha256": "ffce3c4ed0822e2396180faf986dc765e9ee22991811b7c3adadc287ee1fd5c0"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-liftteam.png",
+      "bytes": 106636,
+      "sha256": "a17cbb7ae8a3c8fc604e6981c2cc894d7c29aecb6cde432a910ce3fca5aff502"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low-low-lifttruck.png",
+      "bytes": 117438,
+      "sha256": "30f6f817b4e666010c52b695edb51568ba25689c8b3f0c167c0fc9b917c5e245"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low.log",
+      "bytes": 6626,
+      "sha256": "a233ad55ad701f7fdbd4511bdb23c0467d4959fa39257afbac9cc7220768ff77"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-loaded-low.log.gz",
+      "bytes": 1060,
+      "sha256": "b90ee888507c5b0b5d4e53cb418553d5429fa895729d236a1c065cd398ff1272"
+    },
+    {
+      "file": "final-resource/c40-lift-resource-current-quality.json",
+      "bytes": 1611,
+      "sha256": "134e59f81adacecd2fd8e73ddb102a39e16cdf4d9a32d03c4761a53bcb9bddda"
+    },
+    {
+      "file": "initial-0088d942/bench-c40-lift-resource-0088d942-accessible-low-low.json",
+      "bytes": 15622,
+      "sha256": "a69ae05940891c97970dfb1a32e24076ce2341f81b65ac833be596c926ecb90b"
+    },
+    {
+      "file": "initial-0088d942/bench-c40-lift-resource-0088d942-fallback-low-low.json",
+      "bytes": 17341,
+      "sha256": "51d2f4ca7575f06cf1567bf5522f866eb105c62e0da407f7b29c931446a16e91"
+    },
+    {
+      "file": "initial-0088d942/bench-c40-lift-resource-0088d942-loaded-high-high.json",
+      "bytes": 15629,
+      "sha256": "aa9797b4166f68e9f901983c27d153fee4428c0eee76fd85e0ffdbf155427c55"
+    },
+    {
+      "file": "initial-0088d942/bench-c40-lift-resource-0088d942-loaded-low-low.json",
+      "bytes": 15576,
+      "sha256": "5420e247079dd196c978453f563cea2289f3225125c61c9df112ca2dc0bf5992"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftbad.png",
+      "bytes": 93149,
+      "sha256": "441beb318bfb0d3b2b7a7d9881aa4526e5db79305a711467cb8a0eceb33ed855"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftcontrols.png",
+      "bytes": 71801,
+      "sha256": "88ba71b7d0332c403d15945a304240902455e8ee7d0636efdf7e12d543fbac9e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftfloor.png",
+      "bytes": 95693,
+      "sha256": "e846535163c5076191d684bd25d465a02cf54a2faa8a91d8835533c4a7143d15"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftgrip.png",
+      "bytes": 96075,
+      "sha256": "4df06fb07530602f6eff22f8eeefd4d434fbc2b47c5f541bc2bcf60ec938e703"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftshelf.png",
+      "bytes": 123718,
+      "sha256": "9a3b38f1cf366ea157a1eea73fda9f680824ac98e255b7932509b6a8fdf46ecd"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftstatus.png",
+      "bytes": 62113,
+      "sha256": "5e06f42c4aa488ae0d0ab2400836d02206f225e2a7399f7a51402f85b52f5257"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-liftteam.png",
+      "bytes": 116406,
+      "sha256": "bea45e1edd42c177b1e9be37822efba166e13c0a009ad6939d399ad8213865a7"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low-low-lifttruck.png",
+      "bytes": 122398,
+      "sha256": "2a12590a33ee097723c5ae08905cd5bb5aac87caee665db7b5f22b1e1280ed06"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low.log",
+      "bytes": 6626,
+      "sha256": "a624f4ce644c291ba2ab2202e096358353e717f41c66b695cd9b382858e0a703"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-accessible-low.log.gz",
+      "bytes": 1052,
+      "sha256": "c6e069216ead6691825b3511a13542eeda8196b89dc91e99a588ea449ac4bf50"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftbad.png",
+      "bytes": 78096,
+      "sha256": "721b8f149702c322e1b72d8b4e13854f538590b344d4a8083003c6b69fd050e8"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftcontrols.png",
+      "bytes": 60624,
+      "sha256": "3d234e3c7e8159ae2faadc3861b2f502098c2b55e302d0d92a97462d28664ba6"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftfloor.png",
+      "bytes": 82795,
+      "sha256": "7a53e4697628daed042b9978a87df917c0c3102741f5e10f6ee5f6e53849d657"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftgrip.png",
+      "bytes": 81526,
+      "sha256": "b621aaed9e244265dee5f59a288914b205d8fdc2c757dbc7bb47c5e64abc0b5d"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftshelf.png",
+      "bytes": 104053,
+      "sha256": "c411c33c88fe1cc4ae16bbea49a5295d1eb27fac8659e98be99b8fe468e5a496"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftstatus.png",
+      "bytes": 55571,
+      "sha256": "6f8d620dfa4ead2e840932bd9e91d66269e38927f3a3c09d6fe0e2c97df9f696"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-liftteam.png",
+      "bytes": 101251,
+      "sha256": "d7097f053feed8ef9bf35fe7d17ab9d38a07933f6c2e357237d48a254d8e7805"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low-low-lifttruck.png",
+      "bytes": 112806,
+      "sha256": "60b8c4f672d2351880146eedab389ded997bc23b10d5e1801b6136940268683e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low.log",
+      "bytes": 6614,
+      "sha256": "a116c8ad28ef0682517faefaec0eb891f0655e742b8257ec85f0d292d11b0578"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-fallback-low.log.gz",
+      "bytes": 1062,
+      "sha256": "d8d156eb9cd06d8f810c8fb42d40ded32f1d68101851be62bb19150f4e6d215e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftbad.png",
+      "bytes": 428038,
+      "sha256": "8a381fdc627e7d2d28a6f59dabe4a477363cc2be6909e06a85750c661c608c8e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftcontrols.png",
+      "bytes": 197737,
+      "sha256": "611ac2be80e57b84598f5abd4457b08dc2cef3909f7c9ddce4922e4fd979c48e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftfloor.png",
+      "bytes": 423708,
+      "sha256": "9d5ae19bb9159c4ab2613800cb21206b0b01343b8cc4daca7889b4b7b31bf74f"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftgrip.png",
+      "bytes": 356142,
+      "sha256": "f682a7263a0ffc68fa2a6835ce46a2a74b4299a54367dabef9cbb52c676e84dc"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftshelf.png",
+      "bytes": 146614,
+      "sha256": "f4c960f1ba0cb33aa4d630d8d9273be4495c9175363be3e6885dadd44fda8cf5"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftstatus.png",
+      "bytes": 366161,
+      "sha256": "a129c13ba677f0af73908bfe4e08a15f0f16cfa76605f4d08113ea5d2c12453d"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-liftteam.png",
+      "bytes": 170225,
+      "sha256": "a0ddf9f1ec925544fa8fcac2e1881db57b16c166ca92ea166e6076abc4ee7af0"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high-high-lifttruck.png",
+      "bytes": 375953,
+      "sha256": "d2475d645019d38e614a4d976925cf02530f4eadb66cd860bf2d7415be1bc7a9"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high.log",
+      "bytes": 6658,
+      "sha256": "9d9551803b6a8984a401b2e44dc090f630bb6caa34e4cff6822a258d5ebb3a56"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-high.log.gz",
+      "bytes": 1040,
+      "sha256": "5b22e65501d9abbf366795f93f5820133d01bab8b61507028658d0931c8d1946"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftbad.png",
+      "bytes": 79331,
+      "sha256": "7b58dfe58e6334873495137697042ed716cbde900a6ca4903d304d789c45f186"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftcontrols.png",
+      "bytes": 62484,
+      "sha256": "9a1177f22e1fe389700f5fc742382993c6596daa4b025ac2b697bc2ce81d9c88"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftfloor.png",
+      "bytes": 82646,
+      "sha256": "609aa9fd3613862dd72472daa8f2feec03ef04465d898af1c1f4f248b9c261c0"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftgrip.png",
+      "bytes": 82564,
+      "sha256": "6c07d2383ec5b7b120dc85386492be9e19454eca58d343e293725f931ce8697c"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftshelf.png",
+      "bytes": 104416,
+      "sha256": "de9adae14a3337026afacdd2e5f6cd3dd3cfa8ededb17cbfd3fbb7cb732998cf"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftstatus.png",
+      "bytes": 57942,
+      "sha256": "ffce3c4ed0822e2396180faf986dc765e9ee22991811b7c3adadc287ee1fd5c0"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-liftteam.png",
+      "bytes": 101799,
+      "sha256": "b89b39492913db465cbccd3fe02c11399a7933d94a6ddc97937af165bc374e26"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low-low-lifttruck.png",
+      "bytes": 112806,
+      "sha256": "60b8c4f672d2351880146eedab389ded997bc23b10d5e1801b6136940268683e"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low.log",
+      "bytes": 6596,
+      "sha256": "71357289bde175cd60e185af0e9592528438b5070fcb0a98a70eca1ee8dff859"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-loaded-low.log.gz",
+      "bytes": 1031,
+      "sha256": "fff5eb4a834d465344800f1bc34d3e4f2af2d095ffd18d107c08924f5ccb0413"
+    },
+    {
+      "file": "initial-0088d942/c40-lift-resource-0088d942-quality.json",
+      "bytes": 1619,
+      "sha256": "c282b964cd3d23a3275ab47f89f41f13c70aa07513fd6a3227d6086c94f3dfa8"
+    },
+    {
+      "file": "initial-0088d942/node/fphud.js.log",
+      "bytes": 1095,
+      "sha256": "506ab8bb4481c711ec827bf0fe4c9e883a5903fd9d53fd8957ffa1ba207e9cc1"
+    },
+    {
+      "file": "initial-0088d942/node/fphud.js.log.gz",
+      "bytes": 599,
+      "sha256": "8e6bb752dce1d09fb4816a8d662e283b19e203022ee438c06582828594f5a534"
+    },
+    {
+      "file": "initial-0088d942/node/fppackagelift.js.log",
+      "bytes": 716,
+      "sha256": "543414475e03db7a28263de67e2fbe64d95e604be25b4cbb32572ac7b3f6c467"
+    },
+    {
+      "file": "initial-0088d942/node/fppackagelift.js.log.gz",
+      "bytes": 430,
+      "sha256": "9642d5c47dfa31cf3e664e89e1110c7fe0cd85b47337d7c40a75173615f6e5c2"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftbay.js.log",
+      "bytes": 562,
+      "sha256": "7e023cfbdae6f63ed89a577b71cfbe6a7e9ad13194a080dd66cec838b2f01213"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftbay.js.log.gz",
+      "bytes": 364,
+      "sha256": "50128a7516cf96c23ca980082e635c6d25680f647c499fa8a1bdb6d266c59fdd"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftscenario.js.log",
+      "bytes": 762,
+      "sha256": "e9c23ec6b9de8e9e907658f3dd01a32431717fd1f527d892465209aa06786794"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftscenario.js.log.gz",
+      "bytes": 477,
+      "sha256": "4994d4247c6c573dea5cd0bb3dc56435e9e4edcec3d128998ed3f733b20d0157"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftworld.js.log",
+      "bytes": 636,
+      "sha256": "2041bec5a38f8db8f403a255fcfbeeb754f6d7e6a5d8cdeabb002c592014b339"
+    },
+    {
+      "file": "initial-0088d942/node/fppackageliftworld.js.log.gz",
+      "bytes": 413,
+      "sha256": "6dc4938055db4cb9c02da5451b067c0e75cdec194cd9e9e85f28a2dc782644d9"
+    },
+    {
+      "file": "initial-0088d942/node/inventory.txt",
+      "bytes": 20572,
+      "sha256": "69ebbac059844dfddffa24ea8cca05df4a168b033c8eec7df800f4aea29a6391"
+    },
+    {
+      "file": "initial-0088d942/node/raw-node-logs-index.json",
+      "bytes": 10239,
+      "sha256": "6f35aa3edfa5dbdec7fd0e626680f5307cf34e24a3df41b1cbaf65c287f456ad"
+    },
+    {
+      "file": "initial-0088d942/node/raw-node-logs.tar.gz",
+      "bytes": 40357,
+      "sha256": "7e8142905159817ec208be27eb6baeb0d4a5292ef2e41e0872ee04b00795fb0a"
+    },
+    {
+      "file": "initial-0088d942/node/results.json",
+      "bytes": 4189,
+      "sha256": "4165c078b0405eba3071866e0e44844d1abd9e0a9f810c1f8a99d3a250fe6524"
+    },
+    {
+      "file": "initial-source.json",
+      "bytes": 1851,
+      "sha256": "3d4bb4ad63c6fae9ac9719876257c54b091fc8b6f8e673699ae36d88c126bb38"
+    },
+    {
+      "file": "native/c40-lift-large-complete-high-ta-large-load1.png",
+      "bytes": 110864,
+      "sha256": "df62bc7dd0f14c535c2ca217e65e7897acfaf59127a3b99a2e9190e6cc18a42c"
+    },
+    {
+      "file": "native/c40-lift-large-complete-high-ta-large-load2.png",
+      "bytes": 105530,
+      "sha256": "22134749c0fa86995a22dbefc543b49aa0219fc1062dc4ee53d6c26ee83453cc"
+    },
+    {
+      "file": "native/c40-lift-large-complete-high-ta-large-load3.png",
+      "bytes": 104494,
+      "sha256": "5988f62da54aff1896dc6266d3e050fdf1bbde5136aba7d4722620a45fc38c36"
+    },
+    {
+      "file": "native/c40-lift-large-complete-high-ta-large-load4.png",
+      "bytes": 106954,
+      "sha256": "d5d74c135e2d25c441b1a64f82c96a81e337e3c528b9b2180e7c9998d7027617"
+    },
+    {
+      "file": "native/c40-lift-large-complete-high-ta-large-platform.png",
+      "bytes": 119295,
+      "sha256": "74ff4372c036eea2a0b9544082a7a9192c19f35f2793b41ef5a17a2bf5f5d885"
+    },
+    {
+      "file": "native/c40-lift-large-complete-low-ta-large-load1.png",
+      "bytes": 31399,
+      "sha256": "b87df4c06c71f5f7f6461a64a9a94a71dd3b1fcdc5d3d89873b888fd84adcf14"
+    },
+    {
+      "file": "native/c40-lift-large-complete-low-ta-large-load2.png",
+      "bytes": 29242,
+      "sha256": "dee7706efdc454998e301c8a152cd1cd0ddeebae8d5ec3ac59d7489915af8092"
+    },
+    {
+      "file": "native/c40-lift-large-complete-low-ta-large-load3.png",
+      "bytes": 32505,
+      "sha256": "01795d0c047a9d4c4ffb2cc60970fc98e9b758049256aff7e5a7a2e9cc647fdf"
+    },
+    {
+      "file": "native/c40-lift-large-complete-low-ta-large-load4.png",
+      "bytes": 34648,
+      "sha256": "d712882cc57c04e90dcde8e3557ae00792b294e9d598ed3cda652085ecb5db92"
+    },
+    {
+      "file": "native/c40-lift-large-complete-low-ta-large-platform.png",
+      "bytes": 128118,
+      "sha256": "856b7846c94a52ea4cb3a7296057cd75ddf100bd0342b97d512ccbf9c47aefac"
+    },
+    {
+      "file": "native/c40-lift-large-complete.json",
+      "bytes": 7265,
+      "sha256": "c77c746fe16f08635eb3d953849f6a378641f50ffb10fa0f51c451c79dbd9c0c"
+    },
+    {
+      "file": "native/c40-lift-large-complete.log",
+      "bytes": 27,
+      "sha256": "d2ecb931f451e1cbd75ddc2d52d675c8c738822b70cb1cbed660776a0a937e02"
+    },
+    {
+      "file": "native/c40-lift-large-complete.log.gz",
+      "bytes": 38,
+      "sha256": "fcc70e19d90c1432c68f89843d32c32137d99329ca5719c52ca6bb19f96a2b3f"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-large-load1.png",
+      "bytes": 110218,
+      "sha256": "ec75a2b3b9fba8f8b1621e4f2f33bc408fc194165874945211d035fdd7673faf"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-large-load2.png",
+      "bytes": 105768,
+      "sha256": "fb770bd0aeda7b58e3fb5117ad5800c1842c191555614a3229e5eb68e98b38a2"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-normal-load1.png",
+      "bytes": 104461,
+      "sha256": "1cac7b41fc294a891d410702fa93a7fad4016446a30a8dc298caf53b58868caa"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-normal-load2.png",
+      "bytes": 100255,
+      "sha256": "f6f7de665a78425e0fee8711bb5205a8234400b665fc0b0d6124f5a94c1e35e5"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-normal-load3.png",
+      "bytes": 96629,
+      "sha256": "a543a5b751584989ddc153c9e06cad1d2d1647d6113e14ebf1e7697e7e351d23"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-normal-load4.png",
+      "bytes": 108122,
+      "sha256": "2bf831e86765c99e280e0655fed2a814cf6cae226d229d4f3b229715016321a2"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-en-normal-load5.png",
+      "bytes": 105327,
+      "sha256": "84c5e60f814a81c3293717c08d1ca09e3acec803bdd7962dfdc181ba15a05a77"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-large-load1.png",
+      "bytes": 110504,
+      "sha256": "ad74e6aa74d1665acb234a278ed17c4fd85bfdb0f5ff46f4392fe2b991632ce1"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-large-load2.png",
+      "bytes": 105881,
+      "sha256": "9e7eb12e12aa98252b97fde95ca61da87bddf7df6a83a163022ca4e265996120"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-normal-load1.png",
+      "bytes": 105194,
+      "sha256": "351f9c779b3845e3bf17f43115da3b4430f8a7d61ed42f90ac92b8c5cc8ccbfc"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-normal-load2.png",
+      "bytes": 100272,
+      "sha256": "7e0cc49154b9bf9a7dcc525002948c268713dab3faf3dfe95bbba6ee38cd3791"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-normal-load3.png",
+      "bytes": 95347,
+      "sha256": "cfec9ddd937456a010787dc4711fa16339fc8d8be3d13ef628d32c25d55bfff6"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-normal-load4.png",
+      "bytes": 105757,
+      "sha256": "84bea8d2fe8d5ecd098518fdec7f7343dfddf9fb0de55265230ece0ded90afb2"
+    },
+    {
+      "file": "native/c40-lift-native-v2-high-ta-normal-load5.png",
+      "bytes": 105451,
+      "sha256": "f9d99513f32a98ce38e3733e9414c5b5f0a7bf5415f8bc33db4de71ee7eb535e"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-large-load1.png",
+      "bytes": 31530,
+      "sha256": "d755eddeea3819b76da1af6e640cc5ff9d4373305f62ed8e91089b17ca1e20da"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-large-load2.png",
+      "bytes": 29175,
+      "sha256": "70df264675e42f00e475bd2ab702baeba184f609a52525a69982dc1c144221da"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-normal-load1.png",
+      "bytes": 29688,
+      "sha256": "6b3d03c2ab727453e345eb1c4e4bd5af488192aa77833df25999761017d1fad5"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-normal-load2.png",
+      "bytes": 27415,
+      "sha256": "bf2b4a181c1525e3dc1426172f6d6712d760d49cfb2ba46dd1e9af8d6c255123"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-normal-load3.png",
+      "bytes": 29078,
+      "sha256": "1f9056ade1a3efd2945593b96ce16fcd5c667dff0a8f2aec0498e80458090834"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-normal-load4.png",
+      "bytes": 32803,
+      "sha256": "9015574c2556ced4aa7b047556e3ccc04e5dd8314aa5f426f9cd149ea11065d9"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-en-normal-load5.png",
+      "bytes": 29580,
+      "sha256": "3e334dd21ebd85164af0d081d6aa41168431aa9a893087171b50383a4f457284"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-large-load1.png",
+      "bytes": 31592,
+      "sha256": "c220506046e3b3c22c348d4cbba186943f27d6f8b0dc47b565c7942298f28a0a"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-large-load2.png",
+      "bytes": 29242,
+      "sha256": "dee7706efdc454998e301c8a152cd1cd0ddeebae8d5ec3ac59d7489915af8092"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-normal-load1.png",
+      "bytes": 29787,
+      "sha256": "749d00517d87c36db80f369a4fb869935b0698d7cb3d4ab6481f77252bdd026c"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-normal-load2.png",
+      "bytes": 27608,
+      "sha256": "f22664259aabbbcf66b404dd30fcf88350b5342560a32096b241b777aaceaf9b"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-normal-load3.png",
+      "bytes": 29250,
+      "sha256": "a43df534be93cb9de6f834b08d4541b0670890a6c2d2975a8eea86b954eaf79a"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-normal-load4.png",
+      "bytes": 33028,
+      "sha256": "ad72dc661c6b063735e39aa82abafbc0416b5ed3ec3ac8c85c70ee4eb1e6f522"
+    },
+    {
+      "file": "native/c40-lift-native-v2-low-ta-normal-load5.png",
+      "bytes": 29782,
+      "sha256": "17d89e8c22522d5d75c51df387ecb4def2f8f2b797d9d8ab87a0b78cfca334ed"
+    },
+    {
+      "file": "native/c40-lift-native-v2.json",
+      "bytes": 27877,
+      "sha256": "7b495195e61ebe304276ccdb33d9a057b8be50fcfabb69c25c456a5bef6975a5"
+    },
+    {
+      "file": "native/c40-lift-native-v2.log",
+      "bytes": 112,
+      "sha256": "e493baa1c7493c923b4dea867fc038d19fafa1bec9b3170a1fd1462718702379"
+    },
+    {
+      "file": "native/c40-lift-native-v2.log.gz",
+      "bytes": 66,
+      "sha256": "0ae61b3fcd2703d1edd4648feafa7c4abd4d14b5fdbc695a000a36afafefb720"
+    },
+    {
+      "file": "registry-lift.patch",
+      "bytes": 235,
+      "sha256": "9be3d1470dd1568a96df4503dc648754198b9f00533e163af769cc6361577d3d"
+    }
+  ],
+  "commands": {
+    "nativeEightLayouts": "At 11872d72: QA_TAG=c40-lift-native-v2 QA_BASE=http://127.0.0.1:8382 QA_BROWSER=/usr/bin/chromium node test/fppackageliftbrowser.js",
+    "extendedAssessment": "At 4401c375: QA_TAG=c40-lift-large-complete QA_BASE=http://127.0.0.1:8382 QA_BROWSER=/usr/bin/chromium QA_LANGS=ta QA_SIZES=large node test/fppackageliftbrowser.js",
+    "resource": "At 4401c375: QA_TAG=c40-lift-resource-current QA_BASE=http://127.0.0.1:8382 QA_BROWSER=/usr/bin/chromium QA_FPS_FLOOR=0 node test/tools/fp-package-lift-quality.js",
+    "node": "At 4401c375: all 80 Node entries from node test/run-all.js --list, sequentially, with loopback/child-process permissions. Inventory and individual logs retained.",
+    "geometry": "Included in the full Node batch: node test/fppackageliftgeometry.js",
+    "pilotB159": "Read origin/pilot:test/englishtext.js at 90844ac5 and compile it read-only with test-directory __dirname; no shared test was written."
+  },
+  "sourceFiles": {
+    "src/core/fppackagelift.js": "c951851be051346154a20ea51435e5003b5380c04df36b1191a63d4be997a1f5",
+    "src/core/fppackageliftbay.js": "ec76dea8802a4a0426d1d1c5dff514c5925e852c8aeb066b9df68a894d23fe4b",
+    "src/core/fppackageliftworld.js": "392c28270ae0e2793ed31f387de941c426d26527e4b6e5337496e3ec266d672c",
+    "src/core/fppackageliftscenario.js": "dcae678fd4c6b616a7e537ac166daacfb316dbb9da73f6b7345a530450ad4520",
+    "src/core/fpworld.js": "e4a8e172bac3ecc8d9dd98f1f13a69b2207ba446ffda9c029f4a424edc42bd73",
+    "src/core/fphud.js": "c2f528cd30ed595e1fca985a100c0919d6c4741b83e4523b5fd12f91b6b430ea",
+    "src/core/fpaccess.js": "2013768e490dafbb52d4d0f8463d3f9e2f4506cc8ac5ec1a288b791bd1873e7c",
+    "src/core/fpscenario.js": "f45c916b79d86a4387c05434d76b8864dc0c0a6b60aa0785cafbb10fc141b8b1",
+    "src/scenes/FirstPersonScenarioScene.js": "d8b1c3a8b032dae263c8eabb803a510ddaafe9f502e68f7c3b5beadc68a88c3c",
+    "test/fppackageliftbrowser.js": "b7f7d927bb766f33204ab0be58b2309736d151f7d115d00beaaa7984691527bc",
+    "test/fppackageliftgeometry.js": "74fb88d7053e4e854e4b41f628dfe09aec2375f3e84839e56e3c2bf003bc25c4",
+    "data/m2_lifting.js": "899b56bcddf0612294c520de5c45bfb17ba742dc583d7e550d4c03528536f9ff",
+    "index.html": "baafd0b534206728a2a67d0a69c2bc473cd387476209f3b3851fb3259f3aa56e"
+  },
+  "nativeOriginalProtocolSha256": "7dc2fe70e0aeb5f9456cfcdfc811a29e852018219ea0da41679f3847e80cdcef"
+}

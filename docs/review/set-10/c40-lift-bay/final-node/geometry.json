@@ -1,0 +1,21 @@
+{
+  "scope": "CPU Low geometry only: twenty load/stage poses, twenty-four yaw angles and five pitches, main plus the most costly actual mirror pass. Not GPU memory, startup, High or Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 2400,
+      "peak": {
+        "calls": 35,
+        "triangles": 1216
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 2400,
+      "peak": {
+        "calls": 41,
+        "triangles": 1080
+      }
+    }
+  ]
+}

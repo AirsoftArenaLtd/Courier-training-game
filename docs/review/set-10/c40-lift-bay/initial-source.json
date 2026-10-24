@@ -1,0 +1,59 @@
+{
+  "runtimeRevision": "0088d942e137975800897b5e0a067abf01b3f258",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "initial-0088d942/bench-c40-lift-resource-0088d942-loaded-low-low.json",
+      "log": "initial-0088d942/c40-lift-resource-0088d942-loaded-low.log",
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1928998
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "initial-0088d942/bench-c40-lift-resource-0088d942-loaded-high-high.json",
+      "log": "initial-0088d942/c40-lift-resource-0088d942-loaded-high.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 16326,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6247814
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "initial-0088d942/bench-c40-lift-resource-0088d942-accessible-low-low.json",
+      "log": "initial-0088d942/c40-lift-resource-0088d942-accessible-low.log",
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2400731
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "initial-0088d942/bench-c40-lift-resource-0088d942-fallback-low-low.json",
+      "log": "initial-0088d942/c40-lift-resource-0088d942-fallback-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 992,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1928998
+      }
+    }
+  ],
+  "nodeSuites": 79,
+  "scope": "Initial 32-view resource pass and Node suites. Screenshots subsequently exposed the generic W/S walking footer, corrected in 2633b332; these are not final corrected-UI captures."
+}
