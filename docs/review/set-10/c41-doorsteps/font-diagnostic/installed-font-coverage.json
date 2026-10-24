@@ -1,0 +1,30 @@
+[
+  {
+    "font": "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
+    "sample": "பாதுகாப்பு வாசல்கள் முக்கியப் பாடங்கள்",
+    "missingCodepoints": [
+      "0xb95",
+      "0xb99",
+      "0xb9a",
+      "0xb9f",
+      "0xba4",
+      "0xbaa",
+      "0xbae",
+      "0xbaf",
+      "0xbb2",
+      "0xbb3",
+      "0xbb5",
+      "0xbbe",
+      "0xbbf",
+      "0xbc1",
+      "0xbcd"
+    ],
+    "sha256": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5"
+  },
+  {
+    "font": "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf",
+    "sample": "பாதுகாப்பு வாசல்கள் முக்கியப் பாடங்கள்",
+    "missingCodepoints": [],
+    "sha256": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  }
+]

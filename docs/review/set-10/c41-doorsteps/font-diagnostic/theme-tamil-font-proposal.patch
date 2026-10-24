@@ -1,0 +1,11 @@
+--- a/src/core/theme.js
++++ b/src/core/theme.js
+@@ -44,7 +44,7 @@
+   let weight = opts.weight || (opts.bold === false ? 'normal' : 'bold');
+   if (opts.italic) weight = 'italic ' + weight;
+   const style = {
+-    fontFamily: OTR.theme.font,
++    fontFamily: OTR.i18n?.lang === 'ta' ? '"Noto Sans Tamil", ' + OTR.theme.font : OTR.theme.font,
+     fontSize: size + 'px',
+     color: color || '#ffffff',
+     fontStyle: weight,

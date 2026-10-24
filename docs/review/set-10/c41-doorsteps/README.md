@@ -86,12 +86,17 @@ Visual inspection caught premature result captures: the source protocol takes th
 animations. Those original result PNGs are retained as diagnostic transition poses, not final visual
 acceptance. The test-only `fp-result-capture` helper now waits for the real star counter, transition and
 rank-up card, using Space to dismiss a real card when present. Its syntax checks pass; native integration
-is pending in the sequential follow-ups. An extra complete Low larger-Tamil critical journey is queued
-for settled result evidence. Some existing Tamil words also show boxed glyphs in the cloud result capture;
-that observation is posted to Claude for shared font/A-31 diagnosis. No theme, font or translation source
+is pending in the sequential follow-ups. The boxed Tamil glyphs are now independently reproduced with a read-only probe attached to the same
+review browser: the existing stack selects NotoSans-Bold; a Tamil-first prefix selects NotoSansTamil-Bold
+and renders the sample correctly, with byte-identical pixels to explicit Noto Sans Tamil. The corrected
+sample is 10.23% wider. A concrete unapplied shared-factory patch and full pixel/coverage proof are in
+[font-diagnostic/](font-diagnostic/README.md) for Claude. This direct proof supersedes the queued duplicate
+Tamil doorstep repeat; the photo and old-dialogue jobs still validate settled capture timing. No theme, font or translation source
 has been edited, and no all-language readability acceptance is claimed.
 
 Native validation is being collected against the frozen candidate. Final reports, screenshots and exact raw logs
 will be indexed in `manifest.json`; pending jobs must not be treated as passed. Cloud software-renderer
 FPS cannot certify the owner's Intel 60 FPS requirement. New English sentences still await translation;
 English/Tamil layout checks do not claim all new sentences are already translated.
+
+Both High English journeys have also completed with their original clean 6,400-point results and durable records. The remaining High Tamil cases and subsequent browser regressions remain active; no full eight-layout or task acceptance is claimed.
