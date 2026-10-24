@@ -76,17 +76,12 @@ All 44 graphics views pass the original ceilings:
 | Larger/colour/reduced Low | 37 | 1,654 | 2 | 3,557,376 | 2,214,272 |
 | Missing assets Low | 40 | 1,476 | 2 | 3,557,376 | 2,055,110 |
 
-All four full Low keyboard journeys are now complete, at normal/larger text in English/Tamil. Three
-keep the original 6,400 points and clean ratios. The larger Tamil assessment chooses the authored neighbor
-critical and keeps 5,800 points, service 29/35, one critical and a failed verdict. Every result survives
-reload without changing the suspended workday or checkpoint. Exact completed cases are in
-`low-native-validation.json`; the full eight-layout native run remains incomplete.
+All eight full keyboard journeys now pass on Low/High at normal/larger text in English/Tamil: **10,715 checks**. Clean paths preserve 6,400 points; the two larger-Tamil assessments preserve the authored neighbor critical, 5,800 points, service 29/35 and a failed verdict. All durable records and suspended-workday reloads pass. The separate restricted-photo assessment also passes **1,331 checks**, keeping 5,400 points, service 5/6, two criticals and a failed verdict. Its settled result capture shows the expected 7 / 9 stars. The High larger-Tamil old-dialogue regression and four required repository browser checks continue.
 
 Visual inspection caught premature result captures: the source protocol takes them during the result
 animations. Those original result PNGs are retained as diagnostic transition poses, not final visual
 acceptance. The test-only `fp-result-capture` helper now waits for the real star counter, transition and
-rank-up card, using Space to dismiss a real card when present. Its syntax checks pass; native integration
-is pending in the sequential follow-ups. The boxed Tamil glyphs are now independently reproduced with a read-only probe attached to the same
+rank-up card, using Space to dismiss a real card when present. Its first integration exposed a hidden-focus-ring wait in the test helper; the corrected helper now passes the repeated restricted-photo journey. The original failure and explanation remain in `capture-helper-debug/`. Old-dialogue integration continues. The boxed Tamil glyphs are now independently reproduced with a read-only probe attached to the same
 review browser: the existing stack selects NotoSans-Bold; a Tamil-first prefix selects NotoSansTamil-Bold
 and renders the sample correctly, with byte-identical pixels to explicit Noto Sans Tamil. The corrected
 sample is 10.23% wider. A concrete unapplied shared-factory patch and full pixel/coverage proof are in

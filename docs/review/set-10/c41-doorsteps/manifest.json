@@ -117,8 +117,9 @@
     ]
   },
   "nativeProgress": {
-    "checksSoFar": 9232,
-    "completedJourneys": 6,
+    "checks": 10715,
+    "completedJourneys": 8,
+    "complete": true,
     "completedLayouts": [
       {
         "quality": "low",
@@ -203,30 +204,55 @@
         "assessmentPassed": true,
         "criticals": 0,
         "durable": true
+      },
+      {
+        "quality": "high",
+        "lang": "ta",
+        "large": false,
+        "score": 6400,
+        "ratios": {
+          "service": 1,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": null,
+        "criticals": 0,
+        "durable": true
+      },
+      {
+        "quality": "high",
+        "lang": "ta",
+        "large": true,
+        "score": 5800,
+        "ratios": {
+          "service": 0.8285714285714286,
+          "safety": 1,
+          "efficiency": 1
+        },
+        "assessmentPassed": false,
+        "criticals": 1,
+        "durable": true
       }
     ],
-    "complete": false,
-    "failureAtCheckpoint": null,
-    "note": "Global checks include a partial next journey. Original result PNGs are transitional diagnostics; font-corrected layout acceptance is pending."
+    "note": "The eight-layout protocol completed. Its original result PNGs remain diagnostic transition poses. The restricted-photo run uses the corrected settled-result helper. Shared corrected-font layout acceptance remains pending."
   },
   "pending": [
-    "Eight complete native layouts.",
-    "Restricted-photo assessment, High larger-Tamil two-stop regression and four required repository browser suites.",
-    "Claude safety/efficiency contract for new optional protocol ids.",
-    "A-30 registry/completion, A-31 translations/default and combined current-pilot acceptance.",
-    "Owner Intel FPS measurement O-1."
+    "High larger-Tamil two-stop regression and four required repository browser suites.",
+    "Claude safety/efficiency contract for optional protocol ids and shared Tamil font/A-31 work.",
+    "A-30 registry/completion, translations/default and combined current-pilot acceptance.",
+    "Owner Intel FPS O-1."
   ],
-  "screenshots": 158,
+  "screenshots": 216,
   "files": [
     {
       "file": "README.md",
-      "bytes": 7833,
-      "sha256": "4558ad06f2ef3ed12c4773f0bf05e23493e8d8c4b286898fb3d68cdbbbda0c86"
+      "bytes": 8147,
+      "sha256": "fe0b8d88132201aa68671fa8352e1f34dee4030c2f6617c4a1a748fe6cfba069"
     },
     {
       "file": "VALIDATION.md",
-      "bytes": 2500,
-      "sha256": "604c9caf04b1a735eeb550447c72c5bd6c4c9e145ac374485a3662880edecfa9"
+      "bytes": 2851,
+      "sha256": "3b0f0f6c08f0164713771bfb501b2247c0976a522f864157b643dcf6822dd8db"
     },
     {
       "file": "bench-c41-stop-resource-f80f76c4-accessible-low-low.json",
@@ -442,6 +468,196 @@
       "file": "c41-stop-native-f80f76c4-high-en-normal-stop3-tag.png",
       "bytes": 180167,
       "sha256": "fde6fd8386de4b091386f8fd8733d0478661730086bac367effe157715428783"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-result.png",
+      "bytes": 129497,
+      "sha256": "667567fe442e9321be4917cf97cddcb85f9d59521ee31e7088fc8cd7d8c66473"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-cargo.png",
+      "bytes": 213707,
+      "sha256": "115b2732a20f56913915b7493a9c1c0614649995208c264a78ea96fdb9279bf8"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-customer.png",
+      "bytes": 193618,
+      "sha256": "812475a94083c05e205d304e06f526099df08a19e525c526a22efcf6f58d5aa5"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-handheld.png",
+      "bytes": 188081,
+      "sha256": "7c1d78ee53256c82bb298004d9192fe815f256a26419bfd9897daa040531896d"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-name.png",
+      "bytes": 104375,
+      "sha256": "4b7fac4a811695d0bc5234b828231b6dcdf794e0b6756dad52b14e02e381632f"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-reply.png",
+      "bytes": 104031,
+      "sha256": "a9d021549e3a3920afe1a7abcd711146b29ad44b43f8a62430f604e9507dc32c"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop1-report.png",
+      "bytes": 51743,
+      "sha256": "df3c02d5a734edbbac0c63c1b59453ac00652795f19234fdc67745cf5a051e1e"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-cargo.png",
+      "bytes": 210134,
+      "sha256": "59344b69cc8bd68859b2e460c1ff42b3c19ec6cfdc024803b2203120912397b3"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-customer.png",
+      "bytes": 188418,
+      "sha256": "2031ae8af46977f40b991a73af3a230eeb7dcd9aac0a9965dad0c8da0ca74953"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-handheld.png",
+      "bytes": 180282,
+      "sha256": "4c0a453fb6a254af1c67663912d05494d2c700e85d56e670c9a128342003b93b"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-name.png",
+      "bytes": 99320,
+      "sha256": "913727a40cdfaa64792ec8c1e8becab342d4e9b174ffebb09f08d395d828a68e"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-reply.png",
+      "bytes": 104019,
+      "sha256": "7e32d74c8a33a16bf677255b2c538663fa246110979ba3ca540a63d2c4137475"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop2-report.png",
+      "bytes": 51983,
+      "sha256": "a2d1e4b591723a60097d77cbd9b3ef1aec019d7af341f56671fd46d4415dae68"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-cargo.png",
+      "bytes": 238127,
+      "sha256": "02075d6e41a4569835e4336ee30eedc97667d8258086b71676ac42e141576629"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-customer.png",
+      "bytes": 185299,
+      "sha256": "ae2d24fe4e8ee8ada3d47efeb1d3dbfa814513a04d04814f15b224e3548723e6"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-handheld.png",
+      "bytes": 179193,
+      "sha256": "0ec5552b1efe102f268619b7355c5cca759b9931669b132249239aee0025d8ed"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-reply.png",
+      "bytes": 106620,
+      "sha256": "09b6ed13d0f901a1fbc91c043b17b7e4cd9fcd158ee44007cd10529a9b4e11e7"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-report.png",
+      "bytes": 50261,
+      "sha256": "c3a4dbe8d022eaf8e2539a77f1bb8d7d9cbbb2e592faab32dec5920224eb56f7"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-large-stop3-tag.png",
+      "bytes": 168542,
+      "sha256": "31edad5303104a83699dd0663ad9c0e17a996182b0b0ed86f5b125c1f340e6b2"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-result.png",
+      "bytes": 80994,
+      "sha256": "14c59a8c04094ff278a1b78d08ce952c1febeac8bcf044236debe639cfa17842"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-cargo.png",
+      "bytes": 241520,
+      "sha256": "be84af3332c8e8080c5efbed443018ddce951110e193fb3c03549c3eec36015f"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-customer.png",
+      "bytes": 220335,
+      "sha256": "f93d812de4f1ea1d0e1b714795e9d1e84e3c2a5992cedecfb0cecbbe77b24b1d"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-handheld.png",
+      "bytes": 170143,
+      "sha256": "8fa49f2abc2726e06e538a351fa6ecc0c391824f92063019362fd9a14300f893"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-name.png",
+      "bytes": 90587,
+      "sha256": "b767e0386dfa6153bf7321cbfca45b3a8410c40ff4d522ee1375d77a26ba50e8"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-reply.png",
+      "bytes": 90502,
+      "sha256": "f4637b31f3dd4bfb0b5607e6bc263f2df22259204de01e0bffee878adce3530e"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop1-report.png",
+      "bytes": 46709,
+      "sha256": "7c0108a4637da07c4911482d386b4e7c3d585318c8abeadd029b26c0a8104a11"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-cargo.png",
+      "bytes": 256031,
+      "sha256": "5c0ee2ef9d15e013091557d0e246180cd5eb3e15ba5f613f1d5790884ca6e0f4"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-customer.png",
+      "bytes": 203145,
+      "sha256": "050da9a5722f308277afc98c52112a3b27a1ec105a68030d21fb1bce25a8abae"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-handheld.png",
+      "bytes": 160949,
+      "sha256": "e00399c1d59e71bd5c14072eaf0314aac4c38e8d9b7d84199f91a7b030c46aec"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-name.png",
+      "bytes": 84507,
+      "sha256": "a970848ca0d80fbecab3cb08ef905753e0229de3e69c1d39e29da0511f233a16"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-reply.png",
+      "bytes": 84165,
+      "sha256": "ac04bc4381f47466bf0f1f9dc63e7ea4f5dc3098fb3eb5fad2248f791439289e"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop2-report.png",
+      "bytes": 46959,
+      "sha256": "8f4d687e8d6f04c7c06387dc535d98a833c0eacbed411bf2ac4d2b491a7724cf"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-cargo.png",
+      "bytes": 250858,
+      "sha256": "c909100a3227eef7e5ea2ce80f4f74eaa84b7b8c1af480e1ff9d7c5b4149bfbc"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-customer.png",
+      "bytes": 224548,
+      "sha256": "a4a3ada006fbf6c4dd5b52f6f8f4dce13f3ab18128fa9c87a5532861796c1861"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-handheld.png",
+      "bytes": 155020,
+      "sha256": "8c7f45b089b429d8a21c6f8f580a1f1329fee98bdef3bcf866393170c57c8838"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-reply.png",
+      "bytes": 89802,
+      "sha256": "7954f67cbfd5b176500ff949c1c23d3bbf0a821af3a884c92657765c5a9f699e"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-report.png",
+      "bytes": 46123,
+      "sha256": "f3a4c0a137c9ae4b47e729cce5ab6dc4e984695eecf9cc483ce1129a34b36977"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4-high-ta-normal-stop3-tag.png",
+      "bytes": 200570,
+      "sha256": "7d33a52fcdd50fb53fd8ce850909fb21ec57c3ada8988320e67ad6d37937078a"
     },
     {
       "file": "c41-stop-native-f80f76c4-low-en-large-result.png",
@@ -824,6 +1040,126 @@
       "sha256": "96bf081272567ae8d13854b49c087e39e3b19cf8e16a155be396c086c332f1bf"
     },
     {
+      "file": "c41-stop-native-f80f76c4.json",
+      "bytes": 346100,
+      "sha256": "90162235c99fc54eb5bba8252baa01ee5d3c3ba738c8fa3295508c7b6f293290"
+    },
+    {
+      "file": "c41-stop-native-f80f76c4.log",
+      "bytes": 413,
+      "sha256": "7abf076a0f5b31fe077cf13f108b406e7031a3f1bd0916185aca31a3ea39a840"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-result.png",
+      "bytes": 160822,
+      "sha256": "dd31699379111b2f3d3231d9c19172bc4d4caf28f75263e7968a0fdb2820025f"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-cargo.png",
+      "bytes": 90807,
+      "sha256": "aa1728a9c85fdece751b5425373f61a7f780f82dd73be1bc62d3cec52e6a736a"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-customer.png",
+      "bytes": 46457,
+      "sha256": "781b557003e0e8d79686fc7039335ef11b449922919497d0ff70d904b976471c"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-handheld.png",
+      "bytes": 53900,
+      "sha256": "da94dba9dca96a3dc1063b638adb125ee8e3c18c2624ef2eea09448529223eb9"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-name.png",
+      "bytes": 43238,
+      "sha256": "58634a8df084f9823fad51ac50b094c49185a16bae2deb8ea9da128883a21d20"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-reply.png",
+      "bytes": 69704,
+      "sha256": "165cc688afacf2bce62404f76c1b26b518029395680f88bdb63c4b9c219ea811"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop1-report.png",
+      "bytes": 39639,
+      "sha256": "c2ee72d8bfca4de5041f6a32616f0306eef5b94ccc1c3bc453a24834a138300e"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-cargo.png",
+      "bytes": 85832,
+      "sha256": "2709b0c0101cb7f7fa21c4151f16e770ef52476ddc6e19b330274349ab3c806e"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-customer.png",
+      "bytes": 45544,
+      "sha256": "96038f1e7f8c4be734b414509e2e5f9edc44af4a5026236efde28d4bc79a4122"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-handheld.png",
+      "bytes": 51005,
+      "sha256": "55f34be3f5c61526eb58ee1c17fecf5ab697e1853a663d0420c2c153fe4239eb"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-name.png",
+      "bytes": 41690,
+      "sha256": "7eef44de74f0442cb36846efaea738d5ac563ca2c76d04fc827d228ad61a3cbe"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-reply.png",
+      "bytes": 50014,
+      "sha256": "2b16612b1546df2df61e7cde41d4c0a6a4033cb9e599aedf8bd8a5fd6fbd0fc1"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop2-report.png",
+      "bytes": 39932,
+      "sha256": "8793fb047b19a7f23e9e68766d477b8ea8e76068b3283b9fb46473594fb34698"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-cargo.png",
+      "bytes": 92640,
+      "sha256": "6f557d5c7489289706748c22888d579bc00b96a5cd6d4517f0ad4a3b5525ad51"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-customer.png",
+      "bytes": 44958,
+      "sha256": "f35054580741b2b31a6460b8b17df9e09a1d4ef552f3b7e0836d95a20640223a"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-handheld.png",
+      "bytes": 48434,
+      "sha256": "85aeb2c02a30ffe0e797cd11478f98353a25d43ba93e22c6546ab472693891da"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-photo-frame.png",
+      "bytes": 59661,
+      "sha256": "94a29be7e2eee8ea87a1680a8ab22991bebce00b17818aea798b36a146086128"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-photo-review.png",
+      "bytes": 39148,
+      "sha256": "44dca90e6a8ce170f8ba8158d96e70321836a5e94735607fba09492c3117de19"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-reply.png",
+      "bytes": 57843,
+      "sha256": "d7812bc1c36f0d83a1c18414664b51490b0b547217cca8bbaccc3270bab270c1"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4-low-en-large-stop3-report.png",
+      "bytes": 39016,
+      "sha256": "70ca2822256f3d2a7d1f53c271f5b816ff92cdd3a1fd5a10df553c888d128442"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4.json",
+      "bytes": 43036,
+      "sha256": "ddb530951d783613d7f2a7bc02ff913719f474841b1a9ad3eee606292a2dff80"
+    },
+    {
+      "file": "c41-stop-photo-f80f76c4.log",
+      "bytes": 96,
+      "sha256": "1aa0e0e07d5c5717bc5d5521dc5e0fd368080da9f4a3cc0590a54b0a75b0e0f5"
+    },
+    {
       "file": "c41-stop-resource-f80f76c4-accessible-low-low-doorstepcab.png",
       "bytes": 168206,
       "sha256": "e7b3c7c759f6161bed875c15b08a9fd23eef448ef2382d0bab61b3194400dc0d"
@@ -1069,6 +1405,26 @@
       "sha256": "cf8de5c469e4d4ed72060a763fb8613cea2c2b817120b7eea7f4f4af18208159"
     },
     {
+      "file": "capture-helper-debug/README.md",
+      "bytes": 559,
+      "sha256": "c9482c8237ba6e53900a2be7097386241d9d615fc449aa284a69994c5788a525"
+    },
+    {
+      "file": "capture-helper-debug/c41-stop-photo-f80f76c4-failure.png",
+      "bytes": 158426,
+      "sha256": "739dd1f72ac10fc5c24c5022e7f6cda52d49189c6a9514831e6384de79ed3307"
+    },
+    {
+      "file": "capture-helper-debug/c41-stop-photo-f80f76c4.json",
+      "bytes": 44825,
+      "sha256": "4c5a22155021ad024891f35d0419301240db332acc0caf2fff4701a4c40ffd2f"
+    },
+    {
+      "file": "capture-helper-debug/c41-stop-photo-f80f76c4.log",
+      "bytes": 1055,
+      "sha256": "b8468cd526c2b02a2b7254ab3796a57a64e8a841d1fe21de4050686e8fcb4cd0"
+    },
+    {
       "file": "font-diagnostic/README.md",
       "bytes": 2649,
       "sha256": "281c026b739b0701160cf9801f2f7bd1647fa7c46eb4fba249939dd99d7d60b7"
@@ -1130,8 +1486,8 @@
     },
     {
       "file": "native-progress-summary.json",
-      "bytes": 1924,
-      "sha256": "4752a972d618ec108843486fe6ff1f294754051f31844428f3033298218f84ff"
+      "bytes": 2527,
+      "sha256": "bf1ef7b507aed6e658d4d348f669d94670de6739b44cbfe13aec1e1ca69cc364"
     },
     {
       "file": "node-results.json",
@@ -1166,12 +1522,12 @@
   ],
   "lowNativeValidation": "low-native-validation.json",
   "resultCaptureFollowup": {
-    "status": "test-only correction; integration pending",
+    "status": "Restricted-photo integration passes; old-dialogue integration is running.",
     "helper": "test/tools/fp-result-capture.js",
     "protocolHashes": {
       "test/fpcustomerstopbrowser.js": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
       "test/fpcustomerbrowser.js": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
-      "test/tools/fp-result-capture.js": "b6f1a6c799be5461cfced7deac5a0912a187d650150a3d16f8abfbb1737e27eb"
+      "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
     },
     "originalResultImagesAreTransitionalDiagnostics": true,
     "sharedTamilFontObservationPosted": true
@@ -1181,5 +1537,25 @@
     "reproduced": true,
     "proposalApplied": false,
     "correctedFontLayoutPassed": false
+  },
+  "restrictedPhoto": {
+    "checks": 1331,
+    "complete": true,
+    "report": "c41-stop-photo-f80f76c4.json",
+    "resultPresentation": {
+      "active": true,
+      "counter": "7 / 9",
+      "expected": "7 / 9",
+      "modals": 0,
+      "scale": 1,
+      "bounds": {
+        "left": 206,
+        "top": 6,
+        "right": 1074,
+        "bottom": 722
+      },
+      "transition": false,
+      "rankUpDismissed": false
+    }
   }
 }

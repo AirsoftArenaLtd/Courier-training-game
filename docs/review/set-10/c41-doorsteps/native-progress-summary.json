@@ -1,6 +1,7 @@
 {
-  "checksSoFar": 9232,
-  "completedJourneys": 6,
+  "checks": 10715,
+  "completedJourneys": 8,
+  "complete": true,
   "completedLayouts": [
     {
       "quality": "low",
@@ -85,9 +86,35 @@
       "assessmentPassed": true,
       "criticals": 0,
       "durable": true
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": null,
+      "criticals": 0,
+      "durable": true
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 5800,
+      "ratios": {
+        "service": 0.8285714285714286,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": false,
+      "criticals": 1,
+      "durable": true
     }
   ],
-  "complete": false,
-  "failureAtCheckpoint": null,
-  "note": "Global checks include a partial next journey. Original result PNGs are transitional diagnostics; font-corrected layout acceptance is pending."
+  "note": "The eight-layout protocol completed. Its original result PNGs remain diagnostic transition poses. The restricted-photo run uses the corrected settled-result helper. Shared corrected-font layout acceptance remains pending."
 }

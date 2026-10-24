@@ -1,0 +1,10 @@
+{ quality: 'low', lang: 'en', large: true }
+TimeoutError: Waiting failed: 180000ms exceeded
+    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)
+    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)
+    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)
+    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)
+    at resultCapture (/workspace/c41-customer-interaction/test/tools/fp-result-capture.js:4:13)
+    at async shot (/workspace/c41-customer-interaction/test/fpcustomerstopbrowser.js:26:73)
+    at async /workspace/c41-customer-interaction/test/fpcustomerstopbrowser.js:45:1433
