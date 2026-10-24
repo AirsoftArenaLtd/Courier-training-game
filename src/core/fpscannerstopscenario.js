@@ -1,14 +1,15 @@
 /* M5 on the physical handheld. Existing stop kernel, conversations and original local-log evaluator are reused. */
 window.OTR=window.OTR||{};
 OTR.fpScannerStopScenario=Object.assign(Object.create(OTR.fpCustomerStopScenario),{
+  device(scene,def){const d=scene.model.customerStop,index=d.index,phase=d.phase,guard=fn=>()=>{if(scene.model.customerStop===d&&d.index===index&&d.phase===phase&&scene.scenarioSession.phase==='active')fn();};return scene.handheld.show({...def,options:def.options?.map(op=>({...op,onPick:op.onPick?guard(op.onPick):op.onPick})),back:def.back?guard(def.back):def.back});},
   configure(run,m){OTR.fpCustomerStopScenario.configure.call(this,run,m);OTR.fpScannerStop.prepare(m.customerStop);m.scannerSolids=[{x:10000,z:10000,w:.64,d:.64},{x:10000,z:10000,w:1.7,d:.55}];m.solids.push(...m.scannerSolids);m.scannerStage=null;},
   nearPerson(scene){const m=scene.model,p=m.scannerStage?.person;return !!p&&m.mode==='walk'&&m.customerStage.actors[0]?.visible&&Math.hypot(m.player.x-p.x,m.player.z-p.z)<2.65;},
   nearby(scene,point){const m=scene.model;return m.mode==='walk'&&point&&Math.hypot(m.player.x-point.x,m.player.z-point.z)<2.65;},
   enter(scene){if(scene.model.customerStop.photoPending){this.notice(scene,'Finish recording the pending delivery photo before returning to the cab.');return;}OTR.fpCustomerStopScenario.enter.call(this,scene);},
   handheld(run,scene){
-    const d=scene.model.customerStop;if(d.photoPending){if(d.photoMode)scene.handheld.show({title:'Use the delivery camera.',lines:['The package remains where you placed it.'],options:[{label:'Resume framing the photo.',onPick:()=>scene.handheld.close()}],back:()=>scene.handheld.close()});else this.photoReview(scene);return;}
+    const d=scene.model.customerStop;if(d.photoPending){if(d.photoMode)this.device(scene,{title:'Use the delivery camera.',lines:['The package remains where you placed it.'],options:[{label:'Resume framing the photo.',onPick:()=>scene.handheld.close()}],back:()=>scene.handheld.close()});else this.photoReview(scene);return;}
     if(d.identity){this.identity(scene);return;}
-    scene.handheld.show({title:'Read the stop details.',lines:[`The stop is ${d.def.packages[0].number} ${d.def.packages[0].street}.`],options:[
+    this.device(scene,{title:'Read the stop details.',lines:[`The stop is ${d.def.packages[0].number} ${d.def.packages[0].street}.`],options:[
       {label:'Scan the carried packages.',onPick:()=>this.scan(scene)},
       {label:'Record a delivery.',onPick:()=>this.delivery(scene)},
       {label:'Record an exception.',onPick:()=>this.exceptions(scene)},
@@ -22,24 +23,24 @@ OTR.fpScannerStopScenario=Object.assign(Object.create(OTR.fpCustomerStopScenario
   records(scene){this.handheld(scene.scenarioSession,scene);},
   delivery(scene,page=0){
     const d=scene.model.customerStop;if(!OTR.fpCustomerStop.canDeliver(d)||d.photoPending){scene.handheld.close(false);this.notice(scene,'Carry and scan the package before recording a delivery. A recorded outcome cannot be replaced.');return;}
-    const types=Object.keys(OTR_DATA.handheld.deliveryTypes),type=types[page%types.length],index=d.index;scene.handheld.show({title:'Choose the delivery method.',lines:[],options:[
+    const types=Object.keys(OTR_DATA.handheld.deliveryTypes),type=types[page%types.length],index=d.index;this.device(scene,{title:'Choose the delivery method.',lines:[],options:[
       {label:this.labels[type],onPick:()=>{if(scene.model.customerStop!==d||d.index!==index||d.state.outcome)return;if(type==='left'){this.spots(scene);return;}if(!this.nearPerson(scene)){scene.handheld.close(false);this.notice(scene,'Walk up to the customer who answered before handing over the package.');return;}const next=OTR.fpScannerStop.request(d,type);if(next==='identity')this.identity(scene);else if(next==='signature')this.signature(scene);}},
       {label:'Read the next delivery method.',onPick:()=>this.delivery(scene,(page+1)%types.length)}
     ],back:()=>this.handheld(scene.scenarioSession,scene)});
   },
-  spots(scene,page=0){const d=scene.model.customerStop,spots=OTR.fpScannerStop.spots(d),spot=spots[page%spots.length];scene.handheld.show({title:'Choose where to leave it.',lines:[],options:[
+  spots(scene,page=0){const d=scene.model.customerStop,spots=OTR.fpScannerStop.spots(d),spot=spots[page%spots.length];this.device(scene,{title:'Choose where to leave it.',lines:[],options:[
     {label:`Place the package ${spot.label.charAt(0).toLowerCase()+spot.label.slice(1)}.`,onPick:()=>{const point=scene.model.scannerStage.locations[spot.id]||scene.model.scannerStage.locations.mat;if(!this.nearby(scene,point)){scene.handheld.close(false);this.notice(scene,'Approach the chosen location before placing the package.');return;}if(OTR.fpScannerStop.place(d,spot.id)){scene.handheld.close();scene.sync();}}},
     {label:'Read the next location.',onPick:()=>this.spots(scene,(page+1)%spots.length)}
   ],back:()=>this.delivery(scene,3)});},
   identity(scene,decision=0,field=0){const d=scene.model.customerStop,pending=d.identity,card=OTR.fpScannerStop.card(d);if(!card)return;if(!pending.order)pending.order=OTR.util.shuffle(['ok','under','invalid']);const result=pending.order[decision%3],labels={ok:'Verify a valid ID for a person who is 21 or older.',under:'Record that the person is under 21.',invalid:'Record an expired ID or a name or photo mismatch.'};
-    scene.handheld.show({title:'Check the photo ID.',lines:[],options:[
-      {label:labels[result],onPick:()=>{if(d!==scene.model.customerStop||d.identity!==pending||!this.nearPerson(scene))return;OTR.fpScannerIdentity.hide(scene);const next=OTR.fpScannerStop.decide(d,result);if(next==='signature')this.signature(scene);else if(next==='refused')scene.handheld.show({title:'Keep the package.',lines:['Record an exception and keep the package.'],options:[{label:'Choose an exception code.',onPick:()=>this.exceptions(scene)}],back:()=>this.handheld(scene.scenarioSession,scene)});}},
+    this.device(scene,{title:'Check the photo ID.',lines:[],options:[
+      {label:labels[result],onPick:()=>{if(d!==scene.model.customerStop||d.identity!==pending||!this.nearPerson(scene))return;OTR.fpScannerIdentity.hide(scene);const next=OTR.fpScannerStop.decide(d,result);if(next==='signature')this.signature(scene);else if(next==='refused')this.device(scene,{title:'Keep the package.',lines:['Record an exception and keep the package.'],options:[{label:'Choose an exception code.',onPick:()=>this.exceptions(scene)}],back:()=>this.handheld(scene.scenarioSession,scene)});}},
       {label:'Read the next decision.',onPick:()=>this.identity(scene,(decision+1)%3,field)},
       {label:'Read the next ID field.',onPick:()=>this.identity(scene,decision,(field+1)%4)}
     ],back:()=>{OTR.fpScannerIdentity.hide(scene);OTR.fpScannerStop.cancelIdentity(d);this.delivery(scene);}});OTR.fpScannerIdentity.show(scene,card,field);
   },
   exceptions(scene,page=0){const d=scene.model.customerStop,all=OTR_DATA.handheld.exceptions,ex=all[page%all.length];if(d.photoPending||d.state.outcome){scene.handheld.close(false);this.notice(scene,'Finish the pending photo or return to the parked van with the recorded outcome.');return;}
-    OTR.fpScannerIdentity.hide(scene);OTR.fpScannerStop.cancelIdentity(d);scene.handheld.show({title:'Choose an exception code.',lines:[],options:[
+    OTR.fpScannerIdentity.hide(scene);OTR.fpScannerStop.cancelIdentity(d);this.device(scene,{title:'Choose an exception code.',lines:[],options:[
       {label:`Record exception ${ex.id}.`,onPick:()=>{if(OTR.fpCustomerStop.exception(d,ex.id)){scene.handheld.close(false);if(ex.doorTag)this.tag(scene);else this.notice(scene,`Exception ${ex.id} has been recorded. Return the package to the van.`);}}},
       {label:'Read this code description.',onPick:()=>{scene.handheld.close(false);this.panel(scene,`Read exception ${ex.id}.`,ex.desc,[{label:'Return to this code.',action:()=>{scene.closePanel();this.exceptions(scene,page);}}],'notice');}},
       {label:'Read the next exception code.',onPick:()=>this.exceptions(scene,(page+1)%all.length)}
@@ -47,7 +48,7 @@ OTR.fpScannerStopScenario=Object.assign(Object.create(OTR.fpCustomerStopScenario
   },
   capturePhoto(scene){const d=scene.model.customerStop;scene.sync();if(OTR.fpScannerStop.capture(d,scene.art.customerStop.photo(scene.view.camera)))this.photoReview(scene);},
   photoReview(scene){const d=scene.model.customerStop;if(!d.photo)return;const coaching=OTR.fpScenario.coaching(scene.scenarioSession),body=coaching?d.photo.grade==='good'?'The photo shows the package and its location without private details.':d.photo.grade==='private'?'The photo includes a person or the house number.':'The photo does not clearly show the package and its location.':'The photo has been captured.';
-    scene.handheld.show({title:'Review the delivery photo.',lines:[],options:[
+    this.device(scene,{title:'Review the delivery photo.',lines:[],options:[
       {label:'Use this photo for the delivery.',onPick:()=>{if(OTR.fpScannerStop.usePhoto(d)){scene.handheld.close();scene.sync();}}},
       {label:'Retake the delivery photo.',onPick:()=>{if(OTR.fpScannerStop.retake(d)){scene.handheld.close();scene.sync();}}},
       {label:'Read the photo details.',onPick:()=>{scene.handheld.close(false);this.panel(scene,'Read the photo details.',body,[{label:'Return to the photo.',action:()=>{scene.closePanel();this.photoReview(scene);}}],'notice');}}
