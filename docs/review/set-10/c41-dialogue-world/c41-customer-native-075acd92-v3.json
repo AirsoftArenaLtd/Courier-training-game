@@ -1,0 +1,4363 @@
+{
+  "checks": 7081,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "missing",
+      "shots": [
+        "c41-customer-native-075acd92-v3-low-en-normal-missing-physical.png",
+        "c41-customer-native-075acd92-v3-low-en-normal-missing-ending.png",
+        "c41-customer-native-075acd92-v3-low-en-normal-missing-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n3",
+        "n4_check",
+        "n6"
+      ],
+      "pages": 10,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.0999600000000002,
+          0.09996000000000022,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-missing",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825406958,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825410537,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825410537,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825412648,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825412648,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825415318,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825415318,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Acknowledge the frustration first — empathy lowers the temperature before you solve anything.",
+            "Gather facts (delivery details, notes, likely safe spots) before guessing what happened.",
+            "If a package truly can't be located, point the customer to the official support/claims process."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825406958,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825410537,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825410537,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825412648,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825412648,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825415318,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825415318,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 2
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825417325
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "kind": "signature",
+      "shots": [
+        "c41-customer-native-075acd92-v3-low-en-large-signature-physical.png",
+        "c41-customer-native-075acd92-v3-low-en-large-signature-ending.png",
+        "c41-customer-native-075acd92-v3-low-en-large-signature-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3_call",
+        "n4_good"
+      ],
+      "pages": 11,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 3 meters away."
+        ],
+        "time": [
+          0.11664000000000013,
+          0.11664000000000013,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 406.5,
+            "bottom": 452.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 458.50000071525574,
+            "bottom": 510.49999928474426,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103.5,
+            "bottom": 124.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 190
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 196,
+            "bottom": 236
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-signature",
+        "result": {
+          "score": 900,
+          "ratios": {
+            "service": 0.625,
+            "safety": 0.4
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": -3,
+                "max": 0,
+                "label": "Conversation choice",
+                "good": false,
+                "lesson": "Never leave a signature-required package unattended.",
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "penalty",
+                "severity": "minor",
+                "critical": true,
+                "at": 1792825432746,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 0,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": false,
+                "partial": false,
+                "lesson": "Never leave a signature-required package unattended.",
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "check",
+                "critical": true,
+                "at": 1792825432746,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": -1,
+                "max": 0,
+                "label": "Conversation choice: the answer made it worse",
+                "good": false,
+                "lesson": null,
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "penalty",
+                "severity": "minor",
+                "critical": false,
+                "at": 1792825432746,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825436932,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825436932,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825440025,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825440028,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825442053,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825442053,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A signature-required package needs a signature from an eligible recipient — never leave it unattended or sign for it yourself.",
+            "A phone call can't replace a required signature — you can't verify who's calling.",
+            "Always leave a delivery notice with clear next steps (redelivery, pickup options)."
+          ],
+          "stats": {
+            "outcome": "mixed",
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": -3,
+                  "max": 0,
+                  "label": "Conversation choice",
+                  "good": false,
+                  "lesson": "Never leave a signature-required package unattended.",
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "penalty",
+                  "severity": "minor",
+                  "critical": true,
+                  "at": 1792825432746,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 0,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": false,
+                  "partial": false,
+                  "lesson": "Never leave a signature-required package unattended.",
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": true,
+                  "at": 1792825432746,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": -1,
+                  "max": 0,
+                  "label": "Conversation choice: the answer made it worse",
+                  "good": false,
+                  "lesson": null,
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "penalty",
+                  "severity": "minor",
+                  "critical": false,
+                  "at": 1792825432746,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825436932,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825436932,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825440025,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825440028,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825442053,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825442053,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 2
+          }
+        },
+        "stars": {
+          "service": 1,
+          "safety": 1
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 900,
+          "bestStars": {
+            "safety": 1,
+            "efficiency": 0,
+            "service": 1
+          },
+          "lastPlayed": 1792825443714
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1792825423018,
+          "pending": false,
+          "at": 1792825443718,
+          "stars": {
+            "service": 1,
+            "safety": 1
+          },
+          "score": 900,
+          "criticals": [
+            "Conversation choice",
+            "Conversation choice"
+          ],
+          "lessons": [
+            "Never leave a signature-required package unattended.",
+            "A signature-required package needs a signature from an eligible recipient — never leave it unattended or sign for it yourself.",
+            "A phone call can't replace a required signature — you can't verify who's calling.",
+            "Always leave a delivery notice with clear next steps (redelivery, pickup options)."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "kind": "twostops",
+      "shots": [
+        "c41-customer-native-075acd92-v3-low-ta-normal-twostops-physical.png",
+        "c41-customer-native-075acd92-v3-low-ta-normal-twostops-house.png",
+        "c41-customer-native-075acd92-v3-low-ta-normal-twostops-ending.png",
+        "c41-customer-native-075acd92-v3-low-ta-normal-twostops-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3",
+        "n5",
+        "n6_calm",
+        "n7_owner",
+        "n8"
+      ],
+      "pages": 18,
+      "walked": true,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the business reception.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.09995333333333344,
+          0.09995333333333344,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414,
+            "bottom": 460,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466,
+            "bottom": 512,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106,
+            "bottom": 122
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520,
+            "bottom": 536
+          },
+          {
+            "source": "The conversation is at the business reception.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 188
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 194,
+            "bottom": 212
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-twostops",
+        "result": {
+          "score": 2500,
+          "ratios": {
+            "service": 1,
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825457161,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825459756,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825459756,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825462229,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825462229,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825462229,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825487819,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825491054,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825491054,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825494112,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825494112,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825496419,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825496419,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825457161,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825459756,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825459756,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825462229,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825462229,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825462229,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825487819,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825491054,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825491054,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825494112,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825494112,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825496419,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825496419,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 15
+          }
+        },
+        "stars": {
+          "service": 3,
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2500,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825498069
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "kind": "missing",
+      "shots": [
+        "c41-customer-native-075acd92-v3-low-ta-large-missing-physical.png",
+        "c41-customer-native-075acd92-v3-low-ta-large-missing-ending.png",
+        "c41-customer-native-075acd92-v3-low-ta-large-missing-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n3",
+        "n4_check",
+        "n6"
+      ],
+      "pages": 10,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.09997999999999996,
+          0.09997999999999996,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 404.5,
+            "bottom": 450.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-missing",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825514317,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825518724,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825518724,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825522212,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825522212,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825525152,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825525152,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Acknowledge the frustration first — empathy lowers the temperature before you solve anything.",
+            "Gather facts (delivery details, notes, likely safe spots) before guessing what happened.",
+            "If a package truly can't be located, point the customer to the official support/claims process."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825514317,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825518724,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825518724,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825522212,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825522212,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825525152,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825525152,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 2
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825526967
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792825503409,
+          "pending": false,
+          "at": 1792825526972,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "score": 1800,
+          "criticals": [],
+          "lessons": [
+            "Acknowledge the frustration first — empathy lowers the temperature before you solve anything.",
+            "Gather facts (delivery details, notes, likely safe spots) before guessing what happened.",
+            "If a package truly can't be located, point the customer to the official support/claims process."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "kind": "twostops",
+      "extra": true,
+      "shots": [
+        "c41-customer-native-075acd92-v3-low-ta-large-twostops-physical.png",
+        "c41-customer-native-075acd92-v3-low-ta-large-twostops-house.png",
+        "c41-customer-native-075acd92-v3-low-ta-large-twostops-ending.png",
+        "c41-customer-native-075acd92-v3-low-ta-large-twostops-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3",
+        "n5",
+        "n6_calm",
+        "n7_owner",
+        "n8"
+      ],
+      "pages": 18,
+      "walked": true,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the business reception.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.11663999999999977,
+          0.11663999999999979,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 404.5,
+            "bottom": 450.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the business reception.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-twostops",
+        "result": {
+          "score": 2500,
+          "ratios": {
+            "service": 1,
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825543339,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825545421,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825545421,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825547728,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825547728,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825547728,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825585061,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825587945,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825587945,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825590455,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825590455,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825592236,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825592236,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825543339,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825545421,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825545421,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825547728,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825547728,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825547728,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825585061,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825587945,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825587945,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825590455,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825590455,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825592236,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825592236,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 15
+          }
+        },
+        "stars": {
+          "service": 3,
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2500,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825593954
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792825532574,
+          "pending": false,
+          "at": 1792825593955,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 2500,
+          "criticals": [],
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "signature",
+      "shots": [
+        "c41-customer-native-075acd92-v3-high-en-normal-signature-physical.png",
+        "c41-customer-native-075acd92-v3-high-en-normal-signature-ending.png",
+        "c41-customer-native-075acd92-v3-high-en-normal-signature-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3_call",
+        "n4_good"
+      ],
+      "pages": 11,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 3 meters away."
+        ],
+        "time": [
+          0.1166333333333335,
+          0.1166333333333335,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-signature",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "safety": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A proper attempt: maybe they're in the backyard or on a call. It's the minimum a customer expects.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825631558,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825639750,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825639750,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825650044,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825650044,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825657761,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825657761,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A signature-required package needs a signature from an eligible recipient — never leave it unattended or sign for it yourself.",
+            "A phone call can't replace a required signature — you can't verify who's calling.",
+            "Always leave a delivery notice with clear next steps (redelivery, pickup options)."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A proper attempt: maybe they're in the backyard or on a call. It's the minimum a customer expects.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825631558,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825639750,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825639750,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825650044,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825650044,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825657761,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825657761,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 1
+          }
+        },
+        "stars": {
+          "service": 3,
+          "safety": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 3
+          },
+          "lastPlayed": 1792825662533
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "kind": "twostops",
+      "shots": [
+        "c41-customer-native-075acd92-v3-high-en-large-twostops-physical.png",
+        "c41-customer-native-075acd92-v3-high-en-large-twostops-house.png",
+        "c41-customer-native-075acd92-v3-high-en-large-twostops-ending.png",
+        "c41-customer-native-075acd92-v3-high-en-large-twostops-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3",
+        "n5",
+        "n6_calm",
+        "n7_owner",
+        "n8"
+      ],
+      "pages": 18,
+      "walked": true,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the business reception.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.11661999999999953,
+          0.11661999999999953,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 406.5,
+            "bottom": 452.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 458.50000071525574,
+            "bottom": 510.49999928474426,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103.5,
+            "bottom": 124.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the business reception.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 190
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 196,
+            "bottom": 236
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-twostops",
+        "result": {
+          "score": 2500,
+          "ratios": {
+            "service": 1,
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825703654,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825710536,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825710536,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825717137,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825717137,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825717137,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825842110,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825849724,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825849724,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825859732,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825859732,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825867063,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825867063,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825703654,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825710536,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825710536,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825717137,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825717137,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825717137,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825842110,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825849724,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825849724,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825859732,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825859732,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825867063,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825867063,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 14
+          }
+        },
+        "stars": {
+          "service": 3,
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2500,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825871359
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792825673521,
+          "pending": false,
+          "at": 1792825871359,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 2500,
+          "criticals": [],
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "kind": "missing",
+      "shots": [
+        "c41-customer-native-075acd92-v3-high-ta-normal-missing-physical.png",
+        "c41-customer-native-075acd92-v3-high-ta-normal-missing-ending.png",
+        "c41-customer-native-075acd92-v3-high-ta-normal-missing-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n3",
+        "n4_check",
+        "n6"
+      ],
+      "pages": 10,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.09999999999999998,
+          0.09999999999999998,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414,
+            "bottom": 460,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466,
+            "bottom": 512,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106,
+            "bottom": 122
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520,
+            "bottom": 536
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 188
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 194,
+            "bottom": 212
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-missing",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825912353,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825921340,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825921340,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825927633,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825927633,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825935630,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825935630,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Acknowledge the frustration first — empathy lowers the temperature before you solve anything.",
+            "Gather facts (delivery details, notes, likely safe spots) before guessing what happened.",
+            "If a package truly can't be located, point the customer to the official support/claims process."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825912353,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825921340,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825921340,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825927633,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825927633,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825935630,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825935630,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 1
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792825940469
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "signature",
+      "shots": [
+        "c41-customer-native-075acd92-v3-high-ta-large-signature-physical.png",
+        "c41-customer-native-075acd92-v3-high-ta-large-signature-ending.png",
+        "c41-customer-native-075acd92-v3-high-ta-large-signature-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3_call",
+        "n4_good"
+      ],
+      "pages": 11,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 3 meters away."
+        ],
+        "time": [
+          0.11664000000000013,
+          0.11664000000000013,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 404.5,
+            "bottom": 450.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-signature",
+        "result": {
+          "score": 900,
+          "ratios": {
+            "service": 0.625,
+            "safety": 0.4
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": -3,
+                "max": 0,
+                "label": "Conversation choice",
+                "good": false,
+                "lesson": "Never leave a signature-required package unattended.",
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "penalty",
+                "severity": "minor",
+                "critical": true,
+                "at": 1792825977560,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 0,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": false,
+                "partial": false,
+                "lesson": "Never leave a signature-required package unattended.",
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "check",
+                "critical": true,
+                "at": 1792825977560,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": -1,
+                "max": 0,
+                "label": "Conversation choice: the answer made it worse",
+                "good": false,
+                "lesson": null,
+                "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                "group": null,
+                "kind": "penalty",
+                "severity": "minor",
+                "critical": false,
+                "at": 1792825977560,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825987924,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825987924,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825995238,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792825995238,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826001762,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826001762,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A signature-required package needs a signature from an eligible recipient — never leave it unattended or sign for it yourself.",
+            "A phone call can't replace a required signature — you can't verify who's calling.",
+            "Always leave a delivery notice with clear next steps (redelivery, pickup options)."
+          ],
+          "stats": {
+            "outcome": "mixed",
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": -3,
+                  "max": 0,
+                  "label": "Conversation choice",
+                  "good": false,
+                  "lesson": "Never leave a signature-required package unattended.",
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "penalty",
+                  "severity": "minor",
+                  "critical": true,
+                  "at": 1792825977560,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 0,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": false,
+                  "partial": false,
+                  "lesson": "Never leave a signature-required package unattended.",
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": true,
+                  "at": 1792825977560,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": -1,
+                  "max": 0,
+                  "label": "Conversation choice: the answer made it worse",
+                  "good": false,
+                  "lesson": null,
+                  "feedback": "Signature-required means the shipper needs proof a person received it — often because it's valuable or sensitive. Leaving it unattended defeats the whole point.",
+                  "group": null,
+                  "kind": "penalty",
+                  "severity": "minor",
+                  "critical": false,
+                  "at": 1792825977560,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825987924,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Right call, delivered warmly. You followed the requirement AND kept a friendly neighbor on your side.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825987924,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825995238,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Empathy + a clear \"why\" + options. The customer hears a path forward instead of just \"no.\"",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792825995238,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826001762,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The notice is the paper trail — it helps Priya and anyone else in the household know what happened.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826001762,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 2
+          }
+        },
+        "stars": {
+          "service": 1,
+          "safety": 1
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 900,
+          "bestStars": {
+            "safety": 1,
+            "efficiency": 0,
+            "service": 1
+          },
+          "lastPlayed": 1792826006530
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1792825952921,
+          "pending": false,
+          "at": 1792826006531,
+          "stars": {
+            "service": 1,
+            "safety": 1
+          },
+          "score": 900,
+          "criticals": [
+            "Conversation choice",
+            "Conversation choice"
+          ],
+          "lessons": [
+            "Never leave a signature-required package unattended.",
+            "A signature-required package needs a signature from an eligible recipient — never leave it unattended or sign for it yourself.",
+            "A phone call can't replace a required signature — you can't verify who's calling.",
+            "Always leave a delivery notice with clear next steps (redelivery, pickup options)."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "twostops",
+      "extra": true,
+      "shots": [
+        "c41-customer-native-075acd92-v3-high-ta-large-twostops-physical.png",
+        "c41-customer-native-075acd92-v3-high-ta-large-twostops-house.png",
+        "c41-customer-native-075acd92-v3-high-ta-large-twostops-ending.png",
+        "c41-customer-native-075acd92-v3-high-ta-large-twostops-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2",
+        "n3",
+        "n5",
+        "n6_calm",
+        "n7_owner",
+        "n8"
+      ],
+      "pages": 18,
+      "walked": true,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the business reception.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.1166066666666661,
+          0.11660666666666605,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 404.5,
+            "bottom": 450.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "The conversation is at the business reception.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-twostops",
+        "result": {
+          "score": 2500,
+          "ratios": {
+            "service": 1,
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826053411,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826061739,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826061739,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826068011,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826068011,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826068011,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826206821,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826214332,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826214332,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826221429,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826221429,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826226840,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792826226840,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business customers are working. A few seconds of patience keeps you welcome at this stop every day.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826053411,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826061739,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Asking where they want freight respects their space and gets it to the right place first time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826061739,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826068011,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826068011,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Business deliveries go to the designated receiving point. It keeps you on schedule and respects building security rules.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826068011,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Exactly right. Running can trigger a chase. A calm posture and a barrier (package, scanner, clipboard) protect you while you retreat.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826206821,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826214332,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You kept yourself safe and gave the owner a chance to help. Patience beats a bite.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826214332,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826221429,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Polite and clear. Ask the owner to secure the dog before you approach — even friendly-looking dogs protect their home.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826221429,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826226840,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The note protects the next courier who comes to this door. Safety is a team sport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792826226840,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 14
+          }
+        },
+        "stars": {
+          "service": 3,
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2500,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792826231210
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792826023644,
+          "pending": false,
+          "at": 1792826231212,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 2500,
+          "criticals": [],
+          "lessons": [
+            "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+            "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+            "Never re-enter a yard with a loose dog — ask the owner to secure it, and note the hazard for future deliveries."
+          ]
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Ten journeys cover all three existing dialogues, Low/High, English/Tamil and normal/larger text. All reply pages are read before real digit-key decisions. The two-stop route uses real walking keys. Larger text runs use assessments, including an authored signature critical. Existing ids are explicitly routed to the proposed adapter. Real suspended workday journal/checkpoint and scenario/assessment records are reloaded. No position, dialogue-node, timer, score or verdict fixtures.",
+  "complete": true
+}
