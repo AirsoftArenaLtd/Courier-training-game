@@ -390,16 +390,17 @@ OTR.fpWorld = {
     const packageLabels=base.packageLabels&&OTR.fpPackageLabelWorld?OTR.fpPackageLabelWorld.build(route,{cube,interactions,occluders}):null;
     const packageSort=base.packageSort&&OTR.fpPackageSortWorld?OTR.fpPackageSortWorld.build(route,{cube,interactions,occluders}):null;
     const packageLift=base.packageLift&&OTR.fpPackageLiftWorld?OTR.fpPackageLiftWorld.build(route,{cube,interactions,occluders,models:scene.assetBank?.models,uniform:brand.uniform}):null;
-    const customer=base.customerStage&&OTR.fpCustomerWorld?OTR.fpCustomerWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
+    const customer=base.customerStage&&!base.customerStop&&OTR.fpCustomerWorld?OTR.fpCustomerWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
+    const customerStop=base.customerStop&&OTR.fpCustomerStopWorld?OTR.fpCustomerStopWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const scanObjects=[...new Set([...occluders,...interactions])],visibleObjects=[],hits=[],projected=new T.Vector3();
     const cast=(ray,objects)=>{
       visibleObjects.length=0;hits.length=0;
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,customerStop,
       dispose() {
-        if(customer)customer.dispose();if(packageLabels)packageLabels.dispose();if(packageSort)packageSort.dispose();if(packageLift)packageLift.dispose();
+        if(customer)customer.dispose();if(customerStop)customerStop.dispose();if(packageLabels)packageLabels.dispose();if(packageSort)packageSort.dispose();if(packageLift)packageLift.dispose();
         const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(lessonBayArt)lessonBayArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(signLettering)signLettering.dispose();if(surfaces)surfaces.dispose();
@@ -408,6 +409,7 @@ OTR.fpWorld = {
         if(packageLabels){const s=model.packageLabels;packageLabels.setItem(s.item);if(s.item&&packageLabels.currentFace()!==s.presentationFace)packageLabels.turn(s.presentationFace);}
         if(packageSort)packageSort.sync(model.packageSort);if(packageLift)packageLift.sync(model.packageLift,model.elapsed,!!(OTR.fpAccess&&OTR.fpAccess.reduced()),OTR.gfx.high());
         if(customer)customer.sync(model,!!(OTR.fpAccess&&OTR.fpAccess.reduced()));
+        if(customerStop)customerStop.sync(model,!!(OTR.fpAccess&&OTR.fpAccess.reduced()));
         const inHub=area==='hub',reduced=OTR.fpAccess&&OTR.fpAccess.reduced();hub.visible=inHub;route.visible=!inHub;
         carried.visible=false;dash.visible=false;inspected.visible=false;
         if(inHub){camera.position.set(hubPlayer.x,1.65,hubPlayer.z);camera.rotation.set(-hubPlayer.pitch,-hubPlayer.yaw,0,'YXZ');view.mirror.on=false;}
@@ -502,6 +504,7 @@ OTR.fpWorld = {
         if(mirrors)mirrors.sync(model,area);
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         if(damage&&model&&!inHub)damage.sync(model);
+        if(customerStop&&model&&!inHub)customerStop.liftCamera(camera,model);
         for(let i=0;i<walkaroundTargets.length;i++)walkaroundTargets[i].visible=!!model&&!inHub&&OTR.fpWalkaroundFlow.canInspect(model,OTR.fpWalkaroundFlow.targets[i].zone);
         if(pretripArt&&model)pretripArt.sync(model);
         if(hazardLessonArt&&model)hazardLessonArt.sync(model,reduced);
@@ -556,7 +559,7 @@ OTR.fpWorld = {
     };
     // Reflection passes cull individual fixed instances, then restore the main-view buffers exactly.
     const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
-    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}],damage?[damage]:[],packageSort?packageSort.batches:[],packageLift?packageLift.batches:[],customer?customer.batches:[]),cullMain=!OTR.gfx.high();
+    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}],damage?[damage]:[],packageSort?packageSort.batches:[],packageLift?packageLift.batches:[],customer?customer.batches:[],customerStop?customerStop.batches:[]),cullMain=!OTR.gfx.high();
     const compact=(batch,frustum,main=false,cx=0,cz=0)=>{
       const mesh=batch.mesh;let count=0;
       for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;

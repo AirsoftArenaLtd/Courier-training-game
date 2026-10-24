@@ -1,10 +1,10 @@
-/* Unloaded 3D conversation model. Authored graphs and the original TalkController score checks stay authoritative. */
+/* 3D conversation model. Authored graphs and the original TalkController score checks stay authoritative. */
 window.OTR=window.OTR||{};
 OTR.fpCustomerTalk={
-  create(content,categories,{coaching=true}={}){
+  create(content,categories,{coaching=true,log=null,flags:initialFlags=null}={}){
     if(!content?.nodes||!content.nodes[content.start]||!Array.isArray(categories)||!categories.length)throw Error('Invalid customer dialogue');
-    const flags={},moods={},cast={};for(const [key,person] of Object.entries(content.cast||{})){cast[key]={...person,rig:null};moods[key]=person.moodStart||0;}
-    const log=new OTR.ScoreLog(),s={content,categories:categories.slice(),coaching,log,flags,moods,cast,phase:'brief',node:null,nodeId:null,choices:[],history:[],transcript:[],entries:0,elapsed:0,remaining:null,lastChoice:null,feedback:null,result:null,ending:null,notes:[],presentation:null};
+    const flags=initialFlags||{},moods={},cast={};for(const [key,person] of Object.entries(content.cast||{})){cast[key]={...person,rig:null};moods[key]=person.moodStart||0;}
+    log=log||new OTR.ScoreLog();const s={content,categories:categories.slice(),coaching,log,flags,moods,cast,phase:'brief',node:null,nodeId:null,choices:[],history:[],transcript:[],entries:0,elapsed:0,remaining:null,lastChoice:null,feedback:null,result:null,ending:null,notes:[],presentation:null};
     // Reuse the shared scoring implementation, including its worse-repeat checks, penalties and critical flags.
     s.scorer={o:{log,cats:OTR.scoring.CATS,feedback:coaching?'immediate':'deferred'},flags,moods,cast,applyMoodExpr(){}};
     return s;
@@ -45,7 +45,7 @@ OTR.fpCustomerTalk={
     return this.follow(s,choice);
   },
   follow(s,choice){
-    // Choice acts are presentation metadata, consumed by the future physical adapter; they never score here.
+    // Choice acts are presentation metadata consumed by the physical adapter; they never score here.
     s.lastAct=choice?.act?{act:choice.act,arg:choice.arg}:null;return this.enter(s,choice?.next);
   },
   expire(s){if(s.phase!=='choices'||!s.node.timer)return false;return this.resolve(s,Object.assign({grade:'bad',text:'(no decision)'},s.node.timeout||{}));},

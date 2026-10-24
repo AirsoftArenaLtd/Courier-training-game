@@ -536,6 +536,27 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    },name);await sample(name);
    const proof=await p.evaluate(()=>{const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=scene.model,s=m.customerTalk,r=scene.scenarioSession,before=scene.customerBefore,a=scene.art.customer;return {source:'customer-static-render-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,conversation:s.phase,target:a.target.userData.interaction,importedPeople:a.people.filter(p=>p.actor).length,importedBuildings:a.imports.length,actorCount:m.customerStage.actors.length,batches:a.batches.length,handheld:scene.handheld.isOpen,panel:!!scene.panel,canonical:s.content===OTR.registry.content(r.scenario),bounded:m.blocked(m.bounds.x0-1,m.bounds.z0),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});(report.customerProof||(report.customerProof={}))[name]=proof;report.customerFixture=true;
   }
+  if(process.env.QA_CUSTOMER_STOPS==='1')for(const name of ['doorstepcab','doorstepreverse','doorstepcargo','doorstepheavy','doorstepcustomer','doorstepsignature','doorsteptag','doorstepphoto','doorstepreport']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-customerstop-fixture'));await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:180000});
+   await p.evaluate(name=>{
+    const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=scene.scenarioSession,m=scene.model,K=OTR.fpCustomerStop,A=OTR.fpCustomerStopScenario;window.otrBenchmarkScene='FirstPersonScenarioScene';scene.keyboardMode=true;OTR.fpScenario.begin(r);scene.closePanel();
+    scene.doorstepBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+    const d=m.customerStop;d.index=['doorstepcustomer','doorstepsignature'].includes(name)?1:['doorsteptag','doorstepphoto'].includes(name)?2:0;K.prepare(d);A.configure(r,m);K.begin(d);scene.rebuildWorld();
+    if(name==='doorstepreverse')m.van.gear=-1;
+    if(name!=='doorstepcab'&&name!=='doorstepreverse'){m.mode='walk';K.exit(d,true);Object.assign(m.player,{x:11,z:-42.8,yaw:0,pitch:.1});}
+    if(name==='doorstepcargo'){m.cargoOpen=true;Object.assign(m.player,{x:1.7,z:-38.2,yaw:0,pitch:.15});}
+    if(['doorstepheavy','doorstepsignature','doorstepphoto','doorstepreport'].includes(name)){K.take(d,'p1');K.scan(d,'p1',true);if(d.index===0)K.heavy(d,'truck');}
+    if(name==='doorstepheavy')Object.assign(m.player,{x:5,z:-40,yaw:0,pitch:.3});
+    if(name==='doorstepcustomer'||name==='doorstepsignature'){d.state.answered=true;m.customerStage.actors[0].visible=true;Object.assign(m.player,{x:12.05,z:-42.7,yaw:0,pitch:.1});}
+    if(name==='doorstepsignature'){K.requestSignature(d,'recipient');A.signature(scene);scene.handheld.signatureToken=null;}
+    if(name==='doorsteptag'){K.exception(d,'NA');K.printTag(d);K.attachTag(d);Object.assign(m.player,{x:11.7,z:-43.2,yaw:0,pitch:.22});}
+    if(name==='doorstepphoto'){d.photoPending=true;d.photoMode=true;Object.assign(m.player,{x:11,z:-42.5,yaw:0,pitch:.5});}
+    if(name==='doorstepreport'){d.state.answered=true;K.requestSignature(d,'recipient');K.signed(d);K.recordSigner(d,d.def.answer.name);K.enter(d,true);K.evaluate(d);A.report(scene);}
+    m.customerStage.time=100;if(scene.panel)scene.panel.customer=false;m.paused=true;scene.sync();scene.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=scene.model,r=scene.scenarioSession,d=m.customerStop,a=scene.art.customerStop,before=scene.doorstepBefore;return {source:'doorstep-static-render-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,stop:d.index,mode:m.mode,importedPerson:!!a.human,importedBuildings:a.imports.length,fontLettering:a.fontLettering,parcels:a.parcels.length,handheld:scene.handheld.isOpen,panel:!!scene.panel,reverse:!!scene.art.rear?.inView,canonical:d.content===OTR.registry.content(r.scenario),bounded:m.blocked(m.bounds.x0-1,m.bounds.z0),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});(report.doorstepProof||(report.doorstepProof={}))[name]=proof;report.doorstepFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

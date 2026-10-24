@@ -113,6 +113,8 @@ OTR.fpAccess={
     if(id==='sort-jam')return 'the conveyor jam-reset post';
     if(id==='label-package')return 'the package inspection table';
     if(id.startsWith('label-station-')){const station=id.slice(14),s=scene.model?.packageLabels;if(s?.content.stations[station])return `station ${OTR.fpPackageLabelWorld.stations.indexOf(station)+1}, ${s.content.stations[station].label.toLowerCase()}`;}
+    if(id.startsWith('customer-stop-parcel-'))return 'the parcel at this target';
+    if(id.startsWith('customer-stop-'))return {'customer-stop-door':'the front door','customer-stop-person':'the person at the door','customer-stop-number':'the mounted house number','customer-stop-trolley':'the hand truck'}[id]||'the nearby doorstep target';
     if(id==='customer-conversation')return 'the nearby conversation point';
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;

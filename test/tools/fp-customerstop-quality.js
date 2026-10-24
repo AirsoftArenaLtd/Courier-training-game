@@ -1,0 +1,13 @@
+/* The unchanged fpbench/quality ceilings, focused on the physical doorstep set-piece. */
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),{PROFILES,checkReport}=require('../fpquality');
+const ROOT=path.resolve(__dirname,'../..'),OUT=path.join(__dirname,'../out/fp-review'),tag=process.env.QA_TAG||'c41-doorstep',views='doorstepcab,doorstepreverse,doorstepcargo,doorstepheavy,doorstepcustomer,doorstepsignature,doorsteptag,doorstepphoto,doorstepreport',summary={sourceRevision:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),scope:'Nine static doorstep poses in the four original quality profiles; no default workday or Intel FPS acceptance.',profiles:[]};fs.mkdirSync(OUT,{recursive:true});let failed=false;
+for(const p of PROFILES.filter(p=>(process.env.QA_PROFILES||PROFILES.map(p=>p.id).join(',')).split(',').includes(p.id))){
+ const name=tag+'-'+p.id,file=path.join(OUT,'bench-'+name+'-'+p.quality+'.json'),log=path.join(OUT,name+'.log'),fd=fs.openSync(log,'w');if(fs.existsSync(file))fs.unlinkSync(file);let result;
+ try{result=cp.spawnSync(process.execPath,['test/fpbench.js'],{cwd:ROOT,env:{...process.env,QA_GFX:p.quality,QA_TAG:name,QA_PROTOTYPE_ONLY:'1',QA_CUSTOMERS:'',QA_CUSTOMER_STOPS:'1',QA_MODULES:'',QA_SOUND:'1',QA_SHOTS:'1',QA_VIEWS:views,QA_A11Y:p.accessibility||'',QA_FALLBACK:p.fallback?'1':'0'},stdio:['ignore',fd,fd]});}finally{fs.closeSync(fd);}
+ const item={id:p.id,exit:result.status??1,report:path.basename(file),log:path.basename(log)};
+ try{if(result.error)throw result.error;if(result.status!==0)throw Error('fpbench failed');const report=JSON.parse(fs.readFileSync(file,'utf8'));item.peak=checkReport(report,{...p,views},name);for(const view of views.split(',')){const q=report.doorstepProof?.[view];if(!report.doorstepFixture||!q||q.source!=='doorstep-static-render-fixture'||q.id!=='m3-doorsteps'||q.phase!=='active'||q.piece!=='street'||!q.canonical||!q.bounded||q.parcels!==2||q.importedPerson===!!p.fallback||(q.importedBuildings>0)===!!p.fallback||q.fontLettering!==(p.quality==='high')||!q.checkpointUnchanged||!q.eventsUnchanged||!q.workdayUnchanged||q.panel!==(view==='doorstepreport')||q.handheld!==(view==='doorstepsignature')||q.reverse!==(view==='doorstepreverse'))throw Error('Invalid doorstep fixture proof: '+view);}}
+
+ catch(e){item.exit=1;item.error=e.message;failed=true;}
+ summary.profiles.push(item);fs.writeFileSync(path.join(OUT,tag+'-quality.json'),JSON.stringify(summary,null,2)+'\n');console.log(p.id,item.exit?'FAIL '+item.error:'PASS '+JSON.stringify(item.peak));if(failed)break;
+}
+if(!summary.profiles.length)throw Error('No known quality profile selected');if(failed)process.exitCode=1;
