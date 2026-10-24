@@ -1,0 +1,1 @@
+These 20 views passed the resource checker on runtime 028d5637. The fixture left its item index at -1, so the handheld says package 0 of 9. These are retained diagnostics, not the corrected review set. The 24-view retake on f23192aa sets and validates a canonical queue item and includes unavailable-control feedback.

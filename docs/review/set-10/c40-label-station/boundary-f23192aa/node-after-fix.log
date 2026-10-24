@@ -1,0 +1,13 @@
+✔ the station and every input position lie inside the real depot, with no wall or prop overlap (45.415662ms)
+✔ physical orientation alone never grants evidence; the real active update observes a clear face (8.179022ms)
+✔ module completion preserves the original identity, full score scale, local log and suspended workday (25.075614ms)
+✔ assessment omits the guide and feedback; the original 2D scenario remains the default and fallback (6.301223ms)
+✔ turn controls require the front operator position and acknowledge unavailable inputs without grading (6.2101ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 104.178574

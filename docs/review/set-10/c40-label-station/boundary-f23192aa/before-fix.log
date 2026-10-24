@@ -1,0 +1,16 @@
+low ta true
+document ready
+prototype ready
+AssertionError [ERR_ASSERTION]: an unavailable control gives a visible neutral acknowledgement in assessment
+
+false !== true
+
+    at check (/workspace/c40-package-handling/test/fppackagelabelboundbrowser.js:7:37)
+    at /workspace/c40-package-handling/test/fppackagelabelboundbrowser.js:23:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

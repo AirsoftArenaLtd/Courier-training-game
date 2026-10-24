@@ -1,32 +1,62 @@
 {
-  "nativeRuntimeRevision": "028d56378a1a812d2297cd9f4e5b32e84184be46",
-  "currentRevision": "7a99e89aae2823103199692c271d6d7abb56394c",
-  "changesSinceNativeRuntime": [
-    "docs/review/set-10/c40-models-progress/README.md",
-    "docs/review/set-10/c40-models-progress/fppackagelift.log",
-    "docs/review/set-10/c40-models-progress/fppackagesort.log",
-    "docs/review/set-10/c40-models-progress/source.json",
-    "src/core/fppackagelift.js",
-    "src/core/fppackagesort.js",
-    "test/fppackagelift.js",
-    "test/fppackagesort.js"
+  "nativeEightLayoutRevision": "028d56378a1a812d2297cd9f4e5b32e84184be46",
+  "targetedAndCorrectedResourceRevision": "f23192aa0b2ca154f4cd49cff19d611a76a75529",
+  "nativeChecks": 4680,
+  "targetedChecks": 89,
+  "scope": "Eight-layout happy paths retain their original source; the later targeted run verifies the changed front-position guard and assessment acknowledgement. This is not a full eight-layout rerun at the new revision.",
+  "changedLoadedRuntime": [
+    "src/core/fppackagelabelscenario.js"
   ],
-  "sameNativeAndLabelResourceSources": true,
+  "changes": "Turn controls require the front operator side and show a neutral accessible panel when unavailable. Valid front-side face/grading behavior is unchanged. Resource poses now use a canonical item index and include unavailable feedback.",
   "unloadedModels": [
     "src/core/fppackagesort.js",
-    "src/core/fppackagelift.js"
+    "src/core/fppackagelift.js",
+    "src/core/fppackagesortworld.js"
   ],
-  "modelsNotLoadedByIndex": true,
   "sourceHashes": {
-    "index.html": "e0b80667c9eaa1f737db84f954c1b9d0c5cb91db68b0ae8944bcc33d3c5836b2",
-    "src/core/fpaccess.js": "f78f1a0114414d45b4c799ba171aadedd57e825f65c0bc694ce804e281247f52",
-    "src/core/fppackagelabels.js": "d78a25ff8c857a8d577f8540d7ab6e8806b9cc2c675845aa3752cdaa8bd96bd5",
-    "src/core/fppackagelabelscenario.js": "13054a0557308fd253ffa2bc7080d10c6d6782b1e2b016c3185a9b0b7ddb3cc7",
-    "src/core/fppackagelabelworld.js": "7e2efbd1a1a89613038d9165d56efc3fddc23e545b46b665b688004a92f93fce",
-    "src/core/fpworld.js": "29b2a532daa6a579c83a92f75ca05279b8e5a0404a48b5e39f28f2473f6886ea",
-    "src/scenes/FirstPersonScenarioScene.js": "351bcb6103ab9a65f447862b698ca888956c12c3787afda57f3c0e4905ec1115",
-    "test/fpbench.js": "c79e4a41b0cd23a470786b495f0f1e41fda3210a5c71a3eef511b2cd5564fc5a",
-    "test/fppackagelabelbrowser.js": "af2fa25eff1ecf48a26fc159d1e73e78a2b0ad23aad58ac6a10917ec1f930c75",
-    "test/tools/fp-package-label-quality.js": "f2ab5c868ae2c1b588c9728c71988b65e06f99d249f6cbed10f69e932ed9bbfa"
+    "index.html": {
+      "currentSha256": "e0b80667c9eaa1f737db84f954c1b9d0c5cb91db68b0ae8944bcc33d3c5836b2",
+      "sameAsEightLayoutRuntime": true
+    },
+    "src/core/fpaccess.js": {
+      "currentSha256": "f78f1a0114414d45b4c799ba171aadedd57e825f65c0bc694ce804e281247f52",
+      "sameAsEightLayoutRuntime": true
+    },
+    "src/core/fppackagelabels.js": {
+      "currentSha256": "d78a25ff8c857a8d577f8540d7ab6e8806b9cc2c675845aa3752cdaa8bd96bd5",
+      "sameAsEightLayoutRuntime": true
+    },
+    "src/core/fppackagelabelscenario.js": {
+      "currentSha256": "c257948bf71c326d48ad24aff1dcba16f7beeece1e9e087d75360200b147f07a",
+      "sameAsEightLayoutRuntime": false
+    },
+    "src/core/fppackagelabelworld.js": {
+      "currentSha256": "7e2efbd1a1a89613038d9165d56efc3fddc23e545b46b665b688004a92f93fce",
+      "sameAsEightLayoutRuntime": true
+    },
+    "src/core/fpworld.js": {
+      "currentSha256": "29b2a532daa6a579c83a92f75ca05279b8e5a0404a48b5e39f28f2473f6886ea",
+      "sameAsEightLayoutRuntime": true
+    },
+    "src/scenes/FirstPersonScenarioScene.js": {
+      "currentSha256": "351bcb6103ab9a65f447862b698ca888956c12c3787afda57f3c0e4905ec1115",
+      "sameAsEightLayoutRuntime": true
+    },
+    "test/fpbench.js": {
+      "currentSha256": "aa69b4c2a8b62eb5c923de0bb82f9ff08ee4e72ba82dea8ef668fc353bf42db5",
+      "sameAsEightLayoutRuntime": false
+    },
+    "test/fppackagelabelbrowser.js": {
+      "currentSha256": "af2fa25eff1ecf48a26fc159d1e73e78a2b0ad23aad58ac6a10917ec1f930c75",
+      "sameAsEightLayoutRuntime": true
+    },
+    "test/fppackagelabelboundbrowser.js": {
+      "currentSha256": "2a8a7956af2ea85f43cc97bb0ccb9c8f2b08dd3d9f7d77fd592ef1c687b4123a",
+      "sameAsEightLayoutRuntime": false
+    },
+    "test/tools/fp-package-label-quality.js": {
+      "currentSha256": "57dc9c0700f9dd3fb7064f5cc8d0724868ee09debeba8eb91ea875a1118d8425",
+      "sameAsEightLayoutRuntime": false
+    }
   }
 }
