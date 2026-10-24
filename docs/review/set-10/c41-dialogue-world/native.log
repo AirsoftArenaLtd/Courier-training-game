@@ -1,0 +1,23 @@
+{ quality: 'low', lang: 'en', large: false, kind: 'missing' }
+{ quality: 'low', lang: 'en', large: true, kind: 'signature' }
+{ quality: 'low', lang: 'ta', large: false, kind: 'twostops' }
+{ quality: 'low', lang: 'ta', large: true, kind: 'missing' }
+{
+  quality: 'low',
+  lang: 'ta',
+  large: true,
+  kind: 'twostops',
+  extra: true
+}
+{ quality: 'high', lang: 'en', large: false, kind: 'signature' }
+{ quality: 'high', lang: 'en', large: true, kind: 'twostops' }
+{ quality: 'high', lang: 'ta', large: false, kind: 'missing' }
+{ quality: 'high', lang: 'ta', large: true, kind: 'signature' }
+{
+  quality: 'high',
+  lang: 'ta',
+  large: true,
+  kind: 'twostops',
+  extra: true
+}
+7081 native checks passed in 10 journeys.

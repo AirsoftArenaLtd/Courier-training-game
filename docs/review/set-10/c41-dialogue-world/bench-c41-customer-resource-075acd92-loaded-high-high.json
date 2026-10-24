@@ -1,0 +1,703 @@
+{
+  "tag": "c41-customer-resource-075acd92-loaded-high",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "assets": {
+    "quality": "high",
+    "loaded": 22,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 8377598,
+    "decodedBytes": 24680796,
+    "errors": []
+  },
+  "prototype": {
+    "customerstreet": {
+      "frames": 22,
+      "avgFPS": 2.14,
+      "low1FPS": 0.84,
+      "p99ms": 1189.6,
+      "maxMs": 1189.6,
+      "peak": {
+        "calls": 27,
+        "triangles": 18090,
+        "textures": 4,
+        "geometries": 13,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 3363852,
+        "withMipmapsUpperBytes": 4485136
+      },
+      "worldProfile": {
+        "meshes": 87,
+        "instances": 109,
+        "geometries": 20,
+        "materials": 36,
+        "geometryBytes": 1717158,
+        "instanceBytes": 17584,
+        "shadowCasters": 52
+      },
+      "mirrorViews": {
+        "updates": [
+          8,
+          8,
+          7,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": 0,
+          "pitch": -0.23255694180490918,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerreply": {
+      "frames": 25,
+      "avgFPS": 2.43,
+      "low1FPS": 1.24,
+      "p99ms": 807.9,
+      "maxMs": 807.9,
+      "peak": {
+        "calls": 27,
+        "triangles": 18090,
+        "textures": 4,
+        "geometries": 13,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 3147972,
+        "withMipmapsUpperBytes": 4197296
+      },
+      "worldProfile": {
+        "meshes": 87,
+        "instances": 109,
+        "geometries": 20,
+        "materials": 36,
+        "geometryBytes": 1717158,
+        "instanceBytes": 17584,
+        "shadowCasters": 52
+      },
+      "mirrorViews": {
+        "updates": [
+          10,
+          10,
+          9,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": 0,
+          "pitch": -0.23255694180490918,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerphone": {
+      "frames": 26,
+      "avgFPS": 2.53,
+      "low1FPS": 1.17,
+      "p99ms": 858,
+      "maxMs": 858,
+      "peak": {
+        "calls": 32,
+        "triangles": 11758,
+        "textures": 4,
+        "geometries": 12,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 3363852,
+        "withMipmapsUpperBytes": 4485136
+      },
+      "worldProfile": {
+        "meshes": 87,
+        "instances": 109,
+        "geometries": 20,
+        "materials": 36,
+        "geometryBytes": 1666182,
+        "instanceBytes": 17584,
+        "shadowCasters": 52
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          9,
+          9,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": -0.8379812250083908,
+          "pitch": -0.336094076700327,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerreception": {
+      "frames": 21,
+      "avgFPS": 2.07,
+      "low1FPS": 0.97,
+      "p99ms": 1029.8,
+      "maxMs": 1029.8,
+      "peak": {
+        "calls": 40,
+        "triangles": 26010,
+        "textures": 4,
+        "geometries": 14,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 3353100,
+        "withMipmapsUpperBytes": 4470800
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 117,
+        "geometries": 22,
+        "materials": 37,
+        "geometryBytes": 2254158,
+        "instanceBytes": 17648,
+        "shadowCasters": 54
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          9,
+          8,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -27.9,
+          "yaw": 0,
+          "pitch": -0.2697328903884753,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerdog": {
+      "frames": 23,
+      "avgFPS": 2.3,
+      "low1FPS": 1.09,
+      "p99ms": 919.5,
+      "maxMs": 919.5,
+      "peak": {
+        "calls": 35,
+        "triangles": 14494,
+        "textures": 4,
+        "geometries": 14,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 3363852,
+        "withMipmapsUpperBytes": 4485136
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 125,
+        "geometries": 22,
+        "materials": 37,
+        "geometryBytes": 2254158,
+        "instanceBytes": 17648,
+        "shadowCasters": 54
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          8,
+          8,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": -0.9097531579442104,
+          "pitch": -0.41327380849445355,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerquestion": {
+      "frames": 27,
+      "avgFPS": 2.61,
+      "low1FPS": 1.23,
+      "p99ms": 811.5,
+      "maxMs": 811.5,
+      "peak": {
+        "calls": 26,
+        "triangles": 11666,
+        "textures": 4,
+        "geometries": 12,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 90,
+        "baseLevelRGBABytes": 3104276,
+        "withMipmapsUpperBytes": 4139035
+      },
+      "worldProfile": {
+        "meshes": 87,
+        "instances": 109,
+        "geometries": 20,
+        "materials": 36,
+        "geometryBytes": 1666182,
+        "instanceBytes": 17584,
+        "shadowCasters": 52
+      },
+      "mirrorViews": {
+        "updates": [
+          11,
+          11,
+          10,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": 0,
+          "pitch": -0.19321148384780626,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customerhistory": {
+      "frames": 26,
+      "avgFPS": 2.49,
+      "low1FPS": 0.91,
+      "p99ms": 1098,
+      "maxMs": 1098,
+      "peak": {
+        "calls": 26,
+        "triangles": 11666,
+        "textures": 4,
+        "geometries": 12,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 90,
+        "baseLevelRGBABytes": 3137028,
+        "withMipmapsUpperBytes": 4182704
+      },
+      "worldProfile": {
+        "meshes": 87,
+        "instances": 109,
+        "geometries": 20,
+        "materials": 36,
+        "geometryBytes": 1666182,
+        "instanceBytes": 17584,
+        "shadowCasters": 52
+      },
+      "mirrorViews": {
+        "updates": [
+          10,
+          10,
+          9,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": 0,
+          "pitch": -0.19321148384780626,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "customertimed": {
+      "frames": 24,
+      "avgFPS": 2.24,
+      "low1FPS": 1.11,
+      "p99ms": 897.2,
+      "maxMs": 897.2,
+      "peak": {
+        "calls": 35,
+        "triangles": 14494,
+        "textures": 4,
+        "geometries": 14,
+        "attachmentBytes": 11239424
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 3195060,
+        "withMipmapsUpperBytes": 4260080
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 125,
+        "geometries": 22,
+        "materials": 37,
+        "geometryBytes": 2254158,
+        "instanceBytes": 17648,
+        "shadowCasters": 54
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          9,
+          9,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11,
+          "y": 1.65,
+          "z": -42.6,
+          "yaw": -0.9097531579442104,
+          "pitch": -0.41327380849445355,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "customerProof": {
+    "customerstreet": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-missing",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 1,
+      "importedBuildings": 1,
+      "actorCount": 1,
+      "batches": 3,
+      "handheld": false,
+      "panel": false,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerreply": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-missing",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "choices",
+      "target": "customer-conversation",
+      "importedPeople": 1,
+      "importedBuildings": 1,
+      "actorCount": 1,
+      "batches": 3,
+      "handheld": false,
+      "panel": true,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerphone": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-signature",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 1,
+      "importedBuildings": 1,
+      "actorCount": 2,
+      "batches": 3,
+      "handheld": false,
+      "panel": false,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerreception": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-twostops",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 2,
+      "importedBuildings": 2,
+      "actorCount": 3,
+      "batches": 4,
+      "handheld": false,
+      "panel": false,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerdog": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-twostops",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 2,
+      "importedBuildings": 2,
+      "actorCount": 3,
+      "batches": 4,
+      "handheld": false,
+      "panel": false,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerquestion": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-signature",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 1,
+      "importedBuildings": 1,
+      "actorCount": 2,
+      "batches": 3,
+      "handheld": false,
+      "panel": true,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customerhistory": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-signature",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "line",
+      "target": "customer-conversation",
+      "importedPeople": 1,
+      "importedBuildings": 1,
+      "actorCount": 2,
+      "batches": 3,
+      "handheld": false,
+      "panel": true,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "customertimed": {
+      "source": "customer-static-render-fixture",
+      "id": "m3-twostops",
+      "piece": "street",
+      "phase": "active",
+      "conversation": "choices",
+      "target": "customer-conversation",
+      "importedPeople": 2,
+      "importedBuildings": 2,
+      "actorCount": 3,
+      "batches": 4,
+      "handheld": false,
+      "panel": true,
+      "canonical": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "customerFixture": true,
+  "phaserTextures": {
+    "count": 92,
+    "baseLevelRGBABytes": 3195060,
+    "withMipmapsUpperBytes": 4260080
+  },
+  "phaserTexturesPeak": {
+    "count": 86,
+    "baseLevelRGBABytes": 3363852,
+    "withMipmapsUpperBytes": 4485136
+  },
+  "missingViews": [],
+  "errors": []
+}

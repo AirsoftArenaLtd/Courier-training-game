@@ -1,0 +1,21 @@
+{
+  "scope": "CPU Low geometry only: four dialogue poses, seven sidewalk/customer positions, twenty-four yaw angles, five pitches, main plus the most costly actual mirror pass. Not GPU memory, High or Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 3360,
+      "peak": {
+        "calls": 34,
+        "triangles": 1252
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 3360,
+      "peak": {
+        "calls": 37,
+        "triangles": 946
+      }
+    }
+  ]
+}
