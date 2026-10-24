@@ -1,0 +1,53 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the real scan, numbered route and neutral assessment acknowledgement retain the original score (36.97402ms)
+✔ blind and wrong routes, stale inputs and double confirms cannot create extra credit (6.86121ms)
+✔ wave cards wait until the previous belt clears; jam reset requires a stopped belt and nearby ray (6.645342ms)
+✔ a complete five-wave run keeps m2-sort ratios and never changes the suspended workday (10.393229ms)
+✖ conveyor batches cull real instances in each mirror and restore the main buffers exactly (31.349172ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.629808
+
+✖ failing tests:
+
+test at test/fppackagesortscenario.js:34:1
+✖ conveyor batches cull real instances in each mirror and restore the main buffers exactly (31.349172ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   0.5840784311294556,
+  +   0.32314321398735046,
+  +   0.12213877588510513,
+      0.6583748459815979,
+      0.3762621283531189,
+      0.15592646598815918,
+  -   0.6583748459815979,
+  -   0.3762621283531189,
+  -   0.15592646598815918,
+      0.5840784311294556,
+      0.32314321398735046,
+      0.12213877588510513,
+      0.5840784311294556,
+      0.32314321398735046,
+
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackagesortscenario.js:44:213)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

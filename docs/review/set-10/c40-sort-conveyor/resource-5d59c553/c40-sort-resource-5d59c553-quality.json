@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "5d59c5537f16741c263719d0c2798488d546f45b",
+  "scope": "Eight physical conveyor views in four original profiles; not a fresh complete default workday gate.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c40-sort-resource-5d59c553-loaded-low-low.json",
+      "log": "c40-sort-resource-5d59c553-loaded-low.log",
+      "peak": {
+        "calls": 38,
+        "triangles": 2234,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1908998
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c40-sort-resource-5d59c553-loaded-high-high.json",
+      "log": "c40-sort-resource-5d59c553-loaded-high.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 12192,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6167814
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c40-sort-resource-5d59c553-accessible-low-low.json",
+      "log": "c40-sort-resource-5d59c553-accessible-low.log",
+      "peak": {
+        "calls": 37,
+        "triangles": 2234,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2044320
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c40-sort-resource-5d59c553-fallback-low-low.json",
+      "log": "c40-sort-resource-5d59c553-fallback-low.log",
+      "peak": {
+        "calls": 44,
+        "triangles": 2126,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1908998
+      }
+    }
+  ]
+}

@@ -68,7 +68,7 @@
   ],
   "scope": "See README.md and runtime-bridge.json for split source scopes, affected Node suites, diagnostic runs and remaining current-pilot/full-task acceptance.",
   "artifacts": {
-    "README.md": "d34a31800091faa7f611759a4c6db81a591e0f17445c11f85b2c031de953f460",
+    "README.md": "aec561405740048bc5033134716ac50a53f2b5ed7ab4c0a9a91ec9161331ba60",
     "boundary-f23192aa/before-fix.log": "738a16c056793f5b67974b7ed5ac372aedbd0830bcc03af1894b5e0f82668c1c",
     "boundary-f23192aa/c40-label-boundaries-f23192aa-high-en-input-feedback.png": "7f63aa71e40f8f6491100da8106924696fe48fad9df14cc5c0e45856fa36a9f0",
     "boundary-f23192aa/c40-label-boundaries-f23192aa-low-ta-input-feedback.png": "0efef1f7efd4a596269001bbc581e1d08ef6c50da3000a550c1da5a5c07db6a8",
