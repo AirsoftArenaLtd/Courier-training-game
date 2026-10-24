@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-24",
+  "status": "Doing: existing four-id runtime implemented; rendered/native validation pending. Optional safety/exception contract and shared Tamil font remain with Claude.",
+  "branch": "codex/c42-problem-solving",
+  "runtime": "f3462fc2f9b6bba89bf7c54c9728262b174f32f9",
+  "stackedOn": "codex/c41-customer-interaction@13f04ccd",
+  "sourceFiles": {
+    "index.html": "7272628d0c01de4e0822b877ad361432c90a9c70558399b7cbccfde6a482940d",
+    "src/core/fpproblemstage.js": "27f091e59343616ef57d36734c20ee31f1d8d205371b620f47cd6c4a46ef9ffa",
+    "src/core/fpproblemscenario.js": "2aab39434f1b9fe36ab0bb88e6bfd91296fe11110395c3394f867a55a31f98ec",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpcustomerworld.js": "ddd8dd7366f780b712d719b0a09b371a9e5257ad223c8b96ae5a2be8bdb13032",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/save.js": "bdfb7bde19eba73574bff46737add72015080c6f0e7e615fd6f7acd303cb87f2",
+    "src/core/workday.js": "c90729d9e4f7876b56b30e491ce4746fa078d66e0f9fefc29f5cee045c8a1e4b",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d"
+  },
+  "pureNodePassed": 80,
+  "inventoryNodeEntries": 81,
+  "deferredBrowser": "scorm-launch-2004.js",
+  "logicalParity": {
+    "endings": 139,
+    "comparisons": 1372,
+    "timedBranches": 1
+  },
+  "geometry": {
+    "scope": "CPU Low geometry: every authored visible node, six cab/cargo/sidewalk/customer poses, twelve yaw angles and three pitches. Main plus the most costly actual mirror. No weather shader, compositor, GPU memory or native Intel FPS acceptance.",
+    "reports": [
+      {
+        "loaded": true,
+        "poses": 11880,
+        "peak": {
+          "calls": 37,
+          "triangles": 2392
+        }
+      },
+      {
+        "loaded": false,
+        "poses": 11880,
+        "peak": {
+          "calls": 38,
+          "triangles": 2044
+        }
+      }
+    ]
+  },
+  "screenshots": 0,
+  "limitations": [
+    "No rendered/native acceptance yet.",
+    "Registry proposal unapplied; existing data/default/2D/shared source unchanged.",
+    "Later pilot-only fixes need Claude combined-tree acceptance.",
+    "Known shared Tamil glyph fallback requires correction and A-31 retesting.",
+    "Optional closure/blocked-drive safety and exception contract awaits Claude.",
+    "Cloud FPS cannot certify owner Intel 60 FPS; O-1 remains."
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 4479,
+      "sha256": "c80126ee2aeae71d898cace81a339f18d247366cdfc7a49f9f85e15330af5168"
+    },
+    {
+      "file": "geometry.json",
+      "bytes": 531,
+      "sha256": "6a9d2cccd1e63b6c4453302237b88d89c733f3a59c70d01fa3f773cb734d06ee"
+    },
+    {
+      "file": "geometry.log",
+      "bytes": 1425,
+      "sha256": "0fd963db869236a033f54dad800a4ee98ba94d23ad17f64d0e228e5f939c0ee6"
+    },
+    {
+      "file": "node-results-with-deferred-browser.json",
+      "bytes": 4303,
+      "sha256": "4680264553c67b97f4e9f27bea1be7209e85c9781e7aecd44d3fb505f3940d79"
+    },
+    {
+      "file": "raw-node-index.json",
+      "bytes": 13514,
+      "sha256": "93e83887b5ad8b7278e9185c5b945b3f69bdfa7ca3c43de9b4082f3aad1ae043"
+    },
+    {
+      "file": "raw-node-logs.tar.gz",
+      "bytes": 56061,
+      "sha256": "5e9629cd0923aa665502305115f5588376f5f196c4c1974c403ba7d86e7d64ec"
+    },
+    {
+      "file": "registry-existing-proposal.patch",
+      "bytes": 1529,
+      "sha256": "29379cb4eb94f164d5c7405ba3e620e66422e0bce479834d67fb41b645b8a994"
+    },
+    {
+      "file": "source-equivalence.json",
+      "bytes": 2071,
+      "sha256": "9ab1f7b0cfdf1da18b91b961cf521583b23ac565ae3978c6fd3909608b1c3be8"
+    },
+    {
+      "file": "world.log",
+      "bytes": 2404,
+      "sha256": "2ca2f72e27b150ad5af1b04d867aa545950affbf0bb097c28abc889c2a27069f"
+    }
+  ]
+}
