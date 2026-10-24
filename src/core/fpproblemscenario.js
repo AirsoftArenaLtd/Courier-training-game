@@ -11,7 +11,7 @@ OTR.fpScenario.register('problem-conversation',{
   setup(run,m){
     const talk=m.customerTalk=OTR.fpCustomerTalk.create(run.content,run.scenario.categories,{coaching:OTR.fpScenario.coaching(run)}),stage=m.problemStage=m.customerStage=OTR.fpProblemStage.create(run.id,run.content);
     m.kind='practice';m.stops=[];m.parcels=[];m.traffic=[];m.crossing.x=m.crossing.z=10000;m.solids=OTR.fpProblemStage.solids(stage);Object.assign(m.van,{x:1.7,z:-41,yaw:0,speed:0,gear:2,hand:true,belt:false,look:0});m.cargoOpen=run.id==='m4-damaged';
-    m.routeDay={weather:run.id==='m4-storm'?'storm':'clear',clockMin:12*60};m.mode=stage.site==='cab'?'cab':'walk';Object.assign(m.player,{x:stage.site==='cargo'?1.7:11,z:stage.site==='cargo'?-36.4:-42.6,yaw:0,pitch:0});
+    m.routeDay={weather:run.id==='m4-storm'?'storm':'clear',clockMin:12*60};m.mode=stage.site==='cab'?'cab':'walk';Object.assign(m.player,{x:stage.site==='cargo'?1.7:stage.points.house.x,z:stage.site==='cargo'?-36.4:-42.6,yaw:0,pitch:0});
     // The road decisions retain their authored timers; these existing dialogue ids are parked set-pieces.
     const step=m.step;m.step=function(input,dt){if(this.mode==='cab'){this.elapsed+=Math.max(0,Math.min(.05,dt||0));this.van.speed=0;return;}step.call(this,input,dt);};
     if(talk.phase!=='brief')throw Error('A problem scenario must start at its original brief');
