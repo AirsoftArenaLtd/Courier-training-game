@@ -11,7 +11,7 @@ completed acceptance pass.
 
 The active sequential pipeline waits for the eight-layout process to exit successfully, verifies all eight
 completed modes, then runs the restricted-photo assessment, High larger-Tamil two-stop dialogue regression,
-the four required academy/enterprise/routeday/driving browser suites, and an extra complete Low larger-Tamil critical journey with settled result capture. It stops at the first failure.
+and the four required academy/enterprise/routeday/driving browser suites. It stops at the first failure.
 One browser runs at a time. Local progress is recorded at `/tmp/c41-stop-followups/status.json`;
 logs use `/tmp/c41-stop-native-f80f76c4.log`, `/tmp/c41-stop-photo-f80f76c4.log`,
 `/tmp/c41-dialogue-regression-f80f76c4.log` and `/tmp/c41-browser-regression-f80f76c4/`.
@@ -24,4 +24,4 @@ local `/tmp/c41-stop-package-final.py` prepares the final package after checking
 The optional protocol contract question remains with Claude. If unanswered when the existing four ids
 are complete, record that block and continue C-42 rather than waiting for a merge or policy reply.
 
-The result capture helper is a test-only follow-up; the already-running eight-layout process retains its original protocol hash. Its result PNGs remain diagnostic transition poses. The later photo/dialogue/Tamil runs use the helper. Record their actual protocol hashes separately. Check `/tmp/c41-result-capture-validation.json` for the extra Tamil run, and investigate boxed Tamil glyphs with Claude if they remain in settled captures.
+The result capture helper is a test-only follow-up; the already-running eight-layout process retains its original protocol hash. Its result PNGs remain diagnostic transition poses. The later photo/dialogue runs use the helper. Record their actual protocol hashes separately. The extra Tamil repeat is superseded by the direct font probe: `font-diagnostic/README.md` confirms the shared fallback issue independently of animation. Its unapplied patch awaits Claude; all corrected-font layouts still need acceptance.

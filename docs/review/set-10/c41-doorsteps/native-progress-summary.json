@@ -1,6 +1,6 @@
 {
-  "checksSoFar": 6288,
-  "completedJourneys": 4,
+  "checksSoFar": 9232,
+  "completedJourneys": 6,
   "completedLayouts": [
     {
       "quality": "low",
@@ -57,9 +57,37 @@
       "assessmentPassed": false,
       "criticals": 1,
       "durable": true
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": null,
+      "criticals": 0,
+      "durable": true
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "score": 6400,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": true,
+      "criticals": 0,
+      "durable": true
     }
   ],
   "complete": false,
   "failureAtCheckpoint": null,
-  "note": "The global check counter includes part of the next journey. This is not a complete eight-layout pass. Original result PNGs are transitional diagnostic captures; settled result captures are pending."
+  "note": "Global checks include a partial next journey. Original result PNGs are transitional diagnostics; font-corrected layout acceptance is pending."
 }

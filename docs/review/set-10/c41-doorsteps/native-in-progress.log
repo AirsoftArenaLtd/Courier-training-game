@@ -3,3 +3,5 @@
 { quality: 'low', lang: 'ta', large: false }
 { quality: 'low', lang: 'ta', large: true }
 { quality: 'high', lang: 'en', large: false }
+{ quality: 'high', lang: 'en', large: true }
+{ quality: 'high', lang: 'ta', large: false }

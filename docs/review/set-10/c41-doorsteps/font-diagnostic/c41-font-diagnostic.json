@@ -1,0 +1,63 @@
+{
+  "sample": "பாதுகாப்பு வாசல்கள் முக்கியப் பாடங்கள்",
+  "lang": "ta",
+  "images": [
+    {
+      "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "font": "900 34px \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "width": 719.608154296875,
+      "file": "c41-font-system.png",
+      "sha256": "f4a4c29c78d06b5192041f21f80c244b71e226f7d7f6d1514a9296c2440ee1f9"
+    },
+    {
+      "family": "\"Noto Sans Tamil\", sans-serif",
+      "font": "900 34px \"Noto Sans Tamil\", sans-serif",
+      "width": 793.2180786132812,
+      "file": "c41-font-noto.png",
+      "sha256": "e9a94f9756e6897c63f5c4281db67e32b5cb0c10389ec615e5ff29b9d6163c7f"
+    },
+    {
+      "family": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "font": "900 34px \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "width": 793.2180786132812,
+      "file": "c41-font-proposal.png",
+      "sha256": "e9a94f9756e6897c63f5c4281db67e32b5cb0c10389ec615e5ff29b9d6163c7f"
+    }
+  ],
+  "scope": "Read-only font samples in the existing owned review browser. No game state, keyboard, renderer or scoring changes.",
+  "platformFonts": [
+    {
+      "sample": 0,
+      "fonts": [
+        {
+          "familyName": "Noto Sans",
+          "postScriptName": "NotoSans-Bold",
+          "isCustomFont": false,
+          "glyphCount": 38
+        }
+      ]
+    },
+    {
+      "sample": 1,
+      "fonts": [
+        {
+          "familyName": "Noto Sans Tamil",
+          "postScriptName": "NotoSansTamil-Bold",
+          "isCustomFont": false,
+          "glyphCount": 28
+        }
+      ]
+    },
+    {
+      "sample": 2,
+      "fonts": [
+        {
+          "familyName": "Noto Sans Tamil",
+          "postScriptName": "NotoSansTamil-Bold",
+          "isCustomFont": false,
+          "glyphCount": 28
+        }
+      ]
+    }
+  ]
+}

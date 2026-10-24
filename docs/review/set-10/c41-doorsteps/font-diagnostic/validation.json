@@ -1,0 +1,11 @@
+{
+  "scope": "Read-only probes of the existing owned QA browser; no second browser and no game state changes.",
+  "protocol": "test/tools/fp-font-diagnostic.js",
+  "protocolSha256": "2c2268d2072e5dc29298b296e9618d36f00f5dd3c48b4e72221587edd7427f08",
+  "originalAndReusableProbeHashesMatch": true,
+  "proposalAndExplicitTamilPixelsIdentical": true,
+  "proposalApplied": false,
+  "proposalSyntaxPassed": true,
+  "proposalGitApplyCheckPassed": true,
+  "correctedFontLayoutAcceptance": false
+}
