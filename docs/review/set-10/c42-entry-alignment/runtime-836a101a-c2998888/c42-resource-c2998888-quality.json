@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "c2998888748f09e2ddee58f8e31174d3cc542bf9",
+  "scope": "Twelve static problem-solving poses in the original four profiles. No native gameplay, current-pilot/default or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c42-resource-c2998888-loaded-low-low.json",
+      "log": "c42-resource-c2998888-loaded-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 2086,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1939083
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c42-resource-c2998888-loaded-high-high.json",
+      "log": "c42-resource-c2998888-loaded-high.log",
+      "peak": {
+        "calls": 56,
+        "triangles": 35352,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5252955
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c42-resource-c2998888-accessible-low-low.json",
+      "log": "c42-resource-c2998888-accessible-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 2086,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2106224
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c42-resource-c2998888-fallback-low-low.json",
+      "log": "c42-resource-c2998888-fallback-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 1926,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1939083
+      }
+    }
+  ]
+}
