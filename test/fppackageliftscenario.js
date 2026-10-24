@@ -8,7 +8,7 @@ function aim(s,id){s.sync();const t=s.art.interactions.find(o=>o.visible&&o.user
 function tick(s,input,predicate){let n=0;while(!predicate()&&n++<4000){s.model.step(input,.05);s.scenarioSession.definition.update(s.scenarioSession,s,.05);}assert.ok(n<4000,'the physical input must make progress');s.sync();}
 test('bay props and every projected body position preserve the original depot clearance',()=>{
  for(const high of [false,true]){const s=fixture(high),m=s.model,state=m.packageLift;for(const solid of W.solids()){const old=m.solids.slice(0,-3).filter(p=>Math.abs(p.x-solid.x)<(p.w+solid.w)/2&&Math.abs(p.z-solid.z)<(p.d+solid.d)/2);assert.equal(old.length,0);}
-  for(const x of [160,300,420,560,640,900])for(const squat of [0,1]){state.pose.x=x;state.pose.squat=squat;B.project(state);m.player.x=state.bay.body.x;m.player.z=state.bay.body.z;assert.equal(m.blocked(m.player.x,m.player.z),false);s.sync();assert.ok(s.view.camera.position.y>=.8);}
+  for(const x of [160,300,420,560,640,900])for(const squat of [0,1]){state.pose.x=x;state.pose.squat=squat;B.project(state);m.player.x=state.bay.body.x;m.player.z=state.bay.body.z;assert.equal(m.blocked(m.player.x,m.player.z),false);s.sync();assert.ok(s.view.camera.position.y>=.8);assert.equal(m.cameraMotion.y,s.view.camera.position.y,'camera diagnostics must follow the physical knee/platform height');}
   s.art.dispose();}
 });
 test('real load, call button and hand truck targets enforce the selected physical workflow',()=>{
