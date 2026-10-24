@@ -1,0 +1,8 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -82,4 +82,4 @@
+         id: 'm2-lift',
+         title: 'Lift Right',
+         icon: 'ic_lift',
+-        scene: 'LiftingScene',
++        scene: 'LiftingScene', scene3d: 'package-lift-bay',
