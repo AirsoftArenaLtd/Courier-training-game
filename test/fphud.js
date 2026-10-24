@@ -46,3 +46,11 @@ test('cyclist and school warnings reach the live cab caption without opening the
  c.OTR.fpTraffic.hint=()=> 'Children are waiting at the school crossing. Slow down and let them cross.';assert.match(H.alert(s),/Children/);
  c.OTR.fpDriving.hint=()=> 'Stop for the school bus.';assert.equal(H.alert(s),'Stop for the school bus.');delete c.OTR.fpTraffic;
 });
+
+test('module-specific physical controls replace the generic walking hint only for that module',()=>{
+ c.OTR.fpAccess={key:code=>({KeyW:'W',KeyA:'A',KeyS:'S',KeyD:'D',KeyP:'O',KeyE:'U'}[code])};
+ assert.equal(H.keyHint({},'walk'),'Use W/A/S/D to move. Press O to choose a target and U to interact.');
+ assert.match(H.keyHint({},'cab'),/accelerate or brake/);
+ const run={definition:{keyHint:r=>r===run?'Bend your knees with S.':''}};
+ assert.equal(H.keyHint({scenarioSession:run},'walk'),'Bend your knees with S.');
+});

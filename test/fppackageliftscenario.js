@@ -30,3 +30,9 @@ test('five controller workflows produce the original 1000-point legacy result an
 test('assessment acknowledgement and expiry do not invent a result for unhandled loads',()=>{
  O.academy.assessing=scenario.id;const s=fixture(),r=s.scenarioSession,state=s.model.packageLift;S.verdict(s);assert.equal(s.panel.body,'Your decision has been recorded.');assert.throws(()=>r.definition.result(r),/incomplete/);s.closePanel();results=[];r.definition.timeout(r,s);assert.equal(r.phase,'timed-out');assert.equal(results.length,0);assert.ok(s.panel.body.includes('not every load'));s.panel.choices[0].action();assert.equal(r.phase,'abandoned');s.art.dispose();O.academy.assessing=null;
 });
+
+test('the physical bay hint names knee and stance keys through the saved remapping',()=>{
+ O.fpAccess={key:code=>({KeyA:'A',KeyD:'D',KeyS:'S',KeyW:'W',KeyP:'O',KeyE:'U'}[code])};
+ const hint=F.definitions.get('package-lift-bay').keyHint();
+ assert.equal(hint,'Use A/D to step and S/W to bend or straighten your knees. Press O to select a target and U to interact.');
+});

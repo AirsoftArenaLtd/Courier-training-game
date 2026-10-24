@@ -70,6 +70,7 @@ OTR.fpScenario.register('package-lift-bay',{
   },
   handheld(run,scene){if(run.model.packageLift.lift)OTR.fpPackageLiftScenario.reading(scene);},
   controls(run,scene){OTR.fpPackageLiftScenario.controls(scene);},
+  keyHint(){const k=code=>OTR.fpAccess.key(code);return `Use ${k('KeyA')}/${k('KeyD')} to step and ${k('KeyS')}/${k('KeyW')} to bend or straighten your knees. Press ${k('KeyP')} to select a target and ${k('KeyE')} to interact.`;},
   timeout(run,scene){
     run.phase='timed-out';scene.showPanel('The lifting practice has ended.','There is no result because not every load was handled.',[{label:'Return to the station.',action:()=>scene.toHub()}],{accessibleText:true,back:()=>scene.toHub()});
   },
