@@ -18,7 +18,7 @@ OTR.fpPackageLiftBay={
   },
   unload(s){if(s.bay.mode!=='unload'||s.bay.unloaded)return false;s.bay.unloaded=true;s.bay.mode='verdict';this.project(s);return true;},
   step(s,input,seconds){
-    const b=s.bay,dt=Math.max(0,Math.min(.05,Number(seconds)||0)),P=s.pose;if(!['posture','equipment'].includes(b.mode))return false;
+    const b=s.bay,dt=Math.max(0,Math.min(.05,Number(seconds)||0)),P=s.pose;if(b.mode!=='posture'&&b.mode!=='equipment')return false;
     if(b.mode==='equipment'){
       if(!b.pushing)P.x=OTR.util.clamp(P.x+(Number(!!input.right)-Number(!!input.left))*150*dt,420,900);
       else{const distance=Math.max(1,b.sourceX-475);b.transport=OTR.util.clamp01(b.transport+(Number(!!input.left)-Number(!!input.right))*150*dt/distance);P.x=b.sourceX+b.offset-distance*b.transport;if(b.transport>=1)b.mode='unload';}
