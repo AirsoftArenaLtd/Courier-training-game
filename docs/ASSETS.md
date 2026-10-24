@@ -67,6 +67,7 @@ clear. Never trace, copy or use a third-party image as its source.
 
 | File | What it is | Made by, and how | Date |
 | --- | --- | --- | --- |
+| `src/core/fpcustomerworld.js` | Physical conversation counter, phone, parcel, dog and fallback facades/people; reuses the existing locally bundled town buildings and resident rigs when available. | Codex; procedural Three.js instances and the existing licensed asset pipeline, no new image map or pass. | 24 October 2026 | Project-owned, shipped under the game’s licence; reused packs retain their existing licences. |
 | `src/core/fpcab.js` | Original analytic instrument dials, ticks, seven-segment numerals, needle and backlighting; project-owned, shipped under the game's licence. No image texture. | Codex; hand-authored GLSL distance functions and palette, no reference image or added font file. | 22 October 2026 |
 | `src/core/fpbranding.js`, `src/core/fphud.js` | Original rugged device case, vector choice surfaces and navigation display treatment; project-owned, shipped under the game's licence. Low uses no case canvas; High reuses the existing bounded canvas. | Codex; hand-authored Canvas/Phaser drawing commands, no reference image. | 22 October 2026 |
 | `src/core/fpsignlettering.js` | Original Low 5×7 sign glyphs and procedural face layout; project-owned, shipped under the game's licence. High draws whole legends at runtime with the browser's existing text renderer. | Codex; hand-authored binary glyph rows and shader layout, no reference image or added font file. | 22 October 2026 |

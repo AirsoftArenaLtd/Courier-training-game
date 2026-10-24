@@ -82,3 +82,15 @@ test('bounded depot, street, doorstep and cab builds retain reachable targets un
   let triangles=0,calls=0;world.traverse(o=>{if(!o.isMesh||!o.visible)return;let p=o.parent;while(p){if(!p.visible)return;p=p.parent;}calls++;triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3*(o.isInstancedMesh?o.count:1);});assert.ok(triangles<2500,piece+': '+triangles);assert.ok(calls<64,piece+': '+calls);art.dispose();assert.equal(world.children.length,1);
  }
 });
+
+test('module decision clocks can run in their own panels while ordinary panels keep their clocks paused',()=>{
+ c.Phaser=c.Phaser||{Scene:class{}};O.registerScene=()=>{};
+ if(vm.runInContext('typeof FirstPersonScenarioScene',c)==='undefined')for(const f of ['FirstPersonScene','FirstPersonScenarioScene'])vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/'+f+'.js','utf8'),c);
+ const parent=vm.runInContext('FirstPersonScene.prototype',c),proto=vm.runInContext('FirstPersonScenarioScene.prototype',c),old=parent.update;parent.update=()=>{};let ticks=0,timeouts=0,finishes=0;
+ try{
+  F.definitions.set('test-cab',{...base,clockActive:(r,s,active)=>active||!!s.panel?.customer,tick:(r,s,dt,active)=>{if(active){assert.equal(dt,.05);ticks++;}},timeout:r=>{timeouts++;r.phase='timed-out';}});
+  const r=start(),scene={scenarioSession:r,model:{paused:true},panel:{customer:true},finishScenario(){finishes++;}};proto.update.call(scene,50,50);assert.equal(r.elapsed,.05);assert.equal(ticks,1);
+  scene.panel={};proto.update.call(scene,100,50);assert.equal(r.elapsed,.05);assert.equal(ticks,1);scene.panel={customer:true};r.elapsed=1.99;proto.update.call(scene,150,50);assert.equal(timeouts,1);assert.equal(finishes,0);proto.update.call(scene,200,50);assert.equal(timeouts,1);
+  let paused=0;proto.showGoal.call({showPause(){paused++;}});assert.equal(paused,1);
+ }finally{parent.update=old;}
+});
