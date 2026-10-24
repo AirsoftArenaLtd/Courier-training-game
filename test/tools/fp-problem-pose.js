@@ -8,7 +8,7 @@ module.exports=name=>{
  else K.enter(s,name==='problemrecovery'?'n2':name==='problemcargo'?'n3':name==='problemgate'?'n5':name==='problemreply'?'n2_412':s.content.start);
  S.apply(m.problemStage,s);S.step(m.problemStage,0);const site=m.problemStage.site;m.mode=site==='cab'?'cab':'walk';m.cargoOpen=site==='cargo';m.van.speed=0;
  Object.assign(m.player,{x:site==='cargo'?1.7:site==='gate'?14:site==='safe'?7.5:12,z:site==='cargo'?-36.4:site==='gate'?-41.4:site==='safe'?-37.8:site==='other'?-28.6:-42.6});scene.sync();
- const p=scene.view.camera.position,t=m.problemStage.target,yaw=Math.atan2(t.x-p.x,-(t.z-p.z));if(m.mode==='cab')m.van.look=yaw;else m.player.yaw=yaw;m.player.pitch=Math.atan2(p.y-t.y,Math.hypot(t.x-p.x,t.z-p.z));scene.sync();
+ if(name==='problemisolation')Object.assign(m.player,{x:4.8,z:-35.9});scene.sync();const p=scene.view.camera.position,t=name==='problemisolation'?{x:m.problemStage.isolation.x,y:.225,z:m.problemStage.isolation.z}:m.problemStage.target,yaw=Math.atan2(t.x-p.x,-(t.z-p.z));if(m.mode==='cab')m.van.look=yaw;else m.player.yaw=yaw;m.player.pitch=Math.atan2(p.y-t.y,Math.hypot(t.x-p.x,t.z-p.z));scene.sync();
  if(name==='problemreply'){K.advance(s);OTR.fpCustomerScenario.present(scene,s.choices.reduce((best,ch,i)=>ch.text.length>s.choices[best].text.length?i:best,0));}
  if(name==='problemhandheld')scene.showScanner();if(name==='problemcontrols')OTR.fpProblemScenario.controls(scene,1);
  // No decision or world clock may advance while this fixed render fixture is sampled.
