@@ -13,7 +13,14 @@ OTR.fpPackageSortWorld={
     // Every parcel uses one body and at most twelve face parts. Counts, buffers and proxy objects never grow in sync().
     const plane=new T.PlaneGeometry(1,1),staticMesh=new T.InstancedMesh(cube,paint,192),parcelMesh=new T.InstancedMesh(cube,paint,16),markMesh=new T.InstancedMesh(plane,paint,512+16*12);
     staticMesh.frustumCulled=parcelMesh.frustumCulled=markMesh.frustumCulled=false;root.add(staticMesh,parcelMesh,markMesh);let staticCount=0,partCount=0,glyphCount=0,disposed=false;
-    const put=(mesh,index,x,y,z,w,h,d,hex,rx=0,rz=0)=>{scratch.rotation.set(rx,0,rz);scratch.position.set(x,y,z);scratch.scale.set(w,h,d);scratch.updateMatrix();mesh.setMatrixAt(index,scratch.matrix);colour.setHex(hex);mesh.setColorAt(index,colour);};
+    // Allocate instance colours before fpWorld reserves reflection restore buffers.
+    parcelMesh.setColorAt(0,colour.setHex(0xFFFFFF));
+    const entry=()=>({matrix:new T.Matrix4(),color:new T.Color(),sphere:new T.Sphere(),visible:true});
+    const pools=[Array.from({length:192},entry),Array.from({length:16},entry),Array.from({length:512+16*12},entry)];
+    const batches=[{mesh:staticMesh,entries:[]},{mesh:parcelMesh,entries:[]},{mesh:markMesh,entries:[]}];
+    const put=(mesh,index,x,y,z,w,h,d,hex,rx=0,rz=0)=>{scratch.rotation.set(rx,0,rz);scratch.position.set(x,y,z);scratch.scale.set(w,h,d);scratch.updateMatrix();mesh.setMatrixAt(index,scratch.matrix);colour.setHex(hex);mesh.setColorAt(index,colour);
+      const n=mesh===staticMesh?0:mesh===parcelMesh?1:2,e=pools[n][index];e.matrix.copy(scratch.matrix);e.color.copy(colour);e.sphere.center.copy(scratch.position);e.sphere.radius=Math.hypot(w,h,n===2?0:d)*.5;batches[n].entries[index]=e;
+    };
     const box=(x,y,z,w,h,d,hex)=>{if(staticCount>=192)throw Error('Conveyor scenery capacity exceeded');put(staticMesh,staticCount++,x,y,z,w,h,d,hex);};
     const proxy=(id,x,y,z,w,h,d,interactive=true)=>{const p=new T.Mesh(cube,proxyPaint);p.position.set(x,y,z);p.scale.set(w,h,d);p.layers.set(1);p.userData.interaction=id;root.add(p);occluders.push(p);if(interactive)interactions.push(p);return p;};
     box(b.x,.78,b.z,b.length,.24,b.width,0x394950);for(const side of [-1,1])box(b.x,.98,b.z+side*.48,b.length+.1,.12,.08,0x7A898E);
@@ -35,7 +42,7 @@ OTR.fpPackageSortWorld={
     const slots=Array.from({length:16},()=>{const target=proxy(null,0,0,0,1,1,1);target.visible=false;return {target,id:null};});
     staticMesh.count=staticCount;staticMesh.instanceMatrix.needsUpdate=true;staticMesh.instanceColor.needsUpdate=true;parcelMesh.count=0;markMesh.count=glyphCount;markMesh.instanceMatrix.needsUpdate=true;markMesh.instanceColor.needsUpdate=true;
     const part=(x,y,z,w,h,hex,rx=0,rz=0)=>{if(partCount>=16*12)throw Error('Conveyor parcel capacity exceeded');put(markMesh,glyphCount+partCount++,x,y,z,w,h,1,hex,rx,rz);};
-    return {root,staticMesh,parcelMesh,markMesh,slots,buttons,restart,blockers,
+    return {root,staticMesh,parcelMesh,markMesh,batches,slots,buttons,restart,blockers,
       sync(state){
         if(disposed)throw Error('The conveyor was disposed');if(state.packages.length>16)throw Error('Conveyor parcel capacity exceeded');partCount=0;
         for(let i=0;i<16;i++){
@@ -50,7 +57,7 @@ OTR.fpPackageSortWorld={
           if(p.heavy)part(x-size*.28,y-h*.26,z+size/2+.018,size*.2,h*.23,0x645D7B);
         }
         for(let i=0;i<buttons.length;i++)buttons[i].visible=state.wave?.bins.includes(A.bins[i])||false;restart.visible=!!state.jammed;
-        parcelMesh.count=state.packages.length;markMesh.count=glyphCount+partCount;parcelMesh.instanceMatrix.needsUpdate=true;markMesh.instanceMatrix.needsUpdate=true;if(parcelMesh.instanceColor)parcelMesh.instanceColor.needsUpdate=true;markMesh.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
+        parcelMesh.count=state.packages.length;markMesh.count=glyphCount+partCount;batches[1].entries.length=parcelMesh.count;batches[2].entries.length=markMesh.count;parcelMesh.instanceMatrix.needsUpdate=true;markMesh.instanceMatrix.needsUpdate=true;if(parcelMesh.instanceColor)parcelMesh.instanceColor.needsUpdate=true;markMesh.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },
       dispose(){if(disposed)return;disposed=true;staticMesh.dispose();parcelMesh.dispose();markMesh.dispose();plane.dispose();paint.dispose();proxyPaint.dispose();if(ownsCube)cube.dispose();root.removeFromParent();}
     };

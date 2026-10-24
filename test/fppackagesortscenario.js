@@ -31,3 +31,18 @@ test('a complete five-wave run keeps m2-sort ratios and never changes the suspen
  let ticks=0;while(r.phase==='active'&&ticks++<6000){if(s.panel){s.panel.choices[0].action();continue;}for(const p of [...state.packages]){S.scan(state,p);S.sort(state,p,S.correctBin(state,p));}r.definition.update(r,s,.05);}
  assert.equal(r.phase,'finished');assert.equal(state.waveIndex,4);assert.ok(state.stats.correct>50);assert.equal(results.length,1);assert.equal(results[0].id,'m2-sort');assert.equal(results[0].result.ratios.efficiency,1);assert.equal(results[0].result.ratios.safety,1);assert.equal(JSON.stringify(O.workday.events),before);assert.equal(F.finish(r,s),false);assert.equal(F.resolve(scenario).scene,'SortingScene');assert.equal(F.resolve(scenario,{choice:'3d',webgl:false}).scene,'SortingScene');s.art.dispose();
 });
+test('conveyor batches cull real instances in each mirror and restore the main buffers exactly',()=>{
+ const s=fixture(),state=s.model.packageSort;for(let i=0;i<16;i++)parcel(s,{position:-70+i*1252/16,priority:true,damage:'leak',dg:i%2===0,heavy:i%2===1});
+ let discarded=0;const matrix=new THREE.Matrix4(),frustum=new THREE.Frustum(),counts=[];
+ for(const yaw of [0,Math.PI/2,Math.PI,-Math.PI/2]){
+  s.model.player.yaw=yaw;s.sync();const batches=s.art.packageSort.batches;
+  const main=batches.map(b=>({count:b.mesh.count,visible:b.mesh.visible,matrix:Array.from(b.mesh.instanceMatrix.array),colour:Array.from(b.mesh.instanceColor.array)}));
+  for(let camera=0;camera<3;camera++){
+   s.view.mirror.before(camera);const cam=s.view.mirror.camera;frustum.setFromProjectionMatrix(matrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
+   for(const b of batches){const expected=b.entries.filter(e=>e.visible!==false&&frustum.intersectsSphere(e.sphere));assert.equal(b.mesh.count,expected.length);discarded+=b.entries.length-b.mesh.count;}
+   counts.push(batches.reduce((n,b)=>n+b.mesh.count*b.mesh.geometry.index.count/3,0));s.view.mirror.after();
+   for(let i=0;i<batches.length;i++){const m=batches[i].mesh;assert.equal(m.count,main[i].count);assert.equal(m.visible,main[i].visible);assert.deepEqual(Array.from(m.instanceMatrix.array),main[i].matrix);assert.deepEqual(Array.from(m.instanceColor.array),main[i].colour);}
+  }
+ }
+ assert.ok(discarded>0,'offscreen conveyor geometry is not resubmitted in full');assert.ok(Math.max(...counts)<1700);s.art.dispose();
+});

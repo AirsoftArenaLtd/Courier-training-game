@@ -528,7 +528,7 @@ OTR.fpWorld = {
     };
     // Reflection passes cull individual fixed instances, then restore the main-view buffers exactly.
     const reflectFrustum=new T.Frustum(),reflectMatrix=new T.Matrix4(),reflectSphere=new T.Sphere();
-    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}],damage?[damage]:[]),cullMain=!OTR.gfx.high();
+    const reflectBatches=staticBatches.concat(assetGroups.flatMap(g=>g.userData.batches),[{mesh:parcelBatch,entries:parcelEntries}],damage?[damage]:[],packageSort?packageSort.batches:[]),cullMain=!OTR.gfx.high();
     const compact=(batch,frustum,main=false,cx=0,cz=0)=>{
       const mesh=batch.mesh;let count=0;
       for(const entry of batch.entries){if(entry.visible===false)continue;const e=entry.matrix.elements;
