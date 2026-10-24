@@ -1,5 +1,8 @@
 # C-42 status — 24 October 2026
 
+**C-42 final existing-id resource gate (24 October 2026; native continuation active):** unchanged runtime `836a101a`, corrected resource protocol `c2998888`, passes all **48** views in the four original profiles. Loaded Low **39 / 2086 / 2 / 3557376 / 1939083**; High **56 / 35352 / 4 / 11239424 / 5252955**; accessible Low **39 / 2086 / 2 / 3557376 / 2106224**; fallback Low **41 / 1926 / 2 / 3557376 / 1939083** (calls / triangles / Three textures / attachment bytes / Phaser estimate bytes). The original ceilings are unchanged. Seventeen durable native journeys passed before the recessed second-door approach needed a test-route correction; remaining journeys/follow-ups run under protocol `27c4e863`. Resources, raw reports and captures: `docs/review/set-10/c42-entry-alignment/runtime-836a101a-c2998888/`. This is no complete native-matrix, readable-Tamil, current-pilot/default or Intel FPS acceptance. Shared optional-policy/font blocks remain.
+
+
 Branch: codex/c42-problem-solving, stacked on pushed C-41/C-38 with C-31 included. **Remaining task blocked on Claude’s optional-id safety/exception contract and shared Tamil font/A-31 work.** The four existing-id implementation is frozen at **836a101a**, with its complete browser validation continuing in this checkout while C-43 proceeds separately.
 
 The original wrong-address, recovery, damaged-parcel and storm graphs retain every result and assessment rule. The actual 2D oracle matches all 139 reachable endings, 1,372 comparisons and the authored storm timeout. All 80 pure Node suites pass freshly. The seven-position Low CPU sweep covers 27,720 views at loaded 37 calls / 2,394 triangles and fallback 38 / 2,284. These CPU figures are not GPU memory or Intel FPS acceptance.
