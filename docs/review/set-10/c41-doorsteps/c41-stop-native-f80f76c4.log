@@ -1,0 +1,9 @@
+{ quality: 'low', lang: 'en', large: false }
+{ quality: 'low', lang: 'en', large: true }
+{ quality: 'low', lang: 'ta', large: false }
+{ quality: 'low', lang: 'ta', large: true }
+{ quality: 'high', lang: 'en', large: false }
+{ quality: 'high', lang: 'en', large: true }
+{ quality: 'high', lang: 'ta', large: false }
+{ quality: 'high', lang: 'ta', large: true }
+10715 native checks passed in 8 three-stop journeys.

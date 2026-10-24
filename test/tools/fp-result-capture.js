@@ -3,7 +3,7 @@ module.exports=async function resultCapture(page){
  const start=await page.evaluate(()=>OTR.game.scene.getScene('ResultsScene').time.now);
  await page.waitForFunction(start=>{
   const s=OTR.game.scene.getScene('ResultsScene');
-  return s?.sys.isActive()&&s.time.now>=start+8000&&s._screenFocus?.current()?.enabled;
+  return s?.sys.isActive()&&s.time.now>=start+8000&&s.input.enabled;
  },{timeout:180000},start);
  let rankUpDismissed=false;
  const rankUp=await page.evaluate(()=>{
@@ -12,6 +12,9 @@ module.exports=async function resultCapture(page){
   return !!top&&contains(top);
  });
  if(rankUp){await page.keyboard.press('Space');rankUpDismissed=true;await page.waitForFunction(()=>!OTR.game.scene.getScene('ResultsScene')._openModals,{timeout:30000});}
+ // current() is intentionally null until a real navigation key shows the focus ring.
+ await page.keyboard.press('Tab');
+ await page.waitForFunction(()=>OTR.game.scene.getScene('ResultsScene')._screenFocus?.current()?.enabled,{timeout:30000});
  const proof=await page.evaluate(()=>{
   const s=OTR.game.scene.getScene('ResultsScene'),panel=s.children.list.find(o=>o.list?.some(t=>t.type==='Text'&&OTR.i18n.src(t)==='STARS'));
   const counter=panel?.list.find(t=>t.type==='Text'&&/^\d+ \/ \d+$/.test(t.text));
