@@ -388,7 +388,8 @@ OTR.fpWorld = {
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
     const customer=base.customerStage&&!base.customerStop&&OTR.fpCustomerWorld?OTR.fpCustomerWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
-    const customerStop=base.customerStop&&OTR.fpCustomerStopWorld?OTR.fpCustomerStopWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
+    const customerStopArt=base.customerStop?.scannerId?OTR.fpScannerStopWorld:OTR.fpCustomerStopWorld;
+    const customerStop=base.customerStop&&customerStopArt?customerStopArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const scanObjects=[...new Set([...occluders,...interactions])],visibleObjects=[],hits=[],projected=new T.Vector3();
     const cast=(ray,objects)=>{
       visibleObjects.length=0;hits.length=0;
