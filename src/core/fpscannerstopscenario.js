@@ -46,17 +46,17 @@ OTR.fpScannerStopScenario=Object.assign(Object.create(OTR.fpCustomerStopScenario
       {label:'Read the next exception code.',onPick:()=>this.exceptions(scene,(page+1)%all.length)}
     ],back:()=>this.handheld(scene.scenarioSession,scene)});
   },
-  capturePhoto(scene){const d=scene.model.customerStop;scene.sync();if(OTR.fpScannerStop.capture(d,scene.art.customerStop.photo(scene.view.camera)))this.photoReview(scene);},
-  photoReview(scene){const d=scene.model.customerStop;if(!d.photo)return;const coaching=OTR.fpScenario.coaching(scene.scenarioSession),body=coaching?d.photo.grade==='good'?'The photo shows the package and its location without private details.':d.photo.grade==='private'?'The photo includes a person or the house number.':'The photo does not clearly show the package and its location.':'The photo has been captured.';
+  async capturePhoto(scene){const d=scene.model.customerStop,index=d.index;if(d.captureToken)return false;const captured=await OTR.fpScannerPhoto.capture(scene);if(scene.model.customerStop!==d||d.index!==index||scene.scenarioSession.phase!=='active')return false;if(captured)this.photoReview(scene);else if(!d.captureToken)this.notice(scene,'The photo could not be captured. Frame it again and try again.');return captured;},
+  photoReview(scene){const d=scene.model.customerStop;if(!d.photo||!d.photoPreview)return;const coaching=OTR.fpScenario.coaching(scene.scenarioSession),body=coaching?d.photo.grade==='good'?'The photo shows the package and its location without private details.':d.photo.grade==='private'?'The photo includes a person or the house number.':'The photo does not clearly show the package and its location.':'The photo has been captured.';
     this.device(scene,{title:'Review the delivery photo.',lines:[],options:[
-      {label:'Use this photo for the delivery.',onPick:()=>{if(OTR.fpScannerStop.usePhoto(d)){scene.handheld.close();scene.sync();}}},
-      {label:'Retake the delivery photo.',onPick:()=>{if(OTR.fpScannerStop.retake(d)){scene.handheld.close();scene.sync();}}},
-      {label:'Read the photo details.',onPick:()=>{scene.handheld.close(false);this.panel(scene,'Read the photo details.',body,[{label:'Return to the photo.',action:()=>{scene.closePanel();this.photoReview(scene);}}],'notice');}}
-    ],back:()=>scene.handheld.close()});
+      {label:'Use this photo for the delivery.',onPick:()=>{if(OTR.fpScannerStop.usePhoto(d)){OTR.fpScannerPhoto.hide(scene);scene.handheld.close();scene.sync();}}},
+      {label:'Retake the delivery photo.',onPick:()=>{if(OTR.fpScannerStop.retake(d)){OTR.fpScannerPhoto.hide(scene);scene.handheld.close();scene.sync();}}},
+      {label:'Read the photo details.',onPick:()=>{OTR.fpScannerPhoto.hide(scene);scene.handheld.close(false);this.panel(scene,'Read the photo details.',body,[{label:'Return to the photo.',action:()=>{scene.closePanel();this.photoReview(scene);}}],'notice');}}
+    ],back:()=>{OTR.fpScannerPhoto.hide(scene);scene.handheld.close();}});OTR.fpScannerPhoto.show(scene,coaching?'Choose whether to use this photo or take another one.':'The photo has been captured.');
   },
   report(scene,page=0){const d=scene.model.customerStop,lessons=OTR.fpScenario.coaching(scene.scenarioSession)?d.log.takeaways(d.def.id).map(t=>t.text):[];OTR.fpScannerIdentity.hide(scene);this.panel(scene,`Review stop ${d.index+1}.`,page===0?'This stop has ended.':lessons[page-1],[
     ...(page<lessons.length?[{label:'Read the next finding.',action:()=>this.report(scene,page+1)}]:[]),
-    {label:d.index+1<d.content.stops.length?'Continue to the next stop.':'Finish the scenario.',action:()=>{OTR.fpScannerStop.next(d);if(d.phase==='done'){scene.finishScenario();return;}this.configure(scene.scenarioSession,scene.model);scene.rebuildWorld();scene.closePanel();scene.sync();this.brief(scene);}}
+    {label:d.index+1<d.content.stops.length?'Continue to the next stop.':'Finish the scenario.',action:()=>{OTR.fpScannerPhoto.clear(scene);OTR.fpScannerStop.next(d);if(d.phase==='done'){scene.finishScenario();return;}this.configure(scene.scenarioSession,scene.model);scene.rebuildWorld();scene.closePanel();scene.sync();this.brief(scene);}}
   ]);},
   controls(scene,page=0){const k=code=>OTR.fpAccess.key(code),pages=[`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to walk. Press ${k('KeyP')} to face a nearby physical target and ${k('KeyE')} to interact. The van remains parked.`,`Read the full parcel label at the cargo shelf. Open the handheld to scan, choose a delivery method, record the actual signer or select an exception code.`,`Walk to the chosen delivery location before placing a parcel. Frame the package and the doorstep inside the camera border, then press ${k('KeyE')}. Retaking a photo keeps the package at that location.`,`Read every ID field and compare the portrait with the customer. The training date stays September 17, 2026. An ID refusal still needs a separately recorded exception, a printed tag and the package returned to the van.`];this.panel(scene,'Use the scanner controls.',pages[page],[{label:'Read the next controls page.',action:()=>this.controls(scene,(page+1)%pages.length)},{label:'Return to the stop.',action:()=>scene.closePanel()}]);}
 });
@@ -74,8 +74,10 @@ OTR.fpScenario.register('scanner-stop',{
     else if(id==='scanner-stop-hours')A.notice(scene,`The posted business hours are ${d.def.lot.spec.hours.replace('\n',', ')}. The stop time is ${Math.floor((d.def.time||d.content.time)/60)}:${String((d.def.time||d.content.time)%60).padStart(2,'0')}.`);return true;
   },
   tick(run,scene,dt,active){scannerBase.tick(run,scene,dt,active);const d=scene.model.customerStop;if(scene.scannerIdentity&&!scene.handheld.isOpen){OTR.fpScannerIdentity.hide(scene);OTR.fpScannerStop.cancelIdentity(d);}
-    if(!scene.scannerFrame&&scene.add){const frame=scene.add.graphics().setDepth(21).lineStyle(3,0xFFFFFF,1).strokeRect(OTR.W*.14,OTR.H*.14,OTR.W*.72,OTR.H*.72);scene.scannerFrame=frame;scene.events.once('shutdown',()=>{OTR.fpScannerIdentity.hide(scene);scene.scannerFrame=null;});}
-    scene.scannerFrame?.setVisible(d.photoMode&&!scene.handheld.isOpen&&!scene.panel&&scene.model.mode==='walk');
+    if(!scene.scannerFrame&&scene.add){const frame=scene.add.graphics().setDepth(21).lineStyle(3,0xFFFFFF,1).strokeRect(OTR.W*.14,OTR.H*.14,OTR.W*.72,OTR.H*.72);scene.scannerFrame=frame;scene.events.once('shutdown',()=>{OTR.fpScannerIdentity.hide(scene);OTR.fpScannerPhoto.clear(scene);scene.scannerFrame=scene.scannerCaption=null;});}
+    if(scene.scannerPhotoView&&!scene.handheld.isOpen)OTR.fpScannerPhoto.hide(scene);
+    if(scene.add)OTR.fpScannerPhoto.overlay(scene);
   },
+  beforeRefresh(run,scene){OTR.fpScannerPhoto.beforeRefresh(scene);},refreshOverlay(run,scene){OTR.fpScannerPhoto.overlay(scene);},
   controls(run,scene){OTR.fpScannerStopScenario.controls(scene);},handheld(run,scene){OTR.fpScannerStopScenario.handheld(run,scene);}
 });
