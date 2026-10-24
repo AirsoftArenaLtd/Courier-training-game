@@ -16,3 +16,12 @@ test('the active load and gauge targets coincide with physical bay geometry and 
 test('bay disposal releases owned buffers once and never disposes the shared cube',()=>{
  const cube=new THREE.BoxGeometry(),root=new THREE.Scene(),a=W.build(root,{cube});let g=0,m=0,instances=0;cube.addEventListener('dispose',()=>g++);a.fixed.material.addEventListener('dispose',()=>m++);a.fixed.addEventListener('dispose',()=>instances++);a.moving.addEventListener('dispose',()=>instances++);a.dispose();a.dispose();assert.equal(root.children.length,0);assert.equal(g,0);assert.equal(m,1);assert.equal(instances,2);cube.dispose();assert.equal(g,1);
 });
+
+test('the physical spine needle clears stale readings outside a reachable posture',()=>{
+ const root=new THREE.Scene(),a=W.build(root),s=B.create(C);B.next(s);s.measure.load=.95;s.measure.reachable=true;
+ const needle=()=>a.batches[1].entries.find(e=>Math.abs(e.sphere.center.z-15.49)<.001).sphere.center.x;
+ a.sync(s);assert.equal(needle(),-10.3,'assessment must not display the preceding load');
+ B.choose(s,0);s.measure.load=.95;s.measure.reachable=true;a.sync(s);assert.ok(Math.abs(needle()-(-10.3+.95*.6))<1e-10);
+ s.measure.reachable=false;a.sync(s);assert.equal(needle(),-10.3,'an out-of-reach load has no active spine reading');
+ a.dispose();
+});

@@ -30,7 +30,7 @@ OTR.fpPackageLiftWorld={
         if(L.high&&P.elevate>0){part(-10,.58,13.45,.7,.04,.5,0xBE8B3D);for(const x of platformXs)part(x,.28,13.45,.07,.56,.4,0x637478);part(-10,.28,13.75,.65,.05,.25,0xBE8B3D);}
         const tx=b.truck.x,tz=b.truck.z;part(tx,.07,tz,1.1,.1,.55,0x667C83);for(const side of sides)part(tx+.55,.2,tz+side*.3,.28,.28,.11,0x26383F);for(const side of sides)part(tx+.62,.72,tz+side*.25,.06,1.05,.06,0x899C9D);part(tx+.62,1.25,tz,.08,.08,.58,0x354C55);
         handle.position.set(tx+.62,1.17,tz);handle.visible=b.mode==='equipment'||b.mode==='unload';
-        const needle=OTR.util.clamp01(s.measure.load);part(-10.3+needle*.6,1.27,15.49,.025,.16,.02,0x334A52);
+        const needle=b.mode==='posture'&&s.measure.reachable?OTR.util.clamp01(s.measure.load):0;part(-10.3+needle*.6,1.27,15.49,.025,.16,.02,0x334A52);
         const ready=b.helperReady,wx=ready?p.x+P.dir*(p.w/2+.35):-7.3,wz=ready?p.z-.65:10.4;
         if(worker){worker.mesh.visible=true;worker.mesh.position.set(wx,0,wz);worker.mesh.rotation.y=ready?-P.dir*Math.PI/2:0;worker.pose(ready?'Interact':'Idle_Neutral',time,reduced,high);}
         else{part(wx,1.05,wz,.4,.58,.28,uniform);part(wx,1.56,wz,.26,.3,.26,0xB98C6A);for(const side of sides){part(wx+side*.12,.4,wz,.14,.8,.18,0x354754);part(wx+side*.27,1,wz,.12,.55,.14,uniform);}}
