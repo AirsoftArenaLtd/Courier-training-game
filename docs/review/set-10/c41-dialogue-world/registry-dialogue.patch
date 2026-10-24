@@ -1,20 +1,26 @@
 --- a/data/modules.js
 +++ b/data/modules.js
-@@ -113,4 +113,4 @@
-         id: 'm3-missing',
+@@ -114,6 +114,7 @@
          title: 'Where\'s My Package?!',
          icon: 'ic_chat',
--        scene: 'DialogueScene',
-+        scene: 'DialogueScene', scene3d: 'customer-conversation',
-@@ -124,4 +124,4 @@
-         id: 'm3-signature',
+         scene: 'DialogueScene',
++        scene3d: 'customer-conversation',
+         dataKey: 'dialogues.m3_missing',
+         categories: ['service', 'efficiency'],
+         blurb: 'A frustrated customer flags you down about a package that "never arrived". Calm things down and actually help.',
+@@ -125,6 +126,7 @@
          title: 'Signature Required',
          icon: 'ic_pen',
--        scene: 'DialogueScene',
-+        scene: 'DialogueScene', scene3d: 'customer-conversation',
-@@ -135,4 +135,4 @@
-         id: 'm3-twostops',
+         scene: 'DialogueScene',
++        scene3d: 'customer-conversation',
+         dataKey: 'dialogues.m3_signature',
+         categories: ['service', 'safety'],
+         blurb: 'Nobody\'s home, the package needs a signature, and a helpful neighbor has ideas. Follow the rules without losing the customer.',
+@@ -136,6 +138,7 @@
          title: 'Two Stops, Two Styles',
          icon: 'ic_paw',
--        scene: 'DialogueScene',
-+        scene: 'DialogueScene', scene3d: 'customer-conversation',
+         scene: 'DialogueScene',
++        scene3d: 'customer-conversation',
+         dataKey: 'dialogues.m3_twostops',
+         categories: ['service', 'safety', 'efficiency'],
+         blurb: 'First a busy office reception, then a house with a very loud dog. Adjust your approach for business vs. residential stops.',
