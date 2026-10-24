@@ -386,7 +386,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      if(name==='sortrule'){state.state='rule';OTR.fpPackageSortScenario.rule(s);}
      if(name==='sortcontrols'||name==='sortkeys')OTR.fpPackageSortScenario.controls(s,name==='sortkeys'?1:0);
      s.model.paused=true;s.refresh();const a=s.art.packageSort,b=s.sortBefore;
-     return {source:'physical-conveyor-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,parcels:state.packages.length,bodies:a.parcelMesh.count,batches:3,canonical:state.packages.some(p=>p.id===state.selectedId),bounded:!s.model.blocked(s.model.player.x,s.model.player.z),handheld:s.handheld.isOpen,panel:!!s.panel,checkpointUnchanged:b.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:b.events===JSON.stringify(OTR.workday.events),workdayUnchanged:b.workday===JSON.stringify(OTR.save.data.workday||null)};
+     return {source:'physical-conveyor-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,parcels:state.packages.length,physicalParcels:a.slots.filter(slot=>slot.target.visible).length,visibleBodies:a.parcelMesh.count,batches:3,canonical:state.packages.some(p=>p.id===state.selectedId),bounded:!s.model.blocked(s.model.player.x,s.model.player.z),handheld:s.handheld.isOpen,panel:!!s.panel,checkpointUnchanged:b.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:b.events===JSON.stringify(OTR.workday.events),workdayUnchanged:b.workday===JSON.stringify(OTR.save.data.workday||null)};
     },name);(report.packageSortProof||(report.packageSortProof={}))[name]=proof;report.packageSortFixture=true;await sample(name);
    }
   }
