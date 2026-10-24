@@ -4,7 +4,7 @@ OTR.fpPackageLabelScenario={
   controls(scene,page=0){
     const s=scene.model.packageLabels,back=()=>scene.closePanel();
     const body=page?OTR.fpPackageLabelWorld.stations.slice((page-1)*3,page*3).map((id,i)=>`Station ${(page-1)*3+i+1} is ${s.content.stations[id].label.toLowerCase()}.`).join('\n'):
-      `Look at the package and press ${OTR.fpAccess.key('KeyE')} or ${OTR.fpAccess.key('Tab')} to turn it using the handheld. Close the handheld and look at the exposed side before turning again. Walk to a numbered station, select it with ${OTR.fpAccess.key('KeyP')} and press ${OTR.fpAccess.key('KeyE')} to place the package.`;
+      `Stand in front of the inspection table. Look at the package and press ${OTR.fpAccess.key('KeyE')} or ${OTR.fpAccess.key('Tab')} to turn it using the handheld. Close the handheld and look at the exposed side before turning again. Walk to a numbered station, select it with ${OTR.fpAccess.key('KeyP')} and press ${OTR.fpAccess.key('KeyE')} to place the package.`;
     scene.showPanel('Use the package inspection controls.',body,[
       {label:page===2?'Read the inspection controls.':'Read the handling station numbers.',action:()=>this.controls(scene,(page+1)%3)},
       {label:'Continue inspecting the package.',action:back}
@@ -16,7 +16,7 @@ OTR.fpPackageLabelScenario={
   },
   near(scene){
     const a=scene.art.packageLabels,s=scene.model.packageLabels;
-    return !!a&&s.answering&&OTR.fpPackageLabels.faces.some(face=>a.visible(face,scene.view.camera));
+    return !!a&&s.answering&&scene.view.camera.position.z>=OTR.fpPackageLabelWorld.center.z+.6&&OTR.fpPackageLabels.faces.some(face=>a.visible(face,scene.view.camera));
   },
   read(scene){
     const s=scene.model.packageLabels,a=scene.art.packageLabels,face=s.presentationFace;
@@ -29,7 +29,11 @@ OTR.fpPackageLabelScenario={
   },
   inspect(scene,page=0){
     const s=scene.model.packageLabels,A=this;if(!s.answering)return;
-    if(!this.near(scene)){scene.message('Move closer and look at the package before turning it.');return;}
+    if(!this.near(scene)){
+      const back=()=>scene.closePanel();scene.showPanel('Return to the package inspection table.','Stand in front of the inspection table and look at the package before turning it.',[
+        {label:'Continue inspecting the package.',action:back}
+      ],{accessibleText:true,back});return;
+    }
     // Two faces per page keep larger translated text out of the device's Back area.
     const options=OTR.fpPackageLabels.faces.slice(page*2,page*2+2).map(face=>({
       label:`Turn the package to show the ${OTR.fpPackageLabels.faceNames[face].toLowerCase()}.`,onPick:()=>{

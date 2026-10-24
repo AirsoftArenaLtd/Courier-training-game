@@ -351,20 +351,21 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   if(process.env.QA_PACKAGE_LABELS==='1'){
    await p.evaluate(()=>{const old=OTR.game.scene.getScenes(true).find(s=>s.sys.settings.key!=='BootScene');if(old?.closePanel)old.closePanel(false);if(old?.releaseMouse)old.releaseMouse();OTR.registry.get('m2-labels').scene3d='package-label-station';OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m2-labels'});if(old&&old.sys.settings.key!=='FirstPersonScenarioScene')OTR.game.scene.stop(old.sys.settings.key);});
    await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
-   for(const name of ['labelfront','labelbase','labelstations','labelhandheld','labelguide']){
+   for(const name of ['labelfront','labelbase','labelstations','labelhandheld','labelguide','labelunavailable']){
     if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
     const proof=await p.evaluate(name=>{
      const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,state=s.model.packageLabels;
      window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;
      if(!s.labelBefore)s.labelBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
      if(s.handheld.isOpen)s.handheld.close(false);s.closePanel(false);OTR.fpScenario.begin(r);
-     state.item=state.content.items.find(item=>name==='labelfront'?item.marks.front?.includes('fragile'):item.damage?.face==='base');state.phase='run';state.answering=true;state.guideOpen=false;state.seen={};state.itemTime=0;state.presentationFace=name==='labelfront'?'front':'base';
+     state.item=state.content.items.find(item=>name==='labelfront'?item.marks.front?.includes('fragile'):item.damage?.face==='base');state.index=name==='labelfront'?0:6;state.queue[state.index]=state.item;state.phase='run';state.answering=true;state.guideOpen=false;state.seen={};state.itemTime=0;state.presentationFace=name==='labelfront'?'front':'base';
      Object.assign(s.model.player,{x:-10,z:16.6,yaw:0,pitch:name==='labelstations'?.27:0});s.sync();
      if(name==='labelhandheld')OTR.fpPackageLabelScenario.inspect(s);
      if(name==='labelguide')OTR.fpPackageLabelScenario.guide(s);
+     if(name==='labelunavailable'){Object.assign(s.model.player,{x:-6,z:9,yaw:0,pitch:0});s.sync();OTR.fpPackageLabelScenario.inspect(s);}
      // Static render poses use a paused clock. Native key tests separately exercise the timers and decisions.
      s.model.paused=true;s.refresh();
-     return {source:'physical-label-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,targets:s.art.packageLabels.targets.length,face:state.presentationFace,visible:s.art.packageLabels.visible(state.presentationFace,s.view.camera),bounded:!s.model.blocked(s.model.player.x,s.model.player.z),checkpointUnchanged:s.labelBefore.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:s.labelBefore.events===JSON.stringify(OTR.workday.events),workdayUnchanged:s.labelBefore.workday===JSON.stringify(OTR.save.data.workday||null),handheld:s.handheld.isOpen};
+     return {source:'physical-label-resource-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,targets:s.art.packageLabels.targets.length,face:state.presentationFace,index:state.index,canonical:state.queue[state.index]===state.item,panel:!!s.panel,visible:s.art.packageLabels.visible(state.presentationFace,s.view.camera),bounded:!s.model.blocked(s.model.player.x,s.model.player.z),checkpointUnchanged:s.labelBefore.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:s.labelBefore.events===JSON.stringify(OTR.workday.events),workdayUnchanged:s.labelBefore.workday===JSON.stringify(OTR.save.data.workday||null),handheld:s.handheld.isOpen};
     },name);(report.packageLabelProof||(report.packageLabelProof={}))[name]=proof;report.packageLabelFixture=true;await sample(name);
    }
   }
