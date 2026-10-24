@@ -25,3 +25,6 @@ test('loaded door rays reach the actual entrance, and mounted plaques sit on the
   }finally{scene.art.dispose();}
  }}finally{bank.dispose();}}
 });
+test('the second recovery arrival is reachable on foot before its resident appears, including the recessed High door',async()=>{
+ for(const high of [false,true]){O.gfx={high:()=>high};const bank=await A.preload({high,fetch:local});try{for(const loaded of [true,false]){const scene=fixture('m4-recover',{bank:loaded?bank:null});try{const m=scene.model,talk=m.customerTalk;for(const node of ['n1','n2','n3','n4']){K.enter(talk,node);S.apply(m.problemStage,talk);}assert.equal(m.problemStage.site,'other');assert.equal(m.problemStage.target.kind,'door');m.mode='walk';Object.assign(m.player,{x:12,z:-29.2});scene.sync();const t=m.problemStage.target,eye=scene.view.camera.position;m.player.yaw=Math.atan2(t.x-eye.x,-(t.z-eye.z));m.player.pitch=Math.atan2(eye.y-t.y,Math.hypot(t.x-eye.x,t.z-eye.z));scene.sync();assert.equal(scene.art.pick(),'customer-conversation',JSON.stringify({high,loaded,target:t,eye:scene.view.camera.position,pick:scene.art.pick()}));}finally{scene.art.dispose();}}}finally{bank.dispose();}}
+});

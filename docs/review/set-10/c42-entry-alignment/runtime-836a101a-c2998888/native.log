@@ -1,0 +1,21 @@
+{ quality: 'low', lang: 'en', large: false, kind: 'address' }
+{ quality: 'low', lang: 'en', large: false, kind: 'recover' }
+{ quality: 'low', lang: 'en', large: false, kind: 'damaged' }
+{ quality: 'low', lang: 'en', large: false, kind: 'storm' }
+{ quality: 'low', lang: 'en', large: true, kind: 'address' }
+{ quality: 'low', lang: 'en', large: true, kind: 'recover' }
+{ quality: 'low', lang: 'en', large: true, kind: 'damaged' }
+{ quality: 'low', lang: 'en', large: true, kind: 'storm' }
+{ quality: 'low', lang: 'ta', large: false, kind: 'address' }
+{ quality: 'low', lang: 'ta', large: false, kind: 'recover' }
+{ quality: 'low', lang: 'ta', large: false, kind: 'damaged' }
+{ quality: 'low', lang: 'ta', large: false, kind: 'storm' }
+{ quality: 'low', lang: 'ta', large: true, kind: 'address' }
+{ quality: 'low', lang: 'ta', large: true, kind: 'recover' }
+{ quality: 'low', lang: 'ta', large: true, kind: 'damaged' }
+{ quality: 'low', lang: 'ta', large: true, kind: 'storm' }
+{ quality: 'high', lang: 'en', large: false, kind: 'address' }
+{ quality: 'high', lang: 'en', large: false, kind: 'recover' }
+Error: The remapped target is unreachable: customer-conversation
+    at focus (/workspace/c42-problem-solving/test/fpproblembrowser.js:12:171)
+    at async /workspace/c42-problem-solving/test/fpproblembrowser.js:29:124

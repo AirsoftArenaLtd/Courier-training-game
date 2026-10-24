@@ -1,0 +1,24 @@
+[
+  {
+    "job": "resources",
+    "exit": 0,
+    "command": [
+      "node",
+      "test/tools/fp-problem-quality.js"
+    ],
+    "environment": {
+      "QA_TAG": "c42-resource-c2998888"
+    }
+  },
+  {
+    "job": "native",
+    "exit": 1,
+    "command": [
+      "node",
+      "test/fpproblembrowser.js"
+    ],
+    "environment": {
+      "QA_TAG": "c42-native-c2998888"
+    }
+  }
+]
