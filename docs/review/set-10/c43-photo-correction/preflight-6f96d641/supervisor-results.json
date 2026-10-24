@@ -1,0 +1,44 @@
+{
+  "low-photo": {
+    "exit": 0,
+    "fingerprint": "72d7de1107f9f4337f4cad3b399efaae05762a85c5724db07f171dd55bfc0e7f",
+    "attempts": 1,
+    "log": "low-photo-attempt-1.log",
+    "logSha256": "dba3bb1fa912600eae6467016bc790324deea979a3f90c3f4095ab0f52318c74",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-photo-preflight-6f96d641-low-low-scannerphoto.png": "fe9e9a4bd0cd39b09b48adb1ccc5a43b06b1d14b4eb9762df3addc1646644718",
+      "test/out/fp-review/bench-c43-photo-preflight-6f96d641-low-low.json": "ac77234793b82fa0c643d72e2d8e7eb323c3eff76ad63d285a69be772a9ebc3c"
+    }
+  },
+  "low-proof": {
+    "exit": 0,
+    "fingerprint": "aeda0dd28563a0e044e07664fddb324db5aa0d96a553aee3176d4341960b5b84",
+    "attempts": 1,
+    "log": "low-proof-attempt-1.log",
+    "logSha256": "3e32fa2a825098c0304aa72de344b091eec1f415bebcd8cab4a6c5b68cb1e652",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "high-photo": {
+    "exit": 0,
+    "fingerprint": "8648547e8a7cd2b960ac7f785a1df0e2b3327072ad9bf336756a6cf0b4e0f1d2",
+    "attempts": 1,
+    "log": "high-photo-attempt-1.log",
+    "logSha256": "06bd872fa81a5ad56b30e8735c893bad28d7f638fc9bd4f72a1415ab6e861619",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-photo-preflight-6f96d641-high-high-scannerphoto.png": "d977a5a6f698550e0f7b6cbd99964d9b6502d9a1bc0d84204f069e285111d2bd",
+      "test/out/fp-review/bench-c43-photo-preflight-6f96d641-high-high.json": "60ed2c0a061d7835fc417a38b1906e088794fc6fe55a82b3c616cd39410df05e"
+    }
+  },
+  "high-proof": {
+    "exit": 0,
+    "fingerprint": "5a287f50a069935da25c97e2dce647798892ba62da2dd07f9071699e7dd1d0f3",
+    "attempts": 1,
+    "log": "high-proof-attempt-1.log",
+    "logSha256": "28d9f4876db0b7a125c2d9e8b6c77d0888268b4df687496922de12c327e74668",
+    "timed_out": false,
+    "artifacts": {}
+  }
+}

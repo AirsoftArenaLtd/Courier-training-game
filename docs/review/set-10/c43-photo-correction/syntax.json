@@ -1,0 +1,82 @@
+[
+  {
+    "file": "src/core/fpscanneridentity.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpscannerphoto.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpscannerstop.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpscannerstopscenario.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpscannerstopworld.js",
+    "exit": 0
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0
+  },
+  {
+    "file": "src/scenes/FirstPersonScenarioScene.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpjobrunner.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpproblembrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerphoto.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerstop.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerstopbrowser.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerstopgeometry.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerstopscenario.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscannerstopworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/fp-scanner-context.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/fp-scanner-fixture.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/fp-scanner-pose.js",
+    "exit": 0
+  },
+  {
+    "file": "test/tools/fp-scanner-quality.js",
+    "exit": 0
+  }
+]
