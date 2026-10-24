@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "status": "In progress: physical Tricky Doorsteps implemented; final native and browser acceptance under way. Not review-ready.",
+  "status": "Four existing C-41 ids checked in the frozen source scope. Whole task blocked on optional categories and confirmed shared Tamil font/A-31 work. Original eight-layout result images are transitional diagnostics, not final visual acceptance.",
   "branch": "codex/c41-customer-interaction",
   "base": "b860fa180e3a4631d351eba765314e2b87ff52dd",
   "sourceRevision": "f80f76c4bb3cf8f76f2b4064fe0c2f25f0e6c465",
@@ -30,12 +30,66 @@
     "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
     "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c"
   },
-  "nodeSuites": {
-    "passed": 77,
-    "rawLogs": "raw-node-logs.tar.gz",
-    "index": "raw-node-index.json"
+  "protocolFiles": {
+    "test/fpcustomerstop.js": "9e910b492682c8a8e2e840f9e2ddf8518ebf70de6f7b7151e02d1f811e8eaa4c",
+    "test/fpcustomerstopscenario.js": "ba81698dfb220416a7a345d287ead7465d9341bfbe075aaf2bea959388931409",
+    "test/fpcustomerstopworld.js": "fec9e88c2483165d72f51db37e3028ffcb08b217e67aaf63c8694c52b173ebfd",
+    "test/fpcustomerstopgeometry.js": "d3c661d4568b198e81c853e656c23328dfeb84910539cf4b29a9dbce739f2263",
+    "test/fpcustomerstopbrowser.js": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
+    "test/fpcustomerbrowser.js": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
+    "test/fpbench.js": "aeeccfc43008dd002c35889be3100495b62e114b6cafb40927400476ff270942",
+    "test/tools/fp-customerstop-fixture.js": "db74eb74367bbf2cdc9a141c88a9a8154110a022ed21ddd90ea3b31e9163fe33",
+    "test/tools/fp-customerstop-quality.js": "4abb061ed2847c84ff911040f6cd52efeeb4d74a61d8f795513b35dfbb1a5fc4",
+    "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707",
+    "test/tools/fp-font-diagnostic.js": "2c2268d2072e5dc29298b296e9618d36f00f5dd3c48b4e72221587edd7427f08"
   },
-  "syntaxFilesPassed": 26,
+  "inventoryNodeEntriesPassed": 77,
+  "pureNodeSuitesPassed": 76,
+  "scorm2004BrowserIncludedInInventoryGate": true,
+  "repositoryBrowserSuites": [
+    {
+      "suite": "academy.js",
+      "exit": 0
+    },
+    {
+      "suite": "enterprise.js",
+      "exit": 0
+    },
+    {
+      "suite": "routeday.js",
+      "exit": 0
+    },
+    {
+      "suite": "driving.js",
+      "exit": 0
+    }
+  ],
+  "native": {
+    "c41-stop-native-f80f76c4": {
+      "checks": 10715,
+      "journeys": 8,
+      "pageErrors": [],
+      "report": "c41-stop-native-f80f76c4.json",
+      "protocolSha256": "a740f562319186d34f5b13428135f13e09e96e5dad43becfeeb3038cf3299b14",
+      "screenshots": 152
+    },
+    "c41-stop-photo-f80f76c4": {
+      "checks": 1331,
+      "journeys": 1,
+      "pageErrors": [],
+      "report": "c41-stop-photo-f80f76c4.json",
+      "protocolSha256": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
+      "screenshots": 20
+    },
+    "c41-dialogue-regression-f80f76c4": {
+      "checks": 896,
+      "journeys": 1,
+      "pageErrors": [],
+      "report": "c41-dialogue-regression-f80f76c4.json",
+      "protocolSha256": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
+      "screenshots": 4
+    }
+  },
   "resources": {
     "views": 44,
     "profiles": [
@@ -92,8 +146,7 @@
         }
       }
     ],
-    "ceilingsUnchanged": true,
-    "notGameplayEvidence": true
+    "staticFixturesAreNotGameplayEvidence": true
   },
   "cpuGeometry": {
     "scope": "CPU Low geometry: three stops with parked forward/reverse cab views and four parcel/door/photo stages, six walking positions, twenty-four headings and five pitches, main plus the most costly real mirror or rear-camera pass. Excludes compositor, GPU memory, High and Intel FPS.",
@@ -116,143 +169,33 @@
       }
     ]
   },
-  "nativeProgress": {
-    "checks": 10715,
-    "completedJourneys": 8,
-    "complete": true,
-    "completedLayouts": [
-      {
-        "quality": "low",
-        "lang": "en",
-        "large": false,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": null,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "low",
-        "lang": "en",
-        "large": true,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": true,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "low",
-        "lang": "ta",
-        "large": false,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": null,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "low",
-        "lang": "ta",
-        "large": true,
-        "score": 5800,
-        "ratios": {
-          "service": 0.8285714285714286,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": false,
-        "criticals": 1,
-        "durable": true
-      },
-      {
-        "quality": "high",
-        "lang": "en",
-        "large": false,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": null,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "high",
-        "lang": "en",
-        "large": true,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": true,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "high",
-        "lang": "ta",
-        "large": false,
-        "score": 6400,
-        "ratios": {
-          "service": 1,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": null,
-        "criticals": 0,
-        "durable": true
-      },
-      {
-        "quality": "high",
-        "lang": "ta",
-        "large": true,
-        "score": 5800,
-        "ratios": {
-          "service": 0.8285714285714286,
-          "safety": 1,
-          "efficiency": 1
-        },
-        "assessmentPassed": false,
-        "criticals": 1,
-        "durable": true
-      }
-    ],
-    "note": "The eight-layout protocol completed. Its original result PNGs remain diagnostic transition poses. The restricted-photo run uses the corrected settled-result helper. Shared corrected-font layout acceptance remains pending."
+  "screenshots": 220,
+  "fontDiagnosis": {
+    "report": "font-diagnostic/README.md",
+    "reproduced": true,
+    "proposalApplied": false,
+    "correctedFontLayoutPassed": false
   },
-  "pending": [
-    "High larger-Tamil two-stop regression and four required repository browser suites.",
-    "Claude safety/efficiency contract for optional protocol ids and shared Tamil font/A-31 work.",
-    "A-30 registry/completion, translations/default and combined current-pilot acceptance.",
-    "Owner Intel FPS O-1."
+  "originalStandardResultImagesAreTransitionalDiagnostics": true,
+  "limitations": [
+    "Confirmed shared Tamil font fallback remains unresolved; corrected-font layouts need A-31.",
+    "Original eight-layout result screenshots are retained only as diagnostic transition poses.",
+    "New sentences await translations and A-31 all-language acceptance.",
+    "Registry proposal is unapplied; A-30/default/2D/shared code stays unchanged.",
+    "Later pilot-only fixes are not included; Claude must test the combined current-pilot tree.",
+    "Cloud software-renderer FPS cannot certify Intel 60 FPS; existing O-1 remains.",
+    "New optional intercom, reception and locker scenarios wait for the posted safety/efficiency contract answer."
   ],
-  "screenshots": 216,
   "files": [
     {
       "file": "README.md",
-      "bytes": 8147,
-      "sha256": "fe0b8d88132201aa68671fa8352e1f34dee4030c2f6617c4a1a748fe6cfba069"
+      "bytes": 8948,
+      "sha256": "e74e813d1e28d9be164150b8a64c62fced38cb53c8341e6b05cdffd29cc1d2bd"
     },
     {
       "file": "VALIDATION.md",
-      "bytes": 2851,
-      "sha256": "3b0f0f6c08f0164713771bfb501b2247c0976a522f864157b643dcf6822dd8db"
+      "bytes": 2089,
+      "sha256": "266bdf7bd74ece3452395ecfc60633b20e037b1ae7a65238f310dd29af993eeb"
     },
     {
       "file": "bench-c41-stop-resource-f80f76c4-accessible-low-low.json",
@@ -273,6 +216,41 @@
       "file": "bench-c41-stop-resource-f80f76c4-loaded-low-low.json",
       "bytes": 21625,
       "sha256": "8205799f860fb2e3969ab0c9efc8e20b3ee80490b5eae620ecd8eb9569420e81"
+    },
+    {
+      "file": "browser-results.json",
+      "bytes": 207,
+      "sha256": "0296ee127c9538625048661ee950a6d42e9b9dfa89fea38bb6896595c7821f10"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4-high-ta-large-twostops-ending.png",
+      "bytes": 103196,
+      "sha256": "4434936ecd216563226ac3633fb9cbba197d6a9a8f4c83af1e7d8a5ca3e5633c"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4-high-ta-large-twostops-house.png",
+      "bytes": 252069,
+      "sha256": "2904bda53c68bcfb686575a5c30165727d112cbcff8a06ceb95e976bde9a4d61"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4-high-ta-large-twostops-physical.png",
+      "bytes": 219472,
+      "sha256": "29c9716679bf2b88186973f7878129311d93f579e1846e1187be35d051c74785"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4-high-ta-large-twostops-result.png",
+      "bytes": 183180,
+      "sha256": "c9ff9c466022872784790b3ddacc636483c90b0c534a5e16831c545c1e4ccab4"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4.json",
+      "bytes": 20163,
+      "sha256": "9e59c9cc33da75c5e2474ab3ce2db205b7771b83d216538b2fec68180a373abd"
+    },
+    {
+      "file": "c41-dialogue-regression-f80f76c4.log",
+      "bytes": 126,
+      "sha256": "f371701b9abfbd73335f70add3d7db2970140511dc4318a7c1578e3eec0f045b"
     },
     {
       "file": "c41-doorstep-geometry-current.json",
@@ -1500,6 +1478,16 @@
       "sha256": "3eb62a41cb82be963b1dfaaaa5eedbfaf06295b6ab7dc2ee184804cb39f27463"
     },
     {
+      "file": "raw-browser-index.json",
+      "bytes": 816,
+      "sha256": "f6cf0ec966f812a4761217275987ea286ff13ab7fd6fb6e8f2259bc8e27b57f2"
+    },
+    {
+      "file": "raw-browser-logs.tar.gz",
+      "bytes": 3422,
+      "sha256": "d45b54e6bea6d5604b6f98da19b15648451f90ffd5483a4b11de24e1eb9b4293"
+    },
+    {
       "file": "raw-node-index.json",
       "bytes": 11301,
       "sha256": "c43b1aba08ae27707801517099a2c57a4d10b68ef6ad18a0bc2c406423f3ffa5"
@@ -1519,43 +1507,5 @@
       "bytes": 2433,
       "sha256": "dbc0a3ce1619f1a37964ee39e1996d2d4e28aa90361032509aa0b776fbdf63c6"
     }
-  ],
-  "lowNativeValidation": "low-native-validation.json",
-  "resultCaptureFollowup": {
-    "status": "Restricted-photo integration passes; old-dialogue integration is running.",
-    "helper": "test/tools/fp-result-capture.js",
-    "protocolHashes": {
-      "test/fpcustomerstopbrowser.js": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
-      "test/fpcustomerbrowser.js": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
-      "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
-    },
-    "originalResultImagesAreTransitionalDiagnostics": true,
-    "sharedTamilFontObservationPosted": true
-  },
-  "fontDiagnosis": {
-    "report": "font-diagnostic/README.md",
-    "reproduced": true,
-    "proposalApplied": false,
-    "correctedFontLayoutPassed": false
-  },
-  "restrictedPhoto": {
-    "checks": 1331,
-    "complete": true,
-    "report": "c41-stop-photo-f80f76c4.json",
-    "resultPresentation": {
-      "active": true,
-      "counter": "7 / 9",
-      "expected": "7 / 9",
-      "modals": 0,
-      "scale": 1,
-      "bounds": {
-        "left": 206,
-        "top": 6,
-        "right": 1074,
-        "bottom": 722
-      },
-      "transition": false,
-      "rankUpDismissed": false
-    }
-  }
+  ]
 }
