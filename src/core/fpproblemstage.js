@@ -7,7 +7,8 @@ OTR.fpProblemStage={
     const two=id==='m4-address'||id==='m4-recover',site=id==='m4-address'?'house':id==='m4-damaged'?'cargo':'cab';
     const actors=Object.entries(content.cast||{}).map(([key,person])=>{const home=['jo','lena'].includes(key)?'other':'house',p=points[home];return {key,person,remote:!!person.remote,site:home,x:p.x,z:p.z,visible:false,solid:{x:10000,z:10000,w:.5,d:.4}};});
     const s={id,content,two,points,actors,site,stamp:-1,node:null,time:0,routeChanged:false,speaker:null,phone:false,held:id==='m4-damaged'?'leakbox':id==='m4-address'?'box':null,isolated:false,exposed:false,flooded:false,lightning:id==='m4-storm',rain:id==='m4-storm',target:{x:0,y:0,z:0,kind:null},isolationSolid:{x:10000,z:10000,w:.55,d:.45},addresses:two?[{site:'house',number:id==='m4-address'?'412':'214',street:id==='m4-address'?'Maple Avenue':'Birch Court',mailbox:id==='m4-address'?null:'KOWALSKI'},{site:'other',number:id==='m4-address'?'421':'214',street:id==='m4-address'?'Maple Court':'Birch Lane',mailbox:id==='m4-address'?'RIVERA':'BROOKS'}]:[]};
-    this.target(s);return s;
+    // Behind the rear doors and clear of the van's cargo footprint and walking exit.
+    s.isolation={x:3.6,z:-37.5};this.target(s);return s;
   },
   siteFor(s,talk){
     const id=talk.nodeId,n=talk.presentation;
@@ -36,7 +37,7 @@ OTR.fpProblemStage={
     const point=s.points[s.site],t=s.target;let actor=null;
     for(const a of s.actors){const visible=a.visible&&!a.remote&&a.site===s.site;a.solid.x=visible?a.x:10000;a.solid.z=visible?a.z:10000;if(visible&&(!actor||a.key===s.speaker))actor=a;}
     t.x=actor?actor.x:point.x;t.y=point.y;t.z=actor?actor.z:point.z;t.kind=actor?'person':point.kind;
-    s.isolationSolid.x=s.isolated?2.32:10000;s.isolationSolid.z=s.isolated?-40.25:10000;return t;
+    s.isolationSolid.x=s.isolated?s.isolation.x:10000;s.isolationSolid.z=s.isolated?s.isolation.z:10000;return t;
   },
   step(s,seconds){s.time+=Math.max(0,Math.min(.05,Number(seconds)||0));},
   solids(s){return [{x:12,z:-47,w:7,d:4},...(s.two?[{x:12,z:-33,w:7,d:4}]:[]),...(s.id==='m4-storm'?[{x:14,z:-43.2,w:2,d:.18},{x:14,z:-46.3,w:4,d:5.8}]:[]),s.isolationSolid,...s.actors.filter(a=>!a.remote).map(a=>a.solid)];},
