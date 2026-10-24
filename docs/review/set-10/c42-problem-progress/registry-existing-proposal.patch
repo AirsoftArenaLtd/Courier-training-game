@@ -1,0 +1,34 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -167,6 +167,7 @@
+         title: 'Wrong Address',
+         icon: 'ic_pin',
+         scene: 'DialogueScene',
++        scene3d: 'problem-conversation',
+         dataKey: 'dialogues.m4_address',
+         categories: ['service', 'efficiency'],
+         blurb: 'The house number on the label doesn\'t exist on this street. "Close enough" is tempting. Is it right?',
+@@ -178,6 +179,7 @@
+         title: 'Put It Right',
+         icon: 'ic_undo',
+         scene: 'DialogueScene',
++        scene3d: 'problem-conversation',
+         dataKey: 'dialogues.m4_recover',
+         categories: ['service', 'efficiency'],
+         blurb: 'Yesterday\'s package went to Birch COURT instead of Birch LANE. Get it back, deliver it properly, fix the record and tell dispatch.',
+@@ -189,6 +191,7 @@
+         title: 'Damaged on Arrival',
+         icon: 'ic_broken',
+         scene: 'DialogueScene',
++        scene3d: 'problem-conversation',
+         dataKey: 'dialogues.m4_damaged',
+         categories: ['safety', 'service'],
+         blurb: 'You open the cargo door and a box is crushed — and something is dripping. What now?',
+@@ -200,6 +203,7 @@
+         title: 'Storm Warning',
+         icon: 'ic_cloud',
+         scene: 'DialogueScene',
++        scene3d: 'problem-conversation',
+         dataKey: 'dialogues.m4_storm',
+         categories: ['safety', 'service'],
+         blurb: 'Severe weather rolls in mid-route, and the delivery note makes no sense. Keep yourself — and the package — safe.',

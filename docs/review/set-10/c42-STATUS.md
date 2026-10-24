@@ -10,6 +10,12 @@ against the actual 2D TalkController for every reachable ending, then build volu
 recovery, damaged-cargo and storm staging. The two new optional set-pieces use B-135's existing event
 criteria in a local module log. No module action enters the workday report stream.
 
-This is the initial claim, not implementation or acceptance. Registry/default/2D/shared scoring/save/
+The four existing-id physical candidate is implemented. Focused tests cover all 139 logical endings, 1,372
+2D comparisons, four good physical panel/walking flows and 23,760 loaded/fallback CPU geometry views.
+Loaded Low peaks at 37 calls / 2,392 triangles; fallback at 38 / 2,044. These are CPU figures, not
+rendered resource or Intel FPS acceptance. Native keys/layouts/screenshots and fpbench remain next.
+The optional two ids wait for the posted safety/exception scoring clarification; four later tasks remain queued.
+
+This remains doing, not whole-task acceptance. Registry/default/2D/shared scoring/save/
 Settings/i18n remain untouched. A-30, translation/all-language/default acceptance and Intel O-1 remain
 separate. The known shared Tamil fallback issue must be fixed and its wider metrics rechecked by A-31.
