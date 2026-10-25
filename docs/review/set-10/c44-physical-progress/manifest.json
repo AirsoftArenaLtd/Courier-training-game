@@ -66,7 +66,7 @@
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "f8af0ec0a87b5d0cc9eebc3ecfee3e76dca196ac4c575f13c1f631324ccb253c",
+    "README.md": "6d61681bbe4419294e6c46e78fe9d000ae997255c99fd80565a1261c6b72c384",
     "final-syntax.json": "25fbdfe5ab3ad35a8c96de78f34b41dc86ee71e05d98ea99eb50848dfb04cfad",
     "geometry.json": "0c208aa95357566ea58b7f3abd3d899bff94b66afa15b3fb6ed15ba3f995b83c",
     "node-logs.tar.gz": "b6b15b3e89d5dc11cbf0dec436886678103eb69ccc73826164ec98c59a862340",
@@ -78,5 +78,7 @@
     "resource-plan.json": "af602101f6ca32f3ac61bc7fee9fae4b59dc1e1f36a3fabd44148d850ad1ebc6",
     "source-equivalence.json": "d1ee22663cd0c7fa0d98ab0c755b7a9e4c1c4f821914b041adaca53144a3933b",
     "syntax.json": "da5eaa51201cc4d8bfd11fc70234de4d4fd6d92ebf753ffde9d46fc95ef3956a"
-  }
+  },
+  "supersedingLivePlan": "../c44-native-preparation/plan.json",
+  "liveBrowserQueueJobs": 30
 }

@@ -1,0 +1,11 @@
+{
+  "status": {
+    "phase": "interrupted",
+    "pid": 33419,
+    "runtime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+    "updated": 1792920402.0120742,
+    "state": "interrupted",
+    "signal": 15
+  },
+  "reason": "Replaced while waiting before any server or browser job ran, to test native find first. The four unchanged resource jobs remain in the new plan."
+}
