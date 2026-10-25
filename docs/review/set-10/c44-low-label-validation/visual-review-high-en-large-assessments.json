@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-25T22:20:17Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "currentSnapshot": {
+    "passedJobs": 16,
+    "expectedJobs": 30,
+    "nativeGoodJourneys": 12,
+    "nativeChecks": 6363,
+    "nativeCaptures": 300,
+    "resourceViews": 56
+  },
+  "completedNewCases": [
+    {
+      "case": "high-en-large-load",
+      "checks": 822,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 157.13413999997724,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
+    },
+    {
+      "case": "high-en-large-find",
+      "checks": 245,
+      "captures": 13,
+      "score": 1595,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 17.157463333332032,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
+    }
+  ],
+  "highEnglishMatrix": {
+    "journeys": 4,
+    "checks": 2121,
+    "captures": 100
+  },
+  "allEnglishMatrix": {
+    "journeys": 8,
+    "checks": 4242,
+    "captures": 200
+  },
+  "capturesVisuallyInspected": {
+    "completed/native-good-high-en-large-load/c44-label-native-good-high-en-large-load-41056a12-high-en-large-load-handheld.png": "1a7ab07a323cd6c94c97a21be19725100af52d570d282cfc36711880478b1770",
+    "completed/native-good-high-en-large-load/c44-label-native-good-high-en-large-load-41056a12-high-en-large-load-controls-0.png": "01716b151c718e7636e1bcb0a2a155a0b49cbe264284462c24f9dba358fda25a",
+    "completed/native-good-high-en-large-load/c44-label-native-good-high-en-large-load-41056a12-high-en-large-load-controls-3.png": "61f3364b1e37623958f61aa17cf69e6a79d948e7247c7389cb2b4a042326edba",
+    "completed/native-good-high-en-large-load/c44-label-native-good-high-en-large-load-41056a12-high-en-large-load-result.png": "08c11c634139f4feba19cced001b8a23900ecb3dddcf13d133943605a4dcd8d6",
+    "completed/native-good-high-en-large-load/c44-label-native-good-high-en-large-load-41056a12-high-en-large-load-strapped-load.png": "92f0c7ee77b30f53b57e86f1724f60c843b28d817b33270f98be0bf538143bab",
+    "completed/native-good-high-en-large-find/c44-label-native-good-high-en-large-find-41056a12-high-en-large-find-handheld.png": "ad9c1e6d5bf11b7cbba855c1db6f9c4d46606961aa9dc84843caceaed9a8da74",
+    "completed/native-good-high-en-large-find/c44-label-native-good-high-en-large-find-41056a12-high-en-large-find-find-label-f10.png": "dcaa4f543edb46adcbf95b3f2468aa302270ad2c497d99445619f220bf8511aa",
+    "completed/native-good-high-en-large-find/c44-label-native-good-high-en-large-find-41056a12-high-en-large-find-find-label-f12.png": "33605d7dfa492158f6d734897c7a4b3d1dc50997d0a6f7f405061cca818c29d1",
+    "completed/native-good-high-en-large-find/c44-label-native-good-high-en-large-find-41056a12-high-en-large-find-result.png": "a928fd69723e2bf087dae125b375913de390318e500af57e9484b99ae51cf4c9"
+  },
+  "observations": [
+    "Larger-text loading handheld and controls pages 0/3 fit without clipped text, overlapping actions or an obscured Back choice. Remapped O/U keys remain visible.",
+    "Larger-text finding handheld shows the first original request and package one of five without overlap.",
+    "The actual f10 label panel reads 5 Harbor View, unit 3B, seven pounds. The last f12 request reads 88 Canyon Rd, 38 pounds. Completed native guards require actual unobscured label-face selection and printed ink.",
+    "The strapped-load capture shows the dangerous-goods parcel on the fitted floor with a visible band, readable exterior label and fitting larger-text HUD.",
+    "Both results visibly show ASSESSMENT PASSED and six stars. Loading shows 12/12, floor strapped and 157 seconds; finding shows 5/5 right first time, zero wrong picks and 17 seconds. Original lessons and result buttons fit."
+  ],
+  "scope": "Nine newly inspected original-resolution captures from two completed High larger-English assessments (1067 checks / 50 captures). Not every capture is visually inspected. Remaining High Tamil/negative/abandonment/repository jobs continue. Shared Tamil font/translation, A31/default/current-pilot and owner Intel FPS remain separate."
+}
