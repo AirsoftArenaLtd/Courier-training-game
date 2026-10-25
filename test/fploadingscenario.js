@@ -75,7 +75,23 @@ test('paused static captures settle the real imported cargo door without changin
    const m=scene.model;m.cargoOpen=true;m.paused=true;scene.sync();const actors=scene.art.actors,vehicle=actors.vehicle,door=vehicle.parts.find(p=>p.name==='door');assert.equal(actors.opening(),0,'a frozen clock reproduces the previously closed static door');
    const span=()=>{const p=vehicle.geometry.attributes.position;let min=Infinity,max=-Infinity;for(let i=0;i<door.p.count;i++){const y=p.getY(door.base+i);min=Math.min(min,y);max=Math.max(max,y);}return max-min;};const closedHeight=span(),before={world:m.elapsed,runner:scene.scenarioSession.elapsed,cargo:m.loading.elapsed};
    runtime.workday={events:[]};runtime.save={data:{workday:null}};runtime.game={scene:{getScene:()=>scene}};context.module={exports:null};vm.runInContext(fs.readFileSync(__dirname+'/tools/fp-loading-pose.js','utf8'),context);context.module.exports('loadstrapped');
-   assert.equal(actors.opening(),1);assert.ok(span()<closedHeight/4,'the actual transformed door lies overhead instead of covering the cargo aperture');assert.equal(m.loading.strapped,true);assert.equal(m.loading.cart.length,0);assert.equal(m.paused,true);assert.equal(runtime.fpAccess.reduced(),false);assert.deepEqual({world:m.elapsed,runner:scene.scenarioSession.elapsed,cargo:m.loading.elapsed},before);scene.sync();assert.equal(actors.opening(),1,'later frozen-frame syncs retain the settled actor');
+   assert.equal(actors.opening(),1);assert.ok(span()<closedHeight/4,'the actual transformed door lies overhead instead of covering the cargo aperture');let nearestDoor=Infinity;for(let i=0;i<door.p.count;i++)nearestDoor=Math.min(nearestDoor,vehicle.geometry.attributes.position.getZ(door.base+i));assert.ok(nearestDoor>=2.4,'the cargo-only gate opens outward and leaves the upper shelves clear');assert.equal(m.loading.strapped,true);assert.equal(m.loading.cart.length,0);assert.equal(m.paused,true);assert.equal(runtime.fpAccess.reduced(),false);assert.deepEqual({world:m.elapsed,runner:scene.scenarioSession.elapsed,cargo:m.loading.elapsed},before);scene.sync();assert.equal(actors.opening(),1,'later frozen-frame syncs retain the settled actor');
+  }finally{scene.art.dispose();bank.dispose();}
+ }
+});
+
+test('both imported vans support all fitted positions below their roof and keep a real walkable aisle',async()=>{
+ const {install,local}=require('./tools/fpassets-context');
+ for(const high of [false,true]){
+  const f=require('./tools/fp-loading-context')(),assets=install(f.c);f.O.gfx={high:()=>high};const bank=await assets.preload({high,fetch:local}),source=bank.models.get('van-exterior'),sourceBuffers=source.parts.map(p=>Array.from(p.geometry.attributes.position.array));
+  const scene=f.fixture('m6-load',{bank}),m=scene.model,a=scene.art.loading;
+  try{
+   f.use(scene,'cargo');f.walk(scene,m.van.x,m.van.z+1.8);
+   for(const slot of a.slots){const z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='bottom'?.75:0);f.walk(scene,m.van.x,z);f.aim(scene,'loading-slot-'+slot.id);}
+   assert.equal(m.blocked(m.van.x,m.van.z+1.2),false);assert.equal(m.blocked(m.van.x+a.fit.side,m.van.z+1.2),true);
+   const ray=new f.THREE.Raycaster(),v=scene.art.actors.vehicle.mesh;scene.view.world.updateMatrixWorld(true);
+   for(const slot of a.slots){const x=slot.x,z=slot.z;ray.set(new f.THREE.Vector3(x,1.5,z),new f.THREE.Vector3(0,-1,0));const floor=ray.intersectObject(v,false)[0];assert.ok(floor&&slot.y>=floor.point.y+.005,slot.id+' stays above the actual exterior support');ray.set(new f.THREE.Vector3(x,slot.y+.01,z),new f.THREE.Vector3(0,1,0));const ceiling=ray.intersectObject(v,false)[0];assert.ok(ceiling&&slot.y+.48<ceiling.point.y,slot.id+' leaves room for the tallest original package');}
+   for(let i=0;i<source.parts.length;i++)assert.deepEqual(Array.from(source.parts[i].geometry.attributes.position.array),sourceBuffers[i],'cargo-only bench adaptation must not mutate the shared source model');
   }finally{scene.art.dispose();bank.dispose();}
  }
 });

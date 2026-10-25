@@ -81,7 +81,7 @@ OTR.fpScenario.register('loading-cargo',{
     Object.assign(m.van,{x:2.84,z:8,yaw:0,speed:0,gear:2,hand:true,belt:false,look:0});Object.assign(m.player,{x:2.84,z:12.1,yaw:0,pitch:0});m.cargoOpen=false;
     const slots=OTR.fpLoadingWorld.layout(m.loading,m.van),byId=new Map(slots.map(s=>[s.id,s])),motor=OTR.fp.create(),blocked=m.blocked;
     m.solids=m.solids.filter(s=>s.z>-8);m.solids.push({x:m.van.x-4,z:m.van.z+2.4,w:1.9,d:2.25,h:.72});
-    for(const side of [-1,1])m.solids.push({x:m.van.x+side*.8,z:m.van.z+.75,w:.5,d:3.35,h:2.5});
+    m.loadingShelfSolids=[-1,1].map(side=>({x:m.van.x+side*.8,z:m.van.z+.75,w:.5,d:3.35,h:2.5}));m.solids.push(...m.loadingShelfSolids);
     const footprints=new Map(m.loading.pkgs.map(p=>{const dims=OTR.fpLoadingWorld.dimensions(p);return [p.id,{x:0,z:0,w:dims[0],d:dims[2]}];}));
     m.blocked=function(x,z,r=.24){if(blocked.call(this,x,z,r))return true;for(const p of this.loading.pkgs){if(p.id===this.loading.held||!p.slotRef||p.slotRef.level!=='floor'||p.pulled)continue;const slot=byId.get(p.slotRef.id),box=footprints.get(p.id);box.x=slot.x;box.z=slot.z;if(OTR.fp.circleBox(x,z,r,box))return true;}return false;};
     m.tick=function(input,dt){this.elapsed+=dt;motor.tick.call(this,input,dt);};
