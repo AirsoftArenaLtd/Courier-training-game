@@ -7,3 +7,16 @@ The new 197-source / 30-job plan starts with the four original resource profiles
 `completed-summary.json` counts only finished hash-verified jobs from this source. Earlier **14 jobs / 5206 native checks / 56 resource views** at e834ad69 remain archived with their original scope; none is promoted to the new application. Corrected-font Tamil, combined pilot/default/A30/A31 and Intel O1 acceptance remain separate. The registry proposal stays unapplied.
 
 **First corrected-source gate passed:** all **14 loaded-Low views**, at **41 calls / 2290 triangles / two Three textures / 3557376 attachment bytes / 1931760 Phaser estimate bytes**. Actual `findunit` proof selects and prints only f10, and the corrected 3B/Harbor View face is visibly readable. Cart/strapped-load/unit captures were inspected; hashes: `visual-review-loaded-low.json`. **1/30 jobs** is accepted, with High resources active. No corrected-source native pass yet.
+
+## Current corrected-source gate — 19:15 UTC
+
+All **56** rendered resource views pass the original four profile ceilings. Unit-face proof in every profile selects and prints f10; High/accessible/fallback unit and strapped-load images were visually checked, in addition to the previous three Low captures. Exact current figures:
+
+| Profile | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 41 | 2290 | 2 | 3557376 | 1931760 |
+| loaded-high | 77 | 56200 | 4 | 11239424 | 5223664 |
+| accessible-low | 41 | 2290 | 2 | 3557376 | 2101056 |
+| fallback-low | 45 | 2124 | 2 | 3557376 | 1931760 |
+
+**9/30 completed jobs**, **5 native journeys / 2936 checks / 137 native captures**. Both Low English normal/larger load and find pass, plus normal Tamil load. Every load retains original **2100 points / six stars**; both larger English assessments pass once and survive reload, with the suspended workday unchanged. Visible-ink assertions apply to every native parcel selection. See `native-snapshot.json`, `resource-peaks.json` and `visual-review-resource-and-large-text.json`. Remaining native/negative/abandonment/repository jobs continue under the existing lock. Shared Tamil glyph/translation/A31/default/current-pilot and Intel gates remain separate. No code or frozen protocol changes and no repeated checks in this evidence-only update.

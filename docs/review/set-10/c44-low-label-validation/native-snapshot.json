@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-25T19:15:43Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "completed": [
+    {
+      "case": "low-en-normal-find",
+      "checks": 239,
+      "captures": 13,
+      "score": 1426,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 22.59996666666685,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
+    },
+    {
+      "case": "low-en-normal-load",
+      "checks": 815,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 169.636596666671,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
+    },
+    {
+      "case": "low-en-large-load",
+      "checks": 822,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 168.94998000000416,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
+    },
+    {
+      "case": "low-en-large-find",
+      "checks": 245,
+      "captures": 13,
+      "score": 1448,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 21.89996666666684,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
+    },
+    {
+      "case": "low-ta-normal-load",
+      "checks": 815,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 169.9466100000044,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
+    }
+  ],
+  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; not whole-task/language/current-pilot/default acceptance."
+}
