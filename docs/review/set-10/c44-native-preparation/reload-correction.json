@@ -1,0 +1,10 @@
+{
+  "protocolRevision": "934bfffad5ea94f253c3abb3d9d0c84c10ba7776",
+  "changedSources": [
+    "test/fploadingbrowser.js"
+  ],
+  "reason": "Remove the initial localStorage clearing init script after the first boot; preserve every actual reload and persistence assertion.",
+  "applicationRuntimeUnchanged": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "priorFailureArchive": "../c44-storage-reset-failure",
+  "sharedBrowserLock": "/workspace/.otr-browser-validation.lock"
+}

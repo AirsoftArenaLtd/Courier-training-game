@@ -307,9 +307,19 @@
     "file": "fploadingscenario.js",
     "exit": 0,
     "seconds": 1.545,
-    "sourceSha256": "9e00abaf89f57e812f3477dfd9ab32d443f5ae93788707700af151bd99c2ffb0",
-    "log": "fploadingscenario.js.log",
-    "logSha256": "bdea14de383c455b3fc7dedf8aa5ae5db69c18d7a7eb2f3b770f729826e3f926"
+    "sourceSha256": "3c4092977821b4988a372aae9130bdd8a0d0a7566dced5affe837cc6f6e28a3b",
+    "log": "../c44-static-door-correction/checks.json",
+    "logSha256": "b69218cb7669efb4064abc836b5b4ea8c6342debe35bde267a4dfe2e7f27db87",
+    "tests": 11,
+    "scope": "Focused integration rerun with the paused-door Low/High QA regression; full prior 90-suite application run retained separately.",
+    "previousBaseline": {
+      "file": "fploadingscenario.js",
+      "exit": 0,
+      "seconds": 1.545,
+      "sourceSha256": "9e00abaf89f57e812f3477dfd9ab32d443f5ae93788707700af151bd99c2ffb0",
+      "log": "fploadingscenario.js.log",
+      "logSha256": "bdea14de383c455b3fc7dedf8aa5ae5db69c18d7a7eb2f3b770f729826e3f926"
+    }
   },
   {
     "file": "fploadingworld.js",

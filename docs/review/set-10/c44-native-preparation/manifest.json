@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-25T09:35:55.115585+00:00",
-  "status": "doing; native protocol prepared and queued, no native/resource pass claimed",
+  "date": "2026-10-25",
+  "status": "doing; settled-door resource/native validation active; prior static Low gate superseded after visual review",
   "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
-  "protocolRevision": "abc53f168df3113bddf774b77de50d5b5791ff0f",
-  "frozenSourceFiles": 192,
+  "protocolRevision": "b7be6bde05dc3c3f7358bd9f9ee0e6be47f4ce9c",
+  "frozenSourceFiles": 193,
   "applicationBaseline": {
     "pureNodeSuites": 90,
     "freshRerunThisCheckIn": false,
@@ -12,7 +12,7 @@
   "newOriginalReferenceTests": 4,
   "latestPilotEnglishAuditTests": 1,
   "englishAuditSourceSha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d",
-  "newJavascriptSyntaxFiles": 3,
+  "newJavascriptSyntaxFiles": 5,
   "jobs": 30,
   "goodNativeJourneysRequested": 16,
   "negativeNativeJourneysRequested": 2,
@@ -24,15 +24,23 @@
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "18bc81a9bceed2a353dd429ac29138d9fe5dcd8e3b12d8f6beff9c6674206f21",
+    "README.md": "f4f258cc92a4ad35422d4eb8b0362f654d603f37017e9bc975fab38aca963e59",
     "collect-results.py": "ca4b785ae0415ecf3db9101137a8ff792abc32dff35a4a2ed17e3ac78a006cbe",
     "english-audit.log": "e45a8355a786e82e064df1f56d9a6513b96f4adc8e2e12fb5699c70971975b90",
-    "node-prerequisites.json": "52c8c5a5fd7c238e3b7dd4bccea45ad97e4bb79975b6ff63a32198f27d1dfc0b",
-    "plan.json": "6ce9c9a96a390c320e6f1cc0b5fb5d87f472ba3c7388f8280c6df7a3d42166e7",
-    "queue-snapshot.json": "702d245c664fa89b7beb295380c201832cc50f2f8781b69a37f166bc0ada5bcd",
+    "node-prerequisites.json": "e7c55e1514b73c49ba91c619928673fac768dc8f3f067264d51b25fcb49bb932",
+    "plan.json": "100464d2595d75c6e9e904a3ae433588ac5e6b2edb1265d2285f833c10fc13de",
+    "protocol-correction-checks.json": "0ba76cf195f4539c03f341e16502878913b33c0d25ca966c52c12d3c5c84a200",
+    "queue-snapshot.json": "d9ff5fd5aa22e2f4ea37d5994c60500baf6d8c7571837a5acc2375f9c0ab7c63",
     "reference.log": "93bb1b465408da2d21e1a2ba38bd22fde12be64b5a561db28e502d24fdcd062a",
-    "source-equivalence.json": "4ddeb49f1f7cb69777fb51826148c2f1ffa524aae0a86b8d8450a5712f367ae6",
+    "reload-correction.json": "ced618d02104e8d6de2427e497c604c12782d883b323175224f1fe7765361553",
+    "source-equivalence.json": "9fc8b1f77d556fa56e5782ecd388569685b5961ea8f5cf5794411330a55b241c",
+    "static-door-correction.json": "1e2887f7026c5b8b72773d1216b5f5eb0461233e5102158b97972b592ca712d8",
     "superseded-resource-queue.json": "b6de3aaa97fa36424c1c0339ab6f0ee487884d7145e7dbc262e383238b887390",
     "syntax.json": "fc396f3f2e45bca43dd3ed36c4b898d3c2277fc37c7b67a4636b1321325fa8bc"
-  }
+  },
+  "javascriptSyntaxAfterCorrectionPassed": true,
+  "referenceCasesAfterCorrection": 4,
+  "englishAuditAfterCorrectionPassed": true,
+  "acceptedSourceScopedJobsAtSnapshot": 2,
+  "focusedCargoIntegrationTests": 11
 }
