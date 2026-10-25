@@ -66,3 +66,16 @@ test('practice gives the original timed find assistance while assessment display
   scene.notice='';s.elapsed=45;scene.scenarioSession.definition.tick(scene.scenarioSession,scene,.001,true);assert.equal(s.roundHelp.shown,true);assert.equal(s.roundClean,false,'keep the original timed clean-round rule');if(assessment)assert.equal(scene.notice,'');else assert.match(scene.notice,/highlighted in section C/);assert.equal(scene.model.loadingCoaching,!assessment);
  }finally{scene.art.dispose();}}
 });
+
+test('paused static captures settle the real imported cargo door without changing the clocks or motion preference',async()=>{
+ const fs=require('node:fs'),vm=require('node:vm'),{install,local}=require('./tools/fpassets-context');
+ for(const high of [false,true]){
+  const {c:context,O:runtime,fixture:make}=require('./tools/fp-loading-context')();runtime.gfx={high:()=>high};runtime.fpAccess.reduced=()=>false;const bank=await install(context).preload({high,fetch:local}),scene=make('m6-load',{bank});
+  try{
+   const m=scene.model;m.cargoOpen=true;m.paused=true;scene.sync();const actors=scene.art.actors,vehicle=actors.vehicle,door=vehicle.parts.find(p=>p.name==='door');assert.equal(actors.opening(),0,'a frozen clock reproduces the previously closed static door');
+   const span=()=>{const p=vehicle.geometry.attributes.position;let min=Infinity,max=-Infinity;for(let i=0;i<door.p.count;i++){const y=p.getY(door.base+i);min=Math.min(min,y);max=Math.max(max,y);}return max-min;};const closedHeight=span(),before={world:m.elapsed,runner:scene.scenarioSession.elapsed,cargo:m.loading.elapsed};
+   runtime.workday={events:[]};runtime.save={data:{workday:null}};runtime.game={scene:{getScene:()=>scene}};context.module={exports:null};vm.runInContext(fs.readFileSync(__dirname+'/tools/fp-loading-pose.js','utf8'),context);context.module.exports('loadstrapped');
+   assert.equal(actors.opening(),1);assert.ok(span()<closedHeight/4,'the actual transformed door lies overhead instead of covering the cargo aperture');assert.equal(m.loading.strapped,true);assert.equal(m.loading.cart.length,0);assert.equal(m.paused,true);assert.equal(runtime.fpAccess.reduced(),false);assert.deepEqual({world:m.elapsed,runner:scene.scenarioSession.elapsed,cargo:m.loading.elapsed},before);scene.sync();assert.equal(actors.opening(),1,'later frozen-frame syncs retain the settled actor');
+  }finally{scene.art.dispose();bank.dispose();}
+ }
+});

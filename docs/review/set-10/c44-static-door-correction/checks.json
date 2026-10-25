@@ -1,0 +1,42 @@
+{
+  "syntax": [
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0,
+      "sourceSha256": "3c4092977821b4988a372aae9130bdd8a0d0a7566dced5affe837cc6f6e28a3b"
+    },
+    {
+      "file": "test/fploadingbrowser.js",
+      "exit": 0,
+      "sourceSha256": "02967dc9718a0ae535dce09933496145387e770f56890a74b3849f3d6d9ab5a8"
+    },
+    {
+      "file": "test/fpbench.js",
+      "exit": 0,
+      "sourceSha256": "f8d7e6a1fd24fc232240979321736ea3a282c753be13b61d55f4ca2549371cbb"
+    },
+    {
+      "file": "test/tools/fp-loading-pose.js",
+      "exit": 0,
+      "sourceSha256": "81b0a575e5ef94cd0cc4a4ffe89361c9a83041e268f616553e0ba6df27a4e26d"
+    },
+    {
+      "file": "test/tools/fp-loading-quality.js",
+      "exit": 0,
+      "sourceSha256": "f2e571bd66721bd6cd27b6d7bcb1283d247913d8df63d2b949a4acd1f16f27b5"
+    }
+  ],
+  "cargoIntegration": {
+    "command": "node test/fploadingscenario.js",
+    "exit": 0,
+    "tests": 11,
+    "sourceSha256": "3c4092977821b4988a372aae9130bdd8a0d0a7566dced5affe837cc6f6e28a3b",
+    "record": "Executed in this check-in through exec_command; the new Low/High geometry/clock regression and all ten existing integration cases passed."
+  },
+  "latestPilotEnglishAudit": {
+    "exit": 0,
+    "tests": 1,
+    "sourceSha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d"
+  },
+  "pureNodeApplicationBaselineRerun": false
+}

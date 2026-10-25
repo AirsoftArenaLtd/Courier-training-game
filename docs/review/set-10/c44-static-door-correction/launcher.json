@@ -1,0 +1,6 @@
+{
+  "pid": 741,
+  "planSha256": "62d2ac607a23ec2cf4d033ac51b708ef022a6177c1ba921a3e0273d44cfd3c62",
+  "log": "supervisor.log",
+  "scope": "Detached regular-file output, one browser through shared flock; source verified before each job."
+}
