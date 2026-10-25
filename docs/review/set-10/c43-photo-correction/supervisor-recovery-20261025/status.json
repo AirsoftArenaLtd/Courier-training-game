@@ -1,0 +1,7 @@
+{
+  "phase": "supervisor-error",
+  "state": "failed",
+  "message": "[Errno 32] Broken pipe",
+  "pid": 6120,
+  "runtime": "8d5fb383"
+}

@@ -1,0 +1,13 @@
+browser-slot {'state': 'waiting'}
+scorm-2004 {'state': 'already-passed'}
+resource-loaded-low {'state': 'already-passed'}
+native-low-en-normal-pod {'state': 'already-passed'}
+resource-loaded-high {'state': 'already-passed'}
+resource-accessible-low {'state': 'already-passed'}
+resource-fallback-low {'state': 'already-passed'}
+native-low-en-normal-exceptions {'state': 'already-passed'}
+native-low-en-normal-adult {'state': 'already-passed'}
+native-low-en-large-pod {'state': 'already-passed'}
+native-low-en-large-exceptions {'state': 'already-passed'}
+native-low-en-large-adult {'state': 'already-passed'}
+native-low-ta-normal-pod {'state': 'running'}
