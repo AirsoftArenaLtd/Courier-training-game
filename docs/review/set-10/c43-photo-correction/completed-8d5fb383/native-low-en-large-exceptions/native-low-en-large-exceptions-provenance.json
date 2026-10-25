@@ -1,0 +1,58 @@
+{
+  "job": {
+    "id": "native-low-en-large-exceptions",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "low-en-large-exceptions",
+      "QA_TAG": "c43-resume-native-low-en-large-exceptions-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-native-low-en-large-exceptions-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "de592daaa3836099daf431fccf31a9e20841b1657c057485033b97d8f87f153a",
+    "attempts": 1,
+    "log": "native-low-en-large-exceptions-attempt-1.log",
+    "logSha256": "7e4c14f99f989b53b18f3214c54b0c6e51a032c877cc0fca164fbbf61e63b62d",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383.json": "c8937319164817e22479afdfce1ef973aeebe3b355d1bb526e78809294b80fce",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-exception-code.png": "f7de711d3f6d344dd2d2ada6ebf68f7d04318a7463e3a43c7da19125e5df4b6f",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-cargo.png": "9462d9d39c97f270f0cab1cde762b61210bc281d43259f33cf6fee3c50c5cb30",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-exception-description.png": "d2bbd0dbbef7666f51136a230df27ce24c19b80d54215ad509b99dbf5f3cc642",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-exception-code.png": "36ac726039bc778c245858a6560f8755996b3c846b50c7587dca0bde1bfbe9cc",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-report.png": "2f942a083b5015e6471cbab0cc15ef2090df92b8e5e218837cc7063c60ca2f6c",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-scan.png": "d08048efe3a3b035c91b638826a3236a5ad3b8faabd564b91a8edcf341253806",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-controls-3.png": "9718f781c091a31e8327db093fc9bd306a973b12b40088022ab39f5765acaaea",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-arrival.png": "8aab7179b5d147087bf663151cf7a3ec836dd82ca82cbebe90729c32dcd5b15f",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-controls-0.png": "0f79d89de800213edc94c9ab02226f00094c487d4b43f586bdc6de7c38fea36b",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-cargo.png": "2a2c69c374abbc91a10498998ba09265f3a7e750ef2336369a9b71c85ba0619b",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-result.png": "a4a89da3e4348d21874bbf1a082926b0aacc738061e7dc5901eb247588a059d3",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-controls-2.png": "6aceeb5209e3f8b3d2f53109666b92024286d1f58717caff0f8d778be82895a8",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-exception-description.png": "5cf78ec9a9db9fa63111ad5f0c5c786fbade56c306e75684f71f5669c10d2dad",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-exception-code.png": "bdec2afcd9cb9b327c87630207cb1adc656b7bdab36bbe554cd6299f15f65ed8",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-tag.png": "8b84af513638d160cf71bdac029b8d1e80f9990074e1bf25f147da9fbf613e22",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-report.png": "5cef5aaebe1822da460c4a95cfe90c072d2f9c336070c409722c4ee6fdb2706f",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-arrival.png": "ca7dbdc370c4d302945397d5c115a86533592482c6e98ccdb392c3b6f0ce5030",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-report.png": "fed17af32b5c420b817028a6a05619447a45f9cc0d8c4f64d596523f029383b9",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-tag.png": "c227bd09db97a29d0b21e874f404dbb90d8c660ff7bb80cbedd6c81bb3055905",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop0-scan.png": "bd552de1610436c4ada60cfd7c179d342ed7bd07f6b47ac09985140fd1d726ec",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-closed-business-hours.png": "d654fb0dd255dd35c9979902f1fee92b800e63829fc136efa2add0bf72103c8c",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-cargo.png": "9e56fe64ac5ee457fb0ea98b9a9ceb07d19b1ef8750531f11c57eb2a734b40e9",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-controls-1.png": "91bc89c84735f9b0856804412ea5a2bdd24a44dea33b406116fab3b3bc2916b8",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-scan.png": "38e8066df851e575be05f20835e4077900275cbfc41f5d573a9dc979a354bb19",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-exception-description.png": "1222dc2247e37c34f2c61b0efa85b7bcc389d5f5f2c373762c655a4070e17e89",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop1-arrival.png": "e2d512d9cb0ec1dbc9dd889ea6aa847dbc7284a841655681e1bdb1448b114540",
+      "test/out/fp-review/c43-resume-native-low-en-large-exceptions-8d5fb383-low-en-large-exceptions-stop2-reply.png": "726ebfd65a8d8daf8555c4012e1aad70c470c75b2a223214c8b2f25835ec61c2"
+    }
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}

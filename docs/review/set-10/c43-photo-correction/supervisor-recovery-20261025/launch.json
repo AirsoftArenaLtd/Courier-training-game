@@ -1,0 +1,21 @@
+{
+  "pid": 11715,
+  "processGroup": 11715,
+  "stdin": "DEVNULL",
+  "stdout": "/workspace/c43-scanner-exceptions/test/out/pipelines/c43-8d5fb383/resume-20261025T012159110604Z/supervisor.log",
+  "stderr": "STDOUT",
+  "previousState": {
+    "phase": "supervisor-error",
+    "state": "failed",
+    "message": "[Errno 32] Broken pipe",
+    "pid": 6120,
+    "runtime": "8d5fb383"
+  },
+  "status": {
+    "phase": "browser-slot",
+    "pid": 11715,
+    "runtime": "8d5fb383",
+    "updated": 1792891319.1438892,
+    "state": "waiting"
+  }
+}
