@@ -86,6 +86,7 @@ OTR.fpLoadingWorld={
     solid(restraint.position.x,restraint.position.y,restraint.position.z,.28,.14,.055,0xDBAE55);
     const parcels=state.pkgs.map((p,index)=>{
       const [w,h,d]=W.dimensions(p),body=proxy('loading-parcel-'+p.id,0,0,0,w,h,d),words=OTR.fpMountedWords.build(root,{high,capacity:high?4096:1024}),lineHeight=.043;
+      body.userData.fpFocusPoint=p.size==='env'?new T.Vector3(0,.5,0):new T.Vector3(0,0,.5);
       words.write(p.number+(p.unit?' #'+p.unit:''),0,.064,0,w*.8,lineHeight);
       words.write(p.street,0,.003,0,w*.8,lineHeight);
       // Low keeps the address on the physical face. Stop/weight details remain complete in

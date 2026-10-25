@@ -94,12 +94,12 @@ OTR.fpAccess={
     const m=scene.model,p=m?m.player:scene.hubMotion.player,cab=m&&m.mode==='cab';if(m&&m.mode!=='walk'&&!cab)return;
     const ids=[],objects=[],point=new THREE.Vector3(),eye=scene.view.camera.position;
     for(const o of scene.art.interactions){let visible=true;for(let parent=o;parent;parent=parent.parent)if(!parent.visible){visible=false;break;}
-      const id=o.userData.interaction;if(!visible||!id)continue;o.getWorldPosition(point);
+      const id=o.userData.interaction;if(!visible||!id)continue;if(o.userData.fpFocusPoint)o.localToWorld(point.copy(o.userData.fpFocusPoint));else o.getWorldPosition(point);
       if(eye.distanceTo(point)>2.65)continue;if(!ids.includes(id))ids.push(id);objects.push(o);
     }
     const start=ids.indexOf(scene.target),yaw=cab?m.van.look:p.yaw,pitch=p.pitch;
     for(let n=1;n<=ids.length;n++){
-      const i=(start+n)%ids.length;for(const object of objects){if(object.userData.interaction!==ids[i])continue;object.getWorldPosition(point);
+      const i=(start+n)%ids.length;for(const object of objects){if(object.userData.interaction!==ids[i])continue;if(object.userData.fpFocusPoint)object.localToWorld(point.copy(object.userData.fpFocusPoint));else object.getWorldPosition(point);
       const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(cab)m.van.look=OTR.fp.clamp(Math.atan2(Math.sin(heading-m.van.yaw),Math.cos(heading-m.van.yaw)),-1.5,1.5);else p.yaw=heading;p.pitch=OTR.fp.clamp(Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z)),-1.05,1.05);
       scene.sync();if(scene.art.pick()===ids[i]){scene.target=ids[i];scene.lastAim=-1000;if(scene.scenarioSession?.definition.focus)scene.scenarioSession.definition.focus(scene.scenarioSession,scene,ids[i]);scene.message(ids[i].startsWith('wear-')?`${OTR.fpWalkaroundFlow.target(ids[i].slice(5)).name} Press ${this.key('KeyE')} to inspect it.`:ids[i]==='cab-camera'?(OTR.fpHud?OTR.fpHud.screenHint(m):OTR.fpRear.hint(m)):OTR.fpMirrors&&OTR.fpMirrors.hint(ids[i],m)||(cab?this.controlHint(scene,ids[i],m,this.key('KeyE')):`Selected ${this.targetName(scene,ids[i])}. Press ${this.key('KeyE')} to interact.`));return ids[i];}}
     }
