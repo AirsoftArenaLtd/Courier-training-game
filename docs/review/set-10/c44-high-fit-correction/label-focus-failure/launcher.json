@@ -1,0 +1,7 @@
+{
+  "pid": 9299,
+  "planSha256": "af09a0a93c750aaa17d4745a5128799747390d3d228480e03b137ea6e5794c7a",
+  "reason": "Final source after equivalent allocation cleanup; High native journeys first.",
+  "sourceFiles": 194,
+  "pureNodeSuites": 91
+}

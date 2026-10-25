@@ -1,0 +1,33 @@
+# C44 fitted cargo and physical labels — 25 October 2026
+
+**Current application: `e834ad69cc6e073658d088a43578520ab15e4610`, on `codex/c44-loading-truck`. C44 stays doing.** All **91 pure Node suites pass freshly** on this source, including the original outcome comparisons, workday, saves, i18n and actor regressions. The full current native/rendered sequence is active; earlier application results are not promoted to it.
+
+## What screenshot review found and what changed
+
+At the earlier `fc710227` application, all 56 resource views and four Low English native journeys had passed numerically/behaviorally. High screenshot inspection rejected the physical presentation: the 8mm paper backing hid ink positioned through its centre, and the source High van's 0.963636m raised floor hid the module's floor parcels and straps. Its passenger-style side benches also intersected the original rack positions. Earlier source-scoped results, all 100 native captures and partial first Tamil load remain in `earlier-collected/` and the retained plan/journal; they are not corrected-application acceptance. Only the exact owned supervisor was stopped before edits.
+
+Ink now sits outside the actual paper front in both qualities. The cargo-only fit-out samples actual support geometry once at construction and uses the imported doorway width. It fits all 21 original positions above the floor/wheel clearance and below the roof, with matching rack collision. It lowers the High source's passenger-style bench caps to just above its wheels on the **owned scene mesh copy** (27 vertices); source models and the workday van are unchanged. No asset file or shared model template is modified.
+
+The loading-module gate swings outward from its actual top edge so it clears the upper parcels. Existing workday hinge behavior retains its original footprint; all 17 actor tests pass. Section tags mount on the rack edges, the restraint control has floor support, held parcels clear the raised floor, and straps run over each occupied floor parcel and down to the floor. Fixed pools and original resource limits remain. The final equivalent allocation cleanup expands two High strap calls directly, avoiding a new per-frame array; the earlier test generation and interrupted sequence remain in `node-before-allocation-cleanup/` and `allocation-cleanup/`.
+
+No original ids, slot names/sections, packages, category, weight/placement rule, score, par, assessment, save or default changes. Module scoring still delegates to the original LoadingScene callbacks/local log and never reports workday points. Shared registry/default/scoring/save/Settings/theme/i18n files are untouched. No new asset pack or texture.
+
+## Actual label-face keyboard focus
+
+The first High native attempt at b1930984 reached the last request but failed on f12: the keyboard centre ray hit the upper shelf lip. Its 197-check partial report, screenshots and exact source/plan are in `label-focus-failure/`; it is not a pass. **e834ad69** gives cargo parcel proxies their actual label-face focus point and lets the existing keyboard selector use it. Every selection still has to pass the real unobscured ray; all other targets keep their original centre. A new regression reaches the loaded top label from five nearby aisle poses in both qualities. All **91** Node suites pass freshly after the correction, including **13** cargo integration tests and the existing access-control suites. No visual geometry changes follow the scoped c317 preflight.
+
+## Verification
+
+`node-results.json` and `node-logs/` preserve the fresh **91/91** pure Node gate. `node-source-snapshot.json` hashes the 495 tracked application/data/library files checked against the final commit. Ten changed-JS syntax checks and the latest-pilot B159 English-text audit pass; its browser text assertions still use translated source. SCORM2004's browser wrapper is excluded from the pure Node count and remains in the serial browser plan.
+
+The seven cargo-world tests include actual ink-to-paper separation and bands over parcel tops/down to the floor. The thirteen integration tests include Low/High slot reachability through actual motor paths/rays, support/roof clearance for every position and the tallest original parcel, matching rack collision, source-buffer immutability, outward gate geometry and frozen-clock/pause guards. Original placement/outcome/reference tests remain green.
+
+`geometry.json`: **5,664** integrated Low CPU poses, main plus most costly actual mirror: loaded **39 calls / 2,370 triangles**, fallback **43 / 2,204**, zero over-budget poses under the unchanged 64 / 2,500 ceilings. This excludes compositor, GPU attachments, memory and Intel FPS.
+
+A three-view High static preflight at `c3172d23` (before the equivalent allocation-only cleanup) passes the original resource ceilings: **75 calls / 53,692 triangles / 4 textures / 11,239,424 attachment bytes / 4,712,123 Phaser bytes**. Its actual cart-label, strapped-load and unit-address captures are in `preflight/`; the cart and loaded-cargo images were visually checked and show visible ink and a visible floor parcel with a wrapping band. The preflight proves ink clearance, actual open door, fitted support, canonical data and unchanged workday/checkpoint. It keeps its three-view/source scope; it is not the final 56-view/native gate.
+
+## Current sequence and remaining gates
+
+`current-plan.json` freezes **194** sources at final application `e834ad69`; it starts with real-key High English find/load, then all four original resource profiles / **56** views, the remaining fourteen good native layouts, unsafe load, wrong find, two abandoned assessments and six repository/legacy checks. All sixteen good journeys span Low/High, English/Tamil and normal/larger text. The keyboard route now uses 3cm stopping precision for the fitted aisle, with every physical ray/result/reload assertion retained. Live state: `test/out/pipelines/c44-e834ad69-fit/status.json`. One browser through the shared lock; regular-file logs; no source edits while running.
+
+`../c44-native-validation/completed-summary.json` counts only the finished, hash-verified current jobs; `../c44-native-preparation/collect-results.py` also independently replays original callbacks. Shared font/translation/current-pilot/A30/A31/default rollout and existing owner Intel O1 remain separate. The registry proposal stays unapplied. C45/C46 are the two remaining startable todos and the next-batch request remains open. The permanent hourly automation is enabled without an end date.

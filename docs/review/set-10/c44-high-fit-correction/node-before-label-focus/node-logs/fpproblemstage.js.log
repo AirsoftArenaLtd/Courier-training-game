@@ -1,0 +1,13 @@
+{"endings":139,"comparisons":1372,"timeouts":1,"counts":{"m4-address":19,"m4-recover":48,"m4-damaged":24,"m4-storm":48}}
+✔ all four existing ids preserve every reachable original result, flag, critical and timeout (240.111682ms)
+✔ address suffixes, recovery handoffs and safe isolation remain physical presentation of the authored story (0.537971ms)
+✔ lightning keeps the decision in the cab; the gate stays locked and the flood branch is retained (0.215014ms)
+✔ staging is read-only, bounded and stable; it never moves a player, grades or writes the suspended workday (152.426264ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 407.939589

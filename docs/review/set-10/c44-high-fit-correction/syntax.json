@@ -1,0 +1,52 @@
+[
+  {
+    "file": "src/core/fpaccess.js",
+    "exit": 0,
+    "sourceSha256": "44f28280d8603baa61b86acdea51a2be452f0a6f05f3ed756bbbe9c4e11d727b"
+  },
+  {
+    "file": "src/core/fploadingworld.js",
+    "exit": 0,
+    "sourceSha256": "eeba2c970b4dfec623481e77d9574b3d932711e1bfe2d874db19255deec7f023"
+  },
+  {
+    "file": "src/core/fploadingscenario.js",
+    "exit": 0,
+    "sourceSha256": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47"
+  },
+  {
+    "file": "src/core/fpactors.js",
+    "exit": 0,
+    "sourceSha256": "27eb8222c724c052c5944c4e49bf87c234faa7bb9b3958a1c9382ddb050c0e54"
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sourceSha256": "6f0792706a66409fab2bc9fb3997632dc499155a5a71beb1c906755e7e923a78"
+  },
+  {
+    "file": "test/fploadingworld.js",
+    "exit": 0,
+    "sourceSha256": "f1657f7c70f9faf3ad6904cfc96623bef86fd10811293f93f281604504d371bd"
+  },
+  {
+    "file": "test/fploadingscenario.js",
+    "exit": 0,
+    "sourceSha256": "ae2fafbf68fb869806d0ab3e34cf50add97888f1d3f5f149d1efbcfa7131ca44"
+  },
+  {
+    "file": "test/fploadingbrowser.js",
+    "exit": 0,
+    "sourceSha256": "93cf8a05df84632594847f7a401e5fba4924a9d314b0e1bb17572bc7b28ca498"
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "sourceSha256": "45890884f8f3cf784700db842167fcd8541ffe145c22b2a0500b6e0234495935"
+  },
+  {
+    "file": "test/tools/fp-loading-quality.js",
+    "exit": 0,
+    "sourceSha256": "bfa2210b669d6d16fd32efcab51792132fca6b8db945d6022a469fe47c7c09c8"
+  }
+]

@@ -1,0 +1,17 @@
+✔ the driver sits behind the controls with a wider cab lens without touching saved mission state (5.706334ms)
+✔ turns have bounded heading lag and forward/reverse look-ahead; player look is immediate (2.22733ms)
+✔ zoom eases with speed and remains smaller on Low, while reduced motion restores the original view (3.87942ms)
+✔ acceleration, cornering and braking move the head inside the cab and retain physical body pitch (0.888704ms)
+✔ a wheel crossing a curb gives a small decaying impulse, with no impulse from teleporting (1.909229ms)
+✔ walking head movement stops for precision work, cargo and reduced motion without moving the player (0.923007ms)
+✔ stationary, paused and duplicate frame samples remain stable, and a camera reset cannot change the score (0.339925ms)
+✔ camera movement remains consistent at 30, 60 and 120 FPS (7.007273ms)
+✔ the approved trainer API is cached at launch/resume and never called by the motor or camera (14.587803ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.265546

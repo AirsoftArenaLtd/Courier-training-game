@@ -1,0 +1,410 @@
+{
+  "date": "2026-10-25T13:21:18.350021+00:00",
+  "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "protocolRevision": "b7be6bde05dc3c3f7358bd9f9ee0e6be47f4ce9c",
+  "expectedJobs": 30,
+  "passedJobs": 8,
+  "complete": false,
+  "nativeGoodJourneys": 4,
+  "nativeChecks": 2085,
+  "nativeCaptures": 100,
+  "resourceViews": 56,
+  "native": [
+    {
+      "id": "native-good-low-en-normal-find",
+      "fingerprint": "a5ff4ba5ff76ea07323eafde5896b3ae60a86ae21cf6fd5cdf6b116691f79ef0",
+      "logSha256": "f103f2a0c3be8a655acdf574431a9f57be1ae25cef15c02f54fe555bcb19c483",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-handheld.png": "7859c710e945affedf5a97a854b64cdaa5622c6364a82336d932ae225fe3c3fe",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-3.png": "28063f9f66c6d01e258963f45b6edd8e0e708778f39ae342262309595760d272",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-brief.png": "58e69747c7bb6ee243eaa8347109d9489943ba13c57d5c294b534508fd7ee1bd",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f10.png": "cc0ce31e1daac029dd4761e2530b6ccf7bc1b2e60d5a9d2c41b5562873c499b0",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-2.png": "18e96f2cb3797cc3302bd905fb639ba516bd97e6e57fd3500d7444187d87cd58",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-result.png": "82d309102b6f989ec504ea180c0946a367a0817ed7e2c7daa8912232178da2e6",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-open-cargo.png": "184de9b575f4eb15cf4a4ea8c10c39f1577ead7fd74e2dcfad8ed3be88d5fea4",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f12.png": "f2d3b186f7da3a32813080d4fc18dad8c46e77663013deb716beadb56251a17d",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-1.png": "40daa7a2cba08470d066fbe1428485a26eb2b4a5c153984d6ef54dacd9c1c638",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f4.png": "0f722ed1e8208cb5c40b111b9e68644327b17edfbe0b387b41d9b8c361599529",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f1.png": "31a06c86bbc6f3e33c5ce8139277cbeac938628b5731367e7f6d3c6402d207a4",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-0.png": "b3c74bffdf6ae5b84cbdf01e0802a16acd1fdecdd670a7f0bc923aa4f77de000",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f6.png": "f8635d66bd6824053e831ce81c36487714f82d5d1f0e5f2ecee564c14cb9ecd2",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-find-fc710227.json": "4159c04b7d3619f16187575a6fe98ab4f88fcfaffcb6122c6aa3cdc4386635a1"
+      },
+      "checks": 234,
+      "case": "low-en-normal-find",
+      "variant": "good",
+      "captures": 13
+    },
+    {
+      "id": "native-good-low-en-normal-load",
+      "fingerprint": "1c06b700f8ee476c00f4f0ab938ccd0f188869258f179cfc8d7574c585afbd6d",
+      "logSha256": "376f9009cf4b3215cdf66837f44ee37491f492615991a6e9869660bbd8353f20",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l10.png": "66ea9c0ad38e91f52c73455df19a3ad1f4f449ec4f28881d8bdaf0ae1f1fe7c1",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l10.png": "8f4ee539919f170489684e7f8cd3dba5fa5bdf1289c7afce340cc531f81980f9",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l8.png": "f4ce5d9b1ac94a3e5e50af009ae82e5a2f6b83ee38307178623952b31c557ded",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-controls-1.png": "a980a11ba875f13f52a42fe6332dde1946feb1c1030e6d31790ca1ae51617250",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l7.png": "0549ce3014bd432e5db7b7c2890cd1ba1d112a827093afb359f144b83d08fd63",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-controls-2.png": "c1256f3919eddbff11f3b9a5c16169669733900f77bfeac4b66efa598c33d038",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-incomplete-load.png": "3cf9484eb2ccd061dc1652211d4f188b48e4d076fbfd5ccefbdcf9df06f9efa9",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l11.png": "18935a896459a33f169c4fdfe05d3d4a7fa20b5975f5fddfb0cb6a42cca15e14",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l8.png": "0b3f88ffd4176a8a07b463eba8c9904acc6f2e5fecbca57de77a867d25fbac15",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-controls-0.png": "813f9e9ee82c543a6fd9a8e0af40c17a890afba13a0e0823ae193743ba997685",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-strapped-load.png": "d8b88fc63a890ec6400ddf6463f6591e3e8f6598d816856f6c3a14a8c977d289",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l3.png": "8f86fd42bee830a897b33172edd60a4e5f69f819d15c27105fffa6646b2aedbb",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l11.png": "582bb2fa5a1a81291d125bd21b591b22ae59ecbcfbd0069517c8ce40d187718e",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-controls-3.png": "15dd9c6c089c53dd077c2f9d6c94e4526d7fd67f8e42594b538ee4207a2a2c56",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l5.png": "737d78a3de1b160c51e6fb8bc7a7d1ae992ef7a5de6cd1d21dbaefa88b0dca8f",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227.json": "1d41a38465075f289fc1dececf60cd04fb1c2fdcc7e28d2bf2090b49a83b8610",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l2.png": "dfcc2220a0a7dd31fa06be7b61bcd10f4559949062de3bcfd137a75afc22656a",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l2.png": "e9c2c72523361b628372095a68c3a9b00ffdd816e9df419fbbbd2317965c2fcb",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l6.png": "e594369868212dead31998cd290b85a9f1b3ef7d87d4820c9ff30f33fc5f1602",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-result.png": "32fd5c9437a1ceb86209d27ef8a2c6838f6efe86c84ecc8b5c306f580208272e",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l1.png": "f288fee42710f90a006aa0d65f8b186b603b47f4b23aac8255382e123720d798",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-carried-label.png": "95ab1efd660945c7b683baf0f690bd027b019b9bd3ddc8b563f2aab6190080b8",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l3.png": "c12fb8df551bd3e3b94d07fc954344fa748e9ca278fe6669b4b5f0769044c409",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l5.png": "6d939c0c773b49ba8d62076b2cc5a7366c77efef7f35211bc98d12e3a6a31ade",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l9.png": "426b2e6e7368a487a2bf5ae76e5262fc743f1d442a58665cfe06cb4cf0b013f3",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l12.png": "4c1eeb9a34f3a544006bb3bd9df3da131a90084aec85809941d0c03c69bc7f80",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l9.png": "366e8ffbe259b95cdd190140cb7b578036c3a334f358af713b9fafcabb524f2f",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l4.png": "e3584677b63659a60b4735216be3dc112de1ffe5c65489774ca7eb363f2d1ec0",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-returned-to-cart.png": "dea74769af710649b570d0449667862a2775a8837eede80be847d551e49aded5",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l7.png": "d4ea09a55ce9a4e0dc0a5b08530e317432303e4719b97058f9769cc64f4858df",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-brief.png": "4ca53b5d283e51aed04409eaa26b603ad509c3aa8ca6eced59df49782d36e323",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l1.png": "29301c4789199d9778fbb5d74cc8def9dd4781e2f2a9b36a554cfe103dec4d9c",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-handheld.png": "cceed0b5fd0a365025b4443cbcafa525e2f6eb43d8dda738883a50e72842f54e",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-load-report.png": "9fff6636d7f2903046ae3f3bfd8f631f2a3b220e8a47e381527f76a258474451",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-position-l12.png": "06044870ec9f4fe2a6da92dd1e1c474c59e2989682fbebb1259e08824773f9c2",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l6.png": "e79d7ed6bddeb0afd280a2f565b9f15666f7f2a7823fa10d90e6e948239bb796",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-label-l4.png": "71be4ede82bacc1c554687514878236d5c5990712283ab4df0f1bbf6908b95c3",
+        "test/out/fp-review/c44-settled-native-good-low-en-normal-load-fc710227-low-en-normal-load-open-cargo.png": "d3da934abfe0c293eb59a8b9e3fa4d4b87c48dfbdbf8dc37ece41dc66d0d135f"
+      },
+      "checks": 802,
+      "case": "low-en-normal-load",
+      "variant": "good",
+      "captures": 37
+    },
+    {
+      "id": "native-good-low-en-large-load",
+      "fingerprint": "d8f4ace4d4ae1ec7ec25e7adac8aedb3f040355da1d57d313f37b46423522331",
+      "logSha256": "c232951f771eb154f74c6cc974f3cfe48c20042e717d2d590249fccddb740eda",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l3.png": "568e9fb44e8bd6775c2d8500cf83adf4f733dc56a13e1f11c3764bf3175c521d",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-result.png": "4b7bf8aaae838f4c48d2a587216f38732adb38f967528007a9b092e545658c00",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l1.png": "c2b01799f471f417c92895833741a805da9bce7b775ac859c9ae317e9c7a37f5",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227.json": "c05ab8fc3228464d6bc5002d886e95b520c5442adcac418a600e1f0accb86ad7",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l5.png": "d4b3632b1ab5f2a07e34d01045ea69abaa4c5465f5fab85dae7e44969a9774a1",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l7.png": "e0d63bf4c02ec5f8ff39944cc90ec3ee014d0f74c1a62de1d51fc1f6651cd753",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-incomplete-load.png": "452e670446bf3e59d7092b80a3de9b0c5120f4dd82921fe2180aac6ad51e312e",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-controls-3.png": "270b7daf1abe3da43e1da1e20afe97338c9c2b27db3f00ed1f266ee07a8d24ea",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l8.png": "b8a01eb801867a23219f8e591d5ebd247316c9d61ad5bcbaf8a9fe9299b0ef5f",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l6.png": "afc34bb3a3bb5a8a583e70d8b9d5cf4d6e36fb8851603181e4bcb0a180f55d82",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l4.png": "ddc58a9c315bbd4629fa806058004c2777ad8d356aadc17723bc96ed1b0be70e",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-load-report.png": "b101daec0a7ccf15a3cd694c2244fe74e4f155ac099411806d9c28130ccae2b7",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l11.png": "5687d1621998c25b602ddc265d3d9b0840777bb90912350e5762911e3dde9846",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l5.png": "4267389fde8933642a8cd463e767702e4fa5639c681c53ec811f274c13980ba0",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-carried-label.png": "d9b8ed5ab5c7a2a35c60b2fda44db6c8860fa55a6248107d1eeed1cf08623c88",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l10.png": "c57f7e5db8d4b4d2a8d5c0e6ab9952a838ef9a737c326c3f799e348fb6a4a5a0",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l2.png": "222263a2d46e79d7edd20023c4cfd3ce34d3ec190555aadaa10dfe39f577a494",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l8.png": "6d5ca68f051331983e2d32b2d1f13ca1f1b57b7afaf6144abebf867e5f3546a2",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l9.png": "f29ff69ae0353d8f628273767dfd9cad334c0e6a41cc010790bf7cf7233c4f36",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l6.png": "083aa9db194c2d02120bf0981ab047f98f6baa09890faed3952b8c2a80d16590",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l12.png": "5a2b553c6e73e8a123e87415843723b9ed8ecf7f41d76e86d2c889a972b38de7",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-controls-0.png": "a9cc8c311d302e8282f353a4b033855f48f5b4f9c81069c6704dd9f151d3b538",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l3.png": "3f78e3a79550da4e8c967ae7e91407d41553f05e28fdb28ccc50a6bda99c4ce5",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-controls-2.png": "e1f84636a63b5249f3777606275cb9ce0b304a5237a70e871f5d0fdce791e431",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l4.png": "0fbbf8e42d60c09cf83cef7427a613408f923a317078cb942978de2582487cde",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-strapped-load.png": "3a3b4eff1a8074a6da67295e5faf97e0928fb6c8746caee8b31f81a589fa2d1b",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l11.png": "f0d7f91eb7ed6d957c930e0362a989887147234c8273d1f906adde4b20ee4805",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-returned-to-cart.png": "38dfdc698bf613d5765edc178ea8a5fb0548ec23233fe6b23fa4fcd61ec6a4c5",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-brief.png": "108dfb3438a432732c9094f064bc37b752261614370f33fd221c4d34a28a536b",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-open-cargo.png": "a6b86275829f15d01db51fc989bc3e70f528ae04d23dd09e485da82578845b50",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-handheld.png": "20601e1b1228e876e4c61fd42dbd6369f592783a073249446c5e33a04d53a8ea",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-label-l2.png": "eb93dae48ffbed0ec57833262c8379f328772ae7b79d70c33051ea694edceb44",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l7.png": "4afcad2e2d59fae5051bf4038472ae471febc3bfaafc3a31749db1b73c8c1a80",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-controls-1.png": "c6a6ef8c4c0fa458b64bfba6153ce2fa10772690c5001e9a782667e34f00ac35",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l12.png": "90202fe0a0e4cbb0672035546b394e3657d30caf33e3eb833ad8030c657c52c1",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l1.png": "7a0591b625158645ee17e3ef343ec7f2c517b23132d50991550e2fe562fff9a3",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l10.png": "939ee3e56d4e021908cf5cf506b0d5ecfc36d22e94387b5059f032a50e508d52",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-load-fc710227-low-en-large-load-position-l9.png": "71c56066ef9f82086d5146fb1ae7955266e91547d8360bbc762da4d11aa20169"
+      },
+      "checks": 809,
+      "case": "low-en-large-load",
+      "variant": "good",
+      "captures": 37
+    },
+    {
+      "id": "native-good-low-en-large-find",
+      "fingerprint": "db4f704999afe14090d6bce2f36c809a42d0d6f9789a847cf96c1db1ec6efcb9",
+      "logSha256": "8777479c8732133a1021a2ab5ce17a12d5deb964e116738dd0e0a55651f2fb87",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-find-label-f6.png": "4aedfda6adee6dc3eae05047707216e669e12a1df29ffedf5c6188df30ca6c90",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-brief.png": "dcec10e322d3611ae97c6117ef2284ee9a33ec878e062532db5a358957ef0752",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227.json": "29e81d77dabc0beee9e9277d1af35c13ce9d1badef5c0bff0e2520a114dd9e66",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-open-cargo.png": "d4e55cd7d20b932bf6a26023d6da56c38505b38fde3b8cc2b3646ba7dcbd3197",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-find-label-f1.png": "cad774ddcdf5ad7aa8110c26beb44cb7bfd91b8f7d4ff1307dfdc3c4f3c6e964",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-find-label-f4.png": "4d967f6707bc335b4ed864b78a4548ebed2c0c22e67d138c7fa12643742c21ba",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-find-label-f10.png": "d3de4882c4c805f1b35e09757bddebd7efaa1816c8a3db5b09644ee0e9471611",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-result.png": "c723b10aa00be8119ec2b8acdcae64c909f9b936f6e9a4464efe6f24a8875995",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-handheld.png": "0cefc5f0f8dce40ca7c9f965055a760db7959a4c72c377b0f8b3e22f0d097f32",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-controls-2.png": "a0b53801af69d4ead87f2d7a105c67a0a29731972b1f1f3787d75fb0f4706a58",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-find-label-f12.png": "74bd5a4deb6d44f55336b1f8c11716ca15c028b19265bf033dae2a6381296cb7",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-controls-3.png": "6249ba9f4b3ad5e80b75a9dc01701e376ff7ad35075cfdafdad0cbfb7fc325a3",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-controls-0.png": "d2b1046df608aed99f804e1baa55653d1ad1c2dece65a2abbc8192246941b45c",
+        "test/out/fp-review/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-controls-1.png": "4e79df26df16df92cd30e6ad761bc52d0a85435743eb8cf78bc22009919509b1"
+      },
+      "checks": 240,
+      "case": "low-en-large-find",
+      "variant": "good",
+      "captures": 13
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-loaded-low",
+      "fingerprint": "1def6703ed94e3b2fa72024de69323a9313581a33c9f691a3c91cf16c2f60577",
+      "logSha256": "c8f12917310438d475287512d96ee18b262cb4d8cd6fcac82e2d1ead09a02ca3",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadclosed.png": "de4ef697ae42f6efef0f2ca561f69f113976e1dd570a9787cb7e0d5638360f2b",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadcarried.png": "84958ed90f791cf223521abead2df8bbe2d735725ebc0632f3c4753ab10f0094",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadreport.png": "3051d9be408a0692aa1ef1db6ffeaf59cefa10c8c5589e8f5cdda0332f1232ff",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-findcargo.png": "e9afbd3e058d16e0a2550c1ecf070338aaae064932b8c17e19f619a803df353b",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-findhelp.png": "288c0f24dcd3241b33f2805510e40a5f36b5d0637646766086caa3af245c5a82",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadbottom.png": "f7a00c3f039ecf006b5722190e39ce1568dcb3b7cdbfae2f85850ce6d2330e5f",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-findunit.png": "4c964d3281bd605d1df33014023ced16b64824bae49f78318db10d351a601ee6",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadcargo.png": "562b1e48307e1b984326fe54a51c2acc5521e756b9edb14d63a412e436538a26",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadstrapped.png": "12180bb3d24eed73564bcb9ca69f3dc7319f9e60d49d38aefe5d67c0f8a91b3d",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadunsafe.png": "b24f20881ff80b330dcc66456338cbddab23eabcae8af9abf2d7c72ba20970f5",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadcart.png": "0a51cd732748175fb1eae7512fe72d7aba56614aa207f50f8423708e755e4cbe",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadcontrols.png": "d8e8dd63af079e09755b5a35b5628775fdf78f44ef34127047a80c9b297674d6",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadhandheld.png": "e8779ebd7aa5a579f8009086e7e53069cf40f4f33c209ab9d2738445179c6b37",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low.log": "2c96beaf5b923d622723188163d2ff195886eeb9f85c60e15a3c770ff3fc1df1",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-loaded-low-low-loadtop.png": "ea08fbe6563272c58fe36acc87ca7607f4f87efb6fc311072be13527da65b599",
+        "test/out/fp-review/c44-settled-loaded-low-fc710227-quality.json": "18068b7bcbe0f19a791d6ca2ab05b34e91e1759e8dfc2ddc5343e31562ba22c1",
+        "test/out/fp-review/bench-c44-settled-loaded-low-fc710227-loaded-low-low.json": "c167596c9afeef7d4926db51ec8520342e7db241b6ab03642ad8402104f147f4"
+      },
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2280,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      },
+      "profile": "loaded-low"
+    },
+    {
+      "id": "resource-loaded-high",
+      "fingerprint": "7eae04b86dcbd01052efbb0ea7c2c612ff89ef9900773cb7cd9dce6d2b68a52b",
+      "logSha256": "92461eb7c384e0fa70c4f6ef6dd87e7e06b212e7020428fe21c2e32fdd5a278f",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadcarried.png": "08b3d5581a3512d7d65e249c6e862a8c7fb6221624c3ef645fa633c5e60b746e",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-findhelp.png": "38bfbec18e4a3460ce0a6b7ea03fc0fc81ceb8aeadbb983c95bdef3dffa51f44",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadtop.png": "b189aa6644745d344bb5bc899c145377ac77677b1f627c46bed5200762eae431",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadclosed.png": "846807fb12eb0510b2563ddbcccdcf995523348b795c7b7501c2e66f8a603b83",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadunsafe.png": "eabb6bff9cbfb8e01839409f66c348219d87ea34b790785aad18fb986b853e0c",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadbottom.png": "ff8728e7490364b88683c87033ef9805b2d940968d169b8d29ea7a327e9adbe4",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadreport.png": "70b0db733e116309643f186c8e8051e42772f9573e17f4ec5289437bcd758233",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-quality.json": "596265dfd2efb566bd2814908fc1e4053a7e58a77a5c85bd01902370a195e109",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-findcargo.png": "ca1e383d1d34aa35c3ac748f8154b59f38e3fe70383af539671542907906b63f",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadcontrols.png": "1472cbfabc9e0c250db697f8b76080db53b5fcfff8edc8c2a0e1a36271641de9",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadcart.png": "66dc8e061329994ac9149890f450037d05dc801ab74f51b5f0fff2b3c2812516",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high.log": "07dfb9fedb53a590fb617a9c3282e6ab0b9ac0fc41229eb29e82133e12fb0cb5",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadstrapped.png": "8b9b92c10b00180794d35beef8699e836dc0bc549f6d67522fba7de246476607",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-findunit.png": "77b166aa6872cf23c4304eb53ebc7dee3c6aef86834b4a7b96951155ed0b457c",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadcargo.png": "e83bbf9c4422372e8985ac2b6a38dc64ec3c88e759526ac33c45c0beb5f17160",
+        "test/out/fp-review/c44-settled-loaded-high-fc710227-loaded-high-high-loadhandheld.png": "90049db2e743d22d509372c54cb771c0c778fe1be12f82d84317e7d28ba3bfd9",
+        "test/out/fp-review/bench-c44-settled-loaded-high-fc710227-loaded-high-high.json": "858b816ff8d502664eb10b9ca2b3e09e4be79f7e4bda63a4918401b66c52f4e1"
+      },
+      "views": 14,
+      "peak": {
+        "calls": 77,
+        "triangles": 55746,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5223664
+      },
+      "profile": "loaded-high"
+    },
+    {
+      "id": "resource-accessible-low",
+      "fingerprint": "948afe162ded175c4f25052705c3ccde5babfcc894db240904349fb13f843b58",
+      "logSha256": "33585ba14c282318f994054d95ab280762f5d0fdf43ef56a9ac82b0992d8c473",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-findhelp.png": "d595e81ebc011a193d6994a5caf926eb7adab066ee01dabcbac9033f59d2f3c8",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-findunit.png": "bbc63e8371954a1d1ff454c1d151779cf2847b635a3dd06ece1f0dde9793687f",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadtop.png": "540ebb6bfef334e2d1b9f9554e1584e9e6caef0d92a8b1d6b13e7c6db416488e",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadreport.png": "8287e812689ba305eb548dbb779b8d13210bdcf37ba450859a5323b84b306898",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadcontrols.png": "7bbdebf1ac7bdb4d206dec3cb4c2a229135a9dc9aaa8d2cc91fa528d1b264aef",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadcarried.png": "6d8e7bf15594e683e4b48d552cfb08d2ea36c75c791ca95d8905e79a85e81c7b",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-quality.json": "ddc60cf95b948120d2adbafbdd879d51cd7e359a64d1b557e1415db5c7a4396d",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadclosed.png": "4e489bbfffb212a6c6ac18778f6f3406beef279f55e94277149c9e98b5b55dd1",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low.log": "7304725db23a8d549e4b4df876960963d48418cfa784d878d5432e8fcd6d65e1",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadstrapped.png": "453c9128dcb5711cf8cfccc28ee9518ad0096c732cc0b4bbde33a27bf6d2cb38",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-findcargo.png": "68baad9d1753a62adac33d6a54a9432ab84776d22a12f897e99fea9111b2138a",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadcart.png": "c7dba79e6d5382d625d3a55c0f4d244ae70d276684a452a3370ff6036402a7eb",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadunsafe.png": "5e0571e71145a29bd150858a2dbc01f3992f7971cc7790ee5953c8495f13f956",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadcargo.png": "0b7ee571cbdbcd33b4310cc13ff4205de05243bd1511d14286ab3e8016de633b",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadbottom.png": "1766063a16207997f66f48ef0e768eff5e7c460dc33264445e82db7207ef0a04",
+        "test/out/fp-review/c44-settled-accessible-low-fc710227-accessible-low-low-loadhandheld.png": "014c03bf6ee6c76d5dd64af482e44e4f5abd577b08213c51fe8df7901c54f6f8",
+        "test/out/fp-review/bench-c44-settled-accessible-low-fc710227-accessible-low-low.json": "ebaceb40703d03698cc8fd75f6fb9ccee6c4b776bceca9b3d593e685a3826335"
+      },
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2280,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2101056
+      },
+      "profile": "accessible-low"
+    },
+    {
+      "id": "resource-fallback-low",
+      "fingerprint": "ad21b652399c28e3de7ea9323bec41eb6f0bd90b7c227cee9da1e4f11a1aa420",
+      "logSha256": "e362f5f7f286ac7cd0843697d5c1b686b9c7338b057ffe2359ccd21746da14c2",
+      "artifacts": {
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-findunit.png": "b0d7d8d3754073d4eae73096121b09e7f08d710bf45091debae48beaf670a537",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadcart.png": "b15fe04a68f762af3eb6f7d2a76ae78a96a800c367ef95edbb4027ad3879c2f7",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadcarried.png": "c1be110fe3dd3f38d7a2e07ce343842bd401ac7e49c4100eb6511f033df47146",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadhandheld.png": "c4d7d007b13037a98a4ace8485c7e6522b24394c5d39338ec4b079eb241d6e2f",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadstrapped.png": "69cd09faa4e9db9352dcb734c5984ecf099f264cbc5ad4c76933db6713bc8587",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-findcargo.png": "c6e7e600b642cc0e5a4582b21902684816a370386ac931a127ace9134fb88e18",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadclosed.png": "061e1058d81bef12d8554d796abe5c7ce2f7ae555ceb62536d3f1bc8808e7d9b",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-quality.json": "274845a1c1d612652db0f1afcd6d515159605bc6b5a9b7ec4678cdfafebeb192",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadbottom.png": "f23d5f4b04cbeeb0e2e2d56c593ea5a24fa6755db93e46d6b0bdc573d41e46b5",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadcargo.png": "7b98c1a72d03e59b3efb8c2fa385820e74ef5cf237251b6daa4c4b436b9edc03",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low.log": "3c23d4b0925bc9441bbe10588c8feda5438eb1a3e511c861ec4aaa5f05c6139a",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadcontrols.png": "ec12a28056c7c21ac66d7a202ef47e67aa410aff95a526cc3df7fcc15c3ecf55",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadreport.png": "8e39e591cdb1745ccc804961de6b018a00b2c755480b216ac6dcc639954e72ae",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadunsafe.png": "2213317720c1fd21e05be7d7d541fe8e5f197d5ccd8fa579fb227ae3e44123fa",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-loadtop.png": "7403a0056fd8395f9e889598472c05b64d3b85598a4f213f6fc27d3a5aace164",
+        "test/out/fp-review/c44-settled-fallback-low-fc710227-fallback-low-low-findhelp.png": "2e03ead59058bfb5e951635070f28857dff24959574ebcda29139319115bfca4",
+        "test/out/fp-review/bench-c44-settled-fallback-low-fc710227-fallback-low-low.json": "9aeb337511e370129cb6bfe1e8dceb0c9c4b142a2761ba8e877620d1407d8a72"
+      },
+      "views": 14,
+      "peak": {
+        "calls": 45,
+        "triangles": 2114,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      },
+      "profile": "fallback-low"
+    }
+  ],
+  "followups": [],
+  "pending": [
+    {
+      "id": "native-good-low-ta-normal-load",
+      "state": "running",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-load-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-wrong-find-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "scorm2004",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "legacy-modules",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "academy",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "enterprise",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "routeday",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "driving",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Hash-verified source-scoped results only. Static resource fixtures are separate from native controls/records. Corrected-font Tamil, current-pilot/default rollout and Intel FPS remain separate."
+}

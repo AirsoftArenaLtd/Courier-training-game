@@ -1,0 +1,27 @@
+{
+  "status": "failed partial journey; not accepted",
+  "files": {
+    "README.md": "387d6a20792eb1dc7b551145ebdeb9c305a4173ed60ecf34fe4b59b889fc9f79",
+    "c44-fit-native-good-high-en-normal-find-b1930984-failure.png": "b771c72144fd65ccf42f1f5b07cda61e4255f3ac746f75ab8268bce73c49744c",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-brief.png": "67705c1d4fd45f13e2413340707abaeb8fc425b230112152c21d176ad9c9cbdc",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-0.png": "199a7c6015e5b4727265c367c4ca68e9a3d692025d06e677ca616d9e1f3c0cbd",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-1.png": "cd58139b06eda79b1ea78dda9841b55aa8c30cbff270858e0cc4dd2e8be7bd08",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-2.png": "ee3a74157ecef2be8f86df01d680977ec6c3e883eb7c16bb246750d0dee42934",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-3.png": "01222d7e8e7937424dfa572d7bf040b95a9a8337c53a3d051cc34e149a5477b2",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f1.png": "fcced26f9c67c17a6c5b44088209f793b68cfc2e7950176ec40fe3e8baf550bc",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f10.png": "f9fcf2d4e464449abc0915a877083ddb4cea61d6f926b7c949d610680a34f866",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f4.png": "54f306ee8c432bcb13d6741f7d024fb696df9ea60bc319eb19f433ab1a180b1b",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f6.png": "3572016ac0b3fce5ecb56804f996be82366b071ba740e6adf682061ab1e995b6",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-handheld.png": "0c6930809e851aa593acaf98c87fff96d23942c4a406b8d8e8e44563653136f0",
+    "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-open-cargo.png": "8c44ececa455e266f288daa2b1f330d0113995ea19649cdd26b631e369e5aa83",
+    "c44-fit-native-good-high-en-normal-find-b1930984.json": "d3064e43fb71d02e9446bc2c07600cf2f4e2b2d83ccb0c5eed4262c6d000a00d",
+    "fpaccess-before.js": "5a6f92a54c33977da6371768122daaafbd14d6c990d6fd07fbb92fd0875f69e0",
+    "fploadingworld-before.js": "afd379cbc61984cc55d1284545736355e8c4e6adf45faf232a0382c072f2232c",
+    "launcher.json": "5449435ce6549e0c1b16aa03cfb9e8936cff3d5f44dec894c80ada3bbbd5fbc4",
+    "native-good-high-en-normal-find-attempt-1.log": "f02b4c5c6de06648df1b16a1982ec9033585ab8b04ad0af45c8a671d58f3906d",
+    "plan.json": "af09a0a93c750aaa17d4745a5128799747390d3d228480e03b137ea6e5794c7a",
+    "results.json": "90d5e084dcae0dc296999ff0020cce719f64bb2ad7bf12e9d27481c6c4f8c47b",
+    "status.json": "33b57df3b68ff37daaf705db7087489f428534214c92ab397bd8b3266b503d9b",
+    "supervisor.log": "eb9a3fd0cb46ed8252a449848b69176b2b215e9a8a69081851fe0c090ca039e4"
+  }
+}

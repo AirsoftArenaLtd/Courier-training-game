@@ -1,0 +1,19 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ one bounded batch presents all seven damaged zones and both clearance structures on Low and High (139.225256ms)
+✔ unmarked and gentle first days allocate no damage batch or clearance labels (178.765717ms)
+✔ located wear follows the real van rotation and chassis pose, while starting wear stays separate (25.591401ms)
+✔ mirror wear follows the physical housing behind its reflective glass (73.233409ms)
+✔ a naturally worn starting van shows its existing dent before any player impact (17.312509ms)
+✔ damage-off hides wear and leaves parcel presentation at its original shelf point (16.688756ms)
+✔ cargo movement changes only the visual transform and stays bounded in the van (62.168415ms)
+✔ all reflection passes restore the main damage matrices, colours, shapes and visibility exactly (17.320773ms)
+✔ the single palette shader bends dent vertices and keeps clearance rectangles intact (12.678506ms)
+✔ a clearance caption faces its own approach, so the opposite warning is hidden (51.778908ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 643.456889

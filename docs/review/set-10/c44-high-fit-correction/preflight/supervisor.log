@@ -1,0 +1,3 @@
+browser-slot {'state': 'waiting'}
+high-fit-preflight {'state': 'running'}
+all-browser-checks {'state': 'passed'}

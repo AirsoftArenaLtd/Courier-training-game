@@ -1,0 +1,11 @@
+browser-slot {'state': 'waiting'}
+native-good-low-en-normal-find {'state': 'running'}
+resource-loaded-low {'state': 'running'}
+resource-loaded-high {'state': 'running'}
+resource-accessible-low {'state': 'running'}
+resource-fallback-low {'state': 'running'}
+native-good-low-en-normal-load {'state': 'running'}
+native-good-low-en-large-load {'state': 'running'}
+native-good-low-en-large-find {'state': 'running'}
+native-good-low-ta-normal-load {'state': 'running'}
+interrupted {'state': 'interrupted', 'signal': 15}

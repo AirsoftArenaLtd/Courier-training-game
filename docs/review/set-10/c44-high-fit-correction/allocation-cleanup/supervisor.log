@@ -1,0 +1,3 @@
+browser-slot {'state': 'waiting'}
+native-good-high-en-normal-find {'state': 'running'}
+interrupted {'state': 'interrupted', 'signal': 15}

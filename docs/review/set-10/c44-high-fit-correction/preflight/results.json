@@ -1,0 +1,16 @@
+{
+  "high-fit-preflight": {
+    "exit": 0,
+    "fingerprint": "afd714f08a950be63fa0bd361168ea304d60bfa5f033604d28ea2fab203e03af",
+    "attempts": 1,
+    "log": "high-fit-preflight-attempt-1.log",
+    "logSha256": "7d513962e9381e86f8151306caf2726719e9411294c0ce71a5c34cdc7d66e049",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c44-fit-preflight-c3172d23-high-findunit.png": "56e4bc69ea63bea4fedab0573db0c14ee2be5d8537768b08f73573155dd91378",
+      "test/out/fp-review/c44-fit-preflight-c3172d23-high-loadcart.png": "494a902c8015070ad7556c6c95da50d4051351a14fb3bd754d4c82bc2598c8aa",
+      "test/out/fp-review/c44-fit-preflight-c3172d23-high-loadstrapped.png": "a5a41a101c3f724068e32fd8966fb759d6ea4d90616b1c8071b07562123ff56b",
+      "test/out/fp-review/bench-c44-fit-preflight-c3172d23-high.json": "a671fe096a2673261ddabbf2f9153f08540f7c30314ea12237914a1bf04fb3c1"
+    }
+  }
+}

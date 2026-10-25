@@ -69,7 +69,7 @@ def main():
             raw = json.loads((ROOT / 'test/out/fp-review' / profile['report']).read_text())
             assert raw['loadingFixture'] and not raw['errors'] and not raw['missingViews']
             assert len(raw['loadingProof']) == 14
-            assert all(q['source'] == 'loading-static-render-fixture' and q['canonical'] and q['bounded'] and q['slots'] == 21 and q['parcels'] == 12 and q['checkpointUnchanged'] and q['eventsUnchanged'] and q['workdayUnchanged'] for q in raw['loadingProof'].values())
+            assert all(q['source'] == 'loading-static-render-fixture' and q['canonical'] and q['bounded'] and q['inkFacesClear'] and q['cargoFit']['floor'] >= .6 and q['slots'] == 21 and q['parcels'] == 12 and q['checkpointUnchanged'] and q['eventsUnchanged'] and q['workdayUnchanged'] for q in raw['loadingProof'].values())
             item.update(views=14, peak=profile['peak'], profile=profile['id'])
             resources.append(item)
         else:
