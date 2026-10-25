@@ -138,7 +138,7 @@ OTR.fpLoadingWorld={
         if(s.strapped&&model.cargoOpen)for(const b of parcels){
           if(!b.visible||b.data.slotRef?.level!=='floor')continue;
           const y=b.y+b.h/2+.015,w=b.w+.04,h=y-fit.floor;
-          if(high){part(b.x,y,b.z,w,.025,.055,0xD4A83F);for(const side of [-1,1])part(b.x+side*w/2,fit.floor+h/2,b.z,.025,h,.055,0xD4A83F);}
+          if(high){part(b.x,y,b.z,w,.025,.055,0xD4A83F);part(b.x-w/2,fit.floor+h/2,b.z,.025,h,.055,0xD4A83F);part(b.x+w/2,fit.floor+h/2,b.z,.025,h,.055,0xD4A83F);}
           else{paper(b.x,y,b.z,w,.055,0xD4A83F,0,true);paper(b.x-w/2,fit.floor+h/2,b.z,.055,h,0xD4A83F,Math.PI/2);paper(b.x+w/2,fit.floor+h/2,b.z,.055,h,0xD4A83F,-Math.PI/2);}
         }
         moving.count=dynamicCount;batches[1].entries.length=dynamicCount;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;sheets.count=sheetCount;batches[2].entries.length=sheetCount;sheets.instanceMatrix.needsUpdate=true;sheets.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
