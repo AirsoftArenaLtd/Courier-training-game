@@ -1,7 +1,7 @@
 {
   "status": "doing; final-source full browser validation active",
   "files": {
-    "README.md": "d407a786a62c2dfc28104da5f26c4cf16469a1a516e8de329c548a2570551a6d",
+    "README.md": "87aced7c49426f0e4e0c10cdeb94d039355657954e6a78cd75ffaeeaa3547de8",
     "allocation-cleanup/README.md": "b5f028d96c2a9524dfd5b5c9e740a4595837bf65c7aa0701690f5f22d8842bb4",
     "allocation-cleanup/c44-fit-native-good-high-en-normal-find-c3172d23-high-en-normal-find-brief.png": "67705c1d4fd45f13e2413340707abaeb8fc425b230112152c21d176ad9c9cbdc",
     "allocation-cleanup/c44-fit-native-good-high-en-normal-find-c3172d23-high-en-normal-find-controls-0.png": "199a7c6015e5b4727265c367c4ca68e9a3d692025d06e677ca616d9e1f3c0cbd",
@@ -32,7 +32,7 @@
     "c44-settled-native-good-low-ta-normal-load-fc710227-low-ta-normal-load-returned-to-cart.png": "6c3d1b6823cd34b58ef09b161c9edb719dd3cc585742186de0bea233d564e8f7",
     "c44-settled-native-good-low-ta-normal-load-fc710227.json": "765e1d7008fbd7661cfe84ec2dc764bc06549123c2c857c2089b3bff9a73ddda",
     "current-plan.json": "b88ca369ed82a84ecf90e802a471a28ecf40bea164536875db41b91c9df16be7",
-    "current-source.json": "30c457afcba2b095a886cea3d3d2e447903c1cdd9493327d14ba2a06dae2c8ae",
+    "current-source.json": "9cc2be3ee9c42e45075a364543e7a62f8795e5fa5856a18c11560a9df299f3d9",
     "earlier-collected/README.md": "08733d5ad1b9665ea6c1df526f5a169142d0c8b415f9815b7e0eba74d7d3f01e",
     "earlier-collected/completed/native-good-low-en-large-find/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-brief.png": "dcec10e322d3611ae97c6117ef2284ee9a33ec878e062532db5a358957ef0752",
     "earlier-collected/completed/native-good-low-en-large-find/c44-settled-native-good-low-en-large-find-fc710227-low-en-large-find-controls-0.png": "d2b1046df608aed99f804e1baa55653d1ad1c2dece65a2abbc8192246941b45c",
@@ -550,7 +550,7 @@
     "status.json": "5bcc082a59f61a314cb10a6af275c5df850fb77bd7ff1dc68fb8ee2e8a59f60c",
     "supervisor.log": "9c2ab49b45878c18a0856876b7f453288d235d3b9a5ec1befb317a4c2075fcdd",
     "syntax.json": "b411a5cad3ff59f18163722ca2ec2694b2a6d20a5d20d05cff67bf644be53ee0",
-    "visual-review.json": "7322589e2e8efa9b8a857d1255ea91dbeaa7f9a627c9d8cbbef8ad9da31fe29a"
+    "visual-review.json": "843e17a6b7c9336e8213634f2d263c9790541d508e4a4f3d364b5a2f781689d3"
   },
   "date": "2026-10-25",
   "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
@@ -562,5 +562,6 @@
   "automationHasEndDate": false,
   "focusedCargoIntegrationTests": 13,
   "newJavascriptSyntaxFiles": 10,
-  "acceptedSourceScopedJobsAtSnapshot": 0
+  "acceptedSourceScopedJobsAtSnapshot": 1,
+  "nativeChecksAtSnapshot": 234
 }

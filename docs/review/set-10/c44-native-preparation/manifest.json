@@ -6,8 +6,8 @@
   "frozenSourceFiles": 194,
   "applicationBaseline": {
     "pureNodeSuites": 91,
-    "freshRerunThisCheckIn": true,
-    "scope": "All pure Node suites passed at final b1930984 source; SCORM2004 browser wrapper excluded and queued separately."
+    "freshRerunThisCheckIn": false,
+    "scope": "Fresh 91-suite gate passed at frozen final e834ad69 source on 25 October; not repeated during this evidence-only check-in. SCORM2004 browser wrapper excluded and queued separately."
   },
   "newOriginalReferenceTests": 4,
   "latestPilotEnglishAuditTests": 1,
@@ -41,8 +41,9 @@
   "javascriptSyntaxAfterCorrectionPassed": true,
   "referenceCasesAfterCorrection": 4,
   "englishAuditAfterCorrectionPassed": true,
-  "acceptedSourceScopedJobsAtSnapshot": 0,
+  "acceptedSourceScopedJobsAtSnapshot": 1,
   "focusedCargoIntegrationTests": 13,
   "pureNodePassed": 91,
-  "finalBrowserAcceptance": false
+  "finalBrowserAcceptance": false,
+  "nativeChecksAtSnapshot": 234
 }

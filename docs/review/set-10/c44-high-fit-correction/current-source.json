@@ -12,5 +12,8 @@
   "highPreflightViews": 3,
   "finalBrowserAcceptance": false,
   "currentPlan": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-fit",
-  "labelFaceFocus": true
+  "labelFaceFocus": true,
+  "acceptedSourceScopedJobsAtSnapshot": 1,
+  "nativeChecksAtSnapshot": 234,
+  "nativeCapturesVisuallyInspected": 13
 }
