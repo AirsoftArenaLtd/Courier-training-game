@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-25T09:04:17.968272+00:00",
+  "status": "doing; physical runtime and CPU checks pass, rendered/native acceptance pending",
+  "runtime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "branch": "codex/c44-loading-truck",
+  "stackedOn": "codex/c43-scanner-exceptions at 381c15d7",
+  "pilotAtFetch": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "pureNodeSuites": 90,
+  "pureNodePassed": 90,
+  "newLoadingCases": 24,
+  "placementComparisons": 252,
+  "completeLoadComparisons": 50,
+  "completeFindComparisons": 36,
+  "findRoundComparisons": 180,
+  "cpuGeometryViews": 5664,
+  "cpuGeometry": {
+    "scope": "CPU-only integrated Low cargo geometry: both original ids, four loading/find stages, nine positions, twelve headings, three pitches and retained cab/reverse views. Main plus most costly mirror; excludes compositor, rendered memory, GPU cost and Intel FPS.",
+    "reports": [
+      {
+        "loaded": true,
+        "poses": 2832,
+        "peak": {
+          "calls": 39,
+          "triangles": 2370
+        },
+        "overBudget": 0,
+        "worst": {
+          "id": "m6-load",
+          "stage": 2,
+          "x": 2.84,
+          "z": 12.2,
+          "yaw": 11,
+          "pitch": 0,
+          "calls": 39,
+          "triangles": 2370
+        }
+      },
+      {
+        "loaded": false,
+        "poses": 2832,
+        "peak": {
+          "calls": 43,
+          "triangles": 2204
+        },
+        "overBudget": 0,
+        "worst": {
+          "id": "m6-load",
+          "stage": 2,
+          "x": 2.84,
+          "z": 12.2,
+          "yaw": 11,
+          "pitch": 0,
+          "calls": 43,
+          "triangles": 2204
+        }
+      }
+    ]
+  },
+  "browserQueueJobs": 10,
+  "resourceViewsRequested": 56,
+  "nativeBrowserAcceptance": false,
+  "renderedMemoryAcceptance": false,
+  "screenshotsAccepted": false,
+  "registryPatchApplied": false,
+  "defaultChanged": false,
+  "automationEnabled": true,
+  "automationHasEndDate": false,
+  "files": {
+    "README.md": "f8af0ec0a87b5d0cc9eebc3ecfee3e76dca196ac4c575f13c1f631324ccb253c",
+    "final-syntax.json": "25fbdfe5ab3ad35a8c96de78f34b41dc86ee71e05d98ea99eb50848dfb04cfad",
+    "geometry.json": "0c208aa95357566ea58b7f3abd3d899bff94b66afa15b3fb6ed15ba3f995b83c",
+    "node-logs.tar.gz": "b6b15b3e89d5dc11cbf0dec436886678103eb69ccc73826164ec98c59a862340",
+    "node-results.json": "aa7036846210403a9924c81b46b283bc339ba5fdd86632685156c72337ba6a2b",
+    "node-summary.json": "d549936d8bcd6486bddfe9431ebcf08f579e6be2e9727a80170bcfdad206dd31",
+    "protocol-final-syntax.json": "d7e64e828023314ab67eff8bf4bb31b50e6cc97f8374231327c8fd35ef71eb2f",
+    "queue-snapshot.json": "d7c4472a90e566a7b276b3cf0856c2a865dce93174c94a9f16cfa2bc3ebd5ad1",
+    "registry-proposal.patch": "c8aa8c4d7d36aaf8bb49d58fad26e7722ed2013ad55bdb0cc31d166afd9772f0",
+    "resource-plan.json": "af602101f6ca32f3ac61bc7fee9fae4b59dc1e1f36a3fabd44148d850ad1ebc6",
+    "source-equivalence.json": "d1ee22663cd0c7fa0d98ab0c755b7a9e4c1c4f821914b041adaca53144a3933b",
+    "syntax.json": "da5eaa51201cc4d8bfd11fc70234de4d4fd6d92ebf753ffde9d46fc95ef3956a"
+  }
+}

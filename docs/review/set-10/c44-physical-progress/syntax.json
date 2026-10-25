@@ -1,0 +1,57 @@
+[
+  {
+    "file": "src/core/fpaccess.js",
+    "exit": 0,
+    "sha256": "5a6f92a54c33977da6371768122daaafbd14d6c990d6fd07fbb92fd0875f69e0"
+  },
+  {
+    "file": "src/core/fploading.js",
+    "exit": 0,
+    "sha256": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847"
+  },
+  {
+    "file": "src/core/fploadingscenario.js",
+    "exit": 0,
+    "sha256": "b40eccbb2a07d7a55faac10017949285084bcc149d768361a4a376a640c1e5dc"
+  },
+  {
+    "file": "src/core/fploadingworld.js",
+    "exit": 0,
+    "sha256": "70a8d61dac77a5256c09d4130fdaddd2c8e4098ad8e62b0e308219c9cf9536cf"
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sha256": "65993518b5562ee6b9ae4ec60e863c2200f90b5f27c2934958d1fc74a3f0f0c7"
+  },
+  {
+    "file": "src/scenes/FirstPersonScenarioScene.js",
+    "exit": 0,
+    "sha256": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654"
+  },
+  {
+    "file": "test/fploading.js",
+    "exit": 0,
+    "sha256": "c7621eb1eb79f125c61f87b64bdd5246d5202e0e25e1d0b8d6ec9b7954a5c5fd"
+  },
+  {
+    "file": "test/fploadinggeometry.js",
+    "exit": 0,
+    "sha256": "efb0605325b5d13fe11674147ce7901c778df45467289a986b83ce4c85847d67"
+  },
+  {
+    "file": "test/fploadingscenario.js",
+    "exit": 0,
+    "sha256": "9e00abaf89f57e812f3477dfd9ab32d443f5ae93788707700af151bd99c2ffb0"
+  },
+  {
+    "file": "test/fploadingworld.js",
+    "exit": 0,
+    "sha256": "f3f32deb2ec3dedaf527c4d2f1b5da395241cfeb906ae958d6161a02841b8ec3"
+  },
+  {
+    "file": "test/tools/fp-loading-context.js",
+    "exit": 0,
+    "sha256": "2b63218b830e780d356e500859a38161407dcc6e78b9a0dadf383eac761c68f9"
+  }
+]

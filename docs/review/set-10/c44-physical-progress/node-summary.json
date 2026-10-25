@@ -1,0 +1,7 @@
+{
+  "scope": "Pure Node suites from run-all --list; browser-opening scorm-launch-2004 excluded and queued separately.",
+  "suites": 90,
+  "passed": 90,
+  "failed": [],
+  "sourceRuntime": "fc710227"
+}
