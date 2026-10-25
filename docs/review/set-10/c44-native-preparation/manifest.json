@@ -2,8 +2,8 @@
   "date": "2026-10-25",
   "status": "doing; final-source full browser validation active",
   "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
-  "protocolRevision": "e834ad69cc6e073658d088a43578520ab15e4610",
-  "frozenSourceFiles": 194,
+  "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
+  "frozenSourceFiles": 196,
   "applicationBaseline": {
     "pureNodeSuites": 91,
     "freshRerunThisCheckIn": false,
@@ -24,11 +24,11 @@
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "3a00b7ef0a5fa38c6b6618648432c8fc8c2b252571816be300d97d601c119897",
-    "collect-results.py": "56a44c661b95c4b4503be0ee5428a7b09b1804d97fdca657739a3b4891952f8b",
+    "README.md": "c8708963144a73fa35f3a5f175764c0a50e32c3efcac73d8267221774c135953",
+    "collect-results.py": "908992ba027c1c681967027855216dfd5b84d93bfb08bd6ad599f4cd88e6cc33",
     "english-audit.log": "e45a8355a786e82e064df1f56d9a6513b96f4adc8e2e12fb5699c70971975b90",
     "node-prerequisites.json": "a674013a958232e24ab3ae125aa9b52978d967ceeaec9918f19a823ce1457513",
-    "plan.json": "b88ca369ed82a84ecf90e802a471a28ecf40bea164536875db41b91c9df16be7",
+    "plan.json": "5431ffa0d58fef02c6318cca34e7327cea51639a48df23616051b0431f0f554f",
     "protocol-correction-checks.json": "0ba76cf195f4539c03f341e16502878913b33c0d25ca966c52c12d3c5c84a200",
     "queue-snapshot.json": "6fbed3f2957fef90b5913c4e4a2a435b1506809e2a9cdf39226754ebf96d59e0",
     "reference.log": "93bb1b465408da2d21e1a2ba38bd22fde12be64b5a561db28e502d24fdcd062a",
@@ -45,5 +45,8 @@
   "focusedCargoIntegrationTests": 13,
   "pureNodePassed": 91,
   "finalBrowserAcceptance": false,
-  "nativeChecksAtSnapshot": 234
+  "nativeChecksAtSnapshot": 234,
+  "nativeWalkRegressionCases": 3,
+  "currentSequentialJobs": 29,
+  "retainedPriorPassedJobs": 1
 }

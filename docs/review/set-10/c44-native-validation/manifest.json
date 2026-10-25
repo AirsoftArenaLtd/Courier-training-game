@@ -1,8 +1,8 @@
 {
   "status": "doing; validation incomplete",
-  "planSha256": "b88ca369ed82a84ecf90e802a471a28ecf40bea164536875db41b91c9df16be7",
+  "planSha256": "5431ffa0d58fef02c6318cca34e7327cea51639a48df23616051b0431f0f554f",
   "files": {
-    "README.md": "83194d4035dc03adc3baf10f9148087ee642720540f4d24a3136b762e4d06f73",
+    "README.md": "a9abc222964b5cb6ee197ea812ee05e649ff1e36fe0cc4f6d898f0b6a94d4a8c",
     "completed/native-good-high-en-normal-find/c44-fit-native-good-high-en-normal-find-e834ad69-high-en-normal-find-brief.png": "67705c1d4fd45f13e2413340707abaeb8fc425b230112152c21d176ad9c9cbdc",
     "completed/native-good-high-en-normal-find/c44-fit-native-good-high-en-normal-find-e834ad69-high-en-normal-find-controls-0.png": "199a7c6015e5b4727265c367c4ca68e9a3d692025d06e677ca616d9e1f3c0cbd",
     "completed/native-good-high-en-normal-find/c44-fit-native-good-high-en-normal-find-e834ad69-high-en-normal-find-controls-1.png": "cd58139b06eda79b1ea78dda9841b55aa8c30cbff270858e0cc4dd2e8be7bd08",
@@ -18,7 +18,7 @@
     "completed/native-good-high-en-normal-find/c44-fit-native-good-high-en-normal-find-e834ad69-high-en-normal-find-result.png": "5ebb827e919177b0c80e9c9568f32f6ab5c66bd2d65744894a3695c9b48677ca",
     "completed/native-good-high-en-normal-find/c44-fit-native-good-high-en-normal-find-e834ad69.json": "b2c01e6dc0fea1f3dec9caf489cccdf72046a4063e9e6fd678ff2f4b267af478",
     "completed/native-good-high-en-normal-find/native-good-high-en-normal-find-attempt-1.log": "c385d844e40c3571ba41af2764c83f7236d81b40bd8fa62828b96fd2c23f757a",
-    "completed-summary.json": "80c46414787d819bdf36f8b10ef987a48ce01868477403ebc3f756691d4518c2",
+    "completed-summary.json": "77d7ab2ba263e053a0872283dd41643c65b00bdbffc19d211b0bb8e4b80b70be",
     "visual-review-high-en-normal-find.json": "7da02c7bca9cd2a61ccf4bf99b1c8ce7545668a6958d1351bef42a8cadea79cc"
   }
 }

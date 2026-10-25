@@ -1,0 +1,61 @@
+[
+  {
+    "command": [
+      "node",
+      "test/fploadingwalk.js"
+    ],
+    "exit": 0,
+    "log": "check-0.log",
+    "sha256": "7865cdc5c72df8f3699fbd6a4a6123a62c1f7a8805562d050ef6ecfe8554de4b"
+  },
+  {
+    "command": [
+      "node",
+      "test/fploadingreference.js"
+    ],
+    "exit": 0,
+    "log": "check-1.log",
+    "sha256": "f55713a20f85479785b27976025b74dba112232e701f7d78bb3b6532425583a2"
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "test/fploadingbrowser.js"
+    ],
+    "exit": 0,
+    "log": "check-2.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "test/tools/fp-loading-walk.js"
+    ],
+    "exit": 0,
+    "log": "check-3.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "test/fploadingwalk.js"
+    ],
+    "exit": 0,
+    "log": "check-4.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "node",
+      "-e",
+      "const fs=require('fs'),path=require('path'),Module=require('module');const file=path.resolve('test/englishtext-pilot.js'),m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(fs.readFileSync(process.argv[1],'utf8'),file);",
+      "docs/review/set-10/c44-native-walk-correction/englishtext-pilot.js"
+    ],
+    "exit": 0,
+    "log": "check-5.log",
+    "sha256": "f20dc3fcbaed35f9405a28141a00679cff1edeb41349084bd488946846759fed"
+  }
+]
