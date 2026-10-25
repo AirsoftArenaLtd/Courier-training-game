@@ -26,11 +26,11 @@
     "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d"
   },
   "protocolFiles": {
-    "test/fpproblembrowser.js": "3c964e4daba5c4628a8fa317eb2d74728c1c86c16ebb13f4b217a9c82f9ca175",
+    "test/fpproblembrowser.js": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
     "test/fpbench.js": "a5cf6ffe9ad97dc592322b0370bae8a10f619d291fe67e8d7d5d05c10189dc8b",
-    "test/fpproblemworld.js": "5bf940367410f27218eca5971d1e0b8d6510621b05cdc66461035ab9f915e536",
+    "test/fpproblemworld.js": "ce85dc0fd7b4be7f057667e99ac9d8e7b8941cf89221db515026bc8db008b190",
     "test/fpproblemgeometry.js": "3a92956dca8e087ba5937b9796711fb93561f49f0f8c54bf73489c93ee327d5a",
-    "test/tools/fp-problem-pose.js": "89d00b40f57e86837e1cd0010641b5b83ffa739444d6072cf636f1940b966031",
+    "test/tools/fp-problem-pose.js": "8ab94c70643951475b9b23cc5ef51a826495d70ae17d88c14f8a4a410114fb2a",
     "test/tools/fp-problem-quality.js": "c3c9253cf0b0fdccb491042205a50eeb32fc5a505e5da4a686389371ad2fd854",
     "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
   },
@@ -844,5 +844,10 @@
   "completedContinuationManifest": {
     "file": "completed-continuation-20261025/manifest.json",
     "sha256": "7efab5f67f5cd0816b20694cb4c0a491f49113bc3cfae4b6e7324b0e3ddd7dc0"
+  },
+  "earlierProtocolHashes": {
+    "test/fpproblembrowser.js": "3c964e4daba5c4628a8fa317eb2d74728c1c86c16ebb13f4b217a9c82f9ca175",
+    "test/fpproblemworld.js": "5bf940367410f27218eca5971d1e0b8d6510621b05cdc66461035ab9f915e536",
+    "test/tools/fp-problem-pose.js": "89d00b40f57e86837e1cd0010641b5b83ffa739444d6072cf636f1940b966031"
   }
 }
