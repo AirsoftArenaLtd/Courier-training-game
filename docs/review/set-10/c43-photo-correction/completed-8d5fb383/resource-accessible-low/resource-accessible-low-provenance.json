@@ -1,0 +1,47 @@
+{
+  "job": {
+    "id": "resource-accessible-low",
+    "command": [
+      "node",
+      "test/tools/fp-scanner-quality.js"
+    ],
+    "environment": {
+      "QA_PROFILES": "accessible-low",
+      "QA_TAG": "c43-resume-resource-accessible-low-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-resource-accessible-low-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "da6a9a18ffc51199881cca6312842ffa83a39eca795c652de897fa016c924ee9",
+    "attempts": 1,
+    "log": "resource-accessible-low-attempt-1.log",
+    "logSha256": "fcbf049e409ffdae46e0886e501acbe7042762e2912438d47e3f2939952301c2",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannercab.png": "81151cce909337b48fa490511ada358411cba310f32b184f261d958bcfc65dfa",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-quality.json": "8efa8282136cb0cff0b0d7696882c390e14b4213e9f396a8cb77512fd6fd66d3",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scanneridunder.png": "a2ab1d968573fe0f85f512ee72d41fa4911fcf4352570a578e3f125f34bb0894",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerphoto.png": "9c1175012f382fe8cf3de11b72d809c857eea8a2ebe7ae4d8d675a3070b7671e",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerclosed.png": "99163f1de1990346e1fd6703e773786b96b5914beeacfac4c1741d8b3bda2561",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannercargo.png": "532cb149365c1f1f7a96e09fa63bdfc232198a0dc631a741c8114f8f567db09f",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannersignature.png": "70d8c457293eb95edc4aede23236c3ded81db5e1ba24c7e09e258067152824e9",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low.log": "f56280da4d3e6a21f7cb837745dd8e6369c76bbb5165b6a1602193907e23c860",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scanneridexpired.png": "116841f52a33143d3fa275a31d9c71de05c6cee116bae3852f8d211cad2759e2",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerhandheld.png": "0d751cc5df6d6b4c266deefb63a4e20e37a1a96f0fdd396c498b41e44275cb5a",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannercontrols.png": "1a850483983a9c4d72baaadf1b0189f496dee1bddc08aa1c648b99c8807d24cc",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerreception.png": "431978462a5b5de8257bec5b19c00390105bb3101259c57bf6a92a88c89e95a9",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerreverse.png": "aa60ee94961853b8adb464a44d15c669f6bd3608d28584a0fc10af0c9b1c8b0e",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerplanter.png": "e462014938cf24f3f724239aa446dfe6dabcc8bc117796cd58f8584019a62ba8",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scannerrefusal.png": "1284cd28058cf581d765596f06d43eea5638023139a0aebbbb7212e6d3e631cc",
+      "test/out/fp-review/c43-resume-resource-accessible-low-8d5fb383-accessible-low-low-scanneridvalid.png": "025abff64f7d6fb1f4f5f8a871cf186485c426c03f219fa7c3e7eff77868dc73",
+      "test/out/fp-review/bench-c43-resume-resource-accessible-low-8d5fb383-accessible-low-low.json": "19a3c0250ea5e26bed0d8d8218e44b2e7d0646cb8c0680bf7e5a9e91b12117e5"
+    }
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}

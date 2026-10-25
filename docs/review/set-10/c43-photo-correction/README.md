@@ -1,12 +1,23 @@
 # C-43 photo capture correction — 24 October 2026
 
-Final-source progress: `loaded-low-8d5fb383/` contains the complete fourteen-view loaded-Low pass (37 / 1674 / 2 / 3557376 / 2974406). `native-low-en-pod-8d5fb383/` contains the first complete durable native journey: 1,226 checks, three POD stops, original 6200 score. The remaining profiles/journeys are still active. These are scoped passes, not a complete C43 acceptance.
+Final-source progress, 25 October: all **56 resource views** pass on runtime `8d5fb383`, across loaded Low, loaded High, accessible Low and missing-assets Low. Four complete native journeys pass **5,825 checks**: all three original scenarios at Low English normal text, plus POD with larger text. They preserve the original 6200 / 5100 / 6200 scores and three-star ratios, durable records/reload and the suspended workday. The rest of the native/critical/regression/repository matrix remains active; whole C43 stays doing.
+
+| Profile | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Loaded Low | 37 | 1674 | 2 | 3557376 | 2974406 |
+| Loaded High | 42 | 29614 | 4 | 11239424 | 6091174 |
+| Accessible Low | 37 | 1674 | 2 | 3557376 | 3221627 |
+| Missing-assets Low | 40 | 1344 | 2 | 3557376 | 2950742 |
+
+`completed-summary.json` indexes the completed jobs and native outcomes. `completed-8d5fb383/` holds the newly completed profiles and journeys; the earlier loaded-Low and first POD files remain in their original directories. `collect-results.py` verifies the source/protocol fingerprint, each successful job's exit status and log, every artifact hash, all fourteen poses per resource report, and complete three-stop durable native results before copying evidence. It never copies a running/failed job as acceptance. The root manifest hashes every collected file. Report revisions may name later documentation commits; the 76-file runtime proof and 86-file source/protocol plan establish unchanged application bytes.
+
+Visual inspection confirms a real HUD-free image beside the handheld on both quality settings, large ID fields, and the native business-hours reading. Static resource captures measure rendering cost; they are not substitutes for native interaction, corrected-font Tamil layout or owner visual/FPS review.
 
 Frozen runtime `8d5fb383`, task still doing on `codex/c43-scanner-exceptions`. All 86 pure Node suites and every changed JS syntax check pass freshly. The Low CPU geometry sweep remains 18,684 views at loaded 34 calls / 2,186 triangles and fallback 37 / 2,046. Shared/default/registry/scoring/save/Settings/i18n source is unchanged.
 
 The first rendered Low baseline at 0adf5acc passed numerical limits but showed the module HUD over the viewfinder and no captured-image preview. It is retained as superseded diagnostic evidence in `baseline-0adf5acc/`; High was stopped intentionally before code edits. The new camera captures the actual framebuffer with UI hidden, keeps the selected camera pose until readback finishes, and displays one transient image at 320×180 on Low or 640×360 on High. Retakes replace the same thumbnail. Next-stop/shutdown cleanup releases it; nothing enters saves or scoring. An eight-second watchdog restores input if readback never returns, and late callbacks cannot complete an old stop.
 
-Focused 6f96d641 preflights pass on both Low and High with actual visible images. Low: 27 calls / 912 triangles / 2 Three textures / 3,557,376 attachment bytes / 2,050,144 Phaser estimate bytes. High: 31 / 12,960 / 4 / 11,239,424 / 5,697,040. They precede only the watchdog addition; full 8d5fb383 render/native validation is still running. The original ceilings are unchanged. Cloud FPS is not an Intel measurement. The exact screenshots/raw reports are in `preflight-6f96d641/`.
+Focused 6f96d641 preflights pass on both Low and High with actual visible images. Low: 27 calls / 912 triangles / 2 Three textures / 3,557,376 attachment bytes / 2,050,144 Phaser estimate bytes. High: 31 / 12,960 / 4 / 11,239,424 / 5,697,040. They precede only the watchdog addition; the complete 8d5fb383 resource results above supersede them. Native validation continues. The original ceilings are unchanged. Cloud FPS is not an Intel measurement. The exact screenshots/raw reports are in `preflight-6f96d641/`.
 
 Node coverage includes actual StopScene/TalkController parity, all nine physical stops, loaded/fallback art and geometry, pixel-callback custody and thumbnail limits, duplicate/stale/failed/timed-out capture, clean framing/handheld visibility, and durable-job recovery/corrupt-evidence/source-change guards. The latest pilot B-159 audit is also run read-only against this checkout; its model-history false positive was clarified without changing the authored assertion or shared audit.
 

@@ -1,0 +1,47 @@
+{
+  "job": {
+    "id": "resource-loaded-high",
+    "command": [
+      "node",
+      "test/tools/fp-scanner-quality.js"
+    ],
+    "environment": {
+      "QA_PROFILES": "loaded-high",
+      "QA_TAG": "c43-resume-resource-loaded-high-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-resource-loaded-high-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "dd876cd83b0712062a37deaa998ab280560b30d5d0d64cf6abce0a924e72b9b7",
+    "attempts": 1,
+    "log": "resource-loaded-high-attempt-1.log",
+    "logSha256": "f0324e4770a708129d0b39f30dfd540ef7f2964128b56c1ab0fd7f5e522ddfe8",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-quality.json": "d0d57e7a6a3e24718f8534833dd11bfbf38f97386fd47473f054217f48b5a52b",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerclosed.png": "27709c76a2443f207a3424c080faab215cc81846d72c1ce5efe5d9bb6735097a",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scanneridvalid.png": "b2d977f3ca6cd14d4da6c765fc888852bb2805a5e74c3cab041d8d955d7dc728",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scanneridunder.png": "32fc42a4d7d06ef773c7d80cdf7fbfd6295d9ac712dd7cf22c0e6cb562f3b79d",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerreception.png": "6077c71f42339bda25ab14f787f84fe39bd841bc01848beee0ec218f83bca168",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerreverse.png": "40767c8d702e0d8ba0a49541e1b8df1001b4a886e8600de82f65f2b24b1afc63",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerrefusal.png": "a0705ebf463723216ae77eba0132c5794b46de7975b8c873796ddf5db9747346",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannersignature.png": "15b9df03ee267845fb4ee430793a115766bc81014c917942eb862b3a90dec3b4",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannercontrols.png": "ffbb05228fe7a398a7baf073653d3e0f50f635db338d37f096674255c2aeea16",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerphoto.png": "d977a5a6f698550e0f7b6cbd99964d9b6502d9a1bc0d84204f069e285111d2bd",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high.log": "4c54b157e35da7675ba6bf1066e40118b7e3ffdff130dbdeb018f5214902eec8",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannercargo.png": "cd6a66db4dfd695103766f3fa8a32a488479e21b2cabe5b1f2da5eeee262026b",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scanneridexpired.png": "c803bc6c65fb00d33f910603d68e1424a7f0460fc3a0401e2f10f33f36f11875",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerhandheld.png": "e9d6cdd6161d1839684b9c6e0430830fa35e623210f5c9ff129f6b59c525aa0b",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannercab.png": "55e60e7a9b5b6c805fa0334d93726ffb2a149716f8665016140c336a16395011",
+      "test/out/fp-review/c43-resume-resource-loaded-high-8d5fb383-loaded-high-high-scannerplanter.png": "9681e6230808758bb47ad8bd67b4b2e4ad4ea7ef21b2d904cf1127f096c287ac",
+      "test/out/fp-review/bench-c43-resume-resource-loaded-high-8d5fb383-loaded-high-high.json": "dd91b5b803f1d678bad79cc16c923a3f6dc96218e169a404c0dabc642c8b73e6"
+    }
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}
