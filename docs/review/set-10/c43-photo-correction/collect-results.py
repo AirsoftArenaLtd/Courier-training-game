@@ -44,7 +44,7 @@ existing = {
     'native-low-en-normal-pod': 'native-low-en-pod-8d5fb383',
 }
 summary = dict(runtime=plan['runtime'], jobsTotal=len(plan['jobs']), completed=[],
-               resources=[], native=[], scope='Completed jobs only. The whole matrix remains pending until every job passes.')
+               resources=[], native=[], followups=[], scope='Completed jobs only. The whole matrix remains pending until every job passes.')
 for job in plan['jobs']:
     selected_pipeline, selected_plan, entry = pipeline, plan, ledger.get(job['id'], {})
     for phase, definition, journal in phases[1:]:
@@ -62,6 +62,7 @@ for job in plan['jobs']:
         ('completed-8d5fb383/' if selected_pipeline == pipeline else 'completed-signature-8d5fb383/') + job['id'])
     destination.mkdir(parents=True, exist_ok=True)
     shutil.copy2(log, destination / log.name)
+    followup = dict(job=job['id'], exit=0, directory=str(destination.relative_to(evidence)), log=log.name)
     for name, expected in entry['artifacts'].items():
         artifact = root / name
         assert digest(artifact) == expected, 'Artifact changed: ' + name
@@ -89,13 +90,35 @@ for job in plan['jobs']:
             report = json.loads(artifact.read_text())
             assert not report['errors'] and not report['missingViews'], 'Incomplete resource views: ' + name
             assert len(report['scannerProof']) == 14, 'Missing scanner poses: ' + name
+        elif job['id'] in ('critical-id', 'doorstep-regression', 'problem-regression') and name.endswith('.json'):
+            report = json.loads(artifact.read_text())
+            assert report['complete'] and not report['errors'], 'Incomplete follow-up: ' + name
+            for source_name, source_hash in report.get('sourceFiles', {}).items():
+                assert digest(root / source_name) == source_hash, 'Follow-up source changed: ' + source_name
+            followup.update(checks=report['checks'], report=str((destination / artifact.name).relative_to(evidence)), modes=[])
+            for mode in report['modes']:
+                assert mode['durable'], 'Follow-up record was not reloaded: ' + name
+                result = mode['result']
+                row = dict(score=result['result']['score'], stars=result['stars'], durable=mode['durable'],
+                           assessment=result.get('assessment'), screenshots=len(mode['shots']))
+                if job['id'] == 'critical-id':
+                    assert report['protocolSha256'] == selected_plan['sources']['test/fpscannerstopbrowser.js']
+                    assert len(mode['stops']) == 3 and row['stars']['service'] == 1
+                    assert row['assessment']['attempts'] == 1 and not row['assessment']['passed'] and not row['assessment']['pending']
+                    row['criticals'] = [item['label'] for item in result['result']['log']['items'] if item.get('critical')]
+                    assert len(row['criticals']) >= 2
+                followup['modes'].append(row)
     write(destination / (job['id'] + '-provenance.json'), dict(job=job, result=entry,
           runtime=selected_plan['runtime'], pipeline=str(selected_pipeline.relative_to(root)),
           sourceProof=os.path.relpath(evidence / 'source-equivalence.json', destination)))
     summary['completed'].append(dict(id=job['id'], directory=str(destination.relative_to(evidence))))
+    if job['id'] in ('critical-id', 'doorstep-regression', 'problem-regression', 'academy', 'enterprise', 'routeday', 'driving'):
+        summary['followups'].append(followup)
 
 summary['jobsPassed'] = len(summary['completed'])
 summary['allJobsPassed'] = summary['jobsPassed'] == summary['jobsTotal']
+if summary['allJobsPassed']:
+    summary['scope'] = 'All 36 source-scoped browser jobs passed. Shared font/translation, current-pilot/A30/A31, default rollout and owner Intel FPS acceptance remain separate.'
 summary['resourceViews'] = 14 * len(summary['resources'])
 summary['nativeJourneys'] = len(summary['native'])
 summary['nativeChecks'] = sum(case['checks'] for case in summary['native'])
@@ -106,6 +129,7 @@ manifest.update(finalResourceViews=summary['resourceViews'], finalNativeJourneys
                 finalNativeChecks=summary['nativeChecks'], browserMatrixComplete=summary['allJobsPassed'],
                 nativeComplete=summary['nativeJourneys'] == 24,
                 finalJobsPassed=summary['jobsPassed'], finalJobsTotal=summary['jobsTotal'])
+manifest['status'] = 'review-ready' if summary['allJobsPassed'] else 'doing'
 manifest['files'] = {str(f.relative_to(evidence)): digest(f) for f in sorted(evidence.rglob('*'))
                      if f.is_file() and f != manifest_path}
 write(manifest_path, manifest)

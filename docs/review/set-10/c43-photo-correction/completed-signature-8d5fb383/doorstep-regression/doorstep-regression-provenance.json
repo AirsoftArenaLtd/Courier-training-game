@@ -1,0 +1,51 @@
+{
+  "job": {
+    "id": "doorstep-regression",
+    "command": [
+      "node",
+      "test/fpcustomerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-ta-large",
+      "QA_TAG": "c43-signature-doorstep-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-doorstep-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "06c01538306faf538f66045ec948214360b84b47940e01c189072ddf3fb1ebd7",
+    "attempts": 1,
+    "log": "doorstep-regression-attempt-1.log",
+    "logSha256": "172ddbd1e7a4295648da3412a082d3a5fad7ba5b44bf99c3f166aabf32f70654",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-result.png": "95118eb0bac782c46a42b86c8e1d62e8a1e8b4642409096cf7c6334a0ab46070",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-cargo.png": "eb3fdf85d5c52c02002cb403143c184defe00421c319c1cb00ac0f8f7fc9f58c",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-handheld.png": "e507f62b94356d29955685ebe5110cc3919ff29946dbf6c6e544728e649301e1",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383.json": "ba7b66a09af8e809441f377a9a27517a1a615841269d1e902f2cc7172242c465",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-cargo.png": "010e05ec042abc2d28490e79214e25fb1ae3d302174cbc206ca1d90e7f265c6b",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-name.png": "2899b4f2c3a11d1c3e301879b583b5ab4ee45457b9f3e01d74925ee127b590db",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-customer.png": "6c08cd7694dd1e4651aceeb9f65a218a3a519504d91b4917c466c66f8c4cc186",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-report.png": "a2d1e4b591723a60097d77cbd9b3ef1aec019d7af341f56671fd46d4415dae68",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-report.png": "c3a4dbe8d022eaf8e2539a77f1bb8d7d9cbbb2e592faab32dec5920224eb56f7",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-name.png": "02666df393182c2ef81a8adb535de87294ebc09fa59c4ddc6f7d48c0fa1a3808",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-tag.png": "585ad4f9d005123480438fb1a6b4621dcaf69535aa45f16accf7ed2577f03985",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-handheld.png": "2d489da7cdbcb445830ca551995d98d24b0506629320748ca8dac6332c21c414",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-reply.png": "c807d7c07efd2a5c24b26fc600c2440dadca852f9fef27bf4e818668f046b2dc",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop3-customer.png": "cf9f497804170a638c788c545b8e4c7b9ff60acc6f7620888da8a185350a757c",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-reply.png": "f22a871140955f57f73a90a80804bbd8767c83f4726b56c166edbbc555f8112a",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-reply.png": "a5e93216707378fc731af80a69c5bdbd086e6d390349fe904424bb3298d16d83",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-customer.png": "c14f07692364775241e1123555f56980d546a21af787f04b490965c2f53e5159",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-report.png": "df3c02d5a734edbbac0c63c1b59453ac00652795f19234fdc67745cf5a051e1e",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop1-cargo.png": "30d4c2a660ca601a8df3e66e252acae3e0d2c992c3a60cec4ba08518347405ad",
+      "test/out/fp-review/c43-signature-doorstep-8d5fb383-high-ta-large-stop2-handheld.png": "4651e0766d58340317c79ab40c40fe4fae8f4cd7572bfa6da19396ea4104c163"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

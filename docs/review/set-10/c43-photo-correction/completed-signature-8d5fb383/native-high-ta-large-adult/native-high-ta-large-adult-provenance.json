@@ -1,0 +1,71 @@
+{
+  "job": {
+    "id": "native-high-ta-large-adult",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-ta-large-adult",
+      "QA_TAG": "c43-signature-native-high-ta-large-adult-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-native-high-ta-large-adult-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "8442355bf732a474ac398d6b1e2b19bfeefa03698f05d6fbd58fbfdc8a7e2342",
+    "attempts": 1,
+    "log": "native-high-ta-large-adult-attempt-1.log",
+    "logSha256": "9e556cf1caf2ece3db589232ee9f9eae83e97707fd2af9b84f72378b2d84180e",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-exception-code.png": "f6bd6a1adff5df3c7a50dbd96d0901b211456297bd35fc5c2746ba82d043a532",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-reply.png": "19155690b1946b85237840bd14c2026cf2302659124f83985306fdc108c08e4a",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-report.png": "43076f72e8bff647e79cbef48cf1ef2baecb22263ced326df8e069018dd3b485",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-report.png": "726051bdc0e0462c429640ca88132e9190d0ff3e913f99125b08488cb52f123a",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-id-field1.png": "436609151a18b643ba1189628559ad22d801bd86abe9ed9bfdc67605554e2b17",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-id-field0.png": "eba723a035de2e9e1fb9939d75e36b0c9a2401f4e5b815338eff2ef83d649ee2",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-report.png": "6abaf2dc958e0bd8ccee6a3e7d6197ec9edd1b9e0d23ff405f4cf57c42240443",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-arrival.png": "207172fce45f0292be100c92549c7cba289db431df146074c384aecdaa1b77a7",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-id-field2.png": "ac3620d3e26f98eac10f0754e3354cc194d3785b6b9f79132a39f2eadd09af4b",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-exception-description.png": "e205913a7e3d6e1c2f3d3821c9593196bb577d28da91a1f0397b953342d683aa",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-cargo.png": "b99a352fb5e7907c11c0eb6c1cd22ae190d20a4ed96ac7c121f5ce00461c3a8b",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-scan.png": "c88e20946677f1bf50360b8950e66baf147b30147f9580eb761209911d38d38b",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-id-field0.png": "09dac6600147e19a5e4a792c7b9ab2ca6a3329086b17db42957059207a536a29",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-controls-3.png": "05b7b81476c45c082ef00a893429a9104bf9c88d3bc95880dfbf8cbc14ef4db5",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-arrival.png": "39756fbac1562db092eabfa3b0bcc8fc6566498b35bc50083e3c365301753706",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-controls-0.png": "d8fa49946b7bd09851be2a347fb2fe34a63fb19456f696acdf90382eaf823dfc",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-scan.png": "4596ed6fb65ae53cb2fa85dc657ce18a99b5c773a5e2912dd17ff271d2d5145b",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-tag.png": "1a4b5e4e33498e3ae10a5e8ed24321aab5d316ef06418d07bd96717e6763bc86",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-id-field3.png": "79459d950fe0c43ec90aa4ff61211d7932584cac37bae8a3ac2bb029ad33e231",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-id-field0.png": "1f9900482dea834a8d8ff22e99c094307b0a1c6992a92ceeb0dff14429fc0489",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-cargo.png": "9f8b83189b7a9fabb4a92ffb59b4bb6e9a8590b01a7d93913df89abf0cd94ee9",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-id-field1.png": "e7ee0e9268b0e4917eff022cd34859c3e5e11fab352c301d407eabbee60e6ecb",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-result.png": "a470f8c29bb1d220d1d9851fc9dac4400c03b28aa6914acfa8d9033ecb756be3",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-controls-1.png": "8daa6e4608965bd805ae095e5210d0b53333693fd9af4982874b4be5f4223b7c",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-exception-description.png": "e53ca573adefa68adac37d2c64bef1302eecf67bb7897cd5402b9013491c649e",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-arrival.png": "89c297c715264db16ca98f1c256a706cd6ddf6d7ab31ac43f4afdd99a61ce5e3",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-scan.png": "2d1b9e68cddaa0a662081e49bb49e7e8be3a8b734825270e5ff5a807f476b943",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383.json": "43107259f1613678d15d58400408b240542ca109e96566d5c20e78fd2eff3707",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-id-field1.png": "9dc8c1df3b48065cbb64d2fcaea7b9fd2d06ec0b58794b28494f4a804ec79036",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-reply.png": "56ce79794745770bbe3ba05f8a078ab246ed40a765c0d70873e4cd3b7ebae571",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-id-field3.png": "318fa9e5f7ecb23e6401179f7b4dec769442c5503b657cd250a1e7353b0acbec",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop2-tag.png": "592d546ce6972cf08907d8ffebf6597953bc05808cb96e8c715704326a3352b0",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-id-field3.png": "516ebbf68583ea8e4b23448262a71dd11a2684a10b1e0dcafe5af64ca896a3e5",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-id-field2.png": "dc87aa25b2c705a15b0ccb60dc5b18a3b259f99acad64b13f95b6dcf17836244",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-id-field2.png": "deb8990fffb3a208dfcc71bf1fefe85929530449d6f7838901916ae8fce1ebcc",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-printed-name.png": "c527ace4b1243b5e5512bd60eedd5f9b7ff19736c66980c92ca049bb01130f43",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-signature.png": "c527ace4b1243b5e5512bd60eedd5f9b7ff19736c66980c92ca049bb01130f43",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop1-exception-code.png": "2e497651a5c8bc5b9dc96a41af9ac40d8124425b55b796a83458373acaee0141",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-stop0-cargo.png": "9a15e55671671d5adc55bd44813783b54e46cf01e94a1e3c1e14a2671bcaad12",
+      "test/out/fp-review/c43-signature-native-high-ta-large-adult-8d5fb383-high-ta-large-adult-controls-2.png": "49ed3c2a8e51368784c1c32ca324e212fbad86213163eca805f060ead49e34f8"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}
