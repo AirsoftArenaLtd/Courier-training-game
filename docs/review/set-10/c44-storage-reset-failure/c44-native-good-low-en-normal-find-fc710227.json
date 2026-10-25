@@ -1,0 +1,750 @@
+{
+  "checks": 225,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "find",
+      "shots": [
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-brief.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-0.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-1.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-2.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-controls-3.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-handheld.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-open-cargo.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f1.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f4.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f6.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f10.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-find-label-f12.png",
+        "c44-native-good-low-en-normal-find-fc710227-low-en-normal-find-result.png"
+      ],
+      "findEvents": [
+        {
+          "pkg": "f1",
+          "elapsed": 5.049939999999991,
+          "roundStart": 0,
+          "roundIndex": 0,
+          "roundClean": true,
+          "requested": "f1"
+        },
+        {
+          "pkg": "f4",
+          "elapsed": 8.799939999999992,
+          "roundStart": 5.749939999999989,
+          "roundIndex": 1,
+          "roundClean": true,
+          "requested": "f4"
+        },
+        {
+          "pkg": "f6",
+          "elapsed": 12.649940000000047,
+          "roundStart": 9.499940000000002,
+          "roundIndex": 2,
+          "roundClean": true,
+          "requested": "f6"
+        },
+        {
+          "pkg": "f10",
+          "elapsed": 17.14994000000011,
+          "roundStart": 13.349940000000057,
+          "roundIndex": 3,
+          "roundClean": true,
+          "requested": "f10"
+        },
+        {
+          "pkg": "f12",
+          "elapsed": 21.89994000000018,
+          "roundStart": 17.84994000000012,
+          "roundIndex": 4,
+          "roundClean": true,
+          "requested": "f12"
+        }
+      ],
+      "placements": [],
+      "observation": {
+        "elapsed": 22.59994000000019,
+        "events": [
+          {
+            "pkg": "f1",
+            "elapsed": 5.049939999999991,
+            "roundStart": 0,
+            "roundIndex": 0,
+            "roundClean": true,
+            "requested": "f1"
+          },
+          {
+            "pkg": "f4",
+            "elapsed": 8.799939999999992,
+            "roundStart": 5.749939999999989,
+            "roundIndex": 1,
+            "roundClean": true,
+            "requested": "f4"
+          },
+          {
+            "pkg": "f6",
+            "elapsed": 12.649940000000047,
+            "roundStart": 9.499940000000002,
+            "roundIndex": 2,
+            "roundClean": true,
+            "requested": "f6"
+          },
+          {
+            "pkg": "f10",
+            "elapsed": 17.14994000000011,
+            "roundStart": 13.349940000000057,
+            "roundIndex": 3,
+            "roundClean": true,
+            "requested": "f10"
+          },
+          {
+            "pkg": "f12",
+            "elapsed": 21.89994000000018,
+            "roundStart": 17.84994000000012,
+            "roundIndex": 4,
+            "roundClean": true,
+            "requested": "f12"
+          }
+        ]
+      },
+      "original": {
+        "result": {
+          "score": 1426,
+          "ratios": {
+            "efficiency": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 214 Birch Ln in 5.0s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 58 Oak St in 3.1s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 900 Market St in 3.2s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 5 Harbor View in 3.8s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 88 Canyon Rd in 4.1s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Pulled the right package first time (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the truck in good time (23s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+            "Check number AND street AND unit before you pull a package.",
+            "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+            "Time lost digging at every stop is time you never get back on the route."
+          ],
+          "summary": "5/5 right first time · 0 wrong picks · 23s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 214 Birch Ln in 5.0s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 58 Oak St in 3.1s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 900 Market St in 3.2s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 5 Harbor View in 3.8s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 88 Canyon Rd in 4.1s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Pulled the right package first time (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the truck in good time (23s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "f3": {
+                "col": "A",
+                "row": "top",
+                "k": 1
+              },
+              "f2": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "f5": {
+                "col": "A",
+                "row": "bottom",
+                "k": 1
+              },
+              "f9": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "f8": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "f11": {
+                "col": "C",
+                "row": "bottom",
+                "k": 1
+              },
+              "f7": {
+                "col": "floor",
+                "row": "floor",
+                "k": 0
+              }
+            }
+          }
+        },
+        "stars": {
+          "efficiency": 3,
+          "service": 3
+        }
+      },
+      "result": {
+        "id": "m6-find",
+        "result": {
+          "score": 1426,
+          "ratios": {
+            "efficiency": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 214 Birch Ln in 5.0s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921469213,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 58 Oak St in 3.1s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921482721,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 900 Market St in 3.2s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921496864,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 5 Harbor View in 3.8s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921512237,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 88 Canyon Rd in 4.1s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921527945,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Pulled the right package first time (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921529809,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the truck in good time (23s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792921529809,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+            "Check number AND street AND unit before you pull a package.",
+            "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+            "Time lost digging at every stop is time you never get back on the route."
+          ],
+          "summary": "5/5 right first time · 0 wrong picks · 23s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 214 Birch Ln in 5.0s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921469213,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 58 Oak St in 3.1s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921482721,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 900 Market St in 3.2s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921496864,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 5 Harbor View in 3.8s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921512237,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 88 Canyon Rd in 4.1s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921527945,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Pulled the right package first time (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921529809,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the truck in good time (23s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792921529809,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "f3": {
+                "col": "A",
+                "row": "top",
+                "k": 1
+              },
+              "f2": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "f5": {
+                "col": "A",
+                "row": "bottom",
+                "k": 1
+              },
+              "f9": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "f8": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "f11": {
+                "col": "C",
+                "row": "bottom",
+                "k": 1
+              },
+              "f7": {
+                "col": "floor",
+                "row": "floor",
+                "k": 0
+              }
+            },
+            "seconds": 23
+          }
+        },
+        "stars": {
+          "efficiency": 3,
+          "service": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Check number AND street AND unit before you pull a package.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Time lost digging at every stop is time you never get back on the route.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1426,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792921529815
+        },
+        "elapsed": 22.59994000000019,
+        "runElapsed": 22.59994000000019,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "df74d9ccab435f80b118ab95bee3836b428c9641",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "72f4d24d9e52bc1be56b84d1714b5667d1d3c540b227e35f972c371831d09a71",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingworld.js": "70a8d61dac77a5256c09d4130fdaddd2c8e4098ad8e62b0e308219c9cf9536cf",
+    "src/core/fploadingscenario.js": "b40eccbb2a07d7a55faac10017949285084bcc149d768361a4a376a640c1e5dc",
+    "src/core/fpworld.js": "65993518b5562ee6b9ae4ec60e863c2200f90b5f27c2934958d1fc74a3f0f0c7",
+    "src/core/fpaccess.js": "5a6f92a54c33977da6371768122daaafbd14d6c990d6fd07fbb92fd0875f69e0",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  },
+  "protocolSha256": "d592d4a3dcc720ef4a2ba3c2b9017aacaa28c1478dbfd6a9852deef90523aa88",
+  "scope": "Only existing-id registration, accessibility preferences and a real suspended workday are fixtures. All movement, target selection, label reading, carrying, placements, restraints, picks, pauses and completion use real keys. No position, action callback, clock, scoring, result or assessment-completion fixtures. Observations are replayed through actual original 2D callbacks in Node. Tamil glyph/translation readiness remains a separate shared gate.",
+  "failure": {
+    "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   checkpoint: '{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}',\n-   checkpoint: `{\"version\":2,\"sequence\":1,\"welcomed\":false,\"campaign\":{\"version\":2,\"kind\":\"campaign\",\"seed\":1,\"phase\":\"prepare\",\"mode\":\"walk\",\"elapsed\":0,\"player\":{\"x\":9,\"z\":10,\"yaw\":0,\"pitch\":0},\"van\":{\"x\":2.84,\"z\":8,\"yaw\":0,\"speed\":0,\"steer\":0,\"gear\":1,\"hand\":true,\"belt\":false,\"look\":0},\"cargoOpen\":false,\"secured\":false,\"heldId\":null,\"lastScan\":null,\"briefing\":{\"day\":1,\"weather\":\"cloudy\",\"clockMin\":500},\"checks\":{\"tyres\":null,\"lights\":null},\"repaired\":false,\"stops\":[{\"id\":0,\"lotId\":\"lot63\",\"x\":123.755,\"z\":-133.91666666666669,\"side\":-1,\"park\":{\"x\":131.45000000000002,\"z\":-133.91666666666669,\"yaw\":3.141592653589793},\"address\":\"413 Oak St\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":1,\"lotId\":\"lot51\",\"x\":80.705,\"z\":-129.33333333333334,\"side\":-1,\"park\":{\"x\":86.45,\"z\":-129.33333333333334,\"yaw\":3.141592653589793},\"address\":\"409 Birch Ln\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":2,\"lotId\":\"lot27\",\"x\":33.755,\"z\":-115.58333333333333,\"side\":-1,\"park\":{\"x\":41.45,\"z\":-115.58333333333333,\"yaw\":3.141592653589793},\"address\":\"405 Maple Ave\",\"service\":\"safeplace\",\"contacted\":false,\"resolved\":false},{\"id\":3,\"lotId\":\"lot38\",\"x\":80.12,\"z\":-30.166666666666664,\"side\":-1,\"park\":{\"x\":86.45,\"z\":-30.166666666666664,\"yaw\":3.141592653589793},\"address\":\"205 Birch Ln\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":4,\"lotId\":\"lot55\",\"x\":123.755,\"z\":10.25,\"side\":-1,\"park\":{\"x\":131.45000000000002,\"z\":10.25,\"yaw\":3.141592653589793},\"address\":\"109 Oak St\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false}],\"parcels\":[{\"id\":\"parcel0\",\"stop\":0,\"address\":\"413 Oak St\",\"tracking\":\"7811000 2000\",\"weight\":25,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel1\",\"stop\":1,\"address\":\"409 Birch Ln\",\"tracking\":\"7811037 2091\",\"weight\":5,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel2\",\"stop\":2,\"address\":\"405 Maple Ave\",\"tracking\":\"7811074 2182\",\"weight\":11,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel3\",\"stop\":3,\"address\":\"205 Birch Ln\",\"tracking\":\"7811111 2273\",\"weight\":24,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel4\",\"stop\":4,\"address\":\"109 Oak St\",\"tracking\":\"7811148 2364\",\"weight\":16,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel5\",\"stop\":-1,\"address\":\"214 Birch Ln\",\"tracking\":\"OTR-90001-6\",\"weight\":4,\"anomaly\":\"missort\",\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false}],\"logs\":[],\"events\":{},\"retrievals\":0,\"departed\":false,\"activeStop\":0,\"requested\":null,\"leg\":0,\"mirrorAt\":-100,\"signal\":0,\"crossing\":{\"state\":\"waiting\",\"x\":-7,\"z\":10.25,\"clock\":0,\"early\":false},\"stopSign\":{\"stopped\":false,\"resolved\":false},\"traffic\":[{\"x\":1.7,\"z\":32.75,\"yaw\":0,\"speed\":4,\"cruise\":4,\"wait\":0,\"junction\":-1},{\"x\":-1.7,\"z\":-147.25,\"yaw\":3.141592653589793,\"speed\":3.7,\"cruise\":3.7,\"wait\":0,\"junction\":-1}],\"routePlan\":{\"day\":1,\"variant\":1,\"townSeed\":1,\"weather\":\"cloudy\",\"clockMin\":500,\"dispatch\":{\"stop\":2,\"sent\":false,\"read\":null,\"kind\":\"planter\"},\"route\":[{\"lotId\":\"lot63\",\"index\":1,\"done\":false,\"type\":\"handoff\",\"stop\":{\"id\":\"d1s1\",\"brief\":\"413 Oak St: SIGNATURE REQUIRED.\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"413\",\"steps\":3,\"wall\":14477038,\"roof\":4608604,\"door\":2768762,\"porchW\":462,\"siding\":\"shingle\",\"numberOn\":\"column\",\"bell\":true,\"stories\":1},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"413\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"OAK ST\"}},{\"type\":\"tree\",\"x\":1150,\"depth\":-9,\"art\":{\"snow\":false}}],\"packages\":[{\"id\":\"p1\",\"to\":\"Sam Okafor\",\"number\":\"413\",\"street\":\"Oak St\",\"service\":\"signature\",\"weight\":25,\"size\":\"m\",\"tracking\":\"7811000 2000\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Sam Okafor\",\"number\":\"415\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811000 2007\"},{\"id\":\"d2\",\"to\":\"Sam Okafor\",\"number\":\"413\",\"street\":\"Oak Ct\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811000 2003\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Sam Okafor\",\"spec\":{\"skin\":9263675,\"hair\":1971216,\"hairStyle\":\"curly\",\"shirt\":16762941},\"adult\":true,\"atAddress\":true,\"delay\":3.8830041117034853,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[]}},{\"lotId\":\"lot51\",\"index\":2,\"done\":false,\"type\":\"business\",\"stop\":{\"id\":\"d1s2\",\"brief\":\"409 Birch Ln — HARBOR CAFE: SIGNATURE REQUIRED.\",\"par\":130,\"lot\":{\"kind\":\"business\",\"spec\":{\"number\":\"409\",\"name\":\"HARBOR CAFE\",\"accent\":15246141,\"awning\":15246141,\"hours\":\"MON–FRI\\\\n8AM–6PM\",\"open\":true,\"steps\":1},\"interior\":{\"kind\":\"lobby\",\"sign\":\"HARBOR CAFE\",\"accent\":15246141}},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"409\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"BIRCH LN\"}}],\"packages\":[{\"id\":\"p1\",\"to\":\"HARBOR CAFE\",\"number\":\"409\",\"street\":\"Birch Ln\",\"service\":\"signature\",\"weight\":5,\"size\":\"s\",\"tracking\":\"7811037 2091\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"HARBOR CAFE\",\"number\":\"411\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811037 2097\"},{\"id\":\"d2\",\"to\":\"HARBOR CAFE\",\"number\":\"409\",\"street\":\"Birch St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811037 2093\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Marcus Bell\",\"spec\":{\"skin\":9263675,\"hair\":1971216,\"hairStyle\":\"buzz\",\"shirt\":4091824,\"beard\":true},\"adult\":true,\"atAddress\":true,\"delay\":3.269596283789724,\"role\":\"reception\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"reception\"]},\"lessons\":[]}},{\"lotId\":\"lot27\",\"index\":3,\"done\":false,\"type\":\"leave\",\"stop\":{\"id\":\"d1s3\",\"brief\":\"405 Maple Ave: standard delivery.\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"405\",\"steps\":1,\"wall\":13228228,\"roof\":4608604,\"door\":12071498,\"porchW\":471,\"siding\":\"lap\",\"numberOn\":\"wall\",\"bell\":true,\"stories\":2},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"405\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"MAPLE AVE\"}},{\"type\":\"tree\",\"x\":1150,\"depth\":-9,\"art\":{\"snow\":false}}],\"spots\":[{\"id\":\"mat\",\"label\":\"On the doormat\",\"x\":0,\"grade\":\"good\"},{\"id\":\"steps\",\"label\":\"At the bottom of the steps\",\"x\":\"steps\",\"grade\":\"bad\",\"note\":\"Visible from the street and in the way on the steps.\"}],\"packages\":[{\"id\":\"p1\",\"to\":\"Ray Ruiz\",\"number\":\"405\",\"street\":\"Maple Ave\",\"service\":\"standard\",\"weight\":11,\"size\":\"s\",\"tracking\":\"7811074 2182\",\"note\":\"Ring the bell, please don't knock: baby sleeping\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Ray Ruiz\",\"number\":\"407\",\"street\":\"Maple Ave\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811074 2187\"},{\"id\":\"d2\",\"to\":\"Ray Ruiz\",\"number\":\"405\",\"street\":\"Maple St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811074 2183\"}],\"stepHazard\":null,\"answer\":null,\"expected\":{\"outcome\":\"deliver\",\"types\":[\"left\"],\"spot\":\"mat\"},\"lessons\":[]}},{\"lotId\":\"lot38\",\"index\":4,\"done\":false,\"type\":\"apartment\",\"stop\":{\"id\":\"d1s4\",\"brief\":\"205 Birch Ln: standard delivery.\",\"par\":130,\"lot\":{\"kind\":\"apartment\",\"spec\":{\"number\":\"205\",\"name\":\"THE BIRCH\",\"steps\":2},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"205\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"BIRCH LN\"}}],\"packages\":[{\"id\":\"p1\",\"to\":\"Alma Kowalski\",\"number\":\"205\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":24,\"size\":\"m\",\"tracking\":\"7811111 2273\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Alma Kowalski\",\"number\":\"207\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811111 2277\"},{\"id\":\"d2\",\"to\":\"Alma Kowalski\",\"number\":\"205\",\"street\":\"Birch St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811111 2273\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Alma Kowalski\",\"spec\":{\"skin\":15845285,\"hair\":12105920,\"hairStyle\":\"short\",\"shirt\":3107491,\"glasses\":true},\"adult\":true,\"atAddress\":true,\"delay\":2.149341939948499,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[]}},{\"lotId\":\"lot55\",\"index\":5,\"done\":false,\"type\":\"dog\",\"stop\":{\"id\":\"d1s5\",\"brief\":\"109 Oak St: standard delivery. Customer note: \\\\\"Dog in yard.\\\\\"\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"109\",\"steps\":1,\"wall\":13228228,\"roof\":6840404,\"door\":2768762,\"porchW\":440,\"siding\":\"shingle\",\"numberOn\":\"wall\",\"bell\":false,\"stories\":1},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"109\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"OAK ST\"}},{\"type\":\"sign\",\"x\":-105,\"depth\":9,\"art\":{\"text\":\"BEWARE\\\\nOF DOG\"}},{\"type\":\"doghouse\",\"x\":210,\"depth\":7},{\"type\":\"bowl\",\"x\":290,\"depth\":7}],\"packages\":[{\"id\":\"p1\",\"to\":\"Tomas Vela\",\"number\":\"109\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":16,\"size\":\"s\",\"tracking\":\"7811148 2364\",\"note\":\"Dog in yard\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Tomas Vela\",\"number\":\"111\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811148 2367\"},{\"id\":\"d2\",\"to\":\"Tomas Vela\",\"number\":\"109\",\"street\":\"Oak Ct\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811148 2363\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Tomas Vela\",\"spec\":{\"skin\":14725258,\"hair\":5913130,\"hairStyle\":\"short\",\"shirt\":3116931,\"mustache\":true},\"adult\":true,\"atAddress\":true,\"delay\":2.693729009013623,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[],\"fence\":{\"x0\":-120,\"x1\":980,\"gate\":40,\"color\":16777215},\"dog\":{\"name\":\"Scout\",\"spec\":{\"fur\":3813424,\"patch\":12094037,\"collar\":16762941},\"mood\":\"playful\",\"x\":300,\"patrol\":[120,520],\"barks\":520,\"facing\":-1},\"triggers\":[{\"on\":\"gate\",\"talk\":\"gate\"}],\"talks\":{\"gate\":{\"start\":\"g0\",\"hint\":\"Hand the package over the gate: Deliver on your handheld (TAB).\",\"nodes\":{\"g0\":{\"speaker\":\"narrator\",\"act\":\"dogShow\",\"arg\"`... 6095 more characters,\n    events: '[]',\n-   stored: '{\"current\":{\"id\":\"mvnn4q8s\",\"day\":1,\"startedAt\":1792921436380,\"seconds\":2,\"events\":[{\"type\":\"brief.read\",\"key\":\"persisted-cargo-review\",\"ok\":true,\"stop\":null}],\"aids\":\"ffo11\"},\"last\":null}',\n-   workday: '{\"current\":{\"id\":\"mvnn4q8s\",\"day\":1,\"startedAt\":1792921436380,\"seconds\":2,\"events\":[{\"type\":\"brief.read\",\"key\":\"persisted-cargo-review\",\"ok\":true,\"stop\":null}],\"aids\":\"ffo11\"},\"last\":null}'\n  }\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   checkpoint: '{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}',\n-   checkpoint: `{\"version\":2,\"sequence\":1,\"welcomed\":false,\"campaign\":{\"version\":2,\"kind\":\"campaign\",\"seed\":1,\"phase\":\"prepare\",\"mode\":\"walk\",\"elapsed\":0,\"player\":{\"x\":9,\"z\":10,\"yaw\":0,\"pitch\":0},\"van\":{\"x\":2.84,\"z\":8,\"yaw\":0,\"speed\":0,\"steer\":0,\"gear\":1,\"hand\":true,\"belt\":false,\"look\":0},\"cargoOpen\":false,\"secured\":false,\"heldId\":null,\"lastScan\":null,\"briefing\":{\"day\":1,\"weather\":\"cloudy\",\"clockMin\":500},\"checks\":{\"tyres\":null,\"lights\":null},\"repaired\":false,\"stops\":[{\"id\":0,\"lotId\":\"lot63\",\"x\":123.755,\"z\":-133.91666666666669,\"side\":-1,\"park\":{\"x\":131.45000000000002,\"z\":-133.91666666666669,\"yaw\":3.141592653589793},\"address\":\"413 Oak St\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":1,\"lotId\":\"lot51\",\"x\":80.705,\"z\":-129.33333333333334,\"side\":-1,\"park\":{\"x\":86.45,\"z\":-129.33333333333334,\"yaw\":3.141592653589793},\"address\":\"409 Birch Ln\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":2,\"lotId\":\"lot27\",\"x\":33.755,\"z\":-115.58333333333333,\"side\":-1,\"park\":{\"x\":41.45,\"z\":-115.58333333333333,\"yaw\":3.141592653589793},\"address\":\"405 Maple Ave\",\"service\":\"safeplace\",\"contacted\":false,\"resolved\":false},{\"id\":3,\"lotId\":\"lot38\",\"x\":80.12,\"z\":-30.166666666666664,\"side\":-1,\"park\":{\"x\":86.45,\"z\":-30.166666666666664,\"yaw\":3.141592653589793},\"address\":\"205 Birch Ln\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false},{\"id\":4,\"lotId\":\"lot55\",\"x\":123.755,\"z\":10.25,\"side\":-1,\"park\":{\"x\":131.45000000000002,\"z\":10.25,\"yaw\":3.141592653589793},\"address\":\"109 Oak St\",\"service\":\"handover\",\"contacted\":false,\"resolved\":false}],\"parcels\":[{\"id\":\"parcel0\",\"stop\":0,\"address\":\"413 Oak St\",\"tracking\":\"7811000 2000\",\"weight\":25,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel1\",\"stop\":1,\"address\":\"409 Birch Ln\",\"tracking\":\"7811037 2091\",\"weight\":5,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel2\",\"stop\":2,\"address\":\"405 Maple Ave\",\"tracking\":\"7811074 2182\",\"weight\":11,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel3\",\"stop\":3,\"address\":\"205 Birch Ln\",\"tracking\":\"7811111 2273\",\"weight\":24,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel4\",\"stop\":4,\"address\":\"109 Oak St\",\"tracking\":\"7811148 2364\",\"weight\":16,\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false},{\"id\":\"parcel5\",\"stop\":-1,\"address\":\"214 Birch Ln\",\"tracking\":\"OTR-90001-6\",\"weight\":4,\"anomaly\":\"missort\",\"location\":\"depot\",\"zone\":null,\"scanned\":false,\"stopScanned\":false,\"loaded\":false,\"returnRequired\":false}],\"logs\":[],\"events\":{},\"retrievals\":0,\"departed\":false,\"activeStop\":0,\"requested\":null,\"leg\":0,\"mirrorAt\":-100,\"signal\":0,\"crossing\":{\"state\":\"waiting\",\"x\":-7,\"z\":10.25,\"clock\":0,\"early\":false},\"stopSign\":{\"stopped\":false,\"resolved\":false},\"traffic\":[{\"x\":1.7,\"z\":32.75,\"yaw\":0,\"speed\":4,\"cruise\":4,\"wait\":0,\"junction\":-1},{\"x\":-1.7,\"z\":-147.25,\"yaw\":3.141592653589793,\"speed\":3.7,\"cruise\":3.7,\"wait\":0,\"junction\":-1}],\"routePlan\":{\"day\":1,\"variant\":1,\"townSeed\":1,\"weather\":\"cloudy\",\"clockMin\":500,\"dispatch\":{\"stop\":2,\"sent\":false,\"read\":null,\"kind\":\"planter\"},\"route\":[{\"lotId\":\"lot63\",\"index\":1,\"done\":false,\"type\":\"handoff\",\"stop\":{\"id\":\"d1s1\",\"brief\":\"413 Oak St: SIGNATURE REQUIRED.\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"413\",\"steps\":3,\"wall\":14477038,\"roof\":4608604,\"door\":2768762,\"porchW\":462,\"siding\":\"shingle\",\"numberOn\":\"column\",\"bell\":true,\"stories\":1},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"413\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"OAK ST\"}},{\"type\":\"tree\",\"x\":1150,\"depth\":-9,\"art\":{\"snow\":false}}],\"packages\":[{\"id\":\"p1\",\"to\":\"Sam Okafor\",\"number\":\"413\",\"street\":\"Oak St\",\"service\":\"signature\",\"weight\":25,\"size\":\"m\",\"tracking\":\"7811000 2000\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Sam Okafor\",\"number\":\"415\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811000 2007\"},{\"id\":\"d2\",\"to\":\"Sam Okafor\",\"number\":\"413\",\"street\":\"Oak Ct\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811000 2003\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Sam Okafor\",\"spec\":{\"skin\":9263675,\"hair\":1971216,\"hairStyle\":\"curly\",\"shirt\":16762941},\"adult\":true,\"atAddress\":true,\"delay\":3.8830041117034853,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[]}},{\"lotId\":\"lot51\",\"index\":2,\"done\":false,\"type\":\"business\",\"stop\":{\"id\":\"d1s2\",\"brief\":\"409 Birch Ln — HARBOR CAFE: SIGNATURE REQUIRED.\",\"par\":130,\"lot\":{\"kind\":\"business\",\"spec\":{\"number\":\"409\",\"name\":\"HARBOR CAFE\",\"accent\":15246141,\"awning\":15246141,\"hours\":\"MON–FRI\\\\n8AM–6PM\",\"open\":true,\"steps\":1},\"interior\":{\"kind\":\"lobby\",\"sign\":\"HARBOR CAFE\",\"accent\":15246141}},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"409\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"BIRCH LN\"}}],\"packages\":[{\"id\":\"p1\",\"to\":\"HARBOR CAFE\",\"number\":\"409\",\"street\":\"Birch Ln\",\"service\":\"signature\",\"weight\":5,\"size\":\"s\",\"tracking\":\"7811037 2091\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"HARBOR CAFE\",\"number\":\"411\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811037 2097\"},{\"id\":\"d2\",\"to\":\"HARBOR CAFE\",\"number\":\"409\",\"street\":\"Birch St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811037 2093\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Marcus Bell\",\"spec\":{\"skin\":9263675,\"hair\":1971216,\"hairStyle\":\"buzz\",\"shirt\":4091824,\"beard\":true},\"adult\":true,\"atAddress\":true,\"delay\":3.269596283789724,\"role\":\"reception\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"reception\"]},\"lessons\":[]}},{\"lotId\":\"lot27\",\"index\":3,\"done\":false,\"type\":\"leave\",\"stop\":{\"id\":\"d1s3\",\"brief\":\"405 Maple Ave: standard delivery.\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"405\",\"steps\":1,\"wall\":13228228,\"roof\":4608604,\"door\":12071498,\"porchW\":471,\"siding\":\"lap\",\"numberOn\":\"wall\",\"bell\":true,\"stories\":2},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"405\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"MAPLE AVE\"}},{\"type\":\"tree\",\"x\":1150,\"depth\":-9,\"art\":{\"snow\":false}}],\"spots\":[{\"id\":\"mat\",\"label\":\"On the doormat\",\"x\":0,\"grade\":\"good\"},{\"id\":\"steps\",\"label\":\"At the bottom of the steps\",\"x\":\"steps\",\"grade\":\"bad\",\"note\":\"Visible from the street and in the way on the steps.\"}],\"packages\":[{\"id\":\"p1\",\"to\":\"Ray Ruiz\",\"number\":\"405\",\"street\":\"Maple Ave\",\"service\":\"standard\",\"weight\":11,\"size\":\"s\",\"tracking\":\"7811074 2182\",\"note\":\"Ring the bell, please don't knock: baby sleeping\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Ray Ruiz\",\"number\":\"407\",\"street\":\"Maple Ave\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811074 2187\"},{\"id\":\"d2\",\"to\":\"Ray Ruiz\",\"number\":\"405\",\"street\":\"Maple St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811074 2183\"}],\"stepHazard\":null,\"answer\":null,\"expected\":{\"outcome\":\"deliver\",\"types\":[\"left\"],\"spot\":\"mat\"},\"lessons\":[]}},{\"lotId\":\"lot38\",\"index\":4,\"done\":false,\"type\":\"apartment\",\"stop\":{\"id\":\"d1s4\",\"brief\":\"205 Birch Ln: standard delivery.\",\"par\":130,\"lot\":{\"kind\":\"apartment\",\"spec\":{\"number\":\"205\",\"name\":\"THE BIRCH\",\"steps\":2},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"205\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"BIRCH LN\"}}],\"packages\":[{\"id\":\"p1\",\"to\":\"Alma Kowalski\",\"number\":\"205\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":24,\"size\":\"m\",\"tracking\":\"7811111 2273\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Alma Kowalski\",\"number\":\"207\",\"street\":\"Birch Ln\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811111 2277\"},{\"id\":\"d2\",\"to\":\"Alma Kowalski\",\"number\":\"205\",\"street\":\"Birch St\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811111 2273\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Alma Kowalski\",\"spec\":{\"skin\":15845285,\"hair\":12105920,\"hairStyle\":\"short\",\"shirt\":3107491,\"glasses\":true},\"adult\":true,\"atAddress\":true,\"delay\":2.149341939948499,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[]}},{\"lotId\":\"lot55\",\"index\":5,\"done\":false,\"type\":\"dog\",\"stop\":{\"id\":\"d1s5\",\"brief\":\"109 Oak St: standard delivery. Customer note: \\\\\"Dog in yard.\\\\\"\",\"par\":130,\"lot\":{\"kind\":\"house\",\"spec\":{\"number\":\"109\",\"steps\":1,\"wall\":13228228,\"roof\":6840404,\"door\":2768762,\"porchW\":440,\"siding\":\"shingle\",\"numberOn\":\"wall\",\"bell\":false,\"stories\":1},\"interior\":null},\"props\":[{\"type\":\"mailbox\",\"x\":-200,\"art\":{\"number\":\"109\"}},{\"type\":\"streetsign\",\"x\":-270,\"art\":{\"text\":\"OAK ST\"}},{\"type\":\"sign\",\"x\":-105,\"depth\":9,\"art\":{\"text\":\"BEWARE\\\\nOF DOG\"}},{\"type\":\"doghouse\",\"x\":210,\"depth\":7},{\"type\":\"bowl\",\"x\":290,\"depth\":7}],\"packages\":[{\"id\":\"p1\",\"to\":\"Tomas Vela\",\"number\":\"109\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":16,\"size\":\"s\",\"tracking\":\"7811148 2364\",\"note\":\"Dog in yard\"}],\"decoys\":[{\"id\":\"d1\",\"to\":\"Tomas Vela\",\"number\":\"111\",\"street\":\"Oak St\",\"service\":\"standard\",\"weight\":5,\"size\":\"m\",\"tracking\":\"7811148 2367\"},{\"id\":\"d2\",\"to\":\"Tomas Vela\",\"number\":\"109\",\"street\":\"Oak Ct\",\"service\":\"standard\",\"weight\":8,\"size\":\"m\",\"tracking\":\"7811148 2363\"}],\"stepHazard\":null,\"answer\":{\"name\":\"Tomas Vela\",\"spec\":{\"skin\":14725258,\"hair\":5913130,\"hairStyle\":\"short\",\"shirt\":3116931,\"mustache\":true},\"adult\":true,\"atAddress\":true,\"delay\":2.693729009013623,\"role\":\"resident\",\"id\":{\"dob\":\"05/14/1986\",\"exp\":\"05/14/2030\"}},\"expected\":{\"outcome\":\"deliver\",\"types\":[\"recipient\",\"adult\"]},\"lessons\":[],\"fence\":{\"x0\":-120,\"x1\":980,\"gate\":40,\"color\":16777215},\"dog\":{\"name\":\"Scout\",\"spec\":{\"fur\":3813424,\"patch\":12094037,\"collar\":16762941},\"mood\":\"playful\",\"x\":300,\"patrol\":[120,520],\"barks\":520,\"facing\":-1},\"triggers\":[{\"on\":\"gate\",\"talk\":\"gate\"}],\"talks\":{\"gate\":{\"start\":\"g0\",\"hint\":\"Hand the package over the gate: Deliver on your handheld (TAB).\",\"nodes\":{\"g0\":{\"speaker\":\"narrator\",\"act\":\"dogShow\",\"arg\"`... 6095 more characters,\n    events: '[]',\n-   stored: '{\"current\":{\"id\":\"mvnn4q8s\",\"day\":1,\"startedAt\":1792921436380,\"seconds\":2,\"events\":[{\"type\":\"brief.read\",\"key\":\"persisted-cargo-review\",\"ok\":true,\"stop\":null}],\"aids\":\"ffo11\"},\"last\":null}',\n-   workday: '{\"current\":{\"id\":\"mvnn4q8s\",\"day\":1,\"startedAt\":1792921436380,\"seconds\":2,\"events\":[{\"type\":\"brief.read\",\"key\":\"persisted-cargo-review\",\"ok\":true,\"stop\":null}],\"aids\":\"ffo11\"},\"last\":null}'\n  }\n\n    at check (/workspace/c44-loading-truck/test/fploadingbrowser.js:9:122)\n    at /workspace/c44-loading-truck/test/fploadingbrowser.js:76:323"
+  },
+  "state": {
+    "active": false
+  }
+}

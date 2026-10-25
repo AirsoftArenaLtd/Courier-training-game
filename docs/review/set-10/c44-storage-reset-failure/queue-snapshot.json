@@ -1,0 +1,15 @@
+{
+  "recorded": "2026-10-25T09:35:55.115432+00:00",
+  "status": {
+    "phase": "browser-slot",
+    "pid": 34977,
+    "runtime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+    "updated": 1792920472.61393,
+    "state": "waiting"
+  },
+  "launch": {
+    "pid": 34977,
+    "plan": "/workspace/c44-loading-truck/test/out/pipelines/c44-fc710227-native/plan.json",
+    "log": "/workspace/c44-loading-truck/test/out/pipelines/c44-fc710227-native/supervisor.log"
+  }
+}
