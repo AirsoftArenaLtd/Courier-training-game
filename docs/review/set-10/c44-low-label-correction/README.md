@@ -33,3 +33,16 @@ The remaining High native job was interrupted only after preserving all complete
 Current collected results are in `../c44-low-label-validation/`. The collector independently replays original results and verifies frozen source, job, protocol and every artifact before accepting a finished job. At launch zero corrected-source browser jobs were accepted. Shared font/translation/current-pilot/A30/A31/default rollout and the existing owner Intel O1 gate remain separate. C45/C46 are the remaining startable todos; the next-batch request is open and hourly automation stays enabled without an end date.
 
 **First corrected-source rendered pass:** all fourteen loaded-Low views pass at **41 / 2290 / 2 / 3557376 / 1931760** (calls/triangles/Three textures/attachment bytes/Phaser estimate). Cart, supported strapped load and corrected unit-3B face were visually inspected; `findunit` proves the real gaze target and sole printed parcel are f10. Current combined acceptance is **1/30 jobs**, with High resources active; native/other profiles remain pending. Exact report and three image hashes: `../c44-low-label-validation/visual-review-loaded-low.json`.
+
+## Current corrected-source gate — 19:15 UTC
+
+All **56** rendered resource views pass the original four profile ceilings. Unit-face proof in every profile selects and prints f10; High/accessible/fallback unit and strapped-load images were visually checked, in addition to the previous three Low captures. Exact current figures:
+
+| Profile | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 41 | 2290 | 2 | 3557376 | 1931760 |
+| loaded-high | 77 | 56200 | 4 | 11239424 | 5223664 |
+| accessible-low | 41 | 2290 | 2 | 3557376 | 2101056 |
+| fallback-low | 45 | 2124 | 2 | 3557376 | 1931760 |
+
+**9/30 completed jobs**, **5 native journeys / 2936 checks / 137 native captures**. Both Low English normal/larger load and find pass, plus normal Tamil load. Every load retains original **2100 points / six stars**; both larger English assessments pass once and survive reload, with the suspended workday unchanged. Visible-ink assertions apply to every native parcel selection. See `../c44-low-label-validation/native-snapshot.json`, `resource-peaks.json` and `visual-review-resource-and-large-text.json`. Remaining native/negative/abandonment/repository jobs continue under the existing lock. Shared Tamil glyph/translation/A31/default/current-pilot and Intel gates remain separate. No code or frozen protocol changes and no repeated checks in this evidence-only update.

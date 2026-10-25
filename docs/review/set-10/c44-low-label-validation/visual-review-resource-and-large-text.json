@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25T19:15:43Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "currentSnapshot": {
+    "passedJobs": 9,
+    "expectedJobs": 30,
+    "nativeGoodJourneys": 5,
+    "nativeChecks": 2936,
+    "nativeCaptures": 137,
+    "resourceViews": 56
+  },
+  "capturesVisuallyInspectedThisCheckIn": {
+    "completed/resource-loaded-high/c44-label-loaded-high-41056a12-loaded-high-high-findunit.png": "00784fc8175ce466dc2500a2a7402c7a7be485c4ed15089122e61e109fdfe916",
+    "completed/resource-loaded-high/c44-label-loaded-high-41056a12-loaded-high-high-loadstrapped.png": "a5a41a101c3f724068e32fd8966fb759d6ea4d90616b1c8071b07562123ff56b",
+    "completed/resource-accessible-low/c44-label-accessible-low-41056a12-accessible-low-low-findunit.png": "e59b86cdd3749dc54afcce171faaaa48fdd8d4930e9fd017a1131a1b9c139447",
+    "completed/resource-accessible-low/c44-label-accessible-low-41056a12-accessible-low-low-loadstrapped.png": "18c7a6371f892fa86557a255399950f1c2e405bd8c01203d9a9c228d4951260e",
+    "completed/resource-fallback-low/c44-label-fallback-low-41056a12-fallback-low-low-findunit.png": "cb16bd5a80bf015f47455de66f8550c2b248c023e84805968bc9ac54821d85cc",
+    "completed/resource-fallback-low/c44-label-fallback-low-41056a12-fallback-low-low-loadstrapped.png": "8700ecbbebcd2459be179911fe5a00bc3711b1e2e20370f902c8e824b34bf661",
+    "completed/native-good-low-en-large-load/c44-label-native-good-low-en-large-load-41056a12-low-en-large-load-handheld.png": "0d7c162d48fd33f941c3fa597b54abcd5d1a1ac4b8439f115da1b88b1d4e9b2b",
+    "completed/native-good-low-en-large-load/c44-label-native-good-low-en-large-load-41056a12-low-en-large-load-result.png": "fac8c874d4aedc5d159d2b0b8082d1b594e82edaac97853d3c4d244cda3c4abd",
+    "completed/native-good-low-en-large-find/c44-label-native-good-low-en-large-find-41056a12-low-en-large-find-find-label-f10.png": "496dcd58d3bccdd61259217d15dae4a392cc39c2f7eddb3ac63256bbb5271104",
+    "completed/native-good-low-ta-normal-load/c44-label-native-good-low-ta-normal-load-41056a12-low-ta-normal-load-result.png": "a1a1c994373232e586643174f5c2c43cddcc4e31576584f78b3c51dd1527e7ad"
+  },
+  "previousLoadedLowReview": "visual-review-loaded-low.json",
+  "observations": [
+    "High, accessible Low and fallback show actual unit-3B/Harbor View ink on the gazed face; paper and shelving remain mounted.",
+    "All three newly reviewed strapped-load views retain a supported visible floor parcel and its top/side band.",
+    "Larger-text English handheld and unit label fit without overlap or clipping. The assessment result shows six stars, original 2100 and passed status; durable assessment proof is in the completed report.",
+    "Normal-text Tamil result retains correct original behavior/bounds, but some shared glyphs remain boxes. New module text still needs Claude translation. This is not readable-Tamil or A31/default acceptance."
+  ],
+  "scope": "Six newly inspected resource captures plus four native captures. All 56 resources and five native journeys passed their source-scoped gates; remaining matrix/negative/repository/current-pilot/default/Intel acceptance is outstanding."
+}

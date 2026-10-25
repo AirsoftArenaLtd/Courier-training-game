@@ -1,5 +1,5 @@
 {
-  "status": "doing; corrected loaded-Low resources pass, full browser sequence active",
+  "status": "doing; all corrected resource profiles pass, native matrix incomplete",
   "date": "2026-10-25",
   "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
@@ -8,14 +8,14 @@
   "syntaxFiles": 8,
   "lowCpuGeometryPoses": 5664,
   "frozenSources": 197,
-  "completedCorrectedJobsAtSnapshot": 1,
-  "correctedResourceViews": 14,
+  "completedCorrectedJobsAtSnapshot": 9,
+  "correctedResourceViews": 56,
   "nativeAcceptance": false,
   "fullBrowserAcceptance": false,
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "dd3e127ceedf6e6dae775f0180cd6690ddc3d43b794b5bb3d9af20648de2d99d",
+    "README.md": "25fbef56cbaf102b85a8eca9c07f2b5ea14365d95fb8d9eb58ade2b489beeb68",
     "current-plan-before.json": "5431ffa0d58fef02c6318cca34e7327cea51639a48df23616051b0431f0f554f",
     "current-plan.json": "512f59dff2773a175d77f4361e4302eb12e274431a8d9c94a82dfb24bfc973da",
     "diagnosis.json": "b160d0f076dc29a8430209256ae10e3df72d074698bd305e2cd5bb742334cd9d",
@@ -476,5 +476,11 @@
     "status.json": "dd707a579e1d2447c52c1a0e7e1b8c9d445ff4471c342f6df1df67e22ff98c52",
     "supervisor.log": "049ff4abb76b1efe2c25197c6885dd99255bf76198936a15fd314d9fc317ca67",
     "syntax.json": "3b34a9da6c55a55b70f84bb45ea53d917136b66947dbc7d28fc418eca820e683"
-  }
+  },
+  "acceptedSourceScopedJobsAtSnapshot": 9,
+  "currentGoodNativeJourneys": 5,
+  "currentNativeChecks": 2936,
+  "currentNativeCaptures": 137,
+  "resourceProfilesAccepted": 4,
+  "fullNativeMatrixAccepted": false
 }

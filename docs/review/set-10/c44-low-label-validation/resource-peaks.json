@@ -1,0 +1,51 @@
+{
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "profiles": [
+    {
+      "profile": "loaded-low",
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "views": 14,
+      "peak": {
+        "calls": 77,
+        "triangles": 56200,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5223664
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2101056
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "views": 14,
+      "peak": {
+        "calls": 45,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    }
+  ],
+  "scope": "All four original 14-view rendered profiles, unchanged ceilings. Software-renderer FPS does not establish Intel O1."
+}

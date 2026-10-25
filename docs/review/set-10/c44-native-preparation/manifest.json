@@ -6,8 +6,8 @@
   "frozenSourceFiles": 197,
   "applicationBaseline": {
     "pureNodeSuites": 92,
-    "freshRerunThisCheckIn": true,
-    "scope": "Current 41056a12 application; final geometry test additionally refreshes actual gaze. Browser-opening SCORM2004 excluded and queued."
+    "freshRerunThisCheckIn": false,
+    "scope": "Fresh 92-suite gate at current 41056a12 source on 25 October; not repeated during this evidence-only check-in. SCORM2004 browser wrapper runs separately."
   },
   "newOriginalReferenceTests": 4,
   "latestPilotEnglishAuditTests": 1,
@@ -20,11 +20,11 @@
   "resourceViewsRequested": 56,
   "repositoryBrowserJobs": 6,
   "nativeAccepted": false,
-  "renderedResourcesAccepted": false,
+  "renderedResourcesAccepted": true,
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "3fdbddb148fa8d686059b8a29473dc66bcd1c7bd8b1eb2f4fb89514b0bf2cd95",
+    "README.md": "66653e77bf50da005d5a914915b9424b6d02e777d7c6ad1a8dc20e8dfd8e2e4b",
     "collect-results.py": "6172d37e78e9b7346a6c25fcfbf2a2c519b0c35bd55bc3320a91e1e048aca280",
     "english-audit.log": "e45a8355a786e82e064df1f56d9a6513b96f4adc8e2e12fb5699c70971975b90",
     "node-prerequisites.json": "d683e94a25e4629a9b09ec0ca9a2f551f416dc6be294e271614381c957caf414",
@@ -41,14 +41,20 @@
   "javascriptSyntaxAfterCorrectionPassed": true,
   "referenceCasesAfterCorrection": 4,
   "englishAuditAfterCorrectionPassed": true,
-  "acceptedSourceScopedJobsAtSnapshot": 1,
+  "acceptedSourceScopedJobsAtSnapshot": 9,
   "focusedCargoIntegrationTests": 14,
   "pureNodePassed": 92,
   "finalBrowserAcceptance": false,
-  "nativeChecksAtSnapshot": 0,
+  "nativeChecksAtSnapshot": 2936,
   "nativeWalkRegressionCases": 3,
   "currentSequentialJobs": 30,
   "retainedPriorPassedJobs": 0,
-  "nativeCapturesAtSnapshot": 0,
-  "resourceViewsAtSnapshot": 14
+  "nativeCapturesAtSnapshot": 137,
+  "resourceViewsAtSnapshot": 56,
+  "currentGoodNativeJourneys": 5,
+  "currentNativeChecks": 2936,
+  "currentNativeCaptures": 137,
+  "correctedResourceViews": 56,
+  "resourceProfilesAccepted": 4,
+  "fullBrowserAcceptance": false
 }
