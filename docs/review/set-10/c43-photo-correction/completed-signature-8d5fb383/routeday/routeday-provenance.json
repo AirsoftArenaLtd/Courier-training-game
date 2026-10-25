@@ -1,0 +1,23 @@
+{
+  "job": {
+    "id": "routeday",
+    "command": [
+      "node",
+      "test/routeday.js"
+    ],
+    "environment": {},
+    "timeout": 900
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "6e92d586fa1c4b4fb0f9ef9a43c22c95942bc44bb81d930df7fad46b35b3b003",
+    "attempts": 1,
+    "log": "routeday-attempt-1.log",
+    "logSha256": "991e48ba7795268e63f07c4c669d110f07b24022e5469d7b2ee007a5ed8982a9",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

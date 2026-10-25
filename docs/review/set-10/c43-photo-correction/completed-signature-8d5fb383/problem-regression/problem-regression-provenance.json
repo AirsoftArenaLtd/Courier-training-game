@@ -1,0 +1,50 @@
+{
+  "job": {
+    "id": "problem-regression",
+    "command": [
+      "node",
+      "test/fpproblembrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-ta-large-recover",
+      "QA_TAG": "c43-signature-problem-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-problem-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-problem-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "1753f9b6a10d738cfd9121b35ab4acf5e9b452c0dda87a81df6929a027065d17",
+    "attempts": 1,
+    "log": "problem-regression-attempt-1.log",
+    "logSha256": "148777b47006413df6945d53e650135ed6b27d4761faa64c50e4177c280707fe",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-result.png": "0e670b47758adc9f202e96416b04c8c4f45668024d189e3d27725ec5b805571a",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-controls-2.png": "ebb60f3eae714ee95f7d8f648d74b6b27a63501326a66a538f4c97b8e126e1a9",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-reply-n7.png": "aabd15c1034a40fdca31cef2e5d89f34f753bc5f2e47b8fe945a4e7ab26e1368",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-ending.png": "edde7c032e601fd4b503f7d0ca8293446be2906fdd7be1e8277120036bd8d544",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-reply-n0.png": "e186c9ca3b0e3b556a6c4f637cb67f4f5fdfc44e8542d8c672be4ffd51e6808a",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-address-reading.png": "60129e147c8f974dc025a475904402b3a82cfe38d99dd3a70d495d6c362bb3f1",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-reply-n2.png": "4962831accbfd60004d919245573c3376f3d7190bdb80c73f260933c7614240b",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-physical.png": "5c84a5ab23b0bedde6bd8325bd8fee8e31091be207b52e067212823886fd11a7",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-arrival-1-house.png": "4db03af9f491806fec851d081bc93e45be3bad94faaa4919d8ab4870737ae7cd",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-reply-n5.png": "2d0551ecf3d362e002fe63f96c3398025b9610375f8b15918ae77fa00b4acd59",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-controls-1.png": "e55e05d96f152f2d67b1ff3614f1fae42ee493aae4888ecdd8625ed6ab06ec8a",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-controls-3.png": "c509e55657ee7849ebfaf3211522cb9475441a87455306eafda1446519d83526",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-reply-n3.png": "0e9ef01a13d415c5cd1738324e851b013a2d7312bdba884b83ed746a4762dd22",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-arrival-2-cargo.png": "486b7bfdc7ee6176da0b7264a5a78b484be833a788cc0f6eb56816728b9c7ee8",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-controls-0.png": "b9013203ab69224094d7eb93f0b76b142d412509cf4fb01fe7041d6d2058299e",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-handheld.png": "90f14351f3d996764f6670e75c1c5c243acedcb939bcb2d8154afce2adcc12e7",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-arrival-3-other.png": "a76119e2fa1376d31d296128bf276a3b2371d897af18f29d7d3599598b53d6e0",
+      "test/out/fp-review/c43-signature-problem-8d5fb383.json": "85a56c5e7691269932cd8249d248dbfff01644e1c8100ae82e98e42aa552562a",
+      "test/out/fp-review/c43-signature-problem-8d5fb383-high-ta-large-recover-arrival-4-cab.png": "70f9251f93cf4709dc9d34d043d7968a4b586a61570672d4400ca3e239afcb66"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

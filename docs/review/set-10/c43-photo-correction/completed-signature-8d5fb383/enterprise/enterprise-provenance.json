@@ -1,0 +1,23 @@
+{
+  "job": {
+    "id": "enterprise",
+    "command": [
+      "node",
+      "test/enterprise.js"
+    ],
+    "environment": {},
+    "timeout": 900
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "5c2080b9fafb7623e3dd9ebcf91541a160d957c3a6ad022469c0c0eae313b42b",
+    "attempts": 1,
+    "log": "enterprise-attempt-1.log",
+    "logSha256": "dd713a4f96d4218dff88ca4cef0150af0207df3d3524872b1377c7ff2690d87f",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

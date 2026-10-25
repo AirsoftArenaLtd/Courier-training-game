@@ -113,6 +113,38 @@
     {
       "id": "native-high-ta-large-exceptions",
       "directory": "completed-signature-8d5fb383/native-high-ta-large-exceptions"
+    },
+    {
+      "id": "native-high-ta-large-adult",
+      "directory": "completed-signature-8d5fb383/native-high-ta-large-adult"
+    },
+    {
+      "id": "critical-id",
+      "directory": "completed-signature-8d5fb383/critical-id"
+    },
+    {
+      "id": "doorstep-regression",
+      "directory": "completed-signature-8d5fb383/doorstep-regression"
+    },
+    {
+      "id": "problem-regression",
+      "directory": "completed-signature-8d5fb383/problem-regression"
+    },
+    {
+      "id": "academy",
+      "directory": "completed-signature-8d5fb383/academy"
+    },
+    {
+      "id": "enterprise",
+      "directory": "completed-signature-8d5fb383/enterprise"
+    },
+    {
+      "id": "routeday",
+      "directory": "completed-signature-8d5fb383/routeday"
+    },
+    {
+      "id": "driving",
+      "directory": "completed-signature-8d5fb383/driving"
     }
   ],
   "resources": [
@@ -789,12 +821,197 @@
       "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
       "signatureObservations": null,
       "report": "completed-signature-8d5fb383/native-high-ta-large-exceptions/c43-signature-native-high-ta-large-exceptions-8d5fb383.json"
+    },
+    {
+      "job": "native-high-ta-large-adult",
+      "checks": 2018,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "adult",
+      "id": "m5-adult",
+      "score": 6200,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "durable": true,
+      "screenshots": 39,
+      "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
+      "signatureObservations": [
+        {
+          "index": 0,
+          "completedBeforeCapture": false,
+          "deviceMeasured": true
+        }
+      ],
+      "report": "completed-signature-8d5fb383/native-high-ta-large-adult/c43-signature-native-high-ta-large-adult-8d5fb383.json"
     }
   ],
-  "scope": "Completed jobs only. The whole matrix remains pending until every job passes.",
-  "jobsPassed": 28,
-  "allJobsPassed": false,
+  "followups": [
+    {
+      "job": "critical-id",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/critical-id",
+      "log": "critical-id-attempt-1.log",
+      "checks": 1821,
+      "report": "completed-signature-8d5fb383/critical-id/c43-signature-bad-id-8d5fb383.json",
+      "modes": [
+        {
+          "score": 5000,
+          "stars": {
+            "service": 1,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "durable": true,
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1792909958841,
+            "pending": false,
+            "at": 1792910285961,
+            "stars": {
+              "service": 1,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 5000,
+            "criticals": [
+              "Delivered when the rules said not to",
+              "Released a restricted package without proper verification"
+            ],
+            "lessons": [
+              "Born 11/03/2005 means he's still 20 today. Don't release it: record exception ID and leave a door tag for the adult recipient.",
+              "Adult signature means a valid, unexpired photo ID showing the person is 21 or older. Check the date of birth against today's date.",
+              "Adult signature = 21+ with a valid, unexpired government photo ID. No exceptions for \"almost\" or \"my parents said it's fine\".",
+              "Work out the age from the date of birth and today's date. Don't guess from how someone looks.",
+              "If ID fails, don't release it: record the exception and leave a door tag so the right person can arrange delivery."
+            ]
+          },
+          "screenshots": 38,
+          "criticals": [
+            "Delivered when the rules said not to",
+            "Released a restricted package without proper verification"
+          ]
+        }
+      ]
+    },
+    {
+      "job": "doorstep-regression",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/doorstep-regression",
+      "log": "doorstep-regression-attempt-1.log",
+      "checks": 1348,
+      "report": "completed-signature-8d5fb383/doorstep-regression/c43-signature-doorstep-8d5fb383.json",
+      "modes": [
+        {
+          "score": 5800,
+          "stars": {
+            "service": 1,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "durable": true,
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1792910308367,
+            "pending": false,
+            "at": 1792911548261,
+            "stars": {
+              "service": 1,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 5800,
+            "criticals": [
+              "Kept a signature package from someone who isn't the customer"
+            ],
+            "lessons": [
+              "Never hand a signature-required package to someone who isn't the recipient, however helpful they seem.",
+              "An upset customer calms down faster when you acknowledge the problem first and then say what you can do.",
+              "A language barrier is solved with the label, pointing and the handheld's screen, not by talking louder.",
+              "A signature-required package goes only to the person who can sign for it. A helpful neighbor is still not the customer.",
+              "Heavy packages go on the hand truck (or get a second person): don't carry what you can wheel."
+            ]
+          },
+          "screenshots": 19
+        }
+      ]
+    },
+    {
+      "job": "problem-regression",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/problem-regression",
+      "log": "problem-regression-attempt-1.log",
+      "checks": 730,
+      "report": "completed-signature-8d5fb383/problem-regression/c43-signature-problem-8d5fb383.json",
+      "modes": [
+        {
+          "score": 1900,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "durable": true,
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1792911571712,
+            "pending": false,
+            "at": 1792912656742,
+            "stars": {
+              "service": 3,
+              "efficiency": 3
+            },
+            "score": 1900,
+            "criticals": [],
+            "lessons": [
+              "A misdelivery is fixed by the courier who made it: get it back the same day, apologize, deliver it properly.",
+              "Update the record: the scan and the proof of delivery must show where the package really went.",
+              "Tell dispatch what happened. An honest report is what stops the same mistake twice."
+            ]
+          },
+          "screenshots": 18
+        }
+      ]
+    },
+    {
+      "job": "academy",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/academy",
+      "log": "academy-attempt-1.log"
+    },
+    {
+      "job": "enterprise",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/enterprise",
+      "log": "enterprise-attempt-1.log"
+    },
+    {
+      "job": "routeday",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/routeday",
+      "log": "routeday-attempt-1.log"
+    },
+    {
+      "job": "driving",
+      "exit": 0,
+      "directory": "completed-signature-8d5fb383/driving",
+      "log": "driving-attempt-1.log"
+    }
+  ],
+  "scope": "All 36 source-scoped browser jobs passed. Shared font/translation, current-pilot/A30/A31, default rollout and owner Intel FPS acceptance remain separate.",
+  "jobsPassed": 36,
+  "allJobsPassed": true,
   "resourceViews": 56,
-  "nativeJourneys": 23,
-  "nativeChecks": 34644
+  "nativeJourneys": 24,
+  "nativeChecks": 36662
 }

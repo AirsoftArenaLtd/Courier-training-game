@@ -1,0 +1,23 @@
+{
+  "job": {
+    "id": "academy",
+    "command": [
+      "node",
+      "test/academy.js"
+    ],
+    "environment": {},
+    "timeout": 900
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "7a35a09ed50ea5fcf70119f1d89b90898fb3b91d4a213fc9420d5f8b6a9691fe",
+    "attempts": 1,
+    "log": "academy-attempt-1.log",
+    "logSha256": "7ae1635e4e9375502ff25b85a151843c89e6ceba9fef65d54ef7d8541e06b699",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

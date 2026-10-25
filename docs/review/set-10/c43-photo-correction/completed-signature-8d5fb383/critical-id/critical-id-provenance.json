@@ -1,0 +1,71 @@
+{
+  "job": {
+    "id": "critical-id",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "low-ta-large-adult",
+      "QA_VARIANT": "bad-id",
+      "QA_TAG": "c43-signature-bad-id-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-bad-id-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "a3a2407b17b33977dec5f99e5c3828edc1a53b19761fc62d12d557dff1ff7c3f",
+    "attempts": 1,
+    "log": "critical-id-attempt-1.log",
+    "logSha256": "8a3eb978cd11f14a5d3c1f6989afab3fa71e53f165490ff558374cef1e987f75",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-exception-description.png": "207484f03352795c5bd1a6d1586cdfdec1ec937bc8106cd9b74c79a462478174",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-id-field1.png": "eae1dd3115803066656ff8dabce3667a981a35fd7ece22e517afea8d86ff0f86",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-scan.png": "3a3451b999a50b87d58763a8cf068ab6b8306f2fbdce0c29091b3763e4ee8e41",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-scan.png": "dcbd6a8ee1dd71d68c3e84d61d77e55a57162afb751e2d0aca955624e0838cec",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-id-field0.png": "d37670616e43d58929a411ea2109868c357640687e5c098b2e580bbab894e4bc",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-printed-name.png": "a595a5dda324e971dc5aa96a6a814fd8f2db9164dfc5c91222569b85b0913ba2",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-printed-name.png": "e6ce42fadda756b7120c12b207fa6dddf8ff1aada607b863258f2b4f798f1fb5",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-controls-0.png": "e56288df487f9ef55d785f1e9657d47d91ad929d1011b1aa65e7ab0fbf7de719",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-signature.png": "a595a5dda324e971dc5aa96a6a814fd8f2db9164dfc5c91222569b85b0913ba2",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-controls-3.png": "673cbe547363b864a3389d772269e7a6ad46ab91b900f3bc5228800872835c28",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-id-field1.png": "5c8d1b326ddeb2d2771e67f17fb8b1fb38766c291b9ebff98b8230a0ef6d74f3",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-id-field1.png": "e3b5a87b6ea091084bd8df256b8bbe38de2fcbc68cfd0acae603715f19c84f39",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-reply.png": "73f74da6830b097d7016911c0908d7989652a748bcf0057f70ee7eee9e87ea1a",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-id-field2.png": "5c22bef89e4a1a9330e3f3ef69be906a9c2f424219363d9d87fd307e9607f810",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-id-field0.png": "a1522dc5807f908a35946c5a98ce858282feb15703c7b6864d77878ea55c5edc",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-report.png": "7df0c629f69623c798c60bec506470e81040d0f7aac025daa5757455a143b58d",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-id-field3.png": "79bbbfc951878890df6d67c69ab6a1eaa5106bf467071211bc0f3dad4382106a",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-signature.png": "89597e9cc807a21140b518a0134797c5bd53740b9e7d221d63e22d96069c0590",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-arrival.png": "8e3b5d613ffa6d4d1ec6f760d620592a650cd659a0053bcf795e0597e31fa047",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-cargo.png": "cdb26bce947967a5c19f4f6e1e0556109c86b31f99c03f10cee5542205c9e796",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-report.png": "fb0329ee10ef2f2b8f33ef38d80bca963b750b5a848eadf526317c15728e5e0f",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-tag.png": "83b71328fb3c41ca3d990719408789dc322bdd16e3e57ce9d63e1b932cbc855c",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-exception-code.png": "7ff97ecd73fbc29b2cfb6d4899938efab6bc03e1af37dff48a3a46a9d3d3ae8b",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-report.png": "a5f4a64b7b99c8b43fd8886d65c5549005efb0abcfb2991a3ac011e3c15eea39",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-controls-1.png": "9df2bb03dee1a34aec943f5ddb0082fca1d40a3bbdc3fcf046a916fab0bb3023",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-scan.png": "1bb517ca5b632162b445be0da8a0236feca173daadd69674691f4817e353c16e",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-id-field3.png": "5a69648157b07397aa206ab1afd0b1684cfd3606ae7292b9b1e073a75ff0755f",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383.json": "01f2b84ede93e642382158e17b60395b8377e9f4d603e86f8f7d1e1c496cd17c",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-arrival.png": "45f45088f884abef65b5e2891aae531215cbe907b9079e335cfcc1878ecf057b",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-id-field0.png": "ddad5d3f8d29cd4ec2ca8d862f3c3ea00710d9f68f4d85aed69a7bdd0e31c484",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-reply.png": "a8b56d321cfbc383223ceb38ef7ed829ab74443de941a7f4a3e5376446f973bd",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-arrival.png": "5832e34d20230a10d7a489471d538663cf4f3bfca14e5bfbc60884daf4c51930",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-id-field3.png": "cb577f8d9bf30fae342b181a9aadbdd8d1a575f7aa70042d80f9ebd129dbc067",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop0-id-field2.png": "1248740d24d54948353e281a01e4fa7b335d0f74061c6cc102b2cd0bc42018f5",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop2-cargo.png": "10ff34f60982ccae537ab7b783c220d91ce05d398b6ac2edde69c7b851469777",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-id-field2.png": "4f6fa15ebc0ed57388a54962d14697cb2746fcb6b121d920d5b07072f934fd8e",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-stop1-cargo.png": "150e6c0774b2cb6cf95a57e8244e06daea288acbf646fadf1ce450d973ea10cb",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-controls-2.png": "3f87005d16226e1790af4a7ca24c3d9496d9e14c0a97aa96298a46beab2f1add",
+      "test/out/fp-review/c43-signature-bad-id-8d5fb383-low-ta-large-adult-result.png": "891b2f4de253a63392aff22b5604d4af6c03d263193f5065ad93efbd841c0d6b"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

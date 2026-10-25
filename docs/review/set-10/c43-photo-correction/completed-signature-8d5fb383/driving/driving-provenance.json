@@ -1,0 +1,23 @@
+{
+  "job": {
+    "id": "driving",
+    "command": [
+      "node",
+      "test/driving.js"
+    ],
+    "environment": {},
+    "timeout": 900
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "564f2f288a3a0be0bef7e2314a7091d40f3fabed4ab564ba2a34ad60ae93ee30",
+    "attempts": 1,
+    "log": "driving-attempt-1.log",
+    "logSha256": "a1688b0176dc0162f10479cd61b06a7e520bfb6640772db5a8da76327ca7717f",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}
