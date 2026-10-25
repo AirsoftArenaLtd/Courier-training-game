@@ -1,0 +1,59 @@
+{
+  "job": {
+    "id": "native-high-ta-normal-exceptions",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-ta-normal-exceptions",
+      "QA_TAG": "c43-signature-native-high-ta-normal-exceptions-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-native-high-ta-normal-exceptions-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "7b4f8bf9ff228e37ad3388e24d24cbf17fd2825382a94b41d7b0a891923d401d",
+    "attempts": 1,
+    "log": "native-high-ta-normal-exceptions-attempt-1.log",
+    "logSha256": "58a2126187fb28d146c9a2e593d84a54cf6e8018a2989ed52b69ea61b3b36d5d",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-tag.png": "5c44916f4a6346a2d95ce3521315133750a40d73d3722d1dd21c81e9b16b1aa3",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-scan.png": "843482c732e8068433f56165715036a7fdee1d046104596811000ef6ebd540d4",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-reply.png": "ee7e3be0325c1b2ac335cc056c256ab5d1f404f12453b706ad8b2cf7b068175f",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383.json": "46148da91f0f8a96183a6336ec09357a90aad2de5801f517f4aee1c385579421",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-scan.png": "fbb2199427b2d3de97516abaaa2617eccec2e91a892b6da3eee12c7e51802bda",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-arrival.png": "e86bc4dadd829daf1303fe8a9e67a12f1d766dcbc714dfe79dfcfb5aca183aa6",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-controls-3.png": "5f135161c153204f9d4145e28b80bb3b3d310894dea8c79700c8d4b6bef1a8c4",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-cargo.png": "cb419804f114e748b9044afb2f48a79a0973024f3429c72be1c4ec5175f1be5d",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-exception-code.png": "f0ff62e512effb3128078cd2f2941f7c24381fc78aec35de9837a6f7c7c335e9",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-cargo.png": "c0657db93871d94ec49bffd1b2392c73db71d65d69b6b55134fab5d6d1797020",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-arrival.png": "117f7c382e7e20aad7100b1d1b724eb0e316a63f5589ae7365314ec870d05d8f",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-exception-code.png": "2db5d1e43eabe0498ec9481f260d18336f389d323be01a3332a391f62e3e568f",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-exception-description.png": "bb4fae0fe296700dc012e2cdd66b53d985ac0b8a7e7e20014848a1949ce1a87b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-report.png": "4d30d6ed434149b81bfdbaa151e2a989ea5edf9f6a4289ef3f7cf5110081bb9b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-tag.png": "f51d14cdfacc970c8e32ef5eb9d93f546b2eeb480c4fff4e15d2c75c4c3303be",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-exception-description.png": "b795e77fe5c19ff7de58334c548039d77ac5931702f1a43528e8bbfc6b9d8692",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-arrival.png": "b3d8fbc27af5af9d3190b42ad6ea17dd37af3095ee14c5039eba1c34b1861dc1",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-controls-2.png": "8cccdfd4f588d08cec0b945a296946eb0f81bb7f4888e13a2864ca1677b4b7ca",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-controls-0.png": "9ad11d685e6578c2c03881ea168ed91d592ec9e983c9039230a41dddb5ce256a",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-exception-description.png": "6628cb4d36281f0f7d870f52fa828b7d76da4b2f642e3293a3e55b362ea79f8a",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-result.png": "a4a815a0b81d81e7b343d9aa69e56fe25c43216c6ed7770dd188d43434be6f6b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop1-report.png": "66f4b04443774785d3cb7c4b69528b315dc13c11e71239fc4c5b3e55f5842d39",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-closed-business-hours.png": "c3ed706f95de36dcef499a33f97e1848311a0957adae9b1423de607c2740e0cb",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-report.png": "4739106a6bb898045dcc0bf8119481dc6e4b86f06fb3dd267e29b88bee0877b2",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-cargo.png": "00364330f8483a74862d5129b652c973b7cf3ab2a10dbe298a574af6f43b142a",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop0-scan.png": "1661cfbbb29efee389a53fb477922fffee504840503eac8365f716b17316a795",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-controls-1.png": "01d8cc38d2e08921fbd595a9fb9dd31de0fd000b92fafcc00085de4d8e3613b8",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-exceptions-8d5fb383-high-ta-normal-exceptions-stop2-exception-code.png": "661b14b4027d878973372420b077b5ceb34f0d8e4c5c7fd720a8f3f251bf2c4d"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}
