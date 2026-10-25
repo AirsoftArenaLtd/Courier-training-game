@@ -95,3 +95,14 @@ test('both imported vans support all fitted positions below their roof and keep 
   }finally{scene.art.dispose();bank.dispose();}
  }
 });
+
+test('keyboard focus reaches the loaded top-shelf label above the rack lip from nearby aisle positions',async()=>{
+ const {install,local}=require('./tools/fpassets-context');
+ for(const high of [false,true]){
+  const f=require('./tools/fp-loading-context')();f.O.gfx={high:()=>high};const bank=await install(f.c).preload({high,fetch:local}),scene=f.fixture('m6-find',{bank}),m=scene.model;
+  try{f.use(scene,'cargo');for(const z of [1.65,1.7,1.7274,1.78,1.85]){Object.assign(m.player,{x:m.van.x,z:m.van.z+z,yaw:0,pitch:0});scene.target=null;scene.sync();let selected=false;
+   for(let n=0;n<80;n++){if(f.O.fpAccess.focus(scene)==='loading-parcel-f12'){selected=true;break;}}
+   assert.ok(selected,(high?'High':'Low')+' actual keyboard focus at aisle '+z);assert.equal(scene.art.pick(),'loading-parcel-f12','the label-face focus must still pass the real unobscured ray');
+  }}finally{scene.art.dispose();bank.dispose();}
+ }
+});
