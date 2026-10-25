@@ -1,0 +1,22 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ each selected shifter position confirms its state without asking for the same shift (10.225262ms)
+✔ Park holds the van with the parking brake released; Neutral has no engine force or creep (20.411864ms)
+✔ Drive, Reverse and the existing shortcut use the same selected drivetrain (0.623605ms)
+✔ unsafe direction attempts report the approved mistake without defeating the stopped-only interlock (10.127653ms)
+✔ shift keys stay unique after a checkpoint reload, and selecting the same gear reports nothing (1.818317ms)
+✔ cargo practice can change gear without adding reports to a suspended campaign (0.513768ms)
+✔ physical toggles change the saved controls, use visible positions as well as colour, and touch the mission (0.548681ms)
+✔ legacy checkpoints still load and new optional fields and Park/Neutral are strictly validated (2.934279ms)
+✔ every physical control is raycastable in both presets, independent of the exterior entry target (63.827834ms)
+✔ keyboard target selection reaches every cab control without moving the van or requiring pointer lock (10.055314ms)
+✔ speed, RPM, wheel and physical switch indicators follow the mission while cosmetic reduced motion stays stable (5.660471ms)
+✔ instrument backlighting follows the real headlights without a texture, timer or mission write (8.516974ms)
+✔ the High instrument hood stays above the dial face from the seated eye (2.301262ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197.503406

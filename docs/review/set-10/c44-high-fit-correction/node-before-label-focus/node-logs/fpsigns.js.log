@@ -1,0 +1,32 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ signs are derived without changing the mission or its checkpoint (43.88117ms)
+✔ both actual street names appear at every junction after the rotated projection (3.822869ms)
+✔ all four approach signs sit on the right and before their existing stop line (5.223089ms)
+✔ all delivered addresses keep their generated number and actual facade position (221.18389ms)
+✔ later restrictions stay off day one and match their peripheral road segment (2.796555ms)
+✔ Low shares one two-triangle surface and chooses at most five instances in any view (14.252812ms)
+✔ posts stay off every driving lane, including the cross streets at junctions (62.907985ms)
+✔ new signed stops replace the legacy report and older checkpoints retain their type (5.739681ms)
+✔ signed speed and school checks cannot also emit the old speed type; violations survive resume (4.149763ms)
+✔ speed credit waits until the day ends, so an earlier safe leg cannot mask a later violation (3.637688ms)
+✔ no-entry and mid-segment wrong-way mistakes each produce one distinct penalty (3.795537ms)
+✔ depot departure grades available traffic space once (2.9257ms)
+✔ both lanes may travel east on the signed one-way segment without consuming a later lane check (2.349588ms)
+✔ a seen road closure accepts a real detour and rejects contact with its barrier (3.789628ms)
+✔ the signed route marker is validated and restoring a signed day emits nothing (2.434977ms)
+✔ a physical closure collision replaces the generic contact report only on a new signed day (4.616851ms)
+✔ keyboard reading still reaches a visible physical sign when a long label cannot fit (0.173002ms)
+✔ sign shader composition retains existing road-grain and material hooks (0.571285ms)
+✔ the depot give-way face points toward the loading-bay approach (1.092054ms)
+✔ long sign sentences stay readable beside real signal, mirror and navigation bounds (0.238972ms)
+✔ projected sign placement clamps edge labels and rejects a fully blocked screen (0.182045ms)
+✔ a tall sentence uses the clear top margin when its natural anchor would clip (0.085921ms)
+✔ cab sign sentences respect the working dashboard boundary (0.080813ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 445.028584

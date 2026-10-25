@@ -1,0 +1,12 @@
+✔ an old save loads with its standing, and the LMS still sees its workday finished and passed (5.379346ms)
+✔ the old day reviews: its pins come from its events, and the map has no town to draw (1.047611ms)
+✔ the old record prints its workdays without a help column value or critical types (80.860889ms)
+✔ a new day on top of the old save adds to it and keeps everything it had (6.309549ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.851296

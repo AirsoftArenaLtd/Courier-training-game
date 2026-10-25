@@ -1,0 +1,17 @@
+{"evaluationCases":672}
+{"goodScore":6400,"ratios":{"service":1,"safety":1,"efficiency":1}}
+✔ actual 2D scan, climb, signature and exception callbacks match the isolated action state (12.471695ms)
+✔ all delivery types, signers, codes, scan states, climb choices and timing bands retain the 2D evaluator (117.067317ms)
+✔ all ten authored doorstep replies score with the actual TalkController in the same stop group (5.963683ms)
+✔ the full three-stop result keeps the actual nextStop score scale, groups and local log (1.693557ms)
+✔ waiting, paused time and terminal guards cannot invent a signature, tag or completed stop (0.315745ms)
+✔ assessments retain critical replies and never add trainer feedback or change a real workday (0.565521ms)
+✔ the two harmful signature paths retain the original complete-set scores and critical caps (2.028542ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.050593

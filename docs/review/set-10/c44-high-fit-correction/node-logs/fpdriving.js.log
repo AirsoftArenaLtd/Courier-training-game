@@ -1,0 +1,32 @@
+✔ selecting Neutral or Park ends the previous reversing manoeuvre (8.073944ms)
+✔ each curb departure needs a recent mirror check and restores without replay (2.077856ms)
+✔ following credit waits until the leg ends; a later close gap cannot be hidden (9.416991ms)
+✔ opposing traffic and interrupted close-gap samples do not earn or fail following checks (0.387775ms)
+✔ an optional walk-around still requires standing behind the parked van and looking back (1.420815ms)
+✔ stale, moved and blocked path checks fail only the required tight-space walk-around (0.939829ms)
+✔ each required tight-space reversing manoeuvre consumes a fresh walk-around (4.655921ms)
+✔ waiting behind the flashing bus earns credit only after its lights go off (0.389999ms)
+✔ going around either side of the flashing bus reports a critical pass once (0.813208ms)
+✔ right-side yielding is credited after the emergency vehicle has passed (1.315415ms)
+✔ pulling out early or failing to yield cannot receive siren credit (4.408573ms)
+✔ a mid-siren checkpoint keeps physical actor bounds and waits for actual passage (1.306552ms)
+✔ a long day bounds the HUD history while retaining once-only evidence (2.729459ms)
+✔ a real motor collision with the bus cannot turn into waiting credit (83.40642ms)
+✔ live hazards appear naturally on a clear road and practice keeps the old state (4.894607ms)
+✔ moving hazard vehicles wait for a person or van blocking their path (0.321896ms)
+✔ reverse creeps gently without throttle, while either brake takes priority and holds zero (80.452422ms)
+✔ rear-axle reverse steering swings the nose left and the rear bumper right for right lock (13.552052ms)
+✔ assists fade by workday, preserve the gentle first-day speed ceiling, and accept a trainer override (229.111918ms)
+✔ actual cargo mass slows acceleration and lengthens braking; delivered and depot parcels add no load (58.677973ms)
+✔ speed and low grip reduce steering authority without changing steering direction (12.638293ms)
+✔ braking transfers weight to the front and dives the sprung body, then settles at rest (7.270412ms)
+✔ restoring mid-reverse preserves the exact future mission and reports with transient motor telemetry (70.985226ms)
+✔ a forward and reversing S-curve stays consistent at 30, 60 and 120 FPS and caps a stalled frame (100.20693ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 750.040142

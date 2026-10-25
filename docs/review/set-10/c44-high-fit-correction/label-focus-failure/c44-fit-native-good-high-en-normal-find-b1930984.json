@@ -1,0 +1,113 @@
+{
+  "checks": 197,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "find",
+      "shots": [
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-brief.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-0.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-1.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-2.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-controls-3.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-handheld.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-open-cargo.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f1.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f4.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f6.png",
+        "c44-fit-native-good-high-en-normal-find-b1930984-high-en-normal-find-find-label-f10.png"
+      ],
+      "findEvents": [
+        {
+          "pkg": "f1",
+          "elapsed": 3.5695400000001136,
+          "roundStart": 0,
+          "roundIndex": 0,
+          "roundClean": true,
+          "requested": "f1"
+        },
+        {
+          "pkg": "f4",
+          "elapsed": 6.223346666667197,
+          "roundStart": 4.289260000000229,
+          "roundIndex": 1,
+          "roundClean": true,
+          "requested": "f4"
+        },
+        {
+          "pkg": "f6",
+          "elapsed": 8.503843333334055,
+          "roundStart": 6.957513333333995,
+          "roundIndex": 2,
+          "roundClean": true,
+          "requested": "f6"
+        },
+        {
+          "pkg": "f10",
+          "elapsed": 11.138793333334261,
+          "roundStart": 9.2281733333342,
+          "roundIndex": 3,
+          "roundClean": true,
+          "requested": "f10"
+        }
+      ],
+      "placements": [],
+      "renderedDoor": {
+        "cargoOpen": true,
+        "asset": true,
+        "opening": 0.9919538374252695
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "b1930984c4dfc9d2fa7ac47b81948a7357a19331",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "72f4d24d9e52bc1be56b84d1714b5667d1d3c540b227e35f972c371831d09a71",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingworld.js": "afd379cbc61984cc55d1284545736355e8c4e6adf45faf232a0382c072f2232c",
+    "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
+    "src/core/fpworld.js": "6f0792706a66409fab2bc9fb3997632dc499155a5a71beb1c906755e7e923a78",
+    "src/core/fpaccess.js": "5a6f92a54c33977da6371768122daaafbd14d6c990d6fd07fbb92fd0875f69e0",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  },
+  "protocolSha256": "93cf8a05df84632594847f7a401e5fba4924a9d314b0e1bb17572bc7b28ca498",
+  "scope": "Only existing-id registration, accessibility preferences and a real suspended workday are fixtures. All movement, target selection, label reading, carrying, placements, restraints, picks, pauses and completion use real keys. No position, action callback, clock, scoring, result or assessment-completion fixtures. Observations are replayed through actual original 2D callbacks in Node. Tamil glyph/translation readiness remains a separate shared gate.",
+  "failure": {
+    "message": "The remapped physical target is unreachable: loading-parcel-f12 {\"elapsed\":19.71135333333446,\"runElapsed\":19.71135333333446,\"phase\":\"active\",\"held\":null,\"cart\":[],\"strapped\":false,\"round\":{\"stop\":6,\"pkg\":\"f12\"},\"roundIndex\":4,\"roundStart\":11.861453333334378,\"roundClean\":true,\"roundHelp\":{\"nudged\":false,\"shown\":false},\"cleanRounds\":4,\"wrongPicks\":0,\"score\":1332,\"placement\":{\"f1\":\"C-mid-1\",\"f2\":\"A-mid-0\",\"f3\":\"A-top-1\",\"f4\":\"B-bottom-0\",\"f5\":\"A-bottom-1\",\"f6\":\"floor-1\",\"f7\":\"floor-0\",\"f8\":\"C-top-0\",\"f9\":\"B-top-1\",\"f10\":\"B-mid-1\",\"f11\":\"C-bottom-1\",\"f12\":\"A-top-0\"},\"checks\":[{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 214 Birch Ln in 3.6s (misloaded!)\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936731309,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 58 Oak St in 1.9s (misloaded!)\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936819222,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 900 Market St in 1.5s\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936909930,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 5 Harbor View in 1.9s\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792937022809,\"where\":null}],\"player\":{\"x\":2.84,\"z\":9.727403333333406,\"yaw\":0,\"pitch\":0.4707572037603167}}",
+    "stack": "Error: The remapped physical target is unreachable: loading-parcel-f12 {\"elapsed\":19.71135333333446,\"runElapsed\":19.71135333333446,\"phase\":\"active\",\"held\":null,\"cart\":[],\"strapped\":false,\"round\":{\"stop\":6,\"pkg\":\"f12\"},\"roundIndex\":4,\"roundStart\":11.861453333334378,\"roundClean\":true,\"roundHelp\":{\"nudged\":false,\"shown\":false},\"cleanRounds\":4,\"wrongPicks\":0,\"score\":1332,\"placement\":{\"f1\":\"C-mid-1\",\"f2\":\"A-mid-0\",\"f3\":\"A-top-1\",\"f4\":\"B-bottom-0\",\"f5\":\"A-bottom-1\",\"f6\":\"floor-1\",\"f7\":\"floor-0\",\"f8\":\"C-top-0\",\"f9\":\"B-top-1\",\"f10\":\"B-mid-1\",\"f11\":\"C-bottom-1\",\"f12\":\"A-top-0\"},\"checks\":[{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 214 Birch Ln in 3.6s (misloaded!)\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936731309,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 58 Oak St in 1.9s (misloaded!)\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936819222,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 900 Market St in 1.5s\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792936909930,\"where\":null},{\"cat\":\"efficiency\",\"got\":2,\"max\":2,\"label\":\"Found 5 Harbor View in 1.9s\",\"good\":true,\"partial\":false,\"lesson\":\"Work the shelves by section. Hunting for a package is time you do not get back.\",\"feedback\":null,\"group\":null,\"kind\":\"check\",\"critical\":false,\"at\":1792937022809,\"where\":null}],\"player\":{\"x\":2.84,\"z\":9.727403333333406,\"yaw\":0,\"pitch\":0.4707572037603167}}\n    at focus (/workspace/c44-loading-truck/test/fploadingbrowser.js:14:316)\n    at async use (/workspace/c44-loading-truck/test/fploadingbrowser.js:15:23)\n    at async pick (/workspace/c44-loading-truck/test/fploadingbrowser.js:62:35)\n    at async /workspace/c44-loading-truck/test/fploadingbrowser.js:65:6"
+  },
+  "state": {
+    "active": true,
+    "player": {
+      "x": 2.84,
+      "z": 9.727403333333406,
+      "yaw": 0,
+      "pitch": 0.4707572037603167
+    },
+    "phase": "active",
+    "loading": {
+      "phase": "active",
+      "held": null,
+      "round": {
+        "stop": 6,
+        "pkg": "f12"
+      },
+      "roundIndex": 4,
+      "elapsed": 19.9845433333344
+    },
+    "target": "loading-parcel-f7",
+    "handheld": "Read the cargo details."
+  }
+}

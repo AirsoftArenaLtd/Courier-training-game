@@ -1,0 +1,3 @@
+browser-slot {'state': 'waiting'}
+native-good-high-en-normal-find {'state': 'running'}
+native-good-high-en-normal-find {'state': 'failed', 'exit': 1}

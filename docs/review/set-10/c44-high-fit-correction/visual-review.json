@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-25",
+  "preflightRuntime": "c3172d23a63b4540341903007d57a3f8b5d68963",
+  "currentApplicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
+  "inspected": [
+    "preflight/c44-fit-preflight-c3172d23-high-loadcart.png",
+    "preflight/c44-fit-preflight-c3172d23-high-loadstrapped.png",
+    "preflight/c44-fit-preflight-c3172d23-high-findunit.png"
+  ],
+  "observations": [
+    "Cart labels visibly show the original number, street, stop and weight on their real paper faces.",
+    "The imported High van shows supported racks, an open upper aperture, a visible dangerous-goods parcel and its top/side restraint band.",
+    "The unit-address view visibly distinguishes 5 #3B Harbor View and shows its original 7 LB label.",
+    "The preflight predates the equivalent allocation-only expansion of two strap calls; its exact source scope is preserved.",
+    "The e834ad69 follow-up changes only focus behavior after b1930984; it adds no visual geometry. The partial first High native journey is archived and excluded."
+  ],
+  "remaining": "Final e834ad69 full native/resource matrix, corrected-font Tamil and current-pilot/default/Intel gates are still pending."
+}
