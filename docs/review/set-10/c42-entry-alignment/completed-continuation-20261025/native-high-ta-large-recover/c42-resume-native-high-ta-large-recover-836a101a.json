@@ -1,0 +1,439 @@
+{
+  "checks": 730,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "recover",
+      "shots": [
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-controls-0.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-controls-1.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-controls-2.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-controls-3.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-address-reading.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-handheld.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-physical.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-reply-n0.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-arrival-1-house.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-reply-n2.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-arrival-2-cargo.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-reply-n3.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-arrival-3-other.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-reply-n5.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-arrival-4-cab.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-reply-n7.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-ending.png",
+        "c42-resume-native-high-ta-large-recover-836a101a-high-ta-large-recover-result.png"
+      ],
+      "nodes": [
+        "n0",
+        "n2",
+        "n3",
+        "n5",
+        "n7"
+      ],
+      "trips": [
+        "house",
+        "cargo",
+        "other",
+        "cab"
+      ],
+      "pages": 11,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue from the parked van’s communication device.",
+          "The conversation point is 3 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "Continue from the parked van’s communication device.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ],
+        "choices": [
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 404.5,
+            "bottom": 450.5
+          },
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-recover",
+        "result": {
+          "score": 1900,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792918631951,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792918631951,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thank them, apologize, and take it back. They did you a favor.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792918785371,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792918930457,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792918930457,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Honest and short. People forgive a mistake that is owned and fixed; they don't forgive being brushed off.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792919228125,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792919604432,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792919604433,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A misdelivery is fixed by the courier who made it: get it back the same day, apologize, deliver it properly.",
+            "Update the record: the scan and the proof of delivery must show where the package really went.",
+            "Tell dispatch what happened. An honest report is what stops the same mistake twice."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792918631951,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Owning it straight away is what makes a misdelivery a small thing.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792918631951,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thank them, apologize, and take it back. They did you a favor.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792918785371,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792918930457,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The record has to follow the package. Lena's tracking is wrong until you fix it.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792918930457,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Honest and short. People forgive a mistake that is owned and fixed; they don't forgive being brushed off.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792919228125,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792919604432,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "An honest report means the address gets flagged for the next driver, and you remember to check the suffix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792919604433,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 73
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1900,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792919608769
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792918520471,
+          "pending": false,
+          "at": 1792919608807,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "score": 1900,
+          "criticals": [],
+          "lessons": [
+            "A misdelivery is fixed by the courier who made it: get it back the same day, apologize, deliver it properly.",
+            "Update the record: the scan and the proof of delivery must show where the package really went.",
+            "Tell dispatch what happened. An honest report is what stops the same mistake twice."
+          ]
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    }
+  ],
+  "errors": [],
+  "sourceRevision": "ebb77977262db9245cb7b526872f73a215ae6a8c",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "7272628d0c01de4e0822b877ad361432c90a9c70558399b7cbccfde6a482940d",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerworld.js": "d5e345b2086f31c0bf281d3f89c909403a4334cc484731fe48de70445f581e25",
+    "src/core/fpproblemstage.js": "e7ba12a62421d988518c09d086426ee72e5c0b998adf972ba90296ac22e9362b",
+    "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d"
+  },
+  "protocolSha256": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
+  "variant": "good",
+  "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+  "complete": true
+}

@@ -1,3 +1,7 @@
+## Completion update — 25 October 2026
+
+The four existing ids now have all 32 durable good native layouts, 48 resource views, three critical cases, real storm timeout, old two-stop flow and required repository browser checks. The 22-job final continuation and exact per-case/source/archive hashes are in `completed-continuation-20261025/`. The earlier preparation notes below retain their historical scope. Whole C42 remains blocked on the optional-id contract and shared font/A31 work.
+
 # Continuing C-42’s frozen existing-id validation
 
 Checkout: /workspace/c42-problem-solving. Runtime: 836a101a. Exact source/reference bytes: source-equivalence.json. Do not mutate the source beneath the browser. The permanent hourly automation is separate and remains enabled.

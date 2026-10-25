@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-25",
+  "inspected": [
+    "native-high-en-normal-storm/c42-resume-native-high-en-normal-storm-836a101a-high-en-normal-storm-result.png",
+    "critical-address/c42-resume-critical-address-836a101a-low-ta-large-address-result.png"
+  ],
+  "observations": [
+    "High English storm: six stars; readable original severe-weather lessons inside the results card.",
+    "Low Tamil larger-text critical-address: expected failed assessment, two criticals and one service star; confirmed shared missing glyph boxes remain visible."
+  ],
+  "languageReadiness": false,
+  "noBrowserRerun": true
+}

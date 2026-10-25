@@ -1,0 +1,7 @@
+# C42 completed existing-id continuation — 25 October 2026
+
+All 22 jobs in the retained continuation passed at unchanged application `836a101a`: the remaining thirteen good native journeys (9,147 checks), three authored critical journeys, the real storm timeout, the old two-stop dialogue flow, academy, enterprise, routeday and driving. The journal fingerprints, source files, logs and every reported artifact were checked before copying. No browser or passed test was rerun to collect these results.
+
+Together with the nineteen explicitly durable modes retained in the earlier two reports, this completes all **32** good Low/High, English/Tamil, normal/larger-text journeys for the four existing M4 ids. The earlier aggregate reports ended during later partial journeys: those partial modes and aggregate check counters are excluded. `summary.json` names every accepted mode and its original report; the original failed/interrupted diagnostics remain intact.
+
+This is an existing-id source-scoped gate. Whole C42 stays blocked on the already-posted shared positive-safety/exception policy for the optional closure/blocked-drive ids and the shared Tamil font/translation/A31 work. Combined current-pilot/default rollout and the owner's existing Intel O1 gate are separate. The unchanged 80-suite Node/1,372 original-2D comparison baseline, 48-view graphics gate and 27,720-view CPU gate keep their prior source scope.
