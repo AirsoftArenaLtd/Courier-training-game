@@ -1,0 +1,12 @@
+[
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "sha256": "cad9aa5bfbceb0419b0d1a307e34a0708ceda9116aa2f10c53adc13306062320"
+  },
+  {
+    "file": "test/tools/fp-loading-quality.js",
+    "exit": 0,
+    "sha256": "73b6a954977920aaaeaea14f75e1bdb370e35d1660a3304660d6c45d41d5b9a4"
+  }
+]

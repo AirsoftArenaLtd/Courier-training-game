@@ -1,0 +1,18 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -262,6 +262,7 @@
+         title: 'Load for the Route',
+         icon: 'ic_belt',
+         scene: 'LoadingScene',
++        scene3d: 'loading-cargo',
+         dataKey: 'loading.m6_load',
+         categories: ['safety', 'efficiency'],
+         blurb: 'Twelve packages, one truck. Shelve them by stop section, keep the heavy ones low, segregate the dangerous goods and strap the floor load.',
+@@ -273,6 +274,7 @@
+         title: 'Find It Fast',
+         icon: 'ic_clock',
+         scene: 'LoadingScene',
++        scene3d: 'loading-cargo',
+         dataKey: 'loading.m6_find',
+         categories: ['efficiency', 'service'],
+         blurb: 'Somebody else loaded this truck, and not well. Find the right package for each stop against the clock, without grabbing the near-match.',
