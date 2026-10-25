@@ -1,0 +1,11 @@
+# C-44 loading model progress — 25 October 2026
+
+C44 is doing on `codex/c44-loading-truck`, stacked on pushed C43 `381c15d7` and its C38 dependency. This is an **unloaded load-mode model slice**, not the completed task or a rendered 3D scene. No index/registry/default/shared source change is applied.
+
+`OTR.fpLoading` obtains the original 21 slot definitions from LoadingScene's geometry, uses its actual placement callback and `problemsFor`, and delegates grading/result construction to the actual `finishLoad` and `endScenario`. It adds guarded physical-action state for carrying one piece, putting it into a slot, returning it to the cart, strapping, pausing and confirming the report. Data-only image handles retain the original callback's bookkeeping without allocating Phaser objects. The original 12-package set, categories, pars and 2100-point perfect result remain intact; no module workday event is sent.
+
+Four model tests compare **252** authored package/slot placements and **50** completed safe/unsafe/timing/strap variants with actual original 2D callbacks/results. They also verify occupied-slot rollback, floor-change strap invalidation, untouched straps after a shelf change, incomplete/held/paused/invalid/terminal guards, stable results and workday isolation. The targeted seven-file Node batch passes **124 reported checks**, including fpmission/fpworld/fploadout/workday/savesize/i18n. After adding an explicit perfect-score assertion the final four-case model rerun passes; exact logs and source hashes are in `manifest.json`.
+
+**Still to build:** the original five-round find mode and callback/result parity, the physical cargo/parcel labels and loading locations, real motor/rays and accessible controls, complete repository/browser/layout/resource checks and screenshots. This model is not loaded by index.html, so it has no new rendered-resource or frame-rate claim. C43's completed source-scoped resource evidence keeps its own scope. Shared registry/default/scoring/save/Settings/i18n and current-pilot/A30/A31 acceptance remain with Claude. C42's separate frozen validation owns the single browser slot while this Node work proceeds.
+
+C45 and C46 are the two remaining startable todos; a next-batch request is in the Claude inbox. Permanent hourly automation stays enabled without an end date.

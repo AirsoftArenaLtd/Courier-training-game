@@ -1,0 +1,237 @@
+{"placementComparisons":252,"slots":21}
+{"completeLoadComparisons":50}
+✔ all 252 authored package/slot placements match actual 2D drops, rules and slot metadata (89.299044ms)
+✔ occupied destinations restore the original load and floor changes alone invalidate a strap (1.826165ms)
+✔ safe and unsafe complete loads retain original checks, summary, score, ratios, lessons and placement (94.537064ms)
+✔ incomplete, held, paused, invalid and terminal actions cannot finish a load or alter the workday (1.262203ms)
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ seeded discrepancies are stable, optional on old saves and excluded from cargo practice (15.711916ms)
+✔ a mis-sort is a physical unlisted parcel; scanning catches it once and Dispatch sets it aside (1.983496ms)
+✔ an extra package earns its catch only when set aside, and cannot be delivered or returned (0.580307ms)
+✔ loading a mis-sort and skipping the count are reported on departure only once (5.477162ms)
+✔ a missing package can be reported, physically recovered, scanned and loaded before counting (0.956642ms)
+✔ rolling out without reporting a missing package fails the check and remains recoverable at Dispatch (0.34556ms)
+✔ a reported late package appears once when parked at a stop with cargo open, and files under that stop (1.010161ms)
+✔ the count requires the physical van load and rejects a wrong number or an unlisted package (0.400601ms)
+✔ bad load-out state and impossible parcel identities do not resume (37.615878ms)
+✔ the extra package has its own real mesh and scan face on the Dispatch counter (33.402805ms)
+✔ load checks also handle five manifest packages and one unlisted package (0.324389ms)
+✔ dispatch brief completion is local, once-only and persists without replay (11.721358ms)
+✔ campaign briefing prevents cab entry until acknowledged; practice remains separate (2.37842ms)
+✔ first drive leg uses throttle and brakes, stops at the line and parks at the first address (91.387456ms)
+✔ drive guidance follows belt, departure, junction and destination without checkpoint state (0.915772ms)
+✔ seeds provide different service mixes while addresses remain fixed (3.671889ms)
+✔ parcel location, identity and rearrangement persist through a checkpoint (1.340117ms)
+✔ closed cargo, remote interaction and occupied shelves cannot transfer parcels (0.495731ms)
+✔ a wrong scan is recoverable and repeated scans do not duplicate evidence (0.390195ms)
+✔ wrong parcel and uncontacted address do not complete a job (0.489472ms)
+✔ delivery, authorised release and correct exception lead to return and debrief (4.800254ms)
+✔ unsupported outcomes cannot poison the recorded delivery decision (0.225903ms)
+✔ an absent recipient cannot receive a handover and the parcel remains recoverable (0.524854ms)
+✔ depot scanning cannot replace a fresh scan at the delivery stop (0.255016ms)
+✔ cargo scans do not verify a doorstep and an unsecured van blocks recording after a valid scan (0.310628ms)
+✔ scanning the wrong stop or scanning with an unsecured vehicle does not verify delivery (0.958164ms)
+✔ older checkpoints retain cargo and require fresh delivery verification (0.838588ms)
+✔ practice enforces scope and finishes only after physical retrieval and replacement (4.167931ms)
+✔ inspection decision is checked against the actual generated condition (0.629108ms)
+✔ parked cargo can be entered through the rear but walls and cab remain solid (0.443655ms)
+✔ hub suspension or pause does not advance actors and restored events do not duplicate (0.383176ms)
+✔ crossing development survives save/resume and an early response is recorded once (1.523108ms)
+✔ stopping before the line is recognised, crossing it without stopping is not (5.705238ms)
+✔ new motion remains stable across frame rates and caps an inactive-tab frame (58.686752ms)
+✔ corrupted checkpoint and impossible cargo locations are rejected (6.245596ms)
+✔ traffic contact stops the vehicle and records one collision rather than two (3.019114ms)
+✔ traffic is solid for walkers and yields when a walker is directly ahead (0.214917ms)
+✔ a corrupted debrief or swapped save slot cannot break a valid campaign checkpoint (0.645472ms)
+✔ local checkpoint reports storage failure and uses a separate profile key (0.54873ms)
+✔ load scans, shelf checks and restraints report successes and failures by parcel and leg (6.595803ms)
+✔ both inspection points report the first decision and penalize incomplete departure checks (0.450996ms)
+✔ practice retrieval reports whether the requested parcel was scanned (0.238542ms)
+✔ stop scans, absent handovers, delivery decisions and returns use parcel and numeric stop keys (0.815584ms)
+✔ wrong parcels and recovered mismatches are distinct for each target stop (0.294955ms)
+✔ legacy unverified completion maps to a failed stop scan (0.284459ms)
+✔ safe driving stays unpenalized, violations are once per leg and map to van coordinates in mph (0.833651ms)
+✔ stop-line and developing hazard checks report both right and wrong responses (0.539867ms)
+✔ traffic, obstacle and pedestrian contacts report critical incidents (0.690769ms)
+✔ handheld parking guard reports through the mission log once per leg (0.216119ms)
+✔ restoring HUD evidence does not replay reports, and missing workday support is safe (0.363396ms)
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (1.174002ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (7.371547ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (76.286993ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (25.245074ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (7.883042ms)
+✔ all customer doors are outside the house occluder and reachable from the path (54.213359ms)
+✔ hub stations are pickable and inactive route interactions are invisible (18.98758ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (20.276972ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (24.501887ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (44.947938ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (22.104929ms)
+✔ walkaround front and mirror marks leave the headlights directly reachable (70.711646ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (9.861612ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.866268ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.682558ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (26.346919ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (8.051791ms)
+✔ low graphics keeps barcode scanning on cargo shelves (6.987862ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (4.582743ms)
+✔ saving practice preserves a separate suspended workday (1.093133ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.298741ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.334614ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (37.633106ms)
+
+es (Español)
+ok   data/i18n/es.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+ok   "2 delivered · 1 exception"
+ok   "2 delivered · 3 exceptions"
+ok   "Not passed (3 attempts, left part-way)"
+ok   "Assessment: not passed · 1 attempt left"
+ok   "Signaled the left turn too late"
+ok   "+ 1 more check, all passed"
+ok   "12 mph · 1:23 into the drive · CRITICAL"
+ok   "Whoa, the icy path is slippery! Hold SHIFT: short, careful steps."
+
+fr (Français)
+ok   data/i18n/fr.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+hi (हिन्दी)
+ok   data/i18n/hi.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+bn (বাংলা)
+ok   data/i18n/bn.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+mr (मराठी)
+ok   data/i18n/mr.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+te (తెలుగు)
+ok   data/i18n/te.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+ta (தமிழ்)
+ok   data/i18n/ta.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+gu (ગુજરાતી)
+ok   data/i18n/gu.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+kn (ಕನ್ನಡ)
+ok   data/i18n/kn.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+ml (മലയാളം)
+ok   data/i18n/ml.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+pa (ਪੰਜਾਬੀ)
+ok   data/i18n/pa.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+all translation checks passed
+✔ test/i18n.js (469.993546ms)
+      B-93: 758 characters to spare with C-33, C-34 and C-35 together
+      B-98: 3561 of 4000 characters, 439 to spare
+      B-114: 3559 of 4000 characters, 441 to spare
+✔ a small save goes to the LMS as it is (4.268595ms)
+✔ step 1 and 2: old route history and the last workday's lines go first (6.752402ms)
+✔ step 3: a long day is packed, and comes back whole, places and all (66.673837ms)
+✔ A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save (101.511461ms)
+✔ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (209.125096ms)
+✔ B-68: C-34's damage and load on the worst milestone 8 day still pack with room to spare (161.930407ms)
+✔ B-75: C-33's richer stops on the C-34 damage day still pack with room to spare (127.464437ms)
+✔ B-93: C-35's walkaround and post-trip report on the richer-stop damage day still pack with room to spare (128.206051ms)
+✔ B-98: C-35's heaviest day (21 damage reports on the richer-stop day; C-36's radio call and night lights, B-103) still packs, and reloads the same (189.559367ms)
+✔ B-114: a packed day writes known types as numbers from a list that only grows; names still unpack (1.022943ms)
+✔ B-114: C-36's heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120) (178.095716ms)
+✔ B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads (2.225503ms)
+✔ B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins (184.505119ms)
+✔ B-16: runs of numbered keys pack once and come back exactly, in order (0.333306ms)
+✔ A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost (194.001906ms)
+✔ step 4 and 5: a very long day on a heavy save keeps its score only, and says so (138.198891ms)
+✔ step 7: a day too long even for the summary keeps its total, flagged truncated (90.907714ms)
+✔ step 8: a save too big for anything else still reaches the LMS within the limit (74.960591ms)
+✔ every write of a long day stays within the limit, from the first report to the last (19300.993486ms)
+✔ SCORM 2004 and local saves are not cut (40.444674ms)
+✔ B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course (4104.390163ms)
+✔ every event type is complete (2.022034ms)
+✔ a check scores full marks when right and none when wrong, with the matching line (2.586704ms)
+✔ a type counts once per key (0.368072ms)
+✔ penalties, criticals, places and phases reach the score log (0.344767ms)
+✔ an unknown type is refused, not scored (0.36018ms)
+✔ finish scores the day from its reports, saves it as a route day and on the record (2.239043ms)
+✔ the results screen gets the day as a scenario of its own, its verdict and the debrief as the next step (1.309055ms)
+✔ abandon discards the workday without scoring it (0.404284ms)
+✔ a paused or reloaded workday resumes with its score, and replayed reports are not counted twice (1.778005ms)
+✔ a workday the 3D world cannot resume starts again from the morning (1.479085ms)
+✔ the debrief groups lines by phase, then stop by stop, and links driving mistakes to their pins (1.046599ms)
+✔ an empty day scores nothing and tests nothing (0.276446ms)
+✔ a saved workday with event types the catalogue no longer has still opens (0.726649ms)
+✔ the lab (no workday started at the hub) still reports into an unsaved log (0.140747ms)
+✔ the full-day types score: checks, penalties, bonuses, criticals and the stop they file under (0.878812ms)
+✔ the cab, sign, night and damage events of the milestone 7 to 9 contract exist and score as written (0.241015ms)
+✔ a damage report counts once per zone, and a missing one is recorded as a wrong check (0.199824ms)
+✔ the old mirror and reversing events keep their types (old saves replay) with the new wording (0.432046ms)
+✔ A-26: the cab, sign, night and damage events reach the debrief, the drive map and the results verdict (1.384596ms)
+✔ B-47: milestone 8 mistakes keep their own pins and every marker has a legend line (0.993851ms)
+✔ B-54: a day with traffic keeps how often it ran a red light, turned wrong, did not give way or cut up a cyclist (0.531722ms)
+✔ B-92: a day keeps how often it got the richer stops and the load-out wrong (0.361061ms)
+✔ B-21: the day keeps which aids were on; the results, the record and the history tell an aided day from one without (0.785004ms)
+✔ B-29: the day keeps its town seed so the drive review can draw its streets; days without one still review (0.414089ms)
+✔ B-31: the drive map names each street with the town's own names (0.344337ms)
+ℹ tests 124
+ℹ suites 0
+ℹ pass 124
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28004.392065

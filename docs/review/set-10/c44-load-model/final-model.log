@@ -1,0 +1,14 @@
+{"placementComparisons":252,"slots":21}
+{"completeLoadComparisons":50}
+✔ all 252 authored package/slot placements match actual 2D drops, rules and slot metadata (86.155825ms)
+✔ occupied destinations restore the original load and floor changes alone invalidate a strap (4.135478ms)
+✔ safe and unsafe complete loads retain original checks, summary, score, ratios, lessons and placement (113.564518ms)
+✔ incomplete, held, paused, invalid and terminal actions cannot finish a load or alter the workday (6.0191ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 398.597576
