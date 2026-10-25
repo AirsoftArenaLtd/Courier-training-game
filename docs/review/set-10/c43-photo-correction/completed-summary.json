@@ -73,6 +73,14 @@
     {
       "id": "native-high-en-normal-pod",
       "directory": "completed-8d5fb383/native-high-en-normal-pod"
+    },
+    {
+      "id": "native-high-en-normal-exceptions",
+      "directory": "completed-8d5fb383/native-high-en-normal-exceptions"
+    },
+    {
+      "id": "native-high-en-normal-adult",
+      "directory": "completed-8d5fb383/native-high-en-normal-adult"
     }
   ],
   "resources": [
@@ -151,6 +159,8 @@
       },
       "durable": true,
       "screenshots": 26,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "native-low-en-pod-8d5fb383/c43-resume-native-low-en-normal-pod-8d5fb383.json"
     },
     {
@@ -174,6 +184,8 @@
       },
       "durable": true,
       "screenshots": 27,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-en-normal-exceptions/c43-resume-native-low-en-normal-exceptions-8d5fb383.json"
     },
     {
@@ -197,6 +209,8 @@
       },
       "durable": true,
       "screenshots": 39,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-en-normal-adult/c43-resume-native-low-en-normal-adult-8d5fb383.json"
     },
     {
@@ -220,6 +234,8 @@
       },
       "durable": true,
       "screenshots": 26,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-en-large-pod/c43-resume-native-low-en-large-pod-8d5fb383.json"
     },
     {
@@ -243,6 +259,8 @@
       },
       "durable": true,
       "screenshots": 27,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-en-large-exceptions/c43-resume-native-low-en-large-exceptions-8d5fb383.json"
     },
     {
@@ -266,6 +284,8 @@
       },
       "durable": true,
       "screenshots": 39,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-en-large-adult/c43-resume-native-low-en-large-adult-8d5fb383.json"
     },
     {
@@ -289,6 +309,8 @@
       },
       "durable": true,
       "screenshots": 26,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-normal-pod/c43-resume-native-low-ta-normal-pod-8d5fb383.json"
     },
     {
@@ -312,6 +334,8 @@
       },
       "durable": true,
       "screenshots": 27,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-normal-exceptions/c43-resume-native-low-ta-normal-exceptions-8d5fb383.json"
     },
     {
@@ -335,6 +359,8 @@
       },
       "durable": true,
       "screenshots": 39,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-normal-adult/c43-resume-native-low-ta-normal-adult-8d5fb383.json"
     },
     {
@@ -358,6 +384,8 @@
       },
       "durable": true,
       "screenshots": 26,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-large-pod/c43-resume-native-low-ta-large-pod-8d5fb383.json"
     },
     {
@@ -381,6 +409,8 @@
       },
       "durable": true,
       "screenshots": 27,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-large-exceptions/c43-resume-native-low-ta-large-exceptions-8d5fb383.json"
     },
     {
@@ -404,6 +434,8 @@
       },
       "durable": true,
       "screenshots": 39,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-low-ta-large-adult/c43-resume-native-low-ta-large-adult-8d5fb383.json"
     },
     {
@@ -427,13 +459,65 @@
       },
       "durable": true,
       "screenshots": 26,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
       "report": "completed-8d5fb383/native-high-en-normal-pod/c43-resume-native-high-en-normal-pod-8d5fb383.json"
+    },
+    {
+      "job": "native-high-en-normal-exceptions",
+      "checks": 1375,
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "exceptions",
+      "id": "m5-exceptions",
+      "score": 5100,
+      "ratios": {
+        "service": 1,
+        "efficiency": 1,
+        "safety": 1
+      },
+      "stars": {
+        "service": 3,
+        "efficiency": 3,
+        "safety": 3
+      },
+      "durable": true,
+      "screenshots": 27,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
+      "report": "completed-8d5fb383/native-high-en-normal-exceptions/c43-resume-native-high-en-normal-exceptions-8d5fb383.json"
+    },
+    {
+      "job": "native-high-en-normal-adult",
+      "checks": 2016,
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "adult",
+      "id": "m5-adult",
+      "score": 6200,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "durable": true,
+      "screenshots": 39,
+      "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+      "signatureObservations": null,
+      "report": "completed-8d5fb383/native-high-en-normal-adult/c43-resume-native-high-en-normal-adult-8d5fb383.json"
     }
   ],
   "scope": "Completed jobs only. The whole matrix remains pending until every job passes.",
-  "jobsPassed": 18,
+  "jobsPassed": 20,
   "allJobsPassed": false,
   "resourceViews": 56,
-  "nativeJourneys": 13,
-  "nativeChecks": 19540
+  "nativeJourneys": 15,
+  "nativeChecks": 22931
 }

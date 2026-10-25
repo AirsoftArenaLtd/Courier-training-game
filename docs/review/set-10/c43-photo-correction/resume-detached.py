@@ -8,7 +8,7 @@ import sys
 import time
 
 root = Path(__file__).resolve().parents[4]
-output = root / 'test/out/pipelines/c43-8d5fb383'
+output = root / 'test/out/pipelines/c43-8d5fb383-signature'
 status = output / 'status.json'
 previous = json.loads(status.read_text())
 pid = previous.get('pid')

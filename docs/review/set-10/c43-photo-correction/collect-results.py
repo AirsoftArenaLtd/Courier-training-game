@@ -21,8 +21,19 @@ pipeline = root / 'test/out/pipelines/c43-8d5fb383'
 plan = json.loads((pipeline / 'plan.json').read_text())
 ledger = json.loads((pipeline / 'results.json').read_text())
 source = json.loads((evidence / 'source-equivalence.json').read_text())
-for name, expected in plan['sources'].items():
-    assert digest(root / name) == expected, 'Frozen source changed: ' + name
+phases = [(pipeline, plan, ledger)]
+continuation = root / 'test/out/pipelines/c43-8d5fb383-signature'
+if (continuation / 'plan.json').exists():
+    phases.append((continuation, json.loads((continuation / 'plan.json').read_text()),
+                   json.loads((continuation / 'results.json').read_text())))
+previous_protocol = evidence / 'signature-race-20261025/previous-native-protocol.js'
+for phase, definition, _ in phases:
+    for name, expected in definition['sources'].items():
+        actual = digest(root / name)
+        if actual != expected and phase == pipeline and name == 'test/fpscannerstopbrowser.js':
+            assert previous_protocol.is_file() and digest(previous_protocol) == expected, 'Previous protocol proof changed'
+        else:
+            assert actual == expected, 'Frozen source changed: ' + name
 for name, expected in source['files'].items():
     original = subprocess.check_output(['git', 'show', source['runtime'] + ':' + name], cwd=root)
     assert hashlib.sha256(original).hexdigest() == expected, 'Runtime proof changed: ' + name
@@ -35,15 +46,20 @@ existing = {
 summary = dict(runtime=plan['runtime'], jobsTotal=len(plan['jobs']), completed=[],
                resources=[], native=[], scope='Completed jobs only. The whole matrix remains pending until every job passes.')
 for job in plan['jobs']:
-    entry = ledger.get(job['id'], {})
+    selected_pipeline, selected_plan, entry = pipeline, plan, ledger.get(job['id'], {})
+    for phase, definition, journal in phases[1:]:
+        candidate = next((item for item in definition['jobs'] if item['id'] == job['id']), None)
+        if candidate and journal.get(job['id'], {}).get('exit') == 0:
+            job, selected_pipeline, selected_plan, entry = candidate, phase, definition, journal[job['id']]
     if entry.get('exit') != 0:
         continue
-    fingerprint = hashlib.sha256(json.dumps(dict(sources=plan['sources'], job=job,
-        environment=plan.get('environment', {})), sort_keys=True).encode()).hexdigest()
+    fingerprint = hashlib.sha256(json.dumps(dict(sources=selected_plan['sources'], job=job,
+        environment=selected_plan.get('environment', {})), sort_keys=True).encode()).hexdigest()
     assert entry['fingerprint'] == fingerprint, 'Job definition changed: ' + job['id']
-    log = pipeline / entry['log']
+    log = selected_pipeline / entry['log']
     assert digest(log) == entry['logSha256'], 'Job log changed: ' + job['id']
-    destination = evidence / existing.get(job['id'], 'completed-8d5fb383/' + job['id'])
+    destination = evidence / existing.get(job['id'],
+        ('completed-8d5fb383/' if selected_pipeline == pipeline else 'completed-signature-8d5fb383/') + job['id'])
     destination.mkdir(parents=True, exist_ok=True)
     shutil.copy2(log, destination / log.name)
     for name, expected in entry['artifacts'].items():
@@ -56,6 +72,7 @@ for job in plan['jobs']:
         elif job['id'].startswith('native-') and name.endswith('.json'):
             report = json.loads(artifact.read_text())
             assert report['complete'] and not report['errors'], 'Incomplete native journey: ' + name
+            assert report['protocolSha256'] == selected_plan['sources']['test/fpscannerstopbrowser.js'], 'Native protocol changed: ' + name
             for source_name, source_hash in report['sourceFiles'].items():
                 assert digest(root / source_name) == source_hash, 'Native source changed: ' + source_name
             for mode in report['modes']:
@@ -65,13 +82,16 @@ for job in plan['jobs']:
                     quality=mode['quality'], lang=mode['lang'], large=mode['large'], kind=mode['kind'],
                     id=result['id'], score=result['result']['score'], ratios=result['result']['ratios'],
                     stars=result['stars'], durable=mode['durable'], screenshots=len(mode['shots']),
+                    protocolSha256=report['protocolSha256'],
+                    signatureObservations=mode.get('signatureObservations'),
                     report=str((destination / artifact.name).relative_to(evidence))))
         elif job['id'].startswith('resource-') and artifact.name.startswith('bench-') and name.endswith('.json'):
             report = json.loads(artifact.read_text())
             assert not report['errors'] and not report['missingViews'], 'Incomplete resource views: ' + name
             assert len(report['scannerProof']) == 14, 'Missing scanner poses: ' + name
     write(destination / (job['id'] + '-provenance.json'), dict(job=job, result=entry,
-          runtime=plan['runtime'], sourceProof=os.path.relpath(evidence / 'source-equivalence.json', destination)))
+          runtime=selected_plan['runtime'], pipeline=str(selected_pipeline.relative_to(root)),
+          sourceProof=os.path.relpath(evidence / 'source-equivalence.json', destination)))
     summary['completed'].append(dict(id=job['id'], directory=str(destination.relative_to(evidence))))
 
 summary['jobsPassed'] = len(summary['completed'])

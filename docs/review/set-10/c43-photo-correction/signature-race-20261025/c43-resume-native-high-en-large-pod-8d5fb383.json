@@ -1,0 +1,234 @@
+{
+  "checks": 1046,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "kind": "pod",
+      "shots": [
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-0.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-1.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-2.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-3.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-cargo.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-scan.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-arrival.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-delivery-locations.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-photo-framing.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-photo-review.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-report.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-cargo.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-scan.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-arrival.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-reply.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-signature.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-printed-name.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-report.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-cargo.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-scan.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-arrival.png",
+        "c43-resume-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-reply.png"
+      ],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": false,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "left",
+            "signer": null,
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": "planter",
+            "photo": {
+              "grade": "good",
+              "pkgIn": true,
+              "doorIn": true,
+              "numIn": false,
+              "personIn": false
+            },
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {},
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 40.8642433333372,
+            "done": true,
+            "retakes": 1
+          },
+          "criticals": 0
+        },
+        {
+          "index": 1,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": true,
+            "talked": true,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "recipient",
+            "signer": "Marcus Bell",
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": null,
+            "photo": null,
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {},
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 34.07545999999778,
+            "done": true
+          },
+          "criticals": 0
+        }
+      ],
+      "photoPreview": {
+        "key": "scanner_photo_m5-pod_0",
+        "width": 640,
+        "height": 360,
+        "colours": 175,
+        "objects": [
+          {
+            "type": "Text",
+            "font": 26,
+            "scale": 1,
+            "x": 44,
+            "top": 138,
+            "right": 513,
+            "bottom": 169,
+            "height": 31
+          },
+          {
+            "type": "Image",
+            "font": 0,
+            "scale": 1,
+            "x": 117.77777777777777,
+            "top": 205,
+            "right": 722.2222222222222,
+            "bottom": 545,
+            "height": 340
+          },
+          {
+            "type": "Text",
+            "font": 26,
+            "scale": 1,
+            "x": 44,
+            "top": 559,
+            "right": 430,
+            "bottom": 590,
+            "height": 31
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "sourceRevision": "790e53f5623b3c7b629dc9b683d31612c645b938",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "ea523c53bcee95dc7b43b45bfa2832fa7cbf784c89dac84f4ca2fd043bb91d11",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerstop.js": "4f603855542c397a6f92822a463a84fdfe1f3fbe2429a74c8e4be3c8aa8c2abb",
+    "src/core/fpcustomerstopworld.js": "088d4233cb14d651b3015a47141928b4da8b861bf5d90507873a5f5e85282d63",
+    "src/core/fpcustomerstopscenario.js": "d610f02698fff1ba04565a523674ec7c9782043d79ba2c0a5f009f3d3fb2d969",
+    "src/core/fpworld.js": "9004092776053f86c3b50382488bbca8947847935c4f217e8854d6e39de891ff",
+    "src/core/fpaccess.js": "08b950cbcbc20c9b21ad9ad71badb655339c7587690e9b31109e8a3fd7707c92",
+    "src/core/fpscannerstop.js": "6a8fea5c3b14a2fbc9ca4c7aa8465753af17829f721338ca3ba25abf592381f0",
+    "src/core/fpscannerstopworld.js": "20c71e1e7a2ad714243562dcbaf761d9e44f0e4d28e960622b00d4bd3a3afd64",
+    "src/core/fpscannerstopscenario.js": "4517ee574f9eb9dc9f77516df1a15b7e117b206f121c725cd496547575991f4b",
+    "src/core/fpscanneridentity.js": "86ac59f42b92650ef6965461d9869056337b671f147148392a2c5f693f610db6",
+    "data/m5_stops.js": "b95031414cb154e4fc60e31be27a746388177a3d39abec2ed7c2c7bf7445b094"
+  },
+  "protocolSha256": "a2c0a56c42e7256f2b54c5782b71845e4876392e198b9593a749a5b059d29856",
+  "variant": "standard",
+  "scope": "Existing-id registration, accessibility and a real suspended workday are fixtures. All movement, aim, parcels, reply pages, photos, ID decisions, signatures and tags use real keys. No position, node, timer, ID verdict, signature-completion, score or result fixtures. Tamil glyph coverage remains a separate shared blocker; bounds alone do not certify it.",
+  "failure": {
+    "message": "Waiting failed: 180000ms exceeded",
+    "stack": "TimeoutError: Waiting failed: 180000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at deviceLayout (/workspace/c43-scanner-exceptions/test/fpscannerstopbrowser.js:20:46)\n    at signature (/workspace/c43-scanner-exceptions/test/fpscannerstopbrowser.js:29:39)\n    at /workspace/c43-scanner-exceptions/test/fpscannerstopbrowser.js:41:17"
+  },
+  "state": {
+    "mode": "walk",
+    "player": {
+      "x": 11.987577675639043,
+      "z": -42.88046772286757,
+      "yaw": 0.6341332028466912,
+      "pitch": -0.05100498835180402
+    },
+    "phase": "active",
+    "stop": {
+      "inVan": false,
+      "carrying": [
+        "p1"
+      ],
+      "scanned": {
+        "p1": true
+      },
+      "scannedInVan": true,
+      "pulls": 1,
+      "wrongPulls": 0,
+      "addressChecked": false,
+      "knocks": 1,
+      "answered": true,
+      "talked": true,
+      "vanTrips": 0,
+      "outcome": null,
+      "type": "reception",
+      "signer": null,
+      "code": null,
+      "tagPrinted": false,
+      "tagAttached": false,
+      "spot": null,
+      "photo": null,
+      "idResult": null,
+      "exitSafe": true,
+      "enterSafe": null,
+      "hazards": {},
+      "delivered": [],
+      "elapsed": 19.770209999998027,
+      "done": false
+    },
+    "index": 2,
+    "target": null,
+    "identity": false,
+    "handheld": "Capture the signature.",
+    "panel": [
+      "Record the signer's printed name.",
+      "Who signed for the package?",
+      "1. Record Jordan Reyes as the signer.",
+      "2. Read the next name.",
+      "3. Return to the stop."
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "job": {
+    "id": "native-high-en-normal-exceptions",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-en-normal-exceptions",
+      "QA_TAG": "c43-resume-native-high-en-normal-exceptions-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-native-high-en-normal-exceptions-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "d6a61f7c8d96668c72672e2b86900c4027d6a07373df6629c20aa1dd76d8ccec",
+    "attempts": 1,
+    "log": "native-high-en-normal-exceptions-attempt-1.log",
+    "logSha256": "d8a33bea37d4670ffb8b6813e323b936c642e9abda90aa028ef53289f936de25",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-report.png": "ca89da70cfc1b90e290cdc98fac54333de0284e912ba61cd094960ab65b863f1",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-reply.png": "696d00ba6e487bd85258cd98ec3cb304ac9d9fdd6e824dae9cc5e7275858208f",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-exception-code.png": "6654ae0c8942183cccdcbe377e6081db794b8ec4c98434d4d634bd27077b8c48",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-controls-1.png": "48d2acf88b0b5cba2c6b078aac5f4e1b62ea59c5229ef5dab1380a82bbdf94c9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-report.png": "a624dadda2b484dae1deebfa718b4d3b42dd57a3cf353a88ec0f4464700fac7c",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-cargo.png": "9bbbce1d4b5b92be041546ecbe63dcc3ffea459d426173e6b34c440687cf04fb",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-tag.png": "a00c6bf975d44c3589615f228fa8689a9958470dfbd62d738ce197de44923e31",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-arrival.png": "08316d1e8f70fbe0e706b3d3b8e41572ee4a59b5742ef0e74fce35cb0857914b",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-arrival.png": "34aeb69584293b7b4f7c98e5b4632eb817fc8b278f336590de7d61f8e0576ca2",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383.json": "be6f90eb121961c8410ff932dc2f28d4ca275881807a887392d33a0a4e7fbf96",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-result.png": "8f8c886e6a053a84a4452e893b21987e7879f01c814bc1da511e515087d35406",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-scan.png": "e52bf9f3c847ce3252aae83bffe96e582115e50560ef418743bf95b9383a472e",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-scan.png": "0db8a7e20b99c0b6a31681caca902444a3107781f5f2cd6cdb2ff3daddcf5fe1",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-controls-3.png": "9ca0a51807a3a4d2f08498d34feadf6bbf26c6deb25c2273fffa62401c3d3378",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-report.png": "a6390cbf6402b2dc5f648bcde7aab4caf602c67421339db593a28e97ab331947",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-cargo.png": "a3c179950700ac8b09cd2516327f7deb4890338219efcb95ac84efaa265448eb",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-exception-description.png": "cda35b9ef8a8e0190f1c85adc67db9f7de150c3be732abf5cd966d91e60023e9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-controls-0.png": "7dbe8ec6ff7142955815a42edf5071b1085b85083a79dc3e946b74c17af1c8ad",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-cargo.png": "d29d386d9ee70776537fb31b2c99d43b0a85b2403d6dcd99eb8ba14fc9b7ce54",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-exception-description.png": "88cf146aaffaa55183217999cd44f8531fca29cd82ff9af06567839c90452bf1",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-controls-2.png": "215757a294bf8b9f534abe37c07cee745d51ea9b62bbe9618a801cb162a451b5",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-exception-description.png": "6371de89dc8ba22743ae0a66c483501eaa9a4b891b36a58aa5404f9924fd7ecb",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop2-exception-code.png": "64baf3ce3b2c1105471890c9be59c3d6acb54ec5ac500bbc9431fd15006ad0a6",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-arrival.png": "fe04fc011a0b67d92b6ddf47a16865b77d840fd0489902948626cc375d52227a",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-tag.png": "6d50105449b0b7df49aac7814124d4c41a967300f632f6b1e180d942a0e83a6f",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-closed-business-hours.png": "7f2b2336f52c3fb17a5e81c59cee7c21e99d2c8c473754c42ef2c2c6244f30e8",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop1-scan.png": "0d8efb2a17e6f569ac6771c8ad39a8035c9319721c53c8c3ecb457d81691a1a9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-exceptions-8d5fb383-high-en-normal-exceptions-stop0-exception-code.png": "3e4133b03607064391fb8d1004e97cc4d9560bcbed877f002c7cc5f098534000"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}
