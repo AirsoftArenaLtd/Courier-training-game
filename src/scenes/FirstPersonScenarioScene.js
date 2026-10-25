@@ -56,6 +56,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
   }
   showGoal(){this.showPause();}
   showDispatch(){this.showPause();}
+  showParcel(id){const r=this.scenarioSession;if(r?.definition.inspect){r.definition.inspect(r,this,id);return;}super.showParcel(id);}
   showScanner(){
     if(!this.handheld||!this.scenarioSession)return;if(this.handheld.isOpen){this.handheld.close();return;}
     const r=this.scenarioSession;if(r.definition.handheld){r.definition.handheld(r,this);return;}

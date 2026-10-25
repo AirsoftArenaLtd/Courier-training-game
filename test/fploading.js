@@ -2,7 +2,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={Date:class extends Date{static now(){return 123;}}};c.window=c;vm.createContext(c);
 for(const f of ['data/theme.js','data/config.js','data/modules.js','data/m6_loading.js','src/core/theme.js','src/core/scoring.js','src/core/scorelog.js','src/core/fploading.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
-const O=c.OTR,K=O.fpLoading,C=c.OTR_DATA.loading.m6_load,plain=x=>JSON.parse(JSON.stringify(x));c.BaseScenarioScene=class{};O.registerScene=P=>{O.LoadingReference=P;};
+const O=c.OTR,K=O.fpLoading,C=c.OTR_DATA.loading.m6_load,F=c.OTR_DATA.loading.m6_find,plain=x=>JSON.parse(JSON.stringify(x));c.Phaser={Scene:class{}};O.registerScene=P=>{O.LoadingReference=P;};
+vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/BaseScenarioScene.js','utf8'),c);
 O.audio={play(){}};const shape={setDepth(){return this;},destroy(){}};O.tex={liveShape(){return shape;},shape(){return shape;}};O.ui={toast(){}};
 vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/m6/LoadingScene.js','utf8'),c);
 const P=O.LoadingReference.prototype,cats=['safety','efficiency'];
@@ -36,4 +37,62 @@ test('incomplete, held, paused, invalid and terminal actions cannot finish a loa
  O.workday={report(){throw Error('Unexpected workday event');},events:[{type:'brief.read',key:'suspended'}]};O.save={data:{workday:{day:4}}};const outside=JSON.stringify([O.workday.events,O.save.data]),s=K.create('m6-load',C,cats);
  assert.equal(K.take(s,'l1'),false);assert.equal(K.review(s),false);assert.ok(K.begin(s));assert.equal(K.begin(s),false);assert.equal(K.strap(s),false);assert.equal(K.review(s),false);assert.equal(K.take(s,'invented'),false);assert.equal(K.place(s,'invented'),false);assert.equal(K.problems(s,'l1','invented'),null);assert.equal(K.step(s,1,false),false);assert.equal(s.elapsed,0);assert.ok(K.step(s,1));assert.equal(s.elapsed,.05);
  const r=ref();load(s,r);assert.ok(K.take(s,'l1'));assert.equal(K.review(s),false);assert.equal(K.strap(s),false);assert.equal(K.take(s,'l2'),false);assert.equal(K.place(s,'invented'),false);assert.equal(s.held,'l1');assert.ok(K.place(s,'A-mid-0'));assert.ok(K.strap(s));assert.ok(K.review(s));assert.equal(K.take(s,'l2'),false);assert.equal(K.step(s,1),false);assert.ok(K.complete(s));const done=JSON.stringify(plain(s.result));for(const action of [()=>K.take(s,'l1'),()=>K.place(s,'A-mid-0'),()=>K.returnToCart(s),()=>K.strap(s),()=>K.review(s),()=>K.complete(s),()=>K.step(s,1)])assert.equal(action(),false);assert.equal(JSON.stringify(plain(s.result)),done);assert.equal(JSON.stringify([O.workday.events,O.save.data]),outside);assert.throws(()=>K.create('m6-invented',C,cats),/Invalid/);
+});
+
+// Only UI/effect surfaces are inert in this reference. Every action, hint, timer and result
+// callback below is the actual 2D scene, with its real BaseScenarioScene.addScore clamp.
+const text=()=>({active:true,text:'',setText(t){this.text=t;return this;},setDepth(){return this;}});
+O.txt=()=>text();O.fx={sparkle(){},shake(){},floatText(){}};
+function findRef(){
+ const r=ref();Object.assign(r,{content:F,mode:'find',cats:['efficiency','service'],pkgs:F.packages.map(p=>({...p})),cart:[],sprites:{},score:0,roundIndex:0,cleanRounds:0,wrongPicks:0,roundClean:true,queue:[],running:true,panelBody:{removeAll(){},add(){}},panelTitle:text(),hintText:text(),tweens:{add(){}},setTimer(){}});
+ r.time={delayedCall(ms,fn){r.queue.push({at:r.elapsed+ms/1000,fn});}};
+ for(const p of r.pkgs){r.sprites[p.id]=Object.assign(image(),{disableInteractive(){this.disabled=true;return this;},setTint(){return this;},setVisible(v){this.visible=v;return this;},visible:true});P.place.call(r,p,r.slots.find(s=>s.id===p.slot));}
+ r.nextRound();return r;
+}
+function findFixture(){const s=K.create('m6-find',F,['efficiency','service']);K.begin(s);return s;}
+function pickRef(r,id){r.pickPackage(r.pkgs.find(p=>p.id===id));}
+function findState(s){return plain({score:s.score,round:s.round,roundIndex:s.roundIndex,roundClean:s.roundClean,cleanRounds:s.cleanRounds,wrongPicks:s.wrongPicks,roundHelp:s.roundHelp,extraLessons:s.extraLessons,slots:s.slots.map(x=>[x.id,x.pkg?.id||null]),log:s.log.toJSON(),summary:s.summary});}
+function sameFind(s,r){assert.deepEqual(findState(s),findState(r));}
+function advanceFind(s,r,seconds){
+ let left=seconds;while(left>1e-10){const dt=Math.min(.05,left);K.step(s,dt);if(!r.finished){r.update(0,dt*1000);const due=r.queue.filter(q=>q.at<=r.elapsed+1e-9);r.queue=r.queue.filter(q=>q.at>r.elapsed+1e-9);for(const q of due)q.fn();}left-=dt;}sameFind(s,r);
+}
+test('all authored find rounds, near-matches, time bands and final results match actual 2D callbacks',()=>{
+ let count=0;const before=JSON.stringify(F);
+ for(const duration of [0,1,6,6.001,12,12.001,25,25.001,45,45.001,120,180.001])for(const wrong of [0,1,6]){
+  const s=findFixture(),r=findRef();sameFind(s,r);
+  for(const round of F.rounds){
+   for(let n=0;n<wrong;n++){const near=round.pkg==='f1'?(n%2?'f3':'f2'):round.pkg==='f10'?'f11':'f7';K.pick(s,near);pickRef(r,near);sameFind(s,r);}
+   // Position both clocks identically, then use the same subtraction as the source
+   // update (later rounds can carry the same floating point rounding as actual play).
+   s.elapsed=r.elapsed=s.roundStart+duration;K.help(s);r.helpIfStuck(r.elapsed-r.roundStart);sameFind(s,r);
+   assert.ok(K.pick(s,round.pkg));pickRef(r,round.pkg);sameFind(s,r);
+   assert.equal(K.pick(s,round.pkg),false);pickRef(r,round.pkg);sameFind(s,r);
+   advanceFind(s,r,.399);assert.equal(s.pending.removed,false);
+   advanceFind(s,r,.001);assert.equal(s.pending.removed,true);
+   advanceFind(s,r,.3);
+  }
+  assert.equal(s.phase,'done');assert.deepEqual(plain(K.result(s)),plain(r.result));assert.equal(K.result(s),s.result);count++;
+ }
+ assert.equal(JSON.stringify(F),before);assert.equal(count,36);console.log(JSON.stringify({completeFindComparisons:count,roundComparisons:count*F.rounds.length}));
+});
+test('find hints use actual section/floor, strict deadlines, first-pick cleanliness and one misload lesson',()=>{
+ const s=findFixture(),r=findRef();
+ for(const time of [25,25.001,45,45.001]){s.elapsed=r.elapsed=time;K.help(s);r.helpIfStuck(time);sameFind(s,r);assert.equal(s.roundHelp.nudged,time>25);assert.equal(s.roundHelp.shown,time>45);}
+ assert.deepEqual(plain(s.hint),{kind:'shown',id:'f1',section:'C',misload:true,floor:false});
+ for(const id of ['f1','f4']){K.pick(s,id);pickRef(r,id);advanceFind(s,r,.7);}
+ assert.equal(s.extraLessons.length,1);
+ s.elapsed=r.elapsed=s.roundStart+45.001;K.help(s);r.helpIfStuck(45.001);sameFind(s,r);assert.equal(s.hint.floor,true);assert.equal(s.hint.misload,false);assert.match(r.hintText.text,/floor bay/);
+ K.pick(s,'f6');pickRef(r,'f6');advanceFind(s,r,.7);assert.equal(s.extraLessons.length,1);
+ K.pick(s,'f11');pickRef(r,'f11');sameFind(s,r);assert.equal(s.hint.why,'unit');assert.match(r.hintText.text,/different unit/);
+ K.pick(s,'f10');pickRef(r,'f10');advanceFind(s,r,.7);K.pick(s,'f12');pickRef(r,'f12');advanceFind(s,r,.7);assert.equal(s.extraLessons.length,1);assert.deepEqual(plain(s.result),plain(r.result));
+});
+test('find pause, removed pieces, duplicate clicks, invalid actions and completion preserve isolation',()=>{
+ const s=K.create('m6-find',F,['efficiency','service']);const outside=JSON.stringify([O.workday.events,O.save.data]);assert.equal(K.pick(s,'f1'),false);K.begin(s);
+ assert.equal(K.take(s,'f1'),false);assert.equal(K.strap(s),false);assert.equal(K.review(s),false);assert.equal(K.pick(s,'invented'),false);assert.equal(K.step(s,30,false),false);assert.equal(s.elapsed,0);
+ K.pick(s,'f1');const log=JSON.stringify(s.log.toJSON());assert.equal(K.pick(s,'f2'),false);assert.equal(K.pick(s,'f1'),false);assert.equal(JSON.stringify(s.log.toJSON()),log);
+ for(let n=0;n<14;n++)K.step(s,.05);assert.equal(s.round.pkg,'f4');assert.equal(K.pick(s,'f1'),false);
+ for(const id of ['f4','f6','f10','f12']){K.pick(s,id);for(let n=0;n<14;n++)K.step(s,.05);}
+ const result=JSON.stringify(plain(s.result));assert.equal(K.pick(s,'f12'),false);assert.equal(K.step(s,.05),false);assert.equal(K.complete(s),false);assert.equal(JSON.stringify(plain(s.result)),result);assert.equal(JSON.stringify([O.workday.events,O.save.data]),outside);
+ assert.equal(s.result.score,2000);assert.deepEqual(plain(s.result.ratios),{efficiency:1,service:1});
+ assert.throws(()=>K.create('m6-find',{...F,rounds:[{pkg:'no-package'}]},cats),/Invalid/);assert.throws(()=>K.create('m6-find',{...F,packages:F.packages.map(p=>({...p,slot:'floor-0'}))},cats),/Invalid/);
 });

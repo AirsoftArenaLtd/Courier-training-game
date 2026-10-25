@@ -116,6 +116,7 @@ OTR.fpAccess={
     if(id.startsWith('protocol-intercom-'))return `intercom button ${id.slice(18)}`;
     if(id.startsWith('protocol-locker-'))return `locker compartment ${id.slice(16)}`;
     if(id==='protocol-reception')return 'the reception desk';
+    if(scene.model?.loading&&id.startsWith('loading-'))return OTR.fpLoadingScenario.targetName(scene,id);
     if(id.startsWith('customer-stop-parcel-'))return 'the parcel at this target';
     if(id.startsWith('customer-stop-'))return {'customer-stop-door':'the front door','customer-stop-person':'the person at the door','customer-stop-number':'the mounted house number','customer-stop-trolley':'the hand truck'}[id]||'the nearby doorstep target';
     if(id==='customer-conversation')return 'the nearby conversation point';
