@@ -1,0 +1,58 @@
+{
+  "job": {
+    "id": "native-low-ta-large-exceptions",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "low-ta-large-exceptions",
+      "QA_TAG": "c43-resume-native-low-ta-large-exceptions-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-native-low-ta-large-exceptions-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "18a21de97d26587355322b199a23dd42df7929abd1bd716b8a919681161668a1",
+    "attempts": 1,
+    "log": "native-low-ta-large-exceptions-attempt-1.log",
+    "logSha256": "38e31cd6a14a22f0a33cb5546b9c7a046ad8e19b462d33f074fac84b15c13981",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-result.png": "3cf98bdc397b5efaf9766f864cc0aad00031e102d638eccafed7098bfd7f46d0",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-arrival.png": "e5c7ac6c582c98b9661bb6722556c877340e47300052d890d1078ee8eab4ed58",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-controls-1.png": "9df2bb03dee1a34aec943f5ddb0082fca1d40a3bbdc3fcf046a916fab0bb3023",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-exception-description.png": "0f40e0cb0566ecf36692e2a3e0028463823b1917ef6c133d5c9f4641ac2138aa",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-reply.png": "593ee3cacf2c7688e04e3ffbca55f14dd190b912c80729323d62edbc17516783",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-exception-description.png": "4b571929ac1761a2f6484248b29bd8028973dc801c9447164955cbf0a13e51bb",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-cargo.png": "71ad1df4f16675edcad4a7137bbdc7bdcef7c3890d05c36ba1efb2f2d28eebb9",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-controls-0.png": "e56288df487f9ef55d785f1e9657d47d91ad929d1011b1aa65e7ab0fbf7de719",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-arrival.png": "f4ca4a4c8f6b451c1a74fdf1fd75a1ab290b0eafcbb56dbd5265cec43dfff24c",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-exception-description.png": "d24b02b73acfdcdaf4b3afc6d43d11d4ebd5c85d51abd5f72d8a6a687e77bba2",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-scan.png": "72142242ca3f8e18fbd424292f33d7cbd2feab455d3894cd9e3bd92a45fb2070",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-report.png": "8059dc7b692edea823866e0eb881b1434cbabe9eccccb55371dd1049c806fad2",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-tag.png": "b35725200c75869c17efb65aa622848be2ac2453643a02c63e8ee1d9fdc839e7",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-scan.png": "bf906daa2e9edcddc34947975020ad4c20fb1ebdcda6218121bb6cc35c20869b",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-closed-business-hours.png": "e5b4686658ca9f35a66fbd807c675f9b9b99e776bfc92d79d89417c47eaa3ddb",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-controls-2.png": "3f87005d16226e1790af4a7ca24c3d9496d9e14c0a97aa96298a46beab2f1add",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-controls-3.png": "673cbe547363b864a3389d772269e7a6ad46ab91b900f3bc5228800872835c28",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-exception-code.png": "2af58e39b75bba8e6e6af1957f1d0a967f91db1a5911c4f301190b06d8e27b66",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-report.png": "082035bec75d211a8acd8031292089cb2b237aec067cf6b13bc219051cd24c46",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-cargo.png": "f350b84b51d65e6ce6d74b5cb9f979ea92bdc4f3376aaf89c0b1739437857caa",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-cargo.png": "2800040e981b6c88e2cb5e23a8139d077ffe9b2a443c70c174451b917f734ff8",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-scan.png": "4f0d3ce5ce67a868d24a65917313e20eb98f703013ac797c4880689e03b44249",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383.json": "461ce49040c3db5cec42e7d8785abbbf6e64b9dde406b0fe0b9b92e2c61fe350",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-exception-code.png": "a6cdedf77cd6ea8cde189151072f5b99f6c23d46be367666727a70e906c39852",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop0-report.png": "7df0c629f69623c798c60bec506470e81040d0f7aac025daa5757455a143b58d",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop2-exception-code.png": "ec9acc572da21ad6889228c5d8b56f5a0424ad2c85dd006cdd2d7d16d7617c18",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-tag.png": "c965e214770c7d915c5b92024e0ce5fd0b51ece74dc7d911ebe59712d7185116",
+      "test/out/fp-review/c43-resume-native-low-ta-large-exceptions-8d5fb383-low-ta-large-exceptions-stop1-arrival.png": "14b357f29aaba2a60cf2a617eb2c8f47faa6a3f317dadc8f3f3ff21b9b23d54a"
+    }
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}

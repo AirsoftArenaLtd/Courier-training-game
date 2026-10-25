@@ -1,0 +1,70 @@
+{
+  "job": {
+    "id": "native-low-ta-large-adult",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "low-ta-large-adult",
+      "QA_TAG": "c43-resume-native-low-ta-large-adult-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-native-low-ta-large-adult-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "f4c82780d58bca72ff81b4a50f77055a22fffa070a3e5ebf3c4daa30244758cf",
+    "attempts": 1,
+    "log": "native-low-ta-large-adult-attempt-1.log",
+    "logSha256": "0f2d3b1cae9e53d2d71822d6ebef48012e9eb5851927b4195c7434cbb2f8b02a",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-exception-code.png": "18aa0d5fdfdb3420c335e853fcaf7444743139f7208e211273efc21ccf4a0fd1",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-id-field0.png": "0fd81aded321fe85131a09083da5a3fe1bb5ec1bb996e6c71176acd2b7c9409a",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-controls-1.png": "9df2bb03dee1a34aec943f5ddb0082fca1d40a3bbdc3fcf046a916fab0bb3023",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-printed-name.png": "df00516857d89194e8f71855a33f134c0fbb469b714bfaf482749759e723a4cb",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-controls-3.png": "673cbe547363b864a3389d772269e7a6ad46ab91b900f3bc5228800872835c28",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-cargo.png": "1eb31072a1d5effa428cc7b8e6214dfe3e59a7c181495ccafd1087d152dddb57",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-report.png": "7df0c629f69623c798c60bec506470e81040d0f7aac025daa5757455a143b58d",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-scan.png": "0959cf3d0b714c20e052e9f1e245ec0847e3b3ac06b67ee6206b56e2f76e73f1",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-id-field2.png": "363eeb970d5f1620fd2967a93e01deece279a0421950ed931b142721dbb44753",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-id-field3.png": "e18da52d6e70c73764f934264cb882843761f146ef0b6f2c17ec35a423261990",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-id-field0.png": "36a027ca652e2af3bc90ea665bfba16a39b93a99ba073d8ed2f52dfacfceb9ec",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-exception-description.png": "a8e7a2f461304f108b3e7b4b35370e20013c05d30f579f93565bc2d7f1606bbe",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-controls-2.png": "3f87005d16226e1790af4a7ca24c3d9496d9e14c0a97aa96298a46beab2f1add",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-id-field2.png": "8ffd1e970c24420670d102f95c6420d3f2c73f9f703674a96f9006e58ce8bf55",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-tag.png": "0595917534abc00f2e6684d4e8c7b74f73a93e7f02cfcf56849c94db1fdcc879",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-id-field3.png": "14fd9a6950aedebbb5e9fde954aa67dc7255286a1676d1b5995e516fec47d42d",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-arrival.png": "bee1b6881c85b8c51f1d293dd237147ac1b28d9800128faafa11b302d17d32f5",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-arrival.png": "8046386b2cee6d20a0836f6eafe3bf0acd430ebf0ccf661ac4dcaf8c7a7df8a1",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-signature.png": "b358127b33d90bdb744996b025ce7f2c9b4f23340def48caafd8685fdf183006",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-scan.png": "8ee540b8ebc71e834d972c836ba0a16fbc3abc1771172f1ffe5709f38d46f51d",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-arrival.png": "9f5ca3b2ffe5e670f114938f2d6a4030fc4da2bab9f5f9d85c97d0795670feef",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-exception-code.png": "a12281d011c9bbd3570c83f7393336b94e5c3adaff1b3d70e97144b9a3f99ace",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-cargo.png": "8f6b917a9df1a344a8314c493b01e00f0e2da9ce168ba4c395539f447365e275",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383.json": "ab774de5b142d6feecf1de067503d614f20d8fecf46a610ae6754cd95d983ba2",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-result.png": "25384285d20a61e51048c70d44b5992708d6e791de79a231d1defbbc27a1a504",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-id-field1.png": "93c2825dc9559f1d638aad35ec6b783c17bdd4f231349f2356d124ed660f405b",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-cargo.png": "1d637ccbdad3faab8fb263b207124414d1abe03805b9b24428d467808a1b566e",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-tag.png": "62f6cace1feea08fd7f43618832c0b240e00cc92c12e018300a2b757ddc68b47",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-id-field1.png": "89ed8865bee9e1e26f93a4784b5cf41b8a0d5a6400cfd240b56243bf8671d951",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-id-field1.png": "a7baa298d8e09c0ce77a808843838719d731b95f7cc2da37138e209d4f062efe",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-id-field2.png": "d385b80b28253a1d5eae48c0164079a274136129275a40130aa6efcd9589dc9d",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-report.png": "fb0329ee10ef2f2b8f33ef38d80bca963b750b5a848eadf526317c15728e5e0f",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop0-reply.png": "b241b54a1c7213df26618a28ff1a01073d499545e76ae2bf00c8cc110c78b5fc",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop1-reply.png": "fcc30c64535249d86e52dc3efcb9d84655f16e9012d996550b4d230e30fa36a6",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-controls-0.png": "e56288df487f9ef55d785f1e9657d47d91ad929d1011b1aa65e7ab0fbf7de719",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-report.png": "a5f4a64b7b99c8b43fd8886d65c5549005efb0abcfb2991a3ac011e3c15eea39",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-id-field3.png": "c1b5106b9d65a2b7592cd8a07d8a551df6d990e39fcb2a4513e9970c3ee642a9",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-id-field0.png": "c3bece037db90ed78abeb0c7abce84ca467ceae500e9706890c5089592e71fe1",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-scan.png": "9a4babdded71226dd23a6a141877f360552922759a66d4afd1095b5010d83a0e",
+      "test/out/fp-review/c43-resume-native-low-ta-large-adult-8d5fb383-low-ta-large-adult-stop2-exception-description.png": "fec12c236c4841693f16131f1a72e69636d2c30f3124f7f2106a1be5693e04e9"
+    }
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}
