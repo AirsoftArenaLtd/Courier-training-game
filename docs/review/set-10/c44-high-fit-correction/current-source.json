@@ -18,5 +18,7 @@
   "nativeCapturesVisuallyInspected": 27,
   "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
   "nativeWalkRegressionCases": 3,
-  "nativeCapturesAtSnapshot": 50
+  "nativeCapturesAtSnapshot": 50,
+  "status": "historical e834ad69; superseded by 41056a12 Low viewed-label correction",
+  "supersededBy": "../c44-low-label-correction/README.md"
 }

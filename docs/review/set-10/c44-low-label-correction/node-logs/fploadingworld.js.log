@@ -1,0 +1,16 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the actual 21 cargo slots put first stops nearest the doors, heavy shelves low and bulk on the floor (91.287757ms)
+✔ all 21 empty physical slot markers can be selected by real rays from the cargo aisle (41.283569ms)
+✔ cart packages have distinct supported positions and physical rays cannot choose through a nearer package (65.885446ms)
+✔ loaded parcels expose their label face toward the aisle and retain bounded ink without image textures (29.412649ms)
+✔ find disables a picked body at once but keeps its visual for the original 400ms, including closed-door guards (59.70205ms)
+✔ secured floor parcels have a visible band over their top and straps down to the fitted floor (32.99077ms)
+✔ repeated walking, carrying, placements and restraints reuse the exact fixed pools and dispose idempotently (310.890413ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 685.958183

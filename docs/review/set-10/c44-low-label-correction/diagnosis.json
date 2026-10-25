@@ -1,0 +1,18 @@
+{
+  "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
+  "acceptedEarlierJobs": 14,
+  "earlierNativeChecks": 5206,
+  "earlierResourceViews": 56,
+  "ownedSupervisorStopped": 13035,
+  "lockVerifiedFreeBeforeEdits": true,
+  "reproduced": {
+    "profile": "loaded-low",
+    "pose": "findunit",
+    "actualRay": "loading-parcel-f10",
+    "printedParcel": "f6",
+    "afterActualKeyboardFocusRay": "loading-parcel-f10",
+    "printedAfterFocus": "f6"
+  },
+  "reason": "Low selects one label by horizontal distance; the actually viewed unit-address parcel remains blank even though its real physical ray is selected.",
+  "scope": "Earlier behavioral/numerical passes retain their original source scope; they do not certify the corrected Low presentation."
+}

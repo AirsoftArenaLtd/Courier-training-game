@@ -1,0 +1,19 @@
+{
+  "sourceRevision": "7736351588c439e01e54bcdbbd13dc9c05e053d7",
+  "scope": "Fourteen static loading/find poses under the original four resource profiles. Native key journeys/records, default/current-pilot, corrected-font Tamil and Intel FPS remain separate gates.",
+  "profiles": [
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c44-walk-accessible-low-ad2f294c-accessible-low-low.json",
+      "log": "c44-walk-accessible-low-ad2f294c-accessible-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2101056
+      }
+    }
+  ]
+}

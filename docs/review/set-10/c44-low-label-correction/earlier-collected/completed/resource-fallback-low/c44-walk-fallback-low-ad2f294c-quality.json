@@ -1,0 +1,19 @@
+{
+  "sourceRevision": "7736351588c439e01e54bcdbbd13dc9c05e053d7",
+  "scope": "Fourteen static loading/find poses under the original four resource profiles. Native key journeys/records, default/current-pilot, corrected-font Tamil and Intel FPS remain separate gates.",
+  "profiles": [
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c44-walk-fallback-low-ad2f294c-fallback-low-low.json",
+      "log": "c44-walk-fallback-low-ad2f294c-fallback-low.log",
+      "peak": {
+        "calls": 45,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    }
+  ]
+}

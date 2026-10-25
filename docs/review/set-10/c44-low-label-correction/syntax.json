@@ -1,0 +1,42 @@
+[
+  {
+    "file": "src/core/fploadingworld.js",
+    "exit": 0,
+    "sha256": "0b3233a157c21636892ee9761199539d1ad198c086dabeae7adb910ce3aa8fba"
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sha256": "a1b543936a283d666a6fceb46e06ccecb8a6578c0ea3e253e5e73a2ca65cab95"
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "sha256": "e98991047c297f9f75f11e7f9e71657205853da7be2b35c5acc48522594070a6"
+  },
+  {
+    "file": "test/fploadingbrowser.js",
+    "exit": 0,
+    "sha256": "9a42adf1e617d05660b68b20de0a99737238f50fb82b99fde7947e866d3bfe40"
+  },
+  {
+    "file": "test/fploadinggeometry.js",
+    "exit": 0,
+    "sha256": "3fb6744539c6c560f27a5828f3a080eb79b85f67d39484c5a4377cb6d893cc88"
+  },
+  {
+    "file": "test/fploadingscenario.js",
+    "exit": 0,
+    "sha256": "8486340c422decc265922ef3ab315a30ce013c2aaf9e7400ae7b0a9bde7ddfe0"
+  },
+  {
+    "file": "test/tools/fp-loading-pose.js",
+    "exit": 0,
+    "sha256": "8066605ae5f539935b8bf14cfdae59b6113e1d1cf6b937ae32e55d064b2145f0"
+  },
+  {
+    "file": "test/tools/fp-loading-quality.js",
+    "exit": 0,
+    "sha256": "27b08218b71f7c5eadd57e1881bfb4780a479f2462460e44e510fa845f870f23"
+  }
+]

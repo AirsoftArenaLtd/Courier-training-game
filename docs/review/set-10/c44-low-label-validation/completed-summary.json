@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-25T18:34:55.898640+00:00",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "expectedJobs": 30,
+  "passedJobs": 1,
+  "complete": false,
+  "nativeGoodJourneys": 0,
+  "nativeChecks": 0,
+  "nativeCaptures": 0,
+  "resourceViews": 14,
+  "native": [],
+  "resources": [
+    {
+      "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+      "id": "resource-loaded-low",
+      "fingerprint": "ec97c8be5fab2fb4de8dc7b167eb2008d348c48afc3c6a65cac89f750a725e28",
+      "logSha256": "8a9b40004230ffc5b807b94c2acc45d0a8c885018adc10d942b437c693a7c5d2",
+      "artifacts": {
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadbottom.png": "eaaf7f16f216eff8224ad7aaa535b7d752298e316f5b80c91c1a5a3af4d3a34e",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-quality.json": "0278db78af061331f270b61a64053b463df3882b206a8d146a1d8c48b75432f2",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-findhelp.png": "7c68c3a2c38c327491dd4f883a087fdd23fd5fc11e8a7cfb10c1cbdb294900eb",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadtop.png": "5b6cc6305694d9e97ac0b89b1e619121defd8d5363c98ef01580855ea632b421",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadcontrols.png": "1b64d2398528fe6c76e9e46361c0497bb8a682488fedc6d1f028d21eae5209de",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadcarried.png": "aa220ecc748887518cc9a1d9e479aa38933f7ee8a4e80ecdfad1f0ea1833aa0a",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadhandheld.png": "921fd5e9b57c7b8217f30a818bbd91c89da4ef925e94c8cb4fbca7f0660633d7",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-findunit.png": "34711ca0a85da362191f80b58c5cd3f1ee59ca1ed1a8b80ac5ee8247ab09a0fc",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadreport.png": "7db77d68ab94f1601c3ef27d590309185fa6c3f9c8832de461b481af35bf3736",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadstrapped.png": "a4b4e03e61e6b273d881a2accf4e86df63bd817c83a8b421572fb28cb6003b40",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-findcargo.png": "79ae200648f828eda7b972f4d804023b5607416957e0bdad556d637131756069",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadclosed.png": "91d5e99ef0f49c69482a29bb01f0f3d64ac7be60cbd7b32570dc7e388c347b5d",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadunsafe.png": "995aec146ff8360d63a14536d91a54d2a625a94e071e29ed8f7180f10994cd09",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadcart.png": "13c9e293c40218e6c4d5956ac3369778f19546889e42ca8eec306d2158eef7da",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low.log": "6f1a776e942508c967846c662b5a645b631abac96aa7b24cf2651da1a7ee6ef9",
+        "test/out/fp-review/c44-label-loaded-low-41056a12-loaded-low-low-loadcargo.png": "2decd73456de4a8e1519f97d116f637c414d0d4a79a028fd2e7b12361a6a8a31",
+        "test/out/fp-review/bench-c44-label-loaded-low-41056a12-loaded-low-low.json": "c9dc1f511dc6aa37e089d388a87af811cf2017a1551b5560153038db709afbe9"
+      },
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      },
+      "profile": "loaded-low"
+    }
+  ],
+  "followups": [],
+  "pending": [
+    {
+      "id": "resource-loaded-high",
+      "state": "running",
+      "exit": null
+    },
+    {
+      "id": "resource-accessible-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-fallback-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-load-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-wrong-find-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "scorm2004",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "legacy-modules",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "academy",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "enterprise",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "routeday",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "driving",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Hash-verified source-scoped results only. Static resource fixtures are separate from native controls/records. Corrected-font Tamil, current-pilot/default rollout and Intel FPS remain separate."
+}

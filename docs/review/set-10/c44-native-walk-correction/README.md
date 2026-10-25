@@ -1,3 +1,5 @@
+> **Historical application e834ad69.** Low viewed-label selection is corrected in 41056a12. Current proof and validation are in [c44-low-label-correction](../c44-low-label-correction/README.md) and [c44-low-label-validation](../c44-low-label-validation/README.md); earlier results below keep their original scope.
+
 # C44 native walking correction — 25 October 2026
 
 **Test protocol only, ad2f294c. Application remains e834ad69; C44 stays doing.** The first High English normal-text load reached ten completed placements and 643 checks, but spent excessive time turning around closely sampled waypoints. Its partial report and 30 captures are retained in `partial-load/` and contribute no acceptance. The completed prior High find remains accepted at its original protocol, with 234 checks, thirteen inspected captures and durable original results; `accepted-before-correction/` preserves it.

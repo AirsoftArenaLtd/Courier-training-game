@@ -1,3 +1,5 @@
+> **Historical application e834ad69.** These completed results retain their original scope. Screenshot review found Low prints a nearer parcel instead of the actual unit-address gaze. Corrected application 41056a12 and its fresh sequence are documented in [c44-low-label-correction](../c44-low-label-correction/README.md) and [current validation](../c44-low-label-validation/README.md). Nothing here is corrected-source acceptance.
+
 # C44 final-source validation — 25 October 2026
 
 Current application: **e834ad69**; native protocol: **ad2f294c**. C44 stays **doing**. Fresh 91-suite Node results, geometry and the scoped earlier High preflight are in `../c44-high-fit-correction/`; earlier four-native/56-resource results remain archived in their original source scope.

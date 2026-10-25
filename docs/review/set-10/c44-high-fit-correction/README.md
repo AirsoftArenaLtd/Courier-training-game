@@ -1,3 +1,5 @@
+> **Historical application e834ad69.** Low viewed-label selection is corrected in 41056a12. Current proof and validation are in [c44-low-label-correction](../c44-low-label-correction/README.md) and [c44-low-label-validation](../c44-low-label-validation/README.md); earlier results below keep their original scope.
+
 # C44 fitted cargo and physical labels — 25 October 2026
 
 **Current application: `e834ad69cc6e073658d088a43578520ab15e4610`, on `codex/c44-loading-truck`. C44 stays doing.** All **91 pure Node suites pass freshly** on this source, including the original outcome comparisons, workday, saves, i18n and actor regressions. The full current native/rendered sequence is active; earlier application results are not promoted to it.

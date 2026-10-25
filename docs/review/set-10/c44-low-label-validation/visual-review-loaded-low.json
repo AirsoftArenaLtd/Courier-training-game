@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "profile": "loaded-low",
+  "views": 14,
+  "peak": {
+    "calls": 41,
+    "triangles": 2290,
+    "textures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 1931760
+  },
+  "capturesVisuallyInspected": {
+    "completed/resource-loaded-low/c44-label-loaded-low-41056a12-loaded-low-low-loadcart.png": "13c9e293c40218e6c4d5956ac3369778f19546889e42ca8eec306d2158eef7da",
+    "completed/resource-loaded-low/c44-label-loaded-low-41056a12-loaded-low-low-loadstrapped.png": "a4b4e03e61e6b273d881a2accf4e86df63bd817c83a8b421572fb28cb6003b40",
+    "completed/resource-loaded-low/c44-label-loaded-low-41056a12-loaded-low-low-findunit.png": "34711ca0a85da362191f80b58c5cd3f1ee59ca1ed1a8b80ac5ee8247ab09a0fc"
+  },
+  "observations": [
+    "The parcel under the cart gaze now has actual printed number/street ink while the one-label budget remains.",
+    "The strapped floor parcel remains supported, visible and readable, with rack/section geometry unchanged.",
+    "The actual f10 face visibly reads 5 / 3B and Harbor View instead of appearing blank; raw proof selects loading-parcel-f10 and prints only f10."
+  ],
+  "scope": "Three inspected static resource captures from fourteen passed loaded-Low views. No native, full-profile, translated Tamil/default/current-pilot or Intel acceptance."
+}
