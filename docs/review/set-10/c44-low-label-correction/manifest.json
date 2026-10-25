@@ -8,14 +8,14 @@
   "syntaxFiles": 8,
   "lowCpuGeometryPoses": 5664,
   "frozenSources": 197,
-  "completedCorrectedJobsAtSnapshot": 9,
+  "completedCorrectedJobsAtSnapshot": 13,
   "correctedResourceViews": 56,
   "nativeAcceptance": false,
   "fullBrowserAcceptance": false,
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "25fbef56cbaf102b85a8eca9c07f2b5ea14365d95fb8d9eb58ade2b489beeb68",
+    "README.md": "f27f247f0a560f94d91ff8e176615992f8bc1caa595089023014c40a7204c75c",
     "current-plan-before.json": "5431ffa0d58fef02c6318cca34e7327cea51639a48df23616051b0431f0f554f",
     "current-plan.json": "512f59dff2773a175d77f4361e4302eb12e274431a8d9c94a82dfb24bfc973da",
     "diagnosis.json": "b160d0f076dc29a8430209256ae10e3df72d074698bd305e2cd5bb742334cd9d",
@@ -477,10 +477,16 @@
     "supervisor.log": "049ff4abb76b1efe2c25197c6885dd99255bf76198936a15fd314d9fc317ca67",
     "syntax.json": "3b34a9da6c55a55b70f84bb45ea53d917136b66947dbc7d28fc418eca820e683"
   },
-  "acceptedSourceScopedJobsAtSnapshot": 9,
-  "currentGoodNativeJourneys": 5,
-  "currentNativeChecks": 2936,
-  "currentNativeCaptures": 137,
+  "acceptedSourceScopedJobsAtSnapshot": 13,
+  "currentGoodNativeJourneys": 9,
+  "currentNativeChecks": 4481,
+  "currentNativeCaptures": 213,
   "resourceProfilesAccepted": 4,
-  "fullNativeMatrixAccepted": false
+  "fullNativeMatrixAccepted": false,
+  "snapshotAt": "2026-10-25T20:24:20Z",
+  "lowNativeMatrixBehaviorAccepted": true,
+  "lowNativeMatrixJourneys": 8,
+  "lowNativeMatrixChecks": 4242,
+  "lowNativeMatrixCaptures": 200,
+  "lowDurableAssessmentsPassed": 4
 }

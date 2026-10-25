@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-25T20:24:20Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "currentSnapshot": {
+    "passedJobs": 13,
+    "expectedJobs": 30,
+    "nativeGoodJourneys": 9,
+    "nativeChecks": 4481,
+    "nativeCaptures": 213,
+    "resourceViews": 56
+  },
+  "lowMatrix": {
+    "journeys": 8,
+    "checks": 4242,
+    "captures": 200,
+    "passedAssessments": 4
+  },
+  "capturesVisuallyInspectedThisCheckIn": {
+    "completed/native-good-low-ta-large-load/c44-label-native-good-low-ta-large-load-41056a12-low-ta-large-load-handheld.png": "e9fb8268c0cc231b29082559b6ae6e53a4408d3e9b1adde0711c88e59d788dc5",
+    "completed/native-good-low-ta-large-load/c44-label-native-good-low-ta-large-load-41056a12-low-ta-large-load-result.png": "fd6ddc7256b915116be38e49ccc04df2b0aee1b085c341366a5e32e8430eff9e",
+    "completed/native-good-low-ta-large-find/c44-label-native-good-low-ta-large-find-41056a12-low-ta-large-find-find-label-f10.png": "a8567d87fe3a7fce048a0edfd8140411f7d06101fcdf3f1baa7faa4636070297",
+    "completed/native-good-high-en-normal-find/c44-label-native-good-high-en-normal-find-41056a12-high-en-normal-find-find-label-f12.png": "c9e386f0a97e2a47c9ca7a62d011110aad3e37be1d1694f6bdd0afe7b47de913",
+    "completed/native-good-low-ta-large-load/c44-label-native-good-low-ta-large-load-41056a12-low-ta-large-load-controls-0.png": "e4df779b4f3458bbf8e330e62eed3e7ff0e9828c87af09fc4d9ccbb6e4eafd9a",
+    "completed/native-good-low-ta-large-load/c44-label-native-good-low-ta-large-load-41056a12-low-ta-large-load-controls-3.png": "a6c02ceca4a75a3f89284b77c7478e2205bfcceeb31a944b0184c10a0d6f8a28",
+    "completed/native-good-high-en-normal-find/c44-label-native-good-high-en-normal-find-41056a12-high-en-normal-find-open-cargo.png": "895152b06aeb7e8823d4c10d313bfeee5bdf850f0260b6813e269f01bf5145f3",
+    "completed/native-good-high-en-normal-find/c44-label-native-good-high-en-normal-find-41056a12-high-en-normal-find-result.png": "a6a7914b1a7b7cdb25da4aacb3ef9bfc98e9e931d1e9df996092f8cebf1a72bb"
+  },
+  "observations": [
+    "Larger-text cargo handheld and controls pages fit the panel with the remapped O/U keys displayed and no overlap or clipped actions.",
+    "Larger-text unit-address panel reads 5 Harbor View, unit 3B, and the High last-request panel reads 88 Canyon Rd, 38 pounds. Both are selected through actual unobscured label-face rays and passed viewed-ink checks in their completed native reports.",
+    "High open cargo shows mounted shelf tags, exterior label ink, supported parcels and the fitted floor/door opening. Its find result shows five first-time picks, six stars and fitting original lessons.",
+    "Tamil larger-text loading result shows the passed assessment and six stars, but shared glyph boxes remain in the safety badge/takeaway/career text. New module controls and label sentences still appear in English. Existing Claude A31 font/translation work is required; no readable-Tamil or default-readiness claim is made."
+  ],
+  "scope": "Eight completed-run images newly inspected; not every one of the 213 native captures. Four current profiles / 56 resources are already accepted. Remaining High, negative, abandoned and repository jobs continue; shared rollout/current-pilot and owner Intel FPS remain separate."
+}

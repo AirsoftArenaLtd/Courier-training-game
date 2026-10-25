@@ -34,7 +34,7 @@ Current collected results are in `../c44-low-label-validation/`. The collector i
 
 **First corrected-source rendered pass:** all fourteen loaded-Low views pass at **41 / 2290 / 2 / 3557376 / 1931760** (calls/triangles/Three textures/attachment bytes/Phaser estimate). Cart, supported strapped load and corrected unit-3B face were visually inspected; `findunit` proves the real gaze target and sole printed parcel are f10. Current combined acceptance is **1/30 jobs**, with High resources active; native/other profiles remain pending. Exact report and three image hashes: `../c44-low-label-validation/visual-review-loaded-low.json`.
 
-## Current corrected-source gate — 19:15 UTC
+## Current corrected-source gate — 20:24 UTC
 
 All **56** rendered resource views pass the original four profile ceilings. Unit-face proof in every profile selects and prints f10; High/accessible/fallback unit and strapped-load images were visually checked, in addition to the previous three Low captures. Exact current figures:
 
@@ -45,4 +45,4 @@ All **56** rendered resource views pass the original four profile ceilings. Unit
 | accessible-low | 41 | 2290 | 2 | 3557376 | 2101056 |
 | fallback-low | 45 | 2124 | 2 | 3557376 | 1931760 |
 
-**9/30 completed jobs**, **5 native journeys / 2936 checks / 137 native captures**. Both Low English normal/larger load and find pass, plus normal Tamil load. Every load retains original **2100 points / six stars**; both larger English assessments pass once and survive reload, with the suspended workday unchanged. Visible-ink assertions apply to every native parcel selection. See `../c44-low-label-validation/native-snapshot.json`, `resource-peaks.json` and `visual-review-resource-and-large-text.json`. Remaining native/negative/abandonment/repository jobs continue under the existing lock. Shared Tamil glyph/translation/A31/default/current-pilot and Intel gates remain separate. No code or frozen protocol changes and no repeated checks in this evidence-only update.
+**13/30 completed jobs**, **9 native journeys / 4481 checks / 213 native captures**. All eight Low English/Tamil normal/larger load/find layouts pass **4242 checks / 200 captures**; High normal-English find adds **239 / 13**. Every completed load keeps original **2100 points / six stars**; all four larger-text Low assessments pass once and survive a full-page reload. Original callback equality, actual viewed ink and suspended-workday isolation pass throughout. Eight additional larger-text/High cargo/control/label/result images were inspected; hashes and the shared Tamil glyph/translation limits are in `../c44-low-label-validation/visual-review-low-matrix-high-find.json`. Remaining High/negative/abandonment/repository jobs continue under the existing lock. No whole-task, readable-Tamil, A31/default/current-pilot or Intel FPS acceptance is claimed. No game/frozen protocol change or repeated passing suite was needed for this evidence collection.
