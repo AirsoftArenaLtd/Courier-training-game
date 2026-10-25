@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-24",
-  "status": "Shared remainder blocked; final existing four-id browser validation active in frozen checkout. C-43 follows separately.",
+  "date": "2026-10-25",
+  "status": "All existing four-id source-scoped browser checks complete; optional-id/shared font remainder still blocked.",
   "branch": "codex/c42-problem-solving",
   "runtime": "836a101ae1b13176551962d6e9566bbfad990884",
   "sourceFiles": {
@@ -66,7 +66,7 @@
     "3b9e3a3c: one High static isolation pose before final parcel cues."
   ],
   "supersededBaseline": "baseline-fa1a5579/SUMMARY.json",
-  "currentBrowserGate": "/tmp/c42-browser-836a101a/status.json",
+  "currentBrowserGate": "completed-continuation-20261025/summary.json",
   "finalBrowserAcceptance": false,
   "limitations": [
     "Optional positive-safety and safe-exception policy awaits Claude.",
@@ -77,13 +77,13 @@
   "files": [
     {
       "file": "README.md",
-      "bytes": 3711,
-      "sha256": "bfdaae4b3dceb6cef6feb4ac9afbc5fcb45b7a105f6826c819eefcb5a7d9b8bd"
+      "bytes": 4582,
+      "sha256": "f6ac1d332b820f5b40c4286fed0ef77018273595d435e2c3778f5e3756081677"
     },
     {
       "file": "VALIDATION.md",
-      "bytes": 2071,
-      "sha256": "25e8d583b972a1b3a03a6771ea6510a4c9d33044e9691475e094822044a437f2"
+      "bytes": 2561,
+      "sha256": "a45345e1cd8f38c520c58b0e3ad4d50eda27b43bb7fed1f30d4d5eec8e0bfb75"
     },
     {
       "file": "baseline-fa1a5579/README.md",
@@ -835,5 +835,14 @@
       "bytes": 6342,
       "sha256": "c12fcfe6dd78d17d9be426c152e77953a956db84a103f8330e175abd578e91aa"
     }
-  ]
+  ],
+  "existingIdBrowserGateComplete": true,
+  "goodNativeJourneys": 32,
+  "finalContinuationJobs": 22,
+  "finalContinuationGoodNativeChecks": 9147,
+  "finalContinuationCaptures": 268,
+  "completedContinuationManifest": {
+    "file": "completed-continuation-20261025/manifest.json",
+    "sha256": "7efab5f67f5cd0816b20694cb4c0a491f49113bc3cfae4b6e7324b0e3ddd7dc0"
+  }
 }

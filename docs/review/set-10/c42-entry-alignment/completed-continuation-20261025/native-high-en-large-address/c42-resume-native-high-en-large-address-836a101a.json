@@ -1,0 +1,403 @@
+{
+  "checks": 609,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "kind": "address",
+      "shots": [
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-controls-0.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-controls-1.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-controls-2.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-controls-3.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-address-reading.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-handheld.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-physical.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-reply-n1.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-reply-n2_ct.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-arrival-1-cab.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-arrival-2-other.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-reply-n3_ct.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-reply-n4.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-ending.png",
+        "c42-resume-native-high-en-large-address-836a101a-high-en-large-address-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n2_ct",
+        "n3_ct",
+        "n4"
+      ],
+      "trips": [
+        "cab",
+        "other"
+      ],
+      "pages": 9,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue at the first address.",
+          "The conversation point is 3 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 103.5,
+            "bottom": 124.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "Continue at the first address.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 169
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 175,
+            "bottom": 215
+          }
+        ],
+        "choices": [
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 406.5,
+            "bottom": 452.5
+          },
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 458.50000071525574,
+            "bottom": 510.49999928474426
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-address",
+        "result": {
+          "score": 1600,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913523541,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913523541,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913532128,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913532128,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913877635,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913877635,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You solved today's problem AND prevented the next one. That's the difference between delivering and serving.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792913889342,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Never guess an address. Check the street name, suffix (Ave vs. Ct), unit and ZIP before delivering.",
+            "Use your normal channels (dispatch / route tools) to resolve address exceptions — then plan the fix into your route.",
+            "Confirm the recipient when something doesn't match, and never leave a package with a stranger."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913523541,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Thirty seconds of verification beats a misdelivery. The suffix is the clue: COURT, not AVENUE.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913523541,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913532128,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Communicating early keeps records accurate, and planning it in avoids making other stops late.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913532128,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913877635,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A mismatch is worth a ten-second check. Maybe they just moved in — maybe it's a second error.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913877635,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You solved today's problem AND prevented the next one. That's the difference between delivering and serving.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792913889342,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 32
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1600,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792913894323
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792913467131,
+          "pending": false,
+          "at": 1792913894323,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "score": 1600,
+          "criticals": [],
+          "lessons": [
+            "Never guess an address. Check the street name, suffix (Ave vs. Ct), unit and ZIP before delivering.",
+            "Use your normal channels (dispatch / route tools) to resolve address exceptions — then plan the fix into your route.",
+            "Confirm the recipient when something doesn't match, and never leave a package with a stranger."
+          ]
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    }
+  ],
+  "errors": [],
+  "sourceRevision": "ebb77977262db9245cb7b526872f73a215ae6a8c",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "7272628d0c01de4e0822b877ad361432c90a9c70558399b7cbccfde6a482940d",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerworld.js": "d5e345b2086f31c0bf281d3f89c909403a4334cc484731fe48de70445f581e25",
+    "src/core/fpproblemstage.js": "e7ba12a62421d988518c09d086426ee72e5c0b998adf972ba90296ac22e9362b",
+    "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpworld.js": "8c8523abc9b3699814ccf6e9bef180811cf1a2bfad21e84c04b90bea8d74f1ee",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d"
+  },
+  "protocolSha256": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
+  "variant": "good",
+  "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+  "complete": true
+}
