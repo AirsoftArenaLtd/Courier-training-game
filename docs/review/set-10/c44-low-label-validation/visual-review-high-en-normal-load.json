@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25T21:21:56Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "job": "native-good-high-en-normal-load",
+  "checks": 815,
+  "capturesCollected": 37,
+  "score": 2100,
+  "stars": {
+    "safety": 3,
+    "efficiency": 3
+  },
+  "gameSeconds": 159.05274666668265,
+  "originalParSeconds": 210,
+  "durable": true,
+  "capturesVisuallyInspected": {
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-position-l8.png": "961956a0c6ed89c1d37414115e2ff38a82b55776d8791804ef902dcdee06b040",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-position-l9.png": "919db956c6339e633a36d2e0e487d44442064a40e5646e963fdce5b7059f9a45",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-strapped-load.png": "733008ceac88f0833d4296c739ed51f87843ceb3e5a9e0da10d74322407c73b6",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-result.png": "677f97dd8c9138ef1b69a35e1a65235227533e963c94853e67a4ccf435bcb48b",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-label-l9.png": "0debdec7a3c60c92cf8fe1f6a31b073d96380d161cce900baf10a362a22722d1",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-load-report.png": "c0fabc683bd339fc7d6da6cac79cfed180f00af55ba7e54c11636e80f8e59355",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-controls-3.png": "02be01a12f998700de668514d52a0c71a41fec65f19ac8bd34a7a908a59b6469",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-incomplete-load.png": "a799be7386be64cbdabc52bb0d37219c52ddcda830212c2fa106c579c68466de",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-carried-label.png": "6fd9d866e7bb2ff042197933bc50e076032a455bacf5c05227488a5b5827d385",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-returned-to-cart.png": "5434320d99d5e11f8d4d3b70b522a81ff29ef0a8a7665ccdfa0f1c2c2193ea78",
+    "completed/native-good-high-en-normal-load/c44-label-native-good-high-en-normal-load-41056a12-high-en-normal-load-handheld.png": "6fdd3d1505c7ca7c3d253fcd59ec1a8b9f7f5c938f2a69fc294d0c10a593ce14"
+  },
+  "observations": [
+    "The incomplete-load message prevents finishing before all parcels are loaded; its panel and return action fit.",
+    "The carried label reads the original recipient, number/street, weight and stop. Returning it to the cart restores all twelve visible parcels with exterior paper/ink.",
+    "The bottom-C and dangerous-goods placement panels read their actual positions. The original dangerous-goods label identifies 22 Maple Ave, stop 9 and 18 pounds.",
+    "The final dangerous-goods parcel is supported on the fitted floor and its top/side strap is visible. The load review reads twelve of twelve in the right position.",
+    "The handheld and last controls page fit their original panels. The result shows six stars, nothing heavy high, floor strapped and 159 seconds; the original lessons and buttons fit."
+  ],
+  "scope": "Eleven of the completed High normal-English loading run's 37 captures newly inspected at their original resolution; not full visual/language/default/current-pilot/Intel acceptance. Its 815 behavior/original-callback/record/reload checks pass. Remaining High/negative/abandonment/repository jobs continue. Shared Tamil glyph/translation and A31 rollout work remain separate."
+}

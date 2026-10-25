@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-25T20:24:20Z",
+  "date": "2026-10-25T21:21:56Z",
   "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "completed": [
     {
@@ -136,7 +136,22 @@
       "assessed": false,
       "assessmentPassed": null,
       "assessmentAttempts": null
+    },
+    {
+      "case": "high-en-normal-load",
+      "checks": 815,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 159.05274666668265,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
     }
   ],
-  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; all eight Low layouts and one High journey. Behavior/bounds pass does not establish translated-Tamil, whole-task, current-pilot or default acceptance."
+  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; all eight Low layouts and both normal-English High journeys. Behavior/bounds pass does not establish translated-Tamil, whole-task, current-pilot or default acceptance."
 }
