@@ -1,0 +1,22 @@
+{
+  "job": {
+    "id": "scorm-2004",
+    "command": [
+      "node",
+      "test/scorm-launch-2004.js"
+    ],
+    "environment": {},
+    "timeout": 900
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "fcd47d31fb2073f822e614fb468493468a41bd0af3b04eb5540f524c37ee1c73",
+    "attempts": 1,
+    "log": "scorm-2004-attempt-1.log",
+    "logSha256": "01fe0b0b80405a91439a9f9ad5b173314812196fec481f441de9505bb7289432",
+    "timed_out": false,
+    "artifacts": {}
+  },
+  "runtime": "8d5fb383",
+  "sourceProof": "../source-equivalence.json"
+}
