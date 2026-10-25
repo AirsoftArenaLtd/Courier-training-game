@@ -1,0 +1,765 @@
+{
+  "checks": 234,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "kind": "find",
+      "shots": [
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-brief.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-controls-0.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-controls-1.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-controls-2.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-controls-3.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-handheld.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-open-cargo.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-find-label-f1.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-find-label-f4.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-find-label-f6.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-find-label-f10.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-find-label-f12.png",
+        "c44-walk-native-good-low-ta-normal-find-ad2f294c-low-ta-normal-find-result.png"
+      ],
+      "findEvents": [
+        {
+          "pkg": "f1",
+          "elapsed": 5.349906666666657,
+          "roundStart": 0,
+          "roundIndex": 0,
+          "roundClean": true,
+          "requested": "f1"
+        },
+        {
+          "pkg": "f4",
+          "elapsed": 8.94990666666666,
+          "roundStart": 6.049906666666654,
+          "roundIndex": 1,
+          "roundClean": true,
+          "requested": "f4"
+        },
+        {
+          "pkg": "f6",
+          "elapsed": 12.649906666666713,
+          "roundStart": 9.64990666666667,
+          "roundIndex": 2,
+          "roundClean": true,
+          "requested": "f6"
+        },
+        {
+          "pkg": "f10",
+          "elapsed": 16.949906666666774,
+          "roundStart": 13.349906666666723,
+          "roundIndex": 3,
+          "roundClean": true,
+          "requested": "f10"
+        },
+        {
+          "pkg": "f12",
+          "elapsed": 21.49990666666684,
+          "roundStart": 17.649906666666784,
+          "roundIndex": 4,
+          "roundClean": true,
+          "requested": "f12"
+        }
+      ],
+      "placements": [],
+      "renderedDoor": {
+        "cargoOpen": true,
+        "asset": true,
+        "opening": 0.9917702529509799
+      },
+      "observation": {
+        "elapsed": 22.19990666666685,
+        "events": [
+          {
+            "pkg": "f1",
+            "elapsed": 5.349906666666657,
+            "roundStart": 0,
+            "roundIndex": 0,
+            "roundClean": true,
+            "requested": "f1"
+          },
+          {
+            "pkg": "f4",
+            "elapsed": 8.94990666666666,
+            "roundStart": 6.049906666666654,
+            "roundIndex": 1,
+            "roundClean": true,
+            "requested": "f4"
+          },
+          {
+            "pkg": "f6",
+            "elapsed": 12.649906666666713,
+            "roundStart": 9.64990666666667,
+            "roundIndex": 2,
+            "roundClean": true,
+            "requested": "f6"
+          },
+          {
+            "pkg": "f10",
+            "elapsed": 16.949906666666774,
+            "roundStart": 13.349906666666723,
+            "roundIndex": 3,
+            "roundClean": true,
+            "requested": "f10"
+          },
+          {
+            "pkg": "f12",
+            "elapsed": 21.49990666666684,
+            "roundStart": 17.649906666666784,
+            "roundIndex": 4,
+            "roundClean": true,
+            "requested": "f12"
+          }
+        ]
+      },
+      "original": {
+        "result": {
+          "score": 1439,
+          "ratios": {
+            "efficiency": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 214 Birch Ln in 5.3s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 58 Oak St in 2.9s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 900 Market St in 3.0s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 5 Harbor View in 3.6s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 88 Canyon Rd in 3.9s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Pulled the right package first time (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the truck in good time (22s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+            "Check number AND street AND unit before you pull a package.",
+            "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+            "Time lost digging at every stop is time you never get back on the route."
+          ],
+          "summary": "5/5 right first time · 0 wrong picks · 22s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 214 Birch Ln in 5.3s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 58 Oak St in 2.9s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 900 Market St in 3.0s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 5 Harbor View in 3.6s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 88 Canyon Rd in 3.9s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Pulled the right package first time (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the truck in good time (22s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "f3": {
+                "col": "A",
+                "row": "top",
+                "k": 1
+              },
+              "f2": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "f5": {
+                "col": "A",
+                "row": "bottom",
+                "k": 1
+              },
+              "f9": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "f8": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "f11": {
+                "col": "C",
+                "row": "bottom",
+                "k": 1
+              },
+              "f7": {
+                "col": "floor",
+                "row": "floor",
+                "k": 0
+              }
+            }
+          }
+        },
+        "stars": {
+          "efficiency": 3,
+          "service": 3
+        }
+      },
+      "result": {
+        "id": "m6-find",
+        "result": {
+          "score": 1439,
+          "ratios": {
+            "efficiency": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 214 Birch Ln in 5.3s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951752641,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 58 Oak St in 2.9s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951764617,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 900 Market St in 3.0s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951777685,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 5 Harbor View in 3.6s",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951792009,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Found 88 Canyon Rd in 3.9s (misloaded!)",
+                "good": true,
+                "partial": false,
+                "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951805526,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Pulled the right package first time (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951807085,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the truck in good time (22s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792951807085,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+            "Check number AND street AND unit before you pull a package.",
+            "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+            "Time lost digging at every stop is time you never get back on the route."
+          ],
+          "summary": "5/5 right first time · 0 wrong picks · 22s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 214 Birch Ln in 5.3s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951752641,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 58 Oak St in 2.9s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951764617,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 900 Market St in 3.0s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951777685,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 5 Harbor View in 3.6s",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951792009,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Found 88 Canyon Rd in 3.9s (misloaded!)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Work the shelves by section. Hunting for a package is time you do not get back.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951805526,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Pulled the right package first time (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Read number, street and unit. Near-matches are the classic misdelivery.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951807085,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the truck in good time (22s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792951807085,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "f3": {
+                "col": "A",
+                "row": "top",
+                "k": 1
+              },
+              "f2": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "f5": {
+                "col": "A",
+                "row": "bottom",
+                "k": 1
+              },
+              "f9": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "f8": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "f11": {
+                "col": "C",
+                "row": "bottom",
+                "k": 1
+              },
+              "f7": {
+                "col": "floor",
+                "row": "floor",
+                "k": 0
+              }
+            },
+            "seconds": 22
+          }
+        },
+        "stars": {
+          "efficiency": 3,
+          "service": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "A package in the wrong section is a misload: it costs you time at every stop and it is how the wrong box ends up at the wrong door.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Check number AND street AND unit before you pull a package.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "When you find a misload, report it so the load gets fixed, instead of everyone hunting for it twice.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Time lost digging at every stop is time you never get back on the route.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1439,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792951807086
+        },
+        "elapsed": 22.19990666666685,
+        "runElapsed": 22.19990666666685,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      },
+      "durable": true,
+      "reload": {
+        "record": {
+          "plays": 1,
+          "bestScore": 1439,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792951807086
+        },
+        "scene": "LoadingScene",
+        "default3d": false,
+        "scene3d": null
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "7736351588c439e01e54bcdbbd13dc9c05e053d7",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "72f4d24d9e52bc1be56b84d1714b5667d1d3c540b227e35f972c371831d09a71",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingworld.js": "eeba2c970b4dfec623481e77d9574b3d932711e1bfe2d874db19255deec7f023",
+    "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
+    "src/core/fpworld.js": "6f0792706a66409fab2bc9fb3997632dc499155a5a71beb1c906755e7e923a78",
+    "src/core/fpaccess.js": "44f28280d8603baa61b86acdea51a2be452f0a6f05f3ed756bbbe9c4e11d727b",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  },
+  "protocolSha256": "573bb9be78852b0d0008ca33cfde82767ba47e2cead9e5d3128e8e7f091b45a8",
+  "scope": "Only existing-id registration, accessibility preferences and a real suspended workday are fixtures. All movement, target selection, label reading, carrying, placements, restraints, picks, pauses and completion use real keys. No position, action callback, clock, scoring, result or assessment-completion fixtures. Observations are replayed through actual original 2D callbacks in Node. Tamil glyph/translation readiness remains a separate shared gate.",
+  "complete": true
+}

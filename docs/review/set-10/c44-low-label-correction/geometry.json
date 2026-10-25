@@ -1,0 +1,43 @@
+{
+  "scope": "CPU-only integrated Low cargo geometry: both original ids, four loading/find stages, nine positions, twelve headings, three pitches and retained cab/reverse views. Actual gaze selects Low ink before counting. Main plus most costly mirror; excludes compositor, rendered memory, GPU cost and Intel FPS.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 2832,
+      "peak": {
+        "calls": 39,
+        "triangles": 2370
+      },
+      "overBudget": 0,
+      "worst": {
+        "id": "m6-find",
+        "stage": 1,
+        "x": 2.84,
+        "z": 12.2,
+        "yaw": 11,
+        "pitch": 0,
+        "calls": 39,
+        "triangles": 2370
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 2832,
+      "peak": {
+        "calls": 43,
+        "triangles": 2204
+      },
+      "overBudget": 0,
+      "worst": {
+        "id": "m6-find",
+        "stage": 1,
+        "x": 2.84,
+        "z": 12.2,
+        "yaw": 11,
+        "pitch": 0,
+        "calls": 43,
+        "triangles": 2204
+      }
+    }
+  ]
+}
