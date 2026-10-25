@@ -1,0 +1,59 @@
+{
+  "job": {
+    "id": "native-high-en-large-exceptions",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-en-large-exceptions",
+      "QA_TAG": "c43-signature-native-high-en-large-exceptions-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-native-high-en-large-exceptions-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "d3d30de0c0f9a5e6bd9693bcdb6aa10289153dc2156fc866f49f09ec658e1876",
+    "attempts": 1,
+    "log": "native-high-en-large-exceptions-attempt-1.log",
+    "logSha256": "e4496a85fb4ff21416d570927c88a88fa1e41d0be2aaf9d677565713fc486f6b",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-controls-2.png": "fc151e205055c433b83ecdd9c0c667988caebbc55629f252b0a13c61bd38d340",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-exception-code.png": "51cd5126effd70b52803462856f1a6e4a8401a3e2287e59099f0cdf63914bc95",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-cargo.png": "6453b3cf4b6392e06942fd7541fd8d743a9a14526ed287f52b876e0120eeae84",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-arrival.png": "3b4475fc1bfea60e02a9a8affb19329d8593af16b55bd03d4e83f418edd90e2d",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-scan.png": "3b0c1e7e26adf9928c668d3d7f59462954fa63b99a10427c3ac22f53f1790ff3",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-closed-business-hours.png": "598763eed9b532fecee9b7454a9e99553cc5d88b09e97ba39efae4e8c6d4d8b1",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383.json": "4102561fc6a41985af468664f4cbdc2c2ee36b6535952a52f99492a2426b5262",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-exception-description.png": "133fd7ffd166836a960ce6550ebbafe31825e437e9d505a90646f0f35b396dd5",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-exception-description.png": "dc181efec7164bdb51a6cbc39a7a964b04a4f0131857832f5c0eaafbef87753c",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-result.png": "a8d95d4be8d90cbcc566910c97508eafc9e1ad1819f39ab5abb429cefa454e16",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-report.png": "3924cb53bc7a32617feb3c922fe88ef1d40fd84526a948c27678ff981bc62c6e",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-controls-0.png": "f471ab1500d0e36b2638dcb2a2d272e79614c70e0d4d1bbc502d6e2a921a520f",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-arrival.png": "174d463439aeccf3ee06f200325987728d14c678e464add336488a82ca0d771e",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-exception-code.png": "fdbb16b28c2fdbfd90e7786e5c082c305da61aa2e4bddbf66cdc937d1d538895",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-exception-description.png": "39807eeb5098869236174ee3c473aab40437016e9acd8b9b9ec0038f595372dc",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-report.png": "3682d0a3632d439b9569f7f82aea1cd6f93ebf899810569b253395907c6dee6e",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-reply.png": "622be754a1abb90f826833248273e6abab4ddeacac75d2e354b0a1662bc58a6c",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-tag.png": "39ad02aac906e7c8b8b705ad2656464e36537a73a78681101b1cbb91bf7ce02a",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-exception-code.png": "b8e505efce161d389a158c971ac74f5dd6eaa12041e845afa29160a7e6f46b48",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-arrival.png": "39f17c99ec87a71e8bc595e215b1fb8b08a670674f240743663b8ab32ef64787",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-controls-3.png": "554d2b46225dd3517dc0985b6cc21914eafde437a7962854883776dd761066a8",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-report.png": "cbc6ecc8dfa27da04f86ec74eba17a6752709c0222a898328aa0d5c89788d19d",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop2-cargo.png": "572f00b92d36c8d7d06e3c1fddb53b8c9e062f1ddf250d7f51733c0de90a7ede",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop0-scan.png": "750651c8c92d00076dde76a020c18e6ce8f12d0432ecf71be3d6024e72ade615",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-scan.png": "1d7e1b8f7b0725885665694974e1849ed5249923eab1e3b02379095fa06e7912",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-cargo.png": "caed65797a9db1c9bfa42d18461e59508989421b1e1b0115076e9dabc3b6d4ca",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-controls-1.png": "d4afc4ef6e61bbc7ca7eab843e68af4119ef2c2ce4d4a615f34ffe73473c01f7",
+      "test/out/fp-review/c43-signature-native-high-en-large-exceptions-8d5fb383-high-en-large-exceptions-stop1-tag.png": "590ccd2beb30864f98b70560de2bde9bfba803a12cc0f07ca37d7734f97fbfcd"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}
