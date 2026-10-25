@@ -17,5 +17,8 @@ module.exports=view=>{
  if(view.startsWith('find'))Object.assign(m.player,{x:2.84,z:9.7,yaw:0,pitch:.12});
  if(view==='findunit'){s.roundIndex=3;K.nextRound(s);const p=scene.art.loading.parcels.find(p=>p.data.id==='f10');m.player.yaw=Math.atan2(p.x-m.player.x,-(p.z-m.player.z));}
  if(view==='findhelp'){s.elapsed=45;run.definition.tick(run,scene,.05,true);}
+ // Static captures freeze elapsed time, so settle the imported door pose before pausing.
+ // Native gameplay must still advance its normal animation through real controls.
+ if(scene.art.actors)scene.art.actors.sync(m,m.player.x,m.player.z,true);
  m.paused=true;scene.sync();scene.refresh();
 };
