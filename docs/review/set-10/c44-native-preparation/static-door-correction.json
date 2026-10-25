@@ -1,0 +1,21 @@
+{
+  "protocolRevision": "b7be6bde05dc3c3f7358bd9f9ee0e6be47f4ce9c",
+  "applicationRuntimeUnchanged": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "changedExistingSources": [
+    "test/fpbench.js",
+    "test/tools/fp-loading-pose.js",
+    "test/tools/fp-loading-quality.js",
+    "test/fploadingbrowser.js"
+  ],
+  "addedFrozenTestHash": "test/fploadingscenario.js",
+  "oldNativePassRetained": "../c44-static-door-correction/c44-reload-native-good-low-en-normal-find-fc710227.json",
+  "supersededLowResourceNumbers": [
+    41,
+    2280,
+    2,
+    3557376,
+    1931760
+  ],
+  "fullTaskAccepted": false,
+  "newQueue": "/workspace/c44-loading-truck/test/out/pipelines/c44-fc710227-settled"
+}

@@ -1,15 +1,22 @@
 {
-  "recorded": "2026-10-25T09:35:55.115432+00:00",
   "status": {
-    "phase": "browser-slot",
-    "pid": 34977,
+    "phase": "resource-loaded-high",
+    "pid": 2482,
     "runtime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
-    "updated": 1792920472.61393,
-    "state": "waiting"
+    "updated": 1792931832.150493,
+    "state": "running"
   },
-  "launch": {
-    "pid": 34977,
-    "plan": "/workspace/c44-loading-truck/test/out/pipelines/c44-fc710227-native/plan.json",
-    "log": "/workspace/c44-loading-truck/test/out/pipelines/c44-fc710227-native/supervisor.log"
-  }
+  "launcher": {
+    "pid": 2482,
+    "planSha256": "100464d2595d75c6e9e904a3ae433588ac5e6b2edb1265d2285f833c10fc13de",
+    "log": "supervisor.log",
+    "sourceScope": "Only five QA/protocol files differ; application remains fc710227.",
+    "reason": "Settle paused actor doors and require actual rendered opening in resource/native evidence."
+  },
+  "completedJobs": [
+    "native-good-low-en-normal-find",
+    "resource-loaded-low"
+  ],
+  "priorSupervisor": "../c44-static-door-correction/status.json",
+  "reason": "Strengthened rendered-door assertions and settled static cargo poses."
 }

@@ -1,0 +1,8 @@
+{
+  "command": "Run only the paused-static regression through an in-memory module using the archived old pose source.",
+  "expectedExit": 1,
+  "actualExit": 1,
+  "failure": "Actual imported door opening remains zero instead of one.",
+  "frozenWorktreeSourceEdited": false,
+  "logSha256": "6ac88c2dac8a60604ce8825a78daf552858f629dcba7cfeb231822f6d09366af"
+}

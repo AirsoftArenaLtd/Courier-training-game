@@ -1,0 +1,9 @@
+# C44 current validation — 25 October 2026
+
+Application `fc710227`, current settled-door test protocol `b7be6bde`. C44 remains **doing**. The strengthened Low English normal-text find journey passes **234 checks**, including actual door opening, original six-star result and full saved-record/workday reload. Its thirteen native screenshots are in `completed/native-good-low-en-normal-find/`. The 30-job sequence is active in `test/out/pipelines/c44-fc710227-settled/`; source map and prerequisites are in `../c44-native-preparation/`.
+
+The earlier 233-check durable find pass is retained in its original protocol scope in `../c44-static-door-correction/`. The earlier fourteen numerical Low passes are superseded: screenshot review found a static fixture door-animation error. Its correction and the new actual-door guards must pass before the intended open-cargo resource views are accepted. Prior native/Low/partial High artifacts and the earlier collected pack are preserved there.
+
+`completed-summary.json` counts only finished, source/journal/log/artifact-verified jobs from the strengthened current protocol. Static resource views and native real-key controls/records stay separate. Refresh with `python docs/review/set-10/c44-native-preparation/collect-results.py`. Visually review the actual new cargo/cart/strapped captures as well as the numbers. Whole-task, corrected-font Tamil, current-pilot/default rollout and Intel O1 acceptance remain pending.
+
+Current loaded-Low also passes all **14** corrected resource views, with the actual door-opening guard: **41 calls / 2,280 triangles / 2 textures / 3,557,376 attachment bytes / 1,931,760 Phaser bytes**, within the unchanged original limits. The corrected open-cargo and strapped-load captures have been visually checked. These current figures replace the earlier superseded static captures. High and the remaining profiles/journeys are still running or queued.

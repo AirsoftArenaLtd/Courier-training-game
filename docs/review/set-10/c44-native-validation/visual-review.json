@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-25",
+  "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "protocolRevision": "b7be6bde05dc3c3f7358bd9f9ee0e6be47f4ce9c",
+  "inspectedNative": [
+    "completed/native-good-low-en-normal-find/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-open-cargo.png",
+    "completed/native-good-low-en-normal-find/c44-settled-native-good-low-en-normal-find-fc710227-low-en-normal-find-result.png"
+  ],
+  "inspectedCurrentResource": [
+    "completed/resource-loaded-low/c44-settled-loaded-low-fc710227-loaded-low-low-loadcargo.png",
+    "completed/resource-loaded-low/c44-settled-loaded-low-fc710227-loaded-low-low-loadstrapped.png"
+  ],
+  "observations": [
+    "Corrected static open-cargo view shows the shelves through the actual open imported door.",
+    "Corrected strapped-load view shows the loaded parcels and floor restraints through the open aperture.",
+    "The prior door-obstructed resource views are retained as superseded diagnostics.",
+    "The current actual-key open-cargo view shows the five-request parcels, and its original six-star results card is readable within its bounds."
+  ],
+  "remainingVisualReview": "High, accessible, fallback and remaining native/negative screenshots are still pending."
+}

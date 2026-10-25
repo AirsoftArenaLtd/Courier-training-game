@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "protocolRevision": "934bfffa",
+  "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "checks": [
+    {
+      "command": "node --check test/fploadingbrowser.js",
+      "exit": 0
+    },
+    {
+      "command": "node test/fploadingreference.js",
+      "exit": 0,
+      "tests": 4
+    },
+    {
+      "command": "latest-pilot test/englishtext.js evaluated against this worktree via Node vm",
+      "exit": 0,
+      "tests": 1
+    }
+  ],
+  "priorPureNodeBaselineSuites": 90,
+  "pureNodeBaselineRerun": false
+}
