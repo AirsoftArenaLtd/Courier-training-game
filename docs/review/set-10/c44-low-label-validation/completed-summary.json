@@ -1,13 +1,13 @@
 {
-  "date": "2026-10-25T22:18:31.736048+00:00",
+  "date": "2026-10-25T23:14:12.316460+00:00",
   "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "expectedJobs": 30,
-  "passedJobs": 16,
+  "passedJobs": 18,
   "complete": false,
-  "nativeGoodJourneys": 12,
-  "nativeChecks": 6363,
-  "nativeCaptures": 300,
+  "nativeGoodJourneys": 14,
+  "nativeChecks": 7417,
+  "nativeCaptures": 350,
   "resourceViews": 56,
   "native": [
     {
@@ -465,6 +465,82 @@
       "case": "high-en-large-find",
       "variant": "good",
       "captures": 13
+    },
+    {
+      "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+      "id": "native-good-high-ta-normal-load",
+      "fingerprint": "769e11a26740268be06a6264a1ec5a68ac0b00e0a65d6b132358232c406293f3",
+      "logSha256": "99393517675f2a14dd72ef70f6d577305ffa7fc37fb2bf440188a5274a52629d",
+      "artifacts": {
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l3.png": "abc269a7aa72e84401d9f1a9f80f68e288d33550e8968ec7aef73669abef71c0",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l1.png": "2349da59185f26a3f408aa63d828802c9d334ed78d1d379798f87a75c9265f25",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l1.png": "1960b58410fd768c06bba0a6d721e7b56fb315bf88ebabedd4e24c371fba2601",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l10.png": "f2b4915e974c904b0b8bbd47d1c2de8f0e0d8f14f960bf216e21c9a453d5ea61",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l7.png": "0ba7e204c17474de3df60fc8819d56c3f93c21da167c309e6dbe3ab97733dce9",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l3.png": "d303293c21d9082b9429780698873c966b68bb3c492942c0c088841f8543ab04",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l4.png": "941e0e000ad78cf3b6f30744336a8823a32e0e866324216f2fa93d1f2573423f",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l9.png": "7b62f56eee0ca985657831d5bbbd2d752e9bf1c53a875fa937bdd68bbcfa725f",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l11.png": "7b617ab24e24cd9082ac1ee1a5b7e3a782d17ad79733e3a6c105e876e02d3bc0",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-returned-to-cart.png": "ea11e77880a24acb8fb83e96d3d173709881d41536a9ac8a4cf422512cb439a4",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-brief.png": "cf202723efa427e0e812c3214422ce8fd105415433237e35fe0e2eadc8dc3b6b",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l5.png": "c2cea66505163aa9c6685a56fd55196e6cad3fabf2740c92e37edd59f922669a",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-open-cargo.png": "80f547340d5211abfe3c4bf3373c1867960f7da8725b75706da180279d3e381c",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l6.png": "4e966bab8484cc01ba2bc3aff6ec2e87d9a1b5c7dc06daa45e7e39c540ff9696",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-result.png": "3b749ed75601ca3586c04a3d74e4e25191fb58c62922f3f2d138e8699cc00bb2",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l12.png": "76aae7e15722cd0cb25e033bf1e8e18faf4138ff9e0b42380ff440627b190047",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-controls-1.png": "2b82bf0b8e0408b8f8f81c26e5c4546af5a11e227f9837c58b2c3f86af5da7fe",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-load-report.png": "9275d0950a56a0ce33a61c4670b2370274c398e40e1e95e6e307008099048ef3",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-controls-3.png": "064d4d4304bacab2c937b5909dfcba49c7bcdaa1fb2fde5008ab6279e9a702e3",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l12.png": "0eec428c41263c1fef01011f267bd7e2977148450e76f25803f7100b93d2411f",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l7.png": "581fb2e3430e1c022d43f114903f8a431c60e0791bf66ef498f52cf6574b9500",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l9.png": "3e546a4d3800795c9cf2bdaa9a42c0308555b729223f3f83a5be59f4dcf83fc8",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-handheld.png": "98c34a0a9e965f057c137c049b45202853910da98d4f191a3603511d462bb901",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l2.png": "57829f988243981718787e5a71ac2a4ea8d95b2a8c043d5494b588165a9c52cd",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-incomplete-load.png": "0dbcb153efbfcf122aeae1873bcfc88e743f6ce7c196b2381bd988d0e01dea8f",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-controls-0.png": "ae64950a72416bfd047f04c16baef463d547b336e93e5fa8aa162608242b40c6",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l2.png": "8d9ea25a693c677b11ce93e29efbc47656b32492a2ec4a910956a511809cbc7e",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l5.png": "7c318740e8c23b75b5a87c480a02e3b5870a72888a1d2a718fe10f2948de0bf8",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-strapped-load.png": "eabc9c7628e0448cc70107a7a6a900de22cf86a1375f807d03803eb5255643d9",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-carried-label.png": "e5f8c742fdd493ecdea4abcae606083072d73126511f504b9edf2a15a566936c",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-controls-2.png": "a6d1a62c8ad4cadbcdd93a5ccc0b9d0c70644aca3e367dc7cc4ec77f6bc2e5de",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l10.png": "3b9a43d52ad6dd027817e226bc5e0c23ba994cb3360e605a5ca8c6814f44b9f9",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l11.png": "e35ed21b92dc399fd12bdb01c89a000e4aab9294467fdd8f67097929a6638ff9",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l6.png": "4013e62c17cff6fe6d71c56098147703ea9c8f41b4810091b1b27a577dbf81b8",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l4.png": "97bc7bb6e93d2e5f392c0c1593bf952a6af8df7a1b761755b76c162bbbd41242",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-position-l8.png": "b624731f90ab571d4f01d262f4fe8a09fa5e8cc224d52351c53b30ff460d689a",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12.json": "1ee67c5d70f6a04c9117747168bc904e4928f0fe1ef47bc3313ed4f667bc8dda",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-label-l8.png": "541ce28ead80b6a91645de77660a44b94161250f67f78d2226fceb09db1ed90c"
+      },
+      "checks": 815,
+      "case": "high-ta-normal-load",
+      "variant": "good",
+      "captures": 37
+    },
+    {
+      "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+      "id": "native-good-high-ta-normal-find",
+      "fingerprint": "a6de200139ecc470cd28882b97f7ca67edb43d9175ef64238bc9c635c58d8f1a",
+      "logSha256": "ffe91609daced6fa7350e3978fdb0ddb4f3fbe9c2192c9c8969aed424948ebb6",
+      "artifacts": {
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f4.png": "ce91ed30ca360263c5b2566f09c685bdbd45c71a839182d5077a8264a2359e23",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12.json": "5cc405078ba22bf5693361520b553cbd84f4d4328ca45df2bc9ca7d891e90ac8",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-brief.png": "1b07eb2ebfb728396809c2f0a02007f8aed099ff46344830a8f974bc03a3c3b2",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f6.png": "d037770e8ea949251b0f16e67e7db920372b8da6838af1eaddb9ee5f86f22f2b",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-result.png": "5f8d8002ec647df124d0185ed6a338b738a2864b5bb6ebd9792dac0aa3c59c9c",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-controls-0.png": "9f55b37dd9ccc05854197ca22d6d2ef0581f9fc0b1751e97be7a8c97ceeb1051",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f1.png": "c37d6a9e04fb3da68d4f6ab0967e5cf1f981db87dd96109b394610f7613a4f42",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-controls-2.png": "524e00bcfc810098a1ca00964dd3d94a4a7f8968eba85a0dbd93d22d24896791",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-open-cargo.png": "14aa841569cb5b6d79de6dd950cc5c27a4a1b8e598ab734a7cdd4cf29f687d3d",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-handheld.png": "52250a38fb33523da635a3076632b737d00f355fe356b89e2e1534057409eb22",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-controls-3.png": "7131dc6aa1da0f6f784b6252c649c87b574d609256f943204e0b11fe14aa3120",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-controls-1.png": "112262316e76ec8c91dda35265e6dc93e1972a833f1370a27dc653ad23dd6974",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f12.png": "6094cb0516ce37f96784642cd8403a8d78787deaa10ffbcfac124e0b2cb9861f",
+        "test/out/fp-review/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f10.png": "1edf3009110b8f21d4560c7242953d096240d5d108bcac6604966494cc0100ab"
+      },
+      "checks": 239,
+      "case": "high-ta-normal-find",
+      "variant": "good",
+      "captures": 13
     }
   ],
   "resources": [
@@ -608,18 +684,8 @@
   "followups": [],
   "pending": [
     {
-      "id": "native-good-high-ta-normal-load",
-      "state": "running",
-      "exit": null
-    },
-    {
-      "id": "native-good-high-ta-normal-find",
-      "state": "not started",
-      "exit": null
-    },
-    {
       "id": "native-good-high-ta-large-load",
-      "state": "not started",
+      "state": "running",
       "exit": null
     },
     {

@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-25T23:15:40Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "currentSnapshot": {
+    "passedJobs": 18,
+    "expectedJobs": 30,
+    "nativeGoodJourneys": 14,
+    "nativeChecks": 7417,
+    "nativeCaptures": 350,
+    "resourceViews": 56
+  },
+  "completedNewCases": [
+    {
+      "case": "high-ta-normal-load",
+      "checks": 815,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 162.8412499999776,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
+    },
+    {
+      "case": "high-ta-normal-find",
+      "checks": 239,
+      "captures": 13,
+      "score": 1612,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 16.55972333333339,
+      "durable": true,
+      "assessed": false,
+      "assessmentPassed": null,
+      "assessmentAttempts": null
+    }
+  ],
+  "normalTextMatrix": {
+    "journeys": 8,
+    "checks": 4216,
+    "captures": 200
+  },
+  "capturesVisuallyInspected": {
+    "completed/native-good-high-ta-normal-load/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-handheld.png": "98c34a0a9e965f057c137c049b45202853910da98d4f191a3603511d462bb901",
+    "completed/native-good-high-ta-normal-load/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-strapped-load.png": "eabc9c7628e0448cc70107a7a6a900de22cf86a1375f807d03803eb5255643d9",
+    "completed/native-good-high-ta-normal-load/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-load-report.png": "9275d0950a56a0ce33a61c4670b2370274c398e40e1e95e6e307008099048ef3",
+    "completed/native-good-high-ta-normal-load/c44-label-native-good-high-ta-normal-load-41056a12-high-ta-normal-load-result.png": "3b749ed75601ca3586c04a3d74e4e25191fb58c62922f3f2d138e8699cc00bb2",
+    "completed/native-good-high-ta-normal-find/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-handheld.png": "52250a38fb33523da635a3076632b737d00f355fe356b89e2e1534057409eb22",
+    "completed/native-good-high-ta-normal-find/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-open-cargo.png": "14aa841569cb5b6d79de6dd950cc5c27a4a1b8e598ab734a7cdd4cf29f687d3d",
+    "completed/native-good-high-ta-normal-find/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-find-label-f10.png": "1edf3009110b8f21d4560c7242953d096240d5d108bcac6604966494cc0100ab",
+    "completed/native-good-high-ta-normal-find/c44-label-native-good-high-ta-normal-find-41056a12-high-ta-normal-find-result.png": "5f8d8002ec647df124d0185ed6a338b738a2864b5bb6ebd9792dac0aa3c59c9c"
+  },
+  "observations": [
+    "Both normal-text handheld layouts fit their controls and Back action. New cargo titles/actions remain English, and the finding request counter is mixed English/Tamil; Claude A31 translation is outstanding.",
+    "The open cargo shows mounted shelf tags and exterior label ink. The completed load shows its dangerous-goods parcel visibly supported on the fitted floor with the band still present.",
+    "The load review fits and reads twelve of twelve packages in the right position. The unit label panel fits and reads 5 Harbor View, unit 3B, seven pounds. The completed protocol requires actual viewed ink and unobscured selection before opening it.",
+    "Both results show six stars and fitting result buttons. The loading result keeps 12/12, floor strapped and 163 seconds; finding keeps 5/5 first-time picks, zero wrong picks and 17 seconds.",
+    "The shared Tamil font still shows missing-glyph boxes in the loading safety badge, finding title, takeaways, lessons and career text. Some new text is untranslated or mixed. These numeric/behavior/bounds passes do not constitute readable-Tamil acceptance."
+  ],
+  "scope": "Eight newly inspected original-resolution captures from two completed High normal-Tamil practice runs (1054 checks / 50 captures). Not every capture is visually inspected. Two High larger-Tamil journeys, four negative/abandonment cases and six repository jobs remain. Shared font/translation/A31/default/current-pilot and owner Intel FPS remain separate."
+}
