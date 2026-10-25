@@ -35,7 +35,7 @@ OTR.fpLoadingWorld={
       return {id:s.id,slot:s,x:van.x+(floor?0:s.id.endsWith('-0')?-fit.side:fit.side),y:floor?fit.floor:fit[s.level],z:van.z+(floor?s.id==='haz'?1.95:s.id==='floor-0'?-.1:.9:fit.sections[s.col]),w:floor?.68:.5,d:floor?.64:fit.depth};
     });
   },
-  build(parent,m,{cube=null,interactions=[],occluders=[],vehicle=null}={}){
+  build(parent,m,{cube=null,interactions=[],occluders=[],vehicle=null,focus=null}={}){
     const T=THREE,W=this,state=m.loading,high=OTR.gfx.high(),ownsCube=!cube;if(!state?.pkgs.length||state.pkgs.length>12)throw Error('Invalid physical loading set');if(!cube)cube=new T.BoxGeometry();
     const root=new T.Group();root.name='module-loading-cargo';parent.add(root);
     const paint=new T.MeshLambertMaterial(),proxyPaint=new T.MeshBasicMaterial(),sheetGeometry=new T.PlaneGeometry(),fixed=new T.InstancedMesh(cube,paint,96),moving=new T.InstancedMesh(cube,paint,128),sheets=new T.InstancedMesh(sheetGeometry,paint,128),scratch=new T.Object3D(),colour=new T.Color(),batches=[],proxies=[];
@@ -103,7 +103,7 @@ OTR.fpLoadingWorld={
     const labelTransform=new T.Object3D();
     return {root,fixed,moving,sheets,batches,slots,slotById,fit,cart,cartTarget,restraint,parcels,signs,proxies,
       sync(model){
-        if(disposed)throw Error('Loading cargo world was disposed');dynamicCount=sheetCount=0;const s=model.loading,p=model.player,v=model.van,sy=Math.sin(p.yaw),cy=Math.cos(p.yaw);let closest=null,best=Infinity;
+        if(disposed)throw Error('Loading cargo world was disposed');dynamicCount=sheetCount=0;const s=model.loading,p=model.player,v=model.van,sy=Math.sin(p.yaw),cy=Math.cos(p.yaw),focused=!high&&focus?focus():null;let closest=null,best=Infinity;
         // The opaque sides and bulkhead hide these parts from outside. Low only submits the
         // cargo fit-out from its aisle or beyond the open rear aperture; the cart stays visible.
         const cargoVisible=model.cargoOpen&&(high||model.mode!=='cab'&&(p.z-v.z>2.62||Math.abs(p.x-v.x)<1.05&&p.z-v.z>-.9));
@@ -126,7 +126,12 @@ OTR.fpLoadingWorld={
           else{if(env)paper(b.x,ly,b.z,b.w*.88,.23,0xF0EEE6,b.angle,true);else paper(lx,ly,lz,b.w*.88,b.h*.78,0xF0EEE6,b.angle);paper(b.x,b.y+b.h/2+.003,b.z,.055,b.d,0xD9C098,b.angle,true);}
           const range=(p.x-lx)**2+(p.z-lz)**2;
           const facing=env||(p.x-lx)*sn+(p.z-lz)*cs>0;
-          if(held||highlighted){closest=b;best=-1;}else if(facing&&range<best&&range<2.65**2){closest=b;best=range;}
+          // Low retains one printed face. Prefer the existing real gaze target so
+          // an off-screen nearer parcel cannot leave the label being read blank.
+          if(held){closest=b;best=-3;}
+          else if(focused===b.body.userData.interaction&&best>-3){closest=b;best=-2;}
+          else if(highlighted&&best>-2){closest=b;best=-1;}
+          else if(facing&&range<best&&range<2.65**2){closest=b;best=range;}
           // High paper is 8mm thick; ink must sit outside its front, never inside it.
           const ink=high?.006:.002;
           labelTransform.position.set(lx+(env?0:sn*ink),ly+(env?ink:0),lz+(env?0:cs*ink));labelTransform.rotation.set(env?-Math.PI/2:0,b.angle,0,'YXZ');labelTransform.scale.set(1,1,1);labelTransform.updateMatrix();b.matrix.copy(labelTransform.matrix);

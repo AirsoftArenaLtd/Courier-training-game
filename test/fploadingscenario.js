@@ -106,3 +106,16 @@ test('keyboard focus reaches the loaded top-shelf label above the rack lip from 
   }}finally{scene.art.dispose();bank.dispose();}
  }
 });
+
+test('Low prints the label under the actual unit-address gaze instead of a nearer off-screen parcel',async()=>{
+ const {install,local}=require('./tools/fpassets-context');
+ for(const loaded of [false,true]){
+  const f=require('./tools/fp-loading-context')();f.O.gfx={high:()=>false};const bank=loaded?await install(f.c).preload({high:false,fetch:local}):null,scene=f.fixture('m6-find',{bank}),m=scene.model,a=scene.art.loading;
+  try{f.use(scene,'cargo');const parcel=a.parcels.find(p=>p.data.id==='f10');Object.assign(m.player,{x:2.84,z:9.7,yaw:Math.atan2(parcel.x-2.84,-(parcel.z-9.7)),pitch:loaded?.12:Math.atan2(2.15-parcel.y,Math.hypot(parcel.x-2.84,parcel.z-9.7))});scene.target=null;scene.sync();const arrays=a.batches.map(b=>b.mesh.instanceMatrix.array);
+   assert.equal(scene.art.pick(),'loading-parcel-f10');scene.target=scene.art.pick();scene.sync();assert.deepEqual(plain(a.parcels.filter(p=>p.printVisible).map(p=>p.data.id)),['f10']);assert.equal(parcel.data.unit,'3B');
+   for(let i=0;i<80;i++){if(f.O.fpAccess.focus(scene)==='loading-parcel-f10')break;}scene.sync();assert.equal(scene.art.pick(),'loading-parcel-f10');assert.equal(parcel.printVisible,true);
+   m.loadingCoaching=true;m.loading.hint={kind:'shown',id:'f6'};scene.sync();assert.equal(parcel.printVisible,true,'the actual viewed label takes priority over assistance on another parcel');
+   for(let i=0;i<arrays.length;i++)assert.equal(a.batches[i].mesh.instanceMatrix.array,arrays[i],'gaze selection reuses the fixed ink buffers');assert.equal(a.parcels.filter(p=>p.printVisible).length,1);
+  }finally{scene.art.dispose();if(bank)bank.dispose();}
+ }
+});
