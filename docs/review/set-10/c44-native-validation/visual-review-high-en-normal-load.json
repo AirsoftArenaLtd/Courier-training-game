@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-25T17:25:13Z",
+  "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
+  "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
+  "case": "high-en-normal-load",
+  "job": "native-good-high-en-normal-load",
+  "checks": 802,
+  "originalScore": 2100,
+  "stars": {
+    "safety": 3,
+    "efficiency": 3
+  },
+  "seconds": 169.1561099999897,
+  "originalPar": 210,
+  "durableReload": true,
+  "totalCaptures": 37,
+  "capturesVisuallyInspected": {
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-position-l10.png": "108003dd1f5cf714d425f2bc107f4d19761a6c9fa94df323cb7fa5ae15802f5c",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-label-l10.png": "ed8ef84bba0ead55d9473b5db91df09cabf3a1cd7742ef4bfa695c3fc895662a",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-position-l5.png": "39fecae987a381948791ab1fc4a2ce535575a7391a43b28a188fe7db15320330",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-label-l9.png": "3d1d16f8dcc52171669f0358051152e9184a25731668e2fec273be5640707517",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-label-l6.png": "8ab4a58867d18d90c48912896d61d2128b3868dd21ca566f6833dc5a4b3943b8",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-label-l4.png": "c3c48118072090ff999d1fc37546440b761aada34f15afb5c4464f4eb9510957",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-strapped-load.png": "7e568e29da9c9fe8a5b9316c69f1a38d11cba89895f79c97f74d3a199a6e988f",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-load-report.png": "346b89a317bbd53003a63f0a3693c5fd709b5eac675bd7e8021cbf242fcd3fcb",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-result.png": "b7dab8d6787ce05733bbfdb493e60c7420e61c1738251aa936e26c33319ed265",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-handheld.png": "6fdd3d1505c7ca7c3d253fcd59ec1a8b9f7f5c938f2a69fc294d0c10a593ce14",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-incomplete-load.png": "750cbdeb4fe535add78ee02ff193d1948e5fc48a359011666c98aa20eea4dfe0",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-carried-label.png": "18b4e1c93f066830c7c4ed5b4215909ead4b6a57cc0057ac543e6acef348a726",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-returned-to-cart.png": "e2c2ec224651fd7af28d46bc3e35adc5dfc7e146be306976c36007ea4fab964e",
+    "completed/native-good-high-en-normal-load/c44-walk-native-good-high-en-normal-load-ad2f294c-high-en-normal-load-open-cargo.png": "d1daf6109c5795598d69aa571ed2609abca558277be5371c83fe821dd5488720"
+  },
+  "observations": [
+    "The handheld and incomplete-load rejection fit their panels and provide the actual keyboard choices.",
+    "Carried-label inspection and return-to-cart show the same original parcel and twelve physical parcels restored to the cart.",
+    "The envelope, fragile and dangerous-goods label panels show complete readable original details without clipping; representative middle/bottom placement panels fit.",
+    "Open cargo has supported racks, mounted section tags and floor support. The final floor parcel is visible with its actual address, stop/weight ink and a band over its top/down to the floor.",
+    "The load report shows 12 of 12 placements correct. The original result visibly shows three safety stars and three efficiency stars, a strapped floor load, no heavy parcels high and 169 seconds.",
+    "The completed record retains one play, original 2100 best score and both three-star categories after actual full-page reload; QA 3D registration is absent and the 2D default remains."
+  ],
+  "scope": "One completed native High English normal-text load journey; fourteen representative images were inspected from thirty-seven captures. Static resource fixtures, remaining native matrix, corrected Tamil/current-pilot/default/Intel acceptance remain separate."
+}

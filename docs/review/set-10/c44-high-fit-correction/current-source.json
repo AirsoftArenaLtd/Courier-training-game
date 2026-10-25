@@ -13,9 +13,10 @@
   "finalBrowserAcceptance": false,
   "currentPlan": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-walk-ad2f294c",
   "labelFaceFocus": true,
-  "acceptedSourceScopedJobsAtSnapshot": 1,
-  "nativeChecksAtSnapshot": 234,
-  "nativeCapturesVisuallyInspected": 13,
+  "acceptedSourceScopedJobsAtSnapshot": 2,
+  "nativeChecksAtSnapshot": 1036,
+  "nativeCapturesVisuallyInspected": 27,
   "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
-  "nativeWalkRegressionCases": 3
+  "nativeWalkRegressionCases": 3,
+  "nativeCapturesAtSnapshot": 50
 }
