@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-25T03:22:26.818515+00:00",
+  "runtime": "8d5fb383",
+  "command": "node --test test/fpscannerstopscenario.js test/fpscannerphoto.js",
+  "exit": 0,
+  "casesPassed": 8,
+  "physicalGoodScores": {
+    "m5-pod": 6200,
+    "m5-exceptions": 5100,
+    "m5-adult": 6200
+  },
+  "browserSyntax": "node --check test/fpscannerstopbrowser.js passed",
+  "newBrowserProtocol": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
+  "scope": "Focused existing physical adapter and snapshot tests remain green. The corrected native High case and remaining matrix have not passed yet."
+}

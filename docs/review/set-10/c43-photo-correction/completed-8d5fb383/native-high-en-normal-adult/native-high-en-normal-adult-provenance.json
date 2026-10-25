@@ -1,0 +1,71 @@
+{
+  "job": {
+    "id": "native-high-en-normal-adult",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-en-normal-adult",
+      "QA_TAG": "c43-resume-native-high-en-normal-adult-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383*",
+      "test/out/fp-review/bench-c43-resume-native-high-en-normal-adult-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "454fa38685ef9d567185bc0f1c9920a178b30411cf057d2042e278d7c1f0a9ab",
+    "attempts": 1,
+    "log": "native-high-en-normal-adult-attempt-1.log",
+    "logSha256": "af87b1bb0b9f8779689fed522902fd705531b4450a262ed28da5ce047d5125c7",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-controls-2.png": "215757a294bf8b9f534abe37c07cee745d51ea9b62bbe9618a801cb162a451b5",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-arrival.png": "a43a8e41f14795795097838448ee20bc0a0205f569fa6dfa2b60b83d6e21f4b6",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-id-field1.png": "e001c88b83d947814bc35666f41e870106cebb81b518f58ffa69d1b58dc4a6cf",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-arrival.png": "13e9bf2ca2a4703d06bda0ed6e1c8c67925a71d2b839c49989d7fe6a281a3bbe",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-controls-0.png": "7dbe8ec6ff7142955815a42edf5071b1085b85083a79dc3e946b74c17af1c8ad",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-report.png": "ca89da70cfc1b90e290cdc98fac54333de0284e912ba61cd094960ab65b863f1",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-printed-name.png": "fd2b99dfe501ce749e75dfbb84669fd4ccae2bd16c14e7a5aae3e8b5cd9a94a7",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-cargo.png": "87918d25ff3a351029a5692c944c4dda2b882ecda090a654b3245eb41b47fb43",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-arrival.png": "cfc5a466ed98eee7866d10608b2520024be05f32a12bcb0de3624bd6aea2e8e0",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-id-field3.png": "6d33b16f6472c042beef6df2846c60f73dfca8c8370f09e65313c89ba11743fe",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-reply.png": "5f7a32c3766daef9fde2a384e01af8c47e7c228c6037d23afff0d03d5ace9115",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-exception-description.png": "2829b9e00d9126f716220b69e94e406ce45e40f1e90296bbf5b30d50f2e77ff6",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-id-field2.png": "d9b01dc1e64682f4a6758f20d9c945c7cb2d0170cffb993c6cab758ffd451784",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-id-field1.png": "6f16eec3249b1dcb152c3e83d83904557582883b93935aecf3eb32e799149d05",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-scan.png": "e3d91f85077ae8e0e1ab263d0a63489dd4b9176049d2fcc2e79a86d513e4b6c7",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-id-field2.png": "056487e7c3314da4ac56f6acbfdbd008a7996e6d6d5409227a365c3b5a781516",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-exception-code.png": "2769e643fa7e83533146eb854c974810999cedb628edb688081916e051f73a8c",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-id-field3.png": "b4bb98f2de9d3529d74a16e4f00db9795826ed4314b79d7fe6a07e6cc08dd7af",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-report.png": "124bf24566055f239f4191769109b699db145f159c0b491e5b66adf509311f4f",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-id-field0.png": "085d65d11c6c62fe9b816f4ddd4609f32eeecb3507a46f3ab8808b412a314267",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-result.png": "4e43292663e2c6e241a9b7a9ea83505c0f1b68350880a854b17231108b742b34",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-exception-code.png": "062a8ae124399174df9aa4995816c755ac7d071d85a7da2d10aeb67fff305ff9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-tag.png": "b670b6c788f43053127d84984e90e5f2617f2e155436585d0e8152d64448f969",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-reply.png": "e583cb7291b24d1709e34a4e9d7077bd2627141c53e3fa8722c1505e5d26bc85",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-signature.png": "fd2b99dfe501ce749e75dfbb84669fd4ccae2bd16c14e7a5aae3e8b5cd9a94a7",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-scan.png": "6042d3b26920899a226d7d6a6707c07433969981d9f7b119d0ec636597dd3096",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-id-field1.png": "1f8f02e8f3336a210d7e2596eb712a9e9160248a9d057fb946d102df0386d629",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-id-field2.png": "9f7aeb622c401aab2b35befbe1d5f985e405be4612606482947c0582b9f4788d",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-exception-description.png": "8d19a7b1e69355b63628528f0ec4e214c292dda1cfccdf285882bc5455da1a61",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-controls-1.png": "48d2acf88b0b5cba2c6b078aac5f4e1b62ea59c5229ef5dab1380a82bbdf94c9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383.json": "c483f69ea89e524cb5c813b59b890342dcc599d1b65d614a81eba8d0298aceaf",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-cargo.png": "30d04b34c79eb966c5c2bf0c04755cc8287787aad15b0db046c081f291662ce5",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop1-id-field0.png": "a231c734150fd3d63b3674cd5ebcd31f1ee8ac9f95d50f2961ae92ec48686c02",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop0-id-field3.png": "9549f295fab76cca89407333777ff4ad5293a68679dd881983a7a95e535fadd6",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-scan.png": "cd502b8f63a387c33a137a2dab10bc2991cbd64ac75176a03e62e31f8fb46e70",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-controls-3.png": "9ca0a51807a3a4d2f08498d34feadf6bbf26c6deb25c2273fffa62401c3d3378",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-cargo.png": "910cdff5453959ba8f6e54c062525959b14080b34de801e1c5f108cf464122ea",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-id-field0.png": "f95339ee7891c56372574cf62af43dd0cc0d50c5262b4d738559df5fa164cd55",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-report.png": "96d0b907dded6f54acf1b3f605c58d7ac2b0a73e488fadce0938833a6da09de9",
+      "test/out/fp-review/c43-resume-native-high-en-normal-adult-8d5fb383-high-en-normal-adult-stop2-tag.png": "57f1264b8725c54c5b238926c2b2593cdbe4858e2fbb0d01785b9bdaa2d68efd"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383",
+  "sourceProof": "../../source-equivalence.json"
+}

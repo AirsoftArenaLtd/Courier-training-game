@@ -43,5 +43,6 @@
     }
   },
   "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383",
   "sourceProof": "../../source-equivalence.json"
 }
