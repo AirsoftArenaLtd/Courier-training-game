@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-25T09:35:54.918481+00:00",
+  "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "protocolRevision": "abc53f168df3113bddf774b77de50d5b5791ff0f",
+  "expectedJobs": 30,
+  "passedJobs": 0,
+  "complete": false,
+  "nativeGoodJourneys": 0,
+  "nativeChecks": 0,
+  "nativeCaptures": 0,
+  "resourceViews": 0,
+  "native": [],
+  "resources": [],
+  "followups": [],
+  "pending": [
+    {
+      "id": "native-good-low-en-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-loaded-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-loaded-high",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-accessible-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-fallback-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-load-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-wrong-find-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-load",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-find",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "scorm2004",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "legacy-modules",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "academy",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "enterprise",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "routeday",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "driving",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Hash-verified source-scoped results only. Static resource fixtures are separate from native controls/records. Corrected-font Tamil, current-pilot/default rollout and Intel FPS remain separate."
+}

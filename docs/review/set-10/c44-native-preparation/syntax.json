@@ -1,0 +1,17 @@
+[
+  {
+    "file": "test/fploadingbrowser.js",
+    "exit": 0,
+    "sha256": "d592d4a3dcc720ef4a2ba3c2b9017aacaa28c1478dbfd6a9852deef90523aa88"
+  },
+  {
+    "file": "test/fploadingreference.js",
+    "exit": 0,
+    "sha256": "3f8906fd4c7734073fe6ae9ea50fa65cc470066c2caef8b95ce56ed4264d2136"
+  },
+  {
+    "file": "test/tools/fp-loading-original.js",
+    "exit": 0,
+    "sha256": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  }
+]

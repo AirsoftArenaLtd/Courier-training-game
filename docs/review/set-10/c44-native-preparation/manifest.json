@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-25T09:35:55.115585+00:00",
+  "status": "doing; native protocol prepared and queued, no native/resource pass claimed",
+  "applicationRuntime": "fc7102273056d37e97324b3f1aa6edb3a80d81c5",
+  "protocolRevision": "abc53f168df3113bddf774b77de50d5b5791ff0f",
+  "frozenSourceFiles": 192,
+  "applicationBaseline": {
+    "pureNodeSuites": 90,
+    "freshRerunThisCheckIn": false,
+    "scope": "Retained unchanged application source baseline in c44-physical-progress."
+  },
+  "newOriginalReferenceTests": 4,
+  "latestPilotEnglishAuditTests": 1,
+  "englishAuditSourceSha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d",
+  "newJavascriptSyntaxFiles": 3,
+  "jobs": 30,
+  "goodNativeJourneysRequested": 16,
+  "negativeNativeJourneysRequested": 2,
+  "abandonNativeJourneysRequested": 2,
+  "resourceViewsRequested": 56,
+  "repositoryBrowserJobs": 6,
+  "nativeAccepted": false,
+  "renderedResourcesAccepted": false,
+  "automationEnabled": true,
+  "automationHasEndDate": false,
+  "files": {
+    "README.md": "18bc81a9bceed2a353dd429ac29138d9fe5dcd8e3b12d8f6beff9c6674206f21",
+    "collect-results.py": "ca4b785ae0415ecf3db9101137a8ff792abc32dff35a4a2ed17e3ac78a006cbe",
+    "english-audit.log": "e45a8355a786e82e064df1f56d9a6513b96f4adc8e2e12fb5699c70971975b90",
+    "node-prerequisites.json": "52c8c5a5fd7c238e3b7dd4bccea45ad97e4bb79975b6ff63a32198f27d1dfc0b",
+    "plan.json": "6ce9c9a96a390c320e6f1cc0b5fb5d87f472ba3c7388f8280c6df7a3d42166e7",
+    "queue-snapshot.json": "702d245c664fa89b7beb295380c201832cc50f2f8781b69a37f166bc0ada5bcd",
+    "reference.log": "93bb1b465408da2d21e1a2ba38bd22fde12be64b5a561db28e502d24fdcd062a",
+    "source-equivalence.json": "4ddeb49f1f7cb69777fb51826148c2f1ffa524aae0a86b8d8450a5712f367ae6",
+    "superseded-resource-queue.json": "b6de3aaa97fa36424c1c0339ab6f0ee487884d7145e7dbc262e383238b887390",
+    "syntax.json": "fc396f3f2e45bca43dd3ed36c4b898d3c2277fc37c7b67a4636b1321325fa8bc"
+  }
+}
