@@ -1,0 +1,5 @@
+{
+  "pid": 17582,
+  "stdout": "/workspace/c42-problem-solving/test/out/pipelines/c42-836a101a-resume/signature-resume-20261025T032357013860Z/supervisor.log",
+  "prerequisite": "/workspace/c43-scanner-exceptions/test/out/pipelines/c43-8d5fb383-signature/status.json"
+}

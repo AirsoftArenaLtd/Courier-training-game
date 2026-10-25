@@ -1,0 +1,20 @@
+{
+  "pid": 17194,
+  "processGroup": 17194,
+  "stdin": "DEVNULL",
+  "stdout": "/workspace/c43-scanner-exceptions/test/out/pipelines/c43-8d5fb383-signature/resume-20261025T032322953146Z/supervisor.log",
+  "stderr": "STDOUT",
+  "previousState": {
+    "phase": "signature-protocol-ready",
+    "state": "ready",
+    "runtime": "8d5fb383",
+    "pid": null
+  },
+  "status": {
+    "phase": "browser-slot",
+    "pid": 17194,
+    "runtime": "8d5fb383",
+    "updated": 1792898602.9827266,
+    "state": "waiting"
+  }
+}
