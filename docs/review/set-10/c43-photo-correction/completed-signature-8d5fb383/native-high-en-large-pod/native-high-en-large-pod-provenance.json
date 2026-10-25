@@ -1,0 +1,58 @@
+{
+  "job": {
+    "id": "native-high-en-large-pod",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-en-large-pod",
+      "QA_TAG": "c43-signature-native-high-en-large-pod-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-native-high-en-large-pod-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "53c48d2015feb60457468ae38636261e4aaf9cb56f82fdf764ae0bd3fa653f84",
+    "attempts": 1,
+    "log": "native-high-en-large-pod-attempt-1.log",
+    "logSha256": "40d6acaa4fafb2fe8c9fc2a8541b0682cb2c2428c688ff1d2c3dab24b3b33a87",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-printed-name.png": "dd9acdaf174d561b9b50e1154b9973a3c09143264b4a1468a5eae04af16a26fe",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-cargo.png": "e45c4e47196a7a3a0baf94a2a5ee7022c0923d168a84dfc9d44517e56c815077",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-arrival.png": "e4527b1bbafb01c32fc5842af0f146bcd59647a54b4d6b2b4042fa0d15c4d24d",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383.json": "9de29d2169aa42676b760ec3db92dd31c26e2ddcdfe3ebeaf2380f0f9be1ec6d",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-1.png": "b9de739267c35a572026780b4fff6e5fa7fce7992cb66c95e6507361e18f6f54",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-0.png": "e21a8773e9d070da7f3e3b556927cb21da7afcf2ebba0aff2ebbd3e7db9abefa",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-arrival.png": "4726c038c3ce2759bc499ee9b52ae960b907a2549d24e6eef51045ce38cd9a76",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-scan.png": "822ffbeb433553810e33d0d0487362632efd21076552fad6ef003e960674a7d2",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-photo-review.png": "eea95331929d0b79b7f436dfca8e23017353ee10825c1c46f80d9d601097298b",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-signature.png": "e273eaddcb01cf096c404d2dc6e46cdca058e01f50aa10d057693d38b95ab8b2",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-arrival.png": "fd6ce5f2c117f19d55b52e440d8ef8890c41bdc9b99059e71e167eb7fdfcccbc",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-signature.png": "dd9acdaf174d561b9b50e1154b9973a3c09143264b4a1468a5eae04af16a26fe",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-scan.png": "e01a9d22940fa64ab82e8fdef44b8067797fbd39cf8957025c665a1036e3e663",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-reply.png": "dc539f4b274b8b8d6b81ada7f41257328db66acd0c4c722cc948e3948977010e",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-reply.png": "8c2ca11f319fef8340ea30452c36c73a9599d4d814e210c861121ba59d342227",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-cargo.png": "3ca8cf80ff3eed0add0944458dd5f10e032905643421badc6f1b6198a4fd280e",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-report.png": "7cfa4460c2296737036a79dbac848e78d882b892e866074253115f54a91b8e88",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-report.png": "8b526a4cb5d4db94f8a16d61f7559333f911ca3347a08f83fa718761daa7ee07",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-printed-name.png": "e273eaddcb01cf096c404d2dc6e46cdca058e01f50aa10d057693d38b95ab8b2",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop2-cargo.png": "c2fee16d52ec54088b2e0fd83a71312b4609884b7c5bb0eac3de1996e68c7ba8",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop0-report.png": "3a5508c8e11f171bd10be60bd569500cfec8dd2c76255bae10363476031fd6eb",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-stop1-scan.png": "4b8155aeec1a7f46ac82e1b24fceeac3c2cfe44d168aa21d8509b6d9e8086114",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-3.png": "8019a0cd77b4dbf3096367091aea155e705bb3175def2c0a5a255d5618427003",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-delivery-locations.png": "0468671dce76f7095ab96050268935a81533ac28807eab141df8b7935c6895cd",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-photo-framing.png": "301d59e1b59b4a6422687b667010e290547d3ee8f7ea0ecea8138e5f2e4386b5",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-result.png": "177139f44da08e211eaa16b8d0533f4f63e127e6df833fc57d5c9ca036656e1b",
+      "test/out/fp-review/c43-signature-native-high-en-large-pod-8d5fb383-high-en-large-pod-controls-2.png": "859e4b101e78701dd527255f703b4bea59d3d9f67b535af87bb1f3276f0fbcaf"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}
