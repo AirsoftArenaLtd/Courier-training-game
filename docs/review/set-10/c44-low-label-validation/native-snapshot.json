@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-25T21:21:56Z",
+  "date": "2026-10-25T22:20:17Z",
   "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "completed": [
     {
@@ -151,7 +151,37 @@
       "assessed": false,
       "assessmentPassed": null,
       "assessmentAttempts": null
+    },
+    {
+      "case": "high-en-large-load",
+      "checks": 822,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 157.13413999997724,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
+    },
+    {
+      "case": "high-en-large-find",
+      "checks": 245,
+      "captures": 13,
+      "score": 1595,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 17.157463333332032,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1
     }
   ],
-  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; all eight Low layouts and both normal-English High journeys. Behavior/bounds pass does not establish translated-Tamil, whole-task, current-pilot or default acceptance."
+  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; all eight Low layouts and all four High English layouts. Six passed one-attempt assessments survive reload. Behavior/bounds passes do not establish translated-Tamil, whole-task, current-pilot or default acceptance."
 }
