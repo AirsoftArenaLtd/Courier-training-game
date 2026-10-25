@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-25T07:34:56.668446+00:00",
+  "status": "doing; unloaded load-mode model only",
+  "branch": "codex/c44-loading-truck",
+  "stackedOn": "codex/c43-scanner-exceptions at 381c15d7",
+  "placementComparisons": 252,
+  "completeLoadComparisons": 50,
+  "modelTests": 4,
+  "targetedBatch": {
+    "files": [
+      "test/fploading.js",
+      "test/fploadout.js",
+      "test/fpmission.js",
+      "test/fpworld.js",
+      "test/workday.js",
+      "test/savesize.js",
+      "test/i18n.js"
+    ],
+    "reportedChecks": 124,
+    "exit": 0,
+    "note": "The final explicit 2100-score assertion was added afterward; final-model.log records that four-case rerun. The model source was unchanged."
+  },
+  "syntax": [
+    "src/core/fploading.js",
+    "test/fploading.js"
+  ],
+  "perfectOriginalScore": 2100,
+  "rendererLoaded": false,
+  "nativeOrResourceAcceptance": false,
+  "sources": {
+    "src/core/fploading.js": "df1dcc9030f8122d3499110daaea447c95ceeae713745d28c18b1dfe1b76d57f",
+    "test/fploading.js": "be4cdc648c6fc436d3e1bafd6d22ed0d91658c4e69641c07142bb5d8ed98cd84",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d"
+  },
+  "evidence": {
+    "checks.log": "7b33077503ac0fb923f7a0b6f417acdc922f02705077fe4e8c7228cb656bc36d",
+    "final-model.log": "aaf20412a96aa5255f5d72a1de109818a4b01a139ef4bf4a5a891fc3c63da1a6"
+  }
+}
