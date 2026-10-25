@@ -1,0 +1,71 @@
+{
+  "job": {
+    "id": "native-high-ta-normal-adult",
+    "command": [
+      "node",
+      "test/fpscannerstopbrowser.js"
+    ],
+    "environment": {
+      "QA_CASE": "high-ta-normal-adult",
+      "QA_TAG": "c43-signature-native-high-ta-normal-adult-8d5fb383"
+    },
+    "timeout": 7200,
+    "artifacts": [
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383*",
+      "test/out/fp-review/bench-c43-signature-native-high-ta-normal-adult-8d5fb383*"
+    ]
+  },
+  "result": {
+    "exit": 0,
+    "fingerprint": "4190999a200b64e715a2d2f9a2ff6d94f6750d731a2abb3bf568a8fd8c8070d6",
+    "attempts": 1,
+    "log": "native-high-ta-normal-adult-attempt-1.log",
+    "logSha256": "6b13822b151f2083ed46fc1bffd97df8bf165856cf5aef982c642555bbb78148",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-report.png": "5294b304e389a430e1090663704d0e7dcca64ab5ea4a75d5f7eb3f0cf7b5b593",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-id-field0.png": "42247b523113bd0d563ad618f26a8e4fe2bb444e859253021278fbc0cef9a0fb",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-report.png": "a8dee1ae5d1427f403779ea0488018a71744f832ea6e6ab5dedfba394ed55b3b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-id-field1.png": "59db61d5bea43ecfe133e0caf029c91b9bb171873b475b9773a2dbfef0e916f7",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-tag.png": "fd4f9147474e208d37fa08a8cf44e7c7994a5b65311791a16b93a2f1edd1d623",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-tag.png": "4f6bb32538dc3732fb5e9739065d5556a56b65e2ef5cc9dc9cbed2c48da4cae2",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-reply.png": "c2e5bf5057bcb52fcb5acb7bf7895f9343e4673b0849a133d78cb4fdce9d2603",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-cargo.png": "ca1191e072da9203ac339f4498b407588c8191d79918fc0a35e4f46d349a7912",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-exception-code.png": "eaf9d4e5006eed3c2575e3623ea467490d6894827d3ba9c5f778ce5c797cfe22",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-id-field2.png": "2e66709415622ba623a039c97795523e835730e0d5726f30d1d5fa238b131ddd",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-id-field1.png": "8c49c0bfafa685ed587f4b7eb56eb7ef5eddd57be99fc34d825fd60f9295de61",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-reply.png": "e5000cbe6052e2a4de543df6834c42c853b2c3a8399ee273df1c8e53512fb5c0",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-printed-name.png": "54be70b524ba9d53e3cd564db968c31a138ff853a4ee880295d682a4fe6d086b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-id-field3.png": "6ca0bb4771bdb281dbe7d78cb9a691cf937fc8637a6d452fb884272b1b3976b3",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-id-field2.png": "e2c56719c471d3b9d22c81e725af928752b22a40db265c37ac5c3fa79687d58f",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-arrival.png": "13217af241682d9e2246c207f0bcf07c6a82716c9b1c1385eee68a7716da63ec",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-result.png": "289f23de9b25e9a5349a3159669c15d393056206760f25090e4205fd5acbd766",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-scan.png": "e62b9e8e3710b982e287a0a971a37cfeee46fb018ef43c1549d2177dc62b4602",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-scan.png": "357a3a2fbfee9916ccb623dd6c43f3a1b8d5d0cd842097c49f4652da60d1c999",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-id-field3.png": "fc7b329d70eff4539136cdc498694cdb5ceab386137c3fd5f08f6f4d749de131",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-id-field2.png": "45f4b4c151c61ce632bd0e4cb43ecf15d9d14fb6276c7a53d2d489e167a677b2",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-controls-1.png": "01d8cc38d2e08921fbd595a9fb9dd31de0fd000b92fafcc00085de4d8e3613b8",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-id-field0.png": "d0d7f211eed9f7ca829caab74730216841b88f09031e7491d9ac78408574f5a3",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-controls-2.png": "8cccdfd4f588d08cec0b945a296946eb0f81bb7f4888e13a2864ca1677b4b7ca",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-arrival.png": "40c10689ed29569cd021c3429d06f04bd2057a2535a981a4a8f512e57e4c3642",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-report.png": "4d30d6ed434149b81bfdbaa151e2a989ea5edf9f6a4289ef3f7cf5110081bb9b",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-scan.png": "9a3a013fba503030fa5c524a2f1e930b27d1ca28b21fb7c41f49e1c34eda80fe",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-controls-3.png": "5f135161c153204f9d4145e28b80bb3b3d310894dea8c79700c8d4b6bef1a8c4",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-controls-0.png": "9ad11d685e6578c2c03881ea168ed91d592ec9e983c9039230a41dddb5ce256a",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-id-field0.png": "4d4879ca4c5c9403f9aeb19d9fb4ef0e8baf7d5249b3bd6e136d60ada4fbadcb",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-id-field3.png": "65c47e73dc1fa08dd226e2941bec4f8e23ebe5ec3c7c6109202cc3f26d77e3d5",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383.json": "f369a480ed41cda116bfc397b49ef91b5b46b5ed7d2a1f4a325d33879d27f101",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-id-field1.png": "450342627ec85a96852d0c633679a592dbfe3b7d5b076b7c007b387cc60d44b6",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-arrival.png": "bf0fd347ed17df497b1b40f0daa152418424302d69ec86c25360588032be6b94",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-exception-description.png": "ca4b571c117ccab5d59ec9f7e80966fefc4f10525d8ef34fe8d7fd00948ff253",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop2-cargo.png": "69f33bdd6d90509d0a2b1f2b0f54f8df67a0aae380687d6f1318092382654891",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-exception-description.png": "e2eceae0623f559d3423b0e159a429de33efada570db0b9e9c1d221206576fe7",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-exception-code.png": "a35f5c49cbebd4b173ba31aa03dea02127c1f2e7b726a53233ab60353247bbd4",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop1-cargo.png": "80515f562e694990973eb02eddeecd78b9a1069afff639c0341f100c1e787c38",
+      "test/out/fp-review/c43-signature-native-high-ta-normal-adult-8d5fb383-high-ta-normal-adult-stop0-signature.png": "54be70b524ba9d53e3cd564db968c31a138ff853a4ee880295d682a4fe6d086b"
+    }
+  },
+  "runtime": "8d5fb383",
+  "pipeline": "test/out/pipelines/c43-8d5fb383-signature",
+  "sourceProof": "../../source-equivalence.json"
+}

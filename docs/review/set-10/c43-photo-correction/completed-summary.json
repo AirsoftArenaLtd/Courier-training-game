@@ -101,6 +101,18 @@
     {
       "id": "native-high-ta-normal-exceptions",
       "directory": "completed-signature-8d5fb383/native-high-ta-normal-exceptions"
+    },
+    {
+      "id": "native-high-ta-normal-adult",
+      "directory": "completed-signature-8d5fb383/native-high-ta-normal-adult"
+    },
+    {
+      "id": "native-high-ta-large-pod",
+      "directory": "completed-signature-8d5fb383/native-high-ta-large-pod"
+    },
+    {
+      "id": "native-high-ta-large-exceptions",
+      "directory": "completed-signature-8d5fb383/native-high-ta-large-exceptions"
     }
   ],
   "resources": [
@@ -685,12 +697,104 @@
       "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
       "signatureObservations": null,
       "report": "completed-signature-8d5fb383/native-high-ta-normal-exceptions/c43-signature-native-high-ta-normal-exceptions-8d5fb383.json"
+    },
+    {
+      "job": "native-high-ta-normal-adult",
+      "checks": 1998,
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "kind": "adult",
+      "id": "m5-adult",
+      "score": 6200,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "durable": true,
+      "screenshots": 39,
+      "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
+      "signatureObservations": [
+        {
+          "index": 0,
+          "completedBeforeCapture": false,
+          "deviceMeasured": true
+        }
+      ],
+      "report": "completed-signature-8d5fb383/native-high-ta-normal-adult/c43-signature-native-high-ta-normal-adult-8d5fb383.json"
+    },
+    {
+      "job": "native-high-ta-large-pod",
+      "checks": 1198,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "pod",
+      "id": "m5-pod",
+      "score": 6200,
+      "ratios": {
+        "service": 1,
+        "efficiency": 1,
+        "safety": 1
+      },
+      "stars": {
+        "service": 3,
+        "efficiency": 3,
+        "safety": 3
+      },
+      "durable": true,
+      "screenshots": 26,
+      "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
+      "signatureObservations": [
+        {
+          "index": 1,
+          "completedBeforeCapture": false,
+          "deviceMeasured": true
+        },
+        {
+          "index": 2,
+          "completedBeforeCapture": true,
+          "deviceMeasured": false
+        }
+      ],
+      "report": "completed-signature-8d5fb383/native-high-ta-large-pod/c43-signature-native-high-ta-large-pod-8d5fb383.json"
+    },
+    {
+      "job": "native-high-ta-large-exceptions",
+      "checks": 1368,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "exceptions",
+      "id": "m5-exceptions",
+      "score": 5100,
+      "ratios": {
+        "service": 1,
+        "efficiency": 1,
+        "safety": 1
+      },
+      "stars": {
+        "service": 3,
+        "efficiency": 3,
+        "safety": 3
+      },
+      "durable": true,
+      "screenshots": 27,
+      "protocolSha256": "f8febc42ef7a09aa87dc96ca1b732b82fe9b38adc510e87629bc1da529714475",
+      "signatureObservations": null,
+      "report": "completed-signature-8d5fb383/native-high-ta-large-exceptions/c43-signature-native-high-ta-large-exceptions-8d5fb383.json"
     }
   ],
   "scope": "Completed jobs only. The whole matrix remains pending until every job passes.",
-  "jobsPassed": 25,
+  "jobsPassed": 28,
   "allJobsPassed": false,
   "resourceViews": 56,
-  "nativeJourneys": 20,
-  "nativeChecks": 30080
+  "nativeJourneys": 23,
+  "nativeChecks": 34644
 }
