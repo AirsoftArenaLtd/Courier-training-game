@@ -24,7 +24,7 @@
   "automationEnabled": true,
   "automationHasEndDate": false,
   "files": {
-    "README.md": "c8708963144a73fa35f3a5f175764c0a50e32c3efcac73d8267221774c135953",
+    "README.md": "210e6e8abac8e3964ec8b5fe0ddd00ce628144e6ac5142fb8959de92e7d56ee4",
     "collect-results.py": "908992ba027c1c681967027855216dfd5b84d93bfb08bd6ad599f4cd88e6cc33",
     "english-audit.log": "e45a8355a786e82e064df1f56d9a6513b96f4adc8e2e12fb5699c70971975b90",
     "node-prerequisites.json": "a674013a958232e24ab3ae125aa9b52978d967ceeaec9918f19a823ce1457513",
@@ -41,12 +41,13 @@
   "javascriptSyntaxAfterCorrectionPassed": true,
   "referenceCasesAfterCorrection": 4,
   "englishAuditAfterCorrectionPassed": true,
-  "acceptedSourceScopedJobsAtSnapshot": 1,
+  "acceptedSourceScopedJobsAtSnapshot": 2,
   "focusedCargoIntegrationTests": 13,
   "pureNodePassed": 91,
   "finalBrowserAcceptance": false,
-  "nativeChecksAtSnapshot": 234,
+  "nativeChecksAtSnapshot": 1036,
   "nativeWalkRegressionCases": 3,
   "currentSequentialJobs": 29,
-  "retainedPriorPassedJobs": 1
+  "retainedPriorPassedJobs": 1,
+  "nativeCapturesAtSnapshot": 50
 }
