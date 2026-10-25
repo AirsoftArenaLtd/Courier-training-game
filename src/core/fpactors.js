@@ -60,9 +60,10 @@ OTR.fpActors={
       const steering=reduced?0:m.van.steer,dt=previousTime===null?0:Math.max(0,Math.min(.1,m.elapsed-previousTime));previousTime=m.elapsed;if(!reduced)spin=(spin+dt*m.van.speed/.4)%(Math.PI*2);else spin=0;
       if(steering===lastSteer&&spin===lastSpin&&opening===lastOpening&&chassis.position.y===lastY&&chassis.rotation.x===lastPitch&&chassis.rotation.z===lastRoll)return;lastSteer=steering;lastSpin=spin;lastOpening=opening;lastY=chassis.position.y;lastPitch=chassis.rotation.x;lastRoll=chassis.rotation.z;
       suspension.compose(chassis.position,chassis.quaternion,scale);
+      // The loading-module gate swings outward from its actual top edge, clear of the upper shelves.
       for(const part of parts){const wheel=part.name.startsWith('wheel'),door=part.name==='door';matrix.identity();
         if(wheel){q.setFromEuler(euler.set(spin,part.name.includes('front')?steering:0,0));matrix.makeTranslation(part.center.x,part.center.y,part.center.z).multiply(rotation.makeRotationFromQuaternion(q)).multiply(hinge.makeTranslation(-part.center.x,-part.center.y,-part.center.z));}
-        else {matrix.copy(suspension);if(door)matrix.multiply(hinge.makeTranslation(0,3.02,2.4)).multiply(rotation.makeRotationX(opening*Math.PI/2)).multiply(hinge.makeTranslation(0,-3.02,-2.4));}
+        else {matrix.copy(suspension);if(door){const height=m.loading?part.g.boundingBox.max.y:3.02;matrix.multiply(hinge.makeTranslation(0,height,2.4)).multiply(rotation.makeRotationX((m.loading?-1:1)*opening*Math.PI/2)).multiply(hinge.makeTranslation(0,-height,-2.4));}}
         for(let i=0;i<part.p.count;i++){point.fromBufferAttribute(part.p,i).applyMatrix4(matrix);norm.fromBufferAttribute(part.n,i).transformDirection(matrix);position.setXYZ(part.base+i,point.x,point.y,point.z);normal.setXYZ(part.base+i,norm.x,norm.y,norm.z);}
       }position.needsUpdate=true;normal.needsUpdate=true;
     },dispose(){for(const p of parts)p.g.dispose();}};

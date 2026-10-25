@@ -2,13 +2,40 @@
 window.OTR=window.OTR||{};
 OTR.fpLoadingWorld={
   dimensions(p){return p.size==='env'?[.48,.08,.32]:p.size==='l'?[.5,.48,.5]:p.size==='s'?[.32,.24,.3]:[.42,.36,.4];},
-  layout(state,van){
+  fit(vehicle){
+    const fallback={floor:.6,bottom:.66,mid:1.34,top:2.04,side:.8,depth:.86,sections:{A:1.85,B:.75,C:-.35}};if(!vehicle)return fallback;
+    // Sample the fitted, parked exterior once. Both source vans have wheel housings;
+    // the High van also has a raised centre floor. No per-frame rays or allocations.
+    const T=THREE,root=new T.Group(),paint=new T.MeshBasicMaterial({side:T.DoubleSide}),ray=new T.Raycaster(new T.Vector3(),new T.Vector3(0,-1,0),0,1.5);
+    const door=vehicle.parts.find(p=>p.name==='door'),bounds=door?.g.boundingBox,halfWidth=bounds?Math.min(-bounds.min.x,bounds.max.x):1.065;
+    // This exterior pack includes tall passenger-style side benches. On this owned
+    // cargo-only clone, lower their caps to just above the actual wheels so three
+    // parcel shelves fit below the roof. The source pack and workday van stay intact.
+    let wheelTop=0;for(const p of vehicle.parts)if(p.name.startsWith('wheel'))wheelTop=Math.max(wheelTop,p.g.boundingBox.max.y);
+    const wheelCap=Math.ceil((wheelTop+.01)*100)/100;
+    if(!vehicle.loadingCapsFitted){let changed=0;for(const p of vehicle.parts)if(p.name==='body'){
+      for(let i=0;i<p.p.count;i++){const y=p.p.getY(i),z=p.p.getZ(i);if(y>wheelCap&&y<wheelCap+.25&&Math.abs(p.p.getX(i))<=halfWidth+.001&&z>-.5&&z<2.4){p.p.setY(i,wheelCap);changed++;}}
+      p.p.needsUpdate=true;p.g.computeBoundingBox();p.g.computeBoundingSphere();
+    }vehicle.loadingCapsFitted=true;vehicle.loadingCapVertices=changed;}
+    for(const p of vehicle.parts)if(p.name!=='door')root.add(new T.Mesh(p.g,paint));root.updateMatrixWorld(true);
+    const support=(x,z)=>{ray.ray.origin.set(x,1.5,z);return ray.intersectObject(root,true)[0]?.point.y||0;};
+    try{
+      const side=halfWidth-.265;
+      let floor=.6,bottom=.66;
+      for(const x of [-.3,0,.3])for(const z of [-.35,-.1,.15,.65,.9,1.15,1.7,1.95,2.2])floor=Math.max(floor,support(x,z)+.012);
+      floor=Math.ceil(floor*100)/100;
+      for(const sign of [-1,1])for(const dx of [-.2,0,.2])for(const z of [.03,.4,.77,.83,1.2,1.57,1.63,2,2.37])bottom=Math.max(bottom,support(sign*(side+dx),z)+.025);
+      bottom=Math.ceil(Math.max(bottom,floor+.06)*100)/100;
+      return {floor,bottom,mid:bottom+.59,top:bottom+1.18,side,depth:.74,sections:{A:2,B:1.2,C:.4},wheelCap,capVertices:vehicle.loadingCapVertices};
+    }finally{paint.dispose();root.clear();}
+  },
+  layout(state,van,fit={floor:.6,bottom:.66,mid:1.34,top:2.04,side:.8,depth:.86,sections:{A:1.85,B:.75,C:-.35}}){
     return state.slots.map(s=>{
-      const floor=s.level==='floor',section={A:1.85,B:.75,C:-.35},base={bottom:.66,mid:1.34,top:2.04};
-      return {id:s.id,slot:s,x:van.x+(floor?0:s.id.endsWith('-0')?-.8:.8),y:floor?.6:base[s.level],z:van.z+(floor?s.id==='haz'?1.95:s.id==='floor-0'?-.1:.9:section[s.col]),w:floor?.68:.5,d:floor?.64:.86};
+      const floor=s.level==='floor';
+      return {id:s.id,slot:s,x:van.x+(floor?0:s.id.endsWith('-0')?-fit.side:fit.side),y:floor?fit.floor:fit[s.level],z:van.z+(floor?s.id==='haz'?1.95:s.id==='floor-0'?-.1:.9:fit.sections[s.col]),w:floor?.68:.5,d:floor?.64:fit.depth};
     });
   },
-  build(parent,m,{cube=null,interactions=[],occluders=[]}={}){
+  build(parent,m,{cube=null,interactions=[],occluders=[],vehicle=null}={}){
     const T=THREE,W=this,state=m.loading,high=OTR.gfx.high(),ownsCube=!cube;if(!state?.pkgs.length||state.pkgs.length>12)throw Error('Invalid physical loading set');if(!cube)cube=new T.BoxGeometry();
     const root=new T.Group();root.name='module-loading-cargo';parent.add(root);
     const paint=new T.MeshLambertMaterial(),proxyPaint=new T.MeshBasicMaterial(),sheetGeometry=new T.PlaneGeometry(),fixed=new T.InstancedMesh(cube,paint,96),moving=new T.InstancedMesh(cube,paint,128),sheets=new T.InstancedMesh(sheetGeometry,paint,128),scratch=new T.Object3D(),colour=new T.Color(),batches=[],proxies=[];
@@ -26,7 +53,8 @@ OTR.fpLoadingWorld={
       const mesh=new T.Mesh(cube,proxyPaint);mesh.layers.set(1);mesh.position.set(x,y,z);mesh.rotation.y=angle;mesh.scale.set(w,h,d);
       if(id){mesh.userData.interaction=id;interactions.push(mesh);}occluders.push(mesh);proxies.push(mesh);root.add(mesh);return mesh;
     };
-    const slots=W.layout(state,m.van),slotById=new Map(slots.map(s=>[s.id,s])),cart={x:m.van.x-4,z:m.van.z+2.4,w:1.9,d:2.25,y:.72};
+    const fit=W.fit(vehicle),slots=W.layout(state,m.van,fit),slotById=new Map(slots.map(s=>[s.id,s])),cart={x:m.van.x-4,z:m.van.z+2.4,w:1.9,d:2.25,y:.72};
+    if(m.loadingShelfSolids)for(let i=0;i<2;i++)Object.assign(m.loadingShelfSolids[i],{x:m.van.x+(i?fit.side:-fit.side),z:m.van.z+(fit.sections.A+fit.sections.C)/2,d:fit.sections.A-fit.sections.C+fit.depth});
     const marked=(value,x,y,z,w,h)=>{
       if(high)solid(x,y,z,w+.025,h+.02,.012,0xE6E5DA);const words=OTR.fpMountedWords.build(root,{high,capacity:high?2048:512});words.write(value,x,y,z+.009,w,h);words.finish();words.plaque={x,y,z,w:w+.025,h:h+.02};batches.push({mesh:words.mesh,entries:words.entries});return words;
     };
@@ -43,8 +71,8 @@ OTR.fpLoadingWorld={
         s.target=proxy('loading-slot-'+s.id,s.x,s.y+.012,s.z+s.d/2-.04,s.w,.03,.08);
       }
     }
-    for(const x of [-1.02,1.02])for(const z of [-.82,.23,1.33,2.3])solid(m.van.x+x,1.65,m.van.z+z,.035,2.12,.045,0xA5A9A3);
-    for(const [section,z]of [['A',1.85],['B',.75],['C',-.35]])signs.push(marked(section,m.van.x-.78,2.8,m.van.z+z,.1,.12));
+    for(const side of [-1,1])for(const z of [fit.sections.C-fit.depth/2,fit.sections.C+fit.depth/2,fit.sections.B+fit.depth/2,fit.sections.A+fit.depth/2])solid(m.van.x+side*(fit.side+.23),(fit.floor+2.85)/2,m.van.z+z,.035,2.85-fit.floor,.045,0xA5A9A3);
+    for(const [section,z]of Object.entries(fit.sections))signs.push(marked(section,m.van.x-fit.side,fit.top-.03,m.van.z+z+fit.depth/2+.01,.1,.12));
     const cargoFixedCount=staticCount;
     solid(cart.x,cart.y-.04,cart.z,cart.w,.08,cart.d,0x6D7C82);
     for(const side of [-1,1])for(const end of [-1,1]){
@@ -53,7 +81,8 @@ OTR.fpLoadingWorld={
     }
     solid(cart.x,.9,cart.z-cart.d/2,.06,.4,.06,0x89969B);solid(cart.x,1.1,cart.z-cart.d/2,.8,.055,.055,0x303A40);
     const cartTarget=proxy('loading-cart',cart.x,cart.y,cart.z+cart.d/2+.03,cart.w,.18,.08);
-    const restraint=proxy('loading-restraints',m.van.x+.3,.83,m.van.z+2.48,.3,.18,.08);
+    const restraint=proxy('loading-restraints',m.van.x+.3,fit.floor+.12,m.van.z+2.48,.3,.18,.08);
+    solid(restraint.position.x,fit.floor+.03,restraint.position.z,.07,.06,.055,0x89969B);
     solid(restraint.position.x,restraint.position.y,restraint.position.z,.28,.14,.055,0xDBAE55);
     const parcels=state.pkgs.map((p,index)=>{
       const [w,h,d]=W.dimensions(p),body=proxy('loading-parcel-'+p.id,0,0,0,w,h,d),words=OTR.fpMountedWords.build(root,{high,capacity:high?4096:1024}),lineHeight=.043;
@@ -71,7 +100,7 @@ OTR.fpLoadingWorld={
     });
     fixed.count=staticCount;fixed.instanceMatrix.needsUpdate=true;fixed.instanceColor.needsUpdate=true;moving.count=sheets.count=0;
     const labelTransform=new T.Object3D();
-    return {root,fixed,moving,sheets,batches,slots,slotById,cart,cartTarget,restraint,parcels,signs,proxies,
+    return {root,fixed,moving,sheets,batches,slots,slotById,fit,cart,cartTarget,restraint,parcels,signs,proxies,
       sync(model){
         if(disposed)throw Error('Loading cargo world was disposed');dynamicCount=sheetCount=0;const s=model.loading,p=model.player,v=model.van,sy=Math.sin(p.yaw),cy=Math.cos(p.yaw);let closest=null,best=Infinity;
         // The opaque sides and bulkhead hide these parts from outside. Low only submits the
@@ -83,7 +112,7 @@ OTR.fpLoadingWorld={
         restraint.visible=model.cargoOpen;cartTarget.visible=s.mode==='load';
         for(const b of parcels){
           const q=b.data,held=s.held===q.id,slot=q.slotRef&&slotById.get(q.slotRef.id),inCart=s.cart.includes(q);b.visible=(!q.pulled||slot?.slot.pkg===q)&&(held||inCart||!!slot&&cargoVisible);
-          if(held){b.x=p.x+sy*.65;b.y=1.05;b.z=p.z-cy*.65;b.angle=-p.yaw;}
+          if(held){const inside=model.cargoOpen&&Math.abs(p.x-v.x)<fit.side-.25&&p.z-v.z<2.6&&p.z-v.z>fit.sections.C-fit.depth/2;b.x=p.x+sy*.65;b.y=inside?Math.max(1.05,fit.floor+.5):1.05;b.z=p.z-cy*.65;b.angle=-p.yaw;}
           else if(slot){b.x=slot.x;b.y=slot.y+b.h/2;b.z=slot.z;b.angle=slot.slot.level==='floor'?0:slot.x<v.x?Math.PI/2:-Math.PI/2;}
           else{b.x=cart.x+(b.index%3-1)*.58;b.y=cart.y+b.h/2;b.z=cart.z+(Math.floor(b.index/3)-1.5)*.53;b.angle=0;}
           b.body.visible=b.visible&&!held&&!q.pulled;b.body.position.set(b.x,b.y,b.z);b.body.rotation.y=b.angle;
@@ -97,14 +126,21 @@ OTR.fpLoadingWorld={
           const range=(p.x-lx)**2+(p.z-lz)**2;
           const facing=env||(p.x-lx)*sn+(p.z-lz)*cs>0;
           if(held||highlighted){closest=b;best=-1;}else if(facing&&range<best&&range<2.65**2){closest=b;best=range;}
-          labelTransform.position.set(lx,ly,lz);labelTransform.rotation.set(env?-Math.PI/2:0,b.angle,0,'YXZ');labelTransform.scale.set(1,1,1);labelTransform.updateMatrix();b.matrix.copy(labelTransform.matrix);
+          // High paper is 8mm thick; ink must sit outside its front, never inside it.
+          const ink=high?.006:.002;
+          labelTransform.position.set(lx+(env?0:sn*ink),ly+(env?ink:0),lz+(env?0:cs*ink));labelTransform.rotation.set(env?-Math.PI/2:0,b.angle,0,'YXZ');labelTransform.scale.set(1,1,1);labelTransform.updateMatrix();b.matrix.copy(labelTransform.matrix);
         }
         for(const b of parcels){
           b.printVisible=b.visible&&(high||b===closest);b.words.mesh.visible=b.printVisible;
           for(let i=0;i<b.batch.entries.length;i++){const e=b.batch.entries[i];e.visible=b.printVisible;if(!b.printVisible)continue;e.matrix.multiplyMatrices(b.matrix,b.locals[i]);e.sphere.center.setFromMatrixPosition(e.matrix);b.words.mesh.setMatrixAt(i,e.matrix);}
           if(b.printVisible){b.words.mesh.count=b.words.count;b.words.mesh.instanceMatrix.needsUpdate=true;}
         }
-        if(s.strapped&&model.cargoOpen)for(let k=0;k<2;k++)part(v.x,.65,v.z+.4+k,1.8,.035,.055,0xD4A83F);
+        if(s.strapped&&model.cargoOpen)for(const b of parcels){
+          if(!b.visible||b.data.slotRef?.level!=='floor')continue;
+          const y=b.y+b.h/2+.015,w=b.w+.04,h=y-fit.floor;
+          if(high){part(b.x,y,b.z,w,.025,.055,0xD4A83F);for(const side of [-1,1])part(b.x+side*w/2,fit.floor+h/2,b.z,.025,h,.055,0xD4A83F);}
+          else{paper(b.x,y,b.z,w,.055,0xD4A83F,0,true);paper(b.x-w/2,fit.floor+h/2,b.z,.055,h,0xD4A83F,Math.PI/2);paper(b.x+w/2,fit.floor+h/2,b.z,.055,h,0xD4A83F,-Math.PI/2);}
+        }
         moving.count=dynamicCount;batches[1].entries.length=dynamicCount;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;sheets.count=sheetCount;batches[2].entries.length=sheetCount;sheets.instanceMatrix.needsUpdate=true;sheets.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },
       dispose(){if(disposed)return;disposed=true;for(const b of parcels)b.words.dispose();for(const words of signs)words.dispose();fixed.dispose();moving.dispose();sheets.dispose();sheetGeometry.dispose();paint.dispose();proxyPaint.dispose();if(ownsCube)cube.dispose();root.removeFromParent();}

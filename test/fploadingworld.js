@@ -33,6 +33,7 @@ test('loaded parcels expose their label face toward the aisle and retain bounded
  for(const high of [false,true]){const f=context(high);try{load(f);Object.assign(f.m.player,{x:f.m.van.x,z:f.m.van.z+1.85});f.art.sync(f.m);
   assert.equal(f.art.parcels.filter(b=>b.printVisible).length,high?12:1);
   for(const b of f.art.parcels){const normal=new THREE.Vector3(0,0,1).applyAxisAngle(new THREE.Vector3(0,1,0),b.angle);if(b.data.slotRef.level!=='floor')assert.ok(normal.x*(f.m.van.x-b.x)>0);assert.equal(b.words.mesh.material.map,null);assert.ok(b.words.count<1024);}
+  for(const b of f.art.parcels){const env=b.data.size==='env',n=env?new THREE.Vector3(0,1,0):new THREE.Vector3(Math.sin(b.angle),0,Math.cos(b.angle)),ink=new THREE.Vector3().setFromMatrixPosition(b.matrix),body=new THREE.Vector3(b.x,b.y,b.z),surface=env?b.h/2+.006:b.d/2+.006;assert.ok(ink.sub(body).dot(n)>surface+(high?.004:0)+.001,'label ink stays in front of its actual paper backing');}
   f.O.fpLoading.take(f.state,'l1');f.art.sync(f.m);assert.equal(f.art.parcels.filter(b=>b.printVisible).length,high?12:1);assert.equal(f.art.parcels[0].printVisible,true);assert.equal(f.art.parcels[0].body.visible,false);
  }finally{f.art.dispose();}}
 });
@@ -41,6 +42,10 @@ test('find disables a picked body at once but keeps its visual for the original 
   for(let n=0;n<8;n++)f.O.fpLoading.step(f.state,.05);f.art.sync(f.m);assert.equal(b.visible,false);
   f.m.cargoOpen=false;f.art.sync(f.m);assert.ok(f.art.slots.every(s=>!s.target.visible));assert.equal(f.art.restraint.visible,false);assert.ok(f.art.parcels.every(b=>!b.body.visible));
  }finally{f.art.dispose();}
+});
+test('secured floor parcels have a visible band over their top and straps down to the fitted floor',()=>{
+ for(const high of [false,true]){const f=context(high);try{load(f);f.O.fpLoading.strap(f.state);f.art.sync(f.m);const parcel=f.art.parcels.find(b=>b.data.slotRef.id==='haz'),bands=f.art.batches[high?1:2].entries.filter(e=>e.color.getHex()===0xD4A83F);assert.equal(bands.length,3);assert.ok(bands[0].matrix.elements[13]>parcel.y+parcel.h/2+.001);for(const e of bands.slice(1))assert.ok(Math.abs(e.matrix.elements[13]-e.matrix.elements[5]/2-f.art.fit.floor)<1e-8);}
+ finally{f.art.dispose();}}
 });
 test('repeated walking, carrying, placements and restraints reuse the exact fixed pools and dispose idempotently',()=>{
  for(const high of [false,true]){const f=context(high);try{const arrays=f.art.batches.map(b=>b.mesh.instanceMatrix.array),children=f.art.root.children.length;load(f);f.O.fpLoading.strap(f.state);for(let n=0;n<300;n++){
