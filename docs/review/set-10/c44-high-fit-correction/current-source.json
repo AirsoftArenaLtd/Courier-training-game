@@ -11,9 +11,11 @@
   "highPreflightRuntime": "c3172d23a63b4540341903007d57a3f8b5d68963",
   "highPreflightViews": 3,
   "finalBrowserAcceptance": false,
-  "currentPlan": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-fit",
+  "currentPlan": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-walk-ad2f294c",
   "labelFaceFocus": true,
   "acceptedSourceScopedJobsAtSnapshot": 1,
   "nativeChecksAtSnapshot": 234,
-  "nativeCapturesVisuallyInspected": 13
+  "nativeCapturesVisuallyInspected": 13,
+  "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
+  "nativeWalkRegressionCases": 3
 }

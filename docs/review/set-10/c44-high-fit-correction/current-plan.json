@@ -1,6 +1,6 @@
 {
   "root": "/workspace/c44-loading-truck",
-  "output": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-fit",
+  "output": "/workspace/c44-loading-truck/test/out/pipelines/c44-e834ad69-walk-ad2f294c",
   "runtime": "e834ad69cc6e073658d088a43578520ab15e4610",
   "port": 8386,
   "sources": {
@@ -193,11 +193,13 @@
     "test/tools/fp-loading-pose.js": "81b0a575e5ef94cd0cc4a4ffe89361c9a83041e268f616553e0ba6df27a4e26d",
     "test/tools/fp-loading-quality.js": "bfa2210b669d6d16fd32efcab51792132fca6b8db945d6022a469fe47c7c09c8",
     "test/tools/fp-sequential-jobs.py": "6a8053b13d8a6c882bcccd6de994526acf5640fc57996b0b443ff2980e3da8a5",
-    "test/fploadingbrowser.js": "93cf8a05df84632594847f7a401e5fba4924a9d314b0e1bb17572bc7b28ca498",
+    "test/fploadingbrowser.js": "573bb9be78852b0d0008ca33cfde82767ba47e2cead9e5d3128e8e7f091b45a8",
     "test/fploadingreference.js": "3f8906fd4c7734073fe6ae9ea50fa65cc470066c2caef8b95ce56ed4264d2136",
     "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d",
     "test/fploadingscenario.js": "ae2fafbf68fb869806d0ab3e34cf50add97888f1d3f5f149d1efbcfa7131ca44",
-    "test/fploadingworld.js": "f1657f7c70f9faf3ad6904cfc96623bef86fd10811293f93f281604504d371bd"
+    "test/fploadingworld.js": "f1657f7c70f9faf3ad6904cfc96623bef86fd10811293f93f281604504d371bd",
+    "test/tools/fp-loading-walk.js": "fa935591d7988b722cb678a844abafbb01177bd1ae73b5e8bea95d6a275324ab",
+    "test/fploadingwalk.js": "5a6662e53326648d5acf3523a5fe0b83714925bd64b38f6543978bb7768f0135"
   },
   "node_results": "/workspace/c44-loading-truck/docs/review/set-10/c44-high-fit-correction/node-results.json",
   "node_count": 91,
@@ -209,22 +211,6 @@
   },
   "jobs": [
     {
-      "id": "native-good-high-en-normal-find",
-      "command": [
-        "node",
-        "test/fploadingbrowser.js"
-      ],
-      "environment": {
-        "QA_CASE": "high-en-normal-find",
-        "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-en-normal-find-e834ad69"
-      },
-      "timeout": 10800,
-      "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-en-normal-find-e834ad69*"
-      ]
-    },
-    {
       "id": "native-good-high-en-normal-load",
       "command": [
         "node",
@@ -233,11 +219,11 @@
       "environment": {
         "QA_CASE": "high-en-normal-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-en-normal-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-en-normal-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-en-normal-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-en-normal-load-ad2f294c*"
       ]
     },
     {
@@ -248,12 +234,12 @@
       ],
       "environment": {
         "QA_PROFILES": "loaded-low",
-        "QA_TAG": "c44-fit-loaded-low-e834ad69"
+        "QA_TAG": "c44-walk-loaded-low-ad2f294c"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c44-fit-loaded-low-e834ad69*",
-        "test/out/fp-review/bench-c44-fit-loaded-low-e834ad69*"
+        "test/out/fp-review/c44-walk-loaded-low-ad2f294c*",
+        "test/out/fp-review/bench-c44-walk-loaded-low-ad2f294c*"
       ]
     },
     {
@@ -264,12 +250,12 @@
       ],
       "environment": {
         "QA_PROFILES": "loaded-high",
-        "QA_TAG": "c44-fit-loaded-high-e834ad69"
+        "QA_TAG": "c44-walk-loaded-high-ad2f294c"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c44-fit-loaded-high-e834ad69*",
-        "test/out/fp-review/bench-c44-fit-loaded-high-e834ad69*"
+        "test/out/fp-review/c44-walk-loaded-high-ad2f294c*",
+        "test/out/fp-review/bench-c44-walk-loaded-high-ad2f294c*"
       ]
     },
     {
@@ -280,12 +266,12 @@
       ],
       "environment": {
         "QA_PROFILES": "accessible-low",
-        "QA_TAG": "c44-fit-accessible-low-e834ad69"
+        "QA_TAG": "c44-walk-accessible-low-ad2f294c"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c44-fit-accessible-low-e834ad69*",
-        "test/out/fp-review/bench-c44-fit-accessible-low-e834ad69*"
+        "test/out/fp-review/c44-walk-accessible-low-ad2f294c*",
+        "test/out/fp-review/bench-c44-walk-accessible-low-ad2f294c*"
       ]
     },
     {
@@ -296,12 +282,12 @@
       ],
       "environment": {
         "QA_PROFILES": "fallback-low",
-        "QA_TAG": "c44-fit-fallback-low-e834ad69"
+        "QA_TAG": "c44-walk-fallback-low-ad2f294c"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c44-fit-fallback-low-e834ad69*",
-        "test/out/fp-review/bench-c44-fit-fallback-low-e834ad69*"
+        "test/out/fp-review/c44-walk-fallback-low-ad2f294c*",
+        "test/out/fp-review/bench-c44-walk-fallback-low-ad2f294c*"
       ]
     },
     {
@@ -313,11 +299,11 @@
       "environment": {
         "QA_CASE": "low-en-normal-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-en-normal-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-en-normal-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-en-normal-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-en-normal-find-ad2f294c*"
       ]
     },
     {
@@ -329,11 +315,11 @@
       "environment": {
         "QA_CASE": "low-en-normal-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-en-normal-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-en-normal-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-en-normal-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-en-normal-load-ad2f294c*"
       ]
     },
     {
@@ -345,11 +331,11 @@
       "environment": {
         "QA_CASE": "low-en-large-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-en-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-en-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-en-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-en-large-load-ad2f294c*"
       ]
     },
     {
@@ -361,11 +347,11 @@
       "environment": {
         "QA_CASE": "low-en-large-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-en-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-en-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-en-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-en-large-find-ad2f294c*"
       ]
     },
     {
@@ -377,11 +363,11 @@
       "environment": {
         "QA_CASE": "low-ta-normal-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-ta-normal-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-ta-normal-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-ta-normal-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-ta-normal-load-ad2f294c*"
       ]
     },
     {
@@ -393,11 +379,11 @@
       "environment": {
         "QA_CASE": "low-ta-normal-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-ta-normal-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-ta-normal-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-ta-normal-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-ta-normal-find-ad2f294c*"
       ]
     },
     {
@@ -409,11 +395,11 @@
       "environment": {
         "QA_CASE": "low-ta-large-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-ta-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-ta-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-ta-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-ta-large-load-ad2f294c*"
       ]
     },
     {
@@ -425,11 +411,11 @@
       "environment": {
         "QA_CASE": "low-ta-large-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-low-ta-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-low-ta-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-low-ta-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-low-ta-large-find-ad2f294c*"
       ]
     },
     {
@@ -441,11 +427,11 @@
       "environment": {
         "QA_CASE": "high-en-large-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-en-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-en-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-en-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-en-large-load-ad2f294c*"
       ]
     },
     {
@@ -457,11 +443,11 @@
       "environment": {
         "QA_CASE": "high-en-large-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-en-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-en-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-en-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-en-large-find-ad2f294c*"
       ]
     },
     {
@@ -473,11 +459,11 @@
       "environment": {
         "QA_CASE": "high-ta-normal-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-ta-normal-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-ta-normal-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-ta-normal-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-ta-normal-load-ad2f294c*"
       ]
     },
     {
@@ -489,11 +475,11 @@
       "environment": {
         "QA_CASE": "high-ta-normal-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-ta-normal-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-ta-normal-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-ta-normal-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-ta-normal-find-ad2f294c*"
       ]
     },
     {
@@ -505,11 +491,11 @@
       "environment": {
         "QA_CASE": "high-ta-large-load",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-ta-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-ta-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-ta-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-ta-large-load-ad2f294c*"
       ]
     },
     {
@@ -521,11 +507,11 @@
       "environment": {
         "QA_CASE": "high-ta-large-find",
         "QA_VARIANT": "good",
-        "QA_TAG": "c44-fit-native-good-high-ta-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-good-high-ta-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-good-high-ta-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-good-high-ta-large-find-ad2f294c*"
       ]
     },
     {
@@ -537,11 +523,11 @@
       "environment": {
         "QA_CASE": "low-en-large-load",
         "QA_VARIANT": "bad-load",
-        "QA_TAG": "c44-fit-native-bad-load-low-en-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-bad-load-low-en-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-bad-load-low-en-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-bad-load-low-en-large-load-ad2f294c*"
       ]
     },
     {
@@ -553,11 +539,11 @@
       "environment": {
         "QA_CASE": "low-en-large-find",
         "QA_VARIANT": "wrong-find",
-        "QA_TAG": "c44-fit-native-wrong-find-low-en-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-wrong-find-low-en-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-wrong-find-low-en-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-wrong-find-low-en-large-find-ad2f294c*"
       ]
     },
     {
@@ -569,11 +555,11 @@
       "environment": {
         "QA_CASE": "low-en-large-load",
         "QA_VARIANT": "abandon",
-        "QA_TAG": "c44-fit-native-abandon-low-en-large-load-e834ad69"
+        "QA_TAG": "c44-walk-native-abandon-low-en-large-load-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-abandon-low-en-large-load-e834ad69*"
+        "test/out/fp-review/c44-walk-native-abandon-low-en-large-load-ad2f294c*"
       ]
     },
     {
@@ -585,11 +571,11 @@
       "environment": {
         "QA_CASE": "low-en-large-find",
         "QA_VARIANT": "abandon",
-        "QA_TAG": "c44-fit-native-abandon-low-en-large-find-e834ad69"
+        "QA_TAG": "c44-walk-native-abandon-low-en-large-find-ad2f294c"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c44-fit-native-abandon-low-en-large-find-e834ad69*"
+        "test/out/fp-review/c44-walk-native-abandon-low-en-large-find-ad2f294c*"
       ]
     },
     {
@@ -600,10 +586,10 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-scorm2004-e834ad69"
+        "QA_TAG": "c44-walk-scorm2004-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-scorm2004-e834ad69*"
+        "test/out/fp-review/c44-walk-scorm2004-ad2f294c*"
       ]
     },
     {
@@ -614,10 +600,10 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-legacy-modules-e834ad69"
+        "QA_TAG": "c44-walk-legacy-modules-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-legacy-modules-e834ad69*"
+        "test/out/fp-review/c44-walk-legacy-modules-ad2f294c*"
       ]
     },
     {
@@ -628,10 +614,10 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-academy-e834ad69"
+        "QA_TAG": "c44-walk-academy-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-academy-e834ad69*"
+        "test/out/fp-review/c44-walk-academy-ad2f294c*"
       ]
     },
     {
@@ -642,10 +628,10 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-enterprise-e834ad69"
+        "QA_TAG": "c44-walk-enterprise-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-enterprise-e834ad69*"
+        "test/out/fp-review/c44-walk-enterprise-ad2f294c*"
       ]
     },
     {
@@ -656,10 +642,10 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-routeday-e834ad69"
+        "QA_TAG": "c44-walk-routeday-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-routeday-e834ad69*"
+        "test/out/fp-review/c44-walk-routeday-ad2f294c*"
       ]
     },
     {
@@ -670,12 +656,24 @@
       ],
       "timeout": 7200,
       "environment": {
-        "QA_TAG": "c44-fit-driving-e834ad69"
+        "QA_TAG": "c44-walk-driving-ad2f294c"
       },
       "artifacts": [
-        "test/out/fp-review/c44-fit-driving-e834ad69*"
+        "test/out/fp-review/c44-walk-driving-ad2f294c*"
       ]
     }
   ],
-  "protocolRevision": "e834ad69cc6e073658d088a43578520ab15e4610"
+  "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
+  "priorAccepted": [
+    {
+      "plan": "/workspace/c44-loading-truck/docs/review/set-10/c44-native-walk-correction/plan.json",
+      "ledger": "/workspace/c44-loading-truck/docs/review/set-10/c44-native-walk-correction/results.json",
+      "jobs": [
+        "native-good-high-en-normal-find"
+      ],
+      "sourceOverrides": {
+        "test/fploadingbrowser.js": "/workspace/c44-loading-truck/docs/review/set-10/c44-native-walk-correction/fploadingbrowser-before.js"
+      }
+    }
+  ]
 }

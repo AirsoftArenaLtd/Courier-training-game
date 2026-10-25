@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-25T15:19:15.903838+00:00",
+  "date": "2026-10-25T16:31:34.106550+00:00",
   "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
-  "protocolRevision": "e834ad69cc6e073658d088a43578520ab15e4610",
+  "protocolRevision": "ad2f294c7a475f7eea3efd015fdf4278414b9468",
   "expectedJobs": 30,
   "passedJobs": 1,
   "complete": false,
@@ -11,6 +11,7 @@
   "resourceViews": 0,
   "native": [
     {
+      "protocolRevision": "e834ad69cc6e073658d088a43578520ab15e4610",
       "id": "native-good-high-en-normal-find",
       "fingerprint": "bc93057c2bee64a941e8caf812ddbd02cbeeb52f399ce2bff9c40309cb2bbf80",
       "logSha256": "c385d844e40c3571ba41af2764c83f7236d81b40bd8fa62828b96fd2c23f757a",

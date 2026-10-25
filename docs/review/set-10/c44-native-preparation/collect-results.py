@@ -20,27 +20,35 @@ def main():
     plan = json.loads(PLAN.read_text())
     assert Path(plan['root']) == ROOT
     assert all(digest(ROOT / f) == h for f, h in plan['sources'].items()), 'Frozen source changed'
+    generations = []
+    for prior in plan.get('priorAccepted', []):
+        old = json.loads(Path(prior['plan']).read_text())
+        overrides = prior.get('sourceOverrides', {})
+        # A completed protocol generation may differ, but product bytes may not.
+        assert all(digest(Path(overrides.get(name, ROOT / name))) == h for name, h in old['sources'].items()), 'Prior source changed'
+        generations.extend((old, job, json.loads(Path(prior['ledger']).read_text()), Path(old['output'])) for job in old['jobs'] if job['id'] in prior['jobs'])
     pipeline = Path(plan['output'])
     ledger_file = pipeline / 'results.json'
     ledger = json.loads(ledger_file.read_text()) if ledger_file.exists() else {}
+    generations.extend((plan, job, ledger, pipeline) for job in plan['jobs'])
     OUT.mkdir(parents=True, exist_ok=True)
     passed, pending, native, resources, followups = [], [], [], [], []
-    for job in plan['jobs']:
+    for generation, job, ledger, pipeline in generations:
         entry = ledger.get(job['id'], {})
         if entry.get('exit') != 0:
             pending.append({'id': job['id'], 'state': entry.get('state') or ('failed' if entry.get('exit') is not None else 'not started'), 'exit': entry.get('exit')})
             continue
-        fingerprint = hashlib.sha256(json.dumps(dict(sources=plan['sources'], job=job, environment=plan.get('environment', {})), sort_keys=True).encode()).hexdigest()
+        fingerprint = hashlib.sha256(json.dumps(dict(sources=generation['sources'], job=job, environment=generation.get('environment', {})), sort_keys=True).encode()).hexdigest()
         assert entry['fingerprint'] == fingerprint, 'Job/source mismatch: ' + job['id']
         log = pipeline / entry['log']
         assert digest(log) == entry['logSha256'], 'Changed log: ' + job['id']
         assert all(digest(ROOT / f) == h for f, h in entry.get('artifacts', {}).items()), 'Changed artifact: ' + job['id']
-        item = {'id': job['id'], 'fingerprint': fingerprint, 'logSha256': entry['logSha256'], 'artifacts': entry.get('artifacts', {})}
+        item = {'protocolRevision': generation['protocolRevision'], 'id': job['id'], 'fingerprint': fingerprint, 'logSha256': entry['logSha256'], 'artifacts': entry.get('artifacts', {})}
         if job['id'].startswith('native-'):
             report = json.loads((ROOT / 'test/out/fp-review' / (job['environment']['QA_TAG'] + '.json')).read_text())
             assert report.get('complete') and not report['errors'] and not report['uncommittedRuntime'] and report['checks'] > 0
-            assert report['protocolSha256'] == plan['sources']['test/fploadingbrowser.js']
-            assert all(plan['sources'].get(f) == h for f, h in report['sourceFiles'].items())
+            assert report['protocolSha256'] == generation['sources']['test/fploadingbrowser.js']
+            assert all(generation['sources'].get(f) == h for f, h in report['sourceFiles'].items())
             assert len(report['modes']) == 1
             mode = report['modes'][0]
             assert '-'.join([mode['quality'], mode['lang'], 'large' if mode['large'] else 'normal', mode['kind']]) == job['environment']['QA_CASE']
@@ -83,7 +91,7 @@ def main():
             if not target.exists():
                 shutil.copy2(ROOT / f, target)
         passed.append(item)
-    summary = {'date': datetime.now(timezone.utc).isoformat(), 'applicationRuntime': plan['runtime'], 'protocolRevision': plan['protocolRevision'], 'expectedJobs': len(plan['jobs']), 'passedJobs': len(passed), 'complete': not pending, 'nativeGoodJourneys': sum(x['variant'] == 'good' for x in native), 'nativeChecks': sum(x['checks'] for x in native), 'nativeCaptures': sum(x['captures'] for x in native), 'resourceViews': sum(x['views'] for x in resources), 'native': native, 'resources': resources, 'followups': followups, 'pending': pending, 'scope': 'Hash-verified source-scoped results only. Static resource fixtures are separate from native controls/records. Corrected-font Tamil, current-pilot/default rollout and Intel FPS remain separate.'}
+    summary = {'date': datetime.now(timezone.utc).isoformat(), 'applicationRuntime': plan['runtime'], 'protocolRevision': plan['protocolRevision'], 'expectedJobs': len(generations), 'passedJobs': len(passed), 'complete': not pending, 'nativeGoodJourneys': sum(x['variant'] == 'good' for x in native), 'nativeChecks': sum(x['checks'] for x in native), 'nativeCaptures': sum(x['captures'] for x in native), 'resourceViews': sum(x['views'] for x in resources), 'native': native, 'resources': resources, 'followups': followups, 'pending': pending, 'scope': 'Hash-verified source-scoped results only. Static resource fixtures are separate from native controls/records. Corrected-font Tamil, current-pilot/default rollout and Intel FPS remain separate.'}
     (OUT / 'completed-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     manifest = {'status': 'source-scoped jobs complete; visual/shared rollout review still required' if not pending else 'doing; validation incomplete', 'planSha256': digest(PLAN), 'files': {str(f.relative_to(OUT)): digest(f) for f in sorted(OUT.rglob('*')) if f.is_file() and f.name != 'manifest.json'}}
     (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-25T16:23:10.153828+00:00",
+  "applicationRuntime": "e834ad69cc6e073658d088a43578520ab15e4610",
+  "ownedSupervisorStopped": 10864,
+  "sourceEditedOnlyAfterBrowserLockVerifiedFree": true,
+  "completedPriorFindChecks": 234,
+  "priorFindAccepted": true,
+  "partialLoadChecks": 643,
+  "partialLoadPlacements": 10,
+  "partialLoadAccepted": false,
+  "cause": "A 3cm circular walking waypoint can be skipped when two or more real game frames elapse between observations. The key controller then repeatedly turns around a point it has already passed. An actual motor/look CPU reproduction at the observed pose fails after 3000 observations for 2/3/4-frame batches but arrives in 10 observations with single-frame sampling.",
+  "scope": "Test navigation only. No product/scoring/time/position fixture changes."
+}
