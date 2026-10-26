@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-26T01:09:35Z",
+  "suites": 97,
+  "allPassed": true,
+  "sourceFiles": 498,
+  "allApplicationAndSuiteAndLogHashesMatch": true,
+  "excludedBrowserWrapper": "test/scorm-launch-2004.js",
+  "scope": "Fresh full pure Node gate on current app bytes; no native/full-resource or shared rollout acceptance."
+}

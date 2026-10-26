@@ -1,0 +1,45 @@
+✔ signals have separate amber and all-red clearance intervals before changing priority (1.180232ms)
+✔ neither an opposing green nor a simultaneous walk permission occurs across a day (448.291722ms)
+✔ signal offsets and checkpoints reproduce the same phase without accumulated timer drift (0.617282ms)
+✔ both directions on each street read the matching axis (0.237679ms)
+✔ a pedestrian starts only with a walk phase and a physically clear crossing (0.160973ms)
+✔ stopping envelope retains a buffer and reduces speed smoothly toward the line (1.627107ms)
+✔ clearance subtracts the actual vehicle bodies on all four headings (0.302917ms)
+✔ adjacent lanes and vehicles completely behind are ignored, but overlapping bodies stop traffic (0.258521ms)
+✔ cross traffic and a walker use their projected footprint, rather than only their centres (0.209757ms)
+✔ following target respects body clearance and the taught three-second time gap (0.301746ms)
+✔ bounded acceleration and braking converge without overshoot or negative motion (2.096316ms)
+✔ controller calls keep shared descriptors bounded and do not mutate input vehicles (57.912813ms)
+✔ only new plans opt in; old checkpoints and practice keep their obligations (9.491393ms)
+✔ a signal replaces both old stop obligations; entering on red reports once with its real approach (3.953781ms)
+✔ stopping at red earns credit only after entering on green; green-only and amber approaches emit nothing (5.457452ms)
+✔ a creeping red approach does not earn a stop credit, and reverse does not create an approach (1.72142ms)
+✔ a mid-red checkpoint retains its obligation and emits nothing during restoration (6.862923ms)
+✔ minor junction approaches yield to cross traffic; the priority road has no invented stop requirement (4.642952ms)
+✔ a car brakes behind a red line and resumes on green, with no skipped line or abrupt speed jump (335.268825ms)
+✔ cars never step through a walker or the van, including a sudden obstacle (184.49293ms)
+✔ children wait on the curb for moving traffic, then cross in front of a stationary van (4.921361ms)
+✔ a cyclist appears beside the real van, remains solid and a turn across it fails once (1.687588ms)
+✔ the cyclist check requires an actual recent mirror look and waiting until the bicycle is clear (27.916676ms)
+✔ a live cyclist and a waiting car restore exactly without repeating their reports (3.614969ms)
+✔ traffic does not recycle into view or drift beyond the world while its return point is occupied (1.835061ms)
+✔ the cyclist also brakes for a red light and never rides through a solid obstruction (295.394971ms)
+✔ east-west traffic keeps its full physical length for walking and real motor contacts (21.468289ms)
+✔ the motor stops before children and reports the crossing conflict once without a duplicate contact grade (19.465024ms)
+✔ children also wait when a trainee is standing in their walking path (1.348076ms)
+✔ a cyclist held beside the van at red stays visible after a long wait (1.42394ms)
+✔ a later impact after a completed school crossing still reports a physical contact (13.74118ms)
+✔ a completed safe cyclist turn does not hide a later physical impact (1.769843ms)
+✔ children do not step through stopped traffic or a solid bus at the crossing (1.833709ms)
+✔ a moving school bus or emergency vehicle cannot drive through the new people (1.99331ms)
+✔ both perpendicular traffic streams make progress through repeated signal cycles without overlap (8216.180075ms)
+✔ school crossings stay clear of the combined navigation obstructions and roadworks in 30 layouts (203.355283ms)
+✔ anticipation credit belongs to a real approach, not cross-street driving or stopping afterwards (1.248515ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9908.225706

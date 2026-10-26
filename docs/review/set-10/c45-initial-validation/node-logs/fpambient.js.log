@@ -1,0 +1,14 @@
+✔ whole walk paths stay in non-delivery solids and outside rendered footprints (18.855169ms)
+✔ occupied yards, missing bounds and depot space produce no ambient site (1.145229ms)
+✔ overhead bounds leave ground space usable while a ground prop blocks it (0.396879ms)
+✔ quality limits, distance and a later delivery update apply immediately, using reused slots (0.878746ms)
+✔ resuming the same model and time gives identical choices and poses (1.72218ms)
+✔ loops remain bounded and continuous; reduced motion holds the same idle pose (3.502056ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.24545

@@ -1,0 +1,9 @@
+/* Independent native-observation replay rejects invented decisions and retains source critical verdicts. */
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),R=require('./tools/fp-pickup-original');
+const c={};c.window=c;vm.createContext(c);for(const f of ['data/theme.js','data/m7_pickups.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+function observation(id,bad=false){const C=c.OTR_DATA.pickups[id.replace('-','_')],entry=Object.entries(C.talk.nodes).find(([,n])=>n.choices),choice=entry[1].choices.find(ch=>ch.grade===(bad?'bad':'good'));return {talk:[{node:entry[0],text:choice.text}],counts:[{ids:C.pieces.map(p=>p.id),choice:0}],flags:C.docs?C.docs.fields.flatMap((f,i)=>f.bad?[i]:[]):[],decisions:C.pieces.map(p=>({id:p.id,accept:bad?true:p.accept,reason:bad?null:p.reason||null})),elapsed:100};}
+for(const id of ['m7-business','m7-intl','m7-dg'])test(id+' original native observation retains full ratios, three stars and original checks',()=>{const r=R.replay(id,observation(id));assert.ok(r.result.score>0);assert.ok(Object.values(r.result.ratios).every(v=>v===1));assert.ok(Object.values(r.stars).every(v=>v===3));console.log(JSON.stringify({id,score:r.result.score,stars:r.stars}));});
+test('undeclared goods and incomplete customs receipts stay critical, and invented/repeated/incomplete observations fail',()=>{
+ for(const id of ['m7-intl','m7-dg']){const r=R.replay(id,observation(id,true));assert.ok(r.result.log.items.some(it=>it.critical));assert.ok(Object.values(r.stars).some(v=>v<=1));}
+ const x=observation('m7-business');x.decisions.pop();assert.throws(()=>R.replay('m7-business',x),/undecided/);x.decisions.push({id:'invented',accept:true});assert.throws(()=>R.replay('m7-business',x));const y=observation('m7-dg');y.talk[0].text='Invented reply.';assert.throws(()=>R.replay('m7-dg',y),/original choice/);
+});
