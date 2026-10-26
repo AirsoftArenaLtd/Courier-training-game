@@ -1,0 +1,24 @@
+{
+  "sourceRevision": "8506d09443bdaa3c9c2ad139df48e85aa0fbc673",
+  "requestedViews": [
+    "pickupbusiness",
+    "pickupcart",
+    "pickupreceipt"
+  ],
+  "scope": "Selected static counter poses under the original fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c45-local-shadow-high-preflight-loaded-high-high.json",
+      "log": "c45-local-shadow-high-preflight-loaded-high.log",
+      "peak": {
+        "calls": 33,
+        "triangles": 33772,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4748560
+      }
+    }
+  ]
+}

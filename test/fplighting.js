@@ -5,7 +5,7 @@ for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8
 const O=c.OTR,L=O.fpLighting,M=O.fpMission;
 O.save={data:{townSeed:1}};
 const make=()=>{const m=M.create('campaign',7,O.fpRoute.plan(1,7));m.mode='cab';m.paused=false;m.workdayRules={night:true};return m;};
-function scene(high=false){O.gfx={high:()=>high};const world=new THREE.Scene(),camera=new THREE.PerspectiveCamera(68,16/9,.08,180);world.add(camera);const s={model:make(),view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera()}}};s.art=O.fpWorld.build(s,s.model);s.sync=()=>s.art.sync(s.model,null,'route');s.sync();return s;}
+function scene(high=false,pickup=false){O.gfx={high:()=>high};const world=new THREE.Scene(),camera=new THREE.PerspectiveCamera(68,16/9,.08,180);world.add(camera);const s={model:make(),view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera()}}};if(pickup)s.model.pickupTask={};s.art=O.fpWorld.build(s,s.model);s.sync=()=>s.art.sync(s.model,null,'route');s.sync();return s;}
 test('the existing saved clock selects morning, midday, dusk and night deterministically',()=>{
  const m=make();for(const [clock,expected] of [[360,'morning'],[660,'midday'],[1020,'dusk'],[1140,'night'],[60,'night']]){m.briefing.clockMin=clock;assert.equal(L.time(m),expected);}m.briefing.clockMin=659;m.elapsed=60;assert.equal(L.time(m),'midday');
 });
@@ -46,4 +46,9 @@ test('reflection sky uses the actual camera rotation and FOV, and disposal remov
 });
 test('world rebuilds restore the hub sun position, colours and fog before the next lighting adapter is created',()=>{
  const s=scene(true);s.art.dispose();const sky=new THREE.HemisphereLight(0xE9F1FF,0x63594C,1.5),sun=new THREE.DirectionalLight(0xFFF0DC,1.4);sun.position.set(-12,25,8);s.view.lights={sky,sun};s.view.world.add(sky,sun,sun.target);s.view.world.background=new THREE.Color(0xA7C7DE);s.view.world.fog=new THREE.Fog(0xA7C7DE,65,165);s.art=O.fpWorld.build(s,s.model);s.model.routePlan.timeOfDay='night';s.sync();s.art.dispose();assert.deepEqual(sun.position.toArray(),[-12,25,8]);assert.deepEqual(sun.target.position.toArray(),[0,0,0]);assert.equal(s.view.world.background.getHex(),0xA7C7DE);assert.equal(s.view.world.fog.color.getHex(),0xA7C7DE);
+});
+test('the counter focuses the same High shadow map on its room, with matching texel snap and unchanged workday/Low coverage',()=>{
+ for(const high of [false,true]){const s=scene(high,true),sun=s.art.lighting.sun,m=s.model;try{m.mode='walk';Object.assign(m.player,{x:12.33,z:-44.27});m.elapsed+=.2;s.sync();const span=high?20:90,grid=span/512;assert.equal(sun.target.position.x,Math.round(m.player.x/grid)*grid);assert.equal(sun.target.position.z,Math.round(m.player.z/grid)*grid);assert.equal(sun.shadow.map,null);if(high){assert.equal(sun.shadow.mapSize.width,512);assert.equal(sun.shadow.mapSize.height,512);assert.equal(sun.shadow.camera.right-sun.shadow.camera.left,20);assert.equal(sun.shadow.camera.top-sun.shadow.camera.bottom,20);}else assert.equal(sun.castShadow,false);
+  s.art.dispose();delete m.pickupTask;s.art=O.fpWorld.build(s,m);s.sync();const ordinary=s.art.lighting.sun;assert.equal(ordinary.target.position.x,Math.round(m.player.x/(90/512))*(90/512));assert.equal(ordinary.target.position.z,Math.round(m.player.z/(90/512))*(90/512));if(high)assert.equal(ordinary.shadow.camera.right-ordinary.shadow.camera.left,90);
+ }finally{s.art.dispose();}}
 });

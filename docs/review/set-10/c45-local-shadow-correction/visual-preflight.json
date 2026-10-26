@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-26T01:51:44Z",
+  "scope": "Three current-application static High poses, before the test-only shadow-proof extension. Dirty-source preflight, not clean-source full-profile/native acceptance. Current app bytes match node-source-snapshot.",
+  "images": {
+    "preflight/c45-local-shadow-high-preflight-loaded-high-high-pickupbusiness.png": "a60e3a33a573f5d204b013ab4d08fe1f68120efbc115e75945190a1dffcade34",
+    "preflight/c45-local-shadow-high-preflight-loaded-high-high-pickupcart.png": "e0008241ae5508ae68ffe45605a8187c7f232a5b840e6935f173f47a6d02822f",
+    "preflight/c45-local-shadow-high-preflight-loaded-high-high-pickupreceipt.png": "81ce2bc81efc4d4e2c971581b2d588b0d46c02feb037e59144ee99174e46bfbe"
+  },
+  "observations": [
+    "The uploaded shipper remains behind the physical business counter; mounted lettering and papers fit their physical surfaces.",
+    "The broad diagonal wall/counter shadow bands are removed. Real wall, parcel and table shadows remain, with the same 512px map.",
+    "The cart actually faces b6, 250 Harbor St / 3 LB; neighboring mounted addresses and weights remain legible.",
+    "The receipt completion page fits the High handheld and leaves its Back action clear.",
+    "The narrowed projection still produces normal low-resolution contact-edge detail; this preflight does not claim photorealism or owner Intel FPS."
+  ]
+}

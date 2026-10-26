@@ -1,0 +1,14 @@
+{
+  "scope": "Diagnostic only: source c75808cc unchanged, static High counter fixture, then an explicit in-memory shadow receiver flag toggle. Not native/resource/current-source acceptance.",
+  "runtime": "8506d09443bdaa3c9c2ad139df48e85aa0fbc673",
+  "before": {
+    "cast": true,
+    "receive": true,
+    "shipper": true
+  },
+  "errors": [],
+  "images": {
+    "shadow-receiving-before.png": "fadeaa24afca02a8cd695bfdeb723413ec5aa6bd49da06ab4fa8ad410ab97c29",
+    "shadow-receiver-disabled-probe.png": "def65268289bb6947d84421158f3b13112ffac2590530cf19796005397228506"
+  }
+}

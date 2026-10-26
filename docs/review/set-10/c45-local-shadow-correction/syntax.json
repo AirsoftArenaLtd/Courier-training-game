@@ -1,0 +1,37 @@
+[
+  {
+    "file": "src/core/fplighting.js",
+    "exit": 0,
+    "sha256": "70101202de33843975280c37523a41d0d925578756d5cac8a3b1f42b26763bb0"
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sha256": "589dacbc063402a10bc8c66604565e968addcb682a0ca2f1bd0df10f16f522e9"
+  },
+  {
+    "file": "src/core/fppickup.js",
+    "exit": 0,
+    "sha256": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c"
+  },
+  {
+    "file": "src/core/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06"
+  },
+  {
+    "file": "test/fplighting.js",
+    "exit": 0,
+    "sha256": "688e552bd298e8753b8da790acb376d365d3f4fb1b1f99ba5cf2c4fad90680e0"
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "sha256": "8351d08158ad9838ec287bd50d66af704fe16db2d179c08f9360e0bf5cdb4546"
+  },
+  {
+    "file": "test/tools/fp-pickup-quality.js",
+    "exit": 0,
+    "sha256": "cfe0df459c62f881e4dccb04b1258b1e3851126a6c1ed97ff81e6b4507d90109"
+  }
+]

@@ -92,7 +92,7 @@ OTR.fpScenario.register('pickup-counter',{
   },
   tick(run,scene,dt,active){const s=scene.model.pickupTask;if(s.phase==='brief')OTR.fpPickup.begin(s);OTR.fpPickup.step(s,dt,active);},
   controls(run,scene){OTR.fpPickupScenario.controls(scene);},handheld(run,scene){OTR.fpPickupScenario.handheld(scene);},targetName(scene,id){return OTR.fpPickupScenario.targetName(scene,id);},
-  status(run){const s=run.model.pickupTask;return s.stage==='talk'?'Speak with the shipper at the counter.':s.stage==='count'?'Count each outgoing piece, then face the pickup manifest.':s.stage==='docs'?'Read the commercial invoice before inspecting the pieces.':`You have inspected ${Object.keys(s.decided).length} outgoing pieces.`;},
+  status(run){const s=run.model.pickupTask;if(s.statusVersion!==s.version){s.statusVersion=s.version;s.statusText=s.stage==='talk'?'Speak with the shipper at the counter.':s.stage==='count'?'Count each outgoing piece, then face the pickup manifest.':s.stage==='docs'?'Read the commercial invoice before inspecting the pieces.':`You have inspected ${Object.keys(s.decided).length} outgoing pieces.`;}return s.statusText;},
   timeout(run,scene){run.phase='timed-out';scene.showPanel('The pickup scenario has stopped.','There is no result because the pickup was not completed.',[{label:'Return to the station.',action:()=>scene.toHub()}],{accessibleText:true,back:()=>scene.toHub()});},
   result(run){const result=OTR.fpPickup.result(run.model.pickupTask);if(!result)throw Error('The pickup is incomplete');return result;}
 });

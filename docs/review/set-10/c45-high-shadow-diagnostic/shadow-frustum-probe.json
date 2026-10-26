@@ -1,0 +1,14 @@
+{
+  "scope": "Diagnostic only: source c75808cc unchanged, static High counter fixture, then an explicit in-memory local shadow-frustum change; shadow receivers remain enabled. Not native/resource/current-source acceptance.",
+  "runtime": "8506d09443bdaa3c9c2ad139df48e85aa0fbc673",
+  "before": {
+    "cast": true,
+    "receive": true,
+    "shipper": true
+  },
+  "errors": [],
+  "images": {
+    "shadow-frustum-normal-render-original.png": "ca5b3a19dd15ef58a3fafc8821db90210ffc878d3014cf458a3a8234ad9d5ab3",
+    "shadow-frustum-normal-render-local.png": "1a9804c7b13a8e39132314c25318c701c51a4573f25300e00cb782a17005c338"
+  }
+}

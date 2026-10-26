@@ -1,0 +1,18 @@
+{"placementComparisons":252,"slots":21}
+{"completeLoadComparisons":50}
+{"completeFindComparisons":36,"roundComparisons":180}
+✔ all 252 authored package/slot placements match actual 2D drops, rules and slot metadata (24.250776ms)
+✔ occupied destinations restore the original load and floor changes alone invalidate a strap (1.317357ms)
+✔ safe and unsafe complete loads retain original checks, summary, score, ratios, lessons and placement (31.71711ms)
+✔ incomplete, held, paused, invalid and terminal actions cannot finish a load or alter the workday (1.364699ms)
+✔ all authored find rounds, near-matches, time bands and final results match actual 2D callbacks (66.48824ms)
+✔ find hints use actual section/floor, strict deadlines, first-pick cleanliness and one misload lesson (1.011025ms)
+✔ find pause, removed pieces, duplicate clicks, invalid actions and completion preserve isolation (0.818885ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.780678
