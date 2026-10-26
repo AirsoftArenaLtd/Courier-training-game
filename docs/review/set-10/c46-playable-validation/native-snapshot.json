@@ -1,14 +1,14 @@
 {
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "at": "2026-10-26T20:20:39.021Z",
-  "scope": "Completed good wellness journeys only. Regression journeys and partial in-progress reports are excluded. Retained footsteps evidence is limited to its documented unaffected scope; new collected results independently replay actual original callbacks. No browser test is rerun by this evidence aggregation.",
-  "sourceFilesVerified": 909,
-  "completedJobs": 28,
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "at": "2026-10-26T21:14:34.095Z",
+  "scope": "Completed good core journeys only, with explicit retained application/protocol scopes per row. Current application6d83d2e1 and horizontal protocol35bd5bb1. Original callbacks independently replay collected observations. Regression, negative, static-panel and partial jobs are excluded from good-native counts; no browser test is rerun by aggregation.",
+  "sourceFilesVerified": 911,
+  "completedJobs": 29,
   "preflightComplete": true,
   "complete": false,
-  "goodJourneys": 20,
-  "nativeChecks": 23625,
-  "captures": 493,
+  "goodJourneys": 21,
+  "nativeChecks": 24775,
+  "captures": 518,
   "passedAssessments": 9,
   "rows": [
     {
@@ -654,6 +654,38 @@
       "assessment": null,
       "photoProofs": null,
       "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Completed High Tamil normal-text heat journey at horizontal protocol35bd5bb1, unchanged application6d83d2e1. Original callbacks independently replayed; actual horizontal panel/button and prior vertical bounds pass. Shared glyph/translation readiness is excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat.json",
+      "sha256": "b5e67ac7c08e18c54e807415a7455cdd5186d410d1e9862c6f2690b52a37ce83",
+      "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+      "id": "m8-heat",
+      "quality": "high",
+      "language": "ta",
+      "large": false,
+      "checks": 1150,
+      "captures": 25,
+      "score": 6900,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 102,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 224
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations"
     }
-  ]
+  ],
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5"
 }

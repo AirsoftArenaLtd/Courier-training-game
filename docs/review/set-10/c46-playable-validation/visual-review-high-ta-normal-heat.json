@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-26T21:14:34.095Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Four completed High normal-Tamil heat captures inspected at original resolution. Known shared glyph, untranslated controls and mixed-template defects remain open.",
+  "images": [
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-safety.png",
+      "sha256": "311986aa7b68c18cc4e41b81cc96f7f49b86f04cb6a3214c10d98d80a5b31a27",
+      "observation": "All four normal-size safety choices and Back fit within the physical handheld, with visible cab mirrors behind it. Safety title/choices remain English in this Tamil session."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-photo-review.png",
+      "sha256": "627e522db1e945653c57baac43b1c8adc449cc3aa884a9437fc930f3628d97f8",
+      "observation": "The actual High capture shows the parcel and doorstep/shadow, with review title, caption and handheld controls separated. Real capture is 640x360 with 224 sampled colors. Review text remains English in this Tamil session."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-stop2-printed-name.png",
+      "sha256": "01032050ecc95cfe78194e43f363560933183fe8c02346553aba8a07b7132f56",
+      "observation": "Printed-name controls fit at full size, but their title and candidate sentence mix English with a Tamil template suffix. The capture shows the initial Sunnyvale Clinic candidate before paging to the actual source signer; it is not proof that this candidate was chosen. The raw completed stop records Dee Harper."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-result.png",
+      "sha256": "737f75884c1758586c7ec7c5938b0144edf408bb1649d70b7641bf5078699a36",
+      "observation": "The settled result shows nine stars and three separated takeaways, with the two keyboard controls visible. The Tamil title, safety category, takeaways heading/body and career retain missing glyph boxes. This is a bounds/behavior pass and not readable-Tamil acceptance."
+    }
+  ]
+}

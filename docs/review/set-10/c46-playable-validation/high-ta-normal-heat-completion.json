@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-26T21:14:34.095Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat.json",
+  "sha256": "b5e67ac7c08e18c54e807415a7455cdd5186d410d1e9862c6f2690b52a37ce83",
+  "sourceRevision": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "sourceFilesVerified": 911,
+  "retainedProofFilesVerified": 12,
+  "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+  "complete": true,
+  "errors": [],
+  "checks": 1150,
+  "captures": 25,
+  "score": 6900,
+  "stars": {
+    "safety": 3,
+    "efficiency": 3,
+    "service": 3
+  },
+  "seconds": 102,
+  "photoProofs": [
+    {
+      "index": 0,
+      "width": 640,
+      "height": 360,
+      "colours": 224
+    }
+  ],
+  "sourceSigners": [
+    null,
+    "Ray Ruiz",
+    "Dee Harper"
+  ],
+  "independentOriginalResultEquality": true,
+  "independentOriginalStarEquality": true,
+  "onePlayAfterReload": true,
+  "productionScene": "StopScene",
+  "scene3d": null,
+  "default3d": false,
+  "scope": "Only completed High normal-Tamil heat at strengthened horizontal protocol, application unchanged. The unchanged native protocol asserts suspended-workday equality before/after full reload. No shared glyph/translation/A31/current-pilot/Intel acceptance."
+}

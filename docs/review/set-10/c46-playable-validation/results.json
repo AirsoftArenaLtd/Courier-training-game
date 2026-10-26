@@ -254,6 +254,15 @@
         "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog",
         "QA_CASE": "high-ta-normal-dog"
       }
+    },
+    {
+      "name": "matrix-high-ta-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat",
+        "QA_CASE": "high-ta-normal-heat"
+      }
     }
   ],
   "preflightComplete": true,
